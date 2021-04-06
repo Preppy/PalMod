@@ -26,9 +26,11 @@ public:
 
     static void SetAlphaModeForUnknownGame(AlphaMode alphaMode);
     static void SetColorModeForUnknownGame(ColMode colorMode);
+    static void SetMaxWriteForUnknownGame(PALWriteOutputOptions maxWrite);
     static void SetColorsPerLine(DWORD dwColors);
     static AlphaMode GetAlphaModeForUnknownGame();
     static ColMode GetColorModeForUnknownGame();
+    static PALWriteOutputOptions GetMaxWriteForUnknownGame();
     static UINT16 GetColorsPerLine();
     static UINT16 GetMaxColorsPerPageOverride();
     static UINT16 GetMaxPalettePageSize();

@@ -98,7 +98,7 @@ BEGIN
     LTEXT           "Special thanks and gratitude to many others in the various communities who helped us find and understand game data.",IDC_STATIC,7,142,209,16
     LTEXT           "Updates and guides available at:",IDC_STATIC,7,166,209,8
     CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,176,93,14
-    LTEXT           "Copyright (C) 2020",IDC_STATIC,10,194,65,8
+    LTEXT           "Copyright (C) 2021",IDC_STATIC,10,194,65,8
     DEFPUSHBUTTON   "OK",IDOK,174,192,50,14,WS_GROUP
 END
 
@@ -231,8 +231,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,71,0
- PRODUCTVERSION 1,0,71,0
+ FILEVERSION 1,0,72,0
+ PRODUCTVERSION 1,0,72,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -249,12 +249,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.71.0"
+            VALUE "FileVersion", "1.0.72.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.71.0"
+            VALUE "ProductVersion", "1.0.72.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -320,33 +320,39 @@ BEGIN
         POPUP "&Load Directory"
         BEGIN
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
-            MENUITEM "GGXX:AC+R"                    ID_LD_GGXXACR
+            MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
+            MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR
             POPUP "Jojo's HftF"
             BEGIN
-                MENUITEM "Characters (Japan Arcade)",     ID_LD_JOJOS51
+                MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
             END
             POPUP "MvC2"
             BEGIN
-                MENUITEM "Arcade",                ID_LD_MVC2ARCADE
-                MENUITEM "DC",                    ID_LD_MVC2DCUSA
-                MENUITEM "PS2",                   ID_LD_MVC2PS2USA
+                MENUITEM "Arcade",                      ID_LD_MVC2ARCADE
+                MENUITEM "DC",                          ID_LD_MVC2DCUSA
+                MENUITEM "PS2",                         ID_LD_MVC2PS2USA
             END
-            MENUITEM "Red Earth / Warzard (Arcade)", ID_LOADDIRECTORY_REDEARTH
+            POPUP "Red Earth / Warzard"
+            BEGIN
+                MENUITEM "Red Earth / Warzard (Arcade, Stages)", ID_LOADDIRECTORY_REDEARTH_30
+                MENUITEM "Red Earth / Warzard (Arcade, Characters)", ID_LOADDIRECTORY_REDEARTH_31
+            END
             POPUP "Street Fighter III"
             BEGIN
-                MENUITEM "New Generation (Arcade)",       ID_LD_SFIII1
+                MENUITEM "New Generation (Arcade)",     ID_LD_SFIII1
                 MENUITEM SEPARATOR
-                MENUITEM "2nd Impact (Arcade)",           ID_LD_SFIII2
+                MENUITEM "2nd Impact (Arcade)",         ID_LD_SFIII2
                 MENUITEM SEPARATOR
-                MENUITEM "3rd Strike (Dreamcast/PS2)",    ID_LD_SFIII3DCALL
-                MENUITEM "3rd Strike (Arcade)",            ID_LD_SFIII3ARCADE51
+                MENUITEM "3rd Strike (Dreamcast/PS2)",  ID_LD_SFIII3DCALL
+                MENUITEM "3rd Strike (Arcade)",         ID_LD_SFIII3ARCADE51
                 MENUITEM "3rd Strike (Arcade) - Gill Glow/X.C.O.P.Y.", ID_LD_SFIII3ARCADE10
-                MENUITEM "EX Edition (*)",                ID_LD_SFIII3ARCADEEX
+                MENUITEM "EX Edition (*)",              ID_LD_SFIII3ARCADEEX
                 MENUITEM SEPARATOR
-                MENUITEM "4rd Strike",                    ID_LD_SFIII3ARCADE4rd
-                MENUITEM "4rd Strike - Gill/X.C.O.P.Y.",  ID_LD_SFIII3ARCADE4rd10
+                MENUITEM "4rd Strike",                  ID_LD_SFIII3ARCADE4rd
+                MENUITEM "4rd Strike - Gill/X.C.O.P.Y.", ID_LD_SFIII3ARCADE4rd10
             END
+            MENUITEM "Under Night In-Birth Exe:Late[cl-r]", ID_LD_UNICLR
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
         MENUITEM SEPARATOR
@@ -398,12 +404,17 @@ BEGIN
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
             MENUITEM "RGB555 (Sharp X68000)",       ID_COLORFORMAT_SHARPRGB
             MENUITEM "RGB666 (Neo-Geo)",            ID_COLORFORMAT_RGB666
-            MENUITEM "RGB888 (Arc Sys)",            ID_COLORFORMAT_ARGB7888
+            MENUITEM "ARGB1888 (DBFCI)",            ID_COLORFORMAT_ARGB1888
+            MENUITEM "ARGB7888 (Arc Sys)",          ID_COLORFORMAT_ARGB7888
+            MENUITEM "ARGB8888",                    ID_COLORFORMAT_ARGB8888
             MENUITEM SEPARATOR
             MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
             MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED
             MENUITEM "Variable Alpha",              ID_ALPHASETTING_VARIABLE
             MENUITEM "Unknown Alpha",               ID_ALPHASETTING_CHAOTIC
+            MENUITEM SEPARATOR
+            MENUITEM "Transparency every 16 colors", ID_TRANSPSETTING_16
+            MENUITEM "Transparency every 256 colors", ID_TRANSPSETTING_256
         END
         MENUITEM "Include bonus data in CTRL+C copy", ID_SETTINGS_EXTCOPYDATA
     END
@@ -543,7 +554,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.71"
+    IDS_CURRENTAPPNAME      "PalMod 1.72"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."
@@ -556,8 +567,14 @@ BEGIN
     IDS_SAVE_FILE_CHANGES   "Patch ROM/files with the current changes?"
     IDS_ERROR_NOTWRITABLE_FORMAT 
                             "Save failed: output file '%s' is not writable."
-    IDS_ERROR_NOTWRITABLE_CDI "Save failed: drive '%s' is read-only.\n\nNote that mounted CDIs cannot be written to: you must extract out the files, edit them, and then recreate the CDI."
-    IDS_ERROR_NOTWRITABLE_DRIVE "Warning: The location specified is read-only.  You will be able to view the files but you will not be able to save changes.\n\nPlease either select OK to continue or Cancel and then copy the files to a different location."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ERROR_NOTWRITABLE_CDI 
+                            "Save failed: drive '%s' is read-only.\n\nNote that mounted CDIs cannot be written to: you must extract out the files, edit them, and then recreate the CDI."
+    IDS_ERROR_NOTWRITABLE_DRIVE 
+                            "Warning: The location specified is read-only.  You will be able to view the files but you will not be able to save changes.\n\nPlease either select OK to continue or Cancel and then copy the files to a different location."
 END
 
 STRINGTABLE
@@ -577,6 +594,69 @@ BEGIN
                             "Save failed: output file '%s' does not exist."
     IDS_ROMMISMATCH_CHECK   "ERROR!  This ROM is not the expected size, which means PalMod writing to where it expects the ROM to be may corrupt it.  Are you sure you wish to continue? "
     IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM.  If you want to PalMod Venture, let people in the HFTF Discord server know and they'll walk you through it.\n\nAre you sure you wish to continue?"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DECRYPTING_START    "Decrypting game: please wait..."
+    IDS_DECRYPTING_DONE     "Decryption complete!"
+    IDS_ACT_LOADFAILURE     "Failed loading ACT file."
+    IDS_PAL_LOADFAILURE     "Failed loading PAL file."
+    IDS_PNG_LOADFAILURE     "Failed loading PNG file."
+    IDS_ACT_LOADED          "Loaded %u colors from %u color ACT file."
+    IDS_ACT_REVERSEDLOAD    "ACT appears to have a reversed color table: loaded %u colors backwards."
+    IDS_PAL_LOADED          "Loaded %u colors from %u color PAL file."
+    IDS_PNG_LOADED          "Loaded %u colors from %u color PNG file."
+    IDS_PNG_REVERSEDLOAD    "PNG appears to have a reversed color table: loaded %u colors backwards."
+
+    IDS_LOADING_DUPECHECK   "Validating game data tables: please wait..."
+    IDS_RAW_EXTRADATA       "This RAW contains extra data and may not look right."
+
+    IDS_PASTE_FROMBUTTON    "Using new color. Color may be rounded as required by the game."
+    IDS_PASTE_CROSSGAME     "Pasted a PalMod color string. Colors may be rounded as required by this game."
+    IDS_PASTED_COLOR        "Pasted a PalMod color string."
+    IDS_PASTE_RGB           "Pasted RGB color. Colors may be rounded as required by the game."
+    IDS_PASTE_UNSUPPORTED   "Unsupported paste option."
+
+    IDS_LOADSAVE_SUCCESS    "Game loaded successfully."
+    IDS_LOADSAVE_FAILURE    "Game did not load successfully."
+    IDS_LOADERROR_SINGLE    " (1 error)"
+    IDS_LOADERROR_MULTI     " (%d errors)"
+    IDS_LOADGAME_SINGLE     "%d of %d file loaded successfully%s."
+    IDS_LOADGAME_MULTI      "%d of %d files loaded successfully%s."
+    IDS_PATCH_FAIL          "Game patching failed."
+    IDS_PATCH_SUCCESS       "Game patched successfully."
+    IDS_PATCHGAME_SINGLE     "%d of %d file patched successfully%s."
+    IDS_PATCHGAME_MULTI      "%d of %d files patched successfully%s."
+    IDS_PATCH_EMPTY          "No changes detected: nothing to patch."
+    IDS_CROSSCOPY_SINGLE_SUCCESS "Game crosscopied successfully%s."
+    IDS_CROSSCOPY_MULTI_SUCCESS  "%d of %d files crosscopied successfully%s."
+    IDS_CROSSCOPY_NODIR      "No directory specified."
+    IDS_IPS_SINGLE           "%u change saved to patch file."
+    IDS_IPS_MULTI            "%u changes saved to patch file."
+    IDS_IPS_EMPTY            "No changes detected: nothing to put in patch file."
+
+    IDS_ACTSAVE_SUCCESS      "ACT file saved successfully."
+    IDS_ACTSAVE_FAILURE      "Error saving ACT file."
+    IDS_GPLSAVE_SUCCESS      "GPL file saved successfully."
+    IDS_GPLSAVE_FAILURE      "Error saving GPL file."
+    IDS_PALSAVE_SUCCESS      "RIFF PAL file saved successfully."
+    IDS_PALSAVE_FAILURE      "Error saving RIFF PAL file."
+    IDS_PNGLOAD_NOTABLE      "Cannot use this PNG: it does not contain a palette table."
+
+    IDS_WELCOME_BACKUP       "Always keep a backup of files!"
+
+    IDS_SETBACKGROUND_FULL   "Do you want to switch to only use this background color and not also use the image?"
+
+    IDS_SFA2_UNKNOWNROM      "This doesn't look like a supported SFA2 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
+    IDS_SF3_UNKNOWNROM       "This doesn't look like a supported SFIII3 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
+
+    IDS_EXTRAS_SIMMBOUNDARY  "Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."
+    IDS_COLOR_WRONGSIZE      "Error: this game is using the wrong color size.  This needs to be fixed for the game to work."
+    IDS_SAVE_LOWWRITE        "Warning: Unit %u palette %u is trying to write to ROM location 0x%x which is lower than we usually write to."
+
+    IDS_ERROR_COPYCOLOR      "Warning: The current color mode needs to have copy support added."
+    IDS_WARN_TRANSPARENCY    "Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick Yes to agree to not use this mix for competition.  Click No to disagree and not use transparency."
 END
 
 #endif    // English (United States) resources

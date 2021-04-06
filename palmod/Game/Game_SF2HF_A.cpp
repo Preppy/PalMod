@@ -54,9 +54,6 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(IsSF30thBundleFile() ? ColMode::COLMODE_12A_LE : ColMode::COLMODE_12A);
 
-    //Set palette conversion mode=
-    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
-    
     InitializeStatics();
 
     m_nSelectedRom = nSF2HFROMToLoad;
@@ -369,7 +366,7 @@ sDescTreeNode* CGame_SF2HF_A::InitDescTree(int nROMPaletteSetToUse)
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];

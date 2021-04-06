@@ -92,17 +92,38 @@ const sGame_PaletteDataset Windjammers_A_STATS[] =
 const sGame_PaletteDataset Windjammers_A_LOGOS[] =
 {
     { L"Main logo", 0x31960, 0x319e0, indexWindjammersSprites_Bonus, 0x01 },
-    { L"MiniLogo", 0x30080, 0x300a0, indexWindjammersSprites_Bonus, 0x02 },
+    { L"Mini logo", 0x30080, 0x300a0, indexWindjammersSprites_Bonus, 0x02 },
 };
 
-const sGame_PaletteDataset Windjammers_A_FRISBEES[] =
+const sGame_PaletteDataset Windjammers_A_STAGES_BEACH[] =
 {
-    { L"Frisbee Beach", 0x309e0, 0x30a00, indexWindjammersSprites_Bonus, 0x00 },
-    { L"Frisbee Lawn", 0x307e0, 0x30800, indexWindjammersSprites_Bonus, 0x00 },
-    { L"Frisbee Tiled", 0x30be0, 0x30c00, indexWindjammersSprites_Bonus, 0x00 },
-    { L"Frisbee Concrete", 0x311e0, 0x31200, indexWindjammersSprites_Bonus, 0x00 },
-    { L"Frisbee Clay", 0x30fe0, 0x31000, indexWindjammersSprites_Bonus, 0x00 },
-    { L"Frisbee Stadium", 0x30de0, 0x30e00, indexWindjammersSprites_Bonus, 0x00 },
+    { L"Stage Beach", 0x30800, 0x30a00, indexWindjammersSprites_Bonus, 0x05, &pairNext },
+    { L"Stage Beach Net", 0x313c0, 0x31400, indexWindjammersSprites_Bonus, 0x04 },
+};
+
+const sGame_PaletteDataset Windjammers_A_STAGES_LAWN[] =
+{
+    { L"Stage Lawn", 0x30600, 0x30800, indexWindjammersSprites_Bonus, 0x08 },
+};
+
+const sGame_PaletteDataset Windjammers_A_STAGES_TILED[] =
+{
+    { L"Stage Tiled", 0x30a00, 0x30c00, indexWindjammersSprites_Bonus, 0x0a },
+};
+
+const sGame_PaletteDataset Windjammers_A_STAGES_CONCRETE[] =
+{
+    { L"Stage Concrete", 0x31000, 0x31200, indexWindjammersSprites_Bonus, 0x07 },
+};
+
+const sGame_PaletteDataset Windjammers_A_STAGES_CLAY[] =
+{
+    { L"Stage Clay", 0x30e00, 0x31000, indexWindjammersSprites_Bonus, 0x06 },
+};
+
+const sGame_PaletteDataset Windjammers_A_STAGES_STADIUM[] =
+{
+    { L"Stage Stadium", 0x30c00, 0x30e00, indexWindjammersSprites_Bonus, 0x09 },
 };
 
 const sDescTreeNode Windjammers_A_USA_COLLECTION[] =
@@ -141,11 +162,20 @@ const sDescTreeNode Windjammers_A_JAPAN_COLLECTION[] =
     { L"P2", DESC_NODETYPE_TREE,   (void*)Windjammers_A_JAPAN_P2, ARRAYSIZE(Windjammers_A_JAPAN_P2) },
 };
 
+const sDescTreeNode Windjammers_A_STAGES_COLLECTION[] =
+{
+    { L"Beach",     DESC_NODETYPE_TREE,   (void*)Windjammers_A_STAGES_BEACH, ARRAYSIZE(Windjammers_A_STAGES_BEACH) },
+    { L"Clay",      DESC_NODETYPE_TREE,   (void*)Windjammers_A_STAGES_CLAY, ARRAYSIZE(Windjammers_A_STAGES_CLAY) },
+    { L"Concrete",  DESC_NODETYPE_TREE,   (void*)Windjammers_A_STAGES_CONCRETE, ARRAYSIZE(Windjammers_A_STAGES_CONCRETE) },
+    { L"Lawn",      DESC_NODETYPE_TREE,   (void*)Windjammers_A_STAGES_LAWN, ARRAYSIZE(Windjammers_A_STAGES_LAWN) },
+    { L"Stadium",   DESC_NODETYPE_TREE,   (void*)Windjammers_A_STAGES_STADIUM, ARRAYSIZE(Windjammers_A_STAGES_STADIUM) },
+    { L"Tiled",     DESC_NODETYPE_TREE,   (void*)Windjammers_A_STAGES_TILED, ARRAYSIZE(Windjammers_A_STAGES_TILED) },
+};
+
 const sDescTreeNode Windjammers_A_BONUS_COLLECTION[] =
 {
     { L"Stat Portraits",    DESC_NODETYPE_TREE,   (void*)Windjammers_A_STATS, ARRAYSIZE(Windjammers_A_STATS) },
     { L"Logos",             DESC_NODETYPE_TREE,   (void*)Windjammers_A_LOGOS, ARRAYSIZE(Windjammers_A_LOGOS) },
-    { L"Frisbees",          DESC_NODETYPE_TREE,   (void*)Windjammers_A_FRISBEES, ARRAYSIZE(Windjammers_A_FRISBEES) },
 };
 
 const sDescTreeNode Windjammers_A_UNITS[] =
@@ -156,6 +186,7 @@ const sDescTreeNode Windjammers_A_UNITS[] =
     { L"Italy",     DESC_NODETYPE_TREE, (void*)Windjammers_A_ITALY_COLLECTION,      ARRAYSIZE(Windjammers_A_ITALY_COLLECTION) },
     { L"USA",       DESC_NODETYPE_TREE, (void*)Windjammers_A_USA_COLLECTION,        ARRAYSIZE(Windjammers_A_USA_COLLECTION) },
     { L"Germany",   DESC_NODETYPE_TREE, (void*)Windjammers_A_GERMANY_COLLECTION,    ARRAYSIZE(Windjammers_A_GERMANY_COLLECTION) },
+    { L"Stages",    DESC_NODETYPE_TREE, (void*)Windjammers_A_STAGES_COLLECTION,     ARRAYSIZE(Windjammers_A_STAGES_COLLECTION) },
     { L"Bonus",     DESC_NODETYPE_TREE, (void*)Windjammers_A_BONUS_COLLECTION,      ARRAYSIZE(Windjammers_A_BONUS_COLLECTION) },
 };
 

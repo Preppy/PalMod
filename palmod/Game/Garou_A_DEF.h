@@ -1180,7 +1180,7 @@ const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_D[] =
     { L"Freeman D - Super Trail Palette", 0x15fe0, 0x16000, indexGarouAFreeman },
     { L"Freeman D - Guard Crash Flash", 0x16000, 0x16020, indexGarouAFreeman },
     { L"Freeman D - Just Defense Palette", 0x16020, 0x16040, indexGarouAFreeman },
-    { L"Freeman D - Slash Effects Main", 0x16040, 0x1606, indexGarouAFreeman, 0x090 },
+    { L"Freeman D - Slash Effects Main", 0x16040, 0x16060, indexGarouAFreeman, 0x090 },
     { L"Freeman D - Slash Effects Extra 1", 0x16060, 0x16080, indexGarouAFreeman, 0x09 },
     { L"Freeman D - Slash Effects Extra 2", 0x16080, 0x160a0, indexGarouAFreeman, 0x09 },
     { L"Freeman D - Intro Stuff", 0x160a0, 0x160c0, indexGarouAFreeman, 0x08 },

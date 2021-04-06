@@ -35,9 +35,6 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_12A);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
-
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -58,8 +55,8 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = COTA_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = COTA_A_NUM_IMG_UNITS;
     m_prgGameImageSet = COTA_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(COTA_A_IMG_UNITS);
 
     nFileAmt = 1;
 
@@ -252,7 +249,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];

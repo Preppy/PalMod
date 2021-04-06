@@ -1,0 +1,491 @@
+// Microsoft Visual C++ generated resource script.
+//
+// Use the core resource.h defines to ensure we have them all
+#include "..\palmod\resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (UK) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 231, 215
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About PalMoud"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
+    LTEXT           "PalMoud",IDC_ABOUTNAME,42,14,114,8,SS_NOPREFIX
+    LTEXT           "PALette MODification for fighting games.",IDC_ABOUTNAME2,41,26,173,8,SS_NOPREFIX
+    LTEXT           "Original 2008 Creative Team",IDC_STATIC,7,43,125,8
+    LTEXT           "knarxed",IDC_STATIC,23,56,50,8
+    LTEXT           "Magnetro",IDC_STATIC,75,56,50,8
+    LTEXT           "Eidrian",IDC_STATIC,75,66,50,8
+    LTEXT           "Preppy",IDC_STATIC,23,66,50,8
+    LTEXT           "2020 Core Creative Team",IDC_STATIC,7,83,125,8
+    LTEXT           "Preppy",IDC_STATIC,23,96,50,8
+    LTEXT           "TVIndustries",IDC_STATIC,76,96,50,8
+    LTEXT           "IceManual",IDC_STATIC,24,106,50,8
+    LTEXT           "mountainmanjed",IDC_STATIC,76,106,68,8
+    LTEXT           "Game data and images copyright those respective companies.",IDC_STATIC,7,126,210,8
+    LTEXT           "Special thanks and gratitude to many others in the various communities who helped us find and understand game data.",IDC_STATIC,7,142,209,16
+    LTEXT           "Updates and guides available at:",IDC_STATIC,7,166,209,8
+    CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,176,93,14
+    LTEXT           "Copyright (C) 2021",IDC_STATIC,10,194,65,8
+    DEFPUSHBUTTON   "OK",IDOK,174,192,50,14,WS_GROUP
+END
+
+IDD_PALMOD_DIALOG_FAT DIALOGEX 0, 0, 407, 244
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "PalMoud"
+MENU IDR_MENUMAIN
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Edit Colour",IDC_STATIC,249,2,147,116,0,WS_EX_TRANSPARENT
+    CONTROL         "RGB",IDC_RADIO_RGB,"Button",BS_AUTORADIOBUTTON | WS_GROUP,286,10,25,9
+    CONTROL         "HSL",IDC_RADIO_HLS,"Button",BS_AUTORADIOBUTTON,330,10,25,9
+    EDITTEXT        IDC_EDIT_RHDESC,258,28,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | WS_GROUP | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_RH,267,26,23,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_RH_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,294,26,81,12
+    EDITTEXT        IDC_EDIT_GSDESC,257,41,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_GS,267,39,23,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_GS_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,294,39,81,12
+    EDITTEXT        IDC_EDIT_BLDESC,258,55,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_BL,267,53,23,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_BL_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,294,53,81,12
+    EDITTEXT        IDC_EDIT_ADESC,258,76,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_A,267,74,23,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_A_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,294,74,81,12
+    PUSHBUTTON      "Pick Colour",IDC_BNEWCOL,321,95,49,13
+    PUSHBUTTON      "Check My Edits",IDC_BCHECKMIX,10,209,64,13,NOT WS_VISIBLE
+    COMBOBOX        IDC_CHARCOMBO,249,129,147,147,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CHILDCOMBO1,249,143,147,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CHILDCOMBO2,249,157,147,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Update",IDC_BUPDATE,274,173,39,12
+    PUSHBUTTON      "Preview",IDC_SHOWPREVIEW,321,173,39,12
+    GROUPBOX        "Palette View",IDC_SSPC,7,2,188,202,0,WS_EX_TRANSPARENT
+    CONTROL         "PalHost",IDC_PALHOST,"CPalTool",WS_TABSTOP,10,11,182,189
+    PUSHBUTTON      "Blink",IDC_BBLINK,202,13,37,12
+    PUSHBUTTON      "Invert",IDC_BINVERT,202,28,37,12
+    PUSHBUTTON      "Revert",IDC_BREVERT,202,43,37,12
+    CONTROL         "",IDC_SPIN_RH,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,377,24,13,12
+    CONTROL         "",IDC_SPIN_GS,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,377,38,13,12
+    CONTROL         "",IDC_SPIN_BL,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,377,52,13,12
+    CONTROL         "",IDC_SPIN_A,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,377,73,13,12
+END
+
+IDD_PALMOD_DIALOG DIALOGEX 0, 0, 307, 244
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "PalMoud"
+MENU IDR_MENUMAIN
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Edit Colour",IDC_STATIC,159,2,142,116,0,WS_EX_TRANSPARENT
+    CONTROL         "RGB",IDC_RADIO_RGB,"Button",BS_AUTORADIOBUTTON | WS_GROUP,196,10,25,9
+    CONTROL         "HSL",IDC_RADIO_HLS,"Button",BS_AUTORADIOBUTTON,240,10,25,9
+    EDITTEXT        IDC_EDIT_RHDESC,168,28,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | WS_GROUP | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_RH,177,26,23,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_RH_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,204,26,81,12
+    CONTROL         "",IDC_SPIN_RH,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,285,24,13,12
+    EDITTEXT        IDC_EDIT_GSDESC,167,41,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_GS,177,39,23,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_GS_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,204,39,81,12
+    CONTROL         "",IDC_SPIN_GS,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,285,38,13,12
+    EDITTEXT        IDC_EDIT_BLDESC,168,55,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_BL,177,53,23,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_BL_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,204,53,81,12
+    CONTROL         "",IDC_SPIN_BL,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,285,52,13,12
+    EDITTEXT        IDC_EDIT_ADESC,168,76,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_A,177,74,23,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_A_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,204,74,81,12
+    CONTROL         "",IDC_SPIN_A,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,285,73,13,12
+    PUSHBUTTON      "Pick Colour",IDC_BNEWCOL,231,95,49,13
+    PUSHBUTTON      "Check My Edits",IDC_BCHECKMIX,10,209,64,13,NOT WS_VISIBLE
+    COMBOBOX        IDC_CHARCOMBO,159,129,135,147,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CHILDCOMBO1,159,143,135,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CHILDCOMBO2,159,157,135,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Update",IDC_BUPDATE,184,173,39,12
+    PUSHBUTTON      "Preview",IDC_SHOWPREVIEW,231,173,39,12
+    GROUPBOX        "Palette View",IDC_SSPC,7,2,98,202,0,WS_EX_TRANSPARENT
+    CONTROL         "PalHost",IDC_PALHOST,"CPalTool",WS_TABSTOP,10,11,92,189
+    PUSHBUTTON      "Blink",IDC_BBLINK,112,13,37,12
+    PUSHBUTTON      "Invert",IDC_BINVERT,112,28,37,12
+    PUSHBUTTON      "Revert",IDC_BREVERT,112,43,37,12
+END
+
+IDD_PREVIEW_DIALOG DIALOGEX 0, 0, 316, 180
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Preview"
+MENU IDR_MENUPREV
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_SETT_DIALOG DIALOGEX 0, 0, 203, 106
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "MvC2 Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Settings",IDC_STATIC,6,6,193,95
+    CONTROL         "Allow transparency (Not Recommended)",IDC_CALPHATRANS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,26,169,11
+    CONTROL         "Process Supplement Palettes (Recommended) (ex: Cyclops HK, Spider-Man win poses, etc)",IDC_CUPDSUPP,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,39,168,30
+    PUSHBUTTON      "OK",IDOK,52,82,43,14
+    PUSHBUTTON      "Cancel",IDCANCEL,96,82,43,14
+END
+
+IDD_IMGDDLG DIALOGEX 0, 0, 344, 278
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Export Image"
+MENU IDR_MENUIMGOUT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "ImgDumpBmp",IDC_IMGDBMP,"ImgDumpBmp",WS_TABSTOP,56,0,287,278
+    LTEXT           "Amount",IDC_SAMT,4,18,39,11
+    COMBOBOX        IDC_AMT,6,29,44,56,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Palette",IDC_SPAL,4,46,39,11
+    COMBOBOX        IDC_PAL,6,57,44,84,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Zoom",IDC_SZOOM,4,74,39,11
+    COMBOBOX        IDC_ZOOM,6,85,44,73,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Border Size",IDC_SBDR,4,101,39,11
+    CONTROL         "",IDC_BDRSPN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,40,123,11,12
+    EDITTEXT        IDC_EDIT_BDRSZ,6,114,44,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Update",IDC_UPDATE,6,180,39,14,NOT WS_VISIBLE
+    LTEXT           "Dummy",IDC_DUMMY,129,48,56,137,NOT WS_VISIBLE
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENUMAIN MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "L&oad ROM\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "Load ROM by game",            ID_FILE_OPEN_BY_GAME
+        POPUP "&Load Directory"
+        BEGIN
+            MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
+            MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
+            MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR
+            POPUP "Jojo's HftF"
+            BEGIN
+                MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
+                MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
+            END
+            POPUP "MvC2"
+            BEGIN
+                MENUITEM "Arcade",                      ID_LD_MVC2ARCADE
+                MENUITEM "DC",                          ID_LD_MVC2DCUSA
+                MENUITEM "PS2",                         ID_LD_MVC2PS2USA
+            END
+            POPUP "Red Earth / Warzard"
+            BEGIN
+                MENUITEM "Red Earth / Warzard (Arcade, Stages)", ID_LOADDIRECTORY_REDEARTH_30
+                MENUITEM "Red Earth / Warzard (Arcade, Characters)", ID_LOADDIRECTORY_REDEARTH_31
+            END
+            POPUP "Street Fighter III"
+            BEGIN
+                MENUITEM "New Generation (Arcade)",     ID_LD_SFIII1
+                MENUITEM SEPARATOR
+                MENUITEM "2nd Impact (Arcade)",         ID_LD_SFIII2
+                MENUITEM SEPARATOR
+                MENUITEM "3rd Strike (Dreamcast/PS2)",  ID_LD_SFIII3DCALL
+                MENUITEM "3rd Strike (Arcade)",         ID_LD_SFIII3ARCADE51
+                MENUITEM "3rd Strike (Arcade) - Gill Glow/X.C.O.P.Y.", ID_LD_SFIII3ARCADE10
+                MENUITEM "EX Edition (*)",              ID_LD_SFIII3ARCADEEX
+                MENUITEM SEPARATOR
+                MENUITEM "4rd Strike",                  ID_LD_SFIII3ARCADE4rd
+                MENUITEM "4rd Strike - Gill/X.C.O.P.Y.", ID_LD_SFIII3ARCADE4rd10
+            END
+            MENUITEM "Under Night In-Birth Exe:Late[cl-r]", ID_LD_UNICLR
+        END
+        MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
+        MENUITEM SEPARATOR
+        MENUITEM "&Close File / Directory",     ID_FILE_CLOSEFILEDIR
+        MENUITEM SEPARATOR
+        MENUITEM "Lo&ad Last File/Dir\tCtrl+Shift+O", ID_FILE_LOADLASTUSEDDIR
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_FILE_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECTALL
+        MENUITEM "Select &None\tCtrl+D",        ID_EDIT_SELECTNONE
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "&Invert",                     ID_TOOLS_INVERT
+        MENUITEM "Re&verse",                    ID_TOOLS_REVERSE
+        MENUITEM "&Revert",                     ID_TOOLS_REVERT
+        MENUITEM "&Blink",                      ID_TOOLS_BLINK
+        MENUITEM SEPARATOR
+        MENUITEM "&Load Palette\tCtrl+L",       ID_TOOLS_LOADACTPALETTE
+        MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEACTPALETTE
+        MENUITEM SEPARATOR
+        MENUITEM "&Generate IPS Patch File",    ID_TOOLS_GENERATEPATCHFILE
+    END
+    POPUP "&Settings"
+    BEGIN
+        MENUITEM "Show 32-bit values for 8-bit colours (will round!)", ID_SHOW32BITRGB
+        MENUITEM "MvC2 &Settings...",           ID_SETTINGS_SETTINGS
+        POPUP "Colours Per Line (restart required)"
+        BEGIN
+            MENUITEM "8 Colours Per Line",           ID_COLORSPERLINE_8COLORSPERLINE
+            MENUITEM "16 Colours Per Line",          ID_COLORSPERLINE_16COLORSPERLINE
+        END
+        POPUP "Colour Format"
+        BEGIN
+            MENUITEM "RGB333 (big endian for Sega Genesis)", ID_COLORFORMAT_RGB333
+            MENUITEM "RGB444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444
+            MENUITEM "RGB444 (little endian for SF2/SFA 30th)", ID_COLORFORMAT_RGB444_LE
+            MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555
+            MENUITEM "BGR555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
+            MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
+            MENUITEM "RGB555 (Sharp X68000)",       ID_COLORFORMAT_SHARPRGB
+            MENUITEM "RGB666 (Neo-Geo)",            ID_COLORFORMAT_RGB666
+            MENUITEM "ARGB1888 (DBFCI)",            ID_COLORFORMAT_ARGB1888
+            MENUITEM "ARGB7888 (Arc Sys)",          ID_COLORFORMAT_ARGB7888
+            MENUITEM "ARGB8888",                    ID_COLORFORMAT_ARGB8888
+            MENUITEM SEPARATOR
+            MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
+            MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED
+            MENUITEM "Variable Alpha",              ID_ALPHASETTING_VARIABLE
+            MENUITEM "Unknown Alpha",               ID_ALPHASETTING_CHAOTIC
+            MENUITEM SEPARATOR
+            MENUITEM "Transparency every 16 colours", ID_TRANSPSETTING_16
+            MENUITEM "Transparency every 256 colours", ID_TRANSPSETTING_256
+        END
+        MENUITEM "Include bonus data in CTRL+C copy", ID_SETTINGS_EXTCOPYDATA
+    END
+    POPUP "&About"
+    BEGIN
+        MENUITEM "&About PalMoud...",            ID_ABOUT_ABOUTPALMOD
+    END
+END
+
+IDR_MENUPREV MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "Export Image",                ID_FILE_EXPORTIMAGE
+        MENUITEM "Load Texture",                ID_FILE_LOADSPRITE
+        MENUITEM SEPARATOR
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+    END
+    POPUP "&Settings"
+    BEGIN
+        MENUITEM "Set Background Colour",        ID_SETTINGS_SETBACKGROUNDCOLOR
+        MENUITEM "Set Background Image",        ID_SETTINGS_SETBACKGROUNDIMAGE
+        MENUITEM "Set Blink Colour",             ID_SETTINGS_SETBLINKCOLOR
+        MENUITEM SEPARATOR
+        MENUITEM "Tile Image Background",       ID_SETTINGS_TILEIMAGEBACKGROUND
+        MENUITEM "Reset Background Offset",     ID_SETTINGS_RESETBACKGROUNDOFFSET
+        MENUITEM "Use Background Colour",        ID_SETTINGS_USEBGCOLOR
+        MENUITEM "Clicks show colour in palette", ID_SETTINGS_CLICKANDFIND
+    END
+    POPUP "&Zoom"
+    BEGIN
+        MENUITEM "&1x",                         ID_ZOOM_1X
+        MENUITEM "&2x",                         ID_ZOOM_2X
+        MENUITEM "&3x",                         ID_ZOOM_3X
+        MENUITEM "&4x",                         ID_ZOOM_4X
+    END
+END
+
+IDR_MENUIMGOUT MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Save",                       ID_IMGOUT_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "&Close",                      ID_IMGOUT_CLOSE
+    END
+    POPUP "&Settings"
+    BEGIN
+        MENUITEM "Set &Background Colour",       ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR
+        MENUITEM SEPARATOR
+        MENUITEM "&Transparent PNG",            ID_SETTINGS_USETRANSPARENTPNG
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About PalMoud..."
+    IDS_CURRENTAPPNAME      "PalMoud 1.72"
+    IDS_ERROR_LOADING_IMG_DAT_FORMAT 
+                            "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMoud RAR: it needs to be in the same folder as PalMoud.exe in order for previews to work."
+    IDS_ERROR_NO_IMAGES     "No images available."
+    IDS_ERROR_LOADING_GAME  "Unable to load game."
+    IDS_ERROR_PARAMETERS    "Invalid parameters."
+    IDS_ERROR_LOADING_PALETTE_FILE "Error loading palette file."
+    IDS_ERROR_SAVING_PALETTE_FILE "Error saving palette file."
+    IDS_SAVE_PALETTE_CHANGES 
+                            "Update PalMoud's palette memory with these changes?\n\nThe actual ROM/files will not be changed until you patch from the File menu or on exit."
+    IDS_SAVE_FILE_CHANGES   "Patch ROM/files with the current changes?"
+    IDS_ERROR_NOTWRITABLE_FORMAT 
+                            "Save failed: output file '%s' is not writable."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ERROR_NOTWRITABLE_CDI 
+                            "Save failed: drive '%s' is read-only.\n\nNote that mounted CDIs cannot be written to: you must extract out the files, edit them, and then recreate the CDI."
+    IDS_ERROR_NOTWRITABLE_DRIVE 
+                            "Warning: The location specified is read-only.  You will be able to view the files but you will not be able to save changes.\n\nPlease either select OK to continue or Cancel and then copy the files to a different location."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ERROR_LOADING_BITMAP_BG "Error loading background image."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_BCHECKMIX_TOOLTIP   "Verifies that Extra edits were made: avoid flashing Storm and etc."
+    IDS_TOOLTIP_UPDATE      "Saves the current changes to memory.  ROM is only updated on patch."
+    IDS_TOOLTIP_REVERT      "Reverts to the last saved colours. Use CTRL+Z for just the last change."
+    IDS_TOOLTIP_GETCOLOR    "Use the colour picker to update the selected palette colour."
+    IDS_ERROR_TEXTURE_LOAD  "Error loading RAW texture file.  Filename must be of form WHATEVER-W-width-H-height.data"
+    IDS_ERROR_TEXTURE_NOGAME "A game must be loaded first."
+    IDS_ERROR_FILENOTFOUND_FORMAT 
+                            "Save failed: output file '%s' does not exist."
+    IDS_ROMMISMATCH_CHECK   "ERROR!  This ROM is not the expected size, which means PalMoud writing to where it expects the ROM to be may corrupt it.  Are you sure you wish to continue? "
+    IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM.  If you want to PalMoud Venture, let people in the HFTF Discord server know and they'll walk you through it.\n\nAre you sure you wish to continue?"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DECRYPTING_START    "Decrypting game: please wait..."
+    IDS_DECRYPTING_DONE     "Decryption complete!"
+    IDS_ACT_LOADFAILURE     "Failed loading ACT file."
+    IDS_PAL_LOADFAILURE     "Failed loading PAL file."
+    IDS_PNG_LOADFAILURE     "Failed loading PNG file."
+    IDS_ACT_LOADED          "Loaded %u colours from %u colour ACT file."
+    IDS_ACT_REVERSEDLOAD    "ACT appears to have a reversed colour table: loaded %u colours backwards."
+    IDS_PAL_LOADED          "Loaded %u colours from %u colour PAL file."
+    IDS_PNG_LOADED          "Loaded %u colours from %u colour PNG file."
+    IDS_PNG_REVERSEDLOAD    "PNG appears to have a reversed colour table: loaded %u colours backwards."
+
+    IDS_LOADING_DUPECHECK   "Validating game data tables: please wait..."
+    IDS_RAW_EXTRADATA       "This RAW contains extra data and may not look right."
+
+    IDS_PASTE_FROMBUTTON    "Using new colour. Colour may be rounded as required by the game."
+    IDS_PASTE_CROSSGAME     "Pasted a PalMod colour string. Colours may be rounded as required by this game."
+    IDS_PASTED_COLOR        "Pasted a PalMod colour string."
+    IDS_PASTE_RGB           "Pasted RGB colour. Colours may be rounded as required by the game."
+    IDS_PASTE_UNSUPPORTED   "Unsupported paste option."
+
+    IDS_LOADSAVE_SUCCESS    "Game loaded successfully."
+    IDS_LOADSAVE_FAILURE    "Game did not load successfully."
+    IDS_LOADERROR_SINGLE    " (1 error)"
+    IDS_LOADERROR_MULTI     " (%d errors)"
+    IDS_LOADGAME_SINGLE     "%d of %d file loaded successfully%s."
+    IDS_LOADGAME_MULTI      "%d of %d files loaded successfully%s."
+    IDS_PATCH_FAIL          "Game patching failed."
+    IDS_PATCH_SUCCESS       "Game patched successfully."
+    IDS_PATCHGAME_SINGLE     "%d of %d file patched successfully%s."
+    IDS_PATCHGAME_MULTI      "%d of %d files patched successfully%s."
+    IDS_PATCH_EMPTY          "No changes detected: nothing to patch."
+    IDS_CROSSCOPY_SINGLE_SUCCESS "Game crosscopied successfully%s."
+    IDS_CROSSCOPY_MULTI_SUCCESS  "%d of %d files crosscopied successfully%s."
+    IDS_CROSSCOPY_NODIR      "No directory specified."
+    IDS_IPS_SINGLE           "%u change saved to patch file."
+    IDS_IPS_MULTI            "%u changes saved to patch file."
+    IDS_IPS_EMPTY            "No changes detected: nothing to put in patch file."
+
+    IDS_ACTSAVE_SUCCESS      "ACT file saved successfully."
+    IDS_ACTSAVE_FAILURE      "Error saving ACT file."
+    IDS_GPLSAVE_SUCCESS      "GPL file saved successfully."
+    IDS_GPLSAVE_FAILURE      "Error saving GPL file."
+    IDS_PALSAVE_SUCCESS      "RIFF PAL file saved successfully."
+    IDS_PALSAVE_FAILURE      "Error saving RIFF PAL file."
+    IDS_PNGLOAD_NOTABLE      "Cannot use this PNG: it does not contain a palette table."
+
+    IDS_WELCOME_BACKUP       "Always keep a backup of files!"
+
+    IDS_SETBACKGROUND_FULL   "Do you want to switch to only use this background colour and not also use the image?"
+
+    IDS_SFA2_UNKNOWNROM      "This doesn't look like a supported SFA2 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
+    IDS_SF3_UNKNOWNROM       "This doesn't look like a supported SFIII3 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
+
+    IDS_EXTRAS_SIMMBOUNDARY  "Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."
+    IDS_COLOR_WRONGSIZE      "Error: this game is using the wrong colour size.  This needs to be fixed for the game to work."
+    IDS_SAVE_LOWWRITE        "Warning: Unit %u palette %u is trying to write to ROM location 0x%x which is lower than we usually write to."
+
+    IDS_ERROR_COPYCOLOR      "Warning: The current colour mode needs to have copy support added."
+    IDS_WARN_TRANSPARENCY    "Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick Yes to agree to not use this mix for competition.  Click No to disagree and not use transparency."
+END
+
+#endif    // English (Canada) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

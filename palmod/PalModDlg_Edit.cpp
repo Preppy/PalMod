@@ -217,7 +217,7 @@ void CPalModDlg::OnEditCopy()
         {
         case ColMode::COLMODE_9:
             // RGB333
-            uCopyFlag1 = DUMMY_RGB9 + k_nASCIICharacterOffset;
+            uCopyFlag1 = TOPF2005_SEGA+ k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_GBA:
             // BGR555
@@ -246,15 +246,25 @@ void CPalModDlg::OnEditCopy()
         case ColMode::COLMODE_SHARPRGB:
             uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
             break;
+        case ColMode::COLMODE_ARGB1888:
+            cbColor = 4;
+            uCopyFlag1 = DBFCI_A + k_nASCIICharacterOffset;
+            break;
         case ColMode::COLMODE_ARGB7888:
             cbColor = 4;
             uCopyFlag1 = GGXXACR_A + k_nASCIICharacterOffset;
             break;
+        case ColMode::COLMODE_ARGB8888:
+            cbColor = 4;
+            uCopyFlag1 = UNICLR_A + k_nASCIICharacterOffset;
+            break;
         default:
             {
                 CString strMsg;
-                strMsg.Format(L"Warning: The current color mode needs to have copy support added.");
-                MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+                if (strMsg.LoadString(IDS_ERROR_COPYCOLOR))
+                {
+                    MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+                }
                 uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
                 break;
             }
@@ -532,7 +542,7 @@ void CPalModDlg::OnEditPaste()
             {
                 switch (uPasteGFlag)
                 {
-                case DUMMY_RGB9:
+                case TOPF2005_SEGA:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_9;
                     break;
@@ -542,9 +552,19 @@ void CPalModDlg::OnEditPaste()
                     eColModeForPastedColor = ColMode::COLMODE_12A_LE;
                     break;
                 }
+                case DBFCI_A:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_ARGB1888;
+                    break;
+                }
                 case GGXXACR_A:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB7888;
+                    break;
+                }
+                case UNICLR_A:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_ARGB8888;
                     break;
                 }
                 case COTA_A:
@@ -562,6 +582,7 @@ void CPalModDlg::OnEditPaste()
                 case SFA3_A:
                 case SF2CE_A:
                 case SF2HF_A:
+                case SPF2T_A:
                 case SSF2T_A:
                 case VHUNT2_A:
                 case VSAV_A:
@@ -582,7 +603,8 @@ void CPalModDlg::OnEditPaste()
                 case JOJOS_A_DIR_50:
                 case JOJOS_A_DIR_51:
                 case REDEARTH_A:
-                case REDEARTH_A_DIR:
+                case REDEARTH_A_DIR_30:
+                case REDEARTH_A_DIR_31:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_15;
                     break;
@@ -611,6 +633,7 @@ void CPalModDlg::OnEditPaste()
                 case KOF01_A:
                 case KOF02_A:
                 case KOF03_A:
+                case KOTM_A:
                 case LASTBLADE2_A:
                 case MATRIMELEE_A:
                 case NeoBomberman_A:
@@ -638,7 +661,10 @@ void CPalModDlg::OnEditPaste()
                 case FatalFuryS_SNES:
                 case GUNDAM_SNES:
                 case MMPR_SNES:
+                case MSHWOTG_SNES:
                 case SSF2T_GBA:
+                case TMNTTF_SNES:
+                case XMMA_SNES:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_GBA;
                     break;
@@ -771,11 +797,11 @@ void CPalModDlg::OnEditPaste()
 
             if (fWasColorImportedFromDifferentGame)
             {
-                SetStatusText(CString("Pasted a PalMod color string. Colors may be rounded as required by this game."));
+                SetStatusText(IDS_PASTE_CROSSGAME);
             }
             else
             {
-                SetStatusText(CString("Pasted a PalMod color string."));
+                SetStatusText(IDS_PASTED_COLOR);
             }
         }
     }
@@ -869,11 +895,11 @@ void CPalModDlg::OnEditPaste()
 
         UpdateSliderSel();
 
-        SetStatusText(CString("Pasted RGB color. Colors may be rounded as required by the game."));
+        SetStatusText(IDS_PASTE_RGB);
     }
     else
     {
-        SetStatusText(CString("Unsupported paste option."));
+        SetStatusText(IDS_PASTE_UNSUPPORTED);
     }
 }
 
@@ -959,8 +985,10 @@ void CPalModDlg::OnSettingsSettings()
         if (SettDlg.m_fAllowAlphaChanges)
         {
             CString strMessage;
-            strMessage = L"Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick yes to agree to not use this mix for competition.  Click no to disagree and not use transparency.";
-            SettDlg.m_fAllowAlphaChanges = (MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_YESNO) == IDYES);
+            if (strMessage.LoadString(IDS_WARN_TRANSPARENCY))
+            {
+                SettDlg.m_fAllowAlphaChanges = (MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_YESNO) == IDYES);
+            }
         }
 
         CGameClass::AllowTransparency(SettDlg.m_fAllowAlphaChanges);

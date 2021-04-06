@@ -99,9 +99,6 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(UseMainPaletteSet() ? ColMode::COLMODE_15ALT : ColMode::COLMODE_GBA);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     InitDataBuffer();
 
     //Set game information
@@ -292,7 +289,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];

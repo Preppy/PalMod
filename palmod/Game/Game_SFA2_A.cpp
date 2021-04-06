@@ -161,9 +161,6 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_12A);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
-
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -863,7 +860,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -1781,7 +1778,12 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
     if (detectedROMVersion == SFA2_SupportedROMRevision::SFA2_Unsupported)
     {
         OutputDebugString(L"\tThis is an unknown SFA2 ROM.\n");
-        MessageBox(g_appHWnd, L"This doesn't look like a supported SFA2 ROM.  We'll try, but if it doesn't look right please don't use this ROM.", GetHost()->GetAppName(), MB_ICONWARNING);
+
+        CString strMessage;
+        if (strMessage.LoadString(IDS_SFA2_UNKNOWNROM))
+        {
+            MessageBox(g_appHWnd, strMessage.GetString(), GetHost()->GetAppName(), MB_ICONWARNING);
+        }
     }
 
     safe_delete_array(prgFileStart);

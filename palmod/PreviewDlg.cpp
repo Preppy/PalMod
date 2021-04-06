@@ -113,9 +113,10 @@ void CPreviewDlg::OnSetBackgroundCol()
         if (!fShouldSwitchToUseColor)
         {
             CString strQuestion;
-            strQuestion = L"Do you want to switch to only use this background color and not also use the image?";
-
-            fShouldSwitchToUseColor = (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON1) == IDYES);
+            if (strQuestion.LoadString(IDS_SETBACKGROUND_FULL))
+            {
+                fShouldSwitchToUseColor = (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON1) == IDYES);
+            }
         }
 
         if (fShouldSwitchToUseColor)

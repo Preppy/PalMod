@@ -44,7 +44,7 @@ enum SupportedGamesList
     MVC2_A_DIR,
     GEMFIGHTER_A,
     REDEARTH_A,
-    REDEARTH_A_DIR,
+    REDEARTH_A_DIR_31,
     KarnovsR_A,
     WakuWaku7_A,
     SFA1_A,
@@ -75,7 +75,7 @@ enum SupportedGamesList
     KOF99AE_A,
     CFTE_SNES,
     FatalFuryS_SNES,
-    DUMMY_RGB9,          // ... we need a game ID to use for transmitting colors.
+    TOPF2005_SEGA,
     SFIII3_A_DIR_EX,
     GGXXACR_A,
     AOF3_A,
@@ -100,6 +100,14 @@ enum SupportedGamesList
     SAVAGEREIGN_A,
     ROTD_A,
     GarouP_A,
+    DBFCI_A,
+    UNICLR_A,
+    SPF2T_A,
+    MSHWOTG_SNES,
+    REDEARTH_A_DIR_30,
+    KOTM_A,
+    XMMA_SNES,
+    TMNTTF_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -178,7 +186,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"KOF: 99AE (Neo-Geo)",
    L"Clay Fighter: TE (SNES)",
    L"Fatal Fury Special (SNES)",
-   L"Fake game ID for RGB9",
+   L"Top Fighter 2005 (Sega)",
    L"SFIII:3S EX",
    L"GGXX:AC+R",
    L"Art of Fighting 3 (Neo-Geo)",
@@ -203,6 +211,14 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Savage Reign (Neo-Geo)",
    L"Rage of the Dragons (Neo-Geo)",
    L"Garou: MotW (Neo-Geo Prototype)",
+   L"Dengeki Bunko: Fighting Climax IGNITION",
+   L"Under Night In-Birth Exe:Late[cl-r]",
+   L"Super Puzzle Fighter II Turbo (Arcade)",
+   L"Marvel Super Heroes: War of the Gems (SNES)",
+   L"Red Earth (Arcade Rerip)",
+   L"King of the Monsters (Neo-Geo)",
+   L"X-Men: Mutant Apocalypse (SNES)",
+   L"TMNT: Tournament Fighters (SNES)",
 };
 
 enum class GamePlatform
@@ -213,6 +229,7 @@ enum class GamePlatform
     Nintendo,
     SammyAtomiswave,
     SegaNAOMI,
+    Sega,
     Steam,
     Unknown,
     Last,
@@ -282,6 +299,11 @@ const LPCWSTR DEF_BUTTONLABEL_2_NEOGEO[] =
 const LPCWSTR DEF_BUTTONLABEL_2_AOF3[] =
 {
     L"A", L"D"
+};
+
+const LPCWSTR DEF_BUTTONLABEL_2_LEFTRIGHT[] =
+{
+    L"Left", L"Right"
 };
 
 const LPCWSTR DEF_BUTTONLABEL_NEOGEO[] =
@@ -405,6 +427,7 @@ struct stPairedPaletteInfo
     int nNodeIncrementToPartner = 1;
     int nXOffs = 0;
     int nYOffs = 0;
+    bool fPairingIsFlipped = false;
 };
 
 struct sGame_PaletteDataset
@@ -577,6 +600,21 @@ enum CHARACTERS_CPS2
     indexCPS2_Eagle,            // 0x93
     indexCPS2_FeiLong,          // 0x94
     indexCPS2_THawk,            // 0x95
+
+    indexPuzzleFighter_Akuma,       // 0x96
+    indexPuzzleFighter_Anita,       // 0x97
+    indexPuzzleFighter_ChunLi,      // 0x98
+    indexPuzzleFighter_Dan,         // 0x99
+    indexPuzzleFighter_Devilotte,   // 0x9A
+    indexPuzzleFighter_Donovan,     // 0x9B
+    indexPuzzleFighter_Felicia,     // 0x9C
+    indexPuzzleFighter_HsienKo,     // 0x9D
+    indexPuzzleFighter_Ken,         // 0x9E
+    indexPuzzleFighter_LeiLei,      // 0x9F
+    indexPuzzleFighter_Morrigan,    // 0xA0
+    indexPuzzleFighter_Ryu,         // 0xA1
+    indexPuzzleFighter_Sakura,      // 0xA2
+    indexPuzzleFighter_Bonus,       // 0xA3 
 
 };
 
@@ -1032,8 +1070,6 @@ const UINT16 MVC_A_IMG_UNITS[] =
     indexCPS2_Anita,        // 0x51
 };
 
-constexpr auto MVC_A_NUM_IMG_UNITS = ARRAYSIZE(MVC_A_IMG_UNITS);
-
 const UINT16 MSH_A_IMG_UNITS[] =
 {
     indexCPS2_Wolverine,
@@ -1091,46 +1127,8 @@ enum SPECIFIC_GAME_SPRITESETS
     indexMSHVSF_VSP,
     indexCPS2Images_COTA_CSPs, // = 0x33,
     indexCSP2Images_COTA_CSIs, // = 0x34,
-    indexCSP2Images_MSH_CSPs = 0x36, // = 0x36,
-};
-
-const UINT16 COTA_A_IMG_UNITS[] =
-{
-    indexCPS2_Colossus,
-    indexCPS2_Cyclops,
-    indexCPS2_Iceman,
-    indexCPS2_Juggy,
-    indexCPS2_Magneto,
-    indexCPS2_OmegaRed,
-    indexCPS2_Psylocke,
-    indexCPS2_Sentinel,
-    indexCPS2_SilverSamurai,
-    indexCPS2_Spiral,
-    indexCPS2_Storm,
-    indexCPS2_Wolverine,
-    indexCPS2_Akuma,
-    indexCPS2_STAkuma,
-    indexCPS2_COTAAssets,
-};
-
-const int COTA_A_NUM_IMG_UNITS = ARRAYSIZE(COTA_A_IMG_UNITS);
-
-const UINT16 GEMFIGHTER_A_IMG_UNITS[] =
-{
-    indexCPS2_SPF_Ryu,      // 0x59
-    indexCPS2_SPF_Ken,      // 0x5a
-    indexCPS2_SPF_ChunLi,   // 0x5b
-    indexCPS2_SPF_Sakura,   // 0x5c
-    indexCPS2_SPF_Morrigan, // 0x5d
-    indexCPS2_SPF_HsienKo,  // 0x5e
-    indexCPS2_SPF_Felicia,  // 0x5f
-    indexCPS2_SPF_Tessa,    // 0x60
-    indexCPS2_SPF_Ibuki,    // 0x61
-    indexCPS2_SPF_Zangief,  // 0x62
-    indexCPS2_SPF_Dan,      // 0x63
-    indexCPS2_SPF_Akuma,    // 0x64
-
-    indexCPS2_SPF_Bonus,    // 0x7d
+    indexCSP2Images_MSH_CSPs = 0x36,
+    indexCSP2Images_MSH_VSPs = 0x90,
 };
 
 enum JOJOS_51_CHARACTERS
@@ -1258,54 +1256,6 @@ const UINT16 GAROU_A_IMG_UNITS[] =
 
 const int GAROU_A_NUM_IMG_UNITS = ARRAYSIZE(GAROU_A_IMG_UNITS);
 const int GAROU_S_NUM_IMG_UNITS = ARRAYSIZE(GAROU_A_IMG_UNITS);
-
-enum SupportedMatriM_A_PaletteListIndex
-{
-    indexMatriMSprites_Annie,       // 0x00
-    indexMatriMSprites_Buntaro,     // 0x01
-    indexMatriMSprites_Chinnen,     // 0x02
-    indexMatriMSprites_Clara,       // 0x03
-    indexMatriMSprites_Elias,       // 0x04
-    indexMatriMSprites_Hikaru,      // 0x05
-    indexMatriMSprites_Jimmy,       // 0x06
-    indexMatriMSprites_Jones,       // 0x07
-    indexMatriMSprites_Kanji,       // 0x08
-    indexMatriMSprites_Keith,       // 0x09
-    indexMatriMSprites_Lynn,        // 0x0a
-    indexMatriMSprites_Olof,        // 0x0b
-    indexMatriMSprites_Poochy,      // 0x0c
-    indexMatriMSprites_PrincessSissy, // 0x0d
-    indexMatriMSprites_Reiji,       // 0x0e
-    indexMatriMSprites_Saizo,       // 0x0f
-    indexMatriMSprites_Shintaro,    // 0x10
-    indexMatriMSprites_Tane,        // 0x11
-    indexMatriMSprites_Ume,         // 0x12
-    indexMatriMSprites_White,       // 0x13
-};
-
-const UINT16 MATRIM_A_IMG_UNITS[] =
-{
-    indexMatriMSprites_Annie,
-    indexMatriMSprites_Buntaro,
-    indexMatriMSprites_Chinnen,
-    indexMatriMSprites_Clara,
-    indexMatriMSprites_Elias,
-    indexMatriMSprites_Hikaru,
-    indexMatriMSprites_Jimmy,
-    indexMatriMSprites_Jones,
-    indexMatriMSprites_Kanji,
-    indexMatriMSprites_Keith,
-    indexMatriMSprites_Lynn,
-    indexMatriMSprites_Olof,
-    indexMatriMSprites_Poochy,
-    indexMatriMSprites_PrincessSissy,
-    indexMatriMSprites_Reiji,
-    indexMatriMSprites_Saizo,
-    indexMatriMSprites_Shintaro,
-    indexMatriMSprites_Tane,
-    indexMatriMSprites_Ume,
-    indexMatriMSprites_White,
-};
 
 enum KOFSpriteList
 {
@@ -2742,60 +2692,6 @@ enum SupportedSVC_A_PaletteListIndex
     indexSVC_A_Last,
 };
 
-const UINT16 SVCPLUSA_A_IMG_UNITS[] =
-{
-    indexKOFSprites_98Kyo,
-    indexKOFSprites_98Iori,
-    indexKOFSprites_98Ryo,
-    indexKOFSprites_98Terry,
-    indexKOFSprites_98Mai,
-    indexKOFSprites_00Kasumi,
-    indexKOFSprites_98Kim,
-    indexKOFSprites_98Choi,
-    indexKOFSprites_02Geese,
-    indexKOFSprites_02Goenitz,
-    indexKOFSprites_98Iori,
-
-    indexSVCSprites_Kyo,        // 4f
-    indexSVCSprites_Iori,       // 50
-    indexSVCSprites_Ryo,        // 51
-    indexSVCSprites_Terry,      // 52
-    indexSVCSprites_Mai,        // 53
-    indexSVCSprites_Kasumi,     // 54
-    indexSVCSprites_Kim,        // 55
-    indexSVCSprites_MrKarate,   // 56
-    indexSVCSprites_Choi,       // 57
-    indexSVCSprites_Earthquake, // 58
-    indexSVCSprites_Genjuro,    // 59
-    indexSVCSprites_Shiki,      // 5a
-    indexSVCSprites_GeeseHoward, // 5b
-    indexSVCSprites_MarsPeople, // 5c
-    indexSVCSprites_Goenitz,    // 5d
-    indexSVCSprites_PrincessAthena, // 5e
-    indexSVCSprites_Ryu,        // 5f
-    indexSVCSprites_Ken,        // 60
-    indexSVCSprites_ChunLi,     // 61
-    indexSVCSprites_Guile,      // 62
-    indexSVCSprites_Dhalsim,    // 63
-    indexSVCSprites_Boxer,      // 64
-    indexSVCSprites_Claw,       // 65
-    indexSVCSprites_Sagat,      // 66
-    indexSVCSprites_Dictator,   // 67
-    indexSVCSprites_Akuma,      // 68
-    indexSVCSprites_Hugo,       // 69
-    indexSVCSprites_Poison,     // 6a
-    indexSVCSprites_Tessa,      // 6b
-    indexSVCSprites_Zero,       // 6c
-    indexSVCSprites_Ciel,       // 6d
-    indexSVCSprites_Demitri,    // 6e
-    indexSVCSprites_Dan,        // 6f
-    indexSVCSprites_RedArremer, // 70
-    indexSVCSprites_OrochiIori, // 71
-    indexSVCSprites_SeriousMrKarate, // 72
-    indexSVCSprites_ViolentKen, // 73
-    indexSVCSprites_ShinAkuma,  // 74
-};
-
 enum SamuraiShodownSpriteList
 {
     indexSamSho5Sprites_Amakusa = 0,
@@ -2849,33 +2745,33 @@ enum SamuraiShodownSpriteList
     indexSamSho3Sprites_Bonus,      // 2F
     indexSamSho3Sprites_Stages,     // 30
 
-    indexSS5_Basara,      // 0x31
-    indexSS5_Charlotte,   // 0x32
-    indexSS5_Enja,        // 0x33
-    indexSS5_Gaira,       // 0x34
-    indexSS5_Galford,     // 0x35
-    indexSS5_Gaoh,        // 0x36
-    indexSS5_Genjuro,     // 0x37
-    indexSS5_Hanzo,       // 0x38
-    indexSS5_Haohmaru,    // 0x39
-    indexSS5_Jubei,       // 0x3A
-    indexSS5_Kazuki,      // 0x3B
-    indexSS5_Kusaregedo,  // 0x3C
-    indexSS5_Kyoshiro,    // 0x3D
-    indexSS5_Mina,        // 0x3E
-    indexSS5_Nakoruru,    // 0x3F
-    indexSS5_Rasetsumaru, // 0x40
-    indexSS5_Rera,        // 0x41
-    indexSS5_Rimururu,    // 0x42
-    indexSS5_Sankuro,     // 0x43
-    indexSS5_Shizumaru,   // 0x44
-    indexSS5_Sogetsu,     // 0x45
-    indexSS5_Suija,       // 0x46
-    indexSS5_TamTam,      // 0x47
-    indexSS5_Ukyo,        // 0x48
-    indexSS5_Yoshitora,   // 0x49
-    indexSS5_Yumeji,      // 0x4A
-    indexSS5_Yunfei,      // 0x4B
+    indexSS5_Basara,        // 0x31
+    indexSS5_Charlotte,     // 0x32
+    indexSS5_Enja,          // 0x33
+    indexSS5_Gaira,         // 0x34
+    indexSS5_Galford,       // 0x35
+    indexSS5_Gaoh,          // 0x36
+    indexSS5_Genjuro,       // 0x37
+    indexSS5_Hanzo,         // 0x38
+    indexSS5_Haohmaru,      // 0x39
+    indexSS5_Jubei,         // 0x3A
+    indexSS5_Kazuki,        // 0x3B
+    indexSS5_Kusaregedo,    // 0x3C
+    indexSS5_Kyoshiro,      // 0x3D
+    indexSS5_Mina,          // 0x3E
+    indexSS5_Nakoruru,      // 0x3F
+    indexSS5_Rasetsumaru,   // 0x40
+    indexSS5_Rera,          // 0x41
+    indexSS5_Rimururu,      // 0x42
+    indexSS5_Sankuro,       // 0x43
+    indexSS5_Shizumaru,     // 0x44
+    indexSS5_Sogetsu,       // 0x45
+    indexSS5_Suija,         // 0x46
+    indexSS5_TamTam,        // 0x47
+    indexSS5_Ukyo,          // 0x48
+    indexSS5_Yoshitora,     // 0x49
+    indexSS5_Yumeji,        // 0x4A
+    indexSS5_Yunfei,        // 0x4B
     indexSS5_Bonus,         // 0x4c
     indexSS5_Stages,        // 0x4d
 
@@ -3043,7 +2939,6 @@ const UINT16 VHUNT2_A_IMG_UNITS[] =
     indexCPS2_Vamp_Shadow,    // 0x75
     indexCPS2_VSAV1_MidnightBliss,
     indexCPS2_Vamp_DarkGallon,
-
 };
 
 constexpr auto VHUNT2_A_NUM_IMG_UNITS = ARRAYSIZE(VHUNT2_A_IMG_UNITS);
@@ -3178,6 +3073,18 @@ enum SupportedWindjammers_A_PaletteListIndex
     indexWindjammersSprites_Bonus,
 };
 
+enum SupportedSega_PaletteListIndex
+{
+    indexTopF2k5Sprites_Ali,            // 0x00
+    indexTopF2k5Sprites_Cycl,           // 0x01
+    indexTopF2k5Sprites_GeesHoward,     // 0x02
+    indexTopF2k5Sprites_Goku,           // 0x03
+    indexTopF2k5Sprites_Kyo,            // 0x04
+    indexTopF2k5Sprites_MichaelJoden,   // 0x05
+    indexTopF2k5Sprites_Ryo,            // 0x06
+    indexTopF2k5Sprites_Ryu,            // 0x07
+};
+
 enum SupportedSNES_PaletteListIndex
 {
     indexMMPRSprites_Goldar,        // 0x00
@@ -3216,19 +3123,33 @@ enum SupportedSNES_PaletteListIndex
     indexCFTESprites_Tiny,          // 0x1e
     indexCFTESprites_Bonus,         // 0x1f
     indexCFTESprites_Stages,        // 0x20
-};
 
-const UINT16 MMPR_SNES_IMG_UNITS[] =
-{
-    indexMMPRSprites_Goldar,
-    indexMMPRSprites_IvanOoze,
-    indexMMPRSprites_LipSyncer,
-    indexMMPRSprites_LordZedd,
-    indexMMPRSprites_MegaTigerzord,
-    indexMMPRSprites_NinjaMegazord,
-    indexMMPRSprites_ShogunMegazord,
-    indexMMPRSprites_SilverHorns,
-    indexMMPRSprites_ThunderMegazord,
+    indexMSHWOTGSprites_SpiderMan,      // 0x21
+    indexMSHWOTGSprites_CapAmerica,     // 0x22
+    indexMSHWOTGSprites_IronMan,        // 0x23
+    indexMSHWOTGSprites_Hulk,           // 0x24
+    indexMSHWOTGSprites_Wolverine,      // 0x25
+
+    indexMSHWOTGSprites_AdamWarlock,    // 0x26
+    indexMSHWOTGSprites_DrStrange,      // 0x27
+    indexMSHWOTGSprites_DrDoom,         // 0x28
+    indexMSHWOTGSprites_Magus,          // 0x29
+    indexMSHWOTGSprites_Blackheart,     // 0x2A
+    indexMSHWOTGSprites_Nebula,         // 0x2B
+    indexMSHWOTGSprites_Thanos,         // 0x2C
+
+    indexMSHWOTGSprites_Puck,           // 0x2D
+    indexMSHWOTGSprites_Evilverine,     // 0x2E
+    indexMSHWOTGSprites_EvilHulk,       // 0x2F
+    indexMSHWOTGSprites_EvilIronMan,    // 0x30
+    indexMSHWOTGSprites_Daredevil,      // 0x31
+    indexMSHWOTGSprites_Vision,         // 0x32
+    indexMSHWOTGSprites_SheHulk,        // 0x33
+    indexMSHWOTGSprites_Hawkeye,        // 0x34
+    indexMSHWOTGSprites_SilverSurfer,   // 0x35
+    indexMSHWOTGSprites_Sasquatch,      // 0x36
+    indexMSHWOTGSprites_TheThing,       // 0x37
+    indexMSHWOTGSprites_Bonus,          // 0x38
 };
 
 const UINT16 GUNDAM_A_IMG_UNITS[] =
@@ -3299,18 +3220,45 @@ enum SupportedNEOGEO_PaletteListIndex
     indexNinjaMastersSprites_Bonus,         // 0x20
     indexNinjaMastersSprites_Stages,        // 0x21
 
-    indexDDragonSprites_Abobo,              // 0x22,
-    indexDDragonSprites_Amon,               // 0x23,
-    indexDDragonSprites_Billy,              // 0x24,
-    indexDDragonSprites_Burnov,             // 0x25,
-    indexDDragonSprites_ChengFu,            // 0x26,
-    indexDDragonSprites_Duke,               // 0x27,
-    indexDDragonSprites_Dulton,             // 0x28,
-    indexDDragonSprites_Eddie,              // 0x29,
-    indexDDragonSprites_Jimmy,              // 0x2A,
-    indexDDragonSprites_Marian,             // 0x2B,
-    indexDDragonSprites_Rebecca,            // 0x2C,
-    indexDDragonSprites_Shuko,              // 0x2D,
+    indexDDragonSprites_Abobo,              // 0x22
+    indexDDragonSprites_Amon,               // 0x23
+    indexDDragonSprites_Billy,              // 0x24
+    indexDDragonSprites_Burnov,             // 0x25
+    indexDDragonSprites_ChengFu,            // 0x26
+    indexDDragonSprites_Duke,               // 0x27
+    indexDDragonSprites_Dulton,             // 0x28
+    indexDDragonSprites_Eddie,              // 0x29
+    indexDDragonSprites_Jimmy,              // 0x2A
+    indexDDragonSprites_Marian,             // 0x2B
+    indexDDragonSprites_Rebecca,            // 0x2C
+    indexDDragonSprites_Shuko,              // 0x2D
+    indexDDragonSprites_Bonus,              // 0x2E
+
+    indexRotDSprites_Abubo,                 // 0x2F
+    indexRotDSprites_Alice,                 // 0x30
+    indexRotDSprites_Annie,                 // 0x31
+    indexRotDSprites_Billy,                 // 0x32
+    indexRotDSprites_Cassandra,             // 0x33
+    indexRotDSprites_Elias,                 // 0x34
+    indexRotDSprites_JaeMo,                 // 0x35
+    indexRotDSprites_Jimmy,                 // 0x36
+    indexRotDSprites_Johann,                // 0x37
+    indexRotDSprites_Johnny,                // 0x38
+    indexRotDSprites_Lynn,                  // 0x39
+    indexRotDSprites_Oni,                   // 0x3A
+    indexRotDSprites_Pepe,                  // 0x3B
+    indexRotDSprites_Pupa,                  // 0x3C
+    indexRotDSprites_Radel,                 // 0x3D
+    indexRotDSprites_Sonia,                 // 0x3E
+    indexRotDSprites_Bonus,                 // 0x3F
+
+    indexKotMSprites_AstroGuy,              // 0x40
+    indexKotMSprites_BeetleMania,           // 0x41
+    indexKotMSprites_Geon,                  // 0x42
+    indexKotMSprites_PoisonGhost,           // 0x43
+    indexKotMSprites_Rocky,                 // 0x44
+    indexKotMSprites_Woo,                   // 0x45
+    indexKotMSprites_Bonus,                 // 0x46
 };
 
 const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =
@@ -3367,12 +3315,156 @@ enum SupportedGGXX_PaletteListIndex
     indexGGXXSprites_ACR_Bonus,             // 0x19
 };
 
+enum SupportedFrenchBread_PaletteListIndex
+{
+    indexFrenchBreadSprites_DBFCI_Akira,        // 0x00
+    indexFrenchBreadSprites_DBFCI_Ako,          // 0x01
+    indexFrenchBreadSprites_DBFCI_Asuna,        // 0x02
+    indexFrenchBreadSprites_DBFCI_Emi,          // 0x03
+    indexFrenchBreadSprites_DBFCI_Kirino,       // 0x04
+    indexFrenchBreadSprites_DBFCI_Kirito,       // 0x05
+    indexFrenchBreadSprites_DBFCI_Kuroko,       // 0x06
+    indexFrenchBreadSprites_DBFCI_Kuroyukihime, // 0x07
+    indexFrenchBreadSprites_DBFCI_Mikoto,       // 0x08
+    indexFrenchBreadSprites_DBFCI_Miyuki,       // 0x09
+    indexFrenchBreadSprites_DBFCI_Quenser,      // 0x0A
+    indexFrenchBreadSprites_DBFCI_Rentaro,      // 0x0B
+    indexFrenchBreadSprites_DBFCI_Selvaria,     // 0x0C
+    indexFrenchBreadSprites_DBFCI_Shana,        // 0x0D
+    indexFrenchBreadSprites_DBFCI_Shizuo,       // 0x0E
+    indexFrenchBreadSprites_DBFCI_Taiga,        // 0x0F
+    indexFrenchBreadSprites_DBFCI_Tatsuya,      // 0x10
+    indexFrenchBreadSprites_DBFCI_Tomoka,       // 0x11
+    indexFrenchBreadSprites_DBFCI_Yukina,       // 0x12
+    indexFrenchBreadSprites_DBFCI_Yuuki,        // 0x13
+    indexFrenchBreadSprites_DBFCI_AcceleratorLastOrder, // 0x14
+    indexFrenchBreadSprites_DBFCI_Alicia,        // 0x15
+    indexFrenchBreadSprites_DBFCI_Arita,         // 0x16
+    indexFrenchBreadSprites_DBFCI_Boogiepop,     // 0x17
+    indexFrenchBreadSprites_DBFCI_Celty,         // 0x18
+    indexFrenchBreadSprites_DBFCI_DokuroChan,    // 0x19
+    indexFrenchBreadSprites_DBFCI_Enju,          // 0x1A
+    indexFrenchBreadSprites_DBFCI_Erio,          // 0x1B
+    indexFrenchBreadSprites_DBFCI_Frolaytia,     // 0x1C
+    indexFrenchBreadSprites_DBFCI_Holo,          // 0x1D
+    indexFrenchBreadSprites_DBFCI_InnocentCharm, // 0x1E
+    indexFrenchBreadSprites_DBFCI_Izaya,         // 0x1F
+    indexFrenchBreadSprites_DBFCI_Kana,          // 0x20
+    indexFrenchBreadSprites_DBFCI_Kazari,        // 0x21
+    indexFrenchBreadSprites_DBFCI_Kino,          // 0x22
+    indexFrenchBreadSprites_DBFCI_Kojou,         // 0x23
+    indexFrenchBreadSprites_DBFCI_Kokou,         // 0x24
+    indexFrenchBreadSprites_DBFCI_Kuroneko,      // 0x25
+    indexFrenchBreadSprites_DBFCI_Leafa,         // 0x26
+    indexFrenchBreadSprites_DBFCI_Llenn,         // 0x27
+    indexFrenchBreadSprites_DBFCI_Mashiro,       // 0x28
+    indexFrenchBreadSprites_DBFCI_MiyukiAssist,  // 0x29
+    indexFrenchBreadSprites_DBFCI_PaiChan,       // 0x2A
+    indexFrenchBreadSprites_DBFCI_Rusian,        // 0x2B
+    indexFrenchBreadSprites_DBFCI_Ryuji,         // 0x2C
+    indexFrenchBreadSprites_DBFCI_Sadao,         // 0x2D
+    indexFrenchBreadSprites_DBFCI_TatsuyaAssist, // 0x2E
+    indexFrenchBreadSprites_DBFCI_Tomo,          // 0x2F
+    indexFrenchBreadSprites_DBFCI_Touma,         // 0x30
+    indexFrenchBreadSprites_DBFCI_Wilhelmina,    // 0x31
+    indexFrenchBreadSprites_DBFCI_Zero,          // 0x32
+	indexFrenchBreadSprites_DBFCI_Bonus,         // 0x33
+	indexFrenchBreadSprites_UNICLR_Akat,   // 0x34
+    indexFrenchBreadSprites_UNICLR_Byak,   // 0x35
+    indexFrenchBreadSprites_UNICLR_Carm,   // 0x36
+    indexFrenchBreadSprites_UNICLR_Chao,   // 0x37
+    indexFrenchBreadSprites_UNICLR_Eltn,   // 0x38
+    indexFrenchBreadSprites_UNICLR_Enki,   // 0x39
+    indexFrenchBreadSprites_UNICLR_Gord,   // 0x3A
+    indexFrenchBreadSprites_UNICLR_Hild,   // 0x3B
+    indexFrenchBreadSprites_UNICLR_Hyde,   // 0x3C
+    indexFrenchBreadSprites_UNICLR_Linn,   // 0x3D
+    indexFrenchBreadSprites_UNICLR_Lond,   // 0x3E
+    indexFrenchBreadSprites_UNICLR_Merk,   // 0x3F
+    indexFrenchBreadSprites_UNICLR_Mika,   // 0x40
+    indexFrenchBreadSprites_UNICLR_Nana,   // 0x41
+    indexFrenchBreadSprites_UNICLR_Orie,   // 0x42
+    indexFrenchBreadSprites_UNICLR_Phon,   // 0x43
+    indexFrenchBreadSprites_UNICLR_Seth,   // 0x44
+    indexFrenchBreadSprites_UNICLR_Vati,   // 0x45
+    indexFrenchBreadSprites_UNICLR_Wagn,   // 0x46
+    indexFrenchBreadSprites_UNICLR_Wald,   // 0x47
+    indexFrenchBreadSprites_UNICLR_Yuzu,   // 0x48
+    indexFrenchBreadSprites_UNICLR_Bonus,  // 0x49
+};
+
+enum SupportedTaito_PaletteListIndex
+{
+    indexDanKuGa_Azteca,            // 0x00
+    indexDanKuGa_Barts,             // 0x01
+    indexDanKuGa_Boggy,             // 0x02
+    indexDanKuGa_Gekkou,            // 0x03
+    indexDanKuGa_Gonzales,          // 0x04
+    indexDanKuGa_JMcCoy,            // 0x05
+    indexDanKuGa_Kazuya,            // 0x06
+    indexDanKuGa_Lihua,             // 0x07
+    indexDanKuGa_Liza,              // 0x08
+    indexDanKuGa_Marco,             // 0x09
+    indexDanKuGa_Wulong,            // 0x0A
+    indexDanKuGa_Bonus,             // 0x0B
+};
+
+enum SupportedNintendoDS_PaletteListIndex
+{
+    indexBleachDSSprites_Bonnie,            // 0x00
+    indexBleachDSSprites_ByakuyaKuchiki,    // 0x01
+    indexBleachDSSprites_DonKanonji,        // 0x02
+    indexBleachDSSprites_GanjuShiba,        // 0x03
+    indexBleachDSSprites_GenryusaiYamamoto, // 0x04
+    indexBleachDSSprites_GinIchimaru,       // 0x05
+    indexBleachDSSprites_Goteitaishi,       // 0x06
+    indexBleachDSSprites_GrandFisher,       // 0x07
+    indexBleachDSSprites_HanataroYamada,    // 0x08
+    indexBleachDSSprites_IchigoKurosaki,    // 0x09
+    indexBleachDSSprites_IkkakuMadarame,    // 0x0A
+    indexBleachDSSprites_IzuruKira,         // 0x0B
+    indexBleachDSSprites_JushiroUkitake,    // 0x0C
+    indexBleachDSSprites_Kai,               // 0x0D
+    indexBleachDSSprites_KanameTosen,       // 0x0E
+    indexBleachDSSprites_KenpachiZaraki,    // 0x0F
+    indexBleachDSSprites_KisukeUrahara,     // 0x10
+    indexBleachDSSprites_Kon,               // 0x11
+    indexBleachDSSprites_Kyugohanin,        // 0x12
+    indexBleachDSSprites_KukakuShiba,       // 0x13
+    indexBleachDSSprites_MayuriKurotsuchi,  // 0x14
+    indexBleachDSSprites_MenosGrande,       // 0x15
+    indexBleachDSSprites_MomoHinamori,      // 0x16
+    indexBleachDSSprites_NemuKurotsuchi,    // 0x17
+    indexBleachDSSprites_OrihimeInoue,      // 0x18
+    indexBleachDSSprites_RangikuMatsumoto,  // 0x19
+    indexBleachDSSprites_RenjiAbarai,       // 0x1A
+    indexBleachDSSprites_Ririn,             // 0x1B
+    indexBleachDSSprites_RukiaKuchiki,      // 0x1C
+    indexBleachDSSprites_SajinKomamura,     // 0x1D
+    indexBleachDSSprites_Shrieker,          // 0x1E
+    indexBleachDSSprites_ShunsuiKyoraku,    // 0x1F
+    indexBleachDSSprites_ShuheiHisagi,      // 0x20
+    indexBleachDSSprites_SuiFeng,           // 0x21
+    indexBleachDSSprites_SosukeAizen,       // 0x22
+    indexBleachDSSprites_TatsukiArisawa,    // 0x23
+    indexBleachDSSprites_Tsukaima,          // 0x24
+    indexBleachDSSprites_ToshirOHitsugaya,  // 0x25
+    indexBleachDSSprites_UruruTsumugiya,    // 0x26
+    indexBleachDSSprites_UryuIshida,        // 0x27
+    indexBleachDSSprites_YachiruKusajishi,  // 0x28
+    indexBleachDSSprites_YasutoraSado,      // 0x29
+    indexBleachDSSprites_YoruichiShihoin,   // 0x2A
+    indexBleachDSSprites_YuichiShibata,     // 0x2B
+    indexBleachDSSprites_Bonus,             // 0x2C,
+};
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_BREAKREV = 0,
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
-    IMGDAT_SECTION_DBFC,    // Dengeki Bunko
+    IMGDAT_SECTION_DS,      // Nintendo DS
+    IMGDAT_SECTION_FRENCHBREAD, // Used for DBFCI, UNICLR
     IMGDAT_SECTION_GAROU,
     IMGDAT_SECTION_GUILTYGEAR,
     IMGDAT_SECTION_JOJOS,
@@ -3382,9 +3474,11 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_NEOGEO,  // generic set for NeoGeo games
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
+    IMGDAT_SECTION_SEGA,
     IMGDAT_SECTION_SF2,      // Used for ST
     IMGDAT_SECTION_SF3,
     IMGDAT_SECTION_SNES,
+    IMGDAT_SECTION_TAITO,   // DanKuGa
     IMGDAT_SECTION_WAKUWAKU7,
     IMGDAT_SECTION_WINDJAMMERS,
     IMGDAT_SECTION_LAST,    // for comparing to the imgdat we try to load
@@ -3405,6 +3499,11 @@ const stPairedPaletteInfo pairNext8 = { 8, 0, 0 };
 const stPairedPaletteInfo pairNext9 = { 9, 0, 0 };
 const stPairedPaletteInfo pairNext10 = { 10, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
+const stPairedPaletteInfo pairPrevious2 = { -2, 0, 0 };
+
+// Same thing as Previous, except flip the order of the joins to avoid sprite occlusion 
+const stPairedPaletteInfo pairPreviousFlipped = { -1, 0, 0, true };
+const stPairedPaletteInfo pairPreviousFlipped2 = { -2, 0, 0, true };
 
 const stPairedPaletteInfo pairNextAndNext = { 1, 0, 0 }; // triple display... requires special handling in code
 

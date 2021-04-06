@@ -1,8 +1,8 @@
 #include "StdAfx.h"
 #include "GameDef.h"
 #include "Game_SVCPLUSA_A.h"
-#include "..\PalMod.h"
-#include "..\RegProc.h"
+#include "PalMod.h"
+#include "RegProc.h"
 
 #define SVCPLUSA_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
@@ -202,9 +202,6 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_NEOGEO);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -361,7 +358,7 @@ sDescTreeNode* CGame_SVCPLUSA_A::InitDescTree()
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -999,9 +996,9 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
                     {
                         CWaitCursor wait;
-                        GetHost()->GetPalModDlg()->SetStatusText(L"Decrypting game: please wait...");
+                        GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_START);
                         svcsplus_px_decrypt(decryptedROM, m_nConfirmedROMSize * 2);
-                        GetHost()->GetPalModDlg()->SetStatusText(L"Decryption complete!");
+                        GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_DONE);
                     }
 
 #ifdef dump_decrypted_file
@@ -1070,9 +1067,9 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
                 {
                     CWaitCursor wait;
-                    GetHost()->GetPalModDlg()->SetStatusText(L"Decrypting game: please wait...");
+                    GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_START);
                     svcplus_px_decrypt(decryptedROM, nROMSetSize);
-                    GetHost()->GetPalModDlg()->SetStatusText(L"Decryption complete!");
+                    GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_DONE);
                 }
 
 #ifdef save_decrypted_output
@@ -1299,6 +1296,38 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
                         SetSourcePal(1, NodeGet->uUnitId, nLocationOfSecondPalette, nSrcAmt, nNodeIncrement);
+                    }
+                }
+                else
+                {
+                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+                    INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                    if (paletteDataSetToJoin)
+                    {
+                        fShouldUseAlternateLoadLogic = true;
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
                     }
                 }
             }

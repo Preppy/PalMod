@@ -18,9 +18,6 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(ColMode::COLMODE_15ALT);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     InitializeStatics();
 
     //We need the proper unit amt before we init the main buffer

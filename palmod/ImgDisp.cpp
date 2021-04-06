@@ -581,7 +581,7 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
                     else if (((2 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
                     {
                         // I think it's GIMP that doubles the RAW for no apparent reason
-                        GetHost()->GetPalModDlg()->SetStatusText(CString(L"This RAW contains extra data and may not look right."));
+                        GetHost()->GetPalModDlg()->SetStatusText(IDS_RAW_EXTRADATA);
                     }
                     else if ((m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo]) != nSizeToRead)
                     {
@@ -657,7 +657,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
     if (m_ppSpriteOverrideTexture[nSrcIndex])
     {
         CString strInfo;
-        strInfo.Format(L"CImgDisp::CustomBlt: Loading alternate sprite for sprite %u", nSrcIndex);
+        strInfo.Format(L"CImgDisp::CustomBlt: Loading alternate sprite for sprite %u\n", nSrcIndex);
         OutputDebugString(strInfo.GetString());
         pImgData = m_ppSpriteOverrideTexture[nSrcIndex];
         nWidth = m_nTextureOverrideW[nSrcIndex];

@@ -40,15 +40,12 @@ CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_NEOGEO);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     InitializeStatics();
 
     m_nTotalInternalUnits = Windjammers_A_NUMUNIT;
     m_nExtraUnit = Windjammers_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 34;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 35;
     m_pszExtraFilename = EXTRA_FILENAME_Windjammers_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForWindjammers;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -57,7 +54,6 @@ CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
-
 
     //Set game information
     nGameFlag = WINDJAMMERS_A;
@@ -197,7 +193,7 @@ sDescTreeNode* CGame_Windjammers_A::InitDescTree()
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];

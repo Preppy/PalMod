@@ -17,7 +17,6 @@ private:
     UINT16 nCurImgGameFlag = 0xFFFF;
 
     UINT8 uReadGameFlag = 0x00;
-    UINT8 uReadBPP = 0x00;
     UINT16 uReadNumImgs = 0x0000;
     UINT32 uReadNextImgLoc = 0x00000000;
 
@@ -27,7 +26,7 @@ private:
     bool sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag);
     void getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data, UINT32& i_byteCtr, UINT32& o_dataCtr);
 
-    void VersionCheckImgDat(UINT32 nCurrentDaystamp, UINT8 nNumGames);
+    void SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDaystamp, UINT8 nNumGames);
 
     CFile ImgDatFile;
 

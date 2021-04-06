@@ -56,9 +56,6 @@ CGame_GarouP_A::CGame_GarouP_A(UINT32 nConfirmedROMSize) :
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
 
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0xee040;
-
     //Set game information
     nGameFlag = GarouP_A;
 }

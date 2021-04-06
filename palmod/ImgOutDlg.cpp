@@ -73,6 +73,7 @@ BOOL CImgOutDlg::OnInitDialog()
     {
     default:
         OutputDebugString(L"WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog yet!\n");
+        OutputDebugString(L"WARNING BUGBUG: You may want to update CImgDumpBmp::GetMaxImagesPerLine as well!\n");
     case 1:
         // By default, we export out only the one sprite
         m_CB_Amt.EnableWindow(FALSE);
@@ -114,6 +115,19 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(L"4");
         m_CB_Amt.AddString(L"8");
         m_CB_Amt.AddString(L"12");
+        break;
+    case 20:
+        m_CB_Amt.AddString(L"5");
+        m_CB_Amt.AddString(L"10");
+        m_CB_Amt.AddString(L"15");
+        m_CB_Amt.AddString(L"20");
+        break;
+    case 22:
+        m_CB_Amt.AddString(L"5");
+        m_CB_Amt.AddString(L"10");
+        m_CB_Amt.AddString(L"15");
+        m_CB_Amt.AddString(L"20");
+        m_CB_Amt.AddString(L"22");
         break;
     }
 

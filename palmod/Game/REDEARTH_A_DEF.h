@@ -19,6 +19,23 @@ const sGame_PaletteDataset REDEARTH_A_LEO_PUNCH_PALETTES[] =
     { L"Leo Punch Ice Sword",                0x408680, 0x408700 },
     { L"Leo Punch Lightning Sword",          0x408700, 0x408780 },
     { L"Leo Punch Battle Axe",               0x408780, 0x408800 },
+
+    { L"Leo Punch Ultimate Guard Flash and Burn 1", 0x40AA00, 0x40AA80, indexRedEarthSprites_Leo },
+    { L"Leo Punch Burn 2", 0x40AA80, 0x40AB00, indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 1", 0x40AB00, 0x40AB80, indexRedEarthSprites_Leo },
+    { L"Leo Punch Shock 2", 0x40AB80, 0x40AC00, indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 1", 0x40AC00, 0x40AC80, indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 2", 0x40AC80, 0x40AD00, indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 3", 0x40AD00, 0x40AD80, indexRedEarthSprites_Leo },
+    { L"Leo Punch Poisoned 4", 0x40AD80, 0x40AE00, indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 1", 0x40AE00, 0x40AE80, indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 2", 0x40AE80, 0x40AF00, indexRedEarthSprites_Leo },
+    { L"Leo Punch Petrified 3", 0x40AF00, 0x40AF80, indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 1", 0x40AF80, 0x40B000, indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 2", 0x40B000, 0x40B080, indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 3", 0x40B080, 0x40B100, indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 4", 0x40B100, 0x40B180, indexRedEarthSprites_Leo },
+    { L"Leo Punch Frozen 5", 0x40B180, 0x40B200, indexRedEarthSprites_Leo },
 };
 
 const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
@@ -40,6 +57,23 @@ const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
     { L"Leo Kick Ice Sword",                 0x414E80, 0x414F00 },
     { L"Leo Kick Lightning Sword",           0x414F00, 0x414F80 },
     { L"Leo Kick Battle Axe",                0x414F80, 0x415000 },
+
+    { L"Leo Kick Ultimate Guard Flash and Burn 1", 0x417200, 0x417280, indexRedEarthSprites_Leo },
+    { L"Leo Kick Burn 2", 0x417280, 0x417300, indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 1", 0x417300, 0x417380, indexRedEarthSprites_Leo },
+    { L"Leo Kick Shock 2", 0x417380, 0x417400, indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 1", 0x417400, 0x417480, indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 2", 0x417480, 0x417500, indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 3", 0x417500, 0x417580, indexRedEarthSprites_Leo },
+    { L"Leo Kick Poisoned 4", 0x417580, 0x417600, indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 1", 0x417600, 0x417680, indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 2", 0x417680, 0x417700, indexRedEarthSprites_Leo },
+    { L"Leo Kick Petrified 3", 0x417700, 0x417780, indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 1", 0x417780, 0x417800, indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 2", 0x417800, 0x417880, indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 3", 0x417880, 0x417900, indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 4", 0x417900, 0x417980, indexRedEarthSprites_Leo },
+    { L"Leo Kick Frozen 5", 0x417980, 0x417A00, indexRedEarthSprites_Leo }, 
 };
 
 const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
@@ -47,6 +81,7 @@ const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
     { L"Leo Character Select",               0x1DF200, 0x1DF280, indexRedEarthSprites_Leo, 0x11 },
     { L"Leo Character Selected",             0x1DEB80, 0x1DEC00, indexRedEarthSprites_Leo, 0x11 },
     { L"Leo Character Select Portrait",      0x1DEF00, 0x1DEF80, indexRedEarthSprites_Leo, 0x12 },
+    { L"Leo Character Select Portrait Highlighted", 0x1E0D80, 0x1E0E00, indexRedEarthSprites_Leo, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
@@ -69,6 +104,23 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
     { L"Kunai Throwing Shine (1/3)",             0x40BF00, 0x40BF80, indexRedEarthSprites_Kenji, 0x01 },
     { L"Kunai Throwing Shine (2/3)",             0x40BE80, 0x40BF00, indexRedEarthSprites_Kenji, 0x01 },
     { L"Kunai Throwing Shine (3/3)",             0x40BE00, 0x40BE80, indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Punch Ultimate Guard Flash and Burn 1", 0x40DC00, 0x40DC80, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Burn 2", 0x40DC80, 0x40DD00, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 1", 0x40DD00, 0x40DD80, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Shock 2", 0x40DD80, 0x40DE00, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 1", 0x40DE00, 0x40DE80, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 2", 0x40DE80, 0x40DF00, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 3", 0x40DF00, 0x40DF80, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Poisoned 4", 0x40DF80, 0x40E000, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 1", 0x40E000, 0x40E080, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 2", 0x40E080, 0x40E100, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Petrified 3", 0x40E100, 0x40E180, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 1", 0x40E180, 0x40E200, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 2", 0x40E200, 0x40E280, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 3", 0x40E280, 0x40E300, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 4", 0x40E300, 0x40E380, indexRedEarthSprites_Kenji },
+    { L"Kenji Punch Frozen 5", 0x40E380, 0x40E400, indexRedEarthSprites_Kenji },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
@@ -91,6 +143,23 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
     { L"Kunai Throwing Shine (1/3)",             0x418700, 0x418780, indexRedEarthSprites_Kenji, 0x01 },
     { L"Kunai Throwing Shine (2/3)",             0x418680, 0x418700, indexRedEarthSprites_Kenji, 0x01 },
     { L"Kunai Throwing Shine (3/3)",             0x418600, 0x418680, indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Kick Ultimate Guard Flash and Burn 1", 0x41A400, 0x41A480, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Burn 2", 0x41A480, 0x41A500, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 1", 0x41A500, 0x41A580, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Shock 2", 0x41A580, 0x41A600, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 1", 0x41A600, 0x41A680, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 2", 0x41A680, 0x41A700, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 3", 0x41A700, 0x41A780, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Poisoned 4", 0x41A780, 0x41A800, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 1", 0x41A800, 0x41A880, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 2", 0x41A880, 0x41A900, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Petrified 3", 0x41A900, 0x41A980, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 1", 0x41A980, 0x41AA00, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 2", 0x41AA00, 0x41AA80, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 3", 0x41AA80, 0x41AB00, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 4", 0x41AB00, 0x41AB80, indexRedEarthSprites_Kenji },
+    { L"Kenji Kick Frozen 5", 0x41AB80, 0x41AC00, indexRedEarthSprites_Kenji },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
@@ -98,6 +167,7 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
     { L"Kenji Character Select",                 0x1DF380, 0x1DF400, indexRedEarthSprites_Kenji, 0x11 },
     { L"Kenji Character Selected",               0x1DED00, 0x1DED80, indexRedEarthSprites_Kenji, 0x11 },
     { L"Kenji Character Select Portrait",        0x1DF000, 0x1DF080, indexRedEarthSprites_Kenji, 0x12 },
+    { L"Kenji Character Select Portrait Highlighted", 0x1E0F00, 0x1E0F80, indexRedEarthSprites_Kenji, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
@@ -234,6 +304,7 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
     { L"Tessa Character Select",                 0x1DF180, 0x1DF200, indexRedEarthSprites_Tessa, 0x11 },
     { L"Tessa Character Selected",               0x1DEB00, 0x1DEB80, indexRedEarthSprites_Tessa, 0x11 },
     { L"Tessa Character Select Portrait ",       0x1DEF80, 0x1DF000, indexRedEarthSprites_Tessa, 0x12 },
+    { L"Tessa Character Select Portrait Highlighted", 0x1E0D00, 0x1E0D80, indexRedEarthSprites_Tessa, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
@@ -297,6 +368,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
     { L"Mai Ling Character Select",          0x1DF300, 0x1DF380, indexRedEarthSprites_MaiLing, 0x11 },
     { L"Mai Ling Character Selected",        0x1DEC80, 0x1DED00, indexRedEarthSprites_MaiLing, 0x11 },
     { L"Mai Ling Character Select Portrait", 0x1DF080, 0x1DF100, indexRedEarthSprites_MaiLing, 0x12 },
+    { L"Mai Ling Character Select Portrait Highlighted", 0x1E0E80, 0x1E0F00, indexRedEarthSprites_MaiLing, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_HAUZER_PALETTES[] =
@@ -656,25 +728,79 @@ const sDescTreeNode REDEARTH_A_BONUS_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_PALETTES) },
 };
 
-const sDescTreeNode REDEARTH_A_UNITS[] =
+const sDescTreeNode REDEARTH_A_UNITS_31[] =
 {
-    { L"Leo",                DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_COLLECTION, ARRAYSIZE(REDEARTH_A_LEO_COLLECTION) },
-    { L"Kenji",              DESC_NODETYPE_TREE, (void*)REDEARTH_A_KENJI_COLLECTION, ARRAYSIZE(REDEARTH_A_KENJI_COLLECTION) },
-    { L"Tessa",              DESC_NODETYPE_TREE, (void*)REDEARTH_A_TESSA_COLLECTION, ARRAYSIZE(REDEARTH_A_TESSA_COLLECTION) },
-    { L"Mai Ling",           DESC_NODETYPE_TREE, (void*)REDEARTH_A_MAILING_COLLECTION, ARRAYSIZE(REDEARTH_A_MAILING_COLLECTION) },
+    { L"Leo",               DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_COLLECTION, ARRAYSIZE(REDEARTH_A_LEO_COLLECTION) },
+    { L"Kenji",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_KENJI_COLLECTION, ARRAYSIZE(REDEARTH_A_KENJI_COLLECTION) },
+    { L"Tessa",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_TESSA_COLLECTION, ARRAYSIZE(REDEARTH_A_TESSA_COLLECTION) },
+    { L"Mai Ling",          DESC_NODETYPE_TREE, (void*)REDEARTH_A_MAILING_COLLECTION, ARRAYSIZE(REDEARTH_A_MAILING_COLLECTION) },
 
-    { L"Hauzer",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_HAUZER_COLLECTION, ARRAYSIZE(REDEARTH_A_HAUZER_COLLECTION) },
-    { L"Kongou",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_KONGOU_COLLECTION, ARRAYSIZE(REDEARTH_A_KONGOU_COLLECTION) },
-    { L"Hydron",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_HYDRON_COLLECTION, ARRAYSIZE(REDEARTH_A_HYDRON_COLLECTION) },
+    { L"Hauzer",            DESC_NODETYPE_TREE, (void*)REDEARTH_A_HAUZER_COLLECTION, ARRAYSIZE(REDEARTH_A_HAUZER_COLLECTION) },
+    { L"Kongou",            DESC_NODETYPE_TREE, (void*)REDEARTH_A_KONGOU_COLLECTION, ARRAYSIZE(REDEARTH_A_KONGOU_COLLECTION) },
+    { L"Hydron",            DESC_NODETYPE_TREE, (void*)REDEARTH_A_HYDRON_COLLECTION, ARRAYSIZE(REDEARTH_A_HYDRON_COLLECTION) },
     { L"Ravange",           DESC_NODETYPE_TREE, (void*)REDEARTH_A_RAVANGE_COLLECTION, ARRAYSIZE(REDEARTH_A_RAVANGE_COLLECTION) },
      
     // Lavia
     // Gi Gi
     // Blade
     // Scion
-    { L"Character Select",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_COLLECTION, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_COLLECTION) },
-    { L"Intro Palettes",     DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_COLLECTION, ARRAYSIZE(REDEARTH_A_INTRO_COLLECTION) },
-    { L"Bonus",              DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_BONUS_COLLECTION) },
+    { L"Character Select",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_COLLECTION, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_COLLECTION) },
+    { L"Intro Palettes",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_COLLECTION, ARRAYSIZE(REDEARTH_A_INTRO_COLLECTION) },
+    { L"Bonus",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_BONUS_COLLECTION) },
+};
+
+// RedEarth stage palettes from Yoshin
+const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_PALETTES[] =
+{
+    { L"Icelarn 1 - Layer 1-Ground/Ice/Building", 0x737000, 0x737200 },
+    { L"Icelarn 2 - Pallete Cycle 1 - 1", 0x737200, 0x737280 },
+    { L"Icelarn 2 - Pallete Cycle 1 - 2", 0x737280, 0x737300 },
+    { L"Icelarn 2 - Pallete Cycle 1 - 3", 0x737300, 0x737380 },
+    { L"Icelarn 2 - Pallete Cycle 1 - 4", 0x737380, 0x737400 },
+    { L"Icelarn 3 - Pal 1", 0x737400, 0x737500 },
+    { L"Icelarn 3 - Pal 2", 0x737500, 0x737580 },
+    { L"Icelarn 3 - Pal 3", 0x737580, 0x737600 },
+    { L"Icelarn 4 - Pal 1", 0x737600, 0x737700 },
+    { L"Icelarn 4 - Pal 2", 0x737700, 0x737740 },
+    { L"Icelarn 4 - Pal 3", 0x737740, 0x737780 },
+    { L"Icelarn 4 - Pal 4", 0x737780, 0x737800 },
+    { L"Icelarn 5 - Sky BG Pal Cycle 1", 0x737800, 0x737880 },
+    { L"Icelarn 5 - Sky BG Pal Cycle 2", 0x737880, 0x737900 },
+    { L"Icelarn 5 - Sky BG Pal Cycle 2", 0x737900, 0x737980 },
+    { L"Icelarn 5 - Pallete Cycle 2 - 1", 0x737980, 0x737A00 },
+    { L"Icelarn 6 - Pallete Cycle 2 - 2", 0x737A00, 0x737A80 },
+    { L"Icelarn 6 - Pallete Cycle 2 - 3", 0x737A80, 0x737B00 },
+    { L"Icelarn 6 - Pallete Cycle 3 - 1", 0x737B00, 0x737B80 },
+    { L"Icelarn 6 - Pallete Cycle 3 - 2", 0x737B80, 0x737C00 },
+    { L"Icelarn 7 - Pallete Cycle 3 - 3", 0x737C00, 0x737C80 },
+    { L"Icelarn 7 - Pallete Cycle 3 - 4", 0x737C80, 0x737D00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_GORA_PALETTES[] =
+{
+    { L"Gora - Moon/Sky", 0x737D00, 0x737D80 },
+    { L"Gora - Ground/Foilage", 0x737D80, 0x737E00 },
+    { L"Gora - Planes/rock chunk", 0x737E00, 0x737E80 },
+    { L"Gora - Rock Face", 0x737E80, 0x737F00 },
+    { L"Gora - ???", 0x737F00, 0x737F80 },
+    { L"Gora - Foreground debris", 0x737F80, 0x738000 },
+    { L"Gora - ???", 0x738000, 0x738080 },
+};
+
+const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_GORA_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_STAGES_ICELARN_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_UNITS_30[] =
+{
+    { L"Gora",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GORA_COLLECTION) },
+    { L"Icelarn",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_COLLECTION) },
 };
 
 #ifdef UseStagePalettes
@@ -690,16 +816,17 @@ const sDescTreeNode REDEARTH_A_UNITS[] =
     { L"Hauzer Fire PALFX", 0x74a000, 0x74d000 },
 #endif
 
-constexpr auto REDEARTH_A_NUMUNIT = ARRAYSIZE(REDEARTH_A_UNITS);
-#define REDEARTH_A_EXTRALOC REDEARTH_A_NUMUNIT
+constexpr auto REDEARTH_A_NUMUNIT_30 = ARRAYSIZE(REDEARTH_A_UNITS_30);
+#define REDEARTH_A_EXTRALOC_30 REDEARTH_A_NUMUNIT_30
+
+constexpr auto REDEARTH_A_NUMUNIT_31 = ARRAYSIZE(REDEARTH_A_UNITS_31);
+#define REDEARTH_A_EXTRALOC_31 REDEARTH_A_NUMUNIT_31
 
 const stExtraDef REDEARTH_A_EXTRA[] = 
 {
     //Start
-
     { UNIT_START_VALUE },
 
     //Extra
-
     { INVALID_UNIT_VALUE }
 };

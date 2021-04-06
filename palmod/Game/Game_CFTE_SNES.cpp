@@ -33,11 +33,9 @@ CGame_CFTE_SNES::CGame_CFTE_SNES(UINT32 nConfirmedROMSize)
     strMessage.Format(L"CGame_CFTE_SNES::CGame_CFTE_SNES: Loading ROM...\n");
     OutputDebugString(strMessage);
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
-
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     // We need this set before we initialize so that we can truncate bad Extras correctly.
     // Otherwise the new user could inadvertently corrupt their ROM.
@@ -215,7 +213,7 @@ sDescTreeNode* CGame_CFTE_SNES::InitDescTree()
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];

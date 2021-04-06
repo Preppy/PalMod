@@ -33,11 +33,9 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
     strMessage.Format(L"CGame_MMPR_SNES::CGame_MMPR_SNES: Loading ROM...\n");
     OutputDebugString(strMessage);
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
-
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     // We need this set before we initialize so that we can truncate bad Extras correctly.
     // Otherwise the new user could inadvertently corrupt their ROM.
@@ -47,7 +45,7 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = MMPR_SNES_NUMUNIT;
     m_nExtraUnit = MMPR_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 18;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 19;
     m_pszExtraFilename = EXTRA_FILENAME_MMPR_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMMPR;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -215,7 +213,7 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];

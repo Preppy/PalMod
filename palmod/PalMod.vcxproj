@@ -235,6 +235,7 @@
     <ClCompile Include="Game\Game_COTA_A.cpp" />
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
     <ClCompile Include="Game\Game_DANKUGA_A.cpp" />
+    <ClCompile Include="Game\Game_DBFCI_A.cpp" />
     <ClCompile Include="Game\Game_DoubleDragon_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
@@ -254,10 +255,12 @@
     <ClCompile Include="Game\Game_KOF98_A.cpp" />
     <ClCompile Include="Game\Game_KOF99AE_A.cpp" />
     <ClCompile Include="Game\Game_KOFXI_A.cpp" />
+    <ClCompile Include="Game\Game_KOTM_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp" />
     <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
     <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
     <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
+    <ClCompile Include="Game\Game_MSHWOTG_SNES.cpp" />
     <ClCompile Include="Game\Game_MSH_A.cpp" />
     <ClCompile Include="Game\Game_MVC2_A.cpp" />
     <ClCompile Include="Game\Game_MVC2_A_DIR.cpp" />
@@ -295,9 +298,12 @@
     <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp" />
     <ClCompile Include="Game\Game_SFIII3_D.cpp" />
     <ClCompile Include="Game\Game_SFZ3U_A.cpp" />
+    <ClCompile Include="Game\Game_SPF2T_A.cpp" />
     <ClCompile Include="Game\Game_SSF2T_A.cpp" />
     <ClCompile Include="Game\Game_SSF2T_GBA.cpp" />
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
+    <ClCompile Include="Game\Game_TopF2005_Sega.cpp" />
+    <ClCompile Include="Game\Game_UNICLR_A.cpp" />
     <ClCompile Include="Game\Game_VHUNT2_A.cpp" />
     <ClCompile Include="Game\Game_VSAV2_A.cpp" />
     <ClCompile Include="Game\Game_VSAV_A.cpp" />
@@ -363,6 +369,7 @@
     <ClInclude Include="Game\Game_COTA_A.h" />
     <ClInclude Include="Game\Game_CVS2_A.h" />
     <ClInclude Include="Game\Game_DANKUGA_A.h" />
+    <ClInclude Include="Game\Game_DBFCI_A.h" />
     <ClInclude Include="Game\Game_DoubleDragon_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
     <ClInclude Include="Game\Game_Garou_A.h" />
@@ -382,10 +389,12 @@
     <ClInclude Include="Game\Game_KOF98_A.h" />
     <ClInclude Include="Game\Game_KOF99AE_A.h" />
     <ClInclude Include="Game\Game_KOFXI_A.h" />
+    <ClInclude Include="Game\Game_KOTM_A.h" />
     <ClInclude Include="Game\Game_LASTBLADE2_A.h" />
     <ClInclude Include="Game\Game_Matrimelee_A.h" />
     <ClInclude Include="Game\Game_MMPR_SNES.h" />
     <ClInclude Include="Game\Game_MSHVSF_A.h" />
+    <ClInclude Include="Game\Game_MSHWOTG_SNES.h" />
     <ClInclude Include="Game\Game_MSH_A.h" />
     <ClInclude Include="Game\Game_MVC2_A.h" />
     <ClInclude Include="Game\Game_MVC2_A_DIR.h" />
@@ -423,9 +432,12 @@
     <ClInclude Include="Game\Game_SFIII3_A_DIR.h" />
     <ClInclude Include="Game\Game_SFIII3_D.h" />
     <ClInclude Include="Game\Game_SFZ3U_A.h" />
+    <ClInclude Include="Game\Game_SPF2T_A.h" />
     <ClInclude Include="Game\Game_SSF2T_A.h" />
     <ClInclude Include="Game\Game_SSF2T_GBA.h" />
     <ClInclude Include="Game\Game_SVCPLUSA_A.h" />
+    <ClInclude Include="Game\Game_TopF2005_Sega.h" />
+    <ClInclude Include="Game\Game_UNICLR_A.h" />
     <ClInclude Include="Game\Game_VHUNT2_A.h" />
     <ClInclude Include="Game\Game_VSAV2_A.h" />
     <ClInclude Include="Game\Game_VSAV_A.h" />
@@ -448,10 +460,12 @@
     <ClInclude Include="Game\KOF98_A_DEF.h" />
     <ClInclude Include="Game\KOF99AE_A_DEF.h" />
     <ClInclude Include="Game\KOFXI_A_DEF.h" />
+    <ClInclude Include="Game\KOTM_A_DEF.h" />
     <ClInclude Include="Game\LASTBLADE2_A_DEF.h" />
     <ClInclude Include="Game\Matrimelee_A_DEF.h" />
     <ClInclude Include="Game\MMPR_SNES_DEF.h" />
     <ClInclude Include="Game\MSHVSF_A_DEF.h" />
+    <ClInclude Include="Game\MSHWOTG_SNES_DEF.h" />
     <ClInclude Include="Game\MSH_A_DEF.h" />
     <ClInclude Include="Game\MVC2_A_DEF.h" />
     <ClInclude Include="Game\mvc2_descs.h" />
@@ -487,9 +501,11 @@
     <ClInclude Include="Game\SFIII3_D_DEF.h" />
     <ClInclude Include="Game\SFZ3U_A_DEF.h" />
     <ClInclude Include="Game\ShellSort.h" />
+    <ClInclude Include="Game\SPF2T_A_DEF.h" />
     <ClInclude Include="Game\SSF2T_A_DEF.h" />
     <ClInclude Include="Game\SSF2T_GBA_DEF.h" />
     <ClInclude Include="Game\SVCPLUSA_A_DEF.h" />
+    <ClInclude Include="Game\TopF2005_Sega_DEF.h" />
     <ClInclude Include="Game\VHUNT2_A_DEF.h" />
     <ClInclude Include="Game\VSAV2_A_DEF.h" />
     <ClInclude Include="Game\VSAV_A_DEF.h" />
@@ -526,10 +542,7 @@
     <None Include="res\PalMod.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Manifest Include="res\palmod_.manifest" />
+    <Manifest Include="res\palmod.manifest" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -123,7 +123,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     if (!fShownCrossSIMMErrorOnce)
                     {
                         fShownCrossSIMMErrorOnce = true;
-                        strInfo.Format(L"Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that.", nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * 2));
+                        strInfo.Format(IDS_EXTRAS_SIMMBOUNDARY, nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * 2));
                         MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
                     }
 

@@ -6,6 +6,25 @@
 // * Update every array using COTA_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const UINT16 COTA_A_IMG_UNITS[] =
+{
+    indexCPS2_Colossus,
+    indexCPS2_Cyclops,
+    indexCPS2_Iceman,
+    indexCPS2_Juggy,
+    indexCPS2_Magneto,
+    indexCPS2_OmegaRed,
+    indexCPS2_Psylocke,
+    indexCPS2_Sentinel,
+    indexCPS2_SilverSamurai,
+    indexCPS2_Spiral,
+    indexCPS2_Storm,
+    indexCPS2_Wolverine,
+    indexCPS2_Akuma,
+    indexCPS2_STAkuma,
+    indexCPS2_COTAAssets,
+};
+
 enum SupportedCOTAPaletteListIndex
 {
     indexCOTAColossus,
@@ -126,8 +145,8 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P1[] =
     { L"P1 Extras 3", 0x2699E, 0x269BE, indexCPS2_Cyclops, 0x2 },
 
     // preceded by unknown, this segment followed by P2 intro 1
-    { L"P1 Optic Light 1", 0x2865E, 0x2867E, indexCPS2_Cyclops, 13 },
-    { L"P1 Optic Light 2", 0x2867E, 0x2869E, indexCPS2_Cyclops, 13 },
+    { L"P1 Optic Stance 1", 0x2865E, 0x2867E, indexCPS2_Cyclops, 13 },
+    { L"P1 Optic Stance 2", 0x2867E, 0x2869E, indexCPS2_Cyclops, 13 },
     { L"P1 Intro 1", 0x2877E, 0x2879E, indexCPS2_Cyclops, 12 },
     { L"P1 Intro 2", 0x2879E, 0x287BE, indexCPS2_Cyclops, 12 },
     { L"P1 Intro 3", 0x287BE, 0x287DE, indexCPS2_Cyclops, 12 },
@@ -159,8 +178,8 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P2[] =
     { L"P2 jHK",      0x269FE, 0x26A1E, indexCPS2_Cyclops, 0x1 }, 
     { L"P2 Extras 3", 0x26A1E, 0x26A3E, indexCPS2_Cyclops, 0x2 },
 
-    { L"P2 Optic Light 1", 0x2887E, 0x2889E, indexCPS2_Cyclops, 13 },
-    { L"P2 Optic Light 2", 0x2889E, 0x288BE, indexCPS2_Cyclops, 13 },
+    { L"P2 Optic Stance 1", 0x2887E, 0x2889E, indexCPS2_Cyclops, 13 },
+    { L"P2 Optic Stance 2", 0x2889E, 0x288BE, indexCPS2_Cyclops, 13 },
     { L"P2 Intro 1", 0x288BE, 0x288DE, indexCPS2_Cyclops, 12 },
     { L"P2 Intro 2", 0x288DE, 0x288FE, indexCPS2_Cyclops, 12 },
     { L"P2 Intro 3", 0x288FE, 0x2891E, indexCPS2_Cyclops, 12 },
@@ -535,7 +554,7 @@ const sDescTreeNode COTA_A_CYCLOPS_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_P1,           ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_P2,           ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_P2) },
-    { L"Extras", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_EXTRAS,   ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_EXTRAS) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_EXTRAS,   ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode COTA_A_ICEMAN_COLLECTION[] =

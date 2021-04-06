@@ -5,6 +5,9 @@
 #include "PalMod.h"
 #include "PalModDlg.h"
 #include "RegProc.h"
+#ifdef ENABLE_MUI_SUPPORT
+#include <muiload.h>
+#endif
 
 // CAboutDlg dialog used for App About
 
@@ -59,10 +62,44 @@ static UINT BASED_CODE indicators[] =
 
 CStringA szPasteStr = "";
 
+#ifdef ENABLE_MUI_SUPPORT
+HMODULE g_hMUIInstance = nullptr;
+
+CPalModDlg::~CPalModDlg()
+{
+    FreeMUILibrary(g_hMUIInstance);
+}
+#endif
+
 // CPalModDlg dialog
 CPalModDlg::CPalModDlg(CWnd* pParent /*=NULL*/)
     : CDialog(CPalModDlg::IDD, pParent)
 {
+#ifdef ENABLE_MUI_SUPPORT_TESTING
+    WCHAR szzPreferredLanguage[10] = L"en-gb";
+    DWORD langCount = 0;
+
+    SetThreadPreferredUILanguages(MUI_LANGUAGE_NAME, szzPreferredLanguage, &langCount);
+#endif
+
+#ifdef ENABLE_MUI_SUPPORT
+    WCHAR szFileName[MAX_PATH];
+
+    if (GetModuleFileName(nullptr, szFileName, ARRAYSIZE(szFileName)))
+    {
+#ifdef ENABLE_MUI_SUPPORT_TESTING
+        g_hMUIInstance = LoadMUILibrary(szFileName, MUI_LANGUAGE_NAME, LOCALE_CUSTOM_DEFAULT);
+#else
+        g_hMUIInstance = LoadMUILibrary(szFileName, MUI_LANGUAGE_NAME, LOCALE_USER_DEFAULT);
+#endif
+    }
+
+    if (!g_hMUIInstance)
+    {
+        AfxMessageBox(L"Warning: resources failed to load!\n");
+    }
+#endif
+
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
@@ -139,6 +176,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_EDIT_SELECTALL, &CPalModDlg::OnEditSelectAll)
     ON_COMMAND(ID_EDIT_SELECTNONE, &CPalModDlg::OnEditSelectNone)
     ON_COMMAND(ID_FILE_LOADLASTUSEDDIR, &CPalModDlg::LoadLastDir)
+
     ON_COMMAND(ID_COLORSPERLINE_8COLORSPERLINE, &CPalModDlg::SetColorsPerLineTo8)
     ON_COMMAND(ID_COLORSPERLINE_16COLORSPERLINE, &CPalModDlg::SetColorsPerLineTo16)
     ON_COMMAND(ID_COLORFORMAT_RGB333, &CPalModDlg::SetColorFormatTo9)
@@ -149,7 +187,11 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_COLORFORMAT_RGB555_GBA, &CPalModDlg::SetColorFormatToGBA)
     ON_COMMAND(ID_COLORFORMAT_RGB666, &CPalModDlg::SetColorFormatToNEOGEO)
     ON_COMMAND(ID_COLORFORMAT_SHARPRGB, &CPalModDlg::SetColorFormatToSharpRGB)
+    ON_COMMAND(ID_COLORFORMAT_ARGB1888, &CPalModDlg::SetColorFormatToARGB1888)
     ON_COMMAND(ID_COLORFORMAT_ARGB7888, &CPalModDlg::SetColorFormatToARGB7888)
+    ON_COMMAND(ID_COLORFORMAT_ARGB8888, &CPalModDlg::SetColorFormatToARGB8888)
+    ON_COMMAND(ID_TRANSPSETTING_16, &CPalModDlg::SetMaximumWriteTo16Colors)
+    ON_COMMAND(ID_TRANSPSETTING_256, &CPalModDlg::SetMaximumWriteTo256Colors)
     
     ON_COMMAND(ID_ALPHASETTING_FIXED, &CPalModDlg::SetAlphaModeToFixed)
     ON_COMMAND(ID_ALPHASETTING_VARIABLE, &CPalModDlg::SetAlphaModeToVariable)
@@ -183,13 +225,15 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_TOOLS_BLINK, &CPalModDlg::OnBnBlink)
     ON_WM_GETMINMAXINFO()
     ON_COMMAND(ID_LOADDIRECTORY_DANKUGA, &CPalModDlg::OnLoadDir_Dankuga)
+    ON_COMMAND(ID_LD_DBFCI, &CPalModDlg::OnLoadDir_DBFCI)    
     ON_COMMAND(ID_LD_GGXXACR, &CPalModDlg::OnLoadDir_GGXXACReloaded)
     ON_COMMAND(ID_LD_JOJOS50, &CPalModDlg::OnLoadDir_Jojos50)
     ON_COMMAND(ID_LD_JOJOS51, &CPalModDlg::OnLoadDir_Jojos51)
     ON_COMMAND(ID_LD_MVC2ARCADE, &CPalModDlg::OnLoadDir_MVC2ArcadeAll)
     ON_COMMAND(ID_LD_MVC2DCUSA, &CPalModDlg::OnLoadDir_MVC2DCUSA)
     ON_COMMAND(ID_LD_MVC2PS2USA, &CPalModDlg::OnLoadDir_MVC2PS2USA)
-    ON_COMMAND(ID_LOADDIRECTORY_REDEARTH, &CPalModDlg::OnLoadDir_RedEarthAll)
+    ON_COMMAND(ID_LOADDIRECTORY_REDEARTH_30, &CPalModDlg::OnLoadDir_RedEarth30)
+    ON_COMMAND(ID_LOADDIRECTORY_REDEARTH_31, &CPalModDlg::OnLoadDir_RedEarth31)
     ON_COMMAND(ID_LD_SFIII1, &CPalModDlg::OnLoadDir_SFIII1Arcade)
     ON_COMMAND(ID_LD_SFIII2, &CPalModDlg::OnLoadDir_SFIII2Arcade)
     ON_COMMAND(ID_LD_SFIII3DCALL, &CPalModDlg::OnLoadDir_SFIII3DCAll)
@@ -198,6 +242,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LD_SFIII3ARCADE4rd, &CPalModDlg::OnLoadDir_SFIII3Arcade4rd)
     ON_COMMAND(ID_LD_SFIII3ARCADE4rd10, &CPalModDlg::OnLoadDir_SFIII3Arcade4rd_10)
     ON_COMMAND(ID_LD_SFIII3ARCADEEX, &CPalModDlg::OnLoadDir_SFIII3ArcadeEx)
+    ON_COMMAND(ID_LD_UNICLR, &CPalModDlg::OnLoadDir_UNICLR)
 
     ON_COMMAND_RANGE(k_nGameLoadROMListMask, k_nGameLoadROMListMask + NUM_GAMES, &CPalModDlg::OnFileOpenInternal)
 END_MESSAGE_MAP()
@@ -248,7 +293,11 @@ BOOL CPalModDlg::OnInitDialog()
 
     RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, ID_INDICATOR_MAIN);
 
-    m_StatusBar.SetPaneText(0, DEFAULT_STATUS_TEXT);
+    CString strMsg;
+    if (strMsg.LoadStringW(IDS_WELCOME_BACKUP))
+    {
+        m_StatusBar.SetPaneText(0, strMsg.GetString());
+    }
 
     if (m_ToolTip.Create(this))
     {
@@ -522,13 +571,11 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
                 OnBnUpdate();
                 return TRUE;
             }
-            break;
             case IDNO:
             {
                 bPalChanged = FALSE;
                 return TRUE;
             }
-            break;
             case IDCANCEL:
             {
                 nPrevUnitSel != m_CBUnitSel.GetCurSel() ? m_CBUnitSel.SetCurSel(nPrevUnitSel) : NULL;
@@ -537,7 +584,6 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 
                 return FALSE;
             }
-            break;
             }
         }
         else
@@ -554,7 +600,6 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
             CString strQuestion;
             if (strQuestion.LoadString(IDS_SAVE_FILE_CHANGES))
             {
-
                 switch (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
                 {
                 case IDYES:
@@ -562,17 +607,14 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
                     OnFilePatch();
                     return TRUE;
                 }
-                break;
                 case IDNO:
                 {
                     fFileChanged = FALSE;
                     bPalChanged = FALSE;
                     return TRUE;
                 }
-                break;
                 case IDCANCEL:
                 {
-
                     return FALSE;
                 }
                 }
@@ -681,6 +723,15 @@ void CPalModDlg::SetStatusText(CString szText)
 
     //Set timer
     SetTimer(TIMER_STATUS, TIMER_ELAPSE, NULL);
+}
+
+void CPalModDlg::SetStatusText(UINT uStrId)
+{
+    CString strMessage;
+    if (strMessage.LoadString(uStrId))
+    {
+        SetStatusText(strMessage);
+    }
 }
 
 void CPalModDlg::OnAboutAboutpalmod()

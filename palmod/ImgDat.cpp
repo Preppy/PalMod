@@ -66,7 +66,7 @@ bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameI
         imageBufferFlushed = FlushImageBuffer();
     }
 
-    nImgMap = new  std::map<UINT16, ImgInfoList*>;
+    nImgMap = new std::map<UINT16, ImgInfoList*>;
 
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -285,7 +285,7 @@ bool CImgDat::sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag)
     return (uImgGameFlag == nCurImgGameFlag) && (uGameFlag == nCurGameFlag);
 }
 
-void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
+void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, UINT8 nNumGames)
 {
     static bool s_havePerformedVersionCheck = false;
 
@@ -294,9 +294,10 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
         // here we keep track of the imgdat version we expect.
         // not super critical for daily updates, but still useful
         const UINT16 nExpectedYear = 2021;
-        const UINT8 nExpectedMonth = 2;
-        const UINT8 nExpectedDay = 18;
+        const UINT8 nExpectedMonth = 3;
+        const UINT8 nExpectedDay = 30;
         const UINT8 nExpectedRevision = 0;
+        const ULONGLONG nExpectedFileSize = 80069949;
 
         const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 
@@ -305,8 +306,13 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
         s_havePerformedVersionCheck = true;
         if (nNumGames != IMGDAT_SECTION_LAST)
         {
-            strMsg.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
+            strMsg.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly as the number of game sets has changed.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+        }
+        else if (nFileSize < nExpectedFileSize) // it's only a significant problem if the file is smaller, which should happen very rarely as a result of partial downloads
+        {
+            strMsg.Format(L"Please note that PalMod's key image storage file, img2020.dat, is not the correct size and may be corrupt: we expect the file to be %u bytes, but the file is currently %u bytes.\n\nTo fix this, please exit PalMod and copy the new img2020.dat from the ZIP.  If this message persists, please download PalMod again.", (UINT32)nExpectedFileSize, (UINT32)nFileSize);
+            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
         }
         else if (nExpectedDatestamp != nCurrentDatestamp)
         {
@@ -317,7 +323,8 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
             }
             else
             {
-                OutputDebugString(L"WARNING: new imgdat is being used.  You may want to update the known date values in CImgDat::VersionCheckImgDat\n");
+                strMsg.Format(L"WARNING: new imgdat is being used.  You may want to update the known date values in CImgDat::VersionCheckImgDat .  File size is %u bytes.\n", (UINT32)nFileSize);
+                OutputDebugString(strMsg);
             }
         }
     }
@@ -372,17 +379,16 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
 
     ImgDatFile.Read(&uNumGames, 0x01);
 
-    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames);
+    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.  File size is %u bytes.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames, (UINT32)ImgDatFile.GetLength());
     OutputDebugString(strDebugInfo);
 
     if (uNumGames)
     {
-        VersionCheckImgDat((nYear << 16) | (nMonth << 8) | (nDay), uNumGames);
+        SanityCheckImgDat(ImgDatFile.GetLength(), (nYear << 16) | (nMonth << 8) | (nDay), uNumGames);
 
         for (int nGameCtr = 0; nGameCtr < uNumGames; nGameCtr++)
         {
             ImgDatFile.Read(&uReadGameFlag, 0x01);
-            ImgDatFile.Read(&uReadBPP, 0x01);
             ImgDatFile.Read(&uReadNumImgs, 0x02);
             ImgDatFile.Read(&uReadNextImgLoc, 0x04);
 

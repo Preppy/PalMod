@@ -40,9 +40,6 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_SHARPRGB);
 
-    //Set palette conversion mode=
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = m_nExpectedGameROMSize * ARRAYSIZE(c_ppszDanKuGa_Files);
@@ -67,10 +64,9 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = DANKUGA_A;
-    nImgGameFlag = IMGDAT_SECTION_CPS2;
-    // no images yet
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    nImgGameFlag = IMGDAT_SECTION_TAITO;
+    m_prgGameImageSet = DANKUGA_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(DANKUGA_A_IMG_UNITS);
     
     nFileAmt = ARRAYSIZE(c_ppszDanKuGa_Files);
 
@@ -571,16 +567,20 @@ BOOL CGame_DanKuGa_A_DIR::UpdatePalImg(int Node01, int Node02, int Node03, int N
 
     bool fShouldUseAlternateLoadLogic = false;
 
+    const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+
+    if (paletteDataSet)
+    {
+        nImgUnitId = paletteDataSet->indexImgToUse;
+        nTargetImgId = paletteDataSet->indexOffsetToUse;
+    }
+
     if (!fShouldUseAlternateLoadLogic)
     {
         //Create the default palette
         CreateDefPal(NodeGet, 0);
 
-        if (m_prgGameImageSet) // no need to show images until we get some. this check can be removed once that happens
-        {
-            // Only internal units get sprites
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-        }
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }
@@ -655,7 +655,7 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                 {
                     BYTE high, low;
 
-                    if ((((nWordsRead * 2 ) + m_nCurrentPaletteROMLocation) % 4) == 2)
+                    if ((((nWordsRead * 2) + nOriginalROMLocation) % 4) == 0)
                     {
                         LoadedFile->Read(&low, 1);
                         fileSIMM2.Read(&high, 1);
@@ -753,7 +753,7 @@ BOOL CGame_DanKuGa_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
                         BYTE high = (nColorValue & 0xFF00) >> 8;
                         BYTE low = nColorValue & 0xFF;
 
-                        if ((((nWordsWritten * 2) + m_nCurrentPaletteROMLocation) % 4) == 2)
+                        if ((((nWordsWritten * 2) + nOriginalROMLocation) % 4) == 0)
                         {
                             fileSIMM1.Write(&low, 1);
                             fileSIMM2.Write(&high, 1);

@@ -18,7 +18,7 @@ sSupportedGameList SupportedGameList[] =
     { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO },
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.p1|", GamePlatform::NEOGEO },
     { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo }, // Sega
-    { CFTE_SNES,        L"Clay Fighter:TE", L"Clay Fighter:TE|Clay Fighter - Tournament Edition (USA).sfc|", GamePlatform::Nintendo },
+    { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).sfc|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
     { CVS2_A,           L"CVS2", L"CVS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
     { DOUBLEDRAGON_A,   L"Double Dragon", L"Double Dragon|082-p1.*;ddrag_p1.rom|", GamePlatform::NEOGEO },
@@ -26,9 +26,10 @@ sSupportedGameList SupportedGameList[] =
     { Garou_A,          L"Garou: MotW", L"Garou: MotW|kf.neo-sma|", GamePlatform::NEOGEO },
     { GarouP_A,         L"Garou: MotW (Prototype)", L"Garou: MotW (Prototype)|proto_253-p1.p1;253-p1p.bin|", GamePlatform::NEOGEO },
     { Garou_S,          L"Garou: MotW", L"Garou: MotW for Steam 2|p1.bin|", GamePlatform::Steam },
-    { GUNDAM_SNES,      L"Gundam Wing: Endless Duel", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).sfc|", GamePlatform::Nintendo },
+    { GUNDAM_SNES,      L"Gundam Wing: Endless Duel (SNES)", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).sfc|", GamePlatform::Nintendo },
     { JOJOS_A,          L"Jojo's: HFTF", L"Jojos (Japan): HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
     { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", GamePlatform::NEOGEO }, // DataEast
+    { KOTM_A,           L"King of the Monsters", L"King of the Monsters (Neo-Geo)|016-p1.*;016-hp1.*|", GamePlatform::NEOGEO },
     { KIZUNA_A,         L"Kizuna Encounter", L"Kizuna Encounter|216-p1.*;ke_p1.rom|", GamePlatform::NEOGEO },
     { KOF94_A,          L"KOF94", L"KOF94|055-p1.*|", GamePlatform::NEOGEO },
     { KOF97_A,          L"KOF97", L"KOF97|232-p2.*;kof97_p2.rom|", GamePlatform::NEOGEO },
@@ -45,6 +46,7 @@ sSupportedGameList SupportedGameList[] =
     { MMPR_SNES,        L"MMPR:TFE (SNES)", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc|", GamePlatform::Nintendo },
     { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", GamePlatform::CapcomCPS12 },
     { MSHVSF_A,         L"MSHVSF", L"MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12 },
+    { MSHWOTG_SNES,     L"MSH: War of the Gems (SNES)", L"MSH: War of the Gems (SNES)|Marvel Super Heroes in War of the Gems (USA).sfc|", GamePlatform::Nintendo },
     { MVC_A,            L"Marvel vs Capcom", L"MVC Arcade|mvc*.06*|", GamePlatform::CapcomCPS12 },
     // MarvelVsCapcom2.bin
     // Unlocked\MarvelVsCapcom2_unlocked.bin
@@ -52,12 +54,12 @@ sSupportedGameList SupportedGameList[] =
     { NeoBomberman_A,   L"Neo Bomberman", L"Neo Bomberman|093-p1.*|", GamePlatform::NEOGEO },
     { NGBC_A,           L"NGBC", L"NGBC|NeoGeoBattleColliseum.bin|", GamePlatform::SammyAtomiswave },
     { NINJAMASTERS_A,   L"Ninja Master's", L"Ninja Master's|217-p2.*;ninjm_p2.rom|", GamePlatform::NEOGEO },
-    { ROTD_A,           L"Rage of the Dragons", L"Rage of the Dragons|264-p1.p1|", GamePlatform::NEOGEO },
+    { ROTD_A,           L"Rage of the Dragons", L"Rage of the Dragons|264-p1.*|", GamePlatform::NEOGEO },
     { RBFF1_A,          L"Real Bout Fatal Fury", L"Real Bout Fatal Fury|095-p1.*;rbff1_p1.rom|", GamePlatform::NEOGEO },
     { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2|240-p1.*;rb2_p1.rom|", GamePlatform::NEOGEO },
     // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
     { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special|223*p1*|", GamePlatform::NEOGEO },
-    { REDEARTH_A,       L"Red Earth", L"Red Earth|31|", GamePlatform::CapcomCPS3 },
+    { REDEARTH_A,       L"Red Earth", L"Red Earth (Stages: 30, Characters: 31)|30;31|", GamePlatform::CapcomCPS3 },
     { RODSM2_A,         L"Ring of Destruction: Slam Masters 2", L"Ring of Destruction: Slam Masters 2|smbe.05b|", GamePlatform::CapcomCPS12 },
     { SAMSHO3_A,        L"Samurai Shodown III", L"Samurai Shodown III|087-p5.p5|", GamePlatform::NEOGEO },
     { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.bin;222_p1.p1|", GamePlatform::NEOGEO },
@@ -77,7 +79,9 @@ sSupportedGameList SupportedGameList[] =
     { SSF2T_GBA,        L"SSF2T: Revival (GBA)", L"SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|", GamePlatform::Nintendo },
     { SDODGEBALL_A,     L"Super Dodge Ball", L"Super Dodge Ball|208-p1.*;sdb_p1.rom|", GamePlatform::NEOGEO },
     { GEMFIGHTER_A,     L"Super Gem Fighter", L"Super Gem Fighter|pcf*.07|", GamePlatform::CapcomCPS12 },
+    { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo|pzf.04*|", GamePlatform::CapcomCPS12 },
     { SVCPLUSA_A,       L"SVC Plus A", L"SVC PlusA|svc-p2pl.bin|", GamePlatform::NEOGEO },
+    { TOPF2005_SEGA,    L"Top Fighter 2005 (Mega Drive)", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::Sega },
     { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2|vh2j.09|", GamePlatform::CapcomCPS12 },
     { VSAV_A,           L"Vampire Savior", L"Vampire Savior|vm3*.10b|", GamePlatform::CapcomCPS12 },
     { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2|vs2j.10|", GamePlatform::CapcomCPS12 },
@@ -319,6 +323,7 @@ void CPalModDlg::UpdateColorFormatMenu()
     {
         ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
         AlphaMode currAlphaMode = GetHost()->GetCurrGame()->GetAlphaMode();
+        PALWriteOutputOptions currWriteMode = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
         canChangeAlpha = canChangeFormat = GetHost()->GetCurrGame()->AllowUpdatingColorFormatForGame();
 
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_9) ? MF_CHECKED : MF_UNCHECKED));
@@ -329,7 +334,9 @@ void CPalModDlg::UpdateColorFormatMenu()
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_GBA, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_GBA) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_SHARPRGB, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_SHARPRGB) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB1888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB1888) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB7888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB7888) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB8888) ? MF_CHECKED : MF_UNCHECKED));
 
         // There's no allowance for alpha with NEOGEO colors
         canChangeAlpha = canChangeAlpha && (currColMode != ColMode::COLMODE_NEOGEO);
@@ -338,7 +345,11 @@ void CPalModDlg::UpdateColorFormatMenu()
         pSettMenu->CheckMenuItem(ID_ALPHASETTING_VARIABLE, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesVariableAlpha) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_ALPHASETTING_UNUSED, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameDoesNotUseAlpha) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_ALPHASETTING_CHAOTIC, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesChaoticAlpha) ? MF_CHECKED : MF_UNCHECKED));
+
+        pSettMenu->CheckMenuItem(ID_TRANSPSETTING_16, MF_BYCOMMAND | ((currWriteMode == PALWriteOutputOptions::WRITE_16) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_TRANSPSETTING_256, MF_BYCOMMAND | ((currWriteMode == PALWriteOutputOptions::WRITE_MAX) ? MF_CHECKED : MF_UNCHECKED));
     }
+
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB333, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB444, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB444_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
@@ -347,13 +358,17 @@ void CPalModDlg::UpdateColorFormatMenu()
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_GBA, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_SHARPRGB, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB666, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB1888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB7888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB8888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
 
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_FIXED, canChangeAlpha ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_UNUSED, canChangeAlpha ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_VARIABLE, MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_CHAOTIC, MF_DISABLED);
 
+    pSettMenu->EnableMenuItem(ID_TRANSPSETTING_16, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_TRANSPSETTING_256, canChangeFormat ? MF_ENABLED : MF_DISABLED);
 }
 
 void CPalModDlg::SetAlphaModeTo(AlphaMode newAlphaMode)
@@ -369,6 +384,14 @@ void CPalModDlg::SetColorFormatTo(ColMode newColMode)
     if (GetHost()->GetCurrGame())
     {
         GetHost()->GetCurrGame()->SetColorMode(newColMode);
+    }
+}
+
+void CPalModDlg::SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption)
+{
+    if (GetHost()->GetCurrGame())
+    {
+        GetHost()->GetCurrGame()->SetMaximumWritePerEachTransparency(eUpdatedOption);
     }
 }
 
@@ -885,11 +908,11 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
         CString strStatus;
         if (fHadToFlip)
         {
-            strStatus.Format(L"ACT appears to have a reversed color table: loaded %u colors backwards.", nTotalColorsUsed);
+            strStatus.Format(IDS_ACT_REVERSEDLOAD, nTotalColorsUsed);
         }
         else
         {
-            strStatus.Format(L"Loaded %u colors from %u color %s file.", nTotalColorsUsed, nACTColorCount, L"ACT");
+            strStatus.Format(IDS_ACT_LOADED, nTotalColorsUsed, nACTColorCount);
         }
 
         SetStatusText(strStatus);
@@ -902,7 +925,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
         {
             MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
-        SetStatusText(CString(L"Failed loading ACT file."));
+        SetStatusText(IDS_ACT_LOADFAILURE);
     }
 
     return fSuccess;
@@ -1007,7 +1030,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
 
                             fSuccess = true;
                             CString strStatus;
-                            strStatus.Format(L"Loaded %u colors from %u color %s file.", nTotalColorsUsed, nPALColorCount, L"PAL");
+                            strStatus.Format(IDS_PAL_LOADED, nTotalColorsUsed, nPALColorCount);
                             SetStatusText(strStatus);
                         }
 
@@ -1023,7 +1046,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
     if (!fFoundPALChunk)
     {
         MessageBox(L"Error: This is not a Microsoft PAL RIFF file.", GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(CString(L"Failed loading PAL file."));
+        SetStatusText(IDS_PAL_LOADFAILURE);
     }
     else if (!fSuccess)
     {
@@ -1032,7 +1055,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
         {
             MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
-        SetStatusText(CString(L"Failed loading PAL file."));
+        SetStatusText(IDS_PAL_LOADFAILURE);
     }
 
     return fSuccess;
@@ -1310,11 +1333,11 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                     if (fHadToFlip)
                     {
-                        strInfo.Format(L"PNG appears to have a reversed color table: loaded %u colors backwards.", nTotalColorsUsed);
+                        strInfo.Format(IDS_PNG_REVERSEDLOAD, nTotalColorsUsed);
                     }
                     else
                     {
-                        strInfo.Format(L"Loaded %u colors from the %u color indexed %s file.", nTotalColorsUsed, nPNGColorCount, L"PNG");
+                        strInfo.Format(IDS_PNG_LOADED, nTotalColorsUsed, nPNGColorCount);
                     }
                     SetStatusText(strInfo);
 
@@ -1355,12 +1378,12 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
         strMessage.Append(L"Failing that, open up the PNG in a picture viewer.  While PalMod is the foreground application, select a color in PalMod. ");
         strMessage.Append(L"Then hover your mouse over the \"new\" color in your image, and press CTRL+SHIFT+V to copy that color to PalMod.  Repeat until you're done.");
         MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(CString(L"Cannot use this PNG: it does not contain a palette table."));
+        SetStatusText(IDS_PNGLOAD_NOTABLE);
     }
     else if (!fSuccess)
     {
         MessageBox(L"Error: This is not a valid PNG file.", GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(CString(L"Failed loading PNG file."));
+        SetStatusText(IDS_PNG_LOADFAILURE);
     }
 
     return fSuccess;
@@ -1478,7 +1501,7 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName)
         fSuccess = true;
     }
 
-    SetStatusText(CString(fSuccess ? "ACT file saved successfully." : "Error saving ACT file."));
+    SetStatusText(fSuccess ? IDS_ACTSAVE_SUCCESS : IDS_ACTSAVE_FAILURE);
     return fSuccess;
 }
 
@@ -1547,7 +1570,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName)
         fSuccess = true;
     }
 
-    SetStatusText(CString(fSuccess ? L"GPL file saved successfully." : L"Error saving GPL file."));
+    SetStatusText(fSuccess ? IDS_GPLSAVE_SUCCESS : IDS_GPLSAVE_FAILURE);
     return fSuccess;
 }
 
@@ -1591,7 +1614,7 @@ bool CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName)
         mmioClose(hRIFFFile, 0);
     }
 
-    SetStatusText(CString(fSuccess ? "RIFF PAL file saved successfully." : "Error saving RIFF PAL file."));
+    SetStatusText(fSuccess ? IDS_PALSAVE_SUCCESS : IDS_PALSAVE_FAILURE);
     return fSuccess;
 }
 

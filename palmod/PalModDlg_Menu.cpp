@@ -106,6 +106,9 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
             case GamePlatform::SammyAtomiswave:
                 pszPlatformName = L"Sammy Atomiswave";
                 break;
+            case GamePlatform::Sega:
+                pszPlatformName = L"Sega (Other)";
+                break;
             case GamePlatform::SegaNAOMI:
                 pszPlatformName = L"Sega NAOMI";
                 break;

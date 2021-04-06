@@ -38,8 +38,6 @@ CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize)
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
 
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     // We need this set before we initialize so that we can truncate bad Extras correctly.
     // Otherwise the new user could inadvertently corrupt their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -48,7 +46,7 @@ CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = GUNDAM_SNES_NUMUNIT;
     m_nExtraUnit = GUNDAM_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 100;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 104;
     m_pszExtraFilename = EXTRA_FILENAME_GUNDAM_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForGUNDAM;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -216,7 +214,7 @@ sDescTreeNode* CGame_GUNDAM_SNES::InitDescTree()
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];

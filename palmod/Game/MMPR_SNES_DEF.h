@@ -1,5 +1,21 @@
 #pragma once
 
+const UINT16 MMPR_SNES_IMG_UNITS[] =
+{
+    indexMMPRSprites_Goldar,        // 0x00
+    indexMMPRSprites_IvanOoze,      // 0x01
+    indexMMPRSprites_LipSyncer,     // 0x02
+    indexMMPRSprites_LordZedd,      // 0x03
+    indexMMPRSprites_MegaTigerzord, // 0x04
+    indexMMPRSprites_NinjaMegazord, // 0x05
+    indexMMPRSprites_ShogunMegazord, // 0x06
+    indexMMPRSprites_SilverHorns,   // 0x07
+    indexMMPRSprites_ThunderMegazord, // 0x08
+
+    indexMMPRSprites_Bonus,         // 0x09
+    indexMMPRSprites_Stages,        // 0x0a
+};
+
 const sGame_PaletteDataset MMPR_TMEGAZORD_PALETTES_A[] =
 {
     { L"Thunder Megazord A", 0x141c24, 0x141c64, indexMMPRSprites_ThunderMegazord },
@@ -144,6 +160,16 @@ const sDescTreeNode MMPR_IVANOOZE_COLLECTION[] =
    { L"B", DESC_NODETYPE_TREE, (void*)MMPR_IVANOOZE_PALETTES_B, ARRAYSIZE(MMPR_IVANOOZE_PALETTES_B) },
 };
 
+const sGame_PaletteDataset MMPR_PORTRAITS_SELECT_PALETTES[] =
+{
+    { L"Select Portraits", 0x142324, 0x142424 /*, indexMMPRSprites_Bonus, 0x00 */}, // temp disable until we get the updated sprite
+};
+
+const sDescTreeNode MMPR_PORTRAITS_COLLECTION[] =
+{
+   { L"Select Portraits", DESC_NODETYPE_TREE, (void*)MMPR_PORTRAITS_SELECT_PALETTES, ARRAYSIZE(MMPR_PORTRAITS_SELECT_PALETTES) },
+};
+
 const sDescTreeNode MMPR_SNES_UNITS[] =
 {
     { L"Thunder Megazord",  DESC_NODETYPE_TREE, (void*)MMPR_TMEGAZORD_COLLECTION,   ARRAYSIZE(MMPR_TMEGAZORD_COLLECTION) },
@@ -155,6 +181,7 @@ const sDescTreeNode MMPR_SNES_UNITS[] =
     { L"Silver Horns",      DESC_NODETYPE_TREE, (void*)MMPR_SILVERHORNS_COLLECTION, ARRAYSIZE(MMPR_SILVERHORNS_COLLECTION) },
     { L"Lord Zedd",         DESC_NODETYPE_TREE, (void*)MMPR_LORDZEDD_COLLECTION,    ARRAYSIZE(MMPR_LORDZEDD_COLLECTION) },
     { L"Ivan Ooze",         DESC_NODETYPE_TREE, (void*)MMPR_IVANOOZE_COLLECTION,    ARRAYSIZE(MMPR_IVANOOZE_COLLECTION) },
+    { L"Portraits",         DESC_NODETYPE_TREE, (void*)MMPR_PORTRAITS_COLLECTION,    ARRAYSIZE(MMPR_PORTRAITS_COLLECTION) },
 };
 
 constexpr auto MMPR_SNES_NUMUNIT = ARRAYSIZE(MMPR_SNES_UNITS);

@@ -95,6 +95,57 @@
 #define IDC_UPDATE                      1067
 #define IDC_ABOUTNAME                   1070
 #define IDC_ABOUTNAME2                  1071
+#define IDS_DECRYPTING_START            2000
+#define IDS_DECRYPTING_DONE             2001
+#define IDS_ACT_LOADFAILURE             2002
+#define IDS_PAL_LOADFAILURE             2003
+#define IDS_PNG_LOADFAILURE             2004
+#define IDS_ACT_LOADED                  2005
+#define IDS_ACT_REVERSEDLOAD            2006
+#define IDS_PAL_LOADED                  2007
+#define IDS_PNG_LOADED                  2008
+#define IDS_PNG_REVERSEDLOAD            2009
+#define IDS_LOADING_DUPECHECK           2010
+#define IDS_RAW_EXTRADATA               2011
+#define IDS_PASTE_FROMBUTTON            2012
+#define IDS_PASTE_CROSSGAME             2013
+#define IDS_PASTED_COLOR                2014
+#define IDS_PASTE_RGB                   2015
+#define IDS_PASTE_UNSUPPORTED           2016
+#define IDS_LOADSAVE_SUCCESS            2017
+#define IDS_LOADSAVE_FAILURE            2018
+#define IDS_LOADERROR_SINGLE            2019
+#define IDS_LOADERROR_MULTI             2020
+#define IDS_LOADGAME_SINGLE             2021
+#define IDS_LOADGAME_MULTI              2022
+#define IDS_PATCH_FAIL                  2023
+#define IDS_PATCH_SUCCESS               2024
+#define IDS_PATCHGAME_SINGLE            2025
+#define IDS_PATCHGAME_MULTI             2026
+#define IDS_PATCH_EMPTY                 2027
+#define IDS_CROSSCOPY_SINGLE_SUCCESS    2028
+#define IDS_CROSSCOPY_MULTI_SUCCESS     2029
+#define IDS_CROSSCOPY_NODIR             2030
+#define IDS_IPS_SINGLE                  2031
+#define IDS_IPS_MULTI                   2032
+#define IDS_IPS_EMPTY                   2033
+#define IDS_ACTSAVE_SUCCESS             2034
+#define IDS_ACTSAVE_FAILURE             2035
+#define IDS_GPLSAVE_SUCCESS             2036
+#define IDS_GPLSAVE_FAILURE             2037
+#define IDS_PALSAVE_SUCCESS             2038
+#define IDS_PALSAVE_FAILURE             2039
+#define IDS_PNGLOAD_NOTABLE             2040
+#define IDS_WELCOME_BACKUP              2041
+#define IDS_SETBACKGROUND_FULL          2042
+#define IDS_SFA2_UNKNOWNROM             2043
+#define IDS_SF3_UNKNOWNROM              2044
+#define IDS_EXTRAS_SIMMBOUNDARY         2045
+#define IDS_COLOR_WRONGSIZE             2046
+#define IDS_SAVE_LOWWRITE               2047
+#define IDS_ERROR_COPYCOLOR             2048
+#define IDS_WARN_TRANSPARENCY           2049
+
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
 #define ID_LD_MVC2DCUSA                 32773
@@ -156,7 +207,7 @@
 #define ID_LD_JOJOS50                   32843
 #define ID_LD_JOJOS51                   32844
 #define ID_LD_MVC2ARCADE                32845
-#define ID_LOADDIRECTORY_REDEARTH       32846
+#define ID_LOADDIRECTORY_REDEARTH_30    32846
 #define ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR 32847
 #define ID_TOOLS_GENERATEPATCHFILE      32848
 #define ID_IMGOUT_SAVE                  32849
@@ -194,7 +245,14 @@
 #define ID_LD_SFIII3ARCADE4rd10         32882
 #define ID_LD_SFIII1                    32883
 #define ID_LD_SFIII2                    32884
-#define ID_LD_GGXXACR                     32885
+#define ID_LD_GGXXACR                   32885
+#define ID_LD_DBFCI                     32886
+#define ID_LD_UNICLR                    32887
+#define ID_LOADDIRECTORY_REDEARTH_31    32888
+#define ID_COLORFORMAT_ARGB8888         32889
+#define ID_COLORFORMAT_ARGB1888         32890
+#define ID_TRANSPSETTING_16             32891
+#define ID_TRANSPSETTING_256            32892
 
 // Please note that the F0000 range (983040) is reserved for the dynamic game menu
 
@@ -203,7 +261,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32886
+#define _APS_NEXT_COMMAND_VALUE         32893
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

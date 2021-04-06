@@ -1482,81 +1482,81 @@ const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_AK[] =
 
 const sGame_PaletteDataset VHUNT2_A_DONOVAN_PALETTES_LP[] =
 {
-    { L"LP Donovan",         0x1cb9c, 0x1cbbc, indexCPS2_Vamp_Donovan, 0x0 },
+    { L"LP Donovan",         0x1cb9c, 0x1cbbc, indexCPS2_Vamp_Donovan, 0x0, &pairNext2 },
     { L"LP Unknown Extra",   0x1cbbc, 0x1cbdc },
-    { L"LP Weapons",         0x1cbdc, 0x1cbfc, indexCPS2_Anita, 1 },
+    { L"LP Weapons",         0x1cbdc, 0x1cbfc, indexCPS2_Vamp_Donovan, 0x1 },
     { L"LP Anita",           0x1cbfc, 0x1cc1c, indexCPS2_Anita, 0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_DONOVAN_PALETTES_MP[] =
 {
-    { L"MP Donovan",         0x1cc1c, 0x1cc3c, indexCPS2_Vamp_Donovan, 0x0 },
+    { L"MP Donovan",         0x1cc1c, 0x1cc3c, indexCPS2_Vamp_Donovan, 0x0, &pairNext2 },
     { L"MP Unknown Extra",   0x1cc3c, 0x1cc5c },
-    { L"MP Weapons",         0x1cc5c, 0x1cc7c, indexCPS2_Anita, 1 },
+    { L"MP Weapons",         0x1cc5c, 0x1cc7c, indexCPS2_Vamp_Donovan, 0x1 },
     { L"MP Anita",           0x1cc7c, 0x1cc9c, indexCPS2_Anita, 0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_DONOVAN_PALETTES_HP[] =
 {
-    { L"HP Donovan",         0x1cc9c, 0x1ccbc, indexCPS2_Vamp_Donovan, 0x0 },
+    { L"HP Donovan",         0x1cc9c, 0x1ccbc, indexCPS2_Vamp_Donovan, 0x0, &pairNext2 },
     { L"HP Unknown Extra",   0x1ccbc, 0x1ccdc },
-    { L"HP Weapons",         0x1ccdc, 0x1ccfc, indexCPS2_Anita, 1 },
+    { L"HP Weapons",         0x1ccdc, 0x1ccfc, indexCPS2_Vamp_Donovan, 0x1 },
     { L"HP Anita",           0x1ccfc, 0x1cd1c, indexCPS2_Anita, 0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_DONOVAN_PALETTES_LK[] =
 {
-    { L"LK Donovan",         0x1cd1c, 0x1cd3c, indexCPS2_Vamp_Donovan, 0x0 },
+    { L"LK Donovan",         0x1cd1c, 0x1cd3c, indexCPS2_Vamp_Donovan, 0x0, &pairNext2 },
     { L"LK Unknown Extra",   0x1cd3c, 0x1cd5c },
-    { L"LK Weapons",         0x1cd5c, 0x1cd7c, indexCPS2_Anita, 1 },
+    { L"LK Weapons",         0x1cd5c, 0x1cd7c, indexCPS2_Vamp_Donovan, 0x1 },
     { L"LK Anita",           0x1cd7c, 0x1cd9c, indexCPS2_Anita, 0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_DONOVAN_PALETTES_MK[] =
 {
-    { L"MK Donovan",         0x1cd9c, 0x1cdbc, indexCPS2_Vamp_Donovan, 0x0 },
+    { L"MK Donovan",         0x1cd9c, 0x1cdbc, indexCPS2_Vamp_Donovan, 0x0, &pairNext2 },
     { L"MK Unknown Extra",   0x1cdbc, 0x1cddc },
-    { L"MK Weapons",         0x1cddc, 0x1cdfc, indexCPS2_Anita, 1 },
+    { L"MK Weapons",         0x1cddc, 0x1cdfc, indexCPS2_Vamp_Donovan, 0x1 },
     { L"MK Anita",           0x1cdfc, 0x1ce1c, indexCPS2_Anita, 0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_DONOVAN_PALETTES_HK[] =
 {
-    { L"HK Donovan",         0x1ce1c, 0x1ce3c, indexCPS2_Vamp_Donovan, 0x0 },
+    { L"HK Donovan",         0x1ce1c, 0x1ce3c, indexCPS2_Vamp_Donovan, 0x0, &pairNext2 },
     { L"HK Unknown Extra",   0x1ce3c, 0x1ce5c },
-    { L"HK Weapons",         0x1ce5c, 0x1ce7c, indexCPS2_Anita, 1 },
+    { L"HK Weapons",         0x1ce5c, 0x1ce7c, indexCPS2_Vamp_Donovan, 0x1 },
     { L"HK Anita",           0x1ce7c, 0x1ce9c, indexCPS2_Anita, 0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_DONOVAN_PALETTES_PP[] =
 {
-    { L"PP Donovan",         0x1ce9c, 0x1cebc, indexCPS2_Vamp_Donovan, 0x0 },
+    { L"PP Donovan",         0x1ce9c, 0x1cebc, indexCPS2_Vamp_Donovan, 0x0, &pairNext2 },
     { L"PP Unknown Extra",   0x1cebc, 0x1cedc },
-    { L"PP Weapons",         0x1cedc, 0x1cefc, indexCPS2_Anita, 1 },
+    { L"PP Weapons",         0x1cedc, 0x1cefc, indexCPS2_Vamp_Donovan, 0x1 },
     { L"PP Anita",           0x1cefc, 0x1cf1c, indexCPS2_Anita, 0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_DONOVAN_PALETTES_KK[] =
 {
-    { L"KK Donovan",         0x1cf1c, 0x1cf3c, indexCPS2_Vamp_Donovan, 0x0 },
+    { L"KK Donovan",         0x1cf1c, 0x1cf3c, indexCPS2_Vamp_Donovan, 0x0, &pairNext2 },
     { L"KK Unknown Extra",   0x1cf3c, 0x1cf5c },
-    { L"KK Weapons",         0x1cf5c, 0x1cf7c, indexCPS2_Anita, 1 },
+    { L"KK Weapons",         0x1cf5c, 0x1cf7c, indexCPS2_Vamp_Donovan, 0x1 },
     { L"KK Anita",           0x1cf7c, 0x1cf9c, indexCPS2_Anita, 0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_DONOVAN_PALETTES_AP[] =
 {
-    { L"AP Donovan",         0x1cf9c, 0x1cfbc, indexCPS2_Vamp_Donovan, 0x0 },
+    { L"AP Donovan",         0x1cf9c, 0x1cfbc, indexCPS2_Vamp_Donovan, 0x0, &pairNext2 },
     { L"AP Unknown Extra",   0x1cfbc, 0x1cfdc },
-    { L"AP Weapons",         0x1cfdc, 0x1cffc, indexCPS2_Anita, 1 },
+    { L"AP Weapons",         0x1cfdc, 0x1cffc, indexCPS2_Vamp_Donovan, 0x1 },
     { L"AP Anita",           0x1cffc, 0x1d01c, indexCPS2_Anita, 0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_DONOVAN_PALETTES_AK[] =
 {
-    { L"AK Donovan",         0x1d01c, 0x1d03c, indexCPS2_Vamp_Donovan, 0x0 },
+    { L"AK Donovan",         0x1d01c, 0x1d03c, indexCPS2_Vamp_Donovan, 0x0, &pairNext2 },
     { L"AK Unknown Extra",   0x1d03c, 0x1d05c },
-    { L"AK Weapons",         0x1d05c, 0x1d07c, indexCPS2_Anita, 1 },
+    { L"AK Weapons",         0x1d05c, 0x1d07c, indexCPS2_Vamp_Donovan, 0x1 },
     { L"AK Anita",           0x1d07c, 0x1d09c, indexCPS2_Anita, 0 },
 };
 

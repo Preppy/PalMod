@@ -37,9 +37,6 @@ CGame_ROTD_A::CGame_ROTD_A(UINT32 nConfirmedROMSize)
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_15ALT);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -48,7 +45,7 @@ CGame_ROTD_A::CGame_ROTD_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = ROTD_A_NUMUNIT;
     m_nExtraUnit = ROTD_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 214;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 536;
     m_pszExtraFilename = EXTRA_FILENAME_ROTD_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForROTD;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -60,9 +57,9 @@ CGame_ROTD_A::CGame_ROTD_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = ROTD_A;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    nImgGameFlag = IMGDAT_SECTION_NEOGEO;
+    m_prgGameImageSet = ROTD_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(ROTD_A_IMG_UNITS);
 
     nFileAmt = 1;
 
@@ -180,7 +177,7 @@ sDescTreeNode* CGame_ROTD_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < ROTD_A_EXTRALOC)
+        if (iUnitCtr != ROTD_A_EXTRALOC)
         {
             //Set each description
             _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", ROTD_A_UNITS[iUnitCtr].szDesc);
@@ -196,7 +193,7 @@ sDescTreeNode* CGame_ROTD_A::InitDescTree()
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -337,7 +334,9 @@ UINT32 CGame_ROTD_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"Rage of the Dragons (Neo-Geo)", L"264-p1.p1", -1, 0 },
+        { L"Rage of the Dragons (Neo-Geo)", L"264-p1.p1", 0xb8cc969d, 0 },
+        // This is a smaller file but it works
+        { L"Rage of the Dragons (Neo-Geo Clone)", L"264-pk1.p1", 0xff2fa719, 0 },
     };
 
     if (ppKnownROMSet != nullptr)

@@ -18,9 +18,7 @@ UINT32 CGame_JOJOS_A::m_nTotalPaletteCount50 = 0;
 UINT32 CGame_JOJOS_A::m_nTotalPaletteCount51 = 0;
 
 int CGame_JOJOS_A::rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
-int CGame_JOJOS_A::rgExtraCountVisibleOnly_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
-int CGame_JOJOS_A::rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 UINT32 CGame_JOJOS_A::m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
@@ -33,9 +31,7 @@ void CGame_JOJOS_A::InitializeStatics()
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);
 
     memset(rgExtraCountAll_50, -1, sizeof(rgExtraCountAll_50));
-    memset(rgExtraCountVisibleOnly_50, -1, sizeof(rgExtraCountVisibleOnly_50));
     memset(rgExtraCountAll_51, -1, sizeof(rgExtraCountAll_51));
-    memset(rgExtraCountVisibleOnly_51, -1, sizeof(rgExtraCountVisibleOnly_51));
 
     memset(rgExtraLoc_50, -1, sizeof(rgExtraLoc_50));
     memset(rgExtraLoc_51, -1, sizeof(rgExtraLoc_51));
@@ -50,9 +46,6 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(ColMode::COLMODE_15);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -77,7 +70,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
     const UINT32 nSafeCountFor50 = 477;
-    const UINT32 nSafeCountFor51 = 1667;
+    const UINT32 nSafeCountFor51 = 1672;
 
     m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
     m_pszExtraFilename = UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51;
@@ -118,16 +111,7 @@ CGame_JOJOS_A::~CGame_JOJOS_A(void)
 
 int CGame_JOJOS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = nullptr;
-
-    if (bCountVisibleOnly)
-    {
-        rgExtraCt = UsePaletteSetFor50() ? (int*)rgExtraCountVisibleOnly_50 : (int*)rgExtraCountVisibleOnly_51;
-    }
-    else
-    {
-        rgExtraCt = UsePaletteSetFor50() ? (int*)rgExtraCountAll_50 : (int*)rgExtraCountAll_51;
-    }
+    int* rgExtraCt = UsePaletteSetFor50() ? (int*)rgExtraCountAll_50 : (int*)rgExtraCountAll_51;
 
     if (rgExtraCt[0] == -1)
     {
@@ -341,7 +325,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -851,7 +835,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     int nNormalPalettesCount = ((GetCollectionCountForUnit(NodeGet->uUnitId) * 2) + 10);
     bool fUseDefaultPaletteLoad = true;
 
-    if (UsePaletteSetFor50() ? (JOJOS_A_EXTRALOC_50 > NodeGet->uUnitId) : (JOJOS_A_EXTRALOC_51 > NodeGet->uUnitId))
+    if (m_nExtraUnit != NodeGet->uUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 

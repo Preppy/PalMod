@@ -1,0 +1,1246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CustomCtrl">
+      <UniqueIdentifier>{a890215f-af46-44d0-9b41-aadeafbc8ac5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{4aa59c2b-fa46-4634-8464-096e8cf028f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Palette">
+      <UniqueIdentifier>{7fdafb55-ac78-4bab-90e9-d0be816ef08f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Default">
+      <UniqueIdentifier>{1a9ec6e6-71d3-4e4c-9226-6c7d87f549fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Image">
+      <UniqueIdentifier>{6e60247b-4b6c-431e-bdb5-8523533818d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Files">
+      <UniqueIdentifier>{2c52f1e6-5791-4801-876e-4b6c27abaccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main DLG/APP">
+      <UniqueIdentifier>{38e8a575-4a1c-4f5d-a025-b560493eeb30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main DLG/APP\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Main DLG/APP\Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Main DLG/APP\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Main DLG/APP\Registry">
+      <UniqueIdentifier>{c831fe95-260e-4e62-964e-d490b0df1703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main DLG/APP\UndoRedo">
+      <UniqueIdentifier>{858b99b1-77bf-4de0-a42c-561c33d7d05b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games">
+      <UniqueIdentifier>{2568c6dd-60d3-4656-9161-a57b217a57e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MVC2_A_DIR">
+      <UniqueIdentifier>{5080e049-60b4-434d-88da-3af65dc004e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MVC2_P">
+      <UniqueIdentifier>{2de3a788-3bf5-43af-9f2a-1463e9a9f9ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MVC2_D">
+      <UniqueIdentifier>{c47d5fd9-40eb-476c-a684-36e1af154e95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFA2_A">
+      <UniqueIdentifier>{7a9a83c1-418d-40d6-a3ea-10a5cb212d1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFA3_A">
+      <UniqueIdentifier>{e9729bd6-5628-4cad-965a-7d633274dda6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFIII3_A">
+      <UniqueIdentifier>{55f08cbc-ae87-4c23-9fa3-17aaf7c5d28a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFIII3_A_DIR">
+      <UniqueIdentifier>{074d6beb-52e5-4e99-9611-61003896b387}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFIII3_D">
+      <UniqueIdentifier>{b3d84418-feea-4a1e-b762-1e50d11de0f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SSF2T_A">
+      <UniqueIdentifier>{41cb4112-4692-4932-907c-e998223278a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\XMVSF_A">
+      <UniqueIdentifier>{812aa4e2-7390-40c1-b4d8-aec28480193d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MVC2_A">
+      <UniqueIdentifier>{4f605612-8147-46d6-88ad-c958642579f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MVC_A">
+      <UniqueIdentifier>{4efce5e0-fe0e-4919-aa24-a0017a01bbcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MSHVSF_A">
+      <UniqueIdentifier>{4fda55b1-13e7-4349-a09e-04889d545d63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MSH_A">
+      <UniqueIdentifier>{fc8be4e5-bb36-4453-8d77-b8df802a3ad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\JOJOS_A">
+      <UniqueIdentifier>{9f70da93-a5b3-4a79-b773-89cda4e86c49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\JOJOS_A_DIR">
+      <UniqueIdentifier>{393348a9-9ee8-45fc-a91c-74f1c72ec293}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games">
+      <UniqueIdentifier>{8641f995-3c94-44ec-be0f-8f6a5b01ef82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF98_A">
+      <UniqueIdentifier>{d9c8c45e-3ad2-4bb8-a6e6-08a9665543d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF02UM_S">
+      <UniqueIdentifier>{8b9ef95f-05ae-44ef-8320-826a370b75b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF02_A">
+      <UniqueIdentifier>{a54da33d-5b19-45ec-81c8-38f230908bd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\SVCPLUSA_A">
+      <UniqueIdentifier>{b5984ab2-a10f-400e-b1ff-4766bfb767c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Garou_S">
+      <UniqueIdentifier>{a88dc215-a7e2-4efe-b6ea-bd7491c26694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Garou_A">
+      <UniqueIdentifier>{a8830097-3e47-45f5-bdd5-b2d4fc746943}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\CVS2_A">
+      <UniqueIdentifier>{3570dfdb-7518-4b38-a235-2e484ea22c9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\COTA_A">
+      <UniqueIdentifier>{b76bf8de-0eee-4bdb-be3c-3591a888af28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\GEMFIGHTER_A">
+      <UniqueIdentifier>{009a84f1-7e48-4f59-8fdf-a151fc92a9be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\RedEarth_A">
+      <UniqueIdentifier>{d48977d3-f69d-4040-b3e9-89cb618f6d70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\RedEarth_A_DIR">
+      <UniqueIdentifier>{ef4e29a9-08bd-4a6d-befe-5e393fdf5b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KarnovsR_A">
+      <UniqueIdentifier>{59438445-c5d4-4215-81c1-5154cf395d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\CRC32">
+      <UniqueIdentifier>{a158b4e6-b741-41cc-b522-17e2e097c889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Waku Waku 7">
+      <UniqueIdentifier>{a1662e6d-6a59-40de-989d-9c354bd32e5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFA1_A">
+      <UniqueIdentifier>{c523ccb5-003b-4c0d-8c4e-a7ef3b62a0fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\VSAV_A">
+      <UniqueIdentifier>{9e472f9e-f1a9-40ee-af45-ac125715d5aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\VSAV2_A">
+      <UniqueIdentifier>{c0e44c54-faac-448c-852c-df9e57bdab25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Real Bout Fatal Fury Special">
+      <UniqueIdentifier>{8443d0ef-6c99-4658-b287-180c5fa4e7e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\Vampire Hunter 2_A">
+      <UniqueIdentifier>{1787a1ba-4222-49af-b2a1-e0d7642736cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFIII2_A">
+      <UniqueIdentifier>{769f01ba-c97f-4e25-b20e-2378fdd9abf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SF2HF_A">
+      <UniqueIdentifier>{365a9fbb-bc12-4a84-bc72-41e4276d2c60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SF2CE_A">
+      <UniqueIdentifier>{9787d941-cea6-45d5-8ae0-8d1271838851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SSF2T_GBA">
+      <UniqueIdentifier>{a81e99f7-5252-4942-be53-4c867f5b7ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFIII1_A">
+      <UniqueIdentifier>{0392684f-784f-43de-985d-c60de71330f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Matrimelee_A">
+      <UniqueIdentifier>{8e6a1bf6-b031-4945-926a-51fdbcd84b07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Windjammers_A">
+      <UniqueIdentifier>{c8028836-64ab-4644-b186-e41111f5dd09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\NeoGeo Battle Colliseum">
+      <UniqueIdentifier>{194b886e-8492-41d0-a398-00cbb161e244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Unknown Game">
+      <UniqueIdentifier>{acaea0b1-3907-4bbd-a2f0-32edc189a18a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Breakers Revenge">
+      <UniqueIdentifier>{5145a37d-8a16-4461-834b-518532cc6a53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo">
+      <UniqueIdentifier>{b03bb639-d714-4d8f-b664-84b1bc5fc6d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\BLEACH_DS">
+      <UniqueIdentifier>{2188a85d-12e7-4b62-a7bd-8ceea29c95e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF03_A">
+      <UniqueIdentifier>{da1faa02-bdd1-465d-9b23-9e4504204406}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\MMPR_SNES">
+      <UniqueIdentifier>{90c0e8ff-821b-4e54-a53c-bcaae5916403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF01_A">
+      <UniqueIdentifier>{3d941f32-066d-4805-bf2c-c68239ba6d21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\NeoBomberman_A">
+      <UniqueIdentifier>{5b3ee8d1-5bef-46b3-b139-fc30deec57e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Gundam Endless Duel">
+      <UniqueIdentifier>{e8835cfd-2974-45fb-8fdc-2a63b9b76d73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF94_A">
+      <UniqueIdentifier>{d81962ef-76db-489b-9043-ffcab6bc9adc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOFXI_A">
+      <UniqueIdentifier>{d12dfc26-a331-4ac9-928f-89a7c1753af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Clay Fighter: TE">
+      <UniqueIdentifier>{8fce122e-fa29-4397-8fe1-518222d624ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF99AE_A">
+      <UniqueIdentifier>{9fc92127-41e6-4ee1-a53b-9c31a9fd3903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Fatal Fury Special %28SNES%29">
+      <UniqueIdentifier>{e923f483-9252-4955-9dd2-53b0b2448939}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Art of Fighting 3">
+      <UniqueIdentifier>{0fb8dfe4-7c4f-44ba-a82b-b15d13c2b3f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms">
+      <UniqueIdentifier>{3e8ed08b-6c31-4d0d-affc-0f6a12a8dcb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown 4">
+      <UniqueIdentifier>{dc385e4d-7b94-4805-8871-c401b54bd681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\Slam Masters 2">
+      <UniqueIdentifier>{790c3553-43d8-4e6d-9b0f-b36f7b64f595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Last Blade 2">
+      <UniqueIdentifier>{882354da-0a66-45a8-a19f-7582fcd08abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown 5">
+      <UniqueIdentifier>{41152932-6857-4875-a1a1-40ed18d6bd80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Real Bout Fatal Fury 1">
+      <UniqueIdentifier>{1bde8d50-ba03-407d-a49b-fe58c356b932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown 3">
+      <UniqueIdentifier>{1bc29372-5f2a-4d1f-b949-f5fd9a70efe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown 5 Special">
+      <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Real Bout Fatal Fury 2">
+      <UniqueIdentifier>{82710d2e-de00-4ee9-a2bc-77447da7e830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Kizuna Encounter">
+      <UniqueIdentifier>{1e4fa757-134f-414d-8da1-fba2711f6999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFZ3U_A">
+      <UniqueIdentifier>{ca5516ef-e807-4de5-b889-e11da544a6e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Art of Fighting 1">
+      <UniqueIdentifier>{3dafae03-f15a-41f5-b52d-86343bdd6fff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Double Dragon">
+      <UniqueIdentifier>{b9dc1b67-7f5d-4f9d-9b8a-b6b01f7e3aa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Super Dodge Ball">
+      <UniqueIdentifier>{00b75d83-e2f3-4eb3-b2f5-2e8cbd8c9088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Ninja Masters">
+      <UniqueIdentifier>{8067a5a7-2ac2-4837-982c-af052c429125}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF97_A">
+      <UniqueIdentifier>{588800f1-13d9-4ed4-b8d1-1b8fbf9ed784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFIII1_A_DIR">
+      <UniqueIdentifier>{db765fb3-b9ce-4546-9b86-b13ecc6536e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFIII2_A_DIR">
+      <UniqueIdentifier>{31a04bd2-a0e2-49f3-913e-6fdd40c4bfbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms\Dan-Ku-Ga">
+      <UniqueIdentifier>{4cb9c32e-6df1-4558-89b1-002c430d37ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Savage Reign">
+      <UniqueIdentifier>{85ad4673-3216-48e6-8843-d42c26132625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms\GGXX ACR">
+      <UniqueIdentifier>{4465c092-2e8d-4ad8-9e9f-3ddfa005bc8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Rage of the Dragons">
+      <UniqueIdentifier>{deaf145c-fe5f-4801-b2be-a8c8b9d7eb01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms\Dengeki Bunko FCI">
+      <UniqueIdentifier>{389529cd-be87-434c-9024-42b76c58038b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms\UNICLR - Under Night In-Birth">
+      <UniqueIdentifier>{a3705e6d-51d3-422d-87b6-24e21089a494}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\Super Puzzle Fighter II">
+      <UniqueIdentifier>{98c51f41-36e2-4769-8cf5-dcb88ba4c42c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\MSH: War of the Gems %28SNES%29">
+      <UniqueIdentifier>{d80c3add-38ff-46ee-9ac0-dff64814be18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\King of the Monsters">
+      <UniqueIdentifier>{fabb0587-0a5a-4f3a-847b-a3145a625cfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Sega">
+      <UniqueIdentifier>{6bc0166b-c607-4ca9-a98a-30a0a29b2627}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Sega\Top Fighter 2005">
+      <UniqueIdentifier>{5cbf317e-6205-44c4-84fa-36a0ca650e67}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ImgDisp.cpp">
+      <Filter>CustomCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="Junk.cpp">
+      <Filter>CustomCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="PalTool.cpp">
+      <Filter>CustomCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ColorScale.cpp">
+      <Filter>Game\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\PalGroup.cpp">
+      <Filter>Game\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ShellSort.cpp">
+      <Filter>Game\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MVC2_D.cpp">
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\MVC2_PALSEL.cpp">
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\MVC2_SUPP.cpp">
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII3_A.cpp">
+      <Filter>Game\Capcom Games\SFIII3_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\DescTree.cpp">
+      <Filter>Game\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameClass.cpp">
+      <Filter>Game\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameLoad.cpp">
+      <Filter>Game\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgDat.cpp">
+      <Filter>Game\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MVC2_P.cpp">
+      <Filter>Game\Capcom Games\MVC2_P</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SSF2T_A.cpp">
+      <Filter>Game\Capcom Games\SSF2T_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFA3_A.cpp">
+      <Filter>Game\Capcom Games\SFA3_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_XMVSF_A.cpp">
+      <Filter>Game\Capcom Games\XMVSF_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MVC_A.cpp">
+      <Filter>Game\Capcom Games\MVC_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII3_D.cpp">
+      <Filter>Game\Capcom Games\SFIII3_D</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgDumpBmp.cpp">
+      <Filter>Additional Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgOutDlg.cpp">
+      <Filter>Additional Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalMod.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_Color.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_Config.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_Edit.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_File.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_General.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_Menu.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PreviewDlg.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettDlg.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegProc.cpp">
+      <Filter>Main DLG/APP\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="UndoRedo.cpp">
+      <Filter>Main DLG/APP\UndoRedo</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\mvc2_validate.cpp">
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_JOJOS_A.cpp">
+      <Filter>Game\Capcom Games\JOJOS_A</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtraFile.cpp">
+      <Filter>Game\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgInfoList.cpp">
+      <Filter>Game\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MSH_A.cpp">
+      <Filter>Game\Capcom Games\MSH_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MSHVSF_A.cpp">
+      <Filter>Game\Capcom Games\MSHVSF_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_COTA_A.cpp">
+      <Filter>Game\Capcom Games\COTA_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MVC2_A.cpp">
+      <Filter>Game\Capcom Games\MVC2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Garou_A.cpp">
+      <Filter>Game\SNK Games\Garou_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_NEOGEO_A.cpp">
+      <Filter>Game\SNK Games\Unknown Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF98_A.cpp">
+      <Filter>Game\SNK Games\KOF98_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_CVS2_A.cpp">
+      <Filter>Game\Capcom Games\CVS2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Garou_S.cpp">
+      <Filter>Game\SNK Games\Garou_S</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF02_A.cpp">
+      <Filter>Game\SNK Games\KOF02_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF02UM_S.cpp">
+      <Filter>Game\SNK Games\KOF02UM_S</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFA2_A.cpp">
+      <Filter>Game\Capcom Games\SFA2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp">
+      <Filter>Game\Capcom Games\SFIII3_A_DIR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp">
+      <Filter>Game\Capcom Games\JOJOS_A_DIR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SVCPLUSA_A.cpp">
+      <Filter>Game\SNK Games\SVCPLUSA_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp">
+      <Filter>Game\SNK Games\Samurai Shodown 5 Special</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MVC2_A_DIR.cpp">
+      <Filter>Game\Capcom Games\MVC2_A_DIR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp">
+      <Filter>Game\Capcom Games\GEMFIGHTER_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_REDEARTH_A.cpp">
+      <Filter>Game\Capcom Games\RedEarth_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_REDEARTH_A_DIR.cpp">
+      <Filter>Game\Capcom Games\RedEarth_A_DIR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KarnovsR_A.cpp">
+      <Filter>Game\SNK Games\KarnovsR_A</Filter>
+    </ClCompile>
+    <ClCompile Include="CRC32.cpp">
+      <Filter>Game\CRC32</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_WakuWaku7_A.cpp">
+      <Filter>Game\SNK Games\Waku Waku 7</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFA1_A.cpp">
+      <Filter>Game\Capcom Games\SFA1_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_VSAV_A.cpp">
+      <Filter>Game\Capcom Games\VSAV_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_VSAV2_A.cpp">
+      <Filter>Game\Capcom Games\VSAV2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_RBFFS_A.cpp">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO3_A.cpp">
+      <Filter>Game\SNK Games\Samurai Shodown 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_VHUNT2_A.cpp">
+      <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII2_A.cpp">
+      <Filter>Game\Capcom Games\SFIII2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SF2HF_A.cpp">
+      <Filter>Game\Capcom Games\SF2HF_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SF2CE_A.cpp">
+      <Filter>Game\Capcom Games\SF2CE_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SSF2T_GBA.cpp">
+      <Filter>Game\Capcom Games\SSF2T_GBA</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII1_A.cpp">
+      <Filter>Game\Capcom Games\SFIII1_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Windjammers_A.cpp">
+      <Filter>Game\SNK Games\Windjammers_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Matrimelee_A.cpp">
+      <Filter>Game\SNK Games\Matrimelee_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOFXI_A.cpp">
+      <Filter>Game\SNK Games\KOFXI_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_NGBC_A.cpp">
+      <Filter>Game\SNK Games\NeoGeo Battle Colliseum</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Breakers_A.cpp">
+      <Filter>Game\SNK Games\Breakers Revenge</Filter>
+    </ClCompile>
+    <ClCompile Include="lodepng\lodepng.cpp">
+      <Filter>Additional Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GAME_Bleach_DS.cpp">
+      <Filter>Game\Nintendo\BLEACH_DS</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF03_A.cpp">
+      <Filter>Game\SNK Games\KOF03_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MMPR_SNES.cpp">
+      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF01_A.cpp">
+      <Filter>Game\SNK Games\KOF01_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_NeoBomberman_A.cpp">
+      <Filter>Game\SNK Games\NeoBomberman_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GUNDAM_SNES.cpp">
+      <Filter>Game\Nintendo\Gundam Endless Duel</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF94_A.cpp">
+      <Filter>Game\SNK Games\KOF94_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_CFTE_SNES.cpp">
+      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF99AE_A.cpp">
+      <Filter>Game\SNK Games\KOF99AE_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp">
+      <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_AOF3_A.cpp">
+      <Filter>Game\SNK Games\Art of Fighting 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO4_A.cpp">
+      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_RODSM2_A.cpp">
+      <Filter>Game\Capcom Games\Slam Masters 2</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_LASTBLADE2_A.cpp">
+      <Filter>Game\SNK Games\Last Blade 2</Filter>
+    </ClCompile>
+    <ClCompile Include="debugutil.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO5_A.cpp">
+      <Filter>Game\SNK Games\Samurai Shodown 5</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_RBFF1_A.cpp">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_RBFF2_A.cpp">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 2</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Kizuna_A.cpp">
+      <Filter>Game\SNK Games\Kizuna Encounter</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFZ3U_A.cpp">
+      <Filter>Game\Capcom Games\SFZ3U_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_AOF1_A.cpp">
+      <Filter>Game\SNK Games\Art of Fighting 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_DoubleDragon_A.cpp">
+      <Filter>Game\SNK Games\Double Dragon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_NinjaMasters_A.cpp">
+      <Filter>Game\SNK Games\Ninja Masters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SDodgeBall_A.cpp">
+      <Filter>Game\SNK Games\Super Dodge Ball</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF97_A.cpp">
+      <Filter>Game\SNK Games\KOF97_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII1_A_DIR.cpp">
+      <Filter>Game\Capcom Games\SFIII1_A_DIR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII2_A_DIR.cpp">
+      <Filter>Game\Capcom Games\SFIII2_A_DIR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_DANKUGA_A.cpp">
+      <Filter>Game\Other Platforms\Dan-Ku-Ga</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SavageReign_A.cpp">
+      <Filter>Game\SNK Games\Savage Reign</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GGXXACR_A.cpp">
+      <Filter>Game\Other Platforms\GGXX ACR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_ROTD_A.cpp">
+      <Filter>Game\SNK Games\Rage of the Dragons</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_DBFCI_A.cpp">
+      <Filter>Game\Other Platforms\Dengeki Bunko FCI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_UNICLR_A.cpp">
+      <Filter>Game\Other Platforms\UNICLR - Under Night In-Birth</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SPF2T_A.cpp">
+      <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MSHWOTG_SNES.cpp">
+      <Filter>Game\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOTM_A.cpp">
+      <Filter>Game\SNK Games\King of the Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_TopF2005_Sega.cpp">
+      <Filter>Game\Sega\Top Fighter 2005</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ImgDisp.h">
+      <Filter>CustomCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="Junk.h">
+      <Filter>CustomCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JunkC.h">
+      <Filter>CustomCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="PalTool.h">
+      <Filter>CustomCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ColorScale.h">
+      <Filter>Game\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PalGroup.h">
+      <Filter>Game\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ShellSort.h">
+      <Filter>Game\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MVC2_D.h">
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MVC2_D_Def.h">
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\mvc2_supp.h">
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII3_A.h">
+      <Filter>Game\Capcom Games\SFIII3_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFIII3_A_DEF.h">
+      <Filter>Game\Capcom Games\SFIII3_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Default.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DescTree.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClass.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameDef.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameLoad.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ImgTicket.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgDat.h">
+      <Filter>Game\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MVC2_P.h">
+      <Filter>Game\Capcom Games\MVC2_P</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SSF2T_A.h">
+      <Filter>Game\Capcom Games\SSF2T_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SSF2T_A_DEF.h">
+      <Filter>Game\Capcom Games\SSF2T_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFA3_A.h">
+      <Filter>Game\Capcom Games\SFA3_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFA3_A_DEF.h">
+      <Filter>Game\Capcom Games\SFA3_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_XMVSF_A.h">
+      <Filter>Game\Capcom Games\XMVSF_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\XMVSF_A_DEF.h">
+      <Filter>Game\Capcom Games\XMVSF_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MVC_A.h">
+      <Filter>Game\Capcom Games\MVC_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MVC_A_DEF.h">
+      <Filter>Game\Capcom Games\MVC_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII3_D.h">
+      <Filter>Game\Capcom Games\SFIII3_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFIII3_D_DEF.h">
+      <Filter>Game\Capcom Games\SFIII3_D</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgDumpBmp.h">
+      <Filter>Additional Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgOutDlg.h">
+      <Filter>Additional Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PalMod.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PalModDlg.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PreviewDlg.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SettDlg.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegProc.h">
+      <Filter>Main DLG/APP\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="UndoRedo.h">
+      <Filter>Main DLG/APP\UndoRedo</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_JOJOS_A.h">
+      <Filter>Game\Capcom Games\JOJOS_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\JOJOS_A_DEF.h">
+      <Filter>Game\Capcom Games\JOJOS_A</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtraFile.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgInfoList.h">
+      <Filter>Game\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MSH_A.h">
+      <Filter>Game\Capcom Games\MSH_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MSH_A_DEF.h">
+      <Filter>Game\Capcom Games\MSH_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MSHVSF_A.h">
+      <Filter>Game\Capcom Games\MSHVSF_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MSHVSF_A_DEF.h">
+      <Filter>Game\Capcom Games\MSHVSF_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\COTA_A_DEF.h">
+      <Filter>Game\Capcom Games\COTA_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_COTA_A.h">
+      <Filter>Game\Capcom Games\COTA_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\mvc2_descs.h">
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MVC2_A.h">
+      <Filter>Game\Capcom Games\MVC2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MVC2_A_DEF.h">
+      <Filter>Game\Capcom Games\MVC2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Garou_A.h">
+      <Filter>Game\SNK Games\Garou_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Garou_A_DEF.h">
+      <Filter>Game\SNK Games\Garou_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_NEOGEO_A.h">
+      <Filter>Game\SNK Games\Unknown Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NEOGEO_A_DEF.h">
+      <Filter>Game\SNK Games\Unknown Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF98_A.h">
+      <Filter>Game\SNK Games\KOF98_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF98_A_DEF.h">
+      <Filter>Game\SNK Games\KOF98_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CVS2_A_DEF.h">
+      <Filter>Game\Capcom Games\CVS2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_CVS2_A.h">
+      <Filter>Game\Capcom Games\CVS2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Garou_S.h">
+      <Filter>Game\SNK Games\Garou_S</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Garou_S_DEF.h">
+      <Filter>Game\SNK Games\Garou_S</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF02_A.h">
+      <Filter>Game\SNK Games\KOF02_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF02_A_DEF.h">
+      <Filter>Game\SNK Games\KOF02_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF02UM_S.h">
+      <Filter>Game\SNK Games\KOF02UM_S</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF02UM_S_DEF.h">
+      <Filter>Game\SNK Games\KOF02UM_S</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFA2_A.h">
+      <Filter>Game\Capcom Games\SFA2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFA2_A_DEF.h">
+      <Filter>Game\Capcom Games\SFA2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII3_A_DIR.h">
+      <Filter>Game\Capcom Games\SFIII3_A_DIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_JOJOS_A_DIR.h">
+      <Filter>Game\Capcom Games\JOJOS_A_DIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SVCPLUSA_A.h">
+      <Filter>Game\SNK Games\SVCPLUSA_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SVCPLUSA_A_DEF.h">
+      <Filter>Game\SNK Games\SVCPLUSA_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO5SP_A.h">
+      <Filter>Game\SNK Games\Samurai Shodown 5 Special</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO5SP_A_DEF.h">
+      <Filter>Game\SNK Games\Samurai Shodown 5 Special</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MVC2_A_DIR.h">
+      <Filter>Game\Capcom Games\MVC2_A_DIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GEMFIGHTER_A.h">
+      <Filter>Game\Capcom Games\GEMFIGHTER_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GEMFIGHTER_A_DEF.h">
+      <Filter>Game\Capcom Games\GEMFIGHTER_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_REDEARTH_A.h">
+      <Filter>Game\Capcom Games\RedEarth_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\REDEARTH_A_DEF.h">
+      <Filter>Game\Capcom Games\RedEarth_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_REDEARTH_A_DIR.h">
+      <Filter>Game\Capcom Games\RedEarth_A_DIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KarnovsR_A.h">
+      <Filter>Game\SNK Games\KarnovsR_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KarnovsR_A_DEF.h">
+      <Filter>Game\SNK Games\KarnovsR_A</Filter>
+    </ClInclude>
+    <ClInclude Include="CRC32.h">
+      <Filter>Game\CRC32</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_WakuWaku7_A.h">
+      <Filter>Game\SNK Games\Waku Waku 7</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\WakuWaku7_A_DEF.h">
+      <Filter>Game\SNK Games\Waku Waku 7</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFA1_A.h">
+      <Filter>Game\Capcom Games\SFA1_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFA1_A_DEF.h">
+      <Filter>Game\Capcom Games\SFA1_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_VSAV_A.h">
+      <Filter>Game\Capcom Games\VSAV_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VSAV_A_DEF.h">
+      <Filter>Game\Capcom Games\VSAV_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_VSAV2_A.h">
+      <Filter>Game\Capcom Games\VSAV2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VSAV2_A_DEF.h">
+      <Filter>Game\Capcom Games\VSAV2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_RBFFS_A.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RBFFS_A_DEF.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO3_A.h">
+      <Filter>Game\SNK Games\Samurai Shodown 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO3_A_DEF.h">
+      <Filter>Game\SNK Games\Samurai Shodown 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_VHUNT2_A.h">
+      <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VHUNT2_A_DEF.h">
+      <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII2_A.h">
+      <Filter>Game\Capcom Games\SFIII2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFIII2_A_DEF.h">
+      <Filter>Game\Capcom Games\SFIII2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SF2HF_A.h">
+      <Filter>Game\Capcom Games\SF2HF_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SF2HF_A_DEF.h">
+      <Filter>Game\Capcom Games\SF2HF_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SF2CE_A.h">
+      <Filter>Game\Capcom Games\SF2CE_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SF2CE_A_DEF.h">
+      <Filter>Game\Capcom Games\SF2CE_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SSF2T_GBA.h">
+      <Filter>Game\Capcom Games\SSF2T_GBA</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SSF2T_GBA_DEF.h">
+      <Filter>Game\Capcom Games\SSF2T_GBA</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII1_A.h">
+      <Filter>Game\Capcom Games\SFIII1_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFIII1_A_DEF.h">
+      <Filter>Game\Capcom Games\SFIII1_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Windjammers_A.h">
+      <Filter>Game\SNK Games\Windjammers_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Windjammers_A_DEF.h">
+      <Filter>Game\SNK Games\Windjammers_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Matrimelee_A.h">
+      <Filter>Game\SNK Games\Matrimelee_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Matrimelee_A_DEF.h">
+      <Filter>Game\SNK Games\Matrimelee_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOFXI_A.h">
+      <Filter>Game\SNK Games\KOFXI_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOFXI_A_DEF.h">
+      <Filter>Game\SNK Games\KOFXI_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_NGBC_A.h">
+      <Filter>Game\SNK Games\NeoGeo Battle Colliseum</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NGBC_A_DEF.h">
+      <Filter>Game\SNK Games\NeoGeo Battle Colliseum</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Breakers_A_DEF.h">
+      <Filter>Game\SNK Games\Breakers Revenge</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Breakers_A.h">
+      <Filter>Game\SNK Games\Breakers Revenge</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Bleach_DS_DEF.h">
+      <Filter>Game\Nintendo\BLEACH_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GAME_Bleach_DS.h">
+      <Filter>Game\Nintendo\BLEACH_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF03_A.h">
+      <Filter>Game\SNK Games\KOF03_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF03_A_DEF.h">
+      <Filter>Game\SNK Games\KOF03_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MMPR_SNES.h">
+      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MMPR_SNES_DEF.h">
+      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF01_A.h">
+      <Filter>Game\SNK Games\KOF01_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF01_A_DEF.h">
+      <Filter>Game\SNK Games\KOF01_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_NeoBomberman_A.h">
+      <Filter>Game\SNK Games\NeoBomberman_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NeoBomberman_A_DEF.h">
+      <Filter>Game\SNK Games\NeoBomberman_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GUNDAM_SNES.h">
+      <Filter>Game\Nintendo\Gundam Endless Duel</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GUNDAM_SNES_DEF.h">
+      <Filter>Game\Nintendo\Gundam Endless Duel</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF94_A.h">
+      <Filter>Game\SNK Games\KOF94_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF94_A_DEF.h">
+      <Filter>Game\SNK Games\KOF94_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CFTE_SNES_DEF.h">
+      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_CFTE_SNES.h">
+      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF99AE_A.h">
+      <Filter>Game\SNK Games\KOF99AE_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF99AE_A_DEF.h">
+      <Filter>Game\SNK Games\KOF99AE_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FatalFuryS_SNES_DEF.h">
+      <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FatalFuryS_SNES.h">
+      <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AOF3_A_DEF.h">
+      <Filter>Game\SNK Games\Art of Fighting 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_AOF3_A.h">
+      <Filter>Game\SNK Games\Art of Fighting 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO4_A.h">
+      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO4_A_DEF.h">
+      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_RODSM2_A.h">
+      <Filter>Game\Capcom Games\Slam Masters 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RODSM2_A_DEF.h">
+      <Filter>Game\Capcom Games\Slam Masters 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_LASTBLADE2_A.h">
+      <Filter>Game\SNK Games\Last Blade 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\LASTBLADE2_A_DEF.h">
+      <Filter>Game\SNK Games\Last Blade 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO5_A.h">
+      <Filter>Game\SNK Games\Samurai Shodown 5</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO5_A_DEF.h">
+      <Filter>Game\SNK Games\Samurai Shodown 5</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_RBFF1_A.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RBFF1_A_DEF.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_RBFF2_A.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RBFF2_A_DEF.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Kizuna_A.h">
+      <Filter>Game\SNK Games\Kizuna Encounter</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KIZUNA_A_DEF.h">
+      <Filter>Game\SNK Games\Kizuna Encounter</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFZ3U_A.h">
+      <Filter>Game\Capcom Games\SFZ3U_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFZ3U_A_DEF.h">
+      <Filter>Game\Capcom Games\SFZ3U_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AOF1_A_DEF.h">
+      <Filter>Game\SNK Games\Art of Fighting 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_AOF1_A.h">
+      <Filter>Game\SNK Games\Art of Fighting 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DoubleDragon_A_DEF.h">
+      <Filter>Game\SNK Games\Double Dragon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DoubleDragon_A.h">
+      <Filter>Game\SNK Games\Double Dragon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_NinjaMasters_A.h">
+      <Filter>Game\SNK Games\Ninja Masters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NinjaMasters_A_DEF.h">
+      <Filter>Game\SNK Games\Ninja Masters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SDodgeBall_A.h">
+      <Filter>Game\SNK Games\Super Dodge Ball</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDodgeBall_A_DEF.h">
+      <Filter>Game\SNK Games\Super Dodge Ball</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF97_A.h">
+      <Filter>Game\SNK Games\KOF97_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF97_A_DEF.h">
+      <Filter>Game\SNK Games\KOF97_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII1_A_DIR.h">
+      <Filter>Game\Capcom Games\SFIII1_A_DIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII2_A_DIR.h">
+      <Filter>Game\Capcom Games\SFIII2_A_DIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DANKUGA_A_DEF.h">
+      <Filter>Game\Other Platforms\Dan-Ku-Ga</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DANKUGA_A.h">
+      <Filter>Game\Other Platforms\Dan-Ku-Ga</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SavageReign_A.h">
+      <Filter>Game\SNK Games\Savage Reign</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SavageReign_A_DEF.h">
+      <Filter>Game\SNK Games\Savage Reign</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GGXXACR_A.h">
+      <Filter>Game\Other Platforms\GGXX ACR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_ROTD_A.h">
+      <Filter>Game\SNK Games\Rage of the Dragons</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ROTD_A_DEF.h">
+      <Filter>Game\SNK Games\Rage of the Dragons</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DBFCI_A.h">
+      <Filter>Game\Other Platforms\Dengeki Bunko FCI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_UNICLR_A.h">
+      <Filter>Game\Other Platforms\UNICLR - Under Night In-Birth</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SPF2T_A.h">
+      <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SPF2T_A_DEF.h">
+      <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MSHWOTG_SNES.h">
+      <Filter>Game\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MSHWOTG_SNES_DEF.h">
+      <Filter>Game\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOTM_A.h">
+      <Filter>Game\SNK Games\King of the Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOTM_A_DEF.h">
+      <Filter>Game\SNK Games\King of the Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_TopF2005_Sega.h">
+      <Filter>Game\Sega\Top Fighter 2005</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TopF2005_Sega_DEF.h">
+      <Filter>Game\Sega\Top Fighter 2005</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bgbmp.bmp">
+      <Filter>Main DLG/APP\Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>Main DLG/APP\Resource Files</Filter>
+    </Image>
+    <Image Include="res\PalMod.ico">
+      <Filter>Main DLG/APP\Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PalMod.rc">
+      <Filter>Main DLG/APP\Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\PalMod.rc2">
+      <Filter>Main DLG/APP\Resource Files</Filter>
+    </None>
+    <None Include="mui.rcconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\palmod.manifest" />
+  </ItemGroup>
+</Project>

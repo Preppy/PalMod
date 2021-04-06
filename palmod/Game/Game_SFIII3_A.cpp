@@ -81,9 +81,6 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(ColMode::COLMODE_15);
 
-    //Set palette conversion mode=
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -112,16 +109,17 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
         OutputDebugString(L"Warning: unrecognized ROM.\n");
         __fallthrough;
     case SF3ROM_51:
-        m_nSafeCountForThisRom = 1190;
+        m_nSafeCountForThisRom = 1191;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_51;
         break;
     case SF3ROM_51_4rd:
-        m_nSafeCountForThisRom = 1202;
+        m_nSafeCountForThisRom = 1203;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_4;
         break;
     case SF3ROM_70_EX:
-        m_nSafeCountForThisRom = 1190;
+        m_nSafeCountForThisRom = 1191;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_51;
+        m_nLowestKnownPaletteRomLocation = 0x0;
         break;
     }
 
@@ -1114,7 +1112,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                 if (!fShownOnce && (m_nCurrentPaletteROMLocation < GetLowestExpectedPaletteLocation())) // This magic number is the lowest known ROM location.
                 {
                     CString strMsg;
-                    strMsg.Format(L"Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
+                    strMsg.Format(IDS_SAVE_LOWWRITE, nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
                     MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                     fShownOnce = true;
                 }

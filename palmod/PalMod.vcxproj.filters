@@ -286,6 +286,27 @@
     <Filter Include="Game\SNK Games\Rage of the Dragons">
       <UniqueIdentifier>{deaf145c-fe5f-4801-b2be-a8c8b9d7eb01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Other Platforms\Dengeki Bunko FCI">
+      <UniqueIdentifier>{389529cd-be87-434c-9024-42b76c58038b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms\UNICLR - Under Night In-Birth">
+      <UniqueIdentifier>{a3705e6d-51d3-422d-87b6-24e21089a494}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\Super Puzzle Fighter II">
+      <UniqueIdentifier>{98c51f41-36e2-4769-8cf5-dcb88ba4c42c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\MSH: War of the Gems %28SNES%29">
+      <UniqueIdentifier>{d80c3add-38ff-46ee-9ac0-dff64814be18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\King of the Monsters">
+      <UniqueIdentifier>{fabb0587-0a5a-4f3a-847b-a3145a625cfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Sega">
+      <UniqueIdentifier>{6bc0166b-c607-4ca9-a98a-30a0a29b2627}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Sega\Top Fighter 2005">
+      <UniqueIdentifier>{5cbf317e-6205-44c4-84fa-36a0ca650e67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -617,6 +638,24 @@
     </ClCompile>
     <ClCompile Include="Game\Game_ROTD_A.cpp">
       <Filter>Game\SNK Games\Rage of the Dragons</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_DBFCI_A.cpp">
+      <Filter>Game\Other Platforms\Dengeki Bunko FCI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_UNICLR_A.cpp">
+      <Filter>Game\Other Platforms\UNICLR - Under Night In-Birth</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SPF2T_A.cpp">
+      <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MSHWOTG_SNES.cpp">
+      <Filter>Game\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOTM_A.cpp">
+      <Filter>Game\SNK Games\King of the Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_TopF2005_Sega.cpp">
+      <Filter>Game\Sega\Top Fighter 2005</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1148,6 +1187,36 @@
     <ClInclude Include="Game\ROTD_A_DEF.h">
       <Filter>Game\SNK Games\Rage of the Dragons</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Game_DBFCI_A.h">
+      <Filter>Game\Other Platforms\Dengeki Bunko FCI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_UNICLR_A.h">
+      <Filter>Game\Other Platforms\UNICLR - Under Night In-Birth</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SPF2T_A.h">
+      <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SPF2T_A_DEF.h">
+      <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MSHWOTG_SNES.h">
+      <Filter>Game\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MSHWOTG_SNES_DEF.h">
+      <Filter>Game\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOTM_A.h">
+      <Filter>Game\SNK Games\King of the Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOTM_A_DEF.h">
+      <Filter>Game\SNK Games\King of the Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_TopF2005_Sega.h">
+      <Filter>Game\Sega\Top Fighter 2005</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TopF2005_Sega_DEF.h">
+      <Filter>Game\Sega\Top Fighter 2005</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\bgbmp.bmp">
@@ -1171,9 +1240,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Manifest Include="res\palmod_.manifest" />
+    <Manifest Include="res\palmod.manifest" />
   </ItemGroup>
 </Project>

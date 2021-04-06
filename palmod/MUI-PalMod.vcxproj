@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{03C6A62D-92A8-42FF-ADE8-176FECF4EB8D}</ProjectGuid>
+    <RootNamespace>PalMod</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>16.0.29511.113</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <SourcePath>$(VC_SourcePath);</SourcePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <SourcePath>$(VC_SourcePath);</SourcePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/r /fm "$(IntDir)"\palmod.muires /q mui.rcconfig %(AdditionalOptions)</AdditionalOptions>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalDependencies>muiload.lib;legacy_stdio_definitions.lib</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>rem **Extra steps to link the MUI files**
+if not exist "$(TargetDir)" md "$(TargetDir)"
+if not exist "$(TargetDir)EN-US" md "$(TargetDir)EN-US"
+link.exe /OUT:"$(TargetDir)EN-US\$(TargetName).exe.mui" /DLL /NOENTRY /MACHINE:X86 "$(IntDir)$(TargetName).muires"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/r /fm "$(IntDir)"\palmod.muires /q mui.rcconfig %(AdditionalOptions)</AdditionalOptions>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>muiload.lib;legacy_stdio_definitions.lib</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>rem **Extra steps to link the MUI files**
+if not exist "$(TargetDir)" md "$(TargetDir)"
+if not exist "$(TargetDir)EN-US" md "$(TargetDir)EN-US"
+link.exe /OUT:"$(TargetDir)EN-US\$(TargetName).exe.mui" /DLL /NOENTRY /MACHINE:X86 "$(IntDir)$(TargetName).muires"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CRC32.cpp" />
+    <ClCompile Include="debugutil.cpp" />
+    <ClCompile Include="ExtraFile.cpp" />
+    <ClCompile Include="Game\ColorScale.cpp" />
+    <ClCompile Include="Game\DescTree.cpp" />
+    <ClCompile Include="Game\GameClass.cpp" />
+    <ClCompile Include="Game\GameLoad.cpp" />
+    <ClCompile Include="Game\Game_AOF1_A.cpp" />
+    <ClCompile Include="Game\Game_AOF3_A.cpp" />
+    <ClCompile Include="Game\GAME_Bleach_DS.cpp" />
+    <ClCompile Include="Game\Game_Breakers_A.cpp" />
+    <ClCompile Include="Game\Game_CFTE_SNES.cpp" />
+    <ClCompile Include="Game\Game_COTA_A.cpp" />
+    <ClCompile Include="Game\Game_CVS2_A.cpp" />
+    <ClCompile Include="Game\Game_DANKUGA_A.cpp" />
+    <ClCompile Include="Game\Game_DBFCI_A.cpp" />
+    <ClCompile Include="Game\Game_DoubleDragon_A.cpp" />
+    <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
+    <ClCompile Include="Game\Game_Garou_A.cpp" />
+    <ClCompile Include="Game\Game_Garou_S.cpp" />
+    <ClCompile Include="Game\Game_GGXXACR_A.cpp" />
+    <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
+    <ClCompile Include="Game\Game_JOJOS_A.cpp" />
+    <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
+    <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
+    <ClCompile Include="Game\Game_Kizuna_A.cpp" />
+    <ClCompile Include="Game\Game_KOF01_A.cpp" />
+    <ClCompile Include="Game\Game_KOF02UM_S.cpp" />
+    <ClCompile Include="Game\Game_KOF02_A.cpp" />
+    <ClCompile Include="Game\Game_KOF03_A.cpp" />
+    <ClCompile Include="Game\Game_KOF94_A.cpp" />
+    <ClCompile Include="Game\Game_KOF97_A.cpp" />
+    <ClCompile Include="Game\Game_KOF98_A.cpp" />
+    <ClCompile Include="Game\Game_KOF99AE_A.cpp" />
+    <ClCompile Include="Game\Game_KOFXI_A.cpp" />
+    <ClCompile Include="Game\Game_KOTM_A.cpp" />
+    <ClCompile Include="Game\Game_LASTBLADE2_A.cpp" />
+    <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
+    <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
+    <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
+    <ClCompile Include="Game\Game_MSHWOTG_SNES.cpp" />
+    <ClCompile Include="Game\Game_MSH_A.cpp" />
+    <ClCompile Include="Game\Game_MVC2_A.cpp" />
+    <ClCompile Include="Game\Game_MVC2_A_DIR.cpp" />
+    <ClCompile Include="Game\Game_MVC2_D.cpp" />
+    <ClCompile Include="Game\Game_MVC2_P.cpp" />
+    <ClCompile Include="Game\Game_MVC_A.cpp" />
+    <ClCompile Include="Game\Game_NeoBomberman_A.cpp" />
+    <ClCompile Include="Game\Game_NEOGEO_A.cpp" />
+    <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
+    <ClCompile Include="Game\Game_NGBC_A.cpp" />
+    <ClCompile Include="Game\Game_NinjaMasters_A.cpp" />
+    <ClCompile Include="Game\Game_RBFF1_A.cpp" />
+    <ClCompile Include="Game\Game_RBFF2_A.cpp" />
+    <ClCompile Include="Game\Game_RBFFS_A.cpp" />
+    <ClCompile Include="Game\Game_REDEARTH_A.cpp" />
+    <ClCompile Include="Game\Game_REDEARTH_A_DIR.cpp" />
+    <ClCompile Include="Game\Game_RODSM2_A.cpp" />
+    <ClCompile Include="Game\Game_ROTD_A.cpp" />
+    <ClCompile Include="Game\Game_SAMSHO3_A.cpp" />
+    <ClCompile Include="Game\Game_SAMSHO4_A.cpp" />
+    <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp" />
+    <ClCompile Include="Game\Game_SAMSHO5_A.cpp" />
+    <ClCompile Include="Game\Game_SavageReign_A.cpp" />
+    <ClCompile Include="Game\Game_SDodgeBall_A.cpp" />
+    <ClCompile Include="Game\Game_SF2CE_A.cpp" />
+    <ClCompile Include="Game\Game_SF2HF_A.cpp" />
+    <ClCompile Include="Game\Game_SFA1_A.cpp" />
+    <ClCompile Include="Game\Game_SFA2_A.cpp" />
+    <ClCompile Include="Game\Game_SFA3_A.cpp" />
+    <ClCompile Include="Game\Game_SFIII1_A.cpp" />
+    <ClCompile Include="Game\Game_SFIII1_A_DIR.cpp" />
+    <ClCompile Include="Game\Game_SFIII2_A.cpp" />
+    <ClCompile Include="Game\Game_SFIII2_A_DIR.cpp" />
+    <ClCompile Include="Game\Game_SFIII3_A.cpp" />
+    <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp" />
+    <ClCompile Include="Game\Game_SFIII3_D.cpp" />
+    <ClCompile Include="Game\Game_SFZ3U_A.cpp" />
+    <ClCompile Include="Game\Game_SPF2T_A.cpp" />
+    <ClCompile Include="Game\Game_SSF2T_A.cpp" />
+    <ClCompile Include="Game\Game_SSF2T_GBA.cpp" />
+    <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
+    <ClCompile Include="Game\Game_TopF2005_Sega.cpp" />
+    <ClCompile Include="Game\Game_UNICLR_A.cpp" />
+    <ClCompile Include="Game\Game_VHUNT2_A.cpp" />
+    <ClCompile Include="Game\Game_VSAV2_A.cpp" />
+    <ClCompile Include="Game\Game_VSAV_A.cpp" />
+    <ClCompile Include="Game\Game_WakuWaku7_A.cpp" />
+    <ClCompile Include="Game\Game_Windjammers_A.cpp" />
+    <ClCompile Include="Game\Game_XMVSF_A.cpp" />
+    <ClCompile Include="Game\MVC2_PALSEL.cpp" />
+    <ClCompile Include="Game\MVC2_SUPP.cpp" />
+    <ClCompile Include="Game\mvc2_validate.cpp" />
+    <ClCompile Include="Game\PalGroup.cpp" />
+    <ClCompile Include="Game\ShellSort.cpp" />
+    <ClCompile Include="ImgDat.cpp" />
+    <ClCompile Include="ImgDisp.cpp" />
+    <ClCompile Include="ImgDumpBmp.cpp" />
+    <ClCompile Include="ImgInfoList.cpp" />
+    <ClCompile Include="ImgOutDlg.cpp" />
+    <ClCompile Include="Junk.cpp" />
+    <ClCompile Include="lodepng\lodepng.cpp" />
+    <ClCompile Include="PalMod.cpp" />
+    <ClCompile Include="PalModDlg.cpp" />
+    <ClCompile Include="PalModDlg_Color.cpp" />
+    <ClCompile Include="PalModDlg_Config.cpp" />
+    <ClCompile Include="PalModDlg_Edit.cpp" />
+    <ClCompile Include="PalModDlg_File.cpp" />
+    <ClCompile Include="PalModDlg_General.cpp" />
+    <ClCompile Include="PalModDlg_Menu.cpp" />
+    <ClCompile Include="PalTool.cpp" />
+    <ClCompile Include="PreviewDlg.cpp" />
+    <ClCompile Include="RegProc.cpp" />
+    <ClCompile Include="SettDlg.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="UndoRedo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CRC32.h" />
+    <ClInclude Include="ExtraFile.h" />
+    <ClInclude Include="Game\AOF1_A_DEF.h" />
+    <ClInclude Include="Game\AOF3_A_DEF.h" />
+    <ClInclude Include="Game\Bleach_DS_DEF.h" />
+    <ClInclude Include="Game\Breakers_A_DEF.h" />
+    <ClInclude Include="Game\CFTE_SNES_DEF.h" />
+    <ClInclude Include="Game\ColorScale.h" />
+    <ClInclude Include="Game\COTA_A_DEF.h" />
+    <ClInclude Include="Game\CVS2_A_DEF.h" />
+    <ClInclude Include="Game\DANKUGA_A_DEF.h" />
+    <ClInclude Include="Game\Default.h" />
+    <ClInclude Include="Game\DescTree.h" />
+    <ClInclude Include="Game\DoubleDragon_A_DEF.h" />
+    <ClInclude Include="Game\FatalFuryS_SNES_DEF.h" />
+    <ClInclude Include="Game\GameClass.h" />
+    <ClInclude Include="Game\GameDef.h" />
+    <ClInclude Include="Game\GameLoad.h" />
+    <ClInclude Include="Game\Game_AOF1_A.h" />
+    <ClInclude Include="Game\Game_AOF3_A.h" />
+    <ClInclude Include="Game\GAME_Bleach_DS.h" />
+    <ClInclude Include="Game\Game_Breakers_A.h" />
+    <ClInclude Include="Game\Game_CFTE_SNES.h" />
+    <ClInclude Include="Game\Game_COTA_A.h" />
+    <ClInclude Include="Game\Game_CVS2_A.h" />
+    <ClInclude Include="Game\Game_DANKUGA_A.h" />
+    <ClInclude Include="Game\Game_DBFCI_A.h" />
+    <ClInclude Include="Game\Game_DoubleDragon_A.h" />
+    <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
+    <ClInclude Include="Game\Game_Garou_A.h" />
+    <ClInclude Include="Game\Game_Garou_S.h" />
+    <ClInclude Include="Game\Game_GGXXACR_A.h" />
+    <ClInclude Include="Game\Game_GUNDAM_SNES.h" />
+    <ClInclude Include="Game\Game_JOJOS_A.h" />
+    <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />
+    <ClInclude Include="Game\Game_KarnovsR_A.h" />
+    <ClInclude Include="Game\Game_Kizuna_A.h" />
+    <ClInclude Include="Game\Game_KOF01_A.h" />
+    <ClInclude Include="Game\Game_KOF02UM_S.h" />
+    <ClInclude Include="Game\Game_KOF02_A.h" />
+    <ClInclude Include="Game\Game_KOF03_A.h" />
+    <ClInclude Include="Game\Game_KOF94_A.h" />
+    <ClInclude Include="Game\Game_KOF97_A.h" />
+    <ClInclude Include="Game\Game_KOF98_A.h" />
+    <ClInclude Include="Game\Game_KOF99AE_A.h" />
+    <ClInclude Include="Game\Game_KOFXI_A.h" />
+    <ClInclude Include="Game\Game_KOTM_A.h" />
+    <ClInclude Include="Game\Game_LASTBLADE2_A.h" />
+    <ClInclude Include="Game\Game_Matrimelee_A.h" />
+    <ClInclude Include="Game\Game_MMPR_SNES.h" />
+    <ClInclude Include="Game\Game_MSHVSF_A.h" />
+    <ClInclude Include="Game\Game_MSHWOTG_SNES.h" />
+    <ClInclude Include="Game\Game_MSH_A.h" />
+    <ClInclude Include="Game\Game_MVC2_A.h" />
+    <ClInclude Include="Game\Game_MVC2_A_DIR.h" />
+    <ClInclude Include="Game\Game_MVC2_D.h" />
+    <ClInclude Include="Game\Game_MVC2_P.h" />
+    <ClInclude Include="Game\Game_MVC_A.h" />
+    <ClInclude Include="Game\Game_NeoBomberman_A.h" />
+    <ClInclude Include="Game\Game_NEOGEO_A.h" />
+    <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
+    <ClInclude Include="Game\Game_NGBC_A.h" />
+    <ClInclude Include="Game\Game_NinjaMasters_A.h" />
+    <ClInclude Include="Game\Game_RBFF1_A.h" />
+    <ClInclude Include="Game\Game_RBFF2_A.h" />
+    <ClInclude Include="Game\Game_RBFFS_A.h" />
+    <ClInclude Include="Game\Game_REDEARTH_A.h" />
+    <ClInclude Include="Game\Game_REDEARTH_A_DIR.h" />
+    <ClInclude Include="Game\Game_RODSM2_A.h" />
+    <ClInclude Include="Game\Game_ROTD_A.h" />
+    <ClInclude Include="Game\Game_SAMSHO3_A.h" />
+    <ClInclude Include="Game\Game_SAMSHO4_A.h" />
+    <ClInclude Include="Game\Game_SAMSHO5SP_A.h" />
+    <ClInclude Include="Game\Game_SAMSHO5_A.h" />
+    <ClInclude Include="Game\Game_SavageReign_A.h" />
+    <ClInclude Include="Game\Game_SDodgeBall_A.h" />
+    <ClInclude Include="Game\Game_SF2CE_A.h" />
+    <ClInclude Include="Game\Game_SF2HF_A.h" />
+    <ClInclude Include="Game\Game_SFA1_A.h" />
+    <ClInclude Include="Game\Game_SFA2_A.h" />
+    <ClInclude Include="Game\Game_SFA3_A.h" />
+    <ClInclude Include="Game\Game_SFIII1_A.h" />
+    <ClInclude Include="Game\Game_SFIII1_A_DIR.h" />
+    <ClInclude Include="Game\Game_SFIII2_A.h" />
+    <ClInclude Include="Game\Game_SFIII2_A_DIR.h" />
+    <ClInclude Include="Game\Game_SFIII3_A.h" />
+    <ClInclude Include="Game\Game_SFIII3_A_DIR.h" />
+    <ClInclude Include="Game\Game_SFIII3_D.h" />
+    <ClInclude Include="Game\Game_SFZ3U_A.h" />
+    <ClInclude Include="Game\Game_SPF2T_A.h" />
+    <ClInclude Include="Game\Game_SSF2T_A.h" />
+    <ClInclude Include="Game\Game_SSF2T_GBA.h" />
+    <ClInclude Include="Game\Game_SVCPLUSA_A.h" />
+    <ClInclude Include="Game\Game_TopF2005_Sega.h" />
+    <ClInclude Include="Game\Game_UNICLR_A.h" />
+    <ClInclude Include="Game\Game_VHUNT2_A.h" />
+    <ClInclude Include="Game\Game_VSAV2_A.h" />
+    <ClInclude Include="Game\Game_VSAV_A.h" />
+    <ClInclude Include="Game\Game_WakuWaku7_A.h" />
+    <ClInclude Include="Game\Game_Windjammers_A.h" />
+    <ClInclude Include="Game\Game_XMVSF_A.h" />
+    <ClInclude Include="Game\Garou_A_DEF.h" />
+    <ClInclude Include="Game\Garou_S_DEF.h" />
+    <ClInclude Include="Game\GUNDAM_SNES_DEF.h" />
+    <ClInclude Include="Game\ImgTicket.h" />
+    <ClInclude Include="Game\JOJOS_A_DEF.h" />
+    <ClInclude Include="Game\KarnovsR_A_DEF.h" />
+    <ClInclude Include="Game\KIZUNA_A_DEF.h" />
+    <ClInclude Include="Game\KOF01_A_DEF.h" />
+    <ClInclude Include="Game\KOF02UM_S_DEF.h" />
+    <ClInclude Include="Game\KOF02_A_DEF.h" />
+    <ClInclude Include="Game\KOF03_A_DEF.h" />
+    <ClInclude Include="Game\KOF94_A_DEF.h" />
+    <ClInclude Include="Game\KOF97_A_DEF.h" />
+    <ClInclude Include="Game\KOF98_A_DEF.h" />
+    <ClInclude Include="Game\KOF99AE_A_DEF.h" />
+    <ClInclude Include="Game\KOFXI_A_DEF.h" />
+    <ClInclude Include="Game\KOTM_A_DEF.h" />
+    <ClInclude Include="Game\LASTBLADE2_A_DEF.h" />
+    <ClInclude Include="Game\Matrimelee_A_DEF.h" />
+    <ClInclude Include="Game\MMPR_SNES_DEF.h" />
+    <ClInclude Include="Game\MSHVSF_A_DEF.h" />
+    <ClInclude Include="Game\MSHWOTG_SNES_DEF.h" />
+    <ClInclude Include="Game\MSH_A_DEF.h" />
+    <ClInclude Include="Game\MVC2_A_DEF.h" />
+    <ClInclude Include="Game\mvc2_descs.h" />
+    <ClInclude Include="Game\MVC2_D_Def.h" />
+    <ClInclude Include="Game\mvc2_supp.h" />
+    <ClInclude Include="Game\MVC_A_DEF.h" />
+    <ClInclude Include="Game\NeoBomberman_A_DEF.h" />
+    <ClInclude Include="Game\NEOGEO_A_DEF.h" />
+    <ClInclude Include="Game\NGBC_A_DEF.h" />
+    <ClInclude Include="Game\NinjaMasters_A_DEF.h" />
+    <ClInclude Include="Game\PalGroup.h" />
+    <ClInclude Include="Game\GEMFIGHTER_A_DEF.h" />
+    <ClInclude Include="Game\RBFF1_A_DEF.h" />
+    <ClInclude Include="Game\RBFF2_A_DEF.h" />
+    <ClInclude Include="Game\RBFFS_A_DEF.h" />
+    <ClInclude Include="Game\REDEARTH_A_DEF.h" />
+    <ClInclude Include="Game\RODSM2_A_DEF.h" />
+    <ClInclude Include="Game\ROTD_A_DEF.h" />
+    <ClInclude Include="Game\SAMSHO3_A_DEF.h" />
+    <ClInclude Include="Game\SAMSHO4_A_DEF.h" />
+    <ClInclude Include="Game\SAMSHO5SP_A_DEF.h" />
+    <ClInclude Include="Game\SAMSHO5_A_DEF.h" />
+    <ClInclude Include="Game\SavageReign_A_DEF.h" />
+    <ClInclude Include="Game\SDodgeBall_A_DEF.h" />
+    <ClInclude Include="Game\SF2CE_A_DEF.h" />
+    <ClInclude Include="Game\SF2HF_A_DEF.h" />
+    <ClInclude Include="Game\SFA1_A_DEF.h" />
+    <ClInclude Include="Game\SFA2_A_DEF.h" />
+    <ClInclude Include="Game\SFA3_A_DEF.h" />
+    <ClInclude Include="Game\SFIII1_A_DEF.h" />
+    <ClInclude Include="Game\SFIII2_A_DEF.h" />
+    <ClInclude Include="Game\SFIII3_A_DEF.h" />
+    <ClInclude Include="Game\SFIII3_D_DEF.h" />
+    <ClInclude Include="Game\SFZ3U_A_DEF.h" />
+    <ClInclude Include="Game\ShellSort.h" />
+    <ClInclude Include="Game\SPF2T_A_DEF.h" />
+    <ClInclude Include="Game\SSF2T_A_DEF.h" />
+    <ClInclude Include="Game\SSF2T_GBA_DEF.h" />
+    <ClInclude Include="Game\SVCPLUSA_A_DEF.h" />
+    <ClInclude Include="Game\TopF2005_Sega_DEF.h" />
+    <ClInclude Include="Game\VHUNT2_A_DEF.h" />
+    <ClInclude Include="Game\VSAV2_A_DEF.h" />
+    <ClInclude Include="Game\VSAV_A_DEF.h" />
+    <ClInclude Include="Game\WakuWaku7_A_DEF.h" />
+    <ClInclude Include="Game\Windjammers_A_DEF.h" />
+    <ClInclude Include="Game\XMVSF_A_DEF.h" />
+    <ClInclude Include="ImgDat.h" />
+    <ClInclude Include="ImgDisp.h" />
+    <ClInclude Include="ImgDumpBmp.h" />
+    <ClInclude Include="ImgInfoList.h" />
+    <ClInclude Include="ImgOutDlg.h" />
+    <ClInclude Include="Junk.h" />
+    <ClInclude Include="JunkC.h" />
+    <ClInclude Include="PalMod.h" />
+    <ClInclude Include="PalModDlg.h" />
+    <ClInclude Include="PalTool.h" />
+    <ClInclude Include="PreviewDlg.h" />
+    <ClInclude Include="RegProc.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SettDlg.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="UndoRedo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bgbmp.bmp" />
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\PalMod.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PalMod.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mui.rcconfig" />
+    <None Include="res\PalMod.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\palmod.manifest" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="PalMod.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

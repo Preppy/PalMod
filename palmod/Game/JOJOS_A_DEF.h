@@ -274,8 +274,8 @@ const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_KHAN_PALETTES[] =
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_DEATH_PALETTES[] =
 {
-    { L"Death 13 A Life Bar Portrait", 0x07C0800, 0x07C0820 },
-    { L"Death 13 B Life Bar Portrait", 0x07C0820, 0x07C0840 },
+    { L"Death 13 A Life Bar Portrait", 0x07C0800, 0x07C0820, indexJojos51Death13, 0x20 },
+    { L"Death 13 B Life Bar Portrait", 0x07C0820, 0x07C0840, indexJojos51Death13, 0x20 },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_NDOUL_PALETTES[] =
@@ -2792,6 +2792,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_Start[] =
     { L"N'Doul & Geb Start", 0x038e880, 0x038e900, indexJojos51NDoul },
 };
 
+const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_Portraits[] =
+{
+    { L"N'doul VS/Super A",     0x411b00, 0x411b80 },
+    { L"N'doul Challenger A",   0x411b80, 0x411c00 },
+    { L"N'doul Select A",       0x411C00, 0x411C80 },
+    { L"Geb Select A",          0x411c80, 0x411d00 },
+};
+
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_A[] =
 {
     { L"Boss Ice A", 0x033fa00, 0x033fa80, indexJojos51BIce },
@@ -3063,6 +3071,7 @@ const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_NDOUL[] =
     { L"C", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_NDOUL_C, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_NDOUL_C) },
     { L"S", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_NDOUL_S, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_NDOUL_S) },
     { L"Start", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_NDOUL_Start, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_NDOUL_Start) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_NDOUL_Portraits, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_NDOUL_Portraits) },
 };
 
 const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_BICE[] =
@@ -3102,6 +3111,7 @@ const sGame_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
     { L"Extra characters page arrows", 0x0310500, 0x0310580 },
     { L"Vs screen Background", 0x030d000, 0x030d080, indexJojos51Bonus, 0x49 },
     { L"Win screen Background", 0x0310200, 0x0310280, indexJojos51Bonus, 0x4a },
+    { L"Oldseph Challenge Mode Faces", 0x441000, 0x441200 },
     { L"D'Arby", 0x0311a00, 0x0311a80, indexJojos51Bonus, 0x2C },
     { L"Darby Chips", 0x0311d00, 0x0311d80, indexJojos51Bonus, 0x2D },
     { L"Osiris Arms", 0x0311b80, 0x0311c00, indexJojos51Bonus, 0x2E },
@@ -3156,7 +3166,7 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { L"Title Screen Jotaro Fade 2", 0x030CA00, 0x030CA80, indexJojos51Bonus, 0x39 },
     { L"Title Screen Jotaro Fade 3", 0x030CA80, 0x030CB00, indexJojos51Bonus, 0x39 },
     { L"Title Screen Jotaro Manga", 0x030cb00, 0x030cb80, indexJojos51Bonus, 0x39 },
-    { L"Title Screen Logo",      0x030c680, 0x030c780, indexJojos51Bonus, 0x32  },
+    { L"Title Screen Logo",      0x030c680, 0x030c780, indexJojos51Bonus, 0x4c  },
      // joined above { L"Title Screen Logo Ribbon", 0x030c700, 0x030c780, indexJojos51Bonus, 0x33 },
     { L"English Title", 0x030CB80, 0x030CC00, indexJojos51Bonus, 0x34 },
     { L"Title Screen Background", 0x030b0a0, 0x030b0b0, indexJojos51Bonus, 0x31 },

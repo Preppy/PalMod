@@ -27,8 +27,6 @@ enum class eVerifyType
     VM_FILECHANGE
 };
 
-constexpr auto DEFAULT_STATUS_TEXT = L"Always keep a backup of files!";
-
 class CPalDropTarget : public COleDropTarget
 {
 public:
@@ -116,7 +114,13 @@ public:
     void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_GBA); };
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_NEOGEO); };
     void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_SHARPRGB); };
+    void SetColorFormatToARGB1888() { SetColorFormatTo(ColMode::COLMODE_ARGB1888); };
     void SetColorFormatToARGB7888() { SetColorFormatTo(ColMode::COLMODE_ARGB7888); };
+    void SetColorFormatToARGB8888() { SetColorFormatTo(ColMode::COLMODE_ARGB8888); };
+
+    void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption);
+    void SetMaximumWriteTo16Colors() { SetMaximumWritePerEachTransparency(PALWriteOutputOptions::WRITE_16); };
+    void SetMaximumWriteTo256Colors() { SetMaximumWritePerEachTransparency(PALWriteOutputOptions::WRITE_MAX); };
 
     void SetAlphaModeTo(AlphaMode newAlphaMode);
     void SetAlphaModeToFixed() { SetAlphaModeTo(AlphaMode::GameUsesFixedAlpha); };
@@ -169,6 +173,9 @@ public:
 // Construction
 public:
     CPalModDlg(CWnd* pParent = NULL);    // standard constructor
+#ifdef ENABLE_MUI_SUPPORT
+    ~CPalModDlg();
+#endif
 
 // Dialog Data
     enum { IDD = IDD_PALMOD_DIALOG };
@@ -189,6 +196,7 @@ public:
     void CloseFileDir();
     void ClearGameVar();
     void SetStatusText(CString szText);
+    void SetStatusText(UINT uStrId);
     void StopBlink();
 
 protected:
@@ -288,13 +296,15 @@ public:
     afx_msg void OnChangeExtendedCopyData();
 
     afx_msg void OnLoadDir_Dankuga()        { OnLoadGameByDirectory(DANKUGA_A); };
-    afx_msg void OnLoadDir_GGXXACReloaded()   { OnLoadGameByDirectory(GGXXACR_A); };
+    afx_msg void OnLoadDir_DBFCI()          { OnLoadGameByDirectory(DBFCI_A); };
+    afx_msg void OnLoadDir_GGXXACReloaded() { OnLoadGameByDirectory(GGXXACR_A); };
     afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };
     afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };
     afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };
     afx_msg void OnLoadDir_MVC2DCUSA()      { OnLoadGameByDirectory(MVC2_D); };
     afx_msg void OnLoadDir_MVC2PS2USA()     { OnLoadGameByDirectory(MVC2_P); };
-    afx_msg void OnLoadDir_RedEarthAll()    { OnLoadGameByDirectory(REDEARTH_A_DIR); };
+    afx_msg void OnLoadDir_RedEarth30()     { OnLoadGameByDirectory(REDEARTH_A_DIR_30); };
+    afx_msg void OnLoadDir_RedEarth31()     { OnLoadGameByDirectory(REDEARTH_A_DIR_31); };
     afx_msg void OnLoadDir_SFIII3DCAll()    { OnLoadGameByDirectory(SFIII3_D); };
     afx_msg void OnLoadDir_SFIII1Arcade()   { OnLoadGameByDirectory(SFIII1_A_DIR); };
     afx_msg void OnLoadDir_SFIII2Arcade()   { OnLoadGameByDirectory(SFIII2_A_DIR); };
@@ -303,6 +313,7 @@ public:
     afx_msg void OnLoadDir_SFIII3Arcade4rd() { OnLoadGameByDirectory(SFIII3_A_DIR_4rd); };
     afx_msg void OnLoadDir_SFIII3Arcade4rd_10() { OnLoadGameByDirectory(SFIII3_A_DIR_4rd_10); };
     afx_msg void OnLoadDir_SFIII3ArcadeEx() { OnLoadGameByDirectory(SFIII3_A_DIR_EX); };
+    afx_msg void OnLoadDir_UNICLR()         { OnLoadGameByDirectory(UNICLR_A); };
 };
 
 extern BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);

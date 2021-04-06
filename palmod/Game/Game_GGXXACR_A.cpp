@@ -165,9 +165,6 @@ CGame_GGXXACR_A::CGame_GGXXACR_A(UINT32 nConfirmedROMSize /* = -1 */)
     m_fGameUsesAlphaValue = true;
     SetColorMode(ColMode::COLMODE_ARGB7888);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
-
     InitializeStatics();
 
     // Don't load extras
@@ -375,8 +372,12 @@ BOOL CGame_GGXXACR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     nTargetImgId = 0;
     UINT16 nImgUnitId = GGXXACRCharacterData[NodeGet->uUnitId].nSpriteIndex;
 
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
+    // This logic presumes that we are only showing core character palettes.  If we decide to handle
+    // anything else, we'd want to validate that the palette in question is in the core lists and use
+    // NodeGet->uPalId instead of 0 for the start for anything non-core.
+    UINT16 nSrcStart = 0;
+    UINT16 nSrcAmt = GGXXACRCharacterData[NodeGet->uUnitId].nPaletteListSize;
+    pButtonLabelSet = GGXXACRCharacterData[NodeGet->uUnitId].ppszPaletteList;
     UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any

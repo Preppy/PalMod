@@ -3,8 +3,10 @@
 #include "NEWGAME_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_NEWGAME_A = L"NewGameE.txt";
-#define GetExtraDefForNEWGAME(x)((stExtraDef *)&NEWGAME_A_EXTRA_CUSTOM[x])
+// Howdy!  To adapt this file for your game:
+// * replace usage of NEWGAME with the shortname for your game.
+// * update the value NEWGAME_A_PRIMARY_ROMNAME to your ROM name
+// That's it: this file should be simple to adapt.
 
 class CGame_NEWGAME_A : public CGameWithExtrasFile
 {
@@ -20,6 +22,9 @@ private:
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+
+    static constexpr auto EXTRA_FILENAME_NEWGAME_A = L"NewGameE.txt";
+    static constexpr auto NEWGAME_A_PRIMARY_ROMNAME = L"NEWGAME.ROM"; // the file that your palettes are stored in
 
 public:
     CGame_NEWGAME_A(UINT32 nConfirmedROMSize);
