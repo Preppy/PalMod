@@ -56,13 +56,14 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
             return k_nRGBPlaneAmtForRGB333;
         case ColMode::COLMODE_12A:
         case ColMode::COLMODE_12A_LE:
-        case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneAmtForRGB444;
         case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_15:
         case ColMode::COLMODE_15ALT:
         case ColMode::COLMODE_SHARPRGB:
             return k_nRGBPlaneAmtForRGB555;
+        case ColMode::COLMODE_NEOGEO:
+            return k_nRGBPlaneAmtForRGB666;
         case ColMode::COLMODE_ARGB1888:
             if (Flag == ColFlag::COL_A)
             {
@@ -104,13 +105,14 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
             return k_nRGBPlaneMulForRGB333;
         case ColMode::COLMODE_12A:
         case ColMode::COLMODE_12A_LE:
-        case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneMulForRGB444;
         case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_15:
         case ColMode::COLMODE_15ALT:
         case ColMode::COLMODE_SHARPRGB:
             return k_nRGBPlaneMulForRGB555;
+        case ColMode::COLMODE_NEOGEO:
+            return k_nRGBPlaneMulForRGB666;
         case ColMode::COLMODE_ARGB1888:
             if (Flag == ColFlag::COL_A)
             {
@@ -264,12 +266,6 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         ConvCol16 = &CGameClass::CONV_32_9;
         BasePalGroup.SetMode(ePalType::PALTYPE_8STEPS);
         return TRUE;
-    case ColMode::COLMODE_GBA:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CGameClass::CONV_GBA_32;
-        ConvCol16 = &CGameClass::CONV_32_GBA;
-        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-        return TRUE;
     case ColMode::COLMODE_12A:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_12A_32;
@@ -281,6 +277,12 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         ConvPal16 = &CGameClass::CONV_12A_32_LE;
         ConvCol16 = &CGameClass::CONV_32_12A_LE;
         BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
+        return TRUE;
+    case ColMode::COLMODE_GBA:
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_GBA_32;
+        ConvCol16 = &CGameClass::CONV_32_GBA;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
     case ColMode::COLMODE_15:
         m_nSizeOfColorsInBytes = 2;
@@ -294,17 +296,20 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         ConvCol16 = &CGameClass::CONV_32_15ALT;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
-    case ColMode::COLMODE_NEOGEO:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CGameClass::CONV_NEOGEO_32;
-        ConvCol16 = &CGameClass::CONV_32_NEOGEO;
-        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-        return TRUE;
     case ColMode::COLMODE_SHARPRGB:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_SHARPRGB_32;
         ConvCol16 = &CGameClass::CONV_32_SHARPRGB;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+        return TRUE;
+    case ColMode::COLMODE_NEOGEO:
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_NEOGEO_32;
+        ConvCol16 = &CGameClass::CONV_32_NEOGEO;
+        // We use RGB444-equivalent stepping, but NeoGeo uses a color table that has non-linear
+        // stepping.  RGB444 at least gets us pretty close to correct until such time as we want to 
+        // dynamically generate the +/- step values for use by palmoddlg_color.cpp
+        BasePalGroup.SetMode(ePalType::PALTYPE_NEOGEO);
         return TRUE;
     case ColMode::COLMODE_ARGB1888:
         m_nSizeOfColorsInBytes = 4;

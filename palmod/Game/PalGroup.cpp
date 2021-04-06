@@ -75,6 +75,7 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
         ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_8;
         return TRUE;
         break;
+    case ePalType::PALTYPE_NEOGEO:
     case ePalType::PALTYPE_16STEPS:
         ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_17;
         return TRUE;

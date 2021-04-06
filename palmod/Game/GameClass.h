@@ -80,6 +80,13 @@ protected:
     const double k_nRGBPlaneMulForRGB777 = 2;
     const double k_nRGBPlaneMulForRGB888 = 1;
 
+    // The next values are special and flawed values.  We use RGB444 stepping, but we're trying
+    // to step through a color table that has non-linear steps.  The following values give us a
+    // "close enough" solution.  To really have correct stepping we would need to get step
+    // lengths at runtime and get them relative to the current color value.
+    const int k_nRGBPlaneAmtForRGB666 = 15;
+    const double k_nRGBPlaneMulForRGB666 = 17.0;
+
     BOOL m_fIsDirectoryBasedGame = FALSE;
     BOOL m_fGameUnitsMapToIndividualFiles = FALSE;
 
