@@ -387,8 +387,6 @@ BEGIN
     END
     POPUP "&Settings"
     BEGIN
-        MENUITEM "Show 32-bit values for 8-bit colors (will round!)", ID_SHOW32BITRGB
-        MENUITEM "MvC2 &Settings...",           ID_SETTINGS_SETTINGS
         POPUP "Colors Per Line (restart required)"
         BEGIN
             MENUITEM "8 Colors Per Line",           ID_COLORSPERLINE_8COLORSPERLINE
@@ -416,6 +414,9 @@ BEGIN
             MENUITEM "Transparency every 16 colors", ID_TRANSPSETTING_16
             MENUITEM "Transparency every 256 colors", ID_TRANSPSETTING_256
         END
+        MENUITEM "MvC2 &Settings...",           ID_SETTINGS_SETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "Show 32-bit values for 8-bit colors (will round!)", ID_SHOW32BITRGB
         MENUITEM "Include bonus data in CTRL+C copy", ID_SETTINGS_EXTCOPYDATA
     END
     POPUP "&About"

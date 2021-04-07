@@ -280,8 +280,8 @@ const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_DEATH_PALETTES[] =
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_NDOUL_PALETTES[] =
 {
-    { L"N'Doul A Life Bar Portrait", 0x07C0840, 0x07C0860 },
-    { L"N'Doul B Life Bar Portrait", 0x07C0860, 0x07C0880 },
+    { L"N'Doul A Life Bar Portrait", 0x07C0840, 0x07C0860, indexJojos50HUDPortraits, indexJojos51NDoul },
+    { L"N'Doul B Life Bar Portrait", 0x07C0860, 0x07C0880, indexJojos50HUDPortraits, indexJojos51NDoul },
 };
 
 const sDescTreeNode JOJOS_A_50_HUD_PORTRAIT_COLLECTION[]
@@ -2794,10 +2794,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_Portraits[] =
 {
-    { L"N'doul VS/Super A",     0x411b00, 0x411b80 },
-    { L"N'doul Challenger A",   0x411b80, 0x411c00 },
-    { L"N'doul Select A",       0x411C00, 0x411C80 },
-    { L"Geb Select A",          0x411c80, 0x411d00 },
+    { L"N'doul VS/Super A",     0x411b00, 0x411b80, indexJojos51NDoul, 0x03 },
+    { L"N'doul Challenger A",   0x411b80, 0x411c00, indexJojos51NDoul, 0x04 },
+    { L"N'doul Select A",       0x411C00, 0x411C80, indexJojos51NDoul, 0x05, &pairNext },
+    { L"Geb Select A",          0x411c80, 0x411d00, indexJojos51NDoul, 0x06, &pairPrevious },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_A[] =

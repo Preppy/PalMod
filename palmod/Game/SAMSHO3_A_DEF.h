@@ -3,7 +3,6 @@
 const UINT16 SAMSHO3_A_IMG_UNITS[] =
 {
     indexSamSho5Sprites_Amakusa,    // 0
-    indexSamSho5Sprites_Basara,     // 1
     indexSamSho5Sprites_Gaira,      // 4
     indexSamSho5Sprites_Galford,    // 5
     indexSamSho5Sprites_Kyoshiro,   // d
@@ -675,16 +674,16 @@ const sGame_PaletteDataset SAMSHO3_A_GENJURO_PALETTES_B2[] =
 
 const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_S1[] =
 {
-    { L"Main", 0x9000, 0x9040, indexSamSho5Sprites_Basara },
-    { L"Rage Flash", 0x9040, 0x9080, indexSamSho5Sprites_Basara },
-    { L"Extra Palette 2", 0x9080, 0x90c0, indexSamSho5Sprites_Basara },
-    { L"Extra Palette 3", 0x90c0, 0x9100, indexSamSho5Sprites_Basara },
-    { L"Shocked", 0x9100, 0x9140, indexSamSho5Sprites_Basara },
-    { L"Frozen", 0x9140, 0x9180, indexSamSho5Sprites_Basara },
-    { L"Burning", 0x9180, 0x91c0, indexSamSho5Sprites_Basara },
+    { L"Main", 0x9000, 0x9040, indexSamSho3Sprites_Basara },
+    { L"Rage Flash", 0x9040, 0x9080, indexSamSho3Sprites_Basara },
+    { L"Extra Palette 2", 0x9080, 0x90c0, indexSamSho3Sprites_Basara },
+    { L"Extra Palette 3", 0x90c0, 0x9100, indexSamSho3Sprites_Basara },
+    { L"Shocked", 0x9100, 0x9140, indexSamSho3Sprites_Basara },
+    { L"Frozen", 0x9140, 0x9180, indexSamSho3Sprites_Basara },
+    { L"Burning", 0x9180, 0x91c0, indexSamSho3Sprites_Basara },
     { L"Extra Palette 7", 0x91c0, 0x9200 },
-    { L"Daylight", 0x9200, 0x9240, indexSamSho5Sprites_Basara },
-    { L"Moonlight", 0x9240, 0x9280, indexSamSho5Sprites_Basara },
+    { L"Daylight", 0x9200, 0x9240, indexSamSho3Sprites_Basara },
+    { L"Moonlight", 0x9240, 0x9280, indexSamSho3Sprites_Basara },
     { L"Extra Palette 10", 0x9280, 0x92c0 },
     { L"Extra Palette 11", 0x92c0, 0x9300 },
     { L"Extra Palette 12", 0x9300, 0x9340 },
@@ -695,16 +694,16 @@ const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_S1[] =
 
 const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_S2[] =
 {
-    { L"Main", 0x9400, 0x9440, indexSamSho5Sprites_Basara },
-    { L"Rage Flash", 0x9440, 0x9480, indexSamSho5Sprites_Basara },
-    { L"Extra Palette 2", 0x9480, 0x94c0, indexSamSho5Sprites_Basara },
-    { L"Extra Palette 3", 0x94c0, 0x9500, indexSamSho5Sprites_Basara },
-    { L"Shocked", 0x9500, 0x9540, indexSamSho5Sprites_Basara },
-    { L"Frozen", 0x9540, 0x9580, indexSamSho5Sprites_Basara },
-    { L"Burning", 0x9580, 0x95c0, indexSamSho5Sprites_Basara },
+    { L"Main", 0x9400, 0x9440, indexSamSho3Sprites_Basara },
+    { L"Rage Flash", 0x9440, 0x9480, indexSamSho3Sprites_Basara },
+    { L"Extra Palette 2", 0x9480, 0x94c0, indexSamSho3Sprites_Basara },
+    { L"Extra Palette 3", 0x94c0, 0x9500, indexSamSho3Sprites_Basara },
+    { L"Shocked", 0x9500, 0x9540, indexSamSho3Sprites_Basara },
+    { L"Frozen", 0x9540, 0x9580, indexSamSho3Sprites_Basara },
+    { L"Burning", 0x9580, 0x95c0, indexSamSho3Sprites_Basara },
     { L"Extra Palette 7", 0x95c0, 0x9600 },
-    { L"Daylight", 0x9600, 0x9640, indexSamSho5Sprites_Basara },
-    { L"Moonlight", 0x9640, 0x9680, indexSamSho5Sprites_Basara },
+    { L"Daylight", 0x9600, 0x9640, indexSamSho3Sprites_Basara },
+    { L"Moonlight", 0x9640, 0x9680, indexSamSho3Sprites_Basara },
     { L"Extra Palette 10", 0x9680, 0x96c0 },
     { L"Extra Palette 11", 0x96c0, 0x9700 },
     { L"Extra Palette 12", 0x9700, 0x9740 },
@@ -715,16 +714,16 @@ const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_S2[] =
 
 const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_B1[] =
 {
-    { L"Main", 0x9800, 0x9840, indexSamSho5Sprites_Basara },
-    { L"Rage Flash", 0x9840, 0x9880, indexSamSho5Sprites_Basara },
-    { L"Extra Palette 2", 0x9880, 0x98c0, indexSamSho5Sprites_Basara },
-    { L"Extra Palette 3", 0x98c0, 0x9900, indexSamSho5Sprites_Basara },
-    { L"Shocked", 0x9900, 0x9940, indexSamSho5Sprites_Basara },
-    { L"Frozen", 0x9940, 0x9980, indexSamSho5Sprites_Basara },
-    { L"Burning", 0x9980, 0x99c0, indexSamSho5Sprites_Basara },
+    { L"Main", 0x9800, 0x9840, indexSamSho3Sprites_Basara },
+    { L"Rage Flash", 0x9840, 0x9880, indexSamSho3Sprites_Basara },
+    { L"Extra Palette 2", 0x9880, 0x98c0, indexSamSho3Sprites_Basara },
+    { L"Extra Palette 3", 0x98c0, 0x9900, indexSamSho3Sprites_Basara },
+    { L"Shocked", 0x9900, 0x9940, indexSamSho3Sprites_Basara },
+    { L"Frozen", 0x9940, 0x9980, indexSamSho3Sprites_Basara },
+    { L"Burning", 0x9980, 0x99c0, indexSamSho3Sprites_Basara },
     { L"Extra Palette 7", 0x99c0, 0x9a00 },
-    { L"Daylight", 0x9a00, 0x9a40, indexSamSho5Sprites_Basara },
-    { L"Moonlight", 0x9a40, 0x9a80, indexSamSho5Sprites_Basara },
+    { L"Daylight", 0x9a00, 0x9a40, indexSamSho3Sprites_Basara },
+    { L"Moonlight", 0x9a40, 0x9a80, indexSamSho3Sprites_Basara },
     { L"Extra Palette 10", 0x9a80, 0x9ac0 },
     { L"Extra Palette 11", 0x9ac0, 0x9b00 },
     { L"Extra Palette 12", 0x9b00, 0x9b40 },
@@ -735,16 +734,16 @@ const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_B1[] =
 
 const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_B2[] =
 {
-    { L"Main", 0x9c00, 0x9c40, indexSamSho5Sprites_Basara },
-    { L"Rage Flash", 0x9c40, 0x9c80, indexSamSho5Sprites_Basara },
-    { L"Extra Palette 2", 0x9c80, 0x9cc0, indexSamSho5Sprites_Basara },
-    { L"Extra Palette 3", 0x9cc0, 0x9d00, indexSamSho5Sprites_Basara },
-    { L"Shocked", 0x9d00, 0x9d40, indexSamSho5Sprites_Basara },
-    { L"Frozen", 0x9d40, 0x9d80, indexSamSho5Sprites_Basara },
-    { L"Burning", 0x9d80, 0x9dc0, indexSamSho5Sprites_Basara },
+    { L"Main", 0x9c00, 0x9c40, indexSamSho3Sprites_Basara },
+    { L"Rage Flash", 0x9c40, 0x9c80, indexSamSho3Sprites_Basara },
+    { L"Extra Palette 2", 0x9c80, 0x9cc0, indexSamSho3Sprites_Basara },
+    { L"Extra Palette 3", 0x9cc0, 0x9d00, indexSamSho3Sprites_Basara },
+    { L"Shocked", 0x9d00, 0x9d40, indexSamSho3Sprites_Basara },
+    { L"Frozen", 0x9d40, 0x9d80, indexSamSho3Sprites_Basara },
+    { L"Burning", 0x9d80, 0x9dc0, indexSamSho3Sprites_Basara },
     { L"Extra Palette 7", 0x9dc0, 0x9e00 },
-    { L"Daylight", 0x9e00, 0x9e40, indexSamSho5Sprites_Basara },
-    { L"Moonlight", 0x9e40, 0x9e80, indexSamSho5Sprites_Basara },
+    { L"Daylight", 0x9e00, 0x9e40, indexSamSho3Sprites_Basara },
+    { L"Moonlight", 0x9e40, 0x9e80, indexSamSho3Sprites_Basara },
     { L"Extra Palette 10", 0x9e80, 0x9ec0 },
     { L"Extra Palette 11", 0x9ec0, 0x9f00 },
     { L"Extra Palette 12", 0x9f00, 0x9f40 },

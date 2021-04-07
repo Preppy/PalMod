@@ -21,6 +21,7 @@ sSupportedGameList SupportedGameList[] =
     { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).sfc|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
     { CVS2_A,           L"CVS2", L"CVS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
+    { DBZHD_SNES,       L"Dragon Ball Z: Hyper Dimension (SNES)", L"Dragon Ball Z: Hyper Dimension (SNES)|dragon ball z - hyper dimension (*).sfc|", GamePlatform::Nintendo },
     { DOUBLEDRAGON_A,   L"Double Dragon", L"Double Dragon|082-p1.*;ddrag_p1.rom|", GamePlatform::NEOGEO },
     { FatalFuryS_SNES,  L"Fatal Fury Special (SNES)", L"Fatal Fury Special (SNES)|Fatal Fury Special (USA).sfc|", GamePlatform::Nintendo },
     { Garou_A,          L"Garou: MotW", L"Garou: MotW|kf.neo-sma|", GamePlatform::NEOGEO },
@@ -81,12 +82,16 @@ sSupportedGameList SupportedGameList[] =
     { GEMFIGHTER_A,     L"Super Gem Fighter", L"Super Gem Fighter|pcf*.07|", GamePlatform::CapcomCPS12 },
     { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo|pzf.04*|", GamePlatform::CapcomCPS12 },
     { SVCPLUSA_A,       L"SVC Plus A", L"SVC PlusA|svc-p2pl.bin|", GamePlatform::NEOGEO },
+#ifdef TERMIS_CHANGES_ARE_READY
+    { TMNTTF_SNES,      L"Teenage Mutant Ninja Turtles: TF (SNES)", L"Teenage Mutant Ninja Turtles: TF (SNES)|teenage mutant ninja turtles - tournament fighters (U*.s*c|", GamePlatform::Nintendo },
+#endif
     { TOPF2005_SEGA,    L"Top Fighter 2005 (Mega Drive)", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::Sega },
     { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2|vh2j.09|", GamePlatform::CapcomCPS12 },
     { VSAV_A,           L"Vampire Savior", L"Vampire Savior|vm3*.10b|", GamePlatform::CapcomCPS12 },
     { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2|vs2j.10|", GamePlatform::CapcomCPS12 },
     { WakuWaku7_A,      L"Waku Waku 7", L"Waku Waku 7|225-p1.p1|", GamePlatform::NEOGEO },
     { WINDJAMMERS_A,    L"Windjammers", L"Windjammers|065-p1.p1|", GamePlatform::NEOGEO }, // Data East on NEOGEO
+    { XMMA_SNES,        L"X-Men: Mutant Apocalypse (SNES)", L"X-Men: Mutant Apocalypse (SNES)|X-Men - Mutant Apocalypse (USA).sfc|", GamePlatform::Nintendo },
     { XMVSF_A,          L"XMVSF", L"XMVSF|xvs*.05*|", GamePlatform::CapcomCPS12 },
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };

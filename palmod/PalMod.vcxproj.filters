@@ -184,14 +184,8 @@
     <Filter Include="Game\Nintendo">
       <UniqueIdentifier>{b03bb639-d714-4d8f-b664-84b1bc5fc6d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Nintendo\BLEACH_DS">
-      <UniqueIdentifier>{2188a85d-12e7-4b62-a7bd-8ceea29c95e8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\SNK Games\KOF03_A">
       <UniqueIdentifier>{da1faa02-bdd1-465d-9b23-9e4504204406}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Nintendo\MMPR_SNES">
-      <UniqueIdentifier>{90c0e8ff-821b-4e54-a53c-bcaae5916403}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\SNK Games\KOF01_A">
       <UniqueIdentifier>{3d941f32-066d-4805-bf2c-c68239ba6d21}</UniqueIdentifier>
@@ -306,6 +300,21 @@
     </Filter>
     <Filter Include="Game\Sega\Top Fighter 2005">
       <UniqueIdentifier>{5cbf317e-6205-44c4-84fa-36a0ca650e67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\TMNT: Tournament Fighters %28SNES%29">
+      <UniqueIdentifier>{74c4ecd9-a85c-4dc0-ad9f-393507bbf6d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\X-Men Mutant Apocalypse %28SNES%29">
+      <UniqueIdentifier>{8a9495c5-5e7c-4d0b-836f-0496317d6da1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\DBZ Hyper Dimension %28SNES%29">
+      <UniqueIdentifier>{c66fd94c-52b1-430c-9353-18f95a2d217e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\MMPR: TFE %28SNES%29">
+      <UniqueIdentifier>{90c0e8ff-821b-4e54-a53c-bcaae5916403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Bleach DS %28NDS%29">
+      <UniqueIdentifier>{2188a85d-12e7-4b62-a7bd-8ceea29c95e8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -547,13 +556,13 @@
       <Filter>Additional Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\GAME_Bleach_DS.cpp">
-      <Filter>Game\Nintendo\BLEACH_DS</Filter>
+      <Filter>Game\Nintendo\Bleach DS %28NDS%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF03_A.cpp">
       <Filter>Game\SNK Games\KOF03_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MMPR_SNES.cpp">
-      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+      <Filter>Game\Nintendo\MMPR: TFE %28SNES%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF01_A.cpp">
       <Filter>Game\SNK Games\KOF01_A</Filter>
@@ -656,6 +665,15 @@
     </ClCompile>
     <ClCompile Include="Game\Game_TopF2005_Sega.cpp">
       <Filter>Game\Sega\Top Fighter 2005</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_DBZHD_SNES.cpp">
+      <Filter>Game\Nintendo\DBZ Hyper Dimension %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_XMMA_SNES.cpp">
+      <Filter>Game\Nintendo\X-Men Mutant Apocalypse %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_TMNTTF_SNES.cpp">
+      <Filter>Game\Nintendo\TMNT: Tournament Fighters %28SNES%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1017,10 +1035,10 @@
       <Filter>Game\SNK Games\Breakers Revenge</Filter>
     </ClInclude>
     <ClInclude Include="Game\Bleach_DS_DEF.h">
-      <Filter>Game\Nintendo\BLEACH_DS</Filter>
+      <Filter>Game\Nintendo\Bleach DS %28NDS%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\GAME_Bleach_DS.h">
-      <Filter>Game\Nintendo\BLEACH_DS</Filter>
+      <Filter>Game\Nintendo\Bleach DS %28NDS%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF03_A.h">
       <Filter>Game\SNK Games\KOF03_A</Filter>
@@ -1029,10 +1047,10 @@
       <Filter>Game\SNK Games\KOF03_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MMPR_SNES.h">
-      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+      <Filter>Game\Nintendo\MMPR: TFE %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\MMPR_SNES_DEF.h">
-      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+      <Filter>Game\Nintendo\MMPR: TFE %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF01_A.h">
       <Filter>Game\SNK Games\KOF01_A</Filter>
@@ -1216,6 +1234,24 @@
     </ClInclude>
     <ClInclude Include="Game\TopF2005_Sega_DEF.h">
       <Filter>Game\Sega\Top Fighter 2005</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DBZHD_SNES_DEF.h">
+      <Filter>Game\Nintendo\DBZ Hyper Dimension %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DBZHD_SNES.h">
+      <Filter>Game\Nintendo\DBZ Hyper Dimension %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_XMMA_SNES.h">
+      <Filter>Game\Nintendo\X-Men Mutant Apocalypse %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\XMMA_SNES_DEF.h">
+      <Filter>Game\Nintendo\X-Men Mutant Apocalypse %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_TMNTTF_SNES.h">
+      <Filter>Game\Nintendo\TMNT: Tournament Fighters %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TMNTTF_SNES_DEF.h">
+      <Filter>Game\Nintendo\TMNT: Tournament Fighters %28SNES%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

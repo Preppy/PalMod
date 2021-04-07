@@ -13,14 +13,11 @@ constexpr auto SVCPLUSA_A_NUMUNIT = indexSVC_A_Last;
 const UINT16 SVCPLUSA_A_IMG_UNITS[] =
 {
     indexKOFSprites_98Kyo,
-    indexKOFSprites_98Iori,
     indexKOFSprites_98Ryo,
     indexKOFSprites_98Terry,
     indexKOFSprites_98Mai,
     indexKOFSprites_98Kim,
     indexKOFSprites_98Choi,
-    indexKOFSprites_02Geese,
-    indexKOFSprites_02Goenitz,
 
     indexSVCSprites_Kyo,        // 4f
     indexSVCSprites_Iori,       // 50
@@ -112,25 +109,25 @@ const sGame_PaletteDataset SVCPLUSA_A_KYO_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_IORI_PUNCH_PALETTES[] =
 {
-    { L"Iori", 0x365538, 0x365558, indexKOFSprites_98Iori },
-    { L"Fire Effect 1", 0x365558, 0x365578, indexKOFSprites_98Iori },
-    { L"Fire Effect 2", 0x365578, 0x365598, indexKOFSprites_98Iori },
-    { L"Electric Shock Effect", 0x365598, 0x3655b8, indexKOFSprites_98Iori },
+    { L"Iori", 0x365538, 0x365558, indexSVCSprites_Iori },
+    { L"Fire Effect 1", 0x365558, 0x365578, indexSVCSprites_Iori },
+    { L"Fire Effect 2", 0x365578, 0x365598, indexSVCSprites_Iori },
+    { L"Electric Shock Effect", 0x365598, 0x3655b8, indexSVCSprites_Iori },
     { L"Red Arremer Transformation", 0x3655b8, 0x3655d8, indexSVCSprites_Iori, 4 },
     { L"Athena Transformation", 0x3655d8, 0x3655f8, indexSVCSprites_Iori, 5 },
-    { L"Soul Palette", 0x3655f8, 0x365618, indexKOFSprites_98Iori },
+    { L"Soul Palette", 0x3655f8, 0x365618, indexSVCSprites_Iori },
     { L"Midnight Bliss", 0x365618, 0x365638, indexSVCSprites_Iori, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_IORI_KICK_PALETTES[] =
 {
-    { L"Iori", 0x365738, 0x365758, indexKOFSprites_98Iori },
-    { L"Fire Effect 1", 0x365758, 0x365778, indexKOFSprites_98Iori },
-    { L"Fire Effect 2", 0x365778, 0x365798, indexKOFSprites_98Iori },
-    { L"Electric Shock Effect", 0x365798, 0x3657b8, indexKOFSprites_98Iori },
+    { L"Iori", 0x365738, 0x365758, indexSVCSprites_Iori },
+    { L"Fire Effect 1", 0x365758, 0x365778, indexSVCSprites_Iori },
+    { L"Fire Effect 2", 0x365778, 0x365798, indexSVCSprites_Iori },
+    { L"Electric Shock Effect", 0x365798, 0x3657b8, indexSVCSprites_Iori },
     { L"Red Arremer Transformation", 0x3657b8, 0x3657d8, indexSVCSprites_Iori, 4 },
     { L"Athena Transformation", 0x3657d8, 0x3657f8, indexSVCSprites_Iori , 5},
-    { L"Soul Palette", 0x3657f8, 0x365818, indexKOFSprites_98Iori },
+    { L"Soul Palette", 0x3657f8, 0x365818, indexSVCSprites_Iori },
     { L"Midnight Bliss", 0x365818, 0x365838, indexSVCSprites_Iori, 7 },
 };
 
@@ -628,25 +625,25 @@ const sGame_PaletteDataset SVCPLUSA_A_SHIKI_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_GEESEHOWARD_PUNCH_PALETTES[] =
 {
-    { L"Geese Howard", 0x370538, 0x370558, indexKOFSprites_02Geese },
-    { L"Unused: Fire Effect 1", 0x370558, 0x370578, indexKOFSprites_02Geese },
-    { L"Unused: Fire Effect 2", 0x370578, 0x370598, indexKOFSprites_02Geese },
-    { L"Electric Shock Effect", 0x370598, 0x3705b8, indexKOFSprites_02Geese },
+    { L"Geese Howard", 0x370538, 0x370558, indexSVCSprites_GeeseHoward },
+    { L"Unused: Fire Effect 1", 0x370558, 0x370578, indexSVCSprites_GeeseHoward },
+    { L"Unused: Fire Effect 2", 0x370578, 0x370598, indexSVCSprites_GeeseHoward },
+    { L"Electric Shock Effect", 0x370598, 0x3705b8, indexSVCSprites_GeeseHoward },
     { L"Red Arremer Transformation", 0x3705b8, 0x3705d8, indexSVCSprites_GeeseHoward, 4 },
     { L"Athena Transformation", 0x3705d8, 0x3705f8, indexSVCSprites_GeeseHoward, 5 },
-    { L"Soul Palette", 0x3705f8, 0x370618, indexKOFSprites_02Geese },
+    { L"Soul Palette", 0x3705f8, 0x370618, indexSVCSprites_GeeseHoward },
     { L"Midnight Bliss", 0x370618, 0x370638, indexSVCSprites_GeeseHoward, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_GEESEHOWARD_KICK_PALETTES[] =
 {
-    { L"Geese Howard", 0x370738, 0x370758, indexKOFSprites_02Geese },
-    { L"Unused: Fire Effect 1", 0x370758, 0x370778, indexKOFSprites_02Geese },
-    { L"Unused: Fire Effect 2", 0x370778, 0x370798, indexKOFSprites_02Geese },
-    { L"Electric Shock Effect", 0x370798, 0x3707b8, indexKOFSprites_02Geese },
+    { L"Geese Howard", 0x370738, 0x370758, indexSVCSprites_GeeseHoward },
+    { L"Unused: Fire Effect 1", 0x370758, 0x370778, indexSVCSprites_GeeseHoward },
+    { L"Unused: Fire Effect 2", 0x370778, 0x370798, indexSVCSprites_GeeseHoward },
+    { L"Electric Shock Effect", 0x370798, 0x3707b8, indexSVCSprites_GeeseHoward },
     { L"Red Arremer Transformation", 0x3707b8, 0x3707d8, indexSVCSprites_GeeseHoward, 4 },
     { L"Athena Transformation", 0x3707d8, 0x3707f8, indexSVCSprites_GeeseHoward, 5 },
-    { L"Soul Palette", 0x3707f8, 0x370818, indexKOFSprites_02Geese },
+    { L"Soul Palette", 0x3707f8, 0x370818, indexSVCSprites_GeeseHoward },
     { L"Midnight Bliss", 0x370818, 0x370838, indexSVCSprites_GeeseHoward, 7 },
 };
 
@@ -724,25 +721,25 @@ const sGame_PaletteDataset SVCPLUSA_A_MARSPEOPLE_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_GOENITZ_PUNCH_PALETTES[] =
 {
-    { L"Goenitz", 0x372538, 0x372558, indexKOFSprites_02Goenitz },
-    { L"Unused: Fire Effect 1", 0x372558, 0x372578, indexKOFSprites_02Goenitz },
-    { L"Unused: Fire Effect 2", 0x372578, 0x372598, indexKOFSprites_02Goenitz },
-    { L"Electric Shock Effect", 0x372598, 0x3725b8, indexKOFSprites_02Goenitz },
+    { L"Goenitz", 0x372538, 0x372558, indexSVCSprites_Goenitz },
+    { L"Unused: Fire Effect 1", 0x372558, 0x372578, indexSVCSprites_Goenitz },
+    { L"Unused: Fire Effect 2", 0x372578, 0x372598, indexSVCSprites_Goenitz },
+    { L"Electric Shock Effect", 0x372598, 0x3725b8, indexSVCSprites_Goenitz },
     { L"Red Arremer Transformation", 0x3725b8, 0x3725d8, indexSVCSprites_Goenitz, 4 },
     { L"Athena Transformation", 0x3725d8, 0x3725f8, indexSVCSprites_Goenitz, 5 },
-    { L"Soul Palette", 0x3725f8, 0x372618, indexKOFSprites_02Goenitz },
+    { L"Soul Palette", 0x3725f8, 0x372618, indexSVCSprites_Goenitz },
     { L"Midnight Bliss", 0x372618, 0x372638, indexSVCSprites_Goenitz, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_GOENITZ_KICK_PALETTES[] =
 {
-    { L"Goenitz", 0x372738, 0x372758, indexKOFSprites_02Goenitz },
-    { L"Unused: Fire Effect 1", 0x372758, 0x372778, indexKOFSprites_02Goenitz },
-    { L"Unused: Fire Effect 2", 0x372778, 0x372798, indexKOFSprites_02Goenitz },
-    { L"Electric Shock Effect", 0x372798, 0x3727b8, indexKOFSprites_02Goenitz },
+    { L"Goenitz", 0x372738, 0x372758, indexSVCSprites_Goenitz },
+    { L"Unused: Fire Effect 1", 0x372758, 0x372778, indexSVCSprites_Goenitz },
+    { L"Unused: Fire Effect 2", 0x372778, 0x372798, indexSVCSprites_Goenitz },
+    { L"Electric Shock Effect", 0x372798, 0x3727b8, indexSVCSprites_Goenitz },
     { L"Red Arremer Transformation", 0x3727b8, 0x3727d8, indexSVCSprites_Goenitz, 4 },
     { L"Athena Transformation", 0x3727d8, 0x3727f8, indexSVCSprites_Goenitz, 5 },
-    { L"Soul Palette", 0x3727f8, 0x372818, indexKOFSprites_02Goenitz },
+    { L"Soul Palette", 0x3727f8, 0x372818, indexSVCSprites_Goenitz },
     { L"Midnight Bliss", 0x372818, 0x372838, indexSVCSprites_Goenitz, 7 },
 };
 
@@ -1365,7 +1362,7 @@ const sGame_PaletteDataset SVCPLUSA_A_TESSA_PUNCH_PALETTES[] =
     { L"Midnight Bliss", 0x37f578, 0x37f598, indexSVCSprites_Tessa, 7 },
     { L"Electric Shock Effect", 0x37f598, 0x37f5b8, indexSVCSprites_Tessa },
     { L"Shield", 0x37f5b8, 0x37f5d8, indexSVCSprites_Tessa, 4 },
-    { L"Athena Transformation", 0x37f5d8, 0x37f5f8, indexSVCSprites_Tessa },
+    { L"Grab A+B", 0x37f5d8, 0x37f5f8 },
     { L"Soul Palette", 0x37f5f8, 0x37f618, indexSVCSprites_Tessa },
     { L"Hearts", 0x37f618, 0x37f638, indexSVCSprites_Tessa, 2 },
 };
@@ -1377,7 +1374,7 @@ const sGame_PaletteDataset SVCPLUSA_A_TESSA_KICK_PALETTES[] =
     { L"Midnight Bliss", 0x37f778, 0x37f798, indexSVCSprites_Tessa, 7 },
     { L"Electric Shock Effect", 0x37f798, 0x37f7b8, indexSVCSprites_Tessa },
     { L"Shield", 0x37f7b8, 0x37f7d8, indexSVCSprites_Tessa, 4 },
-    { L"Athena Transformation", 0x37f7d8, 0x37f7f8, indexSVCSprites_Tessa },
+    { L"Grab A+B", 0x37f7d8, 0x37f7f8 },
     { L"Soul Palette", 0x37f7f8, 0x37f818, indexSVCSprites_Tessa },
     { L"Hearts", 0x37f818, 0x37f838, indexSVCSprites_Tessa, 2 },
 };
@@ -1613,25 +1610,25 @@ const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_PUNCH_PALETTES[] =
 {
-    { L"Orochi Iori", 0x384538, 0x384558, indexKOFSprites_98Iori },
-    // unused { L"Fire Effect 1", 0x384558, 0x384578, indexKOFSprites_98Iori },
-    // unused { L"Fire Effect 2", 0x384578, 0x384598, indexKOFSprites_98Iori },
-    { L"Electric Shock Effect", 0x384598, 0x3845b8, indexKOFSprites_98Iori },
+    { L"Orochi Iori", 0x384538, 0x384558, indexSVCSprites_OrochiIori },
+    // unused { L"Fire Effect 1", 0x384558, 0x384578, indexSVCSprites_OrochiIori },
+    // unused { L"Fire Effect 2", 0x384578, 0x384598, indexSVCSprites_OrochiIori },
+    { L"Electric Shock Effect", 0x384598, 0x3845b8, indexSVCSprites_OrochiIori },
     { L"Red Arremer Transformation", 0x3845b8, 0x3845d8, indexSVCSprites_OrochiIori, 4 },
     { L"Athena Transformation", 0x3845d8, 0x3845f8, indexSVCSprites_OrochiIori, 5 },
-    { L"Soul Palette", 0x3845f8, 0x384618, indexKOFSprites_98Iori },
+    { L"Soul Palette", 0x3845f8, 0x384618, indexSVCSprites_OrochiIori },
     { L"Midnight Bliss", 0x384618, 0x384638, indexSVCSprites_OrochiIori, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_KICK_PALETTES[] =
 {
-    { L"Orochi Iori", 0x384738, 0x384758, indexKOFSprites_98Iori },
-    // unused { L"Fire Effect 1", 0x384758, 0x384778, indexKOFSprites_98Iori },
-    // unused { L"Fire Effect 2", 0x384778, 0x384798, indexKOFSprites_98Iori },
-    { L"Electric Shock Effect", 0x384798, 0x3847b8, indexKOFSprites_98Iori },
+    { L"Orochi Iori", 0x384738, 0x384758, indexSVCSprites_OrochiIori },
+    // unused { L"Fire Effect 1", 0x384758, 0x384778, indexSVCSprites_OrochiIori },
+    // unused { L"Fire Effect 2", 0x384778, 0x384798, indexSVCSprites_OrochiIori },
+    { L"Electric Shock Effect", 0x384798, 0x3847b8, indexSVCSprites_OrochiIori },
     { L"Red Arremer Transformation", 0x3847b8, 0x3847d8, indexSVCSprites_OrochiIori, 4 },
     { L"Athena Transformation", 0x3847d8, 0x3847f8, indexSVCSprites_OrochiIori, 5 },
-    { L"Soul Palette", 0x3847f8, 0x384818, indexKOFSprites_98Iori },
+    { L"Soul Palette", 0x3847f8, 0x384818, indexSVCSprites_OrochiIori },
     { L"Midnight Bliss", 0x384818, 0x384838, indexSVCSprites_OrochiIori, 7 },
 };
 

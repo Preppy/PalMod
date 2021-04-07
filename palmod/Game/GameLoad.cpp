@@ -11,6 +11,7 @@
 #include "Game_CVS2_A.h"
 #include "Game_DanKuGa_A.h"
 #include "Game_DBFCI_A.h"
+#include "Game_DBZHD_SNES.h"
 #include "Game_DoubleDragon_A.h"
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_Garou_A.h"
@@ -77,6 +78,7 @@
 #include "Game_SSF2T_A.h"
 #include "Game_SSF2T_GBA.h"
 #include "Game_SVCPLUSA_A.h"
+#include "Game_TMNTTF_SNES.h"
 #include "Game_TopF2005_Sega.h"
 #include "Game_UNICLR_A.h"
 #include "Game_VHUNT2_A.h"
@@ -84,6 +86,7 @@
 #include "Game_VSAV2_A.h"
 #include "Game_WakuWaku7_A.h"
 #include "Game_Windjammers_A.h"
+#include "Game_XMMA_SNES.h"
 #include "Game_XMVSF_A.h"
 
 #include "..\resource.h"
@@ -180,6 +183,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_DBFCI_A::GetRule;
         GetNextRule = &CGame_DBFCI_A::GetNextRule;
 
+        return TRUE;
+    }
+    case DBZHD_SNES:
+    {
+        GetRule = &CGame_DBZHD_SNES::GetRule;
         return TRUE;
     }
     case DOUBLEDRAGON_A:
@@ -604,6 +612,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SVCPLUSA_A::GetRule;
         return TRUE;
     }
+    case TMNTTF_SNES:
+    {
+        GetRule = &CGame_TMNTTF_SNES::GetRule;
+        return TRUE;
+    }
     case TOPF2005_SEGA:
     {
         GetRule = &CGame_TOPF2005_SEGA::GetRule;
@@ -641,6 +654,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case WINDJAMMERS_A:
     {
         GetRule = &CGame_Windjammers_A::GetRule;
+        return TRUE;
+    }
+    case XMMA_SNES:
+    {
+        GetRule = &CGame_XMMA_SNES::GetRule;
         return TRUE;
     }
     case XMVSF_A:
@@ -700,6 +718,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case DBFCI_A:
     {
         return new CGame_DBFCI_A(nConfirmedROMSize);
+    }
+    case DBZHD_SNES:
+    {
+        return new CGame_DBZHD_SNES(nConfirmedROMSize);
     }
     case DOUBLEDRAGON_A:
     {
@@ -993,6 +1015,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_SVCPLUSA_A(nConfirmedROMSize);
     }
+    case TMNTTF_SNES:
+    {
+        return new CGame_TMNTTF_SNES(nConfirmedROMSize);
+    }
     case TOPF2005_SEGA:
     {
         return new CGame_TOPF2005_SEGA(nConfirmedROMSize);
@@ -1021,7 +1047,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_Windjammers_A(nConfirmedROMSize);
     }
-
+    case XMMA_SNES:
+    {
+        return new CGame_XMMA_SNES(nConfirmedROMSize);
+    }
     case XMVSF_A:
     {
         return new CGame_XMVSF_A(nConfirmedROMSize);

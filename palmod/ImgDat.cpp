@@ -66,8 +66,6 @@ bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameI
         imageBufferFlushed = FlushImageBuffer();
     }
 
-    nImgMap = new std::map<UINT16, ImgInfoList*>;
-
 #if IMGDAT_DEBUG
     CString strDebugInfo;
     strDebugInfo.Format(L"CImgDat::PrepImageBuffer : Prepping Image Buffer \n");
@@ -79,6 +77,8 @@ bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameI
         OutputDebugString(L"CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n");
         return false;
     }
+
+    nImgMap = new std::map<UINT16, ImgInfoList*>;
 
     // We have an individual entry here for every game so we can optimize image loads
     for (UINT16 nUnitCtr = 0; nUnitCtr < nGameImageUnitAmt; nUnitCtr++)
@@ -294,10 +294,10 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
         // here we keep track of the imgdat version we expect.
         // not super critical for daily updates, but still useful
         const UINT16 nExpectedYear = 2021;
-        const UINT8 nExpectedMonth = 3;
-        const UINT8 nExpectedDay = 30;
+        const UINT8 nExpectedMonth = 4;
+        const UINT8 nExpectedDay = 5;
         const UINT8 nExpectedRevision = 0;
-        const ULONGLONG nExpectedFileSize = 80069949;
+        const ULONGLONG nExpectedFileSize = 80461607;
 
         const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 
@@ -340,7 +340,7 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
     strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uImgUnitAmt);
     OutputDebugString(strDebugInfo);
 
-    if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag))
+    if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag) || (uImgUnitAmt == 0))
     {
         return TRUE;
     }

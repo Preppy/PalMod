@@ -81,7 +81,8 @@ const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
     { L"Leo Character Select",               0x1DF200, 0x1DF280, indexRedEarthSprites_Leo, 0x11 },
     { L"Leo Character Selected",             0x1DEB80, 0x1DEC00, indexRedEarthSprites_Leo, 0x11 },
     { L"Leo Character Select Portrait",      0x1DEF00, 0x1DEF80, indexRedEarthSprites_Leo, 0x12 },
-    { L"Leo Character Select Portrait Highlighted", 0x1E0D80, 0x1E0E00, indexRedEarthSprites_Leo, 0x12 },
+    { L"P1 Leo Character Select Portrait Highlighted", 0x1E0D80, 0x1E0E00, indexRedEarthSprites_Leo, 0x12 },
+    { L"P2 Leo Character Select Portrait Highlighted", 0x1E2F80, 0x1E3000, indexRedEarthSprites_Leo, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
@@ -167,7 +168,8 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
     { L"Kenji Character Select",                 0x1DF380, 0x1DF400, indexRedEarthSprites_Kenji, 0x11 },
     { L"Kenji Character Selected",               0x1DED00, 0x1DED80, indexRedEarthSprites_Kenji, 0x11 },
     { L"Kenji Character Select Portrait",        0x1DF000, 0x1DF080, indexRedEarthSprites_Kenji, 0x12 },
-    { L"Kenji Character Select Portrait Highlighted", 0x1E0F00, 0x1E0F80, indexRedEarthSprites_Kenji, 0x12 },
+    { L"P1 Kenji Character Select Portrait Highlighted", 0x1E0F00, 0x1E0F80, indexRedEarthSprites_Kenji, 0x12 },
+    { L"P2 Kenji Character Select Portrait Highlighted", 0x1E3100, 0x1E3180, indexRedEarthSprites_Kenji, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
@@ -304,7 +306,8 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
     { L"Tessa Character Select",                 0x1DF180, 0x1DF200, indexRedEarthSprites_Tessa, 0x11 },
     { L"Tessa Character Selected",               0x1DEB00, 0x1DEB80, indexRedEarthSprites_Tessa, 0x11 },
     { L"Tessa Character Select Portrait ",       0x1DEF80, 0x1DF000, indexRedEarthSprites_Tessa, 0x12 },
-    { L"Tessa Character Select Portrait Highlighted", 0x1E0D00, 0x1E0D80, indexRedEarthSprites_Tessa, 0x12 },
+    { L"P1 Tessa Character Select Portrait Highlighted", 0x1E0D00, 0x1E0D80, indexRedEarthSprites_Tessa, 0x12 },
+    { L"P2 Tessa Character Select Portrait Highlighted", 0x1E2F00, 0x1E2F80, indexRedEarthSprites_Tessa, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
@@ -338,7 +341,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
 {
     { L"Mai Ling Kick", 0x41DE00, 0x41DE80, indexRedEarthSprites_MaiLing, 0 },
-    { L"Mai Ling Kick Vs/Winning Screen", 0x1E4F80, 0x1E5000, indexRedEarthSprites_MaiLing, 0x17 },
+    { L"Mai Ling Kick Vs/Winning Screen", 0x1E4F80, 0x1E5000, indexRedEarthSprites_MaiLing, 0x27 },
     { L"Mai Ling Kick Losing Screen", 0x1E4F00, 0x1E4F80 },
     { L"Mai Ling Kick LifeBar Portrait", 0x406A40, 0x406A80, indexRedEarthSprites_MaiLing, 0x10 },
 
@@ -368,7 +371,8 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
     { L"Mai Ling Character Select",          0x1DF300, 0x1DF380, indexRedEarthSprites_MaiLing, 0x11 },
     { L"Mai Ling Character Selected",        0x1DEC80, 0x1DED00, indexRedEarthSprites_MaiLing, 0x11 },
     { L"Mai Ling Character Select Portrait", 0x1DF080, 0x1DF100, indexRedEarthSprites_MaiLing, 0x12 },
-    { L"Mai Ling Character Select Portrait Highlighted", 0x1E0E80, 0x1E0F00, indexRedEarthSprites_MaiLing, 0x12 },
+    { L"P1 Mai Ling Character Select Portrait Highlighted", 0x1E0E80, 0x1E0F00, indexRedEarthSprites_MaiLing, 0x12 },
+    { L"P2 Mai Ling Character Select Portrait Highlighted", 0x1E3080, 0x1E3100, indexRedEarthSprites_MaiLing, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_HAUZER_PALETTES[] =
@@ -489,10 +493,10 @@ const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
     { L"Character Select Transition Skyline (2/4)", 0x1DE680, 0x1DE700 },
     { L"Character Select Transition Skyline (3/4)", 0x1DE700, 0x1DE780 },
     { L"Character Select Transition Skyline (4/4)", 0x1DE780, 0x1DE800 },
-    { L"Vs Screen Transition (1/4)", 0x406000, 0x406100 },
-    { L"Vs Screen Transition (2/4)", 0x406100, 0x406200 },
-    { L"Vs Screen Transition (3/4)", 0x406200, 0x406300 },
-    { L"Vs Screen Transition (4/4)", 0x406300, 0x406400 },
+    { L"Vs Screen Transition - Leo (1/4)", 0x406000, 0x406100 },
+    { L"Vs Screen Transition - Kenji (2/4)", 0x406100, 0x406200 },
+    { L"Vs Screen Transition - Tessa (3/4)", 0x406200, 0x406300 },
+    { L"Vs Screen Transition - Mai-Ling (4/4)", 0x406300, 0x406400 },
     { L"Victory Screen (1/6)", 0x1DE800, 0x1DE880 },
     { L"Victory Screen (2/6)", 0x1DE880, 0x1DE900 },
     { L"Victory Screen (3/6)", 0x1DE900, 0x1DE980 },

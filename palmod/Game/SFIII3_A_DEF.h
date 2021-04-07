@@ -1942,7 +1942,7 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"P1 Impacts",                        0x76AC80, 0x76AD00 },
     { L"P2 Impacts",                        0x76AC00, 0x76AC80 },
     { L"Numerals, Inputs, Buttons: Super Art Selector", 0x709E00, 0x709E80 },
-    { L"Super Art Panels",                  0x709B00, 0x709B80 },
+    { L"Super Art Panels",                  0x709B00, 0x709B80, index3S_CPS3_Bonus, 0x13 },
     { L"SUV Portrait",                      0x70E600, 0x70E780 },
     { L"Basketball Sean Portrait",          0x70E780, 0x70E880, index3S_CPS3_Sean, 0x10 },
     { L"Basketball Sean Portrait (faded)",  0x713580, 0x713680, index3S_CPS3_Sean, 0x10 },

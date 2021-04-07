@@ -108,6 +108,7 @@ enum SupportedGamesList
     KOTM_A,
     XMMA_SNES,
     TMNTTF_SNES,
+    DBZHD_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -137,7 +138,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Jojo's (Japan)",
    L"MSH (Arcade)",
    L"MSHVSF (Arcade)",
-   L"X-Men (Arcade)",
+   L"X-Men : COTA (Arcade)",
    L"MVC2 (Arcade)",
    L"Garou: MotW (Neo-Geo)",
    L"Unknown Game",
@@ -219,6 +220,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"King of the Monsters (Neo-Geo)",
    L"X-Men: Mutant Apocalypse (SNES)",
    L"TMNT: Tournament Fighters (SNES)",
+   L"DBZ: Hyper Dimension (SNES)",
 };
 
 enum class GamePlatform

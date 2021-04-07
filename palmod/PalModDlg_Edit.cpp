@@ -658,6 +658,7 @@ void CPalModDlg::OnEditPaste()
                 }
                 case BLEACH_DS:
                 case CFTE_SNES:
+                case DBZHD_SNES:
                 case FatalFuryS_SNES:
                 case GUNDAM_SNES:
                 case MMPR_SNES:

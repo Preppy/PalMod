@@ -6966,7 +6966,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x4ef6120, 0x4ef6140, indexCPS2_SilverSamurai, 0 },
     { L"(02) LP Color - Shadow Frame LP Color + Lumin-5", 0x4ef6140, 0x4ef6160, indexCPS2_SilverSamurai, 0 },
-    { L"(03) Shuriken", 0x4ef6160, 0x4ef6180, indexCPS2_SilverSamurai, 2 },
+    { L"(03) Shuriken Slash", 0x4ef6160, 0x4ef6180, indexCPS2_SilverSamurai, 2 },
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6180, 0x4ef61a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef61a0, 0x4ef61c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef61c0, 0x4ef61e0, indexCPS2_SilverSamurai, 5 },

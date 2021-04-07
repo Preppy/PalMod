@@ -2943,7 +2943,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SILVERSAMURAI[] =
 { //2F: Silver-Samurai" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) LP Color - Shadow Frame LP Color + Lumin-5", 0 },
-    { 0x02, L"(03) Shuriken" },
+    { 0x02, L"(03) Shuriken Slash" },
     { 0x03, L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)" },
     { 0x04, L"(05) Thunder Effect (sword)" },
     { 0x05, L"(06) Ice Effect (sword)" },

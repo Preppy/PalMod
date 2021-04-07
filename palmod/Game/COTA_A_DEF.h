@@ -331,9 +331,9 @@ const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P2[] =
 const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P1[] =
 {
     { L"P1",          0x2727E, 0x2729E, indexCPS2_SilverSamurai },
-    { L"P1 Extras 1", 0x2729E, 0x272BE, indexCPS2_SilverSamurai },
-    { L"P1 Extras 2", 0x272BE, 0x272DE },
-    { L"P1 Extras 3", 0x272DE, 0x272FE },
+    { L"P1 Extras 1: Shadow Frame", 0x2729E, 0x272BE, indexCPS2_SilverSamurai },
+    { L"P1 Extras 2: Shuriken Slash", 0x272BE, 0x272DE, indexCPS2_SilverSamurai, 0x02 },
+    { L"P1 Extras 3: Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x272DE, 0x272FE, indexCPS2_SilverSamurai, 0x03 },
 
     { L"P1 Shine 1", 0x2973E, 0x2975E, indexCPS2_SilverSamurai }, // core rotation
     { L"P1 Shine 2", 0x2975E, 0x2977E, indexCPS2_SilverSamurai },
@@ -348,9 +348,9 @@ const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P1[] =
 const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P2[] =
 {
     { L"P2",          0x272FE, 0x2731E, indexCPS2_SilverSamurai },
-    { L"P2 Extras 1", 0x2731E, 0x2733E, indexCPS2_SilverSamurai, 1 },
-    { L"P2 Extras 2", 0x2733E, 0x2735E },
-    { L"P2 Extras 3", 0x2735E, 0x2737E },
+    { L"P2 Extras 1: Shadow Frame", 0x2731E, 0x2733E, indexCPS2_SilverSamurai, 1 },
+    { L"P2 Extras 2: Shuriken Slash", 0x2733E, 0x2735E, indexCPS2_SilverSamurai, 0x02 },
+    { L"P2 Extras 3: Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x2735E, 0x2737E, indexCPS2_SilverSamurai, 0x03 },
 
     { L"P2 Shine 1", 0x2977E, 0x2979E, indexCPS2_SilverSamurai }, // core rotation
     { L"P2 Shine 2", 0x2979E, 0x297BE, indexCPS2_SilverSamurai },
@@ -427,8 +427,8 @@ const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P2[] =
 const sGame_PaletteDataset COTA_A_STORM_PALETTES_P1[] =
 {
     { L"P1",         0x26A3E, 0x26A5E, indexCPS2_Storm },
-    { L"P1 Extras 1: Lightning FX", 0x26A7E, 0x26A9E }, // lightning fx
-    { L"P1 Extras 2: Lightning FX", 0x26A9E, 0x26ABE }, // head of lightning attack
+    { L"P1 Extras 1: Lightning FX", 0x26A7E, 0x26A9E, indexCPS2_Storm, 0x08 }, // lightning fx
+    { L"P1 Extras 2: Lightning FX", 0x26A9E, 0x26ABE, indexCPS2_Storm, 0x09 }, // head of lightning attack
 
     { L"P1 Extras 3", 0x26A5E, 0x26A7E, indexCPS2_Storm },
     { L"P1 Ending Sprite", 0x279FE, 0x27A1E, indexCPS2_Storm },
@@ -450,8 +450,8 @@ const sGame_PaletteDataset COTA_A_STORM_PALETTES_P1[] =
 const sGame_PaletteDataset COTA_A_STORM_PALETTES_P2[] =
 {
     { L"P2", 0x26ABE, 0x26ADE, indexCPS2_Storm },
-    { L"P2 Extras 1: Lightning FX", 0x26AFE, 0x26B1E },
-    { L"P2 Extras 2: Lightning FX", 0x26B1E, 0x26B3E },
+    { L"P2 Extras 1: Lightning FX", 0x26AFE, 0x26B1E, indexCPS2_Storm, 0x08 },
+    { L"P2 Extras 2: Lightning FX", 0x26B1E, 0x26B3E, indexCPS2_Storm, 0x09 },
 
     { L"P2 Extras 3", 0x26ADE, 0x26AFE, indexCPS2_Storm },
     { L"P2 Ending Sprite", 0x27A3E, 0x27A5E, indexCPS2_Storm },
@@ -472,18 +472,18 @@ const sGame_PaletteDataset COTA_A_STORM_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P1[] =
 {
-    { L"Wolverine P1",    0x2713E, 0x2715E, 0x07, 0, &pairNext },
-    { L"P1 Claws",        0x2715E, 0x2717E, 0x07, 1 },
-    { L"P1 Berserker Barrage", 0x2717e, 0x2719e, 0x07, 2 },
-    { L"P1 ?",            0x2719e, 0x271be, 0x07 },
+    { L"Wolverine P1",    0x2713E, 0x2715E, indexCPS2_Wolverine, 0, &pairNext },
+    { L"P1 Claws",        0x2715E, 0x2717E, indexCPS2_Wolverine, 1 },
+    { L"P1 Berserker Barrage", 0x2717e, 0x2719e, indexCPS2_Wolverine, 2 },
+    { L"P1 ?",            0x2719e, 0x271be, indexCPS2_Wolverine },
 };
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
 {
-    { L"Wolverine P2", 0x271be, 0x271dE, 0x07, 0, &pairNext },
-    { L"P2 Claws", 0x271dE, 0x271fE, 0x07, 1 },
-    { L"P2 Berserker Barrage", 0x271fE, 0x2721E, 0x07, 2 },
-    { L"P2 ?", 0x2721E, 0x2723E, 0x07 },
+    { L"Wolverine P2", 0x271be, 0x271dE, indexCPS2_Wolverine, 0, &pairNext },
+    { L"P2 Claws", 0x271dE, 0x271fE, indexCPS2_Wolverine, 1 },
+    { L"P2 Berserker Barrage", 0x271fE, 0x2721E, indexCPS2_Wolverine, 2 },
+    { L"P2 ?", 0x2721E, 0x2723E, indexCPS2_Wolverine },
 };
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P1[] = // aka Gouki
@@ -542,6 +542,12 @@ const sGame_PaletteDataset COTA_A_BONUS_PALETTES[] =
     { L"Select Screen Vs Text",     0x371d4, 0x371f4, indexCPS2_COTAAssets, 0 },
     { L"Select Screen Background",  0x3D436, 0x3D456 },
     { L"Mojo",                      0x279a0, 0x279c0, indexCPS2_COTAAssets, 2 },
+    { L"Professor X",               0x2781E, 0x2783E },
+    { L"Forge",                     0x27a1e, 0x27a3e },
+    { L"Cyclops (Ending sprite)",   0x2777e, 0x2779e },
+    { L"Jean Grey (Holding Cyclops/Photo)",  0x2779E, 0x277BE },
+    { L"Jean Grey (Flying)",        0x2771E, 0x2773E },
+    { L"Wolverine's Motorcycle",    0x279de, 0x279fe },
 };
 
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =
