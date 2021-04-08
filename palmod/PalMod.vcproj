@@ -234,14 +234,6 @@
 					RelativePath=".\Game\PalGroup.h"
 					>
 				</File>
-				<File
-					RelativePath=".\Game\ShellSort.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Game\ShellSort.h"
-					>
-				</File>
 			</Filter>
 			<Filter
 				Name="MVC2_D"

@@ -540,7 +540,7 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     // always run the dupe check logic in debug mode "just in case"
     bool fShouldRunDupeCheck = true;
 #else
-    bool fShouldRunDupeCheck = true; // (nPaletteCountForRom != m_nSafeCountForThisRom);
+    bool fShouldRunDupeCheck = (nPaletteCountForRom != m_nSafeCountForThisRom);
 #endif
 
     int nInternalDupeCount = fShouldRunDupeCheck ?  GetDupeCountInDataset() : 0;

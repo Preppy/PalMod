@@ -25,29 +25,6 @@ const UINT16 COTA_A_IMG_UNITS[] =
     indexCPS2_COTAAssets,
 };
 
-enum SupportedCOTAPaletteListIndex
-{
-    indexCOTAColossus,
-    indexCOTACyclops,
-    indexCOTAIceman,
-    indexCOTAJuggernaut,
-    indexCOTAMagneto,
-    indexCOTAOmegaRed,
-    indexCOTAPsylocke,
-    indexCOTASentinel,
-    indexCOTASilverSamurai,
-    indexCOTASpiral,
-    indexCOTAStorm,
-    indexCOTAWolverine,
-    indexCOTAAkuma,
-    indexCOTABonus,
-    indexCOTA_Last
-};
-
-constexpr auto COTA_A_NUMUNIT = indexCOTA_Last;
-
-#define COTA_A_EXTRALOC COTA_A_NUMUNIT
-
 const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P1[] =
 {
     { L"P1",          0x2683e, 0x2685e, indexCPS2_Colossus },
@@ -314,7 +291,7 @@ const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P1[] =
 {
-    { L"Sentinel P1", 0x26e3E, 0x26e5E, indexCPS2_Sentinel, 0, &pairHandledInCode },
+    { L"Sentinel P1", 0x26e3E, 0x26e5E, indexCPS2_Sentinel, 0, &pairNextAndNextSkipped },
     { L"P1 Drones (bombs) / Guts", 0x26e5E, 0x26e7E, indexCPS2_Sentinel, 1 },
     { L"P1 MP / Rocket Punch wires", 0x26e7E, 0x26e9E, indexCPS2_Sentinel, 2 },
     { L"P1 Plasma Storm / Flight", 0x26e9E, 0x26ebE, indexCPS2_Sentinel, 3 },
@@ -322,10 +299,15 @@ const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P1[] =
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P2[] =
 {
-    { L"Sentinel P2", 0x26ebE, 0x26edE, indexCPS2_Sentinel, 0, &pairHandledInCode },
+    { L"Sentinel P2", 0x26ebE, 0x26edE, indexCPS2_Sentinel, 0, &pairNextAndNextSkipped },
     { L"P2 Drones (bombs) / Guts", 0x26edE, 0x26efE, indexCPS2_Sentinel, 1 },
     { L"P2 MP / Rocket Punch wires", 0x26efE, 0x26f1E, indexCPS2_Sentinel, 2 },
     { L"P2 Plasma Storm / Flight", 0x26f1E, 0x26f3E, indexCPS2_Sentinel, 3 },
+};
+
+const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_SHARED[] =
+{
+    { L"Sentinel Super FX (shared)", 0x29ABE, 0x29ADE },
 };
 
 const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P1[] =
@@ -536,18 +518,24 @@ const sGame_PaletteDataset COTA_A_CSI_PALETTES[] =
     //    { L"Magneto",        0x37154, 0x37174 },
 };
 
-const sGame_PaletteDataset COTA_A_BONUS_PALETTES[] =
+const sGame_PaletteDataset COTA_A_BONUS_SELECT_PALETTES[] =
 {
     { L"Select Screen World Map",   0x371b4, 0x371d4, indexCPS2_COTAAssets, 1 },
     { L"Select Screen Vs Text",     0x371d4, 0x371f4, indexCPS2_COTAAssets, 0 },
     { L"Select Screen Background",  0x3D436, 0x3D456 },
+};
+
+const sGame_PaletteDataset COTA_A_BONUS_ENDING_PALETTES[] =
+{
     { L"Mojo",                      0x279a0, 0x279c0, indexCPS2_COTAAssets, 2 },
-    { L"Professor X",               0x2781E, 0x2783E },
-    { L"Forge",                     0x27a1e, 0x27a3e },
-    { L"Cyclops (Ending sprite)",   0x2777e, 0x2779e },
-    { L"Jean Grey (Holding Cyclops/Photo)",  0x2779E, 0x277BE },
-    { L"Jean Grey (Flying)",        0x2771E, 0x2773E },
-    { L"Wolverine's Motorcycle",    0x279de, 0x279fe },
+    { L"Professor X",               0x2781E, 0x2783E, indexCPS2_COTAAssets, 0x07 },
+    { L"Forge",                     0x27a1e, 0x27a3e, indexCPS2_COTAAssets, 0x06 },
+    { L"Cyclops (Ending sprite)",   0x2777e, 0x2779e, indexCPS2_COTAAssets, 0x03 },
+    { L"Jean Grey (Holding Cyclops/Photo)",  0x2779E, 0x277BE, indexCPS2_COTAAssets, 0x04 },
+    { L"Jean Grey (Flying)",        0x2771E, 0x2773E, indexCPS2_COTAAssets, 0x05 },
+    { L"Wolverine's Motorcycle",    0x279de, 0x279fe, indexCPS2_COTAAssets, 0x09 },
+    { L"Psylocke Ending (dress)",   0x2785E, 0x2787E, indexCPS2_COTAAssets, 0x08 },
+    { L"Psylocke Ending (undressed)", 0x2783E, 0x2785E, indexCPS2_Psylocke, 0 },
 };
 
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =
@@ -599,6 +587,7 @@ const sDescTreeNode COTA_A_SENTINEL_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)COTA_A_SENTINEL_PALETTES_P1,        ARRAYSIZE(COTA_A_SENTINEL_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)COTA_A_SENTINEL_PALETTES_P2,        ARRAYSIZE(COTA_A_SENTINEL_PALETTES_P2) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)COTA_A_SENTINEL_PALETTES_SHARED, ARRAYSIZE(COTA_A_SENTINEL_PALETTES_SHARED) },
 };
 
 const sDescTreeNode COTA_A_SILSAM_COLLECTION[] =
@@ -633,32 +622,13 @@ const sDescTreeNode COTA_A_AKUMA_COLLECTION[] =
 
 const sDescTreeNode COTA_A_BONUS_COLLECTION[] =
 {
-    { L"Portraits",  DESC_NODETYPE_TREE, (void*)COTA_A_PORTRAIT_PALETTES,        ARRAYSIZE(COTA_A_PORTRAIT_PALETTES) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)COTA_A_PORTRAIT_PALETTES,                ARRAYSIZE(COTA_A_PORTRAIT_PALETTES) },
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)COTA_A_CSI_PALETTES, ARRAYSIZE(COTA_A_CSI_PALETTES) },
-    { L"Bonus",      DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_PALETTES,           ARRAYSIZE(COTA_A_BONUS_PALETTES) },
+    { L"Select Screen", DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_SELECT_PALETTES,        ARRAYSIZE(COTA_A_BONUS_SELECT_PALETTES) },
+    { L"Ending Characters", DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_ENDING_PALETTES,    ARRAYSIZE(COTA_A_BONUS_ENDING_PALETTES) },
 };
 
-const UINT8 COTA_A_UNITSORT[COTA_A_NUMUNIT + 1] = // Plus 1 for the extra palettes
-{
-    indexCOTAColossus,
-    indexCOTACyclops,
-    indexCOTAIceman,
-    indexCOTAJuggernaut,
-    indexCOTAMagneto,
-    indexCOTAOmegaRed,
-    indexCOTAPsylocke,
-    indexCOTASentinel,
-    indexCOTASilverSamurai,
-    indexCOTASpiral,
-    indexCOTAStorm,
-    indexCOTAWolverine,
-    indexCOTAAkuma,
-    indexCOTABonus,
-
-    COTA_A_EXTRALOC // Extra palettes
-};
-
-const sDescTreeNode COTA_UNITS[COTA_A_NUMUNIT] =
+const sDescTreeNode COTA_UNITS[] =
 {
     { L"Colossus",                  DESC_NODETYPE_TREE, (void*)COTA_A_COLOSSUS_COLLECTION,      ARRAYSIZE(COTA_A_COLOSSUS_COLLECTION) },
     { L"Cyclops",                   DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_COLLECTION,       ARRAYSIZE(COTA_A_CYCLOPS_COLLECTION) },
@@ -675,6 +645,9 @@ const sDescTreeNode COTA_UNITS[COTA_A_NUMUNIT] =
     { L"Akuma",                     DESC_NODETYPE_TREE, (void*)COTA_A_AKUMA_COLLECTION,         ARRAYSIZE(COTA_A_AKUMA_COLLECTION) },
     { L"Bonus Stuff",               DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_COLLECTION,         ARRAYSIZE(COTA_A_BONUS_COLLECTION) },
 };
+
+constexpr auto COTA_A_NUMUNIT = ARRAYSIZE(COTA_UNITS);
+#define COTA_A_EXTRALOC COTA_A_NUMUNIT
 
 // We extend this array with data groveled from the cotae.txt extensible extras file, if any.
 const stExtraDef COTA_A_EXTRA[] =

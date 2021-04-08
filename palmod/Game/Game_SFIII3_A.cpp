@@ -109,15 +109,15 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
         OutputDebugString(L"Warning: unrecognized ROM.\n");
         __fallthrough;
     case SF3ROM_51:
-        m_nSafeCountForThisRom = 1191;
+        m_nSafeCountForThisRom = 1200;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_51;
         break;
     case SF3ROM_51_4rd:
-        m_nSafeCountForThisRom = 1203;
+        m_nSafeCountForThisRom = 1212;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_4;
         break;
     case SF3ROM_70_EX:
-        m_nSafeCountForThisRom = 1191;
+        m_nSafeCountForThisRom = 1200;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_51;
         m_nLowestKnownPaletteRomLocation = 0x0;
         break;

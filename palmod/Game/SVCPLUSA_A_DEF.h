@@ -1357,8 +1357,8 @@ const sGame_PaletteDataset SVCPLUSA_A_POISON_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_TESSA_PUNCH_PALETTES[] =
 {
-    { L"Tessa", 0x37f538, 0x37f558, indexSVCSprites_Tessa },
-    { L"Cat", 0x37f558, 0x37f578, indexSVCSprites_Tessa, 1 },
+    { L"Tessa", 0x37f538, 0x37f558, indexSVCSprites_Tessa, 0x00, &pairNext },
+    { L"Cat", 0x37f558, 0x37f578, indexSVCSprites_Tessa, 8 },
     { L"Midnight Bliss", 0x37f578, 0x37f598, indexSVCSprites_Tessa, 7 },
     { L"Electric Shock Effect", 0x37f598, 0x37f5b8, indexSVCSprites_Tessa },
     { L"Shield", 0x37f5b8, 0x37f5d8, indexSVCSprites_Tessa, 4 },
@@ -1369,8 +1369,8 @@ const sGame_PaletteDataset SVCPLUSA_A_TESSA_PUNCH_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_TESSA_KICK_PALETTES[] =
 {
-    { L"Tessa", 0x37f738, 0x37f758, indexSVCSprites_Tessa },
-    { L"Cat", 0x37f758, 0x37f778, indexSVCSprites_Tessa, 1 },
+    { L"Tessa", 0x37f738, 0x37f758, indexSVCSprites_Tessa, 0x00, &pairNext },
+    { L"Cat", 0x37f758, 0x37f778, indexSVCSprites_Tessa, 8 },
     { L"Midnight Bliss", 0x37f778, 0x37f798, indexSVCSprites_Tessa, 7 },
     { L"Electric Shock Effect", 0x37f798, 0x37f7b8, indexSVCSprites_Tessa },
     { L"Shield", 0x37f7b8, 0x37f7d8, indexSVCSprites_Tessa, 4 },

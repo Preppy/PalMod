@@ -43,7 +43,7 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = COTA_A_NUMUNIT;
     m_nExtraUnit = COTA_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = 338 + GetExtraCt(m_nExtraUnit);
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 341;
     m_pszExtraFilename = EXTRA_FILENAME_COTA;
     m_nTotalPaletteCount = m_nTotalPaletteCountForCOTA;
     m_nLowestKnownPaletteRomLocation = 0x2600e;
@@ -63,6 +63,7 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_2;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -586,142 +587,5 @@ void CGame_COTA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
 BOOL CGame_COTA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
-    //Reset palette sources
-    ClearSrcPal();
-
-    if (Node01 == -1)
-    {
-        return FALSE;
-    }
-
-    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
-
-    if (NodeGet == nullptr)
-    {
-        return FALSE;
-    }
-
-    // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
-
-    //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
-
-    // Make sure to reset the image id
-    nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
-
-    bool fShouldUseAlternateLoadLogic = false;
-
-    // Only load images for internal units, since we don't currently have a methodology for associating
-    // external loads to internal sprites.
-    if (NodeGet->uUnitId != COTA_A_EXTRALOC)
-    {
-        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-
-        if (paletteDataSet)
-        {
-            nImgUnitId = paletteDataSet->indexImgToUse;
-            nTargetImgId = paletteDataSet->indexOffsetToUse;
-
-            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
-
-            if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
-            {
-                if ((_wcsicmp(pCurrentNode->szDesc, L"P1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"P2") == 0))
-                {
-                    // We show 2 sprites (P1/P2) for export for all normal COTA sprites
-                    nSrcAmt = 2;
-                    nNodeIncrement = pCurrentNode->uChildAmt;
-
-                    while (nSrcStart >= nNodeIncrement)
-                    {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1
-                        nSrcStart -= nNodeIncrement;
-                    }
-                }
-            }
-
-            if (paletteDataSet->pPalettePairingInfo)
-            {
-                int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
-                INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-
-                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
-
-                if (paletteDataSetToJoin)
-                {
-                    if ((NodeGet->uUnitId == indexCOTASentinel) && (paletteDataSet->pPalettePairingInfo == &pairHandledInCode))
-                    {
-                        INT8 nPeerPaletteDistance1 = 1;
-                        INT8 nPeerPaletteDistance2 = 3;
-                        const sGame_PaletteDataset* paletteDataSetToJoin1 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance1);
-                        const sGame_PaletteDataset* paletteDataSetToJoin2 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance2);
-                        fShouldUseAlternateLoadLogic = true;
-
-                        ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse)
-                            ))
-                        );
-
-                        //Set each palette
-                        sDescNode* JoinedNode[] = {
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
-                        };
-
-                        //Set each palette
-                        CreateDefPal(JoinedNode[0], 0);
-                        CreateDefPal(JoinedNode[1], 1);
-                        CreateDefPal(JoinedNode[2], 2);
-
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
-                    }
-                    else
-                    {
-                        fShouldUseAlternateLoadLogic = true;
-
-                        ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                            )
-                        );
-
-                        //Set each palette
-                        sDescNode* JoinedNode[2] = {
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
-                        };
-
-                        //Set each palette
-                        CreateDefPal(JoinedNode[0], 0);
-                        CreateDefPal(JoinedNode[1], 1);
-
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
-                    }
-                }
-            }
-        }
-    }
-    
-    if (!fShouldUseAlternateLoadLogic)
-    {
-        //Create the default palette
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-        CreateDefPal(NodeGet, 0);
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-    }
-
-    return TRUE;
+    return _UpdatePalImg(COTA_UNITS, rgExtraCountAll, COTA_A_NUMUNIT, COTA_A_EXTRALOC, COTA_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }

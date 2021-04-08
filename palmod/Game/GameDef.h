@@ -138,7 +138,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Jojo's (Japan)",
    L"MSH (Arcade)",
    L"MSHVSF (Arcade)",
-   L"X-Men : COTA (Arcade)",
+   L"X-Men: COTA (Arcade)",
    L"MVC2 (Arcade)",
    L"Garou: MotW (Neo-Geo)",
    L"Unknown Game",
@@ -430,6 +430,9 @@ struct stPairedPaletteInfo
     int nXOffs = 0;
     int nYOffs = 0;
     bool fPairingIsFlipped = false;
+    int nPalettesToJoin = 2;
+    int nOverallNodeIncrementTo2ndPartner = 2;
+    int nOverallNodeIncrementTo3rdPartner = 3;
 };
 
 struct sGame_PaletteDataset
@@ -3488,7 +3491,7 @@ enum eIMGDat_Sections
 
 const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };
 const stPairedPaletteInfo pairHandledInCode = { 0, 0, 0 };
-const stPairedPaletteInfo pairFullyLinkedNode = { 0, 0, 0 };
+const stPairedPaletteInfo pairFullyLinkedNode = { 0, 0, 0, false, -1 };
 
 const stPairedPaletteInfo pairNext = { 1, 0, 0 };
 const stPairedPaletteInfo pairNext2 = { 2, 0, 0 };
@@ -3507,7 +3510,9 @@ const stPairedPaletteInfo pairPrevious2 = { -2, 0, 0 };
 const stPairedPaletteInfo pairPreviousFlipped = { -1, 0, 0, true };
 const stPairedPaletteInfo pairPreviousFlipped2 = { -2, 0, 0, true };
 
-const stPairedPaletteInfo pairNextAndNext = { 1, 0, 0 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext =         { 1, 0, 0, false, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextSkipped =  { 1, 0, 0, false, 3, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNext =  { 1, 0, 0, false, 4 }; // quad display... requires special handling in code
 
 // Vs Series
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };

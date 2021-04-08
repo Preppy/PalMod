@@ -71,8 +71,8 @@ const sGame_PaletteDataset XMMA_SNES_JUGGERNAUT_PALETTES[] =
     //{ L"Juggernaut Cutscene", 0x161040, 0x161062 },
     
     // Unclear what these colors are for: will straighten out.
-    //{ L"Juggernaut", 0x00A860, 0x00A880 },
-    { L"Juggernaut", 0x160560, 0x160580 },
+    { L"Juggernaut", 0x00A860, 0x00A880 },
+    //{ L"Juggernaut", 0x160560, 0x160580 },
     { L"Juggernaut Cutscene Portrait", 0x161040, 0x161060 },
 };
 

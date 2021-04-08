@@ -20,10 +20,10 @@
 #define BASE_PALETTE_SQUARE_SIZE 15
 #define BDR_SZ 1
 
-#define FLAG_HL 0
-#define FLAG_SL 1
-#define FLAG_MH 2
-#define FLAG_DE 3
+#define FLAG_HIGHLIGHT 0
+#define FLAG_SELECTED 1
+#define FLAG_MULTIHIGHLIGHT 2
+#define FLAG_DEFAULT 3
 
 class CJunk :
     public CWnd

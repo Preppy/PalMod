@@ -1011,14 +1011,13 @@ void CPalModDlg::PerformBlink()
             bSetTimer = TRUE;
             bRedraw = TRUE;
             nBlinkState = 1;
+            break;
         }
-        break;
         case 2:
         {
             nBlinkState = 1;
+            break;
         }
-
-        break;
         case 1:
         {
             nBlinkCount--;
@@ -1031,8 +1030,8 @@ void CPalModDlg::PerformBlink()
             {
                 nBlinkState = 0;
             }
+            break;
         }
-        break;
         }
 
         ImgDispCtrl->UpdateCtrl(bRedraw, (((nBlinkState == 1) ? (nPalImgIndex | 0xFF00) : FALSE)));

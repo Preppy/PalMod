@@ -2115,7 +2115,7 @@ const sGame_PaletteDataset CVS2_A_GEESE_PALETTES_LP[] =
     { L"Main Sprite", 0x28e8ee0, 0x28e8f00, indexCVS2Sprites_Geese, 0, &pairNext3 },
     { L"Extra 1", 0x28e8f00, 0x28e8f20, indexCVS2Sprites_Geese, 1 },
     { L"Extra 2", 0x28e8f20, 0x28e8f40, indexCVS2Sprites_Geese, 2 },
-    { L"Extra 3", 0x28e8f40, 0x28e8f60, indexCVS2Sprites_Geese, 3 },
+    { L"Extra 3: Coat", 0x28e8f40, 0x28e8f60, indexCVS2Sprites_Geese, 3 },
     { L"Extra 4", 0x28e8f60, 0x28e8f80, indexCVS2Sprites_Geese, 4 },
     { L"Extra 5", 0x28e8f80, 0x28e8fa0 },
 };
@@ -2125,7 +2125,7 @@ const sGame_PaletteDataset CVS2_A_GEESE_PALETTES_MP[] =
     { L"Main Sprite", 0x28e8fa0, 0x28e8fc0, indexCVS2Sprites_Geese, 0, &pairNext3 },
     { L"Extra 1", 0x28e8fc0, 0x28e8fe0, indexCVS2Sprites_Geese, 1 },
     { L"Extra 2", 0x28e8fe0, 0x28e9000, indexCVS2Sprites_Geese, 2 },
-    { L"Extra 3", 0x28e9000, 0x28e9020, indexCVS2Sprites_Geese, 3 },
+    { L"Extra 3: Coat", 0x28e9000, 0x28e9020, indexCVS2Sprites_Geese, 3 },
     { L"Extra 4", 0x28e9020, 0x28e9040, indexCVS2Sprites_Geese, 4 },
     { L"Extra 5", 0x28e9040, 0x28e9060 },
 };
@@ -2135,7 +2135,7 @@ const sGame_PaletteDataset CVS2_A_GEESE_PALETTES_HP[] =
     { L"Main Sprite", 0x28e9060, 0x28e9080, indexCVS2Sprites_Geese, 0, &pairNext3 },
     { L"Extra 1", 0x28e9080, 0x28e90a0, indexCVS2Sprites_Geese, 1 },
     { L"Extra 2", 0x28e90a0, 0x28e90c0, indexCVS2Sprites_Geese, 2 },
-    { L"Extra 3", 0x28e90c0, 0x28e90e0, indexCVS2Sprites_Geese, 3 },
+    { L"Extra 3: Coat", 0x28e90c0, 0x28e90e0, indexCVS2Sprites_Geese, 3 },
     { L"Extra 4", 0x28e90e0, 0x28e9100, indexCVS2Sprites_Geese, 4 },
     { L"Extra 5", 0x28e9100, 0x28e9120 },
 };
@@ -2145,7 +2145,7 @@ const sGame_PaletteDataset CVS2_A_GEESE_PALETTES_LK[] =
     { L"Main Sprite", 0x28e9120, 0x28e9140, indexCVS2Sprites_Geese, 0, &pairNext3 },
     { L"Extra 1", 0x28e9140, 0x28e9160, indexCVS2Sprites_Geese, 1 },
     { L"Extra 2", 0x28e9160, 0x28e9180, indexCVS2Sprites_Geese, 2 },
-    { L"Extra 3", 0x28e9180, 0x28e91a0, indexCVS2Sprites_Geese, 3 },
+    { L"Extra 3: Coat", 0x28e9180, 0x28e91a0, indexCVS2Sprites_Geese, 3 },
     { L"Extra 4", 0x28e91a0, 0x28e91c0, indexCVS2Sprites_Geese, 4 },
     { L"Extra 5", 0x28e91c0, 0x28e91e0 },
 };
@@ -2155,7 +2155,7 @@ const sGame_PaletteDataset CVS2_A_GEESE_PALETTES_MK[] =
     { L"Main Sprite", 0x28e91e0, 0x28e9200, indexCVS2Sprites_Geese, 0, &pairNext3 },
     { L"Extra 1", 0x28e9200, 0x28e9220, indexCVS2Sprites_Geese, 1 },
     { L"Extra 2", 0x28e9220, 0x28e9240, indexCVS2Sprites_Geese, 2 },
-    { L"Extra 3", 0x28e9240, 0x28e9260, indexCVS2Sprites_Geese, 3 },
+    { L"Extra 3: Coat", 0x28e9240, 0x28e9260, indexCVS2Sprites_Geese, 3 },
     { L"Extra 4", 0x28e9260, 0x28e9280, indexCVS2Sprites_Geese, 4 },
     { L"Extra 5", 0x28e9280, 0x28e92a0 },
 };
@@ -2165,7 +2165,7 @@ const sGame_PaletteDataset CVS2_A_GEESE_PALETTES_HK[] =
     { L"Main Sprite", 0x28e92a0, 0x28e92c0, indexCVS2Sprites_Geese, 0, &pairNext3 },
     { L"Extra 1", 0x28e92c0, 0x28e92e0, indexCVS2Sprites_Geese, 1 },
     { L"Extra 2", 0x28e92e0, 0x28e9300, indexCVS2Sprites_Geese, 2 },
-    { L"Extra 3", 0x28e9300, 0x28e9320, indexCVS2Sprites_Geese, 3 },
+    { L"Extra 3: Coat", 0x28e9300, 0x28e9320, indexCVS2Sprites_Geese, 3 },
     { L"Extra 4", 0x28e9320, 0x28e9340, indexCVS2Sprites_Geese, 4 },
     { L"Extra 5", 0x28e9340, 0x28e9360 },
 };
@@ -2175,7 +2175,7 @@ const sGame_PaletteDataset CVS2_A_GEESE_PALETTES_3P[] =
     { L"Main Sprite", 0x28e9360, 0x28e9380, indexCVS2Sprites_Geese, 0, &pairNext3 },
     { L"Extra 1", 0x28e9380, 0x28e93a0, indexCVS2Sprites_Geese, 1 },
     { L"Extra 2", 0x28e93a0, 0x28e93c0, indexCVS2Sprites_Geese, 2 },
-    { L"Extra 3", 0x28e93c0, 0x28e93e0, indexCVS2Sprites_Geese, 3 },
+    { L"Extra 3: Coat", 0x28e93c0, 0x28e93e0, indexCVS2Sprites_Geese, 3 },
     { L"Extra 4", 0x28e93e0, 0x28e9400, indexCVS2Sprites_Geese, 4 },
     { L"Extra 5", 0x28e9400, 0x28e9420 },
 };
@@ -2185,7 +2185,7 @@ const sGame_PaletteDataset CVS2_A_GEESE_PALETTES_3K[] =
     { L"Main Sprite", 0x28e9420, 0x28e9440, indexCVS2Sprites_Geese, 0, &pairNext3 },
     { L"Extra 1", 0x28e9440, 0x28e9460, indexCVS2Sprites_Geese, 1 },
     { L"Extra 2", 0x28e9460, 0x28e9480, indexCVS2Sprites_Geese, 2 },
-    { L"Extra 3", 0x28e9480, 0x28e94a0, indexCVS2Sprites_Geese, 3 },
+    { L"Extra 3: Coat", 0x28e9480, 0x28e94a0, indexCVS2Sprites_Geese, 3 },
     { L"Extra 4", 0x28e94a0, 0x28e94c0, indexCVS2Sprites_Geese, 4 },
     { L"Extra 5", 0x28e94c0, 0x28e94e0 },
 };

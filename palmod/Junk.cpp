@@ -254,16 +254,16 @@ void CJunk::SetIndexPen(int nIndex, int pFlag)
 {
     switch (pFlag)
     {
-    case FLAG_HL:
+    case FLAG_HIGHLIGHT:
         dcBaseDC.SelectObject(&PIndexHL);
         break;
-    case FLAG_SL:
+    case FLAG_SELECTED:
         dcBaseDC.SelectObject(&PIndexSL);
         break;
-    case FLAG_MH:
+    case FLAG_MULTIHIGHLIGHT:
         dcBaseDC.SelectObject(&PIndexMHL);
         break;
-    case FLAG_DE:
+    case FLAG_DEFAULT:
         dcBaseDC.SelectObject(&PIndexBG);
         break;
     }
@@ -465,14 +465,13 @@ void CJunk::UpdateFace()
 
     if (bEnabled)
     {
-        BOOL bDraw;
         RECT* rSqRct = new RECT[iWorkingAmt];
 
         nNewCt++;
 
         for (int index = 0; index < iWorkingAmt; index++)
         {
-            SetIndexPen(index, FLAG_DE);
+            SetIndexPen(index, FLAG_DEFAULT);
 
             rSqRct[index].top = (BDR_SZ * ((index / iPalW) + 1)) + ((GetPaletteSquareSize()) * (index / iPalW));
             rSqRct[index].left = (BDR_SZ * ((index % iPalW) + 1)) + ((GetPaletteSquareSize()) * (index % iPalW));
@@ -486,57 +485,27 @@ void CJunk::UpdateFace()
 
         for (int index = 0; index < iWorkingAmt; index++)
         {
-            bDraw = TRUE;
-
             if (Selected[index])
             {
-                SetIndexPen(index, FLAG_SL);
-            }
-            else
-            {
-                bDraw = FALSE;
-            }
-
-            if (bDraw)
-            {
+                SetIndexPen(index, FLAG_SELECTED);
                 dcBaseDC.Rectangle(&rSqRct[index]);
             }
         }
 
         for (int index = 0; index < iWorkingAmt; index++)
         {
-            bDraw = TRUE;
-
             if (SelView && SelView[index])
             {
-                SetIndexPen(index, FLAG_MH);
-            }
-            else
-            {
-                bDraw = FALSE;
-            }
-
-            if (bDraw)
-            {
+                SetIndexPen(index, FLAG_MULTIHIGHLIGHT);
                 dcBaseDC.Rectangle(&rSqRct[index]);
             }
         }
 
         for (int index = 0; index < iWorkingAmt; index++)
         {
-            bDraw = TRUE;
-
             if (Highlighted[index])
             {
-                SetIndexPen(index, FLAG_HL);
-            }
-            else
-            {
-                bDraw = FALSE;
-            }
-
-            if (bDraw)
-            {
+                SetIndexPen(index, FLAG_HIGHLIGHT);
                 dcBaseDC.Rectangle(&rSqRct[index]);
             }
         }

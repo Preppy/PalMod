@@ -317,7 +317,6 @@
     <ClCompile Include="Game\MVC2_SUPP.cpp" />
     <ClCompile Include="Game\mvc2_validate.cpp" />
     <ClCompile Include="Game\PalGroup.cpp" />
-    <ClCompile Include="Game\ShellSort.cpp" />
     <ClCompile Include="ImgDat.cpp" />
     <ClCompile Include="ImgDisp.cpp" />
     <ClCompile Include="ImgDumpBmp.cpp" />
@@ -507,7 +506,6 @@
     <ClInclude Include="Game\SFIII3_A_DEF.h" />
     <ClInclude Include="Game\SFIII3_D_DEF.h" />
     <ClInclude Include="Game\SFZ3U_A_DEF.h" />
-    <ClInclude Include="Game\ShellSort.h" />
     <ClInclude Include="Game\SPF2T_A_DEF.h" />
     <ClInclude Include="Game\SSF2T_A_DEF.h" />
     <ClInclude Include="Game\SSF2T_GBA_DEF.h" />

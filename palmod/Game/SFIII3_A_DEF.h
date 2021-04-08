@@ -1393,6 +1393,16 @@ const sGame_PaletteDataset SFIII3_A_GILL_EXTRAS_PALETTES[] =
     { L"Seraphic Wings Start", 0x078AE00, 0x078Ae80, index3S_CPS3_Gill, 0x06 },
     { L"Seraphic Wings End", 0x078AE80, 0x078AF00, index3S_CPS3_Gill, 0x07 },
 
+    { L"Gill Seraphic Wings BG 1", 0x771300, 0x771380, index3S_CPS3_Gill, 0x2b },
+    { L"Gill Seraphic Wings BG 2", 0x771380, 0x771400, index3S_CPS3_Gill, 0x2c },
+    { L"Gill Seraphic Wings BG 3", 0x771400, 0x771480, index3S_CPS3_Gill, 0x2d },
+    { L"Gill Seraphic Wings BG 4", 0x771480, 0x771500, index3S_CPS3_Gill, 0x2e },
+    { L"Gill Seraphic Wings BG 5", 0x771500, 0x771580, index3S_CPS3_Gill, 0x2f },
+    { L"Gill Seraphic Wings BG 6", 0x771580, 0x771600, index3S_CPS3_Gill, 0x30 },
+    { L"Gill Seraphic Wings BG 7", 0x771600, 0x771680, index3S_CPS3_Gill, 0x31 },
+    { L"Gill Seraphic Wings BG 8", 0x771680, 0x771700, index3S_CPS3_Gill, 0x32 },
+    { L"Gill Seraphic Wings Rings", 0x789480, 0x789500, index3S_CPS3_Gill, 0x33 },
+
     { L"Left Frozen/Super Flash", 0x707100, 0x707180, index3S_CPS3_Gill, 0x01 },
     { L"Right Frozen/Super Flash", 0x707180, 0x707200, index3S_CPS3_Gill },
 
