@@ -6,10 +6,10 @@
 
 // Saving these for ... later:
 
-//{ L"Coffin Scene: Crusaders ", 0x02eb680, 0x02eb880 },
+//{ L"Coffin Scene: Crusaders", 0x02eb680, 0x02eb880 },
 //{ L"Jotaro Story: Imprisoned Jotaro", 0x02E8400, 0x02E8500, indexJojos51StoryMode, 0x00 },
 //{ L"Jotaro Story: Scared Holly", 0x02e8380, 0x02E8400 },
-//{ L"Joseph Story: \"Let's Go!\" ", 0x02e7600, 0x02e7800 },
+//{ L"Joseph Story: \"Let's Go!\"", 0x02e7600, 0x02e7800 },
 //{ L"Midler Story Ending", 0x02E6300, 0x02E6500 },
 //{ L"Lockdown Staredown (Jotaro)", 0x2ec000, 0x2ec080 },
 
@@ -42,7 +42,7 @@ const WCHAR JOJOS_A_UNITDESC_51[][32] =
     L"Dio", // JOJOS_A_CHARACTER_COLLECTION_DIO
     L"Shadow Dio", // JOJOS_A_CHARACTER_COLLECTION_SDIO
     L"Young Joseph", // JOJOS_A_CHARACTER_COLLECTION_YJOSEPH
-    L"Hol ", // JOJOS_A_CHARACTER_COLLECTION_HOL
+    L"Hol", // JOJOS_A_CHARACTER_COLLECTION_HOL
     L"Vanilla Ice", // JOJOS_A_CHARACTER_COLLECTION_VICE
     L"New Kakyoin & Hierophant", // JOJOS_A_CHARACTER_COLLECTION_HIERO
     L"Anubis Polnareff", // JOJOS_A_CHARACTER_COLLECTION_BPOL
@@ -2050,9 +2050,9 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
 {
     { L"Hol Horse A", 0x0342c00, 0x0342c80, indexJojos51Hol, 0x00 },
-    { L"Hol's Super Bullets A", 0x0343556, 0x0343560 },
-    { L"Hol's Slow-mo Bullet Trail 1 A", 0x03435d6, 0x03435e0 },
-    { L"Hol's Slow-mo Bullet Trail 2 A", 0x0343656, 0x0343660 },
+    { L"Hol Horse Super Bullets A", 0x0343540, 0x0343560 },
+    { L"Hol Horse 421 Super 1 A", 0x03435C0, 0x03435E0 },
+    { L"Hol Horse 421 Super 2 A", 0x0343640, 0x0343660 },
     { L"Hol's Intro/Winpose Stuff+Boingo A", 0x0343480, 0x0343500, indexJojos51Hol, 0x03 },
     { L"Hol Horse Vs / Super A", 0x0413000, 0x0413080, indexJojos51Hol, 0x04 },
     { L"Hol Horse Challenger A", 0x0413080, 0x0413100, indexJojos51Hol, 0x05 },
@@ -2066,9 +2066,9 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
 {
     { L"Hol Horse B", 0x0357100, 0x0357180, indexJojos51Hol, 0x00 },
-    { L"Hol's Super Bullets B", 0x0357a56, 0x0357a60 },
-    { L"Hol's Slow-mo Bullet Trail 1 B", 0x0357ad6, 0x0357ae0 },
-    { L"Hol's Slow-mo Bullet Trail 2 B", 0x0357b56, 0x0357b60 },
+    { L"Hol Horse Super Bullets B", 0x0357A40, 0x0357A60 },
+    { L"Hol Horse 421 Super 1 B", 0x0357AC0, 0x0357AE0 },
+    { L"Hol Horse 421 Super 2 B", 0x0357B40, 0x0357B60 },
     { L"Hol's Intro/Winpose Stuff+Boingo B", 0x0357980, 0x0357a00, indexJojos51Hol, 0x03 },
     { L"Hol Horse Vs / Super B", 0x0417e00, 0x0417e80, indexJojos51Hol, 0x04 },
     { L"Hol Horse Challenger B", 0x0417e80, 0x0417f00, indexJojos51Hol, 0x05 },
@@ -2082,9 +2082,9 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
 {
     { L"Hol Horse C", 0x036b600, 0x036b680, indexJojos51Hol, 0x00 },
-    { L"Hol's Super Bullets C", 0x036bf56, 0x036bf60 },
-    { L"Hol's Slow-mo Bullet Trail 1 C", 0x036bfd6, 0x036bfe0 },
-    { L"Hol's Slow-mo Bullet Trail 2 C", 0x036c056, 0x036c060 },
+    { L"Hol Horse Super Bullets C", 0x036BF40, 0x036BF60 },
+    { L"Hol Horse 421 Super 1 C", 0x036BFC0, 0x036BFE0 },
+    { L"Hol Horse 421 Super 2 C", 0x036C040, 0x036C060 },
     { L"Hol's Intro/Winpose Stuff+Boingo C", 0x036be80, 0x036bf00, indexJojos51Hol, 0x03 },
     { L"Hol Horse Vs / Super C", 0x041cc00, 0x041cc80, indexJojos51Hol, 0x04 },
     { L"Hol Horse Challenger C", 0x041cc80, 0x041cd00, indexJojos51Hol, 0x05 },
@@ -2098,9 +2098,9 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
 {
     { L"Hol Horse S", 0x037fb00, 0x037fb80, indexJojos51Hol, 0x00 },
-    { L"Hol's Super Bullets S", 0x0380456, 0x0380460 },
-    { L"Hol's Slow-mo Bullet Trail 1 S", 0x03804d6, 0x03804e0 },
-    { L"Hol's Slow-mo Bullet Trail 2 S", 0x0380556, 0x0380560 },
+    { L"Hol Horse Super Bullets S", 0x0380440, 0x0380460 },
+    { L"Hol Horse 421 Super 1 S", 0x03804C0, 0x03804E0 },
+    { L"Hol Horse 421 Super 2 S", 0x0380540, 0x0380560 },
     { L"Hol's Intro/Winpose Stuff+Boingo S", 0x0380380, 0x0380400, indexJojos51Hol, 0x03 },
     { L"Hol Horse Vs / Super S", 0x0421a00, 0x0421a80, indexJojos51Hol, 0x04 },
     { L"Hol Horse Challenger S", 0x0421a80, 0x0421b00, indexJojos51Hol, 0x05 },
@@ -2114,9 +2114,9 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_Start[] =
 {
     { L"Hol Horse Start", 0x0394000, 0x0394080, indexJojos51Hol, 0x00 },
-    { L"Hol's Super Bullets Start", 0x0394956, 0x0394960 },
-    { L"Hol's Slow-mo Bullet Trail 1 Start", 0x03949d6, 0x03949e0 },
-    { L"Hol's Slow-mo Bullet Trail 2 Start", 0x0394a56, 0x0394a60 },
+    { L"Hol Horse Super Bullets Start", 0x0394940, 0x0394960 },
+    { L"Hol Horse 421 Super 1 Start", 0x03949C0, 0x03949E0 },
+    { L"Hol Horse 421 Super 2 Start", 0x0394A40, 0x0394A60 },
     { L"Hol's Intro/Winpose Stuff+Boingo Start", 0x0394880, 0x0394900, indexJojos51Hol, 0x03 },
     { L"Hol Horse Vs / Super Start", 0x0426800, 0x0426880, indexJojos51Hol, 0x04 },
     { L"Hol Horse Challenger Start", 0x0426880, 0x0426900, indexJojos51Hol, 0x05 },
@@ -2556,7 +2556,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_A[] =
 {
     { L"Hol & Boingo A", 0x0348380, 0x0348400, indexJojos51HolBoingo },
     { L"Child Hol & Boingo A", 0x0348c00, 0x0348c80, indexJojos51HolBoingo, 1 },
-    { L"Hol & Boingo Super Bullets A", 0x0348cd6, 0x0348ce0 },
+    { L"Hol & Boingo Super Bullets A", 0x0348CC0, 0x0348CE0 },
     { L"Hol & Boingo Vs / Super A", 0x0414500, 0x0414580, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
     { L"Hol & Boingo Challenger A", 0x0414580, 0x0414600, indexJojos51HolBoingo, indexJojos51Character_Challenger },
     { L"Hol & Boingo Select / Winning A (1/2)", 0x0414600, 0x0414680, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairHandledInCode },
@@ -2571,7 +2571,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_B[] =
 {
     { L"Hol & Boingo B", 0x035c880, 0x035c900, indexJojos51HolBoingo },
     { L"Child Hol & Boingo B", 0x035d100, 0x035d180, indexJojos51HolBoingo, 1 },
-    { L"Hol & Boingo Super Bullets B", 0x035d1d6, 0x035d1e0 },
+    { L"Hol & Boingo Super Bullets B", 0x035D1C0, 0x035D1E0 },
     { L"Hol & Boingo Vs / Super B", 0x0419300, 0x0419380, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
     { L"Hol & Boingo Challenger B", 0x0419380, 0x0419400, indexJojos51HolBoingo, indexJojos51Character_Challenger },
     { L"Hol & Boingo Select / Winning B (1/2)", 0x0419400, 0x0419480, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairHandledInCode },
@@ -2586,7 +2586,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_C[] =
 {
     { L"Hol & Boingo C", 0x0370d80, 0x0370e00, indexJojos51HolBoingo },
     { L"Child Hol & Boingo C", 0x0371600, 0x0371680, indexJojos51HolBoingo, 1 },
-    { L"Hol & Boingo Super Bullets C", 0x03716d6, 0x03716e0 },
+    { L"Hol & Boingo Super Bullets C", 0x03716C0, 0x03716E0 },
     { L"Hol & Boingo Vs / Super C", 0x041e100, 0x041e180, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
     { L"Hol & Boingo Challenger C", 0x041e180, 0x041e200, indexJojos51HolBoingo, indexJojos51Character_Challenger },
     { L"Hol & Boingo Select / Winning C (1/2)", 0x041e200, 0x041e280, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairHandledInCode },
@@ -2601,7 +2601,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_S[] =
 {
     { L"Hol & Boingo S", 0x0385280, 0x0385300, indexJojos51HolBoingo },
     { L"Child Hol & Boingo S", 0x0385b00, 0x0385b80, indexJojos51HolBoingo, 1 },
-    { L"Hol & Boingo Super Bullets S", 0x0385bd6, 0x0385be0 },
+    { L"Hol & Boingo Super Bullets S", 0x0385BC0, 0x0385BE0 },
     { L"Hol & Boingo Vs / Super S", 0x0422f00, 0x0422f80, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
     { L"Hol & Boingo Challenger S", 0x0422f80, 0x0423000, indexJojos51HolBoingo, indexJojos51Character_Challenger },
     { L"Hol & Boingo Select / Winning S (1/2)", 0x0423000, 0x0423080, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairHandledInCode },
@@ -2616,7 +2616,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_Start[] =
 {
     { L"Hol & Boingo Start", 0x0399780, 0x0399800, indexJojos51HolBoingo },
     { L"Child Hol & Boingo Start", 0x039a000, 0x039a080, indexJojos51HolBoingo, 1 },
-    { L"Hol & Boingo Super Bullets Start", 0x039a0d6, 0x039a0e0 },
+    { L"Hol & Boingo Super Bullets Start", 0x039A0C0, 0x039A0E0 },
     { L"Hol & Boingo Vs / Super Start", 0x0427d00, 0x0427d80, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
     { L"Hol & Boingo Challenger Start", 0x0427d80, 0x0427e00, indexJojos51HolBoingo, indexJojos51Character_Challenger },
     { L"Hol & Boingo Select / Winning Start (1/2)", 0x0427e00, 0x0427e80, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairHandledInCode },
@@ -3627,7 +3627,7 @@ const sDescTreeNode JOJOS_UNITS_51[ARRAYSIZE(JOJOS_A_UNITDESC_51)] =
     { L"Dio", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_DIO, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_DIO) },
     { L"Shadow Dio", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_SDIO, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_SDIO) },
     { L"Young Joseph", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_YJOSEPH, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_YJOSEPH) },
-    { L"Hol ", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_HOL, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_HOL) },
+    { L"Hol", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_HOL, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_HOL) },
     { L"Vanilla Ice", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_VICE, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_VICE) },
     { L"New Kakyoin & Hierophant", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_HIERO, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_HIERO) },
     { L"Anubis Polnareff", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_BPOL, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_BPOL) },

@@ -62,8 +62,8 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = MVC2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = MVC2_D_NUM_IMG_UNITS;
     m_prgGameImageSet = MVC2_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(MVC2_IMG_UNITS);
 
     m_fGameUsesAlphaValue = true;
 
@@ -1112,6 +1112,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     nNodeIncrement = pCurrentNode->uChildAmt;
                     // Need to reset because we have a status effect label set as well.
                     pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
+                    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
 
                     while (nSrcStart >= nNodeIncrement)
                     {
@@ -1135,6 +1136,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     nSrcAmt = 8;
                     nNodeIncrement = paletteDataSet->pPalettePairingInfo ? 2 : 1;
                     pButtonLabelSet = DEF_LABEL_STATUS_EFFECTS;
+                    m_nNumberOfColorOptions = ARRAYSIZE(DEF_LABEL_STATUS_EFFECTS);
                 }
             }
 

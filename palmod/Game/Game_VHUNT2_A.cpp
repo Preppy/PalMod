@@ -56,8 +56,8 @@ CGame_VHUNT2_A::CGame_VHUNT2_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = VHUNT2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = VHUNT2_A_NUM_IMG_UNITS;
     m_prgGameImageSet = VHUNT2_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(VHUNT2_A_IMG_UNITS);
 
     nFileAmt = 1;
 

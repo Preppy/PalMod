@@ -183,6 +183,7 @@ CGame_GGXXACR_A::CGame_GGXXACR_A(UINT32 nConfirmedROMSize /* = -1 */)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
+    // The label set is variable, so set correctly each time we load that specific unit
     pButtonLabelSet = DEF_NOBUTTONS;
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
@@ -378,6 +379,8 @@ BOOL CGame_GGXXACR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     UINT16 nSrcStart = 0;
     UINT16 nSrcAmt = GGXXACRCharacterData[NodeGet->uUnitId].nPaletteListSize;
     pButtonLabelSet = GGXXACRCharacterData[NodeGet->uUnitId].ppszPaletteList;
+    m_nNumberOfColorOptions = GGXXACRCharacterData[NodeGet->uUnitId].nPaletteListSize;
+
     UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any

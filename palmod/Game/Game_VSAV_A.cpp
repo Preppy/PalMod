@@ -56,8 +56,8 @@ CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = VSAV_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = VSAV_A_NUM_IMG_UNITS;
     m_prgGameImageSet = VSAV_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(VSAV_A_IMG_UNITS);
 
     nFileAmt = 1;
 

@@ -65,8 +65,8 @@ CGame_SFIII1_A::CGame_SFIII1_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     //Set game information
     nGameFlag = SFIII1_A;
     nImgGameFlag = IMGDAT_SECTION_SF3;
-    nImgUnitAmt = SFIII1_A_NUM_IMG_UNITS;
     m_prgGameImageSet = SFIII1_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SFIII1_A_IMG_UNITS);
 
     nFileAmt = 1;
 

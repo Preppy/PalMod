@@ -78,8 +78,8 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
     //Set game information
     nGameFlag = SF2HF_A;
     nImgGameFlag = IMGDAT_SECTION_SF2;
-    nImgUnitAmt = SF2HF_A_NUM_IMG_UNITS;
     m_prgGameImageSet = SF2HF_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SF2HF_A_IMG_UNITS);
 
     nFileAmt = 1;
 

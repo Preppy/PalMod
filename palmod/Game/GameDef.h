@@ -261,9 +261,6 @@ constexpr auto MSH_A_UNIQUE_IMG_UNITS = 2;    // Anita[51] + Unique Assets(HUD, 
 constexpr auto MSHVSF_A_UNIQUE_IMG_UNITS = 3; // Norimaro[53] + Cyber-Akuma[54] + Unique Assets(HUD, Stages)[55]
 constexpr auto COTA_A_UNIQUE_IMG_UNITS = 2;   // Unique Assets(HUD, Stages)[56] + ST Akuma[57]
 
-//Images
-constexpr auto MVC2_D_NUM_IMG_UNITS = 59;
-
 //Image output display options
 enum class eImageOutputSpriteDisplay
 {
@@ -623,7 +620,7 @@ enum CHARACTERS_CPS2
 
 };
 
-const UINT16 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
+const UINT16 MVC2_IMG_UNITS[] =
 {
     indexCPS2_Ryu,          // 0x00
     indexCPS2_Zangief,      // 0x01
@@ -732,8 +729,6 @@ const UINT16 SFIII1_A_IMG_UNITS[] =
     index2i_CPS3_Bonus,
 };
 
-constexpr auto SFIII1_A_NUM_IMG_UNITS = ARRAYSIZE(SFIII1_A_IMG_UNITS);
-
 const UINT16 SFIII2_A_IMG_UNITS[] =
 {
     index3S_CPS3_Alex,
@@ -754,8 +749,6 @@ const UINT16 SFIII2_A_IMG_UNITS[] =
     index3S_CPS3_Gill,
     index2i_CPS3_Bonus,
 };
-
-constexpr auto SFIII2_A_NUM_IMG_UNITS = ARRAYSIZE(SFIII2_A_IMG_UNITS);
 
 const UINT16 SFIII3_A_IMG_UNITS[] =
 {
@@ -784,9 +777,7 @@ const UINT16 SFIII3_A_IMG_UNITS[] =
     index3S_CPS3_Gill,
 };
 
-constexpr auto SFIII3_A_NUM_IMG_UNITS = ARRAYSIZE(SFIII3_A_IMG_UNITS);
-
-const UINT16 SFIII3_D_IMG_UNITS[SFIII3_A_NUM_IMG_UNITS - 0x01] =
+const UINT16 SFIII3_D_IMG_UNITS[] =
 {
     index3S_CPS3_Alex,
     index3S_CPS3_Ryu,
@@ -809,8 +800,6 @@ const UINT16 SFIII3_D_IMG_UNITS[SFIII3_A_NUM_IMG_UNITS - 0x01] =
     index3S_CPS3_Twelve,
     index3S_CPS3_Remy,
 };
-
-constexpr auto SFIII3_D_NUM_IMG_UNITS = ARRAYSIZE(SFIII3_D_IMG_UNITS);
 
 enum SF2Sprites
 {
@@ -879,8 +868,6 @@ const UINT16 SSF2T_A_IMG_UNITS[] =
     indexSF2Sprites_Stages,
 };
 
-constexpr auto SSF2T_A_NUM_IMG_UNITS = ARRAYSIZE(SSF2T_A_IMG_UNITS);
-
 const UINT16 SSF2T_GBA_IMG_UNITS[] =
 {
     indexSF2GBASprites_Ryu,
@@ -903,8 +890,6 @@ const UINT16 SSF2T_GBA_IMG_UNITS[] =
     indexSF2GBASprites_ShinGouki,
 };
 
-constexpr auto SSF2T_GBA_NUM_IMG_UNITS = ARRAYSIZE(SSF2T_GBA_IMG_UNITS);
-
 const UINT16 SF2HF_A_IMG_UNITS[] =
 {
     indexSF2Sprites_Ryu,
@@ -920,8 +905,6 @@ const UINT16 SF2HF_A_IMG_UNITS[] =
     indexSF2Sprites_Balrog,
     indexSF2Sprites_Vega,
 };
-
-constexpr auto SF2HF_A_NUM_IMG_UNITS = ARRAYSIZE(SF2HF_A_IMG_UNITS);
 
 const UINT16 SFA1_A_IMG_UNITS[] =
 {
@@ -946,8 +929,6 @@ const UINT16 SFA1_A_IMG_UNITS[] =
     indexCPS2_SFA1_Portraits,   // 0x65
 };
 
-constexpr auto SFA1_A_NUM_IMG_UNITS = ARRAYSIZE(SFA1_A_IMG_UNITS);
-
 const UINT16 SFA2_A_IMG_UNITS[] =
 {
     indexCPS2_Ryu,              // 0x00,
@@ -971,8 +952,6 @@ const UINT16 SFA2_A_IMG_UNITS[] =
     indexCPS2_SFA2Portraits,    // 0x58
     indexCPS2_SFA2_Bonus,       // 0x7f
 };
-
-constexpr auto SFA2_A_NUM_IMG_UNITS = ARRAYSIZE(SFA2_A_IMG_UNITS);
 
 const UINT16 SFA3_A_IMG_UNITS[] =
 {
@@ -1010,8 +989,6 @@ const UINT16 SFA3_A_IMG_UNITS[] =
     indexCPS2_SFA3_Portraits,
 };
 
-constexpr auto SFA3_A_NUM_IMG_UNITS = ARRAYSIZE(SFA3_A_IMG_UNITS);
-
 const UINT16 XMVSF_A_IMG_UNITS[] =
 {
     indexCPS2_Ryu,          // 0x00
@@ -1033,8 +1010,6 @@ const UINT16 XMVSF_A_IMG_UNITS[] =
     indexCPS2_Magneto,      // 0x2C
     indexCPS2_Apocalypse,   // Apocalypse
 };
-
-constexpr auto XMVSF_A_NUM_IMG_UNITS = ARRAYSIZE(XMVSF_A_IMG_UNITS);
 
 const UINT16 MVC_A_IMG_UNITS[] =
 {
@@ -1095,8 +1070,6 @@ const UINT16 MSH_A_IMG_UNITS[] =
     indexCPS2_STAkuma,        // used by anita
 };
 
-constexpr auto MSH_A_NUM_IMG_UNITS = ARRAYSIZE(MSH_A_IMG_UNITS);
-
 const UINT16 MSHVSF_A_IMG_UNITS[] =
 {
     indexCPS2_Ryu,
@@ -1122,8 +1095,6 @@ const UINT16 MSHVSF_A_IMG_UNITS[] =
     indexCPS2_Norimaro,
     indexCPS2_MSHVSFAssets,
 };
-
-constexpr auto MSHVSF_A_NUM_IMG_UNITS = ARRAYSIZE(MSHVSF_A_IMG_UNITS);
 
 enum SPECIFIC_GAME_SPRITESETS
 {
@@ -1218,8 +1189,6 @@ const UINT16 JOJOS_A_IMG_UNITS[] =
     indexJojos51TarotCards,
 };
 
-const int JOJOS_A_NUM_IMG_UNITS = ARRAYSIZE(JOJOS_A_IMG_UNITS);
-
 enum SupportedGarou_A_PaletteListIndex
 {
     indexGarouARockHoward,  // 0x01
@@ -1258,9 +1227,6 @@ const UINT16 GAROU_A_IMG_UNITS[] =
     indexGarouAKain,
     indexGarouAPortraits,
 };
-
-const int GAROU_A_NUM_IMG_UNITS = ARRAYSIZE(GAROU_A_IMG_UNITS);
-const int GAROU_S_NUM_IMG_UNITS = ARRAYSIZE(GAROU_A_IMG_UNITS);
 
 enum KOFSpriteList
 {
@@ -1889,8 +1855,6 @@ const UINT16 KOF98_A_IMG_UNITS[] =
     indexKOFSprites_98WinPortrait,  // 78
 };
 
-const int KOF98_A_NUM_IMG_UNITS = ARRAYSIZE(KOF98_A_IMG_UNITS);
-
 const UINT16 KOF01_A_IMG_UNITS[] =
 {
     indexKOFSprites_02UM_K,
@@ -2126,8 +2090,6 @@ const UINT16 KOF02_A_IMG_UNITS[] =
     indexKOFSprites_02Extras,
 };
 
-const int KOF02_A_NUM_IMG_UNITS = ARRAYSIZE(KOF02_A_IMG_UNITS);
-
 enum SupportedKOF02UM_S_PaletteListIndex
 {
     indexKOF02UM_S_Andy,        // 0
@@ -2353,8 +2315,6 @@ const UINT16 KOF02UM_S_IMG_UNITS[] =
     indexKOFSprites_02UMExtras,
 };
 
-const int KOF02UM_S_NUM_IMG_UNITS = ARRAYSIZE(KOF02UM_S_IMG_UNITS);
-
 const UINT16 KOF03_A_IMG_UNITS[] =
 {
     indexKOFSprites_02UM_Clark,
@@ -2418,8 +2378,6 @@ const UINT16 KOF03_A_IMG_UNITS[] =
     indexKOF03Sprites_TeamBackgrounds, // 0x109
     indexKOF03Sprites_Portraits,    // 0x10a
 };
-
-const int KOF03_A_NUM_IMG_UNITS = ARRAYSIZE(KOF03_A_IMG_UNITS);
 
 const UINT16 KOFXI_A_IMG_UNITS[] =
 {
@@ -2913,8 +2871,6 @@ const UINT16 REDEARTH_A_IMG_UNITS[] =
     indexRedEarthSprites_Tessa,     // 0x0b
 };
 
-constexpr auto REDEARTH_A_NUM_IMG_UNITS = ARRAYSIZE(REDEARTH_A_IMG_UNITS);
-
 const UINT16 VHUNT2_A_IMG_UNITS[] =
 {
     // These are the playable characters
@@ -2945,8 +2901,6 @@ const UINT16 VHUNT2_A_IMG_UNITS[] =
     indexCPS2_VSAV1_MidnightBliss,
     indexCPS2_Vamp_DarkGallon,
 };
-
-constexpr auto VHUNT2_A_NUM_IMG_UNITS = ARRAYSIZE(VHUNT2_A_IMG_UNITS);
 
 const UINT16 VSAV_A_IMG_UNITS[] =
 {
@@ -2979,8 +2933,6 @@ const UINT16 VSAV_A_IMG_UNITS[] =
     indexCPS2_VSAV1_Bonus, // 0x7c
 };
 
-constexpr auto VSAV_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV_A_IMG_UNITS);
-
 const UINT16 VSAV2_A_IMG_UNITS[] =
 {
     indexCPS2_Anakaris,
@@ -3008,8 +2960,6 @@ const UINT16 VSAV2_A_IMG_UNITS[] =
     indexCPS2_VSAV1_MidnightBliss,
     indexCPS2_Vamp_DarkGallon,
 };
-
-constexpr auto VSAV2_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV2_A_IMG_UNITS);
 
 const UINT16 RBFFS_A_IMG_UNITS[] =
 {
@@ -3064,8 +3014,6 @@ const UINT16 WAKUWAKU7_A_IMG_UNITS[] =
     indexWakuWaku7Sprites_Slash,
     indexWakuWaku7Sprites_Tesse,
 };
-
-constexpr auto WAKUWAKU7_A_NUM_IMG_UNITS = ARRAYSIZE(WAKUWAKU7_A_IMG_UNITS);
 
 enum SupportedWindjammers_A_PaletteListIndex
 {

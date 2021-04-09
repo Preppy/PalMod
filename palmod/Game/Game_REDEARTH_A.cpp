@@ -80,8 +80,8 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRed
     //Set game information
     nGameFlag = REDEARTH_A;
     nImgGameFlag = IMGDAT_SECTION_REDEARTH;
-    nImgUnitAmt = REDEARTH_A_NUM_IMG_UNITS;
     m_prgGameImageSet = REDEARTH_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(REDEARTH_A_IMG_UNITS);
 
     nFileAmt = 1;
 

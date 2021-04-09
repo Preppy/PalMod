@@ -179,8 +179,8 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     //Set game information
     nGameFlag = SFA2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = SFA2_A_NUM_IMG_UNITS;
     m_prgGameImageSet = SFA2_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SFA2_A_IMG_UNITS);
 
     nFileAmt = 1;
 
