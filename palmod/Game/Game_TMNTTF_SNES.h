@@ -19,7 +19,7 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     static constexpr auto EXTRA_FILENAME_TMNTTF_SNES = L"TMNTTFE.txt";
-    static constexpr auto TMNTTF_SNES_PRIMARY_ROMNAME = L"teenage mutant hero turtles - tournament fighters (europe).sfc";
+    static constexpr auto TMNTTF_SNES_PRIMARY_ROMNAME = L"sns-ky-0.u1";
 
 public:
     CGame_TMNTTF_SNES(UINT32 nConfirmedROMSize);

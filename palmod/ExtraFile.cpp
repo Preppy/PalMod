@@ -524,7 +524,8 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 void CGameWithExtrasFile::CheckForErrorsInTables()
 {
     const UINT32 nPaletteCountForRom = m_nTotalPaletteCount;
-    bool fShouldCheckExtras = (GetPaletteCountForUnit(m_nExtraUnit) != 0);
+    const UINT16 nExtraCount = GetPaletteCountForUnit(m_nExtraUnit);
+    bool fShouldCheckExtras = (nExtraCount != 0);
     m_nLowestRomLocationThisPass = k_nBogusHighValue;
     m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
 
@@ -533,7 +534,16 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     GetHost()->GetPalModDlg()->SetStatusText(IDS_LOADING_DUPECHECK);
 
     CString strText;
-    strText.Format(L"CGameWithExtrasFile::CheckForErrorsInTables: Safe palette count for ROM is %u.  We found %u now including extras.\n", m_nSafeCountForThisRom, nPaletteCountForRom);
+    strText.Format(L"CGameWithExtrasFile::CheckForErrorsInTables: Expected palette count for this game is %u (%u internal).", m_nSafeCountForThisRom, (m_nSafeCountForThisRom - nExtraCount));
+    OutputDebugString(strText);
+    if (m_nSafeCountForThisRom == nPaletteCountForRom)
+    {
+        strText = L" Current palette count is unchanged.\n";
+    }
+    else
+    {
+        strText.Format(L" We found a total of %u now including %u extras.\n\tIf you added palettes, please update the game's known palette count to %u now.\n", nPaletteCountForRom, nExtraCount, (nPaletteCountForRom - nExtraCount));
+    }
     OutputDebugString(strText);
 
 #ifdef DEBUG

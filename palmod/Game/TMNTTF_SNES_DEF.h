@@ -9,160 +9,205 @@
 
 const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_P1[] =
 {
-    { L"Leo P1", 0x487BE - 2, 0x487DC },
-    { L"Leo P1 Portrait", 0x49882, 0x498A2 },
+     { L"Leo P1", 0x0487bc, 0x0487dc },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_P2[] =
 {
-    { L"Leo P2", 0x487DE - 2, 0x487FC },
-    { L"Leo P2 Portrait", 0x49A1A, 0x49A3A },
+    { L"Leo P2", 0x0487Dc, 0x0487FC },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_SHARED[] =
 {
-    { L"Leo Katanas", 0x487FE - 2, 0x48808 },
+    { L"Leo Katanas", 0x0487Fc, 0x04880c },
+    { L"Leo FX", 0x04880c, 0x04882c },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_P1[] =
 {
-    { L"Ralph P1", 0x4882E - 2, 0x4884C },
-    { L"Ralph P1 Portrait", 0x498C6, 0x498E6 },
+    { L"Ralph P1", 0x04882c, 0x04884C },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_P2[] =
 {
-    { L"Ralph P2", 0x4884E - 2, 0x4886C },
-    { L"Ralph P2 Portrait", 0x49A5E, 0x49A7E },
+    { L"Ralph P2", 0x04884c, 0x04886C },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_SHARED[] =
 {
-    { L"Ralph Sais", 0x4886E - 2, 0x48878 },
-    { L"Ralph Jamboree", 0x4887E - 2, 0x4888C },
+    { L"Ralph Sais", 0x04886c, 0x04887c },
+    { L"Ralph Jamboree", 0x04887c, 0x04888C },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_P1[] =
 {
-    { L"Don P1", 0x4890E - 2, 0x4892C },
-    { L"Don P1 Portrait", 0x498E8, 0x49908 },
+    { L"Don P1", 0x04890c, 0x04892C },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_P2[] =
 {
-    { L"Don P2", 0x4892E - 2, 0x4894C },
-    { L"Don P2 Portrait", 0x49A80, 0x49AA0 },
+    { L"Don P2", 0x04892c, 0x04894C },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_SHARED[] =
 {
-    { L"Don Bow", 0x4894E - 2, 0x48958 },
-    { L"Don FX", 0x4895E - 2, 0x4897C },
+    { L"Don Bo", 0x04894c, 0x04895c },
+    { L"Don FX", 0x04895c, 0x04897C },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_P1[] =
 {
-    { L"Mike P1", 0x4889E - 2, 0x488BC },
-    { L"Mike P1 Portrait", 0x498A4, 0x498C4 },
+    { L"Mike P1", 0x04889c, 0x0488BC },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_P2[] =
 {
-    { L"Mike P2", 0x488BE - 2, 0x488DC },
-    { L"Mike P2 Portrait", 0x49A3C, 0x49A5C },
+    { L"Mike P2", 0x0488Bc, 0x0488DC },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_SHARED[] =
 {
-    { L"Mike Dragon Breath", 0x488EE - 2, 0x488FC },
+    { L"Mike Nunchakus", 0x0488dc, 0x0488eC },
+    { L"Mike Dragon Breath", 0x0488Ec, 0x0488FC },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_SHREDDER_PALETTES_P1[] =
 {
-    { L"C. Shredder P1", 0x48452 - 2, 0x48470 },
-    { L"C. Shredder P1 fx", 0x48472 - 2, 0x4847E },
-    { L"C. Shredder P1 Portrait", 0x4994E, 0x4996E },
+    { L"C. Shredder P1", 0x048450, 0x048470 },
+    { L"C. Shredder P1 FX 1", 0x048470, 0x04847e },
+    { L"C. Shredder P1 FX 2", 0x048480, 0x0484a0 },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_SHREDDER_PALETTES_P2[] =
 {
-    { L"C. Shredder P2", 0x484A2 - 2, 0x484C0 },
-    { L"C. Shredder P2 fx", 0x484C2 - 2, 0x484CE },
-    { L"C. Shredder P2 Portrait", 0x49AE6, 0x49B06 },
+    { L"C. Shredder P2", 0x0484A0, 0x0484C0 },
+    { L"C. Shredder P2 FX", 0x0484C0, 0x0484Ce },
+    { L"C. Shredder P2 FX 2", 0x0484d0, 0x0484F0 },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_WAR_PALETTES_P1[] =
 {
-    { L"War P1", 0x48AB0 - 2, 0x48ACE },
-    { L"War P1 Portrait", 0x49992, 0x499B2 },
+    { L"War P1", 0x048Aae, 0x048Ace },
+    { L"War P1 FX", 0x048Aee, 0x048b0e },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_WAR_PALETTES_P2[] =
 {
-    { L"War P2", 0x48AD0 - 2, 0x48AEE },
-    { L"War P2 Portrait", 0x49B2A, 0x49B4A },
+    { L"War P2", 0x048Ace, 0x048AEe },
+    { L"War P2 FX", 0x048b0e, 0x048b2e },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ASKA_PALETTES_P1[] =
 {
-    { L"Aska P1", 0x4855C - 2, 0x4857A },
-    { L"Aska FX P1", 0x4859C - 2, 0x485BA },
-    { L"Aska P1 Portrait", 0x499B4, 0x499D4 },
+    { L"Aska P1", 0x04855a, 0x04857A },
+    { L"Aska P1 FX", 0x04859a, 0x0485BA },
+    { L"Aska P1 FX 2", 0x0485da, 0x0485fA },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ASKA_PALETTES_P2[] =
 {
-    { L"Aska P2", 0x4857C - 2, 0x4859A },
-    { L"Aska FX P2", 0x485BC - 2, 0x485DA },
-    { L"Aska P2 Portrait", 0x49B4C, 0x49B6C },
+    { L"Aska P2", 0x04857a, 0x04859A },
+    { L"Aska P2 FX", 0x0485Ba, 0x0485DA },
+    { L"Aska P2 FX 2", 0x0485fc, 0x04861c },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_CHROME_PALETTES_P1[] =
 {
-    { L"Chrome Dome P1", 0x4897E - 2, 0x4899C },
-    { L"Chrome Dome P1 Portrait", 0x4992C, 0x4994C },
+    { L"Chrome Dome P1", 0x04897c, 0x04899c },
+    { L"Chrome Dome P1 FX", 0x04899c, 0x0489BC },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_CHROME_PALETTES_P2[] =
 {
-    { L"Chrome Dome P2", 0x48A5E - 2, 0x48A7C },
-    { L"Chrome Dome P2 Portrait", 0x49AC4, 0x49AE4 },
+    { L"Chrome Dome P2", 0x048A5c, 0x048A7C },
+    { L"Chrome Dome P2 FX", 0x048A7c, 0x048A9C },
 };
 
-const sGame_PaletteDataset TMNTTF_SNES_CHROME_PALETTES_BONUS[] =
+const sGame_PaletteDataset TMNTTF_SNES_CHROME_PALETTES_SHARED[] =
 {
-    { L"Chrome Dome P1 FX", 0x4899E - 2, 0x489BC },
+    { L"Chrome Dome Chrome Bomb FX 1", 0x489bc, 0x489dc },
+    { L"Chrome Dome Chrome Bomb FX 2", 0x489dc, 0x489fc },
+    { L"Chrome Dome Chrome Bomb FX 3", 0x489fc, 0x48a1c },
+    { L"Chrome Dome Electric FX 1", 0x48a1c, 0x48a3c },
+    { L"Chrome Dome Electric FX 2", 0x48a3c, 0x48a5c },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_WINGNUT_PALETTES_P1[] =
 {
-    { L"Wingnut P1", 0x48B30 - 2, 0x48B4E },
-    { L"Wingnut P1 Moonbuster / FX", 0x48B50 - 2, 0x48B6E },
-    { L"Wingnut P1 Portrait", 0x499D6, 0x499F6 },
+    { L"Wingnut P1", 0x048B2e, 0x048B4E },
+    { L"Wingnut P1 Moonbuster/FX", 0x048B4e, 0x048B6E },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_WINGNUT_PALETTES_P2[] =
 {
-    { L"Wingnut P2", 0x48B70 - 2, 0x48B8E },
-    { L"Wingnut P2 Moonbuster / FX", 0x48B90 - 2, 0x48BAE },
-    { L"Wingnut P2 Portrait", 0x49B6E, 0x49B8E },
+    { L"Wingnut P2", 0x048B6e, 0x048B8E },
+    { L"Wingnut P2 Moonbuster/FX", 0x048B8e, 0x048BAE },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_P1[] =
 {
-    { L"Armaggon P1", 0x484F2 - 2, 0x48510 },
-    { L"Armaggon P1 Portrait", 0x49AA2, 0x49AC2 },
+    { L"Armaggon P1", 0x0484F0, 0x048510 },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_P2[] =
 {
-    { L"Armaggon P2", 0x48512 - 2, 0x48530 },
-    { L"Armaggon P2 Portrait", 0x4990A, 0x4992A },
+    { L"Armaggon P2", 0x048510, 0x048530 },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_SHARED[] =
 {
-    { L"Armaggon FX (shared)", 0x48532 - 2, 0x48540 },
+    { L"Armaggon FX", 0x048530, 0x048540 },
+    { L"Armaggon FX 2", 0x048540, 0x04855a },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_P1[] =
+{
+    { L"Karai P1", 0x048bae, 0x048bce },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_P2[] =
+{
+    { L"Karai P2", 0x048c2e, 0x048c4e },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_SHARED[] =
+{
+    { L"Karai Bakuretsu Jigokuken", 0x048bee, 0x048c0e },
+    { L"Karai Dark Thunder", 0x048c0e, 0x048c2e },
+    { L"Karai Dark Thunder FX", 0x048bce, 0x048bee },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_RATKING_PALETTES_P1[] =
+{
+    { L"Rat King P1", 0x04861e, 0x04863e },
+    { L"Rat King P1FX", 0x04863e, 0x04865e },
+    { L"Rat King P1FX 2", 0x04865e, 0x04867e },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_RATKING_PALETTES_P2[] =
+{
+    { L"Rat King P2", 0x04867e, 0x04869e },
+    { L"Rat King P2FX", 0x04869e, 0x0486be },
+    { L"Rat King P2FX 2", 0x0486be, 0x0486de },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_P1[] =
+{
+    { L"Fake Brother P1", 0x048cbc, 0x048cdc },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_P2[] =
+{
+    { L"Fake Brother P2", 0x048cdc, 0x048cfc },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_SHARED[] =
+{
+    { L"Fake Brother Weapon", 0x048cfc, 0x048d0c },
+    { L"Fake Brother Leo FX", 0x048d0c, 0x048d2c },
+    { L"Fake Brother Ralph FX", 0x048d6c, 0x048d8c },
+    { L"Fake Brother Don FX", 0x048d4c, 0x048d6c },
+    { L"Fake Brother Mike FX", 0x048d2c, 0x048d4c },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_STAGE_ARTMUSEUM_PALETTES[] =
@@ -294,6 +339,62 @@ const sGame_PaletteDataset TMNTTF_SNES_STAGE_THUNDERDOME_PALETTES[] =
     { L"Singer", 0x49F18, 0x49F38 },
 };
 
+const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_SELECT[] =
+{
+    { L"Turtles Portrait Weapons", 0x049860, 0x049880 },
+    { L"Leo Portrait P1", 0x049882, 0x0498A2 },
+    { L"Leo Portrait P2", 0x049A1A, 0x049A3A },
+    { L"Ralph Portrait P1", 0x0498C6, 0x0498E6 },
+    { L"Ralph Portrait P2", 0x049A5E, 0x049A7E },
+    { L"Don Portrait P1", 0x0498E8, 0x049908 },
+    { L"Don Portrait P2", 0x049A80, 0x049AA0 },
+    { L"Mike Portrait P1", 0x0498A4, 0x0498C4 },
+    { L"Mike Portrait P2", 0x049A3c, 0x049A5C },
+    { L"C. Shredder Portrait P1", 0x04994E, 0x04996E },
+    { L"C. Shredder Portrait P2", 0x049AE6, 0x049B06 },
+    { L"War Portrait P1", 0x049992, 0x0499B2 },
+    { L"War Portrait P2", 0x049B2A, 0x049B4A },
+    { L"Aska Portrait P1", 0x0499B4, 0x0499D4 },
+    { L"Aska Portrait P2", 0x049B4c, 0x049B6C },
+    { L"Chrome Dome Portrait P1", 0x04992c, 0x04994C },
+    { L"Chrome Dome Portrait P2", 0x049AC4, 0x049AE4 },
+    { L"Wingnut Portrait P1", 0x0499D6, 0x0499F6 },
+    { L"Wingnut Portrait P2", 0x049B6E, 0x049B8E },
+    { L"Armaggon Portrait P1", 0x049AA2, 0x049AC2 },
+    { L"Armaggon Portrait P2", 0x04990A, 0x04992A },
+    { L"Karai Portrait P1", 0x0499f8, 0x049a18 },
+    { L"Karai Portrait P2", 0x049B90, 0x049Bb0 },
+    { L"Rat King Portrait P1", 0x049970, 0x049990 },
+    { L"Rat King Portrait P2", 0x049b08, 0x049b28 },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_SELECTICONS[] =
+{
+    { L"Leo & Ralph Select Icon", 0x0496f8, 0x049718 },
+    { L"Don & Mike Select Icon", 0x0496d8, 0x0496f8 },
+    { L"C.Shredder Select Icon", 0x0496b8, 0x0496d8 },
+    { L"War Select Icon", 0x049800, 0x049820 },
+    { L"Aska Select Icon", 0x04975c, 0x04977c },
+    { L"Chrome Dome Select Icon", 0x0486fe, 0x04871e },
+    { L"Wingnut Select Icon", 0x0497a0, 0x0497c0 },
+    { L"Armaggon Select Icon", 0x049820, 0x049840 },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_UNSELECTICONS[] =
+{
+    { L"Turtles UnSelect Icon", 0x04973a, 0x04975a },
+    { L"C.Shredder UnSelect Icon", 0x049718, 0x049738 },
+    { L"War UnSelect Icon", 0x04871e, 0x04873e },
+    { L"Aska UnSelect Icon", 0x04977e, 0x04979e },
+    { L"Chrome Dome UnSelect Icon", 0x0486de, 0x0486fe },
+    { L"Wingnut UnSelect Icon", 0x0497c2, 0x0497e2 },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_MENU[] =
+{
+    { L"Characters Names", 0x049840, 0x049860 },
+};
+
 const sDescTreeNode TMNTTF_SNES_LEO_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_LEO_PALETTES_P1, ARRAYSIZE(TMNTTF_SNES_LEO_PALETTES_P1) },
@@ -344,7 +445,7 @@ const sDescTreeNode TMNTTF_SNES_CHROME_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_CHROME_PALETTES_P1, ARRAYSIZE(TMNTTF_SNES_CHROME_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_CHROME_PALETTES_P2, ARRAYSIZE(TMNTTF_SNES_CHROME_PALETTES_P2) },
-    { L"Bonus", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_CHROME_PALETTES_BONUS, ARRAYSIZE(TMNTTF_SNES_CHROME_PALETTES_BONUS) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_CHROME_PALETTES_SHARED, ARRAYSIZE(TMNTTF_SNES_CHROME_PALETTES_SHARED) },
 };
 
 const sDescTreeNode TMNTTF_SNES_WINGNUT_COLLECTION[] =
@@ -358,6 +459,26 @@ const sDescTreeNode TMNTTF_SNES_ARMAGGON_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_ARMAGGON_PALETTES_P1, ARRAYSIZE(TMNTTF_SNES_ARMAGGON_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_ARMAGGON_PALETTES_P2, ARRAYSIZE(TMNTTF_SNES_ARMAGGON_PALETTES_P2) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_ARMAGGON_PALETTES_SHARED, ARRAYSIZE(TMNTTF_SNES_ARMAGGON_PALETTES_SHARED) },
+};
+
+const sDescTreeNode TMNTTF_SNES_KARAI_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_KARAI_PALETTES_P1, ARRAYSIZE(TMNTTF_SNES_KARAI_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_KARAI_PALETTES_P2, ARRAYSIZE(TMNTTF_SNES_KARAI_PALETTES_P2) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_KARAI_PALETTES_SHARED, ARRAYSIZE(TMNTTF_SNES_KARAI_PALETTES_SHARED) },
+};
+
+const sDescTreeNode TMNTTF_SNES_RATKING_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_RATKING_PALETTES_P1, ARRAYSIZE(TMNTTF_SNES_RATKING_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_RATKING_PALETTES_P2, ARRAYSIZE(TMNTTF_SNES_RATKING_PALETTES_P2) },
+};
+
+const sDescTreeNode TMNTTF_SNES_FAKE_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_FAKE_PALETTES_P1, ARRAYSIZE(TMNTTF_SNES_FAKE_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_FAKE_PALETTES_P2, ARRAYSIZE(TMNTTF_SNES_FAKE_PALETTES_P2) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_FAKE_PALETTES_SHARED, ARRAYSIZE(TMNTTF_SNES_FAKE_PALETTES_SHARED) },
 };
 
 const sDescTreeNode TMNTTF_SNES_STAGES_COLLECTION[] =
@@ -376,6 +497,14 @@ const sDescTreeNode TMNTTF_SNES_STAGES_COLLECTION[] =
     { L"Thunder Dome", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_STAGE_THUNDERDOME_PALETTES, ARRAYSIZE(TMNTTF_SNES_STAGE_THUNDERDOME_PALETTES) },
 };
 
+const sDescTreeNode TMNTTF_SNES_BONUS_COLLECTION[] =
+{
+    { L"Select Portraits", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_BONUS_PALETTES_SELECT, ARRAYSIZE(TMNTTF_SNES_BONUS_PALETTES_SELECT) },
+    { L"Selected Icons", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_BONUS_PALETTES_SELECTICONS, ARRAYSIZE(TMNTTF_SNES_BONUS_PALETTES_SELECTICONS) },
+    { L"Unselected Icons", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_BONUS_PALETTES_UNSELECTICONS, ARRAYSIZE(TMNTTF_SNES_BONUS_PALETTES_UNSELECTICONS) },
+    { L"Menu Extras", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_BONUS_PALETTES_MENU, ARRAYSIZE(TMNTTF_SNES_BONUS_PALETTES_MENU) },
+};
+
 const sDescTreeNode TMNTTF_SNES_UNITS[] =
 {
     { L"Leo", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_LEO_COLLECTION, ARRAYSIZE(TMNTTF_SNES_LEO_COLLECTION) },
@@ -388,6 +517,11 @@ const sDescTreeNode TMNTTF_SNES_UNITS[] =
     { L"Chrome Dome", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_CHROME_COLLECTION, ARRAYSIZE(TMNTTF_SNES_CHROME_COLLECTION) },
     { L"Wingnut", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_WINGNUT_COLLECTION, ARRAYSIZE(TMNTTF_SNES_WINGNUT_COLLECTION) },
     { L"Armaggon", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_ARMAGGON_COLLECTION, ARRAYSIZE(TMNTTF_SNES_ARMAGGON_COLLECTION) },
+    { L"Karai", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_KARAI_COLLECTION, ARRAYSIZE(TMNTTF_SNES_KARAI_COLLECTION) },
+    { L"Rat King", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_RATKING_COLLECTION, ARRAYSIZE(TMNTTF_SNES_RATKING_COLLECTION) },
+    { L"Fake Brother", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_FAKE_COLLECTION, ARRAYSIZE(TMNTTF_SNES_FAKE_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_BONUS_COLLECTION, ARRAYSIZE(TMNTTF_SNES_BONUS_COLLECTION) },
+    
     { L"Stages", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_STAGES_COLLECTION, ARRAYSIZE(TMNTTF_SNES_STAGES_COLLECTION) },
 };
 
