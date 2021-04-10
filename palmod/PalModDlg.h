@@ -143,7 +143,7 @@ public:
     bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     // if you add a new palette type here, please update the CPalDropTarget support
 
-    bool SavePaletteToACT(LPCWSTR pszFileName);
+    bool SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp);
     bool SavePaletteToGPL(LPCWSTR pszFileName);
     bool SavePaletteToPAL(LPCWSTR pszFileName);
 

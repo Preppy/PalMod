@@ -2148,6 +2148,18 @@ const sGame_PaletteDataset VSAV_A_SHADOW_PALETTES[] =
     { L"Shadow", 0x3584C, 0x3586C, indexCPS2_Vamp_Shadow, 0x0 },
 };
 
+const sGame_PaletteDataset VSAV_A_BONUS_TITLES_PALETTES[] =
+{
+    { L"Morrigan Intro Portrait", 0x2362c, 0x2368c },
+    { L"Lilith Intro Portrait", 0x515bc, 0x5161c },
+    { L"Demitri Intro", 0x233cc, 0x2340c },
+    { L"Bulleta Intro ", 0x234ac, 0x2354c },
+    { L"Bulleta Intro Flash Palette", 0x2a94c, 0x2a9ec },
+    { L"Bulleta Intro BG", 0x659a4, 0x659c4 },
+
+    { L"Character Select BG ", 0x518fc, 0x51a5c  },
+};
+
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_SPECIAL[] =
 {
     { L"Bulleta LP Poisoned", 0x11ba0 - 0xf4, 0x11bc0 - 0xf4, indexCPS2_BBHood },
@@ -3804,6 +3816,7 @@ const sDescTreeNode VSAV_A_BONUS_COLLECTION[] =
     { L"HUD (Player 2 Side)", DESC_NODETYPE_TREE, (void*)VSAV_A_HUD_P2_PALETTES, ARRAYSIZE(VSAV_A_HUD_P2_PALETTES) },
     { L"Effects",    DESC_NODETYPE_TREE, (void*)VSAV_A_EFFECTS_PALETTES,  ARRAYSIZE(VSAV_A_EFFECTS_PALETTES) },
     { L"Shadow",     DESC_NODETYPE_TREE, (void*)VSAV_A_SHADOW_PALETTES,  ARRAYSIZE(VSAV_A_SHADOW_PALETTES) },
+    { L"Title/Select Screen", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_TITLES_PALETTES,  ARRAYSIZE(VSAV_A_BONUS_TITLES_PALETTES) },
 };
 
 const sDescTreeNode VSAV_UNITS[] =

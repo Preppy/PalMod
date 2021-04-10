@@ -4341,6 +4341,12 @@ const sGame_PaletteDataset VSAV2_A_OboroBishamon_PALETTES_SPECIAL[] =
     { L"Oboro Bishamon ??? 4",              0x2119C + (17 * 0xDC0) + (109 * 0x20), 0x211BC + (17 * 0xDC0) + (109 * 0x20), indexCPS2_Vamp_Bishamon },
 };
 
+const sGame_PaletteDataset VSAV2_A_BONUS_TITLES_PALETTES[] =
+{
+    { L"Lilith Intro ", 0x410bc, 0x4115c },
+    { L"Lilith Intro Portrait", 0x3bf3c, 0x3bffc }, 
+};
+
 const sDescTreeNode VSAV2_A_BULLETA_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)VSAV2_A_BULLETA_PALETTES_LP,         ARRAYSIZE(VSAV2_A_BULLETA_PALETTES_LP) },
@@ -4668,6 +4674,11 @@ const sDescTreeNode VSAV2_A_ENDING_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)VSAV2_A_ENDING_PALETTES_PORTRAITS,  ARRAYSIZE(VSAV2_A_ENDING_PALETTES_PORTRAITS) },
 };
 
+const sDescTreeNode VSAV2_A_BONUS_COLLECTION[] =
+{
+    { L"Title/Select Screen", DESC_NODETYPE_TREE, (void*)VSAV2_A_BONUS_TITLES_PALETTES,  ARRAYSIZE(VSAV2_A_BONUS_TITLES_PALETTES) },
+};
+
 const sDescTreeNode VSAV2_UNITS[] =
 {
     { L"Bulleta",            DESC_NODETYPE_TREE, (void*)VSAV2_A_BULLETA_COLLECTION,       ARRAYSIZE(VSAV2_A_BULLETA_COLLECTION) }, // BB-Hood
@@ -4699,6 +4710,8 @@ const sDescTreeNode VSAV2_UNITS[] =
     { L"Aulbath (unplayable)", DESC_NODETYPE_TREE, (void*)VSAV2_A_AULBATH_COLLECTION,     ARRAYSIZE(VSAV2_A_AULBATH_COLLECTION) }, // Rikuo
     { L"Sasquatch (unplayable)", DESC_NODETYPE_TREE, (void*)VSAV2_A_SASQUATCH_COLLECTION, ARRAYSIZE(VSAV2_A_SASQUATCH_COLLECTION) },
     { L"Dark Gallon (unplayable)", DESC_NODETYPE_TREE, (void*)VSAV2_A_DARKGALLON_COLLECTION, ARRAYSIZE(VSAV2_A_DARKGALLON_COLLECTION) },
+
+    { L"Bonus Palettes",     DESC_NODETYPE_TREE, (void*)VSAV2_A_BONUS_COLLECTION,         ARRAYSIZE(VSAV2_A_BONUS_COLLECTION) },
 };
 
 constexpr auto VSAV2_A_NUMUNIT = ARRAYSIZE(VSAV2_UNITS);

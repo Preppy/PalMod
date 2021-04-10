@@ -557,56 +557,44 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     nDefaultGameFilter = nDefaultGameFilter & 0xffff; // eliminate the applied mask that we use to avoid existing menu items
 
     // The following logic ensures that their last used selection is the default filter view.
-    int nCurrentGameListIndex = 1; // 0 is for special data in OFN
     int nLastUsedGFlag = nDefaultGameFilter;
 
+    if ((nLastUsedGFlag == NUM_GAMES) &&
+        !GetLastUsedDirectory(nullptr, 0, &nLastUsedGFlag, TRUE, nullptr))
     {
-        if ((nLastUsedGFlag == NUM_GAMES) &&
-            !GetLastUsedDirectory(nullptr, 0, &nLastUsedGFlag, TRUE, nullptr))
+        // If we're here, that means that they have never used PalMod to load a game before.  Help them.
+        CString strInfo;
+        LPCWSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
+        LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
+
+        WCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
+        wcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
+        szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
+
+        LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
+
+        if (pszPipe != nullptr)
         {
-            // If we're here, that means that they have never used PalMod to load a game before.  Help them.
-            CString strInfo;
-            LPCWSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
-            LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
-
-            WCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
-            wcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
-            szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
-
-            LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
-
-            if (pszPipe != nullptr)
-            {
-                // Truncate off the filter information
-                pszPipe[0] = 0;
-            }
-
-            strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
-            MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
+            // Truncate off the filter information
+            pszPipe[0] = 0;
         }
+
+        strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
+        MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
     }
 
-    // Add the chosen game if any
+    DWORD dwLastUsedGameIndex = 0;
+
+    // Add all the games, and make sure we know how to map index to game code
     for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
     {
+        szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
+        SupportedGameList[nArrayPosition].nListedGameIndex = nArrayPosition;
+
         if (SupportedGameList[nArrayPosition].nInternalGameIndex == nLastUsedGFlag)
         {
-            szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
-            SupportedGameList[nArrayPosition].nListedGameIndex = nCurrentGameListIndex++;
-        }
-        else
-        {
-            SupportedGameList[nArrayPosition].nListedGameIndex = INVALID_UNIT_VALUE;
-        }
-    }
-
-    // Add everything else
-    for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
-    {
-        if (SupportedGameList[nArrayPosition].nListedGameIndex == INVALID_UNIT_VALUE)
-        {
-            szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
-            SupportedGameList[nArrayPosition].nListedGameIndex = nCurrentGameListIndex++;
+            // user nFilterIndex starts at 1
+            dwLastUsedGameIndex = SupportedGameList[nArrayPosition].nListedGameIndex + 1;
         }
     }
 
@@ -619,6 +607,10 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
         OFN_FILEMUSTEXIST | OFN_HIDEREADONLY,
         szGameFileDef
     );
+
+    OPENFILENAME &pOFN = OpenDialog.GetOFN();
+
+    pOFN.nFilterIndex = dwLastUsedGameIndex;
 
     if (OpenDialog.DoModal() == IDOK)
     {
@@ -642,7 +634,8 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
         {
             for (const sSupportedGameList currentGame : SupportedGameList)
             {
-                if (currentGame.nListedGameIndex == ofn.nFilterIndex)
+                // user nFilterIndex starts at 1
+                if ((currentGame.nListedGameIndex + 1) == ofn.nFilterIndex)
                 {
                     LoadGameFile(currentGame.nInternalGameIndex, (WCHAR*)ofn.lpstrFile);
                     break;
@@ -1430,7 +1423,7 @@ void CPalModDlg::OnImportPalette()
     }
 }
 
-bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName)
+bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp)
 {
     CFile ActFile;
     bool fSuccess = false;
@@ -1443,7 +1436,7 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName)
         // ACT import wherein they mangle the parse for 768b files.  Thus we are forcibly using 772b here.
 
         const int k_nMaxColorsAllowed = 256;
-        int nActSz = k_nMaxColorsAllowed * 3;
+        const int nActSz = k_nMaxColorsAllowed * 3;
         UINT8* pAct = new UINT8[nActSz];
         memset(pAct, 0, nActSz);
 
@@ -1461,29 +1454,64 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName)
         }
 
         int nTotalColorsUsed = 0;
-        for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
-        {
-            pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
-            pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
-            pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
-        }
 
-        for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+        if (fRightsideUp)
         {
-            CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
-
-            if (pPalCtrlNextPage)
+            for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
             {
-                const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+                pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
+                pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+            }
 
-                for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++)
+            for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+            {
+                CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+                if (pPalCtrlNextPage)
                 {
-                    pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
-                    pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
-                    pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
-                    nTotalColorsUsed++;
+                    const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+
+                    for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++)
+                    {
+                        pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
+                        pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                        pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+                        nTotalColorsUsed++;
+                    }
                 }
             }
+        }
+        else //upside-down for fighter factory 3
+        {
+            int nWriteLocation = k_nMaxColorsAllowed - 1;
+            for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
+            {
+                pAct[(nWriteLocation - nTotalColorsUsed) * 3] = pPal[nTotalColorsUsed * 4];
+                pAct[(nWriteLocation - nTotalColorsUsed) * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                pAct[(nWriteLocation - nTotalColorsUsed) * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+            }
+
+            for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+            {
+                CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+                if (pPalCtrlNextPage)
+                {
+                    const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+
+                    for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++)
+                    {
+                        pAct[(nWriteLocation - nTotalColorsUsed) * 3] = pPal[nTotalColorsUsed * 4];
+                        pAct[(nWriteLocation - nTotalColorsUsed) * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                        pAct[(nWriteLocation - nTotalColorsUsed) * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+                        nTotalColorsUsed++;
+                    }
+                }
+            }
+
+            // max this since we started the write at the end
+            nTotalColorsUsed = k_nMaxColorsAllowed;
         }
 
         ActFile.Write(pAct, nActSz);
@@ -1626,6 +1654,7 @@ void CPalModDlg::OnExportPalette()
     static LPCWSTR szSaveFilter[] = { L"ACT Palette|*.act|"
                                       L"GIMP Palette File|*.gpl|"
                                       L"Microsoft PAL|*.pal|"
+                                      L"Upside-down ACT Palette|*.act|"
                                       L"|" };
 
     CFileDialog ActSave(FALSE, L"act", nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, *szSaveFilter);
@@ -1650,7 +1679,14 @@ void CPalModDlg::OnExportPalette()
         }
         else
         {
-            fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile);
+            if (ActSave.GetOFN().nFilterIndex == 4)
+            {
+                fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile, false);
+            }
+            else
+            {
+                fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile, true);
+            }
         }
 
         if (!fSuccess)

@@ -2021,7 +2021,7 @@ const sDescTreeNode CVS2_A_MAI_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x27d80a0, 0x27d80c0, indexCVS2Sprites_Kim, 0, &pairNext },
-    { L"Extra 1", 0x27d80c0, 0x27d80e0, indexCVS2Sprites_Kim, 0x01 },
+    { L"Extra 1: Sparkles and board", 0x27d80c0, 0x27d80e0, indexCVS2Sprites_Kim, 0x01 },
     { L"Extra 2", 0x27d80e0, 0x27d8100 },
     { L"Extra 3", 0x27d8100, 0x27d8120 },
     { L"Extra 4", 0x27d8120, 0x27d8140 },
@@ -2031,7 +2031,7 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_LP[] =
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x27d8160, 0x27d8180, indexCVS2Sprites_Kim, 0, &pairNext },
-    { L"Extra 1", 0x27d8180, 0x27d81a0, indexCVS2Sprites_Kim, 0x01 },
+    { L"Extra 1: Sparkles and board", 0x27d8180, 0x27d81a0, indexCVS2Sprites_Kim, 0x01 },
     { L"Extra 2", 0x27d81a0, 0x27d81c0 },
     { L"Extra 3", 0x27d81c0, 0x27d81e0 },
     { L"Extra 4", 0x27d81e0, 0x27d8200 },
@@ -2041,7 +2041,7 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_MP[] =
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x27d8220, 0x27d8240, indexCVS2Sprites_Kim, 0, &pairNext },
-    { L"Extra 1", 0x27d8240, 0x27d8260, indexCVS2Sprites_Kim, 0x01 },
+    { L"Extra 1: Sparkles and board", 0x27d8240, 0x27d8260, indexCVS2Sprites_Kim, 0x01 },
     { L"Extra 2", 0x27d8260, 0x27d8280 },
     { L"Extra 3", 0x27d8280, 0x27d82a0 },
     { L"Extra 4", 0x27d82a0, 0x27d82c0 },
@@ -2051,7 +2051,7 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_HP[] =
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x27d82e0, 0x27d8300, indexCVS2Sprites_Kim, 0, &pairNext },
-    { L"Extra 1", 0x27d8300, 0x27d8320, indexCVS2Sprites_Kim, 0x01 },
+    { L"Extra 1: Sparkles and board", 0x27d8300, 0x27d8320, indexCVS2Sprites_Kim, 0x01 },
     { L"Extra 2", 0x27d8320, 0x27d8340 },
     { L"Extra 3", 0x27d8340, 0x27d8360 },
     { L"Extra 4", 0x27d8360, 0x27d8380 },
@@ -2061,7 +2061,7 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_LK[] =
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x27d83a0, 0x27d83c0, indexCVS2Sprites_Kim, 0, &pairNext },
-    { L"Extra 1", 0x27d83c0, 0x27d83e0, indexCVS2Sprites_Kim, 0x01 },
+    { L"Extra 1: Sparkles and board", 0x27d83c0, 0x27d83e0, indexCVS2Sprites_Kim, 0x01 },
     { L"Extra 2", 0x27d83e0, 0x27d8400 },
     { L"Extra 3", 0x27d8400, 0x27d8420 },
     { L"Extra 4", 0x27d8420, 0x27d8440 },
@@ -2071,7 +2071,7 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_MK[] =
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x27d8460, 0x27d8480, indexCVS2Sprites_Kim, 0, &pairNext },
-    { L"Extra 1", 0x27d8480, 0x27d84a0, indexCVS2Sprites_Kim, 0x01 },
+    { L"Extra 1: Sparkles and board", 0x27d8480, 0x27d84a0, indexCVS2Sprites_Kim, 0x01 },
     { L"Extra 2", 0x27d84a0, 0x27d84c0 },
     { L"Extra 3", 0x27d84c0, 0x27d84e0 },
     { L"Extra 4", 0x27d84e0, 0x27d8500 },
@@ -2081,7 +2081,7 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_HK[] =
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x27d8520, 0x27d8540, indexCVS2Sprites_Kim, 0, &pairNext },
-    { L"Extra 1", 0x27d8540, 0x27d8560, indexCVS2Sprites_Kim, 0x01 },
+    { L"Extra 1: Sparkles and board", 0x27d8540, 0x27d8560, indexCVS2Sprites_Kim, 0x01 },
     { L"Extra 2", 0x27d8560, 0x27d8580 },
     { L"Extra 3", 0x27d8580, 0x27d85a0 },
     { L"Extra 4", 0x27d85a0, 0x27d85c0 },
@@ -2091,7 +2091,7 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_3P[] =
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x27d85e0, 0x27d8600, indexCVS2Sprites_Kim, 0, &pairNext },
-    { L"Extra 1", 0x27d8600, 0x27d8620, indexCVS2Sprites_Kim, 0x01 },
+    { L"Extra 1: Sparkles and board", 0x27d8600, 0x27d8620, indexCVS2Sprites_Kim, 0x01 },
     { L"Extra 2", 0x27d8620, 0x27d8640 },
     { L"Extra 3", 0x27d8640, 0x27d8660 },
     { L"Extra 4", 0x27d8660, 0x27d8680 },
