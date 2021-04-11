@@ -621,3 +621,44 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
         }
     }
 }
+
+void CGameWithExtrasFile::OpenExtraFile()
+{
+    if (m_pszExtraFilename)
+    {
+        WCHAR szExtraFileWithPath[MAX_PATH];
+
+        DWORD dwCharsUsed = GetModuleFileName(nullptr, szExtraFileWithPath, (DWORD)ARRAYSIZE(szExtraFileWithPath));
+        WCHAR* pszExeFileName = wcsrchr(szExtraFileWithPath, L'\\') + 1;
+        wcsncpy(pszExeFileName, m_pszExtraFilename, ARRAYSIZE(szExtraFileWithPath) - dwCharsUsed);
+
+        DWORD nFileAttrib = GetFileAttributes(szExtraFileWithPath);
+
+        if (nFileAttrib == INVALID_FILE_ATTRIBUTES)
+        {
+            // create file here: maybe prompt?
+            CFile ExtraFile;
+
+            if (ExtraFile.Open(szExtraFileWithPath, CFile::modeCreate | CFile::modeWrite))
+            {
+                CStringA strSampleText;
+
+                strSampleText = ";No existing Extras file for this game was found, so PalMod created one for you.\r\n";
+                strSampleText += ";Please refer to the Read Me for a brief guide to Extras files, or the longer guide on the PalMod site.\r\n\r\n";
+                strSampleText += ";When you are done making changes to the Extras file, reload the game to see those palettes.\r\n\r\n";
+
+                ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
+                ExtraFile.Close();
+            }
+        }
+
+        ShellExecute(
+            g_appHWnd,
+            L"open",
+            szExtraFileWithPath,
+            NULL,
+            NULL,
+            SW_SHOWNORMAL
+        );
+    }
+}

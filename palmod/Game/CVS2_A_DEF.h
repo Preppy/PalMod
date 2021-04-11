@@ -3769,7 +3769,7 @@ const sDescTreeNode CVS2_A_CHANG_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x38fc140, 0x38fc160, indexCVS2Sprites_RyuhakuTodoh },
-    { L"Extra 1", 0x38fc160, 0x38fc180 },
+    { L"Extra 1: Kasumi", 0x38fc160, 0x38fc180 },
     { L"Extra 2", 0x38fc180, 0x38fc1a0 },
     { L"Extra 3", 0x38fc1a0, 0x38fc1c0 },
     { L"Extra 4", 0x38fc1c0, 0x38fc1e0 },
@@ -3779,7 +3779,7 @@ const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_LP[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x38fc200, 0x38fc220, indexCVS2Sprites_RyuhakuTodoh },
-    { L"Extra 1", 0x38fc220, 0x38fc240 },
+    { L"Extra 1: Kasumi", 0x38fc220, 0x38fc240 },
     { L"Extra 2", 0x38fc240, 0x38fc260 },
     { L"Extra 3", 0x38fc260, 0x38fc280 },
     { L"Extra 4", 0x38fc280, 0x38fc2a0 },
@@ -3789,7 +3789,7 @@ const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_MP[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x38fc2c0, 0x38fc2e0, indexCVS2Sprites_RyuhakuTodoh },
-    { L"Extra 1", 0x38fc2e0, 0x38fc300 },
+    { L"Extra 1: Kasumi", 0x38fc2e0, 0x38fc300 },
     { L"Extra 2", 0x38fc300, 0x38fc320 },
     { L"Extra 3", 0x38fc320, 0x38fc340 },
     { L"Extra 4", 0x38fc340, 0x38fc360 },
@@ -3799,7 +3799,7 @@ const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_HP[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x38fc380, 0x38fc3a0, indexCVS2Sprites_RyuhakuTodoh },
-    { L"Extra 1", 0x38fc3a0, 0x38fc3c0 },
+    { L"Extra 1: Kasumi", 0x38fc3a0, 0x38fc3c0 },
     { L"Extra 2", 0x38fc3c0, 0x38fc3e0 },
     { L"Extra 3", 0x38fc3e0, 0x38fc400 },
     { L"Extra 4", 0x38fc400, 0x38fc420 },
@@ -3809,7 +3809,7 @@ const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_LK[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x38fc440, 0x38fc460, indexCVS2Sprites_RyuhakuTodoh },
-    { L"Extra 1", 0x38fc460, 0x38fc480 },
+    { L"Extra 1: Kasumi", 0x38fc460, 0x38fc480 },
     { L"Extra 2", 0x38fc480, 0x38fc4a0 },
     { L"Extra 3", 0x38fc4a0, 0x38fc4c0 },
     { L"Extra 4", 0x38fc4c0, 0x38fc4e0 },
@@ -3819,7 +3819,7 @@ const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_MK[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x38fc500, 0x38fc520, indexCVS2Sprites_RyuhakuTodoh },
-    { L"Extra 1", 0x38fc520, 0x38fc540 },
+    { L"Extra 1: Kasumi", 0x38fc520, 0x38fc540 },
     { L"Extra 2", 0x38fc540, 0x38fc560 },
     { L"Extra 3", 0x38fc560, 0x38fc580 },
     { L"Extra 4", 0x38fc580, 0x38fc5a0 },
@@ -3829,7 +3829,7 @@ const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_HK[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x38fc5c0, 0x38fc5e0, indexCVS2Sprites_RyuhakuTodoh },
-    { L"Extra 1", 0x38fc5e0, 0x38fc600 },
+    { L"Extra 1: Kasumi", 0x38fc5e0, 0x38fc600 },
     { L"Extra 2", 0x38fc600, 0x38fc620 },
     { L"Extra 3", 0x38fc620, 0x38fc640 },
     { L"Extra 4", 0x38fc640, 0x38fc660 },
@@ -3839,7 +3839,7 @@ const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_3P[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x38fc680, 0x38fc6a0, indexCVS2Sprites_RyuhakuTodoh },
-    { L"Extra 1", 0x38fc6a0, 0x38fc6c0 },
+    { L"Extra 1: Kasumi", 0x38fc6a0, 0x38fc6c0 },
     { L"Extra 2", 0x38fc6c0, 0x38fc6e0 },
     { L"Extra 3", 0x38fc6e0, 0x38fc700 },
     { L"Extra 4", 0x38fc700, 0x38fc720 },

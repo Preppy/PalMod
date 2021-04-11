@@ -278,6 +278,14 @@ void CPalModDlg::OnFileExit()
     OnClose();
 }
 
+void CPalModDlg::OnFileOpenExtrasFile()
+{
+    if (GetHost()->GetCurrGame() && GetHost()->GetCurrGame()->GameAllowsExtraFile())
+    {
+        GetHost()->GetCurrGame()->OpenExtraFile();
+    }
+}
+
 void CPalModDlg::OnFileCloseFileDir()
 {
     if (VerifyMsg(eVerifyType::VM_FILECHANGE))

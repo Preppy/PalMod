@@ -349,6 +349,7 @@ const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P1[] =
     { L"P1",          0x26C3E, 0x26C5E, indexCPS2_Spiral },
     { L"P1 Extras 1", 0x26C5E, 0x26C7E, indexCPS2_Spiral, 1 },
     { L"P1 Extras 2", 0x26C7E, 0x26C9E, indexCPS2_Spiral, 2 },
+    { L"P1 Sword flashing palette", 0x26C9E, 0x26CBE, indexCPS2_Spiral, 3 },
 
     { L"P1 Power Dance 1", 0x2909E, 0x290BE, indexCPS2_Spiral, 11 },
     { L"P1 Power Dance 2", 0x290BE, 0x290DE, indexCPS2_Spiral, 11 },
@@ -380,6 +381,7 @@ const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P2[] =
     { L"P2",          0x26CBE, 0x26CDE, indexCPS2_Spiral },
     { L"P2 Extras 1", 0x26CDE, 0x26CFE, indexCPS2_Spiral, 1 },
     { L"P2 Extras 2", 0x26CFE, 0x26D1E, indexCPS2_Spiral, 2 },
+    { L"P2 Sword flashing palette", 0x26D1E, 0x26D3E, indexCPS2_Spiral, 3 },
 
     { L"P2 Power Dance 1", 0x2941E, 0x2943E, indexCPS2_Spiral, 11 },
     { L"P2 Power Dance 2", 0x2943E, 0x2945E, indexCPS2_Spiral, 11 },

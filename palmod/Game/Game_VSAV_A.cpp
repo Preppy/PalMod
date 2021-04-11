@@ -14,7 +14,6 @@ int CGame_VSAV_A::rgExtraCountVisibleOnly[VSAV_A_NUMUNIT + 1] = { -1 };
 int CGame_VSAV_A::rgExtraLoc[VSAV_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_VSAV_A::m_nTotalPaletteCountForVSAV = 0;
-UINT32 CGame_VSAV_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_VSAV_A::m_nConfirmedROMSize = -1;
 
 void CGame_VSAV_A::InitializeStatics()

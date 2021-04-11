@@ -210,6 +210,11 @@ void CGameClass::ClearSetImgTicket(sImgTicket* NewImgTicket)
 
 BOOL CGameClass::SetColorMode(ColMode NewMode)
 {
+    return _SetColorMode(NewMode);
+}
+
+BOOL CGameClass::_SetColorMode(ColMode NewMode)
+{
     if (CurrColMode != NewMode)
     {
         CString strDebugInfo;

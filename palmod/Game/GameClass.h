@@ -230,8 +230,11 @@ public:
     virtual void SetAlphaMode(AlphaMode NewMode) { CurrAlphaMode = NewMode; };
 
     ColMode GetColorMode() { return CurrColMode; };
+    BOOL _SetColorMode(ColMode NewMode);
     virtual BOOL SetColorMode(ColMode NewMode);
     virtual bool AllowUpdatingColorFormatForGame() { return false; };
+    virtual void OpenExtraFile() { };
+    virtual bool GameAllowsExtraFile() { return false; };
 
     void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { createPalOptions.eWriteOutputOptions = eUpdatedOption; };
     PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return createPalOptions.eWriteOutputOptions; };

@@ -356,6 +356,8 @@ BEGIN
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
         MENUITEM SEPARATOR
+        MENUITEM "Open Extras File",            ID_FILE_OPENEXTRAS
+        MENUITEM SEPARATOR
         MENUITEM "&Close File / Directory",     ID_FILE_CLOSEFILEDIR
         MENUITEM SEPARATOR
         MENUITEM "Lo&ad Last File/Dir\tCtrl+Shift+O", ID_FILE_LOADLASTUSEDDIR

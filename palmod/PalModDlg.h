@@ -278,6 +278,7 @@ public:
     afx_msg void OnDeltaposSpinBL(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnDeltaposSpinA(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnFileExit();
+    afx_msg void OnFileOpenExtrasFile();
     afx_msg void OnFileCloseFileDir();
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnBnShowPrev();

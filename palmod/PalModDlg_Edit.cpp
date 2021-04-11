@@ -687,7 +687,7 @@ void CPalModDlg::OnEditPaste()
                 {
                     fWasColorImportedFromDifferentGame = true;
                     OutputDebugString(L"Pasted color is using a different color mode: switching to that game's color mode to ensure correct values...\n");
-                    CurrGame->SetColorMode(eColModeForPastedColor);
+                    CurrGame->_SetColorMode(eColModeForPastedColor);
                 }
             }
 
@@ -719,7 +719,7 @@ void CPalModDlg::OnEditPaste()
                     //Set the color mode back
                     //Round the values with the switched game flag
                     OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
-                    CurrGame->SetColorMode(eCurrColMode);
+                    CurrGame->_SetColorMode(eCurrColMode);
 
                     for (UINT16 i = 0; i < uPasteAmt; i++)
                     {
@@ -744,7 +744,7 @@ void CPalModDlg::OnEditPaste()
                     //Set the color mode back
                     //Round the values with the switched game flag
                     OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
-                    CurrGame->SetColorMode(eCurrColMode);
+                    CurrGame->_SetColorMode(eCurrColMode);
 
                     for (UINT16 i = 0; i < uPasteAmt; i++)
                     {

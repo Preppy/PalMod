@@ -1701,6 +1701,38 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { L"Character Select Background - Earth", 0x3E7DA, 0x3E91A },
 };
 
+const sGame_PaletteDataset MVC_A_BONUS_TITLES_PALETTES[] =
+{
+    { L"Intro Captain Commando",    0x40A86, 0x40B86, indexCPS2_MVCAssets, 0x7b },
+    { L"Intro Spiderman",           0x409C6, 0x40A66, indexCPS2_MVCAssets, 0x7c },
+    { L"Intro Cliff Pt1",           0x40006, 0x40206, indexCPS2_MVCAssets, 0x7d, &pairNextAndNext },
+    { L"Intro Cliff Pt2",           0x40206, 0x40406, indexCPS2_MVCAssets, 0x7e },
+    { L"Intro Cliff Pt3",           0x5AC24, 0x5AD64, indexCPS2_MVCAssets, 0x7f },
+};
+
+const sGame_PaletteDataset MVC_A_BONUS_NAME_PALETTES[] =
+{
+    { L"Captain America Name",  0x52444, 0x52464, indexCPS2_MVCAssets, 0x80 },
+    { L"Captain Commando Name", 0x52544, 0x52564, indexCPS2_MVCAssets, 0x81 },
+    { L"Chun-Li Name",          0x52564, 0x52584, indexCPS2_MVCAssets, 0x82 },
+    { L"Gambit Name",           0x524A4, 0x524C4, indexCPS2_MVCAssets, 0x83 },
+    { L"Hulk Name",             0x52464, 0x52484, indexCPS2_MVCAssets, 0x84 },
+    { L"Jin Name",              0x52584, 0x525A4, indexCPS2_MVCAssets, 0x85 },
+    { L"Megaman Name",          0x52624, 0x52644, indexCPS2_MVCAssets, 0x86 },
+    { L"Morrigan Name",         0x525E4, 0x52604, indexCPS2_MVCAssets, 0x87 },
+    { L"Onslaught Name",        0x52404, 0x52424, indexCPS2_MVCAssets, 0x88 },
+    { L"Rockman Name",          0x52604, 0x52624, indexCPS2_MVCAssets, 0x89 },
+    { L"Roll Name",             0x52504, 0x52524, indexCPS2_MVCAssets, 0x8a },
+    { L"Ryu Name",              0x52524, 0x52544, indexCPS2_MVCAssets, 0x8b },
+    { L"Spiderman Name",        0x524E4, 0x52504, indexCPS2_MVCAssets, 0x8c },
+    { L"Strider JP Name",       0x525C4, 0x525E4, indexCPS2_MVCAssets, 0x8d },
+    { L"Strider US Name",       0x52644, 0x52664, indexCPS2_MVCAssets, 0x8e },
+    { L"Venom Name",            0x524C4, 0x524E4, indexCPS2_MVCAssets, 0x8f },
+    { L"War Machine Name",      0x52424, 0x52444, indexCPS2_MVCAssets, 0x90 },
+    { L"Wolverine Name",        0x52484, 0x524A4, indexCPS2_MVCAssets, 0x91 },
+    { L"Zangief Name",          0x525A4, 0x525C4, indexCPS2_MVCAssets, 0x92 },
+};
+
 const sGame_PaletteDataset MVC_A_BLUEMOON_STAGE_PALETTES[] =
 {
     { L"Sky 1",                 0x3ACFA, 0x3AEFA, indexCPS2_MVCAssets, 0x68, &pairFullyLinkedNode },
@@ -1937,6 +1969,8 @@ const sDescTreeNode MVC_A_PORTRAITS_COLLECTION[] =
 const sDescTreeNode MVC_A_BONUS_COLLECTION[] =
 {
    { L"Bonus",                         DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_PALETTES,            ARRAYSIZE(MVC_A_BONUS_PALETTES) },
+   { L"Title/Select Screen",           DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_TITLES_PALETTES,     ARRAYSIZE(MVC_A_BONUS_TITLES_PALETTES) },
+   { L"Character Name Text",           DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_NAME_PALETTES,       ARRAYSIZE(MVC_A_BONUS_NAME_PALETTES) },
    { L"Blue Area of the Moon Stage",   DESC_NODETYPE_TREE, (void*)MVC_A_BLUEMOON_STAGE_PALETTES,   ARRAYSIZE(MVC_A_BLUEMOON_STAGE_PALETTES) },
    { L"Council Stage",                 DESC_NODETYPE_TREE, (void*)MVC_A_COUNCIL_STAGE_PALETTES,    ARRAYSIZE(MVC_A_COUNCIL_STAGE_PALETTES) },
    { L"Megaman Stage",                 DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_STAGE_PALETTES,    ARRAYSIZE(MVC_A_MEGAMAN_STAGE_PALETTES) },

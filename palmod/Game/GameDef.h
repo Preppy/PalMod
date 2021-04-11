@@ -410,38 +410,6 @@ const LPCWSTR DEF_BUTTONLABEL_LASTBLADE2[] =
     L"Power A", L"Power D", L"Speed A", L"Speed D", L"EX A", L"EX D"
 };
 
-struct stExtraDef
-{
-    UINT16 uUnitN = INVALID_UNIT_VALUE;
-    WCHAR szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
-    UINT32 uOffset = 0;
-    UINT16 cbPaletteSize = 0;
-    bool isInvisible = false;
-    UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
-    UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
-};
-
-struct stPairedPaletteInfo
-{
-    int nNodeIncrementToPartner = 1;
-    int nXOffs = 0;
-    int nYOffs = 0;
-    bool fPairingIsFlipped = false;
-    int nPalettesToJoin = 2;
-    int nOverallNodeIncrementTo2ndPartner = 2;
-    int nOverallNodeIncrementTo3rdPartner = 3;
-};
-
-struct sGame_PaletteDataset
-{
-    LPCWSTR szPaletteName = L"uninit";
-    UINT32 nPaletteOffset = 0;
-    UINT32 nPaletteOffsetEnd = 0;
-    UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
-    UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
-    const stPairedPaletteInfo* pPalettePairingInfo = nullptr;
-};
-
 enum CHARACTERS_CPS2
 {
     indexCPS2_Ryu,          // 0x00
@@ -2902,65 +2870,6 @@ const UINT16 VHUNT2_A_IMG_UNITS[] =
     indexCPS2_Vamp_DarkGallon,
 };
 
-const UINT16 VSAV_A_IMG_UNITS[] =
-{
-    indexCPS2_Anakaris,
-    indexCPS2_BBHood,
-    indexCPS2_Felicia,
-    indexCPS2_Morrigan,
-    indexCPS2_Vamp_Aulbath,   // 0x67
-    indexCPS2_Vamp_Bishamon,  // 0x68
-    indexCPS2_Vamp_Dee,       // 0x69
-    indexCPS2_Vamp_Demitri,   // 0x6A
-    //indexCPS2_Vamp_Donovan,   // 0x6B   console-only
-    indexCPS2_Vamp_Gallon,    // 0x6C
-    indexCPS2_Vamp_Jedah,     // 0x6D
-    indexCPS2_Vamp_LeiLei,    // 0x6E
-    indexCPS2_Vamp_Lilith,    // 0x6F
-    //indexCPS2_Vamp_Marionette, // 0x70  console-only
-    //indexCPS2_Vamp_Phobos,    // 0x71   console-only
-    //indexCPS2_Vamp_Pyron,     // 0x72   console-only
-    indexCPS2_Vamp_QBee,      // 0x73
-    indexCPS2_Vamp_Sasquatch, // 0x74
-    indexCPS2_Vamp_Shadow,    // 0x75
-    indexCPS2_Vamp_Victor,    // 0x76
-    indexCPS2_Vamp_Zabel,     // 0x77
-
-    indexCPS2_VSAV1_WinPortraits, // 0x78
-    indexCPS2_VSAV1_MidnightBliss, // 0x79
-    indexCPS2_Vamp_DarkGallon,
-    indexCPS2_Anita,
-    indexCPS2_VSAV1_Bonus, // 0x7c
-};
-
-const UINT16 VSAV2_A_IMG_UNITS[] =
-{
-    indexCPS2_Anakaris,
-    indexCPS2_Anita,
-    indexCPS2_BBHood,
-    indexCPS2_Felicia,
-    indexCPS2_Morrigan,
-    indexCPS2_Vamp_Aulbath,   // 0x67
-    indexCPS2_Vamp_Bishamon,  // 0x68
-    indexCPS2_Vamp_Dee,       // 0x69
-    indexCPS2_Vamp_Demitri,   // 0x6A
-    indexCPS2_Vamp_Donovan,   // 0x6B
-    indexCPS2_Vamp_Gallon,    // 0x6C
-    indexCPS2_Vamp_Jedah,     // 0x6D
-    indexCPS2_Vamp_LeiLei,    // 0x6E
-    indexCPS2_Vamp_Lilith,    // 0x6F
-    indexCPS2_Vamp_Marionette, // 0x70
-    indexCPS2_Vamp_Phobos,    // 0x71
-    indexCPS2_Vamp_Pyron,     // 0x72
-    indexCPS2_Vamp_QBee,      // 0x73
-    indexCPS2_Vamp_Sasquatch, // 0x74
-    indexCPS2_Vamp_Shadow,    // 0x75
-    indexCPS2_Vamp_Victor,    // 0x76
-    indexCPS2_Vamp_Zabel,     // 0x77
-    indexCPS2_VSAV1_MidnightBliss,
-    indexCPS2_Vamp_DarkGallon,
-};
-
 const UINT16 RBFFS_A_IMG_UNITS[] =
 {
     indexRBFFSSprites_Andy,         // 0x133
@@ -3437,6 +3346,38 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_LAST,    // for comparing to the imgdat we try to load
 };
 
+struct stExtraDef
+{
+    UINT16 uUnitN = INVALID_UNIT_VALUE;
+    WCHAR szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
+    UINT32 uOffset = 0;
+    UINT16 cbPaletteSize = 0;
+    bool isInvisible = false;
+    UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
+    UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
+};
+
+struct stPairedPaletteInfo
+{
+    int nNodeIncrementToPartner = 1;
+    int nXOffs = 0;
+    int nYOffs = 0;
+    bool fPairingIsFlipped = false;
+    int nPalettesToJoin = 2;
+    int nOverallNodeIncrementTo2ndPartner = 2;
+    int nOverallNodeIncrementTo3rdPartner = 3;
+};
+
+struct sGame_PaletteDataset
+{
+    LPCWSTR szPaletteName = L"uninit";
+    UINT32 nPaletteOffset = 0;
+    UINT32 nPaletteOffsetEnd = 0;
+    UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
+    UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
+    const stPairedPaletteInfo* pPalettePairingInfo = nullptr;
+};
+
 const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };
 const stPairedPaletteInfo pairHandledInCode = { 0, 0, 0 };
 const stPairedPaletteInfo pairFullyLinkedNode = { 0, 0, 0, false, -1 };
@@ -3461,6 +3402,7 @@ const stPairedPaletteInfo pairPreviousFlipped2 = { -2, 0, 0, true };
 const stPairedPaletteInfo pairNextAndNext =         { 1, 0, 0, false, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextSkipped =  { 1, 0, 0, false, 3, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextAndNext =  { 1, 0, 0, false, 4 }; // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext = { 2, 0, 0, false, 4, 4, 5 }; // quad display... requires special handling in code
 
 // Vs Series
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };
