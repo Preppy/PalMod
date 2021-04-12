@@ -1212,7 +1212,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (NodeGet->uUnitId == indexSVC_A_PrincessAthena)
+                if (NodeGet->uUnitId == indexSVC_A_GoddessAthena)
                 {
                     fShouldUseAlternateLoadLogic = true;
 

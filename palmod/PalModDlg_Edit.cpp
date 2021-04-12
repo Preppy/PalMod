@@ -662,6 +662,7 @@ void CPalModDlg::OnEditPaste()
                 case FatalFuryS_SNES:
                 case GUNDAM_SNES:
                 case MMPR_SNES:
+                case MMX2_SNES:
                 case MSHWOTG_SNES:
                 case SSF2T_GBA:
                 case TMNTTF_SNES:

@@ -44,11 +44,12 @@ sSupportedGameList SupportedGameList[] =
     { KOFXI_A,          L"KOFXI", L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", GamePlatform::SammyAtomiswave },
     { LASTBLADE2_A,     L"Last Blade 2", L"Last Blade 2 (Arcade)|243*.p1;LB2_P1.ROM|", GamePlatform::NEOGEO },
     { MATRIMELEE_A,     L"Matrimelee", L"Matrimelee|266-p2.sp2|", GamePlatform::NEOGEO },
-    { MMPR_SNES,        L"MMPR:TFE (SNES)", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc|", GamePlatform::Nintendo },
     { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", GamePlatform::CapcomCPS12 },
+    { MVC_A,            L"Marvel vs Capcom", L"MVC Arcade|mvc*.06*|", GamePlatform::CapcomCPS12 },
+    { MMX2_SNES,        L"Mega Man X2 (SNES)", L"Mega Man X2 (SNES)|Mega*Man X2 (USA).sfc|", GamePlatform::Nintendo },
+    { MMPR_SNES,        L"MMPR:TFE (SNES)", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc|", GamePlatform::Nintendo },
     { MSHVSF_A,         L"MSHVSF", L"MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12 },
     { MSHWOTG_SNES,     L"MSH: War of the Gems (SNES)", L"MSH: War of the Gems (SNES)|Marvel Super Heroes in War of the Gems (USA).sfc|", GamePlatform::Nintendo },
-    { MVC_A,            L"Marvel vs Capcom", L"MVC Arcade|mvc*.06*|", GamePlatform::CapcomCPS12 },
     // MarvelVsCapcom2.bin
     // Unlocked\MarvelVsCapcom2_unlocked.bin
     { MVC2_A,           L"MVC2", L"MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", GamePlatform::SegaNAOMI },

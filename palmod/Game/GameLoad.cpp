@@ -35,6 +35,7 @@
 #include "Game_LASTBLADE2_A.h"
 #include "Game_Matrimelee_A.h"
 #include "Game_MMPR_SNES.h"
+#include "Game_MMX2_SNES.h"
 #include "Game_MSH_A.h"
 #include "Game_MSHVSF_A.h"
 #include "Game_MSHWOTG_SNES.h"
@@ -323,6 +324,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case MMPR_SNES:
     {
         GetRule = &CGame_MMPR_SNES::GetRule;
+        return TRUE;
+    }
+    case MMX2_SNES:
+    {
+        GetRule = &CGame_MMX2_SNES::GetRule;
         return TRUE;
     }
     case MSH_A:
@@ -826,6 +832,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case MMPR_SNES:
     {
         return new CGame_MMPR_SNES(nConfirmedROMSize);
+    }
+    case MMX2_SNES:
+    {
+        return new CGame_MMX2_SNES(nConfirmedROMSize);
     }
     case MSH_A:
     {

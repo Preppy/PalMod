@@ -1,0 +1,179 @@
+#pragma once
+
+// To add characters or palette lists:
+// * If you need a new character, add them to MMX2_SNES_UNITS.
+// * Add an associated collection of their respective nodes
+// * or expand nodes as needed
+// * Then create the set of palettes for that character
+// That should be it.  Good luck.
+
+const sGame_PaletteDataset MMX2_SNES_INTROBOSS_PALETTES[] =
+{
+    { L"Intro Boss (Arms, legs, head)", 0x2B280, 0x2B300 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_CRAB_PALETTES[] =
+{
+    { L"Bubble Crab", 0x2B680, 0x2B6A0 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_SNAIL_PALETTES[] =
+{
+    { L"Crystal Snail", 0x2B640, 0x2B660 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_STAG1_PALETTES[] =
+{
+    { L"Flame Stag 1", 0x2BF00, 0x2BF20 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_CENTIPEDE_PALETTES[] =
+{
+    { L"Magna Centipede", 0x2BBE0, 0x2BC00 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_MOTH_PALETTES[] =
+{
+    { L"Morph Moth (Transformed)", 0x2B8E0, 0x2B900 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_OSTRICH_PALETTES[] =
+{
+    { L"Overdrive Ostrich", 0x2BC80, 0x2BCA0 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_GATOR_PALETTES[] =
+{
+    { L"Wheel Gator", 0x2BFE0, 0x2C000 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_SPONGE_PALETTES[] =
+{
+    { L"Wire Sponge", 0x2B7A0, 0x2B7C0 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_X_PALETTES[] =
+{
+    { L"X - Charge shots", 0x2B160, 0x2B180 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_BIKER_PALETTES[] =
+{
+    { L"Green Biker Dude / Bikes", 0x2B500, 0x2B520 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_SIGMA_PALETTES[] =
+{
+    { L"Sigma", 0x2C600, 0x2C620 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_FZERO_PALETTES[] =
+{
+    { L"Fake Zero", 0x2C680, 0x2C6A0 },
+};
+
+const sGame_PaletteDataset MMX2_SNES_ZERO_PALETTES[] =
+{
+    { L"Zero", 0x2C660, 0x2C680 },
+};
+
+const sDescTreeNode MMX2_SNES_INTROBOSS_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_INTROBOSS_PALETTES, ARRAYSIZE(MMX2_SNES_INTROBOSS_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_CRAB_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_CRAB_PALETTES, ARRAYSIZE(MMX2_SNES_CRAB_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_SNAIL_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_SNAIL_PALETTES, ARRAYSIZE(MMX2_SNES_SNAIL_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_STAG1_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_STAG1_PALETTES, ARRAYSIZE(MMX2_SNES_STAG1_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_CENTIPEDE_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_CENTIPEDE_PALETTES, ARRAYSIZE(MMX2_SNES_CENTIPEDE_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_MOTH_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_MOTH_PALETTES, ARRAYSIZE(MMX2_SNES_MOTH_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_OSTRICH_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_OSTRICH_PALETTES, ARRAYSIZE(MMX2_SNES_OSTRICH_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_GATOR_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_GATOR_PALETTES, ARRAYSIZE(MMX2_SNES_GATOR_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_SPONGE_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_SPONGE_PALETTES, ARRAYSIZE(MMX2_SNES_SPONGE_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_X_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_X_PALETTES, ARRAYSIZE(MMX2_SNES_X_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_BIKER_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_BIKER_PALETTES, ARRAYSIZE(MMX2_SNES_BIKER_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_SIGMA_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_SIGMA_PALETTES, ARRAYSIZE(MMX2_SNES_SIGMA_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_FZERO_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_FZERO_PALETTES, ARRAYSIZE(MMX2_SNES_FZERO_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_ZERO_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MMX2_SNES_ZERO_PALETTES, ARRAYSIZE(MMX2_SNES_ZERO_PALETTES) },
+};
+
+const sDescTreeNode MMX2_SNES_UNITS[] =
+{
+    { L"Intro Boss", DESC_NODETYPE_TREE, (void*)MMX2_SNES_INTROBOSS_COLLECTION, ARRAYSIZE(MMX2_SNES_INTROBOSS_COLLECTION) },
+    { L"Bubble Crab", DESC_NODETYPE_TREE, (void*)MMX2_SNES_CRAB_COLLECTION, ARRAYSIZE(MMX2_SNES_CRAB_COLLECTION) },
+    { L"Crystal Snail", DESC_NODETYPE_TREE, (void*)MMX2_SNES_SNAIL_COLLECTION, ARRAYSIZE(MMX2_SNES_SNAIL_COLLECTION) },
+    { L"Flame Stag 1", DESC_NODETYPE_TREE, (void*)MMX2_SNES_STAG1_COLLECTION, ARRAYSIZE(MMX2_SNES_STAG1_COLLECTION) },
+    { L"Magna Centipede", DESC_NODETYPE_TREE, (void*)MMX2_SNES_CENTIPEDE_COLLECTION, ARRAYSIZE(MMX2_SNES_CENTIPEDE_COLLECTION) },
+    { L"Morph Moth", DESC_NODETYPE_TREE, (void*)MMX2_SNES_MOTH_COLLECTION, ARRAYSIZE(MMX2_SNES_MOTH_COLLECTION) },
+    { L"Overdrive Ostrich", DESC_NODETYPE_TREE, (void*)MMX2_SNES_OSTRICH_COLLECTION, ARRAYSIZE(MMX2_SNES_OSTRICH_COLLECTION) },
+    { L"Wheel Gator", DESC_NODETYPE_TREE, (void*)MMX2_SNES_GATOR_COLLECTION, ARRAYSIZE(MMX2_SNES_GATOR_COLLECTION) },
+    { L"Wire Sponge", DESC_NODETYPE_TREE, (void*)MMX2_SNES_SPONGE_COLLECTION, ARRAYSIZE(MMX2_SNES_SPONGE_COLLECTION) },
+    { L"X", DESC_NODETYPE_TREE, (void*)MMX2_SNES_X_COLLECTION, ARRAYSIZE(MMX2_SNES_X_COLLECTION) },
+    { L"Green Bike Dude", DESC_NODETYPE_TREE, (void*)MMX2_SNES_BIKER_COLLECTION, ARRAYSIZE(MMX2_SNES_BIKER_COLLECTION) },
+    { L"Sigma", DESC_NODETYPE_TREE, (void*)MMX2_SNES_SIGMA_COLLECTION, ARRAYSIZE(MMX2_SNES_SIGMA_COLLECTION) },
+    { L"Fake Zero", DESC_NODETYPE_TREE, (void*)MMX2_SNES_FZERO_COLLECTION, ARRAYSIZE(MMX2_SNES_FZERO_COLLECTION) },
+    { L"Zero", DESC_NODETYPE_TREE, (void*)MMX2_SNES_ZERO_COLLECTION, ARRAYSIZE(MMX2_SNES_ZERO_COLLECTION) },
+};
+
+constexpr auto MMX2_SNES_NUMUNIT = ARRAYSIZE(MMX2_SNES_UNITS);
+
+#define MMX2_SNES_EXTRALOC MMX2_SNES_NUMUNIT
+
+// We extend this array with data groveled from the extensible extras file, if any.
+const stExtraDef MMX2_SNES_EXTRA[] =
+{
+    // Start
+    { UNIT_START_VALUE },
+
+    { INVALID_UNIT_VALUE }
+};

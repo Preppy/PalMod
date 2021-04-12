@@ -109,6 +109,7 @@ enum SupportedGamesList
     XMMA_SNES,
     TMNTTF_SNES,
     DBZHD_SNES,
+    MMX2_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -221,6 +222,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"X-Men: Mutant Apocalypse (SNES)",
    L"TMNT: Tournament Fighters (SNES)",
    L"DBZ: Hyper Dimension (SNES)",
+   L"Mega Man X2 (SNES)",
 };
 
 enum class GamePlatform
@@ -1298,7 +1300,7 @@ enum KOFSpriteList
     indexSVCSprites_GeeseHoward, // 5b
     indexSVCSprites_MarsPeople, // 5c
     indexSVCSprites_Goenitz,    // 5d
-    indexSVCSprites_PrincessAthena, // 5e
+    indexSVCSprites_GoddessAthena, // 5e
     indexSVCSprites_Ryu,        // 5f
     indexSVCSprites_Ken,        // 60
     indexSVCSprites_ChunLi,     // 61
@@ -2598,7 +2600,7 @@ enum SupportedSVC_A_PaletteListIndex
 
     indexSVC_A_OrochiIori,
     indexSVC_A_SeriousMrKarate,
-    indexSVC_A_PrincessAthena,
+    indexSVC_A_GoddessAthena,
 
     indexSVC_A_Ryu,
     indexSVC_A_Ken,
