@@ -145,6 +145,12 @@
 #define IDS_SAVE_LOWWRITE               2047
 #define IDS_ERROR_COPYCOLOR             2048
 #define IDS_WARN_TRANSPARENCY           2049
+#define IDS_ENCRYPTING_START            2050
+#define IDS_ENCRYPTING_DONE             2051
+#define IDS_SVC_WARNDECRYPT             2052
+#define IDS_SVC_UNKNOWNCRYPTO           2053
+#define IDS_SVC_WARNENCRYPT             2054
+#define IDS_SVC_CRYPTO_RO               2055
 
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772

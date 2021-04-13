@@ -2580,51 +2580,6 @@ const UINT16 CVS2_A_IMG_UNITS[] =
     indexCVS2Sprites_Zangief,
 };
 
-enum SupportedSVC_A_PaletteListIndex
-{
-    indexSVC_A_Kyo,
-    indexSVC_A_Iori,
-    indexSVC_A_Ryo,
-    indexSVC_A_Terry,
-    indexSVC_A_Mai,
-    indexSVC_A_Kasumi,
-    indexSVC_A_Kim,
-    indexSVC_A_MrKarate,
-    indexSVC_A_Choi,
-    indexSVC_A_Earthquake,
-    indexSVC_A_Genjuro,
-    indexSVC_A_Shiki,
-    indexSVC_A_GeeseHoward,
-    indexSVC_A_MarsPeople,
-    indexSVC_A_Goenitz,
-
-    indexSVC_A_OrochiIori,
-    indexSVC_A_SeriousMrKarate,
-    indexSVC_A_GoddessAthena,
-
-    indexSVC_A_Ryu,
-    indexSVC_A_Ken,
-    indexSVC_A_ChunLi,
-    indexSVC_A_Guile,
-    indexSVC_A_Dhalsim,
-    indexSVC_A_Boxer,
-    indexSVC_A_Claw,
-    indexSVC_A_Sagat,
-    indexSVC_A_Dictator,
-    indexSVC_A_Akuma,
-    indexSVC_A_Hugo,
-    indexSVC_A_Tessa,
-    indexSVC_A_Zero,
-    indexSVC_A_Demitri,
-    indexSVC_A_Dan,
-
-    indexSVC_A_ViolentKen,
-    indexSVC_A_ShinAkuma,
-    indexSVC_A_RedArremer,
-
-    indexSVC_A_Last,
-};
-
 enum SamuraiShodownSpriteList
 {
     indexSamSho5Sprites_Amakusa = 0,

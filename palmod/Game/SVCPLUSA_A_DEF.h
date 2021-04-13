@@ -6,8 +6,54 @@
 // * Update every array using SVCPLUSA_A_NUMUNIT below
 // That should be it.  Good luck.
 
-constexpr auto SVCPLUSA_A_NUMUNIT = indexSVC_A_Last;
+enum SupportedSVC_A_PaletteListIndex
+{
+    indexSVC_A_Kyo,
+    indexSVC_A_Iori,
+    indexSVC_A_Ryo,
+    indexSVC_A_Terry,
+    indexSVC_A_Mai,
+    indexSVC_A_Kasumi,
+    indexSVC_A_Kim,
+    indexSVC_A_MrKarate,
+    indexSVC_A_Choi,
+    indexSVC_A_Earthquake,
+    indexSVC_A_Genjuro,
+    indexSVC_A_Shiki,
+    indexSVC_A_GeeseHoward,
+    indexSVC_A_MarsPeople,
+    indexSVC_A_Goenitz,
 
+    indexSVC_A_OrochiIori,
+    indexSVC_A_SeriousMrKarate,
+    indexSVC_A_GoddessAthena,
+
+    indexSVC_A_Ryu,
+    indexSVC_A_Ken,
+    indexSVC_A_ChunLi,
+    indexSVC_A_Guile,
+    indexSVC_A_Dhalsim,
+    indexSVC_A_Boxer,
+    indexSVC_A_Claw,
+    indexSVC_A_Sagat,
+    indexSVC_A_Dictator,
+    indexSVC_A_Akuma,
+    indexSVC_A_Hugo,
+    indexSVC_A_Tessa,
+    indexSVC_A_Zero,
+    indexSVC_A_Demitri,
+    indexSVC_A_Dan,
+
+    indexSVC_A_ViolentKen,
+    indexSVC_A_ShinAkuma,
+    indexSVC_A_RedArremer,
+
+    indexSVC_A_Stages,
+
+    indexSVC_A_Last,
+};
+
+constexpr auto SVCPLUSA_A_NUMUNIT = indexSVC_A_Last;
 #define SVCPLUSA_A_EXTRALOC SVCPLUSA_A_NUMUNIT
 
 const UINT16 SVCPLUSA_A_IMG_UNITS[] =
@@ -2139,6 +2185,98 @@ const sDescTreeNode SVCPLUSA_A_SHINAKUMA_COLLECTION[] =
     { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_SHINAKUMA_INTRO_PORTRAITS_PALETTES, ARRAYSIZE(SVCPLUSA_A_SHINAKUMA_INTRO_PORTRAITS_PALETTES) },
 };
 
+const sGame_PaletteDataset SVCPLUSA_A_STAGES_FACTORY_PALETTES[] =
+{
+    { L"Factory Abandoned", 0x39a538, 0x39a698 }
+};
+
+const sGame_PaletteDataset SVCPLUSA_A_STAGES_STATION_PALETTES[] =
+{
+    { L"Station Obsolete", 0x39b938, 0x39b9f8 }
+};
+
+const sGame_PaletteDataset SVCPLUSA_A_STAGES_NUDE_PALETTES[] =
+{
+    { L"Nude Place 1/5", 0x39cd38, 0x39cf38 },
+    { L"Nude Place 2/5", 0x39cf38, 0x39d138 },
+    { L"Nude Place 3/5", 0x39d138, 0x39d338 },
+    { L"Nude Place 4/5", 0x39d338, 0x39d538 },
+    { L"Nude Place 5/5", 0x39d538, 0x39d6f8 },
+};
+
+const sGame_PaletteDataset SVCPLUSA_A_STAGES_FOREST_PALETTES[] =
+{
+    { L"Green Forest", 0x39e138, 0x39e338 },
+    { L"Green Forest", 0x39e338, 0x39e538 },
+    { L"Green Forest", 0x39e538, 0x39e738 },
+    { L"Green Forest", 0x39e738, 0x39e938 },
+    { L"Green Forest", 0x39e938, 0x39ea38 },
+};
+
+const sGame_PaletteDataset SVCPLUSA_A_STAGES_CRYSTAL_PALETTES[] =
+{
+    { L"Crystal Shrine", 0x39f538, 0x39f738 },
+    { L"Crystal Shrine", 0x39f738, 0x39f938 },
+    { L"Crystal Shrine", 0x39f938, 0x39fb38 },
+};
+
+const sGame_PaletteDataset SVCPLUSA_A_STAGES_POWER_PALETTES[] =
+{
+    { L"Power Generation Room 1/4", 0x3a0938, 0x3a0b38 },
+    { L"Power Generation Room 2/4", 0x3a0b38, 0x3a0d38 },
+    { L"Power Generation Room 3/4", 0x3a0d38, 0x3a0f38 },
+    { L"Power Generation Room 4/4", 0x3a0f38, 0x3a1098 },
+};
+
+const sGame_PaletteDataset SVCPLUSA_A_STAGES_TEMPLE_PALETTES[] =
+{
+    { L"The Temple 1/3", 0x3a1d38, 0x3a1f38 },
+    { L"The Temple 2/3", 0x3a1f38, 0x3a2138 },
+    { L"The Temple 3/3", 0x3a2138, 0x3a2338 },
+    { L"The Temple Char Outline", 0x3a2338, 0x3a2358 }
+};
+
+const sGame_PaletteDataset SVCPLUSA_A_STAGES_HEAVEN_PALETTES[] =
+{
+    { L"Heaven 1/10", 0x3a3138, 0x3a3338 },
+    { L"Heaven 2/10", 0x3a3338, 0x3a3538 },
+    { L"Heaven 3/10", 0x3a3538, 0x3a3738 },
+    { L"Heaven 4/10", 0x3a3738, 0x3a3938 },
+    { L"Heaven 5/10", 0x3a3938, 0x3a3b38 },
+    { L"Heaven 6/10", 0x3a3b38, 0x3a3d38 },
+    { L"Heaven 7/10", 0x3a3d38, 0x3a3f38 },
+    { L"Heaven 8/10", 0x3a3f38, 0x3a4138 },
+    { L"Heaven 9/10", 0x3a4138, 0x3a4338 },
+    { L"Heaven 10/10", 0x3a4338, 0x3a44d8 },
+};
+
+const sGame_PaletteDataset SVCPLUSA_A_STAGES_HELL_PALETTES[] =
+{
+    { L"Hell 1/2", 0x3a4538, 0x3a4738 },
+    { L"Hell 2/2", 0x3a4738, 0x3a4918 },
+    { L"Hell Extra Maybe", 0x3a4a58, 0x3a4a78 }
+};
+
+const sGame_PaletteDataset SVCPLUSA_A_STAGES_BLOCKADE_PALETTES[] =
+{
+    { L"Blockade Space 1/2", 0x3a2358, 0x3a2558 },
+    { L"Blockade Space 2/2", 0x3a2558, 0x3a25f8 },
+};
+
+const sDescTreeNode SVCPLUSA_A_STAGES_COLLECTION[] =
+{
+    { L"Factory Abandoned", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_FACTORY_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_FACTORY_PALETTES) },
+    { L"Station Obsolete", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_STATION_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_STATION_PALETTES) },
+    { L"Nude Place", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_NUDE_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_NUDE_PALETTES) },
+    { L"Green Forest", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_FOREST_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_FOREST_PALETTES) },
+    { L"Crystal Shrine", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_CRYSTAL_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_CRYSTAL_PALETTES) },
+    { L"Power Generation Room", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_POWER_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_POWER_PALETTES) },
+    { L"The Temple", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_TEMPLE_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_TEMPLE_PALETTES) },
+    { L"Heaven", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_HEAVEN_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_HEAVEN_PALETTES) },
+    { L"Hell", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_HELL_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_HELL_PALETTES) },
+    { L"Blockade Space", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_BLOCKADE_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_BLOCKADE_PALETTES) },
+};
+
 const UINT8 SVCPLUSA_A_UNITSORT[SVCPLUSA_A_NUMUNIT + 1] // Plus 1 for extras
 {
     indexSVC_A_Kyo,
@@ -2180,6 +2318,8 @@ const UINT8 SVCPLUSA_A_UNITSORT[SVCPLUSA_A_NUMUNIT + 1] // Plus 1 for extras
     indexSVC_A_ViolentKen,
     indexSVC_A_ShinAkuma,
     indexSVC_A_RedArremer,
+
+    indexSVC_A_Stages,
 
     SVCPLUSA_A_EXTRALOC
 };
@@ -2225,6 +2365,8 @@ const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =
     { L"Violent Ken", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_VIOLENTKEN_COLLECTION, ARRAYSIZE(SVCPLUSA_A_VIOLENTKEN_COLLECTION) },
     { L"Shin Akuma", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_SHINAKUMA_COLLECTION, ARRAYSIZE(SVCPLUSA_A_SHINAKUMA_COLLECTION) },
     { L"Red Arremer", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_REDARREMER_COLLECTION, ARRAYSIZE(SVCPLUSA_A_REDARREMER_COLLECTION) },
+
+    { L"Stages", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_COLLECTION, ARRAYSIZE(SVCPLUSA_A_STAGES_COLLECTION) },
 };
 
 // We extend this array with data groveled from the extras file, if any.

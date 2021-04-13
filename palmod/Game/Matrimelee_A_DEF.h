@@ -271,6 +271,12 @@ const sGame_PaletteDataset Matrimelee_A_CLARA_D_PALETTES[] =
     { L"HUD Portrait", 0x29d3ae, 0x29d3ce, indexMatriMSprites_Clara, 0x31 },
 };
 
+const sGame_PaletteDataset Matrimelee_A_CLARA_SHARED_PALETTES[] =
+{
+    { L"Clara Super Extras: Pig", 0x29ae3e, 0x29ae5e },
+    { L"Clara Super Extras: Gold Goose", 0x29ae5e, 0x29ae7e },
+};
+
 const sGame_PaletteDataset Matrimelee_A_CLARA_PORTRAIT_PALETTES[] =
 {
     { L"Clara Shared Portrait", 0x29D3CE, 0x29D44E, indexMatriMSprites_Clara, 0x30 },
@@ -1237,6 +1243,68 @@ const sGame_PaletteDataset Matrimelee_A_BBM_PORTRAIT_PALETTES[] =
     { L"Bloodline Battles Monitor", 0x29ac3e, 0x29ac7e, indexMatriMSprites_Bonus, 0x03 },
 };
 
+const sGame_PaletteDataset Matrimelee_A_BONUS_SELECT_PALETTES[] =
+{
+    { L"Lynn",          0x2a2424 + (0 * 0x20), 0x2a2424 + (1 * 0x20) },
+    { L"Jimmy",         0x2a2424 + (1 * 0x20), 0x2a2424 + (2 * 0x20) },
+    { L"Elias",         0x2a2424 + (2 * 0x20), 0x2a2424 + (3 * 0x20) },
+    { L"Jones",         0x2a2424 + (3 * 0x20), 0x2a2424 + (4 * 0x20) },
+    { L"Olof",          0x2a2424 + (4 * 0x20), 0x2a2424 + (5 * 0x20) },
+    { L"Shintaro",      0x2a2424 + (5 * 0x20), 0x2a2424 + (6 * 0x20) },
+    { L"Buntaro",       0x2a2424 + (6 * 0x20), 0x2a2424 + (7 * 0x20) },
+    { L"Hikaru",        0x2a2424 + (7 * 0x20), 0x2a2424 + (8 * 0x20) },
+    { L"Chinnen",       0x2a2424 + (8 * 0x20), 0x2a2424 + (9 * 0x20) },
+    { L"Clara",         0x2a2424 + (9 * 0x20), 0x2a2424 + (10 * 0x20) },
+    { L"Poochy",        0x2a2424 + (10 * 0x20), 0x2a2424 + (11 * 0x20) },
+    { L"White Buffalo", 0x2a2424 + (11 * 0x20), 0x2a2424 + (12 * 0x20) },
+    { L"Saizo",         0x2a2424 + (12 * 0x20), 0x2a2424 + (13 * 0x20) },
+    { L"Keith",         0x2a2424 + (13 * 0x20), 0x2a2424 + (14 * 0x20) },
+    { L"Anny",          0x2a2424 + (14 * 0x20), 0x2a2424 + (15 * 0x20) },
+    { L"Reiji",         0x2a2424 + (15 * 0x20), 0x2a2424 + (16 * 0x20) },
+    { L"Kanji",         0x2a2424 + (16 * 0x20), 0x2a2424 + (17 * 0x20) },
+    { L"Tane",          0x2a2424 + (17 * 0x20), 0x2a2424 + (18 * 0x20) },
+    { L"Ume",           0x2a2424 + (18 * 0x20), 0x2a2424 + (19 * 0x20) },
+};
+
+const sGame_PaletteDataset Matrimelee_A_BONUS_SELECT_FADED_PALETTES[] =
+{
+    { L"Lynn",          0x2a21c4 + (0 * 0x20), 0x2a21c4 + (1 * 0x20) },
+    { L"Jimmy",         0x2a21c4 + (1 * 0x20), 0x2a21c4 + (2 * 0x20) },
+    { L"Elias",         0x2a21c4 + (2 * 0x20), 0x2a21c4 + (3 * 0x20) },
+    { L"Jones",         0x2a21c4 + (3 * 0x20), 0x2a21c4 + (4 * 0x20) },
+    { L"Olof",          0x2a21c4 + (4 * 0x20), 0x2a21c4 + (5 * 0x20) },
+    { L"Shintaro",      0x2a21c4 + (5 * 0x20), 0x2a21c4 + (6 * 0x20) },
+    { L"Buntaro",       0x2a21c4 + (6 * 0x20), 0x2a21c4 + (7 * 0x20) },
+    { L"Hikaru",        0x2a21c4 + (7 * 0x20), 0x2a21c4 + (8 * 0x20) },
+    { L"Chinnen",       0x2a21c4 + (8 * 0x20), 0x2a21c4 + (9 * 0x20) },
+    { L"Clara",         0x2a21c4 + (9 * 0x20), 0x2a21c4 + (10 * 0x20) },
+    { L"Poochy",        0x2a21c4 + (10 * 0x20), 0x2a21c4 + (11 * 0x20) },
+    { L"White Buffalo", 0x2a21c4 + (11 * 0x20), 0x2a21c4 + (12 * 0x20) },
+    { L"Saizo",         0x2a21c4 + (12 * 0x20), 0x2a21c4 + (13 * 0x20) },
+    { L"Keith",         0x2a21c4 + (13 * 0x20), 0x2a21c4 + (14 * 0x20) },
+    { L"Anny",          0x2a21c4 + (14 * 0x20), 0x2a21c4 + (15 * 0x20) },
+    { L"Reiji",         0x2a21c4 + (15 * 0x20), 0x2a21c4 + (16 * 0x20) },
+    { L"Kanji",         0x2a21c4 + (16 * 0x20), 0x2a21c4 + (17 * 0x20) },
+    { L"Tane",          0x2a21c4 + (17 * 0x20), 0x2a21c4 + (18 * 0x20) },
+    { L"Ume",           0x2a21c4 + (18 * 0x20), 0x2a21c4 + (19 * 0x20) },
+};
+
+const sGame_PaletteDataset Matrimelee_A_BONUS_SELECT_SCREEN_PALETTES[] =
+{
+    { L"Character Select Background", 0x2cb8a8, 0x2cb8c8 },
+    { L"Character Select Main", 0x2cb8c8, 0x2cbac8 },
+    { L"Character Select Background Secret", 0x2cbacc, 0x2cbaec },
+    { L"Character Select Secret", 0x2cbaec, 0x2cbcac },
+    { L"Character Select Ring 1P", 0x2a2744, 0x2a27a4 },
+    { L"Character Select Ring 2P", 0x2a26e4, 0x2a2744 },
+
+    { L"Meter Bar: Stress", 0x29ac7e, 0x29ac9e },
+    { L"Meter Bar Meter: Stress", 0x29abfe, 0x29ac1e },
+    { L"Random Select Portrait Selected", 0x2a2084, 0x2a20a4 },
+    { L"Random Select Portrait Faded", 0x2a2064, 0x2a2084 },
+    { L"Random Select Ring", 0x2a2184, 0x2a21a4 },
+};
+
 const sDescTreeNode Matrimelee_A_Annie_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_Annie_A_PALETTES,    ARRAYSIZE(Matrimelee_A_Annie_A_PALETTES) },
@@ -1270,6 +1338,7 @@ const sDescTreeNode Matrimelee_A_CLARA_COLLECTION[] =
     { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_B_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_B_PALETTES) },
     { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_C_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_C_PALETTES) },
     { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_D_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_D_PALETTES) },
+    { L"Shared", DESC_NODETYPE_TREE,     (void*)Matrimelee_A_CLARA_SHARED_PALETTES, ARRAYSIZE(Matrimelee_A_CLARA_SHARED_PALETTES) },
     { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_CLARA_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_CLARA_PORTRAIT_PALETTES) },
 };
 
@@ -1424,6 +1493,13 @@ const sDescTreeNode Matrimelee_A_BONUS_COLLECTION[] =
     { L"Bloodline Battle Monitor",  DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BBM_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_BBM_PORTRAIT_PALETTES) },
 };
 
+const sDescTreeNode Matrimelee_A_SELECT_COLLECTION[] =
+{
+    { L"Character Select Portraits Selected",   DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BONUS_SELECT_PALETTES, ARRAYSIZE(Matrimelee_A_BONUS_SELECT_PALETTES) },
+    { L"Character Select Portraits Faded",      DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BONUS_SELECT_FADED_PALETTES, ARRAYSIZE(Matrimelee_A_BONUS_SELECT_FADED_PALETTES) },
+    { L"Select Screen Palettes",                DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BONUS_SELECT_SCREEN_PALETTES, ARRAYSIZE(Matrimelee_A_BONUS_SELECT_SCREEN_PALETTES) },
+};
+
 const sDescTreeNode Matrimelee_A_UNITS[] =
 {
     { L"Annie",              DESC_NODETYPE_TREE, (void*)Matrimelee_A_Annie_COLLECTION,          ARRAYSIZE(Matrimelee_A_Annie_COLLECTION) },
@@ -1446,6 +1522,7 @@ const sDescTreeNode Matrimelee_A_UNITS[] =
     { L"Tane",              DESC_NODETYPE_TREE, (void*)Matrimelee_A_TANE_COLLECTION,            ARRAYSIZE(Matrimelee_A_TANE_COLLECTION) },
     { L"Ume",               DESC_NODETYPE_TREE, (void*)Matrimelee_A_UME_COLLECTION,             ARRAYSIZE(Matrimelee_A_UME_COLLECTION) },
     { L"White",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_WHITE_COLLECTION,           ARRAYSIZE(Matrimelee_A_WHITE_COLLECTION) },
+    { L"Select Screen",     DESC_NODETYPE_TREE, (void*)Matrimelee_A_SELECT_COLLECTION,           ARRAYSIZE(Matrimelee_A_SELECT_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)Matrimelee_A_BONUS_COLLECTION,           ARRAYSIZE(Matrimelee_A_BONUS_COLLECTION) },
 };
 

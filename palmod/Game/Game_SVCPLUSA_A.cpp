@@ -136,7 +136,13 @@ void sx_decrypt(uint8_t* fixed, uint32_t fixed_size, int value)
     }
 }
 
-void svcplus_px_decrypt(uint8_t* cpurom, uint32_t cpurom_size)
+enum class SVCCryptionChoice
+{
+    decryption,
+    encryption
+};
+
+void svcplus_px_crypto(uint8_t* cpurom, uint32_t cpurom_size, SVCCryptionChoice direction)
 {
     static const int sec[] = { 0x00, 0x03, 0x02, 0x05, 0x04, 0x01 };
     int size = cpurom_size;
@@ -161,7 +167,7 @@ void svcplus_px_decrypt(uint8_t* cpurom, uint32_t cpurom_size)
     }
 }
 
-void svcsplus_px_decrypt(uint8_t* cpurom, uint32_t cpurom_size)
+void svcsplus_px_crypto(uint8_t* cpurom, uint32_t cpurom_size, SVCCryptionChoice direction)
 {
     static const int sec[] = { 0x06, 0x07, 0x01, 0x02, 0x03, 0x04, 0x05, 0x00 };
     int size = cpurom_size;
@@ -176,7 +182,15 @@ void svcsplus_px_decrypt(uint8_t* cpurom, uint32_t cpurom_size)
 
         ofst += (i & 0x078000);
         ofst += sec[(i & 0xf80000) >> 19] << 19;
-        memcpy(&src[i * 2], &dst[ofst * 2], 0x02);
+
+        if (direction == SVCCryptionChoice::decryption)
+        {
+            memcpy(&src[i * 2], &dst[ofst * 2], 0x02);
+        }
+        else
+        {
+            memcpy(&src[ofst * 2], &dst[i * 2], 0x02);
+        }
     }
 }
 
@@ -210,7 +224,7 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SVCPLUSA_A_NUMUNIT;
     m_nExtraUnit = SVCPLUSA_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1002;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1040;
     m_pszExtraFilename = EXTRA_FILENAME_SVCPLUSA_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSVCPLUSA;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -244,6 +258,7 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
 
 CGame_SVCPLUSA_A::~CGame_SVCPLUSA_A(void)
 {
+    safe_delete_array(decryptedROM);
     safe_delete_array(CGame_SVCPLUSA_A::SVCPLUSA_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
@@ -257,52 +272,12 @@ CDescTree* CGame_SVCPLUSA_A::GetMainTree()
 
 int CGame_SVCPLUSA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    if (rgExtraCountAll[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((SVCPLUSA_A_NUMUNIT + 1) * sizeof(int)));
-
-        stExtraDef* pCurrDef = GetExtraDefForSVCPLUSA(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
-            {
-                rgExtraCountAll[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForSVCPLUSA(nDefCtr);
-        }
-    }
-
-    return rgExtraCountAll[nUnitId];
+    return _GetExtraCount(rgExtraCountAll, SVCPLUSA_A_NUMUNIT, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
 int CGame_SVCPLUSA_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (rgExtraLoc[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (SVCPLUSA_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForSVCPLUSA(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForSVCPLUSA(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc[nUnitId];
+    return _GetExtraLocation(rgExtraLoc, SVCPLUSA_A_NUMUNIT, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
 sDescTreeNode* CGame_SVCPLUSA_A::InitDescTree()
@@ -328,151 +303,15 @@ sDescTreeNode* CGame_SVCPLUSA_A::InitDescTree()
     strMsg.Format(L"CGame_SVCPLUSA_A::InitDescTree: Building desc tree for SVCPLUSA_A %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
-    //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
-    {
-        sDescTreeNode* UnitNode = nullptr;
-        sDescTreeNode* CollectionNode = nullptr;
-        sDescNode* ChildNode = nullptr;
-
-        UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
-
-        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
-
-        UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
-
-        if (iUnitCtr < SVCPLUSA_A_EXTRALOC)
-        {
-            //Set each description
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", SVCPLUSA_A_UNITS[iUnitCtr].szDesc);
-            UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
-            //All children have collection trees
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = nUnitChildCount;
-
-#if SVCPLUSA_A_DEBUG
-            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
-            OutputDebugString(strMsg);
-#endif
-            
-            UINT16 nTotalPalettesUsedInUnit = 0;
-
-            //Set data for each child group ("collection")
-            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
-            {
-                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
-
-                //Set each collection data
-
-                // Default label, since these aren't associated to collections
-                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
-                //Collection children have nodes
-                UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
-                CollectionNode->uChildType = DESC_NODETYPE_NODE;
-                CollectionNode->uChildAmt = nListedChildrenCount;
-                CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
-
-#if SVCPLUSA_A_DEBUG
-                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
-                OutputDebugString(strMsg);
-#endif
-
-                const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
-
-                //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
-                {
-                    ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
-
-                    _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
-
-                    ChildNode->uUnitId = iUnitCtr;
-                    ChildNode->uPalId = nTotalPalettesUsedInUnit++;
-                    nTotalPaletteCount++;
-
-#if SVCPLUSA_A_DEBUG
-                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
-                    OutputDebugString(strMsg);
-                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
-                    OutputDebugString(strMsg);
-
-                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
-                    {
-                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
-                    }
-                    else
-                    {
-                        strMsg.Format(L" no image available.\n");
-                    }
-                    OutputDebugString(strMsg);
-#endif
-                }
-            }
-        }
-        else
-        {
-            // This handles data loaded from the Extra extension file, which are treated
-            // each as their own separate node with one collection with everything under that.
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
-            UnitNode->ChildNodes = new sDescTreeNode[1];
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = 1;
-
-#if SVCPLUSA_A_DEBUG
-            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
-            OutputDebugString(strMsg);
-#endif
-        }
-
-        //Set up extra nodes
-        if (bUseExtra)
-        {
-            int nExtraPos = GetExtraLoc(iUnitCtr);
-            int nCurrExtra = 0;
-
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(SVCPLUSA_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-
-            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
-
-            CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
-
-            CollectionNode->uChildType = DESC_NODETYPE_NODE;
-            CollectionNode->uChildAmt = nExtraCt; //EX + Extra
-
-#if SVCPLUSA_A_DEBUG
-            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
-            OutputDebugString(strMsg);
-#endif
-
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
-            {
-                ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
-
-                stExtraDef* pCurrDef = GetExtraDefForSVCPLUSA(nExtraPos + nCurrExtra);
-
-                while (pCurrDef->isInvisible)
-                {
-                    nCurrExtra++;
-
-                    pCurrDef = GetExtraDefForSVCPLUSA(nExtraPos + nCurrExtra);
-                }
-
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
-
-                ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((SVCPLUSA_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
-
-#if SVCPLUSA_A_DEBUG
-                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
-                OutputDebugString(strMsg);
-#endif
-
-                nCurrExtra++;
-                nTotalPaletteCount++;
-            }
-        }
-    }
+    nTotalPaletteCount = _InitDescTree(NewDescTree,
+        SVCPLUSA_A_UNITS,
+        nUnitCt,
+        SVCPLUSA_A_EXTRALOC,
+        SVCPLUSA_A_NUMUNIT,
+        rgExtraCountAll,
+        rgExtraLoc,
+        SVCPLUSA_A_EXTRA_CUSTOM
+    );
 
     strMsg.Format(L"CGame_SVCPLUSA_A::InitDescTree: Loaded %u palettes for SVCPLUSA\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
@@ -741,152 +580,37 @@ sFileRule CGame_SVCPLUSA_A::GetRule(UINT16 nUnitId)
 
 UINT16 CGame_SVCPLUSA_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == SVCPLUSA_A_EXTRALOC)
-    {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        return SVCPLUSA_A_UNITS[nUnitId].uChildAmt;
-    }
+    return _GetCollectionCountForUnit(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
 UINT16 CGame_SVCPLUSA_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == SVCPLUSA_A_EXTRALOC)
-    {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(SVCPLUSA_A_UNITS[nUnitId].ChildNodes);
-
-        return pCollectionNode[nCollectionId].uChildAmt;
-    }
+    return _GetNodeCountForCollection(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, nCollectionId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
 LPCWSTR CGame_SVCPLUSA_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == SVCPLUSA_A_EXTRALOC)
-    {
-        return L"Extra Palettes";
-    }
-    else
-    {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)SVCPLUSA_A_UNITS[nUnitId].ChildNodes;
-        return pCollection[nCollectionId].szDesc;
-    }
+    return _GetDescriptionForCollection(SVCPLUSA_A_UNITS, SVCPLUSA_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
 UINT16 CGame_SVCPLUSA_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == m_nExtraUnit)
-    {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = SVCPLUSA_A_UNITS;
-        UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
-
-        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
-
-        for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
-        {
-            nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
-        }
-
-#if SVCPLUSA_A_DEBUG
-        CString strMsg;
-        strMsg.Format(L"CGame_SVCPLUSA_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
-        OutputDebugString(strMsg);
-#endif
-
-        return nCompleteCount;
-    }
+    return _GetPaletteCountForUnit(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
 const sGame_PaletteDataset* CGame_SVCPLUSA_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)SVCPLUSA_A_UNITS[nUnitId].ChildNodes;
-    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    return _GetPaletteSet(SVCPLUSA_A_UNITS, nUnitId, nCollectionId);
 }
 
 const sDescTreeNode* CGame_SVCPLUSA_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
-    // Don't use this for Extra palettes.
-    const sDescTreeNode* pCollectionNode = nullptr;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
-
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount;
-
-        if (nUnitId == m_nExtraUnit)
-        {
-            nNodeCount = GetExtraCt(nUnitId);
-
-            if (nDistanceFromZero < nNodeCount)
-            {
-                pCollectionNode = nullptr;
-                break;
-            }
-        }
-        else
-        {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(SVCPLUSA_A_UNITS[nUnitId].ChildNodes);
-            
-            nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
-
-            if (nDistanceFromZero < nNodeCount)
-            {
-                // We know it's within this group.  Now: is it basic?
-                if (!fReturnBasicNodesOnly || (nCollectionIndex < m_nNumberOfColorOptions))
-                {
-                    pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
-                }
-                else
-                {
-                    pCollectionNode = nullptr;
-                }
-
-                break;
-            }
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return pCollectionNode;
+    return _GetNodeFromPaletteId(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, nPaletteId, SVCPLUSA_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
 const sGame_PaletteDataset* CGame_SVCPLUSA_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
-    // Don't use this for Extra palettes.
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
-
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
-
-        if (nDistanceFromZero < nNodeCount)
-        {
-            paletteToUse = &paletteSetToUse[nDistanceFromZero];
-            break;
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return paletteToUse;
+    return _GetSpecificPalette(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, nPaletteId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
 void CGame_SVCPLUSA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
@@ -926,16 +650,16 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
 {
-    if (_wcsicmp(LoadedFile->GetFileName(), L"svc-p2sp.bin") == 0) // svcSplus: we encrypted, so we can only read it
+    if (_wcsicmp(LoadedFile->GetFileName(), L"svc-p2sp.bin") == 0) // svcSplus: encrypted
     {
         m_loadedROMRevision.pszRevisionName = L"SNK vs. CAPCOM SVC CHAOS Super Plus (bootleg)";
         m_loadedROMRevision.rev = eSVCRevisionName::SVCSPlus;
         m_loadedROMRevision.fileList = { L"svc-p1sp.bin", L"svc-p2sp.bin" };
         m_loadedROMRevision.nOffsetForReads = 0x200000;
-        m_loadedROMRevision.allowWrites = false;
+        m_loadedROMRevision.allowWrites = true;
 
     }
-    else if (_wcsicmp(LoadedFile->GetFileName(), L"svc-p2p.bin") == 0) // svcplus: encrypted, so we can only read it
+    else if (_wcsicmp(LoadedFile->GetFileName(), L"svc-p2p.bin") == 0) // svcplus: encrypted
     {
         m_loadedROMRevision.pszRevisionName = L"SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 1)";
         m_loadedROMRevision.rev = eSVCRevisionName::SVCPlus;
@@ -967,7 +691,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
     UpdateGameName(LoadedFile);
 
-    uint8_t* decryptedROM = nullptr;
+    safe_delete_array(decryptedROM);
 
     switch (m_loadedROMRevision.rev)
     {
@@ -985,9 +709,9 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             if (fSuccess)
             {
                 CString strMsg;
-                strMsg = (L"This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to encrypted ROMs.");
-                strMsg.Append(L"\n\nAre you sure you wish to continue?  Decryption will take a minute.");
-                if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP | MB_YESNO) == IDYES)
+                strMsg.LoadString(IDS_SVC_WARNDECRYPT);
+
+                if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES)
                 {
                     pPeerFile.Read(decryptedROM, m_nConfirmedROMSize);
                     LoadedFile->Read(decryptedROM + m_nConfirmedROMSize, m_nConfirmedROMSize);
@@ -997,7 +721,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
                     {
                         CWaitCursor wait;
                         GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_START);
-                        svcsplus_px_decrypt(decryptedROM, m_nConfirmedROMSize * 2);
+                        svcsplus_px_crypto(decryptedROM, m_nConfirmedROMSize * 2, SVCCryptionChoice::decryption);
                         GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_DONE);
                     }
 
@@ -1047,8 +771,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             LoadedFile->Abort();
 
             CString strMsg;
-            strMsg = (L"This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to encrypted ROMs.");
-            strMsg.Append(L"\n\nAre you sure you wish to continue?  Decryption will take a minute.");
+            strMsg.LoadString(IDS_SVC_CRYPTO_RO);
             if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP | MB_YESNO) == IDYES)
             {
                 UINT32 nCurrentROMOffset = 0;
@@ -1068,7 +791,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
                 {
                     CWaitCursor wait;
                     GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_START);
-                    svcplus_px_decrypt(decryptedROM, nROMSetSize);
+                    svcplus_px_crypto(decryptedROM, nROMSetSize, SVCCryptionChoice::decryption);
                     GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_DONE);
                 }
 
@@ -1111,7 +834,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     case eSVCRevisionName::SVC:
         {
             CString strMsg;
-            strMsg = (L"This version of SNK vs. Capcom uses encryption that PalMod cannot read nor write. Palettes will not show up correctly.  Do not patch: we cannot write correctly to encrypted ROMs.");
+            strMsg.LoadString(IDS_SVC_UNKNOWNCRYPTO);
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
             __fallthrough;
         }
@@ -1144,9 +867,10 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
-    safe_delete_array(decryptedROM);
-
-    CheckForErrorsInTables();
+    if (fSuccess)
+    {
+        CheckForErrorsInTables();
+    }
 
     return fSuccess;
 }
@@ -1388,7 +1112,119 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     if (m_loadedROMRevision.allowWrites)
     {
-        return CGameClass::SaveFile(SaveFile, nUnitId);
+        switch (m_loadedROMRevision.rev)
+        {
+        case eSVCRevisionName::SVCSPlus:
+        {
+            CString strPeerFileName;
+            CFile pPeerFile;
+            strPeerFileName.Format(L"%s\\..\\%s", SaveFile->GetFilePath().GetString(), L"svc-p1sp.bin");
+
+            BOOL fSuccess = pPeerFile.Open(strPeerFileName, CFile::modeWrite | CFile::typeBinary);
+
+            if (fSuccess)
+            {
+                CString strMsg;
+                strMsg.LoadString(IDS_SVC_WARNENCRYPT);
+
+                if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES)
+                {
+                    // Save the palette changes
+                    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                    {
+                        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+                        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                            for (UINT16 nPaletteIndex = 0; nPaletteIndex < m_nCurrentPaletteSizeInColors; nPaletteIndex++)
+                            {
+                                decryptedROM[m_nCurrentPaletteROMLocation + (nPaletteIndex * 2)] = m_pppDataBuffer[nUnitCtr][nPalCtr][nPaletteIndex] & 0xFF;
+                                decryptedROM[m_nCurrentPaletteROMLocation + (nPaletteIndex * 2) + 1] = m_pppDataBuffer[nUnitCtr][nPalCtr][nPaletteIndex] >> 8;
+                            }
+                        }
+                    }
+
+                    {
+                        CWaitCursor wait;
+                        GetHost()->GetPalModDlg()->SetStatusText(IDS_ENCRYPTING_START);
+                        svcsplus_px_crypto(decryptedROM, m_nConfirmedROMSize * 2, SVCCryptionChoice::encryption);
+                        GetHost()->GetPalModDlg()->SetStatusText(IDS_ENCRYPTING_DONE);
+                    }
+
+                    pPeerFile.Write(decryptedROM, m_nConfirmedROMSize);
+                    SaveFile->Write(decryptedROM + m_nConfirmedROMSize, m_nConfirmedROMSize);
+
+                    pPeerFile.Abort();
+                }
+            }
+
+            return fSuccess;
+        }
+#ifdef NEED_TO_FIX_SVCPLUS_REENCRYPTION_FIRST
+        case eSVCRevisionName::SVCPlus:
+        {
+            CString strPeerFileName;
+            CFile pPeerFile1, pPeerFile2;
+
+            strPeerFileName.Format(L"%s\\..\\%s", SaveFile->GetFilePath().GetString(), L"svc-p1p.bin");
+
+            BOOL fSuccess = pPeerFile1.Open(strPeerFileName, CFile::modeWrite | CFile::typeBinary);
+
+            strPeerFileName.Format(L"%s\\..\\%s", SaveFile->GetFilePath().GetString(), L"svc-p3p.bin");
+
+            fSuccess = fSuccess && pPeerFile2.Open(strPeerFileName, CFile::modeWrite | CFile::typeBinary);
+
+            if (fSuccess)
+            {
+                CString strMsg;
+                strMsg.LoadString(IDS_SVC_WARNENCRYPT);
+
+                if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES)
+                {
+                    // Save the palette changes
+                    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                    {
+                        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+                        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                            for (UINT16 nPaletteIndex = 0; nPaletteIndex < m_nCurrentPaletteSizeInColors; nPaletteIndex++)
+                            {
+                                decryptedROM[m_nCurrentPaletteROMLocation + (nPaletteIndex * 2)] = m_pppDataBuffer[nUnitCtr][nPalCtr][nPaletteIndex] & 0xFF;
+                                decryptedROM[m_nCurrentPaletteROMLocation + (nPaletteIndex * 2) + 1] = m_pppDataBuffer[nUnitCtr][nPalCtr][nPaletteIndex] >> 8;
+                            }
+                        }
+                    }
+
+                    {
+                        CWaitCursor wait;
+                        GetHost()->GetPalModDlg()->SetStatusText(IDS_ENCRYPTING_START);
+                        svcplus_px_crypto(decryptedROM, 0x200000 * 3, SVCCryptionChoice::encryption);
+                        GetHost()->GetPalModDlg()->SetStatusText(IDS_ENCRYPTING_DONE);
+                    }
+
+                    pPeerFile1.Write(decryptedROM, 0x200000);
+                    SaveFile->Write(decryptedROM + 0x200000, 0x200000);
+                    pPeerFile2.Write(decryptedROM + (0x200000 * 2), 0x200000);
+
+                    pPeerFile1.Abort();
+                    pPeerFile2.Abort();
+                }
+            }
+
+            return fSuccess;
+        }
+#endif
+        default:
+        case eSVCRevisionName::SVCPlusA:
+        {
+            return CGameClass::SaveFile(SaveFile, nUnitId);
+        }
+        }
     }
     else
     {

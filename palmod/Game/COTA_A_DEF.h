@@ -538,6 +538,7 @@ const sGame_PaletteDataset COTA_A_BONUS_ENDING_PALETTES[] =
     { L"Wolverine's Motorcycle",    0x279de, 0x279fe, indexCPS2_COTAAssets, 0x09 },
     { L"Psylocke Ending (dress)",   0x2785E, 0x2787E, indexCPS2_COTAAssets, 0x08 },
     { L"Psylocke Ending (undressed)", 0x2783E, 0x2785E, indexCPS2_Psylocke, 0 },
+    { L"Police (Omega Red ending)", 0x2797E, 0x2799E },
 };
 
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =

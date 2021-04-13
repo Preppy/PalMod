@@ -404,9 +404,9 @@ BEGIN
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
             MENUITEM "RGB555 (Sharp X68000)",       ID_COLORFORMAT_SHARPRGB
             MENUITEM "RGB666 (Neo-Geo)",            ID_COLORFORMAT_RGB666
-            MENUITEM "ARGB1888 (DBFCI)",            ID_COLORFORMAT_ARGB1888
-            MENUITEM "ARGB7888 (Arc Sys)",          ID_COLORFORMAT_ARGB7888
-            MENUITEM "ARGB8888",                    ID_COLORFORMAT_ARGB8888
+            MENUITEM "RGBA8881 (DBFCI)",            ID_COLORFORMAT_ARGB1888
+            MENUITEM "RGBA8888 (Half alpha for Arcsys)", ID_COLORFORMAT_ARGB7888
+            MENUITEM "RGBA8888",                    ID_COLORFORMAT_ARGB8888
             MENUITEM SEPARATOR
             MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
             MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED
@@ -603,6 +603,8 @@ STRINGTABLE
 BEGIN
     IDS_DECRYPTING_START    "Decrypting game: please wait..."
     IDS_DECRYPTING_DONE     "Decryption complete!"
+    IDS_ENCRYPTING_START    "Encrypting game: please wait..."
+    IDS_ENCRYPTING_DONE     "Encryption complete!"
     IDS_ACT_LOADFAILURE     "Failed loading ACT file."
     IDS_PAL_LOADFAILURE     "Failed loading PAL file."
     IDS_PNG_LOADFAILURE     "Failed loading PNG file."
@@ -660,6 +662,10 @@ BEGIN
 
     IDS_ERROR_COPYCOLOR      "Warning: The current color mode needs to have copy support added."
     IDS_WARN_TRANSPARENCY    "Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick Yes to agree to not use this mix for competition.  Click No to disagree and not use transparency."
+    IDS_SVC_WARNDECRYPT       "This version of SNK vs. Capcom uses encryption.  PalMod will need to decrypt this in order to use it.\n\nAre you sure you wish to continue?  Decryption will take a minute."
+    IDS_SVC_UNKNOWNCRYPTO     "his version of SNK vs. Capcom uses encryption that PalMod cannot read nor write. Palettes will not show up correctly.  Do not patch: we cannot write correctly to this encrypted ROMs"
+    IDS_SVC_WARNENCRYPT       "This ROM is encrypted.  In order to save these changes, we will need to re-encrypt everything.\n\nAre you sure you wish to continue?  This will take a minute."
+    IDS_SVC_CRYPTO_RO         "This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to this encrypted ROM.\n\nAre you sure you wish to continue?  Decryption will take a minute."
 END
 
 #endif    // English (United States) resources
