@@ -659,7 +659,7 @@ void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
         m_loadedROMRevision.allowWrites = true;
 
     }
-    else if (_wcsicmp(LoadedFile->GetFileName(), L"svc-p2p.bin") == 0) // svcplus: encrypted
+    else if (_wcsicmp(LoadedFile->GetFileName(), L"svc-p2p.bin") == 0) // svcplus: encrypted: we can read but not write
     {
         m_loadedROMRevision.pszRevisionName = L"SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 1)";
         m_loadedROMRevision.rev = eSVCRevisionName::SVCPlus;
@@ -709,9 +709,9 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             if (fSuccess)
             {
                 CString strMsg;
-                strMsg.LoadString(IDS_SVC_WARNDECRYPT);
 
-                if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES)
+                if (strMsg.LoadString(IDS_SVC_WARNDECRYPT) &&
+                    (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES))
                 {
                     pPeerFile.Read(decryptedROM, m_nConfirmedROMSize);
                     LoadedFile->Read(decryptedROM + m_nConfirmedROMSize, m_nConfirmedROMSize);
@@ -771,8 +771,9 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             LoadedFile->Abort();
 
             CString strMsg;
-            strMsg.LoadString(IDS_SVC_CRYPTO_RO);
-            if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP | MB_YESNO) == IDYES)
+
+            if (strMsg.LoadString(IDS_SVC_CRYPTO_RO) &&
+                (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP | MB_YESNO) == IDYES))
             {
                 UINT32 nCurrentROMOffset = 0;
                 for (LPCWSTR romName : m_loadedROMRevision.fileList)
@@ -834,8 +835,11 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     case eSVCRevisionName::SVC:
         {
             CString strMsg;
-            strMsg.LoadString(IDS_SVC_UNKNOWNCRYPTO);
-            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+            
+            if (strMsg.LoadString(IDS_SVC_UNKNOWNCRYPTO))
+            {
+                MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+            }
             __fallthrough;
         }
     default:
@@ -1125,9 +1129,9 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             if (fSuccess)
             {
                 CString strMsg;
-                strMsg.LoadString(IDS_SVC_WARNENCRYPT);
-
-                if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES)
+                
+                if (strMsg.LoadString(IDS_SVC_WARNENCRYPT) &&
+                    (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES))
                 {
                     // Save the palette changes
                     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
@@ -1140,8 +1144,13 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 
                             for (UINT16 nPaletteIndex = 0; nPaletteIndex < m_nCurrentPaletteSizeInColors; nPaletteIndex++)
                             {
-                                decryptedROM[m_nCurrentPaletteROMLocation + (nPaletteIndex * 2)] = m_pppDataBuffer[nUnitCtr][nPalCtr][nPaletteIndex] & 0xFF;
-                                decryptedROM[m_nCurrentPaletteROMLocation + (nPaletteIndex * 2) + 1] = m_pppDataBuffer[nUnitCtr][nPalCtr][nPaletteIndex] >> 8;
+                                const UINT16 nMaxSafeColorsToWrite = (UINT16)createPalOptions.eWriteOutputOptions;
+
+                                if ((nPaletteIndex % nMaxSafeColorsToWrite) != 0) // skip the transparency counters
+                                {
+                                    decryptedROM[m_nCurrentPaletteROMLocation + (nPaletteIndex * 2)] = m_pppDataBuffer[nUnitCtr][nPalCtr][nPaletteIndex] & 0xFF;
+                                    decryptedROM[m_nCurrentPaletteROMLocation + (nPaletteIndex * 2) + 1] = m_pppDataBuffer[nUnitCtr][nPalCtr][nPaletteIndex] >> 8;
+                                }
                             }
                         }
                     }
@@ -1179,9 +1188,9 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             if (fSuccess)
             {
                 CString strMsg;
-                strMsg.LoadString(IDS_SVC_WARNENCRYPT);
 
-                if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES)
+                if (strMsg.LoadString(IDS_SVC_WARNENCRYPT) &&
+                    (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES))
                 {
                     // Save the palette changes
                     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)

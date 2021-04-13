@@ -239,12 +239,28 @@ enum class GamePlatform
     Last,
 };
 
+enum class GameSeries
+{
+    ArtOfFighting = 0,
+    FatalFury,
+    KOF,
+    MvC,
+    SamuraiShodown,
+    SFA,
+    SF2,
+    SF3,
+    VampireSavior,
+    Unknown,
+    Last,
+};
+
 struct sSupportedGameList
 {
     int nInternalGameIndex = 0;
     LPCWSTR szGameFriendlyName = L"uninit";
     LPCWSTR szGameFilterString = L"uninit";
     GamePlatform publisherKey = GamePlatform::Unknown;
+    GameSeries seriesKey = GameSeries::Unknown;
     int nListedGameIndex = INVALID_UNIT_VALUE;
 };
 
