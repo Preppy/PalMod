@@ -22,7 +22,7 @@ CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR(UINT32 nConfirmedROMSize, int nRedEar
     m_nNumberOfSIMMsPerSet = 2;
     m_nTotalNumberOfSIMMFilesNeeded = RedEarth_Arcade_ROMFilesNeeded;
     m_pszSIMMBaseFileName = RedEarth_Arcade_ROM_Base;
-    // We want the 3.1 files
+    // We want the 3.x files
     m_nSIMMSetBaseNumber = RedEarth_Arcade_ROMSet;
     m_nSIMMSetStartingFileNumber = (nRedEarthModeToLoad == 30) ? RedEarth_Arcade_SIMMFileBaseNumber_30 : RedEarth_Arcade_SIMMFileBaseNumber_31;
 

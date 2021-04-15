@@ -83,14 +83,13 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
             CMenu seriesMenu[4];
 
             platformMenu.CreatePopupMenu();
+            seriesMenu[0].CreatePopupMenu();
+            seriesMenu[1].CreatePopupMenu();
+            seriesMenu[2].CreatePopupMenu();
+            seriesMenu[3].CreatePopupMenu();
 
             if (((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) || ((GamePlatform)nPlatform == GamePlatform::NEOGEO))
             {
-                seriesMenu[0].CreatePopupMenu();
-                seriesMenu[1].CreatePopupMenu();
-                seriesMenu[2].CreatePopupMenu();
-                seriesMenu[3].CreatePopupMenu();
-
                 // first pass is just the submenus
                 for (int nGamePos = 0; nGamePos < nNumberOfLoadROMOptions; nGamePos++)
                 {
@@ -145,7 +144,9 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
                         if ((ppszCapcomSubMenu[nMenuIndex][0] <= pSupportedGameList[nGamePos].szGameFriendlyName[0]) &&
                             (ppszCapcomSubMenu[nMenuIndex][1] <= pSupportedGameList[nGamePos].szGameFriendlyName[1]))
                         {
-                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszCapcomSubMenu[nMenuIndex++]);
+                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszCapcomSubMenu[nMenuIndex]);
+                            nMenuIndex++;
+                            nCurrentPosition++;
                         }
                     }
                     else if (((GamePlatform)nPlatform == GamePlatform::NEOGEO) && (nMenuIndex < ARRAYSIZE(seriesMenu)))
@@ -153,7 +154,9 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
                         if ((ppszSNKSubMenu[nMenuIndex][0] <= pSupportedGameList[nGamePos].szGameFriendlyName[0]) &&
                             (ppszSNKSubMenu[nMenuIndex][1] <= pSupportedGameList[nGamePos].szGameFriendlyName[1]))
                         {
-                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszSNKSubMenu[nMenuIndex++]);
+                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszSNKSubMenu[nMenuIndex]);
+                            nMenuIndex++;
+                            nCurrentPosition++;
                         }
                     }
 
@@ -162,21 +165,6 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
                         (((GamePlatform)nPlatform != GamePlatform::CapcomCPS12) && ((GamePlatform)nPlatform != GamePlatform::NEOGEO)))
                     {
                         platformMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
-                    }
-                }
-            }
-
-            if (((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) || ((GamePlatform)nPlatform == GamePlatform::NEOGEO))
-            {
-                while (nMenuIndex < ARRAYSIZE(seriesMenu))
-                {
-                    if ((GamePlatform)nPlatform == GamePlatform::CapcomCPS12)
-                    {
-                        platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszCapcomSubMenu[nMenuIndex++]);
-                    }
-                    else if ((GamePlatform)nPlatform == GamePlatform::NEOGEO)
-                    {
-                        platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszSNKSubMenu[nMenuIndex++]);
                     }
                 }
             }

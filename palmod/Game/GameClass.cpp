@@ -934,6 +934,8 @@ LPCWSTR CGameClass::GetGameName()
 
 LPCWSTR CGameClass::GetROMFileName()
 {
+    // This code presumes that we are dealing with a monolithic file and can not return a filename
+    // for loaded directories
     LPCWSTR pszFileName = L"unknown";
 
     if (m_pszLoadDir)

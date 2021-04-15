@@ -38,6 +38,7 @@ const sGame_PaletteDataset REDEARTH_A_LEO_PUNCH_PALETTES[] =
     { L"Leo Punch Frozen 3", 0x40B080, 0x40B100, indexRedEarthSprites_Leo },
     { L"Leo Punch Frozen 4", 0x40B100, 0x40B180, indexRedEarthSprites_Leo },
     { L"Leo Punch Frozen 5", 0x40B180, 0x40B200, indexRedEarthSprites_Leo },
+    { L"Mirror Trapped - Leo Punch",        0x433F80, 0x434000, indexRedEarthSprites_Leo, 0x0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
@@ -78,6 +79,7 @@ const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
     { L"Leo Kick Frozen 3", 0x417880, 0x417900, indexRedEarthSprites_Leo },
     { L"Leo Kick Frozen 4", 0x417900, 0x417980, indexRedEarthSprites_Leo },
     { L"Leo Kick Frozen 5", 0x417980, 0x417A00, indexRedEarthSprites_Leo }, 
+    { L"Mirror Trapped - Leo Kick",         0x434000, 0x434080, indexRedEarthSprites_Leo, 0x0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
@@ -126,6 +128,7 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
     { L"Kenji Punch Frozen 3", 0x40E280, 0x40E300, indexRedEarthSprites_Kenji },
     { L"Kenji Punch Frozen 4", 0x40E300, 0x40E380, indexRedEarthSprites_Kenji },
     { L"Kenji Punch Frozen 5", 0x40E380, 0x40E400, indexRedEarthSprites_Kenji },
+    { L"Mirror Trapped - Kenji Punch",      0x434080, 0x434100, indexRedEarthSprites_Kenji, 0x0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
@@ -165,6 +168,7 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
     { L"Kenji Kick Frozen 3", 0x41AA80, 0x41AB00, indexRedEarthSprites_Kenji },
     { L"Kenji Kick Frozen 4", 0x41AB00, 0x41AB80, indexRedEarthSprites_Kenji },
     { L"Kenji Kick Frozen 5", 0x41AB80, 0x41AC00, indexRedEarthSprites_Kenji },
+    { L"Mirror Trapped - Kenji Kick",       0x434100, 0x434180, indexRedEarthSprites_Kenji, 0x0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
@@ -239,6 +243,7 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
     { L"Tessa Punch Frozen 3", 0x411480, 0x411500, indexRedEarthSprites_Tessa, 0 },
     { L"Tessa Punch Frozen 4", 0x411500, 0x411580, indexRedEarthSprites_Tessa, 0 },
     { L"Tessa Punch Frozen 5", 0x411580, 0x411600, indexRedEarthSprites_Tessa, 0 },
+    { L"Mirror Trapped - Tessa Punch",      0x434180, 0x434200, indexRedEarthSprites_Tessa, 0x0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
@@ -303,6 +308,7 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
     { L"Tessa Kick Frozen 3", 0x41DC80, 0x41DD00, indexRedEarthSprites_Tessa, 0 },
     { L"Tessa Kick Frozen 4", 0x41DD00, 0x41DD80, indexRedEarthSprites_Tessa, 0 },
     { L"Tessa Kick Frozen 5", 0x41DD80, 0x41DE00, indexRedEarthSprites_Tessa, 0 },
+    { L"Mirror Trapped - Tessa Kick",       0x434200, 0x434280, indexRedEarthSprites_Tessa, 0x0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
@@ -340,6 +346,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
     { L"Mai Ling Punch Frozen 3", 0x414680, 0x414700 },
     { L"Mai Ling Punch Frozen 4", 0x414700, 0x414780 },
     { L"Mai Ling Punch Frozen 5", 0x414780, 0x414800 },
+    { L"Mirror Trapped - Mai-Ling Punch",   0x434280, 0x434300, indexRedEarthSprites_MaiLing, 0x0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
@@ -368,6 +375,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
     { L"Mai Ling Kick Frozen 3", 0x420E80, 0x420F00 },
     { L"Mai Ling Kick Frozen 4", 0x420F00, 0x420F80 },
     { L"Mai Ling Kick Frozen 5", 0x420F80, 0x421000 },
+    { L"Mirror Trapped - Mai-Ling Kick",    0x434300, 0x434380, indexRedEarthSprites_MaiLing, 0x0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
@@ -406,6 +414,24 @@ const sGame_PaletteDataset REDEARTH_A_KONGOU_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_HYDRON_PALETTES[] =
 {
     { L"Hydron", 0x427400, 0x427480, indexRedEarthSprites_Hydron, 0 },
+
+    { L"Poison Blast FX", 0x427500, 0x427580 },
+    { L"Squid boys spawn Tentacle", 0x427580, 0x427600 },
+    { L"Electric PalFX1", 0x427600, 0x427680, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427680, 0x427700, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427780, 0x427800, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427800, 0x427880, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427880, 0x427900, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427900, 0x427980, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427980, 0x427a00, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427a00, 0x427a80, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427a80, 0x427b00, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427b00, 0x427b80, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427b80, 0x427c00, indexRedEarthSprites_Hydron, 0 },
+    { L"Electric PalFX1", 0x427c00, 0x427c80, indexRedEarthSprites_Hydron, 0 },
+    { L"Firecharge PalFX", 0x427d00, 0x427d80, indexRedEarthSprites_Hydron, 0 },
+    { L"Spin attack FX", 0x427d80, 0x427e00 },
+    { L"Squid dudes spawn FX", 0x428000, 0x428080 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
@@ -459,6 +485,20 @@ const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
     { L"Clara Flashing 12", 0x42f900, 0x42f980 },
     { L"Pyre", 0x42f980, 0x42fa00 },
     { L"Clara ball FX", 0x42fb00, 0x42fb80 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_BOSSES_LAVIA_PALETTES[] =
+{
+    { L"Lavia", 0x42a600, 0x42a680 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_BOSSES_BLADE_PALETTES[] =
+{
+    { L"Blade/Mirror Frame", 0x433c00, 0x433c80 },
+    { L"Emerald FX/Intro 1/Adrayer+attacking gauntlets", 0x433c80, 0x433d00 },
+    { L"Emerald FX/Intro 2", 0x433d00, 0x433d80 },
+    { L"Emerald FX/Intro 3", 0x433d80, 0x433e00 },
+    { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433e80 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
@@ -736,6 +776,14 @@ const sDescTreeNode REDEARTH_A_BONUS_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_PALETTES) },
 };
 
+const sDescTreeNode REDEARTH_A_BOSSES_COLLECTION[] =
+{
+    { L"Blade", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BOSSES_BLADE_PALETTES, ARRAYSIZE(REDEARTH_A_BOSSES_BLADE_PALETTES) },
+    //{ L"Gi-Gi", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BOSSES_GIGI_PALETTES, ARRAYSIZE(REDEARTH_A_BOSSES_GIGI_PALETTES) },
+    { L"Lavia", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BOSSES_LAVIA_PALETTES, ARRAYSIZE(REDEARTH_A_BOSSES_LAVIA_PALETTES) },
+    //{ L"Scion", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BOSSES_SCION_PALETTES, ARRAYSIZE(REDEARTH_A_BOSSES_SCION_PALETTES) },
+};
+
 const sDescTreeNode REDEARTH_A_UNITS_31[] =
 {
     { L"Leo",               DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_COLLECTION, ARRAYSIZE(REDEARTH_A_LEO_COLLECTION) },
@@ -747,14 +795,12 @@ const sDescTreeNode REDEARTH_A_UNITS_31[] =
     { L"Kongou",            DESC_NODETYPE_TREE, (void*)REDEARTH_A_KONGOU_COLLECTION, ARRAYSIZE(REDEARTH_A_KONGOU_COLLECTION) },
     { L"Hydron",            DESC_NODETYPE_TREE, (void*)REDEARTH_A_HYDRON_COLLECTION, ARRAYSIZE(REDEARTH_A_HYDRON_COLLECTION) },
     { L"Ravange",           DESC_NODETYPE_TREE, (void*)REDEARTH_A_RAVANGE_COLLECTION, ARRAYSIZE(REDEARTH_A_RAVANGE_COLLECTION) },
+
+    { L"Bosses",            DESC_NODETYPE_TREE, (void*)REDEARTH_A_BOSSES_COLLECTION, ARRAYSIZE(REDEARTH_A_BOSSES_COLLECTION) },
      
-    // Lavia
-    // Gi Gi
-    // Blade
-    // Scion
     { L"Character Select",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_COLLECTION, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_COLLECTION) },
     { L"Intro Palettes",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_COLLECTION, ARRAYSIZE(REDEARTH_A_INTRO_COLLECTION) },
-    { L"Bonus",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_BONUS_COLLECTION) },
+    { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_BONUS_COLLECTION) },
 };
 
 // RedEarth stage palettes from Yoshin
@@ -795,6 +841,123 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_GORA_PALETTES[] =
     { L"Gora - ???", 0x738000, 0x738080 },
 };
 
+const sGame_PaletteDataset REDEARTH_A_STAGES_GREEDIA_PALETTES[] =
+{
+    { L"Greedia Ruins 1/7", 0x734000, 0x734200 },
+    { L"Greedia Ruins 2/7", 0x734200, 0x734400 },
+    { L"Greedia Ruins 3/7", 0x734400, 0x734600 },
+    { L"Greedia Ruins 4/7", 0x734600, 0x734800 },
+    { L"Greedia Ruins 5/7", 0x734800, 0x734a00 },
+    { L"Greedia Ruins 6/7", 0x734a00, 0x734c00 },
+    { L"Greedia Ruins 7/7", 0x734c00, 0x734d00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_ZIPANG_PALETTES[] =
+{
+    { L"Zipang on Fire 1/18", 0x734d00, 0x734f00 },
+    { L"Zipang on Fire 2/18", 0x734f00, 0x735100 },
+    { L"Zipang on Fire 3/18", 0x735100, 0x735300 },
+    { L"Zipang on Fire 4/18", 0x735300, 0x735500 },
+    { L"Zipang on Fire 5/18", 0x735500, 0x735700 },
+    { L"Zipang on Fire 6/18", 0x735700, 0x735900 },
+    { L"Zipang on Fire 7/18", 0x735900, 0x735b00 },
+    { L"Zipang on Fire 8/18", 0x735b00, 0x735d00 },
+    { L"Zipang on Fire 9/18", 0x735d00, 0x735f00 },
+    { L"Zipang on Fire 10/18", 0x735f00, 0x736100 },
+    { L"Zipang on Fire 11/18", 0x736100, 0x736300 },
+    { L"Zipang on Fire 12/18", 0x736300, 0x736500 },
+    { L"Zipang on Fire 13/18", 0x736500, 0x736700 },
+    { L"Zipang on Fire 14/18", 0x736700, 0x736900 },
+    { L"Zipang on Fire 15/18", 0x736900, 0x736b00 },
+    { L"Zipang on Fire 16/18", 0x736b00, 0x736d00 },
+    { L"Zipang on Fire 17/18", 0x736d00, 0x736f00 },
+    { L"Zipang on Fire 18/18", 0x736f00, 0x737000 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_PALETTES[] =
+{
+    { L"Crypt 1/28", 0x738080, 0x738280 },
+    { L"Crypt 2/28", 0x738280, 0x738480 },
+    { L"Crypt 3/28", 0x738480, 0x738680 },
+    { L"Crypt 4/28", 0x738680, 0x738880 },
+    { L"Crypt 5/28", 0x738880, 0x738a80 },
+    { L"Crypt 6/28", 0x738a80, 0x738c80 },
+    { L"Crypt 7/28", 0x738c80, 0x738e80 },
+    { L"Crypt 8/28", 0x738e80, 0x739080 },
+    { L"Crypt 9/28", 0x739080, 0x739280 },
+    { L"Crypt 10/28", 0x739280, 0x739480 },
+    { L"Crypt 11/28", 0x739480, 0x739680 },
+    { L"Crypt 12/28", 0x739680, 0x739880 },
+    { L"Crypt 13/28", 0x739880, 0x739a80 },
+    { L"Crypt 14/28", 0x739a80, 0x739c80 },
+    { L"Crypt 15/28", 0x739c80, 0x739e80 },
+    { L"Crypt 16/28", 0x739e80, 0x73a080 },
+    { L"Crypt 17/28", 0x73a080, 0x73a280 },
+    { L"Crypt 18/28", 0x73a280, 0x73a480 },
+    { L"Crypt 19/28", 0x73a480, 0x73a680 },
+    { L"Crypt 20/28", 0x73a680, 0x73a880 },
+    { L"Crypt 21/28", 0x73a880, 0x73aa80 },
+    { L"Crypt 22/28", 0x73aa80, 0x73ac80 },
+    { L"Crypt 23/28", 0x73ac80, 0x73ae80 },
+    { L"Crypt 24/28", 0x73ae80, 0x73b080 },
+    { L"Crypt 25/28", 0x73b080, 0x73b280 },
+    { L"Crypt 26/28", 0x73b280, 0x73b480 },
+    { L"Crypt 27/28", 0x73b480, 0x73b680 },
+    { L"Crypt 28/28", 0x73b680, 0x73b780 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_DARMINOR_PALETTES[] =
+{
+    { L"Darminor 1/5", 0x73b780, 0x73b980 },
+    { L"Darminor 2/5", 0x73b980, 0x73bb80 },
+    { L"Darminor 3/5", 0x73bb80, 0x73bd80 },
+    { L"Darminor 4/5", 0x73bd80, 0x73bf80 },
+    { L"Darminor 5/5", 0x73bf80, 0x73c000 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_SCION_PALETTES[] =
+{
+    { L"Scion's Lair 1/6", 0x73c000, 0x73c200 },
+    { L"Scion's Lair 2/6", 0x73c200, 0x73c400 },
+    { L"Scion's Lair 3/6", 0x73c400, 0x73c600 },
+    { L"Scion's Lair 4/6", 0x73c600, 0x73c800 },
+    { L"Scion's Lair 5/6", 0x73c800, 0x73ca00 },
+    { L"Scion's Lair 6/6", 0x73ca00, 0x73cc00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_30_LEO_PALETTES[] =
+{
+    { L"Leo's Swing PALFX", 0x73f000, 0x749e00 }, // this would be 87 pages long
+};
+
+const sGame_PaletteDataset REDEARTH_A_30_HAUZER_PALETTES[] =
+{
+    { L"Hauzer Fire PALFX 1/24", 0x74a000, 0x74a200 },
+    { L"Hauzer Fire PALFX 2/24", 0x74a200, 0x74a400 },
+    { L"Hauzer Fire PALFX 3/24", 0x74a400, 0x74a600 },
+    { L"Hauzer Fire PALFX 4/24", 0x74a600, 0x74a800 },
+    { L"Hauzer Fire PALFX 5/24", 0x74a800, 0x74aa00 },
+    { L"Hauzer Fire PALFX 6/24", 0x74aa00, 0x74ac00 },
+    { L"Hauzer Fire PALFX 7/24", 0x74ac00, 0x74ae00 },
+    { L"Hauzer Fire PALFX 8/24", 0x74ae00, 0x74b000 },
+    { L"Hauzer Fire PALFX 9/24", 0x74b000, 0x74b200 },
+    { L"Hauzer Fire PALFX 10/24", 0x74b200, 0x74b400 },
+    { L"Hauzer Fire PALFX 11/24", 0x74b400, 0x74b600 },
+    { L"Hauzer Fire PALFX 12/24", 0x74b600, 0x74b800 },
+    { L"Hauzer Fire PALFX 13/24", 0x74b800, 0x74ba00 },
+    { L"Hauzer Fire PALFX 14/24", 0x74ba00, 0x74bc00 },
+    { L"Hauzer Fire PALFX 15/24", 0x74bc00, 0x74be00 },
+    { L"Hauzer Fire PALFX 16/24", 0x74be00, 0x74c000 },
+    { L"Hauzer Fire PALFX 17/24", 0x74c000, 0x74c200 },
+    { L"Hauzer Fire PALFX 18/24", 0x74c200, 0x74c400 },
+    { L"Hauzer Fire PALFX 19/24", 0x74c400, 0x74c600 },
+    { L"Hauzer Fire PALFX 20/24", 0x74c600, 0x74c800 },
+    { L"Hauzer Fire PALFX 21/24", 0x74c800, 0x74ca00 },
+    { L"Hauzer Fire PALFX 22/24", 0x74ca00, 0x74cc00 },
+    { L"Hauzer Fire PALFX 23/24", 0x74cc00, 0x74ce00 },
+    { L"Hauzer Fire PALFX 24/24", 0x74ce00, 0x74d000 },
+};
+
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_GORA_PALETTES) },
@@ -805,22 +968,68 @@ const sDescTreeNode REDEARTH_A_STAGES_ICELARN_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_PALETTES) },
 };
 
+const sDescTreeNode REDEARTH_A_STAGES_GREEDIA_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_STAGES_ZIPANG_COLLECTION[] =
+{
+    { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_STAGES_CRYPT_COLLECTION[] =
+{
+    { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_STAGES_DARMINOR_COLLECTION[] =
+{
+    { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DARMINOR_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_DARMINOR_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_STAGES_SCION_COLLECTION[] =
+{
+    { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SCION_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SCION_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_30_LEO_COLLECTION[] =
+{
+    { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_LEO_PALETTES, ARRAYSIZE(REDEARTH_A_30_LEO_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_30_HAUZER_COLLECTION[] =
+{
+    { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_HAUZER_PALETTES, ARRAYSIZE(REDEARTH_A_30_HAUZER_PALETTES) },
+};
+
 const sDescTreeNode REDEARTH_A_UNITS_30[] =
 {
     { L"Gora",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GORA_COLLECTION) },
     { L"Icelarn",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_COLLECTION) },
+    
+    { L"Greedia Ruins",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_COLLECTION) },
+    { L"Zipang on Fire",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_COLLECTION) },
+    { L"Crypt",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_COLLECTION) },
+    { L"Darminor",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DARMINOR_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_DARMINOR_COLLECTION) },
+    { L"Scion's Lair",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SCION_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SCION_COLLECTION) },
+    
+    // skipped this for now: it's 87 pages long
+    //{ L"Intro: Leo's Swing",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_LEO_COLLECTION, ARRAYSIZE(REDEARTH_A_30_LEO_COLLECTION) },
+    { L"Intro: Hauzer Fire",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_HAUZER_COLLECTION, ARRAYSIZE(REDEARTH_A_30_HAUZER_COLLECTION) },
 };
 
 #ifdef UseStagePalettes
+    These are mostly added now.  Checking with Yoshin if they want further edits/clarifications
 ;; RedEarth: Stages in File 30
     { L"Greedia Ruins", 0x734000, 0x734d00 },
     { L"Zipang on Fire", 0x734d00, 0x737000 },
-    { L"Icelarn", 0x737000, 0x737d00 },
-    { L"Sangypt+Gora", 0x737d00, 0x73a400 },
+        { L"Icelarn", 0x737000, 0x737d00 },
+        { L"Sangypt+Gora", 0x737d00, 0x73a400 },
     { L"Crypt", 0x737d00, 0x73b780 },
     { L"Darminor", 0x73b780, 0x73c000 },
     { L"Scions Lair", 0x73c000, 0x73cc00 },
-    { L"Leo's Swing PALFX", 0x73f000, 0x749e00 },
+    { L"Leo's Swing PALFX", 0x73f000, 0x749e00 }, <-- skipped this one since it's 87 pages long
     { L"Hauzer Fire PALFX", 0x74a000, 0x74d000 },
 #endif
 
