@@ -43,7 +43,7 @@ CGame_KOF00N_A::CGame_KOF00N_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF00N_A_NUMUNIT;
     m_nExtraUnit = KOF00N_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 278;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1120;
     m_pszExtraFilename = EXTRA_FILENAME_KOF00N_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF00N;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -56,16 +56,16 @@ CGame_KOF00N_A::CGame_KOF00N_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = KOF00N_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet = KOF00N_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(KOF00N_A_IMG_UNITS);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
+    pButtonLabelSet = DEF_BUTTONLABEL_2_AB;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_AB);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

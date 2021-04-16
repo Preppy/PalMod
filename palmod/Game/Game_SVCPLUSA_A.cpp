@@ -224,7 +224,7 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SVCPLUSA_A_NUMUNIT;
     m_nExtraUnit = SVCPLUSA_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1040;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1048;
     m_pszExtraFilename = EXTRA_FILENAME_SVCPLUSA_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSVCPLUSA;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

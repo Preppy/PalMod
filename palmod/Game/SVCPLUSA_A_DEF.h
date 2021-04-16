@@ -49,6 +49,7 @@ enum SupportedSVC_A_PaletteListIndex
     indexSVC_A_RedArremer,
 
     indexSVC_A_Stages,
+    indexSVC_A_Bonus,
 
     indexSVC_A_Last,
 };
@@ -2277,6 +2278,23 @@ const sDescTreeNode SVCPLUSA_A_STAGES_COLLECTION[] =
     { L"Blockade Space", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_BLOCKADE_PALETTES, ARRAYSIZE(SVCPLUSA_A_STAGES_BLOCKADE_PALETTES) },
 };
 
+const sGame_PaletteDataset SVCPLUSA_A_BONUS_SELECT_PALETTES[] =
+{
+    { L"Selector Ring P1/P2/CPU", 0x3af938, 0x3afab8 },
+    { L"Character Select BG", 0x3afad8, 0x3afb18 },
+    { L"Character Select Screen SNK side", 0x3afb38, 0x3afcb8 },
+    { L"Character Select Screen Capcom side", 0x3afd38, 0x3afeb8 },
+    { L"Character Select boxes", 0x3aff38, 0x3aff58 },
+    { L"Character Select Screen Text", 0x3aff58 ,0x3aff98 },
+    { L"Character Select Screen Timer", 0x3aff98, 0x3affb8 },
+    { L"Character Select Name Display", 0x3affb8, 0x3afff8 },
+};
+
+const sDescTreeNode SVCPLUSA_A_BONUS_COLLECTION[] =
+{
+    { L"Select Screen", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_BONUS_SELECT_PALETTES, ARRAYSIZE(SVCPLUSA_A_BONUS_SELECT_PALETTES) },
+};
+
 const UINT8 SVCPLUSA_A_UNITSORT[SVCPLUSA_A_NUMUNIT + 1] // Plus 1 for extras
 {
     indexSVC_A_Kyo,
@@ -2320,6 +2338,7 @@ const UINT8 SVCPLUSA_A_UNITSORT[SVCPLUSA_A_NUMUNIT + 1] // Plus 1 for extras
     indexSVC_A_RedArremer,
 
     indexSVC_A_Stages,
+    indexSVC_A_Bonus,
 
     SVCPLUSA_A_EXTRALOC
 };
@@ -2367,6 +2386,7 @@ const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =
     { L"Red Arremer", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_REDARREMER_COLLECTION, ARRAYSIZE(SVCPLUSA_A_REDARREMER_COLLECTION) },
 
     { L"Stages", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_COLLECTION, ARRAYSIZE(SVCPLUSA_A_STAGES_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_BONUS_COLLECTION, ARRAYSIZE(SVCPLUSA_A_BONUS_COLLECTION) },
 };
 
 // We extend this array with data groveled from the extras file, if any.

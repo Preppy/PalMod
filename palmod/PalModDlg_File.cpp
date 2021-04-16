@@ -36,9 +36,7 @@ sSupportedGameList SupportedGameList[] =
     { KOF97_A,          L"KOF97", L"KOF97|232-p2.*;kof97_p2.rom|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF98_A,          L"KOF98", L"KOF98|242-p2.*;kof98_p2.rom|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
-#ifdef DEBUG
-    { KOF00N_A,         L"KOF00N", L"KOF00N|257-pg2.sp2|", GamePlatform::NEOGEO, GameSeries::KOF },
-#endif
+    { KOF00N_A,         L"KOF00N", L"KOF00N|257-pg2.sp2;257-p2n.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2|", GamePlatform::NEOGEO, GameSeries::KOF },
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
     { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", GamePlatform::NEOGEO, GameSeries::KOF },
