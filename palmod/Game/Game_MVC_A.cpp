@@ -263,7 +263,7 @@ sDescTreeNode* CGame_MVC_A::InitDescTree()
     OutputDebugString(strMsg);
 
     nTotalPaletteCount = _InitDescTree(NewDescTree,
-                                    MVC_UNITS,
+                                    MVC_A_UNITS,
                                     nUnitCt,
                                     MVC_A_EXTRALOC,
                                     MVC_A_NUMUNIT,
@@ -294,43 +294,43 @@ sFileRule CGame_MVC_A::GetRule(UINT16 nUnitId)
 
 UINT16 CGame_MVC_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    return _GetCollectionCountForUnit(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, MVC_A_EXTRA_CUSTOM);
+    return _GetCollectionCountForUnit(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, MVC_A_EXTRA_CUSTOM);
 }
 
 UINT16 CGame_MVC_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    return _GetNodeCountForCollection(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nCollectionId, MVC_A_EXTRA_CUSTOM);
+    return _GetNodeCountForCollection(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nCollectionId, MVC_A_EXTRA_CUSTOM);
 }
 
 LPCWSTR CGame_MVC_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    return _GetDescriptionForCollection(MVC_UNITS, MVC_A_EXTRALOC, nUnitId, nCollectionId);
+    return _GetDescriptionForCollection(MVC_A_UNITS, MVC_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
 UINT16 CGame_MVC_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    return _GetPaletteCountForUnit(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, MVC_A_EXTRA_CUSTOM);
+    return _GetPaletteCountForUnit(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, MVC_A_EXTRA_CUSTOM);
 }
 
 const sGame_PaletteDataset* CGame_MVC_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    return _GetPaletteSet(MVC_UNITS, nUnitId, nCollectionId);
+    return _GetPaletteSet(MVC_A_UNITS, nUnitId, nCollectionId);
 }
 
 UINT16 CGame_MVC_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
 {
-    return _GetNodeSizeFromPaletteId(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM);
+    return _GetNodeSizeFromPaletteId(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM);
 }
 
 const sDescTreeNode* CGame_MVC_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
-    return _GetNodeFromPaletteId(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
+    return _GetNodeFromPaletteId(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
 const sGame_PaletteDataset* CGame_MVC_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
-    return _GetSpecificPalette(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM);
+    return _GetSpecificPalette(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM);
 }
 
 void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)

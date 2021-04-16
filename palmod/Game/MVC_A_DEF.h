@@ -2009,7 +2009,7 @@ const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
     MVC_A_EXTRALOC //Extra palettes
 };
 
-const sDescTreeNode MVC_UNITS[MVC_A_NUMUNIT] =
+const sDescTreeNode MVC_A_UNITS[MVC_A_NUMUNIT] =
 {
     { L"War Machine",                  DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_COLLECTION,       ARRAYSIZE(MVC_A_WARMACHINE_COLLECTION) },
     { L"Captain America",              DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_COLLECTION,            ARRAYSIZE(MVC_A_CAPAM_COLLECTION) },

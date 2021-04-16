@@ -110,6 +110,8 @@ enum SupportedGamesList
     TMNTTF_SNES,
     DBZHD_SNES,
     MMX2_SNES,
+    KOF00N_A,
+    LASTBLADE_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -223,6 +225,8 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"TMNT: Tournament Fighters (SNES)",
    L"DBZ: Hyper Dimension (SNES)",
    L"Mega Man X2 (SNES)",
+   L"King of Fighters 2000n (Neo-Geo)",
+   L"The Last Blade (Neo-Geo)",
 };
 
 enum class GamePlatform
@@ -421,6 +425,11 @@ const LPCWSTR DEF_BUTTONLABEL_KOFXI[] =
 const LPCWSTR DEF_BUTTONLABEL_BLEACH[] =
 {
     L"Palette 1", L"Palette 2", L"Palette 3", L"Palette 4", L"Palette 5", L"Palette 6", L"Palette 7", L"Palette 8"
+};
+
+const LPCWSTR DEF_BUTTONLABEL_LASTBLADE1[] =
+{
+    L"Power A", L"Power D", L"Speed A", L"Speed D"
 };
 
 const LPCWSTR DEF_BUTTONLABEL_LASTBLADE2[] =
@@ -1760,6 +1769,11 @@ enum KOFSpriteList
     indexAoF1Sprites_TakumaMrKarate, // 0x202
     indexAoF1Sprites_Bonus,         // 0x203
     indexAoF1Sprites_Stages,        // 0x204
+
+    indexLastBlade_Amano,           // 0x205
+    indexLastBlade_Musashi,         // 0x206
+    indexLastBlade_Okina,           // 0x207
+    indexLastBlade_Washizuka,       // 0x208
 
     indexKOFSprites_Last,
 };

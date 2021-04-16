@@ -22,6 +22,7 @@
 #include "Game_JOJOS_A_DIR.h"
 #include "Game_KarnovsR_A.h"
 #include "Game_Kizuna_A.h"
+#include "Game_KOF00N_A.h"
 #include "Game_KOF01_A.h"
 #include "Game_KOF02_A.h"
 #include "Game_KOF02UM_S.h"
@@ -32,6 +33,7 @@
 #include "Game_KOF99AE_A.h"
 #include "Game_KOFXI_A.h"
 #include "Game_KOTM_A.h"
+#include "Game_LASTBLADE_A.h"
 #include "Game_LASTBLADE2_A.h"
 #include "Game_Matrimelee_A.h"
 #include "Game_MMPR_SNES.h"
@@ -280,6 +282,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_KOF99AE_A::GetRule;
         return TRUE;
     }
+    case KOF00N_A:
+    {
+        GetRule = &CGame_KOF00N_A::GetRule;
+        return TRUE;
+    }
     case KOF01_A:
     {
         GetRule = &CGame_KOF01_A::GetRule;
@@ -310,7 +317,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_KOTM_A::GetRule;
         return TRUE;
     }
-
+    case LASTBLADE_A:
+    {
+        GetRule = &CGame_LASTBLADE_A::GetRule;
+        return TRUE;
+    }
     case LASTBLADE2_A:
     {
         GetRule = &CGame_LASTBLADE2_A::GetRule;
@@ -797,6 +808,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_KOF99AE_A(nConfirmedROMSize, nExtraGameData);
     }
+    case KOF00N_A:
+    {
+        return new CGame_KOF00N_A(nConfirmedROMSize);
+    }
     case KOF01_A:
     {
         return new CGame_KOF01_A(nConfirmedROMSize);
@@ -820,6 +835,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case KOTM_A:
     {
         return new CGame_KOTM_A(nConfirmedROMSize);
+    }
+    case LASTBLADE_A:
+    {
+        return new CGame_LASTBLADE_A(nConfirmedROMSize);
     }
     case LASTBLADE2_A:
     {

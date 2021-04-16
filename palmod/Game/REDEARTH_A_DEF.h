@@ -958,6 +958,25 @@ const sGame_PaletteDataset REDEARTH_A_30_HAUZER_PALETTES[] =
     { L"Hauzer Fire PALFX 24/24", 0x74ce00, 0x74d000 },
 };
 
+const sGame_PaletteDataset REDEARTH_A_30_BONUS_TEXT_PALETTES[] =
+{
+    { L"Most Big text+Leo VS Text", 0X7eb000, 0X7eb020 },
+    { L"Yashichi/Mobi-Chan", 0X7eb060, 0X7eb080 },
+    //{ L"Kenji - VS Text", 0X7eb080, 0X7eb0A0 },
+    //{ L"Mai-Ling VS Text", 0X7eb100, 0X7eb120 },
+    //{ L"Tessa VS Text", 0X7eb180, 0X7eb1A0 },
+    { L"Perfect! Text", 0X7eb300, 0X7eb320 },
+    { L"\"KO\" Text", 0X7eb380, 0X7eb3A0 },
+    { L"\"is victorious\" Text", 0X7eb580, 0X7eb5A0 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_30_BONUS_CREDITS_PALETTES[] =
+{
+    { L"Credits - TITLES (e.g, Planner)", 0X7eb080, 0X7eb0A0 },
+    { L"Credits - \"Thank you for playing / Coming Next\"", 0X7eb100, 0X7eb120 },
+    { L"Credits - STAFF", 0X7eb180, 0X7eb1A0 },
+};
+
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_GORA_PALETTES) },
@@ -1003,6 +1022,12 @@ const sDescTreeNode REDEARTH_A_30_HAUZER_COLLECTION[] =
     { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_HAUZER_PALETTES, ARRAYSIZE(REDEARTH_A_30_HAUZER_PALETTES) },
 };
 
+const sDescTreeNode REDEARTH_A_30_BONUS_COLLECTION[] =
+{
+    { L"Big Text",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_TEXT_PALETTES, ARRAYSIZE(REDEARTH_A_30_BONUS_TEXT_PALETTES) },
+    { L"Credits ",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_CREDITS_PALETTES, ARRAYSIZE(REDEARTH_A_30_BONUS_CREDITS_PALETTES) },
+};
+
 const sDescTreeNode REDEARTH_A_UNITS_30[] =
 {
     { L"Gora",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GORA_COLLECTION) },
@@ -1017,6 +1042,7 @@ const sDescTreeNode REDEARTH_A_UNITS_30[] =
     // skipped this for now: it's 87 pages long
     //{ L"Intro: Leo's Swing",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_LEO_COLLECTION, ARRAYSIZE(REDEARTH_A_30_LEO_COLLECTION) },
     { L"Intro: Hauzer Fire",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_HAUZER_COLLECTION, ARRAYSIZE(REDEARTH_A_30_HAUZER_COLLECTION) },
+    { L"Bonus Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_30_BONUS_COLLECTION) },
 };
 
 #ifdef UseStagePalettes

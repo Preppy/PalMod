@@ -344,6 +344,14 @@ const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P2[] =
     { L"P2 Shine 7", 0x298DE, 0x298FE, indexCPS2_SilverSamurai },
 };
 
+const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_SHARED[] =
+{
+    { L"Shuriken 1", 0x298FE, 0x2991E },
+    { L"Shuriken 2", 0x2991E, 0x2993E },
+    { L"Shuriken 3", 0x2993E, 0x2995E },
+    { L"Shuriken 4", 0x2995E, 0x2997E },
+};
+
 const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P1[] =
 {
     { L"P1",          0x26C3E, 0x26C5E, indexCPS2_Spiral },
@@ -599,6 +607,7 @@ const sDescTreeNode COTA_A_SILSAM_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)COTA_A_SILSAM_PALETTES_P1,        ARRAYSIZE(COTA_A_SILSAM_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)COTA_A_SILSAM_PALETTES_P2,        ARRAYSIZE(COTA_A_SILSAM_PALETTES_P2) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)COTA_A_SILSAM_PALETTES_SHARED, ARRAYSIZE(COTA_A_SILSAM_PALETTES_SHARED) },
 };
 
 const sDescTreeNode COTA_A_SPIRAL_COLLECTION[] =
@@ -633,7 +642,7 @@ const sDescTreeNode COTA_A_BONUS_COLLECTION[] =
     { L"Ending Characters", DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_ENDING_PALETTES,    ARRAYSIZE(COTA_A_BONUS_ENDING_PALETTES) },
 };
 
-const sDescTreeNode COTA_UNITS[] =
+const sDescTreeNode COTA_A_UNITS[] =
 {
     { L"Colossus",                  DESC_NODETYPE_TREE, (void*)COTA_A_COLOSSUS_COLLECTION,      ARRAYSIZE(COTA_A_COLOSSUS_COLLECTION) },
     { L"Cyclops",                   DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_COLLECTION,       ARRAYSIZE(COTA_A_CYCLOPS_COLLECTION) },
@@ -651,7 +660,7 @@ const sDescTreeNode COTA_UNITS[] =
     { L"Bonus Stuff",               DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_COLLECTION,         ARRAYSIZE(COTA_A_BONUS_COLLECTION) },
 };
 
-constexpr auto COTA_A_NUMUNIT = ARRAYSIZE(COTA_UNITS);
+constexpr auto COTA_A_NUMUNIT = ARRAYSIZE(COTA_A_UNITS);
 #define COTA_A_EXTRALOC COTA_A_NUMUNIT
 
 // We extend this array with data groveled from the cotae.txt extensible extras file, if any.

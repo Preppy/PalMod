@@ -1,18 +1,18 @@
 #pragma once
 #include "gameclass.h"
-#include "LASTBLADE2_A_DEF.h"
+#include "KOF00N_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_LASTBLADE2_A = L"LastBlade2E.txt";
-#define GetExtraDefForLASTBLADE2(x)((stExtraDef *)&LASTBLADE2_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_KOF00N_A = L"KOF00nE.txt";
+#define GetExtraDefForKOF00N(x)((stExtraDef *)&KOF00N_A_EXTRA_CUSTOM[x])
 
-class CGame_LASTBLADE2_A : public CGameWithExtrasFile
+class CGame_KOF00N_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForLASTBLADE2;
+    static UINT32 m_nTotalPaletteCountForKOF00N;
 
-    static int rgExtraCountAll[LASTBLADE2_A_NUMUNIT + 1];
-    static int rgExtraLoc[LASTBLADE2_A_NUMUNIT + 1];
+    static int rgExtraCountAll[KOF00N_A_NUMUNIT + 1];
+    static int rgExtraLoc[KOF00N_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -22,8 +22,8 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
 public:
-    CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize);
-    ~CGame_LASTBLADE2_A(void);
+    CGame_KOF00N_A(UINT32 nConfirmedROMSize);
+    ~CGame_KOF00N_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -49,7 +49,5 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
-
-    static stExtraDef* LASTBLADE2_A_EXTRA_CUSTOM;
+    static stExtraDef* KOF00N_A_EXTRA_CUSTOM;
 };

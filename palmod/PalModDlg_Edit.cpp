@@ -630,10 +630,12 @@ void CPalModDlg::OnEditPaste()
                 case KOF97_A:
                 case KOF98_A:
                 case KOF99AE_A:
+                case KOF00N_A:
                 case KOF01_A:
                 case KOF02_A:
                 case KOF03_A:
                 case KOTM_A:
+                case LASTBLADE_A:
                 case LASTBLADE2_A:
                 case MATRIMELEE_A:
                 case NeoBomberman_A:

@@ -68,8 +68,7 @@ bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameI
 
 #if IMGDAT_DEBUG
     CString strDebugInfo;
-    strDebugInfo.Format(L"CImgDat::PrepImageBuffer : Prepping Image Buffer \n");
-    OutputDebugString(strDebugInfo);
+    OutputDebugString(L"CImgDat::PrepImageBuffer : Prepping Image Buffer \n");
 #endif
 
     if (prgGameImageSet == nullptr)
@@ -91,6 +90,10 @@ bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameI
 #endif
         nImgMap->insert({ nImageUnitCounterToUse, new ImgInfoList });
     }
+
+#if IMGDAT_DEBUG
+    OutputDebugString(L"CImgDat::PrepImageBuffer : Prepping Image Buffer is complete.\n");
+#endif
 
     imageBufferFlushed = false;
     return true;
@@ -146,8 +149,7 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
     }
 
 #if IMGDAT_DEBUG
-    strDebugInfo.Format(L"\tCImgDat::GetImageDef : No image found\n");
-    OutputDebugString(strDebugInfo);
+    OutputDebugString(L"\tCImgDat::GetImageDef : No image found\n");
 #endif
     return nullptr;
 }
@@ -348,14 +350,14 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
     {
 
 #if IMGDAT_DEBUG
-        strDebugInfo.Format(L"CImgDat::LoadGameImages : New game being loaded gameFlag:0x%02X with imgGameFlag:0x%02X, flushing image buffer.'\n", uGameFlag, uImgGameFlag);
+        strDebugInfo.Format(L"CImgDat::LoadGameImages : New game being loaded gameFlag:0x%02X with imgGameFlag:0x%02X, flushing image buffer.\n", uGameFlag, uImgGameFlag);
         OutputDebugString(strDebugInfo);
 #endif
 
         imageBufferFlushed = false;
         imageBufferFlushed = FlushImageBuffer();
 #if IMGDAT_DEBUG
-        strDebugInfo.Format(L"CImgDat::LoadGameImages : Image buffer has been flushed. imageBuffer: %u '\n", imageBufferPrepped);
+        strDebugInfo.Format(L"CImgDat::LoadGameImages : Image buffer has been flushed. imageBuffer prepped: %s \n", imageBufferPrepped ? L"true" : L"false");
         OutputDebugString(strDebugInfo);
 #endif
         CloseImgFile();

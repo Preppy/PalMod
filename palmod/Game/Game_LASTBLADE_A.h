@@ -1,18 +1,19 @@
 #pragma once
 #include "gameclass.h"
-#include "LASTBLADE2_A_DEF.h"
+#include "LASTBLADE_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_LASTBLADE2_A = L"LastBlade2E.txt";
-#define GetExtraDefForLASTBLADE2(x)((stExtraDef *)&LASTBLADE2_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_LASTBLADE_A = L"LastBladeE.txt";
+#define GetExtraDefForLASTBLADE(x)((stExtraDef *)&LASTBLADE_A_EXTRA_CUSTOM[x])
 
-class CGame_LASTBLADE2_A : public CGameWithExtrasFile
+class CGame_LASTBLADE_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForLASTBLADE2;
+    static UINT32 m_nTotalPaletteCountForLASTBLADE;
+    static void DumpAllCharacters();
 
-    static int rgExtraCountAll[LASTBLADE2_A_NUMUNIT + 1];
-    static int rgExtraLoc[LASTBLADE2_A_NUMUNIT + 1];
+    static int rgExtraCountAll[LASTBLADE_A_NUMUNIT + 1];
+    static int rgExtraLoc[LASTBLADE_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -22,8 +23,8 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
 public:
-    CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize);
-    ~CGame_LASTBLADE2_A(void);
+    CGame_LASTBLADE_A(UINT32 nConfirmedROMSize);
+    ~CGame_LASTBLADE_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -51,5 +52,5 @@ public:
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* LASTBLADE2_A_EXTRA_CUSTOM;
+    static stExtraDef* LASTBLADE_A_EXTRA_CUSTOM;
 };
