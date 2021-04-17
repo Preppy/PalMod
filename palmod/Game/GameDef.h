@@ -1770,10 +1770,51 @@ enum KOFSpriteList
     indexAoF1Sprites_Bonus,         // 0x203
     indexAoF1Sprites_Stages,        // 0x204
 
-    indexLastBlade_Amano,           // 0x205
-    indexLastBlade_Musashi,         // 0x206
-    indexLastBlade_Okina,           // 0x207
-    indexLastBlade_Washizuka,       // 0x208
+    indexRBFF2_Terry,               // 0x205
+
+    indexKOF00Sprites_Andy,         // 0x206
+    indexKOF00Sprites_Athena,       // 0x207
+    indexKOF00Sprites_Bao,          // 0x208
+    indexKOF00Sprites_Benimaru,     // 0x209
+    indexKOF00Sprites_BlueMary,     // 0x20a
+    indexKOF00Sprites_Chang,        // 0x20b
+    indexKOF00Sprites_Chin,         // 0x20c
+    indexKOF00Sprites_Choi,         // 0x20d
+    indexKOF00Sprites_Clark,        // 0x20e
+    indexKOF00Sprites_CloneZero,    // 0x20f
+    indexKOF00Sprites_Hinako,       // 0x210
+    indexKOF00Sprites_Iori,         // 0x211
+    indexKOF00Sprites_JhunHoon,     // 0x212
+    indexKOF00Sprites_Joe,          // 0x213
+    indexKOF00Sprites_K,            // 0x214
+    indexKOF00Sprites_Kasumi,       // 0x215
+    indexKOF00Sprites_Kensou,       // 0x216
+    indexKOF00Sprites_Kim,          // 0x217
+    indexKOF00Sprites_King,         // 0x218
+    indexKOF00Sprites_Kula,         // 0x219
+    indexKOF00Sprites_Kyo,          // 0x21a
+    indexKOF00Sprites_Leona,        // 0x21b
+    indexKOF00Sprites_Lin,          // 0x21c
+    indexKOF00Sprites_Mai,          // 0x21d
+    indexKOF00Sprites_Maxima,       // 0x21e
+    indexKOF00Sprites_Ralf,         // 0x21f
+    indexKOF00Sprites_Ramon,        // 0x220
+    indexKOF00Sprites_Robert,       // 0x221
+    indexKOF00Sprites_Ryo,          // 0x222
+    indexKOF00Sprites_Seth,         // 0x223
+    indexKOF00Sprites_Shingo,       // 0x224
+    indexKOF00Sprites_Takuma,       // 0x225
+    indexKOF00Sprites_Terry,        // 0x226
+    indexKOF00Sprites_Vanessa,      // 0x227
+    indexKOF00Sprites_Whip,         // 0x228
+    indexKOF00Sprites_Yuri,         // 0x229
+    indexKOF00Sprites_Bonus,        // 0x22a
+    indexKOF00Sprites_Stages,       // 0x22b
+
+    indexLastBlade_Amano,           // 0x22c
+    indexLastBlade_Musashi,         // 0x22d
+    indexLastBlade_Okina,           // 0x22e
+    indexLastBlade_Washizuka,       // 0x22f
 
     indexKOFSprites_Last,
 };

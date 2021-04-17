@@ -834,8 +834,7 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_GORA_PALETTES[] =
 {
     { L"Gora - Moon/Sky", 0x737D00, 0x737D80 },
     { L"Gora - Ground/Foilage", 0x737D80, 0x737E00 },
-    { L"Gora - Planes/rock chunk", 0x737E00, 0x737E80 },
-    { L"Gora - Rock Face", 0x737E80, 0x737F00 },
+    { L"Gora - Planes/Rocks", 0x737E00, 0x737F00 },
     { L"Gora - ???", 0x737F00, 0x737F80 },
     { L"Gora - Foreground debris", 0x737F80, 0x738000 },
     { L"Gora - ???", 0x738000, 0x738080 },

@@ -869,7 +869,7 @@ UINT32 CGameClass::CONV_ARGB8888_32(UINT32 inCol)
     UINT32 auxb = GetBValue(inCol);
     UINT32 auxg = GetGValue(inCol);
     UINT32 auxr = GetRValue(inCol);
-    UINT32 auxa = min(GetAValue(inCol) * 2, 0xFF);
+    UINT32 auxa = GetAValue(inCol);
 
     if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
     {

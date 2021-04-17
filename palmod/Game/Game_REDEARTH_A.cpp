@@ -67,7 +67,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRed
     m_nTotalInternalUnits = UsePaletteSetFor30() ? REDEARTH_A_NUMUNIT_30 : REDEARTH_A_NUMUNIT_31;
     m_nExtraUnit = UsePaletteSetFor30() ? REDEARTH_A_EXTRALOC_30 : REDEARTH_A_EXTRALOC_31;
 
-    const UINT32 nSafeCountFor30 = 125;
+    const UINT32 nSafeCountFor30 = 126;
     const UINT32 nSafeCountFor31 = 605;
 
     m_nSafeCountForThisRom = UsePaletteSetFor30() ? (nSafeCountFor30 + GetExtraCt(REDEARTH_A_EXTRALOC_30)) : (nSafeCountFor31 + GetExtraCt(REDEARTH_A_EXTRALOC_31));
