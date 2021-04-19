@@ -22,7 +22,8 @@
 // We typically map GAMECODE back to the color code of interest.  However, we have an overflow issue.
 // Since GAMECODE overflows at 0n94 (encoded ~), we use GAMECODE '~' to indicate that the LENGTH
 // char is in fact a COLORCODE value, and use that to determine copy logic.
-// Storing the length in the LENGTH value also has overflow issues, so we no longer do that.
+// Storing the length in the LENGTH_OR_COLORCODE value also has overflow issues, 
+// so current versions of PalMod no longer do that.
 // The COLORBYTES data can repeat for either up to LENGTH times, OR can repeat any arbitrary number of times
 // provided the count of chars is divisible by the number of bytes needed for the indicated color.
 // Older versions of PalMod will know not to work with color strings they don't understand, since the GAMECODE

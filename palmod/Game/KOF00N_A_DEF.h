@@ -1875,8 +1875,8 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CHOI_Striker[] =
     { L"Cool Choi A Electric Shock Effect", 0xdd230, 0xdd250 },
     { L"Cool Choi B", 0xdd270, 0xdd290 },
     { L"Cool Choi B Electric Shock Effect", 0xdd2b0, 0xdd2d0 },
-    { L"Cool Choi CD", 0xddaf0, 0xddb10 },
-    { L"Cool Choi CD Electric Shock Effect", 0xddb30, 0xddb50 },
+    { L"Cool Choi CD", 0xdda70, 0xdda90 },
+    { L"Cool Choi CD Electric Shock Effect", 0xddab0, 0xddad0 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHOI_Moves[] =
@@ -2007,8 +2007,8 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KYO_Striker[] =
     { L"Saisyu A Electric Shock Effect", 0xdd330, 0xdd350, indexKOFSprites_98Saisyu, 0x00 },
     { L"Saisyu B", 0xdd370, 0xdd390, indexKOFSprites_98Saisyu, 0x00 },
     { L"Saisyu B Electric Shock Effect", 0xdd3b0, 0xdd3d0, indexKOFSprites_98Saisyu, 0x00 },
-    { L"Saisyu CD", 0xdda70, 0xdda90 },
-    { L"Saisyu CD Electric Shock Effect", 0xddab0, 0xddad0 },
+    { L"Saisyu CD", 0xddaf0, 0xddb10, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Saisyu CD Electric Shock Effect", 0xddb30, 0xddb50, indexKOFSprites_98Saisyu, 0x00 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KYO_Moves[] =

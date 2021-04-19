@@ -33,7 +33,7 @@ CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
     strMessage.Format(L"CGame_BREAKERS_A::CGame_BREAKERS_A: Loading ROM...\n");
     OutputDebugString(strMessage);
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_NEOGEO);
 
@@ -45,7 +45,7 @@ CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = BREAKERS_A_NUMUNIT;
     m_nExtraUnit = BREAKERS_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 286;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 414;
     m_pszExtraFilename = EXTRA_FILENAME_BREAKERS_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForBreakers;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
