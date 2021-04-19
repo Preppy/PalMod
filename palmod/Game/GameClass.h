@@ -17,37 +17,6 @@ struct sFileRule
     WCHAR szAltFileName[MAX_FILENAME_LENGTH] = L"uninit";
 };
 
-enum class AlphaMode
-{
-    GameDoesNotUseAlpha,
-    GameUsesFixedAlpha,
-    Unknown,
-    GameUsesVariableAlpha,  // Modifiable, as in the case of MvC2.
-    GameUsesChaoticAlpha,   // Yes, this is odd.  ST-GBA appears doesn't have alpha consistently set.
-};
-
-enum class ColMode
-{
-    // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::GetGameName and ::CGame_NEOGEO_A
-    COLMODE_GBA,       // BGR555 little endian for GBA
-    COLMODE_12A,       // RGB444 big endian for CPS1/2
-    COLMODE_12A_LE,    // RGB444 little endian for SF 30th steam
-    COLMODE_15,        // RGB555 little endian for CPS3
-    COLMODE_15ALT,     // RGB555 big endian 
-    COLMODE_NEOGEO,    // RGB666
-    COLMODE_9,         // RGB333 for Sega Genesis/MegaDrive
-    COLMODE_ARGB7888,  // 32bit color for guilty gear
-    COLMODE_SHARPRGB,  // sharp x68000 rgb
-    COLMODE_ARGB1888,  // 32bit color for DBFCI
-    COLMODE_ARGB8888,  // 32bit color for uniclr. and modern computing...
-};
-
-enum class ColFlag
-{
-    COL_RGB,
-    COL_A,
-};
-
 const UINT32 k_nBogusHighValue = 0xFEEDFED;
 
 class CGameClass
@@ -138,6 +107,10 @@ protected:
     static UINT32 CONV_NEOGEO_32(UINT16 inCol);
     static UINT16 CONV_32_SHARPRGB(UINT32 inCol);
     static UINT32 CONV_SHARPRGB_32(UINT16 inCol);
+    static UINT32 CONV_32_xRGB888(UINT32 inCol);
+    static UINT32 CONV_xRGB888_32(UINT32 inCol);
+    static UINT32 CONV_32_xBGR888(UINT32 inCol);
+    static UINT32 CONV_xBGR888_32(UINT32 inCol);
     static UINT32 CONV_32_ARGB1888(UINT32 inCol);
     static UINT32 CONV_ARGB1888_32(UINT32 inCol);
     static UINT32 CONV_32_ARGB7888(UINT32 inCol);
@@ -183,6 +156,7 @@ protected:
     
     static UINT8 m_nSizeOfColorsInBytes;
     UINT16*** m_pppDataBuffer = nullptr;
+    UINT32*** m_pppDataBuffer24 = nullptr;
     UINT32*** m_pppDataBuffer32 = nullptr;
 
     struct sCRC32ValueSet
@@ -215,11 +189,16 @@ public:
     UINT32 GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (createPalOptions.nStartingPosition * sizeof(UINT16)); };
     UINT32 GetLowestExpectedPaletteLocation();
 
-    inline bool GameIsUsing16BitColor() { return m_nSizeOfColorsInBytes == 2; };
+    inline UINT8 GetGameColorByteLength() { return m_nSizeOfColorsInBytes; };
+    inline BOOL GameIsUsing16BitColor() { return m_nSizeOfColorsInBytes == 2; };
+    inline BOOL GameIsUsing24BitColor() { return m_nSizeOfColorsInBytes == 3; };
+    inline BOOL GameIsUsing32BitColor() { return m_nSizeOfColorsInBytes == 4; };
 
     UINT16(*ConvCol16)(UINT32 inCol);
+    UINT32(*ConvCol24)(UINT32 inCol);
     UINT32(*ConvCol32)(UINT32 inCol);
     UINT32(*ConvPal16)(UINT16 inCol);
+    UINT32(*ConvPal24)(UINT32 inCol);
     UINT32(*ConvPal32)(UINT32 inCol);
 
     LPCWSTR GetROMFileName();

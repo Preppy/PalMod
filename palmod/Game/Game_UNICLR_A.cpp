@@ -440,7 +440,7 @@ BOOL CGame_UNICLR_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             {
                 SaveFile->Write(m_pppDataBuffer[nUnitId][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
             }
-            else
+            else if (GameIsUsing32BitColor())
             {
                 SaveFile->Write(m_pppDataBuffer32[nUnitId][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
             }

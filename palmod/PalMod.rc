@@ -404,6 +404,8 @@ BEGIN
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
             MENUITEM "RGB555 (Sharp X68000)",       ID_COLORFORMAT_SHARPRGB
             MENUITEM "RGB666 (Neo-Geo)",            ID_COLORFORMAT_RGB666
+            MENUITEM "xRGB888 (24-bit)",            ID_COLORFORMAT_xRGB888
+            MENUITEM "xBGR888 (24-bit)",            ID_COLORFORMAT_xBGR888
             MENUITEM "RGBA8881 (DBFCI)",            ID_COLORFORMAT_ARGB1888
             MENUITEM "RGBA8888 (Half alpha for Arcsys)", ID_COLORFORMAT_ARGB7888
             MENUITEM "RGBA8888",                    ID_COLORFORMAT_ARGB8888

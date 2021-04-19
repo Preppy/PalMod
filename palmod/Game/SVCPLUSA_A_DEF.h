@@ -104,6 +104,8 @@ const UINT16 SVCPLUSA_A_IMG_UNITS[] =
     indexSVCSprites_SeriousMrKarate, // 72
     indexSVCSprites_ViolentKen, // 73
     indexSVCSprites_ShinAkuma,  // 74
+
+    indexSVCSprites_Bonus,          // 0x22c
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KYO_PUNCH_PALETTES[] =

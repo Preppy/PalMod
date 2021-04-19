@@ -56,7 +56,12 @@ const UINT16 KOF00N_A_IMG_UNITS[] =
 
     // This uses a lot of KOF02 sprites because most of the KOF01 sprites don't exist
     // plus KOF00 uses a lot of characters as strikers
-    indexKOFSprites_02UM_Andy,
+    indexKOFSprites_98Chizuru,
+    indexKOFSprites_98Rugal,
+    indexKOFSprites_98Saisyu,
+    
+    indexKOF99Sprites_Andy,
+
     indexKOFSprites_02UM_Bao,
     indexKOFSprites_02UM_Benimaru,
     indexKOFSprites_02UM_Billy,
@@ -612,26 +617,26 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_TERRY_WinPortrait[] =
 //Andy Bogard
 const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_A[] =
 {
-    { L"Andy A", 0xcabf0, 0xcac10, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"Andy A", 0xcabf0, 0xcac10, indexKOF99Sprites_Andy, 0x00 },
     { L"Andy A Super Sonic Swirl", 0xcac10, 0xcac30 },
     { L"Andy A MAX Super Sonic Swirl", 0xcac30, 0xcac50 },
-    { L"Andy A Electric Shock Effect", 0xcac50, 0xcac70, indexKOFSprites_02UM_Andy, 0x00 },
-    { L"Andy A Counter Mode Flash", 0xcac90, 0xcacb0, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"Andy A Electric Shock Effect", 0xcac50, 0xcac70, indexKOF99Sprites_Andy, 0x00 },
+    { L"Andy A Counter Mode Flash", 0xcac90, 0xcacb0, indexKOF99Sprites_Andy, 0x00 },
     { L"Andy A Counter Super Sonic Swirl", 0xcacb0, 0xcacd0 },
-    { L"Andy A Armor Mode Flash", 0xcacd0, 0xcacf0, indexKOFSprites_02UM_Andy, 0x00 },
-    { L"Andy A Super/Guard Trail", 0xcad10, 0xcad30, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"Andy A Armor Mode Flash", 0xcacd0, 0xcacf0, indexKOF99Sprites_Andy, 0x00 },
+    { L"Andy A Super/Guard Trail", 0xcad10, 0xcad30, indexKOF99Sprites_Andy, 0x00 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_B[] =
 {
-    { L"Andy B", 0xcadf0, 0xcae10, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"Andy B", 0xcadf0, 0xcae10, indexKOF99Sprites_Andy, 0x00 },
     { L"Andy B Super Sonic Swirl", 0xcae10, 0xcae30 },
     { L"Andy B MAX Super Sonic Swirl", 0xcae30, 0xcae50 },
-    { L"Andy B Electric Shock Effect", 0xcae50, 0xcae70, indexKOFSprites_02UM_Andy, 0x00 },
-    { L"Andy B Counter Mode Flash", 0xcae90, 0xcaeb0, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"Andy B Electric Shock Effect", 0xcae50, 0xcae70, indexKOF99Sprites_Andy, 0x00 },
+    { L"Andy B Counter Mode Flash", 0xcae90, 0xcaeb0, indexKOF99Sprites_Andy, 0x00 },
     { L"Andy B Counter Super Sonic Swirl", 0xcaeb0, 0xcaed0 },
-    { L"Andy B Armor Mode Flash", 0xcaed0, 0xcaef0, indexKOFSprites_02UM_Andy, 0x00 },
-    { L"Andy B Super/Guard Trail", 0xcaf10, 0xcaf30, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"Andy B Armor Mode Flash", 0xcaed0, 0xcaef0, indexKOF99Sprites_Andy, 0x00 },
+    { L"Andy B Super/Guard Trail", 0xcaf10, 0xcaf30, indexKOF99Sprites_Andy, 0x00 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_Striker[] =
@@ -644,10 +649,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_Striker[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_Moves[] =
 {
-    { L"Andy Hishouken", 0xd31f0, 0xd3210, indexKOFSprites_02UM_Andy, 0x3 },
-    { L"Andy Geki Hishouken", 0xd3210, 0xd3230, indexKOFSprites_02UM_Andy, 0x4 },
-    { L"Andy Shoryudan Effects", 0xd3270, 0xd3290, indexKOFSprites_02UM_Andy, 0x2 },
-    { L"Andy SDM/MAX Fire", 0xd3290, 0xd32b0, indexKOFSprites_02UM_Andy, 0x12 },
+    { L"Andy Hishouken", 0xd31f0, 0xd3210, indexKOF99Sprites_Andy, 0x3 },
+    { L"Andy Geki Hishouken", 0xd3210, 0xd3230, indexKOF99Sprites_Andy, 0x4 },
+    { L"Andy Shoryudan Effects", 0xd3270, 0xd3290, indexKOF99Sprites_Andy, 0x2 },
+    { L"Andy SDM/MAX Fire", 0xd3290, 0xd32b0, indexKOF99Sprites_Andy, 0x12 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_LifebarPortrait[] =
@@ -1532,12 +1537,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_MAI_CD[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MAI_Striker[] =
 {
-    { L"Chizuru A", 0xcb550, 0xcb570 },
-    { L"Chizuru A Electric Shock Effect", 0xcb590, 0xcb5b0 },
-    { L"Chizuru B", 0xcb750, 0xcb770 },
-    { L"Chizuru B Electric Shock Effect", 0xcb790, 0xcb7b0 },
-    { L"Chizuru CD", 0xedf50, 0xedf70 },
-    { L"Chizuru CD Electric Shock Effect", 0xedf90, 0xedfb0 },
+    { L"Chizuru A", 0xcb550, 0xcb570, indexKOFSprites_98Chizuru, 0x00 },
+    { L"Chizuru A Electric Shock Effect", 0xcb590, 0xcb5b0, indexKOFSprites_98Chizuru, 0x00 },
+    { L"Chizuru B", 0xcb750, 0xcb770, indexKOFSprites_98Chizuru, 0x00 },
+    { L"Chizuru B Electric Shock Effect", 0xcb790, 0xcb7b0, indexKOFSprites_98Chizuru, 0x00 },
+    { L"Chizuru CD", 0xedf50, 0xedf70, indexKOFSprites_98Chizuru, 0x00 },
+    { L"Chizuru CD Electric Shock Effect", 0xedf90, 0xedfb0, indexKOFSprites_98Chizuru, 0x00 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MAI_Moves[] =
@@ -1998,10 +2003,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KYO_Striker[] =
     { L"Syo B Electric Shock Effect", 0xd0b90, 0xd0bb0 },
     { L"Syo CD", 0xeeb50, 0xeeb70 },
     { L"Syo CD Electric Shock Effect", 0xeeb90, 0xeebb0 },
-    { L"Saisyu A", 0xdd2f0, 0xdd310 },
-    { L"Saisyu A Electric Shock Effect", 0xdd330, 0xdd350 },
-    { L"Saisyu B", 0xdd370, 0xdd390 },
-    { L"Saisyu B Electric Shock Effect", 0xdd3b0, 0xdd3d0 },
+    { L"Saisyu A", 0xdd2f0, 0xdd310, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Saisyu A Electric Shock Effect", 0xdd330, 0xdd350, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Saisyu B", 0xdd370, 0xdd390, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Saisyu B Electric Shock Effect", 0xdd3b0, 0xdd3d0, indexKOFSprites_98Saisyu, 0x00 },
     { L"Saisyu CD", 0xdda70, 0xdda90 },
     { L"Saisyu CD Electric Shock Effect", 0xddab0, 0xddad0 },
 };
@@ -2136,10 +2141,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_Striker[] =
     { L"Foxy A Electric Shock Effect", 0xd2190, 0xd21b0, indexKOFSprites_02UM_Kula, 0x1b },
     { L"Foxy B", 0xd2350, 0xd2370, indexKOFSprites_02UM_Kula, 0x1b },
     { L"Foxy B Electric Shock Effect", 0xd2390, 0xd23b0, indexKOFSprites_02UM_Kula, 0x1b },
-    { L"Rugal A", 0xdd4f0, 0xdd510, indexKOFSprites_02UM_Kula, 0x1b },
-    { L"Rugal A Electric Shock Effect", 0xdd530, 0xdd550, indexKOFSprites_02UM_Kula, 0x1b },
-    { L"Rugal B", 0xdd570, 0xdd590, indexKOFSprites_02UM_Kula, 0x1b },
-    { L"Rugal B Electric Shock Effect", 0xdd5b0, 0xdd5d0, indexKOFSprites_02UM_Kula, 0x1b },
+    { L"Rugal A", 0xdd4f0, 0xdd510,indexKOFSprites_98Rugal },
+    { L"Rugal A Electric Shock Effect", 0xdd530, 0xdd550, indexKOFSprites_98Rugal },
+    { L"Rugal B", 0xdd570, 0xdd590, indexKOFSprites_98Rugal },
+    { L"Rugal B Electric Shock Effect", 0xdd5b0, 0xdd5d0, indexKOFSprites_98Rugal },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_Moves[] =

@@ -112,11 +112,54 @@ enum SupportedGamesList
     MMX2_SNES,
     KOF00N_A,
     LASTBLADE_A,
+    DUMMY_RGB888,
+    DUMMY_BGR888,
 
     NUM_GAMES // This needs to be last
 };
 
-UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag);
+enum class AlphaMode
+{
+    GameDoesNotUseAlpha,
+    GameUsesFixedAlpha,
+    Unknown,
+    GameUsesVariableAlpha,  // Modifiable, as in the case of MvC2.
+    GameUsesChaoticAlpha,   // Yes, this is odd.  ST-GBA appears doesn't have alpha consistently set.
+};
+
+enum class ColMode
+{
+    // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::SetAlphaAndColorModeInternal
+    COLMODE_GBA,       // BGR555 little endian for GBA
+    COLMODE_12A,       // RGB444 big endian for CPS1/2
+    COLMODE_12A_LE,    // RGB444 little endian for SF 30th steam
+    COLMODE_15,        // RGB555 little endian for CPS3
+    COLMODE_15ALT,     // RGB555 big endian 
+    COLMODE_NEOGEO,    // RGB666
+    COLMODE_9,         // RGB333 for Sega Genesis/MegaDrive
+    COLMODE_ARGB7888,  // 32bit color for guilty gear
+    COLMODE_SHARPRGB,  // sharp x68000 rgb
+    COLMODE_ARGB1888,  // 32bit color for DBFCI
+    COLMODE_ARGB8888,  // 32bit color for uniclr. and modern computing...
+    COLMODE_xRGB888,   // 24bit
+    COLMODE_xBGR888,   // 24bit
+    COLMODE_LAST,
+};
+
+enum class ColFlag
+{
+    COL_RGB,
+    COL_A,
+};
+
+// We use the first non-white space printable character '!' as the base for edit/paste calculations.
+constexpr auto k_nASCIICharacterOffset = 33;
+constexpr auto k_nASCIIMaxValue = 127;
+constexpr auto k_nRawColorStringOverflowIndicator = '~' - k_nASCIICharacterOffset;
+constexpr auto k_nEncodedColorStringOverflowIndicator = '~';
+ColMode DecodeColorFlag(UINT8 uPossibleColorFlag);
+UINT8 GetCbForColMode(ColMode colorMode);
+UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag, UINT8 uPossibleColorFlag);
 
 // If you're adding a new game you also must update 
 //    CGameLoad::SetGame            Needed to load the game class
@@ -227,6 +270,8 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Mega Man X2 (SNES)",
    L"King of Fighters 2000n (Neo-Geo)",
    L"The Last Blade (Neo-Geo)",
+   L"DUMMY_RGB888",
+   L"DUMMY_BGR888",
 };
 
 enum class GamePlatform
@@ -1811,10 +1856,12 @@ enum KOFSpriteList
     indexKOF00Sprites_Bonus,        // 0x22a
     indexKOF00Sprites_Stages,       // 0x22b
 
-    indexLastBlade_Amano,           // 0x22c
-    indexLastBlade_Musashi,         // 0x22d
-    indexLastBlade_Okina,           // 0x22e
-    indexLastBlade_Washizuka,       // 0x22f
+    indexSVCSprites_Bonus,          // 0x22c
+
+    indexLastBlade_Amano,           // 0x22d
+    indexLastBlade_Musashi,         // 0x22e
+    indexLastBlade_Okina,           // 0x22f
+    indexLastBlade_Washizuka,       // 0x230
 
     indexKOFSprites_Last,
 };

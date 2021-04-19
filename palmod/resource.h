@@ -260,6 +260,8 @@
 #define ID_TRANSPSETTING_16             32891
 #define ID_TRANSPSETTING_256            32892
 #define ID_FILE_OPENEXTRAS              32893
+#define ID_COLORFORMAT_xRGB888          32894
+#define ID_COLORFORMAT_xBGR888          32895
 
 // Please note that the F0000 range (983040) is reserved for the dynamic game menu
 
@@ -268,7 +270,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32894
+#define _APS_NEXT_COMMAND_VALUE         32896
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
