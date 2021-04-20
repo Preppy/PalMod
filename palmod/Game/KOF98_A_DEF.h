@@ -2743,6 +2743,32 @@ const sGame_PaletteDataset KOF98_A_OMEGARUGAL_EFFECT_PALETTES[] =
     { L"Super Trail 3", 0x2f35d0, 0x2f35f0, indexKOFSprites_98Rugal },
 };
 
+const sGame_PaletteDataset KOF98_A_BONUS_INGAME_PALETTES[] =
+{
+    { L"Hitsparks", 0x2d8210, 0x2d8230 },
+    { L"Shocksparks", 0x2d8230, 0x2d8250 },
+    { L"Blocksparks", 0x2d8250, 0x2d8270 },
+    { L"Special Blocksparks", 0x2d8270, 0x2d8290 },
+    { L"Special Hitsparks", 0x2d8290, 0x2d82b0 },
+    { L"Firesparks 1", 0x2d82d0, 0x2d82f0 },
+    { L"Firesparks 2", 0x2d82f0, 0x2d8310 },
+    { L"Firesparks 3", 0x2d8310, 0x2d8330 },
+    { L"Grabsparks", 0x2d8330, 0x2d8350 },
+    { L"Purple Firesparks 1", 0x2d8350, 0x2d8370 },
+    { L"Blood 1", 0x2d8370, 0x2d8390 },
+    { L"Blood 2", 0x2d8390, 0x2d83b0 },
+    { L"Purple Firesparks 2", 0x2d83d0, 0x2d83f0 },
+};
+
+const sGame_PaletteDataset KOF98_A_BONUS_INTRO_PALETTES[] =
+{
+    { L"KoF Intro Background", 0x2f4e50, 0x2f4e70 },
+    { L"KoF Intro Logo 1/3", 0x2f4df0, 0x2f4e50 },
+    { L"KoF Intro Logo 2/3", 0x2f4e70, 0x2f4eb0 },
+    { L"KoF Intro Logo 3/3", 0x2f4fd0, 0x2f4ff0 },
+    { L"The Slugfest Intro Logo", 0x2f4ed0, 0x2f4fd0 },
+};
+
 const sDescTreeNode KOF98_A_KYO_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)KOF98_A_KYO_PALETTE_A, ARRAYSIZE(KOF98_A_KYO_PALETTE_A) },
@@ -3118,6 +3144,12 @@ const sDescTreeNode KOF98_A_OmegaRugal_COLLECTION[] =
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF98_A_OMEGARUGAL_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_OMEGARUGAL_EFFECT_PALETTES) },
 };
 
+const sDescTreeNode KOF98_A_BONUS_COLLECTION[] =
+{
+    { L"In-Game Effects", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_INGAME_PALETTES, ARRAYSIZE(KOF98_A_BONUS_INGAME_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_INTRO_PALETTES, ARRAYSIZE(KOF98_A_BONUS_INTRO_PALETTES) },
+};
+
 const sDescTreeNode KOF98_A_UNITS[] =
 {
     { L"Kyo", DESC_NODETYPE_TREE, (void*)KOF98_A_KYO_COLLECTION, ARRAYSIZE(KOF98_A_KYO_COLLECTION) },
@@ -3162,6 +3194,7 @@ const sDescTreeNode KOF98_A_UNITS[] =
     { L"O.Shermie", DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_COLLECTION, ARRAYSIZE(KOF98_A_OShermie_COLLECTION) },
     { L"O.Chris", DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_COLLECTION, ARRAYSIZE(KOF98_A_OChris_COLLECTION) },
     { L"Omega Rugal", DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_COLLECTION, ARRAYSIZE(KOF98_A_OmegaRugal_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_COLLECTION, ARRAYSIZE(KOF98_A_BONUS_COLLECTION) },
 };
 
 constexpr auto KOF98_A_NUMUNIT = ARRAYSIZE(KOF98_A_UNITS);
