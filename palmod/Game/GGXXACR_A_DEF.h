@@ -147,10 +147,12 @@ const sGame_PaletteDataset GGXXACR_A_SOL_EFFECTS[] =
     { L"Napalm Death (7/9)", 0x3bb020, 0x3bb060 },
     { L"Napalm Death (8/9)", 0x3bcf70, 0x3bcfb0 },
     { L"Napalm Death (9/9)", 0x3bf310, 0x3bf350 },
+};
 
-    { L"Volcanic Viper - Initial Flash", 0x3485f0, 0x348630 },
-    { L"Volcanic Viper - Second Flash", 0x34f3f0, 0x34f430 },
-    { L"Tyrant Rave", 0x378990, 0x3789d0 },
+const sGame_PaletteDataset GGXXACR_A_FR_EFFECTS[] =
+{
+    { L"Action Charge", 0x519B80, 0x519BC0 },
+    { L"Action Charge 2", 0x51FE00, 0x51FE40 },
 };
 
 const sGame_PaletteDataset GGXXACR_A_KY_EFFECTS[] =
@@ -246,7 +248,7 @@ GGXXACRFileData GGXXACRCharacterData[] =
     { L"ch.bin",    L"Chipp Zanuff",    3113988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x293560, indexGGXXSprites_ACR_Chipp },
     { L"dz.bin",    L"Dizzy",           5352324,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x45d720, indexGGXXSprites_ACR_Dizzy },
     { L"fa.bin",    L"Faust",           4773284,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3fe9a0, indexGGXXSprites_ACR_Faust },
-    { L"fr.bin",    L"Order Sol",       5772356,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x4377e0, indexGGXXSprites_ACR_OrderSol },
+    { L"fr.bin",    L"Order Sol",       5772356,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x4377e0, indexGGXXSprites_ACR_OrderSol, GGXXACR_A_FR_EFFECTS, ARRAYSIZE(GGXXACR_A_FR_EFFECTS) },
     { L"in.bin",    L"I-No",            5609060,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3e5370, indexGGXXSprites_ACR_Ino },
     { L"jm.bin",    L"Jam",             3827044,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2c4e80, indexGGXXSprites_ACR_Jam },
     { L"js.bin",    L"Justice",         4556788,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3789b0, indexGGXXSprites_ACR_Justice },

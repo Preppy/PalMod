@@ -458,6 +458,7 @@
     <ClInclude Include="Game\Game_XMVSF_A.h" />
     <ClInclude Include="Game\Garou_A_DEF.h" />
     <ClInclude Include="Game\Garou_S_DEF.h" />
+    <ClInclude Include="Game\GGXXACR_A_DEF.h" />
     <ClInclude Include="Game\GUNDAM_SNES_DEF.h" />
     <ClInclude Include="Game\ImgTicket.h" />
     <ClInclude Include="Game\JOJOS_A_DEF.h" />

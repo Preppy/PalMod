@@ -1283,6 +1283,9 @@
     <ClInclude Include="Game\KOF00N_A_DEF.h">
       <Filter>Game\SNK Games\KOF02N_A</Filter>
     </ClInclude>
+    <ClInclude Include="Game\GGXXACR_A_DEF.h">
+      <Filter>Game\Other Platforms\GGXX ACR</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\bgbmp.bmp">
