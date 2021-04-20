@@ -464,9 +464,8 @@ void CRegProc::LoadReg(int src)
 
             //Reset get size 
             GetSz = MAX_PATH;
-            if (
-                RegQueryValueEx(hKey, L"PreviewBGFile", 0, &RegType, (BYTE*)szPrevBGLoc, &GetSz) != ERROR_SUCCESS
-                && GetFileAttributes(szPrevBGLoc) != FILE_ATTRIBUTE_ARCHIVE)
+            if ((RegQueryValueEx(hKey, L"PreviewBGFile", 0, &RegType, (BYTE*)szPrevBGLoc, &GetSz) != ERROR_SUCCESS)  ||
+                (GetFileAttributes(szPrevBGLoc) == INVALID_FILE_ATTRIBUTES))
             {
                 CString szTemp;
                 GetModuleFileName(NULL, szTemp.GetBufferSetLength(MAX_PATH), MAX_PATH);

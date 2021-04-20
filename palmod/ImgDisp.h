@@ -63,11 +63,11 @@ private:
     int nBGXOffs = 0;
     int nBGYOffs = 0;
 
-    BOOL m_bBGAvail = FALSE;
+    BOOL m_fIsBGAvail = FALSE;
     //BOOL bFillBGBmp = FALSE;
-    BOOL bTileBGBmp = FALSE;
-    BOOL bUseBGCol = FALSE;
-    BOOL bFirstInit = TRUE;
+    BOOL m_fShouldTileBGBmp = FALSE;
+    BOOL m_fShouldUseBGCol = FALSE;
+    BOOL m_fNeedFirstInit = TRUE;
     BOOL m_fClickToFindColor = TRUE;
 
     COLORREF crBGCol = 0x00FF0000;
@@ -139,12 +139,12 @@ public:
 
     void SetAltPal(int nIndex, COLORREF* pAltPal);
 
-    BOOL IsBGTiled() { return bTileBGBmp; };
-    BOOL IsUsingBGCol() { return bUseBGCol; };
+    BOOL IsBGTiled() { return m_fShouldTileBGBmp; };
+    BOOL IsUsingBGCol() { return m_fShouldUseBGCol; };
     void SetBGXOffs(int nOffs) { nBGXOffs = nOffs; };
     void SetBGYOffs(int nOffs) { nBGYOffs = nOffs; };
-    void SetBGTiled(BOOL bTiled) { bTileBGBmp = bTiled; };
-    void SetUseBGCol(BOOL bUse) { bUseBGCol = bUse; };
+    void SetBGTiled(BOOL bTiled) { m_fShouldTileBGBmp = bTiled; };
+    void SetUseBGCol(BOOL bUse) { m_fShouldUseBGCol = bUse; };
     void SetClickToFindColorSetting(BOOL fClickToFind) { m_fClickToFindColor = fClickToFind; };
     BOOL GetClickToFindColorSetting() { return m_fClickToFindColor; };
     BOOL CanForceBGBitmapAvailable();
