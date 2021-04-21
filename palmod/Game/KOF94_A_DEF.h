@@ -6,6 +6,37 @@
 // * Run PalMod and copy the debug output into the header
 // That should be it.  Good luck.
 
+const UINT16 KOF94_A_IMG_UNITS[] =
+{
+    indexKOF94Sprites_Andy,         // 0x164
+    indexKOF94Sprites_Athena,       // 0x165
+    indexKOF94Sprites_Benimaru,     // 0x166
+    indexKOF94Sprites_Brian,        // 0x167
+    indexKOF94Sprites_Chang,        // 0x168
+    indexKOF94Sprites_Chin,         // 0x169
+    indexKOF94Sprites_Choi,         // 0x16a
+    indexKOF94Sprites_Clark,        // 0x16b
+    indexKOF94Sprites_Daimon,       // 0x16c
+    indexKOF94Sprites_HeavyD,       // 0x16d
+    indexKOF94Sprites_Heidern,      // 0x16e
+    indexKOF94Sprites_Joe,          // 0x16f
+    indexKOF94Sprites_Kensou,       // 0x170
+    indexKOF94Sprites_Kim,          // 0x171
+    indexKOF94Sprites_King,         // 0x172
+    indexKOF94Sprites_Kyo,          // 0x173
+    indexKOF94Sprites_Lucky,        // 0x174
+    indexKOF94Sprites_Mai,          // 0x175
+    indexKOF94Sprites_Ralf,         // 0x176
+    indexKOF94Sprites_Robert,       // 0x177
+    indexKOF94Sprites_Rugal,        // 0x178
+    indexKOF94Sprites_Ryo,          // 0x179
+    indexKOF94Sprites_Takuma,       // 0x17a
+    indexKOF94Sprites_Terry,        // 0x17b
+    indexKOF94Sprites_Yuri,         // 0x17c
+    indexKOF94Sprites_Stages,       // 0x17d
+    indexKOF94Sprites_Bonus,        // 0x17e
+};
+
 const sGame_PaletteDataset KOF94_A_HEIDERN_MAIN_PALETTES[] =
 {
     { L"Heidern", 0x176000, 0x176020, indexKOF94Sprites_Heidern, 0x00 },

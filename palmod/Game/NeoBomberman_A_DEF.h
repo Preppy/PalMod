@@ -1,5 +1,29 @@
 #pragma once
 
+const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =
+{
+    indexNeoBombermanSprites_AtomicBomber,  // 0x00
+    indexNeoBombermanSprites_Baketama,      // 0x01
+    indexNeoBombermanSprites_Bomberman,     // 0x02
+    indexNeoBombermanSprites_CatBomber,     // 0x03
+    indexNeoBombermanSprites_Charge,        // 0x04
+    indexNeoBombermanSprites_Dachon,        // 0x05
+    indexNeoBombermanSprites_Dokyuun,       // 0x06
+    indexNeoBombermanSprites_FakeBomber,    // 0x07
+    indexNeoBombermanSprites_Gaikottsu,     // 0x08
+    indexNeoBombermanSprites_GoldenBomber,  // 0x09
+    indexNeoBombermanSprites_HayateBomber,  // 0x0A
+    indexNeoBombermanSprites_Honey,         // 0x0B
+    indexNeoBombermanSprites_Kotetsu,       // 0x0C
+    indexNeoBombermanSprites_MrBird,        // 0x0D
+    indexNeoBombermanSprites_Nucha,         // 0x0E
+    indexNeoBombermanSprites_Onbu,          // 0x0F
+    indexNeoBombermanSprites_RidgeRazor,    // 0x10
+    indexNeoBombermanSprites_RubberBomber,  // 0x11
+    indexNeoBombermanSprites_Tamagon,       // 0x12
+    indexNeoBombermanSprites_Bonus,         // 0x13
+};
+
 const sGame_PaletteDataset NeoBomberman_A_Bomberman_PALETTES[] =
 {
     { L"White Bomberman", 0x0c14ea, 0x0c152a, indexNeoBombermanSprites_Bomberman, 0x00 },

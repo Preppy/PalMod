@@ -6,6 +6,50 @@
 // * Run PalMod: the new headers will be printed to debug out
 // That should be it.  Good luck.
 
+const UINT16 NGBC_A_IMG_UNITS[] =
+{
+    indexNGBCSprites_Ai,        // 0xbc
+    indexNGBCSprites_Akari,     // 0xbd
+    indexNGBCSprites_Asura,     // 0xbe
+    indexNGBCSprites_Chonrei,   // 0xbf
+    indexNGBCSprites_Chonshu,   // 0xc0
+    indexNGBCSprites_CyberWoo,  // 0xc1
+    indexNGBCSprites_Fuuma,     // 0xc2
+    indexNGBCSprites_Geese,     // 0xc3
+    indexNGBCSprites_Genjuro,   // 0xc4
+    indexNGBCSprites_GoddessAthena, // 0xc5
+    indexNGBCSprites_Goodman,   // 0xc6
+    indexNGBCSprites_Hanzo,     // 0xc7
+    indexNGBCSprites_Haohmaru,  // 0xc8
+    indexNGBCSprites_Hotaru,    // 0xc9
+    indexNGBCSprites_Iori,      // 0xca
+    indexNGBCSprites_K,         // 0xcb
+    indexNGBCSprites_Kaede,     // 0xcc
+    indexNGBCSprites_Keiichiro, // 0xcd
+    indexNGBCSprites_Kim,       // 0xce
+    indexNGBCSprites_KingLion,  // 0xcf
+    indexNGBCSprites_Kisarah,   // 0xd0
+    indexNGBCSprites_Kyo,       // 0xd1
+    indexNGBCSprites_LeePaiLong, // 0xd2
+    indexNGBCSprites_Mai,       // 0xd3
+    indexNGBCSprites_Marco,     // 0xd4
+    indexNGBCSprites_MarsPeople, // 0xd5
+    indexNGBCSprites_Mizuchi,   // 0xd6
+    indexNGBCSprites_Moriya,    // 0xd7
+    indexNGBCSprites_MrBig,     // 0xd8
+    indexNGBCSprites_MrKarate,  // 0xd9
+    indexNGBCSprites_Mudman,    // 0xda
+    indexNGBCSprites_Nakoruru,  // 0xdb
+    indexNGBCSprites_NeoDio,    // 0xdc
+    indexNGBCSprites_Robert,    // 0xdd
+    indexNGBCSprites_Rock,      // 0xde
+    indexNGBCSprites_Shermie,   // 0xdf
+    indexNGBCSprites_Shiki,     // 0xe0
+    indexNGBCSprites_Terry,     // 0xe1
+    indexNGBCSprites_TungFuRue, // 0xe2
+    indexNGBCSprites_Yuuki,     // 0xe3
+};
+
 const sGame_PaletteDataset NGBC_A_YUUKI_PALETTES_A[] =
 {
     { L"Yuuki A", 0x1013000, 0x1013020, indexNGBCSprites_Yuuki },

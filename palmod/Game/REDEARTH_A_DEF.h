@@ -1,5 +1,21 @@
 #pragma once
 
+const UINT16 REDEARTH_A_IMG_UNITS[] =
+{
+    indexRedEarthSprites_Blade,     // 0x00
+    indexRedEarthSprites_GiGi,      // 0x01
+    indexRedEarthSprites_Hauzer,    // 0x02
+    indexRedEarthSprites_Hydron,    // 0x03
+    indexRedEarthSprites_Kenji,     // 0x04
+    indexRedEarthSprites_Kongou,    // 0x05
+    indexRedEarthSprites_Lavia,     // 0x06
+    indexRedEarthSprites_Leo,       // 0x07
+    indexRedEarthSprites_MaiLing,   // 0x08
+    indexRedEarthSprites_Ravange,   // 0x09
+    indexRedEarthSprites_Scion,     // 0x0a
+    indexRedEarthSprites_Tessa,     // 0x0b
+};
+
 const sGame_PaletteDataset REDEARTH_A_LEO_PUNCH_PALETTES[] =
 {
     { L"Leo Punch",                          0x408000, 0x408080, indexRedEarthSprites_Leo, 0x0 },

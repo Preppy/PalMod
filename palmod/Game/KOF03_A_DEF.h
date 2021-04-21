@@ -6,6 +6,70 @@
 // * Update every array using KOF03_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const UINT16 KOF03_A_IMG_UNITS[] =
+{
+    indexKOFSprites_02UM_Clark,
+    indexKOFSprites_02UM_Chang,     // 0x80
+    indexKOFSprites_02UM_Daimon,    // 0x87
+    indexKOFSprites_02UM_Iori,
+    indexKOFSprites_02UM_K,         // 0x92
+    indexKOFSprites_02UM_Kim,       // 0x96
+    indexKOFSprites_02UM_Leona,
+    indexKOFSprites_02UM_Maxima,    // 0xA2
+    indexKOFSprites_02UM_Ralf,
+
+    indexKOFSprites_02UM_Joe,
+    indexKOFSprites_02UM_Kusanagi,
+    indexKOFSprites_02UM_Mai,
+
+    indexKOFXISprites_Adelheid,
+    indexKOFXISprites_BlueMary,
+    indexKOFXISprites_Kyo,
+    indexKOFXISprites_Ryo,
+    indexKOFXISprites_Shingo,
+    indexKOFXISprites_Yuri,
+
+    indexKOF03Sprites_Adelheid,     // 0xe4
+    indexKOF03Sprites_Ash,          // 0xe5
+    indexKOF03Sprites_Athena,       // 0xe6
+    indexKOF03Sprites_Benimaru,     // 0xe7
+    indexKOF03Sprites_Billy,        // 0xe8
+    indexKOF03Sprites_BlueMary,     // 0xe9
+    indexKOF03Sprites_Chang,        // 0xea
+    indexKOF03Sprites_Chizuru,      // 0xeb
+    indexKOF03Sprites_Clark,        // 0xec
+    indexKOF03Sprites_Duo,          // 0xed
+    indexKOF03Sprites_Gato,         // 0xee
+    indexKOF03Sprites_Goro,         // 0xef
+    indexKOF03Sprites_Hinako,       // 0xf0
+    indexKOF03Sprites_Iori,         // 0xf1
+    indexKOF03Sprites_JhunHoon,     // 0xf2
+    indexKOF03Sprites_Joe,          // 0xf3
+    indexKOF03Sprites_K,            // 0xf4
+    indexKOF03Sprites_Kim,          // 0xf5
+    indexKOF03Sprites_King,         // 0xf6
+    indexKOF03Sprites_KUSANAGI,     // 0xf7
+    indexKOF03Sprites_Kyo,          // 0xf8
+    indexKOF03Sprites_Leona,        // 0xf9
+    indexKOF03Sprites_Mai,          // 0xfa
+    indexKOF03Sprites_Maki,         // 0xfb
+    indexKOF03Sprites_Malin,        // 0xfc
+    indexKOF03Sprites_Maxima,       // 0xfd
+    indexKOF03Sprites_Mukai,        // 0xfe
+    indexKOF03Sprites_Ralf,         // 0xff
+    indexKOF03Sprites_Robert,       // 0x100 :o
+    indexKOF03Sprites_Ryo,          // 0x101
+    indexKOF03Sprites_Shen,         // 0x102
+    indexKOF03Sprites_Shingo,       // 0x103
+    indexKOF03Sprites_Terry,        // 0x104
+    indexKOF03Sprites_Tizoc,        // 0x105
+    indexKOF03Sprites_Whip,         // 0x106
+    indexKOF03Sprites_Yamazaki,     // 0x107
+    indexKOF03Sprites_Yuri,         // 0x108
+    indexKOF03Sprites_TeamBackgrounds, // 0x109
+    indexKOF03Sprites_Portraits,    // 0x10a
+};
+
 const sGame_PaletteDataset KOF03_A_ASH_PALETTES_A[] =
 {
     { L"Ash Crimson A", 0x002000, 0x002020, indexKOF03Sprites_Ash, 0x00 },

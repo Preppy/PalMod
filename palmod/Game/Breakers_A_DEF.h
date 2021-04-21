@@ -6,6 +6,20 @@
 // * Run PalMod: the new headers will be printed to debug out
 // That should be it.  Good luck.
 
+const UINT16 BREAKERS_A_IMG_UNITS[] =
+{
+    indexBreakersSprites_AlsionIII,
+    indexBreakersSprites_BaiHu,
+    indexBreakersSprites_Condor,
+    indexBreakersSprites_DaoLong,
+    indexBreakersSprites_Maherl,
+    indexBreakersSprites_Pielle,
+    indexBreakersSprites_Rila,
+    indexBreakersSprites_Saizo,
+    indexBreakersSprites_Sho,
+    indexBreakersSprites_Tia,
+};
+
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_A[] =
 {
     { L"Sho A", 0x135eaa, 0x135eca, indexBreakersSprites_Sho },

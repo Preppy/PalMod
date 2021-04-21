@@ -1,5 +1,33 @@
 #pragma once
 
+const UINT16 RBFFS_A_IMG_UNITS[] =
+{
+    indexRBFFSSprites_Andy,         // 0x133
+    indexRBFFSSprites_Billy,        // 0x134
+    indexRBFFSSprites_BlueMary,     // 0x135
+    indexRBFFSSprites_Bob,          // 0x136
+    indexRBFFSSprites_Cheng,        // 0x137
+    indexRBFFSSprites_Chonrei,      // 0x138
+    indexRBFFSSprites_Chonshu,      // 0x139
+    indexRBFFSSprites_DuckKing,     // 0x13a
+    indexRBFFSSprites_Franco,       // 0x13b
+    indexRBFFSSprites_Geese,        // 0x13c
+    indexRBFFSSprites_Hon,          // 0x13d
+    indexRBFFSSprites_Joe,          // 0x13e
+    indexRBFFSSprites_Kim,          // 0x13f
+    indexRBFFSSprites_Krauser,      // 0x140
+    indexRBFFSSprites_Laurence,     // 0x141
+    indexRBFFSSprites_Mai,          // 0x142
+    indexRBFFSSprites_Sokaku,       // 0x143
+    indexRBFFSSprites_Terry,        // 0x144
+    indexRBFFSSprites_Tung,         // 0x145
+    indexRBFFSSprites_Yamazaki,     // 0x146
+
+    indexRBFF2Sprites_Alfred,       // 0x1f2
+    indexRBFF2Sprites_Rick,         // 0x1f3
+    indexRBFF2Sprites_Xiangfei,     // 0x1f4
+};
+
 const sGame_PaletteDataset RBFFS_A_TERRY_PALETTES_P1[] =
 {
     { L"Main Palette", 0xd2000, 0xd2020, indexRBFFSSprites_Terry, 0x00 },

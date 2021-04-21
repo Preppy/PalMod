@@ -170,7 +170,7 @@ sDescTreeNode* CGame_KOF96_A::InitDescTree()
     m_nTotalPaletteCountForKOF96 = nTotalPaletteCount;
 
     // For development use to speed things up
-    DumpPaletteHeaders();
+    //DumpPaletteHeaders();
 
     return NewDescTree;
 }

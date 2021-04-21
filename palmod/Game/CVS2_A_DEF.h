@@ -6,6 +6,58 @@
 // * Update every array using CVS2_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const UINT16 CVS2_A_IMG_UNITS[] =
+{
+    indexCVS2Sprites_Akuma,
+    indexCVS2Sprites_Athena,
+    indexCVS2Sprites_Balrog,
+    indexCVS2Sprites_Benimaru,
+    indexCVS2Sprites_Blanka,
+    indexCVS2Sprites_Cammy,
+    indexCVS2Sprites_Chang,
+    indexCVS2Sprites_ChunLi,
+    indexCVS2Sprites_Dan,
+    indexCVS2Sprites_Dhalsim,
+    indexCVS2Sprites_EHonda,
+    indexCVS2Sprites_Eagle,
+    indexCVS2Sprites_EvilRyu,
+    indexCVS2Sprites_Geese,
+    indexCVS2Sprites_GodRugal,
+    indexCVS2Sprites_Guile,
+    indexCVS2Sprites_Haohmaru,
+    indexCVS2Sprites_Hibiki,
+    indexCVS2Sprites_Iori,
+    indexCVS2Sprites_Joe,
+    indexCVS2Sprites_Ken,
+    indexCVS2Sprites_Kim,
+    indexCVS2Sprites_King,
+    indexCVS2Sprites_Kyo,
+    indexCVS2Sprites_Kyosuke,
+    indexCVS2Sprites_MBison,
+    indexCVS2Sprites_Mai,
+    indexCVS2Sprites_Maki,
+    indexCVS2Sprites_Morrigan,
+    indexCVS2Sprites_Nakoruru,
+    indexCVS2Sprites_OrochiIori,
+    indexCVS2Sprites_Raiden,
+    indexCVS2Sprites_Rock,
+    indexCVS2Sprites_Rolento,
+    indexCVS2Sprites_Rugal,
+    indexCVS2Sprites_Ryo,
+    indexCVS2Sprites_Ryu,
+    indexCVS2Sprites_RyuhakuTodoh,
+    indexCVS2Sprites_RyujiYamazaki,
+    indexCVS2Sprites_Sagat,
+    indexCVS2Sprites_Sakura,
+    indexCVS2Sprites_ShinAkuma,
+    indexCVS2Sprites_Terry,
+    indexCVS2Sprites_Vega,
+    indexCVS2Sprites_Vice,
+    indexCVS2Sprites_Yun,
+    indexCVS2Sprites_Yuri,
+    indexCVS2Sprites_Zangief,
+};
+
 struct sCVS2_ExtraPair
 {
     LPCWSTR pszExtraName = nullptr;

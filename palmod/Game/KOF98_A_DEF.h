@@ -6,6 +6,52 @@
 // * Update every array using KOF98_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const UINT16 KOF98_A_IMG_UNITS[] =
+{
+    indexKOFSprites_98Kyo,
+    indexKOFSprites_98Benimaru,
+    indexKOFSprites_98Daimon,
+    indexKOFSprites_98Terry,
+    indexKOFSprites_98Andy,
+    indexKOFSprites_98Joe,
+    indexKOFSprites_98Ryo,
+    indexKOFSprites_98Robert,
+    indexKOFSprites_98Yuri,
+    indexKOFSprites_98Leona,
+    indexKOFSprites_98Ralf,
+    indexKOFSprites_98Clark,
+    indexKOFSprites_98Athena,
+    indexKOFSprites_98Kensou,
+    indexKOFSprites_98Chin,
+    indexKOFSprites_98Chizuru,
+    indexKOFSprites_98Mai,
+    indexKOFSprites_98King,
+    indexKOFSprites_98Kim,
+    indexKOFSprites_98Chang,
+    indexKOFSprites_98Choi,
+    indexKOFSprites_98Yashiro,
+    indexKOFSprites_98Shermie,
+    indexKOFSprites_98Chris,
+    indexKOFSprites_98Yamazaki,
+    indexKOFSprites_98BlueMary,
+    indexKOFSprites_98Billy,
+    indexKOFSprites_98Iori,
+    indexKOFSprites_98Mature,
+    indexKOFSprites_98Vice,
+    indexKOFSprites_98Heidern,
+    indexKOFSprites_98Takuma,
+    indexKOFSprites_98Saisyu,
+    indexKOFSprites_98HeavyD,
+    indexKOFSprites_98Lucky,
+    indexKOFSprites_98Brian,
+    indexKOFSprites_98Rugal,
+    indexKOFSprites_98Shingo, // 25
+
+    indexKOFSprites_98OrderSelect,
+    indexKOFSprites_98Lifebar,      // 77
+    indexKOFSprites_98WinPortrait,  // 78
+};
+
 const sGame_PaletteDataset KOF98_A_KYO_PALETTE_A[] =
 {
     { L"Kyo A - Main",  0x2d97f0, 0x2d9810, indexKOFSprites_98Kyo },

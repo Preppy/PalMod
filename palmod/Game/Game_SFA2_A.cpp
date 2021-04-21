@@ -1012,13 +1012,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
     }
 
     // For development use to speed things up
-    static bool s_fShouldOutputOnce = false;
-
-    if (s_fShouldOutputOnce)
-    {
-        s_fShouldOutputOnce = false;
-        DumpPaletteHeaders();
-    }
+    //DumpPaletteHeaders();
 
     return NewDescTree;
 }

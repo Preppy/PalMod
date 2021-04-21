@@ -13,6 +13,25 @@
 #define k_krNameKey_Weakpoints_K_YungmieZazie L"K Yungmie's sash, Zazie's bandana"
 #define k_krNameKey_Weakpoints_K_JeanMatlokKarnov L"K Jean's legband, Matlok's headphones, Karnov's necklace"
 
+const UINT16 KARNOVSR_A_IMG_UNITS[] =
+{
+    indexKarnovsRSprites_Clown,         // 0x00
+    indexKarnovsRSprites_Felin,         // 0x01
+    indexKarnovsRSprites_Jean,          // 0x02
+    indexKarnovsRSprites_Karnov,        // 0x03
+    indexKarnovsRSprites_Lee,           // 0x04
+    indexKarnovsRSprites_Marstorius,    // 0x05
+    indexKarnovsRSprites_Matlok,        // 0x06
+    indexKarnovsRSprites_Mizoguchi,     // 0x07
+    indexKarnovsRSprites_Ray,           // 0x08
+    indexKarnovsRSprites_Ryoko,         // 0x09
+    indexKarnovsRSprites_Samchay,       // 0x0a
+    indexKarnovsRSprites_Yungmie,       // 0x0b
+    indexKarnovsRSprites_Zazie,         // 0x0c
+    indexKarnovsRSprites_Bonus,         // 0x0d
+    indexKarnovsRSprites_Stages,        // 0x0e
+};
+
 const sGame_PaletteDataset KarnovsR_A_RAY_PUNCH_PALETTES[] =
 {
     { L"Ray P", 0x65800, 0x65820, indexKarnovsRSprites_Ray, 0 },
