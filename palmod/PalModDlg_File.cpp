@@ -33,6 +33,8 @@ sSupportedGameList SupportedGameList[] =
     { KOTM_A,           L"King of the Monsters", L"King of the Monsters (Neo-Geo)|016-p1.*;016-hp1.*|", GamePlatform::NEOGEO },
     { KIZUNA_A,         L"Kizuna Encounter", L"Kizuna Encounter|216-p1.*;ke_p1.rom|", GamePlatform::NEOGEO },
     { KOF94_A,          L"KOF94", L"KOF94|055-p1.*|", GamePlatform::NEOGEO, GameSeries::KOF },
+    { KOF95_A,          L"KOF95", L"KOF95|084-p1.p1|", GamePlatform::NEOGEO, GameSeries::KOF },
+    { KOF96_A,          L"KOF96", L"KOF96|214-p2.sp2|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF97_A,          L"KOF97", L"KOF97|232-p2.*;kof97_p2.rom|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF98_A,          L"KOF98", L"KOF98|242-p2.*;kof98_p2.rom|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin|", GamePlatform::NEOGEO, GameSeries::KOF },

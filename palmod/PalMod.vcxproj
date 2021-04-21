@@ -253,6 +253,8 @@
     <ClCompile Include="Game\Game_KOF02_A.cpp" />
     <ClCompile Include="Game\Game_KOF03_A.cpp" />
     <ClCompile Include="Game\Game_KOF94_A.cpp" />
+    <ClCompile Include="Game\Game_KOF95_A.cpp" />
+    <ClCompile Include="Game\Game_KOF96_A.cpp" />
     <ClCompile Include="Game\Game_KOF97_A.cpp" />
     <ClCompile Include="Game\Game_KOF98_A.cpp" />
     <ClCompile Include="Game\Game_KOF99AE_A.cpp" />
@@ -393,6 +395,8 @@
     <ClInclude Include="Game\Game_KOF02_A.h" />
     <ClInclude Include="Game\Game_KOF03_A.h" />
     <ClInclude Include="Game\Game_KOF94_A.h" />
+    <ClInclude Include="Game\Game_KOF95_A.h" />
+    <ClInclude Include="Game\Game_KOF96_A.h" />
     <ClInclude Include="Game\Game_KOF97_A.h" />
     <ClInclude Include="Game\Game_KOF98_A.h" />
     <ClInclude Include="Game\Game_KOF99AE_A.h" />
@@ -470,6 +474,8 @@
     <ClInclude Include="Game\KOF02_A_DEF.h" />
     <ClInclude Include="Game\KOF03_A_DEF.h" />
     <ClInclude Include="Game\KOF94_A_DEF.h" />
+    <ClInclude Include="Game\KOF95_A_DEF.h" />
+    <ClInclude Include="Game\KOF96_A_DEF.h" />
     <ClInclude Include="Game\KOF97_A_DEF.h" />
     <ClInclude Include="Game\KOF98_A_DEF.h" />
     <ClInclude Include="Game\KOF99AE_A_DEF.h" />

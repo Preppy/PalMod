@@ -731,6 +731,8 @@ void CPalModDlg::OnEditPaste()
                 //case DBZHD_SNES: This is the overflow value: no need to special-case.
                 case k_nRawColorStringOverflowIndicator:
                 case MMX2_SNES:
+                case KOF95_A:
+                case KOF96_A:
                 case KOF00N_A:
                 case LASTBLADE_A:
                 case DUMMY_RGB888:

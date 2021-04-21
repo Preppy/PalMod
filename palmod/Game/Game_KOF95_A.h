@@ -1,14 +1,19 @@
 #pragma once
 #include "gameclass.h"
-#include "COTA_A_DEF.h"
+#include "KOF95_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_COTA = L"CotAe.txt";
-#define GetExtraDefForCOTA(x) ((stExtraDef *)&COTA_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_KOF95_A = L"KOF95E.txt";
+#define GetExtraDefForKOF95(x)((stExtraDef *)&KOF95_A_EXTRA_CUSTOM[x])
 
-class CGame_COTA_A : public CGameWithExtrasFile
+class CGame_KOF95_A : public CGameWithExtrasFile
 {
 private:
+    static UINT32 m_nTotalPaletteCountForKOF95;
+
+    static int rgExtraCountAll[KOF95_A_NUMUNIT + 1];
+    static int rgExtraLoc[KOF95_A_NUMUNIT + 1];
+
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
@@ -16,13 +21,12 @@ private:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
-    static UINT32 m_nTotalPaletteCountForCOTA;
-    static int rgExtraCountAll[COTA_A_NUMUNIT + 1];
-    static int rgExtraLoc[COTA_A_NUMUNIT + 1];
+    // Developer-only mode to regenerate the header file quickly.
+    static void DumpPaletteHeaders();
 
 public:
-    CGame_COTA_A(UINT32 nConfirmedROMSize);
-    ~CGame_COTA_A(void);
+    CGame_KOF95_A(UINT32 nConfirmedROMSize);
+    ~CGame_KOF95_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -50,5 +54,5 @@ public:
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* COTA_A_EXTRA_CUSTOM;
+    static stExtraDef* KOF95_A_EXTRA_CUSTOM;
 };

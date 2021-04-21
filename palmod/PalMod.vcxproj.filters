@@ -325,6 +325,12 @@
     <Filter Include="Game\SNK Games\Last Blade">
       <UniqueIdentifier>{632ea97e-c50d-4066-901e-222d3c1799bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\KOF96_A">
+      <UniqueIdentifier>{e0a1c9b3-bbfc-4de4-9d93-2b26a8b42442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF95_A">
+      <UniqueIdentifier>{60e388d3-c582-459a-af73-107faa18b5d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -689,6 +695,12 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KOF00N_A.cpp">
       <Filter>Game\SNK Games\KOF02N_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF95_A.cpp">
+      <Filter>Game\SNK Games\KOF95_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF96_A.cpp">
+      <Filter>Game\SNK Games\KOF96_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1285,6 +1297,18 @@
     </ClInclude>
     <ClInclude Include="Game\GGXXACR_A_DEF.h">
       <Filter>Game\Other Platforms\GGXX ACR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF95_A.h">
+      <Filter>Game\SNK Games\KOF95_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF95_A_DEF.h">
+      <Filter>Game\SNK Games\KOF95_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF96_A.h">
+      <Filter>Game\SNK Games\KOF96_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF96_A_DEF.h">
+      <Filter>Game\SNK Games\KOF96_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

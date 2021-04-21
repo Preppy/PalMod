@@ -500,7 +500,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
                     }
                     break;
                 case 15:
-                    strOutput.Format(L"    { L\"%s %s - Life Bar Portrait\", 0x%x, 0x%x, indexKOFSprites_98Lifebar, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                    strOutput.Format(L"    { L\"%s %s - Lifebar Portrait\", 0x%x, 0x%x, indexKOFSprites_98Lifebar, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
                         nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     break;
                 }

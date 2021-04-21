@@ -906,7 +906,6 @@ const sDescTreeNode KOF94_A_RUGAL_COLLECTION[] =
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_RUGAL_ALT_PALETTES, ARRAYSIZE(KOF94_A_RUGAL_ALT_PALETTES) },
 };
 
-
 const sGame_PaletteDataset KOF94_A_BONUS_PALETTES[] =
 {
     { L"Fire Palette", 0x17b780, 0x17b980 },
