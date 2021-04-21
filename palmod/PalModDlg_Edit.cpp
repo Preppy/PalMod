@@ -728,24 +728,11 @@ void CPalModDlg::OnEditPaste()
                     eColModeForPastedColor = ColMode::COLMODE_SHARPRGB;
                     break;
                 }
-                //case DBZHD_SNES: This is the overflow value: no need to special-case.
                 case k_nRawColorStringOverflowIndicator:
-                case MMX2_SNES:
-                case KOF95_A:
-                case KOF96_A:
-                case KOF00N_A:
-                case LASTBLADE_A:
-                case DUMMY_RGB888:
-                case DUMMY_BGR888:
+                default:
                 {
                     fWasOverflowHandled = true;
                     eColModeForPastedColor = DecodeColorFlag(uPasteGFlag2);
-                    break;
-                }
-                default:
-                {
-                    // Do nothing: hopefully this is from a newer version of PalMod and they're pasting from/to the same game.
-                    OutputDebugString(L"WARNING: Using default paste logic.  You probably want directed handling.\n");
                     break;
                 }
                 }

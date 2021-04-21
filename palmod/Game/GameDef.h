@@ -116,6 +116,8 @@ enum SupportedGamesList
     DUMMY_BGR888,
     KOF95_A,
     KOF96_A,
+    SAMSHO1_A,
+    SAMSHO2_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -233,6 +235,8 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
     L"DUMMY_BGR888",
     L"King of Fighters '95 (Neo-Geo)",
     L"King of Fighters '96 (Neo-Geo)",
+    L"Samurai Shodown (Neo-Geo)",
+    L"Samurai Shodown II (Neo-Geo)",
 };
 
 enum class GamePlatform
@@ -2123,6 +2127,23 @@ enum SamuraiShodownSpriteList
     indexSS5_Yunfei,        // 0x4B
     indexSS5_Bonus,         // 0x4c
     indexSS5_Stages,        // 0x4d
+
+    indexSamSho1Sprites_Amakusa,    // 0x4e
+    indexSamSho1Sprites_Charlotte,  // 0x4f
+    indexSamSho1Sprites_Earthquake, // 0x50
+    indexSamSho1Sprites_Galford,    // 0x51
+    indexSamSho1Sprites_Genan,      // 0x52
+    indexSamSho1Sprites_Hanzo,      // 0x53
+    indexSamSho1Sprites_Haohmaru,   // 0x54
+    indexSamSho1Sprites_Jubei,      // 0x55
+    indexSamSho1Sprites_Kyoshiro,   // 0x56
+    indexSamSho1Sprites_Nakoruru,   // 0x57
+    indexSamSho1Sprites_TamTam,     // 0x58
+    indexSamSho1Sprites_Ukyo,       // 0x59
+    indexSamSho1Sprites_Wanfu,      // 0x5a
+    indexSamSho1Sprites_Bonus,      // 0x5b
+    indexSamSho1Sprites_Stages,     // 0x5c
+
 
     indexSamuraiShodownSprites_Last,
 };

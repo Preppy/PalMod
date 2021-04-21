@@ -1346,42 +1346,42 @@ const sGame_PaletteDataset SFIII3_A_GILL_LP_PALETTES[] =
 {
     { L"Intro Facing Left LP", 0x700000, 0x700080, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right LP", 0x700080, 0x700100, index3S_CPS3_Gill, 0x00 },
-    { L"LP Portrait", 0x763b00, 0x763b20 },
+    { L"LP Portrait", 0x763b00, 0x763b20, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_MP_PALETTES[] =
 {
     { L"Intro Facing Left MP", 0x700100, 0x700180, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right MP", 0x700180, 0x700200, index3S_CPS3_Gill, 0x00 },
-    { L"MP Portrait", 0x763b20, 0x763b40 },
+    { L"MP Portrait", 0x763b20, 0x763b40, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_HP_PALETTES[] =
 {
     { L"Intro Facing Left HP", 0x700200, 0x700280, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right HP", 0x700280, 0x700300, index3S_CPS3_Gill, 0x00 },
-    { L"HP Portrait", 0x763b40, 0x763b60 },
+    { L"HP Portrait", 0x763b40, 0x763b60, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_LK_PALETTES[] =
 {
     { L"Intro Facing Left LK", 0x700300, 0x700380, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right LK", 0x700380, 0x700400, index3S_CPS3_Gill, 0x00 },
-    { L"LK Portrait", 0x763b60, 0x763b80 },
+    { L"LK Portrait", 0x763b60, 0x763b80, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_MK_PALETTES[] =
 {
     { L"Intro Facing Left MK", 0x700400, 0x700480, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right MK", 0x700480, 0x700500, index3S_CPS3_Gill, 0x00 },
-    { L"MK Portrait", 0x763b80, 0x763ba0 },
+    { L"MK Portrait", 0x763b80, 0x763ba0, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_HK_PALETTES[] =
 {
     { L"Intro Facing Left HK", 0x700500, 0x700580, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right HK", 0x700580, 0x700600, index3S_CPS3_Gill, 0x00 },
-    { L"HK Portrait", 0x763ba0, 0x763bc0 },
+    { L"HK Portrait", 0x763ba0, 0x763bc0, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_EXTRAS_PALETTES[] =

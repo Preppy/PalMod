@@ -285,6 +285,8 @@
     <ClCompile Include="Game\Game_REDEARTH_A_DIR.cpp" />
     <ClCompile Include="Game\Game_RODSM2_A.cpp" />
     <ClCompile Include="Game\Game_ROTD_A.cpp" />
+    <ClCompile Include="Game\Game_SAMSHO1_A.cpp" />
+    <ClCompile Include="Game\Game_SAMSHO2_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO3_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO4_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp" />
@@ -427,6 +429,8 @@
     <ClInclude Include="Game\Game_REDEARTH_A_DIR.h" />
     <ClInclude Include="Game\Game_RODSM2_A.h" />
     <ClInclude Include="Game\Game_ROTD_A.h" />
+    <ClInclude Include="Game\Game_SAMSHO1_A.h" />
+    <ClInclude Include="Game\Game_SAMSHO2_A.h" />
     <ClInclude Include="Game\Game_SAMSHO3_A.h" />
     <ClInclude Include="Game\Game_SAMSHO4_A.h" />
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h" />
@@ -506,6 +510,8 @@
     <ClInclude Include="Game\REDEARTH_A_DEF.h" />
     <ClInclude Include="Game\RODSM2_A_DEF.h" />
     <ClInclude Include="Game\ROTD_A_DEF.h" />
+    <ClInclude Include="Game\SAMSHO1_A_DEF.h" />
+    <ClInclude Include="Game\SAMSHO2_A_DEF.h" />
     <ClInclude Include="Game\SAMSHO3_A_DEF.h" />
     <ClInclude Include="Game\SAMSHO4_A_DEF.h" />
     <ClInclude Include="Game\SAMSHO5SP_A_DEF.h" />
