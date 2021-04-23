@@ -288,7 +288,7 @@ enum class ColMode
     COLMODE_NEOGEO,    // RGB666
     COLMODE_9,         // RGB333 for Sega Genesis/MegaDrive
     COLMODE_ARGB7888,  // 32bit color for guilty gear
-    COLMODE_SHARPRGB,  // sharp x68000 rgb
+    COLMODE_SHARPRGB_555,  // sharp x68000 rgb
     COLMODE_ARGB1888,  // 32bit color for DBFCI
     COLMODE_ARGB8888,  // 32bit color for uniclr. and modern computing...
     COLMODE_xRGB888,   // 24bit

@@ -19,6 +19,7 @@ UINT8 GetCbForColMode(ColMode colorMode)
     case ColMode::COLMODE_12A_LE:
     case ColMode::COLMODE_15:
     case ColMode::COLMODE_15ALT:
+    case ColMode::COLMODE_SHARPRGB_555:
     case ColMode::COLMODE_NEOGEO:
     case ColMode::COLMODE_9:
         return 2;
@@ -26,7 +27,6 @@ UINT8 GetCbForColMode(ColMode colorMode)
     case ColMode::COLMODE_xBGR888:
         return 3;
     case ColMode::COLMODE_ARGB7888:
-    case ColMode::COLMODE_SHARPRGB:
     case ColMode::COLMODE_ARGB1888:
     case ColMode::COLMODE_ARGB8888:
         return 4;
@@ -115,7 +115,7 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
         case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_15:
         case ColMode::COLMODE_15ALT:
-        case ColMode::COLMODE_SHARPRGB:
+        case ColMode::COLMODE_SHARPRGB_555:
             return k_nRGBPlaneAmtForRGB555;
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneAmtForRGB666;
@@ -166,7 +166,7 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
         case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_15:
         case ColMode::COLMODE_15ALT:
-        case ColMode::COLMODE_SHARPRGB:
+        case ColMode::COLMODE_SHARPRGB_555:
             return k_nRGBPlaneMulForRGB555;
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneMulForRGB666;
@@ -301,7 +301,7 @@ BOOL CGameClass::_SetColorMode(ColMode NewMode)
         case ColMode::COLMODE_NEOGEO:
             strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_NEOGEO (RGB555)");
             break;
-        case ColMode::COLMODE_SHARPRGB:
+        case ColMode::COLMODE_SHARPRGB_555:
             strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_SHARPRGB (RGB555)");
             break;
         case ColMode::COLMODE_ARGB1888:
@@ -366,7 +366,7 @@ BOOL CGameClass::_SetColorMode(ColMode NewMode)
         ConvCol16 = &CGameClass::CONV_32_15ALT;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
-    case ColMode::COLMODE_SHARPRGB:
+    case ColMode::COLMODE_SHARPRGB_555:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_SHARPRGB_32;
         ConvCol16 = &CGameClass::CONV_32_SHARPRGB;

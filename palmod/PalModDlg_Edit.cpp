@@ -258,7 +258,7 @@ void CPalModDlg::OnEditCopy()
             // RGB666
             uCopyFlag1 = NEOGEO_A + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_SHARPRGB:
+        case ColMode::COLMODE_SHARPRGB_555:
             uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_ARGB1888:
@@ -725,7 +725,7 @@ void CPalModDlg::OnEditPaste()
                 case DANKUGA_A:
                 // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_SHARPRGB;
+                    eColModeForPastedColor = ColMode::COLMODE_SHARPRGB_555;
                     break;
                 }
                 case k_nRawColorStringOverflowIndicator:

@@ -161,7 +161,7 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
         break;
-    case ColMode::COLMODE_SHARPRGB:
+    case ColMode::COLMODE_SHARPRGB_555:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         break;
