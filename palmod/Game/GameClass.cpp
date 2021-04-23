@@ -2274,7 +2274,6 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
-    bool fShownOnce = false;
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -2285,14 +2284,6 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             if (IsPaletteDirty(nUnitCtr, nPalCtr))
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-                if (!fShownOnce && (m_nCurrentPaletteROMLocation < GetLowestExpectedPaletteLocation())) // This magic number is the lowest known ROM location.
-                {
-                    CString strMsg;
-                    strMsg.Format(IDS_SAVE_LOWWRITE, nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
-                    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-                    fShownOnce = true;
-                }
 
                 SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 if (GameIsUsing16BitColor())

@@ -271,13 +271,13 @@ void CGame_KOF95_A::DumpPaletteHeaders()
                     }
                     break;
                 case 4:
-                    pszCurrentEffectName = L"Extra 3";
+                    pszCurrentEffectName = L"Electric Palette?";
                     fIsPairable = KOF95_A_CharacterEffectPalettes[nCharIndex].fIsMultipart;
                     break;
                 case 5:
                     if (KOF95_A_CharacterEffectPalettes[nCharIndex].fIsMultipart)
                     {
-                        pszCurrentEffectName = L"Extra 3 Extra";
+                        pszCurrentEffectName = L"Electric Palette? Extra";
                         nCurrentImageIndex = 1;
                     }
                     else

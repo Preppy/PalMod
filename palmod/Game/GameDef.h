@@ -1871,7 +1871,8 @@ enum KOFSpriteList
     indexLastBlade_Okina,           // 0x22f
     indexLastBlade_Washizuka,       // 0x230
 
-    indexKOFSprites_Last,
+    indexKOF96Sprites_Krauzer,      // 0x231
+    indexKOF96Sprites_MrBig,        // 0x232
 };
 
 const UINT16 RBFFS_A_IMG_UNITS[] =
@@ -2423,6 +2424,19 @@ enum SupportedNEOGEO_PaletteListIndex
     indexKotMSprites_Rocky,                 // 0x44
     indexKotMSprites_Woo,                   // 0x45
     indexKotMSprites_Bonus,                 // 0x46
+
+    indexSavReign_CarolStanzack,            // 0x47
+    indexSavReign_ChungPaifu,               // 0x48
+    indexSavReign_GordonBowman,             // 0x49
+    indexSavReign_Gozu,                     // 0x4A
+    indexSavReign_Joker,                    // 0x4B
+    indexSavReign_KingLeo,                  // 0x4C
+    indexSavReign_KingLion,                 // 0x4D
+    indexSavReign_MaxEagle,                 // 0x4E
+    indexSavReign_Mezu,                     // 0x4F
+    indexSavReign_NicolaZaza,               // 0x50
+    indexSavReign_ShoHayate,                // 0x51
+    indexSavReign_Bonus,                    // 0x52
 };
 
 enum SupportedGGXX_PaletteListIndex

@@ -142,7 +142,6 @@
 #define IDS_SF3_UNKNOWNROM              2044
 #define IDS_EXTRAS_SIMMBOUNDARY         2045
 #define IDS_COLOR_WRONGSIZE             2046
-#define IDS_SAVE_LOWWRITE               2047
 #define IDS_ERROR_COPYCOLOR             2048
 #define IDS_WARN_TRANSPARENCY           2049
 #define IDS_ENCRYPTING_START            2050

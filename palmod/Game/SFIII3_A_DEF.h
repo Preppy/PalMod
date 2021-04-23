@@ -1940,8 +1940,13 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Select Background - Tinted",        0x70EB80, 0x70EC00, index3S_CPS3_Bonus, 0x00 },
     { L"Select Screen - Blue Arrows",       0x709A80, 0x709B00, index3S_CPS3_Bonus, 0x14 },
     { L"Select Screen - Cursor Rings",      0x70A000, 0x070A080, index3S_CPS3_Bonus, 0x12 },
-    // This is a very long chunk... leaving out for now as well.
-    //{ L"In Game Misc - Versus Screen",      0x70A680, 0x70B280 },
+
+    { L"VS Screen (1/6)",                   0x70a680, 0x70a880 },
+    { L"VS Screen (2/6)",                   0x70a880, 0x70aa80 },
+    { L"VS Screen (3/6)",                   0x70aa80, 0x70ac80 },
+    { L"VS Screen (4/6)",                   0x70ac80, 0x70ae80 },
+    { L"VS Screen (5/6)",                   0x70ae80, 0x70b080 },
+    { L"VS Screen (6/6)",                   0x70b080, 0x70b280 },
     { L"Vs Text",                           0x70C780, 0x70C880 },
 
     { L"Opening ring animation + SA Text",  0x709D00, 0x709D80 },
