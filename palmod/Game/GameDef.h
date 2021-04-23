@@ -280,19 +280,20 @@ enum class AlphaMode
 enum class ColMode
 {
     // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::SetAlphaAndColorModeInternal
-    COLMODE_GBA,       // BGR555 little endian for GBA
-    COLMODE_12A,       // RGB444 big endian for CPS1/2
-    COLMODE_12A_LE,    // RGB444 little endian for SF 30th steam
-    COLMODE_15,        // RGB555 little endian for CPS3
-    COLMODE_15ALT,     // RGB555 big endian 
-    COLMODE_NEOGEO,    // RGB666
-    COLMODE_9,         // RGB333 for Sega Genesis/MegaDrive
-    COLMODE_ARGB7888,  // 32bit color for guilty gear
-    COLMODE_SHARPRGB_555,  // sharp x68000 rgb
-    COLMODE_ARGB1888,  // 32bit color for DBFCI
-    COLMODE_ARGB8888,  // 32bit color for uniclr. and modern computing...
-    COLMODE_xRGB888,   // 24bit
-    COLMODE_xBGR888,   // 24bit
+    // Don't change the order of this list: we emit copy strings that rely upon the ordering
+    COLMODE_BGR555_LE,      // BGR555 little endian (GBA)
+    COLMODE_RGB444_BE,      // RGB444 big endian (CPS1/2)
+    COLMODE_RGB444_LE,      // RGB444 little endian (SF 30th steam)
+    COLMODE_RGB555_LE,      // RGB555 little endian (CPS3)
+    COLMODE_RGB555_BE,      // RGB555 big endian 
+    COLMODE_RGB666_NEOGEO,  // RGB666 using the NeoGeo color table
+    COLMODE_RGB333,         // RGB333 for Sega Genesis/MegaDrive
+    COLMODE_ARGB7888,       // 32bit color half alpha (guilty gear)
+    COLMODE_RGB555_SHARP,   // RGB555 using the sharp x68000 color table
+    COLMODE_ARGB1888,       // 32bit color 1 bit alpha (DBFCI)
+    COLMODE_ARGB8888,       // 32bit color (uniclr. and modern computing)
+    COLMODE_xRGB888,        // 24bit
+    COLMODE_xBGR888,        // 24bit
     COLMODE_LAST,
 };
 
@@ -1866,13 +1867,81 @@ enum KOFSpriteList
 
     indexSVCSprites_Bonus,          // 0x22c
 
-    indexLastBlade_Amano,           // 0x22d
-    indexLastBlade_Musashi,         // 0x22e
-    indexLastBlade_Okina,           // 0x22f
-    indexLastBlade_Washizuka,       // 0x230
+    indexKOF95Sprites_Andy,         // 0x22D
+    indexKOF95Sprites_Athena,       // 0x22E
+    indexKOF95Sprites_Benimaru,     // 0x22F
+    indexKOF95Sprites_Billy,        // 0x230
+    indexKOF95Sprites_Chang,        // 0x231
+    indexKOF95Sprites_Chin,         // 0x232
+    indexKOF95Sprites_Choi,         // 0x233
+    indexKOF95Sprites_Clark,        // 0x234
+    indexKOF95Sprites_Daimon,       // 0x235
+    indexKOF95Sprites_Eiji,         // 0x236
+    indexKOF95Sprites_Heidern,      // 0x237
+    indexKOF95Sprites_Iori,         // 0x238
+    indexKOF95Sprites_Joe,          // 0x239
+    indexKOF95Sprites_Kensou,       // 0x23A
+    indexKOF95Sprites_Kim,          // 0x23B
+    indexKOF95Sprites_King,         // 0x23C
+    indexKOF95Sprites_Kyo,          // 0x23D
+    indexKOF95Sprites_Mai,          // 0x23E
+    indexKOF95Sprites_OmegaRugal,   // 0x23F
+    indexKOF95Sprites_Ralf,         // 0x240
+    indexKOF95Sprites_Robert,       // 0x241
+    indexKOF95Sprites_Ryo,          // 0x242
+    indexKOF95Sprites_Saisyu,       // 0x243
+    indexKOF95Sprites_Takuma,       // 0x244
+    indexKOF95Sprites_Terry,        // 0x245
+    indexKOF95Sprites_Bonus,        // 0x246
 
-    indexKOF96Sprites_Krauzer,      // 0x231
-    indexKOF96Sprites_MrBig,        // 0x232
+    indexKOF96Sprites_Andy,         // 0x247
+    indexKOF96Sprites_Athena,       // 0x248
+    indexKOF96Sprites_Benimaru,     // 0x249
+    indexKOF96Sprites_Chang,        // 0x24A
+    indexKOF96Sprites_Chin,         // 0x24B
+    indexKOF96Sprites_Chizuru,      // 0x24C
+    indexKOF96Sprites_Choi,         // 0x24D
+    indexKOF96Sprites_Clark,        // 0x24E
+    indexKOF96Sprites_Daimon,       // 0x24F
+    indexKOF96Sprites_Geese,        // 0x250
+    indexKOF96Sprites_Goenitz,      // 0x251
+    indexKOF96Sprites_Iori,         // 0x252
+    indexKOF96Sprites_Joe,          // 0x253
+    indexKOF96Sprites_Kasumi,       // 0x254
+    indexKOF96Sprites_Kensou,       // 0x255
+    indexKOF96Sprites_Kim,          // 0x256
+    indexKOF96Sprites_King,         // 0x257
+    indexKOF96Sprites_Krauser,      // 0x258
+    indexKOF96Sprites_Kyo,          // 0x259
+    indexKOF96Sprites_Leona,        // 0x25A
+    indexKOF96Sprites_Mai,          // 0x25B
+    indexKOF96Sprites_Mature,       // 0x25C
+    indexKOF96Sprites_MrBig,        // 0x25D
+    indexKOF96Sprites_Ralf,         // 0x25E
+    indexKOF96Sprites_Robert,       // 0x25F
+    indexKOF96Sprites_Ryo,          // 0x260
+    indexKOF96Sprites_Terry,        // 0x261
+    indexKOF96Sprites_Vice,         // 0x262
+    indexKOF96Sprites_Yuri,         // 0x263
+    indexKOF96Sprites_Bonus,        // 0x264	
+
+    indexLastBladeSprites_Akari,    // 0x265
+    indexLastBladeSprites_Amano,    // 0x266
+    indexLastBladeSprites_Juzoh,    // 0x267
+    indexLastBladeSprites_Kaede,    // 0x268
+    indexLastBladeSprites_KaedeO,   // 0x269
+    indexLastBladeSprites_Kagami,   // 0x26A
+    indexLastBladeSprites_Lee,      // 0x26B
+    indexLastBladeSprites_Moriya,   // 0x26C
+    indexLastBladeSprites_Mukuro,   // 0x26D
+    indexLastBladeSprites_Musashi,  // 0x26E
+    indexLastBladeSprites_Okina,    // 0x26F
+    indexLastBladeSprites_Shigen,   // 0x270
+    indexLastBladeSprites_Washizuka, // 0x271
+    indexLastBladeSprites_Yuki,     // 0x272
+    indexLastBladeSprites_Zantetsu, // 0x273
+    indexLastBladeSprites_Bonus,    // 0x274
+    indexLastBlade2Sprites_KaedeO,  // 0x275
 };
 
 const UINT16 RBFFS_A_IMG_UNITS[] =

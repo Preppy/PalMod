@@ -41,7 +41,7 @@ CGame_LASTBLADE_A::CGame_LASTBLADE_A(UINT32 nConfirmedROMSize)
     // For color mode 12A you usually want it not set, for NEOGEO you cannot use it (there's no bit(s) for it), and for 15/15ALT you probably want it on.
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     //Set color mode: see the definitions in GameClass.h
-    SetColorMode(ColMode::COLMODE_NEOGEO);
+    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 
     // We need this set before we initialize so that we can truncate bad Extras correctly.
     // Otherwise the new user could inadvertently corrupt their ROM.

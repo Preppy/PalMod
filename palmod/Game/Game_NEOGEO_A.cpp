@@ -143,25 +143,25 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
 
     switch (NewMode)
     {
-    case ColMode::COLMODE_9:
+    case ColMode::COLMODE_RGB333:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         break;
-    case ColMode::COLMODE_GBA:
+    case ColMode::COLMODE_BGR555_LE:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         break;
-    case ColMode::COLMODE_12A:
-    case ColMode::COLMODE_12A_LE:
+    case ColMode::COLMODE_RGB444_BE:
+    case ColMode::COLMODE_RGB444_LE:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
         break;
-    case ColMode::COLMODE_15:
-    case ColMode::COLMODE_15ALT:
+    case ColMode::COLMODE_RGB555_LE:
+    case ColMode::COLMODE_RGB555_BE:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
         break;
-    case ColMode::COLMODE_SHARPRGB_555:
+    case ColMode::COLMODE_RGB555_SHARP:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         break;
@@ -179,7 +179,7 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     default: // Something is wrong: reset
         MessageBox(g_appHWnd, L"Warning: unknown color mode was requested. Resetting to default\n", GetHost()->GetAppName(), MB_ICONSTOP);
         __fallthrough;
-    case ColMode::COLMODE_NEOGEO:
+    case ColMode::COLMODE_RGB666_NEOGEO:
         cbRequiredColorSize = 2;
         fShouldSetAlpha = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;

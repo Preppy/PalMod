@@ -230,35 +230,35 @@ void CPalModDlg::OnEditCopy()
         // color modes we directly store the color mode the 2nd byte to keep life simple
         switch (CurrGame->GetColorMode())
         {
-        case ColMode::COLMODE_9:
+        case ColMode::COLMODE_RGB333:
             // RGB333
             uCopyFlag1 = TOPF2005_SEGA+ k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_GBA:
+        case ColMode::COLMODE_BGR555_LE:
             // BGR555
             uCopyFlag1 = SSF2T_GBA + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_12A:
+        case ColMode::COLMODE_RGB444_BE:
             // RGB444
             uCopyFlag1 = MVC2_P + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_12A_LE:
+        case ColMode::COLMODE_RGB444_LE:
             // RGB444 litle endian
             uCopyFlag1 = DUMMY_RGB444_LE + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_15:
+        case ColMode::COLMODE_RGB555_LE:
             // RGB555
             uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_15ALT:
+        case ColMode::COLMODE_RGB555_BE:
             // RGB555
             uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_NEOGEO:
+        case ColMode::COLMODE_RGB666_NEOGEO:
             // RGB666
             uCopyFlag1 = NEOGEO_A + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_SHARPRGB_555:
+        case ColMode::COLMODE_RGB555_SHARP:
             uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_ARGB1888:
@@ -587,13 +587,13 @@ void CPalModDlg::OnEditPaste()
                 case TOPF2005_SEGA:
                 // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_9;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB333;
                     break;
                 }
                 case DUMMY_RGB444_LE:
                 // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_12A_LE;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB444_LE;
                     break;
                 }
                 case DBFCI_A:
@@ -637,7 +637,7 @@ void CPalModDlg::OnEditPaste()
                 case XMVSF_A:
                 // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_12A;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB444_BE;
                     break;
                 }
                 case SFIII1_A:
@@ -655,7 +655,7 @@ void CPalModDlg::OnEditPaste()
                 case REDEARTH_A_DIR_31:
                 // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_15;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB555_LE;
                     break;
                 }
                 case CVS2_A:
@@ -665,7 +665,7 @@ void CPalModDlg::OnEditPaste()
                 case SFIII3_D:
                 // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_15ALT;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB555_BE;
                     break;
                 }
                 case AOF1_A:
@@ -704,7 +704,7 @@ void CPalModDlg::OnEditPaste()
                 case WINDJAMMERS_A:
                 // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_NEOGEO;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB666_NEOGEO;
                     break;
                 }
                 case BLEACH_DS:
@@ -719,13 +719,13 @@ void CPalModDlg::OnEditPaste()
                 // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
                     
-                    eColModeForPastedColor = ColMode::COLMODE_GBA;
+                    eColModeForPastedColor = ColMode::COLMODE_BGR555_LE;
                     break;
                 }
                 case DANKUGA_A:
                 // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_SHARPRGB_555;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB555_SHARP;
                     break;
                 }
                 case k_nRawColorStringOverflowIndicator:

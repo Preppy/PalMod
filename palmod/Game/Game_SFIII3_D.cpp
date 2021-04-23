@@ -16,7 +16,7 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-    SetColorMode(ColMode::COLMODE_15ALT);
+    SetColorMode(ColMode::COLMODE_RGB555_BE);
 
     InitializeStatics();
 

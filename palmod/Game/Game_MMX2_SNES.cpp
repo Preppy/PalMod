@@ -16,7 +16,7 @@ CGame_MMX2_SNES::CGame_MMX2_SNES(UINT32 nConfirmedROMSize)
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
 
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_GBA);
+    SetColorMode(ColMode::COLMODE_BGR555_LE);
 
     // The value passed in to us was the confirmed ROM size we have.
     // We keep track of this before we initialize so that we can truncate bad Extras correctly on load.

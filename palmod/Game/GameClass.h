@@ -72,7 +72,7 @@ protected:
     int nSrcPalInc[MAX_PALETTES_DISPLAYABLE] = { 0 };
 
     static AlphaMode CurrAlphaMode;
-    ColMode CurrColMode = ColMode::COLMODE_12A;
+    ColMode CurrColMode = ColMode::COLMODE_RGB444_BE;
     sImgTicket* CurrImgTicket = nullptr;
     CPalGroup BasePalGroup;
 
@@ -91,22 +91,22 @@ protected:
 
     static BOOL m_fAllowTransparency;
 
-    static UINT16 CONV_32_9(UINT32 inCol);
-    static UINT32 CONV_9_32(UINT16 inCol);
-    static UINT16 CONV_32_12A(UINT32 inCol);
-    static UINT32 CONV_12A_32(UINT16 inCol);
-    static UINT16 CONV_32_12A_LE(UINT32 inCol);
-    static UINT32 CONV_12A_32_LE(UINT16 inCol);
-    static UINT16 CONV_32_GBA(UINT32 inCol);
-    static UINT32 CONV_GBA_32(UINT16 inCol);
-    static UINT16 CONV_32_15(UINT32 inCol);
-    static UINT32 CONV_15_32(UINT16 inCol);
-    static UINT16 CONV_32_15ALT(UINT32 inCol);
-    static UINT32 CONV_15ALT_32(UINT16 inCol);
-    static UINT16 CONV_32_NEOGEO(UINT32 inCol);
-    static UINT32 CONV_NEOGEO_32(UINT16 inCol);
-    static UINT16 CONV_32_SHARPRGB(UINT32 inCol);
-    static UINT32 CONV_SHARPRGB_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB333(UINT32 inCol);
+    static UINT32 CONV_RGB333_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB444BE(UINT32 inCol);
+    static UINT32 CONV_RGB444BE_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB444LE(UINT32 inCol);
+    static UINT32 CONV_RGB444LE_32(UINT16 inCol);
+    static UINT16 CONV_32_BGR555LE(UINT32 inCol);
+    static UINT32 CONV_BGR555LE_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB555LE(UINT32 inCol);
+    static UINT32 CONV_RGB555LE_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB555BE(UINT32 inCol);
+    static UINT32 CONV_RGB555BE_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB666NeoGeo(UINT32 inCol);
+    static UINT32 CONV_RGB666NeoGeo_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB555Sharp(UINT32 inCol);
+    static UINT32 CONV_RGB555Sharp_32(UINT16 inCol);
     static UINT32 CONV_32_xRGB888(UINT32 inCol);
     static UINT32 CONV_xRGB888_32(UINT32 inCol);
     static UINT32 CONV_32_xBGR888(UINT32 inCol);

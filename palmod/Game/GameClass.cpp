@@ -14,14 +14,14 @@ UINT8 GetCbForColMode(ColMode colorMode)
 {
     switch (colorMode)
     {
-    case ColMode::COLMODE_GBA:
-    case ColMode::COLMODE_12A:
-    case ColMode::COLMODE_12A_LE:
-    case ColMode::COLMODE_15:
-    case ColMode::COLMODE_15ALT:
-    case ColMode::COLMODE_SHARPRGB_555:
-    case ColMode::COLMODE_NEOGEO:
-    case ColMode::COLMODE_9:
+    case ColMode::COLMODE_BGR555_LE:
+    case ColMode::COLMODE_RGB444_BE:
+    case ColMode::COLMODE_RGB444_LE:
+    case ColMode::COLMODE_RGB555_LE:
+    case ColMode::COLMODE_RGB555_BE:
+    case ColMode::COLMODE_RGB555_SHARP:
+    case ColMode::COLMODE_RGB666_NEOGEO:
+    case ColMode::COLMODE_RGB333:
         return 2;
     case ColMode::COLMODE_xRGB888:
     case ColMode::COLMODE_xBGR888:
@@ -37,7 +37,7 @@ UINT8 GetCbForColMode(ColMode colorMode)
 
 ColMode DecodeColorFlag(UINT8 uPossibleColorFlag)
 {
-    ColMode colorMode = ColMode::COLMODE_12A;
+    ColMode colorMode = ColMode::COLMODE_RGB444_BE;
 
     if ((uPossibleColorFlag >= k_nASCIICharacterOffset) &&
         (uPossibleColorFlag < k_nASCIIMaxValue)) // end of printable ascii table
@@ -107,17 +107,17 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
     {
         switch (CurrColMode)
         {
-        case ColMode::COLMODE_9:
+        case ColMode::COLMODE_RGB333:
             return k_nRGBPlaneAmtForRGB333;
-        case ColMode::COLMODE_12A:
-        case ColMode::COLMODE_12A_LE:
+        case ColMode::COLMODE_RGB444_BE:
+        case ColMode::COLMODE_RGB444_LE:
             return k_nRGBPlaneAmtForRGB444;
-        case ColMode::COLMODE_GBA:
-        case ColMode::COLMODE_15:
-        case ColMode::COLMODE_15ALT:
-        case ColMode::COLMODE_SHARPRGB_555:
+        case ColMode::COLMODE_BGR555_LE:
+        case ColMode::COLMODE_RGB555_LE:
+        case ColMode::COLMODE_RGB555_BE:
+        case ColMode::COLMODE_RGB555_SHARP:
             return k_nRGBPlaneAmtForRGB555;
-        case ColMode::COLMODE_NEOGEO:
+        case ColMode::COLMODE_RGB666_NEOGEO:
             return k_nRGBPlaneAmtForRGB666;
         case ColMode::COLMODE_ARGB1888:
             if (Flag == ColFlag::COL_A)
@@ -158,17 +158,17 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
     {
         switch (CurrColMode)
         {
-        case ColMode::COLMODE_9:
+        case ColMode::COLMODE_RGB333:
             return k_nRGBPlaneMulForRGB333;
-        case ColMode::COLMODE_12A:
-        case ColMode::COLMODE_12A_LE:
+        case ColMode::COLMODE_RGB444_BE:
+        case ColMode::COLMODE_RGB444_LE:
             return k_nRGBPlaneMulForRGB444;
-        case ColMode::COLMODE_GBA:
-        case ColMode::COLMODE_15:
-        case ColMode::COLMODE_15ALT:
-        case ColMode::COLMODE_SHARPRGB_555:
+        case ColMode::COLMODE_BGR555_LE:
+        case ColMode::COLMODE_RGB555_LE:
+        case ColMode::COLMODE_RGB555_BE:
+        case ColMode::COLMODE_RGB555_SHARP:
             return k_nRGBPlaneMulForRGB555;
-        case ColMode::COLMODE_NEOGEO:
+        case ColMode::COLMODE_RGB666_NEOGEO:
             return k_nRGBPlaneMulForRGB666;
         case ColMode::COLMODE_ARGB1888:
             if (Flag == ColFlag::COL_A)
@@ -276,106 +276,59 @@ BOOL CGameClass::_SetColorMode(ColMode NewMode)
 {
     if (CurrColMode != NewMode)
     {
-        CString strDebugInfo;
-        // See also MEDIASUBTYPE_555
-        switch (NewMode)
-        {
-        case ColMode::COLMODE_9:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMOD_9 (RGB333)");
-            break;
-        case ColMode::COLMODE_GBA:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMOD_GBA (ARGB555)");
-            break;
-        case ColMode::COLMODE_12A:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMOD_12A (ARGB444)");
-            break;
-        case ColMode::COLMODE_12A_LE:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMOD_12A_LE (ARGB444)");
-            break;
-        case ColMode::COLMODE_15:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_15 (BGR555)");
-            break;
-        case ColMode::COLMODE_15ALT:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_15ALT (RGB555)");
-            break;
-        case ColMode::COLMODE_NEOGEO:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_NEOGEO (RGB555)");
-            break;
-        case ColMode::COLMODE_SHARPRGB_555:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_SHARPRGB (RGB555)");
-            break;
-        case ColMode::COLMODE_ARGB1888:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_ARGB1888");
-            break;
-        case ColMode::COLMODE_ARGB7888:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_ARGB7888");
-            break;
-        case ColMode::COLMODE_ARGB8888:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_ARGB8888");
-            break;
-        case ColMode::COLMODE_xRGB888:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_xRGB888");
-            break;
-        case ColMode::COLMODE_xBGR888:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_xBGR888");
-            break;
-        default:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : unsupported color mode.\n");
-            break;
-        }
-        OutputDebugString(strDebugInfo);
+        OutputDebugString(L"CGameClass::SetColorMode : Switching color mode...\n");
     }
 
     CurrColMode = NewMode;
 
     switch (NewMode)
     {
-    case ColMode::COLMODE_9:
+    case ColMode::COLMODE_RGB333:
         m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CGameClass::CONV_9_32;
-        ConvCol16 = &CGameClass::CONV_32_9;
+        ConvPal16 = &CGameClass::CONV_RGB333_32;
+        ConvCol16 = &CGameClass::CONV_32_RGB333;
         BasePalGroup.SetMode(ePalType::PALTYPE_8STEPS);
         return TRUE;
-    case ColMode::COLMODE_12A:
+    case ColMode::COLMODE_RGB444_BE:
         m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CGameClass::CONV_12A_32;
-        ConvCol16 = &CGameClass::CONV_32_12A;
+        ConvPal16 = &CGameClass::CONV_RGB444BE_32;
+        ConvCol16 = &CGameClass::CONV_32_RGB444BE;
         BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
         return TRUE;
-    case ColMode::COLMODE_12A_LE:
+    case ColMode::COLMODE_RGB444_LE:
         m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CGameClass::CONV_12A_32_LE;
-        ConvCol16 = &CGameClass::CONV_32_12A_LE;
+        ConvPal16 = &CGameClass::CONV_RGB444LE_32;
+        ConvCol16 = &CGameClass::CONV_32_RGB444LE;
         BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
         return TRUE;
-    case ColMode::COLMODE_GBA:
+    case ColMode::COLMODE_BGR555_LE:
         m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CGameClass::CONV_GBA_32;
-        ConvCol16 = &CGameClass::CONV_32_GBA;
+        ConvPal16 = &CGameClass::CONV_BGR555LE_32;
+        ConvCol16 = &CGameClass::CONV_32_BGR555LE;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
-    case ColMode::COLMODE_15:
+    case ColMode::COLMODE_RGB555_LE:
         m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CGameClass::CONV_15_32;
-        ConvCol16 = &CGameClass::CONV_32_15;
+        ConvPal16 = &CGameClass::CONV_RGB555LE_32;
+        ConvCol16 = &CGameClass::CONV_32_RGB555LE;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
-    case ColMode::COLMODE_15ALT:
+    case ColMode::COLMODE_RGB555_BE:
         m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CGameClass::CONV_15ALT_32;
-        ConvCol16 = &CGameClass::CONV_32_15ALT;
+        ConvPal16 = &CGameClass::CONV_RGB555BE_32;
+        ConvCol16 = &CGameClass::CONV_32_RGB555BE;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
-    case ColMode::COLMODE_SHARPRGB_555:
+    case ColMode::COLMODE_RGB555_SHARP:
         m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CGameClass::CONV_SHARPRGB_32;
-        ConvCol16 = &CGameClass::CONV_32_SHARPRGB;
+        ConvPal16 = &CGameClass::CONV_RGB555Sharp_32;
+        ConvCol16 = &CGameClass::CONV_32_RGB555Sharp;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
-    case ColMode::COLMODE_NEOGEO:
+    case ColMode::COLMODE_RGB666_NEOGEO:
         m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CGameClass::CONV_NEOGEO_32;
-        ConvCol16 = &CGameClass::CONV_32_NEOGEO;
+        ConvPal16 = &CGameClass::CONV_RGB666NeoGeo_32;
+        ConvCol16 = &CGameClass::CONV_32_RGB666NeoGeo;
         // We use RGB444-equivalent stepping, but NeoGeo uses a color table that has non-linear
         // stepping.  RGB444 at least gets us pretty close to correct until such time as we want to 
         // dynamically generate the +/- step values for use by palmoddlg_color.cpp
@@ -416,7 +369,7 @@ BOOL CGameClass::_SetColorMode(ColMode NewMode)
     }
 }
 
-UINT32 CGameClass::CONV_9_32(UINT16 inCol)
+UINT32 CGameClass::CONV_RGB333_32(UINT16 inCol)
 {
     // xxxxBBBx GGGxRRRx, where x is 0
     // conversion code mostly by sega16
@@ -429,7 +382,7 @@ UINT32 CGameClass::CONV_9_32(UINT16 inCol)
     return (0xFF << 24) | (b << 16) | (g << 8) | r;
 }
 
-UINT16 CGameClass::CONV_32_9(UINT32 inCol)
+UINT16 CGameClass::CONV_32_RGB333(UINT32 inCol)
 {
     UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
     UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
@@ -443,7 +396,7 @@ UINT16 CGameClass::CONV_32_9(UINT32 inCol)
     return (auxb << 1) | (auxr << 9) | (auxg << 13);
 }
 
-UINT32 CGameClass::CONV_GBA_32(UINT16 inCol)
+UINT32 CGameClass::CONV_BGR555LE_32(UINT16 inCol)
 {
     UINT32 red = (inCol & 31) << 3;
     UINT32 green = ((inCol >> 5) & 31) << 3;
@@ -463,7 +416,7 @@ UINT32 CGameClass::CONV_GBA_32(UINT16 inCol)
     return ((alpha << 24) | (blue << 16) | (green << 8) | (red));
 }
 
-UINT16 CGameClass::CONV_32_GBA(UINT32 inCol)
+UINT16 CGameClass::CONV_32_BGR555LE(UINT32 inCol)
 {
     UINT16 auxa = ((inCol & 0xFF000000) >> 24);
     UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
@@ -482,7 +435,7 @@ UINT16 CGameClass::CONV_32_GBA(UINT32 inCol)
     return (((auxr >> 3) & 31) | (((auxg >> 3) & 31) << 5) | (((auxb >> 3) & 31) << 10)) | (auxa << 15);
 }
 
-UINT32 CGameClass::CONV_12A_32(UINT16 inCol)
+UINT32 CGameClass::CONV_RGB444BE_32(UINT16 inCol)
 {
     UINT32 auxb = (inCol & 0xF);
     UINT32 auxg = (inCol & 0xF0) >> 4;
@@ -507,7 +460,7 @@ UINT32 CGameClass::CONV_12A_32(UINT16 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
+UINT16 CGameClass::CONV_32_RGB444BE(UINT32 inCol)
 {
     UINT16 auxa = ((inCol & 0xFF000000) >> 24);
     UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
@@ -540,19 +493,19 @@ UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
     return auxb | auxg | auxr | auxa;
 }
 
-UINT32 CGameClass::CONV_12A_32_LE(UINT16 inCol)
+UINT32 CGameClass::CONV_RGB444LE_32(UINT16 inCol)
 {
     UINT16 uSwappedCol = _byteswap_ushort(inCol);
 
-    return CONV_12A_32(uSwappedCol);
+    return CONV_RGB444BE_32(uSwappedCol);
 }
 
-UINT16 CGameClass::CONV_32_12A_LE(UINT32 inCol)
+UINT16 CGameClass::CONV_32_RGB444LE(UINT32 inCol)
 {
-    return _byteswap_ushort(CONV_32_12A(inCol));
+    return _byteswap_ushort(CONV_32_RGB444BE(inCol));
 }
 
-UINT32 CGameClass::CONV_15_32(UINT16 inCol)
+UINT32 CGameClass::CONV_RGB555LE_32(UINT16 inCol)
 {
     UINT16 swapped = SWAP_16(inCol);
 
@@ -583,7 +536,7 @@ UINT32 CGameClass::CONV_15_32(UINT16 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT16 CGameClass::CONV_32_15(UINT32 inCol)
+UINT16 CGameClass::CONV_32_RGB555LE(UINT32 inCol)
 {
     UINT16 auxb = (inCol & 0x00FF0000) >> 16;
     UINT16 auxg = (inCol & 0x0000FF00) >> 8;
@@ -600,7 +553,7 @@ UINT16 CGameClass::CONV_32_15(UINT32 inCol)
     return SWAP_16(auxb | auxg | auxr);
 }
 
-UINT32 CGameClass::CONV_15ALT_32(UINT16 inCol)
+UINT32 CGameClass::CONV_RGB555BE_32(UINT16 inCol)
 {
     UINT32 auxa = (inCol & 0x8000) >> 15;
     UINT32 auxr = (inCol & 0x7C00) >> 10;
@@ -632,7 +585,7 @@ UINT32 CGameClass::CONV_15ALT_32(UINT16 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT16 CGameClass::CONV_32_15ALT(UINT32 inCol)
+UINT16 CGameClass::CONV_32_RGB555BE(UINT32 inCol)
 {
     UINT16 auxa = (inCol & 0xFF000000) >> 24;
     UINT16 auxb = (inCol & 0x00FF0000) >> 16;
@@ -728,7 +681,7 @@ UINT8 Convert32ToNEOGEO(UINT8 nColor)
     return nColorIndex;
 }
 
-UINT32 CGameClass::CONV_NEOGEO_32(UINT16 nColorData)
+UINT32 CGameClass::CONV_RGB666NeoGeo_32(UINT16 nColorData)
 {
     UINT8 darkbit =  (nColorData >> 0xf) & 0x01;
     UINT8 red1 =    ((nColorData >> 0xe) & 0x01) * 2;
@@ -752,7 +705,7 @@ UINT32 CGameClass::CONV_NEOGEO_32(UINT16 nColorData)
     return color;
 }
 
-UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
+UINT16 CGameClass::CONV_32_RGB666NeoGeo(UINT32 inCol)
 {
     UINT8 auxb = ((inCol & 0x00FF0000) >> 16);
     UINT8 auxg = ((inCol & 0x0000FF00) >> 8);
@@ -798,7 +751,7 @@ UINT8 Convert32ToSharpRGB(UINT8 nColor)
     return nColorIndex;
 }
 
-UINT32 CGameClass::CONV_SHARPRGB_32(UINT16 nColorData)
+UINT32 CGameClass::CONV_RGB555Sharp_32(UINT16 nColorData)
 {
     // raw view
     // RRRR GGGG BBBB RGB#
@@ -823,7 +776,7 @@ UINT32 CGameClass::CONV_SHARPRGB_32(UINT16 nColorData)
     return color;
 }
 
-UINT16 CGameClass::CONV_32_SHARPRGB(UINT32 inCol)
+UINT16 CGameClass::CONV_32_RGB555Sharp(UINT32 inCol)
 {
     UINT8 auxr = ((inCol & 0x00FF0000) >> 16);
     UINT8 auxg = ((inCol & 0x0000FF00) >> 8);
