@@ -7,6 +7,25 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
+const UINT16 TMNTTF_SNES_IMG_UNITS[] =
+{
+    indexTMNTTFSprites_Armaggon,        // 0x39
+    indexTMNTTFSprites_Aska,            // 0x3A
+    indexTMNTTFSprites_ChromeDome,      // 0x3B
+    indexTMNTTFSprites_CyberShredder,   // 0x3C
+    indexTMNTTFSprites_Donatello,       // 0x3D
+    indexTMNTTFSprites_FakeBrother,     // 0x3E
+    indexTMNTTFSprites_Karai,           // 0x3F
+    indexTMNTTFSprites_Leonardo,        // 0x40
+    indexTMNTTFSprites_Michelangelo,    // 0x41
+    indexTMNTTFSprites_Raphael,         // 0x42
+    indexTMNTTFSprites_RatKing,         // 0x43
+    indexTMNTTFSprites_War,             // 0x44
+    indexTMNTTFSprites_Wingnut,         // 0x45
+    indexTMNTTFSprites_Bonus,           // 0x46
+    indexTMNTTFSprites_Stages,          // 0x47
+};
+
 const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_P1[] =
 {
      { L"Leo P1", 0x0487bc, 0x0487dc },

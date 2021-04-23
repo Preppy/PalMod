@@ -13,10 +13,22 @@ const UINT16 LASTBLADE_A_IMG_UNITS[] =
     indexLastBlade2_Yuki,         // 0x1E8
     indexLastBlade2_Zantetsu,     // 0x1E9
 
-    indexLastBlade_Amano,           // 0x205
-    indexLastBlade_Musashi,         // 0x206
-    indexLastBlade_Okina,           // 0x207
-    indexLastBlade_Washizuka,       // 0x208
+    indexLastBladeSprites_Akari,    // 0x265
+    indexLastBladeSprites_Amano,    // 0x266
+    indexLastBladeSprites_Juzoh,    // 0x267
+    indexLastBladeSprites_Kaede,    // 0x268
+    indexLastBladeSprites_KaedeO,   // 0x269
+    indexLastBladeSprites_Kagami,   // 0x26A
+    indexLastBladeSprites_Lee,      // 0x26B
+    indexLastBladeSprites_Moriya,   // 0x26C
+    indexLastBladeSprites_Mukuro,   // 0x26D
+    indexLastBladeSprites_Musashi,  // 0x26E
+    indexLastBladeSprites_Okina,    // 0x26F
+    indexLastBladeSprites_Shigen,   // 0x270
+    indexLastBladeSprites_Washizuka, // 0x271
+    indexLastBladeSprites_Yuki,     // 0x272
+    indexLastBladeSprites_Zantetsu, // 0x273
+    indexLastBladeSprites_Bonus,    // 0x274
 };
 
 const sGame_PaletteDataset LASTBLADE_A_AKARI_PALETTES_PA[] =
@@ -57,24 +69,24 @@ const sGame_PaletteDataset LASTBLADE_A_AKARI_PALETTES_PA[] =
 
 const sGame_PaletteDataset LASTBLADE_A_AMANO_PALETTES_PA[] =
 {
-    { L"Main", 0xbd560, 0xbd580, indexLastBlade_Amano, 0x00, &pairNext },
-    { L"Weapon", 0xbd760, 0xbd780, indexLastBlade_Amano, 0x01 },
-    { L"Burned", 0xbd580, 0xbd5a0, indexLastBlade_Amano, 0x00, &pairNext },
-    { L"Weapon - Burned", 0xbd780, 0xbd7a0, indexLastBlade_Amano, 0x01 },
-    { L"Cursed", 0xbd5a0, 0xbd5c0, indexLastBlade_Amano, 0x00, &pairNext },
-    { L"Weapon - Cursed", 0xbd7a0, 0xbd7c0, indexLastBlade_Amano, 0x01 },
-    { L"Fandango", 0xbd5c0, 0xbd5e0, indexLastBlade_Amano, 0x00, &pairNext },
-    { L"Weapon - Fandango", 0xbd7c0, 0xbd7e0, indexLastBlade_Amano, 0x01 },
-    { L"Frozen", 0xbd5e0, 0xbd600, indexLastBlade_Amano, 0x00, &pairNext },
-    { L"Weapon - Frozen", 0xbd7e0, 0xbd800, indexLastBlade_Amano, 0x01 },
-    { L"Shocked", 0xbd600, 0xbd620, indexLastBlade_Amano, 0x00, &pairNext },
-    { L"Weapon - Shocked", 0xbd800, 0xbd820, indexLastBlade_Amano, 0x01 },
-    { L"Zombie", 0xbd620, 0xbd640, indexLastBlade_Amano, 0x00, &pairNext },
-    { L"Weapon - Zombie", 0xbd820, 0xbd840, indexLastBlade_Amano, 0x01 },
-    { L"Blink", 0xbd640, 0xbd660, indexLastBlade_Amano, 0x00, &pairNext },
-    { L"Weapon - Blink", 0xbd840, 0xbd860, indexLastBlade_Amano, 0x01 },
-    { L"Deflect", 0xbd660, 0xbd680, indexLastBlade_Amano, 0x00, &pairNext },
-    { L"Weapon - Deflect", 0xbd860, 0xbd880, indexLastBlade_Amano, 0x01 },
+    { L"Main", 0xbd560, 0xbd580, indexLastBladeSprites_Amano, 0x00, &pairNext },
+    { L"Weapon", 0xbd760, 0xbd780, indexLastBladeSprites_Amano, 0x01 },
+    { L"Burned", 0xbd580, 0xbd5a0, indexLastBladeSprites_Amano, 0x00, &pairNext },
+    { L"Weapon - Burned", 0xbd780, 0xbd7a0, indexLastBladeSprites_Amano, 0x01 },
+    { L"Cursed", 0xbd5a0, 0xbd5c0, indexLastBladeSprites_Amano, 0x00, &pairNext },
+    { L"Weapon - Cursed", 0xbd7a0, 0xbd7c0, indexLastBladeSprites_Amano, 0x01 },
+    { L"Fandango", 0xbd5c0, 0xbd5e0, indexLastBladeSprites_Amano, 0x00, &pairNext },
+    { L"Weapon - Fandango", 0xbd7c0, 0xbd7e0, indexLastBladeSprites_Amano, 0x01 },
+    { L"Frozen", 0xbd5e0, 0xbd600, indexLastBladeSprites_Amano, 0x00, &pairNext },
+    { L"Weapon - Frozen", 0xbd7e0, 0xbd800, indexLastBladeSprites_Amano, 0x01 },
+    { L"Shocked", 0xbd600, 0xbd620, indexLastBladeSprites_Amano, 0x00, &pairNext },
+    { L"Weapon - Shocked", 0xbd800, 0xbd820, indexLastBladeSprites_Amano, 0x01 },
+    { L"Zombie", 0xbd620, 0xbd640, indexLastBladeSprites_Amano, 0x00, &pairNext },
+    { L"Weapon - Zombie", 0xbd820, 0xbd840, indexLastBladeSprites_Amano, 0x01 },
+    { L"Blink", 0xbd640, 0xbd660, indexLastBladeSprites_Amano, 0x00, &pairNext },
+    { L"Weapon - Blink", 0xbd840, 0xbd860, indexLastBladeSprites_Amano, 0x01 },
+    { L"Deflect", 0xbd660, 0xbd680, indexLastBladeSprites_Amano, 0x00, &pairNext },
+    { L"Weapon - Deflect", 0xbd860, 0xbd880, indexLastBladeSprites_Amano, 0x01 },
     { L"Extra 1", 0xbd680, 0xbd6a0 },
     { L"Extra 2", 0xbd6a0, 0xbd6c0 },
     { L"Extra 3", 0xbd6c0, 0xbd6e0 },
@@ -309,24 +321,24 @@ const sGame_PaletteDataset LASTBLADE_A_MUKURO_PALETTES_PA[] =
 
 const sGame_PaletteDataset LASTBLADE_A_MUSASHI_PALETTES_PA[] =
 {
-    { L"Main", 0xc2960, 0xc2980, indexLastBlade_Musashi, 0x00, &pairNext },
-    { L"Weapon", 0xc2b60, 0xc2b80, indexLastBlade_Musashi, 0x01 },
-    { L"Burned", 0xc2980, 0xc29a0, indexLastBlade_Musashi, 0x00, &pairNext },
-    { L"Weapon - Burned", 0xc2b80, 0xc2ba0, indexLastBlade_Musashi, 0x01 },
-    { L"Cursed", 0xc29a0, 0xc29c0, indexLastBlade_Musashi, 0x00, &pairNext },
-    { L"Weapon - Cursed", 0xc2ba0, 0xc2bc0, indexLastBlade_Musashi, 0x01 },
-    { L"Fandango", 0xc29c0, 0xc29e0, indexLastBlade_Musashi, 0x00, &pairNext },
-    { L"Weapon - Fandango", 0xc2bc0, 0xc2be0, indexLastBlade_Musashi, 0x01 },
-    { L"Frozen", 0xc29e0, 0xc2a00, indexLastBlade_Musashi, 0x00, &pairNext },
-    { L"Weapon - Frozen", 0xc2be0, 0xc2c00, indexLastBlade_Musashi, 0x01 },
-    { L"Shocked", 0xc2a00, 0xc2a20, indexLastBlade_Musashi, 0x00, &pairNext },
-    { L"Weapon - Shocked", 0xc2c00, 0xc2c20, indexLastBlade_Musashi, 0x01 },
-    { L"Zombie", 0xc2a20, 0xc2a40, indexLastBlade_Musashi, 0x00, &pairNext },
-    { L"Weapon - Zombie", 0xc2c20, 0xc2c40, indexLastBlade_Musashi, 0x01 },
-    { L"Blink", 0xc2a40, 0xc2a60, indexLastBlade_Musashi, 0x00, &pairNext },
-    { L"Weapon - Blink", 0xc2c40, 0xc2c60, indexLastBlade_Musashi, 0x01 },
-    { L"Deflect", 0xc2a60, 0xc2a80, indexLastBlade_Musashi, 0x00, &pairNext },
-    { L"Weapon - Deflect", 0xc2c60, 0xc2c80, indexLastBlade_Musashi, 0x01 },
+    { L"Main", 0xc2960, 0xc2980, indexLastBladeSprites_Musashi, 0x00, &pairNext },
+    { L"Weapon", 0xc2b60, 0xc2b80, indexLastBladeSprites_Musashi, 0x01 },
+    { L"Burned", 0xc2980, 0xc29a0, indexLastBladeSprites_Musashi, 0x00, &pairNext },
+    { L"Weapon - Burned", 0xc2b80, 0xc2ba0, indexLastBladeSprites_Musashi, 0x01 },
+    { L"Cursed", 0xc29a0, 0xc29c0, indexLastBladeSprites_Musashi, 0x00, &pairNext },
+    { L"Weapon - Cursed", 0xc2ba0, 0xc2bc0, indexLastBladeSprites_Musashi, 0x01 },
+    { L"Fandango", 0xc29c0, 0xc29e0, indexLastBladeSprites_Musashi, 0x00, &pairNext },
+    { L"Weapon - Fandango", 0xc2bc0, 0xc2be0, indexLastBladeSprites_Musashi, 0x01 },
+    { L"Frozen", 0xc29e0, 0xc2a00, indexLastBladeSprites_Musashi, 0x00, &pairNext },
+    { L"Weapon - Frozen", 0xc2be0, 0xc2c00, indexLastBladeSprites_Musashi, 0x01 },
+    { L"Shocked", 0xc2a00, 0xc2a20, indexLastBladeSprites_Musashi, 0x00, &pairNext },
+    { L"Weapon - Shocked", 0xc2c00, 0xc2c20, indexLastBladeSprites_Musashi, 0x01 },
+    { L"Zombie", 0xc2a20, 0xc2a40, indexLastBladeSprites_Musashi, 0x00, &pairNext },
+    { L"Weapon - Zombie", 0xc2c20, 0xc2c40, indexLastBladeSprites_Musashi, 0x01 },
+    { L"Blink", 0xc2a40, 0xc2a60, indexLastBladeSprites_Musashi, 0x00, &pairNext },
+    { L"Weapon - Blink", 0xc2c40, 0xc2c60, indexLastBladeSprites_Musashi, 0x01 },
+    { L"Deflect", 0xc2a60, 0xc2a80, indexLastBladeSprites_Musashi, 0x00, &pairNext },
+    { L"Weapon - Deflect", 0xc2c60, 0xc2c80, indexLastBladeSprites_Musashi, 0x01 },
     { L"Extra 1", 0xc2a80, 0xc2aa0 },
     { L"Extra 2", 0xc2aa0, 0xc2ac0 },
     { L"Extra 3", 0xc2ac0, 0xc2ae0 },
@@ -345,24 +357,24 @@ const sGame_PaletteDataset LASTBLADE_A_MUSASHI_PALETTES_PA[] =
 
 const sGame_PaletteDataset LASTBLADE_A_OKINA_PALETTES_PA[] =
 {
-    { L"Main", 0xb4620, 0xb4640, indexLastBlade_Okina, 0x00, &pairNext },
-    { L"Weapon", 0xb4820, 0xb4840, indexLastBlade_Okina, 0x01 },
-    { L"Burned", 0xb4640, 0xb4660, indexLastBlade_Okina, 0x00, &pairNext },
-    { L"Weapon - Burned", 0xb4840, 0xb4860, indexLastBlade_Okina, 0x01 },
-    { L"Cursed", 0xb4660, 0xb4680, indexLastBlade_Okina, 0x00, &pairNext },
-    { L"Weapon - Cursed", 0xb4860, 0xb4880, indexLastBlade_Okina, 0x01 },
-    { L"Fandango", 0xb4680, 0xb46a0, indexLastBlade_Okina, 0x00, &pairNext },
-    { L"Weapon - Fandango", 0xb4880, 0xb48a0, indexLastBlade_Okina, 0x01 },
-    { L"Frozen", 0xb46a0, 0xb46c0, indexLastBlade_Okina, 0x00, &pairNext },
-    { L"Weapon - Frozen", 0xb48a0, 0xb48c0, indexLastBlade_Okina, 0x01 },
-    { L"Shocked", 0xb46c0, 0xb46e0, indexLastBlade_Okina, 0x00, &pairNext },
-    { L"Weapon - Shocked", 0xb48c0, 0xb48e0, indexLastBlade_Okina, 0x01 },
-    { L"Zombie", 0xb46e0, 0xb4700, indexLastBlade_Okina, 0x00, &pairNext },
-    { L"Weapon - Zombie", 0xb48e0, 0xb4900, indexLastBlade_Okina, 0x01 },
-    { L"Blink", 0xb4700, 0xb4720, indexLastBlade_Okina, 0x00, &pairNext },
-    { L"Weapon - Blink", 0xb4900, 0xb4920, indexLastBlade_Okina, 0x01 },
-    { L"Deflect", 0xb4720, 0xb4740, indexLastBlade_Okina, 0x00, &pairNext },
-    { L"Weapon - Deflect", 0xb4920, 0xb4940, indexLastBlade_Okina, 0x01 },
+    { L"Main", 0xb4620, 0xb4640, indexLastBladeSprites_Okina, 0x00, &pairNext },
+    { L"Weapon", 0xb4820, 0xb4840, indexLastBladeSprites_Okina, 0x01 },
+    { L"Burned", 0xb4640, 0xb4660, indexLastBladeSprites_Okina, 0x00, &pairNext },
+    { L"Weapon - Burned", 0xb4840, 0xb4860, indexLastBladeSprites_Okina, 0x01 },
+    { L"Cursed", 0xb4660, 0xb4680, indexLastBladeSprites_Okina, 0x00, &pairNext },
+    { L"Weapon - Cursed", 0xb4860, 0xb4880, indexLastBladeSprites_Okina, 0x01 },
+    { L"Fandango", 0xb4680, 0xb46a0, indexLastBladeSprites_Okina, 0x00, &pairNext },
+    { L"Weapon - Fandango", 0xb4880, 0xb48a0, indexLastBladeSprites_Okina, 0x01 },
+    { L"Frozen", 0xb46a0, 0xb46c0, indexLastBladeSprites_Okina, 0x00, &pairNext },
+    { L"Weapon - Frozen", 0xb48a0, 0xb48c0, indexLastBladeSprites_Okina, 0x01 },
+    { L"Shocked", 0xb46c0, 0xb46e0, indexLastBladeSprites_Okina, 0x00, &pairNext },
+    { L"Weapon - Shocked", 0xb48c0, 0xb48e0, indexLastBladeSprites_Okina, 0x01 },
+    { L"Zombie", 0xb46e0, 0xb4700, indexLastBladeSprites_Okina, 0x00, &pairNext },
+    { L"Weapon - Zombie", 0xb48e0, 0xb4900, indexLastBladeSprites_Okina, 0x01 },
+    { L"Blink", 0xb4700, 0xb4720, indexLastBladeSprites_Okina, 0x00, &pairNext },
+    { L"Weapon - Blink", 0xb4900, 0xb4920, indexLastBladeSprites_Okina, 0x01 },
+    { L"Deflect", 0xb4720, 0xb4740, indexLastBladeSprites_Okina, 0x00, &pairNext },
+    { L"Weapon - Deflect", 0xb4920, 0xb4940, indexLastBladeSprites_Okina, 0x01 },
     { L"Extra 1", 0xb4740, 0xb4760 },
     { L"Extra 2", 0xb4760, 0xb4780 },
     { L"Extra 3", 0xb4780, 0xb47a0 },
@@ -417,24 +429,24 @@ const sGame_PaletteDataset LASTBLADE_A_SHIGEN_PALETTES_PA[] =
 
 const sGame_PaletteDataset LASTBLADE_A_WASHIZUKA_PALETTES_PA[] =
 {
-    { L"Main", 0xb8520, 0xb8540, indexLastBlade_Washizuka, 0x00, &pairNext },
-    { L"Weapon", 0xb8720, 0xb8740, indexLastBlade_Washizuka, 0x01 },
-    { L"Burned", 0xb8540, 0xb8560, indexLastBlade_Washizuka, 0x00, &pairNext },
-    { L"Weapon - Burned", 0xb8740, 0xb8760, indexLastBlade_Washizuka, 0x01 },
-    { L"Cursed", 0xb8560, 0xb8580, indexLastBlade_Washizuka, 0x00, &pairNext },
-    { L"Weapon - Cursed", 0xb8760, 0xb8780, indexLastBlade_Washizuka, 0x01 },
-    { L"Fandango", 0xb8580, 0xb85a0, indexLastBlade_Washizuka, 0x00, &pairNext },
-    { L"Weapon - Fandango", 0xb8780, 0xb87a0, indexLastBlade_Washizuka, 0x01 },
-    { L"Frozen", 0xb85a0, 0xb85c0, indexLastBlade_Washizuka, 0x00, &pairNext },
-    { L"Weapon - Frozen", 0xb87a0, 0xb87c0, indexLastBlade_Washizuka, 0x01 },
-    { L"Shocked", 0xb85c0, 0xb85e0, indexLastBlade_Washizuka, 0x00, &pairNext },
-    { L"Weapon - Shocked", 0xb87c0, 0xb87e0, indexLastBlade_Washizuka, 0x01 },
-    { L"Zombie", 0xb85e0, 0xb8600, indexLastBlade_Washizuka, 0x00, &pairNext },
-    { L"Weapon - Zombie", 0xb87e0, 0xb8800, indexLastBlade_Washizuka, 0x01 },
-    { L"Blink", 0xb8600, 0xb8620, indexLastBlade_Washizuka, 0x00, &pairNext },
-    { L"Weapon - Blink", 0xb8800, 0xb8820, indexLastBlade_Washizuka, 0x01 },
-    { L"Deflect", 0xb8620, 0xb8640, indexLastBlade_Washizuka, 0x00, &pairNext },
-    { L"Weapon - Deflect", 0xb8820, 0xb8840, indexLastBlade_Washizuka, 0x01 },
+    { L"Main", 0xb8520, 0xb8540, indexLastBladeSprites_Washizuka, 0x00, &pairNext },
+    { L"Weapon", 0xb8720, 0xb8740, indexLastBladeSprites_Washizuka, 0x01 },
+    { L"Burned", 0xb8540, 0xb8560, indexLastBladeSprites_Washizuka, 0x00, &pairNext },
+    { L"Weapon - Burned", 0xb8740, 0xb8760, indexLastBladeSprites_Washizuka, 0x01 },
+    { L"Cursed", 0xb8560, 0xb8580, indexLastBladeSprites_Washizuka, 0x00, &pairNext },
+    { L"Weapon - Cursed", 0xb8760, 0xb8780, indexLastBladeSprites_Washizuka, 0x01 },
+    { L"Fandango", 0xb8580, 0xb85a0, indexLastBladeSprites_Washizuka, 0x00, &pairNext },
+    { L"Weapon - Fandango", 0xb8780, 0xb87a0, indexLastBladeSprites_Washizuka, 0x01 },
+    { L"Frozen", 0xb85a0, 0xb85c0, indexLastBladeSprites_Washizuka, 0x00, &pairNext },
+    { L"Weapon - Frozen", 0xb87a0, 0xb87c0, indexLastBladeSprites_Washizuka, 0x01 },
+    { L"Shocked", 0xb85c0, 0xb85e0, indexLastBladeSprites_Washizuka, 0x00, &pairNext },
+    { L"Weapon - Shocked", 0xb87c0, 0xb87e0, indexLastBladeSprites_Washizuka, 0x01 },
+    { L"Zombie", 0xb85e0, 0xb8600, indexLastBladeSprites_Washizuka, 0x00, &pairNext },
+    { L"Weapon - Zombie", 0xb87e0, 0xb8800, indexLastBladeSprites_Washizuka, 0x01 },
+    { L"Blink", 0xb8600, 0xb8620, indexLastBladeSprites_Washizuka, 0x00, &pairNext },
+    { L"Weapon - Blink", 0xb8800, 0xb8820, indexLastBladeSprites_Washizuka, 0x01 },
+    { L"Deflect", 0xb8620, 0xb8640, indexLastBladeSprites_Washizuka, 0x00, &pairNext },
+    { L"Weapon - Deflect", 0xb8820, 0xb8840, indexLastBladeSprites_Washizuka, 0x01 },
     { L"Extra 1", 0xb8640, 0xb8660 },
     { L"Extra 2", 0xb8660, 0xb8680 },
     { L"Extra 3", 0xb8680, 0xb86a0 },

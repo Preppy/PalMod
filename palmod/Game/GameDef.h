@@ -1941,7 +1941,28 @@ enum KOFSpriteList
     indexLastBladeSprites_Yuki,     // 0x272
     indexLastBladeSprites_Zantetsu, // 0x273
     indexLastBladeSprites_Bonus,    // 0x274
+
     indexLastBlade2Sprites_KaedeO,  // 0x275
+
+    indexRBFF2Sprites_Andy,         // 0x276
+    indexRBFF2Sprites_Billy,        // 0x277
+    indexRBFF2Sprites_BlueMary,     // 0x278
+    indexRBFF2Sprites_Bob,          // 0x279
+    indexRBFF2Sprites_Cheng,        // 0x27A
+    indexRBFF2Sprites_Chonrei,      // 0x27B
+    indexRBFF2Sprites_Chonshu,      // 0x27C
+    indexRBFF2Sprites_DuckKing,     // 0x27D
+    indexRBFF2Sprites_Franco,       // 0x27E
+    indexRBFF2Sprites_Geese,        // 0x27F
+    indexRBFF2Sprites_HonFu,        // 0x280
+    indexRBFF2Sprites_Joe,          // 0x281
+    indexRBFF2Sprites_Kim,          // 0x282
+    indexRBFF2Sprites_Krauser,      // 0x283
+    indexRBFF2Sprites_Laurence,     // 0x284
+    indexRBFF2Sprites_Mai,          // 0x285
+    indexRBFF2Sprites_Sokaku,       // 0x286
+    indexRBFF2Sprites_Tung,         // 0x287
+    indexRBFF2Sprites_Yamazaki,     // 0x288
 };
 
 const UINT16 RBFFS_A_IMG_UNITS[] =
@@ -1970,6 +1991,26 @@ const UINT16 RBFFS_A_IMG_UNITS[] =
     indexRBFF2Sprites_Alfred,       // 0x1f2
     indexRBFF2Sprites_Rick,         // 0x1f3
     indexRBFF2Sprites_Xiangfei,     // 0x1f4
+
+    indexRBFF2Sprites_Andy,         // 0x276
+    indexRBFF2Sprites_Billy,        // 0x277
+    indexRBFF2Sprites_BlueMary,     // 0x278
+    indexRBFF2Sprites_Bob,          // 0x279
+    indexRBFF2Sprites_Cheng,        // 0x27A
+    indexRBFF2Sprites_Chonrei,      // 0x27B
+    indexRBFF2Sprites_Chonshu,      // 0x27C
+    indexRBFF2Sprites_DuckKing,     // 0x27D
+    indexRBFF2Sprites_Franco,       // 0x27E
+    indexRBFF2Sprites_Geese,        // 0x27F
+    indexRBFF2Sprites_HonFu,        // 0x280
+    indexRBFF2Sprites_Joe,          // 0x281
+    indexRBFF2Sprites_Kim,          // 0x282
+    indexRBFF2Sprites_Krauser,      // 0x283
+    indexRBFF2Sprites_Laurence,     // 0x284
+    indexRBFF2Sprites_Mai,          // 0x285
+    indexRBFF2Sprites_Sokaku,       // 0x286
+    indexRBFF2Sprites_Tung,         // 0x287
+    indexRBFF2Sprites_Yamazaki,     // 0x288
 };
 
 // This is used for portrait references within the 02UMExtras unit
@@ -2414,6 +2455,22 @@ enum SupportedSNES_PaletteListIndex
     indexMSHWOTGSprites_Sasquatch,      // 0x36
     indexMSHWOTGSprites_TheThing,       // 0x37
     indexMSHWOTGSprites_Bonus,          // 0x38
+
+    indexTMNTTFSprites_Armaggon,        // 0x39
+    indexTMNTTFSprites_Aska,            // 0x3A
+    indexTMNTTFSprites_ChromeDome,      // 0x3B
+    indexTMNTTFSprites_CyberShredder,   // 0x3C
+    indexTMNTTFSprites_Donatello,       // 0x3D
+    indexTMNTTFSprites_FakeBrother,     // 0x3E
+    indexTMNTTFSprites_Karai,           // 0x3F
+    indexTMNTTFSprites_Leonardo,        // 0x40
+    indexTMNTTFSprites_Michelangelo,    // 0x41
+    indexTMNTTFSprites_Raphael,         // 0x42
+    indexTMNTTFSprites_RatKing,         // 0x43
+    indexTMNTTFSprites_War,             // 0x44
+    indexTMNTTFSprites_Wingnut,         // 0x45
+    indexTMNTTFSprites_Bonus,           // 0x46
+    indexTMNTTFSprites_Stages,          // 0x47
 };
 
 enum SupportedNEOGEO_PaletteListIndex

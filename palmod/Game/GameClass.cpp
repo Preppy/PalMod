@@ -467,10 +467,6 @@ UINT16 CGameClass::CONV_32_RGB444BE(UINT32 inCol)
     UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
     UINT16 auxr = ((inCol & 0x000000FF));
 
-    auxr = (auxr > (15 * 17)) ? (15 * 17) : auxr;
-    auxg = (auxg > (15 * 17)) ? (15 * 17) : auxg;
-    auxb = (auxb > (15 * 17)) ? (15 * 17) : auxb;
-
     auxr = (UINT16)round(auxr / 17.0);
     auxg = (UINT16)round(auxg / 17.0);
     auxb = (UINT16)round(auxb / 17.0);
@@ -485,7 +481,6 @@ UINT16 CGameClass::CONV_32_RGB444BE(UINT32 inCol)
     }
     else
     {
-        auxa = (auxa > (15 * 17)) ? (15 * 17) : auxa;
         auxa = (UINT16)round(auxa / 17.0);
         auxa = auxa << 12;
     }

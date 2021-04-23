@@ -22,6 +22,8 @@ const UINT16 LASTBLADE2_A_IMG_UNITS[] =
     indexLastBlade2_Zantetsu,     // 0x1E9
     indexLastBlade2_Bonus,        // 0x1EA
     indexLastBlade2_Stages,       // 0x1EB
+
+    indexLastBlade2Sprites_KaedeO,  // 0x275
 };
 
 //O.Kaede and Kaede share palettes

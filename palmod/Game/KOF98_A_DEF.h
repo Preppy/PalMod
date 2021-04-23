@@ -2815,6 +2815,14 @@ const sGame_PaletteDataset KOF98_A_BONUS_INTRO_PALETTES[] =
     { L"The Slugfest Intro Logo", 0x2f4ed0, 0x2f4fd0 },
 };
 
+const sGame_PaletteDataset KOF98_A_BONUS_EFFECTS_PALETTES[] =
+{
+    { L"Main Fire Palette",     0x2ff5f0, 0x2ff7f0 },
+    { L"Orochi Fire Palette",   0x2ff7f0, 0x2ff9f0 },
+    { L"SDM Super Flash",       0x2ffbf0, 0x2ffdf0 },
+    { L"MAX Super Flash",       0x2ffdf0, 0x2ffff0 },
+};
+
 const sDescTreeNode KOF98_A_KYO_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)KOF98_A_KYO_PALETTE_A, ARRAYSIZE(KOF98_A_KYO_PALETTE_A) },
@@ -3194,6 +3202,7 @@ const sDescTreeNode KOF98_A_BONUS_COLLECTION[] =
 {
     { L"In-Game Effects", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_INGAME_PALETTES, ARRAYSIZE(KOF98_A_BONUS_INGAME_PALETTES) },
     { L"Intro", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_INTRO_PALETTES, ARRAYSIZE(KOF98_A_BONUS_INTRO_PALETTES) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF98_A_BONUS_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_UNITS[] =

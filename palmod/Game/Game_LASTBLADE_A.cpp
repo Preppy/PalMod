@@ -166,17 +166,17 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
     const sLASTBLADE_A_CharacterDump LASTBLADE_A_CharacterOffsetArray[] =
     {
         { L"Akari",     0xb5b20, L"indexLastBlade2_Akari" },
-        { L"Amano",     0xbd560, L"indexLastBlade_Amano", },
+        { L"Amano",     0xbd560, L"indexLastBladeSprites_Amano", },
         { L"Juzoh",     0xB7020, L"indexLastBlade2_Juzoh" },
         { L"Kaede",     0xb0720, L"indexLastBlade2_Kaede" },
         { L"Kagami",    0xC3E60, L"indexLastBlade2_Shinnosuke" },
         { L"Lee",       0xBEA60, L"indexLastBlade2_LeeRekka" },
         { L"Moryia",    0xb1c20, L"indexLastBlade2_Moriya" },
         { L"Mukuro",    0xbc060, L"indexLastBlade2_Mukuro" },
-        { L"Musashi",   0xC2960, L"indexLastBlade_Musashi" },
-        { L"Okina",     0xb4620, L"indexLastBlade_Okina" },
+        { L"Musashi",   0xC2960, L"indexLastBladeSprites_Musashi" },
+        { L"Okina",     0xb4620, L"indexLastBladeSprites_Okina" },
         { L"Shigen",    0xC1460, L"indexLastBlade2_Shigen" },
-        { L"Washizuka", 0xB8520, L"indexLastBlade_Washizuka" },
+        { L"Washizuka", 0xB8520, L"indexLastBladeSprites_Washizuka" },
         { L"Yuki",      0xb3120, L"indexLastBlade2_Yuki" },
         { L"Zantetsu",  0xBFF60, L"indexLastBlade2_Zantetsu" },
     };

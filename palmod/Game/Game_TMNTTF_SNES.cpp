@@ -40,8 +40,8 @@ CGame_TMNTTF_SNES::CGame_TMNTTF_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = TMNTTF_SNES;
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = nullptr;  // TMNTTF_SNES_IMG_UNITS
-    nImgUnitAmt = 0; // ARRAYSIZE(TMNTTF_SNES_IMG_UNITS);
+    m_prgGameImageSet = TMNTTF_SNES_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(TMNTTF_SNES_IMG_UNITS);
 
     nFileAmt = 1;
 
