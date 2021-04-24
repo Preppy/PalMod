@@ -1941,12 +1941,6 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Select Screen - Blue Arrows",       0x709A80, 0x709B00, index3S_CPS3_Bonus, 0x14 },
     { L"Select Screen - Cursor Rings",      0x70A000, 0x070A080, index3S_CPS3_Bonus, 0x12 },
 
-    { L"VS Screen (1/6)",                   0x70a680, 0x70a880 },
-    { L"VS Screen (2/6)",                   0x70a880, 0x70aa80 },
-    { L"VS Screen (3/6)",                   0x70aa80, 0x70ac80 },
-    { L"VS Screen (4/6)",                   0x70ac80, 0x70ae80 },
-    { L"VS Screen (5/6)",                   0x70ae80, 0x70b080 },
-    { L"VS Screen (6/6)",                   0x70b080, 0x70b280 },
     { L"Vs Text",                           0x70C780, 0x70C880 },
 
     { L"Opening ring animation + SA Text",  0x709D00, 0x709D80 },
@@ -1959,7 +1953,17 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Basketball Sean Portrait",          0x70E780, 0x70E880, index3S_CPS3_Sean, 0x10 },
     { L"Basketball Sean Portrait (faded)",  0x713580, 0x713680, index3S_CPS3_Sean, 0x10 },
 
-    { L"Universal Zap Skeleton",            0x076ad00, 0x076ad80 },
+    { L"Universal Zap Skeleton",            0x76ad00, 0x76ad80, index3S_CPS3_Bonus, 0x15 },
+};
+
+const sGame_PaletteDataset SFIII3_A_BONUS_VSBG_PALETTES[] =
+{
+    { L"VS Screen (1/6)",                   0x70a680, 0x70a880, index3S_CPS3_Bonus, 0x16, &pairFullyLinkedNode },
+    { L"VS Screen (2/6)",                   0x70a880, 0x70aa80, index3S_CPS3_Bonus, 0x17 },
+    { L"VS Screen (3/6)",                   0x70aa80, 0x70ac80, index3S_CPS3_Bonus, 0x18 },
+    { L"VS Screen (4/6)",                   0x70ac80, 0x70ae80, index3S_CPS3_Bonus, 0x19 },
+    { L"VS Screen (5/6)",                   0x70ae80, 0x70b080, index3S_CPS3_Bonus, 0x1a },
+    { L"VS Screen (6/6)",                   0x70b080, 0x70b280, index3S_CPS3_Bonus, 0x1b },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUD_PALETTES[] =
@@ -2643,6 +2647,7 @@ const sDescTreeNode SFIII3_A_BONUS_COLLECTION[] =
     { L"HUD",                   DESC_NODETYPE_TREE, (void*)SFIII3_A_HUD_PALETTES, ARRAYSIZE(SFIII3_A_HUD_PALETTES) },
     { L"Super Meter",           DESC_NODETYPE_TREE, (void*)SFIII3_A_SUPERMETER_PALETTES, ARRAYSIZE(SFIII3_A_SUPERMETER_PALETTES) },
     { L"Judgement Girls",       DESC_NODETYPE_TREE, (void*)SFIII3_A_JGIRLS_PALETTES, ARRAYSIZE(SFIII3_A_JGIRLS_PALETTES) },
+    { L"Vs Screen BG",          DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_VSBG_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_VSBG_PALETTES) },
     { L"Bonus",                 DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_PALETTES) },
 };
 

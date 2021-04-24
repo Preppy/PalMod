@@ -58,8 +58,8 @@ CGame_RBFF2_A::CGame_RBFF2_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = RBFF2_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = RBFFS_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(RBFFS_A_IMG_UNITS);
+    m_prgGameImageSet = RBFF2_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(RBFF2_A_IMG_UNITS);
 
     nFileAmt = 1;
 
@@ -370,9 +370,9 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
 
     rbff2CharacterData rgCharacterData[] =
     {   //                                               base   bg     2      3     4       5      6      7     8      9       10    11   burn   13    elec  15
-        { L"Terry",     L"indexRBFFSSprites_Terry",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Terry",     L"indexRBFF2Sprites_Terry",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
         { L"Andy",      L"indexRBFFSSprites_Andy",    { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Joe",       L"indexRBFFSSprites_Joe",     { true, true, false, false, false, false, true, false, false, true, false, true, true, true, true, true } },
+        { L"Joe",       L"indexRBFF2Sprites_Joe",     { true, true, false, false, false, false, true, false, false, true, false, true, true, true, true, true } },
         { L"Mai",       L"indexRBFFSSprites_Mai",     { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
         { L"Geese",     L"indexRBFFSSprites_Geese",   { true, true, false, false, false, false, true, false, false, false, false, true, true, true, true, true } },
         { L"Sokaku",    L"indexRBFFSSprites_Sokaku",  { true, true, false, false, false, true, false, false, false, false, false, true, true, true, true, true } },
@@ -686,69 +686,5 @@ void CGame_RBFF2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
 BOOL CGame_RBFF2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
-    //Reset palette sources
-    ClearSrcPal();
-
-    if (Node01 == -1)
-    {
-        return FALSE;
-    }
-
-    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
-
-    if (NodeGet == nullptr)
-    {
-        return FALSE;
-    }
-
-    // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
-
-    //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
-
-    // Make sure to reset the image id
-    nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
-
-    // Only load images for internal units, since we don't currently have a methodology for associating
-    // external loads to internal sprites.
-    if (NodeGet->uUnitId != RBFF2_A_EXTRALOC)
-    {
-        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-
-        if (paletteDataSet)
-        {
-            nImgUnitId = paletteDataSet->indexImgToUse;
-            nTargetImgId = paletteDataSet->indexOffsetToUse;
-
-            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
-
-            if (pCurrentNode)
-            {
-                if ((_wcsicmp(pCurrentNode->szDesc, L"P1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"P2") == 0))
-                {
-                    nSrcAmt = 2;
-                    nNodeIncrement = pCurrentNode->uChildAmt;
-
-                    while (nSrcStart >= nNodeIncrement)
-                    {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1
-                        nSrcStart -= nNodeIncrement;
-                    }
-                }
-            }
-        }
-    }
-
-    //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-    CreateDefPal(NodeGet, 0);
-
-    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-
-    return TRUE;
+    return _UpdatePalImg(RBFF2_A_UNITS, rgExtraCountAll, RBFF2_A_NUMUNIT, RBFF2_A_EXTRALOC, RBFF2_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }

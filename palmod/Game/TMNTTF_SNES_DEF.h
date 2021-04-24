@@ -28,28 +28,28 @@ const UINT16 TMNTTF_SNES_IMG_UNITS[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_P1[] =
 {
-     { L"Leo P1", 0x0487bc, 0x0487dc },
+     { L"Leo P1", 0x0487bc, 0x0487dc, indexTMNTTFSprites_Leonardo, 0x00, &pairNext2 },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_P2[] =
 {
-    { L"Leo P2", 0x0487Dc, 0x0487FC },
+    { L"Leo P2", 0x0487Dc, 0x0487FC, indexTMNTTFSprites_Leonardo, 0x00, &pairNext },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_SHARED[] =
 {
-    { L"Leo Katanas", 0x0487Fc, 0x04880c },
-    { L"Leo FX", 0x04880c, 0x04882c },
+    { L"Leo Katanas", 0x0487Fc, 0x04880c, indexTMNTTFSprites_Leonardo, 0x01 },
+    { L"Leo FX", 0x04880c, 0x04882c, indexTMNTTFSprites_Leonardo, 0x02 },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_P1[] =
 {
-    { L"Ralph P1", 0x04882c, 0x04884C },
+    { L"Ralph P1", 0x04882c, 0x04884C, indexTMNTTFSprites_Raphael },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_P2[] =
 {
-    { L"Ralph P2", 0x04884c, 0x04886C },
+    { L"Ralph P2", 0x04884c, 0x04886C, indexTMNTTFSprites_Raphael },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_SHARED[] =
@@ -60,12 +60,12 @@ const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_P1[] =
 {
-    { L"Don P1", 0x04890c, 0x04892C },
+    { L"Don P1", 0x04890c, 0x04892C, indexTMNTTFSprites_Donatello },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_P2[] =
 {
-    { L"Don P2", 0x04892c, 0x04894C },
+    { L"Don P2", 0x04892c, 0x04894C, indexTMNTTFSprites_Donatello },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_SHARED[] =
@@ -76,12 +76,12 @@ const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_P1[] =
 {
-    { L"Mike P1", 0x04889c, 0x0488BC },
+    { L"Mike P1", 0x04889c, 0x0488BC, indexTMNTTFSprites_Michelangelo },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_P2[] =
 {
-    { L"Mike P2", 0x0488Bc, 0x0488DC },
+    { L"Mike P2", 0x0488Bc, 0x0488DC, indexTMNTTFSprites_Michelangelo },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_SHARED[] =
@@ -92,15 +92,15 @@ const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_SHREDDER_PALETTES_P1[] =
 {
-    { L"C. Shredder P1", 0x048450, 0x048470 },
-    { L"C. Shredder P1 FX 1", 0x048470, 0x04847e },
+    { L"C. Shredder P1", 0x048450, 0x048470, indexTMNTTFSprites_CyberShredder, 0x00, &pairNext },
+    { L"C. Shredder P1 FX 1", 0x048470, 0x04847e, indexTMNTTFSprites_CyberShredder, 0x01 },
     { L"C. Shredder P1 FX 2", 0x048480, 0x0484a0 },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_SHREDDER_PALETTES_P2[] =
 {
-    { L"C. Shredder P2", 0x0484A0, 0x0484C0 },
-    { L"C. Shredder P2 FX", 0x0484C0, 0x0484Ce },
+    { L"C. Shredder P2", 0x0484A0, 0x0484C0, indexTMNTTFSprites_CyberShredder, 0x00, &pairNext },
+    { L"C. Shredder P2 FX", 0x0484C0, 0x0484Ce, indexTMNTTFSprites_CyberShredder, 0x01 },
     { L"C. Shredder P2 FX 2", 0x0484d0, 0x0484F0 },
 };
 

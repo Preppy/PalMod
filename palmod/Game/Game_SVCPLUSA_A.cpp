@@ -940,7 +940,31 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (NodeGet->uUnitId == indexSVC_A_GoddessAthena)
+                if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                {
+                    const UINT16 nStageCount = _GetNodeSizeFromPaletteId(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, NodeGet->uUnitId, NodeGet->uPalId, SVCPLUSA_A_EXTRA_CUSTOM);
+
+                    fShouldUseAlternateLoadLogic = true;
+                    sImgTicket* pImgArray = nullptr;
+
+                    for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    {
+                        // The palettes get added forward, but the image tickets need to be generated in reverse order
+                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
+                        if (paletteDataSetToJoin)
+                        {
+                            pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
+
+                            //Set each palette
+                            sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                            CreateDefPal(JoinedNode, nStageIndex);
+                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                        }
+                    }
+
+                    ClearSetImgTicket(pImgArray);
+                }
+                else if (NodeGet->uUnitId == indexSVC_A_GoddessAthena)
                 {
                     fShouldUseAlternateLoadLogic = true;
 

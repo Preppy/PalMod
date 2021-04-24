@@ -259,7 +259,13 @@ BOOL CGame_GGXXACR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
     UINT16 nSrcStart = 0;
     UINT16 nSrcAmt = 1;
-    
+    UINT16 nNodeIncrement = 1;
+
+    //Get rid of any palettes if there are any
+    BasePalGroup.FlushPalAll();
+
+    bool fShouldUseAlternateLoadLogic = false;
+
     if (NodeGet->uPalId < GGXXACRCharacterData[NodeGet->uUnitId].nPaletteListSize)
     {
         // core palettes
@@ -277,16 +283,77 @@ BOOL CGame_GGXXACR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         nSrcAmt = 1;
         pButtonLabelSet = DEF_NOBUTTONS;
         m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
-        nImgUnitId = GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode].indexImgToUse;
-        nTargetImgId = GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode].indexOffsetToUse;
+        const sGame_PaletteDataset* paletteDataSet = &GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode];
+        nImgUnitId = paletteDataSet->indexImgToUse;
+        nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+        if (paletteDataSet->pPalettePairingInfo)
+        {
+            if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == 3)
+            {
+                const INT8 nPeerPaletteDistance1 = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                const INT8 nPeerPaletteDistance2 = paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner;
+                const sGame_PaletteDataset* paletteDataSetToJoin1 = &GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode + nPeerPaletteDistance1];
+                const sGame_PaletteDataset* paletteDataSetToJoin2 = &GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode + nPeerPaletteDistance2];
+                fShouldUseAlternateLoadLogic = true;
+
+                ClearSetImgTicket(
+                    CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                        CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse)
+                        ))
+                );
+
+                //Set each palette
+                sDescNode* JoinedNode[] = {
+                    GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                    GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
+                    GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
+                };
+
+                //Set each palette
+                CreateDefPal(JoinedNode[0], 0);
+                CreateDefPal(JoinedNode[1], 1);
+                CreateDefPal(JoinedNode[2], 2);
+
+                SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
+                SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
+            }
+            else
+            {
+                int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+                INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+
+                const sGame_PaletteDataset* paletteDataSetToJoin = &GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode + nPeerPaletteDistance];
+
+                if (paletteDataSetToJoin)
+                {
+                    fShouldUseAlternateLoadLogic = true;
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                        )
+                    );
+
+                    //Set each palette
+                    sDescNode* JoinedNode[2] = {
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                }
+            }
+        }
     }
-
-    UINT16 nNodeIncrement = 1;
-
-    //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
-
-    bool fShouldUseAlternateLoadLogic = false;
 
     if (!fShouldUseAlternateLoadLogic)
     {

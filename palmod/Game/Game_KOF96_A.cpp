@@ -210,8 +210,8 @@ sKOF96_A_PaletteData KOF96_A_CharacterEffectPalettes[] =
     { L"Mature",    0x107802, false, L"indexKOFSprites_98Mature" },
     { L"Vice",      0x107c02, false, L"indexKOFSprites_98Vice" },
     { L"Geese",     0x108002, false, L"indexKOFSprites_02Geese" },
-    { L"Krauser",   0x108402, false, L"INVALID_UNIT_VALUE" },
-    { L"Mr. Big",   0x108802, false, L"INVALID_UNIT_VALUE" },
+    { L"Krauser",   0x108402, false, L"indexKOF96Sprites_Krauser" },
+    { L"Mr. Big",   0x108802, false, L"indexKOF96Sprites_MrBig" },
     { L"Chizuru",   0x108c02, false, L"indexKOFSprites_98Chizuru" },
     { L"Goenitz",   0x109002, false, L"indexKOFSprites_02Goenitz" },
 };

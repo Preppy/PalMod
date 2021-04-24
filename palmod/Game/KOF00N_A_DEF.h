@@ -57,10 +57,8 @@ const UINT16 KOF00N_A_IMG_UNITS[] =
     // This uses a lot of KOF02 sprites because most of the KOF01 sprites don't exist
     // plus KOF00 uses a lot of characters as strikers
     indexKOFSprites_98Chizuru,
-    indexKOFSprites_98Rugal,
-    indexKOFSprites_98Saisyu,
     
-    indexKOF99Sprites_Andy,
+    indexKOF99Sprites_Andy,         // 0x17f
 
     indexKOFSprites_02UM_Bao,
     indexKOFSprites_02UM_Benimaru,
@@ -70,12 +68,10 @@ const UINT16 KOF00N_A_IMG_UNITS[] =
     indexKOFSprites_02UM_Chang,
     indexKOFSprites_02UM_Chin,
     indexKOFSprites_02UM_Choi,
-    indexKOFSprites_02UM_Chris,
     indexKOFSprites_02UM_Clark,
     indexKOFSprites_02UM_CloneZero,
     indexKOFSprites_02UM_Daimon,
     indexKOFSprites_02UM_Geese,
-    indexKOFSprites_02UM_Goenitz,
     indexKOFSprites_02UM_Hinako,
     indexKOFSprites_02UM_Iori,
     indexKOFSprites_02UM_Jhun,
@@ -89,22 +85,58 @@ const UINT16 KOF00N_A_IMG_UNITS[] =
     indexKOFSprites_02UM_Leona,
     indexKOFSprites_02UM_Lin,
     indexKOFSprites_02UM_Mai,
-    indexKOFSprites_02UM_Mature,
     indexKOFSprites_02UM_Ralf,
     indexKOFSprites_02UM_Robert,
     indexKOFSprites_02UM_Ryo,
     indexKOFSprites_02UM_Seth,
-    indexKOFSprites_02UM_Shermie,
     indexKOFSprites_02UM_Shingo,
     indexKOFSprites_02UM_Takuma,
     indexKOFSprites_02UM_Terry,
     indexKOFSprites_02UM_Vanessa,
-    indexKOFSprites_02UM_Vice,
     indexKOFSprites_02UM_Whip,
     indexKOFSprites_02UM_Xiangfei,
     indexKOFSprites_02UM_Yamazaki,
-    indexKOFSprites_02UM_Yashiro,
     indexKOFSprites_02UM_Yuri,
+
+    // these are used for game-unique portraits at least
+    indexKOF00Sprites_Andy,         // 0x206
+    indexKOF00Sprites_Athena,       // 0x207
+    indexKOF00Sprites_Bao,          // 0x208
+    indexKOF00Sprites_Benimaru,     // 0x209
+    indexKOF00Sprites_BlueMary,     // 0x20a
+    indexKOF00Sprites_Chang,        // 0x20b
+    indexKOF00Sprites_Chin,         // 0x20c
+    indexKOF00Sprites_Choi,         // 0x20d
+    indexKOF00Sprites_Clark,        // 0x20e
+    indexKOF00Sprites_CloneZero,    // 0x20f
+    indexKOF00Sprites_Hinako,       // 0x210
+    indexKOF00Sprites_Iori,         // 0x211
+    indexKOF00Sprites_JhunHoon,     // 0x212
+    indexKOF00Sprites_Joe,          // 0x213
+    indexKOF00Sprites_K,            // 0x214
+    indexKOF00Sprites_Kasumi,       // 0x215
+    indexKOF00Sprites_Kensou,       // 0x216
+    indexKOF00Sprites_Kim,          // 0x217
+    indexKOF00Sprites_King,         // 0x218
+    indexKOF00Sprites_Kula,         // 0x219
+    indexKOF00Sprites_Kyo,          // 0x21a
+    indexKOF00Sprites_Leona,        // 0x21b
+    indexKOF00Sprites_Lin,          // 0x21c
+    indexKOF00Sprites_Mai,          // 0x21d
+    indexKOF00Sprites_Maxima,       // 0x21e
+    indexKOF00Sprites_Ralf,         // 0x21f
+    indexKOF00Sprites_Ramon,        // 0x220
+    indexKOF00Sprites_Robert,       // 0x221
+    indexKOF00Sprites_Ryo,          // 0x222
+    indexKOF00Sprites_Seth,         // 0x223
+    indexKOF00Sprites_Shingo,       // 0x224
+    indexKOF00Sprites_Takuma,       // 0x225
+    indexKOF00Sprites_Terry,        // 0x226
+    indexKOF00Sprites_Vanessa,      // 0x227
+    indexKOF00Sprites_Whip,         // 0x228
+    indexKOF00Sprites_Yuri,         // 0x229
+    indexKOF00Sprites_Bonus,        // 0x22a
+    indexKOF00Sprites_Stages,       // 0x22b
 };
 
 // K'
@@ -159,16 +191,16 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_K_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_K_SelectPortrait[] =
 {
-    { L"K' A Select Portrait", 0xe76d0, 0xe7710 },
-    { L"K' B Select Portrait", 0xe7fd0, 0xe8010 },
-    { L"K' CD Select Portrait", 0xe88d0, 0xe8910 },
+    { L"K' A Select Portrait", 0xe76d0, 0xe7710, indexKOF00Sprites_K, 0x31 },
+    { L"K' B Select Portrait", 0xe7fd0, 0xe8010, indexKOF00Sprites_K, 0x31 },
+    { L"K' CD Select Portrait", 0xe88d0, 0xe8910, indexKOF00Sprites_K, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_K_WinPortrait[] =
 {
-    { L"K' A Win Portrait", 0xd6ff0, 0xd7030 },
-    { L"K' B Win Portrait", 0xd78f0, 0xd7930 },
-    { L"K' CD Win Portrait", 0xd81f0, 0xd8230 },
+    { L"K' A Win Portrait", 0xd6ff0, 0xd7030, indexKOF00Sprites_K, 0x30 },
+    { L"K' B Win Portrait", 0xd78f0, 0xd7930, indexKOF00Sprites_K, 0x30 },
+    { L"K' CD Win Portrait", 0xd81f0, 0xd8230, indexKOF00Sprites_K, 0x30 },
 };
 
 //Maxima
@@ -215,14 +247,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_MAXIMA_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MAXIMA_SelectPortrait[] =
 {
-    { L"Maxima A Select Portrait", 0xe7710, 0xe7750 },
-    { L"Maxima B Select Portrait", 0xe8010, 0xe8050 },
+    { L"Maxima A Select Portrait", 0xe7710, 0xe7750, indexKOF00Sprites_Maxima, 0x31 },
+    { L"Maxima B Select Portrait", 0xe8010, 0xe8050, indexKOF00Sprites_Maxima, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MAXIMA_WinPortrait[] =
 {
-    { L"Maxima A Win Portrait", 0xd7030, 0xd7070 },
-    { L"Maxima B Win Portrait", 0xd7930, 0xd7970 },
+    { L"Maxima A Win Portrait", 0xd7030, 0xd7070, indexKOF00Sprites_Maxima, 0x30 },
+    { L"Maxima B Win Portrait", 0xd7930, 0xd7970, indexKOF00Sprites_Maxima, 0x30 },
 };
 
 //Ramon
@@ -264,14 +296,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_RAMON_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RAMON_SelectPortrait[] =
 {
-    { L"Ramon A Select Portrait", 0xe7e10, 0xe7e50 },
-    { L"Ramon B Select Portrait", 0xe8710, 0xe8750 },
+    { L"Ramon A Select Portrait", 0xe7e10, 0xe7e50, indexKOF00Sprites_Ramon, 0x31 },
+    { L"Ramon B Select Portrait", 0xe8710, 0xe8750, indexKOF00Sprites_Ramon, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RAMON_WinPortrait[] =
 {
-    { L"Ramon A Win Portrait", 0xd7730, 0xd7770 },
-    { L"Ramon B Win Portrait", 0xd8030, 0xd8070 },
+    { L"Ramon A Win Portrait", 0xd7730, 0xd7770, indexKOF00Sprites_Ramon, 0x30 },
+    { L"Ramon B Win Portrait", 0xd8030, 0xd8070, indexKOF00Sprites_Ramon, 0x30 },
 };
 
 //Vanessa
@@ -295,10 +327,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_VANESSA_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_VANESSA_Striker[] =
 {
-    { L"Fio A", 0xd1550, 0xd1570 },
-    { L"Fio A Electric Shock Effect", 0xd1590, 0xd15b0 },
-    { L"Fio B", 0xd1750, 0xd1770 },
-    { L"Fio B Electric Shock Effect", 0xd1790, 0xd17b0 },
+    { L"Fio A", 0xd1550, 0xd1570, indexKOF00Sprites_Vanessa, 0x08 },
+    { L"Fio A Electric Shock Effect", 0xd1590, 0xd15b0, indexKOF00Sprites_Vanessa, 0x08 },
+    { L"Fio B", 0xd1750, 0xd1770, indexKOF00Sprites_Vanessa, 0x08 },
+    { L"Fio B Electric Shock Effect", 0xd1790, 0xd17b0, indexKOF00Sprites_Vanessa, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_VANESSA_LifebarPortrait[] =
@@ -309,14 +341,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_VANESSA_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_VANESSA_SelectPortrait[] =
 {
-    { L"Vanessa A Select Portrait", 0xe7e90, 0xe7ed0 },
-    { L"Vanessa B Select Portrait", 0xe8790, 0xe87d0 },
+    { L"Vanessa A Select Portrait", 0xe7e90, 0xe7ed0, indexKOF00Sprites_Vanessa, 0x31 },
+    { L"Vanessa B Select Portrait", 0xe8790, 0xe87d0, indexKOF00Sprites_Vanessa, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_VANESSA_WinPortrait[] =
 {
-    { L"Vanessa A Win Portrait", 0xd77b0, 0xd77f0 },
-    { L"Vanessa B Win Portrait", 0xd80b0, 0xd80f0 },
+    { L"Vanessa A Win Portrait", 0xd77b0, 0xd77f0, indexKOF00Sprites_Vanessa, 0x30 },
+    { L"Vanessa B Win Portrait", 0xd80b0, 0xd80f0, indexKOF00Sprites_Vanessa, 0x30 },
 };
 
 //Benimaru Nikaido
@@ -382,16 +414,16 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_BENIMARU_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_BENIMARU_SelectPortrait[] =
 {
-    { L"Benimaru A Select Portrait", 0xe7750, 0xe7790 },
-    { L"Benimaru B Select Portrait", 0xe8050, 0xe8090 },
-    { L"Benimaru CD Select Portrait", 0xe8950, 0xe8990 },
+    { L"Benimaru A Select Portrait", 0xe7750, 0xe7790, indexKOF00Sprites_Benimaru, 0x31 },
+    { L"Benimaru B Select Portrait", 0xe8050, 0xe8090, indexKOF00Sprites_Benimaru, 0x31 },
+    { L"Benimaru CD Select Portrait", 0xe8950, 0xe8990, indexKOF00Sprites_Benimaru, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_BENIMARU_WinPortrait[] =
 {
-    { L"Benimaru A Win Portrait", 0xd7070, 0xd70b0 },
-    { L"Benimaru B Win Portrait", 0xd7970, 0xd79b0 },
-    { L"Benimaru CD Win Portrait", 0xd8270, 0xd82b0 },
+    { L"Benimaru A Win Portrait", 0xd7070, 0xd70b0, indexKOF00Sprites_Benimaru, 0x30 },
+    { L"Benimaru B Win Portrait", 0xd7970, 0xd79b0, indexKOF00Sprites_Benimaru, 0x30 },
+    { L"Benimaru CD Win Portrait", 0xd8270, 0xd82b0, indexKOF00Sprites_Benimaru, 0x30 },
 };
 
 //Shingo Yabuki
@@ -415,10 +447,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_SHINGO_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_SHINGO_Striker[] =
 {
-    { L"Cosplayer Kyoko A", 0xca550, 0xca570 },
-    { L"Cosplayer Kyoko A Electric Shock Effect", 0xca590, 0xca5b0 },
-    { L"Cosplayer Kyoko B", 0xca750, 0xca770 },
-    { L"Cosplayer Kyoko B Electric Shock Effect", 0xca790, 0xca7b0 },
+    { L"Cosplayer Kyoko A", 0xca550, 0xca570, indexKOF00Sprites_Shingo, 0x08 },
+    { L"Cosplayer Kyoko A Electric Shock Effect", 0xca590, 0xca5b0, indexKOF00Sprites_Shingo, 0x08 },
+    { L"Cosplayer Kyoko B", 0xca750, 0xca770, indexKOF00Sprites_Shingo, 0x08 },
+    { L"Cosplayer Kyoko B Electric Shock Effect", 0xca790, 0xca7b0, indexKOF00Sprites_Shingo, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_SHINGO_LifebarPortrait[] =
@@ -429,14 +461,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_SHINGO_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_SHINGO_SelectPortrait[] =
 {
-    { L"Shingo A Select Portrait", 0xe7790, 0xe77d0 },
-    { L"Shingo B Select Portrait", 0xe8090, 0xe80d0 },
+    { L"Shingo A Select Portrait", 0xe7790, 0xe77d0, indexKOF00Sprites_Shingo, 0x31 },
+    { L"Shingo B Select Portrait", 0xe8090, 0xe80d0, indexKOF00Sprites_Shingo, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_SHINGO_WinPortrait[] =
 {
-    { L"Shingo A Win Portrait", 0xd70b0, 0xd70f0 },
-    { L"Shingo B Win Portrait", 0xd79b0, 0xd79f0 },
+    { L"Shingo A Win Portrait", 0xd70b0, 0xd70f0, indexKOF00Sprites_Shingo, 0x30 },
+    { L"Shingo B Win Portrait", 0xd79b0, 0xd79f0, indexKOF00Sprites_Shingo, 0x30 },
 };
 
 //Lin
@@ -485,14 +517,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_LIN_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_LIN_SelectPortrait[] =
 {
-    { L"Lin A Select Portrait", 0xe7ed0, 0xe7f10 },
-    { L"Lin B Select Portrait", 0xe87d0, 0xe8810 },
+    { L"Lin A Select Portrait", 0xe7ed0, 0xe7f10, indexKOF00Sprites_Lin, 0x31 },
+    { L"Lin B Select Portrait", 0xe87d0, 0xe8810, indexKOF00Sprites_Lin, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_LIN_WinPortrait[] =
 {
-    { L"Lin A Win Portrait", 0xd77f0, 0xd7830 },
-    { L"Lin B Win Portrait", 0xd80f0, 0xd8130 },
+    { L"Lin A Win Portrait", 0xd77f0, 0xd7830, indexKOF00Sprites_Lin, 0x30 },
+    { L"Lin B Win Portrait", 0xd80f0, 0xd8130, indexKOF00Sprites_Lin, 0x30 },
 };
 
 //Seth
@@ -537,14 +569,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_SETH_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_SETH_SelectPortrait[] =
 {
-    { L"Seth A Select Portrait", 0xe7f10, 0xe7f50 },
-    { L"Seth B Select Portrait", 0xe8810, 0xe8850 },
+    { L"Seth A Select Portrait", 0xe7f10, 0xe7f50, indexKOF00Sprites_Seth, 0x31 },
+    { L"Seth B Select Portrait", 0xe8810, 0xe8850, indexKOF00Sprites_Seth, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_SETH_WinPortrait[] =
 {
-    { L"Seth A Win Portrait", 0xd7830, 0xd7870 },
-    { L"Seth B Win Portrait", 0xd8130, 0xd8170 },
+    { L"Seth A Win Portrait", 0xd7830, 0xd7870, indexKOF00Sprites_Seth, 0x30 },
+    { L"Seth B Win Portrait", 0xd8130, 0xd8170, indexKOF00Sprites_Seth, 0x30 },
 };
 
 //Terry Bogard
@@ -602,16 +634,16 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_TERRY_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_TERRY_SelectPortrait[] =
 {
-    { L"Terry A Select Portrait", 0xe77d0, 0xe7810 },
-    { L"Terry B Select Portrait", 0xe80d0, 0xe8110 },
-    { L"Terry CD Select Portrait", 0xe89d0, 0xe8a10 },
+    { L"Terry A Select Portrait", 0xe77d0, 0xe7810, indexKOF00Sprites_Terry, 0x31 },
+    { L"Terry B Select Portrait", 0xe80d0, 0xe8110, indexKOF00Sprites_Terry, 0x31 },
+    { L"Terry CD Select Portrait", 0xe89d0, 0xe8a10, indexKOF00Sprites_Terry, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_TERRY_WinPortrait[] =
 {
-    { L"Terry A Win Portrait", 0xd70f0, 0xd7130 },
-    { L"Terry B Win Portrait", 0xd79f0, 0xd7a30 },
-    { L"Terry CD Win Portrait", 0xd82f0, 0xd8330 },
+    { L"Terry A Win Portrait", 0xd70f0, 0xd7130, indexKOF00Sprites_Terry, 0x30 },
+    { L"Terry B Win Portrait", 0xd79f0, 0xd7a30, indexKOF00Sprites_Terry, 0x30 },
+    { L"Terry CD Win Portrait", 0xd82f0, 0xd8330, indexKOF00Sprites_Terry, 0x30 },
 };
 
 //Andy Bogard
@@ -663,14 +695,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_SelectPortrait[] =
 {
-    { L"Andy A Select Portrait", 0xe7810, 0xe7850 },
-    { L"Andy B Select Portrait", 0xe8110, 0xe8150 },
+    { L"Andy A Select Portrait", 0xe7810, 0xe7850, indexKOF00Sprites_Andy, 0x31 },
+    { L"Andy B Select Portrait", 0xe8110, 0xe8150, indexKOF00Sprites_Andy, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_WinPortrait[] =
 {
-    { L"Andy A Win Portrait", 0xd7130, 0xd7170 },
-    { L"Andy B Win Portrait", 0xd7a30, 0xd7a70 },
+    { L"Andy A Win Portrait", 0xd7130, 0xd7170, indexKOF00Sprites_Andy, 0x30 },
+    { L"Andy B Win Portrait", 0xd7a30, 0xd7a70, indexKOF00Sprites_Andy, 0x30 },
 };
 
 //Joe Higashi
@@ -716,14 +748,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_JOE_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_JOE_SelectPortrait[] =
 {
-    { L"Joe A Select Portrait", 0xe7850, 0xe7890 },
-    { L"Joe B Select Portrait", 0xe8150, 0xe8190 },
+    { L"Joe A Select Portrait", 0xe7850, 0xe7890, indexKOF00Sprites_Joe, 0x31 },
+    { L"Joe B Select Portrait", 0xe8150, 0xe8190, indexKOF00Sprites_Joe, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_JOE_WinPortrait[] =
 {
-    { L"Joe A Win Portrait", 0xd7170, 0xd71b0 },
-    { L"Joe B Win Portrait", 0xd7a70, 0xd7ab0 },
+    { L"Joe A Win Portrait", 0xd7170, 0xd71b0, indexKOF00Sprites_Joe, 0x30 },
+    { L"Joe B Win Portrait", 0xd7a70, 0xd7ab0, indexKOF00Sprites_Joe, 0x30 },
 };
 
 //Blue Mary
@@ -783,16 +815,16 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_MARY_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MARY_SelectPortrait[] =
 {
-    { L"Mary A Select Portrait", 0xe7c10, 0xe7c50 },
-    { L"Mary B Select Portrait", 0xe8510, 0xe8550 },
-    { L"Mary CD Select Portrait", 0xe8e10, 0xe8e50 },
+    { L"Mary A Select Portrait", 0xe7c10, 0xe7c50, indexKOF00Sprites_BlueMary, 0x31 },
+    { L"Mary B Select Portrait", 0xe8510, 0xe8550, indexKOF00Sprites_BlueMary, 0x31 },
+    { L"Mary CD Select Portrait", 0xe8e10, 0xe8e50, indexKOF00Sprites_BlueMary, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MARY_WinPortrait[] =
 {
-    { L"Mary A Win Portrait", 0xd7530, 0xd7570 },
-    { L"Mary B Win Portrait", 0xd7e30, 0xd7e70 },
-    { L"Mary CD Win Portrait", 0xd8730, 0xd8770 },
+    { L"Mary A Win Portrait", 0xd7530, 0xd7570, indexKOF00Sprites_BlueMary, 0x30 },
+    { L"Mary B Win Portrait", 0xd7e30, 0xd7e70, indexKOF00Sprites_BlueMary, 0x30 },
+    { L"Mary CD Win Portrait", 0xd8730, 0xd8770, indexKOF00Sprites_BlueMary, 0x30 },
 };
 
 //Ryo Sakazaki
@@ -858,16 +890,16 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_RYO_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RYO_SelectPortrait[] =
 {
-    { L"Ryo A Select Portrait", 0xe78d0, 0xe7910 },
-    { L"Ryo B Select Portrait", 0xe81d0, 0xe8210 },
-    { L"Ryo CD Select Portrait", 0xe8ad0, 0xe8b10 },
+    { L"Ryo A Select Portrait", 0xe78d0, 0xe7910, indexKOF00Sprites_Ryo, 0x31 },
+    { L"Ryo B Select Portrait", 0xe81d0, 0xe8210, indexKOF00Sprites_Ryo, 0x31 },
+    { L"Ryo CD Select Portrait", 0xe8ad0, 0xe8b10, indexKOF00Sprites_Ryo, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RYO_WinPortrait[] =
 {
-    { L"Ryo A Win Portrait", 0xd71f0, 0xd7230 },
-    { L"Ryo B Win Portrait", 0xd7af0, 0xd7b30 },
-    { L"Ryo CD Win Portrait", 0xd83f0, 0xd8430 },
+    { L"Ryo A Win Portrait", 0xd71f0, 0xd7230, indexKOF00Sprites_Ryo, 0x30 },
+    { L"Ryo B Win Portrait", 0xd7af0, 0xd7b30, indexKOF00Sprites_Ryo, 0x30 },
+    { L"Ryo CD Win Portrait", 0xd83f0, 0xd8430, indexKOF00Sprites_Ryo, 0x30 },
 };
 
 //Robert Garcia
@@ -913,14 +945,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_ROBERT_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ROBERT_SelectPortrait[] =
 {
-    { L"Robert A Select Portrait", 0xe7910, 0xe7950 },
-    { L"Robert B Select Portrait", 0xe8210, 0xe8250 },
+    { L"Robert A Select Portrait", 0xe7910, 0xe7950, indexKOF00Sprites_Robert, 0x31 },
+    { L"Robert B Select Portrait", 0xe8210, 0xe8250, indexKOF00Sprites_Robert, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ROBERT_WinPortrait[] =
 {
-    { L"Robert A Win Portrait", 0xd7230, 0xd7270 },
-    { L"Robert B Win Portrait", 0xd7b30, 0xd7b70 },
+    { L"Robert A Win Portrait", 0xd7230, 0xd7270, indexKOF00Sprites_Robert, 0x30 },
+    { L"Robert B Win Portrait", 0xd7b30, 0xd7b70, indexKOF00Sprites_Robert, 0x30 },
 };
 
 //King
@@ -974,14 +1006,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KING_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KING_SelectPortrait[] =
 {
-    { L"King A Select Portrait", 0xe7bd0, 0xe7c10 },
-    { L"King B Select Portrait", 0xe84d0, 0xe8510 },
+    { L"King A Select Portrait", 0xe7bd0, 0xe7c10, indexKOF00Sprites_King, 0x31 },
+    { L"King B Select Portrait", 0xe84d0, 0xe8510, indexKOF00Sprites_King, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KING_WinPortrait[] =
 {
-    { L"King A Win Portrait", 0xd74f0, 0xd7530 },
-    { L"King B Win Portrait", 0xd7df0, 0xd7e30 },
+    { L"King A Win Portrait", 0xd74f0, 0xd7530, indexKOF00Sprites_King, 0x30 },
+    { L"King B Win Portrait", 0xd7df0, 0xd7e30, indexKOF00Sprites_King, 0x30 },
 };
 
 //Takuma Sakazaki
@@ -1029,14 +1061,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_TAKUMA_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_TAKUMA_SelectPortrait[] =
 {
-    { L"Takuma A Select Portrait", 0xe7990, 0xe79d0 },
-    { L"Takuma B Select Portrait", 0xe8290, 0xe82d0 },
+    { L"Takuma A Select Portrait", 0xe7990, 0xe79d0, indexKOF00Sprites_Takuma, 0x31 },
+    { L"Takuma B Select Portrait", 0xe8290, 0xe82d0, indexKOF00Sprites_Takuma, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_TAKUMA_WinPortrait[] =
 {
-    { L"Takuma A Win Portrait", 0xd72b0, 0xd72f0 },
-    { L"Takuma B Win Portrait", 0xd7bb0, 0xd7bf0 },
+    { L"Takuma A Win Portrait", 0xd72b0, 0xd72f0, indexKOF00Sprites_Takuma, 0x30 },
+    { L"Takuma B Win Portrait", 0xd7bb0, 0xd7bf0, indexKOF00Sprites_Takuma, 0x30 },
 };
 
 //Leona Heidern
@@ -1062,12 +1094,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_LEONA_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_LEONA_Striker[] =
 {
-    { L"Goenitz A", 0xcc950, 0xcc970, indexKOFSprites_02UM_Goenitz },
+    { L"Goenitz A", 0xcc950, 0xcc970, indexKOF00Sprites_Leona, 0x08 },
     { L"Goenitz A Black Tornado", 0xcc970, 0xcc990 },
-    { L"Goenitz A Electric Shock Effect", 0xcc990, 0xcc9b0, indexKOFSprites_02UM_Goenitz },
-    { L"Goenitz B", 0xccb50, 0xccb70, indexKOFSprites_02UM_Goenitz },
+    { L"Goenitz A Electric Shock Effect", 0xcc990, 0xcc9b0, indexKOF00Sprites_Leona, 0x08 },
+    { L"Goenitz B", 0xccb50, 0xccb70, indexKOF00Sprites_Leona, 0x08 },
     { L"Goenitz B Black Tornado", 0xccb70, 0xccb90 },
-    { L"Goenitz B Electric Shock Effect", 0xccb90, 0xccbb0, indexKOFSprites_02UM_Goenitz },
+    { L"Goenitz B Electric Shock Effect", 0xccb90, 0xccbb0, indexKOF00Sprites_Leona, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_LEONA_Moves[] =
@@ -1091,14 +1123,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_LEONA_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_LEONA_SelectPortrait[] =
 {
-    { L"Leona A Select Portrait", 0xe79d0, 0xe7a10 },
-    { L"Leona B Select Portrait", 0xe82d0, 0xe8310 },
+    { L"Leona A Select Portrait", 0xe79d0, 0xe7a10, indexKOF00Sprites_Leona, 0x31 },
+    { L"Leona B Select Portrait", 0xe82d0, 0xe8310, indexKOF00Sprites_Leona, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_LEONA_WinPortrait[] =
 {
-    { L"Leona A Win Portrait", 0xd72f0, 0xd7330 },
-    { L"Leona B Win Portrait", 0xd7bf0, 0xd7c30 },
+    { L"Leona A Win Portrait", 0xd72f0, 0xd7330, indexKOF00Sprites_Leona, 0x30 },
+    { L"Leona B Win Portrait", 0xd7bf0, 0xd7c30, indexKOF00Sprites_Leona, 0x30 },
 };
 
 //Ralf Jones
@@ -1122,10 +1154,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_RALF_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RALF_Striker[] =
 {
-    { L"Yashiro A", 0xccd50, 0xccd70, indexKOFSprites_02UM_Yashiro },
-    { L"Yashiro A Electric Shock Effect", 0xccd90, 0xccdb0, indexKOFSprites_02UM_Yashiro },
-    { L"Yashiro B", 0xccf50, 0xccf70, indexKOFSprites_02UM_Yashiro },
-    { L"Yashiro B Electric Shock Effect", 0xccf90, 0xccfb0, indexKOFSprites_02UM_Yashiro },
+    { L"Yashiro A", 0xccd50, 0xccd70, indexKOF00Sprites_Ralf, 0x08 },
+    { L"Yashiro A Electric Shock Effect", 0xccd90, 0xccdb0, indexKOF00Sprites_Ralf, 0x08 },
+    { L"Yashiro B", 0xccf50, 0xccf70, indexKOF00Sprites_Ralf, 0x08 },
+    { L"Yashiro B Electric Shock Effect", 0xccf90, 0xccfb0, indexKOF00Sprites_Ralf, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RALF_LifebarPortrait[] =
@@ -1136,14 +1168,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_RALF_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RALF_SelectPortrait[] =
 {
-    { L"Ralf A Select Portrait", 0xe7a10, 0xe7a50 },
-    { L"Ralf B Select Portrait", 0xe8310, 0xe8350 },
+    { L"Ralf A Select Portrait", 0xe7a10, 0xe7a50, indexKOF00Sprites_Ralf, 0x31 },
+    { L"Ralf B Select Portrait", 0xe8310, 0xe8350, indexKOF00Sprites_Ralf, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RALF_WinPortrait[] =
 {
-    { L"Ralf A Win Portrait", 0xd7330, 0xd7370 },
-    { L"Ralf B Win Portrait", 0xd7c30, 0xd7c70 },
+    { L"Ralf A Win Portrait", 0xd7330, 0xd7370, indexKOF00Sprites_Ralf, 0x30 },
+    { L"Ralf B Win Portrait", 0xd7c30, 0xd7c70, indexKOF00Sprites_Ralf, 0x30 },
 };
 
 //Clark Still
@@ -1167,10 +1199,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CLARK_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CLARK_Striker[] =
 {
-    { L"Shermie A", 0xcd150, 0xcd170, indexKOFSprites_02UM_Shermie },
-    { L"Shermie A Electric Shock Effect", 0xcd190, 0xcd1b0, indexKOFSprites_02UM_Shermie },
-    { L"Shermie B", 0xcd350, 0xcd370, indexKOFSprites_02UM_Shermie },
-    { L"Shermie B Electric Shock Effect", 0xcd390, 0xcd3b0, indexKOFSprites_02UM_Shermie },
+    { L"Shermie A", 0xcd150, 0xcd170, indexKOF00Sprites_Clark, 0x08 },
+    { L"Shermie A Electric Shock Effect", 0xcd190, 0xcd1b0, indexKOF00Sprites_Clark, 0x08 },
+    { L"Shermie B", 0xcd350, 0xcd370, indexKOF00Sprites_Clark, 0x08 },
+    { L"Shermie B Electric Shock Effect", 0xcd390, 0xcd3b0, indexKOF00Sprites_Clark, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CLARK_LifebarPortrait[] =
@@ -1181,14 +1213,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CLARK_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CLARK_SelectPortrait[] =
 {
-    { L"Clark A Select Portrait", 0xe7a50, 0xe7a90 },
-    { L"Clark B Select Portrait", 0xe8350, 0xe8390 },
+    { L"Clark A Select Portrait", 0xe7a50, 0xe7a90, indexKOF00Sprites_Clark, 0x31 },
+    { L"Clark B Select Portrait", 0xe8350, 0xe8390, indexKOF00Sprites_Clark, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CLARK_WinPortrait[] =
 {
-    { L"Clark A Win Portrait", 0xd7370, 0xd73b0 },
-    { L"Clark B Win Portrait", 0xd7c70, 0xd7cb0 },
+    { L"Clark A Win Portrait", 0xd7370, 0xd73b0, indexKOF00Sprites_Clark, 0x30 },
+    { L"Clark B Win Portrait", 0xd7c70, 0xd7cb0, indexKOF00Sprites_Clark, 0x30 },
 };
 
 //Whip
@@ -1221,12 +1253,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_WHIP_CD[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_WHIP_Striker[] =
 {
-    { L"Chris A", 0xcd550, 0xcd570, indexKOFSprites_02UM_Chris },
-    { L"Chris A Electric Shock Effect", 0xcd590, 0xcd5b0, indexKOFSprites_02UM_Chris },
-    { L"Chris B", 0xcd750, 0xcd770, indexKOFSprites_02UM_Chris },
-    { L"Chris B Electric Shock Effect", 0xcd790, 0xcd7b0, indexKOFSprites_02UM_Chris },
-    { L"Chris CD", 0xee350, 0xee370, indexKOFSprites_02UM_Chris },
-    { L"Chris CD Electric Shock Effect", 0xee390, 0xee3b0, indexKOFSprites_02UM_Chris },
+    { L"Chris A", 0xcd550, 0xcd570, indexKOF00Sprites_Whip, 0x08 },
+    { L"Chris A Electric Shock Effect", 0xcd590, 0xcd5b0, indexKOF00Sprites_Whip, 0x08 },
+    { L"Chris B", 0xcd750, 0xcd770, indexKOF00Sprites_Whip, 0x08 },
+    { L"Chris B Electric Shock Effect", 0xcd790, 0xcd7b0, indexKOF00Sprites_Whip, 0x08 },
+    { L"Chris CD", 0xee350, 0xee370, indexKOF00Sprites_Whip, 0x08 },
+    { L"Chris CD Electric Shock Effect", 0xee390, 0xee3b0, indexKOF00Sprites_Whip, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_WHIP_Moves[] =
@@ -1243,16 +1275,16 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_WHIP_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_WHIP_SelectPortrait[] =
 {
-    { L"Whip A Select Portrait", 0xe7a90, 0xe7ad0 },
-    { L"Whip B Select Portrait", 0xe8390, 0xe83d0 },
-    { L"Whip CD Select Portrait", 0xe8c90, 0xe8cd0 },
+    { L"Whip A Select Portrait", 0xe7a90, 0xe7ad0, indexKOF00Sprites_Whip, 0x31 },
+    { L"Whip B Select Portrait", 0xe8390, 0xe83d0, indexKOF00Sprites_Whip, 0x31 },
+    { L"Whip CD Select Portrait", 0xe8c90, 0xe8cd0, indexKOF00Sprites_Whip, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_WHIP_WinPortrait[] =
 {
-    { L"Whip A Win Portrait", 0xd73b0, 0xd73f0 },
-    { L"Whip B Win Portrait", 0xd7cb0, 0xd7cf0 },
-    { L"Whip CD Win Portrait", 0xd85b0, 0xd85f0 },
+    { L"Whip A Win Portrait", 0xd73b0, 0xd73f0, indexKOF00Sprites_Whip, 0x30 },
+    { L"Whip B Win Portrait", 0xd7cb0, 0xd7cf0, indexKOF00Sprites_Whip, 0x30 },
+    { L"Whip CD Win Portrait", 0xd85b0, 0xd85f0, indexKOF00Sprites_Whip, 0x30 },
 };
 
 //Athena Asamiya
@@ -1284,10 +1316,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_ATHENA_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ATHENA_Striker[] =
 {
-    { L"Goddess Athena A", 0xcd950, 0xcd970 },
-    { L"Goddess Athena A Electric Shock Effect", 0xcd990, 0xcd9b0 },
-    { L"Goddess Athena B", 0xcdb50, 0xcdb70 },
-    { L"Goddess Athena B Electric Shock Effect", 0xcdb90, 0xcdbb0 },
+    { L"Goddess Athena A", 0xcd950, 0xcd970, indexKOF00Sprites_Athena, 0x08 },
+    { L"Goddess Athena A Electric Shock Effect", 0xcd990, 0xcd9b0, indexKOF00Sprites_Athena, 0x08 },
+    { L"Goddess Athena B", 0xcdb50, 0xcdb70, indexKOF00Sprites_Athena, 0x08 },
+    { L"Goddess Athena B Electric Shock Effect", 0xcdb90, 0xcdbb0, indexKOF00Sprites_Athena, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ATHENA_Moves[] =
@@ -1311,14 +1343,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_ATHENA_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ATHENA_SelectPortrait[] =
 {
-    { L"Athena A Select Portrait", 0xe7ad0, 0xe7b10 },
-    { L"Athena B Select Portrait", 0xe83d0, 0xe8410 },
+    { L"Athena A Select Portrait", 0xe7ad0, 0xe7b10, indexKOF00Sprites_Athena, 0x31 },
+    { L"Athena B Select Portrait", 0xe83d0, 0xe8410, indexKOF00Sprites_Athena, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ATHENA_WinPortrait[] =
 {
-    { L"Athena A Win Portrait", 0xd73f0, 0xd7430 },
-    { L"Athena B Win Portrait", 0xd7cf0, 0xd7d30 },
+    { L"Athena A Win Portrait", 0xd73f0, 0xd7430, indexKOF00Sprites_Athena, 0x30 },
+    { L"Athena B Win Portrait", 0xd7cf0, 0xd7d30, indexKOF00Sprites_Athena, 0x30 },
 };
 
 //Sie Kensou
@@ -1351,12 +1383,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KENSOU_CD[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KENSOU_Striker[] =
 {
-    { L"Psycho Kensou A", 0xcdd50, 0xcdd70 },
-    { L"Psycho Kensou A Electric Shock Effect", 0xcdd90, 0xcddb0 },
-    { L"Psycho Kensou B", 0xcdf50, 0xcdf70 },
-    { L"Psycho Kensou B Electric Shock Effect", 0xcdf90, 0xcdfb0 },
-    { L"Psycho Kensou CD", 0xee550, 0xee570 },
-    { L"Psycho Kensou CD Electric Shock Effect", 0xee590, 0xee5b0 },
+    { L"Psycho Kensou A", 0xcdd50, 0xcdd70, indexKOF00Sprites_Kensou, 0x08 },
+    { L"Psycho Kensou A Electric Shock Effect", 0xcdd90, 0xcddb0, indexKOF00Sprites_Kensou, 0x08 },
+    { L"Psycho Kensou B", 0xcdf50, 0xcdf70, indexKOF00Sprites_Kensou, 0x08 },
+    { L"Psycho Kensou B Electric Shock Effect", 0xcdf90, 0xcdfb0, indexKOF00Sprites_Kensou, 0x08 },
+    { L"Psycho Kensou CD", 0xee550, 0xee570, indexKOF00Sprites_Kensou, 0x08 },
+    { L"Psycho Kensou CD Electric Shock Effect", 0xee590, 0xee5b0, indexKOF00Sprites_Kensou, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KENSOU_Moves[] =
@@ -1374,16 +1406,16 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KENSOU_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KENSOU_SelectPortrait[] =
 {
-    { L"Kensou A Select Portrait", 0xe7b10, 0xe7b50 },
-    { L"Kensou B Select Portrait", 0xe8410, 0xe8450 },
-    { L"Kensou CD Select Portrait", 0xe8d10, 0xe8d50 },
+    { L"Kensou A Select Portrait", 0xe7b10, 0xe7b50, indexKOF00Sprites_Kensou, 0x31 },
+    { L"Kensou B Select Portrait", 0xe8410, 0xe8450, indexKOF00Sprites_Kensou, 0x31 },
+    { L"Kensou CD Select Portrait", 0xe8d10, 0xe8d50, indexKOF00Sprites_Kensou, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KENSOU_WinPortrait[] =
 {
-    { L"Kensou A Win Portrait", 0xd7430, 0xd7470 },
-    { L"Kensou B Win Portrait", 0xd7d30, 0xd7d70 },
-    { L"Kensou CD Win Portrait", 0xd8630, 0xd8670 },
+    { L"Kensou A Win Portrait", 0xd7430, 0xd7470, indexKOF00Sprites_Kensou, 0x30 },
+    { L"Kensou B Win Portrait", 0xd7d30, 0xd7d70, indexKOF00Sprites_Kensou, 0x30 },
+    { L"Kensou CD Win Portrait", 0xd8630, 0xd8670, indexKOF00Sprites_Kensou, 0x30 },
 };
 
 //Chin Gentsai
@@ -1431,14 +1463,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CHIN_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHIN_SelectPortrait[] =
 {
-    { L"Chin A Select Portrait", 0xe7b50, 0xe7b90 },
-    { L"Chin B Select Portrait", 0xe8450, 0xe8490 },
+    { L"Chin A Select Portrait", 0xe7b50, 0xe7b90, indexKOF00Sprites_Chin, 0x31 },
+    { L"Chin B Select Portrait", 0xe8450, 0xe8490, indexKOF00Sprites_Chin, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHIN_WinPortrait[] =
 {
-    { L"Chin A Win Portrait", 0xd7470, 0xd74b0 },
-    { L"Chin B Win Portrait", 0xd7d70, 0xd7db0 },
+    { L"Chin A Win Portrait", 0xd7470, 0xd74b0, indexKOF00Sprites_Chin, 0x30 },
+    { L"Chin B Win Portrait", 0xd7d70, 0xd7db0, indexKOF00Sprites_Chin, 0x30 },
 };
 
 //Bao
@@ -1488,14 +1520,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_BAO_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_BAO_SelectPortrait[] =
 {
-    { L"Bao A Select Portrait", 0xe7b90, 0xe7bd0 },
-    { L"Bao B Select Portrait", 0xe8490, 0xe84d0 },
+    { L"Bao A Select Portrait", 0xe7b90, 0xe7bd0, indexKOF00Sprites_Bao, 0x31 },
+    { L"Bao B Select Portrait", 0xe8490, 0xe84d0, indexKOF00Sprites_Bao, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_BAO_WinPortrait[] =
 {
-    { L"Bao A Win Portrait", 0xd74b0, 0xd74f0 },
-    { L"Bao B Win Portrait", 0xd7db0, 0xd7df0 },
+    { L"Bao A Win Portrait", 0xd74b0, 0xd74f0, indexKOF00Sprites_Bao, 0x30 },
+    { L"Bao B Win Portrait", 0xd7db0, 0xd7df0, indexKOF00Sprites_Bao, 0x30 },
 };
 
 //Mai Shiranui
@@ -1564,16 +1596,16 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_MAI_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MAI_SelectPortrait[] =
 {
-    { L"Mai A Select Portrait", 0xe7890, 0xe78d0 },
-    { L"Mai B Select Portrait", 0xe8190, 0xe81d0 },
-    { L"Mai CD Select Portrait", 0xe8a90, 0xe8ad0 },
+    { L"Mai A Select Portrait", 0xe7890, 0xe78d0, indexKOF00Sprites_Mai, 0x31 },
+    { L"Mai B Select Portrait", 0xe8190, 0xe81d0, indexKOF00Sprites_Mai, 0x31 },
+    { L"Mai CD Select Portrait", 0xe8a90, 0xe8ad0, indexKOF00Sprites_Mai, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MAI_WinPortrait[] =
 {
-    { L"Mai A Win Portrait", 0xd71b0, 0xd71f0 },
-    { L"Mai B Win Portrait", 0xd7ab0, 0xd7af0 },
-    { L"Mai CD Win Portrait", 0xd83b0, 0xd83f0 },
+    { L"Mai A Win Portrait", 0xd71b0, 0xd71f0, indexKOF00Sprites_Mai, 0x30 },
+    { L"Mai B Win Portrait", 0xd7ab0, 0xd7af0, indexKOF00Sprites_Mai, 0x30 },
+    { L"Mai CD Win Portrait", 0xd83b0, 0xd83f0, indexKOF00Sprites_Mai, 0x30 },
 };
 
 //Yuri Sakazaki
@@ -1619,14 +1651,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_YURI_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_YURI_SelectPortrait[] =
 {
-    { L"Yuri A Select Portrait", 0xe7950, 0xe7990 },
-    { L"Yuri B Select Portrait", 0xe8250, 0xe8290 },
+    { L"Yuri A Select Portrait", 0xe7950, 0xe7990, indexKOF00Sprites_Yuri, 0x31 },
+    { L"Yuri B Select Portrait", 0xe8250, 0xe8290, indexKOF00Sprites_Yuri, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_YURI_WinPortrait[] =
 {
-    { L"Yuri A Win Portrait", 0xd7270, 0xd72b0 },
-    { L"Yuri B Win Portrait", 0xd7b70, 0xd7bb0 },
+    { L"Yuri A Win Portrait", 0xd7270, 0xd72b0, indexKOF00Sprites_Yuri, 0x30 },
+    { L"Yuri B Win Portrait", 0xd7b70, 0xd7bb0, indexKOF00Sprites_Yuri, 0x30 },
 };
 
 //Kasumi Todoh
@@ -1675,14 +1707,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KASUMI_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KASUMI_SelectPortrait[] =
 {
-    { L"Kasumi A Select Portrait", 0xe7c50, 0xe7c90 },
-    { L"Kasumi B Select Portrait", 0xe8550, 0xe8590 },
+    { L"Kasumi A Select Portrait", 0xe7c50, 0xe7c90, indexKOF00Sprites_Kasumi, 0x31 },
+    { L"Kasumi B Select Portrait", 0xe8550, 0xe8590, indexKOF00Sprites_Kasumi, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KASUMI_WinPortrait[] =
 {
-    { L"Kasumi A Win Portrait", 0xd7570, 0xd75b0 },
-    { L"Kasumi B Win Portrait", 0xd7e70, 0xd7eb0 },
+    { L"Kasumi A Win Portrait", 0xd7570, 0xd75b0, indexKOF00Sprites_Kasumi, 0x30 },
+    { L"Kasumi B Win Portrait", 0xd7e70, 0xd7eb0, indexKOF00Sprites_Kasumi, 0x30 },
 };
 
 //Hinako Shijou
@@ -1720,14 +1752,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_HINAKO_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_HINAKO_SelectPortrait[] =
 {
-    { L"Hinako A Select Portrait", 0xe7c90, 0xe7cd0 },
-    { L"Hinako B Select Portrait", 0xe8590, 0xe85d0 },
+    { L"Hinako A Select Portrait", 0xe7c90, 0xe7cd0, indexKOF00Sprites_Hinako, 0x31 },
+    { L"Hinako B Select Portrait", 0xe8590, 0xe85d0, indexKOF00Sprites_Hinako, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_HINAKO_WinPortrait[] =
 {
-    { L"Hinako A Win Portrait", 0xd75b0, 0xd75f0 },
-    { L"Hinako B Win Portrait", 0xd7eb0, 0xd7ef0 },
+    { L"Hinako A Win Portrait", 0xd75b0, 0xd75f0, indexKOF00Sprites_Hinako, 0x30 },
+    { L"Hinako B Win Portrait", 0xd7eb0, 0xd7ef0, indexKOF00Sprites_Hinako, 0x30 },
 };
 
 //Kim Kaphwan
@@ -1765,14 +1797,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KIM_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KIM_SelectPortrait[] =
 {
-    { L"Kim A Select Portrait", 0xe7cd0, 0xe7d10 },
-    { L"Kim B Select Portrait", 0xe85d0, 0xe8610 },
+    { L"Kim A Select Portrait", 0xe7cd0, 0xe7d10, indexKOF00Sprites_Kim, 0x31 },
+    { L"Kim B Select Portrait", 0xe85d0, 0xe8610, indexKOF00Sprites_Kim, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KIM_WinPortrait[] =
 {
-    { L"Kim A Win Portrait", 0xd75f0, 0xd7630 },
-    { L"Kim B Win Portrait", 0xd7ef0, 0xd7f30 },
+    { L"Kim A Win Portrait", 0xd75f0, 0xd7630, indexKOF00Sprites_Kim, 0x30 },
+    { L"Kim B Win Portrait", 0xd7ef0, 0xd7f30, indexKOF00Sprites_Kim, 0x30 },
 };
 
 //Chang Koehan
@@ -1819,14 +1851,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CHANG_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHANG_SelectPortrait[] =
 {
-    { L"Chang A Select Portrait", 0xe7d10, 0xe7d50 },
-    { L"Chang B Select Portrait", 0xe8610, 0xe8650 },
+    { L"Chang A Select Portrait", 0xe7d10, 0xe7d50, indexKOF00Sprites_Chang, 0x31 },
+    { L"Chang B Select Portrait", 0xe8610, 0xe8650, indexKOF00Sprites_Chang, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHANG_WinPortrait[] =
 {
-    { L"Chang A Win Portrait", 0xd7630, 0xd7670 },
-    { L"Chang B Win Portrait", 0xd7f30, 0xd7f70 },
+    { L"Chang A Win Portrait", 0xd7630, 0xd7670, indexKOF00Sprites_Chang, 0x30 },
+    { L"Chang B Win Portrait", 0xd7f30, 0xd7f70, indexKOF00Sprites_Chang, 0x30 },
 };
 
 //Choi Bounge
@@ -1897,16 +1929,16 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CHOI_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHOI_SelectPortrait[] =
 {
-    { L"Choi A Select Portrait", 0xe7d50, 0xe7d90 },
-    { L"Choi B Select Portrait", 0xe8650, 0xe8690 },
-    { L"Choi CD Select Portrait", 0xe8f50, 0xe8f90 },
+    { L"Choi A Select Portrait", 0xe7d50, 0xe7d90, indexKOF00Sprites_Choi, 0x31 },
+    { L"Choi B Select Portrait", 0xe8650, 0xe8690, indexKOF00Sprites_Choi, 0x31 },
+    { L"Choi CD Select Portrait", 0xe8f50, 0xe8f90, indexKOF00Sprites_Choi, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHOI_WinPortrait[] =
 {
-    { L"Choi A Win Portrait", 0xd7670, 0xd76b0 },
-    { L"Choi B Win Portrait", 0xd7f70, 0xd7fb0 },
-    { L"Choi CD Win Portrait", 0xd8890, 0xd88b0 },
+    { L"Choi A Win Portrait", 0xd7670, 0xd76b0, indexKOF00Sprites_Choi, 0x30 },
+    { L"Choi B Win Portrait", 0xd7f70, 0xd7fb0, indexKOF00Sprites_Choi, 0x30 },
+    { L"Choi CD Win Portrait", 0xd8890, 0xd88b0, indexKOF00Sprites_Choi, 0x30 },
 };
 
 //Jhun Hoon
@@ -1952,14 +1984,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_JHUN_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_JHUN_SelectPortrait[] =
 {
-    { L"Jhun A Select Portrait", 0xe7d90, 0xe7dd0 },
-    { L"Jhun B Select Portrait", 0xe8690, 0xe86d0 },
+    { L"Jhun A Select Portrait", 0xe7d90, 0xe7dd0, indexKOF00Sprites_JhunHoon, 0x31 },
+    { L"Jhun B Select Portrait", 0xe8690, 0xe86d0, indexKOF00Sprites_JhunHoon, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_JHUN_WinPortrait[] =
 {
-    { L"Jhun A Win Portrait", 0xd76b0, 0xd76f0 },
-    { L"Jhun B Win Portrait", 0xd7fb0, 0xd7ff0 },
+    { L"Jhun A Win Portrait", 0xd76b0, 0xd76f0, indexKOF00Sprites_JhunHoon, 0x30 },
+    { L"Jhun B Win Portrait", 0xd7fb0, 0xd7ff0, indexKOF00Sprites_JhunHoon, 0x30 },
 };
 
 //Kyo Kusanagi
@@ -2003,12 +2035,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KYO_Striker[] =
     { L"Syo B Electric Shock Effect", 0xd0b90, 0xd0bb0 },
     { L"Syo CD", 0xeeb50, 0xeeb70 },
     { L"Syo CD Electric Shock Effect", 0xeeb90, 0xeebb0 },
-    { L"Saisyu A", 0xdd2f0, 0xdd310, indexKOFSprites_98Saisyu, 0x00 },
-    { L"Saisyu A Electric Shock Effect", 0xdd330, 0xdd350, indexKOFSprites_98Saisyu, 0x00 },
-    { L"Saisyu B", 0xdd370, 0xdd390, indexKOFSprites_98Saisyu, 0x00 },
-    { L"Saisyu B Electric Shock Effect", 0xdd3b0, 0xdd3d0, indexKOFSprites_98Saisyu, 0x00 },
-    { L"Saisyu CD", 0xddaf0, 0xddb10, indexKOFSprites_98Saisyu, 0x00 },
-    { L"Saisyu CD Electric Shock Effect", 0xddb30, 0xddb50, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Saisyu A", 0xdd2f0, 0xdd310, indexKOF00Sprites_Kyo, 0x08 },
+    { L"Saisyu A Electric Shock Effect", 0xdd330, 0xdd350, indexKOF00Sprites_Kyo, 0x08 },
+    { L"Saisyu B", 0xdd370, 0xdd390, indexKOF00Sprites_Kyo, 0x08 },
+    { L"Saisyu B Electric Shock Effect", 0xdd3b0, 0xdd3d0, indexKOF00Sprites_Kyo, 0x08 },
+    { L"Saisyu CD", 0xddaf0, 0xddb10, indexKOF00Sprites_Kyo, 0x08 },
+    { L"Saisyu CD Electric Shock Effect", 0xddb30, 0xddb50, indexKOF00Sprites_Kyo, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KYO_Moves[] =
@@ -2032,16 +2064,16 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KYO_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KYO_SelectPortrait[] =
 {
-    { L"Kyo A Select Portrait", 0xe7dd0, 0xe7e10 },
-    { L"Kyo B Select Portrait", 0xe86d0, 0xe8710 },
-    { L"Kyo CD Select Portrait", 0xe8fd0, 0xe9010 },
+    { L"Kyo A Select Portrait", 0xe7dd0, 0xe7e10, indexKOF00Sprites_Kyo, 0x31 },
+    { L"Kyo B Select Portrait", 0xe86d0, 0xe8710, indexKOF00Sprites_Kyo, 0x31 },
+    { L"Kyo CD Select Portrait", 0xe8fd0, 0xe9010, indexKOF00Sprites_Kyo, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KYO_WinPortrait[] =
 {
-    { L"Kyo A Win Portrait", 0xd76f0, 0xd7730 },
-    { L"Kyo B Win Portrait", 0xd7ff0, 0xd8030 },
-    { L"Kyo CD Win Portrait", 0xd88f0, 0xd8930 },
+    { L"Kyo A Win Portrait", 0xd76f0, 0xd7730, indexKOF00Sprites_Kyo, 0x30 },
+    { L"Kyo B Win Portrait", 0xd7ff0, 0xd8030, indexKOF00Sprites_Kyo, 0x30 },
+    { L"Kyo CD Win Portrait", 0xd88f0, 0xd8930, indexKOF00Sprites_Kyo, 0x30 },
 };
 
 //Iori Yagami
@@ -2065,14 +2097,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_IORI_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_IORI_Striker[] =
 {
-    { L"Mature A", 0xd1150, 0xd1170, indexKOFSprites_02UM_Mature },
-    { L"Mature A Electric Shock Effect", 0xd1190, 0xd11b0, indexKOFSprites_02UM_Mature },
-    { L"Mature B", 0xd1350, 0xd1370, indexKOFSprites_02UM_Mature },
-    { L"Mature B Electric Shock Effect", 0xd1390, 0xd13b0, indexKOFSprites_02UM_Mature },
-    { L"Vice A", 0xd1170, 0xd1190, indexKOFSprites_02UM_Vice },
-    { L"Vice A Electric Shock Effect", 0xd11b0, 0xd11d0, indexKOFSprites_02UM_Vice },
-    { L"Vice B", 0xd1370, 0xd1390, indexKOFSprites_02UM_Vice },
-    { L"Vice B Electric Shock Effect", 0xd13b0, 0xd13d0, indexKOFSprites_02UM_Vice },
+    { L"Mature A", 0xd1150, 0xd1170, indexKOF00Sprites_Iori, 0x08 },
+    { L"Mature A Electric Shock Effect", 0xd1190, 0xd11b0, indexKOF00Sprites_Iori, 0x08 },
+    { L"Mature B", 0xd1350, 0xd1370, indexKOF00Sprites_Iori, 0x08 },
+    { L"Mature B Electric Shock Effect", 0xd1390, 0xd13b0, indexKOF00Sprites_Iori, 0x08 },
+    { L"Vice A", 0xd1170, 0xd1190, indexKOF00Sprites_Iori, 0x09 },
+    { L"Vice A Electric Shock Effect", 0xd11b0, 0xd11d0, indexKOF00Sprites_Iori, 0x09 },
+    { L"Vice B", 0xd1370, 0xd1390, indexKOF00Sprites_Iori, 0x09 },
+    { L"Vice B Electric Shock Effect", 0xd13b0, 0xd13d0, indexKOF00Sprites_Iori, 0x09 },
     { L"Another Iori A", 0xdd3f0, 0xdd410 },
     { L"Another Iori A Electric Shock Effect", 0xdd430, 0xdd450 },
     { L"Another Iori B", 0xdd470, 0xdd490 },
@@ -2096,14 +2128,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_IORI_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_IORI_SelectPortrait[] =
 {
-    { L"Iori A Select Portrait", 0xe7e50, 0xe7e90 },
-    { L"Iori B Select Portrait", 0xe8750, 0xe8790 },
+    { L"Iori A Select Portrait", 0xe7e50, 0xe7e90, indexKOF00Sprites_Iori, 0x31 },
+    { L"Iori B Select Portrait", 0xe8750, 0xe8790, indexKOF00Sprites_Iori, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_IORI_WinPortrait[] =
 {
-    { L"Iori A Win Portrait", 0xd7770, 0xd77b0 },
-    { L"Iori B Win Portrait", 0xd8070, 0xd80b0 },
+    { L"Iori A Win Portrait", 0xd7770, 0xd77b0, indexKOF00Sprites_Iori, 0x30 },
+    { L"Iori B Win Portrait", 0xd8070, 0xd80b0, indexKOF00Sprites_Iori, 0x30 },
 };
 
 //Kula Diamond
@@ -2141,10 +2173,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_Striker[] =
     { L"Foxy A Electric Shock Effect", 0xd2190, 0xd21b0, indexKOFSprites_02UM_Kula, 0x1b },
     { L"Foxy B", 0xd2350, 0xd2370, indexKOFSprites_02UM_Kula, 0x1b },
     { L"Foxy B Electric Shock Effect", 0xd2390, 0xd23b0, indexKOFSprites_02UM_Kula, 0x1b },
-    { L"Rugal A", 0xdd4f0, 0xdd510,indexKOFSprites_98Rugal },
-    { L"Rugal A Electric Shock Effect", 0xdd530, 0xdd550, indexKOFSprites_98Rugal },
-    { L"Rugal B", 0xdd570, 0xdd590, indexKOFSprites_98Rugal },
-    { L"Rugal B Electric Shock Effect", 0xdd5b0, 0xdd5d0, indexKOFSprites_98Rugal },
+    { L"Rugal A", 0xdd4f0, 0xdd510, indexKOF00Sprites_Kula, 0x08 },
+    { L"Rugal A Electric Shock Effect", 0xdd530, 0xdd550, indexKOF00Sprites_Kula, 0x08 },
+    { L"Rugal B", 0xdd570, 0xdd590, indexKOF00Sprites_Kula, 0x08 },
+    { L"Rugal B Electric Shock Effect", 0xdd5b0, 0xdd5d0, indexKOF00Sprites_Kula, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_Moves[] =
@@ -2166,14 +2198,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_SelectPortrait[] =
 {
-    { L"Kula A Select Portrait", 0xe7f50, 0xe7f90 },
-    { L"Kula B Select Portrait", 0xe8850, 0xe8890 },
+    { L"Kula A Select Portrait", 0xe7f50, 0xe7f90, indexKOF00Sprites_Kula, 0x31 },
+    { L"Kula B Select Portrait", 0xe8850, 0xe8890, indexKOF00Sprites_Kula, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_WinPortrait[] =
 {
-    { L"Kula A Win Portrait", 0xd7870, 0xd78b0 },
-    { L"Kula B Win Portrait", 0xd8170, 0xd81b0 },
+    { L"Kula A Win Portrait", 0xd7870, 0xd78b0, indexKOF00Sprites_Kula, 0x30 },
+    { L"Kula B Win Portrait", 0xd8170, 0xd81b0, indexKOF00Sprites_Kula, 0x30 },
 };
 
 //Clone Zero
@@ -2211,14 +2243,14 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CLONEZERO_LifebarPortrait[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CLONEZERO_SelectPortrait[] =
 {
-    { L"Zero Punch Select Portrait", 0xe7f90, 0xe7fd0 },
-    { L"Zero Kick Select Portrait", 0xe8890, 0xe88d0 },
+    { L"Zero Punch Select Portrait", 0xe7f90, 0xe7fd0, indexKOF00Sprites_CloneZero, 0x31 },
+    { L"Zero Kick Select Portrait", 0xe8890, 0xe88d0, indexKOF00Sprites_CloneZero, 0x31 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CLONEZERO_WinPortrait[] =
 {
-    { L"Zero A Win Portrait", 0xd78b0, 0xd78f0 },
-    { L"Zero B Win Portrait", 0xd81b0, 0xd81f0 },
+    { L"Zero A Win Portrait", 0xd78b0, 0xd78f0, indexKOF00Sprites_CloneZero, 0x30 },
+    { L"Zero B Win Portrait", 0xd81b0, 0xd81f0, indexKOF00Sprites_CloneZero, 0x30 },
 };
 
 //-BONUS-

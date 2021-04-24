@@ -113,7 +113,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_A[] =
 {
-    { L"Chun-Li A", 0x9ee6, 0x9f06 },
+    { L"Chun-Li A", 0x9ee6, 0x9f06, indexCPS2_SPF_ChunLi, 0x00 },
     { L"Chun-Li A: Kikouken", 0x9f26, 0x9f46 },
     { L"Chun-Li A: Kikou Shou", 0x9f46, 0x9f66 },
 #ifdef SHOWSUITS
@@ -132,7 +132,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_A[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_B[] =
 {
-    { L"Chun-Li B", 0x9f86, 0x9fa6 },
+    { L"Chun-Li B", 0x9f86, 0x9fa6, indexCPS2_SPF_ChunLi, 0x00 },
     { L"Chun-Li B: Kikouken", 0x9fc6, 0x9fe6 },
     { L"Chun-Li B: Kikou Shou", 0x9fe6, 0xa006 },
 #ifdef SHOWSUITS
@@ -151,7 +151,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_B[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_C[] =
 {
-    { L"Chun-Li C", 0xa026, 0xa046 },
+    { L"Chun-Li C", 0xa026, 0xa046, indexCPS2_SPF_ChunLi, 0x00 },
     { L"Chun-Li C: Kikouken", 0xa066, 0xa086 },
     { L"Chun-Li C: Kikou Shou", 0xa086, 0xa0a6 },
 #ifdef SHOWSUITS
@@ -170,7 +170,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_C[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_X3[] =
 {
-    { L"Chun-Li x3", 0xa0c6, 0xa0e6 },
+    { L"Chun-Li x3", 0xa0c6, 0xa0e6, indexCPS2_SPF_ChunLi, 0x00 },
     { L"Chun-Li x3: Kikouken", 0xa106, 0xa126 },
     { L"Chun-Li x3: Kikou Shou", 0xa126, 0xa146 },
 #ifdef SHOWSUITS
@@ -253,59 +253,59 @@ const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_MORRIGAN_PALETTES_A[] =
 {
-    { L"Morrigan A", 0xa3e6, 0xa406 },
+    { L"Morrigan A", 0xa3e6, 0xa406, indexCPS2_SPF_Morrigan, 0x00 },
     { L"Morrigan A: Portrait", 0xc886, 0xc8e6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_MORRIGAN_PALETTES_B[] =
 {
-    { L"Morrigan B", 0xa486, 0xa4a6 },
+    { L"Morrigan B", 0xa486, 0xa4a6, indexCPS2_SPF_Morrigan, 0x00 },
     { L"Morrigan B: Portrait", 0xc8e6, 0xc946 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_MORRIGAN_PALETTES_C[] =
 {
-    { L"Morrigan C", 0xa526, 0xa546 },
+    { L"Morrigan C", 0xa526, 0xa546, indexCPS2_SPF_Morrigan, 0x00 },
     { L"Morrigan C: Portrait", 0xc946, 0xc9a6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_MORRIGAN_PALETTES_X3[] =
 {
-    { L"Morrigan x3", 0xa5c6, 0xa5e6 },
+    { L"Morrigan x3", 0xa5c6, 0xa5e6, indexCPS2_SPF_Morrigan, 0x00 },
     { L"Morrigan x3: Portrait", 0xc9a6, 0xca06 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_HSIENKO_PALETTES_A[] =
 {
-    { L"Hsien-Ko A", 0xa666, 0xa686 },
+    { L"Hsien-Ko A", 0xa666, 0xa686, indexCPS2_SPF_HsienKo, 0x00 },
     { L"Hsien-Ko A: Weapons & Extras", 0xa686, 0xa6a6 },
     { L"Hsien-Ko A: Portrait", 0xca06, 0xca66 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_HSIENKO_PALETTES_B[] =
 {
-    { L"Hsien-Ko B", 0xa706, 0xa726 },
+    { L"Hsien-Ko B", 0xa706, 0xa726, indexCPS2_SPF_HsienKo, 0x00 },
     { L"Hsien-Ko B: Weapons & Extras", 0xa726, 0xa746 },
     { L"Hsien-Ko B: Portrait", 0xca66, 0xcac6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_HSIENKO_PALETTES_C[] =
 {
-    { L"Hsien-Ko C", 0xa7a6, 0xa7c6 },
+    { L"Hsien-Ko C", 0xa7a6, 0xa7c6, indexCPS2_SPF_HsienKo, 0x00 },
     { L"Hsien-Ko C: Weapons & Extras", 0xa7c6, 0xa7e6 },
     { L"Hsien-Ko C: Portrait", 0xcac6, 0xcb26 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_HSIENKO_PALETTES_X3[] =
 {
-    { L"Hsien-Ko x3", 0xa846, 0xa866 },
+    { L"Hsien-Ko x3", 0xa846, 0xa866, indexCPS2_SPF_HsienKo, 0x00 },
     { L"Hsien-Ko x3: Weapons & Extras", 0xa866, 0xa886 },
     { L"Hsien-Ko x3: Portrait", 0xcb26, 0xcb86 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_A[] =
 {
-    { L"Felicia A", 0xa8e6, 0xa906 },
+    { L"Felicia A", 0xa8e6, 0xa906, indexCPS2_SPF_Felicia, 0x00 },
     { L"Felicia A: Rolling Buckler & Claws", 0xa926, 0xa946 },
     { L"Felicia A: Megaman Shot & Sand Splash", 0xa946, 0xa966 },
     { L"Felicia A: Portrait", 0xcb86, 0xcbe6 },
@@ -313,7 +313,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_A[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_B[] =
 {
-    { L"Felicia B", 0xa986, 0xa9a6 },
+    { L"Felicia B", 0xa986, 0xa9a6, indexCPS2_SPF_Felicia, 0x00 },
     { L"Felicia B: Rolling Buckler & Claws", 0xa9c6, 0xa9e6 },
     { L"Felicia B: Megaman Shot & Sand Splash", 0xa9e6, 0xaa06 },
     { L"Felicia B: Portrait", 0xcbe6, 0xcc46 },
@@ -321,7 +321,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_B[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_C[] =
 {
-    { L"Felicia C", 0xaa26, 0xaa46 },
+    { L"Felicia C", 0xaa26, 0xaa46, indexCPS2_SPF_Felicia, 0x00 },
     { L"Felicia C: Rolling Buckler & Claws", 0xaa66, 0xaa86 },
     { L"Felicia C: Megaman Shot & Sand Splash", 0xaa86, 0xaaa6 },
     { L"Felicia C: Portrait", 0xcc46, 0xcca6 },
@@ -329,7 +329,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_C[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_X3[] =
 {
-    { L"Felicia x3", 0xaac6, 0xaae6 },
+    { L"Felicia x3", 0xaac6, 0xaae6, indexCPS2_SPF_Felicia, 0x00 },
     { L"Felicia x3: Rolling Buckler & Claws", 0xab06, 0xab26 },
     { L"Felicia x3: Megaman Shot & Sand Splash", 0xab26, 0xab46 },
     { L"Felicia x3: Portrait", 0xcca6, 0xcd06 },
@@ -337,7 +337,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_A[] =
 {
-    { L"Tessa A", 0xab66, 0xab86 },
+    { L"Tessa A", 0xab66, 0xab86, indexCPS2_SPF_Tessa, 0x00 },
     { L"Tessa A: Dragon Attacks", 0xab86, 0xaba6 },
     { L"Tessa A: Broom Attacks", 0xaba6, 0xabc6 },
     { L"Tessa A: Special Effects", 0xabc6, 0xabe6 },
@@ -346,7 +346,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_A[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_B[] =
 {
-    { L"Tessa B", 0xac06, 0xac26 },
+    { L"Tessa B", 0xac06, 0xac26, indexCPS2_SPF_Tessa, 0x00 },
     { L"Tessa B: Dragon Attacks", 0xac26, 0xac46 },
     { L"Tessa B: Broom Attacks", 0xac46, 0xac66 },
     { L"Tessa B: Special Effects", 0xac66, 0xac86 },
@@ -355,7 +355,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_B[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_C[] =
 {
-    { L"Tessa C", 0xaca6, 0xacc6 },
+    { L"Tessa C", 0xaca6, 0xacc6, indexCPS2_SPF_Tessa, 0x00 },
     { L"Tessa C: Dragon Attacks", 0xacc6, 0xace6 },
     { L"Tessa C: Broom Attacks", 0xace6, 0xad06 },
     { L"Tessa C: Special Effects", 0xad06, 0xad26 },
@@ -364,7 +364,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_C[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_X3[] =
 {
-    { L"Tessa x3", 0xad46, 0xad66 },
+    { L"Tessa x3", 0xad46, 0xad66, indexCPS2_SPF_Tessa, 0x00 },
     { L"Tessa x3: Dragon Attacks", 0xad66, 0xad86 },
     { L"Tessa x3: Broom Attacks", 0xad86, 0xada6 },
     { L"Tessa x3: Special Effects", 0xada6, 0xadc6 },
@@ -373,7 +373,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_A[] =
 {
-    { L"Ibuki A", 0xade6, 0xae06 },
+    { L"Ibuki A", 0xade6, 0xae06, indexCPS2_SPF_Ibuki, 0x00 },
     { L"Ibuki A: Extras 1", 0xae26, 0xae46 },
     { L"Ibuki A: Extras 2", 0xae46, 0xae66 },
     { L"Ibuki A: Portrait", 0xce86, 0xcee6 },
@@ -381,7 +381,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_A[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_B[] =
 {
-    { L"Ibuki B", 0xae86, 0xaea6 },
+    { L"Ibuki B", 0xae86, 0xaea6, indexCPS2_SPF_Ibuki, 0x00 },
     { L"Ibuki B: Extras 1", 0xaec6, 0xaee6 },
     { L"Ibuki B: Extras 2", 0xaee6, 0xaf06 },
     { L"Ibuki B: Portrait", 0xcee6, 0xcf46 },
@@ -389,7 +389,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_B[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_C[] =
 {
-    { L"Ibuki C", 0xaf26, 0xaf46 },
+    { L"Ibuki C", 0xaf26, 0xaf46, indexCPS2_SPF_Ibuki, 0x00 },
     { L"Ibuki C: Extras 1", 0xaf66, 0xaf86 },
     { L"Ibuki C: Extras 2", 0xaf86, 0xafa6 },
     { L"Ibuki C: Portrait", 0xcf46, 0xcfa6 },
@@ -397,7 +397,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_C[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_X3[] =
 {
-    { L"Ibuki x3", 0xafc6, 0xafe6 },
+    { L"Ibuki x3", 0xafc6, 0xafe6, indexCPS2_SPF_Ibuki, 0x00 },
     { L"Ibuki x3: Extras 1", 0xb006, 0xb026 },
     { L"Ibuki x3: Extras 2", 0xb026, 0xb046 },
     { L"Ibuki x3: Portrait", 0xcfa6, 0xd006 },
@@ -429,52 +429,52 @@ const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_A[] =
 {
-    { L"Dan A", 0xb2e6, 0xb306 },
+    { L"Dan A", 0xb2e6, 0xb306, indexCPS2_SPF_Dan, 0x00 },
     { L"Dan A: Portrait", 0xd186, 0xd1e6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_B[] =
 {
-    { L"Dan B", 0xb386, 0xb3a6 },
+    { L"Dan B", 0xb386, 0xb3a6, indexCPS2_SPF_Dan, 0x00 },
     { L"Dan B: Portrait", 0xd1e6, 0xd246 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_C[] =
 {
-    { L"Dan C", 0xb426, 0xb446 },
+    { L"Dan C", 0xb426, 0xb446, indexCPS2_SPF_Dan, 0x00 },
     { L"Dan C: Portrait", 0xd246, 0xd2a6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_X3[] =
 {
-    { L"Dan x3", 0xb4c6, 0xb4e6 },
+    { L"Dan x3", 0xb4c6, 0xb4e6, indexCPS2_SPF_Dan, 0x00 },
     { L"Dan x3: Portrait", 0xd2a6, 0xd306 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_AKUMA_PALETTES_A[] =
 {
-    { L"Akuma A", 0xb566, 0xb586 },
+    { L"Akuma A", 0xb566, 0xb586, indexCPS2_SPF_Akuma, 0x00 },
     { L"Akuma A: Super Trail", 0xb5e6, 0xb606 },
     { L"Akuma A: Portrait", 0xd306, 0xd366 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_AKUMA_PALETTES_B[] =
 {
-    { L"Akuma B", 0xb606, 0xb626 },
+    { L"Akuma B", 0xb606, 0xb626, indexCPS2_SPF_Akuma, 0x00 },
     { L"Akuma B: Super Trail", 0xb686, 0xb6a6 },
     { L"Akuma B: Portrait", 0xd366, 0xd3c6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_AKUMA_PALETTES_C[] =
 {
-    { L"Akuma C", 0xb6a6, 0xb6c6 },
+    { L"Akuma C", 0xb6a6, 0xb6c6, indexCPS2_SPF_Akuma, 0x00 },
     { L"Akuma C: Super Trail", 0xb726, 0xb746 },
     { L"Akuma C: Portrait", 0xd3c6, 0xd426 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_AKUMA_PALETTES_X3[] =
 {
-    { L"Akuma x3", 0xb746, 0xb766 },
+    { L"Akuma x3", 0xb746, 0xb766, indexCPS2_SPF_Akuma, 0x00 },
     { L"Akuma x3: Super Trail", 0xb7c6, 0xb7e6 },
     { L"Akuma x3: Portrait", 0xd426, 0xd486 },
 };

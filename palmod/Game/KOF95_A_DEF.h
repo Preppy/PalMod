@@ -12,9 +12,7 @@ const UINT16 KOF95_A_IMG_UNITS[] =
     indexKOF94Sprites_Athena,       // 0x165
     indexKOF94Sprites_Benimaru,     // 0x166
     indexKOF94Sprites_Brian,        // 0x167
-    indexKOF94Sprites_Chang,        // 0x168
     indexKOF94Sprites_Chin,         // 0x169
-    indexKOF94Sprites_Choi,         // 0x16a
     indexKOF94Sprites_Clark,        // 0x16b
     indexKOF94Sprites_Daimon,       // 0x16c
     indexKOF94Sprites_HeavyD,       // 0x16d
@@ -28,16 +26,37 @@ const UINT16 KOF95_A_IMG_UNITS[] =
     indexKOF94Sprites_Mai,          // 0x175
     indexKOF94Sprites_Ralf,         // 0x176
     indexKOF94Sprites_Robert,       // 0x177
-    indexKOF94Sprites_Rugal,        // 0x178
     indexKOF94Sprites_Ryo,          // 0x179
     indexKOF94Sprites_Takuma,       // 0x17a
     indexKOF94Sprites_Terry,        // 0x17b
     indexKOF94Sprites_Yuri,         // 0x17c
-    indexKOF94Sprites_Stages,       // 0x17d
     
-    indexKOFSprites_98Billy,
-    indexKOFSprites_98Iori,
-    indexKOFSprites_98Saisyu,
+    indexKOF95Sprites_Andy,         // 0x22D
+    indexKOF95Sprites_Athena,       // 0x22E
+    indexKOF95Sprites_Benimaru,     // 0x22F
+    indexKOF95Sprites_Billy,        // 0x230
+    indexKOF95Sprites_Chang,        // 0x231
+    indexKOF95Sprites_Chin,         // 0x232
+    indexKOF95Sprites_Choi,         // 0x233
+    indexKOF95Sprites_Clark,        // 0x234
+    indexKOF95Sprites_Daimon,       // 0x235
+    indexKOF95Sprites_Eiji,         // 0x236
+    indexKOF95Sprites_Heidern,      // 0x237
+    indexKOF95Sprites_Iori,         // 0x238
+    indexKOF95Sprites_Joe,          // 0x239
+    indexKOF95Sprites_Kensou,       // 0x23A
+    indexKOF95Sprites_Kim,          // 0x23B
+    indexKOF95Sprites_King,         // 0x23C
+    indexKOF95Sprites_Kyo,          // 0x23D
+    indexKOF95Sprites_Mai,          // 0x23E
+    indexKOF95Sprites_OmegaRugal,   // 0x23F
+    indexKOF95Sprites_Ralf,         // 0x240
+    indexKOF95Sprites_Robert,       // 0x241
+    indexKOF95Sprites_Ryo,          // 0x242
+    indexKOF95Sprites_Saisyu,       // 0x243
+    indexKOF95Sprites_Takuma,       // 0x244
+    indexKOF95Sprites_Terry,        // 0x245
+    indexKOF95Sprites_Bonus,        // 0x246
 };
 
 const sGame_PaletteDataset KOF95_A_HEIDERN_MAIN_PALETTES[] =
@@ -366,11 +385,11 @@ const sGame_PaletteDataset KOF95_A_DAIMON_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_IORI_MAIN_PALETTES[] =
 {
-    { L"Iori", 0xdb400, 0xdb420, indexKOFSprites_98Iori, 0x00 },
+    { L"Iori", 0xdb400, 0xdb420, indexKOF95Sprites_Iori, 0x00 },
     { L"Extra 1", 0xdb420, 0xdb440 },
-    { L"MAX Flash", 0xdb440, 0xdb460, indexKOFSprites_98Iori, 0x00 },
+    { L"MAX Flash", 0xdb440, 0xdb460, indexKOF95Sprites_Iori, 0x00 },
     { L"Extra 2", 0xdb460, 0xdb480 },
-    { L"Electric Palette?", 0xdb480, 0xdb4a0, indexKOFSprites_98Iori, 0x00 },
+    { L"Electric Palette?", 0xdb480, 0xdb4a0, indexKOF95Sprites_Iori, 0x00 },
     { L"Extra 4", 0xdb4a0, 0xdb4c0 },
     { L"Win Portrait?", 0xdb4c0, 0xdb520 },
     { L"Extra 5", 0xdb520, 0xdb540 },
@@ -378,17 +397,17 @@ const sGame_PaletteDataset KOF95_A_IORI_MAIN_PALETTES[] =
     { L"Extra 7", 0xdb560, 0xdb580 },
     { L"Extra 8", 0xdb580, 0xdb5a0 },
     { L"Extra 9", 0xdb5a0, 0xdb5c0 },
-    { L"Lifebar Portrait", 0xdb5c0, 0xdb5e0, indexKOFSprites_98Iori, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdb5e0, 0xdb600, indexKOFSprites_98Iori, 0x00 },
+    { L"Lifebar Portrait", 0xdb5c0, 0xdb5e0, indexKOF95Sprites_Iori, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdb5e0, 0xdb600, indexKOF95Sprites_Iori, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_IORI_ALT_PALETTES[] =
 {
-    { L"Iori", 0xdb600, 0xdb620, indexKOFSprites_98Iori, 0x00 },
+    { L"Iori", 0xdb600, 0xdb620, indexKOF95Sprites_Iori, 0x00 },
     { L"Extra 1", 0xdb620, 0xdb640 },
-    { L"MAX Flash", 0xdb640, 0xdb660, indexKOFSprites_98Iori, 0x00 },
+    { L"MAX Flash", 0xdb640, 0xdb660, indexKOF95Sprites_Iori, 0x00 },
     { L"Extra 2", 0xdb660, 0xdb680 },
-    { L"Electric Palette?", 0xdb680, 0xdb6a0, indexKOFSprites_98Iori, 0x00 },
+    { L"Electric Palette?", 0xdb680, 0xdb6a0, indexKOF95Sprites_Iori, 0x00 },
     { L"Extra 4", 0xdb6a0, 0xdb6c0 },
     { L"Win Portrait?", 0xdb6c0, 0xdb720 },
     { L"Extra 5", 0xdb720, 0xdb740 },
@@ -396,17 +415,17 @@ const sGame_PaletteDataset KOF95_A_IORI_ALT_PALETTES[] =
     { L"Extra 7", 0xdb760, 0xdb780 },
     { L"Extra 8", 0xdb780, 0xdb7a0 },
     { L"Extra 9", 0xdb7a0, 0xdb7c0 },
-    { L"Lifebar Portrait", 0xdb7c0, 0xdb7e0, indexKOFSprites_98Iori, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdb7e0, 0xdb800, indexKOFSprites_98Iori, 0x00 },
+    { L"Lifebar Portrait", 0xdb7c0, 0xdb7e0, indexKOF95Sprites_Iori, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdb7e0, 0xdb800, indexKOF95Sprites_Iori, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_EIJI_MAIN_PALETTES[] =
 {
-    { L"Eiji", 0xdb800, 0xdb820, INVALID_UNIT_VALUE, 0x00 },
+    { L"Eiji", 0xdb800, 0xdb820, indexKOF95Sprites_Eiji, 0x00 },
     { L"Extra 1", 0xdb820, 0xdb840 },
-    { L"MAX Flash", 0xdb840, 0xdb860, INVALID_UNIT_VALUE, 0x00 },
+    { L"MAX Flash", 0xdb840, 0xdb860, indexKOF95Sprites_Eiji, 0x00 },
     { L"Extra 2", 0xdb860, 0xdb880 },
-    { L"Electric Palette?", 0xdb880, 0xdb8a0, INVALID_UNIT_VALUE, 0x00 },
+    { L"Electric Palette?", 0xdb880, 0xdb8a0, indexKOF95Sprites_Eiji, 0x00 },
     { L"Extra 4", 0xdb8a0, 0xdb8c0 },
     { L"Win Portrait?", 0xdb8c0, 0xdb920 },
     { L"Extra 5", 0xdb920, 0xdb940 },
@@ -414,17 +433,17 @@ const sGame_PaletteDataset KOF95_A_EIJI_MAIN_PALETTES[] =
     { L"Extra 7", 0xdb960, 0xdb980 },
     { L"Extra 8", 0xdb980, 0xdb9a0 },
     { L"Extra 9", 0xdb9a0, 0xdb9c0 },
-    { L"Lifebar Portrait", 0xdb9c0, 0xdb9e0, INVALID_UNIT_VALUE, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdb9e0, 0xdba00, INVALID_UNIT_VALUE, 0x00 },
+    { L"Lifebar Portrait", 0xdb9c0, 0xdb9e0, indexKOF95Sprites_Eiji, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdb9e0, 0xdba00, indexKOF95Sprites_Eiji, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_EIJI_ALT_PALETTES[] =
 {
-    { L"Eiji", 0xdba00, 0xdba20, INVALID_UNIT_VALUE, 0x00 },
+    { L"Eiji", 0xdba00, 0xdba20, indexKOF95Sprites_Eiji, 0x00 },
     { L"Extra 1", 0xdba20, 0xdba40 },
-    { L"MAX Flash", 0xdba40, 0xdba60, INVALID_UNIT_VALUE, 0x00 },
+    { L"MAX Flash", 0xdba40, 0xdba60, indexKOF95Sprites_Eiji, 0x00 },
     { L"Extra 2", 0xdba60, 0xdba80 },
-    { L"Electric Palette?", 0xdba80, 0xdbaa0, INVALID_UNIT_VALUE, 0x00 },
+    { L"Electric Palette?", 0xdba80, 0xdbaa0, indexKOF95Sprites_Eiji, 0x00 },
     { L"Extra 4", 0xdbaa0, 0xdbac0 },
     { L"Win Portrait?", 0xdbac0, 0xdbb20 },
     { L"Extra 5", 0xdbb20, 0xdbb40 },
@@ -432,17 +451,17 @@ const sGame_PaletteDataset KOF95_A_EIJI_ALT_PALETTES[] =
     { L"Extra 7", 0xdbb60, 0xdbb80 },
     { L"Extra 8", 0xdbb80, 0xdbba0 },
     { L"Extra 9", 0xdbba0, 0xdbbc0 },
-    { L"Lifebar Portrait", 0xdbbc0, 0xdbbe0, INVALID_UNIT_VALUE, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdbbe0, 0xdbc00, INVALID_UNIT_VALUE, 0x00 },
+    { L"Lifebar Portrait", 0xdbbc0, 0xdbbe0, indexKOF95Sprites_Eiji, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdbbe0, 0xdbc00, indexKOF95Sprites_Eiji, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_BILLY_MAIN_PALETTES[] =
 {
-    { L"Billy", 0xdbc00, 0xdbc20, indexKOFSprites_98Billy, 0x00 },
+    { L"Billy", 0xdbc00, 0xdbc20, indexKOF95Sprites_Billy, 0x00 },
     { L"Extra 1", 0xdbc20, 0xdbc40 },
-    { L"MAX Flash", 0xdbc40, 0xdbc60, indexKOFSprites_98Billy, 0x00 },
+    { L"MAX Flash", 0xdbc40, 0xdbc60, indexKOF95Sprites_Billy, 0x00 },
     { L"Extra 2", 0xdbc60, 0xdbc80 },
-    { L"Electric Palette?", 0xdbc80, 0xdbca0, indexKOFSprites_98Billy, 0x00 },
+    { L"Electric Palette?", 0xdbc80, 0xdbca0, indexKOF95Sprites_Billy, 0x00 },
     { L"Extra 4", 0xdbca0, 0xdbcc0 },
     { L"Win Portrait?", 0xdbcc0, 0xdbd20 },
     { L"Extra 5", 0xdbd20, 0xdbd40 },
@@ -450,17 +469,17 @@ const sGame_PaletteDataset KOF95_A_BILLY_MAIN_PALETTES[] =
     { L"Extra 7", 0xdbd60, 0xdbd80 },
     { L"Extra 8", 0xdbd80, 0xdbda0 },
     { L"Extra 9", 0xdbda0, 0xdbdc0 },
-    { L"Lifebar Portrait", 0xdbdc0, 0xdbde0, indexKOFSprites_98Billy, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdbde0, 0xdbe00, indexKOFSprites_98Billy, 0x00 },
+    { L"Lifebar Portrait", 0xdbdc0, 0xdbde0, indexKOF95Sprites_Billy, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdbde0, 0xdbe00, indexKOF95Sprites_Billy, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_BILLY_ALT_PALETTES[] =
 {
-    { L"Billy", 0xdbe00, 0xdbe20, indexKOFSprites_98Billy, 0x00 },
+    { L"Billy", 0xdbe00, 0xdbe20, indexKOF95Sprites_Billy, 0x00 },
     { L"Extra 1", 0xdbe20, 0xdbe40 },
-    { L"MAX Flash", 0xdbe40, 0xdbe60, indexKOFSprites_98Billy, 0x00 },
+    { L"MAX Flash", 0xdbe40, 0xdbe60, indexKOF95Sprites_Billy, 0x00 },
     { L"Extra 2", 0xdbe60, 0xdbe80 },
-    { L"Electric Palette?", 0xdbe80, 0xdbea0, indexKOFSprites_98Billy, 0x00 },
+    { L"Electric Palette?", 0xdbe80, 0xdbea0, indexKOF95Sprites_Billy, 0x00 },
     { L"Extra 4", 0xdbea0, 0xdbec0 },
     { L"Win Portrait?", 0xdbec0, 0xdbf20 },
     { L"Extra 5", 0xdbf20, 0xdbf40 },
@@ -468,8 +487,8 @@ const sGame_PaletteDataset KOF95_A_BILLY_ALT_PALETTES[] =
     { L"Extra 7", 0xdbf60, 0xdbf80 },
     { L"Extra 8", 0xdbf80, 0xdbfa0 },
     { L"Extra 9", 0xdbfa0, 0xdbfc0 },
-    { L"Lifebar Portrait", 0xdbfc0, 0xdbfe0, indexKOFSprites_98Billy, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdbfe0, 0xdc000, indexKOFSprites_98Billy, 0x00 },
+    { L"Lifebar Portrait", 0xdbfc0, 0xdbfe0, indexKOF95Sprites_Billy, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdbfe0, 0xdc000, indexKOF95Sprites_Billy, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_KIM_MAIN_PALETTES[] =
@@ -510,47 +529,47 @@ const sGame_PaletteDataset KOF95_A_KIM_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_CHANG_MAIN_PALETTES[] =
 {
-    { L"Chang", 0xdc400, 0xdc420, indexKOF94Sprites_Chang, 0x00, &pairNext },
-    { L"Extra 1", 0xdc420, 0xdc440, indexKOF94Sprites_Chang, 0x01 },
-    { L"MAX Flash", 0xdc440, 0xdc460, indexKOF94Sprites_Chang, 0x00, &pairNext },
-    { L"MAX Flash Extra", 0xdc460, 0xdc480, indexKOF94Sprites_Chang, 0x01 },
-    { L"Electric Palette?", 0xdc480, 0xdc4a0, indexKOF94Sprites_Chang, 0x00, &pairNext },
-    { L"Electric Palette? Extra", 0xdc4a0, 0xdc4c0, indexKOF94Sprites_Chang, 0x01 },
+    { L"Chang", 0xdc400, 0xdc420, indexKOF95Sprites_Chang, 0x00, &pairNext },
+    { L"Extra 1", 0xdc420, 0xdc440, indexKOF95Sprites_Chang, 0x01 },
+    { L"MAX Flash", 0xdc440, 0xdc460, indexKOF95Sprites_Chang, 0x00, &pairNext },
+    { L"MAX Flash Extra", 0xdc460, 0xdc480, indexKOF95Sprites_Chang, 0x01 },
+    { L"Electric Palette?", 0xdc480, 0xdc4a0, indexKOF95Sprites_Chang, 0x00, &pairNext },
+    { L"Electric Palette? Extra", 0xdc4a0, 0xdc4c0, indexKOF95Sprites_Chang, 0x01 },
     { L"Win Portrait?", 0xdc4c0, 0xdc520 },
     { L"Extra 5", 0xdc520, 0xdc540 },
     { L"Extra 6", 0xdc540, 0xdc560 },
     { L"Extra 7", 0xdc560, 0xdc580 },
     { L"Extra 8", 0xdc580, 0xdc5a0 },
     { L"Extra 9", 0xdc5a0, 0xdc5c0 },
-    { L"Lifebar Portrait", 0xdc5c0, 0xdc5e0, indexKOF94Sprites_Chang, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdc5e0, 0xdc600, indexKOF94Sprites_Chang, 0x00 },
+    { L"Lifebar Portrait", 0xdc5c0, 0xdc5e0, indexKOF95Sprites_Chang, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdc5e0, 0xdc600, indexKOF95Sprites_Chang, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_CHANG_ALT_PALETTES[] =
 {
-    { L"Chang", 0xdc600, 0xdc620, indexKOF94Sprites_Chang, 0x00, &pairNext },
-    { L"Extra 1", 0xdc620, 0xdc640, indexKOF94Sprites_Chang, 0x01 },
-    { L"MAX Flash", 0xdc640, 0xdc660, indexKOF94Sprites_Chang, 0x00, &pairNext },
-    { L"MAX Flash Extra", 0xdc660, 0xdc680, indexKOF94Sprites_Chang, 0x01 },
-    { L"Electric Palette?", 0xdc680, 0xdc6a0, indexKOF94Sprites_Chang, 0x00, &pairNext },
-    { L"Electric Palette? Extra", 0xdc6a0, 0xdc6c0, indexKOF94Sprites_Chang, 0x01 },
+    { L"Chang", 0xdc600, 0xdc620, indexKOF95Sprites_Chang, 0x00, &pairNext },
+    { L"Extra 1", 0xdc620, 0xdc640, indexKOF95Sprites_Chang, 0x01 },
+    { L"MAX Flash", 0xdc640, 0xdc660, indexKOF95Sprites_Chang, 0x00, &pairNext },
+    { L"MAX Flash Extra", 0xdc660, 0xdc680, indexKOF95Sprites_Chang, 0x01 },
+    { L"Electric Palette?", 0xdc680, 0xdc6a0, indexKOF95Sprites_Chang, 0x00, &pairNext },
+    { L"Electric Palette? Extra", 0xdc6a0, 0xdc6c0, indexKOF95Sprites_Chang, 0x01 },
     { L"Win Portrait?", 0xdc6c0, 0xdc720 },
     { L"Extra 5", 0xdc720, 0xdc740 },
     { L"Extra 6", 0xdc740, 0xdc760 },
     { L"Extra 7", 0xdc760, 0xdc780 },
     { L"Extra 8", 0xdc780, 0xdc7a0 },
     { L"Extra 9", 0xdc7a0, 0xdc7c0 },
-    { L"Lifebar Portrait", 0xdc7c0, 0xdc7e0, indexKOF94Sprites_Chang, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdc7e0, 0xdc800, indexKOF94Sprites_Chang, 0x00 },
+    { L"Lifebar Portrait", 0xdc7c0, 0xdc7e0, indexKOF95Sprites_Chang, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdc7e0, 0xdc800, indexKOF95Sprites_Chang, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_CHOI_MAIN_PALETTES[] =
 {
-    { L"Choi", 0xdc800, 0xdc820, indexKOF94Sprites_Choi, 0x00 },
+    { L"Choi", 0xdc800, 0xdc820, indexKOF95Sprites_Chin, 0x00 },
     { L"Extra 1", 0xdc820, 0xdc840 },
-    { L"MAX Flash", 0xdc840, 0xdc860, indexKOF94Sprites_Choi, 0x00 },
+    { L"MAX Flash", 0xdc840, 0xdc860, indexKOF95Sprites_Chin, 0x00 },
     { L"Extra 2", 0xdc860, 0xdc880 },
-    { L"Electric Palette?", 0xdc880, 0xdc8a0, indexKOF94Sprites_Choi, 0x00 },
+    { L"Electric Palette?", 0xdc880, 0xdc8a0, indexKOF95Sprites_Chin, 0x00 },
     { L"Extra 4", 0xdc8a0, 0xdc8c0 },
     { L"Win Portrait?", 0xdc8c0, 0xdc920 },
     { L"Extra 5", 0xdc920, 0xdc940 },
@@ -558,17 +577,17 @@ const sGame_PaletteDataset KOF95_A_CHOI_MAIN_PALETTES[] =
     { L"Extra 7", 0xdc960, 0xdc980 },
     { L"Extra 8", 0xdc980, 0xdc9a0 },
     { L"Extra 9", 0xdc9a0, 0xdc9c0 },
-    { L"Lifebar Portrait", 0xdc9c0, 0xdc9e0, indexKOF94Sprites_Choi, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdc9e0, 0xdca00, indexKOF94Sprites_Choi, 0x00 },
+    { L"Lifebar Portrait", 0xdc9c0, 0xdc9e0, indexKOF95Sprites_Chin, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdc9e0, 0xdca00, indexKOF95Sprites_Chin, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_CHOI_ALT_PALETTES[] =
 {
-    { L"Choi", 0xdca00, 0xdca20, indexKOF94Sprites_Choi, 0x00 },
+    { L"Choi", 0xdca00, 0xdca20, indexKOF95Sprites_Chin, 0x00 },
     { L"Extra 1", 0xdca20, 0xdca40 },
-    { L"MAX Flash", 0xdca40, 0xdca60, indexKOF94Sprites_Choi, 0x00 },
+    { L"MAX Flash", 0xdca40, 0xdca60, indexKOF95Sprites_Chin, 0x00 },
     { L"Extra 2", 0xdca60, 0xdca80 },
-    { L"Electric Palette?", 0xdca80, 0xdcaa0, indexKOF94Sprites_Choi, 0x00 },
+    { L"Electric Palette?", 0xdca80, 0xdcaa0, indexKOF95Sprites_Chin, 0x00 },
     { L"Extra 4", 0xdcaa0, 0xdcac0 },
     { L"Win Portrait?", 0xdcac0, 0xdcb20 },
     { L"Extra 5", 0xdcb20, 0xdcb40 },
@@ -576,8 +595,8 @@ const sGame_PaletteDataset KOF95_A_CHOI_ALT_PALETTES[] =
     { L"Extra 7", 0xdcb60, 0xdcb80 },
     { L"Extra 8", 0xdcb80, 0xdcba0 },
     { L"Extra 9", 0xdcba0, 0xdcbc0 },
-    { L"Lifebar Portrait", 0xdcbc0, 0xdcbe0, indexKOF94Sprites_Choi, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdcbe0, 0xdcc00, indexKOF94Sprites_Choi, 0x00 },
+    { L"Lifebar Portrait", 0xdcbc0, 0xdcbe0, indexKOF95Sprites_Chin, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdcbe0, 0xdcc00, indexKOF95Sprites_Chin, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_TERRY_MAIN_PALETTES[] =
@@ -906,11 +925,11 @@ const sGame_PaletteDataset KOF95_A_KING_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_SAISYU_MAIN_PALETTES[] =
 {
-    { L"Saisyu", 0xdf000, 0xdf020, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Saisyu", 0xdf000, 0xdf020, indexKOF95Sprites_Saisyu, 0x00 },
     { L"Extra 1", 0xdf020, 0xdf040 },
-    { L"MAX Flash", 0xdf040, 0xdf060, indexKOFSprites_98Saisyu, 0x00 },
+    { L"MAX Flash", 0xdf040, 0xdf060, indexKOF95Sprites_Saisyu, 0x00 },
     { L"Extra 2", 0xdf060, 0xdf080 },
-    { L"Electric Palette?", 0xdf080, 0xdf0a0, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Electric Palette?", 0xdf080, 0xdf0a0, indexKOF95Sprites_Saisyu, 0x00 },
     { L"Extra 4", 0xdf0a0, 0xdf0c0 },
     { L"Win Portrait?", 0xdf0c0, 0xdf120 },
     { L"Extra 5", 0xdf120, 0xdf140 },
@@ -918,17 +937,17 @@ const sGame_PaletteDataset KOF95_A_SAISYU_MAIN_PALETTES[] =
     { L"Extra 7", 0xdf160, 0xdf180 },
     { L"Extra 8", 0xdf180, 0xdf1a0 },
     { L"Extra 9", 0xdf1a0, 0xdf1c0 },
-    { L"Lifebar Portrait", 0xdf1c0, 0xdf1e0, indexKOFSprites_98Saisyu, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdf1e0, 0xdf200, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Lifebar Portrait", 0xdf1c0, 0xdf1e0, indexKOF95Sprites_Saisyu, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdf1e0, 0xdf200, indexKOF95Sprites_Saisyu, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_SAISYU_ALT_PALETTES[] =
 {
-    { L"Saisyu", 0xdf200, 0xdf220, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Saisyu", 0xdf200, 0xdf220, indexKOF95Sprites_Saisyu, 0x00 },
     { L"Extra 1", 0xdf220, 0xdf240 },
-    { L"MAX Flash", 0xdf240, 0xdf260, indexKOFSprites_98Saisyu, 0x00 },
+    { L"MAX Flash", 0xdf240, 0xdf260, indexKOF95Sprites_Saisyu, 0x00 },
     { L"Extra 2", 0xdf260, 0xdf280 },
-    { L"Electric Palette?", 0xdf280, 0xdf2a0, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Electric Palette?", 0xdf280, 0xdf2a0, indexKOF95Sprites_Saisyu, 0x00 },
     { L"Extra 4", 0xdf2a0, 0xdf2c0 },
     { L"Win Portrait?", 0xdf2c0, 0xdf320 },
     { L"Extra 5", 0xdf320, 0xdf340 },
@@ -936,44 +955,44 @@ const sGame_PaletteDataset KOF95_A_SAISYU_ALT_PALETTES[] =
     { L"Extra 7", 0xdf360, 0xdf380 },
     { L"Extra 8", 0xdf380, 0xdf3a0 },
     { L"Extra 9", 0xdf3a0, 0xdf3c0 },
-    { L"Lifebar Portrait", 0xdf3c0, 0xdf3e0, indexKOFSprites_98Saisyu, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdf3e0, 0xdf400, indexKOFSprites_98Saisyu, 0x00 },
+    { L"Lifebar Portrait", 0xdf3c0, 0xdf3e0, indexKOF95Sprites_Saisyu, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdf3e0, 0xdf400, indexKOF95Sprites_Saisyu, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_OMEGARUGAL_MAIN_PALETTES[] =
 {
-    { L"Omega Rugal", 0xdf400, 0xdf420, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"Extra 1", 0xdf420, 0xdf440, indexKOF94Sprites_Rugal, 0x01 },
-    { L"MAX Flash", 0xdf440, 0xdf460, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"MAX Flash Extra", 0xdf460, 0xdf480, indexKOF94Sprites_Rugal, 0x01 },
-    { L"Electric Palette?", 0xdf480, 0xdf4a0, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"Electric Palette? Extra", 0xdf4a0, 0xdf4c0, indexKOF94Sprites_Rugal, 0x01 },
+    { L"Omega Rugal", 0xdf400, 0xdf420, indexKOF95Sprites_OmegaRugal, 0x00 },
+    { L"Extra 1", 0xdf420, 0xdf440, indexKOF95Sprites_OmegaRugal, 0x01 },
+    { L"MAX Flash", 0xdf440, 0xdf460, indexKOF95Sprites_OmegaRugal, 0x00 },
+    { L"MAX Flash Extra", 0xdf460, 0xdf480, indexKOF95Sprites_OmegaRugal, 0x01 },
+    { L"Electric Palette?", 0xdf480, 0xdf4a0, indexKOF95Sprites_OmegaRugal, 0x00 },
+    { L"Electric Palette? Extra", 0xdf4a0, 0xdf4c0, indexKOF95Sprites_OmegaRugal, 0x01 },
     { L"Win Portrait?", 0xdf4c0, 0xdf520 },
     { L"Extra 5", 0xdf520, 0xdf540 },
     { L"Extra 6", 0xdf540, 0xdf560 },
     { L"Extra 7", 0xdf560, 0xdf580 },
     { L"Extra 8", 0xdf580, 0xdf5a0 },
     { L"Extra 9", 0xdf5a0, 0xdf5c0 },
-    { L"Lifebar Portrait", 0xdf5c0, 0xdf5e0, indexKOF94Sprites_Rugal, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdf5e0, 0xdf600, indexKOF94Sprites_Rugal, 0x00 },
+    { L"Lifebar Portrait", 0xdf5c0, 0xdf5e0, indexKOF95Sprites_OmegaRugal, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdf5e0, 0xdf600, indexKOF95Sprites_OmegaRugal, 0x00 },
 };
 
 const sGame_PaletteDataset KOF95_A_OMEGARUGAL_ALT_PALETTES[] =
 {
-    { L"Omega Rugal", 0xdf600, 0xdf620, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"Extra 1", 0xdf620, 0xdf640, indexKOF94Sprites_Rugal, 0x01 },
-    { L"MAX Flash", 0xdf640, 0xdf660, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"MAX Flash Extra", 0xdf660, 0xdf680, indexKOF94Sprites_Rugal, 0x01 },
-    { L"Electric Palette?", 0xdf680, 0xdf6a0, indexKOF94Sprites_Rugal, 0x00, &pairNext },
-    { L"Electric Palette? Extra", 0xdf6a0, 0xdf6c0, indexKOF94Sprites_Rugal, 0x01 },
+    { L"Omega Rugal", 0xdf600, 0xdf620, indexKOF95Sprites_OmegaRugal, 0x00 },
+    { L"Extra 1", 0xdf620, 0xdf640, indexKOF95Sprites_OmegaRugal, 0x01 },
+    { L"MAX Flash", 0xdf640, 0xdf660, indexKOF95Sprites_OmegaRugal, 0x00 },
+    { L"MAX Flash Extra", 0xdf660, 0xdf680, indexKOF95Sprites_OmegaRugal, 0x01 },
+    { L"Electric Palette?", 0xdf680, 0xdf6a0, indexKOF95Sprites_OmegaRugal, 0x00 },
+    { L"Electric Palette? Extra", 0xdf6a0, 0xdf6c0, indexKOF95Sprites_OmegaRugal, 0x01 },
     { L"Win Portrait?", 0xdf6c0, 0xdf720 },
     { L"Extra 5", 0xdf720, 0xdf740 },
     { L"Extra 6", 0xdf740, 0xdf760 },
     { L"Extra 7", 0xdf760, 0xdf780 },
     { L"Extra 8", 0xdf780, 0xdf7a0 },
     { L"Extra 9", 0xdf7a0, 0xdf7c0 },
-    { L"Lifebar Portrait", 0xdf7c0, 0xdf7e0, indexKOF94Sprites_Rugal, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdf7e0, 0xdf800, indexKOF94Sprites_Rugal, 0x00 },
+    { L"Lifebar Portrait", 0xdf7c0, 0xdf7e0, indexKOF95Sprites_OmegaRugal, 0x20 },
+    { L"Extra 10: Monochrome palette?", 0xdf7e0, 0xdf800, indexKOF95Sprites_OmegaRugal, 0x00 },
 };
 
 const sDescTreeNode KOF95_A_HEIDERN_COLLECTION[] =

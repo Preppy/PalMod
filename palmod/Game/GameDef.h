@@ -1824,7 +1824,7 @@ enum KOFSpriteList
     indexAoF1Sprites_Bonus,         // 0x203
     indexAoF1Sprites_Stages,        // 0x204
 
-    indexRBFF2_Terry,               // 0x205
+    indexRBFF2Sprites_Terry,               // 0x205
 
     indexKOF00Sprites_Andy,         // 0x206
     indexKOF00Sprites_Athena,       // 0x207
@@ -2239,21 +2239,40 @@ enum SamuraiShodownSpriteList
     indexSS5_Bonus,         // 0x4c
     indexSS5_Stages,        // 0x4d
 
-    indexSamSho1Sprites_Amakusa,    // 0x4e
-    indexSamSho1Sprites_Charlotte,  // 0x4f
-    indexSamSho1Sprites_Earthquake, // 0x50
-    indexSamSho1Sprites_Galford,    // 0x51
-    indexSamSho1Sprites_Genan,      // 0x52
-    indexSamSho1Sprites_Hanzo,      // 0x53
-    indexSamSho1Sprites_Haohmaru,   // 0x54
-    indexSamSho1Sprites_Jubei,      // 0x55
-    indexSamSho1Sprites_Kyoshiro,   // 0x56
-    indexSamSho1Sprites_Nakoruru,   // 0x57
-    indexSamSho1Sprites_TamTam,     // 0x58
-    indexSamSho1Sprites_Ukyo,       // 0x59
-    indexSamSho1Sprites_Wanfu,      // 0x5a
-    indexSamSho1Sprites_Bonus,      // 0x5b
-    indexSamSho1Sprites_Stages,     // 0x5c
+    indexSamSho2Sprites_ChamCham,   // 0x4E
+    indexSamSho2Sprites_Charlotte,  // 0x4F
+    indexSamSho2Sprites_Earthquake, // 0x50
+    indexSamSho2Sprites_Galford,    // 0x51
+    indexSamSho2Sprites_Genan,      // 0x52
+    indexSamSho2Sprites_Genjuro,    // 0x53
+    indexSamSho2Sprites_Haohmaru,   // 0x54
+    indexSamSho2Sprites_Hanzo,      // 0x55
+    indexSamSho2Sprites_Jubei,      // 0x56
+    indexSamSho2Sprites_Kuroko,     // 0x57
+    indexSamSho2Sprites_Kyoshiro,   // 0x58
+    indexSamSho2Sprites_Mizuki,     // 0x59
+    indexSamSho2Sprites_Nakoruru,   // 0x5A
+    indexSamSho2Sprites_Nicotine,   // 0x5B
+    indexSamSho2Sprites_Sieger,     // 0x5C
+    indexSamSho2Sprites_Ukyo,       // 0x5D
+    indexSamSho2Sprites_WanFu,      // 0x5E
+    indexSamSho2Sprites_Bonus,      // 0x5F
+
+    indexSamSho1Sprites_Amakusa,    // 0x60
+    indexSamSho1Sprites_Charlotte,  // 0x61
+    indexSamSho1Sprites_Earthquake, // 0x62
+    indexSamSho1Sprites_Galford,    // 0x63
+    indexSamSho1Sprites_Genan,      // 0x64
+    indexSamSho1Sprites_Hanzo,      // 0x66
+    indexSamSho1Sprites_Haohmaru,   // 0x67
+    indexSamSho1Sprites_Jubei,      // 0x68
+    indexSamSho1Sprites_Kyoshiro,   // 0x69
+    indexSamSho1Sprites_Nakoruru,   // 0x6a
+    indexSamSho1Sprites_TamTam,     // 0x6b
+    indexSamSho1Sprites_Ukyo,       // 0x6c
+    indexSamSho1Sprites_Wanfu,      // 0x6d
+    indexSamSho1Sprites_Bonus,      // 0x6e
+    indexSamSho1Sprites_Stages,     // 0x6f
 
 
     indexSamuraiShodownSprites_Last,
@@ -2471,6 +2490,21 @@ enum SupportedSNES_PaletteListIndex
     indexTMNTTFSprites_Wingnut,         // 0x45
     indexTMNTTFSprites_Bonus,           // 0x46
     indexTMNTTFSprites_Stages,          // 0x47
+
+    indexXMMASprites_Apocalypse,        // 0x48
+    indexXMMASprites_Beast,             // 0x49
+    indexXMMASprites_Cyclops,           // 0x4A
+    indexXMMASprites_Exodus,            // 0x4B
+    indexXMMASprites_Gambit,            // 0x4C
+    indexXMMASprites_Juggernaut,        // 0x4D
+    indexXMMASprites_Magneto,           // 0x4E
+    indexXMMASprites_OmegaRed,          // 0x4F
+    indexXMMASprites_ProfessorX,        // 0x50
+    indexXMMASprites_Psylocke,          // 0x51
+    indexXMMASprites_Sentinel,          // 0x52
+    indexXMMASprites_Tusk,              // 0x53
+    indexXMMASprites_Wolverine,         // 0x54
+    indexXMMASprites_Bonus,             // 0x55
 };
 
 enum SupportedNEOGEO_PaletteListIndex

@@ -105,7 +105,7 @@ const UINT16 SVCPLUSA_A_IMG_UNITS[] =
     indexSVCSprites_ViolentKen, // 73
     indexSVCSprites_ShinAkuma,  // 74
 
-    indexSVCSprites_Bonus,          // 0x22c
+    indexSVCSprites_Bonus,      // 0x22c
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KYO_PUNCH_PALETTES[] =
@@ -2282,14 +2282,14 @@ const sDescTreeNode SVCPLUSA_A_STAGES_COLLECTION[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_BONUS_SELECT_PALETTES[] =
 {
-    { L"Selector Ring P1/P2/CPU", 0x3af938, 0x3afab8 },
-    { L"Character Select BG", 0x3afad8, 0x3afb18 },
-    { L"Character Select Screen SNK side", 0x3afb38, 0x3afcb8 },
-    { L"Character Select Screen Capcom side", 0x3afd38, 0x3afeb8 },
-    { L"Character Select boxes", 0x3aff38, 0x3aff58 },
-    { L"Character Select Screen Text", 0x3aff58 ,0x3aff98 },
+    { L"Character Select BG", 0x3afad8, 0x3afb18, indexSVCSprites_Bonus, 0x01, &pairFullyLinkedNode },
+    { L"Character Select boxes", 0x3aff38, 0x3aff58, indexSVCSprites_Bonus, 0x02 },
+    { L"Character Select Screen Text", 0x3aff58 ,0x3aff98, indexSVCSprites_Bonus, 0x05 },
+    { L"Character Select Screen SNK side", 0x3afb38, 0x3afcb8, indexSVCSprites_Bonus, 0x04 },
+    { L"Character Select Screen Capcom side", 0x3afd38, 0x3afeb8, indexSVCSprites_Bonus, 0x03 },
     { L"Character Select Screen Timer", 0x3aff98, 0x3affb8 },
     { L"Character Select Name Display", 0x3affb8, 0x3afff8 },
+    { L"Selector Ring P1/P2/CPU", 0x3af938, 0x3afab8 },
 };
 
 const sDescTreeNode SVCPLUSA_A_BONUS_COLLECTION[] =

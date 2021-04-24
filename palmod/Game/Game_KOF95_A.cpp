@@ -194,12 +194,12 @@ sKOF95_A_PaletteData KOF95_A_CharacterEffectPalettes[] =
     { L"Kyo",       0xda800, false, L"indexKOF94Sprites_Kyo" },
     { L"Benimaru",  0xdac00, false, L"indexKOF94Sprites_Benimaru" },
     { L"Daimon",    0xdb000, false, L"indexKOF94Sprites_Daimon" },
-    { L"Iori",      0xdb400, false, L"indexKOFSprites_98Iori" },
-    { L"Eiji",      0xdb800, false, L"INVALID_UNIT_VALUE" },
-    { L"Billy",     0xdbc00, false, L"indexKOFSprites_98Billy" },
+    { L"Iori",      0xdb400, false, L"indexKOF95Sprites_Iori" },
+    { L"Eiji",      0xdb800, false, L"indexKOF95Sprites_Eiji" },
+    { L"Billy",     0xdbc00, false, L"indexKOF95Sprites_Billy" },
     { L"Kim",       0xdc000, false, L"indexKOF94Sprites_Kim" },
-    { L"Chang",     0xdc400, true, L"indexKOF94Sprites_Chang" },
-    { L"Choi",      0xdc800, false, L"indexKOF94Sprites_Choi" },
+    { L"Chang",     0xdc400, true, L"indexKOF95Sprites_Chang" },
+    { L"Choi",      0xdc800, false, L"indexKOF95Sprites_Chin" },
     { L"Terry",     0xdcc00, false, L"indexKOF94Sprites_Terry" },
     { L"Andy",      0xdd000, false, L"indexKOF94Sprites_Andy" },
     { L"Joe",       0xdd400, false, L"indexKOF94Sprites_Joe" },
@@ -209,8 +209,8 @@ sKOF95_A_PaletteData KOF95_A_CharacterEffectPalettes[] =
     { L"Yuri",      0xde400, false, L"indexKOF94Sprites_Yuri" },
     { L"Mai",       0xde800, false, L"indexKOF94Sprites_Mai" },
     { L"King",      0xdec00, false, L"indexKOF94Sprites_King" },
-    { L"Saisyu",    0xdf000, false, L"indexKOFSprites_98Saisyu" },
-    { L"Omega Rugal", 0xdf400, true, L"indexKOF94Sprites_Rugal" },
+    { L"Saisyu",    0xdf000, false, L"indexKOF95Sprites_Saisyu" },
+    { L"Omega Rugal", 0xdf400, true, L"indexKOF95Sprites_Rugal" },
 };
 
 void CGame_KOF95_A::DumpPaletteHeaders()

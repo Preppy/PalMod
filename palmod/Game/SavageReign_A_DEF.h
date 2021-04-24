@@ -3,31 +3,42 @@
 // This header is all hand-generated
 const UINT16 SAVAGEREIGN_A_IMG_UNITS[] =
 {
-    indexKOFSprites_98Kyo,
+    indexSavReign_CarolStanzack,            // 0x47
+    indexSavReign_ChungPaifu,               // 0x48
+    indexSavReign_GordonBowman,             // 0x49
+    indexSavReign_Gozu,                     // 0x4A
+    indexSavReign_Joker,                    // 0x4B
+    indexSavReign_KingLeo,                  // 0x4C
+    indexSavReign_KingLion,                 // 0x4D
+    indexSavReign_MaxEagle,                 // 0x4E
+    indexSavReign_Mezu,                     // 0x4F
+    indexSavReign_NicolaZaza,               // 0x50
+    indexSavReign_ShoHayate,                // 0x51
+    indexSavReign_Bonus,                    // 0x52
 };
 
 const sGame_PaletteDataset SAVAGEREIGN_A_SHO_A[] =
 {
-    { L"Sho Hayate A", 0xa4000, 0xa4040 },
-    { L"Burned A", 0xa4040, 0xa4080 },
-    { L"Zapped A", 0xa4080, 0xa40c0 },
-    { L"Freezed A", 0xa40c0, 0xa4100 },
-    { L"Special Effect A", 0xa4140, 0xa4160 },
-    { L"Special Weapon Effect A", 0xa4120, 0xa4140 },
-    { L"Weapon Super Slash A", 0xa4160, 0xa4180 },
-    { L"Weapon Slash A", 0xa41e0, 0xa4200 },
+    { L"Sho Hayate A", 0xa4000, 0xa4040, indexSavReign_ShoHayate, 0x00, &pairNextAndNext },
+    { L"Weapon Super Slash A", 0xa4160, 0xa4180, indexSavReign_ShoHayate, 0x02 },
+    { L"Weapon Slash A", 0xa41e0, 0xa4200, indexSavReign_ShoHayate, 0x01 },
+    { L"Special Effect A", 0xa4140, 0xa4160, indexSavReign_ShoHayate, 0x03, &pairNext },
+    { L"Special Weapon Effect A", 0xa4120, 0xa4140, indexSavReign_ShoHayate, 0x04 },
+    { L"Burned A", 0xa4040, 0xa4080, indexSavReign_ShoHayate, 0x00 },
+    { L"Zapped A", 0xa4080, 0xa40c0, indexSavReign_ShoHayate, 0x00 },
+    { L"Freezed A", 0xa40c0, 0xa4100, indexSavReign_ShoHayate, 0x00 },
 };
 
 const sGame_PaletteDataset SAVAGEREIGN_A_SHO_B[] =
 {
-    { L"Sho Hayate B", 0xa4200, 0xa4240 },
-    { L"Burned B", 0xa4240, 0xa4280 },
-    { L"Zapped B", 0xa4280, 0xa42c0 },
-    { L"Freezed B", 0xa42c0, 0xa4300 },
-    { L"Fire Effect B", 0xa4340, 0xa4360 },
-    { L"Fire Weapon Effect B", 0xa4320, 0xa4340 },
-    { L"Weapon Super Slash B", 0xa4360, 0xa4380 },
-    { L"Weapon Slash B", 0xa43e0, 0xa4400 },
+    { L"Sho Hayate B", 0xa4200, 0xa4240, indexSavReign_ShoHayate, 0x00, &pairNextAndNext },
+    { L"Weapon Super Slash B", 0xa4360, 0xa4380, indexSavReign_ShoHayate, 0x02 },
+    { L"Weapon Slash B", 0xa43e0, 0xa4400, indexSavReign_ShoHayate, 0x01 },
+    { L"Fire Effect B", 0xa4340, 0xa4360, indexSavReign_ShoHayate, 0x03, &pairNext },
+    { L"Fire Weapon Effect B", 0xa4320, 0xa4340, indexSavReign_ShoHayate, 0x04 },
+    { L"Burned B", 0xa4240, 0xa4280, indexSavReign_ShoHayate, 0x00 },
+    { L"Zapped B", 0xa4280, 0xa42c0, indexSavReign_ShoHayate, 0x00 },
+    { L"Freezed B", 0xa42c0, 0xa4300, indexSavReign_ShoHayate, 0x00 },
 };
 
 const sGame_PaletteDataset SAVAGEREIGN_A_SHO_PORTRAITS[] =
@@ -40,10 +51,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_SHO_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_MAX_A[] =
 {
-    { L"Max Eagle A", 0xa4400, 0xa4440 },
-    { L"Burned A", 0xa4440, 0xa4480 },
-    { L"Zapped A", 0xa4480, 0xa44c0 },
-    { L"Freezed A", 0xa44c0, 0xa4500 },
+    { L"Max Eagle A", 0xa4400, 0xa4440, indexSavReign_MaxEagle, 0x00 },
+    { L"Burned A", 0xa4440, 0xa4480, indexSavReign_MaxEagle, 0x00 },
+    { L"Zapped A", 0xa4480, 0xa44c0, indexSavReign_MaxEagle, 0x00 },
+    { L"Freezed A", 0xa44c0, 0xa4500, indexSavReign_MaxEagle, 0x00 },
     { L"Special Effect A", 0xa4500, 0xa4520 },
     { L"Special Weapon Effect A", 0xa4520, 0xa4540 },
     { L"Flash Wing A", 0xa4540, 0xa4560 },
@@ -53,10 +64,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_MAX_A[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_MAX_B[] =
 {
-    { L"Max Eagle B", 0xa4600, 0xa4640 },
-    { L"Burned B", 0xa4640, 0xa4680 },
-    { L"Zapped B", 0xa4680, 0xa46c0 },
-    { L"Freezed B", 0xa46c0, 0xa4700 },
+    { L"Max Eagle B", 0xa4600, 0xa4640, indexSavReign_MaxEagle, 0x00 },
+    { L"Burned B", 0xa4640, 0xa4680, indexSavReign_MaxEagle, 0x00 },
+    { L"Zapped B", 0xa4680, 0xa46c0, indexSavReign_MaxEagle, 0x00 },
+    { L"Freezed B", 0xa46c0, 0xa4700, indexSavReign_MaxEagle, 0x00 },
     { L"Special Effect B", 0xa4700, 0xa4720 },
     { L"Special Weapon Effect B", 0xa4720, 0xa4740 },
     { L"Flash Wing B", 0xa4740, 0xa4760 },
@@ -74,10 +85,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_MAX_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_GOZU_A[] =
 {
-    { L"Gozu A", 0xa4800, 0xa4840 },
-    { L"Burned A", 0xa4840, 0xa4880 },
-    { L"Zapped A", 0xa4880, 0xa48c0 },
-    { L"Freezed A", 0xa48c0, 0xa48e0 },
+    { L"Gozu A", 0xa4800, 0xa4840, indexSavReign_Gozu, 0x00 },
+    { L"Burned A", 0xa4840, 0xa4880, indexSavReign_Gozu, 0x00 },
+    { L"Zapped A", 0xa4880, 0xa48c0, indexSavReign_Gozu, 0x00 },
+    { L"Freezed A", 0xa48c0, 0xa48e0, indexSavReign_Gozu, 0x00 },
     { L"Fire Pal A", 0xa4940, 0xa4960 },
     { L"Fire Effect A", 0xa4960, 0xa4980 },
     { L"Special Effect 1 A", 0xa4900, 0xa4920 },
@@ -88,10 +99,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_GOZU_A[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_GOZU_B[] =
 {
-    { L"Gozu B", 0xa4a00, 0xa4a40 },
-    { L"Burned B", 0xa4a40, 0xa4a80 },
-    { L"Zapped B", 0xa4a80, 0xa4ac0 },
-    { L"Freezed B", 0xa4ac0, 0xa4ae0 },
+    { L"Gozu B", 0xa4a00, 0xa4a40, indexSavReign_Gozu, 0x00 },
+    { L"Burned B", 0xa4a40, 0xa4a80, indexSavReign_Gozu, 0x00 },
+    { L"Zapped B", 0xa4a80, 0xa4ac0, indexSavReign_Gozu, 0x00 },
+    { L"Freezed B", 0xa4ac0, 0xa4ae0, indexSavReign_Gozu, 0x00 },
     { L"Fire Pal B", 0xa4b40, 0xa4b60 },
     { L"Fire Effect B", 0xa4b60, 0xa4b80 },
     { L"Special Effect 1 B", 0xa4b00, 0xa4b20 },
@@ -110,10 +121,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_GOZU_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_MEZU_A[] =
 {
-    { L"Mezu A", 0xa4c00, 0xa4c40 },
-    { L"Burned A", 0xa4c40, 0xa4c80 },
-    { L"Zapped A", 0xa4c80, 0xa4cc0 },
-    { L"Freezed A", 0xa4cc0, 0xa4ce0 },
+    { L"Mezu A", 0xa4c00, 0xa4c40, indexSavReign_Mezu, 0x00 },
+    { L"Burned A", 0xa4c40, 0xa4c80, indexSavReign_Mezu, 0x00 },
+    { L"Zapped A", 0xa4c80, 0xa4cc0, indexSavReign_Mezu, 0x00 },
+    { L"Freezed A", 0xa4cc0, 0xa4ce0, indexSavReign_Mezu, 0x00 },
     { L"Ice Pal A", 0xa4d40, 0xa4d60 },
     { L"Ice Effect A", 0xa4d60, 0xa4d80 },
     { L"Special Effect 1 A", 0xa4d00, 0xa4d20 },
@@ -124,10 +135,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_MEZU_A[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_MEZU_B[] =
 {
-    { L"Mezu B", 0xa4e00, 0xa4e40 },
-    { L"Burned B", 0xa4e40, 0xa4e80 },
-    { L"Zapped B", 0xa4e80, 0xa4ec0 },
-    { L"Freezed B", 0xa4ec0, 0xa4ee0 },
+    { L"Mezu B", 0xa4e00, 0xa4e40, indexSavReign_Mezu, 0x00 },
+    { L"Burned B", 0xa4e40, 0xa4e80, indexSavReign_Mezu, 0x00 },
+    { L"Zapped B", 0xa4e80, 0xa4ec0, indexSavReign_Mezu, 0x00 },
+    { L"Freezed B", 0xa4ec0, 0xa4ee0, indexSavReign_Mezu, 0x00 },
     { L"Ice Pal B", 0xa4f40, 0xa4f60 },
     { L"Ice Effect B", 0xa4f60, 0xa4f80 },
     { L"Special Effect 1 B", 0xa4f00, 0xa4f20 },
@@ -146,10 +157,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_MEZU_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_CAROL_A[] =
 {
-    { L"Carol Stanzack A", 0xa5000, 0xa5040 },
-    { L"Burned A", 0xa5040, 0xa5080 },
-    { L"Zapped A", 0xa5080, 0xa50c0 },
-    { L"Freezed A", 0xa50c0, 0xa5100 },
+    { L"Carol Stanzack A", 0xa5000, 0xa5040, indexSavReign_CarolStanzack, 0x00 },
+    { L"Burned A", 0xa5040, 0xa5080, indexSavReign_CarolStanzack, 0x00 },
+    { L"Zapped A", 0xa5080, 0xa50c0, indexSavReign_CarolStanzack, 0x00 },
+    { L"Freezed A", 0xa50c0, 0xa5100, indexSavReign_CarolStanzack, 0x00 },
     { L"Rainbow Attack 1 A", 0xa5100, 0xa5120 },
     { L"Rainbow Attack 2 A", 0xa5160, 0xa5180 },
     { L"Special Effect A", 0xa5140, 0xa5160 },
@@ -160,10 +171,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_CAROL_A[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_CAROL_B[] =
 {
-    { L"Carol Stanzack B", 0xa5200, 0xa5240 },
-    { L"Burned B", 0xa5240, 0xa5280 },
-    { L"Zapped B", 0xa5280, 0xa52c0 },
-    { L"Freezed B", 0xa52c0, 0xa5300 },
+    { L"Carol Stanzack B", 0xa5200, 0xa5240, indexSavReign_CarolStanzack, 0x00 },
+    { L"Burned B", 0xa5240, 0xa5280, indexSavReign_CarolStanzack, 0x00 },
+    { L"Zapped B", 0xa5280, 0xa52c0, indexSavReign_CarolStanzack, 0x00 },
+    { L"Freezed B", 0xa52c0, 0xa5300, indexSavReign_CarolStanzack, 0x00 },
     { L"Rainbow Attack 1 B", 0xa5300, 0xa5320 },
     { L"Rainbow Attack 2 B", 0xa5360, 0xa5380 },
     { L"Special Effect B", 0xa5340, 0xa5360 },
@@ -182,10 +193,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_CAROL_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_NICOLA_A[] =
 {
-    { L"Nicola Zaza A", 0xa5400, 0xa5440 },
-    { L"Burned A", 0xa5440, 0xa5480 },
-    { L"Zapped A", 0xa5480, 0xa54c0 },
-    { L"Freezed A", 0xa54c0, 0xa5500 },
+    { L"Nicola Zaza A", 0xa5400, 0xa5440, indexSavReign_NicolaZaza, 0x00 },
+    { L"Burned A", 0xa5440, 0xa5480, indexSavReign_NicolaZaza, 0x00 },
+    { L"Zapped A", 0xa5480, 0xa54c0, indexSavReign_NicolaZaza, 0x00 },
+    { L"Freezed A", 0xa54c0, 0xa5500, indexSavReign_NicolaZaza, 0x00 },
     { L"Four-Step Spirit A", 0xa5520, 0xa5540 },
     { L"Discus Driver A", 0xa5540, 0xa5560 },
     { L"U.F.O. Blaster A", 0xa5560, 0xa5580 },
@@ -196,10 +207,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_NICOLA_A[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_NICOLA_B[] =
 {
-    { L"Nicola Zaza B", 0xa5600, 0xa5640 },
-    { L"Burned B", 0xa5640, 0xa5680 },
-    { L"Zapped B", 0xa5680, 0xa56c0 },
-    { L"Freezed B", 0xa56c0, 0xa5700 },
+    { L"Nicola Zaza B", 0xa5600, 0xa5640, indexSavReign_NicolaZaza, 0x00 },
+    { L"Burned B", 0xa5640, 0xa5680, indexSavReign_NicolaZaza, 0x00 },
+    { L"Zapped B", 0xa5680, 0xa56c0, indexSavReign_NicolaZaza, 0x00 },
+    { L"Freezed B", 0xa56c0, 0xa5700, indexSavReign_NicolaZaza, 0x00 },
     { L"Four-Step Spirit B", 0xa5720, 0xa5740 },
     { L"Discus Driver B", 0xa5740, 0xa5760 },
     { L"U.F.O. Blaster B", 0xa5760, 0xa5780 },
@@ -218,10 +229,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_NICOLA_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_JOKER_A[] =
 {
-    { L"Joker A", 0xa5800, 0xa5840 },
-    { L"Burned A", 0xa5840, 0xa5880 },
-    { L"Zapped A", 0xa5880, 0xa58c0 },
-    { L"Freezed A", 0xa58c0, 0xa5900 },
+    { L"Joker A", 0xa5800, 0xa5840, indexSavReign_Joker, 0x00 },
+    { L"Burned A", 0xa5840, 0xa5880, indexSavReign_Joker, 0x00 },
+    { L"Zapped A", 0xa5880, 0xa58c0, indexSavReign_Joker, 0x00 },
+    { L"Freezed A", 0xa58c0, 0xa5900, indexSavReign_Joker, 0x00 },
     { L"Mad Hatter Heave A", 0xa5920, 0xa5940 },
     { L"Roller Dash A", 0xa5940, 0xa5960 },
     { L"Shocking Toy A", 0xa5980, 0xa59a0 },
@@ -232,10 +243,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_JOKER_A[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_JOKER_B[] =
 {
-    { L"Joker B", 0xa5a00, 0xa5a40 },
-    { L"Burned B", 0xa5a40, 0xa5a80 },
-    { L"Zapped B", 0xa5a80, 0xa5ac0 },
-    { L"Freezed B", 0xa5ac0, 0xa5b00 },
+    { L"Joker B", 0xa5a00, 0xa5a40, indexSavReign_Joker, 0x00 },
+    { L"Burned B", 0xa5a40, 0xa5a80, indexSavReign_Joker, 0x00 },
+    { L"Zapped B", 0xa5a80, 0xa5ac0, indexSavReign_Joker, 0x00 },
+    { L"Freezed B", 0xa5ac0, 0xa5b00, indexSavReign_Joker, 0x00 },
     { L"Mad Hatter Heave B", 0xa5b20, 0xa5b40 },
     { L"Roller Dash B", 0xa5b40, 0xa5b60 },
     { L"Shocking Toy B", 0xa5b80, 0xa5ba0 },
@@ -254,10 +265,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_JOKER_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_CHUNG_A[] =
 {
-    { L"Chung Paifu A", 0xa5c00, 0xa5c40 },
-    { L"Burned A", 0xa5c40, 0xa5c80 },
-    { L"Zapped A", 0xa5c80, 0xa5cc0 },
-    { L"Freezed A", 0xa5cc0, 0xa5d00 },
+    { L"Chung Paifu A", 0xa5c00, 0xa5c40, indexSavReign_ChungPaifu, 0x00 },
+    { L"Burned A", 0xa5c40, 0xa5c80, indexSavReign_ChungPaifu, 0x00 },
+    { L"Zapped A", 0xa5c80, 0xa5cc0, indexSavReign_ChungPaifu, 0x00 },
+    { L"Freezed A", 0xa5cc0, 0xa5d00, indexSavReign_ChungPaifu, 0x00 },
     { L"Rage A", 0xa5d40, 0xa5d80 },
     { L"Kiden Dama A", 0xa5d00, 0xa5d20 },
     { L"Hakukoh Dan A", 0xa5d20, 0xa5d40 },
@@ -267,10 +278,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_CHUNG_A[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_CHUNG_B[] =
 {
-    { L"Chung Paifu B", 0xa5e00, 0xa5e40 },
-    { L"Burned B", 0xa5e40, 0xa5e80 },
-    { L"Zapped B", 0xa5e80, 0xa5ec0 },
-    { L"Freezed B", 0xa5ec0, 0xa5f00 },
+    { L"Chung Paifu B", 0xa5e00, 0xa5e40, indexSavReign_ChungPaifu, 0x00 },
+    { L"Burned B", 0xa5e40, 0xa5e80, indexSavReign_ChungPaifu, 0x00 },
+    { L"Zapped B", 0xa5e80, 0xa5ec0, indexSavReign_ChungPaifu, 0x00 },
+    { L"Freezed B", 0xa5ec0, 0xa5f00, indexSavReign_ChungPaifu, 0x00 },
     { L"Rage B", 0xa5f40, 0xa5f80 },
     { L"Kiden Dama B", 0xa5f00, 0xa5f20 },
     { L"Hakukoh Dan B", 0xa5f20, 0xa5f40 },
@@ -292,10 +303,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_CHUNG_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_GORDON_A[] =
 {
-    { L"Gordon Bowman A", 0xa6000, 0xa6040 },
-    { L"Burned A", 0xa6040, 0xa6080 },
-    { L"Zapped A", 0xa6080, 0xa60c0 },
-    { L"Freezed A", 0xa60c0, 0xa6100 },
+    { L"Gordon Bowman A", 0xa6000, 0xa6040, indexSavReign_GordonBowman, 0x00 },
+    { L"Burned A", 0xa6040, 0xa6080, indexSavReign_GordonBowman, 0x00 },
+    { L"Zapped A", 0xa6080, 0xa60c0, indexSavReign_GordonBowman, 0x00 },
+    { L"Freezed A", 0xa60c0, 0xa6100, indexSavReign_GordonBowman, 0x00 },
     { L"Special Pal 1 A", 0xa6140, 0xa6160 },
     { L"Special Pal 2 A", 0xa6180, 0xa61a0 },
     { L"Special Spark Bolt A", 0xa61a0, 0xa61c0 },
@@ -304,10 +315,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_GORDON_A[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_GORDON_B[] =
 {
-    { L"Gordon Bowman B", 0xa6200, 0xa6240 },
-    { L"Burned B", 0xa6240, 0xa6280 },
-    { L"Zapped B", 0xa6280, 0xa62c0 },
-    { L"Freezed B", 0xa62c0, 0xa6300 },
+    { L"Gordon Bowman B", 0xa6200, 0xa6240, indexSavReign_GordonBowman, 0x00 },
+    { L"Burned B", 0xa6240, 0xa6280, indexSavReign_GordonBowman, 0x00 },
+    { L"Zapped B", 0xa6280, 0xa62c0, indexSavReign_GordonBowman, 0x00 },
+    { L"Freezed B", 0xa62c0, 0xa6300, indexSavReign_GordonBowman, 0x00 },
     { L"Special Pal 1 B", 0xa6340, 0xa6360 },
     { L"Special Pal 2 B", 0xa6380, 0xa63a0 },
     { L"Special Spark Bolt B", 0xa63a0, 0xa63c0 },
@@ -324,10 +335,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_GORDON_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_KING_A[] =
 {
-    { L"King Lion A", 0xa6400, 0xa6440 },
-    { L"Burned A", 0xa6440, 0xa6480 },
-    { L"Zapped A", 0xa6480, 0xa64c0 },
-    { L"Freezed A", 0xa64c0, 0xa6500 },
+    { L"King Lion A", 0xa6400, 0xa6440, indexSavReign_KingLion, 0x00 },
+    { L"Burned A", 0xa6440, 0xa6480, indexSavReign_KingLion, 0x00 },
+    { L"Zapped A", 0xa6480, 0xa64c0, indexSavReign_KingLion, 0x00 },
+    { L"Freezed A", 0xa64c0, 0xa6500, indexSavReign_KingLion, 0x00 },
     { L"Rainbow Pal A", 0xa65c0, 0xa65e0 },
     { L"Beast Blow A", 0xa6580, 0xa65a0 },
     { L"King Straight A", 0xa6540, 0xa6560 },
@@ -338,10 +349,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_KING_A[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_KING_B[] =
 {
-    { L"King Lion B", 0xa6600, 0xa6640 },
-    { L"Burned B", 0xa6640, 0xa6680 },
-    { L"Zapped B", 0xa6680, 0xa66c0 },
-    { L"Freezed B", 0xa66c0, 0xa6700 },
+    { L"King Lion B", 0xa6600, 0xa6640, indexSavReign_KingLion, 0x00 },
+    { L"Burned B", 0xa6640, 0xa6680, indexSavReign_KingLion, 0x00 },
+    { L"Zapped B", 0xa6680, 0xa66c0, indexSavReign_KingLion, 0x00 },
+    { L"Freezed B", 0xa66c0, 0xa6700, indexSavReign_KingLion, 0x00 },
     { L"Rainbow Pal B", 0xa67c0, 0xa67e0 },
     { L"Beast Blow B", 0xa6780, 0xa67a0 },
     { L"King Straight B", 0xa6740, 0xa6760 },
@@ -360,10 +371,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_KING_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_LEO_A[] =
 {
-    { L"King Leo A", 0xaac00, 0xaac40 },
-    { L"Burned A", 0xaac40, 0xaac80 },
-    { L"Zapped A", 0xaac80, 0xaacc0 },
-    { L"Freezed A", 0xaacc0, 0xaad00 },
+    { L"King Leo A", 0xaac00, 0xaac40, indexSavReign_KingLeo, 0x00 },
+    { L"Burned A", 0xaac40, 0xaac80, indexSavReign_KingLeo, 0x00 },
+    { L"Zapped A", 0xaac80, 0xaacc0, indexSavReign_KingLeo, 0x00 },
+    { L"Freezed A", 0xaacc0, 0xaad00, indexSavReign_KingLeo, 0x00 },
     { L"Intro Cape A", 0xaadc0, 0xaade0 },
     { L"Beast Blow A", 0xaad80, 0xaada0 },
     { L"King Straight/Uppercut A", 0xaad40, 0xaad60 },
@@ -374,10 +385,10 @@ const sGame_PaletteDataset SAVAGEREIGN_A_LEO_A[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_LEO_B[] =
 {
-    { L"King Leo B", 0xaae00, 0xaae40 },
-    { L"Burned B", 0xaae40, 0xaae80 },
-    { L"Zapped B", 0xaae80, 0xaaec0 },
-    { L"Freezed B", 0xaaec0, 0xaaf00 },
+    { L"King Leo B", 0xaae00, 0xaae40, indexSavReign_KingLeo, 0x00 },
+    { L"Burned B", 0xaae40, 0xaae80, indexSavReign_KingLeo, 0x00 },
+    { L"Zapped B", 0xaae80, 0xaaec0, indexSavReign_KingLeo, 0x00 },
+    { L"Freezed B", 0xaaec0, 0xaaf00, indexSavReign_KingLeo, 0x00 },
     { L"Intro Cape B", 0xaafc0, 0xaafe0 },
     { L"Beast Blow B", 0xaaf80, 0xaafa0 },
     { L"King Straight/Uppercut B", 0xaaf40, 0xaaf60 },

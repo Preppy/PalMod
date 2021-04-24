@@ -314,7 +314,7 @@ const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P1[] =
 {
     { L"P1",          0x2727E, 0x2729E, indexCPS2_SilverSamurai },
     { L"P1 Extras 1: Shadow Frame", 0x2729E, 0x272BE, indexCPS2_SilverSamurai },
-    { L"P1 Extras 2: Shuriken Slash", 0x272BE, 0x272DE, indexCPS2_SilverSamurai, 0x02 },
+    { L"P1 Extras 2: Slash", 0x272BE, 0x272DE, indexCPS2_SilverSamurai, 0x08 },
     { L"P1 Extras 3: Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x272DE, 0x272FE, indexCPS2_SilverSamurai, 0x03 },
 
     { L"P1 Shine 1", 0x2973E, 0x2975E, indexCPS2_SilverSamurai }, // core rotation
@@ -331,7 +331,7 @@ const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P2[] =
 {
     { L"P2",          0x272FE, 0x2731E, indexCPS2_SilverSamurai },
     { L"P2 Extras 1: Shadow Frame", 0x2731E, 0x2733E, indexCPS2_SilverSamurai, 1 },
-    { L"P2 Extras 2: Shuriken Slash", 0x2733E, 0x2735E, indexCPS2_SilverSamurai, 0x02 },
+    { L"P2 Extras 2: Slash", 0x2733E, 0x2735E, indexCPS2_SilverSamurai, 0x08 },
     { L"P2 Extras 3: Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x2735E, 0x2737E, indexCPS2_SilverSamurai, 0x03 },
 
     { L"P2 Shine 1", 0x2977E, 0x2979E, indexCPS2_SilverSamurai }, // core rotation
@@ -346,10 +346,10 @@ const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_SHARED[] =
 {
-    { L"Shuriken 1", 0x298FE, 0x2991E },
-    { L"Shuriken 2", 0x2991E, 0x2993E },
-    { L"Shuriken 3", 0x2993E, 0x2995E },
-    { L"Shuriken 4", 0x2995E, 0x2997E },
+    { L"Shuriken 1", 0x298FE, 0x2991E, indexCPS2_SilverSamurai, 0x09 },
+    { L"Shuriken 2", 0x2991E, 0x2993E, indexCPS2_SilverSamurai, 0x09 },
+    { L"Shuriken 3", 0x2993E, 0x2995E, indexCPS2_SilverSamurai, 0x09 },
+    { L"Shuriken 4", 0x2995E, 0x2997E, indexCPS2_SilverSamurai, 0x09 },
 };
 
 const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P1[] =
@@ -534,7 +534,7 @@ const sGame_PaletteDataset COTA_A_BONUS_SELECT_PALETTES[] =
 {
     { L"Select Screen World Map",   0x371b4, 0x371d4, indexCPS2_COTAAssets, 1 },
     { L"Select Screen Vs Text",     0x371d4, 0x371f4, indexCPS2_COTAAssets, 0 },
-    { L"Select Screen Background",  0x3D436, 0x3D456 },
+    { L"Select Screen Background",  0x3D436, 0x3D456, indexCPS2_COTAAssets, 0x0a },
 };
 
 const sGame_PaletteDataset COTA_A_BONUS_ENDING_PALETTES[] =
@@ -548,7 +548,7 @@ const sGame_PaletteDataset COTA_A_BONUS_ENDING_PALETTES[] =
     { L"Wolverine's Motorcycle",    0x279de, 0x279fe, indexCPS2_COTAAssets, 0x09 },
     { L"Psylocke Ending (dress)",   0x2785E, 0x2787E, indexCPS2_COTAAssets, 0x08 },
     { L"Psylocke Ending (undressed)", 0x2783E, 0x2785E, indexCPS2_Psylocke, 0 },
-    { L"Police (Omega Red ending)", 0x2797E, 0x2799E },
+    { L"Police (Omega Red ending)", 0x2797E, 0x2799E, indexCPS2_COTAAssets, 0x0b },
 };
 
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =

@@ -1,5 +1,27 @@
 #pragma once
 
+const UINT16 SAMSHO2_A_IMG_UNITS[] =
+{
+    indexSamSho2Sprites_ChamCham,   // 0x4E
+    indexSamSho2Sprites_Charlotte,  // 0x4F
+    indexSamSho2Sprites_Earthquake, // 0x50
+    indexSamSho2Sprites_Galford,    // 0x51
+    indexSamSho2Sprites_Genan,      // 0x52
+    indexSamSho2Sprites_Genjuro,    // 0x53
+    indexSamSho2Sprites_Haohmaru,   // 0x54
+    indexSamSho2Sprites_Hanzo,      // 0x55
+    indexSamSho2Sprites_Jubei,      // 0x56
+    indexSamSho2Sprites_Kuroko,     // 0x57
+    indexSamSho2Sprites_Kyoshiro,   // 0x58
+    indexSamSho2Sprites_Mizuki,     // 0x59
+    indexSamSho2Sprites_Nakoruru,   // 0x5A
+    indexSamSho2Sprites_Nicotine,   // 0x5B
+    indexSamSho2Sprites_Sieger,     // 0x5C
+    indexSamSho2Sprites_Ukyo,       // 0x5D
+    indexSamSho2Sprites_WanFu,      // 0x5E
+    indexSamSho2Sprites_Bonus,      // 0x5F
+};
+
 const sGame_PaletteDataset SAMSHO2_A_HAOHMARU_P[] =
 {
     { L"Haohmaru P", 0x14a00, 0x14a20 },

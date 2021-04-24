@@ -2819,6 +2819,7 @@ const sGame_PaletteDataset KOF98_A_BONUS_EFFECTS_PALETTES[] =
 {
     { L"Main Fire Palette",     0x2ff5f0, 0x2ff7f0 },
     { L"Orochi Fire Palette",   0x2ff7f0, 0x2ff9f0 },
+    { L"Rugal/Mature Poison Palette",   0x2ff9f0, 0x2ffbf0 },
     { L"SDM Super Flash",       0x2ffbf0, 0x2ffdf0 },
     { L"MAX Super Flash",       0x2ffdf0, 0x2ffff0 },
 };

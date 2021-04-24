@@ -33,10 +33,40 @@ const UINT16 KOF96_A_IMG_UNITS[] =
     indexKOFSprites_98Mature,
     indexKOFSprites_98Vice,
     indexKOFSprites_02Geese,
-    indexRBFFSSprites_Krauser,
-    indexAoF1Sprites_MrBig,
+
     indexKOFSprites_98Chizuru,
     indexKOFSprites_02Goenitz,
+
+    indexKOF96Sprites_Andy,         // 0x247
+    indexKOF96Sprites_Athena,       // 0x248
+    indexKOF96Sprites_Benimaru,     // 0x249
+    indexKOF96Sprites_Chang,        // 0x24A
+    indexKOF96Sprites_Chin,         // 0x24B
+    indexKOF96Sprites_Chizuru,      // 0x24C
+    indexKOF96Sprites_Choi,         // 0x24D
+    indexKOF96Sprites_Clark,        // 0x24E
+    indexKOF96Sprites_Daimon,       // 0x24F
+    indexKOF96Sprites_Geese,        // 0x250
+    indexKOF96Sprites_Goenitz,      // 0x251
+    indexKOF96Sprites_Iori,         // 0x252
+    indexKOF96Sprites_Joe,          // 0x253
+    indexKOF96Sprites_Kasumi,       // 0x254
+    indexKOF96Sprites_Kensou,       // 0x255
+    indexKOF96Sprites_Kim,          // 0x256
+    indexKOF96Sprites_King,         // 0x257
+    indexKOF96Sprites_Krauser,      // 0x258
+    indexKOF96Sprites_Kyo,          // 0x259
+    indexKOF96Sprites_Leona,        // 0x25A
+    indexKOF96Sprites_Mai,          // 0x25B
+    indexKOF96Sprites_Mature,       // 0x25C
+    indexKOF96Sprites_MrBig,        // 0x25D
+    indexKOF96Sprites_Ralf,         // 0x25E
+    indexKOF96Sprites_Robert,       // 0x25F
+    indexKOF96Sprites_Ryo,          // 0x260
+    indexKOF96Sprites_Terry,        // 0x261
+    indexKOF96Sprites_Vice,         // 0x262
+    indexKOF96Sprites_Yuri,         // 0x263
+    indexKOF96Sprites_Bonus,        // 0x264	
 };
 
 const sGame_PaletteDataset KOF96_A_KYO_A_PALETTES[] =
@@ -991,78 +1021,78 @@ const sGame_PaletteDataset KOF96_A_GEESE_D_PALETTES[] =
 
 const sGame_PaletteDataset KOF96_A_KRAUSER_A_PALETTES[] =
 {
-    { L"Krauser", 0x108402, 0x108422, INVALID_UNIT_VALUE, 0x00 },
+    { L"Krauser", 0x108402, 0x108422, indexKOF96Sprites_Krauser, 0x00 },
     { L"Extra 1", 0x108422, 0x108442 },
-    { L"Super Trail 1", 0x108442, 0x108462, INVALID_UNIT_VALUE, 0x00 },
+    { L"Super Trail 1", 0x108442, 0x108462, indexKOF96Sprites_Krauser, 0x00 },
     { L"Super Trail 2", 0x108462, 0x108482 },
-    { L"MAX Mode", 0x108482, 0x1084a2, INVALID_UNIT_VALUE, 0x00 },
+    { L"MAX Mode", 0x108482, 0x1084a2, indexKOF96Sprites_Krauser, 0x00 },
     { L"Extra 1", 0x1084a2, 0x1084c2 },
-    { L"Electric Palette?", 0x1084c2, 0x1084e2, INVALID_UNIT_VALUE, 0x00 },
+    { L"Electric Palette?", 0x1084c2, 0x1084e2, indexKOF96Sprites_Krauser, 0x00 },
     { L"Extra 3", 0x1084e2, 0x108502 },
     { L"Extra 5", 0x108522, 0x108542 },
     { L"Extra 6", 0x108542, 0x108562 },
     { L"Extra 7", 0x108562, 0x108582 },
     { L"Extra 8", 0x108582, 0x1085a2 },
-    { L"Monochrome Palette", 0x1085a2, 0x1085c2, INVALID_UNIT_VALUE, 0x00 },
+    { L"Monochrome Palette", 0x1085a2, 0x1085c2, indexKOF96Sprites_Krauser, 0x00 },
     { L"Extra 9", 0x1085c2, 0x1085e2 },
-    { L"Lifebar Portrait", 0x1085e2, 0x108602, INVALID_UNIT_VALUE, 0x20 },
+    { L"Lifebar Portrait", 0x1085e2, 0x108602, indexKOF96Sprites_Krauser, 0x20 },
 };
 
 const sGame_PaletteDataset KOF96_A_KRAUSER_D_PALETTES[] =
 {
-    { L"Krauser", 0x108602, 0x108622, INVALID_UNIT_VALUE, 0x00 },
+    { L"Krauser", 0x108602, 0x108622, indexKOF96Sprites_Krauser, 0x00 },
     { L"Extra 1", 0x108622, 0x108642 },
-    { L"Super Trail 1", 0x108642, 0x108662, INVALID_UNIT_VALUE, 0x00 },
+    { L"Super Trail 1", 0x108642, 0x108662, indexKOF96Sprites_Krauser, 0x00 },
     { L"Super Trail 2", 0x108662, 0x108682 },
-    { L"MAX Mode", 0x108682, 0x1086a2, INVALID_UNIT_VALUE, 0x00 },
+    { L"MAX Mode", 0x108682, 0x1086a2, indexKOF96Sprites_Krauser, 0x00 },
     { L"Extra 1", 0x1086a2, 0x1086c2 },
-    { L"Electric Palette?", 0x1086c2, 0x1086e2, INVALID_UNIT_VALUE, 0x00 },
+    { L"Electric Palette?", 0x1086c2, 0x1086e2, indexKOF96Sprites_Krauser, 0x00 },
     { L"Extra 3", 0x1086e2, 0x108702 },
     { L"Extra 5", 0x108722, 0x108742 },
     { L"Extra 6", 0x108742, 0x108762 },
     { L"Extra 7", 0x108762, 0x108782 },
     { L"Extra 8", 0x108782, 0x1087a2 },
-    { L"Monochrome Palette", 0x1087a2, 0x1087c2, INVALID_UNIT_VALUE, 0x00 },
+    { L"Monochrome Palette", 0x1087a2, 0x1087c2, indexKOF96Sprites_Krauser, 0x00 },
     { L"Extra 9", 0x1087c2, 0x1087e2 },
-    { L"Lifebar Portrait", 0x1087e2, 0x108802, INVALID_UNIT_VALUE, 0x20 },
+    { L"Lifebar Portrait", 0x1087e2, 0x108802, indexKOF96Sprites_Krauser, 0x20 },
 };
 
 const sGame_PaletteDataset KOF96_A_MRBIG_A_PALETTES[] =
 {
-    { L"Mr. Big", 0x108802, 0x108822, INVALID_UNIT_VALUE, 0x00 },
+    { L"Mr. Big", 0x108802, 0x108822, indexKOF96Sprites_MrBig, 0x00 },
     { L"Extra 1", 0x108822, 0x108842 },
-    { L"Super Trail 1", 0x108842, 0x108862, INVALID_UNIT_VALUE, 0x00 },
+    { L"Super Trail 1", 0x108842, 0x108862, indexKOF96Sprites_MrBig, 0x00 },
     { L"Super Trail 2", 0x108862, 0x108882 },
-    { L"MAX Mode", 0x108882, 0x1088a2, INVALID_UNIT_VALUE, 0x00 },
+    { L"MAX Mode", 0x108882, 0x1088a2, indexKOF96Sprites_MrBig, 0x00 },
     { L"Extra 1", 0x1088a2, 0x1088c2 },
-    { L"Electric Palette?", 0x1088c2, 0x1088e2, INVALID_UNIT_VALUE, 0x00 },
+    { L"Electric Palette?", 0x1088c2, 0x1088e2, indexKOF96Sprites_MrBig, 0x00 },
     { L"Extra 3", 0x1088e2, 0x108902 },
     { L"Extra 5", 0x108922, 0x108942 },
     { L"Extra 6", 0x108942, 0x108962 },
     { L"Extra 7", 0x108962, 0x108982 },
     { L"Extra 8", 0x108982, 0x1089a2 },
-    { L"Monochrome Palette", 0x1089a2, 0x1089c2, INVALID_UNIT_VALUE, 0x00 },
+    { L"Monochrome Palette", 0x1089a2, 0x1089c2, indexKOF96Sprites_MrBig, 0x00 },
     { L"Extra 9", 0x1089c2, 0x1089e2 },
-    { L"Lifebar Portrait", 0x1089e2, 0x108a02, INVALID_UNIT_VALUE, 0x20 },
+    { L"Lifebar Portrait", 0x1089e2, 0x108a02, indexKOF96Sprites_MrBig, 0x20 },
 };
 
 const sGame_PaletteDataset KOF96_A_MRBIG_D_PALETTES[] =
 {
-    { L"Mr. Big", 0x108a02, 0x108a22, INVALID_UNIT_VALUE, 0x00 },
+    { L"Mr. Big", 0x108a02, 0x108a22, indexKOF96Sprites_MrBig, 0x00 },
     { L"Extra 1", 0x108a22, 0x108a42 },
-    { L"Super Trail 1", 0x108a42, 0x108a62, INVALID_UNIT_VALUE, 0x00 },
+    { L"Super Trail 1", 0x108a42, 0x108a62, indexKOF96Sprites_MrBig, 0x00 },
     { L"Super Trail 2", 0x108a62, 0x108a82 },
-    { L"MAX Mode", 0x108a82, 0x108aa2, INVALID_UNIT_VALUE, 0x00 },
+    { L"MAX Mode", 0x108a82, 0x108aa2, indexKOF96Sprites_MrBig, 0x00 },
     { L"Extra 1", 0x108aa2, 0x108ac2 },
-    { L"Electric Palette?", 0x108ac2, 0x108ae2, INVALID_UNIT_VALUE, 0x00 },
+    { L"Electric Palette?", 0x108ac2, 0x108ae2, indexKOF96Sprites_MrBig, 0x00 },
     { L"Extra 3", 0x108ae2, 0x108b02 },
     { L"Extra 5", 0x108b22, 0x108b42 },
     { L"Extra 6", 0x108b42, 0x108b62 },
     { L"Extra 7", 0x108b62, 0x108b82 },
     { L"Extra 8", 0x108b82, 0x108ba2 },
-    { L"Monochrome Palette", 0x108ba2, 0x108bc2, INVALID_UNIT_VALUE, 0x00 },
+    { L"Monochrome Palette", 0x108ba2, 0x108bc2, indexKOF96Sprites_MrBig, 0x00 },
     { L"Extra 9", 0x108bc2, 0x108be2 },
-    { L"Lifebar Portrait", 0x108be2, 0x108c02, INVALID_UNIT_VALUE, 0x20 },
+    { L"Lifebar Portrait", 0x108be2, 0x108c02, indexKOF96Sprites_MrBig, 0x20 },
 };
 
 const sGame_PaletteDataset KOF96_A_CHIZURU_A_PALETTES[] =

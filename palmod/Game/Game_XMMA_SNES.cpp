@@ -40,8 +40,8 @@ CGame_XMMA_SNES::CGame_XMMA_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = XMMA_SNES;
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = nullptr;  // XMMA_SNES_IMG_UNITS
-    nImgUnitAmt = 0; // ARRAYSIZE(XMMA_SNES_IMG_UNITS);
+    m_prgGameImageSet = XMMA_SNES_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(XMMA_SNES_IMG_UNITS);
 
     nFileAmt = 1;
 

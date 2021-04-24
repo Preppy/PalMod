@@ -1,8 +1,26 @@
 #pragma once
 
+const UINT16 XMMA_SNES_IMG_UNITS[] =
+{
+    indexXMMASprites_Apocalypse,        // 0x48
+    indexXMMASprites_Beast,             // 0x49
+    indexXMMASprites_Cyclops,           // 0x4A
+    indexXMMASprites_Exodus,            // 0x4B
+    indexXMMASprites_Gambit,            // 0x4C
+    indexXMMASprites_Juggernaut,        // 0x4D
+    indexXMMASprites_Magneto,           // 0x4E
+    indexXMMASprites_OmegaRed,          // 0x4F
+    indexXMMASprites_ProfessorX,        // 0x50
+    indexXMMASprites_Psylocke,          // 0x51
+    indexXMMASprites_Sentinel,          // 0x52
+    indexXMMASprites_Tusk,              // 0x53
+    indexXMMASprites_Wolverine,         // 0x54
+    indexXMMASprites_Bonus,             // 0x55
+};
+
 const sGame_PaletteDataset XMMA_SNES_PSYLOCKE_PALETTES[] =
 {
-    { L"Psylocke", 0x160100, 0x160120 },
+    { L"Psylocke", 0x160100, 0x160120, indexXMMASprites_Psylocke },
     { L"Psylocke FX", 0x160E40, 0x160E60 },
     { L"Psylocke CSP", 0x161F40, 0x161F60 },
     { L"Psylocke Password Face", 0x161380, 0x1613A0 },
@@ -10,7 +28,7 @@ const sGame_PaletteDataset XMMA_SNES_PSYLOCKE_PALETTES[] =
 
 const sGame_PaletteDataset XMMA_SNES_CYCLOPS_PALETTES[] =
 {
-    { L"Cyclops", 0x160000, 0x160020 },
+    { L"Cyclops", 0x160000, 0x160020, indexXMMASprites_Cyclops },
     { L"Optic Blast", 0x160380, 0x1603A0 },
 
     { L"Cyclops CSP", 0x161F60, 0x161F80 },
@@ -19,14 +37,14 @@ const sGame_PaletteDataset XMMA_SNES_CYCLOPS_PALETTES[] =
 
 const sGame_PaletteDataset XMMA_SNES_WOLVERINE_PALETTES[] =
 {
-    { L"Wolverine", 0x160020, 0x160040 },
+    { L"Wolverine", 0x160020, 0x160040, indexXMMASprites_Wolverine },
     { L"Wolverine CSP", 0x161F80, 0x161FA0 },
     { L"Wolverine Password Face", 0x1613C0, 0x1613E0 },
 };
 
 const sGame_PaletteDataset XMMA_SNES_GAMBIT_PALETTES[] =
 {
-    { L"Gambit", 0x160120, 0x160140 },
+    { L"Gambit", 0x160120, 0x160140, indexXMMASprites_Gambit },
     { L"Gambit Cards", 0x160780, 0x1607A0 },
     { L"Gambit CSP", 0x161FA0, 0x161FC0 },
     { L"Gambit Password Face", 0x161400, 0x161420 },
@@ -34,7 +52,7 @@ const sGame_PaletteDataset XMMA_SNES_GAMBIT_PALETTES[] =
 
 const sGame_PaletteDataset XMMA_SNES_BEAST_PALETTES[] =
 {
-    { L"Beast", 0x160660, 0x160680 },
+    { L"Beast", 0x160660, 0x160680, indexXMMASprites_Beast },
     { L"Beast CSP", 0x161FC0, 0x161FE0 },
     { L"Beast Password Face", 0x1613E0, 0x161400 },
 };
@@ -50,7 +68,7 @@ const sGame_PaletteDataset XMMA_SNES_SENTINEL_PALETTES[] =
 
 const sGame_PaletteDataset XMMA_SNES_APOCALYPSE_PALETTES[] =
 {
-    { L"Apocalypse", 0x1605A0, 0x1605C0 },
+    { L"Apocalypse", 0x1605A0, 0x1605C0, indexXMMASprites_Apocalypse },
     { L"Apocalypse Fire", 0x1609C0, 0x1609E0 },
 
     // This doesn't look right: overriding
@@ -61,7 +79,7 @@ const sGame_PaletteDataset XMMA_SNES_APOCALYPSE_PALETTES[] =
 
 const sGame_PaletteDataset XMMA_SNES_TUSK_PALETTES[] =
 {
-    { L"Tusk", 0x1605C0, 0x1605E0 },
+    { L"Tusk", 0x1605C0, 0x1605E0, indexXMMASprites_Tusk },
 };
 
 const sGame_PaletteDataset XMMA_SNES_JUGGERNAUT_PALETTES[] =
@@ -71,14 +89,14 @@ const sGame_PaletteDataset XMMA_SNES_JUGGERNAUT_PALETTES[] =
     //{ L"Juggernaut Cutscene", 0x161040, 0x161062 },
     
     // Unclear what these colors are for: will straighten out.
-    { L"Juggernaut", 0x00A860, 0x00A880 },
+    { L"Juggernaut", 0x00A860, 0x00A880, indexXMMASprites_Juggernaut },
     //{ L"Juggernaut", 0x160560, 0x160580 },
     { L"Juggernaut Cutscene Portrait", 0x161040, 0x161060 },
 };
 
 const sGame_PaletteDataset XMMA_SNES_OMEGARED_PALETTES[] =
 {
-    { L"Omega Red", 0x160E00, 0x160E20 },
+    { L"Omega Red", 0x160E00, 0x160E20, indexXMMASprites_OmegaRed },
     
     // This doesn't seem right: holding off for now
     // { L"Omega Red Glow", 0x175720, 0x175780 },
@@ -87,14 +105,14 @@ const sGame_PaletteDataset XMMA_SNES_OMEGARED_PALETTES[] =
 
 const sGame_PaletteDataset XMMA_SNES_EXODUS_PALETTES[] =
 {
-    { L"Exodus", 0x160A60, 0x160A80 },
+    { L"Exodus", 0x160A60, 0x160A80, indexXMMASprites_Exodus },
     { L"Exodus Cutscene", 0x1611A0, 0x1611C0 },
     { L"Exodus Story Face", 0x160BC0, 0x160BE0 },
 };
 
 const sGame_PaletteDataset XMMA_SNES_MAGNETO_PALETTES[] =
 {
-    { L"Magneto", 0x160600, 0x160620 },
+    { L"Magneto", 0x160600, 0x160620, indexXMMASprites_Magneto },
     { L"Magneto Platforms Beam and Debris", 0x160FDE, 0x16101E },
     { L"Magneto Cutscene", 0x163AC0, 0x163AE0 },
     { L"Magneto Story Face", 0x160BA0, 0x160BC0 },

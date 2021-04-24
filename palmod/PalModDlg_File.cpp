@@ -1412,7 +1412,6 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
 
     if (SF3DLCFile.Open(pszFileName, CFile::modeRead))
     {
-        ProcChange();
         bool fAbleToReadFile = false;
 
         CString strCharacterName;
@@ -1452,89 +1451,96 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
             OutputDebugString(strDLCName.Mid(iKeyPosition + 1));
             OutputDebugString(L"\n");
 
-            for (int iPaletteId = 0; iPaletteId < nHowManyColorsToImport; iPaletteId++)
+            // localize
+            CString strMsg;
+            strMsg.Format(L"This file appears to contain seven palettes for '%s'.\n\nDo you wish to apply %s to the current character?", strCharacterName.GetString(), (nActivePaletteId == 0) ? L"these" : L"the current color");
+
+            if (MessageBox(strMsg, GetHost()->GetAppName(), MB_YESNO) == IDYES)
             {
-                if (SF3DLCFile.ReadString(strCurrentColors))
+                ProcChange();
+
+                for (int iPaletteId = 0; iPaletteId < nHowManyColorsToImport; iPaletteId++)
                 {
-                    if ((nActivePaletteId != 0) && (nActivePaletteId != iPaletteId))
+                    if (SF3DLCFile.ReadString(strCurrentColors))
                     {
-                        // Only copy the current color
-                        continue; 
-                    }
-
-                    const UINT32 nDLCColorCount = 64;
-                    COLORREF* pDLCColors = new COLORREF[nDLCColorCount];
-                    memset(pDLCColors, 0, nDLCColorCount * sizeof(COLORREF));
-
-                    // OK, now parse the actual colors.
-                    iKeyPosition = strCurrentColors.Find('=');
-                    CString strColorList = strCurrentColors.Mid(iKeyPosition + 1);
-                    OutputDebugString(strCurrentColors.Left(iKeyPosition));
-                    OutputDebugString(L"\n");
-                    for (UINT32 iPosition = 0; iPosition < nDLCColorCount; iPosition++)
-                    {
-                        // The final pass won't have a trailing ',', so just use the raw string at that point
-                        const int iEndPosition = strColorList.Find(',');
-                        CString strThisColor = (iEndPosition != -1) ? strColorList.Left(iEndPosition) : strColorList;
-
-                        UINT32 nThisColor = _wtol(strThisColor);
-                        UINT8 alpha = (nThisColor & 0xFF000000) >> 24;
-                        UINT8 red  = (nThisColor & 0xFF0000) >> 16;
-                        UINT8 green = (nThisColor & 0xFF00) >> 8;
-                        UINT8 blue   = (nThisColor & 0xFF);
-
-                        pDLCColors[iPosition] = RGB(red, green, blue) | (alpha << 24);
-
-                        //strMsg.Format(L"Converted color %u :: %s to rgb 0x%x\n", iPosition, strThisColor.GetString(), pDLCColors[iPosition]);
-                        //OutputDebugString(strMsg.GetString());
-
-                        strColorList.Delete(0, iEndPosition + 1);
-                    }
-
-                    // Now consume those colors...
-                    if (spdPalInfo->uPalId == (iPaletteId * nPaletteDistance))
-                    {
-                        // This is the active palette
-                        UINT8* pVisiblePalette = (UINT8*)MainPalGroup->GetPalDef(0)->pPal;
-
-                        for (int iCurrentIndexInPalette = 0; iCurrentIndexInPalette < nDLCColorCount; iCurrentIndexInPalette++)
+                        if ((nActivePaletteId != 0) && (nActivePaletteId != iPaletteId))
                         {
-                            pVisiblePalette[(iCurrentIndexInPalette * 4)]     = MainPalGroup->ROUND_R(GetRValue(pDLCColors[iCurrentIndexInPalette]));
-                            pVisiblePalette[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(GetGValue(pDLCColors[iCurrentIndexInPalette]));
-                            pVisiblePalette[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(GetBValue(pDLCColors[iCurrentIndexInPalette]));
+                            // Only copy the current color
+                            continue;
                         }
-                    }
-                    else
-                    {
-                        CurrGame->WritePal(nUnitId, (iPaletteId * nPaletteDistance), pDLCColors, nDLCColorCount);
-                        CurrGame->MarkPaletteDirty(nUnitId, (iPaletteId * nPaletteDistance));
-                    }
 
-                    delete[] pDLCColors;
+                        const UINT32 nDLCColorCount = 64;
+                        COLORREF* pDLCColors = new COLORREF[nDLCColorCount];
+                        memset(pDLCColors, 0, nDLCColorCount * sizeof(COLORREF));
+
+                        // OK, now parse the actual colors.
+                        iKeyPosition = strCurrentColors.Find('=');
+                        CString strColorList = strCurrentColors.Mid(iKeyPosition + 1);
+                        OutputDebugString(strCurrentColors.Left(iKeyPosition));
+                        OutputDebugString(L"\n");
+                        for (UINT32 iPosition = 0; iPosition < nDLCColorCount; iPosition++)
+                        {
+                            // The final pass won't have a trailing ',', so just use the raw string at that point
+                            const int iEndPosition = strColorList.Find(',');
+                            CString strThisColor = (iEndPosition != -1) ? strColorList.Left(iEndPosition) : strColorList;
+
+                            UINT32 nThisColor = _wtol(strThisColor);
+                            UINT8 alpha = (nThisColor & 0xFF000000) >> 24;
+                            UINT8 red = (nThisColor & 0xFF0000) >> 16;
+                            UINT8 green = (nThisColor & 0xFF00) >> 8;
+                            UINT8 blue = (nThisColor & 0xFF);
+
+                            pDLCColors[iPosition] = RGB(red, green, blue) | (alpha << 24);
+
+                            //strMsg.Format(L"Converted color %u :: %s to rgb 0x%x\n", iPosition, strThisColor.GetString(), pDLCColors[iPosition]);
+                            //OutputDebugString(strMsg.GetString());
+
+                            strColorList.Delete(0, iEndPosition + 1);
+                        }
+
+                        // Now consume those colors...
+                        if (spdPalInfo->uPalId == (iPaletteId * nPaletteDistance))
+                        {
+                            // This is the active palette: use the palgroup logic so we get easy live updates
+                            UINT8* pVisiblePalette = (UINT8*)MainPalGroup->GetPalDef(0)->pPal;
+
+                            for (int iCurrentIndexInPalette = 0; iCurrentIndexInPalette < nDLCColorCount; iCurrentIndexInPalette++)
+                            {
+                                pVisiblePalette[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(GetRValue(pDLCColors[iCurrentIndexInPalette]));
+                                pVisiblePalette[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(GetGValue(pDLCColors[iCurrentIndexInPalette]));
+                                pVisiblePalette[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(GetBValue(pDLCColors[iCurrentIndexInPalette]));
+                            }
+                        }
+                        else
+                        {
+                            // These are the inactive palettes: we need to directly update these
+                            CurrGame->WritePal(nUnitId, (iPaletteId * nPaletteDistance), pDLCColors, nDLCColorCount);
+                            CurrGame->MarkPaletteDirty(nUnitId, (iPaletteId * nPaletteDistance));
+                        }
+
+                        delete[] pDLCColors;
+                    }
                 }
+
+                ImgDispCtrl->UpdateCtrl();
+                m_PalHost.UpdateAllPalCtrls();
+
+                UpdateMultiEdit(TRUE);
+                UpdateSliderSel();
+
+                fSuccess = true;
+
+                // localize
+                CString strStatus;
+                strStatus.Format(L"Imported %u %s palettes.", nHowManyColorsToImport, strCharacterName.GetString());
+                SetStatusText(strStatus);
             }
-
-            ImgDispCtrl->UpdateCtrl();
-            m_PalHost.UpdateAllPalCtrls();
-
-            UpdateMultiEdit(TRUE);
-            UpdateSliderSel();
-
-            fSuccess = true;
-
-            CString strStatus;
-            strStatus.Format(L"Imported %u %s palettes.", nHowManyColorsToImport, strCharacterName.GetString());
-            SetStatusText(strStatus);
         }
 
         if (!fSuccess)
         {
-            CString strError;
-            if (strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE))
-            {
-                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-            }
-            SetStatusText(IDS_ACT_LOADFAILURE);
+            // localize
+            SetStatusText(L"Palettes were not imported.");
         }
     }
 

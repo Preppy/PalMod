@@ -2,21 +2,21 @@
 
 const UINT16 SAMSHO1_A_IMG_UNITS[] =
 {
-    indexSamSho1Sprites_Amakusa,    // 0x4e
-    indexSamSho1Sprites_Charlotte,  // 0x4f
-    indexSamSho1Sprites_Earthquake, // 0x50
-    indexSamSho1Sprites_Galford,    // 0x51
-    indexSamSho1Sprites_Genan,      // 0x52
-    indexSamSho1Sprites_Hanzo,      // 0x53
-    indexSamSho1Sprites_Haohmaru,   // 0x54
-    indexSamSho1Sprites_Jubei,      // 0x55
-    indexSamSho1Sprites_Kyoshiro,   // 0x56
-    indexSamSho1Sprites_Nakoruru,   // 0x57
-    indexSamSho1Sprites_TamTam,     // 0x58
-    indexSamSho1Sprites_Ukyo,       // 0x59
-    indexSamSho1Sprites_Wanfu,      // 0x5a
-    indexSamSho1Sprites_Bonus,      // 0x5b
-    indexSamSho1Sprites_Stages,     // 0x5c
+    indexSamSho1Sprites_Amakusa,    // 0x60
+    indexSamSho1Sprites_Charlotte,  // 0x61
+    indexSamSho1Sprites_Earthquake, // 0x62
+    indexSamSho1Sprites_Galford,    // 0x63
+    indexSamSho1Sprites_Genan,      // 0x64
+    indexSamSho1Sprites_Hanzo,      // 0x66
+    indexSamSho1Sprites_Haohmaru,   // 0x67
+    indexSamSho1Sprites_Jubei,      // 0x68
+    indexSamSho1Sprites_Kyoshiro,   // 0x69
+    indexSamSho1Sprites_Nakoruru,   // 0x6a
+    indexSamSho1Sprites_TamTam,     // 0x6b
+    indexSamSho1Sprites_Ukyo,       // 0x6c
+    indexSamSho1Sprites_Wanfu,      // 0x6d
+    indexSamSho1Sprites_Bonus,      // 0x6e
+    indexSamSho1Sprites_Stages,     // 0x6f
 };
 
 const sGame_PaletteDataset SAMSHO1_A_HAOHMARU_P[] =

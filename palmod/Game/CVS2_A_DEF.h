@@ -3084,8 +3084,8 @@ const sDescTreeNode CVS2_A_OROCHIIORI_COLLECTION[] =
 
 const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_LP[] =
 {
-    { L"Main Sprite", 0x31d3320, 0x31d3340, indexCVS2Sprites_Balrog },
-    { L"Extra 1", 0x31d3340, 0x31d3360 },
+    { L"Main Sprite", 0x31d3320, 0x31d3340, indexCVS2Sprites_Balrog, 0x00, &pairNext },
+    { L"Extra 1: Punching Bag", 0x31d3340, 0x31d3360, indexCVS2Sprites_Balrog, 0x01 },
     { L"Extra 2", 0x31d3360, 0x31d3380 },
     { L"Extra 3", 0x31d3380, 0x31d33a0 },
     { L"Extra 4", 0x31d33a0, 0x31d33c0 },
@@ -3094,8 +3094,8 @@ const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_LP[] =
 
 const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_MP[] =
 {
-    { L"Main Sprite", 0x31d33e0, 0x31d3400, indexCVS2Sprites_Balrog },
-    { L"Extra 1", 0x31d3400, 0x31d3420 },
+    { L"Main Sprite", 0x31d33e0, 0x31d3400, indexCVS2Sprites_Balrog, 0x00, &pairNext },
+    { L"Extra 1: Punching Bag", 0x31d3400, 0x31d3420, indexCVS2Sprites_Balrog, 0x01 },
     { L"Extra 2", 0x31d3420, 0x31d3440 },
     { L"Extra 3", 0x31d3440, 0x31d3460 },
     { L"Extra 4", 0x31d3460, 0x31d3480 },
@@ -3104,8 +3104,8 @@ const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_MP[] =
 
 const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_HP[] =
 {
-    { L"Main Sprite", 0x31d34a0, 0x31d34c0, indexCVS2Sprites_Balrog },
-    { L"Extra 1", 0x31d34c0, 0x31d34e0 },
+    { L"Main Sprite", 0x31d34a0, 0x31d34c0, indexCVS2Sprites_Balrog, 0x00, &pairNext },
+    { L"Extra 1: Punching Bag", 0x31d34c0, 0x31d34e0, indexCVS2Sprites_Balrog, 0x01 },
     { L"Extra 2", 0x31d34e0, 0x31d3500 },
     { L"Extra 3", 0x31d3500, 0x31d3520 },
     { L"Extra 4", 0x31d3520, 0x31d3540 },
@@ -3114,8 +3114,8 @@ const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_HP[] =
 
 const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_LK[] =
 {
-    { L"Main Sprite", 0x31d3560, 0x31d3580, indexCVS2Sprites_Balrog },
-    { L"Extra 1", 0x31d3580, 0x31d35a0 },
+    { L"Main Sprite", 0x31d3560, 0x31d3580, indexCVS2Sprites_Balrog, 0x00, &pairNext },
+    { L"Extra 1: Punching Bag", 0x31d3580, 0x31d35a0, indexCVS2Sprites_Balrog, 0x01 },
     { L"Extra 2", 0x31d35a0, 0x31d35c0 },
     { L"Extra 3", 0x31d35c0, 0x31d35e0 },
     { L"Extra 4", 0x31d35e0, 0x31d3600 },
@@ -3124,8 +3124,8 @@ const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_LK[] =
 
 const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_MK[] =
 {
-    { L"Main Sprite", 0x31d3620, 0x31d3640, indexCVS2Sprites_Balrog },
-    { L"Extra 1", 0x31d3640, 0x31d3660 },
+    { L"Main Sprite", 0x31d3620, 0x31d3640, indexCVS2Sprites_Balrog, 0x00, &pairNext },
+    { L"Extra 1: Punching Bag", 0x31d3640, 0x31d3660, indexCVS2Sprites_Balrog, 0x01 },
     { L"Extra 2", 0x31d3660, 0x31d3680 },
     { L"Extra 3", 0x31d3680, 0x31d36a0 },
     { L"Extra 4", 0x31d36a0, 0x31d36c0 },
@@ -3134,8 +3134,8 @@ const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_MK[] =
 
 const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_HK[] =
 {
-    { L"Main Sprite", 0x31d36e0, 0x31d3700, indexCVS2Sprites_Balrog },
-    { L"Extra 1", 0x31d3700, 0x31d3720 },
+    { L"Main Sprite", 0x31d36e0, 0x31d3700, indexCVS2Sprites_Balrog, 0x00, &pairNext },
+    { L"Extra 1: Punching Bag", 0x31d3700, 0x31d3720, indexCVS2Sprites_Balrog, 0x01 },
     { L"Extra 2", 0x31d3720, 0x31d3740 },
     { L"Extra 3", 0x31d3740, 0x31d3760 },
     { L"Extra 4", 0x31d3760, 0x31d3780 },
@@ -3144,8 +3144,8 @@ const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_HK[] =
 
 const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_3P[] =
 {
-    { L"Main Sprite", 0x31d37a0, 0x31d37c0, indexCVS2Sprites_Balrog },
-    { L"Extra 1", 0x31d37c0, 0x31d37e0 },
+    { L"Main Sprite", 0x31d37a0, 0x31d37c0, indexCVS2Sprites_Balrog, 0x00, &pairNext },
+    { L"Extra 1: Punching Bag", 0x31d37c0, 0x31d37e0, indexCVS2Sprites_Balrog, 0x01 },
     { L"Extra 2", 0x31d37e0, 0x31d3800 },
     { L"Extra 3", 0x31d3800, 0x31d3820 },
     { L"Extra 4", 0x31d3820, 0x31d3840 },
@@ -3154,8 +3154,8 @@ const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_3P[] =
 
 const sGame_PaletteDataset CVS2_A_BALROG_PALETTES_3K[] =
 {
-    { L"Main Sprite", 0x31d3860, 0x31d3880, indexCVS2Sprites_Balrog },
-    { L"Extra 1", 0x31d3880, 0x31d38a0 },
+    { L"Main Sprite", 0x31d3860, 0x31d3880, indexCVS2Sprites_Balrog, 0x00, &pairNext },
+    { L"Extra 1: Punching Bag", 0x31d3880, 0x31d38a0, indexCVS2Sprites_Balrog, 0x01 },
     { L"Extra 2", 0x31d38a0, 0x31d38c0 },
     { L"Extra 3", 0x31d38c0, 0x31d38e0 },
     { L"Extra 4", 0x31d38e0, 0x31d3900 },

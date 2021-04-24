@@ -768,38 +768,66 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (paletteDataSetToJoin)
                 {
-                    fShouldUseAlternateLoadLogic = true;
-
-                    ClearSetImgTicket(
-                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                        )
-                    );
-
-                    sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
-                    INT8 nNodeDistance = 0;
-                    INT8 nPeerNodeDistance = nPeerPaletteDistance;
-
-                    if ((nPeerPaletteDistance > 2) && (wcsstr(charUnit->szDesc, L"Sinclair")))
+                    if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
                     {
-                        // Sinclair reaches into the Shared node for Sword Portrait
-                        nSrcAmt = 1;
-                        nNodeDistance = (Node02 == 0) ? 3 : 2;
-                        nPeerNodeDistance = -Node03;
+                        const UINT16 nStageCount = _GetNodeSizeFromPaletteId(AOF3_A_P1_UNITS, rgExtraCountAll_P1, AOF3_A_P1_NUMUNIT, AOF3_A_P1_EXTRALOC, NodeGet->uUnitId, NodeGet->uPalId, AOF3_A_P1_EXTRA_CUSTOM);
+
+                        fShouldUseAlternateLoadLogic = true;
+                        sImgTicket* pImgArray = nullptr;
+
+                        for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                        {
+                            // The palettes get added forward, but the image tickets need to be generated in reverse order
+                            const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
+                            if (paletteDataSetToJoin)
+                            {
+                                pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
+
+                                //Set each palette
+                                sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                                CreateDefPal(JoinedNode, nStageIndex);
+                                SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                            }
+                        }
+
+                        ClearSetImgTicket(pImgArray);
                     }
+                    else
+                    {
+                        fShouldUseAlternateLoadLogic = true;
 
-                    //Set each palette
-                    sDescNode* JoinedNode[2] = {
-                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                        GetMainTree()->GetDescNode(Node01, Node02 + nNodeDistance, Node03 + nPeerNodeDistance, -1)
-                    };
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
 
-                    //Set each palette
-                    CreateDefPal(JoinedNode[0], 0);
-                    CreateDefPal(JoinedNode[1], 1);
+                        sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+                        INT8 nNodeDistance = 0;
+                        INT8 nPeerNodeDistance = nPeerPaletteDistance;
 
-                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                        if ((nPeerPaletteDistance > 2) && (wcsstr(charUnit->szDesc, L"Sinclair")))
+                        {
+                            // Sinclair reaches into the Shared node for Sword Portrait
+                            nSrcAmt = 1;
+                            nSrcStart = NodeGet->uPalId;
+                            nNodeDistance = (Node02 == 0) ? 3 : 2;
+                            nPeerNodeDistance = -Node03;
+                        }
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                            GetMainTree()->GetDescNode(Node01, Node02 + nNodeDistance, Node03 + nPeerNodeDistance, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                    }
                 }
             }
         }
