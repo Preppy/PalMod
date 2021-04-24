@@ -143,6 +143,7 @@ public:
     bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromPAL(LPCWSTR pszFileName);
     bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false);
+    bool LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName);
     // if you add a new palette type here, please update the CPalDropTarget support
 
     bool SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp);

@@ -1404,11 +1404,179 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
     return fSuccess;
 }
 
+bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
+{
+    CString strMsg;
+    bool fSuccess = false;
+    CStdioFile SF3DLCFile;
+
+    if (SF3DLCFile.Open(pszFileName, CFile::modeRead))
+    {
+        ProcChange();
+        bool fAbleToReadFile = false;
+
+        CString strCharacterName;
+        fAbleToReadFile = SF3DLCFile.ReadString(strCharacterName);
+        CString strDLCName;
+        fAbleToReadFile = fAbleToReadFile && SF3DLCFile.ReadString(strDLCName);
+        CString strDLCLoc;
+        fAbleToReadFile = fAbleToReadFile && SF3DLCFile.ReadString(strDLCLoc);
+        CString strDLCLocDesc;
+        fAbleToReadFile = fAbleToReadFile && SF3DLCFile.ReadString(strDLCLocDesc);
+
+        if (fAbleToReadFile)
+        {
+            CString strCurrentColors;
+            CGameClass* CurrGame = GetHost()->GetCurrGame();
+
+            // Only import the full set if we're on the core colors
+            sPalDef* spdPalInfo = MainPalGroup->GetPalDef(0);
+
+            int nActivePaletteId = spdPalInfo->uPalId;
+            int nPaletteDistance = CurrGame->GetCurrentPaletteIncrement();
+
+            if ((nActivePaletteId != 0) && (nPaletteDistance != 0))
+            {
+                // Convert from absolute index to step-based index
+                nActivePaletteId /= nPaletteDistance;
+            }
+
+            int nHowManyColorsToImport = CurrGame->GetImgOutPalAmt();
+            UINT16 nUnitId = spdPalInfo->uUnitId;
+
+            int iKeyPosition = strCharacterName.Find('=');
+            strCharacterName.Delete(0, iKeyPosition + 1);
+            OutputDebugString(strCharacterName);
+            OutputDebugString(L"\n");
+            iKeyPosition = strDLCName.Find('=');
+            OutputDebugString(strDLCName.Mid(iKeyPosition + 1));
+            OutputDebugString(L"\n");
+
+            for (int iPaletteId = 0; iPaletteId < nHowManyColorsToImport; iPaletteId++)
+            {
+                if (SF3DLCFile.ReadString(strCurrentColors))
+                {
+                    if ((nActivePaletteId != 0) && (nActivePaletteId != iPaletteId))
+                    {
+                        // Only copy the current color
+                        continue; 
+                    }
+
+                    const UINT32 nDLCColorCount = 64;
+                    COLORREF* pDLCColors = new COLORREF[nDLCColorCount];
+                    memset(pDLCColors, 0, nDLCColorCount * sizeof(COLORREF));
+
+                    // OK, now parse the actual colors.
+                    iKeyPosition = strCurrentColors.Find('=');
+                    CString strColorList = strCurrentColors.Mid(iKeyPosition + 1);
+                    OutputDebugString(strCurrentColors.Left(iKeyPosition));
+                    OutputDebugString(L"\n");
+                    for (UINT32 iPosition = 0; iPosition < nDLCColorCount; iPosition++)
+                    {
+                        // The final pass won't have a trailing ',', so just use the raw string at that point
+                        const int iEndPosition = strColorList.Find(',');
+                        CString strThisColor = (iEndPosition != -1) ? strColorList.Left(iEndPosition) : strColorList;
+
+                        UINT32 nThisColor = _wtol(strThisColor);
+                        UINT8 alpha = (nThisColor & 0xFF000000) >> 24;
+                        UINT8 red  = (nThisColor & 0xFF0000) >> 16;
+                        UINT8 green = (nThisColor & 0xFF00) >> 8;
+                        UINT8 blue   = (nThisColor & 0xFF);
+
+                        pDLCColors[iPosition] = RGB(red, green, blue) | (alpha << 24);
+
+                        //strMsg.Format(L"Converted color %u :: %s to rgb 0x%x\n", iPosition, strThisColor.GetString(), pDLCColors[iPosition]);
+                        //OutputDebugString(strMsg.GetString());
+
+                        strColorList.Delete(0, iEndPosition + 1);
+                    }
+
+                    // Now consume those colors...
+                    if (spdPalInfo->uPalId == (iPaletteId * nPaletteDistance))
+                    {
+                        // This is the active palette
+                        UINT8* pVisiblePalette = (UINT8*)MainPalGroup->GetPalDef(0)->pPal;
+
+                        for (int iCurrentIndexInPalette = 0; iCurrentIndexInPalette < nDLCColorCount; iCurrentIndexInPalette++)
+                        {
+                            pVisiblePalette[(iCurrentIndexInPalette * 4)]     = MainPalGroup->ROUND_R(GetRValue(pDLCColors[iCurrentIndexInPalette]));
+                            pVisiblePalette[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(GetGValue(pDLCColors[iCurrentIndexInPalette]));
+                            pVisiblePalette[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(GetBValue(pDLCColors[iCurrentIndexInPalette]));
+                        }
+                    }
+                    else
+                    {
+                        CurrGame->WritePal(nUnitId, (iPaletteId * nPaletteDistance), pDLCColors, nDLCColorCount);
+                        CurrGame->MarkPaletteDirty(nUnitId, (iPaletteId * nPaletteDistance));
+                    }
+
+                    delete[] pDLCColors;
+                }
+            }
+
+            ImgDispCtrl->UpdateCtrl();
+            m_PalHost.UpdateAllPalCtrls();
+
+            UpdateMultiEdit(TRUE);
+            UpdateSliderSel();
+
+            fSuccess = true;
+
+            CString strStatus;
+            strStatus.Format(L"Imported %u %s palettes.", nHowManyColorsToImport, strCharacterName.GetString());
+            SetStatusText(strStatus);
+        }
+
+        if (!fSuccess)
+        {
+            CString strError;
+            if (strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE))
+            {
+                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+            }
+            SetStatusText(IDS_ACT_LOADFAILURE);
+        }
+    }
+
+    return fSuccess;
+}
+
 void CPalModDlg::OnImportPalette()
 {
     if (bEnabled)
     {
-        static LPCWSTR szOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal|"
+        int nGameFlag = GetHost()->GetCurrGame()->GetGameFlag();
+        bool fIsSF3 = false;
+
+        switch (nGameFlag)
+        {
+        case SFIII3_A:
+        case SFIII3_D:
+        case SFIII3_A_DIR_51:
+        case SFIII2_A:
+        case SFIII1_A:
+        case SFIII3_A_DIR_10:
+        case SFIII3_A_DIR_4rd:
+        case SFIII3_A_DIR_EX:
+        case SFIII3_A_DIR_4rd_10:
+        case SFIII1_A_DIR:
+        case SFIII2_A_DIR:
+            fIsSF3 = true;
+            break;
+        default:
+            break;
+        }
+
+        static LPCWSTR szSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat|"
+                                              L"ACT Palette|*.act|"
+                                              L"Indexed PNG|*.png|"
+                                              L"Microsoft PAL|*.pal|"
+                                              L"Upside-down ACT Palette|*.act|"
+                                              L"Upside-down Indexed PNG|*.png|"
+                                              L"PS3 SF3::OE color file|*.txt.dat"
+                                              L"|" };
+
+        static LPCWSTR szOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat|"
                                           L"ACT Palette|*.act|"
                                           L"Indexed PNG|*.png|"
                                           L"Microsoft PAL|*.pal|"
@@ -1416,7 +1584,7 @@ void CPalModDlg::OnImportPalette()
                                           L"Upside-down Indexed PNG|*.png|"
                                           L"|" };
 
-        CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, *szOpenFilter);
+        CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, fIsSF3 ? *szSF3OpenFilter : *szOpenFilter);
 
         if (PaletteLoad.DoModal() == IDOK)
         {
@@ -1424,7 +1592,7 @@ void CPalModDlg::OnImportPalette()
             bool fSuccess = false;
 
             WCHAR szExtension[_MAX_EXT];
-            _tsplitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
+            _wsplitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
 
             if (_wcsicmp(szExtension, L".png") == 0)
             {
@@ -1433,6 +1601,10 @@ void CPalModDlg::OnImportPalette()
             else if (_wcsicmp(szExtension, L".pal") == 0)
             {
                 LoadPaletteFromPAL(strFileName);
+            }
+            else if (_wcsicmp(szExtension, L".dat") == 0)
+            {
+                LoadPaletteFromPS3SF3OETXT(strFileName);
             }
             else
             {

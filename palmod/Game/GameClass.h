@@ -247,6 +247,8 @@ public:
     sImgTicket* CreateImgTicket(UINT16 nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0);
 
     int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
+    int GetCurrentPaletteIncrement() { return nSrcPalInc[0]; };
+
     void ClearSrcPal();
 
     const LPCWSTR* GetButtonDescSet() { return pButtonLabelSet; };
@@ -275,6 +277,8 @@ public:
     bool UserWantsAllPalettesInPatch();
     void SetSpecificValuesForCRC(UINT32 nCRCForFile);
     virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
+
+    void WritePal(UINT16 nUnitId, UINT16 nPalId, COLORREF* rgColors, UINT16 nColorCount);
 
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);

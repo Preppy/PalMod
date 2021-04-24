@@ -1102,6 +1102,40 @@ void CGameClass::Revert(int nPalId)
     //MarkPaletteClean(CurrPalDef->uUnitId, CurrPalDef->uPalId);
 }
 
+void CGameClass::WritePal(UINT16 nUnitId, UINT16 nPalId, COLORREF* rgColors, UINT16 nColorCount)
+{
+    LoadSpecificPaletteData(nUnitId, nPalId);
+
+    for (UINT16 i = 0; i < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); i++)
+    {
+        const UINT16 nCurrentPos = i + createPalOptions.nStartingPosition;
+
+        if (i >= nColorCount)
+        {
+            break;
+        }
+
+        switch (GetGameColorByteLength())
+        {
+        case 2:
+        {
+            m_pppDataBuffer[nUnitId][nPalId][i] = ConvCol16(rgColors[i]);
+            break;
+        }
+        case 3:
+        {
+            m_pppDataBuffer24[nUnitId][nPalId][i] = ConvCol24(rgColors[i]);
+            break;
+        }
+        case 4:
+        {
+            m_pppDataBuffer32[nUnitId][nPalId][i] = ConvCol32(rgColors[i]);
+            break;
+        }
+        }
+    }
+}
+
 COLORREF* CGameClass::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
