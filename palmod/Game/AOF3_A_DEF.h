@@ -117,7 +117,7 @@ const sGame_PaletteDataset AOF3_A_Kasumi_RAGE_PALETTES[] =
  //Shared
 const sGame_PaletteDataset AOF3_A_Kasumi_Shared_PALETTES[] =
 {
-    { L"Kasane Ate", 0x05fde0, 0x05fdf4 },
+    { L"Kasane Ate", 0x05fde0, 0x05fdf4, indexAoF3Sprites_Kasumi, 0x02 },
     { L"Kasane Ate Impact", 0x05fc40, 0x05fc60 },
 };
 	
@@ -308,7 +308,7 @@ const sGame_PaletteDataset AOF3_A_Wyler_RAGE_PALETTES[] =
 //Shared
 const sGame_PaletteDataset AOF3_A_Wyler_SHARED_PALETTES[] =
 {
-    { L"Black Out", 0x05f8a0, 0x05f8c0, indexAoF3Sprites_Bonus, 0x02 },
+    { L"Black Out", 0x05f8a0, 0x05f8c0, indexAoF3Sprites_Wyler, 0x02 },
 };
 
 //-BONUS//-

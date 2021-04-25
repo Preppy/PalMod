@@ -1763,14 +1763,16 @@ const sDescTreeNode* CGameClass::_GetNodeFromPaletteId(const sDescTreeNode* pGam
     return pCollectionNode;
 }
 
-UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, UINT16 nTotalUnitCount, UINT16 nExtraUnitLocation, UINT16 nTotalNormalUnitCount,
+UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, UINT16 nExtraUnitLocation, UINT16 nTotalNormalUnitCount,
                                  int* rgExtraCount, int* rgExtraLocations, stExtraDef* ppExtraDef)
 {
     CString strMsg;
     UINT32 nTotalPaletteCount = 0;
 
+    OutputDebugString(L"CGameClass::_InitDescTree: Building desc tree for game...\n");
+
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nTotalUnitCount; iUnitCtr++)
+    for (UINT16 iUnitCtr = 0; iUnitCtr < pNewDescTree->uChildAmt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
@@ -1913,6 +1915,9 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
             }
         }
     }
+
+    strMsg.Format(L"CGameClass::_InitDescTree: Loaded %u palettes for this game.\n", nTotalPaletteCount);
+    OutputDebugString(strMsg);
 
     return nTotalPaletteCount;
 }

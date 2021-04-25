@@ -242,8 +242,6 @@ int CGame_NEOGEO_A::GetExtraLoc(UINT16 nUnitId)
 
 sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_UNKNOWN_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
 
@@ -268,25 +266,14 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(NEOGEO_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_NEOGEO_A::InitDescTree: Building desc tree for NEOGEO_A %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForNEOGEO = _InitDescTree(NewDescTree,
         NEOGEO_A_UNITS,
-        nUnitCt,
         NEOGEO_A_EXTRALOC,
         NEOGEO_A_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         NEOGEO_A_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_NEOGEO_A::InitDescTree: Loaded %u palettes for NEOGEO\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForNEOGEO = nTotalPaletteCount;
 
     return NewDescTree;
 }

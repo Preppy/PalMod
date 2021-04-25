@@ -145,8 +145,6 @@ int CGame_NEWGAME_A::GetExtraLoc(UINT16 nUnitId)
 
 sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_NEWGAME_A, NEWGAME_A_EXTRA, &NEWGAME_A_EXTRA_CUSTOM, NEWGAME_A_EXTRALOC, m_nConfirmedROMSize);
 
@@ -161,25 +159,14 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(NEWGAME_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_NEWGAME_A::InitDescTree: Building desc tree for NEWGAME_A %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForNEWGAME = _InitDescTree(NewDescTree,
         NEWGAME_A_UNITS,
-        nUnitCt,
         NEWGAME_A_EXTRALOC,
         NEWGAME_A_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         NEWGAME_A_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_NEWGAME_A::InitDescTree: Loaded %u palettes for NEWGAME\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForNEWGAME = nTotalPaletteCount;
 
     return NewDescTree;
 }

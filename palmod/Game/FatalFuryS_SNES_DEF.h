@@ -144,20 +144,20 @@ const sDescTreeNode FatalFuryS_Duck_COLLECTION[] =
    { L"B", DESC_NODETYPE_TREE, (void*)FatalFuryS_Duck_PALETTES_B, ARRAYSIZE(FatalFuryS_Duck_PALETTES_B) },
 };
 
-const sGame_PaletteDataset FatalFuryS_Teng_PALETTES_A[] =
+const sGame_PaletteDataset FatalFuryS_Tung_PALETTES_A[] =
 {
-    { L"Teng A", 0x13f3e0, 0x13f400 },
+    { L"Tung A", 0x13f3e0, 0x13f400 },
 };
 
-const sGame_PaletteDataset FatalFuryS_Teng_PALETTES_B[] =
+const sGame_PaletteDataset FatalFuryS_Tung_PALETTES_B[] =
 {
-    { L"Teng B", 0x13f400, 0x13f420 },
+    { L"Tung B", 0x13f400, 0x13f420 },
 };
 
-const sDescTreeNode FatalFuryS_Teng_COLLECTION[] =
+const sDescTreeNode FatalFuryS_Tung_COLLECTION[] =
 {
-   { L"A", DESC_NODETYPE_TREE, (void*)FatalFuryS_Teng_PALETTES_A, ARRAYSIZE(FatalFuryS_Teng_PALETTES_A) },
-   { L"B", DESC_NODETYPE_TREE, (void*)FatalFuryS_Teng_PALETTES_B, ARRAYSIZE(FatalFuryS_Teng_PALETTES_B) },
+   { L"A", DESC_NODETYPE_TREE, (void*)FatalFuryS_Tung_PALETTES_A, ARRAYSIZE(FatalFuryS_Tung_PALETTES_A) },
+   { L"B", DESC_NODETYPE_TREE, (void*)FatalFuryS_Tung_PALETTES_B, ARRAYSIZE(FatalFuryS_Tung_PALETTES_B) },
 };
 
 const sGame_PaletteDataset FatalFuryS_Billy_PALETTES_A[] =
@@ -251,7 +251,7 @@ const sDescTreeNode FatalFuryS_SNES_UNITS[] =
     { L"Kim",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Kim_COLLECTION,   ARRAYSIZE(FatalFuryS_Kim_COLLECTION) },
     { L"Mai",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Mai_COLLECTION,   ARRAYSIZE(FatalFuryS_Mai_COLLECTION) },
     { L"Duck",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Duck_COLLECTION,   ARRAYSIZE(FatalFuryS_Duck_COLLECTION) },
-    { L"Teng",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Teng_COLLECTION,   ARRAYSIZE(FatalFuryS_Teng_COLLECTION) },
+    { L"Tung",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Tung_COLLECTION,   ARRAYSIZE(FatalFuryS_Tung_COLLECTION) },
     { L"Billy",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Billy_COLLECTION,   ARRAYSIZE(FatalFuryS_Billy_COLLECTION) },
     { L"Axel Hawk",  DESC_NODETYPE_TREE, (void*)FatalFuryS_AxelHawk_COLLECTION,   ARRAYSIZE(FatalFuryS_AxelHawk_COLLECTION) },
     { L"Laurence",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Laurence_COLLECTION,   ARRAYSIZE(FatalFuryS_Laurence_COLLECTION) },

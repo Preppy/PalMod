@@ -3636,7 +3636,7 @@ const sDescTreeNode CVS2_A_KYOSUKE_COLLECTION[] =
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_LP[] =
 {
-    { L"Main Sprite", 0x36e48a0, 0x36e48c0, indexCVS2Sprites_Athena },
+    { L"Main Sprite", 0x36e48a0, 0x36e48c0, indexCVS2Sprites_Athena, 0x00, &pairNextSkippedAndNextSkipped },
     { L"Pink Energy", 0x36e48c0, 0x36e48e0, indexCVS2Sprites_Athena, 1 },
     { L"School Outfit 1", 0x36e48e0, 0x36e4900, indexCVS2Sprites_Athena, 2 },
     { L"Blue Energy", 0x36e4900, 0x36e4920, indexCVS2Sprites_Athena, 3 },
@@ -3646,7 +3646,7 @@ const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_LP[] =
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_MP[] =
 {
-    { L"Main Sprite", 0x36e4960, 0x36e4980, indexCVS2Sprites_Athena },
+    { L"Main Sprite", 0x36e4960, 0x36e4980, indexCVS2Sprites_Athena, 0x00, &pairNextSkippedAndNextSkipped },
     { L"Pink Energy", 0x36e4980, 0x36e49a0, indexCVS2Sprites_Athena, 1 },
     { L"School Outfit 1", 0x36e49a0, 0x36e49c0, indexCVS2Sprites_Athena, 2 },
     { L"Blue Energy", 0x36e49c0, 0x36e49e0, indexCVS2Sprites_Athena, 3 },
@@ -3656,7 +3656,7 @@ const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_MP[] =
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_HP[] =
 {
-    { L"Main Sprite", 0x36e4a20, 0x36e4a40, indexCVS2Sprites_Athena },
+    { L"Main Sprite", 0x36e4a20, 0x36e4a40, indexCVS2Sprites_Athena, 0x00, &pairNextSkippedAndNextSkipped },
     { L"Pink Energy", 0x36e4a40, 0x36e4a60, indexCVS2Sprites_Athena, 1 },
     { L"School Outfit 1", 0x36e4a60, 0x36e4a80, indexCVS2Sprites_Athena, 2 },
     { L"Blue Energy", 0x36e4a80, 0x36e4aa0, indexCVS2Sprites_Athena, 3 },
@@ -3666,7 +3666,7 @@ const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_HP[] =
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_LK[] =
 {
-    { L"Main Sprite", 0x36e4ae0, 0x36e4b00, indexCVS2Sprites_Athena },
+    { L"Main Sprite", 0x36e4ae0, 0x36e4b00, indexCVS2Sprites_Athena, 0x00, &pairNextSkippedAndNextSkipped },
     { L"Pink Energy", 0x36e4b00, 0x36e4b20, indexCVS2Sprites_Athena, 1 },
     { L"School Outfit 1", 0x36e4b20, 0x36e4b40, indexCVS2Sprites_Athena, 2 },
     { L"Blue Energy", 0x36e4b40, 0x36e4b60, indexCVS2Sprites_Athena, 3 },
@@ -3676,7 +3676,7 @@ const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_LK[] =
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_MK[] =
 {
-    { L"Main Sprite", 0x36e4ba0, 0x36e4bc0, indexCVS2Sprites_Athena },
+    { L"Main Sprite", 0x36e4ba0, 0x36e4bc0, indexCVS2Sprites_Athena, 0x00, &pairNextSkippedAndNextSkipped },
     { L"Pink Energy", 0x36e4bc0, 0x36e4be0, indexCVS2Sprites_Athena, 1 },
     { L"School Outfit 1", 0x36e4be0, 0x36e4c00, indexCVS2Sprites_Athena, 2 },
     { L"Blue Energy", 0x36e4c00, 0x36e4c20, indexCVS2Sprites_Athena, 3 },
@@ -3686,7 +3686,7 @@ const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_MK[] =
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_HK[] =
 {
-    { L"Main Sprite", 0x36e4c60, 0x36e4c80, indexCVS2Sprites_Athena },
+    { L"Main Sprite", 0x36e4c60, 0x36e4c80, indexCVS2Sprites_Athena, 0x00, &pairNextSkippedAndNextSkipped },
     { L"Pink Energy", 0x36e4c80, 0x36e4ca0, indexCVS2Sprites_Athena, 1 },
     { L"School Outfit 1", 0x36e4ca0, 0x36e4cc0, indexCVS2Sprites_Athena, 2 },
     { L"Blue Energy", 0x36e4cc0, 0x36e4ce0, indexCVS2Sprites_Athena, 3 },
@@ -3696,7 +3696,7 @@ const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_HK[] =
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_3P[] =
 {
-    { L"Main Sprite", 0x36e4d20, 0x36e4d40, indexCVS2Sprites_Athena },
+    { L"Main Sprite", 0x36e4d20, 0x36e4d40, indexCVS2Sprites_Athena, 0x00, &pairNextSkippedAndNextSkipped },
     { L"Pink Energy", 0x36e4d40, 0x36e4d60, indexCVS2Sprites_Athena, 1 },
     { L"School Outfit 1", 0x36e4d60, 0x36e4d80, indexCVS2Sprites_Athena, 2 },
     { L"Blue Energy", 0x36e4d80, 0x36e4da0, indexCVS2Sprites_Athena, 3 },
@@ -3706,7 +3706,7 @@ const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_3P[] =
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_3K[] =
 {
-    { L"Main Sprite", 0x36e4de0, 0x36e4e00, indexCVS2Sprites_Athena },
+    { L"Main Sprite", 0x36e4de0, 0x36e4e00, indexCVS2Sprites_Athena, 0x00, &pairNextSkippedAndNextSkipped },
     { L"Pink Energy", 0x36e4e00, 0x36e4e20, indexCVS2Sprites_Athena, 1 },
     { L"School Outfit 1", 0x36e4e20, 0x36e4e40, indexCVS2Sprites_Athena, 2 },
     { L"Blue Energy", 0x36e4e40, 0x36e4e60, indexCVS2Sprites_Athena, 3 },

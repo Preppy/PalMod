@@ -116,8 +116,6 @@ sFileRule CGame_TOPF2005_SEGA::GetRule(UINT16 nUnitId)
 
 sDescTreeNode* CGame_TOPF2005_SEGA::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_TOPF2005, TOPF2005_SEGA_EXTRA, &TOPF2005_SEGA_EXTRA_CUSTOM, TOPF2005_SEGA_EXTRALOC, m_nConfirmedROMSize);
 
@@ -132,25 +130,14 @@ sDescTreeNode* CGame_TOPF2005_SEGA::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(TOPF2005_SEGA_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_TOPF2005_SEGA::InitDescTree: Building desc tree for TOPF2005 %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
-                                    TOPF2005_UNITS,
-                                    nUnitCt,
-                                    TOPF2005_SEGA_EXTRALOC,
-                                    TOPF2005_SEGA_NUMUNIT,
-                                    rgExtraCountAll,
-                                    rgExtraLoc,
-                                    TOPF2005_SEGA_EXTRA_CUSTOM    
+    m_nTotalPaletteCountForTOPF2005 = _InitDescTree(NewDescTree,
+        TOPF2005_UNITS,
+        TOPF2005_SEGA_EXTRALOC,
+        TOPF2005_SEGA_NUMUNIT,
+        rgExtraCountAll,
+        rgExtraLoc,
+        TOPF2005_SEGA_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_TOPF2005_SEGA::InitDescTree: Loaded %u palettes for TOPF2005\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForTOPF2005 = nTotalPaletteCount;
 
     return NewDescTree;
 }

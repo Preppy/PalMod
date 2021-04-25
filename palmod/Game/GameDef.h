@@ -118,6 +118,7 @@ enum SupportedGamesList
     KOF96_A,
     SAMSHO1_A,
     SAMSHO2_A,
+    FatalFuryS_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -169,7 +170,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
     L"SFA1 (Arcade)",
     L"Vampire Savior (Arcade)",
     L"Vampire Savior 2 (Arcade)",
-    L"Real Bout Fatal Fury Special (Arcade)",
+    L"Real Bout Fatal Fury Special (Neo-Geo)",
     L"Samurai Shodown 3 (Neo-Geo)",
     L"Vampire Hunter 2 (Arcade)",
     L"SFIII:2I (Arcade)",
@@ -237,6 +238,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
     L"King of Fighters '96 (Neo-Geo)",
     L"Samurai Shodown (Neo-Geo)",
     L"Samurai Shodown II (Neo-Geo)",
+    L"Fatal Fury Special (Neo-Geo)",
 };
 
 enum class GamePlatform
@@ -2853,6 +2855,7 @@ const stPairedPaletteInfo pairPreviousFlipped2 = { -2, 0, 0, true };
 
 const stPairedPaletteInfo pairNextAndNext =         { 1, 0, 0, false, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextSkipped =  { 1, 0, 0, false, 3, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextSkippedAndNextSkipped = { 2, 0, 0, false, 3, 4 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextAndNext =  { 1, 0, 0, false, 4 }; // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext = { 2, 0, 0, false, 4, 4, 5 }; // quad display... requires special handling in code
 

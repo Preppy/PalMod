@@ -107,8 +107,6 @@ int CGame_XMMA_SNES::GetExtraLoc(UINT16 nUnitId)
 
 sDescTreeNode* CGame_XMMA_SNES::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_XMMA_SNES, XMMA_SNES_EXTRA, &XMMA_SNES_EXTRA_CUSTOM, XMMA_SNES_EXTRALOC, m_nConfirmedROMSize);
 
@@ -123,25 +121,14 @@ sDescTreeNode* CGame_XMMA_SNES::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(XMMA_SNES_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_XMMA_SNES::InitDescTree: Building desc tree for XMMA_SNES %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForXMMA = _InitDescTree(NewDescTree,
         XMMA_SNES_UNITS,
-        nUnitCt,
         XMMA_SNES_EXTRALOC,
         XMMA_SNES_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         XMMA_SNES_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_XMMA_SNES::InitDescTree: Loaded %u palettes for XMMA\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForXMMA = nTotalPaletteCount;
 
     return NewDescTree;
 }

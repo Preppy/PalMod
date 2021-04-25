@@ -112,8 +112,6 @@ int CGame_LASTBLADE_A::GetExtraLoc(UINT16 nUnitId)
 
 sDescTreeNode* CGame_LASTBLADE_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_LASTBLADE_A, LASTBLADE_A_EXTRA, &LASTBLADE_A_EXTRA_CUSTOM, LASTBLADE_A_EXTRALOC, m_nConfirmedROMSize);
 
@@ -128,25 +126,14 @@ sDescTreeNode* CGame_LASTBLADE_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(LASTBLADE_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_LASTBLADE_A::InitDescTree: Building desc tree for LASTBLADE_A %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForLASTBLADE = _InitDescTree(NewDescTree,
         LASTBLADE_A_UNITS,
-        nUnitCt,
         LASTBLADE_A_EXTRALOC,
         LASTBLADE_A_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         LASTBLADE_A_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_LASTBLADE_A::InitDescTree: Loaded %u palettes for LASTBLADE\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForLASTBLADE = nTotalPaletteCount;
 
     // For development purposes only...
     //DumpAllCharacters();

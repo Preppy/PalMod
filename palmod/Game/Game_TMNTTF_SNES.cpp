@@ -107,8 +107,6 @@ int CGame_TMNTTF_SNES::GetExtraLoc(UINT16 nUnitId)
 
 sDescTreeNode* CGame_TMNTTF_SNES::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_TMNTTF_SNES, TMNTTF_SNES_EXTRA, &TMNTTF_SNES_EXTRA_CUSTOM, TMNTTF_SNES_EXTRALOC, m_nConfirmedROMSize);
 
@@ -123,25 +121,14 @@ sDescTreeNode* CGame_TMNTTF_SNES::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(TMNTTF_SNES_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_TMNTTF_SNES::InitDescTree: Building desc tree for TMNTTF_SNES %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForTMNTTF = _InitDescTree(NewDescTree,
         TMNTTF_SNES_UNITS,
-        nUnitCt,
         TMNTTF_SNES_EXTRALOC,
         TMNTTF_SNES_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         TMNTTF_SNES_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_TMNTTF_SNES::InitDescTree: Loaded %u palettes for TMNTTF\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForTMNTTF = nTotalPaletteCount;
 
     return NewDescTree;
 }

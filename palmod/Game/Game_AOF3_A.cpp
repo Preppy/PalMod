@@ -449,11 +449,11 @@ UINT32 CGame_AOF3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"Art of Fighting 3 (NEOGEO P1)", L"096-p1.p1", 0x9edb420d, 0 },
-        { L"Art of Fighting 3 (NEOGEO P1 Korea)", L"096-p1k.p1", 0xa0780789, 0 },
-        { L"Art of Fighting 3 (NEOGEO P2)", L"096-p2.sp2", 0x4d5a2602, 0 },
-        { L"Art of Fighting 3 (NEOGEO P1)", L"096-p1.bin", 0x9edb420d, 0 },
-        { L"Art of Fighting 3 (NEOGEO P2)", L"096-p2.bin", 0x4d5a2602, 0 },
+        { L"Art of Fighting 3 (Neo-Geo P1)", L"096-p1.p1", 0x9edb420d, 0 },
+        { L"Art of Fighting 3 (Neo-Geo P1 Korea)", L"096-p1k.p1", 0xa0780789, 0 },
+        { L"Art of Fighting 3 (Neo-Geo P2)", L"096-p2.sp2", 0x4d5a2602, 0 },
+        { L"Art of Fighting 3 (Neo-Geo P1)", L"096-p1.bin", 0x9edb420d, 0 },
+        { L"Art of Fighting 3 (Neo-Geo P2)", L"096-p2.bin", 0x4d5a2602, 0 },
     };
 
     if (ppKnownROMSet != nullptr)

@@ -102,8 +102,6 @@ int CGame_SAMSHO5SP_A::GetExtraLoc(UINT16 nUnitId)
 
 sDescTreeNode* CGame_SAMSHO5SP_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO5SP_A, SAMSHO5SP_A_EXTRA, &SAMSHO5SP_A_EXTRA_CUSTOM, SAMSHO5SP_A_EXTRALOC, m_nConfirmedROMSize);
 
@@ -118,25 +116,14 @@ sDescTreeNode* CGame_SAMSHO5SP_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(SAMSHO5SP_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_SAMSHO5SP_A::InitDescTree: Building desc tree for SAMSHO5SP_A %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForSAMSHO5SP = _InitDescTree(NewDescTree,
         SAMSHO5SP_A_UNITS,
-        nUnitCt,
         SAMSHO5SP_A_EXTRALOC,
         SAMSHO5SP_A_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         SAMSHO5SP_A_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_SAMSHO5SP_A::InitDescTree: Loaded %u palettes for SAMSHO5SP\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForSAMSHO5SP = nTotalPaletteCount;
 
     return NewDescTree;
 }

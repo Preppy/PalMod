@@ -157,8 +157,6 @@ CDescTree* CGame_COTA_A::GetMainTree()
 
 sDescTreeNode* CGame_COTA_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_COTA, COTA_A_EXTRA, &COTA_A_EXTRA_CUSTOM, COTA_A_EXTRALOC, m_nConfirmedROMSize);
 
@@ -173,25 +171,14 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(COTA_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_COTA_A::InitDescTree: Building desc tree for COTA %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForCOTA = _InitDescTree(NewDescTree,
         COTA_A_UNITS,
-        nUnitCt,
         COTA_A_EXTRALOC,
         COTA_A_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         COTA_A_EXTRA_CUSTOM
-    );
-
-    strMsg.Format(L"CGame_COTA_A::InitDescTree: Loaded %u palettes for COTA\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForCOTA = nTotalPaletteCount;
+    );;
 
     return NewDescTree;
 }

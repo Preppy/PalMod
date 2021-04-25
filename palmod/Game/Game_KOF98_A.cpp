@@ -150,8 +150,6 @@ int CGame_KOF98_A::GetExtraLoc(UINT16 nUnitId)
 
 sDescTreeNode* CGame_KOF98_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KOF98_A, KOF98_A_EXTRA, &KOF98_A_EXTRA_CUSTOM, KOF98_A_EXTRALOC, m_nConfirmedROMSize);
 
@@ -166,25 +164,14 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(KOF98_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_KOF98_A::InitDescTree: Building desc tree for KOF98_A %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForKOF98 = _InitDescTree(NewDescTree,
         KOF98_A_UNITS,
-        nUnitCt,
         KOF98_A_EXTRALOC,
         KOF98_A_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         KOF98_A_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_KOF98_A::InitDescTree: Loaded %u palettes for KOF98\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForKOF98 = nTotalPaletteCount;
 
     // For development use to speed things up
     //DumpPaletteHeaders();

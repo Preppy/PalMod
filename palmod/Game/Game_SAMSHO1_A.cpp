@@ -102,8 +102,6 @@ int CGame_SAMSHO1_A::GetExtraLoc(UINT16 nUnitId)
 
 sDescTreeNode* CGame_SAMSHO1_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO1_A, SAMSHO1_A_EXTRA, &SAMSHO1_A_EXTRA_CUSTOM, SAMSHO1_A_EXTRALOC, m_nConfirmedROMSize);
 
@@ -118,25 +116,14 @@ sDescTreeNode* CGame_SAMSHO1_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(SAMSHO1_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_SAMSHO1_A::InitDescTree: Building desc tree for SAMSHO1_A %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForSAMSHO1 = _InitDescTree(NewDescTree,
         SAMSHO1_A_UNITS,
-        nUnitCt,
         SAMSHO1_A_EXTRALOC,
         SAMSHO1_A_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         SAMSHO1_A_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_SAMSHO1_A::InitDescTree: Loaded %u palettes for SAMSHO1\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForSAMSHO1 = nTotalPaletteCount;
 
     return NewDescTree;
 }

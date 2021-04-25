@@ -1938,7 +1938,7 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CHOI_WinPortrait[] =
 {
     { L"Choi A Win Portrait", 0xd7670, 0xd76b0, indexKOF00Sprites_Choi, 0x30 },
     { L"Choi B Win Portrait", 0xd7f70, 0xd7fb0, indexKOF00Sprites_Choi, 0x30 },
-    { L"Choi CD Win Portrait", 0xd8890, 0xd88b0, indexKOF00Sprites_Choi, 0x30 },
+    { L"Choi CD Win Portrait", 0xd8870, 0xd88b0, indexKOF00Sprites_Choi, 0x30 },
 };
 
 //Jhun Hoon
@@ -2097,10 +2097,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_IORI_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_IORI_Striker[] =
 {
-    { L"Mature A", 0xd1150, 0xd1170, indexKOF00Sprites_Iori, 0x08 },
-    { L"Mature A Electric Shock Effect", 0xd1190, 0xd11b0, indexKOF00Sprites_Iori, 0x08 },
-    { L"Mature B", 0xd1350, 0xd1370, indexKOF00Sprites_Iori, 0x08 },
-    { L"Mature B Electric Shock Effect", 0xd1390, 0xd13b0, indexKOF00Sprites_Iori, 0x08 },
+    { L"Mature A", 0xd1150, 0xd1170, indexKOF00Sprites_Iori, 0x08, &pairNext4 },
+    { L"Mature A Electric Shock Effect", 0xd1190, 0xd11b0, indexKOF00Sprites_Iori, 0x08, &pairNext4 },
+    { L"Mature B", 0xd1350, 0xd1370, indexKOF00Sprites_Iori, 0x08, &pairNext4 },
+    { L"Mature B Electric Shock Effect", 0xd1390, 0xd13b0, indexKOF00Sprites_Iori, 0x08, &pairNext4 },
     { L"Vice A", 0xd1170, 0xd1190, indexKOF00Sprites_Iori, 0x09 },
     { L"Vice A Electric Shock Effect", 0xd11b0, 0xd11d0, indexKOF00Sprites_Iori, 0x09 },
     { L"Vice B", 0xd1370, 0xd1390, indexKOF00Sprites_Iori, 0x09 },

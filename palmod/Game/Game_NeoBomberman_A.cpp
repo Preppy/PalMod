@@ -102,8 +102,6 @@ int CGame_NeoBomberman_A::GetExtraLoc(UINT16 nUnitId)
 
 sDescTreeNode* CGame_NeoBomberman_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_NeoBomberman_A, NeoBomberman_A_EXTRA, &NeoBomberman_A_EXTRA_CUSTOM, NeoBomberman_A_EXTRALOC, m_nConfirmedROMSize);
 
@@ -118,25 +116,14 @@ sDescTreeNode* CGame_NeoBomberman_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(NeoBomberman_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_NeoBomberman_A::InitDescTree: Building desc tree for NeoBomberman_A %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForNeoBomberman = _InitDescTree(NewDescTree,
         NeoBomberman_A_UNITS,
-        nUnitCt,
         NeoBomberman_A_EXTRALOC,
         NeoBomberman_A_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         NeoBomberman_A_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_NeoBomberman_A::InitDescTree: Loaded %u palettes for NeoBomberman\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForNeoBomberman = nTotalPaletteCount;
 
     return NewDescTree;
 }
