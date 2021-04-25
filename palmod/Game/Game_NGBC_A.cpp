@@ -36,7 +36,7 @@ CGame_NGBC_A::CGame_NGBC_A(UINT32 nConfirmedROMSize)
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-    SetColorMode(ColMode::COLMODE_15ALT);
+    SetColorMode(ColMode::COLMODE_RGB555_BE);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.

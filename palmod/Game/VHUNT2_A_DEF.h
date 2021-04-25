@@ -6,6 +6,36 @@
 // * Update every array using VHUNT2_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const UINT16 VHUNT2_A_IMG_UNITS[] =
+{
+    // These are the playable characters
+    indexCPS2_Anakaris,
+    indexCPS2_Vamp_Bishamon,  // 0x68
+    indexCPS2_Vamp_Demitri,   // 0x6A
+    indexCPS2_Vamp_Donovan,   // 0x6B
+    indexCPS2_Felicia,
+    indexCPS2_Vamp_LeiLei,    // 0x6E aka Hsien-Ko
+    indexCPS2_Vamp_Phobos,    // 0x71 aka Huitzil
+    indexCPS2_Vamp_Gallon,    // 0x6C aka Jon Talbain
+    indexCPS2_Vamp_Zabel,     // 0x77  aka Lord Raptor
+    indexCPS2_Morrigan,
+    indexCPS2_Vamp_Pyron,     // 0x72
+    indexCPS2_Vamp_Aulbath,   // 0x67 aka Rikuo
+    indexCPS2_Vamp_Sasquatch, // 0x74
+    indexCPS2_Vamp_Victor,    // 0x76
+
+    // these just have data in the game
+    indexCPS2_Anita,
+    indexCPS2_BBHood,
+    indexCPS2_Vamp_Dee,       // 0x69
+    indexCPS2_Vamp_Jedah,     // 0x6D
+    indexCPS2_Vamp_Lilith,    // 0x6F
+    indexCPS2_Vamp_Marionette, // 0x70
+    indexCPS2_Vamp_QBee,      // 0x73
+    indexCPS2_Vamp_Shadow,    // 0x75
+    indexCPS2_VSAV1_MidnightBliss,
+    indexCPS2_Vamp_DarkGallon,
+};
 
 // This dataset is functionally identical to the VSAV2 dataset, except that for VHUNT2
 // the total palette data is split across the 9 and 10 ROMs.  Currently I've just dropped

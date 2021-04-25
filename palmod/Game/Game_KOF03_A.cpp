@@ -35,7 +35,7 @@ CGame_KOF03_A::CGame_KOF03_A(UINT32 nConfirmedROMSize)
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_NEOGEO);
+    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -58,8 +58,8 @@ CGame_KOF03_A::CGame_KOF03_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = KOF03_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    nImgUnitAmt = KOF03_A_NUM_IMG_UNITS;
     m_prgGameImageSet = KOF03_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(KOF03_A_IMG_UNITS);
 
     nFileAmt = 1;
 

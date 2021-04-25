@@ -30,6 +30,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
     if (pPopupMenu == m_SubFileMenu)
     {
         pPopupMenu->EnableMenuItem(ID_FILE_PATCH, !fFileChanged);
+        pPopupMenu->EnableMenuItem(ID_FILE_OPENEXTRAS, (GetHost()->GetCurrGame() == nullptr));
         pPopupMenu->EnableMenuItem(ID_FILE_CLOSEFILEDIR, (GetHost()->GetCurrGame() == nullptr));
         pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedDirectory(NULL, 0, NULL, TRUE));
 
@@ -74,11 +75,60 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         gameMenu.CreatePopupMenu();
         MENUITEMINFO mii = { 0 };
 
+        // This code does some work to allow for dynamic submenus for Capcom and NEOGEO.
         for (int nPlatform = (int)GamePlatform::CapcomCPS12; nPlatform != (int)GamePlatform::Last; nPlatform++)
         {
             int nCurrentPosition = 0;
             CMenu platformMenu;
+            CMenu seriesMenu[4];
+
             platformMenu.CreatePopupMenu();
+            seriesMenu[0].CreatePopupMenu();
+            seriesMenu[1].CreatePopupMenu();
+            seriesMenu[2].CreatePopupMenu();
+            seriesMenu[3].CreatePopupMenu();
+
+            if (((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) || ((GamePlatform)nPlatform == GamePlatform::NEOGEO))
+            {
+                // first pass is just the submenus
+                for (int nGamePos = 0; nGamePos < nNumberOfLoadROMOptions; nGamePos++)
+                {
+                    if (pSupportedGameList[nGamePos].publisherKey == (GamePlatform)nPlatform)
+                    {
+                        mii.cbSize = sizeof(MENUITEMINFO);
+                        mii.fMask = MIIM_ID | MIIM_STRING;
+                        mii.wID = pSupportedGameList[nGamePos].nInternalGameIndex | k_nGameLoadROMListMask;
+                        mii.dwTypeData = (LPWSTR)pSupportedGameList[nGamePos].szGameFriendlyName;
+
+                        if (pSupportedGameList[nGamePos].seriesKey != (GameSeries)GameSeries::Unknown)
+                        {
+                            switch (pSupportedGameList[nGamePos].seriesKey)
+                            {
+                            case GameSeries::MvC:
+                            case GameSeries::ArtOfFighting:
+                                seriesMenu[0].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                                break;
+                            case GameSeries::SFA:
+                            case GameSeries::FatalFury:
+                                seriesMenu[1].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                                break;
+                            case GameSeries::SF2:
+                            case GameSeries::KOF:
+                                seriesMenu[2].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                                break;
+                            case GameSeries::VampireSavior:
+                            case GameSeries::SamuraiShodown:
+                                seriesMenu[3].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            UINT8 nMenuIndex = 0;
+            LPCWSTR ppszCapcomSubMenu[] = { L"Marvel vs Capcom", L"Street Fighter Alpha", L"Street Fighter 2", L"Vampire Savior" };
+            LPCWSTR ppszSNKSubMenu[] = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Samurai Shodown" };
 
             for (int nGamePos = 0; nGamePos < nNumberOfLoadROMOptions; nGamePos++)
             {
@@ -89,7 +139,33 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
                     mii.wID = pSupportedGameList[nGamePos].nInternalGameIndex | k_nGameLoadROMListMask;
                     mii.dwTypeData = (LPWSTR)pSupportedGameList[nGamePos].szGameFriendlyName;
 
-                    platformMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                    if (((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) && (nMenuIndex < ARRAYSIZE(seriesMenu)))
+                    {
+                        if ((ppszCapcomSubMenu[nMenuIndex][0] <= pSupportedGameList[nGamePos].szGameFriendlyName[0]) &&
+                            (ppszCapcomSubMenu[nMenuIndex][1] <= pSupportedGameList[nGamePos].szGameFriendlyName[1]))
+                        {
+                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszCapcomSubMenu[nMenuIndex]);
+                            nMenuIndex++;
+                            nCurrentPosition++;
+                        }
+                    }
+                    else if (((GamePlatform)nPlatform == GamePlatform::NEOGEO) && (nMenuIndex < ARRAYSIZE(seriesMenu)))
+                    {
+                        if ((ppszSNKSubMenu[nMenuIndex][0] <= pSupportedGameList[nGamePos].szGameFriendlyName[0]) &&
+                            (ppszSNKSubMenu[nMenuIndex][1] <= pSupportedGameList[nGamePos].szGameFriendlyName[1]))
+                        {
+                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszSNKSubMenu[nMenuIndex]);
+                            nMenuIndex++;
+                            nCurrentPosition++;
+                        }
+                    }
+
+                    if ((((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) && (pSupportedGameList[nGamePos].seriesKey == (GameSeries)GameSeries::Unknown)) ||
+                        (((GamePlatform)nPlatform == GamePlatform::NEOGEO) && (pSupportedGameList[nGamePos].seriesKey == (GameSeries)GameSeries::Unknown)) ||
+                        (((GamePlatform)nPlatform != GamePlatform::CapcomCPS12) && ((GamePlatform)nPlatform != GamePlatform::NEOGEO)))
+                    {
+                        platformMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                    }
                 }
             }
 

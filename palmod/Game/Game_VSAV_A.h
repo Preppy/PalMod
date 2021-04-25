@@ -16,7 +16,7 @@ private:
     static int rgExtraLoc[VSAV_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
+    static const UINT32 m_nExpectedGameROMSize = 0x80000;// 524288 bytes
     static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);

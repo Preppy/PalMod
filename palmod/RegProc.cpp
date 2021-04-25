@@ -205,7 +205,7 @@ AlphaMode CRegProc::GetAlphaModeForUnknownGame()
 ColMode CRegProc::GetColorModeForUnknownGame()
 {
     HKEY hKey;
-    DWORD dwColMode = (DWORD)ColMode::COLMODE_NEOGEO;
+    DWORD dwColMode = (DWORD)ColMode::COLMODE_RGB666_NEOGEO;
 
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
@@ -215,7 +215,7 @@ ColMode CRegProc::GetColorModeForUnknownGame()
 
         if (RegQueryValueEx(hKey, c_mainUnknownGameColMode, 0, &RegType, (BYTE*)&dwColMode, &GetSz) != ERROR_SUCCESS)
         {
-            dwColMode = (DWORD)ColMode::COLMODE_NEOGEO;
+            dwColMode = (DWORD)ColMode::COLMODE_RGB666_NEOGEO;
         }
 
         RegCloseKey(hKey);
@@ -464,9 +464,8 @@ void CRegProc::LoadReg(int src)
 
             //Reset get size 
             GetSz = MAX_PATH;
-            if (
-                RegQueryValueEx(hKey, L"PreviewBGFile", 0, &RegType, (BYTE*)szPrevBGLoc, &GetSz) != ERROR_SUCCESS
-                && GetFileAttributes(szPrevBGLoc) != FILE_ATTRIBUTE_ARCHIVE)
+            if ((RegQueryValueEx(hKey, L"PreviewBGFile", 0, &RegType, (BYTE*)szPrevBGLoc, &GetSz) != ERROR_SUCCESS)  ||
+                (GetFileAttributes(szPrevBGLoc) == INVALID_FILE_ATTRIBUTES))
             {
                 CString szTemp;
                 GetModuleFileName(NULL, szTemp.GetBufferSetLength(MAX_PATH), MAX_PATH);

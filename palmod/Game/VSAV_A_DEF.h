@@ -6,6 +6,37 @@
 // * Update every array using VSAV_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const UINT16 VSAV_A_IMG_UNITS[] =
+{
+    indexCPS2_Anakaris,
+    indexCPS2_BBHood,
+    indexCPS2_Felicia,
+    indexCPS2_Morrigan,
+    indexCPS2_Vamp_Aulbath,   // 0x67
+    indexCPS2_Vamp_Bishamon,  // 0x68
+    indexCPS2_Vamp_Dee,       // 0x69
+    indexCPS2_Vamp_Demitri,   // 0x6A
+    //indexCPS2_Vamp_Donovan,   // 0x6B   console-only
+    indexCPS2_Vamp_Gallon,    // 0x6C
+    indexCPS2_Vamp_Jedah,     // 0x6D
+    indexCPS2_Vamp_LeiLei,    // 0x6E
+    indexCPS2_Vamp_Lilith,    // 0x6F
+    //indexCPS2_Vamp_Marionette, // 0x70  console-only
+    //indexCPS2_Vamp_Phobos,    // 0x71   console-only
+    //indexCPS2_Vamp_Pyron,     // 0x72   console-only
+    indexCPS2_Vamp_QBee,      // 0x73
+    indexCPS2_Vamp_Sasquatch, // 0x74
+    indexCPS2_Vamp_Shadow,    // 0x75
+    indexCPS2_Vamp_Victor,    // 0x76
+    indexCPS2_Vamp_Zabel,     // 0x77
+
+    indexCPS2_VSAV1_WinPortraits, // 0x78
+    indexCPS2_VSAV1_MidnightBliss, // 0x79
+    indexCPS2_Vamp_DarkGallon,
+    indexCPS2_Anita,
+    indexCPS2_VSAV1_Bonus, // 0x7c
+};
+
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_LP[] =
 {
     { L"LP Bulleta", 0x0C1AC, 0x0C1CC, indexCPS2_BBHood, 0 },
@@ -2148,6 +2179,18 @@ const sGame_PaletteDataset VSAV_A_SHADOW_PALETTES[] =
     { L"Shadow", 0x3584C, 0x3586C, indexCPS2_Vamp_Shadow, 0x0 },
 };
 
+const sGame_PaletteDataset VSAV_A_BONUS_TITLES_PALETTES[] =
+{
+    { L"Morrigan Intro Portrait",       0x2362c, 0x2368c, indexCPS2_VSAV1_Bonus, 0x06 },
+    { L"Lilith Intro Portrait",         0x515bc, 0x5161c, indexCPS2_VSAV1_Bonus, 0x05 },
+    { L"Demitri Intro",                 0x233cc, 0x2340c, indexCPS2_VSAV1_Bonus, 0x04 },
+    { L"Bulleta Intro",                 0x234ac, 0x2354c, indexCPS2_VSAV1_Bonus, 0x03 },
+    { L"Bulleta Intro Flash Palette",   0x2a94c, 0x2a9ec, indexCPS2_VSAV1_Bonus, 0x02 },
+    { L"Bulleta Intro BG",              0x659a4, 0x659c4, indexCPS2_VSAV1_Bonus, 0x01 },
+
+    { L"Character Select BG",           0x518fc, 0x51a5c, indexCPS2_VSAV1_Bonus, 0x09 },
+};
+
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_SPECIAL[] =
 {
     { L"Bulleta LP Poisoned", 0x11ba0 - 0xf4, 0x11bc0 - 0xf4, indexCPS2_BBHood },
@@ -3804,6 +3847,7 @@ const sDescTreeNode VSAV_A_BONUS_COLLECTION[] =
     { L"HUD (Player 2 Side)", DESC_NODETYPE_TREE, (void*)VSAV_A_HUD_P2_PALETTES, ARRAYSIZE(VSAV_A_HUD_P2_PALETTES) },
     { L"Effects",    DESC_NODETYPE_TREE, (void*)VSAV_A_EFFECTS_PALETTES,  ARRAYSIZE(VSAV_A_EFFECTS_PALETTES) },
     { L"Shadow",     DESC_NODETYPE_TREE, (void*)VSAV_A_SHADOW_PALETTES,  ARRAYSIZE(VSAV_A_SHADOW_PALETTES) },
+    { L"Title/Select Screen", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_TITLES_PALETTES,  ARRAYSIZE(VSAV_A_BONUS_TITLES_PALETTES) },
 };
 
 const sDescTreeNode VSAV_UNITS[] =

@@ -52,7 +52,7 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
 
     createPalOptions = { (UINT8)(IsSF30thBundleFile() ? NO_SPECIAL_OPTIONS : OFFSET_PALETTE_BY_ONE), WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(IsSF30thBundleFile() ? ColMode::COLMODE_12A_LE : ColMode::COLMODE_12A);
+    SetColorMode(IsSF30thBundleFile() ? ColMode::COLMODE_RGB444_LE : ColMode::COLMODE_RGB444_BE);
 
     InitializeStatics();
 
@@ -78,8 +78,8 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
     //Set game information
     nGameFlag = SF2HF_A;
     nImgGameFlag = IMGDAT_SECTION_SF2;
-    nImgUnitAmt = SF2HF_A_NUM_IMG_UNITS;
     m_prgGameImageSet = SF2HF_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SF2HF_A_IMG_UNITS);
 
     nFileAmt = 1;
 

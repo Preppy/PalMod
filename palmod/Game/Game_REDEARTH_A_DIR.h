@@ -30,5 +30,5 @@ public:
     BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override { return LoadFileForSIMMGame(LoadedFile, nSIMMNumber); };
     BOOL SaveFile(CFile* SaveFile, UINT16 nSIMMNumber) override { return SaveFileForSIMMGame(SaveFile, nSIMMNumber); };
 
-    LPCWSTR GetGameName() override { return L"Red Earth (Arcade Rerip)"; };
+    LPCWSTR GetGameName() override { return UsePaletteSetFor30() ? L"Red Earth: Stages (Arcade 3.x Rerip)" : L"Red Earth: Characters (Arcade 3.x Rerip)"; };
 };

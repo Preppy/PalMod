@@ -324,9 +324,6 @@
     <ClCompile Include="Game\PalGroup.cpp">
       <Filter>Game\Palette</Filter>
     </ClCompile>
-    <ClCompile Include="Game\ShellSort.cpp">
-      <Filter>Game\Palette</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
       <Filter>Game\Capcom Games\MVC2_D</Filter>
     </ClCompile>
@@ -675,9 +672,6 @@
       <Filter>Game\Palette</Filter>
     </ClInclude>
     <ClInclude Include="Game\PalGroup.h">
-      <Filter>Game\Palette</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\ShellSort.h">
       <Filter>Game\Palette</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MVC2_D.h">

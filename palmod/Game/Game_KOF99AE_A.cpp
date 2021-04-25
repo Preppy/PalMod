@@ -65,7 +65,7 @@ CGame_KOF99AE_A::CGame_KOF99AE_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 2*
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_NEOGEO);
+    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 
     //Set game information
     nGameFlag = KOF99AE_A;
@@ -436,8 +436,6 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
     {
         // For development use to speed things up.
         // I just dump them once in sequence to avoid needing to cull the ROM loading output
-
-        //Note that this doesn't actually handle fIsMultipart support yet: update the code for that
         //DumpPaletteHeaders(2);
         //DumpPaletteHeaders(3);
 
@@ -462,40 +460,40 @@ struct sKOF99AE_A_PaletteData
 
 sKOF99AE_A_PaletteData KOF99AE_A_CharacterPalettes[] =
 {
-    { L"K'",                0x2d97f0, 0x2d99f0, L"indexKOFSprites_02UM_K" },
-    { L"Maxima",            0x2d9bf0, 0x2d9df0, L"indexKOFSprites_02UM_Maxima" },
-    { L"Benimaru",          0x2d9ff0, 0x2da1f0, L"indexKOFSprites_98Benimaru" },
-    { L"Shingo",            0x2da3f0, 0x2da5f0, L"indexKOFSprites_98Shingo" },
-    { L"Terry",             0x2da7f0, 0x2da9f0, L"indexKOFSprites_98Terry" },
-    { L"Andy",              0x2dabf0, 0x2dadf0, L"indexKOFSprites_98Andy" },
-    { L"Joe",               0x2daff0, 0x2db1f0, L"indexKOFSprites_98Joe" },
-    { L"Mai",               0x2db3f0, 0x2db5f0, L"indexKOFSprites_98Mai" },
-    { L"Ryo",               0x2db7f0, 0x2db9f0, L"indexKOFSprites_98Ryo" },
-    { L"Robert",            0x2dbbf0, 0x2dbdf0, L"indexKOFSprites_02UM_Robert" },
-    { L"Yuri",              0x2dbff0, 0x2dc1f0, L"indexKOFSprites_98Yuri" },
-    { L"Takuma",            0x2dc3f0, 0x2dc5f0, L"indexKOFSprites_98Takuma" },
-    { L"Leona",             0x2dc7f0, 0x2dc9f0, L"indexKOFSprites_98Leona" },
+    { L"K'",                0x2d97f0, 0x2d99f0, L"indexKOF99Sprites_K" },
+    { L"Maxima",            0x2d9bf0, 0x2d9df0, L"indexKOF99Sprites_Maxima" },
+    { L"Benimaru",          0x2d9ff0, 0x2da1f0, L"indexKOF99Sprites_Benimaru" },
+    { L"Shingo",            0x2da3f0, 0x2da5f0, L"indexKOF99Sprites_Shingo" },
+    { L"Terry",             0x2da7f0, 0x2da9f0, L"indexKOF99Sprites_Terry" },
+    { L"Andy",              0x2dabf0, 0x2dadf0, L"indexKOF99Sprites_Andy" },
+    { L"Joe",               0x2daff0, 0x2db1f0, L"indexKOF99Sprites_Joe" },
+    { L"Mai",               0x2db3f0, 0x2db5f0, L"indexKOF99Sprites_Mai" },
+    { L"Ryo",               0x2db7f0, 0x2db9f0, L"indexKOF99Sprites_Ryo" },
+    { L"Robert",            0x2dbbf0, 0x2dbdf0, L"indexKOF99Sprites_Robert" },
+    { L"Yuri",              0x2dbff0, 0x2dc1f0, L"indexKOF99Sprites_Yuri" },
+    { L"Takuma",            0x2dc3f0, 0x2dc5f0, L"indexKOF99Sprites_Takuma" },
+    { L"Leona",             0x2dc7f0, 0x2dc9f0, L"indexKOF99Sprites_Leona" },
     { L"Ralf",              0x2dcbf0, 0x2dcdf0, L"indexKOF99Sprites_Ralf" },
-    { L"Clark",             0x2dcff0, 0x2dd1f0, L"indexKOFSprites_02UM_Clark" },
-    { L"Whip",              0x2dd3f0, 0x2dd5f0, L"indexKOFSprites_02UM_Whip" },
+    { L"Clark",             0x2dcff0, 0x2dd1f0, L"indexKOF99Sprites_Clark" },
+    { L"Whip",              0x2dd3f0, 0x2dd5f0, L"indexKOF99Sprites_Whip" },
     { L"Athena",            0x2dd7f0, 0x2dd9f0, L"indexKOF99Sprites_Athena" },
     { L"Kensou",            0x2ddbf0, 0x2dddf0, L"indexKOF99Sprites_Kensou" },
     { L"Chin",              0x2ddff0, 0x2de1f0, L"indexKOF99Sprites_Chin" },
     { L"Bao",               0x2de3f0, 0x2de5f0, L"indexKOF99Sprites_Bao" },
-    { L"King",              0x2de7f0, 0x2de9f0, L"indexKOFSprites_98King" },
-    { L"Blue Mary",         0x2debf0, 0x2dedf0, L"indexKOFSprites_98BlueMary" },
-    { L"Kasumi",            0x2deff0, 0x2df1f0, L"indexKOFSprites_02UM_Kasumi" },
-    { L"Xiangfei",          0x2df3f0, 0x2df5f0, L"indexKOFSprites_01Xiangfei" },
-    { L"Kim",               0x2df7f0, 0x2df9f0, L"indexKOFSprites_98Kim" },
+    { L"King",              0x2de7f0, 0x2de9f0, L"indexKOF99Sprites_King" },
+    { L"Blue Mary",         0x2debf0, 0x2dedf0, L"indexKOF99Sprites_BlueMary" },
+    { L"Kasumi",            0x2deff0, 0x2df1f0, L"indexKOF99Sprites_Kasumi" },
+    { L"Xiangfei",          0x2df3f0, 0x2df5f0, L"indexKOF99Sprites_Xiangfei" },
+    { L"Kim",               0x2df7f0, 0x2df9f0, L"indexKOF99Sprites_Kim" },
     { L"Chang",             0x2dfbf0, 0x2dfdf0, L"indexKOF99Sprites_Chang", true },
     { L"Choi",              0x2dfff0, 0x2e01f0, L"indexKOF99Sprites_Choi" },
     { L"Jhun",              0x2e03f0, 0x2e05f0, L"indexKOF99Sprites_Jhun", true },
-    { L"Kyo",               0x2e07f0, 0x2e09f0, L"indexKOFSprites_02UM_KyoKusa" },
-    { L"Kyo-1",             0x2e0bf0, 0x2e0df0, L"indexKOFSprites_02UM_Kyo1" },
-    { L"Iori",              0x2e0ff0, 0x2e11f0, L"indexKOFSprites_02UM_Iori" },
+    { L"Kyo",               0x2e07f0, 0x2e09f0, L"indexKOF99Sprites_Kyo" },
+    { L"Kyo-1",             0x2e0bf0, 0x2e0df0, L"indexKOF99Sprites_Kyo1" },
+    { L"Iori",              0x2e0ff0, 0x2e11f0, L"indexKOF99Sprites_Iori" },
     { L"Jacket Krizalid",   0x2e13f0, 0x2e15f0, L"indexKOF99Sprites_JacketKrizalid", true },
     { L"Boss Krizalid",     0x2e17f0, 0x2e19f0, L"indexKOF99Sprites_BossKrizalid" },
-    { L"Kyo-2",             0x2fb1f0, 0x2fb3f0, L"indexKOFSprites_02UM_Kyo2" },
+    { L"Kyo-2",             0x2fb1f0, 0x2fb3f0, L"indexKOF99Sprites_Kyo2" },
 };
 
 sKOF99AE_A_PaletteData KOF99AE_A_CharacterWinPortraits[] =
@@ -653,27 +651,29 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
             struct s99AEPaletteData
             {
                 LPCWSTR pszMoveName;
-                bool fShowSpriteIfAvailable = false;
+                int nPaletteIndex = -1;
+                bool fIsPairable = false;
+                int nPairedPaletteIndex = 0;
             };
 
             const s99AEPaletteData rgKOF99AEPaletteNames[] =
             {
-                { L"Main", true },
-                { L"Extra 1", true },
-                { L"Extra 2", true },
-                { L"Electric Palette", true },
-                { L"Extra 3", true },
-                { L"Counter Mode Flash", true },
-                { L"Counter Extra 1", true },
-                { L"Counter Extra 2", true },
-                { L"Armor Mode Flash", true },
-                { L"Armor Mode Extra 1", true },
-                { L"Armor Mode Extra 2", true },
-                { L"Super Trail Palette", true },
-                { L"Extra 4", true },
-                { L"Extra 5", true },
-                { L"Lifebar Portrait", false },
-                { L"Character Portrait", false },
+                { L"Main",                  0, true, 0 },
+                { L"Extra 1",               0, true, 1 },
+                { L"Extra 2",               0, false },
+                { L"Electric Palette",      0, true, 0 },
+                { L"Extra 3",               0, true, 1 },
+                { L"Counter Mode Flash",    0, true, 0 },
+                { L"Counter Extra 1",       0, true, 1 },
+                { L"Counter Extra 2",       0, false },
+                { L"Armor Mode Flash",      0, true, 0 },
+                { L"Armor Mode Extra 1",    0, true, 1 },
+                { L"Armor Mode Extra 2",    0, false },
+                { L"Super Trail Palette",   0, true, 0 },
+                { L"Extra 4",               0, true, 1 },
+                { L"Extra 5",               0, false },
+                { L"Lifebar Portrait",      -1, false },
+                { L"Character Portrait",    0x31, false },
             };
 
             for (UINT16 nPaletteIndex = 0; nPaletteIndex < ARRAYSIZE(rgKOF99AEPaletteNames); nPaletteIndex++)
@@ -683,9 +683,18 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
                 strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x", rgKOF99AEPaletteNames[nPaletteIndex].pszMoveName, nCurrentOffset, nCurrentOffset + KOF99AE_PALETTE_LENGTH );
                 OutputDebugString(strOutput);
 
-                if (KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet && rgKOF99AEPaletteNames[nPaletteIndex].fShowSpriteIfAvailable)
+                if (KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet && (rgKOF99AEPaletteNames[nPaletteIndex].nPaletteIndex != -1))
                 {
-                    strOutput.Format(L", %s, 0x00", KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet);
+                    if (KOF99AE_A_CharacterPalettes[nCharIndex].fIsMultipart && rgKOF99AEPaletteNames[nPaletteIndex].fIsPairable)
+                    {
+                        strOutput.Format(L", %s, 0x%02x%s", KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet, rgKOF99AEPaletteNames[nPaletteIndex].nPairedPaletteIndex,
+                                                            (rgKOF99AEPaletteNames[nPaletteIndex].nPairedPaletteIndex == 0) ? L", &pairNext" : L"");
+                    }
+                    else
+                    {
+                        // normal output
+                        strOutput.Format(L", %s, 0x%02x", KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet, rgKOF99AEPaletteNames[nPaletteIndex].nPaletteIndex);
+                    }
                     OutputDebugString(strOutput);
                 }                
 
@@ -697,8 +706,9 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
             OutputDebugString(strOutput);
 
             const UINT32 KOF99AE_PORTRAIT_LENGTH = 0x180;
-            strOutput.Format(L"    { L\"Win Portrait\", 0x%x, 0x%x },\r\n", KOF99AE_A_CharacterWinPortraits[nCharIndex].nROMOffset + (KOF99AE_PORTRAIT_LENGTH * nPaletteIterationForColor) + nShiftForP3FirstColorSet,
-                                                                            KOF99AE_A_CharacterWinPortraits[nCharIndex].nROMOffset + KOF99AE_PORTRAIT_LENGTH + (KOF99AE_PORTRAIT_LENGTH * nPaletteIterationForColor) + nShiftForP3FirstColorSet);
+            strOutput.Format(L"    { L\"Win Portrait\", 0x%x, 0x%x, %s, 0x30 },\r\n", KOF99AE_A_CharacterWinPortraits[nCharIndex].nROMOffset + (KOF99AE_PORTRAIT_LENGTH * nPaletteIterationForColor) + nShiftForP3FirstColorSet,
+                                                                            KOF99AE_A_CharacterWinPortraits[nCharIndex].nROMOffset + KOF99AE_PORTRAIT_LENGTH + (KOF99AE_PORTRAIT_LENGTH * nPaletteIterationForColor) + nShiftForP3FirstColorSet,
+                                                                            KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet);
             OutputDebugString(strOutput);
 
             OutputDebugString(L"};\r\n\r\n");

@@ -1,5 +1,21 @@
 #pragma once
 
+const UINT16 GUNDAM_A_IMG_UNITS[] =
+{
+    indexGundamSprites_DeathScythe,
+    indexGundamSprites_Epyon,
+    indexGundamSprites_HeavyArms,
+    indexGundamSprites_Mercurius,
+    indexGundamSprites_SandRock,
+    indexGundamSprites_ShenLong,
+    indexGundamSprites_Tallgeese,
+    indexGundamSprites_Vayaeae,
+    indexGundamSprites_Wing,
+    indexGundamSprites_WingZero,
+    indexGundamSprites_Bonus,
+    indexGundamSprites_Stages,
+};
+
 const sGame_PaletteDataset GUNDAM_WING_PALETTES_P1[] =
 {
     { L"Wing P1", 0xAC400, 0xAC440, indexGundamSprites_Wing },

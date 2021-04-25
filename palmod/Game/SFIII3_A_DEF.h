@@ -1202,7 +1202,7 @@ const sGame_PaletteDataset SFIII3_A_Q_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_Q_EXTRA_PALETTES[] =
 {
-    { L"SA3 charge / Red Parry / Burned", 0x708680, 0x708700, index3S_CPS3_Q },
+    { L"SA3 charge / Red Parry / Burned", 0x708680, 0x708700, index3S_CPS3_Q, 0x02},
     // This appears to be Twelve's burning palette...?
     //{ L"SA3 main explosion", 0x708700, 0x708780 },
     { L"SA3 explosion flames", 0x708a80, 0x708b00 },
@@ -1346,42 +1346,42 @@ const sGame_PaletteDataset SFIII3_A_GILL_LP_PALETTES[] =
 {
     { L"Intro Facing Left LP", 0x700000, 0x700080, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right LP", 0x700080, 0x700100, index3S_CPS3_Gill, 0x00 },
-    { L"LP Portrait", 0x763b00, 0x763b20 },
+    { L"LP Portrait", 0x763b00, 0x763b20, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_MP_PALETTES[] =
 {
     { L"Intro Facing Left MP", 0x700100, 0x700180, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right MP", 0x700180, 0x700200, index3S_CPS3_Gill, 0x00 },
-    { L"MP Portrait", 0x763b20, 0x763b40 },
+    { L"MP Portrait", 0x763b20, 0x763b40, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_HP_PALETTES[] =
 {
     { L"Intro Facing Left HP", 0x700200, 0x700280, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right HP", 0x700280, 0x700300, index3S_CPS3_Gill, 0x00 },
-    { L"HP Portrait", 0x763b40, 0x763b60 },
+    { L"HP Portrait", 0x763b40, 0x763b60, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_LK_PALETTES[] =
 {
     { L"Intro Facing Left LK", 0x700300, 0x700380, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right LK", 0x700380, 0x700400, index3S_CPS3_Gill, 0x00 },
-    { L"LK Portrait", 0x763b60, 0x763b80 },
+    { L"LK Portrait", 0x763b60, 0x763b80, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_MK_PALETTES[] =
 {
     { L"Intro Facing Left MK", 0x700400, 0x700480, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right MK", 0x700480, 0x700500, index3S_CPS3_Gill, 0x00 },
-    { L"MK Portrait", 0x763b80, 0x763ba0 },
+    { L"MK Portrait", 0x763b80, 0x763ba0, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_HK_PALETTES[] =
 {
     { L"Intro Facing Left HK", 0x700500, 0x700580, index3S_CPS3_Gill, 0x01 },
     { L"Intro Facing Right HK", 0x700580, 0x700600, index3S_CPS3_Gill, 0x00 },
-    { L"HK Portrait", 0x763ba0, 0x763bc0 },
+    { L"HK Portrait", 0x763ba0, 0x763bc0, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_EXTRAS_PALETTES[] =
@@ -1393,17 +1393,20 @@ const sGame_PaletteDataset SFIII3_A_GILL_EXTRAS_PALETTES[] =
     { L"Seraphic Wings Start", 0x078AE00, 0x078Ae80, index3S_CPS3_Gill, 0x06 },
     { L"Seraphic Wings End", 0x078AE80, 0x078AF00, index3S_CPS3_Gill, 0x07 },
 
+    { L"Gill Seraphic Wings BG 1", 0x771300, 0x771380, index3S_CPS3_Gill, 0x2b },
+    { L"Gill Seraphic Wings BG 2", 0x771380, 0x771400, index3S_CPS3_Gill, 0x2c },
+    { L"Gill Seraphic Wings BG 3", 0x771400, 0x771480, index3S_CPS3_Gill, 0x2d },
+    { L"Gill Seraphic Wings BG 4", 0x771480, 0x771500, index3S_CPS3_Gill, 0x2e },
+    { L"Gill Seraphic Wings BG 5", 0x771500, 0x771580, index3S_CPS3_Gill, 0x2f },
+    { L"Gill Seraphic Wings BG 6", 0x771580, 0x771600, index3S_CPS3_Gill, 0x30 },
+    { L"Gill Seraphic Wings BG 7", 0x771600, 0x771680, index3S_CPS3_Gill, 0x31 },
+    { L"Gill Seraphic Wings BG 8", 0x771680, 0x771700, index3S_CPS3_Gill, 0x32 },
+    { L"Gill Seraphic Wings Rings", 0x789480, 0x789500, index3S_CPS3_Gill, 0x33 },
+
     { L"Left Frozen/Super Flash", 0x707100, 0x707180, index3S_CPS3_Gill, 0x01 },
     { L"Right Frozen/Super Flash", 0x707180, 0x707200, index3S_CPS3_Gill },
 
     { L"Gill Cultists", 0x78F700, 0x78F780, index3S_CPS3_Gill, 0x09 },
-};
-
-const sGame_PaletteDataset SFIII3_A_GILL_NORMAL_PALETTES[] =
-{
-    { L"Intro facing right", 0x0700080, 0x0700100, index3S_CPS3_Gill, 0x00 },
-    { L"Intro facing left", 0x0700000, 0x0700080, index3S_CPS3_Gill, 0x05, &pairNext },
-    { L"Portrait", 0x763b00, 0x763b20, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_Support_PALETTES[] =
@@ -1687,7 +1690,12 @@ const sDescTreeNode SFIII3_A_GILL_4_COLLECTION[] =
 
 const sDescTreeNode SFIII3_A_GILL_51_COLLECTION[] =
 {
-    { L"Gill", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_NORMAL_PALETTES, ARRAYSIZE(SFIII3_A_GILL_NORMAL_PALETTES) },
+    { L"Gill (LP)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_LP_PALETTES, ARRAYSIZE(SFIII3_A_GILL_LP_PALETTES) },
+    { L"MP (Unused)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_MP_PALETTES, ARRAYSIZE(SFIII3_A_GILL_MP_PALETTES) },
+    { L"HP (Unused)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_HP_PALETTES, ARRAYSIZE(SFIII3_A_GILL_HP_PALETTES) },
+    { L"LK (Unused)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_LK_PALETTES, ARRAYSIZE(SFIII3_A_GILL_LK_PALETTES) },
+    { L"MK (Unused)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_MK_PALETTES, ARRAYSIZE(SFIII3_A_GILL_MK_PALETTES) },
+    { L"HK (Unused)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_HK_PALETTES, ARRAYSIZE(SFIII3_A_GILL_HK_PALETTES) },
     { L"Support", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_Support_PALETTES, ARRAYSIZE(SFIII3_A_GILL_Support_PALETTES) },
     { L"Portraits and Select Icon", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_GILL_PORTRAIT_PALETTES) },
     { L"Extras (glow is in ROM 10)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_EXTRAS_PALETTES, ARRAYSIZE(SFIII3_A_GILL_EXTRAS_PALETTES) },
@@ -1930,11 +1938,9 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Final Results - Tinted",            0x710d00, 0x710d80, index3S_CPS3_Bonus, 0x01 },
     { L"Select Background",                 0x709D80, 0x709E00, index3S_CPS3_Bonus, 0x00 },
     { L"Select Background - Tinted",        0x70EB80, 0x70EC00, index3S_CPS3_Bonus, 0x00 },
-    // I don't love the offsets here, so am not including this for now.
-    //{ L"Select Screen - Blue Arrows",       0x709AC0, 0x709B00 },
+    { L"Select Screen - Blue Arrows",       0x709A80, 0x709B00, index3S_CPS3_Bonus, 0x14 },
     { L"Select Screen - Cursor Rings",      0x70A000, 0x070A080, index3S_CPS3_Bonus, 0x12 },
-    // This is a very long chunk... leaving out for now as well.
-    //{ L"In Game Misc - Versus Screen",      0x70A680, 0x70B280 },
+
     { L"Vs Text",                           0x70C780, 0x70C880 },
 
     { L"Opening ring animation + SA Text",  0x709D00, 0x709D80 },
@@ -1942,10 +1948,22 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"P1 Impacts",                        0x76AC80, 0x76AD00 },
     { L"P2 Impacts",                        0x76AC00, 0x76AC80 },
     { L"Numerals, Inputs, Buttons: Super Art Selector", 0x709E00, 0x709E80 },
-    { L"Super Art Panels",                  0x709B00, 0x709B80 },
+    { L"Super Art Panels",                  0x709B00, 0x709B80, index3S_CPS3_Bonus, 0x13 },
     { L"SUV Portrait",                      0x70E600, 0x70E780 },
     { L"Basketball Sean Portrait",          0x70E780, 0x70E880, index3S_CPS3_Sean, 0x10 },
     { L"Basketball Sean Portrait (faded)",  0x713580, 0x713680, index3S_CPS3_Sean, 0x10 },
+
+    { L"Universal Zap Skeleton",            0x76ad00, 0x76ad80, index3S_CPS3_Bonus, 0x15 },
+};
+
+const sGame_PaletteDataset SFIII3_A_BONUS_VSBG_PALETTES[] =
+{
+    { L"VS Screen (1/6)",                   0x70a680, 0x70a880, index3S_CPS3_Bonus, 0x16, &pairFullyLinkedNode },
+    { L"VS Screen (2/6)",                   0x70a880, 0x70aa80, index3S_CPS3_Bonus, 0x17 },
+    { L"VS Screen (3/6)",                   0x70aa80, 0x70ac80, index3S_CPS3_Bonus, 0x18 },
+    { L"VS Screen (4/6)",                   0x70ac80, 0x70ae80, index3S_CPS3_Bonus, 0x19 },
+    { L"VS Screen (5/6)",                   0x70ae80, 0x70b080, index3S_CPS3_Bonus, 0x1a },
+    { L"VS Screen (6/6)",                   0x70b080, 0x70b280, index3S_CPS3_Bonus, 0x1b },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUD_PALETTES[] =
@@ -2506,50 +2524,74 @@ const sGame_PaletteDataset SFIII3_A_STAGES_YUN_FADED_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_STAGES_REMY_PALETTES[] =
 {
-    { L"Remy Stage (1/20)", 0x755080 + (0 * 0x200), 0x755080 + (1 * 0x200) },
-    { L"Remy Stage (2/20)", 0x755080 + (1 * 0x200), 0x755080 + (2 * 0x200) },
-    { L"Remy Stage (3/20)", 0x755080 + (2 * 0x200), 0x755080 + (3 * 0x200) },
-    { L"Remy Stage (4/20)", 0x755080 + (3 * 0x200), 0x755080 + (4 * 0x200) },
-    { L"Remy Stage (5/20)", 0x755080 + (4 * 0x200), 0x755080 + (5 * 0x200) },
-    { L"Remy Stage (6/20)", 0x755080 + (5 * 0x200), 0x755080 + (6 * 0x200) },
-    { L"Remy Stage (7/20)", 0x755080 + (6 * 0x200), 0x755080 + (7 * 0x200) },
-    { L"Remy Stage (8/20)", 0x755080 + (7 * 0x200), 0x755080 + (8 * 0x200) },
-    { L"Remy Stage (9/20)", 0x755080 + (8 * 0x200), 0x755080 + (9 * 0x200) },
-    { L"Remy Stage (10/20)", 0x755080 + (9 * 0x200), 0x755080 + (10 * 0x200) },
-    { L"Remy Stage (11/20)", 0x755080 + (10 * 0x200), 0x755080 + (11 * 0x200) },
-    { L"Remy Stage (12/20)", 0x755080 + (11 * 0x200), 0x755080 + (12 * 0x200) },
-    { L"Remy Stage (13/20)", 0x755080 + (12 * 0x200), 0x755080 + (13 * 0x200) },
-    { L"Remy Stage (14/20)", 0x755080 + (13 * 0x200), 0x755080 + (14 * 0x200) },
-    { L"Remy Stage (15/20)", 0x755080 + (14 * 0x200), 0x755080 + (15 * 0x200) },
-    { L"Remy Stage (16/20)", 0x755080 + (15 * 0x200), 0x755080 + (16 * 0x200) },
-    { L"Remy Stage (17/20)", 0x755080 + (16 * 0x200), 0x755080 + (17 * 0x200) },
-    { L"Remy Stage (18/20)", 0x755080 + (17 * 0x200), 0x755080 + (18 * 0x200) },
-    { L"Remy Stage (19/20)", 0x755080 + (18 * 0x200), 0x755080 + (19 * 0x200) },
-    { L"Remy Stage (20/20)", 0x755080 + (19 * 0x200), 0x757880 },
+    { L"Remy Stage (1/32)", 0x755080 + (0 * 0x200), 0x755080 + (1 * 0x200), index3S_CPS3_Stages, 0xb3, &pairFullyLinkedNode },
+    { L"Remy Stage (2/32)", 0x755080 + (1 * 0x200), 0x755080 + (2 * 0x200), index3S_CPS3_Stages, 0xb4 },
+    { L"Remy Stage (3/32)", 0x755080 + (2 * 0x200), 0x755080 + (3 * 0x200), index3S_CPS3_Stages, 0xb5 },
+    { L"Remy Stage (4/32)", 0x755080 + (3 * 0x200), 0x755080 + (4 * 0x200), index3S_CPS3_Stages, 0xb6 },
+    { L"Remy Stage (5/32)", 0x755080 + (4 * 0x200), 0x755080 + (5 * 0x200), index3S_CPS3_Stages, 0xb7 },
+    { L"Remy Stage (6/32)", 0x755080 + (5 * 0x200), 0x755080 + (6 * 0x200), index3S_CPS3_Stages, 0xb8 },
+    { L"Remy Stage (7/32)", 0x755080 + (6 * 0x200), 0x755080 + (7 * 0x200), index3S_CPS3_Stages, 0xb9 },
+    { L"Remy Stage (8/32)", 0x755080 + (7 * 0x200), 0x755080 + (8 * 0x200), index3S_CPS3_Stages, 0xba },
+    { L"Remy Stage (9/32)", 0x755080 + (8 * 0x200), 0x755080 + (9 * 0x200), index3S_CPS3_Stages, 0xbb },
+    { L"Remy Stage (10/32)", 0x755080 + (9 * 0x200), 0x755080 + (10 * 0x200), index3S_CPS3_Stages, 0xbc },
+    { L"Remy Stage (11/32)", 0x755080 + (10 * 0x200), 0x755080 + (11 * 0x200), index3S_CPS3_Stages, 0xbd },
+    { L"Remy Stage (12/32)", 0x755080 + (11 * 0x200), 0x755080 + (12 * 0x200), index3S_CPS3_Stages, 0xbe },
+    { L"Remy Stage (13/32)", 0x755080 + (12 * 0x200), 0x755080 + (13 * 0x200), index3S_CPS3_Stages, 0xbf },
+    { L"Remy Stage (14/32)", 0x755080 + (13 * 0x200), 0x755080 + (14 * 0x200), index3S_CPS3_Stages, 0xc0 },
+    { L"Remy Stage (15/32)", 0x755080 + (14 * 0x200), 0x755080 + (15 * 0x200), index3S_CPS3_Stages, 0xc1 },
+    { L"Remy Stage (16/32)", 0x755080 + (15 * 0x200), 0x755080 + (16 * 0x200), index3S_CPS3_Stages, 0xc2 },
+    { L"Remy Stage (17/32)", 0x755080 + (16 * 0x200), 0x755080 + (17 * 0x200), index3S_CPS3_Stages, 0xc3 },
+    { L"Remy Stage (18/32)", 0x755080 + (17 * 0x200), 0x755080 + (18 * 0x200), index3S_CPS3_Stages, 0xc4 },
+    { L"Remy Stage (19/32)", 0x755080 + (18 * 0x200), 0x755080 + (19 * 0x200), index3S_CPS3_Stages, 0xc5 },
+    { L"Remy Stage (20/32)", 0x755080 + (19 * 0x200), 0x755080 + (20 * 0x200), index3S_CPS3_Stages, 0xc6 },
+    { L"Remy Stage (21/32)", 0x755080 + (20 * 0x200), 0x755080 + (21 * 0x200), index3S_CPS3_Stages, 0xc7 },
+    { L"Remy Stage (22/32)", 0x755080 + (21 * 0x200), 0x755080 + (22 * 0x200), index3S_CPS3_Stages, 0xc8 },
+    { L"Remy Stage (23/32)", 0x755080 + (22 * 0x200), 0x755080 + (23 * 0x200), index3S_CPS3_Stages, 0xc9 },
+    { L"Remy Stage (24/32)", 0x755080 + (23 * 0x200), 0x755080 + (24 * 0x200), index3S_CPS3_Stages, 0xca },
+    { L"Remy Stage (25/32)", 0x755080 + (24 * 0x200), 0x755080 + (25 * 0x200), index3S_CPS3_Stages, 0xcb },
+    { L"Remy Stage (26/32)", 0x755080 + (25 * 0x200), 0x755080 + (26 * 0x200), index3S_CPS3_Stages, 0xcc },
+    { L"Remy Stage (27/32)", 0x755080 + (26 * 0x200), 0x755080 + (27 * 0x200), index3S_CPS3_Stages, 0xcd },
+    { L"Remy Stage (28/32)", 0x755080 + (27 * 0x200), 0x755080 + (28 * 0x200), index3S_CPS3_Stages, 0xce },
+    { L"Remy Stage (29/32)", 0x755080 + (28 * 0x200), 0x755080 + (29 * 0x200), index3S_CPS3_Stages, 0xcf },
+    { L"Remy Stage (30/32)", 0x755080 + (29 * 0x200), 0x755080 + (30 * 0x200), index3S_CPS3_Stages, 0xd0 },
+    { L"Remy Stage (31/32)", 0x755080 + (30 * 0x200), 0x755080 + (31 * 0x200), index3S_CPS3_Stages, 0xd1 },
+    { L"Remy Stage (32/32)", 0x755080 + (31 * 0x200), 0x759080, index3S_CPS3_Stages, 0xd2 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_REMY_FADED_PALETTES[] =
 {
-    { L"Remy Stage (Faded) (1/20)", 0x759080 + (0 * 0x200), 0x759080 + (1 * 0x200) },
-    { L"Remy Stage (Faded) (2/20)", 0x759080 + (1 * 0x200), 0x759080 + (2 * 0x200) },
-    { L"Remy Stage (Faded) (3/20)", 0x759080 + (2 * 0x200), 0x759080 + (3 * 0x200) },
-    { L"Remy Stage (Faded) (4/20)", 0x759080 + (3 * 0x200), 0x759080 + (4 * 0x200) },
-    { L"Remy Stage (Faded) (5/20)", 0x759080 + (4 * 0x200), 0x759080 + (5 * 0x200) },
-    { L"Remy Stage (Faded) (6/20)", 0x759080 + (5 * 0x200), 0x759080 + (6 * 0x200) },
-    { L"Remy Stage (Faded) (7/20)", 0x759080 + (6 * 0x200), 0x759080 + (7 * 0x200) },
-    { L"Remy Stage (Faded) (8/20)", 0x759080 + (7 * 0x200), 0x759080 + (8 * 0x200) },
-    { L"Remy Stage (Faded) (9/20)", 0x759080 + (8 * 0x200), 0x759080 + (9 * 0x200) },
-    { L"Remy Stage (Faded) (10/20)", 0x759080 + (9 * 0x200), 0x759080 + (10 * 0x200) },
-    { L"Remy Stage (Faded) (11/20)", 0x759080 + (10 * 0x200), 0x759080 + (11 * 0x200) },
-    { L"Remy Stage (Faded) (12/20)", 0x759080 + (11 * 0x200), 0x759080 + (12 * 0x200) },
-    { L"Remy Stage (Faded) (13/20)", 0x759080 + (12 * 0x200), 0x759080 + (13 * 0x200) },
-    { L"Remy Stage (Faded) (14/20)", 0x759080 + (13 * 0x200), 0x759080 + (14 * 0x200) },
-    { L"Remy Stage (Faded) (15/20)", 0x759080 + (14 * 0x200), 0x759080 + (15 * 0x200) },
-    { L"Remy Stage (Faded) (16/20)", 0x759080 + (15 * 0x200), 0x759080 + (16 * 0x200) },
-    { L"Remy Stage (Faded) (17/20)", 0x759080 + (16 * 0x200), 0x759080 + (17 * 0x200) },
-    { L"Remy Stage (Faded) (18/20)", 0x759080 + (17 * 0x200), 0x759080 + (18 * 0x200) },
-    { L"Remy Stage (Faded) (19/20)", 0x759080 + (18 * 0x200), 0x759080 + (19 * 0x200) },
-    { L"Remy Stage (Faded) (20/20)", 0x759080 + (19 * 0x200), 0x75B880 },
+    { L"Remy Stage (Faded) (1/32)", 0x759080 + (0 * 0x200), 0x759080 + (1 * 0x200), index3S_CPS3_Stages, 0xb3, &pairFullyLinkedNode },
+    { L"Remy Stage (Faded) (2/32)", 0x759080 + (1 * 0x200), 0x759080 + (2 * 0x200), index3S_CPS3_Stages, 0xb4 },
+    { L"Remy Stage (Faded) (3/32)", 0x759080 + (2 * 0x200), 0x759080 + (3 * 0x200), index3S_CPS3_Stages, 0xb5 },
+    { L"Remy Stage (Faded) (4/32)", 0x759080 + (3 * 0x200), 0x759080 + (4 * 0x200), index3S_CPS3_Stages, 0xb6 },
+    { L"Remy Stage (Faded) (5/32)", 0x759080 + (4 * 0x200), 0x759080 + (5 * 0x200), index3S_CPS3_Stages, 0xb7 },
+    { L"Remy Stage (Faded) (6/32)", 0x759080 + (5 * 0x200), 0x759080 + (6 * 0x200), index3S_CPS3_Stages, 0xb8 },
+    { L"Remy Stage (Faded) (7/32)", 0x759080 + (6 * 0x200), 0x759080 + (7 * 0x200), index3S_CPS3_Stages, 0xb9 },
+    { L"Remy Stage (Faded) (8/32)", 0x759080 + (7 * 0x200), 0x759080 + (8 * 0x200), index3S_CPS3_Stages, 0xba },
+    { L"Remy Stage (Faded) (9/32)", 0x759080 + (8 * 0x200), 0x759080 + (9 * 0x200), index3S_CPS3_Stages, 0xbb },
+    { L"Remy Stage (Faded) (10/32)", 0x759080 + (9 * 0x200), 0x759080 + (10 * 0x200), index3S_CPS3_Stages, 0xbc },
+    { L"Remy Stage (Faded) (11/32)", 0x759080 + (10 * 0x200), 0x759080 + (11 * 0x200), index3S_CPS3_Stages, 0xbd },
+    { L"Remy Stage (Faded) (12/32)", 0x759080 + (11 * 0x200), 0x759080 + (12 * 0x200), index3S_CPS3_Stages, 0xbe },
+    { L"Remy Stage (Faded) (13/32)", 0x759080 + (12 * 0x200), 0x759080 + (13 * 0x200), index3S_CPS3_Stages, 0xbf },
+    { L"Remy Stage (Faded) (14/32)", 0x759080 + (13 * 0x200), 0x759080 + (14 * 0x200), index3S_CPS3_Stages, 0xc0 },
+    { L"Remy Stage (Faded) (15/32)", 0x759080 + (14 * 0x200), 0x759080 + (15 * 0x200), index3S_CPS3_Stages, 0xc1 },
+    { L"Remy Stage (Faded) (16/32)", 0x759080 + (15 * 0x200), 0x759080 + (16 * 0x200), index3S_CPS3_Stages, 0xc2 },
+    { L"Remy Stage (Faded) (17/32)", 0x759080 + (16 * 0x200), 0x759080 + (17 * 0x200), index3S_CPS3_Stages, 0xc3 },
+    { L"Remy Stage (Faded) (18/32)", 0x759080 + (17 * 0x200), 0x759080 + (18 * 0x200), index3S_CPS3_Stages, 0xc4 },
+    { L"Remy Stage (Faded) (19/32)", 0x759080 + (18 * 0x200), 0x759080 + (19 * 0x200), index3S_CPS3_Stages, 0xc5 },
+    { L"Remy Stage (Faded) (20/32)", 0x759080 + (19 * 0x200), 0x759080 + (20 * 0x200), index3S_CPS3_Stages, 0xc6 },
+    { L"Remy Stage (Faded) (21/32)", 0x759080 + (20 * 0x200), 0x759080 + (21 * 0x200), index3S_CPS3_Stages, 0xc7 },
+    { L"Remy Stage (Faded) (22/32)", 0x759080 + (21 * 0x200), 0x759080 + (22 * 0x200), index3S_CPS3_Stages, 0xc8 },
+    { L"Remy Stage (Faded) (23/32)", 0x759080 + (22 * 0x200), 0x759080 + (23 * 0x200), index3S_CPS3_Stages, 0xc9 },
+    { L"Remy Stage (Faded) (24/32)", 0x759080 + (23 * 0x200), 0x759080 + (24 * 0x200), index3S_CPS3_Stages, 0xca },
+    { L"Remy Stage (Faded) (25/32)", 0x759080 + (24 * 0x200), 0x759080 + (25 * 0x200), index3S_CPS3_Stages, 0xcb },
+    { L"Remy Stage (Faded) (26/32)", 0x759080 + (25 * 0x200), 0x759080 + (26 * 0x200), index3S_CPS3_Stages, 0xcc },
+    { L"Remy Stage (Faded) (27/32)", 0x759080 + (26 * 0x200), 0x759080 + (27 * 0x200), index3S_CPS3_Stages, 0xcd },
+    { L"Remy Stage (Faded) (28/32)", 0x759080 + (27 * 0x200), 0x759080 + (28 * 0x200), index3S_CPS3_Stages, 0xce },
+    { L"Remy Stage (Faded) (29/32)", 0x759080 + (28 * 0x200), 0x759080 + (29 * 0x200), index3S_CPS3_Stages, 0xcf },
+    { L"Remy Stage (Faded) (30/32)", 0x759080 + (29 * 0x200), 0x759080 + (30 * 0x200), index3S_CPS3_Stages, 0xd0 },
+    { L"Remy Stage (Faded) (31/32)", 0x759080 + (30 * 0x200), 0x759080 + (31 * 0x200), index3S_CPS3_Stages, 0xd1 },
+    { L"Remy Stage (Faded) (32/32)", 0x759080 + (31 * 0x200), 0x75d080, index3S_CPS3_Stages, 0xd2 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_BASKETBALL_PALETTES[] =
@@ -2605,6 +2647,7 @@ const sDescTreeNode SFIII3_A_BONUS_COLLECTION[] =
     { L"HUD",                   DESC_NODETYPE_TREE, (void*)SFIII3_A_HUD_PALETTES, ARRAYSIZE(SFIII3_A_HUD_PALETTES) },
     { L"Super Meter",           DESC_NODETYPE_TREE, (void*)SFIII3_A_SUPERMETER_PALETTES, ARRAYSIZE(SFIII3_A_SUPERMETER_PALETTES) },
     { L"Judgement Girls",       DESC_NODETYPE_TREE, (void*)SFIII3_A_JGIRLS_PALETTES, ARRAYSIZE(SFIII3_A_JGIRLS_PALETTES) },
+    { L"Vs Screen BG",          DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_VSBG_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_VSBG_PALETTES) },
     { L"Bonus",                 DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_PALETTES) },
 };
 
@@ -5095,7 +5138,7 @@ const sDescTreeNode SFIII3_A_51_UNITS[] =
     { k_sf3NameKey_Gill, DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_51_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_51_COLLECTION) },
 };
 
-const sDescTreeNode SFIII3EX_A_70_UNITS[] =
+const sDescTreeNode SFIII3EX_A_70_UNITS[] = // This fan version removes Gill but adds a special EX color for everyone.
 {
     { k_sf3NameKey_Alex,    DESC_NODETYPE_TREE, (void*)SFIII3EX_A_ALEX_COLLECTION, ARRAYSIZE(SFIII3EX_A_ALEX_COLLECTION) },
     { L"Chun-Li",           DESC_NODETYPE_TREE, (void*)SFIII3EX_A_CHUNLI_COLLECTION, ARRAYSIZE(SFIII3EX_A_CHUNLI_COLLECTION) },

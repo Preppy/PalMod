@@ -26,4 +26,7 @@ public:
 
     // Checks for duplicate entries and surprisingly low entries.
     void CheckForErrorsInTables();
+
+    void OpenExtraFile() override;
+    bool GameAllowsExtraFile() override { return m_pszExtraFilename != nullptr; };
 };

@@ -56,7 +56,7 @@ CGame_AOF1_A::CGame_AOF1_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_NEOGEO);
+    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 
     //Set game information
     nGameFlag = AOF1_A;
@@ -753,6 +753,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             // Jack reaches into a shared node for his bubble gum
                             nSrcAmt = 1;
+                            nSrcStart = NodeGet->uPalId;
                             nNodeDistance = (Node02 == 0) ? 2 : 1;
                             nPeerNodeDistance = -Node03;
                         }
@@ -760,6 +761,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             // King's portrait reaches into the shared node for her bra
                             nSrcAmt = 1;
+                            nSrcStart = NodeGet->uPalId;
                             nNodeDistance = (Node02 == 0) ? 2 : 1;
                             nPeerNodeDistance = -Node03;
                         }

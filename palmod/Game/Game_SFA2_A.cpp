@@ -159,7 +159,7 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
 {
     createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
+    SetColorMode(ColMode::COLMODE_RGB444_BE);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -179,8 +179,8 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     //Set game information
     nGameFlag = SFA2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = SFA2_A_NUM_IMG_UNITS;
     m_prgGameImageSet = SFA2_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SFA2_A_IMG_UNITS);
 
     nFileAmt = 1;
 
@@ -1012,13 +1012,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
     }
 
     // For development use to speed things up
-    static bool s_fShouldOutputOnce = false;
-
-    if (s_fShouldOutputOnce)
-    {
-        s_fShouldOutputOnce = false;
-        DumpPaletteHeaders();
-    }
+    //DumpPaletteHeaders();
 
     return NewDescTree;
 }

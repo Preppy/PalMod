@@ -2,10 +2,6 @@
 #include "Default.h"
 #include "PalTool.h"
 
-constexpr auto SORT_HUE = 1;
-constexpr auto SORT_SAT = 2;
-constexpr auto SORT_LUM = 4;
-
 #define GetAValue(rgb)      (LOBYTE((rgb)>>24))
 #define sq(x) ((double)x*x)
 
@@ -37,9 +33,6 @@ struct sPalDef
 
     BOOL bChanged = FALSE;
     BOOL bAvail = FALSE;
-
-    UINT16* pSortTable = nullptr;
-    UINT16 uSortIndexStart = 0;
 };
 
 enum ePalType
@@ -48,6 +41,8 @@ enum ePalType
     PALTYPE_16STEPS,
     PALTYPE_8STEPS,
     PALTYPE_256STEPS,
+    // NeoGeo is a special snowflake: see comments for k_nRGBPlaneAmtForRGB666 in GameClass.h
+    PALTYPE_NEOGEO,
 };
 
 class CPalGroup
@@ -77,9 +72,6 @@ public:
     static UINT8 ROUND_8(UINT8 rVal);
     static UINT8 ROUND_17(UINT8 rVal);
     static UINT8 ROUND_32(UINT8 rVal);
-
-    void SortPal(int nIndex, int nStartIndex, int nSortFlag);
-    COLORREF* GetUnsortedPal(int nIndex);
 
     int GetAddIndex() { return nCurrPalAmt - 1; };
 

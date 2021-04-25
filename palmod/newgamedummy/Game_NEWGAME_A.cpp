@@ -18,6 +18,7 @@
 // * in game\gameload.cpp add a handler for your game to CGameLoad::SetGame
 // * in game\gameload.cpp add a handler for your game to CGameLoad::CreateGame
 // * go to palmoddlg_edit.cpp and map your game to the appropriate color format in CPalModDlg::OnEditPaste
+// * go to palmoddlg_file.cpp and add your game to the SupportedGameList array
 
 // That's it!  Good luck!  If you have any questions, feel free to ask.
 
@@ -29,9 +30,7 @@ UINT32 CGame_NEWGAME_A::m_nExpectedGameROMSize = 0x200000;
 
 CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_NEWGAME_A::CGame_NEWGAME_A: Loading ROM...\n";
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_NEWGAME_A::CGame_NEWGAME_A: Loading ROM...\n");
 
     createPalOptions = {
                         NO_SPECIAL_OPTIONS, // Set to SKIP_FIRST_COLOR for most CPS2 games.  Use the nStartingPosition version of UpdatePalData as found in CPS2 game code.
@@ -45,7 +44,7 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     // ** Set color mode: see the definitions in GameClass.h
     // We need to set color mode before calling InitializeStatics as color mode affects color size (2 bytes vs 4 bytes)
     // which in turn affects all our calculations involving colors
-    SetColMode(ColMode::COLMODE_12A);
+    SetColorMode(ColMode::COLMODE_12A);
 
     // The value passed in to us was the confirmed ROM size we have.
     // We keep track of this before we initialize so that we can truncate bad Extras correctly on load.
@@ -257,7 +256,7 @@ void CGame_NEWGAME_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     else // NEWGAME_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&NEWGAME_A_EXTRA_CUSTOM(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = (stExtraDef*)&NEWGAME_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

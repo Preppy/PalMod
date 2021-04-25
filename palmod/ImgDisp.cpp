@@ -272,7 +272,7 @@ BOOL CImgDisp::LoadBGBmp(WCHAR* szBmpLoc)
     {
         hBGBitmap = backgroundImage.Detach();
             
-        m_bBGAvail = TRUE;
+        m_fIsBGAvail = TRUE;
 
         BGBitmap.DeleteObject();
         BGBitmap.Attach(hBGBitmap);
@@ -293,25 +293,24 @@ BOOL CImgDisp::LoadBGBmp(WCHAR* szBmpLoc)
     }
     else
     {
-        m_bBGAvail = FALSE;
-        bTileBGBmp = FALSE;
+        m_fIsBGAvail = FALSE;
         return FALSE;
     }
 }
 
 BOOL CImgDisp::CanForceBGBitmapAvailable()
 {
-    if (!m_bBGAvail && (m_strBackgroundLoc.GetLength() > 8))
+    if (!m_fIsBGAvail && (m_strBackgroundLoc.GetLength() > 8))
     {
         LoadBGBmp(nullptr);
     }
 
-    return m_bBGAvail; 
+    return m_fIsBGAvail; 
 };
 
 void CImgDisp::InitDC(CPaintDC& PaintDC)
 {
-    if (bFirstInit)
+    if (m_fNeedFirstInit)
     {
         MainDC = new CDC;
         ImageDC = new CDC;
@@ -319,7 +318,7 @@ void CImgDisp::InitDC(CPaintDC& PaintDC)
         MainDC->CreateCompatibleDC(&PaintDC);
         ImageDC->CreateCompatibleDC(&PaintDC);
 
-        bFirstInit = FALSE;
+        m_fNeedFirstInit = FALSE;
 
         ModifyClRect();
         ModifySrcRect();
@@ -374,7 +373,7 @@ void CImgDisp::DrawMainBG()
 {
     if (MainDC)
     {
-        if (bTileBGBmp && !bUseBGCol && CanForceBGBitmapAvailable())
+        if (m_fShouldTileBGBmp && !m_fShouldUseBGCol && CanForceBGBitmapAvailable())
         {
             MainDC->FillRect(CRect(0, 0, MAIN_W, MAIN_H), &BGBrush);
         }
@@ -383,7 +382,7 @@ void CImgDisp::DrawMainBG()
             MainDC->FillSolidRect(CRect(0, 0, MAIN_W, MAIN_H), crBGCol);
         }
 
-        if (!bTileBGBmp && !bUseBGCol && CanForceBGBitmapAvailable())
+        if (!m_fShouldTileBGBmp && !m_fShouldUseBGCol && CanForceBGBitmapAvailable())
         {
             ImageDC->SelectObject(&BGBitmap);
 
@@ -768,7 +767,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 
 #ifndef SETIMGPOS
 
-        if (bCtrlDown && !bTileBGBmp)
+        if (bCtrlDown && !m_fShouldTileBGBmp)
         {
             while (fabs(fpDiffX) >= 1.0f)
             {
@@ -813,7 +812,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 
 #ifndef SETIMGPOS
 
-        if (bCtrlDown && !bTileBGBmp)
+        if (bCtrlDown && !m_fShouldTileBGBmp)
         {
             while (fabs(fpDiffY) >= 1.0f)
             {

@@ -35,7 +35,7 @@ CGame_Garou_A::CGame_Garou_A(UINT32 nConfirmedROMSize)
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_NEOGEO);
+    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -58,8 +58,8 @@ CGame_Garou_A::CGame_Garou_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = Garou_A;
     nImgGameFlag = IMGDAT_SECTION_GAROU;
-    nImgUnitAmt = GAROU_A_NUM_IMG_UNITS;
     m_prgGameImageSet = GAROU_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(GAROU_A_IMG_UNITS);
 
     nFileAmt = 1;
 
@@ -577,6 +577,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // These nodes are variable sizes, so do a little math to figure it out
                     nSrcAmt = 4;
                     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
+                    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
                     nNodeIncrement = 1;
                     UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
                     nSrcStart = 0;
@@ -596,6 +597,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 else
                 {
                     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
+                    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO_FIVE);
                     bool fIsCorePalette = false;
 
                     for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)

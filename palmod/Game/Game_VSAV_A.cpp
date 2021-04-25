@@ -14,7 +14,6 @@ int CGame_VSAV_A::rgExtraCountVisibleOnly[VSAV_A_NUMUNIT + 1] = { -1 };
 int CGame_VSAV_A::rgExtraLoc[VSAV_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_VSAV_A::m_nTotalPaletteCountForVSAV = 0;
-UINT32 CGame_VSAV_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_VSAV_A::m_nConfirmedROMSize = -1;
 
 void CGame_VSAV_A::InitializeStatics()
@@ -32,7 +31,7 @@ CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
 {
     createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
+    SetColorMode(ColMode::COLMODE_RGB444_BE);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -44,7 +43,7 @@ CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = VSAV_A_NUMUNIT;
     m_nExtraUnit = VSAV_A_EXTRALOC;
-    m_nSafeCountForThisRom = 2674 + GetExtraCt(VSAV_A_EXTRALOC);
+    m_nSafeCountForThisRom = 2681 + GetExtraCt(VSAV_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_VSAV;
     m_nTotalPaletteCount = m_nTotalPaletteCountForVSAV;
 
@@ -56,8 +55,8 @@ CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = VSAV_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = VSAV_A_NUM_IMG_UNITS;
     m_prgGameImageSet = VSAV_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(VSAV_A_IMG_UNITS);
 
     nFileAmt = 1;
 

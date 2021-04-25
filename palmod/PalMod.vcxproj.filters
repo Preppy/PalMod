@@ -184,14 +184,8 @@
     <Filter Include="Game\Nintendo">
       <UniqueIdentifier>{b03bb639-d714-4d8f-b664-84b1bc5fc6d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Nintendo\BLEACH_DS">
-      <UniqueIdentifier>{2188a85d-12e7-4b62-a7bd-8ceea29c95e8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\SNK Games\KOF03_A">
       <UniqueIdentifier>{da1faa02-bdd1-465d-9b23-9e4504204406}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Nintendo\MMPR_SNES">
-      <UniqueIdentifier>{90c0e8ff-821b-4e54-a53c-bcaae5916403}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\SNK Games\KOF01_A">
       <UniqueIdentifier>{3d941f32-066d-4805-bf2c-c68239ba6d21}</UniqueIdentifier>
@@ -223,26 +217,14 @@
     <Filter Include="Game\Other Platforms">
       <UniqueIdentifier>{3e8ed08b-6c31-4d0d-affc-0f6a12a8dcb7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\SNK Games\Samurai Shodown 4">
-      <UniqueIdentifier>{dc385e4d-7b94-4805-8871-c401b54bd681}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Capcom Games\Slam Masters 2">
       <UniqueIdentifier>{790c3553-43d8-4e6d-9b0f-b36f7b64f595}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\SNK Games\Last Blade 2">
       <UniqueIdentifier>{882354da-0a66-45a8-a19f-7582fcd08abc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\SNK Games\Samurai Shodown 5">
-      <UniqueIdentifier>{41152932-6857-4875-a1a1-40ed18d6bd80}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\SNK Games\Real Bout Fatal Fury 1">
       <UniqueIdentifier>{1bde8d50-ba03-407d-a49b-fe58c356b932}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\SNK Games\Samurai Shodown 3">
-      <UniqueIdentifier>{1bc29372-5f2a-4d1f-b949-f5fd9a70efe5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\SNK Games\Samurai Shodown 5 Special">
-      <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\SNK Games\Real Bout Fatal Fury 2">
       <UniqueIdentifier>{82710d2e-de00-4ee9-a2bc-77447da7e830}</UniqueIdentifier>
@@ -307,6 +289,54 @@
     <Filter Include="Game\Sega\Top Fighter 2005">
       <UniqueIdentifier>{5cbf317e-6205-44c4-84fa-36a0ca650e67}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Nintendo\TMNT: Tournament Fighters %28SNES%29">
+      <UniqueIdentifier>{74c4ecd9-a85c-4dc0-ad9f-393507bbf6d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\X-Men Mutant Apocalypse %28SNES%29">
+      <UniqueIdentifier>{8a9495c5-5e7c-4d0b-836f-0496317d6da1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\DBZ Hyper Dimension %28SNES%29">
+      <UniqueIdentifier>{c66fd94c-52b1-430c-9353-18f95a2d217e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\MMPR: TFE %28SNES%29">
+      <UniqueIdentifier>{90c0e8ff-821b-4e54-a53c-bcaae5916403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Bleach DS %28NDS%29">
+      <UniqueIdentifier>{2188a85d-12e7-4b62-a7bd-8ceea29c95e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Mega Man X2 %28SNES%29">
+      <UniqueIdentifier>{d96afcbe-5807-4584-8bd8-3d65cb6c2bc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF02N_A">
+      <UniqueIdentifier>{6c820e94-dd0d-4006-b5ae-340da094c0fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Last Blade">
+      <UniqueIdentifier>{632ea97e-c50d-4066-901e-222d3c1799bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF96_A">
+      <UniqueIdentifier>{e0a1c9b3-bbfc-4de4-9d93-2b26a8b42442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF95_A">
+      <UniqueIdentifier>{60e388d3-c582-459a-af73-107faa18b5d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown">
+      <UniqueIdentifier>{c835cd9f-12f1-412c-9544-f34f43015967}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown II">
+      <UniqueIdentifier>{445ddcfa-8e9f-4caa-bf08-71e0c219c2a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown III">
+      <UniqueIdentifier>{1bc29372-5f2a-4d1f-b949-f5fd9a70efe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown IV">
+      <UniqueIdentifier>{dc385e4d-7b94-4805-8871-c401b54bd681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown V">
+      <UniqueIdentifier>{41152932-6857-4875-a1a1-40ed18d6bd80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown V Special">
+      <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -322,9 +352,6 @@
       <Filter>Game\Palette</Filter>
     </ClCompile>
     <ClCompile Include="Game\PalGroup.cpp">
-      <Filter>Game\Palette</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\ShellSort.cpp">
       <Filter>Game\Palette</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -472,7 +499,7 @@
       <Filter>Game\SNK Games\SVCPLUSA_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp">
-      <Filter>Game\SNK Games\Samurai Shodown 5 Special</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown V Special</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MVC2_A_DIR.cpp">
       <Filter>Game\Capcom Games\MVC2_A_DIR</Filter>
@@ -508,7 +535,7 @@
       <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO3_A.cpp">
-      <Filter>Game\SNK Games\Samurai Shodown 3</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown III</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_VHUNT2_A.cpp">
       <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
@@ -547,13 +574,13 @@
       <Filter>Additional Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\GAME_Bleach_DS.cpp">
-      <Filter>Game\Nintendo\BLEACH_DS</Filter>
+      <Filter>Game\Nintendo\Bleach DS %28NDS%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF03_A.cpp">
       <Filter>Game\SNK Games\KOF03_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MMPR_SNES.cpp">
-      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+      <Filter>Game\Nintendo\MMPR: TFE %28SNES%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF01_A.cpp">
       <Filter>Game\SNK Games\KOF01_A</Filter>
@@ -580,7 +607,7 @@
       <Filter>Game\SNK Games\Art of Fighting 3</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO4_A.cpp">
-      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown IV</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_RODSM2_A.cpp">
       <Filter>Game\Capcom Games\Slam Masters 2</Filter>
@@ -592,7 +619,7 @@
       <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO5_A.cpp">
-      <Filter>Game\SNK Games\Samurai Shodown 5</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown V</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_RBFF1_A.cpp">
       <Filter>Game\SNK Games\Real Bout Fatal Fury 1</Filter>
@@ -657,6 +684,36 @@
     <ClCompile Include="Game\Game_TopF2005_Sega.cpp">
       <Filter>Game\Sega\Top Fighter 2005</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game_DBZHD_SNES.cpp">
+      <Filter>Game\Nintendo\DBZ Hyper Dimension %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_XMMA_SNES.cpp">
+      <Filter>Game\Nintendo\X-Men Mutant Apocalypse %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_TMNTTF_SNES.cpp">
+      <Filter>Game\Nintendo\TMNT: Tournament Fighters %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MMX2_SNES.cpp">
+      <Filter>Game\Nintendo\Mega Man X2 %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_LASTBLADE_A.cpp">
+      <Filter>Game\SNK Games\Last Blade</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF00N_A.cpp">
+      <Filter>Game\SNK Games\KOF02N_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF95_A.cpp">
+      <Filter>Game\SNK Games\KOF95_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF96_A.cpp">
+      <Filter>Game\SNK Games\KOF96_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO1_A.cpp">
+      <Filter>Game\SNK Games\Samurai Shodown</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO2_A.cpp">
+      <Filter>Game\SNK Games\Samurai Shodown II</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImgDisp.h">
@@ -675,9 +732,6 @@
       <Filter>Game\Palette</Filter>
     </ClInclude>
     <ClInclude Include="Game\PalGroup.h">
-      <Filter>Game\Palette</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\ShellSort.h">
       <Filter>Game\Palette</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -882,10 +936,10 @@
       <Filter>Game\SNK Games\SVCPLUSA_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h">
-      <Filter>Game\SNK Games\Samurai Shodown 5 Special</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown V Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO5SP_A_DEF.h">
-      <Filter>Game\SNK Games\Samurai Shodown 5 Special</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown V Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MVC2_A_DIR.h">
       <Filter>Game\Capcom Games\MVC2_A_DIR</Filter>
@@ -945,10 +999,10 @@
       <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO3_A.h">
-      <Filter>Game\SNK Games\Samurai Shodown 3</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown III</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO3_A_DEF.h">
-      <Filter>Game\SNK Games\Samurai Shodown 3</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown III</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_VHUNT2_A.h">
       <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
@@ -1017,10 +1071,10 @@
       <Filter>Game\SNK Games\Breakers Revenge</Filter>
     </ClInclude>
     <ClInclude Include="Game\Bleach_DS_DEF.h">
-      <Filter>Game\Nintendo\BLEACH_DS</Filter>
+      <Filter>Game\Nintendo\Bleach DS %28NDS%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\GAME_Bleach_DS.h">
-      <Filter>Game\Nintendo\BLEACH_DS</Filter>
+      <Filter>Game\Nintendo\Bleach DS %28NDS%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF03_A.h">
       <Filter>Game\SNK Games\KOF03_A</Filter>
@@ -1029,10 +1083,10 @@
       <Filter>Game\SNK Games\KOF03_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MMPR_SNES.h">
-      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+      <Filter>Game\Nintendo\MMPR: TFE %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\MMPR_SNES_DEF.h">
-      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+      <Filter>Game\Nintendo\MMPR: TFE %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF01_A.h">
       <Filter>Game\SNK Games\KOF01_A</Filter>
@@ -1083,10 +1137,10 @@
       <Filter>Game\SNK Games\Art of Fighting 3</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO4_A.h">
-      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown IV</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO4_A_DEF.h">
-      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown IV</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_RODSM2_A.h">
       <Filter>Game\Capcom Games\Slam Masters 2</Filter>
@@ -1101,10 +1155,10 @@
       <Filter>Game\SNK Games\Last Blade 2</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO5_A.h">
-      <Filter>Game\SNK Games\Samurai Shodown 5</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown V</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO5_A_DEF.h">
-      <Filter>Game\SNK Games\Samurai Shodown 5</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown V</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_RBFF1_A.h">
       <Filter>Game\SNK Games\Real Bout Fatal Fury 1</Filter>
@@ -1216,6 +1270,69 @@
     </ClInclude>
     <ClInclude Include="Game\TopF2005_Sega_DEF.h">
       <Filter>Game\Sega\Top Fighter 2005</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DBZHD_SNES_DEF.h">
+      <Filter>Game\Nintendo\DBZ Hyper Dimension %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DBZHD_SNES.h">
+      <Filter>Game\Nintendo\DBZ Hyper Dimension %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_XMMA_SNES.h">
+      <Filter>Game\Nintendo\X-Men Mutant Apocalypse %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\XMMA_SNES_DEF.h">
+      <Filter>Game\Nintendo\X-Men Mutant Apocalypse %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_TMNTTF_SNES.h">
+      <Filter>Game\Nintendo\TMNT: Tournament Fighters %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TMNTTF_SNES_DEF.h">
+      <Filter>Game\Nintendo\TMNT: Tournament Fighters %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MMX2_SNES.h">
+      <Filter>Game\Nintendo\Mega Man X2 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MMX2_SNES_DEF.h">
+      <Filter>Game\Nintendo\Mega Man X2 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_LASTBLADE_A.h">
+      <Filter>Game\SNK Games\Last Blade</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\LASTBLADE_A_DEF.h">
+      <Filter>Game\SNK Games\Last Blade</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF00N_A.h">
+      <Filter>Game\SNK Games\KOF02N_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF00N_A_DEF.h">
+      <Filter>Game\SNK Games\KOF02N_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GGXXACR_A_DEF.h">
+      <Filter>Game\Other Platforms\GGXX ACR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF95_A.h">
+      <Filter>Game\SNK Games\KOF95_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF95_A_DEF.h">
+      <Filter>Game\SNK Games\KOF95_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF96_A.h">
+      <Filter>Game\SNK Games\KOF96_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF96_A_DEF.h">
+      <Filter>Game\SNK Games\KOF96_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO1_A.h">
+      <Filter>Game\SNK Games\Samurai Shodown</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO1_A_DEF.h">
+      <Filter>Game\SNK Games\Samurai Shodown</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO2_A.h">
+      <Filter>Game\SNK Games\Samurai Shodown II</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO2_A_DEF.h">
+      <Filter>Game\SNK Games\Samurai Shodown II</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

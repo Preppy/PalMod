@@ -34,7 +34,7 @@ CGame_Matrimelee_A::CGame_Matrimelee_A(UINT32 nConfirmedROMSize)
 
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_15ALT);
+    SetColorMode(ColMode::COLMODE_RGB555_BE);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -44,7 +44,7 @@ CGame_Matrimelee_A::CGame_Matrimelee_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = Matrimelee_A_NUMUNIT;
     m_nExtraUnit = Matrimelee_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 768;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 823;
     m_pszExtraFilename = EXTRA_FILENAME_Matrimelee_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMatrimelee;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

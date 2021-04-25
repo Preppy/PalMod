@@ -6,6 +6,60 @@
 // * Run PalMod: the new headers will be printed to debug out
 // That should be it.  Good luck.
 
+const UINT16 KOFXI_A_IMG_UNITS[] =
+{
+    indexKOFSprites_02UM_Iori,
+    indexKOFSprites_02UM_K,         // 0x92
+    indexKOFSprites_02UM_King,      // 0x97
+    indexKOFSprites_02UM_Kula,      // 0x99
+    indexKOFSprites_02UM_Maxima,    // 0xA2
+    indexKOFSprites_02UM_Ramon,     // 0xA7
+    indexKOFSprites_02UM_Ryo,       // 0xAA
+    indexKOFSprites_02UM_Shingo,    // 0xAE
+    indexKOFSprites_02UM_Vanessa,   // 0xB2
+
+    indexKOFXISprites_Adelheid,     // 0x10b
+    indexKOFXISprites_Ash,          // 0x10c
+    indexKOFXISprites_Athena,       // 0x10d
+    indexKOFXISprites_Benimaru,     // 0x10e
+    indexKOFXISprites_BJenet,       // 0x10f
+    indexKOFXISprites_BlueMary,     // 0x110
+    indexKOFXISprites_Clark,        // 0x111
+    indexKOFXISprites_DuckKing,     // 0x112
+    indexKOFXISprites_Duo,          // 0x113
+    indexKOFXISprites_Eiji,         // 0x114
+    indexKOFXISprites_Elizabeth,    // 0x115
+    indexKOFXISprites_Gai,          // 0x116
+    indexKOFXISprites_Gato,         // 0x117
+    indexKOFXISprites_Iori,         // 0x118
+    indexKOFXISprites_Jyazu,        // 0x119
+    indexKOFXISprites_K,            // 0x11a
+    indexKOFXISprites_Kasumi,       // 0x11b
+    indexKOFXISprites_Kensou,       // 0x11c
+    indexKOFXISprites_Kim,          // 0x11d
+    indexKOFXISprites_King,         // 0x11e
+    indexKOFXISprites_Kula,         // 0x11f
+    indexKOFXISprites_Kyo,          // 0x120
+    indexKOFXISprites_Magaki,       // 0x121
+    indexKOFXISprites_Malin,        // 0x122
+    indexKOFXISprites_Maxima,       // 0x123
+    indexKOFXISprites_Momoko,       // 0x124
+    indexKOFXISprites_Oswald,       // 0x125
+    indexKOFXISprites_Ralf,         // 0x126
+    indexKOFXISprites_Ramon,        // 0x127
+    indexKOFXISprites_Ryo,          // 0x128
+    indexKOFXISprites_Shen,         // 0x129
+    indexKOFXISprites_Shingo,       // 0x12a
+    indexKOFXISprites_Shion,        // 0x12b
+    indexKOFXISprites_Sho,          // 0x12c
+    indexKOFXISprites_Silber,       // 0x12d
+    indexKOFXISprites_Terry,        // 0x12e
+    indexKOFXISprites_Tizoc,        // 0x12f
+    indexKOFXISprites_Vanessa,      // 0x130
+    indexKOFXISprites_Whip,         // 0x131
+    indexKOFXISprites_Yuri,         // 0x132
+};
+
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_A[] =
 {
     { L"Ash A", 0x1011000, 0x1011020, indexKOFXISprites_Ash },

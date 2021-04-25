@@ -61,7 +61,7 @@ CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
 {
     createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
+    SetColorMode(ColMode::COLMODE_RGB444_BE);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -120,8 +120,8 @@ CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
     //Set game information
     nGameFlag = SF2CE_A;
     nImgGameFlag = IMGDAT_SECTION_SF2;
-    nImgUnitAmt = SF2HF_A_NUM_IMG_UNITS;
     m_prgGameImageSet = SF2HF_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SF2HF_A_IMG_UNITS);
 
     nFileAmt = 1;
 

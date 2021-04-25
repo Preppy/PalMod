@@ -17,37 +17,6 @@ struct sFileRule
     WCHAR szAltFileName[MAX_FILENAME_LENGTH] = L"uninit";
 };
 
-enum class AlphaMode
-{
-    GameDoesNotUseAlpha,
-    GameUsesFixedAlpha,
-    Unknown,
-    GameUsesVariableAlpha,  // Modifiable, as in the case of MvC2.
-    GameUsesChaoticAlpha,   // Yes, this is odd.  ST-GBA appears doesn't have alpha consistently set.
-};
-
-enum class ColMode
-{
-    // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::GetGameName and ::CGame_NEOGEO_A
-    COLMODE_GBA,       // BGR555 little endian for GBA
-    COLMODE_12A,       // RGB444 big endian for CPS1/2
-    COLMODE_12A_LE,    // RGB444 little endian for SF 30th steam
-    COLMODE_15,        // RGB555 little endian for CPS3
-    COLMODE_15ALT,     // RGB555 big endian 
-    COLMODE_NEOGEO,    // RGB666
-    COLMODE_9,         // RGB333 for Sega Genesis/MegaDrive
-    COLMODE_ARGB7888,  // 32bit color for guilty gear
-    COLMODE_SHARPRGB,  // sharp x68000 rgb
-    COLMODE_ARGB1888,  // 32bit color for DBFCI
-    COLMODE_ARGB8888,  // 32bit color for uniclr. and modern computing...
-};
-
-enum class ColFlag
-{
-    COL_RGB,
-    COL_A,
-};
-
 const UINT32 k_nBogusHighValue = 0xFEEDFED;
 
 class CGameClass
@@ -80,6 +49,13 @@ protected:
     const double k_nRGBPlaneMulForRGB777 = 2;
     const double k_nRGBPlaneMulForRGB888 = 1;
 
+    // The next values are special and flawed values.  We use RGB444 stepping, but we're trying
+    // to step through a color table that has non-linear steps.  The following values give us a
+    // "close enough" solution.  To really have correct stepping we would need to get step
+    // lengths at runtime and get them relative to the current color value.
+    const int k_nRGBPlaneAmtForRGB666 = 15;
+    const double k_nRGBPlaneMulForRGB666 = 17.0;
+
     BOOL m_fIsDirectoryBasedGame = FALSE;
     BOOL m_fGameUnitsMapToIndividualFiles = FALSE;
 
@@ -96,7 +72,7 @@ protected:
     int nSrcPalInc[MAX_PALETTES_DISPLAYABLE] = { 0 };
 
     static AlphaMode CurrAlphaMode;
-    ColMode CurrColMode = ColMode::COLMODE_12A;
+    ColMode CurrColMode = ColMode::COLMODE_RGB444_BE;
     sImgTicket* CurrImgTicket = nullptr;
     CPalGroup BasePalGroup;
 
@@ -115,22 +91,26 @@ protected:
 
     static BOOL m_fAllowTransparency;
 
-    static UINT16 CONV_32_9(UINT32 inCol);
-    static UINT32 CONV_9_32(UINT16 inCol);
-    static UINT16 CONV_32_12A(UINT32 inCol);
-    static UINT32 CONV_12A_32(UINT16 inCol);
-    static UINT16 CONV_32_12A_LE(UINT32 inCol);
-    static UINT32 CONV_12A_32_LE(UINT16 inCol);
-    static UINT16 CONV_32_GBA(UINT32 inCol);
-    static UINT32 CONV_GBA_32(UINT16 inCol);
-    static UINT16 CONV_32_15(UINT32 inCol);
-    static UINT32 CONV_15_32(UINT16 inCol);
-    static UINT16 CONV_32_15ALT(UINT32 inCol);
-    static UINT32 CONV_15ALT_32(UINT16 inCol);
-    static UINT16 CONV_32_NEOGEO(UINT32 inCol);
-    static UINT32 CONV_NEOGEO_32(UINT16 inCol);
-    static UINT16 CONV_32_SHARPRGB(UINT32 inCol);
-    static UINT32 CONV_SHARPRGB_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB333(UINT32 inCol);
+    static UINT32 CONV_RGB333_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB444BE(UINT32 inCol);
+    static UINT32 CONV_RGB444BE_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB444LE(UINT32 inCol);
+    static UINT32 CONV_RGB444LE_32(UINT16 inCol);
+    static UINT16 CONV_32_BGR555LE(UINT32 inCol);
+    static UINT32 CONV_BGR555LE_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB555LE(UINT32 inCol);
+    static UINT32 CONV_RGB555LE_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB555BE(UINT32 inCol);
+    static UINT32 CONV_RGB555BE_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB666NeoGeo(UINT32 inCol);
+    static UINT32 CONV_RGB666NeoGeo_32(UINT16 inCol);
+    static UINT16 CONV_32_RGB555Sharp(UINT32 inCol);
+    static UINT32 CONV_RGB555Sharp_32(UINT16 inCol);
+    static UINT32 CONV_32_xRGB888(UINT32 inCol);
+    static UINT32 CONV_xRGB888_32(UINT32 inCol);
+    static UINT32 CONV_32_xBGR888(UINT32 inCol);
+    static UINT32 CONV_xBGR888_32(UINT32 inCol);
     static UINT32 CONV_32_ARGB1888(UINT32 inCol);
     static UINT32 CONV_ARGB1888_32(UINT32 inCol);
     static UINT32 CONV_32_ARGB7888(UINT32 inCol);
@@ -176,6 +156,7 @@ protected:
     
     static UINT8 m_nSizeOfColorsInBytes;
     UINT16*** m_pppDataBuffer = nullptr;
+    UINT32*** m_pppDataBuffer24 = nullptr;
     UINT32*** m_pppDataBuffer32 = nullptr;
 
     struct sCRC32ValueSet
@@ -208,11 +189,16 @@ public:
     UINT32 GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (createPalOptions.nStartingPosition * sizeof(UINT16)); };
     UINT32 GetLowestExpectedPaletteLocation();
 
-    inline bool GameIsUsing16BitColor() { return m_nSizeOfColorsInBytes == 2; };
+    inline UINT8 GetGameColorByteLength() { return m_nSizeOfColorsInBytes; };
+    inline BOOL GameIsUsing16BitColor() { return m_nSizeOfColorsInBytes == 2; };
+    inline BOOL GameIsUsing24BitColor() { return m_nSizeOfColorsInBytes == 3; };
+    inline BOOL GameIsUsing32BitColor() { return m_nSizeOfColorsInBytes == 4; };
 
     UINT16(*ConvCol16)(UINT32 inCol);
+    UINT32(*ConvCol24)(UINT32 inCol);
     UINT32(*ConvCol32)(UINT32 inCol);
     UINT32(*ConvPal16)(UINT16 inCol);
+    UINT32(*ConvPal24)(UINT32 inCol);
     UINT32(*ConvPal32)(UINT32 inCol);
 
     LPCWSTR GetROMFileName();
@@ -223,8 +209,11 @@ public:
     virtual void SetAlphaMode(AlphaMode NewMode) { CurrAlphaMode = NewMode; };
 
     ColMode GetColorMode() { return CurrColMode; };
+    BOOL _SetColorMode(ColMode NewMode);
     virtual BOOL SetColorMode(ColMode NewMode);
     virtual bool AllowUpdatingColorFormatForGame() { return false; };
+    virtual void OpenExtraFile() { };
+    virtual bool GameAllowsExtraFile() { return false; };
 
     void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { createPalOptions.eWriteOutputOptions = eUpdatedOption; };
     PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return createPalOptions.eWriteOutputOptions; };
@@ -258,6 +247,8 @@ public:
     sImgTicket* CreateImgTicket(UINT16 nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0);
 
     int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
+    int GetCurrentPaletteIncrement() { return nSrcPalInc[0]; };
+
     void ClearSrcPal();
 
     const LPCWSTR* GetButtonDescSet() { return pButtonLabelSet; };
@@ -286,6 +277,8 @@ public:
     bool UserWantsAllPalettesInPatch();
     void SetSpecificValuesForCRC(UINT32 nCRCForFile);
     virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
+
+    void WritePal(UINT16 nUnitId, UINT16 nPalId, COLORREF* rgColors, UINT16 nColorCount);
 
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);

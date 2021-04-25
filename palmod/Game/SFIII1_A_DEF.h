@@ -219,32 +219,32 @@ const sGame_PaletteDataset SFIII1_A_NECRO_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_HUGO_LP_PALETTES[] =
 {
-    { L"Beta Hugo LP", 0x3d1500, 0x3d1580, index3S_CPS3_Hugo },
+    { L"Beta Hugo LP", 0x3d1500, 0x3d1580, index3S_CPS3_Hugo, 0x03 },
 };
 
 const sGame_PaletteDataset SFIII1_A_HUGO_MP_PALETTES[] =
 {
-    { L"Beta Hugo MP", 0x3d1580, 0x3d1600, index3S_CPS3_Hugo },
+    { L"Beta Hugo MP", 0x3d1580, 0x3d1600, index3S_CPS3_Hugo, 0x03 },
 };
 
 const sGame_PaletteDataset SFIII1_A_HUGO_HP_PALETTES[] =
 {
-    { L"Beta Hugo HP", 0x3d1600, 0x3d1680, index3S_CPS3_Hugo },
+    { L"Beta Hugo HP", 0x3d1600, 0x3d1680, index3S_CPS3_Hugo, 0x03 },
 };
 
 const sGame_PaletteDataset SFIII1_A_HUGO_LK_PALETTES[] =
 {
-    { L"Beta Hugo LK", 0x3d1680, 0x3d1700, index3S_CPS3_Hugo },
+    { L"Beta Hugo LK", 0x3d1680, 0x3d1700, index3S_CPS3_Hugo, 0x03 },
 };
 
 const sGame_PaletteDataset SFIII1_A_HUGO_MK_PALETTES[] =
 {
-    { L"Beta Hugo MK", 0x3d1700, 0x3d1780, index3S_CPS3_Hugo },
+    { L"Beta Hugo MK", 0x3d1700, 0x3d1780, index3S_CPS3_Hugo, 0x03 },
 };
 
 const sGame_PaletteDataset SFIII1_A_HUGO_HK_PALETTES[] =
 {
-    { L"Beta Hugo HK", 0x3d1780, 0x3d1800, index3S_CPS3_Hugo },
+    { L"Beta Hugo HK", 0x3d1780, 0x3d1800, index3S_CPS3_Hugo, 0x03 },
 };
 
 const sGame_PaletteDataset SFIII1_A_IBUKI_LP_PALETTES[] =
@@ -285,38 +285,38 @@ const sGame_PaletteDataset SFIII1_A_IBUKI_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_ELENA_LP_PALETTES[] =
 {
-    { L"Elena LP", 0x3d1b00, 0x3d1b80, index3S_CPS3_Elena },
+    { L"Elena LP", 0x3d1b00, 0x3d1b80, index3S_CPS3_Elena, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ELENA_MP_PALETTES[] =
 {
-    { L"Elena MP", 0x3d1b80, 0x3d1c00, index3S_CPS3_Elena },
+    { L"Elena MP", 0x3d1b80, 0x3d1c00, index3S_CPS3_Elena, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ELENA_HP_PALETTES[] =
 {
-    { L"Elena HP", 0x3d1c00, 0x3d1c80, index3S_CPS3_Elena },
+    { L"Elena HP", 0x3d1c00, 0x3d1c80, index3S_CPS3_Elena, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ELENA_LK_PALETTES[] =
 {
-    { L"Elena LK", 0x3d1c80, 0x3d1d00, index3S_CPS3_Elena },
+    { L"Elena LK", 0x3d1c80, 0x3d1d00, index3S_CPS3_Elena, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ELENA_MK_PALETTES[] =
 {
-    { L"Elena MK", 0x3d1d00, 0x3d1d80, index3S_CPS3_Elena },
+    { L"Elena MK", 0x3d1d00, 0x3d1d80, index3S_CPS3_Elena, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ELENA_HK_PALETTES[] =
 {
-    { L"Elena HK", 0x3d1d80, 0x3d1e00, index3S_CPS3_Elena },
+    { L"Elena HK", 0x3d1d80, 0x3d1e00, index3S_CPS3_Elena, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ELENA_Support_PALETTES[] =
 {
-    { L"Elena Freeze", 0x3d4980, 0x3d4a00, index3S_CPS3_Elena },
-    { L"Elena Burning", 0x3d5080, 0x3d5100, index3S_CPS3_Elena },
+    { L"Elena Freeze", 0x3d4980, 0x3d4a00, index3S_CPS3_Elena, 0x05 },
+    { L"Elena Burning", 0x3d5080, 0x3d5100, index3S_CPS3_Elena, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ORO_LP_PALETTES[] =

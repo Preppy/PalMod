@@ -28,7 +28,7 @@ private:
     {
         SVC,
         SVCPlus,
-        SVCPlusA,
+        SVCPlusA, // already decrypted!
         SVCSPlus,
     };
 
@@ -42,6 +42,8 @@ private:
     };
 
     SVCRevisionInfo m_loadedROMRevision;
+
+    uint8_t* decryptedROM = nullptr;
 
     void UpdateGameName(CFile* LoadedFile);
 

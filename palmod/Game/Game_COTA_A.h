@@ -3,7 +3,7 @@
 #include "COTA_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_COTA = L"cotae.txt";
+constexpr auto EXTRA_FILENAME_COTA = L"CotAe.txt";
 #define GetExtraDefForCOTA(x) ((stExtraDef *)&COTA_A_EXTRA_CUSTOM[x])
 
 class CGame_COTA_A : public CGameWithExtrasFile

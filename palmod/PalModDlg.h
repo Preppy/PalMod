@@ -106,14 +106,16 @@ public:
     void SetColorsPerLineTo8();
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
-    void SetColorFormatTo9() { SetColorFormatTo(ColMode::COLMODE_9); };
-    void SetColorFormatTo12A() { SetColorFormatTo(ColMode::COLMODE_12A); };
-    void SetColorFormatTo12A_LE() { SetColorFormatTo(ColMode::COLMODE_12A_LE); };
-    void SetColorFormatTo15() { SetColorFormatTo(ColMode::COLMODE_15); };
-    void SetColorFormatTo15ALT() { SetColorFormatTo(ColMode::COLMODE_15ALT); };
-    void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_GBA); };
-    void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_NEOGEO); };
-    void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_SHARPRGB); };
+    void SetColorFormatTo9() { SetColorFormatTo(ColMode::COLMODE_RGB333); };
+    void SetColorFormatTo12A() { SetColorFormatTo(ColMode::COLMODE_RGB444_BE); };
+    void SetColorFormatTo12A_LE() { SetColorFormatTo(ColMode::COLMODE_RGB444_LE); };
+    void SetColorFormatTo15() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE); };
+    void SetColorFormatTo15ALT() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
+    void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_BGR555_LE); };
+    void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
+    void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_RGB555_SHARP); };
+    void SetColorFormatToxRGB888() { SetColorFormatTo(ColMode::COLMODE_xRGB888); };
+    void SetColorFormatToxBGR888() { SetColorFormatTo(ColMode::COLMODE_xBGR888); };
     void SetColorFormatToARGB1888() { SetColorFormatTo(ColMode::COLMODE_ARGB1888); };
     void SetColorFormatToARGB7888() { SetColorFormatTo(ColMode::COLMODE_ARGB7888); };
     void SetColorFormatToARGB8888() { SetColorFormatTo(ColMode::COLMODE_ARGB8888); };
@@ -141,9 +143,10 @@ public:
     bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromPAL(LPCWSTR pszFileName);
     bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false);
+    bool LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName);
     // if you add a new palette type here, please update the CPalDropTarget support
 
-    bool SavePaletteToACT(LPCWSTR pszFileName);
+    bool SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp);
     bool SavePaletteToGPL(LPCWSTR pszFileName);
     bool SavePaletteToPAL(LPCWSTR pszFileName);
 
@@ -278,6 +281,7 @@ public:
     afx_msg void OnDeltaposSpinBL(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnDeltaposSpinA(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnFileExit();
+    afx_msg void OnFileOpenExtrasFile();
     afx_msg void OnFileCloseFileDir();
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnBnShowPrev();

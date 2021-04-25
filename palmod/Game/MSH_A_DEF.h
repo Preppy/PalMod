@@ -740,6 +740,53 @@ const sGame_PaletteDataset MSH_A_BONUS_CSI_PALETTES[] =
     { L"Magneto", 0x6B44C, 0x6B46C },
 };
 
+const sGame_PaletteDataset MSH_A_BONUS_TITLE_05_PALETTES[] =
+{
+    { L"Title Screen Gems",                 0x6CB0E, 0x6CBCE, indexCPS2_MSHAssets, 0x02 },
+    { L"Title Screen Outline",              0x6CC6E, 0x6CC8E, indexCPS2_MSHAssets, 0x03, &pairNextAndNextAndNext },
+    { L"Title Screen Fill",                 0x75B40, 0x75BC0, indexCPS2_MSHAssets, 0x04 },
+    { L"Title Screen Marvel Sparkles",      0x6C00E, 0x6C02E, indexCPS2_MSHAssets, 0x07 },
+    { L"Title Screen Marvel Comics",        0x6CBCE, 0x6CBEE, indexCPS2_MSHAssets, 0x05 },
+    { L"Title Screen Marvel Fill Moving",   0x6CBEE, 0x6CC6E, indexCPS2_MSHAssets, 0x06 },
+    { L"Virtual Audio QSound",              0x75AE0, 0x75B40, indexCPS2_MSHAssets, 0x0a },
+
+    { L"Ryu Globe",                         0x758E0, 0x75900, indexCPS2_MSHAssets, 0x0c },
+    { L"Capcom Logo",                       0x6CA6E, 0x6CA8E, indexCPS2_MSHAssets, 0x0d },
+    { L"Intro Spiderman",                   0x6C3AE, 0x6C40E, indexCPS2_MSHAssets, 0x10 },
+    { L"Intro Wolverine",                   0x6C5EE, 0x6C6EE, indexCPS2_MSHAssets, 0x13 },
+    { L"Intro CapAmerica",                  0x6C42E, 0x6C5CE, indexCPS2_MSHAssets, 0x16 },
+    { L"Spinning Gems",                     0x6C7CE, 0x6C88E, indexCPS2_MSHAssets, 0x0e },
+    { L"Flying Gems (Psylocke Hulk)",       0x6C88E, 0x6C94E, indexCPS2_MSHAssets, 0x0f },
+    { L"Gem Ripple",                        0x6C72E, 0x6C74E, indexCPS2_MSHAssets, 0x1e },
+};
+
+const sGame_PaletteDataset MSH_A_BONUS_TITLE_06_PALETTES[] =
+{
+    { L"Title Screen Space BG", 0x7340, 0x7380, indexCPS2_MSHAssets, 0x00, &pairNext },
+    { L"Title Screen Gauntlet", 0x22A0, 0x22E0, indexCPS2_MSHAssets, 0x01 },
+    { L"QSound Text",           0x10B00, 0x10B20, indexCPS2_MSHAssets, 0x0b },
+    { L"Intro Ironman BG",      0x7220, 0x7240, indexCPS2_MSHAssets, 0x08 },
+    { L"Intro Magnus BG",       0x7300, 0x7320, indexCPS2_MSHAssets, 0x09 },
+    { L"Intro Blackheart",      0x1280, 0x12C0, indexCPS2_MSHAssets, 0x14 },
+    { L"Intro: BH vs Wolv BG",  0x71E0, 0x7200, indexCPS2_MSHAssets, 0x15 },
+    { L"Intro Psylocke Pt1",    0x0E80, 0x1080, indexCPS2_MSHAssets, 0x1b, &pairNext },
+    { L"Intro Psylocke Pt2",    0x1080, 0x1280, indexCPS2_MSHAssets, 0x1c },
+    { L"Intro: Psylocke BG",    0x7200, 0x7220, indexCPS2_MSHAssets, 0x1d },
+    { L"Intro Ironman Pt1 Frame 1",     0xA80, 0xAA0, indexCPS2_MSHAssets, 0x19, &pairNext4 },
+    { L"Intro Ironman Pt2 Frame 1",     0xAA0, 0xAC0, indexCPS2_MSHAssets, 0x19, &pairNext4 },
+    { L"Intro Ironman Pt1 Frame 2",     0xAE0, 0xB00, indexCPS2_MSHAssets, 0x19, &pairNext4 },
+    { L"Intro Ironman Pt1 Frame 3",     0xB00, 0xB20, indexCPS2_MSHAssets, 0x19, &pairNext4 },
+    { L"Intro Ironman Pt1 Frame 4",     0xB20, 0xB40, indexCPS2_MSHAssets, 0x1a },
+    { L"Intro Ironman Pt2 Frame 2",     0xB60, 0xB80, indexCPS2_MSHAssets, 0x1a },
+    { L"Intro Ironman Pt2 Frame 3",     0xB80, 0xBA0, indexCPS2_MSHAssets, 0x1a },
+    { L"Intro Ironman Pt2 Frame 4",     0xBA0, 0xBC0, indexCPS2_MSHAssets, 0x1a },
+    { L"Intro Shuma",                   0x1680, 0x1800, indexCPS2_MSHAssets, 0x17 },
+    { L"Intro: Cap vs Shuma BG",        0x7240, 0x7260, indexCPS2_MSHAssets, 0x18 },
+    { L"Intro Juggernaut",              0x1A80, 0x1C20, indexCPS2_MSHAssets, 0x11 },
+    { L"Intro: Spiderman vs Juggs BG",  0x7260, 0x7280, indexCPS2_MSHAssets, 0x12 },
+};
+
+
 // This is present but using a base palette not effects colors
 //{ L"Soul Gem Slowdown 1/2", 0x6638e, 0x663ae, indexCPS2_Anita },
 //{ L"Soul Gem Slowdown 2/2", 0x6658e, 0x665ae, indexCPS2_Anita },
@@ -852,11 +899,17 @@ const sDescTreeNode MSH_A_VSP_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)MSH_A_VSP_PALETTES,           ARRAYSIZE(MSH_A_VSP_PALETTES) },
 };
 
-const sDescTreeNode MSH_A_BONUS_COLLECTION[] =
+const sDescTreeNode MSH_A_BONUS_05_COLLECTION[] =
 {
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_CSI_PALETTES, ARRAYSIZE(MSH_A_BONUS_CSI_PALETTES) },
     { L"Gems", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_GEMS_PALETTES, ARRAYSIZE(MSH_A_BONUS_GEMS_PALETTES) },
     { L"Mind Gem Effects", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_MINDGEM_PALETTES, ARRAYSIZE(MSH_A_BONUS_MINDGEM_PALETTES) },
+    { L"Title Screen (05 elements)", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_TITLE_05_PALETTES, ARRAYSIZE(MSH_A_BONUS_TITLE_05_PALETTES) },
+};
+
+const sDescTreeNode MSH_A_BONUS_06_COLLECTION[] =
+{
+    { L"Title Screen (06 elements)", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_TITLE_06_PALETTES, ARRAYSIZE(MSH_A_BONUS_TITLE_06_PALETTES) },
 };
 
 const sDescTreeNode MSH_UNITS_05[] =
@@ -874,7 +927,7 @@ const sDescTreeNode MSH_UNITS_05[] =
     { L"Thanos",                        DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_COLLECTION,           ARRAYSIZE(MSH_A_THANOS_COLLECTION) },
     { L"Wolverine",                     DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_COLLECTION,        ARRAYSIZE(MSH_A_WOLVERINE_COLLECTION) },
     { L"Anita (Japan-only)",            DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_COLLECTION,            ARRAYSIZE(MSH_A_ANITA_COLLECTION) },
-    { L"Bonus",                         DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_COLLECTION,            ARRAYSIZE(MSH_A_BONUS_COLLECTION) },
+    { L"Bonus Palettes",                DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_05_COLLECTION,         ARRAYSIZE(MSH_A_BONUS_05_COLLECTION) },
 };
 
 constexpr auto MSH_A_NUMUNIT_05 = ARRAYSIZE(MSH_UNITS_05);
@@ -884,6 +937,7 @@ const sDescTreeNode MSH_UNITS_06[] =
 {
     { L"Character Select Portraits",    DESC_NODETYPE_TREE, (void*)MSH_A_CSP_COLLECTION,              ARRAYSIZE(MSH_A_CSP_COLLECTION) },
     { L"Victory Screen Portraits",      DESC_NODETYPE_TREE, (void*)MSH_A_VSP_COLLECTION,              ARRAYSIZE(MSH_A_VSP_COLLECTION) },
+    { L"Bonus Palettes",                DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_06_COLLECTION,         ARRAYSIZE(MSH_A_BONUS_06_COLLECTION) },
 };
 
 constexpr auto MSH_A_NUMUNIT_06 = ARRAYSIZE(MSH_UNITS_06);

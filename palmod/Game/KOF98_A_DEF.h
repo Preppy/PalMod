@@ -6,6 +6,52 @@
 // * Update every array using KOF98_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const UINT16 KOF98_A_IMG_UNITS[] =
+{
+    indexKOFSprites_98Kyo,
+    indexKOFSprites_98Benimaru,
+    indexKOFSprites_98Daimon,
+    indexKOFSprites_98Terry,
+    indexKOFSprites_98Andy,
+    indexKOFSprites_98Joe,
+    indexKOFSprites_98Ryo,
+    indexKOFSprites_98Robert,
+    indexKOFSprites_98Yuri,
+    indexKOFSprites_98Leona,
+    indexKOFSprites_98Ralf,
+    indexKOFSprites_98Clark,
+    indexKOFSprites_98Athena,
+    indexKOFSprites_98Kensou,
+    indexKOFSprites_98Chin,
+    indexKOFSprites_98Chizuru,
+    indexKOFSprites_98Mai,
+    indexKOFSprites_98King,
+    indexKOFSprites_98Kim,
+    indexKOFSprites_98Chang,
+    indexKOFSprites_98Choi,
+    indexKOFSprites_98Yashiro,
+    indexKOFSprites_98Shermie,
+    indexKOFSprites_98Chris,
+    indexKOFSprites_98Yamazaki,
+    indexKOFSprites_98BlueMary,
+    indexKOFSprites_98Billy,
+    indexKOFSprites_98Iori,
+    indexKOFSprites_98Mature,
+    indexKOFSprites_98Vice,
+    indexKOFSprites_98Heidern,
+    indexKOFSprites_98Takuma,
+    indexKOFSprites_98Saisyu,
+    indexKOFSprites_98HeavyD,
+    indexKOFSprites_98Lucky,
+    indexKOFSprites_98Brian,
+    indexKOFSprites_98Rugal,
+    indexKOFSprites_98Shingo, // 25
+
+    indexKOFSprites_98OrderSelect,
+    indexKOFSprites_98Lifebar,      // 77
+    indexKOFSprites_98WinPortrait,  // 78
+};
+
 const sGame_PaletteDataset KOF98_A_KYO_PALETTE_A[] =
 {
     { L"Kyo A - Main",  0x2d97f0, 0x2d9810, indexKOFSprites_98Kyo },
@@ -2743,6 +2789,41 @@ const sGame_PaletteDataset KOF98_A_OMEGARUGAL_EFFECT_PALETTES[] =
     { L"Super Trail 3", 0x2f35d0, 0x2f35f0, indexKOFSprites_98Rugal },
 };
 
+const sGame_PaletteDataset KOF98_A_BONUS_INGAME_PALETTES[] =
+{
+    { L"Hitsparks", 0x2d8210, 0x2d8230 },
+    { L"Shocksparks", 0x2d8230, 0x2d8250 },
+    { L"Blocksparks", 0x2d8250, 0x2d8270 },
+    { L"Special Blocksparks", 0x2d8270, 0x2d8290 },
+    { L"Special Hitsparks", 0x2d8290, 0x2d82b0 },
+    { L"Firesparks 1", 0x2d82d0, 0x2d82f0 },
+    { L"Firesparks 2", 0x2d82f0, 0x2d8310 },
+    { L"Firesparks 3", 0x2d8310, 0x2d8330 },
+    { L"Grabsparks", 0x2d8330, 0x2d8350 },
+    { L"Purple Firesparks 1", 0x2d8350, 0x2d8370 },
+    { L"Blood 1", 0x2d8370, 0x2d8390 },
+    { L"Blood 2", 0x2d8390, 0x2d83b0 },
+    { L"Purple Firesparks 2", 0x2d83d0, 0x2d83f0 },
+};
+
+const sGame_PaletteDataset KOF98_A_BONUS_INTRO_PALETTES[] =
+{
+    { L"KoF Intro Background", 0x2f4e50, 0x2f4e70 },
+    { L"KoF Intro Logo 1/3", 0x2f4df0, 0x2f4e50 },
+    { L"KoF Intro Logo 2/3", 0x2f4e70, 0x2f4eb0 },
+    { L"KoF Intro Logo 3/3", 0x2f4fd0, 0x2f4ff0 },
+    { L"The Slugfest Intro Logo", 0x2f4ed0, 0x2f4fd0 },
+};
+
+const sGame_PaletteDataset KOF98_A_BONUS_EFFECTS_PALETTES[] =
+{
+    { L"Main Fire Palette",     0x2ff5f0, 0x2ff7f0 },
+    { L"Orochi Fire Palette",   0x2ff7f0, 0x2ff9f0 },
+    { L"Rugal/Mature Poison Palette",   0x2ff9f0, 0x2ffbf0 },
+    { L"SDM Super Flash",       0x2ffbf0, 0x2ffdf0 },
+    { L"MAX Super Flash",       0x2ffdf0, 0x2ffff0 },
+};
+
 const sDescTreeNode KOF98_A_KYO_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)KOF98_A_KYO_PALETTE_A, ARRAYSIZE(KOF98_A_KYO_PALETTE_A) },
@@ -3118,6 +3199,13 @@ const sDescTreeNode KOF98_A_OmegaRugal_COLLECTION[] =
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF98_A_OMEGARUGAL_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_OMEGARUGAL_EFFECT_PALETTES) },
 };
 
+const sDescTreeNode KOF98_A_BONUS_COLLECTION[] =
+{
+    { L"In-Game Effects", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_INGAME_PALETTES, ARRAYSIZE(KOF98_A_BONUS_INGAME_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_INTRO_PALETTES, ARRAYSIZE(KOF98_A_BONUS_INTRO_PALETTES) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF98_A_BONUS_EFFECTS_PALETTES) },
+};
+
 const sDescTreeNode KOF98_A_UNITS[] =
 {
     { L"Kyo", DESC_NODETYPE_TREE, (void*)KOF98_A_KYO_COLLECTION, ARRAYSIZE(KOF98_A_KYO_COLLECTION) },
@@ -3162,6 +3250,7 @@ const sDescTreeNode KOF98_A_UNITS[] =
     { L"O.Shermie", DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_COLLECTION, ARRAYSIZE(KOF98_A_OShermie_COLLECTION) },
     { L"O.Chris", DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_COLLECTION, ARRAYSIZE(KOF98_A_OChris_COLLECTION) },
     { L"Omega Rugal", DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_COLLECTION, ARRAYSIZE(KOF98_A_OmegaRugal_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_COLLECTION, ARRAYSIZE(KOF98_A_BONUS_COLLECTION) },
 };
 
 constexpr auto KOF98_A_NUMUNIT = ARRAYSIZE(KOF98_A_UNITS);

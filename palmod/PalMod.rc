@@ -356,6 +356,8 @@ BEGIN
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
         MENUITEM SEPARATOR
+        MENUITEM "Open Extras File",            ID_FILE_OPENEXTRAS
+        MENUITEM SEPARATOR
         MENUITEM "&Close File / Directory",     ID_FILE_CLOSEFILEDIR
         MENUITEM SEPARATOR
         MENUITEM "Lo&ad Last File/Dir\tCtrl+Shift+O", ID_FILE_LOADLASTUSEDDIR
@@ -387,8 +389,6 @@ BEGIN
     END
     POPUP "&Settings"
     BEGIN
-        MENUITEM "Show 32-bit values for 8-bit colors (will round!)", ID_SHOW32BITRGB
-        MENUITEM "MvC2 &Settings...",           ID_SETTINGS_SETTINGS
         POPUP "Colors Per Line (restart required)"
         BEGIN
             MENUITEM "8 Colors Per Line",           ID_COLORSPERLINE_8COLORSPERLINE
@@ -404,9 +404,11 @@ BEGIN
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
             MENUITEM "RGB555 (Sharp X68000)",       ID_COLORFORMAT_SHARPRGB
             MENUITEM "RGB666 (Neo-Geo)",            ID_COLORFORMAT_RGB666
-            MENUITEM "ARGB1888 (DBFCI)",            ID_COLORFORMAT_ARGB1888
-            MENUITEM "ARGB7888 (Arc Sys)",          ID_COLORFORMAT_ARGB7888
-            MENUITEM "ARGB8888",                    ID_COLORFORMAT_ARGB8888
+            MENUITEM "xRGB888 (24-bit)",            ID_COLORFORMAT_xRGB888
+            MENUITEM "xBGR888 (24-bit)",            ID_COLORFORMAT_xBGR888
+            MENUITEM "RGBA8881 (DBFCI)",            ID_COLORFORMAT_ARGB1888
+            MENUITEM "RGBA8888 (Half alpha for Arcsys)", ID_COLORFORMAT_ARGB7888
+            MENUITEM "RGBA8888",                    ID_COLORFORMAT_ARGB8888
             MENUITEM SEPARATOR
             MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
             MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED
@@ -416,6 +418,9 @@ BEGIN
             MENUITEM "Transparency every 16 colors", ID_TRANSPSETTING_16
             MENUITEM "Transparency every 256 colors", ID_TRANSPSETTING_256
         END
+        MENUITEM "MvC2 &Settings...",           ID_SETTINGS_SETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "Show 32-bit values for 8-bit colors (will round!)", ID_SHOW32BITRGB
         MENUITEM "Include bonus data in CTRL+C copy", ID_SETTINGS_EXTCOPYDATA
     END
     POPUP "&About"
@@ -600,6 +605,8 @@ STRINGTABLE
 BEGIN
     IDS_DECRYPTING_START    "Decrypting game: please wait..."
     IDS_DECRYPTING_DONE     "Decryption complete!"
+    IDS_ENCRYPTING_START    "Encrypting game: please wait..."
+    IDS_ENCRYPTING_DONE     "Encryption complete!"
     IDS_ACT_LOADFAILURE     "Failed loading ACT file."
     IDS_PAL_LOADFAILURE     "Failed loading PAL file."
     IDS_PNG_LOADFAILURE     "Failed loading PNG file."
@@ -653,10 +660,13 @@ BEGIN
 
     IDS_EXTRAS_SIMMBOUNDARY  "Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."
     IDS_COLOR_WRONGSIZE      "Error: this game is using the wrong color size.  This needs to be fixed for the game to work."
-    IDS_SAVE_LOWWRITE        "Warning: Unit %u palette %u is trying to write to ROM location 0x%x which is lower than we usually write to."
 
     IDS_ERROR_COPYCOLOR      "Warning: The current color mode needs to have copy support added."
     IDS_WARN_TRANSPARENCY    "Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick Yes to agree to not use this mix for competition.  Click No to disagree and not use transparency."
+    IDS_SVC_WARNDECRYPT       "This version of SNK vs. Capcom uses encryption.  PalMod will need to decrypt this in order to use it.\n\nAre you sure you wish to continue?  Character edits may not work.  Portrait and stage edits will not work."
+    IDS_SVC_UNKNOWNCRYPTO     "This version of SNK vs. Capcom uses encryption that PalMod cannot read nor write. Palettes will not show up correctly.  Do not patch: we cannot write correctly to this encrypted ROMs"
+    IDS_SVC_WARNENCRYPT       "This ROM is encrypted.  In order to save these changes, we will need to re-encrypt everything, which can cause issues.\n\nAre you sure you wish to continue?  Please make sure you have backups."
+    IDS_SVC_CRYPTO_RO         "This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to this encrypted ROM.\n\nAre you sure you wish to continue?  Decryption will take a minute."
 END
 
 #endif    // English (United States) resources

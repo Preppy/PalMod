@@ -43,7 +43,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRed
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-    SetColorMode(ColMode::COLMODE_15);
+    SetColorMode(ColMode::COLMODE_RGB555_LE);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -67,21 +67,21 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRed
     m_nTotalInternalUnits = UsePaletteSetFor30() ? REDEARTH_A_NUMUNIT_30 : REDEARTH_A_NUMUNIT_31;
     m_nExtraUnit = UsePaletteSetFor30() ? REDEARTH_A_EXTRALOC_30 : REDEARTH_A_EXTRALOC_31;
 
-    const UINT32 nSafeCountFor30 = 29;
-    const UINT32 nSafeCountFor31 = 566;
+    const UINT32 nSafeCountFor30 = 124;
+    const UINT32 nSafeCountFor31 = 621;
 
     m_nSafeCountForThisRom = UsePaletteSetFor30() ? (nSafeCountFor30 + GetExtraCt(REDEARTH_A_EXTRALOC_30)) : (nSafeCountFor31 + GetExtraCt(REDEARTH_A_EXTRALOC_31));
     m_pszExtraFilename = UsePaletteSetFor30() ? EXTRA_FILENAME_REDEARTH_30 : EXTRA_FILENAME_REDEARTH_31;
     m_nTotalPaletteCount = UsePaletteSetFor30() ? m_nTotalPaletteCount30 : m_nTotalPaletteCount31;
-    m_nLowestKnownPaletteRomLocation = UsePaletteSetFor30() ? 0x737000 : 0x1de000;
+    m_nLowestKnownPaletteRomLocation = UsePaletteSetFor30() ? 0x734000 : 0x132600;
 
     InitDataBuffer();
 
     //Set game information
     nGameFlag = REDEARTH_A;
     nImgGameFlag = IMGDAT_SECTION_REDEARTH;
-    nImgUnitAmt = REDEARTH_A_NUM_IMG_UNITS;
     m_prgGameImageSet = REDEARTH_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(REDEARTH_A_IMG_UNITS);
 
     nFileAmt = 1;
 
@@ -410,6 +410,28 @@ sFileRule CGame_REDEARTH_A::GetRule(UINT16 nUnitId)
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
+}
+
+UINT32 CGame_REDEARTH_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Red Earth: Stages (Arcade ROM 30)", L"30", 0x074cab4d, 0 },
+        { L"Red Earth: Characters (Arcade ROM 31)", L"31", 0x14e2cad4, 0 },
+    };
+
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
 }
 
 UINT16 CGame_REDEARTH_A::GetCollectionCountForUnit(UINT16 nUnitId)

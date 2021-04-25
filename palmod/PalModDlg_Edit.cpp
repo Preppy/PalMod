@@ -13,8 +13,22 @@
 
 #include "debugutil.h"
 
-// We use the first non-white space printable character '!' as the base for edit/paste calculations.
-constexpr auto k_nASCIICharacterOffset = 33;
+// PalMod supports the following clipboard data:
+// * The Windows 10 color power toy format:
+//      #AABBGGRR 
+// * The PalMod format:
+//    ( GAMECODE_IN_ASCII LENGTH_OR_COLORCODE COLORBYTES )
+// We use k_nASCIICharacterOffset as the 0 position for the code characters so that they're printable.
+// We typically map GAMECODE back to the color code of interest.  However, we have an overflow issue.
+// Since GAMECODE overflows at 0n94 (encoded ~), we use GAMECODE '~' to indicate that the LENGTH
+// char is in fact a COLORCODE value, and use that to determine copy logic.
+// Storing the length in the LENGTH_OR_COLORCODE value also has overflow issues, 
+// so current versions of PalMod no longer do that.
+// The COLORBYTES data can repeat for either up to LENGTH times, OR can repeat any arbitrary number of times
+// provided the count of chars is divisible by the number of bytes needed for the indicated color.
+// Older versions of PalMod will know not to work with color strings they don't understand, since the GAMECODE
+// (or now COLORCODE) value will be unknown to that old version.
+//
 
 void CPalModDlg::CopyColorToClipboard(COLORREF crColor)
 {
@@ -206,44 +220,45 @@ void CPalModDlg::OnEditCopy()
         CStringA FormatTxt;
 
         BOOL bCopyAll = !CurrPal->GetSelAmt();
+        bool fHitError = false;
 
         g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Checking color mode\r\n");
 
         // You want to update this table so that older or newer versions of PalMod know the bpp of the 
         // copied colors.
-        // Here we map the color mode to the poster child game for that color mode.  Would make more sense
-        // to just use color mode, but that'd break compatibility.
+        // Here we map the color mode to the poster child game for historical color modes.  For all new
+        // color modes we directly store the color mode the 2nd byte to keep life simple
         switch (CurrGame->GetColorMode())
         {
-        case ColMode::COLMODE_9:
+        case ColMode::COLMODE_RGB333:
             // RGB333
             uCopyFlag1 = TOPF2005_SEGA+ k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_GBA:
+        case ColMode::COLMODE_BGR555_LE:
             // BGR555
             uCopyFlag1 = SSF2T_GBA + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_12A:
+        case ColMode::COLMODE_RGB444_BE:
             // RGB444
             uCopyFlag1 = MVC2_P + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_12A_LE:
+        case ColMode::COLMODE_RGB444_LE:
             // RGB444 litle endian
             uCopyFlag1 = DUMMY_RGB444_LE + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_15:
+        case ColMode::COLMODE_RGB555_LE:
             // RGB555
             uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_15ALT:
+        case ColMode::COLMODE_RGB555_BE:
             // RGB555
             uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_NEOGEO:
+        case ColMode::COLMODE_RGB666_NEOGEO:
             // RGB666
             uCopyFlag1 = NEOGEO_A + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_SHARPRGB:
+        case ColMode::COLMODE_RGB555_SHARP:
             uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_ARGB1888:
@@ -258,15 +273,26 @@ void CPalModDlg::OnEditCopy()
             cbColor = 4;
             uCopyFlag1 = UNICLR_A + k_nASCIICharacterOffset;
             break;
+        case ColMode::COLMODE_xRGB888:
+        case ColMode::COLMODE_xBGR888:
         default:
             {
-                CString strMsg;
-                if (strMsg.LoadString(IDS_ERROR_COPYCOLOR))
-                {
-                    MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-                }
-                uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
+                // OK, this overflows the 127 character ascii table we use.
+                // But since we've made copyflag2 obsolete, let's just hijack that and stuff the color mode there.
+                uCopyFlag1 = k_nEncodedColorStringOverflowIndicator;
+                uCopyFlag2 = min(k_nASCIIMaxValue, (UINT8)CurrGame->GetColorMode() + k_nASCIICharacterOffset);
+                cbColor = GetCbForColMode(CurrGame->GetColorMode());
                 break;
+            }
+        }
+
+        // If we've got an unhandled game OR we've overflowed past the printable character limit, warn the developer
+        if (fHitError)
+        {
+            CString strMsg;
+            if (strMsg.LoadString(IDS_ERROR_COPYCOLOR))
+            {
+                MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
 
@@ -298,6 +324,12 @@ void CPalModDlg::OnEditCopy()
 
                     //Only changed:
                     //FormatTxt.Format("%04X", (UINT16)((uCurrData << 8) | (uCurrData >> 8) & (UINT16)0xFF0F));
+                    break;
+                }
+                case 3:
+                {
+                    UINT32 uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[i]);
+                    FormatTxt.Format("%06X", uCurrData);
                     break;
                 }
                 case 4:
@@ -369,6 +401,13 @@ void CPalModDlg::OnEditCopy()
                         strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
                         break;
                     }
+                    case 3:
+                    {
+                        UINT32 uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[i]);
+                        // we deliberately drop alpha here
+                        strFormatU.Format(L"%02X %02X %02X ", (uCurrData & 0xFF0000) >> 16, (uCurrData & 0xFF00) >> 8, (uCurrData & 0xFF));
+                        break;
+                    }
                     case 4:
                     {
                         UINT32 uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[i]);
@@ -437,10 +476,10 @@ BOOL IsPasteFromPalMod()
     {
         if ((szTempStr[1] - k_nASCIICharacterOffset) < NUM_GAMES) //Gameflag
         {
-            UINT16 nPaletteCount = (0xFF & szTempStr[2]) - k_nASCIICharacterOffset;
-            UINT8 cbColorSize = GetCbForColorForGameFlag(szTempStr[1] - k_nASCIICharacterOffset);
+            UINT16 nPaletteCount = 0;
+            UINT8 cbColorSize = GetCbForColorForGameFlag(szTempStr[1] - k_nASCIICharacterOffset, szTempStr[2]);
 
-            if (nPaletteCount == 0)
+            if (cbColorSize != 0)
             {
                 nPaletteCount = (UINT16)((strlen(szTempStr) - 3) / (cbColorSize * 2));
             }
@@ -520,8 +559,9 @@ void CPalModDlg::OnEditPaste()
         char* szPasteBuff = szPasteStr.GetBuffer();
 
         // Do something with the data in 'buffer'
-        UINT8 uPasteGFlag = szPasteBuff[1] - k_nASCIICharacterOffset;
-        UINT8 cbColor = GetCbForColorForGameFlag(uPasteGFlag);
+        UINT8 uPasteGFlag1 = szPasteBuff[1] - k_nASCIICharacterOffset;
+        UINT8 uPasteGFlag2 = szPasteBuff[2];
+        UINT8 cbColor = GetCbForColorForGameFlag(uPasteGFlag1, uPasteGFlag2);
 
         // We want the number of colors per paste minus the () and game flag
         UINT16 uPasteAmt = (UINT16)((strlen(szPasteBuff) - 3) / (cbColor * 2));
@@ -537,32 +577,39 @@ void CPalModDlg::OnEditPaste()
 
             int nIndexCtr = 0, nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
             bool fWasColorImportedFromDifferentGame = false;
+            // validate that newly added code doesn't actually run into ascii table overflow
+            bool fWasOverflowHandled = (uPasteGFlag1 < k_nRawColorStringOverflowIndicator);
 
-            if (uCurrGFlag != uPasteGFlag)
+            if (uCurrGFlag != uPasteGFlag1)
             {
-                switch (uPasteGFlag)
+                switch (uPasteGFlag1)
                 {
                 case TOPF2005_SEGA:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_9;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB333;
                     break;
                 }
                 case DUMMY_RGB444_LE:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_12A_LE;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB444_LE;
                     break;
                 }
                 case DBFCI_A:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB1888;
                     break;
                 }
                 case GGXXACR_A:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB7888;
                     break;
                 }
                 case UNICLR_A:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB8888;
                     break;
@@ -588,8 +635,9 @@ void CPalModDlg::OnEditPaste()
                 case VSAV_A:
                 case VSAV2_A:
                 case XMVSF_A:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_12A;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB444_BE;
                     break;
                 }
                 case SFIII1_A:
@@ -605,8 +653,9 @@ void CPalModDlg::OnEditPaste()
                 case REDEARTH_A:
                 case REDEARTH_A_DIR_30:
                 case REDEARTH_A_DIR_31:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_15;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB555_LE;
                     break;
                 }
                 case CVS2_A:
@@ -614,8 +663,9 @@ void CPalModDlg::OnEditPaste()
                 case KOFXI_A:
                 case NGBC_A:
                 case SFIII3_D:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_15ALT;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB555_BE;
                     break;
                 }
                 case AOF1_A:
@@ -652,8 +702,9 @@ void CPalModDlg::OnEditPaste()
                 case SVCPLUSA_A:
                 case WakuWaku7_A:
                 case WINDJAMMERS_A:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_NEOGEO;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB666_NEOGEO;
                     break;
                 }
                 case BLEACH_DS:
@@ -665,28 +716,37 @@ void CPalModDlg::OnEditPaste()
                 case SSF2T_GBA:
                 case TMNTTF_SNES:
                 case XMMA_SNES:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_GBA;
+                    
+                    eColModeForPastedColor = ColMode::COLMODE_BGR555_LE;
                     break;
                 }
                 case DANKUGA_A:
+                // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
-                    eColModeForPastedColor = ColMode::COLMODE_SHARPRGB;
+                    eColModeForPastedColor = ColMode::COLMODE_RGB555_SHARP;
                     break;
                 }
+                case k_nRawColorStringOverflowIndicator:
                 default:
                 {
-                    // Do nothing: hopefully this is from a newer version of PalMod and they're pasting from/to the same game.
-                    OutputDebugString(L"WARNING: Using default paste logic.  You probably want directed handling.\n");
+                    fWasOverflowHandled = true;
+                    eColModeForPastedColor = DecodeColorFlag(uPasteGFlag2);
                     break;
                 }
+                }
+
+                if (!fWasOverflowHandled)
+                {
+                    MessageBox(L"Warning: ascii table overflow on copy.  PalMod needs to use the overflow handler for this game", GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_OK);
                 }
 
                 if (eCurrColMode != eColModeForPastedColor)
                 {
                     fWasColorImportedFromDifferentGame = true;
                     OutputDebugString(L"Pasted color is using a different color mode: switching to that game's color mode to ensure correct values...\n");
-                    CurrGame->SetColorMode(eColModeForPastedColor);
+                    CurrGame->_SetColorMode(eColModeForPastedColor);
                 }
             }
 
@@ -718,11 +778,36 @@ void CPalModDlg::OnEditPaste()
                     //Set the color mode back
                     //Round the values with the switched game flag
                     OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
-                    CurrGame->SetColorMode(eCurrColMode);
+                    CurrGame->_SetColorMode(eCurrColMode);
 
                     for (UINT16 i = 0; i < uPasteAmt; i++)
                     {
                         rgPasteCol[i] = CurrGame->ConvPal16(CurrGame->ConvCol16(rgPasteCol[i]));
+                    }
+                }
+                break;
+            }
+            case 3:
+            {
+                char szFormatStr24[] = "0x000000";
+
+                for (UINT16 i = 0; i < uPasteAmt; i++)
+                {
+                    memcpy(&szFormatStr24[2], &szPasteBuff[3 + (6 * i)], sizeof(UINT8) * 6);
+
+                    rgPasteCol[i] = CurrGame->ConvPal24((UINT32)strtoul(szFormatStr24, NULL, 16));
+                }
+
+                if (eCurrColMode != eColModeForPastedColor)
+                {
+                    //Set the color mode back
+                    //Round the values with the switched game flag
+                    OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
+                    CurrGame->_SetColorMode(eCurrColMode);
+
+                    for (UINT16 i = 0; i < uPasteAmt; i++)
+                    {
+                        rgPasteCol[i] = CurrGame->ConvPal24(CurrGame->ConvCol24(rgPasteCol[i]));
                     }
                 }
                 break;
@@ -743,7 +828,7 @@ void CPalModDlg::OnEditPaste()
                     //Set the color mode back
                     //Round the values with the switched game flag
                     OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
-                    CurrGame->SetColorMode(eCurrColMode);
+                    CurrGame->_SetColorMode(eCurrColMode);
 
                     for (UINT16 i = 0; i < uPasteAmt; i++)
                     {
@@ -857,7 +942,11 @@ void CPalModDlg::OnEditPaste()
         {
             colPasteCol = CurrGame->ConvPal16(CurrGame->ConvCol16(colPasteCol));
         }
-        else
+        else if (CurrGame->GameIsUsing24BitColor())
+        {
+            colPasteCol = CurrGame->ConvPal24(CurrGame->ConvCol24(colPasteCol));
+        }
+        else if (CurrGame->GameIsUsing32BitColor())
         {
             colPasteCol = CurrGame->ConvPal32(CurrGame->ConvCol32(colPasteCol));
         }

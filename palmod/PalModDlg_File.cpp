@@ -14,40 +14,46 @@ constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 // When you or change the data here, please also update the Read Me with that data.
 sSupportedGameList SupportedGameList[] =
 {
-    { AOF1_A,           L"Art of Fighting 1", L"Art of Fighting 1|044-p1.*|", GamePlatform::NEOGEO },
-    { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO },
+    { AOF1_A,           L"Art of Fighting 1", L"Art of Fighting 1|044-p1.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
+    { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.p1|", GamePlatform::NEOGEO },
     { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo }, // Sega
     { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).sfc|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
     { CVS2_A,           L"CVS2", L"CVS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
+    { DBZHD_SNES,       L"Dragon Ball Z: Hyper Dimension (SNES)", L"Dragon Ball Z: Hyper Dimension (SNES)|dragon ball z - hyper dimension (*).sfc|", GamePlatform::Nintendo },
     { DOUBLEDRAGON_A,   L"Double Dragon", L"Double Dragon|082-p1.*;ddrag_p1.rom|", GamePlatform::NEOGEO },
     { FatalFuryS_SNES,  L"Fatal Fury Special (SNES)", L"Fatal Fury Special (SNES)|Fatal Fury Special (USA).sfc|", GamePlatform::Nintendo },
-    { Garou_A,          L"Garou: MotW", L"Garou: MotW|kf.neo-sma|", GamePlatform::NEOGEO },
-    { GarouP_A,         L"Garou: MotW (Prototype)", L"Garou: MotW (Prototype)|proto_253-p1.p1;253-p1p.bin|", GamePlatform::NEOGEO },
+    { Garou_A,          L"Garou: MotW", L"Garou: MotW|kf.neo-sma|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+    { GarouP_A,         L"Garou: MotW (Prototype)", L"Garou: MotW (Prototype)|proto_253-p1.p1;253-p1p.bin|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { Garou_S,          L"Garou: MotW", L"Garou: MotW for Steam 2|p1.bin|", GamePlatform::Steam },
     { GUNDAM_SNES,      L"Gundam Wing: Endless Duel (SNES)", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).sfc|", GamePlatform::Nintendo },
     { JOJOS_A,          L"Jojo's: HFTF", L"Jojos (Japan): HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
     { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", GamePlatform::NEOGEO }, // DataEast
     { KOTM_A,           L"King of the Monsters", L"King of the Monsters (Neo-Geo)|016-p1.*;016-hp1.*|", GamePlatform::NEOGEO },
     { KIZUNA_A,         L"Kizuna Encounter", L"Kizuna Encounter|216-p1.*;ke_p1.rom|", GamePlatform::NEOGEO },
-    { KOF94_A,          L"KOF94", L"KOF94|055-p1.*|", GamePlatform::NEOGEO },
-    { KOF97_A,          L"KOF97", L"KOF97|232-p2.*;kof97_p2.rom|", GamePlatform::NEOGEO },
-    { KOF98_A,          L"KOF98", L"KOF98|242-p2.*;kof98_p2.rom|", GamePlatform::NEOGEO },
-    { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin|", GamePlatform::NEOGEO },
-    { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2|", GamePlatform::NEOGEO },
+    { KOF94_A,          L"KOF94", L"KOF94|055-p1.*|", GamePlatform::NEOGEO, GameSeries::KOF },
+    { KOF95_A,          L"KOF95", L"KOF95|084-p1.p1|", GamePlatform::NEOGEO, GameSeries::KOF },
+    { KOF96_A,          L"KOF96", L"KOF96|214-p2.sp2|", GamePlatform::NEOGEO, GameSeries::KOF },
+    { KOF97_A,          L"KOF97", L"KOF97|232-p2.*;kof97_p2.rom|", GamePlatform::NEOGEO, GameSeries::KOF },
+    { KOF98_A,          L"KOF98", L"KOF98|242-p2.*;kof98_p2.rom|", GamePlatform::NEOGEO, GameSeries::KOF },
+    { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
+    { KOF00N_A,         L"KOF00N", L"KOF00N|257-pg2.sp2;257-p2n.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
+    { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2|", GamePlatform::NEOGEO, GameSeries::KOF },
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
-    { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", GamePlatform::NEOGEO },
+    { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF02UM_S,        L"KOF02UM", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin|", GamePlatform::Steam },
-    { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", GamePlatform::NEOGEO },
+    { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOFXI_A,          L"KOFXI", L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", GamePlatform::SammyAtomiswave },
+    { LASTBLADE_A,     L"Last Blade", L"Last Blade|234-p1.p1|", GamePlatform::NEOGEO },
     { LASTBLADE2_A,     L"Last Blade 2", L"Last Blade 2 (Arcade)|243*.p1;LB2_P1.ROM|", GamePlatform::NEOGEO },
     { MATRIMELEE_A,     L"Matrimelee", L"Matrimelee|266-p2.sp2|", GamePlatform::NEOGEO },
-    { MMPR_SNES,        L"MMPR:TFE (SNES)", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc|", GamePlatform::Nintendo },
     { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", GamePlatform::CapcomCPS12 },
-    { MSHVSF_A,         L"MSHVSF", L"MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12 },
+    { MVC_A,            L"Marvel vs Capcom", L"MVC Arcade|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+    { MMX2_SNES,        L"Mega Man X2 (SNES)", L"Mega Man X2 (SNES)|Mega*Man X2 (USA).sfc|", GamePlatform::Nintendo },
+    { MMPR_SNES,        L"MMPR:TFE (SNES)", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc|", GamePlatform::Nintendo },
+    { MSHVSF_A,         L"MSHVSF", L"MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { MSHWOTG_SNES,     L"MSH: War of the Gems (SNES)", L"MSH: War of the Gems (SNES)|Marvel Super Heroes in War of the Gems (USA).sfc|", GamePlatform::Nintendo },
-    { MVC_A,            L"Marvel vs Capcom", L"MVC Arcade|mvc*.06*|", GamePlatform::CapcomCPS12 },
     // MarvelVsCapcom2.bin
     // Unlocked\MarvelVsCapcom2_unlocked.bin
     { MVC2_A,           L"MVC2", L"MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", GamePlatform::SegaNAOMI },
@@ -55,39 +61,43 @@ sSupportedGameList SupportedGameList[] =
     { NGBC_A,           L"NGBC", L"NGBC|NeoGeoBattleColliseum.bin|", GamePlatform::SammyAtomiswave },
     { NINJAMASTERS_A,   L"Ninja Master's", L"Ninja Master's|217-p2.*;ninjm_p2.rom|", GamePlatform::NEOGEO },
     { ROTD_A,           L"Rage of the Dragons", L"Rage of the Dragons|264-p1.*|", GamePlatform::NEOGEO },
-    { RBFF1_A,          L"Real Bout Fatal Fury", L"Real Bout Fatal Fury|095-p1.*;rbff1_p1.rom|", GamePlatform::NEOGEO },
-    { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2|240-p1.*;rb2_p1.rom|", GamePlatform::NEOGEO },
+    { RBFF1_A,          L"Real Bout Fatal Fury", L"Real Bout Fatal Fury|095-p1.*;rbff1_p1.rom|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+    { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2|240-p1.*;rb2_p1.rom|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
-    { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special|223*p1*|", GamePlatform::NEOGEO },
+    { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special|223*p1*|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { REDEARTH_A,       L"Red Earth", L"Red Earth (Stages: 30, Characters: 31)|30;31|", GamePlatform::CapcomCPS3 },
     { RODSM2_A,         L"Ring of Destruction: Slam Masters 2", L"Ring of Destruction: Slam Masters 2|smbe.05b|", GamePlatform::CapcomCPS12 },
-    { SAMSHO3_A,        L"Samurai Shodown III", L"Samurai Shodown III|087-p5.p5|", GamePlatform::NEOGEO },
-    { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.bin;222_p1.p1|", GamePlatform::NEOGEO },
-    { SAMSHO5_A,        L"Samurai Shodown V", L"Samurai Shodown V|270-p1.*|", GamePlatform::NEOGEO },
-    { SAMSHO5SP_A,      L"Samurai Shodown V Special", L"Samurai Shodown V Special|272-p1.*;p1*h*.bin|", GamePlatform::NEOGEO },
+    { SAMSHO1_A,        L"Samurai Shodown", L"Samurai Shodown|045-p1.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+    { SAMSHO2_A,        L"Samurai Shodown II", L"Samurai Shodown II|063-p1.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+    { SAMSHO3_A,        L"Samurai Shodown III", L"Samurai Shodown III|087-p5.p5|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+    { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.bin;222_p1.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+    { SAMSHO5_A,        L"Samurai Shodown V", L"Samurai Shodown V|270-p1.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+    { SAMSHO5SP_A,      L"Samurai Shodown V Special", L"Samurai Shodown V Special|272-p1.*;p1*h*.bin|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAVAGEREIGN_A,    L"Savage Reign", L"Savage Reign|059-p1.*;savag_p1.rom|", GamePlatform::NEOGEO },
-    { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", GamePlatform::CapcomCPS12 },
-    { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12 },
-    { SFA3_A,           L"SFA3", L"SFA3 sz3.09c|*.09*|", GamePlatform::CapcomCPS12 },
+    { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", GamePlatform::CapcomCPS12, GameSeries::SFA },
+    { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
+    { SFA3_A,           L"SFA3", L"SFA3 sz3.09c|*.09*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
     { SFZ3U_A,          L"SFZ3U", L"SFZ3U|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::SegaNAOMI },
-    { SFIII1_A,         L"SFIII:NG", L"SFIII:NG Arcade|50|", GamePlatform::CapcomCPS3 },
-    { SFIII2_A,         L"SFIII:2I", L"SFIII:2I Arcade|50|", GamePlatform::CapcomCPS3 },
+    { SFIII1_A,         L"SFIII:NG", L"SFIII:NG Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
+    { SFIII2_A,         L"SFIII:2I", L"SFIII:2I Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
     { SFIII3_A,         L"SFIII:3S", L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", GamePlatform::CapcomCPS3 },
-    { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12 },
-    { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f;bundleStreetFighterII_HF.mbundle|", GamePlatform::CapcomCPS12 },
-    { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", GamePlatform::CapcomCPS12 },
+    { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+    { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f;bundleStreetFighterII_HF.mbundle|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+    { SVCPLUSA_A,       L"SNK vs Capcom", L"SNK vs Capcom|svc-p2pl.bin;svc-p2sp.bin|", GamePlatform::NEOGEO },
+    { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SSF2T_GBA,        L"SSF2T: Revival (GBA)", L"SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|", GamePlatform::Nintendo },
     { SDODGEBALL_A,     L"Super Dodge Ball", L"Super Dodge Ball|208-p1.*;sdb_p1.rom|", GamePlatform::NEOGEO },
     { GEMFIGHTER_A,     L"Super Gem Fighter", L"Super Gem Fighter|pcf*.07|", GamePlatform::CapcomCPS12 },
     { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo|pzf.04*|", GamePlatform::CapcomCPS12 },
-    { SVCPLUSA_A,       L"SVC Plus A", L"SVC PlusA|svc-p2pl.bin|", GamePlatform::NEOGEO },
+    { TMNTTF_SNES,      L"Teenage Mutant Ninja Turtles: TF (SNES)", L"Teenage Mutant Ninja Turtles: TF (SNES)|sns-ky-0.u1;teenage mutant ninja turtles - tournament fighters (U*.s*c|", GamePlatform::Nintendo },
     { TOPF2005_SEGA,    L"Top Fighter 2005 (Mega Drive)", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::Sega },
-    { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2|vh2j.09|", GamePlatform::CapcomCPS12 },
-    { VSAV_A,           L"Vampire Savior", L"Vampire Savior|vm3*.10b|", GamePlatform::CapcomCPS12 },
-    { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2|vs2j.10|", GamePlatform::CapcomCPS12 },
+    { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2|vh2j.09|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
+    { VSAV_A,           L"Vampire Savior", L"Vampire Savior|vm3*.10b|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
+    { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2|vs2j.10|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
     { WakuWaku7_A,      L"Waku Waku 7", L"Waku Waku 7|225-p1.p1|", GamePlatform::NEOGEO },
     { WINDJAMMERS_A,    L"Windjammers", L"Windjammers|065-p1.p1|", GamePlatform::NEOGEO }, // Data East on NEOGEO
-    { XMVSF_A,          L"XMVSF", L"XMVSF|xvs*.05*|", GamePlatform::CapcomCPS12 },
+    { XMMA_SNES,        L"X-Men: Mutant Apocalypse (SNES)", L"X-Men: Mutant Apocalypse (SNES)|X-Men - Mutant Apocalypse (USA).sfc|", GamePlatform::Nintendo },
+    { XMVSF_A,          L"XMVSF", L"XMVSF|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };
 
@@ -275,6 +285,14 @@ void CPalModDlg::OnFileExit()
     OnClose();
 }
 
+void CPalModDlg::OnFileOpenExtrasFile()
+{
+    if (GetHost()->GetCurrGame() && GetHost()->GetCurrGame()->GameAllowsExtraFile())
+    {
+        GetHost()->GetCurrGame()->OpenExtraFile();
+    }
+}
+
 void CPalModDlg::OnFileCloseFileDir()
 {
     if (VerifyMsg(eVerifyType::VM_FILECHANGE))
@@ -326,20 +344,22 @@ void CPalModDlg::UpdateColorFormatMenu()
         PALWriteOutputOptions currWriteMode = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
         canChangeAlpha = canChangeFormat = GetHost()->GetCurrGame()->AllowUpdatingColorFormatForGame();
 
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_9) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB444, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_12A) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB444_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_12A_LE) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_15) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_ALT, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_15ALT) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_GBA, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_GBA) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_SHARPRGB, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_SHARPRGB) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB333) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB444, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB444_BE) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB444_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB444_LE) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_LE) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_ALT, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_BE) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_GBA, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR555_LE) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_SHARPRGB, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_SHARP) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB666_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_xRGB888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xRGB888) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_xBGR888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xBGR888) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB1888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB1888) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB7888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB7888) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB8888) ? MF_CHECKED : MF_UNCHECKED));
 
         // There's no allowance for alpha with NEOGEO colors
-        canChangeAlpha = canChangeAlpha && (currColMode != ColMode::COLMODE_NEOGEO);
+        canChangeAlpha = canChangeAlpha && (currColMode != ColMode::COLMODE_RGB666_NEOGEO);
 
         pSettMenu->CheckMenuItem(ID_ALPHASETTING_FIXED, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesFixedAlpha) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_ALPHASETTING_VARIABLE, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesVariableAlpha) ? MF_CHECKED : MF_UNCHECKED));
@@ -358,6 +378,8 @@ void CPalModDlg::UpdateColorFormatMenu()
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_GBA, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_SHARPRGB, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB666, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_xRGB888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_xBGR888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB1888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB7888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB8888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
@@ -554,56 +576,44 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     nDefaultGameFilter = nDefaultGameFilter & 0xffff; // eliminate the applied mask that we use to avoid existing menu items
 
     // The following logic ensures that their last used selection is the default filter view.
-    int nCurrentGameListIndex = 1; // 0 is for special data in OFN
     int nLastUsedGFlag = nDefaultGameFilter;
 
+    if ((nLastUsedGFlag == NUM_GAMES) &&
+        !GetLastUsedDirectory(nullptr, 0, &nLastUsedGFlag, TRUE, nullptr))
     {
-        if ((nLastUsedGFlag == NUM_GAMES) &&
-            !GetLastUsedDirectory(nullptr, 0, &nLastUsedGFlag, TRUE, nullptr))
+        // If we're here, that means that they have never used PalMod to load a game before.  Help them.
+        CString strInfo;
+        LPCWSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
+        LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
+
+        WCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
+        wcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
+        szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
+
+        LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
+
+        if (pszPipe != nullptr)
         {
-            // If we're here, that means that they have never used PalMod to load a game before.  Help them.
-            CString strInfo;
-            LPCWSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
-            LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
-
-            WCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
-            wcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
-            szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
-
-            LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
-
-            if (pszPipe != nullptr)
-            {
-                // Truncate off the filter information
-                pszPipe[0] = 0;
-            }
-
-            strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
-            MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
+            // Truncate off the filter information
+            pszPipe[0] = 0;
         }
+
+        strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
+        MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
     }
 
-    // Add the chosen game if any
+    DWORD dwLastUsedGameIndex = 0;
+
+    // Add all the games, and make sure we know how to map index to game code
     for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
     {
+        szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
+        SupportedGameList[nArrayPosition].nListedGameIndex = nArrayPosition;
+
         if (SupportedGameList[nArrayPosition].nInternalGameIndex == nLastUsedGFlag)
         {
-            szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
-            SupportedGameList[nArrayPosition].nListedGameIndex = nCurrentGameListIndex++;
-        }
-        else
-        {
-            SupportedGameList[nArrayPosition].nListedGameIndex = INVALID_UNIT_VALUE;
-        }
-    }
-
-    // Add everything else
-    for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
-    {
-        if (SupportedGameList[nArrayPosition].nListedGameIndex == INVALID_UNIT_VALUE)
-        {
-            szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
-            SupportedGameList[nArrayPosition].nListedGameIndex = nCurrentGameListIndex++;
+            // user nFilterIndex starts at 1
+            dwLastUsedGameIndex = SupportedGameList[nArrayPosition].nListedGameIndex + 1;
         }
     }
 
@@ -616,6 +626,10 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
         OFN_FILEMUSTEXIST | OFN_HIDEREADONLY,
         szGameFileDef
     );
+
+    OPENFILENAME &pOFN = OpenDialog.GetOFN();
+
+    pOFN.nFilterIndex = dwLastUsedGameIndex;
 
     if (OpenDialog.DoModal() == IDOK)
     {
@@ -639,7 +653,8 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
         {
             for (const sSupportedGameList currentGame : SupportedGameList)
             {
-                if (currentGame.nListedGameIndex == ofn.nFilterIndex)
+                // user nFilterIndex starts at 1
+                if ((currentGame.nListedGameIndex + 1) == ofn.nFilterIndex)
                 {
                     LoadGameFile(currentGame.nInternalGameIndex, (WCHAR*)ofn.lpstrFile);
                     break;
@@ -1389,11 +1404,185 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
     return fSuccess;
 }
 
+bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
+{
+    CString strMsg;
+    bool fSuccess = false;
+    CStdioFile SF3DLCFile;
+
+    if (SF3DLCFile.Open(pszFileName, CFile::modeRead))
+    {
+        bool fAbleToReadFile = false;
+
+        CString strCharacterName;
+        fAbleToReadFile = SF3DLCFile.ReadString(strCharacterName);
+        CString strDLCName;
+        fAbleToReadFile = fAbleToReadFile && SF3DLCFile.ReadString(strDLCName);
+        CString strDLCLoc;
+        fAbleToReadFile = fAbleToReadFile && SF3DLCFile.ReadString(strDLCLoc);
+        CString strDLCLocDesc;
+        fAbleToReadFile = fAbleToReadFile && SF3DLCFile.ReadString(strDLCLocDesc);
+
+        if (fAbleToReadFile)
+        {
+            CString strCurrentColors;
+            CGameClass* CurrGame = GetHost()->GetCurrGame();
+
+            // Only import the full set if we're on the core colors
+            sPalDef* spdPalInfo = MainPalGroup->GetPalDef(0);
+
+            int nActivePaletteId = spdPalInfo->uPalId;
+            int nPaletteDistance = CurrGame->GetCurrentPaletteIncrement();
+
+            if ((nActivePaletteId != 0) && (nPaletteDistance != 0))
+            {
+                // Convert from absolute index to step-based index
+                nActivePaletteId /= nPaletteDistance;
+            }
+
+            int nHowManyColorsToImport = CurrGame->GetImgOutPalAmt();
+            UINT16 nUnitId = spdPalInfo->uUnitId;
+
+            int iKeyPosition = strCharacterName.Find('=');
+            strCharacterName.Delete(0, iKeyPosition + 1);
+            OutputDebugString(strCharacterName);
+            OutputDebugString(L"\n");
+            iKeyPosition = strDLCName.Find('=');
+            OutputDebugString(strDLCName.Mid(iKeyPosition + 1));
+            OutputDebugString(L"\n");
+
+            // localize
+            CString strMsg;
+            strMsg.Format(L"This file appears to contain seven palettes for '%s'.\n\nDo you wish to apply %s to the current character?", strCharacterName.GetString(), (nActivePaletteId == 0) ? L"these" : L"the current color");
+
+            if (MessageBox(strMsg, GetHost()->GetAppName(), MB_YESNO) == IDYES)
+            {
+                ProcChange();
+
+                for (int iPaletteId = 0; iPaletteId < nHowManyColorsToImport; iPaletteId++)
+                {
+                    if (SF3DLCFile.ReadString(strCurrentColors))
+                    {
+                        if ((nActivePaletteId != 0) && (nActivePaletteId != iPaletteId))
+                        {
+                            // Only copy the current color
+                            continue;
+                        }
+
+                        const UINT32 nDLCColorCount = 64;
+                        COLORREF* pDLCColors = new COLORREF[nDLCColorCount];
+                        memset(pDLCColors, 0, nDLCColorCount * sizeof(COLORREF));
+
+                        // OK, now parse the actual colors.
+                        iKeyPosition = strCurrentColors.Find('=');
+                        CString strColorList = strCurrentColors.Mid(iKeyPosition + 1);
+                        OutputDebugString(strCurrentColors.Left(iKeyPosition));
+                        OutputDebugString(L"\n");
+                        for (UINT32 iPosition = 0; iPosition < nDLCColorCount; iPosition++)
+                        {
+                            // The final pass won't have a trailing ',', so just use the raw string at that point
+                            const int iEndPosition = strColorList.Find(',');
+                            CString strThisColor = (iEndPosition != -1) ? strColorList.Left(iEndPosition) : strColorList;
+
+                            UINT32 nThisColor = _wtol(strThisColor);
+                            UINT8 alpha = (nThisColor & 0xFF000000) >> 24;
+                            UINT8 red = (nThisColor & 0xFF0000) >> 16;
+                            UINT8 green = (nThisColor & 0xFF00) >> 8;
+                            UINT8 blue = (nThisColor & 0xFF);
+
+                            pDLCColors[iPosition] = RGB(red, green, blue) | (alpha << 24);
+
+                            //strMsg.Format(L"Converted color %u :: %s to rgb 0x%x\n", iPosition, strThisColor.GetString(), pDLCColors[iPosition]);
+                            //OutputDebugString(strMsg.GetString());
+
+                            strColorList.Delete(0, iEndPosition + 1);
+                        }
+
+                        // Now consume those colors...
+                        if (spdPalInfo->uPalId == (iPaletteId * nPaletteDistance))
+                        {
+                            // This is the active palette: use the palgroup logic so we get easy live updates
+                            UINT8* pVisiblePalette = (UINT8*)MainPalGroup->GetPalDef(0)->pPal;
+
+                            for (int iCurrentIndexInPalette = 0; iCurrentIndexInPalette < nDLCColorCount; iCurrentIndexInPalette++)
+                            {
+                                pVisiblePalette[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(GetRValue(pDLCColors[iCurrentIndexInPalette]));
+                                pVisiblePalette[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(GetGValue(pDLCColors[iCurrentIndexInPalette]));
+                                pVisiblePalette[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(GetBValue(pDLCColors[iCurrentIndexInPalette]));
+                            }
+                        }
+                        else
+                        {
+                            // These are the inactive palettes: we need to directly update these
+                            CurrGame->WritePal(nUnitId, (iPaletteId * nPaletteDistance), pDLCColors, nDLCColorCount);
+                            CurrGame->MarkPaletteDirty(nUnitId, (iPaletteId * nPaletteDistance));
+                        }
+
+                        delete[] pDLCColors;
+                    }
+                }
+
+                ImgDispCtrl->UpdateCtrl();
+                m_PalHost.UpdateAllPalCtrls();
+
+                UpdateMultiEdit(TRUE);
+                UpdateSliderSel();
+
+                fSuccess = true;
+
+                // localize
+                CString strStatus;
+                strStatus.Format(L"Imported %u %s palettes.", nHowManyColorsToImport, strCharacterName.GetString());
+                SetStatusText(strStatus);
+            }
+        }
+
+        if (!fSuccess)
+        {
+            // localize
+            SetStatusText(L"Palettes were not imported.");
+        }
+    }
+
+    return fSuccess;
+}
+
 void CPalModDlg::OnImportPalette()
 {
     if (bEnabled)
     {
-        static LPCWSTR szOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal|"
+        int nGameFlag = GetHost()->GetCurrGame()->GetGameFlag();
+        bool fIsSF3 = false;
+
+        switch (nGameFlag)
+        {
+        case SFIII3_A:
+        case SFIII3_D:
+        case SFIII3_A_DIR_51:
+        case SFIII2_A:
+        case SFIII1_A:
+        case SFIII3_A_DIR_10:
+        case SFIII3_A_DIR_4rd:
+        case SFIII3_A_DIR_EX:
+        case SFIII3_A_DIR_4rd_10:
+        case SFIII1_A_DIR:
+        case SFIII2_A_DIR:
+            fIsSF3 = true;
+            break;
+        default:
+            break;
+        }
+
+        static LPCWSTR szSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat|"
+                                              L"ACT Palette|*.act|"
+                                              L"Indexed PNG|*.png|"
+                                              L"Microsoft PAL|*.pal|"
+                                              L"Upside-down ACT Palette|*.act|"
+                                              L"Upside-down Indexed PNG|*.png|"
+                                              L"PS3 SF3::OE color file|*.txt.dat"
+                                              L"|" };
+
+        static LPCWSTR szOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat|"
                                           L"ACT Palette|*.act|"
                                           L"Indexed PNG|*.png|"
                                           L"Microsoft PAL|*.pal|"
@@ -1401,7 +1590,7 @@ void CPalModDlg::OnImportPalette()
                                           L"Upside-down Indexed PNG|*.png|"
                                           L"|" };
 
-        CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, *szOpenFilter);
+        CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, fIsSF3 ? *szSF3OpenFilter : *szOpenFilter);
 
         if (PaletteLoad.DoModal() == IDOK)
         {
@@ -1409,7 +1598,7 @@ void CPalModDlg::OnImportPalette()
             bool fSuccess = false;
 
             WCHAR szExtension[_MAX_EXT];
-            _tsplitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
+            _wsplitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
 
             if (_wcsicmp(szExtension, L".png") == 0)
             {
@@ -1419,6 +1608,10 @@ void CPalModDlg::OnImportPalette()
             {
                 LoadPaletteFromPAL(strFileName);
             }
+            else if (_wcsicmp(szExtension, L".dat") == 0)
+            {
+                LoadPaletteFromPS3SF3OETXT(strFileName);
+            }
             else
             {
                 LoadPaletteFromACT(strFileName, (PaletteLoad.GetOFN().nFilterIndex > 3));
@@ -1427,7 +1620,7 @@ void CPalModDlg::OnImportPalette()
     }
 }
 
-bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName)
+bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp)
 {
     CFile ActFile;
     bool fSuccess = false;
@@ -1440,7 +1633,7 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName)
         // ACT import wherein they mangle the parse for 768b files.  Thus we are forcibly using 772b here.
 
         const int k_nMaxColorsAllowed = 256;
-        int nActSz = k_nMaxColorsAllowed * 3;
+        const int nActSz = k_nMaxColorsAllowed * 3;
         UINT8* pAct = new UINT8[nActSz];
         memset(pAct, 0, nActSz);
 
@@ -1458,29 +1651,64 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName)
         }
 
         int nTotalColorsUsed = 0;
-        for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
-        {
-            pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
-            pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
-            pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
-        }
 
-        for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+        if (fRightsideUp)
         {
-            CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
-
-            if (pPalCtrlNextPage)
+            for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
             {
-                const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+                pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
+                pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+            }
 
-                for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++)
+            for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+            {
+                CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+                if (pPalCtrlNextPage)
                 {
-                    pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
-                    pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
-                    pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
-                    nTotalColorsUsed++;
+                    const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+
+                    for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++)
+                    {
+                        pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
+                        pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                        pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+                        nTotalColorsUsed++;
+                    }
                 }
             }
+        }
+        else //upside-down for fighter factory 3
+        {
+            int nWriteLocation = k_nMaxColorsAllowed - 1;
+            for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
+            {
+                pAct[(nWriteLocation - nTotalColorsUsed) * 3] = pPal[nTotalColorsUsed * 4];
+                pAct[(nWriteLocation - nTotalColorsUsed) * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                pAct[(nWriteLocation - nTotalColorsUsed) * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+            }
+
+            for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+            {
+                CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+                if (pPalCtrlNextPage)
+                {
+                    const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+
+                    for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++)
+                    {
+                        pAct[(nWriteLocation - nTotalColorsUsed) * 3] = pPal[nTotalColorsUsed * 4];
+                        pAct[(nWriteLocation - nTotalColorsUsed) * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                        pAct[(nWriteLocation - nTotalColorsUsed) * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+                        nTotalColorsUsed++;
+                    }
+                }
+            }
+
+            // max this since we started the write at the end
+            nTotalColorsUsed = k_nMaxColorsAllowed;
         }
 
         ActFile.Write(pAct, nActSz);
@@ -1623,6 +1851,7 @@ void CPalModDlg::OnExportPalette()
     static LPCWSTR szSaveFilter[] = { L"ACT Palette|*.act|"
                                       L"GIMP Palette File|*.gpl|"
                                       L"Microsoft PAL|*.pal|"
+                                      L"Upside-down ACT Palette|*.act|"
                                       L"|" };
 
     CFileDialog ActSave(FALSE, L"act", nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, *szSaveFilter);
@@ -1647,7 +1876,14 @@ void CPalModDlg::OnExportPalette()
         }
         else
         {
-            fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile);
+            if (ActSave.GetOFN().nFilterIndex == 4)
+            {
+                fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile, false);
+            }
+            else
+            {
+                fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile, true);
+            }
         }
 
         if (!fSuccess)

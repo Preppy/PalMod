@@ -35,7 +35,7 @@ CGame_SFIII2_A::CGame_SFIII2_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-    SetColorMode(ColMode::COLMODE_15);
+    SetColorMode(ColMode::COLMODE_RGB555_LE);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -65,8 +65,8 @@ CGame_SFIII2_A::CGame_SFIII2_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     //Set game information
     nGameFlag = SFIII2_A;
     nImgGameFlag = IMGDAT_SECTION_SF3;
-    nImgUnitAmt = SFIII2_A_NUM_IMG_UNITS;
     m_prgGameImageSet = SFIII2_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SFIII2_A_IMG_UNITS);
 
     nFileAmt = 1;
 

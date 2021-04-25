@@ -1,5 +1,19 @@
 #pragma once
 
+const UINT16 CFTE_SNES_IMG_UNITS[] =
+{
+    indexCFTESprites_BadMrFrosty,   // 0x17
+    indexCFTESprites_BlueSuedeGoo,  // 0x18
+    indexCFTESprites_Bonker,        // 0x19
+    indexCFTESprites_Helga,         // 0x1a
+    indexCFTESprites_IckyBodClay,   // 0x1b
+    indexCFTESprites_Taffy,         // 0x1c
+    indexCFTESprites_TheBlob,       // 0x1d
+    indexCFTESprites_Tiny,          // 0x1e
+    indexCFTESprites_Bonus,         // 0x1f
+    indexCFTESprites_Stages,        // 0x20
+};
+
 const sGame_PaletteDataset CFTE_MRFROSTY_PALETTES[] =
 {
     { L"Bad Mr. Frosty - Blue Hat", 0x10040, 0x10060, indexCFTESprites_BadMrFrosty, 0x0, &pairNext4 },

@@ -11,6 +11,19 @@
 // Fernandeath (Fernandez in the US)
 // Bonus-Kun
 
+const UINT16 WAKUWAKU7_A_IMG_UNITS[] =
+{
+    indexWakuWaku7Sprites_Arina,
+    indexWakuWaku7Sprites_DandyJ,
+    indexWakuWaku7Sprites_BonusKun,
+    indexWakuWaku7Sprites_Fernandeath,
+    indexWakuWaku7Sprites_Mauru,
+    indexWakuWaku7Sprites_Politank,
+    indexWakuWaku7Sprites_Rai,
+    indexWakuWaku7Sprites_Slash,
+    indexWakuWaku7Sprites_Tesse,
+};
+
 const sGame_PaletteDataset WakuWaku7_A_RAI_A_PALETTES[] =
 {
     { L"Rai A", 0xC8D8, 0xC8F8, indexWakuWaku7Sprites_Rai, 0x00 },

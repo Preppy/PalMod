@@ -33,7 +33,7 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
 {
     createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
+    SetColorMode(ColMode::COLMODE_RGB444_BE);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -45,7 +45,7 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1264 + GetExtraCt(MVC_A_EXTRALOC);
+    m_nSafeCountForThisRom = GetExtraCt(MVC_A_EXTRALOC) + 1288;
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
 
@@ -263,7 +263,7 @@ sDescTreeNode* CGame_MVC_A::InitDescTree()
     OutputDebugString(strMsg);
 
     nTotalPaletteCount = _InitDescTree(NewDescTree,
-                                    MVC_UNITS,
+                                    MVC_A_UNITS,
                                     nUnitCt,
                                     MVC_A_EXTRALOC,
                                     MVC_A_NUMUNIT,
@@ -294,43 +294,43 @@ sFileRule CGame_MVC_A::GetRule(UINT16 nUnitId)
 
 UINT16 CGame_MVC_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    return _GetCollectionCountForUnit(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, MVC_A_EXTRA_CUSTOM);
+    return _GetCollectionCountForUnit(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, MVC_A_EXTRA_CUSTOM);
 }
 
 UINT16 CGame_MVC_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    return _GetNodeCountForCollection(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nCollectionId, MVC_A_EXTRA_CUSTOM);
+    return _GetNodeCountForCollection(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nCollectionId, MVC_A_EXTRA_CUSTOM);
 }
 
 LPCWSTR CGame_MVC_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    return _GetDescriptionForCollection(MVC_UNITS, MVC_A_EXTRALOC, nUnitId, nCollectionId);
+    return _GetDescriptionForCollection(MVC_A_UNITS, MVC_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
 UINT16 CGame_MVC_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    return _GetPaletteCountForUnit(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, MVC_A_EXTRA_CUSTOM);
+    return _GetPaletteCountForUnit(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, MVC_A_EXTRA_CUSTOM);
 }
 
 const sGame_PaletteDataset* CGame_MVC_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    return _GetPaletteSet(MVC_UNITS, nUnitId, nCollectionId);
+    return _GetPaletteSet(MVC_A_UNITS, nUnitId, nCollectionId);
 }
 
 UINT16 CGame_MVC_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
 {
-    return _GetNodeSizeFromPaletteId(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM);
+    return _GetNodeSizeFromPaletteId(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM);
 }
 
 const sDescTreeNode* CGame_MVC_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
-    return _GetNodeFromPaletteId(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
+    return _GetNodeFromPaletteId(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
 const sGame_PaletteDataset* CGame_MVC_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
-    return _GetSpecificPalette(MVC_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM);
+    return _GetSpecificPalette(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM);
 }
 
 void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
@@ -510,6 +510,37 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
                     SetSourcePal(3, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance3, nSrcAmt, nNodeIncrement);
                     SetSourcePal(4, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance4, nSrcAmt, nNodeIncrement);
+                }
+                else if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == 3)
+                {
+                    const INT8 nPeerPaletteDistance1 = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    const INT8 nPeerPaletteDistance2 = paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner;
+                    const sGame_PaletteDataset* paletteDataSetToJoin1 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance1);
+                    const sGame_PaletteDataset* paletteDataSetToJoin2 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance2);
+                    fShouldUseAlternateLoadLogic = true;
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse)
+                            ))
+                    );
+
+                    //Set each palette
+                    sDescNode* JoinedNode[] = {
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+                    CreateDefPal(JoinedNode[2], 2);
+
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
                 }
                 else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {

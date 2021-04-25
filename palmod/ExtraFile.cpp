@@ -111,6 +111,7 @@ void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtra
 
                 if (CRegProc::GetMaxColorsPerPageOverride() != 0)
                 {
+                    // Extra files are allowed to to be larger if they really need it
                     k_colorsPerPage = CRegProc::GetMaxColorsPerPageOverride();
                 }
 
@@ -367,6 +368,7 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
             {
                 bool fIsDupe = false;
                 const UINT32 nCurrentEndOfPaletteRegion = (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
+
                 if ((nStartingOffsetToCheck >= m_nCurrentPaletteROMLocation) &&
                     (nStartingOffsetToCheck < nCurrentEndOfPaletteRegion))
                 {
@@ -417,6 +419,11 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
     CString strDupeText;
     bool fCollisionFound = false;
+    const DWORD k_maxColorsPerUnit = PAL_MAXAMT_16COLORSPERLINE;
+    bool fShownInternalErrorOnce = false;
+    // TMNTTF palettes are odd lengths, so for some of them we need to step back one
+    // color in order to assemble a working palette
+    const UINT32 k_nSpecialOverrideForTMNTTF = (nGameFlag == TMNTTF_SNES) ? 2 : 0;
 
     //Go through each character
     for (UINT16 nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
@@ -442,15 +449,17 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
             m_nLowestRomLocationThisPass = min(m_nLowestRomLocationThisPass, m_nCurrentPaletteROMLocation);
 
-            if (m_nCurrentPaletteSizeInColors == 0)
+            if (!fShownInternalErrorOnce && ((m_nCurrentPaletteSizeInColors > k_maxColorsPerUnit) || (m_nCurrentPaletteSizeInColors == 0)))
             {
+                // only show this error once in case something is very very wrong
+                fShownInternalErrorOnce = true;
                 CString strText;
-                strText.Format(L"WARNING: Bogus zero-length palette found: unit 0x%02x id 0x%02x '%s'.  Please fix this.\n", nUnitCtr, nPalCtr, m_pszCurrentPaletteName);
+                strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).\n\nThis needs to be fixed.\n", m_pszCurrentPaletteName, m_nCurrentPaletteSizeInColors, nUnitCtr, nPalCtr);
                 OutputDebugString(strText);
                 MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
             }
 
-            if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset))
+            if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset + k_nSpecialOverrideForTMNTTF))
             {
                 fCollisionFound = true;
                 nTotalDupesFound++;
@@ -515,7 +524,8 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 void CGameWithExtrasFile::CheckForErrorsInTables()
 {
     const UINT32 nPaletteCountForRom = m_nTotalPaletteCount;
-    bool fShouldCheckExtras = (GetPaletteCountForUnit(m_nExtraUnit) != 0);
+    const UINT16 nExtraCount = GetPaletteCountForUnit(m_nExtraUnit);
+    bool fShouldCheckExtras = (nExtraCount != 0);
     m_nLowestRomLocationThisPass = k_nBogusHighValue;
     m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
 
@@ -524,14 +534,23 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     GetHost()->GetPalModDlg()->SetStatusText(IDS_LOADING_DUPECHECK);
 
     CString strText;
-    strText.Format(L"CGameWithExtrasFile::CheckForErrorsInTables: Safe palette count for ROM is %u.  We found %u now including extras.\n", m_nSafeCountForThisRom, nPaletteCountForRom);
+    strText.Format(L"CGameWithExtrasFile::CheckForErrorsInTables: Expected palette count for this game is %u (%u internal).", m_nSafeCountForThisRom, (m_nSafeCountForThisRom - nExtraCount));
+    OutputDebugString(strText);
+    if (m_nSafeCountForThisRom == nPaletteCountForRom)
+    {
+        strText = L" Current palette count is unchanged.\n";
+    }
+    else
+    {
+        strText.Format(L" We found a total of %u now including %u extras.\n\tIf you added palettes, please update the game's known palette count to %u now.\n", nPaletteCountForRom, nExtraCount, (nPaletteCountForRom - nExtraCount));
+    }
     OutputDebugString(strText);
 
 #ifdef DEBUG
     // always run the dupe check logic in debug mode "just in case"
     bool fShouldRunDupeCheck = true;
 #else
-    bool fShouldRunDupeCheck = (nPaletteCountForRom == m_nSafeCountForThisRom);
+    bool fShouldRunDupeCheck = (nPaletteCountForRom != m_nSafeCountForThisRom);
 #endif
 
     int nInternalDupeCount = fShouldRunDupeCheck ?  GetDupeCountInDataset() : 0;
@@ -600,5 +619,46 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
             strText.Format(L"\tCGameWithExtrasFile::CheckForErrorsInTables: All Extras palettes were modifying expected ROM ranges (lowest was 0x%x, we expect no lower than 0x%x).  We're good.\n", m_nLowestRomExtrasLocationThisPass, GetLowestExpectedPaletteLocation());
             OutputDebugString(strText);
         }
+    }
+}
+
+void CGameWithExtrasFile::OpenExtraFile()
+{
+    if (m_pszExtraFilename)
+    {
+        WCHAR szExtraFileWithPath[MAX_PATH];
+
+        DWORD dwCharsUsed = GetModuleFileName(nullptr, szExtraFileWithPath, (DWORD)ARRAYSIZE(szExtraFileWithPath));
+        WCHAR* pszExeFileName = wcsrchr(szExtraFileWithPath, L'\\') + 1;
+        wcsncpy(pszExeFileName, m_pszExtraFilename, ARRAYSIZE(szExtraFileWithPath) - dwCharsUsed);
+
+        DWORD nFileAttrib = GetFileAttributes(szExtraFileWithPath);
+
+        if (nFileAttrib == INVALID_FILE_ATTRIBUTES)
+        {
+            // create file here: maybe prompt?
+            CFile ExtraFile;
+
+            if (ExtraFile.Open(szExtraFileWithPath, CFile::modeCreate | CFile::modeWrite))
+            {
+                CStringA strSampleText;
+
+                strSampleText = ";No existing Extras file for this game was found, so PalMod created one for you.\r\n";
+                strSampleText += ";Please refer to the Read Me for a brief guide to Extras files, or the longer guide on the PalMod site.\r\n\r\n";
+                strSampleText += ";When you are done making changes to the Extras file, reload the game to see those palettes.\r\n\r\n";
+
+                ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
+                ExtraFile.Close();
+            }
+        }
+
+        ShellExecute(
+            g_appHWnd,
+            L"open",
+            szExtraFileWithPath,
+            NULL,
+            NULL,
+            SW_SHOWNORMAL
+        );
     }
 }

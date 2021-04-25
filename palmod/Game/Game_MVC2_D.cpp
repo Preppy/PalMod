@@ -25,7 +25,7 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
+    SetColorMode(ColMode::COLMODE_RGB444_BE);
 
     InitializeStatics();
 
@@ -37,8 +37,8 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     //Set game information
     nGameFlag = MVC2_D;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = MVC2_D_NUM_IMG_UNITS;
     m_prgGameImageSet = MVC2_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(MVC2_IMG_UNITS);
 
     m_fGameUsesAlphaValue = true;
 
@@ -52,6 +52,7 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM;
     pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
 
     //Set the MVC2 supp game
     CurrMVC2 = this;

@@ -34,7 +34,7 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_NEOGEO);
+    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -57,8 +57,8 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = WakuWaku7_A;
     nImgGameFlag = IMGDAT_SECTION_WAKUWAKU7;
-    nImgUnitAmt = WAKUWAKU7_A_NUM_IMG_UNITS;
     m_prgGameImageSet = WAKUWAKU7_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(WAKUWAKU7_A_IMG_UNITS);
 
     nFileAmt = 1;
 

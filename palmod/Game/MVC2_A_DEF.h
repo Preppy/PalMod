@@ -6966,7 +6966,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x4ef6120, 0x4ef6140, indexCPS2_SilverSamurai, 0 },
     { L"(02) LP Color - Shadow Frame LP Color + Lumin-5", 0x4ef6140, 0x4ef6160, indexCPS2_SilverSamurai, 0 },
-    { L"(03) Shuriken", 0x4ef6160, 0x4ef6180, indexCPS2_SilverSamurai, 2 },
+    { L"(03) Shuriken / Slash", 0x4ef6160, 0x4ef6180, indexCPS2_SilverSamurai, 2 },
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6180, 0x4ef61a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef61a0, 0x4ef61c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef61c0, 0x4ef61e0, indexCPS2_SilverSamurai, 5 },
@@ -6978,7 +6978,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_LK[] =
 {
     { L"Main Color LK", 0x4ef6220, 0x4ef6240, indexCPS2_SilverSamurai, 0 },
     { L"(02) LP Color - Shadow Frame LP Color + Lumin-5", 0x4ef6240, 0x4ef6260, indexCPS2_SilverSamurai, 0 },
-    { L"(03) Shuriken", 0x4ef6260, 0x4ef6280, indexCPS2_SilverSamurai, 2 },
+    { L"(03) Shuriken / Slash", 0x4ef6260, 0x4ef6280, indexCPS2_SilverSamurai, 2 },
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6280, 0x4ef62a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef62a0, 0x4ef62c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef62c0, 0x4ef62e0, indexCPS2_SilverSamurai, 5 },
@@ -6990,7 +6990,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_HP[] =
 {
     { L"Main Color HP", 0x4ef6320, 0x4ef6340, indexCPS2_SilverSamurai, 0 },
     { L"(02) LP Color - Shadow Frame LP Color + Lumin-5", 0x4ef6340, 0x4ef6360, indexCPS2_SilverSamurai, 0 },
-    { L"(03) Shuriken", 0x4ef6360, 0x4ef6380, indexCPS2_SilverSamurai, 2 },
+    { L"(03) Shuriken / Slash", 0x4ef6360, 0x4ef6380, indexCPS2_SilverSamurai, 2 },
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6380, 0x4ef63a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef63a0, 0x4ef63c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef63c0, 0x4ef63e0, indexCPS2_SilverSamurai, 5 },
@@ -7002,7 +7002,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_HK[] =
 {
     { L"Main Color HK", 0x4ef6420, 0x4ef6440, indexCPS2_SilverSamurai, 0 },
     { L"(02) LP Color - Shadow Frame LP Color + Lumin-5", 0x4ef6440, 0x4ef6460, indexCPS2_SilverSamurai, 0 },
-    { L"(03) Shuriken", 0x4ef6460, 0x4ef6480, indexCPS2_SilverSamurai, 2 },
+    { L"(03) Shuriken / Slash", 0x4ef6460, 0x4ef6480, indexCPS2_SilverSamurai, 2 },
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6480, 0x4ef64a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef64a0, 0x4ef64c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef64c0, 0x4ef64e0, indexCPS2_SilverSamurai, 5 },
@@ -7014,7 +7014,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_A1[] =
 {
     { L"Main Color A1", 0x4ef6520, 0x4ef6540, indexCPS2_SilverSamurai, 0 },
     { L"(02) LP Color - Shadow Frame LP Color + Lumin-5", 0x4ef6540, 0x4ef6560, indexCPS2_SilverSamurai, 0 },
-    { L"(03) Shuriken", 0x4ef6560, 0x4ef6580, indexCPS2_SilverSamurai, 2 },
+    { L"(03) Shuriken / Slash", 0x4ef6560, 0x4ef6580, indexCPS2_SilverSamurai, 2 },
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6580, 0x4ef65a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef65a0, 0x4ef65c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef65c0, 0x4ef65e0, indexCPS2_SilverSamurai, 5 },
@@ -7026,7 +7026,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_A2[] =
 {
     { L"Main Color A2", 0x4ef6620, 0x4ef6640, indexCPS2_SilverSamurai, 0 },
     { L"(02) LP Color - Shadow Frame LP Color + Lumin-5", 0x4ef6640, 0x4ef6660, indexCPS2_SilverSamurai, 0 },
-    { L"(03) Shuriken", 0x4ef6660, 0x4ef6680, indexCPS2_SilverSamurai, 2 },
+    { L"(03) Shuriken / Slash", 0x4ef6660, 0x4ef6680, indexCPS2_SilverSamurai, 2 },
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6680, 0x4ef66a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef66a0, 0x4ef66c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef66c0, 0x4ef66e0, indexCPS2_SilverSamurai, 5 },

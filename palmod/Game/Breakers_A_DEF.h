@@ -6,34 +6,58 @@
 // * Run PalMod: the new headers will be printed to debug out
 // That should be it.  Good luck.
 
+const UINT16 BREAKERS_A_IMG_UNITS[] =
+{
+    indexBreakersSprites_AlsionIII,
+    indexBreakersSprites_BaiHu,
+    indexBreakersSprites_Condor,
+    indexBreakersSprites_DaoLong,
+    indexBreakersSprites_Maherl,
+    indexBreakersSprites_Pielle,
+    indexBreakersSprites_Rila,
+    indexBreakersSprites_Saizo,
+    indexBreakersSprites_Sho,
+    indexBreakersSprites_Tia,
+};
+
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_A[] =
 {
     { L"Sho A", 0x135eaa, 0x135eca, indexBreakersSprites_Sho },
     { L"Sho A Super Trail", 0x135f4a, 0x135f6a, indexBreakersSprites_Sho },
+    { L"Sho A VS Portrait", 0x1b6e4e, 0x1b6eee },
+    { L"Sho A Win Portrait", 0x1cb3d6, 0x1cb436 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_B[] =
 {
     { L"Sho B", 0x135eca, 0x135eea, indexBreakersSprites_Sho },
     { L"Sho B Super Trail", 0x135f6a, 0x135f8a, indexBreakersSprites_Sho },
+    { L"Sho B VS Portrait", 0x1b6eee, 0x1b6f8e },
+    { L"Sho B Win Portrait", 0x1cb436, 0x1cb496 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_C[] =
 {
     { L"Sho C", 0x135eea, 0x135f0a, indexBreakersSprites_Sho },
     { L"Sho C Super Trail", 0x135f8a, 0x135faa, indexBreakersSprites_Sho },
+    { L"Sho C VS Portrait", 0x1b6f8e, 0x1b702e },
+    { L"Sho C Win Portrait", 0x1cb496, 0x1cb4f6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_D[] =
 {
     { L"Sho D", 0x135f0a, 0x135f2a, indexBreakersSprites_Sho },
     { L"Sho D Super Trail", 0x135fca, 0x135fea, indexBreakersSprites_Sho },
+    { L"Sho D VS Portrait", 0x1b702e, 0x1b70ce },
+    { L"Sho D Win Portrait", 0x1cb4f6, 0x1cb556 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_JIN_PALETTES[] =
 {
     { L"Jin", 0x135f2a, 0x135f4a, indexBreakersSprites_Sho },
     { L"Jin Super Trail", 0x135faa, 0x135fca, indexBreakersSprites_Sho },
+    { L"Jin VS Portrait", 0x1b70ce, 0x1b716e },
+    { L"Jin Win Portrait", 0x1cb556, 0x1cb5b6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_SHARED[] =
@@ -60,6 +84,8 @@ const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_A[] =
     { L"Dao A Super Trail", 0x13eefa, 0x13ef1a, indexBreakersSprites_DaoLong },
     { L"Dao A Fireball", 0x13f05a, 0x13f07a },
     { L"Dao A Bright", 0x13f0da, 0x13f0fa, indexBreakersSprites_DaoLong },
+    { L"Dao A VS Portrait", 0x1b716e, 0x1b720e },
+    { L"Dao A Win Portrait", 0x1cb5b6, 0x1cb616 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_B[] =
@@ -68,6 +94,8 @@ const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_B[] =
     { L"Dao B Super Trail", 0x13ef1a, 0x13ef3a, indexBreakersSprites_DaoLong },
     { L"Dao B Fireball", 0x13f07a, 0x13f09a },
     { L"Dao B Bright", 0x13f0fa, 0x13f11a, indexBreakersSprites_DaoLong },
+    { L"Dao B VS Portrait", 0x1b720e, 0x1b72ae },
+    { L"Dao B Win Portrait", 0x1cb616, 0x1cb676 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_C[] =
@@ -76,6 +104,8 @@ const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_C[] =
     { L"Dao C Super Trail", 0x13ef3a, 0x13ef5a, indexBreakersSprites_DaoLong },
     { L"Dao C Fireball", 0x13f09a, 0x13f0ba },
     { L"Dao C Bright", 0x13f11a, 0x13f13a, indexBreakersSprites_DaoLong },
+    { L"Dao C VS Portrait", 0x1b72ae, 0x1b734e },
+    { L"Dao C Win Portrait", 0x1cb676, 0x1cb6d6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_D[] =
@@ -84,6 +114,8 @@ const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_D[] =
     { L"Dao D Super Trail", 0x13ef5a, 0x13ef7a, indexBreakersSprites_DaoLong },
     { L"Dao D Fireball", 0x13f0ba, 0x13f0da },
     { L"Dao D Bright", 0x13f13a, 0x13f15a, indexBreakersSprites_DaoLong },
+    { L"Dao D VS Portrait", 0x1b734e, 0x1b73ee },
+    { L"Dao D Win Portrait", 0x1cb6d6, 0x1cb736 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_LIU_PALETTES[] =
@@ -91,6 +123,8 @@ const sGame_PaletteDataset BREAKERS_A_LIU_PALETTES[] =
     { L"Liu", 0x13eeda, 0x13eefa, indexBreakersSprites_DaoLong },
     { L"Liu Super Trail", 0x13ef7a, 0x13ef9a, indexBreakersSprites_DaoLong },
     { L"Liu-Khai CPU ONLY Bright", 0x13f15a, 0x13f17a, indexBreakersSprites_DaoLong },
+    { L"Liu VS Portrait", 0x1b73ee, 0x1b748e },
+    { L"Liu Win Portrait", 0x1cb736, 0x1cb796 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_SHARED[] =
@@ -114,6 +148,8 @@ const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_A[] =
     { L"Condor A", 0x146778, 0x146798, indexBreakersSprites_Condor },
     { L"Condor A Super Trail", 0x146818, 0x146838, indexBreakersSprites_Condor },
     { L"Condor A Zap Attack", 0x146978, 0x146998 },
+    { L"Condor A VS Portrait", 0x1b748e, 0x1b752e },
+    { L"Condor A Win Portrait", 0x1cb796, 0x1cb7f6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_B[] =
@@ -121,6 +157,8 @@ const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_B[] =
     { L"Condor B", 0x146798, 0x1467b8, indexBreakersSprites_Condor },
     { L"Condor B Super Trail", 0x146838, 0x146858, indexBreakersSprites_Condor },
     { L"Condor B Zap Attack", 0x146998, 0x1469b8 },
+    { L"Condor B VS Portrait", 0x1b752e, 0x1b75ce },
+    { L"Condor B Win Portrait", 0x1cb7f6, 0x1cb856 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_C[] =
@@ -128,6 +166,8 @@ const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_C[] =
     { L"Condor C", 0x1467b8, 0x1467d8, indexBreakersSprites_Condor },
     { L"Condor C Super Trail", 0x146858, 0x146878, indexBreakersSprites_Condor },
     { L"Condor C Zap Attack", 0x1469b8, 0x1469d8 },
+    { L"Condor C VS Portrait", 0x1b75ce, 0x1b766e },
+    { L"Condor C Win Portrait", 0x1cb856, 0x1cb8b6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_D[] =
@@ -135,12 +175,16 @@ const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_D[] =
     { L"Condor D", 0x1467d8, 0x1467f8, indexBreakersSprites_Condor },
     { L"Condor D Super Trail", 0x146878, 0x146898, indexBreakersSprites_Condor },
     { L"Condor D Zap Attack", 0x1469d8, 0x1469f8 },
+    { L"Condor D VS Portrait", 0x1b766e, 0x1b770e },
+    { L"Condor D Win Portrait", 0x1cb8b6, 0x1cb916 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_GIGARS_PALETTES[] =
 {
     { L"Gigars", 0x1467f8, 0x146818, indexBreakersSprites_Condor },
     { L"Gigars Super Trail", 0x146898, 0x1468b8, indexBreakersSprites_Condor },
+    { L"Gigars VS Portrait", 0x1b770e, 0x1b77ae },
+    { L"Gigars Win Portrait", 0x1cb916, 0x1cb976 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_SHARED[] =
@@ -165,6 +209,8 @@ const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_A[] =
     { L"Tia A Super Trail", 0x152548, 0x152568, indexBreakersSprites_Tia },
     { L"Tia A Lighting Power", 0x1526a8, 0x1526c8 },
     { L"Tia A Lighting Power 2", 0x152728, 0x152748 },
+    { L"Tia A VS Portrait", 0x1b77ae, 0x1b784e },
+    { L"Tia A Win Portrait", 0x1cb976, 0x1cb9d6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_B[] =
@@ -173,6 +219,8 @@ const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_B[] =
     { L"Tia B Super Trail", 0x152568, 0x152588, indexBreakersSprites_Tia },
     { L"Tia B Lighting Power", 0x1526c8, 0x1526e8 },
     { L"Tia B Lighting Power 2", 0x152748, 0x152768 },
+    { L"Tia B VS Portrait", 0x1b784e, 0x1b78ee },
+    { L"Tia B Win Portrait", 0x1cb9d6, 0x1cba36 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_C[] =
@@ -181,6 +229,8 @@ const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_C[] =
     { L"Tia C Super Trail", 0x152588, 0x1525a8, indexBreakersSprites_Tia },
     { L"Tia C Lighting Power", 0x1526e8, 0x152708 },
     { L"Tia C Lighting Power 2", 0x152768, 0x152788 },
+    { L"Tia C VS Portrait", 0x1b78ee, 0x1b798e },
+    { L"Tia C Win Portrait", 0x1cba36, 0x1cba96 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_D[] =
@@ -189,12 +239,16 @@ const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_D[] =
     { L"Tia D Super Trail", 0x1525a8, 0x1525c8, indexBreakersSprites_Tia },
     { L"Tia D Lighting Power", 0x152708, 0x152728 },
     { L"Tia D Lighting Power 2", 0x152788, 0x1527a8 },
+    { L"Tia D VS Portrait", 0x1b798e, 0x1b7a2e },
+    { L"Tia D Win Portrait", 0x1cba96, 0x1cbaf6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SHELLY_PALETTES[] =
 {
     { L"Shelly", 0x152528, 0x152548, indexBreakersSprites_Tia },
     { L"Shelly Super Trail", 0x1525c8, 0x1525e8, indexBreakersSprites_Tia },
+    { L"Shelly VS Portrait", 0x1b7a2e, 0x1b7ace },
+    { L"Shelly Win Portrait", 0x1cbaf6, 0x1cbb56 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_SHARED[] =
@@ -219,6 +273,8 @@ const sGame_PaletteDataset BREAKERS_A_RILA_PALETTES_A[] =
     { L"Rila A", 0x15b354, 0x15b374, indexBreakersSprites_Rila },
     { L"Rila A Super Trail", 0x15b3f4, 0x15b414, indexBreakersSprites_Rila },
     { L"Rila A Shine Beast", 0x15b554, 0x15b574 },
+    { L"Rila A VS Portrait", 0x1b7ace, 0x1b7b6e },
+    { L"Rila A Win Portrait", 0x1cbb56, 0x1cbbb6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_RILA_PALETTES_B[] =
@@ -226,6 +282,8 @@ const sGame_PaletteDataset BREAKERS_A_RILA_PALETTES_B[] =
     { L"Rila B", 0x15b374, 0x15b394, indexBreakersSprites_Rila },
     { L"Rila B Super Trail", 0x15b414, 0x15b434, indexBreakersSprites_Rila },
     { L"Rila B Shine Beast", 0x15b574, 0x15b594 },
+    { L"Rila B VS Portrait", 0x1b7b6e, 0x1b7c0e },
+    { L"Rila B Win Portrait", 0x1cbbb6, 0x1cbc16 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_RILA_PALETTES_C[] =
@@ -233,6 +291,8 @@ const sGame_PaletteDataset BREAKERS_A_RILA_PALETTES_C[] =
     { L"Rila C", 0x15b394, 0x15b3b4, indexBreakersSprites_Rila },
     { L"Rila C Super Trail", 0x15b434, 0x15b454, indexBreakersSprites_Rila },
     { L"Rila C Shine Beast", 0x15b594, 0x15b5b4 },
+    { L"Rila C VS Portrait", 0x1b7c0e, 0x1b7cae },
+    { L"Rila C Win Portrait", 0x1cbc16, 0x1cbc76 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_RILA_PALETTES_D[] =
@@ -240,12 +300,16 @@ const sGame_PaletteDataset BREAKERS_A_RILA_PALETTES_D[] =
     { L"Rila D", 0x15b3b4, 0x15b3d4, indexBreakersSprites_Rila },
     { L"Rila D Super Trail", 0x15b454, 0x15b474, indexBreakersSprites_Rila },
     { L"Rila D Shine Beast", 0x15b5b4, 0x15b5d4 },
+    { L"Rila D VS Portrait", 0x1b7cae, 0x1b7d4e },
+    { L"Rila D Win Portrait", 0x1cbc76, 0x1cbcd6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SANDRA_PALETTES[] =
 {
     { L"Sandra", 0x15b3d4, 0x15b3f4, indexBreakersSprites_Rila },
     { L"Sandra Super Trail", 0x15b474, 0x15b494, indexBreakersSprites_Rila },
+    { L"Sandra VS Portrait", 0x1b7d4e, 0x1b7dee },
+    { L"Sandra Win Portrait", 0x1cbcd6, 0x1cbd36 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_RILA_PALETTES_SHARED[] =
@@ -273,6 +337,8 @@ const sGame_PaletteDataset BREAKERS_A_ALSION_PALETTES_A[] =
     { L"Alsion A Dash Attacks", 0x164406, 0x164426 },
     { L"Alsion A Teleport", 0x164486, 0x1644a6 },
     { L"Alsion A Deadly Claw", 0x164546, 0x164566 },
+    { L"Alsion A VS Portrait", 0x1b7dee, 0x1b7e8e },
+    { L"Alsion A Win Portrait", 0x1cbd36, 0x1cbd96 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_ALSION_PALETTES_B[] =
@@ -282,6 +348,8 @@ const sGame_PaletteDataset BREAKERS_A_ALSION_PALETTES_B[] =
     { L"Alsion B Dash Attacks", 0x164426, 0x164446 },
     { L"Alsion B Teleport", 0x1644a6, 0x1644c6 },
     { L"Alsion B Deadly Claw", 0x164566, 0x164586 },
+    { L"Alsion B VS Portrait", 0x1b7e8e, 0x1b7f2e },
+    { L"Alsion B Win Portrait", 0x1cbd96, 0x1cbdf6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_ALSION_PALETTES_C[] =
@@ -291,6 +359,8 @@ const sGame_PaletteDataset BREAKERS_A_ALSION_PALETTES_C[] =
     { L"Alsion C Dash Attacks", 0x164446, 0x164466 },
     { L"Alsion C Teleport", 0x1644c6, 0x1644e6 },
     { L"Alsion C Deadly Claw", 0x164586, 0x1645a6 },
+    { L"Alsion C VS Portrait", 0x1b7f2e, 0x1b7fce },
+    { L"Alsion C Win Portrait", 0x1cbdf6, 0x1cbe56 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_ALSION_PALETTES_D[] =
@@ -300,12 +370,16 @@ const sGame_PaletteDataset BREAKERS_A_ALSION_PALETTES_D[] =
     { L"Alsion D Dash Attacks", 0x164466, 0x164486 },
     { L"Alsion D Teleport", 0x1644e6, 0x164506 },
     { L"Alsion D Deadly Claw", 0x1645a6, 0x1645c6 },
+    { L"Alsion D VS Portrait", 0x1b7fce, 0x1b806e },
+    { L"Alsion D Win Portrait", 0x1cbe56, 0x1cbeb6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_ATOUM_PALETTES[] =
 {
     { L"Atoum", 0x164286, 0x1642a6, indexBreakersSprites_AlsionIII },
     { L"Atoum Super Trail", 0x164326, 0x164346, indexBreakersSprites_AlsionIII },
+    { L"Atoum VS Portrait", 0x1b806e, 0x1b810e },
+    { L"Atoum Win Portrait", 0x1cbeb6, 0x1cbf16 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_ALSION_PALETTES_SHARED[] =
@@ -338,6 +412,8 @@ const sGame_PaletteDataset BREAKERS_A_PIELLE_PALETTES_A[] =
     { L"Pielle A Bonjour Shot", 0x16d422, 0x16d442 },
     { L"Pielle A Roses", 0x16d4a2, 0x16d4c2 },
     { L"Pielle A Special Slash", 0x16d562, 0x16d582 },
+    { L"Pielle A VS Portrait", 0x1b810e, 0x1b81ae },
+    { L"Pielle A Win Portrait", 0x1cbf16, 0x1cbf76 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_PIELLE_PALETTES_B[] =
@@ -347,6 +423,8 @@ const sGame_PaletteDataset BREAKERS_A_PIELLE_PALETTES_B[] =
     { L"Pielle B Bonjour Shot", 0x16d442, 0x16d462 },
     { L"Pielle B Roses", 0x16d4c2, 0x16d4e2 },
     { L"Pielle B Special Slash", 0x16d582, 0x16d5a2 },
+    { L"Pielle B VS Portrait", 0x1b81ae, 0x1b824e },
+    { L"Pielle B Win Portrait", 0x1cbf76, 0x1cbfd6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_PIELLE_PALETTES_C[] =
@@ -356,6 +434,8 @@ const sGame_PaletteDataset BREAKERS_A_PIELLE_PALETTES_C[] =
     { L"Pielle C Bonjour Shot", 0x16d462, 0x16d482 },
     { L"Pielle C Roses", 0x16d4e2, 0x16d502 },
     { L"Pielle C Special Slash", 0x16d5a2, 0x16d5c2 },
+    { L"Pielle C VS Portrait", 0x1b824e, 0x1b82ee },
+    { L"Pielle C Win Portrait", 0x1cbfd6, 0x1cc036 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_PIELLE_PALETTES_D[] =
@@ -365,12 +445,16 @@ const sGame_PaletteDataset BREAKERS_A_PIELLE_PALETTES_D[] =
     { L"Pielle D Bonjour Shot", 0x16d482, 0x16d4a2 },
     { L"Pielle D Roses", 0x16d502, 0x16d522 },
     { L"Pielle D Special Slash", 0x16d5c2, 0x16d5e2 },
+    { L"Pielle D VS Portrait", 0x1b82ee, 0x1b838e },
+    { L"Pielle D Win Portrait", 0x1cc036, 0x1cc096 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_GEORGE_PALETTES[] =
 {
     { L"George", 0x16d2a2, 0x16d2c2, indexBreakersSprites_Pielle },
     { L"George Super Trail", 0x16d342, 0x16d362, indexBreakersSprites_Pielle },
+    { L"George VS Portrait", 0x1b838e, 0x1b842e },
+    { L"George Win Portrait", 0x1cc096, 0x1cc0f6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_PIELLE_PALETTES_SHARED[] =
@@ -395,6 +479,8 @@ const sGame_PaletteDataset BREAKERS_A_MAHERL_PALETTES_A[] =
     { L"Maherl A", 0x177288, 0x1772a8, indexBreakersSprites_Maherl },
     { L"Maherl A Super Trail", 0x177328, 0x177348, indexBreakersSprites_Maherl },
     { L"Maherl A Cadabra Bomber", 0x177488, 0x1774a8 },
+    { L"Maherl A VS Portrait", 0x1b842e, 0x1b84ce },
+    { L"Maherl A Win Portrait", 0x1cc0f6, 0x1cc156 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_MAHERL_PALETTES_B[] =
@@ -402,6 +488,8 @@ const sGame_PaletteDataset BREAKERS_A_MAHERL_PALETTES_B[] =
     { L"Maherl B", 0x1772a8, 0x1772c8, indexBreakersSprites_Maherl },
     { L"Maherl B Super Trail", 0x177348, 0x177368, indexBreakersSprites_Maherl },
     { L"Maherl B Cadabra Bomber", 0x1774a8, 0x1774c8 },
+    { L"Maherl B VS Portrait", 0x1b84ce, 0x1b856e },
+    { L"Maherl B Win Portrait", 0x1cc156, 0x1cc1b6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_MAHERL_PALETTES_C[] =
@@ -409,6 +497,8 @@ const sGame_PaletteDataset BREAKERS_A_MAHERL_PALETTES_C[] =
     { L"Maherl C", 0x1772c8, 0x1772e8, indexBreakersSprites_Maherl },
     { L"Maherl C Super Trail", 0x177368, 0x177388, indexBreakersSprites_Maherl },
     { L"Maherl C Cadabra Bomber", 0x1774c8, 0x1774e8 },
+    { L"Maherl C VS Portrait", 0x1b856e, 0x1b860e },
+    { L"Maherl C Win Portrait", 0x1cc1b6, 0x1cc216 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_MAHERL_PALETTES_D[] =
@@ -416,12 +506,16 @@ const sGame_PaletteDataset BREAKERS_A_MAHERL_PALETTES_D[] =
     { L"Maherl D", 0x1772e8, 0x177308, indexBreakersSprites_Maherl },
     { L"Maherl D Super Trail", 0x177388, 0x1773a8, indexBreakersSprites_Maherl },
     { L"Maherl D Cadabra Bomber", 0x1774e8, 0x177508 },
+    { L"Maherl D VS Portrait", 0x1b860e, 0x1b86ae },
+    { L"Maherl D Win Portrait", 0x1cc216, 0x1cc276 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_JAVA_PALETTES[] =
 {
     { L"Javar", 0x177308, 0x177328, indexBreakersSprites_Maherl },
     { L"Javar Super Trail", 0x1773a8, 0x1773c8, indexBreakersSprites_Maherl },
+    { L"Javar VS Portrait", 0x1b86ae, 0x1b874e },
+    { L"Javar Win Portrait", 0x1cc276, 0x1cc2d6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_MAHERL_PALETTES_SHARED[] =
@@ -448,30 +542,40 @@ const sGame_PaletteDataset BREAKERS_A_SAIZO_PALETTES_A[] =
 {
     { L"Saizo A", 0x1897fe, 0x18981e, indexBreakersSprites_Saizo },
     { L"Saizo A Super Trail", 0x18989e, 0x1898be, indexBreakersSprites_Saizo },
+    { L"Saizo A VS Portrait", 0x1b87ee, 0x1b888e },
+    { L"Saizo A Win Portrait", 0x1cc336, 0x1cc396 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SAIZO_PALETTES_B[] =
 {
     { L"Saizo B", 0x18981e, 0x18983e, indexBreakersSprites_Saizo },
     { L"Saizo B Super Trail", 0x1898be, 0x1898de, indexBreakersSprites_Saizo },
+    { L"Saizo B VS Portrait", 0x1b888e, 0x1b892e },
+    { L"Saizo B Win Portrait", 0x1cc396, 0x1cc3f6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SAIZO_PALETTES_C[] =
 {
     { L"Saizo C", 0x18983e, 0x18985e, indexBreakersSprites_Saizo },
     { L"Saizo C Super Trail", 0x1898de, 0x1898fe, indexBreakersSprites_Saizo },
+    { L"Saizo C VS Portrait", 0x1b892e, 0x1b89ce },
+    { L"Saizo C Win Portrait", 0x1cc3f6, 0x1cc456 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SAIZO_PALETTES_D[] =
 {
     { L"Saizo D", 0x18985e, 0x18987e, indexBreakersSprites_Saizo },
     { L"Saizo D Super Trail", 0x1898fe, 0x18991e, indexBreakersSprites_Saizo },
+    { L"Saizo D VS Portrait", 0x1b89ce, 0x1b8a6e },
+    { L"Saizo D Win Portrait", 0x1cc456, 0x1cc4b6 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_YUKIKAGE_PALETTES[] =
 {
     { L"Yukikage", 0x18987e, 0x18989e, indexBreakersSprites_Saizo },
     { L"Yukikage Super Trail", 0x18991e, 0x18993e, indexBreakersSprites_Saizo },
+    { L"Yukikage VS Portrait", 0x1b8a6e, 0x1b8b0e },
+    { L"Yukikage Win Portrait", 0x1cc4b6, 0x1cc516 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SAIZO_PALETTES_SHARED[] =
@@ -532,6 +636,53 @@ const sGame_PaletteDataset BREAKERS_A_BAIHU_PALETTES[] =
     { L"Bai-Hu Spirit Win Pose", 0x180d6e, 0x180d8e },
     { L"Bai-Hu Blocking Aura", 0x180c2e, 0x180c4e },
     { L"Bai-Hu Dust", 0x180d8e, 0x180dae },
+
+    { L"Bai-Hu VS Portrait", 0x1b874e, 0x1b87ee },
+    { L"Bai-Hu Win Portrait", 0x1cc2d6, 0x1cc336 },
+};
+
+const sGame_PaletteDataset BREAKERS_A_BONUS_INTRO_PALETTES[] =
+{
+    { L"Intro Portraits", 0x1a33a8, 0x1a34e8 },
+    { L"Intro Background", 0x1a34e8, 0x1a36c8 },
+    { L"Intro Dao 1", 0x1a1be8, 0x1a1d68 },
+    { L"Intro Sho 1", 0x1a1d68, 0x1a1f68 },
+    { L"Intro Dao/Sho Shadows", 0x1a1f68, 0x1a1f88 },
+    { L"Intro Dao/Sho Floor", 0x1a1f88, 0x1a1fa8 },
+    { L"Intro Rila Background", 0x1a07c8, 0x1a07e8 },
+    { L"Intro Rila 1/2", 0x1a07e8, 0x1a09e8 },
+    { L"Intro Rila 2/2", 0x1a09e8, 0x1a0aa8 },
+    { L"Intro Condor Background", 0x1a0aa8, 0x1a0ac8 },
+    { L"Intro Condor 1/2", 0x1a0ac8, 0x1a0cc8 },
+    { L"Intro Condor 2/2", 0x1a0cc8, 0x1a0de8 },
+    { L"Intro Alsion Background", 0x1a0de8, 0x1a0e08 },
+    { L"Intro Alsion 1/3", 0x1a0e08, 0x1a1008 },
+    { L"Intro Alsion 2/3", 0x1a1008, 0x1a1208 },
+    { L"Intro Alsion 3/3", 0x1a1208, 0x1a1288 },
+    { L"Intro Pielle Background", 0x19fe48, 0x19fe68 },
+    { L"Intro Pielle 1/3", 0x1a0368, 0x1a0568 },
+    { L"Intro Pielle 2/3", 0x1a0568, 0x1a0768 },
+    { L"Intro Pielle 3/3", 0x1a0768, 0x1a07c8 },
+    { L"Intro Maherl Background", 0x19fe28, 0x19fe48 },
+    { L"Intro Maherl 1/3", 0x19fe68, 0x1a0068 },
+    { L"Intro Maherl 2/3", 0x1a0068, 0x1a0268 },
+    { L"Intro Maherl 3/3", 0x1a0268, 0x1a0368 },
+    { L"Intro Sho 2 1/2", 0x1a1fa8, 0x1a21a8 },
+    { L"Intro Sho 2 2/2", 0x1a21a8, 0x1a23a8 },
+    { L"Intro Dao 2 1/2", 0x1a23a8, 0x1a25a8 },
+    { L"Intro Dao 2 2/2", 0x1a25a8, 0x1a26a8 },
+    { L"Intro Tia Background", 0x1a1a48, 0x1a1ba8 },
+    { L"Intro Tia 1/4", 0x1a1288, 0x1a1488 },
+    { L"Intro Tia 2/4", 0x1a1488, 0x1a1688 },
+    { L"Intro Tia 3/4", 0x1a1688, 0x1a1888 },
+    { L"Intro Tia 4/4", 0x1a1888, 0x1a1a08 },
+};
+
+const sGame_PaletteDataset BREAKERS_A_BONUS_SELECT_PALETTES[] =
+{
+    { L"Select Screen Portraits", 0x1c12ce, 0x1c140e },
+    { L"Select Icons 1/2", 0x1c2350, 0x1c2550 },
+    { L"Select Icons 2/2", 0x1c2550, 0x1c25d0 },
 };
 
 const sDescTreeNode BREAKERS_A_SHO_COLLECTION[] =
@@ -629,6 +780,12 @@ const sDescTreeNode BREAKERS_A_BAIHU_COLLECTION[] =
     { L"A", DESC_NODETYPE_TREE, (void*)BREAKERS_A_BAIHU_PALETTES, ARRAYSIZE(BREAKERS_A_BAIHU_PALETTES) },
 };
 
+const sDescTreeNode BREAKERS_A_BONUS_COLLECTION[] =
+{
+    { L"Intro", DESC_NODETYPE_TREE, (void*)BREAKERS_A_BONUS_INTRO_PALETTES, ARRAYSIZE(BREAKERS_A_BONUS_INTRO_PALETTES) },
+    { L"Select Screen", DESC_NODETYPE_TREE, (void*)BREAKERS_A_BONUS_SELECT_PALETTES, ARRAYSIZE(BREAKERS_A_BONUS_SELECT_PALETTES) },
+};
+
 const sDescTreeNode BREAKERS_A_UNITS[] =
 {
     { L"Alsion", DESC_NODETYPE_TREE, (void*)BREAKERS_A_ALSION_COLLECTION, ARRAYSIZE(BREAKERS_A_ALSION_COLLECTION) },
@@ -641,6 +798,7 @@ const sDescTreeNode BREAKERS_A_UNITS[] =
     { L"Sho", DESC_NODETYPE_TREE, (void*)BREAKERS_A_SHO_COLLECTION, ARRAYSIZE(BREAKERS_A_SHO_COLLECTION) },
     { L"Tia", DESC_NODETYPE_TREE, (void*)BREAKERS_A_TIA_COLLECTION, ARRAYSIZE(BREAKERS_A_TIA_COLLECTION) },
     { L"Bai-Hu", DESC_NODETYPE_TREE, (void*)BREAKERS_A_BAIHU_COLLECTION, ARRAYSIZE(BREAKERS_A_BAIHU_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)BREAKERS_A_BONUS_COLLECTION, ARRAYSIZE(BREAKERS_A_BONUS_COLLECTION) },
 };
 
 constexpr auto BREAKERS_A_NUMUNIT = ARRAYSIZE(BREAKERS_A_UNITS);
