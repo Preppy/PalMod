@@ -247,8 +247,6 @@ void CGame_CVS2_A::DumpAllCharacters()
 
 sDescTreeNode* CGame_CVS2_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_CVS2_A, CVS2_A_EXTRA, &CVS2_A_EXTRA_CUSTOM, CVS2_A_EXTRALOC, m_nConfirmedROMSize);
 
@@ -263,25 +261,14 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(CVS2_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_CVS2_A::InitDescTree: Building desc tree for CVS2_A %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForCVS2 = _InitDescTree(NewDescTree,
         CVS2_A_UNITS,
-        nUnitCt,
         CVS2_A_EXTRALOC,
         CVS2_A_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         CVS2_A_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_CVS2_A::InitDescTree: Loaded %u palettes for CVS2\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForCVS2 = nTotalPaletteCount;
 
     // For development purposes only...
     // DumpAllCharacters();

@@ -13,6 +13,8 @@
 #include "Game_DBFCI_A.h"
 #include "Game_DBZHD_SNES.h"
 #include "Game_DoubleDragon_A.h"
+#include "Game_FatalFury1_A.h"
+#include "Game_FatalFuryS_A.h"
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
@@ -200,6 +202,16 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case DOUBLEDRAGON_A:
     {
         GetRule = &CGame_DOUBLEDRAGON_A::GetRule;
+        return TRUE;
+    }
+    case FatalFury1_A:
+    {
+        GetRule = &CGame_FatalFury1_A::GetRule;
+        return TRUE;
+    }
+    case FatalFuryS_A:
+    {
+        GetRule = &CGame_FatalFuryS_A::GetRule;
         return TRUE;
     }
     case FatalFuryS_SNES:
@@ -767,6 +779,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case DOUBLEDRAGON_A:
     {
         return new CGame_DOUBLEDRAGON_A(nConfirmedROMSize);
+    }
+    case FatalFury1_A:
+    {
+        return new CGame_FatalFury1_A(nConfirmedROMSize);
+    }
+    case FatalFuryS_A:
+    {
+        return new CGame_FatalFuryS_A(nConfirmedROMSize);
     }
     case FatalFuryS_SNES:
     {

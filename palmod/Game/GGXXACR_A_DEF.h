@@ -34,8 +34,8 @@ const sGame_PaletteDataset GGXXACR_A_AB_EFFECTS[] =
 {
     { L"Moroha Eyes", 0x5213b0, 0x5213f0, indexGGXXSprites_ACR_ABA, 0x04, &pairNext },
     { L"Moroha Eyes (Trails)", 0x521340, 0x521380, indexGGXXSprites_ACR_ABA, 0x03 },
+    { L"Goku Moroha Eyes", 0x521630, 0x521670, indexGGXXSprites_ACR_ABA, 0x04, &pairNext },
     { L"Goku Moroha Eyes (Trails)", 0x5214f0, 0x521530, indexGGXXSprites_ACR_ABA, 0x03 },
-    { L"Goku Moroha Eyes", 0x521630, 0x521670, indexGGXXSprites_ACR_ABA, 0x10 },
     { L"Shousei", 0x51b240, 0x51b280, indexGGXXSprites_ACR_ABA, 0x13 },
     { L"Shoukyaku", 0x4ad7f0, 0x4ad830, indexGGXXSprites_ACR_ABA, 0x12 },
     { L"Kihi", 0x4ae050, 0x4ae090, indexGGXXSprites_ACR_ABA, 0x0d },
@@ -43,7 +43,7 @@ const sGame_PaletteDataset GGXXACR_A_AB_EFFECTS[] =
     { L"Ketsugou (2/3)", 0x4e03a0, 0x4e03e0, indexGGXXSprites_ACR_ABA, 0x0b },
     { L"Ketsugou (3/3)", 0x4e6aa0, 0x4e6ae0, indexGGXXSprites_ACR_ABA, 0x0c },
     { L"Henshitsu", 0x516640, 0x516680, indexGGXXSprites_ACR_ABA, 0x06 },
-    { L"(Moroha) 6H", 0x492d80, 0x492dc0 },
+    { L"(Moroha) 6H", 0x492d80, 0x492dc0, indexGGXXSprites_ACR_ABA, 0x10 },
     { L"(Moroha) Masshou", 0x499b40, 0x499b80, indexGGXXSprites_ACR_ABA, 0x0f },
     { L"(Moroha) Fukumetsu", 0x49dcd0, 0x49dd10, indexGGXXSprites_ACR_ABA, 0x05  },
     { L"(Moroha) Dangoku (1/2)", 0x4a0820, 0x4a0860, indexGGXXSprites_ACR_ABA, 0x01 },

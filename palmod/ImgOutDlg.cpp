@@ -559,9 +559,12 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             // But currently, I don't know what metadata I would want, so I'm leaving it alone for now.
             state.encoder.text_compression = 0; // use tExt
             LodePNGInfo& info = state.info_png;
+            CStringA astrText;
+            astrText.Format("%S", GetHost()->GetAppName(false));
+            lodepng_add_text(&info, "Software", astrText.GetString());
+            // What should title be?  Node name plus current palette name...?
             lodepng_add_text(&info, "Title", "...");
-            lodepng_add_text(&info, "Software", "PalMod");
-#endif
+#endif      
 
             // lodepng options: going from RAW to indexed PNG
             state.info_png.color.colortype = state.info_raw.colortype = LCT_PALETTE;

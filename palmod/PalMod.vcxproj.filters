@@ -337,6 +337,12 @@
     <Filter Include="Game\SNK Games\Samurai Shodown V Special">
       <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\Fatal Fury Special">
+      <UniqueIdentifier>{03a8779c-00c7-41f8-8c89-0431e3e52880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Fatal Fury 1">
+      <UniqueIdentifier>{bd825340-a735-4c79-8a29-97133f4a6fd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -713,6 +719,12 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO2_A.cpp">
       <Filter>Game\SNK Games\Samurai Shodown II</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_FatalFuryS_A.cpp">
+      <Filter>Game\SNK Games\Fatal Fury Special</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_FatalFury1_A.cpp">
+      <Filter>Game\SNK Games\Fatal Fury 1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1333,6 +1345,18 @@
     </ClInclude>
     <ClInclude Include="Game\SAMSHO2_A_DEF.h">
       <Filter>Game\SNK Games\Samurai Shodown II</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FatalFuryS_A_DEF.h">
+      <Filter>Game\SNK Games\Fatal Fury Special</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FatalFuryS_A.h">
+      <Filter>Game\SNK Games\Fatal Fury Special</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FatalFury1_A_DEF.h">
+      <Filter>Game\SNK Games\Fatal Fury 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FatalFury1_A.h">
+      <Filter>Game\SNK Games\Fatal Fury 1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

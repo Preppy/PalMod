@@ -251,8 +251,6 @@ void CGame_KOF02_A::DumpAllCharacters()
 
 sDescTreeNode* CGame_KOF02_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KOF02_A, KOF02_A_EXTRA, &KOF02_A_EXTRA_CUSTOM, KOF02_A_EXTRALOC, m_nConfirmedROMSize);
 
@@ -267,25 +265,14 @@ sDescTreeNode* CGame_KOF02_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(KOF02_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_KOF02_A::InitDescTree: Building desc tree for KOF02_A %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForKOF02 = _InitDescTree(NewDescTree,
         KOF02_A_UNITS,
-        nUnitCt,
         KOF02_A_EXTRALOC,
         KOF02_A_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         KOF02_A_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_KOF02_A::InitDescTree: Loaded %u palettes for KOF02\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForKOF02 = nTotalPaletteCount;
 
     // For development purposes only...
     // Note that Chin uses 0x9 and Kensou uses 0x0 for their MAX Flash palette: the autogenerator currently doesn't account for that

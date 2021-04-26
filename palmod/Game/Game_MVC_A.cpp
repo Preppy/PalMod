@@ -241,8 +241,6 @@ CDescTree* CGame_MVC_A::GetMainTree()
 
 sDescTreeNode* CGame_MVC_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_MVC, MVC_A_EXTRA, &MVC_A_EXTRA_CUSTOM, MVC_A_EXTRALOC, m_nConfirmedROMSize);
 
@@ -257,25 +255,14 @@ sDescTreeNode* CGame_MVC_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(MVC_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_MVC_A::InitDescTree: Building desc tree for MVC %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
-                                    MVC_A_UNITS,
-                                    nUnitCt,
-                                    MVC_A_EXTRALOC,
-                                    MVC_A_NUMUNIT,
-                                    rgExtraCountAll,
-                                    rgExtraLoc,
-                                    MVC_A_EXTRA_CUSTOM    
+    m_nTotalPaletteCountForMVC = _InitDescTree(NewDescTree,
+        MVC_A_UNITS,
+        MVC_A_EXTRALOC,
+        MVC_A_NUMUNIT,
+        rgExtraCountAll,
+        rgExtraLoc,
+        MVC_A_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_MVC_A::InitDescTree: Loaded %u palettes for MVC1\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForMVC = nTotalPaletteCount;
 
     return NewDescTree;
 }

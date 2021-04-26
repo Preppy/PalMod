@@ -107,8 +107,6 @@ int CGame_DBZHD_SNES::GetExtraLoc(UINT16 nUnitId)
 
 sDescTreeNode* CGame_DBZHD_SNES::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_DBZHD_SNES, DBZHD_SNES_EXTRA, &DBZHD_SNES_EXTRA_CUSTOM, DBZHD_SNES_EXTRALOC, m_nConfirmedROMSize);
 
@@ -123,25 +121,14 @@ sDescTreeNode* CGame_DBZHD_SNES::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(DBZHD_SNES_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_DBZHD_SNES::InitDescTree: Building desc tree for DBZHD_SNES %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    nTotalPaletteCount = _InitDescTree(NewDescTree,
+    m_nTotalPaletteCountForDBZHD = _InitDescTree(NewDescTree,
         DBZHD_SNES_UNITS,
-        nUnitCt,
         DBZHD_SNES_EXTRALOC,
         DBZHD_SNES_NUMUNIT,
         rgExtraCountAll,
         rgExtraLoc,
         DBZHD_SNES_EXTRA_CUSTOM
     );
-
-    strMsg.Format(L"CGame_DBZHD_SNES::InitDescTree: Loaded %u palettes for DBZHD\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    m_nTotalPaletteCountForDBZHD = nTotalPaletteCount;
 
     return NewDescTree;
 }

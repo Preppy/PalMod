@@ -726,6 +726,9 @@ const sGame_PaletteDataset MSH_A_BONUS_MINDGEM_PALETTES[] =
 
 const sGame_PaletteDataset MSH_A_BONUS_CSI_PALETTES[] =
 {
+#ifndef WantIndividualPalettes
+    { L"Character Select Icons", 0x6b2ec, 0x6b48c },
+#else
     { L"Spider-Man", 0x6B2EC, 0x6B30C },
     { L"Captain America", 0x6B30C, 0x6B32C },
     { L"Hulk", 0x6B32C, 0x6B34C },
@@ -738,6 +741,7 @@ const sGame_PaletteDataset MSH_A_BONUS_CSI_PALETTES[] =
     { L"Shuma-Gorath", 0x6B40C, 0x6B42C },
     { L"Juggernaut", 0x6B42C, 0x6B44C },
     { L"Magneto", 0x6B44C, 0x6B46C },
+#endif
 };
 
 const sGame_PaletteDataset MSH_A_BONUS_TITLE_05_PALETTES[] =
