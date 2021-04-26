@@ -262,9 +262,6 @@
     <Filter Include="Game\SNK Games\Savage Reign">
       <UniqueIdentifier>{85ad4673-3216-48e6-8843-d42c26132625}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Other Platforms\GGXX ACR">
-      <UniqueIdentifier>{4465c092-2e8d-4ad8-9e9f-3ddfa005bc8c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\SNK Games\Rage of the Dragons">
       <UniqueIdentifier>{deaf145c-fe5f-4801-b2be-a8c8b9d7eb01}</UniqueIdentifier>
     </Filter>
@@ -342,6 +339,18 @@
     </Filter>
     <Filter Include="Game\SNK Games\Fatal Fury 1">
       <UniqueIdentifier>{bd825340-a735-4c79-8a29-97133f4a6fd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms\GGXX ACR %28Steam%29">
+      <UniqueIdentifier>{4465c092-2e8d-4ad8-9e9f-3ddfa005bc8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms\GGXX ACR %28PlayStation 3%29">
+      <UniqueIdentifier>{c0591ed6-c310-4f32-8073-aef44a841908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF98AE2016">
+      <UniqueIdentifier>{eac807da-e805-4c7a-abee-b390a28f9021}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms\Melty Blood Actress Again Current Code %28Steam/Community Port%29">
+      <UniqueIdentifier>{f137a86b-ea24-46d9-87ee-354ee6f2a295}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -666,9 +675,6 @@
     <ClCompile Include="Game\Game_SavageReign_A.cpp">
       <Filter>Game\SNK Games\Savage Reign</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_GGXXACR_A.cpp">
-      <Filter>Game\Other Platforms\GGXX ACR</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_ROTD_A.cpp">
       <Filter>Game\SNK Games\Rage of the Dragons</Filter>
     </ClCompile>
@@ -725,6 +731,18 @@
     </ClCompile>
     <ClCompile Include="Game\Game_FatalFury1_A.cpp">
       <Filter>Game\SNK Games\Fatal Fury 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GGXXACR_S.cpp">
+      <Filter>Game\Other Platforms\GGXX ACR %28Steam%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GGXXACR_P.cpp">
+      <Filter>Game\Other Platforms\GGXX ACR %28PlayStation 3%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MBAACC_S.cpp">
+      <Filter>Game\Other Platforms\Melty Blood Actress Again Current Code %28Steam/Community Port%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF98AE2016_A.cpp">
+      <Filter>Game\SNK Games\KOF98AE2016</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1244,9 +1262,6 @@
     <ClInclude Include="Game\SavageReign_A_DEF.h">
       <Filter>Game\SNK Games\Savage Reign</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Game_GGXXACR_A.h">
-      <Filter>Game\Other Platforms\GGXX ACR</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Game_ROTD_A.h">
       <Filter>Game\SNK Games\Rage of the Dragons</Filter>
     </ClInclude>
@@ -1319,9 +1334,6 @@
     <ClInclude Include="Game\KOF00N_A_DEF.h">
       <Filter>Game\SNK Games\KOF02N_A</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GGXXACR_A_DEF.h">
-      <Filter>Game\Other Platforms\GGXX ACR</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Game_KOF95_A.h">
       <Filter>Game\SNK Games\KOF95_A</Filter>
     </ClInclude>
@@ -1357,6 +1369,30 @@
     </ClInclude>
     <ClInclude Include="Game\Game_FatalFury1_A.h">
       <Filter>Game\SNK Games\Fatal Fury 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GGXXACR_S.h">
+      <Filter>Game\Other Platforms\GGXX ACR %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GGXXACR_S_DEF.h">
+      <Filter>Game\Other Platforms\GGXX ACR %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GGXXACR_P.h">
+      <Filter>Game\Other Platforms\GGXX ACR %28PlayStation 3%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GGXXACR_P_DEF.h">
+      <Filter>Game\Other Platforms\GGXX ACR %28PlayStation 3%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MBAACC_S.h">
+      <Filter>Game\Other Platforms\Melty Blood Actress Again Current Code %28Steam/Community Port%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF98AE2016_A.h">
+      <Filter>Game\SNK Games\KOF98AE2016</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF98AE2016_A_DEF.h">
+      <Filter>Game\SNK Games\KOF98AE2016</Filter>
+    </ClInclude>
+    <ClInclude Include="MBAACC_S_DEF.h">
+      <Filter>Game\Other Platforms\Melty Blood Actress Again Current Code %28Steam/Community Port%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
