@@ -1,15 +1,15 @@
 #include "StdAfx.h"
-#include "Game_GGXXACR_A.h"
-#include "GGXXACR_A_DEF.h"
+#include "Game_GGXXACR_S.h"
+#include "GGXXACR_S_DEF.h"
 #include "..\PalMod.h"
 
-UINT16 CGame_GGXXACR_A::uRuleCtr = 0;
+UINT16 CGame_GGXXACR_S::uRuleCtr = 0;
 
-CDescTree CGame_GGXXACR_A::MainDescTree = nullptr;
+CDescTree CGame_GGXXACR_S::MainDescTree = nullptr;
 
-#define GGXXACR_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define GGXXACR_S_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-CGame_GGXXACR_A::CGame_GGXXACR_A(UINT32 nConfirmedROMSize /* = -1 */)
+CGame_GGXXACR_S::CGame_GGXXACR_S(UINT32 nConfirmedROMSize /* = -1 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
@@ -25,11 +25,11 @@ CGame_GGXXACR_A::CGame_GGXXACR_A(UINT32 nConfirmedROMSize /* = -1 */)
 
     InitDataBuffer();
 
-    nGameFlag = GGXXACR_A;
+    nGameFlag = GGXXACR_S;
     nImgGameFlag = IMGDAT_SECTION_GUILTYGEAR;
     // no images yet
-    m_prgGameImageSet = GGXX_ACR_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(GGXX_ACR_A_IMG_UNITS);
+    m_prgGameImageSet = GGXX_ACR_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(GGXX_ACR_IMG_UNITS);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
@@ -46,19 +46,19 @@ CGame_GGXXACR_A::CGame_GGXXACR_A(UINT32 nConfirmedROMSize /* = -1 */)
     PrepChangeTrackingArray();
 }
 
-CGame_GGXXACR_A::~CGame_GGXXACR_A()
+CGame_GGXXACR_S::~CGame_GGXXACR_S()
 {
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-void CGame_GGXXACR_A::InitializeStatics()
+void CGame_GGXXACR_S::InitializeStatics()
 {
-    MainDescTree.SetRootTree(CGame_GGXXACR_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_GGXXACR_S::InitDescTree());
 }
 
-sFileRule CGame_GGXXACR_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_GGXXACR_S::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -70,7 +70,7 @@ sFileRule CGame_GGXXACR_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-sFileRule CGame_GGXXACR_A::GetNextRule()
+sFileRule CGame_GGXXACR_S::GetNextRule()
 {
     sFileRule NewFileRule = GetRule(uRuleCtr);
 
@@ -84,7 +84,7 @@ sFileRule CGame_GGXXACR_A::GetNextRule()
     return NewFileRule;
 }
 
-sDescTreeNode* CGame_GGXXACR_A::InitDescTree()
+sDescTreeNode* CGame_GGXXACR_S::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
     UINT16 nUnitCt = ARRAYSIZE(GGXXACRCharacterData);
@@ -92,14 +92,14 @@ sDescTreeNode* CGame_GGXXACR_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[GGXXACR_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[GGXXACR_S]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    strMsg.Format(L"CGame_GGXXACR_A_DIR::InitDescTree: Building desc tree for GGXXACR_A...\n");
+    strMsg.Format(L"CGame_GGXXACR_S_DIR::InitDescTree: Building desc tree for GGXXACR_S...\n");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -121,7 +121,7 @@ sDescTreeNode* CGame_GGXXACR_A::InitDescTree()
         UnitNode->uChildType = DESC_NODETYPE_TREE;
         UnitNode->uChildAmt = nUnitChildCount;
 
-#if GGXXACR_A_DEBUG
+#if GGXXACR_S_DEBUG
         strMsg.Format(L"Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
         OutputDebugString(strMsg);
 #endif
@@ -141,7 +141,7 @@ sDescTreeNode* CGame_GGXXACR_A::InitDescTree()
             CollectionNode->uChildAmt = nListedChildrenCount;
             CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if GGXXACR_A_DEBUG
+#if GGXXACR_S_DEBUG
             strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
             OutputDebugString(strMsg);
 #endif
@@ -163,7 +163,7 @@ sDescTreeNode* CGame_GGXXACR_A::InitDescTree()
                 ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                 nTotalPaletteCount++;
 
-#if GGXXACR_A_DEBUG
+#if GGXXACR_S_DEBUG
                 strMsg.Format(L"\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -173,19 +173,19 @@ sDescTreeNode* CGame_GGXXACR_A::InitDescTree()
 
     m_nTotalPaletteCount = nTotalPaletteCount;
 
-    strMsg.Format(L"CGame_GGXXACR_A_DIR::InitDescTree: Loaded %u palettes for GGXXACR ROM\n", nTotalPaletteCount);
+    strMsg.Format(L"CGame_GGXXACR_S_DIR::InitDescTree: Loaded %u palettes for GGXXACR ROM\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     return NewDescTree;
 }
 
-UINT16 CGame_GGXXACR_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_GGXXACR_S::GetCollectionCountForUnit(UINT16 nUnitId)
 {
     // One core set per character, plus optional extras
     return (GGXXACRCharacterData[nUnitId].prgExtraPalettes == nullptr) ? 1 : 2;
 }
 
-UINT16 CGame_GGXXACR_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_GGXXACR_S::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nCollectionId == 0)
     {
@@ -197,12 +197,12 @@ UINT16 CGame_GGXXACR_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
-UINT16 CGame_GGXXACR_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_GGXXACR_S::GetPaletteCountForUnit(UINT16 nUnitId)
 {
     return GGXXACRCharacterData[nUnitId].nPaletteListSize + GGXXACRCharacterData[nUnitId].nCountExtras;
 }
 
-LPCWSTR CGame_GGXXACR_A::GetDescriptionForCollection(UINT16 /*nUnitId */, UINT16 nCollectionId )
+LPCWSTR CGame_GGXXACR_S::GetDescriptionForCollection(UINT16 /*nUnitId */, UINT16 nCollectionId )
 {
     if (nCollectionId == 0)
     {
@@ -214,7 +214,7 @@ LPCWSTR CGame_GGXXACR_A::GetDescriptionForCollection(UINT16 /*nUnitId */, UINT16
     }
 }
 
-void CGame_GGXXACR_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_GGXXACR_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
     if (nPalId < GGXXACRCharacterData[nUnitId].nPaletteListSize)
     {
@@ -222,7 +222,9 @@ void CGame_GGXXACR_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         const int cbPaletteSizeOnDisc = 0x400;
 
         m_pszCurrentPaletteName = GGXXACRCharacterData[nUnitId].ppszPaletteList[nPalId];
+        
         m_nCurrentPaletteROMLocation = GGXXACRCharacterData[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nPalId) + (0x10 * nPalId);
+        
         m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
     }
     else // effects palettes
@@ -237,7 +239,7 @@ void CGame_GGXXACR_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_GGXXACR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_GGXXACR_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -259,13 +261,7 @@ BOOL CGame_GGXXACR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
     UINT16 nSrcStart = 0;
     UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
-
-    //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
-
-    bool fShouldUseAlternateLoadLogic = false;
-
+    
     if (NodeGet->uPalId < GGXXACRCharacterData[NodeGet->uUnitId].nPaletteListSize)
     {
         // core palettes
@@ -283,77 +279,16 @@ BOOL CGame_GGXXACR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         nSrcAmt = 1;
         pButtonLabelSet = DEF_NOBUTTONS;
         m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
-        const sGame_PaletteDataset* paletteDataSet = &GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode];
-        nImgUnitId = paletteDataSet->indexImgToUse;
-        nTargetImgId = paletteDataSet->indexOffsetToUse;
-
-        if (paletteDataSet->pPalettePairingInfo)
-        {
-            if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == 3)
-            {
-                const INT8 nPeerPaletteDistance1 = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                const INT8 nPeerPaletteDistance2 = paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner;
-                const sGame_PaletteDataset* paletteDataSetToJoin1 = &GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode + nPeerPaletteDistance1];
-                const sGame_PaletteDataset* paletteDataSetToJoin2 = &GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode + nPeerPaletteDistance2];
-                fShouldUseAlternateLoadLogic = true;
-
-                ClearSetImgTicket(
-                    CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                        CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse,
-                            CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse)
-                        ))
-                );
-
-                //Set each palette
-                sDescNode* JoinedNode[] = {
-                    GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                    GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
-                    GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
-                };
-
-                //Set each palette
-                CreateDefPal(JoinedNode[0], 0);
-                CreateDefPal(JoinedNode[1], 1);
-                CreateDefPal(JoinedNode[2], 2);
-
-                SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
-                SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
-            }
-            else
-            {
-                int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
-                INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-
-                const sGame_PaletteDataset* paletteDataSetToJoin = &GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode + nPeerPaletteDistance];
-
-                if (paletteDataSetToJoin)
-                {
-                    fShouldUseAlternateLoadLogic = true;
-
-                    ClearSetImgTicket(
-                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                        )
-                    );
-
-                    //Set each palette
-                    sDescNode* JoinedNode[2] = {
-                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
-                    };
-
-                    //Set each palette
-                    CreateDefPal(JoinedNode[0], 0);
-                    CreateDefPal(JoinedNode[1], 1);
-
-                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
-                }
-            }
-        }
+        nImgUnitId = GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode].indexImgToUse;
+        nTargetImgId = GGXXACRCharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode].indexOffsetToUse;
     }
+
+    UINT16 nNodeIncrement = 1;
+
+    //Get rid of any palettes if there are any
+    BasePalGroup.FlushPalAll();
+
+    bool fShouldUseAlternateLoadLogic = false;
 
     if (!fShouldUseAlternateLoadLogic)
     {
@@ -369,12 +304,12 @@ BOOL CGame_GGXXACR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     return TRUE;
 }
 
-BOOL CGame_GGXXACR_A::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
+BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
 
-    strInfo.Format(L"CGame_GGXXACR_A_DIR::LoadFile: Preparing to load data for unit number %u (character %s)\n", nUnitNumber, GGXXACRCharacterData[nUnitNumber].pszCharacter);
+    strInfo.Format(L"CGame_GGXXACR_S_DIR::LoadFile: Preparing to load data for unit number %u (character %s)\n", nUnitNumber, GGXXACRCharacterData[nUnitNumber].pszCharacter);
     OutputDebugString(strInfo);
 
 #ifdef USE_DYNAMIC_LOCATION_LOOKUP
@@ -391,7 +326,7 @@ BOOL CGame_GGXXACR_A::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     GGXXACRCharacterData[nUnitNumber].nInitialLocation = nPaletteStart + 0x90;
 #endif
 
-    strInfo.Format(L"\tCGame_GGXXACR_A_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", GGXXACRCharacterData[nUnitNumber].nInitialLocation);
+    strInfo.Format(L"\tCGame_GGXXACR_S_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", GGXXACRCharacterData[nUnitNumber].nInitialLocation);
     OutputDebugString(strInfo);
 
     UINT16 nPalAmt = GetPaletteCountForUnit(nUnitNumber);
@@ -414,8 +349,8 @@ BOOL CGame_GGXXACR_A::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
         LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
 
-#if GGXXACR_A_DEBUG
-        strInfo.Format(L"\tCGame_GGXXACR_A_DIR::LoadFile: Loaded palette '%s' from location 0x%x\n", m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation);
+#if GGXXACR_S_DEBUG
+        strInfo.Format(L"\tCGame_GGXXACR_S_DIR::LoadFile: Loaded palette '%s' from location 0x%x\n", m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation);
         OutputDebugString(strInfo);
 #endif
     }
@@ -425,7 +360,7 @@ BOOL CGame_GGXXACR_A::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     return fSuccess;
 }
 
-BOOL CGame_GGXXACR_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
+BOOL CGame_GGXXACR_S::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
     UINT16 nPalAmt = GetPaletteCountForUnit(nUnitId);

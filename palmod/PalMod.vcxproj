@@ -243,7 +243,8 @@
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
     <ClCompile Include="Game\Game_Garou_S.cpp" />
-    <ClCompile Include="Game\Game_GGXXACR_A.cpp" />
+    <ClCompile Include="Game\Game_GGXXACR_P.cpp" />
+    <ClCompile Include="Game\Game_GGXXACR_S.cpp" />
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
@@ -258,6 +259,7 @@
     <ClCompile Include="Game\Game_KOF95_A.cpp" />
     <ClCompile Include="Game\Game_KOF96_A.cpp" />
     <ClCompile Include="Game\Game_KOF97_A.cpp" />
+    <ClCompile Include="Game\Game_KOF98AE2016_A.cpp" />
     <ClCompile Include="Game\Game_KOF98_A.cpp" />
     <ClCompile Include="Game\Game_KOF99AE_A.cpp" />
     <ClCompile Include="Game\Game_KOFXI_A.cpp" />
@@ -265,6 +267,7 @@
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp" />
     <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
+    <ClCompile Include="Game\Game_MBAACC_S.cpp" />
     <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
     <ClCompile Include="Game\Game_MMX2_SNES.cpp" />
     <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
@@ -391,7 +394,8 @@
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
     <ClInclude Include="Game\Game_Garou_A.h" />
     <ClInclude Include="Game\Game_Garou_S.h" />
-    <ClInclude Include="Game\Game_GGXXACR_A.h" />
+    <ClInclude Include="Game\Game_GGXXACR_P.h" />
+    <ClInclude Include="Game\Game_GGXXACR_S.h" />
     <ClInclude Include="Game\Game_GUNDAM_SNES.h" />
     <ClInclude Include="Game\Game_JOJOS_A.h" />
     <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />
@@ -406,6 +410,7 @@
     <ClInclude Include="Game\Game_KOF95_A.h" />
     <ClInclude Include="Game\Game_KOF96_A.h" />
     <ClInclude Include="Game\Game_KOF97_A.h" />
+    <ClInclude Include="Game\Game_KOF98AE2016_A.h" />
     <ClInclude Include="Game\Game_KOF98_A.h" />
     <ClInclude Include="Game\Game_KOF99AE_A.h" />
     <ClInclude Include="Game\Game_KOFXI_A.h" />
@@ -413,6 +418,7 @@
     <ClInclude Include="Game\Game_LASTBLADE2_A.h" />
     <ClInclude Include="Game\Game_LASTBLADE_A.h" />
     <ClInclude Include="Game\Game_Matrimelee_A.h" />
+    <ClInclude Include="Game\Game_MBAACC_S.h" />
     <ClInclude Include="Game\Game_MMPR_SNES.h" />
     <ClInclude Include="Game\Game_MMX2_SNES.h" />
     <ClInclude Include="Game\Game_MSHVSF_A.h" />
@@ -472,7 +478,8 @@
     <ClInclude Include="Game\Game_XMVSF_A.h" />
     <ClInclude Include="Game\Garou_A_DEF.h" />
     <ClInclude Include="Game\Garou_S_DEF.h" />
-    <ClInclude Include="Game\GGXXACR_A_DEF.h" />
+    <ClInclude Include="Game\GGXXACR_P_DEF.h" />
+    <ClInclude Include="Game\GGXXACR_S_DEF.h" />
     <ClInclude Include="Game\GUNDAM_SNES_DEF.h" />
     <ClInclude Include="Game\ImgTicket.h" />
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
@@ -487,6 +494,7 @@
     <ClInclude Include="Game\KOF95_A_DEF.h" />
     <ClInclude Include="Game\KOF96_A_DEF.h" />
     <ClInclude Include="Game\KOF97_A_DEF.h" />
+    <ClInclude Include="Game\KOF98AE2016_A_DEF.h" />
     <ClInclude Include="Game\KOF98_A_DEF.h" />
     <ClInclude Include="Game\KOF99AE_A_DEF.h" />
     <ClInclude Include="Game\KOFXI_A_DEF.h" />
@@ -494,6 +502,7 @@
     <ClInclude Include="Game\LASTBLADE2_A_DEF.h" />
     <ClInclude Include="Game\LASTBLADE_A_DEF.h" />
     <ClInclude Include="Game\Matrimelee_A_DEF.h" />
+    <ClInclude Include="Game\MBAACC_S_DEF.h" />
     <ClInclude Include="Game\MMPR_SNES_DEF.h" />
     <ClInclude Include="Game\MMX2_SNES_DEF.h" />
     <ClInclude Include="Game\MSHVSF_A_DEF.h" />

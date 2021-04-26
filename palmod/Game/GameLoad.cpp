@@ -18,7 +18,8 @@
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
-#include "Game_GGXXACR_A.h"
+#include "Game_GGXXACR_S.h"
+#include "Game_GGXXACR_p.h"
 #include "Game_GUNDAM_SNES.h"
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
@@ -34,12 +35,14 @@
 #include "Game_KOF96_A.h"
 #include "Game_KOF97_A.h"
 #include "Game_KOF98_A.h"
+#include "Game_KOF98AE2016_A.h"
 #include "Game_KOF99AE_A.h"
 #include "Game_KOFXI_A.h"
 #include "Game_KOTM_A.h"
 #include "Game_LASTBLADE_A.h"
 #include "Game_LASTBLADE2_A.h"
 #include "Game_Matrimelee_A.h"
+#include "Game_MBAACC_S.h"
 #include "Game_MMPR_SNES.h"
 #include "Game_MMX2_SNES.h"
 #include "Game_MSH_A.h"
@@ -239,12 +242,21 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_GEMFIGHTER_A::GetRule;
         return TRUE;
     }
-    case GGXXACR_A:
+    case GGXXACR_S:
     {
-        GetRuleCtr = &CGame_GGXXACR_A::GetRuleCtr;
-        ResetRuleCtr = &CGame_GGXXACR_A::ResetRuleCtr;
-        GetRule = &CGame_GGXXACR_A::GetRule;
-        GetNextRule = &CGame_GGXXACR_A::GetNextRule;
+        GetRuleCtr = &CGame_GGXXACR_S::GetRuleCtr;
+        ResetRuleCtr = &CGame_GGXXACR_S::ResetRuleCtr;
+        GetRule = &CGame_GGXXACR_S::GetRule;
+        GetNextRule = &CGame_GGXXACR_S::GetNextRule;
+
+        return TRUE;
+    }
+    case GGXXACR_P:
+    {
+        GetRuleCtr = &CGame_GGXXACR_P::GetRuleCtr;
+        ResetRuleCtr = &CGame_GGXXACR_P::ResetRuleCtr;
+        GetRule = &CGame_GGXXACR_P::GetRule;
+        GetNextRule = &CGame_GGXXACR_P::GetNextRule;
 
         return TRUE;
     }
@@ -303,6 +315,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_KOF98_A::GetRule;
         return TRUE;
     }
+    case KOF98AE2016_A:
+    {
+        GetRule = &CGame_KOF98AE2016_A::GetRule;
+        return TRUE;
+    }
     case KOF99AE_A:
     {
         GetRule = &CGame_KOF99AE_A::GetRule;
@@ -356,6 +373,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case MATRIMELEE_A:
     {
         GetRule = &CGame_Matrimelee_A::GetRule;
+        return TRUE;
+    }
+    case MBAACC_S:
+    {
+        GetRuleCtr = &CGame_MBAACC_S::GetRuleCtr;
+        ResetRuleCtr = &CGame_MBAACC_S::ResetRuleCtr;
+        GetRule = &CGame_MBAACC_S::GetRule;
+        GetNextRule = &CGame_MBAACC_S::GetNextRule;
+
         return TRUE;
     }
     case MMPR_SNES:
@@ -808,9 +834,13 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_GEMFIGHTER_A(nConfirmedROMSize);
     }
-    case GGXXACR_A:
+    case GGXXACR_S:
     {
-        return new CGame_GGXXACR_A(nConfirmedROMSize);
+        return new CGame_GGXXACR_S(nConfirmedROMSize);
+    }
+    case GGXXACR_P:
+    {
+        return new CGame_GGXXACR_P(nConfirmedROMSize);
     }
     case GUNDAM_SNES:
     {
@@ -856,6 +886,11 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_KOF98_A(nConfirmedROMSize);
     }
+
+    case KOF98AE2016_A:
+    {
+        return new CGame_KOF98AE2016_A(nConfirmedROMSize);
+    }
     case KOF99AE_A:
     {
         return new CGame_KOF99AE_A(nConfirmedROMSize, nExtraGameData);
@@ -899,6 +934,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case MATRIMELEE_A:
     {
         return new CGame_Matrimelee_A(nConfirmedROMSize);
+    }
+    case MBAACC_S:
+    {
+        return new CGame_MBAACC_S(nConfirmedROMSize);
     }
     case MMPR_SNES:
     {

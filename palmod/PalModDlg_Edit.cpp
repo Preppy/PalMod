@@ -264,10 +264,12 @@ void CPalModDlg::OnEditCopy()
         case ColMode::COLMODE_ARGB1888:
             cbColor = 4;
             uCopyFlag1 = DBFCI_A + k_nASCIICharacterOffset;
+            uCopyFlag1 = MBAACC_S + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_ARGB7888:
             cbColor = 4;
-            uCopyFlag1 = GGXXACR_A + k_nASCIICharacterOffset;
+            uCopyFlag1 = GGXXACR_S + k_nASCIICharacterOffset;
+            uCopyFlag1 = GGXXACR_P + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_ARGB8888:
             cbColor = 4;
@@ -597,13 +599,15 @@ void CPalModDlg::OnEditPaste()
                     break;
                 }
                 case DBFCI_A:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                case MBAACC_S:
+                    // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB1888;
                     break;
                 }
-                case GGXXACR_A:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                case GGXXACR_S:
+                case GGXXACR_P:
+                    // Don't add new case handlers here: anything new has to go in the overflow section below
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB7888;
                     break;
@@ -679,6 +683,7 @@ void CPalModDlg::OnEditPaste()
                 case KOF94_A:
                 case KOF97_A:
                 case KOF98_A:
+                case KOF98AE2016_A:
                 case KOF99AE_A:
                 case KOF01_A:
                 case KOF02_A:
