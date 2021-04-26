@@ -1391,7 +1391,7 @@
     <ClInclude Include="Game\KOF98AE2016_A_DEF.h">
       <Filter>Game\SNK Games\KOF98AE2016</Filter>
     </ClInclude>
-    <ClInclude Include="MBAACC_S_DEF.h">
+    <ClInclude Include="Game\MBAACC_S_DEF.h">
       <Filter>Game\Other Platforms\Melty Blood Actress Again Current Code %28Steam/Community Port%29</Filter>
     </ClInclude>
   </ItemGroup>
