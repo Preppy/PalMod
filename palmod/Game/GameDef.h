@@ -77,7 +77,7 @@ enum SupportedGamesList
     FatalFuryS_SNES,
     TOPF2005_SEGA,
     SFIII3_A_DIR_EX,
-    GGXXACR_A,
+    GGXXACR_S,
     AOF3_A,
     DANKUGA_A,
     SAMSHO4_A,
@@ -120,6 +120,9 @@ enum SupportedGamesList
     SAMSHO2_A,
     FatalFuryS_A,
     FatalFury1_A,
+    GGXXACR_P,
+    MBAACC_S,
+    KOF98AE2016_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -198,7 +201,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
     L"Fatal Fury Special (SNES)",
     L"Top Fighter 2005 (Sega)",
     L"SFIII:3S EX",
-    L"GGXX:AC+R",
+    L"GGXX:AC+R (Steam)",
     L"Art of Fighting 3 (Neo-Geo)",
     L"Dan-Ku-Ga (Arcade)",
     L"Samurai Shodown IV (Neo-Geo)",
@@ -241,6 +244,10 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
     L"Samurai Shodown II (Neo-Geo)",
     L"Fatal Fury Special (Neo-Geo)",
     L"Fatal Fury: King of Fighters (Neo-Geo)",
+    L"GGXX:AC+R (PlayStation 3)",
+    L"Melty blood Actress Again Current Code",
+    L"KOF98AE (2016 Romhack)",
+
 };
 
 enum class GamePlatform

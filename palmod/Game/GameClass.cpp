@@ -57,8 +57,10 @@ UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag, UINT8 uPossibleColorFlag)
 {
     switch (uGameFlag)
     {
-    case GGXXACR_A:
     case DBFCI_A:
+    case GGXXACR_S:
+    case GGXXACR_P:
+    case MBAACC_S:
     case UNICLR_A:
         return 4;
     case DUMMY_RGB888:
