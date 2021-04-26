@@ -400,22 +400,23 @@ const sDescTreeNode FatalFuryS_A_BONUS_COLLECTION[] =
 
 const sDescTreeNode FatalFuryS_A_UNITS[] =
 {
-    { L"Terry Bogard",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Terry_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Terry_COLLECTION) },
-    { L"Andy Bogard",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Andy_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Andy_COLLECTION) },
-    { L"Joe Higashi",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Joe_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Joe_COLLECTION) },
-    { L"Big Bear",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BigBear_COLLECTION,   ARRAYSIZE(FatalFuryS_A_BigBear_COLLECTION) },
-    { L"Jubei Yamada",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Jubei_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Jubei_COLLECTION) },
-    { L"Cheng Sinzan",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Cheng_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Cheng_COLLECTION) },
-    { L"Kim Kaphwan",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Kim_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Kim_COLLECTION) },
-    { L"Mai Shiranui",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Mai_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Mai_COLLECTION) },
-    { L"Duck King",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Duck_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Duck_COLLECTION) },
-    { L"Tung Fu Rae",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Tung_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Tung_COLLECTION) },
-    { L"Billy Kane",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Billy_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Billy_COLLECTION) },
-    { L"Axel Hawk",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_AxelHawk_COLLECTION,   ARRAYSIZE(FatalFuryS_A_AxelHawk_COLLECTION) },
-    { L"Laurence Blood",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Laurence_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Laurence_COLLECTION) },
-    { L"Geese Howard",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Geese_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Geese_COLLECTION) },
+    { L"Terry Bogard",      DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Terry_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Terry_COLLECTION) },
+    { L"Andy Bogard",       DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Andy_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Andy_COLLECTION) },
+    { L"Joe Higashi",       DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Joe_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Joe_COLLECTION) },
+    { L"Big Bear",          DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BigBear_COLLECTION,   ARRAYSIZE(FatalFuryS_A_BigBear_COLLECTION) },
+    { L"Jubei Yamada",      DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Jubei_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Jubei_COLLECTION) },
+    { L"Cheng Sinzan",      DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Cheng_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Cheng_COLLECTION) },
+    { L"Kim Kaphwan",       DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Kim_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Kim_COLLECTION) },
+    { L"Mai Shiranui",      DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Mai_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Mai_COLLECTION) },
+    { L"Duck King",         DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Duck_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Duck_COLLECTION) },
+    { L"Tung Fu Rae",       DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Tung_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Tung_COLLECTION) },
+    { L"Billy Kane",        DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Billy_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Billy_COLLECTION) },
+    { L"Axel Hawk",         DESC_NODETYPE_TREE, (void*)FatalFuryS_A_AxelHawk_COLLECTION,   ARRAYSIZE(FatalFuryS_A_AxelHawk_COLLECTION) },
+    { L"Laurence Blood",    DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Laurence_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Laurence_COLLECTION) },
+    { L"Geese Howard",      DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Geese_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Geese_COLLECTION) },
     { L"Wolfgang Krauser",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Wolfgang_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Wolfgang_COLLECTION) },
-    { L"Ryo Sakazaki",  DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Ryo_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Ryo_COLLECTION) },
+    { L"Ryo Sakazaki",      DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Ryo_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Ryo_COLLECTION) },
+    { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_COLLECTION,       ARRAYSIZE(FatalFuryS_A_BONUS_COLLECTION) },
 };
 
 constexpr auto FatalFuryS_A_NUMUNIT = ARRAYSIZE(FatalFuryS_A_UNITS);
