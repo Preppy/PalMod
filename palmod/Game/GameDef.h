@@ -119,6 +119,7 @@ enum SupportedGamesList
     SAMSHO1_A,
     SAMSHO2_A,
     FatalFuryS_A,
+    FatalFury1_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -239,6 +240,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
     L"Samurai Shodown (Neo-Geo)",
     L"Samurai Shodown II (Neo-Geo)",
     L"Fatal Fury Special (Neo-Geo)",
+    L"Fatal Fury: King of Fighters (Neo-Geo)",
 };
 
 enum class GamePlatform

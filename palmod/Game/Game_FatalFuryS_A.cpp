@@ -14,7 +14,7 @@ int CGame_FatalFuryS_A::rgExtraCountAll[FatalFuryS_A_NUMUNIT + 1];
 int CGame_FatalFuryS_A::rgExtraLoc[FatalFuryS_A_NUMUNIT + 1];
 
 UINT32 CGame_FatalFuryS_A::m_nTotalPaletteCountForFatalFuryS = 0;
-UINT32 CGame_FatalFuryS_A::m_nExpectedGameROMSize = 0x400000;
+UINT32 CGame_FatalFuryS_A::m_nExpectedGameROMSize = 0x100000;
 UINT32 CGame_FatalFuryS_A::m_nConfirmedROMSize = -1;
 
 void CGame_FatalFuryS_A::InitializeStatics()
@@ -44,7 +44,7 @@ CGame_FatalFuryS_A::CGame_FatalFuryS_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = FatalFuryS_A_NUMUNIT;
     m_nExtraUnit = FatalFuryS_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 30;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 90;
     m_pszExtraFilename = EXTRA_FILENAME_FatalFuryS_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForFatalFuryS;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -100,7 +100,8 @@ UINT32 CGame_FatalFuryS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** p
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"Fatal Fury Special (Neo-Geo)", L"058-p1.p1", 0, 0 },
+        { L"Fatal Fury Special (Neo-Geo)", L"058-p1.p1", 0x2f585ba2, 0 },
+        { L"Fatal Fury Special (Neo-Geo)", L"058-p1.bin", 0x2f585ba2, 0 },
     };
 
     if (ppKnownROMSet)

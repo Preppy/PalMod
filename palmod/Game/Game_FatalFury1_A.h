@@ -1,18 +1,18 @@
 #pragma once
 #include "gameclass.h"
-#include "FatalFuryS_A_DEF.h"
+#include "FatalFury1_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_FatalFuryS_A = L"FatalFurySAE.txt";
-#define GetExtraDefForFatalFuryS_A(x)((stExtraDef *)&FatalFuryS_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_FatalFury1_A = L"FatalFury1E.txt";
+#define GetExtraDefForFatalFury1_A(x)((stExtraDef *)&FatalFury1_A_EXTRA_CUSTOM[x])
 
-class CGame_FatalFuryS_A : public CGameWithExtrasFile
+class CGame_FatalFury1_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForFatalFuryS;
+    static UINT32 m_nTotalPaletteCountForFatalFury1;
 
-    static int rgExtraCountAll[FatalFuryS_A_NUMUNIT + 1];
-    static int rgExtraLoc[FatalFuryS_A_NUMUNIT + 1];
+    static int rgExtraCountAll[FatalFury1_A_NUMUNIT + 1];
+    static int rgExtraLoc[FatalFury1_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -22,8 +22,8 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
 public:
-    CGame_FatalFuryS_A(UINT32 nConfirmedROMSize);
-    ~CGame_FatalFuryS_A(void);
+    CGame_FatalFury1_A(UINT32 nConfirmedROMSize);
+    ~CGame_FatalFury1_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -51,5 +51,5 @@ public:
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* FatalFuryS_A_EXTRA_CUSTOM;
+    static stExtraDef* FatalFury1_A_EXTRA_CUSTOM;
 };
