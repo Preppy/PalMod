@@ -2,11 +2,11 @@
 #include "gameclass.h"
 #include "..\extrafile.h"
 
-class CGame_GGXXACR_A : public CGameWithExtrasFile
+class CGame_GGXXACR_P : public CGameWithExtrasFile
 {
 public:
-    CGame_GGXXACR_A(UINT32 nConfirmedROMSize = -1);
-    ~CGame_GGXXACR_A();
+    CGame_GGXXACR_P(UINT32 nConfirmedROMSize = -1);
+    ~CGame_GGXXACR_P();
 
     static void InitializeStatics();
     static UINT32 m_nConfirmedROMSize;
@@ -38,5 +38,5 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    LPCWSTR GetGameName() override { return L"GGXX:AC+R (Arcade)"; };
+    LPCWSTR GetGameName() override { return L"GGXX:AC+R (PlayStation 3)"; };
 };

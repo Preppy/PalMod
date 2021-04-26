@@ -321,12 +321,14 @@ BEGIN
         BEGIN
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
-            MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR
+            MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR_S
+            MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
             POPUP "Jojo's HftF"
             BEGIN
                 MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
-            END
+            ENd
+            MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
             POPUP "MvC2"
             BEGIN
                 MENUITEM "Arcade",                      ID_LD_MVC2ARCADE

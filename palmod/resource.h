@@ -250,7 +250,7 @@
 #define ID_LD_SFIII3ARCADE4rd10         32882
 #define ID_LD_SFIII1                    32883
 #define ID_LD_SFIII2                    32884
-#define ID_LD_GGXXACR                   32885
+#define ID_LD_GGXXACR_S                 32885
 #define ID_LD_DBFCI                     32886
 #define ID_LD_UNICLR                    32887
 #define ID_LOADDIRECTORY_REDEARTH_31    32888
@@ -261,6 +261,9 @@
 #define ID_FILE_OPENEXTRAS              32893
 #define ID_COLORFORMAT_xRGB888          32894
 #define ID_COLORFORMAT_xBGR888          32895
+#define ID_LD_GGXXACR_P					32897 //skipping 32896 
+#define ID_LD_MBAACC_S					32898
+
 
 // Please note that the F0000 range (983040) is reserved for the dynamic game menu
 
