@@ -2347,6 +2347,15 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
             if (fUserWantsAllChanges || IsPaletteDirty(nUnitCtr, nPalCtr))
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+                UINT32 nInitialOffset = 0;
+
+                if (nGameFlag == TMNTTF_SNES)
+                {
+                    // TMNTTF is evil and uses overlapping palettes.  Account for this by snipping off the lead transparency color.
+                    m_nCurrentPaletteROMLocation += m_nSizeOfColorsInBytes;
+                    m_nCurrentPaletteSizeInColors--;
+                    nInitialOffset = 1;
+                }
 
                 // Location
                 BYTE b1 = (m_nCurrentPaletteROMLocation & 0xFF0000) >> 16;
@@ -2365,11 +2374,11 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
                 // Actual data
                 if (GameIsUsing16BitColor())
                 {
-                    PatchFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                    PatchFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nInitialOffset], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
                 }
                 else
                 {
-                    PatchFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                    PatchFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nInitialOffset], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
                 }
 
                 nTotalPalettesSaved++;

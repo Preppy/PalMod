@@ -107,18 +107,18 @@ sSupportedGameList SupportedGameList[] =
 sSupportedGameList* pSupportedGameList = SupportedGameList;
 const int nNumberOfLoadROMOptions = ARRAYSIZE(SupportedGameList);
 
-void CPalModDlg::LoadGameDir(int nGameFlag, WCHAR* szLoadDir)
+void CPalModDlg::LoadGameDir(int nGameFlag, WCHAR* pszLoadDir)
 {
     ClearGameVar();
 
-    CGameClass* GameGet = GetHost()->GetLoader()->LoadDir(nGameFlag, szLoadDir);
+    CGameClass* GameGet = GetHost()->GetLoader()->LoadDir(nGameFlag, pszLoadDir);
 
     if (GameGet)
     {
         GetHost()->SetGameClass(GameGet);
 
         //Set the last used location
-        SetLastUsedDirectory(szLoadDir, GetHost()->GetCurrGame()->GetGameFlag());
+        SetLastUsedDirectory(pszLoadDir, GetHost()->GetCurrGame()->GetGameFlag());
 
         //The game has loaded OK
         PostGameLoad();
@@ -654,7 +654,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 
         if (fSafeToContinue)
         {
-            for (const sSupportedGameList currentGame : SupportedGameList)
+            for (const sSupportedGameList const currentGame : SupportedGameList)
             {
                 // user nFilterIndex starts at 1
                 if ((currentGame.nListedGameIndex + 1) == ofn.nFilterIndex)
@@ -667,7 +667,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     }
 }
 
-void CPalModDlg::LoadGameFile(int nGameFlag, WCHAR* szFile)
+void CPalModDlg::LoadGameFile(int nGameFlag, WCHAR* pszFile)
 {
     if (!VerifyMsg(eVerifyType::VM_FILECHANGE))
     {
@@ -676,14 +676,14 @@ void CPalModDlg::LoadGameFile(int nGameFlag, WCHAR* szFile)
 
     ClearGameVar();
 
-    CGameClass* GameGet = GetHost()->GetLoader()->LoadFile(nGameFlag, szFile);
+    CGameClass* GameGet = GetHost()->GetLoader()->LoadFile(nGameFlag, pszFile);
 
     if (GameGet)
     {
         GetHost()->SetGameClass(GameGet);
 
         //Set the last used location
-        SetLastUsedDirectory(szFile, GetHost()->GetCurrGame()->GetGameFlag());
+        SetLastUsedDirectory(pszFile, GetHost()->GetCurrGame()->GetGameFlag());
 
         //The game has loaded OK
         PostGameLoad();

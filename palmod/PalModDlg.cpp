@@ -436,7 +436,7 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
     return TRUE;
 }
 
-BOOL CPalModDlg::SetLoadDir(CString* szOut)
+BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = nullptr */)
 {
     LPMALLOC pMalloc;
 
@@ -449,8 +449,8 @@ BOOL CPalModDlg::SetLoadDir(CString* szOut)
         bi.hwndOwner = GetSafeHwnd();
         bi.pidlRoot = NULL;
         bi.pszDisplayName = pszBuffer;
-        bi.lpszTitle = L"Select a target directory";
-        bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+        bi.lpszTitle = pszDescriptionString ? pszDescriptionString : L"Select a target directory";
+        bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE | BIF_NONEWFOLDERBUTTON;
         bi.lpfn = OnBrowseDialog;
         bi.lParam = 0;
 
@@ -458,7 +458,7 @@ BOOL CPalModDlg::SetLoadDir(CString* szOut)
         {
             if (::SHGetPathFromIDList(pidl, pszBuffer))
             {
-                *szOut = pszBuffer;
+                *strOut = pszBuffer;
             }
             pMalloc->Free(pidl);
         }

@@ -1,4 +1,3 @@
-
 #include "stdafx.h"
 #include "game\gamedef.h"
 #include "PalModDlg.h"
@@ -8,11 +7,77 @@ void CPalModDlg::OnLoadGameByDirectory(int nGameFlag)
 {
     if (VerifyMsg(eVerifyType::VM_FILECHANGE))
     {
-        CString szGet;
+        CString strGet;
+        LPCWSTR pszExtraInfo = nullptr;
 
-        if (SetLoadDir(&szGet))
+        switch (nGameFlag)
         {
-            LoadGameDir(nGameFlag, szGet.GetBuffer());
+        default:
+            // No extra description: that's fine.
+            break;
+        case DANKUGA_A:
+            pszExtraInfo = L"We need the dkg_mpr* files from dankuga.zip.";
+            break;
+        case DBFCI_A:
+            break;
+        case GGXXACR_S:
+            break;
+        case GGXXACR_P:
+            break;
+        case JOJOS_A_DIR_50:
+            pszExtraInfo = L"We need the jojoba-simm5.x files from jojoba.zip.";
+            break;
+        case JOJOS_A_DIR_51:
+            pszExtraInfo = L"We need the jojoba-simm5.x files from jojoba.zip.";
+            break;
+        case MBAACC_S:
+            break;
+        case MVC2_A_DIR:
+            pszExtraInfo = L"We need the mpr-*.* files from mvcs2.zip.";
+            break;
+        case MVC2_D:
+            pszExtraInfo = L"We need the PLxx_DAT.bin files from the game image.";
+            break;
+        case MVC2_P:
+            pszExtraInfo = L"We need the PLxxpak.bin files from the game image.";
+            break;
+        case REDEARTH_A_DIR_30:
+            pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
+            break;
+        case REDEARTH_A_DIR_31:
+            pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
+            break;
+        case SFIII3_D:
+            pszExtraInfo = L"We need the PLxxPL.bin files from the game image.";
+            break;
+        case SFIII1_A_DIR:
+            pszExtraInfo = L"We need the sfiii-simm5.x files from sfiii.zip (US) or sfiiin.zip (JPN).";
+            break;
+        case SFIII2_A_DIR:
+            pszExtraInfo = L"We need the sfiii2-simm5.x files from sfiii2.zip (US) or sfiii2n.zip (JPN).";
+            break;
+        case SFIII3_A_DIR_10:
+            pszExtraInfo = L"For the US version we need the sfiii3-simm1.x files from sfiii3nr1.zip.\nFor the JPN version we need the sfiii3n-simm1.x files from sfiii3n.zip.\nIf you don't have sfiii3nr1.zip, the files will be in sfiii3.zip.";
+            break;
+        case SFIII3_A_DIR_51:
+            pszExtraInfo = L"For the US version we need the sfiii3-simm5.x files from sfiii3.zip.\nFor the JPN version we need the sfiii3n-simm5.x files from sfiii3n.zip.";
+            break;
+        case SFIII3_A_DIR_4rd:
+            pszExtraInfo = L"We need the 4rd-simm5.x files from sfiii4n.zip.";
+            break;
+        case SFIII3_A_DIR_4rd_10:
+            pszExtraInfo = L"We need the sfiii3-simm1.x files from sfiii4n.zip.";
+            break;
+        case SFIII3_A_DIR_EX:
+            pszExtraInfo = L"We need the sfiii3ex-simm7.x files from sfiii3ex.zip.";
+            break;
+        case UNICLR_A:
+            break;
+        }
+
+        if (SetLoadDir(&strGet, pszExtraInfo))
+        {
+            LoadGameDir(nGameFlag, strGet.GetBuffer());
         }
     }
 }

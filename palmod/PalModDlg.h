@@ -94,12 +94,12 @@ public:
 
     //Program functions
 
-    void LoadGameDir(int nGameFlag, WCHAR * szLoadDir);
+    void LoadGameDir(int nGameFlag, WCHAR* pszLoadDir);
     void OnLoadGameByDirectory(int nGameFlag);
-    BOOL SetLoadDir(CString* szOut);
+    BOOL SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString = nullptr);
     void UpdateAppTitle();
 
-    void LoadGameFile(int nGameFlag, WCHAR * szFile);
+    void LoadGameFile(int nGameFlag, WCHAR* pszFile);
 
     void LoadLastDir();
 
@@ -305,9 +305,9 @@ public:
     afx_msg void OnLoadDir_GGXXACR_P()      { OnLoadGameByDirectory(GGXXACR_P); };
     afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };
     afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };
+    afx_msg void OnLoadDir_MBAACC_S()       { OnLoadGameByDirectory(MBAACC_S); };
     afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };
     afx_msg void OnLoadDir_MVC2DCUSA()      { OnLoadGameByDirectory(MVC2_D); };
-    afx_msg void OnLoadDir_MBAACC_S()       { OnLoadGameByDirectory(MBAACC_S); };
     afx_msg void OnLoadDir_MVC2PS2USA()     { OnLoadGameByDirectory(MVC2_P); };
     afx_msg void OnLoadDir_RedEarth30()     { OnLoadGameByDirectory(REDEARTH_A_DIR_30); };
     afx_msg void OnLoadDir_RedEarth31()     { OnLoadGameByDirectory(REDEARTH_A_DIR_31); };
