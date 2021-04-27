@@ -585,7 +585,7 @@ void CPalModDlg::OnEditPaste()
                 switch (uPasteGFlag1)
                 {
                 case TOPF2005_SEGA:
-                    // Don't change this code.  It automatically handles new games and color modes.
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_RGB333;
                     break;
