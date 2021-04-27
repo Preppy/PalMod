@@ -354,10 +354,6 @@ enum class eImageOutputSpriteDisplay
     DISPLAY_SPRITES_TOPTOBOTTOM
 };
 
-//Basic button labels
-#define BUTTON6 6
-#define BUTTON7 7
-
 // In the new world order, these could be the node labels, but we want the short names here
 // since they fit into the imgdump UI better.
 // If you add button labels, be sure to update CImgOutDlg::OnInitDialog and CImgDumpBmp::GetImagesPerLine as well.
@@ -676,7 +672,6 @@ enum CHARACTERS_CPS2
     indexPuzzleFighter_Ryu,         // 0xA1
     indexPuzzleFighter_Sakura,      // 0xA2
     indexPuzzleFighter_Bonus,       // 0xA3 
-
 };
 
 const UINT16 MVC2_IMG_UNITS[] =
@@ -2693,28 +2688,61 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_DBFCI_Wilhelmina,    // 0x31
     indexFrenchBreadSprites_DBFCI_Zero,          // 0x32
 	indexFrenchBreadSprites_DBFCI_Bonus,         // 0x33
-	indexFrenchBreadSprites_UNICLR_Akat,   // 0x34
-    indexFrenchBreadSprites_UNICLR_Byak,   // 0x35
-    indexFrenchBreadSprites_UNICLR_Carm,   // 0x36
-    indexFrenchBreadSprites_UNICLR_Chao,   // 0x37
-    indexFrenchBreadSprites_UNICLR_Eltn,   // 0x38
-    indexFrenchBreadSprites_UNICLR_Enki,   // 0x39
-    indexFrenchBreadSprites_UNICLR_Gord,   // 0x3A
-    indexFrenchBreadSprites_UNICLR_Hild,   // 0x3B
-    indexFrenchBreadSprites_UNICLR_Hyde,   // 0x3C
-    indexFrenchBreadSprites_UNICLR_Linn,   // 0x3D
-    indexFrenchBreadSprites_UNICLR_Lond,   // 0x3E
-    indexFrenchBreadSprites_UNICLR_Merk,   // 0x3F
-    indexFrenchBreadSprites_UNICLR_Mika,   // 0x40
-    indexFrenchBreadSprites_UNICLR_Nana,   // 0x41
-    indexFrenchBreadSprites_UNICLR_Orie,   // 0x42
-    indexFrenchBreadSprites_UNICLR_Phon,   // 0x43
-    indexFrenchBreadSprites_UNICLR_Seth,   // 0x44
-    indexFrenchBreadSprites_UNICLR_Vati,   // 0x45
-    indexFrenchBreadSprites_UNICLR_Wagn,   // 0x46
-    indexFrenchBreadSprites_UNICLR_Wald,   // 0x47
-    indexFrenchBreadSprites_UNICLR_Yuzu,   // 0x48
-    indexFrenchBreadSprites_UNICLR_Bonus,  // 0x49
+    indexFrenchBreadSprites_UNICLR_Akat,    // 0x34
+    indexFrenchBreadSprites_UNICLR_Byak,    // 0x35
+    indexFrenchBreadSprites_UNICLR_Carm,    // 0x36
+    indexFrenchBreadSprites_UNICLR_Chao,    // 0x37
+    indexFrenchBreadSprites_UNICLR_Eltn,    // 0x38
+    indexFrenchBreadSprites_UNICLR_Enki,    // 0x39
+    indexFrenchBreadSprites_UNICLR_Gord,    // 0x3A
+    indexFrenchBreadSprites_UNICLR_Hild,    // 0x3B
+    indexFrenchBreadSprites_UNICLR_Hyde,    // 0x3C
+    indexFrenchBreadSprites_UNICLR_Linn,    // 0x3D
+    indexFrenchBreadSprites_UNICLR_Lond,    // 0x3E
+    indexFrenchBreadSprites_UNICLR_Merk,    // 0x3F
+    indexFrenchBreadSprites_UNICLR_Mika,    // 0x40
+    indexFrenchBreadSprites_UNICLR_Nana,    // 0x41
+    indexFrenchBreadSprites_UNICLR_Orie,    // 0x42
+    indexFrenchBreadSprites_UNICLR_Phon,    // 0x43
+    indexFrenchBreadSprites_UNICLR_Seth,    // 0x44
+    indexFrenchBreadSprites_UNICLR_Vati,    // 0x45
+    indexFrenchBreadSprites_UNICLR_Wagn,    // 0x46
+    indexFrenchBreadSprites_UNICLR_Wald,    // 0x47
+    indexFrenchBreadSprites_UNICLR_Yuzu,    // 0x48
+    indexFrenchBreadSprites_UNICLR_Bonus,   // 0x49
+
+    indexMBAACCSprites_Akiha,               // 0x4A
+    indexMBAACCSprites_Aoko,                // 0x4B
+    indexMBAACCSprites_Arcueid,             // 0x4C
+    indexMBAACCSprites_Ciel,                // 0x4D
+    indexMBAACCSprites_Hime,                // 0x4E
+    indexMBAACCSprites_Hisui,               // 0x4F
+    indexMBAACCSprites_Kohaku,              // 0x50
+    indexMBAACCSprites_KohaMech,            // 0x51
+    indexMBAACCSprites_Kouma,               // 0x52
+    indexMBAACCSprites_Len,                 // 0x53
+    indexMBAACCSprites_Maids,               // 0x54
+    indexMBAACCSprites_MechHisui,           // 0x55
+    indexMBAACCSprites_Miyako,              // 0x56
+    indexMBAACCSprites_NAC,                 // 0x57
+    indexMBAACCSprites_Nanaya,              // 0x58
+    indexMBAACCSprites_NecoArc,             // 0x59
+    indexMBAACCSprites_NecoMech,            // 0x5A
+    indexMBAACCSprites_Nero,                // 0x5B
+    indexMBAACCSprites_PowerdCiel,          // 0x5C
+    indexMBAACCSprites_RedArcueid,          // 0x5D
+    indexMBAACCSprites_Riesbyfe,            // 0x5E
+    indexMBAACCSprites_Roa,                 // 0x5F
+    indexMBAACCSprites_Ryougi,              // 0x60
+    indexMBAACCSprites_Satsuki,             // 0x61
+    indexMBAACCSprites_Seifuku,             // 0x62
+    indexMBAACCSprites_Sion,                // 0x63
+    indexMBAACCSprites_Tohno,               // 0x64
+    indexMBAACCSprites_VAkiha,              // 0x65
+    indexMBAACCSprites_VSion,               // 0x66
+    indexMBAACCSprites_Warachia,            // 0x67
+    indexMBAACCSprites_WhiteLen,            // 0x68
+    indexMBAACCSprites_Bonus,               // 0x69
 };
 
 enum SupportedTaito_PaletteListIndex

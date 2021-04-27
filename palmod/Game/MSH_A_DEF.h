@@ -727,7 +727,7 @@ const sGame_PaletteDataset MSH_A_BONUS_MINDGEM_PALETTES[] =
 const sGame_PaletteDataset MSH_A_BONUS_CSI_PALETTES[] =
 {
 #ifndef WantIndividualPalettes
-    { L"Character Select Icons", 0x6b2ec, 0x6b48c },
+    { L"Character Select Icons", 0x6b2ea, 0x6b48a },
 #else
     { L"Spider-Man", 0x6B2EC, 0x6B30C },
     { L"Captain America", 0x6B30C, 0x6B32C },

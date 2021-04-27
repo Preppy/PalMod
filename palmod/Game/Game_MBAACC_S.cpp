@@ -30,9 +30,8 @@ CGame_MBAACC_S::CGame_MBAACC_S(UINT32 nConfirmedROMSize /* = -1 */)
 
     nGameFlag = MBAACC_S;
     nImgGameFlag = 0;
-    // no images yet
-    m_prgGameImageSet = 0;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet = MBAACC_S_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(MBAACC_S_IMG_UNITS);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;

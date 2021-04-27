@@ -654,7 +654,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 
         if (fSafeToContinue)
         {
-            for (const sSupportedGameList const currentGame : SupportedGameList)
+            for (const sSupportedGameList &currentGame : SupportedGameList)
             {
                 // user nFilterIndex starts at 1
                 if ((currentGame.nListedGameIndex + 1) == ofn.nFilterIndex)

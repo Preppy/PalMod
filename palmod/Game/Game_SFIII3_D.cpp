@@ -157,7 +157,7 @@ sFileRule CGame_SFIII3_D::GetNextRule()
 
 int CGame_SFIII3_D::GetBasicAmt(UINT16 nUnitId)
 {
-    return BUTTON7;
+    return ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
 }
 
 UINT16 CGame_SFIII3_D::GetPaletteCountForUnit(UINT16 nUnitId)
@@ -273,7 +273,7 @@ COLORREF* CGame_SFIII3_D::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     COLORREF* NewPal = new COLORREF[nCurrPalSz];
 
-    for (UINT16 i = 0; i < nCurrPalSz - 1; i++)
+    for (UINT16 i = 0; i < nCurrPalSz; i++)
     {
         NewPal[i] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][i]);
 

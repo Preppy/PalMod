@@ -19,8 +19,10 @@ void CPalModDlg::OnLoadGameByDirectory(int nGameFlag)
             pszExtraInfo = L"We need the dkg_mpr* files from dankuga.zip.";
             break;
         case DBFCI_A:
+            pszExtraInfo = L"For DBFCI, please select the 'games' directory.";
             break;
         case GGXXACR_S:
+            pszExtraInfo = L"For Guilty Gear (Steam), please select the \"obj\" folder under \"Resource\\pr\\ver_100\".\n\"Resource\\obj\" will not work.";
             break;
         case GGXXACR_P:
             break;
@@ -36,10 +38,10 @@ void CPalModDlg::OnLoadGameByDirectory(int nGameFlag)
             pszExtraInfo = L"We need the mpr-*.* files from mvcs2.zip.";
             break;
         case MVC2_D:
-            pszExtraInfo = L"We need the PLxx_DAT.bin files from the game image.";
+            pszExtraInfo = L"We need the PLxx_DAT.bin files from the root of the game image.";
             break;
         case MVC2_P:
-            pszExtraInfo = L"We need the PLxxpak.bin files from the game image.";
+            pszExtraInfo = L"We need the PLxxPAK.bin files from the root of the game image.\nFor the PS3 version, select the folder \"gdrom\" under \"NPUB30068\\USRDIR\".";
             break;
         case REDEARTH_A_DIR_30:
             pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
@@ -48,7 +50,7 @@ void CPalModDlg::OnLoadGameByDirectory(int nGameFlag)
             pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
             break;
         case SFIII3_D:
-            pszExtraInfo = L"We need the PLxxPL.bin files from the game image.";
+            pszExtraInfo = L"We need the PLxxPL.bin files from the game image.\nFor the PS3 version, select the \"Colors\" folder under \"NPUB30301-RTM\\USRDIR\".";
             break;
         case SFIII1_A_DIR:
             pszExtraInfo = L"We need the sfiii-simm5.x files from sfiii.zip (US) or sfiiin.zip (JPN).";

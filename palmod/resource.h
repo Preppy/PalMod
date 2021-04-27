@@ -150,7 +150,6 @@
 #define IDS_SVC_UNKNOWNCRYPTO           2053
 #define IDS_SVC_WARNENCRYPT             2054
 #define IDS_SVC_CRYPTO_RO               2055
-
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
 #define ID_LD_MVC2DCUSA                 32773
@@ -261,11 +260,8 @@
 #define ID_FILE_OPENEXTRAS              32893
 #define ID_COLORFORMAT_xRGB888          32894
 #define ID_COLORFORMAT_xBGR888          32895
-#define ID_LD_GGXXACR_P					32897 //skipping 32896 
-#define ID_LD_MBAACC_S					32898
-
-
-// Please note that the F0000 range (983040) is reserved for the dynamic game menu
+#define ID_LD_GGXXACR_P                 32897
+#define ID_LD_MBAACC_S                  32898
 
 // Next default values for new objects
 // 
