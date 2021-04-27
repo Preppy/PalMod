@@ -10,7 +10,6 @@ class CGame_KOF98AE2016_A : public CGameWithExtrasFile
 {
 private:
     static UINT32 m_nTotalPaletteCountForKOF98AE2016;
-    static void DumpAllCharacters();
 
     static int rgExtraCountAll[KOF98AE2016_A_NUMUNIT + 1];
     static int rgExtraLoc[KOF98AE2016_A_NUMUNIT + 1];

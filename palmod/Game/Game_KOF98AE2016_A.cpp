@@ -166,9 +166,6 @@ sDescTreeNode* CGame_KOF98AE2016_A::InitDescTree()
         KOF98AE2016_A_EXTRA_CUSTOM
     );
 
-    // For development use to speed things up
-    //DumpPaletteHeaders();
-
     return NewDescTree;
 }
 

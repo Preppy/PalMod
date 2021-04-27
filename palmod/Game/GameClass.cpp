@@ -2277,7 +2277,19 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                 SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 if (GameIsUsing16BitColor())
                 {
-                    SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                    for (int nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
+                    {
+                        // Never write the transparency counter.
+                        // It's kind of OK to do so since it should be a no-op, but TMNTF is evil and relies upon overlapping palettes.
+                        if ((nArrayIndex % createPalOptions.eWriteOutputOptions) != 0)
+                        {
+                            SaveFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nArrayIndex], m_nSizeOfColorsInBytes);
+                        }
+                        else
+                        {
+                            SaveFile->Seek(m_nSizeOfColorsInBytes, CFile::current);
+                        }
+                    }
                 }
                 else if (GameIsUsing24BitColor())
                 {

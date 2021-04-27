@@ -264,12 +264,10 @@ void CPalModDlg::OnEditCopy()
         case ColMode::COLMODE_ARGB1888:
             cbColor = 4;
             uCopyFlag1 = DBFCI_A + k_nASCIICharacterOffset;
-            uCopyFlag1 = MBAACC_S + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_ARGB7888:
             cbColor = 4;
             uCopyFlag1 = GGXXACR_S + k_nASCIICharacterOffset;
-            uCopyFlag1 = GGXXACR_P + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_ARGB8888:
             cbColor = 4;
@@ -587,33 +585,31 @@ void CPalModDlg::OnEditPaste()
                 switch (uPasteGFlag1)
                 {
                 case TOPF2005_SEGA:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                    // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_RGB333;
                     break;
                 }
                 case DUMMY_RGB444_LE:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_RGB444_LE;
                     break;
                 }
                 case DBFCI_A:
-                case MBAACC_S:
-                    // Don't add new case handlers here: anything new has to go in the overflow section below
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB1888;
                     break;
                 }
                 case GGXXACR_S:
-                case GGXXACR_P:
-                    // Don't add new case handlers here: anything new has to go in the overflow section below
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB7888;
                     break;
                 }
                 case UNICLR_A:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB8888;
                     break;
@@ -639,7 +635,7 @@ void CPalModDlg::OnEditPaste()
                 case VSAV_A:
                 case VSAV2_A:
                 case XMVSF_A:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_RGB444_BE;
                     break;
@@ -657,7 +653,7 @@ void CPalModDlg::OnEditPaste()
                 case REDEARTH_A:
                 case REDEARTH_A_DIR_30:
                 case REDEARTH_A_DIR_31:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_RGB555_LE;
                     break;
@@ -667,7 +663,7 @@ void CPalModDlg::OnEditPaste()
                 case KOFXI_A:
                 case NGBC_A:
                 case SFIII3_D:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_RGB555_BE;
                     break;
@@ -683,7 +679,6 @@ void CPalModDlg::OnEditPaste()
                 case KOF94_A:
                 case KOF97_A:
                 case KOF98_A:
-                case KOF98AE2016_A:
                 case KOF99AE_A:
                 case KOF01_A:
                 case KOF02_A:
@@ -707,7 +702,7 @@ void CPalModDlg::OnEditPaste()
                 case SVCPLUSA_A:
                 case WakuWaku7_A:
                 case WINDJAMMERS_A:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_RGB666_NEOGEO;
                     break;
@@ -721,20 +716,21 @@ void CPalModDlg::OnEditPaste()
                 case SSF2T_GBA:
                 case TMNTTF_SNES:
                 case XMMA_SNES:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     
                     eColModeForPastedColor = ColMode::COLMODE_BGR555_LE;
                     break;
                 }
                 case DANKUGA_A:
-                // Don't add new case handlers here: anything new has to go in the overflow section below
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     eColModeForPastedColor = ColMode::COLMODE_RGB555_SHARP;
                     break;
                 }
                 case k_nRawColorStringOverflowIndicator:
                 default:
+                // Don't change this code.  It automatically handles new games and color modes.
                 {
                     fWasOverflowHandled = true;
                     eColModeForPastedColor = DecodeColorFlag(uPasteGFlag2);

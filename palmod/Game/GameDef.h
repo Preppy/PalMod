@@ -247,7 +247,6 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
     L"GGXX:AC+R (PlayStation 3)",
     L"Melty blood Actress Again Current Code",
     L"KOF98AE (2016 Romhack)",
-
 };
 
 enum class GamePlatform
