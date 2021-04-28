@@ -97,7 +97,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
             //Set each button data
-            _snwprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, L"Palettes");//, DEF_BUTTONLABEL7_SF3[iButtonCtr]);
+            _snwprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, L"Palettes");
 
             //Button children have nodes
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -107,10 +107,23 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
 
             for (UINT16 nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
             {
+                const UINT16 k_nNumberOfBonusColors = 6;
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr];
 
                 ChildNode->uUnitId = iUnitCtr;
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Palette %02X", nChildCtr);
+
+                if (nChildCtr < ARRAYSIZE(DEF_BUTTONLABEL7_SF3))
+                {
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, DEF_BUTTONLABEL7_SF3[nChildCtr]);
+                }
+                else if (nChildCtr < (ARRAYSIZE(DEF_BUTTONLABEL7_SF3) + k_nNumberOfBonusColors))
+                {
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Bonus Color %u", 1 + nChildCtr - ARRAYSIZE(DEF_BUTTONLABEL7_SF3));
+                }
+                else
+                {
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Palette %02X", nChildCtr);
+                }
 
                 ChildNode->uPalId = nChildCtr;
             }
@@ -125,7 +138,7 @@ sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // We get extra data from GameClass that we don't want: clear the lead 0xFF00 flag if present.
-    UINT16 nRuleId = (nUnitId & 0x00FF) + 1;
+    UINT16 nRuleId = (nUnitId & 0x00FF);
 
     if (nRuleId > 14)
     {
@@ -250,6 +263,8 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     {
         nImgUnitId++;
     }
+
+    nImgUnitId = SFIII3_D_IMGID_SORT[nImgUnitId];
 
     UINT16 nSrcStart = 0;
     UINT16 nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);//GetBasicAmt(uUnitId);

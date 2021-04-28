@@ -833,6 +833,7 @@ const UINT16 SFIII3_A_IMG_UNITS[] =
 
 const UINT16 SFIII3_D_IMG_UNITS[] =
 {
+    index3S_CPS3_Gill,
     index3S_CPS3_Alex,
     index3S_CPS3_Ryu,
     index3S_CPS3_Yun,
