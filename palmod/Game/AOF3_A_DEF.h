@@ -22,7 +22,7 @@ const sGame_PaletteDataset AOF3_A_Robert_A_PALETTES[] =
 {
     { L"Robert Garcia A", 0x058000, 0x058020, indexAoF3Sprites_Robert },
     { L"Charging Power A", 0x058060, 0x058080 },
-    { L"Ryuu Geki Ken A", 0x0580c0, 0x0580e0 },
+    { L"Ryuu Geki Ken A", 0x0580c0, 0x0580e0, indexAoF3Sprites_Robert, 0x08 },
     { L"Portrait A", 0x05fac0, 0x05fae0, indexAoF3Sprites_Robert, 0x30 },
  };
 
@@ -30,7 +30,7 @@ const sGame_PaletteDataset AOF3_A_Robert_D_PALETTES[] =
 {
     { L"Robert Garcia D", 0x058100, 0x058120, indexAoF3Sprites_Robert },
     { L"Charging Power D", 0x058160, 0x058180 },
-    { L"Ryuu Geki Ken D", 0x0581c0, 0x0581e0 },
+    { L"Ryuu Geki Ken D", 0x0581c0, 0x0581e0, indexAoF3Sprites_Robert, 0x08 },
     { L"Portrait D", 0x06fb80, 0x06fba0, indexAoF3Sprites_Robert, 0x30 },
  };
 
@@ -38,7 +38,7 @@ const sGame_PaletteDataset AOF3_A_Robert_RAGE_PALETTES[] =
 {
     { L"Robert Garcia Rage", 0x058200, 0x058220, indexAoF3Sprites_Robert },
     { L"Charging Power Rage", 0x058260, 0x058280 },
-    { L"Ryuu Geki Ken Rage", 0x0582c0, 0x0582e0 },
+    { L"Ryuu Geki Ken Rage", 0x0582c0, 0x0582e0, indexAoF3Sprites_Robert, 0x08 },
 };
 
  //Ryo Sakazaki
@@ -46,7 +46,7 @@ const sGame_PaletteDataset AOF3_A_Ryo_A_PALETTES[] =
 {
     { L"Ryo Sakazaki A", 0x058800, 0x058820, indexAoF3Sprites_Ryo },
     { L"Charging Power A", 0x058840, 0x058860 },
-    { L"Ko Ou Ken A", 0x058860, 0x058880 },
+    { L"Ko Ou Ken A", 0x058860, 0x058880, indexAoF3Sprites_Ryo, 0x08 },
     { L"Ending Costume A", 0x0588e0, 0x058900, indexAoF3Sprites_Ryo, 0x01 },
     { L"Portrait A", 0x05fb00, 0x05fb20, indexAoF3Sprites_Ryo, 0x30 },
  };
@@ -55,7 +55,7 @@ const sGame_PaletteDataset AOF3_A_Ryo_D_PALETTES[] =
 {
     { L"Ryo Sakazaki D", 0x058900, 0x058920, indexAoF3Sprites_Ryo },
     { L"Charging Power D", 0x058940, 0x058960 },
-    { L"Ko Ou Ken D", 0x058960, 0x058980 },
+    { L"Ko Ou Ken D", 0x058960, 0x058980, indexAoF3Sprites_Ryo, 0x08 },
     { L"Ending Costume D", 0x0589e0, 0x058a00, indexAoF3Sprites_Ryo, 0x01 },
     { L"Portrait D", 0x06fbc0, 0x06fbe0, indexAoF3Sprites_Ryo, 0x30 },
  };
@@ -64,7 +64,7 @@ const sGame_PaletteDataset AOF3_A_Ryo_RAGE_PALETTES[] =
 {
     { L"Ryo Sakazaki Rage", 0x058a00, 0x058a20, indexAoF3Sprites_Ryo },
     { L"Charging Power Rage", 0x058a40, 0x058a60 },
-    { L"Ko Ou Ken Rage", 0x058a60, 0x058a80 },
+    { L"Ko Ou Ken Rage", 0x058a60, 0x058a80, indexAoF3Sprites_Ryo, 0x08 },
 };
 
  //Karman Cole

@@ -8,48 +8,49 @@
 
 const UINT16 BREAKERS_A_IMG_UNITS[] =
 {
-    indexBreakersSprites_AlsionIII,
-    indexBreakersSprites_BaiHu,
-    indexBreakersSprites_Condor,
-    indexBreakersSprites_DaoLong,
-    indexBreakersSprites_Maherl,
-    indexBreakersSprites_Pielle,
-    indexBreakersSprites_Rila,
-    indexBreakersSprites_Saizo,
-    indexBreakersSprites_Sho,
-    indexBreakersSprites_Tia,
+    indexBreakersSprites_AlsionIII, // 0x00
+    indexBreakersSprites_BaiHu,     // 0x01
+    indexBreakersSprites_Condor,    // 0x02
+    indexBreakersSprites_DaoLong,   // 0x03
+    indexBreakersSprites_Maherl,    // 0x04
+    indexBreakersSprites_Pielle,    // 0x05
+    indexBreakersSprites_Rila,      // 0x06
+    indexBreakersSprites_Saizo,     // 0x07
+    indexBreakersSprites_Sho,       // 0x08
+    indexBreakersSprites_Tia,       // 0x09
+    indexBreakersSprites_Bonus,     // 0x0A
 };
 
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_A[] =
 {
     { L"Sho A", 0x135eaa, 0x135eca, indexBreakersSprites_Sho },
     { L"Sho A Super Trail", 0x135f4a, 0x135f6a, indexBreakersSprites_Sho },
-    { L"Sho A VS Portrait", 0x1b6e4e, 0x1b6eee },
-    { L"Sho A Win Portrait", 0x1cb3d6, 0x1cb436 },
+    { L"Sho A VS Portrait", 0x1b6e4e, 0x1b6eee, indexBreakersSprites_Sho, 0x31 },
+    { L"Sho A Win Portrait", 0x1cb3d6, 0x1cb436, indexBreakersSprites_Sho, 0x30 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_B[] =
 {
     { L"Sho B", 0x135eca, 0x135eea, indexBreakersSprites_Sho },
     { L"Sho B Super Trail", 0x135f6a, 0x135f8a, indexBreakersSprites_Sho },
-    { L"Sho B VS Portrait", 0x1b6eee, 0x1b6f8e },
-    { L"Sho B Win Portrait", 0x1cb436, 0x1cb496 },
+    { L"Sho B VS Portrait", 0x1b6eee, 0x1b6f8e, indexBreakersSprites_Sho, 0x31 },
+    { L"Sho B Win Portrait", 0x1cb436, 0x1cb496, indexBreakersSprites_Sho, 0x30 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_C[] =
 {
     { L"Sho C", 0x135eea, 0x135f0a, indexBreakersSprites_Sho },
     { L"Sho C Super Trail", 0x135f8a, 0x135faa, indexBreakersSprites_Sho },
-    { L"Sho C VS Portrait", 0x1b6f8e, 0x1b702e },
-    { L"Sho C Win Portrait", 0x1cb496, 0x1cb4f6 },
+    { L"Sho C VS Portrait", 0x1b6f8e, 0x1b702e, indexBreakersSprites_Sho, 0x31 },
+    { L"Sho C Win Portrait", 0x1cb496, 0x1cb4f6, indexBreakersSprites_Sho, 0x30 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_D[] =
 {
     { L"Sho D", 0x135f0a, 0x135f2a, indexBreakersSprites_Sho },
     { L"Sho D Super Trail", 0x135fca, 0x135fea, indexBreakersSprites_Sho },
-    { L"Sho D VS Portrait", 0x1b702e, 0x1b70ce },
-    { L"Sho D Win Portrait", 0x1cb4f6, 0x1cb556 },
+    { L"Sho D VS Portrait", 0x1b702e, 0x1b70ce, indexBreakersSprites_Sho, 0x31 },
+    { L"Sho D Win Portrait", 0x1cb4f6, 0x1cb556, indexBreakersSprites_Sho, 0x30 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_JIN_PALETTES[] =
@@ -65,17 +66,17 @@ const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_SHARED[] =
     //Shared Effects
     { L"Sho Black Flash", 0x135e2a, 0x135e4a, indexBreakersSprites_Sho },
     { L"Sho White Flash", 0x135e4a, 0x135e6a, indexBreakersSprites_Sho },
-    { L"Sho Zap-Burned", 0x135fea, 0x13600a },
-    { L"Sho Burned", 0x13600a, 0x13602a },
-    { L"Sho Zapped 1", 0x13602a, 0x13604a },
-    { L"Sho Zapped 2", 0x13604a, 0x13606a },
-    { L"Sho Poisoned 1", 0x13606a, 0x13608a },
-    { L"Sho Poisoned 2", 0x13608a, 0x1360aa },
+    { L"Sho Zap-Burned", 0x135fea, 0x13600a, indexBreakersSprites_Sho, 0x00 },
+    { L"Sho Burned", 0x13600a, 0x13602a, indexBreakersSprites_Bonus, 0x00 },
+    { L"Sho Zapped 1", 0x13602a, 0x13604a, indexBreakersSprites_Sho, 0x00 },
+    { L"Sho Zapped 2", 0x13604a, 0x13606a, indexBreakersSprites_Sho, 0x00 },
+    { L"Sho Poisoned 1", 0x13606a, 0x13608a, indexBreakersSprites_Sho, 0x00 },
+    { L"Sho Poisoned 2", 0x13608a, 0x1360aa, indexBreakersSprites_Sho, 0x00 },
     //Shared
-    { L"Sho Fireball 1", 0x1360aa, 0x1360ca },
-    { L"Sho Fireball 2", 0x1360ea, 0x13610a },
-    { L"Sho Super Fireball", 0x13610a, 0x13612a },
-    { L"Sho Firekick", 0x1360ca, 0x1360ea },
+    { L"Sho Fireball 1", 0x1360aa, 0x1360ca, indexBreakersSprites_Sho, 0x08 },
+    { L"Sho Fireball 2", 0x1360ea, 0x13610a, indexBreakersSprites_Sho, 0x08 },
+    { L"Sho Super Fireball", 0x13610a, 0x13612a, indexBreakersSprites_Sho, 0x0a },
+    { L"Sho Firekick", 0x1360ca, 0x1360ea, indexBreakersSprites_Sho, 0x09 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_A[] =
@@ -135,12 +136,12 @@ const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_SHARED[] =
     //Shared Effects
     { L"Dao Black Flash", 0x13edda, 0x13edfa, indexBreakersSprites_DaoLong },
     { L"Dao White Flash", 0x13edfa, 0x13ee1a, indexBreakersSprites_DaoLong },
-    { L"Dao Zap-Burned", 0x13ef9a, 0x13efba },
-    { L"Dao Burned", 0x13efba, 0x13efda },
-    { L"Dao Zapped 1", 0x13efda, 0x13effa },
-    { L"Dao Zapped 2", 0x13effa, 0x13f01a },
-    { L"Dao Poisoned 1", 0x13f01a, 0x13f03a },
-    { L"Dao Poisoned 2", 0x13f03a, 0x13f05a },
+    { L"Dao Zap-Burned", 0x13ef9a, 0x13efba, indexBreakersSprites_DaoLong, 0x00 },
+    { L"Dao Burned", 0x13efba, 0x13efda, indexBreakersSprites_Bonus, 0x00 },
+    { L"Dao Zapped 1", 0x13efda, 0x13effa, indexBreakersSprites_DaoLong, 0x00 },
+    { L"Dao Zapped 2", 0x13effa, 0x13f01a, indexBreakersSprites_DaoLong, 0x00 },
+    { L"Dao Poisoned 1", 0x13f01a, 0x13f03a, indexBreakersSprites_DaoLong, 0x00 },
+    { L"Dao Poisoned 2", 0x13f03a, 0x13f05a, indexBreakersSprites_DaoLong, 0x00 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_A[] =
@@ -192,12 +193,12 @@ const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_SHARED[] =
     //Shared Effects
     { L"Condor Black Flash", 0x1466f8, 0x146718, indexBreakersSprites_Condor },
     { L"Condor White Flash", 0x146718, 0x146738, indexBreakersSprites_Condor },
-    { L"Condor Zap-Burned", 0x1468b8, 0x1468d8 },
-    { L"Condor Burned", 0x1468d8, 0x1468f8 },
-    { L"Condor Zapped 1", 0x1468f8, 0x146918 },
-    { L"Condor Zapped 2", 0x146918, 0x146938 },
-    { L"Condor Poisoned 1", 0x146938, 0x146958 },
-    { L"Condor Poisoned 2", 0x146958, 0x146978 },
+    { L"Condor Zap-Burned", 0x1468b8, 0x1468d8, indexBreakersSprites_Condor, 0x00 },
+    { L"Condor Burned", 0x1468d8, 0x1468f8, indexBreakersSprites_Bonus, 0x00 },
+    { L"Condor Zapped 1", 0x1468f8, 0x146918, indexBreakersSprites_Condor, 0x00 },
+    { L"Condor Zapped 2", 0x146918, 0x146938, indexBreakersSprites_Condor, 0x00 },
+    { L"Condor Poisoned 1", 0x146938, 0x146958, indexBreakersSprites_Condor, 0x00 },
+    { L"Condor Poisoned 2", 0x146958, 0x146978, indexBreakersSprites_Condor, 0x00 },
     //Shared
     { L"Condor Zap Attack 2", 0x146758, 0x146778 },
     { L"Condor Dust", 0x1469f8, 0x146a18 },
@@ -209,8 +210,8 @@ const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_A[] =
     { L"Tia A Super Trail", 0x152548, 0x152568, indexBreakersSprites_Tia },
     { L"Tia A Lighting Power", 0x1526a8, 0x1526c8 },
     { L"Tia A Lighting Power 2", 0x152728, 0x152748 },
-    { L"Tia A VS Portrait", 0x1b77ae, 0x1b784e },
-    { L"Tia A Win Portrait", 0x1cb976, 0x1cb9d6 },
+    { L"Tia A VS Portrait", 0x1b77ae, 0x1b784e, indexBreakersSprites_Tia, 0x31 },
+    { L"Tia A Win Portrait", 0x1cb976, 0x1cb9d6, indexBreakersSprites_Tia, 0x30 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_B[] =
@@ -219,8 +220,8 @@ const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_B[] =
     { L"Tia B Super Trail", 0x152568, 0x152588, indexBreakersSprites_Tia },
     { L"Tia B Lighting Power", 0x1526c8, 0x1526e8 },
     { L"Tia B Lighting Power 2", 0x152748, 0x152768 },
-    { L"Tia B VS Portrait", 0x1b784e, 0x1b78ee },
-    { L"Tia B Win Portrait", 0x1cb9d6, 0x1cba36 },
+    { L"Tia B VS Portrait", 0x1b784e, 0x1b78ee, indexBreakersSprites_Tia, 0x31 },
+    { L"Tia B Win Portrait", 0x1cb9d6, 0x1cba36, indexBreakersSprites_Tia, 0x30 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_C[] =
@@ -229,8 +230,8 @@ const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_C[] =
     { L"Tia C Super Trail", 0x152588, 0x1525a8, indexBreakersSprites_Tia },
     { L"Tia C Lighting Power", 0x1526e8, 0x152708 },
     { L"Tia C Lighting Power 2", 0x152768, 0x152788 },
-    { L"Tia C VS Portrait", 0x1b78ee, 0x1b798e },
-    { L"Tia C Win Portrait", 0x1cba36, 0x1cba96 },
+    { L"Tia C VS Portrait", 0x1b78ee, 0x1b798e, indexBreakersSprites_Tia, 0x31 },
+    { L"Tia C Win Portrait", 0x1cba36, 0x1cba96, indexBreakersSprites_Tia, 0x30 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_D[] =
@@ -239,8 +240,8 @@ const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_D[] =
     { L"Tia D Super Trail", 0x1525a8, 0x1525c8, indexBreakersSprites_Tia },
     { L"Tia D Lighting Power", 0x152708, 0x152728 },
     { L"Tia D Lighting Power 2", 0x152788, 0x1527a8 },
-    { L"Tia D VS Portrait", 0x1b798e, 0x1b7a2e },
-    { L"Tia D Win Portrait", 0x1cba96, 0x1cbaf6 },
+    { L"Tia D VS Portrait", 0x1b798e, 0x1b7a2e, indexBreakersSprites_Tia, 0x31 },
+    { L"Tia D Win Portrait", 0x1cba96, 0x1cbaf6, indexBreakersSprites_Tia, 0x30 },
 };
 
 const sGame_PaletteDataset BREAKERS_A_SHELLY_PALETTES[] =
@@ -256,12 +257,12 @@ const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_SHARED[] =
     //Shared Effects
     { L"Tia Black Flash", 0x152428, 0x152448, indexBreakersSprites_Tia },
     { L"Tia White Flash", 0x152448, 0x152468, indexBreakersSprites_Tia },
-    { L"Tia Zap-Burned", 0x1525e8, 0x152608 },
-    { L"Tia Burned", 0x152608, 0x152628 },
-    { L"Tia Zapped 1", 0x152628, 0x152648 },
-    { L"Tia Zapped 2", 0x152648, 0x152668 },
-    { L"Tia Poisoned 1", 0x152668, 0x152688 },
-    { L"Tia Poisoned 2", 0x152688, 0x1526a8 },
+    { L"Tia Zap-Burned", 0x1525e8, 0x152608, indexBreakersSprites_Tia, 0x00 },
+    { L"Tia Burned", 0x152608, 0x152628, indexBreakersSprites_Bonus, 0x00 },
+    { L"Tia Zapped 1", 0x152628, 0x152648, indexBreakersSprites_Tia, 0x00 },
+    { L"Tia Zapped 2", 0x152648, 0x152668, indexBreakersSprites_Tia, 0x00 },
+    { L"Tia Poisoned 1", 0x152668, 0x152688, indexBreakersSprites_Tia, 0x00 },
+    { L"Tia Poisoned 2", 0x152688, 0x1526a8, indexBreakersSprites_Tia, 0x00 },
     //Shared
     { L"Flashing Light Power", 0x1527a8, 0x1527c8 },
     { L"Burning Revolver", 0x1527c8, 0x152808 },
@@ -317,12 +318,12 @@ const sGame_PaletteDataset BREAKERS_A_RILA_PALETTES_SHARED[] =
     //Shared Effects
     { L"Rila Black Flash", 0x15b2d4, 0x15b2f4, indexBreakersSprites_Rila },
     { L"Rila White Flash", 0x15b2f4, 0x15b314, indexBreakersSprites_Rila },
-    { L"Rila Zap-Burned", 0x15b494, 0x15b4b4 },
-    { L"Rila Burned", 0x15b4b4, 0x15b4d4 },
-    { L"Rila Zapped 1", 0x15b4d4, 0x15b4f4 },
-    { L"Rila Zapped 2", 0x15b4f4, 0x15b514 },
-    { L"Rila Poisoned 1", 0x15b514, 0x15b534 },
-    { L"Rila Poisoned 2", 0x15b534, 0x15b554 },
+    { L"Rila Zap-Burned", 0x15b494, 0x15b4b4, indexBreakersSprites_Rila, 0x00 },
+    { L"Rila Burned", 0x15b4b4, 0x15b4d4, indexBreakersSprites_Bonus, 0x00 },
+    { L"Rila Zapped 1", 0x15b4d4, 0x15b4f4, indexBreakersSprites_Rila, 0x00 },
+    { L"Rila Zapped 2", 0x15b4f4, 0x15b514, indexBreakersSprites_Rila, 0x00 },
+    { L"Rila Poisoned 1", 0x15b514, 0x15b534, indexBreakersSprites_Rila, 0x00 },
+    { L"Rila Poisoned 2", 0x15b534, 0x15b554, indexBreakersSprites_Rila, 0x00 },
     //Shared
     { L"Rila Slash 1", 0x15b314, 0x15b334 },
     { L"Rila Slash 2", 0x15b334, 0x15b354 },
@@ -387,12 +388,12 @@ const sGame_PaletteDataset BREAKERS_A_ALSION_PALETTES_SHARED[] =
     //Shared Effects
     { L"Alsion Black Flash", 0x164186, 0x1641a6, indexBreakersSprites_AlsionIII },
     { L"Alsion White Flash", 0x1641a6, 0x1641c6, indexBreakersSprites_AlsionIII },
-    { L"Alsion Zap-Burned", 0x164346, 0x164366 },
-    { L"Alsion Burned", 0x164366, 0x164386 },
-    { L"Alsion Zapped 1", 0x164386, 0x1643a6 },
-    { L"Alsion Zapped 2", 0x1643a6, 0x1643c6 },
-    { L"Alsion Poisoned 1", 0x1643c6, 0x1643e6 },
-    { L"Alsion Poisoned 2", 0x1643e6, 0x164406 },
+    { L"Alsion Zap-Burned", 0x164346, 0x164366, indexBreakersSprites_AlsionIII, 0x00 },
+    { L"Alsion Burned", 0x164366, 0x164386, indexBreakersSprites_Bonus, 0x00 },
+    { L"Alsion Zapped 1", 0x164386, 0x1643a6, indexBreakersSprites_AlsionIII, 0x00 },
+    { L"Alsion Zapped 2", 0x1643a6, 0x1643c6, indexBreakersSprites_AlsionIII, 0x00 },
+    { L"Alsion Poisoned 1", 0x1643c6, 0x1643e6, indexBreakersSprites_AlsionIII, 0x00 },
+    { L"Alsion Poisoned 2", 0x1643e6, 0x164406, indexBreakersSprites_AlsionIII, 0x00 },
     //Shared
     { L"Alsion Special Kick Slash", 0x1641c6, 0x1641e6 },
     { L"Alsion Normal Kick Slash", 0x1641e6, 0x164206 },
@@ -462,12 +463,12 @@ const sGame_PaletteDataset BREAKERS_A_PIELLE_PALETTES_SHARED[] =
     //Shared Effects
     { L"Pielle Black Flash", 0x16d1a2, 0x16d1c2, indexBreakersSprites_Pielle },
     { L"Pielle White Flash", 0x16d1c2, 0x16d1e2, indexBreakersSprites_Pielle },
-    { L"Pielle Zap-Burned", 0x16d362, 0x16d382 },
-    { L"Pielle Burned", 0x16d382, 0x16d3a2 },
-    { L"Pielle Zapped 1", 0x16d3a2, 0x16d3c2 },
-    { L"Pielle Zapped 2", 0x16d3c2, 0x16d3e2 },
-    { L"Pielle Poisoned 1", 0x16d3e2, 0x16d402 },
-    { L"Pielle Poisoned 2", 0x16d402, 0x16d422 },
+    { L"Pielle Zap-Burned", 0x16d362, 0x16d382, indexBreakersSprites_Pielle, 0x00 },
+    { L"Pielle Burned", 0x16d382, 0x16d3a2, indexBreakersSprites_Bonus, 0x00 },
+    { L"Pielle Zapped 1", 0x16d3a2, 0x16d3c2, indexBreakersSprites_Pielle, 0x00 },
+    { L"Pielle Zapped 2", 0x16d3c2, 0x16d3e2, indexBreakersSprites_Pielle, 0x00 },
+    { L"Pielle Poisoned 1", 0x16d3e2, 0x16d402, indexBreakersSprites_Pielle, 0x00 },
+    { L"Pielle Poisoned 2", 0x16d402, 0x16d422, indexBreakersSprites_Pielle, 0x00 },
     //Shared
     { L"Pielle Zap/Slash Effects", 0x16d522, 0x16d542 },
     { L"Pielle Zap Effects 2", 0x16d542, 0x16d562 },
@@ -523,12 +524,12 @@ const sGame_PaletteDataset BREAKERS_A_MAHERL_PALETTES_SHARED[] =
     //Shared Effects
     { L"Maherl Black Flash", 0x177208, 0x177228, indexBreakersSprites_Maherl },
     { L"Maherl White Flash", 0x177228, 0x177248, indexBreakersSprites_Maherl },
-    { L"Maherl Zap-Burned", 0x1773c8, 0x1773e8 },
-    { L"Maherl Burned", 0x1773e8, 0x177408 },
-    { L"Maherl Zapped 1", 0x177408, 0x177428 },
-    { L"Maherl Zapped 2", 0x177428, 0x177448 },
-    { L"Maherl Poisoned 1", 0x177448, 0x177468 },
-    { L"Maherl Poisoned 2", 0x177468, 0x177488 },
+    { L"Maherl Zap-Burned", 0x1773c8, 0x1773e8, indexBreakersSprites_Maherl },
+    { L"Maherl Burned", 0x1773e8, 0x177408, indexBreakersSprites_Bonus, 0x00 },
+    { L"Maherl Zapped 1", 0x177408, 0x177428, indexBreakersSprites_Maherl },
+    { L"Maherl Zapped 2", 0x177428, 0x177448, indexBreakersSprites_Maherl },
+    { L"Maherl Poisoned 1", 0x177448, 0x177468, indexBreakersSprites_Maherl },
+    { L"Maherl Poisoned 2", 0x177468, 0x177488, indexBreakersSprites_Maherl },
     //Shared
     { L"Maherl Fire Breath", 0x177268, 0x177288 },
     { L"Maherl Slash Sword 1", 0x177508, 0x177528 },
@@ -583,12 +584,12 @@ const sGame_PaletteDataset BREAKERS_A_SAIZO_PALETTES_SHARED[] =
     //Shared Effects
     { L"Saizo Black Flash", 0x18977e, 0x18979e, indexBreakersSprites_Saizo },
     { L"Saizo White Flash", 0x18979e, 0x1897be, indexBreakersSprites_Saizo },
-    { L"Saizo Zap-Burned", 0x18993e, 0x18995e },
-    { L"Saizo Burned", 0x18995e, 0x18997e },
-    { L"Saizo Zapped 1", 0x18997e, 0x18999e },
-    { L"Saizo Zapped 2", 0x18999e, 0x1899be },
-    { L"Saizo Poisoned 1", 0x1899be, 0x1899de },
-    { L"Saizo Poisoned 2", 0x1899de, 0x1899fe },
+    { L"Saizo Zap-Burned", 0x18993e, 0x18995e, indexBreakersSprites_Saizo, 0x00 },
+    { L"Saizo Burned", 0x18995e, 0x18997e, indexBreakersSprites_Bonus, 0x00 },
+    { L"Saizo Zapped 1", 0x18997e, 0x18999e, indexBreakersSprites_Saizo, 0x00 },
+    { L"Saizo Zapped 2", 0x18999e, 0x1899be, indexBreakersSprites_Saizo, 0x00 },
+    { L"Saizo Poisoned 1", 0x1899be, 0x1899de, indexBreakersSprites_Saizo, 0x00 },
+    { L"Saizo Poisoned 2", 0x1899de, 0x1899fe, indexBreakersSprites_Saizo, 0x00 },
     //Shared
     { L"Saizo Hiryu Kunai/Bakudan", 0x189a7e, 0x189a9e },
     { L"Saizo Hiryu Bakudan Smoke", 0x189abe, 0x189ade },
@@ -618,7 +619,7 @@ const sGame_PaletteDataset BREAKERS_A_BAIHU_PALETTES[] =
     { L"Bai-Hu Black Flash", 0x180a8e, 0x180aae },
     { L"Bai-Hu White Flash", 0x180aae, 0x180ace },
     { L"Bai-Hu Zap-Burned", 0x180b6e, 0x180b8e },
-    { L"Bai-Hu Burned", 0x180b8e, 0x180bae },
+    { L"Bai-Hu Burned", 0x180b8e, 0x180bae, indexBreakersSprites_Bonus, 0x00 },
     { L"Bai-Hu Zapped 1", 0x180bae, 0x180bce },
     { L"Bai-Hu Zapped 2", 0x180bce, 0x180bee },
     { L"Bai-Hu Poisoned 1", 0x180bee, 0x180c0e },

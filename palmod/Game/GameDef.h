@@ -2097,16 +2097,17 @@ enum SupportedKOF02UM_S_PaletteListIndex
 
 enum SupportedBreakersSprites
 {
-    indexBreakersSprites_AlsionIII,
-    indexBreakersSprites_BaiHu,
-    indexBreakersSprites_Condor,
-    indexBreakersSprites_DaoLong,
-    indexBreakersSprites_Maherl,
-    indexBreakersSprites_Pielle,
-    indexBreakersSprites_Rila,
-    indexBreakersSprites_Saizo,
-    indexBreakersSprites_Sho,
-    indexBreakersSprites_Tia,
+    indexBreakersSprites_AlsionIII, // 0x00
+    indexBreakersSprites_BaiHu,     // 0x01
+    indexBreakersSprites_Condor,    // 0x02
+    indexBreakersSprites_DaoLong,   // 0x03
+    indexBreakersSprites_Maherl,    // 0x04
+    indexBreakersSprites_Pielle,    // 0x05
+    indexBreakersSprites_Rila,      // 0x06
+    indexBreakersSprites_Saizo,     // 0x07
+    indexBreakersSprites_Sho,       // 0x08
+    indexBreakersSprites_Tia,       // 0x09
+    indexBreakersSprites_Bonus,     // 0x0A
 };
 
 enum CVS2SpriteList

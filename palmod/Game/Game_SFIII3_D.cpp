@@ -118,7 +118,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
                 }
                 else if (nChildCtr < (ARRAYSIZE(DEF_BUTTONLABEL7_SF3) + k_nNumberOfBonusColors))
                 {
-                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Bonus Color %u", 1 + nChildCtr - ARRAYSIZE(DEF_BUTTONLABEL7_SF3));
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Second Impact %s", DEF_BUTTONLABEL7_SF3[nChildCtr - ARRAYSIZE(DEF_BUTTONLABEL7_SF3)]);
                 }
                 else
                 {

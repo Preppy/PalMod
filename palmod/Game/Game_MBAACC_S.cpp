@@ -29,7 +29,7 @@ CGame_MBAACC_S::CGame_MBAACC_S(UINT32 nConfirmedROMSize /* = -1 */)
     InitDataBuffer();
 
     nGameFlag = MBAACC_S;
-    nImgGameFlag = 0;
+    nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
     m_prgGameImageSet = MBAACC_S_IMG_UNITS;
     nImgUnitAmt = ARRAYSIZE(MBAACC_S_IMG_UNITS);
 
