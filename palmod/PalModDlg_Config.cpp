@@ -11,7 +11,7 @@ void CPalModDlg::LoadSettings()
 
     //Get main program data
     CGameClass::AllowTransparency(RegSett.main_fAllowAlphaChanges);
-    bShow32 = RegSett.main_bShow32;
+    m_fForceShowAs32bitColor = RegSett.main_bShow32;
     CGameClass::bPostSetPalProc = RegSett.main_bProcSupp;
     bExtraCopyData = RegSett.main_bExtraCopyData;
 
@@ -42,7 +42,7 @@ void CPalModDlg::SaveSettings()
     CRegProc RegSett;
 
     RegSett.main_fAllowAlphaChanges = CGameClass::AllowTransparency();
-    RegSett.main_bShow32        = bShow32;
+    RegSett.main_bShow32        = m_fForceShowAs32bitColor;
     RegSett.main_bProcSupp      = CGameClass::bPostSetPalProc;
     RegSett.main_bExtraCopyData = bExtraCopyData;
 

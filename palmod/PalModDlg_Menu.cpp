@@ -33,6 +33,7 @@ void CPalModDlg::OnLoadGameByDirectory(int nGameFlag)
             pszExtraInfo = L"We need the jojoba-simm5.x files from jojoba.zip.";
             break;
         case MBAACC_S:
+            pszExtraInfo = L"For MBAACC, please select the \"data\" folder.\nIf this is your first time loading MBAACC refer to the Read Me for more details.";
             break;
         case MVC2_A_DIR:
             pszExtraInfo = L"We need the mpr-*.* files from mvcs2.zip.";
@@ -99,7 +100,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         pPopupMenu->EnableMenuItem(ID_FILE_PATCH, !fFileChanged);
         pPopupMenu->EnableMenuItem(ID_FILE_OPENEXTRAS, (GetHost()->GetCurrGame() == nullptr));
         pPopupMenu->EnableMenuItem(ID_FILE_CLOSEFILEDIR, (GetHost()->GetCurrGame() == nullptr));
-        pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedDirectory(NULL, 0, NULL, TRUE));
+        pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedPath(NULL, 0, NULL, TRUE));
 
         pPopupMenu->DeleteMenu(ID_FILE_CROSSPATCH, MF_BYCOMMAND);
 

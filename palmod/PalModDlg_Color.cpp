@@ -24,8 +24,8 @@ void CPalModDlg::ResetSlider(BOOL bSetZero)
 {
     UpdateData();
 
-    nTRGBMul = ((bShow32 && bRGB) ? nRGBMul : 1);
-    nTAMul = ((bShow32 && bRGB) ? (nAMul ? nAMul : 1) : 1);
+    nTRGBMul = ((m_fForceShowAs32bitColor && m_fShowAsRGBNotHSL) ? nRGBMul : 1);
+    nTAMul = ((m_fForceShowAs32bitColor && m_fShowAsRGBNotHSL && nAMul) ? nAMul : 1);
 
     if (bSetZero)
     {
@@ -49,17 +49,36 @@ int CPalModDlg::BoundIntBySliderRange(int nIntValue, CSliderCtrl* pSlider)
     int nMin, nMax;
     pSlider->GetRange(nMin, nMax);
 
-    const int nMultiplier = (int)((&m_ASlider == pSlider) ? nAMul : nRGBMul);
-
-    nMin *= ((bShow32 && bRGB) ? (nMultiplier ? nMultiplier : 1) : 1);
-    nMax *= ((bShow32 && bRGB) ? (nMultiplier ? nMultiplier : 1) : 1);
+    if (m_fForceShowAs32bitColor && m_fShowAsRGBNotHSL)
+    {
+        // max values for 32bit values are -255/0/255
+        if (nMin < 0)
+        {
+            nMin = -255;
+        }
+        nMax = 255;
+    }
 
     nAdjustedValue = min(nAdjustedValue, nMax);
     nAdjustedValue = max(nAdjustedValue, nMin);
 
+    if (m_fForceShowAs32bitColor && m_fShowAsRGBNotHSL)
+    {
+        if ((nAdjustedValue != nMax) && (nAdjustedValue != nMin))
+        {
+            // Now round to legal values for this color mode
+            // Note that this doesn't correctly handle NeoGeo's color table
+            const double flMultiplier = ((&m_ASlider == pSlider) ? nAMul : nRGBMul);
+            const double flStepsUsed = nAdjustedValue / flMultiplier;
+            
+            nAdjustedValue = (int)round((int)round(flStepsUsed) * flMultiplier);
+        }
+    }
+
     return nAdjustedValue;
 }
 
+// Handle the spinner controls...
 void CPalModDlg::OnDeltaposSpinRH(NMHDR* pNMHDR, LRESULT* pResult)
 {
     LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
@@ -68,7 +87,7 @@ void CPalModDlg::OnDeltaposSpinRH(NMHDR* pNMHDR, LRESULT* pResult)
     // Adjust by amount, but correct the orientation
     UpdateData();
     ProcChange();
-    const int nStepLength = -1 * (bShow32 ? (int)nRGBMul : 1);
+    const int nStepLength = -1 * (m_fForceShowAs32bitColor ? (int)nRGBMul : 1);
     m_Edit_RH = m_Edit_RH + (nStepLength * pNMUpDown->iDelta);
 
     m_Edit_RH = BoundIntBySliderRange(m_Edit_RH, &m_RHSlider);
@@ -84,7 +103,7 @@ void CPalModDlg::OnDeltaposSpinGS(NMHDR* pNMHDR, LRESULT* pResult)
     // Adjust by amount, but correct the orientation
     UpdateData();
     ProcChange();
-    const int nStepLength = -1 * (bShow32 ? (int)nRGBMul : 1);
+    const int nStepLength = -1 * (m_fForceShowAs32bitColor ? (int)nRGBMul : 1);
     m_Edit_GS = m_Edit_GS + (nStepLength * pNMUpDown->iDelta);
 
     m_Edit_GS = BoundIntBySliderRange(m_Edit_GS, &m_GSSlider);
@@ -100,7 +119,7 @@ void CPalModDlg::OnDeltaposSpinBL(NMHDR* pNMHDR, LRESULT* pResult)
     // Adjust by amount, but correct the orientation
     UpdateData();
     ProcChange();
-    const int nStepLength = -1 * (bShow32 ? (int)nRGBMul : 1);
+    const int nStepLength = -1 * (m_fForceShowAs32bitColor ? (int)nRGBMul : 1);
     m_Edit_BL = m_Edit_BL + (nStepLength * pNMUpDown->iDelta);
 
     m_Edit_BL = BoundIntBySliderRange(m_Edit_BL, &m_BLSlider);
@@ -116,7 +135,7 @@ void CPalModDlg::OnDeltaposSpinA(NMHDR* pNMHDR, LRESULT* pResult)
     // Adjust by amount, but correct the orientation
     UpdateData();
     ProcChange();
-    const int nStepLength = -1 * (bShow32 ? (int)nAMul : 1);
+    const int nStepLength = -1 * (m_fForceShowAs32bitColor ? (int)nAMul : 1);
     m_Edit_A = m_Edit_A + (nStepLength * pNMUpDown->iDelta);
 
     m_Edit_A = BoundIntBySliderRange(m_Edit_A, &m_ASlider);
@@ -150,7 +169,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
             bEnableSlider = TRUE;
             bEnableAlpha = (nAAmt != 0);
 
-            if (bRGB)
+            if (m_fShowAsRGBNotHSL)
             {
                 if (nRangeFlag != (0 + nGameFlag))
                 {
@@ -189,7 +208,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
             bEnableSlider = TRUE;
             bEnableAlpha = TRUE * nAAmt;
 
-            if (bRGB)
+            if (m_fShowAsRGBNotHSL)
             {
                 if (nRangeFlag != ((0xFF * 2) + nGameFlag))
                 {
@@ -308,13 +327,14 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
     if ((nSliderId == IDC_A_SLIDER) || (nSliderId == IDC_SPIN_A))
     {
-        nMul = bShow32 ? nMul : 1;
+        nMul = m_fForceShowAs32bitColor ? nMul : 1;
     }
     else
     {
-        nMul = bRGB ? (bShow32 ? nMul : 1) : 1;
+        nMul = m_fShowAsRGBNotHSL ? (m_fForceShowAs32bitColor ? nMul : 1) : 1;
     }
 
+    // Note that this doesn't correctly handle NeoGeo's color table
     *editControl = (int)round(nMul * SrcScroll->GetPos());
 
     UpdateData(FALSE);
@@ -328,29 +348,29 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 void CPalModDlg::OnRadioHLS()
 {
     UpdateData();
-    SetColorMode(FALSE);
+    SetShowColorsAsRGBOrHSL(FALSE);
     UpdateData(FALSE);
 }
 
 void CPalModDlg::OnRadioRGB()
 {
     UpdateData();
-    SetColorMode(TRUE);
+    SetShowColorsAsRGBOrHSL(TRUE);
     UpdateData(FALSE);
 }
 
-void CPalModDlg::SetColorMode(int nColMode)
+void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
 {
-    if (bRGB != nColMode)
+    if (m_fShowAsRGBNotHSL != fShowAsRGB)
     {
         if (nPalSelAmt == 1)
         {
             double dH, dS, dL;
 
-            nTRGBMul = (bShow32 ? 1 : nRGBMul);
+            nTRGBMul = (m_fForceShowAs32bitColor ? 1 : nRGBMul);
 
             UpdateData();
-            if (nColMode) //HLStoRGB
+            if (fShowAsRGB) //HLStoRGB
             {
                 dH = ((double)(m_Edit_RH) / 360.0f);
                 dS = ((double)(m_Edit_GS) / 255.0f);
@@ -358,7 +378,7 @@ void CPalModDlg::SetColorMode(int nColMode)
 
                 COLORREF crRGBVal = HLStoRGB(dH, dL, dS);
 
-                if (bShow32)
+                if (m_fForceShowAs32bitColor)
                 {
                     m_Edit_RH = GetHost()->GetCurrGame()->GetPalGroup()->ROUND_R((int)round(GetRValue(crRGBVal) / nTRGBMul));
                     m_Edit_GS = GetHost()->GetCurrGame()->GetPalGroup()->ROUND_G((int)round(GetGValue(crRGBVal) / nTRGBMul));
@@ -400,7 +420,7 @@ void CPalModDlg::SetColorMode(int nColMode)
             UpdateMultiEdit();
         }
 
-        bRGB = nColMode;
+        m_fShowAsRGBNotHSL = fShowAsRGB;
 
         UpdateSliderSel(TRUE);
 
@@ -481,8 +501,8 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
     }
 
     //Make sure the multiplier is set correctly
-    nColMul = bShow32 ? nColMul : 1;
-    nColMul = bRGB ? nColMul : 1;
+    nColMul = m_fForceShowAs32bitColor ? nColMul : 1;
+    nColMul = m_fShowAsRGBNotHSL ? nColMul : 1;
 
     switch (nSetFlag)
     {
@@ -490,9 +510,9 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
         break;
     case 1:
     {
-        if (bRGB)
+        if (m_fShowAsRGBNotHSL)
         {
-            if (bShow32)
+            if (m_fForceShowAs32bitColor)
             {
                 *editControl = MainPalGroup->ROUND(MainPalGroup->LimitRGB(*editControl));
             }
@@ -509,9 +529,9 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
     break;
     default:
     {
-        if (bRGB)
+        if (m_fShowAsRGBNotHSL)
         {
-            if (bShow32)
+            if (m_fForceShowAs32bitColor)
             {
                 BOOL bNeg = (*editControl < 0);
 
@@ -570,10 +590,10 @@ void CPalModDlg::OnKillFocusEditA()
 
 void CPalModDlg::SetSliderCol(int nRH, int nGS, int nBL, int nA)
 {
-    nTRGBMul = (bShow32 ? 1 : nRGBMul);
-    nTAMul = (bShow32 ? 1 : nAMul);
+    nTRGBMul = (m_fForceShowAs32bitColor ? 1 : nRGBMul);
+    nTAMul = (m_fForceShowAs32bitColor ? 1 : nAMul);
 
-    if (!bRGB)
+    if (!m_fShowAsRGBNotHSL)
     {
         double dH, dL, dS;
 
@@ -625,7 +645,7 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
             int nSingleSel = CurrPalCtrl->GetSS();
             COLORREF* crTarget = &CurrPalCtrl->GetBasePal()[nSingleSel];
 
-            if (bRGB)
+            if (m_fShowAsRGBNotHSL)
             {
                 MainPalGroup->SetRGBA(crTarget,
                     (int)round(m_RHSlider.GetPos() * nRGBMul),
@@ -660,7 +680,7 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
             UCHAR* uSelBuffer = CurrPalCtrl->GetSelIndex();
             COLORREF* crBasePal = &CurrPalDef->pBasePal[CurrPalSep->nStart];
 
-            if (bRGB)
+            if (m_fShowAsRGBNotHSL)
             {
                 for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
                 {
@@ -720,7 +740,7 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
             int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
             UCHAR* uSelBuffer = CurrPalCtrl->GetSelIndex();
 
-            if (bRGB)
+            if (m_fShowAsRGBNotHSL)
             {
                 for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
                 {
@@ -789,7 +809,7 @@ void CPalModDlg::SetSliderDescEdit()
 {
     UpdateData();
 
-    if (bRGB)
+    if (m_fShowAsRGBNotHSL)
     {
         m_EditRHDesc = L"R";
         m_EditGSDesc = L"G";
@@ -817,7 +837,7 @@ void CPalModDlg::OnBnNewCol()
 
     if (nAMul)
     {
-        nTAMul = (bShow32 ? 1 : nAMul);
+        nTAMul = (m_fForceShowAs32bitColor ? 1 : nAMul);
         nAVal = min(0xFF, (int)round(m_Edit_A * nTAMul));
     }
     else
@@ -831,9 +851,9 @@ void CPalModDlg::OnBnNewCol()
     }
     else
     {
-        if (bRGB)
+        if (m_fShowAsRGBNotHSL)
         {
-            nTRGBMul = (bShow32 ? 1 : nRGBMul);
+            nTRGBMul = (m_fForceShowAs32bitColor ? 1 : nRGBMul);
             
             ColorDlg = new CColorDialog(RGB(
                 (int)round(m_Edit_RH * nTRGBMul),
@@ -914,15 +934,15 @@ void CPalModDlg::OnBnNewCol()
 
 void CPalModDlg::OnColSett()
 {
-    bShow32 = !bShow32;
+    m_fForceShowAs32bitColor = !m_fForceShowAs32bitColor;
     // Currently only MvC2 has alpha support in the code as seen in the Game_%GAME%.cpp files
-    nTAMul = (bShow32 ? nAMul : ((nAMul == 0) ? 1 : nAMul));
+    nTAMul = (m_fForceShowAs32bitColor ? nAMul : ((nAMul == 0) ? 1 : nAMul));
 
     UpdateData();
 
-    if (bRGB)
+    if (m_fShowAsRGBNotHSL)
     {
-        if (bShow32)
+        if (m_fForceShowAs32bitColor)
         {
             m_Edit_RH = (int)round(m_Edit_RH * nRGBMul);
             m_Edit_GS = (int)round(m_Edit_GS * nRGBMul);
@@ -940,7 +960,7 @@ void CPalModDlg::OnColSett()
 
     CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
 
-    pSettMenu->CheckMenuItem(ID_SHOW32BITRGB, bShow32 ? MF_CHECKED : MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_SHOW32BITRGB, m_fForceShowAs32bitColor ? MF_CHECKED : MF_UNCHECKED);
 
     UpdateData(FALSE);
 }

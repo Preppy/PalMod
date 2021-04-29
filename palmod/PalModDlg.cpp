@@ -439,6 +439,7 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
 BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = nullptr */)
 {
     LPMALLOC pMalloc;
+    BOOL fSuccess = TRUE;
 
     if (::SHGetMalloc(&pMalloc) == NOERROR)
     {
@@ -447,7 +448,7 @@ BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = n
         LPITEMIDLIST    pidl;
 
         bi.hwndOwner = GetSafeHwnd();
-        bi.pidlRoot = NULL;
+        bi.pidlRoot = nullptr; // We don't want to force browse-below
         bi.pszDisplayName = pszBuffer;
         bi.lpszTitle = pszDescriptionString ? pszDescriptionString : L"Select a target directory";
         bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE | BIF_NONEWFOLDERBUTTON;
@@ -464,14 +465,13 @@ BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = n
         }
         else
         {
-            pMalloc->Release();
-            return FALSE;
+            fSuccess = FALSE;
         }
 
         pMalloc->Release();
     }
 
-    return TRUE;
+    return fSuccess;
 }
 
 BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)

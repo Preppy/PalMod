@@ -711,7 +711,11 @@ int CImgDumpBmp::GetMaxImagesPerLine()
         w_mul = 3;
         break;
     case 7: // SF3
-    case 8:
+    case 8: // MBAACC
+    case 16: // MBAACC
+    case 32: // MBAACC
+    case 36: // MBAACC
+    case 64: // MBAACC
         w_mul = 4;
         break;
     case 9:

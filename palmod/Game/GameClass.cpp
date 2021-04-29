@@ -28,6 +28,7 @@ UINT8 GetCbForColMode(ColMode colorMode)
         return 3;
     case ColMode::COLMODE_ARGB7888:
     case ColMode::COLMODE_ARGB1888:
+    case ColMode::COLMODE_ARGB1888_32STEPS:
     case ColMode::COLMODE_ARGB8888:
         return 4;
     }
@@ -130,6 +131,15 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
             {
                 return k_nRGBPlaneAmtForRGB888;
             }
+        case ColMode::COLMODE_ARGB1888_32STEPS:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneAmtForRGB111;
+            }
+            else
+            {
+                return k_nRGBPlaneAmtForRGB555;
+            }
         case ColMode::COLMODE_ARGB7888:
             if (Flag == ColFlag::COL_A)
             {
@@ -180,6 +190,15 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
             else
             {
                 return k_nRGBPlaneMulForRGB888;
+            }
+        case ColMode::COLMODE_ARGB1888_32STEPS:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneMulForRGB111;
+            }
+            else
+            {
+                return k_nRGBPlaneMulForRGB555;
             }
         case ColMode::COLMODE_ARGB7888:
             if (Flag == ColFlag::COL_A)
@@ -341,6 +360,12 @@ BOOL CGameClass::_SetColorMode(ColMode NewMode)
         ConvPal32 = &CGameClass::CONV_ARGB1888_32;
         ConvCol32 = &CGameClass::CONV_32_ARGB1888;
         BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
+        return TRUE;
+    case ColMode::COLMODE_ARGB1888_32STEPS:
+        m_nSizeOfColorsInBytes = 4;
+        ConvPal32 = &CGameClass::CONV_ARGB1888_32;
+        ConvCol32 = &CGameClass::CONV_32_ARGB1888;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
     case ColMode::COLMODE_ARGB7888:
         m_nSizeOfColorsInBytes = 4;

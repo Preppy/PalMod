@@ -275,6 +275,7 @@ void CPalModDlg::OnEditCopy()
             break;
         case ColMode::COLMODE_xRGB888:
         case ColMode::COLMODE_xBGR888:
+        case ColMode::COLMODE_ARGB1888_32STEPS:
         default:
             {
                 // OK, this overflows the 127 character ascii table we use.
@@ -1051,7 +1052,7 @@ void CPalModDlg::UpdateSettingsMenuItems()
 {
     CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
 
-    pSettMenu->CheckMenuItem(ID_SHOW32BITRGB, bShow32 ? MF_CHECKED : MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_SHOW32BITRGB, m_fForceShowAs32bitColor ? MF_CHECKED : MF_UNCHECKED);
 
     bool show8ColorPerLine = (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE);
 

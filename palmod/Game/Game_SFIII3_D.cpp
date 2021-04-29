@@ -257,14 +257,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = uUnitId;
-
-    if (nImgUnitId > 13) // Account for the missing Shin Gouki file that has shifted all following units by one
-    {
-        nImgUnitId++;
-    }
-
-    nImgUnitId = SFIII3_D_IMGID_SORT[nImgUnitId];
+    UINT16 nImgUnitId = SFIII3_D_IMGID_SORT[uUnitId];
 
     UINT16 nSrcStart = 0;
     UINT16 nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);//GetBasicAmt(uUnitId);

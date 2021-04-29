@@ -289,7 +289,7 @@ enum class AlphaMode
 
 enum class ColMode
 {
-    // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::SetAlphaAndColorModeInternal
+    // If you add new color modes that users would want to use, you need to update CGame_NEOGEO_A::SetAlphaAndColorModeInternal
     // Don't change the order of this list: we emit copy strings that rely upon the ordering
     COLMODE_BGR555_LE,      // BGR555 little endian (GBA)
     COLMODE_RGB444_BE,      // RGB444 big endian (CPS1/2)
@@ -300,10 +300,11 @@ enum class ColMode
     COLMODE_RGB333,         // RGB333 for Sega Genesis/MegaDrive
     COLMODE_ARGB7888,       // 32bit color half alpha (guilty gear)
     COLMODE_RGB555_SHARP,   // RGB555 using the sharp x68000 color table
-    COLMODE_ARGB1888,       // 32bit color 1 bit alpha (DBFCI)
+    COLMODE_ARGB1888,       // 32bit color 1 bit alpha
     COLMODE_ARGB8888,       // 32bit color (uniclr. and modern computing)
     COLMODE_xRGB888,        // 24bit
     COLMODE_xBGR888,        // 24bit
+    COLMODE_ARGB1888_32STEPS, // MBAACC: 32 bit color, except only 32 steps
     COLMODE_LAST,
 };
 

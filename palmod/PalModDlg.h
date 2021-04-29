@@ -53,8 +53,8 @@ public:
     BOOL bOleInit = TRUE;
     BOOL bEnabled = FALSE;
 
-    BOOL bShow32 = TRUE;
-    BOOL bRGB = TRUE;
+    BOOL m_fForceShowAs32bitColor = TRUE;
+    BOOL m_fShowAsRGBNotHSL = TRUE;
     BOOL bCopyFromBase = FALSE;
     BOOL bExtraCopyData = TRUE;
 
@@ -117,6 +117,8 @@ public:
     void SetColorFormatToxRGB888() { SetColorFormatTo(ColMode::COLMODE_xRGB888); };
     void SetColorFormatToxBGR888() { SetColorFormatTo(ColMode::COLMODE_xBGR888); };
     void SetColorFormatToARGB1888() { SetColorFormatTo(ColMode::COLMODE_ARGB1888); };
+    // I'm deliberately not exposing ColMode::COLMODE_ARGB1888_32STEPS here at this point:
+    // it's only currently used for MBAACC.
     void SetColorFormatToARGB7888() { SetColorFormatTo(ColMode::COLMODE_ARGB7888); };
     void SetColorFormatToARGB8888() { SetColorFormatTo(ColMode::COLMODE_ARGB8888); };
 
@@ -151,7 +153,7 @@ public:
     bool SavePaletteToPAL(LPCWSTR pszFileName);
 
     void UpdateSliderSel(BOOL bModeChange = FALSE, BOOL bResetRF = FALSE);
-    void SetColorMode(int nColMode);
+    void SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB);
     void GetPlaneData();
     void UpdatePalSel(BOOL bSetSingleCol = FALSE);
 
@@ -328,5 +330,5 @@ extern BOOL IsPasteSupported();
 extern CStringA szPasteStr;
 
 extern int CALLBACK OnBrowseDialog( HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData );
-extern void SetLastUsedDirectory( LPCWSTR ptszPath, int nGameFlag );
-extern BOOL GetLastUsedDirectory( LPTSTR ptszPath, DWORD cbSize, int * nGameFlag, BOOL bCheckOnly = FALSE, BOOL * bIsDir = NULL);
+extern void SetLastUsedDirectory(LPCWSTR pszPath, int nGameFlag);
+extern BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, int* nGameFlag, BOOL bCheckOnly = FALSE, BOOL* bIsDir = NULL);

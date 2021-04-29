@@ -357,7 +357,8 @@ void CPalModDlg::UpdateColorFormatMenu()
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB666_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_xRGB888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xRGB888) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_xBGR888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xBGR888) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB1888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB1888) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB1888, 
+            MF_BYCOMMAND | (((currColMode == ColMode::COLMODE_ARGB1888) || (currColMode == ColMode::COLMODE_ARGB1888_32STEPS))? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB7888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB7888) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB8888) ? MF_CHECKED : MF_UNCHECKED));
 
@@ -426,7 +427,7 @@ void CPalModDlg::LoadLastDir()
     BOOL bIsDir;
     WCHAR szLastDir[MAX_PATH];
 
-    if (GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &bIsDir))
+    if (GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &bIsDir))
     {
         if (VerifyMsg(eVerifyType::VM_FILECHANGE)) // Save current changes if needed
         {
@@ -466,9 +467,21 @@ int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData)
     case BFFM_INITIALIZED:
     {
         WCHAR szPath[MAX_PATH];
+        BOOL fIsDir = FALSE;
 
-        if (GetLastUsedDirectory(szPath, sizeof(szPath), NULL))
+        if (GetLastUsedPath(szPath, sizeof(szPath), nullptr, FALSE, &fIsDir))
         {
+            if (!fIsDir)
+            {
+                // We're pointing at a file, so switch over to the path
+                LPWSTR pszSlash = wcsrchr(szPath, L'\\');
+
+                if (pszSlash)
+                {
+                    pszSlash[0] = 0;
+                }
+            }
+
             SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)szPath);
         }
         break;
@@ -480,16 +493,16 @@ int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData)
     return 0;
 }
 
-void SetLastUsedDirectory(LPCWSTR ptszPath, int nGameFlag)
+void SetLastUsedDirectory(LPCWSTR pszPath, int nGameFlag)
 {
-    if (NULL != ptszPath)
+    if (NULL != pszPath)
     {
         HKEY hKey = NULL;
 
         //Set the directory / Game Flag
         if (ERROR_SUCCESS == RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_SET_VALUE, NULL, &hKey, NULL))
         {
-            RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)ptszPath, (DWORD)(wcslen(ptszPath) + 1) * sizeof(WCHAR));
+            RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)pszPath, (DWORD)(wcslen(pszPath) + 1) * sizeof(WCHAR));
             RegSetValueEx(hKey, c_strLastUsedGFlag, 0, REG_DWORD, (LPBYTE)&nGameFlag, (DWORD)sizeof(int));
 
             RegCloseKey(hKey);
@@ -499,7 +512,7 @@ void SetLastUsedDirectory(LPCWSTR ptszPath, int nGameFlag)
     return;
 }
 
-BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bCheckOnly, BOOL* bIsDir)
+BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, int* nGameFlag, BOOL bCheckOnly, BOOL* bIsDir)
 {
     BOOL fFound = FALSE;
     HKEY hKey = NULL;
@@ -532,7 +545,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
 
                     // This code used to be testing for (dwAttribs & FILE_ATTRIBUTE_ARCHIVE), but I don't think we need that currently.
 
-                    wcscpy(ptszPath, szPath);
+                    wcscpy(pszPath, szPath);
                     fFound = TRUE;
                 }
             }
@@ -541,7 +554,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
         //Grab the game flag
         if (nGameFlag)
         {
-            nGameFlag ? *nGameFlag = 0xFF : 0;
+            *nGameFlag = 0xFF;
 
             dwRegType = REG_DWORD;
             cbDataSize = sizeof(int);
@@ -582,7 +595,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     int nLastUsedGFlag = nDefaultGameFilter;
 
     if ((nLastUsedGFlag == NUM_GAMES) &&
-        !GetLastUsedDirectory(nullptr, 0, &nLastUsedGFlag, TRUE, nullptr))
+        !GetLastUsedPath(nullptr, 0, &nLastUsedGFlag, TRUE, nullptr))
     {
         // If we're here, that means that they have never used PalMod to load a game before.  Help them.
         CString strInfo;

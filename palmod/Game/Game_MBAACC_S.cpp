@@ -14,10 +14,7 @@ CGame_MBAACC_S::CGame_MBAACC_S(UINT32 nConfirmedROMSize /* = -1 */)
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     m_fGameUsesAlphaValue = true;
-    SetColorMode(ColMode::COLMODE_ARGB1888);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
+    SetColorMode(ColMode::COLMODE_ARGB1888_32STEPS);
 
     InitializeStatics();
 
