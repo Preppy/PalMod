@@ -368,7 +368,7 @@ void CPalModDlg::OnEditCopy()
 
         g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Debug output part\r\n");
         strUnicodeData.Format(L"%S", CopyText.GetString());
-        if (bExtraCopyData)
+        if (m_fShowExtraCopyData)
         {
             CString strFormatU;
 
@@ -1059,7 +1059,7 @@ void CPalModDlg::UpdateSettingsMenuItems()
     pSettMenu->CheckMenuItem(ID_COLORSPERLINE_8COLORSPERLINE, MF_BYCOMMAND | (show8ColorPerLine ? MF_CHECKED : MF_UNCHECKED));
     pSettMenu->CheckMenuItem(ID_COLORSPERLINE_16COLORSPERLINE, MF_BYCOMMAND | (show8ColorPerLine ? MF_UNCHECKED : MF_CHECKED));
 
-    pSettMenu->CheckMenuItem(ID_SETTINGS_EXTCOPYDATA, bExtraCopyData ? MF_CHECKED : MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_SETTINGS_EXTCOPYDATA, m_fShowExtraCopyData ? MF_CHECKED : MF_UNCHECKED);
 }
 
 void CPalModDlg::OnSettingsSettings()
@@ -1096,10 +1096,10 @@ void CPalModDlg::OnSettingsSettings()
 
 void CPalModDlg::OnChangeExtendedCopyData()
 {
-    bExtraCopyData = !bExtraCopyData;
+    m_fShowExtraCopyData = !m_fShowExtraCopyData;
 
     CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
-    pSettMenu->CheckMenuItem(ID_SETTINGS_EXTCOPYDATA, bExtraCopyData ? MF_CHECKED : MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_SETTINGS_EXTCOPYDATA, m_fShowExtraCopyData ? MF_CHECKED : MF_UNCHECKED);
 }
 
 void CPalModDlg::OnEditUndo()

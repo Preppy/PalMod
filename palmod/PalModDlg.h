@@ -56,7 +56,7 @@ public:
     BOOL m_fForceShowAs32bitColor = TRUE;
     BOOL m_fShowAsRGBNotHSL = TRUE;
     BOOL bCopyFromBase = FALSE;
-    BOOL bExtraCopyData = TRUE;
+    BOOL m_fShowExtraCopyData = TRUE;
 
     BOOL fFileChanged = FALSE;
     BOOL bPalChanged = FALSE;

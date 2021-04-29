@@ -1970,6 +1970,21 @@ enum KOFSpriteList
     indexRBFF2Sprites_Sokaku,       // 0x286
     indexRBFF2Sprites_Tung,         // 0x287
     indexRBFF2Sprites_Yamazaki,     // 0x288
+
+    indexFF1Sprites_AndyBogard,     // 0x289
+    indexFF1Sprites_BillyKane,      // 0x28a
+    indexFF1Sprites_DrunkHwaJai,    // 0x28b
+    indexFF1Sprites_DuckKing,       // 0x28c
+    indexFF1Sprites_GeeseHoward,    // 0x28d
+    indexFF1Sprites_HwaJai,         // 0x28e
+    indexFF1Sprites_JoeHigashi,     // 0x28f
+    indexFF1Sprites_MichaelMax,     // 0x290
+    indexFF1Sprites_Raiden,         // 0x291
+    indexFF1Sprites_RichardMeyer,   // 0x292
+    indexFF1Sprites_TerryBogard,    // 0x293
+    indexFF1Sprites_TungFuRue,      // 0x294
+    indexFF1Sprites_Bonus,          // 0x295
+    indexFF1Sprites_Stages,         // 0x296
 };
 
 const UINT16 RBFFS_A_IMG_UNITS[] =

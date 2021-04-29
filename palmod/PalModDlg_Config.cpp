@@ -13,7 +13,7 @@ void CPalModDlg::LoadSettings()
     CGameClass::AllowTransparency(RegSett.main_fAllowAlphaChanges);
     m_fForceShowAs32bitColor = RegSett.main_bShow32;
     CGameClass::bPostSetPalProc = RegSett.main_bProcSupp;
-    bExtraCopyData = RegSett.main_bExtraCopyData;
+    m_fShowExtraCopyData = RegSett.main_bExtraCopyData;
 
     RECT previous_window_rect;
 
@@ -44,7 +44,7 @@ void CPalModDlg::SaveSettings()
     RegSett.main_fAllowAlphaChanges = CGameClass::AllowTransparency();
     RegSett.main_bShow32        = m_fForceShowAs32bitColor;
     RegSett.main_bProcSupp      = CGameClass::bPostSetPalProc;
-    RegSett.main_bExtraCopyData = bExtraCopyData;
+    RegSett.main_bExtraCopyData = m_fShowExtraCopyData;
 
     RECT window_rect;
 

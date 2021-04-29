@@ -2306,7 +2306,7 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                     {
                         // Never write the transparency counter.
                         // It's kind of OK to do so since it should be a no-op, but TMNTF is evil and relies upon overlapping palettes.
-                        if ((nArrayIndex % createPalOptions.eWriteOutputOptions) != 0)
+                        if (((nArrayIndex + createPalOptions.nStartingPosition) % createPalOptions.eWriteOutputOptions) != 0)
                         {
                             SaveFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nArrayIndex], m_nSizeOfColorsInBytes);
                         }
