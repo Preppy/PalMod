@@ -1,29 +1,49 @@
 #pragma once
 
+const UINT16 FatalFury1_A_IMG_UNITS[] =
+{
+    indexFF1Sprites_AndyBogard,     // 0x289
+    indexFF1Sprites_BillyKane,      // 0x28a
+    indexFF1Sprites_DrunkHwaJai,    // 0x28b
+    indexFF1Sprites_DuckKing,       // 0x28c
+    indexFF1Sprites_GeeseHoward,    // 0x28d
+    indexFF1Sprites_HwaJai,         // 0x28e
+    indexFF1Sprites_JoeHigashi,     // 0x28f
+    indexFF1Sprites_MichaelMax,     // 0x290
+    indexFF1Sprites_Raiden,         // 0x291
+    indexFF1Sprites_RichardMeyer,   // 0x292
+    indexFF1Sprites_TerryBogard,    // 0x293
+    indexFF1Sprites_TungFuRue,      // 0x294
+    indexFF1Sprites_Bonus,          // 0x295
+    indexFF1Sprites_Stages,         // 0x296
+};
+
 const sGame_PaletteDataset FatalFury1_A_Character_PALETTES[] =
 {
-    { L"Terry Bogard", 0x32d6c, 0x32d8c },
-    { L"Andy Bogard", 0x32d8c, 0x32dac },
-    { L"Joe Higashi", 0x32dac, 0x32dcc },
+    { L"Terry Bogard",  0x32d6c, 0x32d8c, indexFF1Sprites_TerryBogard, 0x00 },
+    { L"Andy Bogard",   0x32d8c, 0x32dac, indexFF1Sprites_AndyBogard, 0x00 },
+    { L"Joe Higashi",   0x32dac, 0x32dcc, indexFF1Sprites_JoeHigashi, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_Bosses_PALETTES[] =
 {
-    { L"Richard Meyer", 0x3306c, 0x3308c },
-    { L"Duck King", 0x32f6c, 0x32f8c },
-    { L"Michael Max", 0x32f8c, 0x32fac },
-    { L"Tung Fu Rue", 0x3308c, 0x330ac },
-    { L"Hwa Jai", 0x3356c, 0x3358c },
-    { L"Drunk Hwa Jai", 0x34c4c, 0x34c6c },
-    { L"Raiden", 0x3366c, 0x3368c },
-    { L"Billy Kane", 0x3358c, 0x335ac },
-    { L"Geese Howard", 0x3368c, 0x336ac },
+    { L"Richard Meyer", 0x3306c, 0x3308c, indexFF1Sprites_RichardMeyer, 0x00 },
+    { L"Duck King",     0x32f6c, 0x32f8c, indexFF1Sprites_DuckKing, 0x00 },
+    { L"Michael Max",   0x32f8c, 0x32fac, indexFF1Sprites_MichaelMax, 0x00 },
+    { L"Tung Fu Rue",   0x3308c, 0x330ac, indexFF1Sprites_TungFuRue, 0x00 },
+    { L"Hwa Jai",       0x3356c, 0x3358c, indexFF1Sprites_DrunkHwaJai, 0x00 },
+    { L"Drunk Hwa Jai", 0x34c4c, 0x34c6c, indexFF1Sprites_DrunkHwaJai, 0x00 },
+    { L"Raiden",        0x3366c, 0x3368c, indexFF1Sprites_Raiden, 0x00 },
+    { L"Billy Kane",    0x3358c, 0x335ac, indexFF1Sprites_BillyKane, 0x00, &pairNext },
+    { L"Hwa Jai/Billy Kane Stick", 0x335ac, 0x335cc, indexFF1Sprites_BillyKane, 0x01 },
+    { L"Geese Howard",  0x3368c, 0x336ac, indexFF1Sprites_GeeseHoward, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_Effects_PALETTES[] =
 {
     { L"Hitsparks/Dust", 0x32dcc, 0x32dec },
-    { L"Hwa Jai/Billy Thrower", 0x335ac, 0x335cc },
+    // This is used above so we don't need to reach cross-unit for the palette pairing
+    //{ L"Hwa Jai/Billy Thrower", 0x335ac, 0x335cc },
     { L"Terry Power Wave", 0x32dec, 0x32dfc },
     { L"Andy Hisho Ken", 0x32e2c, 0x32e4c },
     { L"Joe Hurricane/Michael Tornado", 0x32dfc, 0x32e0c },

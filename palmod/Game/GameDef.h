@@ -249,6 +249,8 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
     L"KOF98AE (2016 Romhack)",
 };
 
+static_assert(sizeof(g_GameFriendlyName) != NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
+
 enum class GamePlatform
 {
     CapcomCPS12 = 0,
@@ -2729,38 +2731,36 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_UNICLR_Yuzu,    // 0x48
     indexFrenchBreadSprites_UNICLR_Bonus,   // 0x49
 
-    indexMBAACCSprites_Akiha,               // 0x4A
-    indexMBAACCSprites_Aoko,                // 0x4B
-    indexMBAACCSprites_Arcueid,             // 0x4C
-    indexMBAACCSprites_Ciel,                // 0x4D
-    indexMBAACCSprites_Hime,                // 0x4E
-    indexMBAACCSprites_Hisui,               // 0x4F
-    indexMBAACCSprites_Kohaku,              // 0x50
-    indexMBAACCSprites_KohaMech,            // 0x51
-    indexMBAACCSprites_Kouma,               // 0x52
-    indexMBAACCSprites_Len,                 // 0x53
-    indexMBAACCSprites_Maids,               // 0x54
-    indexMBAACCSprites_MechHisui,           // 0x55
-    indexMBAACCSprites_Miyako,              // 0x56
-    indexMBAACCSprites_NAC,                 // 0x57
-    indexMBAACCSprites_Nanaya,              // 0x58
-    indexMBAACCSprites_NecoArc,             // 0x59
-    indexMBAACCSprites_NecoMech,            // 0x5A
-    indexMBAACCSprites_Nero,                // 0x5B
-    indexMBAACCSprites_PowerdCiel,          // 0x5C
-    indexMBAACCSprites_RedArcueid,          // 0x5D
-    indexMBAACCSprites_Riesbyfe,            // 0x5E
-    indexMBAACCSprites_Roa,                 // 0x5F
-    indexMBAACCSprites_Ryougi,              // 0x60
-    indexMBAACCSprites_Satsuki,             // 0x61
-    indexMBAACCSprites_Seifuku,             // 0x62
-    indexMBAACCSprites_Sion,                // 0x63
-    indexMBAACCSprites_Tohno,               // 0x64
-    indexMBAACCSprites_VAkiha,              // 0x65
-    indexMBAACCSprites_VSion,               // 0x66
-    indexMBAACCSprites_Warachia,            // 0x67
-    indexMBAACCSprites_WhiteLen,            // 0x68
-    indexMBAACCSprites_Bonus,               // 0x69
+    indexMBAACCSprites_AkihaTohno,          // 0x4A
+    indexMBAACCSprites_AkihaTohnoSeifuku,   // 0x4B
+    indexMBAACCSprites_AkihaVermillion,     // 0x4C
+    indexMBAACCSprites_AokoAozaki,          // 0x4D
+    indexMBAACCSprites_ArcueidBrunestud,    // 0x4E
+    indexMBAACCSprites_Ciel,                // 0x4F
+    indexMBAACCSprites_DustOfOsiris,        // 0x50
+    indexMBAACCSprites_Hime,                // 0x51
+    indexMBAACCSprites_Hisui,               // 0x52
+    indexMBAACCSprites_Kohaku,              // 0x53
+    indexMBAACCSprites_KoumaKishima,        // 0x54
+    indexMBAACCSprites_Len,                 // 0x55
+    indexMBAACCSprites_MechHisui,           // 0x56
+    indexMBAACCSprites_MiyakoArima,         // 0x57
+    indexMBAACCSprites_NecoArc,             // 0x58
+    indexMBAACCSprites_NecoArcChaos,        // 0x59
+    indexMBAACCSprites_NeroChaos,           // 0x5A
+    indexMBAACCSprites_PowerdCiel,          // 0x5B
+    indexMBAACCSprites_RedArcueid,          // 0x5C
+    indexMBAACCSprites_RiesbyfeStridberg,   // 0x5D
+    indexMBAACCSprites_Roa,                 // 0x5E
+    indexMBAACCSprites_SatsukiYumiduka,     // 0x5F
+    indexMBAACCSprites_ShikiNanaya,         // 0x60
+    indexMBAACCSprites_ShikiRyougi,         // 0x61
+    indexMBAACCSprites_ShikiTohno,          // 0x62
+    indexMBAACCSprites_SionEltnamAtlasia,   // 0x63
+    indexMBAACCSprites_SionTATARI,          // 0x64
+    indexMBAACCSprites_Warachia,            // 0x65
+    indexMBAACCSprites_WhiteLen,            // 0x66
+    indexMBAACCSprites_Bonus,               // 0x67
 };
 
 enum SupportedTaito_PaletteListIndex

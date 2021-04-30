@@ -664,7 +664,7 @@ void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
     }
     else // if (_wcsicmp(LoadedFile->GetFileName(), L"269-p2.p2") == 0) // svc: we cannot read nor write this
     {
-        m_loadedROMRevision.pszRevisionName = L"SVC (NEO*GEO)";
+        m_loadedROMRevision.pszRevisionName = L"SVC (Neo-Geo)";
         m_loadedROMRevision.rev = eSVCRevisionName::SVC;
         m_loadedROMRevision.fileList = { L"269-p1.p1", L"269-p2.p2" };
         m_loadedROMRevision.nOffsetForReads = 0;
