@@ -33,8 +33,8 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation_05 = 0x61000;
-    const int m_uLowestKnownPaletteROMLocation_06 = 0xa80;
+    const int m_uLowestKnownPaletteROMLocation_05 = 0x61c0c;
+    const int m_uLowestKnownPaletteROMLocation_06 = 0xa78;
 
 public:
     CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad);
