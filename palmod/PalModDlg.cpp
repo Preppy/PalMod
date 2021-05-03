@@ -436,7 +436,7 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
     return TRUE;
 }
 
-BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = nullptr */)
+BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = nullptr */, SupportedGamesList nDefaultGameFlag /* = NUM_GAMES */)
 {
     LPMALLOC pMalloc;
     BOOL fSuccess = TRUE;
@@ -453,7 +453,7 @@ BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = n
         bi.lpszTitle = pszDescriptionString ? pszDescriptionString : L"Select a target directory";
         bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE | BIF_NONEWFOLDERBUTTON;
         bi.lpfn = OnBrowseDialog;
-        bi.lParam = 0;
+        bi.lParam = nDefaultGameFlag;
 
         if (pidl = ::SHBrowseForFolder(&bi))
         {

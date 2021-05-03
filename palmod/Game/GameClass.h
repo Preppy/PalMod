@@ -60,7 +60,7 @@ protected:
     BOOL m_fGameUnitsMapToIndividualFiles = FALSE;
 
     UINT16 nUnitAmt = 0;
-    int nGameFlag = 0;
+    SupportedGamesList nGameFlag = NUM_GAMES;
     int nImgGameFlag = 0;
     int nImgUnitAmt = 0;
     const UINT16* m_prgGameImageSet = nullptr;
@@ -220,7 +220,7 @@ public:
 
     BOOL SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt = 1, int nMax = 6);
 
-    int GetGameFlag() { return nGameFlag; };
+    SupportedGamesList GetGameFlag() { return nGameFlag; };
     int GetImgGameFlag() { return nImgGameFlag; };
     int GetUnitCt() { return nUnitAmt; };
     int GetImgUnitCt() { return nImgUnitAmt; };

@@ -94,12 +94,12 @@ public:
 
     //Program functions
 
-    void LoadGameDir(int nGameFlag, WCHAR* pszLoadDir);
-    void OnLoadGameByDirectory(int nGameFlag);
-    BOOL SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString = nullptr);
+    void LoadGameDir(SupportedGamesList nGameFlag, WCHAR* pszLoadDir);
+    void OnLoadGameByDirectory(SupportedGamesList nGameFlag);
+    BOOL SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
     void UpdateAppTitle();
 
-    void LoadGameFile(int nGameFlag, WCHAR* pszFile);
+    void LoadGameFile(SupportedGamesList nGameFlag, WCHAR* pszFile);
 
     void LoadLastDir();
 
@@ -271,6 +271,8 @@ public:
     DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
     bool SelectMatchingColorsInPalette(DWORD dwColorToMatch);
 
+    static int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData);
+
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
     afx_msg void OnSettingsSettings();
     afx_msg void OnEditUndo();
@@ -329,6 +331,5 @@ extern BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
 extern BOOL IsPasteSupported();
 extern CStringA szPasteStr;
 
-extern int CALLBACK OnBrowseDialog( HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData );
-extern void SetLastUsedDirectory(LPCWSTR pszPath, int nGameFlag);
-extern BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, int* nGameFlag, BOOL bCheckOnly = FALSE, BOOL* bIsDir = NULL);
+extern void SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameFlag);
+extern BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL bCheckOnly = FALSE, BOOL* bIsDir = NULL);

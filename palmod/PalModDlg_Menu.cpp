@@ -3,7 +3,7 @@
 #include "PalModDlg.h"
 #include "PalMod.h"
 
-void CPalModDlg::OnLoadGameByDirectory(int nGameFlag)
+void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
 {
     if (VerifyMsg(eVerifyType::VM_FILECHANGE))
     {
@@ -78,7 +78,7 @@ void CPalModDlg::OnLoadGameByDirectory(int nGameFlag)
             break;
         }
 
-        if (SetLoadDir(&strGet, pszExtraInfo))
+        if (SetLoadDir(&strGet, pszExtraInfo, nGameFlag))
         {
             LoadGameDir(nGameFlag, strGet.GetBuffer());
         }
