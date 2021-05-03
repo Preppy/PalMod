@@ -16,7 +16,7 @@ private:
     static int m_nMSHVSFSelectedRom;
     static UINT32 m_nTotalPaletteCountForMSHVSF_6A;
     static UINT32 m_nTotalPaletteCountForMSHVSF_7B;
-    static bool UsePaletteSetForCharacters() { return (m_nMSHVSFSelectedRom == 6); }
+    static inline bool UsePaletteSetForCharacters() { return (m_nMSHVSFSelectedRom == 6); }
 
     static int rgExtraCountAll_6A[MSHVSF_A_NUM_IND_6A + 1];
     static int rgExtraCountAll_7B[MSHVSF_A_NUM_IND_7B + 1];
@@ -33,7 +33,7 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation_6A = 0x56EF4;
+    const int m_uLowestKnownPaletteROMLocation_6A = 0x56EF2;
     const int m_uLowestKnownPaletteROMLocation_7B = 0; // This is an odd file, yes.
 
 public:

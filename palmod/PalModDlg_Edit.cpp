@@ -845,8 +845,8 @@ void CPalModDlg::OnEditPaste()
             {
                 const int nCopyAmt = (nWorkingAmt < uPasteAmt) ? nWorkingAmt : uPasteAmt;
 
-                // always skip the first color
-                memcpy(CurrPalCtrl->GetBasePal() + 1, rgPasteCol + 1, (sizeof(COLORREF) * (nCopyAmt - 1)));
+                // Don't skip the first color: it is used in some cases
+                memcpy(CurrPalCtrl->GetBasePal(), rgPasteCol, (sizeof(COLORREF) * nCopyAmt));
             }
             else
             {
@@ -857,11 +857,10 @@ void CPalModDlg::OnEditPaste()
                 {
                     if (rgSelIndex[i])
                     {
-                        if (i != 0) // never change the first transparency color
-                        {
-                            crTargetPal[i] = rgPasteCol[nIndexCtr];
-                            CurrPalDef->pBasePal[i + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
-                        }
+                        // We could optimize this to never change the transparency color, but that
+                        // can be at a varied position
+                        crTargetPal[i] = rgPasteCol[nIndexCtr];
+                        CurrPalDef->pBasePal[i + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
 
                         nIndexCtr++;
 

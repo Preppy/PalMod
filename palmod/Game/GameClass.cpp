@@ -1335,7 +1335,7 @@ void CGameClass::UpdatePalData()
             UINT16 nCurrentTotalWrites = 0;
             // Every 16 colors there is another counter WORD (color length) to preserve.
             const UINT16 nMaxSafeColorsToWrite = (UINT16)createPalOptions.eWriteOutputOptions;
-            const UINT16 iFixedCounterPosition = 0; // The lead 'color' in some games is a counter, in others it's the transparency color.  Don't touch.
+            const UINT16 iFixedCounterPosition = createPalOptions.nTransparencyColorPosition; // The lead 'color' in some games is a counter, in others it's the transparency color.  Don't touch.
 
             while (nTotalColorsRemaining > 0)
             {
@@ -1349,6 +1349,12 @@ void CGameClass::UpdatePalData()
                     }
 
                     const UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
+
+                    if (iCurrentArrayOffset < createPalOptions.nStartingPosition)
+                    {
+                        OutputDebugString(L"ERROR: this palette is trying to touch a negative index offset.  Turn off the createPalOptions offset for this game\n");
+                        continue;
+                    }
 
                     switch (GetGameColorByteLength())
                     {
@@ -2306,7 +2312,8 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                     {
                         // Never write the transparency counter.
                         // It's kind of OK to do so since it should be a no-op, but TMNTF is evil and relies upon overlapping palettes.
-                        if (((nArrayIndex + createPalOptions.nStartingPosition) % createPalOptions.eWriteOutputOptions) != 0)
+                        if ((((nArrayIndex + createPalOptions.nStartingPosition) % createPalOptions.eWriteOutputOptions) != 0) ||
+                            (nGameFlag == MSHVSF_A)) // We don't support skipping the transparency color for MSHvSF's special override
                         {
                             SaveFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nArrayIndex], m_nSizeOfColorsInBytes);
                         }

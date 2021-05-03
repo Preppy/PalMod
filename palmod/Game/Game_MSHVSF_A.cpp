@@ -38,7 +38,7 @@ void CGame_MSHVSF_A::InitializeStatics()
 
 CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
 {
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 
@@ -754,6 +754,16 @@ void CGame_MSHVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
         m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+        if ((m_nCurrentPaletteROMLocation == 0) && !UsePaletteSetForCharacters())
+        {
+            // This is a very particular override for the split-rom Captain America Part 2 sprite
+            createPalOptions.nTransparencyColorPosition = 6;
+        }
+        else
+        {
+            createPalOptions.nTransparencyColorPosition = 0;
+        }
     }
     else // MSHVSF_A_EXTRALOC
     {
