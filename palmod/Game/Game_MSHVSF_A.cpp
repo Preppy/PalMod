@@ -56,7 +56,7 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
     m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSHVSF_A_NUM_IND_6A : MSHVSF_A_NUM_IND_7B;
     m_nExtraUnit = UsePaletteSetForCharacters() ? MSHVSF_A_EXTRALOC_6A : MSHVSF_A_EXTRALOC_7B;
 
-    const UINT32 nSafeCountFor6A = 539;
+    const UINT32 nSafeCountFor6A = 541;
     const UINT32 nSafeCountFor7B = 24;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForCharacters() ? nSafeCountFor6A : nSafeCountFor7B);

@@ -326,7 +326,7 @@ const sDescTreeNode* CGame_KOF02_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
 
 const sGame_PaletteDataset* CGame_KOF02_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
-    return _GetSpecificPalette(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, nPaletteId, KOF02_A_EXTRA_CUSTOM);;
+    return _GetSpecificPalette(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, nPaletteId, KOF02_A_EXTRA_CUSTOM);
 }
 
 void CGame_KOF02_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)

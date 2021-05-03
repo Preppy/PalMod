@@ -178,7 +178,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
         rgExtraCountAll,
         rgExtraLoc,
         COTA_A_EXTRA_CUSTOM
-    );;
+    );
 
     return NewDescTree;
 }

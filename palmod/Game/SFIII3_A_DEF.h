@@ -1954,6 +1954,7 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Basketball Sean Portrait (faded)",  0x713580, 0x713680, index3S_CPS3_Sean, 0x10 },
 
     { L"Universal Zap Skeleton",            0x76ad00, 0x76ad80, index3S_CPS3_Bonus, 0x15 },
+    { L"Dizzies",                           0x708980, 0x708a00 },
 };
 
 const sGame_PaletteDataset SFIII3_A_BONUS_VSBG_PALETTES[] =

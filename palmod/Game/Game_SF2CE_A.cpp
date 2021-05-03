@@ -59,7 +59,7 @@ void CGame_SF2CE_A::InitializeStatics()
 
 CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
 {
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 
@@ -82,7 +82,7 @@ CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
 
         m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 39;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSF2CE_21;
-        m_nLowestKnownPaletteRomLocation = 0x9400;
+        m_nLowestKnownPaletteRomLocation = 0x93fe;
         break;
     case 22:
     default:
@@ -96,7 +96,7 @@ CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
 
         m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 24;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSF2CE_22;
-        m_nLowestKnownPaletteRomLocation = 0x16836;
+        m_nLowestKnownPaletteRomLocation = 0x16834;
         break;
     case 23:
         m_pszExtraFilename = EXTRA_FILENAME_SF2CE_23;
@@ -107,7 +107,7 @@ CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
 
         m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 16;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSF2CE_23;
-        m_nLowestKnownPaletteRomLocation = 0x01dffa;
+        m_nLowestKnownPaletteRomLocation = 0x01dff8;
         break;
     };
 
@@ -530,168 +530,40 @@ sDescTreeNode* CGame_SF2CE_A::InitDescTree(int nROMPaletteSetToUse)
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    strMsg.Format(L"CGame_SF2CE_A::InitDescTree: Building desc tree for SF2CE_A ROM %u...\n", m_nSelectedRom);
-    OutputDebugString(strMsg);
-
-    //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
-    {
-        sDescTreeNode* UnitNode = nullptr;
-        sDescTreeNode* CollectionNode = nullptr;
-        sDescNode* ChildNode = nullptr;
-
-        UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
-
-        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
-
-        UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
-
-        if (iUnitCtr != nExtraUnitLocation)
-        {
-            //Set each description
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", GetCurrentUnitSet()[iUnitCtr].szDesc);
-
-            UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
-            //All children have collection trees
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = nUnitChildCount;
-
-#if SF2CE_A_DEBUG
-            strMsg.Format(L"Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
-            OutputDebugString(strMsg);
-#endif
-
-            UINT16 nTotalPalettesUsedInUnit = 0;
-
-            //Set data for each child group ("collection")
-            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
-            {
-                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
-
-                //Set each collection data
-
-                // Default label, since these aren't associated to collections
-                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
-                //Collection children have nodes
-                UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
-                CollectionNode->uChildType = DESC_NODETYPE_NODE;
-                CollectionNode->uChildAmt = nListedChildrenCount;
-                CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
-
-#if SF2CE_A_DEBUG
-                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
-                OutputDebugString(strMsg);
-#endif
-
-                const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
-
-                //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
-                {
-                    ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
-
-                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
-
-                    ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
-                    ChildNode->uPalId = nTotalPalettesUsedInUnit++;
-                    nTotalPaletteCount++;
-
-#if SF2CE_A_DEBUG
-                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
-                    OutputDebugString(strMsg);
-                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
-                    OutputDebugString(strMsg);
-
-                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
-                    {
-                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
-                    }
-                    else
-                    {
-                        strMsg.Format(L" no image available.\n");
-                    }
-                    OutputDebugString(strMsg);
-#endif
-                }
-            }
-        }
-        else
-        {
-            // This handles data loaded from the Extra extension file, which are treated
-            // each as their own separate node with one collection with everything under that.
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
-            UnitNode->ChildNodes = new sDescTreeNode[1]; // Only 1, L"Extra Palettes)"
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = 1;
-
-#if SF2CE_A_DEBUG
-            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
-            OutputDebugString(strMsg);
-#endif
-
-        }
-
-        //Set up extra nodes
-        if (bUseExtra)
-        {
-            int nExtraPos = GetExtraLoc(iUnitCtr);
-            int nCurrExtra = 0;
-
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nExtraUnitLocation > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
-
-            CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
-
-            CollectionNode->uChildType = DESC_NODETYPE_NODE;
-            CollectionNode->uChildAmt = nExtraCt; //EX + Extra
-
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
-            {
-                ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
-
-                while (pCurrDef->isInvisible)
-                {
-                    nCurrExtra++;
-
-                    pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
-                }
-
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
-
-                ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((nExtraUnitLocation > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
-
-#if SF2CE_A_DEBUG
-                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
-                OutputDebugString(strMsg);
-#endif
-
-                nCurrExtra++;
-                nTotalPaletteCount++;
-            }
-        }
-    }
-
     switch (m_nSelectedRom)
     {
     case 21:
-        m_nTotalPaletteCountForSF2CE_21 = nTotalPaletteCount;
+        m_nTotalPaletteCountForSF2CE_21 = _InitDescTree(NewDescTree,
+            SF2CE_A_21_UNITS,
+            SF2CE_A_21_EXTRALOC,
+            SF2CE_A_21_NUMUNIT,
+            rgExtraCountAll_21,
+            rgExtraLoc_21,
+            SF2CE_A_21_EXTRA_CUSTOM
+        );
         break;
     case 22:
     default:
-        m_nTotalPaletteCountForSF2CE_22 = nTotalPaletteCount;
+        m_nTotalPaletteCountForSF2CE_22 = _InitDescTree(NewDescTree,
+            SF2CE_A_22_UNITS,
+            SF2CE_A_22_EXTRALOC,
+            SF2CE_A_22_NUMUNIT,
+            rgExtraCountAll_22,
+            rgExtraLoc_22,
+            SF2CE_A_22_EXTRA_CUSTOM
+        );
         break;
     case 23:
-        m_nTotalPaletteCountForSF2CE_23 = nTotalPaletteCount;
+        m_nTotalPaletteCountForSF2CE_23 = _InitDescTree(NewDescTree,
+            SF2CE_A_23_UNITS,
+            SF2CE_A_23_EXTRALOC,
+            SF2CE_A_23_NUMUNIT,
+            rgExtraCountAll_23,
+            rgExtraLoc_23,
+            SF2CE_A_23_EXTRA_CUSTOM
+        );
         break;
     };
-
-    strMsg.Format(L"CGame_SF2CE_A::InitDescTree: Loaded %u palettes for SF2CE ROM %u\n", nTotalPaletteCount, m_nSelectedRom);
-    OutputDebugString(strMsg);
 
     return NewDescTree;
 }
@@ -966,99 +838,14 @@ void CGame_SF2CE_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
 BOOL CGame_SF2CE_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
-    //Reset palette sources
-    ClearSrcPal();
-
-    if (Node01 == -1)
+    switch (m_nSelectedRom)
     {
-        return FALSE;
+    case 21:
+        return _UpdatePalImg(SF2CE_A_21_UNITS, rgExtraCountAll_21, SF2CE_A_21_NUMUNIT, SF2CE_A_21_EXTRALOC, SF2CE_A_21_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
+    case 22:
+    default:
+        return _UpdatePalImg(SF2CE_A_22_UNITS, rgExtraCountAll_22, SF2CE_A_22_NUMUNIT, SF2CE_A_22_EXTRALOC, SF2CE_A_22_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
+    case 23:
+        return _UpdatePalImg(SF2CE_A_23_UNITS, rgExtraCountAll_23, SF2CE_A_23_NUMUNIT, SF2CE_A_23_EXTRALOC, SF2CE_A_23_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
     }
-
-    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
-
-    if (NodeGet == NULL)
-    {
-        return FALSE;
-    }
-
-    //Change the image id if we need to
-    nTargetImgId = 0;
-    UINT16 nImgUnitId = NodeGet->uUnitId;
-
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
-
-    //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
-
-    bool fShouldUseAlternateLoadLogic = false;
-
-    //Select the image
-    if (m_nExtraUnit != NodeGet->uUnitId)
-    {
-        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-        const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
-
-        if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
-        {
-            if ((_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2[0]) == 0) ||
-                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2[1]) == 0))
-            {
-                nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL_2);
-                nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
-
-                while (nSrcStart >= nNodeIncrement)
-                {
-                    // The starting point is the absolute first palette for the sprite in question which is found in P1
-                    nSrcStart -= nNodeIncrement;
-                }
-            }
-            else // Extras or Extra Range
-            {
-                // Status effects and etc have no peer palettes
-                nSrcAmt = 1;
-            }
-        }
-
-        if (paletteDataSet)
-        {
-            nImgUnitId = paletteDataSet->indexImgToUse;
-            nTargetImgId = paletteDataSet->indexOffsetToUse;
-        }
-    }
-    else // Extra region
-    {
-        stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(NodeGet->uUnitId) + NodeGet->uPalId);
-
-        if (pCurrDef->indexImgToUse != INVALID_UNIT_VALUE)
-        {
-            nImgUnitId = pCurrDef->indexImgToUse;
-            nTargetImgId = pCurrDef->indexOffsetToUse;
-        }
-        else
-        {
-            fShouldUseAlternateLoadLogic = true;
-
-            CreateDefPal(NodeGet, 0);
-
-            // Only internal units get sprites
-            ClearSetImgTicket(nullptr);
-
-            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
-        }
-    }
-
-    if (!fShouldUseAlternateLoadLogic)
-    {
-        //Create the default palette
-        CreateDefPal(NodeGet, 0);
-
-        // Only internal units get sprites
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-    }
-
-    return TRUE;
 }
