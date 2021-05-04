@@ -1444,7 +1444,13 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
 
     if (!SetGame(nGameFlag))
     {
-        return NULL;
+        return nullptr;
+    }
+
+    if (ResetRuleCtr == nullptr)
+    {
+        // This isn't a directory-based game: something is wrong
+        return nullptr;
     }
 
     ResetRuleCtr();

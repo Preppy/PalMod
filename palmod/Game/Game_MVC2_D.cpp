@@ -111,11 +111,11 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", MVC2_D_UNITDESC[iUnitCtr]);
 
         //Init each character to have all 6 basic buttons + extra
-        UnitNode->ChildNodes = new sDescTreeNode[BUTTON6 + (nNumExtra ? 1 : 0)];
+        UnitNode->ChildNodes = new sDescTreeNode[ARRAYSIZE(DEF_BUTTONLABEL6_MVC2) + (nNumExtra ? 1 : 0)];
 
         //All children have button trees
         UnitNode->uChildType = DESC_NODETYPE_TREE;
-        UnitNode->uChildAmt = BUTTON6 + (nNumExtra ? 1 : 0);
+        UnitNode->uChildAmt = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2) + (nNumExtra ? 1 : 0);
 
         //Set each button data
         const int nButtonExtraCt = CountExtraRg(iUnitCtr, FALSE) + 1;
@@ -125,7 +125,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         OutputDebugString(strMsg);
 #endif
 
-        for (int iButtonCtr = 0; iButtonCtr < BUTTON6; iButtonCtr++)
+        for (int iButtonCtr = 0; iButtonCtr < ARRAYSIZE(DEF_BUTTONLABEL6_MVC2); iButtonCtr++)
         {
             int nExtraPos = 0;
 

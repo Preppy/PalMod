@@ -45,7 +45,7 @@ CGame_KOF98AE2016_A::CGame_KOF98AE2016_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF98AE2016_A_NUMUNIT;
     m_nExtraUnit = KOF98AE2016_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1932;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2188;
     m_pszExtraFilename = EXTRA_FILENAME_KOF98AE2016_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF98AE2016;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -165,9 +165,6 @@ sDescTreeNode* CGame_KOF98AE2016_A::InitDescTree()
         rgExtraLoc,
         KOF98AE2016_A_EXTRA_CUSTOM
     );
-
-    // For development use to speed things up
-    //DumpPaletteHeaders();
 
     return NewDescTree;
 }

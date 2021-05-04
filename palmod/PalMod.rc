@@ -190,18 +190,18 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
 END
 
-IDD_SETT_DIALOG DIALOGEX 0, 0, 203, 106
+IDD_SETT_DIALOG DIALOGEX 0, 0, 260, 110
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "MvC2 Settings"
+CAPTION "Advanced Settings"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    GROUPBOX        "Settings",IDC_STATIC,6,6,193,95
-    CONTROL         "Allow transparency (Not Recommended)",IDC_CALPHATRANS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,26,169,11
-    CONTROL         "Process Supplement Palettes (Recommended) (ex: Cyclops HK, Spider-Man win poses, etc)",IDC_CUPDSUPP,
-                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,39,168,30
-    PUSHBUTTON      "OK",IDOK,52,82,43,14
-    PUSHBUTTON      "Cancel",IDCANCEL,96,82,43,14
+    GROUPBOX        "Settings",IDC_STATIC,6,6,249,95
+    CONTROL         "Allow changing transparency for games that support it. (Not Recommended)",IDC_CALPHATRANS,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,20,230,20
+    CONTROL         "Process Supplement Palettes for MvC2 (Recommended)\n(ex: Cyclops HK, Spider-Man win poses, etc)",IDC_CUPDSUPP,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,40,230,30
+    PUSHBUTTON      "OK",IDOK,87,82,43,14
+    PUSHBUTTON      "Cancel",IDCANCEL,131,82,43,14
 END
 
 IDD_IMGDDLG DIALOGEX 0, 0, 344, 278
@@ -295,7 +295,7 @@ BEGIN
 
     IDD_SETT_DIALOG, DIALOG
     BEGIN
-        RIGHTMARGIN, 200
+        BOTTOMMARGIN, 101
     END
 
     IDD_IMGDDLG, DIALOG
@@ -321,13 +321,16 @@ BEGIN
         BEGIN
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
-            MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR_S
-            MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
+            POPUP "Guilty Gear"
+            BEGIN
+                MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR_S
+                MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
+            END
             POPUP "Jojo's HftF"
             BEGIN
                 MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
-            ENd
+            END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
             POPUP "MvC2"
             BEGIN
@@ -346,7 +349,7 @@ BEGIN
                 MENUITEM SEPARATOR
                 MENUITEM "2nd Impact (Arcade)",         ID_LD_SFIII2
                 MENUITEM SEPARATOR
-                MENUITEM "3rd Strike (Dreamcast/PS2)",  ID_LD_SFIII3DCALL
+                MENUITEM "3rd Strike (Dreamcast/PS2/PS3)", ID_LD_SFIII3DCALL
                 MENUITEM "3rd Strike (Arcade)",         ID_LD_SFIII3ARCADE51
                 MENUITEM "3rd Strike (Arcade) - Gill Glow/X.C.O.P.Y.", ID_LD_SFIII3ARCADE10
                 MENUITEM "EX Edition (*)",              ID_LD_SFIII3ARCADEEX
@@ -420,7 +423,7 @@ BEGIN
             MENUITEM "Transparency every 16 colors", ID_TRANSPSETTING_16
             MENUITEM "Transparency every 256 colors", ID_TRANSPSETTING_256
         END
-        MENUITEM "MvC2 &Settings...",           ID_SETTINGS_SETTINGS
+        MENUITEM "Advanced &Settings...",       ID_SETTINGS_SETTINGS
         MENUITEM SEPARATOR
         MENUITEM "Show 32-bit values for 8-bit colors (will round!)", ID_SHOW32BITRGB
         MENUITEM "Include bonus data in CTRL+C copy", ID_SETTINGS_EXTCOPYDATA
@@ -607,8 +610,6 @@ STRINGTABLE
 BEGIN
     IDS_DECRYPTING_START    "Decrypting game: please wait..."
     IDS_DECRYPTING_DONE     "Decryption complete!"
-    IDS_ENCRYPTING_START    "Encrypting game: please wait..."
-    IDS_ENCRYPTING_DONE     "Encryption complete!"
     IDS_ACT_LOADFAILURE     "Failed loading ACT file."
     IDS_PAL_LOADFAILURE     "Failed loading PAL file."
     IDS_PNG_LOADFAILURE     "Failed loading PNG file."
@@ -617,16 +618,29 @@ BEGIN
     IDS_PAL_LOADED          "Loaded %u colors from %u color PAL file."
     IDS_PNG_LOADED          "Loaded %u colors from %u color PNG file."
     IDS_PNG_REVERSEDLOAD    "PNG appears to have a reversed color table: loaded %u colors backwards."
-
     IDS_LOADING_DUPECHECK   "Validating game data tables: please wait..."
     IDS_RAW_EXTRADATA       "This RAW contains extra data and may not look right."
-
     IDS_PASTE_FROMBUTTON    "Using new color. Color may be rounded as required by the game."
     IDS_PASTE_CROSSGAME     "Pasted a PalMod color string. Colors may be rounded as required by this game."
     IDS_PASTED_COLOR        "Pasted a PalMod color string."
     IDS_PASTE_RGB           "Pasted RGB color. Colors may be rounded as required by the game."
-    IDS_PASTE_UNSUPPORTED   "Unsupported paste option."
+END
 
+STRINGTABLE
+BEGIN
+    IDS_ERROR_COPYCOLOR     "Warning: The current color mode needs to have copy support added."
+    IDS_WARN_TRANSPARENCY   "Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick Yes to agree to not use this mix for competition.  Click No to disagree and not use transparency."
+    IDS_ENCRYPTING_START    "Encrypting game: please wait..."
+    IDS_ENCRYPTING_DONE     "Encryption complete!"
+    IDS_SVC_WARNDECRYPT     "This version of SNK vs. Capcom uses encryption.  PalMod will need to decrypt this in order to use it.\n\nAre you sure you wish to continue?  Character edits may not work.  Portrait and stage edits will not work."
+    IDS_SVC_UNKNOWNCRYPTO   "This version of SNK vs. Capcom uses encryption that PalMod cannot read nor write. Palettes will not show up correctly.  Do not patch: we cannot write correctly to this encrypted ROMs"
+    IDS_SVC_WARNENCRYPT     "This ROM is encrypted.  In order to save these changes, we will need to re-encrypt everything, which can cause issues.\n\nAre you sure you wish to continue?  Please make sure you have backups."
+    IDS_SVC_CRYPTO_RO       "This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to this encrypted ROM.\n\nAre you sure you wish to continue?  Decryption will take a minute."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_PASTE_UNSUPPORTED   "Unsupported paste option."
     IDS_LOADSAVE_SUCCESS    "Game loaded successfully."
     IDS_LOADSAVE_FAILURE    "Game did not load successfully."
     IDS_LOADERROR_SINGLE    " (1 error)"
@@ -635,40 +649,32 @@ BEGIN
     IDS_LOADGAME_MULTI      "%d of %d files loaded successfully%s."
     IDS_PATCH_FAIL          "Game patching failed."
     IDS_PATCH_SUCCESS       "Game patched successfully."
-    IDS_PATCHGAME_SINGLE     "%d of %d file patched successfully%s."
-    IDS_PATCHGAME_MULTI      "%d of %d files patched successfully%s."
-    IDS_PATCH_EMPTY          "No changes detected: nothing to patch."
+    IDS_PATCHGAME_SINGLE    "%d of %d file patched successfully%s."
+    IDS_PATCHGAME_MULTI     "%d of %d files patched successfully%s."
+    IDS_PATCH_EMPTY         "No changes detected: nothing to patch."
     IDS_CROSSCOPY_SINGLE_SUCCESS "Game crosscopied successfully%s."
-    IDS_CROSSCOPY_MULTI_SUCCESS  "%d of %d files crosscopied successfully%s."
-    IDS_CROSSCOPY_NODIR      "No directory specified."
-    IDS_IPS_SINGLE           "%u change saved to patch file."
-    IDS_IPS_MULTI            "%u changes saved to patch file."
-    IDS_IPS_EMPTY            "No changes detected: nothing to put in patch file."
+    IDS_CROSSCOPY_MULTI_SUCCESS "%d of %d files crosscopied successfully%s."
+    IDS_CROSSCOPY_NODIR     "No directory specified."
+    IDS_IPS_SINGLE          "%u change saved to patch file."
+END
 
-    IDS_ACTSAVE_SUCCESS      "ACT file saved successfully."
-    IDS_ACTSAVE_FAILURE      "Error saving ACT file."
-    IDS_GPLSAVE_SUCCESS      "GPL file saved successfully."
-    IDS_GPLSAVE_FAILURE      "Error saving GPL file."
-    IDS_PALSAVE_SUCCESS      "RIFF PAL file saved successfully."
-    IDS_PALSAVE_FAILURE      "Error saving RIFF PAL file."
-    IDS_PNGLOAD_NOTABLE      "Cannot use this PNG: it does not contain a palette table."
-
-    IDS_WELCOME_BACKUP       "Always keep a backup of files!"
-
-    IDS_SETBACKGROUND_FULL   "Do you want to switch to only use this background color and not also use the image?"
-
-    IDS_SFA2_UNKNOWNROM      "This doesn't look like a supported SFA2 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
-    IDS_SF3_UNKNOWNROM       "This doesn't look like a supported SFIII3 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
-
-    IDS_EXTRAS_SIMMBOUNDARY  "Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."
-    IDS_COLOR_WRONGSIZE      "Error: this game is using the wrong color size.  This needs to be fixed for the game to work."
-
-    IDS_ERROR_COPYCOLOR      "Warning: The current color mode needs to have copy support added."
-    IDS_WARN_TRANSPARENCY    "Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick Yes to agree to not use this mix for competition.  Click No to disagree and not use transparency."
-    IDS_SVC_WARNDECRYPT       "This version of SNK vs. Capcom uses encryption.  PalMod will need to decrypt this in order to use it.\n\nAre you sure you wish to continue?  Character edits may not work.  Portrait and stage edits will not work."
-    IDS_SVC_UNKNOWNCRYPTO     "This version of SNK vs. Capcom uses encryption that PalMod cannot read nor write. Palettes will not show up correctly.  Do not patch: we cannot write correctly to this encrypted ROMs"
-    IDS_SVC_WARNENCRYPT       "This ROM is encrypted.  In order to save these changes, we will need to re-encrypt everything, which can cause issues.\n\nAre you sure you wish to continue?  Please make sure you have backups."
-    IDS_SVC_CRYPTO_RO         "This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to this encrypted ROM.\n\nAre you sure you wish to continue?  Decryption will take a minute."
+STRINGTABLE
+BEGIN
+    IDS_IPS_MULTI           "%u changes saved to patch file."
+    IDS_IPS_EMPTY           "No changes detected: nothing to put in patch file."
+    IDS_ACTSAVE_SUCCESS     "ACT file saved successfully."
+    IDS_ACTSAVE_FAILURE     "Error saving ACT file."
+    IDS_GPLSAVE_SUCCESS     "GPL file saved successfully."
+    IDS_GPLSAVE_FAILURE     "Error saving GPL file."
+    IDS_PALSAVE_SUCCESS     "RIFF PAL file saved successfully."
+    IDS_PALSAVE_FAILURE     "Error saving RIFF PAL file."
+    IDS_PNGLOAD_NOTABLE     "Cannot use this PNG: it does not contain a palette table."
+    IDS_WELCOME_BACKUP      "Always keep a backup of files!"
+    IDS_SETBACKGROUND_FULL  "Do you want to switch to only use this background color and not also use the image?"
+    IDS_SFA2_UNKNOWNROM     "This doesn't look like a supported SFA2 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
+    IDS_SF3_UNKNOWNROM      "This doesn't look like a supported SFIII3 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
+    IDS_EXTRAS_SIMMBOUNDARY "Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."
+    IDS_COLOR_WRONGSIZE     "Error: this game is using the wrong color size.  This needs to be fixed for the game to work."
 END
 
 #endif    // English (United States) resources

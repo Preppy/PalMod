@@ -107,18 +107,18 @@ sSupportedGameList SupportedGameList[] =
 sSupportedGameList* pSupportedGameList = SupportedGameList;
 const int nNumberOfLoadROMOptions = ARRAYSIZE(SupportedGameList);
 
-void CPalModDlg::LoadGameDir(int nGameFlag, WCHAR* szLoadDir)
+void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, WCHAR* pszLoadDir)
 {
     ClearGameVar();
 
-    CGameClass* GameGet = GetHost()->GetLoader()->LoadDir(nGameFlag, szLoadDir);
+    CGameClass* GameGet = GetHost()->GetLoader()->LoadDir(nGameFlag, pszLoadDir);
 
     if (GameGet)
     {
         GetHost()->SetGameClass(GameGet);
 
         //Set the last used location
-        SetLastUsedDirectory(szLoadDir, GetHost()->GetCurrGame()->GetGameFlag());
+        SetLastUsedDirectory(pszLoadDir, GetHost()->GetCurrGame()->GetGameFlag());
 
         //The game has loaded OK
         PostGameLoad();
@@ -357,7 +357,8 @@ void CPalModDlg::UpdateColorFormatMenu()
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB666_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_xRGB888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xRGB888) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_xBGR888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xBGR888) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB1888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB1888) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB1888, 
+            MF_BYCOMMAND | (((currColMode == ColMode::COLMODE_ARGB1888) || (currColMode == ColMode::COLMODE_ARGB1888_32STEPS))? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB7888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB7888) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB8888) ? MF_CHECKED : MF_UNCHECKED));
 
@@ -422,15 +423,15 @@ void CPalModDlg::SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdat
 
 void CPalModDlg::LoadLastDir()
 {
-    int nLastUsedGFlag;
+    SupportedGamesList nLastUsedGFlag = NUM_GAMES;
     BOOL bIsDir;
     WCHAR szLastDir[MAX_PATH];
 
-    if (GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &bIsDir))
+    if (GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &bIsDir))
     {
         if (VerifyMsg(eVerifyType::VM_FILECHANGE)) // Save current changes if needed
         {
-            if ((nLastUsedGFlag > NUM_GAMES) || (nLastUsedGFlag < 0))
+            if ((nLastUsedGFlag >= NUM_GAMES) || (nLastUsedGFlag < 0))
             {
                 CString strError;
                 if (strError.LoadString(IDS_ERROR_PARAMETERS))
@@ -459,17 +460,30 @@ void CPalModDlg::LoadLastDir()
     }
 }
 
-int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData)
+int CALLBACK CPalModDlg::OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData)
 {
     switch (uMsg)
     {
     case BFFM_INITIALIZED:
     {
         WCHAR szPath[MAX_PATH];
+        BOOL fIsDir = FALSE;
+        SupportedGamesList nDefaultGameFlag = (SupportedGamesList)lpData;
 
-        if (GetLastUsedDirectory(szPath, sizeof(szPath), NULL))
+        if (GetLastUsedPath(szPath, sizeof(szPath), &nDefaultGameFlag, FALSE, &fIsDir))
         {
-            SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)szPath);
+            if (!fIsDir)
+            {
+                // We're pointing at a file, so switch over to the path
+                LPWSTR pszSlash = wcsrchr(szPath, L'\\');
+
+                if (pszSlash)
+                {
+                    pszSlash[0] = 0;
+                }
+            }
+
+            ::SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)szPath);
         }
         break;
     }
@@ -480,16 +494,20 @@ int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData)
     return 0;
 }
 
-void SetLastUsedDirectory(LPCWSTR ptszPath, int nGameFlag)
+void SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameFlag)
 {
-    if (NULL != ptszPath)
+    if (NULL != pszPath)
     {
         HKEY hKey = NULL;
 
         //Set the directory / Game Flag
         if (ERROR_SUCCESS == RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_SET_VALUE, NULL, &hKey, NULL))
         {
-            RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)ptszPath, (DWORD)(wcslen(ptszPath) + 1) * sizeof(WCHAR));
+            CString strPerGameString;
+
+            strPerGameString.Format(L"%s_%u", c_strLastUsedPath, nGameFlag);
+            RegSetValueEx(hKey, strPerGameString, 0, REG_SZ, (LPBYTE)pszPath, (DWORD)(wcslen(pszPath) + 1) * sizeof(WCHAR));
+            RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)pszPath, (DWORD)(wcslen(pszPath) + 1) * sizeof(WCHAR));
             RegSetValueEx(hKey, c_strLastUsedGFlag, 0, REG_DWORD, (LPBYTE)&nGameFlag, (DWORD)sizeof(int));
 
             RegCloseKey(hKey);
@@ -499,7 +517,7 @@ void SetLastUsedDirectory(LPCWSTR ptszPath, int nGameFlag)
     return;
 }
 
-BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bCheckOnly, BOOL* bIsDir)
+BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL bCheckOnly, BOOL* bIsDir)
 {
     BOOL fFound = FALSE;
     HKEY hKey = NULL;
@@ -510,30 +528,52 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
         WCHAR szPath[MAX_PATH] = {};
         DWORD cbDataSize = sizeof(szPath);
 
-        //Get the directory
-        if ((ERROR_SUCCESS == RegQueryValueEx(hKey, c_strLastUsedPath, 0, &dwRegType, (LPBYTE)szPath, &cbDataSize))
-            && (REG_SZ == dwRegType))
+        //Get the directory: tune to the last usage of the current game if desired and possible
+        for (int nPass = 0; (nPass < 2) && !fFound; nPass++)
         {
-            if (bCheckOnly)
+            cbDataSize = sizeof(szPath);
+
+            CString strPerGameString;
+
+            if (nPass == 0)
             {
-                fFound = TRUE;
+                if ((nGameFlag) && (*nGameFlag != NUM_GAMES))
+                {
+                    strPerGameString.Format(L"%s_%u", c_strLastUsedPath, *nGameFlag);
+                }
+                else
+                {
+                    continue;
+                }
             }
             else
             {
-                DWORD dwAttribs = GetFileAttributes(szPath);
+                strPerGameString = c_strLastUsedPath;
+            }
 
-                if (INVALID_FILE_ATTRIBUTES != dwAttribs)
+            if ((ERROR_SUCCESS == RegQueryValueEx(hKey, strPerGameString, 0, &dwRegType, (LPBYTE)szPath, &cbDataSize))
+                && (REG_SZ == dwRegType))
+            {
+                if (bCheckOnly)
                 {
-                    if (bIsDir)
-                    {
-                        //Check to see if it's actually a file without an extension
-                        *bIsDir = (dwAttribs & FILE_ATTRIBUTE_DIRECTORY);
-                    }
-
-                    // This code used to be testing for (dwAttribs & FILE_ATTRIBUTE_ARCHIVE), but I don't think we need that currently.
-
-                    wcscpy(ptszPath, szPath);
                     fFound = TRUE;
+                }
+                else
+                {
+                    DWORD dwAttribs = GetFileAttributes(szPath);
+
+                    if (INVALID_FILE_ATTRIBUTES != dwAttribs)
+                    {
+                        if (bIsDir)
+                        {
+                            //Check to see if it's actually a file without an extension
+                            *bIsDir = (dwAttribs & FILE_ATTRIBUTE_DIRECTORY);
+                        }
+
+                        // This code used to be testing for (dwAttribs & FILE_ATTRIBUTE_ARCHIVE), but I don't think we need that currently.
+                        wcscpy(pszPath, szPath);
+                        fFound = TRUE;
+                    }
                 }
             }
         }
@@ -541,7 +581,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
         //Grab the game flag
         if (nGameFlag)
         {
-            nGameFlag ? *nGameFlag = 0xFF : 0;
+            *nGameFlag = NUM_GAMES;
 
             dwRegType = REG_DWORD;
             cbDataSize = sizeof(int);
@@ -576,33 +616,47 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 {
     CString szGameFileDef = L"";
 
-    nDefaultGameFilter = nDefaultGameFilter & 0xffff; // eliminate the applied mask that we use to avoid existing menu items
+    nDefaultGameFilter = nDefaultGameFilter & 0xffff; // eliminate the applied mask (k_nGameLoadROMListMask, 0xf0000) that we use to avoid existing menu items
 
     // The following logic ensures that their last used selection is the default filter view.
-    int nLastUsedGFlag = nDefaultGameFilter;
+    SupportedGamesList nLastUsedGFlag = (SupportedGamesList)nDefaultGameFilter;
 
-    if ((nLastUsedGFlag == NUM_GAMES) &&
-        !GetLastUsedDirectory(nullptr, 0, &nLastUsedGFlag, TRUE, nullptr))
+    WCHAR szLastDir[MAX_PATH];
+    BOOL fIsDir = FALSE;
+    bool fHaveLastUsedPath = GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &fIsDir);
+
+    if (nLastUsedGFlag == NUM_GAMES)
     {
-        // If we're here, that means that they have never used PalMod to load a game before.  Help them.
-        CString strInfo;
-        LPCWSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
-        LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
-
-        WCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
-        wcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
-        szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
-
-        LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
-
-        if (pszPipe != nullptr)
+        if (!fHaveLastUsedPath)
         {
-            // Truncate off the filter information
-            pszPipe[0] = 0;
-        }
+            // If we're here, that means that they have never used PalMod to load a game before.  Help them.
+            CString strInfo;
+            LPCWSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
+            LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
 
-        strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
-        MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
+            WCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
+            wcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
+            szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
+
+            LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
+
+            if (pszPipe != nullptr)
+            {
+                // Truncate off the filter information
+                pszPipe[0] = 0;
+            }
+
+            strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
+            MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
+        }
+    }
+    else
+    {
+        // If there wasn't a specfic filter requested, use the last used game flag
+        if (nDefaultGameFilter == NUM_GAMES)
+        {
+            nDefaultGameFilter = nLastUsedGFlag;
+        }
     }
 
     DWORD dwLastUsedGameIndex = 0;
@@ -613,7 +667,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
         szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
         SupportedGameList[nArrayPosition].nListedGameIndex = nArrayPosition;
 
-        if (SupportedGameList[nArrayPosition].nInternalGameIndex == nLastUsedGFlag)
+        if (SupportedGameList[nArrayPosition].nInternalGameIndex == nDefaultGameFilter)
         {
             // user nFilterIndex starts at 1
             dwLastUsedGameIndex = SupportedGameList[nArrayPosition].nListedGameIndex + 1;
@@ -633,6 +687,22 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     OPENFILENAME &pOFN = OpenDialog.GetOFN();
 
     pOFN.nFilterIndex = dwLastUsedGameIndex;
+
+    if (fHaveLastUsedPath)
+    {
+        if (!fIsDir)
+        {
+            // We're pointing at a file, so switch over to the path
+            LPWSTR pszSlash = wcsrchr(szLastDir, L'\\');
+
+            if (pszSlash)
+            {
+                pszSlash[0] = 0;
+            }
+        }
+
+        pOFN.lpstrInitialDir = szLastDir;
+    }
 
     if (OpenDialog.DoModal() == IDOK)
     {
@@ -654,12 +724,12 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 
         if (fSafeToContinue)
         {
-            for (const sSupportedGameList currentGame : SupportedGameList)
+            for (const sSupportedGameList &currentGame : SupportedGameList)
             {
                 // user nFilterIndex starts at 1
                 if ((currentGame.nListedGameIndex + 1) == ofn.nFilterIndex)
                 {
-                    LoadGameFile(currentGame.nInternalGameIndex, (WCHAR*)ofn.lpstrFile);
+                    LoadGameFile((SupportedGamesList)currentGame.nInternalGameIndex, (WCHAR*)ofn.lpstrFile);
                     break;
                 }
             }
@@ -667,7 +737,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     }
 }
 
-void CPalModDlg::LoadGameFile(int nGameFlag, WCHAR* szFile)
+void CPalModDlg::LoadGameFile(SupportedGamesList nGameFlag, WCHAR* pszFile)
 {
     if (!VerifyMsg(eVerifyType::VM_FILECHANGE))
     {
@@ -676,14 +746,14 @@ void CPalModDlg::LoadGameFile(int nGameFlag, WCHAR* szFile)
 
     ClearGameVar();
 
-    CGameClass* GameGet = GetHost()->GetLoader()->LoadFile(nGameFlag, szFile);
+    CGameClass* GameGet = GetHost()->GetLoader()->LoadFile(nGameFlag, pszFile);
 
     if (GameGet)
     {
         GetHost()->SetGameClass(GameGet);
 
         //Set the last used location
-        SetLastUsedDirectory(szFile, GetHost()->GetCurrGame()->GetGameFlag());
+        SetLastUsedDirectory(pszFile, GetHost()->GetCurrGame()->GetGameFlag());
 
         //The game has loaded OK
         PostGameLoad();

@@ -14,10 +14,7 @@ CGame_MBAACC_S::CGame_MBAACC_S(UINT32 nConfirmedROMSize /* = -1 */)
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     m_fGameUsesAlphaValue = true;
-    SetColorMode(ColMode::COLMODE_ARGB1888);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
+    SetColorMode(ColMode::COLMODE_ARGB1888_32STEPS);
 
     InitializeStatics();
 
@@ -29,10 +26,9 @@ CGame_MBAACC_S::CGame_MBAACC_S(UINT32 nConfirmedROMSize /* = -1 */)
     InitDataBuffer();
 
     nGameFlag = MBAACC_S;
-    nImgGameFlag = 0;
-    // no images yet
-    m_prgGameImageSet = 0;
-    nImgUnitAmt = 0;
+    nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
+    m_prgGameImageSet = MBAACC_S_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(MBAACC_S_IMG_UNITS);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;

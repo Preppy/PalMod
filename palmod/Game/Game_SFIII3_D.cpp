@@ -97,7 +97,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
             //Set each button data
-            _snwprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, L"Palettes");//, DEF_BUTTONLABEL7_SF3[iButtonCtr]);
+            _snwprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, L"Palettes");
 
             //Button children have nodes
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -107,10 +107,23 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
 
             for (UINT16 nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
             {
+                const UINT16 k_nNumberOfBonusColors = 6;
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr];
 
                 ChildNode->uUnitId = iUnitCtr;
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Palette %02X", nChildCtr);
+
+                if (nChildCtr < ARRAYSIZE(DEF_BUTTONLABEL7_SF3))
+                {
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, DEF_BUTTONLABEL7_SF3[nChildCtr]);
+                }
+                else if (nChildCtr < (ARRAYSIZE(DEF_BUTTONLABEL7_SF3) + k_nNumberOfBonusColors))
+                {
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Second Impact %s", DEF_BUTTONLABEL7_SF3[nChildCtr - ARRAYSIZE(DEF_BUTTONLABEL7_SF3)]);
+                }
+                else
+                {
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Palette %02X", nChildCtr);
+                }
 
                 ChildNode->uPalId = nChildCtr;
             }
@@ -125,7 +138,7 @@ sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // We get extra data from GameClass that we don't want: clear the lead 0xFF00 flag if present.
-    UINT16 nRuleId = (nUnitId & 0x00FF) + 1;
+    UINT16 nRuleId = (nUnitId & 0x00FF);
 
     if (nRuleId > 14)
     {
@@ -157,7 +170,7 @@ sFileRule CGame_SFIII3_D::GetNextRule()
 
 int CGame_SFIII3_D::GetBasicAmt(UINT16 nUnitId)
 {
-    return BUTTON7;
+    return ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
 }
 
 UINT16 CGame_SFIII3_D::GetPaletteCountForUnit(UINT16 nUnitId)
@@ -244,12 +257,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = uUnitId;
-
-    if (nImgUnitId > 13) // Account for the missing Shin Gouki file that has shifted all following units by one
-    {
-        nImgUnitId++;
-    }
+    UINT16 nImgUnitId = SFIII3_D_IMGID_SORT[uUnitId];
 
     UINT16 nSrcStart = 0;
     UINT16 nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);//GetBasicAmt(uUnitId);
@@ -273,7 +281,7 @@ COLORREF* CGame_SFIII3_D::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     COLORREF* NewPal = new COLORREF[nCurrPalSz];
 
-    for (UINT16 i = 0; i < nCurrPalSz - 1; i++)
+    for (UINT16 i = 0; i < nCurrPalSz; i++)
     {
         NewPal[i] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][i]);
 

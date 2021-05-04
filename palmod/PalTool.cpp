@@ -422,7 +422,7 @@ void CPalTool::DrawText()
     {
         //Draw bold text to show none are visible
         SetFontToBold(true);
-        dc.TextOut(CurrPos.cx, CurrPos.cy, CString(L"No Palettes Loaded"));
+        dc.TextOut(CurrPos.cx, CurrPos.cy, CString(L"Load a game to continue."));
     }
 }
 

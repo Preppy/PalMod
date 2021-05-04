@@ -17,7 +17,6 @@
 // * go to game\gameload.cpp and add an include for your game's header
 // * in game\gameload.cpp add a handler for your game to CGameLoad::SetGame
 // * in game\gameload.cpp add a handler for your game to CGameLoad::CreateGame
-// * go to palmoddlg_edit.cpp and map your game to the appropriate color format in CPalModDlg::OnEditPaste
 // * go to palmoddlg_file.cpp and add your game to the SupportedGameList array
 
 // That's it!  Good luck!  If you have any questions, feel free to ask.

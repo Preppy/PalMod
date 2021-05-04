@@ -28,6 +28,7 @@ UINT8 GetCbForColMode(ColMode colorMode)
         return 3;
     case ColMode::COLMODE_ARGB7888:
     case ColMode::COLMODE_ARGB1888:
+    case ColMode::COLMODE_ARGB1888_32STEPS:
     case ColMode::COLMODE_ARGB8888:
         return 4;
     }
@@ -130,6 +131,15 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
             {
                 return k_nRGBPlaneAmtForRGB888;
             }
+        case ColMode::COLMODE_ARGB1888_32STEPS:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneAmtForRGB111;
+            }
+            else
+            {
+                return k_nRGBPlaneAmtForRGB555;
+            }
         case ColMode::COLMODE_ARGB7888:
             if (Flag == ColFlag::COL_A)
             {
@@ -180,6 +190,15 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
             else
             {
                 return k_nRGBPlaneMulForRGB888;
+            }
+        case ColMode::COLMODE_ARGB1888_32STEPS:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneMulForRGB111;
+            }
+            else
+            {
+                return k_nRGBPlaneMulForRGB555;
             }
         case ColMode::COLMODE_ARGB7888:
             if (Flag == ColFlag::COL_A)
@@ -341,6 +360,12 @@ BOOL CGameClass::_SetColorMode(ColMode NewMode)
         ConvPal32 = &CGameClass::CONV_ARGB1888_32;
         ConvCol32 = &CGameClass::CONV_32_ARGB1888;
         BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
+        return TRUE;
+    case ColMode::COLMODE_ARGB1888_32STEPS:
+        m_nSizeOfColorsInBytes = 4;
+        ConvPal32 = &CGameClass::CONV_ARGB1888_32;
+        ConvCol32 = &CGameClass::CONV_32_ARGB1888;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
     case ColMode::COLMODE_ARGB7888:
         m_nSizeOfColorsInBytes = 4;
@@ -2277,7 +2302,19 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                 SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 if (GameIsUsing16BitColor())
                 {
-                    SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                    for (int nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
+                    {
+                        // Never write the transparency counter.
+                        // It's kind of OK to do so since it should be a no-op, but TMNTF is evil and relies upon overlapping palettes.
+                        if (((nArrayIndex + createPalOptions.nStartingPosition) % createPalOptions.eWriteOutputOptions) != 0)
+                        {
+                            SaveFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nArrayIndex], m_nSizeOfColorsInBytes);
+                        }
+                        else
+                        {
+                            SaveFile->Seek(m_nSizeOfColorsInBytes, CFile::current);
+                        }
+                    }
                 }
                 else if (GameIsUsing24BitColor())
                 {
@@ -2335,6 +2372,15 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
             if (fUserWantsAllChanges || IsPaletteDirty(nUnitCtr, nPalCtr))
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+                UINT32 nInitialOffset = 0;
+
+                if (nGameFlag == TMNTTF_SNES)
+                {
+                    // TMNTTF is evil and uses overlapping palettes.  Account for this by snipping off the lead transparency color.
+                    m_nCurrentPaletteROMLocation += m_nSizeOfColorsInBytes;
+                    m_nCurrentPaletteSizeInColors--;
+                    nInitialOffset = 1;
+                }
 
                 // Location
                 BYTE b1 = (m_nCurrentPaletteROMLocation & 0xFF0000) >> 16;
@@ -2353,11 +2399,11 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
                 // Actual data
                 if (GameIsUsing16BitColor())
                 {
-                    PatchFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                    PatchFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nInitialOffset], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
                 }
                 else
                 {
-                    PatchFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                    PatchFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nInitialOffset], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
                 }
 
                 nTotalPalettesSaved++;

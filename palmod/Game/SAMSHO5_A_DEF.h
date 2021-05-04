@@ -33,33 +33,33 @@ const UINT16 SAMSHO5_A_IMG_UNITS[] =
     indexSamSho5Sprites_Bonus,
     indexSamSho5Sprites_Stages,
 
-    indexSS5_Basara,      // 0x31
-    indexSS5_Charlotte,   // 0x32
-    indexSS5_Enja,        // 0x33
-    indexSS5_Gaira,       // 0x34
-    indexSS5_Galford,     // 0x35
-    indexSS5_Gaoh,        // 0x36
-    indexSS5_Genjuro,     // 0x37
-    indexSS5_Hanzo,       // 0x38
-    indexSS5_Haohmaru,    // 0x39
-    indexSS5_Jubei,       // 0x3A
-    indexSS5_Kazuki,      // 0x3B
-    indexSS5_Kusaregedo,  // 0x3C
-    indexSS5_Kyoshiro,    // 0x3D
-    indexSS5_Mina,        // 0x3E
-    indexSS5_Nakoruru,    // 0x3F
-    indexSS5_Rasetsumaru, // 0x40
-    indexSS5_Rera,        // 0x41
-    indexSS5_Rimururu,    // 0x42
-    indexSS5_Sankuro,     // 0x43
-    indexSS5_Shizumaru,   // 0x44
-    indexSS5_Sogetsu,     // 0x45
-    indexSS5_Suija,       // 0x46
-    indexSS5_TamTam,      // 0x47
-    indexSS5_Ukyo,        // 0x48
-    indexSS5_Yoshitora,   // 0x49
-    indexSS5_Yumeji,      // 0x4A
-    indexSS5_Yunfei,      // 0x4B
+    indexSS5_Basara,        // 0x31
+    indexSS5_Charlotte,     // 0x32
+    indexSS5_Enja,          // 0x33
+    indexSS5_Gaira,         // 0x34
+    indexSS5_Galford,       // 0x35
+    indexSS5_Gaoh,          // 0x36
+    indexSS5_Genjuro,       // 0x37
+    indexSS5_Hanzo,         // 0x38
+    indexSS5_Haohmaru,      // 0x39
+    indexSS5_Jubei,         // 0x3A
+    indexSS5_Kazuki,        // 0x3B
+    indexSS5_Kusaregedo,    // 0x3C
+    indexSS5_Kyoshiro,      // 0x3D
+    indexSS5_Mina,          // 0x3E
+    indexSS5_Nakoruru,      // 0x3F
+    indexSS5_Rasetsumaru,   // 0x40
+    indexSS5_Rera,          // 0x41
+    indexSS5_Rimururu,      // 0x42
+    indexSS5_Sankuro,       // 0x43
+    indexSS5_Shizumaru,     // 0x44
+    indexSS5_Sogetsu,       // 0x45
+    indexSS5_Suija,         // 0x46
+    indexSS5_TamTam,        // 0x47
+    indexSS5_Ukyo,          // 0x48
+    indexSS5_Yoshitora,     // 0x49
+    indexSS5_Yumeji,        // 0x4A
+    indexSS5_Yunfei,        // 0x4B
     indexSS5_Bonus,         // 0x4c
     indexSS5_Stages,        // 0x4d
 };
@@ -2393,7 +2393,7 @@ const sGame_PaletteDataset SAMSHO5_A_BONUS_INTRO_PALETTES[] =
 const sGame_PaletteDataset SAMSHO5_A_BONUS_INGAME_PALETTES[] =
 {
     // --Ingame Extras--
-    { L"Blood/Shadow", 0xd4600, 0xd4620 },
+    { L"Blood/Shadow", 0xd4600, 0xd4620, indexSS5_Bonus, 0x00 },
     { L"Censored Blood/Shadow", 0xd4640, 0xd4660 },
     { L"Kazuki/Enja Explosion Pal P1", 0xd4220, 0xd4240 },
     { L"Kazuki/Enja Explosion Pal P2", 0xd4620, 0xd4640 },

@@ -247,8 +247,9 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
     L"GGXX:AC+R (PlayStation 3)",
     L"Melty blood Actress Again Current Code",
     L"KOF98AE (2016 Romhack)",
-
 };
+
+static_assert(sizeof(g_GameFriendlyName) != NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
 
 enum class GamePlatform
 {
@@ -290,7 +291,7 @@ enum class AlphaMode
 
 enum class ColMode
 {
-    // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::SetAlphaAndColorModeInternal
+    // If you add new color modes that users would want to use, you need to update CGame_NEOGEO_A::SetAlphaAndColorModeInternal
     // Don't change the order of this list: we emit copy strings that rely upon the ordering
     COLMODE_BGR555_LE,      // BGR555 little endian (GBA)
     COLMODE_RGB444_BE,      // RGB444 big endian (CPS1/2)
@@ -301,10 +302,11 @@ enum class ColMode
     COLMODE_RGB333,         // RGB333 for Sega Genesis/MegaDrive
     COLMODE_ARGB7888,       // 32bit color half alpha (guilty gear)
     COLMODE_RGB555_SHARP,   // RGB555 using the sharp x68000 color table
-    COLMODE_ARGB1888,       // 32bit color 1 bit alpha (DBFCI)
+    COLMODE_ARGB1888,       // 32bit color 1 bit alpha
     COLMODE_ARGB8888,       // 32bit color (uniclr. and modern computing)
     COLMODE_xRGB888,        // 24bit
     COLMODE_xBGR888,        // 24bit
+    COLMODE_ARGB1888_32STEPS, // MBAACC: 32 bit color, except only 32 steps
     COLMODE_LAST,
 };
 
@@ -354,10 +356,6 @@ enum class eImageOutputSpriteDisplay
     DISPLAY_SPRITES_LEFTTORIGHT,
     DISPLAY_SPRITES_TOPTOBOTTOM
 };
-
-//Basic button labels
-#define BUTTON6 6
-#define BUTTON7 7
 
 // In the new world order, these could be the node labels, but we want the short names here
 // since they fit into the imgdump UI better.
@@ -677,7 +675,6 @@ enum CHARACTERS_CPS2
     indexPuzzleFighter_Ryu,         // 0xA1
     indexPuzzleFighter_Sakura,      // 0xA2
     indexPuzzleFighter_Bonus,       // 0xA3 
-
 };
 
 const UINT16 MVC2_IMG_UNITS[] =
@@ -839,6 +836,7 @@ const UINT16 SFIII3_A_IMG_UNITS[] =
 
 const UINT16 SFIII3_D_IMG_UNITS[] =
 {
+    index3S_CPS3_Gill,
     index3S_CPS3_Alex,
     index3S_CPS3_Ryu,
     index3S_CPS3_Yun,
@@ -1974,6 +1972,21 @@ enum KOFSpriteList
     indexRBFF2Sprites_Sokaku,       // 0x286
     indexRBFF2Sprites_Tung,         // 0x287
     indexRBFF2Sprites_Yamazaki,     // 0x288
+
+    indexFF1Sprites_AndyBogard,     // 0x289
+    indexFF1Sprites_BillyKane,      // 0x28a
+    indexFF1Sprites_DrunkHwaJai,    // 0x28b
+    indexFF1Sprites_DuckKing,       // 0x28c
+    indexFF1Sprites_GeeseHoward,    // 0x28d
+    indexFF1Sprites_HwaJai,         // 0x28e
+    indexFF1Sprites_JoeHigashi,     // 0x28f
+    indexFF1Sprites_MichaelMax,     // 0x290
+    indexFF1Sprites_Raiden,         // 0x291
+    indexFF1Sprites_RichardMeyer,   // 0x292
+    indexFF1Sprites_TerryBogard,    // 0x293
+    indexFF1Sprites_TungFuRue,      // 0x294
+    indexFF1Sprites_Bonus,          // 0x295
+    indexFF1Sprites_Stages,         // 0x296
 };
 
 const UINT16 RBFFS_A_IMG_UNITS[] =
@@ -2102,16 +2115,17 @@ enum SupportedKOF02UM_S_PaletteListIndex
 
 enum SupportedBreakersSprites
 {
-    indexBreakersSprites_AlsionIII,
-    indexBreakersSprites_BaiHu,
-    indexBreakersSprites_Condor,
-    indexBreakersSprites_DaoLong,
-    indexBreakersSprites_Maherl,
-    indexBreakersSprites_Pielle,
-    indexBreakersSprites_Rila,
-    indexBreakersSprites_Saizo,
-    indexBreakersSprites_Sho,
-    indexBreakersSprites_Tia,
+    indexBreakersSprites_AlsionIII, // 0x00
+    indexBreakersSprites_BaiHu,     // 0x01
+    indexBreakersSprites_Condor,    // 0x02
+    indexBreakersSprites_DaoLong,   // 0x03
+    indexBreakersSprites_Maherl,    // 0x04
+    indexBreakersSprites_Pielle,    // 0x05
+    indexBreakersSprites_Rila,      // 0x06
+    indexBreakersSprites_Saizo,     // 0x07
+    indexBreakersSprites_Sho,       // 0x08
+    indexBreakersSprites_Tia,       // 0x09
+    indexBreakersSprites_Bonus,     // 0x0A
 };
 
 enum CVS2SpriteList
@@ -2694,28 +2708,59 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_DBFCI_Wilhelmina,    // 0x31
     indexFrenchBreadSprites_DBFCI_Zero,          // 0x32
 	indexFrenchBreadSprites_DBFCI_Bonus,         // 0x33
-	indexFrenchBreadSprites_UNICLR_Akat,   // 0x34
-    indexFrenchBreadSprites_UNICLR_Byak,   // 0x35
-    indexFrenchBreadSprites_UNICLR_Carm,   // 0x36
-    indexFrenchBreadSprites_UNICLR_Chao,   // 0x37
-    indexFrenchBreadSprites_UNICLR_Eltn,   // 0x38
-    indexFrenchBreadSprites_UNICLR_Enki,   // 0x39
-    indexFrenchBreadSprites_UNICLR_Gord,   // 0x3A
-    indexFrenchBreadSprites_UNICLR_Hild,   // 0x3B
-    indexFrenchBreadSprites_UNICLR_Hyde,   // 0x3C
-    indexFrenchBreadSprites_UNICLR_Linn,   // 0x3D
-    indexFrenchBreadSprites_UNICLR_Lond,   // 0x3E
-    indexFrenchBreadSprites_UNICLR_Merk,   // 0x3F
-    indexFrenchBreadSprites_UNICLR_Mika,   // 0x40
-    indexFrenchBreadSprites_UNICLR_Nana,   // 0x41
-    indexFrenchBreadSprites_UNICLR_Orie,   // 0x42
-    indexFrenchBreadSprites_UNICLR_Phon,   // 0x43
-    indexFrenchBreadSprites_UNICLR_Seth,   // 0x44
-    indexFrenchBreadSprites_UNICLR_Vati,   // 0x45
-    indexFrenchBreadSprites_UNICLR_Wagn,   // 0x46
-    indexFrenchBreadSprites_UNICLR_Wald,   // 0x47
-    indexFrenchBreadSprites_UNICLR_Yuzu,   // 0x48
-    indexFrenchBreadSprites_UNICLR_Bonus,  // 0x49
+    indexFrenchBreadSprites_UNICLR_Akat,    // 0x34
+    indexFrenchBreadSprites_UNICLR_Byak,    // 0x35
+    indexFrenchBreadSprites_UNICLR_Carm,    // 0x36
+    indexFrenchBreadSprites_UNICLR_Chao,    // 0x37
+    indexFrenchBreadSprites_UNICLR_Eltn,    // 0x38
+    indexFrenchBreadSprites_UNICLR_Enki,    // 0x39
+    indexFrenchBreadSprites_UNICLR_Gord,    // 0x3A
+    indexFrenchBreadSprites_UNICLR_Hild,    // 0x3B
+    indexFrenchBreadSprites_UNICLR_Hyde,    // 0x3C
+    indexFrenchBreadSprites_UNICLR_Linn,    // 0x3D
+    indexFrenchBreadSprites_UNICLR_Lond,    // 0x3E
+    indexFrenchBreadSprites_UNICLR_Merk,    // 0x3F
+    indexFrenchBreadSprites_UNICLR_Mika,    // 0x40
+    indexFrenchBreadSprites_UNICLR_Nana,    // 0x41
+    indexFrenchBreadSprites_UNICLR_Orie,    // 0x42
+    indexFrenchBreadSprites_UNICLR_Phon,    // 0x43
+    indexFrenchBreadSprites_UNICLR_Seth,    // 0x44
+    indexFrenchBreadSprites_UNICLR_Vati,    // 0x45
+    indexFrenchBreadSprites_UNICLR_Wagn,    // 0x46
+    indexFrenchBreadSprites_UNICLR_Wald,    // 0x47
+    indexFrenchBreadSprites_UNICLR_Yuzu,    // 0x48
+    indexFrenchBreadSprites_UNICLR_Bonus,   // 0x49
+
+    indexMBAACCSprites_AkihaTohno,          // 0x4A
+    indexMBAACCSprites_AkihaTohnoSeifuku,   // 0x4B
+    indexMBAACCSprites_AkihaVermillion,     // 0x4C
+    indexMBAACCSprites_AokoAozaki,          // 0x4D
+    indexMBAACCSprites_ArcueidBrunestud,    // 0x4E
+    indexMBAACCSprites_Ciel,                // 0x4F
+    indexMBAACCSprites_DustOfOsiris,        // 0x50
+    indexMBAACCSprites_Hime,                // 0x51
+    indexMBAACCSprites_Hisui,               // 0x52
+    indexMBAACCSprites_Kohaku,              // 0x53
+    indexMBAACCSprites_KoumaKishima,        // 0x54
+    indexMBAACCSprites_Len,                 // 0x55
+    indexMBAACCSprites_MechHisui,           // 0x56
+    indexMBAACCSprites_MiyakoArima,         // 0x57
+    indexMBAACCSprites_NecoArc,             // 0x58
+    indexMBAACCSprites_NecoArcChaos,        // 0x59
+    indexMBAACCSprites_NeroChaos,           // 0x5A
+    indexMBAACCSprites_PowerdCiel,          // 0x5B
+    indexMBAACCSprites_RedArcueid,          // 0x5C
+    indexMBAACCSprites_RiesbyfeStridberg,   // 0x5D
+    indexMBAACCSprites_Roa,                 // 0x5E
+    indexMBAACCSprites_SatsukiYumiduka,     // 0x5F
+    indexMBAACCSprites_ShikiNanaya,         // 0x60
+    indexMBAACCSprites_ShikiRyougi,         // 0x61
+    indexMBAACCSprites_ShikiTohno,          // 0x62
+    indexMBAACCSprites_SionEltnamAtlasia,   // 0x63
+    indexMBAACCSprites_SionTATARI,          // 0x64
+    indexMBAACCSprites_Warachia,            // 0x65
+    indexMBAACCSprites_WhiteLen,            // 0x66
+    indexMBAACCSprites_Bonus,               // 0x67
 };
 
 enum SupportedTaito_PaletteListIndex
