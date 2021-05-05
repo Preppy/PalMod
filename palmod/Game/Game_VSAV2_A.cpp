@@ -28,7 +28,7 @@ void CGame_VSAV2_A::InitializeStatics()
 
 CGame_VSAV2_A::CGame_VSAV2_A(UINT32 nConfirmedROMSize)
 {
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 
@@ -48,7 +48,7 @@ CGame_VSAV2_A::CGame_VSAV2_A(UINT32 nConfirmedROMSize)
     m_nTotalPaletteCount = m_nTotalPaletteCountForVSAV2;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x16c9c;
+    m_nLowestKnownPaletteRomLocation = 0x16c9a;
 
     InitDataBuffer();
 

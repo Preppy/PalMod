@@ -51,392 +51,392 @@ const UINT8 SFA1_A_UNITSORT[SFA1_A_NUM_IND + 1] = // Plus 1 for the extra palett
 
 const sGame_PaletteDataset SFA1_A_RYU_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x67960, 0x67980, indexCPS2_Ryu, 0x00 },
-    { L"Super Trail 1",  0x67980, 0x679A0, indexCPS2_Ryu, 0x00 },
-    { L"Super Trail 2",  0x679A0, 0x679C0, indexCPS2_Ryu, 0x00 },
-    { L"Super Trail 3",  0x679C0, 0x679E0, indexCPS2_Ryu, 0x00 },
-    { L"Hadouken",       0x679E0, 0x67A00, indexCPS2_Ryu, 0x01 },
-    { L"Extra 2",        0x67A00, 0x67A20 },
-    { L"Psycho Power Burned Effect", 0x67A20, 0x67A40, indexCPS2_Ryu, 0x00 },
-    { L"Burned Status",   0x67A40, 0x67A60, indexCPS2_Ryu, 0x00 },
+    { L"Main Sprite",    0x6795e, 0x6797e, indexCPS2_Ryu, 0x00 },
+    { L"Super Trail 1",  0x6797e, 0x6799e, indexCPS2_Ryu, 0x00 },
+    { L"Super Trail 2",  0x6799e, 0x679be, indexCPS2_Ryu, 0x00 },
+    { L"Super Trail 3",  0x679be, 0x679de, indexCPS2_Ryu, 0x00 },
+    { L"Hadouken",       0x679de, 0x679fe, indexCPS2_Ryu, 0x01 },
+    { L"Extra 2",        0x679fe, 0x67A1e },
+    { L"Psycho Power Burned Effect", 0x67A1e, 0x67A3e, indexCPS2_Ryu, 0x00 },
+    { L"Burned Status",   0x67A3e, 0x67A5e, indexCPS2_Ryu, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_RYU_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x67A60, 0x67A80, indexCPS2_Ryu, 0x00 },
-    { L"Super Trail 1",  0x67A80, 0x67AA0, indexCPS2_Ryu, 0x00 },
-    { L"Super Trail 2",  0x67AA0, 0x67AC0, indexCPS2_Ryu, 0x00 },
-    { L"Super Trail 3",  0x67AC0, 0x67AE0, indexCPS2_Ryu, 0x00 },
-    { L"Hadouken",       0x67AE0, 0x67B00, indexCPS2_Ryu, 0x01 },
-    { L"Extra 2",        0x67B00, 0x67B20 },
-    { L"Psycho Power Burned Effect", 0x67B20, 0x67B40, indexCPS2_Ryu, 0x00 },
-    { L"Burned Status",   0x67B40, 0x67B60, indexCPS2_Ryu, 0x00 },
+    { L"Main Sprite",    0x67A5e, 0x67A7e, indexCPS2_Ryu, 0x00 },
+    { L"Super Trail 1",  0x67A7e, 0x67A9e, indexCPS2_Ryu, 0x00 },
+    { L"Super Trail 2",  0x67A9e, 0x67Abe, indexCPS2_Ryu, 0x00 },
+    { L"Super Trail 3",  0x67Abe, 0x67Ade, indexCPS2_Ryu, 0x00 },
+    { L"Hadouken",       0x67Ade, 0x67afe, indexCPS2_Ryu, 0x01 },
+    { L"Extra 2",        0x67afe, 0x67B1e },
+    { L"Psycho Power Burned Effect", 0x67B1e, 0x67B3e, indexCPS2_Ryu, 0x00 },
+    { L"Burned Status",   0x67B3e, 0x67B5e, indexCPS2_Ryu, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_RYU_PORTRAIT_PALETTES[] =
 {
-    { L"Ryu Punch Portrait", 0x7d780, 0x7d7a0, indexCPS2_SFA1_Portraits, indexCPS2_Ryu },
-    { L"Ryu Kick Portrait", 0x7da80, 0x7daa0, indexCPS2_SFA1_Portraits, indexCPS2_Ryu },
+    { L"Ryu Punch Portrait", 0x7d77e, 0x7d79e, indexCPS2_SFA1_Portraits, indexCPS2_Ryu },
+    { L"Ryu Kick Portrait", 0x7da7e, 0x7da9e, indexCPS2_SFA1_Portraits, indexCPS2_Ryu },
 };
 
 const sGame_PaletteDataset SFA1_A_KEN_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x67B60, 0x67B80, indexCPS2_Ken, 0x00 },
-    { L"Super Trail 1",  0x67B80, 0x67BA0, indexCPS2_Ken, 0x00 },
-    { L"Super Trail 2",  0x67BA0, 0x67BC0, indexCPS2_Ken, 0x00 },
-    { L"Super Trail 3",  0x67BC0, 0x67BE0, indexCPS2_Ken, 0x00 },
-    { L"Hadouken",       0x67BE0, 0x67C00, indexCPS2_Ken, 0x01 },
-    { L"Shoryuken",      0x67C00, 0x67C20, indexCPS2_Ken, 0x08 },
-    { L"Psycho Power Burned Effect", 0x67C20, 0x67C40, indexCPS2_Ken, 0x00 },
-    { L"Burned Status",   0x67C40, 0x67C60, indexCPS2_Ken, 0x00 },
+    { L"Main Sprite",    0x67B5e, 0x67B7e, indexCPS2_Ken, 0x00 },
+    { L"Super Trail 1",  0x67B7e, 0x67B9e, indexCPS2_Ken, 0x00 },
+    { L"Super Trail 2",  0x67B9e, 0x67Bbe, indexCPS2_Ken, 0x00 },
+    { L"Super Trail 3",  0x67Bbe, 0x67Bde, indexCPS2_Ken, 0x00 },
+    { L"Hadouken",       0x67Bde, 0x67bfe, indexCPS2_Ken, 0x01 },
+    { L"Shoryuken",      0x67bfe, 0x67C1e, indexCPS2_Ken, 0x08 },
+    { L"Psycho Power Burned Effect", 0x67C1e, 0x67C3e, indexCPS2_Ken, 0x00 },
+    { L"Burned Status",   0x67C3e, 0x67C5e, indexCPS2_Ken, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_KEN_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x67C60, 0x67C80, indexCPS2_Ken, 0x00 },
-    { L"Super Trail 1",  0x67C80, 0x67CA0, indexCPS2_Ken, 0x00 },
-    { L"Super Trail 2",  0x67CA0, 0x67CC0, indexCPS2_Ken, 0x00 },
-    { L"Super Trail 3",  0x67CC0, 0x67CE0, indexCPS2_Ken, 0x00 },
-    { L"Hadouken",       0x67CE0, 0x67D00, indexCPS2_Ken, 0x01 },
-    { L"Shoryuken",      0x67D00, 0x67D20, indexCPS2_Ken, 0x08 },
-    { L"Psycho Power Burned Effect", 0x67D20, 0x67D40, indexCPS2_Ken, 0x00 },
-    { L"Burned Status",   0x67D40, 0x67D60, indexCPS2_Ken, 0x00 },
+    { L"Main Sprite",    0x67C5e, 0x67C7e, indexCPS2_Ken, 0x00 },
+    { L"Super Trail 1",  0x67C7e, 0x67C9e, indexCPS2_Ken, 0x00 },
+    { L"Super Trail 2",  0x67C9e, 0x67Cbe, indexCPS2_Ken, 0x00 },
+    { L"Super Trail 3",  0x67Cbe, 0x67Cde, indexCPS2_Ken, 0x00 },
+    { L"Hadouken",       0x67Cde, 0x67cfe, indexCPS2_Ken, 0x01 },
+    { L"Shoryuken",      0x67cfe, 0x67D1e, indexCPS2_Ken, 0x08 },
+    { L"Psycho Power Burned Effect", 0x67D1e, 0x67D3e, indexCPS2_Ken, 0x00 },
+    { L"Burned Status",   0x67D3e, 0x67D5e, indexCPS2_Ken, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_KEN_PORTRAIT_PALETTES[] =
 {
-    { L"Ken Punch Portrait", 0x7d7c0, 0x7d7e0, indexCPS2_SFA1_Portraits, indexCPS2_Ken },
-    { L"Ken Kick Portrait", 0x7dac0, 0x7dae0, indexCPS2_SFA1_Portraits, indexCPS2_Ken },
+    { L"Ken Punch Portrait", 0x7d7be, 0x7d7de, indexCPS2_SFA1_Portraits, indexCPS2_Ken },
+    { L"Ken Kick Portrait", 0x7dabe, 0x7dade, indexCPS2_SFA1_Portraits, indexCPS2_Ken },
 };
 
 const sGame_PaletteDataset SFA1_A_AKUMA_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x67d60, 0x67d80, indexCPS2_Akuma, 0x00 },
-    { L"Super Trail 1",  0x67d80, 0x67dA0, indexCPS2_Akuma, 0x00 },
-    { L"Super Trail 2",  0x67dA0, 0x67dC0, indexCPS2_Akuma, 0x00 },
-    { L"Super Trail 3",  0x67dC0, 0x67dE0, indexCPS2_Akuma, 0x00 },
-    { L"Hadouken",       0x67dE0, 0x67e00, indexCPS2_Akuma, 0x0c },
-    { L"Extra 2",        0x67e00, 0x67e20 },
-    { L"Psycho Power Burned Effect", 0x67e20, 0x67e40, indexCPS2_Akuma, 0x00 },
-    { L"Burned Status",   0x67e40, 0x67e60, indexCPS2_Akuma, 0x00 },
+    { L"Main Sprite",    0x67d5e, 0x67d7e, indexCPS2_Akuma, 0x00 },
+    { L"Super Trail 1",  0x67d7e, 0x67d9e, indexCPS2_Akuma, 0x00 },
+    { L"Super Trail 2",  0x67d9e, 0x67dbe, indexCPS2_Akuma, 0x00 },
+    { L"Super Trail 3",  0x67dbe, 0x67dde, indexCPS2_Akuma, 0x00 },
+    { L"Hadouken",       0x67dde, 0x67dfe, indexCPS2_Akuma, 0x0c },
+    { L"Extra 2",        0x67dfe, 0x67e1e },
+    { L"Psycho Power Burned Effect", 0x67e1e, 0x67e3e, indexCPS2_Akuma, 0x00 },
+    { L"Burned Status",   0x67e3e, 0x67e5e, indexCPS2_Akuma, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_AKUMA_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x67e60, 0x67e80, indexCPS2_Akuma, 0x00 },
-    { L"Super Trail 1",  0x67e80, 0x67eA0, indexCPS2_Akuma, 0x00 },
-    { L"Super Trail 2",  0x67eA0, 0x67eC0, indexCPS2_Akuma, 0x00 },
-    { L"Super Trail 3",  0x67eC0, 0x67eE0, indexCPS2_Akuma, 0x00 },
-    { L"Hadouken",       0x67eE0, 0x67f00, indexCPS2_Akuma, 0x0c },
-    { L"Extra 2",        0x67f00, 0x67f20 },
-    { L"Psycho Power Burned Effect", 0x67f20, 0x67f40, indexCPS2_Akuma, 0x00 },
-    { L"Burned Status",   0x67f40, 0x67f60, indexCPS2_Akuma, 0x00 },
+    { L"Main Sprite",    0x67e5e, 0x67e7e, indexCPS2_Akuma, 0x00 },
+    { L"Super Trail 1",  0x67e7e, 0x67e9e, indexCPS2_Akuma, 0x00 },
+    { L"Super Trail 2",  0x67e9e, 0x67ebe, indexCPS2_Akuma, 0x00 },
+    { L"Super Trail 3",  0x67ebe, 0x67ede, indexCPS2_Akuma, 0x00 },
+    { L"Hadouken",       0x67ede, 0x67efe, indexCPS2_Akuma, 0x0c },
+    { L"Extra 2",        0x67efe, 0x67f1e },
+    { L"Psycho Power Burned Effect", 0x67f1e, 0x67f3e, indexCPS2_Akuma, 0x00 },
+    { L"Burned Status",   0x67f3e, 0x67f5e, indexCPS2_Akuma, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_AKUMA_PORTRAIT_PALETTES[] =
 {
-    { L"Akuma Punch Portrait", 0x7d800, 0x7d840, indexCPS2_SFA1_Portraits, indexCPS2_Akuma },
-    { L"Akuma Kick Portrait", 0x7db00, 0x7db40, indexCPS2_SFA1_Portraits, indexCPS2_Akuma },
+    { L"Akuma Punch Portrait", 0x7d7fe, 0x7d83e, indexCPS2_SFA1_Portraits, indexCPS2_Akuma },
+    { L"Akuma Kick Portrait", 0x7dafe, 0x7db3e, indexCPS2_SFA1_Portraits, indexCPS2_Akuma },
 };
 
 const sGame_PaletteDataset SFA1_A_CHARLIE_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x67f60, 0x67f80, indexCPS2_Charlie, 0x00 },
-    { L"Super Trail 1",  0x67f80, 0x67fA0, indexCPS2_Charlie, 0x00 },
-    { L"Super Trail 2",  0x67fA0, 0x67fC0, indexCPS2_Charlie, 0x00 },
-    { L"Super Trail 3",  0x67fC0, 0x67fE0, indexCPS2_Charlie, 0x00 },
-    { L"Sonic Boom",     0x67fE0, 0x68000, indexCPS2_Charlie, 0x01 },
-    { L"Flash Kick",     0x68000, 0x68020, indexCPS2_Charlie, 0x02 },
-    { L"Psycho Power Burned Effect", 0x68020, 0x68040, indexCPS2_Charlie, 0x00 },
-    { L"Burned Status",   0x68040, 0x68060, indexCPS2_Charlie, 0x00 },
+    { L"Main Sprite",    0x67f5e, 0x67f7e, indexCPS2_Charlie, 0x00 },
+    { L"Super Trail 1",  0x67f7e, 0x67f9e, indexCPS2_Charlie, 0x00 },
+    { L"Super Trail 2",  0x67f9e, 0x67fbe, indexCPS2_Charlie, 0x00 },
+    { L"Super Trail 3",  0x67fbe, 0x67fde, indexCPS2_Charlie, 0x00 },
+    { L"Sonic Boom",     0x67fde, 0x67ffe, indexCPS2_Charlie, 0x01 },
+    { L"Flash Kick",     0x67ffe, 0x6801e, indexCPS2_Charlie, 0x02 },
+    { L"Psycho Power Burned Effect", 0x6801e, 0x6803e, indexCPS2_Charlie, 0x00 },
+    { L"Burned Status",   0x6803e, 0x6805e, indexCPS2_Charlie, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_CHARLIE_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x68060, 0x68080, indexCPS2_Charlie, 0x00 },
-    { L"Super Trail 1",  0x68080, 0x680A0, indexCPS2_Charlie, 0x00 },
-    { L"Super Trail 2",  0x680A0, 0x680C0, indexCPS2_Charlie, 0x00 },
-    { L"Super Trail 3",  0x680C0, 0x680E0, indexCPS2_Charlie, 0x00 },
-    { L"Sonic Boom",     0x680E0, 0x68100, indexCPS2_Charlie, 0x01 },
-    { L"Flash Kick",     0x68100, 0x68120, indexCPS2_Charlie, 0x02 },
-    { L"Psycho Power Burned Effect", 0x68120, 0x68140, indexCPS2_Charlie, 0x00 },
-    { L"Burned Status",   0x68140, 0x68160, indexCPS2_Charlie, 0x00 },
+    { L"Main Sprite",    0x6805e, 0x6807e, indexCPS2_Charlie, 0x00 },
+    { L"Super Trail 1",  0x6807e, 0x6809e, indexCPS2_Charlie, 0x00 },
+    { L"Super Trail 2",  0x6809e, 0x680be, indexCPS2_Charlie, 0x00 },
+    { L"Super Trail 3",  0x680be, 0x680de, indexCPS2_Charlie, 0x00 },
+    { L"Sonic Boom",     0x680de, 0x680fe, indexCPS2_Charlie, 0x01 },
+    { L"Flash Kick",     0x680fe, 0x6811e, indexCPS2_Charlie, 0x02 },
+    { L"Psycho Power Burned Effect", 0x6811e, 0x6813e, indexCPS2_Charlie, 0x00 },
+    { L"Burned Status",   0x6813e, 0x6815e, indexCPS2_Charlie, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_CHARLIE_PORTRAIT_PALETTES[] =
 {
-    { L"Charlie Punch Portrait", 0x7d840, 0x7d860, indexCPS2_SFA1_Portraits, indexCPS2_Charlie },
-    { L"Charlie Kick Portrait", 0x7db40, 0x7db60, indexCPS2_SFA1_Portraits, indexCPS2_Charlie },
+    { L"Charlie Punch Portrait", 0x7d83e, 0x7d85e, indexCPS2_SFA1_Portraits, indexCPS2_Charlie },
+    { L"Charlie Kick Portrait", 0x7db3e, 0x7db5e, indexCPS2_SFA1_Portraits, indexCPS2_Charlie },
 };
 
 const sGame_PaletteDataset SFA1_A_CHUNLI_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x68160, 0x68180, indexCPS2_ChunLi, 0x0C, &pairNext },
-    { L"Keiokuken (shades)", 0x681E0, 0x68200, indexCPS2_ChunLi, 0x0F },
-    { L"Extra 2",        0x68200, 0x68220, indexCPS2_ChunLi, 0x02 },
-    { L"Super Trail 1",  0x68180, 0x681A0, indexCPS2_ChunLi, 0x0C },
-    { L"Super Trail 2",  0x681A0, 0x681C0, indexCPS2_ChunLi, 0x0C },
-    { L"Super Trail 3",  0x681C0, 0x681E0, indexCPS2_ChunLi, 0x0C },
-    { L"Psycho Power Burned Effect", 0x68220, 0x68240, indexCPS2_ChunLi, 0x0C },
-    { L"Burned Status",   0x68240, 0x68260, indexCPS2_ChunLi, 0x0C },
+    { L"Main Sprite",    0x6815e, 0x6817e, indexCPS2_ChunLi, 0x0C, &pairNext },
+    { L"Keiokuken (shades)", 0x681de, 0x681fe, indexCPS2_ChunLi, 0x0F },
+    { L"Extra 2",        0x681fe, 0x6821e, indexCPS2_ChunLi, 0x02 },
+    { L"Super Trail 1",  0x6817e, 0x6819e, indexCPS2_ChunLi, 0x0C },
+    { L"Super Trail 2",  0x6819e, 0x681be, indexCPS2_ChunLi, 0x0C },
+    { L"Super Trail 3",  0x681be, 0x681de, indexCPS2_ChunLi, 0x0C },
+    { L"Psycho Power Burned Effect", 0x6821e, 0x6823e, indexCPS2_ChunLi, 0x0C },
+    { L"Burned Status",   0x6823e, 0x6825e, indexCPS2_ChunLi, 0x0C },
 };
 
 const sGame_PaletteDataset SFA1_A_CHUNLI_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x68260, 0x68280, indexCPS2_ChunLi, 0x0C, &pairNext },
-    { L"Keiokuken (shades)", 0x682E0, 0x68300, indexCPS2_ChunLi, 0x0F },
-    { L"Extra 2",        0x68300, 0x68320, indexCPS2_ChunLi, 0x02 },
-    { L"Super Trail 1",  0x68280, 0x682A0, indexCPS2_ChunLi, 0x0C },
-    { L"Super Trail 2",  0x682A0, 0x682C0, indexCPS2_ChunLi, 0x0C },
-    { L"Super Trail 3",  0x682C0, 0x682E0, indexCPS2_ChunLi, 0x0C },
-    { L"Psycho Power Burned Effect", 0x68320, 0x68340, indexCPS2_ChunLi, 0x0C },
-    { L"Burned Status",   0x68340, 0x68360, indexCPS2_ChunLi, 0x0C },
+    { L"Main Sprite",    0x6825e, 0x6827e, indexCPS2_ChunLi, 0x0C, &pairNext },
+    { L"Keiokuken (shades)", 0x682de, 0x682fe, indexCPS2_ChunLi, 0x0F },
+    { L"Extra 2",        0x682fe, 0x6831e, indexCPS2_ChunLi, 0x02 },
+    { L"Super Trail 1",  0x6827e, 0x6829e, indexCPS2_ChunLi, 0x0C },
+    { L"Super Trail 2",  0x6829e, 0x682be, indexCPS2_ChunLi, 0x0C },
+    { L"Super Trail 3",  0x682be, 0x682de, indexCPS2_ChunLi, 0x0C },
+    { L"Psycho Power Burned Effect", 0x6831e, 0x6833e, indexCPS2_ChunLi, 0x0C },
+    { L"Burned Status",   0x6833e, 0x6835e, indexCPS2_ChunLi, 0x0C },
 };
 
 const sGame_PaletteDataset SFA1_A_CHUNLI_PORTRAIT_PALETTES[] =
 {
-    { L"Chun-Li Punch Portrait", 0x7d880, 0x7d8c0, indexCPS2_SFA1_Portraits, indexCPS2_ChunLi },
-    { L"Chun-Li Kick Portrait", 0x7db80, 0x7dbc0, indexCPS2_SFA1_Portraits, indexCPS2_ChunLi },
+    { L"Chun-Li Punch Portrait", 0x7d87e, 0x7d8be, indexCPS2_SFA1_Portraits, indexCPS2_ChunLi },
+    { L"Chun-Li Kick Portrait", 0x7db7e, 0x7dbbe, indexCPS2_SFA1_Portraits, indexCPS2_ChunLi },
 };
 
 const sGame_PaletteDataset SFA1_A_ADON_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x68360, 0x68380, indexCPS2_Adon, 0x00 },
-    { L"Super Trail 1",  0x68380, 0x683A0, indexCPS2_Adon, 0x00 },
-    { L"Super Trail 2",  0x683A0, 0x683C0, indexCPS2_Adon, 0x00 },
-    { L"Super Trail 3",  0x683C0, 0x683E0, indexCPS2_Adon, 0x00 },
-    { L"Extra 1",        0x683E0, 0x68400, indexCPS2_Adon, 0x01 },
-    { L"Extra 2",        0x68400, 0x68420 },
-    { L"Psycho Power Burned Effect", 0x68420, 0x68440, indexCPS2_Adon, 0x00 },
-    { L"Burned Status",   0x68440, 0x68460, indexCPS2_Adon, 0x00 },
+    { L"Main Sprite",    0x6835e, 0x6837e, indexCPS2_Adon, 0x00 },
+    { L"Super Trail 1",  0x6837e, 0x6839e, indexCPS2_Adon, 0x00 },
+    { L"Super Trail 2",  0x6839e, 0x683be, indexCPS2_Adon, 0x00 },
+    { L"Super Trail 3",  0x683be, 0x683de, indexCPS2_Adon, 0x00 },
+    { L"Extra 1",        0x683de, 0x683fe, indexCPS2_Adon, 0x01 },
+    { L"Extra 2",        0x683fe, 0x6841e },
+    { L"Psycho Power Burned Effect", 0x6841e, 0x6843e, indexCPS2_Adon, 0x00 },
+    { L"Burned Status",   0x6843e, 0x6845e, indexCPS2_Adon, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_ADON_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x68460, 0x68480, indexCPS2_Adon, 0x00 },
-    { L"Super Trail 1",  0x68480, 0x684A0, indexCPS2_Adon, 0x00 },
-    { L"Super Trail 2",  0x684A0, 0x684C0, indexCPS2_Adon, 0x00 },
-    { L"Super Trail 3",  0x684C0, 0x684E0, indexCPS2_Adon, 0x00 },
-    { L"Extra 1",        0x684E0, 0x68500, indexCPS2_Adon, 0x01 },
-    { L"Extra 2",        0x68500, 0x68520 },
-    { L"Psycho Power Burned Effect", 0x68520, 0x68540, indexCPS2_Adon, 0x00 },
-    { L"Burned Status",   0x68540, 0x68560, indexCPS2_Adon, 0x00 },
+    { L"Main Sprite",    0x6845e, 0x6847e, indexCPS2_Adon, 0x00 },
+    { L"Super Trail 1",  0x6847e, 0x6849e, indexCPS2_Adon, 0x00 },
+    { L"Super Trail 2",  0x6849e, 0x684be, indexCPS2_Adon, 0x00 },
+    { L"Super Trail 3",  0x684be, 0x684de, indexCPS2_Adon, 0x00 },
+    { L"Extra 1",        0x684de, 0x684fe, indexCPS2_Adon, 0x01 },
+    { L"Extra 2",        0x684fe, 0x6851e },
+    { L"Psycho Power Burned Effect", 0x6851e, 0x6853e, indexCPS2_Adon, 0x00 },
+    { L"Burned Status",   0x6853e, 0x6855e, indexCPS2_Adon, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_ADON_PORTRAIT_PALETTES[] =
 {
-    { L"Adon Punch Portrait", 0x7d8c0, 0x7d900, indexCPS2_SFA1_Portraits, indexCPS2_Adon },
-    { L"Adon Kick Portrait", 0x7dbc0, 0x7dc00, indexCPS2_SFA1_Portraits, indexCPS2_Adon },
+    { L"Adon Punch Portrait", 0x7d8be, 0x7d8fe, indexCPS2_SFA1_Portraits, indexCPS2_Adon },
+    { L"Adon Kick Portrait", 0x7dbbe, 0x7dbfe, indexCPS2_SFA1_Portraits, indexCPS2_Adon },
 };
 
 const sGame_PaletteDataset SFA1_A_SODOM_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x68560, 0x68580, indexCPS2_Sodom, 0x02 },
-    { L"Super Trail 1",  0x68580, 0x685A0, indexCPS2_Sodom, 0x02 },
-    { L"Super Trail 2",  0x685A0, 0x685C0, indexCPS2_Sodom, 0x02 },
-    { L"Super Trail 3",  0x685C0, 0x685E0, indexCPS2_Sodom, 0x02 },
-    { L"Extra 1: Slashes", 0x685E0, 0x68600, indexCPS2_Sodom, 0x04 },
-    { L"Extra 2: Intro",   0x68600, 0x68620, indexCPS2_Sodom, 0x03 },
-    { L"Psycho Power Burned Effect", 0x68620, 0x68640, indexCPS2_Sodom, 0x02 },
-    { L"Burned Status",   0x68640, 0x68660, indexCPS2_Sodom, 0x02 },
+    { L"Main Sprite",    0x6855e, 0x6857e, indexCPS2_Sodom, 0x01 },
+    { L"Super Trail 1",  0x6857e, 0x6859e, indexCPS2_Sodom, 0x01 },
+    { L"Super Trail 2",  0x6859e, 0x685be, indexCPS2_Sodom, 0x01 },
+    { L"Super Trail 3",  0x685be, 0x685de, indexCPS2_Sodom, 0x01 },
+    { L"Extra 1: Slashes", 0x685de, 0x685fe, indexCPS2_Sodom, 0x04 },
+    { L"Extra 2: Intro",   0x685fe, 0x6861e, indexCPS2_Sodom, 0x03 },
+    { L"Psycho Power Burned Effect", 0x6861e, 0x6863e, indexCPS2_Sodom, 0x01 },
+    { L"Burned Status",   0x6863e, 0x6865e, indexCPS2_Sodom, 0x01 },
 };
 
 const sGame_PaletteDataset SFA1_A_SODOM_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x68660, 0x68680, indexCPS2_Sodom, 0x02 },
-    { L"Super Trail 1",  0x68680, 0x686A0, indexCPS2_Sodom, 0x02 },
-    { L"Super Trail 2",  0x686A0, 0x686C0, indexCPS2_Sodom, 0x02 },
-    { L"Super Trail 3",  0x686C0, 0x686E0, indexCPS2_Sodom, 0x02 },
-    { L"Extra 1: Slashes", 0x686E0, 0x68700, indexCPS2_Sodom, 0x04 },
-    { L"Extra 2: Intro",   0x68700, 0x68720, indexCPS2_Sodom, 0x03 },
-    { L"Psycho Power Burned Effect", 0x68720, 0x68740, indexCPS2_Sodom, 0x02 },
-    { L"Burned Status",   0x68740, 0x68760, indexCPS2_Sodom, 0x02 },
+    { L"Main Sprite",    0x6865e, 0x6867e, indexCPS2_Sodom, 0x01 },
+    { L"Super Trail 1",  0x6867e, 0x6869e, indexCPS2_Sodom, 0x01 },
+    { L"Super Trail 2",  0x6869e, 0x686be, indexCPS2_Sodom, 0x01 },
+    { L"Super Trail 3",  0x686be, 0x686de, indexCPS2_Sodom, 0x01 },
+    { L"Extra 1: Slashes", 0x686de, 0x686fe, indexCPS2_Sodom, 0x04 },
+    { L"Extra 2: Intro",   0x686fe, 0x6871e, indexCPS2_Sodom, 0x03 },
+    { L"Psycho Power Burned Effect", 0x6871e, 0x6873e, indexCPS2_Sodom, 0x01 },
+    { L"Burned Status",   0x6873e, 0x6875e, indexCPS2_Sodom, 0x01 },
 };
 
 const sGame_PaletteDataset SFA1_A_SODOM_PORTRAIT_PALETTES[] =
 {
-    { L"Sodom Punch Portrait", 0x7d900, 0x7d920, indexCPS2_SFA1_Portraits, indexCPS2_Sodom },
-    { L"Sodom Kick Portrait", 0x7dc00, 0x7dc20, indexCPS2_SFA1_Portraits, indexCPS2_Sodom },
+    { L"Sodom Punch Portrait", 0x7d8fe, 0x7d91e, indexCPS2_SFA1_Portraits, indexCPS2_Sodom },
+    { L"Sodom Kick Portrait", 0x7dbfe, 0x7dc1e, indexCPS2_SFA1_Portraits, indexCPS2_Sodom },
 };
 
 const sGame_PaletteDataset SFA1_A_GUY_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x68760, 0x68780, indexCPS2_Guy, 0x00 },
-    { L"Super Trail 1",  0x68780, 0x687A0, indexCPS2_Guy, 0x00 },
-    { L"Super Trail 2",  0x687A0, 0x687C0, indexCPS2_Guy, 0x00 },
-    { L"Super Trail 3",  0x687C0, 0x687E0, indexCPS2_Guy, 0x00 },
-    { L"Extra 1",        0x687E0, 0x68800, indexCPS2_Guy, 0x01 },
-    { L"Extra 2",        0x68800, 0x68820 },
-    { L"Psycho Power Burned Effect", 0x68820, 0x68840, indexCPS2_Guy, 0x00 },
-    { L"Burned Status",   0x68840, 0x68860, indexCPS2_Guy, 0x00 },
+    { L"Main Sprite",    0x6875e, 0x6877e, indexCPS2_Guy, 0x00 },
+    { L"Super Trail 1",  0x6877e, 0x6879e, indexCPS2_Guy, 0x00 },
+    { L"Super Trail 2",  0x6879e, 0x687be, indexCPS2_Guy, 0x00 },
+    { L"Super Trail 3",  0x687be, 0x687de, indexCPS2_Guy, 0x00 },
+    { L"Extra 1",        0x687de, 0x687fe, indexCPS2_Guy, 0x01 },
+    { L"Extra 2",        0x687fe, 0x6881e },
+    { L"Psycho Power Burned Effect", 0x6881e, 0x6883e, indexCPS2_Guy, 0x00 },
+    { L"Burned Status",   0x6883e, 0x6885e, indexCPS2_Guy, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_GUY_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x68860, 0x68880, indexCPS2_Guy, 0x00 },
-    { L"Super Trail 1",  0x68880, 0x688A0, indexCPS2_Guy, 0x00 },
-    { L"Super Trail 2",  0x688A0, 0x688C0, indexCPS2_Guy, 0x00 },
-    { L"Super Trail 3",  0x688C0, 0x688E0, indexCPS2_Guy, 0x00 },
-    { L"Extra 1",        0x688E0, 0x68900, indexCPS2_Guy, 0x01 },
-    { L"Extra 2",        0x68900, 0x68920 },
-    { L"Psycho Power Burned Effect", 0x68920, 0x68940, indexCPS2_Guy, 0x00 },
-    { L"Burned Status",   0x68940, 0x68960, indexCPS2_Guy, 0x00 },
+    { L"Main Sprite",    0x6885e, 0x6887e, indexCPS2_Guy, 0x00 },
+    { L"Super Trail 1",  0x6887e, 0x6889e, indexCPS2_Guy, 0x00 },
+    { L"Super Trail 2",  0x6889e, 0x688be, indexCPS2_Guy, 0x00 },
+    { L"Super Trail 3",  0x688be, 0x688de, indexCPS2_Guy, 0x00 },
+    { L"Extra 1",        0x688de, 0x688fe, indexCPS2_Guy, 0x01 },
+    { L"Extra 2",        0x688fe, 0x6891e },
+    { L"Psycho Power Burned Effect", 0x6891e, 0x6893e, indexCPS2_Guy, 0x00 },
+    { L"Burned Status",   0x6893e, 0x6895e, indexCPS2_Guy, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_GUY_PORTRAIT_PALETTES[] =
 {
-    { L"Guy Punch Portrait", 0x7d940, 0x7d960, indexCPS2_SFA1_Portraits, indexCPS2_Guy },
-    { L"Guy Kick Portrait", 0x7dc40, 0x7dc60, indexCPS2_SFA1_Portraits, indexCPS2_Guy },
+    { L"Guy Punch Portrait", 0x7d93e, 0x7d95e, indexCPS2_SFA1_Portraits, indexCPS2_Guy },
+    { L"Guy Kick Portrait", 0x7dc3e, 0x7dc5e, indexCPS2_SFA1_Portraits, indexCPS2_Guy },
 };
 
 const sGame_PaletteDataset SFA1_A_BIRDIE_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x68960, 0x68980, indexCPS2_Birdie, 0x00 },
-    { L"Super Trail 1",  0x68980, 0x689A0, indexCPS2_Birdie, 0x00 },
-    { L"Super Trail 2",  0x689A0, 0x689C0, indexCPS2_Birdie, 0x00 },
-    { L"Super Trail 3",  0x689C0, 0x689E0, indexCPS2_Birdie, 0x00 },
-    { L"Extra 1",        0x689E0, 0x68a00, indexCPS2_Birdie, 0x01 },
-    { L"Extra 2",        0x68a00, 0x68a20 },
-    { L"Psycho Power Burned Effect", 0x68a20, 0x68a40, indexCPS2_Birdie, 0x00 },
-    { L"Burned Status",   0x68a40, 0x68a60, indexCPS2_Birdie, 0x00 },
+    { L"Main Sprite",    0x6895e, 0x6897e, indexCPS2_Birdie, 0x00 },
+    { L"Super Trail 1",  0x6897e, 0x6899e, indexCPS2_Birdie, 0x00 },
+    { L"Super Trail 2",  0x6899e, 0x689be, indexCPS2_Birdie, 0x00 },
+    { L"Super Trail 3",  0x689be, 0x689de, indexCPS2_Birdie, 0x00 },
+    { L"Extra 1",        0x689de, 0x689fe, indexCPS2_Birdie, 0x01 },
+    { L"Extra 2",        0x689fe, 0x68a1e },
+    { L"Psycho Power Burned Effect", 0x68a1e, 0x68a3e, indexCPS2_Birdie, 0x00 },
+    { L"Burned Status",   0x68a3e, 0x68a5e, indexCPS2_Birdie, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_BIRDIE_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x68a60, 0x68a80, indexCPS2_Birdie, 0x00 },
-    { L"Super Trail 1",  0x68a80, 0x68aA0, indexCPS2_Birdie, 0x00 },
-    { L"Super Trail 2",  0x68aA0, 0x68aC0, indexCPS2_Birdie, 0x00 },
-    { L"Super Trail 3",  0x68aC0, 0x68aE0, indexCPS2_Birdie, 0x00 },
-    { L"Extra 1",        0x68aE0, 0x68b00, indexCPS2_Birdie, 0x01 },
-    { L"Extra 2",        0x68b00, 0x68b20 },
-    { L"Psycho Power Burned Effect", 0x68b20, 0x68b40, indexCPS2_Birdie, 0x00 },
-    { L"Burned Status",   0x68b40, 0x68b60, indexCPS2_Birdie, 0x00 },
+    { L"Main Sprite",    0x68a5e, 0x68a7e, indexCPS2_Birdie, 0x00 },
+    { L"Super Trail 1",  0x68a7e, 0x68a9e, indexCPS2_Birdie, 0x00 },
+    { L"Super Trail 2",  0x68a9e, 0x68abe, indexCPS2_Birdie, 0x00 },
+    { L"Super Trail 3",  0x68abe, 0x68ade, indexCPS2_Birdie, 0x00 },
+    { L"Extra 1",        0x68ade, 0x68afe, indexCPS2_Birdie, 0x01 },
+    { L"Extra 2",        0x68afe, 0x68b1e },
+    { L"Psycho Power Burned Effect", 0x68b1e, 0x68b3e, indexCPS2_Birdie, 0x00 },
+    { L"Burned Status",   0x68b3e, 0x68b5e, indexCPS2_Birdie, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_BIRDIE_PORTRAIT_PALETTES[] =
 {
-    { L"Birdie Punch Portrait", 0x7d980, 0x7d9a0, indexCPS2_SFA1_Portraits, indexCPS2_Birdie },
-    { L"Birdie Kick Portrait", 0x7dc80, 0x7dca0, indexCPS2_SFA1_Portraits, indexCPS2_Birdie },
+    { L"Birdie Punch Portrait", 0x7d97e, 0x7d99e, indexCPS2_SFA1_Portraits, indexCPS2_Birdie },
+    { L"Birdie Kick Portrait", 0x7dc7e, 0x7dc9e, indexCPS2_SFA1_Portraits, indexCPS2_Birdie },
 };
 
 const sGame_PaletteDataset SFA1_A_ROSE_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x68b60, 0x68b80, indexCPS2_Rose, 0x00 },
-    { L"Super Trail 1",  0x68b80, 0x68bA0, indexCPS2_Rose, 0x00 },
-    { L"Super Trail 2",  0x68bA0, 0x68bC0, indexCPS2_Rose, 0x00 },
-    { L"Super Trail 3",  0x68bC0, 0x68bE0, indexCPS2_Rose, 0x00 },
-    { L"Soul  Power",    0x68bE0, 0x68c00, indexCPS2_Rose, 0x02 },
-    { L"Extra 2",        0x68c00, 0x68c20 },
-    { L"Psycho Power Burned Effect", 0x68c20, 0x68c40, indexCPS2_Rose, 0x00 },
-    { L"Burned Status",   0x68c40, 0x68c60, indexCPS2_Rose, 0x00 },
+    { L"Main Sprite",    0x68b5e, 0x68b7e, indexCPS2_Rose, 0x00 },
+    { L"Super Trail 1",  0x68b7e, 0x68b9e, indexCPS2_Rose, 0x00 },
+    { L"Super Trail 2",  0x68b9e, 0x68bbe, indexCPS2_Rose, 0x00 },
+    { L"Super Trail 3",  0x68bbe, 0x68bde, indexCPS2_Rose, 0x00 },
+    { L"Soul  Power",    0x68bde, 0x68bfe, indexCPS2_Rose, 0x02 },
+    { L"Extra 2",        0x68bfe, 0x68c1e },
+    { L"Psycho Power Burned Effect", 0x68c1e, 0x68c3e, indexCPS2_Rose, 0x00 },
+    { L"Burned Status",   0x68c3e, 0x68c5e, indexCPS2_Rose, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_ROSE_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x68c60, 0x68c80, indexCPS2_Rose, 0x00 },
-    { L"Super Trail 1",  0x68c80, 0x68cA0, indexCPS2_Rose, 0x00 },
-    { L"Super Trail 2",  0x68cA0, 0x68cC0, indexCPS2_Rose, 0x00 },
-    { L"Super Trail 3",  0x68cC0, 0x68cE0, indexCPS2_Rose, 0x00 },
-    { L"Soul  Power",    0x68cE0, 0x68d00, indexCPS2_Rose, 0x02 },
-    { L"Extra 2",        0x68d00, 0x68d20 },
-    { L"Psycho Power Burned Effect", 0x68d20, 0x68d40, indexCPS2_Rose, 0x00 },
-    { L"Burned Status",   0x68d40, 0x68d60, indexCPS2_Rose, 0x00 },
+    { L"Main Sprite",    0x68c5e, 0x68c7e, indexCPS2_Rose, 0x00 },
+    { L"Super Trail 1",  0x68c7e, 0x68c9e, indexCPS2_Rose, 0x00 },
+    { L"Super Trail 2",  0x68c9e, 0x68cbe, indexCPS2_Rose, 0x00 },
+    { L"Super Trail 3",  0x68cbe, 0x68cde, indexCPS2_Rose, 0x00 },
+    { L"Soul  Power",    0x68cde, 0x68cfe, indexCPS2_Rose, 0x02 },
+    { L"Extra 2",        0x68cfe, 0x68d1e },
+    { L"Psycho Power Burned Effect", 0x68d1e, 0x68d3e, indexCPS2_Rose, 0x00 },
+    { L"Burned Status",   0x68d3e, 0x68d5e, indexCPS2_Rose, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_ROSE_PORTRAIT_PALETTES[] =
 {
-    { L"Rose Punch Portrait", 0x7d9c0, 0x7da00, indexCPS2_SFA1_Portraits, indexCPS2_Rose },
-    { L"Rose Kick Portrait", 0x7dcc0, 0x7dd00, indexCPS2_SFA1_Portraits, indexCPS2_Rose },
+    { L"Rose Punch Portrait", 0x7d9be, 0x7d9fe, indexCPS2_SFA1_Portraits, indexCPS2_Rose },
+    { L"Rose Kick Portrait", 0x7dcbe, 0x7dcfe, indexCPS2_SFA1_Portraits, indexCPS2_Rose },
 };
 
 const sGame_PaletteDataset SFA1_A_MBISON_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x68d60, 0x68d80, indexCPS2_Bison, 0x00 },
-    { L"Super Trail 1",  0x68d80, 0x68dA0, indexCPS2_Bison, 0x00 },
-    { L"Super Trail 2",  0x68dA0, 0x68dC0, indexCPS2_Bison, 0x00 },
-    { L"Super Trail 3",  0x68dC0, 0x68dE0, indexCPS2_Bison, 0x00 },
-    { L"Extra 1",        0x68dE0, 0x68e00, indexCPS2_Bison, 0x08 },
-    { L"Extra 2",        0x68e00, 0x68e20, indexCPS2_Bison, 0x09 },
-    { L"Psycho Power Burned Effect", 0x68e20, 0x68e40, indexCPS2_Bison, 0x00 },
-    { L"Burned Status",   0x68e40, 0x68e60, indexCPS2_Bison, 0x00 },
+    { L"Main Sprite",    0x68d5e, 0x68d7e, indexCPS2_Bison, 0x00 },
+    { L"Super Trail 1",  0x68d7e, 0x68d9e, indexCPS2_Bison, 0x00 },
+    { L"Super Trail 2",  0x68d9e, 0x68dbe, indexCPS2_Bison, 0x00 },
+    { L"Super Trail 3",  0x68dbe, 0x68dde, indexCPS2_Bison, 0x00 },
+    { L"Extra 1",        0x68dde, 0x68dfe, indexCPS2_Bison, 0x08 },
+    { L"Extra 2",        0x68dfe, 0x68e1e, indexCPS2_Bison, 0x09 },
+    { L"Psycho Power Burned Effect", 0x68e1e, 0x68e3e, indexCPS2_Bison, 0x00 },
+    { L"Burned Status",   0x68e3e, 0x68e5e, indexCPS2_Bison, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_MBISON_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x68e60, 0x68e80, indexCPS2_Bison, 0x00 },
-    { L"Super Trail 1",  0x68e80, 0x68eA0, indexCPS2_Bison, 0x00 },
-    { L"Super Trail 2",  0x68eA0, 0x68eC0, indexCPS2_Bison, 0x00 },
-    { L"Super Trail 3",  0x68eC0, 0x68eE0, indexCPS2_Bison, 0x00 },
-    { L"Extra 1",        0x68eE0, 0x68f00, indexCPS2_Bison, 0x08 },
-    { L"Extra 2",        0x68f00, 0x68f20, indexCPS2_Bison, 0x09 },
-    { L"Psycho Power Burned Effect", 0x68f20, 0x68f40, indexCPS2_Bison, 0x00 },
-    { L"Burned Status",   0x68f40, 0x68f60, indexCPS2_Bison, 0x00 },
+    { L"Main Sprite",    0x68e5e, 0x68e7e, indexCPS2_Bison, 0x00 },
+    { L"Super Trail 1",  0x68e7e, 0x68e9e, indexCPS2_Bison, 0x00 },
+    { L"Super Trail 2",  0x68e9e, 0x68ebe, indexCPS2_Bison, 0x00 },
+    { L"Super Trail 3",  0x68ebe, 0x68ede, indexCPS2_Bison, 0x00 },
+    { L"Extra 1",        0x68ede, 0x68efe, indexCPS2_Bison, 0x08 },
+    { L"Extra 2",        0x68efe, 0x68f1e, indexCPS2_Bison, 0x09 },
+    { L"Psycho Power Burned Effect", 0x68f1e, 0x68f3e, indexCPS2_Bison, 0x00 },
+    { L"Burned Status",   0x68f3e, 0x68f5e, indexCPS2_Bison, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_MBISON_PORTRAIT_PALETTES[] =
 {
-    { L"M.Bison Punch Portrait", 0x7da00, 0x7da40, indexCPS2_SFA1_Portraits, indexCPS2_Bison },
-    { L"M.Bison Kick Portrait", 0x7dd00, 0x7dd40, indexCPS2_SFA1_Portraits, indexCPS2_Bison },
+    { L"M.Bison Punch Portrait", 0x7d9fe, 0x7da3e, indexCPS2_SFA1_Portraits, indexCPS2_Bison },
+    { L"M.Bison Kick Portrait", 0x7dcfe, 0x7dd3e, indexCPS2_SFA1_Portraits, indexCPS2_Bison },
 };
 
 const sGame_PaletteDataset SFA1_A_SAGAT_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x68f60, 0x68f80, indexCPS2_Sagat, 0x00 },
-    { L"Super Trail 1",  0x68f80, 0x68fA0, indexCPS2_Sagat, 0x00 },
-    { L"Super Trail 2",  0x68fA0, 0x68fC0, indexCPS2_Sagat, 0x00 },
-    { L"Super Trail 3",  0x68fC0, 0x68fE0, indexCPS2_Sagat, 0x00 },
-    { L"Extra 1",        0x68fE0, 0x69000, indexCPS2_Sagat, 0x01 },
-    { L"Extra 2",        0x69000, 0x69020, indexCPS2_Sagat, 0x02 },
-    { L"Psycho Power Burned Effect", 0x69020, 0x69040, indexCPS2_Sagat, 0x00 },
-    { L"Burned Status",   0x69040, 0x69060, indexCPS2_Sagat, 0x00 },
+    { L"Main Sprite",    0x68f5e, 0x68f7e, indexCPS2_Sagat, 0x00 },
+    { L"Super Trail 1",  0x68f7e, 0x68f9e, indexCPS2_Sagat, 0x00 },
+    { L"Super Trail 2",  0x68f9e, 0x68fbe, indexCPS2_Sagat, 0x00 },
+    { L"Super Trail 3",  0x68fbe, 0x68fde, indexCPS2_Sagat, 0x00 },
+    { L"Extra 1",        0x68fde, 0x68ffe, indexCPS2_Sagat, 0x01 },
+    { L"Extra 2",        0x68ffe, 0x6901e, indexCPS2_Sagat, 0x02 },
+    { L"Psycho Power Burned Effect", 0x6901e, 0x6903e, indexCPS2_Sagat, 0x00 },
+    { L"Burned Status",   0x6903e, 0x6905e, indexCPS2_Sagat, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_SAGAT_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x69060, 0x69080, indexCPS2_Sagat, 0x00 },
-    { L"Super Trail 1",  0x69080, 0x690A0, indexCPS2_Sagat, 0x00 },
-    { L"Super Trail 2",  0x690A0, 0x690C0, indexCPS2_Sagat, 0x00 },
-    { L"Super Trail 3",  0x690C0, 0x690E0, indexCPS2_Sagat, 0x00 },
-    { L"Extra 1",        0x690E0, 0x69100, indexCPS2_Sagat, 0x01 },
-    { L"Extra 2",        0x69100, 0x69120, indexCPS2_Sagat, 0x02 },
-    { L"Psycho Power Burned Effect", 0x69120, 0x69140, indexCPS2_Sagat, 0x00 },
-    { L"Burned Status",   0x69140, 0x69160, indexCPS2_Sagat, 0x00 },
+    { L"Main Sprite",    0x6905e, 0x6907e, indexCPS2_Sagat, 0x00 },
+    { L"Super Trail 1",  0x6907e, 0x6909e, indexCPS2_Sagat, 0x00 },
+    { L"Super Trail 2",  0x6909e, 0x690be, indexCPS2_Sagat, 0x00 },
+    { L"Super Trail 3",  0x690be, 0x690de, indexCPS2_Sagat, 0x00 },
+    { L"Extra 1",        0x690de, 0x690fe, indexCPS2_Sagat, 0x01 },
+    { L"Extra 2",        0x690fe, 0x6911e, indexCPS2_Sagat, 0x02 },
+    { L"Psycho Power Burned Effect", 0x6911e, 0x6913e, indexCPS2_Sagat, 0x00 },
+    { L"Burned Status",   0x6913e, 0x6915e, indexCPS2_Sagat, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_SAGAT_PORTRAIT_PALETTES[] =
 {
-    { L"Sagat Punch Portrait", 0x7da40, 0x7da60, indexCPS2_SFA1_Portraits, indexCPS2_Sagat },
-    { L"Sagat Kick Portrait", 0x7dd40, 0x7dd60, indexCPS2_SFA1_Portraits, indexCPS2_Sagat },
+    { L"Sagat Punch Portrait", 0x7da3e, 0x7da5e, indexCPS2_SFA1_Portraits, indexCPS2_Sagat },
+    { L"Sagat Kick Portrait", 0x7dd3e, 0x7dd5e, indexCPS2_SFA1_Portraits, indexCPS2_Sagat },
 };
 
 const sGame_PaletteDataset SFA1_A_DAN_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x69160, 0x69180, indexCPS2_Dan, 0x00 },
-    { L"Super Trail 1",  0x69180, 0x691A0, indexCPS2_Dan, 0x00 },
-    { L"Super Trail 2",  0x691A0, 0x691C0, indexCPS2_Dan, 0x00 },
-    { L"Super Trail 3",  0x691C0, 0x691E0, indexCPS2_Dan, 0x00 },
-    { L"Gadouken",       0x691E0, 0x69200, indexCPS2_Dan, 0x01 },
-    { L"Extra 2",        0x69200, 0x69220 },
-    { L"Psycho Power Burned Effect", 0x69220, 0x69240, indexCPS2_Dan, 0x00 },
-    { L"Burned Status",   0x69240, 0x69260, indexCPS2_Dan, 0x00 },
+    { L"Main Sprite",    0x6915e, 0x6917e, indexCPS2_Dan, 0x00 },
+    { L"Super Trail 1",  0x6917e, 0x6919e, indexCPS2_Dan, 0x00 },
+    { L"Super Trail 2",  0x6919e, 0x691be, indexCPS2_Dan, 0x00 },
+    { L"Super Trail 3",  0x691be, 0x691de, indexCPS2_Dan, 0x00 },
+    { L"Gadouken",       0x691de, 0x691fe, indexCPS2_Dan, 0x01 },
+    { L"Extra 2",        0x691fe, 0x6921e },
+    { L"Psycho Power Burned Effect", 0x6921e, 0x6923e, indexCPS2_Dan, 0x00 },
+    { L"Burned Status",   0x6923e, 0x6925e, indexCPS2_Dan, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_DAN_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x69260, 0x69280, indexCPS2_Dan, 0x00 },
-    { L"Super Trail 1",  0x69280, 0x692A0, indexCPS2_Dan, 0x00 },
-    { L"Super Trail 2",  0x692A0, 0x692C0, indexCPS2_Dan, 0x00 },
-    { L"Super Trail 3",  0x692C0, 0x692E0, indexCPS2_Dan, 0x00 },
-    { L"Gadouken",       0x692E0, 0x69300, indexCPS2_Dan, 0x01 },
-    { L"Extra 2",        0x69300, 0x69320 },
-    { L"Psycho Power Burned Effect", 0x69320, 0x69340, indexCPS2_Dan, 0x00 },
-    { L"Burned Status",   0x69340, 0x69360, indexCPS2_Dan, 0x00 },
+    { L"Main Sprite",    0x6925e, 0x6927e, indexCPS2_Dan, 0x00 },
+    { L"Super Trail 1",  0x6927e, 0x6929e, indexCPS2_Dan, 0x00 },
+    { L"Super Trail 2",  0x6929e, 0x692be, indexCPS2_Dan, 0x00 },
+    { L"Super Trail 3",  0x692be, 0x692de, indexCPS2_Dan, 0x00 },
+    { L"Gadouken",       0x692de, 0x692fe, indexCPS2_Dan, 0x01 },
+    { L"Extra 2",        0x692fe, 0x6931e },
+    { L"Psycho Power Burned Effect", 0x6931e, 0x6933e, indexCPS2_Dan, 0x00 },
+    { L"Burned Status",   0x6933e, 0x6935e, indexCPS2_Dan, 0x00 },
 };
 
 const sGame_PaletteDataset SFA1_A_DAN_PORTRAIT_PALETTES[] =
 {
-    { L"Dan Punch Portrait", 0x7ec20, 0x7ec40, indexCPS2_SFA1_Portraits, indexCPS2_Dan },
-    { L"Dan Kick Portrait", 0x7ec40, 0x7ec60, indexCPS2_SFA1_Portraits, indexCPS2_Dan },
+    { L"Dan Punch Portrait", 0x7ec1e, 0x7ec3e, indexCPS2_SFA1_Portraits, indexCPS2_Dan },
+    { L"Dan Kick Portrait", 0x7ec3e, 0x7ec5e, indexCPS2_SFA1_Portraits, indexCPS2_Dan },
 };
 
 const sDescTreeNode SFA1_A_RYU_COLLECTION[] =

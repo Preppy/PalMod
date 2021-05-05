@@ -4563,13 +4563,13 @@ const sGame_PaletteDataset SFIII3EX_A_MAKOTO_LP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_MP_PALETTES[] =
 {
-    { L"P Main",       0x00022200, 0x00022280, index3S_CPS3_Makoto, 0x00 },
-    { L"P EX Trail",   0x00022280, 0x00022300, index3S_CPS3_Makoto, 0x00 },
-    { L"P EX Flash",   0x00022300, 0x00022380, index3S_CPS3_Makoto, 0x00 },
-    { L"P Burned",     0x00022380, 0x00022400, index3S_CPS3_Makoto, 0x00 },
-    { L"P Shocked",    0x00022400, 0x00022480, index3S_CPS3_Makoto, 0x08 },
-    { L"P Frozen",     0x00022480, 0x00022500, index3S_CPS3_Makoto, 0x00 },
-    { L"P Hitsparks",  0x00022500, 0x00022580, index3S_CPS3_Makoto, 0x00 },
+    { L"MP Main",      0x00022200, 0x00022280, index3S_CPS3_Makoto, 0x00 },
+    { L"MP EX Trail",  0x00022280, 0x00022300, index3S_CPS3_Makoto, 0x00 },
+    { L"MP EX Flash",  0x00022300, 0x00022380, index3S_CPS3_Makoto, 0x00 },
+    { L"MP Burned",    0x00022380, 0x00022400, index3S_CPS3_Makoto, 0x00 },
+    { L"MP Shocked",   0x00022400, 0x00022480, index3S_CPS3_Makoto, 0x08 },
+    { L"MP Frozen",    0x00022480, 0x00022500, index3S_CPS3_Makoto, 0x00 },
+    { L"MP Hitsparks", 0x00022500, 0x00022580, index3S_CPS3_Makoto, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_HP_PALETTES[] =
@@ -4596,13 +4596,13 @@ const sGame_PaletteDataset SFIII3EX_A_MAKOTO_LK_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_MK_PALETTES[] =
 {
-    { L"K Main",       0x00022C80, 0x00022D00, index3S_CPS3_Makoto, 0x00 },
-    { L"K EX Trail",   0x00022D00, 0x00022D80, index3S_CPS3_Makoto, 0x00 },
-    { L"K EX Flash",   0x00022D80, 0x00022E00, index3S_CPS3_Makoto, 0x00 },
-    { L"K Burned",     0x00022E00, 0x00022E80, index3S_CPS3_Makoto, 0x00 },
-    { L"K Shocked",    0x00022E80, 0x00022F00, index3S_CPS3_Makoto, 0x08 },
-    { L"K Frozen",     0x00022F00, 0x00022F80, index3S_CPS3_Makoto, 0x00 },
-    { L"K Hitsparks",  0x00022F80, 0x00023000, index3S_CPS3_Makoto, 0x00 },
+    { L"MK Main",      0x00022C80, 0x00022D00, index3S_CPS3_Makoto, 0x00 },
+    { L"MK EX Trail",  0x00022D00, 0x00022D80, index3S_CPS3_Makoto, 0x00 },
+    { L"MK EX Flash",  0x00022D80, 0x00022E00, index3S_CPS3_Makoto, 0x00 },
+    { L"MK Burned",    0x00022E00, 0x00022E80, index3S_CPS3_Makoto, 0x00 },
+    { L"MK Shocked",   0x00022E80, 0x00022F00, index3S_CPS3_Makoto, 0x08 },
+    { L"MK Frozen",    0x00022F00, 0x00022F80, index3S_CPS3_Makoto, 0x00 },
+    { L"MK Hitsparks", 0x00022F80, 0x00023000, index3S_CPS3_Makoto, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_HK_PALETTES[] =

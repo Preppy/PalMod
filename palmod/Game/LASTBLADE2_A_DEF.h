@@ -6614,6 +6614,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Kaede_PORTRAITS[] =
     { L"Win Speed D", 0xe2ae0, 0xe2b60, indexLastBlade2_Kaede, 0x41 },
     { L"Win EX A", 0xe28e0, 0xe2960, indexLastBlade2_Kaede, 0x41 },
     { L"Win EX D", 0xe2be0, 0xe2c60, indexLastBlade2_Kaede, 0x41 },
+    { L"Story Icon Power A", 0xeb3e0, 0xeb400 },
+    { L"Story Icon Power D", 0xeb440, 0xeb460 },
+    { L"Story Icon Speed A", 0xeb400, 0xeb420 },
+    { L"Story Icon Speed D", 0xeb460, 0xeb480 },
+    { L"Story Icon EX A", 0xeb420, 0xeb440 },
+    { L"Story Icon EX D", 0xeb480, 0xeb4a0 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_OKaede_PORTRAITS[] =
@@ -6630,6 +6636,12 @@ const sGame_PaletteDataset LASTBLADE2_A_OKaede_PORTRAITS[] =
     { L"Win Speed D", 0xe9840, 0xe98a0, indexLastBlade2Sprites_KaedeO, 0x41 },
     { L"Win EX A", 0xe9640, 0xe96a0, indexLastBlade2Sprites_KaedeO, 0x41 },
     { L"Win EX D", 0xe9940, 0xe99a0, indexLastBlade2Sprites_KaedeO, 0x41 },
+    { L"Story Icon Power A", 0xea720, 0xea740 },
+    { L"Story Icon Power D", 0xea780, 0xea7a0 },
+    { L"Story Icon Speed A", 0xea740, 0xea760 },
+    { L"Story Icon Speed D", 0xea7a0, 0xea7c0 },
+    { L"Story Icon EX A", 0xea760, 0xea780 },
+    { L"Story Icon EX D", 0xea7c0, 0xea7e0 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Moriya_PORTRAITS[] =
@@ -6646,6 +6658,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Moriya_PORTRAITS[] =
     { L"Win Speed D", 0xe3840, 0xe38c0 },
     { L"Win EX A", 0xe3640, 0xe36c0 },
     { L"Win EX D", 0xe3940, 0xe39c0 },
+    { L"Story Icon Power A", 0xea7e0, 0xea800 },
+    { L"Story Icon Power D", 0xea840, 0xea860 },
+    { L"Story Icon Speed A", 0xea800, 0xea820 },
+    { L"Story Icon Speed D", 0xea860, 0xea880 },
+    { L"Story Icon EX A", 0xea820, 0xea840 },
+    { L"Story Icon EX D", 0xea880, 0xea8a0 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Yuki_PORTRAITS[] =
@@ -6662,6 +6680,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Yuki_PORTRAITS[] =
     { L"Win Speed D", 0xe3e40, 0xe3ee0, indexLastBlade2_Yuki, 0x41  },
     { L"Win EX A", 0xe3c40, 0xe3ce0, indexLastBlade2_Yuki, 0x41  },
     { L"Win EX D", 0xe3f40, 0xe3fe0, indexLastBlade2_Yuki, 0x41  },
+    { L"Story Icon Power A", 0xea8a0, 0xea8c0 },
+    { L"Story Icon Power D", 0xea900, 0xea920 },
+    { L"Story Icon Speed A", 0xea8c0, 0xea8e0 },
+    { L"Story Icon Speed D", 0xea920, 0xea940 },
+    { L"Story Icon EX A", 0xea8e0, 0xea900 },
+    { L"Story Icon EX D", 0xea940, 0xea960 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Okina_PORTRAITS[] =
@@ -6678,6 +6702,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Okina_PORTRAITS[] =
     { L"Win Speed D", 0xe4440, 0xe44a0 },
     { L"Win EX A", 0xe4240, 0xe42a0 },
     { L"Win EX D", 0xe4540, 0xe45a0 },
+    { L"Story Icon Power A", 0xea960, 0xea980 },
+    { L"Story Icon Power D", 0xea9c0, 0xea9e0 },
+    { L"Story Icon Speed A", 0xea980, 0xea9a0 },
+    { L"Story Icon Speed D", 0xea9e0, 0xeaa00 },
+    { L"Story Icon EX A", 0xea9a0, 0xea9c0 },
+    { L"Story Icon EX D", 0xeaa00, 0xeaa20 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Akari_PORTRAITS[] =
@@ -6693,13 +6723,25 @@ const sGame_PaletteDataset LASTBLADE2_A_Akari_PORTRAITS[] =
     { L"Hagure Select Speed A", 0xe1ee0, 0xe1f20, indexLastBlade2_Akari, 0x50 },
     { L"Hagure Select Speed D", 0xe1fa0, 0xe1fe0, indexLastBlade2_Akari, 0x50 },
     { L"Hagure Select EX A", 0xe1f20, 0xe1f60, indexLastBlade2_Akari, 0x50 },
-    { L"HagureSelect EX D", 0xe1fe0, 0xe2020, indexLastBlade2_Akari, 0x50 },
+    { L"Hagure Select EX D", 0xe1fe0, 0xe2020, indexLastBlade2_Akari, 0x50 },
     { L"Win Power A", 0xe4640, 0xe46a0, indexLastBlade2_Akari, 0x41 },
     { L"Win Power D", 0xe4940, 0xe49a0, indexLastBlade2_Akari, 0x41 },
     { L"Win Speed A", 0xe4740, 0xe47a0, indexLastBlade2_Akari, 0x41 },
     { L"Win Speed D", 0xe4a40, 0xe4aa0, indexLastBlade2_Akari, 0x41 },
     { L"Win EX A", 0xe4840, 0xe48a0, indexLastBlade2_Akari, 0x41 },
     { L"Win EX D", 0xe4b40, 0xe4ba0, indexLastBlade2_Akari, 0x41 },
+    { L"Story Icon Power A", 0xeaa20, 0xeaa40 },
+    { L"Story Icon Power D", 0xeaa80, 0xeaaa0 },
+    { L"Story Icon Speed A", 0xeaa40, 0xeaa60 },
+    { L"Story Icon Speed D", 0xeaaa0, 0xeaac0 },
+    { L"Story Icon EX A", 0xeaa60, 0xeaa80 },
+    { L"Story Icon EX D", 0xeaac0, 0xeaae0 },
+    { L"Hagure Story Icon Power A", 0xeb4a0, 0xeb4c0 },
+    { L"Hagure Story Icon Power D", 0xeb500, 0xeb520 },
+    { L"Hagure Story Icon Speed A", 0xeb4c0, 0xeb4e0 },
+    { L"Hagure Story Icon Speed D", 0xeb520, 0xeb540 },
+    { L"Hagure Story Icon EX A", 0xeb4e0, 0xeb500 },
+    { L"Hagure Story Icon EX D", 0xeb540, 0xeb560 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Juzoh_PORTRAITS[] =
@@ -6716,6 +6758,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Juzoh_PORTRAITS[] =
     { L"Win Speed D", 0xe5040, 0xe50a0 },
     { L"Win EX A", 0xe4e40, 0xe4ea0 },
     { L"Win EX D", 0xe5140, 0xe51a0 },
+    { L"Story Icon Power A", 0xeaae0, 0xeab00 },
+    { L"Story Icon Power D", 0xeab40, 0xeab60 },
+    { L"Story Icon Speed A", 0xeab00, 0xeab20 },
+    { L"Story Icon Speed D", 0xeab60, 0xeab80 },
+    { L"Story Icon EX A", 0xeab20, 0xeab40 },
+    { L"Story Icon EX D", 0xeab80, 0xeaba0 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Washizuka_PORTRAITS[] =
@@ -6732,6 +6780,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Washizuka_PORTRAITS[] =
     { L"Win Speed D", 0xe5640, 0xe56a0 },
     { L"Win EX A", 0xe5440, 0xe54a0 },
     { L"Win EX D", 0xe5740, 0xe57a0 },
+    { L"Story Icon Power A", 0xeaba0, 0xeabc0 },
+    { L"Story Icon Power D", 0xeac00, 0xeac20 },
+    { L"Story Icon Speed A", 0xeabc0, 0xeabe0 },
+    { L"Story Icon Speed D", 0xeac20, 0xeac40 },
+    { L"Story Icon EX A", 0xeabe0, 0xeac00 },
+    { L"Story Icon EX D", 0xeac40, 0xeac60 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PORTRAITS[] =
@@ -6748,6 +6802,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PORTRAITS[] =
     { L"Win Speed D", 0xe5c40, 0xe5ca0 },
     { L"Win EX A", 0xe5a40, 0xe5aa0 },
     { L"Win EX D", 0xe5d40, 0xe5da0 },
+    { L"Story Icon Power A", 0xeac60, 0xeac80 },
+    { L"Story Icon Power D", 0xeacc0, 0xeace0 },
+    { L"Story Icon Speed A", 0xeac80, 0xeaca0 },
+    { L"Story Icon Speed D", 0xeace0, 0xead00 },
+    { L"Story Icon EX A", 0xeaca0, 0xeacc0 },
+    { L"Story Icon EX D", 0xead00, 0xead20 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Amano_PORTRAITS[] =
@@ -6764,6 +6824,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Amano_PORTRAITS[] =
     { L"Win Speed D", 0xe6240, 0xe62c0 },
     { L"Win EX A", 0xe6040, 0xe60c0 },
     { L"Win EX D", 0xe6340, 0xe63c0 },
+    { L"Story Icon Power A", 0xead20, 0xead40 },
+    { L"Story Icon Power D", 0xead80, 0xeada0 },
+    { L"Story Icon Speed A", 0xead40, 0xead60 },
+    { L"Story Icon Speed D", 0xeada0, 0xeadc0 },
+    { L"Story Icon EX A", 0xead60, 0xead80 },
+    { L"Story Icon EX D", 0xeadc0, 0xeade0 },
 };
 const sGame_PaletteDataset LASTBLADE2_A_Lee_PORTRAITS[] =
 {
@@ -6779,6 +6845,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Lee_PORTRAITS[] =
     { L"Win Speed D", 0xe6840, 0xe68a0 },
     { L"Win EX A", 0xe6640, 0xe66a0 },
     { L"Win EX D", 0xe6940, 0xe69a0 },
+    { L"Story Icon Power A", 0xeade0, 0xeae00 },
+    { L"Story Icon Power D", 0xeae40, 0xeae60 },
+    { L"Story Icon Speed A", 0xeae00, 0xeae20 },
+    { L"Story Icon Speed D", 0xeae60, 0xeae80 },
+    { L"Story Icon EX A", 0xeae20, 0xeae40 },
+    { L"Story Icon EX D", 0xeae80, 0xeaea0 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Zantetsu_PORTRAITS[] =
@@ -6795,6 +6867,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Zantetsu_PORTRAITS[] =
     { L"Win Speed D", 0xe6e40, 0xe6ea0 },
     { L"Win EX A", 0xe6c40, 0xe6ca0 },
     { L"Win EX D", 0xe6f40, 0xe6fa0 },
+    { L"Story Icon Power A", 0xeaea0, 0xeaec0 },
+    { L"Story Icon Power D", 0xeaf00, 0xeaf20 },
+    { L"Story Icon Speed A", 0xeaec0, 0xeaee0 },
+    { L"Story Icon Speed D", 0xeaf20, 0xeaf40 },
+    { L"Story Icon EX A", 0xeaee0, 0xeaf00 },
+    { L"Story Icon EX D", 0xeaf40, 0xeaf60 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Shigen_PORTRAITS[] =
@@ -6817,6 +6895,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Shigen_PORTRAITS[] =
     { L"Win Speed D", 0xe7440, 0xe74c0 },
     { L"Win EX A", 0xe7240, 0xe72c0 },
     { L"Win EX D", 0xe7540, 0xe75c0 },
+    { L"Story Icon Power A", 0xeaf60, 0xeaf80 },
+    { L"Story Icon Speed A", 0xeaf80, 0xeafa0 },
+    { L"Story Icon Speed D", 0xeafe0, 0xeb000 },
+    { L"Story Icon Power D", 0xeafc0, 0xeafe0 },
+    { L"Story Icon EX A", 0xeafa0, 0xeafc0 },
+    { L"Story Icon EX D", 0xeb000, 0xeb020 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Kagami_PORTRAITS[] =
@@ -6833,6 +6917,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Kagami_PORTRAITS[] =
     { L"Win Speed D", 0xe7a40, 0xe7ac0, indexLastBlade2_Shinnosuke, 0x41 },
     { L"Win EX A", 0xe7840, 0xe78c0, indexLastBlade2_Shinnosuke, 0x41 },
     { L"Win EX D", 0xe7b40, 0xe7bc0, indexLastBlade2_Shinnosuke, 0x41 },
+    { L"Story Icon Power A", 0xeb020, 0xeb040 },
+    { L"Story Icon Power D", 0xeb080, 0xeb0a0 },
+    { L"Story Icon Speed A", 0xeb040, 0xeb060 },
+    { L"Story Icon Speed D", 0xeb0a0, 0xeb0c0 },
+    { L"Story Icon EX A", 0xeb060, 0xeb080 },
+    { L"Story Icon EX D", 0xeb0c0, 0xeb0e0 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Kojiroh_PORTRAITS[] =
@@ -6849,6 +6939,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Kojiroh_PORTRAITS[] =
     { L"Win Speed D", 0xe8040, 0xe80a0 },
     { L"Win EX A", 0xe7e40, 0xe7ea0 },
     { L"Win EX D", 0xe8140, 0xe81a0 },
+    { L"Story Icon Power A", 0xeb0e0, 0xeb100 },
+    { L"Story Icon Power D", 0xeb140, 0xeb160 },
+    { L"Story Icon Speed A", 0xeb100, 0xeb120 },
+    { L"Story Icon Speed D", 0xeb160, 0xeb180 },
+    { L"Story Icon EX A", 0xeb120, 0xeb140 },
+    { L"Story Icon EX D", 0xeb180, 0xeb1a0 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PORTRAITS[] =
@@ -6865,6 +6961,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PORTRAITS[] =
     { L"Win Speed D", 0xe8640, 0xe86a0, indexLastBlade2_Hibiki, 0x41 },
     { L"Win EX A", 0xe8440, 0xe84a0, indexLastBlade2_Hibiki, 0x41 },
     { L"Win EX D", 0xe8740, 0xe87a0, indexLastBlade2_Hibiki, 0x41 },
+    { L"Story Icon Power A", 0xeb1a0, 0xeb1c0 },
+    { L"Story Icon Power D", 0xeb200, 0xeb220 },
+    { L"Story Icon Speed A", 0xeb1c0, 0xeb1e0 },
+    { L"Story Icon Speed D", 0xeb220, 0xeb240 },
+    { L"Story Icon EX A", 0xeb1e0, 0xeb200 },
+    { L"Story Icon EX D", 0xeb240, 0xeb260 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PORTRAITS[] =
@@ -6881,6 +6983,12 @@ const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PORTRAITS[] =
     { L"Win Speed D", 0xe8c40, 0xe8d00 },
     { L"Win EX A", 0xe8a40, 0xe8b00 },
     { L"Win EX D", 0xe8d40, 0xe8e00 },
+    { L"Story Icon Power A", 0xeb260, 0xeb280 },
+    { L"Story Icon Power D", 0xeb2c0, 0xeb2e0 },
+    { L"Story Icon Speed A", 0xeb280, 0xeb2a0 },
+    { L"Story Icon Speed D", 0xeb2e0, 0xeb300 },
+    { L"Story Icon EX A", 0xeb2a0, 0xeb2c0 },
+    { L"Story Icon EX D", 0xeb300, 0xeb320 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PORTRAITS[] =
@@ -6897,6 +7005,117 @@ const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PORTRAITS[] =
     { L"Win Speed D", 0xe9240, 0xe92c0 },
     { L"Win EX A", 0xe9040, 0xe90c0 },
     { L"Win EX D", 0xe9340, 0xe93c0 },
+    { L"Story Icon Power A", 0xeb320, 0xeb340 },
+    { L"Story Icon Power D", 0xeb380, 0xeb3a0 },
+    { L"Story Icon Speed A", 0xeb340, 0xeb360 },
+    { L"Story Icon Speed D", 0xeb3a0, 0xeb3c0 },
+    { L"Story Icon EX A", 0xeb360, 0xeb380 },
+    { L"Story Icon EX D", 0xeb3c0, 0xeb3e0 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_SHIMIJI_PALETTES[] =
+{
+    { L"Shimiji Pass Stage 1/3", 0xd7600, 0xd7800 },
+    { L"Shimiji Pass Stage 2/3", 0xd7800, 0xd7a00 },
+    { L"Shimiji Pass Stage 3/3", 0xd7a00, 0xd7c00 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_VILLAGE_PALETTES[] =
+{
+    { L"Village of Twilight Stage 1/2", 0xa9600, 0xa9800 },
+    { L"Village of Twilight Stage 2/2", 0xa9800, 0xa9a00 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_PORTTOWN_PALETTES[] =
+{
+    { L"13 Porttown Stage 1/5", 0xd8400, 0xd8600 },
+    { L"13 Porttown Stage 2/5", 0xd8600, 0xd8800 },
+    { L"13 Porttown Stage 3/5", 0xd8800, 0xd8a00 },
+    { L"13 Porttown Stage 4/5", 0xd8a00, 0xd8c00 },
+    { L"13 Porttown Stage 5/5", 0xd8c00, 0xd8e00 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_YUKI_PALETTES[] =
+{
+    { L"The Night Before 'YUKI-MACHI' Stage 1/5", 0xd9a00, 0xd9c00 },
+    { L"The Night Before 'YUKI-MACHI' Stage 2/5", 0xd9c00, 0xd9e00 },
+    { L"The Night Before 'YUKI-MACHI' Stage 3/5", 0xd9e00, 0xda000 },
+    { L"The Night Before 'YUKI-MACHI' Stage 4/5", 0xda000, 0xda200 },
+    { L"The Night Before 'YUKI-MACHI' Stage 5/5", 0xda200, 0xda300 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_FIRE1_PALETTES[] =
+{
+    { L"Fire at the Wadamoya 1 Stage", 0xaaa00, 0xaaa40 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_FIRE2_PALETTES[] =
+{
+    { L"Fire at the Wadamoya 2 Stage", 0xaaa80, 0xaaac0 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_FIRE3_PALETTES[] =
+{
+    { L"Fire at the Wadamoya 3 Stage", 0xaab00, 0xaab40 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_FOREST_PALETTES[] =
+{
+    { L"Forest of Forgetfulness Stage 1/3", 0xd9400, 0xd9600 },
+    { L"Forest of Forgetfulness Stage 2/3", 0xd9600, 0xd9800 },
+    { L"Forest of Forgetfulness Stage 3/3", 0xd9800, 0xd9840 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_CLOUDY_PALETTES[] =
+{
+    { L"Battle Of Cloudy Sky Stage 1/4", 0xd7c00, 0xd7e00 },
+    { L"Battle Of Cloudy Sky Stage 2/4", 0xd7e00, 0xd8000 },
+    { L"Battle Of Cloudy Sky Stage 3/4", 0xd8000, 0xd8200 },
+    { L"Battle Of Cloudy Sky Stage 4/4", 0xd8200, 0xd8400 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_VANQUISHED_PALETTES[] =
+{
+    { L"Shrine of the Vanquished Stage 1/3", 0xaa000, 0xaa200 },
+    { L"Shrine of the Vanquished Stage 2/3", 0xaa200, 0xaa400 },
+    { L"Shrine of the Vanquished Stage 3/3", 0xaa400, 0xaa600 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_HELLS_PALETTES[] =
+{
+    { L"Hell's Gate Stage 1/2", 0xda400, 0xda600 },
+    { L"Hell's Gate Stage 2/2", 0xda600, 0xda800 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_HELLFLASH_PALETTES[] =
+{
+    { L"Hell's Gate Flash Stage 1/2", 0xda800, 0xdaa00 },
+    { L"Hell's Gate Flash Stage 2/2", 0xdaa00, 0xdac00 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_HELLSGATE_PALETTES[] =
+{
+    { L"Hell's Gate Extra Stage", 0xdac00, 0xdacc0 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_Stages_GRAVEYARD_PALETTES[] =
+{
+    { L"Derelict Graveyard Stage 1/3", 0xd8e00, 0xd9000 },
+    { L"Derelict Graveyard Stage 2/3", 0xd9000, 0xd9200 },
+    { L"Derelict Graveyard Stage 3/3", 0xd9200, 0xd9400 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_BONUS_SelectScreen_PALETTES[] =
+{
+    { L"Character Select Icons", 0xdd000, 0xdd200 },
+    { L"Secret Characters Icons", 0xdd200, 0xdd280 },
+    { L"Characters VS/Win Names", 0xdcca0, 0xdcea0 },
+    { L"Secret Characters VS/Win Names", 0xdcea0, 0xdcf00 },
+};
+
+const sGame_PaletteDataset LASTBLADE2_A_BONUS_StoryMode_PALETTES[] =
+{
+    { L"Story Icon Background", 0xea700, 0xea720 },
 };
 
 const sDescTreeNode LASTBLADE2_A_Kaede_COLLECTION[] =
@@ -7087,6 +7306,30 @@ const sDescTreeNode LASTBLADE2_A_Kouryu_COLLECTION[] =
     { L"Portraits", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Kouryu_PORTRAITS, ARRAYSIZE(LASTBLADE2_A_Kouryu_PORTRAITS) },
 };
 
+const sDescTreeNode LASTBLADE2_A_STAGES_COLLECTION[] =
+{
+    { L"Shimiji Pass", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_SHIMIJI_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_SHIMIJI_PALETTES) },
+    { L"Village of Twilight", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_VILLAGE_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_VILLAGE_PALETTES) },
+    { L"13 Porttown", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_PORTTOWN_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_PORTTOWN_PALETTES) },
+    { L"The Night Before 'Yuki-Machi'", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_YUKI_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_YUKI_PALETTES) },
+    { L"Fire at the Wadamayo 1", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_FIRE1_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_FIRE1_PALETTES) },
+    { L"Fire at the Wadamayo 2", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_FIRE2_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_FIRE2_PALETTES) },
+    { L"Fire at the Wadamayo 3", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_FIRE3_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_FIRE3_PALETTES) },
+    { L"Forest of Forgetfulness", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_FOREST_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_FOREST_PALETTES) },
+    { L"Battle of Cloudy Sky", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_CLOUDY_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_CLOUDY_PALETTES) },
+    { L"Shrine of the Vanquished", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_VANQUISHED_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_VANQUISHED_PALETTES) },
+    { L"Hell's Gate", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_HELLS_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_HELLS_PALETTES) },
+    { L"Hell's Gate Flash", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_HELLFLASH_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_HELLFLASH_PALETTES) },
+    { L"Hell's Gate Extra", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_HELLSGATE_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_HELLSGATE_PALETTES) },
+    { L"Derelict Graveyard", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Stages_GRAVEYARD_PALETTES, ARRAYSIZE(LASTBLADE2_A_Stages_GRAVEYARD_PALETTES) },
+};
+
+const sDescTreeNode LASTBLADE2_A_BONUS_COLLECTION[] =
+{
+    { L"Select Screen", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_BONUS_SelectScreen_PALETTES, ARRAYSIZE(LASTBLADE2_A_BONUS_SelectScreen_PALETTES) },
+    { L"Story Mode", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_BONUS_StoryMode_PALETTES, ARRAYSIZE(LASTBLADE2_A_BONUS_StoryMode_PALETTES) },
+};
+
 const sDescTreeNode LASTBLADE2_A_UNITS[] =
 {
     { L"Kaede/O.Kaede", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Kaede_COLLECTION, ARRAYSIZE(LASTBLADE2_A_Kaede_COLLECTION) },
@@ -7106,6 +7349,8 @@ const sDescTreeNode LASTBLADE2_A_UNITS[] =
     { L"Hibiki", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Hibiki_COLLECTION, ARRAYSIZE(LASTBLADE2_A_Hibiki_COLLECTION) },
     { L"Setsuna", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Setsuna_COLLECTION, ARRAYSIZE(LASTBLADE2_A_Setsuna_COLLECTION) },
     { L"Kouryu", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_Kouryu_COLLECTION, ARRAYSIZE(LASTBLADE2_A_Kouryu_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_STAGES_COLLECTION, ARRAYSIZE(LASTBLADE2_A_STAGES_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)LASTBLADE2_A_BONUS_COLLECTION, ARRAYSIZE(LASTBLADE2_A_BONUS_COLLECTION) },
 };
 
 constexpr auto LASTBLADE2_A_NUMUNIT = ARRAYSIZE(LASTBLADE2_A_UNITS);

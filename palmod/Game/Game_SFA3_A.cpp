@@ -31,7 +31,7 @@ void CGame_SFA3_A::InitializeStatics()
 
 CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
 {
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 

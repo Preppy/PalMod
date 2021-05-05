@@ -237,6 +237,12 @@ const sGame_PaletteDataset TMNTTF_SNES_STAGE_ARTMUSEUM_PALETTES[] =
     { L"Center Sculpture", 0x4A946, 0x4A966 },
     { L"Mousers, Big pillars", 0x4A964, 0x4A984 },
     { L"People", 0x4A982, 0x4A9A2 },
+
+    { L"Art Museum - Center Statue Glow", 0x9BEE, 0x9C0E },
+    { L"Thunder Dome - Small Floor Lights 1", 0x49ED0, 0x49EE0 },
+    { L"Thunder Dome - Small Floor Lights 2", 0x49C68, 0x49C78 },
+    { L"Thunder Dome - Big Floor Lights", 0x49EE0, 0x49EF8 },
+    { L"Thunder Dome - Dinosaur Glow", 0x49EF8, 0x49F18 },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_STAGE_BACKALLEY_PALETTES[] =

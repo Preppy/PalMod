@@ -4190,7 +4190,7 @@ const sGame_PaletteDataset SFZ2A_A_SHINAKUMA_2PUNCHES_PALETTES[] =
 {
     { L"Shin Akuma", 0x12284, 0x122a4, indexCPS2_Akuma, 0x00 },
     { L"Hadoken", 0x122a4, 0x122c4, indexCPS2_Akuma, 1 },
-    { L"Shoryuken ", 0x122c4, 0x122e4 },
+    { L"Shoryuken", 0x122c4, 0x122e4 },
     { L"Ashura Senku 1", 0x122e4, 0x12304, indexCPS2_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x12304, 0x12324, indexCPS2_Akuma, 0x00 },
 };
@@ -4199,7 +4199,7 @@ const sGame_PaletteDataset SFZ2A_A_SHINAKUMA_2KICKS_PALETTES[] =
 {
     { L"Shin Akuma", 0x12324, 0x12344, indexCPS2_Akuma, 0x00 },
     { L"Hadoken", 0x12344, 0x12364, indexCPS2_Akuma, 1 },
-    { L"Shoryuken ", 0x12364, 0x12384 },
+    { L"Shoryuken", 0x12364, 0x12384 },
     { L"Ashura Senku 1", 0x12384, 0x123A4, indexCPS2_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x123A4, 0x123C4, indexCPS2_Akuma, 0x00 },
 };
@@ -4208,7 +4208,7 @@ const sGame_PaletteDataset SFZ2A_A_SHINAKUMA_AUTOGUARDPUNCH_PALETTES[] =
 {
     { L"Shin Akuma", 0x123C4, 0x123E4, indexCPS2_Akuma, 0x00 },
     { L"Hadoken", 0x123E4, 0x12404, indexCPS2_Akuma, 1 },
-    { L"Shoryuken ", 0x12404, 0x12424 },
+    { L"Shoryuken", 0x12404, 0x12424 },
     { L"Ashura Senku 1", 0x12424, 0x12444, indexCPS2_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x12444, 0x12464, indexCPS2_Akuma, 0x00 },
 };
@@ -4217,7 +4217,7 @@ const sGame_PaletteDataset SFZ2A_A_SHINAKUMA_AUTOGUARDKICK_PALETTES[] =
 {
     { L"Shin Akuma", 0x12464, 0x12484, indexCPS2_Akuma, 0x00 },
     { L"Hadoken", 0x12484, 0x124a4, indexCPS2_Akuma, 1 },
-    { L"Shoryuken ", 0x124a4, 0x124c4 },
+    { L"Shoryuken", 0x124a4, 0x124c4 },
     { L"Ashura Senku 1", 0x124c4, 0x124e4, indexCPS2_Akuma, 0x00 },
     { L"Ashura Senku 2", 0x124e4, 0x12504, indexCPS2_Akuma, 0x00 },
 };

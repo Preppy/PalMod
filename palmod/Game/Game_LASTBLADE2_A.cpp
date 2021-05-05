@@ -53,13 +53,13 @@ CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize)
 
     // You will need to update this once you modify palettes, but PalMod will prompt you to do so.
     // Exact count will be shown in debug output in the debugger
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 5940;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6095;
     m_pszExtraFilename = EXTRA_FILENAME_LASTBLADE2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForLASTBLADE2; // This value is calculated at runtime: don't change this.
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     // You will need to update this, but PalMod will prompt you to do so.  Exact location will be shown and also
     // visible in debug output in the debugger.
-    m_nLowestKnownPaletteRomLocation = 0xaac00;
+    m_nLowestKnownPaletteRomLocation = 0xa9600;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 

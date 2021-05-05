@@ -27,11 +27,11 @@ CGame_TMNTTF_SNES::CGame_TMNTTF_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = TMNTTF_SNES_NUMUNIT;
     m_nExtraUnit = TMNTTF_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 189;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 194;
     m_pszExtraFilename = EXTRA_FILENAME_TMNTTF_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForTMNTTF;
 
-    m_nLowestKnownPaletteRomLocation = 0x481ac;
+    m_nLowestKnownPaletteRomLocation = 0x9bee;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
