@@ -84,8 +84,8 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     const UINT32 nSafeCountFor07_Rev1 = 933;
     const UINT32 nSafeCountFor07_Rev2 = 1055;
     const UINT32 nSafeCountFor07_SFZ2A = 1342;
-    const UINT32 nSafeCountFor08_Rev1 = 255;
-    const UINT32 nSafeCountFor08_Rev2 = 299;
+    const UINT32 nSafeCountFor08_Rev1 = 258;
+    const UINT32 nSafeCountFor08_Rev2 = 302;
     const UINT32 nSafeCountFor08_SFZ2A = 345;
 
     if (UsePaletteSetForCharacters())
@@ -118,13 +118,13 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
         switch (m_currentSFA2ROMRevision)
         {
         case SFA2_SupportedROMRevision::SFA2_960229:
-        default:
             m_nTotalInternalUnits = SFA2_A_NUM_IND_08_REV1;
             m_nExtraUnit = SFA2_A_EXTRALOC_08_REV1;
             m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nSafeCountFor08_Rev1;
             m_nTotalPaletteCount = m_nTotalPaletteCountForSFA2_08_Rev1;
             break;
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
             m_nTotalInternalUnits = SFA2_A_NUM_IND_08_REV2;
             m_nExtraUnit = SFA2_A_EXTRALOC_08_REV2;
             m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nSafeCountFor08_Rev2;
@@ -140,7 +140,7 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     }
 
     const UINT32 nLowestPaletteIn07 = 0x2C000;
-    const UINT32 nLowestPaletteIn08 = 0x1260;
+    const UINT32 nLowestPaletteIn08 = 0x125e;
 
     m_nLowestKnownPaletteRomLocation = UsePaletteSetForCharacters() ? nLowestPaletteIn07 : nLowestPaletteIn08;
 
@@ -157,7 +157,7 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 
 CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
 {
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 
@@ -380,7 +380,6 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             return rgExtraCountAll_07_Rev1[nUnitId];
         }
         case SFA2_SupportedROMRevision::SFZ2A_960826:
-        default:
         {
             if (rgExtraCountAll_07_SFZ2A[0] == -1)
             {
@@ -401,6 +400,7 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             return rgExtraCountAll_07_SFZ2A[nUnitId];
         }
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
         {
             if (rgExtraCountAll_07_Rev2[0] == -1)
             {
@@ -446,8 +446,8 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
             return rgExtraCountAll_08_Rev1[nUnitId];
         }
-        default:
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
         {
             if (rgExtraCountAll_08_Rev2[0] == -1)
             {
@@ -732,9 +732,9 @@ stExtraDef* CGame_SFA2_A::GetCurrentExtraDef(int nDefCtr)
         switch (m_currentSFA2ROMRevision)
         {
         case SFA2_SupportedROMRevision::SFA2_960229:
-        default:
             return (stExtraDef*)&SFA2_A_EXTRA_CUSTOM_07_REV1[nDefCtr];
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
             return (stExtraDef*)&SFA2_A_EXTRA_CUSTOM_07_REV2[nDefCtr];
         case SFA2_SupportedROMRevision::SFZ2A_960826:
             return (stExtraDef*)&SFZ2A_A_EXTRA_CUSTOM_07[nDefCtr];
@@ -1539,14 +1539,15 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             case SFA2_SupportedROMRevision::SFA2_960229: // Rev 1
                 break;
             case SFA2_SupportedROMRevision::SFA2_960306_or_960430: // Rev 2
+            default:
                 // 0306 ROMs have a different location for palettes
                 if (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_EvilRyu)
                 {
                     ; // no-op: this is already handled
                 }
-                else if ((m_nCurrentPaletteROMLocation < 0x72DC0) || // Handle up to Gen (Crane Stance)
+                else if ((m_nCurrentPaletteROMLocation < 0x72Dbe) || // Handle up to Gen (Crane Stance)
                         (((SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWDhalsim) || (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWZangief)) &&
-                            (m_nCurrentPaletteROMLocation < 0x73900))) // Second check handles the inserted WW characters
+                            (m_nCurrentPaletteROMLocation < 0x738fe))) // Second check handles the inserted WW characters
                 {
                     m_nCurrentPaletteROMLocation -= 0x11e0;
                 }
@@ -1568,17 +1569,17 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                      (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWChunLi) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWSagat) ||
                      (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWMBison) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_EvilRyu) ||
                      (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_AltSakura)) &&
-                    (m_nCurrentPaletteROMLocation < 0x73900))
+                    (m_nCurrentPaletteROMLocation < 0x738fe))
                 {
                     // use real locations for SFZ2A unique characters
                 }
-                else if (m_nCurrentPaletteROMLocation < 0x72DC0) // Handle up to Gen (Crane Stance)
+                else if (m_nCurrentPaletteROMLocation < 0x72Dbe) // Handle up to Gen (Crane Stance)
                 {
                     // This handles all the character palettes
                     m_nCurrentPaletteROMLocation -= 0xDDBC;
                 }
                 else if (((SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWDhalsim) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWZangief)) &&
-                            (m_nCurrentPaletteROMLocation < 0x73900)) // Second check handles the inserted WW characters
+                            (m_nCurrentPaletteROMLocation < 0x738fe)) // Second check handles the inserted WW characters
                 {
                     // sim: in code 73540
                     // sim: in sz2u.07 -- 72360
@@ -1598,7 +1599,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             switch (m_currentSFA2ROMRevision)
             {
             case SFA2_SupportedROMRevision::SFA2_960229: // in 229 portraits start at 0x1bb40
-                if (m_nCurrentPaletteROMLocation < 0x1c7c0)
+                if (m_nCurrentPaletteROMLocation < 0x1c7be)
                 {
                     // Early bonus/extra range
                     m_nCurrentPaletteROMLocation += 0xD80;
@@ -1610,6 +1611,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 }
                 break;
             case SFA2_SupportedROMRevision::SFA2_960306_or_960430: // in 306 portraits start at 0x1adc0
+            default:
                 // 0x1adc0: akuma extra 1
                 // 0x1b480: bison teleport
                 // 0x1b780: dan sagat throw
@@ -1625,11 +1627,11 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 if (((nUnitId > 0) && (nUnitId < 27)) ||
                     (nUnitId == 0x25))                    
                 {
-                    if (m_nCurrentPaletteROMLocation < 0x1b780)
+                    if (m_nCurrentPaletteROMLocation < 0x1b77e)
                     {
                         m_nCurrentPaletteROMLocation -= 0x9D9C;
                     }
-                    else if (m_nCurrentPaletteROMLocation < 0x1bc80)
+                    else if (m_nCurrentPaletteROMLocation < 0x1bc7e)
                     {
                         m_nCurrentPaletteROMLocation -= 0x9A9C;
                     }
@@ -1683,6 +1685,13 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
                0x0, 0xff, 0x4, 0x0,     0x20, 0x127c, 0x2020, 0x1900,   0x400, 0x3a16, 0x6, 0x0,          0x0, 0xff, 0x9, 0x0 }
         },
         {
+            SFA2_SupportedROMRevision::SFA2_Unsupported, // SFZ2A_960805,
+            {   0x68b0, 0x0000, 0x6893, 0x2000,     0x68c7, 0x1000, 0x68c4, 0x1000,
+                0x68d5, 0x0000, 0x0002, 0x0030,     0x0010, 0x1c00, 0x68e0, 0x1800,
+                0x68e9, 0x0400, 0x67f2, 0x0100,     0x6878, 0x0500, 0x6883, 0x0000,
+                0x686a, 0x0100, 0x58f6, 0x0000,     0x68d8, 0x0100, 0x58f7, 0x0000,  }
+        },
+        {
             SFA2_SupportedROMRevision::SFZ2A_960826,
             {   0x7677, 0x0000, 0x7678, 0x0000,     0x765d, 0x0100, 0x0002, 0x002b,
                 0x0006, 0x1ea4, 0x7680, 0x1000,     0x7682, 0x7300, 0x2470, 0x0000,
@@ -1695,18 +1704,23 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
     {
         {
             SFA2_SupportedROMRevision::SFA2_960229,
-           { 0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888, 0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000,
-            0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888,  0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000 }
+           { 0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888,     0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000,
+            0x111, 0x222, 0x333, 0x444,     0x555, 0x666, 0x777, 0x888,     0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000 }
         },
         {
             SFA2_SupportedROMRevision::SFA2_960306_or_960430,
             { 0x625, 0xfff, 0xffd, 0xdfa,    0xaf7, 0x6f4, 0x1e4, 0x1d9,    0x111, 0x333, 0x555, 0x888,    0xaaa, 0xccc, 0xfff, 0x000,
-              0x413, 0xfff, 0xfef, 0xece,    0xead, 0xe8d, 0xd6c, 0xc5b, 0x111, 0x333, 0x555, 0x888,    0xaaa, 0xccc, 0xfff, 0x000 }
+              0x413, 0xfff, 0xfef, 0xece,    0xead, 0xe8d, 0xd6c, 0xc5b,    0x111, 0x333, 0x555, 0x888,    0xaaa, 0xccc, 0xfff, 0x000 }
+        },
+        {
+            SFA2_SupportedROMRevision::SFA2_Unsupported, //SFZ2A_960805,
+            { 0x0c93, 0x0da3, 0x0eb5, 0x0cb6, 0x0ba5, 0x0a95, 0x0984, 0x0000,   0x0781, 0x0562, 0x0452, 0x0442, 0x0468, 0x0863, 0x0973, 0x0b83, 
+              0x0c93, 0x0da3, 0x0765, 0x0446, 0x0457, 0x0567, 0x0653, 0x0000,   0x0781, 0x0562, 0x0452, 0x0442, 0x0332, 0x0543, 0x0443, 0x0432 }
         },
         {
             SFA2_SupportedROMRevision::SFZ2A_960826,
-            { 0x0777, 0x0000, 0x0aac, 0x0555, 0x0019, 0x0430, 0x0b96, 0x0ca5,    0x0db6, 0x0ec6, 0x0fd7, 0x0fd8, 0x0bbb, 0x0aaa, 0x0999, 0x0888,
-              0x0777, 0x0000, 0x0974, 0x0445, 0x0532, 0x0743, 0x0954, 0x0b65,    0x0d87, 0x0b96, 0x0ca5, 0x0db6, 0x0ec6, 0x0bbb, 0x0aaa, 0x0999, }
+            { 0x0777, 0x0000, 0x0aac, 0x0555, 0x0019, 0x0430, 0x0b96, 0x0ca5,   0x0db6, 0x0ec6, 0x0fd7, 0x0fd8, 0x0bbb, 0x0aaa, 0x0999, 0x0888,
+              0x0777, 0x0000, 0x0974, 0x0445, 0x0532, 0x0743, 0x0954, 0x0b65,   0x0d87, 0x0b96, 0x0ca5, 0x0db6, 0x0ec6, 0x0bbb, 0x0aaa, 0x0999 }
         },
     };
 

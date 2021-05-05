@@ -10,6 +10,7 @@ enum class SFA2_SupportedROMRevision
 {
     SFA2_960229,
     SFA2_960306_or_960430, // 960306 and 960430 are identical for both 07 and 08
+    SFZ2A_960805,
     SFZ2A_960826,
     SFA2_Unsupported,
 };
