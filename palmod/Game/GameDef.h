@@ -2900,6 +2900,8 @@ const stPairedPaletteInfo pairNext7 = { 7, 0, 0 };
 const stPairedPaletteInfo pairNext8 = { 8, 0, 0 };
 const stPairedPaletteInfo pairNext9 = { 9, 0, 0 };
 const stPairedPaletteInfo pairNext10 = { 10, 0, 0 };
+const stPairedPaletteInfo pairNext11 = { 11, 0, 0 };
+const stPairedPaletteInfo pairNext12 = { 12, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 const stPairedPaletteInfo pairPrevious2 = { -2, 0, 0 };
 

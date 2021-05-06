@@ -158,11 +158,11 @@ const sGame_PaletteDataset GUNDAM_EPYON_PALETTES_P2[] =
 
 const sGame_PaletteDataset GUNDAM_BONUS_PALETTES[] =
 {
-    { L"HUD P1", 0xAC320, 0xAC340 },
-    { L"HUD P2", 0xAC340, 0xAC360 },
+    { L"HUD P1", 0xAC320, 0xAC340, indexGundamSprites_Bonus, 0x01, &pairNext },
+    { L"HUD P2", 0xAC340, 0xAC360, indexGundamSprites_Bonus, 0x02 },
     { L"Player 1 Select Icon", 0xAD4C0, 0xAD4E0 },
     { L"Player 2 Select Icon", 0xAD4E0, 0xAD500 },
-    { L"Character Select Icons", 0xAD500, 0xAD580, indexGundamSprites_Bonus, 0x00  },
+    { L"Character Select Icons", 0xAD500, 0xAD580, indexGundamSprites_Bonus, 0x00 },
     { L"Player Select Text Cycle 1", 0xAD4A0, 0xAD4C0 },
     { L"Player Select Text Cycle 2", 0xAD5A0, 0xAD5C0 },
     { L"Player Select Text Cycle 3", 0xAD600, 0xAD700 },
@@ -363,7 +363,7 @@ const sDescTreeNode GUNDAM_SNES_UNITS[] =
     { L"Tallgeese", DESC_NODETYPE_TREE, (void*)GUNDAM_TALLGEESE_COLLECTION, ARRAYSIZE(GUNDAM_TALLGEESE_COLLECTION) },
     { L"Vayaeae", DESC_NODETYPE_TREE, (void*)GUNDAM_VAYAEAE_COLLECTION, ARRAYSIZE(GUNDAM_VAYAEAE_COLLECTION) },
     { L"Epyon", DESC_NODETYPE_TREE, (void*)GUNDAM_EPYON_COLLECTION, ARRAYSIZE(GUNDAM_EPYON_COLLECTION) },
-    { L"Bonus", DESC_NODETYPE_TREE, (void*)GUNDAM_BONUS_COLLECTION, ARRAYSIZE(GUNDAM_BONUS_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)GUNDAM_BONUS_COLLECTION, ARRAYSIZE(GUNDAM_BONUS_COLLECTION) },
     { L"Stages", DESC_NODETYPE_TREE, (void*)GUNDAM_STAGES_COLLECTION, ARRAYSIZE(GUNDAM_STAGES_COLLECTION) },
 };
 

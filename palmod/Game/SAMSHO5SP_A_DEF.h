@@ -152,9 +152,9 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_D[] =
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_A[] =
 {
-    { L"Charlotte A (Normal)", 0xe3000, 0xe3040, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte A (Rage)", 0xe3040, 0xe3080, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte A (SON)", 0xe3240, 0xe3280, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte A (Normal)", 0xe3000, 0xe3040, indexSamSho5Sprites_Charlotte, 0x00, &pairNext12 },
+    { L"Charlotte A (Rage)", 0xe3040, 0xe3080, indexSamSho5Sprites_Charlotte, 0x00, &pairNext11 },
+    { L"Charlotte A (SON)", 0xe3240, 0xe3280, indexSamSho5Sprites_Charlotte, 0x00, &pairNext10 },
 
     { L"Charlotte A (WFT Flower 1)", 0xe3080, 0xe30a0 },
     { L"Charlotte A (WFT Flower 2)", 0xe30a0, 0xe30c0 },
@@ -166,7 +166,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_A[] =
     { L"Charlotte A (Issen Trail)", 0xe3200, 0xe3240, indexSamSho5Sprites_Charlotte },
     { L"Charlotte A (Power Gradation/Bayonette Lunge)", 0xe3280, 0xe32a0 },
     { L"Charlotte A (Lion Lance)", 0xe32a0, 0xe32c0 },
-    { L"Charlotte A (Rose)", 0xe32e0, 0xe3300 },
+    { L"Charlotte A (Rose)", 0xe32e0, 0xe3300, indexSamSho5Sprites_Charlotte, 0x01 },
     { L"Charlotte A (Splash Fount 1)", 0xe3340, 0xe3350 },
     { L"Charlotte A (Slash Effect)", 0xe3350, 0xe3360 },
     { L"Charlotte A (Splash Fount 2)", 0xe3360, 0xe3370 },
@@ -175,9 +175,9 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_A[] =
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_B[] =
 {
-    { L"Charlotte B (Normal)", 0xe3400, 0xe3440, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte B (Rage)", 0xe3440, 0xe3480, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte B (SON)", 0xe3640, 0xe3680, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte B (Normal)", 0xe3400, 0xe3440, indexSamSho5Sprites_Charlotte, 0x00, &pairNext12 },
+    { L"Charlotte B (Rage)", 0xe3440, 0xe3480, indexSamSho5Sprites_Charlotte, 0x00, &pairNext11 },
+    { L"Charlotte B (SON)", 0xe3640, 0xe3680, indexSamSho5Sprites_Charlotte, 0x00, &pairNext10 },
 
     { L"Charlotte B (WFT Flower 1)", 0xe3480, 0xe34a0 },
     { L"Charlotte B (WFT Flower 2)", 0xe34a0, 0xe34c0 },
@@ -189,7 +189,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_B[] =
     { L"Charlotte B (Issen Trail)", 0xe3600, 0xe3640, indexSamSho5Sprites_Charlotte },
     { L"Charlotte B (Power Gradation/Bayonette Lunge)", 0xe3680, 0xe36a0 },
     { L"Charlotte B (Lion Lance)", 0xe36a0, 0xe36c0 },
-    { L"Charlotte B (Rose)", 0xe36e0, 0xe3700 },
+    { L"Charlotte B (Rose)", 0xe36e0, 0xe3700, indexSamSho5Sprites_Charlotte, 0x01 },
     { L"Charlotte B (Splash Fount 1)", 0xe3740, 0xe3750 },
     { L"Charlotte B (Slash Effect)", 0xe3750, 0xe3760 },
     { L"Charlotte B (Splash Fount 2)", 0xe3760, 0xe3770 },
@@ -198,9 +198,9 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_B[] =
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_C[] =
 {
-    { L"Charlotte C (Normal)", 0xe3800, 0xe3840, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte C (Rage)", 0xe3840, 0xe3880, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte C (SON)", 0xe3a40, 0xe3a80, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte C (Normal)", 0xe3800, 0xe3840, indexSamSho5Sprites_Charlotte, 0x00, &pairNext12 },
+    { L"Charlotte C (Rage)", 0xe3840, 0xe3880, indexSamSho5Sprites_Charlotte, 0x00, &pairNext11 },
+    { L"Charlotte C (SON)", 0xe3a40, 0xe3a80, indexSamSho5Sprites_Charlotte, 0x00, &pairNext10 },
 
     { L"Charlotte C (WFT Flower 1)", 0xe3880, 0xe38a0 },
     { L"Charlotte C (WFT Flower 2)", 0xe38a0, 0xe38c0 },
@@ -212,7 +212,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_C[] =
     { L"Charlotte C (Issen Trail)", 0xe3a00, 0xe3a40, indexSamSho5Sprites_Charlotte },
     { L"Charlotte C (Power Gradation/Bayonette Lunge)", 0xe3a80, 0xe3aa0 },
     { L"Charlotte C (Lion Lance)", 0xe3aa0, 0xe3ac0 },
-    { L"Charlotte C (Rose)", 0xe3ae0, 0xe3b00 },
+    { L"Charlotte C (Rose)", 0xe3ae0, 0xe3b00, indexSamSho5Sprites_Charlotte, 0x01 },
     { L"Charlotte C (Splash Fount 1)", 0xe3b40, 0xe3b50 },
     { L"Charlotte C (Slash Effect)", 0xe3b50, 0xe3b60 },
     { L"Charlotte C (Splash Fount 2)", 0xe3b60, 0xe3b70 },
@@ -221,9 +221,9 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_C[] =
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_D[] =
 {
-    { L"Charlotte D (Normal)", 0xe3c00, 0xe3c40, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte D (Rage)", 0xe3c40, 0xe3c80, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte D (SON)", 0xe3e40, 0xe3e80, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte D (Normal)", 0xe3c00, 0xe3c40, indexSamSho5Sprites_Charlotte, 0x00, &pairNext12 },
+    { L"Charlotte D (Rage)", 0xe3c40, 0xe3c80, indexSamSho5Sprites_Charlotte, 0x00, &pairNext11 },
+    { L"Charlotte D (SON)", 0xe3e40, 0xe3e80, indexSamSho5Sprites_Charlotte, 0x00, &pairNext10 },
 
     { L"Charlotte D (WFT Flower 1)", 0xe3c80, 0xe3ca0 },
     { L"Charlotte D (WFT Flower 2)", 0xe3ca0, 0xe3cc0 },
@@ -235,7 +235,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_D[] =
     { L"Charlotte D (Issen Trail)", 0xe3e00, 0xe3e40, indexSamSho5Sprites_Charlotte },
     { L"Charlotte D (Power Gradation/Bayonette Lunge)", 0xe3e80, 0xe3ea0 },
     { L"Charlotte D (Lion Lance)", 0xe3ea0, 0xe3ec0 },
-    { L"Charlotte D (Rose)", 0xe3ee0, 0xe3f00 },
+    { L"Charlotte D (Rose)", 0xe3ee0, 0xe3f00, indexSamSho5Sprites_Charlotte, 0x01 },
     { L"Charlotte D (Splash Fount 1)", 0xe3f40, 0xe3f50 },
     { L"Charlotte D (Slash Effect)", 0xe3f50, 0xe3f60 },
     { L"Charlotte D (Splash Fount 2)", 0xe3f60, 0xe3f70 },
