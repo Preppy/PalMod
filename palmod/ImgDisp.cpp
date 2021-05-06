@@ -90,7 +90,7 @@ void CImgDisp::ResizeMainBitmap()
         DeleteObject(hBmp);
 
         Bmpi.bmiHeader.biWidth = MAIN_W;
-        Bmpi.bmiHeader.biHeight = -MAIN_H;
+        Bmpi.bmiHeader.biHeight = MAIN_H;
         Bmpi.bmiHeader.biPlanes = 1;
         Bmpi.bmiHeader.biBitCount = 32;
         Bmpi.bmiHeader.biCompression = BI_RGB;
@@ -111,7 +111,7 @@ void CImgDisp::CreateImgBitmap(int nIndex, int nWidth, int nHeight)
     //pImgBuffer[nIndex]->pBmpData = new UINT32[nWidth * nHeight];
 
     currInfo->bmiHeader.biWidth = nWidth;
-    currInfo->bmiHeader.biHeight = -nHeight;
+    currInfo->bmiHeader.biHeight = nHeight;
     currInfo->bmiHeader.biPlanes = 1;
     currInfo->bmiHeader.biBitCount = 32;
     currInfo->bmiHeader.biCompression = BI_RGB;

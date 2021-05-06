@@ -371,7 +371,7 @@ BOOL CJunk::ProcBaseBMP()
     }
 
     Bmpi.bmiHeader.biWidth = iBaseW;
-    Bmpi.bmiHeader.biHeight = -iBaseH;
+    Bmpi.bmiHeader.biHeight = iBaseH;
     Bmpi.bmiHeader.biPlanes = 1;
     Bmpi.bmiHeader.biBitCount = 32;
     Bmpi.bmiHeader.biCompression = BI_RGB;

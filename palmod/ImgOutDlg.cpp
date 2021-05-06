@@ -508,10 +508,11 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
                             for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
                             {
-                                // make sure to flip the sprite
                                 int destIndex = ((m_DumpBmp.border_sz + adjustedY + zoomY) * destWidth) + (m_DumpBmp.border_sz + adjustedX + zoomX);
-                                // read bottom up, starting at the beginning of the last row
-                                int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
+                                // this is the upside-down version:
+                                //int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
+                                // and this is the rightside-up version:
+                                int srcIndex = (destX / currentZoom) + ((destY / currentZoom) * srcWidth);
 
                                 // only write used pixels
                                 if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
@@ -660,7 +661,8 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
     int output_width = m_DumpBmp.GetOutputW();
     int output_height = m_DumpBmp.GetOutputH();
 
-    if (out_img.Create(output_width, output_height, 32, dwExportFlags))
+    // Pass negative height in order to indicate that this is top-down
+    if (out_img.Create(output_width, -output_height, 32, dwExportFlags))
     {
         const bool fUsingAlphaChannel = dwExportFlags == CImage::createAlphaChannel;
         if (fUsingAlphaChannel)

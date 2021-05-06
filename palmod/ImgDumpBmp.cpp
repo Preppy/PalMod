@@ -571,7 +571,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
         {
             nYCtr = (int)((double)y * fpYDiff);
 
-            nStartRow = (0 - ((nBltH - 1) - y + rBltRct.top)) * (nMainW * 4) + (rBltRct.left * 4);
+            nStartRow = (y + rBltRct.top) * (nMainW * 4) + (rBltRct.left * 4);
             nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
             for (int x = 0; x < (nBltW * 4); x += 4)
@@ -580,7 +580,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
                 uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
 
-                if (uIndex)
+                if (uIndex) // don't draw the background color
                 {
                     nDstPos = nStartRow + x;
 
@@ -611,6 +611,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
             nYCtr = (int)((double)y * fpYDiff);
 
             nStartRow = (rBltRct.top + (((nBltH - 1) - y))) * (nMainW * 4) + (rBltRct.left * 4);
+            //nStartRow = (rBltRct.top + y) * (nMainW * 4) + (rBltRct.left * 4);
             nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
             for (int x = 0; x < (nBltW * 4); x += 4)
@@ -619,7 +620,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
                 uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
 
-                if (uIndex)
+                if (uIndex) // don't draw the background color
                 {
                     nDstPos = nStartRow + x;
 
@@ -777,7 +778,7 @@ void CImgDumpBmp::ResizeMainBmp()
         DeleteObject(MainHBmp);
 
         MainBmpi.bmiHeader.biWidth = nMainW;
-        MainBmpi.bmiHeader.biHeight = -nMainH;
+        MainBmpi.bmiHeader.biHeight = nMainH;
         MainBmpi.bmiHeader.biPlanes = 1;
         MainBmpi.bmiHeader.biBitCount = 32;
         MainBmpi.bmiHeader.biCompression = BI_RGB;
