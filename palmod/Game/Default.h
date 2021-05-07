@@ -7,6 +7,7 @@ constexpr auto UNIT_START_VALUE   = 0x0080;
 constexpr auto INVALID_UNIT_VALUE = 0xffff;
 
 constexpr auto MAX_IMAGES_DISPLAYABLE = 32;
+constexpr auto FLIPPED_IMAGES_MESSAGE_OFFSET = MAX_IMAGES_DISPLAYABLE + 1;
 // MAX_PALETTES_DISPLAYABLE should be 2x images as the slicer will divide large palettes in skinny / 8cpl mode
 constexpr auto MAX_PALETTES_DISPLAYABLE = MAX_IMAGES_DISPLAYABLE * 2;
 constexpr auto MAX_SEPARATORS = MAX_PALETTES_DISPLAYABLE;

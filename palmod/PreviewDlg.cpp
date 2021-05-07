@@ -49,10 +49,12 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_SETTINGS_RESETBACKGROUNDOFFSET, &CPreviewDlg::OnResetBackgroundOffset)
     ON_COMMAND(ID_FILE_EXPORTIMAGE, &CPreviewDlg::OnFileExportImg)
     ON_COMMAND(ID_FILE_LOADSPRITE, &CPreviewDlg::OnLoadCustomSpriteForZero)
+    ON_COMMAND(ID_FILE_LOADSPRITEFLIPPED, &CPreviewDlg::OnLoadCustomSpriteForZeroFlipped)
     ON_COMMAND(ID_SETTINGS_USEBGCOLOR, &CPreviewDlg::OnSettingsUseBackgroundColor)
     ON_COMMAND(ID_SETTINGS_CLICKANDFIND, &CPreviewDlg::OnSettingsClickToFindColor)
 
-    ON_COMMAND_RANGE(k_nTextureLoadCommandMask, k_nTextureLoadCommandMask + MAX_IMAGES_DISPLAYABLE, &CPreviewDlg::OnLoadCustomSprite)
+    ON_COMMAND_RANGE(k_nTextureLoadCommandMask, k_nTextureLoadCommandMask + MAX_IMAGES_DISPLAYABLE, &CPreviewDlg::OnLoadCustomSpriteNormal)
+    ON_COMMAND_RANGE(k_nTextureLoadCommandMask + FLIPPED_IMAGES_MESSAGE_OFFSET, k_nTextureLoadCommandMask + FLIPPED_IMAGES_MESSAGE_OFFSET + MAX_IMAGES_DISPLAYABLE, &CPreviewDlg::OnLoadCustomSpriteFlipped)
 
 END_MESSAGE_MAP()
 
@@ -343,50 +345,68 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         const bool fGameLoaded = GetHost()->GetCurrGame();
         pPopupMenu->EnableMenuItem(ID_FILE_EXPORTIMAGE, !fGameLoaded);
         pPopupMenu->EnableMenuItem(ID_FILE_LOADSPRITE, !fGameLoaded);
+        pPopupMenu->EnableMenuItem(ID_FILE_LOADSPRITEFLIPPED, !fGameLoaded);
 
         if (fGameLoaded)
         {
-            // Since the optional submenu is dynamically sized, reset everything...
-            pPopupMenu->DeleteMenu(ID_FILE_LOADSPRITE, MF_BYCOMMAND);
-
-            const int nPaletteCount = GetHost()->GetPalModDlg()->MainPalGroup->GetPalAmt();
-
-            MENUITEMINFO miiNew = { 0 };
-            miiNew.cbSize = sizeof(MENUITEMINFO);
-            miiNew.dwTypeData = L"Load Texture";
-            miiNew.wID = ID_FILE_LOADSPRITE;
-
-            // For multisprite palettes, enable loading to any given sprite slot
-            if (nPaletteCount > 1)
+            struct ImportMenuOption
             {
-                MENUITEMINFO mii = { 0 };
-                int nCurrentPosition = 1; // after Export
-                CMenu spriteMenu;
-                spriteMenu.CreatePopupMenu();
-                CString strMenuName;
+                int nOriginalMenuId;
+                LPWSTR pszMonoString;
+                LPCWSTR pszMultiFormat;
+                UINT nAdditionalOffset;
+            };
 
-                for (int nSpritePos = 0; nSpritePos < nPaletteCount; nSpritePos++)
+            ImportMenuOption rgImportMenuOptions[] =
+            {
+                { ID_FILE_LOADSPRITE, L"Load Texture", L"Load Texture for Palette %u", 0 },
+                { ID_FILE_LOADSPRITEFLIPPED, L"Load Flipped Texture", L"Load Flipped Texture for Palette %u", FLIPPED_IMAGES_MESSAGE_OFFSET },
+            };
+
+            for (int iIndex = 0; iIndex < ARRAYSIZE(rgImportMenuOptions); iIndex++)
+            {
+                // Since the optional submenu is dynamically sized, reset everything...
+                pPopupMenu->DeleteMenu(rgImportMenuOptions[iIndex].nOriginalMenuId, MF_BYCOMMAND);
+
+                const int nPaletteCount = GetHost()->GetPalModDlg()->MainPalGroup->GetPalAmt();
+
+                MENUITEMINFO miiNew = { 0 };
+                miiNew.cbSize = sizeof(MENUITEMINFO);
+                miiNew.dwTypeData = rgImportMenuOptions[iIndex].pszMonoString;
+                miiNew.wID = rgImportMenuOptions[iIndex].nOriginalMenuId;
+
+                // For multisprite palettes, enable loading to any given sprite slot
+                if (nPaletteCount > 1)
                 {
-                    mii.cbSize = sizeof(MENUITEMINFO);
-                    mii.fMask = MIIM_ID | MIIM_STRING;
-                    mii.wID = nSpritePos | k_nTextureLoadCommandMask;
-                    strMenuName.Format(L"Load Texture for Palette %u", nSpritePos);
+                    MENUITEMINFO mii = { 0 };
+                    int nCurrentPosition = iIndex + 1; // after Export
+                    CMenu spriteMenu;
+                    spriteMenu.CreatePopupMenu();
+                    CString strMenuName;
 
-                    mii.dwTypeData = (LPWSTR)strMenuName.GetString();
+                    for (int nSpritePos = 0; nSpritePos < nPaletteCount; nSpritePos++)
+                    {
+                        mii.cbSize = sizeof(MENUITEMINFO);
+                        mii.fMask = MIIM_ID | MIIM_STRING;
+                        mii.wID = (nSpritePos | k_nTextureLoadCommandMask) + rgImportMenuOptions[iIndex].nAdditionalOffset;
+                        strMenuName.Format(rgImportMenuOptions[iIndex].pszMultiFormat, nSpritePos);
 
-                    spriteMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                        mii.dwTypeData = (LPWSTR)strMenuName.GetString();
+
+                        spriteMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                    }
+
+                    miiNew.fMask = MIIM_ID | MIIM_SUBMENU | MIIM_STRING;
+                    miiNew.hSubMenu = spriteMenu.Detach();   // Detach() to keep the pop-up menu alive
+                }
+                else
+                {
+                    miiNew.fMask = MIIM_ID | MIIM_STRING;
+                    miiNew.hSubMenu = nullptr;
                 }
 
-                miiNew.fMask = MIIM_ID | MIIM_SUBMENU | MIIM_STRING;
-                miiNew.hSubMenu = spriteMenu.Detach();   // Detach() to keep the pop-up menu alive
+                pPopupMenu->InsertMenuItem(iIndex + 1, &miiNew, TRUE);
             }
-            else
-            {
-                miiNew.fMask = MIIM_ID | MIIM_STRING;
-                miiNew.hSubMenu = nullptr;
-            }
-
-            pPopupMenu->InsertMenuItemW(1, &miiNew, TRUE);
         }
     }
 
@@ -420,9 +440,9 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.UpdateCtrl();
 }
 
-void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, WCHAR* pszPath)
+void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszPath)
 {
-    if (m_ImgDisp.LoadExternalSprite(nPositionToLoadTo, pszPath))
+    if (m_ImgDisp.LoadExternalSprite(nPositionToLoadTo, direction, pszPath))
     {
         m_ImgDisp.UpdateCtrl();
     }
@@ -436,7 +456,7 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, WCHAR* pszPat
     }
 }
 
-void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/)
+void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImportDirection direction /* = SpriteImportDirection::TopDown */)
 {
     if (GetHost()->GetCurrGame())
     {
@@ -444,9 +464,15 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/)
 
         if (OpenDialog.DoModal() == IDOK)
         {
-            UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
             // eliminate the k_nTextureLoadCommandMask mask for usage...
-            LoadCustomSpriteFromPath(nCorrectedPosition, OpenDialog.GetPathName().GetBuffer());
+            UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
+
+            if (nCorrectedPosition > MAX_IMAGES_DISPLAYABLE)
+            {
+                nCorrectedPosition -= FLIPPED_IMAGES_MESSAGE_OFFSET;
+            }
+
+            LoadCustomSpriteFromPath(nCorrectedPosition, direction, OpenDialog.GetPathName().GetBuffer());
         }
     }
     else

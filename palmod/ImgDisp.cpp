@@ -539,7 +539,7 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
     return false;
 }
 
-bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocation)
+bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszTextureLocation)
 {
     CFile TextureFile;
 
@@ -549,7 +549,7 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
         safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
 
         // Filename of form: MvC2_D-offset-2230419-W-60-H-98
-        pszTextureLocation = _wcslwr(pszTextureLocation);
+        _wcslwr(pszTextureLocation);
         WCHAR* pszDataW = wcsstr(pszTextureLocation, L"-w-");
         WCHAR* pszDataH = wcsstr(pszTextureLocation, L"-h-");
         WCHAR* pszTermination = wcsstr(pszTextureLocation, L".data");
@@ -594,7 +594,24 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
                     OutputDebugString(wcsstr);
 
                     TextureFile.SeekToBegin();
-                    TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
+
+                    if (direction == SpriteImportDirection::TopDown)
+                    {
+                        TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
+                    }
+                    else
+                    {
+                        int nCurrentFilePosition = nSizeToRead;
+                        nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
+
+                        // We need to flip this line by line
+                        for (int nLinePosition = 0; nLinePosition < m_nTextureOverrideH[nPositionToLoadTo]; nLinePosition++)
+                        {
+                            //TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
+                            TextureFile.Read(&m_ppSpriteOverrideTexture[nPositionToLoadTo][nCurrentFilePosition], m_nTextureOverrideW[nPositionToLoadTo]);
+                            nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
+                        }                        
+                    }
 
                     TextureFile.Close();
 

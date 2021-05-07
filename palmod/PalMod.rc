@@ -440,6 +440,7 @@ BEGIN
     BEGIN
         MENUITEM "Export Image",                ID_FILE_EXPORTIMAGE
         MENUITEM "Load Texture",                ID_FILE_LOADSPRITE
+        MENUITEM "Load Texture Flipped",        ID_FILE_LOADSPRITEFLIPPED
         MENUITEM SEPARATOR
         MENUITEM "&Close",                      ID_FILE_CLOSE
     END

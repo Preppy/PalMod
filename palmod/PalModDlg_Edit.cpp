@@ -178,7 +178,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             }
             else if (_wcsicmp(pszExtension, L".raw") == 0)
             {
-                GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(0, szPath);
+                GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(0, SpriteImportDirection::TopDown, szPath);
             }
         }
     }
@@ -453,9 +453,13 @@ void CPalModDlg::OnEditCopy()
             pSource->CacheGlobalData(CF_UNICODETEXT, hMemUnicode);
         }
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tSetting clipboard\r\n");
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tSetting clipboard...");
         EmptyClipboard();
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, " emptied, ");
         pSource->SetClipboard();
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "set, ");
+        pSource->FlushClipboard();
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "and saved.");
         CloseClipboard();
         g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tComplete!\r\n");
     }
