@@ -287,6 +287,7 @@ const sGame_PaletteDataset TMNTTF_SNES_STAGE_METALWORKS_PALETTES[] =
     { L"Yellow supports / Violet Foot", 0x4831E, 0x4833E },
     { L"Yellow supports / Green Foot", 0x4833C, 0x4835C },
     { L"Background", 0x4835A, 0x4837A },
+    { L"Metal Works Background Cycle", 0x9BCE, 0x9BEE },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_STAGE_MTOLYMPUS_PALETTES[] =
@@ -424,7 +425,6 @@ const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_STAGESELECTICONS[] =
     { L"Scrapyard Select Icon", 0x49E8e, 0x49EAE },
     { L"Studio 6 Select Icon", 0x49E2E, 0x49E4E },
     { L"Metro Train Select Icon", 0x49D8E, 0x49DAE },
-    
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_UNSELECTICONS[] =

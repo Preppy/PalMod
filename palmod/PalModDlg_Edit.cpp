@@ -194,18 +194,9 @@ void CPalModDlg::OnEditCopy()
 
     if (bEnabled)
     {
-        CGameClass* CurrGame = GetHost()->GetCurrGame();
-        CJunk* CurrPal = m_PalHost.GetNotifyPal();
-        int nWorkingAmt = CurrPal->GetWorkingAmt();
-        UINT8* pSelIndex = CurrPal->GetSelIndex();
-        UINT8 cbColor = 2;
-
-        UINT16 nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
-        UINT8 uCopyFlag1;
-        // We use a WCHAR as a UINT8 value to store the size.  This is compatible with all versions of palmod.
-        // For the new large palette support, this would overflow, so we're just going to set it to 0.
-        // This allows old palmod to ignore the data and current palmod to work by figuring out the size itself.
-        UINT8 uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? (UINT8)nPaletteSelectionLength : k_nASCIICharacterOffset;
+        CStringA strDebugInfo;
+        CStringA CopyText;
+        CStringA FormatTxt;
 
         if (!bOleInit)
         {
@@ -213,21 +204,43 @@ void CPalModDlg::OnEditCopy()
             return;
         }
 
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tCreating OLE source...\r\n");
         COleDataSource* pSource = new COleDataSource();
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tCreating shared file...\r\n");
         CSharedFile sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
 
-        CStringA CopyText;
-        CStringA FormatTxt;
+        CGameClass* CurrGame = GetHost()->GetCurrGame();
+        strDebugInfo.Format("\tGetting palette for game ID %u aka %S\r\n", CurrGame->GetGameFlag(), CurrGame->GetGameName());
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
+        CJunk* CurrPal = m_PalHost.GetNotifyPal();
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tFiguring out total palette size...");
+        int nWorkingAmt = CurrPal->GetWorkingAmt();
+        strDebugInfo.Format(" %u colors.\r\n\tGetting selection data\r\n", nWorkingAmt);
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
+        UINT8* pSelIndex = CurrPal->GetSelIndex();
 
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tDetermining selection length...");
+        UINT16 nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
+        UINT8 uCopyFlag1;
+        // We use a WCHAR as a UINT8 value to store the size.  This is compatible with all versions of palmod.
+        // For the new large palette support, this would overflow, so we're just going to set it to 0.
+        // This allows old palmod to ignore the data and current palmod to work by figuring out the size itself.
+        UINT8 uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? (UINT8)nPaletteSelectionLength : k_nASCIICharacterOffset;
+
+        strDebugInfo.Format(" %u color(s) are selected.\r\n\tChecking if selection is complete or partial...", nPaletteSelectionLength - k_nASCIICharacterOffset);
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
         BOOL bCopyAll = !CurrPal->GetSelAmt();
         bool fHitError = false;
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Checking color mode\r\n");
+        strDebugInfo.Format(" %s.\r\n\tChecking color mode\r\n", bCopyAll ? "complete" : "partial");
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
 
         // You want to update this table so that older or newer versions of PalMod know the bpp of the 
         // copied colors.
         // Here we map the color mode to the poster child game for historical color modes.  For all new
         // color modes we directly store the color mode the 2nd byte to keep life simple
+        UINT8 cbColor = 2;
+
         switch (CurrGame->GetColorMode())
         {
         case ColMode::COLMODE_RGB333:
@@ -299,7 +312,7 @@ void CPalModDlg::OnEditCopy()
 
         CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Formatting colors\r\n");
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tFormatting colors\r\n");
 
         int nInitialOffsetDelta = 0;
         bool fHaveSetDelta = false;
@@ -348,7 +361,7 @@ void CPalModDlg::OnEditCopy()
 
         CopyText.Append(")");
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Writing to shared file\r\n");
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tWriting to shared file\r\n");
 
         sf.Write(CopyText, CopyText.GetLength());
 
@@ -359,14 +372,14 @@ void CPalModDlg::OnEditCopy()
             return;
         }
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Cacheing to global data\r\n");
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tCacheing to global data\r\n");
         pSource->CacheGlobalData(CF_TEXT, hMem);
 
         // The above handles copying colors between palmod
         // The below handles generating the string pasted to the Unicode clipboard. This contains more useful data.
         CString strUnicodeData;
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Debug output part\r\n");
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tDebug output part\r\n");
         strUnicodeData.Format(L"%S", CopyText.GetString());
         if (m_fShowExtraCopyData)
         {
@@ -429,22 +442,22 @@ void CPalModDlg::OnEditCopy()
 
         OutputDebugString(strUnicodeData.GetString());
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Generating unicode form\r\n");
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tGenerating unicode form\r\n");
 
         CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
         sfUnicode.Write(strUnicodeData, strUnicodeData.GetLength() * sizeof(WCHAR));
         HGLOBAL hMemUnicode = sfUnicode.Detach();
         if (hMemUnicode)
         {
-            g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Cacheing unicode form\r\n");
+            g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tCacheing unicode form\r\n");
             pSource->CacheGlobalData(CF_UNICODETEXT, hMemUnicode);
         }
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Setting clipboard\r\n");
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tSetting clipboard\r\n");
         EmptyClipboard();
         pSource->SetClipboard();
         CloseClipboard();
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Complete!\r\n");
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tComplete!\r\n");
     }
 
     g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Exit\r\n");

@@ -91,6 +91,16 @@ bool CDebugHelper::HaveOutputFile()
             wcsncat(szPath, L".\\palmod-debug.txt", (ARRAYSIZE(szPath) - wcslen(szPath)));
 
             m_fDebugFileIsOpen = m_debugNotes.Open(szPath, CFile::modeWrite | CFile::typeUnicode | CFile::modeCreate);
+
+            if (m_fDebugFileIsOpen)
+            {
+                CStringA strIntro = "Howdy!  Crashes suck and I want to fix them.  At some point you crashed during a copy operation, so PalMod turned on extra logging.";
+                m_debugNotes.Write(strIntro, (UINT)strlen(strIntro));
+                strIntro = "  If you can send me this log file *after* a crash occurs, I would love the opportunity to fix whatever crash you ran into.  Thanks, and sorry that anything ever went wrong.\r\n";
+                m_debugNotes.Write(strIntro, (UINT)strlen(strIntro));
+                strIntro = "If you're tired of this file existing, delete the registry value:\r\n\tHKCU\\Software\\Knarxed\\PalMod, \"debugCanary_ContextCopy\"\r\nto stop PalMod from auto-generating it. \r\n\r\n";
+                m_debugNotes.Write(strIntro, (UINT)strlen(strIntro));
+            }
         }
     }
 

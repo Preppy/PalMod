@@ -109,11 +109,11 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
         OutputDebugString(L"Warning: unrecognized ROM.\n");
         __fallthrough;
     case SF3ROM_51:
-        m_nSafeCountForThisRom = 1249;
+        m_nSafeCountForThisRom = 1258;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_51;
         break;
     case SF3ROM_51_4rd: // Replaces Shin Gouki with Ultra Sean, which uses 3 fewer palettes
-        m_nSafeCountForThisRom = 1246;
+        m_nSafeCountForThisRom = 1258 - 3;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_4;
         break;
     case SF3ROM_70_EX: // TV's edit: removes Gill, just has character palettes but adds extra button colors

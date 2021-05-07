@@ -1942,7 +1942,16 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Select Screen - Blue Arrows",       0x709A80, 0x709B00, index3S_CPS3_Bonus, 0x14 },
     { L"Select Screen - Cursor Rings",      0x70A000, 0x070A080, index3S_CPS3_Bonus, 0x12 },
 
-    { L"Vs Text",                           0x70C780, 0x70C880 },
+    { L"VS Text 1", 0x70c800, 0x70c880 },
+    { L"VS Text 2", 0x70c880, 0x70c900 },
+    { L"VS Text 3", 0x70c900, 0x70c980 },
+    { L"VS Text 4", 0x70c980, 0x70ca00 },
+    { L"VS Text 5", 0x70ca00, 0x70ca80 },
+    { L"VS Text 6", 0x70ca80, 0x70cb00 },
+    { L"VS Text 7", 0x70cb00, 0x70cb80 },
+    { L"VS Text 8", 0x70cb80, 0x70cc00 },
+    { L"VS Text Flash 1", 0x70c780, 0x70c800 },
+    { L"VS Text Flash 2", 0x70cc00, 0x70cc80 },
 
     { L"Opening ring animation + SA Text",  0x709D00, 0x709D80 },
     { L"SA Animation",                      0x77A280, 0x77A2A0 },
@@ -1980,7 +1989,7 @@ const sGame_PaletteDataset SFIII3_A_HUD_PALETTES[] =
 const sGame_PaletteDataset SFIII3_A_SUPERMETER_PALETTES[] =
 {
     { L"Super Meter 'TIME'",                0x708ce0, 0x708d00, index3S_CPS3_Bonus, 0x0f, &pairFullyLinkedNode },
-    { L"Super Meter Base",                  0x708d20, 0x708d40, index3S_CPS3_Bonus, 0x1d },
+    { L"Super Meter Base",                  0x708d20, 0x708d40, index3S_CPS3_Bonus, 0x09 },
     { L"Super Meter Base Full",             0x708d00, 0x708d20, index3S_CPS3_Bonus, 0x0a },
     { L"Super Art Icons and End of Meter",  0x708d40, 0x708d60, index3S_CPS3_Bonus, 0x0b },
     { L"Super Meter Flashing",              0x708da0, 0x708dc0, index3S_CPS3_Bonus, 0x0c },
@@ -3010,7 +3019,7 @@ const sDescTreeNode SFIII3_A_10_UNITS[] =
 #define k_sf3NameKey_Oro L"Oro"
 #define k_sf3NameKey_Urien L"Urien"
 #define k_sf3NameKey_UltraSean L"Ultra-Sean"
-#define k_sf3NameKey_ShinGouki L"Shin Gouki"
+#define k_sf3NameKey_ShinGouki L"Shin Gouki (Unselectable)"
 
 const sDescTreeNode SFIII3_A_14_UNITS[] =
 {
@@ -3049,7 +3058,7 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_HP_PALETTES[] =
     { L"HP EX Trail",   0x00000900, 0x00000980, index3S_CPS3_Alex, 0x00 },
     { L"HP EX Flash",   0x00000980, 0x00000A00, index3S_CPS3_Alex, 0x00 },
     { L"HP Burned",     0x00000A00, 0x00000A80, index3S_CPS3_Alex, 0x00 },
-    { L"HP Shocked",    0x00000A80, 0x00000B00, index3S_CPS3_Alex, 0x00 },
+    { L"HP Shocked",    0x00000A80, 0x00000B00, index3S_CPS3_Alex, 0x08 },
     { L"HP Frozen",     0x00000B00, 0x00000B80, index3S_CPS3_Alex, 0x00 },
     { L"HP Hitsparks",  0x00000B80, 0x00000C00, index3S_CPS3_Bonus, 0x1d },
 };

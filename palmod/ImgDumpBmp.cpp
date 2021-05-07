@@ -611,7 +611,6 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
             nYCtr = (int)((double)y * fpYDiff);
 
             nStartRow = (rBltRct.top + (((nBltH - 1) - y))) * (nMainW * 4) + (rBltRct.left * 4);
-            //nStartRow = (rBltRct.top + y) * (nMainW * 4) + (rBltRct.left * 4);
             nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
             for (int x = 0; x < (nBltW * 4); x += 4)
