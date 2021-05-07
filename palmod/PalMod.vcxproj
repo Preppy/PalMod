@@ -250,6 +250,7 @@
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
     <ClCompile Include="Game\Game_Kizuna_A.cpp" />
+    <ClCompile Include="Game\Game_KI_SNES.cpp" />
     <ClCompile Include="Game\Game_KOF00N_A.cpp" />
     <ClCompile Include="Game\Game_KOF01_A.cpp" />
     <ClCompile Include="Game\Game_KOF02UM_S.cpp" />
@@ -270,6 +271,8 @@
     <ClCompile Include="Game\Game_MBAACC_S.cpp" />
     <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
     <ClCompile Include="Game\Game_MMX2_SNES.cpp" />
+    <ClCompile Include="Game\Game_MMX3_SNES.cpp" />
+    <ClCompile Include="Game\Game_MMX_SNES.cpp" />
     <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
     <ClCompile Include="Game\Game_MSHWOTG_SNES.cpp" />
     <ClCompile Include="Game\Game_MSH_A.cpp" />
@@ -283,6 +286,7 @@
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
     <ClCompile Include="Game\Game_NGBC_A.cpp" />
     <ClCompile Include="Game\Game_NinjaMasters_A.cpp" />
+    <ClCompile Include="Game\Game_RanmaHB_SNES.cpp" />
     <ClCompile Include="Game\Game_RBFF1_A.cpp" />
     <ClCompile Include="Game\Game_RBFF2_A.cpp" />
     <ClCompile Include="Game\Game_RBFFS_A.cpp" />
@@ -401,6 +405,7 @@
     <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />
     <ClInclude Include="Game\Game_KarnovsR_A.h" />
     <ClInclude Include="Game\Game_Kizuna_A.h" />
+    <ClInclude Include="Game\Game_KI_SNES.h" />
     <ClInclude Include="Game\Game_KOF00N_A.h" />
     <ClInclude Include="Game\Game_KOF01_A.h" />
     <ClInclude Include="Game\Game_KOF02UM_S.h" />
@@ -421,6 +426,8 @@
     <ClInclude Include="Game\Game_MBAACC_S.h" />
     <ClInclude Include="Game\Game_MMPR_SNES.h" />
     <ClInclude Include="Game\Game_MMX2_SNES.h" />
+    <ClInclude Include="Game\Game_MMX3_SNES.h" />
+    <ClInclude Include="Game\Game_MMX_SNES.h" />
     <ClInclude Include="Game\Game_MSHVSF_A.h" />
     <ClInclude Include="Game\Game_MSHWOTG_SNES.h" />
     <ClInclude Include="Game\Game_MSH_A.h" />
@@ -434,6 +441,7 @@
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
     <ClInclude Include="Game\Game_NGBC_A.h" />
     <ClInclude Include="Game\Game_NinjaMasters_A.h" />
+    <ClInclude Include="Game\Game_RanmaHB_SNES.h" />
     <ClInclude Include="Game\Game_RBFF1_A.h" />
     <ClInclude Include="Game\Game_RBFF2_A.h" />
     <ClInclude Include="Game\Game_RBFFS_A.h" />
@@ -486,6 +494,7 @@
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
     <ClInclude Include="Game\KarnovsR_A_DEF.h" />
     <ClInclude Include="Game\KIZUNA_A_DEF.h" />
+    <ClInclude Include="Game\KI_SNES_DEF.h" />
     <ClInclude Include="Game\KOF00N_A_DEF.h" />
     <ClInclude Include="Game\KOF01_A_DEF.h" />
     <ClInclude Include="Game\KOF02UM_S_DEF.h" />
@@ -506,6 +515,8 @@
     <ClInclude Include="Game\MBAACC_S_DEF.h" />
     <ClInclude Include="Game\MMPR_SNES_DEF.h" />
     <ClInclude Include="Game\MMX2_SNES_DEF.h" />
+    <ClInclude Include="Game\MMX3_SNES_DEF.h" />
+    <ClInclude Include="Game\MMX_SNES_DEF.h" />
     <ClInclude Include="Game\MSHVSF_A_DEF.h" />
     <ClInclude Include="Game\MSHWOTG_SNES_DEF.h" />
     <ClInclude Include="Game\MSH_A_DEF.h" />
@@ -520,6 +531,7 @@
     <ClInclude Include="Game\NinjaMasters_A_DEF.h" />
     <ClInclude Include="Game\PalGroup.h" />
     <ClInclude Include="Game\GEMFIGHTER_A_DEF.h" />
+    <ClInclude Include="Game\RanmaHB_SNES_DEF.h" />
     <ClInclude Include="Game\RBFF1_A_DEF.h" />
     <ClInclude Include="Game\RBFF2_A_DEF.h" />
     <ClInclude Include="Game\RBFFS_A_DEF.h" />

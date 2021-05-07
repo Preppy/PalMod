@@ -1,18 +1,15 @@
 #pragma once
 #include "gameclass.h"
-#include "KOF01_A_DEF.h"
+#include "KI_SNES_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOF01_A = L"KOF01E.txt";
-#define GetExtraDefForKOF01(x)((stExtraDef *)&KOF01_A_EXTRA_CUSTOM[x])
-
-class CGame_KOF01_A : public CGameWithExtrasFile
+class CGame_KI_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForKOF01;
+    static UINT32 m_nTotalPaletteCountForKI;
 
-    static int rgExtraCountAll[KOF01_A_NUMUNIT + 1];
-    static int rgExtraLoc[KOF01_A_NUMUNIT + 1];
+    static int rgExtraCountAll[KI_SNES_NUMUNIT + 1];
+    static int rgExtraLoc[KI_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -21,9 +18,12 @@ private:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
+    static constexpr auto EXTRA_FILENAME_KI_SNES = L"KIE.txt";
+    static constexpr auto KI_SNES_PRIMARY_ROMNAME = L"sns-akle-0.u1";
+
 public:
-    CGame_KOF01_A(UINT32 nConfirmedROMSize);
-    ~CGame_KOF01_A(void);
+    CGame_KI_SNES(UINT32 nConfirmedROMSize);
+    ~CGame_KI_SNES(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -49,7 +49,5 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
-
-    static stExtraDef* KOF01_A_EXTRA_CUSTOM;
+    static stExtraDef* KI_SNES_EXTRA_CUSTOM;
 };

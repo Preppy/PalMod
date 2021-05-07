@@ -1,18 +1,15 @@
 #pragma once
 #include "gameclass.h"
-#include "KOF01_A_DEF.h"
+#include "RANMAHB_SNES_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOF01_A = L"KOF01E.txt";
-#define GetExtraDefForKOF01(x)((stExtraDef *)&KOF01_A_EXTRA_CUSTOM[x])
-
-class CGame_KOF01_A : public CGameWithExtrasFile
+class CGame_RANMAHB_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForKOF01;
+    static UINT32 m_nTotalPaletteCountForRANMAHB;
 
-    static int rgExtraCountAll[KOF01_A_NUMUNIT + 1];
-    static int rgExtraLoc[KOF01_A_NUMUNIT + 1];
+    static int rgExtraCountAll[RANMAHB_SNES_NUMUNIT + 1];
+    static int rgExtraLoc[RANMAHB_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -21,9 +18,12 @@ private:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
+    static constexpr auto EXTRA_FILENAME_RANMAHB_SNES = L"RanmaHBE.txt";
+    static constexpr auto RANMAHB_SNES_PRIMARY_ROMNAME = L"ranma 1-2 - hard battle (usa).sfc";
+
 public:
-    CGame_KOF01_A(UINT32 nConfirmedROMSize);
-    ~CGame_KOF01_A(void);
+    CGame_RANMAHB_SNES(UINT32 nConfirmedROMSize);
+    ~CGame_RANMAHB_SNES(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -49,7 +49,5 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
-
-    static stExtraDef* KOF01_A_EXTRA_CUSTOM;
+    static stExtraDef* RANMAHB_SNES_EXTRA_CUSTOM;
 };

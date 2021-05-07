@@ -123,6 +123,10 @@ enum SupportedGamesList
     GGXXACR_P,
     MBAACC_S,
     KOF98AE2016_A,
+    MMX_SNES,
+    MMX3_SNES,
+    KI_SNES,
+    RANMAHB_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -137,7 +141,7 @@ enum SupportedGamesList
 // We want to keep these short for the titlebar: they're hard-limited by
 // MAX_DESCRIPTION_LENGTH (96), so 64 is probably the max we want.
 // Note that the games can override these values: these are just the defaults.
-const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
+const WCHAR g_GameFriendlyName[][64] =
 {
     L"MvC2 (Dreamcast)",
     L"SFIII3 (Arcade)",
@@ -247,9 +251,13 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
     L"GGXX:AC+R (PlayStation 3)",
     L"Melty blood Actress Again Current Code",
     L"KOF98AE (2016 Romhack)",
+    L"Mega Man X (SNES)",
+    L"Mega Man X3 (SNES)",
+    L"Killer Instinct (SNES)",
+    L"Ranma Nibunnoichi: Hard Battle (SNES)",
 };
 
-static_assert(sizeof(g_GameFriendlyName) != NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
 
 enum class GamePlatform
 {

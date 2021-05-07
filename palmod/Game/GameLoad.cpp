@@ -24,6 +24,7 @@
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
 #include "Game_KarnovsR_A.h"
+#include "Game_KI_SNES.h"
 #include "Game_Kizuna_A.h"
 #include "Game_KOF00N_A.h"
 #include "Game_KOF01_A.h"
@@ -44,7 +45,9 @@
 #include "Game_Matrimelee_A.h"
 #include "Game_MBAACC_S.h"
 #include "Game_MMPR_SNES.h"
+#include "Game_MMX_SNES.h"
 #include "Game_MMX2_SNES.h"
+#include "Game_MMX3_SNES.h"
 #include "Game_MSH_A.h"
 #include "Game_MSHVSF_A.h"
 #include "Game_MSHWOTG_SNES.h"
@@ -58,6 +61,7 @@
 #include "Game_NGBC_A.h"
 #include "Game_NINJAMASTERS_A.h"
 #include "Game_GEMFIGHTER_A.h"
+#include "Game_RanmaHB_SNES.h"
 #include "Game_RBFF1_A.h"
 #include "Game_RBFF2_A.h"
 #include "Game_RBFFS_A.h"
@@ -285,6 +289,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_KarnovsR_A::GetRule;
         return TRUE;
     }
+    case KI_SNES:
+    {
+        GetRule = &CGame_KI_SNES::GetRule;
+        return TRUE;
+    }
     case KIZUNA_A:
     {
         GetRule = &CGame_Kizuna_A::GetRule;
@@ -389,9 +398,19 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_MMPR_SNES::GetRule;
         return TRUE;
     }
+    case MMX_SNES:
+    {
+        GetRule = &CGame_MMX_SNES::GetRule;
+        return TRUE;
+    }
     case MMX2_SNES:
     {
         GetRule = &CGame_MMX2_SNES::GetRule;
+        return TRUE;
+    }
+    case MMX3_SNES:
+    {
+        GetRule = &CGame_MMX3_SNES::GetRule;
         return TRUE;
     }
     case MSH_A:
@@ -464,6 +483,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case NINJAMASTERS_A:
     {
         GetRule = &CGame_NINJAMASTERS_A::GetRule;
+        return TRUE;
+    }
+    case RANMAHB_SNES:
+    {
+        GetRule = &CGame_RANMAHB_SNES::GetRule;
         return TRUE;
     }
     case RBFF1_A: 
@@ -862,6 +886,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_KarnovsR_A(nConfirmedROMSize);
     }
+    case KI_SNES:
+    {
+        return new CGame_KI_SNES(nConfirmedROMSize);
+    }
     case KIZUNA_A:
     {
         return new CGame_Kizuna_A(nConfirmedROMSize);
@@ -943,9 +971,17 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_MMPR_SNES(nConfirmedROMSize);
     }
+    case MMX_SNES:
+    {
+        return new CGame_MMX_SNES(nConfirmedROMSize);
+    }
     case MMX2_SNES:
     {
         return new CGame_MMX2_SNES(nConfirmedROMSize);
+    }
+    case MMX3_SNES:
+    {
+        return new CGame_MMX3_SNES(nConfirmedROMSize);
     }
     case MSH_A:
     {
@@ -994,6 +1030,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case NINJAMASTERS_A:
     {
         return new CGame_NINJAMASTERS_A(nConfirmedROMSize);
+    }
+    case RANMAHB_SNES:
+    {
+        return new CGame_RANMAHB_SNES(nConfirmedROMSize);
     }
     case RBFF1_A:
     {
