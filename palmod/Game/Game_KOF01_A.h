@@ -21,6 +21,8 @@ private:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
+    static void DumpPaletteHeaders();
+
 public:
     CGame_KOF01_A(UINT32 nConfirmedROMSize);
     ~CGame_KOF01_A(void);
