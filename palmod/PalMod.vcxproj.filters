@@ -367,6 +367,9 @@
     <Filter Include="Game\Nintendo\Ranma 1/2: Hard Battle %28SNES%29">
       <UniqueIdentifier>{3637f834-52c4-4fbf-93a8-f818875ec489}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Nintendo\Ranma 1/2: Chougi Ranbu Hen %28SNES%29">
+      <UniqueIdentifier>{7c193ad6-86f0-446d-8faf-5abe2c907466}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -770,6 +773,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_RanmaHB_SNES.cpp">
       <Filter>Game\Nintendo\Ranma 1/2: Hard Battle %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_RanmaCRH_SNES.cpp">
+      <Filter>Game\Nintendo\Ranma 1/2: Chougi Ranbu Hen %28SNES%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1447,6 +1453,12 @@
     </ClInclude>
     <ClInclude Include="Game\RanmaHB_SNES_DEF.h">
       <Filter>Game\Nintendo\Ranma 1/2: Hard Battle %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_RanmaCRH_SNES.h">
+      <Filter>Game\Nintendo\Ranma 1/2: Chougi Ranbu Hen %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RanmaCRH_SNES_DEF.h">
+      <Filter>Game\Nintendo\Ranma 1/2: Chougi Ranbu Hen %28SNES%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

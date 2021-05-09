@@ -127,6 +127,7 @@ enum SupportedGamesList
     MMX3_SNES,
     KI_SNES,
     RANMAHB_SNES,
+    RANMACRH_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -255,6 +256,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Mega Man X3 (SNES)",
     L"Killer Instinct (SNES)",
     L"Ranma Nibunnoichi: Hard Battle (SNES)",
+    L"Ranma Nibunnoichi: Chougi Ranbu Hen (SNES)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -315,6 +317,7 @@ enum class ColMode
     COLMODE_xRGB888,        // 24bit
     COLMODE_xBGR888,        // 24bit
     COLMODE_ARGB1888_32STEPS, // MBAACC: 32 bit color, except only 32 steps
+    COLMODE_GRB555_LE,      // GRB555 little endian
     COLMODE_LAST,
 };
 
@@ -396,6 +399,11 @@ const LPCWSTR DEF_BUTTONLABEL_2_AOF3[] =
 const LPCWSTR DEF_BUTTONLABEL_2_LEFTRIGHT[] =
 {
     L"Left", L"Right"
+};
+
+const LPCWSTR DEF_BUTTONLABEL_4P[] =
+{
+    L"P1", L"P2", L"P3", L"P4"
 };
 
 const LPCWSTR DEF_BUTTONLABEL_NEOGEO[] =

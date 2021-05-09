@@ -61,6 +61,7 @@
 #include "Game_NGBC_A.h"
 #include "Game_NINJAMASTERS_A.h"
 #include "Game_GEMFIGHTER_A.h"
+#include "Game_RanmaCRH_SNES.h"
 #include "Game_RanmaHB_SNES.h"
 #include "Game_RBFF1_A.h"
 #include "Game_RBFF2_A.h"
@@ -483,6 +484,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case NINJAMASTERS_A:
     {
         GetRule = &CGame_NINJAMASTERS_A::GetRule;
+        return TRUE;
+    }
+    case RANMACRH_SNES:
+    {
+        GetRule = &CGame_RANMACRH_SNES::GetRule;
         return TRUE;
     }
     case RANMAHB_SNES:
@@ -1030,6 +1036,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case NINJAMASTERS_A:
     {
         return new CGame_NINJAMASTERS_A(nConfirmedROMSize);
+    }
+    case RANMACRH_SNES:
+    {
+        return new CGame_RANMACRH_SNES(nConfirmedROMSize);
     }
     case RANMAHB_SNES:
     {

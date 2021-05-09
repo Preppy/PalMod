@@ -114,6 +114,7 @@ public:
     void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_BGR555_LE); };
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
     void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_RGB555_SHARP); };
+    void SetColorFormatToGRB555_LE() { SetColorFormatTo(ColMode::COLMODE_GRB555_LE); };
     void SetColorFormatToxRGB888() { SetColorFormatTo(ColMode::COLMODE_xRGB888); };
     void SetColorFormatToxBGR888() { SetColorFormatTo(ColMode::COLMODE_xBGR888); };
     void SetColorFormatToARGB1888() { SetColorFormatTo(ColMode::COLMODE_ARGB1888); };

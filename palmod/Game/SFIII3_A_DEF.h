@@ -1928,6 +1928,10 @@ const sGame_PaletteDataset SFIII3_A_JGIRLS_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
 {
+    { L"Title Screen Logo 1/3",             0x787780, 0x787980 },
+    { L"Title Screen Logo 2/3",             0x787980, 0x787b80 },
+    { L"Title Screen Logo 3/3",             0x787b80, 0x787d00 },
+
     { L"Combo Messages",                    0x708c80, 0x708ca0, index3S_CPS3_Bonus, 0x03 },
     { L"Bonus Game Score",                  0x708d60, 0x708d80, index3S_CPS3_Bonus, 0x02 },
     { L"Timer",                             0x708c00, 0x708c20, index3S_CPS3_Bonus, 0x11 },
@@ -1941,6 +1945,14 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Select Background - Tinted",        0x70EB80, 0x70EC00, index3S_CPS3_Bonus, 0x00 },
     { L"Select Screen - Blue Arrows",       0x709A80, 0x709B00, index3S_CPS3_Bonus, 0x14 },
     { L"Select Screen - Cursor Rings",      0x70A000, 0x070A080, index3S_CPS3_Bonus, 0x12 },
+
+    { L"Select Screen - Blue Arrows (Faded)", 0x70e880, 0x70e900 },
+    { L"Win Screen BG", 0x70a400, 0x70a480 },
+    { L"Win Screen BG - Tinted", 0x70f200, 0x70f280 },
+    { L"Loss Screen BG", 0x70b680, 0x70b700 },
+    { L"Loss Screen BG - Tinted", 0x710480, 0x710500 },
+    { L"Loss Screen BG 2", 0x70b580, 0x70b600 },
+    { L"Loss Screen BG 2 - Tinted", 0x710380, 0x710400 },
 
     { L"VS Text 1", 0x70c800, 0x70c880 },
     { L"VS Text 2", 0x70c880, 0x70c900 },

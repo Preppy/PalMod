@@ -43,7 +43,7 @@ CGame_KOF01_A::CGame_KOF01_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF01_A_NUMUNIT;
     m_nExtraUnit = KOF01_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 848;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1447;
     m_pszExtraFilename = EXTRA_FILENAME_KOF01_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF01;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -126,7 +126,7 @@ sDescTreeNode* CGame_KOF01_A::InitDescTree()
     );
 
     // For development use to speed things up
-    //DumpPaletteHeaders();
+    DumpPaletteHeaders();
 
     return NewDescTree;
 }
@@ -136,7 +136,9 @@ struct sKOF01_A_PaletteData
     LPCWSTR pszCharacterName;
     UINT32 nROMOffset = 0;
     UINT32 nTerminalROMOffset = 0;
-    LPCWSTR pszImageSet = L"indexKOFSprites_01Kyo";
+    LPCWSTR pszImageSet = L"indexKOFSprites_02UM_K";
+    bool fHasEffects = true;
+    bool fIsBoss = false; // bosses don't have some portraits
 };
 
 sKOF01_A_PaletteData KOF01_A_CharacterPalettes[] =
@@ -147,15 +149,15 @@ sKOF01_A_PaletteData KOF01_A_CharacterPalettes[] =
     { L"Lin", 0x387d22, 0x387d42, L"indexKOFSprites_02UM_Lin" },
     { L"Kyo", 0x388122, 0x388142, L"indexKOFSprites_02UM_KyoKusa" },
     { L"Benimaru", 0x388522, 0x388542, L"indexKOFSprites_02UM_Benimaru" },
-    { L"Goro", 0x388922, 0x388942, L"indexKOFSprites_02UM_Daimon" },
-    { L"Shingo", 0x388d22, 0x388d42, L"indexKOFSprites_02UM_Shingo" },
+    { L"Goro", 0x388922, 0x388942, L"indexKOFSprites_02UM_Daimon", false },
+    { L"Shingo", 0x388d22, 0x388d42, L"indexKOFSprites_02UM_Shingo", false },
     { L"Iori", 0x389122, 0x389142, L"indexKOFSprites_02UM_Iori" },
-    { L"Vanessa", 0x389522, 0x389542, L"indexKOFSprites_02UM_Vanessa" },
+    { L"Vanessa", 0x389522, 0x389542, L"indexKOFSprites_02UM_Vanessa", false },
     { L"Seth", 0x389922, 0x389942, L"indexKOFSprites_02UM_Seth" },
-    { L"Ramon", 0x389d22, 0x389d42, L"indexKOFSprites_02UM_Ramon" },
+    { L"Ramon", 0x389d22, 0x389d42, L"indexKOFSprites_02UM_Ramon", false },
     { L"Leona", 0x38a122, 0x38a142, L"indexKOFSprites_02UM_Leona" },
-    { L"Ralf", 0x38a522, 0x38a542, L"indexKOFSprites_02UM_Ralf" },
-    { L"Clark", 0x38a922, 0x38a942, L"indexKOFSprites_02UM_Clark" },
+    { L"Ralf", 0x38a522, 0x38a542, L"indexKOFSprites_02UM_Ralf", false },
+    { L"Clark", 0x38a922, 0x38a942, L"indexKOFSprites_02UM_Clark", false },
     { L"Heidern", 0x38ad22, 0x38ad42, L"indexKOF01Sprites_Heidern" },
     { L"Terry", 0x38b122, 0x38b142, L"indexKOFSprites_02UM_Terry" },
     { L"Andy", 0x38b522, 0x38b542, L"indexKOFSprites_02UM_Andy" },
@@ -167,22 +169,22 @@ sKOF01_A_PaletteData KOF01_A_CharacterPalettes[] =
     { L"Takuma", 0x38cd22, 0x38cd42, L"indexKOFSprites_02UM_Takuma" },
     { L"King", 0x38d122, 0x38d142, L"indexKOFSprites_02UM_King" },
     { L"Mai", 0x38d522, 0x38d542, L"indexKOFSprites_02UM_Mai" },
-    { L"Hinako", 0x38d922, 0x38d942, L"indexKOFSprites_02UM_Hinako" },
+    { L"Hinako", 0x38d922, 0x38d942, L"indexKOFSprites_02UM_Hinako", false },
     { L"Xiangfei", 0x38dd22, 0x38dd42, L"indexKOF01Sprites_Xiangfei" },
     { L"Kula", 0x38e122, 0x38e142, L"indexKOFSprites_02UM_Kula" },
     { L"Foxy", 0x38e522, 0x38e542, L"indexKOF01Sprites_Foxy" },
     { L"K9999", 0x38e922, 0x38e942, L"indexKOFSprites_02UM_K9999" },
-    { L"Angel", 0x38ed22, 0x38ed42, L"indexKOFSprites_02UM_Angel" },
+    { L"Angel", 0x38ed22, 0x38ed42, L"indexKOFSprites_02UM_Angel", false },
     { L"Athena", 0x38f122, 0x38f142, L"indexKOF01Sprites_Athena" },
     { L"Kensou", 0x38f522, 0x38f542, L"indexKOFSprites_02UM_Kensou" },
     { L"Chin", 0x38f922, 0x38f942, L"indexKOFSprites_02UM_Chin" },
     { L"Bao", 0x38fd22, 0x38fd42, L"indexKOFSprites_02UM_Bao" },
-    { L"Kim", 0x390122, 0x390142, L"indexKOFSprites_02UM_Kim" },
+    { L"Kim", 0x390122, 0x390142, L"indexKOFSprites_02UM_Kim", false },
     { L"Chang", 0x390522, 0x390542, L"indexKOFSprites_02UM_Chang" },
     { L"Choi", 0x390922, 0x390942, L"indexKOFSprites_02UM_Choi" },
-    { L"May Lee", 0x390d22, 0x390d42, L"indexKOFSprites_02UM_MayLee" },
-    { L"Zero", 0x391122, 0x391142, L"indexKOFSprites_02UM_ZeroOG" },
-    { L"Igniz", 0x391522, 0x391542, L"indexKOFSprites_02UM_Igniz" },
+    { L"May Lee", 0x390d22, 0x390d42, L"indexKOFSprites_02UM_MayLee", false },
+    { L"Zero", 0x391122, 0x391142, L"indexKOFSprites_02UM_ZeroOG", false, true },
+    { L"Igniz", 0x391522, 0x391542, L"indexKOFSprites_02UM_Igniz", false, true },
 };
 
 struct sKOF01_A_EffectData
@@ -234,8 +236,17 @@ void CGame_KOF01_A::DumpPaletteHeaders()
     CString strOutput;
     const UINT16 nColorOptionsPerCharacter = ARRAYSIZE(DEF_BUTTONLABEL_2_PK);
     constexpr UINT32 KOF01_PALETTE_LENGTH = 0x20;
+    constexpr UINT32 KOF01_PALETTE_DOUBLE_LENGTH = 0x40;
     constexpr UINT32 KOF01_CHARACTER_LENGTH = 0x200;
     const UINT16 nCountStatusEffects = 8;
+
+    const UINT32 KOF01_STRIKER_START = 0x398322;
+    const UINT32 KOF01_ORDERSELECT_START = 0x399322;
+    const UINT32 KOF01_SELECTPORTRAIT_START = 0x399f22;
+    const UINT32 KOF01_WINPORTRAIT_START = 0x39d122;
+    const UINT32 KOF01_LIFEBARPORTRAIT_START = 0x3b8922;
+    const UINT32 KOF01_NEXTCHARACTERPORTRAIT_P_START = 0x3b7d22;
+    const UINT32 KOF01_NEXTCHARACTERPORTRAIT_K_START = 0x3b8222;
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF01_A_CharacterPalettes); nCharIndex++)
     {
@@ -273,6 +284,74 @@ void CGame_KOF01_A::DumpPaletteHeaders()
                 strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, %s },\r\n", ppszPaletteLines[nPaletteIndex], nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH, KOF01_A_CharacterPalettes[nCharIndex].pszImageSet);
                 OutputDebugString(strOutput);
             }
+
+            if (!KOF01_A_CharacterPalettes[nCharIndex].fIsBoss)
+            {
+                // There are three palette lengths between striker portraits
+                nCurrentOffset = KOF01_STRIKER_START + (3 * nCharIndex * KOF01_PALETTE_LENGTH) + (nColorIndex * KOF01_PALETTE_LENGTH);
+                strOutput.Format(L"    { L\"Striker Portrait\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH);
+                OutputDebugString(strOutput);
+            }
+
+            nCurrentOffset = KOF01_ORDERSELECT_START + (ARRAYSIZE(DEF_BUTTONLABEL_2_PK) * nCharIndex * KOF01_PALETTE_LENGTH) + (nColorIndex * KOF01_PALETTE_LENGTH);
+            strOutput.Format(L"    { L\"Order Select Portrait\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH);
+            OutputDebugString(strOutput);
+
+            if (!KOF01_A_CharacterPalettes[nCharIndex].fIsBoss)
+            {
+                // this area is select portrait p, select portrait k, then the shared three win portrait assist
+                nCurrentOffset = KOF01_SELECTPORTRAIT_START + (5 * nCharIndex * KOF01_PALETTE_DOUBLE_LENGTH) + (nColorIndex * KOF01_PALETTE_DOUBLE_LENGTH);
+                strOutput.Format(L"    { L\"Select Portrait\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_DOUBLE_LENGTH);
+                OutputDebugString(strOutput);
+            }
+
+            nCurrentOffset = KOF01_WINPORTRAIT_START + (ARRAYSIZE(DEF_BUTTONLABEL_2_PK) * nCharIndex * KOF01_PALETTE_DOUBLE_LENGTH) + (nColorIndex * KOF01_PALETTE_DOUBLE_LENGTH);
+            strOutput.Format(L"    { L\"Win Portrait\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_DOUBLE_LENGTH);
+            OutputDebugString(strOutput);
+
+            nCurrentOffset = KOF01_LIFEBARPORTRAIT_START + (ARRAYSIZE(DEF_BUTTONLABEL_2_PK) * nCharIndex * KOF01_PALETTE_LENGTH) + (nColorIndex * KOF01_PALETTE_LENGTH);
+            strOutput.Format(L"    { L\"Lifebar Portrait\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH);
+            OutputDebugString(strOutput);
+
+            if (!KOF01_A_CharacterPalettes[nCharIndex].fIsBoss)
+            {
+                if (nColorIndex == 0)
+                {
+                    nCurrentOffset = KOF01_NEXTCHARACTERPORTRAIT_P_START + (nCharIndex * KOF01_PALETTE_LENGTH);
+                }
+                else
+                {
+                    nCurrentOffset = KOF01_NEXTCHARACTERPORTRAIT_K_START + (nCharIndex * KOF01_PALETTE_LENGTH);
+                }
+
+                strOutput.Format(L"    { L\"Next Character Lifebar Portrait\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH);
+                OutputDebugString(strOutput);
+            }
+
+            OutputDebugString(L"};\r\n\r\n");
+        }
+    }
+
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF01_A_CharacterPalettes); nCharIndex++)
+    {
+        if (!KOF01_A_CharacterPalettes[nCharIndex].fIsBoss)
+        {
+            WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+            StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF01_A_CharacterPalettes[nCharIndex].pszCharacterName);
+
+            strOutput.Format(L"const sGame_PaletteDataset KOF01_A_%s_WINPORTRAIT_PALETTES[] = \r\n{\r\n", szCodeDesc);
+            OutputDebugString(strOutput);
+
+            // this area is select portrait p, select portrait k, then the shared three win portrait assist
+            UINT32 nCurrentOffset = KOF01_SELECTPORTRAIT_START + (5 * nCharIndex * KOF01_PALETTE_DOUBLE_LENGTH) + (2 * KOF01_PALETTE_DOUBLE_LENGTH);
+            strOutput.Format(L"    { L\"Win Portrait Assist 1\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_DOUBLE_LENGTH);
+            OutputDebugString(strOutput);
+            nCurrentOffset = KOF01_SELECTPORTRAIT_START + (5 * nCharIndex * KOF01_PALETTE_DOUBLE_LENGTH) + (3 * KOF01_PALETTE_DOUBLE_LENGTH);
+            strOutput.Format(L"    { L\"Win Portrait Assist 2\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_DOUBLE_LENGTH);
+            OutputDebugString(strOutput);
+            nCurrentOffset = KOF01_SELECTPORTRAIT_START + (5 * nCharIndex * KOF01_PALETTE_DOUBLE_LENGTH) + (4 * KOF01_PALETTE_DOUBLE_LENGTH);
+            strOutput.Format(L"    { L\"Win Portrait Assist 3\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_DOUBLE_LENGTH);
+            OutputDebugString(strOutput);
 
             OutputDebugString(L"};\r\n\r\n");
         }
@@ -315,8 +394,17 @@ void CGame_KOF01_A::DumpPaletteHeaders()
             OutputDebugString(strOutput);
         }
 
-        strOutput.Format(L"    { L\"Effects\", DESC_NODETYPE_TREE, (void*)KOF01_A_%sEFFECTS_PALETTES, ARRAYSIZE(KOF01_A_%sEFFECTS_PALETTES) },\r\n", szCodeDesc, szCodeDesc);
-        OutputDebugString(strOutput);
+        if (!KOF01_A_CharacterPalettes[nCharIndex].fIsBoss)
+        {
+            strOutput.Format(L"    { L\"Win Portrait Assist\", DESC_NODETYPE_TREE, (void*)KOF01_A_%s_WINPORTRAIT_PALETTES, ARRAYSIZE(KOF01_A_%s_WINPORTRAIT_PALETTES) },\r\n", szCodeDesc, szCodeDesc);
+            OutputDebugString(strOutput);
+        }
+
+        if (KOF01_A_CharacterPalettes[nCharIndex].fHasEffects)
+        {
+            strOutput.Format(L"    { L\"Effects\", DESC_NODETYPE_TREE, (void*)KOF01_A_%sEFFECTS_PALETTES, ARRAYSIZE(KOF01_A_%sEFFECTS_PALETTES) },\r\n", szCodeDesc, szCodeDesc);
+            OutputDebugString(strOutput);
+        }
         OutputDebugString(L"};\r\n\r\n");
     }
 }

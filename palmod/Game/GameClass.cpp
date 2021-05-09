@@ -20,6 +20,7 @@ UINT8 GetCbForColMode(ColMode colorMode)
     case ColMode::COLMODE_RGB555_LE:
     case ColMode::COLMODE_RGB555_BE:
     case ColMode::COLMODE_RGB555_SHARP:
+    case ColMode::COLMODE_GRB555_LE:
     case ColMode::COLMODE_RGB666_NEOGEO:
     case ColMode::COLMODE_RGB333:
         return 2;
@@ -118,6 +119,7 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
         case ColMode::COLMODE_BGR555_LE:
         case ColMode::COLMODE_RGB555_LE:
         case ColMode::COLMODE_RGB555_BE:
+        case ColMode::COLMODE_GRB555_LE:
         case ColMode::COLMODE_RGB555_SHARP:
             return k_nRGBPlaneAmtForRGB555;
         case ColMode::COLMODE_RGB666_NEOGEO:
@@ -178,6 +180,7 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
         case ColMode::COLMODE_BGR555_LE:
         case ColMode::COLMODE_RGB555_LE:
         case ColMode::COLMODE_RGB555_BE:
+        case ColMode::COLMODE_GRB555_LE:
         case ColMode::COLMODE_RGB555_SHARP:
             return k_nRGBPlaneMulForRGB555;
         case ColMode::COLMODE_RGB666_NEOGEO:
@@ -338,6 +341,12 @@ BOOL CGameClass::_SetColorMode(ColMode NewMode)
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_RGB555BE_32;
         ConvCol16 = &CGameClass::CONV_32_RGB555BE;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+        return TRUE;
+    case ColMode::COLMODE_GRB555_LE:
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_GRB555LE_32;
+        ConvCol16 = &CGameClass::CONV_32_GRB555LE;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
     case ColMode::COLMODE_RGB555_SHARP:
@@ -570,6 +579,54 @@ UINT16 CGameClass::CONV_32_RGB555LE(UINT32 inCol)
 
     //auxr = auxr; no-op
     auxg = auxg << 5;
+    auxb = auxb << 10;
+
+    return SWAP_16(auxb | auxg | auxr);
+}
+
+UINT32 CGameClass::CONV_GRB555LE_32(UINT16 inCol)
+{
+    UINT16 swapped = SWAP_16(inCol);
+
+    UINT32 auxb = (swapped & 0x7C00) >> 10;
+    UINT32 auxr = (swapped & 0x3E0) >> 5;
+    UINT32 auxg = (swapped & 0x1F);
+    UINT32 auxa = 0x0;
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
+
+    auxr = auxr << 3;
+    auxg = auxg << 3;
+    auxb = auxb << 3;
+
+    // account for rounding
+    auxr += auxr / 32;
+    auxg += auxg / 32;
+    auxb += auxb / 32;
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT16 CGameClass::CONV_32_GRB555LE(UINT32 inCol)
+{
+    UINT16 auxb = (inCol & 0x00FF0000) >> 16;
+    UINT16 auxg = (inCol & 0x0000FF00) >> 8;
+    UINT16 auxr = (inCol & 0x000000FF);
+
+    auxb = (UINT16)round(auxb / 8);
+    auxg = (UINT16)round(auxg / 8);
+    auxr = (UINT16)round(auxr / 8);
+
+    auxr = auxr << 5;
+    auxg = auxg; // no-op
     auxb = auxb << 10;
 
     return SWAP_16(auxb | auxg | auxr);

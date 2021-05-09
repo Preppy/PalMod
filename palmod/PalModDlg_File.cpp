@@ -66,6 +66,7 @@ sSupportedGameList SupportedGameList[] =
     { NeoBomberman_A,   L"Neo Bomberman", L"Neo Bomberman|093-p1.*|", GamePlatform::NEOGEO },
     { NGBC_A,           L"NGBC", L"NGBC|NeoGeoBattleColliseum.bin|", GamePlatform::SammyAtomiswave },
     { NINJAMASTERS_A,   L"Ninja Master's", L"Ninja Master's|217-p2.*;ninjm_p2.rom|", GamePlatform::NEOGEO },
+    { RANMACRH_SNES,    L"Ranma Nibunnoichi: CRH (SNES)", L"Ranma Nibunnoichi: CRH (SNES)|Ranma Nibunnoichi - Chougi Ranbu Hen (J).sfc;ranma 1-2 - chougi ranbu hen (japan).sfc|", GamePlatform::Nintendo },
     { RANMAHB_SNES,     L"Ranma Nibunnoichi: HB (SNES)", L"Ranma Nibunnoichi: HB (SNES)|ranma 1-2 - hard battle (usa).sfc|", GamePlatform::Nintendo },
     { ROTD_A,           L"Rage of the Dragons", L"Rage of the Dragons|264-p1.*|", GamePlatform::NEOGEO },
     { RBFF1_A,          L"Real Bout Fatal Fury", L"Real Bout Fatal Fury|095-p1.*;rbff1_p1.rom|", GamePlatform::NEOGEO, GameSeries::FatalFury },
@@ -358,6 +359,7 @@ void CPalModDlg::UpdateColorFormatMenu()
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_ALT, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_BE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_GBA, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR555_LE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_SHARPRGB, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_SHARP) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_GRB555_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_GRB555_LE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB666_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_xRGB888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xRGB888) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_xBGR888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xBGR888) ? MF_CHECKED : MF_UNCHECKED));
@@ -384,6 +386,7 @@ void CPalModDlg::UpdateColorFormatMenu()
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_ALT, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_GBA, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_GRB555_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_SHARPRGB, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB666, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_xRGB888, canChangeFormat ? MF_ENABLED : MF_DISABLED);

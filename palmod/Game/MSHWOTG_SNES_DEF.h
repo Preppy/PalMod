@@ -144,7 +144,7 @@ const sGame_PaletteDataset MSHWOTG_BONUS_TITLE_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BONUS_ENEMY_PALETTES[] =
 {
-    { L"Dr. Doom", 0x6FBCC, 0x6FBEC, indexMSHWOTGSprites_DrDoom },
+    { L"Dr. Doom", 0xFA7A0, 0xFA7C0, indexMSHWOTGSprites_DrDoom },
     { L"Doombot 1", 0xFA7E0, 0xFA800 },
     { L"Doombot 2", 0xFA800, 0xFA820 },
     { L"Doombot 3", 0xFA820, 0xFA840 },

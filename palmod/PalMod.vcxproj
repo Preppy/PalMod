@@ -286,6 +286,7 @@
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
     <ClCompile Include="Game\Game_NGBC_A.cpp" />
     <ClCompile Include="Game\Game_NinjaMasters_A.cpp" />
+    <ClCompile Include="Game\Game_RanmaCRH_SNES.cpp" />
     <ClCompile Include="Game\Game_RanmaHB_SNES.cpp" />
     <ClCompile Include="Game\Game_RBFF1_A.cpp" />
     <ClCompile Include="Game\Game_RBFF2_A.cpp" />
@@ -441,6 +442,7 @@
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
     <ClInclude Include="Game\Game_NGBC_A.h" />
     <ClInclude Include="Game\Game_NinjaMasters_A.h" />
+    <ClInclude Include="Game\Game_RanmaCRH_SNES.h" />
     <ClInclude Include="Game\Game_RanmaHB_SNES.h" />
     <ClInclude Include="Game\Game_RBFF1_A.h" />
     <ClInclude Include="Game\Game_RBFF2_A.h" />
@@ -531,6 +533,7 @@
     <ClInclude Include="Game\NinjaMasters_A_DEF.h" />
     <ClInclude Include="Game\PalGroup.h" />
     <ClInclude Include="Game\GEMFIGHTER_A_DEF.h" />
+    <ClInclude Include="Game\RanmaCRH_SNES_DEF.h" />
     <ClInclude Include="Game\RanmaHB_SNES_DEF.h" />
     <ClInclude Include="Game\RBFF1_A_DEF.h" />
     <ClInclude Include="Game\RBFF2_A_DEF.h" />

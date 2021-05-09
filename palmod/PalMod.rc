@@ -408,6 +408,7 @@ BEGIN
             MENUITEM "BGR555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
             MENUITEM "RGB555 (Sharp X68000)",       ID_COLORFORMAT_SHARPRGB
+            MENUITEM "GRB555 (little endian)",      ID_COLORFORMAT_GRB555_LE
             MENUITEM "RGB666 (Neo-Geo)",            ID_COLORFORMAT_RGB666
             MENUITEM "xRGB888 (24-bit)",            ID_COLORFORMAT_xRGB888
             MENUITEM "xBGR888 (24-bit)",            ID_COLORFORMAT_xBGR888

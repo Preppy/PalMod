@@ -103,6 +103,8 @@ protected:
     static UINT32 CONV_RGB555LE_32(UINT16 inCol);
     static UINT16 CONV_32_RGB555BE(UINT32 inCol);
     static UINT32 CONV_RGB555BE_32(UINT16 inCol);
+    static UINT16 CONV_32_GRB555LE(UINT32 inCol);
+    static UINT32 CONV_GRB555LE_32(UINT16 inCol);
     static UINT16 CONV_32_RGB666NeoGeo(UINT32 inCol);
     static UINT32 CONV_RGB666NeoGeo_32(UINT16 inCol);
     static UINT16 CONV_32_RGB555Sharp(UINT32 inCol);
