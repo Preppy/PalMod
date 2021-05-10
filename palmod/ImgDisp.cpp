@@ -723,6 +723,15 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
 
     int nRightBlt = rBltRct.right * 4;
 
+    UINT16 nTransparencyPosition = 0;
+    UINT16 nMaxWritePerTransparency = 16;
+
+    if (GetHost()->GetCurrGame())
+    {
+        nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+        nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+    }
+
     for (int yIndex = 0; yIndex < nBltH; yIndex++)
     {
         int nStartRow = (rBltRct.top + ((nBltH - 1) - yIndex)) * (MAIN_W * 4) + (rBltRct.left * 4);
@@ -732,7 +741,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
         {
             UINT8 uIndex = pImgData[nSrcStartRow + (xIndex / 4)];
 
-            if (uIndex)
+            if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
             {
                 int nDstPos = nStartRow + xIndex;
 

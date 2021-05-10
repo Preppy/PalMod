@@ -133,7 +133,7 @@ protected:
         // Normally zero, but we can offset by one in some cases.
         UINT8 nStartingPosition = NO_SPECIAL_OPTIONS;
         PALWriteOutputOptions eWriteOutputOptions = PALWriteOutputOptions::WRITE_16;
-        UINT8 nTransparencyColorPosition = 0;
+        UINT16 nTransparencyColorPosition = 0;
     };
 
     sCreatePalOptions createPalOptions;
@@ -220,6 +220,7 @@ public:
 
     void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { createPalOptions.eWriteOutputOptions = eUpdatedOption; };
     PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return createPalOptions.eWriteOutputOptions; };
+    UINT16 GetTransparencyColorPosition() { return createPalOptions.nTransparencyColorPosition; };
 
     BOOL SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt = 1, int nMax = 6);
 

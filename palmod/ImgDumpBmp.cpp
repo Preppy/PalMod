@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "ImgDumpBmp.h"
+#include "PalMod.h"
 
 #include "windows.h"
 
@@ -565,24 +566,27 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
     nBltW = rBltRct.right - rBltRct.left;
     nBltH = rBltRct.bottom - rBltRct.top;
 
+    UINT16 nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+    UINT16 nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+        
     if (bTransBG)
     {
-        for (int y = 0; y < nBltH; y++)
+        for (int yIndex = 0; yIndex < nBltH; yIndex++)
         {
-            nYCtr = (int)((double)y * fpYDiff);
+            nYCtr = (int)((double)yIndex * fpYDiff);
 
-            nStartRow = (y + rBltRct.top) * (nMainW * 4) + (rBltRct.left * 4);
+            nStartRow = (yIndex + rBltRct.top) * (nMainW * 4) + (rBltRct.left * 4);
             nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
-            for (int x = 0; x < (nBltW * 4); x += 4)
+            for (int xIndex = 0; xIndex < (nBltW * 4); xIndex += 4)
             {
-                nXCtr = (int)((double)x * fpXDiff);
+                nXCtr = (int)((double)xIndex * fpXDiff);
 
                 uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
 
-                if (uIndex) // don't draw the background color
+                if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
                 {
-                    nDstPos = nStartRow + x;
+                    nDstPos = nStartRow + xIndex;
 
 #ifdef BLEND_TO_BACKGROUND
                     // zachd 2020/10/02: I am baffled why we would blend to background on a transparent background.  For one image there's nothing to blend to.  For multiple images we break layering and instead
@@ -604,24 +608,24 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
             }
         }
     }
-    else
+    else // show the background color they've selected
     {
-        for (int y = 0; y < nBltH; y++)
+        for (int yIndex = 0; yIndex < nBltH; yIndex++)
         {
-            nYCtr = (int)((double)y * fpYDiff);
+            nYCtr = (int)((double)yIndex * fpYDiff);
 
-            nStartRow = (rBltRct.top + (((nBltH - 1) - y))) * (nMainW * 4) + (rBltRct.left * 4);
+            nStartRow = (yIndex + rBltRct.top) * (nMainW * 4) + (rBltRct.left * 4);
             nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
-            for (int x = 0; x < (nBltW * 4); x += 4)
+            for (int xIndex = 0; xIndex < (nBltW * 4); xIndex += 4)
             {
-                nXCtr = (int)((double)x * fpXDiff);
+                nXCtr = (int)((double)xIndex * fpXDiff);
 
                 uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
 
-                if (uIndex) // don't draw the background color
+                if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
                 {
-                    nDstPos = nStartRow + x;
+                    nDstPos = nStartRow + xIndex;
 
                     double fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
                     double fpDstA1 = 1.0 - fpDstA2;
@@ -777,7 +781,7 @@ void CImgDumpBmp::ResizeMainBmp()
         DeleteObject(MainHBmp);
 
         MainBmpi.bmiHeader.biWidth = nMainW;
-        MainBmpi.bmiHeader.biHeight = nMainH;
+        MainBmpi.bmiHeader.biHeight = -nMainH;
         MainBmpi.bmiHeader.biPlanes = 1;
         MainBmpi.bmiHeader.biBitCount = 32;
         MainBmpi.bmiHeader.biCompression = BI_RGB;

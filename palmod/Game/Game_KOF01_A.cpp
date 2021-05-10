@@ -43,7 +43,7 @@ CGame_KOF01_A::CGame_KOF01_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF01_A_NUMUNIT;
     m_nExtraUnit = KOF01_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1447;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1463;
     m_pszExtraFilename = EXTRA_FILENAME_KOF01_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF01;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -126,7 +126,7 @@ sDescTreeNode* CGame_KOF01_A::InitDescTree()
     );
 
     // For development use to speed things up
-    DumpPaletteHeaders();
+    //DumpPaletteHeaders();
 
     return NewDescTree;
 }
@@ -183,8 +183,8 @@ sKOF01_A_PaletteData KOF01_A_CharacterPalettes[] =
     { L"Chang", 0x390522, 0x390542, L"indexKOFSprites_02UM_Chang" },
     { L"Choi", 0x390922, 0x390942, L"indexKOFSprites_02UM_Choi" },
     { L"May Lee", 0x390d22, 0x390d42, L"indexKOFSprites_02UM_MayLee", false },
-    { L"Zero", 0x391122, 0x391142, L"indexKOFSprites_02UM_ZeroOG", false, true },
-    { L"Igniz", 0x391522, 0x391542, L"indexKOFSprites_02UM_Igniz", false, true },
+    { L"Zero", 0x391122, 0x391142, L"indexKOFSprites_02UM_ZeroOG", true, true },
+    { L"Igniz", 0x391522, 0x391542, L"indexKOFSprites_02UM_Igniz", true, true },
 };
 
 struct sKOF01_A_EffectData
