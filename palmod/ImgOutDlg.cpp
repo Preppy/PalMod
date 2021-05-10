@@ -472,6 +472,13 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
     if (fShouldExportAsIndexed)
     {
+        UINT16 nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+#ifdef ALLOW_MULTIPLE_TRANSPARENCY_COLORS
+        // It's technically correct for our purposes to allow for this, but also problematic since Photoshop
+        // only wants one transparency per indexed image.  So let's just turn this off for now.
+        UINT16 nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+#endif
+
         // Indexed PNG: use the lodePNG encoder
         for (int nNodeIndex = 0; nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay; nNodeIndex++)
         {
@@ -530,7 +537,11 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 // the PNG PLTE section goes up to 256 colors, so use that as our initial cap
                 for (size_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
                 {
-                    if (iCurrentColor == 0) // transparency color
+#ifdef ALLOW_MULTIPLE_TRANSPARENCY_COLORS
+                    if ((iCurrentColor % nMaxWritePerTransparency) == nTransparencyPosition)
+#else
+                    if (iCurrentColor == nTransparencyPosition) // transparency color
+#endif
                     {
                         if (bTransPNG)
                         {
