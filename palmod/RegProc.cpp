@@ -449,8 +449,7 @@ void CRegProc::LoadReg(int src)
             if (RegQueryValueEx(hKey, c_previewWndPos, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
             {
                 prev_szpos = StrToRect(conv_str);
-                // This good faith check doesn't seem to do anything meaningful. 
-                // Maybe I'm overthinking issues with multiple monitors and such.
+                // This is a good faith check to make sure we didn't get positioned off-screen
                 if ((MonitorFromRect(&prev_szpos, MONITOR_DEFAULTTONULL) == nullptr) ||
                     ((prev_szpos.bottom - prev_szpos.top) < 60)) // make sure we actually have a window to work with
                 {

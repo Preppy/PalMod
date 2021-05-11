@@ -24,11 +24,13 @@ public:
     static sFileRule GetRule_30(UINT16 nRuleId) { return GetRuleInternal(30, nRuleId); };
     static sFileRule GetNextRule_31() { return GetNextRuleInternal(31); };
     static sFileRule GetRule_31(UINT16 nRuleId) { return GetRuleInternal(31, nRuleId); };
+    static sFileRule GetNextRule_50() { return GetNextRuleInternal(50); };
+    static sFileRule GetRule_50(UINT16 nRuleId) { return GetRuleInternal(50, nRuleId); };
 
     sFileRule GetNextRuleForSIMMGame() override { return GetNextRuleInternal(m_nSavedMode); };
 
     BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override { return LoadFileForSIMMGame(LoadedFile, nSIMMNumber); };
     BOOL SaveFile(CFile* SaveFile, UINT16 nSIMMNumber) override { return SaveFileForSIMMGame(SaveFile, nSIMMNumber); };
 
-    LPCWSTR GetGameName() override { return UsePaletteSetFor30() ? L"Red Earth: Stages (Arcade 3.x Rerip)" : L"Red Earth: Characters (Arcade 3.x Rerip)"; };
+    LPCWSTR GetGameName() override;
 };

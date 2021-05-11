@@ -1885,7 +1885,7 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if GAMECLASS_DBG
-            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nTotalUnitCount, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, pNewDescTree->uChildAmt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -1953,7 +1953,7 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
             UnitNode->uChildAmt = 1;
 
 #if GAMECLASS_DBG
-            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nTotalUnitCount, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, pNewDescTree->uChildAmt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }

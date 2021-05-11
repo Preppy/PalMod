@@ -73,7 +73,7 @@ sSupportedGameList SupportedGameList[] =
     { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2|240-p1.*;rb2_p1.rom|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
     { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special|223*p1*|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { REDEARTH_A,       L"Red Earth", L"Red Earth (Stages: 30, Characters: 31)|30;31|", GamePlatform::CapcomCPS3 },
+    { REDEARTH_A,       L"Red Earth", L"Red Earth (Stages: 30, Characters: 31, Next: 50)|30;31;50|", GamePlatform::CapcomCPS3 },
     { RODSM2_A,         L"Ring of Destruction: Slam Masters 2", L"Ring of Destruction: Slam Masters 2|smbe.05b|", GamePlatform::CapcomCPS12 },
     { SAMSHO1_A,        L"Samurai Shodown", L"Samurai Shodown|045-p1.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO2_A,        L"Samurai Shodown II", L"Samurai Shodown II|063-p1.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
@@ -91,6 +91,7 @@ sSupportedGameList SupportedGameList[] =
     { SFIII3_A,         L"SFIII:3S", L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", GamePlatform::CapcomCPS3 },
     { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f;bundleStreetFighterII_HF.mbundle|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+    { SVG_SNES,         L"Super Variable Geo (Japan)", L"Super Variable Geo (Japan SNES)|Super Variable Geo (J*).sfc|", GamePlatform::Nintendo },
     { SVCPLUSA_A,       L"SNK vs Capcom", L"SNK vs Capcom|svc-p2pl.bin;svc-p2sp.bin|", GamePlatform::NEOGEO },
     { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SSF2T_GBA,        L"SSF2T: Revival (GBA)", L"SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|", GamePlatform::Nintendo },
@@ -317,6 +318,10 @@ void CPalModDlg::OnBnShowPrev()
         PreviewDlg->ShowWindow(SW_SHOW);
 
         PreviewDlg->m_ImgDisp.UpdateCtrl();
+    }
+    else
+    {
+        PreviewDlg->ShowWindow(SW_HIDE);
     }
 }
 

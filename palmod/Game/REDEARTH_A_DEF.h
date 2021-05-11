@@ -1111,6 +1111,25 @@ const sDescTreeNode REDEARTH_A_UNITS_30[] =
     { L"Bonus Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_30_BONUS_COLLECTION) },
 };
 
+const sGame_PaletteDataset REDEARTH_A_50_NEXT_PALETTES[] =
+{
+    { L"Coming Next ? Leo", 0x358000, 0x358080 },
+    { L"Coming Next ? Kenji", 0x358080, 0x358100 },
+    { L"Coming Next ? Tessa", 0x358100, 0x358180 },
+    { L"Coming Next ? Mai-Ling", 0x358180, 0x358200 },
+};
+
+const sDescTreeNode REDEARTH_A_50_NEXT_COLLECTION[] =
+{
+    { L"Palettes",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_NEXT_PALETTES, ARRAYSIZE(REDEARTH_A_50_NEXT_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_UNITS_50[] =
+{
+    { L"Coming Next? text", DESC_NODETYPE_TREE, (void*)REDEARTH_A_50_NEXT_COLLECTION, ARRAYSIZE(REDEARTH_A_50_NEXT_COLLECTION) },
+};
+
+
 #ifdef UseStagePalettes
     These are mostly added now.  Checking with Yoshin if they want further edits/clarifications
 ;; RedEarth: Stages in File 30
@@ -1130,6 +1149,9 @@ constexpr auto REDEARTH_A_NUMUNIT_30 = ARRAYSIZE(REDEARTH_A_UNITS_30);
 
 constexpr auto REDEARTH_A_NUMUNIT_31 = ARRAYSIZE(REDEARTH_A_UNITS_31);
 #define REDEARTH_A_EXTRALOC_31 REDEARTH_A_NUMUNIT_31
+
+constexpr auto REDEARTH_A_NUMUNIT_50 = ARRAYSIZE(REDEARTH_A_UNITS_50);
+#define REDEARTH_A_EXTRALOC_50 REDEARTH_A_NUMUNIT_50
 
 const stExtraDef REDEARTH_A_EXTRA[] = 
 {

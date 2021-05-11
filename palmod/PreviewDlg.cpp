@@ -532,7 +532,7 @@ void CPreviewDlg::SubZoom()
     }
 }
 
-void  CPreviewDlg::UpdateZoomSetting(double fpNewZoom)
+void CPreviewDlg::UpdateZoomSetting(double fpNewZoom)
 {
     m_ImgDisp.SetZoom(fpNewZoom);
 

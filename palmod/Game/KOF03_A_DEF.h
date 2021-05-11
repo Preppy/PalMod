@@ -40,7 +40,7 @@ const UINT16 KOF03_A_IMG_UNITS[] =
     indexKOF03Sprites_Clark,        // 0xec
     indexKOF03Sprites_Duo,          // 0xed
     indexKOF03Sprites_Gato,         // 0xee
-    indexKOF03Sprites_Goro,         // 0xef
+    indexKOF03Sprites_GoroDaimon,   // 0xef
     indexKOF03Sprites_Hinako,       // 0xf0
     indexKOF03Sprites_Iori,         // 0xf1
     indexKOF03Sprites_JhunHoon,     // 0xf2

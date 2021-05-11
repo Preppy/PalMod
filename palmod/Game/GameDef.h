@@ -128,6 +128,8 @@ enum SupportedGamesList
     KI_SNES,
     RANMAHB_SNES,
     RANMACRH_SNES,
+    SVG_SNES,
+    REDEARTH_A_DIR_50,
 
     NUM_GAMES // This needs to be last
 };
@@ -257,6 +259,8 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Killer Instinct (SNES)",
     L"Ranma Nibunnoichi: Hard Battle (SNES)",
     L"Ranma Nibunnoichi: Chougi Ranbu Hen (SNES)",
+    L"Super Variable Geo (SNES)",
+    L"Red Earth: Next (Arcade Rerip)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -1553,7 +1557,7 @@ enum KOFSpriteList
     indexKOF03Sprites_Clark,        // 0xec
     indexKOF03Sprites_Duo,          // 0xed
     indexKOF03Sprites_Gato,         // 0xee
-    indexKOF03Sprites_Goro,         // 0xef
+    indexKOF03Sprites_GoroDaimon,   // 0xef
     indexKOF03Sprites_Hinako,       // 0xf0
     indexKOF03Sprites_Iori,         // 0xf1
     indexKOF03Sprites_JhunHoon,     // 0xf2

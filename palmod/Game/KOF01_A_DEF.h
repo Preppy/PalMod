@@ -10,7 +10,7 @@ const UINT16 KOF01_A_IMG_UNITS[] =
     indexKOFSprites_02UM_Lin,
     indexKOFSprites_02UM_KyoKusa,
     indexKOFSprites_02UM_Benimaru,
-    indexKOF03Sprites_Goro,
+    indexKOF03Sprites_GoroDaimon,
     indexKOFSprites_02UM_Shingo,
     indexKOFSprites_02UM_Iori,
     indexKOFSprites_02UM_Vanessa,

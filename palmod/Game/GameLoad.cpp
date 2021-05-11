@@ -94,6 +94,7 @@
 #include "Game_SPF2T_A.h"
 #include "Game_SSF2T_A.h"
 #include "Game_SSF2T_GBA.h"
+#include "Game_SVG_SNES.h"
 #include "Game_SVCPLUSA_A.h"
 #include "Game_TMNTTF_SNES.h"
 #include "Game_TopF2005_Sega.h"
@@ -534,6 +535,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+    case REDEARTH_A_DIR_50:
+    {
+        GetRuleCtr = &CGame_RedEarth_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_RedEarth_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_RedEarth_A_DIR::GetRule_50;
+        GetNextRule = &CGame_RedEarth_A_DIR::GetNextRule_50;
+
+        return TRUE;
+    }
     case RODSM2_A:
     {
         GetRule = &CGame_RODSM2_A::GetRule;
@@ -714,6 +724,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case SSF2T_GBA:
     {
         GetRule = &CGame_SSF2T_GBA::GetRule;
+        return TRUE;
+    }
+    case SVG_SNES:
+    {
+        GetRule = &CGame_SVG_SNES::GetRule;
         return TRUE;
     }
     case SVCPLUSA_A:
@@ -1069,6 +1084,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_RedEarth_A_DIR(-1, 31);
     }
+    case REDEARTH_A_DIR_50:
+    {
+        return new CGame_RedEarth_A_DIR(-1, 50);
+    }
     case RODSM2_A:
     {
         return new CGame_RODSM2_A(nConfirmedROMSize);
@@ -1189,6 +1208,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_SSF2T_GBA(nConfirmedROMSize);
     }
+    case SVG_SNES:
+    {
+        return new CGame_SVG_SNES(nConfirmedROMSize);
+    }
     case SVCPLUSA_A:
     {
         return new CGame_SVCPLUSA_A(nConfirmedROMSize);
@@ -1304,8 +1327,21 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
             break;
         }
         case REDEARTH_A:
-            nGameRule = ((wcscmp(pszFileName, L"30") == 0) ? 30 : 31);
+        {
+            if (wcscmp(pszFileName, L"30") == 0)
+            {
+                nGameRule = 30;
+            }
+            else if (wcscmp(pszFileName, L"50") == 0)
+            {
+                nGameRule = 50;
+            }
+            else
+            {
+                nGameRule = 31;
+            }
             break;
+        }
         case SFA2_A:
         {
             nGameRule = ((wcsstr(pszFileName, L".08") != nullptr) ? 8 : 7);
