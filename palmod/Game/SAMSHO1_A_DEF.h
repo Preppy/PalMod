@@ -413,7 +413,7 @@ const sGame_PaletteDataset SAMSHO1_A_BONUS_SelectScreen[] =
     { L"Map Background 1", 0x0e4c2a, 0x0e4c4a },
     { L"Map Background 2", 0x0e4c4a, 0x0e4c6a },
     { L"Map Background 3", 0x0e4c6a, 0x0e4c8a },
-    { L"Select Screen Icons", 0x0ea68a, 0x0ea82a },
+    { L"Select Screen Icons", 0x0ea68a, 0x0ea82a, indexSamSho1Sprites_Bonus, 0x00 },
 };
 
 const sDescTreeNode SAMSHO1_A_HAOHMARU_COLLECTION[] =

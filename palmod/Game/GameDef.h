@@ -256,7 +256,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"KOF98AE (2016 Romhack)",
     L"Mega Man X (SNES)",
     L"Mega Man X3 (SNES)",
-    L"Killer Instinct (SNES)",
+    L"Killer Instinct (Rev 1 SNES)",
     L"Ranma Nibunnoichi: Hard Battle (SNES)",
     L"Ranma Nibunnoichi: Chougi Ranbu Hen (SNES)",
     L"Super Variable Geo (SNES)",
@@ -1805,12 +1805,12 @@ enum KOFSpriteList
     indexKOFSprites_02UM_Stages,    // 0x1d8
 
     indexLastBlade2_Akari,          // 0x1D9
-    indexLastBlade2_Genbu,          // 0x1DA
+    indexLastBlade2_GenbuOkina,     // 0x1DA 
     indexLastBlade2_Hibiki,         // 0x1DB
     indexLastBlade2_HyoAmano,       // 0x1DC
     indexLastBlade2_Juzoh,          // 0x1DD
     indexLastBlade2_Kaede,          // 0x1DE
-    indexLastBlade2_Keiichiro,      // 0x1DF
+    indexLastBlade2_Keiichiro,      // 0x1DF Washizuka
     indexLastBlade2_KojirohKaori,   // 0x1E0
     indexLastBlade2_Kouryu,         // 0x1E1
     indexLastBlade2_LeeRekka,       // 0x1E2
@@ -1964,7 +1964,7 @@ enum KOFSpriteList
     indexLastBladeSprites_Moriya,   // 0x26C
     indexLastBladeSprites_Mukuro,   // 0x26D
     indexLastBladeSprites_Musashi,  // 0x26E
-    indexLastBladeSprites_Okina,    // 0x26F
+    indexLastBladeSprites_Okina,    // 0x26F Genbu
     indexLastBladeSprites_Shigen,   // 0x270
     indexLastBladeSprites_Washizuka, // 0x271
     indexLastBladeSprites_Yuki,     // 0x272
@@ -2308,6 +2308,7 @@ enum SamuraiShodownSpriteList
     indexSamSho1Sprites_Earthquake, // 0x62
     indexSamSho1Sprites_Galford,    // 0x63
     indexSamSho1Sprites_Genan,      // 0x64
+    indexSamSho1Sprites_Error,  
     indexSamSho1Sprites_Hanzo,      // 0x66
     indexSamSho1Sprites_Haohmaru,   // 0x67
     indexSamSho1Sprites_Jubei,      // 0x68
@@ -2550,6 +2551,46 @@ enum SupportedSNES_PaletteListIndex
     indexXMMASprites_Tusk,              // 0x53
     indexXMMASprites_Wolverine,         // 0x54
     indexXMMASprites_Bonus,             // 0x55
+
+    indexMSHWOTGSprites_Enemies,        // 0x56
+
+    indexRanmaHB1Sprites_Akane,         // 0x57
+    indexRanmaHB1Sprites_Genma,         // 0x58
+    indexRanmaHB1Sprites_Gosunkugi,     // 0x59
+    indexRanmaHB1Sprites_King,          // 0x5A
+    indexRanmaHB1Sprites_Mousse,        // 0x5B
+    indexRanmaHB1Sprites_Pantyhose,     // 0x5C
+    indexRanmaHB1Sprites_PantyhoseT,    // 0x5D
+    indexRanmaHB1Sprites_RanmaF,        // 0x5E
+    indexRanmaHB1Sprites_RanmaM,        // 0x5F
+    indexRanmaHB1Sprites_Ryoga,         // 0x60
+    indexRanmaHB1Sprites_Shampoo,       // 0x61
+    indexRanmaHB1Sprites_Ukyo,          // 0x62
+    indexRanmaHB1Sprites_Bonus,         // 0x63
+
+    indexSVGSprites_Ayako,              // 0x64
+    indexSVGSprites_Chiho,              // 0x65
+    indexSVGSprites_Erina,              // 0x66
+    indexSVGSprites_Jun,                // 0x67
+    indexSVGSprites_Kaori,              // 0x68
+    indexSVGSprites_Manami,             // 0x69
+    indexSVGSprites_Reimi,              // 0x6A
+    indexSVGSprites_Satomi,             // 0x6B
+    indexSVGSprites_Yuka,               // 0x6C
+    indexSVGSprites_Bonus,              // 0x6D
+
+    indexKISprites_Cinder,              // 0x6E
+    indexKISprites_Eyedol,              // 0x6F
+    indexKISprites_Fulgore,             // 0x70
+    indexKISprites_Glacius,             // 0x71
+    indexKISprites_Jago,                // 0x72
+    indexKISprites_Orchid,              // 0x73
+    indexKISprites_Riptor,              // 0x74
+    indexKISprites_Sabrewulf,           // 0x75
+    indexKISprites_Spinal,              // 0x76
+    indexKISprites_Thunder,             // 0x77
+    indexKISprites_TJCombo,             // 0x78
+    indexKISprites_Bonus,               // 0x79
 };
 
 enum SupportedNEOGEO_PaletteListIndex
@@ -2845,7 +2886,7 @@ enum SupportedNintendoDS_PaletteListIndex
     indexBleachDSSprites_YasutoraSado,      // 0x29
     indexBleachDSSprites_YoruichiShihoin,   // 0x2A
     indexBleachDSSprites_YuichiShibata,     // 0x2B
-    indexBleachDSSprites_Bonus,             // 0x2C,
+    indexBleachDSSprites_Bonus,             // 0x2C
 };
 
 enum eIMGDat_Sections

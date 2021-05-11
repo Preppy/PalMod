@@ -32,7 +32,7 @@ sSupportedGameList SupportedGameList[] =
     { GUNDAM_SNES,      L"Gundam Wing: Endless Duel (SNES)", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).sfc|", GamePlatform::Nintendo },
     { JOJOS_A,          L"Jojo's: HFTF", L"Jojos (Japan): HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
     { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", GamePlatform::NEOGEO }, // DataEast
-    { KI_SNES,          L"Killer Instinct (SNES)", L"Killer Instinct (SNES)|sns-akle-0.u1|", GamePlatform::Nintendo },
+    { KI_SNES,          L"Killer Instinct (Rev 1 SNES)", L"Killer Instinct (Rev 1 SNES)|Killer Instinct (USA) (Rev 1).sfc|", GamePlatform::Nintendo },
     { KOTM_A,           L"King of the Monsters", L"King of the Monsters (Neo-Geo)|016-p1.*;016-hp1.*|", GamePlatform::NEOGEO },
     { KIZUNA_A,         L"Kizuna Encounter", L"Kizuna Encounter|216-p1.*;ke_p1.rom|", GamePlatform::NEOGEO },
     { KOF94_A,          L"KOF94", L"KOF94|055-p1.*|", GamePlatform::NEOGEO, GameSeries::KOF },

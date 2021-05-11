@@ -991,13 +991,13 @@ const sGame_PaletteDataset SFIII3_A_SHINGOUKI_EXTRA_PALETTES[] =
 const sGame_PaletteDataset SFIII3_A_USEAN_LP_PALETTES[] =
 {
     { L"P1 Main", 0x703700, 0x703780, index3S_CPS3_Sean, 0x00 },
-    { L"P1 Portrait", 0x764820, 0x764840, index3S_CPS3_Sean, 0x01 },
+    { L"P1 Portrait", 0x764820, 0x764840, index3S_CPS3_Sean, 0x09 },
 };
 
 const sGame_PaletteDataset SFIII3_A_USEAN_MP_PALETTES[] =
 {
     { L"P2 Main", 0x703780, 0x703800, index3S_CPS3_Sean, 0x00 },
-    { L"P2 Portrait", 0x764840, 0x764860, index3S_CPS3_Sean, 0x01 },
+    { L"P2 Portrait", 0x764840, 0x764860, index3S_CPS3_Sean, 0x09 },
 };
 
 const sGame_PaletteDataset SFIII3_A_USEAN_Support_PALETTES[] =
@@ -1407,7 +1407,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_EXTRAS_PALETTES[] =
     { L"Right Frozen/Super Flash", 0x707180, 0x707200, index3S_CPS3_Gill },
 
     { L"Gill Cultists", 0x78F700, 0x78F780, index3S_CPS3_Gill, 0x09 },
-    { L"Kolin", 0x78f680, 0x78f700 },
+    { L"Kolin", 0x78f680, 0x78f700, index3S_CPS3_Gill, 0x0c },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_Support_PALETTES[] =
@@ -1549,8 +1549,8 @@ const sGame_PaletteDataset SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_USEAN_PORTRAIT_PALETTES[] =
 {
-    { L"Shin Gouki Character Select Icon", 0x070BE80, 0x070BF00, index3S_CPS3_ShinGouki, 0x22 },
-    { L"Shin Gouki Character Select Icon (Faded)", 0x710c80, 0x710d00, index3S_CPS3_Gouki, 0x22 },
+    { L"Shin Gouki Character Select Icon", 0x070BE80, 0x070BF00, index3S_CPS3_Sean, 0x22 },
+    { L"Shin Gouki Character Select Icon (Faded)", 0x710c80, 0x710d00, index3S_CPS3_Sean, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_PORTRAIT_PALETTES[] =
@@ -1928,9 +1928,9 @@ const sGame_PaletteDataset SFIII3_A_JGIRLS_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
 {
-    { L"Title Screen Logo 1/3",             0x787780, 0x787980 },
-    { L"Title Screen Logo 2/3",             0x787980, 0x787b80 },
-    { L"Title Screen Logo 3/3",             0x787b80, 0x787d00 },
+    { L"Title Screen Logo 1/3",             0x787780, 0x787980, index3S_CPS3_Bonus, 0x20, &pairNextAndNext },
+    { L"Title Screen Logo 2/3",             0x787980, 0x787b80, index3S_CPS3_Bonus, 0x21 },
+    { L"Title Screen Logo 3/3",             0x787b80, 0x787d00, index3S_CPS3_Bonus, 0x22 },
 
     { L"Combo Messages",                    0x708c80, 0x708ca0, index3S_CPS3_Bonus, 0x03 },
     { L"Bonus Game Score",                  0x708d60, 0x708d80, index3S_CPS3_Bonus, 0x02 },
@@ -1944,29 +1944,29 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Select Background",                 0x709D80, 0x709E00, index3S_CPS3_Bonus, 0x00 },
     { L"Select Background - Tinted",        0x70EB80, 0x70EC00, index3S_CPS3_Bonus, 0x00 },
     { L"Select Screen - Blue Arrows",       0x709A80, 0x709B00, index3S_CPS3_Bonus, 0x14 },
-    { L"Select Screen - Cursor Rings",      0x70A000, 0x070A080, index3S_CPS3_Bonus, 0x12 },
+    { L"Select Screen - Cursor Rings",      0x70A000, 0x70A080, index3S_CPS3_Bonus, 0x12 },
 
     { L"Select Screen - Blue Arrows (Faded)", 0x70e880, 0x70e900 },
-    { L"Win Screen BG", 0x70a400, 0x70a480 },
-    { L"Win Screen BG - Tinted", 0x70f200, 0x70f280 },
-    { L"Loss Screen BG", 0x70b680, 0x70b700 },
-    { L"Loss Screen BG - Tinted", 0x710480, 0x710500 },
-    { L"Loss Screen BG 2", 0x70b580, 0x70b600 },
-    { L"Loss Screen BG 2 - Tinted", 0x710380, 0x710400 },
+    { L"Win Screen BG", 0x70a400, 0x70a480, index3S_CPS3_Bonus, 0x23 },
+    { L"Win Screen BG - Tinted", 0x70f200, 0x70f280, index3S_CPS3_Bonus, 0x23 },
+    { L"Loss Screen BG", 0x70b680, 0x70b700, index3S_CPS3_Bonus, 0x24 },
+    { L"Loss Screen BG - Tinted", 0x710480, 0x710500, index3S_CPS3_Bonus, 0x24 },
+    { L"Loss Screen BG 2", 0x70b580, 0x70b600, index3S_CPS3_Bonus, 0x25 },
+    { L"Loss Screen BG 2 - Tinted", 0x710380, 0x710400, index3S_CPS3_Bonus, 0x25 },
 
-    { L"VS Text 1", 0x70c800, 0x70c880 },
-    { L"VS Text 2", 0x70c880, 0x70c900 },
-    { L"VS Text 3", 0x70c900, 0x70c980 },
-    { L"VS Text 4", 0x70c980, 0x70ca00 },
-    { L"VS Text 5", 0x70ca00, 0x70ca80 },
-    { L"VS Text 6", 0x70ca80, 0x70cb00 },
-    { L"VS Text 7", 0x70cb00, 0x70cb80 },
-    { L"VS Text 8", 0x70cb80, 0x70cc00 },
-    { L"VS Text Flash 1", 0x70c780, 0x70c800 },
-    { L"VS Text Flash 2", 0x70cc00, 0x70cc80 },
+    { L"VS Text 1", 0x70c800, 0x70c880, index3S_CPS3_Bonus, 0x1e },
+    { L"VS Text 2", 0x70c880, 0x70c900, index3S_CPS3_Bonus, 0x1e },
+    { L"VS Text 3", 0x70c900, 0x70c980, index3S_CPS3_Bonus, 0x1e },
+    { L"VS Text 4", 0x70c980, 0x70ca00, index3S_CPS3_Bonus, 0x1e },
+    { L"VS Text 5", 0x70ca00, 0x70ca80, index3S_CPS3_Bonus, 0x1e },
+    { L"VS Text 6", 0x70ca80, 0x70cb00, index3S_CPS3_Bonus, 0x1e },
+    { L"VS Text 7", 0x70cb00, 0x70cb80, index3S_CPS3_Bonus, 0x1e },
+    { L"VS Text 8", 0x70cb80, 0x70cc00, index3S_CPS3_Bonus, 0x1e },
+    { L"VS Text Flash 1", 0x70c780, 0x70c800, index3S_CPS3_Bonus, 0x1e },
+    { L"VS Text Flash 2", 0x70cc00, 0x70cc80, index3S_CPS3_Bonus, 0x1e },
 
     { L"Opening ring animation + SA Text",  0x709D00, 0x709D80 },
-    { L"SA Animation",                      0x77A280, 0x77A2A0 },
+    { L"SA Animation",                      0x77A280, 0x77A2A0, index3S_CPS3_Bonus, 0x1f },
     { L"P1 Impacts",                        0x76AC80, 0x76AD00, index3S_CPS3_Bonus, 0x1d },
     { L"P2 Impacts",                        0x76AC00, 0x76AC80, index3S_CPS3_Bonus, 0x1d },
     { L"Numerals, Inputs, Buttons: Super Art Selector", 0x709E00, 0x709E80 },

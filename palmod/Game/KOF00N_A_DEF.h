@@ -75,9 +75,9 @@ const UINT16 KOF00N_A_IMG_UNITS[] =
     indexKOFSprites_02UM_Hinako,
     indexKOFSprites_02UM_Iori,
     indexKOFSprites_02UM_Jhun,
-    indexKOFSprites_02UM_Joe,
-    indexKOFSprites_02UM_Kasumi,
-    indexKOFSprites_02UM_Kensou,
+    indexKOFSprites_02UM_Joe,       // 0x91
+    indexKOFSprites_02UM_Kasumi,    // 0x94
+    indexKOFSprites_02UM_Kensou,    // 0x95
     indexKOFSprites_02UM_Kim,
     indexKOFSprites_02UM_King,
     indexKOFSprites_02UM_Kula,
@@ -142,39 +142,39 @@ const UINT16 KOF00N_A_IMG_UNITS[] =
 // K'
 const sGame_PaletteDataset KOF00N_A_PALETTES_K_A[] =
 {
-    { L"K' A", 0xc97f0, 0xc9810, indexKOFSprites_02UM_K },
-    { L"K' A Electric Shock Effect", 0xc9850, 0xc9870, indexKOFSprites_02UM_K },
-    { L"K' A Counter Mode Flash", 0xc9890, 0xc98b0, indexKOFSprites_02UM_K },
-    { L"K' A Armor Mode Flash", 0xc98d0, 0xc98f0, indexKOFSprites_02UM_K },
-    { L"K' A Super/Guard Trail", 0xc9910, 0xc9930, indexKOFSprites_02UM_K },
+    { L"K' A", 0xc97f0, 0xc9810, indexKOF00Sprites_K },
+    { L"K' A Electric Shock Effect", 0xc9850, 0xc9870, indexKOF00Sprites_K },
+    { L"K' A Counter Mode Flash", 0xc9890, 0xc98b0, indexKOF00Sprites_K },
+    { L"K' A Armor Mode Flash", 0xc98d0, 0xc98f0, indexKOF00Sprites_K },
+    { L"K' A Super/Guard Trail", 0xc9910, 0xc9930, indexKOF00Sprites_K },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_K_B[] =
 {
-    { L"K' B", 0xc99f0, 0xc9a10, indexKOFSprites_02UM_K },
-    { L"K' B Electric Shock Effect", 0xc9a50, 0xc9a70, indexKOFSprites_02UM_K },
-    { L"K' B Counter Mode Flash", 0xc9a90, 0xc9ab0, indexKOFSprites_02UM_K },
-    { L"K' B Armor Mode Flash", 0xc9ad0, 0xc9af0, indexKOFSprites_02UM_K },
-    { L"K' B Super/Guard Trail", 0xc9b10, 0xc9b30, indexKOFSprites_02UM_K },
+    { L"K' B", 0xc99f0, 0xc9a10, indexKOF00Sprites_K },
+    { L"K' B Electric Shock Effect", 0xc9a50, 0xc9a70, indexKOF00Sprites_K },
+    { L"K' B Counter Mode Flash", 0xc9a90, 0xc9ab0, indexKOF00Sprites_K },
+    { L"K' B Armor Mode Flash", 0xc9ad0, 0xc9af0, indexKOF00Sprites_K },
+    { L"K' B Super/Guard Trail", 0xc9b10, 0xc9b30, indexKOF00Sprites_K },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_K_CD[] =
 {
-    { L"K' CD", 0xed7f0, 0xed810, indexKOFSprites_02UM_K },
-    { L"K' CD Electric Shock Effect", 0xed850, 0xed870, indexKOFSprites_02UM_K },
-    { L"K' CD Counter Mode Flash", 0xed890, 0xed8b0, indexKOFSprites_02UM_K },
-    { L"K' CD Armor Mode Flash", 0xed8d0, 0xed8f0, indexKOFSprites_02UM_K },
-    { L"K' CD Super/Guard Trail", 0xed910, 0xed930, indexKOFSprites_02UM_K },
+    { L"K' CD", 0xed7f0, 0xed810, indexKOF00Sprites_K },
+    { L"K' CD Electric Shock Effect", 0xed850, 0xed870, indexKOF00Sprites_K },
+    { L"K' CD Counter Mode Flash", 0xed890, 0xed8b0, indexKOF00Sprites_K },
+    { L"K' CD Armor Mode Flash", 0xed8d0, 0xed8f0, indexKOF00Sprites_K },
+    { L"K' CD Super/Guard Trail", 0xed910, 0xed930, indexKOF00Sprites_K },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_K_Striker[] =
 {
-    { L"Another K' A", 0xc9950, 0xc9970 },
-    { L"Another K' A Electric Shock Effect", 0xc9990, 0xc99b0 },
-    { L"Another K' B", 0xc9b50, 0xc9b70 },
-    { L"Another K' B Electric Shock Effect", 0xc9b90, 0xc9bb0 },
-    { L"Another K' CD", 0xed950, 0xed970 },
-    { L"Another K' CD Electric Shock Effect", 0xed990, 0xed9b0 },
+    { L"Another K' A", 0xc9950, 0xc9970, indexKOF00Sprites_K, 0x08 },
+    { L"Another K' A Electric Shock Effect", 0xc9990, 0xc99b0, indexKOF00Sprites_K, 0x08 },
+    { L"Another K' B", 0xc9b50, 0xc9b70, indexKOF00Sprites_K, 0x08 },
+    { L"Another K' B Electric Shock Effect", 0xc9b90, 0xc9bb0, indexKOF00Sprites_K, 0x08 },
+    { L"Another K' CD", 0xed950, 0xed970, indexKOF00Sprites_K, 0x08 },
+    { L"Another K' CD Electric Shock Effect", 0xed990, 0xed9b0, indexKOF00Sprites_K, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_K_Moves[] =
@@ -184,9 +184,9 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_K_Moves[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_K_LifebarPortrait[] =
 {
-    { L"K' A Lifebar Portrait", 0xc99d0, 0xc99f0 },
-    { L"K' B Lifebar Portrait", 0xc9bd0, 0xc9bf0 },
-    { L"K' CD Lifebar Portrait", 0xed9d0, 0xed9f0 },
+    { L"K' A Lifebar Portrait", 0xc99d0, 0xc99f0, indexKOF00Sprites_K, 0x32 },
+    { L"K' B Lifebar Portrait", 0xc9bd0, 0xc9bf0, indexKOF00Sprites_K, 0x32 },
+    { L"K' CD Lifebar Portrait", 0xed9d0, 0xed9f0, indexKOF00Sprites_K, 0x32 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_K_SelectPortrait[] =

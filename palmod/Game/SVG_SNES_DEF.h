@@ -7,111 +7,125 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
+const UINT16 SVG_SNES_IMG_UNITS[] =
+{
+    indexSVGSprites_Ayako,              // 0x64
+    indexSVGSprites_Chiho,              // 0x65
+    indexSVGSprites_Erina,              // 0x66
+    indexSVGSprites_Jun,                // 0x67
+    indexSVGSprites_Kaori,              // 0x68
+    indexSVGSprites_Manami,             // 0x69
+    indexSVGSprites_Reimi,              // 0x6A
+    indexSVGSprites_Satomi,             // 0x6B
+    indexSVGSprites_Yuka,               // 0x6C
+    indexSVGSprites_Bonus,              // 0x6D
+};
+
 const sGame_PaletteDataset SVG_SNES_YUKA_P1_PALETTES[] =
 {
-    { L"Yuka Takeuchi P1", 0xC9D0, 0xC9F0 },
+    { L"Yuka Takeuchi P1", 0xC9D0, 0xC9F0, indexSVGSprites_Yuka },
     { L"Yuka Takeuchi P1 Portrait", 0xBAB0, 0xBAF0 },
 };
 
 const sGame_PaletteDataset SVG_SNES_YUKA_P2_PALETTES[] =
 {
-    { L"Yuka Takeuchi P2", 0xC9F0, 0xCA10 },
+    { L"Yuka Takeuchi P2", 0xC9F0, 0xCA10, indexSVGSprites_Yuka },
     { L"Yuka Takeuchi P2 Portrait", 0xBAF0, 0xBB30 },
 };
 
 const sGame_PaletteDataset SVG_SNES_CHIHO_P1_PALETTES[] =
 {
-    { L"Chiho Masuda P1", 0xCA10, 0xCA30 },
+    { L"Chiho Masuda P1", 0xCA10, 0xCA30, indexSVGSprites_Chiho },
     { L"Chiho Masuda P1 Portrait", 0xBB30, 0xBBB0 },
 };
 
 const sGame_PaletteDataset SVG_SNES_CHIHO_P2_PALETTES[] =
 {
-    { L"Chiho Masuda P2", 0xCA30, 0xCA50 },
+    { L"Chiho Masuda P2", 0xCA30, 0xCA50, indexSVGSprites_Chiho },
     { L"Chiho Masuda P2 Portrait", 0xBBB0, 0xBC30 },
 };
 
 const sGame_PaletteDataset SVG_SNES_MANAMI_P1_PALETTES[] =
 {
-    { L"Manami Kusonki P1", 0xCA50, 0xCA70 },
+    { L"Manami Kusonki P1", 0xCA50, 0xCA70, indexSVGSprites_Manami },
     { L"Manami Kusonki P1 Portrait", 0xBC30, 0xBCB0 },
 };
 
 const sGame_PaletteDataset SVG_SNES_MANAMI_P2_PALETTES[] =
 {
-    { L"Manami Kusonki P2", 0xCA70, 0xCA90 },
+    { L"Manami Kusonki P2", 0xCA70, 0xCA90, indexSVGSprites_Manami },
     { L"Manami Kusonki P2 Portrait", 0xBCB0, 0xBD30 },
 };
 
 const sGame_PaletteDataset SVG_SNES_JUN_P1_PALETTES[] =
 {
-    { L"Jun Kubota P1", 0xCA90, 0xCAB0 },
+    { L"Jun Kubota P1", 0xCA90, 0xCAB0, indexSVGSprites_Jun },
     { L"Jun Kobota P1 Portrait", 0xBD30, 0xBD90 },
 };
 
 const sGame_PaletteDataset SVG_SNES_JUN_P2_PALETTES[] =
 {
-    { L"Jun Kubota P2", 0xCAB0, 0xCAD0 },
+    { L"Jun Kubota P2", 0xCAB0, 0xCAD0, indexSVGSprites_Jun },
     { L"Jun Portrait P2 Portrait", 0xBD90, 0xBDF0 },
 };
 
 const sGame_PaletteDataset SVG_SNES_AYAKO_P1_PALETTES[] =
 {
-    { L"Ayako Yuuki P1", 0xCAD0, 0xCAF0 },
+    { L"Ayako Yuuki P1", 0xCAD0, 0xCAF0, indexSVGSprites_Ayako },
     { L"Ayako Yuuki P1 Portrait", 0xBE30, 0xBEB0 },
 };
 
 const sGame_PaletteDataset SVG_SNES_AYAKO_P2_PALETTES[] =
 {
-    { L"Ayako Yuuki P2", 0xCAF0, 0xCB10 },
+    { L"Ayako Yuuki P2", 0xCAF0, 0xCB10, indexSVGSprites_Ayako },
     { L"Ayako Yuuki P2 Portrait", 0xBEB0, 0xBF30 },
 };
 
 const sGame_PaletteDataset SVG_SNES_ERINA_P1_PALETTES[] =
 {
-    { L"Erina P1", 0xCB10, 0xCB30 },
+    { L"Erina P1", 0xCB10, 0xCB30, indexSVGSprites_Erina },
     { L"Erina P1 Portrait", 0xBF30, 0xBF70 },
 };
 
 const sGame_PaletteDataset SVG_SNES_ERINA_P2_PALETTES[] =
 {
-    { L"Erina P2", 0xCB30, 0xCB50 },
+    { L"Erina P2", 0xCB30, 0xCB50, indexSVGSprites_Erina },
     { L"Erina P2 Portrait", 0xBF70, 0xBFB0 },
 };
 
 const sGame_PaletteDataset SVG_SNES_SATOMI_P1_PALETTES[] =
 {
-    { L"Satomi Yajima P1", 0xCB70, 0xCB90 },
+    { L"Satomi Yajima P1", 0xCB70, 0xCB90, indexSVGSprites_Satomi },
     { L"Satomi Yajima P1 Portrait", 0xBDF0, 0xBE10 },
 };
 
 const sGame_PaletteDataset SVG_SNES_SATOMI_P2_PALETTES[] =
 {
-    { L"Satomi Yajima P2", 0xCB50, 0xCB70 },
+    { L"Satomi Yajima P2", 0xCB50, 0xCB70, indexSVGSprites_Satomi },
     { L"Satomi Yajima P2 Portrait", 0xBE10, 0xBE30 },
 };
 
 const sGame_PaletteDataset SVG_SNES_KAORI_P1_PALETTES[] =
 {
-    { L"Kaori Yanase P1", 0xCBD0, 0xCBF0 },
+    { L"Kaori Yanase P1", 0xCBD0, 0xCBF0, indexSVGSprites_Kaori },
     { L"Kaori Yanase P1 Portrait", 0xBFB0, 0xBFD0 },
 };
 
 const sGame_PaletteDataset SVG_SNES_KAORI_P2_PALETTES[] =
 {
-    { L"Kaori Yanase P2", 0xCBF0, 0xCC10 },
+    { L"Kaori Yanase P2", 0xCBF0, 0xCC10, indexSVGSprites_Kaori },
     { L"Kaori Yanase P2 Portrait", 0xBFD0, 0xBFF0 },
 };
 
 const sGame_PaletteDataset SVG_SNES_REIMI_P1_PALETTES[] =
 {
-    { L"Reimi Jahana P1", 0xCC10, 0xCC30 },
+    { L"Reimi Jahana P1", 0xCC10, 0xCC30, indexSVGSprites_Reimi },
     { L"Reimi Jahana P1 Portrait", 0xBFF0, 0xC030 },
 };
 
 const sGame_PaletteDataset SVG_SNES_REIMI_P2_PALETTES[] =
 {
-    { L"Reimi Jahana P2", 0xCC30, 0xCC50 },
+    { L"Reimi Jahana P2", 0xCC30, 0xCC50, indexSVGSprites_Reimi },
     { L"Reimi Jahana P2 Portrait", 0xC030, 0xC070 },
 };
 

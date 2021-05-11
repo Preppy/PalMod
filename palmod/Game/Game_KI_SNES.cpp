@@ -27,7 +27,7 @@ CGame_KI_SNES::CGame_KI_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KI_SNES_NUMUNIT;
     m_nExtraUnit = KI_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 80;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 82;
     m_pszExtraFilename = EXTRA_FILENAME_KI_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKI;
 
@@ -40,8 +40,8 @@ CGame_KI_SNES::CGame_KI_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = KI_SNES;
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = nullptr;  // KI_SNES_IMG_UNITS
-    nImgUnitAmt = 0; // ARRAYSIZE(KI_SNES_IMG_UNITS);
+    m_prgGameImageSet = KI_SNES_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(KI_SNES_IMG_UNITS);
 
     nFileAmt = 1;
 

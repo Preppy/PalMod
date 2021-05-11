@@ -1410,19 +1410,19 @@ const sGame_PaletteDataset Garou_A_KAIN_PALETTES_BOSS[] =
 
 const sGame_PaletteDataset Garou_A_ROCKHOWARD_PALETTES_PORTRAITS[] =
 {
-    { L"Rock Portrait Palette - A", 0x2a900, 0x2a940, indexGarouAPortraits, indexGarouARockHoward },
-    { L"Rock Portrait Palette - B", 0x2a940, 0x2a980, indexGarouAPortraits, indexGarouARockHoward },
-    { L"Rock Portrait Palette - C", 0x2a980, 0x2a9c0, indexGarouAPortraits, indexGarouARockHoward },
-    { L"Rock Portrait Palette - D", 0x2a9c0, 0x2aa00, indexGarouAPortraits, indexGarouARockHoward },
-    { L"Rock Portrait - Shared Extra", 0x0177c0, 0x0177e0 },
+    { L"Rock Portrait Palette - A", 0x2a900, 0x2a940, indexGarouARockHoward, 0x40, &pairNext4 },
+    { L"Rock Portrait Palette - B", 0x2a940, 0x2a980, indexGarouARockHoward, 0x40, &pairNext3 },
+    { L"Rock Portrait Palette - C", 0x2a980, 0x2a9c0, indexGarouARockHoward, 0x40, &pairNext2 },
+    { L"Rock Portrait Palette - D", 0x2a9c0, 0x2aa00, indexGarouARockHoward, 0x40, &pairNext },
+    { L"Rock Portrait - Shared Extra", 0x0177c0, 0x0177e0, indexGarouARockHoward, 0x3F },
 };
 
 const sGame_PaletteDataset Garou_A_TERRY_PALETTES_PORTRAITS[] =
 {
-    { L"Terry Portrait Palette - A", 0x2aa00, 0x2aa40, indexGarouAPortraits, indexGarouATerryBogard },
-    { L"Terry Portrait Palette - B", 0x2aa40, 0x2aa80, indexGarouAPortraits, indexGarouATerryBogard },
-    { L"Terry Portrait Palette - C", 0x2aa80, 0x2aac0, indexGarouAPortraits, indexGarouATerryBogard },
-    { L"Terry Portrait Palette - D", 0x2aac0, 0x2ab00, indexGarouAPortraits, indexGarouATerryBogard },
+    { L"Terry Portrait Palette - A", 0x2aa00, 0x2aa40, indexGarouATerryBogard, 0x40 },
+    { L"Terry Portrait Palette - B", 0x2aa40, 0x2aa80, indexGarouATerryBogard, 0x40 },
+    { L"Terry Portrait Palette - C", 0x2aa80, 0x2aac0, indexGarouATerryBogard, 0x40 },
+    { L"Terry Portrait Palette - D", 0x2aac0, 0x2ab00, indexGarouATerryBogard, 0x40 },
 };
 
 const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_PORTRAITS[] =

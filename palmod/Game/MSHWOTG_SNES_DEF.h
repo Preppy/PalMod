@@ -28,6 +28,8 @@ const UINT16 MSHWOTG_SNES_IMG_UNITS[] =
     indexMSHWOTGSprites_Sasquatch,      // 0x36
     indexMSHWOTGSprites_TheThing,       // 0x37
     indexMSHWOTGSprites_Bonus,          // 0x38
+
+    indexMSHWOTGSprites_Enemies,        // 0x56
 };
 
 const sGame_PaletteDataset MSHWOTG_CAPTAINAMERICA_PALETTES[] =
@@ -57,7 +59,7 @@ const sGame_PaletteDataset MSHWOTG_WOLVERINE_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BLACKHEART_PALETTES[] =
 {
-    { L"BlackHeart", 0xFA740, 0xFA760, indexMSHWOTGSprites_Blackheart, 0x00 },
+    { L"Blackheart", 0xFA740, 0xFA760, indexMSHWOTGSprites_Blackheart, 0x00 },
 };
 
 const sGame_PaletteDataset MSHWOTG_EHULK_PALETTES[] =
@@ -145,10 +147,10 @@ const sGame_PaletteDataset MSHWOTG_BONUS_TITLE_PALETTES[] =
 const sGame_PaletteDataset MSHWOTG_BONUS_ENEMY_PALETTES[] =
 {
     { L"Dr. Doom", 0xFA7A0, 0xFA7C0, indexMSHWOTGSprites_DrDoom },
-    { L"Doombot 1", 0xFA7E0, 0xFA800 },
-    { L"Doombot 2", 0xFA800, 0xFA820 },
-    { L"Doombot 3", 0xFA820, 0xFA840 },
-    { L"Doombot 4", 0xFA840, 0xFA860 },
+    { L"Doombot 1", 0xFA7E0, 0xFA800, indexMSHWOTGSprites_Enemies, 0x00 },
+    { L"Doombot 2", 0xFA800, 0xFA820, indexMSHWOTGSprites_Enemies, 0x00 },
+    { L"Doombot 3", 0xFA820, 0xFA840, indexMSHWOTGSprites_Enemies, 0x00 },
+    { L"Doombot 4", 0xFA840, 0xFA860, indexMSHWOTGSprites_Enemies, 0x00 },
     { L"E. Daredevil 1", 0xFA460, 0xFA480, indexMSHWOTGSprites_Daredevil },
     { L"E. Daredevil 2", 0xFA420, 0xFA440, indexMSHWOTGSprites_Daredevil },
     { L"E. Hawkeye 1", 0xFA480, 0xFA4A0, indexMSHWOTGSprites_Hawkeye },
@@ -168,7 +170,7 @@ const sGame_PaletteDataset MSHWOTG_BONUS_ENEMY_PALETTES[] =
     { L"Magus", 0xFA8A0, 0xFA8C0, indexMSHWOTGSprites_Magus, 0x00 },
     { L"Magus shadow 1", 0xFA8C0, 0xFA8E0, indexMSHWOTGSprites_Magus, 0x00 },
     { L"Magus shadow 2", 0xFA8E0, 0xFA900, indexMSHWOTGSprites_Magus, 0x00 },
-    { L"Magus Portrait", 0x5F48D, 0x5F4AD },
+    { L"Magus Portrait", 0x5F48D, 0x5F4AD, indexMSHWOTGSprites_Magus, 0x40 },
     { L"Nebula", 0xFA7C0, 0xFA7E0, indexMSHWOTGSprites_Nebula, 0x00 },
     { L"Nebula Portrait", 0x71295, 0x712B5 },
     { L"Thanos", 0xFA760, 0xFA780, indexMSHWOTGSprites_Thanos, 0x00 },
@@ -241,6 +243,11 @@ const sDescTreeNode MSHWOTG_EWOLVERINE_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_EWOLVERINE_PALETTES, ARRAYSIZE(MSHWOTG_EWOLVERINE_PALETTES) },
 };
 
+const sDescTreeNode MSHWOTG_ENEMY_COLLECTION[] =
+{
+    { L"Enemies", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_ENEMY_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_ENEMY_PALETTES) },
+};
+
 const sDescTreeNode MSHWOTG_BONUS_COLLECTION[] =
 {
     { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_INTRO_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_INTRO_PALETTES) },
@@ -248,7 +255,6 @@ const sDescTreeNode MSHWOTG_BONUS_COLLECTION[] =
     { L"Victory Screen Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_VSP_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_VSP_PALETTES) },
     { L"Ending Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_ENDING_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_ENDING_PALETTES) },
     { L"Title Screen", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_TITLE_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_TITLE_PALETTES) },
-    { L"Enemies", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_ENEMY_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_ENEMY_PALETTES) },
     { L"Misc", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_MISC_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_MISC_PALETTES) },
 };
 
@@ -265,6 +271,7 @@ const sDescTreeNode MSHWOTG_SNES_UNITS[] =
     { L"Evil Sasquatch",  DESC_NODETYPE_TREE, (void*)MSHWOTG_ESASQUATCH_COLLECTION,   ARRAYSIZE(MSHWOTG_ESASQUATCH_COLLECTION) },
     { L"Evil Thing",  DESC_NODETYPE_TREE, (void*)MSHWOTG_ETHING_COLLECTION,   ARRAYSIZE(MSHWOTG_ETHING_COLLECTION) },
     { L"Evil Wolverine",  DESC_NODETYPE_TREE, (void*)MSHWOTG_EWOLVERINE_COLLECTION,   ARRAYSIZE(MSHWOTG_EWOLVERINE_COLLECTION) },
+    { L"Enemies",  DESC_NODETYPE_TREE, (void*)MSHWOTG_ENEMY_COLLECTION,   ARRAYSIZE(MSHWOTG_ENEMY_COLLECTION) },
     { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_COLLECTION,   ARRAYSIZE(MSHWOTG_BONUS_COLLECTION) },
 };
 

@@ -40,8 +40,8 @@ CGame_SVG_SNES::CGame_SVG_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = SVG_SNES;
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = nullptr;  // SVG_SNES_IMG_UNITS
-    nImgUnitAmt = 0; // ARRAYSIZE(SVG_SNES_IMG_UNITS);
+    m_prgGameImageSet = SVG_SNES_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SVG_SNES_IMG_UNITS);
 
     nFileAmt = 1;
 

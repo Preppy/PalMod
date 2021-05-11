@@ -19,7 +19,7 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     static constexpr auto EXTRA_FILENAME_KI_SNES = L"KIE.txt";
-    static constexpr auto KI_SNES_PRIMARY_ROMNAME = L"sns-akle-0.u1";
+    static constexpr auto KI_SNES_PRIMARY_ROMNAME = L"Killer Instinct (USA) (Rev 1).sfc";
 
 public:
     CGame_KI_SNES(UINT32 nConfirmedROMSize);
