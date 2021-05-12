@@ -342,6 +342,7 @@ BEGIN
             BEGIN
                 MENUITEM "Red Earth / Warzard (Arcade, Stages)", ID_LOADDIRECTORY_REDEARTH_30
                 MENUITEM "Red Earth / Warzard (Arcade, Characters)", ID_LOADDIRECTORY_REDEARTH_31
+                MENUITEM "Red Earth / Warzard (Arcade, Coming Next)", ID_LOADDIRECTORY_REDEARTH_50
             END
             POPUP "Street Fighter III"
             BEGIN

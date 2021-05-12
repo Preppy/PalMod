@@ -55,7 +55,7 @@ sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(int nGameMode, UINT16 nUnitId)
     m_nSavedMode = nGameMode;
     UINT16 nAdjustedSIMMFileNumber;
 
-    switch (m_nRedEarthMode)
+    switch (nGameMode)
     {
     case 30:
         nAdjustedSIMMFileNumber = (nUnitId & 0x00FF) + RedEarth_Arcade_SIMMFileBaseNumber_30;
