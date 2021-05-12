@@ -118,7 +118,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
         break;
     case SF3ROM_70_EX: // TV's edit: removes Gill, just has character palettes but adds extra button colors
                        // doesn't include the Bonus nor Stage sections
-        m_nSafeCountForThisRom = 1281;
+        m_nSafeCountForThisRom = 1701;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_70;
         m_nLowestKnownPaletteRomLocation = 0x0;
         break;

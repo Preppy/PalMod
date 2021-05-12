@@ -20,7 +20,7 @@ const UINT16 RANMAHB_SNES_IMG_UNITS[] =
     indexRanmaHB1Sprites_RanmaM,        // 0x5F
     indexRanmaHB1Sprites_Ryoga,         // 0x60
     indexRanmaHB1Sprites_Shampoo,       // 0x61
-    indexRanmaHB1Sprites_Ukyo,         // 0x62
+    indexRanmaHB1Sprites_Ukyo,          // 0x62
     indexRanmaHB1Sprites_Bonus,         // 0x63
 };
 

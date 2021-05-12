@@ -7,134 +7,151 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
+const UINT16 RANMACRH_SNES_IMG_UNITS[] =
+{
+    indexRanmaCRHSprites_Akane,         // 0x7a
+    indexRanmaCRHSprites_Genma,         // 0x7b
+    indexRanmaCRHSprites_Hinako,        // 0x7c
+    indexRanmaCRHSprites_Kodachi,       // 0x7d
+    indexRanmaCRHSprites_Kuno,          // 0x7e
+    indexRanmaCRHSprites_Mariko,        // 0x7f
+    indexRanmaCRHSprites_Mousse,        // 0x80
+    indexRanmaCRHSprites_RanmaFemale,   // 0x81
+    indexRanmaCRHSprites_RanmaMale,     // 0x82
+    indexRanmaCRHSprites_Ryoga,         // 0x83
+    indexRanmaCRHSprites_Shampoo,       // 0x84
+    indexRanmaCRHSprites_Ukyo,          // 0x85
+    indexRanmaCRHSprites_Bonus,         // 0x86
+};
+
 const sGame_PaletteDataset RANMACRH_SNES_RANMAM_P1_PALETTES[] =
 {
-    { L"Ranma (M) P1", 0x630E2, 0x63102 },
+    { L"Ranma (M) P1", 0x630E2, 0x63102, indexRanmaCRHSprites_RanmaMale },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RANMAM_P2_PALETTES[] =
 {
-    { L"Ranma (M) P2", 0x63102, 0x63122 },
+    { L"Ranma (M) P2", 0x63102, 0x63122, indexRanmaCRHSprites_RanmaMale },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RANMAM_P3_PALETTES[] =
 {
-    { L"Ranma (M) P3", 0x63122, 0x63142 },
+    { L"Ranma (M) P3", 0x63122, 0x63142, indexRanmaCRHSprites_RanmaMale },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RANMAM_P4_PALETTES[] =
 {
-    { L"Ranma (M) P4", 0x63142, 0x63162 },
+    { L"Ranma (M) P4", 0x63142, 0x63162, indexRanmaCRHSprites_RanmaMale },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RANMAF_P1_PALETTES[] =
 {
-    { L"Ranma (F) P1", 0x62BE2, 0x62C02 },
+    { L"Ranma (F) P1", 0x62BE2, 0x62C02, indexRanmaCRHSprites_RanmaFemale },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RANMAF_P2_PALETTES[] =
 {
-    { L"Ranma (F) P2", 0x62C02, 0x62C22 },
+    { L"Ranma (F) P2", 0x62C02, 0x62C22, indexRanmaCRHSprites_RanmaFemale },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RANMAF_P3_PALETTES[] =
 {
-    { L"Ranma (F) P3", 0x62C22, 0x62C42 },
+    { L"Ranma (F) P3", 0x62C22, 0x62C42, indexRanmaCRHSprites_RanmaFemale },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RANMAF_P4_PALETTES[] =
 {
-    { L"Ranma (F) P4", 0x62C42, 0x62C62 },
+    { L"Ranma (F) P4", 0x62C42, 0x62C62, indexRanmaCRHSprites_RanmaFemale },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_AKANE_P1_PALETTES[] =
 {
-    { L"Akane P1", 0x62D62, 0x62D82 },
+    { L"Akane P1", 0x62D62, 0x62D82, indexRanmaCRHSprites_Akane },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_AKANE_P2_PALETTES[] =
 {
-    { L"Akane P2", 0x62D82, 0x62DA2 },
+    { L"Akane P2", 0x62D82, 0x62DA2, indexRanmaCRHSprites_Akane },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_AKANE_P3_PALETTES[] =
 {
-    { L"Akane P3", 0x62DA2, 0x62DC2 },
+    { L"Akane P3", 0x62DA2, 0x62DC2, indexRanmaCRHSprites_Akane },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_AKANE_P4_PALETTES[] =
 {
-    { L"Akane P4", 0x62DC2, 0x62DE2 },
+    { L"Akane P4", 0x62DC2, 0x62DE2, indexRanmaCRHSprites_Akane },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_SHAMPOO_P1_PALETTES[] =
 {
-    { L"Shampoo P1", 0x62DE2, 0x62E02 },
+    { L"Shampoo P1", 0x62DE2, 0x62E02, indexRanmaCRHSprites_Shampoo },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_SHAMPOO_P2_PALETTES[] =
 {
-    { L"Shampoo P2", 0x62E02, 0x62E22 },
+    { L"Shampoo P2", 0x62E02, 0x62E22, indexRanmaCRHSprites_Shampoo },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_SHAMPOO_P3_PALETTES[] =
 {
-    { L"Shampoo P3", 0x62E22, 0x62E42 },
+    { L"Shampoo P3", 0x62E22, 0x62E42, indexRanmaCRHSprites_Shampoo },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_SHAMPOO_P4_PALETTES[] =
 {
-    { L"Shampoo P4", 0x62E42, 0x62E62 },
+    { L"Shampoo P4", 0x62E42, 0x62E62, indexRanmaCRHSprites_Shampoo },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_MOUSSE_P1_PALETTES[] =
 {
-    { L"Mousse P1", 0x63062, 0x63082 },
+    { L"Mousse P1", 0x63062, 0x63082, indexRanmaCRHSprites_Mousse },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_MOUSSE_P2_PALETTES[] =
 {
-    { L"Mousse P2", 0x63082, 0x630A2 },
+    { L"Mousse P2", 0x63082, 0x630A2, indexRanmaCRHSprites_Mousse },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_MOUSSE_P3_PALETTES[] =
 {
-    { L"Mousse P3", 0x630A2, 0x630C2 },
+    { L"Mousse P3", 0x630A2, 0x630C2, indexRanmaCRHSprites_Mousse },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_MOUSSE_P4_PALETTES[] =
 {
-    { L"Mousse P4", 0x630C2, 0x630E2 },
+    { L"Mousse P4", 0x630C2, 0x630E2, indexRanmaCRHSprites_Mousse },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_UKYO_P1_PALETTES[] =
 {
-    { L"Ukyo P1", 0x62E62, 0x62E82 },
+    { L"Ukyo P1", 0x62E62, 0x62E82, indexRanmaCRHSprites_Ukyo },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_UKYO_P2_PALETTES[] =
 {
-    { L"Ukyo P2", 0x62E82, 0x62EA2 },
+    { L"Ukyo P2", 0x62E82, 0x62EA2, indexRanmaCRHSprites_Ukyo },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_UKYO_P3_PALETTES[] =
 {
-    { L"Ukyo P3", 0x62EA2, 0x62EC2 },
+    { L"Ukyo P3", 0x62EA2, 0x62EC2, indexRanmaCRHSprites_Ukyo },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_UKYO_P4_PALETTES[] =
 {
-    { L"Ukyo P4", 0x62EC2, 0x62EE2 },
+    { L"Ukyo P4", 0x62EC2, 0x62EE2, indexRanmaCRHSprites_Ukyo },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_GENMA_P1_PALETTES[] =
 {
-    { L"Genma P1", 0x62FE2, 0x63002 },
+    { L"Genma P1", 0x62FE2, 0x63002, indexRanmaCRHSprites_Genma },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_GENMA_P2_PALETTES[] =
 {
-    { L"Genma P2", 0x63002, 0x63022 },
+    { L"Genma P2", 0x63002, 0x63022, indexRanmaCRHSprites_Genma },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_GENMA_P3_PALETTES[] =
@@ -144,107 +161,107 @@ const sGame_PaletteDataset RANMACRH_SNES_GENMA_P3_PALETTES[] =
 
 const sGame_PaletteDataset RANMACRH_SNES_GENMA_P4_PALETTES[] =
 {
-    { L"Genma P4", 0x63042, 0x63062 },
+    { L"Genma P4", 0x63042, 0x63062, indexRanmaCRHSprites_Genma },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RYOGA_P1_PALETTES[] =
 {
-    { L"Ryoga P1", 0x63162, 0x63182 },
+    { L"Ryoga P1", 0x63162, 0x63182, indexRanmaCRHSprites_Ryoga },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RYOGA_P2_PALETTES[] =
 {
-    { L"Ryoga P2", 0x63182, 0x631A2 },
+    { L"Ryoga P2", 0x63182, 0x631A2, indexRanmaCRHSprites_Ryoga },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RYOGA_P3_PALETTES[] =
 {
-    { L"Ryoga P3", 0x631A2, 0x631C2 },
+    { L"Ryoga P3", 0x631A2, 0x631C2, indexRanmaCRHSprites_Ryoga },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RYOGA_P4_PALETTES[] =
 {
-    { L"Ryoga P4", 0x631C2, 0x631E2 },
+    { L"Ryoga P4", 0x631C2, 0x631E2, indexRanmaCRHSprites_Ryoga },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_HINAKO_P1_PALETTES[] =
 {
-    { L"Hinako P1", 0x631E2, 0x63202 },
+    { L"Hinako P1", 0x631E2, 0x63202, indexRanmaCRHSprites_Hinako },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_HINAKO_P2_PALETTES[] =
 {
-    { L"Hinako P2", 0x63202, 0x63222 },
+    { L"Hinako P2", 0x63202, 0x63222, indexRanmaCRHSprites_Hinako },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_HINAKO_P3_PALETTES[] =
 {
-    { L"Hinako P3", 0x63222, 0x63242 },
+    { L"Hinako P3", 0x63222, 0x63242, indexRanmaCRHSprites_Hinako },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_HINAKO_P4_PALETTES[] =
 {
-    { L"Hinako P4", 0x63242, 0x63262 },
+    { L"Hinako P4", 0x63242, 0x63262, indexRanmaCRHSprites_Hinako },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_KUNO_P1_PALETTES[] =
 {
-    { L"Kuno P1", 0x62CE2, 0x62D02 },
+    { L"Kuno P1", 0x62CE2, 0x62D02, indexRanmaCRHSprites_Kuno },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_KUNO_P2_PALETTES[] =
 {
-    { L"Kuno P2", 0x62D02, 0x62D22 },
+    { L"Kuno P2", 0x62D02, 0x62D22, indexRanmaCRHSprites_Kuno },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_KUNO_P3_PALETTES[] =
 {
-    { L"Kuno P3", 0x62D22, 0x62D42 },
+    { L"Kuno P3", 0x62D22, 0x62D42, indexRanmaCRHSprites_Kuno },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_KUNO_P4_PALETTES[] =
 {
-    { L"Kuno P4", 0x62D42, 0x62D62 },
+    { L"Kuno P4", 0x62D42, 0x62D62, indexRanmaCRHSprites_Kuno },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_MARIKO_P1_PALETTES[] =
 {
-    { L"Mariko P1", 0x62C62, 0x62C82 },
+    { L"Mariko P1", 0x62C62, 0x62C82, indexRanmaCRHSprites_Mariko },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_MARIKO_P2_PALETTES[] =
 {
-    { L"Mariko P2", 0x62C82, 0x62CA2 },
+    { L"Mariko P2", 0x62C82, 0x62CA2, indexRanmaCRHSprites_Mariko },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_MARIKO_P3_PALETTES[] =
 {
-    { L"Mariko P3", 0x62CA2, 0x62CC2 },
+    { L"Mariko P3", 0x62CA2, 0x62CC2, indexRanmaCRHSprites_Mariko },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_MARIKO_P4_PALETTES[] =
 {
-    { L"Mariko P4", 0x62CC2, 0x62CE2 },
+    { L"Mariko P4", 0x62CC2, 0x62CE2, indexRanmaCRHSprites_Mariko },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_KODACHI_P1_PALETTES[] =
 {
-    { L"Kodachi P1", 0x62EE2, 0x62F02 },
+    { L"Kodachi P1", 0x62EE2, 0x62F02, indexRanmaCRHSprites_Kodachi },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_KODACHI_P2_PALETTES[] =
 {
-    { L"Kodachi P2", 0x62F02, 0x62F22 },
+    { L"Kodachi P2", 0x62F02, 0x62F22, indexRanmaCRHSprites_Kodachi },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_KODACHI_P3_PALETTES[] =
 {
-    { L"Kodachi P3", 0x62F22, 0x62F42 },
+    { L"Kodachi P3", 0x62F22, 0x62F42, indexRanmaCRHSprites_Kodachi },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_KODACHI_P4_PALETTES[] =
 {
-    { L"Kodachi P4", 0x62F42, 0x62F62 },
+    { L"Kodachi P4", 0x62F42, 0x62F62, indexRanmaCRHSprites_Kodachi },
 };
 
 const sDescTreeNode RANMACRH_SNES_RANMAM_COLLECTION[] =

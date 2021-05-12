@@ -1199,7 +1199,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Yuki_PALETTES_ED[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_PA[] =
 {
-    { L"Main", 0x00b2a00, 0x00b2a20, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
+    { L"Main", 0x00b2a00, 0x00b2a20, indexLastBlade2_GenbuOkina, 0x00, &pairNextAndNext32AndNextSkipped },
         { L"Weapon", 0x00b2c00, 0x00b2c20, indexLastBlade2_GenbuOkina, 0x01 },
 
     { L"Burned", 0x00b2a20, 0x00b2a40, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
@@ -1263,7 +1263,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_PA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_SA[] =
 {
-    { L"Main", 0x00b3100, 0x00b3120, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
+    { L"Main", 0x00b3100, 0x00b3120, indexLastBlade2_GenbuOkina, 0x00, &pairNextAndNext32AndNextSkipped },
         { L"Weapon", 0x00b3300, 0x00b3320, indexLastBlade2_GenbuOkina, 0x01 },
 
     { L"Burned", 0x00b3120, 0x00b3140, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
@@ -1327,7 +1327,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_SA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_EA[] =
 {
-    { L"Main", 0x00b3800, 0x00b3820, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
+    { L"Main", 0x00b3800, 0x00b3820, indexLastBlade2_GenbuOkina, 0x00, &pairNextAndNext32AndNextSkipped },
         { L"Weapon", 0x00b3a00, 0x00b3a20, indexLastBlade2_GenbuOkina, 0x01 },
 
     { L"Burned", 0x00b3820, 0x00b3840, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
@@ -1391,7 +1391,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_EA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_PD[] =
 {
-    { L"Main", 0x00b3f00, 0x00b3f20, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
+    { L"Main", 0x00b3f00, 0x00b3f20, indexLastBlade2_GenbuOkina, 0x00, &pairNextAndNext32AndNextSkipped },
         { L"Weapon", 0x00b4100, 0x00b4120, indexLastBlade2_GenbuOkina, 0x01 },
 
     { L"Burned", 0x00b3f20, 0x00b3f40, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
@@ -1455,7 +1455,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_PD[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_SD[] =
 {
-    { L"Main", 0x00b4600, 0x00b4620, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
+    { L"Main", 0x00b4600, 0x00b4620, indexLastBlade2_GenbuOkina, 0x00, &pairNextAndNext32AndNextSkipped },
         { L"Weapon", 0x00b4800, 0x00b4820, indexLastBlade2_GenbuOkina, 0x01 },
 
     { L"Burned", 0x00b4620, 0x00b4640, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
@@ -1519,7 +1519,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_SD[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Okina_PALETTES_ED[] =
 {
-   { L"Main", 0x00b4d00, 0x00b4d20, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
+   { L"Main", 0x00b4d00, 0x00b4d20, indexLastBlade2_GenbuOkina, 0x00, &pairNextAndNext32AndNextSkipped },
         { L"Weapon", 0x00b4f00, 0x00b4f20, indexLastBlade2_GenbuOkina, 0x01 },
 
     { L"Burned", 0x00b4d20, 0x00b4d40, indexLastBlade2_GenbuOkina, 0x00, &pairNext },
@@ -2735,7 +2735,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Washizuka_PALETTES_ED[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_PA[] =
 {
-    { L"Main", 0x00bd200, 0x00bd220, indexLastBlade2_Mukuro, 0x00, &pairNext },
+    { L"Main", 0x00bd200, 0x00bd220, indexLastBlade2_Mukuro, 0x00, &pairNextAndNext41 },
         { L"Weapon", 0x00bd400, 0x00bd420, indexLastBlade2_Mukuro, 0x01 },
 
     { L"Burned", 0x00bd220, 0x00bd240, indexLastBlade2_Mukuro, 0x00, &pairNext },
@@ -2799,7 +2799,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_PA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_SA[] =
 {
-    { L"Main", 0x00bd900, 0x00bd920, indexLastBlade2_Mukuro, 0x00, &pairNext },
+    { L"Main", 0x00bd900, 0x00bd920, indexLastBlade2_Mukuro, 0x00, &pairNextAndNext41 },
         { L"Weapon", 0x00bdb00, 0x00bdb20, indexLastBlade2_Mukuro, 0x01 },
 
     { L"Burned", 0x00bd920, 0x00bd940, indexLastBlade2_Mukuro, 0x00, &pairNext },
@@ -2863,7 +2863,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_SA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_EA[] =
 {
-    { L"Main", 0x00be000, 0x00be020, indexLastBlade2_Mukuro, 0x00, &pairNext },
+    { L"Main", 0x00be000, 0x00be020, indexLastBlade2_Mukuro, 0x00, &pairNextAndNext41 },
         { L"Weapon", 0x00be200, 0x00be220, indexLastBlade2_Mukuro, 0x01 },
 
     { L"Burned", 0x00be020, 0x00be040, indexLastBlade2_Mukuro, 0x00, &pairNext },
@@ -2927,7 +2927,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_EA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_PD[] =
 {
-    { L"Main", 0x00be700, 0x00be720, indexLastBlade2_Mukuro, 0x00, &pairNext },
+    { L"Main", 0x00be700, 0x00be720, indexLastBlade2_Mukuro, 0x00, &pairNextAndNext41 },
         { L"Weapon", 0x00be900, 0x00be920, indexLastBlade2_Mukuro, 0x01 },
 
     { L"Burned", 0x00be720, 0x00be740, indexLastBlade2_Mukuro, 0x00, &pairNext },
@@ -2991,7 +2991,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_PD[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_SD[] =
 {
-    { L"Main", 0x00bee00, 0x00bee20, indexLastBlade2_Mukuro, 0x00, &pairNext },
+    { L"Main", 0x00bee00, 0x00bee20, indexLastBlade2_Mukuro, 0x00, &pairNextAndNext41 },
         { L"Weapon", 0x00bf000, 0x00bf020, indexLastBlade2_Mukuro, 0x01 },
 
     { L"Burned", 0x00bee20, 0x00bee40, indexLastBlade2_Mukuro, 0x00, &pairNext },
@@ -3055,7 +3055,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_SD[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_ED[] =
 {
-    { L"Main", 0x00bf500, 0x00bf520, indexLastBlade2_Mukuro, 0x00, &pairNext },
+    { L"Main", 0x00bf500, 0x00bf520, indexLastBlade2_Mukuro, 0x00, &pairNextAndNext41 },
         { L"Weapon", 0x00bf700, 0x00bf720, indexLastBlade2_Mukuro, 0x01 },
 
     { L"Burned", 0x00bf520, 0x00bf540, indexLastBlade2_Mukuro, 0x00, &pairNext },
@@ -3119,7 +3119,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Mukuro_PALETTES_ED[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_PA[] =
 {
-    { L"Main", 0x00bfc00, 0x00bfc20, indexLastBlade2_HyoAmano, 0x00, &pairNext },
+    { L"Main", 0x00bfc00, 0x00bfc20, indexLastBlade2_HyoAmano, 0x00, &pairNextAndNext39 },
         { L"Weapon", 0x00bfe00, 0x00bfe20, indexLastBlade2_HyoAmano, 0x01 },
 
     { L"Burned", 0x00bfc20, 0x00bfc40, indexLastBlade2_HyoAmano, 0x00, &pairNext },
@@ -3183,7 +3183,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_PA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_SA[] =
 {
-    { L"Main", 0x00c0300, 0x00c0320, indexLastBlade2_HyoAmano, 0x00, &pairNext },
+    { L"Main", 0x00c0300, 0x00c0320, indexLastBlade2_HyoAmano, 0x00, &pairNextAndNext39 },
         { L"Weapon", 0x00c0500, 0x00c0520, indexLastBlade2_HyoAmano, 0x01 },
 
     { L"Burned", 0x00c0320, 0x00c0340, indexLastBlade2_HyoAmano, 0x00, &pairNext },
@@ -3247,7 +3247,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_SA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_EA[] =
 {
-    { L"Main", 0x00c0a00, 0x00c0a20, indexLastBlade2_HyoAmano, 0x00, &pairNext },
+    { L"Main", 0x00c0a00, 0x00c0a20, indexLastBlade2_HyoAmano, 0x00, &pairNextAndNext39 },
         { L"Weapon", 0x00c0c00, 0x00c0c20, indexLastBlade2_HyoAmano, 0x01 },
 
     { L"Burned", 0x00c0a20, 0x00c0a40, indexLastBlade2_HyoAmano, 0x00, &pairNext },
@@ -3311,7 +3311,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_EA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_PD[] =
 {
-    { L"Main", 0x00c1100, 0x00c1120, indexLastBlade2_HyoAmano, 0x00, &pairNext },
+    { L"Main", 0x00c1100, 0x00c1120, indexLastBlade2_HyoAmano, 0x00, &pairNextAndNext39 },
         { L"Weapon", 0x00c1300, 0x00c1320, indexLastBlade2_HyoAmano, 0x01 },
 
     { L"Burned", 0x00c1120, 0x00c1140, indexLastBlade2_HyoAmano, 0x00, &pairNext },
@@ -3375,7 +3375,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_PD[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_SD[] =
 {
-    { L"Main", 0x00c1800, 0x00c1820, indexLastBlade2_HyoAmano, 0x00, &pairNext },
+    { L"Main", 0x00c1800, 0x00c1820, indexLastBlade2_HyoAmano, 0x00, &pairNextAndNext39 },
         { L"Weapon", 0x00c1a00, 0x00c1a20, indexLastBlade2_HyoAmano, 0x01 },
 
     { L"Burned", 0x00c1820, 0x00c1840, indexLastBlade2_HyoAmano, 0x00, &pairNext },
@@ -3439,7 +3439,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_SD[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Amano_PALETTES_ED[] =
 {
-    { L"Main", 0x00c1f00, 0x00c1f20, indexLastBlade2_HyoAmano, 0x00, &pairNext },
+    { L"Main", 0x00c1f00, 0x00c1f20, indexLastBlade2_HyoAmano, 0x00, &pairNextAndNext39 },
         { L"Weapon", 0x00c2100, 0x00c2120, indexLastBlade2_HyoAmano, 0x01 },
 
     { L"Burned", 0x00c1f20, 0x00c1f40, indexLastBlade2_HyoAmano, 0x00, &pairNext },
@@ -5832,7 +5832,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_ED[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_PA[] =
 {
-   { L"Main", 0x00d2200, 0x00d2220, indexLastBlade2_Setsuna, 0x00, &pairNext },
+   { L"Main", 0x00d2200, 0x00d2220, indexLastBlade2_Setsuna, 0x00, &pairNextAndNext54 },
         { L"Weapon", 0x00d2400, 0x00d2420, indexLastBlade2_Setsuna, 0x01 },
 
     { L"Burned", 0x00d2220, 0x00d2240, indexLastBlade2_Setsuna, 0x00, &pairNext },
@@ -5896,7 +5896,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_PA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_SA[] =
 {
-    { L"Main", 0x00d2900, 0x00d2920, indexLastBlade2_Setsuna, 0x00, &pairNext },
+    { L"Main", 0x00d2900, 0x00d2920, indexLastBlade2_Setsuna, 0x00, &pairNextAndNext54 },
         { L"Weapon", 0x00d2b00, 0x00d2b20, indexLastBlade2_Setsuna, 0x01 },
 
     { L"Burned", 0x00d2920, 0x00d2940, indexLastBlade2_Setsuna, 0x00, &pairNext },
@@ -5960,7 +5960,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_SA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_EA[] =
 {
-    { L"Main", 0x00d3000, 0x00d3020, indexLastBlade2_Setsuna, 0x00, &pairNext },
+    { L"Main", 0x00d3000, 0x00d3020, indexLastBlade2_Setsuna, 0x00, &pairNextAndNext54 },
         { L"Weapon", 0x00d3200, 0x00d3220, indexLastBlade2_Setsuna, 0x01 },
 
     { L"Burned", 0x00d3020, 0x00d3040, indexLastBlade2_Setsuna, 0x00, &pairNext },
@@ -6024,7 +6024,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_EA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_PD[] =
 {
-    { L"Main", 0x00d3700, 0x00d3720, indexLastBlade2_Setsuna, 0x00, &pairNext },
+    { L"Main", 0x00d3700, 0x00d3720, indexLastBlade2_Setsuna, 0x00, &pairNextAndNext54 },
         { L"Weapon", 0x00d3900, 0x00d3920, indexLastBlade2_Setsuna, 0x01 },
 
     { L"Burned", 0x00d3720, 0x00d3740, indexLastBlade2_Setsuna, 0x00, &pairNext },
@@ -6088,7 +6088,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_PD[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_SD[] =
 {
-    { L"Main", 0x00d3e00, 0x00d3e20, indexLastBlade2_Setsuna, 0x00, &pairNext },
+    { L"Main", 0x00d3e00, 0x00d3e20, indexLastBlade2_Setsuna, 0x00, &pairNextAndNext54 },
         { L"Weapon", 0x00d4000, 0x00d4020, indexLastBlade2_Setsuna, 0x01 },
 
     { L"Burned", 0x00d3e20, 0x00d3e40, indexLastBlade2_Setsuna, 0x00, &pairNext },
@@ -6152,7 +6152,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_SD[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_ED[] =
 {
-    { L"Main", 0x00d4500, 0x00d4520, indexLastBlade2_Setsuna, 0x00, &pairNext },
+    { L"Main", 0x00d4500, 0x00d4520, indexLastBlade2_Setsuna, 0x00, &pairNextAndNext54 },
         { L"Weapon", 0x00d4700, 0x00d4720, indexLastBlade2_Setsuna, 0x01 },
 
     { L"Burned", 0x00d4520, 0x00d4540, indexLastBlade2_Setsuna, 0x00, &pairNext },
@@ -6216,7 +6216,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PALETTES_ED[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_PA[] =
 {
-    { L"Main", 0x00d4c00, 0x00d4c20, indexLastBlade2_Kouryu, 0x00, &pairNext },
+    { L"Main", 0x00d4c00, 0x00d4c20, indexLastBlade2_Kouryu, 0x00, &pairNextAndNext41AndNext },
         { L"Weapon", 0x00d4e00, 0x00d4e20, indexLastBlade2_Kouryu, 0x01 },
 
     { L"Burned", 0x00d4c20, 0x00d4c40, indexLastBlade2_Kouryu, 0x00, &pairNext },
@@ -6280,7 +6280,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_PA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_SA[] =
 {
-    { L"Main", 0x00d5300, 0x00d5320, indexLastBlade2_Kouryu, 0x00, &pairNext },
+    { L"Main", 0x00d5300, 0x00d5320, indexLastBlade2_Kouryu, 0x00, &pairNextAndNext41AndNext },
         { L"Weapon", 0x00d5500, 0x00d5520, indexLastBlade2_Kouryu, 0x01 },
 
     { L"Burned", 0x00d5320, 0x00d5340, indexLastBlade2_Kouryu, 0x00, &pairNext },
@@ -6344,7 +6344,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_SA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_EA[] =
 {
-    { L"Main", 0x00d5a00, 0x00d5a20, indexLastBlade2_Kouryu, 0x00, &pairNext },
+    { L"Main", 0x00d5a00, 0x00d5a20, indexLastBlade2_Kouryu, 0x00, &pairNextAndNext41AndNext },
         { L"Weapon", 0x00d5c00, 0x00d5c20, indexLastBlade2_Kouryu, 0x01 },
 
     { L"Burned", 0x00d5a20, 0x00d5a40, indexLastBlade2_Kouryu, 0x00, &pairNext },
@@ -6408,7 +6408,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_EA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_PD[] =
 {
-    { L"Main", 0x00d6100, 0x00d6120, indexLastBlade2_Kouryu, 0x00, &pairNext },
+    { L"Main", 0x00d6100, 0x00d6120, indexLastBlade2_Kouryu, 0x00, &pairNextAndNext41AndNext },
         { L"Weapon", 0x00d6300, 0x00d6320, indexLastBlade2_Kouryu, 0x01 },
 
     { L"Burned", 0x00d6120, 0x00d6140, indexLastBlade2_Kouryu, 0x00, &pairNext },
@@ -6472,7 +6472,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_PD[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_SD[] =
 {
-    { L"Main", 0x00d6800, 0x00d6820, indexLastBlade2_Kouryu, 0x00, &pairNext },
+    { L"Main", 0x00d6800, 0x00d6820, indexLastBlade2_Kouryu, 0x00, &pairNextAndNext41AndNext },
         { L"Weapon", 0x00d6a00, 0x00d6a20, indexLastBlade2_Kouryu, 0x01 },
 
     { L"Burned", 0x00d6820, 0x00d6840, indexLastBlade2_Kouryu, 0x00, &pairNext },
@@ -6536,7 +6536,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_SD[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Kouryu_PALETTES_ED[] =
 {
-    { L"Main", 0x00d6f00, 0x00d6f20, indexLastBlade2_Kouryu, 0x00, &pairNext },
+    { L"Main", 0x00d6f00, 0x00d6f20, indexLastBlade2_Kouryu, 0x00, &pairNextAndNext41AndNext },
         { L"Weapon", 0x00d7100, 0x00d7120, indexLastBlade2_Kouryu, 0x01 },
 
     { L"Burned", 0x00d6f20, 0x00d6f40, indexLastBlade2_Kouryu, 0x00, &pairNext },

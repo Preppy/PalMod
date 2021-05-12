@@ -41,7 +41,7 @@ const sGame_PaletteDataset GGXXACR_S_BK_EFFECTS[] =
 	{ L"Smoke", 0x34bf70, 0x34bfb0 },
 	{ L"Intro Leaf", 0x31cd50, 0x31cd90 },
 	//Normals
-	{ L"Dust", 0x314bc0, 0x314c00 },
+	{ L"5D", 0x314bc0, 0x314c00 },
 
 	{ L"j.D Effect (1/2)", 0x316b70, 0x316bb0 },
 	{ L"j.D Effect (2/2)", 0x3183e0, 0x318420 },
@@ -49,16 +49,16 @@ const sGame_PaletteDataset GGXXACR_S_BK_EFFECTS[] =
 	{ L"Tatami Gaeshi (1/2)", 0x3100a0, 0x3100e0 },
 	{ L"Tatami Gaeshi (2/2)", 0x313930, 0x313970 },
 
+	{ L"Zankuro", 0x31ad10, 0x31ad50 },
 	{ L"Sakura", 0x30ecf0, 0x30ed30 },
 	//Forcebreaks
 	{ L"Baku", 0x31e7c0, 0x31e800 },
 	{ L"Baku:XXX Card Back/Icons", 0x31f700, 0x31f740 },
 	{ L"Baku:XXX Card Front", 0x320440, 0x320480 },
-	{ L"Baku:XXX Card Front (Sliced)", 0x324670, 0x3246b0 },
 	{ L"Baku:XXX Punch", 0x34c5a0, 0x34c5e0 },
-	{ L"Baku:XXX Slash", 0x34df50, 0x34df90 },
 	{ L"Baku:XXX Kick", 0x34ff50, 0x34ff90 },
-	{ L"Baku:XXX -> D Effect", 0x31ad10, 0x31ad50 },
+	{ L"Baku:XXX Slash", 0x34df50, 0x34df90 },
+	{ L"Baku:XXX Card Front (Sliced)", 0x324670, 0x3246b0 },
 	//Overdrives
 	{ L"Tsurane Sanzu Watashi (1/3)", 0x31ced0, 0x31cf10 },
 	{ L"Tsurane Sanzu Watashi (2/3)", 0x31d600, 0x31d640 },

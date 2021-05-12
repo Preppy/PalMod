@@ -2591,6 +2591,20 @@ enum SupportedSNES_PaletteListIndex
     indexKISprites_Thunder,             // 0x77
     indexKISprites_TJCombo,             // 0x78
     indexKISprites_Bonus,               // 0x79
+
+    indexRanmaCRHSprites_Akane,         // 0x7a
+    indexRanmaCRHSprites_Genma,         // 0x7b
+    indexRanmaCRHSprites_Hinako,        // 0x7c
+    indexRanmaCRHSprites_Kodachi,       // 0x7d
+    indexRanmaCRHSprites_Kuno,          // 0x7e
+    indexRanmaCRHSprites_Mariko,        // 0x7f
+    indexRanmaCRHSprites_Mousse,        // 0x80
+    indexRanmaCRHSprites_RanmaFemale,   // 0x81
+    indexRanmaCRHSprites_RanmaMale,     // 0x82
+    indexRanmaCRHSprites_Ryoga,         // 0x83
+    indexRanmaCRHSprites_Shampoo,       // 0x84
+    indexRanmaCRHSprites_Ukyo,          // 0x85
+    indexRanmaCRHSprites_Bonus,         // 0x86
 };
 
 enum SupportedNEOGEO_PaletteListIndex
@@ -2970,11 +2984,17 @@ const stPairedPaletteInfo pairPrevious2 = { -2, 0, 0 };
 const stPairedPaletteInfo pairPreviousFlipped = { -1, 0, 0, true };
 const stPairedPaletteInfo pairPreviousFlipped2 = { -2, 0, 0, true };
 
-const stPairedPaletteInfo pairNextAndNext =         { 1, 0, 0, false, 3 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNextSkipped =  { 1, 0, 0, false, 3, 3 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextSkippedAndNextSkipped = { 2, 0, 0, false, 3, 4 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNextAndNext =  { 1, 0, 0, false, 4 }; // quad display... requires special handling in code
-const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext = { 2, 0, 0, false, 4, 4, 5 }; // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext =                         { 1, 0, 0, false, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextSkipped =                  { 1, 0, 0, false, 3, 3 }; // triple display... requires special handling in code
+
+const stPairedPaletteInfo pairNextAndNext39 =                       { 1, 0, 0, false, 3, 39 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext41 =                       { 1, 0, 0, false, 3, 41 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext54 =                       { 1, 0, 0, false, 3, 54 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextSkippedAndNextSkipped =           { 2, 0, 0, false, 3, 4 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNext =                  { 1, 0, 0, false, 4 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext32AndNextSkipped =         { 1, 0, 0, false, 4, 32, 34 }; // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext41AndNext =                { 1, 0, 0, false, 4, 41, 42 }; // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext =    { 2, 0, 0, false, 4, 4, 5 }; // quad display... requires special handling in code
 
 // Vs Series
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };

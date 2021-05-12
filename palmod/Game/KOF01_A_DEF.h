@@ -100,9 +100,20 @@ const UINT16 KOF01_A_IMG_UNITS[] =
 
 const sGame_PaletteDataset KOF01_A_ZERO_STRIKER_PALETTES[] =
 {
+    { L"Striker Krizalid Punch", 0x391922, 0x391942 },
+    { L"Striker Krizalid Kick", 0x391b22, 0x391b42 },
+    { L"Striker Krizalid Typhoon Rage", 0x397922, 0x397942 },
+    { L"Striker Glugan Punch", 0x391d22, 0x391d42 },
+    { L"Striker Glugan Kick", 0x391f22, 0x391f42 },
+    { L"Striker Lon Punch", 0x392122, 0x392142 },
+    { L"Striker Lon Kick", 0x392322, 0x392342 },
+};
+
+const sGame_PaletteDataset KOF01_A_ZERO_STRIKER_PORTRAIT_PALETTES[] =
+{
     { L"Krizalid Striker Portrait", 0x399222, 0x399242 },
     { L"Lon Striker Portrait", 0x399242, 0x399262 },
-    { L"Glugan Striker Portrait", 0x399262, 0x399282 }, 
+    { L"Glugan Striker Portrait", 0x399262, 0x399282 },
 };
 
 const sGame_PaletteDataset KOF01_A_BONUS_EFFECTS_PALETTES[] =
@@ -1087,6 +1098,7 @@ const sGame_PaletteDataset KOF01_A_KULA_PUNCH_PALETTES[] =
     { L"Order Select Portrait", 0x399a22, 0x399a42 },
     { L"Select Portrait", 0x39c222, 0x39c262 },
     { L"Win Portrait", 0x39df22, 0x39df62 },
+    { L"Diana Win Portrait Punch Extra", 0x39e622, 0x39e642 },
     { L"Lifebar Portrait", 0x3b9022, 0x3b9042 },
     { L"Next Character Lifebar Portrait", 0x3b80a2, 0x3b80c2 },
 };
@@ -1104,6 +1116,7 @@ const sGame_PaletteDataset KOF01_A_KULA_KICK_PALETTES[] =
     { L"Order Select Portrait", 0x399a42, 0x399a62 },
     { L"Select Portrait", 0x39c262, 0x39c2a2 },
     { L"Win Portrait", 0x39df62, 0x39dfa2 },
+    { L"Diana Win Portrait Kick Extra", 0x39e642, 0x39e662 },
     { L"Lifebar Portrait", 0x3b9042, 0x3b9062 },
     { L"Next Character Lifebar Portrait", 0x3b85a2, 0x3b85c2 },
 };
@@ -2539,7 +2552,12 @@ const sDescTreeNode KOF01_A_ZERO_COLLECTION[] =
     { L"Punch", DESC_NODETYPE_TREE, (void*)KOF01_A_ZERO_PUNCH_PALETTES, ARRAYSIZE(KOF01_A_ZERO_PUNCH_PALETTES) },
     { L"Kick", DESC_NODETYPE_TREE, (void*)KOF01_A_ZERO_KICK_PALETTES, ARRAYSIZE(KOF01_A_ZERO_KICK_PALETTES) },
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF01_A_ZEROEXTRAS_PALETTES, ARRAYSIZE(KOF01_A_ZEROEXTRAS_PALETTES) },
-    { L"Striker Portraits", DESC_NODETYPE_TREE, (void*)KOF01_A_ZERO_STRIKER_PALETTES, ARRAYSIZE(KOF01_A_ZERO_STRIKER_PALETTES) },
+};
+
+const sDescTreeNode KOF01_A_ZERO_STRIKER_COLLECTION[] =
+{
+    { L"Strikers", DESC_NODETYPE_TREE, (void*)KOF01_A_ZERO_STRIKER_PALETTES, ARRAYSIZE(KOF01_A_ZERO_STRIKER_PALETTES) },
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF01_A_ZERO_STRIKER_PORTRAIT_PALETTES, ARRAYSIZE(KOF01_A_ZERO_STRIKER_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode KOF01_A_UNITS[] =
@@ -2586,6 +2604,7 @@ const sDescTreeNode KOF01_A_UNITS[] =
     { L"May Lee",           DESC_NODETYPE_TREE, (void*)KOF01_A_MAYLEE_COLLECTION, ARRAYSIZE(KOF01_A_MAYLEE_COLLECTION) },
     { L"Zero",              DESC_NODETYPE_TREE, (void*)KOF01_A_ZERO_COLLECTION, ARRAYSIZE(KOF01_A_ZERO_COLLECTION) },
     { L"Igniz",             DESC_NODETYPE_TREE, (void*)KOF01_A_IGNIZ_COLLECTION, ARRAYSIZE(KOF01_A_IGNIZ_COLLECTION) },
+    { L"Zero Strikers",     DESC_NODETYPE_TREE, (void*)KOF01_A_ZERO_STRIKER_COLLECTION, ARRAYSIZE(KOF01_A_ZERO_STRIKER_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)KOF01_A_BONUS_COLLECTION, ARRAYSIZE(KOF01_A_BONUS_COLLECTION) },
 };
 

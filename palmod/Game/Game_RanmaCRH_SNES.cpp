@@ -40,8 +40,8 @@ CGame_RANMACRH_SNES::CGame_RANMACRH_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = RANMACRH_SNES;
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = nullptr;  // RANMACRH_SNES_IMG_UNITS
-    nImgUnitAmt = 0; // ARRAYSIZE(RANMACRH_SNES_IMG_UNITS);
+    m_prgGameImageSet = RANMACRH_SNES_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(RANMACRH_SNES_IMG_UNITS);
 
     nFileAmt = 1;
 

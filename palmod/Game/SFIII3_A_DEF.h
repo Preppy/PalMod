@@ -3049,6 +3049,14 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_LP_PALETTES[] =
     { L"LP Shocked",    0x00000280, 0x00000300, index3S_CPS3_Alex, 0x08 },
     { L"LP Frozen",     0x00000300, 0x00000380, index3S_CPS3_Alex, 0x00 },
     { L"LP Hitsparks",  0x00000380, 0x00000400, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x28400, 0x28480, index3S_CPS3_Alex, 0x00 },
+    { L"LP SA Trail 1", 0x28480, 0x28500, index3S_CPS3_Alex, 0x00 },
+    { L"LP SA Trail 2", 0x28500, 0x28580, index3S_CPS3_Alex, 0x00 },
+    { L"LP SA Trail 3", 0x28580, 0x28600, index3S_CPS3_Alex, 0x00 },
+   // { L"LP SA Trail 4", 0x28600, 0x28680, index3S_CPS3_Alex, 0x00 },
+   // { L"LP SA Trail 5", 0x28680, 0x28700, index3S_CPS3_Alex, 0x00 },
+   // { L"LP SA Trail 6", 0x28700, 0x28780, index3S_CPS3_Alex, 0x00 },
+   // { L"LP SA Trail 7", 0x28780, 0x28800, index3S_CPS3_Alex, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_MP_PALETTES[] =
@@ -3061,6 +3069,14 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_MP_PALETTES[] =
     { L"MP Shocked",    0x00000680, 0x00000700, index3S_CPS3_Alex, 0x08 },
     { L"MP Frozen",     0x00000700, 0x00000780, index3S_CPS3_Alex, 0x00 },
     { L"MP Hitsparks",  0x00000780, 0x00000800, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x28800, 0x28880, index3S_CPS3_Alex, 0x00 },
+    { L"MP SA Trail 1", 0x28880, 0x28900, index3S_CPS3_Alex, 0x00 },
+    { L"MP SA Trail 2", 0x28900, 0x28980, index3S_CPS3_Alex, 0x00 },
+    { L"MP SA Trail 3", 0x28980, 0x28A00, index3S_CPS3_Alex, 0x00 },
+   // { L"MP SA Trail 4", 0x28A00, 0x28A80, index3S_CPS3_Alex, 0x00 },
+   // { L"MP SA Trail 5", 0x28A80, 0x28B00, index3S_CPS3_Alex, 0x00 },
+   // { L"MP SA Trail 6", 0x28B00, 0x28B80, index3S_CPS3_Alex, 0x00 },
+   // { L"MP SA Trail 7", 0x28B80, 0x28C00, index3S_CPS3_Alex, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_HP_PALETTES[] =
@@ -3073,6 +3089,14 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_HP_PALETTES[] =
     { L"HP Shocked",    0x00000A80, 0x00000B00, index3S_CPS3_Alex, 0x08 },
     { L"HP Frozen",     0x00000B00, 0x00000B80, index3S_CPS3_Alex, 0x00 },
     { L"HP Hitsparks",  0x00000B80, 0x00000C00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x28C00, 0x28C80, index3S_CPS3_Alex, 0x00 },
+    { L"HP SA Trail 1", 0x28C80, 0x28D00, index3S_CPS3_Alex, 0x00 },
+    { L"HP SA Trail 2", 0x28D00, 0x28D80, index3S_CPS3_Alex, 0x00 },
+    { L"HP SA Trail 3", 0x28D80, 0x28E00, index3S_CPS3_Alex, 0x00 },
+   // { L"HP SA Trail 4", 0x28E00, 0x28E80, index3S_CPS3_Alex, 0x00 },
+   // { L"HP SA Trail 5", 0x28E80, 0x28F00, index3S_CPS3_Alex, 0x00 },
+   // { L"HP SA Trail 6", 0x28F00, 0x28F80, index3S_CPS3_Alex, 0x00 },
+   // { L"HP SA Trail 7", 0x28F80, 0x29000, index3S_CPS3_Alex, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_LK_PALETTES[] =
@@ -3085,6 +3109,14 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_LK_PALETTES[] =
     { L"LK Shocked",    0x00000E80, 0x00000F00, index3S_CPS3_Alex, 0x08 },
     { L"LK Frozen",     0x00000F00, 0x00000F80, index3S_CPS3_Alex, 0x00 },
     { L"LK Hitsparks",  0x00000F80, 0x00001000, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x29000, 0x29080, index3S_CPS3_Alex, 0x00 },
+    { L"LK SA Trail 1", 0x29080, 0x29100, index3S_CPS3_Alex, 0x00 },
+    { L"LK SA Trail 2", 0x29100, 0x29180, index3S_CPS3_Alex, 0x00 },
+    { L"LK SA Trail 3", 0x29180, 0x29200, index3S_CPS3_Alex, 0x00 },
+   // { L"LK SA Trail 4", 0x29200, 0x29280, index3S_CPS3_Alex, 0x00 },
+   // { L"LK SA Trail 5", 0x29280, 0x29300, index3S_CPS3_Alex, 0x00 },
+   // { L"LK SA Trail 6", 0x29300, 0x29380, index3S_CPS3_Alex, 0x00 },
+   // { L"LK SA Trail 7", 0x29380, 0x29400, index3S_CPS3_Alex, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_MK_PALETTES[] =
@@ -3097,6 +3129,14 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_MK_PALETTES[] =
     { L"MK Shocked",    0x00001280, 0x00001300, index3S_CPS3_Alex, 0x08 },
     { L"MK Frozen",     0x00001300, 0x00001380, index3S_CPS3_Alex, 0x00 },
     { L"MK Hitsparks",  0x00001380, 0x00001400, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x29400, 0x29480, index3S_CPS3_Alex, 0x00 },
+    { L"MK SA Trail 1", 0x29480, 0x29500, index3S_CPS3_Alex, 0x00 },
+    { L"MK SA Trail 2", 0x29500, 0x29580, index3S_CPS3_Alex, 0x00 },
+    { L"MK SA Trail 3", 0x29580, 0x29600, index3S_CPS3_Alex, 0x00 },
+   // { L"MK SA Trail 4", 0x29600, 0x29680, index3S_CPS3_Alex, 0x00 },
+   // { L"MK SA Trail 5", 0x29680, 0x29700, index3S_CPS3_Alex, 0x00 },
+   // { L"MK SA Trail 6", 0x29700, 0x29780, index3S_CPS3_Alex, 0x00 },
+   // { L"MK SA Trail 7", 0x29780, 0x29800, index3S_CPS3_Alex, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_HK_PALETTES[] =
@@ -3109,6 +3149,14 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_HK_PALETTES[] =
     { L"HK Shocked",    0x00001680, 0x00001700, index3S_CPS3_Alex, 0x08 },
     { L"HK Frozen",     0x00001700, 0x00001780, index3S_CPS3_Alex, 0x00 },
     { L"HK Hitsparks",  0x00001780, 0x00001800, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x29800, 0x29880, index3S_CPS3_Alex, 0x00 },
+    { L"HK SA Trail 1", 0x29880, 0x29900, index3S_CPS3_Alex, 0x00 },
+    { L"HK SA Trail 2", 0x29900, 0x29980, index3S_CPS3_Alex, 0x00 },
+    { L"HK SA Trail 3", 0x29980, 0x29A00, index3S_CPS3_Alex, 0x00 },
+   // { L"HK SA Trail 4", 0x29A00, 0x29A80, index3S_CPS3_Alex, 0x00 },
+   // { L"HK SA Trail 5", 0x29A80, 0x29B00, index3S_CPS3_Alex, 0x00 },
+   // { L"HK SA Trail 6", 0x29B00, 0x29B80, index3S_CPS3_Alex, 0x00 },
+   // { L"HK SA Trail 7", 0x29B80, 0x29C00, index3S_CPS3_Alex, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_EX_PALETTES[] =
@@ -3121,6 +3169,15 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_EX_PALETTES[] =
     { L"EX Shocked",    0x00001A80, 0x00001B00, index3S_CPS3_Alex, 0x08 },
     { L"EX Frozen",     0x00001B00, 0x00001B80, index3S_CPS3_Alex, 0x00 },
     { L"EX Hitsparks",  0x00001B80, 0x00001C00, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x29C00, 0x29C80, index3S_CPS3_Alex, 0x00 },
+    { L"EX SA Trail 1", 0x29C80, 0x29D00, index3S_CPS3_Alex, 0x00 },
+    { L"EX SA Trail 2", 0x29D00, 0x29D80, index3S_CPS3_Alex, 0x00 },
+    { L"EX SA Trail 3", 0x29D80, 0x29E00, index3S_CPS3_Alex, 0x00 },
+   // { L"EX SA Trail 4", 0x29E00, 0x29E80, index3S_CPS3_Alex, 0x00 },
+   // { L"EX SA Trail 5", 0x29E80, 0x29F00, index3S_CPS3_Alex, 0x00 },
+   // { L"EX SA Trail 6", 0x29F00, 0x29F80, index3S_CPS3_Alex, 0x00 },
+   // { L"EX SA Trail 7", 0x29F80, 0x2A000, index3S_CPS3_Alex, 0x00 },
+
 };
 
 const sGame_PaletteDataset SFIII3EX_A_RYU_LP_PALETTES[] =
@@ -3135,6 +3192,14 @@ const sGame_PaletteDataset SFIII3EX_A_RYU_LP_PALETTES[] =
     { L"LP Shocked",   0x00001F80, 0x00002000, index3S_CPS3_Ryu, 0x08 },
     { L"LP Frozen",    0x00002000, 0x00002080, index3S_CPS3_Ryu, 0x00 },
     { L"LP Hitsparks", 0x00002080, 0x00002100, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x2A000, 0x2A080, index3S_CPS3_Ryu, 0x00 },
+    { L"LP SA Trail 1", 0x2A080, 0x2A100, index3S_CPS3_Ryu, 0x00 },
+    { L"LP SA Trail 2", 0x2A100, 0x2A180, index3S_CPS3_Ryu, 0x00 },
+    { L"LP SA Trail 3", 0x2A180, 0x2A200, index3S_CPS3_Ryu, 0x00 },
+   // { L"LP SA Trail 4", 0x2A200, 0x2A280, index3S_CPS3_Ryu, 0x00 },
+   // { L"LP SA Trail 5", 0x2A280, 0x2A300, index3S_CPS3_Ryu, 0x00 },
+   // { L"LP SA Trail 6", 0x2A300, 0x2A380, index3S_CPS3_Ryu, 0x00 },
+   // { L"LP SA Trail 7", 0x2A380, 0x2A400, index3S_CPS3_Ryu, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_RYU_MP_PALETTES[] =
@@ -3149,6 +3214,14 @@ const sGame_PaletteDataset SFIII3EX_A_RYU_MP_PALETTES[] =
     { L"MP Shocked",   0x00002480, 0x00002500, index3S_CPS3_Ryu, 0x08 },
     { L"MP Frozen",    0x00002500, 0x00002580, index3S_CPS3_Ryu, 0x00 },
     { L"MP Hitsparks", 0x00002580, 0x00002600, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x2A400, 0x2A480, index3S_CPS3_Ryu, 0x00 },
+    { L"MP SA Trail 1", 0x2A480, 0x2A500, index3S_CPS3_Ryu, 0x00 },
+    { L"MP SA Trail 2", 0x2A500, 0x2A580, index3S_CPS3_Ryu, 0x00 },
+    { L"MP SA Trail 3", 0x2A580, 0x2A600, index3S_CPS3_Ryu, 0x00 },
+   // { L"MP SA Trail 4", 0x2A600, 0x2A680, index3S_CPS3_Ryu, 0x00 },
+   // { L"MP SA Trail 5", 0x2A680, 0x2A700, index3S_CPS3_Ryu, 0x00 },
+   // { L"MP SA Trail 6", 0x2A700, 0x2A780, index3S_CPS3_Ryu, 0x00 },
+   // { L"MP SA Trail 7", 0x2A780, 0x2A800, index3S_CPS3_Ryu, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_RYU_HP_PALETTES[] =
@@ -3163,6 +3236,14 @@ const sGame_PaletteDataset SFIII3EX_A_RYU_HP_PALETTES[] =
     { L"HP Shocked",   0x00002980, 0x00002A00, index3S_CPS3_Ryu, 0x08 },
     { L"HP Frozen",    0x00002A00, 0x00002A80, index3S_CPS3_Ryu, 0x00 },
     { L"HP Hitsparks", 0x00002A80, 0x00002B00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x2A800, 0x2A880, index3S_CPS3_Ryu, 0x00 },
+    { L"HP SA Trail 1", 0x2A880, 0x2A900, index3S_CPS3_Ryu, 0x00 },
+    { L"HP SA Trail 2", 0x2A900, 0x2A980, index3S_CPS3_Ryu, 0x00 },
+    { L"HP SA Trail 3", 0x2A980, 0x2AA00, index3S_CPS3_Ryu, 0x00 },
+   // { L"HP SA Trail 4", 0x2AA00, 0x2AA80, index3S_CPS3_Ryu, 0x00 },
+   // { L"HP SA Trail 5", 0x2AA80, 0x2AB00, index3S_CPS3_Ryu, 0x00 },
+   // { L"HP SA Trail 6", 0x2AB00, 0x2AB80, index3S_CPS3_Ryu, 0x00 },
+   // { L"HP SA Trail 7", 0x2AB80, 0x2AC00, index3S_CPS3_Ryu, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_RYU_LK_PALETTES[] =
@@ -3177,6 +3258,15 @@ const sGame_PaletteDataset SFIII3EX_A_RYU_LK_PALETTES[] =
     { L"LK Shocked",   0x00002E80, 0x00002F00, index3S_CPS3_Ryu, 0x08 },
     { L"LK Frozen",    0x00002F00, 0x00002F80, index3S_CPS3_Ryu, 0x00 },
     { L"LK Hitsparks", 0x00002F80, 0x00003000, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x2AC00, 0x2AC80, index3S_CPS3_Ryu, 0x00 },
+    { L"LK SA Trail 1", 0x2AC80, 0x2AD00, index3S_CPS3_Ryu, 0x00 },
+    { L"LK SA Trail 2", 0x2AD00, 0x2AD80, index3S_CPS3_Ryu, 0x00 },
+    { L"LK SA Trail 3", 0x2AD80, 0x2AE00, index3S_CPS3_Ryu, 0x00 },
+   // { L"LK SA Trail 4", 0x2AE00, 0x2AE80, index3S_CPS3_Ryu, 0x00 },
+   // { L"LK SA Trail 5", 0x2AE80, 0x2AF00, index3S_CPS3_Ryu, 0x00 },
+   // { L"LK SA Trail 6", 0x2AF00, 0x2AF80, index3S_CPS3_Ryu, 0x00 },
+   // { L"LK SA Trail 7", 0x2AF80, 0x2B000, index3S_CPS3_Ryu, 0x00 },
+
 };
 
 const sGame_PaletteDataset SFIII3EX_A_RYU_MK_PALETTES[] =
@@ -3191,6 +3281,14 @@ const sGame_PaletteDataset SFIII3EX_A_RYU_MK_PALETTES[] =
     { L"MK Shocked",   0x00003380, 0x00003400, index3S_CPS3_Ryu, 0x08 },
     { L"MK Frozen",    0x00003400, 0x00003480, index3S_CPS3_Ryu, 0x00 },
     { L"MK Hitsparks", 0x00003480, 0x00003500, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x2B000, 0x2B080, index3S_CPS3_Ryu, 0x00 },
+    { L"MK SA Trail 1", 0x2B080, 0x2B100, index3S_CPS3_Ryu, 0x00 },
+    { L"MK SA Trail 2", 0x2B100, 0x2B180, index3S_CPS3_Ryu, 0x00 },
+    { L"MK SA Trail 3", 0x2B180, 0x2B200, index3S_CPS3_Ryu, 0x00 },
+   // { L"MK SA Trail 4", 0x2B200, 0x2B280, index3S_CPS3_Ryu, 0x00 },
+   // { L"MK SA Trail 5", 0x2B280, 0x2B300, index3S_CPS3_Ryu, 0x00 },
+   // { L"MK SA Trail 6", 0x2B300, 0x2B380, index3S_CPS3_Ryu, 0x00 },
+   // { L"MK SA Trail 7", 0x2B380, 0x2B400, index3S_CPS3_Ryu, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_RYU_HK_PALETTES[] =
@@ -3205,6 +3303,14 @@ const sGame_PaletteDataset SFIII3EX_A_RYU_HK_PALETTES[] =
     { L"HK Shocked",   0x00003880, 0x00003900, index3S_CPS3_Ryu, 0x08 },
     { L"HK Frozen",    0x00003900, 0x00003980, index3S_CPS3_Ryu, 0x00 },
     { L"HK Hitsparks", 0x00003980, 0x00003A00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x2B400, 0x2B480, index3S_CPS3_Ryu, 0x00 },
+    { L"HK SA Trail 1", 0x2B480, 0x2B500, index3S_CPS3_Ryu, 0x00 },
+    { L"HK SA Trail 2", 0x2B500, 0x2B580, index3S_CPS3_Ryu, 0x00 },
+    { L"HK SA Trail 3", 0x2B580, 0x2B600, index3S_CPS3_Ryu, 0x00 },
+   // { L"HK SA Trail 4", 0x2B600, 0x2B680, index3S_CPS3_Ryu, 0x00 },
+   // { L"HK SA Trail 5", 0x2B680, 0x2B700, index3S_CPS3_Ryu, 0x00 },
+   // { L"HK SA Trail 6", 0x2B700, 0x2B780, index3S_CPS3_Ryu, 0x00 },
+   // { L"HK SA Trail 7", 0x2B780, 0x2B800, index3S_CPS3_Ryu, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_RYU_EX_PALETTES[] =
@@ -3219,6 +3325,14 @@ const sGame_PaletteDataset SFIII3EX_A_RYU_EX_PALETTES[] =
     { L"EX Shocked",   0x00003D80, 0x00003E00, index3S_CPS3_Ryu, 0x08 },
     { L"EX Frozen",    0x00003E00, 0x00003E80, index3S_CPS3_Ryu, 0x00 },
     { L"EX Hitsparks", 0x00003E80, 0x00003F00, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x2B800, 0x2B880, index3S_CPS3_Ryu, 0x00 },
+    { L"EX SA Trail 1", 0x2B880, 0x2B900, index3S_CPS3_Ryu, 0x00 },
+    { L"EX SA Trail 2", 0x2B900, 0x2B980, index3S_CPS3_Ryu, 0x00 },
+    { L"EX SA Trail 3", 0x2B980, 0x2BA00, index3S_CPS3_Ryu, 0x00 },
+   // { L"EX SA Trail 4", 0x2BA00, 0x2BA80, index3S_CPS3_Ryu, 0x00 },
+   // { L"EX SA Trail 5", 0x2BA80, 0x2BB00, index3S_CPS3_Ryu, 0x00 },
+   // { L"EX SA Trail 6", 0x2BB00, 0x2BB80, index3S_CPS3_Ryu, 0x00 },
+   // { L"EX SA Trail 7", 0x2BB80, 0x2BC00, index3S_CPS3_Ryu, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YUN_LP_PALETTES[] =
@@ -3231,6 +3345,14 @@ const sGame_PaletteDataset SFIII3EX_A_YUN_LP_PALETTES[] =
     { L"LP Shocked",   0x00004180, 0x00004200, index3S_CPS3_Yun, 0x08 },
     { L"LP Frozen",    0x00004200, 0x00004280, index3S_CPS3_Yun, 0x00 },
     { L"LP Hitsparks", 0x00004280, 0x00004300, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x2BC00, 0x2BC80, index3S_CPS3_Yun, 0x00 },
+    { L"LP SA Trail 1", 0x2BC80, 0x2BD00, index3S_CPS3_Yun, 0x00 },
+    { L"LP SA Trail 2", 0x2BD00, 0x2BD80, index3S_CPS3_Yun, 0x00 },
+    { L"LP SA Trail 3", 0x2BD80, 0x2BE00, index3S_CPS3_Yun, 0x00 },
+   // { L"LP SA Trail 4", 0x2BE00, 0x2BE80, index3S_CPS3_Yun, 0x00 },
+   // { L"LP SA Trail 5", 0x2BE80, 0x2BF00, index3S_CPS3_Yun, 0x00 },
+   // { L"LP SA Trail 6", 0x2BF00, 0x2BF80, index3S_CPS3_Yun, 0x00 },
+   // { L"LP SA Trail 7", 0x2BF80, 0x2C000, index3S_CPS3_Yun, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YUN_MP_PALETTES[] =
@@ -3243,6 +3365,14 @@ const sGame_PaletteDataset SFIII3EX_A_YUN_MP_PALETTES[] =
     { L"MP Shocked",   0x00004580, 0x00004600, index3S_CPS3_Yun, 0x08 },
     { L"MP Frozen",    0x00004600, 0x00004680, index3S_CPS3_Yun, 0x00 },
     { L"MP Hitsparks", 0x00004680, 0x00004700, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x2C000, 0x2C080, index3S_CPS3_Yun, 0x00 },
+    { L"MP SA Trail 1", 0x2C080, 0x2C100, index3S_CPS3_Yun, 0x00 },
+    { L"MP SA Trail 2", 0x2C100, 0x2C180, index3S_CPS3_Yun, 0x00 },
+    { L"MP SA Trail 3", 0x2C180, 0x2C200, index3S_CPS3_Yun, 0x00 },
+   // { L"MP SA Trail 4", 0x2C200, 0x2C280, index3S_CPS3_Yun, 0x00 },
+   // { L"MP SA Trail 5", 0x2C280, 0x2C300, index3S_CPS3_Yun, 0x00 },
+   // { L"MP SA Trail 6", 0x2C300, 0x2C380, index3S_CPS3_Yun, 0x00 },
+   // { L"MP SA Trail 7", 0x2C380, 0x2C400, index3S_CPS3_Yun, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YUN_HP_PALETTES[] =
@@ -3255,6 +3385,14 @@ const sGame_PaletteDataset SFIII3EX_A_YUN_HP_PALETTES[] =
     { L"HP Shocked",   0x00004980, 0x00004A00, index3S_CPS3_Yun, 0x08 },
     { L"HP Frozen",    0x00004A00, 0x00004A80, index3S_CPS3_Yun, 0x00 },
     { L"HP Hitsparks", 0x00004A80, 0x00004B00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x2C400, 0x2C480, index3S_CPS3_Yun, 0x00 },
+    { L"HP SA Trail 1", 0x2C480, 0x2C500, index3S_CPS3_Yun, 0x00 },
+    { L"HP SA Trail 2", 0x2C500, 0x2C580, index3S_CPS3_Yun, 0x00 },
+    { L"HP SA Trail 3", 0x2C580, 0x2C600, index3S_CPS3_Yun, 0x00 },
+   // { L"HP SA Trail 4", 0x2C600, 0x2C680, index3S_CPS3_Yun, 0x00 },
+   // { L"HP SA Trail 5", 0x2C680, 0x2C700, index3S_CPS3_Yun, 0x00 },
+   // { L"HP SA Trail 6", 0x2C700, 0x2C780, index3S_CPS3_Yun, 0x00 },
+   // { L"HP SA Trail 7", 0x2C780, 0x2C800, index3S_CPS3_Yun, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YUN_LK_PALETTES[] =
@@ -3267,6 +3405,14 @@ const sGame_PaletteDataset SFIII3EX_A_YUN_LK_PALETTES[] =
     { L"LK Shocked",   0x00004D80, 0x00004E00, index3S_CPS3_Yun, 0x08 },
     { L"LK Frozen",    0x00004E00, 0x00004E80, index3S_CPS3_Yun, 0x00 },
     { L"LK Hitsparks", 0x00004E80, 0x00004F00, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x2C800, 0x2C880, index3S_CPS3_Yun, 0x00 },
+    { L"LK SA Trail 1", 0x2C880, 0x2C900, index3S_CPS3_Yun, 0x00 },
+    { L"LK SA Trail 2", 0x2C900, 0x2C980, index3S_CPS3_Yun, 0x00 },
+    { L"LK SA Trail 3", 0x2C980, 0x2CA00, index3S_CPS3_Yun, 0x00 },
+   // { L"LK SA Trail 4", 0x2CA00, 0x2CA80, index3S_CPS3_Yun, 0x00 },
+   // { L"LK SA Trail 5", 0x2CA80, 0x2CB00, index3S_CPS3_Yun, 0x00 },
+   // { L"LK SA Trail 6", 0x2CB00, 0x2CB80, index3S_CPS3_Yun, 0x00 },
+   // { L"LK SA Trail 7", 0x2CB80, 0x2CC00, index3S_CPS3_Yun, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YUN_MK_PALETTES[] =
@@ -3279,6 +3425,14 @@ const sGame_PaletteDataset SFIII3EX_A_YUN_MK_PALETTES[] =
     { L"MK Shocked",   0x00005180, 0x00005200, index3S_CPS3_Yun, 0x08 },
     { L"MK Frozen",    0x00005200, 0x00005280, index3S_CPS3_Yun, 0x00 },
     { L"MK Hitsparks", 0x00005280, 0x00005300, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x2CC00, 0x2CC80, index3S_CPS3_Yun, 0x00 },
+    { L"MK SA Trail 1", 0x2CC80, 0x2CD00, index3S_CPS3_Yun, 0x00 },
+    { L"MK SA Trail 2", 0x2CD00, 0x2CD80, index3S_CPS3_Yun, 0x00 },
+    { L"MK SA Trail 3", 0x2CD80, 0x2CE00, index3S_CPS3_Yun, 0x00 },
+   // { L"MK SA Trail 4", 0x2CE00, 0x2CE80, index3S_CPS3_Yun, 0x00 },
+   // { L"MK SA Trail 5", 0x2CE80, 0x2CF00, index3S_CPS3_Yun, 0x00 },
+   // { L"MK SA Trail 6", 0x2CF00, 0x2CF80, index3S_CPS3_Yun, 0x00 },
+   // { L"MK SA Trail 7", 0x2CF80, 0x2D000, index3S_CPS3_Yun, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YUN_HK_PALETTES[] =
@@ -3291,6 +3445,14 @@ const sGame_PaletteDataset SFIII3EX_A_YUN_HK_PALETTES[] =
     { L"HK Shocked",   0x00005580, 0x00005600, index3S_CPS3_Yun, 0x08 },
     { L"HK Frozen",    0x00005600, 0x00005680, index3S_CPS3_Yun, 0x00 },
     { L"HK Hitsparks", 0x00005680, 0x00005700, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x2D000, 0x2D080, index3S_CPS3_Yun, 0x00 },
+    { L"HK SA Trail 1", 0x2D080, 0x2D100, index3S_CPS3_Yun, 0x00 },
+    { L"HK SA Trail 2", 0x2D100, 0x2D180, index3S_CPS3_Yun, 0x00 },
+    { L"HK SA Trail 3", 0x2D180, 0x2D200, index3S_CPS3_Yun, 0x00 },
+   // { L"HK SA Trail 4", 0x2D200, 0x2D280, index3S_CPS3_Yun, 0x00 },
+   // { L"HK SA Trail 5", 0x2D280, 0x2D300, index3S_CPS3_Yun, 0x00 },
+   // { L"HK SA Trail 6", 0x2D300, 0x2D380, index3S_CPS3_Yun, 0x00 },
+   // { L"HK SA Trail 7", 0x2D380, 0x2D400, index3S_CPS3_Yun, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YUN_EX_PALETTES[] =
@@ -3303,6 +3465,14 @@ const sGame_PaletteDataset SFIII3EX_A_YUN_EX_PALETTES[] =
     { L"EX Shocked",   0x00005980, 0x00005A00, index3S_CPS3_Yun, 0x08 },
     { L"EX Frozen",    0x00005A00, 0x00005A80, index3S_CPS3_Yun, 0x00 },
     { L"EX Hitsparks", 0x00005A80, 0x00005B00, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x2D400, 0x2D480, index3S_CPS3_Yun, 0x00 },
+    { L"EX SA Trail 1", 0x2D480, 0x2D500, index3S_CPS3_Yun, 0x00 },
+    { L"EX SA Trail 2", 0x2D500, 0x2D580, index3S_CPS3_Yun, 0x00 },
+    { L"EX SA Trail 3", 0x2D580, 0x2D600, index3S_CPS3_Yun, 0x00 },
+   // { L"EX SA Trail 4", 0x2D600, 0x2D680, index3S_CPS3_Yun, 0x00 },
+   // { L"EX SA Trail 5", 0x2D680, 0x2D700, index3S_CPS3_Yun, 0x00 },
+   // { L"EX SA Trail 6", 0x2D700, 0x2D780, index3S_CPS3_Yun, 0x00 },
+   // { L"EX SA Trail 7", 0x2D780, 0x2D800, index3S_CPS3_Yun, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_LP_PALETTES[] =
@@ -3317,6 +3487,14 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_LP_PALETTES[] =
     { L"LP Shocked",   0x00005E80, 0x00005F00, index3S_CPS3_Dudley, 0x08 },
     { L"LP Frozen",    0x00005F00, 0x00005F80, index3S_CPS3_Dudley, 0x00 },
     { L"LP Hitsparks", 0x00005F80, 0x00006000, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x2D800, 0x2D880, index3S_CPS3_Dudley, 0x00 },
+    { L"LP SA Trail 1", 0x2D880, 0x2D900, index3S_CPS3_Dudley, 0x00 },
+    { L"LP SA Trail 2", 0x2D900, 0x2D980, index3S_CPS3_Dudley, 0x00 },
+    { L"LP SA Trail 3", 0x2D980, 0x2DA00, index3S_CPS3_Dudley, 0x00 },
+   // { L"LP SA Trail 4", 0x2DA00, 0x2DA80, index3S_CPS3_Dudley, 0x00 },
+   // { L"LP SA Trail 5", 0x2DA80, 0x2DB00, index3S_CPS3_Dudley, 0x00 },
+   // { L"LP SA Trail 6", 0x2DB00, 0x2DB80, index3S_CPS3_Dudley, 0x00 },
+   // { L"LP SA Trail 7", 0x2DB80, 0x2DC00, index3S_CPS3_Dudley, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_MP_PALETTES[] =
@@ -3331,6 +3509,14 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_MP_PALETTES[] =
     { L"MP Shocked",   0x00006380, 0x00006400, index3S_CPS3_Dudley, 0x08 },
     { L"MP Frozen",    0x00006400, 0x00006480, index3S_CPS3_Dudley, 0x00 },
     { L"MP Hitsparks", 0x00006480, 0x00006500, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x2DC00, 0x2DC80, index3S_CPS3_Dudley, 0x00 },
+    { L"MP SA Trail 1", 0x2DC80, 0x2DD00, index3S_CPS3_Dudley, 0x00 },
+    { L"MP SA Trail 2", 0x2DD00, 0x2DD80, index3S_CPS3_Dudley, 0x00 },
+    { L"MP SA Trail 3", 0x2DD80, 0x2DE00, index3S_CPS3_Dudley, 0x00 },
+   // { L"MP SA Trail 4", 0x2DE00, 0x2DE80, index3S_CPS3_Dudley, 0x00 },
+   // { L"MP SA Trail 5", 0x2DE80, 0x2DF00, index3S_CPS3_Dudley, 0x00 },
+   // { L"MP SA Trail 6", 0x2DF00, 0x2DF80, index3S_CPS3_Dudley, 0x00 },
+   // { L"MP SA Trail 7", 0x2DF80, 0x2E000, index3S_CPS3_Dudley, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_HP_PALETTES[] =
@@ -3345,6 +3531,14 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_HP_PALETTES[] =
     { L"HP Shocked",   0x00006880, 0x00006900, index3S_CPS3_Dudley, 0x08 },
     { L"HP Frozen",    0x00006900, 0x00006980, index3S_CPS3_Dudley, 0x00 },
     { L"HP Hitsparks", 0x00006980, 0x00006A00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x2E000, 0x2E080, index3S_CPS3_Dudley, 0x00 },
+    { L"HP SA Trail 1", 0x2E080, 0x2E100, index3S_CPS3_Dudley, 0x00 },
+    { L"HP SA Trail 2", 0x2E100, 0x2E180, index3S_CPS3_Dudley, 0x00 },
+    { L"HP SA Trail 3", 0x2E180, 0x2E200, index3S_CPS3_Dudley, 0x00 },
+   // { L"HP SA Trail 4", 0x2E200, 0x2E280, index3S_CPS3_Dudley, 0x00 },
+   // { L"HP SA Trail 5", 0x2E280, 0x2E300, index3S_CPS3_Dudley, 0x00 },
+   // { L"HP SA Trail 6", 0x2E300, 0x2E380, index3S_CPS3_Dudley, 0x00 },
+   // { L"HP SA Trail 7", 0x2E380, 0x2E400, index3S_CPS3_Dudley, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_LK_PALETTES[] =
@@ -3359,6 +3553,14 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_LK_PALETTES[] =
     { L"LK Shocked",   0x00006D80, 0x00006E00, index3S_CPS3_Dudley, 0x08 },
     { L"LK Frozen",    0x00006E00, 0x00006E80, index3S_CPS3_Dudley, 0x00 },
     { L"LK Hitsparks", 0x00006E80, 0x00006F00, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x2E400, 0x2E480, index3S_CPS3_Dudley, 0x00 },
+    { L"LK SA Trail 1", 0x2E480, 0x2E500, index3S_CPS3_Dudley, 0x00 },
+    { L"LK SA Trail 2", 0x2E500, 0x2E580, index3S_CPS3_Dudley, 0x00 },
+    { L"LK SA Trail 3", 0x2E580, 0x2E600, index3S_CPS3_Dudley, 0x00 },
+   // { L"LK SA Trail 4", 0x2E600, 0x2E680, index3S_CPS3_Dudley, 0x00 },
+   // { L"LK SA Trail 5", 0x2E680, 0x2E700, index3S_CPS3_Dudley, 0x00 },
+   // { L"LK SA Trail 6", 0x2E700, 0x2E780, index3S_CPS3_Dudley, 0x00 },
+   // { L"LK SA Trail 7", 0x2E780, 0x2E800, index3S_CPS3_Dudley, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_MK_PALETTES[] =
@@ -3373,6 +3575,14 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_MK_PALETTES[] =
     { L"MK Shocked",   0x00007280, 0x00007300, index3S_CPS3_Dudley, 0x08 },
     { L"MK Frozen",    0x00007300, 0x00007380, index3S_CPS3_Dudley, 0x00 },
     { L"MK Hitsparks", 0x00007380, 0x00007400, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x2E800, 0x2E880, index3S_CPS3_Dudley, 0x00 },
+    { L"MK SA Trail 1", 0x2E880, 0x2E900, index3S_CPS3_Dudley, 0x00 },
+    { L"MK SA Trail 2", 0x2E900, 0x2E980, index3S_CPS3_Dudley, 0x00 },
+    { L"MK SA Trail 3", 0x2E980, 0x2EA00, index3S_CPS3_Dudley, 0x00 },
+   // { L"MK SA Trail 4", 0x2EA00, 0x2EA80, index3S_CPS3_Dudley, 0x00 },
+   // { L"MK SA Trail 5", 0x2EA80, 0x2EB00, index3S_CPS3_Dudley, 0x00 },
+   // { L"MK SA Trail 6", 0x2EB00, 0x2EB80, index3S_CPS3_Dudley, 0x00 },
+   // { L"MK SA Trail 7", 0x2EB80, 0x2EC00, index3S_CPS3_Dudley, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_HK_PALETTES[] =
@@ -3387,6 +3597,14 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_HK_PALETTES[] =
     { L"HK Shocked",   0x00007780, 0x00007800, index3S_CPS3_Dudley, 0x08 },
     { L"HK Frozen",    0x00007800, 0x00007880, index3S_CPS3_Dudley, 0x00 },
     { L"HK Hitsparks", 0x00007880, 0x00007900, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x2EC00, 0x2EC80, index3S_CPS3_Dudley, 0x00 },
+    { L"HK SA Trail 1", 0x2EC80, 0x2ED00, index3S_CPS3_Dudley, 0x00 },
+    { L"HK SA Trail 2", 0x2ED00, 0x2ED80, index3S_CPS3_Dudley, 0x00 },
+    { L"HK SA Trail 3", 0x2ED80, 0x2EE00, index3S_CPS3_Dudley, 0x00 },
+   // { L"HK SA Trail 4", 0x2EE00, 0x2EE80, index3S_CPS3_Dudley, 0x00 },
+   // { L"HK SA Trail 5", 0x2EE80, 0x2EF00, index3S_CPS3_Dudley, 0x00 },
+   // { L"HK SA Trail 6", 0x2EF00, 0x2EF80, index3S_CPS3_Dudley, 0x00 },
+   // { L"HK SA Trail 7", 0x2EF80, 0x2F000, index3S_CPS3_Dudley, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_EX_PALETTES[] =
@@ -3401,6 +3619,14 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_EX_PALETTES[] =
     { L"EX Shocked",   0x00007C80, 0x00007D00, index3S_CPS3_Dudley, 0x08 },
     { L"EX Frozen",    0x00007D00, 0x00007D80, index3S_CPS3_Dudley, 0x00 },
     { L"EX Hitsparks", 0x00007D80, 0x00007E00, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x2F000, 0x2F080, index3S_CPS3_Dudley, 0x00 },
+    { L"EX SA Trail 1", 0x2F080, 0x2F100, index3S_CPS3_Dudley, 0x00 },
+    { L"EX SA Trail 2", 0x2F100, 0x2F180, index3S_CPS3_Dudley, 0x00 },
+    { L"EX SA Trail 3", 0x2F180, 0x2F200, index3S_CPS3_Dudley, 0x00 },
+   // { L"EX SA Trail 4", 0x2F200, 0x2F280, index3S_CPS3_Dudley, 0x00 },
+   // { L"EX SA Trail 5", 0x2F280, 0x2F300, index3S_CPS3_Dudley, 0x00 },
+   // { L"EX SA Trail 6", 0x2F300, 0x2F380, index3S_CPS3_Dudley, 0x00 },
+   // { L"EX SA Trail 7", 0x2F380, 0x2F400, index3S_CPS3_Dudley, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_NECRO_LP_PALETTES[] =
@@ -3415,6 +3641,14 @@ const sGame_PaletteDataset SFIII3EX_A_NECRO_LP_PALETTES[] =
     { L"LP Shocked",   0x00008180, 0x00008200, index3S_CPS3_Necro, 0x08 },
     { L"LP Frozen",    0x00008200, 0x00008280, index3S_CPS3_Necro, 0x00 },
     { L"LP Hitsparks", 0x00008280, 0x00008300, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x2F400, 0x2F480, index3S_CPS3_Necro, 0x00 },
+    { L"LP SA Trail 1", 0x2F480, 0x2F500, index3S_CPS3_Necro, 0x00 },
+    { L"LP SA Trail 2", 0x2F500, 0x2F580, index3S_CPS3_Necro, 0x00 },
+    { L"LP SA Trail 3", 0x2F580, 0x2F600, index3S_CPS3_Necro, 0x00 },
+   // { L"LP SA Trail 4", 0x2F600, 0x2F680, index3S_CPS3_Necro, 0x00 },
+   // { L"LP SA Trail 5", 0x2F680, 0x2F700, index3S_CPS3_Necro, 0x00 },
+   // { L"LP SA Trail 6", 0x2F700, 0x2F780, index3S_CPS3_Necro, 0x00 },
+   // { L"LP SA Trail 7", 0x2F780, 0x2F800, index3S_CPS3_Necro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_NECRO_MP_PALETTES[] =
@@ -3429,6 +3663,14 @@ const sGame_PaletteDataset SFIII3EX_A_NECRO_MP_PALETTES[] =
     { L"MP Shocked",   0x00008680, 0x00008700, index3S_CPS3_Necro, 0x08 },
     { L"MP Frozen",    0x00008700, 0x00008780, index3S_CPS3_Necro, 0x00 },
     { L"MP Hitsparks", 0x00008780, 0x00008800, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x2F800, 0x2F880, index3S_CPS3_Necro, 0x00 },
+    { L"MP SA Trail 1", 0x2F880, 0x2F900, index3S_CPS3_Necro, 0x00 },
+    { L"MP SA Trail 2", 0x2F900, 0x2F980, index3S_CPS3_Necro, 0x00 },
+    { L"MP SA Trail 3", 0x2F980, 0x2FA00, index3S_CPS3_Necro, 0x00 },
+   // { L"MP SA Trail 4", 0x2FA00, 0x2FA80, index3S_CPS3_Necro, 0x00 },
+   // { L"MP SA Trail 5", 0x2FA80, 0x2FB00, index3S_CPS3_Necro, 0x00 },
+   // { L"MP SA Trail 6", 0x2FB00, 0x2FB80, index3S_CPS3_Necro, 0x00 },
+   // { L"MP SA Trail 7", 0x2FB80, 0x2FC00, index3S_CPS3_Necro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_NECRO_HP_PALETTES[] =
@@ -3443,6 +3685,14 @@ const sGame_PaletteDataset SFIII3EX_A_NECRO_HP_PALETTES[] =
     { L"HP Shocked",   0x00008B80, 0x00008C00, index3S_CPS3_Necro, 0x08 },
     { L"HP Frozen",    0x00008C00, 0x00008C80, index3S_CPS3_Necro, 0x00 },
     { L"HP Hitsparks", 0x00008C80, 0x00008D00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x2FC00, 0x2FC80, index3S_CPS3_Necro, 0x00 },
+    { L"HP SA Trail 1", 0x2FC80, 0x2FD00, index3S_CPS3_Necro, 0x00 },
+    { L"HP SA Trail 2", 0x2FD00, 0x2FD80, index3S_CPS3_Necro, 0x00 },
+    { L"HP SA Trail 3", 0x2FD80, 0x2FE00, index3S_CPS3_Necro, 0x00 },
+   // { L"HP SA Trail 4", 0x2FE00, 0x2FE80, index3S_CPS3_Necro, 0x00 },
+   // { L"HP SA Trail 5", 0x2FE80, 0x2FF00, index3S_CPS3_Necro, 0x00 },
+   // { L"HP SA Trail 6", 0x2FF00, 0x2FF80, index3S_CPS3_Necro, 0x00 },
+   // { L"HP SA Trail 7", 0x2FF80, 0x30000, index3S_CPS3_Necro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_NECRO_LK_PALETTES[] =
@@ -3457,6 +3707,14 @@ const sGame_PaletteDataset SFIII3EX_A_NECRO_LK_PALETTES[] =
     { L"LK Shocked",   0x00009080, 0x00009100, index3S_CPS3_Necro, 0x08 },
     { L"LK Frozen",    0x00009100, 0x00009180, index3S_CPS3_Necro, 0x00 },
     { L"LK Hitsparks", 0x00009180, 0x00009200, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x30000, 0x30080, index3S_CPS3_Necro, 0x00 },
+    { L"LK SA Trail 1", 0x30080, 0x30100, index3S_CPS3_Necro, 0x00 },
+    { L"LK SA Trail 2", 0x30100, 0x30180, index3S_CPS3_Necro, 0x00 },
+    { L"LK SA Trail 3", 0x30180, 0x30200, index3S_CPS3_Necro, 0x00 },
+   // { L"LK SA Trail 4", 0x30200, 0x30280, index3S_CPS3_Necro, 0x00 },
+   // { L"LK SA Trail 5", 0x30280, 0x30300, index3S_CPS3_Necro, 0x00 },
+   // { L"LK SA Trail 6", 0x30300, 0x30380, index3S_CPS3_Necro, 0x00 },
+   // { L"LK SA Trail 7", 0x30380, 0x30400, index3S_CPS3_Necro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_NECRO_MK_PALETTES[] =
@@ -3471,6 +3729,14 @@ const sGame_PaletteDataset SFIII3EX_A_NECRO_MK_PALETTES[] =
     { L"MK Shocked",   0x00009580, 0x00009600, index3S_CPS3_Necro, 0x08 },
     { L"MK Frozen",    0x00009600, 0x00009680, index3S_CPS3_Necro, 0x00 },
     { L"MK Hitsparks", 0x00009680, 0x00009700, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x30400, 0x30480, index3S_CPS3_Necro, 0x00 },
+    { L"MK SA Trail 1", 0x30480, 0x30500, index3S_CPS3_Necro, 0x00 },
+    { L"MK SA Trail 2", 0x30500, 0x30580, index3S_CPS3_Necro, 0x00 },
+    { L"MK SA Trail 3", 0x30580, 0x30600, index3S_CPS3_Necro, 0x00 },
+   // { L"MK SA Trail 4", 0x30600, 0x30680, index3S_CPS3_Necro, 0x00 },
+   // { L"MK SA Trail 5", 0x30680, 0x30700, index3S_CPS3_Necro, 0x00 },
+   // { L"MK SA Trail 6", 0x30700, 0x30780, index3S_CPS3_Necro, 0x00 },
+   // { L"MK SA Trail 7", 0x30780, 0x30800, index3S_CPS3_Necro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_NECRO_HK_PALETTES[] =
@@ -3485,6 +3751,14 @@ const sGame_PaletteDataset SFIII3EX_A_NECRO_HK_PALETTES[] =
     { L"HK Shocked",   0x00009A80, 0x00009B00, index3S_CPS3_Necro, 0x08 },
     { L"HK Frozen",    0x00009B00, 0x00009B80, index3S_CPS3_Necro, 0x00 },
     { L"HK Hitsparks", 0x00009B80, 0x00009C00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x30800, 0x30880, index3S_CPS3_Necro, 0x00 },
+    { L"HK SA Trail 1", 0x30880, 0x30900, index3S_CPS3_Necro, 0x00 },
+    { L"HK SA Trail 2", 0x30900, 0x30980, index3S_CPS3_Necro, 0x00 },
+    { L"HK SA Trail 3", 0x30980, 0x30A00, index3S_CPS3_Necro, 0x00 },
+   // { L"HK SA Trail 4", 0x30A00, 0x30A80, index3S_CPS3_Necro, 0x00 },
+   // { L"HK SA Trail 5", 0x30A80, 0x30B00, index3S_CPS3_Necro, 0x00 },
+   // { L"HK SA Trail 6", 0x30B00, 0x30B80, index3S_CPS3_Necro, 0x00 },
+   // { L"HK SA Trail 7", 0x30B80, 0x30C00, index3S_CPS3_Necro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_NECRO_EX_PALETTES[] =
@@ -3499,6 +3773,14 @@ const sGame_PaletteDataset SFIII3EX_A_NECRO_EX_PALETTES[] =
     { L"EX Shocked",   0x00009F80, 0x0000A000, index3S_CPS3_Necro, 0x08 },
     { L"EX Frozen",    0x0000A000, 0x0000A080, index3S_CPS3_Necro, 0x00 },
     { L"EX Hitsparks", 0x0000A080, 0x0000A100, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x30C00, 0x30C80, index3S_CPS3_Necro, 0x00 },
+    { L"EX SA Trail 1", 0x30C80, 0x30D00, index3S_CPS3_Necro, 0x00 },
+    { L"EX SA Trail 2", 0x30D00, 0x30D80, index3S_CPS3_Necro, 0x00 },
+    { L"EX SA Trail 3", 0x30D80, 0x30E00, index3S_CPS3_Necro, 0x00 },
+   // { L"EX SA Trail 4", 0x30E00, 0x30E80, index3S_CPS3_Necro, 0x00 },
+   // { L"EX SA Trail 5", 0x30E80, 0x30F00, index3S_CPS3_Necro, 0x00 },
+   // { L"EX SA Trail 6", 0x30F00, 0x30F80, index3S_CPS3_Necro, 0x00 },
+   // { L"EX SA Trail 7", 0x30F80, 0x31000, index3S_CPS3_Necro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_HUGO_LP_PALETTES[] =
@@ -3513,6 +3795,15 @@ const sGame_PaletteDataset SFIII3EX_A_HUGO_LP_PALETTES[] =
     { L"LP Shocked",   0x0000A480, 0x0000A500, index3S_CPS3_Hugo, 0x08 },
     { L"LP Frozen",    0x0000A500, 0x0000A580, index3S_CPS3_Hugo, 0x00 },
     { L"LP Hitsparks", 0x0000A580, 0x0000A600, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x31000, 0x31080, index3S_CPS3_Hugo, 0x00 },
+    { L"LP SA Trail 1", 0x31080, 0x31100, index3S_CPS3_Hugo, 0x00 },
+    { L"LP SA Trail 2", 0x31100, 0x31180, index3S_CPS3_Hugo, 0x00 },
+    { L"LP SA Trail 3", 0x31180, 0x31200, index3S_CPS3_Hugo, 0x00 },
+   // { L"LP SA Trail 4", 0x31200, 0x31280, index3S_CPS3_Hugo, 0x00 },
+   // { L"LP SA Trail 5", 0x31280, 0x31300, index3S_CPS3_Hugo, 0x00 },
+   // { L"LP SA Trail 6", 0x31300, 0x31380, index3S_CPS3_Hugo, 0x00 },
+   // { L"LP SA Trail 7", 0x31380, 0x31400, index3S_CPS3_Hugo, 0x00 },
+
 };
 
 const sGame_PaletteDataset SFIII3EX_A_HUGO_MP_PALETTES[] =
@@ -3527,6 +3818,14 @@ const sGame_PaletteDataset SFIII3EX_A_HUGO_MP_PALETTES[] =
     { L"MP Shocked",   0x0000A980, 0x0000AA00, index3S_CPS3_Hugo, 0x08 },
     { L"MP Frozen",    0x0000AA00, 0x0000AA80, index3S_CPS3_Hugo, 0x00 },
     { L"MP Hitsparks", 0x0000AA80, 0x0000AB00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x31400, 0x31480, index3S_CPS3_Hugo, 0x00 },
+    { L"MP SA Trail 1", 0x31480, 0x31500, index3S_CPS3_Hugo, 0x00 },
+    { L"MP SA Trail 2", 0x31500, 0x31580, index3S_CPS3_Hugo, 0x00 },
+    { L"MP SA Trail 3", 0x31580, 0x31600, index3S_CPS3_Hugo, 0x00 },
+   // { L"MP SA Trail 4", 0x31600, 0x31680, index3S_CPS3_Hugo, 0x00 },
+   // { L"MP SA Trail 5", 0x31680, 0x31700, index3S_CPS3_Hugo, 0x00 },
+   // { L"MP SA Trail 6", 0x31700, 0x31780, index3S_CPS3_Hugo, 0x00 },
+   // { L"MP SA Trail 7", 0x31780, 0x31800, index3S_CPS3_Hugo, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_HUGO_HP_PALETTES[] =
@@ -3541,6 +3840,14 @@ const sGame_PaletteDataset SFIII3EX_A_HUGO_HP_PALETTES[] =
     { L"HP Shocked",    0x0000AE80, 0x0000AF00, index3S_CPS3_Hugo, 0x08 },
     { L"HP Frozen",     0x0000AF00, 0x0000AF80, index3S_CPS3_Hugo, 0x00 },
     { L"HP Hitsparks",  0x0000AF80, 0x0000B000, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x31800, 0x31880, index3S_CPS3_Hugo, 0x00 },
+    { L"HP SA Trail 1", 0x31880, 0x31900, index3S_CPS3_Hugo, 0x00 },
+    { L"HP SA Trail 2", 0x31900, 0x31980, index3S_CPS3_Hugo, 0x00 },
+    { L"HP SA Trail 3", 0x31980, 0x31A00, index3S_CPS3_Hugo, 0x00 },
+   // { L"HP SA Trail 4", 0x31A00, 0x31A80, index3S_CPS3_Hugo, 0x00 },
+   // { L"HP SA Trail 5", 0x31A80, 0x31B00, index3S_CPS3_Hugo, 0x00 },
+   // { L"HP SA Trail 6", 0x31B00, 0x31B80, index3S_CPS3_Hugo, 0x00 },
+   // { L"HP SA Trail 7", 0x31B80, 0x31C00, index3S_CPS3_Hugo, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_HUGO_LK_PALETTES[] =
@@ -3555,6 +3862,15 @@ const sGame_PaletteDataset SFIII3EX_A_HUGO_LK_PALETTES[] =
     { L"LK Shocked",   0x0000B380, 0x0000B400, index3S_CPS3_Hugo, 0x08 },
     { L"LK Frozen",    0x0000B400, 0x0000B480, index3S_CPS3_Hugo, 0x00 },
     { L"LK Hitsparks", 0x0000B480, 0x0000B500, index3S_CPS3_Bonus, 0x1d0 },
+   // { L"LK SA Trail 0", 0x31C00, 0x31C80, index3S_CPS3_Hugo, 0x00 },
+    { L"LK SA Trail 1", 0x31C80, 0x31D00, index3S_CPS3_Hugo, 0x00 },
+    { L"LK SA Trail 2", 0x31D00, 0x31D80, index3S_CPS3_Hugo, 0x00 },
+    { L"LK SA Trail 3", 0x31D80, 0x31E00, index3S_CPS3_Hugo, 0x00 },
+   // { L"LK SA Trail 4", 0x31E00, 0x31E80, index3S_CPS3_Hugo, 0x00 },
+   // { L"LK SA Trail 5", 0x31E80, 0x31F00, index3S_CPS3_Hugo, 0x00 },
+   // { L"LK SA Trail 6", 0x31F00, 0x31F80, index3S_CPS3_Hugo, 0x00 },
+   // { L"LK SA Trail 7", 0x31F80, 0x32000, index3S_CPS3_Hugo, 0x00 },
+
 };
 
 const sGame_PaletteDataset SFIII3EX_A_HUGO_MK_PALETTES[] =
@@ -3569,6 +3885,14 @@ const sGame_PaletteDataset SFIII3EX_A_HUGO_MK_PALETTES[] =
     { L"MK Shocked",   0x0000B880, 0x0000B900, index3S_CPS3_Hugo, 0x08 },
     { L"MK Frozen",    0x0000B900, 0x0000B980, index3S_CPS3_Hugo, 0x00 },
     { L"MK Hitsparks", 0x0000B980, 0x0000BA00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x32000, 0x32080, index3S_CPS3_Hugo, 0x00 },
+    { L"MK SA Trail 1", 0x32080, 0x32100, index3S_CPS3_Hugo, 0x00 },
+    { L"MK SA Trail 2", 0x32100, 0x32180, index3S_CPS3_Hugo, 0x00 },
+    { L"MK SA Trail 3", 0x32180, 0x32200, index3S_CPS3_Hugo, 0x00 },
+   // { L"MK SA Trail 4", 0x32200, 0x32280, index3S_CPS3_Hugo, 0x00 },
+   // { L"MK SA Trail 5", 0x32280, 0x32300, index3S_CPS3_Hugo, 0x00 },
+   // { L"MK SA Trail 6", 0x32300, 0x32380, index3S_CPS3_Hugo, 0x00 },
+   // { L"MK SA Trail 7", 0x32380, 0x32400, index3S_CPS3_Hugo, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_HUGO_HK_PALETTES[] =
@@ -3583,6 +3907,14 @@ const sGame_PaletteDataset SFIII3EX_A_HUGO_HK_PALETTES[] =
     { L"HK Shocked",    0x0000BD80, 0x0000BE00, index3S_CPS3_Hugo, 0x08 },
     { L"HK Frozen",     0x0000BE00, 0x0000BE80, index3S_CPS3_Hugo, 0x00 },
     { L"HK Hitsparks",  0x0000BE80, 0x0000BF00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x32400, 0x32480, index3S_CPS3_Hugo, 0x00 },
+    { L"HK SA Trail 1", 0x32480, 0x32500, index3S_CPS3_Hugo, 0x00 },
+    { L"HK SA Trail 2", 0x32500, 0x32580, index3S_CPS3_Hugo, 0x00 },
+    { L"HK SA Trail 3", 0x32580, 0x32600, index3S_CPS3_Hugo, 0x00 },
+   // { L"HK SA Trail 4", 0x32600, 0x32680, index3S_CPS3_Hugo, 0x00 },
+   // { L"HK SA Trail 5", 0x32680, 0x32700, index3S_CPS3_Hugo, 0x00 },
+   // { L"HK SA Trail 6", 0x32700, 0x32780, index3S_CPS3_Hugo, 0x00 },
+   // { L"HK SA Trail 7", 0x32780, 0x32800, index3S_CPS3_Hugo, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_HUGO_EX_PALETTES[] =
@@ -3597,6 +3929,14 @@ const sGame_PaletteDataset SFIII3EX_A_HUGO_EX_PALETTES[] =
     { L"EX Shocked",   0x0000C280, 0x0000C300, index3S_CPS3_Hugo, 0x08 },
     { L"EX Frozen",    0x0000C300, 0x0000C380, index3S_CPS3_Hugo, 0x00 },
     { L"EX Hitsparks", 0x0000C380, 0x0000C400, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x32800, 0x32880, index3S_CPS3_Hugo, 0x00 },
+    { L"EX SA Trail 1", 0x32880, 0x32900, index3S_CPS3_Hugo, 0x00 },
+    { L"EX SA Trail 2", 0x32900, 0x32980, index3S_CPS3_Hugo, 0x00 },
+    { L"EX SA Trail 3", 0x32980, 0x32A00, index3S_CPS3_Hugo, 0x00 },
+   // { L"EX SA Trail 4", 0x32A00, 0x32A80, index3S_CPS3_Hugo, 0x00 },
+   // { L"EX SA Trail 5", 0x32A80, 0x32B00, index3S_CPS3_Hugo, 0x00 },
+   // { L"EX SA Trail 6", 0x32B00, 0x32B80, index3S_CPS3_Hugo, 0x00 },
+   // { L"EX SA Trail 7", 0x32B80, 0x32C00, index3S_CPS3_Hugo, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_IBUKI_LP_PALETTES[] =
@@ -3610,6 +3950,14 @@ const sGame_PaletteDataset SFIII3EX_A_IBUKI_LP_PALETTES[] =
     { L"LP Shocked",   0x0000C700, 0x0000C780, index3S_CPS3_Ibuki, 0x08 },
     { L"LP Frozen",    0x0000C780, 0x0000C800, index3S_CPS3_Ibuki, 0x00 },
     { L"LP Hitsparks / Kunai", 0x0000C800, 0x0000C880, index3S_CPS3_Ibuki, 0x09 },
+   // { L"LP SA Trail 0", 0x32C00, 0x32C80, index3S_CPS3_Ibuki, 0x00 },
+    { L"LP SA Trail 1", 0x32C80, 0x32D00, index3S_CPS3_Ibuki, 0x00 },
+    { L"LP SA Trail 2", 0x32D00, 0x32D80, index3S_CPS3_Ibuki, 0x00 },
+    { L"LP SA Trail 3", 0x32D80, 0x32E00, index3S_CPS3_Ibuki, 0x00 },
+   // { L"LP SA Trail 4", 0x32E00, 0x32E80, index3S_CPS3_Ibuki, 0x00 },
+   // { L"LP SA Trail 5", 0x32E80, 0x32F00, index3S_CPS3_Ibuki, 0x00 },
+   // { L"LP SA Trail 6", 0x32F00, 0x32F80, index3S_CPS3_Ibuki, 0x00 },
+   // { L"LP SA Trail 7", 0x32F80, 0x33000, index3S_CPS3_Ibuki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_IBUKI_MP_PALETTES[] =
@@ -3623,6 +3971,14 @@ const sGame_PaletteDataset SFIII3EX_A_IBUKI_MP_PALETTES[] =
     { L"MP Shocked",   0x0000CB80, 0x0000CC00, index3S_CPS3_Ibuki, 0x08 },
     { L"MP Frozen",    0x0000CC00, 0x0000CC80, index3S_CPS3_Ibuki, 0x00 },
     { L"MP Hitsparks / Kunai", 0x0000CC80, 0x0000CD00, index3S_CPS3_Ibuki, 0x09 },
+   // { L"MP SA Trail 0", 0x33000, 0x33080, index3S_CPS3_Ibuki, 0x00 },
+    { L"MP SA Trail 1", 0x33080, 0x33100, index3S_CPS3_Ibuki, 0x00 },
+    { L"MP SA Trail 2", 0x33100, 0x33180, index3S_CPS3_Ibuki, 0x00 },
+    { L"MP SA Trail 3", 0x33180, 0x33200, index3S_CPS3_Ibuki, 0x00 },
+   // { L"MP SA Trail 4", 0x33200, 0x33280, index3S_CPS3_Ibuki, 0x00 },
+   // { L"MP SA Trail 5", 0x33280, 0x33300, index3S_CPS3_Ibuki, 0x00 },
+   // { L"MP SA Trail 6", 0x33300, 0x33380, index3S_CPS3_Ibuki, 0x00 },
+   // { L"MP SA Trail 7", 0x33380, 0x33400, index3S_CPS3_Ibuki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_IBUKI_HP_PALETTES[] =
@@ -3636,6 +3992,14 @@ const sGame_PaletteDataset SFIII3EX_A_IBUKI_HP_PALETTES[] =
     { L"HP Shocked",   0x0000D000, 0x0000D080, index3S_CPS3_Ibuki, 0x08 },
     { L"HP Frozen",    0x0000D080, 0x0000D100, index3S_CPS3_Ibuki, 0x00 },
     { L"HP Hitsparks / Kunai", 0x0000D100, 0x0000D180, index3S_CPS3_Ibuki, 0x09 },
+   // { L"HP SA Trail 0", 0x33400, 0x33480, index3S_CPS3_Ibuki, 0x00 },
+    { L"HP SA Trail 1", 0x33480, 0x33500, index3S_CPS3_Ibuki, 0x00 },
+    { L"HP SA Trail 2", 0x33500, 0x33580, index3S_CPS3_Ibuki, 0x00 },
+    { L"HP SA Trail 3", 0x33580, 0x33600, index3S_CPS3_Ibuki, 0x00 },
+   // { L"HP SA Trail 4", 0x33600, 0x33680, index3S_CPS3_Ibuki, 0x00 },
+   // { L"HP SA Trail 5", 0x33680, 0x33700, index3S_CPS3_Ibuki, 0x00 },
+   // { L"HP SA Trail 6", 0x33700, 0x33780, index3S_CPS3_Ibuki, 0x00 },
+   // { L"HP SA Trail 7", 0x33780, 0x33800, index3S_CPS3_Ibuki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_IBUKI_LK_PALETTES[] =
@@ -3649,6 +4013,14 @@ const sGame_PaletteDataset SFIII3EX_A_IBUKI_LK_PALETTES[] =
     { L"LK Shocked",   0x0000D480, 0x0000D500, index3S_CPS3_Ibuki, 0x08 },
     { L"LK Frozen",    0x0000D500, 0x0000D580, index3S_CPS3_Ibuki, 0x00 },
     { L"LK Hitsparks / Kunai", 0x0000D580, 0x0000D600, index3S_CPS3_Ibuki, 0x09 },
+   // { L"LK SA Trail 0", 0x33800, 0x33880, index3S_CPS3_Ibuki, 0x00 },
+    { L"LK SA Trail 1", 0x33880, 0x33900, index3S_CPS3_Ibuki, 0x00 },
+    { L"LK SA Trail 2", 0x33900, 0x33980, index3S_CPS3_Ibuki, 0x00 },
+    { L"LK SA Trail 3", 0x33980, 0x33A00, index3S_CPS3_Ibuki, 0x00 },
+   // { L"LK SA Trail 4", 0x33A00, 0x33A80, index3S_CPS3_Ibuki, 0x00 },
+   // { L"LK SA Trail 5", 0x33A80, 0x33B00, index3S_CPS3_Ibuki, 0x00 },
+   // { L"LK SA Trail 6", 0x33B00, 0x33B80, index3S_CPS3_Ibuki, 0x00 },
+   // { L"LK SA Trail 7", 0x33B80, 0x33C00, index3S_CPS3_Ibuki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_IBUKI_MK_PALETTES[] =
@@ -3662,6 +4034,14 @@ const sGame_PaletteDataset SFIII3EX_A_IBUKI_MK_PALETTES[] =
     { L"MK Shocked",   0x0000D900, 0x0000D980, index3S_CPS3_Ibuki, 0x08 },
     { L"MK Frozen",    0x0000D980, 0x0000DA00, index3S_CPS3_Ibuki, 0x00 },
     { L"MK Hitsparks / Kunai", 0x0000DA00, 0x0000DA80, index3S_CPS3_Ibuki, 0x09 },
+   // { L"MK SA Trail 0", 0x33C00, 0x33C80, index3S_CPS3_Ibuki, 0x00 },
+    { L"MK SA Trail 1", 0x33C80, 0x33D00, index3S_CPS3_Ibuki, 0x00 },
+    { L"MK SA Trail 2", 0x33D00, 0x33D80, index3S_CPS3_Ibuki, 0x00 },
+    { L"MK SA Trail 3", 0x33D80, 0x33E00, index3S_CPS3_Ibuki, 0x00 },
+   // { L"MK SA Trail 4", 0x33E00, 0x33E80, index3S_CPS3_Ibuki, 0x00 },
+   // { L"MK SA Trail 5", 0x33E80, 0x33F00, index3S_CPS3_Ibuki, 0x00 },
+   // { L"MK SA Trail 6", 0x33F00, 0x33F80, index3S_CPS3_Ibuki, 0x00 },
+   // { L"MK SA Trail 7", 0x33F80, 0x34000, index3S_CPS3_Ibuki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_IBUKI_HK_PALETTES[] =
@@ -3675,6 +4055,14 @@ const sGame_PaletteDataset SFIII3EX_A_IBUKI_HK_PALETTES[] =
     { L"HK Shocked",   0x0000DD80, 0x0000DE00, index3S_CPS3_Ibuki, 0x08 },
     { L"HK Frozen",    0x0000DE00, 0x0000DE80, index3S_CPS3_Ibuki, 0x00 },
     { L"HK Hitsparks / Kunai", 0x0000DE80, 0x0000DF00, index3S_CPS3_Ibuki, 0x09 },
+   // { L"HK SA Trail 0", 0x34000, 0x34080, index3S_CPS3_Ibuki, 0x00 },
+    { L"HK SA Trail 1", 0x34080, 0x34100, index3S_CPS3_Ibuki, 0x00 },
+    { L"HK SA Trail 2", 0x34100, 0x34180, index3S_CPS3_Ibuki, 0x00 },
+    { L"HK SA Trail 3", 0x34180, 0x34200, index3S_CPS3_Ibuki, 0x00 },
+   // { L"HK SA Trail 4", 0x34200, 0x34280, index3S_CPS3_Ibuki, 0x00 },
+   // { L"HK SA Trail 5", 0x34280, 0x34300, index3S_CPS3_Ibuki, 0x00 },
+   // { L"HK SA Trail 6", 0x34300, 0x34380, index3S_CPS3_Ibuki, 0x00 },
+   // { L"HK SA Trail 7", 0x34380, 0x34400, index3S_CPS3_Ibuki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_IBUKI_EX_PALETTES[] =
@@ -3688,6 +4076,14 @@ const sGame_PaletteDataset SFIII3EX_A_IBUKI_EX_PALETTES[] =
     { L"EX Shocked",   0x0000E200, 0x0000E280, index3S_CPS3_Ibuki, 0x08 },
     { L"EX Frozen",    0x0000E280, 0x0000E300, index3S_CPS3_Ibuki, 0x00 },
     { L"EX Hitsparks / Kunai", 0x0000E300, 0x0000E380, index3S_CPS3_Ibuki, 0x09 },
+	// { L"EX SA Trail 0", 0x34400, 0x34480, index3S_CPS3_Ibuki, 0x00 },
+    { L"EX SA Trail 1", 0x34480, 0x34500, index3S_CPS3_Ibuki, 0x00 },
+    { L"EX SA Trail 2", 0x34500, 0x34580, index3S_CPS3_Ibuki, 0x00 },
+    { L"EX SA Trail 3", 0x34580, 0x34600, index3S_CPS3_Ibuki, 0x00 },
+   // { L"EX SA Trail 4", 0x34600, 0x34680, index3S_CPS3_Ibuki, 0x00 },
+   // { L"EX SA Trail 5", 0x34680, 0x34700, index3S_CPS3_Ibuki, 0x00 },
+   // { L"EX SA Trail 6", 0x34700, 0x34780, index3S_CPS3_Ibuki, 0x00 },
+   // { L"EX SA Trail 7", 0x34780, 0x34800, index3S_CPS3_Ibuki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ELENA_LP_PALETTES[] =
@@ -3701,6 +4097,14 @@ const sGame_PaletteDataset SFIII3EX_A_ELENA_LP_PALETTES[] =
     { L"LP Shocked",     0x0000E680, 0x0000E700, index3S_CPS3_Elena, 0x08 },
     { L"LP Frozen",      0x0000E700, 0x0000E780, index3S_CPS3_Elena, 0x00 },
     { L"LP Hitsparks",   0x0000E780, 0x0000E800, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x34800, 0x34880, index3S_CPS3_Elena, 0x00 },
+    { L"LP SA Trail 1", 0x34880, 0x34900, index3S_CPS3_Elena, 0x00 },
+    { L"LP SA Trail 2", 0x34900, 0x34980, index3S_CPS3_Elena, 0x00 },
+    { L"LP SA Trail 3", 0x34980, 0x34A00, index3S_CPS3_Elena, 0x00 },
+   // { L"LP SA Trail 4", 0x34A00, 0x34A80, index3S_CPS3_Elena, 0x00 },
+   // { L"LP SA Trail 5", 0x34A80, 0x34B00, index3S_CPS3_Elena, 0x00 },
+   // { L"LP SA Trail 6", 0x34B00, 0x34B80, index3S_CPS3_Elena, 0x00 },
+   // { L"LP SA Trail 7", 0x34B80, 0x34C00, index3S_CPS3_Elena, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ELENA_MP_PALETTES[] =
@@ -3714,6 +4118,14 @@ const sGame_PaletteDataset SFIII3EX_A_ELENA_MP_PALETTES[] =
     { L"MP Shocked",     0x0000EB00, 0x0000EB80, index3S_CPS3_Elena, 0x08 },
     { L"MP Frozen",      0x0000EB80, 0x0000EC00, index3S_CPS3_Elena, 0x00 },
     { L"MP Hitsparks",   0x0000EC00, 0x0000EC80, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x34C00, 0x34C80, index3S_CPS3_Elena, 0x00 },
+    { L"MP SA Trail 1", 0x34C80, 0x34D00, index3S_CPS3_Elena, 0x00 },
+    { L"MP SA Trail 2", 0x34D00, 0x34D80, index3S_CPS3_Elena, 0x00 },
+    { L"MP SA Trail 3", 0x34D80, 0x34E00, index3S_CPS3_Elena, 0x00 },
+   // { L"MP SA Trail 4", 0x34E00, 0x34E80, index3S_CPS3_Elena, 0x00 },
+   // { L"MP SA Trail 5", 0x34E80, 0x34F00, index3S_CPS3_Elena, 0x00 },
+   // { L"MP SA Trail 6", 0x34F00, 0x34F80, index3S_CPS3_Elena, 0x00 },
+   // { L"MP SA Trail 7", 0x34F80, 0x35000, index3S_CPS3_Elena, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ELENA_HP_PALETTES[] =
@@ -3727,6 +4139,14 @@ const sGame_PaletteDataset SFIII3EX_A_ELENA_HP_PALETTES[] =
     { L"HP Shocked",     0x0000EF80, 0x0000F000, index3S_CPS3_Elena, 0x08 },
     { L"HP Frozen",      0x0000F000, 0x0000F080, index3S_CPS3_Elena, 0x00 },
     { L"HP Hitsparks",   0x0000F080, 0x0000F100, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x35000, 0x35080, index3S_CPS3_Elena, 0x00 },
+    { L"HP SA Trail 1", 0x35080, 0x35100, index3S_CPS3_Elena, 0x00 },
+    { L"HP SA Trail 2", 0x35100, 0x35180, index3S_CPS3_Elena, 0x00 },
+    { L"HP SA Trail 3", 0x35180, 0x35200, index3S_CPS3_Elena, 0x00 },
+   // { L"HP SA Trail 4", 0x35200, 0x35280, index3S_CPS3_Elena, 0x00 },
+   // { L"HP SA Trail 5", 0x35280, 0x35300, index3S_CPS3_Elena, 0x00 },
+   // { L"HP SA Trail 6", 0x35300, 0x35380, index3S_CPS3_Elena, 0x00 },
+   // { L"HP SA Trail 7", 0x35380, 0x35400, index3S_CPS3_Elena, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ELENA_LK_PALETTES[] =
@@ -3740,6 +4160,14 @@ const sGame_PaletteDataset SFIII3EX_A_ELENA_LK_PALETTES[] =
     { L"LK Shocked",     0x0000F400, 0x0000F480, index3S_CPS3_Elena, 0x08 },
     { L"LK Frozen",      0x0000F480, 0x0000F500, index3S_CPS3_Elena, 0x00 },
     { L"LK Hitsparks",   0x0000F500, 0x0000F580, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x35400, 0x35480, index3S_CPS3_Elena, 0x00 },
+    { L"LK SA Trail 1", 0x35480, 0x35500, index3S_CPS3_Elena, 0x00 },
+    { L"LK SA Trail 2", 0x35500, 0x35580, index3S_CPS3_Elena, 0x00 },
+    { L"LK SA Trail 3", 0x35580, 0x35600, index3S_CPS3_Elena, 0x00 },
+   // { L"LK SA Trail 4", 0x35600, 0x35680, index3S_CPS3_Elena, 0x00 },
+   // { L"LK SA Trail 5", 0x35680, 0x35700, index3S_CPS3_Elena, 0x00 },
+   // { L"LK SA Trail 6", 0x35700, 0x35780, index3S_CPS3_Elena, 0x00 },
+   // { L"LK SA Trail 7", 0x35780, 0x35800, index3S_CPS3_Elena, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ELENA_MK_PALETTES[] =
@@ -3753,6 +4181,14 @@ const sGame_PaletteDataset SFIII3EX_A_ELENA_MK_PALETTES[] =
     { L"MK Shocked",     0x0000F880, 0x0000F900, index3S_CPS3_Elena, 0x08 },
     { L"MK Frozen",      0x0000F900, 0x0000F980, index3S_CPS3_Elena, 0x00 },
     { L"MK Hitsparks",   0x0000F980, 0x0000FA00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x35800, 0x35880, index3S_CPS3_Elena, 0x00 },
+    { L"MK SA Trail 1", 0x35880, 0x35900, index3S_CPS3_Elena, 0x00 },
+    { L"MK SA Trail 2", 0x35900, 0x35980, index3S_CPS3_Elena, 0x00 },
+    { L"MK SA Trail 3", 0x35980, 0x35A00, index3S_CPS3_Elena, 0x00 },
+   // { L"MK SA Trail 4", 0x35A00, 0x35A80, index3S_CPS3_Elena, 0x00 },
+   // { L"MK SA Trail 5", 0x35A80, 0x35B00, index3S_CPS3_Elena, 0x00 },
+   // { L"MK SA Trail 6", 0x35B00, 0x35B80, index3S_CPS3_Elena, 0x00 },
+   // { L"MK SA Trail 7", 0x35B80, 0x35C00, index3S_CPS3_Elena, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ELENA_HK_PALETTES[] =
@@ -3766,6 +4202,14 @@ const sGame_PaletteDataset SFIII3EX_A_ELENA_HK_PALETTES[] =
     { L"HK Shocked",     0x0000FD00, 0x0000FD80, index3S_CPS3_Elena, 0x08 },
     { L"HK Frozen",      0x0000FD80, 0x0000FE00, index3S_CPS3_Elena, 0x00 },
     { L"HK Hitsparks",   0x0000FE00, 0x0000FE80, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x35C00, 0x35C80, index3S_CPS3_Elena, 0x00 },
+    { L"HK SA Trail 1", 0x35C80, 0x35D00, index3S_CPS3_Elena, 0x00 },
+    { L"HK SA Trail 2", 0x35D00, 0x35D80, index3S_CPS3_Elena, 0x00 },
+    { L"HK SA Trail 3", 0x35D80, 0x35E00, index3S_CPS3_Elena, 0x00 },
+   // { L"HK SA Trail 4", 0x35E00, 0x35E80, index3S_CPS3_Elena, 0x00 },
+   // { L"HK SA Trail 5", 0x35E80, 0x35F00, index3S_CPS3_Elena, 0x00 },
+   // { L"HK SA Trail 6", 0x35F00, 0x35F80, index3S_CPS3_Elena, 0x00 },
+   // { L"HK SA Trail 7", 0x35F80, 0x36000, index3S_CPS3_Elena, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ELENA_EX_PALETTES[] =
@@ -3779,6 +4223,14 @@ const sGame_PaletteDataset SFIII3EX_A_ELENA_EX_PALETTES[] =
     { L"EX Shocked",     0x00010180, 0x00010200, index3S_CPS3_Elena, 0x08 },
     { L"EX Frozen",      0x00010200, 0x00010280, index3S_CPS3_Elena, 0x00 },
     { L"EX Hitsparks",   0x00010280, 0x00010300, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x36000, 0x36080, index3S_CPS3_Elena, 0x00 },
+    { L"EX SA Trail 1", 0x36080, 0x36100, index3S_CPS3_Elena, 0x00 },
+    { L"EX SA Trail 2", 0x36100, 0x36180, index3S_CPS3_Elena, 0x00 },
+    { L"EX SA Trail 3", 0x36180, 0x36200, index3S_CPS3_Elena, 0x00 },
+   // { L"EX SA Trail 4", 0x36200, 0x36280, index3S_CPS3_Elena, 0x00 },
+   // { L"EX SA Trail 5", 0x36280, 0x36300, index3S_CPS3_Elena, 0x00 },
+   // { L"EX SA Trail 6", 0x36300, 0x36380, index3S_CPS3_Elena, 0x00 },
+   // { L"EX SA Trail 7", 0x36380, 0x36400, index3S_CPS3_Elena, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ORO_LP_PALETTES[] =
@@ -3793,6 +4245,14 @@ const sGame_PaletteDataset SFIII3EX_A_ORO_LP_PALETTES[] =
     { L"LP Shocked",   0x00010680, 0x00010700, index3S_CPS3_Oro, 0x08 },
     { L"LP Frozen",    0x00010700, 0x00010780, index3S_CPS3_Oro, 0x00 },
     { L"LP Hitsparks", 0x00010780, 0x00010800, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x36400, 0x36480, index3S_CPS3_Oro, 0x00 },
+    { L"LP SA Trail 1", 0x36480, 0x36500, index3S_CPS3_Oro, 0x00 },
+    { L"LP SA Trail 2", 0x36500, 0x36580, index3S_CPS3_Oro, 0x00 },
+    { L"LP SA Trail 3", 0x36580, 0x36600, index3S_CPS3_Oro, 0x00 },
+   // { L"LP SA Trail 4", 0x36600, 0x36680, index3S_CPS3_Oro, 0x00 },
+   // { L"LP SA Trail 5", 0x36680, 0x36700, index3S_CPS3_Oro, 0x00 },
+   // { L"LP SA Trail 6", 0x36700, 0x36780, index3S_CPS3_Oro, 0x00 },
+   // { L"LP SA Trail 7", 0x36780, 0x36800, index3S_CPS3_Oro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ORO_MP_PALETTES[] =
@@ -3807,6 +4267,14 @@ const sGame_PaletteDataset SFIII3EX_A_ORO_MP_PALETTES[] =
     { L"MP Shocked",   0x00010B80, 0x00010C00, index3S_CPS3_Oro, 0x08 },
     { L"MP Frozen",    0x00010C00, 0x00010C80, index3S_CPS3_Oro, 0x00 },
     { L"MP Hitsparks", 0x00010C80, 0x00010D00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x36800, 0x36880, index3S_CPS3_Oro, 0x00 },
+    { L"MP SA Trail 1", 0x36880, 0x36900, index3S_CPS3_Oro, 0x00 },
+    { L"MP SA Trail 2", 0x36900, 0x36980, index3S_CPS3_Oro, 0x00 },
+    { L"MP SA Trail 3", 0x36980, 0x36A00, index3S_CPS3_Oro, 0x00 },
+   // { L"MP SA Trail 4", 0x36A00, 0x36A80, index3S_CPS3_Oro, 0x00 },
+   // { L"MP SA Trail 5", 0x36A80, 0x36B00, index3S_CPS3_Oro, 0x00 },
+   // { L"MP SA Trail 6", 0x36B00, 0x36B80, index3S_CPS3_Oro, 0x00 },
+   // { L"MP SA Trail 7", 0x36B80, 0x36C00, index3S_CPS3_Oro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ORO_HP_PALETTES[] =
@@ -3821,6 +4289,14 @@ const sGame_PaletteDataset SFIII3EX_A_ORO_HP_PALETTES[] =
     { L"HP Shocked",   0x00011080, 0x00011100, index3S_CPS3_Oro, 0x08 },
     { L"HP Frozen",    0x00011100, 0x00011180, index3S_CPS3_Oro, 0x00 },
     { L"HP Hitsparks", 0x00011180, 0x00011200, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x36C00, 0x36C80, index3S_CPS3_Oro, 0x00 },
+    { L"HP SA Trail 1", 0x36C80, 0x36D00, index3S_CPS3_Oro, 0x00 },
+    { L"HP SA Trail 2", 0x36D00, 0x36D80, index3S_CPS3_Oro, 0x00 },
+    { L"HP SA Trail 3", 0x36D80, 0x36E00, index3S_CPS3_Oro, 0x00 },
+   // { L"HP SA Trail 4", 0x36E00, 0x36E80, index3S_CPS3_Oro, 0x00 },
+   // { L"HP SA Trail 5", 0x36E80, 0x36F00, index3S_CPS3_Oro, 0x00 },
+   // { L"HP SA Trail 6", 0x36F00, 0x36F80, index3S_CPS3_Oro, 0x00 },
+   // { L"HP SA Trail 7", 0x36F80, 0x37000, index3S_CPS3_Oro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ORO_LK_PALETTES[] =
@@ -3835,6 +4311,14 @@ const sGame_PaletteDataset SFIII3EX_A_ORO_LK_PALETTES[] =
     { L"LK Shocked",   0x00011580, 0x00011600, index3S_CPS3_Oro, 0x08 },
     { L"LK Frozen",    0x00011600, 0x00011680, index3S_CPS3_Oro, 0x00 },
     { L"LK Hitsparks", 0x00011680, 0x00011700, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x37000, 0x37080, index3S_CPS3_Oro, 0x00 },
+    { L"LK SA Trail 1", 0x37080, 0x37100, index3S_CPS3_Oro, 0x00 },
+    { L"LK SA Trail 2", 0x37100, 0x37180, index3S_CPS3_Oro, 0x00 },
+    { L"LK SA Trail 3", 0x37180, 0x37200, index3S_CPS3_Oro, 0x00 },
+   // { L"LK SA Trail 4", 0x37200, 0x37280, index3S_CPS3_Oro, 0x00 },
+   // { L"LK SA Trail 5", 0x37280, 0x37300, index3S_CPS3_Oro, 0x00 },
+   // { L"LK SA Trail 6", 0x37300, 0x37380, index3S_CPS3_Oro, 0x00 },
+   // { L"LK SA Trail 7", 0x37380, 0x37400, index3S_CPS3_Oro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ORO_MK_PALETTES[] =
@@ -3849,6 +4333,14 @@ const sGame_PaletteDataset SFIII3EX_A_ORO_MK_PALETTES[] =
     { L"MK Shocked",   0x00011A80, 0x00011B00, index3S_CPS3_Oro, 0x08 },
     { L"MK Frozen",    0x00011B00, 0x00011B80, index3S_CPS3_Oro, 0x00 },
     { L"MK Hitsparks", 0x00011B80, 0x00011C00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x37400, 0x37480, index3S_CPS3_Oro, 0x00 },
+    { L"MK SA Trail 1", 0x37480, 0x37500, index3S_CPS3_Oro, 0x00 },
+    { L"MK SA Trail 2", 0x37500, 0x37580, index3S_CPS3_Oro, 0x00 },
+    { L"MK SA Trail 3", 0x37580, 0x37600, index3S_CPS3_Oro, 0x00 },
+   // { L"MK SA Trail 4", 0x37600, 0x37680, index3S_CPS3_Oro, 0x00 },
+   // { L"MK SA Trail 5", 0x37680, 0x37700, index3S_CPS3_Oro, 0x00 },
+   // { L"MK SA Trail 6", 0x37700, 0x37780, index3S_CPS3_Oro, 0x00 },
+   // { L"MK SA Trail 7", 0x37780, 0x37800, index3S_CPS3_Oro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ORO_HK_PALETTES[] =
@@ -3863,6 +4355,14 @@ const sGame_PaletteDataset SFIII3EX_A_ORO_HK_PALETTES[] =
     { L"HK Shocked",   0x00011F80, 0x00012000, index3S_CPS3_Oro, 0x08 },
     { L"HK Frozen",    0x00012000, 0x00012080, index3S_CPS3_Oro, 0x00 },
     { L"HK Hitsparks", 0x00012080, 0x00012100, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x37800, 0x37880, index3S_CPS3_Oro, 0x00 },
+    { L"HK SA Trail 1", 0x37880, 0x37900, index3S_CPS3_Oro, 0x00 },
+    { L"HK SA Trail 2", 0x37900, 0x37980, index3S_CPS3_Oro, 0x00 },
+    { L"HK SA Trail 3", 0x37980, 0x37A00, index3S_CPS3_Oro, 0x00 },
+   // { L"HK SA Trail 4", 0x37A00, 0x37A80, index3S_CPS3_Oro, 0x00 },
+   // { L"HK SA Trail 5", 0x37A80, 0x37B00, index3S_CPS3_Oro, 0x00 },
+   // { L"HK SA Trail 6", 0x37B00, 0x37B80, index3S_CPS3_Oro, 0x00 },
+   // { L"HK SA Trail 7", 0x37B80, 0x37C00, index3S_CPS3_Oro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_ORO_EX_PALETTES[] =
@@ -3877,6 +4377,14 @@ const sGame_PaletteDataset SFIII3EX_A_ORO_EX_PALETTES[] =
     { L"EX Shocked",   0x00012480, 0x00012500, index3S_CPS3_Oro, 0x08 },
     { L"EX Frozen",    0x00012500, 0x00012580, index3S_CPS3_Oro, 0x00 },
     { L"EX Hitsparks", 0x00012580, 0x00012600, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x37C00, 0x37C80, index3S_CPS3_Oro, 0x00 },
+    { L"EX SA Trail 1", 0x37C80, 0x37D00, index3S_CPS3_Oro, 0x00 },
+    { L"EX SA Trail 2", 0x37D00, 0x37D80, index3S_CPS3_Oro, 0x00 },
+    { L"EX SA Trail 3", 0x37D80, 0x37E00, index3S_CPS3_Oro, 0x00 },
+   // { L"EX SA Trail 4", 0x37E00, 0x37E80, index3S_CPS3_Oro, 0x00 },
+   // { L"EX SA Trail 5", 0x37E80, 0x37F00, index3S_CPS3_Oro, 0x00 },
+   // { L"EX SA Trail 6", 0x37F00, 0x37F80, index3S_CPS3_Oro, 0x00 },
+   // { L"EX SA Trail 7", 0x37F80, 0x38000, index3S_CPS3_Oro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YANG_LP_PALETTES[] =
@@ -3889,6 +4397,14 @@ const sGame_PaletteDataset SFIII3EX_A_YANG_LP_PALETTES[] =
     { L"LP Shocked",   0x00012880, 0x00012900, index3S_CPS3_Yang, 0x08 },
     { L"LP Frozen",    0x00012900, 0x00012980, index3S_CPS3_Yang, 0x00 },
     { L"LP Hitsparks", 0x00012980, 0x00012A00, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x38000, 0x38080, index3S_CPS3_Yang, 0x00 },
+    { L"LP SA Trail 1", 0x38080, 0x38100, index3S_CPS3_Yang, 0x00 },
+    { L"LP SA Trail 2", 0x38100, 0x38180, index3S_CPS3_Yang, 0x00 },
+    { L"LP SA Trail 3", 0x38180, 0x38200, index3S_CPS3_Yang, 0x00 },
+   // { L"LP SA Trail 4", 0x38200, 0x38280, index3S_CPS3_Yang, 0x00 },
+   // { L"LP SA Trail 5", 0x38280, 0x38300, index3S_CPS3_Yang, 0x00 },
+   // { L"LP SA Trail 6", 0x38300, 0x38380, index3S_CPS3_Yang, 0x00 },
+   // { L"LP SA Trail 7", 0x38380, 0x38400, index3S_CPS3_Yang, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YANG_MP_PALETTES[] =
@@ -3901,6 +4417,14 @@ const sGame_PaletteDataset SFIII3EX_A_YANG_MP_PALETTES[] =
     { L"MP Shocked",   0x00012C80, 0x00012D00, index3S_CPS3_Yang, 0x08 },
     { L"MP Frozen",    0x00012D00, 0x00012D80, index3S_CPS3_Yang, 0x00 },
     { L"MP Hitsparks", 0x00012D80, 0x00012E00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x38400, 0x38480, index3S_CPS3_Yang, 0x00 },
+    { L"MP SA Trail 1", 0x38480, 0x38500, index3S_CPS3_Yang, 0x00 },
+    { L"MP SA Trail 2", 0x38500, 0x38580, index3S_CPS3_Yang, 0x00 },
+    { L"MP SA Trail 3", 0x38580, 0x38600, index3S_CPS3_Yang, 0x00 },
+   // { L"MP SA Trail 4", 0x38600, 0x38680, index3S_CPS3_Yang, 0x00 },
+   // { L"MP SA Trail 5", 0x38680, 0x38700, index3S_CPS3_Yang, 0x00 },
+   // { L"MP SA Trail 6", 0x38700, 0x38780, index3S_CPS3_Yang, 0x00 },
+   // { L"MP SA Trail 7", 0x38780, 0x38800, index3S_CPS3_Yang, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YANG_HP_PALETTES[] =
@@ -3913,6 +4437,14 @@ const sGame_PaletteDataset SFIII3EX_A_YANG_HP_PALETTES[] =
     { L"HP Shocked",   0x00013080, 0x00013100, index3S_CPS3_Yang, 0x08 },
     { L"HP Frozen",    0x00013100, 0x00013180, index3S_CPS3_Yang, 0x00 },
     { L"HP Hitsparks", 0x00013180, 0x00013200, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x38800, 0x38880, index3S_CPS3_Yang, 0x00 },
+    { L"HP SA Trail 1", 0x38880, 0x38900, index3S_CPS3_Yang, 0x00 },
+    { L"HP SA Trail 2", 0x38900, 0x38980, index3S_CPS3_Yang, 0x00 },
+    { L"HP SA Trail 3", 0x38980, 0x38A00, index3S_CPS3_Yang, 0x00 },
+   // { L"HP SA Trail 4", 0x38A00, 0x38A80, index3S_CPS3_Yang, 0x00 },
+   // { L"HP SA Trail 5", 0x38A80, 0x38B00, index3S_CPS3_Yang, 0x00 },
+   // { L"HP SA Trail 6", 0x38B00, 0x38B80, index3S_CPS3_Yang, 0x00 },
+   // { L"HP SA Trail 7", 0x38B80, 0x38C00, index3S_CPS3_Yang, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YANG_LK_PALETTES[] =
@@ -3925,6 +4457,14 @@ const sGame_PaletteDataset SFIII3EX_A_YANG_LK_PALETTES[] =
     { L"LK Shocked",   0x00013480, 0x00013500, index3S_CPS3_Yang, 0x08 },
     { L"LK Frozen",    0x00013500, 0x00013580, index3S_CPS3_Yang, 0x00 },
     { L"LK Hitsparks", 0x00013580, 0x00013600, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x38C00, 0x38C80, index3S_CPS3_Yang, 0x00 },
+    { L"LK SA Trail 1", 0x38C80, 0x38D00, index3S_CPS3_Yang, 0x00 },
+    { L"LK SA Trail 2", 0x38D00, 0x38D80, index3S_CPS3_Yang, 0x00 },
+    { L"LK SA Trail 3", 0x38D80, 0x38E00, index3S_CPS3_Yang, 0x00 },
+   // { L"LK SA Trail 4", 0x38E00, 0x38E80, index3S_CPS3_Yang, 0x00 },
+   // { L"LK SA Trail 5", 0x38E80, 0x38F00, index3S_CPS3_Yang, 0x00 },
+   // { L"LK SA Trail 6", 0x38F00, 0x38F80, index3S_CPS3_Yang, 0x00 },
+   // { L"LK SA Trail 7", 0x38F80, 0x39000, index3S_CPS3_Yang, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YANG_MK_PALETTES[] =
@@ -3937,6 +4477,14 @@ const sGame_PaletteDataset SFIII3EX_A_YANG_MK_PALETTES[] =
     { L"MK Shocked",   0x00013880, 0x00013900, index3S_CPS3_Yang, 0x08 },
     { L"MK Frozen",    0x00013900, 0x00013980, index3S_CPS3_Yang, 0x00 },
     { L"MK Hitsparks", 0x00013980, 0x00013A00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x39000, 0x39080, index3S_CPS3_Yang, 0x00 },
+    { L"MK SA Trail 1", 0x39080, 0x39100, index3S_CPS3_Yang, 0x00 },
+    { L"MK SA Trail 2", 0x39100, 0x39180, index3S_CPS3_Yang, 0x00 },
+    { L"MK SA Trail 3", 0x39180, 0x39200, index3S_CPS3_Yang, 0x00 },
+   // { L"MK SA Trail 4", 0x39200, 0x39280, index3S_CPS3_Yang, 0x00 },
+   // { L"MK SA Trail 5", 0x39280, 0x39300, index3S_CPS3_Yang, 0x00 },
+   // { L"MK SA Trail 6", 0x39300, 0x39380, index3S_CPS3_Yang, 0x00 },
+   // { L"MK SA Trail 7", 0x39380, 0x39400, index3S_CPS3_Yang, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YANG_HK_PALETTES[] =
@@ -3949,6 +4497,14 @@ const sGame_PaletteDataset SFIII3EX_A_YANG_HK_PALETTES[] =
     { L"HK Shocked",   0x00013C80, 0x00013D00, index3S_CPS3_Yang, 0x08 },
     { L"HK Frozen",    0x00013D00, 0x00013D80, index3S_CPS3_Yang, 0x00 },
     { L"HK Hitsparks", 0x00013D80, 0x00013E00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x39400, 0x39480, index3S_CPS3_Yang, 0x00 },
+    { L"HK SA Trail 1", 0x39480, 0x39500, index3S_CPS3_Yang, 0x00 },
+    { L"HK SA Trail 2", 0x39500, 0x39580, index3S_CPS3_Yang, 0x00 },
+    { L"HK SA Trail 3", 0x39580, 0x39600, index3S_CPS3_Yang, 0x00 },
+   // { L"HK SA Trail 4", 0x39600, 0x39680, index3S_CPS3_Yang, 0x00 },
+   // { L"HK SA Trail 5", 0x39680, 0x39700, index3S_CPS3_Yang, 0x00 },
+   // { L"HK SA Trail 6", 0x39700, 0x39780, index3S_CPS3_Yang, 0x00 },
+   // { L"HK SA Trail 7", 0x39780, 0x39800, index3S_CPS3_Yang, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_YANG_EX_PALETTES[] =
@@ -3961,6 +4517,14 @@ const sGame_PaletteDataset SFIII3EX_A_YANG_EX_PALETTES[] =
     { L"EX Shocked",   0x00014080, 0x00014100, index3S_CPS3_Yang, 0x08 },
     { L"EX Frozen",    0x00014100, 0x00014180, index3S_CPS3_Yang, 0x00 },
     { L"EX Hitsparks", 0x00014180, 0x00014200, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x39800, 0x39880, index3S_CPS3_Yang, 0x00 },
+    { L"EX SA Trail 1", 0x39880, 0x39900, index3S_CPS3_Yang, 0x00 },
+    { L"EX SA Trail 2", 0x39900, 0x39980, index3S_CPS3_Yang, 0x00 },
+    { L"EX SA Trail 3", 0x39980, 0x39A00, index3S_CPS3_Yang, 0x00 },
+   // { L"EX SA Trail 4", 0x39A00, 0x39A80, index3S_CPS3_Yang, 0x00 },
+   // { L"EX SA Trail 5", 0x39A80, 0x39B00, index3S_CPS3_Yang, 0x00 },
+   // { L"EX SA Trail 6", 0x39B00, 0x39B80, index3S_CPS3_Yang, 0x00 },
+   // { L"EX SA Trail 7", 0x39B80, 0x39C00, index3S_CPS3_Yang, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_KEN_LP_PALETTES[] =
@@ -3975,6 +4539,14 @@ const sGame_PaletteDataset SFIII3EX_A_KEN_LP_PALETTES[] =
     { L"LP Shocked",   0x00014580, 0x00014600, index3S_CPS3_Ken, 0x08 },
     { L"LP Frozen",    0x00014600, 0x00014680, index3S_CPS3_Ken, 0x00 },
     { L"LP Hitsparks", 0x00014680, 0x00014700, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x39C00, 0x39C80, index3S_CPS3_Ken, 0x00 },
+    { L"LP SA Trail 1", 0x39C80, 0x39D00, index3S_CPS3_Ken, 0x00 },
+    { L"LP SA Trail 2", 0x39D00, 0x39D80, index3S_CPS3_Ken, 0x00 },
+    { L"LP SA Trail 3", 0x39D80, 0x39E00, index3S_CPS3_Ken, 0x00 },
+   // { L"LP SA Trail 4", 0x39E00, 0x39E80, index3S_CPS3_Ken, 0x00 },
+   // { L"LP SA Trail 5", 0x39E80, 0x39F00, index3S_CPS3_Ken, 0x00 },
+   // { L"LP SA Trail 6", 0x39F00, 0x39F80, index3S_CPS3_Ken, 0x00 },
+   // { L"LP SA Trail 7", 0x39F80, 0x3A000, index3S_CPS3_Ken, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_KEN_MP_PALETTES[] =
@@ -3989,6 +4561,15 @@ const sGame_PaletteDataset SFIII3EX_A_KEN_MP_PALETTES[] =
     { L"MP Shocked",   0x00014A80, 0x00014B00, index3S_CPS3_Ken, 0x08 },
     { L"MP Frozen",    0x00014B00, 0x00014B80, index3S_CPS3_Ken, 0x00 },
     { L"MP Hitsparks", 0x00014B80, 0x00014C00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x3A000, 0x3A080, index3S_CPS3_Ken, 0x00 },
+    { L"MP SA Trail 1", 0x3A080, 0x3A100, index3S_CPS3_Ken, 0x00 },
+    { L"MP SA Trail 2", 0x3A100, 0x3A180, index3S_CPS3_Ken, 0x00 },
+    { L"MP SA Trail 3", 0x3A180, 0x3A200, index3S_CPS3_Ken, 0x00 },
+   // { L"MP SA Trail 4", 0x3A200, 0x3A280, index3S_CPS3_Ken, 0x00 },
+   // { L"MP SA Trail 5", 0x3A280, 0x3A300, index3S_CPS3_Ken, 0x00 },
+   // { L"MP SA Trail 6", 0x3A300, 0x3A380, index3S_CPS3_Ken, 0x00 },
+   // { L"MP SA Trail 7", 0x3A380, 0x3A400, index3S_CPS3_Ken, 0x00 },
+
 };
 
 const sGame_PaletteDataset SFIII3EX_A_KEN_HP_PALETTES[] =
@@ -4003,6 +4584,14 @@ const sGame_PaletteDataset SFIII3EX_A_KEN_HP_PALETTES[] =
     { L"HP Shocked",   0x00014F80, 0x00015000, index3S_CPS3_Ken, 0x08 },
     { L"HP Frozen",    0x00015000, 0x00015080, index3S_CPS3_Ken, 0x00 },
     { L"HP Hitsparks", 0x00015080, 0x00015100, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x3A400, 0x3A480, index3S_CPS3_Ken, 0x00 },
+    { L"HP SA Trail 1", 0x3A480, 0x3A500, index3S_CPS3_Ken, 0x00 },
+    { L"HP SA Trail 2", 0x3A500, 0x3A580, index3S_CPS3_Ken, 0x00 },
+    { L"HP SA Trail 3", 0x3A580, 0x3A600, index3S_CPS3_Ken, 0x00 },
+   // { L"HP SA Trail 4", 0x3A600, 0x3A680, index3S_CPS3_Ken, 0x00 },
+   // { L"HP SA Trail 5", 0x3A680, 0x3A700, index3S_CPS3_Ken, 0x00 },
+   // { L"HP SA Trail 6", 0x3A700, 0x3A780, index3S_CPS3_Ken, 0x00 },
+   // { L"HP SA Trail 7", 0x3A780, 0x3A800, index3S_CPS3_Ken, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_KEN_LK_PALETTES[] =
@@ -4017,6 +4606,15 @@ const sGame_PaletteDataset SFIII3EX_A_KEN_LK_PALETTES[] =
     { L"LK Shocked",   0x00015480, 0x00015500, index3S_CPS3_Ken, 0x08 },
     { L"LK Frozen",    0x00015500, 0x00015580, index3S_CPS3_Ken, 0x00 },
     { L"LK Hitsparks", 0x00015580, 0x00015600, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x3A800, 0x3A880, index3S_CPS3_Ken, 0x00 },
+    { L"LK SA Trail 1", 0x3A880, 0x3A900, index3S_CPS3_Ken, 0x00 },
+    { L"LK SA Trail 2", 0x3A900, 0x3A980, index3S_CPS3_Ken, 0x00 },
+    { L"LK SA Trail 3", 0x3A980, 0x3AA00, index3S_CPS3_Ken, 0x00 },
+   // { L"LK SA Trail 4", 0x3AA00, 0x3AA80, index3S_CPS3_Ken, 0x00 },
+   // { L"LK SA Trail 5", 0x3AA80, 0x3AB00, index3S_CPS3_Ken, 0x00 },
+   // { L"LK SA Trail 6", 0x3AB00, 0x3AB80, index3S_CPS3_Ken, 0x00 },
+   // { L"LK SA Trail 7", 0x3AB80, 0x3AC00, index3S_CPS3_Ken, 0x00 },
+
 };
 
 const sGame_PaletteDataset SFIII3EX_A_KEN_MK_PALETTES[] =
@@ -4031,6 +4629,14 @@ const sGame_PaletteDataset SFIII3EX_A_KEN_MK_PALETTES[] =
     { L"MK Shocked",   0x00015980, 0x00015A00, index3S_CPS3_Ken, 0x08 },
     { L"MK Frozen",    0x00015A00, 0x00015A80, index3S_CPS3_Ken, 0x00 },
     { L"MK Hitsparks", 0x00015A80, 0x00015B00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x3AC00, 0x3AC80, index3S_CPS3_Ken, 0x00 },
+    { L"MK SA Trail 1", 0x3AC80, 0x3AD00, index3S_CPS3_Ken, 0x00 },
+    { L"MK SA Trail 2", 0x3AD00, 0x3AD80, index3S_CPS3_Ken, 0x00 },
+    { L"MK SA Trail 3", 0x3AD80, 0x3AE00, index3S_CPS3_Ken, 0x00 },
+   // { L"MK SA Trail 4", 0x3AE00, 0x3AE80, index3S_CPS3_Ken, 0x00 },
+   // { L"MK SA Trail 5", 0x3AE80, 0x3AF00, index3S_CPS3_Ken, 0x00 },
+   // { L"MK SA Trail 6", 0x3AF00, 0x3AF80, index3S_CPS3_Ken, 0x00 },
+   // { L"MK SA Trail 7", 0x3AF80, 0x3B000, index3S_CPS3_Ken, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_KEN_HK_PALETTES[] =
@@ -4045,6 +4651,14 @@ const sGame_PaletteDataset SFIII3EX_A_KEN_HK_PALETTES[] =
     { L"HK Shocked",   0x00015E80, 0x00015F00, index3S_CPS3_Ken, 0x08 },
     { L"HK Frozen",    0x00015F00, 0x00015F80, index3S_CPS3_Ken, 0x00 },
     { L"HK Hitsparks", 0x00015F80, 0x00016000, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x3B000, 0x3B080, index3S_CPS3_Ken, 0x00 },
+    { L"HK SA Trail 1", 0x3B080, 0x3B100, index3S_CPS3_Ken, 0x00 },
+    { L"HK SA Trail 2", 0x3B100, 0x3B180, index3S_CPS3_Ken, 0x00 },
+    { L"HK SA Trail 3", 0x3B180, 0x3B200, index3S_CPS3_Ken, 0x00 },
+   // { L"HK SA Trail 4", 0x3B200, 0x3B280, index3S_CPS3_Ken, 0x00 },
+   // { L"HK SA Trail 5", 0x3B280, 0x3B300, index3S_CPS3_Ken, 0x00 },
+   // { L"HK SA Trail 6", 0x3B300, 0x3B380, index3S_CPS3_Ken, 0x00 },
+   // { L"HK SA Trail 7", 0x3B380, 0x3B400, index3S_CPS3_Ken, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_KEN_EX_PALETTES[] =
@@ -4059,6 +4673,15 @@ const sGame_PaletteDataset SFIII3EX_A_KEN_EX_PALETTES[] =
     { L"EX Shocked",   0x00016380, 0x00016400, index3S_CPS3_Ken, 0x08 },
     { L"EX Frozen",    0x00016400, 0x00016480, index3S_CPS3_Ken, 0x00 },
     { L"EX Hitsparks", 0x00016480, 0x00016500, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x3B400, 0x3B480, index3S_CPS3_Ken, 0x00 },
+    { L"EX SA Trail 1", 0x3B480, 0x3B500, index3S_CPS3_Ken, 0x00 },
+    { L"EX SA Trail 2", 0x3B500, 0x3B580, index3S_CPS3_Ken, 0x00 },
+    { L"EX SA Trail 3", 0x3B580, 0x3B600, index3S_CPS3_Ken, 0x00 },
+   // { L"EX SA Trail 4", 0x3B600, 0x3B680, index3S_CPS3_Ken, 0x00 },
+   // { L"EX SA Trail 5", 0x3B680, 0x3B700, index3S_CPS3_Ken, 0x00 },
+   // { L"EX SA Trail 6", 0x3B700, 0x3B780, index3S_CPS3_Ken, 0x00 },
+   // { L"EX SA Trail 7", 0x3B780, 0x3B800, index3S_CPS3_Ken, 0x00 },
+
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SEAN_LP_PALETTES[] =
@@ -4071,6 +4694,14 @@ const sGame_PaletteDataset SFIII3EX_A_SEAN_LP_PALETTES[] =
     { L"LP Shocked",    0x00016780, 0x00016800, index3S_CPS3_Sean, 0x08 },
     { L"LP Frozen",     0x00016800, 0x00016880, index3S_CPS3_Sean, 0x00 },
     { L"LP Hitsparks",  0x00016880, 0x00016900, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x3B800, 0x3B880, index3S_CPS3_Sean, 0x00 },
+    { L"LP SA Trail 1", 0x3B880, 0x3B900, index3S_CPS3_Sean, 0x00 },
+    { L"LP SA Trail 2", 0x3B900, 0x3B980, index3S_CPS3_Sean, 0x00 },
+    { L"LP SA Trail 3", 0x3B980, 0x3BA00, index3S_CPS3_Sean, 0x00 },
+   // { L"LP SA Trail 4", 0x3BA00, 0x3BA80, index3S_CPS3_Sean, 0x00 },
+   // { L"LP SA Trail 5", 0x3BA80, 0x3BB00, index3S_CPS3_Sean, 0x00 },
+   // { L"LP SA Trail 6", 0x3BB00, 0x3BB80, index3S_CPS3_Sean, 0x00 },
+   // { L"LP SA Trail 7", 0x3BB80, 0x3BC00, index3S_CPS3_Sean, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SEAN_MP_PALETTES[] =
@@ -4083,6 +4714,14 @@ const sGame_PaletteDataset SFIII3EX_A_SEAN_MP_PALETTES[] =
     { L"MP Shocked",    0x00016B80, 0x00016C00, index3S_CPS3_Sean, 0x08 },
     { L"MP Frozen",     0x00016C00, 0x00016C80, index3S_CPS3_Sean, 0x00 },
     { L"MP Hitsparks",  0x00016C80, 0x00016D00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x3BC00, 0x3BC80, index3S_CPS3_Sean, 0x00 },
+    { L"MP SA Trail 1", 0x3BC80, 0x3BD00, index3S_CPS3_Sean, 0x00 },
+    { L"MP SA Trail 2", 0x3BD00, 0x3BD80, index3S_CPS3_Sean, 0x00 },
+    { L"MP SA Trail 3", 0x3BD80, 0x3BE00, index3S_CPS3_Sean, 0x00 },
+   // { L"MP SA Trail 4", 0x3BE00, 0x3BE80, index3S_CPS3_Sean, 0x00 },
+   // { L"MP SA Trail 5", 0x3BE80, 0x3BF00, index3S_CPS3_Sean, 0x00 },
+   // { L"MP SA Trail 6", 0x3BF00, 0x3BF80, index3S_CPS3_Sean, 0x00 },
+   // { L"MP SA Trail 7", 0x3BF80, 0x3C000, index3S_CPS3_Sean, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SEAN_HP_PALETTES[] =
@@ -4095,6 +4734,14 @@ const sGame_PaletteDataset SFIII3EX_A_SEAN_HP_PALETTES[] =
     { L"HP Shocked",    0x00016F80, 0x00017000, index3S_CPS3_Sean, 0x08 },
     { L"HP Frozen",     0x00017000, 0x00017080, index3S_CPS3_Sean, 0x00 },
     { L"HP Hitsparks",  0x00017080, 0x00017100, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x3C000, 0x3C080, index3S_CPS3_Sean, 0x00 },
+    { L"HP SA Trail 1", 0x3C080, 0x3C100, index3S_CPS3_Sean, 0x00 },
+    { L"HP SA Trail 2", 0x3C100, 0x3C180, index3S_CPS3_Sean, 0x00 },
+    { L"HP SA Trail 3", 0x3C180, 0x3C200, index3S_CPS3_Sean, 0x00 },
+   // { L"HP SA Trail 4", 0x3C200, 0x3C280, index3S_CPS3_Sean, 0x00 },
+   // { L"HP SA Trail 5", 0x3C280, 0x3C300, index3S_CPS3_Sean, 0x00 },
+   // { L"HP SA Trail 6", 0x3C300, 0x3C380, index3S_CPS3_Sean, 0x00 },
+   // { L"HP SA Trail 7", 0x3C380, 0x3C400, index3S_CPS3_Sean, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SEAN_LK_PALETTES[] =
@@ -4107,6 +4754,14 @@ const sGame_PaletteDataset SFIII3EX_A_SEAN_LK_PALETTES[] =
     { L"LK Shocked",    0x00017380, 0x00017400, index3S_CPS3_Sean, 0x08 },
     { L"LK Frozen",     0x00017400, 0x00017480, index3S_CPS3_Sean, 0x00 },
     { L"LK Hitsparks",  0x00017480, 0x00017500, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x3C400, 0x3C480, index3S_CPS3_Sean, 0x00 },
+    { L"LK SA Trail 1", 0x3C480, 0x3C500, index3S_CPS3_Sean, 0x00 },
+    { L"LK SA Trail 2", 0x3C500, 0x3C580, index3S_CPS3_Sean, 0x00 },
+    { L"LK SA Trail 3", 0x3C580, 0x3C600, index3S_CPS3_Sean, 0x00 },
+   // { L"LK SA Trail 4", 0x3C600, 0x3C680, index3S_CPS3_Sean, 0x00 },
+   // { L"LK SA Trail 5", 0x3C680, 0x3C700, index3S_CPS3_Sean, 0x00 },
+   // { L"LK SA Trail 6", 0x3C700, 0x3C780, index3S_CPS3_Sean, 0x00 },
+   // { L"LK SA Trail 7", 0x3C780, 0x3C800, index3S_CPS3_Sean, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SEAN_MK_PALETTES[] =
@@ -4119,6 +4774,14 @@ const sGame_PaletteDataset SFIII3EX_A_SEAN_MK_PALETTES[] =
     { L"MK Shocked",    0x00017780, 0x00017800, index3S_CPS3_Sean, 0x08 },
     { L"MK Frozen",     0x00017800, 0x00017880, index3S_CPS3_Sean, 0x00 },
     { L"MK Hitsparks",  0x00017880, 0x00017900, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x3C800, 0x3C880, index3S_CPS3_Sean, 0x00 },
+    { L"MK SA Trail 1", 0x3C880, 0x3C900, index3S_CPS3_Sean, 0x00 },
+    { L"MK SA Trail 2", 0x3C900, 0x3C980, index3S_CPS3_Sean, 0x00 },
+    { L"MK SA Trail 3", 0x3C980, 0x3CA00, index3S_CPS3_Sean, 0x00 },
+   // { L"MK SA Trail 4", 0x3CA00, 0x3CA80, index3S_CPS3_Sean, 0x00 },
+   // { L"MK SA Trail 5", 0x3CA80, 0x3CB00, index3S_CPS3_Sean, 0x00 },
+   // { L"MK SA Trail 6", 0x3CB00, 0x3CB80, index3S_CPS3_Sean, 0x00 },
+   // { L"MK SA Trail 7", 0x3CB80, 0x3CC00, index3S_CPS3_Sean, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SEAN_HK_PALETTES[] =
@@ -4131,6 +4794,14 @@ const sGame_PaletteDataset SFIII3EX_A_SEAN_HK_PALETTES[] =
     { L"HK Shocked",    0x00017B80, 0x00017C00, index3S_CPS3_Sean, 0x08 },
     { L"HK Frozen",     0x00017C00, 0x00017C80, index3S_CPS3_Sean, 0x00 },
     { L"HK Hitsparks",  0x00017C80, 0x00017D00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x3CC00, 0x3CC80, index3S_CPS3_Sean, 0x00 },
+    { L"HK SA Trail 1", 0x3CC80, 0x3CD00, index3S_CPS3_Sean, 0x00 },
+    { L"HK SA Trail 2", 0x3CD00, 0x3CD80, index3S_CPS3_Sean, 0x00 },
+    { L"HK SA Trail 3", 0x3CD80, 0x3CE00, index3S_CPS3_Sean, 0x00 },
+   // { L"HK SA Trail 4", 0x3CE00, 0x3CE80, index3S_CPS3_Sean, 0x00 },
+   // { L"HK SA Trail 5", 0x3CE80, 0x3CF00, index3S_CPS3_Sean, 0x00 },
+   // { L"HK SA Trail 6", 0x3CF00, 0x3CF80, index3S_CPS3_Sean, 0x00 },
+   // { L"HK SA Trail 7", 0x3CF80, 0x3D000, index3S_CPS3_Sean, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SEAN_EX_PALETTES[] =
@@ -4143,6 +4814,14 @@ const sGame_PaletteDataset SFIII3EX_A_SEAN_EX_PALETTES[] =
     { L"EX Shocked",    0x00017F80, 0x00018000, index3S_CPS3_Sean, 0x08 },
     { L"EX Frozen",     0x00018000, 0x00018080, index3S_CPS3_Sean, 0x00 },
     { L"EX Hitsparks",  0x00018080, 0x00018100, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x3D000, 0x3D080, index3S_CPS3_Sean, 0x00 },
+    { L"EX SA Trail 1", 0x3D080, 0x3D100, index3S_CPS3_Sean, 0x00 },
+    { L"EX SA Trail 2", 0x3D100, 0x3D180, index3S_CPS3_Sean, 0x00 },
+    { L"EX SA Trail 3", 0x3D180, 0x3D200, index3S_CPS3_Sean, 0x00 },
+   // { L"EX SA Trail 4", 0x3D200, 0x3D280, index3S_CPS3_Sean, 0x00 },
+   // { L"EX SA Trail 5", 0x3D280, 0x3D300, index3S_CPS3_Sean, 0x00 },
+   // { L"EX SA Trail 6", 0x3D300, 0x3D380, index3S_CPS3_Sean, 0x00 },
+   // { L"EX SA Trail 7", 0x3D380, 0x3D400, index3S_CPS3_Sean, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_URIEN_LP_PALETTES[] =
@@ -4163,6 +4842,14 @@ const sGame_PaletteDataset SFIII3EX_A_URIEN_LP_PALETTES[] =
     { L"LP Frozen P2 Side", 0x00018780, 0x00018800, index3S_CPS3_Urien, 0x00 },
     { L"LP Frozen P1 Side", 0x00018800, 0x00018880, index3S_CPS3_Urien, 0x00 },
     { L"LP Hitsparks",      0x00018880, 0x00018900, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x3D400, 0x3D480, index3S_CPS3_Urien, 0x00 },
+    { L"LP SA Trail 1", 0x3D480, 0x3D500, index3S_CPS3_Urien, 0x00 },
+    { L"LP SA Trail 2", 0x3D500, 0x3D580, index3S_CPS3_Urien, 0x00 },
+    { L"LP SA Trail 3", 0x3D580, 0x3D600, index3S_CPS3_Urien, 0x00 },
+   // { L"LP SA Trail 4", 0x3D600, 0x3D680, index3S_CPS3_Urien, 0x00 },
+   // { L"LP SA Trail 5", 0x3D680, 0x3D700, index3S_CPS3_Urien, 0x00 },
+   // { L"LP SA Trail 6", 0x3D700, 0x3D780, index3S_CPS3_Urien, 0x00 },
+   // { L"LP SA Trail 7", 0x3D780, 0x3D800, index3S_CPS3_Urien, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_URIEN_MP_PALETTES[] =
@@ -4183,6 +4870,14 @@ const sGame_PaletteDataset SFIII3EX_A_URIEN_MP_PALETTES[] =
     { L"MP Frozen P2 Side", 0x00018F80, 0x00019000, index3S_CPS3_Urien, 0x00 },
     { L"MP Frozen P1 Side", 0x00019000, 0x00019080, index3S_CPS3_Urien, 0x00 },
     { L"MP Hitsparks",      0x00019080, 0x00019100, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x3D800, 0x3D880, index3S_CPS3_Urien, 0x00 },
+    { L"MP SA Trail 1", 0x3D880, 0x3D900, index3S_CPS3_Urien, 0x00 },
+    { L"MP SA Trail 2", 0x3D900, 0x3D980, index3S_CPS3_Urien, 0x00 },
+    { L"MP SA Trail 3", 0x3D980, 0x3DA00, index3S_CPS3_Urien, 0x00 },
+   // { L"MP SA Trail 4", 0x3DA00, 0x3DA80, index3S_CPS3_Urien, 0x00 },
+   // { L"MP SA Trail 5", 0x3DA80, 0x3DB00, index3S_CPS3_Urien, 0x00 },
+   // { L"MP SA Trail 6", 0x3DB00, 0x3DB80, index3S_CPS3_Urien, 0x00 },
+   // { L"MP SA Trail 7", 0x3DB80, 0x3DC00, index3S_CPS3_Urien, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_URIEN_HP_PALETTES[] =
@@ -4203,6 +4898,14 @@ const sGame_PaletteDataset SFIII3EX_A_URIEN_HP_PALETTES[] =
     { L"HP Frozen P2 Side", 0x00019780, 0x00019800, index3S_CPS3_Urien, 0x00 },
     { L"HP Frozen P1 Side", 0x00019800, 0x00019880, index3S_CPS3_Urien, 0x00 },
     { L"HP Hitsparks",      0x00019880, 0x00019900, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x3DC00, 0x3DC80, index3S_CPS3_Urien, 0x00 },
+    { L"HP SA Trail 1", 0x3DC80, 0x3DD00, index3S_CPS3_Urien, 0x00 },
+    { L"HP SA Trail 2", 0x3DD00, 0x3DD80, index3S_CPS3_Urien, 0x00 },
+    { L"HP SA Trail 3", 0x3DD80, 0x3DE00, index3S_CPS3_Urien, 0x00 },
+   // { L"HP SA Trail 4", 0x3DE00, 0x3DE80, index3S_CPS3_Urien, 0x00 },
+   // { L"HP SA Trail 5", 0x3DE80, 0x3DF00, index3S_CPS3_Urien, 0x00 },
+   // { L"HP SA Trail 6", 0x3DF00, 0x3DF80, index3S_CPS3_Urien, 0x00 },
+   // { L"HP SA Trail 7", 0x3DF80, 0x3E000, index3S_CPS3_Urien, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_URIEN_LK_PALETTES[] =
@@ -4223,6 +4926,14 @@ const sGame_PaletteDataset SFIII3EX_A_URIEN_LK_PALETTES[] =
     { L"LK Frozen P2 Side", 0x00019F80, 0x0001A000, index3S_CPS3_Urien, 0x00 },
     { L"LK Frozen P1 Side", 0x0001A000, 0x0001A080, index3S_CPS3_Urien, 0x00 },
     { L"LK Hitsparks",      0x0001A080, 0x0001A100, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x3E000, 0x3E080, index3S_CPS3_Urien, 0x00 },
+    { L"LK SA Trail 1", 0x3E080, 0x3E100, index3S_CPS3_Urien, 0x00 },
+    { L"LK SA Trail 2", 0x3E100, 0x3E180, index3S_CPS3_Urien, 0x00 },
+    { L"LK SA Trail 3", 0x3E180, 0x3E200, index3S_CPS3_Urien, 0x00 },
+   // { L"LK SA Trail 4", 0x3E200, 0x3E280, index3S_CPS3_Urien, 0x00 },
+   // { L"LK SA Trail 5", 0x3E280, 0x3E300, index3S_CPS3_Urien, 0x00 },
+   // { L"LK SA Trail 6", 0x3E300, 0x3E380, index3S_CPS3_Urien, 0x00 },
+   // { L"LK SA Trail 7", 0x3E380, 0x3E400, index3S_CPS3_Urien, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_URIEN_MK_PALETTES[] =
@@ -4243,6 +4954,14 @@ const sGame_PaletteDataset SFIII3EX_A_URIEN_MK_PALETTES[] =
     { L"MK Frozen P2 Side", 0x0001A780, 0x0001A800, index3S_CPS3_Urien, 0x00 },
     { L"MK Frozen P1 Side", 0x0001A800, 0x0001A880, index3S_CPS3_Urien, 0x00 },
     { L"MK Hitsparks",      0x0001A880, 0x0001A900, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x3E400, 0x3E480, index3S_CPS3_Urien, 0x00 },
+    { L"MK SA Trail 1", 0x3E480, 0x3E500, index3S_CPS3_Urien, 0x00 },
+    { L"MK SA Trail 2", 0x3E500, 0x3E580, index3S_CPS3_Urien, 0x00 },
+    { L"MK SA Trail 3", 0x3E580, 0x3E600, index3S_CPS3_Urien, 0x00 },
+   // { L"MK SA Trail 4", 0x3E600, 0x3E680, index3S_CPS3_Urien, 0x00 },
+   // { L"MK SA Trail 5", 0x3E680, 0x3E700, index3S_CPS3_Urien, 0x00 },
+   // { L"MK SA Trail 6", 0x3E700, 0x3E780, index3S_CPS3_Urien, 0x00 },
+   // { L"MK SA Trail 7", 0x3E780, 0x3E800, index3S_CPS3_Urien, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_URIEN_HK_PALETTES[] =
@@ -4263,6 +4982,14 @@ const sGame_PaletteDataset SFIII3EX_A_URIEN_HK_PALETTES[] =
     { L"HK Frozen P2 Side", 0x0001AF80, 0x0001B000, index3S_CPS3_Urien, 0x00 },
     { L"HK Frozen P1 Side", 0x0001B000, 0x0001B080, index3S_CPS3_Urien, 0x00 },
     { L"HK Hitsparks",      0x0001B080, 0x0001B100, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x3E800, 0x3E880, index3S_CPS3_Urien, 0x00 },
+    { L"HK SA Trail 1", 0x3E880, 0x3E900, index3S_CPS3_Urien, 0x00 },
+    { L"HK SA Trail 2", 0x3E900, 0x3E980, index3S_CPS3_Urien, 0x00 },
+    { L"HK SA Trail 3", 0x3E980, 0x3EA00, index3S_CPS3_Urien, 0x00 },
+   // { L"HK SA Trail 4", 0x3EA00, 0x3EA80, index3S_CPS3_Urien, 0x00 },
+   // { L"HK SA Trail 5", 0x3EA80, 0x3EB00, index3S_CPS3_Urien, 0x00 },
+   // { L"HK SA Trail 6", 0x3EB00, 0x3EB80, index3S_CPS3_Urien, 0x00 },
+   // { L"HK SA Trail 7", 0x3EB80, 0x3EC00, index3S_CPS3_Urien, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_URIEN_EX_PALETTES[] =
@@ -4283,6 +5010,14 @@ const sGame_PaletteDataset SFIII3EX_A_URIEN_EX_PALETTES[] =
     { L"EX Frozen P2 Side", 0x0001B780, 0x0001B800, index3S_CPS3_Urien, 0x00 },
     { L"EX Frozen P1 Side", 0x0001B800, 0x0001B880, index3S_CPS3_Urien, 0x00 },
     { L"EX Hitsparks",      0x0001B880, 0x0001B900, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x3EC00, 0x3EC80, index3S_CPS3_Urien, 0x00 },
+    { L"EX SA Trail 1", 0x3EC80, 0x3ED00, index3S_CPS3_Urien, 0x00 },
+    { L"EX SA Trail 2", 0x3ED00, 0x3ED80, index3S_CPS3_Urien, 0x00 },
+    { L"EX SA Trail 3", 0x3ED80, 0x3EE00, index3S_CPS3_Urien, 0x00 },
+   // { L"EX SA Trail 4", 0x3EE00, 0x3EE80, index3S_CPS3_Urien, 0x00 },
+   // { L"EX SA Trail 5", 0x3EE80, 0x3EF00, index3S_CPS3_Urien, 0x00 },
+   // { L"EX SA Trail 6", 0x3EF00, 0x3EF80, index3S_CPS3_Urien, 0x00 },
+   // { L"EX SA Trail 7", 0x3EF80, 0x3F000, index3S_CPS3_Urien, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_GOUKI_LP_PALETTES[] =
@@ -4297,6 +5032,14 @@ const sGame_PaletteDataset SFIII3EX_A_GOUKI_LP_PALETTES[] =
     { L"LP Shocked",   0x0001BC80, 0x0001BD00, index3S_CPS3_Gouki, 0x08 },
     { L"LP Frozen",    0x0001BD00, 0x0001BD80, index3S_CPS3_Gouki, 0x00 },
     { L"LP Hitsparks", 0x0001BD80, 0x0001BE00, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x3F000, 0x3F080, index3S_CPS3_Gouki, 0x00 },
+    { L"LP SA Trail 1", 0x3F080, 0x3F100, index3S_CPS3_Gouki, 0x00 },
+    { L"LP SA Trail 2", 0x3F100, 0x3F180, index3S_CPS3_Gouki, 0x00 },
+    { L"LP SA Trail 3", 0x3F180, 0x3F200, index3S_CPS3_Gouki, 0x00 },
+   // { L"LP SA Trail 4", 0x3F200, 0x3F280, index3S_CPS3_Gouki, 0x00 },
+   // { L"LP SA Trail 5", 0x3F280, 0x3F300, index3S_CPS3_Gouki, 0x00 },
+   // { L"LP SA Trail 6", 0x3F300, 0x3F380, index3S_CPS3_Gouki, 0x00 },
+   // { L"LP SA Trail 7", 0x3F380, 0x3F400, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_GOUKI_MP_PALETTES[] =
@@ -4311,6 +5054,14 @@ const sGame_PaletteDataset SFIII3EX_A_GOUKI_MP_PALETTES[] =
     { L"MP Shocked",   0x0001C180, 0x0001C200, index3S_CPS3_Gouki, 0x08 },
     { L"MP Frozen",    0x0001C200, 0x0001C280, index3S_CPS3_Gouki, 0x00 },
     { L"MP Hitsparks", 0x0001C280, 0x0001C300, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x3F400, 0x3F480, index3S_CPS3_Gouki, 0x00 },
+    { L"MP SA Trail 1", 0x3F480, 0x3F500, index3S_CPS3_Gouki, 0x00 },
+    { L"MP SA Trail 2", 0x3F500, 0x3F580, index3S_CPS3_Gouki, 0x00 },
+    { L"MP SA Trail 3", 0x3F580, 0x3F600, index3S_CPS3_Gouki, 0x00 },
+   // { L"MP SA Trail 4", 0x3F600, 0x3F680, index3S_CPS3_Gouki, 0x00 },
+   // { L"MP SA Trail 5", 0x3F680, 0x3F700, index3S_CPS3_Gouki, 0x00 },
+   // { L"MP SA Trail 6", 0x3F700, 0x3F780, index3S_CPS3_Gouki, 0x00 },
+   // { L"MP SA Trail 7", 0x3F780, 0x3F800, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_GOUKI_HP_PALETTES[] =
@@ -4325,6 +5076,14 @@ const sGame_PaletteDataset SFIII3EX_A_GOUKI_HP_PALETTES[] =
     { L"HP Shocked",   0x0001C680, 0x0001C700, index3S_CPS3_Gouki, 0x08 },
     { L"HP Frozen",    0x0001C700, 0x0001C780, index3S_CPS3_Gouki, 0x00 },
     { L"HP Hitsparks", 0x0001C780, 0x0001C800, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x3F800, 0x3F880, index3S_CPS3_Gouki, 0x00 },
+    { L"HP SA Trail 1", 0x3F880, 0x3F900, index3S_CPS3_Gouki, 0x00 },
+    { L"HP SA Trail 2", 0x3F900, 0x3F980, index3S_CPS3_Gouki, 0x00 },
+    { L"HP SA Trail 3", 0x3F980, 0x3FA00, index3S_CPS3_Gouki, 0x00 },
+   // { L"HP SA Trail 4", 0x3FA00, 0x3FA80, index3S_CPS3_Gouki, 0x00 },
+   // { L"HP SA Trail 5", 0x3FA80, 0x3FB00, index3S_CPS3_Gouki, 0x00 },
+   // { L"HP SA Trail 6", 0x3FB00, 0x3FB80, index3S_CPS3_Gouki, 0x00 },
+   // { L"HP SA Trail 7", 0x3FB80, 0x3FC00, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_GOUKI_LK_PALETTES[] =
@@ -4339,6 +5098,14 @@ const sGame_PaletteDataset SFIII3EX_A_GOUKI_LK_PALETTES[] =
     { L"LK Shocked",   0x0001CB80, 0x0001CC00, index3S_CPS3_Gouki, 0x08 },
     { L"LK Frozen",    0x0001CC00, 0x0001CC80, index3S_CPS3_Gouki, 0x00 },
     { L"LK Hitsparks", 0x0001CC80, 0x0001CD00, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x3FC00, 0x3FC80, index3S_CPS3_Gouki, 0x00 },
+    { L"LK SA Trail 1", 0x3FC80, 0x3FD00, index3S_CPS3_Gouki, 0x00 },
+    { L"LK SA Trail 2", 0x3FD00, 0x3FD80, index3S_CPS3_Gouki, 0x00 },
+    { L"LK SA Trail 3", 0x3FD80, 0x3FE00, index3S_CPS3_Gouki, 0x00 },
+   // { L"LK SA Trail 4", 0x3FE00, 0x3FE80, index3S_CPS3_Gouki, 0x00 },
+   // { L"LK SA Trail 5", 0x3FE80, 0x3FF00, index3S_CPS3_Gouki, 0x00 },
+   // { L"LK SA Trail 6", 0x3FF00, 0x3FF80, index3S_CPS3_Gouki, 0x00 },
+   // { L"LK SA Trail 7", 0x3FF80, 0x40000, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_GOUKI_MK_PALETTES[] =
@@ -4353,6 +5120,14 @@ const sGame_PaletteDataset SFIII3EX_A_GOUKI_MK_PALETTES[] =
     { L"MK Shocked",   0x0001D080, 0x0001D100, index3S_CPS3_Gouki, 0x08 },
     { L"MK Frozen",    0x0001D100, 0x0001D180, index3S_CPS3_Gouki, 0x00 },
     { L"MK Hitsparks", 0x0001D180, 0x0001D200, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x40000, 0x40080, index3S_CPS3_Gouki, 0x00 },
+    { L"MK SA Trail 1", 0x40080, 0x40100, index3S_CPS3_Gouki, 0x00 },
+    { L"MK SA Trail 2", 0x40100, 0x40180, index3S_CPS3_Gouki, 0x00 },
+    { L"MK SA Trail 3", 0x40180, 0x40200, index3S_CPS3_Gouki, 0x00 },
+   // { L"MK SA Trail 4", 0x40200, 0x40280, index3S_CPS3_Gouki, 0x00 },
+   // { L"MK SA Trail 5", 0x40280, 0x40300, index3S_CPS3_Gouki, 0x00 },
+   // { L"MK SA Trail 6", 0x40300, 0x40380, index3S_CPS3_Gouki, 0x00 },
+   // { L"MK SA Trail 7", 0x40380, 0x40400, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_GOUKI_HK_PALETTES[] =
@@ -4367,6 +5142,14 @@ const sGame_PaletteDataset SFIII3EX_A_GOUKI_HK_PALETTES[] =
     { L"HK Shocked",   0x0001D580, 0x0001D600, index3S_CPS3_Gouki, 0x08 },
     { L"HK Frozen",    0x0001D600, 0x0001D680, index3S_CPS3_Gouki, 0x00 },
     { L"HK Hitsparks", 0x0001D680, 0x0001D700, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x40400, 0x40480, index3S_CPS3_Gouki, 0x00 },
+    { L"HK SA Trail 1", 0x40480, 0x40500, index3S_CPS3_Gouki, 0x00 },
+    { L"HK SA Trail 2", 0x40500, 0x40580, index3S_CPS3_Gouki, 0x00 },
+    { L"HK SA Trail 3", 0x40580, 0x40600, index3S_CPS3_Gouki, 0x00 },
+   // { L"HK SA Trail 4", 0x40600, 0x40680, index3S_CPS3_Gouki, 0x00 },
+   // { L"HK SA Trail 5", 0x40680, 0x40700, index3S_CPS3_Gouki, 0x00 },
+   // { L"HK SA Trail 6", 0x40700, 0x40780, index3S_CPS3_Gouki, 0x00 },
+   // { L"HK SA Trail 7", 0x40780, 0x40800, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_GOUKI_EX_PALETTES[] =
@@ -4381,6 +5164,14 @@ const sGame_PaletteDataset SFIII3EX_A_GOUKI_EX_PALETTES[] =
     { L"EX Shocked",   0x0001DA80, 0x0001DB00, index3S_CPS3_Gouki, 0x08 },
     { L"EX Frozen",    0x0001DB00, 0x0001DB80, index3S_CPS3_Gouki, 0x00 },
     { L"EX Hitsparks", 0x0001DB80, 0x0001DC00, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x40800, 0x40880, index3S_CPS3_Gouki, 0x00 },
+    { L"EX SA Trail 1", 0x40880, 0x40900, index3S_CPS3_Gouki, 0x00 },
+    { L"EX SA Trail 2", 0x40900, 0x40980, index3S_CPS3_Gouki, 0x00 },
+    { L"EX SA Trail 3", 0x40980, 0x40A00, index3S_CPS3_Gouki, 0x00 },
+   // { L"EX SA Trail 4", 0x40A00, 0x40A80, index3S_CPS3_Gouki, 0x00 },
+   // { L"EX SA Trail 5", 0x40A80, 0x40B00, index3S_CPS3_Gouki, 0x00 },
+   // { L"EX SA Trail 6", 0x40B00, 0x40B80, index3S_CPS3_Gouki, 0x00 },
+   // { L"EX SA Trail 7", 0x40B80, 0x40C00, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_LP_PALETTES[] =
@@ -4395,6 +5186,14 @@ const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_LP_PALETTES[] =
     { L"LP Shocked",   0x0001DF80, 0x0001E000, index3S_CPS3_Gouki, 0x08 },
     { L"LP Frozen",    0x0001E000, 0x0001E080, index3S_CPS3_Gouki, 0x00 },
     { L"LP Hitsparks", 0x0001E080, 0x0001E100, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x40C00, 0x40C80, index3S_CPS3_Gouki, 0x00 },
+    { L"LP SA Trail 1", 0x40C80, 0x40D00, index3S_CPS3_Gouki, 0x00 },
+    { L"LP SA Trail 2", 0x40D00, 0x40D80, index3S_CPS3_Gouki, 0x00 },
+    { L"LP SA Trail 3", 0x40D80, 0x40E00, index3S_CPS3_Gouki, 0x00 },
+   // { L"LP SA Trail 4", 0x40E00, 0x40E80, index3S_CPS3_Gouki, 0x00 },
+   // { L"LP SA Trail 5", 0x40E80, 0x40F00, index3S_CPS3_Gouki, 0x00 },
+   // { L"LP SA Trail 6", 0x40F00, 0x40F80, index3S_CPS3_Gouki, 0x00 },
+   // { L"LP SA Trail 7", 0x40F80, 0x41000, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_MP_PALETTES[] =
@@ -4409,6 +5208,15 @@ const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_MP_PALETTES[] =
     { L"MP Shocked",   0x0001E480, 0x0001E500, index3S_CPS3_Gouki, 0x08 },
     { L"MP Frozen",    0x0001E500, 0x0001E580, index3S_CPS3_Gouki, 0x00 },
     { L"MP Hitsparks", 0x0001E580, 0x0001E600, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x41000, 0x41080, index3S_CPS3_Gouki, 0x00 },
+    { L"MP SA Trail 1", 0x41080, 0x41100, index3S_CPS3_Gouki, 0x00 },
+    { L"MP SA Trail 2", 0x41100, 0x41180, index3S_CPS3_Gouki, 0x00 },
+    { L"MP SA Trail 3", 0x41180, 0x41200, index3S_CPS3_Gouki, 0x00 },
+   // { L"MP SA Trail 4", 0x41200, 0x41280, index3S_CPS3_Gouki, 0x00 },
+   // { L"MP SA Trail 5", 0x41280, 0x41300, index3S_CPS3_Gouki, 0x00 },
+   // { L"MP SA Trail 6", 0x41300, 0x41380, index3S_CPS3_Gouki, 0x00 },
+   // { L"MP SA Trail 7", 0x41380, 0x41400, index3S_CPS3_Gouki, 0x00 },
+
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_HP_PALETTES[] =
@@ -4423,6 +5231,14 @@ const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_HP_PALETTES[] =
     { L"HP Shocked",   0x0001E980, 0x0001EA00, index3S_CPS3_Gouki, 0x08 },
     { L"HP Frozen",    0x0001EA00, 0x0001EA80, index3S_CPS3_Gouki, 0x00 },
     { L"HP Hitsparks", 0x0001EA80, 0x0001EB00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x41400, 0x41480, index3S_CPS3_Gouki, 0x00 },
+    { L"HP SA Trail 1", 0x41480, 0x41500, index3S_CPS3_Gouki, 0x00 },
+    { L"HP SA Trail 2", 0x41500, 0x41580, index3S_CPS3_Gouki, 0x00 },
+    { L"HP SA Trail 3", 0x41580, 0x41600, index3S_CPS3_Gouki, 0x00 },
+   // { L"HP SA Trail 4", 0x41600, 0x41680, index3S_CPS3_Gouki, 0x00 },
+   // { L"HP SA Trail 5", 0x41680, 0x41700, index3S_CPS3_Gouki, 0x00 },
+   // { L"HP SA Trail 6", 0x41700, 0x41780, index3S_CPS3_Gouki, 0x00 },
+   // { L"HP SA Trail 7", 0x41780, 0x41800, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_LK_PALETTES[] =
@@ -4437,6 +5253,14 @@ const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_LK_PALETTES[] =
     { L"LK Shocked",   0x0001EE80, 0x0001EF00, index3S_CPS3_Gouki, 0x08 },
     { L"LK Frozen",    0x0001EF00, 0x0001EF80, index3S_CPS3_Gouki, 0x00 },
     { L"LK Hitsparks", 0x0001EF80, 0x0001F000, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x41800, 0x41880, index3S_CPS3_Gouki, 0x00 },
+    { L"LK SA Trail 1", 0x41880, 0x41900, index3S_CPS3_Gouki, 0x00 },
+    { L"LK SA Trail 2", 0x41900, 0x41980, index3S_CPS3_Gouki, 0x00 },
+    { L"LK SA Trail 3", 0x41980, 0x41A00, index3S_CPS3_Gouki, 0x00 },
+   // { L"LK SA Trail 4", 0x41A00, 0x41A80, index3S_CPS3_Gouki, 0x00 },
+   // { L"LK SA Trail 5", 0x41A80, 0x41B00, index3S_CPS3_Gouki, 0x00 },
+   // { L"LK SA Trail 6", 0x41B00, 0x41B80, index3S_CPS3_Gouki, 0x00 },
+   // { L"LK SA Trail 7", 0x41B80, 0x41C00, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_MK_PALETTES[] =
@@ -4451,6 +5275,14 @@ const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_MK_PALETTES[] =
     { L"MK Shocked",   0x0001F380, 0x0001F400, index3S_CPS3_Gouki, 0x08 },
     { L"MK Frozen",    0x0001F400, 0x0001F480, index3S_CPS3_Gouki, 0x00 },
     { L"MK Hitsparks", 0x0001F480, 0x0001F500, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x41C00, 0x41C80, index3S_CPS3_Gouki, 0x00 },
+    { L"MK SA Trail 1", 0x41C80, 0x41D00, index3S_CPS3_Gouki, 0x00 },
+    { L"MK SA Trail 2", 0x41D00, 0x41D80, index3S_CPS3_Gouki, 0x00 },
+    { L"MK SA Trail 3", 0x41D80, 0x41E00, index3S_CPS3_Gouki, 0x00 },
+   // { L"MK SA Trail 4", 0x41E00, 0x41E80, index3S_CPS3_Gouki, 0x00 },
+   // { L"MK SA Trail 5", 0x41E80, 0x41F00, index3S_CPS3_Gouki, 0x00 },
+   // { L"MK SA Trail 6", 0x41F00, 0x41F80, index3S_CPS3_Gouki, 0x00 },
+   // { L"MK SA Trail 7", 0x41F80, 0x42000, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_HK_PALETTES[] =
@@ -4465,6 +5297,14 @@ const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_HK_PALETTES[] =
     { L"HK Shocked",   0x0001F880, 0x0001F900, index3S_CPS3_Gouki, 0x08 },
     { L"HK Frozen",    0x0001F900, 0x0001F980, index3S_CPS3_Gouki, 0x00 },
     { L"HK Hitsparks", 0x0001F980, 0x0001FA00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x42000, 0x42080, index3S_CPS3_Gouki, 0x00 },
+    { L"HK SA Trail 1", 0x42080, 0x42100, index3S_CPS3_Gouki, 0x00 },
+    { L"HK SA Trail 2", 0x42100, 0x42180, index3S_CPS3_Gouki, 0x00 },
+    { L"HK SA Trail 3", 0x42180, 0x42200, index3S_CPS3_Gouki, 0x00 },
+   // { L"HK SA Trail 4", 0x42200, 0x42280, index3S_CPS3_Gouki, 0x00 },
+   // { L"HK SA Trail 5", 0x42280, 0x42300, index3S_CPS3_Gouki, 0x00 },
+   // { L"HK SA Trail 6", 0x42300, 0x42380, index3S_CPS3_Gouki, 0x00 },
+   // { L"HK SA Trail 7", 0x42380, 0x42400, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_EX_PALETTES[] =
@@ -4479,6 +5319,14 @@ const sGame_PaletteDataset SFIII3EX_A_SHINGOUKI_EX_PALETTES[] =
     { L"EX Shocked",   0x0001FD80, 0x0001FE00, index3S_CPS3_Gouki, 0x08 },
     { L"EX Frozen",    0x0001FE00, 0x0001FE80, index3S_CPS3_Gouki, 0x00 },
     { L"EX Hitsparks", 0x0001FE80, 0x0001FF00, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x42400, 0x42480, index3S_CPS3_Gouki, 0x00 },
+    { L"EX SA Trail 1", 0x42480, 0x42500, index3S_CPS3_Gouki, 0x00 },
+    { L"EX SA Trail 2", 0x42500, 0x42580, index3S_CPS3_Gouki, 0x00 },
+    { L"EX SA Trail 3", 0x42580, 0x42600, index3S_CPS3_Gouki, 0x00 },
+   // { L"EX SA Trail 4", 0x42600, 0x42680, index3S_CPS3_Gouki, 0x00 },
+   // { L"EX SA Trail 5", 0x42680, 0x42700, index3S_CPS3_Gouki, 0x00 },
+   // { L"EX SA Trail 6", 0x42700, 0x42780, index3S_CPS3_Gouki, 0x00 },
+   // { L"EX SA Trail 7", 0x42780, 0x42800, index3S_CPS3_Gouki, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_CHUNLI_LP_PALETTES[] =
@@ -4492,6 +5340,14 @@ const sGame_PaletteDataset SFIII3EX_A_CHUNLI_LP_PALETTES[] =
     { L"LP Shocked",    0x00020200, 0x00020280, index3S_CPS3_ChunLi, 0x08 },
     { L"LP Frozen",     0x00020280, 0x00020300, index3S_CPS3_ChunLi, 0x00 },
     { L"LP Hitsparks",  0x00020300, 0x00020380, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x42800, 0x42880, index3S_CPS3_ChunLi, 0x00 },
+    { L"LP SA Trail 1", 0x42880, 0x42900, index3S_CPS3_ChunLi, 0x00 },
+    { L"LP SA Trail 2", 0x42900, 0x42980, index3S_CPS3_ChunLi, 0x00 },
+    { L"LP SA Trail 3", 0x42980, 0x42A00, index3S_CPS3_ChunLi, 0x00 },
+   // { L"LP SA Trail 4", 0x42A00, 0x42A80, index3S_CPS3_ChunLi, 0x00 },
+   // { L"LP SA Trail 5", 0x42A80, 0x42B00, index3S_CPS3_ChunLi, 0x00 },
+   // { L"LP SA Trail 6", 0x42B00, 0x42B80, index3S_CPS3_ChunLi, 0x00 },
+   // { L"LP SA Trail 7", 0x42B80, 0x42C00, index3S_CPS3_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_CHUNLI_MP_PALETTES[] =
@@ -4505,6 +5361,14 @@ const sGame_PaletteDataset SFIII3EX_A_CHUNLI_MP_PALETTES[] =
     { L"MP Shocked",   0x00020680, 0x00020700, index3S_CPS3_ChunLi, 0x08 },
     { L"MP Frozen",    0x00020700, 0x00020780, index3S_CPS3_ChunLi, 0x00 },
     { L"MP Hitsparks", 0x00020780, 0x00020800, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x42C00, 0x42C80, index3S_CPS3_ChunLi, 0x00 },
+    { L"MP SA Trail 1", 0x42C80, 0x42D00, index3S_CPS3_ChunLi, 0x00 },
+    { L"MP SA Trail 2", 0x42D00, 0x42D80, index3S_CPS3_ChunLi, 0x00 },
+    { L"MP SA Trail 3", 0x42D80, 0x42E00, index3S_CPS3_ChunLi, 0x00 },
+   // { L"MP SA Trail 4", 0x42E00, 0x42E80, index3S_CPS3_ChunLi, 0x00 },
+   // { L"MP SA Trail 5", 0x42E80, 0x42F00, index3S_CPS3_ChunLi, 0x00 },
+   // { L"MP SA Trail 6", 0x42F00, 0x42F80, index3S_CPS3_ChunLi, 0x00 },
+   // { L"MP SA Trail 7", 0x42F80, 0x43000, index3S_CPS3_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_CHUNLI_HP_PALETTES[] =
@@ -4518,6 +5382,14 @@ const sGame_PaletteDataset SFIII3EX_A_CHUNLI_HP_PALETTES[] =
     { L"HP Shocked",   0x00020B00, 0x00020B80, index3S_CPS3_ChunLi, 0x08 },
     { L"HP Frozen",    0x00020B80, 0x00020C00, index3S_CPS3_ChunLi, 0x00 },
     { L"HP Hitsparks", 0x00020C00, 0x00020C80, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x43000, 0x43080, index3S_CPS3_ChunLi, 0x00 },
+    { L"HP SA Trail 1", 0x43080, 0x43100, index3S_CPS3_ChunLi, 0x00 },
+    { L"HP SA Trail 2", 0x43100, 0x43180, index3S_CPS3_ChunLi, 0x00 },
+    { L"HP SA Trail 3", 0x43180, 0x43200, index3S_CPS3_ChunLi, 0x00 },
+   // { L"HP SA Trail 4", 0x43200, 0x43280, index3S_CPS3_ChunLi, 0x00 },
+   // { L"HP SA Trail 5", 0x43280, 0x43300, index3S_CPS3_ChunLi, 0x00 },
+   // { L"HP SA Trail 6", 0x43300, 0x43380, index3S_CPS3_ChunLi, 0x00 },
+   // { L"HP SA Trail 7", 0x43380, 0x43400, index3S_CPS3_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_CHUNLI_LK_PALETTES[] =
@@ -4531,6 +5403,14 @@ const sGame_PaletteDataset SFIII3EX_A_CHUNLI_LK_PALETTES[] =
     { L"LK Shocked",    0x00020F80, 0x00021000, index3S_CPS3_ChunLi, 0x08 },
     { L"LK Frozen",     0x00021000, 0x00021080, index3S_CPS3_ChunLi, 0x00 },
     { L"LK Hitsparks",  0x00021080, 0x00021100, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x43400, 0x43480, index3S_CPS3_ChunLi, 0x00 },
+    { L"LK SA Trail 1", 0x43480, 0x43500, index3S_CPS3_ChunLi, 0x00 },
+    { L"LK SA Trail 2", 0x43500, 0x43580, index3S_CPS3_ChunLi, 0x00 },
+    { L"LK SA Trail 3", 0x43580, 0x43600, index3S_CPS3_ChunLi, 0x00 },
+   // { L"LK SA Trail 4", 0x43600, 0x43680, index3S_CPS3_ChunLi, 0x00 },
+   // { L"LK SA Trail 5", 0x43680, 0x43700, index3S_CPS3_ChunLi, 0x00 },
+   // { L"LK SA Trail 6", 0x43700, 0x43780, index3S_CPS3_ChunLi, 0x00 },
+   // { L"LK SA Trail 7", 0x43780, 0x43800, index3S_CPS3_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_CHUNLI_MK_PALETTES[] =
@@ -4544,6 +5424,14 @@ const sGame_PaletteDataset SFIII3EX_A_CHUNLI_MK_PALETTES[] =
     { L"MK Shocked",   0x00021400, 0x00021480, index3S_CPS3_ChunLi, 0x08 },
     { L"MK Frozen",    0x00021480, 0x00021500, index3S_CPS3_ChunLi, 0x00 },
     { L"MK Hitsparks", 0x00021500, 0x00021580, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x43800, 0x43880, index3S_CPS3_ChunLi, 0x00 },
+    { L"MK SA Trail 1", 0x43880, 0x43900, index3S_CPS3_ChunLi, 0x00 },
+    { L"MK SA Trail 2", 0x43900, 0x43980, index3S_CPS3_ChunLi, 0x00 },
+    { L"MK SA Trail 3", 0x43980, 0x43A00, index3S_CPS3_ChunLi, 0x00 },
+   // { L"MK SA Trail 4", 0x43A00, 0x43A80, index3S_CPS3_ChunLi, 0x00 },
+   // { L"MK SA Trail 5", 0x43A80, 0x43B00, index3S_CPS3_ChunLi, 0x00 },
+   // { L"MK SA Trail 6", 0x43B00, 0x43B80, index3S_CPS3_ChunLi, 0x00 },
+   // { L"MK SA Trail 7", 0x43B80, 0x43C00, index3S_CPS3_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_CHUNLI_HK_PALETTES[] =
@@ -4557,6 +5445,14 @@ const sGame_PaletteDataset SFIII3EX_A_CHUNLI_HK_PALETTES[] =
     { L"HK Shocked",   0x00021880, 0x00021900, index3S_CPS3_ChunLi, 0x08 },
     { L"HK Frozen",    0x00021900, 0x00021980, index3S_CPS3_ChunLi, 0x00 },
     { L"HK Hitsparks", 0x00021980, 0x00021A00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x43C00, 0x43C80, index3S_CPS3_ChunLi, 0x00 },
+    { L"HK SA Trail 1", 0x43C80, 0x43D00, index3S_CPS3_ChunLi, 0x00 },
+    { L"HK SA Trail 2", 0x43D00, 0x43D80, index3S_CPS3_ChunLi, 0x00 },
+    { L"HK SA Trail 3", 0x43D80, 0x43E00, index3S_CPS3_ChunLi, 0x00 },
+   // { L"HK SA Trail 4", 0x43E00, 0x43E80, index3S_CPS3_ChunLi, 0x00 },
+   // { L"HK SA Trail 5", 0x43E80, 0x43F00, index3S_CPS3_ChunLi, 0x00 },
+   // { L"HK SA Trail 6", 0x43F00, 0x43F80, index3S_CPS3_ChunLi, 0x00 },
+   // { L"HK SA Trail 7", 0x43F80, 0x44000, index3S_CPS3_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_CHUNLI_EX_PALETTES[] =
@@ -4570,6 +5466,14 @@ const sGame_PaletteDataset SFIII3EX_A_CHUNLI_EX_PALETTES[] =
     { L"EX Shocked",   0x00021D00, 0x00021D80, index3S_CPS3_ChunLi, 0x08 },
     { L"EX Frozen",    0x00021D80, 0x00021E00, index3S_CPS3_ChunLi, 0x00 },
     { L"EX Hitsparks", 0x00021E00, 0x00021E80, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x44000, 0x44080, index3S_CPS3_ChunLi, 0x00 },
+    { L"EX SA Trail 1", 0x44080, 0x44100, index3S_CPS3_ChunLi, 0x00 },
+    { L"EX SA Trail 2", 0x44100, 0x44180, index3S_CPS3_ChunLi, 0x00 },
+    { L"EX SA Trail 3", 0x44180, 0x44200, index3S_CPS3_ChunLi, 0x00 },
+   // { L"EX SA Trail 4", 0x44200, 0x44280, index3S_CPS3_ChunLi, 0x00 },
+   // { L"EX SA Trail 5", 0x44280, 0x44300, index3S_CPS3_ChunLi, 0x00 },
+   // { L"EX SA Trail 6", 0x44300, 0x44380, index3S_CPS3_ChunLi, 0x00 },
+   // { L"EX SA Trail 7", 0x44380, 0x44400, index3S_CPS3_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_LP_PALETTES[] =
@@ -4581,6 +5485,14 @@ const sGame_PaletteDataset SFIII3EX_A_MAKOTO_LP_PALETTES[] =
     { L"LP Shocked",   0x00022080, 0x00022100, index3S_CPS3_Makoto, 0x08 },
     { L"LP Frozen",    0x00022100, 0x00022180, index3S_CPS3_Makoto, 0x00 },
     { L"LP Hitsparks", 0x00022180, 0x00022200, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x44400, 0x44480, index3S_CPS3_Makoto, 0x00 },
+    { L"LP SA Trail 1", 0x44480, 0x44500, index3S_CPS3_Makoto, 0x00 },
+    { L"LP SA Trail 2", 0x44500, 0x44580, index3S_CPS3_Makoto, 0x00 },
+    { L"LP SA Trail 3", 0x44580, 0x44600, index3S_CPS3_Makoto, 0x00 },
+   // { L"LP SA Trail 4", 0x44600, 0x44680, index3S_CPS3_Makoto, 0x00 },
+   // { L"LP SA Trail 5", 0x44680, 0x44700, index3S_CPS3_Makoto, 0x00 },
+   // { L"LP SA Trail 6", 0x44700, 0x44780, index3S_CPS3_Makoto, 0x00 },
+   // { L"LP SA Trail 7", 0x44780, 0x44800, index3S_CPS3_Makoto, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_MP_PALETTES[] =
@@ -4592,6 +5504,14 @@ const sGame_PaletteDataset SFIII3EX_A_MAKOTO_MP_PALETTES[] =
     { L"MP Shocked",   0x00022400, 0x00022480, index3S_CPS3_Makoto, 0x08 },
     { L"MP Frozen",    0x00022480, 0x00022500, index3S_CPS3_Makoto, 0x00 },
     { L"MP Hitsparks", 0x00022500, 0x00022580, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x44800, 0x44880, index3S_CPS3_Makoto, 0x00 },
+    { L"MP SA Trail 1", 0x44880, 0x44900, index3S_CPS3_Makoto, 0x00 },
+    { L"MP SA Trail 2", 0x44900, 0x44980, index3S_CPS3_Makoto, 0x00 },
+    { L"MP SA Trail 3", 0x44980, 0x44A00, index3S_CPS3_Makoto, 0x00 },
+   // { L"MP SA Trail 4", 0x44A00, 0x44A80, index3S_CPS3_Makoto, 0x00 },
+   // { L"MP SA Trail 5", 0x44A80, 0x44B00, index3S_CPS3_Makoto, 0x00 },
+   // { L"MP SA Trail 6", 0x44B00, 0x44B80, index3S_CPS3_Makoto, 0x00 },
+   // { L"MP SA Trail 7", 0x44B80, 0x44C00, index3S_CPS3_Makoto, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_HP_PALETTES[] =
@@ -4603,6 +5523,14 @@ const sGame_PaletteDataset SFIII3EX_A_MAKOTO_HP_PALETTES[] =
     { L"HP Shocked",   0x00022780, 0x00022800, index3S_CPS3_Makoto, 0x08 },
     { L"HP Frozen",    0x00022800, 0x00022880, index3S_CPS3_Makoto, 0x00 },
     { L"HP Hitsparks", 0x00022880, 0x00022900, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x44C00, 0x44C80, index3S_CPS3_Makoto, 0x00 },
+    { L"HP SA Trail 1", 0x44C80, 0x44D00, index3S_CPS3_Makoto, 0x00 },
+    { L"HP SA Trail 2", 0x44D00, 0x44D80, index3S_CPS3_Makoto, 0x00 },
+    { L"HP SA Trail 3", 0x44D80, 0x44E00, index3S_CPS3_Makoto, 0x00 },
+   // { L"HP SA Trail 4", 0x44E00, 0x44E80, index3S_CPS3_Makoto, 0x00 },
+   // { L"HP SA Trail 5", 0x44E80, 0x44F00, index3S_CPS3_Makoto, 0x00 },
+   // { L"HP SA Trail 6", 0x44F00, 0x44F80, index3S_CPS3_Makoto, 0x00 },
+   // { L"HP SA Trail 7", 0x44F80, 0x45000, index3S_CPS3_Makoto, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_LK_PALETTES[] =
@@ -4614,6 +5542,14 @@ const sGame_PaletteDataset SFIII3EX_A_MAKOTO_LK_PALETTES[] =
     { L"LK Shocked",   0x00022B00, 0x00022B80, index3S_CPS3_Makoto, 0x08 },
     { L"LK Frozen",    0x00022B80, 0x00022C00, index3S_CPS3_Makoto, 0x00 },
     { L"LK Hitsparks", 0x00022C00, 0x00022C80, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x45000, 0x45080, index3S_CPS3_Makoto, 0x00 },
+    { L"LK SA Trail 1", 0x45080, 0x45100, index3S_CPS3_Makoto, 0x00 },
+    { L"LK SA Trail 2", 0x45100, 0x45180, index3S_CPS3_Makoto, 0x00 },
+    { L"LK SA Trail 3", 0x45180, 0x45200, index3S_CPS3_Makoto, 0x00 },
+   // { L"LK SA Trail 4", 0x45200, 0x45280, index3S_CPS3_Makoto, 0x00 },
+   // { L"LK SA Trail 5", 0x45280, 0x45300, index3S_CPS3_Makoto, 0x00 },
+   // { L"LK SA Trail 6", 0x45300, 0x45380, index3S_CPS3_Makoto, 0x00 },
+   // { L"LK SA Trail 7", 0x45380, 0x45400, index3S_CPS3_Makoto, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_MK_PALETTES[] =
@@ -4625,6 +5561,14 @@ const sGame_PaletteDataset SFIII3EX_A_MAKOTO_MK_PALETTES[] =
     { L"MK Shocked",   0x00022E80, 0x00022F00, index3S_CPS3_Makoto, 0x08 },
     { L"MK Frozen",    0x00022F00, 0x00022F80, index3S_CPS3_Makoto, 0x00 },
     { L"MK Hitsparks", 0x00022F80, 0x00023000,index3S_CPS3_Bonus, 0x09 },
+   // { L"MK SA Trail 0", 0x45400, 0x45480, index3S_CPS3_Makoto, 0x00 },
+    { L"MK SA Trail 1", 0x45480, 0x45500, index3S_CPS3_Makoto, 0x00 },
+    { L"MK SA Trail 2", 0x45500, 0x45580, index3S_CPS3_Makoto, 0x00 },
+    { L"MK SA Trail 3", 0x45580, 0x45600, index3S_CPS3_Makoto, 0x00 },
+   // { L"MK SA Trail 4", 0x45600, 0x45680, index3S_CPS3_Makoto, 0x00 },
+   // { L"MK SA Trail 5", 0x45680, 0x45700, index3S_CPS3_Makoto, 0x00 },
+   // { L"MK SA Trail 6", 0x45700, 0x45780, index3S_CPS3_Makoto, 0x00 },
+   // { L"MK SA Trail 7", 0x45780, 0x45800, index3S_CPS3_Makoto, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_HK_PALETTES[] =
@@ -4636,6 +5580,14 @@ const sGame_PaletteDataset SFIII3EX_A_MAKOTO_HK_PALETTES[] =
     { L"HK Shocked",   0x00023200, 0x00023280, index3S_CPS3_Makoto, 0x08 },
     { L"HK Frozen",    0x00023280, 0x00023300, index3S_CPS3_Makoto, 0x00 },
     { L"HK Hitsparks", 0x00023300, 0x00023380, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x45800, 0x45880, index3S_CPS3_Makoto, 0x00 },
+    { L"HK SA Trail 1", 0x45880, 0x45900, index3S_CPS3_Makoto, 0x00 },
+    { L"HK SA Trail 2", 0x45900, 0x45980, index3S_CPS3_Makoto, 0x00 },
+    { L"HK SA Trail 3", 0x45980, 0x45A00, index3S_CPS3_Makoto, 0x00 },
+   // { L"HK SA Trail 4", 0x45A00, 0x45A80, index3S_CPS3_Makoto, 0x00 },
+   // { L"HK SA Trail 5", 0x45A80, 0x45B00, index3S_CPS3_Makoto, 0x00 },
+   // { L"HK SA Trail 6", 0x45B00, 0x45B80, index3S_CPS3_Makoto, 0x00 },
+   // { L"HK SA Trail 7", 0x45B80, 0x45C00, index3S_CPS3_Makoto, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_MAKOTO_EX_PALETTES[] =
@@ -4647,6 +5599,14 @@ const sGame_PaletteDataset SFIII3EX_A_MAKOTO_EX_PALETTES[] =
     { L"EX Shocked",   0x00023580, 0x00023600, index3S_CPS3_Makoto, 0x08 },
     { L"EX Frozen",    0x00023600, 0x00023680, index3S_CPS3_Makoto, 0x00 },
     { L"EX Hitsparks", 0x00023680, 0x00023700, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x45C00, 0x45C80, index3S_CPS3_Makoto, 0x00 },
+    { L"EX SA Trail 1", 0x45C80, 0x45D00, index3S_CPS3_Makoto, 0x00 },
+    { L"EX SA Trail 2", 0x45D00, 0x45D80, index3S_CPS3_Makoto, 0x00 },
+    { L"EX SA Trail 3", 0x45D80, 0x45E00, index3S_CPS3_Makoto, 0x00 },
+   // { L"EX SA Trail 4", 0x45E00, 0x45E80, index3S_CPS3_Makoto, 0x00 },
+   // { L"EX SA Trail 5", 0x45E80, 0x45F00, index3S_CPS3_Makoto, 0x00 },
+   // { L"EX SA Trail 6", 0x45F00, 0x45F80, index3S_CPS3_Makoto, 0x00 },
+   // { L"EX SA Trail 7", 0x45F80, 0x46000, index3S_CPS3_Makoto, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_Q_LP_PALETTES[] =
@@ -4658,6 +5618,14 @@ const sGame_PaletteDataset SFIII3EX_A_Q_LP_PALETTES[] =
     { L"LP Shocked",   0x00023900, 0x00023980, index3S_CPS3_Q, 0x08 },
     { L"LP Frozen",    0x00023980, 0x00023A00, index3S_CPS3_Q, 0x00 },
     { L"LP Hitsparks", 0x00023A00, 0x00023A80, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x46000, 0x46080, index3S_CPS3_Q, 0x00 },
+    { L"LP SA Trail 1", 0x46080, 0x46100, index3S_CPS3_Q, 0x00 },
+    { L"LP SA Trail 2", 0x46100, 0x46180, index3S_CPS3_Q, 0x00 },
+    { L"LP SA Trail 3", 0x46180, 0x46200, index3S_CPS3_Q, 0x00 },
+   // { L"LP SA Trail 4", 0x46200, 0x46280, index3S_CPS3_Q, 0x00 },
+   // { L"LP SA Trail 5", 0x46280, 0x46300, index3S_CPS3_Q, 0x00 },
+   // { L"LP SA Trail 6", 0x46300, 0x46380, index3S_CPS3_Q, 0x00 },
+   // { L"LP SA Trail 7", 0x46380, 0x46400, index3S_CPS3_Q, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_Q_MP_PALETTES[] =
@@ -4669,6 +5637,14 @@ const sGame_PaletteDataset SFIII3EX_A_Q_MP_PALETTES[] =
     { L"MP Shocked",   0x00023C80, 0x00023D00, index3S_CPS3_Q, 0x08 },
     { L"MP Frozen",    0x00023D00, 0x00023D80, index3S_CPS3_Q, 0x00 },
     { L"MP Hitsparks", 0x00023D80, 0x00023E00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x46400, 0x46480, index3S_CPS3_Q, 0x00 },
+    { L"MP SA Trail 1", 0x46480, 0x46500, index3S_CPS3_Q, 0x00 },
+    { L"MP SA Trail 2", 0x46500, 0x46580, index3S_CPS3_Q, 0x00 },
+    { L"MP SA Trail 3", 0x46580, 0x46600, index3S_CPS3_Q, 0x00 },
+   // { L"MP SA Trail 4", 0x46600, 0x46680, index3S_CPS3_Q, 0x00 },
+   // { L"MP SA Trail 5", 0x46680, 0x46700, index3S_CPS3_Q, 0x00 },
+   // { L"MP SA Trail 6", 0x46700, 0x46780, index3S_CPS3_Q, 0x00 },
+   // { L"MP SA Trail 7", 0x46780, 0x46800, index3S_CPS3_Q, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_Q_HP_PALETTES[] =
@@ -4680,6 +5656,14 @@ const sGame_PaletteDataset SFIII3EX_A_Q_HP_PALETTES[] =
     { L"HP Shocked",   0x00024000, 0x00024080, index3S_CPS3_Q, 0x08 },
     { L"HP Frozen",    0x00024080, 0x00024100, index3S_CPS3_Q, 0x00 },
     { L"HP Hitsparks", 0x00024100, 0x00024180, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x46800, 0x46880, index3S_CPS3_Q, 0x00 },
+    { L"HP SA Trail 1", 0x46880, 0x46900, index3S_CPS3_Q, 0x00 },
+    { L"HP SA Trail 2", 0x46900, 0x46980, index3S_CPS3_Q, 0x00 },
+    { L"HP SA Trail 3", 0x46980, 0x46A00, index3S_CPS3_Q, 0x00 },
+   // { L"HP SA Trail 4", 0x46A00, 0x46A80, index3S_CPS3_Q, 0x00 },
+   // { L"HP SA Trail 5", 0x46A80, 0x46B00, index3S_CPS3_Q, 0x00 },
+   // { L"HP SA Trail 6", 0x46B00, 0x46B80, index3S_CPS3_Q, 0x00 },
+   // { L"HP SA Trail 7", 0x46B80, 0x46C00, index3S_CPS3_Q, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_Q_LK_PALETTES[] =
@@ -4691,6 +5675,14 @@ const sGame_PaletteDataset SFIII3EX_A_Q_LK_PALETTES[] =
     { L"LK Shocked",   0x00024380, 0x00024400, index3S_CPS3_Q, 0x08 },
     { L"LK Frozen",    0x00024400, 0x00024480, index3S_CPS3_Q, 0x00 },
     { L"LK Hitsparks", 0x00024480, 0x00024500, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x46C00, 0x46C80, index3S_CPS3_Q, 0x00 },
+    { L"LK SA Trail 1", 0x46C80, 0x46D00, index3S_CPS3_Q, 0x00 },
+    { L"LK SA Trail 2", 0x46D00, 0x46D80, index3S_CPS3_Q, 0x00 },
+    { L"LK SA Trail 3", 0x46D80, 0x46E00, index3S_CPS3_Q, 0x00 },
+   // { L"LK SA Trail 4", 0x46E00, 0x46E80, index3S_CPS3_Q, 0x00 },
+   // { L"LK SA Trail 5", 0x46E80, 0x46F00, index3S_CPS3_Q, 0x00 },
+   // { L"LK SA Trail 6", 0x46F00, 0x46F80, index3S_CPS3_Q, 0x00 },
+   // { L"LK SA Trail 7", 0x46F80, 0x47000, index3S_CPS3_Q, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_Q_MK_PALETTES[] =
@@ -4702,6 +5694,14 @@ const sGame_PaletteDataset SFIII3EX_A_Q_MK_PALETTES[] =
     { L"MK Shocked",   0x00024700, 0x00024780, index3S_CPS3_Q, 0x08 },
     { L"MK Frozen",    0x00024780, 0x00024800, index3S_CPS3_Q, 0x00 },
     { L"MK Hitsparks", 0x00024800, 0x00024880, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x47000, 0x47080, index3S_CPS3_Q, 0x00 },
+    { L"MK SA Trail 1", 0x47080, 0x47100, index3S_CPS3_Q, 0x00 },
+    { L"MK SA Trail 2", 0x47100, 0x47180, index3S_CPS3_Q, 0x00 },
+    { L"MK SA Trail 3", 0x47180, 0x47200, index3S_CPS3_Q, 0x00 },
+   // { L"MK SA Trail 4", 0x47200, 0x47280, index3S_CPS3_Q, 0x00 },
+   // { L"MK SA Trail 5", 0x47280, 0x47300, index3S_CPS3_Q, 0x00 },
+   // { L"MK SA Trail 6", 0x47300, 0x47380, index3S_CPS3_Q, 0x00 },
+   // { L"MK SA Trail 7", 0x47380, 0x47400, index3S_CPS3_Q, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_Q_HK_PALETTES[] =
@@ -4713,6 +5713,14 @@ const sGame_PaletteDataset SFIII3EX_A_Q_HK_PALETTES[] =
     { L"HK Shocked",   0x00024A80, 0x00024B00, index3S_CPS3_Q, 0x08 },
     { L"HK Frozen",    0x00024B00, 0x00024B80, index3S_CPS3_Q, 0x00 },
     { L"HK Hitsparks", 0x00024B80, 0x00024C00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x47400, 0x47480, index3S_CPS3_Q, 0x00 },
+    { L"HK SA Trail 1", 0x47480, 0x47500, index3S_CPS3_Q, 0x00 },
+    { L"HK SA Trail 2", 0x47500, 0x47580, index3S_CPS3_Q, 0x00 },
+    { L"HK SA Trail 3", 0x47580, 0x47600, index3S_CPS3_Q, 0x00 },
+   // { L"HK SA Trail 4", 0x47600, 0x47680, index3S_CPS3_Q, 0x00 },
+   // { L"HK SA Trail 5", 0x47680, 0x47700, index3S_CPS3_Q, 0x00 },
+   // { L"HK SA Trail 6", 0x47700, 0x47780, index3S_CPS3_Q, 0x00 },
+   // { L"HK SA Trail 7", 0x47780, 0x47800, index3S_CPS3_Q, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_Q_EX_PALETTES[] =
@@ -4724,6 +5732,14 @@ const sGame_PaletteDataset SFIII3EX_A_Q_EX_PALETTES[] =
     { L"EX Shocked",   0x00024E00, 0x00024E80, index3S_CPS3_Q, 0x08 },
     { L"EX Frozen",    0x00024E80, 0x00024F00, index3S_CPS3_Q, 0x00 },
     { L"EX Hitsparks", 0x00024F00, 0x00024F80, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x47800, 0x47880, index3S_CPS3_Q, 0x00 },
+    { L"EX SA Trail 1", 0x47880, 0x47900, index3S_CPS3_Q, 0x00 },
+    { L"EX SA Trail 2", 0x47900, 0x47980, index3S_CPS3_Q, 0x00 },
+    { L"EX SA Trail 3", 0x47980, 0x47A00, index3S_CPS3_Q, 0x00 },
+   // { L"EX SA Trail 4", 0x47A00, 0x47A80, index3S_CPS3_Q, 0x00 },
+   // { L"EX SA Trail 5", 0x47A80, 0x47B00, index3S_CPS3_Q, 0x00 },
+   // { L"EX SA Trail 6", 0x47B00, 0x47B80, index3S_CPS3_Q, 0x00 },
+   // { L"EX SA Trail 7", 0x47B80, 0x47C00, index3S_CPS3_Q, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_TWELVE_LP_PALETTES[] =
@@ -4735,6 +5751,14 @@ const sGame_PaletteDataset SFIII3EX_A_TWELVE_LP_PALETTES[] =
     { L"LP Shocked",   0x00025180, 0x00025200, index3S_CPS3_Twelve, 0x08 },
     { L"LP Frozen",    0x00025200, 0x00025280, index3S_CPS3_Twelve, 0x00 },
     { L"LP Hitsparks", 0x00025280, 0x00025300, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x47C00, 0x47C80, index3S_CPS3_Twelve, 0x00 },
+    { L"LP SA Trail 1", 0x47C80, 0x47D00, index3S_CPS3_Twelve, 0x00 },
+    { L"LP SA Trail 2", 0x47D00, 0x47D80, index3S_CPS3_Twelve, 0x00 },
+    { L"LP SA Trail 3", 0x47D80, 0x47E00, index3S_CPS3_Twelve, 0x00 },
+   // { L"LP SA Trail 4", 0x47E00, 0x47E80, index3S_CPS3_Twelve, 0x00 },
+   // { L"LP SA Trail 5", 0x47E80, 0x47F00, index3S_CPS3_Twelve, 0x00 },
+   // { L"LP SA Trail 6", 0x47F00, 0x47F80, index3S_CPS3_Twelve, 0x00 },
+   // { L"LP SA Trail 7", 0x47F80, 0x48000, index3S_CPS3_Twelve, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_TWELVE_MP_PALETTES[] =
@@ -4746,6 +5770,14 @@ const sGame_PaletteDataset SFIII3EX_A_TWELVE_MP_PALETTES[] =
     { L"MP Shocked",   0x00025500, 0x00025580, index3S_CPS3_Twelve, 0x08 },
     { L"MP Frozen",    0x00025580, 0x00025600, index3S_CPS3_Twelve, 0x00 },
     { L"MP Hitsparks", 0x00025600, 0x00025680, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x48000, 0x48080, index3S_CPS3_Twelve, 0x00 },
+    { L"MP SA Trail 1", 0x48080, 0x48100, index3S_CPS3_Twelve, 0x00 },
+    { L"MP SA Trail 2", 0x48100, 0x48180, index3S_CPS3_Twelve, 0x00 },
+    { L"MP SA Trail 3", 0x48180, 0x48200, index3S_CPS3_Twelve, 0x00 },
+   // { L"MP SA Trail 4", 0x48200, 0x48280, index3S_CPS3_Twelve, 0x00 },
+   // { L"MP SA Trail 5", 0x48280, 0x48300, index3S_CPS3_Twelve, 0x00 },
+   // { L"MP SA Trail 6", 0x48300, 0x48380, index3S_CPS3_Twelve, 0x00 },
+   // { L"MP SA Trail 7", 0x48380, 0x48400, index3S_CPS3_Twelve, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_TWELVE_HP_PALETTES[] =
@@ -4757,6 +5789,15 @@ const sGame_PaletteDataset SFIII3EX_A_TWELVE_HP_PALETTES[] =
     { L"HP Shocked",   0x00025880, 0x00025900, index3S_CPS3_Twelve, 0x08 },
     { L"HP Frozen",    0x00025900, 0x00025980, index3S_CPS3_Twelve, 0x00 },
     { L"HP Hitsparks", 0x00025980, 0x00025A00, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x48400, 0x48480, index3S_CPS3_Twelve, 0x00 },
+    { L"HP SA Trail 1", 0x48480, 0x48500, index3S_CPS3_Twelve, 0x00 },
+    { L"HP SA Trail 2", 0x48500, 0x48580, index3S_CPS3_Twelve, 0x00 },
+    { L"HP SA Trail 3", 0x48580, 0x48600, index3S_CPS3_Twelve, 0x00 },
+   // { L"HP SA Trail 4", 0x48600, 0x48680, index3S_CPS3_Twelve, 0x00 },
+   // { L"HP SA Trail 5", 0x48680, 0x48700, index3S_CPS3_Twelve, 0x00 },
+   // { L"HP SA Trail 6", 0x48700, 0x48780, index3S_CPS3_Twelve, 0x00 },
+   // { L"HP SA Trail 7", 0x48780, 0x48800, index3S_CPS3_Twelve, 0x00 },
+
 };
 
 const sGame_PaletteDataset SFIII3EX_A_TWELVE_LK_PALETTES[] =
@@ -4768,6 +5809,14 @@ const sGame_PaletteDataset SFIII3EX_A_TWELVE_LK_PALETTES[] =
     { L"LK Shocked",   0x00025C00, 0x00025C80, index3S_CPS3_Twelve, 0x08 },
     { L"LK Frozen",    0x00025C80, 0x00025D00, index3S_CPS3_Twelve, 0x00 },
     { L"LK Hitsparks", 0x00025D00, 0x00025D80, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x48800, 0x48880, index3S_CPS3_Twelve, 0x00 },
+    { L"LK SA Trail 1", 0x48880, 0x48900, index3S_CPS3_Twelve, 0x00 },
+    { L"LK SA Trail 2", 0x48900, 0x48980, index3S_CPS3_Twelve, 0x00 },
+    { L"LK SA Trail 3", 0x48980, 0x48A00, index3S_CPS3_Twelve, 0x00 },
+   // { L"LK SA Trail 4", 0x48A00, 0x48A80, index3S_CPS3_Twelve, 0x00 },
+   // { L"LK SA Trail 5", 0x48A80, 0x48B00, index3S_CPS3_Twelve, 0x00 },
+   // { L"LK SA Trail 6", 0x48B00, 0x48B80, index3S_CPS3_Twelve, 0x00 },
+   // { L"LK SA Trail 7", 0x48B80, 0x48C00, index3S_CPS3_Twelve, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_TWELVE_MK_PALETTES[] =
@@ -4779,6 +5828,14 @@ const sGame_PaletteDataset SFIII3EX_A_TWELVE_MK_PALETTES[] =
     { L"MK Shocked",   0x00025F80, 0x00026000, index3S_CPS3_Twelve, 0x08 },
     { L"MK Frozen",    0x00026000, 0x00026080, index3S_CPS3_Twelve, 0x00 },
     { L"MK Hitsparks", 0x00026080, 0x00026100, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x48C00, 0x48C80, index3S_CPS3_Twelve, 0x00 },
+    { L"MK SA Trail 1", 0x48C80, 0x48D00, index3S_CPS3_Twelve, 0x00 },
+    { L"MK SA Trail 2", 0x48D00, 0x48D80, index3S_CPS3_Twelve, 0x00 },
+    { L"MK SA Trail 3", 0x48D80, 0x48E00, index3S_CPS3_Twelve, 0x00 },
+   // { L"MK SA Trail 4", 0x48E00, 0x48E80, index3S_CPS3_Twelve, 0x00 },
+   // { L"MK SA Trail 5", 0x48E80, 0x48F00, index3S_CPS3_Twelve, 0x00 },
+   // { L"MK SA Trail 6", 0x48F00, 0x48F80, index3S_CPS3_Twelve, 0x00 },
+   // { L"MK SA Trail 7", 0x48F80, 0x49000, index3S_CPS3_Twelve, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_TWELVE_HK_PALETTES[] =
@@ -4790,6 +5847,15 @@ const sGame_PaletteDataset SFIII3EX_A_TWELVE_HK_PALETTES[] =
     { L"HK Shocked",   0x00026300, 0x00026380, index3S_CPS3_Twelve, 0x08 },
     { L"HK Frozen",    0x00026380, 0x00026400, index3S_CPS3_Twelve, 0x00 },
     { L"HK Hitsparks", 0x00026400, 0x00026480, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x49000, 0x49080, index3S_CPS3_Twelve, 0x00 },
+    { L"HK SA Trail 1", 0x49080, 0x49100, index3S_CPS3_Twelve, 0x00 },
+    { L"HK SA Trail 2", 0x49100, 0x49180, index3S_CPS3_Twelve, 0x00 },
+    { L"HK SA Trail 3", 0x49180, 0x49200, index3S_CPS3_Twelve, 0x00 },
+   // { L"HK SA Trail 4", 0x49200, 0x49280, index3S_CPS3_Twelve, 0x00 },
+   // { L"HK SA Trail 5", 0x49280, 0x49300, index3S_CPS3_Twelve, 0x00 },
+   // { L"HK SA Trail 6", 0x49300, 0x49380, index3S_CPS3_Twelve, 0x00 },
+   // { L"HK SA Trail 7", 0x49380, 0x49400, index3S_CPS3_Twelve, 0x00 },
+
 };
 
 const sGame_PaletteDataset SFIII3EX_A_TWELVE_EX_PALETTES[] =
@@ -4801,6 +5867,14 @@ const sGame_PaletteDataset SFIII3EX_A_TWELVE_EX_PALETTES[] =
     { L"EX Shocked",   0x00026680, 0x00026700, index3S_CPS3_Twelve, 0x08 },
     { L"EX Frozen",    0x00026700, 0x00026780, index3S_CPS3_Twelve, 0x00 },
     { L"EX Hitsparks", 0x00026780, 0x00026800, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x49400, 0x49480, index3S_CPS3_Twelve, 0x00 },
+    { L"EX SA Trail 1", 0x49480, 0x49500, index3S_CPS3_Twelve, 0x00 },
+    { L"EX SA Trail 2", 0x49500, 0x49580, index3S_CPS3_Twelve, 0x00 },
+    { L"EX SA Trail 3", 0x49580, 0x49600, index3S_CPS3_Twelve, 0x00 },
+   // { L"EX SA Trail 4", 0x49600, 0x49680, index3S_CPS3_Twelve, 0x00 },
+   // { L"EX SA Trail 5", 0x49680, 0x49700, index3S_CPS3_Twelve, 0x00 },
+   // { L"EX SA Trail 6", 0x49700, 0x49780, index3S_CPS3_Twelve, 0x00 },
+   // { L"EX SA Trail 7", 0x49780, 0x49800, index3S_CPS3_Twelve, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_REMY_LP_PALETTES[] =
@@ -4813,6 +5887,14 @@ const sGame_PaletteDataset SFIII3EX_A_REMY_LP_PALETTES[] =
     { L"LP Shocked",   0x00026A80, 0x00026B00, index3S_CPS3_Remy, 0x08 },
     { L"LP Frozen",    0x00026B00, 0x00026B80, index3S_CPS3_Remy, 0x00 },
     { L"LP Hitsparks", 0x00026B80, 0x00026C00, index3S_CPS3_Bonus, 0x1d },
+   // { L"LP SA Trail 0", 0x49800, 0x49880, index3S_CPS3_Remy, 0x00 },
+    { L"LP SA Trail 1", 0x49880, 0x49900, index3S_CPS3_Remy, 0x00 },
+    { L"LP SA Trail 2", 0x49900, 0x49980, index3S_CPS3_Remy, 0x00 },
+    { L"LP SA Trail 3", 0x49980, 0x49A00, index3S_CPS3_Remy, 0x00 },
+   // { L"LP SA Trail 4", 0x49A00, 0x49A80, index3S_CPS3_Remy, 0x00 },
+   // { L"LP SA Trail 5", 0x49A80, 0x49B00, index3S_CPS3_Remy, 0x00 },
+   // { L"LP SA Trail 6", 0x49B00, 0x49B80, index3S_CPS3_Remy, 0x00 },
+   // { L"LP SA Trail 7", 0x49B80, 0x49C00, index3S_CPS3_Remy, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_REMY_MP_PALETTES[] =
@@ -4825,6 +5907,14 @@ const sGame_PaletteDataset SFIII3EX_A_REMY_MP_PALETTES[] =
     { L"MP Shocked",   0x00026E80, 0x00026F00, index3S_CPS3_Remy, 0x08 },
     { L"MP Frozen",    0x00026F00, 0x00026F80, index3S_CPS3_Remy, 0x00 },
     { L"MP Hitsparks", 0x00026F80, 0x00027000, index3S_CPS3_Bonus, 0x1d },
+   // { L"MP SA Trail 0", 0x49C00, 0x49C80, index3S_CPS3_Remy, 0x00 },
+    { L"MP SA Trail 1", 0x49C80, 0x49D00, index3S_CPS3_Remy, 0x00 },
+    { L"MP SA Trail 2", 0x49D00, 0x49D80, index3S_CPS3_Remy, 0x00 },
+    { L"MP SA Trail 3", 0x49D80, 0x49E00, index3S_CPS3_Remy, 0x00 },
+   // { L"MP SA Trail 4", 0x49E00, 0x49E80, index3S_CPS3_Remy, 0x00 },
+   // { L"MP SA Trail 5", 0x49E80, 0x49F00, index3S_CPS3_Remy, 0x00 },
+   // { L"MP SA Trail 6", 0x49F00, 0x49F80, index3S_CPS3_Remy, 0x00 },
+   // { L"MP SA Trail 7", 0x49F80, 0x4A000, index3S_CPS3_Remy, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_REMY_HP_PALETTES[] =
@@ -4837,6 +5927,14 @@ const sGame_PaletteDataset SFIII3EX_A_REMY_HP_PALETTES[] =
     { L"HP Shocked",   0x00027280, 0x00027300, index3S_CPS3_Remy, 0x08 },
     { L"HP Frozen",    0x00027300, 0x00027380, index3S_CPS3_Remy, 0x00 },
     { L"HP Hitsparks", 0x00027380, 0x00027400, index3S_CPS3_Bonus, 0x1d },
+   // { L"HP SA Trail 0", 0x4A000, 0x4A080, index3S_CPS3_Remy, 0x00 },
+    { L"HP SA Trail 1", 0x4A080, 0x4A100, index3S_CPS3_Remy, 0x00 },
+    { L"HP SA Trail 2", 0x4A100, 0x4A180, index3S_CPS3_Remy, 0x00 },
+    { L"HP SA Trail 3", 0x4A180, 0x4A200, index3S_CPS3_Remy, 0x00 },
+   // { L"HP SA Trail 4", 0x4A200, 0x4A280, index3S_CPS3_Remy, 0x00 },
+   // { L"HP SA Trail 5", 0x4A280, 0x4A300, index3S_CPS3_Remy, 0x00 },
+   // { L"HP SA Trail 6", 0x4A300, 0x4A380, index3S_CPS3_Remy, 0x00 },
+   // { L"HP SA Trail 7", 0x4A380, 0x4A400, index3S_CPS3_Remy, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_REMY_LK_PALETTES[] =
@@ -4849,6 +5947,14 @@ const sGame_PaletteDataset SFIII3EX_A_REMY_LK_PALETTES[] =
     { L"LK Shocked",   0x00027680, 0x00027700, index3S_CPS3_Remy, 0x08 },
     { L"LK Frozen",    0x00027700, 0x00027780, index3S_CPS3_Remy, 0x00 },
     { L"LK Hitsparks", 0x00027780, 0x00027800, index3S_CPS3_Bonus, 0x1d },
+   // { L"LK SA Trail 0", 0x4A400, 0x4A480, index3S_CPS3_Remy, 0x00 },
+    { L"LK SA Trail 1", 0x4A480, 0x4A500, index3S_CPS3_Remy, 0x00 },
+    { L"LK SA Trail 2", 0x4A500, 0x4A580, index3S_CPS3_Remy, 0x00 },
+    { L"LK SA Trail 3", 0x4A580, 0x4A600, index3S_CPS3_Remy, 0x00 },
+   // { L"LK SA Trail 4", 0x4A600, 0x4A680, index3S_CPS3_Remy, 0x00 },
+   // { L"LK SA Trail 5", 0x4A680, 0x4A700, index3S_CPS3_Remy, 0x00 },
+   // { L"LK SA Trail 6", 0x4A700, 0x4A780, index3S_CPS3_Remy, 0x00 },
+   // { L"LK SA Trail 7", 0x4A780, 0x4A800, index3S_CPS3_Remy, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_REMY_MK_PALETTES[] =
@@ -4861,6 +5967,14 @@ const sGame_PaletteDataset SFIII3EX_A_REMY_MK_PALETTES[] =
     { L"MK Shocked",   0x00027A80, 0x00027B00, index3S_CPS3_Remy, 0x08 },
     { L"MK Frozen",    0x00027B00, 0x00027B80, index3S_CPS3_Remy, 0x00 },
     { L"MK Hitsparks", 0x00027B80, 0x00027C00, index3S_CPS3_Bonus, 0x1d },
+   // { L"MK SA Trail 0", 0x4A800, 0x4A880, index3S_CPS3_Remy, 0x00 },
+    { L"MK SA Trail 1", 0x4A880, 0x4A900, index3S_CPS3_Remy, 0x00 },
+    { L"MK SA Trail 2", 0x4A900, 0x4A980, index3S_CPS3_Remy, 0x00 },
+    { L"MK SA Trail 3", 0x4A980, 0x4AA00, index3S_CPS3_Remy, 0x00 },
+   // { L"MK SA Trail 4", 0x4AA00, 0x4AA80, index3S_CPS3_Remy, 0x00 },
+   // { L"MK SA Trail 5", 0x4AA80, 0x4AB00, index3S_CPS3_Remy, 0x00 },
+   // { L"MK SA Trail 6", 0x4AB00, 0x4AB80, index3S_CPS3_Remy, 0x00 },
+   // { L"MK SA Trail 7", 0x4AB80, 0x4AC00, index3S_CPS3_Remy, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_REMY_HK_PALETTES[] =
@@ -4873,6 +5987,14 @@ const sGame_PaletteDataset SFIII3EX_A_REMY_HK_PALETTES[] =
     { L"HK Shocked",   0x00027E80, 0x00027F00, index3S_CPS3_Remy, 0x08 },
     { L"HK Frozen",    0x00027F00, 0x00027F80, index3S_CPS3_Remy, 0x00 },
     { L"HK Hitsparks", 0x00027F80, 0x00028000, index3S_CPS3_Bonus, 0x1d },
+   // { L"HK SA Trail 0", 0x4AC00, 0x4AC80, index3S_CPS3_Remy, 0x00 },
+    { L"HK SA Trail 1", 0x4AC80, 0x4AD00, index3S_CPS3_Remy, 0x00 },
+    { L"HK SA Trail 2", 0x4AD00, 0x4AD80, index3S_CPS3_Remy, 0x00 },
+    { L"HK SA Trail 3", 0x4AD80, 0x4AE00, index3S_CPS3_Remy, 0x00 },
+   // { L"HK SA Trail 4", 0x4AE00, 0x4AE80, index3S_CPS3_Remy, 0x00 },
+   // { L"HK SA Trail 5", 0x4AE80, 0x4AF00, index3S_CPS3_Remy, 0x00 },
+   // { L"HK SA Trail 6", 0x4AF00, 0x4AF80, index3S_CPS3_Remy, 0x00 },
+   // { L"HK SA Trail 7", 0x4AF80, 0x4B000, index3S_CPS3_Remy, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3EX_A_REMY_EX_PALETTES[] =
@@ -4885,6 +6007,14 @@ const sGame_PaletteDataset SFIII3EX_A_REMY_EX_PALETTES[] =
     { L"EX Shocked",   0x00028280, 0x00028300, index3S_CPS3_Remy, 0x08 },
     { L"EX Frozen",    0x00028300, 0x00028380, index3S_CPS3_Remy, 0x00 },
     { L"EX Hitsparks", 0x00028380, 0x00028400, index3S_CPS3_Bonus, 0x1d },
+   // { L"EX SA Trail 0", 0x4B000, 0x4B080, index3S_CPS3_Remy, 0x00 },
+    { L"EX SA Trail 1", 0x4B080, 0x4B100, index3S_CPS3_Remy, 0x00 },
+    { L"EX SA Trail 2", 0x4B100, 0x4B180, index3S_CPS3_Remy, 0x00 },
+    { L"EX SA Trail 3", 0x4B180, 0x4B200, index3S_CPS3_Remy, 0x00 },
+   // { L"EX SA Trail 4", 0x4B200, 0x4B280, index3S_CPS3_Remy, 0x00 },
+   // { L"EX SA Trail 5", 0x4B280, 0x4B300, index3S_CPS3_Remy, 0x00 },
+   // { L"EX SA Trail 6", 0x4B300, 0x4B380, index3S_CPS3_Remy, 0x00 },
+   // { L"EX SA Trail 7", 0x4B380, 0x4B400, index3S_CPS3_Remy, 0x00 },
 };
 
 const sDescTreeNode SFIII3EX_A_ALEX_COLLECTION[] =
