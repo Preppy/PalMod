@@ -146,7 +146,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_EN_KILLFOCUS(IDC_EDIT_BL, &CPalModDlg::OnKillFocusEditBL)
     ON_EN_KILLFOCUS(IDC_EDIT_A, &CPalModDlg::OnKillFocusEditA)
     ON_BN_CLICKED(IDC_BNEWCOL, &CPalModDlg::OnBnNewCol)
-    ON_COMMAND(ID_SHOW32BITRGB, &CPalModDlg::OnColSett)
+    ON_COMMAND(ID_SHOW32BITRGB, &CPalModDlg::OnChangeShowAs32BitColor)
     ON_BN_CLICKED(IDC_BUPDATE, &CPalModDlg::OnBnUpdate)
     ON_COMMAND(ID_FILE_PATCH, &CPalModDlg::OnFilePatch)
     ON_COMMAND(ID_FILE_CROSSPATCH, &CPalModDlg::OnFileCrossPatch)
@@ -415,6 +415,7 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
 
     switch (nId)
     {
+    // These are all toggled within CPalModDlg::EnableSlider based upon the game constraints
     case IDC_RH_SLIDER:
     case IDC_GS_SLIDER:
     case IDC_BL_SLIDER:
@@ -427,9 +428,7 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
     case IDC_SPIN_GS:
     case IDC_SPIN_BL:
     case IDC_SPIN_A:
-    case IDC_SHOWPREVIEW:
         break;
-    case IDC_BNEWCOL:
     default:
         EnableWindow(hwnd, ((CPalModDlg*)lParam)->bEnabled);
         break;
@@ -706,11 +705,7 @@ void CPalModDlg::ClearGameVar()
     m_Edit_RH = m_Edit_GS = m_Edit_BL = m_Edit_A = 0;
     UpdateData(FALSE);
     //Clear plane amt
-    nRGBAmt = nAAmt = 0;
-    //Clear plane multiplier
-    nRGBMul = nAMul = 1.0;
-    //Clear temporary plane multiplier
-    nTRGBMul = nTAMul = 1.0;
+    m_nRGBAmt = m_nAAmt = 0;
 
     bCopyFromBase = FALSE;
 

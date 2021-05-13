@@ -571,7 +571,11 @@ BOOL IsPasteSupported()
 
 void CPalModDlg::OnEditPaste()
 {
-    if (IsPasteFromPalMod())
+    if (!GetHost()->GetCurrGame())
+    {
+        SetStatusText(L"Load a game first");
+    }
+    else if (IsPasteFromPalMod())
     {
         COleDataObject obj;
 
@@ -786,7 +790,7 @@ void CPalModDlg::OnEditPaste()
 
                     rgPasteCol[i] = CurrGame->ConvPal16((UINT16)strtoul(szFormatStr16, NULL, 16));
 
-                    if ((nAMul == 0x0) || !CurrGame->AllowTransparency())
+                    if (!CurrGame->AllowTransparency())
                     {
                         // this game doesn't use/want alpha, but we need alpha to display properly
                         ((UINT8*)rgPasteCol)[(i * 4) + 3] |= 0xFF;
@@ -945,7 +949,7 @@ void CPalModDlg::OnEditPaste()
         LPCSTR pszFormatStringToUse = fIsARGB ? szFormatStrARGB : szFormatStrRGB;
 
         DWORD argbColor = strtoul(pszFormatStringToUse, NULL, 16);
-        if ((nAMul == 0) || // if the game doesn't care about alpha or
+        if (!CurrGame->AllowTransparency() || // if the game doesn't care about alpha or
             !fIsARGB) // we have an incoming RGB string
         {
             // force a usable alpha value
@@ -1083,7 +1087,7 @@ void CPalModDlg::OnSettingsSettings()
 {
     CSettDlg SettDlg;
 
-    SettDlg.m_fAllowAlphaChanges = CGameClass::AllowTransparency();
+    SettDlg.m_fAllowAlphaChanges = CGameClass::AllowTransparencyEdits();
     SettDlg.m_bUpdSupp = CGameClass::bPostSetPalProc;
 
     const BOOL oldAlphaSetting = SettDlg.m_fAllowAlphaChanges;
@@ -1099,7 +1103,7 @@ void CPalModDlg::OnSettingsSettings()
             }
         }
 
-        CGameClass::AllowTransparency(SettDlg.m_fAllowAlphaChanges);
+        CGameClass::AllowTransparencyEdits(SettDlg.m_fAllowAlphaChanges);
         CGameClass::bPostSetPalProc = SettDlg.m_bUpdSupp;
 
         if ((oldAlphaSetting != SettDlg.m_fAllowAlphaChanges) &&

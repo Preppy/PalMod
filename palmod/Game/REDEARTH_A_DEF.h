@@ -30,6 +30,8 @@ const UINT16 REDEARTH_A_IMG_UNITS[] =
     indexRedEarthSprites_Ravange,   // 0x09
     indexRedEarthSprites_Scion,     // 0x0a
     indexRedEarthSprites_Tessa,     // 0x0b
+    indexRedEarthSprites_Bonus,     // 0x0c
+    indexRedEarthSprites_Stages,    // 0x0d
 };
 
 //Playable Characters

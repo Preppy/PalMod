@@ -5,6 +5,7 @@
 #include "GameDef.h"
 #include "PalGroup.h"
 #include "ImgTicket.h"
+#include "ColorSystem.h"
 #include <vector>
 
 //File rule definition
@@ -35,27 +36,6 @@ protected:
     LPCWSTR m_pszCurrentPaletteName = nullptr;
     UINT32 m_nConfirmedCRCValue = 0;
 
-    const int k_nRGBPlaneAmtForRGB111 = 1;
-    const int k_nRGBPlaneAmtForRGB333 = 7;
-    const int k_nRGBPlaneAmtForRGB444 = 15;
-    const int k_nRGBPlaneAmtForRGB555 = 31;
-    const int k_nRGBPlaneAmtForRGB777 = 127;
-    const int k_nRGBPlaneAmtForRGB888 = 255;
-
-    const double k_nRGBPlaneMulForRGB111 = 255;
-    const double k_nRGBPlaneMulForRGB333 = 36.428;
-    const double k_nRGBPlaneMulForRGB444 = 17.0;
-    const double k_nRGBPlaneMulForRGB555 = 8.225;
-    const double k_nRGBPlaneMulForRGB777 = 2;
-    const double k_nRGBPlaneMulForRGB888 = 1;
-
-    // The next values are special and flawed values.  We use RGB444 stepping, but we're trying
-    // to step through a color table that has non-linear steps.  The following values give us a
-    // "close enough" solution.  To really have correct stepping we would need to get step
-    // lengths at runtime and get them relative to the current color value.
-    const int k_nRGBPlaneAmtForRGB666 = 15;
-    const double k_nRGBPlaneMulForRGB666 = 17.0;
-
     BOOL m_fIsDirectoryBasedGame = FALSE;
     BOOL m_fGameUnitsMapToIndividualFiles = FALSE;
 
@@ -71,7 +51,6 @@ protected:
     int nSrcPalAmt[MAX_PALETTES_DISPLAYABLE] = { 0 };
     int nSrcPalInc[MAX_PALETTES_DISPLAYABLE] = { 0 };
 
-    static AlphaMode CurrAlphaMode;
     ColMode CurrColMode = ColMode::COLMODE_RGB444_BE;
     sImgTicket* CurrImgTicket = nullptr;
     CPalGroup BasePalGroup;
@@ -89,38 +68,7 @@ protected:
     UINT16* pIndexRedir = nullptr;
     int nHybridSz = 0;
 
-    static BOOL m_fAllowTransparency;
-
-    static UINT16 CONV_32_RGB333(UINT32 inCol);
-    static UINT32 CONV_RGB333_32(UINT16 inCol);
-    static UINT16 CONV_32_RGB444BE(UINT32 inCol);
-    static UINT32 CONV_RGB444BE_32(UINT16 inCol);
-    static UINT16 CONV_32_RGB444LE(UINT32 inCol);
-    static UINT32 CONV_RGB444LE_32(UINT16 inCol);
-    static UINT16 CONV_32_BGR555LE(UINT32 inCol);
-    static UINT32 CONV_BGR555LE_32(UINT16 inCol);
-    static UINT16 CONV_32_RGB555LE(UINT32 inCol);
-    static UINT32 CONV_RGB555LE_32(UINT16 inCol);
-    static UINT16 CONV_32_RGB555BE(UINT32 inCol);
-    static UINT32 CONV_RGB555BE_32(UINT16 inCol);
-    static UINT16 CONV_32_GRB555LE(UINT32 inCol);
-    static UINT32 CONV_GRB555LE_32(UINT16 inCol);
-    static UINT16 CONV_32_RGB666NeoGeo(UINT32 inCol);
-    static UINT32 CONV_RGB666NeoGeo_32(UINT16 inCol);
-    static UINT16 CONV_32_RGB555Sharp(UINT32 inCol);
-    static UINT32 CONV_RGB555Sharp_32(UINT16 inCol);
-    static UINT32 CONV_32_xRGB888(UINT32 inCol);
-    static UINT32 CONV_xRGB888_32(UINT32 inCol);
-    static UINT32 CONV_32_xBGR888(UINT32 inCol);
-    static UINT32 CONV_xBGR888_32(UINT32 inCol);
-    static UINT32 CONV_32_ARGB1888(UINT32 inCol);
-    static UINT32 CONV_ARGB1888_32(UINT32 inCol);
-    static UINT32 CONV_32_ARGB7888(UINT32 inCol);
-    static UINT32 CONV_ARGB7888_32(UINT32 inCol);
-    static UINT32 CONV_32_ARGB8888(UINT32 inCol);
-    static UINT32 CONV_ARGB8888_32(UINT32 inCol);
-
-    static UINT16 SWAP_16(UINT16 palv);
+    static BOOL m_fAllowTransparencyEdits;
 
     enum PALOptionValues
     {
@@ -203,13 +151,20 @@ public:
     UINT32(*ConvPal16)(UINT16 inCol);
     UINT32(*ConvPal24)(UINT32 inCol);
     UINT32(*ConvPal32)(UINT32 inCol);
+    int(*GetColorStepFor8BitValue_RGB)(int inCol);
+    int(*Get8BitValueForColorStep_RGB)(int inCol);
+    int(*GetColorStepFor8BitValue_A)(int inCol);
+    int(*Get8BitValueForColorStep_A)(int inCol);
+    int(*GetNearestLegal8BitColorValue_A)(int inCol);
+    int(*GetNearestLegal8BitColorValue_RGB)(int inCol);
+    int(*ValidateColorStep)(int nColorStep);
 
     LPCWSTR GetROMFileName();
     LPCWSTR GetLoadDir() { return m_pszLoadDir; };
     BOOL SetLoadDir(LPCWSTR pszNewDir);
 
-    AlphaMode GetAlphaMode() { return CurrAlphaMode; };
-    virtual void SetAlphaMode(AlphaMode NewMode) { CurrAlphaMode = NewMode; };
+    AlphaMode GetAlphaMode() { return CColorSystem::GetAlphaMode(); };
+    virtual void SetAlphaMode(AlphaMode NewMode) { CColorSystem::SetAlphaMode(NewMode); };
 
     ColMode GetColorMode() { return CurrColMode; };
     BOOL _SetColorMode(ColMode NewMode);
@@ -245,7 +200,6 @@ public:
     bool AllowIPSPatchGeneration() { return !m_fIsDirectoryBasedGame || m_fAllowIPSPatching; };
 
     int GetPlaneAmt(ColFlag Flag);
-    double GetPlaneMul(ColFlag Flag);
 
     void ClearSetImgTicket(sImgTicket* NewImgTicket = NULL);
     sImgTicket* CreateImgTicket(UINT16 nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0);
@@ -264,8 +218,9 @@ public:
 
     BOOL CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz);
 
-    static void AllowTransparency(BOOL fAllow) { m_fAllowTransparency = fAllow; };
-    static BOOL AllowTransparency() { return m_fAllowTransparency; };
+    static void AllowTransparencyEdits(BOOL fAllow) { m_fAllowTransparencyEdits = fAllow; };
+    static BOOL AllowTransparencyEdits() { return m_fAllowTransparencyEdits; };
+    BOOL AllowTransparency() { return m_fAllowTransparencyEdits && m_fGameUsesAlphaValue; };
 
     //Public virtual
     virtual CDescTree* GetMainTree() = 0;

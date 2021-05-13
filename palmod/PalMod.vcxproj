@@ -220,6 +220,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ColorSystem.cpp" />
     <ClCompile Include="CRC32.cpp" />
     <ClCompile Include="debugutil.cpp" />
     <ClCompile Include="ExtraFile.cpp" />
@@ -363,6 +364,7 @@
     <ClCompile Include="UndoRedo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ColorSystem.h" />
     <ClInclude Include="CRC32.h" />
     <ClInclude Include="ExtraFile.h" />
     <ClInclude Include="Game\AOF1_A_DEF.h" />

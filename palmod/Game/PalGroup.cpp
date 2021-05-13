@@ -1,6 +1,8 @@
 #include "StdAfx.h"
+#include "ColorSystem.h"
 #include "PalGroup.h"
 #include "ColorScale.h"
+#include "PalMod.h"
 #include "math.h"
 
 CPalGroup::CPalGroup(void)
@@ -58,35 +60,6 @@ BOOL CPalGroup::FlushPal(int nIndex)
     memset(&rgPalettes[nIndex], NULL, sizeof(sPalDef));
 
     return TRUE;
-}
-
-BOOL CPalGroup::SetMode(ePalType NewPalMode)
-{
-    PalMode = NewPalMode;
-
-    switch (PalMode)
-    {
-    case ePalType::PALTYPE_32STEPS:
-        ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_8;
-        return TRUE;
-        break;
-    case ePalType::PALTYPE_NEOGEO:
-    case ePalType::PALTYPE_16STEPS:
-        ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_17;
-        return TRUE;
-        break;
-    case ePalType::PALTYPE_8STEPS:
-        ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_32;
-        return TRUE;
-        break;
-    case ePalType::PALTYPE_256STEPS:
-        ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_1;
-        return TRUE;
-        break;
-    default:
-        return FALSE;
-        break;
-    }
 }
 
 BOOL CPalGroup::AddSep(int nIndex, LPCWSTR szDesc, int nStart, int nAmt)
@@ -151,14 +124,18 @@ BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, UINT16 uUnitId, UINT16 uPa
 
 void CPalGroup::SetRGBA(COLORREF* crTarget, UINT8 rVal, UINT8 gVal, UINT8 bVal, UINT8 aVal)
 {
-    *crTarget = RGB(ROUND_R(rVal), ROUND_G(gVal), ROUND_B(bVal));
+    *crTarget = RGB(GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rVal),
+                    GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(gVal),
+                    GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(bVal));
     *crTarget |= (COLORREF)aVal << 24;
 }
 
 void CPalGroup::SetHLSA(COLORREF* crTarget, double dH, double dL, double dS, UINT8 aVal)
 {
     *crTarget = HLStoRGB(LimitHLS(dH), LimitHLS(dL), LimitHLS(dS));
-    *crTarget = RGB(ROUND_R(GetRValue(*crTarget)), ROUND_G(GetGValue(*crTarget)), ROUND_B(GetBValue(*crTarget)));
+    *crTarget = RGB(GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(*crTarget)),
+                    GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(*crTarget)),
+                    GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(*crTarget)));
     *crTarget |= (UINT32)aVal << 24;
 }
 
@@ -174,52 +151,32 @@ void CPalGroup::SetAddHLSA(COLORREF crSrc, COLORREF* crTarget, double fpAddH, do
         LimitHLS(modS + fpAddS)
     );
 
-    *crTarget = RGB(ROUND_R(GetRValue(*crTarget)), ROUND_G(GetGValue(*crTarget)), ROUND_B(GetBValue(*crTarget)));
-    *crTarget |= (UINT32)ROUND(LimitRGB(GetAValue(crSrc) + uAddA)) << 24;
+    *crTarget = RGB(GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(*crTarget)),
+                    GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(*crTarget)),
+                    GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(*crTarget)));
+    
+    *crTarget |= (UINT32)GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(LimitRGB(GetAValue(crSrc) + uAddA)) << 24;
 }
 
-void CPalGroup::SetAddRGBA(COLORREF crSrc, COLORREF* crTarget, int uAddR, int uAddG, int uAddB, int uAddA)
+void CPalGroup::AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA)
 {
+    int redSteps = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(GetRValue(crSrc)) + uStepsR;
+    int greenSteps = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(GetGValue(crSrc)) + uStepsG;
+    int blueSteps = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_RGB(GetBValue(crSrc)) + uStepsB;
+    int alphaSteps = GetHost()->GetCurrGame()->GetColorStepFor8BitValue_A(GetAValue(crSrc)) + uStepsA;
+
+    redSteps = GetHost()->GetCurrGame()->ValidateColorStep(redSteps);
+    greenSteps = GetHost()->GetCurrGame()->ValidateColorStep(greenSteps);
+    blueSteps = GetHost()->GetCurrGame()->ValidateColorStep(blueSteps);
+    alphaSteps = GetHost()->GetCurrGame()->ValidateColorStep(alphaSteps);
+
     *crTarget = RGB(
-        ROUND_R(LimitRGB(GetRValue(crSrc) + uAddR)),
-        ROUND_G(LimitRGB(GetGValue(crSrc) + uAddG)),
-        ROUND_B(LimitRGB(GetBValue(crSrc) + uAddB))
+        GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(redSteps),
+        GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(greenSteps),
+        GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(blueSteps)
     );
 
-    *crTarget = RGB(ROUND_R(GetRValue(*crTarget)), ROUND_G(GetGValue(*crTarget)), ROUND_B(GetBValue(*crTarget)));
-    *crTarget |= (UINT32)ROUND(LimitRGB(GetAValue(crSrc) + uAddA)) << 24;
-}
-
-UINT8 CPalGroup::ROUND_8(UINT8 rVal)
-{
-    int j;
-
-    if (rVal - (((rVal / 8) * 8) + (rVal / 32)) >= 4)
-    {
-        j = 1;
-    }
-    else
-    {
-        j = 0;
-    }
-
-    rVal = ((rVal / 8) + j) * 8;
-
-    return rVal + (rVal / 32);
-}
-
-UINT8 CPalGroup::ROUND_17(UINT8 rVal)
-{
-    UINT8 outVal = (UINT8)min(0xff, (round(rVal / 17.0)) * 17);
-
-    return outVal;
-}
-
-UINT8 CPalGroup::ROUND_32(UINT8 rVal)
-{
-    UINT8 outVal = (UINT8)min(0xff, (round(rVal / 32.0)) * 32);
-
-    return outVal;
+    *crTarget |= GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(alphaSteps) << 24;
 }
 
 extern int LimitVal(int nVal, int nHI, int nLO)

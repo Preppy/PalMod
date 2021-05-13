@@ -294,51 +294,13 @@ enum class GameSeries
     Last,
 };
 
-enum class AlphaMode
-{
-    GameDoesNotUseAlpha,
-    GameUsesFixedAlpha,
-    Unknown,
-    GameUsesVariableAlpha,  // Modifiable, as in the case of MvC2.
-    GameUsesChaoticAlpha,   // Yes, this is odd.  ST-GBA appears doesn't have alpha consistently set.
-};
 
-enum class ColMode
-{
-    // If you add new color modes that users would want to use, you need to update CGame_NEOGEO_A::SetAlphaAndColorModeInternal
-    // Don't change the order of this list: we emit copy strings that rely upon the ordering
-    COLMODE_BGR555_LE,      // BGR555 little endian (GBA)
-    COLMODE_RGB444_BE,      // RGB444 big endian (CPS1/2)
-    COLMODE_RGB444_LE,      // RGB444 little endian (SF 30th steam)
-    COLMODE_RGB555_LE,      // RGB555 little endian (CPS3)
-    COLMODE_RGB555_BE,      // RGB555 big endian 
-    COLMODE_RGB666_NEOGEO,  // RGB666 using the NeoGeo color table
-    COLMODE_RGB333,         // RGB333 for Sega Genesis/MegaDrive
-    COLMODE_ARGB7888,       // 32bit color half alpha (guilty gear)
-    COLMODE_RGB555_SHARP,   // RGB555 using the sharp x68000 color table
-    COLMODE_ARGB1888,       // 32bit color 1 bit alpha
-    COLMODE_ARGB8888,       // 32bit color (uniclr. and modern computing)
-    COLMODE_xRGB888,        // 24bit
-    COLMODE_xBGR888,        // 24bit
-    COLMODE_ARGB1888_32STEPS, // MBAACC: 32 bit color, except only 32 steps
-    COLMODE_GRB555_LE,      // GRB555 little endian
-    COLMODE_LAST,
-};
-
-enum class ColFlag
-{
-    COL_RGB,
-    COL_A,
-};
 
 // We use the first non-white space printable character '!' as the base for edit/paste calculations.
 constexpr auto k_nASCIICharacterOffset = 33;
 constexpr auto k_nASCIIMaxValue = 127;
 constexpr auto k_nRawColorStringOverflowIndicator = '~' - k_nASCIICharacterOffset;
 constexpr auto k_nEncodedColorStringOverflowIndicator = '~';
-ColMode DecodeColorFlag(UINT8 uPossibleColorFlag);
-UINT8 GetCbForColMode(ColMode colorMode);
-UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag, UINT8 uPossibleColorFlag);
 
 struct sSupportedGameList
 {
@@ -2416,7 +2378,8 @@ enum SupportedRedEarth_A_PaletteListIndex
     indexRedEarthSprites_Ravange,   // 0x09
     indexRedEarthSprites_Scion,     // 0x0a
     indexRedEarthSprites_Tessa,     // 0x0b
-    indexRedEarthSprites_Last
+    indexRedEarthSprites_Bonus,     // 0x0c
+    indexRedEarthSprites_Stages,    // 0x0d
 };
 
 enum SupportedWakuWaku7_PaletteList

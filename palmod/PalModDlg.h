@@ -10,6 +10,7 @@
 #include "Game\GameLoad.h"
 #include "ImgDat.h"
 #include "UndoRedo.h"
+#include "ColorSystem.h"
 
 #include "afxcmn.h"
 #include <afxole.h> // for drag and drop support
@@ -81,10 +82,7 @@ public:
     int nPrevChildSel1 = 0xffff;
     int nPrevChildSel2 = 0xffff;
 
-    int nRGBAmt = 0, nAAmt = 0;
-
-    double nRGBMul = 1.0, nAMul = 1.0;
-    double nTRGBMul = 1.0, nTAMul = 1.0;
+    int m_nRGBAmt = 0, m_nAAmt = 0;
 
     CUndoRedo UndoProc;
 
@@ -164,7 +162,7 @@ public:
     void SetSliderCol(int nRH, int nGS, int nBL, int nA = -1);
     void UpdateMultiEdit(BOOL bForce = FALSE);
     void SetSliderDescEdit();
-    int BoundIntBySliderRange(int nIntValue, CSliderCtrl* pSlider);
+    int BoundStepBySliderRange(int nIntValue, CSliderCtrl* pSlider);
 
     void NewUndoData(BOOL bUndo = TRUE);
     void DoUndoRedo(BOOL bUndo);
@@ -258,7 +256,7 @@ public:
     CString m_EditADesc = L"A";
 
     afx_msg void OnBnNewCol();
-    afx_msg void OnColSett();
+    afx_msg void OnChangeShowAs32BitColor();
     afx_msg void OnBnUpdate();
     afx_msg void OnFilePatch();
     afx_msg void OnFileCrossPatch();

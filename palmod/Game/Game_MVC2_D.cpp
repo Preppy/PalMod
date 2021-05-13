@@ -625,7 +625,7 @@ void CGame_MVC2_D::UpdatePalData()
 
             for (UINT16 nPICtr = 0; nPICtr < uAmt; nPICtr++)
             {
-                if (m_fAllowTransparency)
+                if (m_fAllowTransparencyEdits)
                 {
                     ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol16(crSrc[nPICtr]);
                 }

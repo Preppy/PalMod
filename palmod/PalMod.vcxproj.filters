@@ -783,6 +783,9 @@
     <ClCompile Include="Game\Game_SVG_SNES.cpp">
       <Filter>Game\Nintendo\Super Variable Geo %28SNES%29</Filter>
     </ClCompile>
+    <ClCompile Include="ColorSystem.cpp">
+      <Filter>Game\Palette</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImgDisp.h">
@@ -1471,6 +1474,9 @@
     </ClInclude>
     <ClInclude Include="Game\SVG_SNES_DEF.h">
       <Filter>Game\Nintendo\Super Variable Geo %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorSystem.h">
+      <Filter>Game\Palette</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -29,9 +29,7 @@ void CGame_NEOGEO_A::InitializeStatics()
 
 CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_NEOGEO_A::CGame_NEOGEO_A: Loading ROM...\n" );
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_NEOGEO_A::CGame_NEOGEO_A: Loading ROM...\n");
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
