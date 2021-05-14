@@ -104,12 +104,12 @@ public:
     void SetColorsPerLineTo8();
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
-    void SetColorFormatTo9() { SetColorFormatTo(ColMode::COLMODE_RGB333); };
-    void SetColorFormatTo12A() { SetColorFormatTo(ColMode::COLMODE_RGB444_BE); };
-    void SetColorFormatTo12A_LE() { SetColorFormatTo(ColMode::COLMODE_RGB444_LE); };
-    void SetColorFormatTo15() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE); };
-    void SetColorFormatTo15ALT() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
-    void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_BGR555_LE); };
+    void SetColorFormatToRGB333() { SetColorFormatTo(ColMode::COLMODE_RGB333); };
+    void SetColorFormatToRGB444_BE() { SetColorFormatTo(ColMode::COLMODE_RGB444_BE); };
+    void SetColorFormatToRGB444_LE() { SetColorFormatTo(ColMode::COLMODE_RGB444_LE); };
+    void SetColorFormatToRGB555_LE() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE); };
+    void SetColorFormatToRGB555_BE() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
+    void SetColorFormatToBGR555_LE() { SetColorFormatTo(ColMode::COLMODE_BGR555_LE); };
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
     void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_RGB555_SHARP); };
     void SetColorFormatToGRB555_LE() { SetColorFormatTo(ColMode::COLMODE_GRB555_LE); };

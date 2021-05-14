@@ -126,6 +126,8 @@ const sGame_PaletteDataset MSHWOTG_BONUS_VSP_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BONUS_ENDING_PALETTES[] =
 {
+    { L"Captain America Ending Portrait Part 1", 0x63E62, 0x63E82 },
+    { L"Captain America Ending Portrait Part 2", 0x81704, 0x81724 },
     { L"Iron Man Ending Portrait Part 1", 0x63E42, 0x63E62 },
     { L"Iron Man Ending Portrait Part 2", 0x816C4, 0x816E4 },
     { L"Hulk Ending Portrait", 0x63E22, 0x63E42 },

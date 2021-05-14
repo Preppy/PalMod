@@ -22,7 +22,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"For DBFCI, please select the 'games' directory.";
             break;
         case GGXXACR_S:
-            pszExtraInfo = L"For Guilty Gear (Steam), please select the \"obj\" folder under \"Resource\\pr\\ver_100\".\n\"Resource\\obj\" will not work.";
+            pszExtraInfo = L"Guilty Gear (Steam): select the \"obj\" folder under \"Resource\\pr\\ver_100\" after decrypting your files.\n\"Resource\\obj\" will not work.";
             break;
         case GGXXACR_P:
             break;
