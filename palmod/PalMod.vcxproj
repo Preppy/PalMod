@@ -231,6 +231,7 @@
     <ClCompile Include="Game\Game_AOF1_A.cpp" />
     <ClCompile Include="Game\Game_AOF3_A.cpp" />
     <ClCompile Include="Game\GAME_Bleach_DS.cpp" />
+    <ClCompile Include="Game\Game_BMKNS_SNES.cpp" />
     <ClCompile Include="Game\Game_Breakers_A.cpp" />
     <ClCompile Include="Game\Game_CFTE_SNES.cpp" />
     <ClCompile Include="Game\Game_COTA_A.cpp" />
@@ -370,6 +371,7 @@
     <ClInclude Include="Game\AOF1_A_DEF.h" />
     <ClInclude Include="Game\AOF3_A_DEF.h" />
     <ClInclude Include="Game\Bleach_DS_DEF.h" />
+    <ClInclude Include="Game\BMKNS_SNES_DEF.h" />
     <ClInclude Include="Game\Breakers_A_DEF.h" />
     <ClInclude Include="Game\CFTE_SNES_DEF.h" />
     <ClInclude Include="Game\ColorScale.h" />
@@ -389,6 +391,7 @@
     <ClInclude Include="Game\Game_AOF1_A.h" />
     <ClInclude Include="Game\Game_AOF3_A.h" />
     <ClInclude Include="Game\GAME_Bleach_DS.h" />
+    <ClInclude Include="Game\Game_BMKNS_SNES.h" />
     <ClInclude Include="Game\Game_Breakers_A.h" />
     <ClInclude Include="Game\Game_CFTE_SNES.h" />
     <ClInclude Include="Game\Game_COTA_A.h" />

@@ -212,7 +212,7 @@ void CGame_NGBC_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
 
         for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_KOFXI); iButtonIndex++)
         {
@@ -280,7 +280,7 @@ void CGame_NGBC_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode NGBC_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -302,7 +302,7 @@ void CGame_NGBC_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)NGBC_A_%s_COLLECTION, ARRAYSIZE(NGBC_A_%s_COLLECTION) },\r\n", NGBCCharacterList[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);

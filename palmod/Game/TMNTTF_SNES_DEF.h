@@ -106,39 +106,39 @@ const sGame_PaletteDataset TMNTTF_SNES_SHREDDER_PALETTES_P2[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_WAR_PALETTES_P1[] =
 {
-    { L"War P1", 0x048Aae, 0x048Ace },
+    { L"War P1", 0x048Aae, 0x048Ace, indexTMNTTFSprites_War },
     { L"War P1 FX", 0x048Aee, 0x048b0e },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_WAR_PALETTES_P2[] =
 {
-    { L"War P2", 0x048Ace, 0x048AEe },
+    { L"War P2", 0x048Ace, 0x048AEe, indexTMNTTFSprites_War },
     { L"War P2 FX", 0x048b0e, 0x048b2e },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ASKA_PALETTES_P1[] =
 {
-    { L"Aska P1", 0x04855a, 0x04857A },
+    { L"Aska P1", 0x04855a, 0x04857A, indexTMNTTFSprites_Aska },
     { L"Aska P1 FX", 0x04859a, 0x0485BA },
     { L"Aska P1 FX 2", 0x0485da, 0x0485fA },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ASKA_PALETTES_P2[] =
 {
-    { L"Aska P2", 0x04857a, 0x04859A },
+    { L"Aska P2", 0x04857a, 0x04859A, indexTMNTTFSprites_Aska },
     { L"Aska P2 FX", 0x0485Ba, 0x0485DA },
     { L"Aska P2 FX 2", 0x0485fc, 0x04861c },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_CHROME_PALETTES_P1[] =
 {
-    { L"Chrome Dome P1", 0x04897c, 0x04899c },
+    { L"Chrome Dome P1", 0x04897c, 0x04899c, indexTMNTTFSprites_ChromeDome },
     { L"Chrome Dome P1 FX", 0x04899c, 0x0489BC },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_CHROME_PALETTES_P2[] =
 {
-    { L"Chrome Dome P2", 0x048A5c, 0x048A7C },
+    { L"Chrome Dome P2", 0x048A5c, 0x048A7C, indexTMNTTFSprites_ChromeDome },
     { L"Chrome Dome P2 FX", 0x048A7c, 0x048A9C },
 };
 
@@ -153,24 +153,24 @@ const sGame_PaletteDataset TMNTTF_SNES_CHROME_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_WINGNUT_PALETTES_P1[] =
 {
-    { L"Wingnut P1", 0x048B2e, 0x048B4E },
+    { L"Wingnut P1", 0x048B2e, 0x048B4E, indexTMNTTFSprites_Wingnut },
     { L"Wingnut P1 Moonbuster/FX", 0x048B4e, 0x048B6E },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_WINGNUT_PALETTES_P2[] =
 {
-    { L"Wingnut P2", 0x048B6e, 0x048B8E },
+    { L"Wingnut P2", 0x048B6e, 0x048B8E, indexTMNTTFSprites_Wingnut },
     { L"Wingnut P2 Moonbuster/FX", 0x048B8e, 0x048BAE },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_P1[] =
 {
-    { L"Armaggon P1", 0x0484F0, 0x048510 },
+    { L"Armaggon P1", 0x0484F0, 0x048510, indexTMNTTFSprites_Armaggon },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_P2[] =
 {
-    { L"Armaggon P2", 0x048510, 0x048530 },
+    { L"Armaggon P2", 0x048510, 0x048530, indexTMNTTFSprites_Armaggon },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_SHARED[] =
@@ -181,12 +181,12 @@ const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_P1[] =
 {
-    { L"Karai P1", 0x048bae, 0x048bce },
+    { L"Karai P1", 0x048bae, 0x048bce, indexTMNTTFSprites_Karai },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_P2[] =
 {
-    { L"Karai P2", 0x048c2e, 0x048c4e },
+    { L"Karai P2", 0x048c2e, 0x048c4e, indexTMNTTFSprites_Karai },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_SHARED[] =
@@ -198,26 +198,26 @@ const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_RATKING_PALETTES_P1[] =
 {
-    { L"Rat King P1", 0x04861e, 0x04863e },
+    { L"Rat King P1", 0x04861e, 0x04863e, indexTMNTTFSprites_RatKing },
     { L"Rat King P1FX", 0x04863e, 0x04865e },
     { L"Rat King P1FX 2", 0x04865e, 0x04867e },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RATKING_PALETTES_P2[] =
 {
-    { L"Rat King P2", 0x04867e, 0x04869e },
+    { L"Rat King P2", 0x04867e, 0x04869e, indexTMNTTFSprites_RatKing },
     { L"Rat King P2FX", 0x04869e, 0x0486be },
     { L"Rat King P2FX 2", 0x0486be, 0x0486de },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_P1[] =
 {
-    { L"Fake Brother P1", 0x048cbc, 0x048cdc },
+    { L"Fake Brother P1", 0x048cbc, 0x048cdc, indexTMNTTFSprites_FakeBrother },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_P2[] =
 {
-    { L"Fake Brother P2", 0x048cdc, 0x048cfc },
+    { L"Fake Brother P2", 0x048cdc, 0x048cfc, indexTMNTTFSprites_FakeBrother },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_SHARED[] =

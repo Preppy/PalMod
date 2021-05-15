@@ -1926,6 +1926,22 @@ const sGame_PaletteDataset SFIII3_A_JGIRLS_PALETTES[] =
     { L"Judge Effie",   0x76bc80, 0x76bd00 },
 };
 
+const sGame_PaletteDataset SFIII3_A_BONUS_INTROPORTS_PALETTES[] =
+{
+    { L"Intro: Gouki (red)",    0x786180, 0x786200, index3S_CPS3_Bonus, 0x26 },
+    { L"Intro: Gouki (tan)",    0x786a80, 0x786b00, index3S_CPS3_Bonus, 0x26 },
+    { L"Intro: Alex, Chun, Oro, Urien, Yang, Yun",  0x786500, 0x786580 },
+
+    { L"Intro: Makoto, Gill fire hand", 0x785a80, 0x785b00 },
+    { L"Intro: Gill ice hand", 0x785b00, 0x785b80 },
+    { L"Intro: Makoto ?", 0x785b80, 0x785c00 },
+
+    { L"Intro: Q",              0x785980, 0x785a00, index3S_CPS3_Bonus, 0x27 },
+    { L"Intro: Remy (red)",     0x785e80, 0x785f00, index3S_CPS3_Bonus, 0x28 },
+    { L"Intro: Remy (tan)",     0x785f00, 0x785f80, index3S_CPS3_Bonus, 0x28 },
+    { L"Intro: Remy (green)",   0x786000, 0x786080, index3S_CPS3_Bonus, 0x28 },
+};
+
 const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
 {
     { L"Title Screen Logo 1/3",             0x787780, 0x787980, index3S_CPS3_Bonus, 0x20, &pairNextAndNext },
@@ -2668,6 +2684,7 @@ const sGame_PaletteDataset SFIII3_A_STAGES_SUV_FADED_PALETTES[] =
 const sDescTreeNode SFIII3_A_BONUS_COLLECTION[] =
 {
     { L"HUD",                   DESC_NODETYPE_TREE, (void*)SFIII3_A_HUD_PALETTES, ARRAYSIZE(SFIII3_A_HUD_PALETTES) },
+    { L"Intro Portraits",       DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_INTROPORTS_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_INTROPORTS_PALETTES) },
     { L"Super Meter",           DESC_NODETYPE_TREE, (void*)SFIII3_A_SUPERMETER_PALETTES, ARRAYSIZE(SFIII3_A_SUPERMETER_PALETTES) },
     { L"Judgement Girls",       DESC_NODETYPE_TREE, (void*)SFIII3_A_JGIRLS_PALETTES, ARRAYSIZE(SFIII3_A_JGIRLS_PALETTES) },
     { L"Vs Screen BG",          DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_VSBG_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_VSBG_PALETTES) },

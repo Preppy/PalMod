@@ -104,7 +104,7 @@ struct sKOF98AE2016_A_PaletteData
 {
     LPCWSTR pszCharacterName;
     UINT32 nROMOffset = 0;
-    LPCWSTR pszImageSet = L"indexKOFSprites_98Kyo";
+    LPCWSTR pszImageSet = L"indexKOF98Sprites_Kyo";
     bool rgIsEffectUsed[11];
 };
 

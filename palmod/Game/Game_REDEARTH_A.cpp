@@ -633,26 +633,53 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                 if (paletteDataSetToJoin)
                 {
-                    fShouldUseAlternateLoadLogic = true;
+                    if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
+                    {
+                        const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
-                    ClearSetImgTicket(
-                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                        )
-                    );
+                        fShouldUseAlternateLoadLogic = true;
+                        sImgTicket* pImgArray = nullptr;
 
-                    //Set each palette
-                    sDescNode* JoinedNode[2] = {
-                       GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                       GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
-                    };
+                        for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                        {
+                            // The palettes get added forward, but the image tickets need to be generated in reverse order
+                            const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
+                            if (paletteDataSetToJoin)
+                            {
+                                pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
 
-                    //Set each palette
-                    CreateDefPal(JoinedNode[0], 0);
-                    CreateDefPal(JoinedNode[1], 1);
+                                //Set each palette
+                                sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                                CreateDefPal(JoinedNode, nStageIndex);
+                                SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                            }
+                        }
 
-                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                        ClearSetImgTicket(pImgArray);
+                    }
+                    else
+                    {
+                        fShouldUseAlternateLoadLogic = true;
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                           GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                           GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                    }
                 }
             }
         }

@@ -202,9 +202,6 @@
     <Filter Include="Game\SNK Games\KOFXI_A">
       <UniqueIdentifier>{d12dfc26-a331-4ac9-928f-89a7c1753af3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Nintendo\Clay Fighter: TE">
-      <UniqueIdentifier>{8fce122e-fa29-4397-8fe1-518222d624ff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\SNK Games\KOF99AE_A">
       <UniqueIdentifier>{9fc92127-41e6-4ee1-a53b-9c31a9fd3903}</UniqueIdentifier>
     </Filter>
@@ -372,6 +369,12 @@
     </Filter>
     <Filter Include="Game\Nintendo\Super Variable Geo %28SNES%29">
       <UniqueIdentifier>{cc79006a-3cd0-483b-9c08-3f10e7a02e43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Battle Master: Kyuukyoku no Senshitachi %28SNES%29">
+      <UniqueIdentifier>{21188710-e735-4fe0-b115-7febdc5eb14f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Clay Fighter: TE %28SNES%29">
+      <UniqueIdentifier>{8fce122e-fa29-4397-8fe1-518222d624ff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -631,7 +634,7 @@
       <Filter>Game\SNK Games\KOF94_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_CFTE_SNES.cpp">
-      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
+      <Filter>Game\Nintendo\Clay Fighter: TE %28SNES%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF99AE_A.cpp">
       <Filter>Game\SNK Games\KOF99AE_A</Filter>
@@ -785,6 +788,9 @@
     </ClCompile>
     <ClCompile Include="ColorSystem.cpp">
       <Filter>Game\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_BMKNS_SNES.cpp">
+      <Filter>Game\Nintendo\Battle Master: Kyuukyoku no Senshitachi %28SNES%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1185,10 +1191,10 @@
       <Filter>Game\SNK Games\KOF94_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\CFTE_SNES_DEF.h">
-      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
+      <Filter>Game\Nintendo\Clay Fighter: TE %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_CFTE_SNES.h">
-      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
+      <Filter>Game\Nintendo\Clay Fighter: TE %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF99AE_A.h">
       <Filter>Game\SNK Games\KOF99AE_A</Filter>
@@ -1477,6 +1483,12 @@
     </ClInclude>
     <ClInclude Include="ColorSystem.h">
       <Filter>Game\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BMKNS_SNES_DEF.h">
+      <Filter>Game\Nintendo\Battle Master: Kyuukyoku no Senshitachi %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_BMKNS_SNES.h">
+      <Filter>Game\Nintendo\Battle Master: Kyuukyoku no Senshitachi %28SNES%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

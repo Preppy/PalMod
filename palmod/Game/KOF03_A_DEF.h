@@ -8,19 +8,19 @@
 
 const UINT16 KOF03_A_IMG_UNITS[] =
 {
-    indexKOFSprites_02UM_Clark,
-    indexKOFSprites_02UM_Chang,     // 0x80
-    indexKOFSprites_02UM_Daimon,    // 0x87
-    indexKOFSprites_02UM_Iori,
-    indexKOFSprites_02UM_K,         // 0x92
-    indexKOFSprites_02UM_Kim,       // 0x96
-    indexKOFSprites_02UM_Leona,
-    indexKOFSprites_02UM_Maxima,    // 0xA2
-    indexKOFSprites_02UM_Ralf,
+    indexKOF02UMSprites_Clark,
+    indexKOF02UMSprites_Chang,     // 0x80
+    indexKOF02UMSprites_Daimon,    // 0x87
+    indexKOF02UMSprites_Iori,
+    indexKOF02UMSprites_K,         // 0x92
+    indexKOF02UMSprites_Kim,       // 0x96
+    indexKOF02UMSprites_Leona,
+    indexKOF02UMSprites_Maxima,    // 0xA2
+    indexKOF02UMSprites_Ralf,
 
-    indexKOFSprites_02UM_Joe,
-    indexKOFSprites_02UM_Kusanagi,
-    indexKOFSprites_02UM_Mai,
+    indexKOF02UMSprites_Joe,
+    indexKOF02UMSprites_Kusanagi,
+    indexKOF02UMSprites_Mai,
 
     indexKOFXISprites_Adelheid,
     indexKOFXISprites_BlueMary,
@@ -264,45 +264,45 @@ const sGame_PaletteDataset KOF03_A_TERRY_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_JOE_PALETTES_A[] =
 {
-    { L"Joe Higashi A", 0x004000, 0x004020, indexKOFSprites_02UM_Joe },
+    { L"Joe Higashi A", 0x004000, 0x004020, indexKOF02UMSprites_Joe },
     { L"Hurricane Upper A", 0x004100, 0x004112 },
     { L"Slash Kick/Screw Upper A", 0x004120, 0x004132 },
-    { L"Joe A Electricity", 0x004040, 0x004060, indexKOFSprites_02UM_Joe, 0x00 },
-    { L"Joe A Soul", 0x004080, 0x0040a0, indexKOFSprites_02UM_Joe, 0x00 },
-    { L"Joe A Shikai", 0x0040c0, 0x0040e0, indexKOFSprites_02UM_Joe, 0x00 },
+    { L"Joe A Electricity", 0x004040, 0x004060, indexKOF02UMSprites_Joe, 0x00 },
+    { L"Joe A Soul", 0x004080, 0x0040a0, indexKOF02UMSprites_Joe, 0x00 },
+    { L"Joe A Shikai", 0x0040c0, 0x0040e0, indexKOF02UMSprites_Joe, 0x00 },
     { L"Joe Victory A", 0x01f520, 0x01f560, indexKOF03Sprites_Joe, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_JOE_PALETTES_B[] =
 {
-    { L"Joe Higashi B", 0x004200, 0x004220, indexKOFSprites_02UM_Joe },
+    { L"Joe Higashi B", 0x004200, 0x004220, indexKOF02UMSprites_Joe },
     { L"Hurricane Upper B", 0x004300, 0x004312 },
     { L"Slash Kick/Screw Upper B", 0x004320, 0x004332 },
-    { L"Joe B Electricity", 0x004240, 0x004260, indexKOFSprites_02UM_Joe, 0x00 },
-    { L"Joe B Soul", 0x004280, 0x0042a0, indexKOFSprites_02UM_Joe, 0x00 },
-    { L"Joe B Shikai", 0x0042c0, 0x0042e0, indexKOFSprites_02UM_Joe, 0x00 },
+    { L"Joe B Electricity", 0x004240, 0x004260, indexKOF02UMSprites_Joe, 0x00 },
+    { L"Joe B Soul", 0x004280, 0x0042a0, indexKOF02UMSprites_Joe, 0x00 },
+    { L"Joe B Shikai", 0x0042c0, 0x0042e0, indexKOF02UMSprites_Joe, 0x00 },
     { L"Joe Victory B", 0x01f560, 0x01f5a0, indexKOF03Sprites_Joe, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_JOE_PALETTES_C[] =
 {
-    { L"Joe Higashi C", 0x004400, 0x004420, indexKOFSprites_02UM_Joe },
+    { L"Joe Higashi C", 0x004400, 0x004420, indexKOF02UMSprites_Joe },
     { L"Hurricane Upper C", 0x004500, 0x004512 },
     { L"Slash Kick/Screw Upper C", 0x004520, 0x004532 },
-    { L"Joe C Electricity", 0x004440, 0x004460, indexKOFSprites_02UM_Joe, 0x00 },
-    { L"Joe C Soul", 0x004480, 0x0044a0, indexKOFSprites_02UM_Joe, 0x00 },
-    { L"Joe C Shikai", 0x0044c0, 0x0044e0, indexKOFSprites_02UM_Joe, 0x00 },
+    { L"Joe C Electricity", 0x004440, 0x004460, indexKOF02UMSprites_Joe, 0x00 },
+    { L"Joe C Soul", 0x004480, 0x0044a0, indexKOF02UMSprites_Joe, 0x00 },
+    { L"Joe C Shikai", 0x0044c0, 0x0044e0, indexKOF02UMSprites_Joe, 0x00 },
     { L"Joe Victory C ", 0x01f5a0, 0x01f5e0, indexKOF03Sprites_Joe, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_JOE_PALETTES_D[] =
 {
-    { L"Joe Higashi D", 0x004600, 0x004620, indexKOFSprites_02UM_Joe },
+    { L"Joe Higashi D", 0x004600, 0x004620, indexKOF02UMSprites_Joe },
     { L"Hurricane Upper D", 0x004700, 0x004712 },
     { L"Slash Kick/Screw Upper D", 0x004720, 0x004732 },
-    { L"Joe D Electricity", 0x004640, 0x004660, indexKOFSprites_02UM_Joe, 0x00 },
-    { L"Joe D Soul", 0x004680, 0x0046a0, indexKOFSprites_02UM_Joe, 0x00 },
-    { L"Joe D Shikai", 0x0046c0, 0x0046e0, indexKOFSprites_02UM_Joe, 0x00 },
+    { L"Joe D Electricity", 0x004640, 0x004660, indexKOF02UMSprites_Joe, 0x00 },
+    { L"Joe D Soul", 0x004680, 0x0046a0, indexKOF02UMSprites_Joe, 0x00 },
+    { L"Joe D Shikai", 0x0046c0, 0x0046e0, indexKOF02UMSprites_Joe, 0x00 },
     { L"Joe Victory D", 0x01f5e0, 0x01f620, indexKOF03Sprites_Joe, 0x30 },
 };
 
@@ -496,73 +496,73 @@ const sGame_PaletteDataset KOF03_A_YURI_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_KIM_PALETTES_A[] =
 {
-    { L"Kim Kapwhan A", 0x006800, 0x006820, indexKOFSprites_02UM_Kim },
-    { L"Kim A Electricity", 0x006840, 0x006860, indexKOFSprites_02UM_Kim, 0x00 },
-    { L"Kim A Soul", 0x006880, 0x0068a0, indexKOFSprites_02UM_Kim, 0x00 },
-    { L"Kim A Shikai", 0x0068c0, 0x0068e0, indexKOFSprites_02UM_Kim, 0x00 },
+    { L"Kim Kapwhan A", 0x006800, 0x006820, indexKOF02UMSprites_Kim },
+    { L"Kim A Electricity", 0x006840, 0x006860, indexKOF02UMSprites_Kim, 0x00 },
+    { L"Kim A Soul", 0x006880, 0x0068a0, indexKOF02UMSprites_Kim, 0x00 },
+    { L"Kim A Shikai", 0x0068c0, 0x0068e0, indexKOF02UMSprites_Kim, 0x00 },
     { L"Kim Victory A", 0x01fa20, 0x01fa60, indexKOF03Sprites_Kim, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_KIM_PALETTES_B[] =
 {
-    { L"Kim Kapwhan B", 0x006a00, 0x006a20, indexKOFSprites_02UM_Kim },
-    { L"Kim B Electricity", 0x006a40, 0x006a60, indexKOFSprites_02UM_Kim, 0x00 },
-    { L"Kim B Soul", 0x006a80, 0x006aa0, indexKOFSprites_02UM_Kim, 0x00 },
-    { L"Kim B Shikai", 0x006ac0, 0x006ae0, indexKOFSprites_02UM_Kim, 0x00 },
+    { L"Kim Kapwhan B", 0x006a00, 0x006a20, indexKOF02UMSprites_Kim },
+    { L"Kim B Electricity", 0x006a40, 0x006a60, indexKOF02UMSprites_Kim, 0x00 },
+    { L"Kim B Soul", 0x006a80, 0x006aa0, indexKOF02UMSprites_Kim, 0x00 },
+    { L"Kim B Shikai", 0x006ac0, 0x006ae0, indexKOF02UMSprites_Kim, 0x00 },
     { L"Kim Victory B", 0x01fa60, 0x01faa0, indexKOF03Sprites_Kim, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_KIM_PALETTES_C[] =
 {
-    { L"Kim Kapwhan C", 0x006c00, 0x006c20, indexKOFSprites_02UM_Kim },
-    { L"Kim C Electricity", 0x006c40, 0x006c60, indexKOFSprites_02UM_Kim, 0x00 },
-    { L"Kim C Soul", 0x006c80, 0x006ca0, indexKOFSprites_02UM_Kim, 0x00 },
-    { L"Kim C Shikai", 0x006cc0, 0x006ce0, indexKOFSprites_02UM_Kim, 0x00 },
+    { L"Kim Kapwhan C", 0x006c00, 0x006c20, indexKOF02UMSprites_Kim },
+    { L"Kim C Electricity", 0x006c40, 0x006c60, indexKOF02UMSprites_Kim, 0x00 },
+    { L"Kim C Soul", 0x006c80, 0x006ca0, indexKOF02UMSprites_Kim, 0x00 },
+    { L"Kim C Shikai", 0x006cc0, 0x006ce0, indexKOF02UMSprites_Kim, 0x00 },
     { L"Kim Victory C", 0x01faa0, 0x01fae0, indexKOF03Sprites_Kim, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_KIM_PALETTES_D[] =
 {
-    { L"Kim Kapwhan D", 0x006e00, 0x006e20, indexKOFSprites_02UM_Kim },
-    { L"Kim D Electricity", 0x006e40, 0x006e60, indexKOFSprites_02UM_Kim, 0x00 },
-    { L"Kim D Soul", 0x006e80, 0x006ea0, indexKOFSprites_02UM_Kim, 0x00 },
-    { L"Kim D Shikai", 0x006ec0, 0x006ee0, indexKOFSprites_02UM_Kim, 0x00 },
+    { L"Kim Kapwhan D", 0x006e00, 0x006e20, indexKOF02UMSprites_Kim },
+    { L"Kim D Electricity", 0x006e40, 0x006e60, indexKOF02UMSprites_Kim, 0x00 },
+    { L"Kim D Soul", 0x006e80, 0x006ea0, indexKOF02UMSprites_Kim, 0x00 },
+    { L"Kim D Shikai", 0x006ec0, 0x006ee0, indexKOF02UMSprites_Kim, 0x00 },
     { L"Kim Victory D", 0x01fae0, 0x01fb20, indexKOF03Sprites_Kim, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_CHANG_PALETTES_A[] =
 {
-    { L"Chang Koehan A", 0x007000, 0x007020, indexKOFSprites_02UM_Chang },
-    { L"Chang A Electricity", 0x007040, 0x007060, indexKOFSprites_02UM_Chang, 0x00 },
-    { L"Chang A Soul", 0x007080, 0x0070a0, indexKOFSprites_02UM_Chang, 0x00 },
-    { L"Chang A Shikai", 0x0070c0, 0x0070e0, indexKOFSprites_02UM_Chang, 0x00 },
+    { L"Chang Koehan A", 0x007000, 0x007020, indexKOF02UMSprites_Chang },
+    { L"Chang A Electricity", 0x007040, 0x007060, indexKOF02UMSprites_Chang, 0x00 },
+    { L"Chang A Soul", 0x007080, 0x0070a0, indexKOF02UMSprites_Chang, 0x00 },
+    { L"Chang A Shikai", 0x0070c0, 0x0070e0, indexKOF02UMSprites_Chang, 0x00 },
     { L"Chang Victory A", 0x01fb20, 0x01fb60, indexKOF03Sprites_Chang, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_CHANG_PALETTES_B[] =
 {
-    { L"Chang Koehan B", 0x007200, 0x007220, indexKOFSprites_02UM_Chang },
-    { L"Chang B Electricity", 0x007240, 0x007260, indexKOFSprites_02UM_Chang, 0x00 },
-    { L"Chang B Soul", 0x007280, 0x0072a0, indexKOFSprites_02UM_Chang, 0x00 },
-    { L"Chang B Shikai", 0x0072c0, 0x0072e0, indexKOFSprites_02UM_Chang, 0x00 },
+    { L"Chang Koehan B", 0x007200, 0x007220, indexKOF02UMSprites_Chang },
+    { L"Chang B Electricity", 0x007240, 0x007260, indexKOF02UMSprites_Chang, 0x00 },
+    { L"Chang B Soul", 0x007280, 0x0072a0, indexKOF02UMSprites_Chang, 0x00 },
+    { L"Chang B Shikai", 0x0072c0, 0x0072e0, indexKOF02UMSprites_Chang, 0x00 },
     { L"Chang Victory B", 0x01fb60, 0x01fba0, indexKOF03Sprites_Chang, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_CHANG_PALETTES_C[] =
 {
-    { L"Chang Koehan C", 0x007400, 0x007420, indexKOFSprites_02UM_Chang },
-    { L"Chang C Electricity", 0x007440, 0x007460, indexKOFSprites_02UM_Chang, 0x00 },
-    { L"Chang C Soul", 0x007480, 0x0074a0, indexKOFSprites_02UM_Chang, 0x00 },
-    { L"Chang C Shikai", 0x0074c0, 0x0074e0, indexKOFSprites_02UM_Chang, 0x00 },
+    { L"Chang Koehan C", 0x007400, 0x007420, indexKOF02UMSprites_Chang },
+    { L"Chang C Electricity", 0x007440, 0x007460, indexKOF02UMSprites_Chang, 0x00 },
+    { L"Chang C Soul", 0x007480, 0x0074a0, indexKOF02UMSprites_Chang, 0x00 },
+    { L"Chang C Shikai", 0x0074c0, 0x0074e0, indexKOF02UMSprites_Chang, 0x00 },
     { L"Chang Victory C", 0x01fba0, 0x01fbe0, indexKOF03Sprites_Chang, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_CHANG_PALETTES_D[] =
 {
-    { L"Chang Koehan D", 0x007600, 0x007620, indexKOFSprites_02UM_Chang },
-    { L"Chang D Electricity", 0x007640, 0x007660, indexKOFSprites_02UM_Chang, 0x00 },
-    { L"Chang D Soul", 0x007680, 0x0076a0, indexKOFSprites_02UM_Chang, 0x00 },
-    { L"Chang D Shikai", 0x0076c0, 0x0076e0, indexKOFSprites_02UM_Chang, 0x00 },
+    { L"Chang Koehan D", 0x007600, 0x007620, indexKOF02UMSprites_Chang },
+    { L"Chang D Electricity", 0x007640, 0x007660, indexKOF02UMSprites_Chang, 0x00 },
+    { L"Chang D Soul", 0x007680, 0x0076a0, indexKOF02UMSprites_Chang, 0x00 },
+    { L"Chang D Shikai", 0x0076c0, 0x0076e0, indexKOF02UMSprites_Chang, 0x00 },
     { L"Chang Victory D", 0x01fbe0, 0x01fc20, indexKOF03Sprites_Chang, 0x30 },
 };
 
@@ -620,7 +620,7 @@ const sGame_PaletteDataset KOF03_A_JHUN_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_LEONA_PALETTES_A[] =
 {
-    { L"Leona Heidern A", 0x008000, 0x008020, indexKOFSprites_02UM_Leona },
+    { L"Leona Heidern A", 0x008000, 0x008020, indexKOF02UMSprites_Leona },
     { L"Ground Saber A", 0x008100, 0x008112 },
     { L"Baltic Launcher A", 0x008120, 0x008132 },
     { L"Moon Slasher A", 0x008180, 0x0081a0 },
@@ -628,15 +628,15 @@ const sGame_PaletteDataset KOF03_A_LEONA_PALETTES_A[] =
     { L"Earring Bakudan A", 0x0081c0, 0x0081e0 },
     { L"Victory Slasher A", 0x008140, 0x008160 },
     { L"Rebel Spark A", 0x0081b0, 0x0081c0 },
-    { L"Leona Electricity A", 0x8040, 0x8060, indexKOFSprites_02UM_Leona, 0x00 },
-    { L"Leona Soul A", 0x8080, 0x80a0, indexKOFSprites_02UM_Leona, 0x00 },
-    { L"Leona Shikai A", 0x80c0, 0x80e0, indexKOFSprites_02UM_Leona, 0x00 },
+    { L"Leona Electricity A", 0x8040, 0x8060, indexKOF02UMSprites_Leona, 0x00 },
+    { L"Leona Soul A", 0x8080, 0x80a0, indexKOF02UMSprites_Leona, 0x00 },
+    { L"Leona Shikai A", 0x80c0, 0x80e0, indexKOF02UMSprites_Leona, 0x00 },
     { L"Leona Victory A", 0x01fd20, 0x01fd60, indexKOF03Sprites_Leona, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_LEONA_PALETTES_B[] =
 {
-    { L"Leona Heidern B", 0x008200, 0x008220, indexKOFSprites_02UM_Leona },
+    { L"Leona Heidern B", 0x008200, 0x008220, indexKOF02UMSprites_Leona },
     { L"Ground Saber B", 0x008300, 0x008312 },
     { L"Baltic Launcher B", 0x008320, 0x008332 },
     { L"Moon Slasher B", 0x008380, 0x0083a0 },
@@ -644,15 +644,15 @@ const sGame_PaletteDataset KOF03_A_LEONA_PALETTES_B[] =
     { L"Earring Bakudan B", 0x0083c0, 0x0083e0 },
     { L"Victory Slasher B", 0x008340, 0x008360 },
     { L"Rebel Spark B", 0x0083b0, 0x0083c0 },
-    { L"Leona Electricity B", 0x8240, 0x8260, indexKOFSprites_02UM_Leona, 0x00 },
-    { L"Leona Soul B", 0x8280, 0x82a0, indexKOFSprites_02UM_Leona, 0x00 },
-    { L"Leona Shikai B", 0x82c0, 0x82e0, indexKOFSprites_02UM_Leona, 0x00 },
+    { L"Leona Electricity B", 0x8240, 0x8260, indexKOF02UMSprites_Leona, 0x00 },
+    { L"Leona Soul B", 0x8280, 0x82a0, indexKOF02UMSprites_Leona, 0x00 },
+    { L"Leona Shikai B", 0x82c0, 0x82e0, indexKOF02UMSprites_Leona, 0x00 },
     { L"Leona Victory B", 0x01fd60, 0x01fda0, indexKOF03Sprites_Leona, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_LEONA_PALETTES_C[] =
 {
-    { L"Leona Heidern C", 0x008400, 0x008420, indexKOFSprites_02UM_Leona },
+    { L"Leona Heidern C", 0x008400, 0x008420, indexKOF02UMSprites_Leona },
     { L"Ground Saber C", 0x008500, 0x008512 },
     { L"Baltic Launcher C", 0x008520, 0x008532 },
     { L"Moon Slasher C", 0x008580, 0x0085a0 },
@@ -660,15 +660,15 @@ const sGame_PaletteDataset KOF03_A_LEONA_PALETTES_C[] =
     { L"Earring Bakudan C", 0x0085c0, 0x0085e0 },
     { L"Victory Slasher C", 0x008540, 0x008560 },
     { L"Rebel Spark C", 0x0085b0, 0x0085c0 },
-    { L"Leona Electricity C", 0x8440, 0x8460, indexKOFSprites_02UM_Leona, 0x00 },
-    { L"Leona Soul C", 0x8480, 0x84a0, indexKOFSprites_02UM_Leona, 0x00 },
-    { L"Leona Shikai C", 0x84c0, 0x84e0, indexKOFSprites_02UM_Leona, 0x00 },
+    { L"Leona Electricity C", 0x8440, 0x8460, indexKOF02UMSprites_Leona, 0x00 },
+    { L"Leona Soul C", 0x8480, 0x84a0, indexKOF02UMSprites_Leona, 0x00 },
+    { L"Leona Shikai C", 0x84c0, 0x84e0, indexKOF02UMSprites_Leona, 0x00 },
     { L"Leona Victory C", 0x01fda0, 0x01fde0, indexKOF03Sprites_Leona, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_LEONA_PALETTES_D[] =
 {
-    { L"Leona Heidern D", 0x008600, 0x008620, indexKOFSprites_02UM_Leona },
+    { L"Leona Heidern D", 0x008600, 0x008620, indexKOF02UMSprites_Leona },
     { L"Ground Saber D", 0x008700, 0x008712 },
     { L"Baltic Launcher D", 0x008720, 0x008732 },
     { L"Moon Slasher D", 0x008780, 0x0087a0 },
@@ -676,81 +676,81 @@ const sGame_PaletteDataset KOF03_A_LEONA_PALETTES_D[] =
     { L"Earring Bakudan D", 0x0087c0, 0x0087e0 },
     { L"Victory Slasher D", 0x008740, 0x008760 },
     { L"Rebel Spark D", 0x0087b0, 0x0087c0 },
-    { L"Leona Electricity D", 0x8640, 0x8660, indexKOFSprites_02UM_Leona, 0x00 },
-    { L"Leona Soul D", 0x8680, 0x86a0, indexKOFSprites_02UM_Leona, 0x00 },
-    { L"Leona Shikai D", 0x86c0, 0x86e0, indexKOFSprites_02UM_Leona, 0x00 },
+    { L"Leona Electricity D", 0x8640, 0x8660, indexKOF02UMSprites_Leona, 0x00 },
+    { L"Leona Soul D", 0x8680, 0x86a0, indexKOF02UMSprites_Leona, 0x00 },
+    { L"Leona Shikai D", 0x86c0, 0x86e0, indexKOF02UMSprites_Leona, 0x00 },
     { L"Leona Victory D", 0x01fde0, 0x01fe20, indexKOF03Sprites_Leona, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_RALF_PALETTES_A[] =
 {
-    { L"Ralf Jones A", 0x008800, 0x008820, indexKOFSprites_02UM_Ralf },
-    { L"Ralf Electricity A", 0x8840, 0x8860, indexKOFSprites_02UM_Ralf, 0x00 },
-    { L"Ralf Soul A", 0x8880, 0x88a0, indexKOFSprites_02UM_Ralf, 0x00 },
-    { L"Ralf Shikai A", 0x88c0, 0x88e0, indexKOFSprites_02UM_Ralf, 0x00 },
+    { L"Ralf Jones A", 0x008800, 0x008820, indexKOF02UMSprites_Ralf },
+    { L"Ralf Electricity A", 0x8840, 0x8860, indexKOF02UMSprites_Ralf, 0x00 },
+    { L"Ralf Soul A", 0x8880, 0x88a0, indexKOF02UMSprites_Ralf, 0x00 },
+    { L"Ralf Shikai A", 0x88c0, 0x88e0, indexKOF02UMSprites_Ralf, 0x00 },
     { L"Ralf Victory A", 0x01fe20, 0x01fe60, indexKOF03Sprites_Ralf, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_RALF_PALETTES_B[] =
 {
-    { L"Ralf Jones B", 0x008a00, 0x008a20, indexKOFSprites_02UM_Ralf },
-    { L"Ralf Electricity B", 0x8a40, 0x8a60, indexKOFSprites_02UM_Ralf, 0x00 },
-    { L"Ralf Soul B", 0x8a80, 0x8aa0, indexKOFSprites_02UM_Ralf, 0x00 },
-    { L"Ralf Shikai B", 0x8ac0, 0x8ae0, indexKOFSprites_02UM_Ralf, 0x00 },
+    { L"Ralf Jones B", 0x008a00, 0x008a20, indexKOF02UMSprites_Ralf },
+    { L"Ralf Electricity B", 0x8a40, 0x8a60, indexKOF02UMSprites_Ralf, 0x00 },
+    { L"Ralf Soul B", 0x8a80, 0x8aa0, indexKOF02UMSprites_Ralf, 0x00 },
+    { L"Ralf Shikai B", 0x8ac0, 0x8ae0, indexKOF02UMSprites_Ralf, 0x00 },
     { L"Ralf Victory B", 0x01fe60, 0x01fea0, indexKOF03Sprites_Ralf, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_RALF_PALETTES_C[] =
 {
-    { L"Ralf Jones C", 0x008c00, 0x008c20, indexKOFSprites_02UM_Ralf },
-    { L"Ralf Electricity C", 0x8c40, 0x8c60, indexKOFSprites_02UM_Ralf, 0x00 },
-    { L"Ralf Soul C", 0x8c80, 0x8ca0, indexKOFSprites_02UM_Ralf, 0x00 },
-    { L"Ralf Shikai C", 0x8cc0, 0x8ce0, indexKOFSprites_02UM_Ralf, 0x00 },
+    { L"Ralf Jones C", 0x008c00, 0x008c20, indexKOF02UMSprites_Ralf },
+    { L"Ralf Electricity C", 0x8c40, 0x8c60, indexKOF02UMSprites_Ralf, 0x00 },
+    { L"Ralf Soul C", 0x8c80, 0x8ca0, indexKOF02UMSprites_Ralf, 0x00 },
+    { L"Ralf Shikai C", 0x8cc0, 0x8ce0, indexKOF02UMSprites_Ralf, 0x00 },
     { L"Ralf Victory C", 0x01fea0, 0x01fee0, indexKOF03Sprites_Ralf, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_RALF_PALETTES_D[] =
 {
-    { L"Ralf Jones D", 0x008e00, 0x008e20, indexKOFSprites_02UM_Ralf },
-    { L"Ralf Electricity D", 0x8e40, 0x8e60, indexKOFSprites_02UM_Ralf, 0x00 },
-    { L"Ralf Soul D", 0x8e80, 0x8ea0, indexKOFSprites_02UM_Ralf, 0x00 },
-    { L"Ralf Shikai D", 0x8ec0, 0x8ee0, indexKOFSprites_02UM_Ralf, 0x00 },
+    { L"Ralf Jones D", 0x008e00, 0x008e20, indexKOF02UMSprites_Ralf },
+    { L"Ralf Electricity D", 0x8e40, 0x8e60, indexKOF02UMSprites_Ralf, 0x00 },
+    { L"Ralf Soul D", 0x8e80, 0x8ea0, indexKOF02UMSprites_Ralf, 0x00 },
+    { L"Ralf Shikai D", 0x8ec0, 0x8ee0, indexKOF02UMSprites_Ralf, 0x00 },
     { L"Ralf Victory D", 0x01fee0, 0x01ff20, indexKOF03Sprites_Ralf, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_CLARK_PALETTES_A[] =
 {
-    { L"Clark Steel A", 0x009000, 0x009020, indexKOFSprites_02UM_Clark },
-    { L"Clark Electricity A", 0x9040, 0x9060, indexKOFSprites_02UM_Clark, 0x00 },
-    { L"Clark Soul A", 0x9080, 0x90a0, indexKOFSprites_02UM_Clark, 0x00 },
-    { L"Clark Shikai A", 0x90c0, 0x90e0, indexKOFSprites_02UM_Clark, 0x00 },
+    { L"Clark Steel A", 0x009000, 0x009020, indexKOF02UMSprites_Clark },
+    { L"Clark Electricity A", 0x9040, 0x9060, indexKOF02UMSprites_Clark, 0x00 },
+    { L"Clark Soul A", 0x9080, 0x90a0, indexKOF02UMSprites_Clark, 0x00 },
+    { L"Clark Shikai A", 0x90c0, 0x90e0, indexKOF02UMSprites_Clark, 0x00 },
     { L"Clark Victory A", 0x01ff20, 0x01ff60, indexKOF03Sprites_Clark, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_CLARK_PALETTES_B[] =
 {
-    { L"Clark Steel B", 0x009200, 0x009220, indexKOFSprites_02UM_Clark },
-    { L"Clark Electricity B", 0x9240, 0x9260, indexKOFSprites_02UM_Clark, 0x00 },
-    { L"Clark Soul B", 0x9280, 0x92a0, indexKOFSprites_02UM_Clark, 0x00 },
-    { L"Clark Shikai B", 0x92c0, 0x92e0, indexKOFSprites_02UM_Clark, 0x00 },
+    { L"Clark Steel B", 0x009200, 0x009220, indexKOF02UMSprites_Clark },
+    { L"Clark Electricity B", 0x9240, 0x9260, indexKOF02UMSprites_Clark, 0x00 },
+    { L"Clark Soul B", 0x9280, 0x92a0, indexKOF02UMSprites_Clark, 0x00 },
+    { L"Clark Shikai B", 0x92c0, 0x92e0, indexKOF02UMSprites_Clark, 0x00 },
     { L"Clark Victory B", 0x01ff60, 0x01ffa0, indexKOF03Sprites_Clark, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_CLARK_PALETTES_C[] =
 {
-    { L"Clark Steel C", 0x009400, 0x009420, indexKOFSprites_02UM_Clark },
-    { L"Clark Electricity C", 0x9440, 0x9460, indexKOFSprites_02UM_Clark, 0x00 },
-    { L"Clark Soul C", 0x9480, 0x94a0, indexKOFSprites_02UM_Clark, 0x00 },
-    { L"Clark Shikai C", 0x94c0, 0x94e0, indexKOFSprites_02UM_Clark, 0x00 },
+    { L"Clark Steel C", 0x009400, 0x009420, indexKOF02UMSprites_Clark },
+    { L"Clark Electricity C", 0x9440, 0x9460, indexKOF02UMSprites_Clark, 0x00 },
+    { L"Clark Soul C", 0x9480, 0x94a0, indexKOF02UMSprites_Clark, 0x00 },
+    { L"Clark Shikai C", 0x94c0, 0x94e0, indexKOF02UMSprites_Clark, 0x00 },
     { L"Clark Victory C", 0x01ffa0, 0x01ffe0, indexKOF03Sprites_Clark, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_CLARK_PALETTES_D[] =
 {
-    { L"Clark Steel D", 0x009600, 0x009620, indexKOFSprites_02UM_Clark },
-    { L"Clark Electricity D", 0x9640, 0x9660, indexKOFSprites_02UM_Clark, 0x00 },
-    { L"Clark Soul D", 0x9680, 0x96a0, indexKOFSprites_02UM_Clark, 0x00 },
-    { L"Clark Shikai D", 0x96c0, 0x96e0, indexKOFSprites_02UM_Clark, 0x00 },
+    { L"Clark Steel D", 0x009600, 0x009620, indexKOF02UMSprites_Clark },
+    { L"Clark Electricity D", 0x9640, 0x9660, indexKOF02UMSprites_Clark, 0x00 },
+    { L"Clark Soul D", 0x9680, 0x96a0, indexKOF02UMSprites_Clark, 0x00 },
+    { L"Clark Shikai D", 0x96c0, 0x96e0, indexKOF02UMSprites_Clark, 0x00 },
     { L"Clark Victory D", 0x01ffe0, 0x020020, indexKOF03Sprites_Clark, 0x30 },
 };
 
@@ -957,7 +957,7 @@ const sGame_PaletteDataset KOF03_A_KING_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_SHIRANUI_PALETTES_A[] =
 {
-    { L"Mai Shiranui A", 0x00b800, 0x00b820, indexKOFSprites_02UM_Mai },
+    { L"Mai Shiranui A", 0x00b800, 0x00b820, indexKOF02UMSprites_Mai },
     { L"Flames A", 0x00b900, 0x00b920 },
     { L"Kachou Sen/Sachiyo Dori A", 0x00b928, 0x00b938 },
     { L"Mai Victory A", 0x020420, 0x020460, indexKOF03Sprites_Mai, 0x30 },
@@ -965,7 +965,7 @@ const sGame_PaletteDataset KOF03_A_SHIRANUI_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_SHIRANUI_PALETTES_B[] =
 {
-    { L"Mai Shiranui B", 0x00ba00, 0x00ba20, indexKOFSprites_02UM_Mai },
+    { L"Mai Shiranui B", 0x00ba00, 0x00ba20, indexKOF02UMSprites_Mai },
     { L"Flames B", 0x00bb00, 0x00bb20 },
     { L"Kachou Sen/Sachiyo Dori B", 0x00bb28, 0x00bb38 },
     { L"Mai Victory B", 0x020460, 0x0204a0, indexKOF03Sprites_Mai, 0x30 },
@@ -973,7 +973,7 @@ const sGame_PaletteDataset KOF03_A_SHIRANUI_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_SHIRANUI_PALETTES_C[] =
 {
-    { L"Mai Shiranui C", 0x00bc00, 0x00bc20, indexKOFSprites_02UM_Mai },
+    { L"Mai Shiranui C", 0x00bc00, 0x00bc20, indexKOF02UMSprites_Mai },
     { L"Flames C", 0x00bd00, 0x00bd20 },
     { L"Kachou Sen/Sachiyo Dori C", 0x00bd28, 0x00bd38 },
     { L"Mai Victory C", 0x0204a0, 0x0204e0, indexKOF03Sprites_Mai, 0x30 },
@@ -981,7 +981,7 @@ const sGame_PaletteDataset KOF03_A_SHIRANUI_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_SHIRANUI_PALETTES_D[] =
 {
-    { L"Mai Shiranui D", 0x00be00, 0x00be20, indexKOFSprites_02UM_Mai },
+    { L"Mai Shiranui D", 0x00be00, 0x00be20, indexKOF02UMSprites_Mai },
     { L"Flames D", 0x00bf00, 0x00bf20 },
     { L"Kachou Sen/Sachiyo Dori D", 0x00bf28, 0x00bf38 },
     { L"Mai Victory D", 0x0204e0, 0x020520, indexKOF03Sprites_Mai, 0x30 },
@@ -1089,25 +1089,25 @@ const sGame_PaletteDataset KOF03_A_SHINGO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_GORO_PALETTES_A[] =
 {
-    { L"Goro Daimon A", 0x00d800, 0x00d820, indexKOFSprites_02UM_Daimon },
+    { L"Goro Daimon A", 0x00d800, 0x00d820, indexKOF02UMSprites_Daimon },
     { L"Goro Victory A", 0x020820, 0x020860, indexKOF03Sprites_GoroDaimon, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_GORO_PALETTES_B[] =
 {
-    { L"Goro Daimon B", 0x00da00, 0x00da20, indexKOFSprites_02UM_Daimon },
+    { L"Goro Daimon B", 0x00da00, 0x00da20, indexKOF02UMSprites_Daimon },
     { L"Goro Victory B", 0x020860, 0x0208a0, indexKOF03Sprites_GoroDaimon, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_GORO_PALETTES_C[] =
 {
-    { L"Goro Daimon C", 0x00dc00, 0x00dc20, indexKOFSprites_02UM_Daimon },
+    { L"Goro Daimon C", 0x00dc00, 0x00dc20, indexKOF02UMSprites_Daimon },
     { L"Goro Victory C", 0x0208a0, 0x0208e0, indexKOF03Sprites_GoroDaimon, 0x30 },
 };
 
 const sGame_PaletteDataset KOF03_A_GORO_PALETTES_D[] =
 {
-    { L"Goro Daimon D", 0x00de00, 0x00de20, indexKOFSprites_02UM_Daimon },
+    { L"Goro Daimon D", 0x00de00, 0x00de20, indexKOF02UMSprites_Daimon },
     { L"Goro Victory D", 0x0208e0, 0x020920, indexKOF03Sprites_GoroDaimon, 0x30 },
 };
 
@@ -1265,7 +1265,7 @@ const sGame_PaletteDataset KOF03_A_K_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_MAXIMA_PALETTES_A[] =
 {
-    { L"Maxima A", 0x010000, 0x010020, indexKOFSprites_02UM_Maxima },
+    { L"Maxima A", 0x010000, 0x010020, indexKOF02UMSprites_Maxima },
     { L"Victory Pose Steam A", 0x010140, 0x010160 },
     { L"Vapour Cannon A", 0x0101a0, 0x0101c0 },
     { L"Bunker Buster 1 A", 0x010120, 0x010140 },
@@ -1277,7 +1277,7 @@ const sGame_PaletteDataset KOF03_A_MAXIMA_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_MAXIMA_PALETTES_B[] =
 {
-    { L"Maxima B", 0x010200, 0x010220, indexKOFSprites_02UM_Maxima },
+    { L"Maxima B", 0x010200, 0x010220, indexKOF02UMSprites_Maxima },
     { L"Victory Pose Steam B", 0x010340, 0x010360 },
     { L"Vapour Cannon B", 0x0103a0, 0x0103c0 },
     { L"Bunker Buster 1 B", 0x010320, 0x010340 },
@@ -1289,7 +1289,7 @@ const sGame_PaletteDataset KOF03_A_MAXIMA_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_MAXIMA_PALETTES_C[] =
 {
-    { L"Maxima C", 0x010400, 0x010420, indexKOFSprites_02UM_Maxima },
+    { L"Maxima C", 0x010400, 0x010420, indexKOF02UMSprites_Maxima },
     { L"Victory Pose Steam C", 0x010540, 0x010560 },
     { L"Vapour Cannon C", 0x0105a0, 0x0105c0 },
     { L"Bunker Buster 1 C", 0x010520, 0x010540 },
@@ -1301,7 +1301,7 @@ const sGame_PaletteDataset KOF03_A_MAXIMA_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_MAXIMA_PALETTES_D[] =
 {
-    { L"Maxima D", 0x010600, 0x010620, indexKOFSprites_02UM_Maxima },
+    { L"Maxima D", 0x010600, 0x010620, indexKOF02UMSprites_Maxima },
     { L"Victory Pose Steam D", 0x010740, 0x010760 },
     { L"Vapour Cannon D", 0x0107a0, 0x0107c0 },
     { L"Bunker Buster 1 D", 0x010720, 0x010740 },
@@ -1385,7 +1385,7 @@ const sGame_PaletteDataset KOF03_A_KYO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_IORI_PALETTES_A[] =
 {
-    { L"Iori Yagami A", 0x011800, 0x011820, indexKOFSprites_02UM_Iori },
+    { L"Iori Yagami A", 0x011800, 0x011820, indexKOF02UMSprites_Iori },
     { L"IY-Yami Barai A", 0x011920, 0x011932 },
     { L"IY-Oniyaki A", 0x011900, 0x011920 },
     { L"Saika/Sakazuki A", 0x011960, 0x011980 },
@@ -1395,7 +1395,7 @@ const sGame_PaletteDataset KOF03_A_IORI_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_IORI_PALETTES_B[] =
 {
-    { L"Iori Yagami B", 0x011a00, 0x011a20, indexKOFSprites_02UM_Iori },
+    { L"Iori Yagami B", 0x011a00, 0x011a20, indexKOF02UMSprites_Iori },
     { L"IY-Yami Barai B", 0x011b20, 0x011b32 },
     { L"IY-Oniyaki B", 0x011b00, 0x011b20 },
     { L"Saika/Sakazuki B", 0x011b60, 0x011b80 },
@@ -1405,7 +1405,7 @@ const sGame_PaletteDataset KOF03_A_IORI_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_IORI_PALETTES_C[] =
 {
-    { L"Iori Yagami C", 0x011c00, 0x011c20, indexKOFSprites_02UM_Iori },
+    { L"Iori Yagami C", 0x011c00, 0x011c20, indexKOF02UMSprites_Iori },
     { L"IY-Yami Barai C", 0x011d20, 0x011d32 },
     { L"IY-Oniyaki C", 0x011d00, 0x011d20 },
     { L"Saika/Sakazuki C", 0x011d60, 0x011d80 },
@@ -1415,7 +1415,7 @@ const sGame_PaletteDataset KOF03_A_IORI_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_IORI_PALETTES_D[] =
 {
-    { L"Iori Yagami D", 0x011e00, 0x011e20, indexKOFSprites_02UM_Iori },
+    { L"Iori Yagami D", 0x011e00, 0x011e20, indexKOF02UMSprites_Iori },
     { L"IY-Yami Barai D", 0x011f20, 0x011f32 },
     { L"IY-Oniyaki D", 0x011f00, 0x011f20 },
     { L"Saika/Sakazuki D", 0x011f60, 0x011f80 },

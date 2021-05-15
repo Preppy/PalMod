@@ -3,11 +3,11 @@
 // These are hand-generated: don't remove these.
 const UINT16 KOF99AE_A_IMG_UNITS[] =
 {
-    indexKOFSprites_98Kensou,
-    indexKOFSprites_02UM_Chin,
-    indexKOFSprites_98Choi,
+    indexKOF98Sprites_Kensou,
+    indexKOF02UMSprites_Chin,
+    indexKOF98Sprites_Choi,
 
-    indexKOFSprites_02UM_Bao,
+    indexKOF02UMSprites_Bao,
 
     indexKOF99Sprites_Andy,         // 0x17f
     indexKOF99Sprites_Athena,       // 0x180

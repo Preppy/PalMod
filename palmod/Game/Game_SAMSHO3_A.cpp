@@ -159,7 +159,7 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         // Status effects
         for (UINT16 nStatusIndex = 0; nStatusIndex < 64; nStatusIndex++)
@@ -250,7 +250,7 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(L"const sDescTreeNode SAMSHO3_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -272,7 +272,7 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_%s_COLLECTION, ARRAYSIZE(SAMSHO3_A_%s_COLLECTION) },\r\n", rgCharacters[nCharIndex], szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);

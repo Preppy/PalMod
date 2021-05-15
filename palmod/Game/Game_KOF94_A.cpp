@@ -237,7 +237,7 @@ void CGame_KOF94_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF94_A_CharacterEffectPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF94_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF94_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
 
         for (UINT16 nCharacterColor = 0; nCharacterColor < 2; nCharacterColor++)
         {
@@ -362,7 +362,7 @@ void CGame_KOF94_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF94_A_CharacterEffectPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF94_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF94_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOF94_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -370,7 +370,7 @@ void CGame_KOF94_A::DumpPaletteHeaders()
         for (UINT16 nColorIndex = 0; nColorIndex < 2; nColorIndex++)
         {
             WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
-            StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_NEOGEO[nColorIndex]);
+            StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_NEOGEO[nColorIndex]);
 
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF94_A_%s_%s_PALETTES, ARRAYSIZE(KOF94_A_%s_%s_PALETTES) },\r\n", DEF_BUTTONLABEL_2_NEOGEO[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);

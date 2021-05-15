@@ -211,7 +211,7 @@ void CGame_KOFXI_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
 
         for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_KOFXI); iButtonIndex++)
         {
@@ -293,7 +293,7 @@ void CGame_KOFXI_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOFXI_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -315,7 +315,7 @@ void CGame_KOFXI_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOFXI_A_%s_COLLECTION, ARRAYSIZE(KOFXI_A_%s_COLLECTION) },\r\n", kofXICharacterList[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);

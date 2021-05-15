@@ -125,7 +125,6 @@ const sGame_PaletteDataset SF2HF_A_RYU_PORTRAITS_NODE[] =
     { L"Ryu P1", 0x9400 - 0x02, 0x9420 - 0x02 },
     { L"Ryu P2", 0x9600 - 0x02, 0x9620 - 0x02 },
     { L"Ryu 2 Part 2", 0x95a0 - 0x02, 0x95c0 - 0x02 },
-
 };
 
 const sGame_PaletteDataset SF2HF_A_EHONDA_PORTRAITS_NODE[] =

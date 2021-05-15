@@ -738,7 +738,7 @@ const sDescTreeNode MVC2_A_ANAKARIS_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x2a2c5e0, 0x2a2c600, indexCPS2_Strider, 0 },
+    { L"Main Color LP", 0x2a2c5e0, 0x2a2c600, indexCPS2_Strider, 0, &pairFullyLinkedNode },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2c600, 0x2a2c620, indexCPS2_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2c620, 0x2a2c640, indexCPS2_Strider, 2 },
     { L"(04) Not Used", 0x2a2c640, 0x2a2c660, indexCPS2_Strider, 3 },
@@ -750,7 +750,7 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x2a2c6e0, 0x2a2c700, indexCPS2_Strider, 0 },
+    { L"Main Color LK", 0x2a2c6e0, 0x2a2c700, indexCPS2_Strider, 0, &pairFullyLinkedNode },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2c700, 0x2a2c720, indexCPS2_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2c720, 0x2a2c740, indexCPS2_Strider, 2 },
     { L"(04) Not Used", 0x2a2c740, 0x2a2c760, indexCPS2_Strider, 3 },
@@ -762,7 +762,7 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x2a2c7e0, 0x2a2c800, indexCPS2_Strider, 0 },
+    { L"Main Color HP", 0x2a2c7e0, 0x2a2c800, indexCPS2_Strider, 0, &pairFullyLinkedNode },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2c800, 0x2a2c820, indexCPS2_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2c820, 0x2a2c840, indexCPS2_Strider, 2 },
     { L"(04) Not Used", 0x2a2c840, 0x2a2c860, indexCPS2_Strider, 3 },
@@ -774,7 +774,7 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x2a2c8e0, 0x2a2c900, indexCPS2_Strider, 0 },
+    { L"Main Color HK", 0x2a2c8e0, 0x2a2c900, indexCPS2_Strider, 0, &pairFullyLinkedNode },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2c900, 0x2a2c920, indexCPS2_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2c920, 0x2a2c940, indexCPS2_Strider, 2 },
     { L"(04) Not Used", 0x2a2c940, 0x2a2c960, indexCPS2_Strider, 3 },
@@ -786,7 +786,7 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x2a2c9e0, 0x2a2ca00, indexCPS2_Strider, 0 },
+    { L"Main Color A1", 0x2a2c9e0, 0x2a2ca00, indexCPS2_Strider, 0, &pairFullyLinkedNode },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2ca00, 0x2a2ca20, indexCPS2_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2ca20, 0x2a2ca40, indexCPS2_Strider, 2 },
     { L"(04) Not Used", 0x2a2ca40, 0x2a2ca60, indexCPS2_Strider, 3 },
@@ -798,7 +798,7 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x2a2cae0, 0x2a2cb00, indexCPS2_Strider, 0 },
+    { L"Main Color A2", 0x2a2cae0, 0x2a2cb00, indexCPS2_Strider, 0, &pairFullyLinkedNode },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2cb00, 0x2a2cb20, indexCPS2_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2cb20, 0x2a2cb40, indexCPS2_Strider, 2 },
     { L"(04) Not Used", 0x2a2cb40, 0x2a2cb60, indexCPS2_Strider, 3 },

@@ -5,6 +5,7 @@
 #include "Game_AOF1_A.h"
 #include "Game_AOF3_A.h"
 #include "Game_Bleach_DS.h"
+#include "Game_BMKNS_SNES.h"
 #include "Game_Breakers_A.h"
 #include "Game_CFTE_SNES.h"
 #include "Game_COTA_A.h"
@@ -110,7 +111,7 @@
 #include "..\resource.h"
 #include "..\palmod.h"
 
-void StrRemoveNonASCII(WCHAR* pszOutput, size_t ccSize, LPCWSTR pszInput)
+void StrRemoveNonASCII(WCHAR* pszOutput, size_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
     size_t iStrOutputIndex = 0;
 
@@ -128,11 +129,23 @@ void StrRemoveNonASCII(WCHAR* pszOutput, size_t ccSize, LPCWSTR pszInput)
         }
         else if ((pszInput[iStrIndex] >= 'a') && (pszInput[iStrIndex] <= 'z'))
         {
-            pszOutput[iStrOutputIndex++] = pszInput[iStrIndex] - 32;
+            if (fForceUpperCase)
+            {
+                pszOutput[iStrOutputIndex++] = pszInput[iStrIndex] - 32;
+            }
+            else
+            {
+                pszOutput[iStrOutputIndex++] = pszInput[iStrIndex];
+            }
         }
     }
 
     pszOutput[iStrOutputIndex] = 0;
+}
+
+void StruprRemoveNonASCII(WCHAR* pszOutput, size_t ccSize, LPCWSTR pszInput)
+{
+    StrRemoveNonASCII(pszOutput, ccSize, pszInput, true);
 }
 
 CGameLoad::CGameLoad(void)
@@ -165,6 +178,12 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
 
+    case BMKNS_SNES:
+    {
+        GetRule = &CGame_BMKNS_SNES::GetRule;
+        return TRUE;
+    }
+    
     case BREAKERS_A:
     {
         GetRule = &CGame_BREAKERS_A::GetRule;
@@ -818,7 +837,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_BLEACH_DS(nConfirmedROMSize);
     }
-
+    case BMKNS_SNES:
+    {
+        return new CGame_BMKNS_SNES(nConfirmedROMSize);
+    }
     case BREAKERS_A:
     {
         return new CGame_BREAKERS_A(nConfirmedROMSize);

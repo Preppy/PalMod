@@ -92,15 +92,15 @@ const sGame_PaletteDataset MSHWOTG_EWOLVERINE_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BONUS_INTRO_PALETTES[] =
 {
-    { L"Captain America Intro Portrait Part 1", 0x771EC, 0x7720C },
-    { L"Captain America Intro Portrait Part 2", 0x784B8, 0x784D8 },
-    { L"Iron Man Intro Portrait Part 1", 0x771AC, 0x771CC },
-    { L"Iron Man Intro Portrait Part 2", 0x78478, 0x78498 },
-    { L"Hulk Intro Portrait", 0x771CC, 0x771EC },
-    { L"Spider-Man Intro Portrait Part 1", 0x7718C, 0x771AC },
-    { L"Spider-Man Intro Portrait Part 2", 0x78458, 0x78478 },
-    { L"Wolverine Intro Portrait Part 1", 0x7716C, 0x7718C },
-    { L"Wolverine Intro Portrait Part 2", 0x78438, 0x78458 },
+    { L"Captain America Intro Portrait Part 1", 0x771EC, 0x7720C, indexMSHWOTGSprites_Bonus, 0x00, &pairNext },
+    { L"Captain America Intro Portrait Part 2", 0x784B8, 0x784D8, indexMSHWOTGSprites_Bonus, 0x01 },
+    { L"Hulk Intro Portrait",                   0x771CC, 0x771EC, indexMSHWOTGSprites_Bonus, 0x02 },
+    { L"Iron Man Intro Portrait Part 1",        0x771AC, 0x771CC, indexMSHWOTGSprites_Bonus, 0x03, &pairNext },
+    { L"Iron Man Intro Portrait Part 2",        0x78478, 0x78498, indexMSHWOTGSprites_Bonus, 0x04 },
+    { L"Spider-Man Intro Portrait Part 1",      0x7718C, 0x771AC, indexMSHWOTGSprites_Bonus, 0x05, &pairNext },
+    { L"Spider-Man Intro Portrait Part 2",      0x78458, 0x78478, indexMSHWOTGSprites_Bonus, 0x06 },
+    { L"Wolverine Intro Portrait Part 1",       0x7716C, 0x7718C, indexMSHWOTGSprites_Bonus, 0x07, &pairNext },
+    { L"Wolverine Intro Portrait Part 2",       0x78438, 0x78458, indexMSHWOTGSprites_Bonus, 0x08 },
 };
 
 const sGame_PaletteDataset MSHWOTG_BONUS_CSP_PALETTES[] =
@@ -117,11 +117,11 @@ const sGame_PaletteDataset MSHWOTG_BONUS_CSP_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BONUS_VSP_PALETTES[] =
 {
-    { L"Captain America VSP", 0x67055, 0x67075 },
-    { L"Iron Man VSP", 0x65E98, 0x65EB8 },
-    { L"Hulk VSP", 0x683A4, 0x683C4 },
-    { L"Spider-Man VSP", 0x6907B, 0x6909B },
-    { L"Wolverine VSP", 0x5E7D1, 0x5E7F1 },
+    { L"Captain America VSP",   0x67055, 0x67075, indexMSHWOTGSprites_CapAmerica, 0x41 },
+    { L"Hulk VSP",              0x683A4, 0x683C4, indexMSHWOTGSprites_Hulk, 0x41 },
+    { L"Iron Man VSP",          0x65E98, 0x65EB8, indexMSHWOTGSprites_IronMan, 0x41 },
+    { L"Spider-Man VSP",        0x6907B, 0x6909B, indexMSHWOTGSprites_SpiderMan, 0x41 },
+    { L"Wolverine VSP",         0x5E7D1, 0x5E7F1, indexMSHWOTGSprites_Wolverine, 0x41 },
 };
 
 const sGame_PaletteDataset MSHWOTG_BONUS_ENDING_PALETTES[] =

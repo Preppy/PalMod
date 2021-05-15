@@ -158,9 +158,9 @@ sBreakers_CharacterDump breakersCharacterList[] =
     { L"Terry", 0x19b8000 }, // 0x19b9800
     { L"Kim", 0x1b58000 }, // 0x1b59800
     { L"Duck King", 0x1c8f800 }, // 0x1c91000
-    { L"Ryo", 0x1df4000, L"indexKOFSprites_02UM_Ryo" }, // 0x1df5800
+    { L"Ryo", 0x1df4000, L"indexKOF02UMSprites_Ryo" }, // 0x1df5800
     { L"Yuri", 0x1f5f000 }, // 0x1f60800
-    { L"King", 0x20ba800, L"indexKOFSprites_02UM_King" }, // 0x20bc000
+    { L"King", 0x20ba800, L"indexKOF02UMSprites_King" }, // 0x20bc000
     { L"B. Jenet", 0x21c5800 }, // 0x21c7000
     { L"Gato", 0x2381000 }, // 0x2382800
     { L"Tizoc/The Griffon", 0x24e1000 }, // 0x24e2800
@@ -170,18 +170,18 @@ sBreakers_CharacterDump breakersCharacterList[] =
     { L"Athena", 0x2a9d800 }, // 0x2a9f000
     { L"Kensou", 0x2c52800 }, // 0x2c54000
     { L"Momoko", 0x2dd9000 }, // 0x2dda800
-    { L"Vanessa", 0x2f98000, L"indexKOFSprites_02UM_Vanessa" }, // 0x2f99800
+    { L"Vanessa", 0x2f98000, L"indexKOF02UMSprites_Vanessa" }, // 0x2f99800
     { L"Blue Mary", 0x30ef000 }, // 0x30f0800
-    { L"Ramon", 0x3257000, L"indexKOFSprites_02UM_Ramon" }, // 0x3258800
+    { L"Ramon", 0x3257000, L"indexKOF02UMSprites_Ramon" }, // 0x3258800
     { L"Malin", 0x33b3800 }, // 0x33b5000
     { L"Kasumi", 0x34e4800 }, // 0x34e6000
     { L"Eiji", 0x3609800 }, // 0x360b000
-    { L"K'", 0x3763800, L"indexKOFSprites_02UM_K" }, // 0x3765000
-    { L"Kula", 0x3901800, L"indexKOFSprites_02UM_Kula" }, // 0x3903000
-    { L"Maxima", 0x3ab6800, L"indexKOFSprites_02UM_Maxima" }, // 0x3ab8000
+    { L"K'", 0x3763800, L"indexKOF02UMSprites_K" }, // 0x3765000
+    { L"Kula", 0x3901800, L"indexKOF02UMSprites_Kula" }, // 0x3903000
+    { L"Maxima", 0x3ab6800, L"indexKOF02UMSprites_Maxima" }, // 0x3ab8000
     { L"Kyo", 0x3c57800 }, // 0x3c59000
-    { L"Iori", 0x3df6000, L"indexKOFSprites_02UM_Iori" }, // 0x3df7800
-    { L"Shingo", 0x3fc5800, L"indexKOFSprites_02UM_Shingo" }, // 0x3fc7000
+    { L"Iori", 0x3df6000, L"indexKOF02UMSprites_Iori" }, // 0x3df7800
+    { L"Shingo", 0x3fc5800, L"indexKOF02UMSprites_Shingo" }, // 0x3fc7000
     { L"Gai", 0x40d3000 }, // 0x40d4800
     { L"Sho", 0x420f800 }, // 0x4211000
     { L"Adelheid", 0x4366800 }, // 0x4368000
@@ -201,7 +201,7 @@ void CGame_BREAKERS_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
         for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO); iButtonIndex++)
         {
@@ -279,7 +279,7 @@ void CGame_BREAKERS_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode BREAKERS_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -301,7 +301,7 @@ void CGame_BREAKERS_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)BREAKERS_A_%s_COLLECTION, ARRAYSIZE(BREAKERS_A_%s_COLLECTION) },\r\n", breakersCharacterList[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);

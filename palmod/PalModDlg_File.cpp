@@ -16,8 +16,9 @@ sSupportedGameList SupportedGameList[] =
 {
     { AOF1_A,           L"Art of Fighting 1", L"Art of Fighting 1|044-p1.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
+    { BMKNS_SNES,       L"Battle Master: KnS (SNES)", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).sfc|", GamePlatform::Nintendo },
+    { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo }, // Sega
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.p1|", GamePlatform::NEOGEO },
-    { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo }, // Sega
     { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).sfc|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
     { CVS2_A,           L"CVS2", L"CVS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
@@ -893,7 +894,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
 
             for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
             {
-                pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(pAct[(iACTIndex * 3)]);
+                pPal[(iCurrentIndexInPalette * 4)]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(pAct[(iACTIndex * 3)]);
                 pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(pAct[(iACTIndex * 3) + 1]);
                 pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(pAct[(iACTIndex * 3) + 2]);
 
@@ -1092,7 +1093,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
                             for (int iAbsoluteColorIndex = 0; iAbsoluteColorIndex < nTotalNumberOfCurrentPaletteColors; iAbsoluteColorIndex++, nTotalColorsUsed++)
                             {
                                 // copy over the RGB data, skipping the A value
-                                pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(pPALFileData[(iPALDataIndex * 4)]);
+                                pPal[(iCurrentIndexInPalette * 4)] =     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(pPALFileData[(iPALDataIndex * 4)]);
                                 pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(pPALFileData[(iPALDataIndex * 4) + 1]);
                                 pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(pPALFileData[(iPALDataIndex * 4) + 2]);
 
@@ -1244,7 +1245,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                 else if (strcmp(chunkType, "PLTE") == 0)
                 {
                     fFoundPaletteData = true;
-                    char* paszPaletteData = new char[chunkLength];
+                    UINT8* paszPaletteData = new UINT8[chunkLength];
 
                     READFROMFILEANDDECREMENT(paszPaletteData, chunkLength);
                     READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
@@ -1320,7 +1321,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                         for (UINT32 iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                         {
-                            pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3)]);
+                            pPal[(iCurrentIndexInPalette * 4)]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3)]);
                             pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3) + 1]);
                             pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3) + 2]);
 
@@ -1373,7 +1374,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                         for (UINT32 iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                         {
-                            pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3)]);
+                            pPal[(iCurrentIndexInPalette * 4)] =     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3)]);
                             pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3) + 1]);
                             pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3) + 2]);
 
@@ -1591,7 +1592,7 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
 
                             for (int iCurrentIndexInPalette = 0; iCurrentIndexInPalette < nDLCColorCount; iCurrentIndexInPalette++)
                             {
-                                pVisiblePalette[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(pDLCColors[iCurrentIndexInPalette]));
+                                pVisiblePalette[(iCurrentIndexInPalette * 4)]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(pDLCColors[iCurrentIndexInPalette]));
                                 pVisiblePalette[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(pDLCColors[iCurrentIndexInPalette]));
                                 pVisiblePalette[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(pDLCColors[iCurrentIndexInPalette]));
                             }
@@ -1824,9 +1825,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName)
     CFile GPLFile;
 
     // Save to GPL file.
-    // In debug builds this will trigger what appears to be a bogus assert in CFile which is stating that
-    // typeText is not supported.  But it is ... just appears to be a random bad assert.
-    if (GPLFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite | CFile::typeText))
+    if (GPLFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite))
     {
         char szBuffer[MAX_PATH];
 

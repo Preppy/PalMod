@@ -901,12 +901,15 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_GORA_PALETTES[] =
 {
-    { L"Gora - Moon/Sky", 0x737D00, 0x737D80 },
-    { L"Gora - Ground/Foilage", 0x737D80, 0x737E00 },
-    { L"Gora - Planes/Rocks", 0x737E00, 0x737F00 },
-    { L"Gora - ???", 0x737F00, 0x737F80 },
-    { L"Gora - Foreground debris", 0x737F80, 0x738000 },
-    { L"Gora - ???", 0x738000, 0x738080 },
+    { L"Gora - Moon/Sky",           0x737D00, 0x737D80, indexRedEarthSprites_Stages, 0x00, &pairFullyLinkedNode },
+    { L"Gora - Planes/Rocks",       0x737E00, 0x737F00, indexRedEarthSprites_Stages, 0x03 },
+    //{ L"Gora - Moon/Sky: but also left structure",           0x737D00, 0x737D80, indexRedEarthSprites_Stages, 0x04 },
+    //{ L"Gora - Ground/Foilage: plant",     0x737D80, 0x737E00, indexRedEarthSprites_Stages, 0x02 },
+    { L"Gora - Ground/Foilage: foreground",     0x737D80, 0x737E00, indexRedEarthSprites_Stages, 0x01 },
+    { L"Gora - Foreground debris: middle skull",  0x737F80, 0x738000, indexRedEarthSprites_Stages, 0x05 },
+    //{ L"Gora - Foreground debris: right",  0x737F80, 0x738000, indexRedEarthSprites_Stages, 0x06 },
+    { L"Gora - ???",                0x737F00, 0x737F80 },
+    { L"Gora - ???",                0x738000, 0x738080 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_GREEDIA_PALETTES[] =
@@ -1101,16 +1104,16 @@ const sDescTreeNode REDEARTH_A_UNITS_30[] =
     { L"Gora",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GORA_COLLECTION) },
     { L"Icelarn",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_COLLECTION) },
     
-    { L"Greedia Ruins",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_COLLECTION) },
-    { L"Zipang on Fire",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_COLLECTION) },
-    { L"Crypt",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_COLLECTION) },
-    { L"Darminor",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DARMINOR_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_DARMINOR_COLLECTION) },
-    { L"Scion's Lair",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SCION_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SCION_COLLECTION) },
+    { L"Greedia Ruins",     DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_COLLECTION) },
+    { L"Zipang on Fire",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_COLLECTION) },
+    { L"Crypt",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_COLLECTION) },
+    { L"Darminor",          DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DARMINOR_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_DARMINOR_COLLECTION) },
+    { L"Scion's Lair",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SCION_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SCION_COLLECTION) },
     
     // skipped this for now: it's 87 pages long
-    //{ L"Intro: Leo's Swing",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_LEO_COLLECTION, ARRAYSIZE(REDEARTH_A_30_LEO_COLLECTION) },
-    { L"Intro: Hauzer Fire",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_HAUZER_COLLECTION, ARRAYSIZE(REDEARTH_A_30_HAUZER_COLLECTION) },
-    { L"Bonus Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_30_BONUS_COLLECTION) },
+    //{ L"Intro: Leo's Swing",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_LEO_COLLECTION, ARRAYSIZE(REDEARTH_A_30_LEO_COLLECTION) },
+    { L"Intro: Hauzer Fire",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_HAUZER_COLLECTION, ARRAYSIZE(REDEARTH_A_30_HAUZER_COLLECTION) },
+    { L"Bonus Palettes",        DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_30_BONUS_COLLECTION) },
 };
 
 const sGame_PaletteDataset REDEARTH_A_50_NEXT_PALETTES[] =

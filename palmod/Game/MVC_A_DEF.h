@@ -965,14 +965,14 @@ const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_STRIDER_PALETTES_P1[] =
 {
-    { L"P1 Color", 0x48e02, 0x48e22, indexCPS2_Strider },
+    { L"P1 Color", 0x48e02, 0x48e22, indexCPS2_Strider, 0x00, &pairFullyLinkedNode },
     { L"P1 FX", 0x48e22, 0x48e42, indexCPS2_Strider, 1 },
     { L"P1 Mech", 0x48e42, 0x48e62, indexCPS2_Strider, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_STRIDER_PALETTES_P2[] =
 {
-    { L"P2 Color", 0x48e62, 0x48e82, indexCPS2_Strider },
+    { L"P2 Color", 0x48e62, 0x48e82, indexCPS2_Strider, 0x00, &pairFullyLinkedNode },
     { L"P2 FX", 0x48e82, 0x48ea2, indexCPS2_Strider, 1 },
     { L"P2 Mech", 0x48ea2, 0x48ec2, indexCPS2_Strider, 2 },
 };

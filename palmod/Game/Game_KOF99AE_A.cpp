@@ -632,7 +632,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         for (UINT16 nCharColorIndex = 0; nCharColorIndex < nColorOptionsPerCharacter; nCharColorIndex++)
         {
@@ -735,7 +735,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOF99AE_A_P%u_%s_COLLECTION[] = \r\n{\r\n", nHeaderSetToDump, szCodeDesc);
         OutputDebugString(strOutput);
@@ -743,7 +743,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
         for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
             WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
-            StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), ppszButtonLabels[nColorIndex]);
+            StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), ppszButtonLabels[nColorIndex]);
 
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF99AE_A_%s_%s_PALETTES, ARRAYSIZE(KOF99AE_A_%s_%s_PALETTES) },\r\n", ppszButtonLabels[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);
@@ -765,7 +765,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF99AE_A_P%u_%s_COLLECTION, ARRAYSIZE(KOF99AE_A_P%u_%s_COLLECTION) },\r\n", KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName, nHeaderSetToDump, szCodeDesc, nHeaderSetToDump, szCodeDesc);
         OutputDebugString(strOutput);

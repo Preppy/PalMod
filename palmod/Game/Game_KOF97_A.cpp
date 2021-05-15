@@ -133,7 +133,7 @@ struct sKOF97_A_PaletteData
 {
     LPCWSTR pszCharacterName;
     UINT32 nROMOffset = 0;
-    LPCWSTR pszImageSet = L"indexKOFSprites_98Kyo";
+    LPCWSTR pszImageSet = L"indexKOF98Sprites_Kyo";
     bool rgIsEffectUsed[14];
     bool fIsPaired = false;
     bool fUsesEffects = true;
@@ -144,41 +144,41 @@ sKOF97_A_PaletteData KOF97_A_CharacterPalettes[] =
 {
     // These effects use a random number of palettes per character.  The rgIsEffectUsed array keeps track of this for us.
     //                                                                            1  2  3  4  5  6  7  8  9  a  b  c  d  e
-    { L"Kyo",       0x2D1FF0 + (0x800 *  0), L"indexKOFSprites_98Kyo",          { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Kyo",       0x2D1FF0 + (0x800 *  0), L"indexKOF98Sprites_Kyo",          { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Benimaru",  0x2D1FF0 + (0x800 *  1), L"indexKOF97Sprites_Benimaru",     { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Daimon",    0x2D1FF0 + (0x800 *  2), L"indexKOFSprites_98Daimon",       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, false, false },
-    { L"Terry",     0x2D1FF0 + (0x800 *  3), L"indexKOFSprites_98Terry",        { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Daimon",    0x2D1FF0 + (0x800 *  2), L"indexKOF98Sprites_Daimon",       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, false, false },
+    { L"Terry",     0x2D1FF0 + (0x800 *  3), L"indexKOF98Sprites_Terry",        { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Andy",      0x2D1FF0 + (0x800 *  4), L"indexKOF97Sprites_Andy",         { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Joe",       0x2D1FF0 + (0x800 *  5), L"indexKOFSprites_98Joe",          { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Ryo",       0x2D1FF0 + (0x800 *  6), L"indexKOFSprites_98Ryo",          { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 } },
-    { L"Robert",    0x2D1FF0 + (0x800 *  7), L"indexKOFSprites_98Robert",       { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Yuri",      0x2D1FF0 + (0x800 *  8), L"indexKOFSprites_98Yuri",         { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Leona",     0x2D1FF0 + (0x800 *  9), L"indexKOFSprites_98Leona",        { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Ralf",      0x2D1FF0 + (0x800 * 10), L"indexKOFSprites_98Ralf",         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true, false },
-    { L"Clark",     0x2D1FF0 + (0x800 * 11), L"indexKOFSprites_98Clark",        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true, false },
+    { L"Joe",       0x2D1FF0 + (0x800 *  5), L"indexKOF98Sprites_Joe",          { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Ryo",       0x2D1FF0 + (0x800 *  6), L"indexKOF98Sprites_Ryo",          { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 } },
+    { L"Robert",    0x2D1FF0 + (0x800 *  7), L"indexKOF98Sprites_Robert",       { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Yuri",      0x2D1FF0 + (0x800 *  8), L"indexKOF98Sprites_Yuri",         { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Leona",     0x2D1FF0 + (0x800 *  9), L"indexKOF98Sprites_Leona",        { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Ralf",      0x2D1FF0 + (0x800 * 10), L"indexKOF98Sprites_Ralf",         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true, false },
+    { L"Clark",     0x2D1FF0 + (0x800 * 11), L"indexKOF98Sprites_Clark",        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true, false },
     { L"Athena",    0x2D1FF0 + (0x800 * 12), L"indexKOF97Sprites_Athena",       { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 } },
-    { L"Kensou",    0x2D1FF0 + (0x800 * 13), L"indexKOFSprites_98Kensou",       { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Chin",      0x2D1FF0 + (0x800 * 14), L"indexKOFSprites_98Chin",         { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Chizuru",   0x2D1FF0 + (0x800 * 15), L"indexKOFSprites_98Chizuru",      { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Mai",       0x2D1FF0 + (0x800 * 16), L"indexKOFSprites_98Mai",          { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"King",      0x2D1FF0 + (0x800 * 17), L"indexKOFSprites_98King",         { 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Kim",       0x2D1FF0 + (0x800 * 18), L"indexKOFSprites_98Kim",          { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, false, false },
-    { L"Chang",     0x2D1FF0 + (0x800 * 19), L"indexKOFSprites_98Chang",        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true, false },
-    { L"Choi",      0x2D1FF0 + (0x800 * 20), L"indexKOFSprites_98Choi",         { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Yamazaki",  0x2D1FF0 + (0x800 * 21), L"indexKOFSprites_98Yamazaki",     { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Blue Mary", 0x2D1FF0 + (0x800 * 22), L"indexKOFSprites_98BlueMary",     { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Billy",     0x2D1FF0 + (0x800 * 23), L"indexKOFSprites_98Billy",        { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Yashiro",   0x2D1FF0 + (0x800 * 24), L"indexKOFSprites_98Yashiro",      { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1 } },
-    { L"Shermie",   0x2D1FF0 + (0x800 * 25), L"indexKOFSprites_98Shermie",      { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1 } },
-    { L"Chris",     0x2D1FF0 + (0x800 * 26), L"indexKOFSprites_98Chris",        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0 } },
-    { L"Iori",      0x2D1FF0 + (0x800 * 27), L"indexKOFSprites_98Iori",         { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Orochi Iori",   0x2D1FF0 + (0x800 * 28), L"indexKOFSprites_98Iori",     { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Orochi Leona",  0x2D1FF0 + (0x800 * 29), L"indexKOFSprites_98Leona",    { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Kensou",    0x2D1FF0 + (0x800 * 13), L"indexKOF98Sprites_Kensou",       { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Chin",      0x2D1FF0 + (0x800 * 14), L"indexKOF98Sprites_Chin",         { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Chizuru",   0x2D1FF0 + (0x800 * 15), L"indexKOF98Sprites_Chizuru",      { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Mai",       0x2D1FF0 + (0x800 * 16), L"indexKOF98Sprites_Mai",          { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"King",      0x2D1FF0 + (0x800 * 17), L"indexKOF98Sprites_King",         { 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Kim",       0x2D1FF0 + (0x800 * 18), L"indexKOF98Sprites_Kim",          { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, false, false },
+    { L"Chang",     0x2D1FF0 + (0x800 * 19), L"indexKOF98Sprites_Chang",        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true, false },
+    { L"Choi",      0x2D1FF0 + (0x800 * 20), L"indexKOF98Sprites_Choi",         { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Yamazaki",  0x2D1FF0 + (0x800 * 21), L"indexKOF98Sprites_Yamazaki",     { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Blue Mary", 0x2D1FF0 + (0x800 * 22), L"indexKOF98Sprites_BlueMary",     { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Billy",     0x2D1FF0 + (0x800 * 23), L"indexKOF98Sprites_Billy",        { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Yashiro",   0x2D1FF0 + (0x800 * 24), L"indexKOF98Sprites_Yashiro",      { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1 } },
+    { L"Shermie",   0x2D1FF0 + (0x800 * 25), L"indexKOF98Sprites_Shermie",      { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1 } },
+    { L"Chris",     0x2D1FF0 + (0x800 * 26), L"indexKOF98Sprites_Chris",        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0 } },
+    { L"Iori",      0x2D1FF0 + (0x800 * 27), L"indexKOF98Sprites_Iori",         { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Orochi Iori",   0x2D1FF0 + (0x800 * 28), L"indexKOF98Sprites_Iori",     { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Orochi Leona",  0x2D1FF0 + (0x800 * 29), L"indexKOF98Sprites_Leona",    { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Orochi",    0x2D1FF0 + (0x800 * 30), L"indexKOF97Sprites_Orochi",       { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Shingo",    0x2D1FF0 + (0x800 * 31), L"indexKOFSprites_98Shingo",       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, false, false },
-    { L"Orochi Yashiro",    0x2D1FF0 + (0x800 * 32), L"indexKOFSprites_98Yashiro", { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1 } },
-    { L"Orochi Shermie",    0x2D1FF0 + (0x800 * 33), L"indexKOFSprites_98Shermie", { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1 } },
-    { L"Orochi Chris",      0x2D1FF0 + (0x800 * 34), L"indexKOFSprites_98Chris",   { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0 } },
+    { L"Shingo",    0x2D1FF0 + (0x800 * 31), L"indexKOF98Sprites_Shingo",       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, false, false },
+    { L"Orochi Yashiro",    0x2D1FF0 + (0x800 * 32), L"indexKOF98Sprites_Yashiro", { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1 } },
+    { L"Orochi Shermie",    0x2D1FF0 + (0x800 * 33), L"indexKOF98Sprites_Shermie", { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1 } },
+    { L"Orochi Chris",      0x2D1FF0 + (0x800 * 34), L"indexKOF98Sprites_Chris",   { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0 } },
     // Full character sets end after Orochi Chris
     //                                                                            1  2  3  4  5  6  7  8  9  a  b  c  d  e
 };
@@ -234,7 +234,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF97_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         for (UINT16 nColorIndex = 0; nColorIndex < ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO); nColorIndex++)
         {
@@ -309,7 +309,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
                     }
                     break;
                 case 15:
-                    strOutput.Format(L"    { L\"%s %s - Lifebar Portrait\", 0x%x, 0x%x, indexKOFSprites_98Lifebar, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                    strOutput.Format(L"    { L\"%s %s - Lifebar Portrait\", 0x%x, 0x%x, indexKOF98Sprites_Lifebar, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
                         nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     break;
                 }
@@ -334,7 +334,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
         if (KOF97_A_CharacterPalettes[nCharIndex].fUsesEffects)
         {
             WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-            StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
+            StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
             strOutput.Format(L"const sGame_PaletteDataset KOF97_A_%s_EFFECT_PALETTES[] = \r\n{\r\n", szCodeDesc);
             OutputDebugString(strOutput);
@@ -359,7 +359,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF97_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOF97_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -367,7 +367,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
         for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
             WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
-            StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_NEOGEO[nColorIndex]);
+            StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_NEOGEO[nColorIndex]);
 
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF97_A_%s_PALETTES_%s, ARRAYSIZE(KOF97_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL_NEOGEO[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);
@@ -387,7 +387,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF97_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF97_A_%s_COLLECTION, ARRAYSIZE(KOF97_A_%s_COLLECTION) },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName,
             szCodeDesc, szCodeDesc);

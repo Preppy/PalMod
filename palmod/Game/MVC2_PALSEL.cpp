@@ -118,7 +118,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             break;
         }
 
-        if (   CreateExtraPal(uUnitId, uPalId, 0x3A, 3, 11, 0, 2) // super gun
+        if (CreateExtraPal(uUnitId, uPalId, 0x3A, 3, 11, 0, 2) // super gun
             || CreateExtraPal(uUnitId, uPalId, 0x4B, 9, 12, 0, 2) // lilith phase-in
             || CreateExtraPal(uUnitId, uPalId, 0x4D, 9, 13, 0, 7) // morrigan phase-in
             || CreateExtraPal(uUnitId, uPalId, 0x81, 1, 14)) // taunt pose
@@ -141,8 +141,42 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
+    case indexCPS2_Strider:
+    {
+        // Core sprite join
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        {
+            bLoadDefPal = FALSE;
 
-    case indexCPS2_Cyclops: //Cyclops
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0,
+                    CreateImgTicket(uUnitId, 1,
+                        CreateImgTicket(uUnitId, 2
+                            )))
+            );
+
+            //Set each palette
+            sDescNode* NodeGet[] = {
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 2, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeGet[0], 0);
+            CreateDefPal(NodeGet[1], 1);
+            CreateDefPal(NodeGet[2], 2);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(1, uUnitId, 1, 6, 8);
+            SetSourcePal(2, uUnitId, 2, 6, 8);
+            break;
+        }
+
+        break;
+    }
+    case indexCPS2_Cyclops:
     {
         // these are shared, not per character
         if ((uPalId >= (0x19 + EXTRA_OMNI)) &&
@@ -163,7 +197,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Wolverine: //Wolverine
+    case indexCPS2_Wolverine:
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8) || // core sprite
             SpecSel(&nSpecOffs, uPalId, 6, 8))   // unknown highlight
@@ -207,7 +241,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Iceman: //Iceman
+    case indexCPS2_Iceman:
     {
         if (SpecSel(&nSpecOffs, uPalId, 1, 8) || SpecSel(&nSpecOffs, uPalId, 2, 8))
         {
@@ -225,7 +259,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Rogue: //Rogue
+    case indexCPS2_Rogue:
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -299,7 +333,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Hulk: //Hulk
+    case indexCPS2_Hulk:
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -361,7 +395,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Tron: //Tron
+    case indexCPS2_Tron:
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
@@ -448,7 +482,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Hayato: //Hayato
+    case indexCPS2_Hayato:
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // Hayato and laser sword
         {
@@ -504,7 +538,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_SonSon: //SonSon
+    case indexCPS2_SonSon:
     {
         // Core sprite join
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
@@ -571,7 +605,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Amingo: //Amingo
+    case indexCPS2_Amingo:
     {
         nExtraAmt = 1;
 
@@ -676,7 +710,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
         break;
     }
-    case indexCPS2_Megaman: // Megaman
+    case indexCPS2_Megaman:
     {
         // Megaman has an extra range per button of 0x57 palettes.
         if (CreateExtraPal(uUnitId, uPalId, 0x09, 0x57, 0x26) || // hair

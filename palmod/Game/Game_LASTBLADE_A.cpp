@@ -185,7 +185,7 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         UINT32 nWeaponOffset = 0x200;
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         // We don't currently know where the p2 palettes are so just show the p1 offsets
         for (UINT16 iButtonIndex = 0; iButtonIndex < 1 /* ARRAYSIZE(DEF_BUTTONLABEL_2) */; iButtonIndex++)
@@ -265,7 +265,7 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode LASTBLADE_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -289,7 +289,7 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_%s_COLLECTION, ARRAYSIZE(LASTBLADE_A_%s_COLLECTION) },\r\n", LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
