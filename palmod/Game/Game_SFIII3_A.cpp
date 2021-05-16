@@ -1231,8 +1231,9 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
             // These characters only have two nodes in this game
-            if ((wcscmp(charUnit->szDesc, k_sf3NameKey_ShinGouki) == 0) ||
-                (wcscmp(charUnit->szDesc, k_sf3NameKey_UltraSean) == 0))
+            if (((wcscmp(charUnit->szDesc, k_sf3NameKey_ShinGouki) == 0) ||
+                 (wcscmp(charUnit->szDesc, k_sf3NameKey_UltraSean) == 0)) &&
+                (nSrcAmt > 1))
             {
                 nSrcAmt = 2;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);

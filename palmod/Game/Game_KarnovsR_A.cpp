@@ -28,9 +28,7 @@ void CGame_KarnovsR_A::InitializeStatics()
 
 CGame_KarnovsR_A::CGame_KarnovsR_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_KarnovsR_A::CGame_KarnovsR_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_KarnovsR_A::CGame_KarnovsR_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);

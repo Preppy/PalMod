@@ -6,21 +6,11 @@
 
 typedef unsigned long COLORREF;    // 0 to 0xFFFFFF and 0xFFFFFFFF for transparencies
 
-// Create a 0xRRGGBB from separate 8 bits colors - error checking
-#define MakeRGB(r,g,b)    (                 ((r)&0xFF)<<16 | ((g)&0xFF)<<8 | ((b)&0xFF))
-#define MakeRGBA(r,g,b,a) (((a)&0xFF)<<24 | ((r)&0xFF)<<16 | ((g)&0xFF)<<8 | ((b)&0xFF))
+// Create a 0xAABBGGRR from separate 8 bits colors - error checking
+#define MakeRGBA(r,g,b,a) (((a)&0xFF)<<24 | ((b)&0xFF)<<16 | ((g)&0xFF)<<8 | ((r)&0xFF))
 
-extern  COLORREF ColorScaleRGB(const COLORREF Col1, const COLORREF Col2, const float Ratio);
-extern  COLORREF ColorScaleHSL(const COLORREF Col1, const COLORREF Col2, const float Ratio);
-
-extern  COLORREF ColorStepsRGB(const COLORREF Col1, const COLORREF Col2, const float Ratio, const int NbSteps);
-extern  COLORREF ColorStepsHSL(const COLORREF Col1, const COLORREF Col2, const float Ratio, const int NbSteps);
-
-extern  COLORREF ColorScaleRGB3(const COLORREF Col1, const COLORREF Col2, const COLORREF Col3, 
-                    float Ratio1, float Ratio2, float Ratio3);
-extern  COLORREF ColorScaleHSL3(const COLORREF Col1, const COLORREF Col2, const COLORREF Col3, 
-                    float Ratio1, float Ratio2, float Ratio3);
-
+COLORREF ColorScaleRGB(const COLORREF Col1, const COLORREF Col2, const double Ratio);
+COLORREF ColorScaleHSL(const COLORREF Col1, const COLORREF Col2, const double Ratio);
 
 void     RGBtoHLS(const COLORREF rgb, double *H, double *L, double *S );
 COLORREF HLStoRGB(const double H, const double L, const double S );

@@ -29,9 +29,7 @@ void CGame_Garou_A::InitializeStatics()
 
 CGame_Garou_A::CGame_Garou_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_Garou_A::CGame_Garou_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_Garou_A::CGame_Garou_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);

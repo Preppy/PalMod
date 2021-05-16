@@ -29,9 +29,7 @@ void CGame_NGBC_A::InitializeStatics()
 
 CGame_NGBC_A::CGame_NGBC_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_NGBC_A::CGame_NGBC_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_NGBC_A::CGame_NGBC_A: Loading ROM...\n");
 
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
