@@ -58,8 +58,8 @@ CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize)
 
     nGameFlag = GUNDAM_SNES;
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = GUNDAM_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(GUNDAM_A_IMG_UNITS);
+    m_prgGameImageSet = GUNDAM_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(GUNDAM_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

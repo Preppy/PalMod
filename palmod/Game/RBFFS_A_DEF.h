@@ -1,5 +1,29 @@
 #pragma once
 
+const UINT16 RBFFS_A_IMGIDS_USED[] =
+{
+    indexRBFFSSprites_Andy,         // 0x133
+    indexRBFFSSprites_Billy,        // 0x134
+    indexRBFFSSprites_BlueMary,     // 0x135
+    indexRBFFSSprites_Bob,          // 0x136
+    indexRBFFSSprites_Cheng,        // 0x137
+    indexRBFFSSprites_Chonrei,      // 0x138
+    indexRBFFSSprites_Chonshu,      // 0x139
+    indexRBFFSSprites_DuckKing,     // 0x13a
+    indexRBFFSSprites_Franco,       // 0x13b
+    indexRBFFSSprites_Geese,        // 0x13c
+    indexRBFFSSprites_Hon,          // 0x13d
+    indexRBFFSSprites_Joe,          // 0x13e
+    indexRBFFSSprites_Kim,          // 0x13f
+    indexRBFFSSprites_Krauser,      // 0x140
+    indexRBFFSSprites_Laurence,     // 0x141
+    indexRBFFSSprites_Mai,          // 0x142
+    indexRBFFSSprites_Sokaku,       // 0x143
+    indexRBFFSSprites_Terry,        // 0x144
+    indexRBFFSSprites_Tung,         // 0x145
+    indexRBFFSSprites_Yamazaki,     // 0x146
+};
+
 const sGame_PaletteDataset RBFFS_A_TERRY_PALETTES_P1[] =
 {
     { L"Main Palette", 0xd2000, 0xd2020, indexRBFFSSprites_Terry, 0x00 },

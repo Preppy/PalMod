@@ -58,8 +58,8 @@ CGame_ROTD_A::CGame_ROTD_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = ROTD_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
-    m_prgGameImageSet = ROTD_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(ROTD_A_IMG_UNITS);
+    m_prgGameImageSet = ROTD_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(ROTD_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const UINT16 RANMAHB_SNES_IMG_UNITS[] =
+const UINT16 RANMAHB_SNES_IMGIDS_USED[] =
 {
     indexRanmaHB1Sprites_Akane,         // 0x57
     indexRanmaHB1Sprites_Genma,         // 0x58

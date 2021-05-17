@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 KOF98ae_A_IMG_UNITS[] =
+const UINT16 KOF98ae_A_IMGIDS_USED[] =
 {
     indexKOF98Sprites_Kyo,
     indexKOF98Sprites_Benimaru,

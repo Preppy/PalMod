@@ -179,8 +179,8 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     //Set game information
     nGameFlag = SFA2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = SFA2_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SFA2_A_IMG_UNITS);
+    m_prgGameImageSet = SFA2_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SFA2_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -1021,37 +1021,37 @@ struct sSFA2_A_PaletteData
 {
     LPCWSTR pszCharacterName = nullptr;
     UINT32 nROMOffset = 0;
-    LPCWSTR pszImageSet = L"indexCPS2_SFA3Assets"; // SFA2_Unique
+    LPCWSTR pszImageSet = L"indexCPS2Sprites_SFA3Assets"; // SFA2_Unique
     UINT32 nImageSetIndex = 0;
 };
 
 const sSFA2_A_PaletteData SFA2_A_CharacterPalettes[] =
 {
-    { L"Ryu",    0x6e2c0 + (0x3c0 * 0), L"indexCPS2_Ryu" }, // Ryu
-    { L"Ken",    0x6e2c0 + (0x3c0 * 1), L"indexCPS2_Ken" }, // Ken
-    { L"Akuma",  0x6e2c0 + (0x3c0 * 2), L"indexCPS2_Akuma" }, // Akuma
-    { L"Charlie", 0x6e2c0 + (0x3c0 * 3), L"indexCPS2_Charlie" }, // Charlie
-    { L"Chun-Li", 0x6e2c0 + (0x3c0 * 4), L"indexCPS2_ChunLi", 0x0c }, // Chun
-    { L"Adon",   0x6e2c0 + (0x3c0 * 5), L"indexCPS2_Adon" }, // Adon
-    { L"Sodom",  0x6e2c0 + (0x3c0 * 6), L"indexCPS2_Sodom" }, // Sodom
-    { L"Guy",    0x6e2c0 + (0x3c0 * 7), L"indexCPS2_Guy" }, // Guy
-    { L"Birdie", 0x6e2c0 + (0x3c0 * 8), L"indexCPS2_Birdie" }, // Birdie
-    { L"Rose",   0x6e2c0 + (0x3c0 * 9), L"indexCPS2_Rose" }, // Rose
-    { L"M.Bison", 0x6e2c0 + (0x3c0 * 10), L"indexCPS2_Bison" }, // Dict
-    { L"Sagat",  0x6e2c0 + (0x3c0 * 11), L"indexCPS2_Sagat" }, // Sagat
-    { L"Dan",    0x6e2c0 + (0x3c0 * 12), L"indexCPS2_Dan" }, // Dan
-    { L"Sakura", 0x6e2c0 + (0x3c0 * 13), L"indexCPS2_Sakura" }, // Sakura
-    { L"Rolento", 0x6e2c0 + (0x3c0 * 14), L"indexCPS2_Rolento" }, // Rolento
-    { L"Dhalsim", 0x6e2c0 + (0x3c0 * 15), L"indexCPS2_Dhalsim" }, // Dhalsim
-    { L"Zangief", 0x6e2c0 + (0x3c0 * 16), L"indexCPS2_Zangief" }, // Zangief
-    { L"Gen",    0x6e2c0 + (0x3c0 * 17), L"indexCPS2_Gen" }, // Gen
+    { L"Ryu",    0x6e2c0 + (0x3c0 * 0), L"indexCPS2Sprites_Ryu" }, // Ryu
+    { L"Ken",    0x6e2c0 + (0x3c0 * 1), L"indexCPS2Sprites_Ken" }, // Ken
+    { L"Akuma",  0x6e2c0 + (0x3c0 * 2), L"indexCPS2Sprites_Akuma" }, // Akuma
+    { L"Charlie", 0x6e2c0 + (0x3c0 * 3), L"indexCPS2Sprites_Charlie" }, // Charlie
+    { L"Chun-Li", 0x6e2c0 + (0x3c0 * 4), L"indexCPS2Sprites_ChunLi", 0x0c }, // Chun
+    { L"Adon",   0x6e2c0 + (0x3c0 * 5), L"indexCPS2Sprites_Adon" }, // Adon
+    { L"Sodom",  0x6e2c0 + (0x3c0 * 6), L"indexCPS2Sprites_Sodom" }, // Sodom
+    { L"Guy",    0x6e2c0 + (0x3c0 * 7), L"indexCPS2Sprites_Guy" }, // Guy
+    { L"Birdie", 0x6e2c0 + (0x3c0 * 8), L"indexCPS2Sprites_Birdie" }, // Birdie
+    { L"Rose",   0x6e2c0 + (0x3c0 * 9), L"indexCPS2Sprites_Rose" }, // Rose
+    { L"M.Bison", 0x6e2c0 + (0x3c0 * 10), L"indexCPS2Sprites_Bison" }, // Dict
+    { L"Sagat",  0x6e2c0 + (0x3c0 * 11), L"indexCPS2Sprites_Sagat" }, // Sagat
+    { L"Dan",    0x6e2c0 + (0x3c0 * 12), L"indexCPS2Sprites_Dan" }, // Dan
+    { L"Sakura", 0x6e2c0 + (0x3c0 * 13), L"indexCPS2Sprites_Sakura" }, // Sakura
+    { L"Rolento", 0x6e2c0 + (0x3c0 * 14), L"indexCPS2Sprites_Rolento" }, // Rolento
+    { L"Dhalsim", 0x6e2c0 + (0x3c0 * 15), L"indexCPS2Sprites_Dhalsim" }, // Dhalsim
+    { L"Zangief", 0x6e2c0 + (0x3c0 * 16), L"indexCPS2Sprites_Zangief" }, // Zangief
+    { L"Gen",    0x6e2c0 + (0x3c0 * 17), L"indexCPS2Sprites_Gen" }, // Gen
 
-    { L"Chun-Li (Original)",   0x6e2c0 + (0x3c0 * 18), L"indexCPS2_ChunLi" }, // Chun
-    { L"Gen (crane stance)",       0x6e2c0 + (0x3c0 * 19), L"indexCPS2_Gen" }, // Gen
-//  { L"Shin Gouki (alt costume)",    0x6e2c0 + (0x3c0 * 20), L"indexCPS2_Gen" }, // SAkuma
-    { L"Zangief (WW)",    0x6e2c0 + (0x3c0 * 21), L"indexCPS2_Zangief" },
-    { L"Dhalsim (WW)",    0x6e2c0 + (0x3c0 * 22), L"indexCPS2_Dhalsim" },
-//  { L"Evil RYu",    0x6e2c0 + (0x3c0 * 20), L"indexCPS2_Ryu" },
+    { L"Chun-Li (Original)",   0x6e2c0 + (0x3c0 * 18), L"indexCPS2Sprites_ChunLi" }, // Chun
+    { L"Gen (crane stance)",       0x6e2c0 + (0x3c0 * 19), L"indexCPS2Sprites_Gen" }, // Gen
+//  { L"Shin Gouki (alt costume)",    0x6e2c0 + (0x3c0 * 20), L"indexCPS2Sprites_Gen" }, // SAkuma
+    { L"Zangief (WW)",    0x6e2c0 + (0x3c0 * 21), L"indexCPS2Sprites_Zangief" },
+    { L"Dhalsim (WW)",    0x6e2c0 + (0x3c0 * 22), L"indexCPS2Sprites_Dhalsim" },
+//  { L"Evil RYu",    0x6e2c0 + (0x3c0 * 20), L"indexCPS2Sprites_Ryu" },
 };
 
 struct sSFA2_A_EffectPaletteData
@@ -1059,44 +1059,44 @@ struct sSFA2_A_EffectPaletteData
     LPCWSTR pszCharacterName = nullptr;
     LPCWSTR pszEffectName = nullptr;
     UINT32 nROMOffset = 0;
-    LPCWSTR pszImageSet = L"indexCPS2_SFA3Assets"; // SFA2_Unique
+    LPCWSTR pszImageSet = L"indexCPS2Sprites_SFA3Assets"; // SFA2_Unique
     UINT32 nImageSetIndex = 0;
     UINT16 nEffectCount = 1;
 };
 
 const sSFA2_A_EffectPaletteData SFA2_EffectsPaletteSets[] =
 {
-    { L"Akuma",      L"Extra",            0x1adc0, L"indexCPS2_Akuma", 0, 5 },
-    { L"Birdie",     L"Bullrush",         0x1b180, L"indexCPS2_Birdie", 0, 3 },
-    { L"Rose",       L"Dress winpose",    0x1b3c0, L"indexCPS2_Rose", 1, 1 },
-    { L"M.Bison",    L"Teleport",         0x1b480, L"indexCPS2_Bison", 0, 4 },
+    { L"Akuma",      L"Extra",            0x1adc0, L"indexCPS2Sprites_Akuma", 0, 5 },
+    { L"Birdie",     L"Bullrush",         0x1b180, L"indexCPS2Sprites_Birdie", 0, 3 },
+    { L"Rose",       L"Dress winpose",    0x1b3c0, L"indexCPS2Sprites_Rose", 1, 1 },
+    { L"M.Bison",    L"Teleport",         0x1b480, L"indexCPS2Sprites_Bison", 0, 4 },
     // Dan: single entry at 0x1b780
-    { L"Dhalsim",    L"Teleport",         0x1b820, L"indexCPS2_Dhalsim", 0, 5 },
-    // Single entry : { L"Shin Akuma", L"Teleport",         0x1bbe0, L"indexCPS2_Akuma", 0, 5 },
-    { L"Evil Ryu",   L"Extra",            0x1bc80, L"indexCPS2_Ryu", 0, 5 },
+    { L"Dhalsim",    L"Teleport",         0x1b820, L"indexCPS2Sprites_Dhalsim", 0, 5 },
+    // Single entry : { L"Shin Akuma", L"Teleport",         0x1bbe0, L"indexCPS2Sprites_Akuma", 0, 5 },
+    { L"Evil Ryu",   L"Extra",            0x1bc80, L"indexCPS2Sprites_Ryu", 0, 5 },
 };
 
 const sSFA2_A_PaletteData SFA2_A_PortraitPalettes[] =
 {
-    { L"Ryu",        0x1c7c0 + (0x60 *  0), L"indexCPS2_SFA2Portraits", indexCPS2_Ryu },
-    { L"Ken",        0x1c7c0 + (0x60 *  1), L"indexCPS2_SFA2Portraits", indexCPS2_Ken },
-    { L"Akuma",      0x1c7c0 + (0x60 *  2), L"indexCPS2_SFA2Portraits", indexCPS2_Akuma },
-    { L"Charlie",    0x1c7c0 + (0x60 *  3), L"indexCPS2_SFA2Portraits", indexCPS2_Charlie },
-    { L"Chun-Li",    0x1c7c0 + (0x60 *  4), L"indexCPS2_SFA2Portraits", indexCPS2_ChunLi },
-    { L"Adon",       0x1c7c0 + (0x60 *  5), L"indexCPS2_SFA2Portraits", indexCPS2_Adon },
-    { L"Sodom",      0x1c7c0 + (0x60 *  6), L"indexCPS2_SFA2Portraits", indexCPS2_Sodom },
-    { L"Guy",        0x1c7c0 + (0x60 *  7), L"indexCPS2_SFA2Portraits", indexCPS2_Guy },
-    { L"Birdie",     0x1c7c0 + (0x60 *  8), L"indexCPS2_SFA2Portraits", indexCPS2_Birdie },
-    { L"Rose",       0x1c7c0 + (0x60 *  9), L"indexCPS2_SFA2Portraits", indexCPS2_Rose },
-    { L"M.Bison",    0x1c7c0 + (0x60 * 10), L"indexCPS2_SFA2Portraits", indexCPS2_Bison },
-    { L"Sagat",      0x1c7c0 + (0x60 * 11), L"indexCPS2_SFA2Portraits", indexCPS2_Sagat },
-    { L"Dan",        0x1c7c0 + (0x60 * 12), L"indexCPS2_SFA2Portraits", indexCPS2_Dan },
-    { L"Sakura",     0x1c7c0 + (0x60 * 13), L"indexCPS2_SFA2Portraits", indexCPS2_Sakura },
-    { L"Rolento",    0x1c7c0 + (0x60 * 14), L"indexCPS2_SFA2Portraits", indexCPS2_Rolento },
-    { L"Dhalsim",    0x1c7c0 + (0x60 * 15), L"indexCPS2_SFA2Portraits", indexCPS2_Dhalsim },
-    { L"Zangief",    0x1c7c0 + (0x60 * 16), L"indexCPS2_SFA2Portraits", indexCPS2_Zangief },
-    { L"Gen",        0x1c7c0 + (0x60 * 17), L"indexCPS2_SFA2Portraits", indexCPS2_Gen },
-    { L"Chun-Li (Original)",   0x1c7c0 + (0x60 * 18), L"indexCPS2_SFA2Portraits", indexCPS2_ChunLi + 1 },
+    { L"Ryu",        0x1c7c0 + (0x60 *  0), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Ryu },
+    { L"Ken",        0x1c7c0 + (0x60 *  1), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Ken },
+    { L"Akuma",      0x1c7c0 + (0x60 *  2), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Akuma },
+    { L"Charlie",    0x1c7c0 + (0x60 *  3), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Charlie },
+    { L"Chun-Li",    0x1c7c0 + (0x60 *  4), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_ChunLi },
+    { L"Adon",       0x1c7c0 + (0x60 *  5), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Adon },
+    { L"Sodom",      0x1c7c0 + (0x60 *  6), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Sodom },
+    { L"Guy",        0x1c7c0 + (0x60 *  7), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Guy },
+    { L"Birdie",     0x1c7c0 + (0x60 *  8), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Birdie },
+    { L"Rose",       0x1c7c0 + (0x60 *  9), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Rose },
+    { L"M.Bison",    0x1c7c0 + (0x60 * 10), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Bison },
+    { L"Sagat",      0x1c7c0 + (0x60 * 11), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Sagat },
+    { L"Dan",        0x1c7c0 + (0x60 * 12), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Dan },
+    { L"Sakura",     0x1c7c0 + (0x60 * 13), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Sakura },
+    { L"Rolento",    0x1c7c0 + (0x60 * 14), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Rolento },
+    { L"Dhalsim",    0x1c7c0 + (0x60 * 15), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Dhalsim },
+    { L"Zangief",    0x1c7c0 + (0x60 * 16), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Zangief },
+    { L"Gen",        0x1c7c0 + (0x60 * 17), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_Gen },
+    { L"Chun-Li (Original)",   0x1c7c0 + (0x60 * 18), L"indexCPS2Sprites_SFA2Portraits", indexCPS2Sprites_ChunLi + 1 },
 };
 
 const LPCWSTR SFA2_ColorOptionNames[] =

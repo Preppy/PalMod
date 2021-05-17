@@ -8,7 +8,7 @@ CDescTree CGame_UNICLR_A::MainDescTree = nullptr;
 
 #define UNICLR_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-const UINT16 UNICLR_A_IMG_UNITS[] =
+const UINT16 UNICLR_A_IMGIDS_USED[] =
 {
 	indexFrenchBreadSprites_UNICLR_Akat,   // 0x34
     indexFrenchBreadSprites_UNICLR_Byak,   // 0x35
@@ -151,8 +151,8 @@ CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
 
     nGameFlag = UNICLR_A;
     nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
-    m_prgGameImageSet = UNICLR_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(UNICLR_A_IMG_UNITS);
+    m_prgGameImageSet = UNICLR_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(UNICLR_A_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;

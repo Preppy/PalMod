@@ -65,6 +65,41 @@ constexpr auto JOJOS_A_NUMUNIT_51 = ARRAYSIZE(JOJOS_A_UNITDESC_51);
 #define JOJOS_A_EXTRALOC_50 JOJOS_A_NUMUNIT_50
 #define JOJOS_A_EXTRALOC_51 JOJOS_A_NUMUNIT_51
 
+const UINT16 JOJOS_A_IMGIDS_USED[] =
+{
+    indexJojos51Jotaro,
+    indexJojos51Kakyo,
+    indexJojos51Avdol,
+    indexJojos51Pol,
+    indexJojos51Joseph,
+    indexJojos51Iggy,
+    indexJojos51Alessi,
+    indexJojos51Chaka,
+    indexJojos51Devo,
+    indexJojos51Midler,
+    indexJojos51Dio,    // 0x0a
+    indexJojos51SDio,
+    indexJojos51YSeph,
+    indexJojos51Hol,
+    indexJojos51VIce,
+    indexJojos51NewKakyo,
+    indexJojos51Anubis, // 0x10
+    indexJojos51Petshop,
+    indexJojos51Mariah,
+    indexJojos51HolBoingo,
+    indexJojos51RSoul,
+    indexJojos51Khan,
+    indexJojos51NDoul,
+    indexJojos51BIce,
+    indexJojos51Death13, // 0x18
+    indexJojos51Timestop,
+    indexJojos51Bonus,
+    indexJojos51Stages,
+    indexJojos50HUDPortraits,
+    indexJojos51GrayFly,
+    indexJojos51TarotCards,
+};
+
 // hud, portraits, stages: 50
 // characters, timestop, bonus: 51
 

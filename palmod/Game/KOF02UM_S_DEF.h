@@ -6,10 +6,6 @@
 // * Update every array using KOF02UM_S_NUMUNIT below
 // That should be it.  Good luck.
 
-constexpr auto KOF02UM_S_NUMUNIT_MAIN = indexKOF02UM_S_Last;
-
-#define KOF02UM_S_EXTRALOC_MAIN KOF02UM_S_NUMUNIT_MAIN
-
 struct sKOF02_CharacterDump
 {
     LPCWSTR pszCharacterName = nullptr;
@@ -24,7 +20,7 @@ struct sKOF02_CharacterDump
     LPCWSTR pszHSDM3NameOverride = nullptr;
 };
 
-const UINT16 KOF02UM_S_IMG_UNITS[] =
+const UINT16 KOF02UM_S_IMGIDS_USED[] =
 {
     indexKOF98Sprites_Kyo,
     indexKOF98Sprites_Benimaru,
@@ -5153,7 +5149,7 @@ const sDescTreeNode KOF02UM_S_UNITS_MAX2[] =
 constexpr auto KOF02UM_S_NUMUNIT_MAX2 = ARRAYSIZE(KOF02UM_S_UNITS_MAX2);
 #define KOF02UM_S_EXTRALOC_MAX2 KOF02UM_S_NUMUNIT_MAX2
 
-const sDescTreeNode KOF02UM_S_UNITS_MAIN[KOF02UM_S_NUMUNIT_MAIN] =
+const sDescTreeNode KOF02UM_S_UNITS_MAIN[] =
 {
     { L"Andy", DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANDY_COLLECTION, ARRAYSIZE(KOF02UM_S_ANDY_COLLECTION) },
     { L"Angel", DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANGEL_COLLECTION, ARRAYSIZE(KOF02UM_S_ANGEL_COLLECTION) },
@@ -5223,6 +5219,9 @@ const sDescTreeNode KOF02UM_S_UNITS_MAIN[KOF02UM_S_NUMUNIT_MAIN] =
     { L"Yuri", DESC_NODETYPE_TREE, (void*)KOF02UM_S_YURI_COLLECTION, ARRAYSIZE(KOF02UM_S_YURI_COLLECTION) },
     { L"Bonus", DESC_NODETYPE_TREE, (void*)KOF02UM_S_BONUS_COLLECTION, ARRAYSIZE(KOF02UM_S_BONUS_COLLECTION) },
 };
+
+constexpr auto KOF02UM_S_NUMUNIT_MAIN = ARRAYSIZE(KOF02UM_S_UNITS_MAIN);
+#define KOF02UM_S_EXTRALOC_MAIN KOF02UM_S_NUMUNIT_MAIN
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef KOF02UM_S_EXTRA[] =

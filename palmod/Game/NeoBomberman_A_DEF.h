@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =
+const UINT16 NEOBOMBERMAN_A_IMGIDS_USED[] =
 {
     indexNeoBombermanSprites_AtomicBomber,  // 0x00
     indexNeoBombermanSprites_Baketama,      // 0x01

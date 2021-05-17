@@ -2,7 +2,7 @@
 
 // This file is fully hand-generated.
 
-const UINT16 TOPF2005_SEGA_IMG_UNITS[] =
+const UINT16 TOPF2005_SEGA_IMGIDS_USED[] =
 {
     indexTopF2k5Sprites_Ali,            // 0x00
     indexTopF2k5Sprites_Cycl,           // 0x01

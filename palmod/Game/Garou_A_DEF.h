@@ -7,6 +7,25 @@
 // * Update every array using Garou_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const UINT16 GAROU_A_IMGIDS_USED[] =
+{
+    indexGarouARockHoward,
+    indexGarouATerryBogard,
+    indexGarouAKhushnood,
+    indexGarouADong,
+    indexGarouAJae,
+    indexGarouAHotaru,
+    indexGarouAGato,
+    indexGarouAKevin,
+    indexGarouAGrant,
+    indexGarouABJennet,
+    indexGarouAHokutomaru,
+    indexGarouAFreeman,
+    indexGarouATizoc,
+    indexGarouAKain,
+    indexGarouAPortraits,
+};
+
 const sGame_PaletteDataset Garou_ROCKHOWARD_PALETTES_A[] =
 {
     { L"Rock A - Main", 0xff00, 0xff20, indexGarouARockHoward },

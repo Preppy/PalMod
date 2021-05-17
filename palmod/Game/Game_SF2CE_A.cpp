@@ -120,8 +120,8 @@ CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
     //Set game information
     nGameFlag = SF2CE_A;
     nImgGameFlag = IMGDAT_SECTION_SF2;
-    m_prgGameImageSet = SF2HF_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SF2HF_A_IMG_UNITS);
+    m_prgGameImageSet = SF2HF_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SF2HF_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

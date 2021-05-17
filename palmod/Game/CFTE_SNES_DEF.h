@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 CFTE_SNES_IMG_UNITS[] =
+const UINT16 CFTE_SNES_IMGIDS_USED[] =
 {
     indexCFTESprites_BadMrFrosty,   // 0x17
     indexCFTESprites_BlueSuedeGoo,  // 0x18

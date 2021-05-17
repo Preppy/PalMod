@@ -57,8 +57,8 @@ CGame_Matrimelee_A::CGame_Matrimelee_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = MATRIMELEE_A;
     nImgGameFlag = IMGDAT_SECTION_MATRIM;
-    nImgUnitAmt = ARRAYSIZE(MATRIM_A_IMG_UNITS);
-    m_prgGameImageSet = MATRIM_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(MATRIM_A_IMGIDS_USED);
+    m_prgGameImageSet = MATRIM_A_IMGIDS_USED;
 
     nFileAmt = 1;
 

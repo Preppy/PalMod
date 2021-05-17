@@ -58,8 +58,8 @@ CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = BREAKERS_A;
     nImgGameFlag = IMGDAT_SECTION_BREAKREV;
-    nImgUnitAmt = ARRAYSIZE(BREAKERS_A_IMG_UNITS);
-    m_prgGameImageSet = BREAKERS_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(BREAKERS_A_IMGIDS_USED);
+    m_prgGameImageSet = BREAKERS_A_IMGIDS_USED;
 
     nFileAmt = 1;
 

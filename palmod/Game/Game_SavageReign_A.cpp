@@ -58,8 +58,8 @@ CGame_SAVAGEREIGN_A::CGame_SAVAGEREIGN_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SAVAGEREIGN_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
-    m_prgGameImageSet = SAVAGEREIGN_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SAVAGEREIGN_A_IMG_UNITS);
+    m_prgGameImageSet = SAVAGEREIGN_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SAVAGEREIGN_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

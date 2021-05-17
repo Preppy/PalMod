@@ -1,7 +1,7 @@
 #pragma once
 
 // These are hand-generated: don't remove these.
-const UINT16 KOF97_A_IMG_UNITS[] =
+const UINT16 KOF97_A_IMGIDS_USED[] =
 {
     indexKOF98Sprites_Kyo,
     indexKOF98Sprites_Benimaru,

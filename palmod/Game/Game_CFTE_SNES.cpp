@@ -57,8 +57,8 @@ CGame_CFTE_SNES::CGame_CFTE_SNES(UINT32 nConfirmedROMSize)
 
     nGameFlag = CFTE_SNES;
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = CFTE_SNES_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(CFTE_SNES_IMG_UNITS);
+    m_prgGameImageSet = CFTE_SNES_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(CFTE_SNES_IMGIDS_USED);
 
     nFileAmt = 1;
 

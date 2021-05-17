@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 NINJAMASTERS_A_IMG_UNITS[] =
+const UINT16 NINJAMASTERS_A_IMGIDS_USED[] =
 {
     indexNinjaMastersSprites_Goemon,        // 0x14
     indexNinjaMastersSprites_Houoh,         // 0x15

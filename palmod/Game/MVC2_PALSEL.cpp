@@ -45,7 +45,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     switch (uUnitId)
     {
-    case indexCPS2_Ryu: // Ryu
+    case indexCPS2Sprites_Ryu: // Ryu
     {
         if ((uPalId == 0x2) ||
             (uPalId == 0xA) ||
@@ -57,7 +57,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             // Reuse the Ken Shoryuken sprite
             bLoadDefPal = FALSE;
 
-            nImgUnitId = indexCPS2_Ken;
+            nImgUnitId = indexCPS2Sprites_Ken;
             nTargetImgId = 0x02;
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
@@ -79,7 +79,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Zangief: //Zangief
+    case indexCPS2Sprites_Zangief: //Zangief
     {
         if (
             // MechaGief
@@ -96,7 +96,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Guile:
+    case indexCPS2Sprites_Guile:
     {
         if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
             (SpecSel(&nSpecOffs, uPalId, 7, 8)))
@@ -109,7 +109,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Morrigan: //Morrigan
+    case indexCPS2Sprites_Morrigan: //Morrigan
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -129,7 +129,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Anakaris:
+    case indexCPS2Sprites_Anakaris:
     {
         if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
             (SpecSel(&nSpecOffs, uPalId, 7, 8)))
@@ -141,7 +141,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Strider:
+    case indexCPS2Sprites_Strider:
     {
         // Core sprite join
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
@@ -176,7 +176,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Cyclops:
+    case indexCPS2Sprites_Cyclops:
     {
         // these are shared, not per character
         if ((uPalId >= (0x19 + EXTRA_OMNI)) &&
@@ -197,7 +197,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Wolverine:
+    case indexCPS2Sprites_Wolverine:
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8) || // core sprite
             SpecSel(&nSpecOffs, uPalId, 6, 8))   // unknown highlight
@@ -241,7 +241,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Iceman:
+    case indexCPS2Sprites_Iceman:
     {
         if (SpecSel(&nSpecOffs, uPalId, 1, 8) || SpecSel(&nSpecOffs, uPalId, 2, 8))
         {
@@ -259,7 +259,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Rogue:
+    case indexCPS2Sprites_Rogue:
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -280,7 +280,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_CapAm: //Captain America
+    case indexCPS2Sprites_CapAm: //Captain America
     {
         // Handle his shield
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
@@ -310,7 +310,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Spidey: //Spider-Man
+    case indexCPS2Sprites_Spidey: //Spider-Man
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -333,7 +333,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Hulk:
+    case indexCPS2Sprites_Hulk:
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -348,7 +348,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_DrDoom: //Dr Doom
+    case indexCPS2Sprites_DrDoom: //Dr Doom
     {
         // Turning off throne/doom joint display:
             // If we show it backwards the lead palette is throne 0xA, which means you can't paste ACTs into body 0x9
@@ -395,7 +395,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Tron:
+    case indexCPS2Sprites_Tron:
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
@@ -403,9 +403,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Create the img ticket
             ClearSetImgTicket(
-                CreateImgTicket(indexCPS2_Tron, 0,
-                    CreateImgTicket(indexCPS2_Tron, 1,
-                        CreateImgTicket(indexCPS2_Tron, 3)
+                CreateImgTicket(indexCPS2Sprites_Tron, 0,
+                    CreateImgTicket(indexCPS2Sprites_Tron, 1,
+                        CreateImgTicket(indexCPS2Sprites_Tron, 3)
                     )
                 )
             );
@@ -442,7 +442,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Jill: //Jill Valentine
+    case indexCPS2Sprites_Jill: //Jill Valentine
     {
         nExtraAmt = 1;
 
@@ -452,8 +452,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Create the img ticket
             ClearSetImgTicket(
-                CreateImgTicket(indexCPS2_Jill, 0,
-                    CreateImgTicket(indexCPS2_Jill, 1, NULL, 0, 0)
+                CreateImgTicket(indexCPS2Sprites_Jill, 0,
+                    CreateImgTicket(indexCPS2Sprites_Jill, 1, NULL, 0, 0)
                 )
             );
 
@@ -482,7 +482,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Hayato:
+    case indexCPS2Sprites_Hayato:
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // Hayato and laser sword
         {
@@ -490,8 +490,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Create the img ticket
             ClearSetImgTicket(
-                CreateImgTicket(indexCPS2_Hayato, 0,
-                    CreateImgTicket(indexCPS2_Hayato, 1, NULL, 0, 0)
+                CreateImgTicket(indexCPS2Sprites_Hayato, 0,
+                    CreateImgTicket(indexCPS2Sprites_Hayato, 1, NULL, 0, 0)
                 )
             );
 
@@ -520,7 +520,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Ruby: //Ruby Heart
+    case indexCPS2Sprites_Ruby: //Ruby Heart
     {
         nExtraAmt = 1;
 
@@ -538,7 +538,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_SonSon:
+    case indexCPS2Sprites_SonSon:
     {
         // Core sprite join
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
@@ -605,7 +605,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Amingo:
+    case indexCPS2Sprites_Amingo:
     {
         nExtraAmt = 1;
 
@@ -618,7 +618,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Cable:
+    case indexCPS2Sprites_Cable:
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -630,7 +630,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Abyss1:
+    case indexCPS2Sprites_Abyss1:
     {
         // Handle his super armor frame
         if (SpecSel(&nSpecOffs, uPalId, 4, 8))
@@ -641,7 +641,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
     
-    case indexCPS2_Abyss2:
+    case indexCPS2Sprites_Abyss2:
     {
         // Core sprite join
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
@@ -681,7 +681,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_ChunLi: // Chun-Li
+    case indexCPS2Sprites_ChunLi: // Chun-Li
     {
         // Handle her legs
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
@@ -710,7 +710,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
         break;
     }
-    case indexCPS2_Megaman:
+    case indexCPS2Sprites_Megaman:
     {
         // Megaman has an extra range per button of 0x57 palettes.
         if (CreateExtraPal(uUnitId, uPalId, 0x09, 0x57, 0x26) || // hair
@@ -737,7 +737,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             bLoadDefPal = FALSE;
 
-            nImgUnitId = indexCPS2_Roll;
+            nImgUnitId = indexCPS2Sprites_Roll;
             nTargetImgId = 0;
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, 0));
@@ -1008,16 +1008,16 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Roll: // Roll
+    case indexCPS2Sprites_Roll: // Roll
     {
         // Handle the cross-unit Megaman sprites first...
-        if (CreateExtraPal(indexCPS2_Megaman, uPalId, 0x09, 0x57, 0x26) || // hair
-            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x0A, 0x57, 0x0B) || // teleport intro
-            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x14, 0x57, 0x01, 0, 9) || // Rush
-            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x1D, 0x57, 0x02, 0, 9) || // Beat
-            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x26, 0x57, 0x24, 0, 9) || // Beat Plane
-            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x42, 0x57, 0x25) || // Dr Light
-            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x5E, 0x57, 0x00) // Megaman
+        if (CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x09, 0x57, 0x26) || // hair
+            CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x0A, 0x57, 0x0B) || // teleport intro
+            CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x14, 0x57, 0x01, 0, 9) || // Rush
+            CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x1D, 0x57, 0x02, 0, 9) || // Beat
+            CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x26, 0x57, 0x24, 0, 9) || // Beat Plane
+            CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x42, 0x57, 0x25) || // Dr Light
+            CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x5E, 0x57, 0x00) // Megaman
             //CreateExtraPal(uUnitId, uPalId, 0x55, 0x57, 0x29) // Hyper Roll Missiles: no sprite available
             )
         {
@@ -1059,7 +1059,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             bLoadDefPal = FALSE;
 
-            nImgUnitId = indexCPS2_Megaman;
+            nImgUnitId = indexCPS2Sprites_Megaman;
             nTargetImgId = 0x2; // Beat!
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
@@ -1166,7 +1166,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_BBHood: // BBHood
+    case indexCPS2Sprites_BBHood: // BBHood
     {
         if (CreateExtraPal(uUnitId, uPalId, 0x0c, 0x1, 0x08)) // Cruel Hunting
         {
@@ -1187,7 +1187,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Charlie:
+    case indexCPS2Sprites_Charlie:
     {
         if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
             (SpecSel(&nSpecOffs, uPalId, 7, 8)))
@@ -1200,7 +1200,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Sakura: // Sakura
+    case indexCPS2Sprites_Sakura: // Sakura
     {
         if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
             (SpecSel(&nSpecOffs, uPalId, 7, 8)))
@@ -1217,7 +1217,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Dan: //Dan
+    case indexCPS2Sprites_Dan: //Dan
     {
         if (SpecSel(&nSpecOffs, uPalId, 2, 8))
         {
@@ -1236,18 +1236,18 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Cammy: //Cammy
+    case indexCPS2Sprites_Cammy: //Cammy
     {
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x09, 11, 0, 9); // Counter flash
         break;
     }
-    case indexCPS2_Dhalsim: //Dhalsim
+    case indexCPS2Sprites_Dhalsim: //Dhalsim
     {
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 11, 0, 5); // teleport frames
         break;
     }
 
-    case indexCPS2_Bison: //M.Bison
+    case indexCPS2Sprites_Bison: //M.Bison
     {
         if (CreateExtraPal(uUnitId, uPalId, 0x09, 2, 0x08) ||
             CreateExtraPal(uUnitId, uPalId, 0x0A, 2, 0x09))
@@ -1258,7 +1258,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Ken:
+    case indexCPS2Sprites_Ken:
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -1270,7 +1270,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Gambit: //Gambit
+    case indexCPS2Sprites_Gambit: //Gambit
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -1282,12 +1282,12 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 0, 0, 5); // win pose. 11 looks broken so I'm using 0.
         break;
     }
-    case indexCPS2_Juggy: //Juggernaut
+    case indexCPS2Sprites_Juggy: //Juggernaut
     {
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x0A, 11, 0, 10); // Headcrush + power up.
         break;
     }
-    case indexCPS2_Storm: //Storm
+    case indexCPS2Sprites_Storm: //Storm
     {
         nExtraAmt = 3;
 
@@ -1320,7 +1320,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Sabretooth:
+    case indexCPS2Sprites_Sabretooth:
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -1332,7 +1332,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Magneto: // Magneto
+    case indexCPS2Sprites_Magneto: // Magneto
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -1350,7 +1350,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_Shuma: // Shuma Gorath
+    case indexCPS2Sprites_Shuma: // Shuma Gorath
     {
         if (!CreateExtraPal(uUnitId, uPalId, 0x11, 0x30, 0x00, 0, 0x30))
         {
@@ -1361,7 +1361,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case indexCPS2_SilverSamurai: //Silver Samurai
+    case indexCPS2Sprites_SilverSamurai: //Silver Samurai
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -1373,12 +1373,12 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x08, 0x00, 0, 8);
         break;
     }
-    case indexCPS2_OmegaRed: //Omega Red
+    case indexCPS2Sprites_OmegaRed: //Omega Red
     {
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x04, 0x0B, 0, 4);
         break;
     }
-    case indexCPS2_Spiral: //Spiral
+    case indexCPS2Sprites_Spiral: //Spiral
     {
         if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x2A + EXTRA_OMNI)))
         {
@@ -1389,14 +1389,14 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nImgUnitId = MVC2_D_0x31_EXTRAREDIR[nOffs];
             nTargetImgId = 0xFF00 + MVC2_D_0x31_EXTRAREDIR[nOffs + 1];
 
-            if ((nImgUnitId == indexCPS2_Sentinel) && ((nTargetImgId & 0xFF) == 0x0)) // Sentinel guts join
+            if ((nImgUnitId == indexCPS2Sprites_Sentinel) && ((nTargetImgId & 0xFF) == 0x0)) // Sentinel guts join
             {
                 bLoadDefPal = FALSE;
 
                 //Create the img ticket
                 ClearSetImgTicket(
-                    CreateImgTicket(indexCPS2_Sentinel, 0,
-                        CreateImgTicket(indexCPS2_Sentinel, 1)
+                    CreateImgTicket(indexCPS2Sprites_Sentinel, 0,
+                        CreateImgTicket(indexCPS2Sprites_Sentinel, 1)
                     )
                 );
 
@@ -1431,7 +1431,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Colossus: //Colossus
+    case indexCPS2Sprites_Colossus: //Colossus
     {
         if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
@@ -1443,7 +1443,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         CreateExtraPal(uUnitId, uPalId, 0x09, 32, 0, 0, 32);
         break;
     }
-    case indexCPS2_Sentinel: // 0x34
+    case indexCPS2Sprites_Sentinel: // 0x34
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // guts, flames
         {
@@ -1451,9 +1451,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Create the img ticket
             ClearSetImgTicket(
-                CreateImgTicket(indexCPS2_Sentinel, 0,
-                    CreateImgTicket(indexCPS2_Sentinel, 1 ,
-                        CreateImgTicket(indexCPS2_Sentinel, 3)
+                CreateImgTicket(indexCPS2Sprites_Sentinel, 0,
+                    CreateImgTicket(indexCPS2Sprites_Sentinel, 1 ,
+                        CreateImgTicket(indexCPS2Sprites_Sentinel, 3)
                     )
                 )
             );
@@ -1484,7 +1484,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Blackheart:
+    case indexCPS2Sprites_Blackheart:
     {
         nExtraAmt = 1; // These are all one-offs
         if (CreateExtraPal(uUnitId, uPalId, 0x0D, 1, 2) || // LP, HP, A1 demons
@@ -1499,7 +1499,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
         break;
     }
-    case indexCPS2_Thanos:
+    case indexCPS2Sprites_Thanos:
     {
         nExtraAmt = 1; // These are all one-offs
         if (CreateExtraPal(uUnitId, uPalId, 0x0C, 1, 0) || // Win pose flash
@@ -1512,7 +1512,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
         break;
     }
-    case indexCPS2_Jin: 
+    case indexCPS2Sprites_Jin: 
     {
         if (CreateExtraPal(uUnitId, uPalId, 0x09, 6, 0, 0, 6) || // Power-up glow
             CreateExtraPal(uUnitId, uPalId, 0x2D, 6, 11, 0, 6) ||
@@ -1525,7 +1525,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_CapCom: //CapCom
+    case indexCPS2Sprites_CapCom: //CapCom
     {
         // Handle the joined ninja sprites
         if (SpecSel(&nSpecOffs, uPalId, 1, 8) || SpecSel(&nSpecOffs, uPalId, 2, 8))
@@ -1586,7 +1586,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Bonerine: //Bonerine
+    case indexCPS2Sprites_Bonerine: //Bonerine
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8) || // core sprite
             SpecSel(&nSpecOffs, uPalId, 6, 8))   // unknown highlight
@@ -1624,7 +1624,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Kobun: // Kobun
+    case indexCPS2Sprites_Kobun: // Kobun
     {
         if ((uPalId == 0x1) ||
             (uPalId == 0x9) ||
@@ -1636,7 +1636,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             // Tron Bonne body
             bLoadDefPal = FALSE;
 
-            nImgUnitId = indexCPS2_Tron;
+            nImgUnitId = indexCPS2Sprites_Tron;
             nTargetImgId = 1;
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
@@ -1657,7 +1657,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             // Tron Bonne has a lunch sprite we can reuse here.
             bLoadDefPal = FALSE;
 
-            nImgUnitId = indexCPS2_Tron;
+            nImgUnitId = indexCPS2Sprites_Tron;
             nTargetImgId = 0x0C;
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
@@ -1799,7 +1799,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         int nBasicOffset = GetBasicOffset(uPalId);
 
-        if ((nImgUnitId == indexCPS2_Rogue) && (nBasicOffset == 5))
+        if ((nImgUnitId == indexCPS2Sprites_Rogue) && (nBasicOffset == 5))
         {
             // Rogue's darkened dash sprite is missing a sprite association in img.dat, so just reuse the normal dash sprite
             nBasicOffset = 4;

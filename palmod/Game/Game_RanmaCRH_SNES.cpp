@@ -40,15 +40,15 @@ CGame_RANMACRH_SNES::CGame_RANMACRH_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = RANMACRH_SNES;
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = RANMACRH_SNES_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(RANMACRH_SNES_IMG_UNITS);
+    m_prgGameImageSet = RANMACRH_SNES_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(RANMACRH_SNES_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_4P; // Check out the available options in gamedef.h
+    pButtonLabelSet = DEF_BUTTONLABEL_4P; // Check out the available options in buttondef.h
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_4P);
 
     //Create the redirect buffer

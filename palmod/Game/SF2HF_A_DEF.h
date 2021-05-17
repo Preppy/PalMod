@@ -1,5 +1,21 @@
 #pragma once
 
+const UINT16 SF2HF_A_IMGIDS_USED[] =
+{
+    indexSF2Sprites_Ryu,
+    indexSF2Sprites_EHonda,
+    indexSF2Sprites_Blanka,
+    indexSF2Sprites_Guile,
+    indexSF2Sprites_Ken,
+    indexSF2Sprites_ChunLi,
+    indexSF2Sprites_Zangief,
+    indexSF2Sprites_Dhalsim,
+    indexSF2Sprites_Bison,
+    indexSF2Sprites_Sagat,
+    indexSF2Sprites_Balrog,
+    indexSF2Sprites_Vega,
+};
+
 const sGame_PaletteDataset SF2HF_A_RYU_P1_NODE[] =
 {
     { L"Ryu", 0x2daa0 - 0x02, 0x2dac0 - 0x02, indexSF2Sprites_Ryu },

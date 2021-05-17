@@ -373,6 +373,7 @@
     <ClInclude Include="Game\Bleach_DS_DEF.h" />
     <ClInclude Include="Game\BMKNS_SNES_DEF.h" />
     <ClInclude Include="Game\Breakers_A_DEF.h" />
+    <ClInclude Include="Game\ButtonDef.h" />
     <ClInclude Include="Game\CFTE_SNES_DEF.h" />
     <ClInclude Include="Game\ColorScale.h" />
     <ClInclude Include="Game\COTA_A_DEF.h" />
@@ -499,6 +500,7 @@
     <ClInclude Include="Game\GGXXACR_P_DEF.h" />
     <ClInclude Include="Game\GGXXACR_S_DEF.h" />
     <ClInclude Include="Game\GUNDAM_SNES_DEF.h" />
+    <ClInclude Include="Game\ImgIdDef.h" />
     <ClInclude Include="Game\ImgTicket.h" />
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
     <ClInclude Include="Game\KarnovsR_A_DEF.h" />

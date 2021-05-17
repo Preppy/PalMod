@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 WINDJAMMERS_A_IMG_UNITS[] =
+const UINT16 WINDJAMMERS_A_IMGIDS_USED[] =
 {
     indexWindjammersSprites_Germany,
     indexWindjammersSprites_Italy,

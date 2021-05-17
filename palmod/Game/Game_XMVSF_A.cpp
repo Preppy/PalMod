@@ -55,8 +55,8 @@ CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = XMVSF_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = XMVSF_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(XMVSF_A_IMG_UNITS);
+    m_prgGameImageSet = XMVSF_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(XMVSF_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

@@ -27,8 +27,8 @@ CGame_MBAACC_S::CGame_MBAACC_S(UINT32 nConfirmedROMSize /* = -1 */)
 
     nGameFlag = MBAACC_S;
     nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
-    m_prgGameImageSet = MBAACC_S_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(MBAACC_S_IMG_UNITS);
+    m_prgGameImageSet = MBAACC_S_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(MBAACC_S_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;

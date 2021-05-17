@@ -6,7 +6,7 @@
 // * Run PalMod and copy the debug output into the header
 // That should be it.  Good luck.
 
-const UINT16 KOF96_A_IMG_UNITS[] =
+const UINT16 KOF96_A_IMGIDS_USED[] =
 {
     indexKOF94Sprites_Kyo,
     indexKOF94Sprites_Benimaru,

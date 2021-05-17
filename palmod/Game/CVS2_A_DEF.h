@@ -6,7 +6,7 @@
 // * Update every array using CVS2_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const UINT16 CVS2_A_IMG_UNITS[] =
+const UINT16 CVS2_A_IMGIDS_USED[] =
 {
     indexCVS2Sprites_Akuma,
     indexCVS2Sprites_Athena,

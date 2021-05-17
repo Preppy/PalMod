@@ -72,7 +72,7 @@ const sKOF02_A_CharacterDump KOF02_A_CharacterOffsetArray[] =
     { L"O.Chris",    0x88b62 + (0x800 * 43), L"indexKOF02UMSprites_Chris",    nullptr, 0, L"MAX2 Orochi", 0, nullptr, 0, L"Orochi Fire Palette", 0x19 },
 };
 
-const UINT16 KOF02_A_IMG_UNITS[] =
+const UINT16 KOF02_A_IMGIDS_USED[] =
 {
     indexKOF02UMSprites_Andy,      // 0x79
     indexKOF02UMSprites_Angel,     // 0x7A

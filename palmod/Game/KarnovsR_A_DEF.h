@@ -13,7 +13,7 @@
 #define k_krNameKey_Weakpoints_K_YungmieZazie L"K Yungmie's sash, Zazie's bandana"
 #define k_krNameKey_Weakpoints_K_JeanMatlokKarnov L"K Jean's legband, Matlok's headphones, Karnov's necklace"
 
-const UINT16 KARNOVSR_A_IMG_UNITS[] =
+const UINT16 KARNOVSR_A_IMGIDS_USED[] =
 {
     indexKarnovsRSprites_Clown,         // 0x00
     indexKarnovsRSprites_Felin,         // 0x01

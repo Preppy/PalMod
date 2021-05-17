@@ -61,8 +61,8 @@ CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize, int nROMToL
     //Set game information
     nGameFlag = NINJAMASTERS_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
-    m_prgGameImageSet = NINJAMASTERS_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(NINJAMASTERS_A_IMG_UNITS);
+    m_prgGameImageSet = NINJAMASTERS_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(NINJAMASTERS_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

@@ -28,8 +28,8 @@ CGame_GGXXACR_P::CGame_GGXXACR_P(UINT32 nConfirmedROMSize /* = -1 */)
     nGameFlag = GGXXACR_P;
     nImgGameFlag = IMGDAT_SECTION_GUILTYGEAR;
     // no images yet
-    m_prgGameImageSet = GGXX_ACR_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(GGXX_ACR_IMG_UNITS);
+    m_prgGameImageSet = GGXX_ACR_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(GGXX_ACR_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;

@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 LASTBLADE_A_IMG_UNITS[] =
+const UINT16 LASTBLADE_A_IMGIDS_USED[] =
 {
     indexLastBlade2_Akari,        // 0x1D9
     indexLastBlade2_Juzoh,        // 0x1DD

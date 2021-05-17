@@ -6,7 +6,7 @@
 // * Update every array using KOF03_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const UINT16 KOF03_A_IMG_UNITS[] =
+const UINT16 KOF03_A_IMGIDS_USED[] =
 {
     indexKOF02UMSprites_Clark,
     indexKOF02UMSprites_Chang,     // 0x80

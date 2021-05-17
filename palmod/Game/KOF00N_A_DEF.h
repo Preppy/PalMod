@@ -2,7 +2,7 @@
 
 // This file is hand-generated
 
-const UINT16 KOF00N_A_IMG_UNITS[] =
+const UINT16 KOF00N_A_IMGIDS_USED[] =
 {
     indexKOF01Sprites_Athena,       // 0x147
     indexKOF01Sprites_Bao,          // 0x148

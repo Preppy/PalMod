@@ -55,8 +55,8 @@ CGame_SFA1_A::CGame_SFA1_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SFA1_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = SFA1_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SFA1_A_IMG_UNITS);
+    m_prgGameImageSet = SFA1_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SFA1_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -325,37 +325,37 @@ struct sSFA1_A_PortraitData
     LPCWSTR pszCharacterName = nullptr;
     LPCWSTR pszCodeName = nullptr;
     UINT32 nROMOffset = 0;
-    LPCWSTR pszImageSet = L"indexCPS2_SFA1Assets"; // SFA1_Unique
+    LPCWSTR pszImageSet = L"indexCPS2Sprites_SFA1Assets"; // SFA1_Unique
     UINT32 nImageSetIndex = 0;
 };
 
 sSFA1_A_PortraitData SFA1_A_PortraitDataArray[] =
 {
-    { L"Ryu", L"RYU", 0x4ce14, L"indexCPS2_SFA1Assets", 0xB4 }, // Ryu
-    { L"Ken", L"KEN", 0x4d114, L"indexCPS2_SFA1Assets", 0xAF }, // Ken
-    { L"Akuma", L"AKUMA", 0x4d414, L"indexCPS2_SFA1Assets", 0xA1 }, // Akuma
-    { L"Charlie", L"CHARLIE", 0x4d714, L"indexCPS2_SFA1Assets", 0xA5 }, // Charlie
-    { L"Chun-Li", L"CHUNLI", 0x4da14, L"indexCPS2_SFA1Assets", 0xA6 }, // Chun (NOTE: Chun has a special non-X-ISM portrait, A7)
-    { L"Adon", L"ADON", 0x4dd14, L"indexCPS2_SFA1Assets", 0xA0 }, // Adon
-    { L"Sodom", L"SODOM", 0x4e014, L"indexCPS2_SFA1Assets", 0xB7 }, // Sodom
-    { L"Guy", L"GUY", 0x4e314, L"indexCPS2_SFA1Assets", 0xAD }, // Guy
-    { L"Birdie", L"BIRDIE", 0x4e614, L"indexCPS2_SFA1Assets", 0xA2 }, // Birdie
-    { L"Rose", L"ROSE", 0x4e914, L"indexCPS2_SFA1Assets", 0xB3 }, // Rose
-    { L"M.Bison", L"MBISON", 0x4ec14, L"indexCPS2_SFA1Assets", 0xB0 }, // Dict
-    { L"Sagat", L"SAGAT", 0x4ef14, L"indexCPS2_SFA1Assets", 0xB5 }, // Sagat
-    { L"Dan", L"DAN", 0x4f214, L"indexCPS2_SFA1Assets", 0xA9 }, // Dan
-    { L"Sakura", L"SAKURA", 0x4f514, L"indexCPS2_SFA1Assets", 0xB6 }, // Sakura
-    { L"Rolento", L"ROLENTO", 0x4f814, L"indexCPS2_SFA1Assets", 0xB2 }, // Rolento
-    { L"Dhalsim", L"DHALSIM", 0x4fb14, L"indexCPS2_SFA1Assets", 0xAA }, // Dhalsim
-    { L"Zangief", L"ZANGIEF", 0x4fe14, L"indexCPS2_SFA1Assets", 0xB9 }, // Zangief
-    { L"Gen", L"GEN", 0x50114, L"indexCPS2_SFA1Assets", 0xAC }, // Gen
-    { L"Cammy", L"CAMMY", 0x50a14, L"indexCPS2_SFA1Assets", 0xA4 }, // Cammy
-    { L"E.Honda", L"EHONDA", 0x50d14, L"indexCPS2_SFA1Assets", 0xAB }, // E.Honda
-    { L"Blanka", L"BLANKA", 0x51014, L"indexCPS2_SFA1Assets", 0xA3 }, // Blanka
-    { L"R.Mika", L"RMIKA", 0x51314, L"indexCPS2_SFA1Assets", 0xB1 }, // R.Mika
-    { L"Cody", L"CODY", 0x51614, L"indexCPS2_SFA1Assets", 0xA8 }, // Cody
-    { L"Vega", L"VEGA", 0x51914, L"indexCPS2_SFA1Assets", 0xB8 }, // Vega
-    { L"Karin", L"KARIN", 0x51c14, L"indexCPS2_SFA1Assets", 0xAE }, // Karin
+    { L"Ryu", L"RYU", 0x4ce14, L"indexCPS2Sprites_SFA1Assets", 0xB4 }, // Ryu
+    { L"Ken", L"KEN", 0x4d114, L"indexCPS2Sprites_SFA1Assets", 0xAF }, // Ken
+    { L"Akuma", L"AKUMA", 0x4d414, L"indexCPS2Sprites_SFA1Assets", 0xA1 }, // Akuma
+    { L"Charlie", L"CHARLIE", 0x4d714, L"indexCPS2Sprites_SFA1Assets", 0xA5 }, // Charlie
+    { L"Chun-Li", L"CHUNLI", 0x4da14, L"indexCPS2Sprites_SFA1Assets", 0xA6 }, // Chun (NOTE: Chun has a special non-X-ISM portrait, A7)
+    { L"Adon", L"ADON", 0x4dd14, L"indexCPS2Sprites_SFA1Assets", 0xA0 }, // Adon
+    { L"Sodom", L"SODOM", 0x4e014, L"indexCPS2Sprites_SFA1Assets", 0xB7 }, // Sodom
+    { L"Guy", L"GUY", 0x4e314, L"indexCPS2Sprites_SFA1Assets", 0xAD }, // Guy
+    { L"Birdie", L"BIRDIE", 0x4e614, L"indexCPS2Sprites_SFA1Assets", 0xA2 }, // Birdie
+    { L"Rose", L"ROSE", 0x4e914, L"indexCPS2Sprites_SFA1Assets", 0xB3 }, // Rose
+    { L"M.Bison", L"MBISON", 0x4ec14, L"indexCPS2Sprites_SFA1Assets", 0xB0 }, // Dict
+    { L"Sagat", L"SAGAT", 0x4ef14, L"indexCPS2Sprites_SFA1Assets", 0xB5 }, // Sagat
+    { L"Dan", L"DAN", 0x4f214, L"indexCPS2Sprites_SFA1Assets", 0xA9 }, // Dan
+    { L"Sakura", L"SAKURA", 0x4f514, L"indexCPS2Sprites_SFA1Assets", 0xB6 }, // Sakura
+    { L"Rolento", L"ROLENTO", 0x4f814, L"indexCPS2Sprites_SFA1Assets", 0xB2 }, // Rolento
+    { L"Dhalsim", L"DHALSIM", 0x4fb14, L"indexCPS2Sprites_SFA1Assets", 0xAA }, // Dhalsim
+    { L"Zangief", L"ZANGIEF", 0x4fe14, L"indexCPS2Sprites_SFA1Assets", 0xB9 }, // Zangief
+    { L"Gen", L"GEN", 0x50114, L"indexCPS2Sprites_SFA1Assets", 0xAC }, // Gen
+    { L"Cammy", L"CAMMY", 0x50a14, L"indexCPS2Sprites_SFA1Assets", 0xA4 }, // Cammy
+    { L"E.Honda", L"EHONDA", 0x50d14, L"indexCPS2Sprites_SFA1Assets", 0xAB }, // E.Honda
+    { L"Blanka", L"BLANKA", 0x51014, L"indexCPS2Sprites_SFA1Assets", 0xA3 }, // Blanka
+    { L"R.Mika", L"RMIKA", 0x51314, L"indexCPS2Sprites_SFA1Assets", 0xB1 }, // R.Mika
+    { L"Cody", L"CODY", 0x51614, L"indexCPS2Sprites_SFA1Assets", 0xA8 }, // Cody
+    { L"Vega", L"VEGA", 0x51914, L"indexCPS2Sprites_SFA1Assets", 0xB8 }, // Vega
+    { L"Karin", L"KARIN", 0x51c14, L"indexCPS2Sprites_SFA1Assets", 0xAE }, // Karin
 };
 
 void CGame_SFA1_A::DumpHeaderPalettes()

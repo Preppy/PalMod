@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const UINT16 SVG_SNES_IMG_UNITS[] =
+const UINT16 SVG_SNES_IMGIDS_USED[] =
 {
     indexSVGSprites_Ayako,              // 0x64
     indexSVGSprites_Chiho,              // 0x65

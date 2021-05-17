@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const UINT16 BMKNS_SNES_IMG_UNITS[] =
+const UINT16 BMKNS_SNES_IMGIDS_USED[] =
 {
     indexBMKNST_Altia,                  // 0x87
     indexBMKNST_Body,                   // 0x88

@@ -37,8 +37,8 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     //Set game information
     nGameFlag = MVC2_D;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = MVC2_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(MVC2_IMG_UNITS);
+    m_prgGameImageSet = MVC2_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(MVC2_IMGIDS_USED);
 
     m_fGameUsesAlphaValue = true;
 

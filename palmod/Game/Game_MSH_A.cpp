@@ -72,8 +72,8 @@ CGame_MSH_A::CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad)
     //Set game information
     nGameFlag = MSH_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = MSH_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(MSH_A_IMG_UNITS);
+    m_prgGameImageSet = MSH_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(MSH_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

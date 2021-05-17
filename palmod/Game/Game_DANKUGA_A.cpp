@@ -65,8 +65,8 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = DANKUGA_A;
     nImgGameFlag = IMGDAT_SECTION_TAITO;
-    m_prgGameImageSet = DANKUGA_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(DANKUGA_A_IMG_UNITS);
+    m_prgGameImageSet = DANKUGA_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(DANKUGA_A_IMGIDS_USED);
     
     nFileAmt = ARRAYSIZE(c_ppszDanKuGa_Files);
 

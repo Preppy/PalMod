@@ -28,8 +28,8 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     //Set game information
     nGameFlag = SFIII3_D;
     nImgGameFlag = IMGDAT_SECTION_SF3;
-    m_prgGameImageSet = SFIII3_D_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SFIII3_D_IMG_UNITS);
+    m_prgGameImageSet = SFIII3_D_IMGID_SORTED_BY_UNIT;
+    nImgUnitAmt = ARRAYSIZE(SFIII3_D_IMGID_SORTED_BY_UNIT);
 
     nFileAmt = SFIII3_D_NUMUNIT;
 
@@ -257,7 +257,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = SFIII3_D_IMGID_SORT[uUnitId];
+    UINT16 nImgUnitId = SFIII3_D_IMGID_SORTED_BY_UNIT[uUnitId];
 
     UINT16 nSrcStart = 0;
     UINT16 nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);//GetBasicAmt(uUnitId);

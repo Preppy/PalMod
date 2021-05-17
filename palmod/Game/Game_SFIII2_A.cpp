@@ -65,8 +65,8 @@ CGame_SFIII2_A::CGame_SFIII2_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     //Set game information
     nGameFlag = SFIII2_A;
     nImgGameFlag = IMGDAT_SECTION_SF3;
-    m_prgGameImageSet = SFIII2_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SFIII2_A_IMG_UNITS);
+    m_prgGameImageSet = SFIII2_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SFIII2_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -658,7 +658,7 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             switch (NodeGet->uUnitId)
             {
-            case index3S_CPS3_ShinGouki: //Shin Gouki: only have two versions in this game
+            case index3SSprites_ShinGouki: //Shin Gouki: only have two versions in this game
             {
                 nSrcAmt = 2;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
@@ -676,7 +676,7 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (NodeGet->uUnitId == index3S_CPS3_Alex)
+                if (NodeGet->uUnitId == index3SSprites_Alex)
                 {
                     UINT16 nNodeCount = GetCollectionCountForUnit(NodeGet->uUnitId);
                     UINT16 nNextToLastPalette = GetPaletteCountForUnit(NodeGet->uUnitId) - 1;
@@ -709,7 +709,7 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         SetSourcePal(1, NodeGet->uUnitId, nNextToLastPalette, nSrcAmt, 0);
                     }
                 }
-                else if (NodeGet->uUnitId == index3S_CPS3_Urien) // Urien
+                else if (NodeGet->uUnitId == index3SSprites_Urien) // Urien
                 {
                     // Note that we deliberately use a different image for the paired palette than we do
                     // when displaying that palette normally.
@@ -726,8 +726,8 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     BasePalGroup.AddSep(1, L"Suit", 0, 64);
 
                     ClearSetImgTicket(
-                        CreateImgTicket(index3S_CPS3_Urien, 2,
-                            CreateImgTicket(index3S_CPS3_Urien, 3, NULL, 0, 0)
+                        CreateImgTicket(index3SSprites_Urien, 2,
+                            CreateImgTicket(index3SSprites_Urien, 3, NULL, 0, 0)
                         )
                     );
 

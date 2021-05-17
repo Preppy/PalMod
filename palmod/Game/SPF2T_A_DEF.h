@@ -6,14 +6,14 @@
 // * Update every array using SPF2T_A_NUMUNITS below
 // That should be it.  Good luck.
 
-const UINT16 SPF2T_A_IMG_UNITS[] =
+const UINT16 SPF2T_A_IMGIDS_USED[] =
 {
-    indexCPS2_SPF_Ryu,      // 0x59
-    indexCPS2_SPF_ChunLi,   // 0x5b
-    indexCPS2_SPF_HsienKo,  // 0x5e
-    indexCPS2_SPF_Felicia,  // 0x5f
-    indexCPS2_SPF_Dan,      // 0x63
-    indexCPS2_SPF_Akuma,    // 0x64
+    indexCPS2Sprites_SPF_Ryu,      // 0x59
+    indexCPS2Sprites_SPF_ChunLi,   // 0x5b
+    indexCPS2Sprites_SPF_HsienKo,  // 0x5e
+    indexCPS2Sprites_SPF_Felicia,  // 0x5f
+    indexCPS2Sprites_SPF_Dan,      // 0x63
+    indexCPS2Sprites_SPF_Akuma,    // 0x64
 
     indexPuzzleFighter_Akuma,       // 0x96
     indexPuzzleFighter_Anita,       // 0x97
@@ -113,7 +113,7 @@ const sGame_PaletteDataset SPF2T_A_MORRIGAN_PALETTES_B[] =
 
 const sGame_PaletteDataset SPF2T_A_HSIENKO_PALETTES_A[] =
 {
-    { L"Lei-Lei A", 0x0203fe, 0x02041e, indexCPS2_SPF_HsienKo, 0x00 },
+    { L"Lei-Lei A", 0x0203fe, 0x02041e, indexCPS2Sprites_SPF_HsienKo, 0x00 },
     { L"Lei-Lei A: Weapons", 0x02041e, 0x02043e },
     { L"Lei-Lei A: Intermission Extra", 0x02043e, 0x02045e },
     { L"Lei-Lei A: Lin-Lin", 0x02045e, 0x02047e },
@@ -121,7 +121,7 @@ const sGame_PaletteDataset SPF2T_A_HSIENKO_PALETTES_A[] =
 
 const sGame_PaletteDataset SPF2T_A_HSIENKO_PALETTES_B[] =
 {
-    { L"Lei-Lei B", 0x02047e, 0x02049e, indexCPS2_SPF_HsienKo, 0x00 },
+    { L"Lei-Lei B", 0x02047e, 0x02049e, indexCPS2Sprites_SPF_HsienKo, 0x00 },
     { L"Lei-Lei B: Weapons", 0x02049e, 0x0204be },
     { L"Lei-Lei B: Intermission Extra", 0x0204be, 0x0204de },
     { L"Lei-Lei B: Lin-Lin", 0x0204de, 0x0204fe },
@@ -129,7 +129,7 @@ const sGame_PaletteDataset SPF2T_A_HSIENKO_PALETTES_B[] =
 
 const sGame_PaletteDataset SPF2T_A_FELICIA_PALETTES_A[] =
 {
-    { L"Felicia A", 0x0205fe, 0x02061e, indexCPS2_SPF_Felicia, 0x00 },
+    { L"Felicia A", 0x0205fe, 0x02061e, indexCPS2Sprites_SPF_Felicia, 0x00 },
     { L"Felicia A: Unused Pal 1", 0x02061e, 0x02063e },
     { L"Felicia A: Dust", 0x02063e, 0x02065e },
     { L"Felicia A: Sand Splash", 0x02065e, 0x02067e },
@@ -137,7 +137,7 @@ const sGame_PaletteDataset SPF2T_A_FELICIA_PALETTES_A[] =
 
 const sGame_PaletteDataset SPF2T_A_FELICIA_PALETTES_B[] =
 {
-    { L"Felicia B", 0x02067e, 0x02069e, indexCPS2_SPF_Felicia, 0x00 },
+    { L"Felicia B", 0x02067e, 0x02069e, indexCPS2Sprites_SPF_Felicia, 0x00 },
     { L"Felicia B: Unused Pal 1", 0x02069e, 0x0206be },
     { L"Felicia B: Dust", 0x0206be, 0x0206de },
     { L"Felicia B: Sand Splash", 0x0206de, 0x0206fe },
@@ -145,34 +145,34 @@ const sGame_PaletteDataset SPF2T_A_FELICIA_PALETTES_B[] =
 
 const sGame_PaletteDataset SPF2T_A_DAN_PALETTES_A[] =
 {
-    { L"Dan A", 0x0209fe, 0x020a1e, indexCPS2_SPF_Dan, 0x00 },
+    { L"Dan A", 0x0209fe, 0x020a1e, indexCPS2Sprites_SPF_Dan, 0x00 },
     { L"Dan A: Gadoken", 0x020a1e, 0x020a3e },
-    { L"Dan A: Supertrail 1", 0x020a3e, 0x020a5e, indexCPS2_SPF_Dan, 0x00 },
-    { L"Dan A: Supertrail 2", 0x020a5e, 0x020a7e, indexCPS2_SPF_Dan, 0x00 },
+    { L"Dan A: Supertrail 1", 0x020a3e, 0x020a5e, indexCPS2Sprites_SPF_Dan, 0x00 },
+    { L"Dan A: Supertrail 2", 0x020a5e, 0x020a7e, indexCPS2Sprites_SPF_Dan, 0x00 },
 };
 
 const sGame_PaletteDataset SPF2T_A_DAN_PALETTES_B[] =
 {
-    { L"Dan B", 0x020a7e, 0x020a9e, indexCPS2_SPF_Dan, 0x00 },
+    { L"Dan B", 0x020a7e, 0x020a9e, indexCPS2Sprites_SPF_Dan, 0x00 },
     { L"Dan B: Gadoken", 0x020a9e, 0x020abe },
-    { L"Dan B: Supertrail 1", 0x020abe, 0x020ade, indexCPS2_SPF_Dan, 0x00 },
-    { L"Dan B: Supertrail 2", 0x020ade, 0x020afe, indexCPS2_SPF_Dan, 0x00 },
+    { L"Dan B: Supertrail 1", 0x020abe, 0x020ade, indexCPS2Sprites_SPF_Dan, 0x00 },
+    { L"Dan B: Supertrail 2", 0x020ade, 0x020afe, indexCPS2Sprites_SPF_Dan, 0x00 },
 };
 
 const sGame_PaletteDataset SPF2T_A_AKUMA_PALETTES_A[] =
 {
-    { L"Gouki A", 0x0208fe, 0x02091e, indexCPS2_SPF_Akuma, 0x00 },
+    { L"Gouki A", 0x0208fe, 0x02091e, indexCPS2Sprites_SPF_Akuma, 0x00 },
     { L"Gouki A: Gou-Hadouken", 0x02091e, 0x02093e },
-    { L"Gouki A: Supertrail 1", 0x02093e, 0x02095e, indexCPS2_SPF_Akuma, 0x00 },
-    { L"Gouki A: Supertrail 2", 0x02095e, 0x02097e, indexCPS2_SPF_Akuma, 0x00 },
+    { L"Gouki A: Supertrail 1", 0x02093e, 0x02095e, indexCPS2Sprites_SPF_Akuma, 0x00 },
+    { L"Gouki A: Supertrail 2", 0x02095e, 0x02097e, indexCPS2Sprites_SPF_Akuma, 0x00 },
 };
 
 const sGame_PaletteDataset SPF2T_A_AKUMA_PALETTES_B[] =
 {
-    { L"Gouki B", 0x02097e, 0x02099e, indexCPS2_SPF_Akuma, 0x00 },
+    { L"Gouki B", 0x02097e, 0x02099e, indexCPS2Sprites_SPF_Akuma, 0x00 },
     { L"Gouki B: Gou-Hadouken", 0x02099e, 0x0209be },
-    { L"Gouki B: Supertrail 1", 0x0209be, 0x0209de, indexCPS2_SPF_Akuma, 0x00 },
-    { L"Gouki B: Supertrail 2", 0x0209de, 0x0209fe, indexCPS2_SPF_Akuma, 0x00 },
+    { L"Gouki B: Supertrail 1", 0x0209be, 0x0209de, indexCPS2Sprites_SPF_Akuma, 0x00 },
+    { L"Gouki B: Supertrail 2", 0x0209de, 0x0209fe, indexCPS2Sprites_SPF_Akuma, 0x00 },
 };
 
 const sGame_PaletteDataset SPF2T_A_DONOVAN_PALETTES_A[] =

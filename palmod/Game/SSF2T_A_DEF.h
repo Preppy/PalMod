@@ -61,6 +61,29 @@ const UINT8 SSF2T_A_UNITSORT_4A[SSF2T_A_NUM_IND_4A + 1] = // Plus 1 for the extr
     SSF2T_A_EXTRALOC_4A // Extra palettes
 };
 
+const UINT16 SSF2T_A_IMGIDS_USED[] =
+{
+    indexSF2Sprites_Ryu,
+    indexSF2Sprites_EHonda,
+    indexSF2Sprites_Blanka,
+    indexSF2Sprites_Guile,
+    indexSF2Sprites_Ken,
+    indexSF2Sprites_ChunLi,
+    indexSF2Sprites_Zangief,
+    indexSF2Sprites_Dhalsim,
+    indexSF2Sprites_Bison,
+    indexSF2Sprites_Sagat,
+    indexSF2Sprites_Balrog,
+    indexSF2Sprites_Vega,
+    indexSF2Sprites_Cammy,
+    indexSF2Sprites_THawk,
+    indexSF2Sprites_FeiLong,
+    indexSF2Sprites_DeeJay,
+    indexSF2Sprites_Gouki,
+    indexSF2Sprites_Bonus,
+    indexSF2Sprites_Stages,
+};
+
 const sGame_PaletteDataset SSF2T_A_BALROG_PALETTES_JAB[] =
 {
     { L"Jab", 0x43b54, 0x43b74, indexSF2Sprites_Balrog },

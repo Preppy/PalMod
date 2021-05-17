@@ -886,7 +886,7 @@ void CPalModDlg::OnBnNewCol()
 
     UpdateData();
 
-    int nAVal = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_A));
+    int nAVal = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(GetHost()->GetCurrGame()->Get8BitValueForColorStep_A(m_Edit_A));
 
     if (nSelAmt > 1)
     {

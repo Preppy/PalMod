@@ -40,15 +40,15 @@ CGame_BMKNS_SNES::CGame_BMKNS_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = BMKNS_SNES;
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = BMKNS_SNES_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(BMKNS_SNES_IMG_UNITS);
+    m_prgGameImageSet = BMKNS_SNES_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(BMKNS_SNES_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_4_BMKNS; // Check out the available options in gamedef.h
+    pButtonLabelSet = DEF_BUTTONLABEL_4_BMKNS; // Check out the available options in buttondef.h
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_4_BMKNS);
 
     //Create the redirect buffer

@@ -2,7 +2,7 @@
 
 // This is mostly auto-generated using DumpPaletteHeaders
 
-const UINT16 KOF01_A_IMG_UNITS[] =
+const UINT16 KOF01_A_IMGIDS_USED[] =
 {
     indexKOF02UMSprites_K,
     indexKOF02UMSprites_Maxima,

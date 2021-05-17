@@ -11,7 +11,7 @@
 // Fernandeath (Fernandez in the US)
 // Bonus-Kun
 
-const UINT16 WAKUWAKU7_A_IMG_UNITS[] =
+const UINT16 WAKUWAKU7_A_IMGIDS_USED[] =
 {
     indexWakuWaku7Sprites_Arina,
     indexWakuWaku7Sprites_DandyJ,

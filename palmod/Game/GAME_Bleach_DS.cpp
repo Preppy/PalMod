@@ -58,15 +58,15 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = BLEACH_DS; // This value is defined in gamedef.h.  See usage of other values defined there
     nImgGameFlag = IMGDAT_SECTION_DS; // Kept default as i have no img2020.dat file to mess with
-    m_prgGameImageSet = BLEACH_DS_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(BLEACH_DS_IMG_UNITS);
+    m_prgGameImageSet = BLEACH_DS_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(BLEACH_DS_IMGIDS_USED);
 
     nFileAmt = 1; // Always 1 for monolithic rom games
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_BLEACH; // Check out the available options in gamedef.h
+    pButtonLabelSet = DEF_BUTTONLABEL_BLEACH; // Check out the available options in buttondef.h
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_BLEACH);
 
     //Create the redirect buffer

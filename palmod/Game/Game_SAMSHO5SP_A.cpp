@@ -58,8 +58,8 @@ CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SAMSHO5SP_A;
     nImgGameFlag = IMGDAT_SECTION_SAMSHO;
-    nImgUnitAmt = ARRAYSIZE(SAMSHO5SP_A_IMG_UNITS);
-    m_prgGameImageSet = SAMSHO5SP_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SAMSHO5SP_A_IMGIDS_USED);
+    m_prgGameImageSet = SAMSHO5SP_A_IMGIDS_USED;
 
     nFileAmt = 1;
 

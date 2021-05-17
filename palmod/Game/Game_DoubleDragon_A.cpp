@@ -61,8 +61,8 @@ CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A(UINT32 nConfirmedROMSize, int nROMToL
     //Set game information
     nGameFlag = DOUBLEDRAGON_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
-    m_prgGameImageSet = DDRAGON_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(DDRAGON_A_IMG_UNITS);
+    m_prgGameImageSet = DDRAGON_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(DDRAGON_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

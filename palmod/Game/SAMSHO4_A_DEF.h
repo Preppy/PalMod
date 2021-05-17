@@ -1,5 +1,30 @@
 #pragma once
 
+const UINT16 SAMSHO4_A_IMGIDS_USED[] =
+{
+    indexSamSho5Sprites_Amakusa,
+    indexSamSho5Sprites_Basara,
+    indexSamSho5Sprites_Charlotte,
+    indexSamSho5Sprites_Gaira,
+    indexSamSho5Sprites_Galford,
+    indexSamSho5Sprites_Genjuro,
+    indexSamSho5Sprites_Hanzo,
+    indexSamSho5Sprites_Haohmaru,
+    indexSamSho5Sprites_Jubei,
+    indexSamSho5Sprites_Kazuki,
+    indexSamSho5Sprites_Kyoshiro,
+    indexSamSho5Sprites_Nakoruru,
+    indexSamSho5Sprites_Rera, // not in the game: just want the shikuru sprite for nakoruru Bust form
+    indexSamSho5Sprites_Rimururu,
+    indexSamSho5Sprites_Shizumaru,
+    indexSamSho5Sprites_Sogetsu,
+    indexSamSho5Sprites_TamTam,
+    indexSamSho5Sprites_Ukyo,
+    indexSamSho5Sprites_Zankuro,
+
+    indexSamSho5Sprites_Portrait,
+};
+
 const sGame_PaletteDataset SAMSHO4_A_HAOHMARU_PALETTES_S1[] =
 {
     { L"Haohmaru Slash A", 0x0c1000, 0x0c1040, indexSamSho5Sprites_Haohmaru },

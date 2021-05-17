@@ -1,5 +1,7 @@
 #pragma once
 
+#include "SF2HF_A_DEF.h"
+
 const sGame_PaletteDataset SF2CE_A_RYU_P1_NODE[] =
 {
     { L"Ryu", 0x24286, 0x242a6, indexSF2Sprites_Ryu },

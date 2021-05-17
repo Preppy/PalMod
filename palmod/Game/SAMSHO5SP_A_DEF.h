@@ -6,6 +6,40 @@
 // * Update every array using SAMSHO5SP_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const UINT16 SAMSHO5SP_A_IMGIDS_USED[] =
+{
+    indexSamSho5Sprites_Amakusa,
+    indexSamSho5Sprites_Basara,
+    indexSamSho5Sprites_Charlotte,
+    indexSamSho5Sprites_Enja,
+    indexSamSho5Sprites_Gaira,
+    indexSamSho5Sprites_Galford,
+    indexSamSho5Sprites_Gaoh,
+    indexSamSho5Sprites_Genjuro,
+    indexSamSho5Sprites_Hanzo,
+    indexSamSho5Sprites_Haohmaru,
+    indexSamSho5Sprites_Jubei,
+    indexSamSho5Sprites_Kazuki,
+    indexSamSho5Sprites_Kusaregedo,
+    indexSamSho5Sprites_Kyoshiro,
+    indexSamSho5Sprites_Mina,
+    indexSamSho5Sprites_Mizuki,
+    indexSamSho5Sprites_Nakoruru,
+    indexSamSho5Sprites_Rasetsumaru,
+    indexSamSho5Sprites_Rera,
+    indexSamSho5Sprites_Rimururu,
+    indexSamSho5Sprites_Shizumaru,
+    indexSamSho5Sprites_Sogetsu,
+    indexSamSho5Sprites_Suija,
+    indexSamSho5Sprites_TamTam,
+    indexSamSho5Sprites_Ukyo,
+    indexSamSho5Sprites_Yoshitora,
+    indexSamSho5Sprites_Yunfei,
+    indexSamSho5Sprites_Zankuro,
+    indexSamSho5Sprites_Portrait,
+    indexSamSho5Sprites_Bonus
+};
+
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_A[] =
 {
     { L"Amakusa A (Normal)", 0xe0000, 0xe0040, indexSamSho5Sprites_Amakusa },

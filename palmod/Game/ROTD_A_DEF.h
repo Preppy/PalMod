@@ -2,7 +2,7 @@
 
 // This header is all hand-generated
 
-const UINT16 ROTD_A_IMG_UNITS[] =
+const UINT16 ROTD_A_IMGIDS_USED[] =
 {
     indexRotDSprites_Abubo,                 // 0x2F
     indexRotDSprites_Alice,                 // 0x30

@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 SAMSHO5_A_IMG_UNITS[] =
+const UINT16 SAMSHO5_A_IMGIDS_USED[] =
 {
     indexSamSho5Sprites_Amakusa,
     indexSamSho5Sprites_Basara,

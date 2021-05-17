@@ -65,8 +65,8 @@ CGame_SFIII1_A::CGame_SFIII1_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     //Set game information
     nGameFlag = SFIII1_A;
     nImgGameFlag = IMGDAT_SECTION_SF3;
-    m_prgGameImageSet = SFIII1_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SFIII1_A_IMG_UNITS);
+    m_prgGameImageSet = SFIII1_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SFIII1_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -657,7 +657,7 @@ BOOL CGame_SFIII1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (NodeGet->uUnitId == index3S_CPS3_Alex)
+                if (NodeGet->uUnitId == index3SSprites_Alex)
                 {
                     UINT16 nNodeCount = GetCollectionCountForUnit(NodeGet->uUnitId);
                     UINT16 nNextToLastPalette = GetPaletteCountForUnit(NodeGet->uUnitId) - 1;

@@ -2653,7 +2653,7 @@ bool IsPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 compare_ch
 
 #if USE_THIS_TO_DUMP_COLOR_TABLES
 
-            if (char_id == indexCPS2_Roll) // <- insert your current character of interest here.  Or comment out this line to dump everybody.
+            if (char_id == indexCPS2Sprites_Roll) // <- insert your current character of interest here.  Or comment out this line to dump everybody.
             {
                 static UINT16 lastSourcePal = 0xFFFF;
                 static UINT16 lastDestPal = 0xFFFF;
@@ -2928,14 +2928,14 @@ void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
     }
 
     // Spiral logic... just bulk copy if we have a problem, since it's a flat copy instead of tinting or anything special.
-    if (g_rgfCharacterHasIssues[indexCPS2_Spiral])
+    if (g_rgfCharacterHasIssues[indexCPS2Sprites_Spiral])
     {
         for (palette_validation paletteToCheck : char_val_array_spiral)
         {
             supp_copy_spiral(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.destination_palette);
         }
 
-        rgPaletteChangeArray[indexCPS2_Spiral] = TRUE;
+        rgPaletteChangeArray[indexCPS2Sprites_Spiral] = TRUE;
     }
 
     for (palette_validation paletteToCheck : char_val_array)

@@ -58,8 +58,8 @@ CGame_SPF2T_A::CGame_SPF2T_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SPF2T_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = SPF2T_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SPF2T_A_IMG_UNITS);
+    m_prgGameImageSet = SPF2T_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SPF2T_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

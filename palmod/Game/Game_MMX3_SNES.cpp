@@ -40,15 +40,15 @@ CGame_MMX3_SNES::CGame_MMX3_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = MMX3_SNES;
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = nullptr;  // MMX3_SNES_IMG_UNITS
-    nImgUnitAmt = 0; // ARRAYSIZE(MMX3_SNES_IMG_UNITS);
+    m_prgGameImageSet = nullptr;  // MMX3_SNES_IMGIDS_USED
+    nImgUnitAmt = 0; // ARRAYSIZE(MMX3_SNES_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_NOBUTTONS; // Check out the available options in gamedef.h
+    pButtonLabelSet = DEF_NOBUTTONS; // Check out the available options in buttondef.h
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
     //Create the redirect buffer

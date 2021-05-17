@@ -8,7 +8,7 @@ CDescTree CGame_DBFCI_A::MainDescTree = nullptr;
 
 #define DBFCI_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-const UINT16 DBFCI_A_IMG_UNITS[] =
+const UINT16 DBFCI_A_IMGIDS_USED[] =
 {
     indexFrenchBreadSprites_DBFCI_Akira,        // 0x00
     indexFrenchBreadSprites_DBFCI_Ako,          // 0x01
@@ -301,8 +301,8 @@ CGame_DBFCI_A::CGame_DBFCI_A(UINT32 nConfirmedROMSize /* = -1 */)
 
     nGameFlag = DBFCI_A;
     nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
-    m_prgGameImageSet = DBFCI_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(DBFCI_A_IMG_UNITS);
+    m_prgGameImageSet = DBFCI_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(DBFCI_A_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;

@@ -1,5 +1,21 @@
 #pragma once
 
+const UINT16 RBFF1_A_IMGIDS_USED[] =
+{
+    indexRBFFSSprites_Billy,        // 0x134
+    indexRBFFSSprites_Bob,          // 0x136
+    indexRBFFSSprites_Chonrei,      // 0x138
+    indexRBFFSSprites_Chonshu,      // 0x139
+    indexRBFFSSprites_DuckKing,     // 0x13a
+    indexRBFFSSprites_Franco,       // 0x13b
+    indexRBFFSSprites_Geese,        // 0x13c
+    indexRBFFSSprites_Hon,          // 0x13d
+    indexRBFFSSprites_Joe,          // 0x13e
+    indexRBFFSSprites_Kim,          // 0x13f
+    indexRBFFSSprites_Mai,          // 0x142
+    indexRBFFSSprites_Sokaku,       // 0x143
+};
+
 const sGame_PaletteDataset RBFF1_A_TERRY_PALETTES_A[] =
 {
     { L"Terry Bogard A", 0x0c0200, 0x0c0220 },
@@ -68,7 +84,7 @@ const sGame_PaletteDataset RBFF1_A_HONFU_PALETTES_A[] =
 
 const sGame_PaletteDataset RBFF1_A_HONFU_PALETTES_D[] =
 {
-    { L"Hon Fu D", 0x0c04a0, 0x0c04c0, indexRBFFSSprites_Hon, indexRBFFSSprites_Hon },
+    { L"Hon Fu D", 0x0c04a0, 0x0c04c0, indexRBFFSSprites_Hon, 0x00 },
     { L"Hon Fu Bottom Plane D", 0x0c04e0, 0x0c0500, indexRBFFSSprites_Hon },
 };
 
