@@ -1558,6 +1558,17 @@ enum SupportedSNES_PaletteListIndex
     indexBMKNST_Wolvan,                 // 0x8E
     indexBMKNST_Zeno,                   // 0x8F
     indexBMKNST_Bonus,                  // 0x90
+
+    indexBSSMSJRSprites_ChibiMoon,      // 0x91
+    indexBSSMSJRSprites_Jupiter,        // 0x92
+    indexBSSMSJRSprites_Mars,           // 0x93
+    indexBSSMSJRSprites_Mercury,        // 0x94
+    indexBSSMSJRSprites_Neptune,        // 0x95
+    indexBSSMSJRSprites_Pluto,          // 0x96
+    indexBSSMSJRSprites_SailorMoon,     // 0x97
+    indexBSSMSJRSprites_Uranus,         // 0x98
+    indexBSSMSJRSprites_Venus,          // 0x99
+    indexBSSMSJRSprites_Bonus,          // 0x9a
 };
 
 enum SupportedNEOGEO_PaletteListIndex

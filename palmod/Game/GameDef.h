@@ -135,6 +135,7 @@ enum SupportedGamesList
     SVG_SNES,
     REDEARTH_A_DIR_50,
     BMKNS_SNES,
+    BSSMSJR_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -267,6 +268,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Super Variable Geo (SNES)",
     L"Red Earth: Next (Arcade Rerip)",
     L"Battle Master: KnS (SNES)",
+    L"Bishojo Senshi Sailor Moon S - JR (SNES)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

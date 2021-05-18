@@ -19,6 +19,7 @@ sSupportedGameList SupportedGameList[] =
     { BMKNS_SNES,       L"Battle Master: KnS (SNES)", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).sfc|", GamePlatform::Nintendo },
     { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo }, // Sega
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.p1|", GamePlatform::NEOGEO },
+    { BSSMSJR_SNES,     L"Bishojo Senshi Sailor Moon S - JR (SNES)", L"Bishojo Senshi Sailor Moon S - JR (SNES)|Bishoujo Senshi Sailor Moon S - Jougai Rantou! Shuyaku Soudatsusen (Japan).sfc|", GamePlatform::Nintendo },
     { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).sfc|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
     { CVS2_A,           L"CVS2", L"CVS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },

@@ -7,6 +7,7 @@
 #include "Game_Bleach_DS.h"
 #include "Game_BMKNS_SNES.h"
 #include "Game_Breakers_A.h"
+#include "Game_BSSMSJR_SNES.h"
 #include "Game_CFTE_SNES.h"
 #include "Game_COTA_A.h"
 #include "Game_CVS2_A.h"
@@ -187,6 +188,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case BREAKERS_A:
     {
         GetRule = &CGame_BREAKERS_A::GetRule;
+        return TRUE;
+    }
+    case BSSMSJR_SNES:
+    {
+        GetRule = &CGame_BSSMSJR_SNES::GetRule;
         return TRUE;
     }
     case CFTE_SNES:
@@ -844,6 +850,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case BREAKERS_A:
     {
         return new CGame_BREAKERS_A(nConfirmedROMSize);
+    }
+    case BSSMSJR_SNES:
+    {
+        return new CGame_BSSMSJR_SNES(nConfirmedROMSize);
     }
     case CFTE_SNES:
     {
