@@ -15,7 +15,7 @@ const UINT16 SFIII1_A_IMGIDS_USED[] =
     index3SSprites_Ken,
     index3SSprites_Sean,
     index3SSprites_Gill,
-    indexSF2ISprites_Bonus,
+    indexSFNGSprites_Bonus,
 };
 
 const sGame_PaletteDataset SFIII1_A_ALEX_LP_PALETTES[] =
@@ -630,6 +630,36 @@ const sDescTreeNode SFIII1_A_SEAN_COLLECTION[] =
     { L"Support", DESC_NODETYPE_TREE, (void*)SFIII1_A_SEAN_Support_PALETTES, ARRAYSIZE(SFIII1_A_SEAN_Support_PALETTES) },
 };
 
+const sGame_PaletteDataset SFIII1_A_BONUS_INTROPORTS_PALETTES[] =
+{
+    { L"Yang Intro Panel",  0x3f5a00, 0x3f5a20, indexSFNGSprites_Bonus, 0x0f },
+    { L"Elena Intro Panel", 0x3f5ac0, 0x3f5ae0, indexSFNGSprites_Bonus, 0x06 },
+    { L"Yun Intro Panel",   0x3f5a40, 0x3f5a60, indexSFNGSprites_Bonus, 0x10 },
+    { L"Ken Intro Panel",   0x3f5ae0, 0x3f5b00, indexSFNGSprites_Bonus, 0x09 },
+    { L"Sean Intro Panel",  0x3f5aa0, 0x3f5ac0, indexSFNGSprites_Bonus, 0x0d },
+    { L"Ibuki Intro Panel", 0x3f5a60, 0x3f5a80, indexSFNGSprites_Bonus, 0x08 },
+    { L"Oro Intro Panel",   0x3f5b40, 0x3f5b80, indexSFNGSprites_Bonus, 0x0b },
+    { L"Necro Intro Panel", 0x3f5b20, 0x3f5b40, indexSFNGSprites_Bonus, 0x0a },
+    { L"Dudley Intro Panel", 0x3f5b00, 0x3f5b20, indexSFNGSprites_Bonus, 0x05 },
+    { L"Alex Intro Panel",  0x3f5a20, 0x3f5a40, indexSFNGSprites_Bonus, 0x01 },
+    { L"Ryu Intro Panel",   0x3f5a80, 0x3f5aa0, indexSFNGSprites_Bonus, 0x0c },
+    { L"Gill Intro Panel",  0x3f5b80, 0x3f5c00, indexSFNGSprites_Bonus, 0x07 },
+    { L"Alex Intro Portrait (Facing Back)",             0x3f6000, 0x3f6080, indexSFNGSprites_Bonus, 0x02 },
+    { L"Alex Intro Portrait (Facing Back -Tinted 1/8)", 0x3f5c00, 0x3f5c80, indexSFNGSprites_Bonus, 0x02 },
+    { L"Alex Intro Portrait (Facing Back -Tinted 2/8)", 0x3f5c80, 0x3f5d00, indexSFNGSprites_Bonus, 0x02 },
+    { L"Alex Intro Portrait (Facing Back -Tinted 3/8)", 0x3f5d00, 0x3f5d80, indexSFNGSprites_Bonus, 0x02 },
+    { L"Alex Intro Portrait (Facing Back -Tinted 4/8)", 0x3f5d80, 0x3f5e00, indexSFNGSprites_Bonus, 0x02 },
+    { L"Alex Intro Portrait (Facing Back -Tinted 5/8)", 0x3f5e00, 0x3f5e80, indexSFNGSprites_Bonus, 0x02 },
+    { L"Alex Intro Portrait (Facing Back -Tinted 6/8)", 0x3f5e80, 0x3f5f00, indexSFNGSprites_Bonus, 0x02 },
+    { L"Alex Intro Portrait (Facing Back -Tinted 7/8)", 0x3f5f00, 0x3f5f80, indexSFNGSprites_Bonus, 0x02 },
+    { L"Alex Intro Portrait (Facing Back -Tinted 8/8)", 0x3f5f80, 0x3f6000, indexSFNGSprites_Bonus, 0x02 },
+    { L"Alex Intro Portrait (Side Facing)", 0x3f6480, 0x3f6500, indexSFNGSprites_Bonus, 0x03 },
+    { L"Alex Intro Fist", 0x3f6400, 0x3f6480, indexSFNGSprites_Bonus, 0x00 },
+    { L"Alex Intro/Titlescreen Portrait",           0x3f6500, 0x3f6580, indexSFNGSprites_Bonus, 0x04 },
+    { L"Alex Intro/Titlescreen Portrait (Faded)",   0x3f6080, 0x3f6100, indexSFNGSprites_Bonus, 0x04 },
+    { L"Intro Text", 0x3f6100, 0x3f6120, indexSFNGSprites_Bonus, 0x0e },
+};
+
 const sGame_PaletteDataset SFIII1_A_BONUS_PALETTES[] =
 {
     { L"P1 Hitsparks/Other", 0x3d4280, 0x3d4300 },
@@ -640,7 +670,8 @@ const sGame_PaletteDataset SFIII1_A_BONUS_PALETTES[] =
 
 const sDescTreeNode SFIII1_A_BONUS_COLLECTION[] =
 {
-    { L"Bonus",   DESC_NODETYPE_TREE, (void*)SFIII1_A_BONUS_PALETTES, ARRAYSIZE(SFIII1_A_BONUS_PALETTES) },
+    { L"Intro Portraits",   DESC_NODETYPE_TREE, (void*)SFIII1_A_BONUS_INTROPORTS_PALETTES, ARRAYSIZE(SFIII1_A_BONUS_INTROPORTS_PALETTES) },
+    { L"Bonus",             DESC_NODETYPE_TREE, (void*)SFIII1_A_BONUS_PALETTES, ARRAYSIZE(SFIII1_A_BONUS_PALETTES) },
 };
 
 const sDescTreeNode SFIII1_A_50_UNITS[] =
@@ -657,7 +688,7 @@ const sDescTreeNode SFIII1_A_50_UNITS[] =
     { L"Sean",   DESC_NODETYPE_TREE, (void*)SFIII1_A_SEAN_COLLECTION, ARRAYSIZE(SFIII1_A_SEAN_COLLECTION) },
     { L"Gill",   DESC_NODETYPE_TREE, (void*)SFIII1_A_GILL_COLLECTION, ARRAYSIZE(SFIII1_A_GILL_COLLECTION) },
     { L"Hugo (unplayable)", DESC_NODETYPE_TREE, (void*)SFIII1_A_HUGO_COLLECTION, ARRAYSIZE(SFIII1_A_HUGO_COLLECTION) },
-    { L"Bonus",  DESC_NODETYPE_TREE, (void*)SFIII1_A_BONUS_COLLECTION, ARRAYSIZE(SFIII1_A_BONUS_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFIII1_A_BONUS_COLLECTION, ARRAYSIZE(SFIII1_A_BONUS_COLLECTION) },
 };
 
 constexpr auto SFIII1_A_50_NUMUNIT = ARRAYSIZE(SFIII1_A_50_UNITS);

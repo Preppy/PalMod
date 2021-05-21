@@ -126,14 +126,14 @@ const sGame_PaletteDataset MSHWOTG_BONUS_VSP_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BONUS_ENDING_PALETTES[] =
 {
-    { L"Captain America Ending Portrait Part 1", 0x63E62, 0x63E82 },
-    { L"Captain America Ending Portrait Part 2", 0x81704, 0x81724 },
-    { L"Iron Man Ending Portrait Part 1", 0x63E42, 0x63E62 },
-    { L"Iron Man Ending Portrait Part 2", 0x816C4, 0x816E4 },
-    { L"Hulk Ending Portrait", 0x63E22, 0x63E42 },
-    { L"Spider-Man Ending Portrait Part 1", 0x63E02, 0x63E22 },
-    { L"Spider-Man Ending Portrait Part 2", 0x81724, 0x81744 },
-    { L"Wolverine Ending Portrait", 0x81764, 0x81784 },
+    { L"Captain America Ending Portrait Part 1",    0x63E62, 0x63E82, indexMSHWOTGSprites_Bonus, 0x09, &pairNext },
+    { L"Captain America Ending Portrait Part 2",    0x81704, 0x81724, indexMSHWOTGSprites_Bonus, 0x0a },
+    { L"Hulk Ending Portrait",                      0x63E22, 0x63E42, indexMSHWOTGSprites_Bonus, 0x0b },
+    { L"Iron Man Ending Portrait Part 1",           0x63E42, 0x63E62, indexMSHWOTGSprites_Bonus, 0x0c, &pairNext },
+    { L"Iron Man Ending Portrait Part 2",           0x816C4, 0x816E4, indexMSHWOTGSprites_Bonus, 0x0d },
+    { L"Spider-Man Ending Portrait Part 1",         0x63E02, 0x63E22, indexMSHWOTGSprites_Bonus, 0x0e, &pairNext },
+    { L"Spider-Man Ending Portrait Part 2",         0x81724, 0x81744, indexMSHWOTGSprites_Bonus, 0x0f },
+    { L"Wolverine Ending Portrait",                 0x81764, 0x81784, indexMSHWOTGSprites_Bonus, 0x10 },
 };
 
 const sGame_PaletteDataset MSHWOTG_BONUS_TITLE_PALETTES[] =
@@ -174,7 +174,7 @@ const sGame_PaletteDataset MSHWOTG_BONUS_ENEMY_PALETTES[] =
     { L"Magus shadow 2", 0xFA8E0, 0xFA900, indexMSHWOTGSprites_Magus, 0x00 },
     { L"Magus Portrait", 0x5F48D, 0x5F4AD, indexMSHWOTGSprites_Magus, 0x40 },
     { L"Nebula", 0xFA7C0, 0xFA7E0, indexMSHWOTGSprites_Nebula, 0x00 },
-    { L"Nebula Portrait", 0x71295, 0x712B5 },
+    { L"Nebula Portrait", 0x71295, 0x712B5, indexMSHWOTGSprites_Nebula, 0x40 },
     { L"Thanos", 0xFA760, 0xFA780, indexMSHWOTGSprites_Thanos, 0x00 },
     { L"Thanos Portrait", 0x7AA20, 0x7AA40 },
 };

@@ -666,11 +666,11 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_A[] =
     { L"Haohmaru A (Frozen/Wet)", 0xd5140, 0xd5180, indexSamSho5Sprites_Haohmaru },
     { L"Haohmaru A (Ki)", 0xd5180, 0xd51c0, indexSamSho5Sprites_Haohmaru },
     { L"Haohmaru A (Senpuuretsuzan)", 0xd51c0, 0xd51e0 },
-    { L"Haohmaru A (Kogetsuzan/Resshinzan)", 0xd51f0, 0xd5200 },
+    { L"Haohmaru A (Kogetsuzan/Resshinzan)", 0xd51e0, 0xd5200 },
     { L"Haohmaru A (Issen Trail)", 0xd5200, 0xd5240, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru A (Fatality)", 0xd5280, 0xd52a0 },
+    { L"Haohmaru A (Overkill)", 0xd5280, 0xd52a0 },
     { L"Haohmaru A (Kogetsuzan Trail)", 0xd52c0, 0xd5300, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru A (Slash Effects)", 0xd5350, 0xd5360 },
+    { L"Haohmaru A (Slash Effects)", 0xd5340, 0xd5360 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_B[] =
@@ -684,11 +684,11 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_B[] =
     { L"Haohmaru B (Frozen/Wet)", 0xd5540, 0xd5580, indexSamSho5Sprites_Haohmaru },
     { L"Haohmaru B (Ki)", 0xd5580, 0xd55c0, indexSamSho5Sprites_Haohmaru },
     { L"Haohmaru B (Senpuuretsuzan)", 0xd55c0, 0xd55e0 },
-    { L"Haohmaru B (Kogetsuzan/Resshinzan)", 0xd55f0, 0xd5600 },
+    { L"Haohmaru B (Kogetsuzan/Resshinzan)", 0xd55e0, 0xd5600 },
     { L"Haohmaru B (Issen Trail)", 0xd5600, 0xd5640, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru B (Fatality)", 0xd5680, 0xd56a0 },
+    { L"Haohmaru B (Overkill)", 0xd5680, 0xd56a0 },
     { L"Haohmaru B (Kogetsuzan Trail)", 0xd56c0, 0xd5700, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru B (Slash Effects)", 0xd5750, 0xd5760 },
+    { L"Haohmaru B (Slash Effects)", 0xd5740, 0xd5760 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_C[] =
@@ -702,11 +702,11 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_C[] =
     { L"Haohmaru C (Frozen/Wet)", 0xd5940, 0xd5980, indexSamSho5Sprites_Haohmaru },
     { L"Haohmaru C (Ki)", 0xd5980, 0xd59c0, indexSamSho5Sprites_Haohmaru },
     { L"Haohmaru C (Senpuuretsuzan)", 0xd59c0, 0xd59e0 },
-    { L"Haohmaru C (Kogetsuzan/Resshinzan)", 0xd59f0, 0xd5a00 },
+    { L"Haohmaru C (Kogetsuzan/Resshinzan)", 0xd59e0, 0xd5a00 },
     { L"Haohmaru C (Issen Trail)", 0xd5a00, 0xd5a40, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru C (Fatality)", 0xd5a80, 0xd5aa0 },
+    { L"Haohmaru C (Overkill)", 0xd5a80, 0xd5aa0 },
     { L"Haohmaru C (Kogetsuzan Trail)", 0xd5ac0, 0xd5b00, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru C (Slash Effects)", 0xd5b50, 0xd5b60 },
+    { L"Haohmaru C (Slash Effects)", 0xd5b40, 0xd5b60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_D[] =
@@ -720,11 +720,11 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_D[] =
     { L"Haohmaru D (Frozen/Wet)", 0xd5d40, 0xd5d80, indexSamSho5Sprites_Haohmaru },
     { L"Haohmaru D (Ki)", 0xd5d80, 0xd5dc0, indexSamSho5Sprites_Haohmaru },
     { L"Haohmaru D (Senpuuretsuzan)", 0xd5dc0, 0xd5de0 },
-    { L"Haohmaru D (Kogetsuzan/Resshinzan)", 0xd5df0, 0xd5e00 },
+    { L"Haohmaru D (Kogetsuzan/Resshinzan)", 0xd5de0, 0xd5e00 },
     { L"Haohmaru D (Issen Trail)", 0xd5e00, 0xd5e40, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru D (Fatality)", 0xd5e80, 0xd5ea0 },
+    { L"Haohmaru D (Overkill)", 0xd5e80, 0xd5ea0 },
     { L"Haohmaru D (Kogetsuzan Trail)", 0xd5ec0, 0xd5f00, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru D (Slash Effects)", 0xd5f50, 0xd5f60 },
+    { L"Haohmaru D (Slash Effects)", 0xd5f40, 0xd5f60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_A[] =
@@ -1021,6 +1021,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_A[] =
     { L"Nakoruru A (Annu/Rera Mutsube)", 0xd62e0, 0xd6300 },
     { L"Nakoruru A (Kamui Rimse/Slash Effect)", 0xd6340, 0xd6360 },
     { L"Nakoruru A (Issen Trail)", 0xd6200, 0xd6240, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru A (Elerushi Kamui Rimse)", 0xd6360, 0xd6380 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_B[] =
@@ -1037,6 +1038,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_B[] =
     { L"Nakoruru B (Annu/Rera Mutsube)", 0xd66e0, 0xd6700 },
     { L"Nakoruru B (Kamui Rimse/Slash Effect)", 0xd6740, 0xd6760 },
     { L"Nakoruru B (Issen Trail)", 0xd6600, 0xd6640, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru B (Elerushi Kamui Rimse)", 0xd6760, 0xd6780 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_C[] =
@@ -1053,6 +1055,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_C[] =
     { L"Nakoruru C (Annu/Rera Mutsube)", 0xd6ae0, 0xd6b00 },
     { L"Nakoruru C (Issen Trail)", 0xd6a00, 0xd6a40 },
     { L"Nakoruru C (Kamui Rimse/Slash Effect)", 0xd6b40, 0xd6b60, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru C (Elerushi Kamui Rimse)", 0xd6b60, 0xd6b80 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_D[] =
@@ -1069,6 +1072,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_D[] =
     { L"Nakoruru D (Annu/Rera Mutsube)", 0xd6ee0, 0xd6f00 },
     { L"Nakoruru D (Kamui Rimse/Slash Effect)", 0xd6f40, 0xd6f60 },
     { L"Nakoruru D (Issen Trail)", 0xd6e00, 0xd6e40, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru D (Elerushi Kamui Rimse)", 0xd6f60, 0xd6f80 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rasetsumaru_PALETTES_A[] =

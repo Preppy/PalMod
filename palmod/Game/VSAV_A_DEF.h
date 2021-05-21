@@ -1460,7 +1460,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_AK[] =
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_LP[] =
 {
     { L"LP Lei-Lei", 0x101aa, 0x101ca, indexCPS2Sprites_Vamp_LeiLei, 0 },
-    { L"LP Dust, Weapons", 0x101ea, 0x1020a, indexCPS2Sprites_Vamp_LeiLei, 0 },
+    { L"LP Dust, Weapons", 0x101ea, 0x1020a },
     { L"LP Lin-Lin", 0x101ca, 0x101ea },
     { L"LP Unknown Extra", 0x1020a, 0x1022a },
     { L"LP Select Portrait", 0x2C0Aa, 0x2C0Ca, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
@@ -1470,7 +1470,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_LP[] =
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_MP[] =
 {
     { L"MP Lei-Lei", 0x1022a, 0x1024a, indexCPS2Sprites_Vamp_LeiLei, 0 },
-    { L"MP Dust, Weapons", 0x1026a, 0x1028a, indexCPS2Sprites_Vamp_LeiLei, 0 },
+    { L"MP Dust, Weapons", 0x1026a, 0x1028a },
     { L"MP Lin-Lin", 0x1024a, 0x1026a },
     { L"MP Unknown Extra", 0x1028a, 0x102aa },
     { L"MP Select Portrait", 0x2C2Aa, 0x2C2Ca, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
@@ -1480,7 +1480,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_MP[] =
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_HP[] =
 {
     { L"HP Lei-Lei", 0x102aa, 0x102ca, indexCPS2Sprites_Vamp_LeiLei, 0 },
-    { L"HP Dust, Weapons", 0x102ea, 0x1030a, indexCPS2Sprites_Vamp_LeiLei, 0 },
+    { L"HP Dust, Weapons", 0x102ea, 0x1030a },
     { L"HP Lin-Lin", 0x102ca, 0x102ea },
     { L"HP Unknown Extra", 0x1030a, 0x1032a },
     { L"HP Select Portrait", 0x2C4Aa, 0x2C4Ca, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
@@ -1490,7 +1490,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_HP[] =
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_LK[] =
 {
     { L"LK Lei-Lei", 0x1032a, 0x1034a, indexCPS2Sprites_Vamp_LeiLei, 0 },
-    { L"LK Dust, Weapons", 0x1036a, 0x1038a, indexCPS2Sprites_Vamp_LeiLei, 0 },
+    { L"LK Dust, Weapons", 0x1036a, 0x1038a },
     { L"LK Lin-Lin", 0x1034a, 0x1036a },
     { L"LK Unknown Extra", 0x1038a, 0x103aa },
     { L"LK Select Portrait", 0x2C6Aa, 0x2C6Ca, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
@@ -1500,7 +1500,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_LK[] =
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_MK[] =
 {
     { L"MK Lei-Lei", 0x103aa, 0x103ca, indexCPS2Sprites_Vamp_LeiLei, 0 },
-    { L"MK Dust, Weapons", 0x103ea, 0x1040a, indexCPS2Sprites_Vamp_LeiLei, 0 },
+    { L"MK Dust, Weapons", 0x103ea, 0x1040a },
     { L"MK Lin-Lin", 0x103ca, 0x103ea },
     { L"MK Unknown Extra", 0x1040a, 0x1042a },
     { L"MK Select Portrait", 0x2C8Aa, 0x2C8Ca, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
@@ -1510,7 +1510,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_MK[] =
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_HK[] =
 {
     { L"HK Lei-Lei", 0x1042a, 0x1044a, indexCPS2Sprites_Vamp_LeiLei, 0 },
-    { L"HK Dust, Weapons", 0x1046a, 0x1048a, indexCPS2Sprites_Vamp_LeiLei, 0 },
+    { L"HK Dust, Weapons", 0x1046a, 0x1048a },
     { L"HK Lin-Lin", 0x1044a, 0x1046a },
     { L"HK Unknown Extra", 0x1048a, 0x104aa },
     { L"HK Select Portrait", 0x2CAAa, 0x2CACa, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
@@ -1520,7 +1520,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_HK[] =
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_PP[] =
 {
     { L"PP Lei-Lei", 0x104aa, 0x104ca, indexCPS2Sprites_Vamp_LeiLei, 0 },
-    { L"PP Dust, Weapons", 0x104ea, 0x1050a, indexCPS2Sprites_Vamp_LeiLei, 0 },
+    { L"PP Dust, Weapons", 0x104ea, 0x1050a },
     { L"PP Lin-Lin", 0x104ca, 0x104ea },
     { L"PP Unknown Extra", 0x1050a, 0x1052a },
     { L"PP Select Portrait", 0x2CCAa, 0x2CCCa, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
@@ -1530,7 +1530,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_PP[] =
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_KK[] =
 {
     { L"KK Lei-Lei", 0x1052a, 0x1054a, indexCPS2Sprites_Vamp_LeiLei, 0 },
-    { L"KK Dust, Weapons", 0x1056a, 0x1058a, indexCPS2Sprites_Vamp_LeiLei, 0 },
+    { L"KK Dust, Weapons", 0x1056a, 0x1058a },
     { L"KK Lin-Lin", 0x1054a, 0x1056a },
     { L"KK Unknown Extra", 0x1058a, 0x105aa },
     { L"KK Select Portrait", 0x2CEAa, 0x2CECa, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
@@ -1540,7 +1540,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_KK[] =
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_AP[] =
 {
     { L"AP Lei-Lei", 0x105aa, 0x105ca, indexCPS2Sprites_Vamp_LeiLei, 0 },
-    { L"AP Dust, Weapons", 0x105ea, 0x1060a, indexCPS2Sprites_Vamp_LeiLei, 0 },
+    { L"AP Dust, Weapons", 0x105ea, 0x1060a },
     { L"AP Lin-Lin", 0x105ca, 0x105ea },
     { L"AP Unknown Extra", 0x1060a, 0x1062a },
     { L"AP Select Portrait", 0x2D0Aa, 0x2D0Ca, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
@@ -1550,7 +1550,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_AP[] =
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_AK[] =
 {
     { L"AK Lei-Lei", 0x1062a, 0x1064a, indexCPS2Sprites_Vamp_LeiLei, 0 },
-    { L"AK Dust, Weapons", 0x1066a, 0x1068a, indexCPS2Sprites_Vamp_LeiLei, 0 },
+    { L"AK Dust, Weapons", 0x1066a, 0x1068a },
     { L"AK Lin-Lin", 0x1064a, 0x1066a },
     { L"AK Unknown Extra", 0x1068a, 0x106aa },
     { L"AK Select Portrait", 0x2D2Aa, 0x2D2Ca, indexCPS2Sprites_Vamp_LeiLei, 0x20 },

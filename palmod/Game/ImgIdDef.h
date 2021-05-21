@@ -232,7 +232,8 @@ enum CHARACTERS_3S_CPS3
     index3SSprites_Bonus,     // 0x14
     index3SSprites_Stages,    // 0x15
     index3SSprites_Gill,      // 0x16
-    indexSF2ISprites_Bonus,     // 0x17
+    indexSF2ISprites_Bonus,   // 0x17
+    indexSFNGSprites_Bonus,   // 0x18
 };
 
 enum SF2Sprites
