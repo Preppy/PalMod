@@ -238,7 +238,7 @@ LPCWSTR CGame_GGXXACR_S::GetDescriptionForCollection(UINT16 nUnitId , UINT16 nCo
         }
         else
         {
-            return L"Effects";
+            return L"Extras";
         }
     }
 }

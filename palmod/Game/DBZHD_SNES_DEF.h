@@ -7,6 +7,21 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
+const UINT16 DBZHD_SNES_IMGIDS_USED[] =
+{
+    indexDBZHDSprites_Cell,             // 0x9B
+    indexDBZHDSprites_Frieza,           // 0x9C
+    indexDBZHDSprites_Gohan,            // 0x9D
+    indexDBZHDSprites_Goku,             // 0x9E
+    indexDBZHDSprites_Gotenks,          // 0x9F
+    indexDBZHDSprites_KidBuu,           // 0xA0
+    indexDBZHDSprites_MajinBuu,         // 0xA1
+    indexDBZHDSprites_Piccolo,          // 0xA2
+    indexDBZHDSprites_Vegeta,           // 0xA3
+    indexDBZHDSprites_Vegito,           // 0xA4
+    indexDBZHDSprites_Bonus,            // 0xA5,
+};
+
 const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_P1[] =
 {
     { L"Goku P1 (Day)", 0xB0000, 0xB0020 },

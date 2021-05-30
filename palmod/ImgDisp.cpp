@@ -943,7 +943,7 @@ void CImgDisp::OnRButtonDown(UINT nFlags, CPoint point)
             point.x += rWnd.left;
             point.y += rWnd.top;
 
-            bool canPasteFromCliboard = IsPasteSupported();
+            bool canPasteFromCliboard = CPalModDlg::IsPasteSupported();
 
             constexpr auto CUSTOM_FINDCOLOR = WM_USER + 20;
             constexpr auto CUSTOM_COPYCOLOR = WM_USER + 21;

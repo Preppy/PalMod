@@ -1570,6 +1570,18 @@ enum SupportedSNES_PaletteListIndex
     indexBSSMSJRSprites_Uranus,         // 0x98
     indexBSSMSJRSprites_Venus,          // 0x99
     indexBSSMSJRSprites_Bonus,          // 0x9a
+
+    indexDBZHDSprites_Cell,             // 0x9B
+    indexDBZHDSprites_Frieza,           // 0x9C
+    indexDBZHDSprites_Gohan,            // 0x9D
+    indexDBZHDSprites_Goku,             // 0x9E
+    indexDBZHDSprites_Gotenks,          // 0x9F
+    indexDBZHDSprites_KidBuu,           // 0xA0
+    indexDBZHDSprites_MajinBuu,         // 0xA1
+    indexDBZHDSprites_Piccolo,          // 0xA2
+    indexDBZHDSprites_Vegeta,           // 0xA3
+    indexDBZHDSprites_Vegito,           // 0xA4
+    indexDBZHDSprites_Bonus,            // 0xA5,
 };
 
 enum SupportedNEOGEO_PaletteListIndex

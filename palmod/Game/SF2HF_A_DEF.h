@@ -14,6 +14,7 @@ const UINT16 SF2HF_A_IMGIDS_USED[] =
     indexSF2Sprites_Sagat,
     indexSF2Sprites_Balrog,
     indexSF2Sprites_Vega,
+    indexSF2Sprites_Bonus,
 };
 
 const sGame_PaletteDataset SF2HF_A_RYU_P1_NODE[] =
@@ -138,135 +139,135 @@ const sGame_PaletteDataset SF2HF_A_CLAW_P2_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_RYU_PORTRAITS_NODE[] =
 {
-    { L"Ryu P1", 0x9400 - 0x02, 0x9420 - 0x02 },
-    { L"Ryu P2", 0x9600 - 0x02, 0x9620 - 0x02 },
-    { L"Ryu 2 Part 2", 0x95a0 - 0x02, 0x95c0 - 0x02 },
+    { L"Ryu P1", 0x9400 - 0x02, 0x9420 - 0x02, indexSF2Sprites_Bonus, 0x16 },
+    { L"Ryu P2 1/2", 0x9600 - 0x02, 0x9620 - 0x02 },
+    { L"Ryu P2 2/2", 0x95a0 - 0x02, 0x95c0 - 0x02 },
 };
 
 const sGame_PaletteDataset SF2HF_A_EHONDA_PORTRAITS_NODE[] =
 {
-    { L"E.Honda P1", 0x9420 - 0x02, 0x9440 - 0x02 },
-    { L"E.Honda P2", 0x9620 - 0x02, 0x9640 - 0x02 },
+    { L"E.Honda P1", 0x9420 - 0x02, 0x9440 - 0x02, indexSF2Sprites_Bonus, 0x10 },
+    { L"E.Honda P2", 0x9620 - 0x02, 0x9640 - 0x02, indexSF2Sprites_Bonus, 0x10 },
 };
 
 const sGame_PaletteDataset SF2HF_A_BLANKA_PORTRAITS_NODE[] =
 {
-    { L"Blanka P1", 0x9440 - 0x02, 0x9460 - 0x02 },
-    { L"Blanka P2", 0x9640 - 0x02, 0x9660 - 0x02 },
-    { L"Blanka 2 Part 2", 0x97E0 - 0x02, 0x9800 - 0x02 },
+    { L"Blanka P1", 0x9440 - 0x02, 0x9460 - 0x02, indexSF2Sprites_Bonus, 0x03 },
+    { L"Blanka P2 1/2", 0x9640 - 0x02, 0x9660 - 0x02 },
+    { L"Blanka P2 2/2", 0x97E0 - 0x02, 0x9800 - 0x02 },
 };
 
 const sGame_PaletteDataset SF2HF_A_GUILE_PORTRAITS_NODE[] =
 {
-    { L"Guile P1", 0x9460 - 0x02, 0x9480 - 0x02 },
-    { L"Guile P2", 0x9660 - 0x02, 0x9680 - 0x02 },
+    { L"Guile P1", 0x9460 - 0x02, 0x9480 - 0x02, indexSF2Sprites_Bonus, 0x12 },
+    { L"Guile P2", 0x9660 - 0x02, 0x9680 - 0x02, indexSF2Sprites_Bonus, 0x12 },
 };
 
 const sGame_PaletteDataset SF2HF_A_KEN_PORTRAITS_NODE[] =
 {
-    { L"Ken P1", 0x9480 - 0x02, 0x94a0 - 0x02 },
-    { L"Ken P2", 0x9680 - 0x02, 0x96a0 - 0x02 },
+    { L"Ken P1", 0x9480 - 0x02, 0x94a0 - 0x02, indexSF2Sprites_Bonus, 0x14 },
+    { L"Ken P2", 0x9680 - 0x02, 0x96a0 - 0x02, indexSF2Sprites_Bonus, 0x14 },
 };
 
 const sGame_PaletteDataset SF2HF_A_CHUNLI_PORTRAITS_NODE[] =
 {
-    { L"Chun-Li P1", 0x94a0 - 0x02, 0x94c0 - 0x02 },
-    { L"Chun-Li P2", 0x96a0 - 0x02, 0x96c0 - 0x02 },
+    { L"Chun-Li P1", 0x94a0 - 0x02, 0x94c0 - 0x02, indexSF2Sprites_Bonus, 0x06 },
+    { L"Chun-Li P2", 0x96a0 - 0x02, 0x96c0 - 0x02, indexSF2Sprites_Bonus, 0x06 },
 };
 
 const sGame_PaletteDataset SF2HF_A_ZANGIEF_PORTRAITS_NODE[] =
 {
-    { L"Zangief P1", 0x94c0 - 0x02, 0x94e0 - 0x02 },
-    { L"Zangief P2", 0x96c0 - 0x02, 0x96e0 - 0x02 },
+    { L"Zangief P1", 0x94c0 - 0x02, 0x94e0 - 0x02, indexSF2Sprites_Bonus, 0x1a },
+    { L"Zangief P2", 0x96c0 - 0x02, 0x96e0 - 0x02, indexSF2Sprites_Bonus, 0x1a },
 };
 
 const sGame_PaletteDataset SF2HF_A_DHALSIM_PORTRAITS_NODE[] =
 {
-    { L"Dhalsim P1", 0x94e0 - 0x02, 0x9500 - 0x02 },
-    { L"Dhalsim P1 Part 2", 0x9580 - 0x02, 0x95a0 - 0x02 }, // join with one once we have a sprite
-    { L"Dhalsim P2", 0x96e0 - 0x02, 0x9700 - 0x02 },
-    { L"Dhalsim P2 Part 2", 0x9780 - 0x02, 0x97a0 - 0x02 }, // join with one once we have a sprite
+    { L"Dhalsim P1 1/2", 0x94e0 - 0x02, 0x9500 - 0x02, indexSF2Sprites_Bonus, 0x0a, &pairNext },
+    { L"Dhalsim P1 2/2", 0x9580 - 0x02, 0x95a0 - 0x02, indexSF2Sprites_Bonus, 0x0b },
+    { L"Dhalsim P2 1/2", 0x96e0 - 0x02, 0x9700 - 0x02, indexSF2Sprites_Bonus, 0x0a, &pairNext },
+    { L"Dhalsim P2 2/2", 0x9780 - 0x02, 0x97a0 - 0x02, indexSF2Sprites_Bonus, 0x0b },
 };
 
 const sGame_PaletteDataset SF2HF_A_DICTATOR_PORTRAITS_NODE[] =
 {
-    { L"Dictator P1", 0x9500 - 0x02, 0x9520 - 0x02 },
-    { L"Dictator 1 Part 2", 0x95c0 - 0x02, 0x95e0 - 0x02 },
-    { L"Dictator 2", 0x9700 - 0x02, 0x9720 - 0x02 },
-    { L"Dictator 2 Part 2", 0x97c0 - 0x02, 0x97E0 - 0x02 },
+    { L"Dictator P1 1/2", 0x9500 - 0x02, 0x9520 - 0x02, indexSF2Sprites_Bonus, 0x0d, &pairNext },
+    { L"Dictator P1 2/2", 0x95c0 - 0x02, 0x95e0 - 0x02, indexSF2Sprites_Bonus, 0x0e },
+    { L"Dictator P2 1/2", 0x9700 - 0x02, 0x9720 - 0x02, indexSF2Sprites_Bonus, 0x0d, &pairNext },
+    { L"Dictator P2 2/2", 0x97c0 - 0x02, 0x97E0 - 0x02, indexSF2Sprites_Bonus, 0x0e },
 };
 
 const sGame_PaletteDataset SF2HF_A_BOXER_PORTRAITS_NODE[] =
 {
-    { L"Boxer P1", 0x9540 - 0x02, 0x9560 - 0x02 },
-    { L"Boxer P2", 0x9740 - 0x02, 0x9760 - 0x02 },
+    { L"Boxer P1", 0x9540 - 0x02, 0x9560 - 0x02, indexSF2Sprites_Bonus, 0x05 },
+    { L"Boxer P2", 0x9740 - 0x02, 0x9760 - 0x02, indexSF2Sprites_Bonus, 0x05 },
 };
 
 const sGame_PaletteDataset SF2HF_A_SAGAT_PORTRAITS_NODE[] =
 {
-    { L"Sagat P1", 0x9520 - 0x02, 0x9540 - 0x02 },
-    { L"Sagat P2", 0x9720 - 0x02, 0x9740 - 0x02 },
+    { L"Sagat P1", 0x9520 - 0x02, 0x9540 - 0x02, indexSF2Sprites_Bonus, 0x19 },
+    { L"Sagat P2", 0x9720 - 0x02, 0x9740 - 0x02, indexSF2Sprites_Bonus, 0x19 },
 };
 
 const sGame_PaletteDataset SF2HF_A_CLAW_PORTRAITS_NODE[] =
 {
-    { L"Claw P1", 0x9560 - 0x02, 0x9580 - 0x02 },
-    { L"Claw P2", 0x9760 - 0x02, 0x9780 - 0x02 },
+    { L"Claw P1", 0x9560 - 0x02, 0x9580 - 0x02, indexSF2Sprites_Bonus, 0x08 },
+    { L"Claw P2", 0x9760 - 0x02, 0x9780 - 0x02, indexSF2Sprites_Bonus, 0x08 },
 };
 
 const sGame_PaletteDataset SF2HF_A_RYU_SELSCREEN_NODE[] =
 {
-    { L"Ryu", 0xe420 - 0x02, 0xe440 - 0x02 },
+    { L"Ryu", 0xe420 - 0x02, 0xe440 - 0x02, indexSF2Sprites_Bonus, 0x17 },
 };
 
 const sGame_PaletteDataset SF2HF_A_EHONDA_SELSCREEN_NODE[] =
 {
-    { L"E.Honda", 0xe440 - 0x02, 0xe460 - 0x02 },
+    { L"E.Honda", 0xe440 - 0x02, 0xe460 - 0x02, indexSF2Sprites_Bonus, 0x11 },
 };
 
 const sGame_PaletteDataset SF2HF_A_BLANKA_SELSCREEN_NODE[] =
 {
-    { L"Blanka", 0xe460 - 0x02, 0xe480 - 0x02 },
+    { L"Blanka", 0xe460 - 0x02, 0xe480 - 0x02, indexSF2Sprites_Bonus, 0x04 },
 };
 
 const sGame_PaletteDataset SF2HF_A_GUILE_SELSCREEN_NODE[] =
 {
-    { L"Guile", 0xe480 - 0x02, 0xe4a0 - 0x02 },
+    { L"Guile", 0xe480 - 0x02, 0xe4a0 - 0x02, indexSF2Sprites_Bonus, 0x13 },
 };
 
 const sGame_PaletteDataset SF2HF_A_KEN_SELSCREEN_NODE[] =
 {
-    { L"Ken", 0xe4a0 - 0x02, 0xe4c0 - 0x02 },
+    { L"Ken", 0xe4a0 - 0x02, 0xe4c0 - 0x02, indexSF2Sprites_Bonus, 0x15 },
 };
 
 const sGame_PaletteDataset SF2HF_A_CHUNLI_SELSCREEN_NODE[] =
 {
-    { L"Chun-Li", 0xe4c0 - 0x02, 0xe4e0 - 0x02 },
+    { L"Chun-Li", 0xe4c0 - 0x02, 0xe4e0 - 0x02, indexSF2Sprites_Bonus, 0x07 },
 };
 
 const sGame_PaletteDataset SF2HF_A_ZANGIEF_SELSCREEN_NODE[] =
 {
-    { L"Zangief", 0xe4e0 - 0x02, 0xe500 - 0x02 },
+    { L"Zangief", 0xe4e0 - 0x02, 0xe500 - 0x02, indexSF2Sprites_Bonus, 0x1b  },
 };
 
 const sGame_PaletteDataset SF2HF_A_DHALSIM_SELSCREEN_NODE[] =
 {
-    { L"Dhalsim", 0xe500 - 0x02, 0xe520 - 0x02 },
+    { L"Dhalsim", 0xe500 - 0x02, 0xe520 - 0x02, indexSF2Sprites_Bonus, 0x0c },
 };
 
 const sGame_PaletteDataset SF2HF_A_DICTATOR_SELSCREEN_NODE[] =
 {
-    { L"Dictator", 0xe720 - 0x02, 0xe740 - 0x02 },
+    { L"Dictator", 0xe720 - 0x02, 0xe740 - 0x02, indexSF2Sprites_Bonus, 0x0f },
 };
 
 const sGame_PaletteDataset SF2HF_A_SAGATBOXER_SELSCREEN_NODE[] =
 {
-    { L"Sagat and Boxer", 0xe740 - 0x02, 0xe760 - 0x02 },
+    { L"Sagat and Boxer", 0xe740 - 0x02, 0xe760 - 0x02, indexSF2Sprites_Bonus, 0x18 },
 };
 
 const sGame_PaletteDataset SF2HF_A_CLAW_SELSCREEN_NODE[] =
 {
-    { L"Claw", 0xe760 - 0x02, 0xe780 - 0x02 },
+    { L"Claw", 0xe760 - 0x02, 0xe780 - 0x02, indexSF2Sprites_Bonus, 0x09 },
 };
 
 const sDescTreeNode SF2HF_A_SELSCREEN_COLLECTION[] =

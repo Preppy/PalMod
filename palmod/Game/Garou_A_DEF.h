@@ -228,7 +228,7 @@ const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_BOSS[] =
 
 const sGame_PaletteDataset Garou_A_TERRY_PALETTES_A[] =
 {
-    { L"Terry A - Main", 0xf500, 0xf520, indexGarouATerryBogard },
+    { L"Terry A - Main", 0xf500, 0xf520, indexGarouATerryBogard, 0x00, &pairNext15 },
     { L"Terry A - Line1", 0xf520, 0xf540 },
     { L"Terry A - Line2", 0xf540, 0xf560 },
     { L"Terry A - On Fire", 0xf560, 0xf580, indexGarouATerryBogard },
@@ -243,12 +243,12 @@ const sGame_PaletteDataset Garou_A_TERRY_PALETTES_A[] =
     { L"Terry A - Burn Knuckle/Power Dunk/Buster Wolf Main", 0xf680, 0xf6a0, indexGarouATerryBogard, 0x0a },
     { L"Terry A - Crack Shoot Effects", 0xf6a0, 0xf6c0, indexGarouATerryBogard, 0x09 },
     { L"Terry A - Unused", 0xf6c0, 0xf6e0 },
-    { L"Terry A - Terry Extras (Winpose Stuff)", 0xf6e0, 0xf700, indexGarouATerryBogard, 0x0b },
+    { L"Terry A - Terry Extras (Winpose Stuff)", 0xf6e0, 0xf700, indexGarouATerryBogard, 0x01 },
 };
 
 const sGame_PaletteDataset Garou_A_TERRY_PALETTES_B[] =
 {
-    { L"Terry B - Main", 0xf700, 0xf720, indexGarouATerryBogard },
+    { L"Terry B - Main", 0xf700, 0xf720, indexGarouATerryBogard, 0x00, &pairNext15 },
     { L"Terry B - Line1", 0xf720, 0xf740 },
     { L"Terry B - Line2", 0xf740, 0xf760 },
     { L"Terry B - On Fire", 0xf760, 0xf780, indexGarouATerryBogard },
@@ -263,12 +263,12 @@ const sGame_PaletteDataset Garou_A_TERRY_PALETTES_B[] =
     { L"Terry B - Burn Knuckle/Power Dunk/Buster Wolf Main", 0xf880, 0xf8a0, indexGarouATerryBogard, 0x0a },
     { L"Terry B - Crack Shoot Effects", 0xf8a0, 0xf8c0, indexGarouATerryBogard, 0x09 },
     { L"Terry B - Unused", 0xf8c0, 0xf8e0 },
-    { L"Terry B - Terry Extras (Winpose Stuff)", 0xf8e0, 0xf900, indexGarouATerryBogard, 0x0b },
+    { L"Terry B - Terry Extras (Winpose Stuff)", 0xf8e0, 0xf900, indexGarouATerryBogard, 0x01 },
 };
 
 const sGame_PaletteDataset Garou_A_TERRY_PALETTES_C[] =
 {
-    { L"Terry C - Main", 0xf900, 0xf920, indexGarouATerryBogard },
+    { L"Terry C - Main", 0xf900, 0xf920, indexGarouATerryBogard, 0x00, &pairNext15 },
     { L"Terry C - Line1", 0xf920, 0xf940 },
     { L"Terry C - Line2", 0xf940, 0xf960 },
     { L"Terry C - On Fire", 0xf960, 0xf980, indexGarouATerryBogard },
@@ -283,12 +283,12 @@ const sGame_PaletteDataset Garou_A_TERRY_PALETTES_C[] =
     { L"Terry C - Burn Knuckle/Power Dunk/Buster Wolf Main", 0xfa80, 0xfaa0, indexGarouATerryBogard, 0x0a },
     { L"Terry C - Crack Shoot Effects", 0xfaa0, 0xfac0, indexGarouATerryBogard, 0x09 },
     { L"Terry C - Unused", 0xfac0, 0xfae0 },
-    { L"Terry C - Terry Extras (Winpose Stuff)", 0xfae0, 0xfb00, indexGarouATerryBogard, 0x0b },
+    { L"Terry C - Terry Extras (Winpose Stuff)", 0xfae0, 0xfb00, indexGarouATerryBogard, 0x01 },
 };
 
 const sGame_PaletteDataset Garou_A_TERRY_PALETTES_D[] =
 {
-    { L"Terry D - Main", 0xfb00, 0xfb20, indexGarouATerryBogard },
+    { L"Terry D - Main", 0xfb00, 0xfb20, indexGarouATerryBogard, 0x00, &pairNext15 },
     { L"Terry D - Line1", 0xfb20, 0xfb40 },
     { L"Terry D - Line2", 0xfb40, 0xfb60 },
     { L"Terry D - On Fire", 0xfb60, 0xfb80, indexGarouATerryBogard },
@@ -303,7 +303,7 @@ const sGame_PaletteDataset Garou_A_TERRY_PALETTES_D[] =
     { L"Terry D - Burn Knuckle/Power Dunk/Buster Wolf Main", 0xfc80, 0xfca0, indexGarouATerryBogard, 0x0a },
     { L"Terry D - Crack Shoot Effects", 0xfca0, 0xfcc0, indexGarouATerryBogard, 0x09 },
     { L"Terry D - Unused", 0xfcc0, 0xfce0 },
-    { L"Terry D - Terry Extras (Winpose Stuff)", 0xfce0, 0xfd00, indexGarouATerryBogard, 0x0b },
+    { L"Terry D - Terry Extras (Winpose Stuff)", 0xfce0, 0xfd00, indexGarouATerryBogard, 0x01 },
 };
 
 const sGame_PaletteDataset Garou_A_TERRY_PALETTES_BOSS[] =

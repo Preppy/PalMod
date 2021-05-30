@@ -100,6 +100,64 @@ const sGame_PaletteDataset GGXXACR_S_BK_EFFECTS[] =
     { L"Garyou Tensei - Light (3/3)",   0x33fdc0, 0x33fe00 },
 };
 
+const sGame_PaletteDataset GGXXACR_S_DZ_EFFECTS[] =
+{
+    //General
+    { L"Idle Rings", 0x495080, 0x4950c0 },
+    //Specials
+    { L"I Use This to Get Fruit", 0x495ac0, 0x495b00 },
+
+    { L"My Talking Buddies",               0x488840, 0x488880 },
+    { L"My Talking Buddies Effects (1/2)", 0x488680, 0x4886c0 }, //missing the laser palette, these are the sparkles
+    { L"My Talking Buddies Effects (2/2)", 0x488740, 0x488780 },
+
+    { L"Please Leave Me Alone (1/20)",          0x4a5800, 0x4a5c00 }, //horrible awful palettes, going to need a new sprite for each of them if previews are done 
+    { L"Please Leave Me Alone (2/20)",          0x4a9590, 0x4a9990 }, //FB bubble is pink, but uses the same palette listed here and just twists the values around
+    { L"Please Leave Me Alone (3/20)",          0x4ad430, 0x4ad830 },
+    { L"Please Leave Me Alone (4/20)",          0x4b12f0, 0x4b16f0 },
+    { L"Please Leave Me Alone (5/20)",          0x4b50f0, 0x4b54f0 },
+    { L"Please Leave Me Alone (6/20)",          0x4b8f90, 0x4b9390 },
+    { L"Please Leave Me Alone (7/20)",          0x4bd000, 0x4bd400 },
+    { L"Please Leave Me Alone (8/20)",          0x4c1050, 0x4c1450 },
+    { L"Please Leave Me Alone (9/20)",          0x4c5120, 0x4c5520 },
+    { L"Please Leave Me Alone (10/20)",         0x4c9150, 0x4c9550 },
+    { L"Please Leave Me Alone (11/20)",         0x4cd260, 0x4cd660 },
+    { L"Please Leave Me Alone (12/20)",         0x4d13f0, 0x4d17f0 },
+    { L"Please Leave Me Alone (13/20)",         0x4d5600, 0x4d5a00 },
+    { L"Please Leave Me Alone (14/20)",         0x4d9810, 0x4d9c10 },
+    { L"Please Leave Me Alone (15/20)",         0x4ddb50, 0x4ddf50 },
+    { L"Please Leave Me Alone (16/20)",         0x4e1f20, 0x4e2320 },
+    { L"Please Leave Me Alone (17/20)",         0x4e63f0, 0x4e67f0 },
+    { L"Please Leave Me Alone (18/20)",         0x4ea740, 0x4eab40 },
+    { L"Please Leave Me Alone (19/20)",         0x4eecb0, 0x4ef0b0 },
+    { L"Please Leave Me Alone (20/20)",         0x4f3270, 0x4f3670 },
+    { L"Please Leave Me Alone (Popping) (1/3)", 0x479b20, 0x479b60 }, //FB bubble is pink, but uses the same palette listed here and just twists the values around
+    { L"Please Leave Me Alone (Popping) (2/3)", 0x47a530, 0x47a570 },
+    { L"Please Leave Me Alone (Popping) (3/3)", 0x47c290, 0x47c2d0 },
+    //Overdrives
+        { L"Imperial Ray Startup (1/2)", 0x47dd10, 0x47dd50 }, //missing the red line palette, unsure if it even has a palette tied to it since its a single shade, could be programmed
+        { L"Imperial Ray Startup (2/2)", 0x47df30, 0x47df70 },
+        { L"Imperial Ray (1/5)",         0x47e070, 0x47e0b0 },
+        { L"Imperial Ray (2/5)",         0x486e90, 0x486ed0 },
+        { L"Imperial Ray (3/5)",         0x487f20, 0x487f60 },
+        { L"Imperial Ray (4/5)",         0x4a46f0, 0x4a4730 },
+        { L"Imperial Ray (5/5)",         0x4a4ff0, 0x4a5030 },
+
+        { L"Necro Unleashed Text",          0x49bd20, 0x49bd60 },
+        { L"Necro Unleashed Rings (1/3)",   0x496b50, 0x496b90 },
+        { L"Necro Unleashed Rings (2/3)",   0x499660, 0x4996a0 },
+        { L"Necro Unleashed Rings (3/3)",   0x49c110, 0x49c150 },
+        { L"Necro Unleashed Statue",        0x49c840, 0x49c880 },
+        { L"Necro Unleashed Effects (1/2)", 0x49efc0, 0x49f000 }, // missing the glowing effect palette
+        { L"Necro Unleashed Effects (2/2)", 0x4a3180, 0x4a31c0 },
+        { L"Necro Unleashed Effect Trails", 0x49ecc0, 0x49ed00 },
+
+        { L"Gamma Ray small lasers (1/3)", 0x465bb0, 0x465bf0 },
+        { L"Gamma Ray small lasers (2/3)", 0x4676f0, 0x467730 },
+        { L"Gamma Ray small lasers (3/3)", 0x48f100, 0x48f140 },
+        { L"Gamma Ray big laser",          0x48fb30, 0x48fb70 },
+};
+
 const sGame_PaletteDataset GGXXACR_S_IN_EFFECTS[] =
 {
     //General
@@ -226,6 +284,77 @@ const sGame_PaletteDataset GGXXACR_S_IN_EFFECTS[] =
 };
 
 
+const sGame_PaletteDataset GGXXACR_S_JM_EFFECTS[] =
+{
+    //Normals
+    { L"6HH", 0x2d0be0, 0x2d0c20, indexGGXXSprites_ACR_Jam, 0x01 },
+    //Specials
+    { L"Breath of Asanagi (1/17)",  0x2d7da0, 0x2d7de0, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (2/17)",  0x2d88c0, 0x2d8900, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (3/17)",  0x2d9440, 0x2d9480, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (4/17)",  0x2d9fa0, 0x2d9fe0, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (5/17)",  0x2daad0, 0x2dab10, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (6/17)",  0x2dac40, 0x2dac80, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (7/17)",  0x2db670, 0x2db6b0, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (8/17)",  0x2dc120, 0x2dc160, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (9/17)",  0x2dcc10, 0x2dcc50, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (10/17)", 0x2dd780, 0x2dd7c0, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (11/17)", 0x2de3e0, 0x2de420, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (12/17)", 0x2df070, 0x2df0b0, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (13/17)", 0x2dfbb0, 0x2dfbf0, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (14/17)", 0x2e0450, 0x2e0490, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (15/17)", 0x2e0a30, 0x2e0a70, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (16/17)", 0x2e0e10, 0x2e0e50, indexGGXXSprites_ACR_Jam, 0x03 },
+    { L"Breath of Asanagi (17/17)", 0x2e0ff0, 0x2e1030, indexGGXXSprites_ACR_Jam, 0x03 },
+
+    { L"Gekirin (1/2)",                      0x2d35d0, 0x2d3610, indexGGXXSprites_ACR_Jam, 0x06 },
+    { L"Gekirin (1/2)/Kick Special Effects", 0x2d56b0, 0x2d56f0, indexGGXXSprites_ACR_Jam, 0x06 }, //Used in Ryuujin, Gekirin, and Kenroukaku
+
+    { L"Bakushuu (1/2)", 0x37e430, 0x37e470, indexGGXXSprites_ACR_Jam, 0x02 },
+    { L"Bakushuu (2/2)", 0x3821d0, 0x382210, indexGGXXSprites_ACR_Jam, 0x02 },
+
+    { L"Hochifu", 0x307a10, 0x307a50, indexGGXXSprites_ACR_Jam, 0x08 },
+    //Overdrives
+    { L"Renhoukyaku (1/3)", 0x2eada0, 0x2eade0, indexGGXXSprites_ACR_Jam, 0x09 },
+    { L"Renhoukyaku (2/3)", 0x2f1df0, 0x2f1e30, indexGGXXSprites_ACR_Jam, 0x09 },
+    { L"Renhoukyaku (3/3)", 0x2f5bf0, 0x2f5c30, indexGGXXSprites_ACR_Jam, 0x09 },
+
+    { L"Choukyaku Hououshou/Tousai Hyakuretsuken", 0x2f8db0, 0x2f8df0, indexGGXXSprites_ACR_Jam, 0x04, &pairNext },
+    { L"Choukyaku Hououshou Sparks",               0x3008a0, 0x3008e0, indexGGXXSprites_ACR_Jam, 0x05 },
+
+    { L"Geki: Saishinshou (1/15)",   0x308550, 0x308590, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (2/15)",   0x3090a0, 0x3090e0, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (3/15)",   0x30a1d0, 0x30a210, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (4/15)",   0x30c1a0, 0x30c1e0, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (5/15)",   0x30f1a0, 0x30f1e0, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (6/15)",   0x31b540, 0x31b580, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (7/15)",   0x323370, 0x3233b0, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (8/15)",   0x32b080, 0x32b0c0, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (9/15)",   0x3335b0, 0x3335f0, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (10/15)",  0x33b630, 0x33b670, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (11/15)",  0x343f80, 0x343fc0, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (12/15)",  0x34c730, 0x34c770, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (13/15)",  0x354e40, 0x354e80, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (14/15)",  0x35c790, 0x35c7d0, indexGGXXSprites_ACR_Jam, 0x07 },
+    { L"Geki: Saishinshou (15/15)",  0x3609a0, 0x3609e0, indexGGXXSprites_ACR_Jam, 0x07 },
+    //Instant Kill
+    { L"Gasenkotsu Background",      0x36c9c0, 0x36ca00 },
+    //Unknown or Unused
+    //{ L"Unknown 1", 0x2e3060, 0x2e30a0 },
+    //{ L"Unknown 2", 0x2e4320, 0x2e4360 },
+    //{ L"Unknown 3", 0x2e4d90, 0x2e4dd0 },
+    //{ L"Unknown 4", 0x37e110, 0x37e150 },
+    //{ L"Unknown 5", 0x384fe0, 0x385020 },
+    //{ L"Unknown 6", 0x3851e0, 0x385220 },
+    //{ L"Ryuujin",   0x2caa90, 0x2caad0 }, //Uses main palette
+    //{ L"Plates",    0x364a60, 0x364aa0 }, //Uses main palette
+    //{ L"Asanagi no Kokyuu (1/4)", 0x364fb0, 0x364ff0 },
+    //{ L"Asanagi no Kokyuu (2/4)", 0x3651b0, 0x3651f0 },
+    //{ L"Asanagi no Kokyuu (3/4)", 0x3653b0, 0x3653f0 },
+    //{ L"Asanagi no Kokyuu (4/4)", 0x3655b0, 0x3655f0 },
+
+};
+
 const sGame_PaletteDataset GGXXACR_S_JY_EFFECTS[] =
 {
     //General
@@ -279,73 +408,76 @@ const sGame_PaletteDataset GGXXACR_S_KY_EFFECTS[] =
     //General
     { L"Idle Stance / Projectile Trails", 0x3f44a0, 0x3f44e0 },
     //Normals
-    { L"5H (1/2)", 0x424820, 0x424860 },
-    { L"5H (2/2)", 0x428f60, 0x428fa0 },
-    { L"6H (1/2)", 0x3fb3c0, 0x3fb400 },
-    { L"6H (2/2)", 0x400700, 0x400740 },
-    { L"3H (1/2)", 0x3f7c40, 0x3f7c80 },
-    { L"3H (2/2)", 0x3f8050, 0x3f8090 },
-    { L"j.S", 0x3f8b30, 0x3f8b70 },
-    { L"j.D", 0x41d550, 0x41d590 },
+    { L"5H (1/2)", 0x424820, 0x424860, indexGGXXSprites_ACR_Ky, 0x02 },
+    { L"5H (2/2)", 0x428f60, 0x428fa0, indexGGXXSprites_ACR_Ky, 0x02 },
+    { L"6H (1/2)", 0x3fb3c0, 0x3fb400, indexGGXXSprites_ACR_Ky, 0x03 },
+    { L"6H (2/2)", 0x400700, 0x400740, indexGGXXSprites_ACR_Ky, 0x03 },
+    { L"3H (1/2)", 0x3f7c40, 0x3f7c80, indexGGXXSprites_ACR_Ky, 0x01 },
+    { L"3H (2/2)", 0x3f8050, 0x3f8090, indexGGXXSprites_ACR_Ky, 0x01 },
+    { L"j.S", 0x3f8b30, 0x3f8b70, indexGGXXSprites_ACR_Ky, 0x10 },
+    { L"j.D", 0x41d550, 0x41d590, indexGGXXSprites_ACR_Ky, 0x0f },
     //Specials
-    { L"Stun Edge (1/2)", 0x39bd40, 0x39bd80 },
-    { L"Stun Edge (2/2)", 0x39d6f0, 0x39d730 },
-    { L"Air Stun Edge", 0x3a7000, 0x3a7040 },
-    { L"Charged Stun Edge Startup (1/2)", 0x39a3d0, 0x39a410 },
-    { L"Charged Stun Edge Startup (2/2)", 0x39b120, 0x39b160 },
-    { L"Charged Stun Edge", 0x3a19a0, 0x3a19e0 },
-    { L"Stun Edge Impacts/Rings", 0x39fa30, 0x39fa70 },
+    { L"Stun Edge (1/2)", 0x39bd40, 0x39bd80, indexGGXXSprites_ACR_Ky, 0x1b },
+    { L"Stun Edge (2/2)", 0x39d6f0, 0x39d730, indexGGXXSprites_ACR_Ky, 0x1b },
+    { L"Air Stun Edge", 0x3a7000, 0x3a7040, indexGGXXSprites_ACR_Ky, 0x04 },
+    { L"Charged Stun Edge Startup (1/2)", 0x39a3d0, 0x39a410, indexGGXXSprites_ACR_Ky, 0x08 },
+    { L"Charged Stun Edge Startup (2/2)", 0x39b120, 0x39b160, indexGGXXSprites_ACR_Ky, 0x08 },
+    { L"Charged Stun Edge", 0x3a19a0, 0x3a19e0, indexGGXXSprites_ACR_Ky, 0x07 },
+    { L"Stun Edge Impacts/Rings", 0x39fa30, 0x39fa70, indexGGXXSprites_ACR_Ky, 0x0e },
 
-    { L"Vapor Thrust", 0x394ea0, 0x394ee0 },
-    { L"Vapor Thrust Ground Effects", 0x3942d0, 0x394310 },
-    { L"Lightning Javolin", 0x42d770, 0x42d7b0 },
+    { L"Vapor Thrust", 0x394ea0, 0x394ee0, indexGGXXSprites_ACR_Ky, 0x1c, &pairNext },
+    { L"Vapor Thrust Ground Effects", 0x3942d0, 0x394310, indexGGXXSprites_ACR_Ky, 0x1d },
+    { L"Lightning Javolin", 0x42d770, 0x42d7b0, indexGGXXSprites_ACR_Ky, 0x11 },
 
-    { L"Stun Dipper", 0x3ad2d0, 0x3ad310 },
+    { L"Stun Dipper", 0x3ad2d0, 0x3ad310, indexGGXXSprites_ACR_Ky, 0x1a },
 
-    { L"Greed Sever Startup", 0x3b06a0, 0x3b06e0 },
-    { L"Greed Sever (1/2)", 0x3b29e0, 0x3b2be0 },
-    { L"Greed Sever (2/2)", 0x3b56b0, 0x3b58b0 },
-    { L"Greed Sever Shine", 0x3b7760, 0x3b77a0 },
-    { L"Greed Sever Ground Slam (FB)", 0x435c00, 0x435c40 },
+    { L"Greed Sever Startup", 0x3b06a0, 0x3b06e0, indexGGXXSprites_ACR_Ky, 0x0c },
+    { L"Greed Sever (1/2)", 0x3b29e0, 0x3b2be0, indexGGXXSprites_ACR_Ky, 0x09 },
+    { L"Greed Sever (2/2)", 0x3b56b0, 0x3b58b0, indexGGXXSprites_ACR_Ky, 0x09 },
+    { L"Greed Sever Shine", 0x3b7760, 0x3b77a0, indexGGXXSprites_ACR_Ky, 0x0a },
+    { L"Greed Sever Ground Slam (FB)", 0x435c00, 0x435c40, indexGGXXSprites_ACR_Ky, 0x0b },
 
     { L"Lightning Strike", 0x4360d0, 0x436110 },
     //Force Breaks
-    { L"Lightning Sphere", 0x41a610, 0x41a650 },
-    { L"Charge Drive (1/4)", 0x404fa0, 0x404fe0 },
-    { L"Charge Drive (2/4)", 0x40b460, 0x40b4a0 },
-    { L"Charge Drive (3/4)", 0x4119b0, 0x4119f0 },
-    { L"Charge Drive (4/4)", 0x417b40, 0x417b80 },
+    { L"Lightning Sphere inner glow", 0x41a610, 0x41a650, indexGGXXSprites_ACR_Ky, 0x12, &pairNext4 },  // PAIR WITH STARTUP EFFECT
+    { L"Charge Drive thrust (1/3)", 0x404fa0, 0x404fe0, indexGGXXSprites_ACR_Ky, 0x06 },
+    { L"Charge Drive thrust (2/3)", 0x40b460, 0x40b4a0, indexGGXXSprites_ACR_Ky, 0x06 },
+    { L"Charge Drive thrust (3/3)", 0x4119b0, 0x4119f0, indexGGXXSprites_ACR_Ky, 0x06 },
+    { L"Charge Drive startup effect", 0x417b40, 0x417b80, indexGGXXSprites_ACR_Ky, 0x05 },
+
+    { L"Lightning Sphere/Stun Rays Flash (1/2)", 0x42a3a0, 0x42a3e0, indexGGXXSprites_ACR_Ky, 0x13 },
+    { L"Lightning Sphere/Stun Rays Flash (2/2)", 0x42bc20, 0x42bc60, indexGGXXSprites_ACR_Ky, 0x13 },
 
     { L"Stun Rays Flash (1/2)", 0x42a3a0, 0x42a3e0 },
     { L"Stun Rays Flash (2/2)", 0x42bc20, 0x42bc60 },
     //Overdrives
-    { L"Ride the Lightning (1/2)", 0x3dfd50, 0x3dfd90 },
-    { L"Ride the Lightning (2/2)", 0x3e8430, 0x3e8470 },
+    { L"Ride the Lightning (1/2)", 0x3dfd50, 0x3dfd90, indexGGXXSprites_ACR_Ky, 0x14, &pairNext },
+    { L"Ride the Lightning (2/2)", 0x3e8430, 0x3e8470, indexGGXXSprites_ACR_Ky, 0x15 },
 
-    { L"Sacred Edge Projectile (1/4)", 0x3b9980, 0x3b99c0 },
-    { L"Sacred Edge Projectile (2/4)", 0x3bfae0, 0x3bfb20 },
-    { L"Sacred Edge Projectile (3/4)", 0x3d6200, 0x3d6240 },
-    { L"Sacred Edge Projectile (4/4)", 0x3db780, 0x3db7c0 },
-    { L"Sacred Edge Circle (1/17)", 0x3c6a20, 0x3c6a60 },
-    { L"Sacred Edge Circle (2/17)", 0x3c6cd0, 0x3c6d10 },
-    { L"Sacred Edge Circle (3/17)", 0x3c7070, 0x3c70b0 },
-    { L"Sacred Edge Circle (4/17)", 0x3c73c0, 0x3c7400 },
-    { L"Sacred Edge Circle (5/17)", 0x3c7930, 0x3c7970 },
-    { L"Sacred Edge Circle (6/17)", 0x3c8110, 0x3c8150 },
-    { L"Sacred Edge Circle (7/17)", 0x3c8bf0, 0x3c8c30 },
-    { L"Sacred Edge Circle (8/17)", 0x3c97b0, 0x3c97f0 },
-    { L"Sacred Edge Circle (9/17)", 0x3ca6b0, 0x3ca6f0 },
-    { L"Sacred Edge Circle (10/17)", 0x3cb800, 0x3cb840 },
-    { L"Sacred Edge Circle (11/17)", 0x3cca80, 0x3ccac0 },
-    { L"Sacred Edge Circle (12/17)", 0x3cdfd0, 0x3ce010 },
-    { L"Sacred Edge Circle (13/17)", 0x3cf7c0, 0x3cf800 },
-    { L"Sacred Edge Circle (14/17)", 0x3d0ec0, 0x3d0f00 },
-    { L"Sacred Edge Circle (15/17)", 0x3d2910, 0x3d2950 },
-    { L"Sacred Edge Circle (16/17)", 0x3d3e80, 0x3d3ec0 },
-    { L"Sacred Edge Circle (17/17)", 0x3d5080, 0x3d50c0 },
+    { L"Sacred Edge Projectile (1/4)", 0x3b9980, 0x3b99c0, indexGGXXSprites_ACR_Ky, 0x18 },
+    { L"Sacred Edge Projectile (2/4)", 0x3bfae0, 0x3bfb20, indexGGXXSprites_ACR_Ky, 0x18 },
+    { L"Sacred Edge Projectile (3/4)", 0x3d6200, 0x3d6240, indexGGXXSprites_ACR_Ky, 0x18 },
+    { L"Sacred Edge Projectile (4/4)", 0x3db780, 0x3db7c0, indexGGXXSprites_ACR_Ky, 0x18 },
+    { L"Sacred Edge Circle (1/17)", 0x3c6a20, 0x3c6a60, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (2/17)", 0x3c6cd0, 0x3c6d10, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (3/17)", 0x3c7070, 0x3c70b0, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (4/17)", 0x3c73c0, 0x3c7400, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (5/17)", 0x3c7930, 0x3c7970, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (6/17)", 0x3c8110, 0x3c8150, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (7/17)", 0x3c8bf0, 0x3c8c30, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (8/17)", 0x3c97b0, 0x3c97f0, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (9/17)", 0x3ca6b0, 0x3ca6f0, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (10/17)", 0x3cb800, 0x3cb840, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (11/17)", 0x3cca80, 0x3ccac0, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (12/17)", 0x3cdfd0, 0x3ce010, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (13/17)", 0x3cf7c0, 0x3cf800, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (14/17)", 0x3d0ec0, 0x3d0f00, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (15/17)", 0x3d2910, 0x3d2950, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (16/17)", 0x3d3e80, 0x3d3ec0, indexGGXXSprites_ACR_Ky, 0x17 },
+    { L"Sacred Edge Circle (17/17)", 0x3d5080, 0x3d50c0, indexGGXXSprites_ACR_Ky, 0x17 },
     //Instant Kill
-    { L"Rising Force (1/2)", 0x3ea5d0, 0x3ea610 },
-    { L"Rising Force (2/2)", 0x3ee900, 0x3ee940 },
+    { L"Rising Force (1/2)", 0x3ea5d0, 0x3ea610, indexGGXXSprites_ACR_Ky, 0x16 },
+    { L"Rising Force (2/2)", 0x3ee900, 0x3ee940, indexGGXXSprites_ACR_Ky, 0x16 },
 
     //{ L"Unsure 15", 0x3f4e60, 0x3f4ea0 }, 
     //{ L"Unsure 16", 0x3f6f30, 0x3f6f70 }, 
@@ -657,6 +789,80 @@ const sGame_PaletteDataset GGXXACR_S_VE_EFFECTS[] =
     //{ L"Unused 2?", 0x26e2f0, 0x26e330 },     
 };
 
+const sGame_PaletteDataset GGXXACR_S_ZP_EFFECTS[] =
+{
+    //The dog palettes are stupid and im leaving those out since almost each frame has its own palette (x5 for the different palettes). Will get around to them at some point probably (maybe) (not likely)
+    //Zappas got mutiple summons, the order im using here is Naked -> Dog -> Triplets -> Sword -> Roah
+
+//General
+    { L"Orbs (1/2)", 0x4c6b30, 0x4c6b70 },
+    { L"Orbs (2/2)", 0x4c7530, 0x4c7570 },
+
+    { L"Locusts (1/3)", 0x490130, 0x490170 },
+    { L"Locusts (2/3)", 0x4906b0, 0x4906f0 },
+    { L"Locusts (3/3)", 0x490c00, 0x490c40 },
+
+    { L"Dog sleeping/waking up ", 0x4911f0, 0x491230 },
+    //Normals (Naked)
+        { L"f.S (1/3)",          0x459320, 0x459360 },
+        { L"f.S (2/3)",          0x45b550, 0x45b590 },
+        { L"f.S (3/3)",          0x45cb90, 0x45cbd0 },
+        { L"f.S - Impact (1/4)", 0x45d1d0, 0x45d210 },
+        { L"f.S - Impact (2/4)", 0x45fc60, 0x45fca0 },
+        { L"f.S - Impact (3/4)", 0x4632b0, 0x4632f0 },
+        { L"f.S - Impact (4/4)", 0x465f50, 0x465f90 },
+        //Specials (Triplets)
+            { L"Shouting (Left)",            0x4b5780, 0x4b57c0 },
+            { L"Shouting (Right)/Golf ball", 0x4b4cd0, 0x4b4d10 },
+            { L"Banana (1/2)",               0x4b8650, 0x4b8a50 },
+            { L"Banana (2/2)",               0x4b8f20, 0x4b9320 },
+            { L"Potted plant (1/4)",         0x4b6230, 0x4b6630 },
+            { L"Potted plant (2/4)",         0x4b6e10, 0x4b7210 },
+            { L"Potted plant (3/4)",         0x4b7660, 0x4b7a60 },
+            { L"Potted plant (4/4)",         0x4b7f90, 0x4b8390 },
+            //Specials (Sword)	
+                { L"Please Fall (1/2)", 0x484120, 0x484160 },
+                { L"Please Fall (2/2)", 0x48b4f0, 0x48b530 },
+
+                { L"Come Close, and I'll Kill You (1/2)", 0x4b97f0, 0x4b9830 },
+                { L"Come Close, and I'll Kill You (2/2)", 0x4bba60, 0x4bbaa0 },
+                //Specials (Roah)
+                    { L"Darkness Anthem (1/14)",    0x447360, 0x4473a0 },
+                    { L"Darkness Anthem (2/14)",    0x448ba0, 0x448be0 },
+                    { L"Darkness Anthem (3/14)",    0x44a570, 0x44a5b0 },
+                    { L"Darkness Anthem (4/14)",    0x44be00, 0x44be40 },
+                    { L"Darkness Anthem (5/14)",    0x44d4c0, 0x44d500 },
+                    { L"Darkness Anthem (6/14)",    0x44ecd0, 0x44ed10 },
+                    { L"Darkness Anthem (7/14)",    0x450360, 0x4503a0 },
+                    { L"Darkness Anthem (8/14)",    0x451580, 0x4515c0 },
+                    { L"Darkness Anthem (9/14)",    0x4527e0, 0x452820 },
+                    { L"Darkness Anthem (10/14)",   0x453a00, 0x453a40 },
+                    { L"Darkness Anthem (11/14)",   0x454980, 0x4549c0 },
+                    { L"Darkness Anthem (12/14)",   0x455ca0, 0x455ce0 },
+                    { L"Darkness Anthem (13/14)",   0x457330, 0x457370 },
+                    { L"Darkness Anthem (14/14)",   0x458aa0, 0x458ae0 },
+                    //Force breaks (Naked)
+                        { L"Etiquette Starts Here ",        0x4bd900, 0x4bd940 },
+                        { L"Etiquette Starts Here Effects", 0x4c6920, 0x4c6960 },
+                        //Overdrives (Naked/All summons)
+                            { L"Birth!! (1/4)", 0x466930, 0x466970 },
+                            { L"Birth!! (2/4)", 0x46f4f0, 0x46f530 },
+                            { L"Birth!! (3/4)", 0x472d40, 0x472d80 },
+                            { L"Birth!! (4/4)", 0x4773c0, 0x477400 },
+                            //Overdrives (Roah)
+                                { L"Bellows Malice (1/5)", 0x47a5a0, 0x47a5e0 },
+                                { L"Bellows Malice (2/5)", 0x47c7f0, 0x47c830 },
+                                { L"Bellows Malice (3/5)", 0x47e910, 0x47e950 },
+                                { L"Bellows Malice (4/5)", 0x480760, 0x4807a0 },
+                                { L"Bellows Malice (5/5)", 0x481de0, 0x481e20 },
+                                //Instant Kill (Naked/All Summons)
+                                    { L"I'm Scared... - Scream",     0x491510, 0x491550 },
+                                    { L"I'm Scared... - Tree (1/3)", 0x4919f0, 0x491bf0 },
+                                    { L"I'm Scared... - Tree (2/3)", 0x49d5a0, 0x49d7a0 },
+                                    { L"I'm Scared... - Tree (3/3)", 0x4a8fa0, 0x4a91a0 },
+
+};
+
 const sGame_PaletteDataset GGXXACR_S_Sidebar_Portraits[] =
 {
     { L"Type A Background (Left)",  0x110, 0x510, indexGGXXSprites_ACR_Bonus, 0x00 },
@@ -749,11 +955,15 @@ const sGame_PaletteDataset GGXXACR_S_HUDMenu[] =
     { L"Tension (P2)",                  0xbb80, 0xbbc0 },
     { L"Tension Background (P2)",       0xb670, 0xb6b0 },
 
-    { L"Combo Counter",                 0x2d00, 0x2d40 },
-    { L"Character names",               0x2e0, 0x320 },
-    { L"Text (1/3)",                    0x7bcf0, 0x7bd30 },
-    { L"Text (2/3)",                    0x7c1f0, 0x7c230 },
-    { L"Text (3/3)",                    0x7c7d0, 0x7c810 },
+    { L"Combo Counter",                    0x2d00, 0x2d40 },
+    { L"Character names",                  0x2e0, 0x320 },
+    { L"Text (Normal) (1/3)",              0x7bcf0, 0x7bd30 },
+    { L"Text (Normal) (2/3)",              0x7c1f0, 0x7c230 },
+    { L"Text (Normal) (3/3)",              0x7c7d0, 0x7c810 },
+    { L"Text (Original) (1/3)",            0x8A4A0, 0x8A4E0 },
+    { L"Text (Original) (2/3)",            0x89F80, 0x89FC0 }, //This looks wrong, but its correct
+    { L"Text (Original) (3/3)",            0x8AA40, 0x8AA80 },
+    { L"Zappa summon/Move List icons",     0x7E3E0, 0x7E420 },
 
     { L"Stagger joystick (1/3)",        0x1edf50, 0x1edf90 },
     { L"Stagger joystick (2/3)",        0x1ee180, 0x1ee1c0 },
@@ -833,9 +1043,10 @@ const sGame_PaletteDataset GGXXACR_S_Effects_JPF[] =
     { L"Gold Burst (12/12)", 0x17ee90, 0x17f290 },
 
     //I may be missing some palettes here
-    { L"Overdrive Actvation Rings",      0x1c74c0, 0x1c7500 },
-    { L"Overdrive Background",           0x1f4290, 0x1f42d0 },
-    { L"Overdrive Background (Layer 2)", 0x203360, 0x2033a0 },
+    { L"Overdrive Actvation Rings",                    0x1c74c0, 0x1c7500 },
+    { L"Overdrive Background",                         0x1f4290, 0x1f42d0 },
+    { L"Normal Overdrive Background (Layer 2)",        0x203360, 0x2033a0 },
+    { L"Forcebreak Overdrive Background (Layer 2)",    0x1F14A0, 0x1F14E0 },
 
     //Dust effects for movement, certain stages swap these out for stage specific effects that can be found in the stages file
     //eg. Grove uses water effects, which palettes are stored in bg_dz.cmp, and not with these otherwise universal effects
@@ -875,11 +1086,11 @@ GGXXACRFileData GGXXACR_S_CharacterData[] =
     { L"ax.bin",    L"Axl Low" ,        4225716,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x35ebe0, indexGGXXSprites_ACR_Axl },
     { L"bk.bin",    L"Baiken",          3573668,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x308c20, indexGGXXSprites_ACR_Baiken, GGXXACR_S_BK_EFFECTS, ARRAYSIZE(GGXXACR_S_BK_EFFECTS) },
     { L"ch.bin",    L"Chipp Zanuff",    3113988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x293560, indexGGXXSprites_ACR_Chipp },
-    { L"dz.bin",    L"Dizzy",           5352324,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x45d720, indexGGXXSprites_ACR_Dizzy },
+    { L"dz.bin",    L"Dizzy",           5352324,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x45d720, indexGGXXSprites_ACR_Dizzy, GGXXACR_S_DZ_EFFECTS, ARRAYSIZE(GGXXACR_S_DZ_EFFECTS) },
     { L"fa.bin",    L"Faust",           4773284,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3fe9a0, indexGGXXSprites_ACR_Faust },
     { L"fr.bin",    L"Order Sol",       5772356,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x4377e0, indexGGXXSprites_ACR_OrderSol },
     { L"in.bin",    L"I-No",            5609060,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3e5370, indexGGXXSprites_ACR_Ino, GGXXACR_S_IN_EFFECTS, ARRAYSIZE(GGXXACR_S_IN_EFFECTS) },
-    { L"jm.bin",    L"Jam",             3827044,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2c4e80, indexGGXXSprites_ACR_Jam },
+    { L"jm.bin",    L"Jam",             3827044,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2c4e80, indexGGXXSprites_ACR_Jam, GGXXACR_S_JM_EFFECTS, ARRAYSIZE(GGXXACR_S_JM_EFFECTS) },
     { L"js.bin",    L"Justice",         4556788,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3789b0, indexGGXXSprites_ACR_Justice },
     { L"jy.bin",    L"Johnny",          4205892,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3b0620, indexGGXXSprites_ACR_Johnny, GGXXACR_S_JY_EFFECTS, ARRAYSIZE(GGXXACR_S_JY_EFFECTS) },
     { L"kr.bin",    L"Kliff Undersn",   3114036,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x28abf0, indexGGXXSprites_ACR_Kliff },
@@ -893,7 +1104,7 @@ GGXXACRFileData GGXXACR_S_CharacterData[] =
     { L"ts.bin",    L"Testament",       4817508,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3ee950, indexGGXXSprites_ACR_Testament },
     { L"ve.bin",    L"Venom",           2787412,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x261c10, indexGGXXSprites_ACR_Venom, GGXXACR_S_VE_EFFECTS, ARRAYSIZE(GGXXACR_S_VE_EFFECTS) },
     { L"yy.bin",    L"Bridget",         4127716,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x34b210, indexGGXXSprites_ACR_Bridget },
-    { L"zp.bin",    L"Zappa",           6019988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2a54f0, indexGGXXSprites_ACR_Zappa },
+    { L"zp.bin",    L"Zappa",           6019988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2a54f0, indexGGXXSprites_ACR_Zappa, GGXXACR_S_ZP_EFFECTS, ARRAYSIZE(GGXXACR_S_ZP_EFFECTS) },
     { L"zt.bin",    L"Eddie",           3289156,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x24e560, indexGGXXSprites_ACR_Eddie },
     { L"eab.bin",   L"EX A.B.A.",       5912564,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x4b3ca0, indexGGXXSprites_ACR_ABA },
     { L"ean.bin",   L"EX Anji",         4520900,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3eb460, indexGGXXSprites_ACR_Anji },

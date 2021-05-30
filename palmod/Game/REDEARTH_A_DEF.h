@@ -1118,10 +1118,10 @@ const sDescTreeNode REDEARTH_A_UNITS_30[] =
 
 const sGame_PaletteDataset REDEARTH_A_50_NEXT_PALETTES[] =
 {
-    { L"Coming Next ? Leo", 0x358000, 0x358080 },
-    { L"Coming Next ? Kenji", 0x358080, 0x358100 },
-    { L"Coming Next ? Tessa", 0x358100, 0x358180 },
-    { L"Coming Next ? Mai-Ling", 0x358180, 0x358200 },
+    { L"Coming Next ? Leo",         0x358000, 0x358080 },
+    { L"Coming Next ? Kenji",       0x358080, 0x358100, indexRedEarthSprites_Kenji, 0x58 },
+    { L"Coming Next ? Tessa",       0x358100, 0x358180, indexRedEarthSprites_Tessa, 0x58 },
+    { L"Coming Next ? Mai-Ling",    0x358180, 0x358200, indexRedEarthSprites_MaiLing, 0x58 },
 };
 
 const sDescTreeNode REDEARTH_A_50_NEXT_COLLECTION[] =

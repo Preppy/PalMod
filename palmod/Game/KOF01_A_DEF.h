@@ -100,13 +100,13 @@ const UINT16 KOF01_A_IMGIDS_USED[] =
 
 const sGame_PaletteDataset KOF01_A_ZERO_STRIKER_PALETTES[] =
 {
-    { L"Striker Krizalid Punch", 0x391922, 0x391942 },
-    { L"Striker Krizalid Kick", 0x391b22, 0x391b42 },
-    { L"Striker Krizalid Typhoon Rage", 0x397922, 0x397942 },
-    { L"Striker Glugan Punch", 0x391d22, 0x391d42 },
-    { L"Striker Glugan Kick", 0x391f22, 0x391f42 },
-    { L"Striker Lon Punch", 0x392122, 0x392142 },
-    { L"Striker Lon Kick", 0x392322, 0x392342 },
+    { L"Striker Krizalid Punch",        0x391922, 0x391942, indexKOF01Sprites_Zero, 0x09 },
+    { L"Striker Krizalid Kick",         0x391b22, 0x391b42, indexKOF01Sprites_Zero, 0x09 },
+    { L"Striker Krizalid Typhoon Rage", 0x397922, 0x397942, indexKOF01Sprites_Zero, 0x09 },
+    { L"Striker Glugan Punch",          0x391d22, 0x391d42, indexKOF01Sprites_Zero, 0x08 },
+    { L"Striker Glugan Kick",           0x391f22, 0x391f42, indexKOF01Sprites_Zero, 0x08 },
+    { L"Striker Lon Punch",             0x392122, 0x392142, indexKOF01Sprites_Zero, 0x0a },
+    { L"Striker Lon Kick",              0x392322, 0x392342, indexKOF01Sprites_Zero, 0x0a },
 };
 
 const sGame_PaletteDataset KOF01_A_ZERO_STRIKER_PORTRAIT_PALETTES[] =

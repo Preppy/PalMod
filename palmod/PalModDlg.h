@@ -208,7 +208,6 @@ protected:
     CToolTipCtrl m_ToolTip;
 
 // Implementation
-protected:
     HICON m_hIcon;
 
     void OnFileOpenInternal(UINT nDefaultGameFilter = NUM_GAMES);
@@ -220,7 +219,13 @@ protected:
     afx_msg HCURSOR OnQueryDragIcon();
     DECLARE_MESSAGE_MAP()
 
+private:
+    void HandlePasteFromPalMod();
+    void HandlePasteFromRGB();
+
 public:
+    static CStringA m_strPasteStr;
+
     CComboBox m_CBUnitSel;
     CComboBox m_CBChildSel1;
     CComboBox m_CBChildSel2;
@@ -262,6 +267,13 @@ public:
     afx_msg void OnFileCrossPatch();
     afx_msg void OnSavePatchFile();
 
+    static void SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameFlag);
+    static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL bCheckOnly = FALSE, BOOL* bIsDir = NULL);
+
+    static BOOL IsPasteFromPalMod();
+    static BOOL IsPasteSupported();
+    static BOOL IsPasteRGB();
+
     afx_msg void OnEditCopy();
     afx_msg void OnEditPaste();
     afx_msg void OnCopyColorAtPointer();
@@ -270,6 +282,7 @@ public:
     DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
     bool SelectMatchingColorsInPalette(DWORD dwColorToMatch);
 
+    static BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
     static int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData);
 
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
@@ -325,11 +338,3 @@ public:
     afx_msg void OnLoadDir_SFIII3ArcadeEx() { OnLoadGameByDirectory(SFIII3_A_DIR_EX); };
     afx_msg void OnLoadDir_UNICLR()         { OnLoadGameByDirectory(UNICLR_A); };
 };
-
-extern BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
-
-extern BOOL IsPasteSupported();
-extern CStringA szPasteStr;
-
-extern void SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameFlag);
-extern BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL bCheckOnly = FALSE, BOOL* bIsDir = NULL);

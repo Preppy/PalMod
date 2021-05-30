@@ -60,8 +60,6 @@ static UINT BASED_CODE indicators[] =
     ID_INDICATOR_EXTRA
 };
 
-CStringA szPasteStr = "";
-
 #ifdef ENABLE_MUI_SUPPORT
 HMODULE g_hMUIInstance = nullptr;
 
@@ -409,7 +407,7 @@ void CPalModDlg::UpdateEnableCtrls()
     UpdateSliderSel(FALSE, TRUE);
 }
 
-BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
+BOOL CALLBACK CPalModDlg::EnumChildProc(HWND hwnd, LPARAM lParam)
 {
     int nId = GetWindowLong(hwnd, GWL_ID);
 
@@ -430,7 +428,7 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
     case IDC_SPIN_A:
         break;
     default:
-        EnableWindow(hwnd, ((CPalModDlg*)lParam)->bEnabled);
+        ::EnableWindow(hwnd, ((CPalModDlg*)lParam)->bEnabled);
         break;
     }
 

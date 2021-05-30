@@ -155,26 +155,26 @@ const sGame_PaletteDataset BMKNS_SNES_WATTS_HoldHPLK_PALETTES[] =
 const sGame_PaletteDataset BMKNS_SNES_RANMARU_Start_PALETTES[] =
 {
     { L"Ranmaru Start", 0x1fe54a, 0x1fe56a, indexBMKNST_Ranmaru },
-    { L"Ranmaru Portrait Start", 0x1c312, 0x1c332 },
+    { L"Ranmaru Portrait Start", 0x1c312, 0x1c332, indexBMKNST_Ranmaru, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_RANMARU_LK_PALETTES[] =
 {
 
     { L"Ranmaru LK", 0x1fe56a, 0x1fe58a, indexBMKNST_Ranmaru },
-    { L"Ranmaru Portrait LK", 0x1c332, 0x1c352 },
+    { L"Ranmaru Portrait LK", 0x1c332, 0x1c352, indexBMKNST_Ranmaru, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_RANMARU_HoldHPStart_PALETTES[] =
 {
     { L"Ranmaru Hold HP Start", 0x1fe58a, 0x1fe5aa, indexBMKNST_Ranmaru },
-    { L"Ranmaru Portrait Hold HP Start", 0x1c352, 0x1c372 },
+    { L"Ranmaru Portrait Hold HP Start", 0x1c352, 0x1c372, indexBMKNST_Ranmaru, 0x40 },
 };
 
 const sGame_PaletteDataset BMKNS_SNES_RANMARU_HoldHPLK_PALETTES[] =
 {
     { L"Ranmaru Hold HP LK", 0x1fe5aa, 0x1fe5ca, indexBMKNST_Ranmaru },
-    { L"Ranmaru Portrait Hold HP LK", 0x1c372, 0x1c392 },
+    { L"Ranmaru Portrait Hold HP LK", 0x1c372, 0x1c392, indexBMKNST_Ranmaru, 0x40 },
 };
 
 //Altia

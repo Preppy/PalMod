@@ -27,46 +27,55 @@ const UINT16 SFIII3_A_IMGIDS_USED[] =
     index3SSprites_Gill,      // 0x16
 };
 
+const UINT16 INDEX_JUDGEMENT_PORTRAITS = 0x70;
+
 const sGame_PaletteDataset SFIII3_A_ALEX_LP_PALETTES[] =
 {
     { L"LP Main", 0x700600, 0x700680, index3SSprites_Alex, 0x00, &pairHandledInCode },
     { L"LP Portrait", 0x763be0, 0x763c00, index3SSprites_Alex, 0x01 },
+    { L"LP Judgement Portrait", 0x789920, 0x789940, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_MP_PALETTES[] =
 {
     { L"MP Main", 0x700680, 0x700700, index3SSprites_Alex, 0x00, &pairHandledInCode },
     { L"MP Portrait", 0x763c00, 0x763c20, index3SSprites_Alex, 0x01 },
+    { L"MP Judgement Portrait", 0x789c20, 0x789c40, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_HP_PALETTES[] =
 {
     { L"HP Main", 0x700700, 0x700780, index3SSprites_Alex, 0x00, &pairHandledInCode },
     { L"HP Portrait", 0x763c20, 0x763c40, index3SSprites_Alex, 0x01 },
+    { L"HP Judgement Portrait", 0x789f20, 0x789f40, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_LK_PALETTES[] =
 {
     { L"LK Main", 0x700780, 0x700800, index3SSprites_Alex, 0x00, &pairHandledInCode },
     { L"LK Portrait", 0x763c40, 0x763c60, index3SSprites_Alex, 0x01 },
+    { L"LK Judgement Portrait", 0x78a220, 0x78a240, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_MK_PALETTES[] =
 {
     { L"MK Main", 0x700800, 0x700880, index3SSprites_Alex, 0x00, &pairHandledInCode },
     { L"MK Portrait", 0x763c60, 0x763c80, index3SSprites_Alex, 0x01 },
+    { L"MK Judgement Portrait", 0x78a520, 0x78a540, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_HK_PALETTES[] =
 {
     { L"HK Main", 0x700880, 0x700900, index3SSprites_Alex, 0x00, &pairHandledInCode },
     { L"HK Portrait", 0x763c80, 0x763ca0, index3SSprites_Alex, 0x01 },
+    { L"HK Judgement Portrait", 0x78a820, 0x78a840, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_EX_PALETTES[] =
 {
     { L"EX Main", 0x700900, 0x700980, index3SSprites_Alex, 0x00, &pairHandledInCode },
     { L"EX Portrait", 0x763ca0, 0x763cc0, index3SSprites_Alex, 0x01 },
+    { L"EX Judgement Portrait", 0x78ab20, 0x78ab40, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_Support_PALETTES[] =
@@ -95,42 +104,49 @@ const sGame_PaletteDataset SFIII3_A_RYU_LP_PALETTES[] =
 {
     { L"LP Main", 0x700980, 0x700a00, index3SSprites_Ryu, 0x00 },
     { L"LP Portrait", 0x763cc0, 0x763ce0, index3SSprites_Ryu, 0x01 },
+    { L"LP Judgement Portrait", 0x789940, 0x789960, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_MP_PALETTES[] =
 {
     { L"MP Main", 0x700a00, 0x700a80, index3SSprites_Ryu, 0x00 },
     { L"MP Portrait", 0x763ce0, 0x763d00, index3SSprites_Ryu, 0x01 },
+    { L"MP Judgement Portrait", 0x789c40, 0x789c60, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_HP_PALETTES[] =
 {
     { L"HP Main", 0x700a80, 0x700b00, index3SSprites_Ryu, 0x00 },
     { L"HP Portrait", 0x763d00, 0x763d20, index3SSprites_Ryu, 0x01 },
+    { L"HP Judgement Portrait", 0x789f40, 0x789f60, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_LK_PALETTES[] =
 {
     { L"LK Main", 0x700b00, 0x700b80, index3SSprites_Ryu, 0x00 },
     { L"LK Portrait", 0x763d20, 0x763d40, index3SSprites_Ryu, 0x01 },
+    { L"LK Judgement Portrait", 0x78a240, 0x78a260, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_MK_PALETTES[] =
 {
     { L"MK Main", 0x700b80, 0x700c00, index3SSprites_Ryu, 0x00 },
     { L"MK Portrait", 0x763d40, 0x763d60, index3SSprites_Ryu, 0x01 },
+    { L"MK Judgement Portrait", 0x78a540, 0x78a560, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_HK_PALETTES[] =
 {
     { L"HK Main", 0x700c00, 0x700c80, index3SSprites_Ryu, 0x00 },
     { L"HK Portrait", 0x763d60, 0x763d80, index3SSprites_Ryu, 0x01 },
+    { L"HK Judgement Portrait", 0x78a840, 0x78a860, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_EX_PALETTES[] =
 {
     { L"EX Main", 0x700c80, 0x700d00, index3SSprites_Ryu, 0x00 },
     { L"EX Portrait", 0x763d80, 0x763da0, index3SSprites_Ryu, 0x01 },
+    { L"EX Judgement Portrait", 0x78ab40, 0x78ab60, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_Support_PALETTES[] =
@@ -160,42 +176,49 @@ const sGame_PaletteDataset SFIII3_A_YUN_LP_PALETTES[] =
 {
     { L"LP Main", 0x700d00, 0x700d80, index3SSprites_Yun, 0x00 },
     { L"LP Portrait", 0x763da0, 0x763dc0, index3SSprites_Yun, 0x01 },
+    { L"LP Judgement Portrait", 0x789960, 0x789980, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_MP_PALETTES[] =
 {
     { L"MP Main", 0x700d80, 0x700e00, index3SSprites_Yun, 0x00 },
     { L"MP Portrait", 0x763dc0, 0x763de0, index3SSprites_Yun, 0x01 },
+    { L"MP Judgement Portrait", 0x789c60, 0x789c80, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_HP_PALETTES[] =
 {
     { L"HP Main", 0x700e00, 0x700e80, index3SSprites_Yun, 0x00 },
     { L"HP Portrait", 0x763de0, 0x763e00, index3SSprites_Yun, 0x01 },
+    { L"HP Judgement Portrait", 0x789f60, 0x789f80, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_LK_PALETTES[] =
 {
     { L"LK Main", 0x700e80, 0x700f00, index3SSprites_Yun, 0x00 },
     { L"LK Portrait", 0x763e00, 0x763e20, index3SSprites_Yun, 0x01 },
+    { L"LK Judgement Portrait", 0x78a260, 0x78a280, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_MK_PALETTES[] =
 {
     { L"MK Main", 0x700f00, 0x700f80, index3SSprites_Yun, 0x00 },
     { L"MK Portrait", 0x763e20, 0x763e40, index3SSprites_Yun, 0x01 },
+    { L"MK Judgement Portrait", 0x78a560, 0x78a580, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_HK_PALETTES[] =
 {
     { L"HK Main", 0x700f80, 0x701000, index3SSprites_Yun, 0x00 },
     { L"HK Portrait", 0x763e40, 0x763e60, index3SSprites_Yun, 0x01 },
+    { L"HK Judgement Portrait", 0x78a860, 0x78a880, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_EX_PALETTES[] =
 {
     { L"EX Main", 0x701000, 0x701080, index3SSprites_Yun, 0x00 },
     { L"EX Portrait", 0x763e60, 0x763e80, index3SSprites_Yun, 0x01 },
+    { L"EX Judgement Portrait", 0x78ab60, 0x78ab80, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_Support_PALETTES[] =
@@ -218,42 +241,49 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_LP_PALETTES[] =
 {
     { L"LP Main", 0x701080, 0x701100, index3SSprites_Dudley, 0x00 },
     { L"LP Portrait", 0x763e80, 0x763ea0, index3SSprites_Dudley, 0x01 },
+    { L"LP Judgement Portrait", 0x789980, 0x7899a0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_MP_PALETTES[] =
 {
     { L"MP Main", 0x701100, 0x701180, index3SSprites_Dudley, 0x00 },
     { L"MP Portrait", 0x763ea0, 0x763ec0, index3SSprites_Dudley, 0x01 },
+    { L"MP Judgement Portrait", 0x789c80, 0x789ca0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_HP_PALETTES[] =
 {
     { L"HP Main", 0x701180, 0x701200, index3SSprites_Dudley, 0x00 },
     { L"HP Portrait", 0x763ec0, 0x763ee0, index3SSprites_Dudley, 0x01 },
+    { L"HP Judgement Portrait", 0x789f80, 0x789fa0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_LK_PALETTES[] =
 {
     { L"LK Main", 0x701200, 0x701280, index3SSprites_Dudley, 0x00 },
     { L"LK Portrait", 0x763ee0, 0x763f00, index3SSprites_Dudley, 0x01 },
+    { L"LK Judgement Portrait", 0x78a280, 0x78a2a0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_MK_PALETTES[] =
 {
     { L"MK Main", 0x701280, 0x701300, index3SSprites_Dudley, 0x00 },
     { L"MK Portrait", 0x763f00, 0x763f20, index3SSprites_Dudley, 0x01 },
+    { L"MK Judgement Portrait", 0x78a580, 0x78a5a0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_HK_PALETTES[] =
 {
     { L"HK Main", 0x701300, 0x701380, index3SSprites_Dudley, 0x00 },
     { L"HK Portrait", 0x763f20, 0x763f40, index3SSprites_Dudley, 0x01 },
+    { L"HK Judgement Portrait", 0x78a880, 0x78a8a0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_EX_PALETTES[] =
 {
     { L"EX Main", 0x701380, 0x701400, index3SSprites_Dudley, 0x00 },
     { L"EX Portrait", 0x763f40, 0x763f60, index3SSprites_Dudley, 0x01 },
+    { L"EX Judgement Portrait", 0x78ab80, 0x78aba0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_Support_PALETTES[] =
@@ -283,42 +313,49 @@ const sGame_PaletteDataset SFIII3_A_NECRO_LP_PALETTES[] =
 {
     { L"LP Main", 0x701400, 0x701480, index3SSprites_Necro, 0x00 },
     { L"LP Portrait", 0x763f60, 0x763f80, index3SSprites_Necro, 0x01 },
+    { L"LP Judgement Portrait", 0x7899a0, 0x7899c0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_MP_PALETTES[] =
 {
     { L"MP Main", 0x701480, 0x701500, index3SSprites_Necro, 0x00 },
     { L"MP Portrait", 0x763f80, 0x763fa0, index3SSprites_Necro, 0x01 },
+    { L"MP Judgement Portrait", 0x789ca0, 0x789cc0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_HP_PALETTES[] =
 {
     { L"HP Main", 0x701500, 0x701580, index3SSprites_Necro, 0x00 },
     { L"HP Portrait", 0x763fa0, 0x763fc0, index3SSprites_Necro, 0x01 },
+    { L"HP Judgement Portrait", 0x789fa0, 0x789fc0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_LK_PALETTES[] =
 {
     { L"LK Main", 0x701580, 0x701600, index3SSprites_Necro, 0x00 },
     { L"LK Portrait", 0x763fc0, 0x763fe0, index3SSprites_Necro, 0x01 },
+    { L"LK Judgement Portrait", 0x78a2a0, 0x78a2c0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_MK_PALETTES[] =
 {
     { L"MK Main", 0x701600, 0x701680, index3SSprites_Necro, 0x00 },
     { L"MK Portrait", 0x763fe0, 0x764000, index3SSprites_Necro, 0x01 },
+    { L"MK Judgement Portrait", 0x78a5a0, 0x78a5c0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_HK_PALETTES[] =
 {
     { L"HK Main", 0x701680, 0x701700, index3SSprites_Necro, 0x00 },
     { L"HK Portrait", 0x764000, 0x764020, index3SSprites_Necro, 0x01 },
+    { L"HK Judgement Portrait", 0x78a8a0, 0x78a8c0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_EX_PALETTES[] =
 {
     { L"EX Main", 0x701700, 0x701780, index3SSprites_Necro, 0x00 },
     { L"EX Portrait", 0x764020, 0x764040, index3SSprites_Necro, 0x01 },
+    { L"EX Judgement Portrait", 0x78aba0, 0x78abc0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_Support_PALETTES[] =
@@ -366,42 +403,49 @@ const sGame_PaletteDataset SFIII3_A_HUGO_LP_PALETTES[] =
 {
     { L"LP Main", 0x701780, 0x701800, index3SSprites_Hugo, 0x00 },
     { L"LP Portrait", 0x764040, 0x764060, index3SSprites_Hugo, 0x01 },
+    { L"LP Judgement Portrait", 0x7899c0, 0x7899e0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_MP_PALETTES[] =
 {
     { L"MP Main", 0x701800, 0x701880, index3SSprites_Hugo, 0x00 },
     { L"MP Portrait", 0x764060, 0x764080, index3SSprites_Hugo, 0x01 },
+    { L"MP Judgement Portrait", 0x789cc0, 0x789ce0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_HP_PALETTES[] =
 {
     { L"HP Main", 0x701880, 0x701900, index3SSprites_Hugo, 0x00 },
     { L"HP Portrait", 0x764080, 0x7640a0, index3SSprites_Hugo, 0x01 },
+    { L"HP Judgement Portrait", 0x789fc0, 0x789fe0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_LK_PALETTES[] =
 {
     { L"LK Main", 0x701900, 0x701980, index3SSprites_Hugo, 0x00 },
     { L"LK Portrait", 0x7640a0, 0x7640c0, index3SSprites_Hugo, 0x01 },
+    { L"LK Judgement Portrait", 0x78a2c0, 0x78a2e0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_MK_PALETTES[] =
 {
     { L"MK Main", 0x701980, 0x701a00, index3SSprites_Hugo, 0x00 },
     { L"MK Portrait", 0x7640c0, 0x7640e0, index3SSprites_Hugo, 0x01 },
+    { L"MK Judgement Portrait", 0x78a5c0, 0x78a5e0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_HK_PALETTES[] =
 {
     { L"HK Main", 0x701a00, 0x701a80, index3SSprites_Hugo, 0x00 },
     { L"HK Portrait", 0x7640e0, 0x764100, index3SSprites_Hugo, 0x01 },
+    { L"HK Judgement Portrait", 0x78a8c0, 0x78a8e0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_EX_PALETTES[] =
 {
     { L"EX Main", 0x701a80, 0x701b00, index3SSprites_Hugo, 0x00 },
     { L"EX Portrait", 0x764100, 0x764120, index3SSprites_Hugo, 0x01 },
+    { L"EX Judgement Portrait", 0x78abc0, 0x78abe0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_Support_PALETTES[] =
@@ -432,42 +476,49 @@ const sGame_PaletteDataset SFIII3_A_IBUKI_LP_PALETTES[] =
 {
     { L"LP Main", 0x701b00, 0x701b80, index3SSprites_Ibuki, 0x00 },
     { L"LP Portrait", 0x764120, 0x764140, index3SSprites_Ibuki, 0x01 },
+    { L"LP Judgement Portrait", 0x7899e0, 0x789a00, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_MP_PALETTES[] =
 {
     { L"MP Main", 0x701b80, 0x701c00, index3SSprites_Ibuki, 0x00 },
     { L"MP Portrait", 0x764140, 0x764160, index3SSprites_Ibuki, 0x01 },
+    { L"MP Judgement Portrait", 0x789ce0, 0x789d00, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_HP_PALETTES[] =
 {
     { L"HP Main", 0x701c00, 0x701c80, index3SSprites_Ibuki, 0x00 },
     { L"HP Portrait", 0x764160, 0x764180, index3SSprites_Ibuki, 0x01 },
+    { L"HP Judgement Portrait", 0x789fe0, 0x78a000, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_LK_PALETTES[] =
 {
     { L"LK Main", 0x701c80, 0x701d00, index3SSprites_Ibuki, 0x00 },
     { L"LK Portrait", 0x764180, 0x7641a0, index3SSprites_Ibuki, 0x01 },
+    { L"LK Judgement Portrait", 0x78a2e0, 0x78a300, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_MK_PALETTES[] =
 {
     { L"MK Main", 0x701d00, 0x701d80, index3SSprites_Ibuki, 0x00 },
     { L"MK Portrait", 0x7641a0, 0x7641c0, index3SSprites_Ibuki, 0x01 },
+    { L"MK Judgement Portrait", 0x78a5e0, 0x78a600, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_HK_PALETTES[] =
 {
     { L"HK Main", 0x701d80, 0x701e00, index3SSprites_Ibuki, 0x00 },
     { L"HK Portrait", 0x7641c0, 0x7641e0, index3SSprites_Ibuki, 0x01 },
+    { L"HK Judgement Portrait", 0x78a8e0, 0x78a900, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_EX_PALETTES[] =
 {
     { L"EX Main", 0x701e00, 0x701e80, index3SSprites_Ibuki, 0x00 },
     { L"EX Portrait", 0x7641e0, 0x764200, index3SSprites_Ibuki, 0x01 },
+    { L"EX Judgement Portrait", 0x78abe0, 0x78ac00, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_Support_PALETTES[] =
@@ -508,42 +559,49 @@ const sGame_PaletteDataset SFIII3_A_ELENA_LP_PALETTES[] =
 {
     { L"LP Main", 0x701e80, 0x701f00, index3SSprites_Elena, 0x00 },
     { L"LP Portrait", 0x764200, 0x764220, index3SSprites_Elena, 0x01 },
+    { L"LP Judgement Portrait", 0x789a00, 0x789a20, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_MP_PALETTES[] =
 {
     { L"MP Main", 0x701f00, 0x701f80, index3SSprites_Elena, 0x00 },
     { L"MP Portrait", 0x764220, 0x764240, index3SSprites_Elena, 0x01 },
+    { L"MP Judgement Portrait", 0x789d00, 0x789d20, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_HP_PALETTES[] =
 {
     { L"HP Main", 0x701f80, 0x702000, index3SSprites_Elena, 0x00 },
     { L"HP Portrait", 0x764240, 0x764260, index3SSprites_Elena, 0x01 },
+    { L"HP Judgement Portrait", 0x78a000, 0x78a020, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_LK_PALETTES[] =
 {
     { L"LK Main", 0x702000, 0x702080, index3SSprites_Elena, 0x00 },
     { L"LK Portrait", 0x764260, 0x764280, index3SSprites_Elena, 0x01 },
+    { L"LK Judgement Portrait", 0x78a300, 0x78a320, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_MK_PALETTES[] =
 {
     { L"MK Main", 0x702080, 0x702100, index3SSprites_Elena, 0x00 },
     { L"MK Portrait", 0x764280, 0x7642a0, index3SSprites_Elena, 0x01 },
+    { L"MK Judgement Portrait", 0x78a600, 0x78a620, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_HK_PALETTES[] =
 {
     { L"HK Main", 0x702100, 0x702180, index3SSprites_Elena, 0x00 },
     { L"HK Portrait", 0x7642a0, 0x7642c0, index3SSprites_Elena, 0x01 },
+    { L"HK Judgement Portrait", 0x78a900, 0x78a920, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_EX_PALETTES[] =
 {
     { L"EX Main", 0x702180, 0x702200, index3SSprites_Elena, 0x00 },
     { L"EX Portrait", 0x7642c0, 0x7642e0, index3SSprites_Elena, 0x01 },
+    { L"EX Judgement Portrait", 0x78ac00, 0x78ac20, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_EXTRA_PALETTES[] =
@@ -573,42 +631,49 @@ const sGame_PaletteDataset SFIII3_A_ORO_LP_PALETTES[] =
 {
     { L"LP Main", 0x702200, 0x702280, index3SSprites_Oro, 0x00 },
     { L"LP Portrait", 0x7642e0, 0x764300, index3SSprites_Oro, 0x01 },
+    { L"LP Judgement Portrait", 0x789a20, 0x789a40, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_MP_PALETTES[] =
 {
     { L"MP Main", 0x702280, 0x702300, index3SSprites_Oro, 0x00 },
     { L"MP Portrait", 0x764300, 0x764320, index3SSprites_Oro, 0x01 },
+    { L"MP Judgement Portrait", 0x789d20, 0x789d40, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_HP_PALETTES[] =
 {
     { L"HP Main", 0x702300, 0x702380, index3SSprites_Oro, 0x00 },
     { L"HP Portrait", 0x764320, 0x764340, index3SSprites_Oro, 0x01 },
+    { L"HP Judgement Portrait", 0x78a020, 0x78a040, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_LK_PALETTES[] =
 {
     { L"LK Main", 0x702380, 0x702400, index3SSprites_Oro, 0x00 },
     { L"LK Portrait", 0x764340, 0x764360, index3SSprites_Oro, 0x01 },
+    { L"LK Judgement Portrait", 0x78a320, 0x78a340, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_MK_PALETTES[] =
 {
     { L"MK Main", 0x702400, 0x702480, index3SSprites_Oro, 0x00 },
     { L"MK Portrait", 0x764360, 0x764380, index3SSprites_Oro, 0x01 },
+    { L"MK Judgement Portrait", 0x78a620, 0x78a640, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_HK_PALETTES[] =
 {
     { L"HK Main", 0x702480, 0x702500, index3SSprites_Oro, 0x00 },
     { L"HK Portrait", 0x764380, 0x7643a0, index3SSprites_Oro, 0x01 },
+    { L"HK Judgement Portrait", 0x78a920, 0x78a940, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_EX_PALETTES[] =
 {
     { L"EX Main", 0x702500, 0x702580, index3SSprites_Oro, 0x00 },
     { L"EX Portrait", 0x7643a0, 0x7643c0, index3SSprites_Oro, 0x01 },
+    { L"EX Judgement Portrait", 0x78ac20, 0x78ac40, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_Support_PALETTES[] =
@@ -639,42 +704,49 @@ const sGame_PaletteDataset SFIII3_A_YANG_LP_PALETTES[] =
 {
     { L"LP Main", 0x702580, 0x702600, index3SSprites_Yang, 0x00 },
     { L"LP Portrait", 0x7643c0, 0x7643e0, index3SSprites_Yang, 0x01 },
+    { L"LP Judgement Portrait", 0x789a40, 0x789a60, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_MP_PALETTES[] =
 {
     { L"MP Main", 0x702600, 0x702680, index3SSprites_Yang, 0x00 },
     { L"MP Portrait", 0x7643e0, 0x764400, index3SSprites_Yang, 0x01 },
+    { L"MP Judgement Portrait", 0x789d40, 0x789d60, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_HP_PALETTES[] =
 {
     { L"HP Main", 0x702680, 0x702700, index3SSprites_Yang, 0x00 },
     { L"HP Portrait", 0x764400, 0x764420, index3SSprites_Yang, 0x01 },
+    { L"HP Judgement Portrait", 0x78a040, 0x78a060, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_LK_PALETTES[] =
 {
     { L"LK Main", 0x702700, 0x702780, index3SSprites_Yang, 0x00 },
     { L"LK Portrait", 0x764420, 0x764440, index3SSprites_Yang, 0x01 },
+    { L"LK Judgement Portrait", 0x78a340, 0x78a360, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_MK_PALETTES[] =
 {
     { L"MK Main", 0x702780, 0x702800, index3SSprites_Yang, 0x00 },
     { L"MK Portrait", 0x764440, 0x764460, index3SSprites_Yang, 0x01 },
+    { L"MK Judgement Portrait", 0x78a640, 0x78a660, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_HK_PALETTES[] =
 {
     { L"HK Main", 0x702800, 0x702880, index3SSprites_Yang, 0x00 },
     { L"HK Portrait", 0x764460, 0x764480, index3SSprites_Yang, 0x01 },
+    { L"HK Judgement Portrait", 0x78a940, 0x78a960, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_EX_PALETTES[] =
 {
     { L"EX Main", 0x702880, 0x702900, index3SSprites_Yang, 0x00 },
     { L"EX Portrait", 0x764480, 0x7644a0, index3SSprites_Yang, 0x01 },
+    { L"EX Judgement Portrait", 0x78ac40, 0x78ac60, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_Support_PALETTES[] =
@@ -697,42 +769,49 @@ const sGame_PaletteDataset SFIII3_A_KEN_LP_PALETTES[] =
 {
     { L"LP Main", 0x702900, 0x702980, index3SSprites_Ken, 0x00 },
     { L"LP Portrait", 0x7644a0, 0x7644c0, index3SSprites_Ken, 0x01 },
+    { L"LP Judgement Portrait", 0x789a60, 0x789a80, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_MP_PALETTES[] =
 {
     { L"MP Main", 0x702980, 0x702a00, index3SSprites_Ken, 0x00 },
     { L"MP Portrait", 0x7644c0, 0x7644e0, index3SSprites_Ken, 0x01 },
+    { L"MP Judgement Portrait", 0x789d60, 0x789d80, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_HP_PALETTES[] =
 {
     { L"HP Main", 0x702a00, 0x702a80, index3SSprites_Ken, 0x00 },
     { L"HP Portrait", 0x7644e0, 0x764500, index3SSprites_Ken, 0x01 },
+    { L"HP Judgement Portrait", 0x78a060, 0x78a080, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_LK_PALETTES[] =
 {
     { L"LK Main", 0x702a80, 0x702b00, index3SSprites_Ken, 0x00 },
     { L"LK Portrait", 0x764500, 0x764520, index3SSprites_Ken, 0x01 },
+    { L"LK Judgement Portrait", 0x78a360, 0x78a380, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_MK_PALETTES[] =
 {
     { L"MK Main", 0x702b00, 0x702b80, index3SSprites_Ken, 0x00 },
     { L"MK Portrait", 0x764520, 0x764540, index3SSprites_Ken, 0x01 },
+    { L"MK Judgement Portrait", 0x78a660, 0x78a680, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_HK_PALETTES[] =
 {
     { L"HK Main", 0x702b80, 0x702c00, index3SSprites_Ken, 0x00 },
     { L"HK Portrait", 0x764540, 0x764560, index3SSprites_Ken, 0x01 },
+    { L"HK Judgement Portrait", 0x78a960, 0x78a980, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_EX_PALETTES[] =
 {
     { L"EX Main", 0x702c00, 0x702c80, index3SSprites_Ken, 0x00 },
     { L"EX Portrait", 0x764560, 0x764580, index3SSprites_Ken, 0x01 },
+    { L"EX Judgement Portrait", 0x78ac60, 0x78ac80, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_Support_PALETTES[] =
@@ -762,42 +841,49 @@ const sGame_PaletteDataset SFIII3_A_SEAN_LP_PALETTES[] =
 {
     { L"LP Main", 0x702c80, 0x702d00, index3SSprites_Sean, 0x00 },
     { L"LP Portrait", 0x764580, 0x7645a0, index3SSprites_Sean, 0x01 },
+    { L"LP Judgement Portrait", 0x789a80, 0x789aa0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_MP_PALETTES[] =
 {
     { L"MP Main", 0x702d00, 0x702d80, index3SSprites_Sean, 0x00 },
     { L"MP Portrait", 0x7645a0, 0x7645c0, index3SSprites_Sean, 0x01 },
+    { L"MP Judgement Portrait", 0x789d80, 0x789da0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_HP_PALETTES[] =
 {
     { L"HP Main", 0x702d80, 0x702e00, index3SSprites_Sean, 0x00 },
     { L"HP Portrait", 0x7645c0, 0x7645e0, index3SSprites_Sean, 0x01 },
+    { L"HP Judgement Portrait", 0x78a080, 0x78a0a0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_LK_PALETTES[] =
 {
     { L"LK Main", 0x702e00, 0x702e80, index3SSprites_Sean, 0x00 },
     { L"LK Portrait", 0x7645e0, 0x764600, index3SSprites_Sean, 0x01 },
+    { L"LK Judgement Portrait", 0x78a380, 0x78a3a0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_MK_PALETTES[] =
 {
     { L"MK Main", 0x702e80, 0x702f00, index3SSprites_Sean, 0x00 },
     { L"MK Portrait", 0x764600, 0x764620, index3SSprites_Sean, 0x01 },
+    { L"MK Judgement Portrait", 0x78a680, 0x78a6a0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_HK_PALETTES[] =
 {
     { L"HK Main", 0x702f00, 0x702f80, index3SSprites_Sean, 0x00 },
     { L"HK Portrait", 0x764620, 0x764640, index3SSprites_Sean, 0x01 },
+    { L"HK Judgement Portrait", 0x78a980, 0x78a9a0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_EX_PALETTES[] =
 {
     { L"EX Main", 0x702f80, 0x703000, index3SSprites_Sean, 0x00 },
     { L"EX Portrait", 0x764640, 0x764660, index3SSprites_Sean, 0x01 },
+    { L"EX Judgement Portrait", 0x78ac80, 0x78aca0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_Support_PALETTES[] =
@@ -825,42 +911,49 @@ const sGame_PaletteDataset SFIII3_A_URIEN_LP_PALETTES[] =
 {
     { L"LP Main", 0x703000, 0x703080, index3SSprites_Urien, 0x00 },
     { L"LP Portrait", 0x764660, 0x764680, index3SSprites_Urien, 0x01 },
+    { L"LP Judgement Portrait", 0x789aa0, 0x789ac0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_MP_PALETTES[] =
 {
     { L"MP Main", 0x703080, 0x703100, index3SSprites_Urien, 0x00 },
     { L"MP Portrait", 0x764680, 0x7646a0, index3SSprites_Urien, 0x01 },
+    { L"MP Judgement Portrait", 0x789da0, 0x789dc0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_HP_PALETTES[] =
 {
     { L"HP Main", 0x703100, 0x703180, index3SSprites_Urien, 0x00 },
     { L"HP Portrait", 0x7646a0, 0x7646c0, index3SSprites_Urien, 0x01 },
+    { L"HP Judgement Portrait", 0x78a0a0, 0x78a0c0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_LK_PALETTES[] =
 {
     { L"LK Main", 0x703180, 0x703200, index3SSprites_Urien, 0x00 },
     { L"LK Portrait", 0x7646c0, 0x7646e0, index3SSprites_Urien, 0x01 },
+    { L"LK Judgement Portrait", 0x78a3a0, 0x78a3c0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_MK_PALETTES[] =
 {
     { L"MK Main", 0x703200, 0x703280, index3SSprites_Urien, 0x00 },
     { L"MK Portrait", 0x7646e0, 0x764700, index3SSprites_Urien, 0x01 },
+    { L"MK Judgement Portrait", 0x78a6a0, 0x78a6c0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_HK_PALETTES[] =
 {
     { L"HK Main", 0x703280, 0x703300, index3SSprites_Urien, 0x00 },
     { L"HK Portrait", 0x764700, 0x764720, index3SSprites_Urien, 0x01 },
+    { L"HK Judgement Portrait", 0x78a9a0, 0x78a9c0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_EX_PALETTES[] =
 {
     { L"EX Main", 0x703300, 0x703380, index3SSprites_Urien, 0x00 },
     { L"EX Portrait", 0x764720, 0x764740, index3SSprites_Urien, 0x01 },
+    { L"EX Judgement Portrait", 0x78aca0, 0x78acc0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_Support_PALETTES[] =
@@ -897,42 +990,49 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_LP_PALETTES[] =
 {
     { L"LP Main", 0x703380, 0x703400, index3SSprites_Gouki, 0x00 },
     { L"LP Portrait", 0x764740, 0x764760, index3SSprites_Gouki, 0x01 },
+    { L"LP Judgement Portrait", 0x789ac0, 0x789ae0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_MP_PALETTES[] =
 {
     { L"MP Main", 0x703400, 0x703480, index3SSprites_Gouki, 0x00 },
     { L"MP Portrait", 0x764760, 0x764780, index3SSprites_Gouki, 0x01 },
+    { L"MP Judgement Portrait", 0x789dc0, 0x789de0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_HP_PALETTES[] =
 {
     { L"HP Main", 0x703480, 0x703500, index3SSprites_Gouki, 0x00 },
     { L"HP Portrait", 0x764780, 0x7647a0, index3SSprites_Gouki, 0x01 },
+    { L"HP Judgement Portrait", 0x78a0c0, 0x78a0e0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_LK_PALETTES[] =
 {
     { L"LK Main", 0x703500, 0x703580, index3SSprites_Gouki, 0x00 },
     { L"LK Portrait", 0x7647a0, 0x7647c0, index3SSprites_Gouki, 0x01 },
+    { L"LK Judgement Portrait", 0x78a3c0, 0x78a3e0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_MK_PALETTES[] =
 {
     { L"MK Main", 0x703580, 0x703600, index3SSprites_Gouki, 0x00 },
     { L"MK Portrait", 0x7647c0, 0x7647e0, index3SSprites_Gouki, 0x01 },
+    { L"MK Judgement Portrait", 0x78a6c0, 0x78a6e0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_HK_PALETTES[] =
 {
     { L"HK Main", 0x703600, 0x703680, index3SSprites_Gouki, 0x00 },
     { L"HK Portrait", 0x7647e0, 0x764800, index3SSprites_Gouki, 0x01 },
+    { L"HK Judgement Portrait", 0x78a9c0, 0x78a9e0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_EX_PALETTES[] =
 {
     { L"EX Main", 0x703680, 0x703700, index3SSprites_Gouki, 0x00 },
     { L"EX Portrait", 0x764800, 0x764820, index3SSprites_Gouki, 0x01 },
+    { L"EX Judgement Portrait", 0x78acc0, 0x78ace0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_Support_51_PALETTES[] =
@@ -1051,42 +1151,49 @@ const sGame_PaletteDataset SFIII3_A_CHUNLI_LP_PALETTES[] =
 {
     { L"LP Main", 0x703800, 0x703880, index3SSprites_ChunLi, 0x00 },
     { L"LP Portrait", 0x764900, 0x764920, index3SSprites_ChunLi, 0x01 },
+    { L"LP Judgement Portrait", 0x789b00, 0x789b20, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_MP_PALETTES[] =
 {
     { L"MP Main", 0x703880, 0x703900, index3SSprites_ChunLi, 0x00 },
     { L"MP Portrait", 0x764920, 0x764940, index3SSprites_ChunLi, 0x01 },
+    { L"MP Judgement Portrait", 0x789e00, 0x789e20, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_HP_PALETTES[] =
 {
     { L"HP Main", 0x703900, 0x703980, index3SSprites_ChunLi, 0x00 },
     { L"HP Portrait", 0x764940, 0x764960, index3SSprites_ChunLi, 0x01 },
+    { L"HP Judgement Portrait", 0x78a100, 0x78a120, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_LK_PALETTES[] =
 {
     { L"LK Main", 0x703980, 0x703a00, index3SSprites_ChunLi, 0x00 },
     { L"LK Portrait", 0x764960, 0x764980, index3SSprites_ChunLi, 0x01 },
+    { L"LK Judgement Portrait", 0x78a400, 0x78a420, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_MK_PALETTES[] =
 {
     { L"MK Main", 0x703a00, 0x703a80, index3SSprites_ChunLi, 0x00 },
     { L"MK Portrait", 0x764980, 0x7649a0, index3SSprites_ChunLi, 0x01 },
+    { L"MK Judgement Portrait", 0x78a700, 0x78a720, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_HK_PALETTES[] =
 {
     { L"HK Main", 0x703a80, 0x703b00, index3SSprites_ChunLi, 0x00 },
     { L"HK Portrait", 0x7649a0, 0x7649c0, index3SSprites_ChunLi, 0x01 },
+    { L"HK Judgement Portrait", 0x78aa00, 0x78aa20, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_EX_PALETTES[] =
 {
     { L"EX Main", 0x703b00, 0x703b80, index3SSprites_ChunLi, 0x00 },
     { L"EX Portrait", 0x7649c0, 0x7649e0, index3SSprites_ChunLi, 0x01 },
+    { L"EX Judgement Portrait", 0x78ad00, 0x78ad20, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_Support_PALETTES[] =
@@ -1114,42 +1221,49 @@ const sGame_PaletteDataset SFIII3_A_MAKOTO_LP_PALETTES[] =
 {
     { L"LP Main", 0x703b80, 0x703c00, index3SSprites_Makoto, 0x00 },
     { L"LP Portrait", 0x7649e0, 0x764a00, index3SSprites_Makoto, 0x01 },
+    { L"LP Judgement Portrait", 0x789b20, 0x789b40, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_MP_PALETTES[] =
 {
     { L"MP Main", 0x703c00, 0x703c80, index3SSprites_Makoto, 0x00 },
     { L"MP Portrait", 0x764a00, 0x764a20, index3SSprites_Makoto, 0x01 },
+    { L"MP Judgement Portrait", 0x789e20, 0x789e40, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_HP_PALETTES[] =
 {
     { L"HP Main", 0x703c80, 0x703d00, index3SSprites_Makoto, 0x00 },
     { L"HP Portrait", 0x764a20, 0x764a40, index3SSprites_Makoto, 0x01 },
+    { L"HP Judgement Portrait", 0x78a120, 0x78a140, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_LK_PALETTES[] =
 {
     { L"LK Main", 0x703d00, 0x703d80, index3SSprites_Makoto, 0x00 },
     { L"LK Portrait", 0x764a40, 0x764a60, index3SSprites_Makoto, 0x01 },
+    { L"LK Judgement Portrait", 0x78a420, 0x78a440, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_MK_PALETTES[] =
 {
     { L"MK Main", 0x703d80, 0x703e00, index3SSprites_Makoto, 0x00 },
     { L"MK Portrait", 0x764a60, 0x764a80, index3SSprites_Makoto, 0x01 },
+    { L"MK Judgement Portrait", 0x78a720, 0x78a740, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_HK_PALETTES[] =
 {
     { L"HK Main", 0x703e00, 0x703e80, index3SSprites_Makoto, 0x00 },
     { L"HK Portrait", 0x764a80, 0x764aa0, index3SSprites_Makoto, 0x01 },
+    { L"HK Judgement Portrait", 0x78aa20, 0x78aa40, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_EX_PALETTES[] =
 {
     { L"EX Main", 0x703e80, 0x703f00, index3SSprites_Makoto, 0x00 },
     { L"EX Portrait", 0x764aa0, 0x764ac0, index3SSprites_Makoto, 0x01 },
+    { L"EX Judgement Portrait", 0x78ad20, 0x78ad40, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_Support_PALETTES[] =
@@ -1172,42 +1286,49 @@ const sGame_PaletteDataset SFIII3_A_Q_LP_PALETTES[] =
 {
     { L"LP Main", 0x703f00, 0x703f80, index3SSprites_Q, 0x00 },
     { L"LP Portrait", 0x764ac0, 0x764ae0, index3SSprites_Q, 0x01 },
+    { L"LP Judgement Portrait", 0x789b40, 0x789b60, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_MP_PALETTES[] =
 {
     { L"MP Main", 0x703f80, 0x704000, index3SSprites_Q, 0x00 },
     { L"MP Portrait", 0x764ae0, 0x764b00, index3SSprites_Q, 0x01 },
+    { L"MP Judgement Portrait", 0x789e40, 0x789e60, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_HP_PALETTES[] =
 {
     { L"HP Main", 0x704000, 0x704080, index3SSprites_Q, 0x00 },
     { L"HP Portrait", 0x764b00, 0x764b20, index3SSprites_Q, 0x01 },
+    { L"HP Judgement Portrait", 0x78a140, 0x78a160, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_LK_PALETTES[] =
 {
     { L"LK Main", 0x704080, 0x704100, index3SSprites_Q, 0x00 },
     { L"LK Portrait", 0x764b20, 0x764b40, index3SSprites_Q, 0x01 },
+    { L"LK Judgement Portrait", 0x78a440, 0x78a460, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_MK_PALETTES[] =
 {
     { L"MK Main", 0x704100, 0x704180, index3SSprites_Q, 0x00 },
     { L"MK Portrait", 0x764b40, 0x764b60, index3SSprites_Q, 0x01 },
+    { L"MK Judgement Portrait", 0x78a740, 0x78a760, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_HK_PALETTES[] =
 {
     { L"HK Main", 0x704180, 0x704200, index3SSprites_Q, 0x00 },
     { L"HK Portrait", 0x764b60, 0x764b80, index3SSprites_Q, 0x01 },
+    { L"HK Judgement Portrait", 0x78aa40, 0x78aa60, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_EX_PALETTES[] =
 {
     { L"EX Main", 0x704200, 0x704280, index3SSprites_Q, 0x00 },
     { L"EX Portrait", 0x764b80, 0x764ba0, index3SSprites_Q, 0x01 },
+    { L"EX Judgement Portrait", 0x78ad40, 0x78ad60, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_Support_PALETTES[] =
@@ -1244,42 +1365,49 @@ const sGame_PaletteDataset SFIII3_A_TWELVE_LP_PALETTES[] =
 {
     { L"LP Main", 0x704280, 0x704300, index3SSprites_Twelve, 0x00 },
     { L"LP Portrait", 0x764ba0, 0x764bc0, index3SSprites_Twelve, 0x01 },
+    { L"LP Judgement Portrait", 0x789b60, 0x789b80, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_MP_PALETTES[] =
 {
     { L"MP Main", 0x704300, 0x704380, index3SSprites_Twelve, 0x00 },
     { L"MP Portrait", 0x764bc0, 0x764be0, index3SSprites_Twelve, 0x01 },
+    { L"MP Judgement Portrait", 0x789e60, 0x789e80, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_HP_PALETTES[] =
 {
     { L"HP Main", 0x704380, 0x704400, index3SSprites_Twelve, 0x00 },
     { L"HP Portrait", 0x764be0, 0x764c00, index3SSprites_Twelve, 0x01 },
+    { L"HP Judgement Portrait", 0x78a160, 0x78a180, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_LK_PALETTES[] =
 {
     { L"LK Main", 0x704400, 0x704480, index3SSprites_Twelve, 0x00 },
     { L"LK Portrait", 0x764c00, 0x764c20, index3SSprites_Twelve, 0x01 },
+    { L"LK Judgement Portrait", 0x78a460, 0x78a480, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_MK_PALETTES[] =
 {
     { L"MK Main", 0x704480, 0x704500, index3SSprites_Twelve, 0x00 },
     { L"MK Portrait", 0x764c20, 0x764c40, index3SSprites_Twelve, 0x01 },
+    { L"MK Judgement Portrait", 0x78a760, 0x78a780, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_HK_PALETTES[] =
 {
     { L"HK Main", 0x704500, 0x704580, index3SSprites_Twelve, 0x00 },
     { L"HK Portrait", 0x764c40, 0x764c60, index3SSprites_Twelve, 0x01 },
+    { L"HK Judgement Portrait", 0x78aa60, 0x78aa80, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_EX_PALETTES[] =
 {
     { L"EX Main", 0x704580, 0x704600, index3SSprites_Twelve, 0x00 },
     { L"EX Portrait", 0x764c60, 0x764c80, index3SSprites_Twelve, 0x01 },
+    { L"EX Judgement Portrait", 0x78ad60, 0x78ad80, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_Support_PALETTES[] =
@@ -1302,42 +1430,49 @@ const sGame_PaletteDataset SFIII3_A_REMY_LP_PALETTES[] =
 {
     { L"LP Main", 0x704600, 0x704680, index3SSprites_Remy, 0x00 },
     { L"LP Portrait", 0x764c80, 0x764ca0, index3SSprites_Remy, 0x01 },
+    { L"LP Judgement Portrait", 0x789b80, 0x789ba0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_MP_PALETTES[] =
 {
     { L"MP Main", 0x704680, 0x704700, index3SSprites_Remy, 0x00 },
     { L"MP Portrait", 0x764ca0, 0x764cc0, index3SSprites_Remy, 0x01 },
+    { L"MP Judgement Portrait", 0x789e80, 0x789ea0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_HP_PALETTES[] =
 {
     { L"HP Main", 0x704700, 0x704780, index3SSprites_Remy, 0x00 },
     { L"HP Portrait", 0x764cc0, 0x764ce0, index3SSprites_Remy, 0x01 },
+    { L"HP Judgement Portrait", 0x78a180, 0x78a1a0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_LK_PALETTES[] =
 {
     { L"LK Main", 0x704780, 0x704800, index3SSprites_Remy, 0x00 },
     { L"LK Portrait", 0x764ce0, 0x764d00, index3SSprites_Remy, 0x01 },
+    { L"LK Judgement Portrait", 0x78a480, 0x78a4a0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_MK_PALETTES[] =
 {
     { L"MK Main", 0x704800, 0x704880, index3SSprites_Remy, 0x00 },
     { L"MK Portrait", 0x764d00, 0x764d20, index3SSprites_Remy, 0x01 },
+    { L"MK Judgement Portrait", 0x78a780, 0x78a7a0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_HK_PALETTES[] =
 {
     { L"HK Main", 0x704880, 0x704900, index3SSprites_Remy, 0x00 },
     { L"HK Portrait", 0x764d20, 0x764d40, index3SSprites_Remy, 0x01 },
+    { L"HK Judgement Portrait", 0x78aa80, 0x78aaa0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_EX_PALETTES[] =
 {
     { L"EX Main", 0x704900, 0x704980, index3SSprites_Remy, 0x00 },
     { L"EX Portrait", 0x764d40, 0x764d60, index3SSprites_Remy, 0x01 },
+    { L"EX Judgement Portrait", 0x78ad80, 0x78ada0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_Support_PALETTES[] =
@@ -1374,6 +1509,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_LP_PALETTES[] =
     { L"Intro Facing Left LP", 0x700000, 0x700080, index3SSprites_Gill, 0x01 },
     { L"Intro Facing Right LP", 0x700080, 0x700100, index3SSprites_Gill, 0x00 },
     { L"LP Portrait", 0x763b00, 0x763b20, index3SSprites_Gill, 0x0a },
+    { L"LP Judgement Portrait", 0x789900, 0x789920, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_MP_PALETTES[] =
@@ -1381,6 +1517,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_MP_PALETTES[] =
     { L"Intro Facing Left MP", 0x700100, 0x700180, index3SSprites_Gill, 0x01 },
     { L"Intro Facing Right MP", 0x700180, 0x700200, index3SSprites_Gill, 0x00 },
     { L"MP Portrait", 0x763b20, 0x763b40, index3SSprites_Gill, 0x0a },
+    { L"MP Judgement Portrait", 0x789c00, 0x789c20, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_HP_PALETTES[] =
@@ -1388,6 +1525,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_HP_PALETTES[] =
     { L"Intro Facing Left HP", 0x700200, 0x700280, index3SSprites_Gill, 0x01 },
     { L"Intro Facing Right HP", 0x700280, 0x700300, index3SSprites_Gill, 0x00 },
     { L"HP Portrait", 0x763b40, 0x763b60, index3SSprites_Gill, 0x0a },
+    { L"HP Judgement Portrait", 0x789f00, 0x789f20, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_LK_PALETTES[] =
@@ -1395,6 +1533,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_LK_PALETTES[] =
     { L"Intro Facing Left LK", 0x700300, 0x700380, index3SSprites_Gill, 0x01 },
     { L"Intro Facing Right LK", 0x700380, 0x700400, index3SSprites_Gill, 0x00 },
     { L"LK Portrait", 0x763b60, 0x763b80, index3SSprites_Gill, 0x0a },
+    { L"LK Judgement Portrait", 0x78a200, 0x78a220, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_MK_PALETTES[] =
@@ -1402,6 +1541,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_MK_PALETTES[] =
     { L"Intro Facing Left MK", 0x700400, 0x700480, index3SSprites_Gill, 0x01 },
     { L"Intro Facing Right MK", 0x700480, 0x700500, index3SSprites_Gill, 0x00 },
     { L"MK Portrait", 0x763b80, 0x763ba0, index3SSprites_Gill, 0x0a },
+    { L"MK Judgement Portrait", 0x78a500, 0x78a520, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_HK_PALETTES[] =
@@ -1409,7 +1549,11 @@ const sGame_PaletteDataset SFIII3_A_GILL_HK_PALETTES[] =
     { L"Intro Facing Left HK", 0x700500, 0x700580, index3SSprites_Gill, 0x01 },
     { L"Intro Facing Right HK", 0x700580, 0x700600, index3SSprites_Gill, 0x00 },
     { L"HK Portrait", 0x763ba0, 0x763bc0, index3SSprites_Gill, 0x0a },
+    { L"HK Judgement Portrait", 0x78a800, 0x78a820, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
 };
+
+// Unused?
+//     { L"EX Judgement Portrait", 0x78ab00, 0x78ab20, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
 
 const sGame_PaletteDataset SFIII3_A_GILL_EXTRAS_PALETTES[] =
 {
