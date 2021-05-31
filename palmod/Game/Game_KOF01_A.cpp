@@ -126,7 +126,7 @@ sDescTreeNode* CGame_KOF01_A::InitDescTree()
     );
 
     // For development use to speed things up
-    DumpPaletteHeaders();
+    //DumpPaletteHeaders();
 
     return NewDescTree;
 }
@@ -297,16 +297,16 @@ void CGame_KOF01_A::DumpPaletteHeaders()
             strOutput.Format(L"    { L\"Order Select Portrait\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH);
             OutputDebugString(strOutput);
 
+            WCHAR szKOF01ImageSet[MAX_DESCRIPTION_LENGTH];
+            StrRemoveNonASCII(szKOF01ImageSet, ARRAYSIZE(szKOF01ImageSet), KOF01_A_CharacterPalettes[nCharIndex].pszCharacterName);
+
             if (!KOF01_A_CharacterPalettes[nCharIndex].fIsBoss)
             {
                 // this area is select portrait p, select portrait k, then the shared three win portrait assist
                 nCurrentOffset = KOF01_SELECTPORTRAIT_START + (5 * nCharIndex * KOF01_PALETTE_DOUBLE_LENGTH) + (nColorIndex * KOF01_PALETTE_DOUBLE_LENGTH);
-                strOutput.Format(L"    { L\"Select Portrait\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_DOUBLE_LENGTH);
+                strOutput.Format(L"    { L\"Select Portrait\", 0x%x, 0x%x, indexKOF01Sprites_%s, 0x42 },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_DOUBLE_LENGTH, szKOF01ImageSet);
                 OutputDebugString(strOutput);
             }
-
-            WCHAR szKOF01ImageSet[MAX_DESCRIPTION_LENGTH];
-            StrRemoveNonASCII(szKOF01ImageSet, ARRAYSIZE(szKOF01ImageSet), KOF01_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
             nCurrentOffset = KOF01_WINPORTRAIT_START + (ARRAYSIZE(DEF_BUTTONLABEL_2_PK) * nCharIndex * KOF01_PALETTE_DOUBLE_LENGTH) + (nColorIndex * KOF01_PALETTE_DOUBLE_LENGTH);
             strOutput.Format(L"    { L\"Win Portrait\", 0x%x, 0x%x, indexKOF01Sprites_%s, 0x40 },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_DOUBLE_LENGTH, szKOF01ImageSet);

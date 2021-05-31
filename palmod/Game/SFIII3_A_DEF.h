@@ -27,7 +27,7 @@ const UINT16 SFIII3_A_IMGIDS_USED[] =
     index3SSprites_Gill,      // 0x16
 };
 
-const UINT16 INDEX_JUDGEMENT_PORTRAITS = 0x70;
+const UINT16 INDEX_JUDGEMENT_PORTRAITS = 0x38;
 
 const sGame_PaletteDataset SFIII3_A_ALEX_LP_PALETTES[] =
 {

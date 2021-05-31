@@ -44,6 +44,7 @@
 #include "Game_KOTM_A.h"
 #include "Game_LASTBLADE_A.h"
 #include "Game_LASTBLADE2_A.h"
+#include "Game_MAGICALDROPIII_A.h"
 #include "Game_Matrimelee_A.h"
 #include "Game_MBAACC_S.h"
 #include "Game_MMPR_SNES.h"
@@ -404,6 +405,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case LASTBLADE2_A:
     {
         GetRule = &CGame_LASTBLADE2_A::GetRule;
+        return TRUE;
+    }
+    case MAGICALDROPIII_A:
+    {
+        GetRule = &CGame_MAGICALDROPIII_A::GetRule;
         return TRUE;
     }
     case MATRIMELEE_A:
@@ -967,7 +973,6 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_KOF98_A(nConfirmedROMSize);
     }
-
     case KOF98AE2016_A:
     {
         return new CGame_KOF98AE2016_A(nConfirmedROMSize);
@@ -1011,6 +1016,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case LASTBLADE2_A:
     {
         return new CGame_LASTBLADE2_A(nConfirmedROMSize);
+    }
+    case MAGICALDROPIII_A:
+    {
+        return new CGame_MAGICALDROPIII_A(nConfirmedROMSize);
     }
     case MATRIMELEE_A:
     {

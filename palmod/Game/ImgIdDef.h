@@ -813,13 +813,13 @@ enum KOFSpriteList
     // indexKOF01Sprites_Athena,    // 0x147
     // indexKOF01Sprites_Bao,       // 0x148
     indexKOF01Sprites_Benimaru,     // 0x1b1
-    indexKOF01Sprites_BlueMary,     // 0x1b2
+    indexKOF01Sprites_Mary,         // 0x1b2 Blue Mary
     indexKOF01Sprites_Chang,        // 0x1b3
     indexKOF01Sprites_Chin,         // 0x1b4
     indexKOF01Sprites_Choi,         // 0x1b5
     indexKOF01Sprites_Clark,        // 0x1b6
     // indexKOF01Sprites_Foxy,      // 0x149
-    indexKOF01Sprites_GoroDaimon,   // 0x1b7
+    indexKOF01Sprites_Goro,         // 0x1b7 Goro Daimon
     indexKOF01Sprites_Heidern,      // 0x1b8
     indexKOF01Sprites_Hinako,       // 0x1b9
     indexKOF01Sprites_Igniz,        // 0x1ba
@@ -1674,6 +1674,32 @@ enum SupportedNEOGEO_PaletteListIndex
     indexSavReign_NicolaZaza,               // 0x50
     indexSavReign_ShoHayate,                // 0x51
     indexSavReign_Bonus,                    // 0x52
+
+    indexMagDrop3Sprites_BlkPierrot,    // 0x53
+    indexMagDrop3Sprites_Chariot,       // 0x54
+    indexMagDrop3Sprites_Death,         // 0x55
+    indexMagDrop3Sprites_Devil,         // 0x56
+    indexMagDrop3Sprites_Emperor,       // 0x57
+    indexMagDrop3Sprites_Empress,       // 0x58
+    indexMagDrop3Sprites_Fool,          // 0x59
+    indexMagDrop3Sprites_Fortune,       // 0x5A
+    indexMagDrop3Sprites_HangedMan,     // 0x5B
+    indexMagDrop3Sprites_Hermit,        // 0x5C
+    indexMagDrop3Sprites_Hierophant,    // 0x5D
+    indexMagDrop3Sprites_HighPriestess, // 0x5E
+    indexMagDrop3Sprites_Judgement,     // 0x5F
+    indexMagDrop3Sprites_Justice,       // 0x60
+    indexMagDrop3Sprites_Lovers,        // 0x61
+    indexMagDrop3Sprites_Magician,      // 0x62
+    indexMagDrop3Sprites_Moon,          // 0x63
+    indexMagDrop3Sprites_Star,          // 0x64
+    indexMagDrop3Sprites_Strength,      // 0x65
+    indexMagDrop3Sprites_StrFather,     // 0x66
+    indexMagDrop3Sprites_Sun,           // 0x67
+    indexMagDrop3Sprites_Temperance,    // 0x68
+    indexMagDrop3Sprites_Tower,         // 0x69
+    indexMagDrop3Sprites_World,         // 0x6A
+    indexMagDrop3Sprites_Bonus,         // 0x6B
 };
 
 enum SupportedGGXX_PaletteListIndex

@@ -270,6 +270,7 @@
     <ClCompile Include="Game\Game_KOTM_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp" />
+    <ClCompile Include="Game\Game_MagicalDropIII_A.cpp" />
     <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
     <ClCompile Include="Game\Game_MBAACC_S.cpp" />
     <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
@@ -433,6 +434,7 @@
     <ClInclude Include="Game\Game_KOTM_A.h" />
     <ClInclude Include="Game\Game_LASTBLADE2_A.h" />
     <ClInclude Include="Game\Game_LASTBLADE_A.h" />
+    <ClInclude Include="Game\Game_MagicalDropIII_A.h" />
     <ClInclude Include="Game\Game_Matrimelee_A.h" />
     <ClInclude Include="Game\Game_MBAACC_S.h" />
     <ClInclude Include="Game\Game_MMPR_SNES.h" />
@@ -525,6 +527,7 @@
     <ClInclude Include="Game\KOTM_A_DEF.h" />
     <ClInclude Include="Game\LASTBLADE2_A_DEF.h" />
     <ClInclude Include="Game\LASTBLADE_A_DEF.h" />
+    <ClInclude Include="Game\MagicalDropIII_A_DEF.h" />
     <ClInclude Include="Game\Matrimelee_A_DEF.h" />
     <ClInclude Include="Game\MBAACC_S_DEF.h" />
     <ClInclude Include="Game\MMPR_SNES_DEF.h" />

@@ -1712,6 +1712,7 @@ const sGame_PaletteDataset Garou_A_BONUS_WINPOINT_PALETTES[] =
     { L"Kain Winpoint", 0xea80, 0xeaa0 },
 };
 
+#ifdef OBSOLETE
 const sGame_PaletteDataset Garou_A_BONUS_SELECTDARK_PALETTES[] =
 {
     { L"Terry",             0x34e00 + (0x20 * 0x00), 0x34e00 + (0x20 * 0x01) },
@@ -1747,6 +1748,7 @@ const sGame_PaletteDataset Garou_A_BONUS_SELECTLIGHT_PALETTES[] =
     { L"Grant",             0x35000 + (0x20 * 0x0c), 0x35000 + (0x20 * 0x0d) },
     { L"Kain",              0x35000 + (0x20 * 0x0d), 0x35000 + (0x20 * 0x0e) },
 };
+#endif
 
 const sGame_PaletteDataset Garou_A_BONUS_SELECTBACK_PALETTES[] =
 {
@@ -1766,6 +1768,8 @@ const sGame_PaletteDataset Garou_A_BONUS_SELECTBACK_PALETTES[] =
     { L"Kain",              0x2b700 + (0x20 * 0x0d), 0x2b700 + (0x20 * 0x0e) },
 };
 
+// Obsolete 
+/*
 const sGame_PaletteDataset Garou_A_BONUS_STORYPORTRAITS_PALETTES[] =
 {
     { L"Terry",             0x2a700 + (0x20 * 0x00), 0x2a700 + (0x20 * 0x01) },
@@ -1783,6 +1787,7 @@ const sGame_PaletteDataset Garou_A_BONUS_STORYPORTRAITS_PALETTES[] =
     { L"Grant",             0x2a700 + (0x20 * 0x0c), 0x2a700 + (0x20 * 0x0d) },
     { L"Kain",              0x2a700 + (0x20 * 0x0d), 0x2a700 + (0x20 * 0x0e) },
 };
+*/
 
 const sGame_PaletteDataset Garou_A_BONUS_PALETTES[] =
 {
@@ -1902,6 +1907,262 @@ const sGame_PaletteDataset Garou_A_KAIN_PALETTES_STORYMODE[] =
     { L"Kain Story Mode Stuff - D", 0x2c900 + (0x40 * 0x37), 0x2c900 + (0x40 * 0x38) },
 };
 
+//Endings
+
+//Rock Howard
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_ROCKHOWARD[] =
+{
+    { L"Rock Ending (1/9)", 0x35200, 0x35280 },
+    { L"Rock Ending (2/9)", 0x352a0, 0x35320 },
+    { L"Rock Ending (3/9)", 0x35340, 0x353c0 },
+    { L"Rock Ending (4/9)", 0x353e0, 0x35460 },
+    { L"Rock Ending (5/9)", 0x35520, 0x355a0 },
+    { L"Rock Ending (6/9)", 0x35480, 0x35500 },
+    { L"Rock Ending (7/9)", 0x355c0, 0x35640 },
+    { L"Rock Ending (8/9)", 0x35660, 0x356e0 },
+    { L"Rock Ending (9/9)", 0x357a0, 0x35820 },
+    { L"Rock Ending Credits", 0x35840, 0x35860 },
+};
+
+//Terry Bogard
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_TERRYBOGARD[] =
+{
+    { L"Terry Ending (1/9)", 0x32000, 0x32080 },
+    { L"Terry Ending (2/9)", 0x320a0, 0x32120 },
+    { L"Terry Ending (3/9)", 0x32140, 0x321c0 },
+    { L"Terry Ending (4/9)", 0x321e0, 0x32260 },
+    { L"Terry Ending (5/9)", 0x32280, 0x32300 },
+    { L"Terry Ending (6/9)", 0x32320, 0x323a0 },
+    { L"Terry Ending (7/9)", 0x323c0, 0x32440 },
+    { L"Terry Ending (8/9)", 0x32460, 0x324e0 },
+    { L"Terry Ending (9/9)", 0x32500, 0x32580 },
+    { L"Terry Ending Credits", 0x325a0, 0x325c0 },
+};
+
+//Khushnood Butt
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_BUTT[] =
+{
+    { L"Khushnood Butt Ending (1/8)", 0x38200, 0x38280 },
+    { L"Khushnood Butt Ending (2/8)", 0x382a0, 0x38320 },
+    { L"Khushnood Butt Ending (3/8)", 0x38340, 0x383c0 },
+    { L"Khushnood Butt Ending (4/8)", 0x383e0, 0x38460 },
+    { L"Khushnood Butt Ending (5/8)", 0x38480, 0x38500 },
+    { L"Khushnood Butt Ending (6/8)", 0x38520, 0x385a0 },
+    { L"Khushnood Butt Ending (7/8)", 0x385c0, 0x38640 },
+    { L"Khushnood Butt Ending (8/8)", 0x38660, 0x386e0 },
+    { L"Khushnood Butt Ending Credits", 0x38700, 0x38720 },
+};
+
+//Kim's Brothers
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_KIMBRO[] =
+{
+    { L"Kim's Brothers Ending (1/2)", 0x35a00, 0x35a80 },
+    { L"Kim's Brothers Ending (2/2)", 0x35d20, 0x35da0 },
+    { L"Dong Hwan Ending (1/5)", 0x35b40, 0x35bc0 },
+    { L"Dong Hwan Ending (2/5)", 0x35c80, 0x35d00 },
+    { L"Dong Hwan Ending (3/5)", 0x35dc0, 0x35e40 },
+    { L"Dong Hwan Ending (4/5)", 0x35be0, 0x35c60 },
+    { L"Dong Hwan Ending (5/5)", 0x35aa0, 0x35b20 },
+    { L"Dong Hwan Ending Credits", 0x35e60, 0x35e80 },
+    { L"Jae Hoon Ending (1/4)", 0x36480, 0x36500 },
+    { L"Jae Hoon Ending (2/4)", 0x36340, 0x363c0 },
+    { L"Jae Hoon Ending (3/4)", 0x362a0, 0x36320 },
+    { L"Jae Hoon Ending (4/4)", 0x363e0, 0x36460 },
+    { L"Jae Hoon Ending Credits", 0x36520, 0x36540 },
+};
+
+//Hotaru
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_HOTARU[] =
+{
+    { L"Hotaru Ending (1/10)", 0x36c80, 0x36d00 },
+    { L"Hotaru Ending (2/10)", 0x36a00, 0x36a80 },
+    { L"Hotaru Ending (3/10)", 0x36f00, 0x36f80 },
+    { L"Hotaru Ending (4/10)", 0x36aa0, 0x36b20 },
+    { L"Hotaru Ending (5/10)", 0x36d20, 0x36da0 },
+    { L"Hotaru Ending (6/10)", 0x370e0, 0x37160 },
+    { L"Hotaru Ending (7/10)", 0x36b40, 0x36bc0 },
+    { L"Hotaru Ending (8/10)", 0x36dc0, 0x36e40 },
+    { L"Hotaru Ending (9/10)", 0x36fa0, 0x37020 },
+    { L"Hotaru Ending (10/10)", 0x37180, 0x37200 },
+    { L"Hotaru Ending Credits", 0x37160, 0x37180 },
+};
+
+//Gato
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_GATO[] =
+{
+    { L"Gato Ending (1/6)", 0x37200, 0x37280 },
+    { L"Gato Ending (2/6)", 0x37280, 0x37300 },
+    { L"Gato Ending (3/6)", 0x37300, 0x37380 },
+    { L"Gato Ending (4/6)", 0x37380, 0x37400 },
+    { L"Gato Ending (5/6)", 0x37400, 0x37480 },
+    { L"Gato Ending (6/6)", 0x37480, 0x37500 },
+    { L"Gato Ending Credits", 0x37520, 0x37540 },
+};
+
+//Kevin
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_KEVIN[] =
+{
+    { L"Kevin Ending (1/7)", 0x3b200, 0x3b280 },
+    { L"Kevin Ending (2/7)", 0x3b280, 0x3b300 },
+    { L"Kevin Ending (3/7)", 0x3b520, 0x3b5a0 },
+    { L"Kevin Ending (4/7)", 0x3b300, 0x3b380 },
+    { L"Kevin Ending (5/7)", 0x3b380, 0x3b400 },
+    { L"Kevin Ending (6/7)", 0x3b400, 0x3b480 },
+    { L"Kevin Ending (7/7)", 0x3b480, 0x3b500 },
+    { L"Kevin Ending Credits", 0x3b5c0, 0x3b5e0 },
+};
+
+//B. Jenet
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_BJENET[] =
+{
+    { L"B.Jenet Ending (1/8)", 0x37a00, 0x37a80 },
+    { L"B.Jenet Ending (2/8)", 0x37b40, 0x37bc0 },
+    { L"B.Jenet Ending (3/8)", 0x37dc0, 0x37e40 },
+    { L"B.Jenet Ending (4/8)", 0x37d20, 0x37da0 },
+    { L"B.Jenet Ending (5/8)", 0x37c80, 0x37d00 },
+    { L"B.Jenet Ending (6/8)", 0x37e60, 0x37ee0 },
+    { L"B.Jenet Ending (7/8)", 0x37aa0, 0x37b20 },
+    { L"B.Jenet Ending (8/8)", 0x37be0, 0x37c60 },
+    { L"B.Jenet Ending Credits", 0x37f00, 0x37f20 },
+};
+
+//Hokutomaro
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_HOKUTOMARU[] =
+{
+    { L"Hokutomaru Ending (1/6)", 0x38a00, 0x38a80 },
+    { L"Hokutomaru Ending (2/6)", 0x38aa0, 0x38b20 },
+    { L"Hokutomaru Ending (3/6)", 0x38b40, 0x38bc0 },
+    { L"Hokutomaru Ending (4/6)", 0x38bc0, 0x38c40 },
+    { L"Hokutomaru Ending (5/6)", 0x38c80, 0x38d00 },
+    { L"Hokutomaru Ending (6/6)", 0x38d20, 0x38da0 },
+    { L"Hokutomaru Ending Credits", 0x38dc0, 0x38de0 },
+};
+
+//Freeman
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_FREEMAN[] =
+{
+    { L"Freeman Ending (1/9)", 0x39200, 0x39280 },
+    { L"Freeman Ending (2/9)", 0x392a0, 0x39320 },
+    { L"Freeman Ending (3/9)", 0x39340, 0x393c0 },
+    { L"Freeman Ending (4/9)", 0x39520, 0x395a0 },
+    { L"Freeman Ending (5/9)", 0x39480, 0x39500 },
+    { L"Freeman Ending (6/9)", 0x393e0, 0x39460 },
+    { L"Freeman Ending (7/9)", 0x395c0, 0x39640 },
+    { L"Freeman Ending (8/9)", 0x39660, 0x396e0 },
+    { L"Freeman Ending (9/9)", 0x39700, 0x39780 },
+    { L"Freeman Ending Credits", 0x397a0, 0x397c0 },
+};
+
+//Tizoc
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_TIZOC[] =
+{
+    { L"Tizoc Ending (1/6)", 0x3aa00, 0x3aa80 },
+    { L"Tizoc Ending (2/6)", 0x3aaa0, 0x3ab20 },
+    { L"Tizoc Ending (3/6)", 0x3ab40, 0x3abc0 },
+    { L"Tizoc Ending (4/6)", 0x3abe0, 0x3ac60 },
+    { L"Tizoc Ending (5/6)", 0x3ac80, 0x3ad00 },
+    { L"Tizoc Ending (6/6)", 0x3ad20, 0x3ada0 },
+    { L"Tizoc Ending Credits", 0x3adc0, 0x3ade0 },
+};
+
+//Grant/Kain
+const sGame_PaletteDataset Garou_A_ENDINGS_PALETTES_GRANTKAIN[] =
+{
+    { L"Grant/Kain Ending (1/3)", 0x39a00, 0x39a80 },
+    { L"Grant/Kain Ending (2/3)", 0x39a80, 0x39b00 },
+    { L"Grant/Kain Ending (3/3)", 0x39b00, 0x39b80 },
+    { L"Grant Ending (1/3)", 0x39c00, 0x39c80 },
+    { L"Grant Ending (2/3)", 0x39b80, 0x39c00 },
+    { L"Grant Ending (3/3)", 0x39c80, 0x39d00 },
+    { L"Grant Ending Credits", 0x39da0, 0x39dc0 },
+    { L"Kain Ending", 0x3a200, 0x3a280 },
+    { L"Kain Ending Credits", 0x3a2a0, 0x3a2c0 },
+};
+
+const sGame_PaletteDataset Garou_A_BONUS_ICONS_PALETTES[] =
+{
+    { L"Story Mode Icons", 0x2a700, 0x2a8c0 },
+    { L"Select Screen Light Icons", 0x35000, 0x35200 },
+    { L"Select Screen Dark Icons", 0x34e00, 0x35000 },
+};
+
+//Intro 1
+const sGame_PaletteDataset Garou_A_BONUS_PALETTES_INTRO1[] =
+{
+    { L"SNK Presents", 0x3c0a0, 0x3c0c0 },
+    { L"Intro Text", 0x3c040, 0x3c060 },
+    { L"Terry vs Geese", 0x3c000, 0x3c040 },
+    { L"Rock's Flashbacks (1/8)", 0x3bc00, 0x3bc80 },
+    { L"Rock's Flashbacks (2/8)", 0x3bc80, 0x3bd00 },
+    { L"Rock's Flashbacks (3/8)", 0x3bd00, 0x3bd80 },
+    { L"Rock's Flashbacks (4/8)", 0x3bd80, 0x3be00 },
+    { L"Rock's Flashbacks (5/8)", 0x3be00, 0x3be80 },
+    { L"Rock's Flashbacks (6/8)", 0x3be80, 0x3bf00 },
+    { L"Rock's Flashbacks (7/8)", 0x3bf00, 0x3bf80 },
+    { L"Rock's Flashbacks (8/8)", 0x3bf80, 0x3c000 },
+    { L"Rock Intro Frames 1", 0x3c600, 0x3c680 },
+    { L"Rock Intro Frames 2", 0x3c680, 0x3c700 },
+    { L"Rock Intro Frames 3", 0x3c700, 0x3c780 },
+    { L"Rock Intro Frames 4", 0x3c780, 0x3c800 },
+    { L"Rock Intro Frames 5", 0x3c800, 0x3c880 },
+    { L"Rock Intro Frames 6", 0x3c880, 0x3c900 },
+};
+
+//Intro 2
+const sGame_PaletteDataset Garou_A_BONUS_PALETTES_INTRO2[] =
+{
+    { L"Rock Intro 1", 0x2e7a0, 0x2e7e0 },
+    { L"Rock Intro 1 Frames 1", 0x2f500, 0x2f580 },
+    { L"Rock Intro 1 Frames 2", 0x2f580, 0x2f600 },
+    { L"Rock Intro 1 Frames 3", 0x2f600, 0x2f680 },
+    { L"Rock Intro 1 Frames 4", 0x2f680, 0x2f700 },
+    { L"Rock Intro 1 Frames 5", 0x2f700, 0x2f780 },
+    { L"Rock Intro 2", 0x2f780, 0x2f800 },
+    { L"SNK Presents", 0x02ef20, 0x02ef40 },
+    { L"Intro Text", 0x0177a0, 0x0177c0 },
+    { L"Rock Intro 3", 0x02ee00, 0x02ee40 },
+    { L"Rock Intro 3 BG", 0x02ee40, 0x02ee80 },
+    { L"Rock Intro 3 Frames 1", 0x2f800, 0x2f880 },
+    { L"Rock Intro 3 Frames 2", 0x2f880, 0x2f900 },
+    { L"Kim's Brothers Intro 1", 0x2e960, 0x2e9e0 },
+    { L"Kim's Brothers Intro 2", 0x02e9e0, 0x02ea60 },
+    { L"Gato Intro Frames", 0x2f900, 0x2f980 },
+    { L"Gato Intro", 0x02ea60, 0x02eaa0 },
+    { L"Gato Intro BG", 0x02ee80, 0x02eec0 },
+    { L"Hotaru Intro", 0x02eaa0, 0x02eb00 },
+    { L"Hotaru House 1/2 Intro", 0x2f140, 0x2f180 },
+    { L"Hotaru House 2/2 Intro", 0x2f1c0, 0x2f1e0 },
+    { L"Hotaru Snow Intro", 0x017740, 0x017760 },
+    { L"Intro Black Screen", 0x2f060, 0x2f080 },
+    { L"Kevin Intro", 0x02ebc0, 0x02ec00 },
+    { L"Hokutomaru Intro", 0x2ec00, 0x2ec40 },
+    { L"B.Jenet Intro", 0x2ec40, 0x2ec80 },
+    { L"Khushnood Butt Intro", 0x2ec80, 0x2eca0 },
+    { L"Khushnood Butt BG Intro", 0x2f0e0, 0x2f100 },
+    { L"Freeman Intro", 0x2ed00, 0x2ed20 },
+    { L"Tizoc Intro", 0x2ecc0, 0x2ece0 },
+    { L"Freeman/Tizoc BG Intro", 0x2ece0, 0x2ed00 },
+    { L"Intro Extras", 0x2eca0, 0x2ecc0 },
+    { L"Intro Characters", 0x2ed40, 0x2ee00 },
+    { L"Rock VS Intro", 0x02eb00, 0x02eb40 },
+    { L"Terry VS Intro", 0x02eb40, 0x02eb80 },
+    { L"Terry VS Intro Frames 1", 0x2f980, 0x2fa00 },
+    { L"Terry VS Intro Frames 2", 0x2fa00, 0x2fa80 },
+    { L"Terry VS Intro Frames 3", 0x2fa80, 0x2fb00 },
+    { L"Terry VS Intro Frames 4", 0x2fb00, 0x2fb80 },
+    { L"Terry VS Intro Frames 5", 0x2fb80, 0x2fc00 },
+    { L"Terry VS Rock BG", 0x2f180, 0x2f1c0 },
+    { L"Rock Ending Intro Frames 1", 0x2fc00, 0x2fc80 },
+    { L"Rock Ending Intro Frames 2", 0x2fc80, 0x2fd00 },
+    { L"Rock Ending Intro Frames 3", 0x2fd00, 0x2fd80 },
+    { L"Rock Ending Intro Frames 4", 0x2fd80, 0x2fe00 },
+    { L"Rock Ending Intro Frames 5", 0x2fe00, 0x2fe80 },
+    { L"Rock Ending Intro Frames 6", 0x2fe80, 0x2ff00 },
+    { L"Rock Ending Intro Frames 7", 0x2ff00, 0x2ff80 },
+    { L"Rock Ending Intro Frames 8", 0x2ff80, 0x30000 },
+    { L"Rock Ending Intro", 0x02eec0, 0x02ef20 },
+};
+
 const sDescTreeNode Garou_A_STORY_COLLECTION[] =
 {
     { L"Terry Bogard", DESC_NODETYPE_TREE, (void*)Garou_A_TERRY_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_TERRY_PALETTES_STORYMODE) },
@@ -1918,17 +2179,33 @@ const sDescTreeNode Garou_A_STORY_COLLECTION[] =
     { L"Kevin", DESC_NODETYPE_TREE, (void*)Garou_A_KEVIN_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_KEVIN_PALETTES_STORYMODE) },
     { L"Grant", DESC_NODETYPE_TREE, (void*)Garou_A_GRANT_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_GRANT_PALETTES_STORYMODE) },
     { L"Kain", DESC_NODETYPE_TREE, (void*)Garou_A_KAIN_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_KAIN_PALETTES_STORYMODE) },
+};
 
-    { L"Story Mode Portraits", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_STORYPORTRAITS_PALETTES, ARRAYSIZE(Garou_A_BONUS_STORYPORTRAITS_PALETTES) },
+const sDescTreeNode Garou_A_ENDINGS_COLLECTION[] =
+{
+    { L"Rock Howard", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_ROCKHOWARD, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_ROCKHOWARD) },
+    { L"Terry Bogard", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_TERRYBOGARD, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_TERRYBOGARD) },
+    { L"Khushnood Butt", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_BUTT, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_BUTT) },
+    { L"Kim's Brothers", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_KIMBRO, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_KIMBRO) },
+    { L"Hotaru", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_HOTARU, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_HOTARU) },
+    { L"Gato", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_GATO, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_GATO) },
+    { L"Kevin", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_KEVIN, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_KEVIN) },
+    { L"B. Jenet", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_BJENET, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_BJENET) },
+    { L"Hokutomaru", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_HOKUTOMARU, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_HOKUTOMARU) },
+    { L"Freeman", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_FREEMAN, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_FREEMAN) },
+    { L"Tizoc", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_TIZOC, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_TIZOC) },
+    { L"Grant/Kain", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_PALETTES_GRANTKAIN, ARRAYSIZE(Garou_A_ENDINGS_PALETTES_GRANTKAIN) },
 };
 
 const sDescTreeNode Garou_A_BONUS_COLLECTION[] =
 {
     { L"HUD", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_HUD_PALETTES, ARRAYSIZE(Garou_A_BONUS_HUD_PALETTES) },
     { L"Winpoints", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_WINPOINT_PALETTES, ARRAYSIZE(Garou_A_BONUS_WINPOINT_PALETTES) },
-    { L"Character Select Portrait Dark", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_SELECTDARK_PALETTES, ARRAYSIZE(Garou_A_BONUS_SELECTDARK_PALETTES) },
-    { L"Character Select Portrait Light", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_SELECTLIGHT_PALETTES, ARRAYSIZE(Garou_A_BONUS_SELECTLIGHT_PALETTES) },
+    { L"Icons", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_ICONS_PALETTES, ARRAYSIZE(Garou_A_BONUS_ICONS_PALETTES) },
     { L"Character Select Backgrounds", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_SELECTBACK_PALETTES, ARRAYSIZE(Garou_A_BONUS_SELECTBACK_PALETTES) },
+
+    { L"Intro 1", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_PALETTES_INTRO1, ARRAYSIZE(Garou_A_BONUS_PALETTES_INTRO1) },
+    { L"Intro 2", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_PALETTES_INTRO2, ARRAYSIZE(Garou_A_BONUS_PALETTES_INTRO2) },
 
     { L"Bonus", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_PALETTES, ARRAYSIZE(Garou_A_BONUS_PALETTES) },
 };
@@ -1953,6 +2230,7 @@ const sDescTreeNode Garou_A_UNITS[] =
     { L"Kain", DESC_NODETYPE_TREE, (void*)Garou_A_KAIN_COLLECTION, ARRAYSIZE(Garou_A_KAIN_COLLECTION) },
     { k_garouNameKey_Portraits, DESC_NODETYPE_TREE, (void*)Garou_A_PORTRAITS_COLLECTION, ARRAYSIZE(Garou_A_PORTRAITS_COLLECTION) },
     { L"Story Mode", DESC_NODETYPE_TREE, (void*)Garou_A_STORY_COLLECTION, ARRAYSIZE(Garou_A_STORY_COLLECTION) },
+    { L"Endings", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_COLLECTION, ARRAYSIZE(Garou_A_ENDINGS_COLLECTION) },
     { L"Bonus Stuff", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_COLLECTION, ARRAYSIZE(Garou_A_BONUS_COLLECTION) },
 };
 

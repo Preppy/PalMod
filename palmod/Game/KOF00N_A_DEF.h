@@ -13,13 +13,13 @@ const UINT16 KOF00N_A_IMGIDS_USED[] =
     // indexKOF01Sprites_Athena,    // 0x147
     // indexKOF01Sprites_Bao,       // 0x148
     indexKOF01Sprites_Benimaru,     // 0x1b1
-    indexKOF01Sprites_BlueMary,     // 0x1b2
+    indexKOF01Sprites_Mary,         // 0x1b2 Blue Mary
     indexKOF01Sprites_Chang,        // 0x1b3
     indexKOF01Sprites_Chin,         // 0x1b4
     indexKOF01Sprites_Choi,         // 0x1b5
     indexKOF01Sprites_Clark,        // 0x1b6
     // indexKOF01Sprites_Foxy,      // 0x149
-    indexKOF01Sprites_GoroDaimon,   // 0x1b7
+    indexKOF01Sprites_Goro,         // 0x1b7 Goro Daimon
     indexKOF01Sprites_Heidern,      // 0x1b8
     indexKOF01Sprites_Hinako,       // 0x1b9
     indexKOF01Sprites_Igniz,        // 0x1ba

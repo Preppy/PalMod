@@ -394,6 +394,9 @@
     <Filter Include="Games\Nintendo\Bishoujo Senshi Sailor Moon S: JR %28SNES%29">
       <UniqueIdentifier>{55bca72e-2dd2-4bf2-af00-62e26d2721b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Magical Drop III">
+      <UniqueIdentifier>{486e8b70-c7f6-4d17-889e-90e3edde6c26}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -812,6 +815,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_BSSMSJR_SNES.cpp">
       <Filter>Games\Nintendo\Bishoujo Senshi Sailor Moon S: JR %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MagicalDropIII_A.cpp">
+      <Filter>Games\SNK Games\Magical Drop III</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1522,6 +1528,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_BSSMSJR_SNES.h">
       <Filter>Games\Nintendo\Bishoujo Senshi Sailor Moon S: JR %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MagicalDropIII_A.h">
+      <Filter>Games\SNK Games\Magical Drop III</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MagicalDropIII_A_DEF.h">
+      <Filter>Games\SNK Games\Magical Drop III</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

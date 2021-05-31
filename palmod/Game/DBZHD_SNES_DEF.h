@@ -24,102 +24,102 @@ const UINT16 DBZHD_SNES_IMGIDS_USED[] =
 
 const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_P1[] =
 {
-    { L"Goku P1 (Day)", 0xB0000, 0xB0020 },
+    { L"Goku P1 (Day)", 0xB0000, 0xB0020, indexDBZHDSprites_Goku },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_P2[] =
 {
-    { L"Goku P2 (Day)", 0xB0020, 0xB0040 },
+    { L"Goku P2 (Day)", 0xB0020, 0xB0040, indexDBZHDSprites_Goku },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_VEGETA_PALETTES_P1[] =
 {
-    { L"Vegeta P1 (Day)", 0xB0200, 0xB0220 },
+    { L"Vegeta P1 (Day)", 0xB0200, 0xB0220, indexDBZHDSprites_Vegeta },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_VEGETA_PALETTES_P2[] =
 {
-    { L"Vegeta P2 (Day)", 0xB0220, 0xB0240 },
+    { L"Vegeta P2 (Day)", 0xB0220, 0xB0240, indexDBZHDSprites_Vegeta },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_GOTENKS_PALETTES_P1[] =
 {
-    { L"Gotenks P1 (Day)", 0xB0A80, 0xB0AA0 },
+    { L"Gotenks P1 (Day)", 0xB0A80, 0xB0AA0, indexDBZHDSprites_Gotenks },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_GOTENKS_PALETTES_P2[] =
 {
-    { L"Gotenks P2 (Day)", 0xB0AA0, 0xB0AC0 },
+    { L"Gotenks P2 (Day)", 0xB0AA0, 0xB0AC0, indexDBZHDSprites_Gotenks },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_GOHAN_PALETTES_P1[] =
 {
-    { L"Gohan P1 (Day)", 0xB0500, 0xB0520 },
+    { L"Gohan P1 (Day)", 0xB0500, 0xB0520, indexDBZHDSprites_Gohan },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_GOHAN_PALETTES_P2[] =
 {
-    { L"Gohan P2 (Day)", 0xB0520, 0xB0540 },
+    { L"Gohan P2 (Day)", 0xB0520, 0xB0540, indexDBZHDSprites_Gohan },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_VEGITO_PALETTES_P1[] =
 {
-    { L"Vegito P1 (Day)", 0xB0EB0, 0xB0ED0 },
+    { L"Vegito P1 (Day)", 0xB0EB0, 0xB0ED0, indexDBZHDSprites_Vegito },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_VEGITO_PALETTES_P2[] =
 {
-    { L"Vegito P2 (Day)", 0xB0ED0, 0xB0EF0 },
+    { L"Vegito P2 (Day)", 0xB0ED0, 0xB0EF0, indexDBZHDSprites_Vegito},
 };
 
 const sGame_PaletteDataset DBZHD_SNES_PICCOLO_PALETTES_P1[] =
 {
-    { L"Piccolo P1 (Day)", 0xB10F0, 0xB1110 },
+    { L"Piccolo P1 (Day)", 0xB10F0, 0xB1110, indexDBZHDSprites_Piccolo },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_PICCOLO_PALETTES_P2[] =
 {
-    { L"Piccolo P2 (Day)", 0xB1110, 0xB1130 },
+    { L"Piccolo P2 (Day)", 0xB1110, 0xB1130, indexDBZHDSprites_Piccolo },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_BUU_PALETTES_P1[] =
 {
-    { L"Buu P1 (Day)", 0xB1A70, 0xB1A90 },
+    { L"Buu P1 (Day)", 0xB1A70, 0xB1A90, indexDBZHDSprites_MajinBuu },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_BUU_PALETTES_P2[] =
 {
-    { L"Buu P2 (Day)", 0xB1A90, 0xB1AB0 },
+    { L"Buu P2 (Day)", 0xB1A90, 0xB1AB0, indexDBZHDSprites_MajinBuu },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_KIDBUU_PALETTES_P1[] =
 {
-    { L"Kid Buu P1 (Day)", 0xB1870, 0xB1890 },
+    { L"Kid Buu P1 (Day)", 0xB1870, 0xB1890, indexDBZHDSprites_KidBuu },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_KIDBUU_PALETTES_P2[] =
 {
-    { L"Kid Buu P2 (Day)", 0xB1890, 0xB18B0 },
+    { L"Kid Buu P2 (Day)", 0xB1890, 0xB18B0, indexDBZHDSprites_KidBuu },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_FRIEZA_PALETTES_P1[] =
 {
-    { L"Frieza P1 (Day)", 0xB07C0, 0xB07E0 },
+    { L"Frieza P1 (Day)", 0xB07C0, 0xB07E0, indexDBZHDSprites_Frieza },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_FRIEZA_PALETTES_P2[] =
 {
-    { L"Frieza P2 (Day)", 0xB07E0, 0xB0800 },
+    { L"Frieza P2 (Day)", 0xB07E0, 0xB0800, indexDBZHDSprites_Frieza },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_P1[] =
 {
-    { L"Cell P1 (Day)", 0xB13F0, 0xB1410 },
+    { L"Cell P1 (Day)", 0xB13F0, 0xB1410, indexDBZHDSprites_Cell },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_P2[] =
 {
-    { L"Cell P2 (Day)", 0xB1410, 0xB1430 },
+    { L"Cell P2 (Day)", 0xB1410, 0xB1430, indexDBZHDSprites_Cell },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_SHARED[] =

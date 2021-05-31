@@ -911,6 +911,7 @@ const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_MOVES[] =
     { L"Kensou Psycho Ball Hit",     0x19420, 0x19440, indexKOF02UMSprites_Kensou, 0x03 },
     { L"Kensou MAX Burst",           0x19440, 0x19460, indexKOF02UMSprites_Kensou, 0x10 },
     { L"Kensou MAX2 Powerup Orb",    0x19480, 0x194a0, indexKOF02UMSprites_Kensou, 0x09 },
+    { L"Kensou MAX2 Flash",          0x39600, 0x39800 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXKENSOU_PALETTES_MOVES[] =
