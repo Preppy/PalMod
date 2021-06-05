@@ -41,9 +41,9 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_LP[] =
     { L"LP Bulleta", 0x16c9a, 0x16cba, indexCPS2Sprites_BBHood, 0x0 },
     { L"LP Critters", 0x16cba, 0x16cda, indexCPS2Sprites_BBHood, 0x01 },
     { L"LP Weapons", 0x16cda, 0x16cfa, indexCPS2Sprites_BBHood, 0x02 },
-    { L"LP Explosions", 0x16cfa, 0x16d1a },
+    { L"LP Explosions", 0x16cfa, 0x16d1a, indexCPS2Sprites_BBHood, 0x0b },
     { L"LP Select Portrait", 0x4117a, 0x4119a, indexCPS2Sprites_BBHood, 0x20 },
-    { L"LP Win Portrait", 0x42bba, 0x42c5a },
+    { L"LP Win Portrait", 0x42bba, 0x42c5a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_BBHood },
 };
 
 const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_MP[] =
@@ -51,9 +51,9 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_MP[] =
     { L"MP Bulleta", 0x16d1a, 0x16d3a, indexCPS2Sprites_BBHood, 0x0 },
     { L"MP Critters", 0x16d3a, 0x16d5a, indexCPS2Sprites_BBHood, 0x01 },
     { L"MP Weapons", 0x16d5a, 0x16d7a, indexCPS2Sprites_BBHood, 0x02 },
-    { L"MP Explosions", 0x16d7a, 0x16d9a },
+    { L"MP Explosions", 0x16d7a, 0x16d9a, indexCPS2Sprites_BBHood, 0x0b },
     { L"MP Select Portrait", 0x4137a, 0x4139a, indexCPS2Sprites_BBHood, 0x20 },
-    { L"MP Win Portrait", 0x436fa, 0x4379a },
+    { L"MP Win Portrait", 0x436fa, 0x4379a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_BBHood },
 };
 
 const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_HP[] =
@@ -61,9 +61,9 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_HP[] =
     { L"HP Bulleta", 0x16d9a, 0x16dba, indexCPS2Sprites_BBHood, 0x0 },
     { L"HP Critters", 0x16dba, 0x16dda, indexCPS2Sprites_BBHood, 0x01 },
     { L"HP Weapons", 0x16dda, 0x16dfa, indexCPS2Sprites_BBHood, 0x02 },
-    { L"HP Explosions", 0x16dfa, 0x16e1a },
+    { L"HP Explosions", 0x16dfa, 0x16e1a, indexCPS2Sprites_BBHood, 0x0b },
     { L"HP Select Portrait", 0x4157a, 0x4159a, indexCPS2Sprites_BBHood, 0x20 },
-    { L"HP Win Portrait", 0x4423a, 0x442da },
+    { L"HP Win Portrait", 0x4423a, 0x442da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_BBHood },
 };
 
 const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_LK[] =
@@ -71,9 +71,9 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_LK[] =
     { L"LK Bulleta", 0x16e1a, 0x16e3a, indexCPS2Sprites_BBHood, 0x0 },
     { L"LK Critters", 0x16e3a, 0x16e5a, indexCPS2Sprites_BBHood, 0x01 },
     { L"LK Weapons", 0x16e5a, 0x16e7a, indexCPS2Sprites_BBHood, 0x02 },
-    { L"LK Explosions", 0x16e7a, 0x16e9a },
+    { L"LK Explosions", 0x16e7a, 0x16e9a, indexCPS2Sprites_BBHood, 0x0b },
     { L"LK Select Portrait", 0x4177a, 0x4179a, indexCPS2Sprites_BBHood, 0x20 },
-    { L"LK Win Portrait", 0x44d7a, 0x44e1a },
+    { L"LK Win Portrait", 0x44d7a, 0x44e1a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_BBHood },
 };
 
 const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_MK[] =
@@ -81,9 +81,9 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_MK[] =
     { L"MK Bulleta", 0x16e9a, 0x16eba, indexCPS2Sprites_BBHood, 0x0 },
     { L"MK Critters", 0x16eba, 0x16eda, indexCPS2Sprites_BBHood, 0x01 },
     { L"MK Weapons", 0x16eda, 0x16efa, indexCPS2Sprites_BBHood, 0x02 },
-    { L"MK Explosions", 0x16efa, 0x16f1a },
+    { L"MK Explosions", 0x16efa, 0x16f1a, indexCPS2Sprites_BBHood, 0x0b },
     { L"MK Select Portrait", 0x4197a, 0x4199a, indexCPS2Sprites_BBHood, 0x20 },
-    { L"MK Win Portrait", 0x458ba, 0x4595a },
+    { L"MK Win Portrait", 0x458ba, 0x4595a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_BBHood },
 };
 
 const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_HK[] =
@@ -91,9 +91,9 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_HK[] =
     { L"HK Bulleta", 0x16f1a, 0x16f3a, indexCPS2Sprites_BBHood, 0x0 },
     { L"HK Critters", 0x16f3a, 0x16f5a, indexCPS2Sprites_BBHood, 0x01 },
     { L"HK Weapons", 0x16f5a, 0x16f7a, indexCPS2Sprites_BBHood, 0x02 },
-    { L"HK Explosions", 0x16f7a, 0x16f9a },
+    { L"HK Explosions", 0x16f7a, 0x16f9a, indexCPS2Sprites_BBHood, 0x0b },
     { L"HK Select Portrait", 0x41b7a, 0x41b9a, indexCPS2Sprites_BBHood, 0x20 },
-    { L"HK Win Portrait", 0x463fa, 0x4649a },
+    { L"HK Win Portrait", 0x463fa, 0x4649a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_BBHood },
 };
 
 const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_PP[] =
@@ -101,9 +101,9 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_PP[] =
     { L"PP Bulleta", 0x16f9a, 0x16fba, indexCPS2Sprites_BBHood, 0x0 },
     { L"PP Critters", 0x16fba, 0x16fda, indexCPS2Sprites_BBHood, 0x01 },
     { L"PP Weapons", 0x16fda, 0x16ffa, indexCPS2Sprites_BBHood, 0x02 },
-    { L"PP Explosions", 0x16ffa, 0x1701a },
+    { L"PP Explosions", 0x16ffa, 0x1701a, indexCPS2Sprites_BBHood, 0x0b },
     { L"PP Select Portrait", 0x41d7a, 0x41d9a, indexCPS2Sprites_BBHood, 0x20 },
-    { L"PP Win Portrait", 0x46f3a, 0x46fda },
+    { L"PP Win Portrait", 0x46f3a, 0x46fda, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_BBHood },
 };
 
 const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_KK[] =
@@ -111,9 +111,9 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_KK[] =
     { L"KK Bulleta", 0x1701a, 0x1703a, indexCPS2Sprites_BBHood, 0x0 },
     { L"KK Critters", 0x1703a, 0x1705a, indexCPS2Sprites_BBHood, 0x01 },
     { L"KK Weapons", 0x1705a, 0x1707a, indexCPS2Sprites_BBHood, 0x02 },
-    { L"KK Explosions", 0x1707a, 0x1709a },
+    { L"KK Explosions", 0x1707a, 0x1709a, indexCPS2Sprites_BBHood, 0x0b },
     { L"KK Select Portrait", 0x41f7a, 0x41f9a, indexCPS2Sprites_BBHood, 0x20 },
-    { L"KK Win Portrait", 0x47a7a, 0x47b1a },
+    { L"KK Win Portrait", 0x47a7a, 0x47b1a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_BBHood },
 };
 
 const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_AP[] =
@@ -121,9 +121,9 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_AP[] =
     { L"AP Bulleta", 0x1709a, 0x170ba, indexCPS2Sprites_BBHood, 0x0 },
     { L"AP Critters", 0x170ba, 0x170da, indexCPS2Sprites_BBHood, 0x01 },
     { L"AP Weapons", 0x170da, 0x170fa, indexCPS2Sprites_BBHood, 0x02 },
-    { L"AP Explosions", 0x170fa, 0x1711a },
+    { L"AP Explosions", 0x170fa, 0x1711a, indexCPS2Sprites_BBHood, 0x0b },
     { L"AP Select Portrait", 0x4217a, 0x4219a, indexCPS2Sprites_BBHood, 0x20 },
-    { L"AP Win Portrait", 0x485ba, 0x4865a },
+    { L"AP Win Portrait", 0x485ba, 0x4865a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_BBHood },
 };
 
 const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_AK[] =
@@ -131,9 +131,9 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_AK[] =
     { L"AK Bulleta", 0x1711a, 0x1713a, indexCPS2Sprites_BBHood, 0x0 },
     { L"AK Critters", 0x1713a, 0x1715a, indexCPS2Sprites_BBHood, 0x01 },
     { L"AK Weapons", 0x1715a, 0x1717a, indexCPS2Sprites_BBHood, 0x02 },
-    { L"AK Explosions", 0x1717a, 0x1719a },
+    { L"AK Explosions", 0x1717a, 0x1719a, indexCPS2Sprites_BBHood, 0x0b },
     { L"AK Select Portrait", 0x4237a, 0x4239a, indexCPS2Sprites_BBHood, 0x20 },
-    { L"AK Win Portrait", 0x490fa, 0x4919a },
+    { L"AK Win Portrait", 0x490fa, 0x4919a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_BBHood },
 };
 
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_LP[] =
@@ -143,7 +143,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_LP[] =
     { L"LP Teledash 2", 0x171ba, 0x171da, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"LP Fireball", 0x171da, 0x171fa, indexCPS2Sprites_Vamp_Demitri, 0x01 },
     { L"LP Select Portrait", 0x4119a, 0x411ba, indexCPS2Sprites_Vamp_Demitri, 0x20 },
-    { L"LP Win Portrait", 0x42c5a, 0x42cfa },
+    { L"LP Win Portrait", 0x42c5a, 0x42cfa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_MP[] =
@@ -153,7 +153,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_MP[] =
     { L"MP Teledash 2", 0x1723a, 0x1725a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"MP Fireball", 0x1725a, 0x1727a, indexCPS2Sprites_Vamp_Demitri, 0x01 },
     { L"MP Select Portrait", 0x4139a, 0x413ba, indexCPS2Sprites_Vamp_Demitri, 0x20 },
-    { L"MP Win Portrait", 0x4379a, 0x4383a },
+    { L"MP Win Portrait", 0x4379a, 0x4383a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_HP[] =
@@ -163,7 +163,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_HP[] =
     { L"HP Teledash 2", 0x172ba, 0x172da, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"HP Fireball", 0x172da, 0x172fa, indexCPS2Sprites_Vamp_Demitri, 0x01 },
     { L"HP Select Portrait", 0x4159a, 0x415ba, indexCPS2Sprites_Vamp_Demitri, 0x20 },
-    { L"HP Win Portrait", 0x442da, 0x4437a },
+    { L"HP Win Portrait", 0x442da, 0x4437a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_LK[] =
@@ -173,7 +173,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_LK[] =
     { L"LK Teledash 2", 0x1733a, 0x1735a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"LK Fireball", 0x1735a, 0x1737a, indexCPS2Sprites_Vamp_Demitri, 0x01 },
     { L"LK Select Portrait", 0x4179a, 0x417ba, indexCPS2Sprites_Vamp_Demitri, 0x20 },
-    { L"LK Win Portrait", 0x44e1a, 0x44eba },
+    { L"LK Win Portrait", 0x44e1a, 0x44eba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_MK[] =
@@ -183,7 +183,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_MK[] =
     { L"MK Teledash 2", 0x173ba, 0x173da, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"MK Fireball", 0x173da, 0x173fa, indexCPS2Sprites_Vamp_Demitri, 0x01 },
     { L"MK Select Portrait", 0x4199a, 0x419ba, indexCPS2Sprites_Vamp_Demitri, 0x20 },
-    { L"MK Win Portrait", 0x4595a, 0x459fa },
+    { L"MK Win Portrait", 0x4595a, 0x459fa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_HK[] =
@@ -193,7 +193,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_HK[] =
     { L"HK Teledash 2", 0x1743a, 0x1745a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"HK Fireball", 0x1745a, 0x1747a, indexCPS2Sprites_Vamp_Demitri, 0x01 },
     { L"HK Select Portrait", 0x41b9a, 0x41bba, indexCPS2Sprites_Vamp_Demitri, 0x20 },
-    { L"HK Win Portrait", 0x4649a, 0x4653a },
+    { L"HK Win Portrait", 0x4649a, 0x4653a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_PP[] =
@@ -203,7 +203,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_PP[] =
     { L"PP Teledash 2", 0x174ba, 0x174da, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"PP Fireball", 0x174da, 0x174fa, indexCPS2Sprites_Vamp_Demitri, 0x01 },
     { L"PP Select Portrait", 0x41d9a, 0x41dba, indexCPS2Sprites_Vamp_Demitri, 0x20 },
-    { L"PP Win Portrait", 0x46fda, 0x4707a },
+    { L"PP Win Portrait", 0x46fda, 0x4707a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_KK[] =
@@ -213,7 +213,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_KK[] =
     { L"KK Teledash 2", 0x1753a, 0x1755a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"KK Fireball", 0x1755a, 0x1757a, indexCPS2Sprites_Vamp_Demitri, 0x01 },
     { L"KK Select Portrait", 0x41f9a, 0x41fba, indexCPS2Sprites_Vamp_Demitri, 0x20 },
-    { L"KK Win Portrait", 0x47b1a, 0x47bba },
+    { L"KK Win Portrait", 0x47b1a, 0x47bba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_AP[] =
@@ -223,7 +223,7 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_AP[] =
     { L"AP Teledash 2", 0x175ba, 0x175da, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"AP Fireball", 0x175da, 0x175fa, indexCPS2Sprites_Vamp_Demitri, 0x01 },
     { L"AP Select Portrait", 0x4219a, 0x421ba, indexCPS2Sprites_Vamp_Demitri, 0x20 },
-    { L"AP Win Portrait", 0x4865a, 0x486fa },
+    { L"AP Win Portrait", 0x4865a, 0x486fa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_AK[] =
@@ -233,107 +233,107 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_AK[] =
     { L"AK Teledash 2", 0x1763a, 0x1765a, indexCPS2Sprites_Vamp_Demitri, 0x0 },
     { L"AK Fireball", 0x1765a, 0x1767a, indexCPS2Sprites_Vamp_Demitri, 0x01 },
     { L"AK Select Portrait", 0x4239a, 0x423ba, indexCPS2Sprites_Vamp_Demitri, 0x20 },
-    { L"AK Win Portrait", 0x4919a, 0x4923a },
+    { L"AK Win Portrait", 0x4919a, 0x4923a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_LP[] =
 {
     { L"LP Gallon", 0x1769a, 0x176ba, indexCPS2Sprites_Vamp_Gallon, 0x0 },
-    { L"LP Intro/Outro", 0x176ba, 0x176da },
-    { L"LP 236P/41236KK/j.HP", 0x176da, 0x176fa },
-    { L"LP 236P/28K/Outro Flash", 0x176fa, 0x1771a },
+    { L"LP Intro/Outro", 0x176ba, 0x176da, indexCPS2Sprites_Vamp_Gallon, 0x01 },
+    { L"LP 236P/41236KK/j.HP", 0x176da, 0x176fa, indexCPS2Sprites_Vamp_Gallon, 0x02 },
+    { L"LP 236P/28K/Outro Flash", 0x176fa, 0x1771a, indexCPS2Sprites_Vamp_Gallon, 0x03 },
     { L"LP Select Portrait", 0x411ba, 0x411da, indexCPS2Sprites_Vamp_Gallon, 0x20 },
-    { L"LP Win Portrait", 0x42cfa, 0x42d9a },
+    { L"LP Win Portrait", 0x42cfa, 0x42d9a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_MP[] =
 {
     { L"MP Gallon", 0x1771a, 0x1773a, indexCPS2Sprites_Vamp_Gallon, 0x0 },
-    { L"MP Intro/Outro", 0x1773a, 0x1775a },
-    { L"MP 236P/41236KK/j.HP", 0x1775a, 0x1777a },
-    { L"MP 236P/28K/Outro Flash", 0x1777a, 0x1779a },
+    { L"MP Intro/Outro", 0x1773a, 0x1775a, indexCPS2Sprites_Vamp_Gallon, 0x01 },
+    { L"MP 236P/41236KK/j.HP", 0x1775a, 0x1777a, indexCPS2Sprites_Vamp_Gallon, 0x02 },
+    { L"MP 236P/28K/Outro Flash", 0x1777a, 0x1779a, indexCPS2Sprites_Vamp_Gallon, 0x03 },
     { L"MP Select Portrait", 0x413ba, 0x413da, indexCPS2Sprites_Vamp_Gallon, 0x20 },
-    { L"MP Win Portrait", 0x4383a, 0x438da },
+    { L"MP Win Portrait", 0x4383a, 0x438da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_HP[] =
 {
     { L"HP Gallon", 0x1779a, 0x177ba, indexCPS2Sprites_Vamp_Gallon, 0x0 },
-    { L"HP Intro/Outro", 0x177ba, 0x177da },
-    { L"HP 236P/41236KK/j.HP", 0x177da, 0x177fa },
-    { L"HP 236P/28K/Outro Flash", 0x177fa, 0x1781a },
+    { L"HP Intro/Outro", 0x177ba, 0x177da, indexCPS2Sprites_Vamp_Gallon, 0x01 },
+    { L"HP 236P/41236KK/j.HP", 0x177da, 0x177fa, indexCPS2Sprites_Vamp_Gallon, 0x02 },
+    { L"HP 236P/28K/Outro Flash", 0x177fa, 0x1781a, indexCPS2Sprites_Vamp_Gallon, 0x03 },
     { L"HP Select Portrait", 0x415ba, 0x415da, indexCPS2Sprites_Vamp_Gallon, 0x20 },
-    { L"HP Win Portrait", 0x4437a, 0x4441a },
+    { L"HP Win Portrait", 0x4437a, 0x4441a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_LK[] =
 {
     { L"LK Gallon", 0x1781a, 0x1783a, indexCPS2Sprites_Vamp_Gallon, 0x0 },
-    { L"LK Intro/Outro", 0x1783a, 0x1785a },
-    { L"LK 236P/41236KK/j.HP", 0x1785a, 0x1787a },
-    { L"LK 236P/28K/Outro Flash", 0x1787a, 0x1789a },
+    { L"LK Intro/Outro", 0x1783a, 0x1785a, indexCPS2Sprites_Vamp_Gallon, 0x01 },
+    { L"LK 236P/41236KK/j.HP", 0x1785a, 0x1787a, indexCPS2Sprites_Vamp_Gallon, 0x02 },
+    { L"LK 236P/28K/Outro Flash", 0x1787a, 0x1789a, indexCPS2Sprites_Vamp_Gallon, 0x03 },
     { L"LK Select Portrait", 0x417ba, 0x417da, indexCPS2Sprites_Vamp_Gallon, 0x20 },
-    { L"LK Win Portrait", 0x44eba, 0x44f5a },
+    { L"LK Win Portrait", 0x44eba, 0x44f5a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_MK[] =
 {
     { L"MK Gallon", 0x1789a, 0x178ba, indexCPS2Sprites_Vamp_Gallon, 0x0 },
-    { L"MK Intro/Outro", 0x178ba, 0x178da },
-    { L"MK 236P/41236KK/j.HP", 0x178da, 0x178fa },
-    { L"MK 236P/28K/Outro Flash", 0x178fa, 0x1791a },
+    { L"MK Intro/Outro", 0x178ba, 0x178da, indexCPS2Sprites_Vamp_Gallon, 0x01 },
+    { L"MK 236P/41236KK/j.HP", 0x178da, 0x178fa, indexCPS2Sprites_Vamp_Gallon, 0x02 },
+    { L"MK 236P/28K/Outro Flash", 0x178fa, 0x1791a, indexCPS2Sprites_Vamp_Gallon, 0x03 },
     { L"MK Select Portrait", 0x419ba, 0x419da, indexCPS2Sprites_Vamp_Gallon, 0x20 },
-    { L"MK Win Portrait", 0x459fa, 0x45a9a },
+    { L"MK Win Portrait", 0x459fa, 0x45a9a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_HK[] =
 {
     { L"HK Gallon", 0x1791a, 0x1793a, indexCPS2Sprites_Vamp_Gallon, 0x0 },
-    { L"HK Intro/Outro", 0x1793a, 0x1795a },
-    { L"HK 236P/41236KK/j.HP", 0x1795a, 0x1797a },
-    { L"HK 236P/28K/Outro Flash", 0x1797a, 0x1799a },
+    { L"HK Intro/Outro", 0x1793a, 0x1795a, indexCPS2Sprites_Vamp_Gallon, 0x01 },
+    { L"HK 236P/41236KK/j.HP", 0x1795a, 0x1797a, indexCPS2Sprites_Vamp_Gallon, 0x02 },
+    { L"HK 236P/28K/Outro Flash", 0x1797a, 0x1799a, indexCPS2Sprites_Vamp_Gallon, 0x03 },
     { L"HK Select Portrait", 0x41bba, 0x41bda, indexCPS2Sprites_Vamp_Gallon, 0x20 },
-    { L"HK Win Portrait", 0x4653a, 0x465da },
+    { L"HK Win Portrait", 0x4653a, 0x465da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_PP[] =
 {
     { L"PP Gallon", 0x1799a, 0x179ba, indexCPS2Sprites_Vamp_Gallon, 0x0 },
-    { L"PP Intro/Outro", 0x179ba, 0x179da },
-    { L"PP 236P/41236KK/j.HP", 0x179da, 0x179fa },
-    { L"PP 236P/28K/Outro Flash", 0x179fa, 0x17a1a },
+    { L"PP Intro/Outro", 0x179ba, 0x179da, indexCPS2Sprites_Vamp_Gallon, 0x01 },
+    { L"PP 236P/41236KK/j.HP", 0x179da, 0x179fa, indexCPS2Sprites_Vamp_Gallon, 0x02 },
+    { L"PP 236P/28K/Outro Flash", 0x179fa, 0x17a1a, indexCPS2Sprites_Vamp_Gallon, 0x03 },
     { L"PP Select Portrait", 0x41dba, 0x41dda, indexCPS2Sprites_Vamp_Gallon, 0x20 },
-    { L"PP Win Portrait", 0x4707a, 0x4711a },
+    { L"PP Win Portrait", 0x4707a, 0x4711a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_KK[] =
 {
     { L"KK Gallon", 0x17a1a, 0x17a3a, indexCPS2Sprites_Vamp_Gallon, 0x0 },
-    { L"KK Intro/Outro", 0x17a3a, 0x17a5a },
-    { L"KK 236P/41236KK/j.HP", 0x17a5a, 0x17a7a },
-    { L"KK 236P/28K/Outro Flash", 0x17a7a, 0x17a9a },
+    { L"KK Intro/Outro", 0x17a3a, 0x17a5a, indexCPS2Sprites_Vamp_Gallon, 0x01 },
+    { L"KK 236P/41236KK/j.HP", 0x17a5a, 0x17a7a, indexCPS2Sprites_Vamp_Gallon, 0x02 },
+    { L"KK 236P/28K/Outro Flash", 0x17a7a, 0x17a9a, indexCPS2Sprites_Vamp_Gallon, 0x03 },
     { L"KK Select Portrait", 0x41fba, 0x41fda, indexCPS2Sprites_Vamp_Gallon, 0x20 },
-    { L"KK Win Portrait", 0x47bba, 0x47c5a },
+    { L"KK Win Portrait", 0x47bba, 0x47c5a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_AP[] =
 {
     { L"AP Gallon", 0x17a9a, 0x17aba, indexCPS2Sprites_Vamp_Gallon, 0x0 },
-    { L"AP Intro/Outro", 0x17aba, 0x17ada },
-    { L"AP 236P/41236KK/j.HP", 0x17ada, 0x17afa },
-    { L"AP 236P/28K/Outro Flash", 0x17afa, 0x17b1a },
+    { L"AP Intro/Outro", 0x17aba, 0x17ada, indexCPS2Sprites_Vamp_Gallon, 0x01 },
+    { L"AP 236P/41236KK/j.HP", 0x17ada, 0x17afa, indexCPS2Sprites_Vamp_Gallon, 0x02 },
+    { L"AP 236P/28K/Outro Flash", 0x17afa, 0x17b1a, indexCPS2Sprites_Vamp_Gallon, 0x03 },
     { L"AP Select Portrait", 0x421ba, 0x421da, indexCPS2Sprites_Vamp_Gallon, 0x20 },
-    { L"AP Win Portrait", 0x486fa, 0x4879a },
+    { L"AP Win Portrait", 0x486fa, 0x4879a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_AK[] =
 {
     { L"AK Gallon", 0x17b1a, 0x17b3a, indexCPS2Sprites_Vamp_Gallon, 0x0 },
-    { L"AK Intro/Outro", 0x17b3a, 0x17b5a },
-    { L"AK 236P/41236KK/j.HP", 0x17b5a, 0x17b7a },
-    { L"AK 236P/28K/Outro Flash", 0x17b7a, 0x17b9a },
+    { L"AK Intro/Outro", 0x17b3a, 0x17b5a, indexCPS2Sprites_Vamp_Gallon, 0x01 },
+    { L"AK 236P/41236KK/j.HP", 0x17b5a, 0x17b7a, indexCPS2Sprites_Vamp_Gallon, 0x02 },
+    { L"AK 236P/28K/Outro Flash", 0x17b7a, 0x17b9a, indexCPS2Sprites_Vamp_Gallon, 0x03 },
     { L"AK Select Portrait", 0x423ba, 0x423da, indexCPS2Sprites_Vamp_Gallon, 0x20 },
-    { L"AK Win Portrait", 0x4923a, 0x492da },
+    { L"AK Win Portrait", 0x4923a, 0x492da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_LP[] =
@@ -343,7 +343,7 @@ const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_LP[] =
     { L"LP [2]8p/[4]6P/DF Startup", 0x17bba, 0x17bda },
     { L"LP Electricity", 0x17bda, 0x17bfa },
     { L"LP Select Portrait", 0x411da, 0x411fa, indexCPS2Sprites_Vamp_Victor, 0x20 },
-    { L"LP Win Portrait", 0x42d9a, 0x42e3a },
+    { L"LP Win Portrait", 0x42d9a, 0x42e3a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_MP[] =
@@ -353,7 +353,7 @@ const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_MP[] =
     { L"MP [2]8p/[4]6P/DF Startup", 0x17c3a, 0x17c5a },
     { L"MP Electricity", 0x17c5a, 0x17c7a },
     { L"MP Select Portrait", 0x413da, 0x413fa, indexCPS2Sprites_Vamp_Victor, 0x20 },
-    { L"MP Win Portrait", 0x438da, 0x4397a },
+    { L"MP Win Portrait", 0x438da, 0x4397a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_HP[] =
@@ -363,7 +363,7 @@ const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_HP[] =
     { L"HP [2]8p/[4]6P/DF Startup", 0x17cba, 0x17cda },
     { L"HP Electricity", 0x17cda, 0x17cfa },
     { L"HP Select Portrait", 0x415da, 0x415fa, indexCPS2Sprites_Vamp_Victor, 0x20 },
-    { L"HP Win Portrait", 0x4441a, 0x444ba },
+    { L"HP Win Portrait", 0x4441a, 0x444ba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_LK[] =
@@ -373,7 +373,7 @@ const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_LK[] =
     { L"LK [2]8p/[4]6P/DF Startup", 0x17d3a, 0x17d5a },
     { L"LK Electricity", 0x17d5a, 0x17d7a },
     { L"LK Select Portrait", 0x417da, 0x417fa, indexCPS2Sprites_Vamp_Victor, 0x20 },
-    { L"LK Win Portrait", 0x44f5a, 0x44ffa },
+    { L"LK Win Portrait", 0x44f5a, 0x44ffa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_MK[] =
@@ -383,7 +383,7 @@ const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_MK[] =
     { L"MK [2]8p/[4]6P/DF Startup", 0x17dba, 0x17dda },
     { L"MK Electricity", 0x17dda, 0x17dfa },
     { L"MK Select Portrait", 0x419da, 0x419fa, indexCPS2Sprites_Vamp_Victor, 0x20 },
-    { L"MK Win Portrait", 0x45a9a, 0x45b3a },
+    { L"MK Win Portrait", 0x45a9a, 0x45b3a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_HK[] =
@@ -393,7 +393,7 @@ const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_HK[] =
     { L"HK [2]8p/[4]6P/DF Startup", 0x17e3a, 0x17e5a },
     { L"HK Electricity", 0x17e5a, 0x17e7a },
     { L"HK Select Portrait", 0x41bda, 0x41bfa, indexCPS2Sprites_Vamp_Victor, 0x20 },
-    { L"HK Win Portrait", 0x465da, 0x4667a },
+    { L"HK Win Portrait", 0x465da, 0x4667a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_PP[] =
@@ -403,7 +403,7 @@ const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_PP[] =
     { L"PP [2]8p/[4]6P/DF Startup", 0x17eba, 0x17eda },
     { L"PP Electricity", 0x17eda, 0x17efa },
     { L"PP Select Portrait", 0x41dda, 0x41dfa, indexCPS2Sprites_Vamp_Victor, 0x20 },
-    { L"PP Win Portrait", 0x4711a, 0x471ba },
+    { L"PP Win Portrait", 0x4711a, 0x471ba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_KK[] =
@@ -413,7 +413,7 @@ const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_KK[] =
     { L"KK [2]8p/[4]6P/DF Startup", 0x17f3a, 0x17f5a },
     { L"KK Electricity", 0x17f5a, 0x17f7a },
     { L"KK Select Portrait", 0x41fda, 0x41ffa, indexCPS2Sprites_Vamp_Victor, 0x20 },
-    { L"KK Win Portrait", 0x47c5a, 0x47cfa },
+    { L"KK Win Portrait", 0x47c5a, 0x47cfa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_AP[] =
@@ -423,7 +423,7 @@ const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_AP[] =
     { L"AP [2]8p/[4]6P/DF Startup", 0x17fba, 0x17fda },
     { L"AP Electricity", 0x17fda, 0x17ffa },
     { L"AP Select Portrait", 0x421da, 0x421fa, indexCPS2Sprites_Vamp_Victor, 0x20 },
-    { L"AP Win Portrait", 0x4879a, 0x4883a },
+    { L"AP Win Portrait", 0x4879a, 0x4883a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_AK[] =
@@ -433,7 +433,7 @@ const sGame_PaletteDataset VSAV2_A_VICTOR_PALETTES_AK[] =
     { L"AK [2]8p/[4]6P/DF Startup", 0x1803a, 0x1805a },
     { L"AK Electricity", 0x1805a, 0x1807a },
     { L"AK Select Portrait", 0x423da, 0x423fa, indexCPS2Sprites_Vamp_Victor, 0x20 },
-    { L"AK Win Portrait", 0x492da, 0x4937a },
+    { L"AK Win Portrait", 0x492da, 0x4937a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_LP[] =
@@ -443,7 +443,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_LP[] =
     { L"LP Unused 1", 0x180da, 0x180fa },
     { L"LP Unused 2", 0x180fa, 0x1811a },
     { L"LP Select Portrait", 0x411fa, 0x4121a, indexCPS2Sprites_Vamp_Zabel, 0x20 },
-    { L"LP Win Portrait", 0x42e3a, 0x42eda },
+    { L"LP Win Portrait", 0x42e3a, 0x42eda, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_MP[] =
@@ -453,7 +453,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_MP[] =
     { L"MP Unused 1", 0x1815a, 0x1817a },
     { L"MP Unused 2", 0x1817a, 0x1819a },
     { L"MP Select Portrait", 0x413fa, 0x4141a, indexCPS2Sprites_Vamp_Zabel, 0x20 },
-    { L"MP Win Portrait", 0x4397a, 0x43a1a },
+    { L"MP Win Portrait", 0x4397a, 0x43a1a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_HP[] =
@@ -463,7 +463,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_HP[] =
     { L"HP Unused 1", 0x181da, 0x181fa },
     { L"HP Unused 2", 0x181fa, 0x1821a },
     { L"HP Select Portrait", 0x415fa, 0x4161a, indexCPS2Sprites_Vamp_Zabel, 0x20 },
-    { L"HP Win Portrait", 0x444ba, 0x4455a },
+    { L"HP Win Portrait", 0x444ba, 0x4455a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_LK[] =
@@ -473,7 +473,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_LK[] =
     { L"LK Unused 1", 0x1825a, 0x1827a },
     { L"LK Unused 2", 0x1827a, 0x1829a },
     { L"LK Select Portrait", 0x417fa, 0x4181a, indexCPS2Sprites_Vamp_Zabel, 0x20 },
-    { L"LK Win Portrait", 0x44ffa, 0x4509a },
+    { L"LK Win Portrait", 0x44ffa, 0x4509a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_MK[] =
@@ -483,7 +483,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_MK[] =
     { L"MK Unused 1", 0x182da, 0x182fa },
     { L"MK Unused 2", 0x182fa, 0x1831a },
     { L"MK Select Portrait", 0x419fa, 0x41a1a, indexCPS2Sprites_Vamp_Zabel, 0x20 },
-    { L"MK Win Portrait", 0x45b3a, 0x45bda },
+    { L"MK Win Portrait", 0x45b3a, 0x45bda, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_HK[] =
@@ -493,7 +493,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_HK[] =
     { L"HK Unused 1", 0x1835a, 0x1837a },
     { L"HK Unused 2", 0x1837a, 0x1839a },
     { L"HK Select Portrait", 0x41bfa, 0x41c1a, indexCPS2Sprites_Vamp_Zabel, 0x20 },
-    { L"HK Win Portrait", 0x4667a, 0x4671a },
+    { L"HK Win Portrait", 0x4667a, 0x4671a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_PP[] =
@@ -503,7 +503,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_PP[] =
     { L"PP Unused 1", 0x183da, 0x183fa },
     { L"PP Unused 2", 0x183fa, 0x1841a },
     { L"PP Select Portrait", 0x41dfa, 0x41e1a, indexCPS2Sprites_Vamp_Zabel, 0x20 },
-    { L"PP Win Portrait", 0x471ba, 0x4725a },
+    { L"PP Win Portrait", 0x471ba, 0x4725a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_KK[] =
@@ -513,7 +513,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_KK[] =
     { L"KK Unused 1", 0x1845a, 0x1847a },
     { L"KK Unused 2", 0x1847a, 0x1849a },
     { L"KK Select Portrait", 0x41ffa, 0x4201a, indexCPS2Sprites_Vamp_Zabel, 0x20 },
-    { L"KK Win Portrait", 0x47cfa, 0x47d9a },
+    { L"KK Win Portrait", 0x47cfa, 0x47d9a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_AP[] =
@@ -523,7 +523,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_AP[] =
     { L"AP Unused 1", 0x184da, 0x184fa },
     { L"AP Unused 2", 0x184fa, 0x1851a },
     { L"AP Select Portrait", 0x421fa, 0x4221a, indexCPS2Sprites_Vamp_Zabel, 0x20 },
-    { L"AP Win Portrait", 0x4883a, 0x488da },
+    { L"AP Win Portrait", 0x4883a, 0x488da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_AK[] =
@@ -533,7 +533,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_AK[] =
     { L"AK Unused 1", 0x1855a, 0x1857a },
     { L"AK Unused 2", 0x1857a, 0x1859a },
     { L"AK Select Portrait", 0x423fa, 0x4241a, indexCPS2Sprites_Vamp_Zabel, 0x20 },
-    { L"AK Win Portrait", 0x4937a, 0x4941a },
+    { L"AK Win Portrait", 0x4937a, 0x4941a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LP[] =
@@ -543,7 +543,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LP[] =
     { L"LP Bats", 0x185da, 0x185fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"LP Unknown Extra", 0x185fa, 0x1861a },
     { L"LP Select Portrait", 0x4121a, 0x4123a, indexCPS2Sprites_Morrigan, 0x20 },
-    { L"LP Win Portrait", 0x42eda, 0x42f7a },
+    { L"LP Win Portrait", 0x42eda, 0x42f7a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MP[] =
@@ -553,7 +553,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MP[] =
     { L"MP Bats", 0x1865a, 0x1867a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"MP Unknown Extra", 0x1867a, 0x1869a },
     { L"MP Select Portrait", 0x4141a, 0x4143a, indexCPS2Sprites_Morrigan, 0x20 },
-    { L"MP Win Portrait", 0x43a1a, 0x43aba },
+    { L"MP Win Portrait", 0x43a1a, 0x43aba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HP[] =
@@ -563,7 +563,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HP[] =
     { L"HP Bats", 0x186da, 0x186fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"HP Unknown Extra", 0x186fa, 0x1871a },
     { L"HP Select Portrait", 0x4161a, 0x4163a, indexCPS2Sprites_Morrigan, 0x20 },
-    { L"HP Win Portrait", 0x4455a, 0x445fa },
+    { L"HP Win Portrait", 0x4455a, 0x445fa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LK[] =
@@ -573,7 +573,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LK[] =
     { L"LK Bats", 0x1875a, 0x1877a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"LK Unknown Extra", 0x1877a, 0x1879a },
     { L"LK Select Portrait", 0x4181a, 0x4183a, indexCPS2Sprites_Morrigan, 0x20 },
-    { L"LK Win Portrait", 0x4509a, 0x4513a },
+    { L"LK Win Portrait", 0x4509a, 0x4513a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MK[] =
@@ -583,7 +583,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MK[] =
     { L"MK Bats", 0x187da, 0x187fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"MK Unknown Extra", 0x187fa, 0x1881a },
     { L"MK Select Portrait", 0x41a1a, 0x41a3a, indexCPS2Sprites_Morrigan, 0x20 },
-    { L"MK Win Portrait", 0x45bda, 0x45c7a },
+    { L"MK Win Portrait", 0x45bda, 0x45c7a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HK[] =
@@ -593,7 +593,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HK[] =
     { L"HK Bats", 0x1885a, 0x1887a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"HK Unknown Extra", 0x1887a, 0x1889a },
     { L"HK Select Portrait", 0x41c1a, 0x41c3a, indexCPS2Sprites_Morrigan, 0x20 },
-    { L"HK Win Portrait", 0x4671a, 0x467ba },
+    { L"HK Win Portrait", 0x4671a, 0x467ba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_PP[] =
@@ -603,7 +603,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_PP[] =
     { L"PP Bats", 0x188da, 0x188fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"PP Unknown Extra", 0x188fa, 0x1891a },
     { L"PP Select Portrait", 0x41e1a, 0x41e3a, indexCPS2Sprites_Morrigan, 0x20 },
-    { L"PP Win Portrait", 0x4725a, 0x472fa },
+    { L"PP Win Portrait", 0x4725a, 0x472fa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_KK[] =
@@ -613,7 +613,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_KK[] =
     { L"KK Bats", 0x1895a, 0x1897a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"KK Unknown Extra", 0x1897a, 0x1899a },
     { L"KK Select Portrait", 0x4201a, 0x4203a, indexCPS2Sprites_Morrigan, 0x20 },
-    { L"KK Win Portrait", 0x47d9a, 0x47e3a },
+    { L"KK Win Portrait", 0x47d9a, 0x47e3a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_AP[] =
@@ -623,7 +623,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_AP[] =
     { L"AP Bats", 0x189da, 0x189fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"AP Unknown Extra", 0x189fa, 0x18a1a },
     { L"AP Select Portrait", 0x4221a, 0x4223a, indexCPS2Sprites_Morrigan, 0x20 },
-    { L"AP Win Portrait", 0x488da, 0x4897a },
+    { L"AP Win Portrait", 0x488da, 0x4897a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_AK[] =
@@ -633,7 +633,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_AK[] =
     { L"AK Bats", 0x18a5a, 0x18a7a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"AK Unknown Extra", 0x18a7a, 0x18a9a },
     { L"AK Select Portrait", 0x4241a, 0x4243a, indexCPS2Sprites_Morrigan, 0x20 },
-    { L"AK Win Portrait", 0x4941a, 0x494ba },
+    { L"AK Win Portrait", 0x4941a, 0x494ba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_LP[] =
@@ -643,7 +643,7 @@ const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_LP[] =
     { L"LP 426KK/62KK Light", 0x18aba, 0x18ada, indexCPS2Sprites_Anakaris, 0x01 },
     { L"LP Pharaoh Magic Orbs", 0x18afa, 0x18b1a, indexCPS2Sprites_Anakaris, 0x3 },
     { L"LP Select Portrait", 0x4123a, 0x4125a, indexCPS2Sprites_Anakaris, 0x20 },
-    { L"LP Win Portrait", 0x42f7a, 0x4301a },
+    { L"LP Win Portrait", 0x42f7a, 0x4301a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_MP[] =
@@ -653,7 +653,7 @@ const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_MP[] =
     { L"MP 426KK/62KK Light", 0x18b3a, 0x18b5a, indexCPS2Sprites_Anakaris, 0x01 },
     { L"MP Pharaoh Magic Orbs", 0x18b7a, 0x18b9a, indexCPS2Sprites_Anakaris, 0x3 },
     { L"MP Select Portrait", 0x4143a, 0x4145a, indexCPS2Sprites_Anakaris, 0x20 },
-    { L"MP Win Portrait", 0x43aba, 0x43b5a },
+    { L"MP Win Portrait", 0x43aba, 0x43b5a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_HP[] =
@@ -663,7 +663,7 @@ const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_HP[] =
     { L"HP 426KK/62KK Light", 0x18bba, 0x18bda, indexCPS2Sprites_Anakaris, 0x01 },
     { L"HP Pharaoh Magic Orbs", 0x18bfa, 0x18c1a, indexCPS2Sprites_Anakaris, 0x3 },
     { L"HP Select Portrait", 0x4163a, 0x4165a, indexCPS2Sprites_Anakaris, 0x20 },
-    { L"HP Win Portrait", 0x445fa, 0x4469a },
+    { L"HP Win Portrait", 0x445fa, 0x4469a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_LK[] =
@@ -673,7 +673,7 @@ const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_LK[] =
     { L"LK 426KK/62KK Light", 0x18c3a, 0x18c5a, indexCPS2Sprites_Anakaris, 0x01 },
     { L"LK Pharaoh Magic Orbs", 0x18c7a, 0x18c9a, indexCPS2Sprites_Anakaris, 0x3 },
     { L"LK Select Portrait", 0x4183a, 0x4185a, indexCPS2Sprites_Anakaris, 0x20 },
-    { L"LK Win Portrait", 0x4513a, 0x451da },
+    { L"LK Win Portrait", 0x4513a, 0x451da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_MK[] =
@@ -683,7 +683,7 @@ const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_MK[] =
     { L"MK 426KK/62KK Light", 0x18cba, 0x18cda, indexCPS2Sprites_Anakaris, 0x01 },
     { L"MK Pharaoh Magic Orbs", 0x18cfa, 0x18d1a, indexCPS2Sprites_Anakaris, 0x3 },
     { L"MK Select Portrait", 0x41a3a, 0x41a5a, indexCPS2Sprites_Anakaris, 0x20 },
-    { L"MK Win Portrait", 0x45c7a, 0x45d1a },
+    { L"MK Win Portrait", 0x45c7a, 0x45d1a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_HK[] =
@@ -693,7 +693,7 @@ const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_HK[] =
     { L"HK 426KK/62KK Light", 0x18d3a, 0x18d5a, indexCPS2Sprites_Anakaris, 0x01 },
     { L"HK Pharaoh Magic Orbs", 0x18d7a, 0x18d9a, indexCPS2Sprites_Anakaris, 0x3 },
     { L"HK Select Portrait", 0x41c3a, 0x41c5a, indexCPS2Sprites_Anakaris, 0x20 },
-    { L"HK Win Portrait", 0x467ba, 0x4685a },
+    { L"HK Win Portrait", 0x467ba, 0x4685a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_PP[] =
@@ -703,7 +703,7 @@ const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_PP[] =
     { L"PP 426KK/62KK Light", 0x18dba, 0x18dda, indexCPS2Sprites_Anakaris, 0x01 },
     { L"PP Pharaoh Magic Orbs", 0x18dfa, 0x18e1a, indexCPS2Sprites_Anakaris, 0x3 },
     { L"PP Select Portrait", 0x41e3a, 0x41e5a, indexCPS2Sprites_Anakaris, 0x20 },
-    { L"PP Win Portrait", 0x472fa, 0x4739a },
+    { L"PP Win Portrait", 0x472fa, 0x4739a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_KK[] =
@@ -713,7 +713,7 @@ const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_KK[] =
     { L"KK 426KK/62KK Light", 0x18e3a, 0x18e5a, indexCPS2Sprites_Anakaris, 0x01 },
     { L"KK Pharaoh Magic Orbs", 0x18e7a, 0x18e9a, indexCPS2Sprites_Anakaris, 0x3 },
     { L"KK Select Portrait", 0x4203a, 0x4205a, indexCPS2Sprites_Anakaris, 0x20 },
-    { L"KK Win Portrait", 0x47e3a, 0x47eda },
+    { L"KK Win Portrait", 0x47e3a, 0x47eda, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_AP[] =
@@ -723,7 +723,7 @@ const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_AP[] =
     { L"AP 426KK/62KK Light", 0x18eba, 0x18eda, indexCPS2Sprites_Anakaris, 0x01 },
     { L"AP Pharaoh Magic Orbs", 0x18efa, 0x18f1a, indexCPS2Sprites_Anakaris, 0x3 },
     { L"AP Select Portrait", 0x4223a, 0x4225a, indexCPS2Sprites_Anakaris, 0x20 },
-    { L"AP Win Portrait", 0x4897a, 0x48a1a },
+    { L"AP Win Portrait", 0x4897a, 0x48a1a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_AK[] =
@@ -733,7 +733,7 @@ const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_AK[] =
     { L"AK 426KK/62KK Light", 0x18f3a, 0x18f5a, indexCPS2Sprites_Anakaris, 0x01 },
     { L"AK Pharaoh Magic Orbs", 0x18f7a, 0x18f9a, indexCPS2Sprites_Anakaris, 0x3 },
     { L"AK Select Portrait", 0x4243a, 0x4245a, indexCPS2Sprites_Anakaris, 0x20 },
-    { L"AK Win Portrait", 0x494ba, 0x4955a },
+    { L"AK Win Portrait", 0x494ba, 0x4955a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV2_A_ANAKARIS_PALETTES_SHARED[] =
@@ -760,7 +760,7 @@ const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_LP[] =
     { L"LP Bubble/Butterfly", 0x18fda, 0x18ffa, indexCPS2Sprites_Felicia, 0x01 },
     { L"LP Unknown Extra", 0x18ffa, 0x1901a },
     { L"LP Select portrait", 0x4125a, 0x4127a, indexCPS2Sprites_Felicia, 0x20 },
-    { L"LP Win Portrait", 0x4301a, 0x430ba },
+    { L"LP Win Portrait", 0x4301a, 0x430ba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
 };
 
 const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_MP[] =
@@ -770,7 +770,7 @@ const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_MP[] =
     { L"MP Bubble/Butterfly", 0x1905a, 0x1907a, indexCPS2Sprites_Felicia, 0x01 },
     { L"MP Unknown Extra", 0x1907a, 0x1909a },
     { L"MP Select Portrait", 0x4145a, 0x4147a, indexCPS2Sprites_Felicia, 0x20 },
-    { L"MP Win Portrait", 0x43b5a, 0x43bfa },
+    { L"MP Win Portrait", 0x43b5a, 0x43bfa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
 };
 
 const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_HP[] =
@@ -780,7 +780,7 @@ const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_HP[] =
     { L"HP Bubble/Butterfly", 0x190da, 0x190fa, indexCPS2Sprites_Felicia, 0x01 },
     { L"HP Unknown Extra", 0x190fa, 0x1911a },
     { L"HP Select Portrait", 0x4165a, 0x4167a, indexCPS2Sprites_Felicia, 0x20 },
-    { L"HP Win Portrait", 0x4469a, 0x4473a },
+    { L"HP Win Portrait", 0x4469a, 0x4473a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
 };
 
 const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_LK[] =
@@ -790,7 +790,7 @@ const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_LK[] =
     { L"LK Bubble/Butterfly", 0x1915a, 0x1917a, indexCPS2Sprites_Felicia, 0x01},
     { L"LK Unknown Extra", 0x1917a, 0x1919a },
     { L"LK Select Portrait", 0x4185a, 0x4187a, indexCPS2Sprites_Felicia, 0x20 },
-    { L"LK Win Portrait", 0x451da, 0x4527a },
+    { L"LK Win Portrait", 0x451da, 0x4527a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
 };
 
 const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_MK[] =
@@ -800,7 +800,7 @@ const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_MK[] =
     { L"MK Bubble/Butterfly", 0x191da, 0x191fa, indexCPS2Sprites_Felicia, 0x01 },
     { L"MK Unknown Extra", 0x191fa, 0x1921a },
     { L"MK Select Portrait", 0x41a5a, 0x41a7a, indexCPS2Sprites_Felicia, 0x20 },
-    { L"MK Win Portrait", 0x45d1a, 0x45dba },
+    { L"MK Win Portrait", 0x45d1a, 0x45dba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
 };
 
 const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_HK[] =
@@ -810,7 +810,7 @@ const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_HK[] =
     { L"HK Bubble/Butterfly", 0x1925a, 0x1927a, indexCPS2Sprites_Felicia, 0x01 },
     { L"HK Unknown Extra", 0x1927a, 0x1929a },
     { L"HK Select Portrait", 0x41c5a, 0x41c7a, indexCPS2Sprites_Felicia, 0x20 },
-    { L"HK Win Portrait", 0x4685a, 0x468fa },
+    { L"HK Win Portrait", 0x4685a, 0x468fa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
 };
 
 const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_PP[] =
@@ -820,7 +820,7 @@ const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_PP[] =
     { L"PP Bubble/Butterfly", 0x192da, 0x192fa, indexCPS2Sprites_Felicia, 0x01 },
     { L"PP Unknown Extra", 0x192fa, 0x1931a },
     { L"PP Select Portrait", 0x41e5a, 0x41e7a, indexCPS2Sprites_Felicia, 0x20 },
-    { L"PP Win Portrait", 0x4739a, 0x4743a },
+    { L"PP Win Portrait", 0x4739a, 0x4743a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
 };
 
 const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_KK[] =
@@ -830,7 +830,7 @@ const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_KK[] =
     { L"KK Bubble/Butterfly", 0x1935a, 0x1937a, indexCPS2Sprites_Felicia, 0x01 },
     { L"KK Unknown Extra", 0x1937a, 0x1939a },
     { L"KK Select Portrait", 0x4205a, 0x4207a, indexCPS2Sprites_Felicia, 0x20 },
-    { L"KK Win Portrait", 0x47eda, 0x47f7a },
+    { L"KK Win Portrait", 0x47eda, 0x47f7a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
 };
 
 const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_AP[] =
@@ -840,7 +840,7 @@ const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_AP[] =
     { L"AP Bubble/Butterfly", 0x193da, 0x193fa, indexCPS2Sprites_Felicia, 0x01 },
     { L"AP Unknown Extra", 0x193fa, 0x1941a },
     { L"AP Select Portrait", 0x4225a, 0x4227a, indexCPS2Sprites_Felicia, 0x20 },
-    { L"AP Win Portrait", 0x48a1a, 0x48aba },
+    { L"AP Win Portrait", 0x48a1a, 0x48aba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
 };
 
 const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_AK[] =
@@ -850,7 +850,7 @@ const sGame_PaletteDataset VSAV2_A_FELICIA_PALETTES_AK[] =
     { L"AK Bubble/Butterfly", 0x1945a, 0x1947a, indexCPS2Sprites_Felicia, 0x01 },
     { L"AK Unknown Extra", 0x1947a, 0x1949a },
     { L"AK Select Portrait", 0x4245a, 0x4247a, indexCPS2Sprites_Felicia, 0x20 },
-    { L"AK Win Portrait", 0x4955a, 0x495fa },
+    { L"AK Win Portrait", 0x4955a, 0x495fa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
 };
 
 const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_LP[] =
@@ -860,7 +860,7 @@ const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_LP[] =
     { L"LP 41236KK", 0x194ba, 0x194da, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"LP Unknown Extra", 0x194fa, 0x1951a },
     { L"LP Select Portrait", 0x4127a, 0x4129a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
-    { L"LP Win Portrait", 0x430ba, 0x4315a },
+    { L"LP Win Portrait", 0x430ba, 0x4315a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_MP[] =
@@ -870,7 +870,7 @@ const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_MP[] =
     { L"MP 41236KK", 0x1953a, 0x1955a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"MP Unknown Extra", 0x1957a, 0x1959a },
     { L"MP Select Portrait", 0x4147a, 0x4149a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
-    { L"MP Win Portrait", 0x43bfa, 0x43c9a },
+    { L"MP Win Portrait", 0x43bfa, 0x43c9a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_HP[] =
@@ -880,7 +880,7 @@ const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_HP[] =
     { L"HP 41236KK", 0x195ba, 0x195da, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"HP Unknown Extra", 0x195fa, 0x1961a },
     { L"HP Select Portrait", 0x4167a, 0x4169a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
-    { L"HP Win Portrait", 0x4473a, 0x447da },
+    { L"HP Win Portrait", 0x4473a, 0x447da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_LK[] =
@@ -890,7 +890,7 @@ const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_LK[] =
     { L"LK 41236KK", 0x1963a, 0x1965a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"LK Unknown Extra", 0x1967a, 0x1969a },
     { L"LK Select Portrait", 0x4187a, 0x4189a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
-    { L"LK Win Portrait", 0x4527a, 0x4531a },
+    { L"LK Win Portrait", 0x4527a, 0x4531a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_MK[] =
@@ -900,7 +900,7 @@ const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_MK[] =
     { L"MK 41236KK", 0x196ba, 0x196da, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"MK Unknown Extra", 0x196fa, 0x1971a },
     { L"MK Select Portrait", 0x41a7a, 0x41a9a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
-    { L"MK Win Portrait", 0x45dba, 0x45e5a },
+    { L"MK Win Portrait", 0x45dba, 0x45e5a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_HK[] =
@@ -910,7 +910,7 @@ const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_HK[] =
     { L"HK 41236KK", 0x1973a, 0x1975a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"HK Unknown Extra", 0x1977a, 0x1979a },
     { L"HK Select Portrait", 0x41c7a, 0x41c9a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
-    { L"HK Win Portrait", 0x468fa, 0x4699a },
+    { L"HK Win Portrait", 0x468fa, 0x4699a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_PP[] =
@@ -920,7 +920,7 @@ const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_PP[] =
     { L"PP 41236KK", 0x197ba, 0x197da, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"PP Unknown Extra", 0x197fa, 0x1981a },
     { L"PP Select Portrait", 0x41e7a, 0x41e9a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
-    { L"PP Win Portrait", 0x4743a, 0x474da },
+    { L"PP Win Portrait", 0x4743a, 0x474da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_KK[] =
@@ -930,7 +930,7 @@ const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_KK[] =
     { L"KK 41236KK", 0x1983a, 0x1985a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"KK Unknown Extra", 0x1987a, 0x1989a },
     { L"KK Select Portrait", 0x4207a, 0x4209a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
-    { L"KK Win Portrait", 0x47f7a, 0x4801a },
+    { L"KK Win Portrait", 0x47f7a, 0x4801a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_AP[] =
@@ -940,7 +940,7 @@ const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_AP[] =
     { L"AP 41236KK", 0x198ba, 0x198da, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"AP Unknown Extra", 0x198fa, 0x1991a },
     { L"AP Select Portrait", 0x4227a, 0x4229a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
-    { L"AP Win Portrait", 0x48aba, 0x48b5a },
+    { L"AP Win Portrait", 0x48aba, 0x48b5a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_AK[] =
@@ -950,7 +950,7 @@ const sGame_PaletteDataset VSAV2_A_BISHAMON_PALETTES_AK[] =
     { L"AK 41236KK", 0x1993a, 0x1995a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"AK Unknown Extra", 0x1997a, 0x1999a },
     { L"AK Select Portrait", 0x4247a, 0x4249a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
-    { L"AK Win Portrait", 0x495fa, 0x4969a },
+    { L"AK Win Portrait", 0x495fa, 0x4969a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_LP[] =
@@ -960,7 +960,7 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_LP[] =
     { L"LP Poison Cloud", 0x199fa, 0x19a1a },
     { L"LP Mach Crab (not full pal)", 0x199da, 0x199fa },
     { L"LP Select Portrait", 0x4129a, 0x412ba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
-    { L"LP Win Portrait", 0x4315a, 0x431fa },
+    { L"LP Win Portrait", 0x4315a, 0x431fa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_MP[] =
@@ -970,7 +970,7 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_MP[] =
     { L"MP Poison Cloud", 0x19a7a, 0x19a9a },
     { L"MP Mach Crab (not full pal)", 0x19a5a, 0x19a7a },
     { L"MP Select Portrait", 0x4149a, 0x414ba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
-    { L"MP Win Portrait", 0x43c9a, 0x43d3a },
+    { L"MP Win Portrait", 0x43c9a, 0x43d3a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_HP[] =
@@ -980,7 +980,7 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_HP[] =
     { L"HP Poison Cloud", 0x19afa, 0x19b1a },
     { L"HP Mach Crab (not full pal)", 0x19ada, 0x19afa },
     { L"HP Select Portrait", 0x4169a, 0x416ba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
-    { L"HP Win Portrait", 0x447da, 0x4487a },
+    { L"HP Win Portrait", 0x447da, 0x4487a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_LK[] =
@@ -990,7 +990,7 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_LK[] =
     { L"LK Poison Cloud", 0x19b7a, 0x19b9a },
     { L"LK Mach Crab (not full pal)", 0x19b5a, 0x19b7a },
     { L"LK Select Portrait", 0x4189a, 0x418ba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
-    { L"LK Win Portrait", 0x4531a, 0x453ba },
+    { L"LK Win Portrait", 0x4531a, 0x453ba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_MK[] =
@@ -1000,7 +1000,7 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_MK[] =
     { L"MK Poison Cloud", 0x19bfa, 0x19c1a },
     { L"MK Mach Crab (not full pal)", 0x19bda, 0x19bfa },
     { L"MK Select Portrait", 0x41a9a, 0x41aba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
-    { L"MK Win Portrait", 0x45e5a, 0x45efa },
+    { L"MK Win Portrait", 0x45e5a, 0x45efa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_HK[] =
@@ -1010,7 +1010,7 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_HK[] =
     { L"HK Poison Cloud", 0x19c7a, 0x19c9a },
     { L"HK Mach Crab (not full pal)", 0x19c5a, 0x19c7a },
     { L"HK Select Portrait", 0x41c9a, 0x41cba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
-    { L"HK Win Portrait", 0x4699a, 0x46a3a },
+    { L"HK Win Portrait", 0x4699a, 0x46a3a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_PP[] =
@@ -1020,7 +1020,7 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_PP[] =
     { L"PP Water/s.MK/j.MP", 0x19cba, 0x19cda },
     { L"PP Mach Crab (not full pal)", 0x19cda, 0x19cfa },
     { L"PP Select Portrait", 0x41e9a, 0x41eba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
-    { L"PP Win Portrait", 0x474da, 0x4757a },
+    { L"PP Win Portrait", 0x474da, 0x4757a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_KK[] =
@@ -1030,7 +1030,7 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_KK[] =
     { L"KK Poison Cloud", 0x19d7a, 0x19d9a },
     { L"KK Mach Crab (not full pal)", 0x19d5a, 0x19d7a },
     { L"KK Select Portrait", 0x4209a, 0x420ba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
-    { L"KK Win Portrait", 0x4801a, 0x480ba },
+    { L"KK Win Portrait", 0x4801a, 0x480ba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_AP[] =
@@ -1040,7 +1040,7 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_AP[] =
     { L"AP Poison Cloud", 0x19dfa, 0x19e1a },
     { L"AP Mach Crab (not full pal)", 0x19dda, 0x19dfa },
     { L"AP Select Portrait", 0x4229a, 0x422ba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
-    { L"AP Win Portrait", 0x48b5a, 0x48bfa },
+    { L"AP Win Portrait", 0x48b5a, 0x48bfa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_AK[] =
@@ -1050,7 +1050,7 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_AK[] =
     { L"AK Poison Cloud", 0x19e7a, 0x19e9a },
     { L"AK Mach Crab (not full pal)", 0x19e5a, 0x19e7a },
     { L"AK Select Portrait", 0x4249a, 0x424ba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
-    { L"AK Win Portrait", 0x4969a, 0x4973a },
+    { L"AK Win Portrait", 0x4969a, 0x4973a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_LP[] =
@@ -1060,7 +1060,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_LP[] =
     { L"LP Banana", 0x19eba, 0x19eda, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"LP Smoke", 0x19eda, 0x19efa, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
     { L"LP Select Portrait", 0x412ba, 0x412da, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"LP Win Portrait", 0x431fa, 0x4329a },
+    { L"LP Win Portrait", 0x431fa, 0x4329a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_MP[] =
@@ -1070,7 +1070,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_MP[] =
     { L"MP Banana", 0x19f3a, 0x19f5a, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"MP Smoke", 0x19f5a, 0x19f7a, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
     { L"MP Select Portrait", 0x414ba, 0x414da, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"MP Win Portrait", 0x43d3a, 0x43dda },
+    { L"MP Win Portrait", 0x43d3a, 0x43dda, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_HP[] =
@@ -1080,7 +1080,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_HP[] =
     { L"HP Banana", 0x19fba, 0x19fda, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"HP Smoke", 0x19fda, 0x19ffa, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
     { L"HP Select Portrait", 0x416ba, 0x416da, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"HP Win Portrait", 0x4487a, 0x4491a },
+    { L"HP Win Portrait", 0x4487a, 0x4491a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_LK[] =
@@ -1090,7 +1090,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_LK[] =
     { L"LK Banana", 0x1a03a, 0x1a05a, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"LK Smoke", 0x1a05a, 0x1a07a, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
     { L"LK Select Portrait", 0x418ba, 0x418da, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"LK Win Portrait", 0x453ba, 0x4545a },
+    { L"LK Win Portrait", 0x453ba, 0x4545a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_MK[] =
@@ -1100,7 +1100,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_MK[] =
     { L"MK Banana", 0x1a0ba, 0x1a0da, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"MK Smoke", 0x1a0da, 0x1a0fa, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
     { L"MK Select Portrait", 0x41aba, 0x41ada, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"MK Win Portrait", 0x45efa, 0x45f9a },
+    { L"MK Win Portrait", 0x45efa, 0x45f9a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_HK[] =
@@ -1110,7 +1110,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_HK[] =
     { L"HK Banana", 0x1a13a, 0x1a15a, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"HK Smoke", 0x1a15a, 0x1a17a, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
     { L"HK Select Portrait", 0x3faba, 0x3fada, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"HK Win Portrait", 0x46a3a, 0x46ada },
+    { L"HK Win Portrait", 0x46a3a, 0x46ada, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_PP[] =
@@ -1120,7 +1120,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_PP[] =
     { L"PP Banana", 0x1a1ba, 0x1a1da, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"PP Smoke", 0x1a1da, 0x1a1fa, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
     { L"PP Select Portrait", 0x41eba, 0x41eda, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"PP Win Portrait", 0x4757a, 0x4761a },
+    { L"PP Win Portrait", 0x4757a, 0x4761a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_KK[] =
@@ -1130,7 +1130,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_KK[] =
     { L"KK Banana", 0x1a23a, 0x1a25a, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"KK Smoke", 0x1a25a, 0x1a27a, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
     { L"KK Select Portrait", 0x420ba, 0x420da, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"KK Win Portrait", 0x480ba, 0x4815a },
+    { L"KK Win Portrait", 0x480ba, 0x4815a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_AP[] =
@@ -1140,7 +1140,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_AP[] =
     { L"AP Banana", 0x1a2ba, 0x1a2da, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"AP Smoke", 0x1a2da, 0x1a2fa, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
     { L"AP Select Portrait", 0x422ba, 0x422da, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"AP Win Portrait", 0x48bfa, 0x48c9a },
+    { L"AP Win Portrait", 0x48bfa, 0x48c9a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_AK[] =
@@ -1150,7 +1150,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_AK[] =
     { L"AK Banana", 0x1a33a, 0x1a35a, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"AK Smoke", 0x1a35a, 0x1a37a, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
     { L"AK Select Portrait", 0x424ba, 0x424da, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"AK Win Portrait", 0x4973a, 0x497da },
+    { L"AK Win Portrait", 0x4973a, 0x497da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV2_A_ALTZABEL_PALETTES_1[] =
@@ -1179,7 +1179,7 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_LP[] =
     { L"LP Egg", 0x1a8da, 0x1a8fa },
     { L"LP Bees", 0x1a8fa, 0x1a91a, indexCPS2Sprites_Vamp_QBee, 0x0 },
     { L"LP Select Portrait", 0x412fa, 0x4131a, indexCPS2Sprites_Vamp_QBee, 0x20 },
-    { L"LP Win Portrait", 0x4333a, 0x433da },
+    { L"LP Win Portrait", 0x4333a, 0x433da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_MP[] =
@@ -1189,7 +1189,7 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_MP[] =
     { L"MP Egg", 0x1a95a, 0x1a97a },
     { L"MP Bees", 0x1a97a, 0x1a99a, indexCPS2Sprites_Vamp_QBee, 0x0 },
     { L"MP Select Portrait", 0x414fa, 0x4151a, indexCPS2Sprites_Vamp_QBee, 0x20 },
-    { L"MP Win Portrait", 0x43e7a, 0x43f1a },
+    { L"MP Win Portrait", 0x43e7a, 0x43f1a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_HP[] =
@@ -1199,7 +1199,7 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_HP[] =
     { L"HP Egg", 0x1a9da, 0x1a9fa },
     { L"HP Bees", 0x1a9fa, 0x1aa1a, indexCPS2Sprites_Vamp_QBee, 0x0 },
     { L"HP Select Portrait", 0x416fa, 0x4171a, indexCPS2Sprites_Vamp_QBee, 0x20 },
-    { L"HP Win Portrait", 0x449ba, 0x44a5a },
+    { L"HP Win Portrait", 0x449ba, 0x44a5a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_LK[] =
@@ -1209,7 +1209,7 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_LK[] =
     { L"LK Egg", 0x1aa5a, 0x1aa7a },
     { L"LK Bees", 0x1aa7a, 0x1aa9a, indexCPS2Sprites_Vamp_QBee, 0x0 },
     { L"LK Select Portrait", 0x418fa, 0x4191a, indexCPS2Sprites_Vamp_QBee, 0x20 },
-    { L"LK Win Portrait", 0x454fa, 0x4559a },
+    { L"LK Win Portrait", 0x454fa, 0x4559a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_MK[] =
@@ -1219,7 +1219,7 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_MK[] =
     { L"MK Egg", 0x1aada, 0x1aafa },
     { L"MK Bees", 0x1aafa, 0x1ab1a, indexCPS2Sprites_Vamp_QBee, 0x0 },
     { L"MK Select Portrait", 0x41afa, 0x41b1a, indexCPS2Sprites_Vamp_QBee, 0x20 },
-    { L"MK Win Portrait", 0x4603a, 0x460da },
+    { L"MK Win Portrait", 0x4603a, 0x460da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_HK[] =
@@ -1229,7 +1229,7 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_HK[] =
     { L"HK Egg", 0x1ab5a, 0x1ab7a },
     { L"HK Bees", 0x1ab7a, 0x1ab9a, indexCPS2Sprites_Vamp_QBee, 0x0 },
     { L"HK Select Portrait", 0x41cfa, 0x41d1a, indexCPS2Sprites_Vamp_QBee, 0x20 },
-    { L"HK Win Portrait", 0x46b7a, 0x46c1a },
+    { L"HK Win Portrait", 0x46b7a, 0x46c1a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_PP[] =
@@ -1239,7 +1239,7 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_PP[] =
     { L"PP Egg", 0x1abda, 0x1abfa },
     { L"PP Bees", 0x1abfa, 0x1ac1a, indexCPS2Sprites_Vamp_QBee, 0x0 },
     { L"PP Select Portrait", 0x41efa, 0x41f1a, indexCPS2Sprites_Vamp_QBee, 0x20 },
-    { L"PP Win Portrait", 0x476ba, 0x4775a },
+    { L"PP Win Portrait", 0x476ba, 0x4775a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_KK[] =
@@ -1249,7 +1249,7 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_KK[] =
     { L"KK Egg", 0x1ac5a, 0x1ac7a },
     { L"KK Bees", 0x1ac7a, 0x1ac9a, indexCPS2Sprites_Vamp_QBee, 0x0 },
     { L"KK Select Portrait", 0x420fa, 0x4211a, indexCPS2Sprites_Vamp_QBee, 0x20 },
-    { L"KK Win Portrait", 0x481fa, 0x4829a },
+    { L"KK Win Portrait", 0x481fa, 0x4829a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_AP[] =
@@ -1259,7 +1259,7 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_AP[] =
     { L"AP Egg", 0x1acda, 0x1acfa },
     { L"AP Bees", 0x1acfa, 0x1ad1a, indexCPS2Sprites_Vamp_QBee, 0x0 },
     { L"AP Select Portrait", 0x422fa, 0x4231a, indexCPS2Sprites_Vamp_QBee, 0x20 },
-    { L"AP Win Portrait", 0x48d3a, 0x48dda },
+    { L"AP Win Portrait", 0x48d3a, 0x48dda, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_AK[] =
@@ -1269,107 +1269,107 @@ const sGame_PaletteDataset VSAV2_A_QUEENBEE_PALETTES_AK[] =
     { L"AK Egg", 0x1ad5a, 0x1ad7a },
     { L"AK Bees", 0x1ad7a, 0x1ad9a, indexCPS2Sprites_Vamp_QBee, 0x0 },
     { L"AK Select Portrait", 0x424fa, 0x4251a, indexCPS2Sprites_Vamp_QBee, 0x20 },
-    { L"AK Win Portrait", 0x4987a, 0x4991a },
+    { L"AK Win Portrait", 0x4987a, 0x4991a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_LP[] =
 {
     { L"LP Lei-Lei", 0x1ad9a, 0x1adba, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"LP Lin-Lin", 0x1adba, 0x1adda },
+    { L"LP Lin-Lin", 0x1adba, 0x1adda, indexCPS2Sprites_Anita, 0x04 },
     { L"LP Dust, Weapons", 0x1adda, 0x1adfa },
     { L"LP Unknown Extra", 0x1adfa, 0x1ae1a },
     { L"LP Select Portrait", 0x4131a, 0x4133a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
-    { L"LP Win Portrait", 0x433da, 0x4347a },
+    { L"LP Win Portrait", 0x433da, 0x4347a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_MP[] =
 {
     { L"MP Lei-Lei", 0x1ae1a, 0x1ae3a, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"MP Lin-Lin", 0x1ae3a, 0x1ae5a },
+    { L"MP Lin-Lin", 0x1ae3a, 0x1ae5a, indexCPS2Sprites_Anita, 0x04 },
     { L"MP Dust, Weapons", 0x1ae5a, 0x1ae7a },
     { L"MP Unknown Extra", 0x1ae7a, 0x1ae9a },
     { L"MP Select Portrait", 0x4151a, 0x4153a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
-    { L"MP Win Portrait", 0x43f1a, 0x43fba },
+    { L"MP Win Portrait", 0x43f1a, 0x43fba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_HP[] =
 {
     { L"HP Lei-Lei", 0x1ae9a, 0x1aeba, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"HP Lin-Lin", 0x1aeba, 0x1aeda },
+    { L"HP Lin-Lin", 0x1aeba, 0x1aeda, indexCPS2Sprites_Anita, 0x04 },
     { L"HP Dust, Weapons", 0x1aeda, 0x1aefa },
     { L"HP Unknown Extra", 0x1aefa, 0x1af1a },
     { L"HP Select Portrait", 0x4171a, 0x4173a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
-    { L"HP Win Portrait", 0x44a5a, 0x44afa },
+    { L"HP Win Portrait", 0x44a5a, 0x44afa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_LK[] =
 {
     { L"LK Lei-Lei", 0x1af1a, 0x1af3a, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"LK Lin-Lin", 0x1af3a, 0x1af5a },
+    { L"LK Lin-Lin", 0x1af3a, 0x1af5a, indexCPS2Sprites_Anita, 0x04 },
     { L"LK Dust, Weapons", 0x1af5a, 0x1af7a },
     { L"LK Unknown Extra", 0x1af7a, 0x1af9a },
     { L"LK Select Portrait", 0x4191a, 0x4193a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
-    { L"LK Win Portrait", 0x4559a, 0x4563a },
+    { L"LK Win Portrait", 0x4559a, 0x4563a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_MK[] =
 {
     { L"MK Lei-Lei", 0x1af9a, 0x1afba, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"MK Lin-Lin", 0x1afba, 0x1afda },
+    { L"MK Lin-Lin", 0x1afba, 0x1afda, indexCPS2Sprites_Anita, 0x04 },
     { L"MK Dust, Weapons", 0x1afda, 0x1affa },
     { L"MK Unknown Extra", 0x1affa, 0x1b01a },
     { L"MK Select Portrait", 0x41b1a, 0x41b3a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
-    { L"MK Win Portrait", 0x460da, 0x4617a },
+    { L"MK Win Portrait", 0x460da, 0x4617a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_HK[] =
 {
     { L"HK Lei-Lei", 0x1b01a, 0x1b03a, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"HK Lin-Lin", 0x1b03a, 0x1b05a },
+    { L"HK Lin-Lin", 0x1b03a, 0x1b05a, indexCPS2Sprites_Anita, 0x04 },
     { L"HK Dust, Weapons", 0x1b05a, 0x1b07a },
     { L"HK Unknown Extra", 0x1b07a, 0x1b09a },
     { L"HK Select Portrait", 0x41d1a, 0x41d3a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
-    { L"HK Win Portrait", 0x46c1a, 0x46cba },
+    { L"HK Win Portrait", 0x46c1a, 0x46cba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_PP[] =
 {
     { L"PP Lei-Lei", 0x1b09a, 0x1b0ba, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"PP Lin-Lin", 0x1b0ba, 0x1b0da },
+    { L"PP Lin-Lin", 0x1b0ba, 0x1b0da, indexCPS2Sprites_Anita, 0x04 },
     { L"PP Dust, Weapons", 0x1b0da, 0x1b0fa },
     { L"PP Unknown Extra", 0x1b0fa, 0x1b11a },
     { L"PP Select Portrait", 0x41f1a, 0x41f3a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
-    { L"PP Win Portrait", 0x4775a, 0x477fa },
+    { L"PP Win Portrait", 0x4775a, 0x477fa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_KK[] =
 {
     { L"KK Lei-Lei", 0x1b11a, 0x1b13a, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"KK Lin-Lin", 0x1b13a, 0x1b15a },
+    { L"KK Lin-Lin", 0x1b13a, 0x1b15a, indexCPS2Sprites_Anita, 0x04 },
     { L"KK Dust, Weapons", 0x1b15a, 0x1b17a },
     { L"KK Unknown Extra", 0x1b17a, 0x1b19a },
     { L"KK Select Portrait", 0x4211a, 0x4213a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
-    { L"KK Win Portrait", 0x4829a, 0x4833a },
+    { L"KK Win Portrait", 0x4829a, 0x4833a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_AP[] =
 {
     { L"AP Lei-Lei", 0x1b19a, 0x1b1ba, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"AP Lin-Lin", 0x1b1ba, 0x1b1da },
+    { L"AP Lin-Lin", 0x1b1ba, 0x1b1da, indexCPS2Sprites_Anita, 0x04 },
     { L"AP Dust, Weapons", 0x1b1da, 0x1b1fa },
     { L"AP Unknown Extra", 0x1b1fa, 0x1b21a },
     { L"AP Select Portrait", 0x4231a, 0x4233a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
-    { L"AP Win Portrait", 0x48dda, 0x48e7a },
+    { L"AP Win Portrait", 0x48dda, 0x48e7a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_AK[] =
 {
     { L"AK Lei-Lei", 0x1b21a, 0x1b23a, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"AK Lin-Lin", 0x1b23a, 0x1b25a },
+    { L"AK Lin-Lin", 0x1b23a, 0x1b25a, indexCPS2Sprites_Anita, 0x04 },
     { L"AK Dust, Weapons", 0x1b25a, 0x1b27a },
     { L"AK Unknown Extra", 0x1b27a, 0x1b29a },
     { L"AK Select Portrait", 0x4251a, 0x4253a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
-    { L"AK Win Portrait", 0x4991a, 0x499ba },
+    { L"AK Win Portrait", 0x4991a, 0x499ba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_LeiLei },
 };
 
 
@@ -1378,101 +1378,101 @@ const sGame_PaletteDataset VSAV2_A_LEILEI_PALETTES_AK[] =
 const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_LP[] =
 {
     { L"LP Lilith", 0x1b29a, 0x1b2ba, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"LP Hearts", 0x1b2ba, 0x1b2da },
-    { L"LP Luminous Illusion/62KKK bats", 0x1b2da, 0x1b2fa },
-    { L"LP Sparkles", 0x1b2fa, 0x1b31a },
+    { L"LP Hearts", 0x1b2ba, 0x1b2da, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"LP Luminous Illusion/62KKK bats", 0x1b2da, 0x1b2fa, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"LP Sparkles", 0x1b2fa, 0x1b31a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
     { L"LP Select Portrait", 0x4133a, 0x4135a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
-    { L"LP Win Portrait", 0x4347a, 0x4351a },
+    { L"LP Win Portrait", 0x4347a, 0x4351a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_MP[] =
 {
     { L"MP Lilith", 0x1b31a, 0x1b33a, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"MP Hearts", 0x1b33a, 0x1b35a },
-    { L"MP Luminous Illusion/62KKK bats", 0x1b35a, 0x1b37a },
-    { L"MP Sparkles", 0x1b37a, 0x1b39a },
+    { L"MP Hearts", 0x1b33a, 0x1b35a, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"MP Luminous Illusion/62KKK bats", 0x1b35a, 0x1b37a, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"MP Sparkles", 0x1b37a, 0x1b39a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
     { L"MP Select Portrait", 0x4153a, 0x4155a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
-    { L"MP Win Portrait", 0x43fba, 0x4405a },
+    { L"MP Win Portrait", 0x43fba, 0x4405a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_HP[] =
 {
     { L"HP Lilith", 0x1b39a, 0x1b3ba, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"HP Hearts", 0x1b3ba, 0x1b3da },
-    { L"HP Luminous Illusion/62KKK bats", 0x1b3da, 0x1b3fa },
-    { L"HP Sparkles", 0x1b3fa, 0x1b41a },
+    { L"HP Hearts", 0x1b3ba, 0x1b3da, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"HP Luminous Illusion/62KKK bats", 0x1b3da, 0x1b3fa, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"HP Sparkles", 0x1b3fa, 0x1b41a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
     { L"HP Select Portrait", 0x4173a, 0x4175a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
-    { L"HP Win Portrait", 0x44afa, 0x44b9a },
+    { L"HP Win Portrait", 0x44afa, 0x44b9a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_LK[] =
 {
     { L"LK Lilith", 0x1b41a, 0x1b43a, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"LK Hearts", 0x1b43a, 0x1b45a },
-    { L"LK Luminous Illusion/62KKK bats", 0x1b45a, 0x1b47a },
-    { L"LK Sparkles", 0x1b47a, 0x1b49a },
+    { L"LK Hearts", 0x1b43a, 0x1b45a, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"LK Luminous Illusion/62KKK bats", 0x1b45a, 0x1b47a, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"LK Sparkles", 0x1b47a, 0x1b49a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
     { L"LK Select Portrait", 0x4193a, 0x4195a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
-    { L"LK Win Portrait", 0x4563a, 0x456da },
+    { L"LK Win Portrait", 0x4563a, 0x456da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_MK[] =
 {
     { L"MK Lilith", 0x1b49a, 0x1b4ba, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"MK Hearts", 0x1b4ba, 0x1b4da },
-    { L"MK Luminous Illusion/62KKK bats", 0x1b4da, 0x1b4fa },
-    { L"MK Sparkles", 0x1b4fa, 0x1b51a },
+    { L"MK Hearts", 0x1b4ba, 0x1b4da, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"MK Luminous Illusion/62KKK bats", 0x1b4da, 0x1b4fa, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"MK Sparkles", 0x1b4fa, 0x1b51a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
     { L"MK Select Portrait", 0x41b3a, 0x41b5a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
-    { L"MK Win Portrait", 0x4617a, 0x4621a },
+    { L"MK Win Portrait", 0x4617a, 0x4621a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_HK[] =
 {
     { L"HK Lilith", 0x1b51a, 0x1b53a, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"HK Hearts", 0x1b53a, 0x1b55a },
-    { L"HK Luminous Illusion/62KKK bats", 0x1b55a, 0x1b57a },
-    { L"HK Sparkles", 0x1b57a, 0x1b59a },
+    { L"HK Hearts", 0x1b53a, 0x1b55a, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"HK Luminous Illusion/62KKK bats", 0x1b55a, 0x1b57a, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"HK Sparkles", 0x1b57a, 0x1b59a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
     { L"HK Select Portrait", 0x41d3a, 0x41d5a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
-    { L"HK Win Portrait", 0x46cba, 0x46d5a },
+    { L"HK Win Portrait", 0x46cba, 0x46d5a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_PP[] =
 {
     { L"PP Lilith", 0x1b59a, 0x1b5ba, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"PP Hearts", 0x1b5ba, 0x1b5da },
-    { L"PP Luminous Illusion/62KKK bats", 0x1b5da, 0x1b5fa },
-    { L"PP Sparkles", 0x1b5fa, 0x1b61a },
+    { L"PP Hearts", 0x1b5ba, 0x1b5da, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"PP Luminous Illusion/62KKK bats", 0x1b5da, 0x1b5fa, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"PP Sparkles", 0x1b5fa, 0x1b61a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
     { L"PP Select Portrait", 0x41f3a, 0x41f5a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
-    { L"PP Win Portrait", 0x477fa, 0x4789a },
+    { L"PP Win Portrait", 0x477fa, 0x4789a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_KK[] =
 {
     { L"KK Lilith", 0x1b61a, 0x1b63a, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"KK Hearts", 0x1b63a, 0x1b65a },
-    { L"KK Luminous Illusion/62KKK bats", 0x1b65a, 0x1b67a },
-    { L"KK Sparkles", 0x1b67a, 0x1b69a },
+    { L"KK Hearts", 0x1b63a, 0x1b65a, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"KK Luminous Illusion/62KKK bats", 0x1b65a, 0x1b67a, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"KK Sparkles", 0x1b67a, 0x1b69a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
     { L"KK Select Portrait", 0x4213a, 0x4215a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
-    { L"KK Win Portrait", 0x4833a, 0x483da },
+    { L"KK Win Portrait", 0x4833a, 0x483da, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_AP[] =
 {
     { L"AP Lilith", 0x1b69a, 0x1b6ba, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"AP Hearts", 0x1b6ba, 0x1b6da },
-    { L"AP Luminous Illusion/62KKK bats", 0x1b6da, 0x1b6fa },
-    { L"AP Sparkles", 0x1b6fa, 0x1b71a },
+    { L"AP Hearts", 0x1b6ba, 0x1b6da, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"AP Luminous Illusion/62KKK bats", 0x1b6da, 0x1b6fa, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"AP Sparkles", 0x1b6fa, 0x1b71a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
     { L"AP Select Portrait", 0x4233a, 0x4235a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
-    { L"AP Win Portrait", 0x48e7a, 0x48f1a },
+    { L"AP Win Portrait", 0x48e7a, 0x48f1a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_AK[] =
 {
     { L"AK Lilith", 0x1b71a, 0x1b73a, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"AK Hearts", 0x1b73a, 0x1b75a },
-    { L"AK Luminous Illusion/62KKK bats", 0x1b75a, 0x1b77a },
-    { L"AK Sparkles", 0x1b77a, 0x1b79a },
+    { L"AK Hearts", 0x1b73a, 0x1b75a, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"AK Luminous Illusion/62KKK bats", 0x1b75a, 0x1b77a, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"AK Sparkles", 0x1b77a, 0x1b79a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
     { L"AK Select Portrait", 0x4253a, 0x4255a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
-    { L"AK Win Portrait", 0x499ba, 0x49a5a },
+    { L"AK Win Portrait", 0x499ba, 0x49a5a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Lilith },
 };
 
 
@@ -1484,7 +1484,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_LP[] =
     { L"LP Blood", 0x1b7da, 0x1b7fa, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"LP Intro", 0x1b7fa, 0x1b81a, indexCPS2Sprites_Vamp_Jedah, 0x02 },
     { L"LP Select Portrait", 0x4135a, 0x4137a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
-    { L"LP Win Portrait", 0x4351a, 0x435ba },
+    { L"LP Win Portrait", 0x4351a, 0x435ba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_MP[] =
@@ -1494,7 +1494,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_MP[] =
     { L"MP Blood", 0x1b85a, 0x1b87a, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"MP Intro", 0x1b87a, 0x1b89a, indexCPS2Sprites_Vamp_Jedah, 0x02 },
     { L"MP Select Portrait", 0x4155a, 0x4157a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
-    { L"MP Win Portrait", 0x4405a, 0x440fa },
+    { L"MP Win Portrait", 0x4405a, 0x440fa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_HP[] =
@@ -1504,7 +1504,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_HP[] =
     { L"HP Blood", 0x1b8da, 0x1b8fa, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"HP Intro", 0x1b8fa, 0x1b91a, indexCPS2Sprites_Vamp_Jedah, 0x02 },
     { L"HP Select Portrait", 0x4175a, 0x4177a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
-    { L"HP Win Portrait", 0x44b9a, 0x44c3a },
+    { L"HP Win Portrait", 0x44b9a, 0x44c3a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_LK[] =
@@ -1514,7 +1514,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_LK[] =
     { L"LK Blood", 0x1b95a, 0x1b97a, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"LK Intro", 0x1b97a, 0x1b99a, indexCPS2Sprites_Vamp_Jedah, 0x02 },
     { L"LK Select Portrait", 0x4195a, 0x4197a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
-    { L"LK Win Portrait", 0x456da, 0x4577a },
+    { L"LK Win Portrait", 0x456da, 0x4577a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_MK[] =
@@ -1524,7 +1524,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_MK[] =
     { L"MK Blood", 0x1b9da, 0x1b9fa, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"MK Intro", 0x1b9fa, 0x1ba1a, indexCPS2Sprites_Vamp_Jedah, 0x02 },
     { L"MK Select Portrait", 0x41b5a, 0x41b7a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
-    { L"MK Win Portrait", 0x4621a, 0x462ba },
+    { L"MK Win Portrait", 0x4621a, 0x462ba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_HK[] =
@@ -1534,7 +1534,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_HK[] =
     { L"HK Blood", 0x1ba5a, 0x1ba7a, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"HK Intro", 0x1ba7a, 0x1ba9a, indexCPS2Sprites_Vamp_Jedah, 0x02 },
     { L"HK Select Portrait", 0x41d5a, 0x41d7a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
-    { L"HK Win Portrait", 0x46d5a, 0x46dfa },
+    { L"HK Win Portrait", 0x46d5a, 0x46dfa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_PP[] =
@@ -1544,7 +1544,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_PP[] =
     { L"PP Blood", 0x1bada, 0x1bafa, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"PP Intro", 0x1bafa, 0x1bb1a, indexCPS2Sprites_Vamp_Jedah, 0x02 },
     { L"PP Select Portrait", 0x41f5a, 0x41f7a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
-    { L"PP Win Portrait", 0x4789a, 0x4793a },
+    { L"PP Win Portrait", 0x4789a, 0x4793a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_KK[] =
@@ -1554,7 +1554,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_KK[] =
     { L"KK Blood", 0x1bb5a, 0x1bb7a, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"KK Intro", 0x1bb7a, 0x1bb9a, indexCPS2Sprites_Vamp_Jedah, 0x02 },
     { L"KK Select Portrait", 0x4215a, 0x4217a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
-    { L"KK Win Portrait", 0x483da, 0x4847a },
+    { L"KK Win Portrait", 0x483da, 0x4847a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_AP[] =
@@ -1564,7 +1564,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_AP[] =
     { L"AP Blood", 0x1bbda, 0x1bbfa, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"AP Intro", 0x1bbfa, 0x1bc1a, indexCPS2Sprites_Vamp_Jedah, 0x02 },
     { L"AP Select Portrait", 0x4235a, 0x4237a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
-    { L"AP Win Portrait", 0x48f1a, 0x48fba },
+    { L"AP Win Portrait", 0x48f1a, 0x48fba, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_AK[] =
@@ -1574,7 +1574,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_AK[] =
     { L"AK Blood", 0x1bc5a, 0x1bc7a, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"AK Intro", 0x1bc7a, 0x1bc9a, indexCPS2Sprites_Vamp_Jedah, 0x02 },
     { L"AK Select Portrait", 0x4255a, 0x4257a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
-    { L"AK Win Portrait", 0x49a5a, 0x49afa },
+    { L"AK Win Portrait", 0x49a5a, 0x49afa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_SHARED[] =
@@ -2103,16 +2103,16 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_SPECIAL[] =
     { L"Bulleta KK Poisoned",        0x1DA9a + (7 * 0x20), 0x1DABa + (7 * 0x20), indexCPS2Sprites_BBHood },
     { L"Bulleta AP Poisoned",        0x1DA9a + (8 * 0x20), 0x1DABa + (8 * 0x20), indexCPS2Sprites_BBHood },
     { L"Bulleta AK Poisoned",        0x1DA9a + (9 * 0x20), 0x1DABa + (9 * 0x20), indexCPS2Sprites_BBHood },
-    { L"Bulleta LP Zapped",          0x1DA9a + (10 * 0x20), 0x1DABa + (10 * 0x20) },
-    { L"Bulleta MP Zapped",          0x1DA9a + (11 * 0x20), 0x1DABa + (11 * 0x20) },
-    { L"Bulleta HP Zapped",          0x1DA9a + (12 * 0x20), 0x1DABa + (12 * 0x20) },
-    { L"Bulleta LK Zapped",          0x1DA9a + (13 * 0x20), 0x1DABa + (13 * 0x20) },
-    { L"Bulleta MK Zapped",          0x1DA9a + (14 * 0x20), 0x1DABa + (14 * 0x20) },
-    { L"Bulleta HK Zapped",          0x1DA9a + (15 * 0x20), 0x1DABa + (15 * 0x20) },
-    { L"Bulleta PP Zapped",          0x1DA9a + (16 * 0x20), 0x1DABa + (16 * 0x20) },
-    { L"Bulleta KK Zapped",          0x1DA9a + (17 * 0x20), 0x1DABa + (17 * 0x20) },
-    { L"Bulleta AP Zapped",          0x1DA9a + (18 * 0x20), 0x1DABa + (18 * 0x20) },
-    { L"Bulleta AK Zapped",          0x1DA9a + (19 * 0x20), 0x1DABa + (19 * 0x20) },
+    { L"Bulleta LP Zapped",          0x1DA9a + (10 * 0x20), 0x1DABa + (10 * 0x20), indexCPS2Sprites_BBHood, 0x10 },
+    { L"Bulleta MP Zapped",          0x1DA9a + (11 * 0x20), 0x1DABa + (11 * 0x20), indexCPS2Sprites_BBHood, 0x10 },
+    { L"Bulleta HP Zapped",          0x1DA9a + (12 * 0x20), 0x1DABa + (12 * 0x20), indexCPS2Sprites_BBHood, 0x10 },
+    { L"Bulleta LK Zapped",          0x1DA9a + (13 * 0x20), 0x1DABa + (13 * 0x20), indexCPS2Sprites_BBHood, 0x10 },
+    { L"Bulleta MK Zapped",          0x1DA9a + (14 * 0x20), 0x1DABa + (14 * 0x20), indexCPS2Sprites_BBHood, 0x10 },
+    { L"Bulleta HK Zapped",          0x1DA9a + (15 * 0x20), 0x1DABa + (15 * 0x20), indexCPS2Sprites_BBHood, 0x10 },
+    { L"Bulleta PP Zapped",          0x1DA9a + (16 * 0x20), 0x1DABa + (16 * 0x20), indexCPS2Sprites_BBHood, 0x10 },
+    { L"Bulleta KK Zapped",          0x1DA9a + (17 * 0x20), 0x1DABa + (17 * 0x20), indexCPS2Sprites_BBHood, 0x10 },
+    { L"Bulleta AP Zapped",          0x1DA9a + (18 * 0x20), 0x1DABa + (18 * 0x20), indexCPS2Sprites_BBHood, 0x10 },
+    { L"Bulleta AK Zapped",          0x1DA9a + (19 * 0x20), 0x1DABa + (19 * 0x20), indexCPS2Sprites_BBHood, 0x10 },
     { L"Bulleta LP Burned",          0x1DA9a + (20 * 0x20), 0x1DABa + (20 * 0x20), indexCPS2Sprites_BBHood },
     { L"Bulleta MP Burned",          0x1DA9a + (21 * 0x20), 0x1DABa + (21 * 0x20), indexCPS2Sprites_BBHood },
     { L"Bulleta HP Burned",          0x1DA9a + (22 * 0x20), 0x1DABa + (22 * 0x20), indexCPS2Sprites_BBHood },
@@ -2123,16 +2123,16 @@ const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_SPECIAL[] =
     { L"Bulleta KK Burned",          0x1DA9a + (27 * 0x20), 0x1DABa + (27 * 0x20), indexCPS2Sprites_BBHood },
     { L"Bulleta AP Burned",          0x1DA9a + (28 * 0x20), 0x1DABa + (28 * 0x20), indexCPS2Sprites_BBHood },
     { L"Bulleta AK Burned",          0x1DA9a + (29 * 0x20), 0x1DABa + (29 * 0x20), indexCPS2Sprites_BBHood },
-    { L"Bulleta LP Pharaoh's Curse", 0x1DA9a + (30 * 0x20), 0x1DABa + (30 * 0x20) },
-    { L"Bulleta MP Pharaoh's Curse", 0x1DA9a + (31 * 0x20), 0x1DABa + (31 * 0x20) },
-    { L"Bulleta HP Pharaoh's Curse", 0x1DA9a + (32 * 0x20), 0x1DABa + (32 * 0x20) },
-    { L"Bulleta LK Pharaoh's Curse", 0x1DA9a + (33 * 0x20), 0x1DABa + (33 * 0x20) },
-    { L"Bulleta MK Pharaoh's Curse", 0x1DA9a + (34 * 0x20), 0x1DABa + (34 * 0x20) },
-    { L"Bulleta HK Pharaoh's Curse", 0x1DA9a + (35 * 0x20), 0x1DABa + (35 * 0x20) },
-    { L"Bulleta PP Pharaoh's Curse", 0x1DA9a + (36 * 0x20), 0x1DABa + (36 * 0x20) },
-    { L"Bulleta KK Pharaoh's Curse", 0x1DA9a + (37 * 0x20), 0x1DABa + (37 * 0x20) },
-    { L"Bulleta AP Pharaoh's Curse", 0x1DA9a + (38 * 0x20), 0x1DABa + (38 * 0x20) },
-    { L"Bulleta AK Pharaoh's Curse", 0x1DA9a + (39 * 0x20), 0x1DABa + (39 * 0x20) },
+    { L"Bulleta LP Pharaoh's Curse", 0x1DA9a + (30 * 0x20), 0x1DABa + (30 * 0x20), indexCPS2Sprites_BBHood, 0x0c },
+    { L"Bulleta MP Pharaoh's Curse", 0x1DA9a + (31 * 0x20), 0x1DABa + (31 * 0x20), indexCPS2Sprites_BBHood, 0x0c },
+    { L"Bulleta HP Pharaoh's Curse", 0x1DA9a + (32 * 0x20), 0x1DABa + (32 * 0x20), indexCPS2Sprites_BBHood, 0x0c },
+    { L"Bulleta LK Pharaoh's Curse", 0x1DA9a + (33 * 0x20), 0x1DABa + (33 * 0x20), indexCPS2Sprites_BBHood, 0x0c },
+    { L"Bulleta MK Pharaoh's Curse", 0x1DA9a + (34 * 0x20), 0x1DABa + (34 * 0x20), indexCPS2Sprites_BBHood, 0x0c },
+    { L"Bulleta HK Pharaoh's Curse", 0x1DA9a + (35 * 0x20), 0x1DABa + (35 * 0x20), indexCPS2Sprites_BBHood, 0x0c },
+    { L"Bulleta PP Pharaoh's Curse", 0x1DA9a + (36 * 0x20), 0x1DABa + (36 * 0x20), indexCPS2Sprites_BBHood, 0x0c },
+    { L"Bulleta KK Pharaoh's Curse", 0x1DA9a + (37 * 0x20), 0x1DABa + (37 * 0x20), indexCPS2Sprites_BBHood, 0x0c },
+    { L"Bulleta AP Pharaoh's Curse", 0x1DA9a + (38 * 0x20), 0x1DABa + (38 * 0x20), indexCPS2Sprites_BBHood, 0x0c },
+    { L"Bulleta AK Pharaoh's Curse", 0x1DA9a + (39 * 0x20), 0x1DABa + (39 * 0x20), indexCPS2Sprites_BBHood, 0x0c },
     { L"Bulleta ES 1",               0x1DA9a + (40 * 0x20), 0x1DABa + (40 * 0x20), indexCPS2Sprites_BBHood },
     { L"Bulleta ES 2",               0x1DA9a + (41 * 0x20), 0x1DABa + (41 * 0x20), indexCPS2Sprites_BBHood },
     { L"Bulleta ES 3",               0x1DA9a + (42 * 0x20), 0x1DABa + (42 * 0x20), indexCPS2Sprites_BBHood },
@@ -2217,16 +2217,16 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_SPECIAL[] =
     { L"Demitri KK Poisoned",        0x1e85a + (7 * 0x20), 0x1e87a + (7 * 0x20), indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri AP Poisoned",        0x1e85a + (8 * 0x20), 0x1e87a + (8 * 0x20), indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri AK Poisoned",        0x1e85a + (9 * 0x20), 0x1e87a + (9 * 0x20), indexCPS2Sprites_Vamp_Demitri },
-    { L"Demitri LP Zapped",          0x1e85a + (10 * 0x20), 0x1e87a + (10 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0a },
-    { L"Demitri MP Zapped",          0x1e85a + (11 * 0x20), 0x1e87a + (11 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0a },
-    { L"Demitri HP Zapped",          0x1e85a + (12 * 0x20), 0x1e87a + (12 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0a },
-    { L"Demitri LK Zapped",          0x1e85a + (13 * 0x20), 0x1e87a + (13 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0a },
-    { L"Demitri MK Zapped",          0x1e85a + (14 * 0x20), 0x1e87a + (14 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0a },
-    { L"Demitri HK Zapped",          0x1e85a + (15 * 0x20), 0x1e87a + (15 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0a },
-    { L"Demitri PP Zapped",          0x1e85a + (16 * 0x20), 0x1e87a + (16 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0a },
-    { L"Demitri KK Zapped",          0x1e85a + (17 * 0x20), 0x1e87a + (17 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0a },
-    { L"Demitri AP Zapped",          0x1e85a + (18 * 0x20), 0x1e87a + (18 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0a },
-    { L"Demitri AK Zapped",          0x1e85a + (19 * 0x20), 0x1e87a + (19 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0a },
+    { L"Demitri LP Zapped",          0x1e85a + (10 * 0x20), 0x1e87a + (10 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0c },
+    { L"Demitri MP Zapped",          0x1e85a + (11 * 0x20), 0x1e87a + (11 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0c },
+    { L"Demitri HP Zapped",          0x1e85a + (12 * 0x20), 0x1e87a + (12 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0c },
+    { L"Demitri LK Zapped",          0x1e85a + (13 * 0x20), 0x1e87a + (13 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0c },
+    { L"Demitri MK Zapped",          0x1e85a + (14 * 0x20), 0x1e87a + (14 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0c },
+    { L"Demitri HK Zapped",          0x1e85a + (15 * 0x20), 0x1e87a + (15 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0c },
+    { L"Demitri PP Zapped",          0x1e85a + (16 * 0x20), 0x1e87a + (16 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0c },
+    { L"Demitri KK Zapped",          0x1e85a + (17 * 0x20), 0x1e87a + (17 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0c },
+    { L"Demitri AP Zapped",          0x1e85a + (18 * 0x20), 0x1e87a + (18 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0c },
+    { L"Demitri AK Zapped",          0x1e85a + (19 * 0x20), 0x1e87a + (19 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0c },
     { L"Demitri LP Burned",          0x1e85a + (20 * 0x20), 0x1e87a + (20 * 0x20), indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri MP Burned",          0x1e85a + (21 * 0x20), 0x1e87a + (21 * 0x20), indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri HP Burned",          0x1e85a + (22 * 0x20), 0x1e87a + (22 * 0x20), indexCPS2Sprites_Vamp_Demitri },
@@ -2237,16 +2237,16 @@ const sGame_PaletteDataset VSAV2_A_DEMITRI_PALETTES_SPECIAL[] =
     { L"Demitri KK Burned",          0x1e85a + (27 * 0x20), 0x1e87a + (27 * 0x20), indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri AP Burned",          0x1e85a + (28 * 0x20), 0x1e87a + (28 * 0x20), indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri AK Burned",          0x1e85a + (29 * 0x20), 0x1e87a + (29 * 0x20), indexCPS2Sprites_Vamp_Demitri },
-    { L"Demitri LP Pharaoh's Curse", 0x1e85a + (30 * 0x20), 0x1e87a + (30 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0d },
-    { L"Demitri MP Pharaoh's Curse", 0x1e85a + (31 * 0x20), 0x1e87a + (31 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0d },
-    { L"Demitri HP Pharaoh's Curse", 0x1e85a + (32 * 0x20), 0x1e87a + (32 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0d },
-    { L"Demitri LK Pharaoh's Curse", 0x1e85a + (33 * 0x20), 0x1e87a + (33 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0d },
-    { L"Demitri MK Pharaoh's Curse", 0x1e85a + (34 * 0x20), 0x1e87a + (34 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0d },
-    { L"Demitri HK Pharaoh's Curse", 0x1e85a + (35 * 0x20), 0x1e87a + (35 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0d },
-    { L"Demitri PP Pharaoh's Curse", 0x1e85a + (36 * 0x20), 0x1e87a + (36 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0d },
-    { L"Demitri KK Pharaoh's Curse", 0x1e85a + (37 * 0x20), 0x1e87a + (37 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0d },
-    { L"Demitri AP Pharaoh's Curse", 0x1e85a + (38 * 0x20), 0x1e87a + (38 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0d },
-    { L"Demitri AK Pharaoh's Curse", 0x1e85a + (39 * 0x20), 0x1e87a + (39 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x0d },
+    { L"Demitri LP Pharaoh's Curse", 0x1e85a + (30 * 0x20), 0x1e87a + (30 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x10 },
+    { L"Demitri MP Pharaoh's Curse", 0x1e85a + (31 * 0x20), 0x1e87a + (31 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x10 },
+    { L"Demitri HP Pharaoh's Curse", 0x1e85a + (32 * 0x20), 0x1e87a + (32 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x10 },
+    { L"Demitri LK Pharaoh's Curse", 0x1e85a + (33 * 0x20), 0x1e87a + (33 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x10 },
+    { L"Demitri MK Pharaoh's Curse", 0x1e85a + (34 * 0x20), 0x1e87a + (34 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x10 },
+    { L"Demitri HK Pharaoh's Curse", 0x1e85a + (35 * 0x20), 0x1e87a + (35 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x10 },
+    { L"Demitri PP Pharaoh's Curse", 0x1e85a + (36 * 0x20), 0x1e87a + (36 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x10 },
+    { L"Demitri KK Pharaoh's Curse", 0x1e85a + (37 * 0x20), 0x1e87a + (37 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x10 },
+    { L"Demitri AP Pharaoh's Curse", 0x1e85a + (38 * 0x20), 0x1e87a + (38 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x10 },
+    { L"Demitri AK Pharaoh's Curse", 0x1e85a + (39 * 0x20), 0x1e87a + (39 * 0x20), indexCPS2Sprites_Vamp_Demitri, 0x10 },
     { L"Demitri ES 1",               0x1e85a + (40 * 0x20), 0x1e87a + (40 * 0x20), indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri ES 2",               0x1e85a + (41 * 0x20), 0x1e87a + (41 * 0x20), indexCPS2Sprites_Vamp_Demitri },
     { L"Demitri ES 3",               0x1e85a + (42 * 0x20), 0x1e87a + (42 * 0x20), indexCPS2Sprites_Vamp_Demitri },
@@ -2331,16 +2331,16 @@ const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_SPECIAL[] =
     { L"Gallon KK Poisoned",        0x1f61a + (7 * 0x20), 0x1f63a + (7 * 0x20), indexCPS2Sprites_Vamp_Gallon },
     { L"Gallon AP Poisoned",        0x1f61a + (8 * 0x20), 0x1f63a + (8 * 0x20), indexCPS2Sprites_Vamp_Gallon },
     { L"Gallon AK Poisoned",        0x1f61a + (9 * 0x20), 0x1f63a + (9 * 0x20), indexCPS2Sprites_Vamp_Gallon },
-    { L"Gallon LP Zapped",          0x1f61a + (10 * 0x20), 0x1f63a + (10 * 0x20) },
-    { L"Gallon MP Zapped",          0x1f61a + (11 * 0x20), 0x1f63a + (11 * 0x20) },
-    { L"Gallon HP Zapped",          0x1f61a + (12 * 0x20), 0x1f63a + (12 * 0x20) },
-    { L"Gallon LK Zapped",          0x1f61a + (13 * 0x20), 0x1f63a + (13 * 0x20) },
-    { L"Gallon MK Zapped",          0x1f61a + (14 * 0x20), 0x1f63a + (14 * 0x20) },
-    { L"Gallon HK Zapped",          0x1f61a + (15 * 0x20), 0x1f63a + (15 * 0x20) },
-    { L"Gallon PP Zapped",          0x1f61a + (16 * 0x20), 0x1f63a + (16 * 0x20) },
-    { L"Gallon KK Zapped",          0x1f61a + (17 * 0x20), 0x1f63a + (17 * 0x20) },
-    { L"Gallon AP Zapped",          0x1f61a + (18 * 0x20), 0x1f63a + (18 * 0x20) },
-    { L"Gallon AK Zapped",          0x1f61a + (19 * 0x20), 0x1f63a + (19 * 0x20) },
+    { L"Gallon LP Zapped",          0x1f61a + (10 * 0x20), 0x1f63a + (10 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x0c },
+    { L"Gallon MP Zapped",          0x1f61a + (11 * 0x20), 0x1f63a + (11 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x0c },
+    { L"Gallon HP Zapped",          0x1f61a + (12 * 0x20), 0x1f63a + (12 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x0c },
+    { L"Gallon LK Zapped",          0x1f61a + (13 * 0x20), 0x1f63a + (13 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x0c },
+    { L"Gallon MK Zapped",          0x1f61a + (14 * 0x20), 0x1f63a + (14 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x0c },
+    { L"Gallon HK Zapped",          0x1f61a + (15 * 0x20), 0x1f63a + (15 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x0c },
+    { L"Gallon PP Zapped",          0x1f61a + (16 * 0x20), 0x1f63a + (16 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x0c },
+    { L"Gallon KK Zapped",          0x1f61a + (17 * 0x20), 0x1f63a + (17 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x0c },
+    { L"Gallon AP Zapped",          0x1f61a + (18 * 0x20), 0x1f63a + (18 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x0c },
+    { L"Gallon AK Zapped",          0x1f61a + (19 * 0x20), 0x1f63a + (19 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x0c },
     { L"Gallon LP Burned",          0x1f61a + (20 * 0x20), 0x1f63a + (20 * 0x20), indexCPS2Sprites_Vamp_Gallon },
     { L"Gallon MP Burned",          0x1f61a + (21 * 0x20), 0x1f63a + (21 * 0x20), indexCPS2Sprites_Vamp_Gallon },
     { L"Gallon HP Burned",          0x1f61a + (22 * 0x20), 0x1f63a + (22 * 0x20), indexCPS2Sprites_Vamp_Gallon },
@@ -2351,16 +2351,16 @@ const sGame_PaletteDataset VSAV2_A_GALLON_PALETTES_SPECIAL[] =
     { L"Gallon KK Burned",          0x1f61a + (27 * 0x20), 0x1f63a + (27 * 0x20), indexCPS2Sprites_Vamp_Gallon },
     { L"Gallon AP Burned",          0x1f61a + (28 * 0x20), 0x1f63a + (28 * 0x20), indexCPS2Sprites_Vamp_Gallon },
     { L"Gallon AK Burned",          0x1f61a + (29 * 0x20), 0x1f63a + (29 * 0x20), indexCPS2Sprites_Vamp_Gallon },
-    { L"Gallon LP Pharaoh's Curse", 0x1f61a + (30 * 0x20), 0x1f63a + (30 * 0x20) },
-    { L"Gallon MP Pharaoh's Curse", 0x1f61a + (31 * 0x20), 0x1f63a + (31 * 0x20) },
-    { L"Gallon HP Pharaoh's Curse", 0x1f61a + (32 * 0x20), 0x1f63a + (32 * 0x20) },
-    { L"Gallon LK Pharaoh's Curse", 0x1f61a + (33 * 0x20), 0x1f63a + (33 * 0x20) },
-    { L"Gallon MK Pharaoh's Curse", 0x1f61a + (34 * 0x20), 0x1f63a + (34 * 0x20) },
-    { L"Gallon HK Pharaoh's Curse", 0x1f61a + (35 * 0x20), 0x1f63a + (35 * 0x20) },
-    { L"Gallon PP Pharaoh's Curse", 0x1f61a + (36 * 0x20), 0x1f63a + (36 * 0x20) },
-    { L"Gallon KK Pharaoh's Curse", 0x1f61a + (37 * 0x20), 0x1f63a + (37 * 0x20) },
-    { L"Gallon AP Pharaoh's Curse", 0x1f61a + (38 * 0x20), 0x1f63a + (38 * 0x20) },
-    { L"Gallon AK Pharaoh's Curse", 0x1f61a + (39 * 0x20), 0x1f63a + (39 * 0x20) },
+    { L"Gallon LP Pharaoh's Curse", 0x1f61a + (30 * 0x20), 0x1f63a + (30 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x10 },
+    { L"Gallon MP Pharaoh's Curse", 0x1f61a + (31 * 0x20), 0x1f63a + (31 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x10 },
+    { L"Gallon HP Pharaoh's Curse", 0x1f61a + (32 * 0x20), 0x1f63a + (32 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x10 },
+    { L"Gallon LK Pharaoh's Curse", 0x1f61a + (33 * 0x20), 0x1f63a + (33 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x10 },
+    { L"Gallon MK Pharaoh's Curse", 0x1f61a + (34 * 0x20), 0x1f63a + (34 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x10 },
+    { L"Gallon HK Pharaoh's Curse", 0x1f61a + (35 * 0x20), 0x1f63a + (35 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x10 },
+    { L"Gallon PP Pharaoh's Curse", 0x1f61a + (36 * 0x20), 0x1f63a + (36 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x10 },
+    { L"Gallon KK Pharaoh's Curse", 0x1f61a + (37 * 0x20), 0x1f63a + (37 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x10 },
+    { L"Gallon AP Pharaoh's Curse", 0x1f61a + (38 * 0x20), 0x1f63a + (38 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x10 },
+    { L"Gallon AK Pharaoh's Curse", 0x1f61a + (39 * 0x20), 0x1f63a + (39 * 0x20), indexCPS2Sprites_Vamp_Gallon, 0x10 },
     { L"Gallon ES 1",               0x1f61a + (40 * 0x20), 0x1f63a + (40 * 0x20), indexCPS2Sprites_Vamp_Gallon },
     { L"Gallon ES 2",               0x1f61a + (41 * 0x20), 0x1f63a + (41 * 0x20), indexCPS2Sprites_Vamp_Gallon },
     { L"Gallon ES 3",               0x1f61a + (42 * 0x20), 0x1f63a + (42 * 0x20), indexCPS2Sprites_Vamp_Gallon },
@@ -2787,16 +2787,16 @@ const sGame_PaletteDataset VSAV2_A_Anakaris_PALETTES_SPECIAL[] =
     { L"Anakaris KK Poisoned",        0x2119a + (2 * 0xDC0) + (7 * 0x20), 0x211Ba + (2 * 0xDC0) + (7 * 0x20), indexCPS2Sprites_Anakaris },
     { L"Anakaris AP Poisoned",        0x2119a + (2 * 0xDC0) + (8 * 0x20), 0x211Ba + (2 * 0xDC0) + (8 * 0x20), indexCPS2Sprites_Anakaris },
     { L"Anakaris AK Poisoned",        0x2119a + (2 * 0xDC0) + (9 * 0x20), 0x211Ba + (2 * 0xDC0) + (9 * 0x20), indexCPS2Sprites_Anakaris },
-    { L"Anakaris LP Zapped",          0x2119a + (2 * 0xDC0) + (10 * 0x20), 0x211Ba + (2 * 0xDC0) + (10 * 0x20), indexCPS2Sprites_Anakaris, 0x0a },
-    { L"Anakaris MP Zapped",          0x2119a + (2 * 0xDC0) + (11 * 0x20), 0x211Ba + (2 * 0xDC0) + (11 * 0x20), indexCPS2Sprites_Anakaris, 0x0a },
-    { L"Anakaris HP Zapped",          0x2119a + (2 * 0xDC0) + (12 * 0x20), 0x211Ba + (2 * 0xDC0) + (12 * 0x20), indexCPS2Sprites_Anakaris, 0x0a },
-    { L"Anakaris LK Zapped",          0x2119a + (2 * 0xDC0) + (13 * 0x20), 0x211Ba + (2 * 0xDC0) + (13 * 0x20), indexCPS2Sprites_Anakaris, 0x0a },
-    { L"Anakaris MK Zapped",          0x2119a + (2 * 0xDC0) + (14 * 0x20), 0x211Ba + (2 * 0xDC0) + (14 * 0x20), indexCPS2Sprites_Anakaris, 0x0a },
-    { L"Anakaris HK Zapped",          0x2119a + (2 * 0xDC0) + (15 * 0x20), 0x211Ba + (2 * 0xDC0) + (15 * 0x20), indexCPS2Sprites_Anakaris, 0x0a },
-    { L"Anakaris PP Zapped",          0x2119a + (2 * 0xDC0) + (16 * 0x20), 0x211Ba + (2 * 0xDC0) + (16 * 0x20), indexCPS2Sprites_Anakaris, 0x0a },
-    { L"Anakaris KK Zapped",          0x2119a + (2 * 0xDC0) + (17 * 0x20), 0x211Ba + (2 * 0xDC0) + (17 * 0x20), indexCPS2Sprites_Anakaris, 0x0a },
-    { L"Anakaris AP Zapped",          0x2119a + (2 * 0xDC0) + (18 * 0x20), 0x211Ba + (2 * 0xDC0) + (18 * 0x20), indexCPS2Sprites_Anakaris, 0x0a },
-    { L"Anakaris AK Zapped",          0x2119a + (2 * 0xDC0) + (19 * 0x20), 0x211Ba + (2 * 0xDC0) + (19 * 0x20), indexCPS2Sprites_Anakaris, 0x0a },
+    { L"Anakaris LP Zapped",          0x2119a + (2 * 0xDC0) + (10 * 0x20), 0x211Ba + (2 * 0xDC0) + (10 * 0x20), indexCPS2Sprites_Anakaris, 0x0c },
+    { L"Anakaris MP Zapped",          0x2119a + (2 * 0xDC0) + (11 * 0x20), 0x211Ba + (2 * 0xDC0) + (11 * 0x20), indexCPS2Sprites_Anakaris, 0x0c },
+    { L"Anakaris HP Zapped",          0x2119a + (2 * 0xDC0) + (12 * 0x20), 0x211Ba + (2 * 0xDC0) + (12 * 0x20), indexCPS2Sprites_Anakaris, 0x0c },
+    { L"Anakaris LK Zapped",          0x2119a + (2 * 0xDC0) + (13 * 0x20), 0x211Ba + (2 * 0xDC0) + (13 * 0x20), indexCPS2Sprites_Anakaris, 0x0c },
+    { L"Anakaris MK Zapped",          0x2119a + (2 * 0xDC0) + (14 * 0x20), 0x211Ba + (2 * 0xDC0) + (14 * 0x20), indexCPS2Sprites_Anakaris, 0x0c },
+    { L"Anakaris HK Zapped",          0x2119a + (2 * 0xDC0) + (15 * 0x20), 0x211Ba + (2 * 0xDC0) + (15 * 0x20), indexCPS2Sprites_Anakaris, 0x0c },
+    { L"Anakaris PP Zapped",          0x2119a + (2 * 0xDC0) + (16 * 0x20), 0x211Ba + (2 * 0xDC0) + (16 * 0x20), indexCPS2Sprites_Anakaris, 0x0c },
+    { L"Anakaris KK Zapped",          0x2119a + (2 * 0xDC0) + (17 * 0x20), 0x211Ba + (2 * 0xDC0) + (17 * 0x20), indexCPS2Sprites_Anakaris, 0x0c },
+    { L"Anakaris AP Zapped",          0x2119a + (2 * 0xDC0) + (18 * 0x20), 0x211Ba + (2 * 0xDC0) + (18 * 0x20), indexCPS2Sprites_Anakaris, 0x0c },
+    { L"Anakaris AK Zapped",          0x2119a + (2 * 0xDC0) + (19 * 0x20), 0x211Ba + (2 * 0xDC0) + (19 * 0x20), indexCPS2Sprites_Anakaris, 0x0c },
     { L"Anakaris LP Burned",          0x2119a + (2 * 0xDC0) + (20 * 0x20), 0x211Ba + (2 * 0xDC0) + (20 * 0x20), indexCPS2Sprites_Anakaris },
     { L"Anakaris MP Burned",          0x2119a + (2 * 0xDC0) + (21 * 0x20), 0x211Ba + (2 * 0xDC0) + (21 * 0x20), indexCPS2Sprites_Anakaris },
     { L"Anakaris HP Burned",          0x2119a + (2 * 0xDC0) + (22 * 0x20), 0x211Ba + (2 * 0xDC0) + (22 * 0x20), indexCPS2Sprites_Anakaris },
@@ -3585,16 +3585,16 @@ const sGame_PaletteDataset VSAV2_A_Lilith_PALETTES_SPECIAL[] =
     { L"Lilith KK Poisoned",        0x2119a + (10 * 0xDC0) + (7 * 0x20), 0x211Ba + (10 * 0xDC0) + (7 * 0x20), indexCPS2Sprites_Vamp_Lilith },
     { L"Lilith AP Poisoned",        0x2119a + (10 * 0xDC0) + (8 * 0x20), 0x211Ba + (10 * 0xDC0) + (8 * 0x20), indexCPS2Sprites_Vamp_Lilith },
     { L"Lilith AK Poisoned",        0x2119a + (10 * 0xDC0) + (9 * 0x20), 0x211Ba + (10 * 0xDC0) + (9 * 0x20), indexCPS2Sprites_Vamp_Lilith },
-    { L"Lilith LP Zapped",          0x2119a + (10 * 0xDC0) + (10 * 0x20), 0x211Ba + (10 * 0xDC0) + (10 * 0x20) },
-    { L"Lilith MP Zapped",          0x2119a + (10 * 0xDC0) + (11 * 0x20), 0x211Ba + (10 * 0xDC0) + (11 * 0x20) },
-    { L"Lilith HP Zapped",          0x2119a + (10 * 0xDC0) + (12 * 0x20), 0x211Ba + (10 * 0xDC0) + (12 * 0x20) },
-    { L"Lilith LK Zapped",          0x2119a + (10 * 0xDC0) + (13 * 0x20), 0x211Ba + (10 * 0xDC0) + (13 * 0x20) },
-    { L"Lilith MK Zapped",          0x2119a + (10 * 0xDC0) + (14 * 0x20), 0x211Ba + (10 * 0xDC0) + (14 * 0x20) },
-    { L"Lilith HK Zapped",          0x2119a + (10 * 0xDC0) + (15 * 0x20), 0x211Ba + (10 * 0xDC0) + (15 * 0x20) },
-    { L"Lilith PP Zapped",          0x2119a + (10 * 0xDC0) + (16 * 0x20), 0x211Ba + (10 * 0xDC0) + (16 * 0x20) },
-    { L"Lilith KK Zapped",          0x2119a + (10 * 0xDC0) + (17 * 0x20), 0x211Ba + (10 * 0xDC0) + (17 * 0x20) },
-    { L"Lilith AP Zapped",          0x2119a + (10 * 0xDC0) + (18 * 0x20), 0x211Ba + (10 * 0xDC0) + (18 * 0x20) },
-    { L"Lilith AK Zapped",          0x2119a + (10 * 0xDC0) + (19 * 0x20), 0x211Ba + (10 * 0xDC0) + (19 * 0x20) },
+    { L"Lilith LP Zapped",          0x2119a + (10 * 0xDC0) + (10 * 0x20), 0x211Ba + (10 * 0xDC0) + (10 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x0c },
+    { L"Lilith MP Zapped",          0x2119a + (10 * 0xDC0) + (11 * 0x20), 0x211Ba + (10 * 0xDC0) + (11 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x0c },
+    { L"Lilith HP Zapped",          0x2119a + (10 * 0xDC0) + (12 * 0x20), 0x211Ba + (10 * 0xDC0) + (12 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x0c },
+    { L"Lilith LK Zapped",          0x2119a + (10 * 0xDC0) + (13 * 0x20), 0x211Ba + (10 * 0xDC0) + (13 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x0c },
+    { L"Lilith MK Zapped",          0x2119a + (10 * 0xDC0) + (14 * 0x20), 0x211Ba + (10 * 0xDC0) + (14 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x0c },
+    { L"Lilith HK Zapped",          0x2119a + (10 * 0xDC0) + (15 * 0x20), 0x211Ba + (10 * 0xDC0) + (15 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x0c },
+    { L"Lilith PP Zapped",          0x2119a + (10 * 0xDC0) + (16 * 0x20), 0x211Ba + (10 * 0xDC0) + (16 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x0c },
+    { L"Lilith KK Zapped",          0x2119a + (10 * 0xDC0) + (17 * 0x20), 0x211Ba + (10 * 0xDC0) + (17 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x0c },
+    { L"Lilith AP Zapped",          0x2119a + (10 * 0xDC0) + (18 * 0x20), 0x211Ba + (10 * 0xDC0) + (18 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x0c },
+    { L"Lilith AK Zapped",          0x2119a + (10 * 0xDC0) + (19 * 0x20), 0x211Ba + (10 * 0xDC0) + (19 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x0c },
     { L"Lilith LP Burned",          0x2119a + (10 * 0xDC0) + (20 * 0x20), 0x211Ba + (10 * 0xDC0) + (20 * 0x20), indexCPS2Sprites_Vamp_Lilith },
     { L"Lilith MP Burned",          0x2119a + (10 * 0xDC0) + (21 * 0x20), 0x211Ba + (10 * 0xDC0) + (21 * 0x20), indexCPS2Sprites_Vamp_Lilith },
     { L"Lilith HP Burned",          0x2119a + (10 * 0xDC0) + (22 * 0x20), 0x211Ba + (10 * 0xDC0) + (22 * 0x20), indexCPS2Sprites_Vamp_Lilith },
@@ -3605,16 +3605,16 @@ const sGame_PaletteDataset VSAV2_A_Lilith_PALETTES_SPECIAL[] =
     { L"Lilith KK Burned",          0x2119a + (10 * 0xDC0) + (27 * 0x20), 0x211Ba + (10 * 0xDC0) + (27 * 0x20), indexCPS2Sprites_Vamp_Lilith },
     { L"Lilith AP Burned",          0x2119a + (10 * 0xDC0) + (28 * 0x20), 0x211Ba + (10 * 0xDC0) + (28 * 0x20), indexCPS2Sprites_Vamp_Lilith },
     { L"Lilith AK Burned",          0x2119a + (10 * 0xDC0) + (29 * 0x20), 0x211Ba + (10 * 0xDC0) + (29 * 0x20), indexCPS2Sprites_Vamp_Lilith },
-    { L"Lilith LP Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (30 * 0x20), 0x211Ba + (10 * 0xDC0) + (30 * 0x20) },
-    { L"Lilith MP Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (31 * 0x20), 0x211Ba + (10 * 0xDC0) + (31 * 0x20) },
-    { L"Lilith HP Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (32 * 0x20), 0x211Ba + (10 * 0xDC0) + (32 * 0x20) },
-    { L"Lilith LK Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (33 * 0x20), 0x211Ba + (10 * 0xDC0) + (33 * 0x20) },
-    { L"Lilith MK Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (34 * 0x20), 0x211Ba + (10 * 0xDC0) + (34 * 0x20) },
-    { L"Lilith HK Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (35 * 0x20), 0x211Ba + (10 * 0xDC0) + (35 * 0x20) },
-    { L"Lilith PP Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (36 * 0x20), 0x211Ba + (10 * 0xDC0) + (36 * 0x20) },
-    { L"Lilith KK Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (37 * 0x20), 0x211Ba + (10 * 0xDC0) + (37 * 0x20) },
-    { L"Lilith AP Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (38 * 0x20), 0x211Ba + (10 * 0xDC0) + (38 * 0x20) },
-    { L"Lilith AK Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (39 * 0x20), 0x211Ba + (10 * 0xDC0) + (39 * 0x20) },
+    { L"Lilith LP Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (30 * 0x20), 0x211Ba + (10 * 0xDC0) + (30 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x10 },
+    { L"Lilith MP Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (31 * 0x20), 0x211Ba + (10 * 0xDC0) + (31 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x10 },
+    { L"Lilith HP Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (32 * 0x20), 0x211Ba + (10 * 0xDC0) + (32 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x10 },
+    { L"Lilith LK Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (33 * 0x20), 0x211Ba + (10 * 0xDC0) + (33 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x10 },
+    { L"Lilith MK Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (34 * 0x20), 0x211Ba + (10 * 0xDC0) + (34 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x10 },
+    { L"Lilith HK Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (35 * 0x20), 0x211Ba + (10 * 0xDC0) + (35 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x10 },
+    { L"Lilith PP Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (36 * 0x20), 0x211Ba + (10 * 0xDC0) + (36 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x10 },
+    { L"Lilith KK Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (37 * 0x20), 0x211Ba + (10 * 0xDC0) + (37 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x10 },
+    { L"Lilith AP Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (38 * 0x20), 0x211Ba + (10 * 0xDC0) + (38 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x10 },
+    { L"Lilith AK Pharaoh's Curse", 0x2119a + (10 * 0xDC0) + (39 * 0x20), 0x211Ba + (10 * 0xDC0) + (39 * 0x20), indexCPS2Sprites_Vamp_Lilith, 0x10 },
     { L"Lilith ES 1",               0x2119a + (10 * 0xDC0) + (40 * 0x20), 0x211Ba + (10 * 0xDC0) + (40 * 0x20), indexCPS2Sprites_Vamp_Lilith },
     { L"Lilith ES 2",               0x2119a + (10 * 0xDC0) + (41 * 0x20), 0x211Ba + (10 * 0xDC0) + (41 * 0x20), indexCPS2Sprites_Vamp_Lilith },
     { L"Lilith ES 3",               0x2119a + (10 * 0xDC0) + (42 * 0x20), 0x211Ba + (10 * 0xDC0) + (42 * 0x20), indexCPS2Sprites_Vamp_Lilith },
@@ -4389,7 +4389,7 @@ const sDescTreeNode VSAV2_A_BULLETA_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_BULLETA_PALETTES_KK,         ARRAYSIZE(VSAV2_A_BULLETA_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_BULLETA_PALETTES_AP,         ARRAYSIZE(VSAV2_A_BULLETA_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_BULLETA_PALETTES_AK,         ARRAYSIZE(VSAV2_A_BULLETA_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_BULLETA_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_BULLETA_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_BULLETA_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_BULLETA_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_DEMITRI_COLLECTION[] =
@@ -4404,7 +4404,7 @@ const sDescTreeNode VSAV2_A_DEMITRI_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_DEMITRI_PALETTES_KK,         ARRAYSIZE(VSAV2_A_DEMITRI_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_DEMITRI_PALETTES_AP,         ARRAYSIZE(VSAV2_A_DEMITRI_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_DEMITRI_PALETTES_AK,         ARRAYSIZE(VSAV2_A_DEMITRI_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_DEMITRI_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_DEMITRI_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_DEMITRI_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_DEMITRI_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_GALLON_COLLECTION[] =
@@ -4419,7 +4419,7 @@ const sDescTreeNode VSAV2_A_GALLON_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_GALLON_PALETTES_KK,         ARRAYSIZE(VSAV2_A_GALLON_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_GALLON_PALETTES_AP,         ARRAYSIZE(VSAV2_A_GALLON_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_GALLON_PALETTES_AK,         ARRAYSIZE(VSAV2_A_GALLON_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_GALLON_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_GALLON_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_GALLON_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_GALLON_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_VICTOR_COLLECTION[] =
@@ -4434,7 +4434,7 @@ const sDescTreeNode VSAV2_A_VICTOR_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_VICTOR_PALETTES_KK,         ARRAYSIZE(VSAV2_A_VICTOR_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_VICTOR_PALETTES_AP,         ARRAYSIZE(VSAV2_A_VICTOR_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_VICTOR_PALETTES_AK,         ARRAYSIZE(VSAV2_A_VICTOR_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Victor_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Victor_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Victor_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Victor_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_ZABEL_COLLECTION[] =
@@ -4449,7 +4449,7 @@ const sDescTreeNode VSAV2_A_ZABEL_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_ZABEL_PALETTES_KK,         ARRAYSIZE(VSAV2_A_ZABEL_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_ZABEL_PALETTES_AP,         ARRAYSIZE(VSAV2_A_ZABEL_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_ZABEL_PALETTES_AK,         ARRAYSIZE(VSAV2_A_ZABEL_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Zabel_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Zabel_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Zabel_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Zabel_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_MORRIGAN_COLLECTION[] =
@@ -4464,7 +4464,7 @@ const sDescTreeNode VSAV2_A_MORRIGAN_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_MORRIGAN_PALETTES_KK,         ARRAYSIZE(VSAV2_A_MORRIGAN_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_MORRIGAN_PALETTES_AP,         ARRAYSIZE(VSAV2_A_MORRIGAN_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_MORRIGAN_PALETTES_AK,         ARRAYSIZE(VSAV2_A_MORRIGAN_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Morrigan_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Morrigan_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Morrigan_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Morrigan_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_ANAKARIS_COLLECTION[] =
@@ -4479,7 +4479,7 @@ const sDescTreeNode VSAV2_A_ANAKARIS_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_ANAKARIS_PALETTES_KK,         ARRAYSIZE(VSAV2_A_ANAKARIS_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_ANAKARIS_PALETTES_AP,         ARRAYSIZE(VSAV2_A_ANAKARIS_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_ANAKARIS_PALETTES_AK,         ARRAYSIZE(VSAV2_A_ANAKARIS_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Anakaris_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Anakaris_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Anakaris_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Anakaris_PALETTES_SPECIAL) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)VSAV2_A_ANAKARIS_PALETTES_SHARED, ARRAYSIZE(VSAV2_A_ANAKARIS_PALETTES_SHARED) },
 };
 
@@ -4495,7 +4495,7 @@ const sDescTreeNode VSAV2_A_FELICIA_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_FELICIA_PALETTES_KK,         ARRAYSIZE(VSAV2_A_FELICIA_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_FELICIA_PALETTES_AP,         ARRAYSIZE(VSAV2_A_FELICIA_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_FELICIA_PALETTES_AK,         ARRAYSIZE(VSAV2_A_FELICIA_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Felicia_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Felicia_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Felicia_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Felicia_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_BISHAMON_COLLECTION[] =
@@ -4510,7 +4510,7 @@ const sDescTreeNode VSAV2_A_BISHAMON_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_BISHAMON_PALETTES_KK,         ARRAYSIZE(VSAV2_A_BISHAMON_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_BISHAMON_PALETTES_AP,         ARRAYSIZE(VSAV2_A_BISHAMON_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_BISHAMON_PALETTES_AK,         ARRAYSIZE(VSAV2_A_BISHAMON_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Bishamon_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Bishamon_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Bishamon_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Bishamon_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_AULBATH_COLLECTION[] =
@@ -4525,7 +4525,7 @@ const sDescTreeNode VSAV2_A_AULBATH_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_AULBATH_PALETTES_KK,         ARRAYSIZE(VSAV2_A_AULBATH_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_AULBATH_PALETTES_AP,         ARRAYSIZE(VSAV2_A_AULBATH_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_AULBATH_PALETTES_AK,         ARRAYSIZE(VSAV2_A_AULBATH_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Aulbath_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Aulbath_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Aulbath_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Aulbath_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_SASQUATCH_COLLECTION[] =
@@ -4540,13 +4540,13 @@ const sDescTreeNode VSAV2_A_SASQUATCH_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_SASQUATCH_PALETTES_KK,       ARRAYSIZE(VSAV2_A_SASQUATCH_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_SASQUATCH_PALETTES_AP,       ARRAYSIZE(VSAV2_A_SASQUATCH_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_SASQUATCH_PALETTES_AK,       ARRAYSIZE(VSAV2_A_SASQUATCH_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Sasquatch_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Sasquatch_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Sasquatch_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Sasquatch_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_ALTZABEL_COLLECTION[] =
 {
-    { L"Alt Zabel", DESC_NODETYPE_TREE, (void*)VSAV2_A_ALTZABEL_PALETTES_1,  ARRAYSIZE(VSAV2_A_ALTZABEL_PALETTES_1) },
-    { L"Alt Zabel", DESC_NODETYPE_TREE, (void*)VSAV2_A_ALTZABEL_PALETTES_2,  ARRAYSIZE(VSAV2_A_ALTZABEL_PALETTES_2) },
+    { L"Default", DESC_NODETYPE_TREE, (void*)VSAV2_A_ALTZABEL_PALETTES_1,  ARRAYSIZE(VSAV2_A_ALTZABEL_PALETTES_1) },
+    { L"Alt", DESC_NODETYPE_TREE, (void*)VSAV2_A_ALTZABEL_PALETTES_2,  ARRAYSIZE(VSAV2_A_ALTZABEL_PALETTES_2) },
 };
 
 const sDescTreeNode VSAV2_A_QUEENBEE_COLLECTION[] =
@@ -4561,7 +4561,7 @@ const sDescTreeNode VSAV2_A_QUEENBEE_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_QUEENBEE_PALETTES_KK,        ARRAYSIZE(VSAV2_A_QUEENBEE_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_QUEENBEE_PALETTES_AP,        ARRAYSIZE(VSAV2_A_QUEENBEE_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_QUEENBEE_PALETTES_AK,        ARRAYSIZE(VSAV2_A_QUEENBEE_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_QBee_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_QBee_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_QBee_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_QBee_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_LEILEI_COLLECTION[] =
@@ -4576,7 +4576,7 @@ const sDescTreeNode VSAV2_A_LEILEI_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_LEILEI_PALETTES_KK,         ARRAYSIZE(VSAV2_A_LEILEI_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_LEILEI_PALETTES_AP,         ARRAYSIZE(VSAV2_A_LEILEI_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_LEILEI_PALETTES_AK,         ARRAYSIZE(VSAV2_A_LEILEI_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_LeiLei_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_LeiLei_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_LeiLei_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_LeiLei_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_LILITH_COLLECTION[] =
@@ -4591,7 +4591,7 @@ const sDescTreeNode VSAV2_A_LILITH_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_LILITH_PALETTES_KK,         ARRAYSIZE(VSAV2_A_LILITH_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_LILITH_PALETTES_AP,         ARRAYSIZE(VSAV2_A_LILITH_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_LILITH_PALETTES_AK,         ARRAYSIZE(VSAV2_A_LILITH_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Lilith_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Lilith_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Lilith_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Lilith_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_JEDAH_COLLECTION[] =
@@ -4607,7 +4607,7 @@ const sDescTreeNode VSAV2_A_JEDAH_COLLECTION[] =
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_JEDAH_PALETTES_AP,         ARRAYSIZE(VSAV2_A_JEDAH_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_JEDAH_PALETTES_AK,         ARRAYSIZE(VSAV2_A_JEDAH_PALETTES_AK) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)VSAV2_A_JEDAH_PALETTES_SHARED, ARRAYSIZE(VSAV2_A_JEDAH_PALETTES_SHARED) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Jedah_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Jedah_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Jedah_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Jedah_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_PHOBOS_COLLECTION[] =
@@ -4622,7 +4622,7 @@ const sDescTreeNode VSAV2_A_PHOBOS_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_PHOBOS_PALETTES_KK, ARRAYSIZE(VSAV2_A_PHOBOS_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_PHOBOS_PALETTES_AP, ARRAYSIZE(VSAV2_A_PHOBOS_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_PHOBOS_PALETTES_AK, ARRAYSIZE(VSAV2_A_PHOBOS_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Phobos_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Phobos_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Phobos_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Phobos_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_PYRON_COLLECTION[] =
@@ -4637,7 +4637,7 @@ const sDescTreeNode VSAV2_A_PYRON_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_PYRON_PALETTES_KK,         ARRAYSIZE(VSAV2_A_PYRON_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_PYRON_PALETTES_AP,         ARRAYSIZE(VSAV2_A_PYRON_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_PYRON_PALETTES_AK,         ARRAYSIZE(VSAV2_A_PYRON_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Pyron_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Pyron_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Pyron_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Pyron_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_DARKGALLON_COLLECTION[] =
@@ -4652,7 +4652,7 @@ const sDescTreeNode VSAV2_A_DARKGALLON_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_DARKGALLON_PALETTES_KK,         ARRAYSIZE(VSAV2_A_DARKGALLON_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_DARKGALLON_PALETTES_AP,         ARRAYSIZE(VSAV2_A_DARKGALLON_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_DARKGALLON_PALETTES_AK,         ARRAYSIZE(VSAV2_A_DARKGALLON_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_DarkGallon_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_DarkGallon_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_DarkGallon_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_DarkGallon_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_UNKNOWN_COLLECTION[] =
@@ -4681,7 +4681,7 @@ const sDescTreeNode VSAV2_A_OBOROBISHAMON_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_OBOROBISHAMON_PALETTES_KK,         ARRAYSIZE(VSAV2_A_OBOROBISHAMON_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_OBOROBISHAMON_PALETTES_AP,         ARRAYSIZE(VSAV2_A_OBOROBISHAMON_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_OBOROBISHAMON_PALETTES_AK,         ARRAYSIZE(VSAV2_A_OBOROBISHAMON_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_OboroBishamon_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_OboroBishamon_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_OboroBishamon_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_OboroBishamon_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_DONOVAN_COLLECTION[] =
@@ -4696,7 +4696,7 @@ const sDescTreeNode VSAV2_A_DONOVAN_COLLECTION[] =
     { L"KK", DESC_NODETYPE_TREE, (void*)VSAV2_A_DONOVAN_PALETTES_KK,         ARRAYSIZE(VSAV2_A_DONOVAN_PALETTES_KK) },
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_DONOVAN_PALETTES_AP,         ARRAYSIZE(VSAV2_A_DONOVAN_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_DONOVAN_PALETTES_AK,         ARRAYSIZE(VSAV2_A_DONOVAN_PALETTES_AK) },
-    { L"Special", DESC_NODETYPE_TREE, (void*)VSAV2_A_Donovan_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Donovan_PALETTES_SPECIAL) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_Donovan_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_Donovan_PALETTES_SPECIAL) },
 };
 
 const sDescTreeNode VSAV2_A_ENDING_COLLECTION[] =
@@ -4709,7 +4709,7 @@ const sDescTreeNode VSAV2_A_BONUS_COLLECTION[] =
     { L"Title/Select Screen", DESC_NODETYPE_TREE, (void*)VSAV2_A_BONUS_TITLES_PALETTES,  ARRAYSIZE(VSAV2_A_BONUS_TITLES_PALETTES) },
 };
 
-const sDescTreeNode VSAV2_UNITS[] =
+const sDescTreeNode VSAV2_A_UNITS[] =
 {
     { L"Bulleta",            DESC_NODETYPE_TREE, (void*)VSAV2_A_BULLETA_COLLECTION,       ARRAYSIZE(VSAV2_A_BULLETA_COLLECTION) }, // BB-Hood
     { L"Demitri",            DESC_NODETYPE_TREE, (void*)VSAV2_A_DEMITRI_COLLECTION,       ARRAYSIZE(VSAV2_A_DEMITRI_COLLECTION) },
@@ -4744,7 +4744,7 @@ const sDescTreeNode VSAV2_UNITS[] =
     { L"Bonus Palettes",     DESC_NODETYPE_TREE, (void*)VSAV2_A_BONUS_COLLECTION,         ARRAYSIZE(VSAV2_A_BONUS_COLLECTION) },
 };
 
-constexpr auto VSAV2_A_NUMUNIT = ARRAYSIZE(VSAV2_UNITS);
+constexpr auto VSAV2_A_NUMUNIT = ARRAYSIZE(VSAV2_A_UNITS);
 
 #define VSAV2_A_EXTRALOC VSAV2_A_NUMUNIT
 

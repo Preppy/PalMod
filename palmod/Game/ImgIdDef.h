@@ -340,22 +340,22 @@ enum JOJOS_51_CHARACTER_PALETTES
 
 enum SupportedGarou_A_PaletteListIndex
 {
-    indexGarouARockHoward,  // 0x01
-    indexGarouATerryBogard, // 0x02
-    indexGarouAKhushnood,   // 0x03
-    indexGarouADong,        // 0x04
-    indexGarouAJae,         // 0x05
-    indexGarouAHotaru,      // 0x06
-    indexGarouAGato,        // 0x07
-    indexGarouAKevin,       // 0x08
-    indexGarouAGrant,       // 0x09
-    indexGarouABJennet,     // 0x0a
-    indexGarouAHokutomaru,  // 0x0b
-    indexGarouAFreeman,     // 0x0c
-    indexGarouATizoc,       // 0x0d
-    indexGarouAKain,        // 0x0e
-    indexGarouAPortraits,   // 0x0f
-    indexGarouABonus,       // 0x10
+    indexGarouARockHoward,  // 0x00
+    indexGarouATerryBogard, // 0x01
+    indexGarouAKhushnood,   // 0x02
+    indexGarouADong,        // 0x03
+    indexGarouAJae,         // 0x04
+    indexGarouAHotaru,      // 0x05
+    indexGarouAGato,        // 0x06
+    indexGarouAKevin,       // 0x07
+    indexGarouAGrant,       // 0x08
+    indexGarouABJenet,      // 0x09
+    indexGarouAHokutomaru,  // 0x0a
+    indexGarouAFreeman,     // 0x0b
+    indexGarouATizoc,       // 0x0c
+    indexGarouAKain,        // 0x0d
+    indexGarouAPortraits,   // 0x0e
+    indexGarouABonus,       // 0x0f
 };
 
 enum KOFSpriteList

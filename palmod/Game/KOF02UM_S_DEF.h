@@ -907,11 +907,26 @@ const sGame_PaletteDataset KOF02UM_S_KASUMI_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_MOVES[] =
 {
-    { L"Kensou Psycho Ball",         0x19400, 0x19420, indexKOF02UMSprites_Kensou, 0x02 },
-    { L"Kensou Psycho Ball Hit",     0x19420, 0x19440, indexKOF02UMSprites_Kensou, 0x03 },
-    { L"Kensou MAX Burst",           0x19440, 0x19460, indexKOF02UMSprites_Kensou, 0x10 },
-    { L"Kensou MAX2 Powerup Orb",    0x19480, 0x194a0, indexKOF02UMSprites_Kensou, 0x09 },
-    { L"Kensou MAX2 Flash",          0x39600, 0x39800 },
+    { L"Kensou Psycho Ball",        0x19400, 0x19420, indexKOF02UMSprites_Kensou, 0x02 },
+    { L"Kensou Psycho Ball Hit",    0x19420, 0x19440, indexKOF02UMSprites_Kensou, 0x03 },
+    { L"Kensou MAX Burst",          0x19440, 0x19460, indexKOF02UMSprites_Kensou, 0x10 },
+    { L"Kensou MAX2 Powerup Orb",   0x19480, 0x194a0, indexKOF02UMSprites_Kensou, 0x09 },
+    { L"Kensou MAX2 Flash 1/16",    0x39600, 0x39620, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 2/16",    0x39620, 0x39640, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 3/16",    0x39640, 0x39660, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 4/16",    0x39660, 0x39680, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 5/16",    0x39680, 0x396a0, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 6/16",    0x396a0, 0x396c0, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 7/16",    0x396c0, 0x396e0, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 8/16",    0x396e0, 0x39700, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 9/16",    0x39700, 0x39720, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 10/16",    0x39720, 0x39740, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 11/16",    0x39740, 0x39760, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 12/16",    0x39760, 0x39780, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 13/16",    0x39780, 0x397a0, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 14/16",    0x397a0, 0x397c0, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 15/16",    0x397c0, 0x397e0, indexKOF02UMSprites_Kensou },
+    { L"Kensou MAX2 Flash 16/16",    0x397e0, 0x39800, indexKOF02UMSprites_Kensou },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXKENSOU_PALETTES_MOVES[] =

@@ -1172,13 +1172,27 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             break;
         }
-
-        if (uPalId == 0x09 + EXTRA_OMNI) //  bottle
+        else if (uPalId == (0x09 + EXTRA_OMNI)) //  bottle
         {
             SetExtraImg(0x07, uUnitId, uPalId);
             break;
         }
-        else if (uPalId == 0x14 + EXTRA_OMNI) //  man in suit
+        else if (uPalId == (0x0a + EXTRA_OMNI)) //  water
+        {
+            SetExtraImg(0x0e, uUnitId, uPalId);
+            break;
+        }
+        else if (uPalId == (0x0b + EXTRA_OMNI)) //  water puddle
+        {
+            SetExtraImg(0x0f, uUnitId, uPalId);
+            break;
+        }
+        else if (uPalId == (0x13 + EXTRA_OMNI)) //  apple for you
+        {
+            SetExtraImg(0x0a, uUnitId, uPalId);
+            break;
+        }
+        else if (uPalId == (0x14 + EXTRA_OMNI)) //  man in suit
         {
             SetExtraImg(0x09, uUnitId, uPalId);
             break;

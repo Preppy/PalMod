@@ -66,14 +66,14 @@ const sGame_PaletteDataset MSH_A_ANITA_PALETTES_P1[] =
     // she also uses an akuma sprite and another helper sprite
     { L"P1 Main", 0x6272c, 0x6274c, indexCPS2Sprites_Anita },
     { L"P1 Sword", 0x6274c, 0x6276c, indexCPS2Sprites_Anita, 0x03 },
-    { L"P1 Lin-Lin", 0x0666ec, 0x06670c },
+    { L"P1 Lin-Lin", 0x0666ec, 0x06670c, indexCPS2Sprites_Anita, 0x04 },
 };
 
 const sGame_PaletteDataset MSH_A_ANITA_PALETTES_P2[] =
 {
     { L"P2 Main", 0x627Ac, 0x627Cc, indexCPS2Sprites_Anita },
     { L"P2 Sword", 0x627Cc, 0x627Ec, indexCPS2Sprites_Anita, 0x03 },
-    { L"P2 Lin-Lin", 0x0667cc, 0x0667ec },
+    { L"P2 Lin-Lin", 0x0667cc, 0x0667ec, indexCPS2Sprites_Anita, 0x04 },
 };
 
 const sGame_PaletteDataset MSH_A_ANITA_PALETTES_SHARED[] =

@@ -47,7 +47,7 @@ const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_LP[] =
     { L"LP Bulleta", 0x16c9a, 0x16cba, indexCPS2Sprites_BBHood, 0x0 },
     { L"LP Critters", 0x16cba, 0x16cda, indexCPS2Sprites_BBHood, 0x01 },
     { L"LP Weapons", 0x16cda, 0x16cfa, indexCPS2Sprites_BBHood, 0x02 },
-    { L"LP Explosions", 0x16cfa, 0x16d1a },
+    { L"LP Explosions", 0x16cfa, 0x16d1a, indexCPS2Sprites_BBHood, 0x0b },
 };
 
 const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_MP[] =
@@ -55,7 +55,7 @@ const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_MP[] =
     { L"MP Bulleta", 0x16d1a, 0x16d3a, indexCPS2Sprites_BBHood, 0x0 },
     { L"MP Critters", 0x16d3a, 0x16d5a, indexCPS2Sprites_BBHood, 0x01 },
     { L"MP Weapons", 0x16d5a, 0x16d7a, indexCPS2Sprites_BBHood, 0x02 },
-    { L"MP Explosions", 0x16d7a, 0x16d9a },
+    { L"MP Explosions", 0x16d7a, 0x16d9a, indexCPS2Sprites_BBHood, 0x0b },
 };
 
 const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_HP[] =
@@ -63,7 +63,7 @@ const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_HP[] =
     { L"HP Bulleta", 0x16d9a, 0x16dba, indexCPS2Sprites_BBHood, 0x0 },
     { L"HP Critters", 0x16dba, 0x16dda, indexCPS2Sprites_BBHood, 0x01 },
     { L"HP Weapons", 0x16dda, 0x16dfa, indexCPS2Sprites_BBHood, 0x02 },
-    { L"HP Explosions", 0x16dfa, 0x16e1a },
+    { L"HP Explosions", 0x16dfa, 0x16e1a, indexCPS2Sprites_BBHood, 0x0b },
 };
 
 const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_LK[] =
@@ -71,7 +71,7 @@ const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_LK[] =
     { L"LK Bulleta", 0x16e1a, 0x16e3a, indexCPS2Sprites_BBHood, 0x0 },
     { L"LK Critters", 0x16e3a, 0x16e5a, indexCPS2Sprites_BBHood, 0x01 },
     { L"LK Weapons", 0x16e5a, 0x16e7a, indexCPS2Sprites_BBHood, 0x02 },
-    { L"LK Explosions", 0x16e7a, 0x16e9a },
+    { L"LK Explosions", 0x16e7a, 0x16e9a, indexCPS2Sprites_BBHood, 0x0b },
 };
 
 const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_MK[] =
@@ -79,7 +79,7 @@ const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_MK[] =
     { L"MK Bulleta", 0x16e9a, 0x16eba, indexCPS2Sprites_BBHood, 0x0 },
     { L"MK Critters", 0x16eba, 0x16eda, indexCPS2Sprites_BBHood, 0x01 },
     { L"MK Weapons", 0x16eda, 0x16efa, indexCPS2Sprites_BBHood, 0x02 },
-    { L"MK Explosions", 0x16efa, 0x16f1a },
+    { L"MK Explosions", 0x16efa, 0x16f1a, indexCPS2Sprites_BBHood, 0x0b },
 };
 
 const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_HK[] =
@@ -87,7 +87,7 @@ const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_HK[] =
     { L"HK Bulleta", 0x16f1a, 0x16f3a, indexCPS2Sprites_BBHood, 0x0 },
     { L"HK Critters", 0x16f3a, 0x16f5a, indexCPS2Sprites_BBHood, 0x01 },
     { L"HK Weapons", 0x16f5a, 0x16f7a, indexCPS2Sprites_BBHood, 0x02 },
-    { L"HK Explosions", 0x16f7a, 0x16f9a },
+    { L"HK Explosions", 0x16f7a, 0x16f9a, indexCPS2Sprites_BBHood, 0x0b },
 };
 
 const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_PP[] =
@@ -95,7 +95,7 @@ const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_PP[] =
     { L"PP Bulleta", 0x16f9a, 0x16fba, indexCPS2Sprites_BBHood, 0x0 },
     { L"PP Critters", 0x16fba, 0x16fda, indexCPS2Sprites_BBHood, 0x01 },
     { L"PP Weapons", 0x16fda, 0x16ffa, indexCPS2Sprites_BBHood, 0x02 },
-    { L"PP Explosions", 0x16ffa, 0x1701a },
+    { L"PP Explosions", 0x16ffa, 0x1701a, indexCPS2Sprites_BBHood, 0x0b },
 };
 
 const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_KK[] =
@@ -103,7 +103,7 @@ const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_KK[] =
     { L"KK Bulleta", 0x1701a, 0x1703a, indexCPS2Sprites_BBHood, 0x0 },
     { L"KK Critters", 0x1703a, 0x1705a, indexCPS2Sprites_BBHood, 0x01 },
     { L"KK Weapons", 0x1705a, 0x1707a, indexCPS2Sprites_BBHood, 0x02 },
-    { L"KK Explosions", 0x1707a, 0x1709a },
+    { L"KK Explosions", 0x1707a, 0x1709a, indexCPS2Sprites_BBHood, 0x0b },
 };
 
 const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_AP[] =
@@ -111,7 +111,7 @@ const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_AP[] =
     { L"AP Bulleta", 0x1709a, 0x170ba, indexCPS2Sprites_BBHood, 0x0 },
     { L"AP Critters", 0x170ba, 0x170da, indexCPS2Sprites_BBHood, 0x01 },
     { L"AP Weapons", 0x170da, 0x170fa, indexCPS2Sprites_BBHood, 0x02 },
-    { L"AP Explosions", 0x170fa, 0x1711a },
+    { L"AP Explosions", 0x170fa, 0x1711a, indexCPS2Sprites_BBHood, 0x0b },
 };
 
 const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_AK[] =
@@ -119,7 +119,7 @@ const sGame_PaletteDataset VHUNT2_A_BULLETA_PALETTES_AK[] =
     { L"AK Bulleta", 0x1711a, 0x1713a, indexCPS2Sprites_BBHood, 0x0 },
     { L"AK Critters", 0x1713a, 0x1715a, indexCPS2Sprites_BBHood, 0x01 },
     { L"AK Weapons", 0x1715a, 0x1717a, indexCPS2Sprites_BBHood, 0x02 },
-    { L"AK Explosions", 0x1717a, 0x1719a },
+    { L"AK Explosions", 0x1717a, 0x1719a, indexCPS2Sprites_BBHood, 0x0b },
 };
 
 const sGame_PaletteDataset VHUNT2_A_DEMITRI_PALETTES_LP[] =
@@ -1024,7 +1024,7 @@ const sGame_PaletteDataset VHUNT2_A_QUEENBEE_PALETTES_AK[] =
 const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_LP[] =
 {
     { L"LP Lei-Lei", 0x1ad9a, 0x1adba, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"LP Lin-Lin", 0x1adba, 0x1adda },
+    { L"LP Lin-Lin", 0x1adba, 0x1adda, indexCPS2Sprites_Anita, 0x04 },
     { L"LP Dust, Weapons", 0x1adda, 0x1adfa },
     { L"LP Unknown Extra", 0x1adfa, 0x1ae1a },
 };
@@ -1032,7 +1032,7 @@ const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_LP[] =
 const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_MP[] =
 {
     { L"MP Lei-Lei", 0x1ae1a, 0x1ae3a, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"MP Lin-Lin", 0x1ae3a, 0x1ae5a },
+    { L"MP Lin-Lin", 0x1ae3a, 0x1ae5a, indexCPS2Sprites_Anita, 0x04 },
     { L"MP Dust, Weapons", 0x1ae5a, 0x1ae7a },
     { L"MP Unknown Extra", 0x1ae7a, 0x1ae9a },
 };
@@ -1040,7 +1040,7 @@ const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_MP[] =
 const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_HP[] =
 {
     { L"HP Lei-Lei", 0x1ae9a, 0x1aeba, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"HP Lin-Lin", 0x1aeba, 0x1aeda },
+    { L"HP Lin-Lin", 0x1aeba, 0x1aeda, indexCPS2Sprites_Anita, 0x04 },
     { L"HP Dust, Weapons", 0x1aeda, 0x1aefa },
     { L"HP Unknown Extra", 0x1aefa, 0x1af1a },
 };
@@ -1048,7 +1048,7 @@ const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_HP[] =
 const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_LK[] =
 {
     { L"LK Lei-Lei", 0x1af1a, 0x1af3a, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"LK Lin-Lin", 0x1af3a, 0x1af5a },
+    { L"LK Lin-Lin", 0x1af3a, 0x1af5a, indexCPS2Sprites_Anita, 0x04 },
     { L"LK Dust, Weapons", 0x1af5a, 0x1af7a },
     { L"LK Unknown Extra", 0x1af7a, 0x1af9a },
 };
@@ -1056,7 +1056,7 @@ const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_LK[] =
 const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_MK[] =
 {
     { L"MK Lei-Lei", 0x1af9a, 0x1afba, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"MK Lin-Lin", 0x1afba, 0x1afda },
+    { L"MK Lin-Lin", 0x1afba, 0x1afda, indexCPS2Sprites_Anita, 0x04 },
     { L"MK Dust, Weapons", 0x1afda, 0x1affa },
     { L"MK Unknown Extra", 0x1affa, 0x1b01a },
 };
@@ -1064,7 +1064,7 @@ const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_MK[] =
 const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_HK[] =
 {
     { L"HK Lei-Lei", 0x1b01a, 0x1b03a, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"HK Lin-Lin", 0x1b03a, 0x1b05a },
+    { L"HK Lin-Lin", 0x1b03a, 0x1b05a, indexCPS2Sprites_Anita, 0x04 },
     { L"HK Dust, Weapons", 0x1b05a, 0x1b07a },
     { L"HK Unknown Extra", 0x1b07a, 0x1b09a },
 };
@@ -1072,7 +1072,7 @@ const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_HK[] =
 const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_PP[] =
 {
     { L"PP Lei-Lei", 0x1b09a, 0x1b0ba, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"PP Lin-Lin", 0x1b0ba, 0x1b0da },
+    { L"PP Lin-Lin", 0x1b0ba, 0x1b0da, indexCPS2Sprites_Anita, 0x04 },
     { L"PP Dust, Weapons", 0x1b0da, 0x1b0fa },
     { L"PP Unknown Extra", 0x1b0fa, 0x1b11a },
 };
@@ -1080,7 +1080,7 @@ const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_PP[] =
 const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_KK[] =
 {
     { L"KK Lei-Lei", 0x1b11a, 0x1b13a, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"KK Lin-Lin", 0x1b13a, 0x1b15a },
+    { L"KK Lin-Lin", 0x1b13a, 0x1b15a, indexCPS2Sprites_Anita, 0x04 },
     { L"KK Dust, Weapons", 0x1b15a, 0x1b17a },
     { L"KK Unknown Extra", 0x1b17a, 0x1b19a },
 };
@@ -1088,7 +1088,7 @@ const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_KK[] =
 const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_AP[] =
 {
     { L"AP Lei-Lei", 0x1b19a, 0x1b1ba, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"AP Lin-Lin", 0x1b1ba, 0x1b1da },
+    { L"AP Lin-Lin", 0x1b1ba, 0x1b1da, indexCPS2Sprites_Anita, 0x04 },
     { L"AP Dust, Weapons", 0x1b1da, 0x1b1fa },
     { L"AP Unknown Extra", 0x1b1fa, 0x1b21a },
 };
@@ -1096,7 +1096,7 @@ const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_AP[] =
 const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_AK[] =
 {
     { L"AK Lei-Lei", 0x1b21a, 0x1b23a, indexCPS2Sprites_Vamp_LeiLei, 0x0 },
-    { L"AK Lin-Lin", 0x1b23a, 0x1b25a },
+    { L"AK Lin-Lin", 0x1b23a, 0x1b25a, indexCPS2Sprites_Anita, 0x04 },
     { L"AK Dust, Weapons", 0x1b25a, 0x1b27a },
     { L"AK Unknown Extra", 0x1b27a, 0x1b29a },
 };
@@ -1107,81 +1107,81 @@ const sGame_PaletteDataset VHUNT2_A_LEILEI_PALETTES_AK[] =
 const sGame_PaletteDataset VHUNT2_A_LILITH_PALETTES_LP[] =
 {
     { L"LP Lilith", 0x1b29a, 0x1b2ba, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"LP Hearts", 0x1b2ba, 0x1b2da },
-    { L"LP Luminous Illusion/62KKK bats", 0x1b2da, 0x1b2fa },
-    { L"LP Sparkles", 0x1b2fa, 0x1b31a },
+    { L"LP Hearts", 0x1b2ba, 0x1b2da, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"LP Luminous Illusion/62KKK bats", 0x1b2da, 0x1b2fa, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"LP Sparkles", 0x1b2fa, 0x1b31a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_LILITH_PALETTES_MP[] =
 {
     { L"MP Lilith", 0x1b31a, 0x1b33a, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"MP Hearts", 0x1b33a, 0x1b35a },
-    { L"MP Luminous Illusion/62KKK bats", 0x1b35a, 0x1b37a },
-    { L"MP Sparkles", 0x1b37a, 0x1b39a },
+    { L"MP Hearts", 0x1b33a, 0x1b35a, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"MP Luminous Illusion/62KKK bats", 0x1b35a, 0x1b37a, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"MP Sparkles", 0x1b37a, 0x1b39a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_LILITH_PALETTES_HP[] =
 {
     { L"HP Lilith", 0x1b39a, 0x1b3ba, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"HP Hearts", 0x1b3ba, 0x1b3da },
-    { L"HP Luminous Illusion/62KKK bats", 0x1b3da, 0x1b3fa },
-    { L"HP Sparkles", 0x1b3fa, 0x1b41a },
+    { L"HP Hearts", 0x1b3ba, 0x1b3da, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"HP Luminous Illusion/62KKK bats", 0x1b3da, 0x1b3fa, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"HP Sparkles", 0x1b3fa, 0x1b41a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_LILITH_PALETTES_LK[] =
 {
     { L"LK Lilith", 0x1b41a, 0x1b43a, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"LK Hearts", 0x1b43a, 0x1b45a },
-    { L"LK Luminous Illusion/62KKK bats", 0x1b45a, 0x1b47a },
-    { L"LK Sparkles", 0x1b47a, 0x1b49a },
+    { L"LK Hearts", 0x1b43a, 0x1b45a, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"LK Luminous Illusion/62KKK bats", 0x1b45a, 0x1b47a, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"LK Sparkles", 0x1b47a, 0x1b49a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_LILITH_PALETTES_MK[] =
 {
     { L"MK Lilith", 0x1b49a, 0x1b4ba, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"MK Hearts", 0x1b4ba, 0x1b4da },
-    { L"MK Luminous Illusion/62KKK bats", 0x1b4da, 0x1b4fa },
-    { L"MK Sparkles", 0x1b4fa, 0x1b51a },
+    { L"MK Hearts", 0x1b4ba, 0x1b4da, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"MK Luminous Illusion/62KKK bats", 0x1b4da, 0x1b4fa, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"MK Sparkles", 0x1b4fa, 0x1b51a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_LILITH_PALETTES_HK[] =
 {
     { L"HK Lilith", 0x1b51a, 0x1b53a, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"HK Hearts", 0x1b53a, 0x1b55a },
-    { L"HK Luminous Illusion/62KKK bats", 0x1b55a, 0x1b57a },
-    { L"HK Sparkles", 0x1b57a, 0x1b59a },
+    { L"HK Hearts", 0x1b53a, 0x1b55a, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"HK Luminous Illusion/62KKK bats", 0x1b55a, 0x1b57a, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"HK Sparkles", 0x1b57a, 0x1b59a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_LILITH_PALETTES_PP[] =
 {
     { L"PP Lilith", 0x1b59a, 0x1b5ba, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"PP Hearts", 0x1b5ba, 0x1b5da },
-    { L"PP Luminous Illusion/62KKK bats", 0x1b5da, 0x1b5fa },
-    { L"PP Sparkles", 0x1b5fa, 0x1b61a },
+    { L"PP Hearts", 0x1b5ba, 0x1b5da, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"PP Luminous Illusion/62KKK bats", 0x1b5da, 0x1b5fa, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"PP Sparkles", 0x1b5fa, 0x1b61a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_LILITH_PALETTES_KK[] =
 {
     { L"KK Lilith", 0x1b61a, 0x1b63a, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"KK Hearts", 0x1b63a, 0x1b65a },
-    { L"KK Luminous Illusion/62KKK bats", 0x1b65a, 0x1b67a },
-    { L"KK Sparkles", 0x1b67a, 0x1b69a },
+    { L"KK Hearts", 0x1b63a, 0x1b65a, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"KK Luminous Illusion/62KKK bats", 0x1b65a, 0x1b67a, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"KK Sparkles", 0x1b67a, 0x1b69a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_LILITH_PALETTES_AP[] =
 {
     { L"AP Lilith", 0x1b69a, 0x1b6ba, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"AP Hearts", 0x1b6ba, 0x1b6da },
-    { L"AP Luminous Illusion/62KKK bats", 0x1b6da, 0x1b6fa },
-    { L"AP Sparkles", 0x1b6fa, 0x1b71a },
+    { L"AP Hearts", 0x1b6ba, 0x1b6da, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"AP Luminous Illusion/62KKK bats", 0x1b6da, 0x1b6fa, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"AP Sparkles", 0x1b6fa, 0x1b71a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_LILITH_PALETTES_AK[] =
 {
     { L"AK Lilith", 0x1b71a, 0x1b73a, indexCPS2Sprites_Vamp_Lilith, 0x0 },
-    { L"AK Hearts", 0x1b73a, 0x1b75a },
-    { L"AK Luminous Illusion/62KKK bats", 0x1b75a, 0x1b77a },
-    { L"AK Sparkles", 0x1b77a, 0x1b79a },
+    { L"AK Hearts", 0x1b73a, 0x1b75a, indexCPS2Sprites_Vamp_Lilith, 0x01, &pairNextAndNext },
+    { L"AK Luminous Illusion/62KKK bats", 0x1b75a, 0x1b77a, indexCPS2Sprites_Vamp_Lilith, 0x02 },
+    { L"AK Sparkles", 0x1b77a, 0x1b79a, indexCPS2Sprites_Vamp_Lilith, 0x03 },
 };
 
 
@@ -1907,8 +1907,8 @@ const sDescTreeNode VHUNT2_A_SASQUATCH_COLLECTION[] =
 
 const sDescTreeNode VHUNT2_A_ALTZABEL_COLLECTION[] =
 {
-    { L"Alt Zabel", DESC_NODETYPE_TREE, (void*)VHUNT2_A_ALTZABEL_PALETTES_1,  ARRAYSIZE(VHUNT2_A_ALTZABEL_PALETTES_1) },
-    { L"Alt Zabel", DESC_NODETYPE_TREE, (void*)VHUNT2_A_ALTZABEL_PALETTES_2,  ARRAYSIZE(VHUNT2_A_ALTZABEL_PALETTES_2) },
+    { L"Default", DESC_NODETYPE_TREE, (void*)VHUNT2_A_ALTZABEL_PALETTES_1,  ARRAYSIZE(VHUNT2_A_ALTZABEL_PALETTES_1) },
+    { L"Alt", DESC_NODETYPE_TREE, (void*)VHUNT2_A_ALTZABEL_PALETTES_2,  ARRAYSIZE(VHUNT2_A_ALTZABEL_PALETTES_2) },
 };
 
 const sDescTreeNode VHUNT2_A_QUEENBEE_COLLECTION[] =
@@ -2051,7 +2051,7 @@ const sDescTreeNode VHUNT2_A_DONOVAN_COLLECTION[] =
     { L"AK", DESC_NODETYPE_TREE, (void*)VHUNT2_A_DONOVAN_PALETTES_AK,         ARRAYSIZE(VHUNT2_A_DONOVAN_PALETTES_AK) },
 };
 
-const sDescTreeNode VHUNT2_UNITS[] =
+const sDescTreeNode VHUNT2_A_UNITS[] =
 {
     { L"Demitri",            DESC_NODETYPE_TREE, (void*)VHUNT2_A_DEMITRI_COLLECTION,       ARRAYSIZE(VHUNT2_A_DEMITRI_COLLECTION) },
     { L"Gallon",             DESC_NODETYPE_TREE, (void*)VHUNT2_A_GALLON_COLLECTION,        ARRAYSIZE(VHUNT2_A_GALLON_COLLECTION) }, // Jon Talbain
@@ -2081,7 +2081,7 @@ const sDescTreeNode VHUNT2_UNITS[] =
     { L"Jedah (unplayable)", DESC_NODETYPE_TREE, (void*)VHUNT2_A_JEDAH_COLLECTION,         ARRAYSIZE(VHUNT2_A_JEDAH_COLLECTION) },
 };
 
-constexpr auto VHUNT2_A_NUMUNIT = ARRAYSIZE(VHUNT2_UNITS);
+constexpr auto VHUNT2_A_NUMUNIT = ARRAYSIZE(VHUNT2_A_UNITS);
 
 #define VHUNT2_A_EXTRALOC VHUNT2_A_NUMUNIT
 

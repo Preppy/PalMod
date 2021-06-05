@@ -1939,8 +1939,8 @@ const sGame_PaletteDataset SFA3_A_RMIKA_STATUS[] =
 const sGame_PaletteDataset SFA3_A_CODY_XISMP[] =
 {
     { L"X-Ism Punch", 0x31712, 0x31732, indexCPS2Sprites_Cody, 0x00 },
-    { L"Dagger/Cyclone X-Ism Punch", 0x31732, 0x31752 },
-    { L"X-Ism Punch Extra 2", 0x31752, 0x31772 },
+    { L"Dagger/Cyclone X-Ism Punch", 0x31732, 0x31752, indexCPS2Sprites_Cody, 0x01 },
+    { L"X-Ism Punch Extra 2: Edi E.", 0x31752, 0x31772, indexCPS2Sprites_Cody, 0x02 },
     { L"X-Ism Punch Super Trail Light", 0x31772, 0x31792, indexCPS2Sprites_Cody, 0x00 },
     { L"X-Ism Punch Super Trail Dark", 0x31792, 0x317b2, indexCPS2Sprites_Cody, 0x00 },
 };
@@ -1948,8 +1948,8 @@ const sGame_PaletteDataset SFA3_A_CODY_XISMP[] =
 const sGame_PaletteDataset SFA3_A_CODY_XISMK[] =
 {
     { L"X-Ism Kick", 0x317b2, 0x317d2, indexCPS2Sprites_Cody, 0x00 },
-    { L"Dagger/Cyclone X-Ism Kick", 0x317d2, 0x317f2 },
-    { L"X-Ism Kick Extra 2", 0x317f2, 0x31812 },
+    { L"Dagger/Cyclone X-Ism Kick", 0x317d2, 0x317f2, indexCPS2Sprites_Cody, 0x01 },
+    { L"X-Ism Kick Extra 2: Edi E.", 0x317f2, 0x31812, indexCPS2Sprites_Cody, 0x02 },
     { L"X-Ism Kick Super Trail Light", 0x31812, 0x31832, indexCPS2Sprites_Cody, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x31832, 0x31852, indexCPS2Sprites_Cody, 0x00 },
 };
@@ -1957,8 +1957,8 @@ const sGame_PaletteDataset SFA3_A_CODY_XISMK[] =
 const sGame_PaletteDataset SFA3_A_CODY_AISMP[] =
 {
     { L"A-Ism Punch", 0x31852, 0x31872, indexCPS2Sprites_Cody, 0x00 },
-    { L"Dagger/Cyclone A-Ism Punch", 0x31872, 0x31892 },
-    { L"A-Ism Punch Extra 2", 0x31892, 0x318b2 },
+    { L"Dagger/Cyclone A-Ism Punch", 0x31872, 0x31892, indexCPS2Sprites_Cody, 0x01 },
+    { L"A-Ism Punch Extra 2: Edi E.", 0x31892, 0x318b2, indexCPS2Sprites_Cody, 0x02 },
     { L"A-Ism Punch Super Trail Light", 0x318b2, 0x318d2, indexCPS2Sprites_Cody, 0x00 },
     { L"A-Ism Punch Super Trail Dark", 0x318d2, 0x318f2, indexCPS2Sprites_Cody, 0x00 },
 };
@@ -1966,8 +1966,8 @@ const sGame_PaletteDataset SFA3_A_CODY_AISMP[] =
 const sGame_PaletteDataset SFA3_A_CODY_AISMK[] =
 {
     { L"A-Ism Kick", 0x318f2, 0x31912, indexCPS2Sprites_Cody, 0x00 },
-    { L"Dagger/Cyclone A-Ism Kick", 0x31912, 0x31932 },
-    { L"A-Ism Kick Extra 2", 0x31932, 0x31952 },
+    { L"Dagger/Cyclone A-Ism Kick", 0x31912, 0x31932, indexCPS2Sprites_Cody, 0x01 },
+    { L"A-Ism Kick Extra 2: Edi E.", 0x31932, 0x31952, indexCPS2Sprites_Cody, 0x02 },
     { L"A-Ism Kick Super Trail Light", 0x31952, 0x31972, indexCPS2Sprites_Cody, 0x00 },
     { L"A-Ism Kick Super Trail Dark", 0x31972, 0x31992, indexCPS2Sprites_Cody, 0x00 },
 };
@@ -1975,8 +1975,8 @@ const sGame_PaletteDataset SFA3_A_CODY_AISMK[] =
 const sGame_PaletteDataset SFA3_A_CODY_VISMP[] =
 {
     { L"V-Ism Punch", 0x31992, 0x319b2, indexCPS2Sprites_Cody, 0x00 },
-    { L"Dagger/Cyclone V-Ism Punch", 0x319b2, 0x319d2 },
-    { L"V-Ism Punch Extra 2", 0x319d2, 0x319f2 },
+    { L"Dagger/Cyclone V-Ism Punch", 0x319b2, 0x319d2, indexCPS2Sprites_Cody, 0x01 },
+    { L"V-Ism Punch Extra 2: Edi E.", 0x319d2, 0x319f2, indexCPS2Sprites_Cody, 0x02 },
     { L"V-Ism Punch Super Trail Light", 0x319f2, 0x31a12, indexCPS2Sprites_Cody, 0x00 },
     { L"V-Ism Punch Super Trail Dark", 0x31a12, 0x31a32, indexCPS2Sprites_Cody, 0x00 },
 };
@@ -1984,8 +1984,8 @@ const sGame_PaletteDataset SFA3_A_CODY_VISMP[] =
 const sGame_PaletteDataset SFA3_A_CODY_VISMK[] =
 {
     { L"V-Ism Kick", 0x31a32, 0x31a52, indexCPS2Sprites_Cody, 0x00 },
-    { L"Dagger/Cyclone V-Ism Kick", 0x31a52, 0x31a72 },
-    { L"V-Ism Kick Extra 2", 0x31a72, 0x31a92 },
+    { L"Dagger/Cyclone V-Ism Kick", 0x31a52, 0x31a72, indexCPS2Sprites_Cody, 0x01 },
+    { L"V-Ism Kick Extra 2: Edi E.", 0x31a72, 0x31a92, indexCPS2Sprites_Cody, 0x02 },
     { L"V-Ism Kick Super Trail Light", 0x31a92, 0x31ab2, indexCPS2Sprites_Cody, 0x00 },
     { L"V-Ism Kick Super Trail Dark", 0x31ab2, 0x31ad2, indexCPS2Sprites_Cody, 0x00 },
 };
@@ -2000,13 +2000,13 @@ const sGame_PaletteDataset SFA3_A_CODY_STATUS[] =
     { L"V-Ism P1 After Effect 2", 0x37192 + 0xA0, 0x37192 + 0xC0, indexCPS2Sprites_Cody },
     { L"V-Ism P2 After Effect 1", 0x37192 + 0xC0, 0x37192 + 0xE0, indexCPS2Sprites_Cody },
     { L"V-Ism P2 After Effect 2", 0x37192 + 0xe0, 0x37192 + 0x100, indexCPS2Sprites_Cody },
-    { L"X-Ism Punch Zapped", 0x37192 + 0x100, 0x37192 + 0x120, indexCPS2Sprites_Cody },
-    { L"X-Ism Kick Zapped", 0x37192 + 0x120, 0x37192 + 0x140, indexCPS2Sprites_Cody },
-    { L"A-Ism Punch Zapped", 0x37192 + 0x140, 0x37192 + 0x160, indexCPS2Sprites_Cody },
-    { L"A-Ism Kick Zapped", 0x37192 + 0x160, 0x37192 + 0x180, indexCPS2Sprites_Cody },
-    { L"V-Ism Punch Zapped", 0x37192 + 0x180, 0x37192 + 0x1A0, indexCPS2Sprites_Cody },
-    { L"V-Ism Kick Zapped", 0x37192 + 0x1A0, 0x37192 + 0x1C0, indexCPS2Sprites_Cody },
-    { L"Zapped Skeleton", 0x37192 + 0x1C0, 0x37192 + 0x1E0, indexCPS2Sprites_Cody },
+    { L"X-Ism Punch Zapped", 0x37192 + 0x100, 0x37192 + 0x120, indexCPS2Sprites_Cody, 0x03 },
+    { L"X-Ism Kick Zapped", 0x37192 + 0x120, 0x37192 + 0x140, indexCPS2Sprites_Cody, 0x03 },
+    { L"A-Ism Punch Zapped", 0x37192 + 0x140, 0x37192 + 0x160, indexCPS2Sprites_Cody, 0x03 },
+    { L"A-Ism Kick Zapped", 0x37192 + 0x160, 0x37192 + 0x180, indexCPS2Sprites_Cody, 0x03 },
+    { L"V-Ism Punch Zapped", 0x37192 + 0x180, 0x37192 + 0x1A0, indexCPS2Sprites_Cody, 0x03 },
+    { L"V-Ism Kick Zapped", 0x37192 + 0x1A0, 0x37192 + 0x1C0, indexCPS2Sprites_Cody, 0x03 },
+    { L"Zapped Skeleton", 0x37192 + 0x1C0, 0x37192 + 0x1E0, indexCPS2Sprites_Cody, 0x04 },
     { L"X-Ism Punch Mash", 0x37192 + 0x1e0, 0x37192 + 0x200, indexCPS2Sprites_Cody },
     { L"X-Ism Kick Mash", 0x37192 + 0x200, 0x37192 + 0x220, indexCPS2Sprites_Cody },
     { L"A-Ism Punch Mash", 0x37192 + 0x220, 0x37192 + 0x240, indexCPS2Sprites_Cody },

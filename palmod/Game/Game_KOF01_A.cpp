@@ -293,12 +293,12 @@ void CGame_KOF01_A::DumpPaletteHeaders()
                 OutputDebugString(strOutput);
             }
 
-            nCurrentOffset = KOF01_ORDERSELECT_START + (ARRAYSIZE(DEF_BUTTONLABEL_2_PK) * nCharIndex * KOF01_PALETTE_LENGTH) + (nColorIndex * KOF01_PALETTE_LENGTH);
-            strOutput.Format(L"    { L\"Order Select Portrait\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH);
-            OutputDebugString(strOutput);
-
             WCHAR szKOF01ImageSet[MAX_DESCRIPTION_LENGTH];
             StrRemoveNonASCII(szKOF01ImageSet, ARRAYSIZE(szKOF01ImageSet), KOF01_A_CharacterPalettes[nCharIndex].pszCharacterName);
+
+            nCurrentOffset = KOF01_ORDERSELECT_START + (ARRAYSIZE(DEF_BUTTONLABEL_2_PK) * nCharIndex * KOF01_PALETTE_LENGTH) + (nColorIndex * KOF01_PALETTE_LENGTH);
+            strOutput.Format(L"    { L\"Order Select Portrait\", 0x%x, 0x%x, indexKOF01Sprites_%s, 0x44 },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH, szKOF01ImageSet);
+            OutputDebugString(strOutput);
 
             if (!KOF01_A_CharacterPalettes[nCharIndex].fIsBoss)
             {
@@ -313,7 +313,7 @@ void CGame_KOF01_A::DumpPaletteHeaders()
             OutputDebugString(strOutput);
 
             nCurrentOffset = KOF01_LIFEBARPORTRAIT_START + (ARRAYSIZE(DEF_BUTTONLABEL_2_PK) * nCharIndex * KOF01_PALETTE_LENGTH) + (nColorIndex * KOF01_PALETTE_LENGTH);
-            strOutput.Format(L"    { L\"Lifebar Portrait\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH);
+            strOutput.Format(L"    { L\"Lifebar Portrait\", 0x%x, 0x%x, indexKOF01Sprites_%s, 0x43 },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH, szKOF01ImageSet);
             OutputDebugString(strOutput);
 
             if (!KOF01_A_CharacterPalettes[nCharIndex].fIsBoss)
