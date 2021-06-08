@@ -1535,10 +1535,10 @@ const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset Garou_A_KAIN_PALETTES_PORTRAITS[] =
 {
-    { L"Kain Portrait Palette - A", 0x2b600, 0x2b640, indexGarouAKain, 0x40 },
-    { L"Kain Portrait Palette - B", 0x2b640, 0x2b680, indexGarouAKain, 0x40 },
-    { L"Kain Portrait Palette - C", 0x2b680, 0x2b6c0, indexGarouAKain, 0x40 },
-    { L"Kain Portrait Palette - D", 0x2b6c0, 0x2b700, indexGarouAKain, 0x40 },
+    { L"Kain Portrait Palette - A", 0x2b600, 0x2b640, indexGarouAKain, 0x40, &pairNext4 },
+    { L"Kain Portrait Palette - B", 0x2b640, 0x2b680, indexGarouAKain, 0x40, &pairNext3 },
+    { L"Kain Portrait Palette - C", 0x2b680, 0x2b6c0, indexGarouAKain, 0x40, &pairNext2 },
+    { L"Kain Portrait Palette - D", 0x2b6c0, 0x2b700, indexGarouAKain, 0x40, &pairNext },
     { L"Kain Portrait - Shared Extra", 0x177e0, 0x17800, indexGarouAKain, 0x3f }
 };
 

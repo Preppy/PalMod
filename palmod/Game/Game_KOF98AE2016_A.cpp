@@ -29,9 +29,7 @@ void CGame_KOF98AE2016_A::InitializeStatics()
 
 CGame_KOF98AE2016_A::CGame_KOF98AE2016_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_KOF98AE2016_A::CGame_KOF98AE2016_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_KOF98AE2016_A::CGame_KOF98AE2016_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);

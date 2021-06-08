@@ -29,9 +29,7 @@ void CGame_KOF03_A::InitializeStatics()
 
 CGame_KOF03_A::CGame_KOF03_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_KOF03_A::CGame_KOF03_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_KOF03_A::CGame_KOF03_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);

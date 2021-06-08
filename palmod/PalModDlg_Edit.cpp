@@ -1252,7 +1252,7 @@ DWORD CPalModDlg::GetColorAtCurrentMouseCursorPosition(int ptX /* = -1 */, int p
             colorAsDWORD = (0xFF << 24) | (GetRValue(colorAtPixel) << 16) | (GetGValue(colorAtPixel) << 8) | GetBValue(colorAtPixel);
 
             CString strOutput;
-            strOutput.Format(L"Color at cursor is: 0x%08x\n", colorAtPixel);
+            strOutput.Format(L"Color at cursor is: 0x%08x\n", colorAsDWORD);
             OutputDebugString(strOutput);
         }
 

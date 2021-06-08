@@ -42,7 +42,7 @@ CGame_KOF96_A::CGame_KOF96_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF96_A_NUMUNIT;
     m_nExtraUnit = KOF96_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 873;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1017;
     m_pszExtraFilename = EXTRA_FILENAME_KOF96_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF96;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -207,7 +207,7 @@ void CGame_KOF96_A::DumpPaletteHeaders()
 {
     CString strOutput;
     constexpr UINT32 KOF96_PALETTE_LENGTH = 0x20;
-    const UINT16 nCountStatusEffects = 16;
+    const UINT16 nCountPalettesPerCharacterColor = 18;
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF96_A_CharacterEffectPalettes); nCharIndex++)
     {
@@ -219,7 +219,7 @@ void CGame_KOF96_A::DumpPaletteHeaders()
             strOutput.Format(L"const sGame_PaletteDataset KOF96_A_%s_%s_PALETTES[] = \r\n{\r\n", szCodeDesc, (nCharacterColor == 0) ? L"A" : L"D");
             OutputDebugString(strOutput);
 
-            for (UINT16 nStatusIndex = 0; nStatusIndex < nCountStatusEffects; nStatusIndex++)
+            for (UINT16 nStatusIndex = 0; nStatusIndex < nCountPalettesPerCharacterColor; nStatusIndex++)
             {
                 UINT32 nCurrentOffset = KOF96_A_CharacterEffectPalettes[nCharIndex].nROMOffset + (nStatusIndex * KOF96_PALETTE_LENGTH) + (nCharacterColor * 0x200);
                 UINT32 nTerminalOffset = nCurrentOffset + KOF96_PALETTE_LENGTH;
@@ -325,6 +325,36 @@ void CGame_KOF96_A::DumpPaletteHeaders()
                     pszCurrentEffectName = L"Lifebar Portrait";
                     nCurrentImageIndex = 0x20;
                     break;
+                case 16:
+                {
+                    //KoF 96 Win Portraits
+                    //0x109402
+                    //0x10ce02
+                    constexpr auto WIN_PORTRAIT_LENGTH = 0x100;
+                    constexpr auto WIN_PORTRAIT_START = 0x109402;
+
+                    pszCurrentEffectName = L"Win Portrait";
+                    nCurrentImageIndex = 0x30;
+                    nCurrentOffset = WIN_PORTRAIT_START + (((nCharIndex * ARRAYSIZE(DEF_BUTTONLABEL_2_AOF3)) + nCharacterColor) * WIN_PORTRAIT_LENGTH);
+                    nTerminalOffset = nCurrentOffset + WIN_PORTRAIT_LENGTH;
+                    break;
+                }
+                case 17:
+                {
+                    //KoF96 Character Select Portraits
+                    //0x113a02
+                    //0x1144c2
+                    constexpr auto CHARACTER_SELECT_LENGTH = 0x20;
+                    constexpr auto CHARACTER_SELECT_SECTION_LENGTH = 0x3a0;
+                    constexpr auto CHARACTER_SELECT_START = 0x113a02;
+                    // p2       113DA2
+                    // greyed  114142
+                    pszCurrentEffectName = L"Character Select";
+                    nCurrentImageIndex = 0x40;
+                    nCurrentOffset = CHARACTER_SELECT_START + ((nCharIndex * CHARACTER_SELECT_LENGTH) + (nCharacterColor * CHARACTER_SELECT_SECTION_LENGTH));
+                    nTerminalOffset = nCurrentOffset + CHARACTER_SELECT_LENGTH;
+                    break;
+                }
                 default:
                     DebugBreak();
                 };
@@ -348,6 +378,37 @@ void CGame_KOF96_A::DumpPaletteHeaders()
 
             OutputDebugString(L"};\r\n\r\n");
         }
+
+        {
+            strOutput.Format(L"const sGame_PaletteDataset KOF96_A_%s_SHARED_PALETTES[] = \r\n{\r\n", szCodeDesc);
+            OutputDebugString(strOutput);
+
+            //KoF96 Character Select Portraits
+            //0x113a02
+            //0x1144c2
+            constexpr auto CHARACTER_SELECT_LENGTH = 0x20;
+            constexpr auto CHARACTER_SELECT_SECTION_LENGTH = 0x3a0;
+            constexpr auto CHARACTER_SELECT_START = 0x113a02;
+            UINT16 nCurrentImageIndex = 0x40;
+            UINT32 nCurrentOffset = CHARACTER_SELECT_START + ((nCharIndex * CHARACTER_SELECT_LENGTH) + (2 * CHARACTER_SELECT_SECTION_LENGTH));
+            UINT32 nTerminalOffset = nCurrentOffset + CHARACTER_SELECT_LENGTH;
+
+            strOutput.Format(L"    { L\"Defeated/Grayed\", 0x%x, 0x%x", nCurrentOffset, nTerminalOffset);
+            OutputDebugString(strOutput);
+
+#ifdef HAVE_IMAGES
+            if (KOF96_A_CharacterEffectPalettes[nCharIndex].pszImageSet && (nCurrentImageIndex != -1))
+            {
+                strOutput.Format(L", %s, 0x%02x", KOF96_A_CharacterEffectPalettes[nCharIndex].pszImageSet, nCurrentImageIndex);
+                OutputDebugString(strOutput);
+            }
+#endif
+
+            OutputDebugString(L" },\r\n");
+
+            OutputDebugString(L"};\r\n\r\n");
+        }
+
     }
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF96_A_CharacterEffectPalettes); nCharIndex++)
@@ -366,6 +427,10 @@ void CGame_KOF96_A::DumpPaletteHeaders()
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF96_A_%s_%s_PALETTES, ARRAYSIZE(KOF96_A_%s_%s_PALETTES) },\r\n", DEF_BUTTONLABEL_2_AOF3[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);
         }
+
+        strOutput.Format(L"    { L\"Shared\", DESC_NODETYPE_TREE, (void*)KOF96_A_%s_SHARED_PALETTES, ARRAYSIZE(KOF96_A_%s_SHARED_PALETTES) },\r\n", szCodeDesc, szCodeDesc);
+        OutputDebugString(strOutput);
+
 
         OutputDebugString(L"};\r\n\r\n");
     }
