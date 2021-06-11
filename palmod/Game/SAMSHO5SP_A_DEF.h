@@ -281,6 +281,15 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_A[] =
     { L"Enja A (Normal)", 0xe9000, 0xe9040, indexSamSho5Sprites_Enja },
     { L"Enja A (Rage)", 0xe9040, 0xe9080, indexSamSho5Sprites_Enja },
     { L"Enja A (SON)", 0xe9240, 0xe9280, indexSamSho5Sprites_Enja },
+
+    { L"Enja A (Burning)", 0xe90c0, 0xe9100, indexSamSho5Sprites_Enja },
+    { L"Enja A (Shocked)", 0xe9100, 0xe9140, indexSamSho5Sprites_Enja },
+    { L"Enja A (Frozen/Wet)", 0xe9140, 0xe9180, indexSamSho5Sprites_Enja },
+    { L"Enja A (Ki)", 0xe9180, 0xe91c0, indexSamSho5Sprites_Enja },
+    { L"Enja A (Issen Trail)", 0xe9200, 0xe9240, indexSamSho5Sprites_Enja },
+    { L"Enja A (Special Effects 1)", 0xe9300, 0xe9320 },
+    { L"Enja A (Special Effects 2)", 0xe9320, 0xe9340 },
+    { L"Enja A (Slash/Misc Effects)", 0xe9340, 0xe9360 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_B[] =
@@ -288,6 +297,15 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_B[] =
     { L"Enja B (Normal)", 0xe9400, 0xe9440, indexSamSho5Sprites_Enja },
     { L"Enja B (Rage)", 0xe9440, 0xe9480, indexSamSho5Sprites_Enja },
     { L"Enja B (SON)", 0xe9640, 0xe9680, indexSamSho5Sprites_Enja },
+
+    { L"Enja B (Burning)", 0xe94c0, 0xe9500, indexSamSho5Sprites_Enja },
+    { L"Enja B (Shocked)", 0xe9500, 0xe9540, indexSamSho5Sprites_Enja },
+    { L"Enja B (Frozen/Wet)", 0xe9540, 0xe9580, indexSamSho5Sprites_Enja },
+    { L"Enja B (Ki)", 0xe9580, 0xe95c0, indexSamSho5Sprites_Enja },
+    { L"Enja B (Issen Trail)", 0xe9600, 0xe9640, indexSamSho5Sprites_Enja },
+    { L"Enja B (Special Effects 1)", 0xe9700, 0xe9720 },
+    { L"Enja B (Special Effects 2)", 0xe9720, 0xe9740 },
+    { L"Enja B (Slash/Misc Effects)", 0xe9740, 0xe9760 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_C[] =
@@ -295,6 +313,15 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_C[] =
     { L"Enja C (Normal)", 0xe9800, 0xe9840, indexSamSho5Sprites_Enja },
     { L"Enja C (Rage)", 0xe9840, 0xe9880, indexSamSho5Sprites_Enja },
     { L"Enja C (SON)", 0xe9a40, 0xe9a80, indexSamSho5Sprites_Enja },
+
+    { L"Enja C (Burning)", 0xe98c0, 0xe9900, indexSamSho5Sprites_Enja },
+    { L"Enja C (Shocked)", 0xe9900, 0xe9940, indexSamSho5Sprites_Enja },
+    { L"Enja C (Frozen/Wet)", 0xe9940, 0xe9980, indexSamSho5Sprites_Enja },
+    { L"Enja C (Ki)", 0xe9980, 0xe99c0, indexSamSho5Sprites_Enja },
+    { L"Enja C (Issen Trail)", 0xe9a00, 0xe9a40, indexSamSho5Sprites_Enja },
+    { L"Enja C (Special Effects 1)", 0xe9b00, 0xe9b20 },
+    { L"Enja C (Special Effects 2)", 0xe9b20, 0xe9b40 },
+    { L"Enja C (Slash/Misc Effects)", 0xe9b40, 0xe9b60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_D[] =
@@ -302,6 +329,15 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_D[] =
     { L"Enja D (Normal)", 0xe9c00, 0xe9c40, indexSamSho5Sprites_Enja },
     { L"Enja D (Rage)", 0xe9c40, 0xe9c80, indexSamSho5Sprites_Enja },
     { L"Enja D (SON)", 0xe9e40, 0xe9e80, indexSamSho5Sprites_Enja },
+
+    { L"Enja D (Burning)", 0xe9cc0, 0xe9d00, indexSamSho5Sprites_Enja },
+    { L"Enja D (Shocked)", 0xe9d00, 0xe9d40, indexSamSho5Sprites_Enja },
+    { L"Enja D (Frozen/Wet)", 0xe9d40, 0xe9d80, indexSamSho5Sprites_Enja },
+    { L"Enja D (Ki)", 0xe9d80, 0xe9dc0, indexSamSho5Sprites_Enja },
+    { L"Enja D (Issen Trail)", 0xe9e00, 0xe9e40, indexSamSho5Sprites_Enja },
+    { L"Enja D (Special Effects 1)", 0xe9f00, 0xe9f20 },
+    { L"Enja D (Special Effects 2)", 0xe9f20, 0xe9f40 },
+    { L"Enja D (Slash/Misc Effects)", 0xe9f40, 0xe9f60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_A[] =
@@ -1441,10 +1477,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_A[] =
     { L"Suija A (Rage)", 0xea040, 0xea080, indexSamSho5Sprites_Suija },
     { L"Suija A (SON)", 0xea240, 0xea280, indexSamSho5Sprites_Suija },
 
-    { L"Water 1 A", 0x0ea340, 0x0ea360 },
-    { L"Water 2 A", 0x0ea1c0, 0x0ea1e0 },
-    { L"Water 3 A", 0x0ea300, 0x0ea340 },
-    { L"Water 4 A", 0x0ea1e0, 0x0ea200 },
+    { L"Suija A (Burning)", 0xea0c0, 0xea100, indexSamSho5Sprites_Suija },
+    { L"Suija A (Shocked)", 0xea100, 0xea140, indexSamSho5Sprites_Suija },
+    { L"Suija A (Frozen/Wet)", 0xea140, 0xea180, indexSamSho5Sprites_Suija },
+    { L"Suija A (Ki)", 0xea180, 0xea1c0, indexSamSho5Sprites_Suija },
+    { L"Suija A (Slash Effect/Engetsu 1)", 0xea1c0, 0xea1e0 },
+    { L"Suija A (Getsurinha 1)", 0xea1e0, 0xea200 },
+    { L"Suija A (Issen Trail)", 0xea200, 0xea240, indexSamSho5Sprites_Suija },
+    { L"Suija A (Getsurinha 2)", 0xea300, 0xea320 },
+    { L"Suija A (Getsurinha 3)", 0xea320, 0xea340 },
+    { L"Suija A (Misc Effects)", 0xea340, 0xea360 },
+    { L"Suija A (Engetsu 2)", 0xea360, 0xea380 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_B[] =
@@ -1453,10 +1496,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_B[] =
     { L"Suija B (Rage)", 0xea440, 0xea480, indexSamSho5Sprites_Suija },
     { L"Suija B (SON)", 0xea640, 0xea680, indexSamSho5Sprites_Suija },
 
-    { L"Water 1 B", 0x0ea740, 0x0ea760 },
-    { L"Water 2 B", 0x0ea5c0, 0x0ea5e0 },
-    { L"Water 3 B", 0x0ea700, 0x0ea740 },
-    { L"Water 4 B", 0x0ea5e0, 0x0ea600 },
+    { L"Suija B (Burning)", 0xea4c0, 0xea500, indexSamSho5Sprites_Suija },
+    { L"Suija B (Shocked)", 0xea500, 0xea540, indexSamSho5Sprites_Suija },
+    { L"Suija B (Frozen/Wet)", 0xea540, 0xea580, indexSamSho5Sprites_Suija },
+    { L"Suija B (Ki)", 0xea580, 0xea5c0, indexSamSho5Sprites_Suija },
+    { L"Suija B (Slash Effect/Engetsu 1)", 0xea5c0, 0xea5e0 },
+    { L"Suija B (Getsurinha 1)", 0xea5e0, 0xea600 },
+    { L"Suija B (Issen Trail)", 0xea600, 0xea640, indexSamSho5Sprites_Suija },
+    { L"Suija B (Getsurinha 2)", 0xea700, 0xea720 },
+    { L"Suija B (Getsurinha 3)", 0xea720, 0xea740 },
+    { L"Suija B (Misc Effects)", 0xea740, 0xea760 },
+    { L"Suija B (Engetsu 2)", 0xea760, 0xea780 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_C[] =
@@ -1465,10 +1515,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_C[] =
     { L"Suija C (Rage)", 0xea840, 0xea880, indexSamSho5Sprites_Suija },
     { L"Suija C (SON)", 0xeaa40, 0xeaa80, indexSamSho5Sprites_Suija },
 
-    { L"Water 1 C", 0x0eab40, 0x0eab60 },
-    { L"Water 2 C", 0x0ea9c0, 0x0ea9e0 },
-    { L"Water 3 C", 0x0eab00, 0x0eab40 },
-    { L"Water 4 C", 0x0ea9e0, 0x0eaa00 },
+    { L"Suija C (Burning)", 0xea8c0, 0xea900, indexSamSho5Sprites_Suija },
+    { L"Suija C (Shocked)", 0xea900, 0xea940, indexSamSho5Sprites_Suija },
+    { L"Suija C (Frozen/Wet)", 0xea940, 0xea980, indexSamSho5Sprites_Suija },
+    { L"Suija C (Ki)", 0xea980, 0xea9c0, indexSamSho5Sprites_Suija },
+    { L"Suija C (Slash Effect/Engetsu 1)", 0xea9c0, 0xea9e0 },
+    { L"Suija C (Getsurinha 1)", 0xea9e0, 0xeaa00 },
+    { L"Suija C (Issen Trail)", 0xeaa00, 0xeaa40, indexSamSho5Sprites_Suija },
+    { L"Suija C (Getsurinha 2)", 0xeab00, 0xeab20 },
+    { L"Suija C (Getsurinha 3)", 0xeab20, 0xeab40 },
+    { L"Suija C (Misc Effects)", 0xeab40, 0xeab60 },
+    { L"Suija C (Engetsu 2)", 0xeab60, 0xeab80 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_D[] =
@@ -1477,10 +1534,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_D[] =
     { L"Suija D (Rage)", 0xeac40, 0xeac80, indexSamSho5Sprites_Suija },
     { L"Suija D (SON)", 0xeae40, 0xeae80, indexSamSho5Sprites_Suija },
 
-    { L"Water 1 D", 0x0eaf40, 0x0eaf60 },
-    { L"Water 2 D", 0x0eadc0, 0x0eade0 },
-    { L"Water 3 D", 0x0eaf00, 0x0eaf40 },
-    { L"Water 4 D", 0x0eade0, 0x0eae00 },
+    { L"Suija D (Burning)", 0xeacc0, 0xead00, indexSamSho5Sprites_Suija },
+    { L"Suija D (Shocked)", 0xead00, 0xead40, indexSamSho5Sprites_Suija },
+    { L"Suija D (Frozen/Wet)", 0xead40, 0xead80, indexSamSho5Sprites_Suija },
+    { L"Suija D (Ki)", 0xead80, 0xeadc0, indexSamSho5Sprites_Suija },
+    { L"Suija D (Slash Effect/Engetsu 1)", 0xeadc0, 0xeade0 },
+    { L"Suija D (Getsurinha 1)", 0xeade0, 0xeae00 },
+    { L"Suija D (Issen Trail)", 0xeae00, 0xeae40, indexSamSho5Sprites_Suija },
+    { L"Suija D (Getsurinha 2)", 0xeaf00, 0xeaf20 },
+    { L"Suija D (Getsurinha 3)", 0xeaf20, 0xeaf40 },
+    { L"Suija D (Misc Effects)", 0xeaf40, 0xeaf60 },
+    { L"Suija D (Engetsu 2)", 0xeaf60, 0xeaf80 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_TamTam_PALETTES_A[] =
@@ -1648,6 +1712,23 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_A[] =
     { L"Yoshitora A (Normal)", 0xeb000, 0xeb040, indexSamSho5Sprites_Yoshitora },
     { L"Yoshitora A (Rage)", 0xeb040, 0xeb080, indexSamSho5Sprites_Yoshitora },
     { L"Yoshitora A (SON)", 0xeb240, 0xeb280, indexSamSho5Sprites_Yoshitora },
+
+    { L"Yoshitora A (Burning)", 0xeb0c0, 0xeb100, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora A (Shocked)", 0xeb100, 0xeb140, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora A (Frozen/Wet)", 0xeb140, 0xeb180, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora A (Ki)", 0xeb180, 0xeb1c0, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora A (Asagao)", 0xeb1c0, 0xeb1e0 },
+    { L"Yoshitora A (WFT)", 0xeb1e0, 0xeb200 },
+    { L"Yoshitora A (Issen Trail)", 0xeb200, 0xeb240, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora A (Nadeshko/Misc)", 0xeb280, 0xeb2a0 },
+    { L"Yoshitora A (Nadeshko Flower)", 0xeb2a0, 0xeb2c0 },
+    { L"Yoshitora A (Tsubaki)", 0xeb2c0, 0xeb2e0 },
+    { L"Yoshitora A (Tsubaki Flower)", 0xeb2e0, 0xeb300 },
+    { L"Yoshitora A (Shirayuri/Slash Effects)", 0xeb300, 0xeb320 },
+    { L"Yoshitora A (Botan & 7th Sword)", 0xeb320, 0xeb340 },
+    { L"Yoshitora A (Wives Dresses)", 0xeb340, 0xeb360 },
+    { L"Yoshitora A (Wives Misc)", 0xeb360, 0xeb380 },
+    { L"Yoshitora A (Yuugao)", 0xeb380, 0xeb3a0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_B[] =
@@ -1655,6 +1736,23 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_B[] =
     { L"Yoshitora B (Normal)", 0xeb400, 0xeb440, indexSamSho5Sprites_Yoshitora },
     { L"Yoshitora B (Rage)", 0xeb440, 0xeb480, indexSamSho5Sprites_Yoshitora },
     { L"Yoshitora B (SON)", 0xeb640, 0xeb680, indexSamSho5Sprites_Yoshitora },
+
+    { L"Yoshitora B (Burning)", 0xeb4c0, 0xeb500, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora B (Shocked)", 0xeb500, 0xeb540, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora B (Frozen/Wet)", 0xeb540, 0xeb580, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora B (Ki)", 0xeb580, 0xeb5c0, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora B (Asagao)", 0xeb5c0, 0xeb5e0 },
+    { L"Yoshitora B (WFT)", 0xeb5e0, 0xeb600 },
+    { L"Yoshitora B (Issen Trail)", 0xeb600, 0xeb640, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora B (Nadeshko/Misc)", 0xeb680, 0xeb6a0 },
+    { L"Yoshitora B (Nadeshko Flower)", 0xeb6a0, 0xeb6c0 },
+    { L"Yoshitora B (Tsubaki)", 0xeb6c0, 0xeb6e0 },
+    { L"Yoshitora B (Tsubaki Flower)", 0xeb6e0, 0xeb700 },
+    { L"Yoshitora B (Shirayuri/Slash Effects)", 0xeb700, 0xeb720 },
+    { L"Yoshitora B (Botan & 7th Sword)", 0xeb720, 0xeb740 },
+    { L"Yoshitora B (Wives Dresses)", 0xeb740, 0xeb760 },
+    { L"Yoshitora B (Wives Misc)", 0xeb760, 0xeb780 },
+    { L"Yoshitora B (Yuugao)", 0xeb780, 0xeb7a0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_C[] =
@@ -1662,6 +1760,23 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_C[] =
     { L"Yoshitora C (Normal)", 0xeb800, 0xeb840, indexSamSho5Sprites_Yoshitora },
     { L"Yoshitora C (Rage)", 0xeb840, 0xeb880, indexSamSho5Sprites_Yoshitora },
     { L"Yoshitora C (SON)", 0xeba40, 0xeba80, indexSamSho5Sprites_Yoshitora },
+
+    { L"Yoshitora C (Burning)", 0xeb8c0, 0xeb900, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora C (Shocked)", 0xeb900, 0xeb940, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora C (Frozen/Wet)", 0xeb940, 0xeb980, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora C (Ki)", 0xeb980, 0xeb9c0, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora C (Asagao)", 0xeb9c0, 0xeb9e0 },
+    { L"Yoshitora C (WFT)", 0xeb9e0, 0xeba00 },
+    { L"Yoshitora C (Issen Trail)", 0xeba00, 0xeba40, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora C (Nadeshko/Misc)", 0xeba80, 0xebaa0 },
+    { L"Yoshitora C (Nadeshko Flower)", 0xebaa0, 0xebac0 },
+    { L"Yoshitora C (Tsubaki)", 0xebac0, 0xebae0 },
+    { L"Yoshitora C (Tsubaki Flower)", 0xebae0, 0xebb00 },
+    { L"Yoshitora C (Shirayuri/Slash Effects)", 0xebb00, 0xebb20 },
+    { L"Yoshitora C (Botan & 7th Sword)", 0xebb20, 0xebb40 },
+    { L"Yoshitora C (Wives Dresses)", 0xebb40, 0xebb60 },
+    { L"Yoshitora C (Wives Misc)", 0xebb60, 0xebb80 },
+    { L"Yoshitora C (Yuugao)", 0xebb80, 0xebba0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_D[] =
@@ -1669,6 +1784,23 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_D[] =
     { L"Yoshitora D (Normal)", 0xebc00, 0xebc40, indexSamSho5Sprites_Yoshitora },
     { L"Yoshitora D (Rage)", 0xebc40, 0xebc80, indexSamSho5Sprites_Yoshitora },
     { L"Yoshitora D (SON)", 0xebe40, 0xebe80, indexSamSho5Sprites_Yoshitora },
+
+    { L"Yoshitora D (Burning)", 0xebcc0, 0xebd00, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora D (Shocked)", 0xebd00, 0xebd40, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora D (Frozen/Wet)", 0xebd40, 0xebd80, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora D (Ki)", 0xebd80, 0xebdc0, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora D (Asagao)", 0xebdc0, 0xebde0 },
+    { L"Yoshitora D (WFT)", 0xebde0, 0xebe00 },
+    { L"Yoshitora D (Issen Trail)", 0xebe00, 0xebe40, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora D (Nadeshko/Misc)", 0xebe80, 0xebea0 },
+    { L"Yoshitora D (Nadeshko Flower)", 0xebea0, 0xebec0 },
+    { L"Yoshitora D (Tsubaki)", 0xebec0, 0xebee0 },
+    { L"Yoshitora D (Tsubaki Flower)", 0xebee0, 0xebf00 },
+    { L"Yoshitora D (Shirayuri/Slash Effects)", 0xebf00, 0xebf20 },
+    { L"Yoshitora D (Botan & 7th Sword)", 0xebf20, 0xebf40 },
+    { L"Yoshitora D (Wives Dresses)", 0xebf40, 0xebf60 },
+    { L"Yoshitora D (Wives Misc)", 0xebf60, 0xebf80 },
+    { L"Yoshitora D (Yuugao)", 0xebf80, 0xebfa0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_A[] =
@@ -1676,6 +1808,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_A[] =
     { L"Yunfei A (Normal)", 0xec000, 0xec040, indexSamSho5Sprites_Yunfei },
     { L"Yunfei A (Rage)", 0xec040, 0xec080, indexSamSho5Sprites_Yunfei },
     { L"Yunfei A (SON)", 0xec240, 0xec280, indexSamSho5Sprites_Yunfei },
+
+    { L"Yunfei A (Burning)", 0xec0c0, 0xec100, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei A (Shocked)", 0xec100, 0xec140, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei A (Frozen/Wet)", 0xec140, 0xec180, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei A (Ki)", 0xec180, 0xec1c0, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei A (Issen Trail)", 0xec200, 0xec240, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei A (WFT1)", 0xec2c0, 0xec2e0 },
+    { L"Yunfei A (Overkill/WFT2)", 0xec300, 0xec340 },
+    { L"Yunfei A (Slash Effects/Tenkoku Houra)", 0xec340, 0xec360 },
+    { L"Yunfei A (Misc Specials)", 0xec360, 0xec380 },
+    { L"Yunfei A (WFT3)", 0xec380, 0xec3a0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_B[] =
@@ -1683,6 +1826,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_B[] =
     { L"Yunfei B (Normal)", 0xec400, 0xec440, indexSamSho5Sprites_Yunfei },
     { L"Yunfei B (Rage)", 0xec440, 0xec480, indexSamSho5Sprites_Yunfei },
     { L"Yunfei B (SON)", 0xec640, 0xec680, indexSamSho5Sprites_Yunfei },
+
+    { L"Yunfei B (Burning)", 0xec4c0, 0xec500, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei B (Shocked)", 0xec500, 0xec540, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei B (Frozen/Wet)", 0xec540, 0xec580, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei B (Ki)", 0xec580, 0xec5c0, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei B (Issen Trail)", 0xec600, 0xec640, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei B (WFT1)", 0xec6c0, 0xec6e0 },
+    { L"Yunfei B (Overkill/WFT2)", 0xec700, 0xec740 },
+    { L"Yunfei B (Slash Effects/Tenkoku Houra)", 0xec740, 0xec760 },
+    { L"Yunfei B (Misc Specials)", 0xec760, 0xec780 },
+    { L"Yunfei B (WFT3)", 0xec780, 0xec7a0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_C[] =
@@ -1690,6 +1844,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_C[] =
     { L"Yunfei C (Normal)", 0xec800, 0xec840, indexSamSho5Sprites_Yunfei },
     { L"Yunfei C (Rage)", 0xec840, 0xec880, indexSamSho5Sprites_Yunfei },
     { L"Yunfei C (SON)", 0xeca40, 0xeca80, indexSamSho5Sprites_Yunfei },
+
+    { L"Yunfei C (Burning)", 0xec8c0, 0xec900, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei C (Shocked)", 0xec900, 0xec940, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei C (Frozen/Wet)", 0xec940, 0xec980, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei C (Ki)", 0xec980, 0xec9c0, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei C (Issen Trail)", 0xeca00, 0xeca40, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei C (WFT1)", 0xecac0, 0xecae0 },
+    { L"Yunfei C (Overkill/WFT2)", 0xecb00, 0xecb40 },
+    { L"Yunfei C (Slash Effects/Tenkoku Houra)", 0xecb40, 0xecb60 },
+    { L"Yunfei C (Misc Specials)", 0xecb60, 0xecb80 },
+    { L"Yunfei C (WFT3)", 0xecb80, 0xecba0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_D[] =
@@ -1697,6 +1862,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_D[] =
     { L"Yunfei D (Normal)", 0xecc00, 0xecc40, indexSamSho5Sprites_Yunfei },
     { L"Yunfei D (Rage)", 0xecc40, 0xecc80, indexSamSho5Sprites_Yunfei },
     { L"Yunfei D (SON)", 0xece40, 0xece80, indexSamSho5Sprites_Yunfei },
+
+    { L"Yunfei D (Burning)", 0xeccc0, 0xecd00, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei D (Shocked)", 0xecd00, 0xecd40, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei D (Frozen/Wet)", 0xecd40, 0xecd80, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei D (Ki)", 0xecd80, 0xecdc0, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei D (Issen Trail)", 0xece00, 0xece40, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei D (WFT1)", 0xecec0, 0xecee0 },
+    { L"Yunfei D (Overkill/WFT2)", 0xecf00, 0xecf40 },
+    { L"Yunfei D (Slash Effects/Tenkoku Houra)", 0xecf40, 0xecf60 },
+    { L"Yunfei D (Misc Specials)", 0xecf60, 0xecf80 },
+    { L"Yunfei D (WFT3)", 0xecf80, 0xecfa0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Zankuro_PALETTES_A[] =

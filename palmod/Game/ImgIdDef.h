@@ -433,7 +433,7 @@ enum KOFSpriteList
     UNUSEDindexKOF00Sprites_Bao,      // 43
     indexKOF00Sprites_Kasumi_ForKOF98AE,   // 44
     UNUSEDindexKOF00Sprites_Robert,   // 45
-    indexKOF00Sprites_ZeroClone, // 46
+    UNUSEDindexKOF00Sprites_ZeroClone, // 46
     indexKOF01Sprites_Xiangfei, // 47
     indexKOF02Sprites_Andy,     // 48
     indexKOF02Sprites_Chin,     // 49 
