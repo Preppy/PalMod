@@ -1223,9 +1223,9 @@ void CPalModDlg::OnBnClickedBinvert()
             {
                 nPaletteIndex = i * 4;
 
-                pCurrPal[nPaletteIndex] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(~pCurrPal[nPaletteIndex]);
-                pCurrPal[nPaletteIndex + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(~pCurrPal[nPaletteIndex + 1]);
-                pCurrPal[nPaletteIndex + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(~pCurrPal[nPaletteIndex + 2]);
+                pCurrPal[nPaletteIndex]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB((UINT8)~pCurrPal[nPaletteIndex]);
+                pCurrPal[nPaletteIndex + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB((UINT8)~pCurrPal[nPaletteIndex + 1]);
+                pCurrPal[nPaletteIndex + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB((UINT8)~pCurrPal[nPaletteIndex + 2]);
 
                 CurrPalCtrl->UpdateIndex(i);
             }

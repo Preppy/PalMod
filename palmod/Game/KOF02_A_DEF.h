@@ -67,9 +67,9 @@ const sKOF02_A_CharacterDump KOF02_A_CharacterOffsetArray[] =
     { L"Angel",      0x88b62 + (0x800 * 38), L"indexKOF02UMSprites_Angel",    L"Time Over Lose", 0x19 },
     { L"Omega Rugal", 0x88b62 + (0x800 * 39), L"indexKOF02UMSprites_OmegaRugal",   nullptr, 0, nullptr, 0, L"Superboss Intro Stuff", 0x19 },
     { L"KUSANAGI",   0x88b62 + (0x800 * 40), L"indexKOF02UMSprites_Kusanagi", L"Super Move Palette", 0x3, L"MAX Orochinagi Fire", 0x4 },
-    { L"O.Yashiro",  0x88b62 + (0x800 * 41), L"indexKOF02UMSprites_Yashiro",  },
-    { L"O.Shermie",  0x88b62 + (0x800 * 42), L"indexKOF02UMSprites_Shermie",  nullptr, 0, nullptr, 0, nullptr, 0, L"MAX2 Lightning", 0x9 },
-    { L"O.Chris",    0x88b62 + (0x800 * 43), L"indexKOF02UMSprites_Chris",    nullptr, 0, L"MAX2 Orochi", 0, nullptr, 0, L"Orochi Fire Palette", 0x19 },
+    { L"O.Yashiro",  0x88b62 + (0x800 * 41), L"indexKOF02UMSprites_YashiroOChi",  },
+    { L"O.Shermie",  0x88b62 + (0x800 * 42), L"indexKOF02UMSprites_ShermieOChi",  nullptr, 0, nullptr, 0, nullptr, 0, L"MAX2 Lightning", 0x9 },
+    { L"O.Chris",    0x88b62 + (0x800 * 43), L"indexKOF02Sprites_ChrisOrochi",    nullptr, 0, L"MAX2 Orochi", 0, nullptr, 0, L"Orochi Fire Palette", 0x19 },
 };
 
 const UINT16 KOF02_A_IMGIDS_USED[] =
