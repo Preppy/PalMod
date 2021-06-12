@@ -397,6 +397,9 @@
     <Filter Include="Games\SNK Games\Magical Drop III">
       <UniqueIdentifier>{486e8b70-c7f6-4d17-889e-90e3edde6c26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\King of Fighters 2002 PS2 hack">
+      <UniqueIdentifier>{89eb4408-ba40-4637-9f06-b06b6d6f12fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -818,6 +821,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_MagicalDropIII_A.cpp">
       <Filter>Games\SNK Games\Magical Drop III</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF02PS2_A.cpp">
+      <Filter>Games\SNK Games\King of Fighters 2002 PS2 hack</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1534,6 +1540,12 @@
     </ClInclude>
     <ClInclude Include="Game\MagicalDropIII_A_DEF.h">
       <Filter>Games\SNK Games\Magical Drop III</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF02PS2_A.h">
+      <Filter>Games\SNK Games\King of Fighters 2002 PS2 hack</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF02PS2_A_DEF.h">
+      <Filter>Games\SNK Games\King of Fighters 2002 PS2 hack</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

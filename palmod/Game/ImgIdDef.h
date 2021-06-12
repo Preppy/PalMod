@@ -430,7 +430,7 @@ enum KOFSpriteList
     indexKOF02Sprites_NGeese,   // unused currently
 
     indexKOF99Sprites_Krizalid, // 42
-    UNUSEDindexKOF00Sprites_Bao,      // 43
+    indexKOF02UMSprites_OrochiIori,      // 43
     indexKOF00Sprites_Kasumi_ForKOF98AE,   // 44
     UNUSEDindexKOF00Sprites_Robert,   // 45
     UNUSEDindexKOF00Sprites_ZeroClone, // 46

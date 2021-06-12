@@ -137,6 +137,7 @@ enum SupportedGamesList
     BMKNS_SNES,
     BSSMSJR_SNES,
     MAGICALDROPIII_A,
+    KOF02PS2_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -270,7 +271,8 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Red Earth: Next (Arcade Rerip)",
     L"Battle Master: KnS (SNES)",
     L"Bishojo Senshi Sailor Moon S - JR (SNES)",
-    L"Magical Drop III (Neo-Geo),"
+    L"Magical Drop III (Neo-Geo)",
+    L"King of Fighters 2002PS2 (Neo-Geo hack)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

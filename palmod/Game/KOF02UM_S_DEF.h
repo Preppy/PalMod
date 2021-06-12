@@ -169,6 +169,7 @@ const UINT16 KOF02UM_S_IMGIDS_USED[] =
 
     indexKOF02UMSprites_Extras,
 
+    indexKOF02UMSprites_OrochiIori,
     indexSVCSprites_OrochiIori,
 };
 
@@ -5073,49 +5074,49 @@ const sDescTreeNode KOF02UM_S_IGNIZ_COLLECTION[] =
 // I'm just reusing the SvC definitions, and expanding them and shifting them to match KOF02UM-S's usage
 const sGame_PaletteDataset KOF02UM_S_OROCHIIORI_A_PALETTES[] =
 {
-    { L"Orochi Iori",                   0x384538 - 0x333938, 0x384558 - 0x333938, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 1",       0x384558 - 0x333938, 0x384578 - 0x333938, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 2",       0x384578 - 0x333938, 0x384598 - 0x333938, indexSVCSprites_OrochiIori },
-    { L"Electric Shock Effect",         0x384598 - 0x333938, 0x3845b8 - 0x333938, indexSVCSprites_OrochiIori },
-    { L"MAX Flash",                     0x3845b8 - 0x333938, 0x3845d8 - 0x333938, indexSVCSprites_OrochiIori },
+    { L"Orochi Iori",                   0x384538 - 0x333938, 0x384558 - 0x333938, indexKOF02UMSprites_OrochiIori },
+    // unused { L"Fire Effect 1",       0x384558 - 0x333938, 0x384578 - 0x333938, indexKOF02UMSprites_OrochiIori },
+    // unused { L"Fire Effect 2",       0x384578 - 0x333938, 0x384598 - 0x333938, indexKOF02UMSprites_OrochiIori },
+    { L"Electric Shock Effect",         0x384598 - 0x333938, 0x3845b8 - 0x333938, indexKOF02UMSprites_OrochiIori, 0x18 },
+    { L"MAX Flash",                     0x3845b8 - 0x333938, 0x3845d8 - 0x333938, indexKOF02UMSprites_OrochiIori, 0x09 },
     { L"Athena Transformation",         0x3845d8 - 0x333938, 0x3845f8 - 0x333938, indexSVCSprites_OrochiIori, 5 },
-    { L"Soul Palette",                  0x3845f8 - 0x333938, 0x384618 - 0x333938, indexSVCSprites_OrochiIori },
+    { L"Soul Palette",                  0x3845f8 - 0x333938, 0x384618 - 0x333938, indexKOF02UMSprites_OrochiIori, 0x18 },
     { L"Midnight Bliss",                0x384618 - 0x333938, 0x384638 - 0x333938, indexSVCSprites_OrochiIori, 7 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OROCHIIORI_B_PALETTES[] =
 {
-    { L"Orochi Iori",                   0x384638 - 0x333938, 0x384658 - 0x333938, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 1",       0x384658 - 0x333938, 0x384678 - 0x333938, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 2",       0x384678 - 0x333938, 0x384698 - 0x333938, indexSVCSprites_OrochiIori },
-    { L"Electric Shock Effect",         0x384698 - 0x333938, 0x3846b8 - 0x333938, indexSVCSprites_OrochiIori },
-    { L"MAX Flash",                     0x3846b8 - 0x333938, 0x3846d8 - 0x333938, indexSVCSprites_OrochiIori },
+    { L"Orochi Iori",                   0x384638 - 0x333938, 0x384658 - 0x333938, indexKOF02UMSprites_OrochiIori },
+    // unused { L"Fire Effect 1",       0x384658 - 0x333938, 0x384678 - 0x333938, indexKOF02UMSprites_OrochiIori },
+    // unused { L"Fire Effect 2",       0x384678 - 0x333938, 0x384698 - 0x333938, indexKOF02UMSprites_OrochiIori },
+    { L"Electric Shock Effect",         0x384698 - 0x333938, 0x3846b8 - 0x333938, indexKOF02UMSprites_OrochiIori, 0x18 },
+    { L"MAX Flash",                     0x3846b8 - 0x333938, 0x3846d8 - 0x333938, indexKOF02UMSprites_OrochiIori, 0x09 },
     { L"Athena Transformation",         0x3846d8 - 0x333938, 0x3846f8 - 0x333938, indexSVCSprites_OrochiIori, 5 },
-    { L"Soul Palette",                  0x3846f8 - 0x333938, 0x384718 - 0x333938, indexSVCSprites_OrochiIori },
+    { L"Soul Palette",                  0x3846f8 - 0x333938, 0x384718 - 0x333938, indexKOF02UMSprites_OrochiIori, 0x18 },
     { L"Midnight Bliss",                0x384718 - 0x333938, 0x384738 - 0x333938, indexSVCSprites_OrochiIori, 7 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OROCHIIORI_C_PALETTES[] =
 {
-    { L"Orochi Iori",                   0x384738 - 0x333938, 0x384758 - 0x333938, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 1",       0x384758 - 0x333938, 0x384778 - 0x333938, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 2",       0x384778 - 0x333938, 0x384798 - 0x333938, indexSVCSprites_OrochiIori },
-    { L"Electric Shock Effect",         0x384798 - 0x333938, 0x3847b8 - 0x333938, indexSVCSprites_OrochiIori },
-    { L"MAX Flash",                     0x3847b8 - 0x333938, 0x3847d8 - 0x333938, indexSVCSprites_OrochiIori },
+    { L"Orochi Iori",                   0x384738 - 0x333938, 0x384758 - 0x333938, indexKOF02UMSprites_OrochiIori },
+    // unused { L"Fire Effect 1",       0x384758 - 0x333938, 0x384778 - 0x333938, indexKOF02UMSprites_OrochiIori },
+    // unused { L"Fire Effect 2",       0x384778 - 0x333938, 0x384798 - 0x333938, indexKOF02UMSprites_OrochiIori },
+    { L"Electric Shock Effect",         0x384798 - 0x333938, 0x3847b8 - 0x333938, indexKOF02UMSprites_OrochiIori, 0x18 },
+    { L"MAX Flash",                     0x3847b8 - 0x333938, 0x3847d8 - 0x333938, indexKOF02UMSprites_OrochiIori, 0x09 },
     { L"Athena Transformation",         0x3847d8 - 0x333938, 0x3847f8 - 0x333938, indexSVCSprites_OrochiIori, 5 },
-    { L"Soul Palette",                  0x3847f8 - 0x333938, 0x384818 - 0x333938, indexSVCSprites_OrochiIori },
+    { L"Soul Palette",                  0x3847f8 - 0x333938, 0x384818 - 0x333938, indexKOF02UMSprites_OrochiIori, 0x18 },
     { L"Midnight Bliss",                0x384818 - 0x333938, 0x384838 - 0x333938, indexSVCSprites_OrochiIori, 7 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OROCHIIORI_D_PALETTES[] =
 {
-    { L"Orochi Iori",                   0x384738 - 0x333838, 0x384758 - 0x333838, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 1",       0x384758 - 0x333838, 0x384778 - 0x333838, indexSVCSprites_OrochiIori },
-    // unused { L"Fire Effect 2",       0x384778 - 0x333838, 0x384798 - 0x333838, indexSVCSprites_OrochiIori },
-    { L"Electric Shock Effect",         0x384798 - 0x333838, 0x3847b8 - 0x333838, indexSVCSprites_OrochiIori },
-    { L"MAX Flash",                     0x3847b8 - 0x333838, 0x3847d8 - 0x333838, indexSVCSprites_OrochiIori },
+    { L"Orochi Iori",                   0x384738 - 0x333838, 0x384758 - 0x333838, indexKOF02UMSprites_OrochiIori },
+    // unused { L"Fire Effect 1",       0x384758 - 0x333838, 0x384778 - 0x333838, indexKOF02UMSprites_OrochiIori },
+    // unused { L"Fire Effect 2",       0x384778 - 0x333838, 0x384798 - 0x333838, indexKOF02UMSprites_OrochiIori },
+    { L"Electric Shock Effect",         0x384798 - 0x333838, 0x3847b8 - 0x333838, indexKOF02UMSprites_OrochiIori, 0x18 },
+    { L"MAX Flash",                     0x3847b8 - 0x333838, 0x3847d8 - 0x333838, indexKOF02UMSprites_OrochiIori, 0x09 },
     { L"Athena Transformation",         0x3847d8 - 0x333838, 0x3847f8 - 0x333838, indexSVCSprites_OrochiIori, 5 },
-    { L"Soul Palette",                  0x3847f8 - 0x333838, 0x384818 - 0x333838, indexSVCSprites_OrochiIori },
+    { L"Soul Palette",                  0x3847f8 - 0x333838, 0x384818 - 0x333838, indexKOF02UMSprites_OrochiIori, 0x18 },
     { L"Midnight Bliss",                0x384818 - 0x333838, 0x384838 - 0x333838, indexSVCSprites_OrochiIori, 7 },
 };
 

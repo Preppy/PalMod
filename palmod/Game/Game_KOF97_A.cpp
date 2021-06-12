@@ -43,7 +43,7 @@ CGame_KOF97_A::CGame_KOF97_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF97_A_NUMUNIT;
     m_nExtraUnit = KOF97_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2552;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2568;
     m_pszExtraFilename = EXTRA_FILENAME_KOF97_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF97;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -308,6 +308,14 @@ void CGame_KOF97_A::DumpPaletteHeaders()
                             nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     }
                     break;
+                case 9:
+                    strOutput.Format(L"    { L\"%s %s - Electric Palette\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                        nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                    break;
+                case 14:
+                    strOutput.Format(L"    { L\"%s %s - Character Select/Win Assist Portrait\", 0x%x, 0x%x, %s, 0x20 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                        nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                    break;
                 case 15:
                     strOutput.Format(L"    { L\"%s %s - Lifebar Portrait\", 0x%x, 0x%x, indexKOF98Sprites_Lifebar, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
                         nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
@@ -418,6 +426,7 @@ UINT32 CGame_KOF97_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
         { L"King of Fighters '97 (Neo-Geo)", L"232-p2.sp2", 0x158b23f6, 0 },
         { L"King of Fighters '97 (Neo-Geo)", L"KOF97_p2.rom", 0x158b23f6, 0 },
         { L"King of Fighters '97AE (Neo-Geo)", L"232ae.p2", -1, 0 },
+        { L"King of Fighters '97 Plus (Neo-Geo bootleg)", L"kf97-p2p.bin", 0x5502b020, 0 },
     };
 
     if (ppKnownROMSet != nullptr)

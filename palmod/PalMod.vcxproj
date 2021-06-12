@@ -256,6 +256,7 @@
     <ClCompile Include="Game\Game_KI_SNES.cpp" />
     <ClCompile Include="Game\Game_KOF00N_A.cpp" />
     <ClCompile Include="Game\Game_KOF01_A.cpp" />
+    <ClCompile Include="Game\Game_KOF02PS2_A.cpp" />
     <ClCompile Include="Game\Game_KOF02UM_S.cpp" />
     <ClCompile Include="Game\Game_KOF02_A.cpp" />
     <ClCompile Include="Game\Game_KOF03_A.cpp" />
@@ -420,6 +421,7 @@
     <ClInclude Include="Game\Game_KI_SNES.h" />
     <ClInclude Include="Game\Game_KOF00N_A.h" />
     <ClInclude Include="Game\Game_KOF01_A.h" />
+    <ClInclude Include="Game\Game_KOF02PS2_A.h" />
     <ClInclude Include="Game\Game_KOF02UM_S.h" />
     <ClInclude Include="Game\Game_KOF02_A.h" />
     <ClInclude Include="Game\Game_KOF03_A.h" />
@@ -513,6 +515,7 @@
     <ClInclude Include="Game\KI_SNES_DEF.h" />
     <ClInclude Include="Game\KOF00N_A_DEF.h" />
     <ClInclude Include="Game\KOF01_A_DEF.h" />
+    <ClInclude Include="Game\KOF02PS2_A_DEF.h" />
     <ClInclude Include="Game\KOF02UM_S_DEF.h" />
     <ClInclude Include="Game\KOF02_A_DEF.h" />
     <ClInclude Include="Game\KOF03_A_DEF.h" />

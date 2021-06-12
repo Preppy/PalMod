@@ -1667,11 +1667,11 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_SHARED[] =
 {
     { L"Taunt", 0x01f9ca, 0x01f9ea },
     { L"Text & Sign", 0x01fa0a, 0x01fa2a },
-    { L"Curtains", 0x01fa2a, 0x01fa4a },
-    { L"Stage 1/4", 0x01f9ea, 0x01fa0a },
-    { L"Stage 2/4", 0x01fa4a, 0x01fa6a },
-    { L"Stage 3/4", 0x01fa6a, 0x01fa8a },
-    { L"Stage 4/4", 0x01fa8a, 0x01faaa },
+    { L"Curtains", 0x01fa2a, 0x01fa4a, indexCPS2Sprites_VSAV1_Bonus, 0x0a },
+    { L"Stage 1/4", 0x01f9ea, 0x01fa0a, indexCPS2Sprites_VSAV1_Bonus, 0x0b },
+    { L"Stage 2/4", 0x01fa4a, 0x01fa6a, indexCPS2Sprites_VSAV1_Bonus, 0x0b },
+    { L"Stage 3/4", 0x01fa6a, 0x01fa8a, indexCPS2Sprites_VSAV1_Bonus, 0x0b },
+    { L"Stage 4/4", 0x01fa8a, 0x01faaa, indexCPS2Sprites_VSAV1_Bonus, 0x0b },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LP[] =
