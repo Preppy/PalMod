@@ -8,47 +8,6 @@
 //       - look for usage of index_SFA1_Ryu to find them
 // That should be it.  Good luck.
 
-enum Supported_SFA1_PaletteListIndex
-{
-    index_SFA1_Ryu,
-    index_SFA1_Ken,
-    index_SFA1_Gouki,
-    index_SFA1_Charlie,
-    index_SFA1_ChunLi,
-    index_SFA1_Adon,
-    index_SFA1_Sodom,
-    index_SFA1_Guy,
-    index_SFA1_Birdie,
-    index_SFA1_Rose,
-    index_SFA1_MBison,
-    index_SFA1_Sagat,
-    index_SFA1_Dan,
-    index_SFA1_Last
-};
-
-constexpr auto SFA1_A_NUM_IND = index_SFA1_Last;
-
-#define SFA1_A_EXTRALOC SFA1_A_NUM_IND
-
-const UINT8 SFA1_A_UNITSORT[SFA1_A_NUM_IND + 1] = // Plus 1 for the extra palettes
-{
-    index_SFA1_Adon,
-    index_SFA1_Birdie,
-    index_SFA1_Charlie,
-    index_SFA1_ChunLi,
-    index_SFA1_Dan,
-    index_SFA1_Gouki,
-    index_SFA1_Guy,
-    index_SFA1_Ken,
-    index_SFA1_MBison,
-    index_SFA1_Rose,
-    index_SFA1_Ryu,
-    index_SFA1_Sagat,
-    index_SFA1_Sodom,
-   
-    SFA1_A_EXTRALOC // Extra palettes
-};
-
 const UINT16 SFA1_A_IMGIDS_USED[] =
 {
     indexCPS2Sprites_Ryu,              // 0x00,
@@ -289,7 +248,7 @@ const sGame_PaletteDataset SFA1_A_GUY_PUNCH_PALETTES[] =
     { L"Super Trail 2",  0x6879e, 0x687be, indexCPS2Sprites_Guy, 0x00 },
     { L"Super Trail 3",  0x687be, 0x687de, indexCPS2Sprites_Guy, 0x00 },
     { L"Extra 1",        0x687de, 0x687fe, indexCPS2Sprites_Guy, 0x01 },
-    { L"Extra 2",        0x687fe, 0x6881e },
+    { L"Extra 2: Barrels",        0x687fe, 0x6881e },
     { L"Psycho Power Burned Effect", 0x6881e, 0x6883e, indexCPS2Sprites_Guy, 0x00 },
     { L"Burned Status",   0x6883e, 0x6885e, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -301,7 +260,7 @@ const sGame_PaletteDataset SFA1_A_GUY_KICK_PALETTES[] =
     { L"Super Trail 2",  0x6889e, 0x688be, indexCPS2Sprites_Guy, 0x00 },
     { L"Super Trail 3",  0x688be, 0x688de, indexCPS2Sprites_Guy, 0x00 },
     { L"Extra 1",        0x688de, 0x688fe, indexCPS2Sprites_Guy, 0x01 },
-    { L"Extra 2",        0x688fe, 0x6891e },
+    { L"Extra 2: Barrels",        0x688fe, 0x6891e },
     { L"Psycho Power Burned Effect", 0x6891e, 0x6893e, indexCPS2Sprites_Guy, 0x00 },
     { L"Burned Status",   0x6893e, 0x6895e, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -553,7 +512,7 @@ const sDescTreeNode SFA1_A_DAN_COLLECTION[] =
     { L"Select Portraits", DESC_NODETYPE_TREE, (void*)SFA1_A_DAN_PORTRAIT_PALETTES, ARRAYSIZE(SFA1_A_DAN_PORTRAIT_PALETTES) },
 };
 
-const sDescTreeNode SFA1_A_UNITS[SFA1_A_NUM_IND] =
+const sDescTreeNode SFA1_A_UNITS[] =
 {
     { L"Adon",            DESC_NODETYPE_TREE, (void*)SFA1_A_ADON_COLLECTION,          ARRAYSIZE(SFA1_A_ADON_COLLECTION) },
     { L"Birdie",          DESC_NODETYPE_TREE, (void*)SFA1_A_BIRDIE_COLLECTION,        ARRAYSIZE(SFA1_A_BIRDIE_COLLECTION) },
@@ -569,6 +528,10 @@ const sDescTreeNode SFA1_A_UNITS[SFA1_A_NUM_IND] =
     { L"Sagat",           DESC_NODETYPE_TREE, (void*)SFA1_A_SAGAT_COLLECTION,         ARRAYSIZE(SFA1_A_SAGAT_COLLECTION) },
     { L"Sodom",           DESC_NODETYPE_TREE, (void*)SFA1_A_SODOM_COLLECTION,         ARRAYSIZE(SFA1_A_SODOM_COLLECTION) },
 };
+
+constexpr auto SFA1_A_NUMUNIT = ARRAYSIZE(SFA1_A_UNITS);
+
+#define SFA1_A_EXTRALOC SFA1_A_NUMUNIT
 
 // We extend this array with data groveled from the SFA1e.txt extensible extras file, if any.
 const stExtraDef SFA1_A_EXTRA[] =

@@ -781,6 +781,49 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES[] =
     { L"Apocalypse",    0x1c2fa, 0x1c39a, indexCPS2Sprites_Apocalypse, 0x38 },
 };
 
+const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_VSP[] =
+{
+    { L"Wolverine P1",      0x1a27a, 0x1a31a },
+    { L"Cyclops P1",        0x1a31a, 0x1a3ba },
+    { L"Storm P1",          0x1a3ba, 0x1a45a },
+    { L"Rogue P1",          0x1a45a, 0x1a4fa },
+    { L"Gambit P1",         0x1a4fa, 0x1a59a },
+    { L"Sabretooth P1",     0x1a59a, 0x1a63a },
+    { L"Juggernaut P1",     0x1a63a, 0x1a6da },
+    { L"Magneto P1",        0x1a6da, 0x1a77a },
+    { L"Apocalypse P1",     0x1a77a, 0x1a81a },
+    { L"Ryu P1",            0x1a81a, 0x1a8ba },
+    { L"Ken P1",            0x1a8ba, 0x1a95a },
+    { L"Chun-Li P1",        0x1a95a, 0x1a9fa },
+    { L"Dhalsim P1",        0x1a9fa, 0x1aa9a },
+    { L"Zangief P1",        0x1aa9a, 0x1ab3a },
+    { L"M. Bison P1",       0x1ab3a, 0x1abda },
+    { L"Gouki P1",          0x1abda, 0x1ac7a },
+    { L"Charlie P1",        0x1ac7a, 0x1ad1a },
+    { L"Cammy P1",          0x1ad1a, 0x1adba },
+    { L"Chun-Li (SFA) P1",  0x1adba, 0x1ae5a },
+
+    { L"Wolverine P2",      0x1ae9a, 0x1a31a + 0xc20 },
+    { L"Cyclops P2",        0x1a31a + 0xc20, 0x1a3ba + 0xc20 },
+    { L"Storm P2",          0x1a3ba + 0xc20, 0x1a45a + 0xc20 },
+    { L"Rogue P2",          0x1a45a + 0xc20, 0x1a4fa + 0xc20 },
+    { L"Gambit P2",         0x1a4fa + 0xc20, 0x1a59a + 0xc20 },
+    { L"Sabretooth P2",     0x1a59a + 0xc20, 0x1a63a + 0xc20 },
+    { L"Juggernaut P2",     0x1a63a + 0xc20, 0x1a6da + 0xc20 },
+    { L"Magneto P2",        0x1a6da + 0xc20, 0x1a77a + 0xc20 },
+    { L"Apocalypse P2",     0x1a77a + 0xc20, 0x1a81a + 0xc20 },
+    { L"Ryu P2",            0x1a81a + 0xc20, 0x1a8ba + 0xc20 },
+    { L"Ken P2",            0x1a8ba + 0xc20, 0x1a95a + 0xc20 },
+    { L"Chun-Li P2",        0x1a95a + 0xc20, 0x1a9fa + 0xc20 },
+    { L"Dhalsim P2",        0x1a9fa + 0xc20, 0x1aa9a + 0xc20 },
+    { L"Zangief P2",        0x1aa9a + 0xc20, 0x1ab3a + 0xc20 },
+    { L"M. Bison P2",       0x1ab3a + 0xc20, 0x1abda + 0xc20 },
+    { L"Gouki P2",          0x1abda + 0xc20, 0x1ac7a + 0xc20 },
+    { L"Charlie P2",        0x1ac7a + 0xc20, 0x1ad1a + 0xc20 },
+    { L"Cammy P2",          0x1ad1a + 0xc20, 0x1adba + 0xc20 },
+    { L"Chun-Li (SFA) P2",  0x1adba + 0xc20, 0x1BA7A + 0xc20 },
+};
+
 const sDescTreeNode XMVSF_A_WOLVERINE_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Wolverine_PALETTES_P1, ARRAYSIZE(XMVSF_A_Wolverine_PALETTES_P1) },
@@ -927,6 +970,7 @@ const sDescTreeNode XMVSF_A_BONUS_COLLECTION[] =
 {
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_CSI_PALETTES, ARRAYSIZE(XMVSF_A_BONUS_CSI_PALETTES) },
     { L"Portraits", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES) },
+    { L"Versus / Super Portraits", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_VSP, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_VSP) },
 };
 
 const sDescTreeNode XMVSF_A_UNITS[] =
@@ -950,7 +994,7 @@ const sDescTreeNode XMVSF_A_UNITS[] =
    { L"Wolverine", DESC_NODETYPE_TREE, (void*)XMVSF_A_WOLVERINE_COLLECTION, ARRAYSIZE(XMVSF_A_WOLVERINE_COLLECTION) },
    { L"Zangief", DESC_NODETYPE_TREE, (void*)XMVSF_A_ZANGIEF_COLLECTION, ARRAYSIZE(XMVSF_A_ZANGIEF_COLLECTION) },
    { L"Apocalypse", DESC_NODETYPE_TREE, (void*)XMVSF_A_APOCALYPSE_COLLECTION, ARRAYSIZE(XMVSF_A_APOCALYPSE_COLLECTION) },
-   { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_COLLECTION, ARRAYSIZE(XMVSF_A_BONUS_COLLECTION) },
+   { L"Select Icons and Portraits", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_COLLECTION, ARRAYSIZE(XMVSF_A_BONUS_COLLECTION) },
 };
 
 constexpr auto XMVSF_A_NUMUNIT = ARRAYSIZE(XMVSF_A_UNITS);
@@ -959,50 +1003,50 @@ constexpr auto XMVSF_A_NUMUNIT = ARRAYSIZE(XMVSF_A_UNITS);
 
 // This is the alphabetically sorted list of ROM locations:
 /*
-    0x1639C, // Cammy
-    0x1621C, // Charlie
-    0x15B9C, // Chun-Li
-    0x164BC, // Chun-Li (SFA)
-    0x14E3C, // Cyclops
-    0x15C5C, // Dhalsim 
-    0x153DC, // Gambit
-    0x1609C, // Gouki
-    0x1559C, // Juggernaut
-    0x15A1C, // Ken
-    0x15FDC, // M. Bison
-    0x156BC, // Magneto
-    0x1531C, // Rogue
-    0x1589C, // Ryu
-    0x1549C, // Sabretooth
-    0x14FBC, // Storm
-    0x14D7C, // Wolverine
-    0x15D5C, // Zangief
-    0x157DC, // Apocalypse
-    0x1657C, // End of Apocalypse range...?  This value is unclear.
+    0x1639a, // Cammy
+    0x1621a, // Charlie
+    0x15B9a, // Chun-Li
+    0x164Ba, // Chun-Li (SFA)
+    0x14E3a, // Cyclops
+    0x15C5a, // Dhalsim 
+    0x153Da, // Gambit
+    0x1609a, // Gouki
+    0x1559a, // Juggernaut
+    0x15A1a, // Ken
+    0x15FDa, // M. Bison
+    0x156Ba, // Magneto
+    0x1531a, // Rogue
+    0x1589a, // Ryu
+    0x1549a, // Sabretooth
+    0x14FBa, // Storm
+    0x14D7a, // Wolverine
+    0x15D5a, // Zangief
+    0x157Da, // Apocalypse
+    0x1657a, // End of Apocalypse range...?  This value is unclear.
 */
 
 /*
 These are the ROM locations sorted by layout rather than alphabetically:
-    0x14D7C, // Wolverine
-    0x14E3C, // Cyclops
-    0x14FBC, // Storm
-    0x1531C, // Rogue
-    0x153DC, // Gambit
-    0x1549C, // Sabretooth
-    0x1559C, // Juggernaut
-    0x156BC, // Magneto
-    0x157DC, // Apocalypse
-    0x1589C, // Ryu
-    0x15A1C, // Ken
-    0x15B9C, // Chun-Li
-    0x15C5C, // Dhalsim 
-    0x15D5C, // Zangief
-    0x15FDC, // M. Bison
-    0x1609C, // Gouki
-    0x1621C, // Charlie
-    0x1639C, // Cammy
-    0x164BC, // Chun-Li (SFA)
-    0x1657C,
+    0x14D7a, // Wolverine
+    0x14E3a, // Cyclops
+    0x14FBa, // Storm
+    0x1531a, // Rogue
+    0x153Da, // Gambit
+    0x1549a, // Sabretooth
+    0x1559a, // Juggernaut
+    0x156Ba, // Magneto
+    0x157Da, // Apocalypse
+    0x1589a, // Ryu
+    0x15A1a, // Ken
+    0x15B9a, // Chun-Li
+    0x15C5a, // Dhalsim 
+    0x15D5a, // Zangief
+    0x15FDa, // M. Bison
+    0x1609a, // Gouki
+    0x1621a, // Charlie
+    0x1639a, // Cammy
+    0x164Ba, // Chun-Li (SFA)
+    0x1657a,
 */
 
 // We extend this array with data groveled from the xmvsfe.txt extensible extras file, if any.

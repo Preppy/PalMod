@@ -140,14 +140,16 @@ UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 #endif
 }
 
-int CGame_COTA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+sFileRule CGame_COTA_A::GetRule(UINT16 nUnitId)
 {
-    return _GetExtraCount(rgExtraCountAll, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
-}
+    sFileRule NewFileRule;
 
-int CGame_COTA_A::GetExtraLoc(UINT16 nUnitId)
-{
-    return _GetExtraLocation(rgExtraLoc, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"xmn.05a");
+
+    NewFileRule.uUnitId = 0;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+
+    return NewFileRule;
 }
 
 CDescTree* CGame_COTA_A::GetMainTree()
@@ -183,16 +185,14 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_COTA_A::GetRule(UINT16 nUnitId)
+int CGame_COTA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    sFileRule NewFileRule;
+    return _GetExtraCount(rgExtraCountAll, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
+}
 
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"xmn.05a");
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
+int CGame_COTA_A::GetExtraLoc(UINT16 nUnitId)
+{
+    return _GetExtraLocation(rgExtraLoc, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
 }
 
 UINT16 CGame_COTA_A::GetCollectionCountForUnit(UINT16 nUnitId)

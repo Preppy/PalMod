@@ -73,7 +73,7 @@ const UINT16 KOF03_A_IMGIDS_USED[] =
 const sGame_PaletteDataset KOF03_A_ASH_PALETTES_A[] =
 {
     { L"Ash Crimson A", 0x002000, 0x002020, indexKOF03Sprites_Ash, 0x00 },
-    { L"Nivose/Termidor/Sans Culottes A", 0x002020, 0x002040 },
+    { L"Fire Effects A", 0x002020, 0x002040 },
     { L"Ventose A", 0x002100, 0x002120 },
     { L"Ash Electricity A", 0x002040, 0x002060, indexKOF03Sprites_Ash, 0x00 },
     { L"Ash Soul A", 0x002080, 0x0020a0, indexKOF03Sprites_Ash, 0x00 },
@@ -85,7 +85,7 @@ const sGame_PaletteDataset KOF03_A_ASH_PALETTES_A[] =
 const sGame_PaletteDataset KOF03_A_ASH_PALETTES_B[] =
 {
     { L"Ash Crimson B", 0x002200, 0x002220, indexKOF03Sprites_Ash, 0x00 },
-    { L"Nivose/Termidor/Sans Culottes B", 0x002220, 0x002240 },
+    { L"Fire Effects B", 0x002220, 0x002240 },
     { L"Ventose B", 0x002300, 0x002320 },
     { L"Ash Electricity B", 0x002240, 0x002260, indexKOF03Sprites_Ash, 0x00 },
     { L"Ash Soul B", 0x002280, 0x0022a0, indexKOF03Sprites_Ash, 0x00 },
@@ -97,7 +97,7 @@ const sGame_PaletteDataset KOF03_A_ASH_PALETTES_B[] =
 const sGame_PaletteDataset KOF03_A_ASH_PALETTES_C[] =
 {
     { L"Ash Crimson C", 0x002400, 0x002420, indexKOF03Sprites_Ash, 0x00 },
-    { L"Nivose/Termidor/Sans Culottes C", 0x002420, 0x002440 },
+    { L"Fire Effects C", 0x002420, 0x002440 },
     { L"Ventose C", 0x002500, 0x002520 },
     { L"Ash Electricity C", 0x002440, 0x002460, indexKOF03Sprites_Ash, 0x00 },
     { L"Ash Soul C", 0x002480, 0x0024a0, indexKOF03Sprites_Ash, 0x00 },
@@ -109,7 +109,7 @@ const sGame_PaletteDataset KOF03_A_ASH_PALETTES_C[] =
 const sGame_PaletteDataset KOF03_A_ASH_PALETTES_D[] =
 {
     { L"Ash Crimson D", 0x002600, 0x002620, indexKOF03Sprites_Ash, 0x00 },
-    { L"Nivose/Termidor/Sans Culottes D", 0x002620, 0x002640 },
+    { L"Fire Effects D", 0x002620, 0x002640 },
     { L"Ventose D", 0x002700, 0x002720 },
     { L"Ash Electricity D", 0x002640, 0x002660, indexKOF03Sprites_Ash, 0x00 },
     { L"Ash Soul D", 0x002680, 0x0026a0, indexKOF03Sprites_Ash, 0x00 },

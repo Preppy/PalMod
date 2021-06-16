@@ -138,6 +138,7 @@ enum SupportedGamesList
     BSSMSJR_SNES,
     MAGICALDROPIII_A,
     KOF02PS2_A,
+    MartialMasters_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -273,6 +274,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Bishojo Senshi Sailor Moon S - JR (SNES)",
     L"Magical Drop III (Neo-Geo)",
     L"King of Fighters 2002PS2 (Neo-Geo hack)",
+    L"Martial Masters (PGM)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -283,6 +285,7 @@ enum class GamePlatform
     CapcomCPS3,
     NEOGEO,
     Nintendo,
+    PGM,
     SammyAtomiswave,
     SegaNAOMI,
     Sega,

@@ -400,6 +400,9 @@
     <Filter Include="Games\SNK Games\King of Fighters 2002 PS2 hack">
       <UniqueIdentifier>{89eb4408-ba40-4637-9f06-b06b6d6f12fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Martial Masters %28PGM%29">
+      <UniqueIdentifier>{ed9004e4-2654-4d5b-be58-e2e47c5d96e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -824,6 +827,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KOF02PS2_A.cpp">
       <Filter>Games\SNK Games\King of Fighters 2002 PS2 hack</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MartialMasters_A.cpp">
+      <Filter>Games\Other Platforms\Martial Masters %28PGM%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1546,6 +1552,12 @@
     </ClInclude>
     <ClInclude Include="Game\KOF02PS2_A_DEF.h">
       <Filter>Games\SNK Games\King of Fighters 2002 PS2 hack</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MartialMasters_A.h">
+      <Filter>Games\Other Platforms\Martial Masters %28PGM%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MartialMasters_A_DEF.h">
+      <Filter>Games\Other Platforms\Martial Masters %28PGM%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

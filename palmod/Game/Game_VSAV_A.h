@@ -12,7 +12,6 @@ private:
     static UINT32 m_nTotalPaletteCountForVSAV;
 
     static int rgExtraCountAll[VSAV_A_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly[VSAV_A_NUMUNIT + 1];
     static int rgExtraLoc[VSAV_A_NUMUNIT + 1];
 
     static void InitializeStatics();

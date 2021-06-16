@@ -10,7 +10,6 @@ stExtraDef* CGame_VSAV_A::VSAV_A_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_VSAV_A::MainDescTree = nullptr;
 
 int CGame_VSAV_A::rgExtraCountAll[VSAV_A_NUMUNIT + 1] = { -1 };
-int CGame_VSAV_A::rgExtraCountVisibleOnly[VSAV_A_NUMUNIT + 1] = { -1 };
 int CGame_VSAV_A::rgExtraLoc[VSAV_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_VSAV_A::m_nTotalPaletteCountForVSAV = 0;
@@ -22,7 +21,6 @@ void CGame_VSAV_A::InitializeStatics()
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
-    memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
 
     MainDescTree.SetRootTree(CGame_VSAV_A::InitDescTree());
 }
@@ -48,7 +46,7 @@ CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
     m_nTotalPaletteCount = m_nTotalPaletteCountForVSAV;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x00c1aa;
+    m_nLowestKnownPaletteRomLocation = 0xc1aa;
 
     InitDataBuffer();
 
@@ -107,57 +105,12 @@ UINT32 CGame_VSAV_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 
 int CGame_VSAV_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
-
-    if (rgExtraCountAll[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, (VSAV_A_NUMUNIT + 1) * sizeof(int));
-        memset(rgExtraCountVisibleOnly, 0, (VSAV_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForVSAV(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            rgExtraCountAll[pCurrDef->uUnitN]++;
-
-            if (!pCurrDef->isInvisible)
-            {
-                rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForVSAV(nDefCtr);
-        }
-    }
-
-    return rgExtraCt[nUnitId];
+    return _GetExtraCount(rgExtraCountAll, VSAV_A_NUMUNIT, nUnitId, VSAV_A_EXTRA_CUSTOM);
 }
 
 int CGame_VSAV_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (rgExtraLoc[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (VSAV_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForVSAV(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForVSAV(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc[nUnitId];
+    return _GetExtraLocation(rgExtraLoc, VSAV_A_NUMUNIT, nUnitId, VSAV_A_EXTRA_CUSTOM);
 }
 
 CDescTree* CGame_VSAV_A::GetMainTree()

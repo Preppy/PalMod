@@ -46,6 +46,7 @@
 #include "Game_LASTBLADE_A.h"
 #include "Game_LASTBLADE2_A.h"
 #include "Game_MAGICALDROPIII_A.h"
+#include "Game_MartialMasters_A.h"
 #include "Game_Matrimelee_A.h"
 #include "Game_MBAACC_S.h"
 #include "Game_MMPR_SNES.h"
@@ -416,6 +417,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case MAGICALDROPIII_A:
     {
         GetRule = &CGame_MAGICALDROPIII_A::GetRule;
+        return TRUE;
+    }
+    case MartialMasters_A:
+    {
+        GetRule = &CGame_MartialMasters_A::GetRule;
         return TRUE;
     }
     case MATRIMELEE_A:
@@ -1030,6 +1036,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case MAGICALDROPIII_A:
     {
         return new CGame_MAGICALDROPIII_A(nConfirmedROMSize);
+    }
+    case MartialMasters_A:
+    {
+        return new CGame_MartialMasters_A(nConfirmedROMSize);
     }
     case MATRIMELEE_A:
     {

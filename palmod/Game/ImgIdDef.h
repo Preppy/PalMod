@@ -430,10 +430,10 @@ enum KOFSpriteList
     indexKOF02Sprites_NGeese,   // unused currently
 
     indexKOF99Sprites_Krizalid, // 42
-    indexKOF02UMSprites_OrochiIori,      // 43
+    indexKOF02UMSprites_OrochiIori, // 43
     indexKOF00Sprites_Kasumi_ForKOF98AE,   // 44
-    UNUSEDindexKOF00Sprites_Robert,   // 45
-    UNUSEDindexKOF00Sprites_ZeroClone, // 46
+    indexKOF02Sprites_OrochiIori,   // 45
+    indexKOF02Sprites_Shingo,   // 46
     indexKOF01Sprites_Xiangfei, // 47
     indexKOF02Sprites_Andy,     // 48
     indexKOF02Sprites_Chin,     // 49 
@@ -1062,6 +1062,44 @@ enum KOFSpriteList
 
     indexKOF02Sprites_Bonus,        // 0x297
     indexKOF02Sprites_Stages,       // 0x298
+
+    // indexKOF97Sprites_Andy,          // 0x1EC
+    // indexKOF97Sprites_Athena,        // 0x1ED
+    // indexKOF97Sprites_Benimaru,      // 0x1EE
+    indexKOF97Sprites_Billy,            // 0x299
+    indexKOF97Sprites_BlueMary,         // 0x29A
+    indexKOF97Sprites_Chang,            // 0x29B
+    indexKOF97Sprites_Chin,             // 0x29C
+    indexKOF97Sprites_Chizuru,          // 0x29D
+    indexKOF97Sprites_Choi,             // 0x29E
+    indexKOF97Sprites_Chris,            // 0x29F
+    indexKOF97Sprites_ChrisOrochi,      // 0x2A0
+    indexKOF97Sprites_Clark,            // 0x2A1
+    indexKOF97Sprites_Daimon,           // 0x2A2
+    indexKOF97Sprites_Iori,             // 0x2A3
+    // indexKOF97Sprites_IoriOrochi,    // 0x1F7
+    indexKOF97Sprites_Joe,              // 0x2A4
+    indexKOF97Sprites_Kensou,           // 0x2A5
+    indexKOF97Sprites_Kim,              // 0x2A6
+    indexKOF97Sprites_King,             // 0x2A7
+    indexKOF97Sprites_Kyo,              // 0x2A8
+    indexKOF97Sprites_Leona,            // 0x2A9
+    // indexKOF97Sprites_LeonaOrochi,   // 0x1F8
+    indexKOF97Sprites_Mai,              // 0x2AA
+    // indexKOF97Sprites_Orochi,        // 0x1EF
+    indexKOF97Sprites_Ralf,             // 0x2AB
+    indexKOF97Sprites_Robert,           // 0x2AC
+    indexKOF97Sprites_Ryo,              // 0x2AD
+    indexKOF97Sprites_Shermie,          // 0x2AE
+    indexKOF97Sprites_ShermieOrochi,    // 0x2AF
+    indexKOF97Sprites_Shingo,           // 0x2B0
+    indexKOF97Sprites_Terry,            // 0x2B1
+    indexKOF97Sprites_Yamazaki,         // 0x2B2
+    indexKOF97Sprites_Yashiro,          // 0x2B3
+    indexKOF97Sprites_YashiroOrochi,    // 0x2B4
+    indexKOF97Sprites_Yuri,             // 0x2B5
+    // indexKOF97Sprites_Bonus,         // 0x1F0
+    // indexKOF97Sprites_Stages,        // 0x1F1
 };
 
 // This is used for portrait references within the 02UMExtras unit

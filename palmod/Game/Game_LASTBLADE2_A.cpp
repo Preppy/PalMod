@@ -14,7 +14,7 @@ int CGame_LASTBLADE2_A::rgExtraCountAll[LASTBLADE2_A_NUMUNIT + 1];
 int CGame_LASTBLADE2_A::rgExtraLoc[LASTBLADE2_A_NUMUNIT + 1];
 
 UINT32 CGame_LASTBLADE2_A::m_nTotalPaletteCountForLASTBLADE2 = 0;
-UINT32 CGame_LASTBLADE2_A::m_nExpectedGameROMSize = 0x100000; // Update to the actual size of the ROM you expect
+UINT32 CGame_LASTBLADE2_A::m_nExpectedGameROMSize = -1; // The Neo-Geo and Steam ROMs are different sizes
 UINT32 CGame_LASTBLADE2_A::m_nConfirmedROMSize = -1;
 
 void CGame_LASTBLADE2_A::InitializeStatics()
@@ -156,6 +156,7 @@ UINT32 CGame_LASTBLADE2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** p
     static sCRC32ValueSet knownROMs[] =
     {
         { L"The Last Blade 2 (Neo-Geo)", L"LB2_P1.ROM", 0xaf1e6554, 0 },
+        { L"The Last Blade 2 (Steam)", L"P1.bin", 0x839893c2, 0 },
     };
 
     if (ppKnownROMSet)

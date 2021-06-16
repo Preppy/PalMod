@@ -622,7 +622,7 @@ const sGame_PaletteDataset SFA3_A_GUY_XISMP[] =
 {
     { L"X-Ism Punch", 0x2db12, 0x2db32, indexCPS2Sprites_Guy, 0x00 },
     { L"X-Ism Punch Extra 1", 0x2db32, 0x2db52 },
-    { L"X-Ism Punch Extra 2", 0x2db52, 0x2db72 },
+    { L"X-Ism Punch Extra 2: Barrels", 0x2db52, 0x2db72 },
     { L"X-Ism Punch Super Trail Light", 0x2db72, 0x2db92, indexCPS2Sprites_Guy, 0x00 },
     { L"X-Ism Punch Super Trail Dark", 0x2db92, 0x2dbb2, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -631,7 +631,7 @@ const sGame_PaletteDataset SFA3_A_GUY_XISMK[] =
 {
     { L"X-Ism Kick", 0x2dbb2, 0x2dbd2, indexCPS2Sprites_Guy, 0x00 },
     { L"X-Ism Kick Extra 1", 0x2dbd2, 0x2dbf2 },
-    { L"X-Ism Kick Extra 2", 0x2dbf2, 0x2dc12 },
+    { L"X-Ism Kick Extra 2: Barrels", 0x2dbf2, 0x2dc12 },
     { L"X-Ism Kick Super Trail Light", 0x2dc12, 0x2dc32, indexCPS2Sprites_Guy, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x2dc32, 0x2dc52, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -640,7 +640,7 @@ const sGame_PaletteDataset SFA3_A_GUY_AISMP[] =
 {
     { L"A-Ism Punch", 0x2dc52, 0x2dc72, indexCPS2Sprites_Guy, 0x00 },
     { L"A-Ism Punch Extra 1", 0x2dc72, 0x2dc92 },
-    { L"A-Ism Punch Extra 2", 0x2dc92, 0x2dcb2 },
+    { L"A-Ism Punch Extra 2: Barrels", 0x2dc92, 0x2dcb2 },
     { L"A-Ism Punch Super Trail Light", 0x2dcb2, 0x2dcd2, indexCPS2Sprites_Guy, 0x00 },
     { L"A-Ism Punch Super Trail Dark", 0x2dcd2, 0x2dcf2, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -649,7 +649,7 @@ const sGame_PaletteDataset SFA3_A_GUY_AISMK[] =
 {
     { L"A-Ism Kick", 0x2dcf2, 0x2dd12, indexCPS2Sprites_Guy, 0x00 },
     { L"A-Ism Kick Extra 1", 0x2dd12, 0x2dd32 },
-    { L"A-Ism Kick Extra 2", 0x2dd32, 0x2dd52 },
+    { L"A-Ism Kick Extra 2: Barrels", 0x2dd32, 0x2dd52 },
     { L"A-Ism Kick Super Trail Light", 0x2dd52, 0x2dd72, indexCPS2Sprites_Guy, 0x00 },
     { L"A-Ism Kick Super Trail Dark", 0x2dd72, 0x2dd92, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -658,7 +658,7 @@ const sGame_PaletteDataset SFA3_A_GUY_VISMP[] =
 {
     { L"V-Ism Punch", 0x2dd92, 0x2ddb2, indexCPS2Sprites_Guy, 0x00 },
     { L"V-Ism Punch Extra 1", 0x2ddb2, 0x2ddd2 },
-    { L"V-Ism Punch Extra 2", 0x2ddd2, 0x2ddf2 },
+    { L"V-Ism Punch Extra 2: Barrels", 0x2ddd2, 0x2ddf2 },
     { L"V-Ism Punch Super Trail Light", 0x2ddf2, 0x2de12, indexCPS2Sprites_Guy, 0x00 },
     { L"V-Ism Punch Super Trail Dark", 0x2de12, 0x2de32, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -667,7 +667,7 @@ const sGame_PaletteDataset SFA3_A_GUY_VISMK[] =
 {
     { L"V-Ism Kick", 0x2de32, 0x2de52, indexCPS2Sprites_Guy, 0x00 },
     { L"V-Ism Kick Extra 1", 0x2de52, 0x2de72 },
-    { L"V-Ism Kick Extra 2", 0x2de72, 0x2de92 },
+    { L"V-Ism Kick Extra 2: Barrels", 0x2de72, 0x2de92 },
     { L"V-Ism Kick Super Trail Light", 0x2de92, 0x2deb2, indexCPS2Sprites_Guy, 0x00 },
     { L"V-Ism Kick Super Trail Dark", 0x2deb2, 0x2ded2, indexCPS2Sprites_Guy, 0x00 },
 };

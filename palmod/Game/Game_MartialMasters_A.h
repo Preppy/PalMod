@@ -1,32 +1,29 @@
 #pragma once
-#include "GameClass.h"
-#include "SFA1_A_DEF.h"
-#include "..\ExtraFile.h"
+#include "gameclass.h"
+#include "MartialMasters_A_DEF.h"
+#include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SFA1 = L"SFA1e.txt";
-#define GetExtraDefForSFA1(x)((stExtraDef *)&SFA1_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_MartialMasters_A = L"MartialMastersE.txt";
+#define GetExtraDefForMartialMasters(x)((stExtraDef *)&MartialMasters_A_EXTRA_CUSTOM[x])
 
-class CGame_SFA1_A : public CGameWithExtrasFile
+class CGame_MartialMasters_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForSFA1;
-    static int rgExtraCountAll[SFA1_A_NUMUNIT + 1];
-    static int rgExtraLoc[SFA1_A_NUMUNIT + 1];
+    static UINT32 m_nTotalPaletteCountForMartialMasters;
 
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static int rgExtraCountAll[MartialMasters_A_NUMUNIT + 1];
+    static int rgExtraLoc[MartialMasters_A_NUMUNIT + 1];
 
     static void InitializeStatics();
+    static UINT32 m_nExpectedGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
-    // Developer-only mode to regenerate the header file quickly.
-    static void DumpHeaderPalettes();
-
 public:
-    CGame_SFA1_A(UINT32 nConfirmedROMSize);
-    ~CGame_SFA1_A(void);
+    CGame_MartialMasters_A(UINT32 nConfirmedROMSize);
+    ~CGame_MartialMasters_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -48,12 +45,11 @@ public:
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
-    UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* SFA1_A_EXTRA_CUSTOM;
+    static stExtraDef* MartialMasters_A_EXTRA_CUSTOM;
 };

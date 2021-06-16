@@ -89,7 +89,6 @@ const UINT16 KOF02UM_S_IMGIDS_USED[] =
     indexKOF00Sprites_Bao,
     indexKOF00Sprites_Kasumi,
     indexKOF00Sprites_Robert,
-    UNUSEDindexKOF00Sprites_ZeroClone,
     indexKOF01Sprites_Xiangfei,
     indexKOF02Sprites_Andy,
     indexKOF02Sprites_Chin,

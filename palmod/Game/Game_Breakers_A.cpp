@@ -29,9 +29,7 @@ void CGame_BREAKERS_A::InitializeStatics()
 
 CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_BREAKERS_A::CGame_BREAKERS_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_BREAKERS_A::CGame_BREAKERS_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);

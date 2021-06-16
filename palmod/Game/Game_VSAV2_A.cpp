@@ -104,48 +104,12 @@ UINT32 CGame_VSAV2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
 
 int CGame_VSAV2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    if (rgExtraCountAll[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, (VSAV2_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForVSAV2(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            rgExtraCountAll[pCurrDef->uUnitN]++;
-            nDefCtr++;
-            pCurrDef = GetExtraDefForVSAV2(nDefCtr);
-        }
-    }
-
-    return rgExtraCountAll[nUnitId];
+    return _GetExtraCount(rgExtraCountAll, VSAV2_A_NUMUNIT, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }
 
 int CGame_VSAV2_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (rgExtraLoc[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (VSAV2_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForVSAV2(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForVSAV2(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc[nUnitId];
+    return _GetExtraLocation(rgExtraLoc, VSAV2_A_NUMUNIT, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }
 
 CDescTree* CGame_VSAV2_A::GetMainTree()

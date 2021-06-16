@@ -262,6 +262,9 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
             case GamePlatform::Nintendo:
                 pszPlatformName = L"Nintendo";
                 break;
+            case GamePlatform::PGM:
+                pszPlatformName = L"PolyGame Master";
+                break;
             case GamePlatform::Steam:
                 pszPlatformName = L"Steam";
                 break;
