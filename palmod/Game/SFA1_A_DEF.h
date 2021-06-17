@@ -248,7 +248,7 @@ const sGame_PaletteDataset SFA1_A_GUY_PUNCH_PALETTES[] =
     { L"Super Trail 2",  0x6879e, 0x687be, indexCPS2Sprites_Guy, 0x00 },
     { L"Super Trail 3",  0x687be, 0x687de, indexCPS2Sprites_Guy, 0x00 },
     { L"Extra 1",        0x687de, 0x687fe, indexCPS2Sprites_Guy, 0x01 },
-    { L"Extra 2: Barrels",        0x687fe, 0x6881e },
+    { L"Extra 2: Barrels",        0x687fe, 0x6881e, indexCPS2Sprites_Guy, 0x02 },
     { L"Psycho Power Burned Effect", 0x6881e, 0x6883e, indexCPS2Sprites_Guy, 0x00 },
     { L"Burned Status",   0x6883e, 0x6885e, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -260,7 +260,7 @@ const sGame_PaletteDataset SFA1_A_GUY_KICK_PALETTES[] =
     { L"Super Trail 2",  0x6889e, 0x688be, indexCPS2Sprites_Guy, 0x00 },
     { L"Super Trail 3",  0x688be, 0x688de, indexCPS2Sprites_Guy, 0x00 },
     { L"Extra 1",        0x688de, 0x688fe, indexCPS2Sprites_Guy, 0x01 },
-    { L"Extra 2: Barrels",        0x688fe, 0x6891e },
+    { L"Extra 2: Barrels",        0x688fe, 0x6891e, indexCPS2Sprites_Guy, 0x02 },
     { L"Psycho Power Burned Effect", 0x6891e, 0x6893e, indexCPS2Sprites_Guy, 0x00 },
     { L"Burned Status",   0x6893e, 0x6895e, indexCPS2Sprites_Guy, 0x00 },
 };

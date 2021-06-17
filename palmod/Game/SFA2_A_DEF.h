@@ -700,7 +700,7 @@ const sGame_PaletteDataset SFA2_A_GUY_PUNCH_PALETTES[] =
 {
     { L"Punch", 0x6fd00 - 0x02, 0x6fd1e, indexCPS2Sprites_Guy, 0x00 },
     { L"Punch Extra 1", 0x6fd1e, 0x6fd3e },
-    { L"Punch Extra 2: Barrels", 0x6fd3e, 0x6fd5e },
+    { L"Punch Extra 2: Barrels", 0x6fd3e, 0x6fd5e, indexCPS2Sprites_Guy, 0x02 },
     { L"Punch Super Trail Light", 0x6fd5e, 0x6fd7e, indexCPS2Sprites_Guy, 0x00 },
     { L"Punch Super Trail Dark", 0x6fd7e, 0x6fd9e, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -709,7 +709,7 @@ const sGame_PaletteDataset SFA2_A_GUY_KICK_PALETTES[] =
 {
     { L"Kick", 0x6fd9e, 0x6fdbe, indexCPS2Sprites_Guy, 0x00 },
     { L"Kick Extra 1", 0x6fdbe, 0x6fdde },
-    { L"Kick Extra 2: Barrels", 0x6fdde, 0x6fe00 - 0x02 },
+    { L"Kick Extra 2: Barrels", 0x6fdde, 0x6fe00 - 0x02, indexCPS2Sprites_Guy, 0x02 },
     { L"Kick Super Trail Light", 0x6fe00 - 0x02, 0x6fe1e, indexCPS2Sprites_Guy, 0x00 },
     { L"Kick Super Trail Dark", 0x6fe1e, 0x6fe3e, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -718,7 +718,7 @@ const sGame_PaletteDataset SFA2_A_GUY_2PUNCHES_PALETTES[] =
 {
     { L"2 Punches", 0x6fe3e, 0x6fe5e, indexCPS2Sprites_Guy, 0x00 },
     { L"2 Punches Extra 1", 0x6fe5e, 0x6fe7e },
-    { L"2 Punches Extra 2: Barrels", 0x6fe7e, 0x6fe9e },
+    { L"2 Punches Extra 2: Barrels", 0x6fe7e, 0x6fe9e, indexCPS2Sprites_Guy, 0x02 },
     { L"2 Punches Super Trail Light", 0x6fe9e, 0x6febe, indexCPS2Sprites_Guy, 0x00 },
     { L"2 Punches Super Trail Dark", 0x6febe, 0x6fede, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -727,7 +727,7 @@ const sGame_PaletteDataset SFA2_A_GUY_2KICKS_PALETTES[] =
 {
     { L"2 Kicks", 0x6fede, 0x6ff00 - 0x02, indexCPS2Sprites_Guy, 0x00 },
     { L"2 Kicks Extra 1", 0x6ff00 - 0x02, 0x6ff1e },
-    { L"2 Kicks Extra 2: Barrels", 0x6ff1e, 0x6ff3e },
+    { L"2 Kicks Extra 2: Barrels", 0x6ff1e, 0x6ff3e, indexCPS2Sprites_Guy, 0x02 },
     { L"2 Kicks Super Trail Light", 0x6ff3e, 0x6ff5e, indexCPS2Sprites_Guy, 0x00 },
     { L"2 Kicks Super Trail Dark", 0x6ff5e, 0x6ff7e, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -736,7 +736,7 @@ const sGame_PaletteDataset SFA2_A_GUY_AUTOGUARDPUNCH_PALETTES[] =
 {
     { L"Auto Guard Punch", 0x6ff7e, 0x6ff9e, indexCPS2Sprites_Guy, 0x00 },
     { L"Auto Guard Punch Extra 1", 0x6ff9e, 0x6ffbe },
-    { L"Auto Guard Punch Extra 2: Barrels", 0x6ffbe, 0x6ffde },
+    { L"Auto Guard Punch Extra 2: Barrels", 0x6ffbe, 0x6ffde, indexCPS2Sprites_Guy, 0x02 },
     { L"Auto Guard Punch Super Trail Light", 0x6ffde, 0x70000 - 0x02, indexCPS2Sprites_Guy, 0x00 },
     { L"Auto Guard Punch Super Trail Dark", 0x70000 - 0x02, 0x7001e, indexCPS2Sprites_Guy, 0x00 },
 };
@@ -745,7 +745,7 @@ const sGame_PaletteDataset SFA2_A_GUY_AUTOGUARDKICK_PALETTES[] =
 {
     { L"Auto Guard Kick", 0x7001e, 0x7003e, indexCPS2Sprites_Guy, 0x00 },
     { L"Auto Guard Kick Extra 1", 0x7003e, 0x7005e },
-    { L"Auto Guard Kick Extra 2: Barrels", 0x7005e, 0x7007e },
+    { L"Auto Guard Kick Extra 2: Barrels", 0x7005e, 0x7007e, indexCPS2Sprites_Guy, 0x02 },
     { L"Auto Guard Kick Super Trail Light", 0x7007e, 0x7009e, indexCPS2Sprites_Guy, 0x00 },
     { L"Auto Guard Kick Super Trail Dark", 0x7009e, 0x700be, indexCPS2Sprites_Guy, 0x00 },
 };

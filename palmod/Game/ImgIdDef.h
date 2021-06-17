@@ -16,6 +16,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_KOF,     // KOF games, Last Blade, etc
     IMGDAT_SECTION_MATRIM,  // Matrimelee
     IMGDAT_SECTION_NEOGEO,  // generic set for NeoGeo games
+    IMGDAT_SECTION_PGM,     // PolyGame Master
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
     IMGDAT_SECTION_SEGA,
@@ -1942,4 +1943,22 @@ enum SupportedNintendoDS_PaletteListIndex
     indexBleachDSSprites_YoruichiShihoin,   // 0x2A
     indexBleachDSSprites_YuichiShibata,     // 0x2B
     indexBleachDSSprites_Bonus,             // 0x2C
+};
+
+enum SupportedPGM_SpriteListIndex
+{
+    indexMartialMastersSprites_Crane,           // 0x00
+    indexMartialMastersSprites_DrunkMaster,     // 0x01
+    indexMartialMastersSprites_GhostKick,       // 0x02
+    indexMartialMastersSprites_LotusMaster,     // 0x03
+    indexMartialMastersSprites_MasterHuang,     // 0x04
+    indexMartialMastersSprites_Monk,            // 0x05
+    indexMartialMastersSprites_MonkeyBoy,       // 0x06
+    indexMartialMastersSprites_RedSnake,        // 0x07
+    indexMartialMastersSprites_Reika,           // 0x08
+    indexMartialMastersSprites_Saojin,          // 0x09
+    indexMartialMastersSprites_Scorpion,        // 0x0A
+    indexMartialMastersSprites_Tiger,           // 0x0B
+    indexMartialMastersSprites_TrueLotusMaster, // 0x0C
+    indexMartialMastersSprites_Bonus,           // 0x0D
 };

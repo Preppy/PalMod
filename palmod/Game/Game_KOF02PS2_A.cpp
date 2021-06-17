@@ -43,7 +43,7 @@ CGame_KOF02PS2_A::CGame_KOF02PS2_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF02PS2_A_NUMUNIT;
     m_nExtraUnit = KOF02PS2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2153;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2174;
     m_pszExtraFilename = EXTRA_FILENAME_KOF02PS2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02PS2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -121,7 +121,7 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
         {
             nCurrentCharacterOffset = WINPORTRAIT_BASE_OFFSET + (0x100 * iCharacterIndex) + (0x40 * iButtonIndex);
 
-            strOutput.Format(L"    { L\"%s %s Win Portrait\", 0x%x, 0x%x, %s, 0x30 },\r\n", KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
+            strOutput.Format(L"    { L\"%s %s Win Portrait\", 0x%x, 0x%x, %s, 0x54 },\r\n", KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
                 nCurrentCharacterOffset, nCurrentCharacterOffset + 0x40,
                 KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszPortraitImageRefName);
             OutputDebugString(strOutput);
@@ -148,7 +148,7 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
         {
             nCurrentCharacterOffset = LIFEBARPORTRAIT_BASE_OFFSET + (0x20 * iCharacterIndex) + (0x20 * ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray) * iButtonIndex);
 
-            strOutput.Format(L"    { L\"%s %s Lifebar Portrait\", 0x%x, 0x%x, %s, 0x32 },\r\n", KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
+            strOutput.Format(L"    { L\"%s %s Lifebar Portrait\", 0x%x, 0x%x, %s, 0x52 },\r\n", KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
                 nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                 KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszPortraitImageRefName);
             OutputDebugString(strOutput);
