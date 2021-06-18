@@ -806,7 +806,7 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_VSP[] =
     { L"Cammy P2",          0x1ad1a + 0xc20, 0x1adba + 0xc20, indexCPS2Sprites_Cammy, 0x3b },
     { L"Charlie P2",        0x1ac7a + 0xc20, 0x1ad1a + 0xc20, indexCPS2Sprites_Charlie, 0x3b },
     { L"Chun-Li P2",        0x1a95a + 0xc20, 0x1a9fa + 0xc20, indexCPS2Sprites_ChunLi, 0x3b },
-    { L"Chun-Li (SFA) P2",  0x1adba + 0xc20, 0x1BA7A + 0xc20, indexCPS2Sprites_ChunLi, 0x3c },
+    { L"Chun-Li (SFA) P2",  0x1adba + 0xc20, 0x1ae5a + 0xc20, indexCPS2Sprites_ChunLi, 0x3c },
     { L"Cyclops P2",        0x1a31a + 0xc20, 0x1a3ba + 0xc20, indexCPS2Sprites_Cyclops, 0x3b },
     { L"Dhalsim P2",        0x1a9fa + 0xc20, 0x1aa9a + 0xc20, indexCPS2Sprites_Dhalsim, 0x3b },
     { L"Gambit P2",         0x1a4fa + 0xc20, 0x1a59a + 0xc20, indexCPS2Sprites_Gambit, 0x3b },
