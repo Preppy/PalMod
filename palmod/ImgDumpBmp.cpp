@@ -119,7 +119,7 @@ void CImgDumpBmp::OnSize(UINT nType, int cx, int cy)
 {
     CWnd::OnSize(nType, cx, cy);
 
-    if (!FirstRun)
+    if (m_fInitialized)
     {
         SetClientSize();
         SizeScroll(TRUE);
@@ -246,10 +246,10 @@ void CImgDumpBmp::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 void CImgDumpBmp::UpdateBltRect(BOOL reset_flag)
 {
-    if (m_VScroll) // functionally, this is a FirstRun check
+    if (m_VScroll)
     {
-        int scroll_h = m_VScroll.GetScrollPos();
-        int scroll_w = m_HScroll.GetScrollPos();
+        const int scroll_h = m_VScroll.GetScrollPos();
+        const int scroll_w = m_HScroll.GetScrollPos();
 
         main_blt.top = 0 + (scroll_h * reset_flag);
         //main_blt.bottom = cl_height + scroll_h;
@@ -353,7 +353,7 @@ void CImgDumpBmp::OnLButtonUp(UINT nFlags, CPoint point)
 
 void CImgDumpBmp::OnPaint()
 {
-    if (FirstRun)
+    if (!m_fInitialized)
     {
         CPaintDC cdc(this);
 
@@ -374,11 +374,11 @@ void CImgDumpBmp::OnPaint()
         m_VScroll.Create(SBS_VERT | SBS_TOPALIGN | WS_CHILD, v_rect, this, 100);
         m_VScroll.ShowScrollBar();
 
-        CanSizeScroll = TRUE;
+        m_fScrollbarIsReady = TRUE;
 
         UpdateBltRect();
 
-        FirstRun = FALSE;
+        m_fInitialized = TRUE;
 
         //Update
         UpdateCtrl();
@@ -404,7 +404,7 @@ void CImgDumpBmp::SizeScroll(BOOL resize)
     h_rect.top = cl_height; h_rect.bottom = ctrl_rect.bottom;
     h_rect.left = ctrl_rect.left; h_rect.right = cl_width;
 
-    if (resize && CanSizeScroll)
+    if (resize && m_fScrollbarIsReady)
     {
         m_HScroll.MoveWindow(&h_rect);
         m_VScroll.MoveWindow(&v_rect);
@@ -441,7 +441,7 @@ void CImgDumpBmp::ClearCtrlBG()
 
 void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
 {
-    if (!FirstRun)
+    if (m_fInitialized)
     {
         ClearCtrlBG();
 
@@ -789,7 +789,7 @@ void CImgDumpBmp::ResizeMainBmp()
 
         MainHBmp = CreateDIBSection(MainDC.GetSafeHdc(), &MainBmpi, DIB_RGB_COLORS, (void**)&pMainBmpData, NULL, 0);
 
-        if (!FirstRun)
+        if (m_fInitialized)
         {
             MainDC.SelectObject(MainHBmp);
         }

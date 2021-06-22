@@ -1118,7 +1118,7 @@ void CPalModDlg::OnBnRevert()
     {
         ProcChange();
 
-        GetHost()->GetCurrGame()->Revert((int)nCurrSelPal);
+        GetHost()->GetCurrGame()->RevertChanges((int)nCurrSelPal);
 
         ImgDispCtrl->UpdateCtrl();
 

@@ -439,7 +439,7 @@ void CGameClass::SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, 
     nSrcPalInc[nIndex] = nInc;
 }
 
-void CGameClass::Revert(int nPalId)
+void CGameClass::RevertChanges(int nPalId)
 {
     sPalRedir* RedirIndex = &BasePalGroup.GetRedir()[nPalId];
 

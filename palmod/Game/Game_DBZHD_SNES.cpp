@@ -27,11 +27,11 @@ CGame_DBZHD_SNES::CGame_DBZHD_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = DBZHD_SNES_NUMUNIT;
     m_nExtraUnit = DBZHD_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 21;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 41;
     m_pszExtraFilename = EXTRA_FILENAME_DBZHD_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForDBZHD;
 
-    m_nLowestKnownPaletteRomLocation = 0xb0000;
+    m_nLowestKnownPaletteRomLocation = 0x18140;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 

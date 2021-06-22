@@ -68,7 +68,7 @@ BOOL CImgOutDlg::OnInitDialog()
     tmp_str.Format(L"CImgOutDlg::OnInitDialog: preparing to show up to %u sprites\n", nPalAmt);
     OutputDebugString(tmp_str);
 
-    //Fix later... as we add more games
+    // Update here as needed to add new division options
     switch (nPalAmt)
     {
     default:

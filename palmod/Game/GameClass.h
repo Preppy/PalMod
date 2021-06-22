@@ -201,20 +201,19 @@ public:
 
     int GetPlaneAmt(ColFlag Flag);
 
-    void ClearSetImgTicket(sImgTicket* NewImgTicket = NULL);
-    sImgTicket* CreateImgTicket(UINT16 nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0);
-
-    int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
-    int GetCurrentPaletteIncrement() { return nSrcPalInc[0]; };
-
+    void SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc);
     void ClearSrcPal();
 
-    const LPCWSTR* GetButtonDescSet() { return pButtonLabelSet; };
+    sImgTicket* CreateImgTicket(UINT16 nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0);
+    void ClearSetImgTicket(sImgTicket* NewImgTicket = NULL);
+
+    int GetCurrentPaletteIncrement() { return nSrcPalInc[0]; };
     eImageOutputSpriteDisplay GetImgDispType() { return DisplayType; };
+    int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
 
-    void SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc);
+    const LPCWSTR* GetButtonDescSet() { return pButtonLabelSet; };
 
-    void Revert(int nPalId);
+    void RevertChanges(int nPalId);
 
     BOOL CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz);
 

@@ -35,8 +35,8 @@ public:
     BOOL HScroll_Enabled = FALSE;
     BOOL VScroll_Enabled = FALSE;
 
-    BOOL FirstRun = TRUE;
-    BOOL CanSizeScroll = FALSE;
+    BOOL m_fInitialized = FALSE;
+    BOOL m_fScrollbarIsReady = FALSE;
 
     POINT ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
     CRect rImgRct = {};

@@ -539,7 +539,7 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
     return false;
 }
 
-bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszTextureLocation)
+bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszTextureLocation)
 {
     CFile TextureFile;
 
@@ -572,6 +572,7 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, SpriteImportDirection 
                 if ((m_nTextureOverrideW[nPositionToLoadTo] > 0) && (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
                     (m_nTextureOverrideH[nPositionToLoadTo] > 0) && (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
                 {
+                    bool fIsDoubleSizeGIMPRAW = false;
                     if (((3 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
                     {
                         // This is an RGB RAW...
@@ -580,6 +581,7 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, SpriteImportDirection 
                     else if (((2 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
                     {
                         // I think it's GIMP that doubles the RAW for no apparent reason
+                        fIsDoubleSizeGIMPRAW = true;
                         GetHost()->GetPalModDlg()->SetStatusText(IDS_RAW_EXTRADATA);
                     }
                     else if ((m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo]) != nSizeToRead)
@@ -602,6 +604,13 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, SpriteImportDirection 
                     else
                     {
                         int nCurrentFilePosition = nSizeToRead;
+
+                        if (fIsDoubleSizeGIMPRAW)
+                        {
+                            nCurrentFilePosition /= 2;
+                        }
+
+                        // Skip one line back
                         nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
 
                         // We need to flip this line by line

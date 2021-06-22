@@ -449,14 +449,18 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
             m_nLowestRomLocationThisPass = min(m_nLowestRomLocationThisPass, m_nCurrentPaletteROMLocation);
 
-            if (!fShownInternalErrorOnce && ((m_nCurrentPaletteSizeInColors > k_maxColorsPerUnit) || (m_nCurrentPaletteSizeInColors == 0)))
+            if ((m_nCurrentPaletteSizeInColors > k_maxColorsPerUnit) || (m_nCurrentPaletteSizeInColors == 0))
             {
-                // only show this error once in case something is very very wrong
-                fShownInternalErrorOnce = true;
                 CString strText;
                 strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).\n\nThis needs to be fixed.\n", m_pszCurrentPaletteName, m_nCurrentPaletteSizeInColors, nUnitCtr, nPalCtr);
                 OutputDebugString(strText);
-                MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
+
+                if (!fShownInternalErrorOnce)
+                {
+                    // only show this error to the user once in case something is very very wrong
+                    fShownInternalErrorOnce = true;
+                    MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
+                }
             }
 
             if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset + k_nSpecialOverrideForTMNTTF))

@@ -442,7 +442,7 @@ void CPreviewDlg::OnResetBackgroundOffset()
 
 void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszPath)
 {
-    if (m_ImgDisp.LoadExternalSprite(nPositionToLoadTo, direction, pszPath))
+    if (m_ImgDisp.LoadExternalRAWSprite(nPositionToLoadTo, direction, pszPath))
     {
         m_ImgDisp.UpdateCtrl();
     }

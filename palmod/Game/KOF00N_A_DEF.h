@@ -60,43 +60,40 @@ const UINT16 KOF00N_A_IMGIDS_USED[] =
     
     indexKOF99Sprites_Andy,         // 0x17f
 
-    indexKOF02UMSprites_Bao,
-    indexKOF02UMSprites_Benimaru,
-    indexKOF02UMSprites_Billy,
-    indexKOF02UMSprites_Billy,
-    indexKOF02UMSprites_BlueMary,
-    indexKOF02UMSprites_Chang,
-    indexKOF02UMSprites_Chin,
-    indexKOF02UMSprites_Choi,
-    indexKOF02UMSprites_Clark,
-    indexKOF02UMSprites_CloneZero,
-    indexKOF02UMSprites_Daimon,
-    indexKOF02UMSprites_Geese,
-    indexKOF02UMSprites_Hinako,
-    indexKOF02UMSprites_Iori,
-    indexKOF02UMSprites_Jhun,
+    indexKOF02UMSprites_Bao,       // 0x7C
+    indexKOF02UMSprites_Benimaru,  // 0x7D
+    indexKOF02UMSprites_BlueMary,  // 0x7F
+    indexKOF02UMSprites_Chang,     // 0x80
+    indexKOF02UMSprites_Chin,      // 0x81
+    indexKOF02UMSprites_Choi,      // 0x82
+    indexKOF02UMSprites_Clark,     // 0x85
+    indexKOF02UMSprites_CloneZero, // 0x86
+    indexKOF02UMSprites_Daimon,    // 0x87 aka Goro
+    indexKOF02UMSprites_Geese,     // 0x89
+    indexKOF02UMSprites_Hinako,    // 0x8D
+    indexKOF02UMSprites_Iori,      // 0x8F
+    indexKOF02UMSprites_Jhun,      // 0x90
     indexKOF02UMSprites_Joe,       // 0x91
     indexKOF02UMSprites_Kasumi,    // 0x94
     indexKOF02UMSprites_Kensou,    // 0x95
-    indexKOF02UMSprites_Kim,
-    indexKOF02UMSprites_King,
-    indexKOF02UMSprites_Kula,
-    indexKOF02UMSprites_KyoKusa,
-    indexKOF02UMSprites_Leona,
-    indexKOF02UMSprites_Lin,
-    indexKOF02UMSprites_Mai,
-    indexKOF02UMSprites_Ralf,
-    indexKOF02UMSprites_Robert,
-    indexKOF02UMSprites_Ryo,
-    indexKOF02UMSprites_Seth,
-    indexKOF02UMSprites_Shingo,
-    indexKOF02UMSprites_Takuma,
-    indexKOF02UMSprites_Terry,
-    indexKOF02UMSprites_Vanessa,
-    indexKOF02UMSprites_Whip,
-    indexKOF02UMSprites_Xiangfei,
-    indexKOF02UMSprites_Yamazaki,
-    indexKOF02UMSprites_Yuri,
+    indexKOF02UMSprites_Kim,       // 0x97
+    indexKOF02UMSprites_King,      // 0x98
+    indexKOF02UMSprites_Kula,      // 0x9a
+    indexKOF02UMSprites_KyoKusa,   // 0x9c
+    indexKOF02UMSprites_Leona,     // 0x9f
+    indexKOF02UMSprites_Lin,       // 0xa0
+    indexKOF02UMSprites_Mai,       // 0xA1
+    indexKOF02UMSprites_Ralf,      // 0xA7
+    indexKOF02UMSprites_Robert,    // 0xA9
+    indexKOF02UMSprites_Ryo,       // 0xAb
+    indexKOF02UMSprites_Seth,      // 0xAc
+    indexKOF02UMSprites_Shingo,    // 0xAf
+    indexKOF02UMSprites_Takuma,    // 0xb0
+    indexKOF02UMSprites_Terry,     // 0xB2
+    indexKOF02UMSprites_Vanessa,   // 0xB3
+    indexKOF02UMSprites_Whip,      // 0xB5
+    indexKOF02UMSprites_Xiangfei,  // 0xB6
+    indexKOF02UMSprites_Yuri,      // 0xBa
 
     // these are used for game-unique portraits at least
     indexKOF00Sprites_Andy,         // 0x206
@@ -224,10 +221,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_MAXIMA_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MAXIMA_Striker[] =
 {
-    { L"Rocky A", 0xc9d50, 0xc9d70 },
-    { L"Rocky A Electric Shock Effect", 0xc9d90, 0xc9db0 },
-    { L"Rocky B", 0xc9f50, 0xc9f70 },
-    { L"Rocky B Electric Shock Effect", 0xc9f90, 0xc9fb0 },
+    { L"Rocky A", 0xc9d50, 0xc9d70, indexKOF00Sprites_Maxima, 0x08 },
+    { L"Rocky A Electric Shock Effect", 0xc9d90, 0xc9db0, indexKOF00Sprites_Maxima, 0x08 },
+    { L"Rocky B", 0xc9f50, 0xc9f70, indexKOF00Sprites_Maxima, 0x08 },
+    { L"Rocky B Electric Shock Effect", 0xc9f90, 0xc9fb0, indexKOF00Sprites_Maxima, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MAXIMA_Moves[] =
@@ -278,10 +275,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_RAMON_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RAMON_Striker[] =
 {
-    { L"Duke A", 0xd0d50, 0xd0d70 },
-    { L"Duke A Electric Shock Effect", 0xd0d90, 0xd0db0 },
-    { L"Duke B", 0xd0f50, 0xd0f70 },
-    { L"Duke B Electric Shock Effect", 0xd0f90, 0xd0fb0 },
+    { L"Duke A", 0xd0d50, 0xd0d70, indexKOF00Sprites_Ramon, 0x08 },
+    { L"Duke A Electric Shock Effect", 0xd0d90, 0xd0db0, indexKOF00Sprites_Ramon, 0x08 },
+    { L"Duke B", 0xd0f50, 0xd0f70, indexKOF00Sprites_Ramon, 0x08 },
+    { L"Duke B Electric Shock Effect", 0xd0f90, 0xd0fb0, indexKOF00Sprites_Ramon, 0x08 },
     { L"Neo & Geo A", 0xdcdf0, 0xdce10 },
     { L"Neo & Geo A Electric Shock Effect", 0xdce30, 0xdce50 },
     { L"Neo & Geo B", 0xdce70, 0xdce90 },
@@ -548,10 +545,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_SETH_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_SETH_Striker[] =
 {
-    { L"Daimon A", 0xd1d50, 0xd1d70, indexKOF02UMSprites_Daimon },
-    { L"Daimon A Electric Shock Effect", 0xd1d90, 0xd1db0, indexKOF02UMSprites_Daimon },
-    { L"Daimon B", 0xd1f50, 0xd1f70, indexKOF02UMSprites_Daimon },
-    { L"Daimon B Electric Shock Effect", 0xd1f90, 0xd1fb0, indexKOF02UMSprites_Daimon },
+    { L"Daimon A", 0xd1d50, 0xd1d70, indexKOF00Sprites_Seth, 0x08 },
+    { L"Daimon A Electric Shock Effect", 0xd1d90, 0xd1db0, indexKOF00Sprites_Seth, 0x08 },
+    { L"Daimon B", 0xd1f50, 0xd1f70, indexKOF00Sprites_Seth, 0x08 },
+    { L"Daimon B Electric Shock Effect", 0xd1f90, 0xd1fb0, indexKOF00Sprites_Seth, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_SETH_Moves[] =
@@ -673,10 +670,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_Striker[] =
 {
-    { L"Billy A", 0xcad50, 0xcad70, indexKOF02UMSprites_Billy },
-    { L"Billy A Electric Shock Effect", 0xcad90, 0xcadb0, indexKOF02UMSprites_Billy },
-    { L"Billy B", 0xcaf50, 0xcaf70, indexKOF02UMSprites_Billy },
-    { L"Billy B Electric Shock Effect", 0xcaf90, 0xcafb0, indexKOF02UMSprites_Billy },
+    { L"Billy A", 0xcad50, 0xcad70, indexKOF00Sprites_Andy, 0x08 },
+    { L"Billy A Electric Shock Effect", 0xcad90, 0xcadb0, indexKOF00Sprites_Andy, 0x08 },
+    { L"Billy B", 0xcaf50, 0xcaf70, indexKOF00Sprites_Andy, 0x08 },
+    { L"Billy B Electric Shock Effect", 0xcaf90, 0xcafb0, indexKOF00Sprites_Andy, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ANDY_Moves[] =
@@ -791,12 +788,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_MARY_CD[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MARY_Striker[] =
 {
-    { L"Yamazaki A", 0xced50, 0xced70, indexKOF02UMSprites_Yamazaki },
-    { L"Yamazaki A Electric Shock Effect", 0xced90, 0xcedb0, indexKOF02UMSprites_Yamazaki },
-    { L"Yamazaki B", 0xcef50, 0xcef70, indexKOF02UMSprites_Yamazaki },
-    { L"Yamazaki B Electric Shock Effect", 0xcef90, 0xcefb0, indexKOF02UMSprites_Yamazaki },
-    { L"Yamazaki CD", 0xee750, 0xee770, indexKOF02UMSprites_Yamazaki },
-    { L"Yamazaki CD Electric Shock Effect", 0xee790, 0xee7b0, indexKOF02UMSprites_Yamazaki },
+    { L"Yamazaki A", 0xced50, 0xced70, indexKOF00Sprites_BlueMary, 0x08 },
+    { L"Yamazaki A Electric Shock Effect", 0xced90, 0xcedb0, indexKOF00Sprites_BlueMary, 0x08 },
+    { L"Yamazaki B", 0xcef50, 0xcef70, indexKOF00Sprites_BlueMary, 0x08 },
+    { L"Yamazaki B Electric Shock Effect", 0xcef90, 0xcefb0, indexKOF00Sprites_BlueMary, 0x08 },
+    { L"Yamazaki CD", 0xee750, 0xee770, indexKOF00Sprites_BlueMary, 0x08 },
+    { L"Yamazaki CD Electric Shock Effect", 0xee790, 0xee7b0, indexKOF00Sprites_BlueMary, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MARY_Moves[] =
@@ -1498,10 +1495,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_BAO_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_BAO_Striker[] =
 {
-    { L"Kaoru A", 0xce550, 0xce570 },
-    { L"Kaoru A Electric Shock Effect", 0xce590, 0xce5b0 },
-    { L"Kaoru B", 0xce750, 0xce770 },
-    { L"Kaoru B Electric Shock Effect", 0xce790, 0xce7b0 },
+    { L"Kaoru A", 0xce550, 0xce570, indexKOF00Sprites_Bao, 0x08 },
+    { L"Kaoru A Electric Shock Effect", 0xce590, 0xce5b0, indexKOF00Sprites_Bao, 0x08 },
+    { L"Kaoru B", 0xce750, 0xce770, indexKOF00Sprites_Bao, 0x08 },
+    { L"Kaoru B Electric Shock Effect", 0xce790, 0xce7b0, indexKOF00Sprites_Bao, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_BAO_Moves[] =
@@ -1746,10 +1743,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_HINAKO_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_HINAKO_Striker[] =
 {
-    { L"Lilly A", 0xcf550, 0xcf570 },
-    { L"Lilly A Electric Shock Effect", 0xcf590, 0xcf5b0 },
-    { L"Lilly B", 0xcf750, 0xcf770 },
-    { L"Lilly B Electric Shock Effect", 0xcf790, 0xcf7b0 },
+    { L"Lilly A", 0xcf550, 0xcf570, indexKOF00Sprites_Hinako, 0x08 },
+    { L"Lilly A Electric Shock Effect", 0xcf590, 0xcf5b0, indexKOF00Sprites_Hinako, 0x08 },
+    { L"Lilly B", 0xcf750, 0xcf770, indexKOF00Sprites_Hinako, 0x08 },
+    { L"Lilly B Electric Shock Effect", 0xcf790, 0xcf7b0, indexKOF00Sprites_Hinako, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_HINAKO_LifebarPortrait[] =
@@ -2149,30 +2146,30 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_IORI_WinPortrait[] =
 //Kula Diamond
 const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_A[] =
 {
-    { L"Kula A", 0xd1ff0, 0xd2010, indexKOF02UMSprites_Kula, 0x00 },
-    { L"Diana A", 0xd2010, 0xd2030, indexKOF02UMSprites_Kula, 0x1c },
-    { L"Kula A Electric Shock Effect", 0xd2050, 0xd2070, indexKOF02UMSprites_Kula, 0x00 },
-    { L"Diana A Electric Shock Effect", 0xd2070, 0xd2090, indexKOF02UMSprites_Kula, 0x1c },
-    { L"Kula A Counter Mode Flash", 0xd2090, 0xd20b0, indexKOF02UMSprites_Kula, 0x00 },
-    { L"Diana A Counter Mode Flash", 0xd20b0, 0xd20d0, indexKOF02UMSprites_Kula, 0x1c },
-    { L"Kula A Armor Mode Flash", 0xd20d0, 0xd20f0, indexKOF02UMSprites_Kula, 0x00 },
-    { L"Diana A Armor Mode Flash", 0xd20f0, 0xd2110, indexKOF02UMSprites_Kula, 0x1c },
-    { L"Kula A Super/Guard Trail", 0xd2110, 0xd2130, indexKOF02UMSprites_Kula, 0x00 },
-    { L"Diana A Super/Guard Trail", 0xd2130, 0xd2150, indexKOF02UMSprites_Kula, 0x1c },
+    { L"Kula A", 0xd1ff0, 0xd2010, indexKOF00Sprites_Kula, 0x00, &pairNext },
+    { L"Diana A", 0xd2010, 0xd2030, indexKOF00Sprites_Kula, 0x09 },
+    { L"Kula A Electric Shock Effect", 0xd2050, 0xd2070, indexKOF00Sprites_Kula, 0x00, &pairNext },
+    { L"Diana A Electric Shock Effect", 0xd2070, 0xd2090, indexKOF00Sprites_Kula, 0x09 },
+    { L"Kula A Counter Mode Flash", 0xd2090, 0xd20b0, indexKOF00Sprites_Kula, 0x00, &pairNext },
+    { L"Diana A Counter Mode Flash", 0xd20b0, 0xd20d0, indexKOF00Sprites_Kula, 0x09 },
+    { L"Kula A Armor Mode Flash", 0xd20d0, 0xd20f0, indexKOF00Sprites_Kula, 0x00, &pairNext },
+    { L"Diana A Armor Mode Flash", 0xd20f0, 0xd2110, indexKOF00Sprites_Kula, 0x09 },
+    { L"Kula A Super/Guard Trail", 0xd2110, 0xd2130, indexKOF00Sprites_Kula, 0x00, &pairNext },
+    { L"Diana A Super/Guard Trail", 0xd2130, 0xd2150, indexKOF00Sprites_Kula, 0x09 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_B[] =
 {
-    { L"Kula B", 0xd21f0, 0xd2210, indexKOF02UMSprites_Kula, 0x00 },
-    { L"Diana B", 0xd2210, 0xd2230, indexKOF02UMSprites_Kula, 0x1c },
-    { L"Kula B Electric Shock Effect", 0xd2250, 0xd2270, indexKOF02UMSprites_Kula, 0x00 },
-    { L"Diana B Electric Shock Effect", 0xd2270, 0xd2290, indexKOF02UMSprites_Kula, 0x1c },
-    { L"Kula B Counter Mode Flash", 0xd2290, 0xd22b0, indexKOF02UMSprites_Kula, 0x00 },
-    { L"Diana B Counter Mode Flash", 0xd22b0, 0xd22d0, indexKOF02UMSprites_Kula, 0x1c },
-    { L"Kula B Armor Mode Flash", 0xd22d0, 0xd22f0, indexKOF02UMSprites_Kula, 0x00 },
-    { L"Diana B Armor Mode Flash", 0xd22f0, 0xd2310, indexKOF02UMSprites_Kula, 0x1c },
-    { L"Kula B Super/Guard Trail", 0xd2310, 0xd2330, indexKOF02UMSprites_Kula, 0x00 },
-    { L"Diana B Super/Guard Trail", 0xd2330, 0xd2350, indexKOF02UMSprites_Kula, 0x1c },
+    { L"Kula B", 0xd21f0, 0xd2210, indexKOF00Sprites_Kula, 0x00, &pairNext },
+    { L"Diana B", 0xd2210, 0xd2230, indexKOF00Sprites_Kula, 0x09 },
+    { L"Kula B Electric Shock Effect", 0xd2250, 0xd2270, indexKOF00Sprites_Kula, 0x00, &pairNext },
+    { L"Diana B Electric Shock Effect", 0xd2270, 0xd2290, indexKOF00Sprites_Kula, 0x09 },
+    { L"Kula B Counter Mode Flash", 0xd2290, 0xd22b0, indexKOF00Sprites_Kula, 0x00, &pairNext },
+    { L"Diana B Counter Mode Flash", 0xd22b0, 0xd22d0, indexKOF00Sprites_Kula, 0x09 },
+    { L"Kula B Armor Mode Flash", 0xd22d0, 0xd22f0, indexKOF00Sprites_Kula, 0x00, &pairNext },
+    { L"Diana B Armor Mode Flash", 0xd22f0, 0xd2310, indexKOF00Sprites_Kula, 0x09 },
+    { L"Kula B Super/Guard Trail", 0xd2310, 0xd2330, indexKOF00Sprites_Kula, 0x00, &pairNext },
+    { L"Diana B Super/Guard Trail", 0xd2330, 0xd2350, indexKOF00Sprites_Kula, 0x09 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_Striker[] =
