@@ -403,6 +403,9 @@
     <Filter Include="Games\Other Platforms\Martial Masters %28PGM%29">
       <UniqueIdentifier>{ed9004e4-2654-4d5b-be58-e2e47c5d96e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Gowcaizer">
+      <UniqueIdentifier>{5419c58a-9053-4fe1-a361-fad90e78c41b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -830,6 +833,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_MartialMasters_A.cpp">
       <Filter>Games\Other Platforms\Martial Masters %28PGM%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Gowcaizer_A.cpp">
+      <Filter>Games\SNK Games\Gowcaizer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1558,6 +1564,12 @@
     </ClInclude>
     <ClInclude Include="Game\MartialMasters_A_DEF.h">
       <Filter>Games\Other Platforms\Martial Masters %28PGM%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Gowcaizer_A.h">
+      <Filter>Games\SNK Games\Gowcaizer</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Gowcaizer_A_DEF.h">
+      <Filter>Games\SNK Games\Gowcaizer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

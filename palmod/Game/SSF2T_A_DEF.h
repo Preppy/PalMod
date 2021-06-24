@@ -1670,13 +1670,21 @@ const sDescTreeNode SSF2T_A_GOUKI_COLLECTION[] =
     { L"P2 Color",    DESC_NODETYPE_TREE, (void*)SSF2T_A_GOUKI_PALETTES_P2COLOR,     ARRAYSIZE(SSF2T_A_GOUKI_PALETTES_P2COLOR) },
 };
 
-// THESE ARE IN sfxe.03c
+// THESE ARE IN sfxe.04a
 
 const sGame_PaletteDataset SSF2T_A_BONUS_NODE[] =
 {
     { L"Akuma Intro", 0x05bf5a, 0x05bf7a, indexSF2Sprites_Bonus, 1 },
     { L"Chun-Li Intro", 0x05bf7a, 0x05c09a, indexSF2Sprites_Bonus, 2 },
     { L"Cammy Intro", 0x05be5a, 0x05bf5a, indexSF2Sprites_Bonus, 0 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BONUS_TITLESCREEN_NODE[] =
+{
+    { L"Title Screen \"X\"", 0x59098, 0x590b8 },
+    { L"Street Fighter II Text", 0x5921a, 0x5923a },
+    { L"Grand Master Challenge Text", 0x5915a, 0x5917a },
+    { L"Title Screen Lightning", 0x591da, 0x591fa },
 };
 
 const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE_4[] =
@@ -2911,6 +2919,7 @@ const sDescTreeNode SSF2T_A_DEEJAY_PORTRAIT_COLLECTION[] =
 const sDescTreeNode SSF2T_A_BONUS_COLLECTION[] =
 {
     { L"Palettes",                  DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_NODE,          ARRAYSIZE(SSF2T_A_BONUS_NODE) },
+    { L"Title Screen",              DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_TITLESCREEN_NODE, ARRAYSIZE(SSF2T_A_BONUS_TITLESCREEN_NODE) },
     { L"Cammy Stage (04 parts)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
     { L"Ryu Stage (04 parts)",      DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
 };

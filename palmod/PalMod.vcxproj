@@ -248,6 +248,7 @@
     <ClCompile Include="Game\Game_Garou_S.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_P.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_S.cpp" />
+    <ClCompile Include="Game\Game_Gowcaizer_A.cpp" />
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
@@ -414,6 +415,7 @@
     <ClInclude Include="Game\Game_Garou_S.h" />
     <ClInclude Include="Game\Game_GGXXACR_P.h" />
     <ClInclude Include="Game\Game_GGXXACR_S.h" />
+    <ClInclude Include="Game\Game_Gowcaizer_A.h" />
     <ClInclude Include="Game\Game_GUNDAM_SNES.h" />
     <ClInclude Include="Game\Game_JOJOS_A.h" />
     <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />
@@ -508,6 +510,7 @@
     <ClInclude Include="Game\GGXXACR_Common.h" />
     <ClInclude Include="Game\GGXXACR_P_DEF.h" />
     <ClInclude Include="Game\GGXXACR_S_DEF.h" />
+    <ClInclude Include="Game\Gowcaizer_A_DEF.h" />
     <ClInclude Include="Game\GUNDAM_SNES_DEF.h" />
     <ClInclude Include="Game\ImgIdDef.h" />
     <ClInclude Include="Game\ImgTicket.h" />

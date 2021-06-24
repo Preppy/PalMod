@@ -5153,7 +5153,7 @@ const sGame_PaletteDataset KOF02UM_S_HUD_PALETTES[] =
     { L"General Text on HUD",                       0x537c0, 0x537e0 },
     { L"PERFECT",                                   0x537e0, 0x53800 },
     { L"Combo Number",                              0x53800, 0x53820 },
-    { L"FIGHT Text",                                0x53840, 0x53880 },
+    { L"FIGHT / TIME OVER Text",                    0x53840, 0x53880 },
     { L"Win Text KO",                               0x53880, 0x538a0 },
     { L"Winner Text Outline",                       0x538a0, 0x538c0 },
     { L"MAX2 Background Effect 1P",                 0x57e20, 0x57e40, indexKOF02UMSprites_Bonus, 0x01 },

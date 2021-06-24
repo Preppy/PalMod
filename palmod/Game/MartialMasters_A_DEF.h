@@ -300,6 +300,7 @@ const sGame_PaletteDataset MartialMasters_Palettes_MonkeyBoy_Core[] =
 const sGame_PaletteDataset MartialMasters_Palettes_MonkeyBoy_Extras[] =
 {
     { L"Monkey Boy Food/Monkeys", 0x397364, 0x3973e4 },
+    { L"Monkey Boy Intro Extra", 0x397324, 0x397364 },
     { L"Monkey Boy Supertrail", 0x3973e4, 0x397404, indexMartialMastersSprites_MonkeyBoy },
     { L"Monkey Boy Fire Flash", 0x397424, 0x397444, indexMartialMastersSprites_MonkeyBoy },
     { L"Monkey Boy Shadow Flash 1", 0x397464, 0x397484, indexMartialMastersSprites_MonkeyBoy },
@@ -320,8 +321,6 @@ const sGame_PaletteDataset MartialMasters_Palettes_MonkeyBoy_Unused[] =
     { L"Monkey Boy Unused 1 Extra", 0x3972c4, 0x3972e4 },
     { L"Monkey Boy Unused 2", 0x3972e4, 0x397304 },
     { L"Monkey Boy Unused 2 Extra", 0x397304, 0x397324 },
-    { L"Monkey Boy Unused 3", 0x397324, 0x397344 },
-    { L"Monkey Boy Unused 3 Extra", 0x397344, 0x397364 },
     { L"Monkey Boy Supertrail Extra", 0x397404, 0x397424 },
     { L"Monkey Boy Fire Flash Extra", 0x397444, 0x397464 },
     { L"Monkey Boy Shadow Flash 1 Extra", 0x397484, 0x3974a4 },
@@ -584,6 +583,7 @@ const sGame_PaletteDataset MartialMasters_Palettes_Stages_TrueLotusMaster[] =
 // BONUS
 const sGame_PaletteDataset MartialMasters_Palettes_Bonus_SelectScreen[] =
 {
+    { L"Main Menu Logo", 0x347fc8, 0x348008 },
     { L"Select Background", 0x347988, 0x3479c8 },
     { L"Select Names", 0x347a08, 0x347a28 },
     { L"Player Select Text", 0x347948, 0x347988 },

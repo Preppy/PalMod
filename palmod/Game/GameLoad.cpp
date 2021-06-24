@@ -20,6 +20,7 @@
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
+#include "Game_Gowcaizer_A.h"
 #include "Game_GGXXACR_S.h"
 #include "Game_GGXXACR_p.h"
 #include "Game_GUNDAM_SNES.h"
@@ -274,6 +275,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case GEMFIGHTER_A:
     {
         GetRule = &CGame_GEMFIGHTER_A::GetRule;
+        return TRUE;
+    }
+    case Gowcaizer_A:
+    {
+        GetRule = &CGame_Gowcaizer_A::GetRule;
         return TRUE;
     }
     case GGXXACR_S:
@@ -929,6 +935,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_GEMFIGHTER_A(nConfirmedROMSize);
     }
+    case Gowcaizer_A:
+    {
+        return new CGame_Gowcaizer_A(nConfirmedROMSize);
+    }    
     case GGXXACR_S:
     {
         return new CGame_GGXXACR_S(nConfirmedROMSize);

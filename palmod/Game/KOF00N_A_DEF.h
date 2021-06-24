@@ -854,12 +854,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_RYO_CD[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RYO_Striker[] =
 {
-    { L"Kaede A", 0xcb950, 0xcb970 },
-    { L"Kaede A Electric Shock Effect", 0xcb990, 0xcb9b0 },
-    { L"Kaede B", 0xcbb50, 0xcbb70 },
-    { L"Kaede B Electric Shock Effect", 0xcbb90, 0xcbbb0 },
-    { L"Kaede CD", 0xee150, 0xee170 },
-    { L"Kaede CD Electric Shock Effect", 0xee190, 0xee1b0 },
+    { L"Kaede A", 0xcb950, 0xcb970, indexKOF00Sprites_Ryo, 0x08 },
+    { L"Kaede A Electric Shock Effect", 0xcb990, 0xcb9b0, indexKOF00Sprites_Ryo, 0x08 },
+    { L"Kaede B", 0xcbb50, 0xcbb70, indexKOF00Sprites_Ryo, 0x08 },
+    { L"Kaede B Electric Shock Effect", 0xcbb90, 0xcbbb0, indexKOF00Sprites_Ryo, 0x08 },
+    { L"Kaede CD", 0xee150, 0xee170, indexKOF00Sprites_Ryo, 0x08 },
+    { L"Kaede CD Electric Shock Effect", 0xee190, 0xee1b0, indexKOF00Sprites_Ryo, 0x08 },
     { L"G-Mantle A", 0xdcef0, 0xdcf10 },
     { L"G-Mantle A Electric Shock Effect", 0xdcf30, 0xdcf50 },
     { L"G-Mantle B", 0xdcf70, 0xdcf90 },
@@ -981,12 +981,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KING_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KING_Striker[] =
 {
-    { L"King Lion A", 0xce950, 0xce970 },
-    { L"King Lion A King Straight", 0xce970, 0xce990 },
-    { L"King Lion A Electric Shock Effect", 0xce990, 0xce9b0 },
-    { L"King Lion B", 0xceb50, 0xceb70 },
-    { L"King Lion B King Straight", 0xceb70, 0xceb90 },
-    { L"King Lion B Electric Shock Effect", 0xceb90, 0xcebb0 },
+    { L"King Lion A", 0xce950, 0xce970, indexKOF00Sprites_King, 0x08 },
+    { L"King Lion A King Straight", 0xce970, 0xce990, indexKOF00Sprites_King, 0x08 },
+    { L"King Lion A Electric Shock Effect", 0xce990, 0xce9b0, indexKOF00Sprites_King, 0x08 },
+    { L"King Lion B", 0xceb50, 0xceb70, indexKOF00Sprites_King, 0x08 },
+    { L"King Lion B King Straight", 0xceb70, 0xceb90, indexKOF00Sprites_King, 0x08 },
+    { L"King Lion B Electric Shock Effect", 0xceb90, 0xcebb0, indexKOF00Sprites_King, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KING_Moves[] =
@@ -1788,10 +1788,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KIM_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KIM_Striker[] =
 {
-    { L"Sue-Il A", 0xcf950, 0xcf970 },
-    { L"Sue-Il A Electric Shock Effect", 0xcf990, 0xcf9b0 },
-    { L"Sue-Il B", 0xcfb50, 0xcfb70 },
-    { L"Sue-Il B Electric Shock Effect", 0xcfb90, 0xcfbb0 },
+    { L"Sue-Il A", 0xcf950, 0xcf970, indexKOF00Sprites_Kim, 0x08 },
+    { L"Sue-Il A Electric Shock Effect", 0xcf990, 0xcf9b0, indexKOF00Sprites_Kim, 0x08 },
+    { L"Sue-Il B", 0xcfb50, 0xcfb70, indexKOF00Sprites_Kim, 0x08 },
+    { L"Sue-Il B Electric Shock Effect", 0xcfb90, 0xcfbb0, indexKOF00Sprites_Kim, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KIM_LifebarPortrait[] =
@@ -2174,10 +2174,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KULA_Striker[] =
 {
-    { L"Foxy A", 0xd2150, 0xd2170, indexKOF02UMSprites_Kula, 0x1b },
-    { L"Foxy A Electric Shock Effect", 0xd2190, 0xd21b0, indexKOF02UMSprites_Kula, 0x1b },
-    { L"Foxy B", 0xd2350, 0xd2370, indexKOF02UMSprites_Kula, 0x1b },
-    { L"Foxy B Electric Shock Effect", 0xd2390, 0xd23b0, indexKOF02UMSprites_Kula, 0x1b },
+    { L"Foxy A", 0xd2150, 0xd2170, indexKOF00Sprites_Kula, 0x0a },
+    { L"Foxy A Electric Shock Effect", 0xd2190, 0xd21b0, indexKOF00Sprites_Kula, 0x0a },
+    { L"Foxy B", 0xd2350, 0xd2370, indexKOF00Sprites_Kula, 0x0a },
+    { L"Foxy B Electric Shock Effect", 0xd2390, 0xd23b0, indexKOF00Sprites_Kula, 0x0a },
     { L"Rugal A", 0xdd4f0, 0xdd510, indexKOF00Sprites_Kula, 0x08 },
     { L"Rugal A Electric Shock Effect", 0xdd530, 0xdd550, indexKOF00Sprites_Kula, 0x08 },
     { L"Rugal B", 0xdd570, 0xdd590, indexKOF00Sprites_Kula, 0x08 },
