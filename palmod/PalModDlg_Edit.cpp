@@ -820,6 +820,8 @@ void CPalModDlg::HandlePasteFromPalMod()
 
                 rgPasteCol[i] = CurrGame->ConvPal16((UINT16)strtoul(szFormatStr16, NULL, 16));
 
+                // Note that in some cases this means that the user will need to manually reestablish alpha, 
+                // such as when they go from xRGB COTA to ARGB MvC2.
                 if (!CurrGame->AllowTransparency())
                 {
                     // this game doesn't use/want alpha, but we need alpha to display properly

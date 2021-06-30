@@ -146,6 +146,9 @@ const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH[] =
     { L"P1 Color (Punch)", 0x71F8c, 0x71FAc, indexCPS2Sprites_Cyclops },
     { L"P1 HK Extra", 0x71FAc, 0x71FCc, indexCPS2Sprites_Cyclops, 1 },
     { L"P1 Optic Blast Super", 0x71FCc, 0x71FEc, indexCPS2Sprites_Cyclops, 2 },
+    // ? don't know what this maps to
+    // ? don't know what this maps to
+    { L"P1 Laser FX", 0x7204c, 0x7206c, indexCPS2Sprites_Cyclops, 3 },
     { L"P1 Intro 1", 0x7616c, 0x7618c, indexCPS2Sprites_Cyclops },
     { L"P1 Intro 2", 0x7618c, 0x761Ac, indexCPS2Sprites_Cyclops },
     { L"P1 Intro 3", 0x761Ac, 0x761Cc, indexCPS2Sprites_Cyclops },
@@ -155,6 +158,7 @@ const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH[] =
     { L"P1 Intro 7", 0x7622c, 0x7624c, indexCPS2Sprites_Cyclops },
     { L"P1 Intro 8", 0x7624c, 0x7626c, indexCPS2Sprites_Cyclops },
     { L"P1 Extra Lighting", 0x7640c, 0x7642c, indexCPS2Sprites_Cyclops },
+    { L"P1 Optic Light Extra?", 0x7642c, 0x7644c, indexCPS2Sprites_Cyclops },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK[] =
@@ -162,6 +166,9 @@ const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK[] =
     { L"P2 Color (Kick)", 0x71FEc, 0x7200c, indexCPS2Sprites_Cyclops },
     { L"P2 HK Extra", 0x7200c, 0x7202c, indexCPS2Sprites_Cyclops, 1 },
     { L"P2 Optic Blast Super", 0x7202c, 0x7204c, indexCPS2Sprites_Cyclops, 2 },
+    // ? don't know what this maps to
+    // ? don't know what this maps to
+    { L"P2 Laser FX", 0x720Ec, 0x7210c, indexCPS2Sprites_Cyclops, 3 },
     { L"P2 Intro 1", 0x7626c, 0x7628c, indexCPS2Sprites_Cyclops },
     { L"P2 Intro 2", 0x7628c, 0x762Ac, indexCPS2Sprites_Cyclops },
     { L"P2 Intro 3", 0x762Ac, 0x762Cc, indexCPS2Sprites_Cyclops },
@@ -171,25 +178,26 @@ const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK[] =
     { L"P2 Intro 7", 0x7632c, 0x7634c, indexCPS2Sprites_Cyclops },
     { L"P2 Intro 8", 0x7634c, 0x7636c, indexCPS2Sprites_Cyclops },
     { L"P2 Extra Lighting 2", 0x7644c, 0x7646c, indexCPS2Sprites_Cyclops },
+    { L"P2 Optic Light Extra?", 0x7646c, 0x7648c, indexCPS2Sprites_Cyclops },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_SHARED[] =
 {
-    { L"P1 Optic Light Extra?", 0x7642c, 0x7644c, indexCPS2Sprites_Cyclops },
-    { L"P2 Laser FX", 0x720Ec, 0x7210c, indexCPS2Sprites_Cyclops, 3 },
     { L"P2 Optic Blast Palette?", 0x7638c, 0x763Ac },
 };
 
 const sGame_PaletteDataset MSHVSF_A_DAN_PALETTES_P1COLOR_PUNCH[] =
 {
     { L"P1 Color (Punch)",  0x72E0c, 0x72E2c, indexCPS2Sprites_Dan },
-    { L"P1 gadoken",        0x72E2c, 0x72E4c, indexCPS2Sprites_Dan, 1 },
+    { L"P1 gadoken blue",   0x72E2c, 0x72E4c, indexCPS2Sprites_Dan, 1 },
+    { L"P1 gadoken red",    0x72E4c, 0x72E6c, indexCPS2Sprites_Dan, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_DAN_PALETTES_P2COLOR_KICK[] =
 {
     { L"P2 Color (Kick)",   0x72E6c, 0x72E8c, indexCPS2Sprites_Dan },
-    { L"P2 gadoken",        0x72E8c, 0x72EAc, indexCPS2Sprites_Dan, 1 },
+    { L"P2 gadoken blue",   0x72E8c, 0x72EAc, indexCPS2Sprites_Dan, 1 },
+    { L"P2 gadoken red",    0x72Eac, 0x72Ecc, indexCPS2Sprites_Dan, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_DARK_SAKURA_PALETTES_P1COLOR_PUNCH[] =
@@ -588,16 +596,16 @@ const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK[] =
 };
 
 #ifdef UNKNOWN_STATUS_PALETES
-    // maybe cyber akuma? unclear
-    { L"Burning Light",  0x73acc + (0 * 0x20), 0x73aec + (0 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Burning Dark",   0x73acc + (1 * 0x20), 0x73aec + (1 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Shocked Light",  0x73acc + (2 * 0x20), 0x73aec + (2 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Shocked Dark",   0x73acc + (3 * 0x20), 0x73aec + (3 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Dark Burn Light",0x73acc + (4 * 0x20), 0x73aec + (4 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Dark Burn Dark", 0x73acc + (5 * 0x20), 0x73aec + (5 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Kinetic 1",      0x73acc + (6 * 0x20), 0x73aec + (6 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Kinetic 2",      0x73acc + (7 * 0x20), 0x73aec + (7 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Kinetic 3",      0x73acc + (8 * 0x20), 0x73aec + (8 * 0x20), indexCPS2Sprites_Akuma },
+// maybe cyber akuma? unclear
+{ L"Burning Light", 0x73acc + (0 * 0x20), 0x73aec + (0 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Burning Dark",   0x73acc + (1 * 0x20), 0x73aec + (1 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Shocked Light",  0x73acc + (2 * 0x20), 0x73aec + (2 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Shocked Dark",   0x73acc + (3 * 0x20), 0x73aec + (3 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Dark Burn Light",0x73acc + (4 * 0x20), 0x73aec + (4 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Dark Burn Dark", 0x73acc + (5 * 0x20), 0x73aec + (5 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Kinetic 1",      0x73acc + (6 * 0x20), 0x73aec + (6 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Kinetic 2",      0x73acc + (7 * 0x20), 0x73aec + (7 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Kinetic 3",      0x73acc + (8 * 0x20), 0x73aec + (8 * 0x20), indexCPS2Sprites_Akuma },
 #endif
 
 const sGame_PaletteDataset MSHVSF_A_SHADOW_STATUS[] =

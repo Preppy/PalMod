@@ -5331,7 +5331,7 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x44540c0, 0x44540e0, indexCPS2Sprites_Dan, 0 },
     { L"(02) 02-09 Gadouken ID:10-15 Gadouken", 0x44540e0, 0x4454100, indexCPS2Sprites_Dan, 1 },
-    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454100, 0x4454120, indexCPS2Sprites_Dan, 2 },
+    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454100, 0x4454120, indexCPS2Sprites_Dan, 1 },
     { L"(04) Not Used", 0x4454120, 0x4454140, indexCPS2Sprites_Dan, 3 },
     { L"(05) Not Used", 0x4454140, 0x4454160, indexCPS2Sprites_Dan, 4 },
     { L"(06) Not Used", 0x4454160, 0x4454180, indexCPS2Sprites_Dan, 5 },
@@ -5343,7 +5343,7 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_LK[] =
 {
     { L"Main Color LK", 0x44541c0, 0x44541e0, indexCPS2Sprites_Dan, 0 },
     { L"(02) 02-09 Gadouken ID:10-15 Gadouken", 0x44541e0, 0x4454200, indexCPS2Sprites_Dan, 1 },
-    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454200, 0x4454220, indexCPS2Sprites_Dan, 2 },
+    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454200, 0x4454220, indexCPS2Sprites_Dan, 1 },
     { L"(04) Not Used", 0x4454220, 0x4454240, indexCPS2Sprites_Dan, 3 },
     { L"(05) Not Used", 0x4454240, 0x4454260, indexCPS2Sprites_Dan, 4 },
     { L"(06) Not Used", 0x4454260, 0x4454280, indexCPS2Sprites_Dan, 5 },
@@ -5355,7 +5355,7 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_HP[] =
 {
     { L"Main Color HP", 0x44542c0, 0x44542e0, indexCPS2Sprites_Dan, 0 },
     { L"(02) 02-09 Gadouken ID:10-15 Gadouken", 0x44542e0, 0x4454300, indexCPS2Sprites_Dan, 1 },
-    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454300, 0x4454320, indexCPS2Sprites_Dan, 2 },
+    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454300, 0x4454320, indexCPS2Sprites_Dan, 1 },
     { L"(04) Not Used", 0x4454320, 0x4454340, indexCPS2Sprites_Dan, 3 },
     { L"(05) Not Used", 0x4454340, 0x4454360, indexCPS2Sprites_Dan, 4 },
     { L"(06) Not Used", 0x4454360, 0x4454380, indexCPS2Sprites_Dan, 5 },
@@ -5367,7 +5367,7 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_HK[] =
 {
     { L"Main Color HK", 0x44543c0, 0x44543e0, indexCPS2Sprites_Dan, 0 },
     { L"(02) 02-09 Gadouken ID:10-15 Gadouken", 0x44543e0, 0x4454400, indexCPS2Sprites_Dan, 1 },
-    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454400, 0x4454420, indexCPS2Sprites_Dan, 2 },
+    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454400, 0x4454420, indexCPS2Sprites_Dan, 1 },
     { L"(04) Not Used", 0x4454420, 0x4454440, indexCPS2Sprites_Dan, 3 },
     { L"(05) Not Used", 0x4454440, 0x4454460, indexCPS2Sprites_Dan, 4 },
     { L"(06) Not Used", 0x4454460, 0x4454480, indexCPS2Sprites_Dan, 5 },
@@ -5379,7 +5379,7 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_A1[] =
 {
     { L"Main Color A1", 0x44544c0, 0x44544e0, indexCPS2Sprites_Dan, 0 },
     { L"(02) 02-09 Gadouken ID:10-15 Gadouken", 0x44544e0, 0x4454500, indexCPS2Sprites_Dan, 1 },
-    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454500, 0x4454520, indexCPS2Sprites_Dan, 2 },
+    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454500, 0x4454520, indexCPS2Sprites_Dan, 1 },
     { L"(04) Not Used", 0x4454520, 0x4454540, indexCPS2Sprites_Dan, 3 },
     { L"(05) Not Used", 0x4454540, 0x4454560, indexCPS2Sprites_Dan, 4 },
     { L"(06) Not Used", 0x4454560, 0x4454580, indexCPS2Sprites_Dan, 5 },
@@ -5391,7 +5391,7 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_A2[] =
 {
     { L"Main Color A2", 0x44545c0, 0x44545e0, indexCPS2Sprites_Dan, 0 },
     { L"(02) 02-09 Gadouken ID:10-15 Gadouken", 0x44545e0, 0x4454600, indexCPS2Sprites_Dan, 1 },
-    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454600, 0x4454620, indexCPS2Sprites_Dan, 2 },
+    { L"(03) 02-09 Gadouken ID:10-15 Gadouken", 0x4454600, 0x4454620, indexCPS2Sprites_Dan, 1 },
     { L"(04) Not Used", 0x4454620, 0x4454640, indexCPS2Sprites_Dan, 3 },
     { L"(05) Not Used", 0x4454640, 0x4454660, indexCPS2Sprites_Dan, 4 },
     { L"(06) Not Used", 0x4454660, 0x4454680, indexCPS2Sprites_Dan, 5 },
