@@ -75,7 +75,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"We need the sfiii3ex-simm7.x files from sfiii3ex.zip.";
             break;
         case UNICLR_A:
-            pszExtraInfo = L"Select the root directory for your game files.  There will be a ___English folder in that directory.";
+            pszExtraInfo = L"For UNICLR, please select the \"UNDER NIGHT In-Birth Exe Late[st]\" folder.\nThe folder is normally located in steamapps\\common.";
             break;
         }
 
