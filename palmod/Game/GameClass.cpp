@@ -919,15 +919,18 @@ int CGameClass::_GetExtraCount(int* rgExtraCount, int nNormalUnitCount, UINT16 n
 
         stExtraDef* pCurrDef = (stExtraDef*)&ppExtraDef[0];
 
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+        if (pCurrDef)
         {
-            if (!pCurrDef->isInvisible)
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
-                rgExtraCount[pCurrDef->uUnitN]++;
-            }
+                if (!pCurrDef->isInvisible)
+                {
+                    rgExtraCount[pCurrDef->uUnitN]++;
+                }
 
-            nDefCtr++;
-            pCurrDef = (stExtraDef*)&ppExtraDef[nDefCtr];
+                nDefCtr++;
+                pCurrDef = (stExtraDef*)&ppExtraDef[nDefCtr];
+            }
         }
     }
 

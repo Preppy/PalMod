@@ -813,6 +813,22 @@ void CPalModDlg::HandlePasteFromPalMod()
         case 2:
         {
             char szFormatStr16[] = "0x0000";
+            bool fAnyValueHasAlpha = false;
+
+            // Pre-check.  Since the incoming color could be either xRGB or ARGB, flag if the value
+            // is alpha-aware.  If not, force alpha for the incoming xRGB value.
+            for (UINT16 i = 0; i < uPasteAmt; i++)
+            {
+                memcpy(&szFormatStr16[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
+
+                rgPasteCol[i] = CurrGame->ConvPal16((UINT16)strtoul(szFormatStr16, NULL, 16));
+
+                if (((UINT8*)rgPasteCol)[(i * 4) + 3] != 0)
+                {
+                    fAnyValueHasAlpha = true;
+                    break;
+                }
+            }
 
             for (UINT16 i = 0; i < uPasteAmt; i++)
             {
@@ -820,9 +836,10 @@ void CPalModDlg::HandlePasteFromPalMod()
 
                 rgPasteCol[i] = CurrGame->ConvPal16((UINT16)strtoul(szFormatStr16, NULL, 16));
 
-                // Note that in some cases this means that the user will need to manually reestablish alpha, 
-                // such as when they go from xRGB COTA to ARGB MvC2.
-                if (!CurrGame->AllowTransparency())
+                // Allow Alpha only if both:
+                //      the current game accepts it, and
+                //      the incoming data has been proven to know about alpha
+                if (!CurrGame->AllowTransparency() || !fAnyValueHasAlpha)
                 {
                     // this game doesn't use/want alpha, but we need alpha to display properly
                     ((UINT8*)rgPasteCol)[(i * 4) + 3] |= 0xFF;

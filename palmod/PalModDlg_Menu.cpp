@@ -99,7 +99,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
     if (pPopupMenu == m_SubFileMenu)
     {
         pPopupMenu->EnableMenuItem(ID_FILE_PATCH, !fFileChanged);
-        pPopupMenu->EnableMenuItem(ID_FILE_OPENEXTRAS, (GetHost()->GetCurrGame() == nullptr));
+        pPopupMenu->EnableMenuItem(ID_FILE_OPENEXTRAS, (GetHost()->GetCurrGame() == nullptr) || !GetHost()->GetCurrGame()->GameAllowsExtraFile());
         pPopupMenu->EnableMenuItem(ID_FILE_CLOSEFILEDIR, (GetHost()->GetCurrGame() == nullptr));
         pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedPath(NULL, 0, NULL, TRUE));
 
