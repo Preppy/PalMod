@@ -438,8 +438,8 @@ const sGame_PaletteDataset MartialMasters_Palettes_TrueLotusMaster_Core[] =
 
 const sGame_PaletteDataset MartialMasters_Palettes_TrueLotusMaster_Extras[] =
 {
-    { L"True Lotus Master Intro 1", 0x3cad42, 0x3cad82, indexMartialMastersSprites_TrueLotusMaster, 0x0a },
-    { L"True Lotus Master Intro 2", 0x3cad82, 0x3cadc2, indexMartialMastersSprites_TrueLotusMaster, 0x0a },
+    { L"True Lotus Master Intro 1", 0x3cad42, 0x3cad82, indexMartialMastersSprites_TrueLotusMaster },
+    { L"True Lotus Master Intro 2", 0x3cad82, 0x3cadc2, indexMartialMastersSprites_TrueLotusMaster },
     { L"True Lotus Master Fire Flash/Effects", 0x3cae42, 0x3cae82, indexMartialMastersSprites_LotusMaster, 0x08 },
     { L"True Lotus Master Firesparks", 0x3cadc2, 0x3cae02, indexMartialMastersSprites_TrueLotusMaster, 0x08 },
     { L"True Lotus Master Supertrail", 0x3cae02, 0x3cae42, indexMartialMastersSprites_TrueLotusMaster },
@@ -583,7 +583,7 @@ const sGame_PaletteDataset MartialMasters_Palettes_Stages_TrueLotusMaster[] =
 const sGame_PaletteDataset MartialMasters_Palettes_Bonus_SelectScreen[] =
 {
     { L"Main Menu Logo", 0x347fc8, 0x348008, indexMartialMastersSprites_Bonus, 0x05 },
-    { L"Select Background", 0x347988, 0x3479c8, indexMartialMastersSprites_Bonus, 0x01, &pairNextAndNext },
+    { L"Select Background", 0x347988, 0x3479c8, indexMartialMastersSprites_Bonus, 0x00, &pairNextAndNext },
     { L"Player Select Text", 0x347948, 0x347988, indexMartialMastersSprites_Bonus, 0x04 },
     { L"Select Icons", 0x3473c8, 0x347588, indexMartialMastersSprites_Bonus, 0x02 },
     { L"Select Names", 0x347a08, 0x347a28, indexMartialMastersSprites_Bonus, 0x03 },

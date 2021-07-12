@@ -26,17 +26,9 @@ enum Supported_SSF2T_4A_PaletteListIndex
     index_SSF2T_4A_Last
 };
 
-enum Supported_SSF2T_8_PaletteListIndex
-{
-    index_SSF2T_Stages,
-    index_SSF2T_8_Last
-};
-
 constexpr auto SSF2T_A_NUM_IND_4A = index_SSF2T_4A_Last;
-constexpr auto SSF2T_A_NUM_IND_8 = index_SSF2T_8_Last;
 
 #define SSF2T_A_EXTRALOC_4A SSF2T_A_NUM_IND_4A
-#define SSF2T_A_EXTRALOC_8 SSF2T_A_NUM_IND_8
 
 const UINT8 SSF2T_A_UNITSORT_4A[SSF2T_A_NUM_IND_4A + 1] = // Plus 1 for the extra palettes
 {
@@ -1670,21 +1662,42 @@ const sDescTreeNode SSF2T_A_GOUKI_COLLECTION[] =
     { L"P2 Color",    DESC_NODETYPE_TREE, (void*)SSF2T_A_GOUKI_PALETTES_P2COLOR,     ARRAYSIZE(SSF2T_A_GOUKI_PALETTES_P2COLOR) },
 };
 
+const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
+{
+    { L"Intro Ryu Part 1", 0x6d0be, 0x6d1fe },
+    { L"Intro Ryu Part 2", 0x6d2be, 0x6d37e },
+    { L"Intro Ryu Part 3", 0x6d3be, 0x6d3de },
+    { L"Intro Ryu Part 4", 0x755de, 0x755fe },
+
+    { L"Blue SUPER Text", 0x7561e, 0x7565e },
+    { L"Yellow Flash SUPER Text Part 1", 0x7555e, 0x755de },
+    { L"Yellow Flash SUPER Text Part 2", 0x7565e, 0x757fe },
+    { L"Intro Ryu Hadouken Blast", 0x6d27e, 0x6d29e },
+
+    { L"Character Select Background (1/2)", 0x743fe, 0x7441e },
+    { L"Character Select Background (2/2)", 0x7443e, 0x7445e },
+    { L"Vs Background", 0x74b1e, 0x74b3e },
+};
+
 // THESE ARE IN sfxe.04a
 
-const sGame_PaletteDataset SSF2T_A_BONUS_NODE[] =
+const sGame_PaletteDataset SSF2T_A_04_BONUS_NODE[] =
 {
     { L"Akuma Intro", 0x05bf5a, 0x05bf7a, indexSF2Sprites_Bonus, 1 },
     { L"Chun-Li Intro", 0x05bf7a, 0x05c09a, indexSF2Sprites_Bonus, 2 },
     { L"Cammy Intro", 0x05be5a, 0x05bf5a, indexSF2Sprites_Bonus, 0 },
+
+    { L"Intro Ryu Part 5", 0x5917a, 0x5919a },
+
+    { L"Intro Ryu Charging Hadouken", 0x591da, 0x591fa },
 };
 
-const sGame_PaletteDataset SSF2T_A_BONUS_TITLESCREEN_NODE[] =
+const sGame_PaletteDataset SSF2T_A_04_BONUS_TITLESCREEN_NODE[] =
 {
     { L"Title Screen \"X\"", 0x59098, 0x590b8 },
     { L"Street Fighter II Text", 0x5921a, 0x5923a },
     { L"Grand Master Challenge Text", 0x5915a, 0x5917a },
-    { L"Title Screen Lightning", 0x591da, 0x591fa },
+    // this is now "charging hadouken" { L"Title Screen Lightning", 0x591da, 0x591fa },
 };
 
 const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE_4[] =
@@ -2916,12 +2929,17 @@ const sDescTreeNode SSF2T_A_DEEJAY_PORTRAIT_COLLECTION[] =
     { L"Old 2P",    DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_PORTRAITS_OLD2P,      ARRAYSIZE(SSF2T_A_DEEJAY_PORTRAITS_OLD2P) },
 };
 
-const sDescTreeNode SSF2T_A_BONUS_COLLECTION[] =
+const sDescTreeNode SSF2T_A_04_BONUS_COLLECTION[] =
 {
-    { L"Palettes",                  DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_NODE,          ARRAYSIZE(SSF2T_A_BONUS_NODE) },
-    { L"Title Screen",              DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_TITLESCREEN_NODE, ARRAYSIZE(SSF2T_A_BONUS_TITLESCREEN_NODE) },
+    { L"Palettes",                  DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_NODE,          ARRAYSIZE(SSF2T_A_04_BONUS_NODE) },
+    { L"Title Screen",              DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_TITLESCREEN_NODE, ARRAYSIZE(SSF2T_A_04_BONUS_TITLESCREEN_NODE) },
     { L"Cammy Stage (04 parts)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
     { L"Ryu Stage (04 parts)",      DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
+};
+
+const sDescTreeNode SSF2T_A_08_BONUS_COLLECTION[] =
+{
+    { L"Palettes",                  DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_NODE,   ARRAYSIZE(SSF2T_A_08_BONUS_NODE) },
 };
 
 const sDescTreeNode SSF2T_A_STAGES_COLLECTION[] =
@@ -2955,7 +2973,7 @@ const sDescTreeNode SSF2T_A_UNITS_3C[] =
 constexpr auto SSF2T_A_NUM_IND_3C = ARRAYSIZE(SSF2T_A_UNITS_3C);
 #define SSF2T_A_EXTRALOC_3C SSF2T_A_NUM_IND_3C
 
-#define k_stNameKey_Bonus L"Bonus"
+#define k_stNameKey_Bonus L"Bonus Palettes"
 
 const sDescTreeNode SSF2T_A_UNITS_4A[SSF2T_A_NUM_IND_4A] =
 {
@@ -2977,13 +2995,18 @@ const sDescTreeNode SSF2T_A_UNITS_4A[SSF2T_A_NUM_IND_4A] =
     { L"Vega",        DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_COLLECTION,       ARRAYSIZE(SSF2T_A_VEGA_COLLECTION) },
     { L"Zangief",     DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_COLLECTION,    ARRAYSIZE(SSF2T_A_ZANGIEF_COLLECTION) },
     // We special-case handling this, so use a namekey
-    { k_stNameKey_Bonus,       DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_COLLECTION,      ARRAYSIZE(SSF2T_A_BONUS_COLLECTION) },
+    { k_stNameKey_Bonus,    DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_COLLECTION,      ARRAYSIZE(SSF2T_A_04_BONUS_COLLECTION) },
 };
 
 const sDescTreeNode SSF2T_A_UNITS_8[] =
 {
-    { L"Stages",  DESC_NODETYPE_TREE, (void*)SSF2T_A_STAGES_COLLECTION, ARRAYSIZE(SSF2T_A_STAGES_COLLECTION) },
+    { L"Stages",            DESC_NODETYPE_TREE, (void*)SSF2T_A_STAGES_COLLECTION, ARRAYSIZE(SSF2T_A_STAGES_COLLECTION) },
+    // We special-case handling this, so use a namekey
+    { k_stNameKey_Bonus,    DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_COLLECTION,      ARRAYSIZE(SSF2T_A_08_BONUS_COLLECTION) },
 };
+
+constexpr auto SSF2T_A_NUM_IND_8 = ARRAYSIZE(SSF2T_A_UNITS_8);
+#define SSF2T_A_EXTRALOC_8 SSF2T_A_NUM_IND_8
 
 // We extend this array with data groveled from the SSF2T-3Ce.txt or SSF2T-4Ae.txt extensible extras filc, if any.
 const stExtraDef SSF2T_A_EXTRA[] =

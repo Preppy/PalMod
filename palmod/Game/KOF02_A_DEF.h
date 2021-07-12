@@ -142,8 +142,6 @@ const UINT16 KOF02_A_IMGIDS_USED[] =
     indexKOF02UMSprites_Yuri,      // 0xBa
     indexKOF02UMSprites_ZeroOG,    // 0xBb
 
-    indexKOF02Sprites_K9999,
-
     indexKOF02Sprites_Angel,    // 0x26
     indexKOF02Sprites_Athena,   // 0x27
     indexKOF02Sprites_Clark,    // 0x28
@@ -3562,6 +3560,59 @@ const sGame_PaletteDataset KOF02_A_OrochiChris_PALETTES_SHARED[] =
     { L"Ankoku Orochinagi Fire 2",  0xa4202, 0xa4222, indexKOF02UMSprites_ChrisOChi, 0x04 },
 };
 
+const sGame_PaletteDataset KOF02_A_KENSOU_PALETTES_MAX2[] =
+{
+    { L"Kensou MAX2 Powerup Flash 1/16", 0xc0162, 0xc0182, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 2/16", 0xc0182, 0xc01a2, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 3/16", 0xc01a2, 0xc01c2, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 4/16", 0xc01c2, 0xc01e2, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 5/16", 0xc01e2, 0xc0202, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 6/16", 0xc0202, 0xc0222, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 7/16", 0xc0222, 0xc0242, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 8/16", 0xc0242, 0xc0262, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 9/16", 0xc0262, 0xc0282, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 10/16", 0xc0282, 0xc02a2, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 11/16", 0xc02a2, 0xc02c2, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 12/16", 0xc02c2, 0xc02e2, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 13/16", 0xc02e2, 0xc0302, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 14/16", 0xc0302, 0xc0322, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 15/16", 0xc0322, 0xc0342, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"Kensou MAX2 Powerup Flash 16/16", 0xc0342, 0xc0362, indexKOF02UMSprites_Kensou, 0x00 },
+};
+
+const sGame_PaletteDataset KOF02_A_OCHRIS_PALETTES_MAX2[] =
+{
+    { L"Orochi Chris MAX2 Background 1/16", 0xc0d62, 0xc0d82 },
+    { L"Orochi Chris MAX2 Background 2/16", 0xc0d82, 0xc0da2 },
+    { L"Orochi Chris MAX2 Background 3/16", 0xc0da2, 0xc0dc2 },
+    { L"Orochi Chris MAX2 Background 4/16", 0xc0dc2, 0xc0de2 },
+    { L"Orochi Chris MAX2 Background 5/16", 0xc0de2, 0xc0e02 },
+    { L"Orochi Chris MAX2 Background 6/16", 0xc0e02, 0xc0e22 },
+    { L"Orochi Chris MAX2 Background 7/16", 0xc0e22, 0xc0e42 },
+    { L"Orochi Chris MAX2 Background 8/16", 0xc0e42, 0xc0e62 },
+    { L"Orochi Chris MAX2 Background 9/16", 0xc0e62, 0xc0e82 },
+    { L"Orochi Chris MAX2 Background 10/16", 0xc0e82, 0xc0ea2 },
+    { L"Orochi Chris MAX2 Background 11/16", 0xc0ea2, 0xc0ec2 },
+    { L"Orochi Chris MAX2 Background 12/16", 0xc0ec2, 0xc0ee2 },
+    { L"Orochi Chris MAX2 Background 13/16", 0xc0ee2, 0xc0f02 },
+    { L"Orochi Chris MAX2 Background 14/16", 0xc0f02, 0xc0f22 },
+    { L"Orochi Chris MAX2 Background 15/16", 0xc0f22, 0xc0f42 },
+    { L"Orochi Chris MAX2 Background 16/16", 0xc0f42, 0xc0f62 },
+};
+
+const sGame_PaletteDataset KOF02_A_OSHERMIE_PALETTES_MAX2[] =
+{
+    { L"Orochi Shermie MAX2 Background", 0xc2342, 0xc2362 },
+};
+
+const sGame_PaletteDataset KOF02_A_OYASHIRO_PALETTES_MAX2[] =
+{
+    { L"Orochi Yashiro MAX2 Background 1/4", 0xc22a2, 0xc22c2 },
+    { L"Orochi Yashiro MAX2 Background 2/4", 0xc22c2, 0xc22e2 },
+    { L"Orochi Yashiro MAX2 Background 3/4", 0xc22e2, 0xc2302 },
+    { L"Orochi Yashiro MAX2 Background 4/4", 0xc2302, 0xc2322 },
+};
+
 const sDescTreeNode KOF02_A_KYO_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)KOF02_A_KYO_PALETTES_A, ARRAYSIZE(KOF02_A_KYO_PALETTES_A) },
@@ -3687,6 +3738,7 @@ const sDescTreeNode KOF02_A_KENSOU_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02_A_KENSOU_PALETTES_C, ARRAYSIZE(KOF02_A_KENSOU_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02_A_KENSOU_PALETTES_D, ARRAYSIZE(KOF02_A_KENSOU_PALETTES_D) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)KOF02_A_Kensou_PALETTES_SHARED, ARRAYSIZE(KOF02_A_Kensou_PALETTES_SHARED) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02_A_KENSOU_PALETTES_MAX2, ARRAYSIZE(KOF02_A_KENSOU_PALETTES_MAX2) },
     { L"Win Portraits", DESC_NODETYPE_TREE, (void*)KOF02_A_KENSOU_PALETTES_PORTRAITS_WIN, ARRAYSIZE(KOF02_A_KENSOU_PALETTES_PORTRAITS_WIN) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)KOF02_A_KENSOU_PALETTES_PORTRAITS_LIFEBAR, ARRAYSIZE(KOF02_A_KENSOU_PALETTES_PORTRAITS_LIFEBAR) },
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02_A_KENSOU_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02_A_KENSOU_PALETTES_PORTRAITS_SELECT) },
@@ -4057,6 +4109,7 @@ const sDescTreeNode KOF02_A_OYASHIRO_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02_A_OYASHIRO_PALETTES_C, ARRAYSIZE(KOF02_A_OYASHIRO_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02_A_OYASHIRO_PALETTES_D, ARRAYSIZE(KOF02_A_OYASHIRO_PALETTES_D) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)KOF02_A_OrochiYashiro_PALETTES_SHARED, ARRAYSIZE(KOF02_A_OrochiYashiro_PALETTES_SHARED) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02_A_OYASHIRO_PALETTES_MAX2, ARRAYSIZE(KOF02_A_OYASHIRO_PALETTES_MAX2) },
     { L"Win Portraits", DESC_NODETYPE_TREE, (void*)KOF02_A_OYASHIRO_PALETTES_PORTRAITS_WIN, ARRAYSIZE(KOF02_A_OYASHIRO_PALETTES_PORTRAITS_WIN) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)KOF02_A_OYASHIRO_PALETTES_PORTRAITS_LIFEBAR, ARRAYSIZE(KOF02_A_OYASHIRO_PALETTES_PORTRAITS_LIFEBAR) },
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02_A_OYASHIRO_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02_A_OYASHIRO_PALETTES_PORTRAITS_SELECT) },
@@ -4069,6 +4122,7 @@ const sDescTreeNode KOF02_A_OSHERMIE_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02_A_OSHERMIE_PALETTES_C, ARRAYSIZE(KOF02_A_OSHERMIE_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02_A_OSHERMIE_PALETTES_D, ARRAYSIZE(KOF02_A_OSHERMIE_PALETTES_D) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)KOF02_A_OrochiShermie_PALETTES_SHARED, ARRAYSIZE(KOF02_A_OrochiShermie_PALETTES_SHARED) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02_A_OSHERMIE_PALETTES_MAX2, ARRAYSIZE(KOF02_A_OSHERMIE_PALETTES_MAX2) },
     { L"Win Portraits", DESC_NODETYPE_TREE, (void*)KOF02_A_OSHERMIE_PALETTES_PORTRAITS_WIN, ARRAYSIZE(KOF02_A_OSHERMIE_PALETTES_PORTRAITS_WIN) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)KOF02_A_OSHERMIE_PALETTES_PORTRAITS_LIFEBAR, ARRAYSIZE(KOF02_A_OSHERMIE_PALETTES_PORTRAITS_LIFEBAR) },
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02_A_OSHERMIE_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02_A_OSHERMIE_PALETTES_PORTRAITS_SELECT) },
@@ -4081,9 +4135,31 @@ const sDescTreeNode KOF02_A_OCHRIS_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02_A_OCHRIS_PALETTES_C, ARRAYSIZE(KOF02_A_OCHRIS_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02_A_OCHRIS_PALETTES_D, ARRAYSIZE(KOF02_A_OCHRIS_PALETTES_D) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)KOF02_A_OrochiChris_PALETTES_SHARED, ARRAYSIZE(KOF02_A_OrochiChris_PALETTES_SHARED) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02_A_OCHRIS_PALETTES_MAX2, ARRAYSIZE(KOF02_A_OCHRIS_PALETTES_MAX2) },
     { L"Win Portraits", DESC_NODETYPE_TREE, (void*)KOF02_A_OCHRIS_PALETTES_PORTRAITS_WIN, ARRAYSIZE(KOF02_A_OCHRIS_PALETTES_PORTRAITS_WIN) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)KOF02_A_OCHRIS_PALETTES_PORTRAITS_LIFEBAR, ARRAYSIZE(KOF02_A_OCHRIS_PALETTES_PORTRAITS_LIFEBAR) },
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT) },
+};
+
+const sGame_PaletteDataset KOF02_A_EXTRA_PALETTES[] =
+{
+    { L"Blood Effects", 0x86f22, 0x86f42 },
+    { L"Grab Sparks", 0x86ee2, 0x86f02 },
+    { L"Hitspark Effects", 0x87562, 0x87582 },
+    { L"Blocksparks Effects", 0x86e02, 0x86e22 },
+    { L"Special/Super Blocksparks", 0x86e22, 0x86e42 },
+    { L"MAX Mode and SDM Flash", 0x87022, 0x87042 },
+    { L"MAX Flash", 0x875e2, 0x87602 },
+    { L"MAX2 Flash", 0x87602, 0x87622 },
+    { L"Fire Palette", 0x88162, 0x88362 },
+    { L"Orochi Fire Palette", 0x88362, 0x88562 },
+    { L"Orochi Burn Palette", 0x88562, 0x88762 },
+    { L"Frozen Palette", 0x88762, 0x88962 },
+};
+
+const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =
+{
+    { L"Extra Effects", DESC_NODETYPE_TREE, (void*)KOF02_A_EXTRA_PALETTES, ARRAYSIZE(KOF02_A_EXTRA_PALETTES) },
 };
 
 const sDescTreeNode KOF02_A_UNITS[] =
@@ -4144,6 +4220,7 @@ const sDescTreeNode KOF02_A_UNITS[] =
     { L"O.Shermie", DESC_NODETYPE_TREE, (void*)KOF02_A_OSHERMIE_COLLECTION, ARRAYSIZE(KOF02_A_OSHERMIE_COLLECTION) },
     { L"O.Yashiro", DESC_NODETYPE_TREE, (void*)KOF02_A_OYASHIRO_COLLECTION, ARRAYSIZE(KOF02_A_OYASHIRO_COLLECTION) },
 
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_COLLECTION, ARRAYSIZE(KOF02_A_BONUS_COLLECTION) },
 };
 
 constexpr auto KOF02_A_NUMUNIT = ARRAYSIZE(KOF02_A_UNITS);

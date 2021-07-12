@@ -786,7 +786,10 @@ const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_MOVES[] =
     { L"Orochi Chris Idle Orochi Fire",         0x1d640, 0x1d660, indexKOF02UMSprites_ChrisOChi, 0x03 },
     { L"Orochi Chris Ankoku Orochinagi Fire 1", 0x1d660, 0x1d680 },
     { L"Orochi Chris Ankoku Orochinagi Fire 2", 0x1d6a0, 0x1d6c0, indexKOF02UMSprites_ChrisOChi, 0x04 },
+};
 
+const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_MAX2[] =
+{
     { L"Orochi Chris MAX2 Background 1", 0x3a200, 0x3a220 },
     { L"Orochi Chris MAX2 Background 2", 0x3a220, 0x3a240 },
     { L"Orochi Chris MAX2 Background 3", 0x3a240, 0x3a260 },
@@ -932,6 +935,10 @@ const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_MOVES[] =
     { L"Kensou Psycho Ball Hit",    0x19420, 0x19440, indexKOF02UMSprites_Kensou, 0x03 },
     { L"Kensou MAX Burst",          0x19440, 0x19460, indexKOF02UMSprites_Kensou, 0x10 },
     { L"Kensou MAX2 Powerup Orb",   0x19480, 0x194a0, indexKOF02UMSprites_Kensou, 0x09 },
+};
+
+const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_MAX2[] =
+{
     { L"Kensou MAX2 Flash 1/16",    0x39600, 0x39620, indexKOF02UMSprites_Kensou },
     { L"Kensou MAX2 Flash 2/16",    0x39620, 0x39640, indexKOF02UMSprites_Kensou },
     { L"Kensou MAX2 Flash 3/16",    0x39640, 0x39660, indexKOF02UMSprites_Kensou },
@@ -1162,7 +1169,10 @@ const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_MOVES[] =
     { L"Orochi Shermie Takeru Mikazuchi Lightning",     0x1d4a0, 0x1d4c0, indexKOF02UMSprites_ShermieOChi, 0x06 },
     { L"Orochi Shermie Special Lightning Effects",      0x1d4c0, 0x1d4e0, indexKOF02UMSprites_ShermieOChi, 0x02 },
     { L"Orochi Shermie Yatanagi no Muchi Hit",          0x1d4e0, 0x1d500, indexKOF02UMSprites_ShermieOChi, 0x03 },
+};
 
+const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_MAX2[] =
+{
     { L"Orochi Shermie MAX2 Background",                0x3b7e0, 0x3b800 },
 };
 
@@ -1244,11 +1254,14 @@ const sGame_PaletteDataset KOF02UM_S_OYASHIRO_PALETTES_MOVES[] =
     { L"Orochi Yashiro Special and Super Effects",  0x1d200, 0x1d220, indexKOF02UMSprites_YashiroOChi, 0x03 },
     { L"Orochi Yashiro Araburu Daichi Pillar",      0x1d240, 0x1d260, indexKOF02UMSprites_YashiroOChi, 0x09 },
     { L"Orochi Yashiro Unaru Daichi Effects",       0x1d2a0, 0x1d2c0, indexKOF02UMSprites_YashiroOChi, 0x02 },
+};
 
-    { L"Orochi Yashiro MAX2 Background 1",  0x3b740, 0x3b760 },
-    { L"Orochi Yashiro MAX2 Background 2",  0x3b760, 0x3b780 },
-    { L"Orochi Yashiro MAX2 Background 3",  0x3b780, 0x3b7a0 },
-    { L"Orochi Yashiro MAX2 Background 4",  0x3b7a0, 0x3b7c0 },
+const sGame_PaletteDataset KOF02UM_S_OYASHIRO_PALETTES_MAX2[] =
+{
+    { L"Orochi Yashiro MAX2 Background 1/4",  0x3b740, 0x3b760 },
+    { L"Orochi Yashiro MAX2 Background 2/4",  0x3b760, 0x3b780 },
+    { L"Orochi Yashiro MAX2 Background 3/4",  0x3b780, 0x3b7a0 },
+    { L"Orochi Yashiro MAX2 Background 4/4",  0x3b7a0, 0x3b7c0 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_YURI_PALETTES_MOVES[] =
@@ -1907,6 +1920,7 @@ const sDescTreeNode KOF02UM_S_KENSOU_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02UM_S_KENSOU_PALETTES_C, ARRAYSIZE(KOF02UM_S_KENSOU_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02UM_S_KENSOU_PALETTES_D, ARRAYSIZE(KOF02UM_S_KENSOU_PALETTES_D) },
     { L"Moves", DESC_NODETYPE_TREE, (void*)KOF02UM_S_KENSOU_PALETTES_MOVES, ARRAYSIZE(KOF02UM_S_KENSOU_PALETTES_MOVES) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02UM_S_KENSOU_PALETTES_MAX2, ARRAYSIZE(KOF02UM_S_KENSOU_PALETTES_MAX2) },
     { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_KENSOU_PALETTES_PORTRAITS, ARRAYSIZE(KOF02UM_S_KENSOU_PALETTES_PORTRAITS) },
 };
 
@@ -3703,6 +3717,7 @@ const sDescTreeNode KOF02UM_S_OYASHIRO_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OYASHIRO_PALETTES_C, ARRAYSIZE(KOF02UM_S_OYASHIRO_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OYASHIRO_PALETTES_D, ARRAYSIZE(KOF02UM_S_OYASHIRO_PALETTES_D) },
     { L"Moves", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OYASHIRO_PALETTES_MOVES, ARRAYSIZE(KOF02UM_S_OYASHIRO_PALETTES_MOVES) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OYASHIRO_PALETTES_MAX2, ARRAYSIZE(KOF02UM_S_OYASHIRO_PALETTES_MAX2) },
     { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OYASHIRO_PALETTES_PORTRAITS, ARRAYSIZE(KOF02UM_S_OYASHIRO_PALETTES_PORTRAITS) },
 };
 
@@ -3761,6 +3776,7 @@ const sDescTreeNode KOF02UM_S_OSHERMIE_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OSHERMIE_PALETTES_C, ARRAYSIZE(KOF02UM_S_OSHERMIE_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OSHERMIE_PALETTES_D, ARRAYSIZE(KOF02UM_S_OSHERMIE_PALETTES_D) },
     { L"Moves", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OSHERMIE_PALETTES_MOVES, ARRAYSIZE(KOF02UM_S_OSHERMIE_PALETTES_MOVES) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OSHERMIE_PALETTES_MAX2, ARRAYSIZE(KOF02UM_S_OSHERMIE_PALETTES_MAX2) },
     { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OSHERMIE_PALETTES_PORTRAITS, ARRAYSIZE(KOF02UM_S_OSHERMIE_PALETTES_PORTRAITS) },
 };
 
@@ -3819,6 +3835,7 @@ const sDescTreeNode KOF02UM_S_OCHRIS_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OCHRIS_PALETTES_C, ARRAYSIZE(KOF02UM_S_OCHRIS_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OCHRIS_PALETTES_D, ARRAYSIZE(KOF02UM_S_OCHRIS_PALETTES_D) },
     { L"Moves", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OCHRIS_PALETTES_MOVES, ARRAYSIZE(KOF02UM_S_OCHRIS_PALETTES_MOVES) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OCHRIS_PALETTES_MAX2, ARRAYSIZE(KOF02UM_S_OCHRIS_PALETTES_MAX2) },
     { L"Portraits", DESC_NODETYPE_TREE, (void*)KOF02UM_S_OCHRIS_PALETTES_PORTRAITS, ARRAYSIZE(KOF02UM_S_OCHRIS_PALETTES_PORTRAITS) },
 };
 

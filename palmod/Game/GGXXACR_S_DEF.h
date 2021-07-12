@@ -2,7 +2,7 @@
 
 #include "GGXXACR_Common.h"
 
-const sGame_PaletteDataset GGXXACR_S_AB_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_AB_EXTRAS[] =
 {
     //General
     { L"Moroha Eyes",               0x5213b0, 0x5213f0, indexGGXXSprites_ACR_ABA, 0x04, &pairNext },
@@ -54,24 +54,66 @@ const sGame_PaletteDataset GGXXACR_S_AB_EFFECTS[] =
     { L"Muchi no Yami (2/2)",  0x513030, 0x513070, indexGGXXSprites_ACR_ABA, 0x11 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_BK_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_AN_EXTRAS[] =
+{
+    //Specials
+    { L"Shitsu", 0x423e10, 0x423e50 },
+    { L"Falling Butterfly (1/4)", 0x426240, 0x426280 },
+    { L"Falling Butterfly (2/4)", 0x4268c0, 0x426900 },
+    { L"Falling Butterfly (3/4)", 0x427490, 0x4274d0 },
+    { L"Falling Butterfly (4/4)", 0x428150, 0x428190 },
+
+    { L"Fuujin (1/2)", 0x41ab80, 0x41abc0 },
+    { L"Fuujin (2/2)", 0x420f70, 0x420fb0 },
+
+    { L"Nagiha (1/2)", 0x42e370, 0x42e3b0 },
+    { L"Nagiha (2/2)", 0x42f560, 0x42f5a0 },
+
+    //Force Breaks
+    { L"FB Shitsu", 0x4290c0, 0x429100 },
+    { L"FB Falling Butterfly (1/4)", 0x42b4f0, 0x42b530 },
+    { L"FB Falling Butterfly (2/4)", 0x42bb70, 0x42bbb0 },
+    { L"FB Falling Butterfly (3/4)", 0x42c740, 0x42c780 },
+    { L"FB Falling Butterfly (4/4)", 0x42d400, 0x42d440 },
+    
+    { L"FB Kou/Tenjinkyaku Effects (1/2)", 0x4304d0, 0x430510 },
+    { L"FB Kou/Tenjinkyaku Effects (2/2)", 0x431660, 0x4316a0 },
+
+    //Overdrives  
+    //{ L"Issei Ougi: Sai (Unused)", 0x3f19b0, 0x3f19f0 },
+    //{ L"Issei Ougi: Sai (Unused)", 0x3f4760, 0x3f47a0 },
+    //{ L"Issei Ougi: Sai (Unused)", 0x3fb9c0, 0x3fba00 },
+    
+    { L"Kachoufuugetsu (1/7)", 0x401260, 0x4012a0 },
+    { L"Kachoufuugetsu (2/7)", 0x4018a0, 0x4018e0 },
+    { L"Kachoufuugetsu (3/7)", 0x402f90, 0x402fd0 },
+    { L"Kachoufuugetsu (4/7)", 0x405990, 0x4059d0 },
+    { L"Kachoufuugetsu (5/7)", 0x408b30, 0x408b70 },
+    { L"Kachoufuugetsu (6/7)", 0x40b780, 0x40b7c0 },
+    { L"Kachoufuugetsu (7/7)", 0x40c8f0, 0x40c930 },
+};
+
+const sGame_PaletteDataset GGXXACR_S_BK_EXTRAS[] =
 {
     //General
     { L"Flower Petals",                 0x34bc70, 0x34bcb0, indexGGXXSprites_ACR_Baiken, 0x09 },
     { L"Pipe (Tossed)",                 0x34b3a0, 0x34b3e0, indexGGXXSprites_ACR_Baiken, 0x0c },
     { L"Smoke",                         0x34bf70, 0x34bfb0, indexGGXXSprites_ACR_Baiken, 0x0e },
     { L"Intro Leaf",                    0x31cd50, 0x31cd90, indexGGXXSprites_ACR_Baiken, 0x0a },
+
     //Normals
     { L"5D",                            0x314bc0, 0x314c00, indexGGXXSprites_ACR_Baiken, 0x01 },
 
     { L"j.D Effect (1/2)",              0x316b70, 0x316bb0, indexGGXXSprites_ACR_Baiken, 0x0b },
     { L"j.D Effect (2/2)",              0x3183e0, 0x318420, indexGGXXSprites_ACR_Baiken, 0x0b },
+    
     //Specials
     { L"Tatami Gaeshi (1/2)",           0x3100a0, 0x3100e0, indexGGXXSprites_ACR_Baiken, 0x0f },
     { L"Tatami Gaeshi (2/2)",           0x313930, 0x313970, indexGGXXSprites_ACR_Baiken, 0x0f },
 
     { L"Zakuro",                        0x31ad10, 0x31ad50, indexGGXXSprites_ACR_Baiken, 0x13 },
     { L"Sakura",                        0x30ecf0, 0x30ed30, indexGGXXSprites_ACR_Baiken, 0x0d },
+    
     //Forcebreaks
     { L"Baku",                          0x31e7c0, 0x31e800, indexGGXXSprites_ACR_Baiken, 0x02 },
     { L"Baku:XXX Card Back/Icons",      0x31f700, 0x31f740, indexGGXXSprites_ACR_Baiken, 0x03 },
@@ -80,10 +122,12 @@ const sGame_PaletteDataset GGXXACR_S_BK_EFFECTS[] =
     { L"Baku:XXX Kick",                 0x34ff50, 0x34ff90, indexGGXXSprites_ACR_Baiken, 0x06 },
     { L"Baku:XXX Slash",                0x34df50, 0x34df90, indexGGXXSprites_ACR_Baiken, 0x08 },
     { L"Baku:XXX Card Front (Sliced)",  0x324670, 0x3246b0, indexGGXXSprites_ACR_Baiken, 0x05 },
+    
     //Overdrives
     { L"Tsurane Sanzu Watashi (1/3)",   0x31ced0, 0x31cf10, indexGGXXSprites_ACR_Baiken, 0x10 },
     { L"Tsurane Sanzu Watashi (2/3)",   0x31d600, 0x31d640, indexGGXXSprites_ACR_Baiken, 0x11 },
     { L"Tsurane Sanzu Watashi (3/3)",   0x31e1a0, 0x31e1e0, indexGGXXSprites_ACR_Baiken, 0x12 },
+    
     //Instant Kill
     { L"Garyou Tensei (1/10)",          0x328da0, 0x3291a0 },
     { L"Garyou Tensei (2/10)",          0x334f60, 0x335360 },
@@ -100,10 +144,63 @@ const sGame_PaletteDataset GGXXACR_S_BK_EFFECTS[] =
     { L"Garyou Tensei - Light (3/3)",   0x33fdc0, 0x33fe00 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_DZ_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_CH_EXTRAS[] =
+{
+    //Specials
+    { L"Alpha Blade (1/2)", 0x29c900, 0x29c940 },
+    { L"Alpha Blade (2/2)", 0x29e740, 0x29e780 },
+    { L"Alpha Blade Sparks", 0x2c2de0, 0x2c2e20 },
+    
+    { L"Beta Blade", 0x2a1fd0, 0x2a2010 },
+    
+    { L"Gamma Blade (1/9)", 0x2cf030, 0x2cf070 },
+    { L"Gamma Blade (2/9)", 0x2d0270, 0x2d02b0 },
+    { L"Gamma Blade (3/9)", 0x2d1310, 0x2d1350 },
+    { L"Gamma Blade (4/9)", 0x2d3cd0, 0x2d3d10 },
+    { L"Gamma Blade (5/9)", 0x2d5fd0, 0x2d6010 },
+    { L"Gamma Blade (6/9)", 0x2d8c00, 0x2d8c40 },
+    { L"Gamma Blade (7/9)", 0x2d9390, 0x2d93d0 },
+    { L"Gamma Blade (8/9)", 0x2d9a80, 0x2d9ac0 },
+    { L"Gamma Blade (9/9)", 0x2d9f40, 0x2d9f80 },
+    { L"Gamma Blade Whiffed", 0x2d8300, 0x2d8340 },
+      
+    { L"Resshou", 0x2a8800, 0x2a8840 },
+    { L"Rokusai", 0x2aa8a0, 0x2aa8e0 },
+    { L"Senshuu (1/3)", 0x2ab6e0, 0x2ab720 },
+    { L"Senshuu (2/3)", 0x2ac540, 0x2ac580 },
+    { L"Senshuu (3/3)", 0x2ad1a0, 0x2ad1e0 },
+    
+    { L"Shuriken (1/4)", 0x2c26e0, 0x2c2720 },
+    { L"Shuriken (2/4)", 0x2c28e0, 0x2c2920 },
+    { L"Shuriken (3/4)", 0x2c2ad0, 0x2c2b10 },
+    { L"Shuriken (4/4)", 0x2c2ca0, 0x2c2ce0 },
+    
+    //Force Breaks
+    { L"Genrouzan-You", 0x2c3a80, 0x2c3ac0 },
+    
+    //Overdrives
+    { L"Zansei Rouga (Effect)", 0x2db2c0, 0x2db300 },
+    { L"Zansei Rouga (Slice)", 0x2dd5e0, 0x2dd620 },
+    
+    //Instant Kill
+    { L"Delta End Startup (1/2)", 0x2adb80, 0x2adbc0 },
+    { L"Delta End Startup (2/2)", 0x2b7ec0, 0x2b7f00 },
+    { L"Delta End Kanji", 0x2c21c0, 0x2c2200 },
+    { L"Delta End Explosion (1/3)", 0x2c43e0, 0x2c4420 },
+    { L"Delta End Explosion (2/3)", 0x2cbae0, 0x2cbb20 },
+    { L"Delta End Explosion (3/3)", 0x2cda70, 0x2cdab0 },
+    
+    //Unknown/Unused
+    //{ L"Unknown", 0x2c2de0, 0x2c2e20 },
+    //{ L"Genrouzan (Unused)", 0x299e10, 0x299e50 },
+
+};
+
+const sGame_PaletteDataset GGXXACR_S_DZ_EXTRAS[] =
 {
     //General
     { L"Idle Rings", 0x495080, 0x4950c0 },
+    
     //Specials
     { L"I Use This to Get Fruit", 0x495ac0, 0x495b00 },
 
@@ -134,6 +231,7 @@ const sGame_PaletteDataset GGXXACR_S_DZ_EFFECTS[] =
     { L"Please Leave Me Alone (Popping) (1/3)", 0x479b20, 0x479b60 }, //FB bubble is pink, but uses the same palette listed here and just twists the values around
     { L"Please Leave Me Alone (Popping) (2/3)", 0x47a530, 0x47a570 },
     { L"Please Leave Me Alone (Popping) (3/3)", 0x47c290, 0x47c2d0 },
+    
     //Overdrives
     { L"Imperial Ray Startup (1/2)", 0x47dd10, 0x47dd50 }, //missing the red line palette, unsure if it even has a palette tied to it since its a single shade, could be programmed
     { L"Imperial Ray Startup (2/2)", 0x47df30, 0x47df70 },
@@ -158,10 +256,20 @@ const sGame_PaletteDataset GGXXACR_S_DZ_EFFECTS[] =
     { L"Gamma Ray big laser",          0x48fb30, 0x48fb70 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_IN_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_ZT_EXTRAS[] =
+{
+    //General
+    { L"Grab Effects", 0x2ebeb0, 0x2ebef0 },
+    //Specials
+    { L"Damned Fang Effects (1/2)", 0x2ec410, 0x2ec450 },
+    { L"Damned Fang Effects (2/2)", 0x2ecb40, 0x2ecb80 },
+};
+
+const sGame_PaletteDataset GGXXACR_S_IN_EXTRAS[] =
 {
     //General
     { L"Dashing Effects", 0x43d120, 0x43d160 },
+    
     //Normals
     { L"f.S (1/6)", 0x3ff5e0, 0x3ff620 },
     { L"f.S (2/6)", 0x400d00, 0x400d40 },
@@ -178,6 +286,7 @@ const sGame_PaletteDataset GGXXACR_S_IN_EFFECTS[] =
     { L"5D (3/3)", 0x4500c0, 0x450100 },
 
     { L"2P", 0x404c50, 0x404c90 },
+    
     //Specials
     { L"Stroke the Big Tree (1/3)", 0x450bc0, 0x450c00 },
     { L"Stroke the Big Tree (2/3)", 0x455200, 0x455240 },
@@ -193,6 +302,7 @@ const sGame_PaletteDataset GGXXACR_S_IN_EFFECTS[] =
     { L"Chemical Love (2/3)", 0x3f48e0, 0x3f4920 },
     { L"Chemical Love (3/3)", 0x3f8ea0, 0x3f8ee0 },
     { L"Chemical Love Effects", 0x3fcab0, 0x3fcaf0 },
+    
     //Force Breaks
 
     //Overdrives
@@ -215,6 +325,7 @@ const sGame_PaletteDataset GGXXACR_S_IN_EFFECTS[] =
     { L"Longing Desperation (1/3)", 0x43df10, 0x43df50 },
     { L"Longing Desperation (2/3)", 0x441b90, 0x441bd0 },
     { L"Longing Desperation (3/3)", 0x444a40, 0x444a80 },
+    
     //Instant Kill
     { L"Last Will and Testament - Speakers (1/28)", 0x487540, 0x487940 },
     { L"Last Will and Testament - Speakers (2/28)", 0x48e2d0, 0x48e6d0 },
@@ -256,6 +367,7 @@ const sGame_PaletteDataset GGXXACR_S_IN_EFFECTS[] =
     { L"Last Will and Testament - Lights (1/2)", 0x471e80, 0x472280 },
     { L"Last Will and Testament - Lights (2/2)", 0x47a840, 0x47ac40 },
     { L"Last Will and Testament - Stage", 0x46eba0, 0x46efa0 },
+    
     //Boss Ino effects
     { L"Megalomania effect (1/18)", 0x4f6260, 0x4f62a0 },
     { L"Megalomania effect (2/18)", 0x4f6810, 0x4f6850 },
@@ -283,11 +395,11 @@ const sGame_PaletteDataset GGXXACR_S_IN_EFFECTS[] =
     { L"Danger!", 0x50a950, 0x50a990 },
 };
 
-
-const sGame_PaletteDataset GGXXACR_S_JM_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_JM_EXTRAS[] =
 {
     //Normals
     { L"6HH", 0x2d0be0, 0x2d0c20, indexGGXXSprites_ACR_Jam, 0x01 },
+    
     //Specials
     { L"Breath of Asanagi (1/17)",  0x2d7da0, 0x2d7de0, indexGGXXSprites_ACR_Jam, 0x03 },
     { L"Breath of Asanagi (2/17)",  0x2d88c0, 0x2d8900, indexGGXXSprites_ACR_Jam, 0x03 },
@@ -314,6 +426,7 @@ const sGame_PaletteDataset GGXXACR_S_JM_EFFECTS[] =
     { L"Bakushuu (2/2)", 0x3821d0, 0x382210, indexGGXXSprites_ACR_Jam, 0x02 },
 
     { L"Hochifu", 0x307a10, 0x307a50, indexGGXXSprites_ACR_Jam, 0x08 },
+    
     //Overdrives
     { L"Renhoukyaku (1/3)", 0x2eada0, 0x2eade0, indexGGXXSprites_ACR_Jam, 0x09 },
     { L"Renhoukyaku (2/3)", 0x2f1df0, 0x2f1e30, indexGGXXSprites_ACR_Jam, 0x09 },
@@ -337,8 +450,10 @@ const sGame_PaletteDataset GGXXACR_S_JM_EFFECTS[] =
     { L"Geki: Saishinshou (13/15)",  0x354e40, 0x354e80, indexGGXXSprites_ACR_Jam, 0x07 },
     { L"Geki: Saishinshou (14/15)",  0x35c790, 0x35c7d0, indexGGXXSprites_ACR_Jam, 0x07 },
     { L"Geki: Saishinshou (15/15)",  0x3609a0, 0x3609e0, indexGGXXSprites_ACR_Jam, 0x07 },
+    
     //Instant Kill
     { L"Gasenkotsu Background",      0x36c9c0, 0x36ca00 },
+    
     //Unknown or Unused
     //{ L"Unknown 1", 0x2e3060, 0x2e30a0 },
     //{ L"Unknown 2", 0x2e4320, 0x2e4360 },
@@ -352,13 +467,188 @@ const sGame_PaletteDataset GGXXACR_S_JM_EFFECTS[] =
     //{ L"Asanagi no Kokyuu (2/4)", 0x3651b0, 0x3651f0 },
     //{ L"Asanagi no Kokyuu (3/4)", 0x3653b0, 0x3653f0 },
     //{ L"Asanagi no Kokyuu (4/4)", 0x3655b0, 0x3655f0 },
-
 };
 
-const sGame_PaletteDataset GGXXACR_S_JY_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_JS_EXTRAS[] =
+{
+    //General
+    { L"Idle/Omega Shift Startup (1/8)", 0x380e80, 0x380ec0 },
+    { L"Idle/Omega Shift Startup (2/8)", 0x381330, 0x381370 },
+    { L"Idle/Omega Shift Startup (3/8)", 0x3818d0, 0x381910 },
+    { L"Idle/Omega Shift Startup (4/8)", 0x381e30, 0x381e70 },
+    { L"Idle/Omega Shift Startup (5/8)", 0x3823c0, 0x382400 },
+    { L"Idle/Omega Shift Startup (6/8)", 0x382960, 0x3829a0 },
+    { L"Idle/Omega Shift Startup (7/8)", 0x383040, 0x383080 },
+    { L"Idle/Omega Shift Startup (8/8)", 0x383580, 0x3835c0 },
+
+    { L"Jumping (1/8)", 0x383800, 0x383840 },
+    { L"Jumping (2/8)", 0x383dd0, 0x383e10 },
+    { L"Jumping (3/8)", 0x384b20, 0x384b60 },
+    { L"Jumping (4/8)", 0x3855b0, 0x3855f0 },
+    { L"Jumping (5/8)", 0x385ee0, 0x385f20 },
+    { L"Jumping (6/8)", 0x386900, 0x386940 },
+    { L"Jumping (7/8)", 0x386fe0, 0x387020 },
+    { L"Jumping (8/8)", 0x3873d0, 0x387410 },
+
+    { L"Dash Startup (1/7)", 0x387730, 0x387770 },
+    { L"Dash Startup (2/7)", 0x387970, 0x3879b0 },
+    { L"Dash Startup (3/7)", 0x387d80, 0x387dc0 },
+    { L"Dash Startup (4/7)", 0x3883c0, 0x388400 },
+    { L"Dash Startup (5/7)", 0x388e00, 0x388e40 },
+    { L"Dash Startup (6/7)", 0x389a40, 0x389a80 },
+    { L"Dash Startup (7/7)", 0x38a4c0, 0x38a500 },
+    { L"Dash Trails (1/3)", 0x38adf0, 0x38ae30 },
+    { L"Dash Trails (2/3)", 0x38b660, 0x38b6a0 },
+    { L"Dash Trails (3/3)", 0x38bc70, 0x38bcb0 },
+
+    { L"Intro (1/5)", 0x3ff5f0, 0x3ff630 },
+    { L"Intro (2/5)", 0x401520, 0x401560 },
+    { L"Intro (3/5)", 0x402b10, 0x402b50 },
+    { L"Intro (4/5)", 0x404b10, 0x404b50 },
+    { L"Intro (5/5)", 0x405b70, 0x405bb0 },
+
+    { L"Outro Orb (1/5)", 0x40d430, 0x40d470 },
+    { L"Outro Orb (2/5)", 0x40ef90, 0x40efd0 },
+    { L"Outro Orb (3/5)", 0x4106c0, 0x410700 },
+    { L"Outro Orb (4/5)", 0x412490, 0x4124d0 },
+    { L"Outro Orb (5/5)", 0x413750, 0x413790 },
+
+    { L"Outro Rings (1/2)", 0x414630, 0x414670 },
+    { L"Outro Rings (2/2)", 0x414f70, 0x414fb0 },
+
+    //Normals
+    { L"6H (1/2)", 0x415df0, 0x415e30 },
+    { L"6H (2/2)", 0x41b570, 0x41b5b0 },
+
+    { L"2H/j.S (1/10)", 0x38c680, 0x38c6c0 },
+    { L"2H/j.S (2/10)", 0x38cc20, 0x38cc60 },
+    { L"2H/j.S (3/10)", 0x38d1c0, 0x38d200 },
+    { L"2H/j.S (4/10)", 0x38d850, 0x38d890 },
+    { L"2H/j.S (5/10)", 0x38de30, 0x38de70 },
+    { L"2H/j.S (6/10)", 0x38ede0, 0x38ee20 },
+    { L"2H/j.S (7/10)", 0x390000, 0x390040 },
+    { L"2H/j.S (8/10)", 0x391960, 0x3919a0 },
+    { L"2H/j.S (9/10)", 0x392c20, 0x392c60 },
+    { L"2H/j.S (10/10)", 0x393110, 0x393150 },
+
+    { L"J.H (1/2)", 0x41f620, 0x41f660 },
+    { L"J.H (2/2)", 0x424590, 0x4245d0 },
+
+    //Specials
+    { L"Michael Sword Startup (1/4)", 0x3afb90, 0x3afbd0 },
+    { L"Michael Sword Startup (2/4)", 0x3afdd0, 0x3afe10 },
+    { L"Michael Sword Startup (3/4)", 0x3b0160, 0x3b01a0 },
+    { L"Michael Sword Startup (4/4)", 0x3b0820, 0x3b0860 },
+    { L"Michael Sword Slash (1/2)", 0x3b0a70, 0x3b0ab0 },
+    { L"Michael Sword Slash (2/2)", 0x3b2be0, 0x3b2c20 },
+    { L"Michael Sword Background Slash", 0x3ea5f0, 0x3ea630 },
+
+    { L"S.B.T. (1/7)", 0x3a7420, 0x3a7460 },
+    { L"S.B.T. (2/7)", 0x3a7bc0, 0x3a7c00 },
+    { L"S.B.T. (3/7)", 0x3a8720, 0x3a8760 },
+    { L"S.B.T. (4/7)", 0x3a97b0, 0x3a97f0 },
+    { L"S.B.T. (5/7)", 0x3ab6d0, 0x3ab710 },
+    { L"S.B.T. (6/7)", 0x3adb50, 0x3adb90 },
+    { L"S.B.T. (7/7)", 0x3aee20, 0x3aee60 },
+
+    { L"Nuclear Blast Explosion", 0x43b530, 0x43b570 },
+    { L"Nuclear Blast Explosion/Trails (1/2)", 0x442c30, 0x442c70 },
+    { L"Nuclear Blast Explosion/Trails (2/2)", 0x444bc0, 0x444c00 },
+
+    //Overdrives
+    { L"Imperial Ray (1/4)", 0x3a04f0, 0x3a0530 },
+    { L"Imperial Ray (2/4)", 0x3a1ff0, 0x3a2030 },
+    { L"Imperial Ray (3/4)", 0x3a4180, 0x3a41c0 },
+    { L"Imperial Ray (4/4)", 0x3a5be0, 0x3a5c20 },
+    { L"Imperial Ray Center (1/8)", 0x3933f0, 0x393430 },
+    { L"Imperial Ray Center (2/8)", 0x394160, 0x3941a0 },
+    { L"Imperial Ray Center (3/8)", 0x394d20, 0x394d60 },
+    { L"Imperial Ray Center (4/8)", 0x395d60, 0x395da0 },
+    { L"Imperial Ray Center (5/8)", 0x397700, 0x397740 },
+    { L"Imperial Ray Center (6/8)", 0x399820, 0x399860 },
+    { L"Imperial Ray Center (7/8)", 0x39c420, 0x39c460 },
+    { L"Imperial Ray Center (8/8)", 0x39e710, 0x39e750 },
+
+    { L"Gamma Ray Initial Hit (1/4)", 0x428620, 0x428660 },
+    { L"Gamma Ray Initial Hit (2/4)", 0x42cce0, 0x42cd20 },
+    { L"Gamma Ray Initial Hit (3/4)", 0x42fbf0, 0x42fc30 },
+    { L"Gamma Ray Initial Hit (4/4)", 0x434710, 0x434750 },
+    { L"Gamma Ray Startup (1/4)", 0x3b3ed0, 0x3b3f10 },
+    { L"Gamma Ray Startup (2/4)", 0x3b4390, 0x3b43d0 },
+    { L"Gamma Ray Startup (3/4)", 0x3b4aa0, 0x3b4ae0 },
+    { L"Gamma Ray Startup (4/4)", 0x3b5230, 0x3b5270 },
+    { L"Gamma Ray (1/3)", 0x3b5b00, 0x3b5b40 },
+    { L"Gamma Ray (2/3)", 0x3b6260, 0x3b62a0 },
+    { L"Gamma Ray (3/3)", 0x3b6bf0, 0x3b6c30 },
+    { L"Gamma Ray Beam (1/8)", 0x3b7550, 0x3b7590 },
+    { L"Gamma Ray Beam (2/8)", 0x3b7a80, 0x3b7ac0 },
+    { L"Gamma Ray Beam (3/8)", 0x3b81b0, 0x3b81f0 },
+    { L"Gamma Ray Beam (4/8)", 0x3b8a90, 0x3b8ad0 },
+    { L"Gamma Ray Beam (5/8)", 0x3b9a70, 0x3b9ab0 },
+    { L"Gamma Ray Beam (6/8)", 0x3bacf0, 0x3bad30 },
+    { L"Gamma Ray Beam (7/8)", 0x3bb4f0, 0x3bb530 },
+    { L"Gamma Ray Beam (8/8)", 0x3bbc10, 0x3bbc50 },
+
+    //Instant Kill
+    { L"X Laser (1/20)", 0x3bc310, 0x3bc350 },
+    { L"X Laser (2/20)", 0x3bc610, 0x3bc650 },
+    { L"X Laser (3/20)", 0x3bd560, 0x3bd5a0 },
+    { L"X Laser (4/20)", 0x3beb90, 0x3bebd0 },
+    { L"X Laser (5/20)", 0x3c09a0, 0x3c09e0 },
+    { L"X Laser (6/20)", 0x3c3000, 0x3c3040 },
+    { L"X Laser (7/20)", 0x3c5a40, 0x3c5a80 },
+    { L"X Laser (8/20)", 0x3ca8e0, 0x3ca920 },
+    { L"X Laser (9/20)", 0x3cf710, 0x3cf750 },
+    { L"X Laser (10/20)", 0x3d58d0, 0x3d5910 },
+    { L"X Laser (11/20)", 0x3dc5b0, 0x3dc5f0 },
+    { L"X Laser (12/20)", 0x3e14d0, 0x3e1510 },
+    { L"X Laser (13/20)", 0x3e69e0, 0x3e6a20 },
+    { L"X Laser (14/20)", 0x3e86f0, 0x3e8730 },
+    { L"X Laser (15/20)", 0x3e9250, 0x3e9290 },
+    { L"X Laser (16/20)", 0x3e9390, 0x3e93d0 },
+    { L"X Laser (17/20)", 0x3e94a0, 0x3e94e0 },
+    { L"X Laser (18/20)", 0x3e95c0, 0x3e9600 },
+    { L"X Laser (19/20)", 0x3e96a0, 0x3e96e0 },
+    { L"X Laser (20/20)", 0x3e9770, 0x3e97b0 },
+    { L"X Laser Particles ", 0x43a4d0, 0x43a510 },
+
+    //Unknown
+    //{ L"Unknown (1/28)", 0x39e820, 0x39e860 },
+    //{ L"Unknown (2/28)", 0x39f0a0, 0x39f0e0 },
+    //{ L"Unknown (3/28)", 0x39fae0, 0x39fb20 },
+    //{ L"Unknown (4/28)", 0x3e97f0, 0x3e9830 },
+    //{ L"Unknown (5/28)", 0x3e9a00, 0x3e9a40 },
+    //{ L"Unknown (6/28)", 0x3e9c50, 0x3e9c90 },
+    //{ L"Unknown (7/28)", 0x3e9e70, 0x3e9eb0 },
+    //{ L"Unknown (8/28)", 0x3ea080, 0x3ea0c0 },
+    //{ L"Unknown (9/28)", 0x3ea230, 0x3ea270 },
+    //{ L"Unknown (10/28)", 0x3ea350, 0x3ea390 },
+    //{ L"Unknown (11/28)", 0x3ea420, 0x3ea460 },
+    //{ L"Unknown (12/28)", 0x3ea990, 0x3ea9d0 },
+    //{ L"Unknown (13/28)", 0x3f2340, 0x3f2380 },
+    //{ L"Unknown (14/28)", 0x3f3120, 0x3f3160 },
+    //{ L"Unknown (15/28)", 0x3f3f60, 0x3f3fa0 },
+    //{ L"Unknown (16/28)", 0x3f4ef0, 0x3f4f30 },
+    //{ L"Unknown (17/28)", 0x3f5de0, 0x3f5e20 },
+    //{ L"Unknown (18/28)", 0x3f7050, 0x3f7090 },
+    //{ L"Unknown (19/28)", 0x3f8120, 0x3f8160 },
+    //{ L"Unknown (20/28)", 0x3f92f0, 0x3f9330 },
+    //{ L"Unknown (21/28)", 0x3fa0b0, 0x3fa0f0 },
+    //{ L"Unknown (22/28)", 0x3faec0, 0x3faf00 },
+    //{ L"Unknown (23/28)", 0x3fc3f0, 0x3fc430 },
+    //{ L"Unknown (24/28)", 0x3fd850, 0x3fd890 },
+    //{ L"Unknown (25/28)", 0x406bb0, 0x406bf0 },
+    //{ L"Unknown (26/28)", 0x4084c0, 0x408500 },
+    //{ L"Unknown (27/28)", 0x40a4e0, 0x40a520 },
+    //{ L"Unknown (28/28)", 0x40c200, 0x40c240 },
+    //{ L"Unknown", 0x3fe1e0, 0x3fe5e0 },
+};
+
+const sGame_PaletteDataset GGXXACR_S_JY_EXTRAS[] =
 {
     //General
     { L"Intro rose (Tossed)", 0x3d02b0, 0x3d02f0 },
+    
     //Normals
     { L"5P (1/2)", 0x3d0430, 0x3d0470 },
     { L"5P (2/2)", 0x3d0520, 0x3d0560 },
@@ -369,6 +659,7 @@ const sGame_PaletteDataset GGXXACR_S_JY_EFFECTS[] =
 
     { L"2H (1/2)", 0x3da900, 0x3da940 },
     { L"2H (2/2)", 0x3dc770, 0x3dc7b0 },
+    
     //Specials
     { L"Mist Finer Stance (1/8)", 0x3d8820, 0x3d8860 },
     { L"Mist Finer Stance (2/8)", 0x3da420, 0x3da460 },
@@ -389,8 +680,10 @@ const sGame_PaletteDataset GGXXACR_S_JY_EFFECTS[] =
 
     { L"Divine Blade", 0x3b9bb0, 0x3b9bf0 },
     { L"Killer Joker", 0x3ebf30, 0x3ebf70 },
+    
     //Forcebreaks
     { L"Jackhound", 0x3e9bf0, 0x3e9c30 },
+    
     //Overdrives
     { L"Thats my name (1/3)", 0x3c6560, 0x3c65a0 },
     { L"Thats my name (2/3)", 0x3c7b00, 0x3c7b40 },
@@ -403,10 +696,11 @@ const sGame_PaletteDataset GGXXACR_S_JY_EFFECTS[] =
     { L"Joker Trick (Back of card)", 0x3b5fd0, 0x3b6010 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_KY_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_KY_EXTRAS[] =
 {
     //General
     { L"Idle Stance / Projectile Trails", 0x3f44a0, 0x3f44e0, indexGGXXSprites_ACR_Ky, 0x0D },
+    
     //Normals
     { L"5H (1/2)", 0x424820, 0x424860, indexGGXXSprites_ACR_Ky, 0x02 },
     { L"5H (2/2)", 0x428f60, 0x428fa0, indexGGXXSprites_ACR_Ky, 0x02 },
@@ -416,6 +710,7 @@ const sGame_PaletteDataset GGXXACR_S_KY_EFFECTS[] =
     { L"3H (2/2)", 0x3f8050, 0x3f8090, indexGGXXSprites_ACR_Ky, 0x01 },
     { L"j.S", 0x3f8b30, 0x3f8b70, indexGGXXSprites_ACR_Ky, 0x10 },
     { L"j.D", 0x41d550, 0x41d590, indexGGXXSprites_ACR_Ky, 0x0f },
+    
     //Specials
     { L"Stun Edge (1/2)", 0x39bd40, 0x39bd80, indexGGXXSprites_ACR_Ky, 0x1b },
     { L"Stun Edge (2/2)", 0x39d6f0, 0x39d730, indexGGXXSprites_ACR_Ky, 0x1b },
@@ -438,8 +733,9 @@ const sGame_PaletteDataset GGXXACR_S_KY_EFFECTS[] =
     { L"Greed Sever Ground Slam (FB)", 0x435c00, 0x435c40, indexGGXXSprites_ACR_Ky, 0x0b },
 
     { L"Lightning Strike", 0x4360d0, 0x436110, indexGGXXSprites_ACR_Ky, 0x19 },
+    
     //Force Breaks
-    { L"Lightning Sphere inner glow", 0x41a610, 0x41a650, indexGGXXSprites_ACR_Ky, 0x12, &pairNext4 },  // PAIR WITH STARTUP EFFECT
+    { L"Lightning Sphere inner glow", 0x41a610, 0x41a650, indexGGXXSprites_ACR_Ky, 0x12, &pairNext4 },
     { L"Charge Drive thrust (1/3)", 0x404fa0, 0x404fe0, indexGGXXSprites_ACR_Ky, 0x06 },
     { L"Charge Drive thrust (2/3)", 0x40b460, 0x40b4a0, indexGGXXSprites_ACR_Ky, 0x06 },
     { L"Charge Drive thrust (3/3)", 0x4119b0, 0x4119f0, indexGGXXSprites_ACR_Ky, 0x06 },
@@ -447,6 +743,7 @@ const sGame_PaletteDataset GGXXACR_S_KY_EFFECTS[] =
 
     { L"Lightning Sphere/Stun Rays Flash (1/2)", 0x42a3a0, 0x42a3e0, indexGGXXSprites_ACR_Ky, 0x13 },
     { L"Lightning Sphere/Stun Rays Flash (2/2)", 0x42bc20, 0x42bc60, indexGGXXSprites_ACR_Ky, 0x13 },
+    
     //Overdrives
     { L"Ride the Lightning (1/2)", 0x3dfd50, 0x3dfd90, indexGGXXSprites_ACR_Ky, 0x14, &pairNext },
     { L"Ride the Lightning (2/2)", 0x3e8430, 0x3e8470, indexGGXXSprites_ACR_Ky, 0x15 },
@@ -472,6 +769,7 @@ const sGame_PaletteDataset GGXXACR_S_KY_EFFECTS[] =
     { L"Sacred Edge Circle (15/17)", 0x3d2910, 0x3d2950, indexGGXXSprites_ACR_Ky, 0x17 },
     { L"Sacred Edge Circle (16/17)", 0x3d3e80, 0x3d3ec0, indexGGXXSprites_ACR_Ky, 0x17 },
     { L"Sacred Edge Circle (17/17)", 0x3d5080, 0x3d50c0, indexGGXXSprites_ACR_Ky, 0x17 },
+    
     //Instant Kill
     { L"Rising Force (1/2)", 0x3ea5d0, 0x3ea610, indexGGXXSprites_ACR_Ky, 0x16 },
     { L"Rising Force (2/2)", 0x3ee900, 0x3ee940, indexGGXXSprites_ACR_Ky, 0x16 },
@@ -480,7 +778,29 @@ const sGame_PaletteDataset GGXXACR_S_KY_EFFECTS[] =
     //{ L"Unsure 16", 0x3f6f30, 0x3f6f70 }, 
 };
 
-const sGame_PaletteDataset GGXXACR_S_PO_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_FR_EXTRAS[] = // work in progress!
+{
+    //General
+    { L"General Sparks", 0x4d6030, 0x4d6072 },
+
+    //Specials
+    { L"Gunblaze", 0x47d0e0, 0x47d120 },
+    { L"Storm Viper", 0x472740, 0x472780 },
+    
+    { L"Action Charge (1/2)", 0x519B80, 0x519BC0 },
+    { L"Action Charge (2/2)", 0x51FE00, 0x51FE40 },
+    //Overdrives	
+    { L"Savage Fang Level 1/2 (1/4)", 0x4f1560, 0x4f15a0 },
+    { L"Savage Fang Level 1/2 (2/4)", 0x4f8c00, 0x4f8c40 },
+    { L"Savage Fang Level 1/2 (3/4)", 0x4fc5b0, 0x4fc5f0 },
+    { L"Savage Fang Level 1/2 (4/4)", 0x4ffd50, 0x4ffd90 },
+
+    //Instant Kill
+    { L"Dragon Install: Sakkai Entry", 0x4d1590, 0x4d15d0 },
+    { L"Dragon Install: Sakkai 631246H (Base)", 0x4cd5c0, 0x4cd600 },
+};
+
+const sGame_PaletteDataset GGXXACR_S_PO_EXTRAS[] =
 {
     //Specials
     { L"Slide Head/Whiffed HK (1/2)", 0x49e4b0, 0x49e4f0 },
@@ -517,25 +837,31 @@ const sGame_PaletteDataset GGXXACR_S_PO_EFFECTS[] =
     { L"Magnum Opera - Heart (2/2)", 0x4c2110, 0x4c2150 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_SL_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_SL_EXTRAS[] =
 {
     // General
     { L"General Sparks / Riot Stamp", 0x3fc2b0, 0x3fc2f0 },
+    
     //Specials
     { L"Gunflame (1/3)", 0x3540b0, 0x3540f0, indexGGXXSprites_ACR_Sol, 0x07 },
     { L"Gunflame (2/3)", 0x3579b0, 0x3579f0, indexGGXXSprites_ACR_Sol, 0x07 },
     { L"Gunflame (3/3)", 0x35a740, 0x35a780, indexGGXXSprites_ACR_Sol, 0x07 },
+
     { L"Gunflame - Dragon Install (1/4)", 0x41b270, 0x41b2b0, indexGGXXSprites_ACR_Sol, 0x02 },
     { L"Gunflame - Dragon Install (2/4)", 0x422910, 0x422950, indexGGXXSprites_ACR_Sol, 0x02 },
     { L"Gunflame - Dragon Install (3/4)", 0x4262c0, 0x426300, indexGGXXSprites_ACR_Sol, 0x02 },
     { L"Gunflame - Dragon Install (4/4)", 0x429a60, 0x429aa0, indexGGXXSprites_ACR_Sol, 0x02 },
+
     { L"Volcanic Viper (1/2)", 0x3485f0, 0x348630, indexGGXXSprites_ACR_Sol, 0x09 },
     { L"Volcanic Viper (2/2)", 0x34f3f0, 0x34f430, indexGGXXSprites_ACR_Sol, 0x09 },
     { L"Volcanic Viper - Dragon Install", 0x38aaa0, 0x38aae0 },
+
     { L"Grand Viper", 0x342a40, 0x342a80, indexGGXXSprites_ACR_Sol, 0x06 },
+
     { L"Bandit Revolver - DI (1/3)", 0x405890, 0x4058d0 },
     { L"Bandit Revolver - DI (2/3)", 0x410a10, 0x410a50 },
     { L"Bandit Revolver - DI (3/3)", 0x4177e0, 0x417820 },
+
     { L"Bandit Bringer (1/12)", 0x35c3d0, 0x35c410, indexGGXXSprites_ACR_Sol, 0x01 },
     { L"Bandit Bringer (2/12)", 0x35da10, 0x35da50, indexGGXXSprites_ACR_Sol, 0x01 },
     { L"Bandit Bringer (3/12)", 0x3600b0, 0x3600f0, indexGGXXSprites_ACR_Sol, 0x01 },
@@ -551,7 +877,9 @@ const sGame_PaletteDataset GGXXACR_S_SL_EFFECTS[] =
     { L"Bandit Bringer Trails (1/3)", 0x36d0a0, 0x36d0e0 },
     { L"Bandit Bringer Trails (2/3)", 0x36dce0, 0x36dd20 },
     { L"Bandit Bringer Trails (3/3)", 0x36e860, 0x36e8a0 },
+
     { L"Sidewinder", 0x437380, 0x4373c0, indexGGXXSprites_ACR_Sol, 0x08 },
+
     { L"Fafnir (1/7)", 0x42fb50, 0x42fb90, indexGGXXSprites_ACR_Sol, 0x04 },
     { L"Fafnir (2/7)", 0x430970, 0x4309b0, indexGGXXSprites_ACR_Sol, 0x04 },
     { L"Fafnir (3/7)", 0x431a50, 0x431a90, indexGGXXSprites_ACR_Sol, 0x04 },
@@ -559,9 +887,12 @@ const sGame_PaletteDataset GGXXACR_S_SL_EFFECTS[] =
     { L"Fafnir (5/7)", 0x434b00, 0x434b40, indexGGXXSprites_ACR_Sol, 0x04 },
     { L"Fafnir (6/7)", 0x436330, 0x436370, indexGGXXSprites_ACR_Sol, 0x04 },
     { L"Fafnir (7/7)", 0x436fb0, 0x436ff0, indexGGXXSprites_ACR_Sol, 0x04 },
+
     { L"Slam - Dragon Install", 0x3fcf60, 0x3fcfa0 },
+
     // Overdrives
     { L"Tyrant Rave", 0x378990, 0x3789d0, indexGGXXSprites_ACR_Sol, 0x05 },
+
     { L"Tyrant Rave Beta (1/24)", 0x3F6610, 0x3F6650 },
     { L"Tyrant Rave Beta (2/24)", 0x3F68C0, 0x3F6900 },
     { L"Tyrant Rave Beta (3/24)", 0x3F7510, 0x3F7550 },
@@ -586,6 +917,7 @@ const sGame_PaletteDataset GGXXACR_S_SL_EFFECTS[] =
     { L"Tyrant Rave Beta (22/24)", 0x3F4190, 0x3F41D0 },
     { L"Tyrant Rave Beta (23/24)", 0x3F50C0, 0x3F5100 },
     { L"Tyrant Rave Beta (24/24)", 0x3F5C50, 0x3F5C90 },
+
     { L"Dragon Install Fire (1/7)", 0x3870c0, 0x387100, indexGGXXSprites_ACR_Sol, 0x03 },
     { L"Dragon Install Fire (2/7)", 0x3879f0, 0x387a30, indexGGXXSprites_ACR_Sol, 0x03 },
     { L"Dragon Install Fire (3/7)", 0x387f90, 0x387fd0, indexGGXXSprites_ACR_Sol, 0x03 },
@@ -593,6 +925,7 @@ const sGame_PaletteDataset GGXXACR_S_SL_EFFECTS[] =
     { L"Dragon Install Fire (5/7)", 0x389300, 0x389340, indexGGXXSprites_ACR_Sol, 0x03 },
     { L"Dragon Install Fire (6/7)", 0x389c80, 0x389cc0, indexGGXXSprites_ACR_Sol, 0x03 },
     { L"Dragon Install Fire (7/7)", 0x38a5e0, 0x38a620, indexGGXXSprites_ACR_Sol, 0x03 },
+
     // Instant Kill
     { L"Napalm Death (1/9)", 0x3911a0, 0x3911e0, indexGGXXSprites_ACR_Sol, 0x0a },
     { L"Napalm Death (2/9)", 0x39c6b0, 0x39c6f0, indexGGXXSprites_ACR_Sol, 0x0a },
@@ -605,7 +938,7 @@ const sGame_PaletteDataset GGXXACR_S_SL_EFFECTS[] =
     { L"Napalm Death (9/9)", 0x3bf310, 0x3bf350, indexGGXXSprites_ACR_Sol, 0x0a },
 };
 
-const sGame_PaletteDataset GGXXACR_S_SY_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_SY_EXTRAS[] =
 {
     //General
     { L"Coffin Portal Intro", 0x43ec30, 0x43ec70 },
@@ -620,6 +953,7 @@ const sGame_PaletteDataset GGXXACR_S_SY_EFFECTS[] =
     { L"Forwards Jump (2/2)", 0x3c7260, 0x3c72a0 },
     { L"Backwards Jump (1/2)", 0x3c8570, 0x3c85b0 },
     { L"Backwards Jump (2/2)", 0x3c9d30, 0x3c9d70 },
+
     //Normals
     { L"2H (1/27)", 0x3a53d0, 0x3a5410 },
     { L"2H (2/27)", 0x3a5990, 0x3a59d0 },
@@ -652,6 +986,7 @@ const sGame_PaletteDataset GGXXACR_S_SY_EFFECTS[] =
     { L"j.D (1/3)", 0x3d5a00, 0x3d5a40 },
     { L"j.D (2/3)", 0x3d6c40, 0x3d6c80 },
     { L"j.D (3/3)", 0x3d7fd0, 0x3d8010 },
+
     //Specials
     { L"Mappa Hunch/Big Bang Upper (1/3)", 0x3d8720, 0x3d8760 },
     { L"Mappa Hunch/Big Bang Upper (2/3)", 0x3db0d0, 0x3db110 },
@@ -685,6 +1020,7 @@ const sGame_PaletteDataset GGXXACR_S_SY_EFFECTS[] =
     { L"Undertow (3/5)", 0x419010, 0x419050 },
     { L"Undertow (4/5)", 0x425110, 0x425150 },
     { L"Undertow (5/5)", 0x42b900, 0x42b940 },
+
     //Force Breaks
 
     //Overdrives
@@ -717,6 +1053,7 @@ const sGame_PaletteDataset GGXXACR_S_SY_EFFECTS[] =
     { L"Up and Close Dandy (5/7)", 0x43c3a0, 0x43c3e0 },
     { L"Up and Close Dandy (6/7)", 0x43dd50, 0x43dd90 },
     { L"Up and Close Dandy (7/7)", 0x43e6d0, 0x43e710 },
+
     //Instant Kill
     { L"All Dead -  Background", 0x43f320, 0x43f720 },
     { L"All Dead -  Shine (1/6)", 0x4636e0, 0x463720 },
@@ -745,7 +1082,7 @@ const sGame_PaletteDataset GGXXACR_S_SY_EFFECTS[] =
     { L"All Dead -  Haiku (18/18)", 0x48b1f0, 0x48b230 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_VE_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_VE_EXTRAS[] =
 {
     //General
     { L"Ball Glow", 0x26d330, 0x26d370 },
@@ -757,6 +1094,7 @@ const sGame_PaletteDataset GGXXACR_S_VE_EFFECTS[] =
     { L"Grab (1/3)", 0x294d50, 0x294d90 },
     { L"Grab (2/3)", 0x294170, 0x2941b0 },
     { L"Grab (3/3)", 0x293840, 0x293880 },
+
     //Specials
     { L"Stinger Aim Impacts", 0x26b0d0, 0x26b110 },
     { L"Carcass Ride Impacts", 0x26c180, 0x26c1c0 },
@@ -768,10 +1106,12 @@ const sGame_PaletteDataset GGXXACR_S_VE_EFFECTS[] =
     { L"Mad Struggle (2/4)", 0x268040, 0x268440 },
     { L"Mad Struggle (3/4)", 0x268ea0, 0x2692a0 },
     { L"Mad Struggle (4/4)", 0x269b90, 0x269f90 },
+
     //Overdrives
     { L"Dark Angel", 0x277b40, 0x277b80 },
     { L"Dark Angel Effects (1/2)", 0x280bf0, 0x280c30 },
     { L"Dark Angel Effects (2/2)", 0x282420, 0x282460 },
+
     //Instant Kill
     { L"Dimmu Borgir (1, 4, 5, 7)", 0x289450, 0x289510 },
     { L"Dimmu Borgir (6, 2, 8, 3)", 0x289c10, 0x289cd0 },
@@ -786,12 +1126,12 @@ const sGame_PaletteDataset GGXXACR_S_VE_EFFECTS[] =
     //{ L"Unused 2?", 0x26e2f0, 0x26e330 },     
 };
 
-const sGame_PaletteDataset GGXXACR_S_ZP_EFFECTS[] =
+const sGame_PaletteDataset GGXXACR_S_ZP_EXTRAS[] =
 {
     //The dog palettes are stupid and im leaving those out since almost each frame has its own palette (x5 for the different palettes). Will get around to them at some point probably (maybe) (not likely)
     //Zappas got mutiple summons, the order im using here is Naked -> Dog -> Triplets -> Sword -> Roah
 
-//General
+    //General
     { L"Orbs (1/2)", 0x4c6b30, 0x4c6b70 },
     { L"Orbs (2/2)", 0x4c7530, 0x4c7570 },
 
@@ -800,6 +1140,7 @@ const sGame_PaletteDataset GGXXACR_S_ZP_EFFECTS[] =
     { L"Locusts (3/3)", 0x490c00, 0x490c40 },
 
     { L"Dog sleeping/waking up ", 0x4911f0, 0x491230 },
+
     //Normals (Naked)
     { L"f.S (1/3)",          0x459320, 0x459360 },
     { L"f.S (2/3)",          0x45b550, 0x45b590 },
@@ -808,6 +1149,7 @@ const sGame_PaletteDataset GGXXACR_S_ZP_EFFECTS[] =
     { L"f.S - Impact (2/4)", 0x45fc60, 0x45fca0 },
     { L"f.S - Impact (3/4)", 0x4632b0, 0x4632f0 },
     { L"f.S - Impact (4/4)", 0x465f50, 0x465f90 },
+
     //Specials (Triplets)
     { L"Shouting (Left)",            0x4b5780, 0x4b57c0 },
     { L"Shouting (Right)/Golf ball", 0x4b4cd0, 0x4b4d10 },
@@ -817,12 +1159,14 @@ const sGame_PaletteDataset GGXXACR_S_ZP_EFFECTS[] =
     { L"Potted plant (2/4)",         0x4b6e10, 0x4b7210 },
     { L"Potted plant (3/4)",         0x4b7660, 0x4b7a60 },
     { L"Potted plant (4/4)",         0x4b7f90, 0x4b8390 },
+
     //Specials (Sword)	
     { L"Please Fall (1/2)", 0x484120, 0x484160 },
     { L"Please Fall (2/2)", 0x48b4f0, 0x48b530 },
 
     { L"Come Close, and I'll Kill You (1/2)", 0x4b97f0, 0x4b9830 },
     { L"Come Close, and I'll Kill You (2/2)", 0x4bba60, 0x4bbaa0 },
+
     //Specials (Roah)
     { L"Darkness Anthem (1/14)",    0x447360, 0x4473a0 },
     { L"Darkness Anthem (2/14)",    0x448ba0, 0x448be0 },
@@ -838,175 +1182,38 @@ const sGame_PaletteDataset GGXXACR_S_ZP_EFFECTS[] =
     { L"Darkness Anthem (12/14)",   0x455ca0, 0x455ce0 },
     { L"Darkness Anthem (13/14)",   0x457330, 0x457370 },
     { L"Darkness Anthem (14/14)",   0x458aa0, 0x458ae0 },
+
     //Force breaks (Naked)
     { L"Etiquette Starts Here ",        0x4bd900, 0x4bd940 },
     { L"Etiquette Starts Here Effects", 0x4c6920, 0x4c6960 },
+    
     //Overdrives (Naked/All summons)
     { L"Birth!! (1/4)", 0x466930, 0x466970 },
     { L"Birth!! (2/4)", 0x46f4f0, 0x46f530 },
     { L"Birth!! (3/4)", 0x472d40, 0x472d80 },
     { L"Birth!! (4/4)", 0x4773c0, 0x477400 },
+    
     //Overdrives (Roah)
     { L"Bellows Malice (1/5)", 0x47a5a0, 0x47a5e0 },
     { L"Bellows Malice (2/5)", 0x47c7f0, 0x47c830 },
     { L"Bellows Malice (3/5)", 0x47e910, 0x47e950 },
     { L"Bellows Malice (4/5)", 0x480760, 0x4807a0 },
     { L"Bellows Malice (5/5)", 0x481de0, 0x481e20 },
+    
     //Instant Kill (Naked/All Summons)
     { L"I'm Scared... - Scream",     0x491510, 0x491550 },
     { L"I'm Scared... - Tree (1/3)", 0x4919f0, 0x491bf0 },
     { L"I'm Scared... - Tree (2/3)", 0x49d5a0, 0x49d7a0 },
     { L"I'm Scared... - Tree (3/3)", 0x4a8fa0, 0x4a91a0 },
-
 };
 
-const sGame_PaletteDataset GGXXACR_S_Sidebar_Portraits[] =
+const sGame_PaletteDataset GGXXACR_S_EFR_EXTRAS[] = // work in progress!
 {
-    { L"Type A Background (Left)",  0x110, 0x510, indexGGXXSprites_ACR_Bonus, 0x00 },
-    { L"Type A Background (Right)", 0x162E0, 0x166E0, indexGGXXSprites_ACR_Bonus, 0x01 },
-    // Type B
-    { L"Type B Background (Left)",  0x2D850, 0x2DC50, indexGGXXSprites_ACR_Bonus, 0x02 },
-    { L"Type B Background (Right)", 0x43C20, 0x44020, indexGGXXSprites_ACR_Bonus, 0x03 },
-    // Type C Portraits
-    { L"Type C A.B.A",              0x773D0, 0x777D0, indexGGXXSprites_ACR_ABA, 0x40 },
-    { L"Type C Anji",               0x7B8D0, 0x7BcD0, indexGGXXSprites_ACR_Anji, 0x40 },
-    { L"Type C Axl",                0x7F4B0, 0x7F8B0, indexGGXXSprites_ACR_Axl, 0x40 },
-    { L"Type C Baiken",             0x82d10, 0x83110, indexGGXXSprites_ACR_Baiken, 0x40 },
-    { L"Type C Bridget",            0x865f0, 0x869f0, indexGGXXSprites_ACR_Bridget, 0x40 },
-    { L"Type C Chipp",              0x8A6A0, 0x8AAA0, indexGGXXSprites_ACR_Chipp, 0x40 },
-    { L"Type C Dizzy",              0x91C50, 0x92050, indexGGXXSprites_ACR_Dizzy, 0x40 },
-    { L"Type C Eddie",              0xd0f40, 0xd1340, indexGGXXSprites_ACR_Eddie, 0x40 },
-    { L"Type C Faust",              0x96120, 0x96520, indexGGXXSprites_ACR_Faust, 0x40 },
-    { L"Type C I-no",               0x99A50, 0x99E50, indexGGXXSprites_ACR_Ino, 0x40 },
-    { L"Type C Jam",                0x9D2b0, 0x9D6b0, indexGGXXSprites_ACR_Jam, 0x40 },
-    { L"Type C Johnny",             0xA0C60, 0xA1060, indexGGXXSprites_ACR_Johnny, 0x40 },
-    { L"Type C Justice",            0xA4890, 0xA4c90, indexGGXXSprites_ACR_Justice, 0x40 },
-    { L"Type C Kliff",              0x8DBC0, 0x8DFC0, indexGGXXSprites_ACR_Kliff, 0x40 },
-    { L"Type C Ky",                 0xA9070, 0xA9470, indexGGXXSprites_ACR_Ky, 0x40 },
-    { L"Type C May",                0xAC7f0, 0xACBf0, indexGGXXSprites_ACR_May, 0x40 },
-    { L"Type C Millia",             0xB0600, 0xB0A00, indexGGXXSprites_ACR_Millia, 0x40 },
-    { L"Type C Order-Sol",          0xB4350, 0xB4750, indexGGXXSprites_ACR_OrderSol, 0x40 },
-    { L"Type C Potemkin",           0xB83F0, 0xB87F0, indexGGXXSprites_ACR_Potemkin, 0x40 },
-    { L"Type C Robo-Ky",            0xBBA20, 0xBBE20, indexGGXXSprites_ACR_RoboKy, 0x40 },
-    { L"Type C Slayer",             0xBF2f0, 0xBF6f0, indexGGXXSprites_ACR_Slayer, 0x40 },
-    { L"Type C Sol",                0xC2550, 0xC2950, indexGGXXSprites_ACR_Sol, 0x40 },
-    { L"Type C Testament",          0xC5AC0, 0xC5EC0, indexGGXXSprites_ACR_Testament, 0x40 },
-    { L"Type C Venom",              0xC9AD0, 0xC9ED0, indexGGXXSprites_ACR_Venom, 0x40 },
-    { L"Type C Zappa",              0xCCE20, 0xCD220, indexGGXXSprites_ACR_Zappa, 0x40 },
-    { L"Type C Background (Left)",  0x599D0, 0x59DD0, indexGGXXSprites_ACR_Bonus, 0x04 },
-    { L"Type C Background (Right)", 0x686D0, 0x68AD0, indexGGXXSprites_ACR_Bonus, 0x04 },
-    // Type D Portraits
-    { L"Type D A.B.A",              0x2522a0, 0x2526A0, indexGGXXSprites_ACR_ABA, 0x41 },
-    { L"Type D Anji",               0x1b05c0, 0x1B09C0, indexGGXXSprites_ACR_Anji, 0x41 },
-    { L"Type D Axl",                0x11edb0, 0x11F1B0, indexGGXXSprites_ACR_Axl, 0x41 },
-    { L"Type D Baiken",             0x167e80, 0x168280, indexGGXXSprites_ACR_Baiken, 0x41 },
-    { L"Type D Bridget",            0x22dba0, 0x22DFA0, indexGGXXSprites_ACR_Bridget, 0x41 },
-    { L"Type D Chipp",              0x1427e0, 0x142BE0, indexGGXXSprites_ACR_Chipp, 0x41 },
-    { L"Type D Dizzy",              0x1e7c40, 0x1E8040, indexGGXXSprites_ACR_Dizzy, 0x41 },
-    { L"Type D Eddie",              0x1559f0, 0x155DF0, indexGGXXSprites_ACR_Eddie, 0x41 },
-    { L"Type D Faust",              0x178a50, 0x178E50, indexGGXXSprites_ACR_Faust, 0x41 },
-    { L"Type D I-No",               0x20af00, 0x20B300, indexGGXXSprites_ACR_Ino, 0x41 },
-    { L"Type D Jam",                0x19cb60, 0x19CF60, indexGGXXSprites_ACR_Jam, 0x41 },
-    { L"Type D Johnny",             0x1c2c50, 0x1C3050, indexGGXXSprites_ACR_Johnny, 0x41 },
-    { L"Type D Justice",            0x28b810, 0x28BC10, indexGGXXSprites_ACR_Justice, 0x41 },
-    { L"Type D Kliff",              0x2773b0, 0x2777B0, indexGGXXSprites_ACR_Kliff, 0x41 },
-    { L"Type D Ky",                 0xe7620, 0xe7A20, indexGGXXSprites_ACR_Ky, 0x41 },
-    { L"Type D May",                0xf9ac0, 0xf9Ec0, indexGGXXSprites_ACR_May, 0x41 },
-    { L"Type D Millia",             0x10cee0, 0x10D2E0, indexGGXXSprites_ACR_Millia, 0x41 },
-    { L"Type D Order-Sol",          0x2656c0, 0x265AC0, indexGGXXSprites_ACR_OrderSol, 0x41 },
-    { L"Type D Potemkin",           0x131090, 0x131490, indexGGXXSprites_ACR_Potemkin, 0x41 },
-    { L"Type D Robo-Ky",            0x2401A0, 0x2405A0, indexGGXXSprites_ACR_RoboKy, 0x41 },
-    { L"Type D Slayer",             0x1f9e80, 0x1FA280, indexGGXXSprites_ACR_Slayer, 0x41 },
-    { L"Type D Sol",                0xd4cf0, 0xd50f0, indexGGXXSprites_ACR_Sol, 0x41 },
-    { L"Type D Testament",          0x189dc0, 0x18A1C0, indexGGXXSprites_ACR_Testament, 0x41 },
-    { L"Type D Venom",              0x1d4a40, 0x1D4E40, indexGGXXSprites_ACR_Venom, 0x41 },
-    { L"Type D Zappa",              0x21CCC0, 0x21D0C0, indexGGXXSprites_ACR_Zappa, 0x41 },
-    { L"Type D Background",         0x29c220, 0x29C620, indexGGXXSprites_ACR_Bonus, 0x05 },
+    { L"Volcanic Viper (1/2)", 0x57a930, 0x57a970 },
+    { L"Volcanic Viper (2/2)", 0x581730, 0x581770 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_HUDMenu[] =
-{
-    //Will expand to include more menu palettes at a later date
-    //Missing RISC meter, Tension meter, gauge for stagger, Character HUD Portraits, and Character specific meters (some might be in their own .bin files) for HUD
-
-    { L"Main HUD",                      0x9640, 0x9680 },
-
-    { L"Health",                        0x8580, 0x85c0 },  //Full health palette (green) is done by taking the normal heatlh value and ignoring the R and B values, not its own palette 
-    { L"Health Glow",                   0x8330, 0x8370 },
-    { L"Health Shine",                  0x1840, 0x1880 },
-
-    { L"Timer Background",              0x7bc0, 0x7c00 },
-    { L"Timer Numbers",                 0x9260, 0x92a0 },
-    { L"Timer Numbers (Infinite time)", 0x7ed0, 0x7f10 },   //Training mode and possibly somewhere else? unsure so leaving as Infinte for now
-
-    { L"Round Counters",                0x1ee650, 0x1ee690 },
-    { L"Round Counters (Win)",          0x1ee770, 0x1ee7b0 },
-
-    { L"Burst",                         0x60b0, 0x60f0 },
-    { L"Burst Denied",                  0x7840, 0x7880 },
-    { L"Burst Refilling",               0x6bf0, 0x6c30 },
-    { L"Burst Glow",                    0x71d0, 0x7210 },
-
-    { L"Tension (P1)",                  0x8a30, 0x8a70 },
-    { L"Tension Background (P1)",       0x8970, 0x89b0 },
-    { L"Tension (P2)",                  0xbb80, 0xbbc0 },
-    { L"Tension Background (P2)",       0xb670, 0xb6b0 },
-
-    { L"Combo Counter",                    0x2d00, 0x2d40 },
-    { L"Character names",                  0x2e0, 0x320 },
-    { L"Text (Normal) (1/3)",              0x7bcf0, 0x7bd30 },
-    { L"Text (Normal) (2/3)",              0x7c1f0, 0x7c230 },
-    { L"Text (Normal) (3/3)",              0x7c7d0, 0x7c810 },
-    { L"Text (Original) (1/3)",            0x8A4A0, 0x8A4E0 },
-    { L"Text (Original) (2/3)",            0x89F80, 0x89FC0 }, //This looks wrong, but its correct
-    { L"Text (Original) (3/3)",            0x8AA40, 0x8AA80 },
-    { L"Zappa summon/Move List icons",     0x7E3E0, 0x7E420 },
-
-    { L"Stagger joystick (1/3)",        0x1edf50, 0x1edf90 },
-    { L"Stagger joystick (2/3)",        0x1ee180, 0x1ee1c0 },
-    { L"Stagger joystick (3/3)",        0x1ee3e0, 0x1ee420 },
-    { L"Dizzy Angels",                  0x1e7de0, 0x1e7e20 },
-
-    { L"Instant Kill Border",           0x1a860, 0x1a8a0 },
-    { L"Instant Kill Letters (D)",      0x13890, 0x138d0 },
-    { L"Instant Kill Letters (E)",      0x14460, 0x144a0 },
-    { L"Instant Kill Letters (S)",      0x14d90, 0x14dd0 },
-    { L"Instant Kill Letters (T)",      0x154c0, 0x15500 },
-    { L"Instant Kill Letters (R)",      0x15a90, 0x15ad0 },
-    { L"Instant Kill Letters (O)",      0x16110, 0x16150 },
-    { L"Instant Kill Letters (Y)",      0x167d0, 0x16810 },
-    { L"Instant Kill Letters (E)",      0x16e70, 0x16eb0 },
-    { L"Instant Kill Letters (D)",      0x17720, 0x17760 },
-
-    //May and Zappa have their own Instant Kill screens, D and E letters are reused for both
-    { L"May Instant Kill Dolphin (1/3)",    0x563b0, 0x563f0 },
-    { L"May Instant Kill Dolphin (2/3)",    0x56a60, 0x56aa0 },
-    { L"May Instant Kill Dolphin (3/3)",    0x570f0, 0x57130 },
-    { L"May Instant Kill Stars",            0x56290, 0x562d0 },
-    { L"May Instant Kill Letters (D)",      0x53690, 0x536d0 },
-    { L"May Instant Kill Letters (E)",      0x53dc0, 0x53e00 },
-    { L"May Instant Kill Letters (S)",      0x54390, 0x543d0 },
-    { L"May Instant Kill Letters (T)",      0x54a30, 0x54a70 },
-    { L"May Instant Kill Letters (R)",      0x54ec0, 0x54f00 },
-    { L"May Instant Kill Letters (O)",      0x555d0, 0x55610 },
-    { L"May Instant Kill Letters (Y)",      0x55d30, 0x55d70 },
-
-    { L"Zappa Instant Kill Eye",                        0x71c10, 0x71c50 },
-    { L"Zappa Instant Kill Scanlines",                  0x70300, 0x70340 },
-    { L"Zappa Instant Kill Static",                     0x70380, 0x703c0 },
-    { L"Zappa Instant Kill Screen Edge (Top/Bottom)",   0x700c0, 0x70100 },
-    { L"Zappa Instant Kill Screen Edge (Left/Right)",   0x701f0, 0x70230 },
-    { L"Zappa Instant Kill Screen Edge (Corners)",      0x70280, 0x702c0 },
-    { L"Zappa Instant Kill Letters (D)",                0x6e740, 0x6e780 },
-    { L"Zappa Instant Kill Letters (E)",                0x6eb00, 0x6eb40 },
-    { L"Zappa Instant Kill Letters (S)",                0x6eef0, 0x6ef30 },
-    { L"Zappa Instant Kill Letters (T)",                0x6f2c0, 0x6f300 },
-    { L"Zappa Instant Kill Letters (R)",                0x6f610, 0x6f650 },
-    { L"Zappa Instant Kill Letters (O)",                0x6fa10, 0x6fa50 },
-    { L"Zappa Instant Kill Letters (Y)",                0x6fdb0, 0x6fdf0 },
-};
-
-const sGame_PaletteDataset GGXXACR_S_Effects_JPF[] =
+const sGame_PaletteDataset GGXXACR_S_EXTRAS_JPF[] =
 {
     //Leaving out hitsparks for now since theres so many, but they are in the archive_jpf.bin file
 
@@ -1070,232 +1277,437 @@ const sGame_PaletteDataset GGXXACR_S_Effects_JPF[] =
     { L"May Dust Effects (7/7)", 0x1e6490, 0x1e64d0 },
 };
 
+const sGame_PaletteDataset GGXXACR_S_HUDMenu[] =
+{
+    //Will expand to include more menu palettes at a later date
+    //Missing RISC meter, Tension meter, gauge for stagger, Character HUD Portraits, and Character specific meters (some might be in their own .bin files) for HUD
+
+    { L"Main HUD",                      0x9640, 0x9680 },
+
+    { L"Health",                        0x8580, 0x85c0 },  //Full health palette (green) is done by taking the normal heatlh value and ignoring the R and B values, not its own palette 
+    { L"Health Glow",                   0x8330, 0x8370 },
+    { L"Health Shine",                  0x1840, 0x1880 },
+
+    { L"Timer Background",              0x7bc0, 0x7c00 },
+    { L"Timer Numbers",                 0x9260, 0x92a0 },
+    { L"Timer Numbers (Infinite time)", 0x7ed0, 0x7f10 },   //Training mode and possibly somewhere else? unsure so leaving as Infinte for now
+
+    { L"Round Counters",                0x1ee650, 0x1ee690 },
+    { L"Round Counters (Win)",          0x1ee770, 0x1ee7b0 },
+
+    { L"Burst",                         0x60b0, 0x60f0 },
+    { L"Burst Denied",                  0x7840, 0x7880 },
+    { L"Burst Refilling",               0x6bf0, 0x6c30 },
+    { L"Burst Glow",                    0x71d0, 0x7210 },
+
+    { L"Tension (P1)",                  0x8a30, 0x8a70 },
+    { L"Tension Background (P1)",       0xbb80, 0xbbc0 },
+    { L"Tension (P2)",                  0x8970, 0x89b0 },
+    { L"Tension Background (P2)",       0xb670, 0xb6b0 },
+
+    { L"Combo Counter",                 0x2d00, 0x2d40 },
+    { L"Character names",               0x2e0, 0x320 },
+    { L"Text (Normal) (1/3)",           0x7bcf0, 0x7bd30 },
+    { L"Text (Normal) (2/3)",           0x7c1f0, 0x7c230 },
+    { L"Text (Normal) (3/3)",           0x7c7d0, 0x7c810 },
+    { L"Text (Original) (1/3)",         0x8A4A0, 0x8A4E0 },
+    { L"Text (Original) (2/3)",         0x89F80, 0x89FC0 }, //This looks wrong, but its correct
+    { L"Text (Original) (3/3)",         0x8AA40, 0x8AA80 },
+    { L"Zappa summon/Move List icons",  0x7E3E0, 0x7E420 },
+
+    { L"Stagger joystick (1/3)",        0x1edf50, 0x1edf90 },
+    { L"Stagger joystick (2/3)",        0x1ee180, 0x1ee1c0 },
+    { L"Stagger joystick (3/3)",        0x1ee3e0, 0x1ee420 },
+    { L"Dizzy Angels",                  0x1e7de0, 0x1e7e20 },
+
+    { L"Instant Kill Border",           0x1a860, 0x1a8a0 },
+    { L"Instant Kill Letters (D)",      0x13890, 0x138d0 },
+    { L"Instant Kill Letters (E)",      0x14460, 0x144a0 },
+    { L"Instant Kill Letters (S)",      0x14d90, 0x14dd0 },
+    { L"Instant Kill Letters (T)",      0x154c0, 0x15500 },
+    { L"Instant Kill Letters (R)",      0x15a90, 0x15ad0 },
+    { L"Instant Kill Letters (O)",      0x16110, 0x16150 },
+    { L"Instant Kill Letters (Y)",      0x167d0, 0x16810 },
+    { L"Instant Kill Letters (E)",      0x16e70, 0x16eb0 },
+    { L"Instant Kill Letters (D)",      0x17720, 0x17760 },
+
+    //May and Zappa have their own Instant Kill screens, D and E letters are reused for both
+    { L"May Instant Kill Dolphin (1/3)",    0x563b0, 0x563f0 },
+    { L"May Instant Kill Dolphin (2/3)",    0x56a60, 0x56aa0 },
+    { L"May Instant Kill Dolphin (3/3)",    0x570f0, 0x57130 },
+    { L"May Instant Kill Stars",            0x56290, 0x562d0 },
+    { L"May Instant Kill Letters (D)",      0x53690, 0x536d0 },
+    { L"May Instant Kill Letters (E)",      0x53dc0, 0x53e00 },
+    { L"May Instant Kill Letters (S)",      0x54390, 0x543d0 },
+    { L"May Instant Kill Letters (T)",      0x54a30, 0x54a70 },
+    { L"May Instant Kill Letters (R)",      0x54ec0, 0x54f00 },
+    { L"May Instant Kill Letters (O)",      0x555d0, 0x55610 },
+    { L"May Instant Kill Letters (Y)",      0x55d30, 0x55d70 },
+
+    { L"Zappa Instant Kill Eye",                        0x71c10, 0x71c50 },
+    { L"Zappa Instant Kill Scanlines",                  0x70300, 0x70340 },
+    { L"Zappa Instant Kill Static",                     0x70380, 0x703c0 },
+    { L"Zappa Instant Kill Screen Edge (Top/Bottom)",   0x700c0, 0x70100 },
+    { L"Zappa Instant Kill Screen Edge (Left/Right)",   0x701f0, 0x70230 },
+    { L"Zappa Instant Kill Screen Edge (Corners)",      0x70280, 0x702c0 },
+    { L"Zappa Instant Kill Letters (D)",                0x6e740, 0x6e780 },
+    { L"Zappa Instant Kill Letters (E)",                0x6eb00, 0x6eb40 },
+    { L"Zappa Instant Kill Letters (S)",                0x6eef0, 0x6ef30 },
+    { L"Zappa Instant Kill Letters (T)",                0x6f2c0, 0x6f300 },
+    { L"Zappa Instant Kill Letters (R)",                0x6f610, 0x6f650 },
+    { L"Zappa Instant Kill Letters (O)",                0x6fa10, 0x6fa50 },
+    { L"Zappa Instant Kill Letters (Y)",                0x6fdb0, 0x6fdf0 },
+};
+
+const sGame_PaletteDataset GGXXACR_S_RoundMessages[] =
+{
+    //Round opening
+    { L"Opening Text: Heaven", 0x1efc0, 0x1f000 },
+    { L"Opening Text: Or", 0x208e0, 0x20920 },
+    { L"Opening Text: Hell", 0x21340, 0x21380 },
+    { L"Opening Text: Heaven or Hell circle", 0x229c0, 0x22a00 },
+    { L"Opening Text: Duel", 0x319c0, 0x31a00 },
+    { L"Opening Text: 1, 2, 3", 0x328c0, 0x32900 },
+    { L"Opening Text: The First, The Second, The Third", 0x2b850, 0x2b890 },
+    { L"Opening Text: Let's", 0x37ca0, 0x37ce0 },
+    { L"Opening Text: Rock", 0x38160, 0x381a0 },
+    { L"Opening Background (1/7)", 0x234f0, 0x23530 },
+    { L"Opening Background (2/7)", 0x24670, 0x246b0 },
+    { L"Opening Background (3/7)", 0x25060, 0x250a0 },
+    { L"Opening Background (4/7)", 0x26f60, 0x26fa0 },
+    { L"Opening Background (5/7)", 0x28c70, 0x28cb0 },
+    { L"Opening Background (6/7)", 0x298b0, 0x298f0 },
+    { L"Opening Background (7/7)", 0x3ac90, 0x3acd0 },
+    
+    //Win
+    { L"Slash (S)", 0x5bee0, 0x5bf20 },
+    { L"Slash (L)", 0x5c9d0, 0x5ca10 },
+    { L"Slash (A)", 0x5d120, 0x5d160 },
+    { L"Slash (S)", 0x5d830, 0x5d870 },
+    { L"Slash (H)", 0x5e1a0, 0x5e1e0 },
+    { L"Slash Background 1", 0x5ed10, 0x5ed50 },
+    { L"Slash Background 2", 0x5f400, 0x5f440 },
+    { L"Win (W)", 0x62660, 0x626a0 },
+    { L"Win (I)", 0x63020, 0x63060 },
+    { L"Win (N)", 0x634c0, 0x63500 },
+    { L"Win Message Background", 0x63f30, 0x63f70 },
+    { L"Win Message Character name", 0x66ff0, 0x67030 },
+    
+    { L"Perfect (P)", 0x59190, 0x591d0 },
+    { L"Perfect (E)", 0x59590, 0x595d0 },
+    { L"Perfect (R)", 0x599e0, 0x59a20 },
+    { L"Perfect (F)", 0x59e70, 0x59eb0 },
+    { L"Perfect (C)", 0x5a230, 0x5a270 },
+    { L"Perfect (T)", 0x5a6a0, 0x5a6e0 },
+    { L"Perfect Border", 0x57760, 0x577a0 },
+    
+    //Lose
+    { L"Lose (L)", 0x4fbA0, 0x4FBE0 },
+    { L"Lose (O)", 0x50460, 0x504A0 },
+    { L"Lose (S)", 0x50ff0, 0x51030 },
+    { L"Lose (E)", 0x51c70, 0x51CB0 },
+    { L"Lose Background", 0x528F0, 0x52930 },
+    
+    //Time Out
+    { L"Time", 0x6ca70, 0x6cab0 },
+    { L"Up", 0x6dc70, 0x6dcb0 },
+    { L"Time Up Background", 0x68da0, 0x68de0 },
+};
+
+const sGame_PaletteDataset GGXXACR_S_Sidebar_Portraits[] =
+{
+    { L"Type A Background (Left)",  0x110, 0x510, indexGGXXSprites_ACR_Bonus, 0x00 },
+    { L"Type A Background (Right)", 0x162E0, 0x166E0, indexGGXXSprites_ACR_Bonus, 0x01 },
+    
+    // Type B
+    { L"Type B Background (Left)",  0x2D850, 0x2DC50, indexGGXXSprites_ACR_Bonus, 0x02 },
+    { L"Type B Background (Right)", 0x43C20, 0x44020, indexGGXXSprites_ACR_Bonus, 0x03 },
+    
+    // Type C Portraits
+    { L"Type C A.B.A",              0x773D0, 0x777D0, indexGGXXSprites_ACR_ABA, 0x40 },
+    { L"Type C Anji",               0x7B8D0, 0x7BcD0, indexGGXXSprites_ACR_Anji, 0x40 },
+    { L"Type C Axl",                0x7F4B0, 0x7F8B0, indexGGXXSprites_ACR_Axl, 0x40 },
+    { L"Type C Baiken",             0x82d10, 0x83110, indexGGXXSprites_ACR_Baiken, 0x40 },
+    { L"Type C Bridget",            0x865f0, 0x869f0, indexGGXXSprites_ACR_Bridget, 0x40 },
+    { L"Type C Chipp",              0x8A6A0, 0x8AAA0, indexGGXXSprites_ACR_Chipp, 0x40 },
+    { L"Type C Dizzy",              0x91C50, 0x92050, indexGGXXSprites_ACR_Dizzy, 0x40 },
+    { L"Type C Eddie",              0xd0f40, 0xd1340, indexGGXXSprites_ACR_Eddie, 0x40 },
+    { L"Type C Faust",              0x96120, 0x96520, indexGGXXSprites_ACR_Faust, 0x40 },
+    { L"Type C I-no",               0x99A50, 0x99E50, indexGGXXSprites_ACR_Ino, 0x40 },
+    { L"Type C Jam",                0x9D2b0, 0x9D6b0, indexGGXXSprites_ACR_Jam, 0x40 },
+    { L"Type C Johnny",             0xA0C60, 0xA1060, indexGGXXSprites_ACR_Johnny, 0x40 },
+    { L"Type C Justice",            0xA4890, 0xA4c90, indexGGXXSprites_ACR_Justice, 0x40 },
+    { L"Type C Kliff",              0x8DBC0, 0x8DFC0, indexGGXXSprites_ACR_Kliff, 0x40 },
+    { L"Type C Ky",                 0xA9070, 0xA9470, indexGGXXSprites_ACR_Ky, 0x40 },
+    { L"Type C May",                0xAC7f0, 0xACBf0, indexGGXXSprites_ACR_May, 0x40 },
+    { L"Type C Millia",             0xB0600, 0xB0A00, indexGGXXSprites_ACR_Millia, 0x40 },
+    { L"Type C Order-Sol",          0xB4350, 0xB4750, indexGGXXSprites_ACR_OrderSol, 0x40 },
+    { L"Type C Potemkin",           0xB83F0, 0xB87F0, indexGGXXSprites_ACR_Potemkin, 0x40 },
+    { L"Type C Robo-Ky",            0xBBA20, 0xBBE20, indexGGXXSprites_ACR_RoboKy, 0x40 },
+    { L"Type C Slayer",             0xBF2f0, 0xBF6f0, indexGGXXSprites_ACR_Slayer, 0x40 },
+    { L"Type C Sol",                0xC2550, 0xC2950, indexGGXXSprites_ACR_Sol, 0x40 },
+    { L"Type C Testament",          0xC5AC0, 0xC5EC0, indexGGXXSprites_ACR_Testament, 0x40 },
+    { L"Type C Venom",              0xC9AD0, 0xC9ED0, indexGGXXSprites_ACR_Venom, 0x40 },
+    { L"Type C Zappa",              0xCCE20, 0xCD220, indexGGXXSprites_ACR_Zappa, 0x40 },
+    { L"Type C Background (Left)",  0x599D0, 0x59DD0, indexGGXXSprites_ACR_Bonus, 0x04 },
+    { L"Type C Background (Right)", 0x686D0, 0x68AD0, indexGGXXSprites_ACR_Bonus, 0x04 },
+    
+    // Type D Portraits
+    { L"Type D A.B.A",              0x2522a0, 0x2526A0, indexGGXXSprites_ACR_ABA, 0x41 },
+    { L"Type D Anji",               0x1b05c0, 0x1B09C0, indexGGXXSprites_ACR_Anji, 0x41 },
+    { L"Type D Axl",                0x11edb0, 0x11F1B0, indexGGXXSprites_ACR_Axl, 0x41 },
+    { L"Type D Baiken",             0x167e80, 0x168280, indexGGXXSprites_ACR_Baiken, 0x41 },
+    { L"Type D Bridget",            0x22dba0, 0x22DFA0, indexGGXXSprites_ACR_Bridget, 0x41 },
+    { L"Type D Chipp",              0x1427e0, 0x142BE0, indexGGXXSprites_ACR_Chipp, 0x41 },
+    { L"Type D Dizzy",              0x1e7c40, 0x1E8040, indexGGXXSprites_ACR_Dizzy, 0x41 },
+    { L"Type D Eddie",              0x1559f0, 0x155DF0, indexGGXXSprites_ACR_Eddie, 0x41 },
+    { L"Type D Faust",              0x178a50, 0x178E50, indexGGXXSprites_ACR_Faust, 0x41 },
+    { L"Type D I-No",               0x20af00, 0x20B300, indexGGXXSprites_ACR_Ino, 0x41 },
+    { L"Type D Jam",                0x19cb60, 0x19CF60, indexGGXXSprites_ACR_Jam, 0x41 },
+    { L"Type D Johnny",             0x1c2c50, 0x1C3050, indexGGXXSprites_ACR_Johnny, 0x41 },
+    { L"Type D Justice",            0x28b810, 0x28BC10, indexGGXXSprites_ACR_Justice, 0x41 },
+    { L"Type D Kliff",              0x2773b0, 0x2777B0, indexGGXXSprites_ACR_Kliff, 0x41 },
+    { L"Type D Ky",                 0xe7620, 0xe7A20, indexGGXXSprites_ACR_Ky, 0x41 },
+    { L"Type D May",                0xf9ac0, 0xf9Ec0, indexGGXXSprites_ACR_May, 0x41 },
+    { L"Type D Millia",             0x10cee0, 0x10D2E0, indexGGXXSprites_ACR_Millia, 0x41 },
+    { L"Type D Order-Sol",          0x2656c0, 0x265AC0, indexGGXXSprites_ACR_OrderSol, 0x41 },
+    { L"Type D Potemkin",           0x131090, 0x131490, indexGGXXSprites_ACR_Potemkin, 0x41 },
+    { L"Type D Robo-Ky",            0x2401A0, 0x2405A0, indexGGXXSprites_ACR_RoboKy, 0x41 },
+    { L"Type D Slayer",             0x1f9e80, 0x1FA280, indexGGXXSprites_ACR_Slayer, 0x41 },
+    { L"Type D Sol",                0xd4cf0, 0xd50f0, indexGGXXSprites_ACR_Sol, 0x41 },
+    { L"Type D Testament",          0x189dc0, 0x18A1C0, indexGGXXSprites_ACR_Testament, 0x41 },
+    { L"Type D Venom",              0x1d4a40, 0x1D4E40, indexGGXXSprites_ACR_Venom, 0x41 },
+    { L"Type D Zappa",              0x21CCC0, 0x21D0C0, indexGGXXSprites_ACR_Zappa, 0x41 },
+    { L"Type D Background",         0x29c220, 0x29C620, indexGGXXSprites_ACR_Bonus, 0x05 },
+};
+
 const sGame_PaletteDataset GGXXACR_S_SelectScreen[] =
 {
 
     //Select Screen 
-        { L"Background",                    0xe3340, 0xe3380 },
-        { L"Glowing Background",            0xf9ce0, 0xf9d20 },
-        { L"Glowing Background (GG Logo)",  0x104250, 0x104290 },
-        { L"Glowing Background (XX Skull)", 0x10f340, 0x10f380 },
-        { L"Glowing Background (AC Logo)",  0x112cd0, 0x112d10 },
-        { L"Moving Parts (1/4)",            0xf9400, 0xf9440 },
-        { L"Moving Parts (2/4)",            0x103740, 0x103780 },
-        { L"Moving Parts (3/4)",            0x10dea0, 0x10dee0 },
-        { L"Moving Parts (4/4)",            0x1120f0, 0x112130 },
-        { L"Top Bar",                       0x115560, 0x1155a0 },
-        { L"\"Player 1\" Panel",            0x106010, 0x106050 },
-        { L"\"Player 2\" Panel",            0x114940, 0x114980 },
-        { L"Right Panel",                   0x110eb0, 0x110ef0 },
-        { L"Left Panel",                    0xfb620, 0xfb660 },
-
-        { L"Icons Right",       0xffc00, 0xffc40 },
-        { L"Icons Left",        0x10a300, 0x10a340 },
-        { L"Icons Order-Sol",   0x111af0, 0x111b30 },
-
-        { L"Select Arrow P1",   0xe3260, 0xe32a0 },
-        { L"Select Rings P1",   0x1119a0, 0x1119e0 },
-        { L"Select Arrow P2",   0xfc3a0, 0xfc3e0 },
-        { L"Select Rings P2",   0x115400, 0x115440 },
-        { L"Selection Icon",    0x106af0, 0x106b30 },
-
-        { L"Timer Numbers",         0x117b00, 0x117b40 },
-        { L"Timer Numbers Flash",   0x117740, 0x117780 },
-        { L"Timer Panel/Text",      0x116b60, 0x116ba0 },
-        { L"Timer Side Panels",     0x117130, 0x117170 },
-        { L"Random Character",      0x117980, 0x1179c0 },
-
-        { L"\"Push Start\" Menu",       0x19a960, 0x19a9a0 },
-        { L"\"Character\" Text",        0x199c20, 0x199c60 },
-        { L"\"Normal\" Icon",           0x19a460, 0x19a4a0 },
-        { L"\"Normal\" Icon (Faded)",   0x19a5b0, 0x19a5f0 },
-        { L"\"EX\" Icon",               0x19a700, 0x19a740 },
-        { L"\"EX\" Icon (Faded)",       0x19a830, 0x19a870 },
-        { L"\"Mode\" Text",             0x199b50, 0x199b90 },
-        { L"\"AC\" Icon",               0x199d40, 0x199d80 },
-        { L"\"AC\" Icon (Faded)",       0x199e60, 0x199ea0 },
-        { L"\"GG\" Icon",               0x19a200, 0x19a240 },
-        { L"\"GG\" Icon (Faded)",       0x19a330, 0x19a370 },
-        { L"\"GGX\" Icon",              0x199f80, 0x199fc0 },
-        { L"\"GGX\" Icon (Faded)",      0x19a0c0, 0x19a100 },
-
-        { L"Music Select Menu",             0x198900, 0x198940 },
-        { L"Music Select Arrow (Left)",     0x198ba0, 0x198be0 },
-        { L"Music Select Arrow (Right)",    0x1993e0, 0x199420 },
-        { L"Music Select Text",             0x1934d0, 0x193510 },
-
-        { L"Home Stage",                0x18fc50, 0x18fc90 },
-        { L"Home Stage (Pressed)",      0x18fec0, 0x18ff00 },
-        { L"Random Stage",              0x18f750, 0x18f790 },
-        { L"Random Stage (Pressed)",    0x18f9d0, 0x18fa10 },
-
-        { L"Stage Names (A.D. 2172)",       0x192a80, 0x192ac0 },
-        { L"Stage Names (Babylion)",        0x192040, 0x192080 },
-        { L"Stage Names (Castle)",          0x191db0, 0x191df0 },
-        { L"Stage Names (China)",           0x1908f0, 0x190930 },
-        { L"Stage Names (Colony)",          0x1903c0, 0x190400 },
-        { L"Stage Names (Frasco)",          0x192800, 0x192840 },
-        { L"Stage Names (Grave)",           0x192d30, 0x192d70 },
-        { L"Stage Names (Grove)",           0x1918b0, 0x1918f0 },
-        { L"Stage Names (Heaven)",          0x192fb0, 0x192ff0 },
-        { L"Stage Names (Hell)",            0x191610, 0x191650 },
-        { L"Stage Names (London)",          0x190130, 0x190170 },
-        { L"Stage Names (May's Ship)",      0x190ba0, 0x190be0 },
-        { L"Stage Names (Russia)",          0x190660, 0x1906a0 },
-        { L"Stage Names (Nirvana)",         0x1910d0, 0x191110 },
-        { L"Stage Names (Paris)",           0x191370, 0x1913b0 },
-        { L"Stage Names (Phantom City)",    0x1922e0, 0x192320 },
-        { L"Stage Names (Verdant)",         0x191b30, 0x191b70 },
-        { L"Stage Names (Zepp)",            0x190e50, 0x190e90 },
-        { L"Stage Names (Unknown)",         0x192560, 0x1925a0 },
-
-        { L"Stage Select (A.D. 2172)",                  0x147480, 0x147880 },
-        { L"Stage Select (Babylon)",                    0x13a250, 0x13a650 },
-        { L"Stage Select (Castle)",                     0x1369a0, 0x136da0 },
-        { L"Stage Select (China)",                      0x11ef80, 0x11f380 },
-        { L"Stage Select (Colony)",                     0x11b8c0, 0x11bcc0 },
-        { L"Stage Select (Frasco)",                     0x143be0, 0x143fe0 },
-        { L"Stage Select (Grave)",                      0x17d5f0, 0x17d9f0 },
-        { L"Stage Select (Grove)",                      0x12fee0, 0x1302e0 },
-        { L"Stage Select (Heaven)",                     0x180c60, 0x181060 },
-        { L"Stage Select (Hell)",                       0x12c5f0, 0x12c9f0 },
-        { L"Stage Select (London)",                     0x117de0, 0x1181e0 },
-        { L"Stage Select (May's Ship)",                 0x122640, 0x122a40 },
-        { L"Stage Select (Nirvana)",                    0x15f410, 0x15f810 },
-        { L"Stage Select (Paris)",                      0x128f90, 0x129390 },
-        { L"Stage Select (Phantom City)",               0x13d560, 0x13d960 },
-        { L"Stage Select (Russia)",                     0x151d10, 0x152110 },
-        { L"Stage Select (Unknown)",                    0x140c70, 0x141070 },
-        { L"Stage Select (Verdant)",                    0x133070, 0x133470 },
-        { L"Stage Select (Zepp)",                       0x125b50, 0x125f50 },
-        { L"Stage Select (A.D. 2172 (Slash)",           0x18b500, 0x18b900 },
-        { L"Stage Select (Frasco (Slash))",             0x187b60, 0x187f60 },
-        { L"Stage Select (Babylon (Slash/Reload))",     0x1740e0, 0x1744e0 },
-        { L"Stage Select (Castle (Slash/Reload))",      0x170780, 0x170b80 },
-        { L"Stage Select (China (Slash/Reload))",       0x155250, 0x155650 },
-        { L"Stage Select (Colony (Slash/Reload))",      0x14e320, 0x14e720 },
-        { L"Stage Select (Grove (Slash/Reload))",       0x169c60, 0x16a060 },
-        { L"Stage Select (Hell (Slash/Reload))",        0x1665f0, 0x1669f0 },
-        { L"Stage Select (London (Slash/Reload))",      0x14abb0, 0x14afb0 },
-        { L"Stage Select (May's Ship (Slash/Reload))",  0x1586f0, 0x158af0 },
-        { L"Stage Select (Paris (Slash/Reload))",       0x162cb0, 0x1630b0 },
-        { L"Stage Select (Phantom City (Slash/Reload))",0x1774c0, 0x1778c0 },
-        { L"Stage Select (Unknown (Slash/Reload))",     0x17ad90, 0x17b190 },
-        { L"Stage Select (Verdant (Slash/Reload))",     0x16cfb0, 0x16d3b0 },
-        { L"Stage Select (Zepp (Slash/Reload))",        0x15b990, 0x15bd90 },
-        //Unsure
-        //{ L"Stage Names (Unused?)", 0x193230, 0x193270 }, 
-        //{ L"Palette 1", 0xfc480, 0xfc4c0 }, 
-        //{ L"Palette 2 ", 0x106bd0, 0x106c10 }, 
-        //{ L"Palette 3", 0x18ed70, 0x18edb0 }, 
-        //{ L"Palette 4", 0x18efe0, 0x18f020 }, 
-        //{ L"Palette 5", 0x18f250, 0x18f290 }, 
-        //{ L"Palette 6", 0x18f4d0, 0x18f510 }, 
+    { L"Background",                    0xe3340, 0xe3380 },
+    { L"Glowing Background",            0xf9ce0, 0xf9d20 },
+    { L"Glowing Background (GG Logo)",  0x104250, 0x104290 },
+    { L"Glowing Background (XX Skull)", 0x10f340, 0x10f380 },
+    { L"Glowing Background (AC Logo)",  0x112cd0, 0x112d10 },
+    { L"Moving Parts (1/4)",            0xf9400, 0xf9440 },
+    { L"Moving Parts (2/4)",            0x103740, 0x103780 },
+    { L"Moving Parts (3/4)",            0x10dea0, 0x10dee0 },
+    { L"Moving Parts (4/4)",            0x1120f0, 0x112130 },
+    { L"Top Bar",                       0x115560, 0x1155a0 },
+    { L"\"Player 1\" Panel",            0x106010, 0x106050 },
+    { L"\"Player 2\" Panel",            0x114940, 0x114980 },
+    { L"Right Panel",                   0x110eb0, 0x110ef0 },
+    { L"Left Panel",                    0xfb620, 0xfb660 },
+    
+    { L"Icons Right",       0xffc00, 0xffc40 },
+    { L"Icons Left",        0x10a300, 0x10a340 },
+    { L"Icons Order-Sol",   0x111af0, 0x111b30 },
+    
+    { L"Select Arrow P1",   0xe3260, 0xe32a0 },
+    { L"Select Rings P1",   0x1119a0, 0x1119e0 },
+    { L"Select Arrow P2",   0xfc3a0, 0xfc3e0 },
+    { L"Select Rings P2",   0x115400, 0x115440 },
+    { L"Selection Icon",    0x106af0, 0x106b30 },
+    
+    { L"Timer Numbers",         0x117b00, 0x117b40 },
+    { L"Timer Numbers Flash",   0x117740, 0x117780 },
+    { L"Timer Panel/Text",      0x116b60, 0x116ba0 },
+    { L"Timer Side Panels",     0x117130, 0x117170 },
+    { L"Random Character",      0x117980, 0x1179c0 },
+    
+    { L"\"Push Start\" Menu",       0x19a960, 0x19a9a0 },
+    { L"\"Character\" Text",        0x199c20, 0x199c60 },
+    { L"\"Normal\" Icon",           0x19a460, 0x19a4a0 },
+    { L"\"Normal\" Icon (Faded)",   0x19a5b0, 0x19a5f0 },
+    { L"\"EX\" Icon",               0x19a700, 0x19a740 },
+    { L"\"EX\" Icon (Faded)",       0x19a830, 0x19a870 },
+    { L"\"Mode\" Text",             0x199b50, 0x199b90 },
+    { L"\"AC\" Icon",               0x199d40, 0x199d80 },
+    { L"\"AC\" Icon (Faded)",       0x199e60, 0x199ea0 },
+    { L"\"GG\" Icon",               0x19a200, 0x19a240 },
+    { L"\"GG\" Icon (Faded)",       0x19a330, 0x19a370 },
+    { L"\"GGX\" Icon",              0x199f80, 0x199fc0 },
+    { L"\"GGX\" Icon (Faded)",      0x19a0c0, 0x19a100 },
+    
+    { L"Music Select Menu",             0x198900, 0x198940 },
+    { L"Music Select Arrow (Left)",     0x198ba0, 0x198be0 },
+    { L"Music Select Arrow (Right)",    0x1993e0, 0x199420 },
+    { L"Music Select Text",             0x1934d0, 0x193510 },
+    
+    { L"Home Stage",                0x18fc50, 0x18fc90 },
+    { L"Home Stage (Pressed)",      0x18fec0, 0x18ff00 },
+    { L"Random Stage",              0x18f750, 0x18f790 },
+    { L"Random Stage (Pressed)",    0x18f9d0, 0x18fa10 },
+    
+    { L"Stage Names (A.D. 2172)",       0x192a80, 0x192ac0 },
+    { L"Stage Names (Babylion)",        0x192040, 0x192080 },
+    { L"Stage Names (Castle)",          0x191db0, 0x191df0 },
+    { L"Stage Names (China)",           0x1908f0, 0x190930 },
+    { L"Stage Names (Colony)",          0x1903c0, 0x190400 },
+    { L"Stage Names (Frasco)",          0x192800, 0x192840 },
+    { L"Stage Names (Grave)",           0x192d30, 0x192d70 },
+    { L"Stage Names (Grove)",           0x1918b0, 0x1918f0 },
+    { L"Stage Names (Heaven)",          0x192fb0, 0x192ff0 },
+    { L"Stage Names (Hell)",            0x191610, 0x191650 },
+    { L"Stage Names (London)",          0x190130, 0x190170 },
+    { L"Stage Names (May's Ship)",      0x190ba0, 0x190be0 },
+    { L"Stage Names (Russia)",          0x190660, 0x1906a0 },
+    { L"Stage Names (Nirvana)",         0x1910d0, 0x191110 },
+    { L"Stage Names (Paris)",           0x191370, 0x1913b0 },
+    { L"Stage Names (Phantom City)",    0x1922e0, 0x192320 },
+    { L"Stage Names (Verdant)",         0x191b30, 0x191b70 },
+    { L"Stage Names (Zepp)",            0x190e50, 0x190e90 },
+    { L"Stage Names (Unknown)",         0x192560, 0x1925a0 },
+    
+    { L"Stage Select (A.D. 2172)",                  0x147480, 0x147880 },
+    { L"Stage Select (Babylon)",                    0x13a250, 0x13a650 },
+    { L"Stage Select (Castle)",                     0x1369a0, 0x136da0 },
+    { L"Stage Select (China)",                      0x11ef80, 0x11f380 },
+    { L"Stage Select (Colony)",                     0x11b8c0, 0x11bcc0 },
+    { L"Stage Select (Frasco)",                     0x143be0, 0x143fe0 },
+    { L"Stage Select (Grave)",                      0x17d5f0, 0x17d9f0 },
+    { L"Stage Select (Grove)",                      0x12fee0, 0x1302e0 },
+    { L"Stage Select (Heaven)",                     0x180c60, 0x181060 },
+    { L"Stage Select (Hell)",                       0x12c5f0, 0x12c9f0 },
+    { L"Stage Select (London)",                     0x117de0, 0x1181e0 },
+    { L"Stage Select (May's Ship)",                 0x122640, 0x122a40 },
+    { L"Stage Select (Nirvana)",                    0x15f410, 0x15f810 },
+    { L"Stage Select (Paris)",                      0x128f90, 0x129390 },
+    { L"Stage Select (Phantom City)",               0x13d560, 0x13d960 },
+    { L"Stage Select (Russia)",                     0x151d10, 0x152110 },
+    { L"Stage Select (Unknown)",                    0x140c70, 0x141070 },
+    { L"Stage Select (Verdant)",                    0x133070, 0x133470 },
+    { L"Stage Select (Zepp)",                       0x125b50, 0x125f50 },
+    { L"Stage Select (A.D. 2172 (Slash)",           0x18b500, 0x18b900 },
+    { L"Stage Select (Frasco (Slash))",             0x187b60, 0x187f60 },
+    { L"Stage Select (Babylon (Slash/Reload))",     0x1740e0, 0x1744e0 },
+    { L"Stage Select (Castle (Slash/Reload))",      0x170780, 0x170b80 },
+    { L"Stage Select (China (Slash/Reload))",       0x155250, 0x155650 },
+    { L"Stage Select (Colony (Slash/Reload))",      0x14e320, 0x14e720 },
+    { L"Stage Select (Grove (Slash/Reload))",       0x169c60, 0x16a060 },
+    { L"Stage Select (Hell (Slash/Reload))",        0x1665f0, 0x1669f0 },
+    { L"Stage Select (London (Slash/Reload))",      0x14abb0, 0x14afb0 },
+    { L"Stage Select (May's Ship (Slash/Reload))",  0x1586f0, 0x158af0 },
+    { L"Stage Select (Paris (Slash/Reload))",       0x162cb0, 0x1630b0 },
+    { L"Stage Select (Phantom City (Slash/Reload))",0x1774c0, 0x1778c0 },
+    { L"Stage Select (Unknown (Slash/Reload))",     0x17ad90, 0x17b190 },
+    { L"Stage Select (Verdant (Slash/Reload))",     0x16cfb0, 0x16d3b0 },
+    { L"Stage Select (Zepp (Slash/Reload))",        0x15b990, 0x15bd90 },
+    //Unsure
+    //{ L"Stage Names (Unused?)", 0x193230, 0x193270 }, 
+    //{ L"Palette 1", 0xfc480, 0xfc4c0 }, 
+    //{ L"Palette 2 ", 0x106bd0, 0x106c10 }, 
+    //{ L"Palette 3", 0x18ed70, 0x18edb0 }, 
+    //{ L"Palette 4", 0x18efe0, 0x18f020 }, 
+    //{ L"Palette 5", 0x18f250, 0x18f290 }, 
+    //{ L"Palette 6", 0x18f4d0, 0x18f510 }, 
 
 };
+
 const sGame_PaletteDataset GGXXACR_S_SelectScreenPortraits[] =
 {
     //Select Screen Portraits
-        { L"A.B.A Large Portrait",      0x2970f0, 0x2974f0, indexGGXXSprites_ACR_ABA,       0x45 },
-        { L"A.B.A Small Portrait",      0xbe5b0, 0xbe9b0,   indexGGXXSprites_ACR_ABA,       0x42 },
-        { L"A.B.A Select Icon",         0xbe190, 0xbe1d0,   indexGGXXSprites_ACR_ABA,       0x43 },
-        { L"A.B.A Name",                0x2d1200, 0x2d1240, indexGGXXSprites_ACR_ABA,       0x44 },
-        { L"Anji Large Portrait",       0x23a7c0, 0x23abc0, indexGGXXSprites_ACR_Anji,      0x45 },
-        { L"Anji Small Portrait",       0x6e400, 0x6e800,   indexGGXXSprites_ACR_Anji,      0x42 },
-        { L"Anji Select Icon",          0x6e030, 0x6e070,   indexGGXXSprites_ACR_Anji,      0x43 },
-        { L"Anji Name",                 0x2ce120, 0x2ce160, indexGGXXSprites_ACR_Anji,      0x44 },
-        { L"Axl Large Portrait",        0x231800, 0x231c00, indexGGXXSprites_ACR_Axl,       0x45 },
-        { L"Axl Small Portrait",        0x65180, 0x65580,   indexGGXXSprites_ACR_Axl,       0x42 },
-        { L"Axl Select Icon",           0x64d10, 0x64d50,   indexGGXXSprites_ACR_Axl,       0x43 },
-        { L"Axl Name",                  0x2cdae0, 0x2cdb20, indexGGXXSprites_ACR_Axl,       0x44 },
-        { L"Baiken Large Portrait",     0x212600, 0x212a00, indexGGXXSprites_ACR_Baiken,    0x45 },
-        { L"Baiken Small Portrait",     0x4a350, 0x4a750,   indexGGXXSprites_ACR_Baiken,    0x42 },
-        { L"Baiken Select Icon",        0x49ec0, 0x49f00,   indexGGXXSprites_ACR_Baiken,    0x43 },
-        { L"Baiken Name",               0x2ccb60, 0x2ccba0, indexGGXXSprites_ACR_Baiken,    0x44 },
-        { L"Bridget Large Portrait",    0x2824e0, 0x2828e0, indexGGXXSprites_ACR_Bridget,   0x45 },
-        { L"Bridget Small Portrait",    0xac6b0, 0xacab0,   indexGGXXSprites_ACR_Bridget,   0x42 },
-        { L"Bridget Select Icon",       0xac2a0, 0xac2e0,   indexGGXXSprites_ACR_Bridget,   0x43 },
-        { L"Bridget Name",              0x2d05e0, 0x2d0620, indexGGXXSprites_ACR_Bridget,   0x44 },
-        { L"Chipp Large Portrait",      0x200d90, 0x201190, indexGGXXSprites_ACR_Chipp,     0x45 },
-        { L"Chipp Small Portrait",      0x37af0, 0x37ef0,   indexGGXXSprites_ACR_Chipp,     0x42 },
-        { L"Chipp Select Icon",         0x376d0, 0x37710,   indexGGXXSprites_ACR_Chipp,     0x43 },
-        { L"Chipp Name",                0x2cbde0, 0x2cbe20, indexGGXXSprites_ACR_Chipp,     0x44 },
-        { L"Dizzy Large Portrait",      0x258df0, 0x2591f0, indexGGXXSprites_ACR_Dizzy,     0x45 },
-        { L"Dizzy Small Portrait",      0x88f40, 0x89340,   indexGGXXSprites_ACR_Dizzy,     0x42 },
-        { L"Dizzy Select Icon",         0x88b00, 0x88b40,   indexGGXXSprites_ACR_Dizzy,     0x43 },
-        { L"Dizzy Name",                0x2cf170, 0x2cf1b0, indexGGXXSprites_ACR_Dizzy,     0x44 },
-        { L"Eddie Large Portrait",      0x1e65b0, 0x1e69b0, indexGGXXSprites_ACR_Eddie,     0x45 },
-        { L"Eddie Small Portrait",      0x253b0, 0x257b0,   indexGGXXSprites_ACR_Eddie,     0x42 },
-        { L"Eddie Select Icon",         0x24fa0, 0x24fe0,   indexGGXXSprites_ACR_Eddie,     0x43 },
-        { L"Eddie Name",                0x2cb460, 0x2cb4a0, indexGGXXSprites_ACR_Eddie,     0x44 },
-        { L"Faust Large Portrait",      0x208b10, 0x208f10, indexGGXXSprites_ACR_Faust,     0x45 },
-        { L"Faust Small Portrait",      0x40de0, 0x411e0,   indexGGXXSprites_ACR_Faust,     0x42 },
-        { L"Faust Select Icon",         0x409a0, 0x409e0,   indexGGXXSprites_ACR_Faust,     0x43 },
-        { L"Faust Name",                0x2cc600, 0x2cc640, indexGGXXSprites_ACR_Faust,     0x44 },
-        { L"I-no Large Portrait",       0x270230, 0x270630, indexGGXXSprites_ACR_Ino,       0x45 },
-        { L"I-no Small Portrait",       0x9abf0, 0x9aff0,   indexGGXXSprites_ACR_Ino,       0x42 },
-        { L"I-no Select Icon",          0x9a860, 0x9a8a0,   indexGGXXSprites_ACR_Ino,       0x43 },
-        { L"I-no Name",                 0x2cfb70, 0x2cfbb0, indexGGXXSprites_ACR_Ino,       0x44 },
-        { L"Jam Large Portrait",        0x21e3e0, 0x21e7e0, indexGGXXSprites_ACR_Jam,       0x45 },
-        { L"Jam Small Portrait",        0x53950, 0x53d50,   indexGGXXSprites_ACR_Jam,       0x42 },
-        { L"Jam Select Icon",           0x53510, 0x53550,   indexGGXXSprites_ACR_Jam,       0x43 },
-        { L"Jam Name",                  0x2ccea0, 0x2ccee0, indexGGXXSprites_ACR_Jam,       0x44 },
-        { L"Johnny Large Portrait",     0x2262b0, 0x2266b0, indexGGXXSprites_ACR_Johnny,    0x45 },
-        { L"Johnny Small Portrait",     0x5cad0, 0x5ced0,   indexGGXXSprites_ACR_Johnny,    0x42 },
-        { L"Johnny Select Icon",        0x5c710, 0x5c750,   indexGGXXSprites_ACR_Johnny,    0x43 },
-        { L"Johnny Name",               0x2cd480, 0x2cd4c0, indexGGXXSprites_ACR_Johnny,    0x44 },
-        { L"Justice Large Portrait",    0x2b75a0, 0x2b79a0, indexGGXXSprites_ACR_Justice,   0x45 },
-        { L"Justice Small Portrait",    0xda310, 0xda710,   indexGGXXSprites_ACR_Justice,   0x42 },
-        { L"Justice Select Icon",       0xd9f20, 0xd9f60,   indexGGXXSprites_ACR_Justice,   0x43 },
-        { L"Justice Name",              0x2d25e0, 0x2d2620, indexGGXXSprites_ACR_Justice,   0x44 },
-        { L"Kliff Large Portrait",      0x2ac030, 0x2ac430, indexGGXXSprites_ACR_Kliff,     0x45 },
-        { L"Kliff Small Portrait",      0xd0e40, 0xd1240,   indexGGXXSprites_ACR_Kliff,     0x42 },
-        { L"Kliff Select Icon",         0xd0a00, 0xd0a40,   indexGGXXSprites_ACR_Kliff,     0x43 },
-        { L"Kliff Name",                0x2d1de0, 0x2d1e20, indexGGXXSprites_ACR_Kliff,     0x44 },
-        { L"Ky Large Portrait",         0x1c8510, 0x1c8910, indexGGXXSprites_ACR_Ky,        0x45 },
-        { L"Ky Small Portrait",         0x9b80, 0x9f80,     indexGGXXSprites_ACR_Ky,        0x42 },
-        { L"Ky Select Icon",            0x9740, 0x9780,     indexGGXXSprites_ACR_Ky,        0x43 },
-        { L"Ky Name",                   0x2ca590, 0x2ca5d0, indexGGXXSprites_ACR_Ky,        0x44 },
-        { L"May Large Portrait",        0x1d17b0, 0x1d1bb0, indexGGXXSprites_ACR_May,       0x45 },
-        { L"May Small Portrait",        0x12fb0, 0x133b0,   indexGGXXSprites_ACR_May,       0x42 },
-        { L"May Select Icon",           0x12b60, 0x12ba0,   indexGGXXSprites_ACR_May,       0x43 },
-        { L"May Name",                  0x2caad0, 0x2cab10, indexGGXXSprites_ACR_May,       0x44 },
-        { L"Millia Large Portrait",     0x1dbd30, 0x1dc130, indexGGXXSprites_ACR_Millia,    0x45 },
-        { L"Millia Small Portrait",     0x1c0a0, 0x1c4a0,   indexGGXXSprites_ACR_Millia,    0x42 },
-        { L"Millia Select Icon",        0x1bc10, 0x1bc50,   indexGGXXSprites_ACR_Millia,    0x43 },
-        { L"Millia Name",               0x2cae30, 0x2cae70, indexGGXXSprites_ACR_Millia,    0x44 },
-        { L"Order-Sol Large Portrait",  0x2a0250, 0x2a0650, indexGGXXSprites_ACR_OrderSol,  0x45 },
-        { L"Order-Sol Small Portrait",  0xc7bc0, 0xc7fc0,   indexGGXXSprites_ACR_OrderSol,  0x42 },
-        { L"Order-Sol Select Icon",     0xc7700, 0xc7740,   indexGGXXSprites_ACR_OrderSol,  0x43 },
-        { L"Order-Sol Name",            0x2d16d0, 0x2d1710, indexGGXXSprites_ACR_OrderSol,  0x44 },
-        { L"Potemkin Large Portrait",   0x1f21e0, 0x1f25e0, indexGGXXSprites_ACR_Potemkin,  0x45 },
-        { L"Potemkin Small Portrait",   0x2e5b0, 0x2e9b0,   indexGGXXSprites_ACR_Potemkin,  0x42 },
-        { L"Potemkin Select Icon",      0x2e150, 0x2e190,   indexGGXXSprites_ACR_Potemkin,  0x43 },
-        { L"Potemkin Name",             0x2cb880, 0x2cb8c0, indexGGXXSprites_ACR_Potemkin,  0x44 },
-        { L"Robo-Ky Large Portrait",    0x28b580, 0x28b980, indexGGXXSprites_ACR_RoboKy,    0x45 },
-        { L"Robo-Ky Small Portrait",    0xb5430, 0xb5830,   indexGGXXSprites_ACR_RoboKy,    0x42 },
-        { L"Robo-Ky Select Icon",       0xb4fe0, 0xb5020,   indexGGXXSprites_ACR_RoboKy,    0x43 },
-        { L"Robo-Ky Name",              0x2d0c50, 0x2d0c90, indexGGXXSprites_ACR_RoboKy,    0x44 },
-        { L"Slayer Large Portrait",     0x267910, 0x267d10, indexGGXXSprites_ACR_Slayer,    0x45 },
-        { L"Slayer Small Portrait",     0x91d30, 0x92130,   indexGGXXSprites_ACR_Slayer,    0x42 },
-        { L"Slayer Select Icon",        0x91970, 0x919b0,   indexGGXXSprites_ACR_Slayer,    0x43 },
-        { L"Slayer Name",               0x2cf560, 0x2cf5a0, indexGGXXSprites_ACR_Slayer,    0x44 },
-        { L"Sol Large Portrait",        0x1bec50, 0x1bf050, indexGGXXSprites_ACR_Sol,       0x45 },
-        { L"Sol Small Portrait",        0x6f0, 0xaf0,       indexGGXXSprites_ACR_Sol,       0x42 },
-        { L"Sol Select Icon",           0x2f0, 0x330,       indexGGXXSprites_ACR_Sol,       0x43 },
-        { L"Sol Name",                  0x2c9d40, 0x2c9d80, indexGGXXSprites_ACR_Sol,       0x44 },
-        { L"Testament Large Portrait",  0x24d930, 0x24dd30, indexGGXXSprites_ACR_Testament, 0x45 },
-        { L"Testament Small Portrait",  0x805e0, 0x809e0,   indexGGXXSprites_ACR_Testament, 0x42 },
-        { L"Testament Select Icon",     0x80240, 0x80280,   indexGGXXSprites_ACR_Testament, 0x43 },
-        { L"Testament Name",            0x2ceb90, 0x2cebd0, indexGGXXSprites_ACR_Testament, 0x44 },
-        { L"Venom Large Portrait",      0x246470, 0x246870, indexGGXXSprites_ACR_Venom,     0x45 },
-        { L"Venom Small Portrait",      0x771a0, 0x775a0,   indexGGXXSprites_ACR_Venom,     0x42 },
-        { L"Venom Select Icon",         0x76d60, 0x76da0,   indexGGXXSprites_ACR_Venom,     0x43 },
-        { L"Venom Name",                0x2ce6b0, 0x2ce6f0, indexGGXXSprites_ACR_Venom,     0x44 },
-        { L"Zappa Large Portrait",      0x277210, 0x277610, indexGGXXSprites_ACR_Zappa,     0x45 },
-        { L"Zappa Small Portrait",      0xa39c0, 0xa3dc0,   indexGGXXSprites_ACR_Zappa,     0x42 },
-        { L"Zappa Select Icon",         0xa3550, 0xa3590,   indexGGXXSprites_ACR_Zappa,     0x43 },
-        { L"Zappa Name",                0x2cfee0, 0x2cff20, indexGGXXSprites_ACR_Zappa,     0x44 },
+    { L"A.B.A Large Portrait",      0x2970f0, 0x2974f0, indexGGXXSprites_ACR_ABA,       0x45 },
+    { L"A.B.A Small Portrait",      0xbe5b0, 0xbe9b0,   indexGGXXSprites_ACR_ABA,       0x42 },
+    { L"A.B.A Select Icon",         0xbe190, 0xbe1d0,   indexGGXXSprites_ACR_ABA,       0x43 },
+    { L"A.B.A Name",                0x2d1200, 0x2d1240, indexGGXXSprites_ACR_ABA,       0x44 },
+    { L"Anji Large Portrait",       0x23a7c0, 0x23abc0, indexGGXXSprites_ACR_Anji,      0x45 },
+    { L"Anji Small Portrait",       0x6e400, 0x6e800,   indexGGXXSprites_ACR_Anji,      0x42 },
+    { L"Anji Select Icon",          0x6e030, 0x6e070,   indexGGXXSprites_ACR_Anji,      0x43 },
+    { L"Anji Name",                 0x2ce120, 0x2ce160, indexGGXXSprites_ACR_Anji,      0x44 },
+    { L"Axl Large Portrait",        0x231800, 0x231c00, indexGGXXSprites_ACR_Axl,       0x45 },
+    { L"Axl Small Portrait",        0x65180, 0x65580,   indexGGXXSprites_ACR_Axl,       0x42 },
+    { L"Axl Select Icon",           0x64d10, 0x64d50,   indexGGXXSprites_ACR_Axl,       0x43 },
+    { L"Axl Name",                  0x2cdae0, 0x2cdb20, indexGGXXSprites_ACR_Axl,       0x44 },
+    { L"Baiken Large Portrait",     0x212600, 0x212a00, indexGGXXSprites_ACR_Baiken,    0x45 },
+    { L"Baiken Small Portrait",     0x4a350, 0x4a750,   indexGGXXSprites_ACR_Baiken,    0x42 },
+    { L"Baiken Select Icon",        0x49ec0, 0x49f00,   indexGGXXSprites_ACR_Baiken,    0x43 },
+    { L"Baiken Name",               0x2ccb60, 0x2ccba0, indexGGXXSprites_ACR_Baiken,    0x44 },
+    { L"Bridget Large Portrait",    0x2824e0, 0x2828e0, indexGGXXSprites_ACR_Bridget,   0x45 },
+    { L"Bridget Small Portrait",    0xac6b0, 0xacab0,   indexGGXXSprites_ACR_Bridget,   0x42 },
+    { L"Bridget Select Icon",       0xac2a0, 0xac2e0,   indexGGXXSprites_ACR_Bridget,   0x43 },
+    { L"Bridget Name",              0x2d05e0, 0x2d0620, indexGGXXSprites_ACR_Bridget,   0x44 },
+    { L"Chipp Large Portrait",      0x200d90, 0x201190, indexGGXXSprites_ACR_Chipp,     0x45 },
+    { L"Chipp Small Portrait",      0x37af0, 0x37ef0,   indexGGXXSprites_ACR_Chipp,     0x42 },
+    { L"Chipp Select Icon",         0x376d0, 0x37710,   indexGGXXSprites_ACR_Chipp,     0x43 },
+    { L"Chipp Name",                0x2cbde0, 0x2cbe20, indexGGXXSprites_ACR_Chipp,     0x44 },
+    { L"Dizzy Large Portrait",      0x258df0, 0x2591f0, indexGGXXSprites_ACR_Dizzy,     0x45 },
+    { L"Dizzy Small Portrait",      0x88f40, 0x89340,   indexGGXXSprites_ACR_Dizzy,     0x42 },
+    { L"Dizzy Select Icon",         0x88b00, 0x88b40,   indexGGXXSprites_ACR_Dizzy,     0x43 },
+    { L"Dizzy Name",                0x2cf170, 0x2cf1b0, indexGGXXSprites_ACR_Dizzy,     0x44 },
+    { L"Eddie Large Portrait",      0x1e65b0, 0x1e69b0, indexGGXXSprites_ACR_Eddie,     0x45 },
+    { L"Eddie Small Portrait",      0x253b0, 0x257b0,   indexGGXXSprites_ACR_Eddie,     0x42 },
+    { L"Eddie Select Icon",         0x24fa0, 0x24fe0,   indexGGXXSprites_ACR_Eddie,     0x43 },
+    { L"Eddie Name",                0x2cb460, 0x2cb4a0, indexGGXXSprites_ACR_Eddie,     0x44 },
+    { L"Faust Large Portrait",      0x208b10, 0x208f10, indexGGXXSprites_ACR_Faust,     0x45 },
+    { L"Faust Small Portrait",      0x40de0, 0x411e0,   indexGGXXSprites_ACR_Faust,     0x42 },
+    { L"Faust Select Icon",         0x409a0, 0x409e0,   indexGGXXSprites_ACR_Faust,     0x43 },
+    { L"Faust Name",                0x2cc600, 0x2cc640, indexGGXXSprites_ACR_Faust,     0x44 },
+    { L"I-no Large Portrait",       0x270230, 0x270630, indexGGXXSprites_ACR_Ino,       0x45 },
+    { L"I-no Small Portrait",       0x9abf0, 0x9aff0,   indexGGXXSprites_ACR_Ino,       0x42 },
+    { L"I-no Select Icon",          0x9a860, 0x9a8a0,   indexGGXXSprites_ACR_Ino,       0x43 },
+    { L"I-no Name",                 0x2cfb70, 0x2cfbb0, indexGGXXSprites_ACR_Ino,       0x44 },
+    { L"Jam Large Portrait",        0x21e3e0, 0x21e7e0, indexGGXXSprites_ACR_Jam,       0x45 },
+    { L"Jam Small Portrait",        0x53950, 0x53d50,   indexGGXXSprites_ACR_Jam,       0x42 },
+    { L"Jam Select Icon",           0x53510, 0x53550,   indexGGXXSprites_ACR_Jam,       0x43 },
+    { L"Jam Name",                  0x2ccea0, 0x2ccee0, indexGGXXSprites_ACR_Jam,       0x44 },
+    { L"Johnny Large Portrait",     0x2262b0, 0x2266b0, indexGGXXSprites_ACR_Johnny,    0x45 },
+    { L"Johnny Small Portrait",     0x5cad0, 0x5ced0,   indexGGXXSprites_ACR_Johnny,    0x42 },
+    { L"Johnny Select Icon",        0x5c710, 0x5c750,   indexGGXXSprites_ACR_Johnny,    0x43 },
+    { L"Johnny Name",               0x2cd480, 0x2cd4c0, indexGGXXSprites_ACR_Johnny,    0x44 },
+    { L"Justice Large Portrait",    0x2b75a0, 0x2b79a0, indexGGXXSprites_ACR_Justice,   0x45 },
+    { L"Justice Small Portrait",    0xda310, 0xda710,   indexGGXXSprites_ACR_Justice,   0x42 },
+    { L"Justice Select Icon",       0xd9f20, 0xd9f60,   indexGGXXSprites_ACR_Justice,   0x43 },
+    { L"Justice Name",              0x2d25e0, 0x2d2620, indexGGXXSprites_ACR_Justice,   0x44 },
+    { L"Kliff Large Portrait",      0x2ac030, 0x2ac430, indexGGXXSprites_ACR_Kliff,     0x45 },
+    { L"Kliff Small Portrait",      0xd0e40, 0xd1240,   indexGGXXSprites_ACR_Kliff,     0x42 },
+    { L"Kliff Select Icon",         0xd0a00, 0xd0a40,   indexGGXXSprites_ACR_Kliff,     0x43 },
+    { L"Kliff Name",                0x2d1de0, 0x2d1e20, indexGGXXSprites_ACR_Kliff,     0x44 },
+    { L"Ky Large Portrait",         0x1c8510, 0x1c8910, indexGGXXSprites_ACR_Ky,        0x45 },
+    { L"Ky Small Portrait",         0x9b80, 0x9f80,     indexGGXXSprites_ACR_Ky,        0x42 },
+    { L"Ky Select Icon",            0x9740, 0x9780,     indexGGXXSprites_ACR_Ky,        0x43 },
+    { L"Ky Name",                   0x2ca590, 0x2ca5d0, indexGGXXSprites_ACR_Ky,        0x44 },
+    { L"May Large Portrait",        0x1d17b0, 0x1d1bb0, indexGGXXSprites_ACR_May,       0x45 },
+    { L"May Small Portrait",        0x12fb0, 0x133b0,   indexGGXXSprites_ACR_May,       0x42 },
+    { L"May Select Icon",           0x12b60, 0x12ba0,   indexGGXXSprites_ACR_May,       0x43 },
+    { L"May Name",                  0x2caad0, 0x2cab10, indexGGXXSprites_ACR_May,       0x44 },
+    { L"Millia Large Portrait",     0x1dbd30, 0x1dc130, indexGGXXSprites_ACR_Millia,    0x45 },
+    { L"Millia Small Portrait",     0x1c0a0, 0x1c4a0,   indexGGXXSprites_ACR_Millia,    0x42 },
+    { L"Millia Select Icon",        0x1bc10, 0x1bc50,   indexGGXXSprites_ACR_Millia,    0x43 },
+    { L"Millia Name",               0x2cae30, 0x2cae70, indexGGXXSprites_ACR_Millia,    0x44 },
+    { L"Order-Sol Large Portrait",  0x2a0250, 0x2a0650, indexGGXXSprites_ACR_OrderSol,  0x45 },
+    { L"Order-Sol Small Portrait",  0xc7bc0, 0xc7fc0,   indexGGXXSprites_ACR_OrderSol,  0x42 },
+    { L"Order-Sol Select Icon",     0xc7700, 0xc7740,   indexGGXXSprites_ACR_OrderSol,  0x43 },
+    { L"Order-Sol Name",            0x2d16d0, 0x2d1710, indexGGXXSprites_ACR_OrderSol,  0x44 },
+    { L"Potemkin Large Portrait",   0x1f21e0, 0x1f25e0, indexGGXXSprites_ACR_Potemkin,  0x45 },
+    { L"Potemkin Small Portrait",   0x2e5b0, 0x2e9b0,   indexGGXXSprites_ACR_Potemkin,  0x42 },
+    { L"Potemkin Select Icon",      0x2e150, 0x2e190,   indexGGXXSprites_ACR_Potemkin,  0x43 },
+    { L"Potemkin Name",             0x2cb880, 0x2cb8c0, indexGGXXSprites_ACR_Potemkin,  0x44 },
+    { L"Robo-Ky Large Portrait",    0x28b580, 0x28b980, indexGGXXSprites_ACR_RoboKy,    0x45 },
+    { L"Robo-Ky Small Portrait",    0xb5430, 0xb5830,   indexGGXXSprites_ACR_RoboKy,    0x42 },
+    { L"Robo-Ky Select Icon",       0xb4fe0, 0xb5020,   indexGGXXSprites_ACR_RoboKy,    0x43 },
+    { L"Robo-Ky Name",              0x2d0c50, 0x2d0c90, indexGGXXSprites_ACR_RoboKy,    0x44 },
+    { L"Slayer Large Portrait",     0x267910, 0x267d10, indexGGXXSprites_ACR_Slayer,    0x45 },
+    { L"Slayer Small Portrait",     0x91d30, 0x92130,   indexGGXXSprites_ACR_Slayer,    0x42 },
+    { L"Slayer Select Icon",        0x91970, 0x919b0,   indexGGXXSprites_ACR_Slayer,    0x43 },
+    { L"Slayer Name",               0x2cf560, 0x2cf5a0, indexGGXXSprites_ACR_Slayer,    0x44 },
+    { L"Sol Large Portrait",        0x1bec50, 0x1bf050, indexGGXXSprites_ACR_Sol,       0x45 },
+    { L"Sol Small Portrait",        0x6f0, 0xaf0,       indexGGXXSprites_ACR_Sol,       0x42 },
+    { L"Sol Select Icon",           0x2f0, 0x330,       indexGGXXSprites_ACR_Sol,       0x43 },
+    { L"Sol Name",                  0x2c9d40, 0x2c9d80, indexGGXXSprites_ACR_Sol,       0x44 },
+    { L"Testament Large Portrait",  0x24d930, 0x24dd30, indexGGXXSprites_ACR_Testament, 0x45 },
+    { L"Testament Small Portrait",  0x805e0, 0x809e0,   indexGGXXSprites_ACR_Testament, 0x42 },
+    { L"Testament Select Icon",     0x80240, 0x80280,   indexGGXXSprites_ACR_Testament, 0x43 },
+    { L"Testament Name",            0x2ceb90, 0x2cebd0, indexGGXXSprites_ACR_Testament, 0x44 },
+    { L"Venom Large Portrait",      0x246470, 0x246870, indexGGXXSprites_ACR_Venom,     0x45 },
+    { L"Venom Small Portrait",      0x771a0, 0x775a0,   indexGGXXSprites_ACR_Venom,     0x42 },
+    { L"Venom Select Icon",         0x76d60, 0x76da0,   indexGGXXSprites_ACR_Venom,     0x43 },
+    { L"Venom Name",                0x2ce6b0, 0x2ce6f0, indexGGXXSprites_ACR_Venom,     0x44 },
+    { L"Zappa Large Portrait",      0x277210, 0x277610, indexGGXXSprites_ACR_Zappa,     0x45 },
+    { L"Zappa Small Portrait",      0xa39c0, 0xa3dc0,   indexGGXXSprites_ACR_Zappa,     0x42 },
+    { L"Zappa Select Icon",         0xa3550, 0xa3590,   indexGGXXSprites_ACR_Zappa,     0x43 },
+    { L"Zappa Name",                0x2cfee0, 0x2cff20, indexGGXXSprites_ACR_Zappa,     0x44 },
 };
 
 //unsure if theres a better way to add this palette, works for now
@@ -1307,31 +1719,31 @@ const sGame_PaletteDataset GGXXACR_S_Title[] =
 GGXXACRFileData GGXXACR_S_CharacterData[] =
 {
     //Alphabetical by character name, not by file name
-    { L"ab.bin",    L"A.B.A",           5715300,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x48ab50, indexGGXXSprites_ACR_ABA, GGXXACR_S_AB_EFFECTS, ARRAYSIZE(GGXXACR_S_AB_EFFECTS) },
-    { L"an.bin",    L"Anji Mito",       4518932,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3ea460, indexGGXXSprites_ACR_Anji },
+    { L"ab.bin",    L"A.B.A",           5715300,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x48ab50, indexGGXXSprites_ACR_ABA, GGXXACR_S_AB_EXTRAS, ARRAYSIZE(GGXXACR_S_AB_EXTRAS) },
+    { L"an.bin",    L"Anji Mito",       4518932,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3ea460, indexGGXXSprites_ACR_Anji, GGXXACR_S_AN_EXTRAS, ARRAYSIZE(GGXXACR_S_AN_EXTRAS) },
     { L"ax.bin",    L"Axl Low" ,        4225716,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x35ebe0, indexGGXXSprites_ACR_Axl },
-    { L"bk.bin",    L"Baiken",          3573668,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x308c20, indexGGXXSprites_ACR_Baiken, GGXXACR_S_BK_EFFECTS, ARRAYSIZE(GGXXACR_S_BK_EFFECTS) },
+    { L"bk.bin",    L"Baiken",          3573668,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x308c20, indexGGXXSprites_ACR_Baiken, GGXXACR_S_BK_EXTRAS, ARRAYSIZE(GGXXACR_S_BK_EXTRAS) },
     { L"yy.bin",    L"Bridget",         4127716,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x34b210, indexGGXXSprites_ACR_Bridget },
-    { L"ch.bin",    L"Chipp Zanuff",    3113988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x293560, indexGGXXSprites_ACR_Chipp },
-    { L"dz.bin",    L"Dizzy",           5352324,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x45d720, indexGGXXSprites_ACR_Dizzy, GGXXACR_S_DZ_EFFECTS, ARRAYSIZE(GGXXACR_S_DZ_EFFECTS) },
-    { L"zt.bin",    L"Eddie",           3289156,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x24e560, indexGGXXSprites_ACR_Eddie },
+    { L"ch.bin",    L"Chipp Zanuff",    3113988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x293560, indexGGXXSprites_ACR_Chipp, GGXXACR_S_CH_EXTRAS, ARRAYSIZE(GGXXACR_S_CH_EXTRAS) },
+    { L"dz.bin",    L"Dizzy",           5352324,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x45d720, indexGGXXSprites_ACR_Dizzy, GGXXACR_S_DZ_EXTRAS, ARRAYSIZE(GGXXACR_S_DZ_EXTRAS) },
+    { L"zt.bin",    L"Eddie",           3289156,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x24e560, indexGGXXSprites_ACR_Eddie, GGXXACR_S_ZT_EXTRAS, ARRAYSIZE(GGXXACR_S_ZT_EXTRAS) },
     { L"fa.bin",    L"Faust",           4773284,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3fe9a0, indexGGXXSprites_ACR_Faust },
-    { L"in.bin",    L"I-No",            5609060,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3e5370, indexGGXXSprites_ACR_Ino, GGXXACR_S_IN_EFFECTS, ARRAYSIZE(GGXXACR_S_IN_EFFECTS) },
-    { L"jm.bin",    L"Jam Kuradoberi",  3827044,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2c4e80, indexGGXXSprites_ACR_Jam, GGXXACR_S_JM_EFFECTS, ARRAYSIZE(GGXXACR_S_JM_EFFECTS) },
-    { L"js.bin",    L"Justice",         4556788,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3789b0, indexGGXXSprites_ACR_Justice },
-    { L"jy.bin",    L"Johnny",          4205892,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3b0620, indexGGXXSprites_ACR_Johnny, GGXXACR_S_JY_EFFECTS, ARRAYSIZE(GGXXACR_S_JY_EFFECTS) },
+    { L"in.bin",    L"I-No",            5609060,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3e5370, indexGGXXSprites_ACR_Ino, GGXXACR_S_IN_EXTRAS, ARRAYSIZE(GGXXACR_S_IN_EXTRAS) },
+    { L"jm.bin",    L"Jam Kuradoberi",  3827044,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2c4e80, indexGGXXSprites_ACR_Jam, GGXXACR_S_JM_EXTRAS, ARRAYSIZE(GGXXACR_S_JM_EXTRAS) },
+    { L"js.bin",    L"Justice",         4556788,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3789b0, indexGGXXSprites_ACR_Justice, GGXXACR_S_JS_EXTRAS, ARRAYSIZE(GGXXACR_S_JS_EXTRAS) },
+    { L"jy.bin",    L"Johnny",          4205892,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3b0620, indexGGXXSprites_ACR_Johnny, GGXXACR_S_JY_EXTRAS, ARRAYSIZE(GGXXACR_S_JY_EXTRAS) },
     { L"kr.bin",    L"Kliff Undersn",   3114036,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x28abf0, indexGGXXSprites_ACR_Kliff },
-    { L"ky.bin",    L"Ky Kiske",        4571540,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x38bbc0, indexGGXXSprites_ACR_Ky, GGXXACR_S_KY_EFFECTS, ARRAYSIZE(GGXXACR_S_KY_EFFECTS) },
-    { L"ml.bin",    L"Millia Rage",     3034084,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2a4950, indexGGXXSprites_ACR_Millia },
+    { L"ky.bin",    L"Ky Kiske",        4571540,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x38bbc0, indexGGXXSprites_ACR_Ky, GGXXACR_S_KY_EXTRAS, ARRAYSIZE(GGXXACR_S_KY_EXTRAS) },
     { L"my.bin",    L"May",             4311684,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x363d50, indexGGXXSprites_ACR_May },
-    { L"fr.bin",    L"Order-Sol",       5772356,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x4377e0, indexGGXXSprites_ACR_OrderSol },
-    { L"po.bin",    L"Potemkin",        5277348,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x489c70, indexGGXXSprites_ACR_Potemkin, GGXXACR_S_PO_EFFECTS, ARRAYSIZE(GGXXACR_S_PO_EFFECTS) },
+    { L"ml.bin",    L"Millia Rage",     3034084,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2a4950, indexGGXXSprites_ACR_Millia },
+    { L"fr.bin",    L"Order-Sol",       5772356,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x4377e0, indexGGXXSprites_ACR_OrderSol, GGXXACR_S_FR_EXTRAS, ARRAYSIZE(GGXXACR_S_FR_EXTRAS) },
+    { L"po.bin",    L"Potemkin",        5277348,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x489c70, indexGGXXSprites_ACR_Potemkin, GGXXACR_S_PO_EXTRAS, ARRAYSIZE(GGXXACR_S_PO_EXTRAS) },
     { L"rk.bin",    L"Robo-Ky",         4489668,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3a7450, indexGGXXSprites_ACR_RoboKy },
-    { L"sl.bin",    L"Sol Badguy",      4613188,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x339b60, indexGGXXSprites_ACR_Sol, GGXXACR_S_SL_EFFECTS, ARRAYSIZE(GGXXACR_S_SL_EFFECTS) },
-    { L"sy.bin",    L"Slayer",          6215652,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x39c960, indexGGXXSprites_ACR_Slayer, GGXXACR_S_SY_EFFECTS, ARRAYSIZE(GGXXACR_S_SY_EFFECTS) },
+    { L"sl.bin",    L"Sol Badguy",      4613188,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x339b60, indexGGXXSprites_ACR_Sol, GGXXACR_S_SL_EXTRAS, ARRAYSIZE(GGXXACR_S_SL_EXTRAS) },
+    { L"sy.bin",    L"Slayer",          6215652,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x39c960, indexGGXXSprites_ACR_Slayer, GGXXACR_S_SY_EXTRAS, ARRAYSIZE(GGXXACR_S_SY_EXTRAS) },
     { L"ts.bin",    L"Testament",       4817508,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3ee950, indexGGXXSprites_ACR_Testament },
-    { L"ve.bin",    L"Venom",           2787412,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x261c10, indexGGXXSprites_ACR_Venom, GGXXACR_S_VE_EFFECTS, ARRAYSIZE(GGXXACR_S_VE_EFFECTS) },
-    { L"zp.bin",    L"Zappa",           6019988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2a54f0, indexGGXXSprites_ACR_Zappa, GGXXACR_S_ZP_EFFECTS, ARRAYSIZE(GGXXACR_S_ZP_EFFECTS) },
+    { L"ve.bin",    L"Venom",           2787412,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x261c10, indexGGXXSprites_ACR_Venom, GGXXACR_S_VE_EXTRAS, ARRAYSIZE(GGXXACR_S_VE_EXTRAS) },
+    { L"zp.bin",    L"Zappa",           6019988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2a54f0, indexGGXXSprites_ACR_Zappa, GGXXACR_S_ZP_EXTRAS, ARRAYSIZE(GGXXACR_S_ZP_EXTRAS) },
     { L"eab.bin",   L"EX A.B.A",        5912564,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x4b3ca0, indexGGXXSprites_ACR_ABA },
     { L"ean.bin",   L"EX Anji Mito",    4520900,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3eb460, indexGGXXSprites_ACR_Anji },
     { L"eax.bin",   L"EX Axl Low",      4217220,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x35edf0, indexGGXXSprites_ACR_Axl },
@@ -1345,9 +1757,9 @@ GGXXACRFileData GGXXACR_S_CharacterData[] =
     { L"ejm.bin",  L"EX Jam Kuradoberi",3812100,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x2c46d0, indexGGXXSprites_ACR_Jam },
     { L"ejy.bin",   L"EX Johnny",       4210036,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3b2250, indexGGXXSprites_ACR_Johnny },
     { L"eky.bin",   L"EX Ky Kiske",     4859572,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3cafd0, indexGGXXSprites_ACR_Ky },
-    { L"eml.bin",   L"EX Millia Rage",  3003428,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x29d9c0, indexGGXXSprites_ACR_Millia },
     { L"emy.bin",   L"EX May",          4675812,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x399780, indexGGXXSprites_ACR_May },
-    { L"efr.bin",   L"EX Order-Sol",    5965396,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x45d9d0, indexGGXXSprites_ACR_OrderSol },
+    { L"eml.bin",   L"EX Millia Rage",  3003428,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x29d9c0, indexGGXXSprites_ACR_Millia },
+    { L"efr.bin",   L"EX Order-Sol",    5965396,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x45d9d0, indexGGXXSprites_ACR_OrderSol, GGXXACR_S_EFR_EXTRAS, ARRAYSIZE(GGXXACR_S_EFR_EXTRAS) },
     { L"epo.bin",   L"EX Potemkin",     5313412,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x494170, indexGGXXSprites_ACR_Potemkin },
     { L"erk.bin",   L"EX Robo-Ky",      4599332,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3cfc80, indexGGXXSprites_ACR_RoboKy },
     { L"esl.bin",   L"EX Sol Badguy",   4679684,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x33b380, indexGGXXSprites_ACR_Sol },
@@ -1355,10 +1767,11 @@ GGXXACRFileData GGXXACR_S_CharacterData[] =
     { L"ets.bin",   L"EX Testament",    4775796,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3f4780, indexGGXXSprites_ACR_Testament },
     { L"eve.bin",   L"EX Venom",        2848292,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x271200, indexGGXXSprites_ACR_Venom },
     { L"ezp.bin",   L"EX Zappa",        6044292,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x2a2e90, indexGGXXSprites_ACR_Zappa },
-    { L"..\\demo\\archive_jpf.bin",         L"Effects",                 3040848, nullptr,                                0,        0x1806f0,                        -1, GGXXACR_S_Effects_JPF, ARRAYSIZE(GGXXACR_S_Effects_JPF) },
-    { L"..\\demo\\archive_jpf.bin",         L"HUD/Menu",                3040848, nullptr,                                0,        0x2e0,                           -1, GGXXACR_S_HUDMenu, ARRAYSIZE(GGXXACR_S_HUDMenu) },
-    { L"..\\..\\..\\demo\\side_belt.bin",   L"Sidebar Portraits",       2794128, nullptr,                                0,        0x110,                           -1, GGXXACR_S_Sidebar_Portraits, ARRAYSIZE(GGXXACR_S_Sidebar_Portraits) },
-    { L"..\\demo\\select.bin",              L"Select Screen",           2960672, nullptr,                                0,        0xe3260,                         -1, GGXXACR_S_SelectScreen, ARRAYSIZE(GGXXACR_S_SelectScreen) },
-    { L"..\\demo\\select.bin",              L"Select Screen Portraits", 2960672, nullptr,                                0,        0x2f0,                           -1, GGXXACR_S_SelectScreenPortraits, ARRAYSIZE(GGXXACR_S_SelectScreenPortraits) },
-    { L"..\\demo\\titleall.bin",            L"Title Screen",            5281296, nullptr,                                0,        0x7AC70,                         -1, GGXXACR_S_Title, ARRAYSIZE(GGXXACR_S_Title) },
+    { L"..\\demo\\archive_jpf.bin",         L"Effects",                     3040848, nullptr,                                0,        0x1806f0,                        -1, GGXXACR_S_EXTRAS_JPF, ARRAYSIZE(GGXXACR_S_EXTRAS_JPF) },
+    { L"..\\demo\\archive_jpf.bin",         L"HUD/Menu",                    3040848, nullptr,                                0,        0x2e0,                           -1, GGXXACR_S_HUDMenu, ARRAYSIZE(GGXXACR_S_HUDMenu) },
+    { L"..\\demo\\archive_jpf.bin",         L"Round Start/End Messages",    3040848, nullptr,                                0,        0x1efc0,                         -1, GGXXACR_S_RoundMessages, ARRAYSIZE(GGXXACR_S_RoundMessages) },
+    { L"..\\..\\..\\demo\\side_belt.bin",   L"Sidebar Portraits",           2794128, nullptr,                                0,        0x110,                           -1, GGXXACR_S_Sidebar_Portraits, ARRAYSIZE(GGXXACR_S_Sidebar_Portraits) },
+    { L"..\\demo\\select.bin",              L"Select Screen",               2960672, nullptr,                                0,        0xe3260,                         -1, GGXXACR_S_SelectScreen, ARRAYSIZE(GGXXACR_S_SelectScreen) },
+    { L"..\\demo\\select.bin",              L"Select Screen Portraits",     2960672, nullptr,                                0,        0x2f0,                           -1, GGXXACR_S_SelectScreenPortraits, ARRAYSIZE(GGXXACR_S_SelectScreenPortraits) },
+    { L"..\\demo\\titleall.bin",            L"Title Screen",                5281296, nullptr,                                0,        0x7AC70,                         -1, GGXXACR_S_Title, ARRAYSIZE(GGXXACR_S_Title) },
 };
