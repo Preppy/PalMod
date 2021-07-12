@@ -142,7 +142,6 @@ const UINT16 KOF02_A_IMGIDS_USED[] =
     indexKOF02UMSprites_Yuri,      // 0xBa
     indexKOF02UMSprites_ZeroOG,    // 0xBb
 
-    indexKOF02UMSprites_K9999,
     indexKOF02Sprites_K9999,
 
     indexKOF02Sprites_Angel,    // 0x26
@@ -2918,7 +2917,7 @@ const sGame_PaletteDataset KOF02_A_KULA_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_A[] =
 {
-    { L"K9999 A", 0x009b362, 0x009b382, indexKOF02UMSprites_K9999 },
+    { L"K9999 A", 0x009b362, 0x009b382, indexKOF02Sprites_K9999 },
     { L"A - SDM Shield", 0x009b382, 0x009b3a2, indexKOF02UMSprites_K9999, 0x10 },
     { L"A - MAX2 and Win", 0x009b3a2, 0x009b3c2, indexKOF02UMSprites_K9999, 0x09 },
     { L"A - Electric Shock Effect", 0x009b3c2, 0x009b3e2, indexKOF02UMSprites_K9999, 0x18 },
@@ -2930,7 +2929,7 @@ const sGame_PaletteDataset KOF02_A_K9999_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_B[] =
 {
-    { L"K9999 B", 0x009b562, 0x009b582, indexKOF02UMSprites_K9999 },
+    { L"K9999 B", 0x009b562, 0x009b582, indexKOF02Sprites_K9999 },
     { L"B - SDM Shield", 0x009b582, 0x009b5a2, indexKOF02UMSprites_K9999, 0x10 },
     { L"B - MAX2 and Win", 0x009b5a2, 0x009b5c2, indexKOF02UMSprites_K9999, 0x09 },
     { L"B - Electric Shock Effect", 0x009b5c2, 0x009b5e2, indexKOF02UMSprites_K9999, 0x18 },
@@ -2942,7 +2941,7 @@ const sGame_PaletteDataset KOF02_A_K9999_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_C[] =
 {
-    { L"K9999 C", 0x009b762, 0x009b782, indexKOF02UMSprites_K9999 },
+    { L"K9999 C", 0x009b762, 0x009b782, indexKOF02Sprites_K9999 },
     { L"C - SDM Shield", 0x009b782, 0x009b7a2, indexKOF02UMSprites_K9999, 0x10 },
     { L"C - MAX2 and Win", 0x009b7a2, 0x009b7c2, indexKOF02UMSprites_K9999, 0x09 },
     { L"C - Electric Shock Effect", 0x009b7c2, 0x009b7e2, indexKOF02UMSprites_K9999, 0x18 },
@@ -2954,7 +2953,7 @@ const sGame_PaletteDataset KOF02_A_K9999_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_D[] =
 {
-    { L"K9999 D", 0x009b962, 0x009b982, indexKOF02UMSprites_K9999 },
+    { L"K9999 D", 0x009b962, 0x009b982, indexKOF02Sprites_K9999 },
     { L"D - SDM Shield", 0x009b982, 0x009b9a2, indexKOF02UMSprites_K9999, 0x10 },
     { L"D - MAX2 and Win", 0x009b9a2, 0x009b9c2, indexKOF02UMSprites_K9999, 0x09 },
     { L"D - Electric Shock Effect", 0x009b9c2, 0x009b9e2, indexKOF02UMSprites_K9999, 0x18 },

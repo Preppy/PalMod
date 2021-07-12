@@ -59,6 +59,9 @@ const UINT16 KOF02UM_S_IMGIDS_USED[] =
     indexKOF98Sprites_Shingo,
     indexKOF02Sprites_Angel,
     indexKOF02Sprites_Athena,
+
+    indexKOF01Sprites_Zero,
+
     indexKOF02Sprites_Clark,
     indexKOF02Sprites_K,
     indexKOF02Sprites_Kula,
@@ -783,6 +786,23 @@ const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_MOVES[] =
     { L"Orochi Chris Idle Orochi Fire",         0x1d640, 0x1d660, indexKOF02UMSprites_ChrisOChi, 0x03 },
     { L"Orochi Chris Ankoku Orochinagi Fire 1", 0x1d660, 0x1d680 },
     { L"Orochi Chris Ankoku Orochinagi Fire 2", 0x1d6a0, 0x1d6c0, indexKOF02UMSprites_ChrisOChi, 0x04 },
+
+    { L"Orochi Chris MAX2 Background 1", 0x3a200, 0x3a220 },
+    { L"Orochi Chris MAX2 Background 2", 0x3a220, 0x3a240 },
+    { L"Orochi Chris MAX2 Background 3", 0x3a240, 0x3a260 },
+    { L"Orochi Chris MAX2 Background 4", 0x3a260, 0x3a280 },
+    { L"Orochi Chris MAX2 Background 5", 0x3a280, 0x3a2a0 },
+    { L"Orochi Chris MAX2 Background 6", 0x3a2a0, 0x3a2c0 },
+    { L"Orochi Chris MAX2 Background 7", 0x3a2c0, 0x3a2e0 },
+    { L"Orochi Chris MAX2 Background 8", 0x3a2e0, 0x3a300 },
+    { L"Orochi Chris MAX2 Background 9", 0x3a300, 0x3a320 },
+    { L"Orochi Chris MAX2 Background 10", 0x3a320, 0x3a340 },
+    { L"Orochi Chris MAX2 Background 11", 0x3a340, 0x3a360 },
+    { L"Orochi Chris MAX2 Background 12", 0x3a360, 0x3a380 },
+    { L"Orochi Chris MAX2 Background 13", 0x3a380, 0x3a3a0 },
+    { L"Orochi Chris MAX2 Background 14", 0x3a3a0, 0x3a3c0 },
+    { L"Orochi Chris MAX2 Background 15", 0x3a3c0, 0x3a3e0 },
+    { L"Orochi Chris MAX2 Background 16", 0x3a3e0, 0x3a400 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CLARK_PALETTES_MOVES[] =
@@ -1142,6 +1162,8 @@ const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_MOVES[] =
     { L"Orochi Shermie Takeru Mikazuchi Lightning",     0x1d4a0, 0x1d4c0, indexKOF02UMSprites_ShermieOChi, 0x06 },
     { L"Orochi Shermie Special Lightning Effects",      0x1d4c0, 0x1d4e0, indexKOF02UMSprites_ShermieOChi, 0x02 },
     { L"Orochi Shermie Yatanagi no Muchi Hit",          0x1d4e0, 0x1d500, indexKOF02UMSprites_ShermieOChi, 0x03 },
+
+    { L"Orochi Shermie MAX2 Background",                0x3b7e0, 0x3b800 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_TAKUMA_PALETTES_MOVES[] =
@@ -1222,6 +1244,11 @@ const sGame_PaletteDataset KOF02UM_S_OYASHIRO_PALETTES_MOVES[] =
     { L"Orochi Yashiro Special and Super Effects",  0x1d200, 0x1d220, indexKOF02UMSprites_YashiroOChi, 0x03 },
     { L"Orochi Yashiro Araburu Daichi Pillar",      0x1d240, 0x1d260, indexKOF02UMSprites_YashiroOChi, 0x09 },
     { L"Orochi Yashiro Unaru Daichi Effects",       0x1d2a0, 0x1d2c0, indexKOF02UMSprites_YashiroOChi, 0x02 },
+
+    { L"Orochi Yashiro MAX2 Background 1",  0x3b740, 0x3b760 },
+    { L"Orochi Yashiro MAX2 Background 2",  0x3b760, 0x3b780 },
+    { L"Orochi Yashiro MAX2 Background 3",  0x3b780, 0x3b7a0 },
+    { L"Orochi Yashiro MAX2 Background 4",  0x3b7a0, 0x3b7c0 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_YURI_PALETTES_MOVES[] =
@@ -4957,49 +4984,49 @@ const sDescTreeNode KOF02UM_S_CLONEZERO_COLLECTION[] =
 const sGame_PaletteDataset KOF02UM_S_ORIGINALZERO_PALETTES_A[] =
 {
     { L"Original Zero A", 0x004fc00, 0x004fc20, indexKOF02UMSprites_ZeroOG },
-    { L"A - Striker Glugan", 0x004fc20, 0x004fc40, indexKOF02UMSprites_ZeroOG, 0x19 },
+    { L"A - Striker Glugan", 0x004fc20, 0x004fc40, indexKOF01Sprites_Zero, 0x08 },
     { L"A - Desperation Move / Super Desperation Move", 0x004fc40, 0x004fc60, indexKOF02UMSprites_ZeroOG, 0x00 },
     { L"A - Electric Shock Effect", 0x004fc60, 0x004fc80, indexKOF02UMSprites_ZeroOG, 0x18 },
     { L"A - MAX Flash", 0x004fc80, 0x004fca0, indexKOF02UMSprites_ZeroOG, 0x08 },
-    { L"A - Striker Lon", 0x004fca0, 0x004fcc0, indexKOF02UMSprites_ZeroOG, 0x1b },
+    { L"A - Striker Lon", 0x004fca0, 0x004fcc0, indexKOF01Sprites_Zero, 0x0a },
     { L"A - Soul Palette", 0x004fcc0, 0x004fce0, indexKOF02UMSprites_ZeroOG, 0x18 },
-    { L"A - Striker Krizalid", 0x004fce0, 0x004fd00, indexKOF02UMSprites_ZeroOG, 0x1a },
+    { L"A - Striker Krizalid", 0x004fce0, 0x004fd00, indexKOF01Sprites_Zero, 0x09 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ORIGINALZERO_PALETTES_B[] =
 {
     { L"Original Zero B", 0x004fd00, 0x004fd20, indexKOF02UMSprites_ZeroOG },
-    { L"B - Striker Glugan", 0x004fd20, 0x004fd40, indexKOF02UMSprites_ZeroOG, 0x19 },
+    { L"B - Striker Glugan", 0x004fd20, 0x004fd40, indexKOF01Sprites_Zero, 0x08 },
     { L"B - Desperation Move / Super Desperation Move", 0x004fd40, 0x004fd60, indexKOF02UMSprites_ZeroOG, 0x00 },
     { L"B - Electric Shock Effect", 0x004fd60, 0x004fd80, indexKOF02UMSprites_ZeroOG, 0x18 },
     { L"B - MAX Flash", 0x004fd80, 0x004fda0, indexKOF02UMSprites_ZeroOG, 0x08 },
-    { L"B - Striker Lon", 0x004fda0, 0x004fdc0, indexKOF02UMSprites_ZeroOG, 0x1b },
+    { L"B - Striker Lon", 0x004fda0, 0x004fdc0, indexKOF01Sprites_Zero, 0x0a },
     { L"B - Soul Palette", 0x004fdc0, 0x004fde0, indexKOF02UMSprites_ZeroOG, 0x18 },
-    { L"B - Striker Krizalid", 0x004fde0, 0x004fe00, indexKOF02UMSprites_ZeroOG, 0x1a },
+    { L"B - Striker Krizalid", 0x004fde0, 0x004fe00, indexKOF01Sprites_Zero, 0x09 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ORIGINALZERO_PALETTES_C[] =
 {
     { L"Original Zero C", 0x004fe00, 0x004fe20, indexKOF02UMSprites_ZeroOG },
-    { L"C - Striker Glugan", 0x004fe20, 0x004fe40, indexKOF02UMSprites_ZeroOG, 0x19 },
+    { L"C - Striker Glugan", 0x004fe20, 0x004fe40, indexKOF01Sprites_Zero, 0x08 },
     { L"C - Desperation Move / Super Desperation Move", 0x004fe40, 0x004fe60, indexKOF02UMSprites_ZeroOG, 0x00 },
     { L"C - Electric Shock Effect", 0x004fe60, 0x004fe80, indexKOF02UMSprites_ZeroOG, 0x18 },
     { L"C - MAX Flash", 0x004fe80, 0x004fea0, indexKOF02UMSprites_ZeroOG, 0x08 },
-    { L"C - Striker Lon", 0x004fea0, 0x004fec0, indexKOF02UMSprites_ZeroOG, 0x1b },
+    { L"C - Striker Lon", 0x004fea0, 0x004fec0, indexKOF01Sprites_Zero, 0x0a },
     { L"C - Soul Palette", 0x004fec0, 0x004fee0, indexKOF02UMSprites_ZeroOG, 0x18 },
-    { L"C - Striker Krizalid", 0x004fee0, 0x004ff00, indexKOF02UMSprites_ZeroOG, 0x1a },
+    { L"C - Striker Krizalid", 0x004fee0, 0x004ff00, indexKOF01Sprites_Zero, 0x09 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ORIGINALZERO_PALETTES_D[] =
 {
     { L"Original Zero D", 0x004ff00, 0x004ff20, indexKOF02UMSprites_ZeroOG },
-    { L"D - Striker Glugan", 0x004ff20, 0x004ff40, indexKOF02UMSprites_ZeroOG, 0x19 },
+    { L"D - Striker Glugan", 0x004ff20, 0x004ff40, indexKOF01Sprites_Zero, 0x08 },
     { L"D - Desperation Move / Super Desperation Move", 0x004ff40, 0x004ff60, indexKOF02UMSprites_ZeroOG, 0x00 },
     { L"D - Electric Shock Effect", 0x004ff60, 0x004ff80, indexKOF02UMSprites_ZeroOG, 0x18 },
     { L"D - MAX Flash", 0x004ff80, 0x004ffa0, indexKOF02UMSprites_ZeroOG, 0x08 },
-    { L"D - Striker Lon", 0x004ffa0, 0x004ffc0, indexKOF02UMSprites_ZeroOG, 0x1b },
+    { L"D - Striker Lon", 0x004ffa0, 0x004ffc0, indexKOF01Sprites_Zero, 0x0a },
     { L"D - Soul Palette", 0x004ffc0, 0x004ffe0, indexKOF02UMSprites_ZeroOG, 0x18 },
-    { L"D - Striker Krizalid", 0x004ffe0, 0x0050000, indexKOF02UMSprites_ZeroOG, 0x1a },
+    { L"D - Striker Krizalid", 0x004ffe0, 0x0050000, indexKOF01Sprites_Zero, 0x09 },
 };
 
 const sDescTreeNode KOF02UM_S_ORIGINALZERO_COLLECTION[] =

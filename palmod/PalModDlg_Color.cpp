@@ -440,9 +440,9 @@ void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
 
                 RGBtoHLS(crRGBVal, &dH, &dL, &dS);
 
-                m_Edit_RH = (int)(dH * 360.0f);
-                m_Edit_GS = (int)(dS * 255.0f);
-                m_Edit_BL = (int)(dL * 100.0f);
+                m_Edit_RH = (int)round((dH * 360.0f));
+                m_Edit_GS = (int)round((dS * 255.0f));
+                m_Edit_BL = (int)round((dL * 100.0f));
             }
 
             UpdateData(FALSE);

@@ -307,7 +307,8 @@ void CGame_KOF95_A::DumpPaletteHeaders()
                     nCurrentImageIndex = 0x20;
                     break;
                 case 15:
-                    pszCurrentEffectName = L"Extra 10: Monochrome palette?";
+                    pszCurrentEffectName = L"Lifebar Portrait Defeated/Grayed";
+                    nCurrentImageIndex = 0x20;
                     break;
                 default:
                     DebugBreak();

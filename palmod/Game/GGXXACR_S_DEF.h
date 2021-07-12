@@ -594,15 +594,15 @@ const sGame_PaletteDataset GGXXACR_S_SL_EFFECTS[] =
     { L"Dragon Install Fire (6/7)", 0x389c80, 0x389cc0, indexGGXXSprites_ACR_Sol, 0x03 },
     { L"Dragon Install Fire (7/7)", 0x38a5e0, 0x38a620, indexGGXXSprites_ACR_Sol, 0x03 },
     // Instant Kill
-    { L"Napalm Death (1/9)", 0x3911a0, 0x3911e0 },
-    { L"Napalm Death (2/9)", 0x39c6b0, 0x39c6f0 },
-    { L"Napalm Death (3/9)", 0x3a58a0, 0x3a58e0 },
-    { L"Napalm Death (4/9)", 0x3af100, 0x3af140 },
-    { L"Napalm Death (5/9)", 0x3b5a30, 0x3b5a70 },
-    { L"Napalm Death (6/9)", 0x3b88f0, 0x3b8930 },
-    { L"Napalm Death (7/9)", 0x3bb020, 0x3bb060 },
-    { L"Napalm Death (8/9)", 0x3bcf70, 0x3bcfb0 },
-    { L"Napalm Death (9/9)", 0x3bf310, 0x3bf350 },
+    { L"Napalm Death (1/9)", 0x3911a0, 0x3911e0, indexGGXXSprites_ACR_Sol, 0x0a },
+    { L"Napalm Death (2/9)", 0x39c6b0, 0x39c6f0, indexGGXXSprites_ACR_Sol, 0x0a },
+    { L"Napalm Death (3/9)", 0x3a58a0, 0x3a58e0, indexGGXXSprites_ACR_Sol, 0x0a },
+    { L"Napalm Death (4/9)", 0x3af100, 0x3af140, indexGGXXSprites_ACR_Sol, 0x0a },
+    { L"Napalm Death (5/9)", 0x3b5a30, 0x3b5a70, indexGGXXSprites_ACR_Sol, 0x0a },
+    { L"Napalm Death (6/9)", 0x3b88f0, 0x3b8930, indexGGXXSprites_ACR_Sol, 0x0a },
+    { L"Napalm Death (7/9)", 0x3bb020, 0x3bb060, indexGGXXSprites_ACR_Sol, 0x0a },
+    { L"Napalm Death (8/9)", 0x3bcf70, 0x3bcfb0, indexGGXXSprites_ACR_Sol, 0x0a },
+    { L"Napalm Death (9/9)", 0x3bf310, 0x3bf350, indexGGXXSprites_ACR_Sol, 0x0a },
 };
 
 const sGame_PaletteDataset GGXXACR_S_SY_EFFECTS[] =

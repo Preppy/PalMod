@@ -178,9 +178,9 @@ sKOF96_A_PaletteData KOF96_A_CharacterEffectPalettes[] =
     { L"Daimon",    0x102802, false, L"indexKOF98Sprites_Daimon",          L"indexKOF96Sprites_Daimon" },
     { L"Terry",     0x102c02, false, L"indexKOF94Sprites_Terry",          L"indexKOF96Sprites_Terry" },
     { L"Andy",      0x103002, false, L"indexKOF97Sprites_Andy",          L"indexKOF96Sprites_Andy" },
-    { L"Joe",       0x103402, false, L"indexKOF94Sprites_Joe",          L"indexKOF96Sprites_Joe" },
+    { L"Joe",       0x103402, false, L"indexKOF98Sprites_Joe",          L"indexKOF96Sprites_Joe" },
     { L"Ryo",       0x103802, false, L"indexKOF94Sprites_Ryo",          L"indexKOF96Sprites_Ryo" },
-    { L"Robert",    0x103c02, false, L"indexKOF94Sprites_Robert",          L"indexKOF96Sprites_Robert" },
+    { L"Robert",    0x103c02, false, L"indexKOF98Sprites_Robert",          L"indexKOF96Sprites_Robert" },
     { L"Yuri",      0x104002, false, L"indexKOF94Sprites_Yuri",          L"indexKOF96Sprites_Yuri" },
     { L"Leona",     0x104402, false, L"indexKOF98Sprites_Leona",          L"indexKOF96Sprites_Leona" },
     { L"Ralf",      0x104802, true, L"indexKOF94Sprites_Ralf",          L"indexKOF96Sprites_Ralf" },
@@ -318,7 +318,7 @@ void CGame_KOF96_A::DumpPaletteHeaders()
                     nCurrentImageIndex = -1;
                     break;
                 case 13:
-                    pszCurrentEffectName = L"Monochrome Palette";
+                    pszCurrentEffectName = L"Game Over Palette";
                     break;
                 case 14:
                     pszCurrentEffectName = L"Extra 9";

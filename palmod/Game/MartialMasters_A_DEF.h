@@ -35,7 +35,7 @@ const sGame_PaletteDataset MartialMasters_Palettes_MasterHuang_Core[] =
 
 const sGame_PaletteDataset MartialMasters_Palettes_MasterHuang_Extras[] =
 {
-    { L"Master Huang Spirit Awakening", 0x35f900, 0x35f920 },
+    { L"Master Huang Spirit Awakening", 0x35f900, 0x35f920, indexMartialMastersSprites_MasterHuang, 0x08 },
     { L"Master Huang Supertrail 1", 0x35f9a0, 0x35f9e0, indexMartialMastersSprites_MasterHuang },
     { L"Master Huang Supertrail 2", 0x35f920, 0x35f960, indexMartialMastersSprites_MasterHuang },
     { L"Master Huang Supergrabtrail", 0x35f960, 0x35f9a0, indexMartialMastersSprites_MasterHuang },
@@ -53,7 +53,7 @@ const sGame_PaletteDataset MartialMasters_Palettes_MasterHuang_Unused[] =
 
 // Drunk Master
 
-const sGame_PaletteDataset MartialMasters_Palettes_DrunkMasters_Core[] =
+const sGame_PaletteDataset MartialMasters_Palettes_DrunkMaster_Core[] =
 {
     { L"Drunk Master A", 0x36a1b8, 0x36a1f8, indexMartialMastersSprites_DrunkMaster },
     { L"Drunk Master B", 0x369ff8, 0x36a038, indexMartialMastersSprites_DrunkMaster },
@@ -67,7 +67,7 @@ const sGame_PaletteDataset MartialMasters_Palettes_DrunkMasters_Core[] =
     { L"Drunk Master CD", 0x36a078, 0x36a0b8, indexMartialMastersSprites_DrunkMaster },
 };
 
-const sGame_PaletteDataset MartialMasters_Palettes_DrunkMasters_Extras[] =
+const sGame_PaletteDataset MartialMasters_Palettes_DrunkMaster_Extras[] =
 {
     { L"Drunk Master Supertrail", 0x36a2b8, 0x36a2f8, indexMartialMastersSprites_DrunkMaster },
     { L"Drunk Master Fire Flash", 0x36a2f8, 0x36a338, indexMartialMastersSprites_DrunkMaster },
@@ -75,7 +75,7 @@ const sGame_PaletteDataset MartialMasters_Palettes_DrunkMasters_Extras[] =
     { L"Drunk Master Shadow Flash 2", 0x36a378, 0x36a3b8, indexMartialMastersSprites_DrunkMaster },
 };
 
-const sGame_PaletteDataset MartialMasters_Palettes_DrunkMasters_Unused[] =
+const sGame_PaletteDataset MartialMasters_Palettes_DrunkMaster_Unused[] =
 {
     { L"Drunk Master Unused 1", 0x36a1f8, 0x36a238 },
     { L"Drunk Master Unused 2", 0x36a238, 0x36a278 },
@@ -126,7 +126,7 @@ const sGame_PaletteDataset MartialMasters_Palettes_GhostKick_Core[] =
 
 const sGame_PaletteDataset MartialMasters_Palettes_GhostKick_Extras[] =
 {
-    { L"Ghost Kick Intro Extra", 0x3a3cf2, 0x3a3d32 },
+    { L"Ghost Kick Intro Extra", 0x3a3cf2, 0x3a3d32, indexMartialMastersSprites_Bonus, 0x07 },
     { L"Ghost Kick Supertrail", 0x3a3d72, 0x3a3db2, indexMartialMastersSprites_GhostKick },
     { L"Ghost Kick Fire Flash", 0x3a3db2, 0x3a3df2, indexMartialMastersSprites_GhostKick },
     { L"Ghost Kick Shadow Flash 1", 0x3a3df2, 0x3a3e32, indexMartialMastersSprites_GhostKick },
@@ -188,7 +188,7 @@ const sGame_PaletteDataset MartialMasters_Palettes_Reika_Core[] =
 
 const sGame_PaletteDataset MartialMasters_Palettes_Reika_Extras[] =
 {
-    { L"Reika Fireball", 0x38e322, 0x38e342 },
+    { L"Reika Fireball", 0x38e322, 0x38e342, indexMartialMastersSprites_Reika, 0x08 },
     { L"Reika Supertrail", 0x38e3c2, 0x38e3e2, indexMartialMastersSprites_Reika },
     { L"Reika Fire Flash", 0x38e402, 0x38e422, indexMartialMastersSprites_Reika },
     { L"Reika Shadow Flash 1", 0x38e442, 0x38e462, indexMartialMastersSprites_Reika },
@@ -299,8 +299,8 @@ const sGame_PaletteDataset MartialMasters_Palettes_MonkeyBoy_Core[] =
 
 const sGame_PaletteDataset MartialMasters_Palettes_MonkeyBoy_Extras[] =
 {
-    { L"Monkey Boy Food/Monkeys", 0x397364, 0x3973e4 },
-    { L"Monkey Boy Intro Extra", 0x397324, 0x397364 },
+    { L"Monkey Boy Food/Monkeys", 0x397364, 0x3973e4, indexMartialMastersSprites_MonkeyBoy, 0x08 },
+    { L"Monkey Boy Intro Extra", 0x397324, 0x397364, indexMartialMastersSprites_Bonus, 0x07 },
     { L"Monkey Boy Supertrail", 0x3973e4, 0x397404, indexMartialMastersSprites_MonkeyBoy },
     { L"Monkey Boy Fire Flash", 0x397424, 0x397444, indexMartialMastersSprites_MonkeyBoy },
     { L"Monkey Boy Shadow Flash 1", 0x397464, 0x397484, indexMartialMastersSprites_MonkeyBoy },
@@ -343,8 +343,8 @@ const sGame_PaletteDataset MartialMasters_Palettes_Monk_Core[] =
 
 const sGame_PaletteDataset MartialMasters_Palettes_Monk_Extras[] =
 {
-    { L"Monk Cauldron", 0x386082, 0x3860c2 },
-    { L"Monk Burning Cauldron", 0x3860c2, 0x386102 },
+    { L"Monk Cauldron", 0x386082, 0x3860c2, indexMartialMastersSprites_Monk, 0x08 },
+    { L"Monk Burning Cauldron", 0x3860c2, 0x386102, indexMartialMastersSprites_Monk, 0x08 },
     { L"Monk Supertrail", 0x386142, 0x386182, indexMartialMastersSprites_Monk },
     { L"Monk Fire Flash", 0x386182, 0x3861c2, indexMartialMastersSprites_Monk },
     { L"Monk Shadow Flash 1", 0x3861c2, 0x386202, indexMartialMastersSprites_Monk },
@@ -375,9 +375,9 @@ const sGame_PaletteDataset MartialMasters_Palettes_LotusMaster_Core[] =
 
 const sGame_PaletteDataset MartialMasters_Palettes_LotusMaster_Extras[] =
 {
-    { L"Lotus Master Intro 1", 0x3ca942, 0x3ca982 },
-    { L"Lotus Master Fire Flash/Intro 2", 0x3caa02, 0x3caa42, indexMartialMastersSprites_LotusMaster },
-    { L"Lotus Master Lotus Effects", 0x3ca922, 0x3ca942 },
+    { L"Lotus Master Intro 1", 0x3ca942, 0x3ca982, indexMartialMastersSprites_LotusMaster, 0x0a },
+    { L"Lotus Master Fire Flash/Intro 2", 0x3caa02, 0x3caa42, indexMartialMastersSprites_LotusMaster, 0x08 },
+    { L"Lotus Master Lotus Effects", 0x3ca922, 0x3ca942, indexMartialMastersSprites_LotusMaster, 0x09 },
     { L"Lotus Master Supertrail", 0x3ca9c2, 0x3caa02, indexMartialMastersSprites_LotusMaster },
     { L"Lotus Master Shadow Flash 1", 0x3caa42, 0x3caa82, indexMartialMastersSprites_LotusMaster },
     { L"Lotus Master Shadow Flash 2", 0x3caa82, 0x3caac2, indexMartialMastersSprites_LotusMaster },
@@ -407,7 +407,7 @@ const sGame_PaletteDataset MartialMasters_Palettes_Saojin_Core[] =
 
 const sGame_PaletteDataset MartialMasters_Palettes_Saojin_Extras[] =
 {
-    { L"Saojin Followers/Win Extra", 0x3c1278, 0x3c12f8 },
+    { L"Saojin Followers/Win Extra", 0x3c1278, 0x3c12f8, indexMartialMastersSprites_Saojin, 0x08 },
     { L"Saojin Supertrail", 0x3c1338, 0x3c1378, indexMartialMastersSprites_Saojin },
     { L"Saojin Fire Flash", 0x3c1378, 0x3c13b8, indexMartialMastersSprites_Saojin },
     { L"Saojin Shadow Flash 1", 0x3c13b8, 0x3c13f8, indexMartialMastersSprites_Saojin },
@@ -438,10 +438,10 @@ const sGame_PaletteDataset MartialMasters_Palettes_TrueLotusMaster_Core[] =
 
 const sGame_PaletteDataset MartialMasters_Palettes_TrueLotusMaster_Extras[] =
 {
-    { L"True Lotus Master Intro 1", 0x3cad42, 0x3cad82, indexMartialMastersSprites_TrueLotusMaster },
-    { L"True Lotus Master Intro 2", 0x3cad82, 0x3cadc2 },
-    { L"True Lotus Master Fire Flash/Effects", 0x3cae42, 0x3cae82, indexMartialMastersSprites_TrueLotusMaster },
-    { L"True Lotus Master Firesparks", 0x3cadc2, 0x3cae02, indexMartialMastersSprites_TrueLotusMaster },
+    { L"True Lotus Master Intro 1", 0x3cad42, 0x3cad82, indexMartialMastersSprites_TrueLotusMaster, 0x0a },
+    { L"True Lotus Master Intro 2", 0x3cad82, 0x3cadc2, indexMartialMastersSprites_TrueLotusMaster, 0x0a },
+    { L"True Lotus Master Fire Flash/Effects", 0x3cae42, 0x3cae82, indexMartialMastersSprites_LotusMaster, 0x08 },
+    { L"True Lotus Master Firesparks", 0x3cadc2, 0x3cae02, indexMartialMastersSprites_TrueLotusMaster, 0x08 },
     { L"True Lotus Master Supertrail", 0x3cae02, 0x3cae42, indexMartialMastersSprites_TrueLotusMaster },
     { L"True Lotus Master Shadow Flash 1", 0x3cae82, 0x3caec2, indexMartialMastersSprites_TrueLotusMaster },
     { L"True Lotus Master Shadow Flash 2", 0x3caec2, 0x3caf02, indexMartialMastersSprites_TrueLotusMaster },
@@ -456,53 +456,53 @@ const sGame_PaletteDataset MartialMasters_Palettes_TrueLotusMaster_Unused[] =
 
 const sGame_PaletteDataset MartialMasters_Palettes_Portraits_SelectScreen[] =
 {
-    { L"Master Huang Select Portrait", 0x347608, 0x347648 },
-    { L"Drunk Master Select Portrait", 0x347648, 0x347688 },
-    { L"Crane Select Portrait", 0x347808, 0x347848 },
-    { L"Ghost Kick Select Portrait", 0x3477c8, 0x347808 },
-    { L"Tiger Select Portrait", 0x3476c8, 0x347708 },
-    { L"Reika Select Portrait", 0x347748, 0x347788 },
-    { L"Scorpion Select Portrait", 0x347688, 0x3476c8 },
-    { L"Red Snake Select Portrait", 0x347848, 0x347888 },
-    { L"Monk Select Portrait", 0x347708, 0x347748 },
-    { L"Monkey Boy Select Portrait", 0x347788, 0x3477c8 },
-    { L"Lotus Master Select Portrait", 0x3478c8, 0x347908 },
-    { L"Saojin Select Portrait", 0x347888, 0x3478c8 },
-    { L"True Lotus Master Select Portrait", 0x347908, 0x347948 },
+    { L"Master Huang Select Portrait",      0x347608, 0x347648, indexMartialMastersSprites_MasterHuang, 0x40 },
+    { L"Drunk Master Select Portrait",      0x347648, 0x347688, indexMartialMastersSprites_DrunkMaster, 0x40 },
+    { L"Crane Select Portrait",             0x347808, 0x347848, indexMartialMastersSprites_Crane, 0x40 },
+    { L"Ghost Kick Select Portrait",        0x3477c8, 0x347808, indexMartialMastersSprites_GhostKick, 0x40 },
+    { L"Tiger Select Portrait",             0x3476c8, 0x347708, indexMartialMastersSprites_Tiger, 0x40 },
+    { L"Reika Select Portrait",             0x347748, 0x347788, indexMartialMastersSprites_Reika, 0x40 },
+    { L"Scorpion Select Portrait",          0x347688, 0x3476c8, indexMartialMastersSprites_Scorpion, 0x40 },
+    { L"Red Snake Select Portrait",         0x347848, 0x347888, indexMartialMastersSprites_RedSnake, 0x40 },
+    { L"Monk Select Portrait",              0x347708, 0x347748, indexMartialMastersSprites_Monk, 0x40 },
+    { L"Monkey Boy Select Portrait",        0x347788, 0x3477c8, indexMartialMastersSprites_MonkeyBoy, 0x40 },
+    { L"Lotus Master Select Portrait",      0x3478c8, 0x347908, indexMartialMastersSprites_LotusMaster, 0x40 },
+    { L"Saojin Select Portrait",            0x347888, 0x3478c8, indexMartialMastersSprites_Saojin, 0x40 },
+    { L"True Lotus Master Select Portrait", 0x347908, 0x347948, indexMartialMastersSprites_LotusMaster, 0x40 },
 };
 
 const sGame_PaletteDataset MartialMasters_Palettes_Portraits_WinScreen[] =
 {
-    { L"Master Huang Win Portrait", 0x347a48, 0x347a88 },
-    { L"Drunk Master Win Portrait", 0x347a88, 0x347ac8 },
-    { L"Crane Win Portrait", 0x347c48, 0x347c88 },
-    { L"Ghost Kick Win Portrait", 0x347c08, 0x347c48 },
-    { L"Tiger Win Portrait", 0x347b08, 0x347b48 },
-    { L"Reika Win Portrait", 0x347b88, 0x347bc8 },
-    { L"Scorpion Win Portrait", 0x347ac8, 0x347b08 },
-    { L"Red Snake Win Portrait", 0x347c88, 0x347cc8 },
-    { L"Monkey Boy Win Portrait", 0x347bc8, 0x347c08 },
-    { L"Monk Win Portrait", 0x347b48, 0x347b88 },
-    { L"Lotus Master Win Portrait", 0x347d08, 0x347d48 },
-    { L"Saojin Win Portrait", 0x347cc8, 0x347d08 },
-    { L"True Lotus Master Win Portrait", 0x347d48, 0x347d88 },
+    { L"Master Huang Win Portrait",         0x347a48, 0x347a88, indexMartialMastersSprites_MasterHuang, 0x41 },
+    { L"Drunk Master Win Portrait",         0x347a88, 0x347ac8, indexMartialMastersSprites_DrunkMaster, 0x41 },
+    { L"Crane Win Portrait",                0x347c48, 0x347c88, indexMartialMastersSprites_Crane, 0x41 },
+    { L"Ghost Kick Win Portrait",           0x347c08, 0x347c48, indexMartialMastersSprites_GhostKick, 0x41 },
+    { L"Tiger Win Portrait",                0x347b08, 0x347b48, indexMartialMastersSprites_Tiger, 0x41 },
+    { L"Reika Win Portrait",                0x347b88, 0x347bc8, indexMartialMastersSprites_Reika, 0x41 },
+    { L"Scorpion Win Portrait",             0x347ac8, 0x347b08, indexMartialMastersSprites_Scorpion, 0x41 },
+    { L"Red Snake Win Portrait",            0x347c88, 0x347cc8, indexMartialMastersSprites_RedSnake, 0x41 },
+    { L"Monk Win Portrait",                 0x347b48, 0x347b88, indexMartialMastersSprites_Monk, 0x41 },
+    { L"Monkey Boy Win Portrait",           0x347bc8, 0x347c08, indexMartialMastersSprites_MonkeyBoy, 0x41 },
+    { L"Lotus Master Win Portrait",         0x347d08, 0x347d48, indexMartialMastersSprites_LotusMaster, 0x41 },
+    { L"Saojin Win Portrait",               0x347cc8, 0x347d08, indexMartialMastersSprites_Saojin, 0x41 },
+    { L"True Lotus Master Win Portrait",    0x347d48, 0x347d88, indexMartialMastersSprites_LotusMaster, 0x41 },
 };
 
 const sGame_PaletteDataset MartialMasters_Palettes_Portraits_ScorePortraits[] =
 {
-    { L"Master Huang Score Portrait", 0x347048, 0x347088 },
-    { L"Drunk Master Score Portrait", 0x347088, 0x3470c8 },
-    { L"Crane Score Portrait", 0x347248, 0x347288 },
-    { L"Ghost Kick Score Portrait", 0x347208, 0x347248 },
-    { L"Tiger Score Portrait", 0x347108, 0x347148 },
-    { L"Reika Score Portrait", 0x347188, 0x3471c8 },
-    { L"Scorpion Score Portrait", 0x3470c8, 0x347108 },
-    { L"Red Snake Score Portrait", 0x347288, 0x3472c8 },
-    { L"Monkey Boy Score Portrait", 0x3471c8, 0x347208 },
-    { L"Monk Score Portrait", 0x347148, 0x347188 },
-    { L"Lotus Master Score Portrait", 0x347308, 0x347348 },
-    { L"Saojin Score Portrait", 0x3472c8, 0x347308 },
-    { L"True Lotus Master Score Portrait", 0x347348, 0x347388 },
+    { L"Master Huang Score Portrait",       0x347048, 0x347088, indexMartialMastersSprites_MasterHuang, 0x41 },
+    { L"Drunk Master Score Portrait",       0x347088, 0x3470c8, indexMartialMastersSprites_DrunkMaster, 0x41 },
+    { L"Crane Score Portrait",              0x347248, 0x347288, indexMartialMastersSprites_Crane, 0x41 },
+    { L"Ghost Kick Score Portrait",         0x347208, 0x347248, indexMartialMastersSprites_GhostKick, 0x41 },
+    { L"Tiger Score Portrait",              0x347108, 0x347148, indexMartialMastersSprites_Tiger, 0x41 },
+    { L"Reika Score Portrait",              0x347188, 0x3471c8, indexMartialMastersSprites_Reika, 0x41 },
+    { L"Scorpion Score Portrait",           0x3470c8, 0x347108, indexMartialMastersSprites_Scorpion, 0x41 },
+    { L"Red Snake Score Portrait",          0x347288, 0x3472c8, indexMartialMastersSprites_RedSnake, 0x41 },
+    { L"Monk Score Portrait",               0x347148, 0x347188, indexMartialMastersSprites_Monk, 0x41 },
+    { L"Monkey Boy Score Portrait",         0x3471c8, 0x347208, indexMartialMastersSprites_MonkeyBoy, 0x41 },
+    { L"Lotus Master Score Portrait",       0x347308, 0x347348, indexMartialMastersSprites_LotusMaster, 0x41 },
+    { L"Saojin Score Portrait",             0x3472c8, 0x347308, indexMartialMastersSprites_Saojin, 0x41 },
+    { L"True Lotus Master Score Portrait",  0x347348, 0x347388, indexMartialMastersSprites_LotusMaster, 0x41 },
 };
 
 //STAGES
@@ -561,7 +561,6 @@ const sGame_PaletteDataset MartialMasters_Palettes_Stages_MonkeyBoy[] =
     { L"Monkey Boy Stage 2/2", 0x35c89a, 0x35c99a },
 };
 
-
 const sGame_PaletteDataset MartialMasters_Palettes_Stages_Monk[] =
 {
     { L"Monk Stage 1/2", 0x35b9f0, 0x35bab0 },
@@ -583,14 +582,14 @@ const sGame_PaletteDataset MartialMasters_Palettes_Stages_TrueLotusMaster[] =
 // BONUS
 const sGame_PaletteDataset MartialMasters_Palettes_Bonus_SelectScreen[] =
 {
-    { L"Main Menu Logo", 0x347fc8, 0x348008 },
-    { L"Select Background", 0x347988, 0x3479c8 },
-    { L"Select Names", 0x347a08, 0x347a28 },
-    { L"Player Select Text", 0x347948, 0x347988 },
-    { L"Select Cursor 1/2", 0x347588, 0x3475a8 },
-    { L"Select Cursor 2/2", 0x3475c8, 0x3475e8 },
-    { L"Select Icons", 0x3473c8, 0x347588 },
-    { L"VS Text", 0x3479c8, 0x347a08 },
+    { L"Main Menu Logo", 0x347fc8, 0x348008, indexMartialMastersSprites_Bonus, 0x05 },
+    { L"Select Background", 0x347988, 0x3479c8, indexMartialMastersSprites_Bonus, 0x01, &pairNextAndNext },
+    { L"Player Select Text", 0x347948, 0x347988, indexMartialMastersSprites_Bonus, 0x04 },
+    { L"Select Icons", 0x3473c8, 0x347588, indexMartialMastersSprites_Bonus, 0x02 },
+    { L"Select Names", 0x347a08, 0x347a28, indexMartialMastersSprites_Bonus, 0x03 },
+    { L"Select Cursor 1/2", 0x347588, 0x3475a8, indexMartialMastersSprites_Bonus, 0x01 },
+    { L"Select Cursor 2/2", 0x3475c8, 0x3475e8, indexMartialMastersSprites_Bonus, 0x01 },
+    { L"VS Text", 0x3479c8, 0x347a08, indexMartialMastersSprites_Bonus, 0x06 },
     { L"Score Icons", 0x347388, 0x3473c8 },
 };
 
@@ -601,11 +600,11 @@ const sDescTreeNode MartialMasters_A_MasterHuang_COLLECTION[] =
     { L"Unused", DESC_NODETYPE_TREE, (void*)MartialMasters_Palettes_MasterHuang_Unused, ARRAYSIZE(MartialMasters_Palettes_MasterHuang_Unused) },
 };
 
-const sDescTreeNode MartialMasters_A_DrunkMasters_COLLECTION[] =
+const sDescTreeNode MartialMasters_A_DrunkMaster_COLLECTION[] =
 {
-    { L"Core", DESC_NODETYPE_TREE, (void*)MartialMasters_Palettes_DrunkMasters_Core, ARRAYSIZE(MartialMasters_Palettes_DrunkMasters_Core) },
-    { L"Extras", DESC_NODETYPE_TREE, (void*)MartialMasters_Palettes_DrunkMasters_Extras, ARRAYSIZE(MartialMasters_Palettes_DrunkMasters_Extras) },
-    { L"Unused", DESC_NODETYPE_TREE, (void*)MartialMasters_Palettes_DrunkMasters_Unused, ARRAYSIZE(MartialMasters_Palettes_DrunkMasters_Unused) },
+    { L"Core", DESC_NODETYPE_TREE, (void*)MartialMasters_Palettes_DrunkMaster_Core, ARRAYSIZE(MartialMasters_Palettes_DrunkMaster_Core) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)MartialMasters_Palettes_DrunkMaster_Extras, ARRAYSIZE(MartialMasters_Palettes_DrunkMaster_Extras) },
+    { L"Unused", DESC_NODETYPE_TREE, (void*)MartialMasters_Palettes_DrunkMaster_Unused, ARRAYSIZE(MartialMasters_Palettes_DrunkMaster_Unused) },
 };
 
 const sDescTreeNode MartialMasters_A_Crane_COLLECTION[] =
@@ -716,7 +715,7 @@ const sDescTreeNode MartialMasters_A_BONUS_COLLECTION[] =
 const sDescTreeNode MartialMasters_A_UNITS[] =
 {
     { L"Master Huang", DESC_NODETYPE_TREE, (void*)MartialMasters_A_MasterHuang_COLLECTION, ARRAYSIZE(MartialMasters_A_MasterHuang_COLLECTION) },
-    { L"Drunk Masters", DESC_NODETYPE_TREE, (void*)MartialMasters_A_DrunkMasters_COLLECTION, ARRAYSIZE(MartialMasters_A_DrunkMasters_COLLECTION) },
+    { L"Drunk Master", DESC_NODETYPE_TREE, (void*)MartialMasters_A_DrunkMaster_COLLECTION, ARRAYSIZE(MartialMasters_A_DrunkMaster_COLLECTION) },
     { L"Crane", DESC_NODETYPE_TREE, (void*)MartialMasters_A_Crane_COLLECTION, ARRAYSIZE(MartialMasters_A_Crane_COLLECTION) },
     { L"Ghost Kick", DESC_NODETYPE_TREE, (void*)MartialMasters_A_GhostKick_COLLECTION, ARRAYSIZE(MartialMasters_A_GhostKick_COLLECTION) },
     { L"Tiger", DESC_NODETYPE_TREE, (void*)MartialMasters_A_Tiger_COLLECTION, ARRAYSIZE(MartialMasters_A_Tiger_COLLECTION) },
