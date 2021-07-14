@@ -86,7 +86,7 @@ UINT32 CGame_MMPR_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"MMPR:TFE (SNES)", L"Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc", 0, 0 },
+        { L"MMPR:TFE (SNES)", L"Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc", 0x460b0a60, 0 },
     };
 
     if (ppKnownROMSet)

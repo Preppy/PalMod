@@ -47,7 +47,7 @@ public:
     static UINT16 GetUniqueUnitCount();
     static UINT16 GetFileCount();
 
-    static void GetCharacterIndexesFromFileIndexes(UINT16 nFileUnitId, UINT16 nFilePalId, UINT16* nCharacterUnitId, UINT16* nCharacterPalId);
-    static void GetFileIndexesFromCharacterIndexes(UINT16 nCharacterUnitId, UINT16 nCharacterPalId, UINT16* nFileUnitId, UINT16* nFilePalId);
-    static void GetFileIndexesFromCharacterCollection(UINT16 nCharacterUnitId, UINT16 nCollectionId, UINT16* nFileUnitId, UINT16* nFileCollectionId);
+    static void GetCharacterIndexFromFileIndex(UINT16 nFileUnitId, UINT16 nFilePalId, UINT16* pnCharacterUnitId, UINT16* pnCharacterPalId);
+    static void GetFileIndexFromCharacterIndex(UINT16 nCharacterUnitId, UINT16 nCharacterPalId, UINT16* nFileUnitId, UINT16* nFilePalId);
+    static void GetFileIndexFromCharacterCollection(UINT16 nCharacterUnitId, UINT16 nCollectionId, UINT16* nFileUnitId, UINT16* nFileCollectionId);
 };

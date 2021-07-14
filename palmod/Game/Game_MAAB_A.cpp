@@ -85,37 +85,6 @@ sFileRule CGame_MAAB_A::GetNextRule()
     return NewFileRule;
 }
 
-UINT16 CGame_MAAB_A::GetUniqueUnitCount()
-{
-    UINT16 nUniqueCount = 0;
-
-    for (int nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
-    {
-        bool fIsUnique = true;
-
-        for (int nCheckIndex = 0; nCheckIndex < nIndex; nCheckIndex++)
-        {
-            if (_wcsicmp(MAAB_A_CharacterData[nIndex].pszCharacter, MAAB_A_CharacterData[nCheckIndex].pszCharacter) == 0)
-            {
-                fIsUnique = false;
-                break;
-            }
-        }
-
-        if (fIsUnique)
-        {
-            nUniqueCount++;
-        }
-    }
-
-    return nUniqueCount;
-}
-
-UINT16 CGame_MAAB_A::GetFileCount()
-{
-    return ARRAYSIZE(MAAB_A_CharacterData);
-}
-
 sDescTreeNode* CGame_MAAB_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
@@ -189,7 +158,7 @@ sDescTreeNode* CGame_MAAB_A::InitDescTree()
                 UINT16 nFileUnitId = 0;
                 UINT16 nFilePalId = 0;
 
-                GetFileIndexesFromCharacterIndexes(nUnitCtrByCharacter, nNodeIndexForUnit, &nFileUnitId, &nFilePalId);
+                GetFileIndexFromCharacterIndex(nUnitCtrByCharacter, nNodeIndexForUnit, &nFileUnitId, &nFilePalId);
 
                 if (fShouldUseBasicPalettes)
                 {
@@ -276,7 +245,7 @@ bool CGame_MAAB_A::ShouldUseBasePaletteSet(UINT16 nCharacterUnitId, UINT16 nColl
     UINT16 nFileUnitId = 0;
     UINT16 nAdjustedCollectionId = 0;
 
-    GetFileIndexesFromCharacterCollection(nCharacterUnitId, nCollectionId, &nFileUnitId, &nAdjustedCollectionId);
+    GetFileIndexFromCharacterCollection(nCharacterUnitId, nCollectionId, &nFileUnitId, &nAdjustedCollectionId);
 
     if ((nAdjustedCollectionId == 0) && (MAAB_A_CharacterData[nFileUnitId].nPaletteListSize != 0))
     {
@@ -399,20 +368,52 @@ LPCWSTR CGame_MAAB_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
+UINT16 CGame_MAAB_A::GetUniqueUnitCount()
+{
+    UINT16 nUniqueCount = 0;
+
+    for (int nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
+    {
+        bool fIsUnique = true;
+
+        for (int nCheckIndex = 0; nCheckIndex < nIndex; nCheckIndex++)
+        {
+            if (_wcsicmp(MAAB_A_CharacterData[nIndex].pszCharacter, MAAB_A_CharacterData[nCheckIndex].pszCharacter) == 0)
+            {
+                fIsUnique = false;
+                break;
+            }
+        }
+
+        if (fIsUnique)
+        {
+            nUniqueCount++;
+        }
+    }
+
+    return nUniqueCount;
+}
+
+UINT16 CGame_MAAB_A::GetFileCount()
+{
+    return ARRAYSIZE(MAAB_A_CharacterData);
+}
+
 bool CGame_MAAB_A::PaletteIsInFileUnit(UINT16 nTargetFileUnitId, UINT16 nDisplayUnitId, INT16 nDisplayPalId)
 {
     UINT16 nActualFileUnitId = 0;
     UINT16 nFilePalId = 0;
 
-    GetFileIndexesFromCharacterIndexes(nDisplayUnitId, nDisplayPalId, &nActualFileUnitId, &nFilePalId);
+    GetFileIndexFromCharacterIndex(nDisplayUnitId, nDisplayPalId, &nActualFileUnitId, &nFilePalId);
 
     return (nTargetFileUnitId == nActualFileUnitId);
 }
 
-void CGame_MAAB_A::GetFileIndexesFromCharacterCollection(UINT16 nCharacterUnitId, UINT16 nCollectionId, UINT16* nFileUnitId, UINT16* nFileCollectionId)
+void CGame_MAAB_A::GetFileIndexFromCharacterCollection(UINT16 nCharacterUnitId, UINT16 nCollectionId, UINT16* pnFileUnitId, UINT16* pnFilePaletteId)
 {
-    *nFileUnitId = nCharacterUnitId;
-    *nFileCollectionId = nCollectionId;
+    *pnFileUnitId = nCharacterUnitId;
+    // Collections map to the 0 entry in files for now.
+    *pnFilePaletteId = 0;
 
     if (MAAB_A_CharacterData[nCharacterUnitId].pszNodeName != nullptr)
     {
@@ -424,52 +425,40 @@ void CGame_MAAB_A::GetFileIndexesFromCharacterCollection(UINT16 nCharacterUnitId
             {
                 if (nTotalMatches++ == nCollectionId)
                 {
-                    *nFileUnitId = nIndex;
+                    *pnFileUnitId = nIndex;
                     break;
-                }
-
-                if (MAAB_A_CharacterData[nIndex].nPaletteListSize != 0)
-                {
-                    *nFileCollectionId = *nFileCollectionId - 1;
-                }
-
-                if (MAAB_A_CharacterData[nIndex].nCountExtras != 0)
-                {
-                    *nFileCollectionId = *nFileCollectionId - 1;
                 }
             }
         }
     }
 }
 
-void CGame_MAAB_A::GetFileIndexesFromCharacterIndexes(UINT16 nCharacterUnitId, UINT16 nCharacterPalId, UINT16* nFileUnitId, UINT16* nFilePalId)
+void CGame_MAAB_A::GetFileIndexFromCharacterIndex(UINT16 nCharacterUnitId, UINT16 nCharacterPalId, UINT16* pnFileUnitId, UINT16* pnFilePalId)
 {
-    *nFileUnitId = nCharacterUnitId;
-    *nFilePalId = nCharacterPalId;
+    *pnFileUnitId = nCharacterUnitId;
+    *pnFilePalId = nCharacterPalId;
 
     if (MAAB_A_CharacterData[nCharacterUnitId].pszNodeName != nullptr)
     {
-        UINT16 nTotalPalettes = 0;
-
         for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
         {
             if (MAAB_A_CharacterData[nIndex].pszNodeName && (_wcsicmp(MAAB_A_CharacterData[nIndex].pszCharacter, MAAB_A_CharacterData[nCharacterUnitId].pszCharacter) == 0))
             {
-                *nFileUnitId = nIndex;
+                *pnFileUnitId = nIndex;
 
                 UINT16 nPalettesThisUnit = MAAB_A_CharacterData[nIndex].nPaletteListSize + MAAB_A_CharacterData[nIndex].nCountExtras;
-                if (nPalettesThisUnit > *nFilePalId)
+                if (nPalettesThisUnit > *pnFilePalId)
                 {
                     break;
                 }
 
-                *nFilePalId -= nPalettesThisUnit;
+                *pnFilePalId -= nPalettesThisUnit;
             }
         }
     }
 }
 
-void CGame_MAAB_A::GetCharacterIndexesFromFileIndexes(UINT16 nFileUnitId, UINT16 nFilePalId, UINT16* nCharacterUnitId, UINT16* nCharacterPalId)
+void CGame_MAAB_A::GetCharacterIndexFromFileIndex(UINT16 nFileUnitId, UINT16 nFilePalId, UINT16* nCharacterUnitId, UINT16* nCharacterPalId)
 {
     *nCharacterUnitId = nFileUnitId;
     *nCharacterPalId = nFilePalId;
@@ -535,7 +524,7 @@ void CGame_MAAB_A::LoadSpecificPaletteData(UINT16 nDisplayUnitId, UINT16 nDispla
     UINT16 nFileUnitId = 0;
     UINT16 nFilePalId = 0;
 
-    GetFileIndexesFromCharacterIndexes(nDisplayUnitId, nDisplayPalId, &nFileUnitId, &nFilePalId);
+    GetFileIndexFromCharacterIndex(nDisplayUnitId, nDisplayPalId, &nFileUnitId, &nFilePalId);
 
     LoadSpecificPaletteDataByFileUnit(nFileUnitId, nFilePalId);
 }
@@ -567,7 +556,7 @@ BOOL CGame_MAAB_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     UINT16 nFileUnitId = 0;
     UINT16 nFilePalId = 0;
 
-    GetFileIndexesFromCharacterCollection(CharacterNodeGet->uUnitId, CharacterNodeGet->uPalId, &nFileUnitId, &nFilePalId);
+    GetFileIndexFromCharacterCollection(CharacterNodeGet->uUnitId, CharacterNodeGet->uPalId, &nFileUnitId, &nFilePalId);
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -615,22 +604,8 @@ BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, UINT16 nFileUnitNumber)
     BOOL fSuccess = TRUE;
     CString strInfo;
 
-    strInfo.Format(L"CGame_MAAB_A_DIR::LoadFile: Preparing to load data for unit number %u (character %s)\n", nFileUnitNumber, MAAB_A_CharacterData[nFileUnitNumber].pszCharacter);
+    strInfo.Format(L"CGame_MAAB_A_DIR::LoadFile: Preparing to load data for file unit number %u (character %s)\n", nFileUnitNumber, MAAB_A_CharacterData[nFileUnitNumber].pszCharacter);
     OutputDebugString(strInfo);
-
-#ifdef USE_DYNAMIC_LOCATION_LOOKUP
-    LONGLONG nPalettePointer = 0;
-
-    LoadedFile->Seek(0, CFile::begin);
-    LoadedFile->Read(&nPalettePointer, 0x02);
-        
-    UINT32 nPaletteStart = 0;
-
-    LoadedFile->Seek(nPalettePointer + 0x0c, CFile::begin);
-    LoadedFile->Read(&nPaletteStart, 0x04);
-
-    MAAB_A_CharacterData[nUnitNumber].nInitialLocation = nPaletteStart + 0x90;
-#endif
 
     strInfo.Format(L"\tCGame_MAAB_A_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", MAAB_A_CharacterData[nFileUnitNumber].nInitialLocation);
     OutputDebugString(strInfo);
@@ -640,7 +615,7 @@ BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, UINT16 nFileUnitNumber)
     UINT16 nCharacterUnitId = 0;
     UINT16 nTrash = 0;
 
-    GetCharacterIndexesFromFileIndexes(nFileUnitNumber, 0, &nCharacterUnitId, &nTrash);
+    GetCharacterIndexFromFileIndex(nFileUnitNumber, 0, &nCharacterUnitId, &nTrash);
 
     if (m_pppDataBuffer32[nCharacterUnitId] == nullptr)
     {
@@ -656,7 +631,7 @@ BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, UINT16 nFileUnitNumber)
         UINT16 nFileUnitId = 0;
         UINT16 nFilePalId = 0;
 
-        GetFileIndexesFromCharacterIndexes(nCharacterUnitId, nCharacterPalCtr, &nFileUnitId, &nFilePalId);
+        GetFileIndexFromCharacterIndex(nCharacterUnitId, nCharacterPalCtr, &nFileUnitId, &nFilePalId);
 
         if (PaletteIsInFileUnit(nFileUnitNumber, nCharacterUnitId, nCharacterPalCtr))
         {
@@ -686,31 +661,31 @@ BOOL CGame_MAAB_A::SaveFile(CFile* SaveFile, UINT16 nFileUnitNumber)
     UINT16 nPalAmt = GetPaletteCountForUnit(nFileUnitNumber);
 
     UINT16 nCharacterUnitId = 0;
-    UINT16 nCharacterPalId = 0;
+    UINT16 nTrash = 0;
 
-    GetCharacterIndexesFromFileIndexes(nFileUnitNumber, 0, &nCharacterUnitId, &nCharacterPalId);
+    GetCharacterIndexFromFileIndex(nFileUnitNumber, 0, &nCharacterUnitId, &nTrash);
 
     for (UINT16 nCharacterPalCtr = 0; nCharacterPalCtr < nPalAmt; nCharacterPalCtr++)
     {
         UINT16 nFileUnitId = 0;
         UINT16 nFilePalId = 0;
 
-        GetFileIndexesFromCharacterIndexes(nCharacterUnitId, nCharacterPalCtr, &nFileUnitId, &nFilePalId);
+        GetFileIndexFromCharacterIndex(nCharacterUnitId, nCharacterPalCtr, &nFileUnitId, &nFilePalId);
 
         if (PaletteIsInFileUnit(nFileUnitNumber, nCharacterUnitId, nCharacterPalCtr))
         {
-            if (IsPaletteDirty(nCharacterUnitId, nCharacterPalId))
+            if (IsPaletteDirty(nCharacterUnitId, nCharacterPalCtr))
             {
-                LoadSpecificPaletteDataByFileUnit(nCharacterUnitId, nCharacterPalId);
+                LoadSpecificPaletteData(nCharacterUnitId, nCharacterPalCtr);
 
                 SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 if (GameIsUsing16BitColor())
                 {
-                    SaveFile->Write(m_pppDataBuffer[nCharacterUnitId][nCharacterPalId], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                    SaveFile->Write(m_pppDataBuffer[nCharacterUnitId][nCharacterPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
                 }
                 else if (GameIsUsing32BitColor())
                 {
-                    SaveFile->Write(m_pppDataBuffer32[nCharacterUnitId][nCharacterPalId], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                    SaveFile->Write(m_pppDataBuffer32[nCharacterUnitId][nCharacterPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
                 }
 
                 nTotalPalettesSaved++;

@@ -431,7 +431,7 @@ const sGame_PaletteDataset REDEARTH_A_BLADE_PALETTES[] =
 {
     { L"Blade/Mirror Frame", 0x433c00, 0x433c80, indexRedEarthSprites_Blade, 0x00, &pairNext },
     { L"Emerald FX/Intro 1/Adrayer+attacking gauntlets", 0x433c80, 0x433d00, indexRedEarthSprites_Blade, 0x01 },
-    { L"Emerald FX/Intro 2", 0x433d00, 0x433d80, indexRedEarthSprites_Blade, 0x01 },
+    { L"Emerald FX/Intro 2", 0x433d00, 0x433d80, indexRedEarthSprites_Bonus, 0x0c },
     { L"Emerald FX/Intro 3", 0x433d80, 0x433e00, indexRedEarthSprites_Blade, 0x01 },
     { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433e80 },
 };
@@ -443,8 +443,39 @@ const sGame_PaletteDataset REDEARTH_A_BLADE_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_HAUZER_PALETTES[] =
 {
-    { L"Hauzer",             0x421000, 0x421080, indexRedEarthSprites_Hauzer, 0 },
-    { L"Hauzer hit palette", 0x423E80, 0x423F00, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer", 0x421000, 0x421080, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Hit Effect 1", 0x423e80, 0x423f00, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Hit Effect 2", 0x421180, 0x421200, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Fire Effects", 0x421200, 0x421280 },
+    { L"Hauzer Lava Ball", 0x421280, 0x421300 },
+    { L"Hauzer Gust Flame 1", 0x421380, 0x421400, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Gust Flame 2", 0x421400, 0x421480, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 1", 0x421580, 0x421600, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 2", 0x421600, 0x421680, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 3", 0x421680, 0x421700, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 4", 0x421700, 0x421780, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 5", 0x421780, 0x421800, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Berserker 6", 0x421800, 0x421880, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 1", 0x421a00, 0x421a80, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 2", 0x421980, 0x421a00, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 3", 0x421900, 0x421980, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer End Berserker 4", 0x421880, 0x421900, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Burned 1", 0x423a00, 0x423a80, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Burned 2", 0x423a80, 0x423b00, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Shocked 1", 0x423b00, 0x423b80, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Shocked 2", 0x423b80, 0x423c00, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 1", 0x423c00, 0x423c80, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 2", 0x423c80, 0x423d00, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 3", 0x423d00, 0x423d80, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Poisoned 4", 0x423d80, 0x423e00, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Petrified 1", 0x423e00, 0x423e80, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Petrified 2", 0x423f00, 0x423f80, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 1", 0x423f80, 0x424000, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 2", 0x424000, 0x424080, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 3", 0x424080, 0x424100, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 4", 0x424100, 0x424180, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Frozen 5", 0x424180, 0x424200, indexRedEarthSprites_Hauzer, 0 },
+
 };
 
 const sGame_PaletteDataset REDEARTH_A_HYDRON_PALETTES[] =
@@ -629,6 +660,11 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Capcom Logo25", 0x320c80, 0x320d00, indexRedEarthSprites_Bonus, 0x04 },
     { L"Capcom Logo26", 0x320d00, 0x320d80, indexRedEarthSprites_Bonus, 0x04 },
     { L"Capcom Logo27", 0x320d80, 0x320e00, indexRedEarthSprites_Bonus, 0x04 },
+    { L"Capcom Logo28", 0x320e00, 0x320e80, indexRedEarthSprites_Bonus, 0x04 },
+    { L"Capcom Logo29", 0x320e80, 0x320f00, indexRedEarthSprites_Bonus, 0x04 },
+    { L"Capcom Logo30", 0x320f00, 0x320f80, indexRedEarthSprites_Bonus, 0x04 },
+    { L"Capcom Logo31", 0x320f80, 0x321000, indexRedEarthSprites_Bonus, 0x04 },
+
 
     { L"Intro - Red Earth", 0x322ca0, 0x322d80 },
     { L"Intro - Leo closeup", 0x3226ae, 0x32272e },
