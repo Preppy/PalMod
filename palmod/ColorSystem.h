@@ -30,6 +30,7 @@ enum class ColMode
     COLMODE_xBGR888,        // 24bit
     COLMODE_ARGB1888_32STEPS, // MBAACC: 32 bit color, except only 32 steps
     COLMODE_GRB555_LE,      // GRB555 little endian
+    COLMODE_ABGR8888,       // 32bit color (arcana blood)
     COLMODE_LAST,
 };
 
@@ -94,6 +95,8 @@ public:
     static UINT32 CONV_ARGB7888_32(UINT32 inCol);
     static UINT32 CONV_32_ARGB8888(UINT32 inCol);
     static UINT32 CONV_ARGB8888_32(UINT32 inCol);
+    static UINT32 CONV_32_ABGR8888(UINT32 inCol);
+    static UINT32 CONV_ABGR8888_32(UINT32 inCol);
 
     static int GetColorStepFor8BitValue_1Step(int nColorValue);
     static int Get8BitValueForColorStep_1Step(int nColorStep);

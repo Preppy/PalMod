@@ -79,6 +79,7 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
             return CColorSystem::k_nRGBPlaneAmtForRGB888;
         }
     case ColMode::COLMODE_ARGB8888:
+    case ColMode::COLMODE_ABGR8888:
     case ColMode::COLMODE_xRGB888:
     case ColMode::COLMODE_xBGR888:
         return CColorSystem::k_nRGBPlaneAmtForRGB888;
@@ -316,6 +317,18 @@ BOOL CGameClass::_SetColorMode(ColMode NewMode)
         m_nSizeOfColorsInBytes = 4;
         ConvPal32 = &CColorSystem::CONV_ARGB8888_32;
         ConvCol32 = &CColorSystem::CONV_32_ARGB8888;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_256Steps;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_256Steps;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB888;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
+        return TRUE;
+    case ColMode::COLMODE_ABGR8888:
+        m_nSizeOfColorsInBytes = 4;
+        ConvPal32 = &CColorSystem::CONV_ABGR8888_32;
+        ConvCol32 = &CColorSystem::CONV_32_ABGR8888;
         GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
         Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
         GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_256Steps;

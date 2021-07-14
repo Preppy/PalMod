@@ -406,6 +406,9 @@
     <Filter Include="Games\SNK Games\Gowcaizer">
       <UniqueIdentifier>{5419c58a-9053-4fe1-a361-fad90e78c41b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29">
+      <UniqueIdentifier>{79496fa5-500a-4265-aac3-90fe829b3c8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -836,6 +839,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_Gowcaizer_A.cpp">
       <Filter>Games\SNK Games\Gowcaizer</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MAAB_A.cpp">
+      <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1570,6 +1576,15 @@
     </ClInclude>
     <ClInclude Include="Game\Gowcaizer_A_DEF.h">
       <Filter>Games\SNK Games\Gowcaizer</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MAAB_A.h">
+      <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MAAB_A_DEF.h">
+      <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MAAB_Common.h">
+      <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

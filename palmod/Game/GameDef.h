@@ -140,6 +140,7 @@ enum SupportedGamesList
     KOF02PS2_A,
     MartialMasters_A,
     Gowcaizer_A,
+    MAAB_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -277,6 +278,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"King of Fighters 2002PS2 (Neo-Geo hack)",
     L"Martial Masters (PGM)",
     L"Voltage Fighter Gowcaizer (Neo-Geo)",
+    L"Million Arthur Arcana Blood (Steam)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

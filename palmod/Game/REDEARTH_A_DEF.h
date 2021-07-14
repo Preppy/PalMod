@@ -147,6 +147,8 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
     { L"Kunai Throwing Shine (2/3)",             0x40BE80, 0x40BF00, indexRedEarthSprites_Kenji, 0x01 },
     { L"Kunai Throwing Shine (3/3)",             0x40BE00, 0x40BE80, indexRedEarthSprites_Kenji, 0x01 },
 
+    { L"Kenji Sword Slash", 0x40B280, 0x40B300 },
+
     { L"Kenji Punch Ultimate Guard Flash and Burn 1", 0x40DC00, 0x40DC80, indexRedEarthSprites_Kenji },
     { L"Kenji Punch Burn 2", 0x40DC80, 0x40DD00, indexRedEarthSprites_Kenji },
     { L"Kenji Punch Shock 1", 0x40DD00, 0x40DD80, indexRedEarthSprites_Kenji },
@@ -186,6 +188,8 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
     { L"Kunai Throwing Shine (1/3)",             0x418700, 0x418780, indexRedEarthSprites_Kenji, 0x01 },
     { L"Kunai Throwing Shine (2/3)",             0x418680, 0x418700, indexRedEarthSprites_Kenji, 0x01 },
     { L"Kunai Throwing Shine (3/3)",             0x418600, 0x418680, indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Kenji Sword Slash", 0x417A80, 0x417B00 },
 
     { L"Kenji Kick Ultimate Guard Flash and Burn 1", 0x41A400, 0x41A480, indexRedEarthSprites_Kenji },
     { L"Kenji Kick Burn 2", 0x41A480, 0x41A500, indexRedEarthSprites_Kenji },

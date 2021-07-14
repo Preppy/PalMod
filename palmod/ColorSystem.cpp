@@ -33,6 +33,7 @@ UINT8 GetCbForColMode(ColMode colorMode)
     case ColMode::COLMODE_ARGB1888:
     case ColMode::COLMODE_ARGB1888_32STEPS:
     case ColMode::COLMODE_ARGB8888:
+    case ColMode::COLMODE_ABGR8888:
         return 4;
     }
 
@@ -746,6 +747,51 @@ UINT32 CColorSystem::CONV_32_ARGB8888(UINT32 inCol)
     //auxr = auxr;
     auxg = auxg << 8;
     auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT32 CColorSystem::CONV_ABGR8888_32(UINT32 inCol)
+{
+    // B<->R
+    UINT32 auxb = GetRValue(inCol);
+    UINT32 auxg = GetGValue(inCol);
+    UINT32 auxr = GetBValue(inCol);
+    UINT32 auxa = GetAValue(inCol);
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT32 CColorSystem::CONV_32_ABGR8888(UINT32 inCol)
+{
+    UINT32 auxa = (inCol & 0xFF000000) >> 24;
+    UINT32 auxb = (inCol & 0x00FF0000) >> 16;
+    UINT32 auxg = (inCol & 0x0000FF00) >> 8;
+    UINT32 auxr = (inCol & 0x000000FF);
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xff;
+    }
+    else
+    {
+        auxa = (UINT32)floor((auxa + 1) / 2);
+    }
+
+    //auxb = auxb;
+    auxg = auxg << 8;
+    auxr = auxr << 16;
     auxa = auxa << 24;
 
     return (auxb | auxg | auxr | auxa);

@@ -332,6 +332,7 @@ BEGIN
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
             END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
+            MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
             POPUP "MvC2"
             BEGIN
                 MENUITEM "Arcade",                      ID_LD_MVC2ARCADE
@@ -416,6 +417,7 @@ BEGIN
             MENUITEM "RGBA8881 (DBFCI)",            ID_COLORFORMAT_ARGB1888
             MENUITEM "RGBA8888 (Half alpha for Arcsys)", ID_COLORFORMAT_ARGB7888
             MENUITEM "RGBA8888",                    ID_COLORFORMAT_ARGB8888
+            MENUITEM "BGRA8888",                    ID_COLORFORMAT_ABGR8888
             MENUITEM SEPARATOR
             MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
             MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED

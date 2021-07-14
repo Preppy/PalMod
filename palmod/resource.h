@@ -265,13 +265,15 @@
 #define ID_LD_MBAACC_S                  32898
 #define ID_COLORFORMAT_GRB555_LE        32899
 #define ID_LOADDIRECTORY_REDEARTH_50    32900
+#define ID_COLORFORMAT_ABGR8888         32901
+#define ID_LD_MAAB                      32902
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32901
+#define _APS_NEXT_COMMAND_VALUE         32902
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

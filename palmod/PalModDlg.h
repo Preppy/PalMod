@@ -120,6 +120,7 @@ public:
     // it's only currently used for MBAACC.
     void SetColorFormatToARGB7888() { SetColorFormatTo(ColMode::COLMODE_ARGB7888); };
     void SetColorFormatToARGB8888() { SetColorFormatTo(ColMode::COLMODE_ARGB8888); };
+    void SetColorFormatToABGR8888() { SetColorFormatTo(ColMode::COLMODE_ABGR8888); };
 
     void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption);
     void SetMaximumWriteTo16Colors() { SetMaximumWritePerEachTransparency(PALWriteOutputOptions::WRITE_16); };
@@ -321,6 +322,7 @@ public:
     afx_msg void OnLoadDir_GGXXACR_P()      { OnLoadGameByDirectory(GGXXACR_P); };
     afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };
     afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };
+    afx_msg void OnLoadDir_MAAB_S()         { OnLoadGameByDirectory(MAAB_A); };
     afx_msg void OnLoadDir_MBAACC_S()       { OnLoadGameByDirectory(MBAACC_S); };
     afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };
     afx_msg void OnLoadDir_MVC2DCUSA()      { OnLoadGameByDirectory(MVC2_D); };

@@ -379,6 +379,7 @@ void CPalModDlg::UpdateColorFormatMenu()
             MF_BYCOMMAND | (((currColMode == ColMode::COLMODE_ARGB1888) || (currColMode == ColMode::COLMODE_ARGB1888_32STEPS))? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB7888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB7888) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB8888) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ABGR8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ABGR8888) ? MF_CHECKED : MF_UNCHECKED));
 
         // There's no allowance for alpha with NEOGEO colors
         canChangeAlpha = canChangeAlpha && (currColMode != ColMode::COLMODE_RGB666_NEOGEO);
@@ -406,6 +407,7 @@ void CPalModDlg::UpdateColorFormatMenu()
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB1888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB7888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB8888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_ABGR8888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
 
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_FIXED, canChangeAlpha ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_UNUSED, canChangeAlpha ? MF_ENABLED : MF_DISABLED);
