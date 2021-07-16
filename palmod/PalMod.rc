@@ -332,7 +332,7 @@ BEGIN
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
             END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
-            MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
+//            MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
             POPUP "MvC2"
             BEGIN
                 MENUITEM "Arcade",                      ID_LD_MVC2ARCADE

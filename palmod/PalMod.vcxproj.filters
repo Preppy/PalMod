@@ -409,6 +409,9 @@
     <Filter Include="Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29">
       <UniqueIdentifier>{79496fa5-500a-4265-aac3-90fe829b3c8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Jojo%27s RPG %28SNES%29">
+      <UniqueIdentifier>{e6d0d154-b499-48b9-a46c-c5dc756c54f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -842,6 +845,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_MAAB_A.cpp">
       <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_JojosRPG_SNES.cpp">
+      <Filter>Games\Nintendo\Jojo%27s RPG %28SNES%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1585,6 +1591,12 @@
     </ClInclude>
     <ClInclude Include="Game\MAAB_Common.h">
       <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_JojosRPG_SNES.h">
+      <Filter>Games\Nintendo\Jojo%27s RPG %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\JojosRPG_SNES_DEF.h">
+      <Filter>Games\Nintendo\Jojo%27s RPG %28SNES%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

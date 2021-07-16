@@ -26,6 +26,7 @@
 #include "Game_GUNDAM_SNES.h"
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
+#include "Game_JOJOSRPG_SNES.h"
 #include "Game_KarnovsR_A.h"
 #include "Game_KI_SNES.h"
 #include "Game_Kizuna_A.h"
@@ -319,6 +320,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_JOJOS_A_DIR::GetRule;
         GetNextRule = &CGame_JOJOS_A_DIR::GetNextRule;
 
+        return TRUE;
+    }
+    case JOJOSRPG_SNES:
+    {
+        GetRule = &CGame_JOJOSRPG_SNES::GetRule;
         return TRUE;
     }
     case KarnovsR_A:
@@ -972,6 +978,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case JOJOS_A_DIR_51:
     {
         return new CGame_JOJOS_A_DIR(-1, 51);
+    }
+    case JOJOSRPG_SNES:
+    {
+        return new CGame_JOJOSRPG_SNES(nConfirmedROMSize);
     }
     case KarnovsR_A:
     {

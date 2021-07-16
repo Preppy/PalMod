@@ -432,8 +432,8 @@ const sGame_PaletteDataset REDEARTH_A_BLADE_PALETTES[] =
     { L"Blade/Mirror Frame", 0x433c00, 0x433c80, indexRedEarthSprites_Blade, 0x00, &pairNext },
     { L"Emerald FX/Intro 1/Adrayer+attacking gauntlets", 0x433c80, 0x433d00, indexRedEarthSprites_Blade, 0x01 },
     { L"Emerald FX/Intro 2", 0x433d00, 0x433d80, indexRedEarthSprites_Bonus, 0x0c },
-    { L"Emerald FX/Intro 3", 0x433d80, 0x433e00, indexRedEarthSprites_Blade, 0x01 },
-    { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433e80 },
+    { L"Emerald FX/Intro 3", 0x433d80, 0x433e00, indexRedEarthSprites_Bonus, 0x0d },
+    { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433e80, indexRedEarthSprites_Bonus, 0x10 },
 };
 
 //const sGame_PaletteDataset REDEARTH_A_GIGI_PALETTES[] =
@@ -603,22 +603,22 @@ const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
     { L"Ready Warrior (13/15)", 0x1DFA00, 0x1DFA80, indexRedEarthSprites_Bonus, 0x03 },
     { L"Ready Warrior (14/15)", 0x1DFA80, 0x1DFB00, indexRedEarthSprites_Bonus, 0x03 },
     { L"Ready Warrior (15/15)", 0x1DFB00, 0x1DFB80, indexRedEarthSprites_Bonus, 0x03 },
-    { L"Character Select Background Clouds (1/4)", 0x1DE000, 0x1DE080 },
-    { L"Character Select Background Clouds (2/4)", 0x1DE080, 0x1DE100 },
-    { L"Character Select Background Clouds (3/4)", 0x1DE100, 0x1DE180 },
-    { L"Character Select Background Clouds (4/4)", 0x1DE180, 0x1DE200 },
-    { L"Character Select Background Skyline (1/4)", 0x1DE200, 0x1DE280 },
-    { L"Character Select Background Skyline (2/4)", 0x1DE280, 0x1DE300 },
-    { L"Character Select Background Skyline (3/4)", 0x1DE300, 0x1DE380 },
-    { L"Character Select Background Skyline (4/4)", 0x1DE380, 0x1DE400 },
-    { L"Character Select Transition Clouds (1/4)", 0x1DE400, 0x1DE480 },
-    { L"Character Select Transition Clouds (2/4)", 0x1DE480, 0x1DE500 },
-    { L"Character Select Transition Clouds (3/4)", 0x1DE500, 0x1DE580 },
-    { L"Character Select Transition Clouds (4/4)", 0x1DE580, 0x1DE600 },
-    { L"Character Select Transition Skyline (1/4)", 0x1DE600, 0x1DE680 },
-    { L"Character Select Transition Skyline (2/4)", 0x1DE680, 0x1DE700 },
-    { L"Character Select Transition Skyline (3/4)", 0x1DE700, 0x1DE780 },
-    { L"Character Select Transition Skyline (4/4)", 0x1DE780, 0x1DE800 },
+    { L"Character Select Background Clouds (1/4)", 0x1DE000, 0x1DE080, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Clouds (2/4)", 0x1DE080, 0x1DE100, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Clouds (3/4)", 0x1DE100, 0x1DE180, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Clouds (4/4)", 0x1DE180, 0x1DE200, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Skyline (1/4)", 0x1DE200, 0x1DE280, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Background Skyline (2/4)", 0x1DE280, 0x1DE300, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Background Skyline (3/4)", 0x1DE300, 0x1DE380, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Background Skyline (4/4)", 0x1DE380, 0x1DE400, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Clouds (1/4)", 0x1DE400, 0x1DE480, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Clouds (2/4)", 0x1DE480, 0x1DE500, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Clouds (3/4)", 0x1DE500, 0x1DE580, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Clouds (4/4)", 0x1DE580, 0x1DE600, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Skyline (1/4)", 0x1DE600, 0x1DE680, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Skyline (2/4)", 0x1DE680, 0x1DE700, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Skyline (3/4)", 0x1DE700, 0x1DE780, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Skyline (4/4)", 0x1DE780, 0x1DE800, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
     { L"Vs Screen Transition - Leo (1/4)", 0x406000, 0x406100 },
     { L"Vs Screen Transition - Kenji (2/4)", 0x406100, 0x406200 },
     { L"Vs Screen Transition - Tessa (3/4)", 0x406200, 0x406300 },
@@ -1083,9 +1083,9 @@ const sGame_PaletteDataset REDEARTH_A_30_BONUS_TEXT_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_30_BONUS_CREDITS_PALETTES[] =
 {
-    { L"Credits - TITLES (e.g, Planner)", 0X7eb080, 0X7eb0A0 },
-    { L"Credits - \"Thank you for playing / Coming Next\"", 0X7eb100, 0X7eb120 },
-    { L"Credits - STAFF", 0X7eb180, 0X7eb1A0 },
+    { L"Credits - TITLES (e.g, Planner) + Kenji VS Text", 0X7eb080, 0X7eb0A0 },
+    { L"Credits - \"Thank you for playing / Coming Next\" + Mai Ling VS Text", 0X7eb100, 0X7eb120 },
+    { L"Credits - STAFF + Tessa VS Text", 0X7eb180, 0X7eb1A0 },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =

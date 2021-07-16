@@ -141,6 +141,7 @@ enum SupportedGamesList
     MartialMasters_A,
     Gowcaizer_A,
     MAAB_A,
+    JOJOSRPG_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -279,6 +280,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Martial Masters (PGM)",
     L"Voltage Fighter Gowcaizer (Neo-Geo)",
     L"Million Arthur Arcana Blood (Steam)",
+    L"Jojo's Bizarre Adventure (SNES)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -392,6 +394,7 @@ const stPairedPaletteInfo pairNext12 = { 12, 0, 0 };
 const stPairedPaletteInfo pairNext15 = { 15, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 const stPairedPaletteInfo pairPrevious2 = { -2, 0, 0 };
+const stPairedPaletteInfo pairPrevious4 = { -4, 0, 0 };
 
 // Same thing as Previous, except flip the order of the joins to avoid sprite occlusion 
 const stPairedPaletteInfo pairPreviousFlipped = { -1, 0, 0, true };

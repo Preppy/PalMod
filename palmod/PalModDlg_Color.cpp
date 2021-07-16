@@ -692,10 +692,9 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
     {
         switch (nPalSelAmt)
         {
-        case 0:
-            break;
         case 1:
         {
+            // Single-select
             int nSingleSel = CurrPalCtrl->GetSS();
             COLORREF* crTarget = &CurrPalCtrl->GetBasePal()[nSingleSel];
 
@@ -727,8 +726,13 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
             CurrPalDef->bChanged = TRUE;
         }
         break;
+        case 0: // Nothing selected: presume full coverage
         default:
         {
+            // Multi-select!
+            // Since values will "bounce" 0 or max, we need to be operating off of the memory-saved pBasePal
+            // as opposed to the "live" pPal values.
+            // This is so that rgb(255,255,255) + 5 red - 5 red returns to rgb(255,255,255) instead of rgb(250,255,255)
             COLORREF* crTarget = CurrPalCtrl->GetBasePal();
             int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
             UCHAR* uSelBuffer = CurrPalCtrl->GetSelIndex();
@@ -738,7 +742,7 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
             {
                 for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
                 {
-                    if (uSelBuffer[nICtr])
+                    if (uSelBuffer[nICtr] || (nPalSelAmt == 0))
                     {
                         MainPalGroup->AddColorStepsToColorValue(crBasePal[nICtr], &crTarget[nICtr],
                             m_RHSlider.GetPos(),
@@ -755,7 +759,7 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
             {
                 for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
                 {
-                    if (uSelBuffer[nICtr])
+                    if (uSelBuffer[nICtr] || (nPalSelAmt == 0))
                     {
                         MainPalGroup->SetAddHLSA(crBasePal[nICtr], &crTarget[nICtr],
                             (double)m_RHSlider.GetPos() / 360.0f,
