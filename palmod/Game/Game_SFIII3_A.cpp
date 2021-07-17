@@ -109,16 +109,16 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
         OutputDebugString(L"Warning: unrecognized ROM.\n");
         __fallthrough;
     case SF3ROM_51:
-        m_nSafeCountForThisRom = 1247;
+        m_nSafeCountForThisRom = 1417;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_51;
         break;
     case SF3ROM_51_4rd: // Replaces Shin Gouki with Ultra Sean, which uses 3 fewer palettes
-        m_nSafeCountForThisRom = 1244;
+        m_nSafeCountForThisRom = 1417 - 3;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_4;
         break;
     case SF3ROM_70_EX: // TV's edit: removes Gill, just has character palettes but adds extra button colors
                        // doesn't include the Bonus nor Stage sections
-        m_nSafeCountForThisRom = 1281;
+        m_nSafeCountForThisRom = 1687;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_70;
         m_nLowestKnownPaletteRomLocation = 0x0;
         break;
@@ -137,8 +137,8 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     //Set game information
     nGameFlag = SFIII3_A;
     nImgGameFlag = IMGDAT_SECTION_SF3;
-    m_prgGameImageSet = SFIII3_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SFIII3_A_IMG_UNITS);
+    m_prgGameImageSet = SFIII3_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SFIII3_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -1231,8 +1231,9 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
             // These characters only have two nodes in this game
-            if ((wcscmp(charUnit->szDesc, k_sf3NameKey_ShinGouki) == 0) ||
-                (wcscmp(charUnit->szDesc, k_sf3NameKey_UltraSean) == 0))
+            if (((wcscmp(charUnit->szDesc, k_sf3NameKey_ShinGouki) == 0) ||
+                 (wcscmp(charUnit->szDesc, k_sf3NameKey_UltraSean) == 0)) &&
+                (nSrcAmt > 1))
             {
                 nSrcAmt = 2;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
@@ -1245,7 +1246,8 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (wcscmp(charUnit->szDesc, k_sf3NameKey_Alex) == 0)
+                if ((wcscmp(charUnit->szDesc, k_sf3NameKey_Alex) == 0) &&
+                    (paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner == 0))
                 {
                     UINT16 nNodeCount = GetCollectionCountForUnit(NodeGet->uUnitId);
                     UINT16 nNextToLastPalette = GetPaletteCountForUnit(NodeGet->uUnitId) - 1;
@@ -1319,6 +1321,37 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     }
 
                     ClearSetImgTicket(pImgArray);
+                }
+                else if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == 3)
+                {
+                    const INT8 nPeerPaletteDistance1 = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    const INT8 nPeerPaletteDistance2 = paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner;
+                    const sGame_PaletteDataset* paletteDataSetToJoin1 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance1);
+                    const sGame_PaletteDataset* paletteDataSetToJoin2 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance2);
+                    fShouldUseAlternateLoadLogic = true;
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse)
+                            ))
+                    );
+
+                    //Set each palette
+                    sDescNode* JoinedNode[] = {
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+                    CreateDefPal(JoinedNode[2], 2);
+
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
                 }
                 else
                 {

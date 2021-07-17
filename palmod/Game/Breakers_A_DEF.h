@@ -6,7 +6,7 @@
 // * Run PalMod: the new headers will be printed to debug out
 // That should be it.  Good luck.
 
-const UINT16 BREAKERS_A_IMG_UNITS[] =
+const UINT16 BREAKERS_A_IMGIDS_USED[] =
 {
     indexBreakersSprites_AlsionIII, // 0x00
     indexBreakersSprites_BaiHu,     // 0x01

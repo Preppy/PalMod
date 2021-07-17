@@ -58,8 +58,8 @@ CGame_NeoBomberman_A::CGame_NeoBomberman_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = NeoBomberman_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
-    m_prgGameImageSet = NEOBOMBERMAN_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(NEOBOMBERMAN_A_IMG_UNITS);
+    m_prgGameImageSet = NEOBOMBERMAN_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(NEOBOMBERMAN_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

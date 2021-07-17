@@ -1,7 +1,7 @@
 #pragma once
 
 // This header is all hand-generated
-const UINT16 SAVAGEREIGN_A_IMG_UNITS[] =
+const UINT16 SAVAGEREIGN_A_IMGIDS_USED[] =
 {
     indexSavReign_CarolStanzack,            // 0x47
     indexSavReign_ChungPaifu,               // 0x48

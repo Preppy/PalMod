@@ -231,8 +231,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,72,0
- PRODUCTVERSION 1,0,72,0
+ FILEVERSION 1,0,74,0
+ PRODUCTVERSION 1,0,74,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -249,12 +249,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.72.0"
+            VALUE "FileVersion", "1.0.74.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.72.0"
+            VALUE "ProductVersion", "1.0.74.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -332,6 +332,7 @@ BEGIN
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
             END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
+//            MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
             POPUP "MvC2"
             BEGIN
                 MENUITEM "Arcade",                      ID_LD_MVC2ARCADE
@@ -342,6 +343,7 @@ BEGIN
             BEGIN
                 MENUITEM "Red Earth / Warzard (Arcade, Stages)", ID_LOADDIRECTORY_REDEARTH_30
                 MENUITEM "Red Earth / Warzard (Arcade, Characters)", ID_LOADDIRECTORY_REDEARTH_31
+                MENUITEM "Red Earth / Warzard (Arcade, Coming Next)", ID_LOADDIRECTORY_REDEARTH_50
             END
             POPUP "Street Fighter III"
             BEGIN
@@ -407,13 +409,15 @@ BEGIN
             MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555
             MENUITEM "BGR555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
-            MENUITEM "RGB555 (Sharp X68000)",       ID_COLORFORMAT_SHARPRGB
-            MENUITEM "RGB666 (Neo-Geo)",            ID_COLORFORMAT_RGB666
+            MENUITEM "RGB555 (Sharp X68000 color table)", ID_COLORFORMAT_SHARPRGB
+            MENUITEM "GRB555 (little endian)",      ID_COLORFORMAT_GRB555_LE
+            MENUITEM "RGB666 (Neo-Geo color table)", ID_COLORFORMAT_RGB666
             MENUITEM "xRGB888 (24-bit)",            ID_COLORFORMAT_xRGB888
             MENUITEM "xBGR888 (24-bit)",            ID_COLORFORMAT_xBGR888
             MENUITEM "RGBA8881 (DBFCI)",            ID_COLORFORMAT_ARGB1888
             MENUITEM "RGBA8888 (Half alpha for Arcsys)", ID_COLORFORMAT_ARGB7888
             MENUITEM "RGBA8888",                    ID_COLORFORMAT_ARGB8888
+            MENUITEM "BGRA8888",                    ID_COLORFORMAT_ABGR8888
             MENUITEM SEPARATOR
             MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
             MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED
@@ -440,6 +444,7 @@ BEGIN
     BEGIN
         MENUITEM "Export Image",                ID_FILE_EXPORTIMAGE
         MENUITEM "Load Texture",                ID_FILE_LOADSPRITE
+        MENUITEM "Load Texture Flipped",        ID_FILE_LOADSPRITEFLIPPED
         MENUITEM SEPARATOR
         MENUITEM "&Close",                      ID_FILE_CLOSE
     END
@@ -564,7 +569,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.72"
+    IDS_CURRENTAPPNAME      "PalMod 1.74"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."

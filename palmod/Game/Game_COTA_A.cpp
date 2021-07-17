@@ -29,7 +29,7 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_COTA_A::CGame_COTA_A: Loading ROM\n");
 
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 
@@ -53,8 +53,8 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = COTA_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = COTA_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(COTA_A_IMG_UNITS);
+    m_prgGameImageSet = COTA_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(COTA_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -140,14 +140,16 @@ UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 #endif
 }
 
-int CGame_COTA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+sFileRule CGame_COTA_A::GetRule(UINT16 nUnitId)
 {
-    return _GetExtraCount(rgExtraCountAll, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
-}
+    sFileRule NewFileRule;
 
-int CGame_COTA_A::GetExtraLoc(UINT16 nUnitId)
-{
-    return _GetExtraLocation(rgExtraLoc, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"xmn.05a");
+
+    NewFileRule.uUnitId = 0;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+
+    return NewFileRule;
 }
 
 CDescTree* CGame_COTA_A::GetMainTree()
@@ -178,21 +180,19 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
         rgExtraCountAll,
         rgExtraLoc,
         COTA_A_EXTRA_CUSTOM
-    );;
+    );
 
     return NewDescTree;
 }
 
-sFileRule CGame_COTA_A::GetRule(UINT16 nUnitId)
+int CGame_COTA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    sFileRule NewFileRule;
+    return _GetExtraCount(rgExtraCountAll, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
+}
 
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"xmn.05a");
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
+int CGame_COTA_A::GetExtraLoc(UINT16 nUnitId)
+{
+    return _GetExtraLocation(rgExtraLoc, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
 }
 
 UINT16 CGame_COTA_A::GetCollectionCountForUnit(UINT16 nUnitId)

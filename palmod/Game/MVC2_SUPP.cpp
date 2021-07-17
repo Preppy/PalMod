@@ -443,7 +443,7 @@ void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_
     OutputDebugString(strDebugInfo);
 
     UINT16* src_16 = get_pal_16(char_id, source_palette);
-    UINT16* dst_16 = get_pal_16(indexCPS2_Spiral /*0x31, spiral*/, destination_palette);
+    UINT16* dst_16 = get_pal_16(indexCPS2Sprites_Spiral /*0x31, spiral*/, destination_palette);
 
     memcpy(&dst_16[destination_index], &src_16[source_index], copy_amount * sizeof(UINT16));
 }

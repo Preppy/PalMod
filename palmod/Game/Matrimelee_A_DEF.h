@@ -26,7 +26,7 @@ enum SupportedMatriM_A_PaletteListIndex
     indexMatriMSprites_Stages,      // 0x15
 };
 
-const UINT16 MATRIM_A_IMG_UNITS[] =
+const UINT16 MATRIM_A_IMGIDS_USED[] =
 {
     indexMatriMSprites_Annie,
     indexMatriMSprites_Buntaro,

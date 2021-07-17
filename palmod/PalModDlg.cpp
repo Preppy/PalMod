@@ -60,8 +60,6 @@ static UINT BASED_CODE indicators[] =
     ID_INDICATOR_EXTRA
 };
 
-CStringA szPasteStr = "";
-
 #ifdef ENABLE_MUI_SUPPORT
 HMODULE g_hMUIInstance = nullptr;
 
@@ -146,7 +144,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_EN_KILLFOCUS(IDC_EDIT_BL, &CPalModDlg::OnKillFocusEditBL)
     ON_EN_KILLFOCUS(IDC_EDIT_A, &CPalModDlg::OnKillFocusEditA)
     ON_BN_CLICKED(IDC_BNEWCOL, &CPalModDlg::OnBnNewCol)
-    ON_COMMAND(ID_SHOW32BITRGB, &CPalModDlg::OnColSett)
+    ON_COMMAND(ID_SHOW32BITRGB, &CPalModDlg::OnChangeShowAs32BitColor)
     ON_BN_CLICKED(IDC_BUPDATE, &CPalModDlg::OnBnUpdate)
     ON_COMMAND(ID_FILE_PATCH, &CPalModDlg::OnFilePatch)
     ON_COMMAND(ID_FILE_CROSSPATCH, &CPalModDlg::OnFileCrossPatch)
@@ -179,12 +177,13 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
 
     ON_COMMAND(ID_COLORSPERLINE_8COLORSPERLINE, &CPalModDlg::SetColorsPerLineTo8)
     ON_COMMAND(ID_COLORSPERLINE_16COLORSPERLINE, &CPalModDlg::SetColorsPerLineTo16)
-    ON_COMMAND(ID_COLORFORMAT_RGB333, &CPalModDlg::SetColorFormatTo9)
-    ON_COMMAND(ID_COLORFORMAT_RGB444, &CPalModDlg::SetColorFormatTo12A)
-    ON_COMMAND(ID_COLORFORMAT_RGB444_LE, &CPalModDlg::SetColorFormatTo12A_LE)
-    ON_COMMAND(ID_COLORFORMAT_RGB555, &CPalModDlg::SetColorFormatTo15)
-    ON_COMMAND(ID_COLORFORMAT_RGB555_ALT, &CPalModDlg::SetColorFormatTo15ALT)
-    ON_COMMAND(ID_COLORFORMAT_RGB555_GBA, &CPalModDlg::SetColorFormatToGBA)
+    ON_COMMAND(ID_COLORFORMAT_RGB333, &CPalModDlg::SetColorFormatToRGB333)
+    ON_COMMAND(ID_COLORFORMAT_RGB444, &CPalModDlg::SetColorFormatToRGB444_BE)
+    ON_COMMAND(ID_COLORFORMAT_RGB444_LE, &CPalModDlg::SetColorFormatToRGB444_LE)
+    ON_COMMAND(ID_COLORFORMAT_RGB555, &CPalModDlg::SetColorFormatToRGB555_LE)
+    ON_COMMAND(ID_COLORFORMAT_RGB555_ALT, &CPalModDlg::SetColorFormatToRGB555_BE)
+    ON_COMMAND(ID_COLORFORMAT_RGB555_GBA, &CPalModDlg::SetColorFormatToBGR555_LE)
+    ON_COMMAND(ID_COLORFORMAT_GRB555_LE, &CPalModDlg::SetColorFormatToGRB555_LE)
     ON_COMMAND(ID_COLORFORMAT_RGB666, &CPalModDlg::SetColorFormatToNEOGEO)
     ON_COMMAND(ID_COLORFORMAT_SHARPRGB, &CPalModDlg::SetColorFormatToSharpRGB)
     ON_COMMAND(ID_COLORFORMAT_xRGB888, &CPalModDlg::SetColorFormatToxRGB888)
@@ -192,6 +191,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_COLORFORMAT_ARGB1888, &CPalModDlg::SetColorFormatToARGB1888)
     ON_COMMAND(ID_COLORFORMAT_ARGB7888, &CPalModDlg::SetColorFormatToARGB7888)
     ON_COMMAND(ID_COLORFORMAT_ARGB8888, &CPalModDlg::SetColorFormatToARGB8888)
+    ON_COMMAND(ID_COLORFORMAT_ABGR8888, &CPalModDlg::SetColorFormatToABGR8888)
     ON_COMMAND(ID_TRANSPSETTING_16, &CPalModDlg::SetMaximumWriteTo16Colors)
     ON_COMMAND(ID_TRANSPSETTING_256, &CPalModDlg::SetMaximumWriteTo256Colors)
     
@@ -239,6 +239,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LD_MBAACC_S, &CPalModDlg::OnLoadDir_MBAACC_S)
     ON_COMMAND(ID_LOADDIRECTORY_REDEARTH_30, &CPalModDlg::OnLoadDir_RedEarth30)
     ON_COMMAND(ID_LOADDIRECTORY_REDEARTH_31, &CPalModDlg::OnLoadDir_RedEarth31)
+    ON_COMMAND(ID_LOADDIRECTORY_REDEARTH_50, &CPalModDlg::OnLoadDir_RedEarth50)
     ON_COMMAND(ID_LD_SFIII1, &CPalModDlg::OnLoadDir_SFIII1Arcade)
     ON_COMMAND(ID_LD_SFIII2, &CPalModDlg::OnLoadDir_SFIII2Arcade)
     ON_COMMAND(ID_LD_SFIII3DCALL, &CPalModDlg::OnLoadDir_SFIII3DCAll)
@@ -248,6 +249,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LD_SFIII3ARCADE4rd10, &CPalModDlg::OnLoadDir_SFIII3Arcade4rd_10)
     ON_COMMAND(ID_LD_SFIII3ARCADEEX, &CPalModDlg::OnLoadDir_SFIII3ArcadeEx)
     ON_COMMAND(ID_LD_UNICLR, &CPalModDlg::OnLoadDir_UNICLR)
+    ON_COMMAND(ID_LD_MAAB, &CPalModDlg::OnLoadDir_MAAB_S)
 
     ON_COMMAND_RANGE(k_nGameLoadROMListMask, k_nGameLoadROMListMask + NUM_GAMES, &CPalModDlg::OnFileOpenInternal)
 END_MESSAGE_MAP()
@@ -407,12 +409,13 @@ void CPalModDlg::UpdateEnableCtrls()
     UpdateSliderSel(FALSE, TRUE);
 }
 
-BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
+BOOL CALLBACK CPalModDlg::EnumChildProc(HWND hwnd, LPARAM lParam)
 {
     int nId = GetWindowLong(hwnd, GWL_ID);
 
     switch (nId)
     {
+    // These are all toggled within CPalModDlg::EnableSlider based upon the game constraints
     case IDC_RH_SLIDER:
     case IDC_GS_SLIDER:
     case IDC_BL_SLIDER:
@@ -425,11 +428,9 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
     case IDC_SPIN_GS:
     case IDC_SPIN_BL:
     case IDC_SPIN_A:
-    case IDC_SHOWPREVIEW:
         break;
-    case IDC_BNEWCOL:
     default:
-        EnableWindow(hwnd, ((CPalModDlg*)lParam)->bEnabled);
+        ::EnableWindow(hwnd, ((CPalModDlg*)lParam)->bEnabled);
         break;
     }
 
@@ -704,11 +705,7 @@ void CPalModDlg::ClearGameVar()
     m_Edit_RH = m_Edit_GS = m_Edit_BL = m_Edit_A = 0;
     UpdateData(FALSE);
     //Clear plane amt
-    nRGBAmt = nAAmt = 0;
-    //Clear plane multiplier
-    nRGBMul = nAMul = 1.0;
-    //Clear temporary plane multiplier
-    nTRGBMul = nTAMul = 1.0;
+    m_nRGBAmt = m_nAAmt = 0;
 
     bCopyFromBase = FALSE;
 

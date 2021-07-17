@@ -39,9 +39,7 @@ void CGame_KOF99AE_A::InitializeStatics()
 
 CGame_KOF99AE_A::CGame_KOF99AE_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 2*/)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_KOF99AE_A::CGame_KOF99AE_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_KOF99AE_A::CGame_KOF99AE_A: Loading ROM...\n");
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -53,7 +51,7 @@ CGame_KOF99AE_A::CGame_KOF99AE_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 2*
     m_nTotalInternalUnits = UsePaletteSetForP2() ? KOF99AE_A_P2_NUMUNIT : KOF99AE_A_P3_NUMUNIT;
     m_nExtraUnit = UsePaletteSetForP2() ? KOF99AE_A_P2_EXTRALOC : KOF99AE_A_P3_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForP2() ? 1224 : 2692);
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForP2() ? 1468 : 2448);
     m_pszExtraFilename = UsePaletteSetForP2() ? EXTRA_FILENAME_KOF99AE_A_P2 : EXTRA_FILENAME_KOF99AE_A_P3;
     m_nTotalPaletteCount = UsePaletteSetForP2() ? m_nTotalPaletteCountForKOF99AE_P2 : m_nTotalPaletteCountForKOF99AE_P3;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -70,8 +68,8 @@ CGame_KOF99AE_A::CGame_KOF99AE_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 2*
     //Set game information
     nGameFlag = KOF99AE_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF99AE_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(KOF99AE_A_IMG_UNITS);
+    m_prgGameImageSet = KOF99AE_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(KOF99AE_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -140,6 +138,7 @@ UINT32 CGame_KOF99AE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
     {
         { L"KOF '99AE ROM P2 (Neo-Geo)", L"kof99ae_p2.bin", 0, 0 },
         { L"KOF '99AE ROM P3 (Neo-Geo)", L"kof99ae_p3.bin", 0, 0 },
+        { L"KOF '99ND (Neo-Geo)", L"152-p2.bin", 0, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -632,7 +631,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         for (UINT16 nCharColorIndex = 0; nCharColorIndex < nColorOptionsPerCharacter; nCharColorIndex++)
         {
@@ -714,7 +713,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
             OutputDebugString(L"};\r\n\r\n");
         }
 
-        if ((nHeaderSetToDump == 3) &&  // Effects are only in 3
+        if ((nHeaderSetToDump == 2) &&  // Core Effects are only in 2.  There's an unused copy in 3
             (KOF99AE_A_CharacterEffectPalettes[nCharIndex].pszCharacterName != nullptr))
         {
             strOutput.Format(L"const sGame_PaletteDataset KOF99AE_A_%s_EFFECT_PALETTES[] = \r\n{\r\n", szCodeDesc);
@@ -735,7 +734,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOF99AE_A_P%u_%s_COLLECTION[] = \r\n{\r\n", nHeaderSetToDump, szCodeDesc);
         OutputDebugString(strOutput);
@@ -743,7 +742,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
         for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
             WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
-            StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), ppszButtonLabels[nColorIndex]);
+            StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), ppszButtonLabels[nColorIndex]);
 
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF99AE_A_%s_%s_PALETTES, ARRAYSIZE(KOF99AE_A_%s_%s_PALETTES) },\r\n", ppszButtonLabels[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);
@@ -765,7 +764,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF99AE_A_P%u_%s_COLLECTION, ARRAYSIZE(KOF99AE_A_P%u_%s_COLLECTION) },\r\n", KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName, nHeaderSetToDump, szCodeDesc, nHeaderSetToDump, szCodeDesc);
         OutputDebugString(strOutput);

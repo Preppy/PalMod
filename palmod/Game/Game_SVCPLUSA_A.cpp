@@ -237,8 +237,8 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SVCPLUSA_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    nImgUnitAmt = ARRAYSIZE(SVCPLUSA_A_IMG_UNITS);
-    m_prgGameImageSet = SVCPLUSA_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SVCPLUSA_A_IMGIDS_USED);
+    m_prgGameImageSet = SVCPLUSA_A_IMGIDS_USED;
 
     nFileAmt = 1;
 
@@ -393,7 +393,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
         UINT32 nCurrentOffset = 0;
 
         nCurrentOffset = SVCPLUSA_A_CharacterPalettes[nCharIndex].nCoreOffset;
@@ -409,7 +409,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
                 }
 
                 WCHAR szCodeButtonLabel[MAX_DESCRIPTION_LENGTH];
-                StrRemoveNonASCII(szCodeButtonLabel, ARRAYSIZE(szCodeButtonLabel), DEF_BUTTONLABEL_2_PK[iButtonIndex]);
+                StruprRemoveNonASCII(szCodeButtonLabel, ARRAYSIZE(szCodeButtonLabel), DEF_BUTTONLABEL_2_PK[iButtonIndex]);
 
                 strOutput.Format(L"const sGame_PaletteDataset SVCPLUSA_A_%s_%s_PALETTES[] = \r\n{\r\n", szCodeDesc, szCodeButtonLabel);
                 OutputDebugString(strOutput);
@@ -499,7 +499,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode SVCPLUSA_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -509,7 +509,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
             for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
             {
                 WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
-                StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_PK[nColorIndex]);
+                StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_PK[nColorIndex]);
 
                 strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_%s_%s_PALETTES, ARRAYSIZE(SVCPLUSA_A_%s_%s_PALETTES) },\r\n", DEF_BUTTONLABEL_2_PK[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
                 OutputDebugString(strOutput);
@@ -543,7 +543,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_%s_COLLECTION, ARRAYSIZE(SVCPLUSA_A_%s_COLLECTION) },\r\n", SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);

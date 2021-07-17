@@ -59,8 +59,8 @@ CGame_SSF2T_GBA::CGame_SSF2T_GBA(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SSF2T_GBA;
     nImgGameFlag = IMGDAT_SECTION_SF2;
-    m_prgGameImageSet = SSF2T_GBA_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SSF2T_GBA_IMG_UNITS);
+    m_prgGameImageSet = SSF2T_GBA_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SSF2T_GBA_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -112,57 +112,12 @@ UINT32 CGame_SSF2T_GBA::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
 
 int CGame_SSF2T_GBA::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
-
-    if (rgExtraCountAll[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, (SSF2T_GBA_NUMUNIT + 1) * sizeof(int));
-        memset(rgExtraCountVisibleOnly, 0, (SSF2T_GBA_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            rgExtraCountAll[pCurrDef->uUnitN]++;
-
-            if (!pCurrDef->isInvisible)
-            {
-                rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
-        }
-    }
-
-    return rgExtraCt[nUnitId];
+    return _GetExtraCount(rgExtraCountAll, SSF2T_GBA_NUMUNIT, nUnitId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
 int CGame_SSF2T_GBA::GetExtraLoc(UINT16 nUnitId)
 {
-    if (rgExtraLoc[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (SSF2T_GBA_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc[nUnitId];
+    return _GetExtraLocation(rgExtraLoc, SSF2T_GBA_NUMUNIT, nUnitId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
 const sDescTreeNode* CGame_SSF2T_GBA::GetCurrentUnitSet()
@@ -187,16 +142,10 @@ stExtraDef* CGame_SSF2T_GBA::GetCurrentExtraDef(int nDefCtr)
 
 sDescTreeNode* CGame_SSF2T_GBA::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
-    bool fHaveExtras;
-    UINT16 nUnitCt;
-    UINT8 nExtraUnitLocation;
-
-    nExtraUnitLocation = SSF2T_GBA_EXTRALOC;
+    UINT8 nExtraUnitLocation = SSF2T_GBA_EXTRALOC;
     LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_GBA, SSF2T_GBA_EXTRA, &SSF2T_GBA_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
-    fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-    nUnitCt = SSF2T_GBA_NUMUNIT + (fHaveExtras ? 1 : 0);
+    bool fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
+    UINT16 nUnitCt = SSF2T_GBA_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -207,156 +156,14 @@ sDescTreeNode* CGame_SSF2T_GBA::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    strMsg.Format(L"CGame_SSF2T_GBA::InitDescTree: Building desc tree for SSF2T_GBA ROM...\n");
-    OutputDebugString(strMsg);
-
-    //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
-    {
-        sDescTreeNode* UnitNode = nullptr;
-        sDescTreeNode* CollectionNode = nullptr;
-        sDescNode* ChildNode = nullptr;
-
-        UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
-
-        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
-
-        UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
-
-        if (iUnitCtr != nExtraUnitLocation)
-        {
-            //Set each description
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", GetCurrentUnitSet()[iUnitCtr].szDesc);
-
-            UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
-            //All children have collection trees
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = nUnitChildCount;
-
-#if SSF2T_GBA_DEBUG
-            strMsg.Format(L"Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
-            OutputDebugString(strMsg);
-#endif
-
-            UINT16 nTotalPalettesUsedInUnit = 0;
-
-            //Set data for each child group ("collection")
-            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
-            {
-                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
-
-                //Set each collection data
-
-                // Default label, since these aren't associated to collections
-                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
-                //Collection children have nodes
-                UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
-                CollectionNode->uChildType = DESC_NODETYPE_NODE;
-                CollectionNode->uChildAmt = nListedChildrenCount;
-                CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
-
-#if SSF2T_GBA_DEBUG
-                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
-                OutputDebugString(strMsg);
-#endif
-
-                const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
-
-                //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
-                {
-                    ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
-
-                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
-
-                    ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
-                    ChildNode->uPalId = nTotalPalettesUsedInUnit++;
-                    nTotalPaletteCount++;
-
-#if SSF2T_GBA_DEBUG
-                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
-                    OutputDebugString(strMsg);
-                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
-                    OutputDebugString(strMsg);
-
-                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
-                    {
-                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
-                    }
-                    else
-                    {
-                        strMsg.Format(L" no image available.\n");
-                    }
-                    OutputDebugString(strMsg);
-#endif
-                }
-            }
-        }
-        else
-        {
-            // This handles data loaded from the Extra extension file, which are treated
-            // each as their own separate node with one collection with everything under that.
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
-            UnitNode->ChildNodes = new sDescTreeNode[1]; // Only 1, L"Extra Palettes)"
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = 1;
-
-#if SSF2T_GBA_DEBUG
-            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
-            OutputDebugString(strMsg);
-#endif
-
-        }
-
-        //Set up extra nodes
-        if (bUseExtra)
-        {
-            int nExtraPos = GetExtraLoc(iUnitCtr);
-            int nCurrExtra = 0;
-
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nExtraUnitLocation > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
-
-            CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
-
-            CollectionNode->uChildType = DESC_NODETYPE_NODE;
-            CollectionNode->uChildAmt = nExtraCt; //EX + Extra
-
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
-            {
-                ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
-
-                while (pCurrDef->isInvisible)
-                {
-                    nCurrExtra++;
-
-                    pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
-                }
-
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
-
-                ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((nExtraUnitLocation > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
-
-#if SSF2T_GBA_DEBUG
-                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
-                OutputDebugString(strMsg);
-#endif
-
-                nCurrExtra++;
-                nTotalPaletteCount++;
-            }
-        }
-    }
-
-    m_nTotalPaletteCount = nTotalPaletteCount;
-
-    strMsg.Format(L"CGame_SSF2T_GBA::InitDescTree: Loaded %u palettes for SSF2T_GBA ROM\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
+    m_nTotalPaletteCount = _InitDescTree(NewDescTree,
+        SSF2T_GBA_UNITS,
+        SSF2T_GBA_EXTRALOC,
+        SSF2T_GBA_NUMUNIT,
+        rgExtraCountAll,
+        rgExtraLoc,
+        SSF2T_GBA_EXTRA_CUSTOM
+    );
 
     return NewDescTree;
 }
@@ -375,98 +182,32 @@ sFileRule CGame_SSF2T_GBA::GetRule(UINT16 nUnitId)
 
 UINT16 CGame_SSF2T_GBA::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == GetCurrentExtraLoc())
-    {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        return GetCurrentUnitSet()[nUnitId].uChildAmt;
-    }
+    return _GetCollectionCountForUnit(SSF2T_GBA_UNITS, rgExtraCountAll, SSF2T_GBA_NUMUNIT, SSF2T_GBA_EXTRALOC, nUnitId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
 UINT16 CGame_SSF2T_GBA::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == GetCurrentExtraLoc())
-    {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
-        return pCollectionNode[nCollectionId].uChildAmt;
-    }
+    return _GetNodeCountForCollection(SSF2T_GBA_UNITS, rgExtraCountAll, SSF2T_GBA_NUMUNIT, SSF2T_GBA_EXTRALOC, nUnitId, nCollectionId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
 LPCWSTR CGame_SSF2T_GBA::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == GetCurrentExtraLoc())
-    {
-        return L"Extra Palettes";
-    }
-    else
-    {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
-        return pCollection[nCollectionId].szDesc;
-    }
+    return _GetDescriptionForCollection(SSF2T_GBA_UNITS, SSF2T_GBA_EXTRALOC, nUnitId, nCollectionId);
 }
 
 UINT16 CGame_SSF2T_GBA::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == GetCurrentExtraLoc())
-    {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        UINT16 nCompleteCount = 0;
-        UINT16 nCollectionCount = GetCurrentUnitSet()[nUnitId].uChildAmt;
-        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
-
-        for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
-        {
-            nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
-        }
-
-#if SSF2T_GBA_DEBUG_EXTRA
-        CString strMsg;
-        strMsg.Format(L"CGame_SSF2T_GBA::GetPaletteCountForUnit: %u palettes for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
-        OutputDebugString(strMsg);
-#endif
-
-        return nCompleteCount;
-    }
+    return _GetPaletteCountForUnit(SSF2T_GBA_UNITS, rgExtraCountAll, SSF2T_GBA_NUMUNIT, SSF2T_GBA_EXTRALOC, nUnitId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
 const sGame_PaletteDataset* CGame_SSF2T_GBA::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
-    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    return _GetPaletteSet(SSF2T_GBA_UNITS, nUnitId, nCollectionId);
 }
 
 const sGame_PaletteDataset* CGame_SSF2T_GBA::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
-    // Don't use this for Extra palettes.
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
-
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
-
-        if (nDistanceFromZero < nNodeCount)
-        {
-            paletteToUse = &paletteSetToUse[nDistanceFromZero];
-            break;
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return paletteToUse;
+    return _GetSpecificPalette(SSF2T_GBA_UNITS, rgExtraCountAll, SSF2T_GBA_NUMUNIT, SSF2T_GBA_EXTRALOC, nUnitId, nPaletteId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
 UINT16 CGame_SSF2T_GBA::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
@@ -496,53 +237,7 @@ UINT16 CGame_SSF2T_GBA::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPalette
 
 const sDescTreeNode* CGame_SSF2T_GBA::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
-    // Don't use this for Extra palettes.
-    const sDescTreeNode* pCollectionNode = nullptr;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
-
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount;
-
-        if (nUnitId == GetCurrentExtraLoc())
-        {
-            nNodeCount = GetExtraCt(nUnitId);
-
-            if (nDistanceFromZero < nNodeCount)
-            {
-                pCollectionNode = nullptr;
-                break;
-            }
-        }
-        else
-        {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
-
-            nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
-
-            if (nDistanceFromZero < nNodeCount)
-            {
-                // We know it's within this group.  Now: is it basic?
-                if (!fReturnBasicNodesOnly || (nCollectionIndex < m_nNumberOfColorOptions))
-                {
-                    pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
-                }
-                else
-                {
-                    pCollectionNode = nullptr;
-                }
-
-                break;
-            }
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return pCollectionNode;
+    return _GetNodeFromPaletteId(SSF2T_GBA_UNITS, rgExtraCountAll, SSF2T_GBA_NUMUNIT, SSF2T_GBA_EXTRALOC, nUnitId, nPaletteId, SSF2T_GBA_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
 void CGame_SSF2T_GBA::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)

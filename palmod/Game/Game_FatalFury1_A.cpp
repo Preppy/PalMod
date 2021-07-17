@@ -56,8 +56,8 @@ CGame_FatalFury1_A::CGame_FatalFury1_A(UINT32 nConfirmedROMSize)
 
     nGameFlag = FatalFury1_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = FatalFury1_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(FatalFury1_A_IMG_UNITS);
+    m_prgGameImageSet = FatalFury1_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(FatalFury1_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

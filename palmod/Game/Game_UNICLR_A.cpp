@@ -8,7 +8,7 @@ CDescTree CGame_UNICLR_A::MainDescTree = nullptr;
 
 #define UNICLR_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-const UINT16 UNICLR_A_IMG_UNITS[] =
+const UINT16 UNICLR_A_IMGIDS_USED[] =
 {
 	indexFrenchBreadSprites_UNICLR_Akat,   // 0x34
     indexFrenchBreadSprites_UNICLR_Byak,   // 0x35
@@ -43,7 +43,7 @@ struct UNICLRNodeData
 const UNICLRNodeData UNICLRPaletteNodes[] =
 {
     { L"Left",  0 },
-    { L"Right", 0xA000 },
+    { L"Right", 0xA800 },
 };
 
 const LPCWSTR UNICLRPaletteNamesNormal[] =
@@ -95,6 +95,9 @@ const LPCWSTR UNICLRPaletteNamesNormal[] =
     L"38",
 	L"39",
 	L"40",
+	
+    L"41",
+    L"42",
 };
 
 struct UNICLRFileData
@@ -110,27 +113,27 @@ struct UNICLRFileData
 
 UNICLRFileData UNICLRCharacterData[] =
 {
-    { L"Aka.pal",    L"Akatsuki",          81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Akat },
-	{ L"Bya.pal",    L"Byakuya",           81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Byak },
-	{ L"Car.pal",    L"Carmine",           81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Carm },
-	{ L"Cha.pal",    L"Chaos",             81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Chao },
-	{ L"Elt.pal",    L"Eltnum",            81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Eltn },
-	{ L"Enk.pal",    L"Enkidu",            81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Enki },
-	{ L"Gor.pal",    L"Gordeau",           81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Gord },
-	{ L"Hil.pal",    L"Hilda",             81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Hild },
-	{ L"Hyd.pal",    L"Hyde",              81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Hyde },
-	{ L"Lin.pal",    L"Linne",             81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Linn },
-	{ L"Lnd.pal",    L"Londrekia",         81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Lond },
-	{ L"Mer.pal",    L"Merkava",           81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Merk },
-	{ L"Mik.pal",    L"Mika",              81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Mika },
-	{ L"Nan.pal",    L"Nanase",            81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Nana },
-	{ L"Ori.pal",    L"Orie",              81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Orie },
-	{ L"Pho.pal",    L"Phonon",            81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Phon },
-	{ L"Set.pal",    L"Seth",              81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Seth },
-	{ L"Vat.pal",    L"Vatista",           81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Vati },
-	{ L"Wag.pal",    L"Wagner",            81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Wagn },
-	{ L"Wal.pal",    L"Waldstein",         81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Wald },
-	{ L"Yuz.pal",    L"Yuzuriha",          81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Yuzu },
+    { L"___English\\data\\_csel\\Aka.pal",    L"Akatsuki",          86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Akat },
+	{ L"___English\\data\\_csel\\Bya.pal",    L"Byakuya",           86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Byak },
+	{ L"___English\\data\\_csel\\Car.pal",    L"Carmine",           86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Carm },
+	{ L"___English\\data\\_csel\\Cha.pal",    L"Chaos",             86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Chao },
+	{ L"___English\\data\\_csel\\Elt.pal",    L"Eltnum",            86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Eltn },
+	{ L"___English\\data\\_csel\\Enk.pal",    L"Enkidu",            86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Enki },
+	{ L"___English\\data\\_csel\\Gor.pal",    L"Gordeau",           86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Gord },
+	{ L"___English\\data\\_csel\\Hil.pal",    L"Hilda",             86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Hild },
+	{ L"___English\\data\\_csel\\Hyd.pal",    L"Hyde",              86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Hyde },
+	{ L"___English\\data\\_csel\\Lin.pal",    L"Linne",             86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Linn },
+	{ L"___English\\data\\_csel\\Lnd.pal",    L"Londrekia",         86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Lond },
+	{ L"___English\\data\\_csel\\Mer.pal",    L"Merkava",           86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Merk },
+	{ L"___English\\data\\_csel\\Mik.pal",    L"Mika",              86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Mika },
+	{ L"___English\\data\\_csel\\Nan.pal",    L"Nanase",            86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Nana },
+	{ L"___English\\data\\_csel\\Ori.pal",    L"Orie",              86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Orie },
+	{ L"___English\\data\\_csel\\Pho.pal",    L"Phonon",            86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Phon },
+	{ L"___English\\data\\_csel\\Set.pal",    L"Seth",              86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Seth },
+	{ L"___English\\data\\_csel\\Vat.pal",    L"Vatista",           86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Vati },
+	{ L"___English\\data\\_csel\\Wag.pal",    L"Wagner",            86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Wagn },
+	{ L"___English\\data\\_csel\\Wal.pal",    L"Waldstein",         86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Wald },
+	{ L"___English\\data\\_csel\\Yuz.pal",    L"Yuzuriha",          86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Yuzu },
 };
 
 CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
@@ -151,8 +154,8 @@ CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
 
     nGameFlag = UNICLR_A;
     nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
-    m_prgGameImageSet = UNICLR_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(UNICLR_A_IMG_UNITS);
+    m_prgGameImageSet = UNICLR_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(UNICLR_A_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;

@@ -27,11 +27,11 @@ CGame_TMNTTF_SNES::CGame_TMNTTF_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = TMNTTF_SNES_NUMUNIT;
     m_nExtraUnit = TMNTTF_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 189;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 211;
     m_pszExtraFilename = EXTRA_FILENAME_TMNTTF_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForTMNTTF;
 
-    m_nLowestKnownPaletteRomLocation = 0x481ac;
+    m_nLowestKnownPaletteRomLocation = 0x8000;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -40,15 +40,15 @@ CGame_TMNTTF_SNES::CGame_TMNTTF_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = TMNTTF_SNES;
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = TMNTTF_SNES_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(TMNTTF_SNES_IMG_UNITS);
+    m_prgGameImageSet = TMNTTF_SNES_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(TMNTTF_SNES_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_2; // Check out the available options in gamedef.h
+    pButtonLabelSet = DEF_BUTTONLABEL_2; // Check out the available options in buttondef.h
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer

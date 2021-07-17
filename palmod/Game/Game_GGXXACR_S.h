@@ -39,4 +39,6 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     LPCWSTR GetGameName() override { return L"GGXX:AC+R (Steam)"; };
+
+    static bool ShouldUseBasePaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
 };

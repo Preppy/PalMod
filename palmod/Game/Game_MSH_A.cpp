@@ -39,7 +39,7 @@ void CGame_MSH_A::InitializeStatics()
 
 CGame_MSH_A::CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad)
 {
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 
@@ -72,8 +72,8 @@ CGame_MSH_A::CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad)
     //Set game information
     nGameFlag = MSH_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = MSH_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(MSH_A_IMG_UNITS);
+    m_prgGameImageSet = MSH_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(MSH_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

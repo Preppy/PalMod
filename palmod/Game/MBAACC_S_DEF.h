@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 MBAACC_S_IMG_UNITS[] =
+const UINT16 MBAACC_S_IMGIDS_USED[] =
 {
     indexMBAACCSprites_AkihaTohno,          // 0x4A
     indexMBAACCSprites_AkihaTohnoSeifuku,   // 0x4B

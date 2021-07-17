@@ -48,9 +48,7 @@ void CGame_KOF02UM_S::InitializeStatics()
 
 CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_KOF02UM_S::CGame_KOF02UM_S: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_KOF02UM_S::CGame_KOF02UM_S: Loading ROM...\n");
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -65,7 +63,7 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
         m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_MAIN;
         m_nExtraUnit = KOF02UM_S_EXTRALOC_MAIN;
 
-        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2674;
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2743;
         m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_MAIN;
         m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_Main;
         // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -104,8 +102,8 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     //Set game information
     nGameFlag = KOF02UM_S;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF02UM_S_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(KOF02UM_S_IMG_UNITS);
+    m_prgGameImageSet = KOF02UM_S_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(KOF02UM_S_IMGIDS_USED);
 
     nFileAmt = 1;
 

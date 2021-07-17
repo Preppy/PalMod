@@ -220,6 +220,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ColorSystem.cpp" />
     <ClCompile Include="CRC32.cpp" />
     <ClCompile Include="debugutil.cpp" />
     <ClCompile Include="ExtraFile.cpp" />
@@ -230,7 +231,9 @@
     <ClCompile Include="Game\Game_AOF1_A.cpp" />
     <ClCompile Include="Game\Game_AOF3_A.cpp" />
     <ClCompile Include="Game\GAME_Bleach_DS.cpp" />
+    <ClCompile Include="Game\Game_BMKNS_SNES.cpp" />
     <ClCompile Include="Game\Game_Breakers_A.cpp" />
+    <ClCompile Include="Game\Game_BSSMSJR_SNES.cpp" />
     <ClCompile Include="Game\Game_CFTE_SNES.cpp" />
     <ClCompile Include="Game\Game_COTA_A.cpp" />
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
@@ -245,13 +248,17 @@
     <ClCompile Include="Game\Game_Garou_S.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_P.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_S.cpp" />
+    <ClCompile Include="Game\Game_Gowcaizer_A.cpp" />
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
+    <ClCompile Include="Game\Game_JojosRPG_SNES.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
     <ClCompile Include="Game\Game_Kizuna_A.cpp" />
+    <ClCompile Include="Game\Game_KI_SNES.cpp" />
     <ClCompile Include="Game\Game_KOF00N_A.cpp" />
     <ClCompile Include="Game\Game_KOF01_A.cpp" />
+    <ClCompile Include="Game\Game_KOF02PS2_A.cpp" />
     <ClCompile Include="Game\Game_KOF02UM_S.cpp" />
     <ClCompile Include="Game\Game_KOF02_A.cpp" />
     <ClCompile Include="Game\Game_KOF03_A.cpp" />
@@ -266,10 +273,15 @@
     <ClCompile Include="Game\Game_KOTM_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp" />
+    <ClCompile Include="Game\Game_MAAB_A.cpp" />
+    <ClCompile Include="Game\Game_MagicalDropIII_A.cpp" />
+    <ClCompile Include="Game\Game_MartialMasters_A.cpp" />
     <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
     <ClCompile Include="Game\Game_MBAACC_S.cpp" />
     <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
     <ClCompile Include="Game\Game_MMX2_SNES.cpp" />
+    <ClCompile Include="Game\Game_MMX3_SNES.cpp" />
+    <ClCompile Include="Game\Game_MMX_SNES.cpp" />
     <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
     <ClCompile Include="Game\Game_MSHWOTG_SNES.cpp" />
     <ClCompile Include="Game\Game_MSH_A.cpp" />
@@ -283,6 +295,8 @@
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
     <ClCompile Include="Game\Game_NGBC_A.cpp" />
     <ClCompile Include="Game\Game_NinjaMasters_A.cpp" />
+    <ClCompile Include="Game\Game_RanmaCRH_SNES.cpp" />
+    <ClCompile Include="Game\Game_RanmaHB_SNES.cpp" />
     <ClCompile Include="Game\Game_RBFF1_A.cpp" />
     <ClCompile Include="Game\Game_RBFF2_A.cpp" />
     <ClCompile Include="Game\Game_RBFFS_A.cpp" />
@@ -315,6 +329,7 @@
     <ClCompile Include="Game\Game_SSF2T_A.cpp" />
     <ClCompile Include="Game\Game_SSF2T_GBA.cpp" />
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
+    <ClCompile Include="Game\Game_SVG_SNES.cpp" />
     <ClCompile Include="Game\Game_TMNTTF_SNES.cpp" />
     <ClCompile Include="Game\Game_TopF2005_Sega.cpp" />
     <ClCompile Include="Game\Game_UNICLR_A.cpp" />
@@ -357,12 +372,16 @@
     <ClCompile Include="UndoRedo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ColorSystem.h" />
     <ClInclude Include="CRC32.h" />
     <ClInclude Include="ExtraFile.h" />
     <ClInclude Include="Game\AOF1_A_DEF.h" />
     <ClInclude Include="Game\AOF3_A_DEF.h" />
     <ClInclude Include="Game\Bleach_DS_DEF.h" />
+    <ClInclude Include="Game\BMKNS_SNES_DEF.h" />
     <ClInclude Include="Game\Breakers_A_DEF.h" />
+    <ClInclude Include="Game\BSSMSJR_SNES_DEF.h" />
+    <ClInclude Include="Game\ButtonDef.h" />
     <ClInclude Include="Game\CFTE_SNES_DEF.h" />
     <ClInclude Include="Game\ColorScale.h" />
     <ClInclude Include="Game\COTA_A_DEF.h" />
@@ -381,7 +400,9 @@
     <ClInclude Include="Game\Game_AOF1_A.h" />
     <ClInclude Include="Game\Game_AOF3_A.h" />
     <ClInclude Include="Game\GAME_Bleach_DS.h" />
+    <ClInclude Include="Game\Game_BMKNS_SNES.h" />
     <ClInclude Include="Game\Game_Breakers_A.h" />
+    <ClInclude Include="Game\Game_BSSMSJR_SNES.h" />
     <ClInclude Include="Game\Game_CFTE_SNES.h" />
     <ClInclude Include="Game\Game_COTA_A.h" />
     <ClInclude Include="Game\Game_CVS2_A.h" />
@@ -396,13 +417,17 @@
     <ClInclude Include="Game\Game_Garou_S.h" />
     <ClInclude Include="Game\Game_GGXXACR_P.h" />
     <ClInclude Include="Game\Game_GGXXACR_S.h" />
+    <ClInclude Include="Game\Game_Gowcaizer_A.h" />
     <ClInclude Include="Game\Game_GUNDAM_SNES.h" />
+    <ClInclude Include="Game\Game_JojosRPG_SNES.h" />
     <ClInclude Include="Game\Game_JOJOS_A.h" />
     <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />
     <ClInclude Include="Game\Game_KarnovsR_A.h" />
     <ClInclude Include="Game\Game_Kizuna_A.h" />
+    <ClInclude Include="Game\Game_KI_SNES.h" />
     <ClInclude Include="Game\Game_KOF00N_A.h" />
     <ClInclude Include="Game\Game_KOF01_A.h" />
+    <ClInclude Include="Game\Game_KOF02PS2_A.h" />
     <ClInclude Include="Game\Game_KOF02UM_S.h" />
     <ClInclude Include="Game\Game_KOF02_A.h" />
     <ClInclude Include="Game\Game_KOF03_A.h" />
@@ -417,10 +442,15 @@
     <ClInclude Include="Game\Game_KOTM_A.h" />
     <ClInclude Include="Game\Game_LASTBLADE2_A.h" />
     <ClInclude Include="Game\Game_LASTBLADE_A.h" />
+    <ClInclude Include="Game\Game_MAAB_A.h" />
+    <ClInclude Include="Game\Game_MagicalDropIII_A.h" />
+    <ClInclude Include="Game\Game_MartialMasters_A.h" />
     <ClInclude Include="Game\Game_Matrimelee_A.h" />
     <ClInclude Include="Game\Game_MBAACC_S.h" />
     <ClInclude Include="Game\Game_MMPR_SNES.h" />
     <ClInclude Include="Game\Game_MMX2_SNES.h" />
+    <ClInclude Include="Game\Game_MMX3_SNES.h" />
+    <ClInclude Include="Game\Game_MMX_SNES.h" />
     <ClInclude Include="Game\Game_MSHVSF_A.h" />
     <ClInclude Include="Game\Game_MSHWOTG_SNES.h" />
     <ClInclude Include="Game\Game_MSH_A.h" />
@@ -434,6 +464,8 @@
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
     <ClInclude Include="Game\Game_NGBC_A.h" />
     <ClInclude Include="Game\Game_NinjaMasters_A.h" />
+    <ClInclude Include="Game\Game_RanmaCRH_SNES.h" />
+    <ClInclude Include="Game\Game_RanmaHB_SNES.h" />
     <ClInclude Include="Game\Game_RBFF1_A.h" />
     <ClInclude Include="Game\Game_RBFF2_A.h" />
     <ClInclude Include="Game\Game_RBFFS_A.h" />
@@ -466,6 +498,7 @@
     <ClInclude Include="Game\Game_SSF2T_A.h" />
     <ClInclude Include="Game\Game_SSF2T_GBA.h" />
     <ClInclude Include="Game\Game_SVCPLUSA_A.h" />
+    <ClInclude Include="Game\Game_SVG_SNES.h" />
     <ClInclude Include="Game\Game_TMNTTF_SNES.h" />
     <ClInclude Include="Game\Game_TopF2005_Sega.h" />
     <ClInclude Include="Game\Game_UNICLR_A.h" />
@@ -481,13 +514,18 @@
     <ClInclude Include="Game\GGXXACR_Common.h" />
     <ClInclude Include="Game\GGXXACR_P_DEF.h" />
     <ClInclude Include="Game\GGXXACR_S_DEF.h" />
+    <ClInclude Include="Game\Gowcaizer_A_DEF.h" />
     <ClInclude Include="Game\GUNDAM_SNES_DEF.h" />
+    <ClInclude Include="Game\ImgIdDef.h" />
     <ClInclude Include="Game\ImgTicket.h" />
+    <ClInclude Include="Game\JojosRPG_SNES_DEF.h" />
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
     <ClInclude Include="Game\KarnovsR_A_DEF.h" />
     <ClInclude Include="Game\KIZUNA_A_DEF.h" />
+    <ClInclude Include="Game\KI_SNES_DEF.h" />
     <ClInclude Include="Game\KOF00N_A_DEF.h" />
     <ClInclude Include="Game\KOF01_A_DEF.h" />
+    <ClInclude Include="Game\KOF02PS2_A_DEF.h" />
     <ClInclude Include="Game\KOF02UM_S_DEF.h" />
     <ClInclude Include="Game\KOF02_A_DEF.h" />
     <ClInclude Include="Game\KOF03_A_DEF.h" />
@@ -502,10 +540,16 @@
     <ClInclude Include="Game\KOTM_A_DEF.h" />
     <ClInclude Include="Game\LASTBLADE2_A_DEF.h" />
     <ClInclude Include="Game\LASTBLADE_A_DEF.h" />
+    <ClInclude Include="Game\MAAB_A_DEF.h" />
+    <ClInclude Include="Game\MAAB_Common.h" />
+    <ClInclude Include="Game\MagicalDropIII_A_DEF.h" />
+    <ClInclude Include="Game\MartialMasters_A_DEF.h" />
     <ClInclude Include="Game\Matrimelee_A_DEF.h" />
     <ClInclude Include="Game\MBAACC_S_DEF.h" />
     <ClInclude Include="Game\MMPR_SNES_DEF.h" />
     <ClInclude Include="Game\MMX2_SNES_DEF.h" />
+    <ClInclude Include="Game\MMX3_SNES_DEF.h" />
+    <ClInclude Include="Game\MMX_SNES_DEF.h" />
     <ClInclude Include="Game\MSHVSF_A_DEF.h" />
     <ClInclude Include="Game\MSHWOTG_SNES_DEF.h" />
     <ClInclude Include="Game\MSH_A_DEF.h" />
@@ -520,6 +564,8 @@
     <ClInclude Include="Game\NinjaMasters_A_DEF.h" />
     <ClInclude Include="Game\PalGroup.h" />
     <ClInclude Include="Game\GEMFIGHTER_A_DEF.h" />
+    <ClInclude Include="Game\RanmaCRH_SNES_DEF.h" />
+    <ClInclude Include="Game\RanmaHB_SNES_DEF.h" />
     <ClInclude Include="Game\RBFF1_A_DEF.h" />
     <ClInclude Include="Game\RBFF2_A_DEF.h" />
     <ClInclude Include="Game\RBFFS_A_DEF.h" />
@@ -548,6 +594,7 @@
     <ClInclude Include="Game\SSF2T_A_DEF.h" />
     <ClInclude Include="Game\SSF2T_GBA_DEF.h" />
     <ClInclude Include="Game\SVCPLUSA_A_DEF.h" />
+    <ClInclude Include="Game\SVG_SNES_DEF.h" />
     <ClInclude Include="Game\TMNTTF_SNES_DEF.h" />
     <ClInclude Include="Game\TopF2005_Sega_DEF.h" />
     <ClInclude Include="Game\VHUNT2_A_DEF.h" />

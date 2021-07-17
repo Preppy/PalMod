@@ -55,8 +55,8 @@ CGame_TOPF2005_SEGA::CGame_TOPF2005_SEGA(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = TOPF2005_SEGA;
     nImgGameFlag = IMGDAT_SECTION_SEGA;
-    m_prgGameImageSet = TOPF2005_SEGA_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(TOPF2005_SEGA_IMG_UNITS);
+    m_prgGameImageSet = TOPF2005_SEGA_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(TOPF2005_SEGA_IMGIDS_USED);
 
     nFileAmt = 1;
 

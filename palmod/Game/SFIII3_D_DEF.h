@@ -27,27 +27,28 @@ const WCHAR SFIII3_D_UNITDESC[][16] =
 
 constexpr auto SFIII3_D_NUMUNIT = ARRAYSIZE(SFIII3_D_UNITDESC);
 
-const UINT8 SFIII3_D_IMGID_SORT[SFIII3_D_NUMUNIT] =
+// We use this to align the sorted units to their associated imgids
+const UINT16 SFIII3_D_IMGID_SORTED_BY_UNIT[SFIII3_D_NUMUNIT] =
 {
-    index3S_CPS3_Gill,
-    index3S_CPS3_Alex,
-    index3S_CPS3_Ryu,
-    index3S_CPS3_Yun,
-    index3S_CPS3_Dudley,
-    index3S_CPS3_Necro,
-    index3S_CPS3_Hugo,
-    index3S_CPS3_Ibuki,
-    index3S_CPS3_Elena,
-    index3S_CPS3_Oro,
-    index3S_CPS3_Yang,
-    index3S_CPS3_Ken,
-    index3S_CPS3_Sean,
-    index3S_CPS3_Urien,
-    index3S_CPS3_Gouki,
-    // index3S_CPS3_ShinGouki,  Shin Gouki is not present on the home game
-    index3S_CPS3_ChunLi,
-    index3S_CPS3_Makoto,
-    index3S_CPS3_Q,
-    index3S_CPS3_Twelve,
-    index3S_CPS3_Remy,
+    index3SSprites_Gill,      // 0x16
+    index3SSprites_Alex,      // 0x00
+    index3SSprites_Ryu,       // 0x01
+    index3SSprites_Yun,       // 0x02
+    index3SSprites_Dudley,    // 0x03
+    index3SSprites_Necro,     // 0x04
+    index3SSprites_Hugo,      // 0x05
+    index3SSprites_Ibuki,     // 0x06
+    index3SSprites_Elena,     // 0x07
+    index3SSprites_Oro,       // 0x08
+    index3SSprites_Yang,      // 0x09
+    index3SSprites_Ken,       // 0x0a
+    index3SSprites_Sean,      // 0x0b
+    index3SSprites_Urien,     // 0x0c
+    index3SSprites_Gouki,     // 0x0d
+    // index3SSprites_ShinGouki,  Shin Gouki is not present on the home game
+    index3SSprites_ChunLi,    // 0x0f
+    index3SSprites_Makoto,    // 0x10
+    index3SSprites_Q,         // 0x11
+    index3SSprites_Twelve,    // 0x12
+    index3SSprites_Remy,      // 0x13
 };

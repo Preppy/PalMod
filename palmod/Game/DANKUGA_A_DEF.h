@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 DANKUGA_A_IMG_UNITS[] =
+const UINT16 DANKUGA_A_IMGIDS_USED[] =
 {
     indexDanKuGa_Azteca,            // 0x00
     indexDanKuGa_Barts,             // 0x01

@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const UINT16 TMNTTF_SNES_IMG_UNITS[] =
+const UINT16 TMNTTF_SNES_IMGIDS_USED[] =
 {
     indexTMNTTFSprites_Armaggon,        // 0x39
     indexTMNTTFSprites_Aska,            // 0x3A
@@ -44,12 +44,12 @@ const sGame_PaletteDataset TMNTTF_SNES_LEO_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_P1[] =
 {
-    { L"Ralph P1", 0x04882c, 0x04884C, indexTMNTTFSprites_Raphael },
+    { L"Ralph P1", 0x04882c, 0x04884C, indexTMNTTFSprites_Leonardo },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_P2[] =
 {
-    { L"Ralph P2", 0x04884c, 0x04886C, indexTMNTTFSprites_Raphael },
+    { L"Ralph P2", 0x04884c, 0x04886C, indexTMNTTFSprites_Leonardo },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_SHARED[] =
@@ -60,12 +60,12 @@ const sGame_PaletteDataset TMNTTF_SNES_RALPH_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_P1[] =
 {
-    { L"Don P1", 0x04890c, 0x04892C, indexTMNTTFSprites_Donatello },
+    { L"Don P1", 0x04890c, 0x04892C, indexTMNTTFSprites_Leonardo },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_P2[] =
 {
-    { L"Don P2", 0x04892c, 0x04894C, indexTMNTTFSprites_Donatello },
+    { L"Don P2", 0x04892c, 0x04894C, indexTMNTTFSprites_Leonardo },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_SHARED[] =
@@ -76,12 +76,12 @@ const sGame_PaletteDataset TMNTTF_SNES_DON_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_P1[] =
 {
-    { L"Mike P1", 0x04889c, 0x0488BC, indexTMNTTFSprites_Michelangelo },
+    { L"Mike P1", 0x04889c, 0x0488BC, indexTMNTTFSprites_Leonardo },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_P2[] =
 {
-    { L"Mike P2", 0x0488Bc, 0x0488DC, indexTMNTTFSprites_Michelangelo },
+    { L"Mike P2", 0x0488Bc, 0x0488DC, indexTMNTTFSprites_Leonardo },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_MIKE_PALETTES_SHARED[] =
@@ -106,39 +106,39 @@ const sGame_PaletteDataset TMNTTF_SNES_SHREDDER_PALETTES_P2[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_WAR_PALETTES_P1[] =
 {
-    { L"War P1", 0x048Aae, 0x048Ace },
+    { L"War P1", 0x048Aae, 0x048Ace, indexTMNTTFSprites_War },
     { L"War P1 FX", 0x048Aee, 0x048b0e },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_WAR_PALETTES_P2[] =
 {
-    { L"War P2", 0x048Ace, 0x048AEe },
+    { L"War P2", 0x048Ace, 0x048AEe, indexTMNTTFSprites_War },
     { L"War P2 FX", 0x048b0e, 0x048b2e },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ASKA_PALETTES_P1[] =
 {
-    { L"Aska P1", 0x04855a, 0x04857A },
+    { L"Aska P1", 0x04855a, 0x04857A, indexTMNTTFSprites_Aska },
     { L"Aska P1 FX", 0x04859a, 0x0485BA },
     { L"Aska P1 FX 2", 0x0485da, 0x0485fA },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ASKA_PALETTES_P2[] =
 {
-    { L"Aska P2", 0x04857a, 0x04859A },
+    { L"Aska P2", 0x04857a, 0x04859A, indexTMNTTFSprites_Aska },
     { L"Aska P2 FX", 0x0485Ba, 0x0485DA },
     { L"Aska P2 FX 2", 0x0485fc, 0x04861c },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_CHROME_PALETTES_P1[] =
 {
-    { L"Chrome Dome P1", 0x04897c, 0x04899c },
+    { L"Chrome Dome P1", 0x04897c, 0x04899c, indexTMNTTFSprites_ChromeDome },
     { L"Chrome Dome P1 FX", 0x04899c, 0x0489BC },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_CHROME_PALETTES_P2[] =
 {
-    { L"Chrome Dome P2", 0x048A5c, 0x048A7C },
+    { L"Chrome Dome P2", 0x048A5c, 0x048A7C, indexTMNTTFSprites_ChromeDome },
     { L"Chrome Dome P2 FX", 0x048A7c, 0x048A9C },
 };
 
@@ -153,24 +153,24 @@ const sGame_PaletteDataset TMNTTF_SNES_CHROME_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_WINGNUT_PALETTES_P1[] =
 {
-    { L"Wingnut P1", 0x048B2e, 0x048B4E },
+    { L"Wingnut P1", 0x048B2e, 0x048B4E, indexTMNTTFSprites_Wingnut },
     { L"Wingnut P1 Moonbuster/FX", 0x048B4e, 0x048B6E },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_WINGNUT_PALETTES_P2[] =
 {
-    { L"Wingnut P2", 0x048B6e, 0x048B8E },
+    { L"Wingnut P2", 0x048B6e, 0x048B8E, indexTMNTTFSprites_Wingnut },
     { L"Wingnut P2 Moonbuster/FX", 0x048B8e, 0x048BAE },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_P1[] =
 {
-    { L"Armaggon P1", 0x0484F0, 0x048510 },
+    { L"Armaggon P1", 0x0484F0, 0x048510, indexTMNTTFSprites_Armaggon },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_P2[] =
 {
-    { L"Armaggon P2", 0x048510, 0x048530 },
+    { L"Armaggon P2", 0x048510, 0x048530, indexTMNTTFSprites_Armaggon },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_SHARED[] =
@@ -181,12 +181,12 @@ const sGame_PaletteDataset TMNTTF_SNES_ARMAGGON_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_P1[] =
 {
-    { L"Karai P1", 0x048bae, 0x048bce },
+    { L"Karai P1", 0x048bae, 0x048bce, indexTMNTTFSprites_Karai },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_P2[] =
 {
-    { L"Karai P2", 0x048c2e, 0x048c4e },
+    { L"Karai P2", 0x048c2e, 0x048c4e, indexTMNTTFSprites_Karai },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_SHARED[] =
@@ -198,26 +198,26 @@ const sGame_PaletteDataset TMNTTF_SNES_KARAI_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_RATKING_PALETTES_P1[] =
 {
-    { L"Rat King P1", 0x04861e, 0x04863e },
+    { L"Rat King P1", 0x04861e, 0x04863e, indexTMNTTFSprites_RatKing },
     { L"Rat King P1FX", 0x04863e, 0x04865e },
     { L"Rat King P1FX 2", 0x04865e, 0x04867e },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_RATKING_PALETTES_P2[] =
 {
-    { L"Rat King P2", 0x04867e, 0x04869e },
+    { L"Rat King P2", 0x04867e, 0x04869e, indexTMNTTFSprites_RatKing },
     { L"Rat King P2FX", 0x04869e, 0x0486be },
     { L"Rat King P2FX 2", 0x0486be, 0x0486de },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_P1[] =
 {
-    { L"Fake Brother P1", 0x048cbc, 0x048cdc },
+    { L"Fake Brother P1", 0x048cbc, 0x048cdc, indexTMNTTFSprites_FakeBrother },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_P2[] =
 {
-    { L"Fake Brother P2", 0x048cdc, 0x048cfc },
+    { L"Fake Brother P2", 0x048cdc, 0x048cfc, indexTMNTTFSprites_FakeBrother },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_FAKE_PALETTES_SHARED[] =
@@ -237,6 +237,12 @@ const sGame_PaletteDataset TMNTTF_SNES_STAGE_ARTMUSEUM_PALETTES[] =
     { L"Center Sculpture", 0x4A946, 0x4A966 },
     { L"Mousers, Big pillars", 0x4A964, 0x4A984 },
     { L"People", 0x4A982, 0x4A9A2 },
+
+    { L"Art Museum - Center Statue Glow", 0x9BEE, 0x9C0E },
+    { L"Thunder Dome - Small Floor Lights 1", 0x49ED0, 0x49EE0 },
+    { L"Thunder Dome - Small Floor Lights 2", 0x49C68, 0x49C78 },
+    { L"Thunder Dome - Big Floor Lights", 0x49EE0, 0x49EF8 },
+    { L"Thunder Dome - Dinosaur Glow", 0x49EF8, 0x49F18 },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_STAGE_BACKALLEY_PALETTES[] =
@@ -281,6 +287,7 @@ const sGame_PaletteDataset TMNTTF_SNES_STAGE_METALWORKS_PALETTES[] =
     { L"Yellow supports / Violet Foot", 0x4831E, 0x4833E },
     { L"Yellow supports / Green Foot", 0x4833C, 0x4835C },
     { L"Background", 0x4835A, 0x4837A },
+    { L"Metal Works Background Cycle", 0x9BCE, 0x9BEE },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_STAGE_MTOLYMPUS_PALETTES[] =
@@ -360,31 +367,31 @@ const sGame_PaletteDataset TMNTTF_SNES_STAGE_THUNDERDOME_PALETTES[] =
 
 const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_SELECT[] =
 {
-    { L"Turtles Portrait Weapons", 0x049860, 0x049880 },
-    { L"Leo Portrait P1", 0x049882, 0x0498A2 },
-    { L"Leo Portrait P2", 0x049A1A, 0x049A3A },
-    { L"Ralph Portrait P1", 0x0498C6, 0x0498E6 },
-    { L"Ralph Portrait P2", 0x049A5E, 0x049A7E },
-    { L"Don Portrait P1", 0x0498E8, 0x049908 },
-    { L"Don Portrait P2", 0x049A80, 0x049AA0 },
-    { L"Mike Portrait P1", 0x0498A4, 0x0498C4 },
-    { L"Mike Portrait P2", 0x049A3c, 0x049A5C },
-    { L"C. Shredder Portrait P1", 0x04994E, 0x04996E },
-    { L"C. Shredder Portrait P2", 0x049AE6, 0x049B06 },
-    { L"War Portrait P1", 0x049992, 0x0499B2 },
-    { L"War Portrait P2", 0x049B2A, 0x049B4A },
-    { L"Aska Portrait P1", 0x0499B4, 0x0499D4 },
-    { L"Aska Portrait P2", 0x049B4c, 0x049B6C },
-    { L"Chrome Dome Portrait P1", 0x04992c, 0x04994C },
-    { L"Chrome Dome Portrait P2", 0x049AC4, 0x049AE4 },
-    { L"Wingnut Portrait P1", 0x0499D6, 0x0499F6 },
-    { L"Wingnut Portrait P2", 0x049B6E, 0x049B8E },
-    { L"Armaggon Portrait P1", 0x049AA2, 0x049AC2 },
-    { L"Armaggon Portrait P2", 0x04990A, 0x04992A },
-    { L"Karai Portrait P1", 0x0499f8, 0x049a18 },
-    { L"Karai Portrait P2", 0x049B90, 0x049Bb0 },
-    { L"Rat King Portrait P1", 0x049970, 0x049990 },
-    { L"Rat King Portrait P2", 0x049b08, 0x049b28 },
+    { L"Turtles Portrait Weapons",  0x049860, 0x049880, indexTMNTTFSprites_Bonus, 0x08 },
+    { L"Leo Portrait P1",           0x049882, 0x0498A2, indexTMNTTFSprites_Bonus, 0x05 },
+    { L"Leo Portrait P2",           0x049A1A, 0x049A3A, indexTMNTTFSprites_Bonus, 0x05 },
+    { L"Ralph Portrait P1",         0x0498C6, 0x0498E6, indexTMNTTFSprites_Bonus, 0x07 },
+    { L"Ralph Portrait P2",         0x049A5E, 0x049A7E, indexTMNTTFSprites_Bonus, 0x07 },
+    { L"Don Portrait P1",           0x0498E8, 0x049908, indexTMNTTFSprites_Bonus, 0x04 },
+    { L"Don Portrait P2",           0x049A80, 0x049AA0, indexTMNTTFSprites_Bonus, 0x04 },
+    { L"Mike Portrait P1",          0x0498A4, 0x0498C4, indexTMNTTFSprites_Bonus, 0x06 },
+    { L"Mike Portrait P2",          0x049A3c, 0x049A5C, indexTMNTTFSprites_Bonus, 0x06 },
+    { L"C. Shredder Portrait P1",   0x04994E, 0x04996E, indexTMNTTFSprites_Bonus, 0x03 },
+    { L"C. Shredder Portrait P2",   0x049AE6, 0x049B06, indexTMNTTFSprites_Bonus, 0x03 },
+    { L"War Portrait P1",           0x049992, 0x0499B2, indexTMNTTFSprites_Bonus, 0x09 },
+    { L"War Portrait P2",           0x049B2A, 0x049B4A, indexTMNTTFSprites_Bonus, 0x09 },
+    { L"Aska Portrait P1",          0x0499B4, 0x0499D4, indexTMNTTFSprites_Bonus, 0x01 },
+    { L"Aska Portrait P2",          0x049B4c, 0x049B6C, indexTMNTTFSprites_Bonus, 0x01 },
+    { L"Chrome Dome Portrait P1",   0x04992c, 0x04994C, indexTMNTTFSprites_Bonus, 0x02 },
+    { L"Chrome Dome Portrait P2",   0x049AC4, 0x049AE4, indexTMNTTFSprites_Bonus, 0x02 },
+    { L"Wingnut Portrait P1",       0x0499D6, 0x0499F6, indexTMNTTFSprites_Bonus, 0x0a },
+    { L"Wingnut Portrait P2",       0x049B6E, 0x049B8E, indexTMNTTFSprites_Bonus, 0x0a },
+    { L"Armaggon Portrait P1",      0x049AA2, 0x049AC2, indexTMNTTFSprites_Bonus, 0x00 },
+    { L"Armaggon Portrait P2",      0x04990A, 0x04992A, indexTMNTTFSprites_Bonus, 0x00 },
+    { L"Karai Portrait P1",         0x0499f8, 0x049a18 },
+    { L"Karai Portrait P2",         0x049B90, 0x049Bb0 },
+    { L"Rat King Portrait P1",      0x049970, 0x049990 },
+    { L"Rat King Portrait P2",      0x049b08, 0x049b28 },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_SELECTICONS[] =
@@ -397,6 +404,27 @@ const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_SELECTICONS[] =
     { L"Chrome Dome Select Icon", 0x0486fe, 0x04871e },
     { L"Wingnut Select Icon", 0x0497a0, 0x0497c0 },
     { L"Armaggon Select Icon", 0x049820, 0x049840 },
+};
+
+const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_STAGESELECTICONS[] =
+{
+    { L"Satellite", 0x49EAE, 0x49ECE },
+    { L"US Map", 0x49CD2, 0x49CF2 },
+    { L"Statue of Liberty / Horizontal Gradient / Stars", 0x49C96, 0x49CB6 },
+    { L"US Flag", 0x49CB4, 0x49CD4 },
+
+    { L"Back Alley Select Icon", 0x49D2e, 0x49D4E },
+    { L"Thunder Dome Select Icon", 0x49D4e, 0x49D6E },
+    { L"Metal Works Select Icon", 0x49D6e, 0x49D8E },
+    { L"Cafeteria Select Icon", 0x49DAe, 0x49DCE },
+    { L"Mt. Olympus Select Icon", 0x49DCe, 0x49DEE },
+    { L"Pirate Ship Select Icon", 0x49DEe, 0x49E0E },
+    { L"Sky Palace Select Icon", 0x49E0e, 0x49E2E },
+    { L"Art Museum Select Icon", 0x49E4e, 0x49E6E },
+    { L"Noh-Stage Select Icon", 0x49E6e, 0x49E8E },
+    { L"Scrapyard Select Icon", 0x49E8e, 0x49EAE },
+    { L"Studio 6 Select Icon", 0x49E2E, 0x49E4E },
+    { L"Metro Train Select Icon", 0x49D8E, 0x49DAE },
 };
 
 const sGame_PaletteDataset TMNTTF_SNES_BONUS_PALETTES_UNSELECTICONS[] =
@@ -515,6 +543,7 @@ const sDescTreeNode TMNTTF_SNES_STAGES_COLLECTION[] =
     { L"Sky Palace", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_STAGE_SKYPALACE_PALETTES, ARRAYSIZE(TMNTTF_SNES_STAGE_SKYPALACE_PALETTES) },
     { L"Studio 6", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_STAGE_STUDIO6_PALETTES, ARRAYSIZE(TMNTTF_SNES_STAGE_STUDIO6_PALETTES) },
     { L"Thunder Dome", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_STAGE_THUNDERDOME_PALETTES, ARRAYSIZE(TMNTTF_SNES_STAGE_THUNDERDOME_PALETTES) },
+    { L"Stage Select", DESC_NODETYPE_TREE, (void*)TMNTTF_SNES_BONUS_PALETTES_STAGESELECTICONS, ARRAYSIZE(TMNTTF_SNES_BONUS_PALETTES_STAGESELECTICONS) },
 };
 
 const sDescTreeNode TMNTTF_SNES_BONUS_COLLECTION[] =

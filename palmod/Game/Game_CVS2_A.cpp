@@ -29,9 +29,7 @@ void CGame_CVS2_A::InitializeStatics()
 
 CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_CVS2_A::CGame_CVS2_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_CVS2_A::CGame_CVS2_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -58,8 +56,8 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = CVS2_A;
     nImgGameFlag = IMGDAT_SECTION_CVS2;
-    m_prgGameImageSet = CVS2_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(CVS2_A_IMG_UNITS);
+    m_prgGameImageSet = CVS2_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(CVS2_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -93,52 +91,12 @@ CDescTree* CGame_CVS2_A::GetMainTree()
 
 int CGame_CVS2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    if (rgExtraCountAll[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((CVS2_A_NUMUNIT + 1) * sizeof(int)));
-
-        stExtraDef* pCurrDef = GetExtraDefForCVS2(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
-            {
-                rgExtraCountAll[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForCVS2(nDefCtr);
-        }
-    }
-
-    return rgExtraCountAll[nUnitId];
+    return _GetExtraCount(rgExtraCountAll, CVS2_A_NUMUNIT, nUnitId, CVS2_A_EXTRA_CUSTOM);
 }
 
 int CGame_CVS2_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (rgExtraLoc[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (CVS2_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForCVS2(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForCVS2(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc[nUnitId];
+    return _GetExtraLocation(rgExtraLoc, CVS2_A_NUMUNIT, nUnitId, CVS2_A_EXTRA_CUSTOM);
 }
 
 void CGame_CVS2_A::DumpAllCharacters()
@@ -152,7 +110,7 @@ void CGame_CVS2_A::DumpAllCharacters()
         CString strOutput;
 
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         for (UINT16 iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
         {
@@ -236,7 +194,7 @@ void CGame_CVS2_A::DumpAllCharacters()
         CString strOutput;
 
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
 
         strOutput.Format(L"    { \"%s\", DESC_NODETYPE_TREE, (void*)CVS2_A_%s_COLLECTION, ARRAYSIZE(CVS2_A_%s_COLLECTION) },\r\n", CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName,

@@ -11,7 +11,7 @@ CDescTree CGame_GGXXACR_S::MainDescTree = nullptr;
 
 CGame_GGXXACR_S::CGame_GGXXACR_S(UINT32 nConfirmedROMSize /* = -1 */)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX, 0 };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
     m_fGameUsesAlphaValue = true;
     SetColorMode(ColMode::COLMODE_ARGB7888);
@@ -27,8 +27,8 @@ CGame_GGXXACR_S::CGame_GGXXACR_S(UINT32 nConfirmedROMSize /* = -1 */)
 
     nGameFlag = GGXXACR_S;
     nImgGameFlag = IMGDAT_SECTION_GUILTYGEAR;
-    m_prgGameImageSet = GGXX_ACR_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(GGXX_ACR_IMG_UNITS);
+    m_prgGameImageSet = GGXX_ACR_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(GGXX_ACR_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
@@ -148,7 +148,7 @@ sDescTreeNode* CGame_GGXXACR_S::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                if (iCollectionCtr == 0)
+                if (ShouldUseBasePaletteSet(iUnitCtr, iCollectionCtr))
                 {
                     _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", GGXXACR_S_CharacterData[iUnitCtr].ppszPaletteList[nNodeIndex]);
                 }
@@ -180,12 +180,36 @@ sDescTreeNode* CGame_GGXXACR_S::InitDescTree()
 UINT16 CGame_GGXXACR_S::GetCollectionCountForUnit(UINT16 nUnitId)
 {
     // One core set per character, plus optional extras
-    return (GGXXACR_S_CharacterData[nUnitId].prgExtraPalettes == nullptr) ? 1 : 2;
+    UINT16 nCollectionCount = 0;
+
+    if (GGXXACR_S_CharacterData[nUnitId].ppszPaletteList != nullptr)
+    {
+        nCollectionCount++;
+    }
+
+    if (GGXXACR_S_CharacterData[nUnitId].prgExtraPalettes != nullptr)
+    {
+        nCollectionCount++;
+    }
+
+    return nCollectionCount;
+}
+
+bool CGame_GGXXACR_S::ShouldUseBasePaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+{
+    if ((nCollectionId == 0) && (GGXXACR_S_CharacterData[nUnitId].nPaletteListSize != 0))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 UINT16 CGame_GGXXACR_S::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nCollectionId == 0)
+    if (ShouldUseBasePaletteSet(nUnitId, nCollectionId))
     {
         return GGXXACR_S_CharacterData[nUnitId].nPaletteListSize;
     }
@@ -200,15 +224,22 @@ UINT16 CGame_GGXXACR_S::GetPaletteCountForUnit(UINT16 nUnitId)
     return GGXXACR_S_CharacterData[nUnitId].nPaletteListSize + GGXXACR_S_CharacterData[nUnitId].nCountExtras;
 }
 
-LPCWSTR CGame_GGXXACR_S::GetDescriptionForCollection(UINT16 /*nUnitId */, UINT16 nCollectionId )
+LPCWSTR CGame_GGXXACR_S::GetDescriptionForCollection(UINT16 nUnitId , UINT16 nCollectionId )
 {
-    if (nCollectionId == 0)
+    if (ShouldUseBasePaletteSet(nUnitId, nCollectionId))
     {
         return L"Core Palettes";
     }
     else
     {
-        return L"Effects";
+        if (GGXXACR_S_CharacterData[nUnitId].nPaletteListSize == 0)
+        {
+            return L"Palettes";
+        }
+        else
+        {
+            return L"Extras";
+        }
     }
 }
 void CGame_GGXXACR_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
@@ -231,6 +262,17 @@ void CGame_GGXXACR_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         m_pszCurrentPaletteName = GGXXACR_S_CharacterData[nUnitId].prgExtraPalettes[nAdjustedPaletteId].szPaletteName;
         m_nCurrentPaletteROMLocation = GGXXACR_S_CharacterData[nUnitId].prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
         m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+    }
+
+    // The portrait palettes don't actually use a transparency color: we'll use this check to handle this for now.
+    if (GGXXACR_S_CharacterData[nUnitId].nPaletteListSize == 0)
+    {
+        createPalOptions.nTransparencyColorPosition = 257; 
+
+    }
+    else
+    {
+        createPalOptions.nTransparencyColorPosition = 0;
     }
 }
 

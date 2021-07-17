@@ -2,7 +2,7 @@
 
 // This file is fully hand-generated.
 
-const UINT16 KOTM_A_IMG_UNITS[] =
+const UINT16 KOTM_A_IMGIDS_USED[] =
 {
     indexKotMSprites_AstroGuy,              // 0x40
     indexKotMSprites_BeetleMania,           // 0x41

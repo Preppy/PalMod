@@ -55,8 +55,8 @@ CGame_KOF95_A::CGame_KOF95_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = KOF95_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF95_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(KOF95_A_IMG_UNITS);
+    m_prgGameImageSet = KOF95_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(KOF95_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -209,7 +209,7 @@ void CGame_KOF95_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF95_A_CharacterEffectPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF95_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF95_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
 
         for (UINT16 nCharacterColor = 0; nCharacterColor < 2; nCharacterColor++)
         {
@@ -307,7 +307,8 @@ void CGame_KOF95_A::DumpPaletteHeaders()
                     nCurrentImageIndex = 0x20;
                     break;
                 case 15:
-                    pszCurrentEffectName = L"Extra 10: Monochrome palette?";
+                    pszCurrentEffectName = L"Lifebar Portrait Defeated/Grayed";
+                    nCurrentImageIndex = 0x20;
                     break;
                 default:
                     DebugBreak();
@@ -337,7 +338,7 @@ void CGame_KOF95_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF95_A_CharacterEffectPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF95_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF95_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOF95_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -345,7 +346,7 @@ void CGame_KOF95_A::DumpPaletteHeaders()
         for (UINT16 nColorIndex = 0; nColorIndex < 2; nColorIndex++)
         {
             WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
-            StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_NEOGEO[nColorIndex]);
+            StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_NEOGEO[nColorIndex]);
 
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF95_A_%s_%s_PALETTES, ARRAYSIZE(KOF95_A_%s_%s_PALETTES) },\r\n", DEF_BUTTONLABEL_2_NEOGEO[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);

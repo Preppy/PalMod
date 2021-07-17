@@ -55,8 +55,8 @@ CGame_KOTM_A::CGame_KOTM_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = KOTM_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
-    m_prgGameImageSet = KOTM_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(KOTM_A_IMG_UNITS);
+    m_prgGameImageSet = KOTM_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(KOTM_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

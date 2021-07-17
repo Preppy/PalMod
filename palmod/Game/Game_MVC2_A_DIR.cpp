@@ -36,6 +36,10 @@ sFileRule CGame_MVC2_A_DIR::GetRule(UINT16 nUnitId)
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
+    // There was an update to the ROM set used by Flycast: this handles the variant filenames.
+    NewFileRule.fHasAltName = TRUE;
+    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"%s%u.ic%us", MVC2_Arcade_ROM_Base, (nUnitId & 0x00FF) + 51, (nUnitId & 0x00FF) + 20);
+
     return NewFileRule;
 }
 
@@ -158,9 +162,7 @@ inline UINT8 CGame_MVC2_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
 
 BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 {
-    CString strInfo;
-    strInfo.Format(L"CGame_MVC2_A_DIR::SaveFile: Preparing to save data for MVC2 ROM set\n");
-    OutputDebugString(strInfo);
+    OutputDebugString(L"CGame_MVC2_A_DIR::SaveFile: Preparing to save data for MVC2 ROM set\n");
 
     // In the SIMM rerip, the palettes start at mpr-23051.ic20 and increment upwards.
     // Thankfully they don't interleave.
@@ -170,7 +172,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
     // We don't necessarily want the incoming file handle, so close it
     SaveFile->Abort();
 
-    bool fLoadedEverything = true;
+    BOOL fLoadedEverything = TRUE;
 
     for (UINT16 nIndex = 0; nIndex < MVC2_Arcade_NumberOfSIMMs; nIndex++)
     {
@@ -179,8 +181,14 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 
         if (!fileSIMMs[nIndex].Open(strSIMMNames, CFile::modeWrite | CFile::typeBinary))
         {
-            fLoadedEverything = false;
-            break;
+            // There's an updated ZIP using alt filenames for *some* of the files
+            strSIMMNames.Format(L"%s\\%s%u.ic%us", GetLoadDir(), MVC2_Arcade_ROM_Base, nIndex + 51, nIndex + 20);
+
+            if (!fileSIMMs[nIndex].Open(strSIMMNames, CFile::modeWrite | CFile::typeBinary))
+            {
+                fLoadedEverything = FALSE;
+                break;
+            }
         }
     }
 
@@ -229,5 +237,5 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
         }
     }
 
-    return TRUE;
+    return fLoadedEverything;
 }

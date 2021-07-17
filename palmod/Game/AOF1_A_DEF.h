@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 AOF1_A_IMG_UNITS[] =
+const UINT16 AOF1_A_IMGIDS_USED[] =
 {
     indexAoF1Sprites_Ryo,           // 0x1F9
     indexAoF1Sprites_RobertGarcia,  // 0x1FA

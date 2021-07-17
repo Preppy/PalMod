@@ -48,8 +48,6 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId) override;
-
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* XMVSF_A_EXTRA_CUSTOM;

@@ -29,9 +29,7 @@ void CGame_KOF98AE2016_A::InitializeStatics()
 
 CGame_KOF98AE2016_A::CGame_KOF98AE2016_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_KOF98AE2016_A::CGame_KOF98AE2016_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_KOF98AE2016_A::CGame_KOF98AE2016_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -58,8 +56,8 @@ CGame_KOF98AE2016_A::CGame_KOF98AE2016_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = KOF98AE2016_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF98ae_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(KOF98ae_A_IMG_UNITS);
+    m_prgGameImageSet = KOF98ae_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(KOF98ae_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -104,7 +102,7 @@ struct sKOF98AE2016_A_PaletteData
 {
     LPCWSTR pszCharacterName;
     UINT32 nROMOffset = 0;
-    LPCWSTR pszImageSet = L"indexKOFSprites_98Kyo";
+    LPCWSTR pszImageSet = L"indexKOF98Sprites_Kyo";
     bool rgIsEffectUsed[11];
 };
 

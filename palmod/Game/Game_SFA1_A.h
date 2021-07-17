@@ -10,9 +10,8 @@ class CGame_SFA1_A : public CGameWithExtrasFile
 {
 private:
     static UINT32 m_nTotalPaletteCountForSFA1;
-    static int rgExtraCountAll[SFA1_A_NUM_IND + 1];
-    static int rgExtraCountVisibleOnly[SFA1_A_NUM_IND + 1];
-    static int rgExtraLoc[SFA1_A_NUM_IND + 1];
+    static int rgExtraCountAll[SFA1_A_NUMUNIT + 1];
+    static int rgExtraLoc[SFA1_A_NUMUNIT + 1];
 
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;

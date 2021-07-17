@@ -41,6 +41,7 @@ protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
     DECLARE_MESSAGE_MAP()
+
 public:
     afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
     afx_msg void OnSize(UINT nType, int cx, int cy);
@@ -63,8 +64,11 @@ public:
     afx_msg void OnFileExportImg();
     afx_msg void OnSettingsUseBackgroundColor();
     afx_msg void OnSettingsClickToFindColor();
-    afx_msg void OnLoadCustomSprite(UINT nPositionToLoadTo = 0);
-    afx_msg void OnLoadCustomSpriteForZero() { OnLoadCustomSprite(0); };
+    afx_msg void OnLoadCustomSprite(UINT nPositionToLoadTo = 0, SpriteImportDirection direction = SpriteImportDirection::TopDown);
+    afx_msg void OnLoadCustomSpriteNormal(UINT nPositionToLoadTo = 0) { OnLoadCustomSprite(nPositionToLoadTo, SpriteImportDirection::TopDown); };
+    afx_msg void OnLoadCustomSpriteFlipped(UINT nPositionToLoadTo = 0)  { OnLoadCustomSprite(nPositionToLoadTo, SpriteImportDirection::UpsideDown); };
+    afx_msg void OnLoadCustomSpriteForZero() { OnLoadCustomSprite(0, SpriteImportDirection::TopDown); };
+    afx_msg void OnLoadCustomSpriteForZeroFlipped() { OnLoadCustomSprite(0, SpriteImportDirection::UpsideDown); };
 
-    void LoadCustomSpriteFromPath(UINT nPositionToLoadTo, WCHAR* pszPath);
+    void LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszPath);
 };

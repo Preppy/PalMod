@@ -90,7 +90,7 @@ void CImgDisp::ResizeMainBitmap()
         DeleteObject(hBmp);
 
         Bmpi.bmiHeader.biWidth = MAIN_W;
-        Bmpi.bmiHeader.biHeight = -MAIN_H;
+        Bmpi.bmiHeader.biHeight = MAIN_H;
         Bmpi.bmiHeader.biPlanes = 1;
         Bmpi.bmiHeader.biBitCount = 32;
         Bmpi.bmiHeader.biCompression = BI_RGB;
@@ -111,7 +111,7 @@ void CImgDisp::CreateImgBitmap(int nIndex, int nWidth, int nHeight)
     //pImgBuffer[nIndex]->pBmpData = new UINT32[nWidth * nHeight];
 
     currInfo->bmiHeader.biWidth = nWidth;
-    currInfo->bmiHeader.biHeight = -nHeight;
+    currInfo->bmiHeader.biHeight = nHeight;
     currInfo->bmiHeader.biPlanes = 1;
     currInfo->bmiHeader.biBitCount = 32;
     currInfo->bmiHeader.biCompression = BI_RGB;
@@ -539,7 +539,7 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
     return false;
 }
 
-bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocation)
+bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszTextureLocation)
 {
     CFile TextureFile;
 
@@ -549,7 +549,7 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
         safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
 
         // Filename of form: MvC2_D-offset-2230419-W-60-H-98
-        pszTextureLocation = _wcslwr(pszTextureLocation);
+        _wcslwr(pszTextureLocation);
         WCHAR* pszDataW = wcsstr(pszTextureLocation, L"-w-");
         WCHAR* pszDataH = wcsstr(pszTextureLocation, L"-h-");
         WCHAR* pszTermination = wcsstr(pszTextureLocation, L".data");
@@ -572,6 +572,7 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
                 if ((m_nTextureOverrideW[nPositionToLoadTo] > 0) && (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
                     (m_nTextureOverrideH[nPositionToLoadTo] > 0) && (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
                 {
+                    bool fIsDoubleSizeGIMPRAW = false;
                     if (((3 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
                     {
                         // This is an RGB RAW...
@@ -580,6 +581,7 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
                     else if (((2 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
                     {
                         // I think it's GIMP that doubles the RAW for no apparent reason
+                        fIsDoubleSizeGIMPRAW = true;
                         GetHost()->GetPalModDlg()->SetStatusText(IDS_RAW_EXTRADATA);
                     }
                     else if ((m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo]) != nSizeToRead)
@@ -594,7 +596,31 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
                     OutputDebugString(wcsstr);
 
                     TextureFile.SeekToBegin();
-                    TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
+
+                    if (direction == SpriteImportDirection::TopDown)
+                    {
+                        TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
+                    }
+                    else
+                    {
+                        int nCurrentFilePosition = nSizeToRead;
+
+                        if (fIsDoubleSizeGIMPRAW)
+                        {
+                            nCurrentFilePosition /= 2;
+                        }
+
+                        // Skip one line back
+                        nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
+
+                        // We need to flip this line by line
+                        for (int nLinePosition = 0; nLinePosition < m_nTextureOverrideH[nPositionToLoadTo]; nLinePosition++)
+                        {
+                            //TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
+                            TextureFile.Read(&m_ppSpriteOverrideTexture[nPositionToLoadTo][nCurrentFilePosition], m_nTextureOverrideW[nPositionToLoadTo]);
+                            nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
+                        }                        
+                    }
 
                     TextureFile.Close();
 
@@ -706,6 +732,15 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
 
     int nRightBlt = rBltRct.right * 4;
 
+    UINT16 nTransparencyPosition = 0;
+    UINT16 nMaxWritePerTransparency = 16;
+
+    if (GetHost()->GetCurrGame())
+    {
+        nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+        nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+    }
+
     for (int yIndex = 0; yIndex < nBltH; yIndex++)
     {
         int nStartRow = (rBltRct.top + ((nBltH - 1) - yIndex)) * (MAIN_W * 4) + (rBltRct.left * 4);
@@ -715,7 +750,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
         {
             UINT8 uIndex = pImgData[nSrcStartRow + (xIndex / 4)];
 
-            if (uIndex)
+            if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
             {
                 int nDstPos = nStartRow + xIndex;
 
@@ -917,7 +952,7 @@ void CImgDisp::OnRButtonDown(UINT nFlags, CPoint point)
             point.x += rWnd.left;
             point.y += rWnd.top;
 
-            bool canPasteFromCliboard = IsPasteSupported();
+            bool canPasteFromCliboard = CPalModDlg::IsPasteSupported();
 
             constexpr auto CUSTOM_FINDCOLOR = WM_USER + 20;
             constexpr auto CUSTOM_COPYCOLOR = WM_USER + 21;

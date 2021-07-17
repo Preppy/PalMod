@@ -1,5 +1,27 @@
 #pragma once
 
+const UINT16 SSF2T_GBA_IMGIDS_USED[] =
+{
+    indexSF2GBASprites_Ryu,
+    indexSF2GBASprites_EHonda,
+    indexSF2GBASprites_Blanka,
+    indexSF2GBASprites_Guile,
+    indexSF2GBASprites_Ken,
+    indexSF2GBASprites_ChunLi,
+    indexSF2GBASprites_Zangief,
+    indexSF2GBASprites_Dhalsim,
+    indexSF2GBASprites_Bison,
+    indexSF2GBASprites_Sagat,
+    indexSF2GBASprites_Balrog,
+    indexSF2GBASprites_Vega,
+    indexSF2GBASprites_Cammy,
+    indexSF2GBASprites_THawk,
+    indexSF2GBASprites_FeiLong,
+    indexSF2GBASprites_DeeJay,
+    indexSF2GBASprites_Gouki,
+    indexSF2GBASprites_ShinGouki,
+};
+
 const sGame_PaletteDataset SSF2T_GBA_RYU_BTNA_NODE[] =
 {
     { L"Ryu A", 0x7f28e4, 0x7f2904, indexSF2GBASprites_Ryu },

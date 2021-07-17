@@ -58,8 +58,8 @@ CGame_SAMSHO2_A::CGame_SAMSHO2_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SAMSHO2_A;
     nImgGameFlag = IMGDAT_SECTION_SAMSHO;
-    m_prgGameImageSet = SAMSHO2_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(SAMSHO2_A_IMG_UNITS);
+    m_prgGameImageSet = SAMSHO2_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SAMSHO2_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -159,7 +159,7 @@ void CGame_SAMSHO2_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         // Status effects
         for (UINT16 nStatusIndex = 0; nStatusIndex < 64; nStatusIndex++)
@@ -250,7 +250,7 @@ void CGame_SAMSHO2_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(L"const sDescTreeNode SAMSHO2_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -272,7 +272,7 @@ void CGame_SAMSHO2_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SAMSHO2_A_%s_COLLECTION, ARRAYSIZE(SAMSHO2_A_%s_COLLECTION) },\r\n", rgCharacters[nCharIndex], szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);

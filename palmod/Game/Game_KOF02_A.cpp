@@ -43,7 +43,7 @@ CGame_KOF02_A::CGame_KOF02_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF02_A_NUMUNIT;
     m_nExtraUnit = KOF02_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1954;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2003;
     m_pszExtraFilename = EXTRA_FILENAME_KOF02_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -56,8 +56,8 @@ CGame_KOF02_A::CGame_KOF02_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = KOF02_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF02_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(KOF02_A_IMG_UNITS);
+    m_prgGameImageSet = KOF02_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(KOF02_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -108,7 +108,7 @@ void CGame_KOF02_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         for (UINT16 iButtonIndex = 0; iButtonIndex < 4; iButtonIndex++)
         {
@@ -211,7 +211,7 @@ void CGame_KOF02_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOF02_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -242,7 +242,7 @@ void CGame_KOF02_A::DumpAllCharacters()
         CString strOutput;
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF02_A_%s_COLLECTION, ARRAYSIZE(KOF02_A_%s_COLLECTION) },\r\n", KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
@@ -326,7 +326,7 @@ const sDescTreeNode* CGame_KOF02_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
 
 const sGame_PaletteDataset* CGame_KOF02_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
-    return _GetSpecificPalette(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, nPaletteId, KOF02_A_EXTRA_CUSTOM);;
+    return _GetSpecificPalette(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, nPaletteId, KOF02_A_EXTRA_CUSTOM);
 }
 
 void CGame_KOF02_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)

@@ -68,7 +68,7 @@ BOOL CImgOutDlg::OnInitDialog()
     tmp_str.Format(L"CImgOutDlg::OnInitDialog: preparing to show up to %u sprites\n", nPalAmt);
     OutputDebugString(tmp_str);
 
-    //Fix later... as we add more games
+    // Update here as needed to add new division options
     switch (nPalAmt)
     {
     default:
@@ -472,6 +472,13 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
     if (fShouldExportAsIndexed)
     {
+        UINT16 nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+#ifdef ALLOW_MULTIPLE_TRANSPARENCY_COLORS
+        // It's technically correct for our purposes to allow for this, but also problematic since Photoshop
+        // only wants one transparency per indexed image.  So let's just turn this off for now.
+        UINT16 nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+#endif
+
         // Indexed PNG: use the lodePNG encoder
         for (int nNodeIndex = 0; nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay; nNodeIndex++)
         {
@@ -508,10 +515,11 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
                             for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
                             {
-                                // make sure to flip the sprite
                                 int destIndex = ((m_DumpBmp.border_sz + adjustedY + zoomY) * destWidth) + (m_DumpBmp.border_sz + adjustedX + zoomX);
-                                // read bottom up, starting at the beginning of the last row
-                                int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
+                                // this is the upside-down version:
+                                //int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
+                                // and this is the rightside-up version:
+                                int srcIndex = (destX / currentZoom) + ((destY / currentZoom) * srcWidth);
 
                                 // only write used pixels
                                 if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
@@ -529,7 +537,11 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 // the PNG PLTE section goes up to 256 colors, so use that as our initial cap
                 for (size_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
                 {
-                    if (iCurrentColor == 0) // transparency color
+#ifdef ALLOW_MULTIPLE_TRANSPARENCY_COLORS
+                    if ((iCurrentColor % nMaxWritePerTransparency) == nTransparencyPosition)
+#else
+                    if (iCurrentColor == nTransparencyPosition) // transparency color
+#endif
                     {
                         if (bTransPNG)
                         {
@@ -660,7 +672,8 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
     int output_width = m_DumpBmp.GetOutputW();
     int output_height = m_DumpBmp.GetOutputH();
 
-    if (out_img.Create(output_width, output_height, 32, dwExportFlags))
+    // Pass negative height in order to indicate that this is top-down
+    if (out_img.Create(output_width, -output_height, 32, dwExportFlags))
     {
         const bool fUsingAlphaChannel = dwExportFlags == CImage::createAlphaChannel;
         if (fUsingAlphaChannel)

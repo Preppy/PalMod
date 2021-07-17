@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 SAMSHO5_A_IMG_UNITS[] =
+const UINT16 SAMSHO5_A_IMGIDS_USED[] =
 {
     indexSamSho5Sprites_Amakusa,
     indexSamSho5Sprites_Basara,
@@ -2085,248 +2085,249 @@ const sGame_PaletteDataset SAMSHO5_A_Sankuro_PALETTES_D[] =
 const sGame_PaletteDataset SAMSHO5_A_Basara_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Basara A Portrait", 0xdd3a0, 0xdd3e0 },
-    { L"Basara B Portrait", 0xdd7a0, 0xdd7e0 },
-    { L"Basara C Portrait", 0xddba0, 0xddbe0 },
-    { L"Basara D Portrait", 0xddfa0, 0xddfe0 },
+    { L"Basara A Portrait", 0xdd3a0, 0xdd3e0, indexSS5_Basara, 0x40 },
+    { L"Basara B Portrait", 0xdd7a0, 0xdd7e0, indexSS5_Basara, 0x40 },
+    { L"Basara C Portrait", 0xddba0, 0xddbe0, indexSS5_Basara, 0x40 },
+    { L"Basara D Portrait", 0xddfa0, 0xddfe0, indexSS5_Basara, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Charlotte_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Charlotte A Portrait", 0xe33a0, 0xe33e0 },
-    { L"Charlotte B Portrait", 0xe37a0, 0xe37e0 },
-    { L"Charlotte C Portrait", 0xe3ba0, 0xe3be0 },
-    { L"Charlotte D Portrait", 0xe3fa0, 0xe3fe0 },
+    { L"Charlotte A Portrait", 0xe33a0, 0xe33e0, indexSS5_Charlotte, 0x40 },
+    { L"Charlotte B Portrait", 0xe37a0, 0xe37e0, indexSS5_Charlotte, 0x40 },
+    { L"Charlotte C Portrait", 0xe3ba0, 0xe3be0, indexSS5_Charlotte, 0x40 },
+    { L"Charlotte D Portrait", 0xe3fa0, 0xe3fe0, indexSS5_Charlotte, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Enja_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Enja A Portrait", 0xe93a0, 0xe93e0 },
-    { L"Enja B Portrait", 0xe97a0, 0xe97e0 },
-    { L"Enja C Portrait", 0xe9ba0, 0xe9be0 },
-    { L"Enja D Portrait", 0xe9fa0, 0xe9fe0 },
+    { L"Enja A Portrait", 0xe93a0, 0xe93e0, indexSS5_Enja, 0x40 },
+    { L"Enja B Portrait", 0xe97a0, 0xe97e0, indexSS5_Enja, 0x40 },
+    { L"Enja C Portrait", 0xe9ba0, 0xe9be0, indexSS5_Enja, 0x40 },
+    { L"Enja D Portrait", 0xe9fa0, 0xe9fe0, indexSS5_Enja, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Gaira_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Gaira A Portrait", 0xdf3a0, 0xdf3e0 },
-    { L"Gaira B Portrait", 0xdf7a0, 0xdf7e0 },
-    { L"Gaira C Portrait", 0xdfba0, 0xdfbe0 },
-    { L"Gaira D Portrait", 0xdffa0, 0xdffe0 },
+    { L"Gaira A Portrait", 0xdf3a0, 0xdf3e0, indexSS5_Gaira, 0x40 },
+    { L"Gaira B Portrait", 0xdf7a0, 0xdf7e0, indexSS5_Gaira, 0x40 },
+    { L"Gaira C Portrait", 0xdfba0, 0xdfbe0, indexSS5_Gaira, 0x40 },
+    { L"Gaira D Portrait", 0xdffa0, 0xdffe0, indexSS5_Gaira, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Galford_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Galford A Portrait", 0xd93a0, 0xd93e0 },
-    { L"Poppy A Portrait", 0xd93e0, 0xd9400 },
-    { L"Galford B Portrait", 0xd97a0, 0xd97e0 },
-    { L"Poppy B Portrait", 0xd97e0, 0xd9800 },
-    { L"Galford C Portrait", 0xd9ba0, 0xd9be0 },
-    { L"Poppy C Portrait", 0xd9be0, 0xd9c00 },
-    { L"Galford D Portrait", 0xd9fa0, 0xd9fe0 },
-    { L"Poppy D Portrait", 0xd9fe0, 0xda000 },
+    { L"Galford A Portrait", 0xd93a0, 0xd93e0, indexSS5_Galford, 0x40 },
+    { L"Poppy A Portrait", 0xd93e0, 0xd9400, indexSS5_Galford, 0x3f },
+    { L"Galford B Portrait", 0xd97a0, 0xd97e0, indexSS5_Galford, 0x40 },
+    { L"Poppy B Portrait", 0xd97e0, 0xd9800, indexSS5_Galford, 0x3f },
+    { L"Galford C Portrait", 0xd9ba0, 0xd9be0, indexSS5_Galford, 0x40 },
+    { L"Poppy C Portrait", 0xd9be0, 0xd9c00, indexSS5_Galford, 0x3f },
+    { L"Galford D Portrait", 0xd9fa0, 0xd9fe0, indexSS5_Galford, 0x40 },
+    { L"Poppy D Portrait", 0xd9fe0, 0xda000, indexSS5_Galford, 0x3f },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Gaoh_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Gaoh A Portrait", 0xef3a0, 0xef3e0 },
-    { L"Gaoh B Portrait", 0xef7a0, 0xef7e0 },
-    { L"Gaoh C Portrait", 0xefba0, 0xefbe0 },
-    { L"Gaoh D Portrait", 0xeffa0, 0xeffe0 },
+    { L"Gaoh A Portrait", 0xef3a0, 0xef3e0, indexSS5_Gaoh, 0x40 },
+    { L"Gaoh B Portrait", 0xef7a0, 0xef7e0, indexSS5_Gaoh, 0x40 },
+    { L"Gaoh C Portrait", 0xefba0, 0xefbe0, indexSS5_Gaoh, 0x40 },
+    { L"Gaoh D Portrait", 0xeffa0, 0xeffe0, indexSS5_Gaoh, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Genjuro_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Genjuro A Portrait", 0xdc3a0, 0xdc3e0 },
-    { L"Genjuro B Portrait", 0xdc7a0, 0xdc7e0 },
-    { L"Genjuro C Portrait", 0xdcba0, 0xdcbe0 },
-    { L"Genjuro D Portrait", 0xdcfa0, 0xdcfe0 },
+    { L"Genjuro A Portrait", 0xdc3a0, 0xdc3e0, indexSS5_Genjuro, 0x40 },
+    { L"Genjuro B Portrait", 0xdc7a0, 0xdc7e0, indexSS5_Genjuro, 0x40 },
+    { L"Genjuro C Portrait", 0xdcba0, 0xdcbe0, indexSS5_Genjuro, 0x40 },
+    { L"Genjuro D Portrait", 0xdcfa0, 0xdcfe0, indexSS5_Genjuro, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Hanzo_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Hanzo A Portrait", 0xd83a0, 0xd83e0 },
-    { L"Hanzo B Portrait", 0xd87a0, 0xd87e0 },
-    { L"Hanzo C Portrait", 0xd8ba0, 0xd8be0 },
-    { L"Hanzo D Portrait", 0xd8fa0, 0xd8fe0 },
+    { L"Hanzo A Portrait", 0xd83a0, 0xd83e0, indexSS5_Hanzo, 0x40 },
+    { L"Hanzo B Portrait", 0xd87a0, 0xd87e0, indexSS5_Hanzo, 0x40 },
+    { L"Hanzo C Portrait", 0xd8ba0, 0xd8be0, indexSS5_Hanzo, 0x40 },
+    { L"Hanzo D Portrait", 0xd8fa0, 0xd8fe0, indexSS5_Hanzo, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Haohmaru_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Haohmaru A Portrait", 0xd53a0, 0xd53e0 },
-    { L"Haohmaru B Portrait", 0xd57a0, 0xd57e0 },
-    { L"Haohmaru C Portrait", 0xd5ba0, 0xd5be0 },
-    { L"Haohmaru D Portrait", 0xd5fa0, 0xd5fe0 },
+    { L"Haohmaru A Portrait", 0xd53a0, 0xd53e0, indexSS5_Haohmaru, 0x40 },
+    { L"Haohmaru B Portrait", 0xd57a0, 0xd57e0, indexSS5_Haohmaru, 0x40 },
+    { L"Haohmaru C Portrait", 0xd5ba0, 0xd5be0, indexSS5_Haohmaru, 0x40 },
+    { L"Haohmaru D Portrait", 0xd5fa0, 0xd5fe0, indexSS5_Haohmaru, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Jubei_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Jubei A Portrait", 0xe13a0, 0xe13e0 },
-    { L"Jubei B Portrait", 0xe17a0, 0xe17e0 },
-    { L"Jubei C Portrait", 0xe1ba0, 0xe1be0 },
-    { L"Jubei D Portrait", 0xe1fa0, 0xe1fe0 },
+    { L"Jubei A Portrait", 0xe13a0, 0xe13e0, indexSS5_Jubei, 0x40 },
+    { L"Jubei B Portrait", 0xe17a0, 0xe17e0, indexSS5_Jubei, 0x40 },
+    { L"Jubei C Portrait", 0xe1ba0, 0xe1be0, indexSS5_Jubei, 0x40 },
+    { L"Jubei D Portrait", 0xe1fa0, 0xe1fe0, indexSS5_Jubei, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Kazuki_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Kazuki A Portrait", 0xe53a0, 0xe53e0 },
-    { L"Kazuki B Portrait", 0xe57a0, 0xe57e0 },
-    { L"Kazuki C Portrait", 0xe5ba0, 0xe5be0 },
-    { L"Kazuki D Portrait", 0xe5fa0, 0xe5fe0 },
+    { L"Kazuki A Portrait", 0xe53a0, 0xe53e0, indexSS5_Kazuki, 0x40 },
+    { L"Kazuki B Portrait", 0xe57a0, 0xe57e0, indexSS5_Kazuki, 0x40 },
+    { L"Kazuki C Portrait", 0xe5ba0, 0xe5be0, indexSS5_Kazuki, 0x40 },
+    { L"Kazuki D Portrait", 0xe5fa0, 0xe5fe0, indexSS5_Kazuki, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Kusaregedo_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Kusaregedo A Portrait", 0xee3a0, 0xee3e0 },
-    { L"Kusaregedo B Portrait", 0xee7a0, 0xee7e0 },
-    { L"Kusaregedo C Portrait", 0xeeba0, 0xeebe0 },
-    { L"Kusaregedo D Portrait", 0xeefa0, 0xeefe0 },
+    { L"Kusaregedo A Portrait", 0xee3a0, 0xee3e0, indexSS5_Kusaregedo, 0x40 },
+    { L"Kusaregedo B Portrait", 0xee7a0, 0xee7e0, indexSS5_Kusaregedo, 0x40 },
+    { L"Kusaregedo C Portrait", 0xeeba0, 0xeebe0, indexSS5_Kusaregedo, 0x40 },
+    { L"Kusaregedo D Portrait", 0xeefa0, 0xeefe0, indexSS5_Kusaregedo, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Kyoshiro_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Kyoshiro A Portrait", 0xda3a0, 0xda3e0 },
-    { L"Kyoshiro B Portrait", 0xda7a0, 0xda7e0 },
-    { L"Kyoshiro C Portrait", 0xdaba0, 0xdabe0 },
-    { L"Kyoshiro D Portrait", 0xdafa0, 0xdafe0 },
+    { L"Kyoshiro A Portrait", 0xda3a0, 0xda3e0, indexSS5_Kyoshiro, 0x40 },
+    { L"Kyoshiro B Portrait", 0xda7a0, 0xda7e0, indexSS5_Kyoshiro, 0x40 },
+    { L"Kyoshiro C Portrait", 0xdaba0, 0xdabe0, indexSS5_Kyoshiro, 0x40 },
+    { L"Kyoshiro D Portrait", 0xdafa0, 0xdafe0, indexSS5_Kyoshiro, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Mina_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Mina A Portrait", 0xed3a0, 0xed3e0 },
-    { L"Mina B Portrait", 0xed7a0, 0xed7e0 },
-    { L"Mina C Portrait", 0xedba0, 0xedbe0 },
-    { L"Mina D Portrait", 0xedfa0, 0xedfe0 },
+    { L"Mina A Portrait", 0xed3a0, 0xed3e0, indexSS5_Mina, 0x40 },
+    { L"Mina B Portrait", 0xed7a0, 0xed7e0, indexSS5_Mina, 0x40 },
+    { L"Mina C Portrait", 0xedba0, 0xedbe0, indexSS5_Mina, 0x40 },
+    { L"Mina D Portrait", 0xedfa0, 0xedfe0, indexSS5_Mina, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Nakoruru_PALETTES_PORTRAITS[] =
 {
     //--Portrait--
-    { L"Nakoruru A Portrait", 0xd63a0, 0xd63e0 },
-    { L"Nakoruru B Portrait", 0xd67a0, 0xd67e0 },
-    { L"Nakoruru C Portrait", 0xd6ba0, 0xd6be0 },
-    { L"Nakoruru D Portrait", 0xd6fa0, 0xd6fe0 },
+    { L"Nakoruru A Portrait", 0xd63a0, 0xd63e0, indexSS5_Nakoruru, 0x40 },
+    { L"Nakoruru B Portrait", 0xd67a0, 0xd67e0, indexSS5_Nakoruru, 0x40 },
+    { L"Nakoruru C Portrait", 0xd6ba0, 0xd6be0, indexSS5_Nakoruru, 0x40 },
+    { L"Nakoruru D Portrait", 0xd6fa0, 0xd6fe0, indexSS5_Nakoruru, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Rasetsumaru_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Rasetsumaru A Portrait", 0xe73a0, 0xe73e0 },
-    { L"Rasetsumaru B Portrait", 0xe77a0, 0xe77e0 },
-    { L"Rasetsumaru C Portrait", 0xe7ba0, 0xe7be0 },
-    { L"Rasetsumaru D Portrait", 0xe7fa0, 0xe7fe0 },
+    { L"Rasetsumaru A Portrait", 0xe73a0, 0xe73e0, indexSS5_Rasetsumaru, 0x40 },
+    { L"Rasetsumaru B Portrait", 0xe77a0, 0xe77e0, indexSS5_Rasetsumaru, 0x40 },
+    { L"Rasetsumaru C Portrait", 0xe7ba0, 0xe7be0, indexSS5_Rasetsumaru, 0x40 },
+    { L"Rasetsumaru D Portrait", 0xe7fa0, 0xe7fe0, indexSS5_Rasetsumaru, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Rera_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Rera A Portrait", 0xe83a0, 0xe83e0 },
-    { L"Rera B Portrait", 0xe87a0, 0xe87e0 },
-    { L"Rera C Portrait", 0xe8ba0, 0xe8be0 },
-    { L"Rera D Portrait", 0xe8fa0, 0xe8fe0 },
+    { L"Rera A Portrait", 0xe83a0, 0xe83e0, indexSS5_Rera, 0x40 },
+    { L"Rera B Portrait", 0xe87a0, 0xe87e0, indexSS5_Rera, 0x40 },
+    { L"Rera C Portrait", 0xe8ba0, 0xe8be0, indexSS5_Rera, 0x40 },
+    { L"Rera D Portrait", 0xe8fa0, 0xe8fe0, indexSS5_Rera, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Rimururu_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Rimururu A Portrait", 0xd73a0, 0xd73e0 },
-    { L"Rimururu B Portrait", 0xd77a0, 0xd77e0 },
-    { L"Rimururu C Portrait", 0xd7ba0, 0xd7be0 },
-    { L"Rimururu D Portrait", 0xd7fa0, 0xd7fe0 },
+    { L"Rimururu A Portrait", 0xd73a0, 0xd73e0, indexSS5_Rimururu, 0x40 },
+    { L"Rimururu B Portrait", 0xd77a0, 0xd77e0, indexSS5_Rimururu, 0x40 },
+    { L"Rimururu C Portrait", 0xd7ba0, 0xd7be0, indexSS5_Rimururu, 0x40 },
+    { L"Rimururu D Portrait", 0xd7fa0, 0xd7fe0, indexSS5_Rimururu, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Shizumaru_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Shizumaru A Portrait", 0xde3a0, 0xde3e0 },
-    { L"Shizumaru B Portrait", 0xde7a0, 0xde7e0 },
-    { L"Shizumaru C Portrait", 0xdeba0, 0xdebe0 },
-    { L"Shizumaru D Portrait", 0xdefa0, 0xdefe0 },
+    { L"Shizumaru A Portrait", 0xde3a0, 0xde3e0, indexSS5_Shizumaru, 0x40 },
+    { L"Shizumaru B Portrait", 0xde7a0, 0xde7e0, indexSS5_Shizumaru, 0x40 },
+    { L"Shizumaru C Portrait", 0xdeba0, 0xdebe0, indexSS5_Shizumaru, 0x40 },
+    { L"Shizumaru D Portrait", 0xdefa0, 0xdefe0, indexSS5_Shizumaru, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Sogetsu_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Sogetsu A Portrait", 0xe63a0, 0xe63e0 },
-    { L"Sogetsu B Portrait", 0xe67a0, 0xe67e0 },
-    { L"Sogetsu C Portrait", 0xe6ba0, 0xe6be0 },
-    { L"Sogetsu D Portrait", 0xe6fa0, 0xe6fe0 },
+    { L"Sogetsu A Portrait", 0xe63a0, 0xe63e0, indexSS5_Sogetsu, 0x40 },
+    { L"Sogetsu B Portrait", 0xe67a0, 0xe67e0, indexSS5_Sogetsu, 0x40 },
+    { L"Sogetsu C Portrait", 0xe6ba0, 0xe6be0, indexSS5_Sogetsu, 0x40 },
+    { L"Sogetsu D Portrait", 0xe6fa0, 0xe6fe0, indexSS5_Sogetsu, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Suija_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Suija A Portrait", 0xea3a0, 0xea3e0 },
-    { L"Suija B Portrait", 0xea7a0, 0xea7e0 },
-    { L"Suija C Portrait", 0xeaba0, 0xeabe0 },
-    { L"Suija D Portrait", 0xeafa0, 0xeafe0 },
+    { L"Suija A Portrait", 0xea3a0, 0xea3e0, indexSS5_Suija, 0x40 },
+    { L"Suija B Portrait", 0xea7a0, 0xea7e0, indexSS5_Suija, 0x40 },
+    { L"Suija C Portrait", 0xeaba0, 0xeabe0, indexSS5_Suija, 0x40 },
+    { L"Suija D Portrait", 0xeafa0, 0xeafe0, indexSS5_Suija, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_TamTam_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Tam Tam A Portrait", 0xe43a0, 0xe43e0 },
-    { L"Tam Tam B Portrait", 0xe47a0, 0xe47e0 },
-    { L"Tam Tam C Portrait", 0xe4ba0, 0xe4be0 },
-    { L"Tam Tam D Portrait", 0xe4fa0, 0xe4fe0 },
+    { L"Tam Tam A Portrait", 0xe43a0, 0xe43e0, indexSS5_TamTam, 0x40 },
+    { L"Tam Tam B Portrait", 0xe47a0, 0xe47e0, indexSS5_TamTam, 0x40 },
+    { L"Tam Tam C Portrait", 0xe4ba0, 0xe4be0, indexSS5_TamTam, 0x40 },
+    { L"Tam Tam D Portrait", 0xe4fa0, 0xe4fe0, indexSS5_TamTam, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Ukyo_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Ukyo A Portrait", 0xdb3a0, 0xdb3e0 },
-    { L"Ukyo B Portrait", 0xdb7a0, 0xdb7e0 },
-    { L"Ukyo C Portrait", 0xdbba0, 0xdbbe0 },
-    { L"Ukyo D Portrait", 0xdbfa0, 0xdbfe0 },
+    { L"Ukyo A Portrait", 0xdb3a0, 0xdb3e0, indexSS5_Ukyo, 0x40 },
+    { L"Ukyo B Portrait", 0xdb7a0, 0xdb7e0, indexSS5_Ukyo, 0x40 },
+    { L"Ukyo C Portrait", 0xdbba0, 0xdbbe0, indexSS5_Ukyo, 0x40 },
+    { L"Ukyo D Portrait", 0xdbfa0, 0xdbfe0, indexSS5_Ukyo, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Yoshitora_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Yoshitora A Portrait", 0xeb3a0, 0xeb3e0 },
-    { L"Yoshitora B Portrait", 0xeb7a0, 0xeb7e0 },
-    { L"Yoshitora C Portrait", 0xebba0, 0xebbe0 },
-    { L"Yoshitora D Portrait", 0xebfa0, 0xebfe0 },
-};
-
-const sGame_PaletteDataset SAMSHO5_A_Yunfei_PALETTES_PORTRAITS[] =
-{
-    // --Portrait--
-    { L"Yunfei A Portrait", 0xec3a0, 0xec3e0 },
-    { L"Yunfei B Portrait", 0xec7a0, 0xec7e0 },
-    { L"Yunfei C Portrait", 0xecba0, 0xecbe0 },
-    { L"Yunfei D Portrait", 0xecfa0, 0xecfe0 },
+    { L"Yoshitora A Portrait", 0xeb3a0, 0xeb3e0, indexSS5_Yoshitora, 0x40 },
+    { L"Yoshitora B Portrait", 0xeb7a0, 0xeb7e0, indexSS5_Yoshitora, 0x40 },
+    { L"Yoshitora C Portrait", 0xebba0, 0xebbe0, indexSS5_Yoshitora, 0x40 },
+    { L"Yoshitora D Portrait", 0xebfa0, 0xebfe0, indexSS5_Yoshitora, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Yumeji_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Yumeji A Portrait", 0xe03a0, 0xe03e0 },
-    { L"Yumeji B Portrait", 0xe07a0, 0xe07e0 },
-    { L"Yumeji C Portrait", 0xe0ba0, 0xe0be0 },
-    { L"Yumeji D Portrait", 0xe0fa0, 0xe0fe0 },
+    { L"Yumeji A Portrait", 0xe03a0, 0xe03e0, indexSS5_Yumeji, 0x40 },
+    { L"Yumeji B Portrait", 0xe07a0, 0xe07e0, indexSS5_Yumeji, 0x40 },
+    { L"Yumeji C Portrait", 0xe0ba0, 0xe0be0, indexSS5_Yumeji, 0x40 },
+    { L"Yumeji D Portrait", 0xe0fa0, 0xe0fe0, indexSS5_Yumeji, 0x40 },
 };
+
+const sGame_PaletteDataset SAMSHO5_A_Yunfei_PALETTES_PORTRAITS[] =
+{
+    // --Portrait--
+    { L"Yunfei A Portrait", 0xec3a0, 0xec3e0, indexSS5_Yunfei, 0x40 },
+    { L"Yunfei B Portrait", 0xec7a0, 0xec7e0, indexSS5_Yunfei, 0x40 },
+    { L"Yunfei C Portrait", 0xecba0, 0xecbe0, indexSS5_Yunfei, 0x40 },
+    { L"Yunfei D Portrait", 0xecfa0, 0xecfe0, indexSS5_Yunfei, 0x40 },
+};
+
 
 const sGame_PaletteDataset SAMSHO5_A_Sankuro_PALETTES_PORTRAITS[] =
 {
     // --Portrait--
-    { L"Sankuro A Portrait", 0xe23a0, 0xe23e0 },
-    { L"Sankuro B Portrait", 0xe27a0, 0xe27e0 },
-    { L"Sankuro C Portrait", 0xe2ba0, 0xe2be0 },
-    { L"Sankuro D Portrait", 0xe2fa0, 0xe2fe0 },
+    { L"Sankuro A Portrait", 0xe23a0, 0xe23e0, indexSS5_Sankuro, 0x40 },
+    { L"Sankuro B Portrait", 0xe27a0, 0xe27e0, indexSS5_Sankuro, 0x40 },
+    { L"Sankuro C Portrait", 0xe2ba0, 0xe2be0, indexSS5_Sankuro, 0x40 },
+    { L"Sankuro D Portrait", 0xe2fa0, 0xe2fe0, indexSS5_Sankuro, 0x40 },
 };
 
 const sGame_PaletteDataset SAMSHO5_A_BONUS_HUD_PALETTES[] =

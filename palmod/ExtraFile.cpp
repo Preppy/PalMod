@@ -164,13 +164,31 @@ void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtra
 
                             nCurrEnd = strtoul(aszFinalLine, nullptr, 16);
 
-                            if (nCurrEnd <= nCurrStart)
+                            if (nCurrEnd == nCurrStart)
                             {
                                 CString strError;
-                                strError.Format(L"In file \"%s\", Extra \"%S\" is broken: trying to display from starting offset 0x%x to ending offset 0x%x: that ending offset actually starts before the starting offset!\n\nPlease fix: this isn't going to work right.\n", pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
-                                MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
+                                strError.Format(L"In file \"%s\", Extra \"%S\" is broken: starting offset 0x%x to ending offset 0x%x is zero-length.\n\n"
+                                                L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
+                                MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
 
-                                nCurrEnd = nCurrStart + (16 * cbColorSize);
+                                CStringA strFormat;
+                                strFormat.Format("Broken: Zero-Length: %s", aszCurrDesc);
+                                _snprintf_s(aszCurrDesc, MAX_DESCRIPTION_LENGTH, _TRUNCATE, strFormat.GetString());
+                                nCurrEnd = nCurrStart + (1 * cbColorSize);
+                            }
+                            else if (nCurrEnd < nCurrStart)
+                            {
+                                CString strError;
+                                strError.Format(L"In file \"%s\", Extra \"%S\" is broken: trying to display from starting offset 0x%x to ending offset 0x%x:"
+                                                    L"that ending offset actually starts before the starting offset!\n\n"
+                                                L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
+                                MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+
+                                CStringA strFormat;
+                                strFormat.Format("Broken: Negative: %s", aszCurrDesc);
+                                _snprintf_s(aszCurrDesc, MAX_DESCRIPTION_LENGTH, _TRUNCATE, strFormat.GetString());
+
+                                nCurrEnd = nCurrStart + (1 * cbColorSize);
                             }
 
                             // Validate that they're not trying to read off the end of the ROM...
@@ -179,33 +197,22 @@ void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtra
                                 if (!fAlertedToTruncation)
                                 {
                                     CString strQuestion;
-                                    strQuestion.Format(L"In file \"%s\", Extra \"%S\" is broken.\n\nThis game ROM size is 0x%x bytes. This Extra starts at offset 0x%x and ends at offset 0x%x.  That won't work.\n\nPalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
+                                    strQuestion.Format(L"In file \"%s\", Extra \"%S\" is broken.\n\nThis game ROM size is 0x%x bytes. This Extra starts at offset 0x%x and ends at offset 0x%x."
+                                        L"That won't work: the maximum ending offset possible is 0x%x.\n\n"
+                                        L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nGameROMSize, nCurrStart, nCurrEnd, nGameROMSize);
 
                                     MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
                                     fAlertedToTruncation = true;
                                 }
 
-                                strcpy(aszCurrDesc, "Broken: Truncated");
+                                CStringA strFormat;
+                                strFormat.Format("Broken: Truncated: %s", aszCurrDesc);
+                                _snprintf_s(aszCurrDesc, MAX_DESCRIPTION_LENGTH, _TRUNCATE, strFormat.GetString());
                                 nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * cbColorSize)));
                                 nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
                             }
 
                             UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / cbColorSize; // usually 2 bytes per color.
-
-                            static bool s_fShownOnce = false;
-                            if (nCurrStart > nCurrEnd) // This file is broken: just make the best of it.
-                            {
-                                if (!s_fShownOnce)
-                                {
-                                    s_fShownOnce = true;
-                                    CString strError;
-                                    strError.Format(L"In file \"%s\", Extra \"%S\" is trying to display %u colors (from 0x%x to 0x%x).  This is broken, so PalMod is overriding it.\n", pszExtraFileName, aszCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
-                                    MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONINFORMATION);
-                                }
-
-                                nColorsUsed = 16;
-                            }
-
                             const int nTotalPagesNeeded = (int)ceil((double)nColorsUsed / (double)k_colorsPerPage);
                             int nCurrentPage = 1;
 
@@ -449,14 +456,18 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
             m_nLowestRomLocationThisPass = min(m_nLowestRomLocationThisPass, m_nCurrentPaletteROMLocation);
 
-            if (!fShownInternalErrorOnce && ((m_nCurrentPaletteSizeInColors > k_maxColorsPerUnit) || (m_nCurrentPaletteSizeInColors == 0)))
+            if ((m_nCurrentPaletteSizeInColors > k_maxColorsPerUnit) || (m_nCurrentPaletteSizeInColors == 0))
             {
-                // only show this error once in case something is very very wrong
-                fShownInternalErrorOnce = true;
                 CString strText;
                 strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).\n\nThis needs to be fixed.\n", m_pszCurrentPaletteName, m_nCurrentPaletteSizeInColors, nUnitCtr, nPalCtr);
                 OutputDebugString(strText);
-                MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
+
+                if (!fShownInternalErrorOnce)
+                {
+                    // only show this error to the user once in case something is very very wrong
+                    fShownInternalErrorOnce = true;
+                    MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
+                }
             }
 
             if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset + k_nSpecialOverrideForTMNTTF))

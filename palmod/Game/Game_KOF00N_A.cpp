@@ -43,7 +43,7 @@ CGame_KOF00N_A::CGame_KOF00N_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF00N_A_NUMUNIT;
     m_nExtraUnit = KOF00N_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1120;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1128;
     m_pszExtraFilename = EXTRA_FILENAME_KOF00N_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF00N;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -56,8 +56,8 @@ CGame_KOF00N_A::CGame_KOF00N_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = KOF00N_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF00N_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(KOF00N_A_IMG_UNITS);
+    m_prgGameImageSet = KOF00N_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(KOF00N_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -171,7 +171,7 @@ const sDescTreeNode* CGame_KOF00N_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16
 
 const sGame_PaletteDataset* CGame_KOF00N_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
-    return _GetSpecificPalette(KOF00N_A_UNITS, rgExtraCountAll, KOF00N_A_NUMUNIT, KOF00N_A_EXTRALOC, nUnitId, nPaletteId, KOF00N_A_EXTRA_CUSTOM);;
+    return _GetSpecificPalette(KOF00N_A_UNITS, rgExtraCountAll, KOF00N_A_NUMUNIT, KOF00N_A_EXTRALOC, nUnitId, nPaletteId, KOF00N_A_EXTRA_CUSTOM);
 }
 
 void CGame_KOF00N_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)

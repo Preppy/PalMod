@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "ImgDumpBmp.h"
+#include "PalMod.h"
 
 #include "windows.h"
 
@@ -118,7 +119,7 @@ void CImgDumpBmp::OnSize(UINT nType, int cx, int cy)
 {
     CWnd::OnSize(nType, cx, cy);
 
-    if (!FirstRun)
+    if (m_fInitialized)
     {
         SetClientSize();
         SizeScroll(TRUE);
@@ -245,10 +246,10 @@ void CImgDumpBmp::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 void CImgDumpBmp::UpdateBltRect(BOOL reset_flag)
 {
-    if (m_VScroll) // functionally, this is a FirstRun check
+    if (m_VScroll)
     {
-        int scroll_h = m_VScroll.GetScrollPos();
-        int scroll_w = m_HScroll.GetScrollPos();
+        const int scroll_h = m_VScroll.GetScrollPos();
+        const int scroll_w = m_HScroll.GetScrollPos();
 
         main_blt.top = 0 + (scroll_h * reset_flag);
         //main_blt.bottom = cl_height + scroll_h;
@@ -352,7 +353,7 @@ void CImgDumpBmp::OnLButtonUp(UINT nFlags, CPoint point)
 
 void CImgDumpBmp::OnPaint()
 {
-    if (FirstRun)
+    if (!m_fInitialized)
     {
         CPaintDC cdc(this);
 
@@ -373,11 +374,11 @@ void CImgDumpBmp::OnPaint()
         m_VScroll.Create(SBS_VERT | SBS_TOPALIGN | WS_CHILD, v_rect, this, 100);
         m_VScroll.ShowScrollBar();
 
-        CanSizeScroll = TRUE;
+        m_fScrollbarIsReady = TRUE;
 
         UpdateBltRect();
 
-        FirstRun = FALSE;
+        m_fInitialized = TRUE;
 
         //Update
         UpdateCtrl();
@@ -403,7 +404,7 @@ void CImgDumpBmp::SizeScroll(BOOL resize)
     h_rect.top = cl_height; h_rect.bottom = ctrl_rect.bottom;
     h_rect.left = ctrl_rect.left; h_rect.right = cl_width;
 
-    if (resize && CanSizeScroll)
+    if (resize && m_fScrollbarIsReady)
     {
         m_HScroll.MoveWindow(&h_rect);
         m_VScroll.MoveWindow(&v_rect);
@@ -440,7 +441,7 @@ void CImgDumpBmp::ClearCtrlBG()
 
 void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
 {
-    if (!FirstRun)
+    if (m_fInitialized)
     {
         ClearCtrlBG();
 
@@ -565,24 +566,27 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
     nBltW = rBltRct.right - rBltRct.left;
     nBltH = rBltRct.bottom - rBltRct.top;
 
+    UINT16 nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+    UINT16 nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+        
     if (bTransBG)
     {
-        for (int y = 0; y < nBltH; y++)
+        for (int yIndex = 0; yIndex < nBltH; yIndex++)
         {
-            nYCtr = (int)((double)y * fpYDiff);
+            nYCtr = (int)((double)yIndex * fpYDiff);
 
-            nStartRow = (0 - ((nBltH - 1) - y + rBltRct.top)) * (nMainW * 4) + (rBltRct.left * 4);
+            nStartRow = (yIndex + rBltRct.top) * (nMainW * 4) + (rBltRct.left * 4);
             nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
-            for (int x = 0; x < (nBltW * 4); x += 4)
+            for (int xIndex = 0; xIndex < (nBltW * 4); xIndex += 4)
             {
-                nXCtr = (int)((double)x * fpXDiff);
+                nXCtr = (int)((double)xIndex * fpXDiff);
 
                 uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
 
-                if (uIndex)
+                if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
                 {
-                    nDstPos = nStartRow + x;
+                    nDstPos = nStartRow + xIndex;
 
 #ifdef BLEND_TO_BACKGROUND
                     // zachd 2020/10/02: I am baffled why we would blend to background on a transparent background.  For one image there's nothing to blend to.  For multiple images we break layering and instead
@@ -604,24 +608,24 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
             }
         }
     }
-    else
+    else // show the background color they've selected
     {
-        for (int y = 0; y < nBltH; y++)
+        for (int yIndex = 0; yIndex < nBltH; yIndex++)
         {
-            nYCtr = (int)((double)y * fpYDiff);
+            nYCtr = (int)((double)yIndex * fpYDiff);
 
-            nStartRow = (rBltRct.top + (((nBltH - 1) - y))) * (nMainW * 4) + (rBltRct.left * 4);
+            nStartRow = (yIndex + rBltRct.top) * (nMainW * 4) + (rBltRct.left * 4);
             nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
-            for (int x = 0; x < (nBltW * 4); x += 4)
+            for (int xIndex = 0; xIndex < (nBltW * 4); xIndex += 4)
             {
-                nXCtr = (int)((double)x * fpXDiff);
+                nXCtr = (int)((double)xIndex * fpXDiff);
 
                 uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
 
-                if (uIndex)
+                if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
                 {
-                    nDstPos = nStartRow + x;
+                    nDstPos = nStartRow + xIndex;
 
                     double fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
                     double fpDstA1 = 1.0 - fpDstA2;
@@ -785,7 +789,7 @@ void CImgDumpBmp::ResizeMainBmp()
 
         MainHBmp = CreateDIBSection(MainDC.GetSafeHdc(), &MainBmpi, DIB_RGB_COLORS, (void**)&pMainBmpData, NULL, 0);
 
-        if (!FirstRun)
+        if (m_fInitialized)
         {
             MainDC.SelectObject(MainHBmp);
         }

@@ -6,11 +6,8 @@ void CPalModDlg::GetPlaneData()
 {
     CGameClass* CurrGame = GetHost()->GetCurrGame();
 
-    nRGBAmt = CurrGame->GetPlaneAmt(ColFlag::COL_RGB);
-    nAAmt = CurrGame->GetPlaneAmt(ColFlag::COL_A);
-
-    nRGBMul = CurrGame->GetPlaneMul(ColFlag::COL_RGB);
-    nAMul = CurrGame->GetPlaneMul(ColFlag::COL_A);
+    m_nRGBAmt = CurrGame->GetPlaneAmt(ColFlag::COL_RGB);
+    m_nAAmt = CurrGame->GetPlaneAmt(ColFlag::COL_A);
 }
 
 void CPalModDlg::OnCBUnitChildChange()

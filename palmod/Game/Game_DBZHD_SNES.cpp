@@ -27,11 +27,11 @@ CGame_DBZHD_SNES::CGame_DBZHD_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = DBZHD_SNES_NUMUNIT;
     m_nExtraUnit = DBZHD_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 21;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 44;
     m_pszExtraFilename = EXTRA_FILENAME_DBZHD_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForDBZHD;
 
-    m_nLowestKnownPaletteRomLocation = 0xb0000;
+    m_nLowestKnownPaletteRomLocation = 0x18140;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -40,15 +40,15 @@ CGame_DBZHD_SNES::CGame_DBZHD_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = DBZHD_SNES;
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = nullptr;  // DBZHD_SNES_IMG_UNITS
-    nImgUnitAmt = 0; // ARRAYSIZE(DBZHD_SNES_IMG_UNITS);
+    m_prgGameImageSet = DBZHD_SNES_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(DBZHD_SNES_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_2; // Check out the available options in gamedef.h
+    pButtonLabelSet = DEF_BUTTONLABEL_2; // Check out the available options in buttondef.h
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer

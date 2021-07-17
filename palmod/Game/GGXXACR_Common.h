@@ -1,5 +1,5 @@
 
-const UINT16 GGXX_ACR_IMG_UNITS[] =
+const UINT16 GGXX_ACR_IMGIDS_USED[] =
 {
 	indexGGXXSprites_ACR_ABA,   // 0x00
 	indexGGXXSprites_ACR_Anji,  // 0x01

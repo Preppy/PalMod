@@ -37,8 +37,8 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     //Set game information
     nGameFlag = MVC2_D;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = MVC2_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(MVC2_IMG_UNITS);
+    m_prgGameImageSet = MVC2_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(MVC2_IMGIDS_USED);
 
     m_fGameUsesAlphaValue = true;
 
@@ -625,7 +625,7 @@ void CGame_MVC2_D::UpdatePalData()
 
             for (UINT16 nPICtr = 0; nPICtr < uAmt; nPICtr++)
             {
-                if (m_fAllowTransparency)
+                if (m_fAllowTransparencyEdits)
                 {
                     ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol16(crSrc[nPICtr]);
                 }

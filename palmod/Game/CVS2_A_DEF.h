@@ -6,7 +6,7 @@
 // * Update every array using CVS2_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const UINT16 CVS2_A_IMG_UNITS[] =
+const UINT16 CVS2_A_IMGIDS_USED[] =
 {
     indexCVS2Sprites_Akuma,
     indexCVS2Sprites_Athena,
@@ -3821,7 +3821,7 @@ const sDescTreeNode CVS2_A_CHANG_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x38fc140, 0x38fc160, indexCVS2Sprites_RyuhakuTodoh, 0x00, &pairNext },
-    { L"Extra 1: Kasumi", 0x38fc160, 0x38fc180 },
+    { L"Extra 1: Kasumi", 0x38fc160, 0x38fc180, indexCVS2Sprites_RyuhakuTodoh, 0x01 },
     { L"Extra 2", 0x38fc180, 0x38fc1a0 },
     { L"Extra 3", 0x38fc1a0, 0x38fc1c0 },
     { L"Extra 4", 0x38fc1c0, 0x38fc1e0 },
@@ -3831,7 +3831,7 @@ const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_LP[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x38fc200, 0x38fc220, indexCVS2Sprites_RyuhakuTodoh, 0x00, &pairNext },
-    { L"Extra 1: Kasumi", 0x38fc220, 0x38fc240 },
+    { L"Extra 1: Kasumi", 0x38fc220, 0x38fc240, indexCVS2Sprites_RyuhakuTodoh, 0x01 },
     { L"Extra 2", 0x38fc240, 0x38fc260 },
     { L"Extra 3", 0x38fc260, 0x38fc280 },
     { L"Extra 4", 0x38fc280, 0x38fc2a0 },
@@ -3841,7 +3841,7 @@ const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_MP[] =
 const sGame_PaletteDataset CVS2_A_TODOH_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x38fc2c0, 0x38fc2e0, indexCVS2Sprites_RyuhakuTodoh, 0x00, &pairNext },
-    { L"Extra 1: Kasumi", 0x38fc2e0, 0x38fc300 },
+    { L"Extra 1: Kasumi", 0x38fc2e0, 0x38fc300, indexCVS2Sprites_RyuhakuTodoh, 0x01 },
     { L"Extra 2", 0x38fc300, 0x38fc320 },
     { L"Extra 3", 0x38fc320, 0x38fc340 },
     { L"Extra 4", 0x38fc340, 0x38fc360 },

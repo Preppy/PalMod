@@ -8,7 +8,7 @@
 
 const sGame_PaletteDataset NEOGEO_A_STUB_PALETTE[] =
 {
-    { L"Test Only - Don't Change", 0x0, 0x20 },
+    { L"Test Only - Don't Edit", 0x0, 0x20 },
 };
 
 const sDescTreeNode NEOGEO_A_STUB_COLLECTION[] =

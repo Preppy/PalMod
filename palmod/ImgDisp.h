@@ -36,6 +36,8 @@ struct sImgNode
     COLORREF* pAltPal = nullptr;
 };
 
+enum class SpriteImportDirection { TopDown, UpsideDown };
+
 // CImgDisp
 
 class CImgDisp : public CWnd
@@ -159,7 +161,7 @@ public:
 
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
-    bool LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* szTextureLocation);
+    bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszTextureLocation);
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
     

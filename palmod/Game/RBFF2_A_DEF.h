@@ -4,8 +4,9 @@
 
 #pragma region hand-crafted palettes
 
-const UINT16 RBFF2_A_IMG_UNITS[] =
+const UINT16 RBFF2_A_IMGIDS_USED[] =
 {
+    // This game uses various sprites from both the RBFF2 and RBFFS sets
     indexRBFFSSprites_Andy,         // 0x133
     indexRBFFSSprites_Billy,        // 0x134
     indexRBFFSSprites_BlueMary,     // 0x135

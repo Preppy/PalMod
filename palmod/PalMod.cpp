@@ -12,7 +12,7 @@ HWND g_appHWnd = nullptr;
 // CPalModApp
 
 BEGIN_MESSAGE_MAP(CPalModApp, CWinApp)
-    ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
+    ON_COMMAND(ID_HELP, LaunchReadMe)
 END_MESSAGE_MAP()
 
 CString CPalModApp::GetAppName(bool fIncludeGameName /*= true*/)
@@ -161,4 +161,28 @@ BOOL CPalModApp::PreTranslateMessage(MSG* pMsg)
 {
     // TODO: Add your specialized code here and/or call the base class
     return CWinApp::PreTranslateMessage(pMsg);
+}
+
+void CPalModApp::LaunchReadMe()
+{
+    WCHAR szReadMeFile[MAX_PATH];
+
+    DWORD dwCharsUsed = GetModuleFileName(nullptr, szReadMeFile, (DWORD)ARRAYSIZE(szReadMeFile));
+    WCHAR* pszExeFileName = wcsrchr(szReadMeFile, L'\\') + 1;
+    wcsncpy(pszExeFileName, L"ReadMe.html", ARRAYSIZE(szReadMeFile) - dwCharsUsed);
+
+    DWORD nFileAttrib = GetFileAttributes(szReadMeFile);
+
+    if (nFileAttrib == INVALID_FILE_ATTRIBUTES)
+    {
+        wcsncpy(szReadMeFile, L"http://zachd.com/palmod/releases/ReadMe.html", ARRAYSIZE(szReadMeFile));
+    }
+
+    ShellExecute(
+        g_appHWnd,
+        L"open",
+        szReadMeFile,
+        NULL,
+        NULL,
+        SW_SHOW);
 }

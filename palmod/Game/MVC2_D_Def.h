@@ -6,6 +6,12 @@ constexpr UINT16 MVC2_D_PALSZ = 16;
 constexpr UINT16 EXTRA_START = 0x0F00;
 constexpr UINT16 EXTRA_END = 0xFFFF;
 
+// 59 characters, including the three Abyss forms
+constexpr auto MVC2_D_NUMUNIT = 59;
+// add one for the team view
+constexpr auto MVC2_D_NUMUNIT_WITH_TEAMVIEW = MVC2_D_NUMUNIT + 1;
+
+// Extras for a character are located at an zero-based offset of (6 colors * 8 base palettes)
 constexpr UINT16 EXTRA_OMNI = 47; //  (8 * 6) - 1;
 constexpr auto MVC2_D_TEAMVIEW_LOCATION = MVC2_D_NUMUNIT;
 
@@ -248,7 +254,7 @@ const UINT8 MVC2_D_UNITSORT[MVC2_D_NUMUNIT_WITH_TEAMVIEW + 1] = // plus one for 
     0x00,
     0x2B,
     0x22,
-    indexCPS2_Sentinel,
+    indexCPS2Sprites_Sentinel,
     0x2D,
     0x2F,
     0x14,
@@ -322,8 +328,8 @@ const UINT16 MVC2_D_0x31_EXTRAREDIR[] =
     0x30, 0,
     0x32, 0,
     0x33, 0,
-    indexCPS2_Sentinel, 0,
-    indexCPS2_Sentinel, 1, // Sentinel FX
+    indexCPS2Sprites_Sentinel, 0,
+    indexCPS2Sprites_Sentinel, 1, // Sentinel FX
     0x35, 0,
     0x36, 0
 };
@@ -496,7 +502,7 @@ const UINT16 MVC2_D_EXTRADEF[] =
     EXTRA_START | 0x33, // Iron Man
     1, 1, 0, 0, 0, 0, 0, // proton cannon, proton laser
     0,
-    EXTRA_START | indexCPS2_Sentinel, // Sentinel
+    EXTRA_START | indexCPS2Sprites_Sentinel, // Sentinel
     1, 1, 1, 0, 0, 0, 0,
     0x12, 0x13,
     EXTRA_START | 0x35, // Blackheart

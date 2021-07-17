@@ -29,9 +29,7 @@ void CGame_SAMSHO5_A::InitializeStatics()
 
 CGame_SAMSHO5_A::CGame_SAMSHO5_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_SAMSHO5_A::CGame_SAMSHO5_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_SAMSHO5_A::CGame_SAMSHO5_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -58,8 +56,8 @@ CGame_SAMSHO5_A::CGame_SAMSHO5_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SAMSHO5_A;
     nImgGameFlag = IMGDAT_SECTION_SAMSHO;
-    nImgUnitAmt = ARRAYSIZE(SAMSHO5_A_IMG_UNITS);
-    m_prgGameImageSet = SAMSHO5_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SAMSHO5_A_IMGIDS_USED);
+    m_prgGameImageSet = SAMSHO5_A_IMGIDS_USED;
 
     nFileAmt = 1;
 
@@ -214,135 +212,5 @@ void CGame_SAMSHO5_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
 BOOL CGame_SAMSHO5_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
-    //Reset palette sources
-    ClearSrcPal();
-
-    if (Node01 == -1)
-    {
-        return FALSE;
-    }
-
-    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
-
-    if (NodeGet == nullptr)
-    {
-        return FALSE;
-    }
-
-    // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
-
-    //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
-
-    // Make sure to reset the image id
-    nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
-
-    bool fShouldUseAlternateLoadLogic = false;
-
-    // Only load images for internal units, since we don't currently have a methodology for associating
-    // external loads to internal sprites.
-    if (NodeGet->uUnitId != SAMSHO5_A_EXTRALOC)
-    {
-        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-
-        if (paletteDataSet)
-        {
-            nImgUnitId = paletteDataSet->indexImgToUse;
-            nTargetImgId = paletteDataSet->indexOffsetToUse;
-
-            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
-
-            if (pCurrentNode)
-            {
-                if ((_wcsicmp(pCurrentNode->szDesc, L"A") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"B") == 0) ||
-                    (_wcsicmp(pCurrentNode->szDesc, L"C") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"D") == 0))
-                {
-                    nSrcAmt = 4;
-                    nNodeIncrement = pCurrentNode->uChildAmt;
-
-                    while (nSrcStart >= nNodeIncrement)
-                    {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1/A
-                        nSrcStart -= nNodeIncrement;
-                    }
-                }
-            }
-
-            if (paletteDataSet->pPalettePairingInfo)
-            {
-                if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
-                {
-                    const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
-
-                    fShouldUseAlternateLoadLogic = true;
-                    sImgTicket* pImgArray = nullptr;
-
-                    for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
-                    {
-                        // The palettes get added forward, but the image tickets need to be generated in reverse order
-                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
-                        if (paletteDataSetToJoin)
-                        {
-                            pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
-
-                            //Set each palette
-                            sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
-                            CreateDefPal(JoinedNode, nStageIndex);
-                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
-                        }
-                    }
-
-                    ClearSetImgTicket(pImgArray);
-                }
-                else
-                {
-                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
-                    INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-
-                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
-
-                    if (paletteDataSetToJoin)
-                    {
-                        fShouldUseAlternateLoadLogic = true;
-
-                        ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                            )
-                        );
-
-                        //Set each palette
-                        sDescNode* JoinedNode[2] = {
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
-                        };
-
-                        //Set each palette
-                        CreateDefPal(JoinedNode[0], 0);
-                        CreateDefPal(JoinedNode[1], 1);
-
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
-                    }
-                }
-            }
-        }
-    }
-
-    if (!fShouldUseAlternateLoadLogic)
-    {
-        //Create the default palette
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-        CreateDefPal(NodeGet, 0);
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-    }
-
-    return TRUE;
+    return _UpdatePalImg(SAMSHO5_A_UNITS, rgExtraCountAll, SAMSHO5_A_NUMUNIT, SAMSHO5_A_EXTRALOC, SAMSHO5_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }

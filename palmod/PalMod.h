@@ -65,6 +65,8 @@ public:
     BOOL IsImgLoaded() { return bImgLoaded; };
 
     void ClearGameClass();
+    
+    void LaunchReadMe();
 
     // Overrides
 public:

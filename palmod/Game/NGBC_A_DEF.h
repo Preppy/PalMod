@@ -6,7 +6,7 @@
 // * Run PalMod: the new headers will be printed to debug out
 // That should be it.  Good luck.
 
-const UINT16 NGBC_A_IMG_UNITS[] =
+const UINT16 NGBC_A_IMGIDS_USED[] =
 {
     indexNGBCSprites_Ai,        // 0xbc
     indexNGBCSprites_Akari,     // 0xbd

@@ -6,17 +6,17 @@
 // * Run PalMod: the new headers will be printed to debug out
 // That should be it.  Good luck.
 
-const UINT16 KOFXI_A_IMG_UNITS[] =
+const UINT16 KOFXI_A_IMGIDS_USED[] =
 {
-    indexKOFSprites_02UM_Iori,
-    indexKOFSprites_02UM_K,         // 0x92
-    indexKOFSprites_02UM_King,      // 0x97
-    indexKOFSprites_02UM_Kula,      // 0x99
-    indexKOFSprites_02UM_Maxima,    // 0xA2
-    indexKOFSprites_02UM_Ramon,     // 0xA7
-    indexKOFSprites_02UM_Ryo,       // 0xAA
-    indexKOFSprites_02UM_Shingo,    // 0xAE
-    indexKOFSprites_02UM_Vanessa,   // 0xB2
+    indexKOF02UMSprites_Iori,
+    indexKOF02UMSprites_K,         // 0x92
+    indexKOF02UMSprites_King,      // 0x97
+    indexKOF02UMSprites_Kula,      // 0x99
+    indexKOF02UMSprites_Maxima,    // 0xA2
+    indexKOF02UMSprites_Ramon,     // 0xA7
+    indexKOF02UMSprites_Ryo,       // 0xAA
+    indexKOF02UMSprites_Shingo,    // 0xAE
+    indexKOF02UMSprites_Vanessa,   // 0xB2
 
     indexKOFXISprites_Adelheid,     // 0x10b
     indexKOFXISprites_Ash,          // 0x10c

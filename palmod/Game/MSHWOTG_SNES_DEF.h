@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 MSHWOTG_SNES_IMG_UNITS[] =
+const UINT16 MSHWOTG_SNES_IMGIDS_USED[] =
 {
     indexMSHWOTGSprites_SpiderMan,      // 0x21
     indexMSHWOTGSprites_CapAmerica,     // 0x22
@@ -28,6 +28,8 @@ const UINT16 MSHWOTG_SNES_IMG_UNITS[] =
     indexMSHWOTGSprites_Sasquatch,      // 0x36
     indexMSHWOTGSprites_TheThing,       // 0x37
     indexMSHWOTGSprites_Bonus,          // 0x38
+
+    indexMSHWOTGSprites_Enemies,        // 0x56
 };
 
 const sGame_PaletteDataset MSHWOTG_CAPTAINAMERICA_PALETTES[] =
@@ -57,7 +59,7 @@ const sGame_PaletteDataset MSHWOTG_WOLVERINE_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BLACKHEART_PALETTES[] =
 {
-    { L"BlackHeart", 0xFA740, 0xFA760, indexMSHWOTGSprites_Blackheart, 0x00 },
+    { L"Blackheart", 0xFA740, 0xFA760, indexMSHWOTGSprites_Blackheart, 0x00 },
 };
 
 const sGame_PaletteDataset MSHWOTG_EHULK_PALETTES[] =
@@ -90,15 +92,15 @@ const sGame_PaletteDataset MSHWOTG_EWOLVERINE_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BONUS_INTRO_PALETTES[] =
 {
-    { L"Captain America Intro Portrait Part 1", 0x771EC, 0x7720C },
-    { L"Captain America Intro Portrait Part 2", 0x784B8, 0x784D8 },
-    { L"Iron Man Intro Portrait Part 1", 0x771AC, 0x771CC },
-    { L"Iron Man Intro Portrait Part 2", 0x78478, 0x78498 },
-    { L"Hulk Intro Portrait", 0x771CC, 0x771EC },
-    { L"Spider-Man Intro Portrait Part 1", 0x7718C, 0x771AC },
-    { L"Spider-Man Intro Portrait Part 2", 0x78458, 0x78478 },
-    { L"Wolverine Intro Portrait Part 1", 0x7716C, 0x7718C },
-    { L"Wolverine Intro Portrait Part 2", 0x78438, 0x78458 },
+    { L"Captain America Intro Portrait Part 1", 0x771EC, 0x7720C, indexMSHWOTGSprites_Bonus, 0x00, &pairNext },
+    { L"Captain America Intro Portrait Part 2", 0x784B8, 0x784D8, indexMSHWOTGSprites_Bonus, 0x01 },
+    { L"Hulk Intro Portrait",                   0x771CC, 0x771EC, indexMSHWOTGSprites_Bonus, 0x02 },
+    { L"Iron Man Intro Portrait Part 1",        0x771AC, 0x771CC, indexMSHWOTGSprites_Bonus, 0x03, &pairNext },
+    { L"Iron Man Intro Portrait Part 2",        0x78478, 0x78498, indexMSHWOTGSprites_Bonus, 0x04 },
+    { L"Spider-Man Intro Portrait Part 1",      0x7718C, 0x771AC, indexMSHWOTGSprites_Bonus, 0x05, &pairNext },
+    { L"Spider-Man Intro Portrait Part 2",      0x78458, 0x78478, indexMSHWOTGSprites_Bonus, 0x06 },
+    { L"Wolverine Intro Portrait Part 1",       0x7716C, 0x7718C, indexMSHWOTGSprites_Bonus, 0x07, &pairNext },
+    { L"Wolverine Intro Portrait Part 2",       0x78438, 0x78458, indexMSHWOTGSprites_Bonus, 0x08 },
 };
 
 const sGame_PaletteDataset MSHWOTG_BONUS_CSP_PALETTES[] =
@@ -115,21 +117,23 @@ const sGame_PaletteDataset MSHWOTG_BONUS_CSP_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BONUS_VSP_PALETTES[] =
 {
-    { L"Captain America VSP", 0x67055, 0x67075 },
-    { L"Iron Man VSP", 0x65E98, 0x65EB8 },
-    { L"Hulk VSP", 0x683A4, 0x683C4 },
-    { L"Spider-Man VSP", 0x6907B, 0x6909B },
-    { L"Wolverine VSP", 0x5E7D1, 0x5E7F1 },
+    { L"Captain America VSP",   0x67055, 0x67075, indexMSHWOTGSprites_CapAmerica, 0x41 },
+    { L"Hulk VSP",              0x683A4, 0x683C4, indexMSHWOTGSprites_Hulk, 0x41 },
+    { L"Iron Man VSP",          0x65E98, 0x65EB8, indexMSHWOTGSprites_IronMan, 0x41 },
+    { L"Spider-Man VSP",        0x6907B, 0x6909B, indexMSHWOTGSprites_SpiderMan, 0x41 },
+    { L"Wolverine VSP",         0x5E7D1, 0x5E7F1, indexMSHWOTGSprites_Wolverine, 0x41 },
 };
 
 const sGame_PaletteDataset MSHWOTG_BONUS_ENDING_PALETTES[] =
 {
-    { L"Iron Man Ending Portrait Part 1", 0x63E42, 0x63E62 },
-    { L"Iron Man Ending Portrait Part 2", 0x816C4, 0x816E4 },
-    { L"Hulk Ending Portrait", 0x63E22, 0x63E42 },
-    { L"Spider-Man Ending Portrait Part 1", 0x63E02, 0x63E22 },
-    { L"Spider-Man Ending Portrait Part 2", 0x81724, 0x81744 },
-    { L"Wolverine Ending Portrait", 0x81764, 0x81784 },
+    { L"Captain America Ending Portrait Part 1",    0x63E62, 0x63E82, indexMSHWOTGSprites_Bonus, 0x09, &pairNext },
+    { L"Captain America Ending Portrait Part 2",    0x81704, 0x81724, indexMSHWOTGSprites_Bonus, 0x0a },
+    { L"Hulk Ending Portrait",                      0x63E22, 0x63E42, indexMSHWOTGSprites_Bonus, 0x0b },
+    { L"Iron Man Ending Portrait Part 1",           0x63E42, 0x63E62, indexMSHWOTGSprites_Bonus, 0x0c, &pairNext },
+    { L"Iron Man Ending Portrait Part 2",           0x816C4, 0x816E4, indexMSHWOTGSprites_Bonus, 0x0d },
+    { L"Spider-Man Ending Portrait Part 1",         0x63E02, 0x63E22, indexMSHWOTGSprites_Bonus, 0x0e, &pairNext },
+    { L"Spider-Man Ending Portrait Part 2",         0x81724, 0x81744, indexMSHWOTGSprites_Bonus, 0x0f },
+    { L"Wolverine Ending Portrait",                 0x81764, 0x81784, indexMSHWOTGSprites_Bonus, 0x10 },
 };
 
 const sGame_PaletteDataset MSHWOTG_BONUS_TITLE_PALETTES[] =
@@ -144,11 +148,11 @@ const sGame_PaletteDataset MSHWOTG_BONUS_TITLE_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BONUS_ENEMY_PALETTES[] =
 {
-    { L"Dr. Doom", 0x6FBCC, 0x6FBEC, indexMSHWOTGSprites_DrDoom },
-    { L"Doombot 1", 0xFA7E0, 0xFA800 },
-    { L"Doombot 2", 0xFA800, 0xFA820 },
-    { L"Doombot 3", 0xFA820, 0xFA840 },
-    { L"Doombot 4", 0xFA840, 0xFA860 },
+    { L"Dr. Doom", 0xFA7A0, 0xFA7C0, indexMSHWOTGSprites_DrDoom },
+    { L"Doombot 1", 0xFA7E0, 0xFA800, indexMSHWOTGSprites_Enemies, 0x00 },
+    { L"Doombot 2", 0xFA800, 0xFA820, indexMSHWOTGSprites_Enemies, 0x00 },
+    { L"Doombot 3", 0xFA820, 0xFA840, indexMSHWOTGSprites_Enemies, 0x00 },
+    { L"Doombot 4", 0xFA840, 0xFA860, indexMSHWOTGSprites_Enemies, 0x00 },
     { L"E. Daredevil 1", 0xFA460, 0xFA480, indexMSHWOTGSprites_Daredevil },
     { L"E. Daredevil 2", 0xFA420, 0xFA440, indexMSHWOTGSprites_Daredevil },
     { L"E. Hawkeye 1", 0xFA480, 0xFA4A0, indexMSHWOTGSprites_Hawkeye },
@@ -168,9 +172,9 @@ const sGame_PaletteDataset MSHWOTG_BONUS_ENEMY_PALETTES[] =
     { L"Magus", 0xFA8A0, 0xFA8C0, indexMSHWOTGSprites_Magus, 0x00 },
     { L"Magus shadow 1", 0xFA8C0, 0xFA8E0, indexMSHWOTGSprites_Magus, 0x00 },
     { L"Magus shadow 2", 0xFA8E0, 0xFA900, indexMSHWOTGSprites_Magus, 0x00 },
-    { L"Magus Portrait", 0x5F48D, 0x5F4AD },
+    { L"Magus Portrait", 0x5F48D, 0x5F4AD, indexMSHWOTGSprites_Magus, 0x40 },
     { L"Nebula", 0xFA7C0, 0xFA7E0, indexMSHWOTGSprites_Nebula, 0x00 },
-    { L"Nebula Portrait", 0x71295, 0x712B5 },
+    { L"Nebula Portrait", 0x71295, 0x712B5, indexMSHWOTGSprites_Nebula, 0x40 },
     { L"Thanos", 0xFA760, 0xFA780, indexMSHWOTGSprites_Thanos, 0x00 },
     { L"Thanos Portrait", 0x7AA20, 0x7AA40 },
 };
@@ -241,6 +245,11 @@ const sDescTreeNode MSHWOTG_EWOLVERINE_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_EWOLVERINE_PALETTES, ARRAYSIZE(MSHWOTG_EWOLVERINE_PALETTES) },
 };
 
+const sDescTreeNode MSHWOTG_ENEMY_COLLECTION[] =
+{
+    { L"Enemies", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_ENEMY_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_ENEMY_PALETTES) },
+};
+
 const sDescTreeNode MSHWOTG_BONUS_COLLECTION[] =
 {
     { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_INTRO_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_INTRO_PALETTES) },
@@ -248,7 +257,6 @@ const sDescTreeNode MSHWOTG_BONUS_COLLECTION[] =
     { L"Victory Screen Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_VSP_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_VSP_PALETTES) },
     { L"Ending Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_ENDING_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_ENDING_PALETTES) },
     { L"Title Screen", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_TITLE_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_TITLE_PALETTES) },
-    { L"Enemies", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_ENEMY_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_ENEMY_PALETTES) },
     { L"Misc", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_MISC_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_MISC_PALETTES) },
 };
 
@@ -265,7 +273,8 @@ const sDescTreeNode MSHWOTG_SNES_UNITS[] =
     { L"Evil Sasquatch",  DESC_NODETYPE_TREE, (void*)MSHWOTG_ESASQUATCH_COLLECTION,   ARRAYSIZE(MSHWOTG_ESASQUATCH_COLLECTION) },
     { L"Evil Thing",  DESC_NODETYPE_TREE, (void*)MSHWOTG_ETHING_COLLECTION,   ARRAYSIZE(MSHWOTG_ETHING_COLLECTION) },
     { L"Evil Wolverine",  DESC_NODETYPE_TREE, (void*)MSHWOTG_EWOLVERINE_COLLECTION,   ARRAYSIZE(MSHWOTG_EWOLVERINE_COLLECTION) },
-    { L"Bonus",  DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_COLLECTION,   ARRAYSIZE(MSHWOTG_BONUS_COLLECTION) },
+    { L"Enemies",  DESC_NODETYPE_TREE, (void*)MSHWOTG_ENEMY_COLLECTION,   ARRAYSIZE(MSHWOTG_ENEMY_COLLECTION) },
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_COLLECTION,   ARRAYSIZE(MSHWOTG_BONUS_COLLECTION) },
 };
 
 constexpr auto MSHWOTG_SNES_NUMUNIT = ARRAYSIZE(MSHWOTG_SNES_UNITS);

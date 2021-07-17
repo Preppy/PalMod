@@ -6,7 +6,7 @@
 // * Run PalMod and copy the debug output into the header
 // That should be it.  Good luck.
 
-const UINT16 KOF95_A_IMG_UNITS[] =
+const UINT16 KOF95_A_IMGIDS_USED[] =
 {
     indexKOF94Sprites_Andy,         // 0x164
     indexKOF94Sprites_Athena,       // 0x165
@@ -74,7 +74,7 @@ const sGame_PaletteDataset KOF95_A_HEIDERN_MAIN_PALETTES[] =
     { L"Extra 8", 0xd9180, 0xd91a0 },
     { L"Extra 9", 0xd91a0, 0xd91c0 },
     { L"Lifebar Portrait", 0xd91c0, 0xd91e0, indexKOF94Sprites_Heidern, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xd91e0, 0xd9200, indexKOF94Sprites_Heidern, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xd91e0, 0xd9200, indexKOF94Sprites_Heidern, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_HEIDERN_ALT_PALETTES[] =
@@ -92,7 +92,7 @@ const sGame_PaletteDataset KOF95_A_HEIDERN_ALT_PALETTES[] =
     { L"Extra 8", 0xd9380, 0xd93a0 },
     { L"Extra 9", 0xd93a0, 0xd93c0 },
     { L"Lifebar Portrait", 0xd93c0, 0xd93e0, indexKOF94Sprites_Heidern, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xd93e0, 0xd9400, indexKOF94Sprites_Heidern, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xd93e0, 0xd9400, indexKOF94Sprites_Heidern, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_RALF_MAIN_PALETTES[] =
@@ -110,7 +110,7 @@ const sGame_PaletteDataset KOF95_A_RALF_MAIN_PALETTES[] =
     { L"Extra 8", 0xd9580, 0xd95a0 },
     { L"Extra 9", 0xd95a0, 0xd95c0 },
     { L"Lifebar Portrait", 0xd95c0, 0xd95e0, indexKOF94Sprites_Ralf, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xd95e0, 0xd9600, indexKOF94Sprites_Ralf, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xd95e0, 0xd9600, indexKOF94Sprites_Ralf, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_RALF_ALT_PALETTES[] =
@@ -128,7 +128,7 @@ const sGame_PaletteDataset KOF95_A_RALF_ALT_PALETTES[] =
     { L"Extra 8", 0xd9780, 0xd97a0 },
     { L"Extra 9", 0xd97a0, 0xd97c0 },
     { L"Lifebar Portrait", 0xd97c0, 0xd97e0, indexKOF94Sprites_Ralf, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xd97e0, 0xd9800, indexKOF94Sprites_Ralf, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xd97e0, 0xd9800, indexKOF94Sprites_Ralf, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_CLARK_MAIN_PALETTES[] =
@@ -146,7 +146,7 @@ const sGame_PaletteDataset KOF95_A_CLARK_MAIN_PALETTES[] =
     { L"Extra 8", 0xd9980, 0xd99a0 },
     { L"Extra 9", 0xd99a0, 0xd99c0 },
     { L"Lifebar Portrait", 0xd99c0, 0xd99e0, indexKOF94Sprites_Clark, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xd99e0, 0xd9a00, indexKOF94Sprites_Clark, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xd99e0, 0xd9a00, indexKOF94Sprites_Clark, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_CLARK_ALT_PALETTES[] =
@@ -164,7 +164,7 @@ const sGame_PaletteDataset KOF95_A_CLARK_ALT_PALETTES[] =
     { L"Extra 8", 0xd9b80, 0xd9ba0 },
     { L"Extra 9", 0xd9ba0, 0xd9bc0 },
     { L"Lifebar Portrait", 0xd9bc0, 0xd9be0, indexKOF94Sprites_Clark, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xd9be0, 0xd9c00, indexKOF94Sprites_Clark, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xd9be0, 0xd9c00, indexKOF94Sprites_Clark, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_ATHENA_MAIN_PALETTES[] =
@@ -182,7 +182,7 @@ const sGame_PaletteDataset KOF95_A_ATHENA_MAIN_PALETTES[] =
     { L"Extra 8", 0xd9d80, 0xd9da0 },
     { L"Extra 9", 0xd9da0, 0xd9dc0 },
     { L"Lifebar Portrait", 0xd9dc0, 0xd9de0, indexKOF94Sprites_Athena, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xd9de0, 0xd9e00, indexKOF94Sprites_Athena, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xd9de0, 0xd9e00, indexKOF94Sprites_Athena, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_ATHENA_ALT_PALETTES[] =
@@ -200,7 +200,7 @@ const sGame_PaletteDataset KOF95_A_ATHENA_ALT_PALETTES[] =
     { L"Extra 8", 0xd9f80, 0xd9fa0 },
     { L"Extra 9", 0xd9fa0, 0xd9fc0 },
     { L"Lifebar Portrait", 0xd9fc0, 0xd9fe0, indexKOF94Sprites_Athena, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xd9fe0, 0xda000, indexKOF94Sprites_Athena, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xd9fe0, 0xda000, indexKOF94Sprites_Athena, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_KENSOU_MAIN_PALETTES[] =
@@ -218,7 +218,7 @@ const sGame_PaletteDataset KOF95_A_KENSOU_MAIN_PALETTES[] =
     { L"Extra 8", 0xda180, 0xda1a0 },
     { L"Extra 9", 0xda1a0, 0xda1c0 },
     { L"Lifebar Portrait", 0xda1c0, 0xda1e0, indexKOF94Sprites_Kensou, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xda1e0, 0xda200, indexKOF94Sprites_Kensou, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xda1e0, 0xda200, indexKOF94Sprites_Kensou, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_KENSOU_ALT_PALETTES[] =
@@ -236,7 +236,7 @@ const sGame_PaletteDataset KOF95_A_KENSOU_ALT_PALETTES[] =
     { L"Extra 8", 0xda380, 0xda3a0 },
     { L"Extra 9", 0xda3a0, 0xda3c0 },
     { L"Lifebar Portrait", 0xda3c0, 0xda3e0, indexKOF94Sprites_Kensou, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xda3e0, 0xda400, indexKOF94Sprites_Kensou, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xda3e0, 0xda400, indexKOF94Sprites_Kensou, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_CHIN_MAIN_PALETTES[] =
@@ -254,7 +254,7 @@ const sGame_PaletteDataset KOF95_A_CHIN_MAIN_PALETTES[] =
     { L"Extra 8", 0xda580, 0xda5a0 },
     { L"Extra 9", 0xda5a0, 0xda5c0 },
     { L"Lifebar Portrait", 0xda5c0, 0xda5e0, indexKOF94Sprites_Chin, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xda5e0, 0xda600, indexKOF94Sprites_Chin, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xda5e0, 0xda600, indexKOF94Sprites_Chin, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_CHIN_ALT_PALETTES[] =
@@ -272,7 +272,7 @@ const sGame_PaletteDataset KOF95_A_CHIN_ALT_PALETTES[] =
     { L"Extra 8", 0xda780, 0xda7a0 },
     { L"Extra 9", 0xda7a0, 0xda7c0 },
     { L"Lifebar Portrait", 0xda7c0, 0xda7e0, indexKOF94Sprites_Chin, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xda7e0, 0xda800, indexKOF94Sprites_Chin, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xda7e0, 0xda800, indexKOF94Sprites_Chin, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_KYO_MAIN_PALETTES[] =
@@ -290,7 +290,7 @@ const sGame_PaletteDataset KOF95_A_KYO_MAIN_PALETTES[] =
     { L"Extra 8", 0xda980, 0xda9a0 },
     { L"Extra 9", 0xda9a0, 0xda9c0 },
     { L"Lifebar Portrait", 0xda9c0, 0xda9e0, indexKOF94Sprites_Kyo, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xda9e0, 0xdaa00, indexKOF94Sprites_Kyo, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xda9e0, 0xdaa00, indexKOF94Sprites_Kyo, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_KYO_ALT_PALETTES[] =
@@ -308,7 +308,7 @@ const sGame_PaletteDataset KOF95_A_KYO_ALT_PALETTES[] =
     { L"Extra 8", 0xdab80, 0xdaba0 },
     { L"Extra 9", 0xdaba0, 0xdabc0 },
     { L"Lifebar Portrait", 0xdabc0, 0xdabe0, indexKOF94Sprites_Kyo, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdabe0, 0xdac00, indexKOF94Sprites_Kyo, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdabe0, 0xdac00, indexKOF94Sprites_Kyo, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_BENIMARU_MAIN_PALETTES[] =
@@ -326,7 +326,7 @@ const sGame_PaletteDataset KOF95_A_BENIMARU_MAIN_PALETTES[] =
     { L"Extra 8", 0xdad80, 0xdada0 },
     { L"Extra 9", 0xdada0, 0xdadc0 },
     { L"Lifebar Portrait", 0xdadc0, 0xdade0, indexKOF94Sprites_Benimaru, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdade0, 0xdae00, indexKOF94Sprites_Benimaru, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdade0, 0xdae00, indexKOF94Sprites_Benimaru, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_BENIMARU_ALT_PALETTES[] =
@@ -344,7 +344,7 @@ const sGame_PaletteDataset KOF95_A_BENIMARU_ALT_PALETTES[] =
     { L"Extra 8", 0xdaf80, 0xdafa0 },
     { L"Extra 9", 0xdafa0, 0xdafc0 },
     { L"Lifebar Portrait", 0xdafc0, 0xdafe0, indexKOF94Sprites_Benimaru, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdafe0, 0xdb000, indexKOF94Sprites_Benimaru, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdafe0, 0xdb000, indexKOF94Sprites_Benimaru, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_DAIMON_MAIN_PALETTES[] =
@@ -362,7 +362,7 @@ const sGame_PaletteDataset KOF95_A_DAIMON_MAIN_PALETTES[] =
     { L"Extra 8", 0xdb180, 0xdb1a0 },
     { L"Extra 9", 0xdb1a0, 0xdb1c0 },
     { L"Lifebar Portrait", 0xdb1c0, 0xdb1e0, indexKOF94Sprites_Daimon, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdb1e0, 0xdb200, indexKOF94Sprites_Daimon, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdb1e0, 0xdb200, indexKOF94Sprites_Daimon, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_DAIMON_ALT_PALETTES[] =
@@ -380,7 +380,7 @@ const sGame_PaletteDataset KOF95_A_DAIMON_ALT_PALETTES[] =
     { L"Extra 8", 0xdb380, 0xdb3a0 },
     { L"Extra 9", 0xdb3a0, 0xdb3c0 },
     { L"Lifebar Portrait", 0xdb3c0, 0xdb3e0, indexKOF94Sprites_Daimon, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdb3e0, 0xdb400, indexKOF94Sprites_Daimon, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdb3e0, 0xdb400, indexKOF94Sprites_Daimon, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_IORI_MAIN_PALETTES[] =
@@ -398,7 +398,7 @@ const sGame_PaletteDataset KOF95_A_IORI_MAIN_PALETTES[] =
     { L"Extra 8", 0xdb580, 0xdb5a0 },
     { L"Extra 9", 0xdb5a0, 0xdb5c0 },
     { L"Lifebar Portrait", 0xdb5c0, 0xdb5e0, indexKOF95Sprites_Iori, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdb5e0, 0xdb600, indexKOF95Sprites_Iori, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdb5e0, 0xdb600, indexKOF95Sprites_Iori, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_IORI_ALT_PALETTES[] =
@@ -416,7 +416,7 @@ const sGame_PaletteDataset KOF95_A_IORI_ALT_PALETTES[] =
     { L"Extra 8", 0xdb780, 0xdb7a0 },
     { L"Extra 9", 0xdb7a0, 0xdb7c0 },
     { L"Lifebar Portrait", 0xdb7c0, 0xdb7e0, indexKOF95Sprites_Iori, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdb7e0, 0xdb800, indexKOF95Sprites_Iori, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdb7e0, 0xdb800, indexKOF95Sprites_Iori, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_EIJI_MAIN_PALETTES[] =
@@ -434,7 +434,7 @@ const sGame_PaletteDataset KOF95_A_EIJI_MAIN_PALETTES[] =
     { L"Extra 8", 0xdb980, 0xdb9a0 },
     { L"Extra 9", 0xdb9a0, 0xdb9c0 },
     { L"Lifebar Portrait", 0xdb9c0, 0xdb9e0, indexKOF95Sprites_Eiji, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdb9e0, 0xdba00, indexKOF95Sprites_Eiji, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdb9e0, 0xdba00, indexKOF95Sprites_Eiji, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_EIJI_ALT_PALETTES[] =
@@ -452,7 +452,7 @@ const sGame_PaletteDataset KOF95_A_EIJI_ALT_PALETTES[] =
     { L"Extra 8", 0xdbb80, 0xdbba0 },
     { L"Extra 9", 0xdbba0, 0xdbbc0 },
     { L"Lifebar Portrait", 0xdbbc0, 0xdbbe0, indexKOF95Sprites_Eiji, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdbbe0, 0xdbc00, indexKOF95Sprites_Eiji, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdbbe0, 0xdbc00, indexKOF95Sprites_Eiji, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_BILLY_MAIN_PALETTES[] =
@@ -470,7 +470,7 @@ const sGame_PaletteDataset KOF95_A_BILLY_MAIN_PALETTES[] =
     { L"Extra 8", 0xdbd80, 0xdbda0 },
     { L"Extra 9", 0xdbda0, 0xdbdc0 },
     { L"Lifebar Portrait", 0xdbdc0, 0xdbde0, indexKOF95Sprites_Billy, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdbde0, 0xdbe00, indexKOF95Sprites_Billy, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdbde0, 0xdbe00, indexKOF95Sprites_Billy, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_BILLY_ALT_PALETTES[] =
@@ -488,7 +488,7 @@ const sGame_PaletteDataset KOF95_A_BILLY_ALT_PALETTES[] =
     { L"Extra 8", 0xdbf80, 0xdbfa0 },
     { L"Extra 9", 0xdbfa0, 0xdbfc0 },
     { L"Lifebar Portrait", 0xdbfc0, 0xdbfe0, indexKOF95Sprites_Billy, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdbfe0, 0xdc000, indexKOF95Sprites_Billy, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdbfe0, 0xdc000, indexKOF95Sprites_Billy, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_KIM_MAIN_PALETTES[] =
@@ -506,7 +506,7 @@ const sGame_PaletteDataset KOF95_A_KIM_MAIN_PALETTES[] =
     { L"Extra 8", 0xdc180, 0xdc1a0 },
     { L"Extra 9", 0xdc1a0, 0xdc1c0 },
     { L"Lifebar Portrait", 0xdc1c0, 0xdc1e0, indexKOF94Sprites_Kim, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdc1e0, 0xdc200, indexKOF94Sprites_Kim, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdc1e0, 0xdc200, indexKOF94Sprites_Kim, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_KIM_ALT_PALETTES[] =
@@ -524,7 +524,7 @@ const sGame_PaletteDataset KOF95_A_KIM_ALT_PALETTES[] =
     { L"Extra 8", 0xdc380, 0xdc3a0 },
     { L"Extra 9", 0xdc3a0, 0xdc3c0 },
     { L"Lifebar Portrait", 0xdc3c0, 0xdc3e0, indexKOF94Sprites_Kim, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdc3e0, 0xdc400, indexKOF94Sprites_Kim, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdc3e0, 0xdc400, indexKOF94Sprites_Kim, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_CHANG_MAIN_PALETTES[] =
@@ -542,7 +542,7 @@ const sGame_PaletteDataset KOF95_A_CHANG_MAIN_PALETTES[] =
     { L"Extra 8", 0xdc580, 0xdc5a0 },
     { L"Extra 9", 0xdc5a0, 0xdc5c0 },
     { L"Lifebar Portrait", 0xdc5c0, 0xdc5e0, indexKOF95Sprites_Chang, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdc5e0, 0xdc600, indexKOF95Sprites_Chang, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdc5e0, 0xdc600, indexKOF95Sprites_Chang, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_CHANG_ALT_PALETTES[] =
@@ -560,7 +560,7 @@ const sGame_PaletteDataset KOF95_A_CHANG_ALT_PALETTES[] =
     { L"Extra 8", 0xdc780, 0xdc7a0 },
     { L"Extra 9", 0xdc7a0, 0xdc7c0 },
     { L"Lifebar Portrait", 0xdc7c0, 0xdc7e0, indexKOF95Sprites_Chang, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdc7e0, 0xdc800, indexKOF95Sprites_Chang, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdc7e0, 0xdc800, indexKOF95Sprites_Chang, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_CHOI_MAIN_PALETTES[] =
@@ -578,7 +578,7 @@ const sGame_PaletteDataset KOF95_A_CHOI_MAIN_PALETTES[] =
     { L"Extra 8", 0xdc980, 0xdc9a0 },
     { L"Extra 9", 0xdc9a0, 0xdc9c0 },
     { L"Lifebar Portrait", 0xdc9c0, 0xdc9e0, indexKOF95Sprites_Chin, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdc9e0, 0xdca00, indexKOF95Sprites_Chin, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdc9e0, 0xdca00, indexKOF95Sprites_Chin, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_CHOI_ALT_PALETTES[] =
@@ -596,7 +596,7 @@ const sGame_PaletteDataset KOF95_A_CHOI_ALT_PALETTES[] =
     { L"Extra 8", 0xdcb80, 0xdcba0 },
     { L"Extra 9", 0xdcba0, 0xdcbc0 },
     { L"Lifebar Portrait", 0xdcbc0, 0xdcbe0, indexKOF95Sprites_Chin, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdcbe0, 0xdcc00, indexKOF95Sprites_Chin, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdcbe0, 0xdcc00, indexKOF95Sprites_Chin, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_TERRY_MAIN_PALETTES[] =
@@ -614,7 +614,7 @@ const sGame_PaletteDataset KOF95_A_TERRY_MAIN_PALETTES[] =
     { L"Extra 8", 0xdcd80, 0xdcda0 },
     { L"Extra 9", 0xdcda0, 0xdcdc0 },
     { L"Lifebar Portrait", 0xdcdc0, 0xdcde0, indexKOF94Sprites_Terry, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdcde0, 0xdce00, indexKOF94Sprites_Terry, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdcde0, 0xdce00, indexKOF94Sprites_Terry, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_TERRY_ALT_PALETTES[] =
@@ -632,7 +632,7 @@ const sGame_PaletteDataset KOF95_A_TERRY_ALT_PALETTES[] =
     { L"Extra 8", 0xdcf80, 0xdcfa0 },
     { L"Extra 9", 0xdcfa0, 0xdcfc0 },
     { L"Lifebar Portrait", 0xdcfc0, 0xdcfe0, indexKOF94Sprites_Terry, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdcfe0, 0xdd000, indexKOF94Sprites_Terry, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdcfe0, 0xdd000, indexKOF94Sprites_Terry, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_ANDY_MAIN_PALETTES[] =
@@ -650,7 +650,7 @@ const sGame_PaletteDataset KOF95_A_ANDY_MAIN_PALETTES[] =
     { L"Extra 8", 0xdd180, 0xdd1a0 },
     { L"Extra 9", 0xdd1a0, 0xdd1c0 },
     { L"Lifebar Portrait", 0xdd1c0, 0xdd1e0, indexKOF94Sprites_Andy, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdd1e0, 0xdd200, indexKOF94Sprites_Andy, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdd1e0, 0xdd200, indexKOF94Sprites_Andy, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_ANDY_ALT_PALETTES[] =
@@ -668,7 +668,7 @@ const sGame_PaletteDataset KOF95_A_ANDY_ALT_PALETTES[] =
     { L"Extra 8", 0xdd380, 0xdd3a0 },
     { L"Extra 9", 0xdd3a0, 0xdd3c0 },
     { L"Lifebar Portrait", 0xdd3c0, 0xdd3e0, indexKOF94Sprites_Andy, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdd3e0, 0xdd400, indexKOF94Sprites_Andy, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdd3e0, 0xdd400, indexKOF94Sprites_Andy, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_JOE_MAIN_PALETTES[] =
@@ -686,7 +686,7 @@ const sGame_PaletteDataset KOF95_A_JOE_MAIN_PALETTES[] =
     { L"Extra 8", 0xdd580, 0xdd5a0 },
     { L"Extra 9", 0xdd5a0, 0xdd5c0 },
     { L"Lifebar Portrait", 0xdd5c0, 0xdd5e0, indexKOF94Sprites_Joe, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdd5e0, 0xdd600, indexKOF94Sprites_Joe, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdd5e0, 0xdd600, indexKOF94Sprites_Joe, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_JOE_ALT_PALETTES[] =
@@ -704,7 +704,7 @@ const sGame_PaletteDataset KOF95_A_JOE_ALT_PALETTES[] =
     { L"Extra 8", 0xdd780, 0xdd7a0 },
     { L"Extra 9", 0xdd7a0, 0xdd7c0 },
     { L"Lifebar Portrait", 0xdd7c0, 0xdd7e0, indexKOF94Sprites_Joe, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdd7e0, 0xdd800, indexKOF94Sprites_Joe, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdd7e0, 0xdd800, indexKOF94Sprites_Joe, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_RYO_MAIN_PALETTES[] =
@@ -722,7 +722,7 @@ const sGame_PaletteDataset KOF95_A_RYO_MAIN_PALETTES[] =
     { L"Extra 8", 0xdd980, 0xdd9a0 },
     { L"Extra 9", 0xdd9a0, 0xdd9c0 },
     { L"Lifebar Portrait", 0xdd9c0, 0xdd9e0, indexKOF94Sprites_Ryo, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdd9e0, 0xdda00, indexKOF94Sprites_Ryo, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdd9e0, 0xdda00, indexKOF94Sprites_Ryo, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_RYO_ALT_PALETTES[] =
@@ -740,7 +740,7 @@ const sGame_PaletteDataset KOF95_A_RYO_ALT_PALETTES[] =
     { L"Extra 8", 0xddb80, 0xddba0 },
     { L"Extra 9", 0xddba0, 0xddbc0 },
     { L"Lifebar Portrait", 0xddbc0, 0xddbe0, indexKOF94Sprites_Ryo, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xddbe0, 0xddc00, indexKOF94Sprites_Ryo, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xddbe0, 0xddc00, indexKOF94Sprites_Ryo, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_ROBERT_MAIN_PALETTES[] =
@@ -758,7 +758,7 @@ const sGame_PaletteDataset KOF95_A_ROBERT_MAIN_PALETTES[] =
     { L"Extra 8", 0xddd80, 0xddda0 },
     { L"Extra 9", 0xddda0, 0xdddc0 },
     { L"Lifebar Portrait", 0xdddc0, 0xddde0, indexKOF94Sprites_Robert, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xddde0, 0xdde00, indexKOF94Sprites_Robert, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xddde0, 0xdde00, indexKOF94Sprites_Robert, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_ROBERT_ALT_PALETTES[] =
@@ -776,7 +776,7 @@ const sGame_PaletteDataset KOF95_A_ROBERT_ALT_PALETTES[] =
     { L"Extra 8", 0xddf80, 0xddfa0 },
     { L"Extra 9", 0xddfa0, 0xddfc0 },
     { L"Lifebar Portrait", 0xddfc0, 0xddfe0, indexKOF94Sprites_Robert, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xddfe0, 0xde000, indexKOF94Sprites_Robert, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xddfe0, 0xde000, indexKOF94Sprites_Robert, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_TAKUMA_MAIN_PALETTES[] =
@@ -794,7 +794,7 @@ const sGame_PaletteDataset KOF95_A_TAKUMA_MAIN_PALETTES[] =
     { L"Extra 8", 0xde180, 0xde1a0 },
     { L"Extra 9", 0xde1a0, 0xde1c0 },
     { L"Lifebar Portrait", 0xde1c0, 0xde1e0, indexKOF94Sprites_Takuma, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xde1e0, 0xde200, indexKOF94Sprites_Takuma, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xde1e0, 0xde200, indexKOF94Sprites_Takuma, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_TAKUMA_ALT_PALETTES[] =
@@ -812,7 +812,7 @@ const sGame_PaletteDataset KOF95_A_TAKUMA_ALT_PALETTES[] =
     { L"Extra 8", 0xde380, 0xde3a0 },
     { L"Extra 9", 0xde3a0, 0xde3c0 },
     { L"Lifebar Portrait", 0xde3c0, 0xde3e0, indexKOF94Sprites_Takuma, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xde3e0, 0xde400, indexKOF94Sprites_Takuma, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xde3e0, 0xde400, indexKOF94Sprites_Takuma, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_YURI_MAIN_PALETTES[] =
@@ -830,7 +830,7 @@ const sGame_PaletteDataset KOF95_A_YURI_MAIN_PALETTES[] =
     { L"Extra 8", 0xde580, 0xde5a0 },
     { L"Extra 9", 0xde5a0, 0xde5c0 },
     { L"Lifebar Portrait", 0xde5c0, 0xde5e0, indexKOF94Sprites_Yuri, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xde5e0, 0xde600, indexKOF94Sprites_Yuri, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xde5e0, 0xde600, indexKOF94Sprites_Yuri, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_YURI_ALT_PALETTES[] =
@@ -848,7 +848,7 @@ const sGame_PaletteDataset KOF95_A_YURI_ALT_PALETTES[] =
     { L"Extra 8", 0xde780, 0xde7a0 },
     { L"Extra 9", 0xde7a0, 0xde7c0 },
     { L"Lifebar Portrait", 0xde7c0, 0xde7e0, indexKOF94Sprites_Yuri, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xde7e0, 0xde800, indexKOF94Sprites_Yuri, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xde7e0, 0xde800, indexKOF94Sprites_Yuri, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_MAI_MAIN_PALETTES[] =
@@ -866,7 +866,7 @@ const sGame_PaletteDataset KOF95_A_MAI_MAIN_PALETTES[] =
     { L"Extra 8", 0xde980, 0xde9a0 },
     { L"Extra 9", 0xde9a0, 0xde9c0 },
     { L"Lifebar Portrait", 0xde9c0, 0xde9e0, indexKOF94Sprites_Mai, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xde9e0, 0xdea00, indexKOF94Sprites_Mai, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xde9e0, 0xdea00, indexKOF94Sprites_Mai, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_MAI_ALT_PALETTES[] =
@@ -884,7 +884,7 @@ const sGame_PaletteDataset KOF95_A_MAI_ALT_PALETTES[] =
     { L"Extra 8", 0xdeb80, 0xdeba0 },
     { L"Extra 9", 0xdeba0, 0xdebc0 },
     { L"Lifebar Portrait", 0xdebc0, 0xdebe0, indexKOF94Sprites_Mai, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdebe0, 0xdec00, indexKOF94Sprites_Mai, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdebe0, 0xdec00, indexKOF94Sprites_Mai, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_KING_MAIN_PALETTES[] =
@@ -902,7 +902,7 @@ const sGame_PaletteDataset KOF95_A_KING_MAIN_PALETTES[] =
     { L"Extra 8", 0xded80, 0xdeda0 },
     { L"Extra 9", 0xdeda0, 0xdedc0 },
     { L"Lifebar Portrait", 0xdedc0, 0xdede0, indexKOF94Sprites_King, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdede0, 0xdee00, indexKOF94Sprites_King, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdede0, 0xdee00, indexKOF94Sprites_King, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_KING_ALT_PALETTES[] =
@@ -920,7 +920,7 @@ const sGame_PaletteDataset KOF95_A_KING_ALT_PALETTES[] =
     { L"Extra 8", 0xdef80, 0xdefa0 },
     { L"Extra 9", 0xdefa0, 0xdefc0 },
     { L"Lifebar Portrait", 0xdefc0, 0xdefe0, indexKOF94Sprites_King, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdefe0, 0xdf000, indexKOF94Sprites_King, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdefe0, 0xdf000, indexKOF94Sprites_King, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_SAISYU_MAIN_PALETTES[] =
@@ -938,7 +938,7 @@ const sGame_PaletteDataset KOF95_A_SAISYU_MAIN_PALETTES[] =
     { L"Extra 8", 0xdf180, 0xdf1a0 },
     { L"Extra 9", 0xdf1a0, 0xdf1c0 },
     { L"Lifebar Portrait", 0xdf1c0, 0xdf1e0, indexKOF95Sprites_Saisyu, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdf1e0, 0xdf200, indexKOF95Sprites_Saisyu, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdf1e0, 0xdf200, indexKOF95Sprites_Saisyu, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_SAISYU_ALT_PALETTES[] =
@@ -956,7 +956,7 @@ const sGame_PaletteDataset KOF95_A_SAISYU_ALT_PALETTES[] =
     { L"Extra 8", 0xdf380, 0xdf3a0 },
     { L"Extra 9", 0xdf3a0, 0xdf3c0 },
     { L"Lifebar Portrait", 0xdf3c0, 0xdf3e0, indexKOF95Sprites_Saisyu, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdf3e0, 0xdf400, indexKOF95Sprites_Saisyu, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdf3e0, 0xdf400, indexKOF95Sprites_Saisyu, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_OMEGARUGAL_MAIN_PALETTES[] =
@@ -974,7 +974,7 @@ const sGame_PaletteDataset KOF95_A_OMEGARUGAL_MAIN_PALETTES[] =
     { L"Extra 8", 0xdf580, 0xdf5a0 },
     { L"Extra 9", 0xdf5a0, 0xdf5c0 },
     { L"Lifebar Portrait", 0xdf5c0, 0xdf5e0, indexKOF95Sprites_OmegaRugal, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdf5e0, 0xdf600, indexKOF95Sprites_OmegaRugal, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdf5e0, 0xdf600, indexKOF95Sprites_OmegaRugal, 0x20 },
 };
 
 const sGame_PaletteDataset KOF95_A_OMEGARUGAL_ALT_PALETTES[] =
@@ -992,7 +992,7 @@ const sGame_PaletteDataset KOF95_A_OMEGARUGAL_ALT_PALETTES[] =
     { L"Extra 8", 0xdf780, 0xdf7a0 },
     { L"Extra 9", 0xdf7a0, 0xdf7c0 },
     { L"Lifebar Portrait", 0xdf7c0, 0xdf7e0, indexKOF95Sprites_OmegaRugal, 0x20 },
-    { L"Extra 10: Monochrome palette?", 0xdf7e0, 0xdf800, indexKOF95Sprites_OmegaRugal, 0x00 },
+    { L"Lifebar Portrait Defeated/Grayed", 0xdf7e0, 0xdf800, indexKOF95Sprites_OmegaRugal, 0x20 },
 };
 
 const sDescTreeNode KOF95_A_HEIDERN_COLLECTION[] =

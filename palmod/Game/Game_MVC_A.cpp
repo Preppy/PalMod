@@ -31,7 +31,7 @@ void CGame_MVC_A::InitializeStatics()
 
 CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
 {
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 
@@ -45,12 +45,12 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = GetExtraCt(MVC_A_EXTRALOC) + 1288;
+    m_nSafeCountForThisRom = GetExtraCt(MVC_A_EXTRALOC) + 1312;
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x030b1a;
+    m_nLowestKnownPaletteRomLocation = 0x030b18;
 
     // 0x38xxx large body Onslaught sprites
     // 0x39xxx+ unknown
@@ -131,8 +131,8 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = MVC_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = MVC_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(MVC_A_IMG_UNITS);
+    m_prgGameImageSet = MVC_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(MVC_A_IMGIDS_USED);
 
     nFileAmt = 1;
 

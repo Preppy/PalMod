@@ -10,6 +10,7 @@
 #include "Game\GameLoad.h"
 #include "ImgDat.h"
 #include "UndoRedo.h"
+#include "ColorSystem.h"
 
 #include "afxcmn.h"
 #include <afxole.h> // for drag and drop support
@@ -81,10 +82,7 @@ public:
     int nPrevChildSel1 = 0xffff;
     int nPrevChildSel2 = 0xffff;
 
-    int nRGBAmt = 0, nAAmt = 0;
-
-    double nRGBMul = 1.0, nAMul = 1.0;
-    double nTRGBMul = 1.0, nTAMul = 1.0;
+    int m_nRGBAmt = 0, m_nAAmt = 0;
 
     CUndoRedo UndoProc;
 
@@ -106,14 +104,15 @@ public:
     void SetColorsPerLineTo8();
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
-    void SetColorFormatTo9() { SetColorFormatTo(ColMode::COLMODE_RGB333); };
-    void SetColorFormatTo12A() { SetColorFormatTo(ColMode::COLMODE_RGB444_BE); };
-    void SetColorFormatTo12A_LE() { SetColorFormatTo(ColMode::COLMODE_RGB444_LE); };
-    void SetColorFormatTo15() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE); };
-    void SetColorFormatTo15ALT() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
-    void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_BGR555_LE); };
+    void SetColorFormatToRGB333() { SetColorFormatTo(ColMode::COLMODE_RGB333); };
+    void SetColorFormatToRGB444_BE() { SetColorFormatTo(ColMode::COLMODE_RGB444_BE); };
+    void SetColorFormatToRGB444_LE() { SetColorFormatTo(ColMode::COLMODE_RGB444_LE); };
+    void SetColorFormatToRGB555_LE() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE); };
+    void SetColorFormatToRGB555_BE() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
+    void SetColorFormatToBGR555_LE() { SetColorFormatTo(ColMode::COLMODE_BGR555_LE); };
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
     void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_RGB555_SHARP); };
+    void SetColorFormatToGRB555_LE() { SetColorFormatTo(ColMode::COLMODE_GRB555_LE); };
     void SetColorFormatToxRGB888() { SetColorFormatTo(ColMode::COLMODE_xRGB888); };
     void SetColorFormatToxBGR888() { SetColorFormatTo(ColMode::COLMODE_xBGR888); };
     void SetColorFormatToARGB1888() { SetColorFormatTo(ColMode::COLMODE_ARGB1888); };
@@ -121,6 +120,7 @@ public:
     // it's only currently used for MBAACC.
     void SetColorFormatToARGB7888() { SetColorFormatTo(ColMode::COLMODE_ARGB7888); };
     void SetColorFormatToARGB8888() { SetColorFormatTo(ColMode::COLMODE_ARGB8888); };
+    void SetColorFormatToABGR8888() { SetColorFormatTo(ColMode::COLMODE_ABGR8888); };
 
     void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption);
     void SetMaximumWriteTo16Colors() { SetMaximumWritePerEachTransparency(PALWriteOutputOptions::WRITE_16); };
@@ -163,7 +163,7 @@ public:
     void SetSliderCol(int nRH, int nGS, int nBL, int nA = -1);
     void UpdateMultiEdit(BOOL bForce = FALSE);
     void SetSliderDescEdit();
-    int BoundIntBySliderRange(int nIntValue, CSliderCtrl* pSlider);
+    int BoundStepBySliderRange(int nIntValue, CSliderCtrl* pSlider);
 
     void NewUndoData(BOOL bUndo = TRUE);
     void DoUndoRedo(BOOL bUndo);
@@ -209,7 +209,6 @@ protected:
     CToolTipCtrl m_ToolTip;
 
 // Implementation
-protected:
     HICON m_hIcon;
 
     void OnFileOpenInternal(UINT nDefaultGameFilter = NUM_GAMES);
@@ -221,7 +220,13 @@ protected:
     afx_msg HCURSOR OnQueryDragIcon();
     DECLARE_MESSAGE_MAP()
 
+private:
+    void HandlePasteFromPalMod();
+    void HandlePasteFromRGB();
+
 public:
+    static CStringA m_strPasteStr;
+
     CComboBox m_CBUnitSel;
     CComboBox m_CBChildSel1;
     CComboBox m_CBChildSel2;
@@ -257,11 +262,18 @@ public:
     CString m_EditADesc = L"A";
 
     afx_msg void OnBnNewCol();
-    afx_msg void OnColSett();
+    afx_msg void OnChangeShowAs32BitColor();
     afx_msg void OnBnUpdate();
     afx_msg void OnFilePatch();
     afx_msg void OnFileCrossPatch();
     afx_msg void OnSavePatchFile();
+
+    static void SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameFlag);
+    static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL bCheckOnly = FALSE, BOOL* bIsDir = NULL);
+
+    static BOOL IsPasteFromPalMod();
+    static BOOL IsPasteSupported();
+    static BOOL IsPasteRGB();
 
     afx_msg void OnEditCopy();
     afx_msg void OnEditPaste();
@@ -271,6 +283,7 @@ public:
     DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
     bool SelectMatchingColorsInPalette(DWORD dwColorToMatch);
 
+    static BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
     static int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData);
 
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
@@ -309,12 +322,14 @@ public:
     afx_msg void OnLoadDir_GGXXACR_P()      { OnLoadGameByDirectory(GGXXACR_P); };
     afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };
     afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };
+    afx_msg void OnLoadDir_MAAB_S()         { OnLoadGameByDirectory(MAAB_A); };
     afx_msg void OnLoadDir_MBAACC_S()       { OnLoadGameByDirectory(MBAACC_S); };
     afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };
     afx_msg void OnLoadDir_MVC2DCUSA()      { OnLoadGameByDirectory(MVC2_D); };
     afx_msg void OnLoadDir_MVC2PS2USA()     { OnLoadGameByDirectory(MVC2_P); };
     afx_msg void OnLoadDir_RedEarth30()     { OnLoadGameByDirectory(REDEARTH_A_DIR_30); };
     afx_msg void OnLoadDir_RedEarth31()     { OnLoadGameByDirectory(REDEARTH_A_DIR_31); };
+    afx_msg void OnLoadDir_RedEarth50()     { OnLoadGameByDirectory(REDEARTH_A_DIR_50); };
     afx_msg void OnLoadDir_SFIII3DCAll()    { OnLoadGameByDirectory(SFIII3_D); };
     afx_msg void OnLoadDir_SFIII1Arcade()   { OnLoadGameByDirectory(SFIII1_A_DIR); };
     afx_msg void OnLoadDir_SFIII2Arcade()   { OnLoadGameByDirectory(SFIII2_A_DIR); };
@@ -325,11 +340,3 @@ public:
     afx_msg void OnLoadDir_SFIII3ArcadeEx() { OnLoadGameByDirectory(SFIII3_A_DIR_EX); };
     afx_msg void OnLoadDir_UNICLR()         { OnLoadGameByDirectory(UNICLR_A); };
 };
-
-extern BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
-
-extern BOOL IsPasteSupported();
-extern CStringA szPasteStr;
-
-extern void SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameFlag);
-extern BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL bCheckOnly = FALSE, BOOL* bIsDir = NULL);

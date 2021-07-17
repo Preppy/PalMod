@@ -58,8 +58,8 @@ CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = RBFFS_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = RBFFS_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(RBFFS_A_IMG_UNITS);
+    m_prgGameImageSet = RBFFS_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(RBFFS_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -187,7 +187,7 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         // Status effects
         for (UINT16 nStatusIndex = 0; nStatusIndex < 32; nStatusIndex++)
@@ -239,7 +239,7 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(L"const sDescTreeNode RBFFS_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -259,7 +259,7 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)RBFFS_A_%s_COLLECTION, ARRAYSIZE(RBFFS_A_%s_COLLECTION) },\r\n", rgCharacters[nCharIndex], szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);

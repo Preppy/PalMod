@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 SAMSHO2_A_IMG_UNITS[] =
+const UINT16 SAMSHO2_A_IMGIDS_USED[] =
 {
     indexSamSho2Sprites_ChamCham,   // 0x4E
     indexSamSho2Sprites_Charlotte,  // 0x4F
@@ -524,8 +524,8 @@ const sGame_PaletteDataset SAMSHO2_A_BONUS_Intro[] =
     { L"Intro Sakura Leafs", 0x170a0, 0x170c0 },
     { L"Intro Flying Cards", 0x170e0, 0x17100 },
     { L"Intro Flying Wings", 0x17100, 0x17120 },
-    { L"Samurai Shodown Logo 1/2", 0x171a0, 0x171e0 },
-    { L"Samurai Shodown Logo 2/2", 0x17240, 0x17260 },
+    { L"Samurai Shodown Logo 1/2", 0x171a0, 0x171e0, indexSamSho2Sprites_Bonus, 0x00, &pairNext },
+    { L"Samurai Shodown Logo 2/2", 0x17240, 0x17260, indexSamSho2Sprites_Bonus, 0x01 },
     { L"Black Screen", 0x176c0, 0x176e0 },
     { L"Text Board", 0x170c0, 0x170e0 },
     { L"Tutorial Joystick", 0x17460, 0x17480 },
