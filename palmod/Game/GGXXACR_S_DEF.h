@@ -144,6 +144,54 @@ const sGame_PaletteDataset GGXXACR_S_BK_EXTRAS[] =
     { L"Garyou Tensei - Light (3/3)",   0x33fdc0, 0x33fe00 },
 };
 
+const sGame_PaletteDataset GGXXACR_S_YY_EXTRAS[] =
+{
+    //General
+    { L"Yo-Yo Recall (1/5)", 0x3abdc0, 0x3abe00 },
+    { L"Yo-Yo Recall (2/5)", 0x3ac160, 0x3ac1a0 },
+    { L"Yo-Yo Recall (3/5)", 0x3ac560, 0x3ac5a0 },
+    { L"Yo-Yo Recall (4/5)", 0x3ac980, 0x3ac9c0 },
+    { L"Yo-Yo Recall (5/5)", 0x3acdf0, 0x3ace30 },
+
+    //Specials
+    { L"Kick Start My Heart (1/5)", 0x35BBC0, 0x35BC00 },
+    { L"Kick Start My Heart (2/5)", 0x35d510, 0x35d550 },
+    { L"Kick Start My Heart (3/5)", 0x35e370, 0x35e3b0 },
+    { L"Kick Start My Heart (4/5)", 0x35f150, 0x35f190 },
+    { L"Kick Start My Heart (5/5)", 0x35fd40, 0x35fd80 },
+
+    { L"Starship (Layer 1)", 0x352da0, 0x352dd0 },
+    { L"Starship (Layer 2)", 0x353af0, 0x353b1c },
+    { L"Starship (Layer 3)", 0x355230, 0x355264 },
+    { L"Starship (Layer 4)", 0x355bb0, 0x355be6 },
+
+    { L"Roger Hug", 0x360ae0, 0x360b20 },
+
+    { L"Rolling Movement", 0x35ac90, 0x35acd0 },
+
+    //Overdrives
+    { L"Loop the Loop (1/5)", 0x36d430, 0x36d470 },
+    { L"Loop the Loop (2/5)", 0x36fb50, 0x36fb90 },
+    { L"Loop the Loop (3/5)", 0x372530, 0x372570 },
+    { L"Loop the Loop (4/5)", 0x376760, 0x3767a0 },
+    { L"Loop the Loop (5/5)", 0x376ac0, 0x376b00 },
+
+    { L"Maintenance Disaster Startup", 0x361350, 0x361390 },
+    { L"Maintenance Disaster ", 0x3627d0, 0x362810 },
+
+    { L"Me and My Killing Machine (1/6)", 0x376e00, 0x376e40 },
+    { L"Me and My Killing Machine (2/6)", 0x378c20, 0x378c60 },
+    { L"Me and My Killing Machine (3/6)", 0x37ad40, 0x37ad80 },
+    { L"Me and My Killing Machine (4/6)", 0x37ce70, 0x37ceb0 },
+    { L"Me and My Killing Machine (5/6)", 0x37f240, 0x37f280 },
+    { L"Me and My Killing Machine (6/6)", 0x381800, 0x381840 },
+
+    //Instant Kill 
+    { L"Shoot the Moon (1/3)", 0x383d10, 0x383f30 },
+    { L"Shoot the Moon (2/3)", 0x39c8c0, 0x39cae2 },
+    { L"Shoot the Moon (3/3)", 0x3a4690, 0x3a48b2 },
+};
+
 const sGame_PaletteDataset GGXXACR_S_CH_EXTRAS[] =
 {
     //Specials
@@ -1215,11 +1263,14 @@ const sGame_PaletteDataset GGXXACR_S_EFR_EXTRAS[] = // work in progress!
 
 const sGame_PaletteDataset GGXXACR_S_EXTRAS_JPF[] =
 {
+
+    //Missing Faultless defense, Slash back, Clashes, grab techs, etc
     //Leaving out hitsparks for now since theres so many, but they are in the archive_jpf.bin file
 
-    { L"Roman Cancel",       0x1c9680, 0x1c96c0 },
-    { L"Force Roman Cancel", 0x1c9880, 0x1c98c0 },
-    //Missing Yellow RC and Chaos RC
+    { L"Roman Cancel",          0x1c9680, 0x1c96c0 },
+    { L"Force Roman Cancel",    0x1c9880, 0x1c98c0 },
+    { L"Chaos Roman Cancel",    0x1C9A80, 0x1C9AC0 },
+    { L"Yellow Roman Cancel",   0x1C9C80, 0x1C9CC0 },
 
     { L"Burst (1/12)",  0x1806f0, 0x180af0 },
     { L"Burst (2/12)",  0x185ea0, 0x1862a0 },
@@ -1283,7 +1334,7 @@ const sGame_PaletteDataset GGXXACR_S_HUDMenu[] =
     //Missing RISC meter, Tension meter, gauge for stagger, Character HUD Portraits, and Character specific meters (some might be in their own .bin files) for HUD
 
     { L"Main HUD",                      0x9640, 0x9680 },
-
+    
     { L"Health",                        0x8580, 0x85c0 },  //Full health palette (green) is done by taking the normal heatlh value and ignoring the R and B values, not its own palette 
     { L"Health Glow",                   0x8330, 0x8370 },
     { L"Health Shine",                  0x1840, 0x1880 },
@@ -1300,10 +1351,10 @@ const sGame_PaletteDataset GGXXACR_S_HUDMenu[] =
     { L"Burst Refilling",               0x6bf0, 0x6c30 },
     { L"Burst Glow",                    0x71d0, 0x7210 },
 
-    { L"Tension (P1)",                  0x8a30, 0x8a70 },
-    { L"Tension Background (P1)",       0xbb80, 0xbbc0 },
-    { L"Tension (P2)",                  0x8970, 0x89b0 },
-    { L"Tension Background (P2)",       0xb670, 0xb6b0 },
+    { L"Tension (P1)",                  0xbb80, 0xbbc0 },
+    { L"Tension Background (P1)",       0x8a30, 0x8a70 },
+    { L"Tension (P2)",                  0xb670, 0xb6b0 },
+    { L"Tension Background (P2)",       0x8970, 0x89b0 },
 
     { L"Combo Counter",                 0x2d00, 0x2d40 },
     { L"Character names",               0x2e0, 0x320 },
@@ -1319,7 +1370,74 @@ const sGame_PaletteDataset GGXXACR_S_HUDMenu[] =
     { L"Stagger joystick (2/3)",        0x1ee180, 0x1ee1c0 },
     { L"Stagger joystick (3/3)",        0x1ee3e0, 0x1ee420 },
     { L"Dizzy Angels",                  0x1e7de0, 0x1e7e20 },
+};
 
+const sGame_PaletteDataset GGXXACR_S_RoundMessages[] =
+{
+    //Round opening
+    { L"Opening Text: Heaven", 0x1efc0, 0x1f000 },
+    { L"Opening Text: Or", 0x208e0, 0x20920 },
+    { L"Opening Text: Hell", 0x21340, 0x21380 },
+    { L"Opening Text: Heaven or Hell circle", 0x229c0, 0x22a00 },
+    { L"Opening Text: Duel", 0x319c0, 0x31a00 },
+    { L"Opening Text: Final", 0x328c0, 0x32900 },
+    { L"Opening Text: 1, 2, 3", 0x33B40, 0x33B80 },
+    { L"Opening Text: The First, The Second, The Third", 0x2b850, 0x2b890 },
+    { L"Opening Text: Let's", 0x37ca0, 0x37ce0 },
+    { L"Opening Text: Rock", 0x38160, 0x381a0 },
+    { L"Opening Background (1/7)", 0x234f0, 0x23530 },
+    { L"Opening Background (2/7)", 0x24670, 0x246b0 },
+    { L"Opening Background (3/7)", 0x25060, 0x250a0 },
+    { L"Opening Background (4/7)", 0x26f60, 0x26fa0 },
+    { L"Opening Background (5/7)", 0x28c70, 0x28cb0 },
+    { L"Opening Background (6/7)", 0x298b0, 0x298f0 },
+    { L"Opening Background (7/7)", 0x3ac90, 0x3acd0 },
+
+    //Win
+    { L"Slash (S)", 0x5bee0, 0x5bf20 },
+    { L"Slash (L)", 0x5c9d0, 0x5ca10 },
+    { L"Slash (A)", 0x5d120, 0x5d160 },
+    { L"Slash (S)", 0x5d830, 0x5d870 },
+    { L"Slash (H)", 0x5e1a0, 0x5e1e0 },
+    { L"Slash Background 1", 0x5ed10, 0x5ed50 },
+    { L"Slash Background 2", 0x5f400, 0x5f440 },
+    { L"Win (W)", 0x62660, 0x626a0 },
+    { L"Win (I)", 0x63020, 0x63060 },
+    { L"Win (N)", 0x634c0, 0x63500 },
+    { L"Win Message Background", 0x63f30, 0x63f70 },
+    { L"Win Message Character name", 0x66ff0, 0x67030 },
+
+    //Perfect
+    { L"Perfect (P)", 0x59190, 0x591d0 },
+    { L"Perfect (E)", 0x59590, 0x595d0 },
+    { L"Perfect (R)", 0x599e0, 0x59a20 },
+    { L"Perfect (F)", 0x59e70, 0x59eb0 },
+    { L"Perfect (C)", 0x5a230, 0x5a270 },
+    { L"Perfect (T)", 0x5a6a0, 0x5a6e0 },
+    { L"Perfect Glow (P)", 0x5aa50, 0x5aa90 },
+    { L"Perfect Glow (E)", 0x5acc0, 0x5ad00 },
+    { L"Perfect Glow (R)", 0x5af50, 0x5af90 },
+    { L"Perfect Glow (F)", 0x5b1d0, 0x5b210 },
+    { L"Perfect Glow (C)", 0x5b430, 0x5b470 },
+    { L"Perfect Glow (T)", 0x5b6e0, 0x5b720 },
+    { L"Perfect Border", 0x57760, 0x577a0 },
+
+    //Lose
+    { L"Lose (L)", 0x4fbA0, 0x4FBE0 },
+    { L"Lose (O)", 0x50460, 0x504A0 },
+    { L"Lose (S)", 0x50ff0, 0x51030 },
+    { L"Lose (E)", 0x51c70, 0x51CB0 },
+    { L"Lose Background", 0x528F0, 0x52930 },
+
+    //Draw
+    {L"Draw", 0x11550, 0x11590 },
+
+    //Time Out
+    { L"Time", 0x6ca70, 0x6cab0 },
+    { L"Up", 0x6dc70, 0x6dcb0 },
+    { L"Time Up Background", 0x68da0, 0x68de0 },
+
+    //Instant Kills
     { L"Instant Kill Border",           0x1a860, 0x1a8a0 },
     { L"Instant Kill Letters (D)",      0x13890, 0x138d0 },
     { L"Instant Kill Letters (E)",      0x14460, 0x144a0 },
@@ -1357,61 +1475,6 @@ const sGame_PaletteDataset GGXXACR_S_HUDMenu[] =
     { L"Zappa Instant Kill Letters (R)",                0x6f610, 0x6f650 },
     { L"Zappa Instant Kill Letters (O)",                0x6fa10, 0x6fa50 },
     { L"Zappa Instant Kill Letters (Y)",                0x6fdb0, 0x6fdf0 },
-};
-
-const sGame_PaletteDataset GGXXACR_S_RoundMessages[] =
-{
-    //Round opening
-    { L"Opening Text: Heaven", 0x1efc0, 0x1f000 },
-    { L"Opening Text: Or", 0x208e0, 0x20920 },
-    { L"Opening Text: Hell", 0x21340, 0x21380 },
-    { L"Opening Text: Heaven or Hell circle", 0x229c0, 0x22a00 },
-    { L"Opening Text: Duel", 0x319c0, 0x31a00 },
-    { L"Opening Text: 1, 2, 3", 0x328c0, 0x32900 },
-    { L"Opening Text: The First, The Second, The Third", 0x2b850, 0x2b890 },
-    { L"Opening Text: Let's", 0x37ca0, 0x37ce0 },
-    { L"Opening Text: Rock", 0x38160, 0x381a0 },
-    { L"Opening Background (1/7)", 0x234f0, 0x23530 },
-    { L"Opening Background (2/7)", 0x24670, 0x246b0 },
-    { L"Opening Background (3/7)", 0x25060, 0x250a0 },
-    { L"Opening Background (4/7)", 0x26f60, 0x26fa0 },
-    { L"Opening Background (5/7)", 0x28c70, 0x28cb0 },
-    { L"Opening Background (6/7)", 0x298b0, 0x298f0 },
-    { L"Opening Background (7/7)", 0x3ac90, 0x3acd0 },
-    
-    //Win
-    { L"Slash (S)", 0x5bee0, 0x5bf20 },
-    { L"Slash (L)", 0x5c9d0, 0x5ca10 },
-    { L"Slash (A)", 0x5d120, 0x5d160 },
-    { L"Slash (S)", 0x5d830, 0x5d870 },
-    { L"Slash (H)", 0x5e1a0, 0x5e1e0 },
-    { L"Slash Background 1", 0x5ed10, 0x5ed50 },
-    { L"Slash Background 2", 0x5f400, 0x5f440 },
-    { L"Win (W)", 0x62660, 0x626a0 },
-    { L"Win (I)", 0x63020, 0x63060 },
-    { L"Win (N)", 0x634c0, 0x63500 },
-    { L"Win Message Background", 0x63f30, 0x63f70 },
-    { L"Win Message Character name", 0x66ff0, 0x67030 },
-    
-    { L"Perfect (P)", 0x59190, 0x591d0 },
-    { L"Perfect (E)", 0x59590, 0x595d0 },
-    { L"Perfect (R)", 0x599e0, 0x59a20 },
-    { L"Perfect (F)", 0x59e70, 0x59eb0 },
-    { L"Perfect (C)", 0x5a230, 0x5a270 },
-    { L"Perfect (T)", 0x5a6a0, 0x5a6e0 },
-    { L"Perfect Border", 0x57760, 0x577a0 },
-    
-    //Lose
-    { L"Lose (L)", 0x4fbA0, 0x4FBE0 },
-    { L"Lose (O)", 0x50460, 0x504A0 },
-    { L"Lose (S)", 0x50ff0, 0x51030 },
-    { L"Lose (E)", 0x51c70, 0x51CB0 },
-    { L"Lose Background", 0x528F0, 0x52930 },
-    
-    //Time Out
-    { L"Time", 0x6ca70, 0x6cab0 },
-    { L"Up", 0x6dc70, 0x6dcb0 },
-    { L"Time Up Background", 0x68da0, 0x68de0 },
 };
 
 const sGame_PaletteDataset GGXXACR_S_Sidebar_Portraits[] =
@@ -1723,15 +1786,15 @@ GGXXACRFileData GGXXACR_S_CharacterData[] =
     { L"an.bin",    L"Anji Mito",       4518932,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3ea460, indexGGXXSprites_ACR_Anji, GGXXACR_S_AN_EXTRAS, ARRAYSIZE(GGXXACR_S_AN_EXTRAS) },
     { L"ax.bin",    L"Axl Low" ,        4225716,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x35ebe0, indexGGXXSprites_ACR_Axl },
     { L"bk.bin",    L"Baiken",          3573668,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x308c20, indexGGXXSprites_ACR_Baiken, GGXXACR_S_BK_EXTRAS, ARRAYSIZE(GGXXACR_S_BK_EXTRAS) },
-    { L"yy.bin",    L"Bridget",         4127716,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x34b210, indexGGXXSprites_ACR_Bridget },
+    { L"yy.bin",    L"Bridget",         4127716,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x34b210, indexGGXXSprites_ACR_Bridget, GGXXACR_S_YY_EXTRAS, ARRAYSIZE(GGXXACR_S_YY_EXTRAS) },
     { L"ch.bin",    L"Chipp Zanuff",    3113988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x293560, indexGGXXSprites_ACR_Chipp, GGXXACR_S_CH_EXTRAS, ARRAYSIZE(GGXXACR_S_CH_EXTRAS) },
     { L"dz.bin",    L"Dizzy",           5352324,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x45d720, indexGGXXSprites_ACR_Dizzy, GGXXACR_S_DZ_EXTRAS, ARRAYSIZE(GGXXACR_S_DZ_EXTRAS) },
     { L"zt.bin",    L"Eddie",           3289156,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x24e560, indexGGXXSprites_ACR_Eddie, GGXXACR_S_ZT_EXTRAS, ARRAYSIZE(GGXXACR_S_ZT_EXTRAS) },
     { L"fa.bin",    L"Faust",           4773284,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3fe9a0, indexGGXXSprites_ACR_Faust },
     { L"in.bin",    L"I-No",            5609060,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3e5370, indexGGXXSprites_ACR_Ino, GGXXACR_S_IN_EXTRAS, ARRAYSIZE(GGXXACR_S_IN_EXTRAS) },
     { L"jm.bin",    L"Jam Kuradoberi",  3827044,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2c4e80, indexGGXXSprites_ACR_Jam, GGXXACR_S_JM_EXTRAS, ARRAYSIZE(GGXXACR_S_JM_EXTRAS) },
-    { L"js.bin",    L"Justice",         4556788,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3789b0, indexGGXXSprites_ACR_Justice, GGXXACR_S_JS_EXTRAS, ARRAYSIZE(GGXXACR_S_JS_EXTRAS) },
     { L"jy.bin",    L"Johnny",          4205892,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3b0620, indexGGXXSprites_ACR_Johnny, GGXXACR_S_JY_EXTRAS, ARRAYSIZE(GGXXACR_S_JY_EXTRAS) },
+    { L"js.bin",    L"Justice",         4556788,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3789b0, indexGGXXSprites_ACR_Justice, GGXXACR_S_JS_EXTRAS, ARRAYSIZE(GGXXACR_S_JS_EXTRAS) },
     { L"kr.bin",    L"Kliff Undersn",   3114036,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x28abf0, indexGGXXSprites_ACR_Kliff },
     { L"ky.bin",    L"Ky Kiske",        4571540,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x38bbc0, indexGGXXSprites_ACR_Ky, GGXXACR_S_KY_EXTRAS, ARRAYSIZE(GGXXACR_S_KY_EXTRAS) },
     { L"my.bin",    L"May",             4311684,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x363d50, indexGGXXSprites_ACR_May },
@@ -1739,8 +1802,8 @@ GGXXACRFileData GGXXACR_S_CharacterData[] =
     { L"fr.bin",    L"Order-Sol",       5772356,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x4377e0, indexGGXXSprites_ACR_OrderSol, GGXXACR_S_FR_EXTRAS, ARRAYSIZE(GGXXACR_S_FR_EXTRAS) },
     { L"po.bin",    L"Potemkin",        5277348,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x489c70, indexGGXXSprites_ACR_Potemkin, GGXXACR_S_PO_EXTRAS, ARRAYSIZE(GGXXACR_S_PO_EXTRAS) },
     { L"rk.bin",    L"Robo-Ky",         4489668,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3a7450, indexGGXXSprites_ACR_RoboKy },
-    { L"sl.bin",    L"Sol Badguy",      4613188,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x339b60, indexGGXXSprites_ACR_Sol, GGXXACR_S_SL_EXTRAS, ARRAYSIZE(GGXXACR_S_SL_EXTRAS) },
     { L"sy.bin",    L"Slayer",          6215652,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x39c960, indexGGXXSprites_ACR_Slayer, GGXXACR_S_SY_EXTRAS, ARRAYSIZE(GGXXACR_S_SY_EXTRAS) },
+    { L"sl.bin",    L"Sol Badguy",      4613188,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x339b60, indexGGXXSprites_ACR_Sol, GGXXACR_S_SL_EXTRAS, ARRAYSIZE(GGXXACR_S_SL_EXTRAS) },
     { L"ts.bin",    L"Testament",       4817508,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3ee950, indexGGXXSprites_ACR_Testament },
     { L"ve.bin",    L"Venom",           2787412,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x261c10, indexGGXXSprites_ACR_Venom, GGXXACR_S_VE_EXTRAS, ARRAYSIZE(GGXXACR_S_VE_EXTRAS) },
     { L"zp.bin",    L"Zappa",           6019988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2a54f0, indexGGXXSprites_ACR_Zappa, GGXXACR_S_ZP_EXTRAS, ARRAYSIZE(GGXXACR_S_ZP_EXTRAS) },
@@ -1762,16 +1825,16 @@ GGXXACRFileData GGXXACR_S_CharacterData[] =
     { L"efr.bin",   L"EX Order-Sol",    5965396,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x45d9d0, indexGGXXSprites_ACR_OrderSol, GGXXACR_S_EFR_EXTRAS, ARRAYSIZE(GGXXACR_S_EFR_EXTRAS) },
     { L"epo.bin",   L"EX Potemkin",     5313412,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x494170, indexGGXXSprites_ACR_Potemkin },
     { L"erk.bin",   L"EX Robo-Ky",      4599332,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3cfc80, indexGGXXSprites_ACR_RoboKy },
-    { L"esl.bin",   L"EX Sol Badguy",   4679684,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x33b380, indexGGXXSprites_ACR_Sol },
     { L"esy.bin",   L"EX Slayer",       6221972,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x39ea30, indexGGXXSprites_ACR_Slayer },
+    { L"esl.bin",   L"EX Sol Badguy",   4679684,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x33b380, indexGGXXSprites_ACR_Sol },
     { L"ets.bin",   L"EX Testament",    4775796,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3f4780, indexGGXXSprites_ACR_Testament },
     { L"eve.bin",   L"EX Venom",        2848292,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x271200, indexGGXXSprites_ACR_Venom },
     { L"ezp.bin",   L"EX Zappa",        6044292,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x2a2e90, indexGGXXSprites_ACR_Zappa },
-    { L"..\\demo\\archive_jpf.bin",         L"Effects",                     3040848, nullptr,                                0,        0x1806f0,                        -1, GGXXACR_S_EXTRAS_JPF, ARRAYSIZE(GGXXACR_S_EXTRAS_JPF) },
-    { L"..\\demo\\archive_jpf.bin",         L"HUD/Menu",                    3040848, nullptr,                                0,        0x2e0,                           -1, GGXXACR_S_HUDMenu, ARRAYSIZE(GGXXACR_S_HUDMenu) },
-    { L"..\\demo\\archive_jpf.bin",         L"Round Start/End Messages",    3040848, nullptr,                                0,        0x1efc0,                         -1, GGXXACR_S_RoundMessages, ARRAYSIZE(GGXXACR_S_RoundMessages) },
-    { L"..\\..\\..\\demo\\side_belt.bin",   L"Sidebar Portraits",           2794128, nullptr,                                0,        0x110,                           -1, GGXXACR_S_Sidebar_Portraits, ARRAYSIZE(GGXXACR_S_Sidebar_Portraits) },
-    { L"..\\demo\\select.bin",              L"Select Screen",               2960672, nullptr,                                0,        0xe3260,                         -1, GGXXACR_S_SelectScreen, ARRAYSIZE(GGXXACR_S_SelectScreen) },
-    { L"..\\demo\\select.bin",              L"Select Screen Portraits",     2960672, nullptr,                                0,        0x2f0,                           -1, GGXXACR_S_SelectScreenPortraits, ARRAYSIZE(GGXXACR_S_SelectScreenPortraits) },
-    { L"..\\demo\\titleall.bin",            L"Title Screen",                5281296, nullptr,                                0,        0x7AC70,                         -1, GGXXACR_S_Title, ARRAYSIZE(GGXXACR_S_Title) },
+    { L"..\\demo\\archive_jpf.bin",         L"Effects",                     3040848, nullptr,                           0,        0x1806f0,                        -1, GGXXACR_S_EXTRAS_JPF, ARRAYSIZE(GGXXACR_S_EXTRAS_JPF) },
+    { L"..\\demo\\archive_jpf.bin",         L"HUD/Menu",                    3040848, nullptr,                           0,        0x2e0,                           -1, GGXXACR_S_HUDMenu, ARRAYSIZE(GGXXACR_S_HUDMenu) },
+    { L"..\\demo\\archive_jpf.bin",         L"Round Start/End Messages",    3040848, nullptr,                           0,        0x1efc0,                         -1, GGXXACR_S_RoundMessages, ARRAYSIZE(GGXXACR_S_RoundMessages) },
+    { L"..\\..\\..\\demo\\side_belt.bin",   L"Sidebar Portraits",           2794128, nullptr,                           0,        0x110,                           -1, GGXXACR_S_Sidebar_Portraits, ARRAYSIZE(GGXXACR_S_Sidebar_Portraits) },
+    { L"..\\demo\\select.bin",              L"Select Screen",               2960672, nullptr,                           0,        0xe3260,                         -1, GGXXACR_S_SelectScreen, ARRAYSIZE(GGXXACR_S_SelectScreen) },
+    { L"..\\demo\\select.bin",              L"Select Screen Portraits",     2960672, nullptr,                           0,        0x2f0,                           -1, GGXXACR_S_SelectScreenPortraits, ARRAYSIZE(GGXXACR_S_SelectScreenPortraits) },
+    { L"..\\demo\\titleall.bin",            L"Title Screen",                5281296, nullptr,                           0,        0x7AC70,                         -1, GGXXACR_S_Title, ARRAYSIZE(GGXXACR_S_Title) },
 };
