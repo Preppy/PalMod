@@ -248,6 +248,7 @@
     <ClCompile Include="Game\Game_Garou_S.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_P.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_S.cpp" />
+    <ClCompile Include="Game\Game_GGXXR_S.cpp" />
     <ClCompile Include="Game\Game_Gowcaizer_A.cpp" />
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
     <ClCompile Include="Game\Game_JojosRPG_SNES.cpp" />
@@ -295,6 +296,7 @@
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
     <ClCompile Include="Game\Game_NGBC_A.cpp" />
     <ClCompile Include="Game\Game_NinjaMasters_A.cpp" />
+    <ClCompile Include="Game\Game_P4AU_NESICA.cpp" />
     <ClCompile Include="Game\Game_RanmaCRH_SNES.cpp" />
     <ClCompile Include="Game\Game_RanmaHB_SNES.cpp" />
     <ClCompile Include="Game\Game_RBFF1_A.cpp" />
@@ -417,6 +419,7 @@
     <ClInclude Include="Game\Game_Garou_S.h" />
     <ClInclude Include="Game\Game_GGXXACR_P.h" />
     <ClInclude Include="Game\Game_GGXXACR_S.h" />
+    <ClInclude Include="Game\Game_GGXXR_S.h" />
     <ClInclude Include="Game\Game_Gowcaizer_A.h" />
     <ClInclude Include="Game\Game_GUNDAM_SNES.h" />
     <ClInclude Include="Game\Game_JojosRPG_SNES.h" />
@@ -464,6 +467,7 @@
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
     <ClInclude Include="Game\Game_NGBC_A.h" />
     <ClInclude Include="Game\Game_NinjaMasters_A.h" />
+    <ClInclude Include="Game\Game_P4AU_NESICA.h" />
     <ClInclude Include="Game\Game_RanmaCRH_SNES.h" />
     <ClInclude Include="Game\Game_RanmaHB_SNES.h" />
     <ClInclude Include="Game\Game_RBFF1_A.h" />
@@ -514,6 +518,7 @@
     <ClInclude Include="Game\GGXXACR_Common.h" />
     <ClInclude Include="Game\GGXXACR_P_DEF.h" />
     <ClInclude Include="Game\GGXXACR_S_DEF.h" />
+    <ClInclude Include="Game\GGXXR_S_DEF.h" />
     <ClInclude Include="Game\Gowcaizer_A_DEF.h" />
     <ClInclude Include="Game\GUNDAM_SNES_DEF.h" />
     <ClInclude Include="Game\ImgIdDef.h" />
@@ -562,6 +567,7 @@
     <ClInclude Include="Game\NEOGEO_A_DEF.h" />
     <ClInclude Include="Game\NGBC_A_DEF.h" />
     <ClInclude Include="Game\NinjaMasters_A_DEF.h" />
+    <ClInclude Include="Game\P4AU_NESICA_DEF.h" />
     <ClInclude Include="Game\PalGroup.h" />
     <ClInclude Include="Game\GEMFIGHTER_A_DEF.h" />
     <ClInclude Include="Game\RanmaCRH_SNES_DEF.h" />
