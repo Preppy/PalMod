@@ -31,6 +31,7 @@ enum class ColMode
     COLMODE_ARGB1888_32STEPS, // MBAACC: 32 bit color, except only 32 steps
     COLMODE_GRB555_LE,      // GRB555 little endian
     COLMODE_ABGR8888,       // 32bit color (arcana blood)
+    COLMODE_BGR555_BE,      // BGR555 big endian: Motorola 68000 games
     COLMODE_LAST,
 };
 
@@ -75,6 +76,8 @@ public:
     static UINT32 CONV_RGB444LE_32(UINT16 inCol);
     static UINT16 CONV_32_BGR555LE(UINT32 inCol);
     static UINT32 CONV_BGR555LE_32(UINT16 inCol);
+    static UINT16 CONV_32_BGR555BE(UINT32 inCol);
+    static UINT32 CONV_BGR555BE_32(UINT16 inCol);
     static UINT16 CONV_32_RGB555LE(UINT32 inCol);
     static UINT32 CONV_RGB555LE_32(UINT16 inCol);
     static UINT16 CONV_32_RGB555BE(UINT32 inCol);

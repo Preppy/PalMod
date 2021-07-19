@@ -29,9 +29,7 @@ void CGame_SAMSHO4_A::InitializeStatics()
 
 CGame_SAMSHO4_A::CGame_SAMSHO4_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_SAMSHO4_A::CGame_SAMSHO4_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_SAMSHO4_A::CGame_SAMSHO4_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -45,7 +43,7 @@ CGame_SAMSHO4_A::CGame_SAMSHO4_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SAMSHO4_A_NUMUNIT;
     m_nExtraUnit = SAMSHO4_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 244;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 596;
     m_pszExtraFilename = EXTRA_FILENAME_SAMSHO4_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSAMSHO4;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -100,6 +98,82 @@ int CGame_SAMSHO4_A::GetExtraLoc(UINT16 nUnitId)
     return _GetExtraLocation(rgExtraLoc, SAMSHO4_A_NUMUNIT, nUnitId, SAMSHO4_A_EXTRA_CUSTOM);
 }
 
+void CGame_SAMSHO4_A::DumpAllPalettes()
+{
+    // I wanted to quickly generate the special palettes we didn't have listed yet.
+    CString strInfo;
+
+    for (int nUnit = 0; nUnit < ARRAYSIZE(SAMSHO4_A_UNITS); nUnit++)
+    {
+        for (int nNode = 0; nNode < SAMSHO4_A_UNITS[nUnit].uChildAmt; nNode++)
+        {
+            sDescTreeNode* pThisNode = (sDescTreeNode *)SAMSHO4_A_UNITS[nUnit].ChildNodes;
+            sGame_PaletteDataset* pThisCharacter = (sGame_PaletteDataset *)pThisNode[nNode].ChildNodes;
+
+            struct sSpecialInfo
+            {
+                LPCWSTR szSpecialName = nullptr;
+                int nOffsetFromBase = 0;
+            };
+
+            const sSpecialInfo sSamShoIVInfo[] =
+            {
+                { L"Burning", 0xc0 },
+                { L"Shocked", 0x100 },
+                { L"Frozen/Wet", 0x140 },
+                { L"Ki", 0x180 },
+                { L"Issen Trail", 0x200 },
+                //{ L"SON?", 0x240 },  SON is SamShoV/SP only.  Unclear what these/the other extras are
+            };
+
+            LPCWSTR ppszImgIdText[] =
+            {
+                L"indexSamSho5Sprites_Amakusa",
+                L"indexSamSho5Sprites_Basara",                            // 1
+                L"indexSamSho5Sprites_Charlotte",                         // 2
+                L"indexSamSho5Sprites_Enja",                              // 3
+                L"indexSamSho5Sprites_Gaira",                             // 4
+                L"indexSamSho5Sprites_Galford",                           // 5
+                L"indexSamSho5Sprites_Gaoh",                              // 6
+                L"indexSamSho5Sprites_Genjuro",                           // 7
+                L"indexSamSho5Sprites_Hanzo",                             // 8
+                L"indexSamSho5Sprites_Haohmaru",                          // 9
+                L"indexSamSho5Sprites_Jubei",                             // a
+                L"indexSamSho5Sprites_Kazuki",                            // b
+                L"indexSamSho5Sprites_Kusaregedo",                        // c
+                L"indexSamSho5Sprites_Kyoshiro",                          // d
+                L"indexSamSho5Sprites_Mina",                              // e
+                L"indexSamSho5Sprites_Mizuki",                            // f
+                L"indexSamSho5Sprites_Nakoruru",                          // 10
+                L"indexSamSho5Sprites_Rasetsumaru",                        // 11
+                L"indexSamSho5Sprites_Rera",                              // 12
+                L"indexSamSho5Sprites_Rimururu",                          // 13
+                L"indexSamSho5Sprites_Shizumaru",                         // 14
+                L"indexSamSho5Sprites_Sogetsu",                           // 15
+                L"indexSamSho5Sprites_Suija",                             // 16
+                L"indexSamSho5Sprites_TamTam",                            // 17
+                L"indexSamSho5Sprites_Ukyo",                              // 18
+                L"indexSamSho5Sprites_Yoshitora",                         // 19
+                L"indexSamSho5Sprites_Yunfei",                            // 1a
+                L"indexSamSho5Sprites_Zankuro",                           // 1b
+            };
+
+            for (int nSpecial = 0; nSpecial < ARRAYSIZE(sSamShoIVInfo); nSpecial++)
+            {
+                    strInfo.Format(L"    { L\"%s (%s)\", 0x%x, 0x%x, %s, 0x%02x },\r\n",
+                        pThisCharacter[0].szPaletteName,
+                        sSamShoIVInfo[nSpecial].szSpecialName,
+                        pThisCharacter[0].nPaletteOffset + sSamShoIVInfo[nSpecial].nOffsetFromBase,
+                        pThisCharacter[0].nPaletteOffsetEnd + sSamShoIVInfo[nSpecial].nOffsetFromBase,
+                        (pThisCharacter[0].indexImgToUse < ARRAYSIZE(ppszImgIdText)) ? ppszImgIdText[pThisCharacter[0].indexImgToUse] : L"-1",
+                        pThisCharacter[0].indexOffsetToUse
+                    );
+                    OutputDebugString(strInfo);
+            }
+        }
+    }
+}
+
 sDescTreeNode* CGame_SAMSHO4_A::InitDescTree()
 {
     //Load extra file if we're using it
@@ -124,6 +198,11 @@ sDescTreeNode* CGame_SAMSHO4_A::InitDescTree()
         rgExtraLoc,
         SAMSHO4_A_EXTRA_CUSTOM
     );
+
+    // For development purposes
+    // The initial work here was just for adding in the special palettes.
+    // We can't currently regenerate the header set, but it's usually not necessary.
+    //DumpAllPalettes();
 
     return NewDescTree;
 }

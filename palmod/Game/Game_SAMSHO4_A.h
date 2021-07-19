@@ -50,5 +50,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
+    static void DumpAllPalettes();
+
     static stExtraDef* SAMSHO4_A_EXTRA_CUSTOM;
 };

@@ -569,7 +569,7 @@ const sGame_PaletteDataset KOF03_A_CHANG_PALETTES_D[] =
 const sGame_PaletteDataset KOF03_A_JHUN_PALETTES_A[] =
 {
     { L"Jhun Hoon A", 0x7800, 0x7820, indexKOF03Sprites_JhunHoon, 0x00 },
-    { L"Slash Kicks A", 0x7928, 0x7940 },
+    { L"Slash Kicks A", 0x7920, 0x7940 },
     { L"Haiki Geki A", 0x7940, 0x7960 },
     { L"Ho'ou Ressou Kyaku A", 0x7900, 0x7920 },
     { L"Ressou Hiten Kyaku A", 0x7960, 0x7980 },
@@ -1513,7 +1513,7 @@ const sGame_PaletteDataset KOF03_A_ADELHEID_PALETTES_B[] =
     { L"G. Wand B", 0x013300, 0x013320 },
     { L"G. Kreis B", 0x013320, 0x013340 },
     { L"G. Sklaven B", 0x013340, 0x013360 },
-    { L"Adelheid Victory B", 0x021360, 0x0213a0, indexKOF03Sprites_Adelheid, 0x30 },
+    { L"Adelheid Victory B", 0x021360, 0x0213a0, indexKOF03Sprites_Adelheid, 0x30, &pairNext },
     { L"Rose B", 0x021660, 0x0216a0, indexKOF03Sprites_Adelheid, 0x31 },
 };
 

@@ -149,6 +149,20 @@ UINT16 CColorSystem::CONV_32_BGR555LE(UINT32 inCol)
     return (((auxr >> 3) & 31) | (((auxg >> 3) & 31) << 5) | (((auxb >> 3) & 31) << 10)) | (auxa << 15);
 }
 
+
+UINT32 CColorSystem::CONV_BGR555BE_32(UINT16 inCol)
+{
+    UINT16 uSwappedCol = _byteswap_ushort(inCol);
+
+    return CONV_BGR555LE_32(uSwappedCol);
+}
+
+UINT16 CColorSystem::CONV_32_BGR555BE(UINT32 inCol)
+{
+    return _byteswap_ushort(CONV_32_BGR555LE(inCol));
+}
+
+
 UINT32 CColorSystem::CONV_RGB444BE_32(UINT16 inCol)
 {
     UINT32 auxb = (inCol & 0xF);
