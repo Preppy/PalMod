@@ -268,13 +268,15 @@
 #define ID_COLORFORMAT_ABGR8888         32901
 #define ID_LD_MAAB                      32902
 #define ID_COLORFORMAT_BGR555_BE        32903
+#define ID_LD_GGXXR_S					          32904
+#define ID_LD_P4AU_NESICA				        32905
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32904
+#define _APS_NEXT_COMMAND_VALUE         32906
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

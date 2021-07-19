@@ -25,6 +25,8 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"Guilty Gear (Steam): select the \"obj\" folder under \"Resource\\pr\\ver_100\" after decrypting your files.\n\"Resource\\obj\" will not work.";
             break;
         case GGXXACR_P:
+            break; 
+        case GGXXR_S:
             break;
         case JOJOS_A_DIR_50:
             pszExtraInfo = L"We need the jojoba-simm5.x files from jojoba.zip.";
@@ -43,6 +45,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             break;
         case MVC2_P:
             pszExtraInfo = L"We need the PLxxPAK.bin files from the root of the game image.\nFor the PS3 version, select the folder \"gdrom\" under \"NPUB30068\\USRDIR\".";
+            break;
+        case P4AU_NESICA:
+            pszExtraInfo = L"Select the \"Char\" folder, under \"data\"";
             break;
         case REDEARTH_A_DIR_30:
             pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";

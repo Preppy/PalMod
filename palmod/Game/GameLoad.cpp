@@ -22,7 +22,8 @@
 #include "Game_Garou_S.h"
 #include "Game_Gowcaizer_A.h"
 #include "Game_GGXXACR_S.h"
-#include "Game_GGXXACR_p.h"
+#include "Game_GGXXACR_P.h"
+#include "Game_GGXXR_S.h"
 #include "Game_GUNDAM_SNES.h"
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
@@ -68,6 +69,7 @@
 #include "Game_NEOGEO_A.h"
 #include "Game_NGBC_A.h"
 #include "Game_NINJAMASTERS_A.h"
+#include "Game_P4AU_NESICA.h"
 #include "Game_GEMFIGHTER_A.h"
 #include "Game_RanmaCRH_SNES.h"
 #include "Game_RanmaHB_SNES.h"
@@ -299,6 +301,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         ResetRuleCtr = &CGame_GGXXACR_P::ResetRuleCtr;
         GetRule = &CGame_GGXXACR_P::GetRule;
         GetNextRule = &CGame_GGXXACR_P::GetNextRule;
+
+        return TRUE;
+    }
+    case GGXXR_S:
+    {
+        GetRuleCtr = &CGame_GGXXR_S::GetRuleCtr;
+        ResetRuleCtr = &CGame_GGXXR_S::ResetRuleCtr;
+        GetRule = &CGame_GGXXR_S::GetRule;
+        GetNextRule = &CGame_GGXXR_S::GetNextRule;
 
         return TRUE;
     }
@@ -550,6 +561,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case NINJAMASTERS_A:
     {
         GetRule = &CGame_NINJAMASTERS_A::GetRule;
+        return TRUE;
+    }   
+    case P4AU_NESICA:
+    {
+        GetRuleCtr = &CGame_P4AU_NESICA::GetRuleCtr;
+        ResetRuleCtr = &CGame_P4AU_NESICA::ResetRuleCtr;
+        GetRule = &CGame_P4AU_NESICA::GetRule;
+        GetNextRule = &CGame_P4AU_NESICA::GetNextRule;
+
         return TRUE;
     }
     case RANMACRH_SNES:
@@ -963,6 +983,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_GGXXACR_P(nConfirmedROMSize);
     }
+    case GGXXR_S:
+    {
+        return new CGame_GGXXR_S(nConfirmedROMSize);
+    }
     case GUNDAM_SNES:
     {
         return new CGame_GUNDAM_SNES(nConfirmedROMSize);
@@ -1146,6 +1170,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case NINJAMASTERS_A:
     {
         return new CGame_NINJAMASTERS_A(nConfirmedROMSize);
+    }
+    case P4AU_NESICA:
+    {
+        return new CGame_P4AU_NESICA(nConfirmedROMSize);
     }
     case RANMACRH_SNES:
     {

@@ -142,6 +142,8 @@ enum SupportedGamesList
     Gowcaizer_A,
     MAAB_A,
     JOJOSRPG_SNES,
+    GGXXR_S,
+    P4AU_NESICA,
 
     NUM_GAMES // This needs to be last
 };
@@ -281,6 +283,8 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Voltage Fighter Gowcaizer (Neo-Geo)",
     L"Million Arthur Arcana Blood (Steam)",
     L"Jojo's Bizarre Adventure (SNES)",
+    L"Guilty Gear #Reload (Steam/Community Port)",
+    L"Persona 4 Arena Ultimax 2.0 (NESICA)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

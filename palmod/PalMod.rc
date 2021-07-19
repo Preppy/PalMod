@@ -323,12 +323,13 @@ BEGIN
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
             POPUP "Guilty Gear"
             BEGIN
-                MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR_S
-                MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
+                MENUITEM "GGXX:AC+R (Steam)",                   ID_LD_GGXXACR_S
+                MENUITEM "GGXX:AC+R (PlayStation 3)",           ID_LD_GGXXACR_P
+                MENUITEM "GGXX #Reload (Steam/Community Port)", ID_LD_GGXXR_S
             END
             POPUP "Jojo's HftF"
             BEGIN
-                MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
+                MENUITEM "Characters (Japan Arcade)",     ID_LD_JOJOS51
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
             END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
@@ -339,6 +340,7 @@ BEGIN
                 MENUITEM "DC",                          ID_LD_MVC2DCUSA
                 MENUITEM "PS2",                         ID_LD_MVC2PS2USA
             END
+            MENUITEM "Persona 4 Arena Ultimax 2.0 (NESICA Community Port)", ID_LD_P4AU_NESICA
             POPUP "Red Earth / Warzard"
             BEGIN
                 MENUITEM "Red Earth / Warzard (Arcade, Stages)", ID_LOADDIRECTORY_REDEARTH_30
