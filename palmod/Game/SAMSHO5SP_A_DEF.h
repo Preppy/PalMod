@@ -42,20 +42,20 @@ const UINT16 SAMSHO5SP_A_IMGIDS_USED[] =
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_A[] =
 {
-    { L"Amakusa A (Normal)", 0xe0000, 0xe0040, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa A (Rage)", 0xe0040, 0xe0080, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa A (SON)", 0xe0240, 0xe0280, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Normal)",                0xe0000, 0xe0040, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Rage)",                  0xe0040, 0xe0080, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (SON)",                   0xe0240, 0xe0280, indexSamSho5Sprites_Amakusa },
 
-    { L"Amakusa A (Burning)", 0xe00c0, 0xe0100, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa A (Shocked)", 0xe0100, 0xe0140, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa A (Frozen/Wet)", 0xe0140, 0xe0180, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa A (Ki)", 0xe0180, 0xe01c0, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa A (Issen Trail)", 0xe0200, 0xe0240, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa A (Tenshou Fuu'ou Jin)", 0xe0280, 0xe0290 },
-    { L"Amakusa A (Misc Poses/Effects)", 0xe02a0, 0xe02c0 },
-    { L"Amakusa A (Oumagatoki/Misc)", 0xe02c0, 0xe02e0 },
-    { L"Amakusa A (Nanji/Misc)", 0xe0300, 0xe0320 },
-    { L"Amakusa A (Orb Slash Effect)", 0xe0390, 0xe03a0 },
+    { L"Amakusa A (Burning)",               0xe00c0, 0xe0100, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Shocked)",               0xe0100, 0xe0140, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Frozen/Wet)",            0xe0140, 0xe0180, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Ki)",                    0xe0180, 0xe01c0, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Issen Trail)",           0xe0200, 0xe0240, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Tenshou Fuu'ou Jin)",    0xe0280, 0xe0290 },
+    { L"Amakusa A (Misc Poses/Effects)",    0xe02a0, 0xe02c0 },
+    { L"Amakusa A (Oumagatoki/Misc)",       0xe02c0, 0xe02e0 },
+    { L"Amakusa A (Nanji/Misc)",            0xe0300, 0xe0320 },
+    { L"Amakusa A (Orb Slash Effect)",      0xe0390, 0xe03a0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_B[] =

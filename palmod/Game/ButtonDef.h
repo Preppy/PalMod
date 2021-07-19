@@ -43,6 +43,11 @@ const LPCWSTR DEF_BUTTONLABEL_NEOGEO[] =
     L"A", L"B", L"C", L"D"
 };
 
+const LPCWSTR DEF_BUTTONLABEL_4_KOF97[] =
+{
+    L"Advanced A", L"Advanced D", L"Extra A", L"Extra D"
+};
+
 const LPCWSTR DEF_BUTTONLABEL_KOF99AE_P3[] =
 {
     L"C", L"D", L"AC", L"BD"

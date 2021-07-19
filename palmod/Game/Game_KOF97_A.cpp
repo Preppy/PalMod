@@ -64,8 +64,8 @@ CGame_KOF97_A::CGame_KOF97_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
+    pButtonLabelSet = DEF_BUTTONLABEL_4_KOF97;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_4_KOF97);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -237,9 +237,9 @@ void CGame_KOF97_A::DumpPaletteHeaders()
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO); nColorIndex++)
+        for (UINT16 nColorIndex = 0; nColorIndex < ARRAYSIZE(DEF_BUTTONLABEL_4_KOF97); nColorIndex++)
         {
-            strOutput.Format(L"const sGame_PaletteDataset KOF97_A_%s_PALETTES_%s[] = \r\n{\r\n", szCodeDesc, DEF_BUTTONLABEL_NEOGEO[nColorIndex]);
+            strOutput.Format(L"const sGame_PaletteDataset KOF97_A_%s_PALETTES_%s[] = \r\n{\r\n", szCodeDesc, DEF_BUTTONLABEL_4_KOF97[nColorIndex]);
             OutputDebugString(strOutput);
 
             for (UINT16 nPaletteIndex = 0; nPaletteIndex < nCountPalettes; nPaletteIndex++)
@@ -252,12 +252,12 @@ void CGame_KOF97_A::DumpPaletteHeaders()
                 case 0:
                     if (KOF97_A_CharacterPalettes[nCharIndex].fIsPaired)
                     {
-                        strOutput.Format(L"    { L\"%s %s - Main\", 0x%x, 0x%x, %s, 0x00, &pairNext },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                        strOutput.Format(L"    { L\"%s %s - Main\", 0x%x, 0x%x, %s, 0x00, &pairNext },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                             nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     }
                     else
                     {
-                        strOutput.Format(L"    { L\"%s %s - Main\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                        strOutput.Format(L"    { L\"%s %s - Main\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                             nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     }
                     break;
@@ -265,7 +265,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
                 case 4: // possible max mode pair
                     if (KOF97_A_CharacterPalettes[nCharIndex].fIsPaired)
                     {
-                        strOutput.Format(L"    { L\"%s %s - Extra %u\", 0x%x, 0x%x, %s, 0x01 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex], nPaletteIndex,
+                        strOutput.Format(L"    { L\"%s %s - Extra %u\", 0x%x, 0x%x, %s, 0x01 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex], nPaletteIndex,
                             nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                         break;
                     }
@@ -273,7 +273,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
                 case 7: // possible super trail pair
                     if (KOF97_A_CharacterPalettes[nCharIndex].fIsPaired)
                     {
-                        strOutput.Format(L"    { L\"%s %s - Super Trail 2\", 0x%x, 0x%x, %s, 0x01 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                        strOutput.Format(L"    { L\"%s %s - Super Trail 2\", 0x%x, 0x%x, %s, 0x01 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                             nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                         break;
                     }
@@ -281,18 +281,18 @@ void CGame_KOF97_A::DumpPaletteHeaders()
                 case 2:
                 case 5:
                 default:
-                    strOutput.Format(L"    { L\"%s %s - Extra %u\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex], nPaletteIndex,
+                    strOutput.Format(L"    { L\"%s %s - Extra %u\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex], nPaletteIndex,
                         nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     break;
                 case 3:
                     if (KOF97_A_CharacterPalettes[nCharIndex].fIsPaired)
                     {
-                        strOutput.Format(L"    { L\"%s %s - Max Mode\", 0x%x, 0x%x, %s, 0x00, &pairNext },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                        strOutput.Format(L"    { L\"%s %s - Max Mode\", 0x%x, 0x%x, %s, 0x00, &pairNext },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                             nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     }
                     else
                     {
-                        strOutput.Format(L"    { L\"%s %s - Max Mode\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                        strOutput.Format(L"    { L\"%s %s - Max Mode\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                             nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
 
                     }
@@ -300,25 +300,25 @@ void CGame_KOF97_A::DumpPaletteHeaders()
                 case 6:
                     if (KOF97_A_CharacterPalettes[nCharIndex].fIsPaired)
                     {
-                        strOutput.Format(L"    { L\"%s %s - Super Trail 1\", 0x%x, 0x%x, %s, 0x00, &pairNext },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                        strOutput.Format(L"    { L\"%s %s - Super Trail 1\", 0x%x, 0x%x, %s, 0x00, &pairNext },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                             nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     }
                     else
                     {
-                        strOutput.Format(L"    { L\"%s %s - Super Trail\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                        strOutput.Format(L"    { L\"%s %s - Super Trail\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                             nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     }
                     break;
                 case 9:
-                    strOutput.Format(L"    { L\"%s %s - Electric Palette\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                    strOutput.Format(L"    { L\"%s %s - Electric Palette\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                         nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     break;
                 case 14:
-                    strOutput.Format(L"    { L\"%s %s - Character Select/Win Assist Portrait\", 0x%x, 0x%x, %s, 0x41 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                    strOutput.Format(L"    { L\"%s %s - Character Select/Win Assist Portrait\", 0x%x, 0x%x, %s, 0x41 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                         nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszPortraitImageSet);
                     break;
                 case 15:
-                    strOutput.Format(L"    { L\"%s %s - Lifebar Portrait\", 0x%x, 0x%x, indexKOF98Sprites_Lifebar, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                    strOutput.Format(L"    { L\"%s %s - Lifebar Portrait\", 0x%x, 0x%x, indexKOF98Sprites_Lifebar, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                         nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
                     break;
                 }
@@ -327,7 +327,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
             }
 
             UINT32 nWinPortraitOffset = 0x2e7df0 + (nColorIndex * 0x100) + (0x400 * nCharIndex);
-            strOutput.Format(L"    { L\"%s %s - Win Portrait\", 0x%x, 0x%x, %s, 0x40 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+            strOutput.Format(L"    { L\"%s %s - Win Portrait\", 0x%x, 0x%x, %s, 0x40 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_4_KOF97[nColorIndex],
                 nWinPortraitOffset, nWinPortraitOffset + (KOF97_A_CharacterPortraitLineLength[nCharIndex] * KOF97_PALETTE_LENGTH), KOF97_A_CharacterPalettes[nCharIndex].pszPortraitImageSet);
             OutputDebugString(strOutput);
 
@@ -376,9 +376,9 @@ void CGame_KOF97_A::DumpPaletteHeaders()
         for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
             WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
-            StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_NEOGEO[nColorIndex]);
+            StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_4_KOF97[nColorIndex]);
 
-            strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF97_A_%s_PALETTES_%s, ARRAYSIZE(KOF97_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL_NEOGEO[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
+            strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF97_A_%s_PALETTES_%s, ARRAYSIZE(KOF97_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL_4_KOF97[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);
         }
 

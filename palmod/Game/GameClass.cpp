@@ -217,6 +217,18 @@ BOOL CGameClass::_SetColorMode(ColMode NewMode)
         GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB555;
         ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
         return TRUE;
+    case ColMode::COLMODE_BGR555_BE:
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CColorSystem::CONV_BGR555BE_32;
+        ConvCol16 = &CColorSystem::CONV_32_BGR555BE;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_32Steps;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_32Steps;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB555;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB555;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
+        return TRUE;
     case ColMode::COLMODE_RGB555_LE:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CColorSystem::CONV_RGB555LE_32;

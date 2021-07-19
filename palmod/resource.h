@@ -218,13 +218,13 @@
 #define ID_IMGOUT_CLOSE                 32850
 #define ID_FILE_LOADSPRITE              32851
 #define ID_SETTINGS_COLORFORMAT         32852
-#define ID_COLORFORMAT_RGB444           32853
-#define ID_COLORFORMAT_RGB555           32854
+#define ID_COLORFORMAT_RGB444_BE        32853
+#define ID_COLORFORMAT_RGB555_LE        32854
 #define ID_COLORFORMAT_RGB556           32855
 #define ID_COLORFORMAT_RGB666           32856
 #define ID_COLORFORMAT_RGB557           32857
-#define ID_COLORFORMAT_RGB555_GBA       32858
-#define ID_COLORFORMAT_RGB555_ALT       32859
+#define ID_COLORFORMAT_BGR555_LE        32858
+#define ID_COLORFORMAT_RGB555_BE        32859
 #define ID_LD_SFIII3ARCADE10            32860
 #define ID_ACC_SNIFFCOLOR               32861
 #define ID_ACC_SNIFFPASTE               32862
@@ -236,7 +236,7 @@
 #define ID_ALPHASETTING_CHAOTIC         32869
 #define ID_SETTINGS_EXTCOPYDATA         32870
 #define ID_FILE_OPEN_BY_GAME            32871
-#define ID_COLORFORMAT_RGB333           32872
+#define ID_COLORFORMAT_RGB333_BE        32872
 #define ID_LD_SFIII3ARCADEEX            32873
 #define ID_COLORFORMAT_ARGB7888         32874
 #define ID_TOOLS_REVERSE                32875
@@ -267,13 +267,14 @@
 #define ID_LOADDIRECTORY_REDEARTH_50    32900
 #define ID_COLORFORMAT_ABGR8888         32901
 #define ID_LD_MAAB                      32902
+#define ID_COLORFORMAT_BGR555_BE        32903
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32902
+#define _APS_NEXT_COMMAND_VALUE         32904
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
