@@ -7,7 +7,7 @@ UINT16 CGame_MAAB_A::uRuleCtr = 0;
 
 CDescTree CGame_MAAB_A::MainDescTree = nullptr;
 
-#define MAAB_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+//#define MAAB_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 #define MAAB_A_DEBUG 1
 
 CGame_MAAB_A::CGame_MAAB_A(UINT32 nConfirmedROMSize /* = -1 */)
@@ -28,7 +28,7 @@ CGame_MAAB_A::CGame_MAAB_A(UINT32 nConfirmedROMSize /* = -1 */)
     InitDataBuffer();
 
     nGameFlag = MAAB_A;
-    nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
+    nImgGameFlag = IMGDAT_SECTION_ARCANA;
     m_prgGameImageSet = MAAB_A_IMGIDS_USED;
     nImgUnitAmt = ARRAYSIZE(MAAB_A_IMGIDS_USED);
 
@@ -556,7 +556,7 @@ BOOL CGame_MAAB_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     UINT16 nFileUnitId = 0;
     UINT16 nFilePalId = 0;
 
-    GetFileIndexFromCharacterCollection(CharacterNodeGet->uUnitId, CharacterNodeGet->uPalId, &nFileUnitId, &nFilePalId);
+    GetFileIndexFromCharacterIndex(CharacterNodeGet->uUnitId, CharacterNodeGet->uPalId, &nFileUnitId, &nFilePalId);
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -570,7 +570,8 @@ BOOL CGame_MAAB_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         nSrcAmt = MAAB_A_CharacterData[nFileUnitId].nPaletteListSize;
         pButtonLabelSet = MAAB_A_CharacterData[nFileUnitId].ppszPaletteList;
         m_nNumberOfColorOptions = MAAB_A_CharacterData[nFileUnitId].nPaletteListSize;
-        nImgUnitId = MAAB_A_CharacterData[nFileUnitId].nSpriteIndex;
+        nImgUnitId = MAAB_A_CharacterData[nFileUnitId].nSpriteUnitIndex;
+        nTargetImgId = MAAB_A_CharacterData[nFileUnitId].nSpriteImageIndex;
     }
     else
     {
