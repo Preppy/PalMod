@@ -173,7 +173,7 @@ sKOF01_A_PaletteData KOF01_A_CharacterPalettes[] =
     { L"Xiangfei", 0x38dd22, 0x38dd42, L"indexKOF01Sprites_Xiangfei" },
     { L"Kula", 0x38e122, 0x38e142, L"indexKOF02UMSprites_Kula" },
     { L"Foxy", 0x38e522, 0x38e542, L"indexKOF01Sprites_Foxy" },
-    { L"K9999", 0x38e922, 0x38e942, L"indexKOF02UMSprites_K9999" },
+    { L"K9999", 0x38e922, 0x38e942, L"indexKOF02Sprites_K9999" },
     { L"Angel", 0x38ed22, 0x38ed42, L"indexKOF02UMSprites_Angel", false },
     { L"Athena", 0x38f122, 0x38f142, L"indexKOF01Sprites_Athena" },
     { L"Kensou", 0x38f522, 0x38f542, L"indexKOF02UMSprites_Kensou" },

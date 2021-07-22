@@ -782,26 +782,26 @@ const sGame_PaletteDataset KOF02PS2_A_KUSANAGI_PALETTES_PORTRAITS_WIN[] =
 
 const sGame_PaletteDataset KOF02PS2_A_OYASHIRO_PALETTES_PORTRAITS_WIN[] =
 {
-    { L"O.Yashiro A Win Portrait", 0x3bd700, 0x3bd740, indexKOF02Sprites_Yashiro, 0x30 },
-    { L"O.Yashiro B Win Portrait", 0x3bd740, 0x3bd780, indexKOF02Sprites_Yashiro, 0x30 },
-    { L"O.Yashiro C Win Portrait", 0x3bd780, 0x3bd7c0, indexKOF02Sprites_Yashiro, 0x30 },
-    { L"O.Yashiro D Win Portrait", 0x3bd7c0, 0x3bd800, indexKOF02Sprites_Yashiro, 0x30 },
+    { L"O.Yashiro A Win Portrait", 0x3bd700, 0x3bd740, indexKOF02Sprites_YashiroOrochi, 0x30 },
+    { L"O.Yashiro B Win Portrait", 0x3bd740, 0x3bd780, indexKOF02Sprites_YashiroOrochi, 0x30 },
+    { L"O.Yashiro C Win Portrait", 0x3bd780, 0x3bd7c0, indexKOF02Sprites_YashiroOrochi, 0x30 },
+    { L"O.Yashiro D Win Portrait", 0x3bd7c0, 0x3bd800, indexKOF02Sprites_YashiroOrochi, 0x30 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_OSHERMIE_PALETTES_PORTRAITS_WIN[] =
 {
-    { L"O.Shermie A Win Portrait", 0x3bd800, 0x3bd840, indexKOF02Sprites_Shermie, 0x30 },
-    { L"O.Shermie B Win Portrait", 0x3bd840, 0x3bd880, indexKOF02Sprites_Shermie, 0x30 },
-    { L"O.Shermie C Win Portrait", 0x3bd880, 0x3bd8c0, indexKOF02Sprites_Shermie, 0x30 },
-    { L"O.Shermie D Win Portrait", 0x3bd8c0, 0x3bd900, indexKOF02Sprites_Shermie, 0x30 },
+    { L"O.Shermie A Win Portrait", 0x3bd800, 0x3bd840, indexKOF02Sprites_ShermieOrochi, 0x30 },
+    { L"O.Shermie B Win Portrait", 0x3bd840, 0x3bd880, indexKOF02Sprites_ShermieOrochi, 0x30 },
+    { L"O.Shermie C Win Portrait", 0x3bd880, 0x3bd8c0, indexKOF02Sprites_ShermieOrochi, 0x30 },
+    { L"O.Shermie D Win Portrait", 0x3bd8c0, 0x3bd900, indexKOF02Sprites_ShermieOrochi, 0x30 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_OCHRIS_PALETTES_PORTRAITS_WIN[] =
 {
-    { L"O.Chris A Win Portrait", 0x3bd900, 0x3bd940, indexKOF02Sprites_Chris, 0x30 },
-    { L"O.Chris B Win Portrait", 0x3bd940, 0x3bd980, indexKOF02Sprites_Chris, 0x30 },
-    { L"O.Chris C Win Portrait", 0x3bd980, 0x3bd9c0, indexKOF02Sprites_Chris, 0x30 },
-    { L"O.Chris D Win Portrait", 0x3bd9c0, 0x3bda00, indexKOF02Sprites_Chris, 0x30 },
+    { L"O.Chris A Win Portrait", 0x3bd900, 0x3bd940, indexKOF02Sprites_ChrisOrochi, 0x30 },
+    { L"O.Chris B Win Portrait", 0x3bd940, 0x3bd980, indexKOF02Sprites_ChrisOrochi, 0x30 },
+    { L"O.Chris C Win Portrait", 0x3bd980, 0x3bd9c0, indexKOF02Sprites_ChrisOrochi, 0x30 },
+    { L"O.Chris D Win Portrait", 0x3bd9c0, 0x3bda00, indexKOF02Sprites_ChrisOrochi, 0x30 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_KYO_PALETTES_PORTRAITS_LIFEBAR[] =
@@ -1134,26 +1134,26 @@ const sGame_PaletteDataset KOF02PS2_A_KUSANAGI_PALETTES_PORTRAITS_LIFEBAR[] =
 
 const sGame_PaletteDataset KOF02PS2_A_OYASHIRO_PALETTES_PORTRAITS_LIFEBAR[] =
 {
-    { L"O.Yashiro A Lifebar Portrait", 0x3b9a80, 0x3b9aa0, indexKOF02Sprites_Yashiro, 0x32 },
-    { L"O.Yashiro B Lifebar Portrait", 0x3ba0a0, 0x3ba0c0, indexKOF02Sprites_Yashiro, 0x32 },
-    { L"O.Yashiro C Lifebar Portrait", 0x3ba6c0, 0x3ba6e0, indexKOF02Sprites_Yashiro, 0x32 },
-    { L"O.Yashiro D Lifebar Portrait", 0x3bace0, 0x3bad00, indexKOF02Sprites_Yashiro, 0x32 },
+    { L"O.Yashiro A Lifebar Portrait", 0x3b9a80, 0x3b9aa0, indexKOF02Sprites_YashiroOrochi, 0x32 },
+    { L"O.Yashiro B Lifebar Portrait", 0x3ba0a0, 0x3ba0c0, indexKOF02Sprites_YashiroOrochi, 0x32 },
+    { L"O.Yashiro C Lifebar Portrait", 0x3ba6c0, 0x3ba6e0, indexKOF02Sprites_YashiroOrochi, 0x32 },
+    { L"O.Yashiro D Lifebar Portrait", 0x3bace0, 0x3bad00, indexKOF02Sprites_YashiroOrochi, 0x32 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_OSHERMIE_PALETTES_PORTRAITS_LIFEBAR[] =
 {
-    { L"O.Shermie A Lifebar Portrait", 0x3b9aa0, 0x3b9ac0, indexKOF02Sprites_Shermie, 0x32 },
-    { L"O.Shermie B Lifebar Portrait", 0x3ba0c0, 0x3ba0e0, indexKOF02Sprites_Shermie, 0x32 },
-    { L"O.Shermie C Lifebar Portrait", 0x3ba6e0, 0x3ba700, indexKOF02Sprites_Shermie, 0x32 },
-    { L"O.Shermie D Lifebar Portrait", 0x3bad00, 0x3bad20, indexKOF02Sprites_Shermie, 0x32 },
+    { L"O.Shermie A Lifebar Portrait", 0x3b9aa0, 0x3b9ac0, indexKOF02Sprites_ShermieOrochi, 0x32 },
+    { L"O.Shermie B Lifebar Portrait", 0x3ba0c0, 0x3ba0e0, indexKOF02Sprites_ShermieOrochi, 0x32 },
+    { L"O.Shermie C Lifebar Portrait", 0x3ba6e0, 0x3ba700, indexKOF02Sprites_ShermieOrochi, 0x32 },
+    { L"O.Shermie D Lifebar Portrait", 0x3bad00, 0x3bad20, indexKOF02Sprites_ShermieOrochi, 0x32 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_OCHRIS_PALETTES_PORTRAITS_LIFEBAR[] =
 {
-    { L"O.Chris A Lifebar Portrait", 0x3b9ac0, 0x3b9ae0, indexKOF02Sprites_Chris, 0x32 },
-    { L"O.Chris B Lifebar Portrait", 0x3ba0e0, 0x3ba100, indexKOF02Sprites_Chris, 0x32 },
-    { L"O.Chris C Lifebar Portrait", 0x3ba700, 0x3ba720, indexKOF02Sprites_Chris, 0x32 },
-    { L"O.Chris D Lifebar Portrait", 0x3bad20, 0x3bad40, indexKOF02Sprites_Chris, 0x32 },
+    { L"O.Chris A Lifebar Portrait", 0x3b9ac0, 0x3b9ae0, indexKOF02Sprites_ChrisOrochi, 0x32 },
+    { L"O.Chris B Lifebar Portrait", 0x3ba0e0, 0x3ba100, indexKOF02Sprites_ChrisOrochi, 0x32 },
+    { L"O.Chris C Lifebar Portrait", 0x3ba700, 0x3ba720, indexKOF02Sprites_ChrisOrochi, 0x32 },
+    { L"O.Chris D Lifebar Portrait", 0x3bad20, 0x3bad40, indexKOF02Sprites_ChrisOrochi, 0x32 },
 };
 
 const sGame_PaletteDataset KOF02PS2_A_SHINGO_PALETTES_PORTRAITS_LIFEBAR[] =

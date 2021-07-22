@@ -1083,9 +1083,9 @@ const sGame_PaletteDataset REDEARTH_A_30_BONUS_TEXT_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_30_BONUS_CREDITS_PALETTES[] =
 {
-    { L"Credits - TITLES (e.g, Planner) + Kenji VS Text", 0X7eb080, 0X7eb0A0 },
-    { L"Credits - \"Thank you for playing / Coming Next\" + Mai Ling VS Text", 0X7eb100, 0X7eb120 },
-    { L"Credits - STAFF + Tessa VS Text", 0X7eb180, 0X7eb1A0 },
+    { L"Credits - TITLES (e.g, Planner) + Kenji VS Text", 0X7eb080, 0X7eb0A0, indexRedEarthSprites_Bonus, 0x12 },
+    { L"Credits - \"Thank you for playing / Coming Next\" + Mai Ling VS Text", 0X7eb100, 0X7eb120, indexRedEarthSprites_Bonus, 0x13 },
+    { L"Credits - STAFF + Tessa VS Text", 0X7eb180, 0X7eb1A0, indexRedEarthSprites_Bonus, 0x11 },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =

@@ -4,7 +4,8 @@
 
 enum eIMGDat_Sections
 {
-    IMGDAT_SECTION_BREAKREV = 0,
+    IMGDAT_SECTION_ARCANA,  // Fuck Arcana Heart
+    IMGDAT_SECTION_BREAKREV,
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
     IMGDAT_SECTION_DS,      // Nintendo DS
@@ -1961,4 +1962,23 @@ enum SupportedPGM_SpriteListIndex
     indexMartialMastersSprites_Tiger,           // 0x0B
     indexMartialMastersSprites_TrueLotusMaster, // 0x0C
     indexMartialMastersSprites_Bonus,           // 0x0D
+};
+
+enum SupportedArcana_SpriteListIndex
+{
+    indexArcanaSprites_Bisclavret,      // 0x00
+    indexArcanaSprites_BladeProtector,  // 0x01
+    indexArcanaSprites_EternalFlame,    // 0x02
+    indexArcanaSprites_IaiArthur,       // 0x03
+    indexArcanaSprites_IoriYagami,      // 0x04
+    indexArcanaSprites_Koume,           // 0x05
+    indexArcanaSprites_Nimue,           // 0x06
+    indexArcanaSprites_Riesz,           // 0x07
+    indexArcanaSprites_SnowWhite,       // 0x08
+    indexArcanaSprites_Thief,           // 0x09
+    indexArcanaSprites_Twinblade,       // 0x0a
+    indexArcanaSprites_Wildcat,         // 0x0b
+    indexArcanaSprites_Zechs,           // 0x0c
+    indexArcanaSprites_Bonus,           // 0x0d
+    indexArcanaSprites_Support,         // 0x0e
 };

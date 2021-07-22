@@ -34,6 +34,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case JOJOS_A_DIR_51:
             pszExtraInfo = L"We need the jojoba-simm5.x files from jojoba.zip.";
             break;
+        case MAAB_A:
+            pszExtraInfo = L"For MAAB, please select the \"flashrom\" folder.\nThe folder is normally located in steamapps\\common\\Million Arthur Arcana Blood.";
+            break;
         case MBAACC_S:
             pszExtraInfo = L"For MBAACC, please select the \"data\" folder.\nIf this is your first time loading MBAACC refer to the Read Me for more details.";
             break;

@@ -143,6 +143,7 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     {
     case ColMode::COLMODE_RGB333:
     case ColMode::COLMODE_BGR555_LE:
+    case ColMode::COLMODE_BGR555_BE:
     case ColMode::COLMODE_RGB444_BE:
     case ColMode::COLMODE_RGB444_LE:
     case ColMode::COLMODE_GRB555_LE:
