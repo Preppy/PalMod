@@ -146,6 +146,7 @@ void CGame_KOF03_A::DumpGameHeaders()
     {
         LPCWSTR pszName = nullptr;
         LPCWSTR pszImageSet = nullptr;
+        LPCWSTR pszVictoryImageSet = nullptr;
         sKOF03PalData* prgSpecialMoves = nullptr;
         size_t nCountSpecialMoves = 0;
         LPCWSTR pszExtraNameOverride1 = nullptr;
@@ -395,43 +396,43 @@ void CGame_KOF03_A::DumpGameHeaders()
 
     sKOF03CharData KOF03CharData[] =
     {
-        { L"Ash", L"indexKOF03Sprites_Ash", KOF03Moves_Ash, ARRAYSIZE(KOF03Moves_Ash) },
-        { L"Duo", L"indexKOF03Sprites_Duo", KOF03Moves_Duo, ARRAYSIZE(KOF03Moves_Duo) },
-        { L"Shen", L"indexKOF03Sprites_Shen", KOF03Moves_Shen, ARRAYSIZE(KOF03Moves_Shen), L" Zetsu Gekiken", -1 },
-        { L"Terry", L"indexKOF03Sprites_Terry", KOF03Moves_Terry, ARRAYSIZE(KOF03Moves_Terry) },
-        { L"Joe", L"indexKOF02UMSprites_Joe", KOF03Moves_Joe, ARRAYSIZE(KOF03Moves_Joe) },
-        { L"Tizoc", L"indexKOF03Sprites_Tizoc", KOF03Moves_Tizoc, ARRAYSIZE(KOF03Moves_Tizoc) },
-        { L"Ryo", L"indexKOFXISprites_Ryo", KOF03Moves_Ryo, ARRAYSIZE(KOF03Moves_Ryo) },
-        { L"Robert", L"indexKOF03Sprites_Robert", KOF03Moves_Robert, ARRAYSIZE(KOF03Moves_Robert) },
-        { L"Yuri", L"indexKOFXISprites_Yuri", KOF03Moves_Yuri, ARRAYSIZE(KOF03Moves_Yuri) },
-        { L"Kim", L"indexKOF02UMSprites_Kim" },
-        { L"Chang", L"indexKOF02UMSprites_Chang" },
-        { L"Jhun", L"indexKOF03Sprites_JhunHoon", KOF03Moves_Jhun, ARRAYSIZE(KOF03Moves_Jhun) },
-        { L"Leona", L"indexKOF02UMSprites_Leona", KOF03Moves_Leona, ARRAYSIZE(KOF03Moves_Leona), L" Intro Coat", -1 },
-        { L"Ralf", L"indexKOF02UMSprites_Ralf" },
-        { L"Clark", L"indexKOF02UMSprites_Clark"  },
-        { L"Gato", L"indexKOF03Sprites_Gato", KOF03Moves_Gato, ARRAYSIZE(KOF03Moves_Gato) },
-        { L"Billy", L"indexKOF03Sprites_Billy", KOF03Moves_Billy, ARRAYSIZE(KOF03Moves_Billy) },
-        { L"Yamazaki", L"indexKOF03Sprites_Yamazaki", KOF03Moves_Yamazaki, ARRAYSIZE(KOF03Moves_Yamazaki) },
-        { L"King", L"indexKOF03Sprites_King", KOF03Moves_King, ARRAYSIZE(KOF03Moves_King) },
-        { L"Mai", L"indexKOF02UMSprites_Mai", KOF03Moves_Mai, ARRAYSIZE(KOF03Moves_Mai) },
-        { L"Blue Mary", L"indexKOFXISprites_BlueMary", KOF03Moves_BlueMary, ARRAYSIZE(KOF03Moves_BlueMary), L" Jacket and Anton", -1 },
-        { L"Benimaru", L"indexKOF03Sprites_Benimaru", KOF03Moves_Benimaru, ARRAYSIZE(KOF03Moves_Benimaru) },
-        { L"Shingo", L"indexKOFXISprites_Shingo", KOF03Moves_Shingo, ARRAYSIZE(KOF03Moves_Shingo) },
-        { L"Goro", L"indexKOF02UMSprites_Daimon" },
-        { L"Athena", L"indexKOF03Sprites_Athena", KOF03Moves_Athena, ARRAYSIZE(KOF03Moves_Athena) },
-        { L"Hinako", L"indexKOF03Sprites_Hinako", KOF03Moves_Hinako, ARRAYSIZE(KOF03Moves_Hinako) },
-        { L"Malin", L"indexKOF03Sprites_Malin", KOF03Moves_Malin, ARRAYSIZE(KOF03Moves_Malin), L" Weapons Extras", -1, L" Weapons Extra Electric Palette", -1, L" Weapons Extra Super Trail", -1 },
-        { L"K'", L"indexKOF03Sprites_K", KOF03Moves_K, ARRAYSIZE(KOF03Moves_K) },
-        { L"Maxima", L"indexKOF02UMSprites_Maxima", KOF03Moves_Maxima, ARRAYSIZE(KOF03Moves_Maxima) },
-        { L"Whip", L"indexKOF03Sprites_Whip", KOF03Moves_Whip, ARRAYSIZE(KOF03Moves_Whip) },
-        { L"Kyo", L"indexKOF03Sprites_Kyo", KOF03Moves_Kyo, ARRAYSIZE(KOF03Moves_Kyo) },
-        { L"Iori", L"indexKOF02UMSprites_Iori", KOF03Moves_Iori, ARRAYSIZE(KOF03Moves_Iori) },
-        { L"Chizuru", L"indexKOF03Sprites_Chizuru", KOF03Moves_Chizuru, ARRAYSIZE(KOF03Moves_Chizuru) },
-        { L"KUSANAGI", L"indexKOF03Sprites_KUSANAGI", KOF03Moves_KUSANAGI, ARRAYSIZE(KOF03Moves_KUSANAGI) },
-        { L"Adelheid", L"indexKOFXISprites_Adelheid", KOF03Moves_Adelheid, ARRAYSIZE(KOF03Moves_Adelheid) },
-        { L"Mukai", L"indexKOF03Sprites_Mukai", KOF03Moves_Mukai, ARRAYSIZE(KOF03Moves_Mukai) },
-        { L"Maki", L"indexKOF03Sprites_Maki", KOF03Moves_Maki, ARRAYSIZE(KOF03Moves_Maki) },
+        { L"Ash", L"indexKOF03Sprites_Ash", nullptr, KOF03Moves_Ash, ARRAYSIZE(KOF03Moves_Ash) },
+        { L"Duo", L"indexKOF03Sprites_Duo", nullptr, KOF03Moves_Duo, ARRAYSIZE(KOF03Moves_Duo) },
+        { L"Shen", L"indexKOF03Sprites_Shen", nullptr, KOF03Moves_Shen, ARRAYSIZE(KOF03Moves_Shen), L" Zetsu Gekiken", -1 },
+        { L"Terry", L"indexKOF03Sprites_Terry", nullptr, KOF03Moves_Terry, ARRAYSIZE(KOF03Moves_Terry) },
+        { L"Joe", L"indexKOF02UMSprites_Joe", L"indexKOF03Sprites_Joe", KOF03Moves_Joe, ARRAYSIZE(KOF03Moves_Joe) },
+        { L"Tizoc", L"indexKOF03Sprites_Tizoc", nullptr, KOF03Moves_Tizoc, ARRAYSIZE(KOF03Moves_Tizoc) },
+        { L"Ryo", L"indexKOFXISprites_Ryo", L"indexKOF03Sprites_Ryo", KOF03Moves_Ryo, ARRAYSIZE(KOF03Moves_Ryo) },
+        { L"Robert", L"indexKOF03Sprites_Robert", nullptr, KOF03Moves_Robert, ARRAYSIZE(KOF03Moves_Robert) },
+        { L"Yuri", L"indexKOFXISprites_Yuri", L"indexKOF03Sprites_Yuri", KOF03Moves_Yuri, ARRAYSIZE(KOF03Moves_Yuri) },
+        { L"Kim", L"indexKOF02UMSprites_Kim", L"indexKOF03Sprites_Kim" },
+        { L"Chang", L"indexKOF02UMSprites_Chang", L"indexKOF03Sprites_Chang"  },
+        { L"Jhun", L"indexKOF03Sprites_JhunHoon", nullptr, KOF03Moves_Jhun, ARRAYSIZE(KOF03Moves_Jhun) },
+        { L"Leona", L"indexKOF02UMSprites_Leona", L"indexKOF03Sprites_Leona", KOF03Moves_Leona, ARRAYSIZE(KOF03Moves_Leona), L" Intro Coat", -1 },
+        { L"Ralf", L"indexKOF02UMSprites_Ralf", L"indexKOF03Sprites_Ralf" },
+        { L"Clark", L"indexKOF02UMSprites_Clark", L"indexKOF03Sprites_Clark"  },
+        { L"Gato", L"indexKOF03Sprites_Gato", nullptr, KOF03Moves_Gato, ARRAYSIZE(KOF03Moves_Gato) },
+        { L"Billy", L"indexKOF03Sprites_Billy", nullptr, KOF03Moves_Billy, ARRAYSIZE(KOF03Moves_Billy) },
+        { L"Yamazaki", L"indexKOF03Sprites_Yamazaki", nullptr, KOF03Moves_Yamazaki, ARRAYSIZE(KOF03Moves_Yamazaki) },
+        { L"King", L"indexKOF03Sprites_King", nullptr, KOF03Moves_King, ARRAYSIZE(KOF03Moves_King) },
+        { L"Mai", L"indexKOF02UMSprites_Mai", L"indexKOF03Sprites_Mai", KOF03Moves_Mai, ARRAYSIZE(KOF03Moves_Mai) },
+        { L"Blue Mary", L"indexKOFXISprites_BlueMary", L"indexKOF03Sprites_BlueMary", KOF03Moves_BlueMary, ARRAYSIZE(KOF03Moves_BlueMary), L" Jacket and Anton", -1 },
+        { L"Benimaru", L"indexKOF03Sprites_Benimaru", nullptr, KOF03Moves_Benimaru, ARRAYSIZE(KOF03Moves_Benimaru) },
+        { L"Shingo", L"indexKOFXISprites_Shingo", L"indexKOF03Sprites_Shingo", KOF03Moves_Shingo, ARRAYSIZE(KOF03Moves_Shingo) },
+        { L"Goro", L"indexKOF02UMSprites_Daimon", L"indexKOF03Sprites_GoroDaimon" },
+        { L"Athena", L"indexKOF03Sprites_Athena", nullptr, KOF03Moves_Athena, ARRAYSIZE(KOF03Moves_Athena) },
+        { L"Hinako", L"indexKOF03Sprites_Hinako", nullptr, KOF03Moves_Hinako, ARRAYSIZE(KOF03Moves_Hinako) },
+        { L"Malin", L"indexKOF03Sprites_Malin", nullptr, KOF03Moves_Malin, ARRAYSIZE(KOF03Moves_Malin), L" Weapons Extras", -1, L" Weapons Extra Electric Palette", -1, L" Weapons Extra Super Trail", -1 },
+        { L"K'", L"indexKOF03Sprites_K", nullptr, KOF03Moves_K, ARRAYSIZE(KOF03Moves_K) },
+        { L"Maxima", L"indexKOF02UMSprites_Maxima", L"indexKOF03Sprites_Maxima", KOF03Moves_Maxima, ARRAYSIZE(KOF03Moves_Maxima) },
+        { L"Whip", L"indexKOF03Sprites_Whip", nullptr, KOF03Moves_Whip, ARRAYSIZE(KOF03Moves_Whip) },
+        { L"Kyo", L"indexKOF03Sprites_Kyo", nullptr, KOF03Moves_Kyo, ARRAYSIZE(KOF03Moves_Kyo) },
+        { L"Iori", L"indexKOF02UMSprites_Iori", L"indexKOF03Sprites_Iori", KOF03Moves_Iori, ARRAYSIZE(KOF03Moves_Iori) },
+        { L"Chizuru", L"indexKOF03Sprites_Chizuru", nullptr, KOF03Moves_Chizuru, ARRAYSIZE(KOF03Moves_Chizuru) },
+        { L"KUSANAGI", L"indexKOF03Sprites_KUSANAGI", nullptr, KOF03Moves_KUSANAGI, ARRAYSIZE(KOF03Moves_KUSANAGI) },
+        { L"Adelheid", L"indexKOFXISprites_Adelheid", L"indexKOF03Sprites_Adelheid", KOF03Moves_Adelheid, ARRAYSIZE(KOF03Moves_Adelheid) },
+        { L"Mukai", L"indexKOF03Sprites_Mukai", nullptr, KOF03Moves_Mukai, ARRAYSIZE(KOF03Moves_Mukai) },
+        { L"Maki", L"indexKOF03Sprites_Maki", nullptr, KOF03Moves_Maki, ARRAYSIZE(KOF03Moves_Maki) },
     };
 
     const auto c_nBaseCharacterOffset = 0x2000;
@@ -547,6 +548,9 @@ void CGame_KOF03_A::DumpGameHeaders()
 
             OutputDebugString(L"\r\n");
 
+            LPCWSTR pszVictoryImageToUse = KOF03CharData[nCharIndex].pszVictoryImageSet ? KOF03CharData[nCharIndex].pszVictoryImageSet : KOF03CharData[nCharIndex].pszImageSet;
+            
+
             // Victory palette
             const auto c_nBaseCharacterOffset = 0x1f120;
             size_t nVictoryOffset = c_nBaseCharacterOffset + (0x100 * nCharIndex) + (0x40 * nButtonIndex);
@@ -555,7 +559,7 @@ void CGame_KOF03_A::DumpGameHeaders()
                 DEF_BUTTONLABEL_NEOGEO[nButtonIndex],
                 nVictoryOffset,
                 nVictoryOffset + 0x40,
-                KOF03CharData[nCharIndex].pszImageSet
+                pszVictoryImageToUse
             );
             OutputDebugString(strInfo);
 

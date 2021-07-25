@@ -35,7 +35,7 @@ const sGame_PaletteDataset FatalFury1_A_Bosses_PALETTES[] =
     { L"Drunk Hwa Jai", 0x34c4c, 0x34c6c, indexFF1Sprites_DrunkHwaJai, 0x00 },
     { L"Raiden",        0x3366c, 0x3368c, indexFF1Sprites_Raiden, 0x00 },
     { L"Billy Kane",    0x3358c, 0x335ac, indexFF1Sprites_BillyKane, 0x00, &pairNext },
-    { L"Hwa Jai/Billy Kane Stick", 0x335ac, 0x335cc, indexFF1Sprites_BillyKane, 0x01 },
+    { L"Billy Hexagonal Stick", 0x336cc, 0x336ec, indexFF1Sprites_BillyKane, 0x01 },
     { L"Geese Howard",  0x3368c, 0x336ac, indexFF1Sprites_GeeseHoward, 0x00 },
 };
 
@@ -50,22 +50,22 @@ const sGame_PaletteDataset FatalFury1_A_Effects_PALETTES[] =
     { L"Tung Dai Sharin Kyaku", 0x3300c, 0x3302c },
     { L"Hwa Jai Elixir Bottle", 0x336ac, 0x336cc },
     { L"Raiden Poison Spray", 0x3364c, 0x3366c },
-    { L"Billy Hexagonal Stick", 0x336cc, 0x336ec },
+    { L"Hwa Jai/Billy Kane Thrower", 0x335ac, 0x335cc },
     { L"Geese Reppu Ken", 0x335ec, 0x3360c },
 };
 
 const sGame_PaletteDataset FatalFury1_A_Portraits_PALETTES[] =
 {
-    { L"Terry Bogard Portrait", 0x3396c, 0x3398c },
-    { L"Andy Bogard Portrait", 0x3398c, 0x339ac },
-    { L"Joe Higashi Portrait", 0x339ac, 0x339cc },
-    { L"Duck King Portrait", 0x339cc, 0x339ec },
-    { L"Richard Meyer Portrait", 0x339ec, 0x33a0c },
-    { L"Michael Max Portrait", 0x33a0c, 0x33a2c },
-    { L"Tung Fu Rue Portrait", 0x33a2c, 0x33a4c },
-    { L"Hwa Jai Portrait", 0x33a4c, 0x33a6c },
-    { L"Raiden Portrait", 0x33a6c, 0x33a8c },
-    { L"Billy Kane Portrait", 0x33a8c, 0x33aac },
+    { L"Terry Bogard Portrait",     0x3396c, 0x3398c, indexFF1Sprites_TerryBogard, 0x40 },
+    { L"Andy Bogard Portrait",      0x3398c, 0x339ac, indexFF1Sprites_AndyBogard, 0x40 },
+    { L"Joe Higashi Portrait",      0x339ac, 0x339cc, indexFF1Sprites_JoeHigashi, 0x40 },
+    { L"Duck King Portrait",        0x339cc, 0x339ec, indexFF1Sprites_DuckKing, 0x40 },
+    { L"Richard Meyer Portrait",    0x339ec, 0x33a0c, indexFF1Sprites_RichardMeyer, 0x40 },
+    { L"Michael Max Portrait",      0x33a0c, 0x33a2c, indexFF1Sprites_MichaelMax, 0x40 },
+    { L"Tung Fu Rue Portrait",      0x33a2c, 0x33a4c, indexFF1Sprites_TungFuRue, 0x40 },
+    { L"Hwa Jai Portrait",          0x33a4c, 0x33a6c, indexFF1Sprites_HwaJai, 0x40 },
+    { L"Raiden Portrait",           0x33a6c, 0x33a8c, indexFF1Sprites_Raiden, 0x40 },
+    { L"Billy Kane Portrait",       0x33a8c, 0x33aac, indexFF1Sprites_BillyKane, 0x40 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StageShadows_PALETTES[] =

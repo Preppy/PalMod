@@ -322,7 +322,7 @@ enum JOJOS_51_CHARACTERS
     indexJojos51Death13, // 0x18
     indexJojos51Timestop, 
     indexJojos51Bonus,
-    indexJojos51Stages,
+    indexJojos50Stages,
     indexJojos50HUDPortraits, // 0x1C
     indexJojos51GrayFly,
     indexJojos51TarotCards,
@@ -1740,6 +1740,21 @@ enum SupportedNEOGEO_PaletteListIndex
     indexMagDrop3Sprites_Tower,         // 0x69
     indexMagDrop3Sprites_World,         // 0x6A
     indexMagDrop3Sprites_Bonus,         // 0x6B
+
+    indexNEOGEOSprites_SDB_AthleticGirl,    // 0x6C
+    indexNEOGEOSprites_SDB_DBMaou,          // 0x6D
+    indexNEOGEOSprites_SDB_DelinquentGuy,   // 0x6E
+    indexNEOGEOSprites_SDB_FatGuy,          // 0x6F
+    indexNEOGEOSprites_SDB_Kenji,           // 0x70
+    indexNEOGEOSprites_SDB_Kunio,           // 0x71
+    indexNEOGEOSprites_SDB_Misuzu,          // 0x72
+    indexNEOGEOSprites_SDB_Miyuki,          // 0x73
+    indexNEOGEOSprites_SDB_NerdBoy,         // 0x74
+    indexNEOGEOSprites_SDB_Riki,            // 0x75
+    indexNEOGEOSprites_SDB_RugbyGuy,        // 0x76
+    indexNEOGEOSprites_SDB_Sabu,            // 0x77
+    indexNEOGEOSprites_SDB_Shinji,          // 0x78
+    indexNEOGEOSprites_SDB_Bonus,           // 0x79
 };
 
 enum SupportedGGXX_PaletteListIndex

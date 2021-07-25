@@ -42,7 +42,7 @@ CGame_SDODGEBALL_A::CGame_SDODGEBALL_A(UINT32 nConfirmedROMSize, int nROMToLoad 
     m_nTotalInternalUnits = SDODGEBALL_A_NUMUNIT;
     m_nExtraUnit = SDODGEBALL_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 261;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 299;
     m_pszExtraFilename = EXTRA_FILENAME_SDODGEBALL_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSDODGEBALL;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -59,8 +59,8 @@ CGame_SDODGEBALL_A::CGame_SDODGEBALL_A(UINT32 nConfirmedROMSize, int nROMToLoad 
     //Set game information
     nGameFlag = SDODGEBALL_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet = SuperDodgeball_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(SuperDodgeball_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
