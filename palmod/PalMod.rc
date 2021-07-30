@@ -468,6 +468,10 @@ BEGIN
         MENUITEM "&2x",                         ID_ZOOM_2X
         MENUITEM "&3x",                         ID_ZOOM_3X
         MENUITEM "&4x",                         ID_ZOOM_4X
+        MENUITEM "&5x",                         ID_ZOOM_5X
+        MENUITEM "&6x",                         ID_ZOOM_6X
+        MENUITEM "&7x",                         ID_ZOOM_7X
+        MENUITEM "&8x",                         ID_ZOOM_8X
     END
 END
 

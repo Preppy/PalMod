@@ -143,8 +143,9 @@ BOOL CImgOutDlg::OnInitDialog()
 
     //Cannot get accurate remainder amount
 
-    //Populate Zoom combo box: 1-4x
-    for (int i = 1; i < 5; i++)
+    //Populate Zoom combo box: 1-8x
+    // since m_nZoomSelOptionsMax is 0 based, we want +1 for 0->1 and +1 for the less than aspect (8->9)
+    for (int i = 1; i < m_nZoomSelOptionsMax + 2; i++)
     {
         tmp_str.Format(L"%ux", i);
         m_CB_Zoom.AddString(tmp_str);

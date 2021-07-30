@@ -59,6 +59,39 @@ const LPCWSTR GGXXACRPaletteNamesNormal[] =
 	L"Vs Reload Dust",
 };
 
+// For the smaller Export listbox
+const LPCWSTR GGXXACRPaletteNamesShort[] =
+{
+	L"Punch",
+	L"Kick",
+	L"Slash",
+	L"Heavy",
+	L"Dust",
+
+	L"E. Punch",
+	L"E. Kick",
+	L"E. Slash",
+	L"E. Heavy",
+	L"E. Dust",
+
+	L"S. Punch",
+	L"S. Kick",
+	L"S. Slash",
+	L"S. Heavy",
+	L"Gold",
+
+	L"R. Punch",
+	L"R. Kick",
+	L"R. Slash",
+	L"R. Heavy",
+	L"Shadow",
+
+	L"VsS. Dust",
+	L"VsR. Dust",
+};
+
+static_assert(ARRAYSIZE(GGXXACRPaletteNamesNormal) == ARRAYSIZE(GGXXACRPaletteNamesShort), "The normal and short display name arrays need to be the same length.");
+
 const LPCWSTR GGXXACRPaletteNamesEx[] =
 {
 	L"Punch",

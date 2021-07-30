@@ -162,9 +162,13 @@
 #define ID_ZOOM_3X                      32781
 #define ID_ZOOM_4X                      32782
 #define ID_SHOW32BITRGB                 32783
+#define ID_ZOOM_5X                      32784
 #define ID_AUTO                         32785
 #define ID_FILE_CROSSPATCH              32786
 #define ID_FILE_PATCH                   32787
+#define ID_ZOOM_6X                      32788
+#define ID_ZOOM_7X                      32789
+#define ID_ZOOM_8X                      32790
 #define ID_EDIT_SELECTALL               32793
 #define ID_EDIT_SELECTNONE              32794
 #define ID_ABOUT_ABOUTPALMOD            32795

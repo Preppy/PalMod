@@ -35,6 +35,10 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_ZOOM_2X, &CPreviewDlg::OnZoom2x)
     ON_COMMAND(ID_ZOOM_3X, &CPreviewDlg::OnZoom3x)
     ON_COMMAND(ID_ZOOM_4X, &CPreviewDlg::OnZoom4x)
+    ON_COMMAND(ID_ZOOM_5X, &CPreviewDlg::OnZoom5x)
+    ON_COMMAND(ID_ZOOM_6X, &CPreviewDlg::OnZoom6x)
+    ON_COMMAND(ID_ZOOM_7X, &CPreviewDlg::OnZoom7x)
+    ON_COMMAND(ID_ZOOM_8X, &CPreviewDlg::OnZoom8x)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR, &CPreviewDlg::OnSetBackgroundCol)
     ON_COMMAND(ID_SETTINGS_SETBLINKCOLOR, &CPreviewDlg::OnSetBlinkCol)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDIMAGE, &CPreviewDlg::OnSetBackgroundImage)
@@ -429,6 +433,10 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         pZoomMenu->CheckMenuItem(ID_ZOOM_2X, MF_BYCOMMAND | ((fpCurrZoom == 2.0) ? MF_CHECKED : MF_UNCHECKED));
         pZoomMenu->CheckMenuItem(ID_ZOOM_3X, MF_BYCOMMAND | ((fpCurrZoom == 3.0) ? MF_CHECKED : MF_UNCHECKED));
         pZoomMenu->CheckMenuItem(ID_ZOOM_4X, MF_BYCOMMAND | ((fpCurrZoom == 4.0) ? MF_CHECKED : MF_UNCHECKED));
+        pZoomMenu->CheckMenuItem(ID_ZOOM_5X, MF_BYCOMMAND | ((fpCurrZoom == 5.0) ? MF_CHECKED : MF_UNCHECKED));
+        pZoomMenu->CheckMenuItem(ID_ZOOM_6X, MF_BYCOMMAND | ((fpCurrZoom == 6.0) ? MF_CHECKED : MF_UNCHECKED));
+        pZoomMenu->CheckMenuItem(ID_ZOOM_7X, MF_BYCOMMAND | ((fpCurrZoom == 7.0) ? MF_CHECKED : MF_UNCHECKED));
+        pZoomMenu->CheckMenuItem(ID_ZOOM_8X, MF_BYCOMMAND | ((fpCurrZoom == 8.0) ? MF_CHECKED : MF_UNCHECKED));
     }
 }
 
@@ -541,6 +549,10 @@ void CPreviewDlg::UpdateZoomSetting(double fpNewZoom)
     pSettMenu->CheckMenuItem(ID_ZOOM_2X, MF_BYCOMMAND | ((fpNewZoom == 2.0) ? MF_CHECKED : MF_UNCHECKED));
     pSettMenu->CheckMenuItem(ID_ZOOM_3X, MF_BYCOMMAND | ((fpNewZoom == 3.0) ? MF_CHECKED : MF_UNCHECKED));
     pSettMenu->CheckMenuItem(ID_ZOOM_4X, MF_BYCOMMAND | ((fpNewZoom == 4.0) ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_ZOOM_5X, MF_BYCOMMAND | ((fpNewZoom == 5.0) ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_ZOOM_6X, MF_BYCOMMAND | ((fpNewZoom == 6.0) ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_ZOOM_7X, MF_BYCOMMAND | ((fpNewZoom == 7.0) ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_ZOOM_8X, MF_BYCOMMAND | ((fpNewZoom == 8.0) ? MF_CHECKED : MF_UNCHECKED));
 }
 
 void CPreviewDlg::OnSettingsUseBackgroundColor()

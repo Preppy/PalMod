@@ -310,7 +310,16 @@ BOOL CGame_GGXXACR_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         // core palettes
         nSrcStart = 0;
         nSrcAmt = GGXXACR_S_CharacterData[NodeGet->uUnitId].nPaletteListSize;
-        pButtonLabelSet = GGXXACR_S_CharacterData[NodeGet->uUnitId].ppszPaletteList;
+
+        if (ARRAYSIZE(GGXXACRPaletteNamesShort) == GGXXACR_S_CharacterData[NodeGet->uUnitId].nPaletteListSize)
+        {
+            
+            pButtonLabelSet = GGXXACRPaletteNamesShort;
+        }
+        else
+        {
+            pButtonLabelSet = GGXXACR_S_CharacterData[NodeGet->uUnitId].ppszPaletteList;
+        }
         m_nNumberOfColorOptions = GGXXACR_S_CharacterData[NodeGet->uUnitId].nPaletteListSize;
         nImgUnitId = GGXXACR_S_CharacterData[NodeGet->uUnitId].nSpriteIndex;
     }

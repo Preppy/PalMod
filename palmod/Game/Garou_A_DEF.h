@@ -2155,12 +2155,12 @@ const sGame_PaletteDataset Garou_A_BONUS_PALETTES_INTRO2[] =
     { L"Rock Ending Intro Frames 6", 0x2fe80, 0x2ff00 },
     { L"Rock Ending Intro Frames 7", 0x2ff00, 0x2ff80 },
     { L"Rock Ending Intro Frames 8", 0x2ff80, 0x30000 },
-    { L"Rock Ending Intro", 0x02eec0, 0x02ef20 },
+    { L"Rock Ending Intro", 0x2eec0, 0x2ef20 },
 };
 
 const sGame_PaletteDataset Garou_A_PALETTES_STORYMODE_CUTSCENES[] =
 {
-    { L"Story Mode Black Screen", 0x2d780, 0x2d7a0 },
+    { L"Story Mode Black Screen", 0x2d780, 0x2d7a0, indexGarouABonus, 0x62 },
     { L"Story Mode Grant VS 1/7", 0x2d740, 0x2d760 },
     { L"Story Mode Grant VS 2/7", 0x2d760, 0x2d780 },
     { L"Story Mode Grant VS 3/7", 0x2d840, 0x2d880 },
@@ -2202,8 +2202,8 @@ const sGame_PaletteDataset Garou_A_PALETTES_STORYMODE_SELECT[] =
 {
     { L"Select Screen Text", 0x33e20, 0x33e40 },
     { L"Select Screen Intro Icons", 0x33ee0, 0x33f00 },
-    { L"Select Screen Light Icons", 0x35000, 0x351c0, indexGarouABonus, 0x61 },
-    { L"Select Screen Dark Icons", 0x34e00, 0x34fc0, indexGarouABonus, 0x61 },
+    { L"Select Screen Light Icons", 0x35000, 0x35200, indexGarouABonus, 0x61 },
+    { L"Select Screen Dark Icons", 0x34e00, 0x35000, indexGarouABonus, 0x61 },
     { L"Select Screen 1P Cursor", 0x33e00, 0x33e20, indexGarouABonus, 0x5e },
     { L"Select Screen 2P Cursor", 0x33ea0, 0x33ec0, indexGarouABonus, 0x5f },
     { L"Select Screen COM Cursor", 0x33ec0, 0x33ee0, indexGarouABonus, 0x60 },

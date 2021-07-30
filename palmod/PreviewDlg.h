@@ -45,10 +45,15 @@ protected:
 public:
     afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
     afx_msg void OnSize(UINT nType, int cx, int cy);
+    afx_msg void OnZoomHalfx() { UpdateZoomSetting(0.5); };
     afx_msg void OnZoom1x() { UpdateZoomSetting(1.0); };
     afx_msg void OnZoom2x() { UpdateZoomSetting(2.0); };
     afx_msg void OnZoom3x() { UpdateZoomSetting(3.0); };
     afx_msg void OnZoom4x() { UpdateZoomSetting(4.0); };
+    afx_msg void OnZoom5x() { UpdateZoomSetting(6.0); };
+    afx_msg void OnZoom6x() { UpdateZoomSetting(6.0); };
+    afx_msg void OnZoom7x() { UpdateZoomSetting(7.0); };
+    afx_msg void OnZoom8x() { UpdateZoomSetting(8.0); };
     afx_msg void OnSetBackgroundCol();
     afx_msg void OnSetBlinkCol();
     afx_msg void OnSetBackgroundImage();

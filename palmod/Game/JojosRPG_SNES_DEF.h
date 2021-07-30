@@ -55,9 +55,10 @@ const sGame_PaletteDataset JOJOSRPG_SNES_NPC_PALETTES[] =
 //NPCs
 	{ L"Holly (Linked to NPCs)", 0x953a, 0x955a },
     { L"Sick Holly", 0x899a, 0x89da },
-    { L"various students", 0x909a, 0x90Ba },
+    { L"Various students", 0x909a, 0x90Ba },
     { L"Student", 0x90ba, 0x90da },
     { L"Doctor (Linked to NPCs)", 0x905a, 0x907a },
+    { L"Hotel Managers", 0x971a, 0x973a },
 };
 
 const sGame_PaletteDataset JOJOSRPG_SNES_BONUS_PALETTES[] =

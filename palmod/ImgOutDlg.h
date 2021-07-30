@@ -57,7 +57,7 @@ public:
     int border_sz = 0;
 
     const int m_nZoomSelOptionsMin = 0;
-    const int m_nZoomSelOptionsMax = 3;
+    const int m_nZoomSelOptionsMax = 7; // this should match with the max value of ID_ZOOM / fpZoom
 
     void UpdImgVar(BOOL bResize = TRUE);
     void FillPalCombo();

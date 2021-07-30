@@ -1267,10 +1267,10 @@ const sGame_PaletteDataset GGXXACR_S_EXTRAS_JPF[] =
     //Missing Faultless defense, Slash back, Clashes, grab techs, etc
     //Leaving out hitsparks for now since theres so many, but they are in the archive_jpf.bin file
 
-    { L"Roman Cancel",          0x1c9680, 0x1c96c0, indexGGXXSprites_ACR_Bonus, 0x07 },
-    { L"Force Roman Cancel",    0x1c9880, 0x1c98c0, indexGGXXSprites_ACR_Bonus, 0x08 },
-    { L"Chaos Roman Cancel",    0x1C9A80, 0x1C9AC0 },
-    { L"Yellow Roman Cancel",   0x1C9C80, 0x1C9CC0 },
+    { L"Roman Cancel",          0x1c9680, 0x1c96c0, indexGGXXSprites_ACR_Bonus, 0x08 },
+    { L"Force Roman Cancel",    0x1c9880, 0x1c98c0, indexGGXXSprites_ACR_Bonus, 0x07 },
+    { L"Chaos Roman Cancel",    0x1C9A80, 0x1C9AC0, indexGGXXSprites_ACR_Bonus, 0x08 },
+    { L"Yellow Roman Cancel",   0x1C9C80, 0x1C9CC0, indexGGXXSprites_ACR_Bonus, 0x08 },
 
     { L"Burst (1/12)",  0x1806f0, 0x180af0 },
     { L"Burst (2/12)",  0x185ea0, 0x1862a0 },
