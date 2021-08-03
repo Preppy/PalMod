@@ -8,42 +8,60 @@
 
 stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN = nullptr;
 stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR = nullptr;
+stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_CLEAR = nullptr;
 stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAX2 = nullptr;
+stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_PSEL = nullptr;
 
 CDescTree CGame_KOF02UM_S::MainDescTree_Main = nullptr;
 CDescTree CGame_KOF02UM_S::MainDescTree_Bar = nullptr;
+CDescTree CGame_KOF02UM_S::MainDescTree_Clear = nullptr;
 CDescTree CGame_KOF02UM_S::MainDescTree_MAX2 = nullptr;
+CDescTree CGame_KOF02UM_S::MainDescTree_PSel = nullptr;
 
 int CGame_KOF02UM_S::rgExtraCountAll_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
 int CGame_KOF02UM_S::rgExtraCountAll_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
+int CGame_KOF02UM_S::rgExtraCountAll_Clear[KOF02UM_S_NUMUNIT_CLEAR + 1];
 int CGame_KOF02UM_S::rgExtraCountAll_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
+int CGame_KOF02UM_S::rgExtraCountAll_PSel[KOF02UM_S_NUMUNIT_PSEL + 1];
 int CGame_KOF02UM_S::rgExtraLoc_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
 int CGame_KOF02UM_S::rgExtraLoc_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
+int CGame_KOF02UM_S::rgExtraLoc_Clear[KOF02UM_S_NUMUNIT_CLEAR + 1];
 int CGame_KOF02UM_S::rgExtraLoc_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
+int CGame_KOF02UM_S::rgExtraLoc_PSel[KOF02UM_S_NUMUNIT_PSEL + 1];
 
 int CGame_KOF02UM_S::m_nSelectedRom = 0;
 UINT32 CGame_KOF02UM_S::m_nExpectedGameROMSize = 0x606E0;  // 394976 bytes for the main rom
 UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Main = 0;
 UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Bar = 0;
+UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Clear = 0;
 UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_MAX2 = 0;
+UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_PSel = 0;
 UINT32 CGame_KOF02UM_S::m_nConfirmedROMSize = -1;
 
 void CGame_KOF02UM_S::InitializeStatics()
 {
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN);
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR);
+    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_CLEAR);
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAX2);
+    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_PSEL);
 
     memset(rgExtraCountAll_Main, -1, sizeof(rgExtraCountAll_Main));
     memset(rgExtraCountAll_Bar, -1, sizeof(rgExtraCountAll_Bar));
+    memset(rgExtraCountAll_Clear, -1, sizeof(rgExtraCountAll_Clear));
     memset(rgExtraCountAll_MAX2, -1, sizeof(rgExtraCountAll_MAX2));
+    memset(rgExtraCountAll_PSel, -1, sizeof(rgExtraCountAll_PSel));
     memset(rgExtraLoc_Main, -1, sizeof(rgExtraLoc_Main));
     memset(rgExtraLoc_Bar, -1, sizeof(rgExtraLoc_Bar));
+    memset(rgExtraLoc_Clear, -1, sizeof(rgExtraLoc_Clear));
     memset(rgExtraLoc_MAX2, -1, sizeof(rgExtraLoc_MAX2));
+    memset(rgExtraLoc_PSel, -1, sizeof(rgExtraLoc_PSel));
 
     MainDescTree_Main.SetRootTree(CGame_KOF02UM_S::InitDescTree(0));
     MainDescTree_Bar.SetRootTree(CGame_KOF02UM_S::InitDescTree(1));
     MainDescTree_MAX2.SetRootTree(CGame_KOF02UM_S::InitDescTree(2));
+    MainDescTree_Clear.SetRootTree(CGame_KOF02UM_S::InitDescTree(3));
+    MainDescTree_PSel.SetRootTree(CGame_KOF02UM_S::InitDescTree(4));
 }
 
 CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
@@ -55,7 +73,7 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nSelectedRom = (nRomToLoad < 3) ? nRomToLoad : 0;
+    m_nSelectedRom = (nRomToLoad < MAX_ROM_OPTIONS) ? nRomToLoad : 0;
 
     switch (m_nSelectedRom)
     {
@@ -89,13 +107,45 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
         // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
         m_nLowestKnownPaletteRomLocation = 0;
         break;
+    case 3:
+        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_CLEAR;
+        m_nExtraUnit = KOF02UM_S_EXTRALOC_CLEAR;
+
+        m_nSafeCountForThisRom = 3;
+        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_CLEAR;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_Clear;
+        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+        m_nLowestKnownPaletteRomLocation = 0x80;
+        break;
+    case 4:
+        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_PSEL;
+        m_nExtraUnit = KOF02UM_S_EXTRALOC_PSEL;
+
+        m_nSafeCountForThisRom = 10;
+        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_PSEL;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_PSel;
+        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+        m_nLowestKnownPaletteRomLocation = 0x1c0;
+        break;
     }
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-    SetColorMode(UseMainPaletteSet() ? ColMode::COLMODE_RGB555_BE : ColMode::COLMODE_BGR555_LE);
+
+    if (UseMainPaletteSet())
+    {
+        SetColorMode(ColMode::COLMODE_RGB555_BE);
+    }
+    else if (UseClearPaletteSet() || UsePSelPaletteSet())
+    {
+        SetColorMode(ColMode::COLMODE_ARGB7888);
+    }
+    else
+    {
+        SetColorMode(ColMode::COLMODE_BGR555_LE);
+    }
 
     InitDataBuffer();
 
@@ -125,7 +175,9 @@ CGame_KOF02UM_S::~CGame_KOF02UM_S()
 {
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN);
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR);
+    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_CLEAR);
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAX2);
+    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_PSEL);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
@@ -133,13 +185,58 @@ CGame_KOF02UM_S::~CGame_KOF02UM_S()
 
 CDescTree* CGame_KOF02UM_S::GetMainTree()
 {
-    return UseMainPaletteSet() ? &CGame_KOF02UM_S::MainDescTree_Main : (UseBarPaletteSet() ? &CGame_KOF02UM_S::MainDescTree_Bar : &CGame_KOF02UM_S::MainDescTree_MAX2);
+    if (UseMainPaletteSet())
+    {
+        return &CGame_KOF02UM_S::MainDescTree_Main;
+    }
+    else if (UseBarPaletteSet())
+    {
+        return &CGame_KOF02UM_S::MainDescTree_Bar;
+    }
+    else if (UseClearPaletteSet())
+    {
+        return &CGame_KOF02UM_S::MainDescTree_Clear;
+    }
+    else if (UsePSelPaletteSet())
+    {
+        return &CGame_KOF02UM_S::MainDescTree_PSel;
+    }
+    else
+    {
+        return &CGame_KOF02UM_S::MainDescTree_MAX2;
+    }
 }
 
 int CGame_KOF02UM_S::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int *rgExtraCt = UseMainPaletteSet() ? rgExtraCountAll_Main : (UseBarPaletteSet() ? rgExtraCountAll_Bar : rgExtraCountAll_MAX2);
-    int nUnitCount = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : (UseBarPaletteSet() ? KOF02UM_S_NUMUNIT_BAR : KOF02UM_S_NUMUNIT_MAX2);
+    int* rgExtraCt;
+    int nUnitCount;
+
+    if (UseMainPaletteSet())
+    {
+        rgExtraCt = rgExtraCountAll_Main;
+        nUnitCount = KOF02UM_S_NUMUNIT_MAIN;
+    }
+    else if (UseBarPaletteSet())
+    {
+        rgExtraCt =  rgExtraCountAll_Bar;
+        nUnitCount = KOF02UM_S_NUMUNIT_BAR;
+    }
+    else if (UseClearPaletteSet())
+    {
+        rgExtraCt = rgExtraCountAll_Clear;
+        nUnitCount = KOF02UM_S_NUMUNIT_CLEAR;
+    }
+    else if (UsePSelPaletteSet())
+    {
+        rgExtraCt = rgExtraCountAll_PSel;
+        nUnitCount = KOF02UM_S_NUMUNIT_PSEL;
+    }
+    else
+    {
+        rgExtraCt = rgExtraCountAll_MAX2;
+        nUnitCount = KOF02UM_S_NUMUNIT_MAX2;
+    }
 
     if (rgExtraCt[0] == -1)
     {
@@ -165,8 +262,34 @@ int CGame_KOF02UM_S::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_KOF02UM_S::GetExtraLoc(UINT16 nUnitId)
 {
-    int* rgExtraLoc = UseMainPaletteSet() ? rgExtraLoc_Main : (UseBarPaletteSet() ? rgExtraLoc_Bar : rgExtraLoc_MAX2);
-    int nUnitCount = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : (UseBarPaletteSet() ? KOF02UM_S_NUMUNIT_BAR : KOF02UM_S_NUMUNIT_MAX2);
+    int* rgExtraLoc;
+    int nUnitCount;
+
+    if (UseMainPaletteSet())
+    {
+        rgExtraLoc = rgExtraLoc_Main;
+        nUnitCount = KOF02UM_S_NUMUNIT_MAIN;
+    }
+    else if (UseBarPaletteSet())
+    {
+        rgExtraLoc = rgExtraLoc_Bar;
+        nUnitCount = KOF02UM_S_NUMUNIT_BAR;
+    }
+    else if (UseClearPaletteSet())
+    {
+        rgExtraLoc = rgExtraLoc_Clear;
+        nUnitCount = KOF02UM_S_NUMUNIT_CLEAR;
+    }
+    else if (UsePSelPaletteSet())
+    {
+        rgExtraLoc = rgExtraLoc_PSel;
+        nUnitCount = KOF02UM_S_NUMUNIT_PSEL;
+    }
+    else
+    {
+        rgExtraLoc = rgExtraLoc_MAX2;
+        nUnitCount = KOF02UM_S_NUMUNIT_MAX2;
+    }
 
     if (rgExtraLoc[0] == -1)
     {
@@ -194,12 +317,50 @@ int CGame_KOF02UM_S::GetExtraLoc(UINT16 nUnitId)
 
 const sDescTreeNode* CGame_KOF02UM_S::GetCurrentUnitSet()
 {
-    return UseMainPaletteSet() ? KOF02UM_S_UNITS_MAIN : (UseBarPaletteSet() ? KOF02UM_S_UNITS_BAR : KOF02UM_S_UNITS_MAX2);
+    if (UseMainPaletteSet())
+    {
+        return KOF02UM_S_UNITS_MAIN;
+    }
+    else if (UseBarPaletteSet())
+    {
+        return KOF02UM_S_UNITS_BAR;
+    }
+    else if (UseClearPaletteSet())
+    {
+        return KOF02UM_S_UNITS_CLEAR;
+    }
+    else if (UsePSelPaletteSet())
+    {
+        return KOF02UM_S_UNITS_PSEL;
+    }
+    else
+    {
+        return KOF02UM_S_UNITS_MAX2;
+    }
 }
 
 UINT16 CGame_KOF02UM_S::GetCurrentExtraLoc()
 {
-    return UseMainPaletteSet() ? KOF02UM_S_EXTRALOC_MAIN : (UseBarPaletteSet() ? KOF02UM_S_EXTRALOC_BAR : KOF02UM_S_EXTRALOC_MAX2);
+    if (UseMainPaletteSet())
+    {
+        return KOF02UM_S_EXTRALOC_MAIN;
+    }
+    else if (UseBarPaletteSet())
+    {
+        return KOF02UM_S_EXTRALOC_BAR;
+    }
+    else if (UseClearPaletteSet())
+    {
+        return KOF02UM_S_EXTRALOC_CLEAR;
+    }
+    else if (UsePSelPaletteSet())
+    {
+        return KOF02UM_S_EXTRALOC_PSEL;
+    }
+    else
+    {
+        return KOF02UM_S_EXTRALOC_MAX2;
+    }
 }
 
 stExtraDef* CGame_KOF02UM_S::GetCurrentExtraDef(int nDefCtr)
@@ -211,6 +372,14 @@ stExtraDef* CGame_KOF02UM_S::GetCurrentExtraDef(int nDefCtr)
     else if (UseBarPaletteSet())
     {
         return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_BAR[nDefCtr];
+    }
+    else if (UseClearPaletteSet())
+    {
+        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_CLEAR[nDefCtr];
+    }
+    else if (UsePSelPaletteSet())
+    {
+        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_PSEL[nDefCtr];
     }
     else
     {
@@ -232,11 +401,23 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
         LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_MAIN, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_MAIN, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_MAIN + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
     }
-    else if(UseBarPaletteSet())
+    else if (UseBarPaletteSet())
     {
         nExtraUnitLocation = KOF02UM_S_EXTRALOC_BAR;
         LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_BAR, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_BAR, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_BAR + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
+    }
+    else if (UseClearPaletteSet())
+    {
+        nExtraUnitLocation = KOF02UM_S_EXTRALOC_CLEAR;
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_CLEAR, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_CLEAR, nExtraUnitLocation, m_nConfirmedROMSize);
+        nUnitCt = KOF02UM_S_NUMUNIT_CLEAR + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
+    }
+    else if (UsePSelPaletteSet())
+    {
+        nExtraUnitLocation = KOF02UM_S_EXTRALOC_PSEL;
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_PSEL, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_PSEL, nExtraUnitLocation, m_nConfirmedROMSize);
+        nUnitCt = KOF02UM_S_NUMUNIT_PSEL + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
     }
     else
     {
@@ -418,6 +599,14 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
     {
         m_nTotalPaletteCountForKOF02UM_Bar = nTotalPaletteCount;
     }
+    else if (UseClearPaletteSet())
+    {
+        m_nTotalPaletteCountForKOF02UM_Clear = nTotalPaletteCount;
+    }
+    else if (UsePSelPaletteSet())
+    {
+        m_nTotalPaletteCountForKOF02UM_PSel = nTotalPaletteCount;
+    }
     else
     {
         m_nTotalPaletteCountForKOF02UM_MAX2 = nTotalPaletteCount;
@@ -439,6 +628,16 @@ sFileRule CGame_KOF02UM_S::GetRule(UINT16 nUnitId)
     {
         m_nExpectedGameROMSize = 0x2200;
         _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"bar.bin");
+    }
+    else if (nUnitId == 3) // CLEAR.BIN palettes
+    {
+        m_nExpectedGameROMSize = 0x218ce;
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"clear.bin");
+    }
+    else if (nUnitId == 4) // psel.bin-n palettes
+    {
+        m_nExpectedGameROMSize = 0x56f024;
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"psel.bin-n");
     }
     else // main palettes
     {
@@ -663,6 +862,8 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     nTargetImgId = 0;
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
+    bool fShouldUseAlternateLoadLogic = false;
+
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
     if (NodeGet->uUnitId != GetCurrentExtraLoc())
@@ -697,15 +898,122 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                     nNodeIncrement = 1;
                 }
             }
+
+            if (paletteDataSet->pPalettePairingInfo)
+            {
+                if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == 3)
+                {
+                    const INT8 nPeerPaletteDistance1 = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    const INT8 nPeerPaletteDistance2 = paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner;
+                    const sGame_PaletteDataset* paletteDataSetToJoin1 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance1);
+                    const sGame_PaletteDataset* paletteDataSetToJoin2 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance2);
+                    fShouldUseAlternateLoadLogic = true;
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse)
+                            ))
+                    );
+
+                    //Set each palette
+                    sDescNode* JoinedNode[] = {
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+                    CreateDefPal(JoinedNode[2], 2);
+
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
+                }
+                else if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == 4)
+                {
+                    const INT8 nPeerPaletteDistance1 = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    const INT8 nPeerPaletteDistance2 = paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner;
+                    const INT8 nPeerPaletteDistance3 = paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo3rdPartner;
+                    const sGame_PaletteDataset* paletteDataSetToJoin1 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance1);
+                    const sGame_PaletteDataset* paletteDataSetToJoin2 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance2);
+                    const sGame_PaletteDataset* paletteDataSetToJoin3 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance3);
+                    fShouldUseAlternateLoadLogic = true;
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse,
+                                    CreateImgTicket(paletteDataSetToJoin3->indexImgToUse, paletteDataSetToJoin3->indexOffsetToUse)
+                                )))
+                    );
+
+                    //Set each palette
+                    sDescNode* JoinedNode[] = {
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance3, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+                    CreateDefPal(JoinedNode[2], 2);
+                    CreateDefPal(JoinedNode[3], 3);
+
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(3, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance3, nSrcAmt, nNodeIncrement);
+                }
+                else
+                {
+                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+                    INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                    if (paletteDataSetToJoin)
+                    {
+                        fShouldUseAlternateLoadLogic = true;
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                    }
+                }
+            }
         }
     }
 
-    //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+    if (!fShouldUseAlternateLoadLogic)
+    {
+        //Create the default palette
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-    CreateDefPal(NodeGet, 0);
+        CreateDefPal(NodeGet, 0);
 
-    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+    }
 
     return TRUE;
 }

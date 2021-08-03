@@ -272,8 +272,9 @@
 #define ID_COLORFORMAT_ABGR8888         32901
 #define ID_LD_MAAB                      32902
 #define ID_COLORFORMAT_BGR555_BE        32903
-#define ID_LD_GGXXR_S					          32904
-#define ID_LD_P4AU_NESICA				        32905
+#define ID_LD_GGXXR_S                   32904
+#define ID_LD_P4AU_NESICA               32905
+
 
 // Next default values for new objects
 // 

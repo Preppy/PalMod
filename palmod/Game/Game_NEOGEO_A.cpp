@@ -139,6 +139,28 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     UINT8 cbRequiredColorSize = 0;
     bool fChangedColorSize = false;
 
+    // This handles the color modes switches for:
+    // ID_COLORFORMAT_RGB444_BE
+    // ID_COLORFORMAT_RGB555_LE
+    // ID_COLORFORMAT_RGB556
+    // ID_COLORFORMAT_RGB666
+    // ID_COLORFORMAT_RGB557
+    // ID_COLORFORMAT_BGR555_LE
+    // ID_COLORFORMAT_RGB555_BE
+    // ID_COLORFORMAT_RGB333_BE
+    // ID_COLORFORMAT_ARGB7888
+    // ID_COLORFORMAT_SHARPRGB
+    // ID_COLORFORMAT_RGB444_LE
+    // ID_COLORFORMAT_ARGB8888
+    // ID_COLORFORMAT_ARGB1888
+    // ID_COLORFORMAT_xRGB888
+    // ID_COLORFORMAT_xBGR888
+    // ID_COLORFORMAT_GRB555_LE
+    // ID_COLORFORMAT_ABGR8888
+    // ID_COLORFORMAT_BGR555_BE
+    // I am explicitly and needlessly listing out all of those string IDs because Visual Studio search sometimes misses the color modes below,
+    // and we have to add expolicity color handling here so that people can change to that color mode in Unknown Game mode
+
     switch (NewMode)
     {
     case ColMode::COLMODE_RGB333:

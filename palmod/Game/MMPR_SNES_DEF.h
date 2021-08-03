@@ -122,6 +122,12 @@ const sGame_PaletteDataset MMPR_SILVERHORNS_PALETTES_B[] =
     { L"Silver Horns B", 0x141f64, 0x141fa4, indexMMPRSprites_SilverHorns },
 };
 
+const sGame_PaletteDataset MMPR_BONUS_PALETTES[] =
+{
+    { L"Zedd BG Continue Screen", 0x144424, 0x1444a4, indexMMPRSprites_Bonus, 0x01 },
+    { L"Continue and Game-Over", 0x142d24, 0x142de4 },
+};
+
 const sDescTreeNode MMPR_SILVERHORNS_COLLECTION[] =
 {
    { L"A", DESC_NODETYPE_TREE, (void*)MMPR_SILVERHORNS_PALETTES_A, ARRAYSIZE(MMPR_SILVERHORNS_PALETTES_A) },
@@ -162,12 +168,18 @@ const sDescTreeNode MMPR_IVANOOZE_COLLECTION[] =
 
 const sGame_PaletteDataset MMPR_PORTRAITS_SELECT_PALETTES[] =
 {
-    { L"Select Portraits", 0x142324, 0x142424 /*, indexMMPRSprites_Bonus, 0x00 */}, // temp disable until we get the updated sprite
+    { L"Select Portraits", 0x142324, 0x142424, indexMMPRSprites_Bonus, 0x00 },
 };
 
 const sDescTreeNode MMPR_PORTRAITS_COLLECTION[] =
 {
    { L"Select Portraits", DESC_NODETYPE_TREE, (void*)MMPR_PORTRAITS_SELECT_PALETTES, ARRAYSIZE(MMPR_PORTRAITS_SELECT_PALETTES) },
+};
+
+
+const sDescTreeNode MMPR_BONUS_COLLECTION[] =
+{
+   { L"Palettes", DESC_NODETYPE_TREE, (void*)MMPR_BONUS_PALETTES, ARRAYSIZE(MMPR_BONUS_PALETTES) },
 };
 
 const sDescTreeNode MMPR_SNES_UNITS[] =
@@ -182,6 +194,7 @@ const sDescTreeNode MMPR_SNES_UNITS[] =
     { L"Lord Zedd",         DESC_NODETYPE_TREE, (void*)MMPR_LORDZEDD_COLLECTION,    ARRAYSIZE(MMPR_LORDZEDD_COLLECTION) },
     { L"Ivan Ooze",         DESC_NODETYPE_TREE, (void*)MMPR_IVANOOZE_COLLECTION,    ARRAYSIZE(MMPR_IVANOOZE_COLLECTION) },
     { L"Portraits",         DESC_NODETYPE_TREE, (void*)MMPR_PORTRAITS_COLLECTION,    ARRAYSIZE(MMPR_PORTRAITS_COLLECTION) },
+    { L"Bonus Palettes",         DESC_NODETYPE_TREE, (void*)MMPR_BONUS_COLLECTION,    ARRAYSIZE(MMPR_BONUS_COLLECTION) },
 };
 
 constexpr auto MMPR_SNES_NUMUNIT = ARRAYSIZE(MMPR_SNES_UNITS);

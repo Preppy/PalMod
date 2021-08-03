@@ -1406,33 +1406,41 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
     int nGameRule = 0;
 
     // Handle games that support multiple ROMs here
-    WCHAR* pszFileName = wcsrchr(pszLoadFile, L'\\');
+    WCHAR* pszFileNameLowercase = wcsrchr(pszLoadFile, L'\\');
 
-    if (pszFileName)
+    if (pszFileNameLowercase)
     {
         // Step forward to the filename
-        pszFileName++;
-        _wcslwr(pszFileName);
+        pszFileNameLowercase++;
+        _wcslwr(pszFileNameLowercase);
 
         switch (nGameFlag)
         {
         case AOF3_A:
-            nGameRule = ((wcsstr(pszFileName, L"p1") != nullptr) ? 1 : 2);
+            nGameRule = ((wcsstr(pszFileNameLowercase, L"p1") != nullptr) ? 1 : 2);
             break;
         case JOJOS_A:
-            nGameRule = ((wcscmp(pszFileName, L"50") == 0) ? 50 : 51);
+            nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? 50 : 51);
             break;
         case KOF99AE_A:
-            nGameRule = ((wcsstr(pszFileName, L"p2") != nullptr) ? 2 : 3);
+            nGameRule = ((wcsstr(pszFileNameLowercase, L"p2") != nullptr) ? 2 : 3);
             break;
         case KOF02UM_S:
-            if (wcscmp(pszFileName, L"bar.bin") == 0)
+            if (wcscmp(pszFileNameLowercase, L"bar.bin") == 0)
             {
                 nGameRule = 1;
             }
-            else if (wcscmp(pszFileName, L"max2bg.bin") == 0)
+            else if (wcscmp(pszFileNameLowercase, L"max2bg.bin") == 0)
             {
                 nGameRule = 2;
+            }
+            else if (wcscmp(pszFileNameLowercase, L"clear.bin") == 0)
+            {
+                nGameRule = 3;
+            }
+            else if (wcscmp(pszFileNameLowercase, L"psel.bin-n") == 0)
+            {
+                nGameRule = 4;
             }
             else
             {
@@ -1441,21 +1449,21 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
             break;
         case MSHVSF_A:
         {
-            nGameRule = ((wcsstr(pszFileName, L".06a") != nullptr) ? 6 : 7);
+            nGameRule = ((wcsstr(pszFileNameLowercase, L".06a") != nullptr) ? 6 : 7);
             break;
         }
         case MSH_A:
         {
-            nGameRule = ((wcsstr(pszFileName, L".05") != nullptr) ? 5 : 6);
+            nGameRule = ((wcsstr(pszFileNameLowercase, L".05") != nullptr) ? 5 : 6);
             break;
         }
         case REDEARTH_A:
         {
-            if (wcscmp(pszFileName, L"30") == 0)
+            if (wcscmp(pszFileNameLowercase, L"30") == 0)
             {
                 nGameRule = 30;
             }
-            else if (wcscmp(pszFileName, L"50") == 0)
+            else if (wcscmp(pszFileNameLowercase, L"50") == 0)
             {
                 nGameRule = 50;
             }
@@ -1467,22 +1475,22 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
         }
         case SFA2_A:
         {
-            nGameRule = ((wcsstr(pszFileName, L".08") != nullptr) ? 8 : 7);
+            nGameRule = ((wcsstr(pszFileNameLowercase, L".08") != nullptr) ? 8 : 7);
             break;
         }
         case SFIII3_A:
         {
-            nGameRule = ((wcsstr(pszFileName, L"10") != nullptr) ? 10 : 51);
+            nGameRule = ((wcsstr(pszFileNameLowercase, L"10") != nullptr) ? 10 : 51);
             break;
         }
         case SF2CE_A: // these two share logic until we care about 23
         case SF2HF_A:
         {
-            if (wcsstr(pszFileName, L"21") != nullptr)
+            if (wcsstr(pszFileNameLowercase, L"21") != nullptr)
             {
                 nGameRule = 21;
             }
-            else if (wcsstr(pszFileName, L"23") != nullptr)
+            else if (wcsstr(pszFileNameLowercase, L"23") != nullptr)
             {
                 nGameRule = 23;
             }
@@ -1494,11 +1502,11 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
         }
         case SSF2T_A:
         {
-            if (wcsstr(pszFileName, L".03") != nullptr)
+            if (wcsstr(pszFileNameLowercase, L".03") != nullptr)
             {
                 nGameRule = 3;
             }
-            else if (wcsstr(pszFileName, L".08") != nullptr)
+            else if (wcsstr(pszFileNameLowercase, L".08") != nullptr)
             {
                 nGameRule = 8;
             }
@@ -1613,10 +1621,10 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
     }
     else
     {
-        if (pszFileName)
+        if (pszFileNameLowercase)
         {
             CString strError;
-            strError.Format(L"The file \"%s\" can not be opened.  Another application is probably using it.", pszFileName);
+            strError.Format(L"The file \"%s\" can not be opened.  Another application is probably using it.", pszFileNameLowercase);
             MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONSTOP);
         }
     }

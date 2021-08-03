@@ -27,7 +27,7 @@ CGame_JOJOSRPG_SNES::CGame_JOJOSRPG_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = JOJOSRPG_SNES_NUMUNIT;
     m_nExtraUnit = JOJOSRPG_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 36;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 37;
     m_pszExtraFilename = EXTRA_FILENAME_JOJOSRPG_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForJOJOSRPG;
 

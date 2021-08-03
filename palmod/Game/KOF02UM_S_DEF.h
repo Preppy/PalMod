@@ -790,22 +790,22 @@ const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_MAX2[] =
 {
-    { L"Orochi Chris MAX2 Background 1", 0x3a200, 0x3a220 },
-    { L"Orochi Chris MAX2 Background 2", 0x3a220, 0x3a240 },
-    { L"Orochi Chris MAX2 Background 3", 0x3a240, 0x3a260 },
-    { L"Orochi Chris MAX2 Background 4", 0x3a260, 0x3a280 },
-    { L"Orochi Chris MAX2 Background 5", 0x3a280, 0x3a2a0 },
-    { L"Orochi Chris MAX2 Background 6", 0x3a2a0, 0x3a2c0 },
-    { L"Orochi Chris MAX2 Background 7", 0x3a2c0, 0x3a2e0 },
-    { L"Orochi Chris MAX2 Background 8", 0x3a2e0, 0x3a300 },
-    { L"Orochi Chris MAX2 Background 9", 0x3a300, 0x3a320 },
-    { L"Orochi Chris MAX2 Background 10", 0x3a320, 0x3a340 },
-    { L"Orochi Chris MAX2 Background 11", 0x3a340, 0x3a360 },
-    { L"Orochi Chris MAX2 Background 12", 0x3a360, 0x3a380 },
-    { L"Orochi Chris MAX2 Background 13", 0x3a380, 0x3a3a0 },
-    { L"Orochi Chris MAX2 Background 14", 0x3a3a0, 0x3a3c0 },
-    { L"Orochi Chris MAX2 Background 15", 0x3a3c0, 0x3a3e0 },
-    { L"Orochi Chris MAX2 Background 16", 0x3a3e0, 0x3a400 },
+    { L"Orochi Chris MAX2 Background 1", 0x3a200, 0x3a220, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 2", 0x3a220, 0x3a240, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 3", 0x3a240, 0x3a260, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 4", 0x3a260, 0x3a280, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 5", 0x3a280, 0x3a2a0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 6", 0x3a2a0, 0x3a2c0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 7", 0x3a2c0, 0x3a2e0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 8", 0x3a2e0, 0x3a300, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 9", 0x3a300, 0x3a320, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 10", 0x3a320, 0x3a340, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 11", 0x3a340, 0x3a360, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 12", 0x3a360, 0x3a380, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 13", 0x3a380, 0x3a3a0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 14", 0x3a3a0, 0x3a3c0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 15", 0x3a3c0, 0x3a3e0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 16", 0x3a3e0, 0x3a400, indexKOF02UMSprites_ChrisOChi, 0x09 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CLARK_PALETTES_MOVES[] =
@@ -1173,7 +1173,7 @@ const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_MAX2[] =
 {
-    { L"Orochi Shermie MAX2 Background",                0x3b7e0, 0x3b800 },
+    { L"Orochi Shermie MAX2 Background",                0x3b7e0, 0x3b800, indexKOF02UMSprites_ShermieOChi, 0x0a },
 };
 
 const sGame_PaletteDataset KOF02UM_S_TAKUMA_PALETTES_MOVES[] =
@@ -1258,10 +1258,10 @@ const sGame_PaletteDataset KOF02UM_S_OYASHIRO_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_OYASHIRO_PALETTES_MAX2[] =
 {
-    { L"Orochi Yashiro MAX2 Background 1/4",  0x3b740, 0x3b760 },
-    { L"Orochi Yashiro MAX2 Background 2/4",  0x3b760, 0x3b780 },
-    { L"Orochi Yashiro MAX2 Background 3/4",  0x3b780, 0x3b7a0 },
-    { L"Orochi Yashiro MAX2 Background 4/4",  0x3b7a0, 0x3b7c0 },
+    { L"Orochi Yashiro MAX2 Background 1/4",  0x3b740, 0x3b760, indexKOF02UMSprites_YashiroOChi, 0x0a },
+    { L"Orochi Yashiro MAX2 Background 2/4",  0x3b760, 0x3b780, indexKOF02UMSprites_YashiroOChi, 0x0a },
+    { L"Orochi Yashiro MAX2 Background 3/4",  0x3b780, 0x3b7a0, indexKOF02UMSprites_YashiroOChi, 0x0a },
+    { L"Orochi Yashiro MAX2 Background 4/4",  0x3b7a0, 0x3b7c0, indexKOF02UMSprites_YashiroOChi, 0x0a },
 };
 
 const sGame_PaletteDataset KOF02UM_S_YURI_PALETTES_MOVES[] =
@@ -5259,6 +5259,53 @@ const sDescTreeNode KOF02UM_S_UNITS_BAR[] =
 
 constexpr auto KOF02UM_S_NUMUNIT_BAR = ARRAYSIZE(KOF02UM_S_UNITS_BAR);
 #define KOF02UM_S_EXTRALOC_BAR KOF02UM_S_NUMUNIT_BAR
+
+const sGame_PaletteDataset KOF02UM_S_CLEAR_PALETTES[] =
+{
+    { L"Clear", 0x80, 0x100 },
+    { L"Clear Bright 1", 0x100, 0x180 },
+    { L"Clear Bright 2", 0x180, 0x200 },
+};
+
+const sDescTreeNode KOF02UM_S_CLEAR_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLEAR_PALETTES, ARRAYSIZE(KOF02UM_S_CLEAR_PALETTES) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_CLEAR[] =
+{
+    { L"Clear", DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLEAR_COLLECTION, ARRAYSIZE(KOF02UM_S_CLEAR_COLLECTION) },
+};
+
+constexpr auto KOF02UM_S_NUMUNIT_CLEAR = ARRAYSIZE(KOF02UM_S_UNITS_CLEAR);
+#define KOF02UM_S_EXTRALOC_CLEAR KOF02UM_S_NUMUNIT_CLEAR
+
+const sGame_PaletteDataset KOF02UM_S_PSEL_PALETTES[] =
+{
+    { L"Background 1", 0x1c0, 0x5c0 },
+    { L"Background 2", 0x105c0, 0x109c0 },
+    { L"Player Select Icons", 0x209c0, 0x20a40 },
+    { L"Character Select Center", 0x619c0, 0x61ac0 },
+    { L"Character Select Center Red", 0x61ac0, 0x61bc0 },
+    { L"Select Portraits 1", 0x71dc0, 0x721c0, indexKOF02UMSprites_Bonus, 0x40, &pairNextAndNextAndNext },
+    { L"Select Portraits 2",  0x821c0, 0x825c0, indexKOF02UMSprites_Bonus, 0x41 },
+    { L"Select Portraits 3",  0x925c0, 0x929c0, indexKOF02UMSprites_Bonus, 0x42 },
+    { L"Select Portraits 4", 0xa29c0, 0xa2dc0, indexKOF02UMSprites_Bonus, 0x43 },
+    { L"Select Portraits EX", 0xb2dc0, 0xb31c0 },
+};
+
+const sDescTreeNode KOF02UM_S_PSEL_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PSEL_PALETTES, ARRAYSIZE(KOF02UM_S_PSEL_PALETTES) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_PSEL[] =
+{
+    { L"Character Select", DESC_NODETYPE_TREE, (void*)KOF02UM_S_PSEL_COLLECTION, ARRAYSIZE(KOF02UM_S_PSEL_COLLECTION) },
+};
+
+constexpr auto KOF02UM_S_NUMUNIT_PSEL = ARRAYSIZE(KOF02UM_S_UNITS_PSEL);
+#define KOF02UM_S_EXTRALOC_PSEL KOF02UM_S_NUMUNIT_PSEL
 
 const sGame_PaletteDataset KOF02UM_S_MAX2_BG_PALETTES[] =
 {

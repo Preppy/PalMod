@@ -50,7 +50,7 @@ sSupportedGameList SupportedGameList[] =
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
     { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF02PS2_A,       L"KOF02 (2002PS2)", L"KOF02 (2002PS2)|265ps2*p2*|", GamePlatform::NEOGEO, GameSeries::KOF },
-    { KOF02UM_S,        L"KOF02UM", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin|", GamePlatform::Steam },
+    { KOF02UM_S,        L"KOF02UM", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin;clear.bin;psel.bin-n|", GamePlatform::Steam },
     { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOFXI_A,          L"KOFXI", L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", GamePlatform::SammyAtomiswave },
     { LASTBLADE_A,      L"Last Blade", L"Last Blade|234-p1.p1|", GamePlatform::NEOGEO },

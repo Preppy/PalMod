@@ -1621,7 +1621,13 @@ enum SupportedSNES_PaletteListIndex
     indexDBZHDSprites_Piccolo,          // 0xA2
     indexDBZHDSprites_Vegeta,           // 0xA3
     indexDBZHDSprites_Vegito,           // 0xA4
-    indexDBZHDSprites_Bonus,            // 0xA5,
+    indexDBZHDSprites_Bonus,            // 0xA5
+
+    // JoJo RPG on SNES
+    indexJoJoRPGSprites_Enemies,         // 0xA6
+    indexJoJoRPGSprites_Heroes,          // 0xA7
+    indexJoJoRPGSprites_NPCs,            // 0xA8
+    indexJoJoRPGSprites_Bonus,           // 0xA9
 };
 
 enum SupportedNEOGEO_PaletteListIndex

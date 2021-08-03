@@ -43,7 +43,7 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = MMPR_SNES_NUMUNIT;
     m_nExtraUnit = MMPR_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 19;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 21;
     m_pszExtraFilename = EXTRA_FILENAME_MMPR_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMMPR;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
