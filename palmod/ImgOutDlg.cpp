@@ -144,10 +144,9 @@ BOOL CImgOutDlg::OnInitDialog()
     //Cannot get accurate remainder amount
 
     //Populate Zoom combo box: 1-8x
-    // since m_nZoomSelOptionsMax is 0 based, we want +1 for 0->1 and +1 for the less than aspect (8->9)
-    for (int i = 1; i < m_nZoomSelOptionsMax + 2; i++)
+    for (size_t i = 0; i < CPalModZoom::GetZoomListSize(); i++)
     {
-        tmp_str.Format(L"%ux", i);
+        tmp_str.Format(L"%.0fx", CPalModZoom::GetValueAt(i));
         m_CB_Zoom.AddString(tmp_str);
     }
 
@@ -175,12 +174,27 @@ BOOL CImgOutDlg::OnInitDialog()
     return TRUE;
 }
 
+BOOL CImgOutDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+{
+    if (zDelta > 0)
+    {
+        AddZoom();
+    }
+    else
+    {
+        SubZoom();
+    }
+
+    return TRUE;
+}
+
+
 void CImgOutDlg::AddZoom()
 {
-    int nCurrZoom = m_CB_Zoom.GetCurSel() + 1;
-    if (nCurrZoom <= m_nZoomSelOptionsMax)
+    int nCurrZoomIndex = m_CB_Zoom.GetCurSel() + 1;
+    if (nCurrZoomIndex < (int)CPalModZoom::GetZoomListSize())
     {
-        m_CB_Zoom.SetCurSel(nCurrZoom);
+        m_CB_Zoom.SetCurSel(nCurrZoomIndex);
     }
 
     UpdateImg();
@@ -188,10 +202,11 @@ void CImgOutDlg::AddZoom()
 
 void CImgOutDlg::SubZoom()
 {
-    int nCurrZoom = m_CB_Zoom.GetCurSel() - 1;
-    if (nCurrZoom >= m_nZoomSelOptionsMin)
+    int nCurrZoomIndex = m_CB_Zoom.GetCurSel() - 1;
+
+    if (nCurrZoomIndex >= m_nZoomSelOptionsMin)
     {
-        m_CB_Zoom.SetCurSel(nCurrZoom);
+        m_CB_Zoom.SetCurSel(nCurrZoomIndex);
     }
 
     UpdateImg();
@@ -213,6 +228,8 @@ BEGIN_MESSAGE_MAP(CImgOutDlg, CDialog)
     ON_WM_CLOSE()
 
     ON_BN_CLICKED(IDC_UPDATE, UpdateImg)
+
+    ON_WM_MOUSEWHEEL()
 
     ON_CBN_SELCHANGE(IDC_AMT, OnCbnSelchangeAmt)
     ON_CBN_SELCHANGE(IDC_PAL, UpdateImg)
@@ -255,14 +272,8 @@ void CImgOutDlg::UpdImgVar(BOOL bResize)
     m_DumpBmp.m_nTotalImagesToDisplay = img_amt;
     m_DumpBmp.nPalIndex = m_pal;
 
-    if (m_zoomSelIndex >= m_nZoomSelOptionsMax)
-    {
-        m_zoomSelIndex = m_nZoomSelOptionsMax;
-    }
-    else if (m_zoomSelIndex < m_nZoomSelOptionsMin)
-    {
-        m_zoomSelIndex = m_nZoomSelOptionsMin;
-    }
+    m_zoomSelIndex = min(m_zoomSelIndex, (int)CPalModZoom::GetZoomListSize());
+    m_zoomSelIndex = max(m_zoomSelIndex, m_nZoomSelOptionsMin);
 
     m_DumpBmp.zoom = (float)(1 + m_zoomSelIndex);
     m_DumpBmp.outline_sz = 0;

@@ -124,8 +124,8 @@ const sGame_PaletteDataset MMPR_SILVERHORNS_PALETTES_B[] =
 
 const sGame_PaletteDataset MMPR_BONUS_PALETTES[] =
 {
-    { L"Zedd BG Continue Screen", 0x144424, 0x1444a4, indexMMPRSprites_Bonus, 0x01 },
-    { L"Continue and Game-Over", 0x142d24, 0x142de4 },
+    { L"Zedd BG Continue Screen", 0x144424, 0x1444a4, indexMMPRSprites_Bonus, 0x01, &pairNext },
+    { L"Continue and Game-Over", 0x142d24, 0x142de4, indexMMPRSprites_Bonus, 0x02 },
 };
 
 const sDescTreeNode MMPR_SILVERHORNS_COLLECTION[] =

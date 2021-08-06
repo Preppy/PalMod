@@ -1428,23 +1428,31 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
         case KOF02UM_S:
             if (wcscmp(pszFileNameLowercase, L"bar.bin") == 0)
             {
-                nGameRule = 1;
+                nGameRule = (int)KOF02UMS_ROMOptions::Bar;
             }
             else if (wcscmp(pszFileNameLowercase, L"max2bg.bin") == 0)
             {
-                nGameRule = 2;
+                nGameRule = (int)KOF02UMS_ROMOptions::Max2BG;
             }
             else if (wcscmp(pszFileNameLowercase, L"clear.bin") == 0)
             {
-                nGameRule = 3;
+                nGameRule = (int)KOF02UMS_ROMOptions::Clear;
             }
             else if (wcscmp(pszFileNameLowercase, L"psel.bin-n") == 0)
             {
-                nGameRule = 4;
+                nGameRule = (int)KOF02UMS_ROMOptions::PSel;
+            }
+            else if (wcscmp(pszFileNameLowercase, L"rank.bin") == 0)
+            {
+                nGameRule = (int)KOF02UMS_ROMOptions::Rank;
+            }
+            else if (wcscmp(pszFileNameLowercase, L"conte.bin") == 0)
+            {
+                nGameRule = (int)KOF02UMS_ROMOptions::Conte;
             }
             else
             {
-                nGameRule = 0;
+                nGameRule = (int)KOF02UMS_ROMOptions::Main;
             }
             break;
         case MSHVSF_A:

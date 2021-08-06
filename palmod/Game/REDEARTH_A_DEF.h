@@ -1071,21 +1071,21 @@ const sGame_PaletteDataset REDEARTH_A_30_HAUZER_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_30_BONUS_TEXT_PALETTES[] =
 {
-    { L"Most Big text+Leo VS Text", 0X7eb000, 0X7eb020 },
-    { L"Yashichi/Mobi-Chan", 0X7eb060, 0X7eb080 },
+    { L"Most Big text+Leo VS Text", 0X7eb000, 0X7eb020, indexRedEarthSprites_Bonus, 0x18 },
+    { L"Yashichi/Mobi-Chan", 0X7eb060, 0X7eb080, indexRedEarthSprites_Bonus, 0x17 },
     //{ L"Kenji - VS Text", 0X7eb080, 0X7eb0A0 },
     //{ L"Mai-Ling VS Text", 0X7eb100, 0X7eb120 },
     //{ L"Tessa VS Text", 0X7eb180, 0X7eb1A0 },
-    { L"Perfect! Text", 0X7eb300, 0X7eb320 },
-    { L"\"KO\" Text", 0X7eb380, 0X7eb3A0 },
-    { L"\"is victorious\" Text", 0X7eb580, 0X7eb5A0 },
+    { L"Perfect! Text", 0X7eb300, 0X7eb320, indexRedEarthSprites_Bonus, 0x15 },
+    { L"\"KO\" Text", 0X7eb380, 0X7eb3A0, indexRedEarthSprites_Bonus, 0x14 },
+    { L"\"is victorious\" Text", 0X7eb580, 0X7eb5A0, indexRedEarthSprites_Bonus, 0x16 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_30_BONUS_CREDITS_PALETTES[] =
 {
-    { L"Credits - TITLES (e.g, Planner) + Kenji VS Text", 0X7eb080, 0X7eb0A0, indexRedEarthSprites_Bonus, 0x12 },
-    { L"Credits - \"Thank you for playing / Coming Next\" + Mai Ling VS Text", 0X7eb100, 0X7eb120, indexRedEarthSprites_Bonus, 0x13 },
-    { L"Credits - STAFF + Tessa VS Text", 0X7eb180, 0X7eb1A0, indexRedEarthSprites_Bonus, 0x11 },
+    { L"Credits - TITLES (e.g, Planner) + Kenji VS Text", 0X7eb080, 0X7eb100, indexRedEarthSprites_Bonus, 0x12 },
+    { L"Credits - \"Thank you for playing / Coming Next\" + Mai Ling VS Text", 0X7eb100, 0X7eb180, indexRedEarthSprites_Bonus, 0x13 },
+    { L"Credits - STAFF + Tessa VS Text", 0X7eb180, 0X7eb200, indexRedEarthSprites_Bonus, 0x11 },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =
@@ -1158,7 +1158,7 @@ const sDescTreeNode REDEARTH_A_UNITS_30[] =
 
 const sGame_PaletteDataset REDEARTH_A_50_NEXT_PALETTES[] =
 {
-    { L"Coming Next ? Leo",         0x358000, 0x358080 },
+    { L"Coming Next ? Leo",         0x358000, 0x358080, indexRedEarthSprites_Leo, 0x28 },
     { L"Coming Next ? Kenji",       0x358080, 0x358100, indexRedEarthSprites_Kenji, 0x58 },
     { L"Coming Next ? Tessa",       0x358100, 0x358180, indexRedEarthSprites_Tessa, 0x58 },
     { L"Coming Next ? Mai-Ling",    0x358180, 0x358200, indexRedEarthSprites_MaiLing, 0x58 },

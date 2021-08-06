@@ -23,7 +23,7 @@ const sGame_PaletteDataset JOJOSRPG_SNES_HERO_PALETTES[] =
     { L"Joseph", 0x8fda, 0x8FFa, indexJoJoRPGSprites_Heroes, 0x04 },
     { L"Hermit Purple", 0x945c, 0x947C, indexJoJoRPGSprites_Heroes, 0x01 },
 
-    { L"Kakyoin", 0x901a, 0x903a /*, indexJoJoRPGSprites_Heroes, 0x06 */}, // temporary disable due to distortion in the preview
+    { L"Kakyoin", 0x901a, 0x903a, indexJoJoRPGSprites_Heroes, 0x06 },
     { L"Hierophant Green", 0x913a, 0x915a, indexJoJoRPGSprites_Heroes, 0x02 },
     { L"Avdol", 0x8ffa, 0x901a, indexJoJoRPGSprites_Heroes, 0x00 },
     { L"Magician's Red", 0x90fa, 0x911a, indexJoJoRPGSprites_Heroes, 0x07 },
@@ -42,7 +42,7 @@ const sGame_PaletteDataset JOJOSRPG_SNES_ENEMY_PALETTES[] =
     { L"Dark Blue Moon", 0x941a, 0x943a, indexJoJoRPGSprites_Enemies, 0x01 },
     { L"Vampires", 0x927a, 0x929a, indexJoJoRPGSprites_Enemies, 0x0d },
     { L"DEATH13", 0x93ba, 0x93Da, indexJoJoRPGSprites_Enemies, 0x02 },
-    { L"High Priestess", 0x923a, 0x925a, indexJoJoRPGSprites_Enemies, 0x03 },
+    { L"High Priestess", 0x923a, 0x925a, indexJoJoRPGSprites_Enemies, 0x0a },
     { L"Intro DIO", 0x95da, 0x95Fa, indexJoJoRPGSprites_Enemies, 0x07 },
     { L"Intro DIO (Coffin)", 0x931a, 0x933a, indexJoJoRPGSprites_Enemies, 0x05 },
     { L"DIO (Intro menu only)", 0x817a, 0x819a, indexJoJoRPGSprites_Enemies, 0x06 },
@@ -60,7 +60,7 @@ const sGame_PaletteDataset JOJOSRPG_SNES_NPC_PALETTES[] =
     { L"Sick Holly", 0x899a, 0x89da, indexJoJoRPGSprites_NPCs, 0x03 },
     { L"Various students", 0x909a, 0x90Ba, indexJoJoRPGSprites_NPCs, 0x01 },
     { L"Student", 0x90ba, 0x90da, indexJoJoRPGSprites_NPCs, 0x00 },
-    { L"Doctor (Linked to NPCs)", 0x905a, 0x907a },
+    { L"Doctor (Linked to NPCs)", 0x905a, 0x907a, indexJoJoRPGSprites_Enemies, 0x0f },
     { L"Hotel Managers", 0x971a, 0x973a, indexJoJoRPGSprites_NPCs, 0x04 },
     { L"India NPCs", 0x91ba, 0x91da, indexJoJoRPGSprites_NPCs, 0x05 },
 };

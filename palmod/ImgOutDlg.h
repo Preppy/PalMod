@@ -57,7 +57,6 @@ public:
     int border_sz = 0;
 
     const int m_nZoomSelOptionsMin = 0;
-    const int m_nZoomSelOptionsMax = 7; // this should match with the max value of ID_ZOOM / fpZoom
 
     void UpdImgVar(BOOL bResize = TRUE);
     void FillPalCombo();
@@ -88,6 +87,7 @@ public:
 
     void AddZoom();
     void SubZoom();
+    afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
     afx_msg void OnSettingsUseTransparentPNG();
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
 };

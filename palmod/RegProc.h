@@ -1,5 +1,7 @@
 #pragma once
 
+#include <array>
+
 #define REG_MAIN        0
 #define REG_PREV        1
 #define REG_IMGOUT      2
@@ -14,6 +16,20 @@ constexpr auto c_mainDefaultShowAs32 = FALSE;
 constexpr auto c_mainDefaultProcSupp = TRUE;
 constexpr auto c_mainDefaultExtraCopyData = FALSE;
 constexpr auto c_AppRegistryRoot = L"Software\\knarxed\\PalMod";
+
+class CPalModZoom
+{
+private:
+    static const std::array<double, 8> m_nZoomSizes;
+
+public:
+    static void IncrementZoom(double *fpPreviousZoom);
+    static void DecrementZoom(double *fpPreviousZoom);
+
+    static double GetMaximumZoomFactor() { return m_nZoomSizes[m_nZoomSizes.size() - 1]; };
+    static double GetValueAt(size_t nIndex) { return m_nZoomSizes[nIndex]; };
+    static size_t GetZoomListSize() { return m_nZoomSizes.size(); };
+};
 
 class CRegProc
 {

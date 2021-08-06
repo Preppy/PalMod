@@ -45,7 +45,7 @@ protected:
 public:
     afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
     afx_msg void OnSize(UINT nType, int cx, int cy);
-    afx_msg void OnZoomHalfx() { UpdateZoomSetting(0.5); };
+    afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
     afx_msg void OnZoom1x() { UpdateZoomSetting(1.0); };
     afx_msg void OnZoom2x() { UpdateZoomSetting(2.0); };
     afx_msg void OnZoom3x() { UpdateZoomSetting(3.0); };

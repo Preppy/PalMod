@@ -5307,6 +5307,8 @@ const sDescTreeNode KOF02UM_S_UNITS_PSEL[] =
 constexpr auto KOF02UM_S_NUMUNIT_PSEL = ARRAYSIZE(KOF02UM_S_UNITS_PSEL);
 #define KOF02UM_S_EXTRALOC_PSEL KOF02UM_S_NUMUNIT_PSEL
 
+#pragma region MAX2BG
+
 const sGame_PaletteDataset KOF02UM_S_MAX2_BG_PALETTES[] =
 {
     { L"MAX2 BG Main", 0x0, 0x20, indexKOF02UMSprites_Bonus, 0x00 },
@@ -5325,6 +5327,67 @@ const sDescTreeNode KOF02UM_S_UNITS_MAX2[] =
 
 constexpr auto KOF02UM_S_NUMUNIT_MAX2 = ARRAYSIZE(KOF02UM_S_UNITS_MAX2);
 #define KOF02UM_S_EXTRALOC_MAX2 KOF02UM_S_NUMUNIT_MAX2
+
+#pragma endregion MAX2BG
+
+#pragma region RANK
+
+const sGame_PaletteDataset KOF02UM_S_RANK_PALETTES[] =
+{
+    { L"Rank Background", 0x80, 0x480 },
+    { L"Rank Background 2", 0x10480, 0x10880 },
+    { L"Rank Background 3", 0x41080, 0x41480 },
+    { L"Rank Extra", 0x20880, 0x20c80 },
+    { L"Rank Portraits 1", 0x51480, 0x51880 },
+    { L"Rank Portraits 2", 0x61880, 0x61c80 },
+    { L"Rank Portraits 3", 0x71c80, 0x72080 },
+    { L"Rank Portraits 4", 0x82080, 0x82480 },
+    { L"Rank Portraits EX", 0x92480, 0x92880 },
+};
+
+const sDescTreeNode KOF02UM_S_RANK_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANK_PALETTES, ARRAYSIZE(KOF02UM_S_RANK_PALETTES) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_RANK[] =
+{
+    { L"Rank screens", DESC_NODETYPE_TREE, (void*)KOF02UM_S_RANK_COLLECTION, ARRAYSIZE(KOF02UM_S_RANK_COLLECTION) },
+};
+
+constexpr auto KOF02UM_S_NUMUNIT_RANK = ARRAYSIZE(KOF02UM_S_UNITS_RANK);
+#define KOF02UM_S_EXTRALOC_RANK KOF02UM_S_NUMUNIT_RANK
+
+#pragma endregion RANK
+
+#pragma region CONTE
+
+const sGame_PaletteDataset KOF02UM_S_CONTE_PALETTES[] =
+{
+    { L"Continue Screen", 0xc0, 0x4c0 },
+    { L"Continue Screen 2", 0x104c0, 0x108c0 },
+    { L"TRY NEXT MATCH/SERVICE Text", 0x208c0, 0x20cc0 },
+    { L"TRY NEXT MATCH Screen", 0x410c0, 0x414c0 },
+    { L"TRY NEXT MATCH Extra", 0x820c0, 0x824c0 },
+    { L"GAME OVER Border", 0xb2cc0, 0xb30c0 },
+};
+
+const sDescTreeNode KOF02UM_S_CONTE_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_CONTE_PALETTES, ARRAYSIZE(KOF02UM_S_CONTE_PALETTES) },
+};
+
+const sDescTreeNode KOF02UM_S_UNITS_CONTE[] =
+{
+    { L"Continue palettes", DESC_NODETYPE_TREE, (void*)KOF02UM_S_CONTE_COLLECTION, ARRAYSIZE(KOF02UM_S_CONTE_COLLECTION) },
+};
+
+constexpr auto KOF02UM_S_NUMUNIT_CONTE = ARRAYSIZE(KOF02UM_S_UNITS_CONTE);
+#define KOF02UM_S_EXTRALOC_CONTE KOF02UM_S_NUMUNIT_CONTE
+
+#pragma endregion CONTE
+
+#pragma region MAIN
 
 const sDescTreeNode KOF02UM_S_UNITS_MAIN[] =
 {
@@ -5404,6 +5467,8 @@ const sDescTreeNode KOF02UM_S_UNITS_MAIN[] =
 
 constexpr auto KOF02UM_S_NUMUNIT_MAIN = ARRAYSIZE(KOF02UM_S_UNITS_MAIN);
 #define KOF02UM_S_EXTRALOC_MAIN KOF02UM_S_NUMUNIT_MAIN
+
+#pragma endregion MAIN
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef KOF02UM_S_EXTRA[] =

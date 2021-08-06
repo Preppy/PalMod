@@ -605,3 +605,37 @@ RECT StrToRect(CString in_str)
 
     return out_rect;
 }
+
+const std::array<double, 8> CPalModZoom::m_nZoomSizes{ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
+
+void CPalModZoom::IncrementZoom(double* fpPreviousZoom)
+{
+    size_t nCurrentPosition = 0;
+
+    for (; nCurrentPosition < m_nZoomSizes.size(); nCurrentPosition++)
+    {
+        if (m_nZoomSizes[nCurrentPosition] == *fpPreviousZoom)
+        {
+            break;
+        }
+    }
+
+    nCurrentPosition = min(nCurrentPosition + 1, m_nZoomSizes.size() - 1);
+    *fpPreviousZoom = m_nZoomSizes[nCurrentPosition];
+}
+
+void CPalModZoom::DecrementZoom(double *fpPreviousZoom)
+{
+    int nCurrentPosition = m_nZoomSizes.size() - 1;
+
+    for (; nCurrentPosition > 0; nCurrentPosition--)
+    {
+        if (m_nZoomSizes[nCurrentPosition] == *fpPreviousZoom)
+        {
+            break;
+        }
+    }
+
+    nCurrentPosition = max(nCurrentPosition - 1, 0);
+    *fpPreviousZoom = m_nZoomSizes[nCurrentPosition];
+}

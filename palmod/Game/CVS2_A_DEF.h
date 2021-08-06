@@ -2442,8 +2442,8 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x2c28660, 0x2c28680, indexCVS2Sprites_Rugal },
     { L"Extra 1", 0x2c28680, 0x2c286a0 },
-    { L"Extra 2", 0x2c286a0, 0x2c286c0 },
-    { L"Extra 3", 0x2c286c0, 0x2c286e0 },
+    { L"Extra 2: Green Stuff", 0x2c286a0, 0x2c286c0, indexCVS2Sprites_Rugal, 0x08 },
+    { L"Extra 3: Statue", 0x2c286c0, 0x2c286e0, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c286e0, 0x2c28700 },
     { L"Extra 5", 0x2c28700, 0x2c28720 },
 };
@@ -2452,8 +2452,8 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x2c28720, 0x2c28740, indexCVS2Sprites_Rugal },
     { L"Extra 1", 0x2c28740, 0x2c28760 },
-    { L"Extra 2", 0x2c28760, 0x2c28780 },
-    { L"Extra 3", 0x2c28780, 0x2c287a0 },
+    { L"Extra 2: Green Stuff", 0x2c28760, 0x2c28780, indexCVS2Sprites_Rugal, 0x08 },
+    { L"Extra 3: Statue", 0x2c28780, 0x2c287a0, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c287a0, 0x2c287c0 },
     { L"Extra 5", 0x2c287c0, 0x2c287e0 },
 };
@@ -2462,8 +2462,8 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x2c287e0, 0x2c28800, indexCVS2Sprites_Rugal },
     { L"Extra 1", 0x2c28800, 0x2c28820 },
-    { L"Extra 2", 0x2c28820, 0x2c28840 },
-    { L"Extra 3", 0x2c28840, 0x2c28860 },
+    { L"Extra 2: Green Stuff", 0x2c28820, 0x2c28840, indexCVS2Sprites_Rugal, 0x08 },
+    { L"Extra 3: Statue", 0x2c28840, 0x2c28860, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c28860, 0x2c28880 },
     { L"Extra 5", 0x2c28880, 0x2c288a0 },
 };
@@ -2472,8 +2472,8 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x2c288a0, 0x2c288c0, indexCVS2Sprites_Rugal },
     { L"Extra 1", 0x2c288c0, 0x2c288e0 },
-    { L"Extra 2", 0x2c288e0, 0x2c28900 },
-    { L"Extra 3", 0x2c28900, 0x2c28920 },
+    { L"Extra 2: Green Stuff", 0x2c288e0, 0x2c28900, indexCVS2Sprites_Rugal, 0x08 },
+    { L"Extra 3: Statue", 0x2c28900, 0x2c28920, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c28920, 0x2c28940 },
     { L"Extra 5", 0x2c28940, 0x2c28960 },
 };
@@ -2482,8 +2482,8 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x2c28960, 0x2c28980, indexCVS2Sprites_Rugal },
     { L"Extra 1", 0x2c28980, 0x2c289a0 },
-    { L"Extra 2", 0x2c289a0, 0x2c289c0 },
-    { L"Extra 3", 0x2c289c0, 0x2c289e0 },
+    { L"Extra 2: Green Stuff", 0x2c289a0, 0x2c289c0, indexCVS2Sprites_Rugal, 0x08 },
+    { L"Extra 3: Statue", 0x2c289c0, 0x2c289e0, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c289e0, 0x2c28a00 },
     { L"Extra 5", 0x2c28a00, 0x2c28a20 },
 };
@@ -2492,8 +2492,8 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x2c28a20, 0x2c28a40, indexCVS2Sprites_Rugal },
     { L"Extra 1", 0x2c28a40, 0x2c28a60 },
-    { L"Extra 2", 0x2c28a60, 0x2c28a80 },
-    { L"Extra 3", 0x2c28a80, 0x2c28aa0 },
+    { L"Extra 2: Green Stuff", 0x2c28a60, 0x2c28a80, indexCVS2Sprites_Rugal, 0x08 },
+    { L"Extra 3: Statue", 0x2c28a80, 0x2c28aa0, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c28aa0, 0x2c28ac0 },
     { L"Extra 5", 0x2c28ac0, 0x2c28ae0 },
 };
@@ -2502,8 +2502,8 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x2c28ae0, 0x2c28b00, indexCVS2Sprites_Rugal },
     { L"Extra 1", 0x2c28b00, 0x2c28b20 },
-    { L"Extra 2", 0x2c28b20, 0x2c28b40 },
-    { L"Extra 3", 0x2c28b40, 0x2c28b60 },
+    { L"Extra 2: Green Stuff", 0x2c28b20, 0x2c28b40, indexCVS2Sprites_Rugal, 0x08 },
+    { L"Extra 3: Statue", 0x2c28b40, 0x2c28b60, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c28b60, 0x2c28b80 },
     { L"Extra 5", 0x2c28b80, 0x2c28ba0 },
 };
@@ -2512,8 +2512,8 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x2c28ba0, 0x2c28bc0, indexCVS2Sprites_Rugal },
     { L"Extra 1", 0x2c28bc0, 0x2c28be0 },
-    { L"Extra 2", 0x2c28be0, 0x2c28c00 },
-    { L"Extra 3", 0x2c28c00, 0x2c28c20 },
+    { L"Extra 2: Green Stuff", 0x2c28be0, 0x2c28c00, indexCVS2Sprites_Rugal, 0x08 },
+    { L"Extra 3: Statue: Statue", 0x2c28c00, 0x2c28c20, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c28c20, 0x2c28c40 },
     { L"Extra 5", 0x2c28c40, 0x2c28c60 },
 };
@@ -4374,7 +4374,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x3fab320, 0x3fab340, indexCVS2Sprites_GodRugal },
     { L"Extra 1", 0x3fab340, 0x3fab360 },
-    { L"Extra 2", 0x3fab360, 0x3fab380 },
+    { L"Extra 2: Green Stuff", 0x3fab360, 0x3fab380, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab380, 0x3fab3a0 },
     { L"Extra 4", 0x3fab3a0, 0x3fab3c0 },
     { L"Extra 5", 0x3fab3c0, 0x3fab3e0 },
@@ -4384,7 +4384,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x3fab3e0, 0x3fab400, indexCVS2Sprites_GodRugal },
     { L"Extra 1", 0x3fab400, 0x3fab420 },
-    { L"Extra 2", 0x3fab420, 0x3fab440 },
+    { L"Extra 2: Green Stuff", 0x3fab420, 0x3fab440, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab440, 0x3fab460 },
     { L"Extra 4", 0x3fab460, 0x3fab480 },
     { L"Extra 5", 0x3fab480, 0x3fab4a0 },
@@ -4394,7 +4394,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x3fab4a0, 0x3fab4c0, indexCVS2Sprites_GodRugal },
     { L"Extra 1", 0x3fab4c0, 0x3fab4e0 },
-    { L"Extra 2", 0x3fab4e0, 0x3fab500 },
+    { L"Extra 2: Green Stuff", 0x3fab4e0, 0x3fab500, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab500, 0x3fab520 },
     { L"Extra 4", 0x3fab520, 0x3fab540 },
     { L"Extra 5", 0x3fab540, 0x3fab560 },
@@ -4404,7 +4404,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x3fab560, 0x3fab580, indexCVS2Sprites_GodRugal },
     { L"Extra 1", 0x3fab580, 0x3fab5a0 },
-    { L"Extra 2", 0x3fab5a0, 0x3fab5c0 },
+    { L"Extra 2: Green Stuff", 0x3fab5a0, 0x3fab5c0, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab5c0, 0x3fab5e0 },
     { L"Extra 4", 0x3fab5e0, 0x3fab600 },
     { L"Extra 5", 0x3fab600, 0x3fab620 },
@@ -4414,7 +4414,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x3fab620, 0x3fab640, indexCVS2Sprites_GodRugal },
     { L"Extra 1", 0x3fab640, 0x3fab660 },
-    { L"Extra 2", 0x3fab660, 0x3fab680 },
+    { L"Extra 2: Green Stuff", 0x3fab660, 0x3fab680, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab680, 0x3fab6a0 },
     { L"Extra 4", 0x3fab6a0, 0x3fab6c0 },
     { L"Extra 5", 0x3fab6c0, 0x3fab6e0 },
@@ -4424,7 +4424,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x3fab6e0, 0x3fab700, indexCVS2Sprites_GodRugal },
     { L"Extra 1", 0x3fab700, 0x3fab720 },
-    { L"Extra 2", 0x3fab720, 0x3fab740 },
+    { L"Extra 2: Green Stuff", 0x3fab720, 0x3fab740, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab740, 0x3fab760 },
     { L"Extra 4", 0x3fab760, 0x3fab780 },
     { L"Extra 5", 0x3fab780, 0x3fab7a0 },
@@ -4434,7 +4434,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x3fab7a0, 0x3fab7c0, indexCVS2Sprites_GodRugal },
     { L"Extra 1", 0x3fab7c0, 0x3fab7e0 },
-    { L"Extra 2", 0x3fab7e0, 0x3fab800 },
+    { L"Extra 2: Green Stuff", 0x3fab7e0, 0x3fab800, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab800, 0x3fab820 },
     { L"Extra 4", 0x3fab820, 0x3fab840 },
     { L"Extra 5", 0x3fab840, 0x3fab860 },
@@ -4444,7 +4444,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x3fab860, 0x3fab880, indexCVS2Sprites_GodRugal },
     { L"Extra 1", 0x3fab880, 0x3fab8a0 },
-    { L"Extra 2", 0x3fab8a0, 0x3fab8c0 },
+    { L"Extra 2: Green Stuff: Green Stuff", 0x3fab8a0, 0x3fab8c0, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab8c0, 0x3fab8e0 },
     { L"Extra 4", 0x3fab8e0, 0x3fab900 },
     { L"Extra 5", 0x3fab900, 0x3fab920 },

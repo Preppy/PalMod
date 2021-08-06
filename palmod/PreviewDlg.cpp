@@ -44,6 +44,8 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDIMAGE, &CPreviewDlg::OnSetBackgroundImage)
     ON_COMMAND(ID_ACC_ADDZOOM, &CPreviewDlg::AddZoom)
     ON_COMMAND(ID_ACC_SUBZOOM, &CPreviewDlg::SubZoom)
+
+    ON_WM_MOUSEWHEEL()
     ON_WM_CLOSE()
     ON_WM_DESTROY()
     ON_WM_CREATE()
@@ -104,6 +106,20 @@ void CPreviewDlg::OnSize(UINT nType, int cx, int cy)
 
         m_ImgDisp.MoveWindow(&rClient);
     }
+}
+
+BOOL CPreviewDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+{
+    if (zDelta > 0)
+    {
+        AddZoom();
+    }
+    else
+    {
+        SubZoom();
+    }
+
+    return TRUE;
 }
 
 void CPreviewDlg::OnSetBackgroundCol()
@@ -524,20 +540,18 @@ void CPreviewDlg::AddZoom()
 {
     double fpCurrZoom = m_ImgDisp.GetZoom();
 
-    if (fpCurrZoom < 4.0)
-    {
-        m_ImgDisp.SetZoom(fpCurrZoom + 1.0);
-    }
+    CPalModZoom::IncrementZoom(&fpCurrZoom);
+
+    m_ImgDisp.SetZoom(fpCurrZoom);
 }
 
 void CPreviewDlg::SubZoom()
 {
     double fpCurrZoom = m_ImgDisp.GetZoom();
 
-    if (fpCurrZoom > 1.0)
-    {
-        m_ImgDisp.SetZoom(fpCurrZoom - 1.0);
-    }
+    CPalModZoom::DecrementZoom(&fpCurrZoom);
+
+    m_ImgDisp.SetZoom(fpCurrZoom);
 }
 
 void CPreviewDlg::UpdateZoomSetting(double fpNewZoom)
