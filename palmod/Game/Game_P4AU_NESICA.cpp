@@ -21,21 +21,21 @@ CGame_P4AU_NESICA::CGame_P4AU_NESICA(UINT32 nConfirmedROMSize /* = -1 */)
     // Don't load extras
     m_pszExtraFilename = nullptr;
 
-    nFileAmt = nUnitAmt = m_nTotalInternalUnits = ARRAYSIZE(PersonaCharacterData);
+    nFileAmt = nUnitAmt = m_nTotalInternalUnits = (UINT16)PersonaCharacterData.size();
 
     InitDataBuffer();
 
     nGameFlag = P4AU_NESICA;
-    nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
+    nImgGameFlag = IMGDAT_SECTION_ARCSYS;
     //no images yet
-    m_prgGameImageSet = 0;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet = P4AU_S_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(P4AU_S_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
-    pButtonLabelSet = DEF_BUTTONLABEL_2_LEFTRIGHT;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_LEFTRIGHT);
+    pButtonLabelSet = DEF_NOBUTTONS;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -62,7 +62,7 @@ sFileRule CGame_P4AU_NESICA::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     const UINT16 nAdjustedUnitId = (nUnitId & 0x00FF);
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", PersonaCharacterData[nAdjustedUnitId].pszFileName);
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", PersonaCharacterData[nAdjustedUnitId].pszFileName.c_str());
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = PersonaCharacterData[nAdjustedUnitId].nExpectedFileSize;
 
@@ -75,7 +75,7 @@ sFileRule CGame_P4AU_NESICA::GetNextRule()
 
     uRuleCtr++;
 
-    if (uRuleCtr >= ARRAYSIZE(PersonaCharacterData))
+    if (uRuleCtr >= PersonaCharacterData.size())
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
@@ -86,7 +86,7 @@ sFileRule CGame_P4AU_NESICA::GetNextRule()
 sDescTreeNode* CGame_P4AU_NESICA::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
-    UINT16 nUnitCt = ARRAYSIZE(PersonaCharacterData);
+    UINT16 nUnitCt = (UINT16)PersonaCharacterData.size();
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -113,7 +113,7 @@ sDescTreeNode* CGame_P4AU_NESICA::InitDescTree()
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
         //Set each description
-        _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", PersonaCharacterData[iUnitCtr].pszCharacter);
+        _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", PersonaCharacterData[iUnitCtr].pszCharacter.c_str());
 
         UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
         //All children have collection trees
@@ -149,7 +149,7 @@ sDescTreeNode* CGame_P4AU_NESICA::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", PersonaCharacterData[iUnitCtr].ppszPaletteList[nNodeIndex]);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", PersonaCharacterData[iUnitCtr].paletteInfo->at(nNodeIndex).strName.c_str());
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = nTotalPalettesUsedInUnit++;
@@ -174,22 +174,22 @@ sDescTreeNode* CGame_P4AU_NESICA::InitDescTree()
 UINT16 CGame_P4AU_NESICA::GetCollectionCountForUnit(UINT16 nUnitId)
 {
     // Just one palette set per character
-    return ARRAYSIZE(PersonaPaletteNodes);
+    return (UINT16)PersonaPaletteNodes.size();
 }
 
 UINT16 CGame_P4AU_NESICA::GetNodeCountForCollection(UINT16 nUnitId, UINT16 /*nCollectionId*/)
 {
-    return PersonaCharacterData[nUnitId].nPaletteListSize;
+    return (UINT16)PersonaCharacterData[nUnitId].paletteInfo->size();
 }
 
 UINT16 CGame_P4AU_NESICA::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    return PersonaCharacterData[nUnitId].nPaletteListSize * ARRAYSIZE(PersonaPaletteNodes);
+    return (UINT16)(PersonaCharacterData[nUnitId].paletteInfo->size() * PersonaPaletteNodes.size());
 }
 
 LPCWSTR CGame_P4AU_NESICA::GetDescriptionForCollection(UINT16 /*nUnitId */, UINT16 nCollectionId)
 {
-    return PersonaPaletteNodes[nCollectionId].pszNodeName;
+    return PersonaPaletteNodes[nCollectionId].pszNodeName.c_str();
 }
 
 void CGame_P4AU_NESICA::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
@@ -197,10 +197,10 @@ void CGame_P4AU_NESICA::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     // UNICLR palettes are all 0x400 long
     const int cbPaletteSizeOnDisc = 0x400;
 
-    UINT16 nAdjustedPalId = nPalId % ARRAYSIZE(Persona4Names);
-    UINT16 nPaletteSet = nPalId / ARRAYSIZE(Persona4Names);
+    UINT16 nAdjustedPalId = (UINT16)(nPalId % Persona4PalettesDefault.size());
+    UINT16 nPaletteSet = (UINT16)(nPalId / Persona4PalettesDefault.size());
 
-    m_pszCurrentPaletteName = PersonaCharacterData[nUnitId].ppszPaletteList[nAdjustedPalId];
+    m_pszCurrentPaletteName = PersonaCharacterData[nUnitId].paletteInfo->at(nAdjustedPalId).strName.c_str();
     m_nCurrentPaletteROMLocation = PersonaCharacterData[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nAdjustedPalId) + (0x20 * nAdjustedPalId);
     m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
 
@@ -227,15 +227,16 @@ BOOL CGame_P4AU_NESICA::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
         return FALSE;
     }
 
-    //Change the image id if we need to
-    nTargetImgId = 0;
-    UINT16 nImgUnitId = PersonaCharacterData[NodeGet->uUnitId].nSpriteIndex;
-
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists
-    UINT16 nSrcStart = (NodeGet->uPalId % PersonaCharacterData[NodeGet->uUnitId].nPaletteListSize);
+    UINT16 nSrcStart = (UINT16)(NodeGet->uPalId % PersonaCharacterData[NodeGet->uUnitId].paletteInfo->size());
     UINT16 nSrcAmt = m_nNumberOfColorOptions;
-    UINT16 nNodeIncrement = PersonaCharacterData[NodeGet->uUnitId].nPaletteListSize;
+    UINT16 nNodeIncrement = (UINT16)PersonaCharacterData[NodeGet->uUnitId].paletteInfo->size();
+
+    //Change the image id if we need to, using the single image index list used for each color
+    UINT16 nImgUnitId = PersonaCharacterData[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageSet;
+    nTargetImgId = PersonaCharacterData[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageIndex;
+
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -264,7 +265,7 @@ BOOL CGame_P4AU_NESICA::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     BOOL fSuccess = TRUE;
     CString strInfo;
 
-    strInfo.Format(L"CGame_P4AU_NESICA_DIR::LoadFile: Preparing to load data for unit number %u (character %s)\n", nUnitNumber, PersonaCharacterData[nUnitNumber].pszCharacter);
+    strInfo.Format(L"CGame_P4AU_NESICA_DIR::LoadFile: Preparing to load data for unit number %u (character %s)\n", nUnitNumber, PersonaCharacterData[nUnitNumber].pszCharacter.c_str());
     OutputDebugString(strInfo);
 
     strInfo.Format(L"\tCGame_P4AU_NESICA_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", PersonaCharacterData[nUnitNumber].nInitialLocation);

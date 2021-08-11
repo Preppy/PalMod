@@ -782,14 +782,44 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             // Characters and portraits
             sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+            const sDescTreeNode* pCurrentNode = nullptr;
+            
+            if (UsePaletteSetForPortraits())
+            {
+                pCurrentNode = _GetNodeFromPaletteId(SSF2T_A_UNITS_3C, rgExtraCountAll_3C, SSF2T_A_NUM_IND_3C, SSF2T_A_EXTRALOC_3C, NodeGet->uUnitId, NodeGet->uPalId, SSF2T_A_EXTRA_CUSTOM_3C, true);
+            }
+            else if (UsePaletteSetForCharacters())
+            {
+                pCurrentNode = _GetNodeFromPaletteId(SSF2T_A_UNITS_4A, rgExtraCountAll_4A, SSF2T_A_NUM_IND_4A, SSF2T_A_EXTRALOC_4A, NodeGet->uUnitId, NodeGet->uPalId, SSF2T_A_EXTRA_CUSTOM_4A, true);
+            }
+            else
+            {
+                pCurrentNode = _GetNodeFromPaletteId(SSF2T_A_UNITS_8, rgExtraCountAll_8, SSF2T_A_NUM_IND_8, SSF2T_A_EXTRALOC_8, NodeGet->uUnitId, NodeGet->uPalId, SSF2T_A_EXTRA_CUSTOM_8, true);
+            }
 
             if (wcscmp(charUnit->szDesc, k_stNameKey_Bonus) != 0) // Bonus is all unrelated, so leave those out of this logic
             {
-                nSrcAmt = nCollectionCount;
-                while (nSrcStart >= nNodeIncrement)
+                bool fIsCorePalette = false;
+
+                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
                 {
-                    // The starting point is the absolute first palette for the sprite in question which is found in P1
-                    nSrcStart -= nNodeIncrement;
+                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                    {
+                        fIsCorePalette = true;
+                        break;
+                    }
+                }
+
+                if (fIsCorePalette)
+                {
+                    nSrcAmt = m_nNumberOfColorOptions;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        nSrcStart -= nNodeIncrement;
+                    }
                 }
             }
 

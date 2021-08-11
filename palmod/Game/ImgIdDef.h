@@ -5,6 +5,7 @@
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_ARCANA,  // Fuck Arcana Heart
+    IMGDAT_SECTION_ARCSYS,  // Persona
     IMGDAT_SECTION_BREAKREV,
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
