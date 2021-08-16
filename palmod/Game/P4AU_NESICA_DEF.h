@@ -148,9 +148,9 @@ std::array<Persona4PaletteData, 8> Persona4PalettesAkihiko =
 std::array<Persona4PaletteData, 8> Persona4PalettesKen =
 { {
     { L"Main", indexP4AUSprites_Ken, 0x00 },
-    { L"Persona: Kala-Nemi (Ken)", indexP4AUSprites_Ken, 0x20 },
+    { L"Persona: Kala-Nemi (Ken)", indexP4AUSprites_Ken, 0x40 },
     { L"Koromaru - Main", indexP4AUSprites_Ken, 0x20 },
-    { L"Koromaru - Persona: Ceberus", indexP4AUSprites_Ken, 0x40 },
+    { L"Koromaru - Persona: Cerberus", indexP4AUSprites_Ken, 0x40 },
     { L"Extra 1" },
     { L"Extra 2" },
     { L"Extra 3" },
@@ -221,8 +221,8 @@ std::array<Persona4PaletteData, 8> Persona4PalettesMargaret =
 { {
     { L"Main", indexP4AUSprites_Margaret, 0x00 },
     { L"Persona: Ardha", indexP4AUSprites_Margaret, 0x20 },
-    { L"Extra 1: Cu Chulainn" },
-    { L"Extra 2: Yoshitsune" },
+    { L"Extra 1: Cu Chulainn", indexP4AUSprites_Margaret, 0x40 },
+    { L"Extra 2: Yoshitsune", indexP4AUSprites_Margaret, 0x60 },
     { L"Extra 3" },
     { L"Extra 4" },
     { L"Extra 5" },
@@ -355,7 +355,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesYu =
     { L"Persona: Izanagi", indexP4AUSprites_Yu, 0x20 },
     { L"Extra 1" },
     { L"Extra 2" },
-    { L"Extra 3" },
+    { L"Extra 3: Izanagi no Okami", indexP4AUSprites_Yu, 0x40 },
     { L"Extra 4" },
     { L"Extra 5" },
     { L"Extra 6" },

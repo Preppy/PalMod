@@ -43,7 +43,7 @@ CGame_KOF02PS2_A::CGame_KOF02PS2_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF02PS2_A_NUMUNIT;
     m_nExtraUnit = KOF02PS2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2174;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2195;
     m_pszExtraFilename = EXTRA_FILENAME_KOF02PS2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02PS2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

@@ -1491,8 +1491,8 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
             nGameRule = ((wcsstr(pszFileNameLowercase, L"10") != nullptr) ? 10 : 51);
             break;
         }
-        case SF2CE_A: // these two share logic until we care about 23
         case SF2HF_A:
+        case SF2CE_A: // these two share the same general logic
         {
             if (wcsstr(pszFileNameLowercase, L"21") != nullptr)
             {

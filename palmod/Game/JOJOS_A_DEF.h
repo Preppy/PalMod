@@ -2805,84 +2805,193 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_A[] =
 {
     { L"N'Doul & Geb A", 0x033d480, 0x033d500, indexJojos51NDoul },
+
+    { L"N'Doul A Burning 1/2", 0x33d500, 0x33d580, indexJojos51NDoul },
+    { L"N'Doul A Burning 2/2", 0x33d580, 0x33d600, indexJojos51NDoul },
+    { L"N'Doul A Tech/Zap 1/2", 0x33d800, 0x33d880, indexJojos51NDoul },
+    { L"N'Doul A Tech/Zap 2/2", 0x33d880, 0x33d900, indexJojos51NDoul },
+
+    { L"N'Doul Super/VS A", 0x411b00, 0x411b80, indexJojos51NDoul, 0x03 },
+    { L"N'Doul Challenger A", 0x411b80, 0x411c00, indexJojos51NDoul, 0x04 },
+    { L"N'Doul Select/Winning A 1/2", 0x411c00, 0x411c80, indexJojos51NDoul, 0x05, &pairNext },
+    { L"Geb Select/Winning A 2/2", 0x411c80, 0x411d00, indexJojos51NDoul, 0x06, &pairPrevious },
 }; 
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_B[] =
 {
     { L"N'Doul & Geb B", 0x0351980, 0x0351a00, indexJojos51NDoul },
-}; 
+
+    // The hex at these locations is not palettes: skip these
+    // { L"N'Doul B Burning 1/2", 0x33d500 + 0x14500, 0x33d580 + 0x14500 },
+    // { L"N'Doul B Burning 2/2", 0x33d580 + 0x14500, 0x33d600 + 0x14500 },
+    // { L"N'Doul B Tech/Zap 1/2", 0x33d800 + 0x14500, 0x33d880 + 0x14500 },
+    // { L"N'Doul B Tech/Zap 2/2", 0x33d880 + 0x14500, 0x33d900 + 0x14500 },
+
+    // { L"N'Doul Super/VS B", 0x411b00 + 0x4e00, 0x411b80 + 0x4e00, indexJojos51NDoul, 0x03 },
+    // { L"N'Doul Challenger B", 0x411b80 + 0x4e00, 0x411c00 + 0x4e00, indexJojos51NDoul, 0x04 },
+    // { L"N'Doul Select/Winning B 1/2", 0x411c00 + 0x4e00, 0x411c80 + 0x4e00, indexJojos51NDoul, 0x05, &pairNext },
+    // { L"Geb Select/Winning B 2/2", 0x411c80 + 0x4e00, 0x411d00 + 0x4e00, indexJojos51NDoul, 0x06, &pairPrevious },
+};
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_C[] =
 {
     { L"N'Doul & Geb C", 0x0365e80, 0x0365f00, indexJojos51NDoul },
-}; 
+
+    { L"N'Doul C Burning 1/2", 0x365f00, 0x365f80, indexJojos51NDoul },
+    { L"N'Doul C Burning 2/2", 0x365f80, 0x366000, indexJojos51NDoul },
+    { L"N'Doul C Tech/Zap 1/2", 0x366200, 0x366280, indexJojos51NDoul },
+    { L"N'Doul C Tech/Zap 2/2", 0x366280, 0x366300, indexJojos51NDoul },
+
+    { L"N'Doul Super/VS C", 0x41b700, 0x41b780, indexJojos51NDoul, 0x03 },
+    { L"N'Doul Challenger C", 0x41b780, 0x41b800, indexJojos51NDoul, 0x04 },
+    { L"N'Doul Select/Winning C 1/2", 0x41b800, 0x41b880, indexJojos51NDoul, 0x05, &pairNext },
+    { L"Geb Select/Winning C 2/2", 0x41b880, 0x41b900, indexJojos51NDoul, 0x06, &pairPrevious },
+};
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_S[] =
 {
     { L"N'Doul & Geb S", 0x037a380, 0x037a400, indexJojos51NDoul },
-}; 
+
+    { L"N'Doul S Burning 1/2", 0x37a400, 0x37a480, indexJojos51NDoul },
+    { L"N'Doul S Burning 2/2", 0x37a480, 0x37a500, indexJojos51NDoul },
+    { L"N'Doul S Tech/Zap 1/2", 0x37a700, 0x37a780, indexJojos51NDoul },
+    { L"N'Doul S Tech/Zap 2/2", 0x37a780, 0x37a800, indexJojos51NDoul },
+
+    { L"N'Doul Super/VS S", 0x420500, 0x420580, indexJojos51NDoul, 0x03 },
+    { L"N'Doul Challenger S", 0x420580, 0x420600, indexJojos51NDoul, 0x04 },
+    { L"N'Doul Select/Winning S 1/2", 0x420600, 0x420680, indexJojos51NDoul, 0x05, &pairNext },
+    { L"Geb Select/Winning S 2/2", 0x420680, 0x420700, indexJojos51NDoul, 0x06, &pairPrevious },
+};
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_Start[] =
 {
     { L"N'Doul & Geb Start", 0x038e880, 0x038e900, indexJojos51NDoul },
-};
 
-const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_Portraits[] =
-{
-    { L"N'doul VS/Super A",     0x411b00, 0x411b80, indexJojos51NDoul, 0x03 },
-    { L"N'doul Challenger A",   0x411b80, 0x411c00, indexJojos51NDoul, 0x04 },
-    { L"N'doul Select A",       0x411C00, 0x411C80, indexJojos51NDoul, 0x05, &pairNext },
-    { L"Geb Select A",          0x411c80, 0x411d00, indexJojos51NDoul, 0x06, &pairPrevious },
+    { L"N'Doul Start Burning 1/2", 0x38e900, 0x38e980, indexJojos51NDoul },
+    { L"N'Doul Start Burning 2/2", 0x38e980, 0x38ea00, indexJojos51NDoul },
+    { L"N'Doul Start Tech/Zap 1/2", 0x38ec00, 0x38ec80, indexJojos51NDoul },
+    { L"N'Doul Start Tech/Zap 2/2", 0x38ec80, 0x38ed00, indexJojos51NDoul },
+
+    { L"N'Doul Super/VS Start", 0x425300, 0x425380, indexJojos51NDoul, 0x03 },
+    { L"N'Doul Challenger Start", 0x425380, 0x425400, indexJojos51NDoul, 0x04 },
+    { L"N'Doul Select/Winning Start 1/2", 0x425400, 0x425480, indexJojos51NDoul, 0x05, &pairNext },
+    { L"Geb Select/Winning Start 2/2", 0x425480, 0x425500, indexJojos51NDoul, 0x06, &pairPrevious },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_A[] =
 {
     { L"Boss Ice A", 0x033fa00, 0x033fa80, indexJojos51BIce },
+
+    { L"Boss Ice A Burning 1/2", 0x33fa80, 0x33fb00, indexJojos51BIce },
+    { L"Boss Ice A Burning 2/2", 0x33fb00, 0x33fb80, indexJojos51BIce },
+    { L"Boss Ice A Tech/Zap 1/2", 0x33fd80, 0x33fe00, indexJojos51BIce },
+    { L"Boss Ice A Tech/Zap 2/2", 0x33fe00, 0x33fe80, indexJojos51BIce },
+
+    { L"Boss Ice Select VS/Super A", 0x412400, 0x412480 },
+    { L"Boss Ice Challenger A", 0x412480, 0x412500 },
+    { L"Boss Ice Select/Winning A 1/2", 0x412500, 0x412580 },
+    { L"Boss Ice Select/Winning A 2/2", 0x412580, 0x412600 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_B[] =
 {
     { L"Boss Ice B", 0x0353f00, 0x0353f80, indexJojos51BIce },
+    { L"Boss Ice B Burning 1/2", 0x353f80, 0x354000, indexJojos51BIce },
+    { L"Boss Ice B Burning 2/2", 0x354000, 0x354080, indexJojos51BIce },
+    { L"Boss Ice B Tech/Zap 1/2", 0x354280, 0x354300, indexJojos51BIce },
+    { L"Boss Ice B Tech/Zap 2/2", 0x354300, 0x354380, indexJojos51BIce },
+
+    { L"Boss Ice Super/VS B", 0x417200, 0x417280 },
+    { L"Boss Ice Challenger B", 0x417280, 0x417300 },
+    { L"Boss Ice Select/Winning B 1/2", 0x417300, 0x417380 },
+    { L"Boss Ice Select/Winning B 2/2", 0x417380, 0x417400 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_C[] =
 {
     { L"Boss Ice C", 0x0368400, 0x0368480, indexJojos51BIce },
+    { L"Boss Ice C Tech/Zap 1/2", 0x368780, 0x368800, indexJojos51BIce },
+    { L"Boss Ice C Tech/Zap 2/2", 0x368800, 0x368880, indexJojos51BIce },
+    { L"Boss Ice C Burning 1/2", 0x368480, 0x368500, indexJojos51BIce },
+    { L"Boss Ice C Burning 2/2", 0x368500, 0x368580, indexJojos51BIce },
+
+    { L"Boss Ice Super/VS C", 0x41c000, 0x41c080 },
+    { L"Boss Ice Challenger C", 0x41c080, 0x41c100 },
+    { L"Boss Ice Select/Winning C 1/2", 0x41c100, 0x41c180 },
+    { L"Boss Ice Select/Winning C 2/2", 0x41c180, 0x41c200 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_S[] =
 {
     { L"Boss Ice S", 0x037c900, 0x037c980, indexJojos51BIce },
+    { L"Boss Ice S Tech/Zap 1/2", 0x37cc80, 0x37cd00, indexJojos51BIce },
+    { L"Boss Ice S Tech/Zap 2/2", 0x37cd00, 0x37cd80, indexJojos51BIce },
+    { L"Boss Ice S Burning 1/2", 0x37c980, 0x37ca00, indexJojos51BIce },
+    { L"Boss Ice S Burning 2/2", 0x37ca00, 0x37ca80, indexJojos51BIce },
+
+    { L"Boss Ice Super/VS S", 0x420e00, 0x420e80 },
+    { L"Boss Ice Challenger S", 0x420e80, 0x420f00 },
+    { L"Boss Ice Select/Winning S 1/2", 0x420f00, 0x420f80 },
+    { L"Boss Ice Select/Winning S 2/2", 0x420f80, 0x421000 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_Start[] =
 {
     { L"Boss Ice Start", 0x0390e00, 0x0390e80, indexJojos51BIce },
+    { L"Boss Ice Start Tech/Zap 1/2", 0x391180, 0x391200, indexJojos51BIce },
+    { L"Boss Ice Start Tech/Zap 2/2", 0x391200, 0x391280, indexJojos51BIce },
+    { L"Boss Ice Start Burning 1/2", 0x390e80, 0x390f00, indexJojos51BIce },
+    { L"Boss Ice Start Burning 2/2", 0x390f00, 0x390f80, indexJojos51BIce },
+
+    { L"Boss Ice Super/VS Start", 0x425c00, 0x425c80 },
+    { L"Boss Ice Challenger Start", 0x425c80, 0x425d00 },
+    { L"Boss Ice Select/Winning Start 1/2", 0x425d00, 0x425d80 },
+    { L"Boss Ice Select/Winning Start 2/2", 0x425d80, 0x425e00 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_A[] =
 {
     { L"Death 13 A", 0x0340680, 0x0340700, indexJojos51Death13 },
+    { L"Death 13 A Burning 1/2", 0x340700, 0x340780, indexJojos51Death13 },
+    { L"Death 13 A Burning 2/2", 0x340780, 0x340800, indexJojos51Death13 },
+    { L"Death 13 A Tech/Zap 1/2", 0x340a00, 0x340a80, indexJojos51Death13 },
+    { L"Death 13 A Tech/Zap 2/2", 0x340a80, 0x340b00, indexJojos51Death13 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_B[] =
 {
     { L"Death 13 B", 0x0354b80, 0x0354c00, indexJojos51Death13 },
+    { L"Death 13 B Burning 1/2", 0x354c00, 0x354c80, indexJojos51Death13 },
+    { L"Death 13 B Burning 2/2", 0x354c80, 0x354d00, indexJojos51Death13 },
+    { L"Death 13 B Tech/Zap 1/2", 0x354f00, 0x354f80, indexJojos51Death13 },
+    { L"Death 13 B Tech/Zap 2/2", 0x354f80, 0x355000, indexJojos51Death13 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_C[] =
 {
-    { L"Death 13 C", 0x0369080, 0x0369100, indexJojos51Death13 },
+    { L"Death 13 C", 0x369080, 0x369100, indexJojos51Death13 },
+    { L"Death 13 C Burning 1/2", 0x369100, 0x369180, indexJojos51Death13 },
+    { L"Death 13 C Burning 2/2", 0x369180, 0x369200, indexJojos51Death13 },
+    { L"Death 13 C Tech/Zap 1/2", 0x369400, 0x369480, indexJojos51Death13 },
+    { L"Death 13 C Tech/Zap 2/2", 0x369480, 0x369500, indexJojos51Death13 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_S[] =
 {
     { L"Death 13 S", 0x037d580, 0x037d600, indexJojos51Death13 },
+    { L"Death 13 S Burning 1/2", 0x37d600, 0x37d680, indexJojos51Death13 },
+    { L"Death 13 S Burning 2/2", 0x37d680, 0x37d700, indexJojos51Death13 },
+    { L"Death 13 S Tech/Zap 1/2", 0x37d900, 0x37d980, indexJojos51Death13 },
+    { L"Death 13 S Tech/Zap 2/2", 0x37d980, 0x37da00, indexJojos51Death13 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_Start[] =
 {
     { L"Death 13 Start", 0x0391a80, 0x0391b00, indexJojos51Death13 },
+    { L"Death 13 Start Burning 1/2", 0x391b00, 0x391b80, indexJojos51Death13 },
+    { L"Death 13 Start Burning 2/2", 0x391b80, 0x391c00, indexJojos51Death13 },
+    { L"Death 13 Start Tech/Zap 1/2", 0x391e00, 0x391e80, indexJojos51Death13 },
+    { L"Death 13 Start Tech/Zap 2/2", 0x391e80, 0x391f00, indexJojos51Death13 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_GRAYFLY[] =
@@ -3106,7 +3215,6 @@ const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_NDOUL[] =
     { L"C", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_NDOUL_C, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_NDOUL_C) },
     { L"S", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_NDOUL_S, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_NDOUL_S) },
     { L"Start", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_NDOUL_Start, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_NDOUL_Start) },
-    { L"Portraits", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_NDOUL_Portraits, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_NDOUL_Portraits) },
 };
 
 const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_BICE[] =

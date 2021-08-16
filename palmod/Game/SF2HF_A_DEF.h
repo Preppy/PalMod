@@ -404,6 +404,75 @@ constexpr auto SF2HF_A_21_NUMUNIT = ARRAYSIZE(SF2HF_A_21_UNITS);
 constexpr auto SF2HF_A_22_NUMUNIT = ARRAYSIZE(SF2HF_A_22_UNITS);
 #define SF2HF_A_22_EXTRALOC SF2HF_A_22_NUMUNIT
 
+const sGame_PaletteDataset SF2HF_A_RYU_23_PORTRAITS_NODE[] =
+{
+    { L"Ryu", 0x2E868, 0x2E888, indexSF2Sprites_Bonus, 0x16 },
+    { L"Ryu Start", 0x2e748, 0x2e768, indexSF2Sprites_Bonus, 0x16 },
+};
+
+const sGame_PaletteDataset SF2HF_A_EHONDA_23_PORTRAITS_NODE[] =
+{
+    { L"E.Honda", 0x2E888, 0x2E8a8, indexSF2Sprites_Bonus, 0x10 },
+    { L"E.Honda Start", 0x2e768, 0x2e788, indexSF2Sprites_Bonus, 0x10 },
+};
+
+const sGame_PaletteDataset SF2HF_A_BLANKA_23_PORTRAITS_NODE[] =
+{
+    { L"Blanka", 0x2E8a8, 0x2E8c8, indexSF2Sprites_Bonus, 0x03 },
+    { L"Blanka Start", 0x2e788, 0x2e7a8, indexSF2Sprites_Bonus, 0x03 },
+};
+
+const sGame_PaletteDataset SF2HF_A_GUILE_23_PORTRAITS_NODE[] =
+{
+    { L"Guile", 0x2E8c8, 0x2E8e8, indexSF2Sprites_Bonus, 0x12 },
+    { L"Guile Start", 0x2e7a8, 0x2e7c8, indexSF2Sprites_Bonus, 0x12 },
+};
+
+const sGame_PaletteDataset SF2HF_A_KEN_23_PORTRAITS_NODE[] =
+{
+    { L"Ken", 0x2E8e8, 0x2E908, indexSF2Sprites_Bonus, 0x14 },
+    { L"Ken Start", 0x2e7c8, 0x2e7e8, indexSF2Sprites_Bonus, 0x14 },
+};
+
+const sGame_PaletteDataset SF2HF_A_CHUNLI_23_PORTRAITS_NODE[] =
+{
+    { L"Chun-Li", 0x2E908, 0x2E928, indexSF2Sprites_Bonus, 0x06 },
+    { L"Chun-Li Start", 0x2e7e8, 0x2E808, indexSF2Sprites_Bonus, 0x06 },
+};
+
+const sGame_PaletteDataset SF2HF_A_ZANGIEF_23_PORTRAITS_NODE[] =
+{
+    { L"Zangief", 0x2E928, 0x2E948, indexSF2Sprites_Bonus, 0x1a },
+    { L"Zangief Start", 0x2E808, 0x2E828, indexSF2Sprites_Bonus, 0x1a },
+};
+
+const sGame_PaletteDataset SF2HF_A_DHALSIM_23_PORTRAITS_NODE[] =
+{
+    { L"Dhalsim", 0x2E948, 0x2E968 },
+    { L"Dhalsim Start", 0x2E828, 0x2E848, -1, -1, &pairNext },
+    { L"Dhalsim Part 3", 0x348d8, 0x348f8 },
+};
+
+const sDescTreeNode SF2HF_A_23_PORTRAITS_COLLECTION[] =
+{
+    { L"Blanka",     DESC_NODETYPE_TREE, (void*)SF2HF_A_BLANKA_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_BLANKA_23_PORTRAITS_NODE) },
+    { L"Chun-Li",    DESC_NODETYPE_TREE, (void*)SF2HF_A_CHUNLI_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_CHUNLI_23_PORTRAITS_NODE) },
+    { L"Dhalsim",    DESC_NODETYPE_TREE, (void*)SF2HF_A_DHALSIM_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_DHALSIM_23_PORTRAITS_NODE) },
+    { L"E.Honda",    DESC_NODETYPE_TREE, (void*)SF2HF_A_EHONDA_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_EHONDA_23_PORTRAITS_NODE) },
+    { L"Guile",      DESC_NODETYPE_TREE, (void*)SF2HF_A_GUILE_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_GUILE_23_PORTRAITS_NODE) },
+    { L"Ken",        DESC_NODETYPE_TREE, (void*)SF2HF_A_KEN_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_KEN_23_PORTRAITS_NODE) },
+    { L"Ryu",        DESC_NODETYPE_TREE, (void*)SF2HF_A_RYU_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_RYU_23_PORTRAITS_NODE) },
+    { L"Zangief",    DESC_NODETYPE_TREE, (void*)SF2HF_A_ZANGIEF_23_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_ZANGIEF_23_PORTRAITS_NODE) },
+};
+
+const sDescTreeNode SF2HF_A_23_UNITS[] =
+{
+    { L"Continue Portraits", DESC_NODETYPE_TREE, (void*)SF2HF_A_23_PORTRAITS_COLLECTION, ARRAYSIZE(SF2HF_A_23_PORTRAITS_COLLECTION) },
+};
+
+constexpr auto SF2HF_A_23_NUMUNIT = ARRAYSIZE(SF2HF_A_23_UNITS);
+#define SF2HF_A_23_EXTRALOC SF2HF_A_23_NUMUNIT
+
 const stExtraDef SF2HF_A_EXTRA[] = 
 {
     //Start

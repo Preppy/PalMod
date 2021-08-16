@@ -1682,7 +1682,7 @@ const sGame_PaletteDataset KOF02PS2_A_KENSOU_PALETTES_A[] =
     { L"A - MAX2 Power Up State", 0x038dc20, 0x038dc40, indexKOF02UMSprites_Kensou, 0x0a },
     { L"A - Desperation Move / Super Desperation Move", 0x038dc40, 0x038dc60, indexKOF02UMSprites_Kensou, 0x00 },
     { L"A - Electric Shock Effect", 0x038dc60, 0x038dc80, indexKOF02UMSprites_Kensou, 0x18 },
-    { L"A - MAX Flash", 0x038dc80, 0x038dca0, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"A - MAX Flash", 0x038dc80, 0x038dca0, indexKOF02UMSprites_Kensou, 0x0a },
     { L"A - Hidden Super Desperation Move 2", 0x038dca0, 0x038dcc0, indexKOF02UMSprites_Kensou, 0x00 },
     { L"A - Soul Palette", 0x038dcc0, 0x038dce0, indexKOF02UMSprites_Kensou, 0x18 },
     { L"A - Hidden Super Desperation Move 3", 0x038dce0, 0x038dd00, indexKOF02UMSprites_Kensou, 0x00 },
@@ -1694,7 +1694,7 @@ const sGame_PaletteDataset KOF02PS2_A_KENSOU_PALETTES_B[] =
     { L"B - MAX2 Power Up State", 0x038de20, 0x038de40, indexKOF02UMSprites_Kensou, 0x0a },
     { L"B - Desperation Move / Super Desperation Move", 0x038de40, 0x038de60, indexKOF02UMSprites_Kensou, 0x00 },
     { L"B - Electric Shock Effect", 0x038de60, 0x038de80, indexKOF02UMSprites_Kensou, 0x18 },
-    { L"B - MAX Flash", 0x038de80, 0x038dea0, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"B - MAX Flash", 0x038de80, 0x038dea0, indexKOF02UMSprites_Kensou, 0x0a },
     { L"B - Hidden Super Desperation Move 2", 0x038dea0, 0x038dec0, indexKOF02UMSprites_Kensou, 0x00 },
     { L"B - Soul Palette", 0x038dec0, 0x038dee0, indexKOF02UMSprites_Kensou, 0x18 },
     { L"B - Hidden Super Desperation Move 3", 0x038dee0, 0x038df00, indexKOF02UMSprites_Kensou, 0x00 },
@@ -1706,7 +1706,7 @@ const sGame_PaletteDataset KOF02PS2_A_KENSOU_PALETTES_C[] =
     { L"C - MAX2 Power Up State", 0x038e020, 0x038e040, indexKOF02UMSprites_Kensou, 0x0a },
     { L"C - Desperation Move / Super Desperation Move", 0x038e040, 0x038e060, indexKOF02UMSprites_Kensou, 0x00 },
     { L"C - Electric Shock Effect", 0x038e060, 0x038e080, indexKOF02UMSprites_Kensou, 0x18 },
-    { L"C - MAX Flash", 0x038e080, 0x038e0a0, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"C - MAX Flash", 0x038e080, 0x038e0a0, indexKOF02UMSprites_Kensou, 0x0a },
     { L"C - Hidden Super Desperation Move 2", 0x038e0a0, 0x038e0c0, indexKOF02UMSprites_Kensou, 0x00 },
     { L"C - Soul Palette", 0x038e0c0, 0x038e0e0, indexKOF02UMSprites_Kensou, 0x18 },
     { L"C - Hidden Super Desperation Move 3", 0x038e0e0, 0x038e100, indexKOF02UMSprites_Kensou, 0x00 },
@@ -1718,7 +1718,7 @@ const sGame_PaletteDataset KOF02PS2_A_KENSOU_PALETTES_D[] =
     { L"D - MAX2 Power Up State", 0x038e220, 0x038e240, indexKOF02UMSprites_Kensou, 0x0a },
     { L"D - Desperation Move / Super Desperation Move", 0x038e240, 0x038e260, indexKOF02UMSprites_Kensou, 0x00 },
     { L"D - Electric Shock Effect", 0x038e260, 0x038e280, indexKOF02UMSprites_Kensou, 0x18 },
-    { L"D - MAX Flash", 0x038e280, 0x038e2a0, indexKOF02UMSprites_Kensou, 0x00 },
+    { L"D - MAX Flash", 0x038e280, 0x038e2a0, indexKOF02UMSprites_Kensou, 0x0a },
     { L"D - Hidden Super Desperation Move 2", 0x038e2a0, 0x038e2c0, indexKOF02UMSprites_Kensou, 0x00 },
     { L"D - Soul Palette", 0x038e2c0, 0x038e2e0, indexKOF02UMSprites_Kensou, 0x18 },
     { L"D - Hidden Super Desperation Move 3", 0x038e2e0, 0x038e300, indexKOF02UMSprites_Kensou, 0x00 },
@@ -3862,6 +3862,41 @@ const sGame_PaletteDataset KOF02PS2_A_OrochiChris_PALETTES_SHARED[] =
     { L"Ankoku Orochinagi Fire 2",  0xa4202 + 0x30009E, 0xa4222 + 0x30009E, indexKOF02UMSprites_ChrisOChi, 0x04 },
 };
 
+
+
+const sGame_PaletteDataset KOF02PS2_S_OCHRIS_PALETTES_MAX2[] =
+{
+    { L"Orochi Chris MAX2 Background 1", 0x3c0e00, 0x3c0e20, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 2", 0x3c0e20, 0x3c0e40, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 3", 0x3c0e40, 0x3c0e60, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 4", 0x3c0e60, 0x3c0e80, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 5", 0x3c0e80, 0x3c0ea0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 6", 0x3c0ea0, 0x3c0ec0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 7", 0x3c0ec0, 0x3c0ee0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 8", 0x3c0ee0, 0x3c0f00, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 9", 0x3c0f00, 0x3c0f20, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 10", 0x3c0f20, 0x3c0f40, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 11", 0x3c0f40, 0x3c0f60, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 12", 0x3c0f60, 0x3c0f80, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 13", 0x3c0f80, 0x3c0fa0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 14", 0x3c0fa0, 0x3c0fc0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 15", 0x3c0fc0, 0x3c0fe0, indexKOF02UMSprites_ChrisOChi, 0x09 },
+    { L"Orochi Chris MAX2 Background 16", 0x3c0fe0, 0x3c1000, indexKOF02UMSprites_ChrisOChi, 0x09 },
+};
+
+const sGame_PaletteDataset KOF02PS2_S_OSHERMIE_PALETTES_MAX2[] =
+{
+    { L"Orochi Shermie MAX2 Background", 0x3c23e0, 0x3c2400, indexKOF02UMSprites_ShermieOChi, 0x0a },
+};
+
+const sGame_PaletteDataset KOF02PS2_S_OYASHIRO_PALETTES_MAX2[] =
+{
+    { L"Orochi Yashiro MAX2 Background 1/4",  0x3c2340, 0x3c2360, indexKOF02UMSprites_YashiroOChi, 0x0a },
+    { L"Orochi Yashiro MAX2 Background 2/4",  0x3c2360, 0x3c2380, indexKOF02UMSprites_YashiroOChi, 0x0a },
+    { L"Orochi Yashiro MAX2 Background 3/4",  0x3c2380, 0x3c23a0, indexKOF02UMSprites_YashiroOChi, 0x0a },
+    { L"Orochi Yashiro MAX2 Background 4/4",  0x3c23a0, 0x3c23c0, indexKOF02UMSprites_YashiroOChi, 0x0a },
+};
+
 const sDescTreeNode KOF02PS2_A_KYO_COLLECTION[] =
 {
     // Note that we're using a modified color name to avoid multisprite export for these unbalanced / hacked nodes
@@ -4359,6 +4394,7 @@ const sDescTreeNode KOF02PS2_A_OYASHIRO_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OYASHIRO_PALETTES_C, ARRAYSIZE(KOF02PS2_A_OYASHIRO_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OYASHIRO_PALETTES_D, ARRAYSIZE(KOF02PS2_A_OYASHIRO_PALETTES_D) },
     { L"Moves", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OrochiYashiro_PALETTES_SHARED, ARRAYSIZE(KOF02PS2_A_OrochiYashiro_PALETTES_SHARED) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02PS2_S_OYASHIRO_PALETTES_MAX2, ARRAYSIZE(KOF02PS2_S_OYASHIRO_PALETTES_MAX2) },
     { L"Win Portraits", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OYASHIRO_PALETTES_PORTRAITS_WIN, ARRAYSIZE(KOF02PS2_A_OYASHIRO_PALETTES_PORTRAITS_WIN) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OYASHIRO_PALETTES_PORTRAITS_LIFEBAR, ARRAYSIZE(KOF02PS2_A_OYASHIRO_PALETTES_PORTRAITS_LIFEBAR) },
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OYASHIRO_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02PS2_A_OYASHIRO_PALETTES_PORTRAITS_SELECT) },
@@ -4371,6 +4407,7 @@ const sDescTreeNode KOF02PS2_A_OSHERMIE_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OSHERMIE_PALETTES_C, ARRAYSIZE(KOF02PS2_A_OSHERMIE_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OSHERMIE_PALETTES_D, ARRAYSIZE(KOF02PS2_A_OSHERMIE_PALETTES_D) },
     { L"Moves", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OrochiShermie_PALETTES_SHARED, ARRAYSIZE(KOF02PS2_A_OrochiShermie_PALETTES_SHARED) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02PS2_S_OSHERMIE_PALETTES_MAX2, ARRAYSIZE(KOF02PS2_S_OSHERMIE_PALETTES_MAX2) },
     { L"Win Portraits", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OSHERMIE_PALETTES_PORTRAITS_WIN, ARRAYSIZE(KOF02PS2_A_OSHERMIE_PALETTES_PORTRAITS_WIN) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OSHERMIE_PALETTES_PORTRAITS_LIFEBAR, ARRAYSIZE(KOF02PS2_A_OSHERMIE_PALETTES_PORTRAITS_LIFEBAR) },
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OSHERMIE_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02PS2_A_OSHERMIE_PALETTES_PORTRAITS_SELECT) },
@@ -4383,6 +4420,7 @@ const sDescTreeNode KOF02PS2_A_OCHRIS_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OCHRIS_PALETTES_C, ARRAYSIZE(KOF02PS2_A_OCHRIS_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OCHRIS_PALETTES_D, ARRAYSIZE(KOF02PS2_A_OCHRIS_PALETTES_D) },
     { L"Moves", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OrochiChris_PALETTES_SHARED, ARRAYSIZE(KOF02PS2_A_OrochiChris_PALETTES_SHARED) },
+    { L"MAX2 Extras", DESC_NODETYPE_TREE, (void*)KOF02PS2_S_OCHRIS_PALETTES_MAX2, ARRAYSIZE(KOF02PS2_S_OCHRIS_PALETTES_MAX2) },
     { L"Win Portraits", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OCHRIS_PALETTES_PORTRAITS_WIN, ARRAYSIZE(KOF02PS2_A_OCHRIS_PALETTES_PORTRAITS_WIN) },
     { L"Lifebar Portraits", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OCHRIS_PALETTES_PORTRAITS_LIFEBAR, ARRAYSIZE(KOF02PS2_A_OCHRIS_PALETTES_PORTRAITS_LIFEBAR) },
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02PS2_A_OCHRIS_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02PS2_A_OCHRIS_PALETTES_PORTRAITS_SELECT) },

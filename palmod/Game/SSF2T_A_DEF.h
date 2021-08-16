@@ -1705,6 +1705,26 @@ const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE_4[] =
     { L"Background Castle", 0x541Da, 0x5423a, indexSF2Sprites_Stages, 0x0b },
 };
 
+const sGame_PaletteDataset SSF2T_A_04_STAGEHUD_NODE[] =
+{
+    { L"Ryu Stage HUD and Extras", 0x53f7c, 0x5403c },
+    { L"E. Honda Stage HUD and Extras", 0x5437c, 0x5443c },
+    { L"Blanka Stage HUD and Extras", 0x5477c, 0x5483c },
+    { L"Guile Stage HUD and Extras", 0x54b7c, 0x54c3c },
+    { L"Ken Stage HUD and Extras", 0x54f7c, 0x5503c },
+    { L"Chun-Li Stage HUD and Extras", 0x5537c, 0x5543c },
+    { L"Zangief Stage HUD and Extras", 0x5577c, 0x5583c },
+    { L"Dhalsim Stage HUD and Extras", 0x55b7c, 0x55c3c },
+    { L"M. Bison Stage HUD and Extras", 0x55f7c, 0x5603c },
+    { L"Sagat Stage HUD and Extras", 0x5637c, 0x5643c },
+    { L"Balrog Stage HUD and Extras", 0x5677c, 0x5683c },
+    { L"Vega Stage HUD and Extras", 0x56b7c, 0x56c3c },
+    { L"Cammy Stage HUD and Extras", 0x56f7c, 0x5703c },
+    { L"T. Hawk Stage HUD and Extras", 0x5737c, 0x5743c },
+    { L"Fei-Long Stage HUD and Extras", 0x5777c, 0x5783c },
+    { L"Dee Jay Stage HUD and Extras", 0x57b7c, 0x57c3c },
+};
+
 const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE[] =
 {
     { L"Sky",           0x603c0 - 0x02, 0x603e0 - 0x02, indexSF2Sprites_Stages, 0x08, &pairFullyLinkedNode },
@@ -2933,6 +2953,9 @@ const sDescTreeNode SSF2T_A_04_BONUS_COLLECTION[] =
 {
     { L"Intro Palettes",            DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_NODE,          ARRAYSIZE(SSF2T_A_04_BONUS_NODE) },
     { L"Title Screen",              DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_TITLESCREEN_NODE, ARRAYSIZE(SSF2T_A_04_BONUS_TITLESCREEN_NODE) },
+
+    { L"Stage HUDs and Extras",              DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGEHUD_NODE, ARRAYSIZE(SSF2T_A_04_STAGEHUD_NODE) },
+    
     { L"Cammy Stage (04 parts)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
     { L"Ryu Stage (04 parts)",      DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
 };

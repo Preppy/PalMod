@@ -5,6 +5,7 @@
 
 constexpr auto EXTRA_FILENAME_SF2HF_21 = L"SF2HF-21e.txt";
 constexpr auto EXTRA_FILENAME_SF2HF_22 = L"SF2HF-22e.txt";
+constexpr auto EXTRA_FILENAME_SF2HF_23 = L"SF2HF-23e.txt";
 
 class CGame_SF2HF_A : public CGameWithExtrasFile
 {
@@ -13,14 +14,14 @@ public:
     static int m_nSelectedRom;
     static UINT32 m_nTotalPaletteCountForSF2HF_21;
     static UINT32 m_nTotalPaletteCountForSF2HF_22;
-    static bool UsePaletteSetForSelect() { return (m_nSelectedRom == 21); }
+    static UINT32 m_nTotalPaletteCountForSF2HF_23;
 
     static int rgExtraCountAll_21[SF2HF_A_21_NUMUNIT + 1];
     static int rgExtraCountAll_22[SF2HF_A_22_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly_21[SF2HF_A_21_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly_22[SF2HF_A_22_NUMUNIT + 1];
+    static int rgExtraCountAll_23[SF2HF_A_23_NUMUNIT + 1];
     static int rgExtraLoc_21[SF2HF_A_21_NUMUNIT + 1];
     static int rgExtraLoc_22[SF2HF_A_22_NUMUNIT + 1];
+    static int rgExtraLoc_23[SF2HF_A_23_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize_HF;
@@ -46,6 +47,7 @@ public:
     //Static functions / variables
     static CDescTree MainDescTree_21;
     static CDescTree MainDescTree_22;
+    static CDescTree MainDescTree_23;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);
@@ -73,4 +75,5 @@ public:
 
     static stExtraDef* SF2HF_A_21_EXTRA_CUSTOM;
     static stExtraDef* SF2HF_A_22_EXTRA_CUSTOM;
+    static stExtraDef* SF2HF_A_23_EXTRA_CUSTOM;
 };

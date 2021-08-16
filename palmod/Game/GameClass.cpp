@@ -2279,7 +2279,6 @@ UINT32 CGameClass::SaveMultiplePatchFiles(CString strTargetDirectory)
     return nPaletteSaveCount;
 }
 
-
 void CGameClass::SetSpecificValuesForCRC(UINT32 nCRCForFile)
 {
     m_nConfirmedCRCValue = nCRCForFile;
