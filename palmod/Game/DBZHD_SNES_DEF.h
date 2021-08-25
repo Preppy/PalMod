@@ -145,6 +145,7 @@ const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_P2[] =
 const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_SHARED[] =
 {
     { L"Intro", 0xB16F0, 0xB1710 },
+    { L"Cell Jr and Cell Kamehameha", 0x2ab093, 0x2ab0d3, indexDBZHDSprites_Cell , 0x10 },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_BONUS_PALETTES[] =

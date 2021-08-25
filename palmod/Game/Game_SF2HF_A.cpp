@@ -72,7 +72,7 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
 
         nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 41;
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 43;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSF2HF_21;
         m_nLowestKnownPaletteRomLocation = 0x93fe;
         break;
@@ -117,8 +117,8 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabelSet = DEF_BUTTONLABEL_2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
+    pButtonLabelSet = DEF_BUTTONLABEL_2_NORMAL_START;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_NORMAL_START);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

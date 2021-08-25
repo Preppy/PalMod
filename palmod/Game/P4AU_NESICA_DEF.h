@@ -150,7 +150,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesKen =
     { L"Main", indexP4AUSprites_Ken, 0x00 },
     { L"Persona: Kala-Nemi (Ken)", indexP4AUSprites_Ken, 0x40 },
     { L"Koromaru - Main", indexP4AUSprites_Ken, 0x20 },
-    { L"Koromaru - Persona: Cerberus", indexP4AUSprites_Ken, 0x40 },
+    { L"Koromaru - Persona: Cerberus", indexP4AUSprites_Ken, 0x60 },
     { L"Extra 1" },
     { L"Extra 2" },
     { L"Extra 3" },

@@ -1779,6 +1779,35 @@ const sGame_PaletteDataset GGXXACR_S_Title[] =
     { L"Title Screen", 0x7AC70, 0x7B070, indexGGXXSprites_ACR_Bonus, 0x06 },
 };
 
+const sGame_PaletteDataset GGXXACR_S_MissionIcons[] =
+{
+    { L"A.B.A Icon", 0x57520, 0x57920 },
+    { L"Anji Icon", 0x544d0, 0x548D0 },
+    { L"Axl Icon", 0x51a90, 0x51E90 },
+    { L"Baiken Icon", 0x52ff0, 0x533F0 },
+    { L"Bridget Icon", 0x56a60, 0x56E60 },
+    { L"Chipp Icon", 0x52510, 0x52910 },
+    { L"Dizzy Icon", 0x554d0, 0x558D0 },
+    { L"Eddie Icon", 0x52a80, 0x52E80 },
+    { L"Faust Icon", 0x53580, 0x53980 },
+    { L"I-no Icon", 0x55fa0, 0x563A0 },
+    { L"Jam Icon", 0x53f70, 0x54370 },
+    { L"Johnny Icon", 0x54a20, 0x54E20 },
+    { L"Justice Icon", 0x58590, 0x58990 },
+    { L"Kliff Icon", 0x58030, 0x58430 },
+    { L"Ky Icon", 0x50a80, 0x50E80 },
+    { L"May Icon", 0x50fd0, 0x513D0 },
+    { L"Millia Icon", 0x51540, 0x51940 },
+    { L"Order-Sol Icon", 0x57ae0, 0x57EE0 },
+    { L"Potemkin Icon", 0x51fc0, 0x523C0 },
+    { L"Robo-Ky	Icon", 0x56fd0, 0x573D0 },
+    { L"Slayer Icon", 0x55a60, 0x55E60 },
+    { L"Sol Icon", 0x50530, 0x50930 },
+    { L"Testament Icon", 0x53a50, 0x53E50 },
+    { L"Venom Icon", 0x54f70, 0x55370 },
+    { L"Zappa Icon", 0x564f0, 0x568F0 },
+};
+
 GGXXACRFileData GGXXACR_S_CharacterData[] =
 {
     //Alphabetical by character name, not by file name
@@ -1837,4 +1866,5 @@ GGXXACRFileData GGXXACR_S_CharacterData[] =
     { L"..\\demo\\select.bin",              L"Select Screen",               2960672, nullptr,                           0,        0xe3260,                         -1, GGXXACR_S_SelectScreen, ARRAYSIZE(GGXXACR_S_SelectScreen) },
     { L"..\\demo\\select.bin",              L"Select Screen Portraits",     2960672, nullptr,                           0,        0x2f0,                           -1, GGXXACR_S_SelectScreenPortraits, ARRAYSIZE(GGXXACR_S_SelectScreenPortraits) },
     { L"..\\demo\\titleall.bin",            L"Title Screen",                5281296, nullptr,                           0,        0x7AC70,                         -1, GGXXACR_S_Title, ARRAYSIZE(GGXXACR_S_Title) },
+    { L"..\\..\\..\\mission\\missionall.bin", L"Lobby / Mission Icons",      402800, nullptr,                           0,        0,                               -1, GGXXACR_S_MissionIcons, ARRAYSIZE(GGXXACR_S_MissionIcons) },
 };

@@ -669,32 +669,32 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Red Earth", 0x322ca0, 0x322d80 },
     { L"Intro - Leo closeup", 0x3226ae, 0x32272e },
     { L"Intro - Emerald", 0x321320, 0x321380, indexRedEarthSprites_Bonus, 0x05 },
-    { L"Intro - Emerald BG1", 0x321720, 0x3217a0 },
-    { L"Intro - Emerald BG2", 0x3217a0, 0x321820 },
-    { L"Intro - Emerald BG3", 0x321820, 0x3218a0 },
-    { L"Intro - Emerald BG4", 0x3218a0, 0x321920 },
-    { L"Intro - Emerald BG5", 0x321920, 0x3219a0 },
-    { L"Intro - Emerald BG6", 0x3219a0, 0x321a20 },
-    { L"Intro - Emerald BG7", 0x321a20, 0x321aa0 },
-    { L"Intro - Emerald BG8", 0x321aa0, 0x321b20 },
-    { L"Intro - Emerald BG9", 0x321b20, 0x321ba0 },
-    { L"Intro - Emerald BG10", 0x321ba0, 0x321c20 },
-    { L"Intro - Emerald BG11", 0x321c20, 0x321ca0 },
-    { L"Intro - Emerald BG12", 0x321ca0, 0x321d20 },
-    { L"Intro - Emerald BG13", 0x321d20, 0x321da0 },
-    { L"Intro - Emerald BG14", 0x321da0, 0x321e20 },
-    { L"Intro - Emerald BG15", 0x321e20, 0x321ea0 },
-    { L"Intro - Emerald BG16", 0x321ea0, 0x321f20 },
-    { L"Intro - Emerald BG17", 0x321f20, 0x321fa0 },
-    { L"Intro - Emerald BG18", 0x321fa0, 0x322020 },
-    { L"Intro - Emerald BG19", 0x322020, 0x3220a0 },
-    { L"Intro - Emerald BG20", 0x3220a0, 0x322120 },
-    { L"Intro - Emerald BG21", 0x322120, 0x3221a0 },
-    { L"Intro - Emerald BG22", 0x3221a0, 0x322220 },
-    { L"Intro - Emerald BG23", 0x322220, 0x3222a0 },
-    { L"Intro - Emerald BG24", 0x3222a0, 0x322320 },
-    { L"Intro - Emerald BG25", 0x322320, 0x3223a0 },
-    { L"Intro - Emerald BG26", 0x3223a0, 0x322420 },
+    { L"Intro - Emerald BG1", 0x321720, 0x3217a0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG2", 0x3217a0, 0x321820, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG3", 0x321820, 0x3218a0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG4", 0x3218a0, 0x321920, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG5", 0x321920, 0x3219a0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG6", 0x3219a0, 0x321a20, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG7", 0x321a20, 0x321aa0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG8", 0x321aa0, 0x321b20, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG9", 0x321b20, 0x321ba0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG10", 0x321ba0, 0x321c20, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG11", 0x321c20, 0x321ca0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG12", 0x321ca0, 0x321d20, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG13", 0x321d20, 0x321da0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG14", 0x321da0, 0x321e20, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG15", 0x321e20, 0x321ea0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG16", 0x321ea0, 0x321f20, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG17", 0x321f20, 0x321fa0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG18", 0x321fa0, 0x322020, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG19", 0x322020, 0x3220a0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG20", 0x3220a0, 0x322120, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG21", 0x322120, 0x3221a0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG22", 0x3221a0, 0x322220, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG23", 0x322220, 0x3222a0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG24", 0x3222a0, 0x322320, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG25", 0x322320, 0x3223a0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG26", 0x3223a0, 0x322420, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald FX", 0x3216be, 0x32171e },
 
     { L"Intro - Hauzer", 0x3213a0, 0x321420, indexRedEarthSprites_Bonus, 0x07 },
@@ -1026,14 +1026,30 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_DARMINOR_PALETTES[] =
     { L"Darminor 5/5", 0x73bf80, 0x73c000 },
 };
 
+#ifdef help
+
+'ScionLair_Part1': '0x07', # 6.2
+'ScionLair_Part2': '0x08', # 5.1
+'ScionLair_Part3': '0x09', # 6.1
+'ScionLair_Part4': '0x0A', # 5.2
+'ScionLair_Part5': '0x0B', # 4
+'ScionLair_Part6': '0x0C', # 3
+'ScionLair_Part7': '0x0D', # 2
+'ScionLair_Part8': '0x0E', # 1
+'ScionLair_Part9': '0x0F', # 6.3
+
+#endif
+
 const sGame_PaletteDataset REDEARTH_A_STAGES_SCION_PALETTES[] =
 {
-    { L"Scion's Lair 1/6", 0x73c000, 0x73c200 },
-    { L"Scion's Lair 2/6", 0x73c200, 0x73c400 },
-    { L"Scion's Lair 3/6", 0x73c400, 0x73c600 },
-    { L"Scion's Lair 4/6", 0x73c600, 0x73c800 },
-    { L"Scion's Lair 5/6", 0x73c800, 0x73ca00 },
-    { L"Scion's Lair 6/6", 0x73ca00, 0x73cc00 },
+    { L"Scion's Lair 1/8", 0x73cb80, 0x73cc00, indexRedEarthSprites_Stages, 0x0e, &pairFullyLinkedNode },
+    { L"Scion's Lair 2/8", 0x73c000, 0x73c200, indexRedEarthSprites_Stages, 0x0d },
+    { L"Scion's Lair 3/8", 0x73c200, 0x73c400, indexRedEarthSprites_Stages, 0x0c },
+    { L"Scion's Lair 4/8", 0x73c400, 0x73c600, indexRedEarthSprites_Stages, 0x0b },
+    { L"Scion's Lair 5/8", 0x73c600, 0x73c800, indexRedEarthSprites_Stages, 0x0a },
+    { L"Scion's Lair 6/8", 0x73c880, 0x73ca00, indexRedEarthSprites_Stages, 0x08 },
+    { L"Scion's Lair 7/8", 0x73c800, 0x73c880, indexRedEarthSprites_Stages, 0x09 },
+    { L"Scion's Lair 8/8", 0x73ca00, 0x73cb80, indexRedEarthSprites_Stages, 0x07 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_30_LEO_PALETTES[] =

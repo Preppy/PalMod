@@ -1707,22 +1707,22 @@ const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE_4[] =
 
 const sGame_PaletteDataset SSF2T_A_04_STAGEHUD_NODE[] =
 {
-    { L"Ryu Stage HUD and Extras", 0x53f7c, 0x5403c },
-    { L"E. Honda Stage HUD and Extras", 0x5437c, 0x5443c },
-    { L"Blanka Stage HUD and Extras", 0x5477c, 0x5483c },
-    { L"Guile Stage HUD and Extras", 0x54b7c, 0x54c3c },
-    { L"Ken Stage HUD and Extras", 0x54f7c, 0x5503c },
-    { L"Chun-Li Stage HUD and Extras", 0x5537c, 0x5543c },
-    { L"Zangief Stage HUD and Extras", 0x5577c, 0x5583c },
-    { L"Dhalsim Stage HUD and Extras", 0x55b7c, 0x55c3c },
-    { L"M. Bison Stage HUD and Extras", 0x55f7c, 0x5603c },
-    { L"Sagat Stage HUD and Extras", 0x5637c, 0x5643c },
-    { L"Balrog Stage HUD and Extras", 0x5677c, 0x5683c },
-    { L"Vega Stage HUD and Extras", 0x56b7c, 0x56c3c },
-    { L"Cammy Stage HUD and Extras", 0x56f7c, 0x5703c },
-    { L"T. Hawk Stage HUD and Extras", 0x5737c, 0x5743c },
-    { L"Fei-Long Stage HUD and Extras", 0x5777c, 0x5783c },
-    { L"Dee Jay Stage HUD and Extras", 0x57b7c, 0x57c3c },
+    { L"Ryu Stage HUD and Extras", 0x53f7c, 0x5403c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"E. Honda Stage HUD and Extras", 0x5437c, 0x5443c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Blanka Stage HUD and Extras", 0x5477c, 0x5483c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Guile Stage HUD and Extras", 0x54b7c, 0x54c3c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Ken Stage HUD and Extras", 0x54f7c, 0x5503c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Chun-Li Stage HUD and Extras", 0x5537c, 0x5543c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Zangief Stage HUD and Extras", 0x5577c, 0x5583c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Dhalsim Stage HUD and Extras", 0x55b7c, 0x55c3c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"M. Bison Stage HUD and Extras", 0x55f7c, 0x5603c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Sagat Stage HUD and Extras", 0x5637c, 0x5643c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Balrog Stage HUD and Extras", 0x5677c, 0x5683c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Vega Stage HUD and Extras", 0x56b7c, 0x56c3c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Cammy Stage HUD and Extras", 0x56f7c, 0x5703c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"T. Hawk Stage HUD and Extras", 0x5737c, 0x5743c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Fei-Long Stage HUD and Extras", 0x5777c, 0x5783c, index_SSF2T_4A_Bonus, 0x22 },
+    { L"Dee Jay Stage HUD and Extras", 0x57b7c, 0x57c3c, index_SSF2T_4A_Bonus, 0x22 },
 };
 
 const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE[] =

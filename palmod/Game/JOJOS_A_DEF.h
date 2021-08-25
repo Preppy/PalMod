@@ -56,7 +56,7 @@ const WCHAR JOJOS_A_UNITDESC_51[][32] =
     L"Death 13", // JOJOS_A_CHARACTER_COLLECTION_DEATH13
     L"Unimplemented: Gray Fly", // JOJOS_A_CHARACTER_COLLECTION_GRAYFLY
     L"Timestop", // JOJOS_TIMESTOP_COLLECTION
-    L"Bonus", // JOJOS_A_BONUS_COLLECTION
+    L"Bonus Palettes", // JOJOS_A_BONUS_COLLECTION
 };
 
 constexpr auto JOJOS_A_NUMUNIT_50 = ARRAYSIZE(JOJOS_A_UNITDESC_50);
@@ -3270,29 +3270,17 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { L"Hol Horse intro Body",   0x030c600, 0x030c680, indexJojos51Bonus, 0x3C },
     { L"Hol Horse intro Hand",   0x030c580, 0x030c600, indexJojos51Bonus, 0x3D },
     { L"Hol Horse shoot scene",  0x030C400, 0x030C480, indexJojos51Bonus, 0x3E },
-#ifdef USE_LARGE_PALETTES
-    { L"Hol Horse intro background", 0x030bb00, 0x030be00 },
-#else
     { L"Hol Horse intro background (1/2)", 0x030bb00, 0x030bd00 },
     { L"Hol Horse intro background (2/2)", 0x030bd00, 0x030be00 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { L"Hol Horse intro ender background", 0x030be00, 0x030c300 },
-#else
     { L"Hol Horse intro ender background (1/3)", 0x030be00, 0x030c000 },
     { L"Hol Horse intro ender background (2/3)", 0x030c000, 0x030c200 },
     { L"Hol Horse intro ender background (3/3)", 0x030c200,  0x030c300 },
-#endif
     { L"Vanilla Ice intro",      0x030ba00, 0x030ba80, indexJojos51Bonus, 0x0E },
     { L"Cream intro",            0x030ba80, 0x030bb00, indexJojos51Bonus, 0x3B },
-#ifdef USE_LARGE_PALETTES
-    { L"Vice intro background", 0x030b100, 0x030b780 },
-#else
     { L"Vice intro background (1/4)", 0x030b100, 0x030b300 },
     { L"Vice intro background (2/4)", 0x030b300, 0x030b500 },
     { L"Vice intro background (3/4)", 0x030b500, 0x030b700 },
     { L"Vice intro background (4/4)", 0x030b700, 0x030b780 },
-#endif
     { L"Vice Intro Ender",       0x030c380, 0x030c400, indexJojos51Bonus, 0x0F },
     { L"Intro Manga Panels (1/5)", 0x030b780, 0x030b800, indexJojos51Bonus, 0x09 },
     { L"Intro Manga Panels (2/5)", 0x030b800, 0x030b880, indexJojos51Bonus, 0x0A },
@@ -3365,7 +3353,6 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
 
 const sGame_PaletteDataset JOJOS_A_BONUS_NODE_SUPERBACKGROUND[] =
 {
-#ifndef USE_LARGE_PALETTES
     { L"Super Flash Background (Challenge Screen / Demo) (1/8)", 0x030d500, 0x030d580, indexJojos51Bonus, 0x11 },
     { L"Super Flash Background (Challenge Screen / Demo) (2/8)", 0x030d580, 0x030d600, indexJojos51Bonus, 0x12 },
     { L"Super Flash Background (Challenge Screen / Demo) (3/8)", 0x030d600, 0x030d680, indexJojos51Bonus, 0x13 },
@@ -3374,14 +3361,10 @@ const sGame_PaletteDataset JOJOS_A_BONUS_NODE_SUPERBACKGROUND[] =
     { L"Super Flash Background (Challenge Screen / Demo) (6/8)", 0x030d780, 0x030d800, indexJojos51Bonus, 0x16 },
     { L"Super Flash Background (Challenge Screen / Demo) (7/8)", 0x030d800, 0x030d880, indexJojos51Bonus, 0x17 },
     { L"Super Flash Background (Challenge Screen / Demo) (8/8)", 0x030d880, 0x030d900, indexJojos51Bonus, 0x18 },
-#else
-    { L"Super Flash Background (Challenge Screen / Demo)", 0x030d500, 0x030d900 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_BONUS_NODE_FADEBACKGROUND[] =
 {
-#ifndef USE_LARGE_PALETTES
     { L"Fade Background (1/29)", 0x030f080, 0x030f100 },
     { L"Fade Background (2/29)", 0x030f100, 0x030f180 },
     { L"Fade Background (3/29)", 0x030f180, 0x030f200 },
@@ -3411,9 +3394,45 @@ const sGame_PaletteDataset JOJOS_BONUS_NODE_FADEBACKGROUND[] =
     { L"Fade Background (27/29)", 0x030fd80, 0x030fe00 },
     { L"Fade Background (28/29)", 0x030fe00, 0x030fe80 },
     { L"Fade Background (29/29)", 0x030fe80, 0x030ff00 },
-#else
-    { L"Fade Background", 0x030f080, 0x030ff00 },
-#endif
+};
+
+const sGame_PaletteDataset JOJOS_BONUS_STAGESHADOWS[] =
+{
+    { L"A Lockup", 0x334600, 0x334680 },
+    { L"A Health Room", 0x334680, 0x334700 },
+    { L"In A Airplane", 0x334700, 0x334780 },
+    { L"Tigerbaum Garden", 0x334780, 0x334800 },
+    { L"Hotel (Devil)", 0x334800, 0x334880 },
+    { L"Remains", 0x334880, 0x334900 },
+    { L"Hotel (Justice)", 0x334900, 0x334980 },
+    { L"Amusement Park", 0x334980, 0x334a00 },
+    { L"Small Island", 0x334a00, 0x334a80 },
+    { L"Desert Noon", 0x334b00, 0x334b80 },
+    { L"Ruins", 0x334d00, 0x334d80 },
+    { L"Country Town Noon", 0x334d80, 0x334e00 },
+    { L"Underground Water", 0x334f00, 0x334f80 },
+    { L"Inside House", 0x334f80, 0x335000 },
+    { L"Coffin Room", 0x335000, 0x335080 },
+    { L"Clock Tower", 0x335080, 0x335100 },
+    { L"Suburbs", 0x335100, 0x335180 },
+    { L"On The Bridge", 0x335280, 0x335300 },
+    { L"Country Town Twilight", 0x334e00, 0x334e80 },
+    { L"Desert Morning", 0x334b80, 0x334c00 },
+    { L"Desert Twilight", 0x334c00, 0x334c80 },
+    { L"Desert Night", 0x334c80, 0x334d00 },
+    { L"Small Island (Joseph)", 0x334a80, 0x334b00 },
+    { L"Country Town Night", 0x334e80, 0x334f00 },
+    { L"Suburbs 2", 0x335180, 0x335200 },
+    { L"Suburbs 3", 0x335200, 0x335280 },
+    { L"New 1 - Copy of Remains", 0x335380, 0x335400 },
+    { L"New 2 - Copy of Hotel (Devil)", 0x335300, 0x335380 },
+    { L"New 3 - Copy of Small Island", 0x335400, 0x335480 },
+    { L"New 4 - Copy of Ruins", 0x335480, 0x335500 },
+    { L"New 5 - Copy of Underground Water", 0x335500, 0x335580 },
+    { L"New 6 - Copy of Inside House", 0x335580, 0x335600 },
+    { L"New 7 - Copy of Coffin Room", 0x335600, 0x335680 },
+    { L"New 8 - Copy of Clock Tower", 0x335680, 0x335700 },
+    { L"New 9 - Copy of On The Bridge", 0x335700, 0x335780 },
 };
 
 const sGame_PaletteDataset JOJOS_BONUS_TAROT_CARDS[] =
@@ -3475,6 +3494,7 @@ const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
     { L"Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_FADEBACKGROUND, ARRAYSIZE(JOJOS_BONUS_NODE_FADEBACKGROUND) },
     { L"Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_NODE_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_NODE_SUPERBACKGROUND) },
     { L"Tarot Cards", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_TAROT_CARDS, ARRAYSIZE(JOJOS_BONUS_TAROT_CARDS) },
+    { L"Stage Shadows", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_STAGESHADOWS, ARRAYSIZE(JOJOS_BONUS_STAGESHADOWS) },
 };
 
 #pragma endregion Bonus

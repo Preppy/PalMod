@@ -8,6 +8,11 @@ const LPCWSTR DEF_BUTTONLABEL_2[] =
     L"P1", L"P2"
 };
 
+const LPCWSTR DEF_BUTTONLABEL_2_NORMAL_START[] =
+{
+    L"Normal", L"Start"
+};
+
 const LPCWSTR DEF_BUTTONLABEL_2_PK[] =
 {
     L"Punch", L"Kick"
