@@ -20,7 +20,7 @@ constexpr auto c_AppRegistryRoot = L"Software\\knarxed\\PalMod";
 class CPalModZoom
 {
 private:
-    static const std::array<double, 8> m_nZoomSizes;
+    static const std::array<double, 6> m_nZoomSizes;
 
 public:
     static void IncrementZoom(double *fpPreviousZoom);

@@ -1253,7 +1253,7 @@ const sGame_PaletteDataset KOF99AE_A_CHOI_B_PALETTES[] =
 const sGame_PaletteDataset KOF99AE_A_JHUN_A_PALETTES[] =
 {
     { L"Main", 0x2e03f0, 0x2e0410, indexKOF99Sprites_Jhun, 0x00, &pairNext },
-    { L"Extra 1", 0x2e0410, 0x2e0430, indexKOF99Sprites_Jhun, 0x01 },
+    { L"Extra 1: Hair", 0x2e0410, 0x2e0430, indexKOF99Sprites_Jhun, 0x01 },
     { L"Extra 2", 0x2e0430, 0x2e0450, indexKOF99Sprites_Jhun, 0x00 },
     { L"Electric Palette", 0x2e0450, 0x2e0470, indexKOF99Sprites_Jhun, 0x00, &pairNext },
     { L"Extra 3", 0x2e0470, 0x2e0490, indexKOF99Sprites_Jhun, 0x01 },
@@ -1275,7 +1275,7 @@ const sGame_PaletteDataset KOF99AE_A_JHUN_A_PALETTES[] =
 const sGame_PaletteDataset KOF99AE_A_JHUN_B_PALETTES[] =
 {
     { L"Main", 0x2e05f0, 0x2e0610, indexKOF99Sprites_Jhun, 0x00, &pairNext },
-    { L"Extra 1", 0x2e0610, 0x2e0630, indexKOF99Sprites_Jhun, 0x01 },
+    { L"Extra 1: Hair", 0x2e0610, 0x2e0630, indexKOF99Sprites_Jhun, 0x01 },
     { L"Extra 2", 0x2e0630, 0x2e0650, indexKOF99Sprites_Jhun, 0x00 },
     { L"Electric Palette", 0x2e0650, 0x2e0670, indexKOF99Sprites_Jhun, 0x00, &pairNext },
     { L"Extra 3", 0x2e0670, 0x2e0690, indexKOF99Sprites_Jhun, 0x01 },
@@ -4213,7 +4213,7 @@ const sGame_PaletteDataset KOF99AE_A_CHOI_EFFECT_PALETTES[] =
 const sGame_PaletteDataset KOF99AE_A_JHUN_C_PALETTES[] =
 {
     { L"Main", 0x1e03f0, 0x1e0410, indexKOF99Sprites_Jhun, 0x00, &pairNext },
-    { L"Extra 1", 0x1e0410, 0x1e0430, indexKOF99Sprites_Jhun, 0x01 },
+    { L"Extra 1: Hair", 0x1e0410, 0x1e0430, indexKOF99Sprites_Jhun, 0x01 },
     { L"Extra 2", 0x1e0430, 0x1e0450, indexKOF99Sprites_Jhun, 0x00 },
     { L"Electric Palette", 0x1e0450, 0x1e0470, indexKOF99Sprites_Jhun, 0x00, &pairNext },
     { L"Extra 3", 0x1e0470, 0x1e0490, indexKOF99Sprites_Jhun, 0x01 },
@@ -4235,7 +4235,7 @@ const sGame_PaletteDataset KOF99AE_A_JHUN_C_PALETTES[] =
 const sGame_PaletteDataset KOF99AE_A_JHUN_D_PALETTES[] =
 {
     { L"Main", 0x1e05f0, 0x1e0610, indexKOF99Sprites_Jhun, 0x00, &pairNext },
-    { L"Extra 1", 0x1e0610, 0x1e0630, indexKOF99Sprites_Jhun, 0x01 },
+    { L"Extra 1: Hair", 0x1e0610, 0x1e0630, indexKOF99Sprites_Jhun, 0x01 },
     { L"Extra 2", 0x1e0630, 0x1e0650, indexKOF99Sprites_Jhun, 0x00 },
     { L"Electric Palette", 0x1e0650, 0x1e0670, indexKOF99Sprites_Jhun, 0x00, &pairNext },
     { L"Extra 3", 0x1e0670, 0x1e0690, indexKOF99Sprites_Jhun, 0x01 },

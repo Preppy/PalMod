@@ -1244,6 +1244,7 @@ enum CVS2SpriteList
     indexCVS2Sprites_Yun,
     indexCVS2Sprites_Yuri,
     indexCVS2Sprites_Zangief,
+    indexCVS2Sprites_Bonus,     // 0x30
 }; // max 47 characters
 
 enum SamuraiShodownSpriteList

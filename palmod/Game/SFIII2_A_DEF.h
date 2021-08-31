@@ -19,6 +19,7 @@ const UINT16 SFIII2_A_IMGIDS_USED[] =
     index3SSprites_ShinGouki,
     index3SSprites_Gill,
     indexSF2ISprites_Bonus,
+    index3SSprites_Bonus, // for judgement girls
 };
 
 const sGame_PaletteDataset SFIII2_A_ALEX_LP_PALETTES[] =
@@ -1779,17 +1780,17 @@ const sDescTreeNode SFIII2_A_SHINGOUKI_COLLECTION[] =
 
 const sGame_PaletteDataset SFIII2_A_BONUS_PALETTES[] =
 {
-    { L"Judgement Girl: Julia", 0x3dfe00, 0x3dfe80 },
-    { L"Judgement Girl: Fair Libra", 0x3dfe80, 0x3dff00 },
-    { L"Judgement Girl: Rifa", 0x3dff00, 0x3dff80 },
-    { L"Judgement Girl: Tonfa", 0x3dff80, 0x3e0000 },
-    { L"Judgement Girl: Toli", 0x3e0000, 0x3e0080 },
-    { L"Judgement Girl: Anna", 0x3e0080, 0x3e0100 },
-    { L"Judgement Girl: Lilly", 0x3e0100, 0x3e0180 },
-    { L"Judgement Girl: Effie", 0x3e0180, 0x3e0200 },
+    { L"Judgement Girl: Julia", 0x3dfe00, 0x3dfe80, index3SSprites_Bonus, 0x2b },
+    { L"Judgement Girl: Fair Libra", 0x3dfe80, 0x3dff00, index3SSprites_Bonus, 0x2a },
+    { L"Judgement Girl: Rifa", 0x3dff00, 0x3dff80, index3SSprites_Bonus, 0x2d },
+    { L"Judgement Girl: Tonfa", 0x3dff80, 0x3e0000, index3SSprites_Bonus, 0x2f },
+    { L"Judgement Girl: Toli", 0x3e0000, 0x3e0080, index3SSprites_Bonus, 0x2e },
+    { L"Judgement Girl: Anna", 0x3e0080, 0x3e0100, index3SSprites_Bonus, 0x29 },
+    { L"Judgement Girl: Lilly", 0x3e0100, 0x3e0180, index3SSprites_Bonus, 0x2c },
+    { L"Judgement Girl: Effie", 0x3e0180, 0x3e0200, index3SSprites_Necro, 0x02 },
 
     { L"1P and 2P Cursor", 0x3a0c00, 0x3a0c80 },
-    { L"Character Select Names ", 0x3a0c80, 0x3a0d00 },
+    { L"Character Select Names", 0x3a0c80, 0x3a0d00 },
     { L"Random Character Icons", 0x3a1480, 0x3a1500, indexSF2ISprites_Bonus, 0x0 },
     { L"Select Screen Text", 0x3a1500, 0x3a1580 },
     { L"Select Screen 1 SuperArt P1", 0x3a1580, 0x3a1600 },

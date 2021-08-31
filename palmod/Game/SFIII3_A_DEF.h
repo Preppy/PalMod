@@ -2087,14 +2087,14 @@ const sDescTreeNode SFIII3_A_REMY_COLLECTION[] =
 
 const sGame_PaletteDataset SFIII3_A_JGIRLS_PALETTES[] =
 {
-    { L"Julia",         0x76b900, 0x76b980 },
-    { L"Fair Libra",    0x76b980, 0x76ba00 },
-    { L"Rifa",          0x76ba00, 0x76ba80 },
-    { L"Tonfa",         0x76ba80, 0x76bb00 },
-    { L"Toli",          0x76bb00, 0x76bb80 },
-    { L"Anna",          0x76bb80, 0x76bc00 },
-    { L"Lilly",         0x76bc00, 0x76bc80 },
-    { L"Judge Effie",   0x76bc80, 0x76bd00 },
+    { L"Julia",         0x76b900, 0x76b980, index3SSprites_Bonus, 0x2b },
+    { L"Fair Libra",    0x76b980, 0x76ba00, index3SSprites_Bonus, 0x2a },
+    { L"Rifa",          0x76ba00, 0x76ba80, index3SSprites_Bonus, 0x2d },
+    { L"Tonfa",         0x76ba80, 0x76bb00, index3SSprites_Bonus, 0x2f },
+    { L"Toli",          0x76bb00, 0x76bb80, index3SSprites_Bonus, 0x2e },
+    { L"Anna",          0x76bb80, 0x76bc00, index3SSprites_Bonus, 0x29 },
+    { L"Lilly",         0x76bc00, 0x76bc80, index3SSprites_Bonus, 0x2c },
+    { L"Judge Effie",   0x76bc80, 0x76bd00, index3SSprites_Necro, 0x02 },
 };
 
 const sGame_PaletteDataset SFIII3_A_BONUS_INTROPORTS_PALETTES[] =

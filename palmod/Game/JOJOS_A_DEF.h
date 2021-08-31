@@ -3302,6 +3302,8 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { L"English Title", 0x030CB80, 0x030CC00, indexJojos51Bonus, 0x34 },
     { L"Title Screen Background", 0x030b0a0, 0x030b0b0, indexJojos51Bonus, 0x31 },
     { L"World Map",              0x0313780, 0x0313800, indexJojos51Bonus, 0x38 },
+
+    { L"Ranking Mini Logo",      0x313f00, 0x313f80, indexJojos51Bonus, 0x4d },
 };
 
 const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
@@ -3486,6 +3488,32 @@ const sGame_PaletteDataset JOJOS_BONUS_TAROT_CARDS[] =
     { L"The World Menu Card", 0x030EF00, 0x030EF80, indexJojos51TarotCards, 0x28 },
 };
 
+const sGame_PaletteDataset JOJOS_BONUS_PORTAITS_RANKING[] =
+{
+    { L"Jotaro Ranking Portrait", 0x313d00, 0x313d20,               indexJojos51Jotaro, 0x30 },
+    { L"Kakyoin Ranking Portrait", 0x313d20, 0x313d40,              indexJojos51Kakyo, 0x30 },
+    { L"Avdol Ranking Portrait", 0x313de0, 0x313e00,                indexJojos51Avdol, 0x30 },
+    { L"Polnareff Ranking Portrait", 0x313da0, 0x313dc0,            indexJojos51Pol, 0x30 },
+    { L"Joseph Ranking Portrait", 0x313dc0, 0x313de0,               indexJojos51Joseph, 0x30 },
+    { L"Iggy Ranking Portrait", 0x313d80, 0x313da0,                 indexJojos51Iggy, 0x30 },
+    { L"Alessi Ranking Portrait", 0x313e00, 0x313e20,               indexJojos51Alessi, 0x30 },
+    { L"Chaka Ranking Portrait", 0x313d60, 0x313d80,                indexJojos51Chaka, 0x30 },
+    { L"Devo Ranking Portrait", 0x313e20, 0x313e40,                 indexJojos51Devo, 0x30 },
+    { L"Midler Ranking Portrait", 0x313e40, 0x313e60,               indexJojos51Midler, 0x30 },
+    { L"DIO Ranking Portrait", 0x313d40, 0x313d60,                  indexJojos51Dio, 0x30 },
+    { L"Shadow DIO Ranking Portrait", 0x313e60, 0x313e80,           indexJojos51SDio, 0x30 },
+    { L"Young Joseph Ranking Portrait", 0x313e80, 0x313ea0,         indexJojos51YSeph, 0x30 },
+    { L"Hol Horse Ranking Portrait", 0x3141a0, 0x3141c0,            indexJojos51Hol, 0x30 },
+    { L"Vanilla Ice Ranking Portrait", 0x314180, 0x3141a0,          indexJojos51VIce, 0x30 },
+    { L"New Kak Ranking Portrait", 0x3141e0, 0x314200,              indexJojos51NewKakyo, 0x30 },
+    { L"Anubis Polnareff Ranking Portrait", 0x3141c0, 0x3141e0,     indexJojos51Anubis, 0x30 },
+    { L"Petshop Ranking Portrait", 0x314400, 0x314420,              indexJojos51Petshop, 0x30 },
+    { L"Mariah Ranking Portrait", 0x314420, 0x314440,               indexJojos51Mariah, 0x30 },
+    { L"Hol Horse & Boingo Ranking Portrait", 0x314440, 0x314460,   indexJojos51HolBoingo, 0x30 },
+    { L"Rubber Soul Ranking Portrait", 0x314460, 0x314480,          indexJojos51RSoul, 0x30 },
+    { L"Khan Ranking Portrait", 0x314480, 0x3144a0,                 indexJojos51Khan, 0x30 },
+};
+
 const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
 {
     { L"Intro", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_INTRO_PALETTES, ARRAYSIZE(JOJOS_BONUS_INTRO_PALETTES) },
@@ -3494,6 +3522,7 @@ const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
     { L"Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_FADEBACKGROUND, ARRAYSIZE(JOJOS_BONUS_NODE_FADEBACKGROUND) },
     { L"Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_NODE_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_NODE_SUPERBACKGROUND) },
     { L"Tarot Cards", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_TAROT_CARDS, ARRAYSIZE(JOJOS_BONUS_TAROT_CARDS) },
+    { L"Ranking Portraits", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_PORTAITS_RANKING, ARRAYSIZE(JOJOS_BONUS_PORTAITS_RANKING) },
     { L"Stage Shadows", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_STAGESHADOWS, ARRAYSIZE(JOJOS_BONUS_STAGESHADOWS) },
 };
 

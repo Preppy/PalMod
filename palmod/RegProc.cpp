@@ -606,7 +606,7 @@ RECT StrToRect(CString in_str)
     return out_rect;
 }
 
-const std::array<double, 8> CPalModZoom::m_nZoomSizes{ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
+const std::array<double, 6> CPalModZoom::m_nZoomSizes{ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
 
 void CPalModZoom::IncrementZoom(double* fpPreviousZoom)
 {
