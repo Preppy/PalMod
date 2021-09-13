@@ -135,6 +135,13 @@ const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P1[] =
     { L"P1 Punch Color", 0x153da, 0x153fa, indexCPS2Sprites_Gambit, 0x00 },
     { L"P1 slash FX", 0x153fa, 0x1541a, indexCPS2Sprites_Gambit, 0x01 },
     { L"P1 card FX", 0x1541a, 0x1543a, indexCPS2Sprites_Gambit, 0x02 },
+
+    // le tournament es finit
+    { L"P1 glow effects 1", 0x1e63a, 0x1e65a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P1 glow effects 2", 0x1e65a, 0x1e67a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P1 glow effects 3", 0x1e67a, 0x1e69a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P1 glow effects 4", 0x1e69a, 0x1e6ba, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P1 glow effects 5", 0x1e6ba, 0x1e6da, indexCPS2Sprites_Gambit, 0x00 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P2[] =
@@ -142,6 +149,12 @@ const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P2[] =
     { L"P2 Kick Color", 0x1543a, 0x1545a, indexCPS2Sprites_Gambit, 0x00 },
     { L"P2 slash FX", 0x1545a, 0x1547a, indexCPS2Sprites_Gambit, 0x01 },
     { L"P2 card FX", 0x1547a, 0x1549a, indexCPS2Sprites_Gambit, 0x02 },
+
+    { L"P2 glow effects 1", 0x1e6da, 0x1e6fa, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P2 glow effects 2", 0x1e6fa, 0x1e71a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P2 glow effects 3", 0x1e71a, 0x1e73a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P2 glow effects 4", 0x1e73a, 0x1e75a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P2 glow effects 5", 0x1e75a, 0x1e77a, indexCPS2Sprites_Gambit, 0x00 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Sabretooth_PALETTES_P1[] =
@@ -236,6 +249,9 @@ const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P1[] =
     { L"P1 Punch Color", 0x1531a, 0x1533a, indexCPS2Sprites_Rogue, 0x0c },
     { L"Palette (01)", 0x1533a, 0x1535a, indexCPS2Sprites_Rogue, 0x0c },
     { L"P1 ground FX", 0x1535a, 0x1537a, indexCPS2Sprites_Rogue, 0x02 },
+
+    { L"P1 glow effects 1", 0x1e57a, 0x1e59a, indexCPS2Sprites_Rogue, 0x0c },
+    { L"P1 glow effects 2", 0x1e59a, 0x1e5ba, indexCPS2Sprites_Rogue, 0x0c },
 };
 
 const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P2[] =
@@ -243,6 +259,9 @@ const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P2[] =
     { L"P2 Kick Color", 0x1537a, 0x1539a, indexCPS2Sprites_Rogue, 0x0c },
     { L"Palette (04)", 0x1539a, 0x153ba, indexCPS2Sprites_Rogue, 0x0c },
     { L"P2 ground FX", 0x153ba, 0x153da, indexCPS2Sprites_Rogue, 0x02 },
+
+    { L"P2 glow effects 1", 0x1e5ba, 0x1e5da, indexCPS2Sprites_Rogue, 0x0c },
+    { L"P2 glow effects 2", 0x1e5da, 0x1e5fa, indexCPS2Sprites_Rogue, 0x0c },
 };
 
 const sGame_PaletteDataset XMVSF_A_Ryu_PALETTES_P1[] =

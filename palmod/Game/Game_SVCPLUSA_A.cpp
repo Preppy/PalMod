@@ -827,8 +827,8 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             {
                 MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
             }
-            __fallthrough;
         }
+        __fallthrough;
     default:
     case eSVCRevisionName::SVCPlusA:
         {

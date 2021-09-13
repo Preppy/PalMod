@@ -1294,7 +1294,7 @@ const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_A[] =
     { L"A - MAX Flash", 0x0002080, 0x00020a0, indexKOF02UMSprites_KyoKusa, 0x08 },
     { L"A - Shingo Intro Stuff", 0x00020a0, 0x00020c0, indexKOF02UMSprites_KyoKusa, 0x19 },
     { L"A - Soul Palette", 0x00020c0, 0x00020e0, indexKOF02UMSprites_KyoKusa, 0x18 },
-    { L"A - Hidden Super Desperation Move 3", 0x00020e0, 0x0002100, indexKOF02UMSprites_KyoKusa, 0x00 },
+    { L"A - MAX2 Trail", 0x00020e0, 0x0002100, indexKOF02UMSprites_KyoKusa, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_B[] =
@@ -1306,7 +1306,7 @@ const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_B[] =
     { L"B - MAX Flash", 0x0002280, 0x00022a0, indexKOF02UMSprites_KyoKusa, 0x08 },
     { L"B - Shingo Intro Stuff", 0x00022a0, 0x00022c0, indexKOF02UMSprites_KyoKusa, 0x19 },
     { L"B - Soul Palette", 0x00022c0, 0x00022e0, indexKOF02UMSprites_KyoKusa, 0x18 },
-    { L"B - Hidden Super Desperation Move 3", 0x00022e0, 0x0002300, indexKOF02UMSprites_KyoKusa, 0x00 },
+    { L"B - MAX2 Trail", 0x00022e0, 0x0002300, indexKOF02UMSprites_KyoKusa, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_C[] =
@@ -1318,7 +1318,7 @@ const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_C[] =
     { L"C - MAX Flash", 0x0002480, 0x00024a0, indexKOF02UMSprites_KyoKusa, 0x08 },
     { L"C - Shingo Intro Stuff", 0x00024a0, 0x00024c0, indexKOF02UMSprites_KyoKusa, 0x19 },
     { L"C - Soul Palette", 0x00024c0, 0x00024e0, indexKOF02UMSprites_KyoKusa, 0x18 },
-    { L"C - Hidden Super Desperation Move 3", 0x00024e0, 0x0002500, indexKOF02UMSprites_KyoKusa, 0x00 },
+    { L"C - MAX2 Trail", 0x00024e0, 0x0002500, indexKOF02UMSprites_KyoKusa, 0x00 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_D[] =
@@ -1330,7 +1330,7 @@ const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_D[] =
     { L"D - MAX Flash", 0x0002680, 0x00026a0, indexKOF02UMSprites_KyoKusa, 0x08 },
     { L"D - Shingo Intro Stuff", 0x00026a0, 0x00026c0, indexKOF02UMSprites_KyoKusa, 0x19 },
     { L"D - Soul Palette", 0x00026c0, 0x00026e0, indexKOF02UMSprites_KyoKusa, 0x18 },
-    { L"D - Hidden Super Desperation Move 3", 0x00026e0, 0x0002700, indexKOF02UMSprites_KyoKusa, 0x00 },
+    { L"D - MAX2 Trail", 0x00026e0, 0x0002700, indexKOF02UMSprites_KyoKusa, 0x00 },
 };
 
 const sDescTreeNode KOF02UM_S_KYO_COLLECTION[] =

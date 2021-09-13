@@ -76,7 +76,8 @@ void CImgDumpBmp::InitImgData()
     for (int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)
     {
         int nXOffs = rgSrcImg[nImgCtr]->nXOffs;
-        int nYOffs = rgSrcImg[nImgCtr]->nYOffs;
+        // We need to flip the vertical offset since we're drawing upside-down.
+        int nYOffs = -1 * rgSrcImg[nImgCtr]->nYOffs;
 
         nXOffs = nImgCtr ? (nXOffs + (rgSrcImg[0]->uImgW / 2) - (rgSrcImg[nImgCtr]->uImgW / 2)) : 0;
         nYOffs = nImgCtr ? (nYOffs + (rgSrcImg[0]->uImgH / 2) - (rgSrcImg[nImgCtr]->uImgH / 2)) : 0;
@@ -96,7 +97,7 @@ void CImgDumpBmp::InitImgData()
             rImgRct.right = nXOffs + rgSrcImg[nImgCtr]->uImgW;
         }
 
-        if ((abs(nYOffs) + rgSrcImg[nImgCtr]->uImgH) > rImgRct.bottom)
+        if ((nYOffs + rgSrcImg[nImgCtr]->uImgH) > rImgRct.bottom)
         {
             rImgRct.bottom = nYOffs + rgSrcImg[nImgCtr]->uImgH;
         }

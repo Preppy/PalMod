@@ -835,6 +835,7 @@ UINT32 CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     case SFIII3_A_DIR_4rd_10:
         pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
         nSIMMSetBaseNumber = 1;
+        break;
     case SFIII3_A_DIR_4rd:
         pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
         nSIMMSetBaseNumber = 5; // the 4rd Strikes characters roms are solely 5.6 and 5.7

@@ -103,17 +103,18 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
     CMenu* m_SubEditMenu = GetMenu()->GetSubMenu(1);
     CMenu* m_SubToolMenu = GetMenu()->GetSubMenu(2);
     CMenu* m_SubSettMenu = GetMenu()->GetSubMenu(3);
+    bool fIsGameAvailable = (GetHost()->GetCurrGame() != nullptr);
 
     if (pPopupMenu == m_SubFileMenu)
     {
         pPopupMenu->EnableMenuItem(ID_FILE_PATCH, !fFileChanged);
-        pPopupMenu->EnableMenuItem(ID_FILE_OPENEXTRAS, (GetHost()->GetCurrGame() == nullptr) || !GetHost()->GetCurrGame()->GameAllowsExtraFile());
-        pPopupMenu->EnableMenuItem(ID_FILE_CLOSEFILEDIR, (GetHost()->GetCurrGame() == nullptr));
+        pPopupMenu->EnableMenuItem(ID_FILE_OPENEXTRAS, !fIsGameAvailable || !GetHost()->GetCurrGame()->GameAllowsExtraFile());
+        pPopupMenu->EnableMenuItem(ID_FILE_CLOSEFILEDIR, !fIsGameAvailable);
         pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedPath(NULL, 0, NULL, TRUE));
 
         pPopupMenu->DeleteMenu(ID_FILE_CROSSPATCH, MF_BYCOMMAND);
 
-        if (GetHost()->GetCurrGame() &&
+        if (fIsGameAvailable &&
             ((GetHost()->GetCurrGame()->GetGameFlag() == MVC2_D) || (GetHost()->GetCurrGame()->GetGameFlag() == MVC2_P)))
         {
             LPCWSTR pszMvC2CrossPlatform;
@@ -298,14 +299,17 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
     }
     else if (pPopupMenu == m_SubEditMenu)
     {
-        pPopupMenu->EnableMenuItem(ID_EDIT_UNDO, !UndoProc.GetUndoCount());
-        pPopupMenu->EnableMenuItem(ID_EDIT_REDO, !UndoProc.GetRedoCount());
+        pPopupMenu->EnableMenuItem(ID_EDIT_UNDO, !UndoProc.GetUndoCount() || !fIsGameAvailable);
+        pPopupMenu->EnableMenuItem(ID_EDIT_REDO, !UndoProc.GetRedoCount() || !fIsGameAvailable);
 
         pPopupMenu->EnableMenuItem(ID_EDIT_COPY, !m_PalHost.CurrPalAvail());
-        pPopupMenu->EnableMenuItem(ID_EDIT_PASTE, !IsPasteSupported());
+        pPopupMenu->EnableMenuItem(ID_EDIT_PASTE, !IsPasteSupported() || !fIsGameAvailable);
 
-        pPopupMenu->EnableMenuItem(ID_EDIT_SELECTALL, !m_PalHost.GetNotifyPal()->GetWorkingAmt());
-        pPopupMenu->EnableMenuItem(ID_EDIT_SELECTNONE, !m_PalHost.GetNotifyPal()->GetWorkingAmt());
+        // ID_EDIT_SNIFFCOPY is ok to always be available
+        pPopupMenu->EnableMenuItem(ID_EDIT_SNIFFPASTE, !IsPasteSupported() || !fIsGameAvailable);
+
+        pPopupMenu->EnableMenuItem(ID_EDIT_SELECTALL, !m_PalHost.GetNotifyPal()->GetWorkingAmt() || !fIsGameAvailable);
+        pPopupMenu->EnableMenuItem(ID_EDIT_SELECTNONE, !m_PalHost.GetNotifyPal()->GetWorkingAmt() || !fIsGameAvailable);
     }
     else if (pPopupMenu == m_SubToolMenu)
     {

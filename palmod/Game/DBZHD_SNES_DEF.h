@@ -130,6 +130,11 @@ const sGame_PaletteDataset DBZHD_SNES_FRIEZA_PALETTES_P2[] =
     { L"Frieza P2 portrait", 0x182e0, 0x18300, indexDBZHDSprites_Frieza, 0x41 },
 };
 
+const sGame_PaletteDataset DBZHD_SNES_FRIEZA_PALETTES_SHARED[] =
+{
+    { L"Intro: Base to 2nd Form", 0x0b09c0, 0x0B0A20, indexDBZHDSprites_Frieza, 0x08 },
+};
+
 const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_P1[] =
 {
     { L"Cell P1 (Day)", 0xB13F0, 0xB1410, indexDBZHDSprites_Cell },
@@ -144,7 +149,7 @@ const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_P2[] =
 
 const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_SHARED[] =
 {
-    { L"Intro", 0xB16F0, 0xB1710 },
+    { L"Intro: Semi-Perfect Cell", 0xB16F0, 0xB1710, indexDBZHDSprites_Cell, 0x08 },
     { L"Cell Jr and Cell Kamehameha", 0x2ab093, 0x2ab0d3, indexDBZHDSprites_Cell , 0x10 },
 };
 
@@ -207,6 +212,7 @@ const sDescTreeNode DBZHD_SNES_FRIEZA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_FRIEZA_PALETTES_P1, ARRAYSIZE(DBZHD_SNES_FRIEZA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_FRIEZA_PALETTES_P2, ARRAYSIZE(DBZHD_SNES_FRIEZA_PALETTES_P2) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_FRIEZA_PALETTES_SHARED, ARRAYSIZE(DBZHD_SNES_FRIEZA_PALETTES_SHARED) },
 };
 
 const sDescTreeNode DBZHD_SNES_CELL_COLLECTION[] =

@@ -18,7 +18,7 @@
 // JoJo_Story - ScaredKakyoin || 0x1F - 0x02
 // JoJo_Story - ShadowDIOStanding || 0x1F - 0x03
 
-const stPairedPaletteInfo pairCoffinRoom = { 1, 31, -32 };
+const stPairedPaletteInfo pairCoffinRoom = { 1, 31, 32 };
 
 const WCHAR JOJOS_A_UNITDESC_50[][32] =
 {
@@ -3514,6 +3514,15 @@ const sGame_PaletteDataset JOJOS_BONUS_PORTAITS_RANKING[] =
     { L"Khan Ranking Portrait", 0x314480, 0x3144a0,                 indexJojos51Khan, 0x30 },
 };
 
+const sGame_PaletteDataset JOJOS_BONUS_51_STORYMODE_PALETTES[] =
+{
+    { L"Storymode Egypt Map (1/4)", 0x313a00, 0x313a80, indexJojos51Bonus, 0x4e },
+    { L"Storymode Egypt Map (2/4)", 0x313b00, 0x313b80, indexJojos51Bonus, 0x4e },
+    { L"Storymode Egypt Map (3/4)", 0x313b80, 0x313c00, indexJojos51Bonus, 0x4e },
+    { L"Storymode Egypt Map (4/4)", 0x313c00, 0x313c80, indexJojos51Bonus, 0x4e },
+    { L"Storymode Japan Map (Unused)", 0x313a80, 0x313b00, indexJojos51Bonus, 0x4f },
+};
+
 const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
 {
     { L"Intro", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_INTRO_PALETTES, ARRAYSIZE(JOJOS_BONUS_INTRO_PALETTES) },
@@ -3524,6 +3533,7 @@ const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
     { L"Tarot Cards", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_TAROT_CARDS, ARRAYSIZE(JOJOS_BONUS_TAROT_CARDS) },
     { L"Ranking Portraits", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_PORTAITS_RANKING, ARRAYSIZE(JOJOS_BONUS_PORTAITS_RANKING) },
     { L"Stage Shadows", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_STAGESHADOWS, ARRAYSIZE(JOJOS_BONUS_STAGESHADOWS) },
+    { L"Story Mode", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_51_STORYMODE_PALETTES, ARRAYSIZE(JOJOS_BONUS_51_STORYMODE_PALETTES) },
 };
 
 #pragma endregion Bonus

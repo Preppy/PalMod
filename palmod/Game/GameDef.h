@@ -399,6 +399,7 @@ const stPairedPaletteInfo pairNext15 = { 15, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 const stPairedPaletteInfo pairPrevious2 = { -2, 0, 0 };
 const stPairedPaletteInfo pairPrevious4 = { -4, 0, 0 };
+const stPairedPaletteInfo pairPrevious9 = { -9, 0, 0 };
 
 // Same thing as Previous, except flip the order of the joins to avoid sprite occlusion 
 const stPairedPaletteInfo pairPreviousFlipped = { -1, 0, 0, true };
@@ -418,16 +419,16 @@ const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext =    { 2, 0, 0, f
 const stPairedPaletteInfo pairNext4AndNext =                        { 4, 0, 0, false, 3, 3 }; // triple display... requires special handling in code
 
 // Vs Series
-const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };
+const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, -4 };
 const stPairedPaletteInfo pairMVCDevilotNormal = { 1, 0, 0 }; // Don't use pairNext here: we manually tweak z-order
-const stPairedPaletteInfo pairMVCDevilotBurnt = { 1, 7, 3 };
-const stPairedPaletteInfo pairMVCLou = { 1, -80, -15 };
-const stPairedPaletteInfo pairOnslaught = { 1, -24, 86 };
-//const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };
+const stPairedPaletteInfo pairMVCDevilotBurnt = { 1, 7, -3 };
+const stPairedPaletteInfo pairMVCLou = { 1, -80, 15 };
+const stPairedPaletteInfo pairOnslaught = { 1, -24, -86 };
+//const stPairedPaletteInfo pairTronBody = { 1, -4, 50 };
 
 // Please note that the palette sort order in PalMod differs for MM in MvC1 and MvC2
 const stPairedPaletteInfo pairMVC1RushDrill = { 9, 0, 0 };
 const stPairedPaletteInfo pairMVC2RushDrill = { 30, 0, 0 };
-const stPairedPaletteInfo pairHyperMegaman =  { 9, 31, 12 };
+const stPairedPaletteInfo pairHyperMegaman =  { 9, 31, -12 };
 
-const stPairedPaletteInfo pairSFA2BisonHand = { 1, -141, -16 };
+const stPairedPaletteInfo pairSFA2BisonHand = { 1, -141, 16 };

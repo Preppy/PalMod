@@ -274,6 +274,9 @@
 #define ID_COLORFORMAT_BGR555_BE        32903
 #define ID_LD_GGXXR_S                   32904
 #define ID_LD_P4AU_NESICA               32905
+#define ID_EDIT_SNIFFCOPY               32906
+#define ID_EDIT_SNIFFPASTE              32907
+#define IDS_GGXXACR_ENCRYPTED           32908
 
 
 // Next default values for new objects
@@ -281,7 +284,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32906
+#define _APS_NEXT_COMMAND_VALUE         32909
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

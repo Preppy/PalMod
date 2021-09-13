@@ -41,4 +41,7 @@ public:
     LPCWSTR GetGameName() override { return L"GGXX:AC+R (Steam)"; };
 
     static bool ShouldUseBasePaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
+
+    bool IsGGXXACRFileEncrypted(CFile* LoadedFile);
+    bool m_fIsFileSetEncrypted = false;
 };

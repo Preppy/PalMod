@@ -76,7 +76,7 @@ IDR_MAINFRAME           ICON                    "res\\PalMod.ico"
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 231, 215
+IDD_ABOUTBOX DIALOGEX 0, 0, 231, 250
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About PalMod"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
@@ -86,20 +86,27 @@ BEGIN
     LTEXT           "PALette MODification for fighting games.",IDC_ABOUTNAME2,41,26,173,8,SS_NOPREFIX
     LTEXT           "Original 2008 Creative Team",IDC_STATIC,7,43,125,8
     LTEXT           "knarxed",IDC_STATIC,23,56,50,8
+    LTEXT           "Preppy",IDC_STATIC,23,66,50,8
     LTEXT           "Magnetro",IDC_STATIC,75,56,50,8
     LTEXT           "Eidrian",IDC_STATIC,75,66,50,8
-    LTEXT           "Preppy",IDC_STATIC,23,66,50,8
     LTEXT           "2020 Core Creative Team",IDC_STATIC,7,83,125,8
     LTEXT           "Preppy",IDC_STATIC,23,96,50,8
-    LTEXT           "TVIndustries",IDC_STATIC,76,96,50,8
-    LTEXT           "IceManual",IDC_STATIC,24,106,50,8
-    LTEXT           "mountainmanjed",IDC_STATIC,76,106,68,8
-    LTEXT           "Game data and images copyright those respective companies.",IDC_STATIC,7,126,210,8
-    LTEXT           "Special thanks and gratitude to many others in the various communities who helped us find and understand game data.",IDC_STATIC,7,142,209,16
-    LTEXT           "Updates and guides available at:",IDC_STATIC,7,166,209,8
-    CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,176,93,14
-    LTEXT           "Copyright (C) 2021",IDC_STATIC,10,194,65,8
-    DEFPUSHBUTTON   "OK",IDOK,174,192,50,14,WS_GROUP
+    LTEXT           "IceManual",IDC_STATIC,23,106,50,8
+    LTEXT           "TVIndustries",IDC_STATIC,75,96,50,8
+    LTEXT           "mountainmanjed",IDC_STATIC,75,106,68,8
+    LTEXT           "Additional Substantial Contributions",IDC_STATIC,7,119,166,8
+    LTEXT           "Termi",IDC_STATIC,23,132,50,8
+    LTEXT           "cosmic",IDC_STATIC,23,142,50,8
+    LTEXT           "chloe",IDC_STATIC,75,132,50,8
+    LTEXT           "RenGod",IDC_STATIC,75,142,50,8
+    LTEXT           "Lui",IDC_STATIC,133,132,50,8
+    LTEXT           "Rei",IDC_STATIC,133,142,50,8
+    LTEXT           "Game data and images copyright those respective companies.",IDC_STATIC,7,162,210,8
+    LTEXT           "Special thanks and gratitude to many others in the various communities who helped us find and understand game data.",IDC_STATIC,7,178,209,16
+    LTEXT           "Updates and guides available at:",IDC_STATIC,7,202,209,8
+    CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,212,93,14
+    LTEXT           "Copyright (C) 2021",IDC_STATIC,10,230,65,8
+    DEFPUSHBUTTON   "OK",IDOK,174,228,50,14,WS_GROUP
 END
 
 IDD_PALMOD_DIALOG_FAT DIALOGEX 0, 0, 407, 244
@@ -277,7 +284,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 224
         TOPMARGIN, 7
-        BOTTOMMARGIN, 208
+        BOTTOMMARGIN, 243
     END
 
     IDD_PALMOD_DIALOG_FAT, DIALOG
@@ -323,13 +330,13 @@ BEGIN
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
             POPUP "Guilty Gear"
             BEGIN
-                MENUITEM "GGXX:AC+R (Steam)",                   ID_LD_GGXXACR_S
-                MENUITEM "GGXX:AC+R (PlayStation 3)",           ID_LD_GGXXACR_P
+                MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR_S
+                MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
                 MENUITEM "GGXX #Reload (Steam/Community Port)", ID_LD_GGXXR_S
             END
             POPUP "Jojo's HftF"
             BEGIN
-                MENUITEM "Characters (Japan Arcade)",     ID_LD_JOJOS51
+                MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
             END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
@@ -380,6 +387,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "Copy Color at Cursor\tCtrl+Shift+C", ID_EDIT_SNIFFCOPY
+        MENUITEM "Paste Color at Cursor\tCtrl+Shift+V", ID_EDIT_SNIFFPASTE
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECTALL
         MENUITEM "Select &None\tCtrl+D",        ID_EDIT_SELECTNONE
@@ -405,22 +414,22 @@ BEGIN
         END
         POPUP "Color Format"
         BEGIN
-            MENUITEM "RGB333 (big endian for Sega Genesis)",    ID_COLORFORMAT_RGB333_BE
-            MENUITEM "RGB444 (big endian for CPS1/CPS2)",       ID_COLORFORMAT_RGB444_BE
+            MENUITEM "RGB333 (big endian for Sega Genesis)", ID_COLORFORMAT_RGB333_BE
+            MENUITEM "RGB444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444_BE
             MENUITEM "RGB444 (little endian for SF2/SFA 30th)", ID_COLORFORMAT_RGB444_LE
-            MENUITEM "RGB555 (little endian for CPS3)",         ID_COLORFORMAT_RGB555_LE
-            MENUITEM "RGB555 (big endian)",                     ID_COLORFORMAT_RGB555_BE
-            MENUITEM "BGR555 (little endian for GBA, SNES)",    ID_COLORFORMAT_BGR555_LE
-            MENUITEM "BGR555 (big endian for Motorola 68000)",  ID_COLORFORMAT_BGR555_BE
-            MENUITEM "RGB555 (Sharp X68000 color table)",       ID_COLORFORMAT_SHARPRGB
-            MENUITEM "GRB555 (little endian)",                  ID_COLORFORMAT_GRB555_LE
-            MENUITEM "RGB666 (Neo-Geo color table)",            ID_COLORFORMAT_RGB666
-            MENUITEM "xRGB888 (24-bit)",                        ID_COLORFORMAT_xRGB888
-            MENUITEM "xBGR888 (24-bit)",                        ID_COLORFORMAT_xBGR888
-            MENUITEM "RGBA8881 (DBFCI)",                        ID_COLORFORMAT_ARGB1888
-            MENUITEM "RGBA8888 (Half alpha for Arcsys)",        ID_COLORFORMAT_ARGB7888
-            MENUITEM "RGBA8888",                                ID_COLORFORMAT_ARGB8888
-            MENUITEM "BGRA8888",                                ID_COLORFORMAT_ABGR8888
+            MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555_LE
+            MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_BE
+            MENUITEM "BGR555 (little endian for GBA, SNES)", ID_COLORFORMAT_BGR555_LE
+            MENUITEM "BGR555 (big endian for Motorola 68000)", ID_COLORFORMAT_BGR555_BE
+            MENUITEM "RGB555 (Sharp X68000 color table)", ID_COLORFORMAT_SHARPRGB
+            MENUITEM "GRB555 (little endian)",      ID_COLORFORMAT_GRB555_LE
+            MENUITEM "RGB666 (Neo-Geo color table)", ID_COLORFORMAT_RGB666
+            MENUITEM "xRGB888 (24-bit)",            ID_COLORFORMAT_xRGB888
+            MENUITEM "xBGR888 (24-bit)",            ID_COLORFORMAT_xBGR888
+            MENUITEM "RGBA8881 (DBFCI)",            ID_COLORFORMAT_ARGB1888
+            MENUITEM "RGBA8888 (Half alpha for Arcsys)", ID_COLORFORMAT_ARGB7888
+            MENUITEM "RGBA8888",                    ID_COLORFORMAT_ARGB8888
+            MENUITEM "BGRA8888",                    ID_COLORFORMAT_ABGR8888
             MENUITEM SEPARATOR
             MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
             MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED
@@ -685,6 +694,11 @@ BEGIN
     IDS_SF3_UNKNOWNROM      "This doesn't look like a supported SFIII3 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
     IDS_EXTRAS_SIMMBOUNDARY "Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."
     IDS_COLOR_WRONGSIZE     "Error: this game is using the wrong color size.  This needs to be fixed for the game to work."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_GGXXACR_ENCRYPTED   "These files are encrypted and should not be used.  You will need to get the decrypted files and use those instead."
 END
 
 #endif    // English (United States) resources

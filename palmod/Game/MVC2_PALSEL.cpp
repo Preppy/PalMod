@@ -719,13 +719,137 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateExtraPal(uUnitId, uPalId, 0x2F, 0x57, 0x00, 0, 9) || // Charging buster
             CreateExtraPal(uUnitId, uPalId, 0x41, 0x57, 0x0D) || // teleport intro
             CreateExtraPal(uUnitId, uPalId, 0x42, 0x57, 0x25) || // Dr Light
-            CreateExtraPal(uUnitId, uPalId, 0x14, 0x57, 0x01, 0, 9) || // Rush
-            CreateExtraPal(uUnitId, uPalId, 0x1D, 0x57, 0x02, 0, 9) || // Beat
             CreateExtraPal(uUnitId, uPalId, 0x26, 0x57, 0x24, 0, 9) //|| // Beat Plane
             //CreateExtraPal(uUnitId, uPalId, 0x55, 0x57, 0x29) // HMM Missiles
             )
         {
             fImgIsFromNewImgDatRange = true;
+            break;
+        }
+        else if (CreateExtraPal(uUnitId, uPalId, 0x14, 0x57, 0x01, 0, 9)) // Rush: join down to Beat
+        {
+            bLoadDefPal = FALSE;
+
+            int nXOffs = 0;
+            int nYOffs = 0;
+            int nPeerPaletteDistance = 0x09;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(indexCPS2Sprites_Megaman, 0x1,
+                    CreateImgTicket(indexCPS2Sprites_Megaman, 0x02, nullptr, nXOffs, nYOffs)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeRushAndBeat[2] = {
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeRushAndBeat[0], 0);
+            CreateDefPal(NodeRushAndBeat[1], 1);
+
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x14, 0x57, 0x09);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+
+            break;
+        } 
+        else if (CreateExtraPal(uUnitId, uPalId, 0x1D, 0x57, 0x02, 0, 9)) // Beat: join up to Rush
+        {
+            bLoadDefPal = FALSE;
+
+            int nXOffs = 0;
+            int nYOffs = 0;
+            int nPeerPaletteDistance = -0x09;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(indexCPS2Sprites_Megaman, 0x2,
+                    CreateImgTicket(indexCPS2Sprites_Megaman, 0x01, nullptr, nXOffs, nYOffs)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeRushAndBeat[2] = {
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeRushAndBeat[0], 0);
+            CreateDefPal(NodeRushAndBeat[1], 1);
+
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x1d, 0x57, 0x09);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+
+            break;
+        }
+        else if ((uPalId == 0x1) || // Button Extra 01:  Rush sprite, join with Beat
+                 (uPalId == 0x9) ||
+                 (uPalId == 0x11) ||
+                 (uPalId == 0x19) ||
+                 (uPalId == 0x21) ||
+                 (uPalId == 0x29))
+        {
+            bLoadDefPal = FALSE;
+            int nPeerPaletteDistance = 0x01;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(indexCPS2Sprites_Megaman, 0x01,
+                    CreateImgTicket(indexCPS2Sprites_Megaman, 0x02)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeRushAndBeat[2] = {
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeRushAndBeat[0], 0);
+            CreateDefPal(NodeRushAndBeat[1], 1);
+
+            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), 6, 0x08);
+            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, 6, 0x08);
+            break;
+        }
+        else if ((uPalId == 0x2) || // Beat sprite, join with Rush
+                 (uPalId == 0xA) ||
+                 (uPalId == 0x12) ||
+                 (uPalId == 0x1A) ||
+                 (uPalId == 0x22) ||
+                 (uPalId == 0x2A))
+        {
+            bLoadDefPal = FALSE;
+
+            int nPeerPaletteDistance = -0x01;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(indexCPS2Sprites_Megaman, 0x02,
+                    CreateImgTicket(indexCPS2Sprites_Megaman, 0x01)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeRushAndBeat[2] = {
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeRushAndBeat[0], 0);
+            CreateDefPal(NodeRushAndBeat[1], 1);
+
+            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), 6, 0x08);
+            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, 6, 0x08);
+
             break;
         }
         else if ((uPalId == (0x5E + EXTRA_OMNI)) || // Roll: cross character load
@@ -864,7 +988,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             bLoadDefPal = FALSE;
 
             int nXOffs = 31;
-            int nYOffs = 12;
+            int nYOffs = -12;
             int nPeerPaletteDistance = 9;
 
             //Create the img ticket
@@ -971,7 +1095,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             bLoadDefPal = FALSE;
 
             int nXOffs = 0 + 31;
-            int nYOffs = -10 + 12;
+            int nYOffs = 10 - 12;
             int nDistanceToBody = -7;
             int nDistanceToArmor = -16;
 
@@ -980,7 +1104,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 CreateImgTicket(uUnitId, 0x27,
                     CreateImgTicket(uUnitId, 0x28, 
                         CreateImgTicket(uUnitId, 0x29, nullptr, nXOffs, nYOffs),
-                            31, 12)
+                            31, -12)
                 )
             );
 
@@ -1013,8 +1137,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         // Handle the cross-unit Megaman sprites first...
         if (CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x09, 0x57, 0x26) || // hair
             CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x0A, 0x57, 0x0B) || // teleport intro
-            CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x14, 0x57, 0x01, 0, 9) || // Rush
-            CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x1D, 0x57, 0x02, 0, 9) || // Beat
             CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x26, 0x57, 0x24, 0, 9) || // Beat Plane
             CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x42, 0x57, 0x25) || // Dr Light
             CreateExtraPal(indexCPS2Sprites_Megaman, uPalId, 0x5E, 0x57, 0x00) // Megaman
@@ -1025,13 +1147,71 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             fImgIsFromNewImgDatRange = true;
             break;
         }
+        else if (CreateExtraPal(uUnitId, uPalId, 0x14, 0x57, 0x01, 0, 9)) // Rush: join down to Beat
+        {
+            bLoadDefPal = FALSE;
+
+            int nPeerPaletteDistance = 0x09;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(indexCPS2Sprites_Megaman, 0x1,
+                    CreateImgTicket(indexCPS2Sprites_Megaman, 0x02)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeRushAndBeat[2] = {
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeRushAndBeat[0], 0);
+            CreateDefPal(NodeRushAndBeat[1], 1);
+
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x14, 0x57, 0x09);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+
+            break;
+        }
+        else if (CreateExtraPal(uUnitId, uPalId, 0x1D, 0x57, 0x02, 0, 9)) // Beat: join up to Rush
+        {
+            bLoadDefPal = FALSE;
+
+            int nPeerPaletteDistance = -0x09;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(indexCPS2Sprites_Megaman, 0x2,
+                    CreateImgTicket(indexCPS2Sprites_Megaman, 0x01)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeRushAndBeat[2] = {
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeRushAndBeat[0], 0);
+            CreateDefPal(NodeRushAndBeat[1], 1);
+
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x1d, 0x57, 0x09);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+
+            break;
+        }
         else if (CreateExtraPal(uUnitId, uPalId, 0x0B, 0x57, 0x00, 0, 9) || // Roll intro
                  CreateExtraPal(uUnitId, uPalId, 0x2F, 0x57, 0x00, 0, 9) || // Roll Charging buster
                  CreateExtraPal(uUnitId, uPalId, 0x4C, 0x57, 0x00, 0, 9)) //  Hyper Roll ?
         {
             break;
         }        
-        else if ((uPalId == 0x1) || // Button Extra 01: Reuse Megaman's Rush sprite
+        else if ((uPalId == 0x1) || // Button Extra 01: Reuse Megaman's Rush sprite, join with Beat
                  (uPalId == 0x9) ||
                  (uPalId == 0x11) ||
                  (uPalId == 0x19) ||
@@ -1039,18 +1219,30 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  (uPalId == 0x29))
         {
             bLoadDefPal = FALSE;
+            int nPeerPaletteDistance = 0x01;
 
-            nImgUnitId = 0x1C;
-            nTargetImgId = 1; // Rush
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(indexCPS2Sprites_Megaman, 0x01,
+                    CreateImgTicket(indexCPS2Sprites_Megaman, 0x02)
+                )
+            );
 
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+            //Set each palette
+            sDescNode* NodeRushAndBeat[2] = {
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
 
-            CreateDefPal(NodeGet, 0);
+            //Set each palette
+            CreateDefPal(NodeRushAndBeat[0], 0);
+            CreateDefPal(NodeRushAndBeat[1], 1);
 
-            SetSourcePal(0, uUnitId, GetBasicOffset(uPalId), 6, 8);
+            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), 6, 0x08);
+            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, 6, 0x08);
             break;
         }
-        else if ((uPalId == 0x2) || // Pull in Megaman's Beat sprite
+        else if ((uPalId == 0x2) || // Pull in Megaman's Beat sprite, join with Rush
                  (uPalId == 0xA) ||
                  (uPalId == 0x12) ||
                  (uPalId == 0x1A) ||
@@ -1059,15 +1251,42 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             bLoadDefPal = FALSE;
 
+            int nPeerPaletteDistance = -0x01;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(indexCPS2Sprites_Megaman, 0x02,
+                    CreateImgTicket(indexCPS2Sprites_Megaman, 0x01)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeRushAndBeat[2] = {
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeRushAndBeat[0], 0);
+            CreateDefPal(NodeRushAndBeat[1], 1);
+
+            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), 6, 0x08);
+            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, 6, 0x08);
+
+            break;
+        }
+        else if ((uPalId == 0x4) || (uPalId == 0x7)) // Pull in Megaman's effects previews
+        {
+            bLoadDefPal = FALSE;
+
             nImgUnitId = indexCPS2Sprites_Megaman;
-            nTargetImgId = 0x2; // Beat!
+            nTargetImgId = uPalId;
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
             CreateDefPal(NodeGet, 0);
 
             SetSourcePal(0, uUnitId, GetBasicOffset(uPalId), 6, 8);
-            break;
         }
         else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x3F + EXTRA_OMNI))) || // Rush Drill
                  ((uPalId >= (0x8F + EXTRA_OMNI)) && (uPalId <= (0x96 + EXTRA_OMNI))) ||

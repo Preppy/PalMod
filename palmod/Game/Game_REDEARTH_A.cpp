@@ -63,7 +63,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRed
     //We need the proper unit amt before we init the main buffer
     m_nRedEarthMode = nRedEarthModeToLoad;
 
-    const UINT32 nSafeCountFor30 = 126;
+    const UINT32 nSafeCountFor30 = 134;
     const UINT32 nSafeCountFor31 = 641;
     const UINT32 nSafeCountFor50 = 4;
 

@@ -899,7 +899,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
                     else
                     {
-                        UINT16 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                        UINT32 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
                         int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
                         int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
 

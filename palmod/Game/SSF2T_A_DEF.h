@@ -1785,6 +1785,21 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_STAGE_NODE[] =
     { L"Buddha 2",      0x6A600 - 0x02, 0x6A760 - 0x02, indexSF2Sprites_Stages, 0x03 },
 };
 
+const sGame_PaletteDataset SSF2T_A_08_BALROG_STAGE_NODE[] =
+{
+    { L"Part 1", 0x6A7Fe, 0x6A8Fe },
+    { L"Part 2", 0x628de, 0x6295e },
+    { L"Part 3", 0x62A9e, 0x62B5e },
+    { L"Part 4", 0x6A91e, 0x6aabe },
+    { L"Part 5", 0x6aade, 0x6abfe },
+    { L"Part 6", 0x72C7e, 0x72dfe },
+    { L"Part 7", 0x72e7e, 0x72e9e },
+    { L"Part 8", 0x72efe, 0x72f1e },
+    { L"Part 9", 0x72f3e, 0x72f7e },
+    { L"Part 10", 0x72fbe, 0x72fde },
+    { L"Part 11", 0x627fe, 0x6281e },
+};
+
 const sGame_PaletteDataset SSF2T_A_RYU_PORTRAITS_JAB[] =
 {
     { L"Ryu Portrait - Jab 1/2", 0x31c46, 0x31cc6, indexSF2Sprites_Ryu, 0x10, &pairNext },
@@ -2997,10 +3012,10 @@ const sDescTreeNode SSF2T_A_08_BONUS_COLLECTION[] =
 
 const sDescTreeNode SSF2T_A_STAGES_COLLECTION[] =
 {
-
     { L"Cammy Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE,    ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE) },
     { L"Ryu Stage",     DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE,      ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE) },
     { L"Sagat Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE,    ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE) },
+    { L"Balrog's Casino Stage (08 parts)",   DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BALROG_STAGE_NODE,    ARRAYSIZE(SSF2T_A_08_BALROG_STAGE_NODE) },
 };
 
 const sDescTreeNode SSF2T_A_UNITS_3C[] =

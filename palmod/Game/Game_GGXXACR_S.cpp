@@ -2,6 +2,8 @@
 #include "Game_GGXXACR_S.h"
 #include "GGXXACR_S_DEF.h"
 #include "..\PalMod.h"
+#include <string>
+#include <array>
 
 UINT16 CGame_GGXXACR_S::uRuleCtr = 0;
 
@@ -417,6 +419,89 @@ BOOL CGame_GGXXACR_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     return TRUE;
 }
 
+bool CGame_GGXXACR_S::IsGGXXACRFileEncrypted(CFile* LoadedFile)
+{
+    bool fIsEncrypted = false;
+    const size_t nFileLengthToCheck = 4;
+    std::array<uint16_t, nFileLengthToCheck> prgFileStart = { 0, 0, 0, 0 };
+    std::map<std::wstring, uint64_t> decryptedFileBytes =
+    {
+        { L"ab.bin", 0x20000000 },
+        { L"ak.bin", 0x20000000 },
+        { L"an.bin", 0x20000000 },
+        { L"ax.bin", 0x20000000 },
+        { L"bk.bin", 0x20000000 },
+        { L"ch.bin", 0x20000000 },
+        { L"dz.bin", 0x20000000 },
+        { L"eab.bin", 0x20000000 },
+        { L"ean.bin", 0x20000000 },
+        { L"eax.bin", 0x20000000 },
+        { L"ebk.bin", 0x20000000 },
+        { L"ech.bin", 0x20000000 },
+        { L"edz.bin", 0x20000000 },
+        { L"efa.bin", 0x20000000 },
+        { L"efr.bin", 0x20000000 },
+        { L"ein.bin", 0x20000000 },
+        { L"ejm.bin", 0x30000000 },
+        { L"ejy.bin", 0x20000000 },
+        { L"eky.bin", 0x10000000 },
+        { L"eml.bin", 0x20000000 },
+        { L"emy.bin", 0x30000000 },
+        { L"epo.bin", 0x20000000 },
+        { L"erk.bin", 0x20000000 },
+        { L"esl.bin", 0x20000000 },
+        { L"esy.bin", 0x20000000 },
+        { L"ets.bin", 0x20000000 },
+        { L"eve.bin", 0x30000000 },
+        { L"eyy.bin", 0x20000000 },
+        { L"ezp.bin", 0x20000000 },
+        { L"ezt.bin", 0x20000000 },
+        { L"fa.bin", 0x20000000 },
+        { L"fr.bin", 0x20000000 },
+        { L"in.bin", 0x20000000 },
+        { L"jm.bin", 0x30000000 },
+        { L"js.bin", 0x20000000 },
+        { L"jy.bin", 0x20000000 },
+        { L"kr.bin", 0x10000000 },
+        { L"ky.bin", 0x10000000 },
+        { L"ml.bin", 0x20000000 },
+        { L"my.bin", 0x30000000 },
+        { L"po.bin", 0x20000000 },
+        { L"rk.bin", 0x20000000 },
+        { L"sl.bin", 0x20000000 },
+        { L"sy.bin", 0x20000000 },
+        { L"ts.bin", 0x20000000 },
+        { L"ve.bin", 0x30000000 },
+        { L"yy.bin", 0x20000000 },
+        { L"zp.bin", 0x20000000 },
+        { L"zt.bin", 0x20000000 }
+    };
+
+    LoadedFile->Seek(0, CFile::begin);
+    LoadedFile->Read((void*)&prgFileStart[0], 2);
+
+    CString strByteWatch;
+    OutputDebugString(L"\tByte sniff for this file: ");
+    for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
+    {
+        strByteWatch.Format(L"0x%04x, ", prgFileStart[nIndex]);
+        OutputDebugString(strByteWatch);
+    }
+
+    auto thisFile = decryptedFileBytes.find(LoadedFile->GetFileName().GetString());
+
+    if (thisFile != decryptedFileBytes.end())
+    {
+        fIsEncrypted = ((((thisFile->second & 0xFF000000) >> 24) != prgFileStart[0]) ||
+                        (((thisFile->second & 0xFF0000) >> 16) != prgFileStart[1]) ||
+                        (((thisFile->second & 0xFF00) >> 8) != prgFileStart[2]) ||
+                        (((thisFile->second & 0xFF)) != prgFileStart[3]));
+    }
+
+    OutputDebugString(fIsEncrypted ? L": confirmed ENCRYPTED\n" : L": confirmed decrypted\n");
+    return fIsEncrypted;
+}
+
 BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
 {
     BOOL fSuccess = TRUE;
@@ -439,33 +524,57 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     GGXXACR_S_CharacterData[nUnitNumber].nInitialLocation = nPaletteStart + 0x90;
 #endif
 
-    strInfo.Format(L"\tCGame_GGXXACR_S_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", GGXXACR_S_CharacterData[nUnitNumber].nInitialLocation);
-    OutputDebugString(strInfo);
-
-    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitNumber);
-
-    if (m_pppDataBuffer32[nUnitNumber] == nullptr)
+    if (!m_fIsFileSetEncrypted)
     {
-        m_pppDataBuffer32[nUnitNumber] = new UINT32 * [nPalAmt];
-        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(UINT32*) * nPalAmt);
+        if (IsGGXXACRFileEncrypted(LoadedFile))
+        {
+            // They aren't using a decrypted file set...
+            // Fail the load: warn one time
+            m_fIsFileSetEncrypted = true;
+
+            CString strWarning;
+            if (strWarning.LoadString(IDS_GGXXACR_ENCRYPTED))
+            {
+                MessageBox(g_appHWnd, strWarning, GetHost()->GetAppName(), MB_ICONSTOP);
+            }
+        }
     }
-
-    // These are already sorted, no need to redirect
-    rgUnitRedir[nUnitNumber] = nUnitNumber;
-
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    
+    if (m_fIsFileSetEncrypted)
     {
-        LoadSpecificPaletteData(nUnitNumber, nPalCtr);
+        fSuccess = FALSE;
+        OutputDebugString(L"\tThis fileset is encrypted: skipping.\r\n");
+    }
+    else
+    {
+        strInfo.Format(L"\tCGame_GGXXACR_S_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", GGXXACR_S_CharacterData[nUnitNumber].nInitialLocation);
+        OutputDebugString(strInfo);
 
-        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitNumber);
 
-        LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-        LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+        if (m_pppDataBuffer32[nUnitNumber] == nullptr)
+        {
+            m_pppDataBuffer32[nUnitNumber] = new UINT32 * [nPalAmt];
+            memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(UINT32*) * nPalAmt);
+        }
+
+        // These are already sorted, no need to redirect
+        rgUnitRedir[nUnitNumber] = nUnitNumber;
+
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        {
+            LoadSpecificPaletteData(nUnitNumber, nPalCtr);
+
+            m_pppDataBuffer32[nUnitNumber][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+
+            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+            LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
 
 #if GGXXACR_S_DEBUG
-        strInfo.Format(L"\tCGame_GGXXACR_S_DIR::LoadFile: Loaded palette '%s' from location 0x%x\n", m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation);
-        OutputDebugString(strInfo);
+            strInfo.Format(L"\tCGame_GGXXACR_S_DIR::LoadFile: Loaded palette '%s' from location 0x%x\n", m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation);
+            OutputDebugString(strInfo);
 #endif
+        }
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;

@@ -455,17 +455,18 @@ struct sKOF99AE_A_PaletteData
     UINT32 nIgnored = 0; // I don't want to reparse the data I got, so just ignoring this
     LPCWSTR pszImageSet = nullptr;
     bool fIsMultipart = false;
+    bool fUseUniqueExtraImages = false;
 };
 
 sKOF99AE_A_PaletteData KOF99AE_A_CharacterPalettes[] =
 {
     { L"K'",                0x2d97f0, 0x2d99f0, L"indexKOF99Sprites_K" },
     { L"Maxima",            0x2d9bf0, 0x2d9df0, L"indexKOF99Sprites_Maxima" },
-    { L"Benimaru",          0x2d9ff0, 0x2da1f0, L"indexKOF99Sprites_Benimaru" },
-    { L"Shingo",            0x2da3f0, 0x2da5f0, L"indexKOF99Sprites_Shingo" },
+    { L"Benimaru",          0x2d9ff0, 0x2da1f0, L"indexKOF99Sprites_Benimaru", false, true },
+    { L"Shingo",            0x2da3f0, 0x2da5f0, L"indexKOF99Sprites_Shingo", false, true },
     { L"Terry",             0x2da7f0, 0x2da9f0, L"indexKOF99Sprites_Terry" },
     { L"Andy",              0x2dabf0, 0x2dadf0, L"indexKOF99Sprites_Andy" },
-    { L"Joe",               0x2daff0, 0x2db1f0, L"indexKOF99Sprites_Joe" },
+    { L"Joe",               0x2daff0, 0x2db1f0, L"indexKOF99Sprites_Joe", false, true },
     { L"Mai",               0x2db3f0, 0x2db5f0, L"indexKOF99Sprites_Mai" },
     { L"Ryo",               0x2db7f0, 0x2db9f0, L"indexKOF99Sprites_Ryo" },
     { L"Robert",            0x2dbbf0, 0x2dbdf0, L"indexKOF99Sprites_Robert" },
@@ -476,23 +477,23 @@ sKOF99AE_A_PaletteData KOF99AE_A_CharacterPalettes[] =
     { L"Clark",             0x2dcff0, 0x2dd1f0, L"indexKOF99Sprites_Clark" },
     { L"Whip",              0x2dd3f0, 0x2dd5f0, L"indexKOF99Sprites_Whip" },
     { L"Athena",            0x2dd7f0, 0x2dd9f0, L"indexKOF99Sprites_Athena" },
-    { L"Kensou",            0x2ddbf0, 0x2dddf0, L"indexKOF99Sprites_Kensou" },
-    { L"Chin",              0x2ddff0, 0x2de1f0, L"indexKOF99Sprites_Chin" },
+    { L"Kensou",            0x2ddbf0, 0x2dddf0, L"indexKOF99Sprites_Kensou", false, true },
+    { L"Chin",              0x2ddff0, 0x2de1f0, L"indexKOF99Sprites_Chin", false, true },
     { L"Bao",               0x2de3f0, 0x2de5f0, L"indexKOF99Sprites_Bao" },
-    { L"King",              0x2de7f0, 0x2de9f0, L"indexKOF99Sprites_King" },
-    { L"Blue Mary",         0x2debf0, 0x2dedf0, L"indexKOF99Sprites_BlueMary" },
-    { L"Kasumi",            0x2deff0, 0x2df1f0, L"indexKOF99Sprites_Kasumi" },
-    { L"Xiangfei",          0x2df3f0, 0x2df5f0, L"indexKOF99Sprites_Xiangfei" },
+    { L"King",              0x2de7f0, 0x2de9f0, L"indexKOF99Sprites_King", false, true },
+    { L"Blue Mary",         0x2debf0, 0x2dedf0, L"indexKOF99Sprites_BlueMary", false, true },
+    { L"Kasumi",            0x2deff0, 0x2df1f0, L"indexKOF99Sprites_Kasumi", false, true },
+    { L"Xiangfei",          0x2df3f0, 0x2df5f0, L"indexKOF99Sprites_Xiangfei", false, true },
     { L"Kim",               0x2df7f0, 0x2df9f0, L"indexKOF99Sprites_Kim" },
     { L"Chang",             0x2dfbf0, 0x2dfdf0, L"indexKOF99Sprites_Chang", true },
     { L"Choi",              0x2dfff0, 0x2e01f0, L"indexKOF99Sprites_Choi" },
     { L"Jhun",              0x2e03f0, 0x2e05f0, L"indexKOF99Sprites_Jhun", true },
-    { L"Kyo",               0x2e07f0, 0x2e09f0, L"indexKOF99Sprites_Kyo" },
-    { L"Kyo-1",             0x2e0bf0, 0x2e0df0, L"indexKOF99Sprites_Kyo1" },
+    { L"Kyo",               0x2e07f0, 0x2e09f0, L"indexKOF99Sprites_Kyo", false, true },
+    { L"Kyo-1",             0x2e0bf0, 0x2e0df0, L"indexKOF99Sprites_Kyo1", false, true },
     { L"Iori",              0x2e0ff0, 0x2e11f0, L"indexKOF99Sprites_Iori" },
     { L"Jacket Krizalid",   0x2e13f0, 0x2e15f0, L"indexKOF99Sprites_JacketKrizalid", true },
-    { L"Boss Krizalid",     0x2e17f0, 0x2e19f0, L"indexKOF99Sprites_BossKrizalid" },
-    { L"Kyo-2",             0x2fb1f0, 0x2fb3f0, L"indexKOF99Sprites_Kyo2" },
+    { L"Boss Krizalid",     0x2e17f0, 0x2e19f0, L"indexKOF99Sprites_BossKrizalid", false, true },
+    { L"Kyo-2",             0x2fb1f0, 0x2fb3f0, L"indexKOF99Sprites_Kyo2", false, true },
 };
 
 sKOF99AE_A_PaletteData KOF99AE_A_CharacterWinPortraits[] =
@@ -671,7 +672,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
                 { L"Super Trail Palette",   0, true, 0 },
                 { L"Extra 4",               0, true, 1 },
                 { L"Extra 5",               0, false },
-                { L"Lifebar Portrait",      -1, false },
+                { L"Lifebar Portrait",      0x32, false },
                 { L"Character Portrait",    0x31, false },
             };
 
@@ -691,8 +692,15 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
                     }
                     else
                     {
-                        // normal output
-                        strOutput.Format(L", %s, 0x%02x", KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet, rgKOF99AEPaletteNames[nPaletteIndex].nPaletteIndex);
+                        if (((nPaletteIndex == 1) || (nPaletteIndex == 2)) && KOF99AE_A_CharacterPalettes[nCharIndex].fUseUniqueExtraImages)
+                        {
+                            strOutput.Format(L", %s, 0x%02x", KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet, nPaletteIndex);
+                        }
+                        else
+                        {
+                            // normal output
+                            strOutput.Format(L", %s, 0x%02x", KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet, rgKOF99AEPaletteNames[nPaletteIndex].nPaletteIndex);
+                        }
                     }
                     OutputDebugString(strOutput);
                 }                
@@ -700,8 +708,9 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
                 OutputDebugString(L" },\r\n");
             }
 
-            strOutput.Format(L"    { L\"Striker Portrait\", 0x%x, 0x%x },\r\n", KOF99AE_A_CharacterStrikerPortraits[nCharIndex].nROMOffset + (KOF99AE_PALETTE_LENGTH * nPaletteIterationForColor) + nShiftForP3FirstColorSet,
-                                                                                KOF99AE_A_CharacterStrikerPortraits[nCharIndex].nROMOffset + KOF99AE_PALETTE_LENGTH + (KOF99AE_PALETTE_LENGTH * nPaletteIterationForColor) + nShiftForP3FirstColorSet);
+            strOutput.Format(L"    { L\"Striker Portrait\", 0x%x, 0x%x, %s, 0x33 },\r\n", KOF99AE_A_CharacterStrikerPortraits[nCharIndex].nROMOffset + (KOF99AE_PALETTE_LENGTH * nPaletteIterationForColor) + nShiftForP3FirstColorSet,
+                                                                                KOF99AE_A_CharacterStrikerPortraits[nCharIndex].nROMOffset + KOF99AE_PALETTE_LENGTH + (KOF99AE_PALETTE_LENGTH * nPaletteIterationForColor) + nShiftForP3FirstColorSet,
+                                                                                KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet);
             OutputDebugString(strOutput);
 
             const UINT32 KOF99AE_PORTRAIT_LENGTH = 0x180;
@@ -713,7 +722,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
             OutputDebugString(L"};\r\n\r\n");
         }
 
-        if ((nHeaderSetToDump == 2) &&  // Core Effects are only in 2.  There's an unused copy in 3
+        if ((nHeaderSetToDump == 3) &&  // Core Effects are only in 2.  There's an unused copy in 3
             (KOF99AE_A_CharacterEffectPalettes[nCharIndex].pszCharacterName != nullptr))
         {
             strOutput.Format(L"const sGame_PaletteDataset KOF99AE_A_%s_EFFECT_PALETTES[] = \r\n{\r\n", szCodeDesc);
@@ -748,7 +757,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
             OutputDebugString(strOutput);
         }
 
-        if ((nHeaderSetToDump == 3) &&  // Effects are only in 3
+        if ((nHeaderSetToDump == 2) &&  // Effects are only in 2: there's an unused copy in 3
             (KOF99AE_A_CharacterEffectPalettes[nCharIndex].pszCharacterName != nullptr))
         {
             strOutput.Format(L"    { L\"Effects\", DESC_NODETYPE_TREE, (void*)KOF99AE_A_%s_EFFECT_PALETTES, ARRAYSIZE(KOF99AE_A_%s_EFFECT_PALETTES) },\r\n", szCodeDesc, szCodeDesc);
@@ -758,19 +767,25 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    strOutput.Format(L"const sDescTreeNode KOF99AE_A_P%u_UNITS[] = \r\n{\r\n", nHeaderSetToDump);
-    OutputDebugString(strOutput);
-
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
+    if (nHeaderSetToDump == 3) // only output on 3 since effects for now
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
+        for (int iPass = 2; iPass < 4; iPass++)
+        {
+            strOutput.Format(L"const sDescTreeNode KOF99AE_A_P%u_UNITS[] = \r\n{\r\n", iPass);
+            OutputDebugString(strOutput);
 
-        strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF99AE_A_P%u_%s_COLLECTION, ARRAYSIZE(KOF99AE_A_P%u_%s_COLLECTION) },\r\n", KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName, nHeaderSetToDump, szCodeDesc, nHeaderSetToDump, szCodeDesc);
-        OutputDebugString(strOutput);
+            for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
+            {
+                WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+                StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
+
+                strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF99AE_A_P%u_%s_COLLECTION, ARRAYSIZE(KOF99AE_A_P%u_%s_COLLECTION) },\r\n", KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName, iPass, szCodeDesc, iPass, szCodeDesc);
+                OutputDebugString(strOutput);
+            }
+
+            OutputDebugString(L"};\r\n\r\n");
+        }
     }
-
-    OutputDebugString(L"};\r\n\r\n");
 }
 
 sFileRule CGame_KOF99AE_A::GetRule(UINT16 nUnitId)

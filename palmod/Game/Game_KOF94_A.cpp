@@ -325,6 +325,7 @@ void CGame_KOF94_A::DumpPaletteHeaders()
                     break;
                 default:
                     DebugBreak();
+                    __fallthrough;
                 case 13:
                     if (KOF94_A_CharacterEffectPalettes[nCharIndex].fIsMultipart)
                     {

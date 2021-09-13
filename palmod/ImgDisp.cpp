@@ -135,6 +135,12 @@ void CImgDisp::ClearUsed()
     {
         safe_delete_array(m_ppSpriteOverrideTexture[iPos]);
     }
+
+    // reset offsets
+    for (size_t iPos = 0; iPos < ARRAYSIZE(ptOffs); iPos++)
+    {
+        ptOffs[iPos].x = ptOffs[iPos].y = 0;
+    }
 }
 
 void CImgDisp::ResetForNewImage()
@@ -199,8 +205,8 @@ void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgD
 
     //rImgRct.SetRect(0, 0, 0, 0);
 
-    nXOffs = nImgAmt ? nXOffs + (pImgBuffer[0]->uImgW / 2) - (uImgW / 2) : 0;
-    nYOffs = nImgAmt ? nYOffs + (pImgBuffer[0]->uImgH / 2) - (uImgH / 2) : 0;
+    nXOffs = nImgAmt ? (nXOffs + (pImgBuffer[0]->uImgW / 2) - (uImgW / 2)) : 0;
+    nYOffs = nImgAmt ? (nYOffs + (pImgBuffer[0]->uImgH / 2) - (uImgH / 2)) : 0;
 
     if (nXOffs < rImgRct.left)
     {
@@ -214,12 +220,12 @@ void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgD
         nYOffsTop = nYOffs;
     }
 
-    if (nXOffs + uImgW > rImgRct.right)
+    if ((nXOffs + uImgW) > rImgRct.right)
     {
         rImgRct.right = nXOffs + uImgW;
     }
 
-    if (nYOffs + uImgH > rImgRct.bottom)
+    if ((nYOffs + uImgH) > rImgRct.bottom)
     {
         rImgRct.bottom = nYOffs + uImgH;
     }

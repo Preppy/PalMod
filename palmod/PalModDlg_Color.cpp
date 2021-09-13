@@ -991,7 +991,7 @@ void CPalModDlg::OnChangeShowAs32BitColor()
 
     UpdateData();
 
-    if (m_fShowAsRGBNotHSL)
+    if (m_fShowAsRGBNotHSL && GetHost()->GetCurrGame())
     {
         if (m_fForceShowAs32bitColor)
         {
