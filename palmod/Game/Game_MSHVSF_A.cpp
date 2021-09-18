@@ -56,7 +56,7 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
     m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSHVSF_A_NUM_IND_6A : MSHVSF_A_NUM_IND_7B;
     m_nExtraUnit = UsePaletteSetForCharacters() ? MSHVSF_A_EXTRALOC_6A : MSHVSF_A_EXTRALOC_7B;
 
-    const UINT32 nSafeCountFor6A = 545;
+    const UINT32 nSafeCountFor6A = 571;
     const UINT32 nSafeCountFor7B = 24;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForCharacters() ? nSafeCountFor6A : nSafeCountFor7B);
@@ -819,23 +819,32 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
 
-            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
+            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
                 if ((wcsstr(pCurrentNode->szDesc, L"P1") != nullptr) || (wcsstr(pCurrentNode->szDesc, L"P2") != nullptr))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal VS sprites
-                    nSrcAmt = 2;
+                    nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     if (NodeGet->uUnitId == index_MSHVSF_Blackheart_Mephisto)
                     {
-                        // Allow for both Blackheart and Mephisto displays
-                        if (((nSrcStart >= nNodeIncrement) && (nSrcStart <= (nNodeIncrement * 2))) ||
-                            ((nSrcStart >= (nNodeIncrement * 3)) && (nSrcStart <= (nNodeIncrement * 4))))
+                        constexpr auto nBlackheartNodeSize = ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH);
+                        constexpr auto nMephistoNodeSize = ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH);
+                        // Blackheart and Mephisto displays
+                        if ((nSrcStart >= nNodeIncrement) && (nSrcStart <= (nNodeIncrement * nBlackheartNodeSize)))
                         {
+                            // Blackheart
                             nSrcStart -= nNodeIncrement;
+                        }
+                        else // Mephisto
+                        {
+                            if (nSrcStart > (nSrcAmt * nBlackheartNodeSize))
+                            {
+                                nSrcStart -= nMephistoNodeSize;
+                            }
                         }
                     }
                     else

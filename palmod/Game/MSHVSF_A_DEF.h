@@ -66,6 +66,7 @@ const sGame_PaletteDataset MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH[] =
     { L"P1 Color (Punch)",       0x7258c, 0x725Ac, indexCPS2Sprites_Blackheart },
     { L"Extra 01",               0x725Ac, 0x725Cc },
 };
+
 const sGame_PaletteDataset MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK[] =
 {
     { L"P2 Color (Kick)",        0x725Ec, 0x7260c, indexCPS2Sprites_Blackheart },
@@ -369,18 +370,27 @@ const sGame_PaletteDataset MSHVSF_A_RYU_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",        0x72C8c, 0x72CAc, indexCPS2Sprites_Sakura },
-    { L"P1 Extras 1 Hadouken", 0x72CAc, 0x72CCc, indexCPS2Sprites_Ken, 1 },
-    { L"P1 Extras 2 Friend", 0x77FCc, 0x77FEc },
-    { L"P1 Extras 3 Bag", 0x77FEc, 0x7800c },
+    { L"P1 Color (Punch)",          0x72C8c, 0x72CAc, indexCPS2Sprites_Sakura },
+    { L"P1 Extras 1 Hadouken",      0x72CAc, 0x72CCc, indexCPS2Sprites_Ken, 1 },
+    { L"P1 Extras 2 Friend (Kei)",  0x77FCc, 0x77FEc, indexCPS2Sprites_Sakura, 0x09, &pairNext },
+    { L"P1 Extras 3 Bag",           0x77FEc, 0x7800c, indexCPS2Sprites_Sakura, 0x0a },
+
+    { L"P1 Extras Dark Sakura?",  0x77F6c, 0x77F8c, indexCPS2Sprites_Sakura, 0x00 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x72CEc, 0x72D0c, indexCPS2Sprites_Sakura },
-    { L"P2 Extras 1 Hadouken", 0x72D0c, 0x72D2c, indexCPS2Sprites_Ken, 1 },
-    { L"P2 Extras 2 Friend", 0x7800c, 0x7802c },
-    { L"P2 Extras 3 Bag", 0x7802c, 0x7804c },
+    { L"P2 Color (Kick)",           0x72CEc, 0x72D0c, indexCPS2Sprites_Sakura },
+    { L"P2 Extras 1 Hadouken",      0x72D0c, 0x72D2c, indexCPS2Sprites_Ken, 1 },
+    { L"P2 Extras 2 Friend (Kei)",  0x7800c, 0x7802c, indexCPS2Sprites_Sakura, 0x09, &pairNext },
+    { L"P2 Extras 3 Bag",           0x7802c, 0x7804c, indexCPS2Sprites_Sakura, 0x0a },
+
+    { L"P2 Extras Dark Sakura?",  0x77F8c, 0x77Fac, indexCPS2Sprites_Sakura, 0x00 },
+};
+
+const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_SHARED[] =
+{
+    { L"Winpose - Cherry Blossoms",  0x77Fac, 0x77Fcc, indexCPS2Sprites_Sakura, 0x08 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SHADOW_PALETTES_P1COLOR_PUNCH[] =
@@ -960,6 +970,52 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_RIVER_PALETTES[] =
     { L"Unknown",                   0x5A4F2, 0x5A6F2 },
 };
 
+const sGame_PaletteDataset MSHVSF_A_STAGES_MALLMAYHEM_PALETTES[] =
+{
+    { L"Mall PL#400.1",                     0x5EC32, 0x5ee32, indexCPS2Sprites_MSHVSFAssets, 0x05, &pairFullyLinkedNode },
+    { L"Mall PL#400.2",                     0x5Ee32, 0x5F032, indexCPS2Sprites_MSHVSFAssets, 0x06 },
+    { L"Mall PL#200.1",                     0x59AF2, 0x59cF2, indexCPS2Sprites_MSHVSFAssets, 0x07 },
+    { L"Mall PL#200.2",                     0x59cF2, 0x59EF2, indexCPS2Sprites_MSHVSFAssets, 0x08 },
+    { L"Mall PL#190 [Megaman]",             0x7926C, 0x7930C, indexCPS2Sprites_MSHVSFAssets, 0x0c },
+    { L"Mall PL#600.1",                     0x63952, 0x63b52, indexCPS2Sprites_MSHVSFAssets, 0x0a },
+    { L"Mall PL#600.2",                     0x63b52, 0x63D52, indexCPS2Sprites_MSHVSFAssets, 0x0b },
+    { L"Mall PL#190 [Spectators LS]",       0x7930C, 0x7934C, indexCPS2Sprites_MSHVSFAssets, 0x09 },
+    { L"Mall PL#190 [RS Sprites: Lady]",    0x7934C, 0x7936C, indexCPS2Sprites_MSHVSFAssets, 0x0d },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_DEATHVALLEY_PALETTES[] =
+{
+    { L"Death Valley 1 - Sky BG",                               0x573F2, 0x57412, indexCPS2Sprites_MSHVSFAssets, 0x0e, &pairFullyLinkedNode },
+	{ L"Death Valley 1 - Mountain MG",                          0x5F972, 0x5F992, indexCPS2Sprites_MSHVSFAssets, 0x0f },
+	{ L"Death Valley 1 - Floor/Cave FG",                        0x5A6F2, 0x5A712, indexCPS2Sprites_MSHVSFAssets, 0x10 },
+	{ L"Death Valley 1 - CenterPiece FG",                       0x5A752, 0x5A772, indexCPS2Sprites_MSHVSFAssets, 0x11 },
+	{ L"Death Valley 1 - Sprites [Beast, Blanka, Fire/Smoke]",  0x7854C, 0x785AC, indexCPS2Sprites_MSHVSFAssets, 0x12 },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_HILLTOP_PALETTES[] =
+{
+	{ L"On the Hilltop - SkyBG",        0x57AF2, 0x57B52 },
+	{ L"On the Hilltop - TreeTrunk",    0x5B2F2, 0x5B392 },
+	{ L"On the Hilltop - LeavesMG",     0x60612, 0x60672 },
+	{ L"On the Hilltop - Base Leaves",  0x787EC, 0x7880C },
+	{ L"On the Hilltop - Owls",         0x7882C, 0x7886C },
+//    { L"On the Hilltop PL#200.2 Unknown", 0x57E12, 0x57EB2 },
+};
+
+const sGame_PaletteDataset MSHVSF_A_STAGES_TEMPLE_PALETTES[] =
+{
+	{ L"Temple of Fists - Sky BG [PL#600.1]",           0x60152, 0x602B2, indexCPS2Sprites_MSHVSFAssets, 0x13, &pairFullyLinkedNode },
+	{ L"Temple of Fists - Floor Buildings [PL#400.1]",  0x5AEF2, 0x5B0F2, indexCPS2Sprites_MSHVSFAssets, 0x14 },
+	{ L"Temple of Fists - Big Statue [PL#400.2]",       0x5B0F2, 0x5B2B2, indexCPS2Sprites_MSHVSFAssets, 0x15 },
+	{ L"Temple of Fists - Sprites [PL#190]",            0x7870C, 0x787EC, indexCPS2Sprites_MSHVSFAssets, 0x16 },
+};
+
+// Extra - Not Needed v
+//    { L"Temple of Fists - Uknown [PL#600.2]", 0x60472, 0x60552 },
+
+
+
+
 const sGame_PaletteDataset MSHVSF_A_BONUS_BONUS_PALETTES[] =
 {
     { L"Super Background", 0x6EFEa, 0x6F1Ea },
@@ -1085,6 +1141,7 @@ const sDescTreeNode MSHVSF_A_SAKURA_COLLECTION[] =
 {
     { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH) },
     { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK) },
+    { L"Extras",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_PALETTES_SHARED,     ARRAYSIZE(MSHVSF_A_SAKURA_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MSHVSF_A_SHADOW_COLLECTION[] =
@@ -1159,17 +1216,19 @@ const sDescTreeNode MSHVSF_A_BONUS_COLLECTION_7B[] =
     { L"Palettes",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_VSP_PALETTES_7B,    ARRAYSIZE(MSHVSF_A_VSP_PALETTES_7B) },
 };
 
-
 const sDescTreeNode MSHVSF_A_STAGE_COLLECTION[] =
 {
-    //{ L"Battle on the Hilltop",         DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_BATTLE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_BATTLE_PALETTES) },
     //{ L"The Cataract",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_CATARACT_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_CATARACT_PALETTES) },
-    //{ L"Death Valley",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_DVALLEY_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_DVALLEY_PALETTES) },
+    { L"Death Valley",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_DEATHVALLEY_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_DEATHVALLEY_PALETTES) },
     //{ L"Manhattan",                     DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_MANHATTAN_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_MANHATTAN_PALETTES) },
+    
+    { L"Mall Mayhem",                   DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_MALLMAYHEM_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_MALLMAYHEM_PALETTES) },
+    // Battle on the hilltop?
+    { L"On the Hilltop",                DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_HILLTOP_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_HILLTOP_PALETTES) },
     { L"River Bridge",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_RIVER_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_RIVER_PALETTES) },
     //{ L"Raging Inferno: Night Time",    DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_INFERNO_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_INFERNO_PALETTES) },
     //{ L"Showdown in the Park",          DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_SHOWDOWN_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_SHOWDOWN_PALETTES) },
-    //{ L"Temple of Fists",               DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_TEMPLE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_TEMPLE_PALETTES) },
+    { L"Temple of Fists",               DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_TEMPLE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_TEMPLE_PALETTES) },
 };
 
 const sDescTreeNode MSHVSF_A_UNITS_6A[] =

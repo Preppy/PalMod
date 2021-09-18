@@ -1442,6 +1442,53 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nTargetImgId = 0;
             break;
         }
+        else if (   (uPalId == (0x11 + EXTRA_OMNI)) ||
+                    (uPalId == (0x13 + EXTRA_OMNI)) ||
+                    (uPalId == (0x15 + EXTRA_OMNI)) ||
+                    (uPalId == (0x17 + EXTRA_OMNI)) ||
+                    (uPalId == (0x19 + EXTRA_OMNI)) ||
+                    (uPalId == (0x1b + EXTRA_OMNI))) // Kei and bag
+        {
+            bLoadDefPal = FALSE;
+
+            const int nStartOfRange = 0x11;
+            const int nPeerPaletteDistance = 0x01;
+            const int nDistanceBetweenPairs = 0x02;
+            const int nNumberOfPairs = 0x06;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0x09,
+                    CreateImgTicket(uUnitId, 0x0a)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeKeiPair[2] = {
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeKeiPair[0], 0);
+            CreateDefPal(NodeKeiPair[1], 1);
+
+            const int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, nStartOfRange, nDistanceBetweenPairs, 0x08);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, nNumberOfPairs, nDistanceBetweenPairs);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, nNumberOfPairs, nDistanceBetweenPairs);
+
+            break;
+        }
+        else if (   (uPalId == (0x12 + EXTRA_OMNI)) ||
+                    (uPalId == (0x14 + EXTRA_OMNI)) ||
+                    (uPalId == (0x16 + EXTRA_OMNI)) ||
+                    (uPalId == (0x18 + EXTRA_OMNI)) ||
+                    (uPalId == (0x1a + EXTRA_OMNI)) ||
+                    (uPalId == (0x1c + EXTRA_OMNI))) // Kei's bag
+        {
+            SetExtraImg(0x0a, uUnitId, uPalId);
+            break;
+        }
 
         CreateExtraPal(uUnitId, uPalId, 0x1D, 0x1, 0x00); // Dark Sakura
 
