@@ -1889,7 +1889,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                 if (!fIsMvC2TeamView)
                 {
                     CString szLoad;
-                    sFileRule CurrRule = GetRule(nFileCtr | 0xFF00);
+                    sFileRule CurrRule = GetRule(nFileCtr | RULE_COUNTER_MASK);
 
                     szLoad.Format(L"%s\\%s", pszLoadDir, CurrRule.szFileName);
 
@@ -2061,7 +2061,7 @@ void CGameLoad::CrosscopyGame(CGameClass* CurrGame)
                 if (!fIsMvC2TeamView)
                 {
                     CString szLoad;
-                    sFileRule CurrRule = fIsDreamcast ? CGame_MVC2_P::GetRule(nFileCtr | 0xFF00) : CGame_MVC2_D::GetRule(nFileCtr | 0xFF00);
+                    sFileRule CurrRule = fIsDreamcast ? CGame_MVC2_P::GetRule(nFileCtr | RULE_COUNTER_MASK) : CGame_MVC2_D::GetRule(nFileCtr | RULE_COUNTER_MASK);
 
                     szLoad.Format(L"%s\\%s", strTargetDirectory.GetString(), CurrRule.szFileName);
 

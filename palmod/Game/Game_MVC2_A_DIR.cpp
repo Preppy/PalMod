@@ -32,13 +32,13 @@ sFileRule CGame_MVC2_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.ic%u", MVC2_Arcade_ROM_Base, (nUnitId & 0x00FF) + 51, (nUnitId & 0x00FF) + 20);
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.ic%u", MVC2_Arcade_ROM_Base, (nUnitId & RULE_COUNTER_DEMASK) + 51, (nUnitId & RULE_COUNTER_DEMASK) + 20);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
     // There was an update to the ROM set used by Flycast: this handles the variant filenames.
     NewFileRule.fHasAltName = TRUE;
-    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"%s%u.ic%us", MVC2_Arcade_ROM_Base, (nUnitId & 0x00FF) + 51, (nUnitId & 0x00FF) + 20);
+    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"%s%u.ic%us", MVC2_Arcade_ROM_Base, (nUnitId & RULE_COUNTER_DEMASK) + 51, (nUnitId & RULE_COUNTER_DEMASK) + 20);
 
     return NewFileRule;
 }
@@ -162,6 +162,12 @@ inline UINT8 CGame_MVC2_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
 
 BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 {
+    if (nSaveUnit != 0)
+    {
+        OutputDebugString(L"CGame_MVC2_A_DIR::SaveFile: All data is written in pass 0: skipping this pass\n");
+        return TRUE;
+    }
+    
     OutputDebugString(L"CGame_MVC2_A_DIR::SaveFile: Preparing to save data for MVC2 ROM set\n");
 
     // In the SIMM rerip, the palettes start at mpr-23051.ic20 and increment upwards.
@@ -187,6 +193,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
             if (!fileSIMMs[nIndex].Open(strSIMMNames, CFile::modeWrite | CFile::typeBinary))
             {
                 fLoadedEverything = FALSE;
+                OutputDebugString(L"\tFile is missing: aborting.\n");
                 break;
             }
         }
@@ -199,6 +206,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
             if (nUnitCtr == indexMVC2ATeamView)
             {
                 // This is a virtual group.
+                OutputDebugString(L"\tskipping the virtual Team View unit\n");
                 continue;
             }
 
@@ -226,6 +234,10 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
                     fileSIMMs[nSIMMSetToUse].Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
                 }
             }
+
+            CString strOutput;
+            strOutput.Format(L"\tSaved %3u palettes for unit 0x%02x\n", nPalAmt, nUnitCtr);
+            OutputDebugString(strOutput.GetString());
         }
     }
 
@@ -236,6 +248,8 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
             fileSIMMs[nIndex].Close();
         }
     }
+
+    OutputDebugString(L"\tSave complete!\n");
 
     return fLoadedEverything;
 }

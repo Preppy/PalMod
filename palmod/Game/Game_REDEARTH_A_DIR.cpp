@@ -58,16 +58,16 @@ sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(int nGameMode, UINT16 nUnitId)
     switch (nGameMode)
     {
     case 30:
-        nAdjustedSIMMFileNumber = (nUnitId & 0x00FF) + RedEarth_Arcade_SIMMFileBaseNumber_30;
+        nAdjustedSIMMFileNumber = (nUnitId & RULE_COUNTER_DEMASK) + RedEarth_Arcade_SIMMFileBaseNumber_30;
         _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", RedEarth_Arcade_ROM_Base, RedEarth_Arcade_ROMSet_3, nAdjustedSIMMFileNumber);
         break;
     case 31:
     default:
-        nAdjustedSIMMFileNumber = (nUnitId & 0x00FF) + RedEarth_Arcade_SIMMFileBaseNumber_31;
+        nAdjustedSIMMFileNumber = (nUnitId & RULE_COUNTER_DEMASK) + RedEarth_Arcade_SIMMFileBaseNumber_31;
         _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", RedEarth_Arcade_ROM_Base, RedEarth_Arcade_ROMSet_3, nAdjustedSIMMFileNumber);
         break;
     case 50:
-        nAdjustedSIMMFileNumber = (nUnitId & 0x00FF) + RedEarth_Arcade_SIMMFileBaseNumber_50;
+        nAdjustedSIMMFileNumber = (nUnitId & RULE_COUNTER_DEMASK) + RedEarth_Arcade_SIMMFileBaseNumber_50;
         _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", RedEarth_Arcade_ROM_Base, RedEarth_Arcade_ROMSet_5, nAdjustedSIMMFileNumber);
         break;
     }

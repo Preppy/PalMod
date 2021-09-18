@@ -31,7 +31,7 @@ sFileRule CGame_SFIII2_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    const UINT16 nAdjustedSIMMFileNumber = SFIII2_Arcade_USA_SIMMFileBaseNumber + (nUnitId & 0x00FF);
+    const UINT16 nAdjustedSIMMFileNumber = SFIII2_Arcade_USA_SIMMFileBaseNumber + (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII2_Arcade_USA_ROM_Base, SFIII2_Arcade_USA_ROMSet, nAdjustedSIMMFileNumber);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = SFIII2_Arcade_USA_SIMMLength;

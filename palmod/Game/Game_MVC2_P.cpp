@@ -17,7 +17,7 @@ sFileRule CGame_MVC2_P::GetRule(UINT16 nRuleId)
 {
     sFileRule NewFileRule;
 
-    nRuleId = (nRuleId & 0xFF00) == 0xFF00 ? (nRuleId & 0x00FF) : MVC2_D_UNITSORT[nRuleId];
+    nRuleId = (nRuleId & RULE_COUNTER_MASK) == RULE_COUNTER_MASK ? (nRuleId & RULE_COUNTER_DEMASK) : MVC2_D_UNITSORT[nRuleId];
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"PL%02XPAK.BIN", nRuleId);
 
     NewFileRule.uUnitId = nRuleId;

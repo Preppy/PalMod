@@ -137,8 +137,8 @@ sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    // We get extra data from GameClass that we don't want: clear the lead 0xFF00 flag if present.
-    UINT16 nRuleId = (nUnitId & 0x00FF);
+    // We get extra data from GameClass that we don't want: clear the lead flag if present.
+    UINT16 nRuleId = (nUnitId & RULE_COUNTER_DEMASK);
 
     if (nRuleId > 14)
     {

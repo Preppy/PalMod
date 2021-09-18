@@ -20,6 +20,9 @@ struct sFileRule
 
 const UINT32 k_nBogusHighValue = 0xFEEDFED;
 
+const UINT16 RULE_COUNTER_MASK = 0xF000;
+const UINT16 RULE_COUNTER_DEMASK = 0x0FFF;
+
 class CGameClass
 {
 protected:

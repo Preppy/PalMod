@@ -68,32 +68,32 @@ sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(UINT16 nUnitId, int nSF3ModeToLoad
     switch (m_nSelectedRom)
     {
         case SF3ROM_51_4rd:
-            _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_4rd_ROM_Base, 5, ((nUnitId & 0x00FF) + 6));
+            _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_4rd_ROM_Base, 5, ((nUnitId & RULE_COUNTER_DEMASK) + 6));
             break;
         case SF3ROM_70_EX:
-            _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_3Ex_ROM_Base, 7, (nUnitId & 0x00FF));
+            _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_3Ex_ROM_Base, 7, (nUnitId & RULE_COUNTER_DEMASK));
             break;
         default:
             OutputDebugString(L"Warning: unrecognized ROM.\n");
             __fallthrough;
         case SF3ROM_10_4rd:
-            _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_4rd_ROM_Base, 1, (nUnitId & 0x00FF));
+            _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_4rd_ROM_Base, 1, (nUnitId & RULE_COUNTER_DEMASK));
             break;
         case SF3ROM_10:
         case SF3ROM_51:
         {
-            _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_USA_ROM_Base, UsingROMForGill() ? 1 : 5, (nUnitId & 0x00FF));
+            _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_USA_ROM_Base, UsingROMForGill() ? 1 : 5, (nUnitId & RULE_COUNTER_DEMASK));
 
             // This is clunky: we should shift the SIMM games to handle loads themselves.
             NewFileRule.fHasAltName = TRUE;
 
-            if (UsingROMForGill() && ((nUnitId & 0x00FF) == 0x03))
+            if (UsingROMForGill() && ((nUnitId & RULE_COUNTER_DEMASK) == 0x03))
             {
-                _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"%s%u.%ua", SFIII_Arcade_JPN_ROM_Base, UsingROMForGill() ? 1 : 5, (nUnitId & 0x00FF));
+                _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"%s%u.%ua", SFIII_Arcade_JPN_ROM_Base, UsingROMForGill() ? 1 : 5, (nUnitId & RULE_COUNTER_DEMASK));
             }
             else
             {
-                _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_JPN_ROM_Base, UsingROMForGill() ? 1 : 5, (nUnitId & 0x00FF));
+                _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_JPN_ROM_Base, UsingROMForGill() ? 1 : 5, (nUnitId & RULE_COUNTER_DEMASK));
             }
             break;
         }

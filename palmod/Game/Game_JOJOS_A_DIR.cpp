@@ -29,7 +29,7 @@ sFileRule CGame_JOJOS_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u", JOJOS_Arcade_ROM_Base, (nUnitId & 0x00FF));
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u", JOJOS_Arcade_ROM_Base, (nUnitId & RULE_COUNTER_DEMASK));
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
