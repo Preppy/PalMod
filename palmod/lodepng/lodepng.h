@@ -1,7 +1,10 @@
-/*
-LodePNG version 20201017
+// This code has been modified for use by PalMod in the following fashion:
+// * Added WCHAR filename support.
 
-Copyright (c) 2005-2020 Lode Vandevenne
+/*
+LodePNG version 20210627
+
+Copyright (c) 2005-2021 Lode Vandevenne
 
 This software is provided 'as-is', without any express or implied
 warranty. In no event will the authors be held liable for any damages
@@ -1973,5 +1976,5 @@ Domain: gmail dot com.
 Account: lode dot vandevenne.
 
 
-Copyright (c) 2005-2020 Lode Vandevenne
+Copyright (c) 2005-2021 Lode Vandevenne
 */
