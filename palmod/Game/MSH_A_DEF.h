@@ -784,6 +784,11 @@ const sGame_PaletteDataset MSH_A_BONUS_TITLE_05_PALETTES[] =
     { L"Gem Ripple",                        0x6C72c, 0x6C74c, indexCPS2Sprites_MSHAssets, 0x1e },
 };
 
+const sGame_PaletteDataset MSH_A_BONUS_05_VSNAME_PALETTES[] =
+{
+    { L"Dr. Doom Vs Name",  0x6108C, 0x610AC },
+};
+
 const sGame_PaletteDataset MSH_A_BONUS_TITLE_06_PALETTES[] =
 {
     { L"Title Screen Space BG",         0x7340 - 0x02, 0x7380 - 0x02, indexCPS2Sprites_MSHAssets, 0x00, &pairNext },
@@ -929,6 +934,7 @@ const sDescTreeNode MSH_A_BONUS_05_COLLECTION[] =
     { L"Gems", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_GEMS_PALETTES, ARRAYSIZE(MSH_A_BONUS_GEMS_PALETTES) },
     { L"Mind Gem Effects", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_MINDGEM_PALETTES, ARRAYSIZE(MSH_A_BONUS_MINDGEM_PALETTES) },
     { L"Title Screen (05 elements)", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_TITLE_05_PALETTES, ARRAYSIZE(MSH_A_BONUS_TITLE_05_PALETTES) },
+    { L"VS Names", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_05_VSNAME_PALETTES, ARRAYSIZE(MSH_A_BONUS_05_VSNAME_PALETTES) },
 };
 
 const sDescTreeNode MSH_A_BONUS_06_COLLECTION[] =

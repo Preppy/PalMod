@@ -178,6 +178,33 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case indexCPS2Sprites_Cyclops:
     {
+        // Handle his jHK
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        {
+            bLoadDefPal = FALSE;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0,
+                    CreateImgTicket(uUnitId, 1, NULL, 0, 0)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeGet[2] = {
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeGet[0], 0);
+            CreateDefPal(NodeGet[1], 1);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(1, uUnitId, 1, 6, 8);
+            break;
+        }
+
         // these are shared, not per character
         if ((uPalId >= (0x19 + EXTRA_OMNI)) &&
             (uPalId <= (0x1D + EXTRA_OMNI)))
@@ -194,14 +221,12 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             break;
         }
 
-
         break;
     }
     case indexCPS2Sprites_Wolverine:
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8) || // core sprite
             SpecSel(&nSpecOffs, uPalId, 6, 8))   // unknown highlight
-
         {
             bLoadDefPal = FALSE;
 

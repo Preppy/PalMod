@@ -45,7 +45,7 @@ const sGame_PaletteDataset XMVSF_A_Wolverine_PALETTES_P2[] =
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P1[] =
 {
-    { L"P1 Punch Color",    0x14e3a, 0x14e5a, indexCPS2Sprites_Cyclops, 0x00 },
+    { L"P1 Punch Color",    0x14e3a, 0x14e5a, indexCPS2Sprites_Cyclops, 0x00, &pairNext },
     { L"P1 HK",             0x14e5a, 0x14e7a, indexCPS2Sprites_Cyclops, 0x01 },
     { L"P1 optic FX",       0x14e7a, 0x14e9a, indexCPS2Sprites_Cyclops, 0x02 },
 
@@ -64,7 +64,7 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P1[] =
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x14e9a, 0x14eba, indexCPS2Sprites_Cyclops, 0x00 },
+    { L"P2 Kick Color", 0x14e9a, 0x14eba, indexCPS2Sprites_Cyclops, 0x00, &pairNext },
     { L"P2 HK", 0x14eba, 0x14eda, indexCPS2Sprites_Cyclops, 0x01 },
     { L"P2 optic FX", 0x14eda, 0x14efa, indexCPS2Sprites_Cyclops, 0x02 },
 

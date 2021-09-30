@@ -169,10 +169,13 @@
 #define ID_ZOOM_6X                      32788
 #define ID_ZOOM_7X                      32789
 #define ID_ZOOM_8X                      32790
+#define ID_ABOUT_README                 32791
+#define ID_ABOUT_PALMODSITE             32792
 #define ID_EDIT_SELECTALL               32793
 #define ID_EDIT_SELECTNONE              32794
 #define ID_ABOUT_ABOUTPALMOD            32795
 #define ID_ACC_FILEOPEN                 32796
+#define ID_ABOUT_VHISTORY               32797
 #define ID_ACC_FILEPATCH                32798
 #define ID_ACC_UNDO                     32799
 #define ID_ACC_REDO                     32800

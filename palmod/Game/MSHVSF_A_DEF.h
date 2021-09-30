@@ -144,42 +144,42 @@ const sGame_PaletteDataset MSHVSF_A_CYBER_AKUMA_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)", 0x71F8c, 0x71FAc, indexCPS2Sprites_Cyclops },
+    { L"P1 Color (Punch)", 0x71F8c, 0x71FAc, indexCPS2Sprites_Cyclops, 0, &pairNext },
     { L"P1 HK Extra", 0x71FAc, 0x71FCc, indexCPS2Sprites_Cyclops, 1 },
     { L"P1 Optic Blast Super", 0x71FCc, 0x71FEc, indexCPS2Sprites_Cyclops, 2 },
     // ? don't know what this maps to
     // ? don't know what this maps to
     { L"P1 Laser FX", 0x7204c, 0x7206c, indexCPS2Sprites_Cyclops, 3 },
-    { L"P1 Intro 1", 0x7616c, 0x7618c, indexCPS2Sprites_Cyclops },
-    { L"P1 Intro 2", 0x7618c, 0x761Ac, indexCPS2Sprites_Cyclops },
-    { L"P1 Intro 3", 0x761Ac, 0x761Cc, indexCPS2Sprites_Cyclops },
-    { L"P1 Intro 4", 0x761Cc, 0x761Ec, indexCPS2Sprites_Cyclops },
-    { L"P1 Intro 5", 0x761Ec, 0x7620c, indexCPS2Sprites_Cyclops },
-    { L"P1 Intro 6", 0x7620c, 0x7622c, indexCPS2Sprites_Cyclops },
-    { L"P1 Intro 7", 0x7622c, 0x7624c, indexCPS2Sprites_Cyclops },
-    { L"P1 Intro 8", 0x7624c, 0x7626c, indexCPS2Sprites_Cyclops },
-    { L"P1 Extra Lighting", 0x7640c, 0x7642c, indexCPS2Sprites_Cyclops },
-    { L"P1 Optic Light Extra?", 0x7642c, 0x7644c, indexCPS2Sprites_Cyclops },
+    { L"P1 Intro 1", 0x7616c, 0x7618c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P1 Intro 2", 0x7618c, 0x761Ac, indexCPS2Sprites_Cyclops, 12 },
+    { L"P1 Intro 3", 0x761Ac, 0x761Cc, indexCPS2Sprites_Cyclops, 12 },
+    { L"P1 Intro 4", 0x761Cc, 0x761Ec, indexCPS2Sprites_Cyclops, 12 },
+    { L"P1 Intro 5", 0x761Ec, 0x7620c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P1 Intro 6", 0x7620c, 0x7622c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P1 Intro 7", 0x7622c, 0x7624c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P1 Intro 8", 0x7624c, 0x7626c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P1 Extra Lighting", 0x7640c, 0x7642c, indexCPS2Sprites_Cyclops, 13 },
+    { L"P1 Optic Light Extra?", 0x7642c, 0x7644c, indexCPS2Sprites_Cyclops, 13 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)", 0x71FEc, 0x7200c, indexCPS2Sprites_Cyclops },
+    { L"P2 Color (Kick)", 0x71FEc, 0x7200c, indexCPS2Sprites_Cyclops, 0, &pairNext },
     { L"P2 HK Extra", 0x7200c, 0x7202c, indexCPS2Sprites_Cyclops, 1 },
     { L"P2 Optic Blast Super", 0x7202c, 0x7204c, indexCPS2Sprites_Cyclops, 2 },
     // ? don't know what this maps to
     // ? don't know what this maps to
     { L"P2 Laser FX", 0x720Ec, 0x7210c, indexCPS2Sprites_Cyclops, 3 },
-    { L"P2 Intro 1", 0x7626c, 0x7628c, indexCPS2Sprites_Cyclops },
-    { L"P2 Intro 2", 0x7628c, 0x762Ac, indexCPS2Sprites_Cyclops },
-    { L"P2 Intro 3", 0x762Ac, 0x762Cc, indexCPS2Sprites_Cyclops },
-    { L"P2 Intro 4", 0x762Cc, 0x762Ec, indexCPS2Sprites_Cyclops },
-    { L"P2 Intro 5", 0x762Ec, 0x7630c, indexCPS2Sprites_Cyclops },
-    { L"P2 Intro 6", 0x7630c, 0x7632c, indexCPS2Sprites_Cyclops },
-    { L"P2 Intro 7", 0x7632c, 0x7634c, indexCPS2Sprites_Cyclops },
-    { L"P2 Intro 8", 0x7634c, 0x7636c, indexCPS2Sprites_Cyclops },
-    { L"P2 Extra Lighting 2", 0x7644c, 0x7646c, indexCPS2Sprites_Cyclops },
-    { L"P2 Optic Light Extra?", 0x7646c, 0x7648c, indexCPS2Sprites_Cyclops },
+    { L"P2 Intro 1", 0x7626c, 0x7628c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P2 Intro 2", 0x7628c, 0x762Ac, indexCPS2Sprites_Cyclops, 12 },
+    { L"P2 Intro 3", 0x762Ac, 0x762Cc, indexCPS2Sprites_Cyclops, 12 },
+    { L"P2 Intro 4", 0x762Cc, 0x762Ec, indexCPS2Sprites_Cyclops, 12 },
+    { L"P2 Intro 5", 0x762Ec, 0x7630c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P2 Intro 6", 0x7630c, 0x7632c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P2 Intro 7", 0x7632c, 0x7634c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P2 Intro 8", 0x7634c, 0x7636c, indexCPS2Sprites_Cyclops, 12 },
+    { L"P2 Extra Lighting 2", 0x7644c, 0x7646c, indexCPS2Sprites_Cyclops, 13 },
+    { L"P2 Optic Light Extra?", 0x7646c, 0x7648c, indexCPS2Sprites_Cyclops, 13 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_SHARED[] =

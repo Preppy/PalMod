@@ -14,6 +14,7 @@ const UINT16 DANKUGA_A_IMGIDS_USED[] =
     indexDanKuGa_Marco,             // 0x09
     indexDanKuGa_Wulong,            // 0x0A
     indexDanKuGa_Bonus,             // 0x0B
+    indexDanKuGa_General,           // 0x0C
 };
 
 const sGame_PaletteDataset DANKUGA_A_KAZUYA_PALETTES[] =
@@ -183,10 +184,10 @@ const sGame_PaletteDataset DANKUGA_A_MARCO_PALETTES[] =
 
 const sGame_PaletteDataset DANKUGA_A_GENERAL_PALETTES[] =
 {
-    { L"General Character Punch", 0x2e038, 0x2e078 },
-    { L"General Character Kick", 0x2e078, 0x2e0b8 },
-    { L"General Character Start", 0x2e0b8, 0x2e0f8 },
-    { L"General Character Training", 0x2e0f8, 0x2e138 },
+    { L"General Character Punch", 0x2e038, 0x2e078, indexDanKuGa_General, 0x0 },
+    { L"General Character Kick", 0x2e078, 0x2e0b8, indexDanKuGa_General, 0x0 },
+    { L"General Character Start", 0x2e0b8, 0x2e0f8, indexDanKuGa_General, 0x0 },
+    { L"General Character Training", 0x2e0f8, 0x2e138, indexDanKuGa_General, 0x0 },
     { L"General Winquote Portrait Punch", 0x47c80, 0x47cc0 },
     { L"General Winquote Portrait Kick", 0x47cc0, 0x47d00 },
     { L"General Winquote Portrait Start", 0x47d00, 0x47d40 },
@@ -281,7 +282,7 @@ const sDescTreeNode DANKUGA_A_UNITS[] =
     { L"Marco",     DESC_NODETYPE_TREE, (void*)DANKUGA_A_MARCO_COLLECTION, ARRAYSIZE(DANKUGA_A_MARCO_COLLECTION) },
     { L"General",   DESC_NODETYPE_TREE, (void*)DANKUGA_A_GENERAL_COLLECTION, ARRAYSIZE(DANKUGA_A_GENERAL_COLLECTION) },
 
-    { L"Bonus",     DESC_NODETYPE_TREE, (void*)DANKUGA_A_BONUS_COLLECTION, ARRAYSIZE(DANKUGA_A_BONUS_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)DANKUGA_A_BONUS_COLLECTION, ARRAYSIZE(DANKUGA_A_BONUS_COLLECTION) },
 };
 
 constexpr auto DANKUGA_A_NUMUNIT = ARRAYSIZE(DANKUGA_A_UNITS);

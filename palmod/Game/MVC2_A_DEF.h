@@ -896,7 +896,7 @@ const sDescTreeNode MVC2_A_STRIDER_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x2b13440, 0x2b13460, indexCPS2Sprites_Cyclops, 0 },
+    { L"Main Color LP", 0x2b13440, 0x2b13460, indexCPS2Sprites_Cyclops, 0, &pairNext },
     { L"(02) s.HK, (s)j.HK Swing effect", 0x2b13460, 0x2b13480, indexCPS2Sprites_Cyclops, 1 },
     { L"(03) ID:01-08 Mega Optic Blast (Laser / Hit Frame 1) ID:09-16: Mega Optic Blast (Hit Frame 2)", 0x2b13480, 0x2b134a0, indexCPS2Sprites_Cyclops, 2 },
     { L"(04) ID:01-08 Optic Goggle Shade / Taunt Spark ID:09-16: Taunt Spark Frame 2 / Tag-In Shine", 0x2b134a0, 0x2b134c0, indexCPS2Sprites_Cyclops, 3 },
@@ -908,7 +908,7 @@ const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x2b13540, 0x2b13560, indexCPS2Sprites_Cyclops, 0 },
+    { L"Main Color LK", 0x2b13540, 0x2b13560, indexCPS2Sprites_Cyclops, 0, &pairNext },
     { L"(02) s.HK, (s)j.HK Swing effect", 0x2b13560, 0x2b13580, indexCPS2Sprites_Cyclops, 1 },
     { L"(03) ID:01-08 Mega Optic Blast (Laser / Hit Frame 1) ID:09-16: Mega Optic Blast (Hit Frame 2)", 0x2b13580, 0x2b135a0, indexCPS2Sprites_Cyclops, 2 },
     { L"(04) ID:01-08 Optic Goggle Shade / Taunt Spark ID:09-16: Taunt Spark Frame 2 / Tag-In Shine", 0x2b135a0, 0x2b135c0, indexCPS2Sprites_Cyclops, 3 },
@@ -920,7 +920,7 @@ const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x2b13640, 0x2b13660, indexCPS2Sprites_Cyclops, 0 },
+    { L"Main Color HP", 0x2b13640, 0x2b13660, indexCPS2Sprites_Cyclops, 0, &pairNext },
     { L"(02) s.HK, (s)j.HK Swing effect", 0x2b13660, 0x2b13680, indexCPS2Sprites_Cyclops, 1 },
     { L"(03) ID:01-08 Mega Optic Blast (Laser / Hit Frame 1) ID:09-16: Mega Optic Blast (Hit Frame 2)", 0x2b13680, 0x2b136a0, indexCPS2Sprites_Cyclops, 2 },
     { L"(04) ID:01-08 Optic Goggle Shade / Taunt Spark ID:09-16: Taunt Spark Frame 2 / Tag-In Shine", 0x2b136a0, 0x2b136c0, indexCPS2Sprites_Cyclops, 3 },
@@ -932,7 +932,7 @@ const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x2b13740, 0x2b13760, indexCPS2Sprites_Cyclops, 0 },
+    { L"Main Color HK", 0x2b13740, 0x2b13760, indexCPS2Sprites_Cyclops, 0, &pairNext },
     { L"(02) s.HK, (s)j.HK Swing effect", 0x2b13760, 0x2b13780, indexCPS2Sprites_Cyclops, 1 },
     { L"(03) ID:01-08 Mega Optic Blast (Laser / Hit Frame 1) ID:09-16: Mega Optic Blast (Hit Frame 2)", 0x2b13780, 0x2b137a0, indexCPS2Sprites_Cyclops, 2 },
     { L"(04) ID:01-08 Optic Goggle Shade / Taunt Spark ID:09-16: Taunt Spark Frame 2 / Tag-In Shine", 0x2b137a0, 0x2b137c0, indexCPS2Sprites_Cyclops, 3 },
@@ -944,7 +944,7 @@ const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x2b13840, 0x2b13860, indexCPS2Sprites_Cyclops, 0 },
+    { L"Main Color A1", 0x2b13840, 0x2b13860, indexCPS2Sprites_Cyclops, 0, &pairNext },
     { L"(02) s.HK, (s)j.HK Swing effect", 0x2b13860, 0x2b13880, indexCPS2Sprites_Cyclops, 1 },
     { L"(03) ID:01-08 Mega Optic Blast (Laser / Hit Frame 1) ID:09-16: Mega Optic Blast (Hit Frame 2)", 0x2b13880, 0x2b138a0, indexCPS2Sprites_Cyclops, 2 },
     { L"(04) ID:01-08 Optic Goggle Shade / Taunt Spark ID:09-16: Taunt Spark Frame 2 / Tag-In Shine", 0x2b138a0, 0x2b138c0, indexCPS2Sprites_Cyclops, 3 },
@@ -956,7 +956,7 @@ const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_CYCLOPS_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x2b13940, 0x2b13960, indexCPS2Sprites_Cyclops, 0 },
+    { L"Main Color A2", 0x2b13940, 0x2b13960, indexCPS2Sprites_Cyclops, 0, &pairNext },
     { L"(02) s.HK, (s)j.HK Swing effect", 0x2b13960, 0x2b13980, indexCPS2Sprites_Cyclops, 1 },
     { L"(03) ID:01-08 Mega Optic Blast (Laser / Hit Frame 1) ID:09-16: Mega Optic Blast (Hit Frame 2)", 0x2b13980, 0x2b139a0, indexCPS2Sprites_Cyclops, 2 },
     { L"(04) ID:01-08 Optic Goggle Shade / Taunt Spark ID:09-16: Taunt Spark Frame 2 / Tag-In Shine", 0x2b139a0, 0x2b139c0, indexCPS2Sprites_Cyclops, 3 },

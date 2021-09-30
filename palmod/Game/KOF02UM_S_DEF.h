@@ -5189,7 +5189,7 @@ const sDescTreeNode KOF02UM_S_OROCHIIORI_COLLECTION[] =
 const sGame_PaletteDataset KOF02UM_S_HUD_PALETTES[] =
 {
     { L"Main HUD Stuff and Meter",                  0x53700, 0x53720 },
-    { L"Timer",                                     0x53720, 0x53740 },
+    { L"Timer",                                     0x53720, 0x53740, indexKOF02UMSprites_Bonus, 0x44 },
     { L"Names, Win Count, and Meter",               0x53740, 0x53760 },
     { L"GUARD, Win Text and Remaining Characters",  0x53760, 0x53780 },
     { L"MAX ON Text, Win Count Flash",              0x53780, 0x537a0 },

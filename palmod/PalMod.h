@@ -31,6 +31,9 @@ const UINT16 PAL_MAXWIDTH_16COLORSPERLINE = 16;
 const UINT16 PAL_MAXAMT_8COLORSPERLINE = 128;
 const UINT16 PAL_MAXAMT_16COLORSPERLINE = 256;
 
+// arguably could be moved to a helper file
+void LaunchFileOrURL(LPCWSTR pszFileName, LPCWSTR pszBackupURL);
+
 class CPalModApp : public CWinApp
 {
 private:

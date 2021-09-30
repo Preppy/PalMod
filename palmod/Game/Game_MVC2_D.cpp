@@ -497,7 +497,7 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     if (ppDataBuffer[nUnitId])
     {
-        //This should always be NULL
+        //Palette memory should always be NULL at this point
         return FALSE;
     }
     else

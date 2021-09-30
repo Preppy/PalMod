@@ -310,7 +310,10 @@ public:
     afx_msg void OnBnRevert();
     afx_msg void OnBnClickedReverse();
     afx_msg void OnBnBlink();
-    afx_msg void OnAboutAboutpalmod();
+    afx_msg void OnAboutAboutPalMod();
+    afx_msg void OnAboutShowReadMe();
+    afx_msg void OnAboutShowHistory();
+    afx_msg void OnAboutLaunchPalModSite();
     afx_msg void OnBnClickedBinvert();
     afx_msg void OnImportPalette();
     afx_msg void OnExportPalette();

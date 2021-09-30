@@ -221,7 +221,12 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_BN_CLICKED(IDC_BCHECKMIX, &CPalModDlg::OnButtonClickCheckEdits)
     ON_BN_CLICKED(IDC_BREVERT, &CPalModDlg::OnBnRevert)
     ON_BN_CLICKED(IDC_BBLINK, &CPalModDlg::OnBnBlink)
-    ON_COMMAND(ID_ABOUT_ABOUTPALMOD, &CPalModDlg::OnAboutAboutpalmod)
+    
+    ON_COMMAND(ID_ABOUT_ABOUTPALMOD, &CPalModDlg::OnAboutAboutPalMod)
+    ON_COMMAND(ID_ABOUT_README, &CPalModDlg::OnAboutShowReadMe)
+    ON_COMMAND(ID_ABOUT_PALMODSITE, &CPalModDlg::OnAboutLaunchPalModSite)
+    ON_COMMAND(ID_ABOUT_VHISTORY, &CPalModDlg::OnAboutShowHistory)
+
     ON_BN_CLICKED(IDC_BINVERT, &CPalModDlg::OnBnClickedBinvert)
     ON_COMMAND(ID_TOOLS_LOADACTPALETTE, &CPalModDlg::OnImportPalette)
     ON_COMMAND(ID_TOOLS_SAVEACTPALETTE, &CPalModDlg::OnExportPalette)
@@ -741,8 +746,23 @@ void CPalModDlg::SetStatusText(UINT uStrId)
     }
 }
 
-void CPalModDlg::OnAboutAboutpalmod()
+void CPalModDlg::OnAboutAboutPalMod()
 {
     CAboutDlg AboutDlg;
     AboutDlg.DoModal();
+}
+
+void CPalModDlg::OnAboutShowReadMe()
+{
+    LaunchFileOrURL(L"ReadMe.html", L"https://zachd.com/palmod/releases/ReadMe.html");
+}
+
+void CPalModDlg::OnAboutShowHistory()
+{
+    LaunchFileOrURL(L"Version History.html", L"https://zachd.com/palmod/releases/Version History.html");
+}
+
+void CPalModDlg::OnAboutLaunchPalModSite()
+{
+    LaunchFileOrURL(nullptr, L"https://zachd.com/palmod/");
 }

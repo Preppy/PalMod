@@ -116,7 +116,7 @@ const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P2[] =
 // There's also a cyclops range from 0x276fE to 0x277fE: unclear what it's used for
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P1[] =
 {
-    { L"P1",          0x2693c, 0x2695c, indexCPS2Sprites_Cyclops },
+    { L"P1",          0x2693c, 0x2695c, indexCPS2Sprites_Cyclops, 0, &pairNext2 },
     { L"P1 Extras 1", 0x2695c, 0x2697c, indexCPS2Sprites_Cyclops },
     { L"P1 jHK",      0x2697c, 0x2699c, indexCPS2Sprites_Cyclops, 0x1 },
     { L"P1 Extras 3", 0x2699c, 0x269Bc, indexCPS2Sprites_Cyclops, 0x2 },
@@ -148,7 +148,7 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P2[] =
 {
-    { L"P2",          0x269Bc, 0x269Dc, indexCPS2Sprites_Cyclops },
+    { L"P2",          0x269Bc, 0x269Dc, indexCPS2Sprites_Cyclops, 0, &pairNext2 },
     { L"P2 Extras 1", 0x269Dc, 0x269Fc, indexCPS2Sprites_Cyclops },
     // Yes, the purple/gold p2 cyclops is using the wrong P2 jHK palette.
     // this is just an old palette bug in COTA itself
@@ -291,18 +291,18 @@ const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P1[] =
 {
-    { L"Sentinel P1", 0x26e3c, 0x26e5c, indexCPS2Sprites_Sentinel, 0, &pairNextAndNextSkipped },
-    { L"P1 Drones (bombs) / Guts", 0x26e5c, 0x26e7c, indexCPS2Sprites_Sentinel, 1 },
+    { L"Sentinel P1", 0x26e3c, 0x26e5c, indexCPS2Sprites_Sentinel, 0x20, &pairNextAndNextSkipped },
+    { L"P1 Drones (bombs) / Guts", 0x26e5c, 0x26e7c, indexCPS2Sprites_Sentinel, 0x21 },
     { L"P1 MP / Rocket Punch wires", 0x26e7c, 0x26e9c, indexCPS2Sprites_Sentinel, 2 },
-    { L"P1 Plasma Storm / Flight", 0x26e9c, 0x26ebc, indexCPS2Sprites_Sentinel, 3 },
+    { L"P1 Plasma Storm / Flight", 0x26e9c, 0x26ebc, indexCPS2Sprites_Sentinel, 0x23 },
 };
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P2[] =
 {
-    { L"Sentinel P2", 0x26ebc, 0x26edc, indexCPS2Sprites_Sentinel, 0, &pairNextAndNextSkipped },
-    { L"P2 Drones (bombs) / Guts", 0x26edc, 0x26efc, indexCPS2Sprites_Sentinel, 1 },
+    { L"Sentinel P2", 0x26ebc, 0x26edc, indexCPS2Sprites_Sentinel, 0x20, &pairNextAndNextSkipped },
+    { L"P2 Drones (bombs) / Guts", 0x26edc, 0x26efc, indexCPS2Sprites_Sentinel, 0x21 },
     { L"P2 MP / Rocket Punch wires", 0x26efc, 0x26f1c, indexCPS2Sprites_Sentinel, 2 },
-    { L"P2 Plasma Storm / Flight", 0x26f1c, 0x26f3c, indexCPS2Sprites_Sentinel, 3 },
+    { L"P2 Plasma Storm / Flight", 0x26f1c, 0x26f3c, indexCPS2Sprites_Sentinel, 0x23 },
 };
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_SHARED[] =

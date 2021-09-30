@@ -1918,6 +1918,7 @@ enum SupportedTaito_PaletteListIndex
     indexDanKuGa_Marco,             // 0x09
     indexDanKuGa_Wulong,            // 0x0A
     indexDanKuGa_Bonus,             // 0x0B
+    indexDanKuGa_General,           // 0x0C
 };
 
 enum SupportedNintendoDS_PaletteListIndex

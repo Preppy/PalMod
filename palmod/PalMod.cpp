@@ -165,17 +165,26 @@ BOOL CPalModApp::PreTranslateMessage(MSG* pMsg)
 
 void CPalModApp::LaunchReadMe()
 {
+    LaunchFileOrURL(L"ReadMe.html",  L"https://zachd.com/palmod/releases/ReadMe.html");
+}
+
+void LaunchFileOrURL(LPCWSTR pszFileName, LPCWSTR pszBackupURL)
+{
     WCHAR szReadMeFile[MAX_PATH];
+    DWORD nFileAttrib = INVALID_FILE_ATTRIBUTES;
 
-    DWORD dwCharsUsed = GetModuleFileName(nullptr, szReadMeFile, (DWORD)ARRAYSIZE(szReadMeFile));
-    WCHAR* pszExeFileName = wcsrchr(szReadMeFile, L'\\') + 1;
-    wcsncpy(pszExeFileName, L"ReadMe.html", ARRAYSIZE(szReadMeFile) - dwCharsUsed);
+    if (pszFileName)
+    {
+        DWORD dwCharsUsed = GetModuleFileName(nullptr, szReadMeFile, (DWORD)ARRAYSIZE(szReadMeFile));
+        WCHAR* pszExeFileName = wcsrchr(szReadMeFile, L'\\') + 1;
+        wcsncpy(pszExeFileName, pszFileName, ARRAYSIZE(szReadMeFile) - dwCharsUsed);
 
-    DWORD nFileAttrib = GetFileAttributes(szReadMeFile);
+        nFileAttrib = GetFileAttributes(szReadMeFile);
+    }
 
     if (nFileAttrib == INVALID_FILE_ATTRIBUTES)
     {
-        wcsncpy(szReadMeFile, L"http://zachd.com/palmod/releases/ReadMe.html", ARRAYSIZE(szReadMeFile));
+        wcsncpy(szReadMeFile, pszBackupURL, ARRAYSIZE(szReadMeFile));
     }
 
     ShellExecute(

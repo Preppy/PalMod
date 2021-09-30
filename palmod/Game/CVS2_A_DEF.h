@@ -1799,7 +1799,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x257a360, 0x257a380, indexCVS2Sprites_Terry },
     { L"Extra 1", 0x257a380, 0x257a3a0 },
-    { L"Extra 2", 0x257a3a0, 0x257a3c0 },
+    { L"Extra 2: Crack Shoot", 0x257a3a0, 0x257a3c0, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3", 0x257a3c0, 0x257a3e0 },
     { L"Extra 4: Burning Knuckle", 0x257a3e0, 0x257a400, indexCVS2Sprites_Terry, 0x04 },
     { L"Extra 5", 0x257a400, 0x257a420 },
@@ -1809,7 +1809,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x257a420, 0x257a440, indexCVS2Sprites_Terry },
     { L"Extra 1", 0x257a440, 0x257a460 },
-    { L"Extra 2", 0x257a460, 0x257a480 },
+    { L"Extra 2: Crack Shoot", 0x257a460, 0x257a480, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3", 0x257a480, 0x257a4a0 },
     { L"Extra 4: Burning Knuckle", 0x257a4a0, 0x257a4c0, indexCVS2Sprites_Terry, 0x04 },
     { L"Extra 5", 0x257a4c0, 0x257a4e0 },
@@ -1819,7 +1819,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x257a4e0, 0x257a500, indexCVS2Sprites_Terry },
     { L"Extra 1", 0x257a500, 0x257a520 },
-    { L"Extra 2", 0x257a520, 0x257a540 },
+    { L"Extra 2: Crack Shoot", 0x257a520, 0x257a540, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3", 0x257a540, 0x257a560 },
     { L"Extra 4: Burning Knuckle", 0x257a560, 0x257a580, indexCVS2Sprites_Terry, 0x04 },
     { L"Extra 5", 0x257a580, 0x257a5a0 },
@@ -1829,7 +1829,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x257a5a0, 0x257a5c0, indexCVS2Sprites_Terry },
     { L"Extra 1", 0x257a5c0, 0x257a5e0 },
-    { L"Extra 2", 0x257a5e0, 0x257a600 },
+    { L"Extra 2: Crack Shoot", 0x257a5e0, 0x257a600, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3", 0x257a600, 0x257a620 },
     { L"Extra 4: Burning Knuckle", 0x257a620, 0x257a640, indexCVS2Sprites_Terry, 0x04 },
     { L"Extra 5", 0x257a640, 0x257a660 },
@@ -1839,7 +1839,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x257a660, 0x257a680, indexCVS2Sprites_Terry },
     { L"Extra 1", 0x257a680, 0x257a6a0 },
-    { L"Extra 2", 0x257a6a0, 0x257a6c0 },
+    { L"Extra 2: Crack Shoot", 0x257a6a0, 0x257a6c0, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3", 0x257a6c0, 0x257a6e0 },
     { L"Extra 4: Burning Knuckle", 0x257a6e0, 0x257a700, indexCVS2Sprites_Terry, 0x04 },
     { L"Extra 5", 0x257a700, 0x257a720 },
@@ -1849,7 +1849,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x257a720, 0x257a740, indexCVS2Sprites_Terry },
     { L"Extra 1", 0x257a740, 0x257a760 },
-    { L"Extra 2", 0x257a760, 0x257a780 },
+    { L"Extra 2: Crack Shoot", 0x257a760, 0x257a780, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3", 0x257a780, 0x257a7a0 },
     { L"Extra 4: Burning Knuckle", 0x257a7a0, 0x257a7c0, indexCVS2Sprites_Terry, 0x04 },
     { L"Extra 5", 0x257a7c0, 0x257a7e0 },
@@ -1859,7 +1859,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x257a7e0, 0x257a800, indexCVS2Sprites_Terry },
     { L"Extra 1", 0x257a800, 0x257a820 },
-    { L"Extra 2", 0x257a820, 0x257a840 },
+    { L"Extra 2: Crack Shoot", 0x257a820, 0x257a840, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3", 0x257a840, 0x257a860 },
     { L"Extra 4: Burning Knuckle", 0x257a860, 0x257a880, indexCVS2Sprites_Terry, 0x04 },
     { L"Extra 5", 0x257a880, 0x257a8a0 },
@@ -1869,7 +1869,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x257a8a0, 0x257a8c0, indexCVS2Sprites_Terry },
     { L"Extra 1", 0x257a8c0, 0x257a8e0 },
-    { L"Extra 2", 0x257a8e0, 0x257a900 },
+    { L"Extra 2: Crack Shoot", 0x257a8e0, 0x257a900, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3", 0x257a900, 0x257a920 },
     { L"Extra 4: Burning Knuckle", 0x257a920, 0x257a940, indexCVS2Sprites_Terry, 0x04 },
     { L"Extra 5", 0x257a940, 0x257a960 },

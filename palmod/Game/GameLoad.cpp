@@ -1775,8 +1775,15 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
                     fShownFileError = true;
                     CString strError;
                     strError.Format(L"Could not find file \"%s\" needed for this game.", strCurrFile.GetString());
+
+                    if ((nGameFlag == MVC2_D) || (nGameFlag == MVC2_P))
+                    {
+                        strError.Append(L"\n\nPlease note that PalMod can not read game CD ISOs.  You need to mount those and extract the files out before PalMod can use them.");
+                    }
+
                     OutputDebugString(strError);
                     OutputDebugString(L"\n");
+
                     MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
                 }
 

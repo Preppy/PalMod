@@ -76,7 +76,7 @@ IDR_MAINFRAME           ICON                    "res\\PalMod.ico"
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 231, 250
+IDD_ABOUTBOX DIALOGEX 0, 0, 231, 230
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About PalMod"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
@@ -89,24 +89,24 @@ BEGIN
     LTEXT           "Preppy",IDC_STATIC,23,66,50,8
     LTEXT           "Magnetro",IDC_STATIC,75,56,50,8
     LTEXT           "Eidrian",IDC_STATIC,75,66,50,8
-    LTEXT           "2020 Core Creative Team",IDC_STATIC,7,83,125,8
-    LTEXT           "Preppy",IDC_STATIC,23,96,50,8
-    LTEXT           "IceManual",IDC_STATIC,23,106,50,8
-    LTEXT           "TVIndustries",IDC_STATIC,75,96,50,8
-    LTEXT           "mountainmanjed",IDC_STATIC,75,106,68,8
-    LTEXT           "Additional Substantial Contributions",IDC_STATIC,7,119,166,8
-    LTEXT           "Termi",IDC_STATIC,23,132,50,8
-    LTEXT           "cosmic",IDC_STATIC,23,142,50,8
-    LTEXT           "chloe",IDC_STATIC,75,132,50,8
-    LTEXT           "RenGod",IDC_STATIC,75,142,50,8
-    LTEXT           "Lui",IDC_STATIC,133,132,50,8
-    LTEXT           "Rei",IDC_STATIC,133,142,50,8
-    LTEXT           "Game data and images copyright those respective companies.",IDC_STATIC,7,162,210,8
-    LTEXT           "Special thanks and gratitude to many others in the various communities who helped us find and understand game data.",IDC_STATIC,7,178,209,16
-    LTEXT           "Updates and guides available at:",IDC_STATIC,7,202,209,8
-    CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,212,93,14
-    LTEXT           "Copyright (C) 2021",IDC_STATIC,10,230,65,8
-    DEFPUSHBUTTON   "OK",IDOK,174,228,50,14,WS_GROUP
+    LTEXT           "2020 Core Creative Team",IDC_STATIC,7,79,125,8
+    LTEXT           "Preppy",IDC_STATIC,23,92,50,8
+    LTEXT           "IceManual",IDC_STATIC,23,102,50,8
+    LTEXT           "TVIndustries",IDC_STATIC,75,92,50,8
+    LTEXT           "mountainmanjed",IDC_STATIC,75,102,68,8
+    LTEXT           "Additional Substantial Contributions",IDC_STATIC,7,115,166,8
+    LTEXT           "Termi",IDC_STATIC,23,128,50,8
+    LTEXT           "cosmic",IDC_STATIC,23,138,50,8
+    LTEXT           "chloe",IDC_STATIC,75,128,50,8
+    LTEXT           "RenGod",IDC_STATIC,75,138,50,8
+    LTEXT           "Lui",IDC_STATIC,133,128,50,8
+    LTEXT           "Rei",IDC_STATIC,133,138,50,8
+    LTEXT           "Game data and images copyright those respective companies.",IDC_STATIC,7,151,210,8
+    LTEXT           "Special thanks and gratitude to many others in the various communities who helped us find and understand game data.",IDC_STATIC,7,164,209,16
+    LTEXT           "Updates and guides available at:",IDC_STATIC,7,185,209,8
+    CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,195,93,14
+    LTEXT           "Copyright (C) 2021",IDC_STATIC,10,208,65,8
+    DEFPUSHBUTTON   "OK",IDOK,174,206,50,14,WS_GROUP
 END
 
 IDD_PALMOD_DIALOG_FAT DIALOGEX 0, 0, 407, 244
@@ -444,8 +444,13 @@ BEGIN
         MENUITEM "Show 32-bit values for 8-bit colors (will round!)", ID_SHOW32BITRGB
         MENUITEM "Include bonus data in CTRL+C copy", ID_SETTINGS_EXTCOPYDATA
     END
-    POPUP "&About"
+    POPUP "&Help"
     BEGIN
+        MENUITEM "Read Me",                     ID_ABOUT_README
+        MENUITEM SEPARATOR
+        MENUITEM "PalMod home page",            ID_ABOUT_PALMODSITE
+        MENUITEM "Version History",             ID_ABOUT_VHISTORY
+        MENUITEM SEPARATOR
         MENUITEM "&About PalMod...",            ID_ABOUT_ABOUTPALMOD
     END
 END

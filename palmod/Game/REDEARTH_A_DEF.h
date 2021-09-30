@@ -958,53 +958,163 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_GREEDIA_PALETTES[] =
     { L"Greedia Ruins 2/9: Waterfalls", 0x734180, 0x734200, indexRedEarthSprites_Stages, 0x16 },
     { L"Greedia Ruins 3/9: Trees", 0x734200, 0x734280, indexRedEarthSprites_Stages, 0x17 },
     { L"Greedia Ruins 4/9: More Waterfalls", 0x734280, 0x734300, indexRedEarthSprites_Stages, 0x18 },
-    { L"Greedia Ruins 5/9: Ivy", 0x734580, 0x734600, indexRedEarthSprites_Stages, 0x19 },
+    { L"Greedia Ruins 5/9: Thunder", 0x734580, 0x734600, indexRedEarthSprites_Stages, 0x19 },
     { L"Greedia Ruins 6/9: Left forest", 0x734100, 0x734180, indexRedEarthSprites_Stages, 0x1a },
     { L"Greedia Ruins 7/9: Pillars", 0x734080, 0x734100, indexRedEarthSprites_Stages, 0x1b },
     { L"Greedia Ruins 8/9", 0x734480, 0x734500, indexRedEarthSprites_Stages, 0x1c },
     { L"Greedia Ruins 9/9: Hippocamps", 0x734400, 0x734480, indexRedEarthSprites_Stages, 0x1d },
+};
 
+const sGame_PaletteDataset REDEARTH_A_STAGES_GREEDIA_CYCLE_PALETTES[] =
+{
+    //{ L"Greedia Ruins scrap 1/4", 0x734600, 0x734800 },
+    //{ L"Greedia Ruins scrap 2/4", 0x734800, 0x734a00 },
+    //{ L"Greedia Ruins scrap 3/4", 0x734a00, 0x734c00 },
+    //{ L"Greedia Ruins scrap 4/4", 0x734c00, 0x734d00 },
 
-    { L"Greedia Ruins scrap 1/4", 0x734600, 0x734800 },
-    { L"Greedia Ruins scrap 2/4", 0x734800, 0x734a00 },
-    { L"Greedia Ruins scrap 3/4", 0x734a00, 0x734c00 },
-    { L"Greedia Ruins scrap 4/4", 0x734c00, 0x734d00 },
+    { L"Greedia Ruins 2/9: Waterfalls",         0x734600, 0x734680, indexRedEarthSprites_Stages, 0x16 },
+    { L"Greedia Ruins 2/9: Waterfalls",         0x734680, 0x734700, indexRedEarthSprites_Stages, 0x16 },
+
+    { L"Greedia Ruins 3/9: Trees",              0x734700, 0x734780, indexRedEarthSprites_Stages, 0x17 },
+    { L"Greedia Ruins 3/9: Trees",              0x734780, 0x734800, indexRedEarthSprites_Stages, 0x17 },
+    { L"Greedia Ruins 3/9: Trees",              0x734800, 0x734880, indexRedEarthSprites_Stages, 0x17 },
+
+    { L"Greedia Ruins 4/9: More Waterfalls",    0x734880, 0x734900, indexRedEarthSprites_Stages, 0x18 },
+    { L"Greedia Ruins 4/9: More Waterfalls",    0x734900, 0x734980, indexRedEarthSprites_Stages, 0x18 },
+    { L"Greedia Ruins 4/9: More Waterfalls",    0x734980, 0x734a00, indexRedEarthSprites_Stages, 0x18 },
+
+    { L"Greedia Ruins 6/9: Left forest",        0x734a00, 0x734a80, indexRedEarthSprites_Stages, 0x1a },
+    { L"Greedia Ruins 6/9: Left forest",        0x734a80, 0x734b00, indexRedEarthSprites_Stages, 0x1a },
+    { L"Greedia Ruins 6/9: Left forest",        0x734b00, 0x734b80, indexRedEarthSprites_Stages, 0x1a },
+
+    { L"Greedia Ruins 1/9: Sky",                0x734b80, 0x734c00, indexRedEarthSprites_Stages, 0x15 },
+    { L"Greedia Ruins 1/9: Sky",                0x734c00, 0x734c80, indexRedEarthSprites_Stages, 0x15 },
+    { L"Greedia Ruins 1/9: Sky",                0x734c80, 0x734d00, indexRedEarthSprites_Stages, 0x15 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_ZIPANG_PALETTES[] =
 {
-    { L"Zipang on Fire 1/18", 0x734d00, 0x734f00 },
-    { L"Zipang on Fire 2/18", 0x734f00, 0x735100 },
-    { L"Zipang on Fire 3/18", 0x735100, 0x735300 },
-    { L"Zipang on Fire 4/18", 0x735300, 0x735500 },
-    { L"Zipang on Fire 5/18", 0x735500, 0x735700 },
-    { L"Zipang on Fire 6/18", 0x735700, 0x735900 },
-    { L"Zipang on Fire 7/18", 0x735900, 0x735b00 },
-    { L"Zipang on Fire 8/18", 0x735b00, 0x735d00 },
-    { L"Zipang on Fire 9/18", 0x735d00, 0x735f00 },
-    { L"Zipang on Fire 10/18", 0x735f00, 0x736100 },
-    { L"Zipang on Fire 11/18", 0x736100, 0x736300 },
-    { L"Zipang on Fire 12/18", 0x736300, 0x736500 },
-    { L"Zipang on Fire 13/18", 0x736500, 0x736700 },
-    { L"Zipang on Fire 14/18", 0x736700, 0x736900 },
-    { L"Zipang on Fire 15/18", 0x736900, 0x736b00 },
-    { L"Zipang on Fire 16/18", 0x736b00, 0x736d00 },
-    { L"Zipang on Fire 17/18", 0x736d00, 0x736f00 },
-    { L"Zipang on Fire 18/18", 0x736f00, 0x737000 },
+    { L"Zipang on Fire 17/18", 0x736d00, 0x736f00, indexRedEarthSprites_Stages, 0x26, &pairFullyLinkedNode },
+    { L"Zipang on Fire 18/18", 0x736f00, 0x737000, indexRedEarthSprites_Stages, 0x27 },
+
+            { L"Zipang on Fire 4.2.4/18", 0x735480, 0x735500, indexRedEarthSprites_Stages, 0x28 },
+
+    { L"Zipang on Fire 1.1.1/18", 0x734d00, 0x734d80, indexRedEarthSprites_Stages, 0x29 },
+    { L"Zipang on Fire 1.1.2/18", 0x734d80, 0x734e00, indexRedEarthSprites_Stages, 0x2a },
+    { L"Zipang on Fire 1.1.3/18", 0x734e00, 0x734e80, indexRedEarthSprites_Stages, 0x2b },
+    { L"Zipang on Fire 1.1.4/18", 0x734e80, 0x734f00, indexRedEarthSprites_Stages, 0x2c },
+
+        { L"Zipang on Fire 2.1.1/18", 0x734f00, 0x734f80, indexRedEarthSprites_Stages, 0x2d },
+        { L"Zipang on Fire 2.1.2/18", 0x734f80, 0x735000, indexRedEarthSprites_Stages, 0x2e },
+        { L"Zipang on Fire 2.1.3/18", 0x735000, 0x735080, indexRedEarthSprites_Stages, 0x2f },
+        { L"Zipang on Fire 2.1.4/18", 0x735080, 0x735100, indexRedEarthSprites_Stages, 0x30 },
+
+            { L"Zipang on Fire 4.1.1/18", 0x735300, 0x735380, indexRedEarthSprites_Stages, 0x31 },
+            { L"Zipang on Fire 4.1.2/18", 0x735380, 0x735400, indexRedEarthSprites_Stages, 0x32 },
+            { L"Zipang on Fire 4.1.3/18", 0x735400, 0x735480, indexRedEarthSprites_Stages, 0x33 },
+
+                { L"Zipang on Fire 3.1.1/18", 0x735100, 0x735180, indexRedEarthSprites_Stages, 0x34 },
+                { L"Zipang on Fire 3.1.2/18", 0x735180, 0x735200, indexRedEarthSprites_Stages, 0x35 },
+                { L"Zipang on Fire 3.1.3/18", 0x735200, 0x735280, indexRedEarthSprites_Stages, 0x36 },
+                { L"Zipang on Fire 3.1.4/18", 0x735280, 0x735300, indexRedEarthSprites_Stages, 0x37 },
+                //{ L"Zipang on Fire 3.2.2/18", 0x735280, 0x735300, indexRedEarthSprites_Stages, 0x38 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_ZIPANG_SHADE1_PALETTES[] =
+{
+            { L"Zipang on Fire 4.2.4/18", 0x735480 + (1 * 0x800), 0x735500 + (1 * 0x800), indexRedEarthSprites_Stages, 0x28, &pairFullyLinkedNode },
+
+    { L"Zipang on Fire 1.1.1/18", 0x734d00 + (1 * 0x800), 0x734d80 + (1 * 0x800), indexRedEarthSprites_Stages, 0x29 },
+    { L"Zipang on Fire 1.1.2/18", 0x734d80 + (1 * 0x800), 0x734e00 + (1 * 0x800), indexRedEarthSprites_Stages, 0x2a },
+    { L"Zipang on Fire 1.1.3/18", 0x734e00 + (1 * 0x800), 0x734e80 + (1 * 0x800), indexRedEarthSprites_Stages, 0x2b },
+    { L"Zipang on Fire 1.1.4/18", 0x734e80 + (1 * 0x800), 0x734f00 + (1 * 0x800), indexRedEarthSprites_Stages, 0x2c },
+
+        { L"Zipang on Fire 2.1.1/18", 0x734f00 + (1 * 0x800), 0x734f80 + (1 * 0x800), indexRedEarthSprites_Stages, 0x2d },
+        { L"Zipang on Fire 2.1.2/18", 0x734f80 + (1 * 0x800), 0x735000 + (1 * 0x800), indexRedEarthSprites_Stages, 0x2e },
+        { L"Zipang on Fire 2.1.3/18", 0x735000 + (1 * 0x800), 0x735080 + (1 * 0x800), indexRedEarthSprites_Stages, 0x2f },
+        { L"Zipang on Fire 2.1.4/18", 0x735080 + (1 * 0x800), 0x735100 + (1 * 0x800), indexRedEarthSprites_Stages, 0x30 },
+
+            { L"Zipang on Fire 4.1.1/18", 0x735300 + (1 * 0x800), 0x735380 + (1 * 0x800), indexRedEarthSprites_Stages, 0x31 },
+            { L"Zipang on Fire 4.1.2/18", 0x735380 + (1 * 0x800), 0x735400 + (1 * 0x800), indexRedEarthSprites_Stages, 0x32 },
+            { L"Zipang on Fire 4.1.3/18", 0x735400 + (1 * 0x800), 0x735480 + (1 * 0x800), indexRedEarthSprites_Stages, 0x33 },
+
+                { L"Zipang on Fire 3.1.1/18", 0x735100 + (1 * 0x800), 0x735180 + (1 * 0x800), indexRedEarthSprites_Stages, 0x34 },
+                { L"Zipang on Fire 3.1.2/18", 0x735180 + (1 * 0x800), 0x735200 + (1 * 0x800), indexRedEarthSprites_Stages, 0x35 },
+                { L"Zipang on Fire 3.1.3/18", 0x735200 + (1 * 0x800), 0x735280 + (1 * 0x800), indexRedEarthSprites_Stages, 0x36 },
+                { L"Zipang on Fire 3.1.4/18", 0x735280 + (1 * 0x800), 0x735300 + (1 * 0x800), indexRedEarthSprites_Stages, 0x37 },
+                //{ L"Zipang on Fire 3.2.2/18", 0x735280 + (1 * 0x800), 0x735300 + (1 * 0x800), indexRedEarthSprites_Stages, 0x38 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_ZIPANG_SHADE2_PALETTES[] =
+{
+            { L"Zipang on Fire 4.2.4/18", 0x735480 + (2 * 0x800), 0x735500 + (2 * 0x800), indexRedEarthSprites_Stages, 0x28, &pairFullyLinkedNode },
+
+    { L"Zipang on Fire 1.1.1/18", 0x734d00 + (2 * 0x800), 0x734d80 + (2 * 0x800), indexRedEarthSprites_Stages, 0x29 },
+    { L"Zipang on Fire 1.1.2/18", 0x734d80 + (2 * 0x800), 0x734e00 + (2 * 0x800), indexRedEarthSprites_Stages, 0x2a },
+    { L"Zipang on Fire 1.1.3/18", 0x734e00 + (2 * 0x800), 0x734e80 + (2 * 0x800), indexRedEarthSprites_Stages, 0x2b },
+    { L"Zipang on Fire 1.1.4/18", 0x734e80 + (2 * 0x800), 0x734f00 + (2 * 0x800), indexRedEarthSprites_Stages, 0x2c },
+
+        { L"Zipang on Fire 2.1.1/18", 0x734f00 + (2 * 0x800), 0x734f80 + (2 * 0x800), indexRedEarthSprites_Stages, 0x2d },
+        { L"Zipang on Fire 2.1.2/18", 0x734f80 + (2 * 0x800), 0x735000 + (2 * 0x800), indexRedEarthSprites_Stages, 0x2e },
+        { L"Zipang on Fire 2.1.3/18", 0x735000 + (2 * 0x800), 0x735080 + (2 * 0x800), indexRedEarthSprites_Stages, 0x2f },
+        { L"Zipang on Fire 2.1.4/18", 0x735080 + (2 * 0x800), 0x735100 + (2 * 0x800), indexRedEarthSprites_Stages, 0x30 },
+
+            { L"Zipang on Fire 4.1.1/18", 0x735300 + (2 * 0x800), 0x735380 + (2 * 0x800), indexRedEarthSprites_Stages, 0x31 },
+            { L"Zipang on Fire 4.1.2/18", 0x735380 + (2 * 0x800), 0x735400 + (2 * 0x800), indexRedEarthSprites_Stages, 0x32 },
+            { L"Zipang on Fire 4.1.3/18", 0x735400 + (2 * 0x800), 0x735480 + (2 * 0x800), indexRedEarthSprites_Stages, 0x33 },
+
+                { L"Zipang on Fire 3.1.1/18", 0x735100 + (2 * 0x800), 0x735180 + (2 * 0x800), indexRedEarthSprites_Stages, 0x34 },
+                { L"Zipang on Fire 3.1.2/18", 0x735180 + (2 * 0x800), 0x735200 + (2 * 0x800), indexRedEarthSprites_Stages, 0x35 },
+                { L"Zipang on Fire 3.1.3/18", 0x735200 + (2 * 0x800), 0x735280 + (2 * 0x800), indexRedEarthSprites_Stages, 0x36 },
+                { L"Zipang on Fire 3.1.4/18", 0x735280 + (2 * 0x800), 0x735300 + (2 * 0x800), indexRedEarthSprites_Stages, 0x37 },
+                //{ L"Zipang on Fire 3.2.2/18", 0x735280 + (2 * 0x800), 0x735300 + (2 * 0x800), indexRedEarthSprites_Stages, 0x38 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_ZIPANG_SHADE3_PALETTES[] =
+{
+            { L"Zipang on Fire 4.2.4/18", 0x735480 + (3 * 0x800), 0x735500 + (3 * 0x800), indexRedEarthSprites_Stages, 0x28, &pairFullyLinkedNode },
+
+    { L"Zipang on Fire 1.1.1/18", 0x734d00 + (3 * 0x800), 0x734d80 + (3 * 0x800), indexRedEarthSprites_Stages, 0x29 },
+    { L"Zipang on Fire 1.1.2/18", 0x734d80 + (3 * 0x800), 0x734e00 + (3 * 0x800), indexRedEarthSprites_Stages, 0x2a },
+    { L"Zipang on Fire 1.1.3/18", 0x734e00 + (3 * 0x800), 0x734e80 + (3 * 0x800), indexRedEarthSprites_Stages, 0x2b },
+    { L"Zipang on Fire 1.1.4/18", 0x734e80 + (3 * 0x800), 0x734f00 + (3 * 0x800), indexRedEarthSprites_Stages, 0x2c },
+
+        { L"Zipang on Fire 2.1.1/18", 0x734f00 + (3 * 0x800), 0x734f80 + (3 * 0x800), indexRedEarthSprites_Stages, 0x2d },
+        { L"Zipang on Fire 2.1.2/18", 0x734f80 + (3 * 0x800), 0x735000 + (3 * 0x800), indexRedEarthSprites_Stages, 0x2e },
+        { L"Zipang on Fire 2.1.3/18", 0x735000 + (3 * 0x800), 0x735080 + (3 * 0x800), indexRedEarthSprites_Stages, 0x2f },
+        { L"Zipang on Fire 2.1.4/18", 0x735080 + (3 * 0x800), 0x735100 + (3 * 0x800), indexRedEarthSprites_Stages, 0x30 },
+
+            { L"Zipang on Fire 4.1.1/18", 0x735300 + (3 * 0x800), 0x735380 + (3 * 0x800), indexRedEarthSprites_Stages, 0x31 },
+            { L"Zipang on Fire 4.1.2/18", 0x735380 + (3 * 0x800), 0x735400 + (3 * 0x800), indexRedEarthSprites_Stages, 0x32 },
+            { L"Zipang on Fire 4.1.3/18", 0x735400 + (3 * 0x800), 0x735480 + (3 * 0x800), indexRedEarthSprites_Stages, 0x33 },
+
+                { L"Zipang on Fire 3.1.1/18", 0x735100 + (3 * 0x800), 0x735180 + (3 * 0x800), indexRedEarthSprites_Stages, 0x34 },
+                { L"Zipang on Fire 3.1.2/18", 0x735180 + (3 * 0x800), 0x735200 + (3 * 0x800), indexRedEarthSprites_Stages, 0x35 },
+                { L"Zipang on Fire 3.1.3/18", 0x735200 + (3 * 0x800), 0x735280 + (3 * 0x800), indexRedEarthSprites_Stages, 0x36 },
+                { L"Zipang on Fire 3.1.4/18", 0x735280 + (3 * 0x800), 0x735300 + (3 * 0x800), indexRedEarthSprites_Stages, 0x37 },
+                //{ L"Zipang on Fire 3.2.2/18", 0x735280 + (3 * 0x800), 0x735300 + (3 * 0x800), indexRedEarthSprites_Stages, 0x38 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_STAGE_PALETTES[] =
 {
     { L"Sangypt 1/6: Sky background", 0x738400, 0x738480, indexRedEarthSprites_Stages, 0x14, &pairFullyLinkedNode },
-    { L"Sangypt 2/6: Pillars/goat", 0x738500, 0x738680, indexRedEarthSprites_Stages, 0x12 },
-    { L"Sangypt 3/6: Right building", 0x738480, 0x738500, indexRedEarthSprites_Stages, 0x13 },
+    { L"Sangypt 2/6: Right building", 0x738480, 0x738500, indexRedEarthSprites_Stages, 0x13 },
+    { L"Sangypt 3/6: Pillars/goat", 0x738500, 0x738680, indexRedEarthSprites_Stages, 0x12 },
     { L"Sangypt 4/6: Left pillars", 0x738280, 0x738400, indexRedEarthSprites_Stages, 0x11 },
     { L"Sangypt 5/6: Background bottom/right", 0x738080, 0x738280, indexRedEarthSprites_Stages, 0x10 },
     { L"Sangypt 6/6: Left wall/tree", 0x738680, 0x738780, indexRedEarthSprites_Stages, 0x0f },
 };
 
-const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO_PALETTES[] =
+const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES[] =
 {
+    { L"1/6 sky background", 0x738b00, 0x738b80, indexRedEarthSprites_Stages, 0x14, &pairFullyLinkedNode },
+    { L"2/6 right building", 0x738b80, 0x738c00, indexRedEarthSprites_Stages, 0x13 },
+    { L"3/6 pillars/goat", 0x738c00, 0x738d80, indexRedEarthSprites_Stages, 0x12 },
+    { L"4/6 left pillars", 0x738980, 0x738b00, indexRedEarthSprites_Stages, 0x11 },
+    { L"5/6 background bottom/right", 0x738780, 0x738980, indexRedEarthSprites_Stages, 0x10 },
+    { L"6/6 left wall, no tree", 0x738d80, 0x738e00, indexRedEarthSprites_Stages, 0x0f },
+
+#ifdef ojsodfijsodfj
     { L"Sangypt Intro 1/25", 0x738780, 0x738880 },
     { L"Sangypt Intro 2/25", 0x738880, 0x738a80 },
     { L"Sangypt Intro 3/25", 0x738a80, 0x738c80 },
@@ -1030,6 +1140,50 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO_PALETTES[] =
     { L"Sangypt Intro 23/25", 0x73b280, 0x73b480 },
     { L"Sangypt Intro 24/25", 0x73b480, 0x73b680 },
     { L"Sangypt Intro 25/25", 0x73b680, 0x73b780 },
+#endif
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES[] =
+{
+    { L"1/6 sky background",            0x738b00 + (1 * 0x680), 0x738b80 + (1 * 0x680), indexRedEarthSprites_Stages, 0x14, &pairFullyLinkedNode },
+    { L"3/6 right building",            0x738b80 + (1 * 0x680), 0x738c00 + (1 * 0x680), indexRedEarthSprites_Stages, 0x13 },
+    { L"2/6 pillars/goat",              0x738c00 + (1 * 0x680), 0x738d80 + (1 * 0x680), indexRedEarthSprites_Stages, 0x12 },
+    { L"4/6 left pillars",              0x738980 + (1 * 0x680), 0x738b00 + (1 * 0x680), indexRedEarthSprites_Stages, 0x11 },
+    { L"5/6 background bottom/right",   0x738780 + (1 * 0x680), 0x738980 + (1 * 0x680), indexRedEarthSprites_Stages, 0x10 },
+    { L"6/6 left wall, no tree",        0x738d80 + (1 * 0x680), 0x738e00 + (1 * 0x680), indexRedEarthSprites_Stages, 0x0f },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES[] =
+{
+    { L"Sangypt Intro 1/15", 0x739b00, 0x739c80 },
+    { L"Sangypt Intro 2/15", 0x739c80, 0x739e80 },
+    { L"Sangypt Intro 3/15", 0x739e80, 0x73a080 },
+    { L"Sangypt Intro 4/15", 0x73a080, 0x73a280 },
+    { L"Sangypt Intro 5/15", 0x73a280, 0x73a480 },
+    { L"Sangypt Intro 6/15", 0x73a480, 0x73a680 },
+    { L"Sangypt Intro 7/15", 0x73a680, 0x73a880 },
+    { L"Sangypt Intro 8/15", 0x73a880, 0x73aa80 },
+    { L"Sangypt Intro 9/15", 0x73aa80, 0x73ac80 },
+    { L"Sangypt Intro 10/15", 0x73ac80, 0x73ae80 },
+    { L"Sangypt Intro 11/15", 0x73ae80, 0x73b080 },
+    { L"Sangypt Intro 12/15", 0x73b080, 0x73b280 },
+    { L"Sangypt Intro 13/15", 0x73b280, 0x73b480 },
+    { L"Sangypt Intro 14/15", 0x73b480, 0x73b680 },
+    { L"Sangypt Intro 15/15", 0x73b680, 0x73b780 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES[] =
+{
+    { L"1/6 sky background dark", 0x73ea20, 0x73eaa0, indexRedEarthSprites_Stages, 0x14, &pairFullyLinkedNode },
+    { L"1/6 sky background light", 0x73e9a0, 0x73ea20, indexRedEarthSprites_Stages, 0x14 },
+    { L"2/6 pillars and goat", 0x73eaa0, 0x73ec20, indexRedEarthSprites_Stages, 0x13 },
+    { L"4/6 left pillars", 0x73e820, 0x73e9a0, indexRedEarthSprites_Stages, 0x11 },
+    { L"5/6 background bottom right", 0x73e620, 0x73e820, indexRedEarthSprites_Stages, 0x10 },
+    { L"6/6 left wall/tree", 0x73ec20, 0x73ed20, indexRedEarthSprites_Stages, 0x0f },
+
+    { L"Unknown chunk 1", 0x73e580, 0x73e620 },
+    { L"Unknown chunk 2", 0x73ed20, 0x73ef20 },
+    { L"Unknown chunk 3", 0x73ef20, 0x73ef80 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_DARMINOR_PALETTES[] =
@@ -1141,18 +1295,25 @@ const sDescTreeNode REDEARTH_A_STAGES_ICELARN_COLLECTION[] =
 
 const sDescTreeNode REDEARTH_A_STAGES_GREEDIA_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_PALETTES) },
+    { L"Stage", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_PALETTES) },
+    { L"Cycle", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_CYCLE_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_CYCLE_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_ZIPANG_COLLECTION[] =
 {
-    { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_PALETTES) },
+    { L"Palettes",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_PALETTES) },
+    { L"Shade 1",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_SHADE1_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_SHADE1_PALETTES) },
+    { L"Shade 2",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_SHADE2_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_SHADE2_PALETTES) },
+    { L"Shade 3",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_SHADE3_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_SHADE3_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_SANGYPT_COLLECTION[] =
 {
     { L"Stage",         DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_STAGE_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_STAGE_PALETTES) },
-    { L"Ravange Intro", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO_PALETTES) },
+    { L"Ravange Intro 1", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES) },
+    { L"Ravange Intro 2", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES) },
+    { L"Ravange Intro Other", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES) },
+    { L"Bonus Game 1 Stage", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_DARMINOR_COLLECTION[] =
