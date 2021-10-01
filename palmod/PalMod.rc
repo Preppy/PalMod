@@ -334,10 +334,11 @@ BEGIN
                 MENUITEM "GGXX:AC+R (PlayStation 3)",   ID_LD_GGXXACR_P
                 MENUITEM "GGXX #Reload (Steam/Community Port)", ID_LD_GGXXR_S
             END
-            POPUP "Jojo's HftF"
+            POPUP "Jojo's"
             BEGIN
-                MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
-                MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
+                MENUITEM "HftF Characters (Japan Arcade)",   ID_LD_JOJOS51
+                MENUITEM "HftF HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
+                MENUITEM "Venture Characters (Japan Arcade)", ID_LD_VENTURE50
             END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB

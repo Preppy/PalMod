@@ -418,6 +418,12 @@
     <Filter Include="Games\Other Platforms\Persona 4 Arena Ultimax 2.0 %28NESICA%29">
       <UniqueIdentifier>{7fd4a326-69f3-49f7-884e-98b93bfc1d70}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\Jojos Venture">
+      <UniqueIdentifier>{6ba05b08-6fdb-45a1-8d9d-99fc5143b026}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Capcom Games\Jojos Venture %28SIMM rerip%29">
+      <UniqueIdentifier>{c8ad3145-c122-42c5-9ac7-121d5bc304fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -860,6 +866,12 @@
     </ClCompile>
     <ClCompile Include="Game\Game_P4AU_NESICA.cpp">
       <Filter>Games\Other Platforms\Persona 4 Arena Ultimax 2.0 %28NESICA%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Venture_A.cpp">
+      <Filter>Games\Capcom Games\Jojos Venture</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Venture_A_DIR.cpp">
+      <Filter>Games\Capcom Games\Jojos Venture %28SIMM rerip%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1621,6 +1633,15 @@
     </ClInclude>
     <ClInclude Include="Game\Game_P4AU_NESICA.h">
       <Filter>Games\Other Platforms\Persona 4 Arena Ultimax 2.0 %28NESICA%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Venture_A.h">
+      <Filter>Games\Capcom Games\Jojos Venture</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Venture_A_DEF.h">
+      <Filter>Games\Capcom Games\Jojos Venture</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Venture_A_DIR.h">
+      <Filter>Games\Capcom Games\Jojos Venture %28SIMM rerip%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

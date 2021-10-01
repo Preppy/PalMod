@@ -109,6 +109,8 @@
 #include "Game_TMNTTF_SNES.h"
 #include "Game_TopF2005_Sega.h"
 #include "Game_UNICLR_A.h"
+#include "Game_Venture_A.h"
+#include "Game_Venture_A_DIR.h"
 #include "Game_VHUNT2_A.h"
 #include "Game_VSAV_A.h"
 #include "Game_VSAV2_A.h"
@@ -840,6 +842,20 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+    case VENTURE_A:
+    {
+        GetRule = &CGame_VENTURE_A::GetRule;
+        return TRUE;
+    }
+    case VENTURE_A_DIR:
+    {
+        GetRuleCtr = &CGame_VENTURE_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_VENTURE_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_VENTURE_A_DIR::GetRule;
+        GetNextRule = &CGame_VENTURE_A_DIR::GetNextRule;
+
+        return TRUE;
+    }
     case VHUNT2_A:
     {
         GetRule = &CGame_VHUNT2_A::GetRule;
@@ -1350,6 +1366,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case UNICLR_A:
     {
         return new CGame_UNICLR_A(nConfirmedROMSize);
+    }
+    case VENTURE_A:
+    {
+        return new CGame_VENTURE_A(nConfirmedROMSize);
+    }
+    case VENTURE_A_DIR:
+    {
+        return new CGame_VENTURE_A_DIR(-1, 50);
     }
     case VHUNT2_A:
     {
