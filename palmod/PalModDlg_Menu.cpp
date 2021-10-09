@@ -19,7 +19,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"We need the dkg_mpr* files from dankuga.zip.";
             break;
         case DBFCI_A:
-            pszExtraInfo = L"For DBFCI, please select the 'games' directory.";
+            pszExtraInfo = L"For DFCI, please select the 'games' directory.";
             break;
         case GGXXACR_S:
             pszExtraInfo = L"Guilty Gear (Steam): select the \"obj\" folder under \"Resource\\pr\\ver_100\" after decrypting your files.\n\"Resource\\obj\" will not work.";
@@ -39,6 +39,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             break;
         case MBAACC_S:
             pszExtraInfo = L"For MBAACC, please select the \"data\" folder.\nIf this is your first time loading MBAACC refer to the Read Me for more details.";
+            break;
+        case MBTL_A:
+            pszExtraInfo = L"For MBTL, please select the \"MELTY BLOOD TYPE LUMINA\" folder.\The folder is usually in steamapps\\common. If you didn't come from the guide refer to the Read Me for more details.";
             break;
         case MVC2_A_DIR:
             pszExtraInfo = L"We need the mpr-*.* files from mvcs2.zip.";

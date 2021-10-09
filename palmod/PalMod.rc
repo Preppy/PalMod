@@ -284,7 +284,6 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 224
         TOPMARGIN, 7
-        BOTTOMMARGIN, 243
     END
 
     IDD_PALMOD_DIALOG_FAT, DIALOG
@@ -336,11 +335,12 @@ BEGIN
             END
             POPUP "Jojo's"
             BEGIN
-                MENUITEM "HftF Characters (Japan Arcade)",   ID_LD_JOJOS51
+                MENUITEM "HftF Characters (Japan Arcade)", ID_LD_JOJOS51
                 MENUITEM "HftF HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
                 MENUITEM "Venture Characters (Japan Arcade)", ID_LD_VENTURE50
             END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
+            MENUITEM "Melty Blood: Type Lumina (Steam)", ID_LD_MBTL_A
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
             POPUP "MvC2"
             BEGIN

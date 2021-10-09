@@ -281,14 +281,16 @@
 #define ID_EDIT_SNIFFPASTE              32907
 #define IDS_GGXXACR_ENCRYPTED           32908
 #define ID_LD_VENTURE50                 32909
-
+#define ID_LD_MBTL_A                    32910
+#define ID_LOADDIRECTORY_MELTYBLOOD     32910
+#define ID_LD                           32911
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32910
+#define _APS_NEXT_COMMAND_VALUE         32912
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

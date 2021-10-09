@@ -53,6 +53,7 @@
 #include "Game_Matrimelee_A.h"
 #include "Game_MAAB_A.h"
 #include "Game_MBAACC_S.h"
+#include "Game_MBTL_A.h"
 #include "Game_MMPR_SNES.h"
 #include "Game_MMX_SNES.h"
 #include "Game_MMX2_SNES.h"
@@ -461,6 +462,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         ResetRuleCtr = &CGame_MAAB_A::ResetRuleCtr;
         GetRule = &CGame_MAAB_A::GetRule;
         GetNextRule = &CGame_MAAB_A::GetNextRule;
+
+        return TRUE;
+    }
+    case MBTL_A:
+    {
+        GetRuleCtr = &CGame_MBTL_A::GetRuleCtr;
+        ResetRuleCtr = &CGame_MBTL_A::ResetRuleCtr;
+        GetRule = &CGame_MBTL_A::GetRule;
+        GetNextRule = &CGame_MBTL_A::GetNextRule;
 
         return TRUE;
     }
@@ -1106,6 +1116,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case MAAB_A:
     {
         return new CGame_MAAB_A(nConfirmedROMSize);
+    }
+    case MBTL_A:
+    {
+        return new CGame_MBTL_A(nConfirmedROMSize);
     }
     case MAGICALDROPIII_A:
     {
