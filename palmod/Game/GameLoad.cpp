@@ -847,12 +847,21 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_VENTURE_A::GetRule;
         return TRUE;
     }
-    case VENTURE_A_DIR:
+    case VENTURE_A_DIR_31:
     {
         GetRuleCtr = &CGame_VENTURE_A_DIR::GetRuleCtr;
         ResetRuleCtr = &CGame_VENTURE_A_DIR::ResetRuleCtr;
-        GetRule = &CGame_VENTURE_A_DIR::GetRule;
-        GetNextRule = &CGame_VENTURE_A_DIR::GetNextRule;
+        GetRule = &CGame_VENTURE_A_DIR::GetRule_31;
+        GetNextRule = &CGame_VENTURE_A_DIR::GetNextRule_31;
+
+        return TRUE;
+    }
+    case VENTURE_A_DIR_50:
+    {
+        GetRuleCtr = &CGame_VENTURE_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_VENTURE_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_VENTURE_A_DIR::GetRule_50;
+        GetNextRule = &CGame_VENTURE_A_DIR::GetNextRule_50;
 
         return TRUE;
     }
@@ -1369,9 +1378,13 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
     case VENTURE_A:
     {
-        return new CGame_VENTURE_A(nConfirmedROMSize);
+        return new CGame_VENTURE_A(nConfirmedROMSize, nExtraGameData);
     }
-    case VENTURE_A_DIR:
+    case VENTURE_A_DIR_31:
+    {
+        return new CGame_VENTURE_A_DIR(-1, 31);
+    }
+    case VENTURE_A_DIR_50:
     {
         return new CGame_VENTURE_A_DIR(-1, 50);
     }
@@ -1548,6 +1561,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
             }
             break;
         }
+        case VENTURE_A:
+            nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? 50 : 31);
+            break;
         default:
             break;
         }

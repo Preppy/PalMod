@@ -21,7 +21,6 @@ int CGame_JOJOS_A::rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
-UINT32 CGame_JOJOS_A::m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
 UINT32 CGame_JOJOS_A::m_nConfirmedROMSize = -1;
 
 void CGame_JOJOS_A::InitializeStatics()

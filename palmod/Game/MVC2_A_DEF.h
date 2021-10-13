@@ -8081,7 +8081,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_EXTRAS[] =
 {
     { L"11: Not Used", 0x545ec20, 0x545ec40 },
     { L"12: PaletteGlitch: After Fly Glitch Tagout - Rocket Punch (wires)", 0x545ec40, 0x545ec60 },
-    { L"13: PaletteGlitch: After Fly Glitch Tagout - ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames - all buttons", 0x545ec60, 0x545ec80 },
+    { L"13: PaletteGlitch: After Fly Glitch Tagout - ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames - all buttons", 0x545ec60, 0x545ec80, indexCPS2Sprites_Sentinel, 0x23 },
 };
 
 const sDescTreeNode MVC2_A_SENTINEL_COLLECTION[] =

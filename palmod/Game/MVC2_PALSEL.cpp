@@ -1012,14 +1012,12 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             bLoadDefPal = FALSE;
 
-            int nXOffs = 31;
-            int nYOffs = -12;
-            int nPeerPaletteDistance = 9;
+            const int nPeerPaletteDistance = 9;
 
             //Create the img ticket
             ClearSetImgTicket(
                 CreateImgTicket(uUnitId, 0x27,
-                    CreateImgTicket(uUnitId, 0x28, nullptr, nXOffs, nYOffs)
+                    CreateImgTicket(uUnitId, 0x28, nullptr, pairHyperMegaman.nXOffs, pairHyperMegaman.nYOffs)
                 )
             );
 
@@ -1033,7 +1031,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeHMMM[0], 0);
             CreateDefPal(NodeHMMM[1], 1);
 
-            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x43, 0x57, 0x09); // HMM has 9 palettes
+            const int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x43, 0x57, 0x09); // HMM has 9 palettes
             SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
             SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
 
@@ -1840,7 +1838,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             //Create the img ticket
             ClearSetImgTicket(
                 CreateImgTicket(uUnitId, 1,
-                    CreateImgTicket(uUnitId, 2, NULL, 28, 4)
+                    CreateImgTicket(uUnitId, 2, NULL, pairCapComNinjas.nXOffs, pairCapComNinjas.nYOffs)
                 )
             );
 

@@ -242,6 +242,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LD_GGXXR_S, &CPalModDlg::OnLoadDir_GGXXR_S)
     ON_COMMAND(ID_LD_JOJOS50, &CPalModDlg::OnLoadDir_Jojos50)
     ON_COMMAND(ID_LD_JOJOS51, &CPalModDlg::OnLoadDir_Jojos51)
+    ON_COMMAND(ID_LD_VENTURE31, &CPalModDlg::OnLoadDir_Venture31)
     ON_COMMAND(ID_LD_VENTURE50, &CPalModDlg::OnLoadDir_Venture50)
         
     ON_COMMAND(ID_LD_MVC2ARCADE, &CPalModDlg::OnLoadDir_MVC2ArcadeAll)

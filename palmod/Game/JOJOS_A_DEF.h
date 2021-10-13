@@ -109,7 +109,6 @@ const UINT16 JOJOS_A_IMGIDS_USED[] =
 // So you can just add the A version and create a function that multiples the value instead of writing everything manually
 // Also Characters are 0xC80 away, so Jotaro Aand Kakyoin A are just 0xC80, Kakyoin to Avdol is 0xC80 and etc
 
-
 #pragma region HUD_PORTRAITS
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_JOTARO_PALETTES[] =
 {

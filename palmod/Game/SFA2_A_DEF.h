@@ -2112,8 +2112,8 @@ const sGame_PaletteDataset SFA2_A_STAGES08_RYU_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_07REV1_CSI_PALETTES[] =
 {
-    { L"Char Select 1", 0x772c0 - 0x27e, 0x774c0 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext },
-    { L"Char Select 2", 0x774c0 - 0x27e, 0x77500 - 0x27e, indexCPS2Sprites_SFA2_Bonus, 0x12 },
+    { L"Char Select 1", 0x7703E, 0x7723e, indexCPS2Sprites_SFA2_Bonus, 0x11, &pairNext },
+    { L"Char Select 2", 0x7723e, 0x7727E, indexCPS2Sprites_SFA2_Bonus, 0x12 },
 };
 
 const sGame_PaletteDataset SFA2_A_07REV2_CSI_PALETTES[] =

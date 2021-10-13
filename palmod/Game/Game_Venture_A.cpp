@@ -6,31 +6,38 @@
 
 #define VENTURE_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_31 = nullptr;
+stExtraDef* CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_50 = nullptr;
 
-CDescTree CGame_VENTURE_A::MainDescTree = nullptr;
+CDescTree CGame_VENTURE_A::MainDescTree_31 = nullptr;
+CDescTree CGame_VENTURE_A::MainDescTree_50 = nullptr;
 
-int CGame_VENTURE_A::rgExtraCountAll[VENTURE_A_NUMUNIT + 1];
-int CGame_VENTURE_A::rgExtraLoc[VENTURE_A_NUMUNIT + 1];
+int CGame_VENTURE_A::rgExtraCountAll_31[VENTURE_A_NUMUNIT_31 + 1];
+int CGame_VENTURE_A::rgExtraCountAll_50[VENTURE_A_NUMUNIT_50 + 1];
+int CGame_VENTURE_A::rgExtraLoc_31[VENTURE_A_NUMUNIT_31 + 1];
+int CGame_VENTURE_A::rgExtraLoc_50[VENTURE_A_NUMUNIT_50 + 1];
 
-UINT32 CGame_VENTURE_A::m_nTotalPaletteCountForVENTURE = 0;
-UINT32 CGame_VENTURE_A::m_nExpectedGameROMSize = 0x400000;
+int CGame_VENTURE_A::m_nVentureMode = 50;
+UINT32 CGame_VENTURE_A::m_nTotalPaletteCountFor31 = 0;
+UINT32 CGame_VENTURE_A::m_nTotalPaletteCountFor50 = 0;
 UINT32 CGame_VENTURE_A::m_nConfirmedROMSize = -1;
 
 void CGame_VENTURE_A::InitializeStatics()
 {
-    safe_delete_array(CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_31);
+    safe_delete_array(CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_50);
 
-    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+    memset(rgExtraCountAll_31, -1, sizeof(rgExtraCountAll_31));
+    memset(rgExtraCountAll_50, -1, sizeof(rgExtraCountAll_50));
+    memset(rgExtraLoc_31, -1, sizeof(rgExtraLoc_31));
+    memset(rgExtraLoc_50, -1, sizeof(rgExtraLoc_50));
 
-    MainDescTree.SetRootTree(CGame_VENTURE_A::InitDescTree());
+    MainDescTree_31.SetRootTree(CGame_VENTURE_A::InitDescTree(31));
+    MainDescTree_50.SetRootTree(CGame_VENTURE_A::InitDescTree(50));
 }
 
-CGame_VENTURE_A::CGame_VENTURE_A(UINT32 nConfirmedROMSize)
+CGame_VENTURE_A::CGame_VENTURE_A(UINT32 nConfirmedROMSize /* = -1 */, int nVentureModeToLoad /* = 50 */)
 {
-    OutputDebugString(L"CGame_VENTURE_A::CGame_VENTURE_A: Loading ROM...\n");
-
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -41,30 +48,39 @@ CGame_VENTURE_A::CGame_VENTURE_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = VENTURE_A_NUMUNIT;
-    m_nExtraUnit = VENTURE_A_EXTRALOC;
+    //We need the proper unit amt before we init the main buffer
+    m_nVentureMode = nVentureModeToLoad;
 
-    // You will need to update this once you modify palettes, but PalMod will prompt you to do so.
-    // Exact count will be shown in debug output in the debugger
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 193;
-    m_pszExtraFilename = EXTRA_FILENAME_VENTURE_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForVENTURE; // This value is calculated at runtime: don't change this.
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-     // You will need to update this, but PalMod will prompt you to do so.  Exact location will be shown and also
-    // visible in debug output in the debugger.
-    m_nLowestKnownPaletteRomLocation = 0x3b0000;
+    if (UsePaletteSetFor50())
+    {
+        m_nTotalInternalUnits = VENTURE_A_NUMUNIT_50;
+        m_nExtraUnit = VENTURE_A_EXTRALOC_50;
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 193;
+        m_pszExtraFilename = EXTRA_FILENAME_VENTURE_A_50;
+        m_nTotalPaletteCount = m_nTotalPaletteCountFor50;
+        m_nLowestKnownPaletteRomLocation = 0x3b0000;
+    }
+    else
+    {
+        m_nTotalInternalUnits = VENTURE_A_NUMUNIT_31;
+        m_nExtraUnit = VENTURE_A_EXTRALOC_31;
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 46;
+        m_pszExtraFilename = EXTRA_FILENAME_VENTURE_A_31;
+        m_nTotalPaletteCount = m_nTotalPaletteCountFor31;
+        m_nLowestKnownPaletteRomLocation = 0x640400;
+    }
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
     //Set game information
-    nGameFlag = VENTURE_A; // This value is defined in gamedef.h.  See usage of other values defined there
-    nImgGameFlag = IMGDAT_SECTION_JOJOS; // This value is used to determine which section of the image file is used
+    nGameFlag = VENTURE_A;
+    nImgGameFlag = IMGDAT_SECTION_JOJOS;
     m_prgGameImageSet = VENTURE_A_IMGIDS_USED;
     nImgUnitAmt = ARRAYSIZE(VENTURE_A_IMGIDS_USED);
 
-    nFileAmt = 1; // Always 1 for monolithic rom games
+    nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
@@ -82,7 +98,8 @@ CGame_VENTURE_A::CGame_VENTURE_A(UINT32 nConfirmedROMSize)
 
 CGame_VENTURE_A::~CGame_VENTURE_A(void)
 {
-    safe_delete_array(CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_31);
+    safe_delete_array(CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_50);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
@@ -90,27 +107,56 @@ CGame_VENTURE_A::~CGame_VENTURE_A(void)
 
 CDescTree* CGame_VENTURE_A::GetMainTree()
 {
-    return &CGame_VENTURE_A::MainDescTree;
+    if (UsePaletteSetFor50())
+    {
+        return &CGame_VENTURE_A::MainDescTree_50;
+    }
+    else
+    {
+        return &CGame_VENTURE_A::MainDescTree_31;
+    }
 }
 
-int CGame_VENTURE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_VENTURE_A::GetExtraCt(UINT16 nUnitId)
 {
-    return _GetExtraCount(rgExtraCountAll, VENTURE_A_NUMUNIT, nUnitId, VENTURE_A_EXTRA_CUSTOM);
+    if (UsePaletteSetFor50())
+    {
+        return _GetExtraCount(rgExtraCountAll_50, VENTURE_A_NUMUNIT_50, nUnitId, VENTURE_A_EXTRA_CUSTOM_50);
+    }
+    else
+    {
+        return _GetExtraCount(rgExtraCountAll_31, VENTURE_A_NUMUNIT_31, nUnitId, VENTURE_A_EXTRA_CUSTOM_31);
+    }
 }
 
 int CGame_VENTURE_A::GetExtraLoc(UINT16 nUnitId)
 {
-    return _GetExtraLocation(rgExtraLoc, VENTURE_A_NUMUNIT, nUnitId, VENTURE_A_EXTRA_CUSTOM);
+    if (UsePaletteSetFor50())
+    {
+        return _GetExtraLocation(rgExtraLoc_50, VENTURE_A_NUMUNIT_50, nUnitId, VENTURE_A_EXTRA_CUSTOM_50);
+    }
+    else
+    {
+        return _GetExtraLocation(rgExtraLoc_31, VENTURE_A_NUMUNIT_31, nUnitId, VENTURE_A_EXTRA_CUSTOM_31);
+    }
 }
 
-sDescTreeNode* CGame_VENTURE_A::InitDescTree()
+sDescTreeNode* CGame_VENTURE_A::InitDescTree(int nPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
+    UINT16 nUnitCt = 0;
+    m_nVentureMode = nPaletteSetToUse;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_VENTURE_A, VENTURE_A_EXTRA, &VENTURE_A_EXTRA_CUSTOM, VENTURE_A_EXTRALOC, m_nConfirmedROMSize);
-
-    UINT16 nUnitCt = VENTURE_A_NUMUNIT + (GetExtraCt(VENTURE_A_EXTRALOC) ? 1 : 0);
+    if (UsePaletteSetFor50())
+    {
+        LoadExtraFileForGame(EXTRA_FILENAME_VENTURE_A_50, VENTURE_A_EXTRA, &VENTURE_A_EXTRA_CUSTOM_50, VENTURE_A_EXTRALOC_50, m_nConfirmedROMSize);
+        nUnitCt = VENTURE_A_NUMUNIT_50 + (GetExtraCt(VENTURE_A_EXTRALOC_50) ? 1 : 0);
+    }
+    else
+    {
+        LoadExtraFileForGame(EXTRA_FILENAME_VENTURE_A_31, VENTURE_A_EXTRA, &VENTURE_A_EXTRA_CUSTOM_31, VENTURE_A_EXTRALOC_31, m_nConfirmedROMSize);
+        nUnitCt = VENTURE_A_NUMUNIT_31 + (GetExtraCt(VENTURE_A_EXTRALOC_31) ? 1 : 0);
+    }
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -121,14 +167,28 @@ sDescTreeNode* CGame_VENTURE_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    m_nTotalPaletteCountForVENTURE = _InitDescTree(NewDescTree,
-        VENTURE_A_UNITS,
-        VENTURE_A_EXTRALOC,
-        VENTURE_A_NUMUNIT,
-        rgExtraCountAll,
-        rgExtraLoc,
-        VENTURE_A_EXTRA_CUSTOM
-    );
+    if (UsePaletteSetFor50())
+    {
+        m_nTotalPaletteCountFor50 = _InitDescTree(NewDescTree,
+            VENTURE_A_UNITS_50,
+            VENTURE_A_EXTRALOC_50,
+            VENTURE_A_NUMUNIT_50,
+            rgExtraCountAll_50,
+            rgExtraLoc_50,
+            VENTURE_A_EXTRA_CUSTOM_50
+        );
+    }
+    else
+    {
+        m_nTotalPaletteCountFor31 = _InitDescTree(NewDescTree,
+            VENTURE_A_UNITS_31,
+            VENTURE_A_EXTRALOC_31,
+            VENTURE_A_NUMUNIT_31,
+            rgExtraCountAll_31,
+            rgExtraLoc_31,
+            VENTURE_A_EXTRA_CUSTOM_31
+        );
+    }
 
     return NewDescTree;
 }
@@ -137,53 +197,169 @@ sFileRule CGame_VENTURE_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"50");
+    if (nUnitId == 50)
+    {
+        // This value is only used for directory-based games
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"50");
+        NewFileRule.uVerifyVar = m_nExpectedGameROMSize_50;
+    }
+    else
+    {
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"31");
+        NewFileRule.uVerifyVar = m_nExpectedGameROMSize_31;
+    }
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
 
+LPCWSTR CGame_VENTURE_A::GetGameName()
+{
+    if (UsePaletteSetFor50())
+    {
+        return L"Jojo's Venture (Japan, 50: Characters)";
+    }
+    else
+    {
+        return L"Jojo's Venture (Japan, 31: HUD Portraits)";
+    }
+}
+
+void CGame_VENTURE_A::InitDataBuffer()
+{
+    m_nBufferVentureMode = m_nVentureMode;
+    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
+    memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
+}
+
+void CGame_VENTURE_A::ClearDataBuffer()
+{
+    // We walk the tree to clear it according to Venture mode, but if you live switch games
+    // we would use the new mode incorrectly as we clear the old buffer.
+    int nCurrentVentureMode = m_nVentureMode;
+
+    m_nVentureMode = m_nBufferVentureMode;
+
+    if (m_pppDataBuffer)
+    {
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        {
+            if (m_pppDataBuffer[nUnitCtr])
+            {
+                UINT16 nPaletteCount = GetPaletteCountForUnit(nUnitCtr);
+
+                for (UINT16 nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
+                {
+                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPaletteIndex]);
+                }
+
+                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
+            }
+        }
+
+        safe_delete_array(m_pppDataBuffer);
+    }
+
+    m_nVentureMode = nCurrentVentureMode;
+}
+
 UINT16 CGame_VENTURE_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    return _GetCollectionCountForUnit(VENTURE_A_UNITS, rgExtraCountAll, VENTURE_A_NUMUNIT, VENTURE_A_EXTRALOC, nUnitId, VENTURE_A_EXTRA_CUSTOM);
+    if (UsePaletteSetFor50())
+    {
+        return _GetCollectionCountForUnit(VENTURE_A_UNITS_50, rgExtraCountAll_50, VENTURE_A_NUMUNIT_50, VENTURE_A_EXTRALOC_50, nUnitId, VENTURE_A_EXTRA_CUSTOM_50);
+    }
+    else
+    {
+        return _GetCollectionCountForUnit(VENTURE_A_UNITS_31, rgExtraCountAll_31, VENTURE_A_NUMUNIT_31, VENTURE_A_EXTRALOC_31, nUnitId, VENTURE_A_EXTRA_CUSTOM_31);
+    }
 }
 
 UINT16 CGame_VENTURE_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    return _GetNodeCountForCollection(VENTURE_A_UNITS, rgExtraCountAll, VENTURE_A_NUMUNIT, VENTURE_A_EXTRALOC, nUnitId, nCollectionId, VENTURE_A_EXTRA_CUSTOM);
+    if (UsePaletteSetFor50())
+    {
+        return _GetNodeCountForCollection(VENTURE_A_UNITS_50, rgExtraCountAll_50, VENTURE_A_NUMUNIT_50, VENTURE_A_EXTRALOC_50, nUnitId, nCollectionId, VENTURE_A_EXTRA_CUSTOM_50);
+    }
+    else
+    {
+        return _GetNodeCountForCollection(VENTURE_A_UNITS_31, rgExtraCountAll_31, VENTURE_A_NUMUNIT_31, VENTURE_A_EXTRALOC_31, nUnitId, nCollectionId, VENTURE_A_EXTRA_CUSTOM_31);
+    }
 }
 
 LPCWSTR CGame_VENTURE_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    return _GetDescriptionForCollection(VENTURE_A_UNITS, VENTURE_A_EXTRALOC, nUnitId, nCollectionId);
+    if (UsePaletteSetFor50())
+    {
+        return _GetDescriptionForCollection(VENTURE_A_UNITS_50, VENTURE_A_EXTRALOC_50, nUnitId, nCollectionId);
+    }
+    else
+    {
+        return _GetDescriptionForCollection(VENTURE_A_UNITS_31, VENTURE_A_EXTRALOC_31, nUnitId, nCollectionId);
+    }
+
 }
 
 UINT16 CGame_VENTURE_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    return _GetPaletteCountForUnit(VENTURE_A_UNITS, rgExtraCountAll, VENTURE_A_NUMUNIT, VENTURE_A_EXTRALOC, nUnitId, VENTURE_A_EXTRA_CUSTOM);
+    if (UsePaletteSetFor50())
+    {
+        return _GetPaletteCountForUnit(VENTURE_A_UNITS_50, rgExtraCountAll_50, VENTURE_A_NUMUNIT_50, VENTURE_A_EXTRALOC_50, nUnitId, VENTURE_A_EXTRA_CUSTOM_50);
+    }
+    else
+    {
+        return _GetPaletteCountForUnit(VENTURE_A_UNITS_31, rgExtraCountAll_31, VENTURE_A_NUMUNIT_31, VENTURE_A_EXTRALOC_31, nUnitId, VENTURE_A_EXTRA_CUSTOM_31);
+    }
 }
 
 const sGame_PaletteDataset* CGame_VENTURE_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    return _GetPaletteSet(VENTURE_A_UNITS, nUnitId, nCollectionId);
+    if (UsePaletteSetFor50())
+    {
+        return _GetPaletteSet(VENTURE_A_UNITS_50, nUnitId, nCollectionId);
+    }
+    else
+    {
+        return _GetPaletteSet(VENTURE_A_UNITS_31, nUnitId, nCollectionId);
+    }
 }
 
 const sDescTreeNode* CGame_VENTURE_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
-    return _GetNodeFromPaletteId(VENTURE_A_UNITS, rgExtraCountAll, VENTURE_A_NUMUNIT, VENTURE_A_EXTRALOC, nUnitId, nPaletteId, VENTURE_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
+    if (UsePaletteSetFor50())
+    {
+        return _GetNodeFromPaletteId(VENTURE_A_UNITS_50, rgExtraCountAll_50, VENTURE_A_NUMUNIT_50, VENTURE_A_EXTRALOC_50, nUnitId, nPaletteId, VENTURE_A_EXTRA_CUSTOM_50, fReturnBasicNodesOnly);
+    }
+    else
+    {
+        return _GetNodeFromPaletteId(VENTURE_A_UNITS_31, rgExtraCountAll_31, VENTURE_A_NUMUNIT_31, VENTURE_A_EXTRALOC_31, nUnitId, nPaletteId, VENTURE_A_EXTRA_CUSTOM_31, fReturnBasicNodesOnly);
+    }
 }
 
 const sGame_PaletteDataset* CGame_VENTURE_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
-    return _GetSpecificPalette(VENTURE_A_UNITS, rgExtraCountAll, VENTURE_A_NUMUNIT, VENTURE_A_EXTRALOC, nUnitId, nPaletteId, VENTURE_A_EXTRA_CUSTOM);
+    if (UsePaletteSetFor50())
+    {
+        return _GetSpecificPalette(VENTURE_A_UNITS_50, rgExtraCountAll_50, VENTURE_A_NUMUNIT_50, VENTURE_A_EXTRALOC_50, nUnitId, nPaletteId, VENTURE_A_EXTRA_CUSTOM_50);
+    }
+    else
+    {
+        return _GetSpecificPalette(VENTURE_A_UNITS_31, rgExtraCountAll_31, VENTURE_A_NUMUNIT_31, VENTURE_A_EXTRALOC_31, nUnitId, nPaletteId, VENTURE_A_EXTRA_CUSTOM_31);
+    }
 }
 
 void CGame_VENTURE_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != VENTURE_A_EXTRALOC)
+    bool isPaletteFromExtensionsFile = false;
+
+    if (UsePaletteSetFor50() ? (nUnitId == VENTURE_A_EXTRALOC_50) :
+                               (nUnitId == VENTURE_A_EXTRALOC_31))
+    {
+        isPaletteFromExtensionsFile = true;
+    }
+
+     if (!isPaletteFromExtensionsFile)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -215,5 +391,12 @@ void CGame_VENTURE_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
 BOOL CGame_VENTURE_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
-    return _UpdatePalImg(VENTURE_A_UNITS, rgExtraCountAll, VENTURE_A_NUMUNIT, VENTURE_A_EXTRALOC, VENTURE_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
+    if (UsePaletteSetFor50())
+    {
+        return _UpdatePalImg(VENTURE_A_UNITS_50, rgExtraCountAll_50, VENTURE_A_NUMUNIT_50, VENTURE_A_EXTRALOC_50, VENTURE_A_EXTRA_CUSTOM_50, Node01, Node02, Node03, Node03);
+    }
+    else
+    {
+        return _UpdatePalImg(VENTURE_A_UNITS_31, rgExtraCountAll_31, VENTURE_A_NUMUNIT_31, VENTURE_A_EXTRALOC_31, VENTURE_A_EXTRA_CUSTOM_31, Node01, Node02, Node03, Node03);
+    }
 }

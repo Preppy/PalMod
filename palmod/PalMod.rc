@@ -339,6 +339,7 @@ BEGIN
                 MENUITEM "HftF Characters (Japan Arcade)",   ID_LD_JOJOS51
                 MENUITEM "HftF HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
                 MENUITEM "Venture Characters (Japan Arcade)", ID_LD_VENTURE50
+                MENUITEM "Venture HUD (Japan Arcade)", ID_LD_VENTURE31
             END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB

@@ -345,5 +345,6 @@ public:
     afx_msg void OnLoadDir_SFIII3Arcade4rd_10() { OnLoadGameByDirectory(SFIII3_A_DIR_4rd_10); };
     afx_msg void OnLoadDir_SFIII3ArcadeEx() { OnLoadGameByDirectory(SFIII3_A_DIR_EX); };
     afx_msg void OnLoadDir_UNICLR()         { OnLoadGameByDirectory(UNICLR_A); };
-    afx_msg void OnLoadDir_Venture50()      { OnLoadGameByDirectory(VENTURE_A_DIR); };
+    afx_msg void OnLoadDir_Venture31()      { OnLoadGameByDirectory(VENTURE_A_DIR_31); };
+    afx_msg void OnLoadDir_Venture50()      { OnLoadGameByDirectory(VENTURE_A_DIR_50); };
 };

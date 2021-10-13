@@ -4,17 +4,21 @@
 
 UINT16 CGame_VENTURE_A_DIR::uRuleCtr = 0;
 
-constexpr auto VENTURE_Arcade_ROM_Base = L"jojo-simm5.";
+LPCWSTR CGame_VENTURE_A_DIR::VENTURE_Arcade_ROM_Base_31 = L"jojo-simm3.";
+LPCWSTR CGame_VENTURE_A_DIR::VENTURE_Arcade_ROM_Base_50 = L"jojo-simm5.";
 
 #define VENTURE_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 
 CGame_VENTURE_A_DIR::CGame_VENTURE_A_DIR(UINT32 nConfirmedROMSize, int nVentureModeToLoad) :
-        CGame_VENTURE_A(0x400000)   // Let Venture know that it's safe to load extras.
+        CGame_VENTURE_A(-1, nVentureModeToLoad)   // Let Venture know that it's safe to load extras.
 {
     OutputDebugString(L"CGame_VENTURE_A_DIR::CGame_VENTURE_A_DIR: Loading from SIMM directory\n");
-    nGameFlag = VENTURE_A_DIR;
-    nFileAmt = c_nCountSIMMsUsed;
-    m_fAllowIPSPatching = true;
+
+    nGameFlag = (nVentureModeToLoad == 50) ? VENTURE_A_DIR_50 : VENTURE_A_DIR_31;
+    nFileAmt = (nVentureModeToLoad == 50) ? c_nCountSIMMsUsed_50 : c_nCountSIMMsUsed_31;
+    
+    // not implemented
+    m_fAllowIPSPatching = false;
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -25,29 +29,66 @@ CGame_VENTURE_A_DIR::~CGame_VENTURE_A_DIR(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_VENTURE_A_DIR::GetRule(UINT16 nUnitId)
+sFileRule CGame_VENTURE_A_DIR::GetRule_31(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u", VENTURE_Arcade_ROM_Base, (nUnitId & RULE_COUNTER_DEMASK));
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u", VENTURE_Arcade_ROM_Base_31, ((nUnitId + 4) & RULE_COUNTER_DEMASK));
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
     return NewFileRule;
 }
 
-sFileRule CGame_VENTURE_A_DIR::GetNextRule()
+sFileRule CGame_VENTURE_A_DIR::GetNextRule_31()
 {
-    sFileRule NewFileRule = GetRule(uRuleCtr);
+    sFileRule NewFileRule = GetRule_31(uRuleCtr);
 
     uRuleCtr++;
 
-    if (uRuleCtr >= c_nCountSIMMsUsed)
+    if (uRuleCtr >= c_nCountSIMMsUsed_31)
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
+}
+
+sFileRule CGame_VENTURE_A_DIR::GetRule_50(UINT16 nUnitId)
+{
+    sFileRule NewFileRule;
+
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u", VENTURE_Arcade_ROM_Base_50, (nUnitId & RULE_COUNTER_DEMASK));
+    NewFileRule.uUnitId = nUnitId;
+    NewFileRule.uVerifyVar = (short int)-1;
+
+    return NewFileRule;
+}
+
+sFileRule CGame_VENTURE_A_DIR::GetNextRule_50()
+{
+    sFileRule NewFileRule = GetRule_50(uRuleCtr);
+
+    uRuleCtr++;
+
+    if (uRuleCtr >= c_nCountSIMMsUsed_50)
+    {
+        uRuleCtr = INVALID_UNIT_VALUE;
+    }
+
+    return NewFileRule;
+}
+
+LPCWSTR CGame_VENTURE_A_DIR::GetGameName()
+{
+    if (UsePaletteSetFor50())
+    {
+        return L"Jojo's Venture (Japan Arcade, 5.x: Characters)";
+    }
+    else
+    {
+        return L"Jojo's Venture (Japan Arcade, 3.x: HUD Portraits)";
+    }
 }
 
 inline UINT32 CGame_VENTURE_A_DIR::GetSIMMLocationFromROMLocation(UINT32 nROMLocation)
@@ -72,6 +113,7 @@ inline UINT32 CGame_VENTURE_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation
 
 BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 {
+    // This code loads one SIMM pair at a time.
     BOOL fSuccess = TRUE;
     CString strInfo;
 
@@ -83,13 +125,14 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         OutputDebugString(L"\tThis is a peer SIMM: skipping.\n");
         return TRUE;
     }
-    else if ((nGameFlag == VENTURE_A_DIR) && (nSIMMNumber >= c_nCountSIMMsUsed))
+    else if (((nGameFlag == VENTURE_A_DIR_50) && (nSIMMNumber >= c_nCountSIMMsUsed_50)) ||
+            ((nGameFlag == VENTURE_A_DIR_31) && (nSIMMNumber >= c_nCountSIMMsUsed_31)))
     {
         OutputDebugString(L"\tThis SIMM set is not used for the current Venture mode\n");
         return TRUE;
     }
 
-    // OK, so the 50 ROM in the SIMM redump is interleaved.
+    // OK, so the 50 ROM in the SIMM redump is interleaved.name 
     // There is one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
     // So to read the SIMMs we need to perform shenanigans.
     const UINT32 nSIMMSetAdjustment =  0;
@@ -100,7 +143,7 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     OutputDebugString(strInfo);
 
     CFile FilePeer;
-    sFileRule PeerRule = GetNextRule();
+    sFileRule PeerRule = (nGameFlag == VENTURE_A_DIR_50) ? GetNextRule_50() : GetNextRule_31();
     CString strPeerFilename;
     strPeerFilename.Format(L"%s\\%s", GetLoadDir(), PeerRule.szFileName);
 
@@ -173,45 +216,83 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
-    // This is a single SIMM pair: run checks and finalize now.
-    CheckForErrorsInTables();
+    // bugbug
+    if ((nGameFlag == VENTURE_A_DIR_50) ||
+        ((nGameFlag == VENTURE_A_DIR_31) && (nSIMMNumber == (c_nCountSIMMsUsed_31 / 2))))
+    {
+        // Only run the dupe checker for the second SIMM pair
+        CheckForErrorsInTables();
 
-    // We're done with our "files" but gameload has a loose mapping between files and unit count.  
-    // We can handle that mapping by simply setting the "file" count to the unit count.
-    nRedirCtr = nUnitAmt - 1;
+        // We're done with our "files" but gameload has a loose mapping between files and unit count.  
+        // We can handle that mapping by simply setting the "file" count to the unit count.
+        nRedirCtr = nUnitAmt - 1;
+    }
 
     return fSuccess;
 }
 
 inline UINT8 CGame_VENTURE_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
 {
-    // Venture only has one simm pair
-    return 0;
+    return (nROMLocation > (2 * c_nVentureSIMMLength)) ? 1 : 0;
 }
 
 BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 {
-    OutputDebugString(L"CGame_VENTURE_A_DIR::SaveFile: Preparing to save data for Venture ROM set\n");
+    CString strInfo;
+    strInfo.Format(L"CGame_VENTURE_A_DIR::SaveFile: Preparing to save data for Venture ROM set %u\n", m_nVentureMode);
+    OutputDebugString(strInfo);
 
-    // OK, so the old 51 ROM in the SIMM redump is interleaved.
+    // OK, so the old 50 ROM in the SIMM redump is interleaved.
     // There is one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
     // So to read the SIMMs we need to perform shenanigans.
 
-    const UINT32 nSIMMSetAdjustment = 0;
+    const UINT32 nSIMMSetAdjustment = (m_nVentureMode == 50) ? 0 : 4;
 
     CFile fileSIMM1;
     CString strSIMMName1;
     CFile fileSIMM2;
     CString strSIMMName2;
+    CFile fileSIMM3;
+    CString strSIMMName3;
+    CFile fileSIMM4;
+    CString strSIMMName4;
 
-    strSIMMName1.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base, nSIMMSetAdjustment + 0);
-    strSIMMName2.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base, nSIMMSetAdjustment + 1);
+    BOOL fFileLoadSuccess = FALSE;
+
+    // We want our own file handles, so close the existing lock
+    SaveFile->Abort();
+
+    if (UsePaletteSetFor50())
+    {
+        strSIMMName1.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_50, nSIMMSetAdjustment + 0);
+        strSIMMName2.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_50, nSIMMSetAdjustment + 1);
+
+        if ((fileSIMM1.Open(strSIMMName1, CFile::modeWrite | CFile::typeBinary)) &&
+            (fileSIMM2.Open(strSIMMName2, CFile::modeWrite | CFile::typeBinary)))
+        {
+            fFileLoadSuccess = TRUE;
+        }
+    }
+    else
+    {
+        strSIMMName1.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 0);
+        strSIMMName2.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 1);
+        strSIMMName3.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 2);
+        strSIMMName4.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 3);
+
+        if ((fileSIMM1.Open(strSIMMName1, CFile::modeWrite | CFile::typeBinary)) &&
+            (fileSIMM2.Open(strSIMMName2, CFile::modeWrite | CFile::typeBinary)) &&
+            (fileSIMM3.Open(strSIMMName3, CFile::modeWrite | CFile::typeBinary)) &&
+            (fileSIMM4.Open(strSIMMName4, CFile::modeWrite | CFile::typeBinary)))
+        {
+            fFileLoadSuccess = TRUE;
+        }
+    }
 
     // We don't necessarily want the incoming file handle, so close it
     SaveFile->Abort();
 
-    if ((fileSIMM1.Open(strSIMMName1, CFile::modeWrite | CFile::typeBinary)) &&
-        (fileSIMM2.Open(strSIMMName2, CFile::modeWrite | CFile::typeBinary)))
+    if (fFileLoadSuccess)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
@@ -235,8 +316,8 @@ BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
-                    CFile* pSIMM1 = &fileSIMM1;
-                    CFile* pSIMM2 = &fileSIMM2;
+                    CFile* pSIMM1 = (nSIMMSetToUse == 0) ? &fileSIMM1 : &fileSIMM3;
+                    CFile* pSIMM2 = (nSIMMSetToUse == 0) ? &fileSIMM2 : &fileSIMM4;
 
                     pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -276,139 +357,16 @@ BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
         fileSIMM2.Close();
     }
 
+    if (fileSIMM3.m_hFile != CFile::hFileNull)
+    {
+        fileSIMM3.Close();
+    }
+
+    if (fileSIMM4.m_hFile != CFile::hFileNull)
+    {
+        fileSIMM4.Close();
+    }
+
     OutputDebugString(L"\tSave complete!\n");
-    return TRUE;
-}
-
-UINT32 CGame_VENTURE_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
-{
-    CString strInfo;
-    UINT32 nPaletteSaveCount = 0;
-    // 50 maps to 5.0-5.1
-    UINT16 nSIMMNumber = 0;
-
-    // There is one byte from 5.0 followed by one byte from 5.1, up until the end of those SIMMs.
-    // So we need some shenanigans to generate correct IPS files
-
-    CFile fileIPS1;
-    CFile fileIPS2;
-
-    LPCWSTR pszBaseFormatString = VENTURE_Arcade_ROM_Base;
-    const UINT16 nSIMMSetBaseNumber = 5; // Venture just wants 50
-
-    const bool fUserWantsAllChanges = UserWantsAllPalettesInPatch();
-
-    strInfo.Format(L"CGame_VENTURE_A_DIR::SaveMultiplePatchFiles: Preparing to save IPS patches...\n");
-    OutputDebugString(strInfo);
-
-    bool fSetOneOpened = false;
-    bool fSetTwoOpened = false;
-
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-    {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-        {
-            if (fUserWantsAllChanges || IsPaletteDirty(nUnitCtr, nPalCtr))
-            {
-                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-                UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
-
-                const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
-
-                m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
-                m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
-
-                // Open these on a JIT basis so we only create them if needed.
-                if ((nSIMMSetToUse == 0) && !fSetOneOpened)
-                {
-                    CString strIPSName1;
-                    CString strIPSName2;
-
-                    strIPSName1.Format(L"%s\\%s%u.ips", strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber);
-                    strIPSName2.Format(L"%s\\%s%u.ips", strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber + 1);
-
-                    if (fileIPS1.Open(strIPSName1, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary) &&
-                        fileIPS2.Open(strIPSName2, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))
-                    {
-                        fSetOneOpened = true;
-                        // Write the headers...
-                        LPCSTR szIPSOpener = "PATCH";
-                        fileIPS1.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
-                        fileIPS2.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-
-                nPaletteSaveCount++;
-
-                CFile* pIPS1 = &fileIPS1;
-                CFile* pIPS2 = &fileIPS2;
-
-                // Location
-                BYTE b1 = (m_nCurrentPaletteROMLocation & 0xFF0000) >> 16;
-                BYTE b2 = (m_nCurrentPaletteROMLocation & 0xFF00) >> 8;
-                BYTE b3 = m_nCurrentPaletteROMLocation & 0xFF;
-                pIPS1->Write(&b1, 1);
-                pIPS1->Write(&b2, 1);
-                pIPS1->Write(&b3, 1);
-
-                pIPS2->Write(&b1, 1);
-                pIPS2->Write(&b2, 1);
-                pIPS2->Write(&b3, 1);
-
-                // Size
-                b1 = ((m_nCurrentPaletteSizeInColors) & 0xFF00) >> 8;
-                b2 = (m_nCurrentPaletteSizeInColors) & 0xFF;
-                pIPS1->Write(&b1, 1);
-                pIPS1->Write(&b2, 1);
-
-                pIPS2->Write(&b1, 1);
-                pIPS2->Write(&b2, 1);
-
-                BYTE* pbWrite1 = nullptr, * pbWrite2 = nullptr;
-
-                pbWrite1 = new BYTE[m_nCurrentPaletteSizeInColors];
-                pbWrite2 = new BYTE[m_nCurrentPaletteSizeInColors];
-
-                if (pbWrite1 && pbWrite2)
-                {
-                    for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSizeInColors; nWordsWritten++)
-                    {
-                        pbWrite1[nWordsWritten] = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
-                        pbWrite2[nWordsWritten] = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
-                    }
-
-                    pIPS1->Write(pbWrite1, m_nCurrentPaletteSizeInColors);
-                    pIPS2->Write(pbWrite2, m_nCurrentPaletteSizeInColors);
-                }
-
-                safe_delete_array(pbWrite1);
-                safe_delete_array(pbWrite2);
-            }
-        }
-    }
-
-    strInfo.Format(L"\tCGame_VENTURE_A_DIR::SaveMultiplePatchFiles: complete for 0x%x palettes\n", nPaletteSaveCount);
-    OutputDebugString(strInfo);
-
-    LPCSTR szIPSCloser = "EOF";
-    if (fileIPS1.m_hFile != CFile::hFileNull)
-    {
-        fileIPS1.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
-        fileIPS1.Close();
-    }
-
-    if (fileIPS2.m_hFile != CFile::hFileNull)
-    {
-        fileIPS2.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
-        fileIPS2.Close();
-    }
-
-    return nPaletteSaveCount;
+    return fFileLoadSuccess;
 }

@@ -1114,7 +1114,7 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES[] =
     { L"5/6 background bottom/right", 0x738780, 0x738980, indexRedEarthSprites_Stages, 0x10 },
     { L"6/6 left wall, no tree", 0x738d80, 0x738e00, indexRedEarthSprites_Stages, 0x0f },
 
-#ifdef ojsodfijsodfj
+#ifdef olddata // before i sliced it up into the current display
     { L"Sangypt Intro 1/25", 0x738780, 0x738880 },
     { L"Sangypt Intro 2/25", 0x738880, 0x738a80 },
     { L"Sangypt Intro 3/25", 0x738a80, 0x738c80 },
@@ -1155,21 +1155,26 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES[] =
 {
-    { L"Sangypt Intro 1/15", 0x739b00, 0x739c80 },
-    { L"Sangypt Intro 2/15", 0x739c80, 0x739e80 },
-    { L"Sangypt Intro 3/15", 0x739e80, 0x73a080 },
-    { L"Sangypt Intro 4/15", 0x73a080, 0x73a280 },
-    { L"Sangypt Intro 5/15", 0x73a280, 0x73a480 },
-    { L"Sangypt Intro 6/15", 0x73a480, 0x73a680 },
-    { L"Sangypt Intro 7/15", 0x73a680, 0x73a880 },
-    { L"Sangypt Intro 8/15", 0x73a880, 0x73aa80 },
-    { L"Sangypt Intro 9/15", 0x73aa80, 0x73ac80 },
-    { L"Sangypt Intro 10/15", 0x73ac80, 0x73ae80 },
-    { L"Sangypt Intro 11/15", 0x73ae80, 0x73b080 },
-    { L"Sangypt Intro 12/15", 0x73b080, 0x73b280 },
-    { L"Sangypt Intro 13/15", 0x73b280, 0x73b480 },
-    { L"Sangypt Intro 14/15", 0x73b480, 0x73b680 },
-    { L"Sangypt Intro 15/15", 0x73b680, 0x73b780 },
+    { L"Sangypt Intro 1/5", 0x739b00, 0x739c80 },
+    { L"Sangypt Intro 2/5", 0x739c80, 0x739e80 },
+    { L"Sangypt Intro 3/5", 0x739e80, 0x73a080 },
+    { L"Sangypt Intro 4/5", 0x73a080, 0x73a280 },
+    { L"Sangypt Intro 5/5", 0x73a280, 0x73a480 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_PALETTES[] =
+{
+    { L"Crypt 1/9", 0x73a480, 0x73a680 },
+    { L"Crypt 2/9", 0x73a680, 0x73a880 },
+    { L"Crypt 3/9", 0x73a880, 0x73aa80 },
+    { L"Crypt 4/9", 0x73aa80, 0x73ac80 },
+    // Nothing useful in this palette
+    //{ L"Crypt 10/15", 0x73ac80, 0x73ae80 },
+    { L"Crypt 5/9", 0x73ae80, 0x73b080 },
+    { L"Crypt 6/9", 0x73b080, 0x73b280 },
+    { L"Crypt 7/9", 0x73b280, 0x73b480 },
+    { L"Crypt 8/9", 0x73b480, 0x73b680 },
+    { L"Crypt 9/9", 0x73b680, 0x73b780 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES[] =
@@ -1313,6 +1318,15 @@ const sDescTreeNode REDEARTH_A_STAGES_SANGYPT_COLLECTION[] =
     { L"Ravange Intro 1", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES) },
     { L"Ravange Intro 2", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES) },
     { L"Ravange Intro Other", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_STAGES_CRYPT_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_30_BONUSGAME_COLLECTION[] =
+{
     { L"Bonus Game 1 Stage", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES) },
 };
 
@@ -1352,10 +1366,12 @@ const sDescTreeNode REDEARTH_A_UNITS_30[] =
     { L"Sangypt",           DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_COLLECTION) },
     { L"Darminor",          DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DARMINOR_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_DARMINOR_COLLECTION) },
     { L"Scion's Lair",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SCION_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SCION_COLLECTION) },
-    
+    { L"Crypt",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_COLLECTION) },
+
     // skipped this for now: it's 87 pages long
     //{ L"Intro: Leo's Swing",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_LEO_COLLECTION, ARRAYSIZE(REDEARTH_A_30_LEO_COLLECTION) },
     { L"Intro: Hauzer Fire",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_HAUZER_COLLECTION, ARRAYSIZE(REDEARTH_A_30_HAUZER_COLLECTION) },
+    { L"Bonus Game 1",          DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUSGAME_COLLECTION, ARRAYSIZE(REDEARTH_A_30_BONUSGAME_COLLECTION) },
     { L"Bonus Palettes",        DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_30_BONUS_COLLECTION) },
 };
 

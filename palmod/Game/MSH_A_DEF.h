@@ -786,7 +786,8 @@ const sGame_PaletteDataset MSH_A_BONUS_TITLE_05_PALETTES[] =
 
 const sGame_PaletteDataset MSH_A_BONUS_05_VSNAME_PALETTES[] =
 {
-    { L"Dr. Doom Vs Name",  0x6108C, 0x610AC },
+    //{ L"Dr. Doom Vs Name",  0x6108C, 0x610AC },
+    { L"Character VS Names", 0x60f4c, 0x610cc },
 };
 
 const sGame_PaletteDataset MSH_A_BONUS_TITLE_06_PALETTES[] =

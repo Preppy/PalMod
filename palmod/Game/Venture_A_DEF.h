@@ -34,6 +34,8 @@ const UINT16 VENTURE_A_IMGIDS_USED[] =
     indexJojos51NDoul,
     indexJojos51BIce,
     indexJojos51Death13, // 0x18
+
+    indexJojos50HUDPortraits,
 };
 
 const sGame_PaletteDataset VENTURE_A_JOTARO_P1[] =
@@ -372,7 +374,7 @@ const sDescTreeNode VENTURE_A_COL_SDIO[] =
 
 const sGame_PaletteDataset VENTURE_A_YJOSEPH_P1[] =
 {
-    { L"Young Joseph P1", 0x3c5e00, 0x3c5e80, indexJojos51YSeph },
+    { L"Young Joseph P1", 0x3c5e00, 0x3c5e80 },
     { L"Young Joseph Select/Win P1", 0x3f4900, 0x3f4980, indexJojos51YSeph, indexJojos51Character_SelectWin1 },
     { L"Young Joseph Vs/Super P1", 0x3ca500, 0x3ca580, indexJojos51YSeph, indexJojos51Character_VsSuper },
     { L"Young Joseph Challenger P1", 0x3ca700, 0x3ca780, indexJojos51YSeph, indexJojos51Character_Challenger },
@@ -380,7 +382,7 @@ const sGame_PaletteDataset VENTURE_A_YJOSEPH_P1[] =
 
 const sGame_PaletteDataset VENTURE_A_YJOSEPH_P2[] =
 {
-    { L"Young Joseph P2", 0x3C6A80, 0x3C6B00, indexJojos51YSeph },
+    { L"Young Joseph P2", 0x3C6A80, 0x3C6B00 },
     { L"Young Joseph Select/Win P2", 0x3f4980, 0x3f4a00, indexJojos51YSeph, indexJojos51Character_SelectWin1 },
     { L"Young Joseph Vs/Super P2", 0x3ca580, 0x3ca600, indexJojos51YSeph, indexJojos51Character_VsSuper },
     { L"Young Joseph Challenger P2", 0x3ca780, 0x3ca800, indexJojos51YSeph, indexJojos51Character_Challenger },
@@ -460,7 +462,7 @@ const sDescTreeNode VENTURE_A_COL_BONUS[] =
 	{ L"Bonus", DESC_NODETYPE_TREE, (void*)VENTURE_A_BONUS, ARRAYSIZE(VENTURE_A_BONUS) },
 };
 	
-const sDescTreeNode VENTURE_A_UNITS[] =
+const sDescTreeNode VENTURE_A_UNITS_50[] =
 {
     { L"Jotaro", DESC_NODETYPE_TREE, (void*)VENTURE_A_COL_JOTARO, ARRAYSIZE(VENTURE_A_COL_JOTARO) },
     { L"Kakyoin", DESC_NODETYPE_TREE, (void*)VENTURE_A_COL_KAKYOIN, ARRAYSIZE(VENTURE_A_COL_KAKYOIN) },
@@ -478,12 +480,184 @@ const sDescTreeNode VENTURE_A_UNITS[] =
     { L"N'Doul and Geb", DESC_NODETYPE_TREE, (void*)VENTURE_A_COL_NDOUL, ARRAYSIZE(VENTURE_A_COL_NDOUL) },
     { L"Vanilla Ice (Boss)", DESC_NODETYPE_TREE, (void*)VENTURE_A_COL_BICE, ARRAYSIZE(VENTURE_A_COL_BICE) },
     { L"Death 13", DESC_NODETYPE_TREE, (void*)VENTURE_A_COL_DEATH13, ARRAYSIZE(VENTURE_A_COL_DEATH13) },
-    { L"Bonus", DESC_NODETYPE_TREE, (void*)VENTURE_A_COL_BONUS, ARRAYSIZE(VENTURE_A_COL_BONUS) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)VENTURE_A_COL_BONUS, ARRAYSIZE(VENTURE_A_COL_BONUS) },
 };
 
-constexpr auto VENTURE_A_NUMUNIT = ARRAYSIZE(VENTURE_A_UNITS);
+constexpr auto VENTURE_A_NUMUNIT_50 = ARRAYSIZE(VENTURE_A_UNITS_50);
+constexpr auto VENTURE_A_EXTRALOC_50 = VENTURE_A_NUMUNIT_50;
 
-#define VENTURE_A_EXTRALOC VENTURE_A_NUMUNIT
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_JOTARO_PALETTES[] =
+{
+    { L"Jotaro P1 HUD", 0x640400, 0x640420, indexJojos50HUDPortraits, indexJojos51Jotaro },
+    { L"Jotaro P2 HUD", 0x640420, 0x640440, indexJojos50HUDPortraits, indexJojos51Jotaro },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_KAKYOIN_PALETTES[] =
+{
+    { L"Kakyoin P1 HUD", 0x640440, 0x640460, indexJojos50HUDPortraits, indexJojos51Kakyo },
+    { L"Kakyoin P2 HUD", 0x640460, 0x640480, indexJojos50HUDPortraits, indexJojos51Kakyo },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_DIO_PALETTES[] =
+{
+    { L"DIO P1 HUD", 0x640480, 0x6404a0, indexJojos50HUDPortraits, indexJojos51Dio },
+    { L"DIO P2 HUD", 0x6404a0, 0x6404c0, indexJojos50HUDPortraits, indexJojos51Dio },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_CHAKA_PALETTES[] =
+{
+    { L"Chaka P1 HUD", 0x6404c0, 0x6404e0, indexJojos50HUDPortraits, indexJojos51Chaka },
+    { L"Chaka P2 HUD", 0x6404e0, 0x640500, indexJojos50HUDPortraits, indexJojos51Chaka },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_IGGY_PALETTES[] =
+{
+    { L"Iggy P1 HUD", 0x640500, 0x640520, indexJojos50HUDPortraits, indexJojos51Iggy },
+    { L"Iggy P2 HUD", 0x640520, 0x640540, indexJojos50HUDPortraits, indexJojos51Iggy },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_PETSHOP_PALETTES[] =
+{
+    { L"Petshop P1 HUD *unused", 0x640540, 0x640560 },
+    { L"Petshop P2 HUD *unused", 0x640560, 0x640580 },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_POLNAREFF_PALETTES[] =
+{
+    { L"Polnareff P1 HUD", 0x640580, 0x6405a0, indexJojos50HUDPortraits, indexJojos51Pol },
+    { L"Polnareff P2 HUD", 0x6405a0, 0x6405c0, indexJojos50HUDPortraits, indexJojos51Pol },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_JOSEPH_PALETTES[] =
+{
+    { L"Joseph P1 HUD", 0x6405c0, 0x6405e0, indexJojos50HUDPortraits, indexJojos51Joseph },
+    { L"Joseph P2 HUD", 0x6405e0, 0x640600, indexJojos50HUDPortraits, indexJojos51Joseph },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_ABDUL_PALETTES[] =
+{
+    { L"Avdol P1 HUD", 0x640600, 0x640620, indexJojos50HUDPortraits, indexJojos51Avdol },
+    { L"Avdol P2 HUD", 0x640620, 0x640640, indexJojos50HUDPortraits, indexJojos51Avdol },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_ALESSI_PALETTES[] =
+{
+    { L"Alessi P1 HUD", 0x640640, 0x640660, indexJojos50HUDPortraits, indexJojos51Alessi },
+    { L"Alessi P2 HUD", 0x640660, 0x640680, indexJojos50HUDPortraits, indexJojos51Alessi },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_HANGEDMAN_PALETTES[] =
+{
+    { L"Hanged Man P1 HUD *unused", 0x640680, 0x6406a0 },
+    { L"Hanged Man P2 HUD *unused", 0x6406a0, 0x6406c0 },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_DEVO_PALETTES[] =
+{
+    { L"Devo P1 HUD", 0x6406c0, 0x6406e0, indexJojos50HUDPortraits, indexJojos51Devo },
+    { L"Devo P2 HUD", 0x6406e0, 0x640700, indexJojos50HUDPortraits, indexJojos51Devo },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_ENYABA_PALETTES[] =
+{
+    { L"Enyaba P1 HUD *unused", 0x640700, 0x640720 },
+    { L"Enyaba P2 HUD *unused", 0x640720, 0x640740 },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_BOSSICE_PALETTES[] =
+{
+    { L"Boss Ice P1 HUD", 0x640740, 0x640760, indexJojos50HUDPortraits, indexJojos51VIce },
+    { L"Boss Ice P2 HUD", 0x640760, 0x640780, indexJojos50HUDPortraits, indexJojos51VIce },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_HOL_PALETTES[] =
+{
+    { L"Hol Horse P1 HUD *unused", 0x640780, 0x6407a0 },
+    { L"Hol Horse P2 HUD *unused", 0x6407a0, 0x6407c0 },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_TOWER_PALETTES[] =
+{
+    { L"Tower of Gray P1 HUD *unused", 0x6407c0, 0x6407e0 },
+    { L"Tower of Gray P2 HUD *unused", 0x6407e0, 0x640800 },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_DEATH_PALETTES[] =
+{
+    { L"Death 13 P1 HUD", 0x640800, 0x640820, indexJojos51Death13, 0x20 },
+    { L"Death 13 P2 HUD", 0x640820, 0x640840, indexJojos51Death13, 0x20 },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_NDOUL_PALETTES[] =
+{
+    { L"N'Doul P1 HUD", 0x640840, 0x640860, indexJojos50HUDPortraits, indexJojos51NDoul },
+    { L"N'Doul P2 HUD", 0x640860, 0x640880, indexJojos50HUDPortraits, indexJojos51NDoul },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_JUDGEMENT_PALETTES[] =
+{
+    { L"Judgement P1 HUD *unused", 0x640880, 0x6408a0 },
+    { L"Judgement P2 HUD *unused", 0x6408a0, 0x6408c0 },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_MIDLER_PALETTES[] =
+{
+    { L"Midler P1 HUD", 0x6408c0, 0x6408e0, indexJojos50HUDPortraits, indexJojos51Midler },
+    { L"Midler P2 HUD", 0x6408e0, 0x640900, indexJojos50HUDPortraits, indexJojos51Midler },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_MARIAH_PALETTES[] =
+{
+    { L"Mariah P1 HUD *unused", 0x640900, 0x640920 },
+    { L"Mariah P2 HUD *unused", 0x640920, 0x640940 },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_YJOSEPH_PALETTES[] =
+{
+    { L"Young Joseph P1 HUD", 0x640b60, 0x640b80, indexJojos50HUDPortraits, indexJojos51YSeph },
+    { L"Young Joseph P2 HUD", 0x640b80, 0x640ba0, indexJojos50HUDPortraits, indexJojos51YSeph },
+};
+
+const sGame_PaletteDataset VENTURE_A_31_HUD_PORTRAIT_SDIO_PALETTES[] =
+{
+    { L"Shadow DIO P1 HUD", 0x640ba0, 0x640bc0, indexJojos50HUDPortraits, indexJojos51SDio },
+    { L"Shadow DIO P2 HUD", 0x640bc0, 0x640be0, indexJojos50HUDPortraits, indexJojos51SDio },
+};
+
+const sDescTreeNode VENTURE_A_31_HUD_PORTRAIT_COLLECTION[] =
+{
+    { L"Jotaro", DESC_NODETYPE_TREE, (void*)VENTURE_A_31_HUD_PORTRAIT_JOTARO_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_JOTARO_PALETTES) },
+    { L"Kakyoin", DESC_NODETYPE_TREE,(void*)VENTURE_A_31_HUD_PORTRAIT_KAKYOIN_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_KAKYOIN_PALETTES) },
+    { L"DIO", DESC_NODETYPE_TREE,    (void*)VENTURE_A_31_HUD_PORTRAIT_DIO_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_DIO_PALETTES) },
+    { L"Chaka", DESC_NODETYPE_TREE,  (void*)VENTURE_A_31_HUD_PORTRAIT_CHAKA_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_CHAKA_PALETTES) },
+    { L"Iggy", DESC_NODETYPE_TREE,   (void*)VENTURE_A_31_HUD_PORTRAIT_IGGY_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_IGGY_PALETTES) },
+    { L"Petshop (Unused)", DESC_NODETYPE_TREE,(void*)VENTURE_A_31_HUD_PORTRAIT_PETSHOP_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_PETSHOP_PALETTES) },
+    { L"Polnareff", DESC_NODETYPE_TREE,(void*)VENTURE_A_31_HUD_PORTRAIT_POLNAREFF_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_POLNAREFF_PALETTES) },
+    { L"Joseph", DESC_NODETYPE_TREE, (void*)VENTURE_A_31_HUD_PORTRAIT_JOSEPH_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_JOSEPH_PALETTES) },
+    { L"Avdol", DESC_NODETYPE_TREE,  (void*)VENTURE_A_31_HUD_PORTRAIT_ABDUL_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_ABDUL_PALETTES) },
+    { L"Alessi", DESC_NODETYPE_TREE, (void*)VENTURE_A_31_HUD_PORTRAIT_ALESSI_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_ALESSI_PALETTES) },
+    { L"Hanged Man (Unused)", DESC_NODETYPE_TREE,(void*)VENTURE_A_31_HUD_PORTRAIT_HANGEDMAN_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_HANGEDMAN_PALETTES) },
+    { L"Devo", DESC_NODETYPE_TREE,   (void*)VENTURE_A_31_HUD_PORTRAIT_DEVO_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_DEVO_PALETTES) },
+    { L"Enyaba (Unused)", DESC_NODETYPE_TREE,(void*)VENTURE_A_31_HUD_PORTRAIT_ENYABA_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_ENYABA_PALETTES) },
+    { L"Boss Ice", DESC_NODETYPE_TREE,(void*)VENTURE_A_31_HUD_PORTRAIT_BOSSICE_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_BOSSICE_PALETTES) },
+    { L"Hol Horse (Unused)", DESC_NODETYPE_TREE, (void*)VENTURE_A_31_HUD_PORTRAIT_HOL_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_HOL_PALETTES) },
+    { L"Tower of Gray (Unused)", DESC_NODETYPE_TREE,(void*)VENTURE_A_31_HUD_PORTRAIT_TOWER_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_TOWER_PALETTES) },
+    { L"Death 13", DESC_NODETYPE_TREE,   (void*)VENTURE_A_31_HUD_PORTRAIT_DEATH_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_DEATH_PALETTES) },
+    { L"N'Doul",  DESC_NODETYPE_TREE,    (void*)VENTURE_A_31_HUD_PORTRAIT_NDOUL_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_NDOUL_PALETTES) },
+    { L"Judgement (Unused)",  DESC_NODETYPE_TREE,    (void*)VENTURE_A_31_HUD_PORTRAIT_JUDGEMENT_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_JUDGEMENT_PALETTES) },
+    { L"Midler", DESC_NODETYPE_TREE, (void*)VENTURE_A_31_HUD_PORTRAIT_MIDLER_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_MIDLER_PALETTES) },
+    { L"Mariah (Unused)", DESC_NODETYPE_TREE, (void*)VENTURE_A_31_HUD_PORTRAIT_MARIAH_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_MARIAH_PALETTES) },
+    { L"Young Joseph", DESC_NODETYPE_TREE,(void*)VENTURE_A_31_HUD_PORTRAIT_YJOSEPH_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_YJOSEPH_PALETTES) },
+    { L"Shadow Dio", DESC_NODETYPE_TREE, (void*)VENTURE_A_31_HUD_PORTRAIT_SDIO_PALETTES, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_SDIO_PALETTES) },
+};
+
+const sDescTreeNode VENTURE_A_UNITS_31[] =
+{
+    { L"HUD Portraits", DESC_NODETYPE_TREE, (void*)VENTURE_A_31_HUD_PORTRAIT_COLLECTION, ARRAYSIZE(VENTURE_A_31_HUD_PORTRAIT_COLLECTION) },
+};
+
+constexpr auto VENTURE_A_NUMUNIT_31 = ARRAYSIZE(VENTURE_A_UNITS_31);
+constexpr auto VENTURE_A_EXTRALOC_31 = VENTURE_A_NUMUNIT_31;
 
 // We extend this array with data groveled from the extensible extras file, if any.
 const stExtraDef VENTURE_A_EXTRA[] =

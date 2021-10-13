@@ -112,8 +112,8 @@ enum CHARACTERS_CPS2
     indexCPS2Sprites_Cody,         // 0x49
     indexCPS2Sprites_Vega,         // 0x4A
     indexCPS2Sprites_Karin,        // 0x4B
-    indexCPS2Sprites_Juni,         // 0x4C
-    indexCPS2Sprites_Juli,         // 0x4D
+    indexCPS2Sprites_Juli,         // 0x4C
+    indexCPS2Sprites_Juni,         // 0x4D
     indexCPS2Sprites_SFA3Assets,   // 0x4e - SFA3 HUD, stages
     indexCPS2Sprites_Apocalypse,   // 0x4f
     indexCPS2Sprites_XMVSFAssets,  // 0x50 - XMVSF HUD, stages
@@ -324,10 +324,14 @@ enum JOJOS_51_CHARACTERS
     indexJojos51Timestop, 
     indexJojos51Bonus,
     indexJojos50Stages,
-    indexJojos50HUDPortraits, // 0x1C
-    indexJojos51GrayFly,
-    indexJojos51TarotCards,
-    indexJojos51StoryMode,
+    indexJojos50HUDPortraits,   // 0x1C
+    indexJojos51GrayFly,        // 0x1d
+    indexJojos51TarotCards,     // 0x1e
+    indexJojos51StoryMode,      // 0x1f
+
+    indexVentureSprites_Kakyo,  // 0x20
+    indexVentureSprites_Iggy,   // 0x21
+    indexVentureSprites_YSeph,  // 0x22
 };
 
 enum JOJOS_51_CHARACTER_PALETTES

@@ -145,7 +145,8 @@ enum SupportedGamesList
     GGXXR_S,
     P4AU_NESICA,
     VENTURE_A,
-    VENTURE_A_DIR,
+    VENTURE_A_DIR_50,
+    VENTURE_A_DIR_31,
 
     NUM_GAMES // This needs to be last
 };
@@ -288,7 +289,8 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Guilty Gear #Reload (Steam/Community Port)",
     L"Persona 4 Arena Ultimax 2.0 (NESICA)",
     L"Jojo's Venture (Japan)",
-    L"Jojo's Venture (Japan Arcade)",
+    L"Jojo's Venture (Japan Arcade, 50: Characters)",
+    L"Jojo's Venture (Japan Arcade, 31: HUD Portraits)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

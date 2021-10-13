@@ -33,7 +33,7 @@ public:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
+    static const UINT32 m_nExpectedGameROMSize = 0x800000;
     static UINT32 m_nConfirmedROMSize;
 
     static int rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1];

@@ -85,7 +85,10 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case UNICLR_A:
             pszExtraInfo = L"For UNICLR, please select the \"UNDER NIGHT In-Birth Exe Late[st]\" folder.\nThe folder is normally located in steamapps\\common.";
             break;
-        case VENTURE_A_DIR:
+        case VENTURE_A_DIR_31:
+            pszExtraInfo = L"We need the jojo-simm3.x files from jojos.zip.";
+            break;
+        case VENTURE_A_DIR_50:
             pszExtraInfo = L"We need the jojo-simm5.x files from jojos.zip.";
             break;
         }
