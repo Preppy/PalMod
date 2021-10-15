@@ -22,6 +22,13 @@ const UINT16 GEMFIGHTER_A_IMGIDS_USED[] =
     indexCPS2Sprites_SPF_Akuma,    // 0x64
 
     indexCPS2Sprites_SPF_Bonus,    // 0x7d
+
+    indexPuzzleFighter_Akuma,       // 0x96
+    indexPuzzleFighter_ChunLi,      // 0x98
+    indexPuzzleFighter_Dan,         // 0x99
+    indexPuzzleFighter_LeiLei,      // 0x9F
+    indexPuzzleFighter_Morrigan,    // 0xA0
+    indexPuzzleFighter_Sakura,      // 0xA2
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_A[] =
@@ -113,8 +120,8 @@ const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_A[] =
 {
-    { L"Chun-Li A", 0x9ee6, 0x9f06, indexCPS2Sprites_SPF_ChunLi, 0x00 },
-    { L"Chun-Li A: Kikouken", 0x9f26, 0x9f46 },
+    { L"Chun-Li A", 0x9ee6, 0x9f06, indexPuzzleFighter_ChunLi, 0x00 },
+    { L"Chun-Li A: Kikouken", 0x9f26, 0x9f46, indexPuzzleFighter_ChunLi, 0x01 },
     { L"Chun-Li A: Kikou Shou", 0x9f46, 0x9f66 },
 #ifdef SHOWSUITS
     { L"Chun-Li A: Jill Suit", 0x2c0ba, 0x2c0da },
@@ -132,8 +139,8 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_A[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_B[] =
 {
-    { L"Chun-Li B", 0x9f86, 0x9fa6, indexCPS2Sprites_SPF_ChunLi, 0x00 },
-    { L"Chun-Li B: Kikouken", 0x9fc6, 0x9fe6 },
+    { L"Chun-Li B", 0x9f86, 0x9fa6, indexPuzzleFighter_ChunLi, 0x00 },
+    { L"Chun-Li B: Kikouken", 0x9fc6, 0x9fe6, indexPuzzleFighter_ChunLi, 0x01 },
     { L"Chun-Li B: Kikou Shou", 0x9fe6, 0xa006 },
 #ifdef SHOWSUITS
     { L"Chun-Li B: Jill Suit", 0x2c0da, 0x2c0fa },
@@ -151,8 +158,8 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_B[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_C[] =
 {
-    { L"Chun-Li C", 0xa026, 0xa046, indexCPS2Sprites_SPF_ChunLi, 0x00 },
-    { L"Chun-Li C: Kikouken", 0xa066, 0xa086 },
+    { L"Chun-Li C", 0xa026, 0xa046, indexPuzzleFighter_ChunLi, 0x00 },
+    { L"Chun-Li C: Kikouken", 0xa066, 0xa086, indexPuzzleFighter_ChunLi, 0x01 },
     { L"Chun-Li C: Kikou Shou", 0xa086, 0xa0a6 },
 #ifdef SHOWSUITS
     { L"Chun-Li C: Jill Suit", 0x2c0fa, 0x2c11a },
@@ -170,8 +177,8 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_C[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_X3[] =
 {
-    { L"Chun-Li x3", 0xa0c6, 0xa0e6, indexCPS2Sprites_SPF_ChunLi, 0x00 },
-    { L"Chun-Li x3: Kikouken", 0xa106, 0xa126 },
+    { L"Chun-Li x3", 0xa0c6, 0xa0e6, indexPuzzleFighter_ChunLi, 0x00 },
+    { L"Chun-Li x3: Kikouken", 0xa106, 0xa126, indexPuzzleFighter_ChunLi, 0x01 },
     { L"Chun-Li x3: Kikou Shou", 0xa126, 0xa146 },
 #ifdef SHOWSUITS
     { L"Chun-Li x3: Jill Suit", 0x2c11a, 0x2c13a },
@@ -198,8 +205,8 @@ const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_A[] =
     { L"Sakura A: Umbrella", 0x2cb5a, 0x2cb7a },
     { L"Sakura A: Bloomer guys", 0x2cbda, 0x2cbfa },
     { L"Sakura A: Bottle Pop Effect", 0x2cc5a, 0x2cc7a },
-    { L"Sakura A: Hadouken", 0x2ccda, 0x2ccfa },
-    { L"Sakura A: Shinku Hadouken", 0x2cd5a, 0x2cd7a },
+    { L"Sakura A: Hadouken", 0x2ccda, 0x2ccfa, indexPuzzleFighter_Sakura, 0x01 },
+    { L"Sakura A: Shinku Hadouken", 0x2cd5a, 0x2cd7a, indexPuzzleFighter_Sakura, 0x01 },
     { L"Sakura A: Portrait", 0xc706, 0xc766 },
 };
 
@@ -214,8 +221,8 @@ const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_B[] =
     { L"Sakura B: Umbrella", 0x2cb7a, 0x2cb9a },
     { L"Sakura B: Bloomer guys", 0x2cbfa, 0x2cc1a },
     { L"Sakura B: Bottle Pop Effect", 0x2cc7a, 0x2cc9a },
-    { L"Sakura B: Hadouken", 0x2ccfa, 0x2cd1a },
-    { L"Sakura B: Shinku Hadouken", 0x2cd7a, 0x2cd9a },
+    { L"Sakura B: Hadouken", 0x2ccfa, 0x2cd1a, indexPuzzleFighter_Sakura, 0x01 },
+    { L"Sakura B: Shinku Hadouken", 0x2cd7a, 0x2cd9a, indexPuzzleFighter_Sakura, 0x01 },
     { L"Sakura B: Portrait", 0xc766, 0xc7c6 },
 };
 
@@ -253,53 +260,53 @@ const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_MORRIGAN_PALETTES_A[] =
 {
-    { L"Morrigan A", 0xa3e6, 0xa406, indexCPS2Sprites_SPF_Morrigan, 0x00 },
+    { L"Morrigan A", 0xa3e6, 0xa406, indexPuzzleFighter_Morrigan, 0x00 },
     { L"Morrigan A: Portrait", 0xc886, 0xc8e6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_MORRIGAN_PALETTES_B[] =
 {
-    { L"Morrigan B", 0xa486, 0xa4a6, indexCPS2Sprites_SPF_Morrigan, 0x00 },
+    { L"Morrigan B", 0xa486, 0xa4a6, indexPuzzleFighter_Morrigan, 0x00 },
     { L"Morrigan B: Portrait", 0xc8e6, 0xc946 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_MORRIGAN_PALETTES_C[] =
 {
-    { L"Morrigan C", 0xa526, 0xa546, indexCPS2Sprites_SPF_Morrigan, 0x00 },
+    { L"Morrigan C", 0xa526, 0xa546, indexPuzzleFighter_Morrigan, 0x00 },
     { L"Morrigan C: Portrait", 0xc946, 0xc9a6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_MORRIGAN_PALETTES_X3[] =
 {
-    { L"Morrigan x3", 0xa5c6, 0xa5e6, indexCPS2Sprites_SPF_Morrigan, 0x00 },
+    { L"Morrigan x3", 0xa5c6, 0xa5e6, indexPuzzleFighter_Morrigan, 0x00 },
     { L"Morrigan x3: Portrait", 0xc9a6, 0xca06 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_HSIENKO_PALETTES_A[] =
 {
     { L"Hsien-Ko A", 0xa666, 0xa686, indexCPS2Sprites_SPF_HsienKo, 0x00 },
-    { L"Hsien-Ko A: Weapons & Extras", 0xa686, 0xa6a6 },
+    { L"Hsien-Ko A: Weapons & Extras", 0xa686, 0xa6a6, indexPuzzleFighter_LeiLei, 0x01 },
     { L"Hsien-Ko A: Portrait", 0xca06, 0xca66 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_HSIENKO_PALETTES_B[] =
 {
     { L"Hsien-Ko B", 0xa706, 0xa726, indexCPS2Sprites_SPF_HsienKo, 0x00 },
-    { L"Hsien-Ko B: Weapons & Extras", 0xa726, 0xa746 },
+    { L"Hsien-Ko B: Weapons & Extras", 0xa726, 0xa746, indexPuzzleFighter_LeiLei, 0x01 },
     { L"Hsien-Ko B: Portrait", 0xca66, 0xcac6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_HSIENKO_PALETTES_C[] =
 {
     { L"Hsien-Ko C", 0xa7a6, 0xa7c6, indexCPS2Sprites_SPF_HsienKo, 0x00 },
-    { L"Hsien-Ko C: Weapons & Extras", 0xa7c6, 0xa7e6 },
+    { L"Hsien-Ko C: Weapons & Extras", 0xa7c6, 0xa7e6, indexPuzzleFighter_LeiLei, 0x01 },
     { L"Hsien-Ko C: Portrait", 0xcac6, 0xcb26 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_HSIENKO_PALETTES_X3[] =
 {
     { L"Hsien-Ko x3", 0xa846, 0xa866, indexCPS2Sprites_SPF_HsienKo, 0x00 },
-    { L"Hsien-Ko x3: Weapons & Extras", 0xa866, 0xa886 },
+    { L"Hsien-Ko x3: Weapons & Extras", 0xa866, 0xa886, indexPuzzleFighter_LeiLei, 0x01 },
     { L"Hsien-Ko x3: Portrait", 0xcb26, 0xcb86 },
 };
 
@@ -429,53 +436,53 @@ const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_A[] =
 {
-    { L"Dan A", 0xb2e6, 0xb306, indexCPS2Sprites_SPF_Dan, 0x00 },
+    { L"Dan A", 0xb2e6, 0xb306, indexPuzzleFighter_Dan, 0x00 },
     { L"Dan A: Portrait", 0xd186, 0xd1e6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_B[] =
 {
-    { L"Dan B", 0xb386, 0xb3a6, indexCPS2Sprites_SPF_Dan, 0x00 },
+    { L"Dan B", 0xb386, 0xb3a6, indexPuzzleFighter_Dan, 0x00 },
     { L"Dan B: Portrait", 0xd1e6, 0xd246 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_C[] =
 {
-    { L"Dan C", 0xb426, 0xb446, indexCPS2Sprites_SPF_Dan, 0x00 },
+    { L"Dan C", 0xb426, 0xb446, indexPuzzleFighter_Dan, 0x00 },
     { L"Dan C: Portrait", 0xd246, 0xd2a6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_DAN_PALETTES_X3[] =
 {
-    { L"Dan x3", 0xb4c6, 0xb4e6, indexCPS2Sprites_SPF_Dan, 0x00 },
+    { L"Dan x3", 0xb4c6, 0xb4e6, indexPuzzleFighter_Dan, 0x00 },
     { L"Dan x3: Portrait", 0xd2a6, 0xd306 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_AKUMA_PALETTES_A[] =
 {
-    { L"Akuma A", 0xb566, 0xb586, indexCPS2Sprites_SPF_Akuma, 0x00 },
-    { L"Akuma A: Super Trail", 0xb5e6, 0xb606 },
+    { L"Akuma A", 0xb566, 0xb586, indexPuzzleFighter_Akuma, 0x00 },
+    { L"Akuma A: Super Trail", 0xb5e6, 0xb606, indexPuzzleFighter_Akuma, 0x00 },
     { L"Akuma A: Portrait", 0xd306, 0xd366 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_AKUMA_PALETTES_B[] =
 {
-    { L"Akuma B", 0xb606, 0xb626, indexCPS2Sprites_SPF_Akuma, 0x00 },
-    { L"Akuma B: Super Trail", 0xb686, 0xb6a6 },
+    { L"Akuma B", 0xb606, 0xb626, indexPuzzleFighter_Akuma, 0x00 },
+    { L"Akuma B: Super Trail", 0xb686, 0xb6a6, indexPuzzleFighter_Akuma, 0x00 },
     { L"Akuma B: Portrait", 0xd366, 0xd3c6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_AKUMA_PALETTES_C[] =
 {
-    { L"Akuma C", 0xb6a6, 0xb6c6, indexCPS2Sprites_SPF_Akuma, 0x00 },
-    { L"Akuma C: Super Trail", 0xb726, 0xb746 },
+    { L"Akuma C", 0xb6a6, 0xb6c6, indexPuzzleFighter_Akuma, 0x00 },
+    { L"Akuma C: Super Trail", 0xb726, 0xb746, indexPuzzleFighter_Akuma, 0x00 },
     { L"Akuma C: Portrait", 0xd3c6, 0xd426 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_AKUMA_PALETTES_X3[] =
 {
-    { L"Akuma x3", 0xb746, 0xb766, indexCPS2Sprites_SPF_Akuma, 0x00 },
-    { L"Akuma x3: Super Trail", 0xb7c6, 0xb7e6 },
+    { L"Akuma x3", 0xb746, 0xb766, indexPuzzleFighter_Akuma, 0x00 },
+    { L"Akuma x3: Super Trail", 0xb7c6, 0xb7e6, indexPuzzleFighter_Akuma, 0x00 },
     { L"Akuma x3: Portrait", 0xd426, 0xd486 },
 };
 

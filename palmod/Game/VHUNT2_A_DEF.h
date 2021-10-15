@@ -685,7 +685,7 @@ const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_AK[] =
 const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_LP[] =
 {
     { L"LP Bishamon", 0x1949a, 0x194ba, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"LP Ghosts/Hitsparks", 0x194da, 0x194fa },
+    { L"LP Ghosts/Hitsparks", 0x194da, 0x194fa, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"LP 41236KK", 0x194ba, 0x194da, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"LP Unknown Extra", 0x194fa, 0x1951a },
 };
@@ -693,7 +693,7 @@ const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_LP[] =
 const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_MP[] =
 {
     { L"MP Bishamon", 0x1951a, 0x1953a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"MP Ghosts/Hitsparks", 0x1955a, 0x1957a },
+    { L"MP Ghosts/Hitsparks", 0x1955a, 0x1957a, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"MP 41236KK", 0x1953a, 0x1955a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"MP Unknown Extra", 0x1957a, 0x1959a },
 };
@@ -701,7 +701,7 @@ const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_MP[] =
 const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_HP[] =
 {
     { L"HP Bishamon", 0x1959a, 0x195ba, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"HP Ghosts/Hitsparks", 0x195da, 0x195fa },
+    { L"HP Ghosts/Hitsparks", 0x195da, 0x195fa, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"HP 41236KK", 0x195ba, 0x195da, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"HP Unknown Extra", 0x195fa, 0x1961a },
 };
@@ -709,7 +709,7 @@ const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_HP[] =
 const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_LK[] =
 {
     { L"LK Bishamon", 0x1961a, 0x1963a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"LK Ghosts/Hitsparks", 0x1965a, 0x1967a },
+    { L"LK Ghosts/Hitsparks", 0x1965a, 0x1967a, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"LK 41236KK", 0x1963a, 0x1965a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"LK Unknown Extra", 0x1967a, 0x1969a },
 };
@@ -717,7 +717,7 @@ const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_LK[] =
 const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_MK[] =
 {
     { L"MK Bishamon", 0x1969a, 0x196ba, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"MK Ghosts/Hitsparks", 0x196da, 0x196fa },
+    { L"MK Ghosts/Hitsparks", 0x196da, 0x196fa, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"MK 41236KK", 0x196ba, 0x196da, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"MK Unknown Extra", 0x196fa, 0x1971a },
 };
@@ -725,7 +725,7 @@ const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_MK[] =
 const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_HK[] =
 {
     { L"HK Bishamon", 0x1971a, 0x1973a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"HK Ghosts/Hitsparks", 0x1975a, 0x1977a },
+    { L"HK Ghosts/Hitsparks", 0x1975a, 0x1977a, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"HK 41236KK", 0x1973a, 0x1975a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"HK Unknown Extra", 0x1977a, 0x1979a },
 };
@@ -733,7 +733,7 @@ const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_HK[] =
 const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_PP[] =
 {
     { L"PP Bishamon", 0x1979a, 0x197ba, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"PP Ghosts/Hitsparks", 0x197da, 0x197fa },
+    { L"PP Ghosts/Hitsparks", 0x197da, 0x197fa, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"PP 41236KK", 0x197ba, 0x197da, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"PP Unknown Extra", 0x197fa, 0x1981a },
 };
@@ -741,7 +741,7 @@ const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_PP[] =
 const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_KK[] =
 {
     { L"KK Bishamon", 0x1981a, 0x1983a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"KK Ghosts/Hitsparks", 0x1985a, 0x1987a },
+    { L"KK Ghosts/Hitsparks", 0x1985a, 0x1987a, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"KK 41236KK", 0x1983a, 0x1985a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"KK Unknown Extra", 0x1987a, 0x1989a },
 };
@@ -749,7 +749,7 @@ const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_KK[] =
 const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_AP[] =
 {
     { L"AP Bishamon", 0x1989a, 0x198ba, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"AP Ghosts/Hitsparks", 0x198da, 0x198fa },
+    { L"AP Ghosts/Hitsparks", 0x198da, 0x198fa, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"AP 41236KK", 0x198ba, 0x198da, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"AP Unknown Extra", 0x198fa, 0x1991a },
 };
@@ -757,7 +757,7 @@ const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_AP[] =
 const sGame_PaletteDataset VHUNT2_A_BISHAMON_PALETTES_AK[] =
 {
     { L"AK Bishamon", 0x1991a, 0x1993a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"AK Ghosts/Hitsparks", 0x1995a, 0x1997a },
+    { L"AK Ghosts/Hitsparks", 0x1995a, 0x1997a, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"AK 41236KK", 0x1993a, 0x1995a, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"AK Unknown Extra", 0x1997a, 0x1999a },
 };
@@ -1675,7 +1675,7 @@ const sGame_PaletteDataset VHUNT2_A_OBOROBISHAMON_PALETTES_LP[] =
 {
     { L"LP Oboro Bishamon",    0x1c59c + 0xffe, 0x1c5bc + 0xffe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"LP Intro", 0x1c5bc + 0xffe, 0x1c5dc + 0xffe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"LP Ghosts/Hitsparks", 0x1c5dc + 0xffe, 0x1c5fc + 0xffe },
+    { L"LP Ghosts/Hitsparks", 0x1c5dc + 0xffe, 0x1c5fc + 0xffe, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"LP Unknown Extra", 0x1c5fc + 0xffe, 0x1c61c + 0xffe },
 };
 
@@ -1683,7 +1683,7 @@ const sGame_PaletteDataset VHUNT2_A_OBOROBISHAMON_PALETTES_MP[] =
 {
     { L"MP Oboro Bishamon",    0x1c61c + 0xffe, 0x1c63c + 0xffe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"MP Intro", 0x1c63c + 0xffe, 0x1c65c + 0xffe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"MP Ghosts/Hitsparks", 0x1c65c + 0xffe, 0x1c67c + 0xffe },
+    { L"MP Ghosts/Hitsparks", 0x1c65c + 0xffe, 0x1c67c + 0xffe, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"MP Unknown Extra", 0x1c67c + 0xffe, 0x1c69c + 0xffe },
 };
 
@@ -1691,7 +1691,7 @@ const sGame_PaletteDataset VHUNT2_A_OBOROBISHAMON_PALETTES_HP[] =
 {
     { L"HP Oboro Bishamon",     0x1c19c + 0x14fe, 0x1c1bc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"HP Intro", 0x1c1bc + 0x14fe, 0x1c1dc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"HP Ghosts/Hitsparks", 0x1c1dc + 0x14fe, 0x1c1fc + 0x14fe },
+    { L"HP Ghosts/Hitsparks", 0x1c1dc + 0x14fe, 0x1c1fc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"HP Unknown Extra", 0x1c1fc + 0x14fe, 0x1c21c + 0x14fe },
 };
 
@@ -1699,7 +1699,7 @@ const sGame_PaletteDataset VHUNT2_A_OBOROBISHAMON_PALETTES_LK[] =
 {
     { L"LK Oboro Bishamon",     0x1c21c + 0x14fe, 0x1c23c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"LK Intro", 0x1c23c + 0x14fe, 0x1c25c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"LK Ghosts/Hitsparks", 0x1c25c + 0x14fe, 0x1c27c + 0x14fe },
+    { L"LK Ghosts/Hitsparks", 0x1c25c + 0x14fe, 0x1c27c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"LK Unknown Extra", 0x1c27c + 0x14fe, 0x1c29c + 0x14fe },
 };
 
@@ -1707,7 +1707,7 @@ const sGame_PaletteDataset VHUNT2_A_OBOROBISHAMON_PALETTES_MK[] =
 {
     { L"MK Oboro Bishamon",     0x1c29c + 0x14fe, 0x1c2bc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"MK Intro", 0x1c2bc + 0x14fe, 0x1c2dc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"MK Ghosts/Hitsparks", 0x1c2dc + 0x14fe, 0x1c2fc + 0x14fe },
+    { L"MK Ghosts/Hitsparks", 0x1c2dc + 0x14fe, 0x1c2fc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"MK Unknown Extra", 0x1c2fc + 0x14fe, 0x1c31c + 0x14fe },
 };
 
@@ -1715,7 +1715,7 @@ const sGame_PaletteDataset VHUNT2_A_OBOROBISHAMON_PALETTES_HK[] =
 {
     { L"HK Oboro Bishamon",     0x1c31c + 0x14fe, 0x1c33c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"HK Intro", 0x1c33c + 0x14fe, 0x1c35c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"HK Ghosts/Hitsparks", 0x1c35c + 0x14fe, 0x1c37c + 0x14fe },
+    { L"HK Ghosts/Hitsparks", 0x1c35c + 0x14fe, 0x1c37c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"HK Unknown Extra", 0x1c37c + 0x14fe, 0x1c39c + 0x14fe },
 };
 
@@ -1723,7 +1723,7 @@ const sGame_PaletteDataset VHUNT2_A_OBOROBISHAMON_PALETTES_PP[] =
 {
     { L"PP Oboro Bishamon",     0x1c39c + 0x14fe, 0x1c3bc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"PP Intro", 0x1c3bc + 0x14fe, 0x1c3dc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"PP Ghosts/Hitsparks", 0x1c3dc + 0x14fe, 0x1c3fc + 0x14fe },
+    { L"PP Ghosts/Hitsparks", 0x1c3dc + 0x14fe, 0x1c3fc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"PP Unknown Extra", 0x1c3fc + 0x14fe, 0x1c41c + 0x14fe },
 };
 
@@ -1731,7 +1731,7 @@ const sGame_PaletteDataset VHUNT2_A_OBOROBISHAMON_PALETTES_KK[] =
 {
     { L"KK Oboro Bishamon",     0x1c41c + 0x14fe, 0x1c43c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"KK Intro", 0x1c43c + 0x14fe, 0x1c45c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"KK Ghosts/Hitsparks", 0x1c45c + 0x14fe, 0x1c47c + 0x14fe },
+    { L"KK Ghosts/Hitsparks", 0x1c45c + 0x14fe, 0x1c47c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"KK Unknown Extra", 0x1c47c + 0x14fe, 0x1c49c + 0x14fe },
 };
 
@@ -1739,7 +1739,7 @@ const sGame_PaletteDataset VHUNT2_A_OBOROBISHAMON_PALETTES_AP[] =
 {
     { L"AP Oboro Bishamon",     0x1c49c + 0x14fe, 0x1c4bc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"AP Intro", 0x1c4bc + 0x14fe, 0x1c4dc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"AP Ghosts/Hitsparks", 0x1c4dc + 0x14fe, 0x1c4fc + 0x14fe },
+    { L"AP Ghosts/Hitsparks", 0x1c4dc + 0x14fe, 0x1c4fc + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"AP Unknown Extra", 0x1c4fc + 0x14fe, 0x1c51c + 0x14fe },
 };
 
@@ -1747,7 +1747,7 @@ const sGame_PaletteDataset VHUNT2_A_OBOROBISHAMON_PALETTES_AK[] =
 {
     { L"AK Oboro Bishamon",      0x1DA1a, 0x1c53c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"AK Intro",               0x1c53c + 0x14fe, 0x1c55c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
-    { L"AK Ghosts/Hitsparks",    0x1c55c + 0x14fe, 0x1c57c + 0x14fe },
+    { L"AK Ghosts/Hitsparks",    0x1c55c + 0x14fe, 0x1c57c + 0x14fe, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"AK Unknown Extra",       0x1c57c + 0x14fe, 0x1DA9a },
 };
 

@@ -26,7 +26,7 @@ const UINT16 XMVSF_A_IMGIDS_USED[] =
     indexCPS2Sprites_Storm,        // 0x2A
     indexCPS2Sprites_Sabretooth,   // 0x2B
     indexCPS2Sprites_Magneto,      // 0x2C
-    indexCPS2Sprites_Apocalypse,   // Apocalypse
+    indexCPS2Sprites_Apocalypse,   // 0x4f
 };
 
 const sGame_PaletteDataset XMVSF_A_Wolverine_PALETTES_P1[] =
@@ -299,7 +299,7 @@ const sGame_PaletteDataset XMVSF_A_Apocalypse_PALETTES[] =
     { L"Shockwave",              0x157fa, 0x1581a }, // confirmed
     { L"?",                      0x1581a, 0x1583a }, // unclear
     { L"Drones",                 0x1583a, 0x1585a, indexCPS2Sprites_Apocalypse, 0x05 }, // confirmed
-    { L"Hand: Mace and Drill",   0x1585a, 0x1587a }, // confirmed
+    { L"Hand: Mace and Drill",   0x1585a, 0x1587a, indexCPS2Sprites_Apocalypse, 0x06 }, // confirmed
     { L"Shoulder Lasers",        0x1587a, 0x1589a }, // confirmed
 };
 

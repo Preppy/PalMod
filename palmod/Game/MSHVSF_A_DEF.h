@@ -30,7 +30,7 @@ const UINT16 MSHVSF_A_IMGIDS_USED[] =
     indexCPS2Sprites_Shuma,
     indexCPS2Sprites_OmegaRed,
     indexCPS2Sprites_Blackheart,
-    indexCPS2Sprites_Apocalypse,
+    indexCPS2Sprites_Apocalypse,       // 0x4f
     indexCPS2Sprites_CyberAkuma,
     indexCPS2Sprites_Norimaro,
     indexCPS2Sprites_MSHVSFAssets,
@@ -46,7 +46,7 @@ const sGame_PaletteDataset MSHVSF_A_APOCALYPSE_PALETTES_SHARED[] =
     { L"Shockwave",          0x71EEc, 0x71F0c },
     { L"?",                  0x71F0c, 0x71F2c },
     { L"Apocalypse Drone",   0x71F2c, 0x71F4c, indexCPS2Sprites_Apocalypse, 0x05 },
-    { L"Hand: Mace and Drill", 0x71F4c, 0x71F6c },
+    { L"Hand: Mace and Drill", 0x71F4c, 0x71F6c, indexCPS2Sprites_Apocalypse, 0x06 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =

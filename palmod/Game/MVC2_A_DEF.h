@@ -8080,8 +8080,8 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_SHARED[] =
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_EXTRAS[] =
 {
     { L"11: Not Used", 0x545ec20, 0x545ec40 },
-    { L"12: PaletteGlitch: After Fly Glitch Tagout - Rocket Punch (wires)", 0x545ec40, 0x545ec60 },
-    { L"13: PaletteGlitch: After Fly Glitch Tagout - ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames - all buttons", 0x545ec60, 0x545ec80, indexCPS2Sprites_Sentinel, 0x23 },
+    { L"12: Launcher and RP flames (shared)", 0x545ec40, 0x545ec60, indexCPS2Sprites_Sentinel, 0x0d },
+    { L"13: Flying effects (shared)", 0x545ec60, 0x545ec80, indexCPS2Sprites_Sentinel, 0x0b },
 };
 
 const sDescTreeNode MVC2_A_SENTINEL_COLLECTION[] =
@@ -8099,8 +8099,8 @@ const sDescTreeNode MVC2_A_SENTINEL_COLLECTION[] =
 const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x5585400, 0x5585420, indexCPS2Sprites_Blackheart, 0 },
-    { L"(02) Not Used", 0x5585420, 0x5585440, indexCPS2Sprites_Blackheart, 1 },
-    { L"(03) Not Used", 0x5585440, 0x5585460, indexCPS2Sprites_Blackheart, 2 },
+    { L"(02) Dark Thunder", 0x5585420, 0x5585440, indexCPS2Sprites_Blackheart, 1 },
+    { L"(03) HP + HK Demons", 0x5585440, 0x5585460, indexCPS2Sprites_Blackheart, 2 },
     { L"(04) Not Used", 0x5585460, 0x5585480, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585480, 0x55854a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55854a0, 0x55854c0, indexCPS2Sprites_Blackheart, 5 },
@@ -8111,8 +8111,8 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_LP[] =
 const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_LK[] =
 {
     { L"Main Color LK", 0x5585500, 0x5585520, indexCPS2Sprites_Blackheart, 0 },
-    { L"(02) Not Used", 0x5585520, 0x5585540, indexCPS2Sprites_Blackheart, 1 },
-    { L"(03) Not Used", 0x5585540, 0x5585560, indexCPS2Sprites_Blackheart, 2 },
+    { L"(02) Dark Thunder", 0x5585520, 0x5585540, indexCPS2Sprites_Blackheart, 1 },
+    { L"(03) HP + HK Demons", 0x5585540, 0x5585560, indexCPS2Sprites_Blackheart, 2 },
     { L"(04) Not Used", 0x5585560, 0x5585580, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585580, 0x55855a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55855a0, 0x55855c0, indexCPS2Sprites_Blackheart, 5 },
@@ -8123,8 +8123,8 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_LK[] =
 const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_HP[] =
 {
     { L"Main Color HP", 0x5585600, 0x5585620, indexCPS2Sprites_Blackheart, 0 },
-    { L"(02) Not Used", 0x5585620, 0x5585640, indexCPS2Sprites_Blackheart, 1 },
-    { L"(03) Not Used", 0x5585640, 0x5585660, indexCPS2Sprites_Blackheart, 2 },
+    { L"(02) Dark Thunder", 0x5585620, 0x5585640, indexCPS2Sprites_Blackheart, 1 },
+    { L"(03) HP + HK Demons", 0x5585640, 0x5585660, indexCPS2Sprites_Blackheart, 2 },
     { L"(04) Not Used", 0x5585660, 0x5585680, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585680, 0x55856a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55856a0, 0x55856c0, indexCPS2Sprites_Blackheart, 5 },
@@ -8135,8 +8135,8 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_HP[] =
 const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_HK[] =
 {
     { L"Main Color HK", 0x5585700, 0x5585720, indexCPS2Sprites_Blackheart, 0 },
-    { L"(02) Not Used", 0x5585720, 0x5585740, indexCPS2Sprites_Blackheart, 1 },
-    { L"(03) Not Used", 0x5585740, 0x5585760, indexCPS2Sprites_Blackheart, 2 },
+    { L"(02) Dark Thunder", 0x5585720, 0x5585740, indexCPS2Sprites_Blackheart, 1 },
+    { L"(03) HP + HK Demons", 0x5585740, 0x5585760, indexCPS2Sprites_Blackheart, 2 },
     { L"(04) Not Used", 0x5585760, 0x5585780, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585780, 0x55857a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55857a0, 0x55857c0, indexCPS2Sprites_Blackheart, 5 },
@@ -8147,8 +8147,8 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_HK[] =
 const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_A1[] =
 {
     { L"Main Color A1", 0x5585800, 0x5585820, indexCPS2Sprites_Blackheart, 0 },
-    { L"(02) Not Used", 0x5585820, 0x5585840, indexCPS2Sprites_Blackheart, 1 },
-    { L"(03) Not Used", 0x5585840, 0x5585860, indexCPS2Sprites_Blackheart, 2 },
+    { L"(02) Dark Thunder", 0x5585820, 0x5585840, indexCPS2Sprites_Blackheart, 1 },
+    { L"(03) HP + HK Demons", 0x5585840, 0x5585860, indexCPS2Sprites_Blackheart, 2 },
     { L"(04) Not Used", 0x5585860, 0x5585880, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585880, 0x55858a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55858a0, 0x55858c0, indexCPS2Sprites_Blackheart, 5 },
@@ -8159,8 +8159,8 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_A1[] =
 const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_A2[] =
 {
     { L"Main Color A2", 0x5585900, 0x5585920, indexCPS2Sprites_Blackheart, 0 },
-    { L"(02) Not Used", 0x5585920, 0x5585940, indexCPS2Sprites_Blackheart, 1 },
-    { L"(03) Not Used", 0x5585940, 0x5585960, indexCPS2Sprites_Blackheart, 2 },
+    { L"(02) Dark Thunder", 0x5585920, 0x5585940, indexCPS2Sprites_Blackheart, 1 },
+    { L"(03) HP + HK Demons", 0x5585940, 0x5585960, indexCPS2Sprites_Blackheart, 2 },
     { L"(04) Not Used", 0x5585960, 0x5585980, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585980, 0x55859a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55859a0, 0x55859c0, indexCPS2Sprites_Blackheart, 5 },

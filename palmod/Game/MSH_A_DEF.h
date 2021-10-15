@@ -56,9 +56,9 @@ const UINT16 MSH_A_IMGIDS_USED[] =
     indexCPS2Sprites_Blackheart,
     indexCPS2Sprites_Thanos,
     indexCPS2Sprites_Anita,
-    indexCPS2Sprites_MSHAssets,
+    indexCPS2Sprites_MSHAssets,     // 0x52 - MSH HUD, stages
 
-    indexCPS2Sprites_STAkuma,        // used by anita
+    indexCPS2Sprites_STAkuma,       // used by anita
 };
 
 const sGame_PaletteDataset MSH_A_ANITA_PALETTES_P1[] =
@@ -787,7 +787,7 @@ const sGame_PaletteDataset MSH_A_BONUS_TITLE_05_PALETTES[] =
 const sGame_PaletteDataset MSH_A_BONUS_05_VSNAME_PALETTES[] =
 {
     //{ L"Dr. Doom Vs Name",  0x6108C, 0x610AC },
-    { L"Character VS Names", 0x60f4c, 0x610cc },
+    { L"Character VS Names", 0x60f4c, 0x610cc, indexCPS2Sprites_MSHAssets, 0x20 },
 };
 
 const sGame_PaletteDataset MSH_A_BONUS_TITLE_06_PALETTES[] =

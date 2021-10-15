@@ -1784,6 +1784,16 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nTargetImgId = 0;
             break;
         }
+        else if (uPalId == (0x12 + EXTRA_OMNI)) // super fx
+        {
+            SetExtraImg(0x0d, uUnitId, uPalId);
+            break;
+        }
+        else if (uPalId == (0x13 + EXTRA_OMNI)) // flying fx
+        {
+            SetExtraImg(0x0b, uUnitId, uPalId);
+            break;
+        }
 
         break;
     }

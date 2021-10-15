@@ -2190,7 +2190,7 @@ const sDescTreeNode SVCPLUSA_A_SHINAKUMA_COLLECTION[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_STAGES_FACTORY_PALETTES[] =
 {
-    { L"Factory Abandoned", 0x39a538, 0x39a698 }
+    { L"Factory Abandoned", 0x39a538, 0x39a698, indexSVC_A_Stages, 0x00 }
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_STAGES_STATION_PALETTES[] =

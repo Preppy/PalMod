@@ -119,25 +119,25 @@ const sGame_PaletteDataset SFIII1_A_YUNYANG_HP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_YUNYANG_LK_PALETTES[] =
 {
-    { L"Yang LK", 0x3d2100, 0x3d2180, index3SSprites_Yang },
+    { L"Yang LK", 0x3d2100, 0x3d2180, index3SSprites_Yang, 0x10 },
 };
 
 const sGame_PaletteDataset SFIII1_A_YUNYANG_MK_PALETTES[] =
 {
-    { L"Yang MK", 0x3d2180, 0x3d2200, index3SSprites_Yang },
+    { L"Yang MK", 0x3d2180, 0x3d2200, index3SSprites_Yang, 0x10 },
 };
 
 const sGame_PaletteDataset SFIII1_A_YUNYANG_HK_PALETTES[] =
 {
-    { L"Yang HK", 0x3d2200, 0x3d2280, index3SSprites_Yang },
+    { L"Yang HK", 0x3d2200, 0x3d2280, index3SSprites_Yang, 0x10 },
 };
 
 const sGame_PaletteDataset SFIII1_A_YUNYANG_Support_PALETTES[] =
 {
     { L"Yun Freeze", 0x3d4700, 0x3d4780, index3SSprites_Yun },
     { L"Yun Burning", 0x3d4e00, 0x3d4e80, index3SSprites_Yun },
-    { L"Yang Freeze", 0x3d4a80, 0x3d4b00, index3SSprites_Yang },
-    { L"Yang Burning", 0x3d5180, 0x3d5200, index3SSprites_Yang },
+    { L"Yang Freeze", 0x3d4a80, 0x3d4b00, index3SSprites_Yang, 0x10 },
+    { L"Yang Burning", 0x3d5180, 0x3d5200, index3SSprites_Yang, 0x10 },
 };
 
 const sGame_PaletteDataset SFIII1_A_DUDLEY_LP_PALETTES[] =

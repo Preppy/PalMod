@@ -112,8 +112,8 @@ enum CHARACTERS_CPS2
     indexCPS2Sprites_Cody,         // 0x49
     indexCPS2Sprites_Vega,         // 0x4A
     indexCPS2Sprites_Karin,        // 0x4B
-    indexCPS2Sprites_Juli,         // 0x4C
-    indexCPS2Sprites_Juni,         // 0x4D
+    indexCPS2Sprites_Juni,         // 0x4C
+    indexCPS2Sprites_Juli,         // 0x4D
     indexCPS2Sprites_SFA3Assets,   // 0x4e - SFA3 HUD, stages
     indexCPS2Sprites_Apocalypse,   // 0x4f
     indexCPS2Sprites_XMVSFAssets,  // 0x50 - XMVSF HUD, stages
@@ -208,6 +208,7 @@ enum CHARACTERS_CPS2
     indexPuzzleFighter_Ryu,         // 0xA1
     indexPuzzleFighter_Sakura,      // 0xA2
     indexPuzzleFighter_Bonus,       // 0xA3 
+    indexPuzzleFighter_Stages,      // 0xA4 
 };
 
 enum CHARACTERS_3S_CPS3
@@ -288,8 +289,6 @@ enum SPECIFIC_GAME_SPRITESETS
     indexMSHVSF_CSI = 0x30,
     indexMSHVSF_SSP,
     indexMSHVSF_VSP,
-    indexCPS2Images_COTA_CSPs, // = 0x33,
-    indexCSP2Images_COTA_CSIs, // = 0x34,
     indexCSP2Images_MSH_CSPs = 0x36,
     indexCSP2Images_MSH_VSPs = 0x90,
 };

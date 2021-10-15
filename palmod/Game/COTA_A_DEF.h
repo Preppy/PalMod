@@ -117,7 +117,7 @@ const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P2[] =
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P1[] =
 {
     { L"P1",          0x2693c, 0x2695c, indexCPS2Sprites_Cyclops, 0, &pairNext2 },
-    { L"P1 Extras 1", 0x2695c, 0x2697c, indexCPS2Sprites_Cyclops },
+    { L"P1 Extras 1", 0x2695c, 0x2697c, indexCPS2Sprites_Cyclops, 0x0f },
     { L"P1 jHK",      0x2697c, 0x2699c, indexCPS2Sprites_Cyclops, 0x1 },
     { L"P1 Extras 3", 0x2699c, 0x269Bc, indexCPS2Sprites_Cyclops, 0x2 },
 
@@ -149,7 +149,7 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_EXTRAS[] =
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P2[] =
 {
     { L"P2",          0x269Bc, 0x269Dc, indexCPS2Sprites_Cyclops, 0, &pairNext2 },
-    { L"P2 Extras 1", 0x269Dc, 0x269Fc, indexCPS2Sprites_Cyclops },
+    { L"P2 Extras 1", 0x269Dc, 0x269Fc, indexCPS2Sprites_Cyclops, 0x0f },
     // Yes, the purple/gold p2 cyclops is using the wrong P2 jHK palette.
     // this is just an old palette bug in COTA itself
     { L"P2 jHK",      0x269Fc, 0x26A1c, indexCPS2Sprites_Cyclops, 0x1 }, 
@@ -293,7 +293,7 @@ const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P1[] =
 {
     { L"Sentinel P1", 0x26e3c, 0x26e5c, indexCPS2Sprites_Sentinel, 0x20, &pairNextAndNextSkipped },
     { L"P1 Drones (bombs) / Guts", 0x26e5c, 0x26e7c, indexCPS2Sprites_Sentinel, 0x21 },
-    { L"P1 MP / Rocket Punch wires", 0x26e7c, 0x26e9c, indexCPS2Sprites_Sentinel, 2 },
+    { L"P1 MP / Rocket Punch wires", 0x26e7c, 0x26e9c, indexCPS2Sprites_Sentinel, 0x0d },
     { L"P1 Plasma Storm / Flight", 0x26e9c, 0x26ebc, indexCPS2Sprites_Sentinel, 0x23 },
 };
 
@@ -301,14 +301,14 @@ const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P2[] =
 {
     { L"Sentinel P2", 0x26ebc, 0x26edc, indexCPS2Sprites_Sentinel, 0x20, &pairNextAndNextSkipped },
     { L"P2 Drones (bombs) / Guts", 0x26edc, 0x26efc, indexCPS2Sprites_Sentinel, 0x21 },
-    { L"P2 MP / Rocket Punch wires", 0x26efc, 0x26f1c, indexCPS2Sprites_Sentinel, 2 },
+    { L"P2 MP / Rocket Punch wires", 0x26efc, 0x26f1c, indexCPS2Sprites_Sentinel, 0x0d },
     { L"P2 Plasma Storm / Flight", 0x26f1c, 0x26f3c, indexCPS2Sprites_Sentinel, 0x23 },
 };
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_SHARED[] =
 {
-    { L"Sentinel Super FX (shared)", 0x29ABc, 0x29ADc, indexCPS2Sprites_Sentinel, 0x23 },
-    { L"Sentinel Flying FX (shared)", 0x29c7c, 0x29c9c, indexCPS2Sprites_Sentinel, 0x23 },
+    { L"Sentinel Super FX (shared)", 0x29ABc, 0x29ADc, indexCPS2Sprites_Sentinel, 0x0e },
+    { L"Sentinel Flying FX (shared)", 0x29c7c, 0x29c9c, indexCPS2Sprites_Sentinel, 0x0b },
 };
 
 const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P1[] =
@@ -531,7 +531,7 @@ const sGame_PaletteDataset COTA_A_CSI_PALETTES[] =
     //    { L"Juggernaut",     0x37172, 0x37192 },
     //    { L"Magneto",        0x37152, 0x37172 },
 #else
-    { L"Select Screen Icons", 0x37032, 0x371b2 },
+    { L"Select Screen Icons", 0x37032, 0x371b2, indexCPS2Sprites_COTAAssets, 0x0c },
 #endif
 };
 
@@ -547,13 +547,13 @@ const sGame_PaletteDataset COTA_A_BONUS_ENDING_PALETTES[] =
     { L"Mojo",                      0x2799e, 0x279be, indexCPS2Sprites_COTAAssets, 2 },
     { L"Professor X",               0x2781c, 0x2783c, indexCPS2Sprites_COTAAssets, 0x07 },
     { L"Forge",                     0x27a1c, 0x27a3c, indexCPS2Sprites_COTAAssets, 0x06 },
-    { L"Cyclops (Ending sprite)",   0x2777c, 0x2779c, indexCPS2Sprites_COTAAssets, 0x03 },
-    { L"Jean Grey (Holding Cyclops/Photo)",  0x2779c, 0x277Bc, indexCPS2Sprites_COTAAssets, 0x04 },
+    { L"Cyclops (Ending sprite)",   0x2777c, 0x2779c, indexCPS2Sprites_COTAAssets, 0x0D, &pairNext },
+    { L"Jean Grey (Holding Cyclops/Photo)",  0x2779c, 0x277Bc, indexCPS2Sprites_COTAAssets, 0x0e, &pairPrevious },
     { L"Jean Grey (Flying)",        0x2771c, 0x2773c, indexCPS2Sprites_COTAAssets, 0x05 },
     { L"Wolverine's Motorcycle",    0x279dc, 0x279fc, indexCPS2Sprites_COTAAssets, 0x09 },
-    { L"Psylocke Ending (dress)",   0x2785c, 0x2787c, indexCPS2Sprites_COTAAssets, 0x08 },
-    { L"Psylocke Ending (undressed)", 0x2783c, 0x2785c, indexCPS2Sprites_Psylocke, 0 },
-    { L"Police (Omega Red ending)", 0x2797c, 0x2799c, indexCPS2Sprites_COTAAssets, 0x0b },
+    { L"Psylocke Ending (dress)",   0x2785c, 0x2787c, indexCPS2Sprites_COTAAssets, 0x10, &pairNext },
+    { L"Psylocke Ending (undressed)", 0x2783c, 0x2785c, indexCPS2Sprites_COTAAssets, 0x11, &pairPrevious },
+    { L"Police (Omega Red ending)", 0x2797c, 0x2799c, indexCPS2Sprites_COTAAssets, 0x0F },
 };
 
 const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_STATUS[] =
