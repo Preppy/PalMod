@@ -424,6 +424,9 @@
     <Filter Include="Games\Capcom Games\Jojos Venture %28SIMM rerip%29">
       <UniqueIdentifier>{c8ad3145-c122-42c5-9ac7-121d5bc304fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\Cyberbots_A">
+      <UniqueIdentifier>{c49acc1e-949a-46a9-80fe-c5c10aff749f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -872,6 +875,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_Venture_A_DIR.cpp">
       <Filter>Games\Capcom Games\Jojos Venture %28SIMM rerip%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Cyberbots_A.cpp">
+      <Filter>Games\Capcom Games\Cyberbots_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1642,6 +1648,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_Venture_A_DIR.h">
       <Filter>Games\Capcom Games\Jojos Venture %28SIMM rerip%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Cyberbots_A_DEF.h">
+      <Filter>Games\Capcom Games\Cyberbots_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Cyberbots_A.h">
+      <Filter>Games\Capcom Games\Cyberbots_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

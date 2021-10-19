@@ -13,7 +13,6 @@ CDescTree CGame_SFA3_A::MainDescTree = nullptr;
 UINT32 CGame_SFA3_A::m_nTotalPaletteCountForSFA3 = 0;
 
 int CGame_SFA3_A::rgExtraCountAll[SFA3_A_NUMUNIT + 1] = { -1 };
-int CGame_SFA3_A::rgExtraCountVisibleOnly[SFA3_A_NUMUNIT + 1] = { -1 };
 int CGame_SFA3_A::rgExtraLoc[SFA3_A_NUMUNIT + 1] = { -1 };
 UINT32 CGame_SFA3_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_SFA3_A::m_nConfirmedROMSize = -1;
@@ -23,7 +22,6 @@ void CGame_SFA3_A::InitializeStatics()
     safe_delete_array(CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
     MainDescTree.SetRootTree(CGame_SFA3_A::InitDescTree());
@@ -334,27 +332,7 @@ const sGame_PaletteDataset* CGame_SFA3_A::GetSpecificPalette(UINT16 nUnitId, UIN
 
 UINT16 CGame_SFA3_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
 {
-    // Don't use this for Extra palettes.
-    UINT16 nNodeSize = 0;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
-
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
-
-        if (nDistanceFromZero < nNodeCount)
-        {
-            nNodeSize = nNodeCount;
-            break;
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return nNodeSize;
+    return _GetNodeSizeFromPaletteId(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, nPaletteId, SFA3_A_EXTRA_CUSTOM);
 }
 
 const sDescTreeNode* CGame_SFA3_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
@@ -444,8 +422,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // Ordering is punch/kick: correct this across all pairs.
                     nProspectiveStart = (nProspectiveStart > 0) ? nProspectiveStart - 1 : nProspectiveStart;
                 }
-
-                if (wcsstr(paletteDataSet->szPaletteName, L"V-Ism") != nullptr)
+                else  if (wcsstr(paletteDataSet->szPaletteName, L"V-Ism") != nullptr)
                 {
                     nProspectiveStart = (nProspectiveStart > 4) ? nProspectiveStart - 4 : nProspectiveStart;
                 }
@@ -481,13 +458,18 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                      (_wcsicmp(pCurrentNode->szDesc, L"V-Ism Punch") == 0) ||
                      (_wcsicmp(pCurrentNode->szDesc, L"V-Ism Kick") == 0))
             {
-                nSrcAmt = 6;
-                nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
-                while (nSrcStart >= nNodeIncrement)
+                if (wcscmp(charUnit->szDesc, k_sfa3NameKey_Sodom) != 0)  // Sodom has a different X-ism sprite
                 {
-                    // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
-                    nSrcStart -= nNodeIncrement;
+                    nSrcAmt = 6;
+                    nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
+                        nSrcStart -= nNodeIncrement;
+                    }
                 }
             }
             else

@@ -9,7 +9,6 @@ private:
     static UINT32 m_nTotalPaletteCountForMVC;
 
     static int rgExtraCountAll[MVC_A_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly[MVC_A_NUMUNIT + 1];
     static int rgExtraLoc[MVC_A_NUMUNIT + 1];
 
     static void InitializeStatics();

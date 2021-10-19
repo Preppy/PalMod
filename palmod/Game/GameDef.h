@@ -147,6 +147,7 @@ enum SupportedGamesList
     VENTURE_A,
     VENTURE_A_DIR_50,
     VENTURE_A_DIR_31,
+    CYBERBOTS_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -291,6 +292,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Jojo's Venture (Japan)",
     L"Jojo's Venture (Japan Arcade, 50: Characters)",
     L"Jojo's Venture (Japan Arcade, 31: HUD Portraits)",
+    L"Cyberbots: Fullmetal Madness (Arcade)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -404,6 +406,7 @@ const stPairedPaletteInfo pairNext12 = { 12, 0, 0 };
 const stPairedPaletteInfo pairNext15 = { 15, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 const stPairedPaletteInfo pairPrevious2 = { -2, 0, 0 };
+const stPairedPaletteInfo pairPrevious3 = { -3, 0, 0 };
 const stPairedPaletteInfo pairPrevious4 = { -4, 0, 0 };
 const stPairedPaletteInfo pairPrevious9 = { -9, 0, 0 };
 

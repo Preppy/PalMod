@@ -11,7 +11,6 @@ stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_MVC_A::MainDescTree = nullptr;
 
 int CGame_MVC_A::rgExtraCountAll[MVC_A_NUMUNIT + 1] = { -1 };
-int CGame_MVC_A::rgExtraCountVisibleOnly[MVC_A_NUMUNIT + 1] = { -1 };
 int CGame_MVC_A::rgExtraLoc[MVC_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_MVC_A::m_nTotalPaletteCountForMVC = 0;
@@ -24,7 +23,6 @@ void CGame_MVC_A::InitializeStatics()
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
-    memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
 
     MainDescTree.SetRootTree(CGame_MVC_A::InitDescTree());
 }

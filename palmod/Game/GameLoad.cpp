@@ -11,6 +11,7 @@
 #include "Game_CFTE_SNES.h"
 #include "Game_COTA_A.h"
 #include "Game_CVS2_A.h"
+#include "Game_Cyberbots_A.h"
 #include "Game_DanKuGa_A.h"
 #include "Game_DBFCI_A.h"
 #include "Game_DBZHD_SNES.h"
@@ -218,6 +219,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case CVS2_A:
     {
         GetRule = &CGame_CVS2_A::GetRule;
+        return TRUE;
+    }
+    case CYBERBOTS_A:
+    {
+        GetRule = &CGame_Cyberbots_A::GetRule;
         return TRUE;
     }
     case DANKUGA_A:
@@ -951,6 +957,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case CVS2_A:
     {
         return new CGame_CVS2_A(nConfirmedROMSize);
+    }
+    case CYBERBOTS_A:
+    {
+        return new CGame_Cyberbots_A(nConfirmedROMSize);
     }
     case DANKUGA_A:
     {

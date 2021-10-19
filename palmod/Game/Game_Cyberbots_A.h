@@ -1,32 +1,29 @@
 #pragma once
-#include "GameClass.h"
-#include "SFA3_A_DEF.h"
-#include "..\ExtraFile.h"
+#include "gameclass.h"
+#include "Cyberbots_A_DEF.h"
+#include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SFA3 = L"SFA3e.txt";
-#define GetExtraDefForSFA3(x)((stExtraDef *)&SFA3_A_EXTRA_CUSTOM[x])
-
-class CGame_SFA3_A : public CGameWithExtrasFile
+class CGame_Cyberbots_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForSFA3;
-    static int rgExtraCountAll[SFA3_A_NUMUNIT + 1];
-    static int rgExtraLoc[SFA3_A_NUMUNIT + 1];
+    static UINT32 m_nTotalPaletteCountForCyberbots;
 
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static int rgExtraCountAll[Cyberbots_A_NUMUNIT + 1];
+    static int rgExtraLoc[Cyberbots_A_NUMUNIT + 1];
 
     static void InitializeStatics();
+    static UINT32 m_nExpectedGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
-    // Developer-only mode to regenerate the header file quickly.
-    static void DumpHeaderPalettes();
+    static constexpr auto EXTRA_FILENAME_Cyberbots_A = L"CybotsE.txt";
+    static constexpr auto Cyberbots_A_PRIMARY_ROMNAME = L"cybe.04";
 
 public:
-    CGame_SFA3_A(UINT32 nConfirmedROMSize);
-    ~CGame_SFA3_A(void);
+    CGame_Cyberbots_A(UINT32 nConfirmedROMSize);
+    ~CGame_Cyberbots_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -48,12 +45,9 @@ public:
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
-    UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
-
-    static stExtraDef* SFA3_A_EXTRA_CUSTOM;
+    static stExtraDef* Cyberbots_A_EXTRA_CUSTOM;
 };
