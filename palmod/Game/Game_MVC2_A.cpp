@@ -47,7 +47,7 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
     m_nExtraUnit = MVC2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6368;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6370;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

@@ -370,7 +370,10 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
                 while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
                 {
-                    rgExtraCountAll_07_Rev1[pCurrDef->uUnitN]++;
+                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
+                    {
+                        rgExtraCountAll_07_Rev1[pCurrDef->uUnitN]++;
+                    }
 
                     nDefCtr++;
                     pCurrDef = GetCurrentExtraDef(nDefCtr);
@@ -390,7 +393,10 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
                 while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
                 {
-                    rgExtraCountAll_07_SFZ2A[pCurrDef->uUnitN]++;
+                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
+                    {
+                        rgExtraCountAll_07_SFZ2A[pCurrDef->uUnitN]++;
+                    }
 
                     nDefCtr++;
                     pCurrDef = GetCurrentExtraDef(nDefCtr);
@@ -411,7 +417,10 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
                 while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
                 {
-                    rgExtraCountAll_07_Rev2[pCurrDef->uUnitN]++;
+                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
+                    {
+                        rgExtraCountAll_07_Rev2[pCurrDef->uUnitN]++;
+                    }
 
                     nDefCtr++;
                     pCurrDef = GetCurrentExtraDef(nDefCtr);
@@ -437,7 +446,10 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
                 while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
                 {
-                    rgExtraCountAll_08_Rev1[pCurrDef->uUnitN]++;
+                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
+                    {
+                        rgExtraCountAll_08_Rev1[pCurrDef->uUnitN]++;
+                    }
 
                     nDefCtr++;
                     pCurrDef = GetCurrentExtraDef(nDefCtr);
@@ -458,7 +470,10 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
                 while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
                 {
-                    rgExtraCountAll_08_Rev2[pCurrDef->uUnitN]++;
+                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
+                    {
+                        rgExtraCountAll_08_Rev2[pCurrDef->uUnitN]++;
+                    }
 
                     nDefCtr++;
                     pCurrDef = GetCurrentExtraDef(nDefCtr);
@@ -478,7 +493,10 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
                 while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
                 {
-                    rgExtraCountAll_08_SFZ2A[pCurrDef->uUnitN]++;
+                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
+                    {
+                        rgExtraCountAll_08_SFZ2A[pCurrDef->uUnitN]++;
+                    }
 
                     nDefCtr++;
                     pCurrDef = GetCurrentExtraDef(nDefCtr);

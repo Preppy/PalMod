@@ -3,7 +3,7 @@
 constexpr auto MAX_DESCRIPTION_LENGTH = 96;
 constexpr auto MAX_FILENAME_LENGTH = 32;
 
-constexpr auto UNIT_START_VALUE   = 0x0080;
+constexpr auto UNIT_START_VALUE   = 0xf000;
 constexpr auto INVALID_UNIT_VALUE = 0xffff;
 
 constexpr auto MAX_IMAGES_DISPLAYABLE = 32;

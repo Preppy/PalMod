@@ -379,8 +379,8 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 
             ImportMenuOption rgImportMenuOptions[] =
             {
-                { ID_FILE_LOADSPRITE, L"Load Texture", L"Load Texture for Palette %u", 0 },
-                { ID_FILE_LOADSPRITEFLIPPED, L"Load Flipped Texture", L"Load Flipped Texture for Palette %u", FLIPPED_IMAGES_MESSAGE_OFFSET },
+                { ID_FILE_LOADSPRITE, (LPWSTR)L"Load Texture", L"Load Texture for Palette %u", 0 },
+                { ID_FILE_LOADSPRITEFLIPPED, (LPWSTR)L"Load Flipped Texture", L"Load Flipped Texture for Palette %u", FLIPPED_IMAGES_MESSAGE_OFFSET },
             };
 
             for (int iIndex = 0; iIndex < ARRAYSIZE(rgImportMenuOptions); iIndex++)

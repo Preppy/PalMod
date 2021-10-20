@@ -299,7 +299,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         miiNew.cbSize = sizeof(MENUITEMINFO);
         miiNew.fMask = MIIM_SUBMENU | MIIM_STRING;
         miiNew.hSubMenu = gameMenu.Detach();   // Detach() to keep the pop-up menu alive
-        miiNew.dwTypeData = L"Load ROM by game";
+        miiNew.dwTypeData = (LPWSTR)L"Load ROM by game";
 
         pPopupMenu->SetMenuItemInfo(ID_FILE_OPEN_BY_GAME, &miiNew, FALSE);
     }

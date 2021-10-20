@@ -268,11 +268,15 @@ int CGame_SF2CE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
             while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
-                rgExtraCountAll_21[pCurrDef->uUnitN]++;
-
-                if (!pCurrDef->isInvisible)
+                if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
+                    (!pCurrDef->isInvisible || !bCountVisibleOnly))
                 {
-                    rgExtraCountVisibleOnly_21[pCurrDef->uUnitN]++;
+                    rgExtraCountAll_21[pCurrDef->uUnitN]++;
+
+                    if (!pCurrDef->isInvisible)
+                    {
+                        rgExtraCountVisibleOnly_21[pCurrDef->uUnitN]++;
+                    }
                 }
 
                 nDefCtr++;
@@ -297,11 +301,15 @@ int CGame_SF2CE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
             while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
-                rgExtraCountAll_22[pCurrDef->uUnitN]++;
-
-                if (!pCurrDef->isInvisible)
+                if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
+                    (!pCurrDef->isInvisible || !bCountVisibleOnly))
                 {
-                    rgExtraCountVisibleOnly_22[pCurrDef->uUnitN]++;
+                    rgExtraCountAll_22[pCurrDef->uUnitN]++;
+
+                    if (!pCurrDef->isInvisible)
+                    {
+                        rgExtraCountVisibleOnly_22[pCurrDef->uUnitN]++;
+                    }
                 }
 
                 nDefCtr++;
@@ -325,11 +333,15 @@ int CGame_SF2CE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
             while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
-                rgExtraCountAll_23[pCurrDef->uUnitN]++;
-
-                if (!pCurrDef->isInvisible)
+                if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
+                    (!pCurrDef->isInvisible || !bCountVisibleOnly))
                 {
-                    rgExtraCountVisibleOnly_23[pCurrDef->uUnitN]++;
+                    rgExtraCountAll_23[pCurrDef->uUnitN]++;
+
+                    if (!pCurrDef->isInvisible)
+                    {
+                        rgExtraCountVisibleOnly_23[pCurrDef->uUnitN]++;
+                    }
                 }
 
                 nDefCtr++;

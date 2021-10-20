@@ -179,7 +179,8 @@ int CGame_MSH_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
-            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
+            if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
+                (!pCurrDef->isInvisible || !bCountVisibleOnly))
             {
                 rgExtraCt[pCurrDef->uUnitN]++;
             }

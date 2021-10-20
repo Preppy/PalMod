@@ -512,7 +512,11 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
             pMainBmpData = (UINT32*)pMainData;
         }
 
-        bDraw ? Draw() : NULL;
+        if (bDraw)
+        {
+            Draw();
+        }
+
         UpdateClip();
     }
 }

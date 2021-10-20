@@ -105,11 +105,14 @@ int CGame_SFIII2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
-            rgExtraCountAll_50[pCurrDef->uUnitN]++;
-
-            if (!pCurrDef->isInvisible)
+            if (pCurrDef->uUnitN != UNIT_START_VALUE)
             {
-                rgExtraCountVisibleOnly_50[pCurrDef->uUnitN]++;
+                rgExtraCountAll_50[pCurrDef->uUnitN]++;
+
+                if (!pCurrDef->isInvisible)
+                {
+                    rgExtraCountVisibleOnly_50[pCurrDef->uUnitN]++;
+                }
             }
 
             nDefCtr++;

@@ -185,11 +185,14 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
             while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
-                rgExtraCountAll_10[pCurrDef->uUnitN]++;
-
-                if (!pCurrDef->isInvisible)
+                if (pCurrDef->uUnitN != UNIT_START_VALUE)
                 {
-                    rgExtraCountVisibleOnly_10[pCurrDef->uUnitN]++;
+                    rgExtraCountAll_10[pCurrDef->uUnitN]++;
+
+                    if (!pCurrDef->isInvisible)
+                    {
+                        rgExtraCountVisibleOnly_10[pCurrDef->uUnitN]++;
+                    }
                 }
 
                 nDefCtr++;
@@ -213,11 +216,14 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
             while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
-                rgExtraCountAll_14[pCurrDef->uUnitN]++;
-
-                if (!pCurrDef->isInvisible)
+                if (pCurrDef->uUnitN != UNIT_START_VALUE)
                 {
-                    rgExtraCountVisibleOnly_10[pCurrDef->uUnitN]++;
+                    rgExtraCountAll_14[pCurrDef->uUnitN]++;
+
+                    if (!pCurrDef->isInvisible)
+                    {
+                        rgExtraCountVisibleOnly_10[pCurrDef->uUnitN]++;
+                    }
                 }
 
                 nDefCtr++;
@@ -241,11 +247,14 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
             while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
-                rgExtraCountAll_4[pCurrDef->uUnitN]++;
-
-                if (!pCurrDef->isInvisible)
+                if (pCurrDef->uUnitN != UNIT_START_VALUE)
                 {
-                    rgExtraCountVisibleOnly_4[pCurrDef->uUnitN]++;
+                    rgExtraCountAll_4[pCurrDef->uUnitN]++;
+
+                    if (!pCurrDef->isInvisible)
+                    {
+                        rgExtraCountVisibleOnly_4[pCurrDef->uUnitN]++;
+                    }
                 }
 
                 nDefCtr++;
@@ -269,11 +278,14 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
             while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
-                rgExtraCountAll_70[pCurrDef->uUnitN]++;
-
-                if (!pCurrDef->isInvisible)
+                if (pCurrDef->uUnitN != UNIT_START_VALUE)
                 {
-                    rgExtraCountVisibleOnly_70[pCurrDef->uUnitN]++;
+                    rgExtraCountAll_70[pCurrDef->uUnitN]++;
+
+                    if (!pCurrDef->isInvisible)
+                    {
+                        rgExtraCountVisibleOnly_70[pCurrDef->uUnitN]++;
+                    }
                 }
 
                 nDefCtr++;
@@ -300,11 +312,14 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
             while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
-                rgExtraCountAll_51[pCurrDef->uUnitN]++;
-
-                if (!pCurrDef->isInvisible)
+                if (pCurrDef->uUnitN != UNIT_START_VALUE)
                 {
-                    rgExtraCountVisibleOnly_51[pCurrDef->uUnitN]++;
+                    rgExtraCountAll_51[pCurrDef->uUnitN]++;
+
+                    if (!pCurrDef->isInvisible)
+                    {
+                        rgExtraCountVisibleOnly_51[pCurrDef->uUnitN]++;
+                    }
                 }
 
                 nDefCtr++;

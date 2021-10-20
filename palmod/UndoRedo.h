@@ -1,6 +1,6 @@
 #pragma once
 
-#define UR_LIMIT 100
+constexpr auto UR_LIMIT = 100;
 
 class CUndoNode
 {
@@ -15,7 +15,7 @@ public:
         safe_delete_array(rgBasePalData);
     };
 
-    CUndoNode& CUndoNode::operator=(const CUndoNode& rhc)
+    CUndoNode& operator=(const CUndoNode& rhc)
     {
         if (this != &rhc)
         {
