@@ -267,9 +267,6 @@ CDescTree* CGame_KOF02UM_S::GetMainTree()
 
 int CGame_KOF02UM_S::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt;
-    int nUnitCount;
-
     switch (m_nSelectedRom)
     {
     default:
@@ -277,63 +274,24 @@ int CGame_KOF02UM_S::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
         OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
         __fallthrough;
     case KOF02UMS_ROMOptions::Main:
-        rgExtraCt = rgExtraCountAll_Main;
-        nUnitCount = KOF02UM_S_NUMUNIT_MAIN;
-        break;
+        return _GetExtraCount(rgExtraCountAll_Main, KOF02UM_S_NUMUNIT_MAIN, nUnitId, KOF02UM_S_EXTRA_CUSTOM_MAIN);
     case KOF02UMS_ROMOptions::Bar:
-        rgExtraCt = rgExtraCountAll_Bar;
-        nUnitCount = KOF02UM_S_NUMUNIT_BAR;
-        break;
+        return _GetExtraCount(rgExtraCountAll_Bar, KOF02UM_S_NUMUNIT_BAR, nUnitId, KOF02UM_S_EXTRA_CUSTOM_BAR);
     case KOF02UMS_ROMOptions::Max2BG:
-        rgExtraCt = rgExtraCountAll_MAX2;
-        nUnitCount = KOF02UM_S_NUMUNIT_MAX2;
-        break;
+        return _GetExtraCount(rgExtraCountAll_MAX2, KOF02UM_S_NUMUNIT_MAX2, nUnitId, KOF02UM_S_EXTRA_CUSTOM_MAX2);
     case KOF02UMS_ROMOptions::Clear:
-        rgExtraCt = rgExtraCountAll_Clear;
-        nUnitCount = KOF02UM_S_NUMUNIT_CLEAR;
-        break;
+        return _GetExtraCount(rgExtraCountAll_Clear, KOF02UM_S_NUMUNIT_CLEAR, nUnitId, KOF02UM_S_EXTRA_CUSTOM_CLEAR);
     case KOF02UMS_ROMOptions::PSel:
-        rgExtraCt = rgExtraCountAll_PSel;
-        nUnitCount = KOF02UM_S_NUMUNIT_PSEL;
-        break;
+        return _GetExtraCount(rgExtraCountAll_PSel, KOF02UM_S_NUMUNIT_PSEL, nUnitId, KOF02UM_S_EXTRA_CUSTOM_PSEL);
     case KOF02UMS_ROMOptions::Rank:
-        rgExtraCt = rgExtraCountAll_Rank;
-        nUnitCount = KOF02UM_S_NUMUNIT_RANK;
-        break;
+        return _GetExtraCount(rgExtraCountAll_Rank, KOF02UM_S_NUMUNIT_RANK, nUnitId, KOF02UM_S_EXTRA_CUSTOM_RANK);
     case KOF02UMS_ROMOptions::Conte:
-        rgExtraCt = rgExtraCountAll_Conte;
-        nUnitCount = KOF02UM_S_NUMUNIT_CONTE;
-        break;
+        return _GetExtraCount(rgExtraCountAll_Conte, KOF02UM_S_NUMUNIT_CONTE, nUnitId, KOF02UM_S_EXTRA_CUSTOM_CONTE);
     }
-
-    if (rgExtraCt[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCt, 0, ((nUnitCount + 1) * sizeof(int)));
-
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
-                (!pCurrDef->isInvisible || !bCountVisibleOnly))
-            {
-                rgExtraCt[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
-        }
-    }
-
-    return rgExtraCt[nUnitId];
 }
 
 int CGame_KOF02UM_S::GetExtraLoc(UINT16 nUnitId)
 {
-    int* rgExtraLoc;
-    int nUnitCount;
-
     switch (m_nSelectedRom)
     {
     default:
@@ -341,57 +299,20 @@ int CGame_KOF02UM_S::GetExtraLoc(UINT16 nUnitId)
         OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
         __fallthrough;
     case KOF02UMS_ROMOptions::Main:
-        rgExtraLoc = rgExtraLoc_Main;
-        nUnitCount = KOF02UM_S_NUMUNIT_MAIN;
-        break;
+        return _GetExtraLocation(rgExtraLoc_Main, KOF02UM_S_NUMUNIT_MAIN, nUnitId, KOF02UM_S_EXTRA_CUSTOM_MAIN);
     case KOF02UMS_ROMOptions::Bar:
-        rgExtraLoc = rgExtraLoc_Bar;
-        nUnitCount = KOF02UM_S_NUMUNIT_BAR;
-        break;
+        return _GetExtraLocation(rgExtraLoc_Bar, KOF02UM_S_NUMUNIT_BAR, nUnitId, KOF02UM_S_EXTRA_CUSTOM_BAR);
     case KOF02UMS_ROMOptions::Max2BG:
-        rgExtraLoc = rgExtraLoc_MAX2;
-        nUnitCount = KOF02UM_S_NUMUNIT_MAX2;
-        break;
+        return _GetExtraLocation(rgExtraLoc_MAX2, KOF02UM_S_NUMUNIT_MAX2, nUnitId, KOF02UM_S_EXTRA_CUSTOM_MAX2);
     case KOF02UMS_ROMOptions::Clear:
-        rgExtraLoc = rgExtraLoc_Clear;
-        nUnitCount = KOF02UM_S_NUMUNIT_CLEAR;
-        break;
+        return _GetExtraLocation(rgExtraLoc_Clear, KOF02UM_S_NUMUNIT_CLEAR, nUnitId, KOF02UM_S_EXTRA_CUSTOM_CLEAR);
     case KOF02UMS_ROMOptions::PSel:
-        rgExtraLoc = rgExtraLoc_PSel;
-        nUnitCount = KOF02UM_S_NUMUNIT_PSEL;
-        break;
+        return _GetExtraLocation(rgExtraLoc_PSel, KOF02UM_S_NUMUNIT_PSEL, nUnitId, KOF02UM_S_EXTRA_CUSTOM_PSEL);
     case KOF02UMS_ROMOptions::Rank:
-        rgExtraLoc = rgExtraLoc_Rank;
-        nUnitCount = KOF02UM_S_NUMUNIT_RANK;
-        break;
+        return _GetExtraLocation(rgExtraLoc_Rank, KOF02UM_S_NUMUNIT_RANK, nUnitId, KOF02UM_S_EXTRA_CUSTOM_RANK);
     case KOF02UMS_ROMOptions::Conte:
-        rgExtraLoc = rgExtraLoc_Conte;
-        nUnitCount = KOF02UM_S_NUMUNIT_CONTE;
-        break;
+        return _GetExtraLocation(rgExtraLoc_Conte, KOF02UM_S_NUMUNIT_CONTE, nUnitId, KOF02UM_S_EXTRA_CUSTOM_CONTE);
     }
-
-    if (rgExtraLoc[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (nUnitCount + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc[nUnitId];
 }
 
 const sDescTreeNode* CGame_KOF02UM_S::GetCurrentUnitSet()

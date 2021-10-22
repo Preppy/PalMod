@@ -107,7 +107,7 @@ int CGame_LASTBLADE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_LASTBLADE_A::GetExtraLoc(UINT16 nUnitId)
 {
-    return _GetExtraCount(rgExtraLoc, LASTBLADE_A_NUMUNIT, nUnitId, LASTBLADE_A_EXTRA_CUSTOM);
+    return _GetExtraLocation(rgExtraLoc, LASTBLADE_A_NUMUNIT, nUnitId, LASTBLADE_A_EXTRA_CUSTOM);
 }
 
 sDescTreeNode* CGame_LASTBLADE_A::InitDescTree()

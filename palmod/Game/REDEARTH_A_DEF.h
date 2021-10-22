@@ -73,7 +73,7 @@ const sGame_PaletteDataset REDEARTH_A_LEO_PUNCH_PALETTES[] =
     { L"Leo Punch Frozen 3", 0x40B080, 0x40B100, indexRedEarthSprites_Leo },
     { L"Leo Punch Frozen 4", 0x40B100, 0x40B180, indexRedEarthSprites_Leo },
     { L"Leo Punch Frozen 5", 0x40B180, 0x40B200, indexRedEarthSprites_Leo },
-    { L"Mirror Trapped - Leo Punch",        0x433F80, 0x434000, indexRedEarthSprites_Leo, 0x0 },
+    { L"Mirror Trapped - Leo Punch", 0x433f00, 0x433f80, indexRedEarthSprites_Leo, 0x0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
@@ -522,6 +522,26 @@ const sGame_PaletteDataset REDEARTH_A_KONGOU_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_LAVIA_PALETTES[] =
 {
     { L"Lavia", 0x42a600, 0x42a680, indexRedEarthSprites_Lavia },
+    { L"Intro Effects, Soul, Dust, Fire", 0x42a680, 0x42a700 },
+    { L"Sparks", 0x42a700, 0x42a780},
+    { L"Feather Projectiles", 0x42a780, 0x42a800 },
+    { L"Lavia's Soul Second Palette", 0x42a800, 0x42a880 },
+    { L"Lavia Burned 1", 0x42a880, 0x42a900, indexRedEarthSprites_Lavia },
+    { L"Lavia Burned 2", 0x42a900, 0x42a980, indexRedEarthSprites_Lavia },
+    { L"Lavia Shocked 1", 0x42a980, 0x42aa00, indexRedEarthSprites_Lavia },
+    { L"Lavia Shocked 2", 0x42aa00, 0x42aa80, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 1", 0x42aa80, 0x42ab00, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 2", 0x42ab00, 0x42ab80, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 3", 0x42ab80, 0x42ac00, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 4", 0x42ac00, 0x42ac80, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 1", 0x42ac80, 0x42ad00, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 2", 0x42ad00, 0x42ad80, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 3", 0x42ad80, 0x42ae00, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 1", 0x42ae00, 0x42ae80, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 2", 0x42ae80, 0x42af00, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 3", 0x42af00, 0x42af80, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 4", 0x42af80, 0x42b000, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 5", 0x42b000, 0x42b080, indexRedEarthSprites_Lavia },
 };
 
 const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
@@ -577,10 +597,15 @@ const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
     { L"Clara ball FX", 0x42fb00, 0x42fb80 },
 };
 
-//const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
-//{
-//
-//};
+const sGame_PaletteDataset REDEARTH_A_GIGI_PALETTES[] =
+{
+    { L"Gi Gi", 0x430a00, 0x430a80 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
+{
+    { L"Scion", 0x436e00, 0x436e80, indexRedEarthSprites_Scion },
+};
 
 //Extra Stuff
 const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
@@ -867,10 +892,15 @@ const sDescTreeNode REDEARTH_A_RAVANGE_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_RAVANGE_PALETTES, ARRAYSIZE(REDEARTH_A_RAVANGE_PALETTES) },
 };
 
-//const sDescTreeNode REDEARTH_A_SCION_COLLECTION[] =
-//{
-//    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_SCION_PALETTES, ARRAYSIZE(REDEARTH_A_SCION_PALETTES) },
-//};
+const sDescTreeNode REDEARTH_A_GIGI_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_GIGI_PALETTES, ARRAYSIZE(REDEARTH_A_GIGI_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_SCION_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_SCION_PALETTES, ARRAYSIZE(REDEARTH_A_SCION_PALETTES) },
+};
 
 //Extra Stuff
 const sDescTreeNode REDEARTH_A_CHARACTERSELECT_COLLECTION[] =
@@ -898,13 +928,13 @@ const sDescTreeNode REDEARTH_A_UNITS_31[] =
 
     //Bosses
     { L"Blade",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_BLADE_COLLECTION, ARRAYSIZE(REDEARTH_A_BLADE_COLLECTION) },
-    //{ L"Gi-Gi",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_GIGI_COLLECTION, ARRAYSIZE(REDEARTH_A_GIGI_COLLECTION) },
+    { L"Gi Gi",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_GIGI_COLLECTION, ARRAYSIZE(REDEARTH_A_GIGI_COLLECTION) },
     { L"Hauzer",            DESC_NODETYPE_TREE, (void*)REDEARTH_A_HAUZER_COLLECTION, ARRAYSIZE(REDEARTH_A_HAUZER_COLLECTION) },
     { L"Hydron",            DESC_NODETYPE_TREE, (void*)REDEARTH_A_HYDRON_COLLECTION, ARRAYSIZE(REDEARTH_A_HYDRON_COLLECTION) },
     { L"Kongou",            DESC_NODETYPE_TREE, (void*)REDEARTH_A_KONGOU_COLLECTION, ARRAYSIZE(REDEARTH_A_KONGOU_COLLECTION) },
     { L"Lavia",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_LAVIA_COLLECTION, ARRAYSIZE(REDEARTH_A_LAVIA_COLLECTION) },
     { L"Ravange",           DESC_NODETYPE_TREE, (void*)REDEARTH_A_RAVANGE_COLLECTION, ARRAYSIZE(REDEARTH_A_RAVANGE_COLLECTION) },
-    //{ L"Scion",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_SCION_PALETTES, ARRAYSIZE(REDEARTH_A_SCION_PALETTES) },
+    { L"Scion",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_SCION_COLLECTION, ARRAYSIZE(REDEARTH_A_SCION_COLLECTION) },
 
     //Extra Stuff
     { L"Character Select",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_COLLECTION, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_COLLECTION) },

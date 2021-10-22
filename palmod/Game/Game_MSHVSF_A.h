@@ -18,8 +18,8 @@ private:
     static UINT32 m_nTotalPaletteCountForMSHVSF_7B;
     static inline bool UsePaletteSetForCharacters() { return (m_nMSHVSFSelectedRom == 6); }
 
-    static int rgExtraCountAll_6A[MSHVSF_A_NUM_IND_6A + 1];
-    static int rgExtraCountAll_7B[MSHVSF_A_NUM_IND_7B + 1];
+    static int rgExtraLocation_6A[MSHVSF_A_NUM_IND_6A + 1];
+    static int rgExtraLocation_7B[MSHVSF_A_NUM_IND_7B + 1];
     static int rgExtraCount_6A[MSHVSF_A_NUM_IND_6A + 1];
     static int rgExtraCount_7B[MSHVSF_A_NUM_IND_7B + 1];
 

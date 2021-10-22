@@ -336,10 +336,10 @@ BEGIN
             END
             POPUP "Jojo's"
             BEGIN
-                MENUITEM "HftF Characters (Japan Arcade)",   ID_LD_JOJOS51
+                MENUITEM "HftF Characters (Japan Arcade)", ID_LD_JOJOS51
                 MENUITEM "HftF HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
                 MENUITEM "Venture Characters (Japan Arcade)", ID_LD_VENTURE50
-                MENUITEM "Venture HUD (Japan Arcade)", ID_LD_VENTURE31
+                MENUITEM "Venture HUD (Japan Arcade)",  ID_LD_VENTURE31
             END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
@@ -629,7 +629,7 @@ BEGIN
     IDS_ERROR_FILENOTFOUND_FORMAT 
                             "Save failed: output file '%s' does not exist."
     IDS_ROMMISMATCH_CHECK   "ERROR!  This ROM is not the expected size, which means PalMod writing to where it expects the ROM to be may corrupt it.  Are you sure you wish to continue? "
-    IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM.  If you want to PalMod Venture, let people in the HFTF Discord server know and they'll walk you through it.\n\nAre you sure you wish to continue?"
+    IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM. You probably want to click NO now and then use PalMod's Venture support instead.\n\nAre you sure you wish to load this ROM as HFTF instead of Venture?"
 END
 
 STRINGTABLE

@@ -107,7 +107,7 @@ int CGame_MAGICALDROPIII_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_MAGICALDROPIII_A::GetExtraLoc(UINT16 nUnitId)
 {
-    return _GetExtraCount(rgExtraLoc, MAGICALDROPIII_A_NUMUNIT, nUnitId, MAGICALDROPIII_A_EXTRA_CUSTOM);
+    return _GetExtraLocation(rgExtraLoc, MAGICALDROPIII_A_NUMUNIT, nUnitId, MAGICALDROPIII_A_EXTRA_CUSTOM);
 }
 
 sDescTreeNode* CGame_MAGICALDROPIII_A::InitDescTree()

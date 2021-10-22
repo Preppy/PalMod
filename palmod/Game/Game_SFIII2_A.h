@@ -13,7 +13,6 @@ public:
     static UINT32 m_nTotalPaletteCountForSFIII2_50;
 
     static int rgExtraCountAll_50[SFIII2_A_50_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly_50[SFIII2_A_50_NUMUNIT + 1];
     static int rgExtraLoc_50[SFIII2_A_50_NUMUNIT + 1];
 
     void InitDataBuffer() override;

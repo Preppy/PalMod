@@ -107,7 +107,7 @@ int CGame_MartialMasters_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_MartialMasters_A::GetExtraLoc(UINT16 nUnitId)
 {
-    return _GetExtraCount(rgExtraLoc, MartialMasters_A_NUMUNIT, nUnitId, MartialMasters_A_EXTRA_CUSTOM);
+    return _GetExtraLocation(rgExtraLoc, MartialMasters_A_NUMUNIT, nUnitId, MartialMasters_A_EXTRA_CUSTOM);
 }
 
 sDescTreeNode* CGame_MartialMasters_A::InitDescTree()

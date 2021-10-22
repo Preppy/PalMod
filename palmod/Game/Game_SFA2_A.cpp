@@ -361,73 +361,16 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
         {
         case SFA2_SupportedROMRevision::SFA2_960229:
         {
-            if (rgExtraCountAll_07_Rev1[0] == -1)
-            {
-                int nDefCtr = 0;
-                memset(rgExtraCountAll_07_Rev1, 0, (SFA2_A_NUM_IND_07_REV1 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                    {
-                        rgExtraCountAll_07_Rev1[pCurrDef->uUnitN]++;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraCountAll_07_Rev1[nUnitId];
+            return _GetExtraCount(rgExtraCountAll_07_Rev1, SFA2_A_NUM_IND_07_REV1, nUnitId, SFA2_A_EXTRA_CUSTOM_07_REV1);
         }
         case SFA2_SupportedROMRevision::SFZ2A_960826:
         {
-            if (rgExtraCountAll_07_SFZ2A[0] == -1)
-            {
-                int nDefCtr = 0;
-                memset(rgExtraCountAll_07_SFZ2A, 0, (SFZ2A_A_NUM_IND_07 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                    {
-                        rgExtraCountAll_07_SFZ2A[pCurrDef->uUnitN]++;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraCountAll_07_SFZ2A[nUnitId];
+            return _GetExtraCount(rgExtraCountAll_07_SFZ2A, SFZ2A_A_NUM_IND_07, nUnitId, SFZ2A_A_EXTRA_CUSTOM_07);
         }
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
         default:
         {
-            if (rgExtraCountAll_07_Rev2[0] == -1)
-            {
-                int nDefCtr = 0;
-                memset(rgExtraCountAll_07_Rev2, 0, (SFA2_A_NUM_IND_07_REV2 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                    {
-                        rgExtraCountAll_07_Rev2[pCurrDef->uUnitN]++;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraCountAll_07_Rev2[nUnitId];
+            return _GetExtraCount(rgExtraCountAll_07_Rev2, SFA2_A_NUM_IND_07_REV2, nUnitId, SFA2_A_EXTRA_CUSTOM_07_REV2);
         }
         }
     }
@@ -437,73 +380,16 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
         {
         case SFA2_SupportedROMRevision::SFA2_960229:
         {
-            if (rgExtraCountAll_08_Rev1[0] == -1)
-            {
-                int nDefCtr = 0;
-                memset(rgExtraCountAll_08_Rev1, 0, (SFA2_A_NUM_IND_08_REV1 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                    {
-                        rgExtraCountAll_08_Rev1[pCurrDef->uUnitN]++;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraCountAll_08_Rev1[nUnitId];
+            return _GetExtraCount(rgExtraCountAll_08_Rev1, SFA2_A_NUM_IND_08_REV1, nUnitId, SFA2_A_EXTRA_CUSTOM_08_REV1);
         }
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
         default:
         {
-            if (rgExtraCountAll_08_Rev2[0] == -1)
-            {
-                int nDefCtr = 0;
-                memset(rgExtraCountAll_08_Rev2, 0, (SFA2_A_NUM_IND_08_REV2 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                    {
-                        rgExtraCountAll_08_Rev2[pCurrDef->uUnitN]++;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraCountAll_08_Rev2[nUnitId];
+            return _GetExtraCount(rgExtraCountAll_08_Rev2, SFA2_A_NUM_IND_08_REV2, nUnitId, SFA2_A_EXTRA_CUSTOM_08_REV2);
         }
         case SFA2_SupportedROMRevision::SFZ2A_960826:
         {
-            if (rgExtraCountAll_08_SFZ2A[0] == -1)
-            {
-                int nDefCtr = 0;
-                memset(rgExtraCountAll_08_SFZ2A, 0, (SFZ2A_A_NUM_IND_08 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                    {
-                        rgExtraCountAll_08_SFZ2A[pCurrDef->uUnitN]++;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraCountAll_08_SFZ2A[nUnitId];
+            return _GetExtraCount(rgExtraCountAll_08_SFZ2A, SFZ2A_A_NUM_IND_08, nUnitId, SFZ2A_A_EXTRA_CUSTOM_08);
         }
         }
     }
@@ -513,80 +399,21 @@ int CGame_SFA2_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (UsePaletteSetForCharacters())
     {
-        if (m_currentSFA2ROMRevision == SFA2_SupportedROMRevision::SFA2_960229)
+        switch (m_currentSFA2ROMRevision)
         {
-            if (rgExtraLoc_07_Rev1[0] == -1)
-            {
-                int nDefCtr = 0;
-                int nCurrUnit = UNIT_START_VALUE;
-                memset(rgExtraLoc_07_Rev1, 0, (SFA2_A_NUM_IND_07_REV1 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != nCurrUnit)
-                    {
-                        rgExtraLoc_07_Rev1[pCurrDef->uUnitN] = nDefCtr;
-                        nCurrUnit = pCurrDef->uUnitN;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraLoc_07_Rev1[nUnitId];
+        case SFA2_SupportedROMRevision::SFA2_960229:
+        {
+            return _GetExtraLocation(rgExtraLoc_07_Rev1, SFA2_A_NUM_IND_07_REV1, nUnitId, SFA2_A_EXTRA_CUSTOM_07_REV1);
         }
-        else if (m_currentSFA2ROMRevision == SFA2_SupportedROMRevision::SFZ2A_960826)
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
         {
-            if (rgExtraLoc_07_SFZ2A[0] == -1)
-            {
-                int nDefCtr = 0;
-                int nCurrUnit = UNIT_START_VALUE;
-                memset(rgExtraLoc_07_SFZ2A, 0, (SFZ2A_A_NUM_IND_07 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != nCurrUnit)
-                    {
-                        rgExtraLoc_07_SFZ2A[pCurrDef->uUnitN] = nDefCtr;
-                        nCurrUnit = pCurrDef->uUnitN;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraLoc_07_SFZ2A[nUnitId];
+            return _GetExtraLocation(rgExtraLoc_07_SFZ2A, SFZ2A_A_NUM_IND_07, nUnitId, SFZ2A_A_EXTRA_CUSTOM_07);
         }
-        else
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
         {
-            if (rgExtraLoc_07_Rev2[0] == -1)
-            {
-                int nDefCtr = 0;
-                int nCurrUnit = UNIT_START_VALUE;
-                memset(rgExtraLoc_07_Rev2, 0, (SFA2_A_NUM_IND_07_REV2 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != nCurrUnit)
-                    {
-                        rgExtraLoc_07_Rev2[pCurrDef->uUnitN] = nDefCtr;
-                        nCurrUnit = pCurrDef->uUnitN;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraLoc_07_Rev2[nUnitId];
+            return _GetExtraLocation(rgExtraLoc_07_Rev2, SFA2_A_NUM_IND_07_REV2, nUnitId, SFA2_A_EXTRA_CUSTOM_07_REV2);
+        }
         }
     }
     else
@@ -595,79 +422,16 @@ int CGame_SFA2_A::GetExtraLoc(UINT16 nUnitId)
         {
         case SFA2_SupportedROMRevision::SFA2_960229:
         {
-            if (rgExtraLoc_08_Rev1[0] == -1)
-            {
-                int nDefCtr = 0;
-                int nCurrUnit = UNIT_START_VALUE;
-                memset(rgExtraLoc_08_Rev1, 0, (SFA2_A_NUM_IND_08_REV1 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != nCurrUnit)
-                    {
-                        rgExtraLoc_08_Rev1[pCurrDef->uUnitN] = nDefCtr;
-                        nCurrUnit = pCurrDef->uUnitN;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraLoc_08_Rev1[nUnitId];
+            return _GetExtraLocation(rgExtraLoc_08_Rev1, SFA2_A_NUM_IND_08_REV1, nUnitId, SFA2_A_EXTRA_CUSTOM_08_REV1);
         }
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
         default:
         {
-            if (rgExtraLoc_08_Rev2[0] == -1)
-            {
-                int nDefCtr = 0;
-                int nCurrUnit = UNIT_START_VALUE;
-                memset(rgExtraLoc_08_Rev2, 0, (SFA2_A_NUM_IND_08_REV2 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != nCurrUnit)
-                    {
-                        rgExtraLoc_08_Rev2[pCurrDef->uUnitN] = nDefCtr;
-                        nCurrUnit = pCurrDef->uUnitN;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraLoc_08_Rev2[nUnitId];
+            return _GetExtraLocation(rgExtraLoc_08_Rev2, SFA2_A_NUM_IND_08_REV2, nUnitId, SFA2_A_EXTRA_CUSTOM_08_REV2);
         }
         case SFA2_SupportedROMRevision::SFZ2A_960826:
         {
-            if (rgExtraLoc_08_SFZ2A[0] == -1)
-            {
-                int nDefCtr = 0;
-                int nCurrUnit = UNIT_START_VALUE;
-                memset(rgExtraLoc_08_SFZ2A, 0, (SFZ2A_A_NUM_IND_08 + 1) * sizeof(int));
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-                {
-                    if (pCurrDef->uUnitN != nCurrUnit)
-                    {
-                        rgExtraLoc_08_SFZ2A[pCurrDef->uUnitN] = nDefCtr;
-                        nCurrUnit = pCurrDef->uUnitN;
-                    }
-
-                    nDefCtr++;
-                    pCurrDef = GetCurrentExtraDef(nDefCtr);
-                }
-            }
-
-            return rgExtraLoc_08_SFZ2A[nUnitId];
+            return _GetExtraLocation(rgExtraLoc_08_SFZ2A, SFZ2A_A_NUM_IND_08, nUnitId, SFZ2A_A_EXTRA_CUSTOM_08);
         }
         }
     }

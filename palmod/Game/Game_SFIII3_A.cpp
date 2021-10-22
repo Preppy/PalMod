@@ -173,161 +173,26 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
     {
     case SF3ROM_10:
     {
-        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_10 : (int*)rgExtraCountAll_10;
-
-        if (rgExtraCountAll_10[0] == -1)
-        {
-            int nDefCtr = 0;
-            memset(rgExtraCountAll_10, 0, (SFIII3_A_10_NUMUNIT + 1) * sizeof(int));
-            memset(rgExtraCountVisibleOnly_10, 0, (SFIII3_A_10_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                {
-                    rgExtraCountAll_10[pCurrDef->uUnitN]++;
-
-                    if (!pCurrDef->isInvisible)
-                    {
-                        rgExtraCountVisibleOnly_10[pCurrDef->uUnitN]++;
-                    }
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraCt[nUnitId];
+        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_10 : rgExtraCountAll_10, SFIII3_A_10_NUMUNIT, nUnitId, SFIII3_A_10_EXTRA_CUSTOM);
     }
     case SF3ROM_10_4rd:
     {
-        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_14 : (int*)rgExtraCountAll_14;
-
-        if (rgExtraCountAll_14[0] == -1)
-        {
-            int nDefCtr = 0;
-            memset(rgExtraCountAll_14, 0, (SFIII3_A_10_NUMUNIT + 1) * sizeof(int));
-            memset(rgExtraCountVisibleOnly_14, 0, (SFIII3_A_10_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                {
-                    rgExtraCountAll_14[pCurrDef->uUnitN]++;
-
-                    if (!pCurrDef->isInvisible)
-                    {
-                        rgExtraCountVisibleOnly_10[pCurrDef->uUnitN]++;
-                    }
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraCt[nUnitId];
+        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_14 : rgExtraCountAll_14, SFIII3_A_10_NUMUNIT, nUnitId, SFIII3_A_14_EXTRA_CUSTOM);
     }
     case SF3ROM_51_4rd:
     {
-        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_4 : (int*)rgExtraCountAll_4;
-
-        if (rgExtraCountAll_4[0] == -1)
-        {
-            int nDefCtr = 0;
-            memset(rgExtraCountAll_4, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
-            memset(rgExtraCountVisibleOnly_4, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                {
-                    rgExtraCountAll_4[pCurrDef->uUnitN]++;
-
-                    if (!pCurrDef->isInvisible)
-                    {
-                        rgExtraCountVisibleOnly_4[pCurrDef->uUnitN]++;
-                    }
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraCt[nUnitId];
+        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_4 : rgExtraCountAll_4, SFIII3_A_51_NUMUNIT, nUnitId, SFIII3_A_4_EXTRA_CUSTOM);
     }
     case SF3ROM_70_EX:
     {
-        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_70 : (int*)rgExtraCountAll_70;
-
-        if (rgExtraCountAll_70[0] == -1)
-        {
-            int nDefCtr = 0;
-            memset(rgExtraCountAll_70, 0, (SFIII3_A_70_NUMUNIT + 1) * sizeof(int));
-            memset(rgExtraCountVisibleOnly_70, 0, (SFIII3_A_70_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                {
-                    rgExtraCountAll_70[pCurrDef->uUnitN]++;
-
-                    if (!pCurrDef->isInvisible)
-                    {
-                        rgExtraCountVisibleOnly_70[pCurrDef->uUnitN]++;
-                    }
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraCt[nUnitId];
+        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_70 : rgExtraCountAll_70, SFIII3_A_70_NUMUNIT, nUnitId, SFIII3_A_70_EXTRA_CUSTOM);
     }
     default:
         OutputDebugString(L"Warning: unrecognized ROM.\n");
         __fallthrough;
     case SF3ROM_51:
     {
-        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_51 : (int*)rgExtraCountAll_51;
-
-        if (rgExtraCountAll_51[0] == -1)
-        {
-            int nDefCtr = 0;
-            memset(rgExtraCountAll_51, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
-            memset(rgExtraCountVisibleOnly_51, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != UNIT_START_VALUE)
-                {
-                    rgExtraCountAll_51[pCurrDef->uUnitN]++;
-
-                    if (!pCurrDef->isInvisible)
-                    {
-                        rgExtraCountVisibleOnly_51[pCurrDef->uUnitN]++;
-                    }
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraCt[nUnitId];
+        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_51 : rgExtraCountAll_51, SFIII3_A_51_NUMUNIT, nUnitId, SFIII3_A_51_EXTRA_CUSTOM);
     }
     }
 }
@@ -338,131 +203,26 @@ int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
     {
     case SF3ROM_10:
     {
-        if (rgExtraLoc_10[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_10, 0, (SFIII3_A_10_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_10[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_10[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_10, SFIII3_A_10_NUMUNIT, nUnitId, SFIII3_A_10_EXTRA_CUSTOM);
     }
     case SF3ROM_10_4rd:
     {
-        if (rgExtraLoc_14[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_14, 0, (SFIII3_A_10_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_14[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_14[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_14, SFIII3_A_10_NUMUNIT, nUnitId, SFIII3_A_14_EXTRA_CUSTOM);
     }
     case SF3ROM_51_4rd:
     {
-        if (rgExtraLoc_4[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_4, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_4[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_4[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_4, SFIII3_A_51_NUMUNIT, nUnitId, SFIII3_A_4_EXTRA_CUSTOM);
     }
     case SF3ROM_70_EX:
     {
-        if (rgExtraLoc_70[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_70, 0, (SFIII3_A_70_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_70[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_70[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_70, SFIII3_A_70_NUMUNIT, nUnitId, SFIII3_A_70_EXTRA_CUSTOM);
     }
     default:
         OutputDebugString(L"Warning: unrecognized ROM.\n");
         __fallthrough;
     case SF3ROM_51:
     {
-        if (rgExtraLoc_51[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_51, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_51[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_51[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_51, SFIII3_A_51_NUMUNIT, nUnitId, SFIII3_A_51_EXTRA_CUSTOM);
     }
     }
 }

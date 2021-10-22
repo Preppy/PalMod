@@ -169,81 +169,27 @@ stExtraDef* CGame_KOF99AE_A::GetCurrentExtraDef(int nDefCtr)
 
 int CGame_KOF99AE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt;
-    int nArraySize;
-
     if (UsePaletteSetForP2())
     {
-        rgExtraCt = (int*)rgExtraCountAll_P2;
-        nArraySize = KOF99AE_A_P2_NUMUNIT;
+        return _GetExtraCount(rgExtraCountAll_P2, KOF99AE_A_P2_NUMUNIT, nUnitId, KOF99AE_A_P2_EXTRA_CUSTOM);
     }
     else
     {
-        rgExtraCt = (int*)rgExtraCountAll_P3;
-        nArraySize = KOF99AE_A_P3_NUMUNIT;
+        return _GetExtraCount(rgExtraCountAll_P3, KOF99AE_A_P3_NUMUNIT, nUnitId, KOF99AE_A_P3_EXTRA_CUSTOM);
     }
 
-    if (rgExtraCt[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCt, 0, ((nArraySize + 1) * sizeof(int)));
-
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
-                (!pCurrDef->isInvisible || !bCountVisibleOnly))
-            {
-                rgExtraCt[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
-        }
-    }
-
-    return rgExtraCt[nUnitId];
 }
 
 int CGame_KOF99AE_A::GetExtraLoc(UINT16 nUnitId)
 {
-    int* rgExtraCurrent;
-    int nArraySize;
-
     if (UsePaletteSetForP2())
     {
-        rgExtraCurrent = (int*)rgExtraLoc_P2;
-        nArraySize = KOF99AE_A_P2_NUMUNIT;
+        return _GetExtraLocation(rgExtraLoc_P2, KOF99AE_A_P2_NUMUNIT, nUnitId, KOF99AE_A_P2_EXTRA_CUSTOM);
     }
     else
     {
-        rgExtraCurrent = (int*)rgExtraLoc_P3;
-        nArraySize = KOF99AE_A_P3_NUMUNIT;
+        return _GetExtraLocation(rgExtraLoc_P3, KOF99AE_A_P3_NUMUNIT, nUnitId, KOF99AE_A_P3_EXTRA_CUSTOM);
     }
-
-    if (rgExtraCurrent[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraCurrent, 0, (nArraySize + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraCurrent[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
-        }
-    }
-
-    return rgExtraCurrent[nUnitId];
 }
 
 sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)

@@ -93,60 +93,12 @@ CGame_SFIII1_A::~CGame_SFIII1_A(void)
 
 int CGame_SFIII1_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_50 : (int*)rgExtraCountAll_50;
-
-    if (rgExtraCountAll_50[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCountAll_50, 0, (SFIII1_A_50_NUMUNIT + 1) * sizeof(int));
-        memset(rgExtraCountVisibleOnly_50, 0, (SFIII1_A_50_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != UNIT_START_VALUE)
-            {
-                rgExtraCountAll_50[pCurrDef->uUnitN]++;
-
-                if (!pCurrDef->isInvisible)
-                {
-                    rgExtraCountVisibleOnly_50[pCurrDef->uUnitN]++;
-                }
-            }
-
-            nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
-        }
-    }
-
-    return rgExtraCt[nUnitId];
+    return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_50 : rgExtraCountAll_50, SFIII1_A_50_NUMUNIT, nUnitId, SFIII1_A_50_EXTRA_CUSTOM);
 }
 
 int CGame_SFIII1_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (rgExtraLoc_50[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc_50, 0, (SFIII1_A_50_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc_50[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc_50[nUnitId];
+    return _GetExtraLocation(rgExtraLoc_50, SFIII1_A_50_NUMUNIT, nUnitId, SFIII1_A_50_EXTRA_CUSTOM);
 }
 
 const sDescTreeNode* CGame_SFIII1_A::GetCurrentUnitSet()

@@ -17,8 +17,8 @@ UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_7B = 0;
 UINT32 CGame_MSHVSF_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_MSHVSF_A::m_nConfirmedROMSize = -1;
 
-int CGame_MSHVSF_A::rgExtraCountAll_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
-int CGame_MSHVSF_A::rgExtraCountAll_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
+int CGame_MSHVSF_A::rgExtraLocation_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
+int CGame_MSHVSF_A::rgExtraLocation_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
 int CGame_MSHVSF_A::rgExtraCount_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
 int CGame_MSHVSF_A::rgExtraCount_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
 
@@ -27,8 +27,8 @@ void CGame_MSHVSF_A::InitializeStatics()
     safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A);
     safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B);
 
-    memset(rgExtraCountAll_6A, -1, sizeof(rgExtraCountAll_6A));
-    memset(rgExtraCountAll_7B, -1, sizeof(rgExtraCountAll_7B));
+    memset(rgExtraLocation_6A, -1, sizeof(rgExtraLocation_6A));
+    memset(rgExtraLocation_7B, -1, sizeof(rgExtraLocation_7B));
     memset(rgExtraCount_6A, -1, sizeof(rgExtraCount_6A));
     memset(rgExtraCount_7B, -1, sizeof(rgExtraCount_7B));
 
@@ -163,81 +163,24 @@ int CGame_MSHVSF_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (UsePaletteSetForCharacters())
     {
-        if (rgExtraCountAll_6A[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraCountAll_6A, 0, (MSHVSF_A_NUM_IND_6A + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetExtraDefForMSHVSF(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraCountAll_6A[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetExtraDefForMSHVSF(nDefCtr);
-            }
-        }
-
-        return rgExtraCountAll_6A[nUnitId];
+        return _GetExtraLocation(rgExtraLocation_6A, MSHVSF_A_NUM_IND_6A, nUnitId, MSHVSF_A_EXTRA_CUSTOM_6A);
     }
     else
     {
-        if (rgExtraCountAll_7B[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraCountAll_7B, 0, (MSHVSF_A_NUM_IND_7B + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetExtraDefForMSHVSF(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraCountAll_7B[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetExtraDefForMSHVSF(nDefCtr);
-            }
-        }
-
-        return rgExtraCountAll_7B[nUnitId];
+        return _GetExtraLocation(rgExtraLocation_7B, MSHVSF_A_NUM_IND_7B, nUnitId, MSHVSF_A_EXTRA_CUSTOM_7B);
     }
 }
 
 int CGame_MSHVSF_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = UsePaletteSetForCharacters() ? (int*)rgExtraCount_6A : (int*)rgExtraCount_7B;
-
-    if (rgExtraCt[0] == -1)
+    if (UsePaletteSetForCharacters())
     {
-        int nDefCtr = 0;
-        memset(rgExtraCt, 0, ((UsePaletteSetForCharacters() ? MSHVSF_A_NUM_IND_6A : MSHVSF_A_NUM_IND_7B) + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForMSHVSF(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
-                (!pCurrDef->isInvisible || !bCountVisibleOnly))
-            {
-                rgExtraCt[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForMSHVSF(nDefCtr);
-        }
+        return _GetExtraCount(rgExtraCount_6A, MSHVSF_A_NUM_IND_6A, nUnitId, MSHVSF_A_EXTRA_CUSTOM_6A);
     }
-
-    return rgExtraCt[nUnitId];
+    else
+    {
+        return _GetExtraCount(rgExtraCount_7B, MSHVSF_A_NUM_IND_7B, nUnitId, MSHVSF_A_EXTRA_CUSTOM_7B);
+    }
 }
 
 CDescTree* CGame_MSHVSF_A::GetMainTree()

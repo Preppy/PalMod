@@ -220,123 +220,32 @@ int CGame_SSF2T_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (UsePaletteSetForPortraits())
     {
-        if (rgExtraLoc_3C[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_3C, 0, (SSF2T_A_NUM_IND_3C + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_3C[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetExtraDefForSSF2T(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_3C[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_3C, SSF2T_A_NUM_IND_3C, nUnitId, SSF2T_A_EXTRA_CUSTOM_3C);
     }
     else if (UsePaletteSetForStages())
     {
-        if (rgExtraLoc_8[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_8, 0, (SSF2T_A_NUM_IND_8 + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_8[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetExtraDefForSSF2T(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_8[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_8, SSF2T_A_NUM_IND_8, nUnitId, SSF2T_A_EXTRA_CUSTOM_8);
     }
     else
     {
-        if (rgExtraLoc_4A[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_4A, 0, (SSF2T_A_NUM_IND_4A + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_4A[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetExtraDefForSSF2T(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_4A[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_4A, SSF2T_A_NUM_IND_4A, nUnitId, SSF2T_A_EXTRA_CUSTOM_4A);
     }
 }
 
 int CGame_SSF2T_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt;
-    int nArraySize;
-    
     if (UsePaletteSetForPortraits())
     {
-        rgExtraCt = (int*)rgExtraCountAll_3C;
-        nArraySize = SSF2T_A_NUM_IND_3C;
+        return _GetExtraCount(rgExtraCountAll_3C, SSF2T_A_NUM_IND_3C, nUnitId, SSF2T_A_EXTRA_CUSTOM_3C);
     }
     else if (UsePaletteSetForStages())
     {
-        rgExtraCt = (int*)rgExtraCountAll_8;
-        nArraySize = SSF2T_A_NUM_IND_8;
+        return _GetExtraCount(rgExtraCountAll_8, SSF2T_A_NUM_IND_8, nUnitId, SSF2T_A_EXTRA_CUSTOM_8);
     }
     else
     {
-        rgExtraCt = (int*)rgExtraCountAll_4A;
-        nArraySize = SSF2T_A_NUM_IND_4A;
+        return _GetExtraCount(rgExtraCountAll_4A, SSF2T_A_NUM_IND_4A, nUnitId, SSF2T_A_EXTRA_CUSTOM_4A);
     }
-
-    if (rgExtraCt[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCt, 0, (nArraySize + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
-                (!pCurrDef->isInvisible || !bCountVisibleOnly))
-            {
-                rgExtraCt[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForSSF2T(nDefCtr);
-        }
-    }
-
-    return rgExtraCt[nUnitId];
 }
 
 CDescTree* CGame_SSF2T_A::GetMainTree()

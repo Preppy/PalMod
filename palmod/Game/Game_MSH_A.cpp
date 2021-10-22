@@ -168,82 +168,25 @@ CDescTree* CGame_MSH_A::GetMainTree()
 
 int CGame_MSH_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = UsePaletteSetForCharacters() ? (int*)rgExtraCountAll_05 : (int*)rgExtraCountAll_06;
-
-    if (rgExtraCt[0] == -1)
+    if (UsePaletteSetForCharacters())
     {
-        int nDefCtr = 0;
-        memset(rgExtraCt, 0, ((UsePaletteSetForCharacters() ? MSH_A_NUMUNIT_05 : MSH_A_NUMUNIT_06) + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForMSH(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
-                (!pCurrDef->isInvisible || !bCountVisibleOnly))
-            {
-                rgExtraCt[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForMSH(nDefCtr);
-        }
+        return _GetExtraCount(rgExtraCountAll_05, MSH_A_NUMUNIT_05, nUnitId, MSH_A_EXTRA_CUSTOM_05);
     }
-
-    return rgExtraCt[nUnitId];
+    else
+    {
+        return _GetExtraCount(rgExtraCountAll_06, MSH_A_NUMUNIT_06, nUnitId, MSH_A_EXTRA_CUSTOM_06);
+    }
 }
 
 int CGame_MSH_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (UsePaletteSetForCharacters())
     {
-        if (rgExtraLoc_05[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_05, 0, (MSH_A_NUMUNIT_05 + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetExtraDefForMSH(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_05[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetExtraDefForMSH(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_05[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_05, MSH_A_NUMUNIT_05, nUnitId, MSH_A_EXTRA_CUSTOM_05);
     }
     else
     {
-        if (rgExtraLoc_06[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_06, 0, (MSH_A_NUMUNIT_06 + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetExtraDefForMSH(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_06[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetExtraDefForMSH(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_06[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_06, MSH_A_NUMUNIT_06, nUnitId, MSH_A_EXTRA_CUSTOM_06);
     }
 }
 

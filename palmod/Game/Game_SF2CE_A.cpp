@@ -256,100 +256,16 @@ int CGame_SF2CE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
     {
     case 21:
     {
-        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_21 : (int*)rgExtraCountAll_21;
-
-        if (rgExtraCountAll_21[0] == -1)
-        {
-            int nDefCtr = 0;
-            memset(rgExtraCountAll_21, 0, (SF2CE_A_21_NUMUNIT + 1) * sizeof(int));
-            memset(rgExtraCountVisibleOnly_21, 0, (SF2CE_A_21_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
-                    (!pCurrDef->isInvisible || !bCountVisibleOnly))
-                {
-                    rgExtraCountAll_21[pCurrDef->uUnitN]++;
-
-                    if (!pCurrDef->isInvisible)
-                    {
-                        rgExtraCountVisibleOnly_21[pCurrDef->uUnitN]++;
-                    }
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraCt[nUnitId];
+        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_21 : rgExtraCountAll_21, SF2CE_A_21_NUMUNIT, nUnitId, SF2CE_A_21_EXTRA_CUSTOM);
     }
     case 22:
     default:
     {
-        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_22 : (int*)rgExtraCountAll_22;
-
-        if (rgExtraCountAll_22[0] == -1)
-        {
-            int nDefCtr = 0;
-            memset(rgExtraCountAll_22, 0, (SF2CE_A_22_NUMUNIT + 1) * sizeof(int));
-            memset(rgExtraCountVisibleOnly_22, 0, (SF2CE_A_22_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
-                    (!pCurrDef->isInvisible || !bCountVisibleOnly))
-                {
-                    rgExtraCountAll_22[pCurrDef->uUnitN]++;
-
-                    if (!pCurrDef->isInvisible)
-                    {
-                        rgExtraCountVisibleOnly_22[pCurrDef->uUnitN]++;
-                    }
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraCt[nUnitId];
+        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_22 : rgExtraCountAll_22, SF2CE_A_22_NUMUNIT, nUnitId, SF2CE_A_22_EXTRA_CUSTOM);
     }
     case 23:
     {
-        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_23 : (int*)rgExtraCountAll_23;
-
-        if (rgExtraCountAll_23[0] == -1)
-        {
-            int nDefCtr = 0;
-            memset(rgExtraCountAll_23, 0, (SF2CE_A_23_NUMUNIT + 1) * sizeof(int));
-            memset(rgExtraCountVisibleOnly_23, 0, (SF2CE_A_23_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
-                    (!pCurrDef->isInvisible || !bCountVisibleOnly))
-                {
-                    rgExtraCountAll_23[pCurrDef->uUnitN]++;
-
-                    if (!pCurrDef->isInvisible)
-                    {
-                        rgExtraCountVisibleOnly_23[pCurrDef->uUnitN]++;
-                    }
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraCt[nUnitId];
+        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_23 : rgExtraCountAll_23, SF2CE_A_23_NUMUNIT, nUnitId, SF2CE_A_23_EXTRA_CUSTOM);
     }
     };
 }
@@ -360,79 +276,16 @@ int CGame_SF2CE_A::GetExtraLoc(UINT16 nUnitId)
     {
     case 21:
     {
-        if (rgExtraLoc_21[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_21, 0, (SF2CE_A_21_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_21[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_21[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_21, SF2CE_A_21_NUMUNIT, nUnitId, SF2CE_A_21_EXTRA_CUSTOM);
     }
     case 22:
     default:
     {
-        if (rgExtraLoc_22[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_22, 0, (SF2CE_A_22_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_22[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_22[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_22, SF2CE_A_22_NUMUNIT, nUnitId, SF2CE_A_22_EXTRA_CUSTOM);
     }
     case 23:
     {
-        if (rgExtraLoc_23[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_23, 0, (SF2CE_A_23_NUMUNIT + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_23[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetCurrentExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_23[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_23, SF2CE_A_23_NUMUNIT, nUnitId, SF2CE_A_23_EXTRA_CUSTOM);
     }
     };
 }

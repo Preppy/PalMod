@@ -64,7 +64,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRed
     m_nRedEarthMode = nRedEarthModeToLoad;
 
     const UINT32 nSafeCountFor30 = 202;
-    const UINT32 nSafeCountFor31 = 641;
+    const UINT32 nSafeCountFor31 = 663;
     const UINT32 nSafeCountFor50 = 4;
 
     switch (m_nRedEarthMode)
@@ -154,12 +154,12 @@ int CGame_REDEARTH_A::GetExtraLoc(UINT16 nUnitId)
     switch (m_nRedEarthMode)
     {
     case 30:
-        return _GetExtraCount(rgExtraLoc_30, REDEARTH_A_NUMUNIT_30, nUnitId, REDEARTH_A_EXTRA_CUSTOM_30);
+        return _GetExtraLocation(rgExtraLoc_30, REDEARTH_A_NUMUNIT_30, nUnitId, REDEARTH_A_EXTRA_CUSTOM_30);
     case 31:
     default:
-        return _GetExtraCount(rgExtraLoc_31, REDEARTH_A_NUMUNIT_31, nUnitId, REDEARTH_A_EXTRA_CUSTOM_31);
+        return _GetExtraLocation(rgExtraLoc_31, REDEARTH_A_NUMUNIT_31, nUnitId, REDEARTH_A_EXTRA_CUSTOM_31);
     case 50:
-        return _GetExtraCount(rgExtraLoc_50, REDEARTH_A_NUMUNIT_50, nUnitId, REDEARTH_A_EXTRA_CUSTOM_50);
+        return _GetExtraLocation(rgExtraLoc_50, REDEARTH_A_NUMUNIT_50, nUnitId, REDEARTH_A_EXTRA_CUSTOM_50);
     }
 }
 

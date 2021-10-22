@@ -110,82 +110,25 @@ CGame_JOJOS_A::~CGame_JOJOS_A(void)
 
 int CGame_JOJOS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = UsePaletteSetFor50() ? (int*)rgExtraCountAll_50 : (int*)rgExtraCountAll_51;
-
-    if (rgExtraCt[0] == -1)
+    if (UsePaletteSetFor50())
     {
-        int nDefCtr = 0;
-        memset(rgExtraCt, 0, ((UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51) + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetJojosExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if ((pCurrDef->uUnitN != UNIT_START_VALUE) &&
-                (!pCurrDef->isInvisible || !bCountVisibleOnly))
-            {
-                rgExtraCt[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetJojosExtraDef(nDefCtr);
-        }
+        return _GetExtraCount(rgExtraCountAll_50, JOJOS_A_NUMUNIT_50, nUnitId, JOJOS_A_EXTRA_CUSTOM_50);
     }
-
-    return rgExtraCt[nUnitId];
+    else
+    {
+        return _GetExtraCount(rgExtraCountAll_51, JOJOS_A_NUMUNIT_51, nUnitId, JOJOS_A_EXTRA_CUSTOM_51);
+    }
 }
 
 int CGame_JOJOS_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (UsePaletteSetFor50())
     {
-        if (rgExtraLoc_50[0] == -1)
-        {
-            int nDefCtr = 0;
-            UINT16 nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_50, 0, (JOJOS_A_NUMUNIT_50 + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetJojosExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_50[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetJojosExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_50[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_50, JOJOS_A_NUMUNIT_50, nUnitId, JOJOS_A_EXTRA_CUSTOM_50);
     }
     else
     {
-        if (rgExtraLoc_51[0] == -1)
-        {
-            int nDefCtr = 0;
-            UINT16 nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_51, 0, (JOJOS_A_NUMUNIT_51 + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetJojosExtraDef(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_51[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetJojosExtraDef(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_51[nUnitId];
+        return _GetExtraLocation(rgExtraLoc_51, JOJOS_A_NUMUNIT_51, nUnitId, JOJOS_A_EXTRA_CUSTOM_51);
     }
 }
 

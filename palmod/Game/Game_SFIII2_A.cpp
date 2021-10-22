@@ -10,7 +10,6 @@
 stExtraDef* CGame_SFIII2_A::SFIII2_A_50_EXTRA_CUSTOM = NULL;
 
 int CGame_SFIII2_A::rgExtraCountAll_50[SFIII2_A_50_NUMUNIT + 1] = { -1 };
-int CGame_SFIII2_A::rgExtraCountVisibleOnly_50[SFIII2_A_50_NUMUNIT + 1] = { -1 };
 int CGame_SFIII2_A::rgExtraLoc_50[SFIII2_A_50_NUMUNIT + 1] = { -1 };
 
 CDescTree CGame_SFIII2_A::MainDescTree_50 = nullptr;
@@ -25,7 +24,6 @@ void CGame_SFIII2_A::InitializeStatics()
     safe_delete_array(CGame_SFIII2_A::SFIII2_A_50_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll_50, -1, sizeof(rgExtraCountAll_50));
-    memset(rgExtraCountVisibleOnly_50, -1, sizeof(rgExtraCountVisibleOnly_50));
     memset(rgExtraLoc_50, -1, sizeof(rgExtraLoc_50));
 
     MainDescTree_50.SetRootTree(CGame_SFIII2_A::InitDescTree(50));
@@ -93,60 +91,12 @@ CGame_SFIII2_A::~CGame_SFIII2_A(void)
 
 int CGame_SFIII2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_50 : (int*)rgExtraCountAll_50;
-
-    if (rgExtraCountAll_50[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCountAll_50, 0, (SFIII2_A_50_NUMUNIT + 1) * sizeof(int));
-        memset(rgExtraCountVisibleOnly_50, 0, (SFIII2_A_50_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != UNIT_START_VALUE)
-            {
-                rgExtraCountAll_50[pCurrDef->uUnitN]++;
-
-                if (!pCurrDef->isInvisible)
-                {
-                    rgExtraCountVisibleOnly_50[pCurrDef->uUnitN]++;
-                }
-            }
-
-            nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
-        }
-    }
-
-    return rgExtraCt[nUnitId];
+    return _GetExtraCount(rgExtraCountAll_50, SFIII2_A_50_NUMUNIT, nUnitId, SFIII2_A_50_EXTRA_CUSTOM);
 }
 
 int CGame_SFIII2_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (rgExtraLoc_50[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc_50, 0, (SFIII2_A_50_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc_50[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc_50[nUnitId];
+    return _GetExtraLocation(rgExtraLoc_50, SFIII2_A_50_NUMUNIT, nUnitId, SFIII2_A_50_EXTRA_CUSTOM);
 }
 
 const sDescTreeNode* CGame_SFIII2_A::GetCurrentUnitSet()
