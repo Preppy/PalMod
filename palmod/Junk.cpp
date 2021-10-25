@@ -894,6 +894,8 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, L"Select &All");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, L"Select &None");
+        PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
+        PopupMenu.AppendMenu(nAllocationLength ? MF_ENABLED : MF_DISABLED, CUSTOM_COPYOFFSET, L"Copy Offset");
 
         int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
 
@@ -901,6 +903,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         {
         case CUSTOM_COPY:
         case CUSTOM_PASTE:
+        case CUSTOM_COPYOFFSET:
             NotifyParent(result);
             break;
         case CUSTOM_SALL:
@@ -946,10 +949,11 @@ BOOL CJunk::OnCommand(WPARAM wParam, LPARAM lParam)
     case CUSTOM_PASTE:
     case CUSTOM_SALL:
     case CUSTOM_SNONE:
+    case CUSTOM_COPYOFFSET:
     {
         NotifyParent(LOWORD(wParam));
+        break;
     }
-    break;
     }
     return CWnd::OnCommand(wParam, lParam);
 }

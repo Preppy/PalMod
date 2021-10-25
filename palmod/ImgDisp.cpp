@@ -230,8 +230,8 @@ void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgD
         rImgRct.bottom = nYOffs + uImgH;
     }
 
-    ptOffs[nImgAmt].x = nXOffs;
-    ptOffs[nImgAmt].y = nYOffs;
+    ptOffs[nIndex].x = nXOffs;
+    ptOffs[nIndex].y = nYOffs;
 
     //Add image amount
     nImgAmt++;

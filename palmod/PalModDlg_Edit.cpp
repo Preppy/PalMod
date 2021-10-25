@@ -396,6 +396,7 @@ void CPalModDlg::OnEditCopy()
             strUnicodeData.Append(L" PalMod handles this automatically on CTRL+C /CTRL+V, but you're seeing 'secret' extra data right now using clipboard tricks.");
             strUnicodeData.Append(L" The following data is additional debug information useful for ROM hacking:");
 
+            // Bug/limitation: this location is in reference to palette 0, not the palette issueing the notification
             strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location:\r\n\t0x%x\r\n", CurrGame->GetCurrentPaletteLocation());
             strUnicodeData.Append(strFormatU);
 
@@ -474,6 +475,58 @@ void CPalModDlg::OnEditCopy()
     g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Exit\r\n");
     
     g_DebugHelper.FreeCanary(k_ContextMenuCopyCanary);
+}
+
+void CPalModDlg::OnEditCopyOffset()
+{
+    if (bEnabled)
+    {
+        if (bOleInit)
+        {
+            CStringA CopyText;
+
+            COleDataSource* pSource = new COleDataSource();
+            CSharedFile sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
+
+            CGameClass* CurrGame = GetHost()->GetCurrGame();
+            CJunk* CurrPal = m_PalHost.GetNotifyPal();
+
+            UINT8 cbColor = GetCbForColMode(CurrGame->GetColorMode());
+            int nInitialOffsetDelta = CurrPal->GetHighlightIndex();
+
+            CopyText.Format("0x%x", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
+
+            sf.Write(CopyText, CopyText.GetLength());
+
+            HGLOBAL hMem = sf.Detach();
+            if (hMem)
+            {
+                pSource->CacheGlobalData(CF_TEXT, hMem);
+            }
+
+            CString strUnicodeData;
+
+            // Bug/limitation: this location is in reference to palette 0, not the palette issueing the notification
+            strUnicodeData.Format(L"0x%x", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
+
+            OutputDebugString(strUnicodeData.GetString());
+
+            CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
+
+            sfUnicode.Write(strUnicodeData, strUnicodeData.GetLength() * sizeof(WCHAR));
+
+            HGLOBAL hMemUnicode = sfUnicode.Detach();
+            if (hMemUnicode)
+            {
+                pSource->CacheGlobalData(CF_UNICODETEXT, hMemUnicode);
+            }
+
+            EmptyClipboard();
+            pSource->SetClipboard();
+            pSource->FlushClipboard();
+            CloseClipboard();
+        }
+    }
 }
 
 BOOL CPalModDlg::IsPasteFromPalMod()
@@ -1303,6 +1356,9 @@ void CPalModDlg::CustomEditProc(void* pPalCtrl, UINT_PTR nCtrlId, int nMethod)
     {
     case CUSTOM_COPY:
         OnEditCopy();
+        break;
+    case CUSTOM_COPYOFFSET:
+        OnEditCopyOffset();
         break;
     case CUSTOM_PASTE:
         OnEditPaste();

@@ -984,15 +984,14 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_GORA_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_GREEDIA_PALETTES[] =
 {
-    { L"Greedia Ruins 1/9: Sky", 0x734300, 0x734400, indexRedEarthSprites_Stages, 0x15, &pairFullyLinkedNode },
-    { L"Greedia Ruins 2/9: Waterfalls", 0x734180, 0x734200, indexRedEarthSprites_Stages, 0x16 },
-    { L"Greedia Ruins 3/9: Trees", 0x734200, 0x734280, indexRedEarthSprites_Stages, 0x17 },
-    { L"Greedia Ruins 4/9: More Waterfalls", 0x734280, 0x734300, indexRedEarthSprites_Stages, 0x18 },
-    { L"Greedia Ruins 5/9: Thunder", 0x734580, 0x734600, indexRedEarthSprites_Stages, 0x19 },
-    { L"Greedia Ruins 6/9: Left forest", 0x734100, 0x734180, indexRedEarthSprites_Stages, 0x1a },
-    { L"Greedia Ruins 7/9: Pillars", 0x734080, 0x734100, indexRedEarthSprites_Stages, 0x1b },
-    { L"Greedia Ruins 8/9", 0x734480, 0x734500, indexRedEarthSprites_Stages, 0x1c },
-    { L"Greedia Ruins 9/9: Hippocamps", 0x734400, 0x734480, indexRedEarthSprites_Stages, 0x1d },
+    { L"Greedia Ruins 1/8: Sky",                0x734300, 0x734400, indexRedEarthSprites_Stages, 0x15, &pairFullyLinkedNode },
+    { L"Greedia Ruins 2/8: Waterfalls",         0x734180, 0x734200, indexRedEarthSprites_Stages, 0x16 },
+    { L"Greedia Ruins 3/8: Trees",              0x734200, 0x734280, indexRedEarthSprites_Stages, 0x17 },
+    { L"Greedia Ruins 4/8: More Waterfalls",    0x734280, 0x734300, indexRedEarthSprites_Stages, 0x18 },
+    { L"Greedia Ruins 5/8: Left forest",        0x734100, 0x734180, indexRedEarthSprites_Stages, 0x1a },
+    { L"Greedia Ruins 6/8: Pillars",            0x734080, 0x734100, indexRedEarthSprites_Stages, 0x1b },
+    { L"Greedia Ruins 7/8",                     0x734480, 0x734500, indexRedEarthSprites_Stages, 0x1c },
+    { L"Greedia Ruins 8/8: Hippocamps",         0x734400, 0x734480, indexRedEarthSprites_Stages, 0x1d },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_GREEDIA_CYCLE_PALETTES[] =
@@ -1002,24 +1001,25 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_GREEDIA_CYCLE_PALETTES[] =
     //{ L"Greedia Ruins scrap 3/4", 0x734a00, 0x734c00 },
     //{ L"Greedia Ruins scrap 4/4", 0x734c00, 0x734d00 },
 
-    { L"Greedia Ruins 2/9: Waterfalls",         0x734600, 0x734680, indexRedEarthSprites_Stages, 0x16 },
-    { L"Greedia Ruins 2/9: Waterfalls",         0x734680, 0x734700, indexRedEarthSprites_Stages, 0x16 },
+    { L"Waterfalls cycle: 1/2",         0x734600, 0x734680, indexRedEarthSprites_Stages, 0x16 },
+    { L"Waterfalls cycle: 2/2",         0x734680, 0x734700, indexRedEarthSprites_Stages, 0x16 },
 
-    { L"Greedia Ruins 3/9: Trees",              0x734700, 0x734780, indexRedEarthSprites_Stages, 0x17 },
-    { L"Greedia Ruins 3/9: Trees",              0x734780, 0x734800, indexRedEarthSprites_Stages, 0x17 },
-    { L"Greedia Ruins 3/9: Trees",              0x734800, 0x734880, indexRedEarthSprites_Stages, 0x17 },
+    { L"Trees cycle: 1/3",              0x734700, 0x734780, indexRedEarthSprites_Stages, 0x17 },
+    { L"Trees cycle: 2/3",              0x734780, 0x734800, indexRedEarthSprites_Stages, 0x17 },
+    { L"Trees cycle: 3/3",              0x734800, 0x734880, indexRedEarthSprites_Stages, 0x17 },
 
-    { L"Greedia Ruins 4/9: More Waterfalls",    0x734880, 0x734900, indexRedEarthSprites_Stages, 0x18 },
-    { L"Greedia Ruins 4/9: More Waterfalls",    0x734900, 0x734980, indexRedEarthSprites_Stages, 0x18 },
-    { L"Greedia Ruins 4/9: More Waterfalls",    0x734980, 0x734a00, indexRedEarthSprites_Stages, 0x18 },
+    { L"More Waterfalls cycle: 1/4",    0x734580, 0x734600, indexRedEarthSprites_Stages, 0x18 },
+    { L"More Waterfalls cycle: 2/4",    0x734880, 0x734900, indexRedEarthSprites_Stages, 0x18 },
+    { L"More Waterfalls cycle: 3/4",    0x734900, 0x734980, indexRedEarthSprites_Stages, 0x18 },
+    { L"More Waterfalls cycle: 4/4",    0x734980, 0x734a00, indexRedEarthSprites_Stages, 0x18 },
 
-    { L"Greedia Ruins 6/9: Left forest",        0x734a00, 0x734a80, indexRedEarthSprites_Stages, 0x1a },
-    { L"Greedia Ruins 6/9: Left forest",        0x734a80, 0x734b00, indexRedEarthSprites_Stages, 0x1a },
-    { L"Greedia Ruins 6/9: Left forest",        0x734b00, 0x734b80, indexRedEarthSprites_Stages, 0x1a },
+    { L"Left forest cycle: 1/3",        0x734a00, 0x734a80, indexRedEarthSprites_Stages, 0x1a },
+    { L"Left forest cycle: 2/3",        0x734a80, 0x734b00, indexRedEarthSprites_Stages, 0x1a },
+    { L"Left forest cycle: 3/3",        0x734b00, 0x734b80, indexRedEarthSprites_Stages, 0x1a },
 
-    { L"Greedia Ruins 1/9: Sky",                0x734b80, 0x734c00, indexRedEarthSprites_Stages, 0x15 },
-    { L"Greedia Ruins 1/9: Sky",                0x734c00, 0x734c80, indexRedEarthSprites_Stages, 0x15 },
-    { L"Greedia Ruins 1/9: Sky",                0x734c80, 0x734d00, indexRedEarthSprites_Stages, 0x15 },
+    { L"Sky cycle: 1/3",                0x734b80, 0x734c00, indexRedEarthSprites_Stages, 0x15 },
+    { L"Sky cycle: 1/3",                0x734c00, 0x734c80, indexRedEarthSprites_Stages, 0x15 },
+    { L"Sky cycle: 3/3",                0x734c80, 0x734d00, indexRedEarthSprites_Stages, 0x15 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_ZIPANG_PALETTES[] =

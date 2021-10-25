@@ -184,7 +184,11 @@ const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_SHARED[] =
 {
-    { L"P2 Optic Blast Palette?", 0x7638c, 0x763Ac },
+    { L"Optic Blast / Optic Bullet 1/5 (shared)", 0x7636c, 0x7638c, indexCPS2Sprites_Cyclops, 0x0b },
+    { L"Optic Blast / Optic Bullet 2/5 (shared)", 0x7638c, 0x763Ac, indexCPS2Sprites_Cyclops, 0x0b },
+    { L"Optic Blast / Optic Bullet 3/5 (shared)", 0x763ac, 0x763cc, indexCPS2Sprites_Cyclops, 0x0b },
+    { L"Optic Blast / Optic Bullet 4/5 (shared)", 0x763cc, 0x763ec, indexCPS2Sprites_Cyclops, 0x0b },
+    { L"Optic Blast / Optic Bullet 5/5 (shared)", 0x763ec, 0x7640c, indexCPS2Sprites_Cyclops, 0x0b },
 };
 
 const sGame_PaletteDataset MSHVSF_A_DAN_PALETTES_P1COLOR_PUNCH[] =

@@ -6,16 +6,17 @@
 
 #define aaadd(x, y) ((UINT8)(((x) + (y) > 255) ? 255 : (x) + (y)))
 
-#define CUSTOM_HLCHANGE        WM_USER +1
-#define CUSTOM_SELHLCHANGE     WM_USER +2
-#define CUSTOM_SS              WM_USER +3 // single select
-#define CUSTOM_MS              WM_USER +4 // multi select
+constexpr auto CUSTOM_HLCHANGE        = WM_USER +1;
+constexpr auto CUSTOM_SELHLCHANGE     = WM_USER +2;
+constexpr auto CUSTOM_SS              = WM_USER +3; // single select
+constexpr auto CUSTOM_MS              = WM_USER + 4; // multi select
 
-#define CUSTOM_COPY            WM_USER +11
-#define CUSTOM_PASTE           WM_USER +12
-#define CUSTOM_SALL            WM_USER +13
-#define CUSTOM_SNONE           WM_USER +14
-#define CUSTOM_REVERSE         WM_USER +15
+constexpr auto CUSTOM_COPY            = WM_USER + 11;
+constexpr auto CUSTOM_PASTE           = WM_USER + 12;
+constexpr auto CUSTOM_SALL            = WM_USER + 13;
+constexpr auto CUSTOM_SNONE           = WM_USER + 14;
+constexpr auto CUSTOM_REVERSE         = WM_USER + 15;
+constexpr auto CUSTOM_COPYOFFSET      = WM_USER + 16;
 
 #define BASE_PALETTE_SQUARE_SIZE 15
 #define BDR_SZ 1

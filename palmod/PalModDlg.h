@@ -280,6 +280,7 @@ public:
     afx_msg void OnEditPaste();
     afx_msg void OnCopyColorAtPointer();
     afx_msg void OnPasteColorAtPointer();
+    afx_msg void OnEditCopyOffset();
 
     DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
     bool SelectMatchingColorsInPalette(DWORD dwColorToMatch);
