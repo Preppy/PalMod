@@ -117,9 +117,9 @@ const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P2[] =
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P1[] =
 {
     { L"P1",          0x2693c, 0x2695c, indexCPS2Sprites_Cyclops, 0, &pairNext2 },
-    { L"P1 Extras 1", 0x2695c, 0x2697c, indexCPS2Sprites_Cyclops, 0x0f },
+    { L"P1 Extras 1: Coat", 0x2695c, 0x2697c, indexCPS2Sprites_Cyclops, 0x0f },
     { L"P1 jHK",      0x2697c, 0x2699c, indexCPS2Sprites_Cyclops, 0x1 },
-    { L"P1 Extras 3", 0x2699c, 0x269Bc, indexCPS2Sprites_Cyclops, 0x2 },
+    { L"P1 Extras 3: Mega Optic Blast", 0x2699c, 0x269Bc, indexCPS2Sprites_Cyclops, 0x10 },
 
     // preceded by unknown, this segment followed by P2 intro 1
     { L"P1 Optic Stance 1", 0x2865c, 0x2867c, indexCPS2Sprites_Cyclops, 13 },
@@ -142,18 +142,18 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_EXTRAS[] =
     { L"Shared Optic Blast 4", 0x2871c, 0x2873c, indexCPS2Sprites_Cyclops, 11 },
     { L"Shared Optic Blast 5", 0x2869c, 0x286bc, indexCPS2Sprites_Cyclops, 11 },
 
-    { L"Shared Optic FX 1", 0x2873c, 0x2875c, indexCPS2Sprites_Cyclops, 3 },
-    { L"Shared Optic FX 2", 0x2875c, 0x2877c, indexCPS2Sprites_Cyclops, 3 },
+    { L"Shared Optic FX 1", 0x2873c, 0x2875c, indexCPS2Sprites_Cyclops, 0x11 },
+    { L"Shared Optic FX 2", 0x2875c, 0x2877c, indexCPS2Sprites_Cyclops, 0x11 },
 };
 
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P2[] =
 {
     { L"P2",          0x269Bc, 0x269Dc, indexCPS2Sprites_Cyclops, 0, &pairNext2 },
-    { L"P2 Extras 1", 0x269Dc, 0x269Fc, indexCPS2Sprites_Cyclops, 0x0f },
+    { L"P2 Extras 1: Coat", 0x269Dc, 0x269Fc, indexCPS2Sprites_Cyclops, 0x0f },
     // Yes, the purple/gold p2 cyclops is using the wrong P2 jHK palette.
     // this is just an old palette bug in COTA itself
     { L"P2 jHK",      0x269Fc, 0x26A1c, indexCPS2Sprites_Cyclops, 0x1 }, 
-    { L"P2 Extras 3", 0x26A1c, 0x26A3c, indexCPS2Sprites_Cyclops, 0x2 },
+    { L"P2 Extras 3: Mega Optic Blast", 0x26A1c, 0x26A3c, indexCPS2Sprites_Cyclops, 0x10 },
 
     { L"P2 Optic Stance 1", 0x2887c, 0x2889c, indexCPS2Sprites_Cyclops, 13 },
     { L"P2 Optic Stance 2", 0x2889c, 0x288Bc, indexCPS2Sprites_Cyclops, 13 },

@@ -3,6 +3,7 @@
 #include "ColorSystem.h"
 #include "..\PalMod.h"
 #include "..\regproc.h"
+#include <string>
 
 BOOL CGameClass::bPostSetPalProc = TRUE;
 BOOL CGameClass::m_fAllowTransparencyEdits = FALSE;
@@ -1159,6 +1160,84 @@ const sDescTreeNode* CGameClass::_GetNodeFromPaletteId(const sDescTreeNode* pGam
     }
 
     return pCollectionNode;
+}
+
+void CGameClass::DumpTreeSorted()
+{
+    sDescTreeNode* pRootTree = GetMainTree()->GetDescTree(-1);
+
+    const UINT16 c_nUnitCount = GetUnitCt();
+
+    struct sPaletteTrackingInformation
+    {
+        int nPaletteOffset = -1;
+        int nTerminalOffset = -1;
+        std::wstring strUnitName;
+        std::wstring strCollectionName;
+        std::wstring strPaletteName;
+        struct sPaletteTrackingInformation* pNext = nullptr;
+    };
+
+    sPaletteTrackingInformation * pListRoot = nullptr;
+
+    for (int nUnitIndex = 0; nUnitIndex < c_nUnitCount; nUnitIndex++)
+    {
+        sDescTreeNode* UnitTree = &((sDescTreeNode*)pRootTree->ChildNodes)[nUnitIndex];
+
+        for (int nCollectionIndex = 0; nCollectionIndex < UnitTree->uChildAmt; nCollectionIndex++)
+        {
+            sDescTreeNode* CollectionTree = &((sDescTreeNode *)UnitTree->ChildNodes)[nCollectionIndex];
+
+            for (int nPaletteIndex = 0; nPaletteIndex < CollectionTree->uChildAmt; nPaletteIndex++)
+            {
+                sDescNode* DescNode = &((sDescNode*)CollectionTree->ChildNodes)[nPaletteIndex];
+
+                LoadSpecificPaletteData(DescNode->uUnitId, DescNode->uPalId);
+
+                sPaletteTrackingInformation* pNewListEntry = new sPaletteTrackingInformation;
+
+                pNewListEntry->nPaletteOffset = m_nCurrentPaletteROMLocation;
+                pNewListEntry->nTerminalOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                pNewListEntry->strUnitName = UnitTree->szDesc;
+                pNewListEntry->strCollectionName = CollectionTree->szDesc;
+                pNewListEntry->strPaletteName = m_pszCurrentPaletteName;
+
+                sPaletteTrackingInformation* pCurrent = pListRoot;
+
+                if (!pCurrent || (pCurrent->nPaletteOffset > pNewListEntry->nPaletteOffset))
+                {
+                    pNewListEntry->pNext = pCurrent;
+                    pListRoot = pNewListEntry;
+                }
+                else
+                {
+                    while (pCurrent->pNext &&
+                          (pCurrent->pNext->nPaletteOffset < pNewListEntry->nPaletteOffset))
+                    {
+                        pCurrent = pCurrent->pNext;
+                    }
+
+                    pNewListEntry->pNext = pCurrent->pNext;
+                    pCurrent->pNext = pNewListEntry;
+                }
+            }
+        }
+    }
+
+    sPaletteTrackingInformation* pCurrent = pListRoot;
+
+    // Output the list
+    while (pCurrent)
+    {
+        CString strDetails;
+
+        strDetails.Format(L"0x%08x, 0x%08x, %s, %s, %s\r\n", pCurrent->nPaletteOffset, pCurrent->nTerminalOffset, pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+        OutputDebugString(strDetails);
+
+        sPaletteTrackingInformation* pTemp = pCurrent->pNext;
+        safe_delete(pCurrent);
+        pCurrent = pTemp;
+    }
 }
 
 UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, UINT16 nExtraUnitLocation, UINT16 nTotalNormalUnitCount,

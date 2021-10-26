@@ -2328,7 +2328,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CAMMY[] =
 { //24: Cammy" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)" },
-    { 0x02, L"(03) Not Used" },
+    { 0x02, L"(03) Coat" },
     { 0x03, L"(04) Bison" },
     { 0x04, L"(05) Not Used" },
     { 0x05, L"(06) Not Used" },

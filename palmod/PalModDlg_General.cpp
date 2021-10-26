@@ -30,14 +30,16 @@ void CPalModDlg::UpdateCombo()
 
 #if DUMP_DESCRIPTION_TREE_ON_LOAD
         // Added this in so I could see the active game tree easily.
-        static bool s_fHaveDumped = false;
+        static SupportedGamesList s_LastDumpedGame = NUM_GAMES;
 
-        if (!s_fHaveDumped)
+        if (s_LastDumpedGame != CurrGame->GetGameFlag())
         {
-            s_fHaveDumped = true;
+            s_LastDumpedGame = CurrGame->GetGameFlag();
 
-            // dump active tree
-            CurrGame->GetMainTree()->DumpTree(nullptr);
+            // You can dump in tree form:
+            //CurrGame->GetMainTree()->DumpTree(nullptr);
+            // or sorted by rom location:
+            CurrGame->DumpTreeSorted();
         }
 #endif
 

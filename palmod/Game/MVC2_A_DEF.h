@@ -5438,7 +5438,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x44f3b80, 0x44f3ba0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f3ba0, 0x44f3bc0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Not Used", 0x44f3bc0, 0x44f3be0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat", 0x44f3bc0, 0x44f3be0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f3be0, 0x44f3c00, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f3c00, 0x44f3c20, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f3c20, 0x44f3c40, indexCPS2Sprites_Cammy, 5 },
@@ -5450,7 +5450,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_LK[] =
 {
     { L"Main Color LK", 0x44f3c80, 0x44f3ca0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f3ca0, 0x44f3cc0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Not Used", 0x44f3cc0, 0x44f3ce0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat", 0x44f3cc0, 0x44f3ce0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f3ce0, 0x44f3d00, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f3d00, 0x44f3d20, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f3d20, 0x44f3d40, indexCPS2Sprites_Cammy, 5 },
@@ -5462,7 +5462,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_HP[] =
 {
     { L"Main Color HP", 0x44f3d80, 0x44f3da0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f3da0, 0x44f3dc0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Not Used", 0x44f3dc0, 0x44f3de0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat", 0x44f3dc0, 0x44f3de0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f3de0, 0x44f3e00, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f3e00, 0x44f3e20, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f3e20, 0x44f3e40, indexCPS2Sprites_Cammy, 5 },
@@ -5474,7 +5474,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_HK[] =
 {
     { L"Main Color HK", 0x44f3e80, 0x44f3ea0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f3ea0, 0x44f3ec0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Not Used", 0x44f3ec0, 0x44f3ee0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat", 0x44f3ec0, 0x44f3ee0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f3ee0, 0x44f3f00, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f3f00, 0x44f3f20, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f3f20, 0x44f3f40, indexCPS2Sprites_Cammy, 5 },
@@ -5486,7 +5486,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_A1[] =
 {
     { L"Main Color A1", 0x44f3f80, 0x44f3fa0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f3fa0, 0x44f3fc0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Not Used", 0x44f3fc0, 0x44f3fe0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat", 0x44f3fc0, 0x44f3fe0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f3fe0, 0x44f4000, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f4000, 0x44f4020, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f4020, 0x44f4040, indexCPS2Sprites_Cammy, 5 },
@@ -5498,7 +5498,7 @@ const sGame_PaletteDataset MVC2_A_CAMMY_PALETTES_A2[] =
 {
     { L"Main Color A2", 0x44f4080, 0x44f40a0, indexCPS2Sprites_Cammy, 0 },
     { L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)", 0x44f40a0, 0x44f40c0, indexCPS2Sprites_Cammy, 1 },
-    { L"(03) Not Used", 0x44f40c0, 0x44f40e0, indexCPS2Sprites_Cammy, 2 },
+    { L"(03) Coat", 0x44f40c0, 0x44f40e0, indexCPS2Sprites_Cammy, 2 },
     { L"(04) Bison", 0x44f40e0, 0x44f4100, indexCPS2Sprites_Cammy, 3 },
     { L"(05) Not Used", 0x44f4100, 0x44f4120, indexCPS2Sprites_Cammy, 4 },
     { L"(06) Not Used", 0x44f4120, 0x44f4140, indexCPS2Sprites_Cammy, 5 },

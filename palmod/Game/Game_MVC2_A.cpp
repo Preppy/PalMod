@@ -712,8 +712,8 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     else if ((nJoinedUnit1 == indexMVC2ASentinel) && (nJoinedUnit2 == indexMVC2AStrider) && (nJoinedUnit3 == indexMVC2ADrDoom))
                     {
                         // clockw0rk
-                        nXOffsetForSecond += 60;
-                        nXOffsetForThird += 40;
+                        nXOffsetForSecond += 30;
+                        nXOffsetForThird += 100;
                     }
                     else if ((nJoinedUnit1 == indexMVC2AMagneto) && (nJoinedUnit2 == indexMVC2AIronMan) && (nJoinedUnit3 == indexMVC2ASentinel))
                     {
@@ -723,6 +723,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     else if ((nJoinedUnit1 == indexMVC2ARogue) && (nJoinedUnit2 == indexMVC2AColossus) && (nJoinedUnit3 == indexMVC2AKen))
                     {
                         // vdo
+                        nXOffsetForSecond += 20;
                         nXOffsetForThird += 40;
                     }
                     else

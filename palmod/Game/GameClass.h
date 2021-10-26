@@ -269,6 +269,9 @@ public:
 
     static int _GetExtraCount(int* rgExtraCount, int nNormalUnitCount, UINT16 nUnitId, stExtraDef* ppExtraDef);
     static int _GetExtraLocation(int *rgExtraLocations, int nNormalUnitCount, UINT16 nUnitId, stExtraDef* ppExtraDef);
+
+    void DumpTreeSorted();
+
     static UINT32 _InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, UINT16 nExtraUnitLocation, UINT16 nTotalNormalUnitCount, int *rgExtraCount, int *rgExtraLocations, stExtraDef *ppExtraDef);
 
     void MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);

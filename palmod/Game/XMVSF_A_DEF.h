@@ -443,7 +443,7 @@ const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x1639a, 0x163ba, indexCPS2Sprites_Cammy, 0x00 },
     { L"P1 psycho FX", 0x163ba, 0x163da, indexCPS2Sprites_Cammy, 0x01 },
-    { L"Palette (02)", 0x163da, 0x163fa, indexCPS2Sprites_Cammy, 0x00 },
+    { L"P1 Coat", 0x163da, 0x163fa, indexCPS2Sprites_Cammy, 0x02 },
 
     { L"P1 Cannon Revenge 1", 0x18b1a, 0x18b3a, indexCPS2Sprites_Cammy, 11 },
     { L"P1 Cannon Revenge 2", 0x18b3a, 0x18b5a, indexCPS2Sprites_Cammy, 11 },
@@ -460,7 +460,7 @@ const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x163fa, 0x1641a, indexCPS2Sprites_Cammy, 0x00 },
     { L"P2 psycho FX", 0x1641a, 0x1643a, indexCPS2Sprites_Cammy, 0x01 },
-    { L"Palette (05)", 0x1643a, 0x1645a, indexCPS2Sprites_Cammy, 0x00 },
+    { L"P2 Coat", 0x1643a, 0x1645a, indexCPS2Sprites_Cammy, 0x02 },
 
     { L"P2 Cannon Revenge 1", 0x18c3a, 0x18c5a, indexCPS2Sprites_Cammy, 11 },
     { L"P2 Cannon Revenge 2", 0x18c5a, 0x18c7a, indexCPS2Sprites_Cammy, 11 },
