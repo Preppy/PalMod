@@ -1109,7 +1109,7 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_HK[] =
     { L"HK Ice Extras", 0x1a17a, 0x1a19a, indexCPS2Sprites_Vamp_Sasquatch, 0x01 },
     { L"HK Banana", 0x1a13a, 0x1a15a, indexCPS2Sprites_Vamp_Sasquatch, 0x02 },
     { L"HK Smoke", 0x1a15a, 0x1a17a, indexCPS2Sprites_Vamp_Sasquatch, 0x03 },
-    { L"HK Select Portrait", 0x3faba, 0x3fada, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
+    { L"HK Select Portrait", 0x41cba, 0x41cda, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
     { L"HK Win Portrait", 0x46a3a, 0x46ada, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Sasquatch },
 };
 

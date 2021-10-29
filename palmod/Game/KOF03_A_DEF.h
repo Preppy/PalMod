@@ -3139,8 +3139,60 @@ const sGame_PaletteDataset KOF03_A_BONUS_PALETTES[] =
     { L"Ash Fire Burning", 0x01d680, 0x01d6a0 },
 };
 
+const sGame_PaletteDataset KOF03_A_SELECTTEAM_PALETTES[] =
+{
+    //Hero Team
+    { L"Ash Crimson", 0x22440, 0x22460 },
+    { L"Duo Lon", 0x22460, 0x22480 },
+    { L"Shen Woo", 0x22480, 0x224A0 },
+    //Fatal Fury Team
+    { L"Terry Bogard", 0x224A0, 0x224C0 },
+    { L"Joe Higashi", 0x224C0, 0x224E0 },
+    { L"Tizoc", 0x224E0, 0x22500 },
+    //Art of Fighting Team
+    { L"Ryo Sakazaki", 0x22500, 0x22520 },
+    { L"Robert Garcia", 0x22520, 0x22540 },
+    { L"Yuri Sakazaki", 0x22540, 0x22560 },
+    //Korea Team
+    { L"Kim Kaphwan", 0x22560, 0x22580 },
+    { L"Chang Koehan", 0x22580, 0x225A0 },
+    { L"Jhun Hoon", 0x225A0, 0x225C0 },
+    //Ikari Warriors Team
+    { L"Leona Heidern", 0x225C0, 0x225E0 },
+    { L"Ralf Jones", 0x225E0, 0x22600 },
+    { L"Clark Still", 0x22600, 0x22620 },
+    //Outlaw Team
+    { L"Gato", 0x22620, 0x22640 },
+    { L"Billy Kane", 0x22640, 0x22660 },
+    { L"Ryuji Yamazaki", 0x22660, 0x22680 },
+    //Women Fighters Team
+    { L"King", 0x22680, 0x226A0 },
+    { L"Mai Shiranui", 0x226A0, 0x226C0 },
+    { L"Blue Mary", 0x226C0, 0x226E0 },
+    //Benimaru Team
+    { L"Benimaru Nikaido", 0x226E0, 0x22700 },
+    { L"Shingo Yabuki", 0x22700, 0x22720 },
+    { L"Goro Daimon", 0x22720, 0x22740 },
+    //High School Girls Team
+    { L"Athena Asamiya", 0x22740, 0x22760 },
+    { L"Hinako Shijou", 0x22760, 0x22780 },
+    { L"Malin", 0x22780, 0x227A0 },
+    //K' Team
+    { L"K'", 0x227A0, 0x227C0 },
+    { L"Maxima", 0x227C0, 0x227E0 },
+    { L"Whip", 0x227E0, 0x22800 },
+
+
+    { L"Iori Yagami", 0x22820, 0x22840 },
+    { L"Kyo Kusanagi", 0x22800, 0x22820 },
+    // Bosses
+    { L"Kusanagi", 0x22860, 0x22880 },
+    { L"Chizuru Kagura", 0x22840, 0x22860 },
+};
+
 const sDescTreeNode KOF03_A_BONUS_COLLECTION[] =
 {
+    { L"Select Team Member Icons", DESC_NODETYPE_TREE, (void*)KOF03_A_SELECTTEAM_PALETTES, ARRAYSIZE(KOF03_A_SELECTTEAM_PALETTES) },
     { L"Bonus", DESC_NODETYPE_TREE, (void*)KOF03_A_BONUS_PALETTES, ARRAYSIZE(KOF03_A_BONUS_PALETTES) },
 };
 
