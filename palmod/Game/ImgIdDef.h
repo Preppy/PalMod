@@ -208,7 +208,26 @@ enum CHARACTERS_CPS2
     indexPuzzleFighter_Ryu,         // 0xA1
     indexPuzzleFighter_Sakura,      // 0xA2
     indexPuzzleFighter_Bonus,       // 0xA3 
-    indexPuzzleFighter_Stages,      // 0xA4 
+    indexPuzzleFighter_Stages,      // 0xA4
+
+    indexCyberbots_Blodia,          // 0xA5
+    indexCyberbots_Cyclone,         // 0xA6
+    indexCyberbots_Fordy,           // 0xA7
+    indexCyberbots_Gaits,           // 0xA8
+    indexCyberbots_Guldin,          // 0xA9
+    indexCyberbots_Helion,          // 0xAA
+    indexCyberbots_Jackal,          // 0xAB
+    indexCyberbots_KillerBee,       // 0xAC
+    indexCyberbots_Lightning,       // 0xAD
+    indexCyberbots_Reptos,          // 0xAE
+    indexCyberbots_Riot,            // 0xAF
+    indexCyberbots_Super8,          // 0xB0
+    indexCyberbots_Swordsman,       // 0xB1
+    indexCyberbots_Tarantula,       // 0xB2
+    indexCyberbots_Unknown,         // 0xB3
+    indexCyberbots_Vise,            // 0xB4
+    indexCyberbots_Warlock,         // 0xB5
+    indexCyberbots_Bonus,           // 0xB6
 };
 
 enum CHARACTERS_3S_CPS3
