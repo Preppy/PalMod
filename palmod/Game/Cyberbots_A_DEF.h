@@ -27,7 +27,6 @@ const UINT16 Cyberbots_A_IMGIDS_USED[] =
     indexCyberbots_Vise,            // 0xB4
     indexCyberbots_Warlock,         // 0xB5
     indexCyberbots_Bonus,           // 0xB6
-
 };
 
 //---MACHINES---
@@ -528,7 +527,7 @@ const sGame_PaletteDataset Cyberbots_A_VISE_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Cyberbots_A_CYCLONE_P1_PALETTES[] =
 {
-    { L"P1 Cyclone Top", 0x4Fd66, 0x4Fd86, indexCyberbots_Cyclone, 0x3, &pairFullyLinkedNode },
+    { L"P1 Cyclone Top", 0x4Fd66, 0x4Fd86, indexCyberbots_Cyclone, 0x3, &pairNextAndNextAndNextAndNext13 },
     { L"P1 Cyclone Legs", 0x505e6, 0x50606, indexCyberbots_Cyclone, 0x2 },
     { L"P1 Cyclone Arm", 0x50de6, 0x50e06, indexCyberbots_Cyclone, 0x0 },
     { L"P1 Cyclone Weapon", 0x51c06, 0x51c26, indexCyberbots_Cyclone, 0x4 },
@@ -536,7 +535,7 @@ const sGame_PaletteDataset Cyberbots_A_CYCLONE_P1_PALETTES[] =
 
 const sGame_PaletteDataset Cyberbots_A_CYCLONE_P2_PALETTES[] =
 {
-    { L"P2 Cyclone Top", 0x4Fde6, 0x4Fe06, indexCyberbots_Cyclone, 0x3, &pairFullyLinkedNode },
+    { L"P2 Cyclone Top", 0x4Fde6, 0x4Fe06, indexCyberbots_Cyclone, 0x3, &pairNextAndNextAndNextAndNext9 },
     { L"P2 Cyclone Legs", 0x50666, 0x50686, indexCyberbots_Cyclone, 0x2 },
     { L"P2 Cyclone Arm", 0x50e66, 0x50e86, indexCyberbots_Cyclone, 0x0 },
     { L"P2 Cyclone Weapon", 0x51d86, 0x51da6, indexCyberbots_Cyclone, 0x4 },
@@ -544,7 +543,7 @@ const sGame_PaletteDataset Cyberbots_A_CYCLONE_P2_PALETTES[] =
 
 const sGame_PaletteDataset Cyberbots_A_CYCLONE_P1_UNDERWATER_PALETTES[] =
 {
-    { L"P1 Cyclone Top Underwater", 0x50066, 0x50086, indexCyberbots_Cyclone, 0x3, &pairFullyLinkedNode },
+    { L"P1 Cyclone Top Underwater", 0x50066, 0x50086, indexCyberbots_Cyclone, 0x3, &pairNextAndNextAndNextAndNext5 },
     { L"P1 Cyclone Legs Underwater", 0x508e6, 0x50906, indexCyberbots_Cyclone, 0x2 },
     { L"P1 Cyclone Arm Underwater", 0x510e6, 0x51106, indexCyberbots_Cyclone, 0x0 },
     { L"P1 Cyclone Weapon Underwater", 0x51f06, 0x51f26, indexCyberbots_Cyclone, 0x4 },
@@ -552,16 +551,15 @@ const sGame_PaletteDataset Cyberbots_A_CYCLONE_P1_UNDERWATER_PALETTES[] =
 
 const sGame_PaletteDataset Cyberbots_A_CYCLONE_P2_UNDERWATER_PALETTES[] =
 {
-    { L"P2 Cyclone Top Underwater", 0x500e6, 0x50106, indexCyberbots_Cyclone, 0x3, &pairFullyLinkedNode },
+    { L"P2 Cyclone Top Underwater", 0x500e6, 0x50106, indexCyberbots_Cyclone, 0x3, &pairNextAndNextAndNextAndNext },
     { L"P2 Cyclone Legs Underwater", 0x50966, 0x50986, indexCyberbots_Cyclone, 0x2 },
     { L"P2 Cyclone Arm Underwater", 0x51166, 0x51186, indexCyberbots_Cyclone, 0x0 },
     { L"P2 Cyclone Weapon Underwater", 0x52086, 0x520a6, indexCyberbots_Cyclone, 0x4 },
 };
 
-//Shared-- This could be linked to the normal palette display
 const sGame_PaletteDataset Cyberbots_A_CYCLONE_SHARED_PALETTES[] =
 {
-    { L"Cyclone Drill", 0x51906, 0x51926, indexCyberbots_Cyclone, 0x1 },
+    { L"Shared: Cyclone Drill", 0x51906, 0x51926, indexCyberbots_Cyclone, 0x1 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_CYCLONE_PORTRAIT_PALETTES[] =
@@ -712,35 +710,35 @@ const sGame_PaletteDataset Cyberbots_A_HELION_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Cyberbots_A_WARLOCK_P1_PALETTES[] =
 {
-    { L"P1 Warlock", 0x50306, 0x50326, indexCyberbots_Warlock, 0x0, &pairFullyLinkedNode },
+    { L"P1 Warlock", 0x50306, 0x50326, indexCyberbots_Warlock, 0x0, &pairNextAndNext12 },
     { L"P1 Warlock Effects", 0x50aa6, 0x50ac6, indexCyberbots_Warlock, 0x1 },
     { L"P1 Warlock Soul Blade", 0x521e6, 0x52206 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_WARLOCK_P2_PALETTES[] =
 {
-    { L"P2 Warlock", 0x501c6, 0x501e6, indexCyberbots_Warlock, 0x0, &pairFullyLinkedNode },
+    { L"P2 Warlock", 0x501c6, 0x501e6, indexCyberbots_Warlock, 0x0, &pairNextAndNext9 },
     { L"P2 Warlock Effects", 0x50a26, 0x50a46, indexCyberbots_Warlock, 0x1 },
     { L"P2 Warlock Soul Blade", 0x52166, 0x52186 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_WARLOCK_P1_UNDERWATER_PALETTES[] =
 {
-    { L"P1 Warlock Underwater", 0x503a6, 0x503c6, indexCyberbots_Warlock, 0x0, &pairFullyLinkedNode },
+    { L"P1 Warlock Underwater", 0x503a6, 0x503c6, indexCyberbots_Warlock, 0x0, &pairNextAndNext6 },
     { L"P1 Warlock Effects Underwater", 0x50ba6, 0x50bc6, indexCyberbots_Warlock, 0x1 },
     { L"P1 Warlock Soul Blade Underwater", 0x522e6, 0x52306 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_WARLOCK_P2_UNDERWATER_PALETTES[] =
 {
-    { L"P2 Warlock Underwater", 0x50266, 0x50286, indexCyberbots_Warlock, 0x0, &pairFullyLinkedNode },
+    { L"P2 Warlock Underwater", 0x50266, 0x50286, indexCyberbots_Warlock, 0x0, &pairNextAndNextSkipped },
     { L"P2 Warlock Effects Underwater", 0x50b26, 0x50b46, indexCyberbots_Warlock, 0x1 },
     { L"P2 Warlock Soul Blade Underwater", 0x52266, 0x52286 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_WARLOCK_SHARED_PALETTES[] =
 {
-    {L"Warlock Soul Drain", 0x51926, 0x51946, indexCyberbots_Warlock, 0x2 },
+    {L"Shared: Warlock Soul Drain", 0x51926, 0x51946, indexCyberbots_Warlock, 0x2 },
 };
 
 const sGame_PaletteDataset Cyberbots_A_WARLOCK_PORTRAIT_PALETTES[] =
@@ -858,7 +856,7 @@ const sGame_PaletteDataset Cyberbots_A_BONUS_INTRO_PALETTES[] =
 
 const sGame_PaletteDataset Cyberbots_A_BONUS_SELECTSCREEN_PALETTES[] =
 {
-    { L"Select Background", 0x4db84, 0x4dd84 },
+    { L"Select Background", 0x4db64, 0x4db84 },
 	{ L"Select Cursor", 0x41a7e, 0x41a9e },
 	{ L"Select Timer", 0x41abe, 0x41ade },
 	{ L"Select Text", 0x41ade, 0x41afe },
@@ -1087,21 +1085,21 @@ const sDescTreeNode Cyberbots_A_BONUS_COLLECTION[] =
 const sDescTreeNode Cyberbots_A_UNITS[] =
 {
     { L"BX-02 BLODIA", DESC_NODETYPE_TREE, (void*)Cyberbots_A_BLODIA_COLLECTION, ARRAYSIZE(Cyberbots_A_BLODIA_COLLECTION) },
-    { L"S-008 SUPER-8", DESC_NODETYPE_TREE, (void*)Cyberbots_A_SUPER8_COLLECTION, ARRAYSIZE(Cyberbots_A_SUPER8_COLLECTION) },
-    { L"UVA-02 HELION", DESC_NODETYPE_TREE, (void*)Cyberbots_A_HELION_COLLECTION, ARRAYSIZE(Cyberbots_A_HELION_COLLECTION) },
-    { L"RF-004 REPTOS", DESC_NODETYPE_TREE, (void*)Cyberbots_A_REPTOS_COLLECTION, ARRAYSIZE(Cyberbots_A_REPTOS_COLLECTION) },
-    { L"FZ-900J KILLER BEE", DESC_NODETYPE_TREE, (void*)Cyberbots_A_KILLERBEE_COLLECTION, ARRAYSIZE(Cyberbots_A_KILLERBEE_COLLECTION) },
-    { L"GP-N1 GULDIN", DESC_NODETYPE_TREE, (void*)Cyberbots_A_GULDIN_COLLECTION, ARRAYSIZE(Cyberbots_A_GULDIN_COLLECTION) },
-    { L"FZ-100 FORDY", DESC_NODETYPE_TREE, (void*)Cyberbots_A_FORDY_COLLECTION, ARRAYSIZE(Cyberbots_A_FORDY_COLLECTION) },
-    { L"GP-V4 VISE", DESC_NODETYPE_TREE, (void*)Cyberbots_A_VISE_COLLECTION, ARRAYSIZE(Cyberbots_A_VISE_COLLECTION) },
-    { L"P-10033 GAITS", DESC_NODETYPE_TREE, (void*)Cyberbots_A_GAITS_COLLECTION, ARRAYSIZE(Cyberbots_A_GAITS_COLLECTION) },
-
     { L"BX-04S SWORDSMAN", DESC_NODETYPE_TREE, (void*)Cyberbots_A_SWORDSMAN_COLLECTION, ARRAYSIZE(Cyberbots_A_SWORDSMAN_COLLECTION) },
     { L"BX-07R RIOT", DESC_NODETYPE_TREE, (void*)Cyberbots_A_RIOT_COLLECTION, ARRAYSIZE(Cyberbots_A_RIOT_COLLECTION) },
+    { L"RF-004 REPTOS", DESC_NODETYPE_TREE, (void*)Cyberbots_A_REPTOS_COLLECTION, ARRAYSIZE(Cyberbots_A_REPTOS_COLLECTION) },
     { L"RF-009 LIGHTNING", DESC_NODETYPE_TREE, (void*)Cyberbots_A_LIGHTNING_COLLECTION, ARRAYSIZE(Cyberbots_A_LIGHTNING_COLLECTION) },
     { L"RF-027 JACKAL", DESC_NODETYPE_TREE, (void*)Cyberbots_A_JACKAL_COLLECTION, ARRAYSIZE(Cyberbots_A_JACKAL_COLLECTION) },
+    { L"FZ-100 FORDY", DESC_NODETYPE_TREE, (void*)Cyberbots_A_FORDY_COLLECTION, ARRAYSIZE(Cyberbots_A_FORDY_COLLECTION) },
     { L"FZ-202 TARANTULA", DESC_NODETYPE_TREE, (void*)Cyberbots_A_TARANTULA_COLLECTION, ARRAYSIZE(Cyberbots_A_TARANTULA_COLLECTION) },
+    { L"FZ-900J KILLER BEE", DESC_NODETYPE_TREE, (void*)Cyberbots_A_KILLERBEE_COLLECTION, ARRAYSIZE(Cyberbots_A_KILLERBEE_COLLECTION) },
+    { L"GP-N1 GULDIN", DESC_NODETYPE_TREE, (void*)Cyberbots_A_GULDIN_COLLECTION, ARRAYSIZE(Cyberbots_A_GULDIN_COLLECTION) },
+    { L"GP-V4 VISE", DESC_NODETYPE_TREE, (void*)Cyberbots_A_VISE_COLLECTION, ARRAYSIZE(Cyberbots_A_VISE_COLLECTION) },
     { L"GP-D2 CYCLONE", DESC_NODETYPE_TREE, (void*)Cyberbots_A_CYCLONE_COLLECTION, ARRAYSIZE(Cyberbots_A_CYCLONE_COLLECTION) },
+    { L"P-10033 GAITS", DESC_NODETYPE_TREE, (void*)Cyberbots_A_GAITS_COLLECTION, ARRAYSIZE(Cyberbots_A_GAITS_COLLECTION) },
+
+    { L"S-008 SUPER-8", DESC_NODETYPE_TREE, (void*)Cyberbots_A_SUPER8_COLLECTION, ARRAYSIZE(Cyberbots_A_SUPER8_COLLECTION) },
+    { L"UVA-02 HELION", DESC_NODETYPE_TREE, (void*)Cyberbots_A_HELION_COLLECTION, ARRAYSIZE(Cyberbots_A_HELION_COLLECTION) },
     { L"X-O WARLOCK", DESC_NODETYPE_TREE, (void*)Cyberbots_A_WARLOCK_COLLECTION, ARRAYSIZE(Cyberbots_A_WARLOCK_COLLECTION) },
     { L"UNKNOWN 404", DESC_NODETYPE_TREE, (void*)Cyberbots_A_404_COLLECTION, ARRAYSIZE(Cyberbots_A_404_COLLECTION) },
 

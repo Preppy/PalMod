@@ -375,6 +375,7 @@ struct stPairedPaletteInfo
     int nPalettesToJoin = 2;
     int nOverallNodeIncrementTo2ndPartner = 2;
     int nOverallNodeIncrementTo3rdPartner = 3;
+    int nOverallNodeIncrementTo4thPartner = 4;
 };
 
 struct sGame_PaletteDataset
@@ -416,16 +417,26 @@ const stPairedPaletteInfo pairPreviousFlipped2 = { -2, 0, 0, true };
 
 const stPairedPaletteInfo pairNextAndNext =                         { 1, 0, 0, false, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextSkipped =                  { 1, 0, 0, false, 3, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext6 =                        { 1, 0, 0, false, 3, 6 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext9 =                        { 1, 0, 0, false, 3, 9 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext12 =                       { 1, 0, 0, false, 3, 12 }; // triple display... requires special handling in code
 
 const stPairedPaletteInfo pairNextAndNext39 =                       { 1, 0, 0, false, 3, 39 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext41 =                       { 1, 0, 0, false, 3, 41 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext54 =                       { 1, 0, 0, false, 3, 54 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextSkippedAndNextSkipped =           { 2, 0, 0, false, 3, 4 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext4AndNext =                        { 4, 0, 0, false, 3, 3 }; // triple display... requires special handling in code
+
 const stPairedPaletteInfo pairNextAndNextAndNext =                  { 1, 0, 0, false, 4 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext32AndNextSkipped =         { 1, 0, 0, false, 4, 32, 34 }; // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext41AndNext =                { 1, 0, 0, false, 4, 41, 42 }; // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext =    { 2, 0, 0, false, 4, 4, 5 }; // quad display... requires special handling in code
-const stPairedPaletteInfo pairNext4AndNext =                        { 4, 0, 0, false, 3, 3 }; // triple display... requires special handling in code
+
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext =           { 1, 0, 0, false, 5, 2, 3, 4 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, 0, 0, false, 5, 2, 3, 8 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext9 =          { 1, 0, 0, false, 5, 2, 3, 12 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext13 =         { 1, 0, 0, false, 5, 2, 3, 16 };    // quad display... requires special handling in code
+
 
 // Vs Series
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, -4 };

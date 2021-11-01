@@ -505,6 +505,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             lodepng::State state;
 
             unsigned nPaletteOffset = 0;
+            bool fWrittenTheOneTransparencyColor = false;
 
             for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
             {
@@ -558,8 +559,19 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     {
                         if (bTransPNG)
                         {
-                            lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
-                            lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                            if (!fWrittenTheOneTransparencyColor)
+                            {
+                                fWrittenTheOneTransparencyColor = true;
+                                lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
+                                lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                            }
+                            else
+                            {
+                                // Force alpha so that photoshop understands this PNG is indexed instead of RBG:
+                                // Photoshop only accepts single-transparency indexed PNGs
+                                lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0xFF);
+                                lodepng_palette_add(&state.info_raw, 0, 0, 0, 0xFF);
+                            }
                         }
                         else
                         {
