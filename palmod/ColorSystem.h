@@ -4,8 +4,8 @@
 
 enum class AlphaMode
 {
-    GameDoesNotUseAlpha,
-    GameUsesFixedAlpha,
+    GameDoesNotUseAlpha,    // No alpha value data present in colors
+    GameUsesFixedAlpha,     // Alpha value is set and immutable
     Unknown,
     GameUsesVariableAlpha,  // Modifiable, as in the case of MvC2.
     GameUsesChaoticAlpha,   // Yes, this is odd.  ST-GBA appears to not have alpha consistently set.

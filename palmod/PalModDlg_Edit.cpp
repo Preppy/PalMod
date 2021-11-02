@@ -1232,7 +1232,7 @@ void CPalModDlg::OnSettingsSettings()
 
     if (SettDlg.DoModal() == IDOK)
     {
-        if (SettDlg.m_fAllowAlphaChanges)
+        if (SettDlg.m_fAllowAlphaChanges && !oldAlphaSetting)
         {
             CString strMessage;
             if (strMessage.LoadString(IDS_WARN_TRANSPARENCY))

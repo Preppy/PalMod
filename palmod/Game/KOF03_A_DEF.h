@@ -3139,6 +3139,54 @@ const sGame_PaletteDataset KOF03_A_BONUS_PALETTES[] =
     { L"Ash Fire Burning", 0x01d680, 0x01d6a0 },
 };
 
+const sGame_PaletteDataset KOF03_A_SELECTSCREENICONS_PALETTES[] =
+{
+// Hero Team
+    { L"Ash Crimson", 0x23E20, 0x23E40 },
+    { L"Duo Lon", 0x23E40, 0x23E60 },
+    { L"Shen Woo", 0x23E60, 0x23E80 },
+// Fatal Fury Team
+    { L"Terry Bogard", 0x23E80, 0x23EA0 },
+    { L"Joe Higashi", 0x23EA0, 0x23EC0 },
+    { L"Tizoc", 0x23EC0, 0x23EE0 },
+// Art of Fighting Team
+    { L"Ryo Sakazaki", 0x23EE0, 0x23F00 },
+    { L"Robert Garcia", 0x23F00, 0x23F20 },
+    { L"Yuri Sakazaki", 0x23F20, 0x23F40 },
+// Korea Team
+    { L"Kim Kaphwan", 0x23F40, 0x23F60 },
+    { L"Chang Koehan", 0x23F60, 0x23F80 },
+    { L"Jhun Hoon", 0x23F80, 0x23FA0 },
+// Ikari Warriors Team
+    { L"Leona Heidern", 0x23FA0, 0x23FC0 },
+    { L"Ralf Jones", 0x23FC0, 0x23FE0 },
+    { L"Clark Still", 0x23FE0, 0x24000 },
+// Outlaw Team
+    { L"Gato", 0x24000, 0x24020 },
+    { L"Billy Kane", 0x24020, 0x24040 },
+    { L"Ryuji Yamazaki", 0x24040, 0x24060 },
+// Women Fighters Team
+    { L"King", 0x24060, 0x24080 },
+    { L"Mai Shiranui", 0x24080, 0x240A0 },
+    { L"Blue Mary", 0x240A0, 0x240C0 },
+// Benimaru Team
+    { L"Benimaru Nikaido", 0x240C0, 0x240E0 },
+    { L"Shingo Yabuki", 0x240E0, 0x24100 },
+    { L"Goro Daimon", 0x24100, 0x24120 },
+// High School Girls Team
+    { L"Athena Asamiya", 0x24120, 0x24140 },
+    { L"Hinako Shijou", 0x24140, 0x24160 },
+    { L"Malin", 0x24160, 0x24180 },
+// K' Team
+    { L"K'", 0x24180, 0x241A0 },
+    { L"Maxima", 0x241A0, 0x241C0 },
+    { L"Whip", 0x241C0, 0x241E0 },
+// Edit
+    { L"Iori Yagami", 0x24200, 0x24220 },
+    { L"Kyo Kusanagi", 0x241E0, 0x24200 },
+	//{ L"random icon", 0x24220, 0x24240 },
+};
+
 const sGame_PaletteDataset KOF03_A_SELECTTEAM_PALETTES[] =
 {
     //Hero Team
@@ -3192,6 +3240,7 @@ const sGame_PaletteDataset KOF03_A_SELECTTEAM_PALETTES[] =
 
 const sDescTreeNode KOF03_A_BONUS_COLLECTION[] =
 {
+    { L"Select Screen Icons", DESC_NODETYPE_TREE, (void*)KOF03_A_SELECTSCREENICONS_PALETTES, ARRAYSIZE(KOF03_A_SELECTSCREENICONS_PALETTES) },
     { L"Select Team Member Icons", DESC_NODETYPE_TREE, (void*)KOF03_A_SELECTTEAM_PALETTES, ARRAYSIZE(KOF03_A_SELECTTEAM_PALETTES) },
     { L"Bonus", DESC_NODETYPE_TREE, (void*)KOF03_A_BONUS_PALETTES, ARRAYSIZE(KOF03_A_BONUS_PALETTES) },
 };

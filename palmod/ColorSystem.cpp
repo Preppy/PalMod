@@ -711,6 +711,7 @@ UINT32 CColorSystem::CONV_32_ARGB7888(UINT32 inCol)
     }
     else
     {
+        // We want half alpha
         auxa = (UINT32)floor((auxa + 1) / 2);
     }
 
@@ -753,10 +754,6 @@ UINT32 CColorSystem::CONV_32_ARGB8888(UINT32 inCol)
     {
         auxa = 0xff;
     }
-    else
-    {
-        auxa = (UINT32)floor((auxa + 1) / 2);
-    }
 
     //auxr = auxr;
     auxg = auxg << 8;
@@ -797,10 +794,6 @@ UINT32 CColorSystem::CONV_32_ABGR8888(UINT32 inCol)
     if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
     {
         auxa = 0xff;
-    }
-    else
-    {
-        auxa = (UINT32)floor((auxa + 1) / 2);
     }
 
     //auxb = auxb;

@@ -172,16 +172,19 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     case ColMode::COLMODE_RGB555_SHARP:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
+        m_fGameUsesAlphaValue = false;
         break;
     case ColMode::COLMODE_RGB555_LE:
     case ColMode::COLMODE_RGB555_BE:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
+        m_fGameUsesAlphaValue = true;
         break;
     case ColMode::COLMODE_xRGB888:
     case ColMode::COLMODE_xBGR888:
         cbRequiredColorSize = 3;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
+        m_fGameUsesAlphaValue = false;
         break;        
     case ColMode::COLMODE_ARGB1888:
     case ColMode::COLMODE_ARGB1888_32STEPS:
@@ -190,6 +193,7 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     case ColMode::COLMODE_ABGR8888:
         cbRequiredColorSize = 4;
         suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
+        m_fGameUsesAlphaValue = true;
         break;
     default: // Something is wrong: reset
         MessageBox(g_appHWnd, L"Warning: unknown color mode was requested. Resetting to default\n", GetHost()->GetAppName(), MB_ICONSTOP);
@@ -198,6 +202,7 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
         cbRequiredColorSize = 2;
         fShouldSetAlpha = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
+        m_fGameUsesAlphaValue = false;
         break;
     };
 
