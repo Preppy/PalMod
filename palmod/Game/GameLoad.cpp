@@ -14,6 +14,7 @@
 #include "Game_Cyberbots_A.h"
 #include "Game_DanKuGa_A.h"
 #include "Game_DBFCI_A.h"
+#include "Game_DBZEB_DS.h"
 #include "Game_DBZHD_SNES.h"
 #include "Game_DoubleDragon_A.h"
 #include "Game_FatalFury1_A.h"
@@ -242,6 +243,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_DBFCI_A::GetRule;
         GetNextRule = &CGame_DBFCI_A::GetNextRule;
 
+        return TRUE;
+    }
+    case DBZEB_DS:
+    {
+        GetRule = &CGame_DBZEB_DS::GetRule;
         return TRUE;
     }
     case DBZHD_SNES:
@@ -969,6 +975,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case DBFCI_A:
     {
         return new CGame_DBFCI_A(nConfirmedROMSize);
+    }
+    case DBZEB_DS:
+    {
+        return new CGame_DBZEB_DS(nConfirmedROMSize);
     }
     case DBZHD_SNES:
     {
