@@ -2,42 +2,42 @@
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_A.h"
 
-#define SUPP_START          0xF000
-#define SUPP_END            0xFFFF
+constexpr UINT16 SUPP_START = 0xF000;
+constexpr UINT16 SUPP_END   = 0xFFFF;
 
 //Syntax: SUPP_NODE, initial palette, palette increment
-#define SUPP_NODE           0x4000
+constexpr UINT16 SUPP_NODE          = 0x4000;
 //Syntax: SUPP_NODE_EX, Dest Palette, Dest Increment, Src Start Index, Number of Items to Copy, Dest Index
-#define SUPP_NODE_EX        0x4001
+constexpr UINT16 SUPP_NODE_EX       = 0x4001;
 //SUPP_NODE_ABSOL, Dest Start, Dest Increment, Src Start, Src Increment
 // SUPP_NODE_ABSOL adds two values: the starting palette and the number of colors to include.
-#define SUPP_NODE_ABSOL     0x4002
+constexpr UINT16 SUPP_NODE_ABSOL    = 0x4002;
 // All processing does a full copy of the palette first unless you include this flag.
-#define SUPP_NODE_NOCOPY    0x4004
+constexpr UINT16 SUPP_NODE_NOCOPY   = 0x4004;
 
 // These are palettes wholly located within the Extra nodes.  
-#define EXTRA_NODE_ONLY     0x4008
+constexpr UINT16 EXTRA_NODE_ONLY    = 0x4008;
 
 // MOD_COPY is largely used implicitly outside of Jin
-#define MOD_COPY            0xA010
+constexpr UINT16 MOD_COPY           = 0xA010;
 // MOD_TINT is form: start_pos, length_of_copy, dest_pos, r_tint, g_tint, b_tint
 // to get negative tinting just use NEG + %val%
-#define MOD_TINT            0xA030
+constexpr UINT16 MOD_TINT           = 0xA030;
 
 // These definitions are unused and can safely be removed.
-//#define TINT_R              0xA031
-//#define TINT_G              0xA032
-//#define TINT_B              0xA033
+//constexpr UINT16 TINT_R = 0xA031;
+//constexpr UINT16 TINT_G = 0xA032;
+//constexpr UINT16 TINT_B = 0xA033;
 
-#define MOD_LUM             0xA040
-#define MOD_SAT             0xA041
-#define MOD_WHITE           0xA042
+constexpr UINT16 MOD_LUM            = 0xA040;
+constexpr UINT16 MOD_SAT            = 0xA041;
+constexpr UINT16 MOD_WHITE          = 0xA042;
 
 // Normally we offset at ID_MOD unless MOD_ABS is specified.  If MOD_ABS is specified we use the 
 // raw palette ID.
-#define ID_MOD              47 // Index mod - this is also EXTRA_OMNI
-#define MOD_ABS             0x8000 
-#define NEG                 0x8000
+constexpr UINT16 ID_MOD = 47; // Index mod - this is also EXTRA_OMNI
+constexpr UINT16 MOD_ABS            = 0x8000;
+constexpr UINT16 NEG                = 0x8000;
 
 constexpr auto k_mvc2_character_coloroption_count = 6;
 
@@ -898,6 +898,3 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destinati
 const UINT8 c_tintDefault = 10;
 void supp_mod_tint(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
                 int tint_factor_r, int tint_factor_g, int tint_factor_b);
-
-
-

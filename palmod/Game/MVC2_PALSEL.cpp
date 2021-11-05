@@ -2,6 +2,8 @@
 #include "Game_MVC2_D.h"
 #include "mvc2_a_def.h"
 
+// This file handles the logic for pairing ( unit id :: palette id ) sets to the best preview we have, if any
+
 int CGame_MVC2_D::GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, int nStartOfRange, int nPalettePositionIncrements, int nRangeLength)
 {
     int nExtraAdjustedStart = nStartOfRange + EXTRA_OMNI;

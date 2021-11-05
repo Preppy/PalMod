@@ -644,7 +644,7 @@ void CGame_MVC2_D::UpdatePalData()
             rgFileChanged[srcDef->uUnitId] = TRUE;
 
             //Process supplement palettes
-            if (bPostSetPalProc)
+            if (m_ShouldUsePostSetPalProc)
             {
                 PostSetPal(srcDef->uUnitId, srcDef->uPalId);
             }

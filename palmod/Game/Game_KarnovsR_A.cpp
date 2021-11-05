@@ -313,6 +313,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                             // distance is variable length, so don't expose multisprite export
                             nSrcAmt = 1;
+                            nSrcStart = NodeGet->uPalId;
 
                             SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
                             SetSourcePal(1, nWeakpointUnit, (iPorKIndex * 2) + iCollectionIndex, nSrcAmt, nNodeIncrement);

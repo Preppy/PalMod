@@ -1859,9 +1859,10 @@ GGXXACRFileData GGXXACR_S_CharacterData[] =
     { L"ets.bin",   L"EX Testament",    4775796,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3f4780, indexGGXXSprites_ACR_Testament },
     { L"eve.bin",   L"EX Venom",        2848292,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x271200, indexGGXXSprites_ACR_Venom },
     { L"ezp.bin",   L"EX Zappa",        6044292,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x2a2e90, indexGGXXSprites_ACR_Zappa },
-    { L"..\\demo\\archive_jpf.bin",         L"Effects",                     3040848, nullptr,                           0,        0x1806f0,                        -1, GGXXACR_S_EXTRAS_JPF, ARRAYSIZE(GGXXACR_S_EXTRAS_JPF) },
-    { L"..\\demo\\archive_jpf.bin",         L"HUD/Menu",                    3040848, nullptr,                           0,        0x2e0,                           -1, GGXXACR_S_HUDMenu, ARRAYSIZE(GGXXACR_S_HUDMenu) },
-    { L"..\\demo\\archive_jpf.bin",         L"Round Start/End Messages",    3040848, nullptr,                           0,        0x1efc0,                         -1, GGXXACR_S_RoundMessages, ARRAYSIZE(GGXXACR_S_RoundMessages) },
+    // These locations aren't consistent: commenting out for now.
+    //{ L"..\\demo\\archive_jpf.bin",         L"Effects",                     3040848, nullptr,                           0,        0x1806f0,                        -1, GGXXACR_S_EXTRAS_JPF, ARRAYSIZE(GGXXACR_S_EXTRAS_JPF) },
+    //{ L"..\\demo\\archive_jpf.bin",         L"HUD/Menu",                    3040848, nullptr,                           0,        0x2e0,                           -1, GGXXACR_S_HUDMenu, ARRAYSIZE(GGXXACR_S_HUDMenu) },
+    //{ L"..\\demo\\archive_jpf.bin",         L"Round Start/End Messages",    3040848, nullptr,                           0,        0x1efc0,                         -1, GGXXACR_S_RoundMessages, ARRAYSIZE(GGXXACR_S_RoundMessages) },
     { L"..\\..\\..\\demo\\side_belt.bin",   L"Sidebar Portraits",           2794128, nullptr,                           0,        0x110,                           -1, GGXXACR_S_Sidebar_Portraits, ARRAYSIZE(GGXXACR_S_Sidebar_Portraits) },
     { L"..\\demo\\select.bin",              L"Select Screen",               2960672, nullptr,                           0,        0xe3260,                         -1, GGXXACR_S_SelectScreen, ARRAYSIZE(GGXXACR_S_SelectScreen) },
     { L"..\\demo\\select.bin",              L"Select Screen Portraits",     2960672, nullptr,                           0,        0x2f0,                           -1, GGXXACR_S_SelectScreenPortraits, ARRAYSIZE(GGXXACR_S_SelectScreenPortraits) },

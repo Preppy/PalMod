@@ -3091,6 +3091,11 @@ const sGame_PaletteDataset VSAV_A_BONUS_TITLES_PALETTES[] =
     { L"Character Select BG",           0x518fa, 0x51a5a, indexCPS2Sprites_VSAV1_Bonus, 0x09 },
 };
 
+const sGame_PaletteDataset VSAV_A_BONUS_CSI_PALETTES[] =
+{
+    { L"Character Select Icons", 0x237AC, 0x239AC },
+};
+
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_STATUS[] =
 {
     { L"Bulleta ES 1", 0x120a0 - 0xf6, 0x120c0 - 0xf6, indexCPS2Sprites_BBHood },
@@ -3845,6 +3850,7 @@ const sDescTreeNode VSAV_A_BONUS_COLLECTION[] =
     { L"Effects",    DESC_NODETYPE_TREE, (void*)VSAV_A_EFFECTS_PALETTES,  ARRAYSIZE(VSAV_A_EFFECTS_PALETTES) },
     { L"Shadow",     DESC_NODETYPE_TREE, (void*)VSAV_A_SHADOW_PALETTES,  ARRAYSIZE(VSAV_A_SHADOW_PALETTES) },
     { L"Title/Select Screen", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_TITLES_PALETTES,  ARRAYSIZE(VSAV_A_BONUS_TITLES_PALETTES) },
+    { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_CSI_PALETTES, ARRAYSIZE(VSAV_A_BONUS_CSI_PALETTES) },
 };
 
 const sDescTreeNode VSAV_A_UNITS[] =

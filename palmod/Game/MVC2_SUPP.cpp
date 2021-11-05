@@ -4,6 +4,11 @@
 #include "mvc2_validate.h"
 #include "..\PalMod.h"
 
+// This file handles supplemental palette processing that is useful when a user modifies a particular palette.
+// Examples:
+// * Chun-Li and Cyclops both use a specific secondary palette for HK effects that should match their primary palette
+// * Colossus, Juggernaut, and Megaman have cycling 'flash' palettes that should be modifications of their primary palette
+
 CGame_MVC2_D* CurrMVC2 = NULL;
 CGame_MVC2_A* CurrMVC2_Arcade = NULL;
 int rgSuppLoc[MVC2_D_NUMUNIT];
@@ -23,7 +28,8 @@ void prep_supp(bool forDreamcast /*= true */)
     {
         if ((_mvc2_supp_const[nIndexCtr] & 0xFF00) == SUPP_START)
         {
-            rgSuppLoc[_mvc2_supp_const[nIndexCtr] & 0x00FF] = nIndexCtr;
+            const UINT8 nArrayIndex = _mvc2_supp_const[nIndexCtr] & 0x00FF;
+            rgSuppLoc[nArrayIndex] = nIndexCtr;
         }
 
         nIndexCtr++;
@@ -558,4 +564,3 @@ void supp_mod_tint(UINT16 char_id, UINT16 source_palette, UINT16 destination_pal
         dst_16[offset + dst_index] = 0xF000 | (newR << 8) | (newG << 4) | newB;
     }
 }
-

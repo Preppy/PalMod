@@ -5,7 +5,7 @@
 #include "..\regproc.h"
 #include <string>
 
-BOOL CGameClass::bPostSetPalProc = TRUE;
+BOOL CGameClass::m_ShouldUsePostSetPalProc = TRUE;
 BOOL CGameClass::m_fAllowTransparencyEdits = FALSE;
 UINT8 CGameClass::m_nSizeOfColorsInBytes = 2;
 
@@ -746,7 +746,7 @@ void CGameClass::UpdatePalData()
             srcDef->bChanged = FALSE;
             rgFileChanged[srcDef->uUnitId] = TRUE;
 
-            if (bPostSetPalProc)
+            if (m_ShouldUsePostSetPalProc)
             {
                 PostSetPal(srcDef->uUnitId, srcDef->uPalId);
             }

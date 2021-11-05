@@ -130,7 +130,7 @@ public:
     virtual void InitDataBuffer();
     virtual void ClearDataBuffer();
 
-    static BOOL bPostSetPalProc;
+    static BOOL m_ShouldUsePostSetPalProc;
 
     UINT16* rgUnitRedir = nullptr;
     int nRedirCtr = 0;

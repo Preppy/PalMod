@@ -467,33 +467,33 @@ const sGame_PaletteDataset COTA_A_STORM_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P1[] =
 {
-    { L"Wolverine P1",    0x2713c, 0x2715c, indexCPS2Sprites_Wolverine, 0, &pairNext },
-    { L"P1 Claws",        0x2715c, 0x2717c, indexCPS2Sprites_Wolverine, 1 },
-    { L"P1 Berserker Barrage", 0x2717c, 0x2719c, indexCPS2Sprites_Wolverine, 2 },
-    { L"P1 ?",            0x2719c, 0x271bc, indexCPS2Sprites_Wolverine },
+    { L"Wolverine P1",          0x2713c, 0x2715c, indexCPS2Sprites_Wolverine, 0, &pairNext },
+    { L"P1 Claws",              0x2715c, 0x2717c, indexCPS2Sprites_Wolverine, 1 },
+    { L"P1 Berserker Barrage",  0x2717c, 0x2719c, indexCPS2Sprites_Wolverine, 2 },
+    { L"P1 ?",                  0x2719c, 0x271bc },
 };
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
 {
-    { L"Wolverine P2", 0x271bc, 0x271dc, indexCPS2Sprites_Wolverine, 0, &pairNext },
-    { L"P2 Claws", 0x271dc, 0x271fc, indexCPS2Sprites_Wolverine, 1 },
-    { L"P2 Berserker Barrage", 0x271fc, 0x2721c, indexCPS2Sprites_Wolverine, 2 },
-    { L"P2 ?", 0x2721c, 0x2723c, indexCPS2Sprites_Wolverine },
+    { L"Wolverine P2",          0x271bc, 0x271dc, indexCPS2Sprites_Wolverine, 0, &pairNext },
+    { L"P2 Claws",              0x271dc, 0x271fc, indexCPS2Sprites_Wolverine, 1 },
+    { L"P2 Berserker Barrage",  0x271fc, 0x2721c, indexCPS2Sprites_Wolverine, 2 },
+    { L"P2 ?",                  0x2721c, 0x2723c },
 };
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P1[] = // aka Gouki
 {
     { L"P1",          0x2737c, 0x2739c, indexCPS2Sprites_STAkuma },
-    { L"P1 Extras 1", 0x2739c, 0x273bc, indexCPS2Sprites_STAkuma },
-    { L"P1 Extras 2", 0x273bc, 0x273dc, indexCPS2Sprites_STAkuma },
+    { L"P1 Extras 1: dash/teleport 1/2", 0x2739c, 0x273bc, indexCPS2Sprites_STAkuma },
+    { L"P1 Extras 2: dash/teleport 2/2", 0x273bc, 0x273dc, indexCPS2Sprites_STAkuma },
     { L"P1 Extras 3", 0x273dc, 0x273fc, indexCPS2Sprites_STAkuma, 1 },
 };
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P2[] =
 {
     { L"P2",          0x273fc, 0x2741c, indexCPS2Sprites_STAkuma },
-    { L"P2 Extras 1", 0x2741c, 0x2743c, indexCPS2Sprites_STAkuma },
-    { L"P2 Extras 2", 0x2743c, 0x2745c, indexCPS2Sprites_STAkuma },
+    { L"P2 Extras 1: dash/teleport 1/2", 0x2741c, 0x2743c, indexCPS2Sprites_STAkuma },
+    { L"P2 Extras 2: dash/teleport 2/2", 0x2743c, 0x2745c, indexCPS2Sprites_STAkuma },
     { L"P2 Extras 3", 0x2745c, 0x2747c, indexCPS2Sprites_STAkuma, 1 },
 };
 
