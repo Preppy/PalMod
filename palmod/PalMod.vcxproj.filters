@@ -879,6 +879,9 @@
     <ClCompile Include="Game\Game_Cyberbots_A.cpp">
       <Filter>Games\Capcom Games\Cyberbots_A</Filter>
     </ClCompile>
+    <ClCompile Include="Game\SuppProc.cpp">
+      <Filter>Games\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -1654,6 +1657,9 @@
     </ClInclude>
     <ClInclude Include="Game\Game_Cyberbots_A.h">
       <Filter>Games\Capcom Games\Cyberbots_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SuppProc.h">
+      <Filter>Games\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

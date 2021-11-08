@@ -14,6 +14,7 @@ void StruprRemoveNonASCII(WCHAR* pszOutput, size_t ccSize, LPCWSTR pszInput);
 
 #include "ButtonDef.h"
 #include "ImgIdDef.h"
+#include "SuppProc.h"
 
 //Game Definitions
 // DO NOT CHANGE THE ORDER OF THIS LIST: the values are used as indexes for quick reloads
@@ -378,14 +379,21 @@ struct stPairedPaletteInfo
     int nOverallNodeIncrementTo4thPartner = 4;
 };
 
+struct stPaletteProcessingInformation
+{
+    const UINT16* pProcessingSteps = nullptr;
+    bool fIsTarget = false;
+};
+
 struct sGame_PaletteDataset
 {
-    LPCWSTR szPaletteName = L"uninit";
-    UINT32 nPaletteOffset = 0;
-    UINT32 nPaletteOffsetEnd = 0;
-    UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
-    UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
+    const LPCWSTR szPaletteName = L"uninit";
+    const UINT32 nPaletteOffset = 0;
+    const UINT32 nPaletteOffsetEnd = 0;
+    const UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
+    const UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
     const stPairedPaletteInfo* pPalettePairingInfo = nullptr;
+    const stPaletteProcessingInformation* pExtraProcessing = nullptr;
 };
 
 const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };

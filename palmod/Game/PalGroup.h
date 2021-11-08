@@ -62,10 +62,6 @@ public:
 
     int GetAddIndex() { return nCurrPalAmt - 1; };
 
-    double LimitHLS(double a) { return ((a > 1.0) ? 1.0 : ((a < 0.0) ? 0.0 : a)); };
-    double SubHLS(double a) { while (a >= 1.0) { a -= 1.0; } return a; };
-    UINT8 LimitRGB(int Val) { return (UINT8)((Val < 0) ? 0 : ((Val > 255) ? 255 : Val)); };
-
     int GetPalAmt() { return nCurrPalAmt; };
 
     BOOL AddPal(COLORREF* pPal, UINT16 uPalSz, UINT16 uUnitId, UINT16 uPalId);

@@ -283,3 +283,18 @@ BOOL CGame_COTA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     return _UpdatePalImg(COTA_A_UNITS, rgExtraCountAll, COTA_A_NUMUNIT, COTA_A_EXTRALOC, COTA_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }
+
+void CGame_COTA_A::PostSetPal(UINT16 nUnitId, UINT16 nPalId)
+{
+    CString strMessage;
+    strMessage.Format(L"CGame_COTA_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
+    OutputDebugString(strMessage);
+
+    const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
+
+    if (pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps)
+    {
+        OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
+        ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+    }
+}

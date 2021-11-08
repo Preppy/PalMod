@@ -2,44 +2,23 @@
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_A.h"
 
-constexpr UINT16 SUPP_START = 0xF000;
-constexpr UINT16 SUPP_END   = 0xFFFF;
+constexpr auto k_mvc2_character_coloroption_count = 6;
 
-//Syntax: SUPP_NODE, initial palette, palette increment
-constexpr UINT16 SUPP_NODE          = 0x4000;
-//Syntax: SUPP_NODE_EX, Dest Palette, Dest Increment, Src Start Index, Number of Items to Copy, Dest Index
-constexpr UINT16 SUPP_NODE_EX       = 0x4001;
 //SUPP_NODE_ABSOL, Dest Start, Dest Increment, Src Start, Src Increment
 // SUPP_NODE_ABSOL adds two values: the starting palette and the number of colors to include.
-constexpr UINT16 SUPP_NODE_ABSOL    = 0x4002;
-// All processing does a full copy of the palette first unless you include this flag.
-constexpr UINT16 SUPP_NODE_NOCOPY   = 0x4004;
-
-// These are palettes wholly located within the Extra nodes.  
-constexpr UINT16 EXTRA_NODE_ONLY    = 0x4008;
-
-// MOD_COPY is largely used implicitly outside of Jin
-constexpr UINT16 MOD_COPY           = 0xA010;
-// MOD_TINT is form: start_pos, length_of_copy, dest_pos, r_tint, g_tint, b_tint
-// to get negative tinting just use NEG + %val%
-constexpr UINT16 MOD_TINT           = 0xA030;
-
-// These definitions are unused and can safely be removed.
-//constexpr UINT16 TINT_R = 0xA031;
-//constexpr UINT16 TINT_G = 0xA032;
-//constexpr UINT16 TINT_B = 0xA033;
-
-constexpr UINT16 MOD_LUM            = 0xA040;
-constexpr UINT16 MOD_SAT            = 0xA041;
-constexpr UINT16 MOD_WHITE          = 0xA042;
+constexpr UINT16 SUPP_NODE_ABSOL = 0x4002;
 
 // Normally we offset at ID_MOD unless MOD_ABS is specified.  If MOD_ABS is specified we use the 
 // raw palette ID.
-constexpr UINT16 ID_MOD = 47; // Index mod - this is also EXTRA_OMNI
-constexpr UINT16 MOD_ABS            = 0x8000;
-constexpr UINT16 NEG                = 0x8000;
+constexpr UINT16 MOD_ABS = 0x8000; // Start at absolute 0x0 within the unit for this palette
+constexpr UINT16 ID_MOD = 47; // Index mod - this is also EXTRA_OMNI for MvC2 only
 
-constexpr auto k_mvc2_character_coloroption_count = 6;
+// These are palettes wholly located within the Extra nodes.  
+constexpr UINT16 EXTRA_NODE_ONLY = 0x4008;
+
+//Syntax: SUPP_NODE_EX, Dest Palette, Dest Increment, Src Start Index, Number of Items to Copy, Dest Index
+// This indicates that the supplemental node to be changed is located within the EX/Extras section and is not one of the core palettes
+constexpr UINT16 SUPP_NODE_EX = 0x4001;
 
 const UINT16 _mvc2_supp_const [] =
 {
@@ -118,7 +97,7 @@ const UINT16 _mvc2_supp_const [] =
     0x06 | SUPP_START, //Cyclops
         //SUPP_NODE_ABSOL | SUPP_NODE_EX, Dest Start, Dest Inc, Src Pal Start, Src Pal Inc, Src Index Start, Src Index Amt, Dst Index
 
-        // sHK swing effect
+        // sHK swing effect: doesn't matter right now due to palette pairing
         SUPP_NODE_EX, 1 | MOD_ABS, 8, 1, 5, 9,
         SUPP_NODE_ABSOL | SUPP_NODE_EX, 1 | MOD_ABS, 8, 1 | MOD_ABS, 8, 13, 1, 14,
             MOD_LUM, 14, 1, NEG + 5,
@@ -147,6 +126,8 @@ const UINT16 _mvc2_supp_const [] =
             MOD_LUM, 1, 15, NEG + 33,
         SUPP_NODE, 0x30, 8,
             MOD_LUM, 1, 15, NEG + 39,
+
+        // Mega Optic Blast Stance
         // default color
         SUPP_NODE, 0x59, 2,
         // default color with red tint
@@ -613,8 +594,10 @@ const UINT16 _mvc2_supp_const [] =
             MOD_LUM, 1, 15, NEG + 10,
 
     0x2F | SUPP_START, //Silver Samurai
+        // Shadow frame
         SUPP_NODE, 0x01 | MOD_ABS, 8,
             MOD_LUM, 1, 15, 5 + NEG,
+        // Shine frames 1-7
         SUPP_NODE, 0x09, 8,
         SUPP_NODE, 0x0A, 8,
             MOD_LUM, 8, 7, 10 + NEG,
@@ -628,7 +611,7 @@ const UINT16 _mvc2_supp_const [] =
         SUPP_NODE, 0x0F, 8,
             MOD_LUM, 1, 15, 5 + NEG,
 
-    0x30 | SUPP_START, //Omega Red
+    0x30 | SUPP_START, //Omega Red: intro frames
         SUPP_NODE, 0x09, 4,
             MOD_LUM, 1, 15, 25 + NEG,
         SUPP_NODE, 0x0A, 4,
@@ -735,6 +718,7 @@ const UINT16 _mvc2_supp_const [] =
         SUPP_NODE, 0x46, 28,
 
     0x32 | SUPP_START, // Colossus
+        // Super Armor Shine 1-6
         SUPP_NODE, 0x09, 32,
             MOD_LUM, 02, 5, 13 + NEG,
             MOD_LUM, 12, 3, 13 + NEG,
@@ -759,6 +743,8 @@ const UINT16 _mvc2_supp_const [] =
             MOD_LUM, 02, 5, 46,
             MOD_LUM, 12, 3, 46,
             MOD_WHITE, 2, 1,
+
+        // Stance frame 1-9
         SUPP_NODE, 0x0F, 32,
         SUPP_NODE, 0x10, 32,
             MOD_WHITE, 2, 6,
@@ -776,6 +762,8 @@ const UINT16 _mvc2_supp_const [] =
             MOD_COPY, 2, 1, 5,
         SUPP_NODE, 0x17, 32,
             MOD_COPY, 2, 1, 4,
+
+        // Power Dive Shine Frame 1-10
         SUPP_NODE, 0x18, 32,
             MOD_LUM, 1, 15, 31,
         SUPP_NODE, 0x19, 32,
@@ -801,11 +789,15 @@ const UINT16 _mvc2_supp_const [] =
         SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x1D, 32, 0x1D, 32, 3, 1, 2,
 
         SUPP_NODE, 0x1E, 32,
+
+        // These three are listed as super armor stance frame 1-3 for COTA
         SUPP_NODE, 0x1F, 32,
             MOD_LUM, 1, 15, NEG + 5,
         SUPP_NODE, 0x20, 32,
             MOD_LUM, 1, 15, 25,
         SUPP_NODE, 0x21, 32,
+
+        // Super armor stance frame 1-7
         SUPP_NODE, 0x22, 32,
             MOD_LUM, 2, 14, NEG + 5,
             MOD_WHITE, 7, 1,

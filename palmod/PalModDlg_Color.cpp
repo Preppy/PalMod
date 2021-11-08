@@ -541,11 +541,11 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
             {
                 if (nCtrlId == IDC_EDIT_A)
                 {
-                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(MainPalGroup->LimitRGB(*editControl));
+                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(LimitRGB(*editControl));
                 }
                 else
                 {
-                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(MainPalGroup->LimitRGB(*editControl));
+                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(LimitRGB(*editControl));
                 }
             }
             else
@@ -569,11 +569,11 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
 
                 if (nCtrlId == IDC_EDIT_A)
                 {
-                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(MainPalGroup->LimitRGB(abs(*editControl)));
+                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(LimitRGB(abs(*editControl)));
                 }
                 else
                 {
-                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(MainPalGroup->LimitRGB(abs(*editControl)));
+                    *editControl = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(LimitRGB(abs(*editControl)));
                 }
 
                 *editControl = bNeg ? *editControl - *editControl - *editControl : *editControl;

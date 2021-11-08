@@ -2,6 +2,10 @@
 
 #define GetAValue(rgb)      (LOBYTE((rgb)>>24))
 
+double LimitHLS(double a);
+double SubHLS(double a);
+UINT8 LimitRGB(int Val);
+
 enum class AlphaMode
 {
     GameDoesNotUseAlpha,    // No alpha value data present in colors

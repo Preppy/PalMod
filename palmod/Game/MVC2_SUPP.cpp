@@ -429,19 +429,6 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
     OutputDebugString(strDebugInfo);
 }
 
-// Our supplement palette array parsing doesn't natively handle negative numbers,
-// so this function allows us to handle that.
-int AdjustNumberForPossibleNegation(int nPossiblyNegativeNumber)
-{
-    if (nPossiblyNegativeNumber > NEG)
-    {
-        nPossiblyNegativeNumber -= NEG;
-        nPossiblyNegativeNumber *= -1;
-    }
-
-    return nPossiblyNegativeNumber;
-}
-
 void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 source_index, UINT8 destination_index, UINT8 copy_amount)
 {
     CString strDebugInfo;
@@ -526,8 +513,8 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destinati
         src_l += add_l;
 
         //LimitHLS(src_h);
-        src_s = CurrMVC2->GetPalGroup()->LimitHLS(src_s);
-        src_l = CurrMVC2->GetPalGroup()->LimitHLS(src_l);
+        src_s = LimitHLS(src_s);
+        src_l = LimitHLS(src_l);
 
         dst_16[i] &= 0xF000;
         dst_16[i] |= CurrMVC2->ConvCol16(HLStoRGB(src_h, src_l, src_s));

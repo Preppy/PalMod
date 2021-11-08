@@ -352,6 +352,7 @@
     <ClCompile Include="Game\MVC2_SUPP.cpp" />
     <ClCompile Include="Game\mvc2_validate.cpp" />
     <ClCompile Include="Game\PalGroup.cpp" />
+    <ClCompile Include="Game\SuppProc.cpp" />
     <ClCompile Include="ImgDat.cpp" />
     <ClCompile Include="ImgDisp.cpp" />
     <ClCompile Include="ImgDumpBmp.cpp" />
@@ -609,6 +610,7 @@
     <ClInclude Include="Game\SPF2T_A_DEF.h" />
     <ClInclude Include="Game\SSF2T_A_DEF.h" />
     <ClInclude Include="Game\SSF2T_GBA_DEF.h" />
+    <ClInclude Include="Game\SuppProc.h" />
     <ClInclude Include="Game\SVCPLUSA_A_DEF.h" />
     <ClInclude Include="Game\SVG_SNES_DEF.h" />
     <ClInclude Include="Game\TMNTTF_SNES_DEF.h" />

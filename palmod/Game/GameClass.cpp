@@ -89,6 +89,11 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
     }
 }
 
+void CGameClass::AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA)
+{
+    BasePalGroup.AddColorStepsToColorValue(crSrc, crTarget, uStepsR, uStepsG, uStepsB, uStepsA);
+}
+
 void CGameClass::ClearSrcPal()
 {
     //Values used for image out
@@ -98,7 +103,7 @@ void CGameClass::ClearSrcPal()
     memset(nSrcPalInc, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
 }
 
-// For a given palette ID (such as palette 4 in a nInc long palette set), verify if that paltte ID is an
+// For a given palette ID (such as palette 4 in a nInc long palette set), verify if that palette ID is an
 // iteration of nStart
 BOOL CGameClass::SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt, int nMax)
 {

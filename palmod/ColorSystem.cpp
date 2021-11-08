@@ -12,6 +12,10 @@ const double CColorSystem::k_nRGBPlaneMulForRGB888 = 1;
 
 AlphaMode CColorSystem::CurrAlphaMode = AlphaMode::Unknown;
 
+double LimitHLS(double a) { return ((a > 1.0) ? 1.0 : ((a < 0.0) ? 0.0 : a)); };
+double SubHLS(double a) { while (a >= 1.0) { a -= 1.0; } return a; };
+UINT8 LimitRGB(int Val) { return (UINT8)((Val < 0) ? 0 : ((Val > 255) ? 255 : Val)); };
+
 UINT8 GetCbForColMode(ColMode colorMode)
 {
     switch (colorMode)

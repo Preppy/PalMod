@@ -1166,7 +1166,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_LP[] =
     { L"LP Select portrait", 0x2BFEa, 0x2C00a, indexCPS2Sprites_Felicia, 0x20 },
     { L"LP Win Portrait", 0x2DA6a, 0x2DB0a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"LP Poisoned", 0x15560 - 0xf6, 0x15580 - 0xf6, indexCPS2Sprites_Felicia },
-    { L"LP Zapped", 0x156a0 - 0xf6, 0x156c0 - 0xf6, indexCPS2Sprites_Felicia, 0x0a },
+    { L"LP Zapped", 0x156a0 - 0xf6, 0x156c0 - 0xf6, indexCPS2Sprites_Felicia, 0x0c },
     { L"LP Burned", 0x157e0 - 0xf6, 0x15800 - 0xf6, indexCPS2Sprites_Felicia },
     { L"LP Pharaoh's Curse", 0x15920 - 0xf6, 0x15940 - 0xf6, indexCPS2Sprites_Felicia, 0x0d },
     { L"LP Midnight Bliss", 0x15c40 - 0xf6, 0x15c60 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Felicia },
@@ -1181,7 +1181,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_MP[] =
     { L"MP Select Portrait", 0x2C1Ea, 0x2C20a, indexCPS2Sprites_Felicia, 0x20 },
     { L"MP Win Portrait", 0x2E50a, 0x2E5Aa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"MP Poisoned", 0x15580 - 0xf6, 0x155a0 - 0xf6, indexCPS2Sprites_Felicia },
-    { L"MP Zapped", 0x156c0 - 0xf6, 0x156e0 - 0xf6, indexCPS2Sprites_Felicia, 0x0a },
+    { L"MP Zapped", 0x156c0 - 0xf6, 0x156e0 - 0xf6, indexCPS2Sprites_Felicia, 0x0c },
     { L"MP Burned", 0x15800 - 0xf6, 0x15820 - 0xf6, indexCPS2Sprites_Felicia },
     { L"MP Pharaoh's Curse", 0x15940 - 0xf6, 0x15960 - 0xf6, indexCPS2Sprites_Felicia, 0x0d },
     { L"MP Midnight Bliss", 0x15c60 - 0xf6, 0x15c80 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Felicia },
@@ -1196,7 +1196,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_HP[] =
     { L"HP Select Portrait", 0x2C3Ea, 0x2C40a, indexCPS2Sprites_Felicia, 0x20 },
     { L"HP Win Portrait", 0x2EFAa, 0x2F04a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"HP Poisoned", 0x155a0 - 0xf6, 0x155c0 - 0xf6, indexCPS2Sprites_Felicia },
-    { L"HP Zapped", 0x156e0 - 0xf6, 0x15700 - 0xf6, indexCPS2Sprites_Felicia, 0x0a },
+    { L"HP Zapped", 0x156e0 - 0xf6, 0x15700 - 0xf6, indexCPS2Sprites_Felicia, 0x0c },
     { L"HP Burned", 0x15820 - 0xf6, 0x15840 - 0xf6, indexCPS2Sprites_Felicia },
     { L"HP Pharaoh's Curse", 0x15960 - 0xf6, 0x15980 - 0xf6, indexCPS2Sprites_Felicia, 0x0d },
     { L"HP Midnight Bliss", 0x15c80 - 0xf6, 0x15ca0 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Felicia },
@@ -1211,7 +1211,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_LK[] =
     { L"LK Select Portrait", 0x2C5Ea, 0x2C60a, indexCPS2Sprites_Felicia, 0x20 },
     { L"LK Win Portrait", 0x2FA4a, 0x2FAEa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"LK Poisoned", 0x155c0 - 0xf6, 0x155e0 - 0xf6, indexCPS2Sprites_Felicia },
-    { L"LK Zapped", 0x15700 - 0xf6, 0x15720 - 0xf6, indexCPS2Sprites_Felicia, 0x0a },
+    { L"LK Zapped", 0x15700 - 0xf6, 0x15720 - 0xf6, indexCPS2Sprites_Felicia, 0x0c },
     { L"LK Burned", 0x15840 - 0xf6, 0x15860 - 0xf6, indexCPS2Sprites_Felicia },
     { L"LK Pharaoh's Curse", 0x15980 - 0xf6, 0x159a0 - 0xf6, indexCPS2Sprites_Felicia, 0x0d },
     { L"LK Midnight Bliss", 0x15ca0 - 0xf6, 0x15cc0 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Felicia },
@@ -1226,7 +1226,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_MK[] =
     { L"MK Select Portrait", 0x2C7Ea, 0x2C80a, indexCPS2Sprites_Felicia, 0x20 },
     { L"MK Win Portrait", 0x304Ea, 0x3058a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"MK Poisoned", 0x155e0 - 0xf6, 0x15600 - 0xf6, indexCPS2Sprites_Felicia },
-    { L"MK Zapped", 0x15720 - 0xf6, 0x15740 - 0xf6, indexCPS2Sprites_Felicia, 0x0a },
+    { L"MK Zapped", 0x15720 - 0xf6, 0x15740 - 0xf6, indexCPS2Sprites_Felicia, 0x0c },
     { L"MK Burned", 0x15860 - 0xf6, 0x15880 - 0xf6, indexCPS2Sprites_Felicia },
     { L"MK Pharaoh's Curse", 0x159a0 - 0xf6, 0x159c0 - 0xf6, indexCPS2Sprites_Felicia, 0x0d },
     { L"MK Midnight Bliss", 0x15cc0 - 0xf6, 0x15ce0 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Felicia },
@@ -1241,7 +1241,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_HK[] =
     { L"HK Select Portrait", 0x2C9Ea, 0x2CA0a, indexCPS2Sprites_Felicia, 0x20 },
     { L"HK Win Portrait", 0x30F8a, 0x3102a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"HK Poisoned", 0x15600 - 0xf6, 0x15620 - 0xf6, indexCPS2Sprites_Felicia },
-    { L"HK Zapped", 0x15740 - 0xf6, 0x15760 - 0xf6, indexCPS2Sprites_Felicia, 0x0a },
+    { L"HK Zapped", 0x15740 - 0xf6, 0x15760 - 0xf6, indexCPS2Sprites_Felicia, 0x0c },
     { L"HK Burned", 0x15880 - 0xf6, 0x158a0 - 0xf6, indexCPS2Sprites_Felicia },
     { L"HK Pharaoh's Curse", 0x159c0 - 0xf6, 0x159e0 - 0xf6, indexCPS2Sprites_Felicia, 0x0d },
     { L"HK Midnight Bliss", 0x15ce0 - 0xf6, 0x15d00 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Felicia },
@@ -1256,7 +1256,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_PP[] =
     { L"PP Select Portrait", 0x2CBEa, 0x2CC0a, indexCPS2Sprites_Felicia, 0x20 },
     { L"PP Win Portrait", 0x31A2a, 0x31ACa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"PP Poisoned", 0x15620 - 0xf6, 0x15640 - 0xf6, indexCPS2Sprites_Felicia },
-    { L"PP Zapped", 0x15760 - 0xf6, 0x15780 - 0xf6, indexCPS2Sprites_Felicia, 0x0a },
+    { L"PP Zapped", 0x15760 - 0xf6, 0x15780 - 0xf6, indexCPS2Sprites_Felicia, 0x0c },
     { L"PP Burned", 0x158a0 - 0xf6, 0x158c0 - 0xf6, indexCPS2Sprites_Felicia },
     { L"PP Pharaoh's Curse", 0x159e0 - 0xf6, 0x15a00 - 0xf6, indexCPS2Sprites_Felicia, 0x0d },
     { L"PP Midnight Bliss", 0x15d00 - 0xf6, 0x15d20 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Felicia },
@@ -1271,7 +1271,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_KK[] =
     { L"KK Select Portrait", 0x2CDEa, 0x2CE0a, indexCPS2Sprites_Felicia, 0x20 },
     { L"KK Win Portrait", 0x324Ca, 0x3256a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"KK Poisoned", 0x15640 - 0xf6, 0x15660 - 0xf6, indexCPS2Sprites_Felicia },
-    { L"KK Zapped", 0x15780 - 0xf6, 0x157a0 - 0xf6, indexCPS2Sprites_Felicia, 0x0a },
+    { L"KK Zapped", 0x15780 - 0xf6, 0x157a0 - 0xf6, indexCPS2Sprites_Felicia, 0x0c },
     { L"KK Burned", 0x158c0 - 0xf6, 0x158e0 - 0xf6, indexCPS2Sprites_Felicia },
     { L"KK Pharaoh's Curse", 0x15a00 - 0xf6, 0x15a20 - 0xf6, indexCPS2Sprites_Felicia, 0x0d },
     { L"KK Midnight Bliss", 0x15d20 - 0xf6, 0x15d40 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Felicia },
@@ -1286,7 +1286,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_AP[] =
     { L"AP Select Portrait", 0x2CFEa, 0x2D00a, indexCPS2Sprites_Felicia, 0x20 },
     { L"AP Win Portrait", 0x32F6a, 0x3300a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"AP Poisoned", 0x15660 - 0xf6, 0x15680 - 0xf6, indexCPS2Sprites_Felicia },
-    { L"AP Zapped", 0x157a0 - 0xf6, 0x157c0 - 0xf6, indexCPS2Sprites_Felicia, 0x0a },
+    { L"AP Zapped", 0x157a0 - 0xf6, 0x157c0 - 0xf6, indexCPS2Sprites_Felicia, 0x0c },
     { L"AP Burned", 0x158e0 - 0xf6, 0x15900 - 0xf6, indexCPS2Sprites_Felicia },
     { L"AP Pharaoh's Curse", 0x15a20 - 0xf6, 0x15a40 - 0xf6, indexCPS2Sprites_Felicia, 0x0d },
     { L"AP Midnight Bliss", 0x15d40 - 0xf6, 0x15d60 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Felicia },
@@ -1301,7 +1301,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_AK[] =
     { L"AK Select Portrait", 0x2D1Ea, 0x2D20a, indexCPS2Sprites_Felicia, 0x20 },
     { L"AK Win Portrait", 0x33A0a, 0x33AAa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"AK Poisoned", 0x15680 - 0xf6, 0x156a0 - 0xf6, indexCPS2Sprites_Felicia },
-    { L"AK Zapped", 0x157c0 - 0xf6, 0x157e0 - 0xf6, indexCPS2Sprites_Felicia, 0x0a },
+    { L"AK Zapped", 0x157c0 - 0xf6, 0x157e0 - 0xf6, indexCPS2Sprites_Felicia, 0x0c },
     { L"AK Burned", 0x15900 - 0xf6, 0x15920 - 0xf6, indexCPS2Sprites_Felicia },
     { L"AK Pharaoh's Curse", 0x15a40 - 0xf6, 0x15a60 - 0xf6, indexCPS2Sprites_Felicia, 0x0d },
     { L"AK Midnight Bliss", 0x15d60 - 0xf6, 0x15d80 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Felicia },
@@ -3093,7 +3093,7 @@ const sGame_PaletteDataset VSAV_A_BONUS_TITLES_PALETTES[] =
 
 const sGame_PaletteDataset VSAV_A_BONUS_CSI_PALETTES[] =
 {
-    { L"Character Select Icons", 0x237AC, 0x239AC },
+    { L"Character Select Icons", 0x237Aa, 0x239Aa },
 };
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_STATUS[] =
@@ -3809,7 +3809,6 @@ const sDescTreeNode VSAV_A_DARKGALLON_COLLECTION[] =
     { L"Alt",        DESC_NODETYPE_TREE, (void*)VSAV_A_DARKGALLON_PALETTES_ALT,      ARRAYSIZE(VSAV_A_DARKGALLON_PALETTES_ALT) },
     { L"Status Effects",    DESC_NODETYPE_TREE, (void*)VSAV_A_DARKGALLON_PALETTES_STATUS,  ARRAYSIZE(VSAV_A_DARKGALLON_PALETTES_STATUS) },
     { L"Special (Unused)", DESC_NODETYPE_TREE, (void*)VSAV_A_DARKGALLON_PALETTES_STATUSUNUSED, ARRAYSIZE(VSAV_A_DARKGALLON_PALETTES_STATUSUNUSED) },
-
 };
 
 const sDescTreeNode VSAV_A_OBOROBISHAMON_COLLECTION[] =
