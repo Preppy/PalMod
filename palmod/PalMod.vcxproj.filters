@@ -427,6 +427,9 @@
     <Filter Include="Games\Capcom Games\Cyberbots_A">
       <UniqueIdentifier>{c49acc1e-949a-46a9-80fe-c5c10aff749f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Dragon Ball Z: Extreme Butoden %283DS%29">
+      <UniqueIdentifier>{b8194938-59ce-48f0-9222-81ed6e663c49}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -881,6 +884,9 @@
     </ClCompile>
     <ClCompile Include="Game\SuppProc.cpp">
       <Filter>Games\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_DBZEB_DS.cpp">
+      <Filter>Games\Nintendo\Dragon Ball Z: Extreme Butoden %283DS%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1660,6 +1666,12 @@
     </ClInclude>
     <ClInclude Include="Game\SuppProc.h">
       <Filter>Games\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DBZEB_DS_DEF.h">
+      <Filter>Games\Nintendo\Dragon Ball Z: Extreme Butoden %283DS%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DBZEB_DS.h">
+      <Filter>Games\Nintendo\Dragon Ball Z: Extreme Butoden %283DS%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
