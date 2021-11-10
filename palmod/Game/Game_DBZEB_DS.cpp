@@ -39,9 +39,10 @@ CGame_DBZEB_DS::CGame_DBZEB_DS(UINT32 nConfirmedROMSize)
 
     nGameFlag = DBZEB_DS;
 
-    nImgGameFlag = 0;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    nImgGameFlag = IMGDAT_SECTION_DS;
+    m_prgGameImageSet = DBZEB_3DS_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(DBZEB_3DS_IMGIDS_USED);
+
     nFileAmt = 1;
 
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;

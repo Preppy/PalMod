@@ -55,7 +55,7 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = BLEACH_DS; // This value is defined in gamedef.h.  See usage of other values defined there
-    nImgGameFlag = IMGDAT_SECTION_DS; // Kept default as i have no img2020.dat file to mess with
+    nImgGameFlag = IMGDAT_SECTION_DS;
     m_prgGameImageSet = BLEACH_DS_IMGIDS_USED;
     nImgUnitAmt = ARRAYSIZE(BLEACH_DS_IMGIDS_USED);
 

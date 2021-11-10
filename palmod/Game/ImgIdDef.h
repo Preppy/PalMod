@@ -1990,6 +1990,34 @@ enum SupportedNintendoDS_PaletteListIndex
     indexBleachDSSprites_YoruichiShihoin,   // 0x2A
     indexBleachDSSprites_YuichiShibata,     // 0x2B
     indexBleachDSSprites_Bonus,             // 0x2C
+
+    indexDBZEB_Android18,                   // 0x2D
+    indexDBZEB_Bardock,                     // 0x2E
+    indexDBZEB_Beerus,                      // 0x2F
+    indexDBZEB_Broly,                       // 0x30
+    indexDBZEB_CaptainGinyu,                // 0x31
+    indexDBZEB_Cell,                        // 0x32
+    indexDBZEB_Frieza,                      // 0x33
+    indexDBZEB_FutureTrunks,                // 0x34
+    indexDBZEB_Gohan,                       // 0x35
+    indexDBZEB_GohanSSJ1,                   // 0x36
+    indexDBZEB_Goku,                        // 0x37
+    indexDBZEB_GokuSSJ1,                    // 0x38
+    indexDBZEB_GokuSSJG,                    // 0x39
+    indexDBZEB_GokuSSJB,                    // 0x3A
+    indexDBZEB_Gotenks,                     // 0x3B
+    indexDBZEB_KidBuu,                      // 0x3C
+    indexDBZEB_KidGohan,                    // 0x3D
+    indexDBZEB_KidGohanSSJ2,                // 0x3E
+    indexDBZEB_Krillin,                     // 0x3F
+    indexDBZEB_MajinBuu,                    // 0x40
+    indexDBZEB_Nappa,                       // 0x41
+    indexDBZEB_Piccolo,                     // 0x42
+    indexDBZEB_Raditz,                      // 0x43
+    indexDBZEB_Vegeta,                      // 0x44
+    indexDBZEB_VegetaSSJ1,                  // 0x45
+    indexDBZEB_ZAssists,                    // 0x46
+    indexDBZEB_Bonus,                       // 0x47
 };
 
 enum SupportedPGM_SpriteListIndex

@@ -27,7 +27,7 @@ CGame_KI_SNES::CGame_KI_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KI_SNES_NUMUNIT;
     m_nExtraUnit = KI_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 82;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 194;
     m_pszExtraFilename = EXTRA_FILENAME_KI_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKI;
 
