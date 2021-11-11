@@ -310,10 +310,10 @@ const sGame_PaletteDataset KI_SNES_BONUS_CharactersSpecials[] =
     { L"Orchid Frog", 0x285a, 0x287a },
     { L"Orchid Eyes", 0x271e, 0x272a },
     { L"Hitsparks", 0x25b8, 0x25bc },
-    { L"Red Blood", 0x25be, 0x25ce },
-    { L"Purple Blood", 0x25cc, 0x25dc },
-    { L"Green Blood", 0x25da, 0x25ea },
-    { L"Blue Blood", 0x25e8, 0x25f8 },
+    { L"Red Blood", 0x25c0, 0x25ce },
+    { L"Purple Blood", 0x25ce, 0x25dc },
+    { L"Green Blood", 0x25dc, 0x25ea },
+    { L"Blue Blood", 0x25ea, 0x25f8 },
 };
 
 const sGame_PaletteDataset KI_SNES_BONUS_GlaciusEffects[] =
@@ -418,10 +418,10 @@ const sDescTreeNode KI_SNES_EYEDOL_COLLECTION[] =
 const sDescTreeNode KI_SNES_BONUS_COLLECTION[] =
 {
     { L"Win Screen Backgrounds", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_WinScreenBackgrounds, ARRAYSIZE(KI_SNES_BONUS_WinScreenBackgrounds) },
-    //{ L"Character Specials", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_CharactersSpecials, ARRAYSIZE(KI_SNES_BONUS_CharactersSpecials) },
+    { L"Character Specials", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_CharactersSpecials, ARRAYSIZE(KI_SNES_BONUS_CharactersSpecials) },
     { L"Glacius Effects", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_GlaciusEffects, ARRAYSIZE(KI_SNES_BONUS_GlaciusEffects) },
     { L"Cinder Effects", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_CinderEffects, ARRAYSIZE(KI_SNES_BONUS_CinderEffects) },
-    //{ L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_Palettes, ARRAYSIZE(KI_SNES_BONUS_Palettes) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_Palettes, ARRAYSIZE(KI_SNES_BONUS_Palettes) },
 };
 
 const sDescTreeNode KI_SNES_UNITS[] =

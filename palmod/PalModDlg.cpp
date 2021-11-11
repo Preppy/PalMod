@@ -263,6 +263,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LD_SFIII3ARCADEEX, &CPalModDlg::OnLoadDir_SFIII3ArcadeEx)
     ON_COMMAND(ID_LD_UNICLR, &CPalModDlg::OnLoadDir_UNICLR)
     ON_COMMAND(ID_LD_MAAB, &CPalModDlg::OnLoadDir_MAAB_S)
+    ON_COMMAND(ID_LD_MBTL_A, &CPalModDlg::OnLoadDir_MBTL_A)
 
     ON_COMMAND_RANGE(k_nGameLoadROMListMask, k_nGameLoadROMListMask + NUM_GAMES, &CPalModDlg::OnFileOpenInternal)
 END_MESSAGE_MAP()

@@ -150,6 +150,7 @@ enum SupportedGamesList
     VENTURE_A_DIR_31,
     CYBERBOTS_A,
     DBZEB_DS,
+    MBTL_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -296,6 +297,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Jojo's Venture (Japan Arcade, 31: HUD Portraits)",
     L"Cyberbots: Fullmetal Madness (Arcade)",
     L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)",
+    L"Melty Blood: Type Lumina (Steam)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

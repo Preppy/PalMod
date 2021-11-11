@@ -284,6 +284,7 @@
     <ClCompile Include="Game\Game_MartialMasters_A.cpp" />
     <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
     <ClCompile Include="Game\Game_MBAACC_S.cpp" />
+    <ClCompile Include="Game\Game_MBTL_A.cpp" />
     <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
     <ClCompile Include="Game\Game_MMX2_SNES.cpp" />
     <ClCompile Include="Game\Game_MMX3_SNES.cpp" />
@@ -462,6 +463,7 @@
     <ClInclude Include="Game\Game_MartialMasters_A.h" />
     <ClInclude Include="Game\Game_Matrimelee_A.h" />
     <ClInclude Include="Game\Game_MBAACC_S.h" />
+    <ClInclude Include="Game\Game_MBTL_A.h" />
     <ClInclude Include="Game\Game_MMPR_SNES.h" />
     <ClInclude Include="Game\Game_MMX2_SNES.h" />
     <ClInclude Include="Game\Game_MMX3_SNES.h" />
