@@ -6,6 +6,28 @@ UINT16 CGame_MBTL_A::uRuleCtr = 0;
 
 CDescTree CGame_MBTL_A::MainDescTree = nullptr;
 
+#define MBTL_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+
+const UINT16 MBTL_A_IMGIDS_USED[] =
+{
+    indexFrenchBreadSprites_MBTL_Akiha,             // 0x68
+    indexFrenchBreadSprites_MBTL_Arcueid,           // 0x69
+    indexFrenchBreadSprites_MBTL_Ciel,              // 0x6A
+    indexFrenchBreadSprites_MBTL_CielSupers,        // 0x6B
+    indexFrenchBreadSprites_MBTL_Hisui,             // 0x6C
+    indexFrenchBreadSprites_MBTL_HisuiMaskShiki,    // 0x6D
+    indexFrenchBreadSprites_MBTL_Kohaku,            // 0x6E
+    indexFrenchBreadSprites_MBTL_Kouma,             // 0x6F
+    indexFrenchBreadSprites_MBTL_Miyako,            // 0x70
+    indexFrenchBreadSprites_MBTL_Noel,              // 0x71
+    indexFrenchBreadSprites_MBTL_RedArcueid,        // 0x72
+    indexFrenchBreadSprites_MBTL_Roa,               // 0x73
+    indexFrenchBreadSprites_MBTL_Saber,             // 0x74
+    indexFrenchBreadSprites_MBTL_Shiki,             // 0x75
+    indexFrenchBreadSprites_MBTL_Vlov,              // 0x76
+    indexFrenchBreadSprites_MBTL_Bonus,             // 0x76	
+};
+
 struct MBTLNodeData
 {
     LPCWSTR pszNodeName = L"uninit";
@@ -46,21 +68,23 @@ struct MBTLFileData
 
 MBTLFileData MBTLCharacterData[] =
 {
-    { L"data\\_csel\\Chr002.pal",       L"Akiha Tohno",                                    61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr000.pal",       L"Arcueid",                                        61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr011.pal",       L"Ciel",                                           61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr001.pal",       L"Hisui",                                          61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr004.pal",       L"Kohaku",                                         61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr006.pal",       L"Kouma Kishima",                                  61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr013.pal",       L"Miyako Arima",                                   61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr008.pal",       L"Noel",                                           61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr010.pal",       L"Red Arcueid",                                    61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr005.pal",       L"Roa",                                            61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr012.pal",       L"Saber",                                          61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr003.pal",       L"Shiki Tohno",                                    61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\_csel\\Chr009.pal",       L"Volv",                                           61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\chr011\\Chr011_p1.pal",   L"Ciel (Extra)",                                   61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
-    { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Extra)",                                  61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, },
+    //The character order is alphabetical instead of ID order
+    { L"data\\_csel\\Chr002.pal",       L"Akiha Tohno",                            61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Akiha },
+    { L"data\\_csel\\Chr000.pal",       L"Arcueid",                                61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Arcueid },
+    { L"data\\_csel\\Chr011.pal",       L"Ciel",                                   61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Ciel },
+    { L"data\\_csel\\Chr001.pal",       L"Hisui",                                  61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Hisui },
+    { L"data\\_csel\\Chr004.pal",       L"Kohaku",                                 61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Kohaku },
+    { L"data\\_csel\\Chr006.pal",       L"Kouma Kishima",                          61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Kouma },
+    { L"data\\_csel\\Chr013.pal",       L"Miyako Arima",                           61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Miyako },
+    { L"data\\_csel\\Chr008.pal",       L"Noel",                                   61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Noel },
+    { L"data\\_csel\\Chr010.pal",       L"Red Arcueid",                            61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_RedArcueid },
+    { L"data\\_csel\\Chr005.pal",       L"Roa",                                    61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Roa },
+    { L"data\\_csel\\Chr012.pal",       L"Saber",                                  61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Saber },
+    { L"data\\_csel\\Chr003.pal",       L"Shiki Tohno",                            61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Shiki },
+    { L"data\\_csel\\Chr009.pal",       L"Vlov",                                   61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Vlov },
+
+    { L"data\\chr011\\Chr011_p1.pal",   L"Ciel (Arc Drive/Last Arc)",              61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_CielSupers },
+    { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Mask Shiki)",                     61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_HisuiMaskShiki },
 };
 
 CGame_MBTL_A::CGame_MBTL_A(UINT32 nConfirmedROMSize /* = -1 */)
@@ -80,6 +104,9 @@ CGame_MBTL_A::CGame_MBTL_A(UINT32 nConfirmedROMSize /* = -1 */)
     InitDataBuffer();
 
     nGameFlag = MBTL_A;
+    nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
+    m_prgGameImageSet = MBTL_A_IMGIDS_USED;
+    nImgUnitAmt = ARRAYSIZE(MBTL_A_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;

@@ -10,7 +10,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
     IMGDAT_SECTION_DS,      // Nintendo DS
-    IMGDAT_SECTION_FRENCHBREAD, // Used for DBFCI, UNICLR
+    IMGDAT_SECTION_FRENCHBREAD, // Used for DBFCI, UNICLR, MBTL
     IMGDAT_SECTION_GAROU,
     IMGDAT_SECTION_GUILTYGEAR,
     IMGDAT_SECTION_JOJOS,
@@ -1924,6 +1924,23 @@ enum SupportedFrenchBread_PaletteListIndex
     indexMBAACCSprites_Warachia,            // 0x65
     indexMBAACCSprites_WhiteLen,            // 0x66
     indexMBAACCSprites_Bonus,               // 0x67
+
+    indexFrenchBreadSprites_MBTL_Akiha,             // 0x68
+    indexFrenchBreadSprites_MBTL_Arcueid,           // 0x69
+    indexFrenchBreadSprites_MBTL_Ciel,              // 0x6A
+    indexFrenchBreadSprites_MBTL_CielSupers,        // 0x6B
+    indexFrenchBreadSprites_MBTL_Hisui,             // 0x6C
+    indexFrenchBreadSprites_MBTL_HisuiMaskShiki,    // 0x6D
+    indexFrenchBreadSprites_MBTL_Kohaku,            // 0x6E
+    indexFrenchBreadSprites_MBTL_Kouma,             // 0x6F
+    indexFrenchBreadSprites_MBTL_Miyako,            // 0x70
+    indexFrenchBreadSprites_MBTL_Noel,              // 0x71
+    indexFrenchBreadSprites_MBTL_RedArcueid,        // 0x72
+    indexFrenchBreadSprites_MBTL_Roa,               // 0x73
+    indexFrenchBreadSprites_MBTL_Saber,             // 0x74
+    indexFrenchBreadSprites_MBTL_Shiki,             // 0x75
+    indexFrenchBreadSprites_MBTL_Vlov,              // 0x76
+    indexFrenchBreadSprites_MBTL_Bonus,             // 0x76	
 };
 
 enum SupportedTaito_PaletteListIndex

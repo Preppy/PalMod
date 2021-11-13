@@ -1461,8 +1461,8 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_LP[] =
 {
     { L"LP Aulbath", 0x0eeaa, 0x0eeca, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"LP Water/s.MK/j.MP", 0x0eeca, 0x0eeea },
-    { L"LP Poison Cloud", 0x0ef0a, 0x0ef2a },
-    { L"LP Mach Crab (not full pal)", 0x0eeea, 0x0ef0a },
+    { L"LP Poison Cloud/Lower Mach Crab", 0x0ef0a, 0x0ef2a },
+    { L"LP Sonic Wave/Mach Crab", 0x0eeea, 0x0ef0a },
     { L"LP Gem's Anger", 0x01b6ea, 0x01b70a },
     { L"LP Select Portrait", 0x2C02a, 0x2C04a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"LP Win Portrait", 0x2DBAa, 0x2DC4a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
@@ -1477,8 +1477,8 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_MP[] =
 {
     { L"MP Aulbath", 0x0ef2a, 0x0ef4a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"MP Water/s.MK/j.MP", 0x0ef4a, 0x0ef6a },
-    { L"MP Poison Cloud", 0x0ef8a, 0x0efaa },
-    { L"MP Mach Crab (not full pal)", 0x0ef6a, 0x0ef8a },
+    { L"MP Poison Cloud/Lower Mach Crab", 0x0ef8a, 0x0efaa },
+    { L"MP Sonic Wave/Mach Crab", 0x0ef6a, 0x0ef8a },
     { L"MP Gem's Anger", 0x01b70a, 0x01b72a },
     { L"MP Select Portrait", 0x2C22a, 0x2C24a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"MP Win Portrait", 0x2E64a, 0x2E6Ea, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
@@ -1493,8 +1493,8 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_HP[] =
 {
     { L"HP Aulbath", 0x0efaa, 0x0efca, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"HP Water/s.MK/j.MP", 0x0efca, 0x0efea },
-    { L"HP Poison Cloud", 0x0f00a, 0x0f02a },
-    { L"HP Mach Crab (not full pal)", 0x0efea, 0x0f00a },
+    { L"HP Poison Cloud/Lower Mach Crab", 0x0f00a, 0x0f02a },
+    { L"HP Sonic Wave/Mach Crab", 0x0efea, 0x0f00a },
     { L"HP Gem's Anger", 0x01b72a, 0x01b74a },
     { L"HP Select Portrait", 0x2C42a, 0x2C44a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"HP Win Portrait", 0x2F0Ea, 0x2F18a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
@@ -1509,8 +1509,8 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_LK[] =
 {
     { L"LK Aulbath", 0x0f02a, 0x0f04a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"LK Water/s.MK/j.MP", 0x0f04a, 0x0f06a },
-    { L"LK Poison Cloud", 0x0f08a, 0x0f0aa },
-    { L"LK Mach Crab (not full pal)", 0x0f06a, 0x0f08a },
+    { L"LK Poison Cloud/Lower Mach Crab", 0x0f08a, 0x0f0aa },
+    { L"LK Sonic Wave/Mach Crab", 0x0f06a, 0x0f08a },
     { L"LK Gem's Anger", 0x01b74a, 0x01b76a },
     { L"LK Select Portrait", 0x2C62a, 0x2C64a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"LK Win Portrait", 0x2FB8a, 0x2FC2a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
@@ -1525,8 +1525,8 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_MK[] =
 {
     { L"MK Aulbath", 0x0f0aa, 0x0f0ca, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"MK Water/s.MK/j.MP", 0x0f0ca, 0x0f0ea },
-    { L"MK Poison Cloud", 0x0f10a, 0x0f12a },
-    { L"MK Mach Crab (not full pal)", 0x0f0ea, 0x0f10a },
+    { L"MK Poison Cloud/Lower Mach Crab", 0x0f10a, 0x0f12a },
+    { L"MK Sonic Wave/Mach Crab", 0x0f0ea, 0x0f10a },
     { L"MK Gem's Anger", 0x01b76a, 0x01b78a },
     { L"MK Select Portrait", 0x2C82a, 0x2C84a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"MK Win Portrait", 0x3062a, 0x306Ca, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
@@ -1541,8 +1541,8 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_HK[] =
 {
     { L"HK Aulbath", 0x0f12a, 0x0f14a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"HK Water/s.MK/j.MP", 0x0f14a, 0x0f16a },
-    { L"HK Poison Cloud", 0x0f18a, 0x0f1aa },
-    { L"HK Mach Crab (not full pal)", 0x0f16a, 0x0f18a },
+    { L"HK Poison Cloud/Lower Mach Crab", 0x0f18a, 0x0f1aa },
+    { L"HK Sonic Wave/Mach Crab", 0x0f16a, 0x0f18a },
     { L"HK Gem's Anger", 0x01b78a, 0x01b7aa },
     { L"HK Select Portrait", 0x2CA2a, 0x2CA4a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"HK Win Portrait", 0x310Ca, 0x3116a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
@@ -1556,9 +1556,9 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_HK[] =
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_PP[] =
 {
     { L"PP Aulbath", 0x0f1aa, 0x0f1ca, indexCPS2Sprites_Vamp_Aulbath, 0 },
-    { L"PP Poison Cloud", 0x0f20a, 0x0f22a },
+    { L"PP Poison Cloud/Lower Mach Crab", 0x0f20a, 0x0f22a },
     { L"PP Water/s.MK/j.MP", 0x0f1ca, 0x0f1ea },
-    { L"PP Mach Crab (not full pal)", 0x0f1ea, 0x0f20a },
+    { L"PP Sonic Wave/Mach Crab", 0x0f1ea, 0x0f20a },
     { L"PP Gem's Anger", 0x01b7aa, 0x01b7ca },
     { L"PP Select Portrait", 0x2CC2a, 0x2CC4a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"PP Win Portrait", 0x31B6a, 0x31C0a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
@@ -1573,8 +1573,8 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_KK[] =
 {
     { L"KK Aulbath", 0x0f22a, 0x0f24a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"KK Water/s.MK/j.MP", 0x0f24a, 0x0f26a },
-    { L"KK Poison Cloud", 0x0f28a, 0x0f2aa },
-    { L"KK Mach Crab (not full pal)", 0x0f26a, 0x0f28a },
+    { L"KK Poison Cloud/Lower Mach Crab", 0x0f28a, 0x0f2aa },
+    { L"KK Sonic Wave/Mach Crab", 0x0f26a, 0x0f28a },
     { L"KK Gem's Anger", 0x01b7ca, 0x01b7ea },
     { L"KK Select Portrait", 0x2CE2a, 0x2CE4a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"KK Win Portrait", 0x3260a, 0x326Aa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
@@ -1589,8 +1589,8 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_AP[] =
 {
     { L"AP Aulbath", 0x0f2aa, 0x0f2ca, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"AP Water/s.MK/j.MP", 0x0f2ca, 0x0f2ea },
-    { L"AP Poison Cloud", 0x0f30a, 0x0f32a },
-    { L"AP Mach Crab (not full pal)", 0x0f2ea, 0x0f30a },
+    { L"AP Poison Cloud/Lower Mach Crab", 0x0f30a, 0x0f32a },
+    { L"AP Sonic Wave/Mach Crab", 0x0f2ea, 0x0f30a },
     { L"AP Gem's Anger", 0x01b7ea, 0x01b80a },
     { L"AP Select Portrait", 0x2D02a, 0x2D04a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"AP Win Portrait", 0x330Aa, 0x3314a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
@@ -1605,8 +1605,8 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_AK[] =
 {
     { L"AK Aulbath", 0x0f32a, 0x0f34a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"AK Water/s.MK/j.MP", 0x0f34a, 0x0f36a },
-    { L"AK Poison Cloud", 0x0f38a, 0x0f3aa },
-    { L"AK Mach Crab (not full pal)", 0x0f36a, 0x0f38a },
+    { L"AK Poison Cloud/Lower Mach Crab", 0x0f38a, 0x0f3aa },
+    { L"AK Sonic Wave/Mach Crab", 0x0f36a, 0x0f38a },
     { L"AK Gem's Anger", 0x01b80a, 0x01b82a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"AK Select Portrait", 0x2D22a, 0x2D24a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"AK Win Portrait", 0x33B4a, 0x33BEa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Aulbath },
@@ -1615,6 +1615,11 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_AK[] =
     { L"AK Burned", 0x16980 - 0xf6, 0x169a0 - 0xf6, indexCPS2Sprites_Vamp_Aulbath },
     { L"AK Pharaoh's Curse", 0x16ac0 - 0xf6, 0x16ae0 - 0xf6 },
     { L"AK Midnight Bliss", 0x16de0 - 0xf6, 0x16e00 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Vamp_Aulbath },
+};
+
+const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_SHARED[] =
+{
+    { L"Sonic Wave 2 / Mach Crab 2 (Shared)", 0x1bc0a, 0x1bc2a },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_LP[] =
@@ -3722,6 +3727,7 @@ const sDescTreeNode VSAV_A_AULBATH_COLLECTION[] =
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV_A_AULBATH_PALETTES_AP,         ARRAYSIZE(VSAV_A_AULBATH_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV_A_AULBATH_PALETTES_AK,         ARRAYSIZE(VSAV_A_AULBATH_PALETTES_AK) },
     { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV_A_AULBATH_PALETTES_STATUS, ARRAYSIZE(VSAV_A_AULBATH_PALETTES_STATUS) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)VSAV_A_AULBATH_PALETTES_SHARED, ARRAYSIZE(VSAV_A_AULBATH_PALETTES_SHARED) },
 };
 
 const sDescTreeNode VSAV_A_SASQUATCH_COLLECTION[] =
