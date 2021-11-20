@@ -10,8 +10,8 @@ stExtraDef* CGame_KOF98AE2016_A::KOF98AE2016_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KOF98AE2016_A::MainDescTree = nullptr;
 
-int CGame_KOF98AE2016_A::rgExtraCountAll[KOF98AE2016_A_NUMUNIT + 1];
-int CGame_KOF98AE2016_A::rgExtraLoc[KOF98AE2016_A_NUMUNIT + 1];
+size_t CGame_KOF98AE2016_A::rgExtraCountAll[KOF98AE2016_A_NUMUNIT + 1];
+size_t CGame_KOF98AE2016_A::rgExtraLoc[KOF98AE2016_A_NUMUNIT + 1];
 
 UINT32 CGame_KOF98AE2016_A::m_nTotalPaletteCountForKOF98AE2016 = 1932;
 UINT32 CGame_KOF98AE2016_A::m_nExpectedGameROMSize = 0x600000;
@@ -57,7 +57,6 @@ CGame_KOF98AE2016_A::CGame_KOF98AE2016_A(UINT32 nConfirmedROMSize)
     nGameFlag = KOF98AE2016_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
     m_prgGameImageSet = KOF98ae_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(KOF98ae_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -65,11 +64,10 @@ CGame_KOF98AE2016_A::CGame_KOF98AE2016_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -88,12 +86,12 @@ CDescTree* CGame_KOF98AE2016_A::GetMainTree()
     return &CGame_KOF98AE2016_A::MainDescTree;
 }
 
-int CGame_KOF98AE2016_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_KOF98AE2016_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KOF98AE2016_A_NUMUNIT, nUnitId, KOF98AE2016_A_EXTRA_CUSTOM);
 }
 
-int CGame_KOF98AE2016_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_KOF98AE2016_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, KOF98AE2016_A_NUMUNIT, nUnitId, KOF98AE2016_A_EXTRA_CUSTOM);
 }
@@ -106,7 +104,7 @@ struct sKOF98AE2016_A_PaletteData
     bool rgIsEffectUsed[11];
 };
 
-sFileRule CGame_KOF98AE2016_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_KOF98AE2016_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -167,43 +165,42 @@ sDescTreeNode* CGame_KOF98AE2016_A::InitDescTree()
     return NewDescTree;
 }
 
-
-UINT16 CGame_KOF98AE2016_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_KOF98AE2016_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(KOF98AE2016_A_UNITS, rgExtraCountAll, KOF98AE2016_A_NUMUNIT, KOF98AE2016_A_EXTRALOC, nUnitId, KOF98AE2016_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_KOF98AE2016_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_KOF98AE2016_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(KOF98AE2016_A_UNITS, rgExtraCountAll, KOF98AE2016_A_NUMUNIT, KOF98AE2016_A_EXTRALOC, nUnitId, nCollectionId, KOF98AE2016_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_KOF98AE2016_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KOF98AE2016_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(KOF98AE2016_A_UNITS, KOF98AE2016_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_KOF98AE2016_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_KOF98AE2016_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(KOF98AE2016_A_UNITS, rgExtraCountAll, KOF98AE2016_A_NUMUNIT, KOF98AE2016_A_EXTRALOC, nUnitId, KOF98AE2016_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_KOF98AE2016_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_KOF98AE2016_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(KOF98AE2016_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_KOF98AE2016_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KOF98AE2016_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(KOF98AE2016_A_UNITS, rgExtraCountAll, KOF98AE2016_A_NUMUNIT, KOF98AE2016_A_EXTRALOC, nUnitId, nPaletteId, KOF98AE2016_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_KOF98AE2016_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_KOF98AE2016_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(KOF98AE2016_A_UNITS, rgExtraCountAll, KOF98AE2016_A_NUMUNIT, KOF98AE2016_A_EXTRALOC, nUnitId, nPaletteId, KOF98AE2016_A_EXTRA_CUSTOM);
 }
 
-void CGame_KOF98AE2016_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_KOF98AE2016_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != KOF98AE2016_A_EXTRALOC)
     {

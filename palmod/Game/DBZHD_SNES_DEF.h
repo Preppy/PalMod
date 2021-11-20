@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const UINT16 DBZHD_SNES_IMGIDS_USED[] =
+const std::vector<UINT16> DBZHD_SNES_IMGIDS_USED =
 {
     indexDBZHDSprites_Cell,             // 0x9B
     indexDBZHDSprites_Frieza,           // 0x9C

@@ -10,8 +10,8 @@ stExtraDef* CGame_SFZ3U_A::SFZ3U_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SFZ3U_A::MainDescTree = nullptr;
 
-int CGame_SFZ3U_A::rgExtraCountAll[SFZ3U_A_NUMUNIT + 1];
-int CGame_SFZ3U_A::rgExtraLoc[SFZ3U_A_NUMUNIT + 1];
+size_t CGame_SFZ3U_A::rgExtraCountAll[SFZ3U_A_NUMUNIT + 1];
+size_t CGame_SFZ3U_A::rgExtraLoc[SFZ3U_A_NUMUNIT + 1];
 
 UINT32 CGame_SFZ3U_A::m_nTotalPaletteCountForSFZ3U = 0;
 UINT32 CGame_SFZ3U_A::m_nExpectedGameROMSize = 0xac00000;
@@ -57,7 +57,6 @@ CGame_SFZ3U_A::CGame_SFZ3U_A(UINT32 nConfirmedROMSize)
     nGameFlag = SFZ3U_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     m_prgGameImageSet = SFZ3U_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(SFZ3U_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -66,11 +65,10 @@ CGame_SFZ3U_A::CGame_SFZ3U_A(UINT32 nConfirmedROMSize)
 
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_ISMS;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_ISMS);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -89,12 +87,12 @@ CDescTree* CGame_SFZ3U_A::GetMainTree()
     return &CGame_SFZ3U_A::MainDescTree;
 }
 
-int CGame_SFZ3U_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_SFZ3U_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SFZ3U_A_NUMUNIT, nUnitId, SFZ3U_A_EXTRA_CUSTOM);
 }
 
-int CGame_SFZ3U_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_SFZ3U_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, SFZ3U_A_NUMUNIT, nUnitId, SFZ3U_A_EXTRA_CUSTOM);
 }
@@ -289,7 +287,7 @@ sDescTreeNode* CGame_SFZ3U_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_SFZ3U_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_SFZ3U_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -302,42 +300,42 @@ sFileRule CGame_SFZ3U_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_SFZ3U_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_SFZ3U_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(SFZ3U_A_UNITS, rgExtraCountAll, SFZ3U_A_NUMUNIT, SFZ3U_A_EXTRALOC, nUnitId, SFZ3U_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_SFZ3U_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_SFZ3U_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(SFZ3U_A_UNITS, rgExtraCountAll, SFZ3U_A_NUMUNIT, SFZ3U_A_EXTRALOC, nUnitId, nCollectionId, SFZ3U_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_SFZ3U_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SFZ3U_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(SFZ3U_A_UNITS, SFZ3U_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_SFZ3U_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_SFZ3U_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(SFZ3U_A_UNITS, rgExtraCountAll, SFZ3U_A_NUMUNIT, SFZ3U_A_EXTRALOC, nUnitId, SFZ3U_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_SFZ3U_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_SFZ3U_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(SFZ3U_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_SFZ3U_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SFZ3U_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(SFZ3U_A_UNITS, rgExtraCountAll, SFZ3U_A_NUMUNIT, SFZ3U_A_EXTRALOC, nUnitId, nPaletteId, SFZ3U_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_SFZ3U_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_SFZ3U_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(SFZ3U_A_UNITS, rgExtraCountAll, SFZ3U_A_NUMUNIT, SFZ3U_A_EXTRALOC, nUnitId, nPaletteId, SFZ3U_A_EXTRA_CUSTOM);
 }
 
-void CGame_SFZ3U_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_SFZ3U_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != SFZ3U_A_EXTRALOC)
     {

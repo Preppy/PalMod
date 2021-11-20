@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const UINT16 JOJOSRPG_SNES_IMGIDS_USED[] =
+const std::vector<UINT16> JOJOSRPG_SNES_IMGIDS_USED =
 {
     indexJoJoRPGSprites_Enemies,         // 0xA6
     indexJoJoRPGSprites_Heroes,          // 0xA7

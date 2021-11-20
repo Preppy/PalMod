@@ -1547,7 +1547,7 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
             }
 
             int nHowManyColorsToImport = CurrGame->GetImgOutPalAmt();
-            UINT16 nUnitId = spdPalInfo->uUnitId;
+            size_t nUnitId = spdPalInfo->uUnitId;
 
             int iKeyPosition = strCharacterName.Find('=');
             strCharacterName.Delete(0, iKeyPosition + 1);

@@ -11,15 +11,15 @@ class CGame_MVC2_A : public CGameWithExtrasFile
 public:
     static UINT32 m_nTotalPaletteCountForMVC2;
 
-    static int rgExtraCountAll[MVC2_A_NUMUNIT + 1];
-    static int rgExtraLoc[MVC2_A_NUMUNIT + 1];
+    static size_t rgExtraCountAll[MVC2_A_NUMUNIT + 1];
+    static size_t rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
-    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
-    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+    void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
+    size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
     // Developer-only mode to regenerate the header file quickly.
     void DumpAllCharacters();
@@ -32,31 +32,31 @@ public:
     static CDescTree MainDescTree;
 
     static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(UINT16 nUnitId);
+    static sFileRule GetRule(size_t nUnitId);
 
     //Extra palette function
-    static int GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly = FALSE);
-    static int GetExtraLoc(UINT16 nUnitId);
+    static size_t GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static size_t GetExtraLoc(size_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
-    static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
+    static size_t GetCollectionCountForUnit(size_t nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
+    static size_t GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(size_t nUnitId, size_t nPaletteId);
 
-    UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
-    const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
+    size_t GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId);
+    const sDescTreeNode* GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override;
-    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId = 0) override;
+    BOOL LoadFile(CFile* LoadedFile, size_t nUnitId = 0) override;
+    BOOL SaveFile(CFile* SaveFile, size_t nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    int GetBasicOffset(UINT16 nPalId);
-    void PostSetPal(UINT16 nUnitId, UINT16 nPalId) override;
+    size_t GetBasicOffset(size_t nPalId);
+    void PostSetPal(size_t nUnitId, size_t nPalId) override;
 
     static stExtraDef* MVC2_A_EXTRA_CUSTOM;
 };

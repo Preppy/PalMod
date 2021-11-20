@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 SFZ3U_A_IMGIDS_USED[] =
+const std::vector<UINT16> SFZ3U_A_IMGIDS_USED =
 {
     // MVC2 Assets
     indexCPS2Sprites_Ryu,          // 0x00

@@ -38,10 +38,9 @@ enum SupportedMVCPaletteListIndex
 };
 
 constexpr auto MVC_A_NUMUNIT = indexMVCLast;
+constexpr auto MVC_A_EXTRALOC = MVC_A_NUMUNIT;
 
-#define MVC_A_EXTRALOC MVC_A_NUMUNIT
-
-const UINT16 MVC_A_IMGIDS_USED[] =
+const std::vector<UINT16> MVC_A_IMGIDS_USED =
 {
     // Main Roster
     indexCPS2Sprites_Ryu,          // 0x00
@@ -76,7 +75,7 @@ const UINT16 MVC_A_IMGIDS_USED[] =
     indexCPS2Sprites_Storm,        // 0x2A
     indexCPS2Sprites_Magneto,      // 0x2C
     indexCPS2Sprites_Colossus,     // 0x32
-    indexCPS2Sprites_Sentinel, // Sentinel
+    indexCPS2Sprites_Sentinel,     //
     indexCPS2Sprites_Anita,        // 0x51
 };
 
@@ -713,7 +712,7 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
     { L"Charles Intro", 0x49082, 0x490a2, indexCPS2Sprites_Onslaught, 0x1 },
     { L"Charles (Defeated)", 0x4C002, 0x4C022, indexCPS2Sprites_Onslaught, 0x07 },
     { L"Body (1st Form)", 0x49042, 0x49062, indexCPS2Sprites_Onslaught },
-    { L"Main Body (2nd Form)", 0x38DFA, 0x38E1A, indexCPS2Sprites_Onslaught, 0x3 },
+    { L"Main Body (2nd Form)", 0x38DF8, 0x38E18, indexCPS2Sprites_Onslaught, 0x3 },
     { L"Main Body & Arm (2nd Form)", 0x4BBA2, 0x4BBC2, indexCPS2Sprites_Onslaught, 0x4 },
     { L"Head / Neck  (2nd Form)", 0x4BFA2, 0x4BFC2, indexCPS2Sprites_Onslaught, 0x0F },
     { L"Main Body Glimmer 1", 0x4BBC2, 0x4BBE2, indexCPS2Sprites_Onslaught },
@@ -1834,6 +1833,16 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_STAGE_PALETTES[] =
     { L"Wahwee Robot Crater",   0x516C2, 0x51762, indexCPS2Sprites_MVCAssets, 0x5b },
 };
 
+const sGame_PaletteDataset MVC_A_ONSLAUGHT_STAGE_PALETTES[] =
+{
+    { L"Ground Splat", 0x51FE2, 0x52002 },
+    { L"Floor FG", 0x3E298, 0x3E2B8 },
+    { L"Side Tech Object", 0x51F62, 0x51FA2 },
+    { L"City Skyline MG 1/2", 0x332B8, 0x334B8 },
+    { L"City Skyline MG 2/2", 0x334B8, 0x336B8 },
+    { L"Sky BG", 0x3E0F8, 0x3E258 },
+};
+
 const sGame_PaletteDataset MVC_A_ZABEL_STAGE_PALETTES[] =
 {
     { L"Background 1",  0x397F8, 0x399F8, indexCPS2Sprites_MVCAssets, 0x70, &pairFullyLinkedNode },
@@ -2038,6 +2047,7 @@ const sDescTreeNode MVC_A_BONUS_COLLECTION[] =
    { L"Blue Area of the Moon Stage",   DESC_NODETYPE_TREE, (void*)MVC_A_BLUEMOON_STAGE_PALETTES,   ARRAYSIZE(MVC_A_BLUEMOON_STAGE_PALETTES) },
    { L"Council Stage",                 DESC_NODETYPE_TREE, (void*)MVC_A_COUNCIL_STAGE_PALETTES,    ARRAYSIZE(MVC_A_COUNCIL_STAGE_PALETTES) },
    { L"Megaman Stage",                 DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_STAGE_PALETTES,    ARRAYSIZE(MVC_A_MEGAMAN_STAGE_PALETTES) },
+   { L"Onslaught Stage",               DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_STAGE_PALETTES,  ARRAYSIZE(MVC_A_ONSLAUGHT_STAGE_PALETTES) },
    { L"Zabel Stage",                   DESC_NODETYPE_TREE, (void*)MVC_A_ZABEL_STAGE_PALETTES,      ARRAYSIZE(MVC_A_ZABEL_STAGE_PALETTES) },
 };
 

@@ -6,7 +6,7 @@
 // * Run PalMod: the new headers will be printed to debug out
 // That should be it.  Good luck.
 
-const UINT16 KOFXI_A_IMGIDS_USED[] =
+const std::vector<UINT16> KOFXI_A_IMGIDS_USED =
 {
     indexKOF02UMSprites_Iori,
     indexKOF02UMSprites_K,         // 0x92

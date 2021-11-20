@@ -34,7 +34,7 @@ CGame_Garou_S::~CGame_Garou_S(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_Garou_S::GetRule(UINT16 nUnitId)
+sFileRule CGame_Garou_S::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -66,7 +66,7 @@ CGame_GarouP_A::~CGame_GarouP_A(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_GarouP_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_GarouP_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 

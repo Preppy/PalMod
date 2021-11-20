@@ -2,7 +2,7 @@
 #include "Game_MVC2_A_DIR.h"
 #include "..\palmod.h" // getappname
 
-UINT16 CGame_MVC2_A_DIR::uRuleCtr = 0;
+size_t CGame_MVC2_A_DIR::uRuleCtr = 0;
 
 constexpr auto MVC2_Arcade_ROM_Base = L"mpr-230";
 constexpr auto MVC2_ROMReripOffsetDelta = 0x2000000;
@@ -28,7 +28,7 @@ CGame_MVC2_A_DIR::~CGame_MVC2_A_DIR(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_MVC2_A_DIR::GetRule(UINT16 nUnitId)
+sFileRule CGame_MVC2_A_DIR::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -69,7 +69,7 @@ inline UINT32 CGame_MVC2_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
     return nSIMMLocation;
 }
 
-BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
+BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
@@ -88,9 +88,9 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
     // this is a little obnoxious since it's per simm - could just load all 8 and party
 
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         if (m_pppDataBuffer[nUnitCtr] == nullptr)
         {
@@ -100,7 +100,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         // Use a sorted layout
         rgUnitRedir[nUnitCtr] = MVC2_A_UNITSORT[nUnitCtr];
 
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -160,7 +160,7 @@ inline UINT8 CGame_MVC2_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
     return (UINT8)(floor((nROMLocation - MVC2_ROMReripOffsetDelta) / c_nMVC2SIMMLength));
 }
 
-BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
+BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, size_t nSaveUnit)
 {
     if (nSaveUnit != 0)
     {
@@ -201,7 +201,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 
     if (fLoadedEverything)
     {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (nUnitCtr == indexMVC2ATeamView)
             {
@@ -210,9 +210,9 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
                 continue;
             }
 
-            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 // proc_supp doesn't mark palettes changed, so only use this check if you change that logic
                 //if (IsPaletteDirty(nUnitCtr, nPalCtr))

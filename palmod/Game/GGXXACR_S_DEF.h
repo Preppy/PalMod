@@ -2,7 +2,7 @@
 
 #include "GGXXACR_Common.h"
 
-const sGame_PaletteDataset GGXXACR_S_AB_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_AB_EXTRAS =
 {
     //General
     { L"Moroha Eyes",               0x5213b0, 0x5213f0, indexGGXXSprites_ACR_ABA, 0x04, &pairNext },
@@ -54,7 +54,7 @@ const sGame_PaletteDataset GGXXACR_S_AB_EXTRAS[] =
     { L"Muchi no Yami (2/2)",  0x513030, 0x513070, indexGGXXSprites_ACR_ABA, 0x11 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_AN_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_AN_EXTRAS =
 {
     //Specials
     { L"Shitsu", 0x423e10, 0x423e50 },
@@ -93,7 +93,7 @@ const sGame_PaletteDataset GGXXACR_S_AN_EXTRAS[] =
     { L"Kachoufuugetsu (7/7)", 0x40c8f0, 0x40c930 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_BK_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_BK_EXTRAS =
 {
     //General
     { L"Flower Petals",                 0x34bc70, 0x34bcb0, indexGGXXSprites_ACR_Baiken, 0x09 },
@@ -144,7 +144,7 @@ const sGame_PaletteDataset GGXXACR_S_BK_EXTRAS[] =
     { L"Garyou Tensei - Light (3/3)",   0x33fdc0, 0x33fe00 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_YY_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_YY_EXTRAS =
 {
     //General
     { L"Yo-Yo Recall (1/5)", 0x3abdc0, 0x3abe00 },
@@ -192,7 +192,7 @@ const sGame_PaletteDataset GGXXACR_S_YY_EXTRAS[] =
     { L"Shoot the Moon (3/3)", 0x3a4690, 0x3a48b2 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_CH_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_CH_EXTRAS =
 {
     //Specials
     { L"Alpha Blade (1/2)", 0x29c900, 0x29c940 },
@@ -244,7 +244,7 @@ const sGame_PaletteDataset GGXXACR_S_CH_EXTRAS[] =
 
 };
 
-const sGame_PaletteDataset GGXXACR_S_DZ_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_DZ_EXTRAS =
 {
     //General
     { L"Idle Rings", 0x495080, 0x4950c0 },
@@ -304,7 +304,7 @@ const sGame_PaletteDataset GGXXACR_S_DZ_EXTRAS[] =
     { L"Gamma Ray big laser",          0x48fb30, 0x48fb70 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_ZT_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_ZT_EXTRAS =
 {
     //General
     { L"Grab Effects", 0x2ebeb0, 0x2ebef0 },
@@ -313,7 +313,7 @@ const sGame_PaletteDataset GGXXACR_S_ZT_EXTRAS[] =
     { L"Damned Fang Effects (2/2)", 0x2ecb40, 0x2ecb80 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_IN_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_IN_EXTRAS =
 {
     //General
     { L"Dashing Effects", 0x43d120, 0x43d160 },
@@ -443,7 +443,7 @@ const sGame_PaletteDataset GGXXACR_S_IN_EXTRAS[] =
     { L"Danger!", 0x50a950, 0x50a990 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_JM_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_JM_EXTRAS =
 {
     //Normals
     { L"6HH", 0x2d0be0, 0x2d0c20, indexGGXXSprites_ACR_Jam, 0x01 },
@@ -517,7 +517,7 @@ const sGame_PaletteDataset GGXXACR_S_JM_EXTRAS[] =
     //{ L"Asanagi no Kokyuu (4/4)", 0x3655b0, 0x3655f0 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_JS_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_JS_EXTRAS =
 {
     //General
     { L"Idle/Omega Shift Startup (1/8)", 0x380e80, 0x380ec0 },
@@ -692,7 +692,7 @@ const sGame_PaletteDataset GGXXACR_S_JS_EXTRAS[] =
     //{ L"Unknown", 0x3fe1e0, 0x3fe5e0 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_JY_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_JY_EXTRAS =
 {
     //General
     { L"Intro rose (Tossed)", 0x3d02b0, 0x3d02f0 },
@@ -744,7 +744,7 @@ const sGame_PaletteDataset GGXXACR_S_JY_EXTRAS[] =
     { L"Joker Trick (Back of card)", 0x3b5fd0, 0x3b6010 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_KY_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_KY_EXTRAS =
 {
     //General
     { L"Idle Stance / Projectile Trails", 0x3f44a0, 0x3f44e0, indexGGXXSprites_ACR_Ky, 0x0D },
@@ -826,7 +826,7 @@ const sGame_PaletteDataset GGXXACR_S_KY_EXTRAS[] =
     //{ L"Unsure 16", 0x3f6f30, 0x3f6f70 }, 
 };
 
-const sGame_PaletteDataset GGXXACR_S_FR_EXTRAS[] = // work in progress!
+const std::vector<sGame_PaletteDataset> GGXXACR_S_FR_EXTRAS = // work in progress!
 {
     //General
     { L"General Sparks", 0x4d6030, 0x4d6072 },
@@ -848,7 +848,7 @@ const sGame_PaletteDataset GGXXACR_S_FR_EXTRAS[] = // work in progress!
     { L"Dragon Install: Sakkai 631246H (Base)", 0x4cd5c0, 0x4cd600 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_PO_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_PO_EXTRAS =
 {
     //Specials
     { L"Slide Head/Whiffed HK (1/2)", 0x49e4b0, 0x49e4f0 },
@@ -885,7 +885,7 @@ const sGame_PaletteDataset GGXXACR_S_PO_EXTRAS[] =
     { L"Magnum Opera - Heart (2/2)", 0x4c2110, 0x4c2150 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_SL_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_SL_EXTRAS =
 {
     // General
     { L"General Sparks / Riot Stamp", 0x3fc2b0, 0x3fc2f0 },
@@ -986,7 +986,7 @@ const sGame_PaletteDataset GGXXACR_S_SL_EXTRAS[] =
     { L"Napalm Death (9/9)", 0x3bf310, 0x3bf350, indexGGXXSprites_ACR_Sol, 0x0a },
 };
 
-const sGame_PaletteDataset GGXXACR_S_SY_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_SY_EXTRAS =
 {
     //General
     { L"Coffin Portal Intro", 0x43ec30, 0x43ec70, indexGGXXSprites_ACR_Slayer, 0x0a },
@@ -1130,7 +1130,7 @@ const sGame_PaletteDataset GGXXACR_S_SY_EXTRAS[] =
     { L"All Dead -  Haiku (18/18)", 0x48b1f0, 0x48b230, indexGGXXSprites_ACR_Slayer, 0x06 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_VE_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_VE_EXTRAS =
 {
     //General
     { L"Ball Glow", 0x26d330, 0x26d370 },
@@ -1174,7 +1174,7 @@ const sGame_PaletteDataset GGXXACR_S_VE_EXTRAS[] =
     //{ L"Unused 2?", 0x26e2f0, 0x26e330 },     
 };
 
-const sGame_PaletteDataset GGXXACR_S_ZP_EXTRAS[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_ZP_EXTRAS =
 {
     //The dog palettes are stupid and im leaving those out since almost each frame has its own palette (x5 for the different palettes). Will get around to them at some point probably (maybe) (not likely)
     //Zappas got mutiple summons, the order im using here is Naked -> Dog -> Triplets -> Sword -> Roah
@@ -1255,13 +1255,13 @@ const sGame_PaletteDataset GGXXACR_S_ZP_EXTRAS[] =
     { L"I'm Scared... - Tree (3/3)", 0x4a8fa0, 0x4a91a0 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_EFR_EXTRAS[] = // work in progress!
+const std::vector<sGame_PaletteDataset> GGXXACR_S_EFR_EXTRAS = // work in progress!
 {
     { L"Volcanic Viper (1/2)", 0x57a930, 0x57a970 },
     { L"Volcanic Viper (2/2)", 0x581730, 0x581770 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_EXTRAS_JPF[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_EXTRAS_JPF =
 {
 
     //Missing Faultless defense, Slash back, Clashes, grab techs, etc
@@ -1328,7 +1328,7 @@ const sGame_PaletteDataset GGXXACR_S_EXTRAS_JPF[] =
     { L"May Dust Effects (7/7)", 0x1E6580, 0x1E65C0 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_HUDMenu[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_HUDMenu =
 {
     //Will expand to include more menu palettes at a later date
     //Missing RISC meter, Tension meter, gauge for stagger, Character HUD Portraits, and Character specific meters (some might be in their own .bin files) for HUD
@@ -1372,7 +1372,7 @@ const sGame_PaletteDataset GGXXACR_S_HUDMenu[] =
     { L"Dizzy Angels",                  0x1E7ED0, 0x1E7F10 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_RoundMessages[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_RoundMessages =
 {
     //Round opening
     { L"Opening Text: Heaven", 0x1efc0, 0x1f000 },
@@ -1477,7 +1477,7 @@ const sGame_PaletteDataset GGXXACR_S_RoundMessages[] =
     { L"Zappa Instant Kill Letters (Y)",                0x6fdb0, 0x6fdf0 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_Sidebar_Portraits[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_Sidebar_Portraits =
 {
     { L"Type A Background (Left)",  0x110, 0x510, indexGGXXSprites_ACR_Bonus, 0x00 },
     { L"Type A Background (Right)", 0x162E0, 0x166E0, indexGGXXSprites_ACR_Bonus, 0x01 },
@@ -1544,7 +1544,7 @@ const sGame_PaletteDataset GGXXACR_S_Sidebar_Portraits[] =
     { L"Type D Background",         0x29c220, 0x29C620, indexGGXXSprites_ACR_Bonus, 0x05 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_SelectScreen[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_SelectScreen =
 {
 
     //Select Screen 
@@ -1668,7 +1668,7 @@ const sGame_PaletteDataset GGXXACR_S_SelectScreen[] =
 
 };
 
-const sGame_PaletteDataset GGXXACR_S_SelectScreenPortraits[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_SelectScreenPortraits =
 {
     //Select Screen Portraits
     { L"A.B.A Large Portrait",      0x2970f0, 0x2974f0, indexGGXXSprites_ACR_ABA,       0x45 },
@@ -1774,12 +1774,12 @@ const sGame_PaletteDataset GGXXACR_S_SelectScreenPortraits[] =
 };
 
 //unsure if theres a better way to add this palette, works for now
-const sGame_PaletteDataset GGXXACR_S_Title[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_Title =
 {
     { L"Title Screen", 0x7AC70, 0x7B070, indexGGXXSprites_ACR_Bonus, 0x06 },
 };
 
-const sGame_PaletteDataset GGXXACR_S_MissionIcons[] =
+const std::vector<sGame_PaletteDataset> GGXXACR_S_MissionIcons =
 {
     { L"A.B.A Icon", 0x57520, 0x57920, indexGGXXSprites_ACR_ABA, 0x46 },
     { L"Anji Icon", 0x544d0, 0x548D0, indexGGXXSprites_ACR_Anji, 0x46 },
@@ -1811,60 +1811,60 @@ const sGame_PaletteDataset GGXXACR_S_MissionIcons[] =
 GGXXACRFileData GGXXACR_S_CharacterData[] =
 {
     //Alphabetical by character name, not by file name
-    { L"ab.bin",    L"A.B.A",           5715300,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x48ab50, indexGGXXSprites_ACR_ABA, GGXXACR_S_AB_EXTRAS, ARRAYSIZE(GGXXACR_S_AB_EXTRAS) },
-    { L"an.bin",    L"Anji Mito",       4518932,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3ea460, indexGGXXSprites_ACR_Anji, GGXXACR_S_AN_EXTRAS, ARRAYSIZE(GGXXACR_S_AN_EXTRAS) },
-    { L"ax.bin",    L"Axl Low" ,        4225716,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x35ebe0, indexGGXXSprites_ACR_Axl },
-    { L"bk.bin",    L"Baiken",          3573668,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x308c20, indexGGXXSprites_ACR_Baiken, GGXXACR_S_BK_EXTRAS, ARRAYSIZE(GGXXACR_S_BK_EXTRAS) },
-    { L"yy.bin",    L"Bridget",         4127716,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x34b210, indexGGXXSprites_ACR_Bridget, GGXXACR_S_YY_EXTRAS, ARRAYSIZE(GGXXACR_S_YY_EXTRAS) },
-    { L"ch.bin",    L"Chipp Zanuff",    3113988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x293560, indexGGXXSprites_ACR_Chipp, GGXXACR_S_CH_EXTRAS, ARRAYSIZE(GGXXACR_S_CH_EXTRAS) },
-    { L"dz.bin",    L"Dizzy",           5352324,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x45d720, indexGGXXSprites_ACR_Dizzy, GGXXACR_S_DZ_EXTRAS, ARRAYSIZE(GGXXACR_S_DZ_EXTRAS) },
-    { L"zt.bin",    L"Eddie",           3289156,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x24e560, indexGGXXSprites_ACR_Eddie, GGXXACR_S_ZT_EXTRAS, ARRAYSIZE(GGXXACR_S_ZT_EXTRAS) },
-    { L"fa.bin",    L"Faust",           4773284,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3fe9a0, indexGGXXSprites_ACR_Faust },
-    { L"in.bin",    L"I-No",            5609060,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3e5370, indexGGXXSprites_ACR_Ino, GGXXACR_S_IN_EXTRAS, ARRAYSIZE(GGXXACR_S_IN_EXTRAS) },
-    { L"jm.bin",    L"Jam Kuradoberi",  3827044,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2c4e80, indexGGXXSprites_ACR_Jam, GGXXACR_S_JM_EXTRAS, ARRAYSIZE(GGXXACR_S_JM_EXTRAS) },
-    { L"jy.bin",    L"Johnny",          4205892,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3b0620, indexGGXXSprites_ACR_Johnny, GGXXACR_S_JY_EXTRAS, ARRAYSIZE(GGXXACR_S_JY_EXTRAS) },
-    { L"js.bin",    L"Justice",         4556788,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3789b0, indexGGXXSprites_ACR_Justice, GGXXACR_S_JS_EXTRAS, ARRAYSIZE(GGXXACR_S_JS_EXTRAS) },
-    { L"kr.bin",    L"Kliff Undersn",   3114036,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x28abf0, indexGGXXSprites_ACR_Kliff },
-    { L"ky.bin",    L"Ky Kiske",        4571540,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x38bbc0, indexGGXXSprites_ACR_Ky, GGXXACR_S_KY_EXTRAS, ARRAYSIZE(GGXXACR_S_KY_EXTRAS) },
-    { L"my.bin",    L"May",             4311684,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x363d50, indexGGXXSprites_ACR_May },
-    { L"ml.bin",    L"Millia Rage",     3034084,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2a4950, indexGGXXSprites_ACR_Millia },
-    { L"fr.bin",    L"Order-Sol",       5772356,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x4377e0, indexGGXXSprites_ACR_OrderSol, GGXXACR_S_FR_EXTRAS, ARRAYSIZE(GGXXACR_S_FR_EXTRAS) },
-    { L"po.bin",    L"Potemkin",        5277348,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x489c70, indexGGXXSprites_ACR_Potemkin, GGXXACR_S_PO_EXTRAS, ARRAYSIZE(GGXXACR_S_PO_EXTRAS) },
-    { L"rk.bin",    L"Robo-Ky",         4489668,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3a7450, indexGGXXSprites_ACR_RoboKy },
-    { L"sy.bin",    L"Slayer",          6215652,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x39c960, indexGGXXSprites_ACR_Slayer, GGXXACR_S_SY_EXTRAS, ARRAYSIZE(GGXXACR_S_SY_EXTRAS) },
-    { L"sl.bin",    L"Sol Badguy",      4613188,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x339b60, indexGGXXSprites_ACR_Sol, GGXXACR_S_SL_EXTRAS, ARRAYSIZE(GGXXACR_S_SL_EXTRAS) },
-    { L"ts.bin",    L"Testament",       4817508,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x3ee950, indexGGXXSprites_ACR_Testament },
-    { L"ve.bin",    L"Venom",           2787412,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x261c10, indexGGXXSprites_ACR_Venom, GGXXACR_S_VE_EXTRAS, ARRAYSIZE(GGXXACR_S_VE_EXTRAS) },
-    { L"zp.bin",    L"Zappa",           6019988,    GGXXACRPaletteNamesNormal,    ARRAYSIZE(GGXXACRPaletteNamesNormal), 0x2a54f0, indexGGXXSprites_ACR_Zappa, GGXXACR_S_ZP_EXTRAS, ARRAYSIZE(GGXXACR_S_ZP_EXTRAS) },
-    { L"eab.bin",   L"EX A.B.A",        5912564,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x4b3ca0, indexGGXXSprites_ACR_ABA },
-    { L"ean.bin",   L"EX Anji Mito",    4520900,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3eb460, indexGGXXSprites_ACR_Anji },
-    { L"eax.bin",   L"EX Axl Low",      4217220,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x35edf0, indexGGXXSprites_ACR_Axl },
-    { L"ebk.bin",   L"EX Baiken",       3601604,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x309920, indexGGXXSprites_ACR_Baiken },
-    { L"eyy.bin",   L"EX Bridget",      4206820,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x35d790, indexGGXXSprites_ACR_Bridget },
-    { L"ech.bin",   L"EX Chipp Zanuff", 3162804,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x29f630, indexGGXXSprites_ACR_Chipp },
-    { L"edz.bin",   L"EX Dizzy",        5594900,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x49a2c0, indexGGXXSprites_ACR_Dizzy },
-    { L"ezt.bin",   L"EX Eddie",        3185140,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x275d30, indexGGXXSprites_ACR_Eddie },
-    { L"efa.bin",   L"EX Faust",        4784260,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3fe9f0, indexGGXXSprites_ACR_Faust },
-    { L"ein.bin",   L"EX I-No",         5762996,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3f9060, indexGGXXSprites_ACR_Ino },
-    { L"ejm.bin",  L"EX Jam Kuradoberi",3812100,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x2c46d0, indexGGXXSprites_ACR_Jam },
-    { L"ejy.bin",   L"EX Johnny",       4210036,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3b2250, indexGGXXSprites_ACR_Johnny },
-    { L"eky.bin",   L"EX Ky Kiske",     4859572,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3cafd0, indexGGXXSprites_ACR_Ky },
-    { L"emy.bin",   L"EX May",          4675812,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x399780, indexGGXXSprites_ACR_May },
-    { L"eml.bin",   L"EX Millia Rage",  3003428,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x29d9c0, indexGGXXSprites_ACR_Millia },
-    { L"efr.bin",   L"EX Order-Sol",    5965396,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x45d9d0, indexGGXXSprites_ACR_OrderSol, GGXXACR_S_EFR_EXTRAS, ARRAYSIZE(GGXXACR_S_EFR_EXTRAS) },
-    { L"epo.bin",   L"EX Potemkin",     5313412,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x494170, indexGGXXSprites_ACR_Potemkin },
-    { L"erk.bin",   L"EX Robo-Ky",      4599332,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3cfc80, indexGGXXSprites_ACR_RoboKy },
-    { L"esy.bin",   L"EX Slayer",       6221972,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x39ea30, indexGGXXSprites_ACR_Slayer },
-    { L"esl.bin",   L"EX Sol Badguy",   4679684,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x33b380, indexGGXXSprites_ACR_Sol },
-    { L"ets.bin",   L"EX Testament",    4775796,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x3f4780, indexGGXXSprites_ACR_Testament },
-    { L"eve.bin",   L"EX Venom",        2848292,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x271200, indexGGXXSprites_ACR_Venom },
-    { L"ezp.bin",   L"EX Zappa",        6044292,    GGXXACRPaletteNamesEx,        ARRAYSIZE(GGXXACRPaletteNamesEx),     0x2a2e90, indexGGXXSprites_ACR_Zappa },
-    { L"..\\demo\\archive_jpf.bin",         L"Effects",                     3041088, nullptr,                           0,        0x1806f0,                        -1, GGXXACR_S_EXTRAS_JPF, ARRAYSIZE(GGXXACR_S_EXTRAS_JPF) },
-    { L"..\\demo\\archive_jpf.bin",         L"HUD/Menu",                    3041088, nullptr,                           0,        0x2e0,                           -1, GGXXACR_S_HUDMenu, ARRAYSIZE(GGXXACR_S_HUDMenu) },
-    { L"..\\demo\\archive_jpf.bin",         L"Round Start/End Messages",    3041088, nullptr,                           0,        0x1efc0,                         -1, GGXXACR_S_RoundMessages, ARRAYSIZE(GGXXACR_S_RoundMessages) },
-    { L"..\\..\\..\\demo\\side_belt.bin",   L"Sidebar Portraits",           2794128, nullptr,                           0,        0x110,                           -1, GGXXACR_S_Sidebar_Portraits, ARRAYSIZE(GGXXACR_S_Sidebar_Portraits) },
-    { L"..\\demo\\select.bin",              L"Select Screen",               2960672, nullptr,                           0,        0xe3260,                         -1, GGXXACR_S_SelectScreen, ARRAYSIZE(GGXXACR_S_SelectScreen) },
-    { L"..\\demo\\select.bin",              L"Select Screen Portraits",     2960672, nullptr,                           0,        0x2f0,                           -1, GGXXACR_S_SelectScreenPortraits, ARRAYSIZE(GGXXACR_S_SelectScreenPortraits) },
-    { L"..\\demo\\titleall.bin",            L"Title Screen",                5281296, nullptr,                           0,        0x7AC70,                         -1, GGXXACR_S_Title, ARRAYSIZE(GGXXACR_S_Title) },
-    { L"..\\..\\..\\mission\\missionall.bin", L"Lobby / Mission Icons",      402800, nullptr,                           0,        0,                               -1, GGXXACR_S_MissionIcons, ARRAYSIZE(GGXXACR_S_MissionIcons) },
+    { L"ab.bin",    L"A.B.A",           5715300,    GGXXACRPaletteNamesNormal,    0x48ab50, indexGGXXSprites_ACR_ABA, GGXXACR_S_AB_EXTRAS },
+    { L"an.bin",    L"Anji Mito",       4518932,    GGXXACRPaletteNamesNormal,    0x3ea460, indexGGXXSprites_ACR_Anji, GGXXACR_S_AN_EXTRAS },
+    { L"ax.bin",    L"Axl Low" ,        4225716,    GGXXACRPaletteNamesNormal,    0x35ebe0, indexGGXXSprites_ACR_Axl },
+    { L"bk.bin",    L"Baiken",          3573668,    GGXXACRPaletteNamesNormal,    0x308c20, indexGGXXSprites_ACR_Baiken, GGXXACR_S_BK_EXTRAS },
+    { L"yy.bin",    L"Bridget",         4127716,    GGXXACRPaletteNamesNormal,    0x34b210, indexGGXXSprites_ACR_Bridget, GGXXACR_S_YY_EXTRAS },
+    { L"ch.bin",    L"Chipp Zanuff",    3113988,    GGXXACRPaletteNamesNormal,    0x293560, indexGGXXSprites_ACR_Chipp, GGXXACR_S_CH_EXTRAS },
+    { L"dz.bin",    L"Dizzy",           5352324,    GGXXACRPaletteNamesNormal,    0x45d720, indexGGXXSprites_ACR_Dizzy, GGXXACR_S_DZ_EXTRAS },
+    { L"zt.bin",    L"Eddie",           3289156,    GGXXACRPaletteNamesNormal,    0x24e560, indexGGXXSprites_ACR_Eddie, GGXXACR_S_ZT_EXTRAS },
+    { L"fa.bin",    L"Faust",           4773284,    GGXXACRPaletteNamesNormal,    0x3fe9a0, indexGGXXSprites_ACR_Faust },
+    { L"in.bin",    L"I-No",            5609060,    GGXXACRPaletteNamesNormal,    0x3e5370, indexGGXXSprites_ACR_Ino, GGXXACR_S_IN_EXTRAS },
+    { L"jm.bin",    L"Jam Kuradoberi",  3827044,    GGXXACRPaletteNamesNormal,    0x2c4e80, indexGGXXSprites_ACR_Jam, GGXXACR_S_JM_EXTRAS },
+    { L"jy.bin",    L"Johnny",          4205892,    GGXXACRPaletteNamesNormal,    0x3b0620, indexGGXXSprites_ACR_Johnny, GGXXACR_S_JY_EXTRAS },
+    { L"js.bin",    L"Justice",         4556788,    GGXXACRPaletteNamesNormal,    0x3789b0, indexGGXXSprites_ACR_Justice, GGXXACR_S_JS_EXTRAS },
+    { L"kr.bin",    L"Kliff Undersn",   3114036,    GGXXACRPaletteNamesNormal,    0x28abf0, indexGGXXSprites_ACR_Kliff },
+    { L"ky.bin",    L"Ky Kiske",        4571540,    GGXXACRPaletteNamesNormal,    0x38bbc0, indexGGXXSprites_ACR_Ky, GGXXACR_S_KY_EXTRAS },
+    { L"my.bin",    L"May",             4311684,    GGXXACRPaletteNamesNormal,    0x363d50, indexGGXXSprites_ACR_May },
+    { L"ml.bin",    L"Millia Rage",     3034084,    GGXXACRPaletteNamesNormal,    0x2a4950, indexGGXXSprites_ACR_Millia },
+    { L"fr.bin",    L"Order-Sol",       5772356,    GGXXACRPaletteNamesNormal,    0x4377e0, indexGGXXSprites_ACR_OrderSol, GGXXACR_S_FR_EXTRAS },
+    { L"po.bin",    L"Potemkin",        5277348,    GGXXACRPaletteNamesNormal,    0x489c70, indexGGXXSprites_ACR_Potemkin, GGXXACR_S_PO_EXTRAS },
+    { L"rk.bin",    L"Robo-Ky",         4489668,    GGXXACRPaletteNamesNormal,    0x3a7450, indexGGXXSprites_ACR_RoboKy },
+    { L"sy.bin",    L"Slayer",          6215652,    GGXXACRPaletteNamesNormal,    0x39c960, indexGGXXSprites_ACR_Slayer, GGXXACR_S_SY_EXTRAS },
+    { L"sl.bin",    L"Sol Badguy",      4613188,    GGXXACRPaletteNamesNormal,    0x339b60, indexGGXXSprites_ACR_Sol, GGXXACR_S_SL_EXTRAS },
+    { L"ts.bin",    L"Testament",       4817508,    GGXXACRPaletteNamesNormal,    0x3ee950, indexGGXXSprites_ACR_Testament },
+    { L"ve.bin",    L"Venom",           2787412,    GGXXACRPaletteNamesNormal,    0x261c10, indexGGXXSprites_ACR_Venom, GGXXACR_S_VE_EXTRAS },
+    { L"zp.bin",    L"Zappa",           6019988,    GGXXACRPaletteNamesNormal,    0x2a54f0, indexGGXXSprites_ACR_Zappa, GGXXACR_S_ZP_EXTRAS },
+    { L"eab.bin",   L"EX A.B.A",        5912564,    GGXXACRPaletteNamesEx,        0x4b3ca0, indexGGXXSprites_ACR_ABA },
+    { L"ean.bin",   L"EX Anji Mito",    4520900,    GGXXACRPaletteNamesEx,        0x3eb460, indexGGXXSprites_ACR_Anji },
+    { L"eax.bin",   L"EX Axl Low",      4217220,    GGXXACRPaletteNamesEx,        0x35edf0, indexGGXXSprites_ACR_Axl },
+    { L"ebk.bin",   L"EX Baiken",       3601604,    GGXXACRPaletteNamesEx,        0x309920, indexGGXXSprites_ACR_Baiken },
+    { L"eyy.bin",   L"EX Bridget",      4206820,    GGXXACRPaletteNamesEx,        0x35d790, indexGGXXSprites_ACR_Bridget },
+    { L"ech.bin",   L"EX Chipp Zanuff", 3162804,    GGXXACRPaletteNamesEx,        0x29f630, indexGGXXSprites_ACR_Chipp },
+    { L"edz.bin",   L"EX Dizzy",        5594900,    GGXXACRPaletteNamesEx,        0x49a2c0, indexGGXXSprites_ACR_Dizzy },
+    { L"ezt.bin",   L"EX Eddie",        3185140,    GGXXACRPaletteNamesEx,        0x275d30, indexGGXXSprites_ACR_Eddie },
+    { L"efa.bin",   L"EX Faust",        4784260,    GGXXACRPaletteNamesEx,        0x3fe9f0, indexGGXXSprites_ACR_Faust },
+    { L"ein.bin",   L"EX I-No",         5762996,    GGXXACRPaletteNamesEx,        0x3f9060, indexGGXXSprites_ACR_Ino },
+    { L"ejm.bin",  L"EX Jam Kuradoberi",3812100,    GGXXACRPaletteNamesEx,        0x2c46d0, indexGGXXSprites_ACR_Jam },
+    { L"ejy.bin",   L"EX Johnny",       4210036,    GGXXACRPaletteNamesEx,        0x3b2250, indexGGXXSprites_ACR_Johnny },
+    { L"eky.bin",   L"EX Ky Kiske",     4859572,    GGXXACRPaletteNamesEx,        0x3cafd0, indexGGXXSprites_ACR_Ky },
+    { L"emy.bin",   L"EX May",          4675812,    GGXXACRPaletteNamesEx,        0x399780, indexGGXXSprites_ACR_May },
+    { L"eml.bin",   L"EX Millia Rage",  3003428,    GGXXACRPaletteNamesEx,        0x29d9c0, indexGGXXSprites_ACR_Millia },
+    { L"efr.bin",   L"EX Order-Sol",    5965396,    GGXXACRPaletteNamesEx,        0x45d9d0, indexGGXXSprites_ACR_OrderSol, GGXXACR_S_EFR_EXTRAS },
+    { L"epo.bin",   L"EX Potemkin",     5313412,    GGXXACRPaletteNamesEx,        0x494170, indexGGXXSprites_ACR_Potemkin },
+    { L"erk.bin",   L"EX Robo-Ky",      4599332,    GGXXACRPaletteNamesEx,        0x3cfc80, indexGGXXSprites_ACR_RoboKy },
+    { L"esy.bin",   L"EX Slayer",       6221972,    GGXXACRPaletteNamesEx,        0x39ea30, indexGGXXSprites_ACR_Slayer },
+    { L"esl.bin",   L"EX Sol Badguy",   4679684,    GGXXACRPaletteNamesEx,        0x33b380, indexGGXXSprites_ACR_Sol },
+    { L"ets.bin",   L"EX Testament",    4775796,    GGXXACRPaletteNamesEx,        0x3f4780, indexGGXXSprites_ACR_Testament },
+    { L"eve.bin",   L"EX Venom",        2848292,    GGXXACRPaletteNamesEx,        0x271200, indexGGXXSprites_ACR_Venom },
+    { L"ezp.bin",   L"EX Zappa",        6044292,    GGXXACRPaletteNamesEx,        0x2a2e90, indexGGXXSprites_ACR_Zappa },
+    { L"..\\demo\\archive_jpf.bin",         L"Effects",                     3041088, {},    0x1806f0,   (UINT32)-1, GGXXACR_S_EXTRAS_JPF },
+    { L"..\\demo\\archive_jpf.bin",         L"HUD/Menu",                    3041088, {},    0x2e0,      (UINT32)-1, GGXXACR_S_HUDMenu },
+    { L"..\\demo\\archive_jpf.bin",         L"Round Start/End Messages",    3041088, {},    0x1efc0,    (UINT32)-1, GGXXACR_S_RoundMessages },
+    { L"..\\..\\..\\demo\\side_belt.bin",   L"Sidebar Portraits",           2794128, {},    0x110,      (UINT32)-1, GGXXACR_S_Sidebar_Portraits },
+    { L"..\\demo\\select.bin",              L"Select Screen",               2960672, {},    0xe3260,    (UINT32)-1, GGXXACR_S_SelectScreen },
+    { L"..\\demo\\select.bin",              L"Select Screen Portraits",     2960672, {},    0x2f0,      (UINT32)-1, GGXXACR_S_SelectScreenPortraits },
+    { L"..\\demo\\titleall.bin",            L"Title Screen",                5281296, {},    0x7AC70,    (UINT32)-1, GGXXACR_S_Title },
+    { L"..\\..\\..\\mission\\missionall.bin", L"Lobby / Mission Icons",      402800, {},    0,          (UINT32)-1, GGXXACR_S_MissionIcons },
 };

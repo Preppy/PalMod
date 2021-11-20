@@ -55,9 +55,9 @@ enum SupportedSVC_A_PaletteListIndex
 };
 
 constexpr auto SVCPLUSA_A_NUMUNIT = indexSVC_A_Last;
-#define SVCPLUSA_A_EXTRALOC SVCPLUSA_A_NUMUNIT
+constexpr auto SVCPLUSA_A_EXTRALOC = SVCPLUSA_A_NUMUNIT;
 
-const UINT16 SVCPLUSA_A_IMGIDS_USED[] =
+const std::vector<UINT16> SVCPLUSA_A_IMGIDS_USED =
 {
     indexKOF98Sprites_Kyo,
     indexKOF98Sprites_Ryo,

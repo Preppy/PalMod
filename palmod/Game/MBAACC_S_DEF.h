@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 MBAACC_S_IMGIDS_USED[] =
+const std::vector<UINT16> MBAACC_S_IMGIDS_USED =
 {
     indexMBAACCSprites_AkihaTohno,          // 0x4A
     indexMBAACCSprites_AkihaTohnoSeifuku,   // 0x4B

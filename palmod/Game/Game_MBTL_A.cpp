@@ -2,13 +2,13 @@
 #include "Game_MBTL_A.h"
 #include "..\PalMod.h"
 
-UINT16 CGame_MBTL_A::uRuleCtr = 0;
+size_t CGame_MBTL_A::uRuleCtr = 0;
 
 CDescTree CGame_MBTL_A::MainDescTree = nullptr;
 
 #define MBTL_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-const UINT16 MBTL_A_IMGIDS_USED[] =
+const std::vector<UINT16> MBTL_A_IMGIDS_USED =
 {
     indexFrenchBreadSprites_MBTL_Akiha,             // 0x68
     indexFrenchBreadSprites_MBTL_Arcueid,           // 0x69
@@ -106,16 +106,14 @@ CGame_MBTL_A::CGame_MBTL_A(UINT32 nConfirmedROMSize /* = -1 */)
     nGameFlag = MBTL_A;
     nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
     m_prgGameImageSet = MBTL_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(MBTL_A_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
     pButtonLabelSet = DEF_BUTTONLABEL_2_LEFTRIGHT;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_LEFTRIGHT);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    rgUnitRedir = new size_t[nUnitAmt + 1];
     memset(rgUnitRedir, 0, sizeof(UINT16) * nUnitAmt);
 
     FlushChangeTrackingArray();
@@ -134,11 +132,11 @@ void CGame_MBTL_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_MBTL_A::InitDescTree());
 }
 
-sFileRule CGame_MBTL_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_MBTL_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    const UINT16 nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
+    const size_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", MBTLCharacterData[nAdjustedUnitId].pszFileName);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = MBTLCharacterData[nAdjustedUnitId].nExpectedFileSize;
@@ -162,8 +160,8 @@ sFileRule CGame_MBTL_A::GetNextRule()
 
 sDescTreeNode* CGame_MBTL_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-    UINT16 nUnitCt = ARRAYSIZE(MBTLCharacterData);
+    size_t nTotalPaletteCount = 0;
+    size_t nUnitCt = ARRAYSIZE(MBTLCharacterData);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -179,13 +177,13 @@ sDescTreeNode* CGame_MBTL_A::InitDescTree()
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (size_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
+        size_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
@@ -202,17 +200,17 @@ sDescTreeNode* CGame_MBTL_A::InitDescTree()
         OutputDebugString(strMsg);
 #endif
 
-        UINT16 nTotalPalettesUsedInUnit = 0;
+        size_t  nTotalPalettesUsedInUnit = 0;
 
         //Set data for each child group ("collection")
-        for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+        for (size_t  iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
         {
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
             //Set each collection data
             _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
             //Collection children have nodes
-            UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
+            size_t  nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nListedChildrenCount;
             CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
@@ -222,7 +220,7 @@ sDescTreeNode* CGame_MBTL_A::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-            for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+            for (size_t  nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -248,34 +246,34 @@ sDescTreeNode* CGame_MBTL_A::InitDescTree()
     return NewDescTree;
 }
 
-UINT16 CGame_MBTL_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_MBTL_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     // Just one palette set per character
     return ARRAYSIZE(MBTLPaletteNodes);
 }
 
-UINT16 CGame_MBTL_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 /*nCollectionId*/)
+size_t CGame_MBTL_A::GetNodeCountForCollection(size_t nUnitId, size_t  /*nCollectionId*/)
 {
     return MBTLCharacterData[nUnitId].nPaletteListSize;
 }
 
-UINT16 CGame_MBTL_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_MBTL_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return MBTLCharacterData[nUnitId].nPaletteListSize * ARRAYSIZE(MBTLPaletteNodes);
 }
 
-LPCWSTR CGame_MBTL_A::GetDescriptionForCollection(UINT16 /*nUnitId */, UINT16 nCollectionId)
+LPCWSTR CGame_MBTL_A::GetDescriptionForCollection(size_t  /*nUnitId */, size_t nCollectionId)
 {
     return MBTLPaletteNodes[nCollectionId].pszNodeName;
 }
 
-void CGame_MBTL_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_MBTL_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     // MBTL palettes are all 0x400 long
     const int cbPaletteSizeOnDisc = 0x400;
 
-    UINT16 nAdjustedPalId = nPalId % ARRAYSIZE(MBTLPaletteNamesNormal);
-    UINT16 nPaletteSet = nPalId / ARRAYSIZE(MBTLPaletteNamesNormal);
+    size_t nAdjustedPalId = nPalId % ARRAYSIZE(MBTLPaletteNamesNormal);
+    size_t nPaletteSet = nPalId / ARRAYSIZE(MBTLPaletteNamesNormal);
 
     m_pszCurrentPaletteName = MBTLCharacterData[nUnitId].ppszPaletteList[nAdjustedPalId];
     m_nCurrentPaletteROMLocation = MBTLCharacterData[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nAdjustedPalId) + (0x0 * nAdjustedPalId);
@@ -306,12 +304,12 @@ BOOL CGame_MBTL_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = MBTLCharacterData[NodeGet->uUnitId].nSpriteIndex;
+    size_t nImgUnitId = MBTLCharacterData[NodeGet->uUnitId].nSpriteIndex;
 
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists
-    UINT16 nSrcStart = (NodeGet->uPalId % MBTLCharacterData[NodeGet->uUnitId].nPaletteListSize);
-    UINT16 nSrcAmt = m_nNumberOfColorOptions;
+    int nSrcStart = (int)(NodeGet->uPalId % MBTLCharacterData[NodeGet->uUnitId].nPaletteListSize);
+    size_t nSrcAmt = pButtonLabelSet.size();
     UINT16 nNodeIncrement = MBTLCharacterData[NodeGet->uUnitId].nPaletteListSize;
 
     //Get rid of any palettes if there are any
@@ -324,11 +322,8 @@ BOOL CGame_MBTL_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         //Create the default palette
         CreateDefPal(NodeGet, 0);
 
-        if (m_prgGameImageSet) // no need to show images until we get some. this check can be removed once that happens
-        {
-            // Only internal units get sprites
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-        }
+        // Only internal units get sprites
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }
@@ -336,7 +331,7 @@ BOOL CGame_MBTL_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-BOOL CGame_MBTL_A::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
+BOOL CGame_MBTL_A::LoadFile(CFile* LoadedFile, size_t nUnitNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
@@ -347,7 +342,7 @@ BOOL CGame_MBTL_A::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     strInfo.Format(L"\tCGame_MBTL_A_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", MBTLCharacterData[nUnitNumber].nInitialLocation);
     OutputDebugString(strInfo);
 
-    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitNumber);
+    size_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
@@ -358,7 +353,7 @@ BOOL CGame_MBTL_A::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     // These are already sorted, no need to redirect
     rgUnitRedir[nUnitNumber] = nUnitNumber;
 
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
@@ -378,12 +373,12 @@ BOOL CGame_MBTL_A::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     return fSuccess;
 }
 
-BOOL CGame_MBTL_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
+BOOL CGame_MBTL_A::SaveFile(CFile* SaveFile, size_t nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
-    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitId);
+    size_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         if (IsPaletteDirty(nUnitId, nPalCtr))
         {

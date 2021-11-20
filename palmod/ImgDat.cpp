@@ -59,7 +59,7 @@ bool CImgDat::FlushImageBuffer()
     return true;
 }
 
-bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameImageUnitAmt, const UINT8 uGameFlag)
+bool CImgDat::PrepImageBuffer(std::vector<UINT16> prgGameImageSet, const UINT8 uGameFlag)
 {
     if (!imageBufferFlushed)
     {
@@ -71,7 +71,7 @@ bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameI
     OutputDebugString(L"CImgDat::PrepImageBuffer : Prepping Image Buffer \n");
 #endif
 
-    if (prgGameImageSet == nullptr)
+    if (prgGameImageSet.empty())
     {
         OutputDebugString(L"CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n");
         return false;
@@ -80,9 +80,9 @@ bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameI
     nImgMap = new std::map<UINT16, ImgInfoList*>;
 
     // We have an individual entry here for every game so we can optimize image loads
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nGameImageUnitAmt; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < prgGameImageSet.size(); nUnitCtr++)
     {
-        UINT16 nImageUnitCounterToUse = prgGameImageSet[nUnitCtr];
+        UINT16 nImageUnitCounterToUse = prgGameImageSet.at(nUnitCtr);
 
 #if IMGDAT_DEBUG
         strDebugInfo.Format(L"\tCImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", nImageUnitCounterToUse);
@@ -99,7 +99,7 @@ bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameI
     return true;
 }
 
-sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
+sImgDef* CImgDat::GetImageDef(size_t uUnitId, UINT16 uImgId)
 {
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -297,9 +297,9 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
         // not super critical for daily updates, but still useful
         const UINT16 nExpectedYear = 2021;
         const UINT8 nExpectedMonth = 11;
-        const UINT8 nExpectedDay = 8;
+        const UINT8 nExpectedDay = 14;
         const UINT8 nExpectedRevision = 0;
-        const ULONGLONG nExpectedFileSize = 139368932;
+        const ULONGLONG nExpectedFileSize = 139849573;
 
         const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 
@@ -332,17 +332,17 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
     }
 }
 
-BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, const UINT16* prgGameImageSet, UINT16 uImgUnitAmt, BOOL bLoadAll)
+BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, size_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL bLoadAll)
 {
     UINT8 uNumGames = 0xFF;
 
     CString strDebugInfo;
     strDebugInfo.Format(L"CImgDat::LoadGameImages : Opening image file '%s'\n", lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uImgUnitAmt);
+    strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, prgGameImageSet.size());
     OutputDebugString(strDebugInfo);
 
-    if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag) || (uImgUnitAmt == 0))
+    if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag) || (prgGameImageSet.empty()))
     {
         return TRUE;
     }
@@ -413,7 +413,7 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
                     imageBufferFlushed = FlushImageBuffer();
                 }
 
-                imageBufferPrepped = PrepImageBuffer(prgGameImageSet, uImgUnitAmt, uGameFlag);
+                imageBufferPrepped = PrepImageBuffer(prgGameImageSet, uGameFlag);
 
                 while (uReadNextImgLoc != 0)
                 {

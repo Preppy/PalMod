@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 WINDJAMMERS_A_IMGIDS_USED[] =
+const std::vector<UINT16> WINDJAMMERS_A_IMGIDS_USED =
 {
     indexWindjammersSprites_Germany,
     indexWindjammersSprites_Italy,
@@ -191,7 +191,7 @@ const sDescTreeNode Windjammers_A_UNITS[] =
 };
 
 constexpr auto Windjammers_A_NUMUNIT = ARRAYSIZE(Windjammers_A_UNITS);
-#define Windjammers_A_EXTRALOC Windjammers_A_NUMUNIT
+constexpr auto Windjammers_A_EXTRALOC = Windjammers_A_NUMUNIT;
 
 const stExtraDef Windjammers_A_EXTRA[] =
 {

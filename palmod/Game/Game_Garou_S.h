@@ -13,7 +13,7 @@ public:
     CGame_Garou_S(UINT32 nConfirmedROMSize);
     ~CGame_Garou_S(void);
 
-    static sFileRule GetRule(UINT16 nUnitId);
+    static sFileRule GetRule(size_t nUnitId);
 };
 
 class CGame_GarouP_A : public CGame_Garou_A
@@ -26,5 +26,5 @@ public:
     CGame_GarouP_A(UINT32 nConfirmedROMSize);
     ~CGame_GarouP_A(void);
 
-    static sFileRule GetRule(UINT16 nUnitId);
+    static sFileRule GetRule(size_t nUnitId);
 };

@@ -10,8 +10,8 @@ stExtraDef* CGame_CVS2_A::CVS2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_CVS2_A::MainDescTree = nullptr;
 
-int CGame_CVS2_A::rgExtraCountAll[CVS2_A_NUMUNIT + 1];
-int CGame_CVS2_A::rgExtraLoc[CVS2_A_NUMUNIT + 1];
+size_t CGame_CVS2_A::rgExtraCountAll[CVS2_A_NUMUNIT + 1];
+size_t CGame_CVS2_A::rgExtraLoc[CVS2_A_NUMUNIT + 1];
 
 UINT32 CGame_CVS2_A::m_nTotalPaletteCountForCVS2 = 0;
 UINT32 CGame_CVS2_A::m_nExpectedGameROMSize = 0x9800000;  // 159,383,552 bytes
@@ -57,7 +57,6 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     nGameFlag = CVS2_A;
     nImgGameFlag = IMGDAT_SECTION_CVS2;
     m_prgGameImageSet = CVS2_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(CVS2_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -66,11 +65,10 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
 
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_CVS2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_CVS2);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -89,12 +87,12 @@ CDescTree* CGame_CVS2_A::GetMainTree()
     return &CGame_CVS2_A::MainDescTree;
 }
 
-int CGame_CVS2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_CVS2_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, CVS2_A_NUMUNIT, nUnitId, CVS2_A_EXTRA_CUSTOM);
 }
 
-int CGame_CVS2_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_CVS2_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, CVS2_A_NUMUNIT, nUnitId, CVS2_A_EXTRA_CUSTOM);
 }
@@ -106,13 +104,13 @@ void CGame_CVS2_A::DumpAllCharacters()
     {
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
-        const UINT16 k_nCharacterColorCount = ARRAYSIZE(DEF_BUTTONLABEL_CVS2);
+        const size_t k_nCharacterColorCount = DEF_BUTTONLABEL_CVS2.size();
         CString strOutput;
 
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
+        for (size_t iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
         {
             nCurrentCharacterOffset = CVS2_CharacterOffsetArray[iUnitCtr].romOffset + (0xc0 * iButtonIndex);
 
@@ -175,7 +173,7 @@ void CGame_CVS2_A::DumpAllCharacters()
         strOutput.Format(L"const sDescTreeNode CVS2_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
+        for (size_t iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
         {
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)CVS2_A_%s_PALETTES_%s, ARRAYSIZE(CVS2_A_%s_PALETTES_%s) },\r\n",
                 DEF_BUTTONLABEL_CVS2[iButtonIndex],
@@ -187,7 +185,7 @@ void CGame_CVS2_A::DumpAllCharacters()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
+    for (size_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
     {
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
@@ -234,7 +232,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_CVS2_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_CVS2_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -247,42 +245,42 @@ sFileRule CGame_CVS2_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_CVS2_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_CVS2_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(CVS2_A_UNITS, rgExtraCountAll, CVS2_A_NUMUNIT, CVS2_A_EXTRALOC, nUnitId, CVS2_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_CVS2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_CVS2_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(CVS2_A_UNITS, rgExtraCountAll, CVS2_A_NUMUNIT, CVS2_A_EXTRALOC, nUnitId, nCollectionId, CVS2_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_CVS2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_CVS2_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(CVS2_A_UNITS, CVS2_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_CVS2_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_CVS2_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(CVS2_A_UNITS, rgExtraCountAll, CVS2_A_NUMUNIT, CVS2_A_EXTRALOC, nUnitId, CVS2_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_CVS2_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_CVS2_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(CVS2_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(CVS2_A_UNITS, rgExtraCountAll, CVS2_A_NUMUNIT, CVS2_A_EXTRALOC, nUnitId, nPaletteId, CVS2_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_CVS2_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_CVS2_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(CVS2_A_UNITS, rgExtraCountAll, CVS2_A_NUMUNIT, CVS2_A_EXTRALOC, nUnitId, nPaletteId, CVS2_A_EXTRA_CUSTOM);
 }
 
-void CGame_CVS2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_CVS2_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != CVS2_A_EXTRALOC)
     {

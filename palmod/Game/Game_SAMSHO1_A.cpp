@@ -10,8 +10,8 @@ stExtraDef* CGame_SAMSHO1_A::SAMSHO1_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SAMSHO1_A::MainDescTree = nullptr;
 
-int CGame_SAMSHO1_A::rgExtraCountAll[SAMSHO1_A_NUMUNIT + 1];
-int CGame_SAMSHO1_A::rgExtraLoc[SAMSHO1_A_NUMUNIT + 1];
+size_t CGame_SAMSHO1_A::rgExtraCountAll[SAMSHO1_A_NUMUNIT + 1];
+size_t CGame_SAMSHO1_A::rgExtraLoc[SAMSHO1_A_NUMUNIT + 1];
 
 UINT32 CGame_SAMSHO1_A::m_nTotalPaletteCountForSAMSHO1 = 0;
 UINT32 CGame_SAMSHO1_A::m_nExpectedGameROMSize = 0x100000;  // 1,048,576 bytes
@@ -59,7 +59,6 @@ CGame_SAMSHO1_A::CGame_SAMSHO1_A(UINT32 nConfirmedROMSize)
     nGameFlag = SAMSHO1_A;
     nImgGameFlag = IMGDAT_SECTION_SAMSHO;
     m_prgGameImageSet = SAMSHO1_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(SAMSHO1_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -67,11 +66,10 @@ CGame_SAMSHO1_A::CGame_SAMSHO1_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_2_PK;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_PK);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -90,12 +88,12 @@ CDescTree* CGame_SAMSHO1_A::GetMainTree()
     return &CGame_SAMSHO1_A::MainDescTree;
 }
 
-int CGame_SAMSHO1_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_SAMSHO1_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SAMSHO1_A_NUMUNIT, nUnitId, SAMSHO1_A_EXTRA_CUSTOM);
 }
 
-int CGame_SAMSHO1_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_SAMSHO1_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, SAMSHO1_A_NUMUNIT, nUnitId, SAMSHO1_A_EXTRA_CUSTOM);
 }
@@ -128,7 +126,7 @@ sDescTreeNode* CGame_SAMSHO1_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_SAMSHO1_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_SAMSHO1_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -140,47 +138,47 @@ sFileRule CGame_SAMSHO1_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_SAMSHO1_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_SAMSHO1_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(SAMSHO1_A_UNITS, rgExtraCountAll, SAMSHO1_A_NUMUNIT, SAMSHO1_A_EXTRALOC, nUnitId, SAMSHO1_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_SAMSHO1_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_SAMSHO1_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(SAMSHO1_A_UNITS, rgExtraCountAll, SAMSHO1_A_NUMUNIT, SAMSHO1_A_EXTRALOC, nUnitId, nCollectionId, SAMSHO1_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_SAMSHO1_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SAMSHO1_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(SAMSHO1_A_UNITS, SAMSHO1_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_SAMSHO1_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_SAMSHO1_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(SAMSHO1_A_UNITS, rgExtraCountAll, SAMSHO1_A_NUMUNIT, SAMSHO1_A_EXTRALOC, nUnitId, SAMSHO1_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_SAMSHO1_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_SAMSHO1_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(SAMSHO1_A_UNITS, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_SAMSHO1_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+size_t CGame_SAMSHO1_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
 {
     return _GetNodeSizeFromPaletteId(SAMSHO1_A_UNITS, rgExtraCountAll, SAMSHO1_A_NUMUNIT, SAMSHO1_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO1_A_EXTRA_CUSTOM);
 }
 
-const sDescTreeNode* CGame_SAMSHO1_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SAMSHO1_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(SAMSHO1_A_UNITS, rgExtraCountAll, SAMSHO1_A_NUMUNIT, SAMSHO1_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO1_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_SAMSHO1_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_SAMSHO1_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(SAMSHO1_A_UNITS, rgExtraCountAll, SAMSHO1_A_NUMUNIT, SAMSHO1_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO1_A_EXTRA_CUSTOM);
 }
 
-void CGame_SAMSHO1_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_SAMSHO1_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != SAMSHO1_A_EXTRALOC)
     {
@@ -230,16 +228,16 @@ BOOL CGame_SAMSHO1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    int nSrcStart = (int)NodeGet->uPalId;
+    size_t nSrcAmt = 1;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+    size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -293,12 +291,12 @@ BOOL CGame_SAMSHO1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
             {
                 if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
-                    const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                    const size_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                     fShouldUseAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;
 
-                    for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    for (size_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                     {
                         // The palettes get added forward, but the image tickets need to be generated in reverse order
                         const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));

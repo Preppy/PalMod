@@ -21,7 +21,7 @@ void CPalModDlg::OnCBUnitChildChange()
 void CPalModDlg::UpdateCombo()
 {
     CGameClass* CurrGame = GetHost()->GetCurrGame();
-    UINT16* rgRedir = CurrGame->rgUnitRedir;
+    size_t* rgRedir = CurrGame->rgUnitRedir;
 
     if (bLoadUnit)
     {
@@ -74,7 +74,7 @@ void CPalModDlg::UpdateCombo()
         //Clear the 1st child list
         while (m_CBChildSel1.DeleteString(0) >= 0) NULL;
 
-        for (int nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
+        for (size_t nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
         {
             m_CBChildSel1.AddString(((sDescTreeNode*)ChildTree->ChildNodes)[nDescCtr].szDesc);
         }
@@ -101,7 +101,7 @@ void CPalModDlg::UpdateCombo()
         //Clear the 1st child list
         while (m_CBChildSel2.DeleteString(0) >= 0) { NULL; }
 
-        for (int nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
+        for (size_t nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
         {
             m_CBChildSel2.AddString(((sDescNode*)ChildTree->ChildNodes)[nDescCtr].szDesc);
         }

@@ -327,7 +327,7 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 
 void CImgOutDlg::FillPalCombo()
 {
-    if ((nPalAmt != 1) && (pButtonLabelSet != nullptr))
+    if ((nPalAmt != 1) && (!pButtonLabelSet.empty()))
     {
         for (int nNodeIndex = 0; nNodeIndex < nPalAmt; nNodeIndex++)
         {

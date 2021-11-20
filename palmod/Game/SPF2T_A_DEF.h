@@ -6,7 +6,7 @@
 // * Update every array using SPF2T_A_NUMUNITS below
 // That should be it.  Good luck.
 
-const UINT16 SPF2T_A_IMGIDS_USED[] =
+const std::vector<UINT16> SPF2T_A_IMGIDS_USED =
 {
     indexPuzzleFighter_Akuma,       // 0x96
     indexPuzzleFighter_Anita,       // 0x97

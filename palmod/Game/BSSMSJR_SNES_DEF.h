@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const UINT16 BSSMSJR_SNES_IMGIDS_USED[] =
+const std::vector<UINT16> BSSMSJR_SNES_IMGIDS_USED =
 {
     indexBSSMSJRSprites_ChibiMoon,      // 0x91
     indexBSSMSJRSprites_Jupiter,        // 0x92

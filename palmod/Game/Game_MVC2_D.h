@@ -20,43 +20,43 @@ public:
 
     //Vars used for extra processing
     int nExtraAmt = 0;
-    UINT16 nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
+    size_t nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
 
     //Static functions
-    static UINT16 uRuleCtr;
-    static UINT16 rgExtraChrLoc[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
+    static size_t uRuleCtr;
+    static size_t rgExtraChrLoc[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
 
-    static UINT16 GetRuleCtr() { return uRuleCtr; };
+    static size_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static CDescTree MainDescTree;
 
     static sDescTreeNode* InitDescTree();
     static void InitExtraRg();
-    static int CountExtraRg(UINT16 nUnitId, BOOL bOmniExtra);
+    static size_t CountExtraRg(size_t nUnitId, BOOL bOmniExtra);
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
     static sFileRule GetNextRule();
-    static sFileRule GetRule(UINT16 nRuleId);
+    static sFileRule GetRule(size_t nRuleId);
 
     //Normal functions
     CDescTree* GetMainTree();
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId) override;
-    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
+    BOOL LoadFile(CFile* LoadedFile, size_t nUnitId) override;
+    BOOL SaveFile(CFile* SaveFile, size_t nUnitId) override;
 
     void ValidateMixExtraColors(BOOL* pfChangesWereMade);
 
-    COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId) override;
+    COLORREF* CreatePal(size_t nUnitId, size_t nPalId) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-    int GetBasicOffset(UINT16 nPalId);
+    size_t GetBasicOffset(size_t nPalId);
 
-    void SetExtraImg(UINT16 nImgId, UINT16 nUnitId, UINT16 nPalId);
+    void SetExtraImg(UINT16 nImgId, size_t nUnitId, size_t nPalId);
 
     void UpdatePalData(); // This is old code and uses its own logic
 
     UINT16** GetDataBuffer() { return ppDataBuffer; };
-    void PostSetPal(UINT16 nUnitId, UINT16 nPalId) override;
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId) override;
-    BOOL CreateExtraPal(UINT16 nUnitId, UINT16 nPalId, int nStart, int nInc, int nImgId, int nSepId = 0, int nAmt = 1);
-    void ResetChangeFlag(UINT16 nUnitId);
+    void PostSetPal(size_t nUnitId, size_t nPalId) override;
+    void CreateDefPal(sDescNode* srcNode, size_t nSepId) override;
+    BOOL CreateExtraPal(size_t nUnitId, size_t nPalId, int nStart, int nInc, int nImgId, int nSepId = 0, int nAmt = 1);
+    void ResetChangeFlag(size_t nUnitId);
 };

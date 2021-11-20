@@ -8,9 +8,9 @@ enum Supported_MSHVSF_7B_PaletteListIndex
 
 constexpr auto MSHVSF_A_NUM_IND_7B = index_MSHVSF_7B_Last;
 
-#define MSHVSF_A_EXTRALOC_7B MSHVSF_A_NUM_IND_7B
+constexpr auto MSHVSF_A_EXTRALOC_7B = MSHVSF_A_NUM_IND_7B;
 
-const UINT16 MSHVSF_A_IMGIDS_USED[] =
+const std::vector<UINT16> MSHVSF_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,
     indexCPS2Sprites_Zangief,

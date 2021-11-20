@@ -41,24 +41,22 @@ CGame_DBZEB_DS::CGame_DBZEB_DS(UINT32 nConfirmedROMSize)
 
     nImgGameFlag = IMGDAT_SECTION_DS;
     m_prgGameImageSet = DBZEB_3DS_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(DBZEB_3DS_IMGIDS_USED);
 
     nFileAmt = 1;
 
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabelSet = DEF_BUTTONLABEL_2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
+    pButtonLabelSet= DEF_NOBUTTONS;
 
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     PrepChangeTrackingArray();
 }
 
 stExtraDef* CGame_DBZEB_DS::DBZEB_DS_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_DBZEB_DS::MainDescTree = nullptr;
-int CGame_DBZEB_DS::rgExtraCountAll[DBZEB_DS_NUMUNIT + 1];
-int CGame_DBZEB_DS::rgExtraLoc[DBZEB_DS_NUMUNIT + 1];
+size_t CGame_DBZEB_DS::rgExtraCountAll[DBZEB_DS_NUMUNIT + 1];
+size_t CGame_DBZEB_DS::rgExtraLoc[DBZEB_DS_NUMUNIT + 1];
 UINT32 CGame_DBZEB_DS::m_nTotalPaletteCountForNEWGAME = 0;
 UINT32 CGame_DBZEB_DS::m_nConfirmedROMSize = -1;
 
@@ -85,12 +83,12 @@ CDescTree* CGame_DBZEB_DS::GetMainTree()
     return &CGame_DBZEB_DS::MainDescTree;
 }
 
-int CGame_DBZEB_DS::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_DBZEB_DS::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, DBZEB_DS_NUMUNIT, nUnitId, DBZEB_DS_EXTRA_CUSTOM);
 }
 
-int CGame_DBZEB_DS::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_DBZEB_DS::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, DBZEB_DS_NUMUNIT, nUnitId, DBZEB_DS_EXTRA_CUSTOM);
 }
@@ -123,7 +121,7 @@ sDescTreeNode* CGame_DBZEB_DS::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_DBZEB_DS::GetRule(UINT16 nUnitId)
+sFileRule CGame_DBZEB_DS::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -136,42 +134,42 @@ sFileRule CGame_DBZEB_DS::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_DBZEB_DS::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_DBZEB_DS::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(DBZEB_DS_UNITS, rgExtraCountAll, DBZEB_DS_NUMUNIT, DBZEB_DS_EXTRALOC, nUnitId, DBZEB_DS_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_DBZEB_DS::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_DBZEB_DS::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(DBZEB_DS_UNITS, rgExtraCountAll, DBZEB_DS_NUMUNIT, DBZEB_DS_EXTRALOC, nUnitId, nCollectionId, DBZEB_DS_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_DBZEB_DS::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_DBZEB_DS::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(DBZEB_DS_UNITS, DBZEB_DS_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_DBZEB_DS::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_DBZEB_DS::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(DBZEB_DS_UNITS, rgExtraCountAll, DBZEB_DS_NUMUNIT, DBZEB_DS_EXTRALOC, nUnitId, DBZEB_DS_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_DBZEB_DS::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_DBZEB_DS::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(DBZEB_DS_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_DBZEB_DS::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_DBZEB_DS::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(DBZEB_DS_UNITS, rgExtraCountAll, DBZEB_DS_NUMUNIT, DBZEB_DS_EXTRALOC, nUnitId, nPaletteId, DBZEB_DS_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_DBZEB_DS::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_DBZEB_DS::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(DBZEB_DS_UNITS, rgExtraCountAll, DBZEB_DS_NUMUNIT, DBZEB_DS_EXTRALOC, nUnitId, nPaletteId, DBZEB_DS_EXTRA_CUSTOM);
 }
 
-void CGame_DBZEB_DS::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_DBZEB_DS::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != DBZEB_DS_EXTRALOC)
     {

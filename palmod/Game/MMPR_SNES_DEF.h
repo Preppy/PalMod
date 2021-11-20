@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 MMPR_SNES_IMGIDS_USED[] =
+const std::vector<UINT16> MMPR_SNES_IMGIDS_USED =
 {
     indexMMPRSprites_Goldar,        // 0x00
     indexMMPRSprites_IvanOoze,      // 0x01

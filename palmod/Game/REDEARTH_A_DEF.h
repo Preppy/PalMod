@@ -16,7 +16,7 @@
 // Ravange
 // Scion (Missing Palettes)
 
-const UINT16 REDEARTH_A_IMGIDS_USED[] =
+const std::vector<UINT16> REDEARTH_A_IMGIDS_USED =
 {
     indexRedEarthSprites_Blade,     // 0x00
     indexRedEarthSprites_GiGi,      // 0x01

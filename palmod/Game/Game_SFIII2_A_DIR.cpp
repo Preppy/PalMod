@@ -2,7 +2,7 @@
 #include "Game_SFIII2_A_DIR.h"
 #include "..\PalMod.h"
 
-UINT16 CGame_SFIII2_A_DIR::uRuleCtr = 0;
+size_t CGame_SFIII2_A_DIR::uRuleCtr = 0;
 
 constexpr auto SFIII2_Arcade_USA_ROM_Base = L"SFIII2-simm";
 constexpr auto SFIII2_Arcade_USA_ROMSet = 5;
@@ -27,7 +27,7 @@ CGame_SFIII2_A_DIR::CGame_SFIII2_A_DIR(UINT32 nConfirmedROMSize /* = -1 */) :
     PrepChangeTrackingArray();
 }
 
-sFileRule CGame_SFIII2_A_DIR::GetRule(UINT16 nUnitId)
+sFileRule CGame_SFIII2_A_DIR::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 

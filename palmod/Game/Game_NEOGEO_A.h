@@ -13,8 +13,8 @@ class CGame_NEOGEO_A : public CGameWithExtrasFile
 private:
     static UINT32 m_nTotalPaletteCountForNEOGEO;
 
-    static int rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
-    static int rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
+    static size_t rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
+    static size_t rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
     const static UINT8 NEOGEO_A_EXTRALOC = NEOGEO_A_NUMUNIT;
 
     static void InitializeStatics();
@@ -22,8 +22,8 @@ private:
     static UINT32 m_nConfirmedROMSize;
     bool m_fHaveDoneInitialSet = false;
 
-    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
-    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+    void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
+    size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
     void SetAlphaModeInternal(AlphaMode NewMode);
     BOOL SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting);
@@ -36,23 +36,23 @@ public:
     static CDescTree MainDescTree;
 
     static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(UINT16 nUnitId);
+    static sFileRule GetRule(size_t nUnitId);
 
     //Extra palette function
-    static int GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly = FALSE);
-    static int GetExtraLoc(UINT16 nUnitId);
+    static size_t GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static size_t GetExtraLoc(size_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
-    static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
+    static size_t GetCollectionCountForUnit(size_t nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
+    static size_t GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(size_t nUnitId, size_t nPaletteId);
 
-    const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
+    const sDescTreeNode* GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly);
 
     void SetAlphaMode(AlphaMode NewMode) override;
     BOOL SetColorMode(ColMode NewMode) override;

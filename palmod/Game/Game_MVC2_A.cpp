@@ -13,8 +13,8 @@ stExtraDef* CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MVC2_A::MainDescTree = nullptr;
 
-int CGame_MVC2_A::rgExtraCountAll[MVC2_A_NUMUNIT + 1];
-int CGame_MVC2_A::rgExtraLoc[MVC2_A_NUMUNIT + 1];
+size_t CGame_MVC2_A::rgExtraCountAll[MVC2_A_NUMUNIT + 1];
+size_t CGame_MVC2_A::rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
 UINT32 CGame_MVC2_A::m_nTotalPaletteCountForMVC2 = 0;
 UINT32 CGame_MVC2_A::m_nExpectedGameROMSize = 0x889B600; // 143,242,752 bytes
@@ -61,7 +61,6 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     nGameFlag = MVC2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     m_prgGameImageSet = MVC2_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(MVC2_IMGIDS_USED);
 
     m_fGameUsesAlphaValue = true;
 
@@ -70,7 +69,6 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM;
     pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
 
     //Set the MVC2 supp game
     CurrMVC2 = (CGame_MVC2_D*)this;
@@ -79,8 +77,8 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     prep_supp(false);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -102,12 +100,12 @@ CDescTree* CGame_MVC2_A::GetMainTree()
     return &CGame_MVC2_A::MainDescTree;
 }
 
-int CGame_MVC2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_MVC2_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, MVC2_A_NUMUNIT, nUnitId, MVC2_A_EXTRA_CUSTOM);
 }
 
-int CGame_MVC2_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_MVC2_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, MVC2_A_NUMUNIT, nUnitId, MVC2_A_EXTRA_CUSTOM);
 }
@@ -204,7 +202,7 @@ void CGame_MVC2_A::DumpAllCharacters()
             UINT16 nPaletteCount = 0;
             CString strOutput;
 
-            for (UINT16 iButtonIndex = 0; iButtonIndex < m_nNumberOfColorOptions; iButtonIndex++)
+            for (UINT16 iButtonIndex = 0; iButtonIndex < pButtonLabelSet.size(); iButtonIndex++)
             {
                 strOutput.Format(L"const sGame_PaletteDataset MVC2_A_%s_PALETTES_%s[] =\r\n{\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, (LPCWSTR)pButtonLabelSet[iButtonIndex]);
                 OutputDebugString(strOutput);
@@ -359,7 +357,7 @@ void CGame_MVC2_A::DumpAllCharacters()
             strOutput.Format(L"const sDescTreeNode MVC2_A_%s_COLLECTION[] =\r\n{\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc);
             OutputDebugString(strOutput);
 
-            for (UINT16 iButtonIndex = 0; iButtonIndex < m_nNumberOfColorOptions; iButtonIndex++)
+            for (UINT16 iButtonIndex = 0; iButtonIndex < pButtonLabelSet.size(); iButtonIndex++)
             {
                 strOutput.Format(L"    { \"%s\", DESC_NODETYPE_TREE, (void*)MVC2_A_%s_PALETTES_%s, ARRAYSIZE(MVC2_A_%s_PALETTES_%s) },\r\n", pButtonLabelSet[iButtonIndex], MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
                                             MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, pButtonLabelSet[iButtonIndex] );
@@ -414,7 +412,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_MVC2_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_MVC2_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -427,7 +425,7 @@ sFileRule CGame_MVC2_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_MVC2_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_MVC2_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     if (nUnitId == MVC2_A_EXTRALOC)
     {
@@ -439,38 +437,38 @@ UINT16 CGame_MVC2_A::GetCollectionCountForUnit(UINT16 nUnitId)
     }
 }
 
-UINT16 CGame_MVC2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_MVC2_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(MVC2_A_UNITS, rgExtraCountAll, MVC2_A_NUMUNIT, MVC2_A_EXTRALOC, nUnitId, nCollectionId, MVC2_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_MVC2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_MVC2_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(MVC2_A_UNITS, MVC2_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_MVC2_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_MVC2_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(MVC2_A_UNITS, rgExtraCountAll, MVC2_A_NUMUNIT, MVC2_A_EXTRALOC, nUnitId, MVC2_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_MVC2_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_MVC2_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(MVC2_A_UNITS, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_MVC2_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+size_t CGame_MVC2_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    UINT16 nNodeSize = 0;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    size_t nNodeSize = 0;
+    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
+    size_t nDistanceFromZero = nPaletteId;
 
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -484,17 +482,17 @@ UINT16 CGame_MVC2_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
     return nNodeSize;
 }
 
-const sDescTreeNode* CGame_MVC2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_MVC2_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(MVC2_A_UNITS, rgExtraCountAll, MVC2_A_NUMUNIT, MVC2_A_EXTRALOC, nUnitId, nPaletteId, MVC2_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_MVC2_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_MVC2_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(MVC2_A_UNITS, rgExtraCountAll, MVC2_A_NUMUNIT, MVC2_A_EXTRALOC, nUnitId, nPaletteId, MVC2_A_EXTRA_CUSTOM);
 }
 
-void CGame_MVC2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_MVC2_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != MVC2_A_EXTRALOC)
     {
@@ -526,18 +524,18 @@ void CGame_MVC2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, size_t nUnitId)
 {
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         // Use a sorted layout
         rgUnitRedir[nUnitCtr] = MVC2_A_UNITSORT[nUnitCtr];
 
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -566,11 +564,11 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     return TRUE;
 }
 
-BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
+BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, size_t nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
 
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
         if (nUnitCtr == indexMVC2ATeamView)
         {
@@ -578,9 +576,9 @@ BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             continue;
         }
 
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             // We don't mark proc_supp palettes dirty: only use this check if we change that behavior
             //if (IsPaletteDirty(nUnitCtr, nPalCtr))
@@ -619,16 +617,16 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    int nSrcStart = (int)NodeGet->uPalId;
+    size_t nSrcAmt = 1;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+    size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -802,11 +800,10 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                           (_wcsicmp(pCurrentNode->szDesc, L"A1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"A2") == 0))
                 {
                     // We show 6 sprites (LP...A2) for export for all normal MVC2 sprites
-                    nSrcAmt = m_nNumberOfColorOptions;
+                    nSrcAmt = pButtonLabelSet.size();
                     nNodeIncrement = pCurrentNode->uChildAmt;
                     // Need to reset because we have a status effect label set as well.
                     pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
-                    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
 
                     while (nSrcStart >= nNodeIncrement)
                     {
@@ -817,11 +814,9 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 else if (_wcsicmp(pCurrentNode->szDesc, L"Status Effects") == 0)
                 {
                     // Status Effects follow main buttons but are before Extras, if any
-                    UINT16 nCollectionCount = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
-
                     nSrcStart = 0;
 
-                    for (UINT16 iCollectionIndex = 0; iCollectionIndex < nCollectionCount; iCollectionIndex++)
+                    for (UINT16 iCollectionIndex = 0; iCollectionIndex < DEF_BUTTONLABEL6_MVC2.size(); iCollectionIndex++)
                     {
                         nSrcStart += GetNodeCountForCollection(NodeGet->uUnitId, iCollectionIndex);
                     }
@@ -830,7 +825,6 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     nSrcAmt = 8;
                     nNodeIncrement = paletteDataSet->pPalettePairingInfo ? 2 : 1;
                     pButtonLabelSet = DEF_LABEL_STATUS_EFFECTS;
-                    m_nNumberOfColorOptions = ARRAYSIZE(DEF_LABEL_STATUS_EFFECTS);
                 }
             }
 
@@ -876,12 +870,12 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
                     else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                     {
-                        const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                        const size_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                         fShouldUseAlternateLoadLogic = true;
                         sImgTicket* pImgArray = nullptr;
 
-                        for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                        for (size_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                         {
                             // The palettes get added forward, but the image tickets need to be generated in reverse order
                             const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
@@ -947,7 +941,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-int CGame_MVC2_A::GetBasicOffset(UINT16 nPalId)
+size_t CGame_MVC2_A::GetBasicOffset(size_t nPalId)
 {
     // Each character by default gets 6 buttons worth of 8 palettes.  
     if (nPalId >= (8 * k_mvc2_character_coloroption_count))
@@ -963,9 +957,9 @@ int CGame_MVC2_A::GetBasicOffset(UINT16 nPalId)
     }
 }
 
-void CGame_MVC2_A::PostSetPal(UINT16 nUnitId, UINT16 nPalId)
+void CGame_MVC2_A::PostSetPal(size_t nUnitId, size_t nPalId)
 {
-    int nBasicOffset = GetBasicOffset(nPalId);
+    size_t nBasicOffset = GetBasicOffset(nPalId);
 
     CString strMessage;
     strMessage.Format(L"CGame_MVC2_A::GetBasicOffset : Palette %u updated.  This palette is %s.\n", nPalId, (nBasicOffset != -1) ? L"basic" : L"Extra");

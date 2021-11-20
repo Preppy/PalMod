@@ -9,8 +9,8 @@ stExtraDef* CGame_VSAV2_A::VSAV2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_VSAV2_A::MainDescTree = nullptr;
 
-int CGame_VSAV2_A::rgExtraCountAll[VSAV2_A_NUMUNIT + 1] = { -1 };
-int CGame_VSAV2_A::rgExtraLoc[VSAV2_A_NUMUNIT + 1] = { -1 };
+size_t CGame_VSAV2_A::rgExtraCountAll[VSAV2_A_NUMUNIT + 1] = { (size_t)-1 };
+size_t CGame_VSAV2_A::rgExtraLoc[VSAV2_A_NUMUNIT + 1] = { (size_t)-1 };
 
 UINT32 CGame_VSAV2_A::m_nTotalPaletteCountForVSAV2 = 0;
 UINT32 CGame_VSAV2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
@@ -56,18 +56,16 @@ CGame_VSAV2_A::CGame_VSAV2_A(UINT32 nConfirmedROMSize)
     nGameFlag = VSAV2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     m_prgGameImageSet = VSAV2_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(VSAV2_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_VSAV;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_VSAV);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -102,12 +100,12 @@ UINT32 CGame_VSAV2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     return ARRAYSIZE(knownROMs);
 }
 
-int CGame_VSAV2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_VSAV2_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, VSAV2_A_NUMUNIT, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }
 
-int CGame_VSAV2_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_VSAV2_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, VSAV2_A_NUMUNIT, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }
@@ -147,7 +145,7 @@ sDescTreeNode* CGame_VSAV2_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_VSAV2_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_VSAV2_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -159,42 +157,42 @@ sFileRule CGame_VSAV2_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_VSAV2_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_VSAV2_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(VSAV2_A_UNITS, rgExtraCountAll, VSAV2_A_NUMUNIT, VSAV2_A_EXTRALOC, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_VSAV2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_VSAV2_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(VSAV2_A_UNITS, rgExtraCountAll, VSAV2_A_NUMUNIT, VSAV2_A_EXTRALOC, nUnitId, nCollectionId, VSAV2_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_VSAV2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_VSAV2_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(VSAV2_A_UNITS, VSAV2_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_VSAV2_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_VSAV2_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(VSAV2_A_UNITS, rgExtraCountAll, VSAV2_A_NUMUNIT, VSAV2_A_EXTRALOC, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_VSAV2_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_VSAV2_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(VSAV2_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_VSAV2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_VSAV2_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(VSAV2_A_UNITS, rgExtraCountAll, VSAV2_A_NUMUNIT, VSAV2_A_EXTRALOC, nUnitId, nPaletteId, VSAV2_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_VSAV2_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_VSAV2_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(VSAV2_A_UNITS, rgExtraCountAll, VSAV2_A_NUMUNIT, VSAV2_A_EXTRALOC, nUnitId, nPaletteId, VSAV2_A_EXTRA_CUSTOM);
 }
 
-void CGame_VSAV2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_VSAV2_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != VSAV2_A_EXTRALOC)
     {

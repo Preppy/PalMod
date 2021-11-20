@@ -21,7 +21,7 @@ class CGame_SFIII3_A : public CGameWithExtrasFile
 {
 public:
     int m_nBufferSelectedRom = SF3ROM_51;
-    static int m_nSelectedRom;
+    static size_t m_nSelectedRom;
     static UINT32 m_nTotalPaletteCountForSFIII3_10;
     static UINT32 m_nTotalPaletteCountForSFIII3_14;
     static UINT32 m_nTotalPaletteCountForSFIII3_4;
@@ -35,21 +35,21 @@ public:
     static bool UsePaletteSetFor3Ex() { return (m_nSelectedRom == SF3ROM_70_EX); }
     static bool UsingROMForGill() { return (m_nSelectedRom == SF3ROM_10) || (m_nSelectedRom == SF3ROM_10_4rd); };
 
-    static int rgExtraCountAll_10[SFIII3_A_10_NUMUNIT + 1];
-    static int rgExtraCountAll_14[SFIII3_A_10_NUMUNIT + 1];
-    static int rgExtraCountAll_4[SFIII3_A_51_NUMUNIT + 1];
-    static int rgExtraCountAll_51[SFIII3_A_51_NUMUNIT + 1];
-    static int rgExtraCountAll_70[SFIII3_A_70_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly_10[SFIII3_A_10_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly_14[SFIII3_A_10_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly_4[SFIII3_A_51_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly_51[SFIII3_A_51_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly_70[SFIII3_A_70_NUMUNIT + 1];
-    static int rgExtraLoc_10[SFIII3_A_10_NUMUNIT + 1];
-    static int rgExtraLoc_14[SFIII3_A_10_NUMUNIT + 1];
-    static int rgExtraLoc_4[SFIII3_A_51_NUMUNIT + 1];
-    static int rgExtraLoc_51[SFIII3_A_51_NUMUNIT + 1];
-    static int rgExtraLoc_70[SFIII3_A_70_NUMUNIT + 1];
+    static size_t rgExtraCountAll_10[SFIII3_A_10_NUMUNIT + 1];
+    static size_t rgExtraCountAll_14[SFIII3_A_10_NUMUNIT + 1];
+    static size_t rgExtraCountAll_4[SFIII3_A_51_NUMUNIT + 1];
+    static size_t rgExtraCountAll_51[SFIII3_A_51_NUMUNIT + 1];
+    static size_t rgExtraCountAll_70[SFIII3_A_70_NUMUNIT + 1];
+    static size_t rgExtraCountVisibleOnly_10[SFIII3_A_10_NUMUNIT + 1];
+    static size_t rgExtraCountVisibleOnly_14[SFIII3_A_10_NUMUNIT + 1];
+    static size_t rgExtraCountVisibleOnly_4[SFIII3_A_51_NUMUNIT + 1];
+    static size_t rgExtraCountVisibleOnly_51[SFIII3_A_51_NUMUNIT + 1];
+    static size_t rgExtraCountVisibleOnly_70[SFIII3_A_70_NUMUNIT + 1];
+    static size_t rgExtraLoc_10[SFIII3_A_10_NUMUNIT + 1];
+    static size_t rgExtraLoc_14[SFIII3_A_10_NUMUNIT + 1];
+    static size_t rgExtraLoc_4[SFIII3_A_51_NUMUNIT + 1];
+    static size_t rgExtraLoc_51[SFIII3_A_51_NUMUNIT + 1];
+    static size_t rgExtraLoc_70[SFIII3_A_70_NUMUNIT + 1];
 
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
@@ -58,11 +58,11 @@ public:
     static UINT32 m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
-    static UINT16 GetCurrentExtraLoc();
+    static size_t GetCurrentExtraLoc();
     static stExtraDef* GetCurrentExtraDef(int nDefCtr);
 
-    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
-    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+    void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
+    size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
 public:
     CGame_SFIII3_A(UINT32 nConfirmedROMSize = -1, int nSF3ROMToLoad = 51);
@@ -76,28 +76,28 @@ public:
     static CDescTree MainDescTree_70;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
-    static sFileRule GetRule(UINT16 nUnitId);
+    static sFileRule GetRule(size_t nUnitId);
 
     //Extra palette function
-    static int GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly = FALSE);
-    static int GetExtraLoc(UINT16 nUnitId);
+    static size_t GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static size_t GetExtraLoc(size_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
-    static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
+    static size_t GetCollectionCountForUnit(size_t nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
+    static size_t GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(size_t nUnitId, size_t nPaletteId);
 
-    UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
-    const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
+    size_t GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId);
+    const sDescTreeNode* GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override;
+    BOOL LoadFile(CFile* LoadedFile, size_t nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
+    BOOL SaveFile(CFile* SaveFile, size_t nUnitId) override;
 
     static stExtraDef* SFIII3_A_10_EXTRA_CUSTOM;
     static stExtraDef* SFIII3_A_14_EXTRA_CUSTOM;

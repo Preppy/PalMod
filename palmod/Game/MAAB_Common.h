@@ -1,5 +1,5 @@
 
-const UINT16 MAAB_A_IMGIDS_USED[] =
+const std::vector<UINT16> MAAB_A_IMGIDS_USED =
 {
     indexArcanaSprites_Bisclavret,      // 0x00
     indexArcanaSprites_BladeProtector,  // 0x01
@@ -18,7 +18,7 @@ const UINT16 MAAB_A_IMGIDS_USED[] =
     indexArcanaSprites_Support,         // 0x0e
 };
 
-const LPCWSTR MAABPaletteNamesNormal[] =
+const std::vector<LPCWSTR> MAABPaletteNamesNormal =
 {
     L"1",
     L"2",
@@ -48,14 +48,14 @@ const LPCWSTR MAABPaletteNamesNormal[] =
 };
 
 // Identical for now, but leaving in so we can be flexible
-const LPCWSTR MAABPaletteNamesSupport[] =
+const std::vector<LPCWSTR> MAABPaletteNamesSupport =
 {
     L"P1",
     L"P2",
 };
 
 // Identical for now, but leaving in so we can be flexible
-const LPCWSTR MAABPaletteNamesEx[] =
+const std::vector<LPCWSTR> MAABPaletteNamesEx =
 {
     L"1",
     L"2",

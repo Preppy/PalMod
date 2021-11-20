@@ -10,5 +10,5 @@ public:
 
     //Static functions
     static sFileRule GetNextRule();
-    static sFileRule GetRule(UINT16 nRuleId);
+    static sFileRule GetRule(size_t nRuleId);
 };

@@ -10,8 +10,8 @@ stExtraDef* CGame_BREAKERS_A::BREAKERS_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_BREAKERS_A::MainDescTree = nullptr;
 
-int CGame_BREAKERS_A::rgExtraCountAll[BREAKERS_A_NUMUNIT + 1];
-int CGame_BREAKERS_A::rgExtraLoc[BREAKERS_A_NUMUNIT + 1];
+size_t CGame_BREAKERS_A::rgExtraCountAll[BREAKERS_A_NUMUNIT + 1];
+size_t CGame_BREAKERS_A::rgExtraLoc[BREAKERS_A_NUMUNIT + 1];
 
 UINT32 CGame_BREAKERS_A::m_nTotalPaletteCountForBreakers = 0;
 UINT32 CGame_BREAKERS_A::m_nExpectedGameROMSize = 0x200000;
@@ -56,7 +56,6 @@ CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = BREAKERS_A;
     nImgGameFlag = IMGDAT_SECTION_BREAKREV;
-    nImgUnitAmt = ARRAYSIZE(BREAKERS_A_IMGIDS_USED);
     m_prgGameImageSet = BREAKERS_A_IMGIDS_USED;
 
     nFileAmt = 1;
@@ -65,11 +64,10 @@ CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -88,12 +86,12 @@ CDescTree* CGame_BREAKERS_A::GetMainTree()
     return &CGame_BREAKERS_A::MainDescTree;
 }
 
-int CGame_BREAKERS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_BREAKERS_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, BREAKERS_A_NUMUNIT, nUnitId, BREAKERS_A_EXTRA_CUSTOM);
 }
 
-int CGame_BREAKERS_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_BREAKERS_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, BREAKERS_A_NUMUNIT, nUnitId, BREAKERS_A_EXTRA_CUSTOM);
 }
@@ -161,7 +159,7 @@ void CGame_BREAKERS_A::DumpAllCharacters()
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO); iButtonIndex++)
+        for (UINT16 iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_NEOGEO.size(); iButtonIndex++)
         {
             nCurrentCharacterOffset = breakersCharacterList[iUnitCtr].baseLocation + (0x200 * iButtonIndex);
 
@@ -242,7 +240,7 @@ void CGame_BREAKERS_A::DumpAllCharacters()
         strOutput.Format(L"const sDescTreeNode BREAKERS_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nButtonNameIndex = 0; nButtonNameIndex < ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO); nButtonNameIndex++)
+        for (UINT16 nButtonNameIndex = 0; nButtonNameIndex < DEF_BUTTONLABEL_NEOGEO.size(); nButtonNameIndex++)
         {
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)BREAKERS_A_%s_PALETTES_%s, ARRAYSIZE(BREAKERS_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL_NEOGEO[nButtonNameIndex], szCodeDesc, DEF_BUTTONLABEL_NEOGEO[nButtonNameIndex],
                                                                                                                                             szCodeDesc, DEF_BUTTONLABEL_NEOGEO[nButtonNameIndex] );
@@ -299,7 +297,7 @@ sDescTreeNode* CGame_BREAKERS_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_BREAKERS_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_BREAKERS_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -312,42 +310,42 @@ sFileRule CGame_BREAKERS_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_BREAKERS_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_BREAKERS_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(BREAKERS_A_UNITS, rgExtraCountAll, BREAKERS_A_NUMUNIT, BREAKERS_A_EXTRALOC, nUnitId, BREAKERS_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_BREAKERS_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_BREAKERS_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(BREAKERS_A_UNITS, rgExtraCountAll, BREAKERS_A_NUMUNIT, BREAKERS_A_EXTRALOC, nUnitId, nCollectionId, BREAKERS_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_BREAKERS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_BREAKERS_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(BREAKERS_A_UNITS, BREAKERS_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_BREAKERS_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_BREAKERS_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(BREAKERS_A_UNITS, rgExtraCountAll, BREAKERS_A_NUMUNIT, BREAKERS_A_EXTRALOC, nUnitId, BREAKERS_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_BREAKERS_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_BREAKERS_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(BREAKERS_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_BREAKERS_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_BREAKERS_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(BREAKERS_A_UNITS, rgExtraCountAll, BREAKERS_A_NUMUNIT, BREAKERS_A_EXTRALOC, nUnitId, nPaletteId, BREAKERS_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_BREAKERS_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_BREAKERS_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(BREAKERS_A_UNITS, rgExtraCountAll, BREAKERS_A_NUMUNIT, BREAKERS_A_EXTRALOC, nUnitId, nPaletteId, BREAKERS_A_EXTRA_CUSTOM);
 }
 
-void CGame_BREAKERS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_BREAKERS_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != BREAKERS_A_EXTRALOC)
     {

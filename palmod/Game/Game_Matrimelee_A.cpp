@@ -9,8 +9,8 @@ stExtraDef* CGame_Matrimelee_A::Matrimelee_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_Matrimelee_A::MainDescTree = nullptr;
 
-int CGame_Matrimelee_A::rgExtraCountAll[Matrimelee_A_NUMUNIT + 1];
-int CGame_Matrimelee_A::rgExtraLoc[Matrimelee_A_NUMUNIT + 1];
+size_t CGame_Matrimelee_A::rgExtraCountAll[Matrimelee_A_NUMUNIT + 1];
+size_t CGame_Matrimelee_A::rgExtraLoc[Matrimelee_A_NUMUNIT + 1];
 
 UINT32 CGame_Matrimelee_A::m_nTotalPaletteCountForMatrimelee = 0;
 const UINT32 CGame_Matrimelee_A::m_nExpectedGameROMSize = 0x400000;
@@ -55,7 +55,6 @@ CGame_Matrimelee_A::CGame_Matrimelee_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = MATRIMELEE_A;
     nImgGameFlag = IMGDAT_SECTION_MATRIM;
-    nImgUnitAmt = ARRAYSIZE(MATRIM_A_IMGIDS_USED);
     m_prgGameImageSet = MATRIM_A_IMGIDS_USED;
 
     nFileAmt = 1;
@@ -64,11 +63,10 @@ CGame_Matrimelee_A::CGame_Matrimelee_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -87,12 +85,12 @@ CDescTree* CGame_Matrimelee_A::GetMainTree()
     return &CGame_Matrimelee_A::MainDescTree;
 }
 
-int CGame_Matrimelee_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_Matrimelee_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, Matrimelee_A_NUMUNIT, nUnitId, Matrimelee_A_EXTRA_CUSTOM);
 }
 
-int CGame_Matrimelee_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_Matrimelee_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, Matrimelee_A_NUMUNIT, nUnitId, Matrimelee_A_EXTRA_CUSTOM);
 }
@@ -127,7 +125,7 @@ sDescTreeNode* CGame_Matrimelee_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_Matrimelee_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_Matrimelee_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -140,42 +138,42 @@ sFileRule CGame_Matrimelee_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_Matrimelee_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_Matrimelee_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(Matrimelee_A_UNITS, rgExtraCountAll, Matrimelee_A_NUMUNIT, Matrimelee_A_EXTRALOC, nUnitId, Matrimelee_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_Matrimelee_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_Matrimelee_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(Matrimelee_A_UNITS, rgExtraCountAll, Matrimelee_A_NUMUNIT, Matrimelee_A_EXTRALOC, nUnitId, nCollectionId, Matrimelee_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_Matrimelee_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_Matrimelee_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(Matrimelee_A_UNITS, Matrimelee_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_Matrimelee_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_Matrimelee_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(Matrimelee_A_UNITS, rgExtraCountAll, Matrimelee_A_NUMUNIT, Matrimelee_A_EXTRALOC, nUnitId, Matrimelee_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_Matrimelee_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_Matrimelee_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(Matrimelee_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_Matrimelee_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_Matrimelee_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(Matrimelee_A_UNITS, rgExtraCountAll, Matrimelee_A_NUMUNIT, Matrimelee_A_EXTRALOC, nUnitId, nPaletteId, Matrimelee_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_Matrimelee_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_Matrimelee_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(Matrimelee_A_UNITS, rgExtraCountAll, Matrimelee_A_NUMUNIT, Matrimelee_A_EXTRALOC, nUnitId, nPaletteId, Matrimelee_A_EXTRA_CUSTOM);
 }
 
-void CGame_Matrimelee_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_Matrimelee_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != m_nExtraUnit)
     {

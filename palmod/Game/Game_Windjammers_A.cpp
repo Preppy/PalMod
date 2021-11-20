@@ -9,8 +9,8 @@ stExtraDef* CGame_Windjammers_A::Windjammers_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_Windjammers_A::MainDescTree = nullptr;
 
-int CGame_Windjammers_A::rgExtraCountAll[Windjammers_A_NUMUNIT + 1];
-int CGame_Windjammers_A::rgExtraLoc[Windjammers_A_NUMUNIT + 1];
+size_t CGame_Windjammers_A::rgExtraCountAll[Windjammers_A_NUMUNIT + 1];
+size_t CGame_Windjammers_A::rgExtraLoc[Windjammers_A_NUMUNIT + 1];
 
 UINT32 CGame_Windjammers_A::m_nTotalPaletteCountForWindjammers = 0;
 const UINT32 CGame_Windjammers_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
@@ -59,7 +59,6 @@ CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
     nGameFlag = WINDJAMMERS_A;
     nImgGameFlag = IMGDAT_SECTION_WINDJAMMERS;
     m_prgGameImageSet = WINDJAMMERS_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(WINDJAMMERS_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -67,11 +66,10 @@ CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -90,12 +88,12 @@ CDescTree* CGame_Windjammers_A::GetMainTree()
     return &CGame_Windjammers_A::MainDescTree;
 }
 
-int CGame_Windjammers_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_Windjammers_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, Windjammers_A_NUMUNIT, nUnitId, Windjammers_A_EXTRA_CUSTOM);
 }
 
-int CGame_Windjammers_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_Windjammers_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, Windjammers_A_NUMUNIT, nUnitId, Windjammers_A_EXTRA_CUSTOM);
 }
@@ -130,7 +128,7 @@ sDescTreeNode* CGame_Windjammers_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_Windjammers_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_Windjammers_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -143,42 +141,42 @@ sFileRule CGame_Windjammers_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_Windjammers_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_Windjammers_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(Windjammers_A_UNITS, rgExtraCountAll, Windjammers_A_NUMUNIT, Windjammers_A_EXTRALOC, nUnitId, Windjammers_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_Windjammers_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_Windjammers_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(Windjammers_A_UNITS, rgExtraCountAll, Windjammers_A_NUMUNIT, Windjammers_A_EXTRALOC, nUnitId, nCollectionId, Windjammers_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_Windjammers_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_Windjammers_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(Windjammers_A_UNITS, Windjammers_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_Windjammers_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_Windjammers_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(Windjammers_A_UNITS, rgExtraCountAll, Windjammers_A_NUMUNIT, Windjammers_A_EXTRALOC, nUnitId, Windjammers_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_Windjammers_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_Windjammers_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(Windjammers_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_Windjammers_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_Windjammers_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(Windjammers_A_UNITS, rgExtraCountAll, Windjammers_A_NUMUNIT, Windjammers_A_EXTRALOC, nUnitId, nPaletteId, Windjammers_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_Windjammers_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_Windjammers_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(Windjammers_A_UNITS, rgExtraCountAll, Windjammers_A_NUMUNIT, Windjammers_A_EXTRALOC, nUnitId, nPaletteId, Windjammers_A_EXTRA_CUSTOM);
 }
 
-void CGame_Windjammers_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_Windjammers_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != m_nExtraUnit)
     {
@@ -228,16 +226,16 @@ BOOL CGame_Windjammers_A::UpdatePalImg(int Node01, int Node02, int Node03, int N
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    int nSrcStart = (int)NodeGet->uPalId;
+    size_t nSrcAmt = 1;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+    size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -258,7 +256,7 @@ BOOL CGame_Windjammers_A::UpdatePalImg(int Node01, int Node02, int Node03, int N
             {
                 bool fIsCorePalette = false;
 
-                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
+                for (size_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
                 {
                     if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
                     {
@@ -277,7 +275,7 @@ BOOL CGame_Windjammers_A::UpdatePalImg(int Node01, int Node02, int Node03, int N
                     }
                     else
                     {
-                        nSrcAmt = m_nNumberOfColorOptions;
+                        nSrcAmt = pButtonLabelSet.size();
                         nNodeIncrement = pCurrentNode->uChildAmt;
 
                         while (nSrcStart >= nNodeIncrement)

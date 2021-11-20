@@ -6,7 +6,7 @@
 // * Update every array using GEMFIGHTER_A_NUMUNITS below
 // That should be it.  Good luck.
 
-const UINT16 GEMFIGHTER_A_IMGIDS_USED[] =
+const std::vector<UINT16> GEMFIGHTER_A_IMGIDS_USED =
 {
     indexCPS2Sprites_SPF_Ryu,      // 0x59
     indexCPS2Sprites_SPF_Ken,      // 0x5a

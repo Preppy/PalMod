@@ -1,10 +1,11 @@
 #include "StdAfx.h"
 #include "Game_SFIII3_D.h"
+#include "SFIII3_D_DEF.h"
 #include "GameDef.h"
 
 CDescTree CGame_SFIII3_D::MainDescTree = nullptr;
 
-UINT16 CGame_SFIII3_D::uRuleCtr = 0;
+size_t CGame_SFIII3_D::uRuleCtr = 0;
 
 void CGame_SFIII3_D::InitializeStatics()
 {
@@ -29,18 +30,16 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     nGameFlag = SFIII3_D;
     nImgGameFlag = IMGDAT_SECTION_SF3;
     m_prgGameImageSet = SFIII3_D_IMGID_SORTED_BY_UNIT;
-    nImgUnitAmt = ARRAYSIZE(SFIII3_D_IMGID_SORTED_BY_UNIT);
 
     nFileAmt = SFIII3_D_NUMUNIT;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL7_SF3;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag array
     PrepChangeTrackingArray();
@@ -112,13 +111,13 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
 
                 ChildNode->uUnitId = iUnitCtr;
 
-                if (nChildCtr < ARRAYSIZE(DEF_BUTTONLABEL7_SF3))
+                if (nChildCtr < DEF_BUTTONLABEL7_SF3.size())
                 {
                     _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, DEF_BUTTONLABEL7_SF3[nChildCtr]);
                 }
-                else if (nChildCtr < (ARRAYSIZE(DEF_BUTTONLABEL7_SF3) + k_nNumberOfBonusColors))
+                else if (nChildCtr < (DEF_BUTTONLABEL7_SF3.size() + k_nNumberOfBonusColors))
                 {
-                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Second Impact %s", DEF_BUTTONLABEL7_SF3[nChildCtr - ARRAYSIZE(DEF_BUTTONLABEL7_SF3)]);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Second Impact %s", DEF_BUTTONLABEL7_SF3[nChildCtr - DEF_BUTTONLABEL7_SF3.size()]);
                 }
                 else
                 {
@@ -133,7 +132,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)
+sFileRule CGame_SFIII3_D::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -168,31 +167,31 @@ sFileRule CGame_SFIII3_D::GetNextRule()
     return NewFileRule;
 }
 
-int CGame_SFIII3_D::GetBasicAmt(UINT16 nUnitId)
+size_t CGame_SFIII3_D::GetBasicAmt(size_t nUnitId)
 {
-    return ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
+    return DEF_BUTTONLABEL7_SF3.size();
 }
 
-UINT16 CGame_SFIII3_D::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_SFIII3_D::GetPaletteCountForUnit(size_t nUnitId)
 {
     return 32;
 }
 
-void CGame_SFIII3_D::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
+void CGame_SFIII3_D::GetPalOffsSz(size_t nUnitId, size_t nPalId)
 {
     m_nCurrentPaletteROMLocation = 0x80 * nPalId;
     nCurrPalSz = 0x80 / 2;
 }
 
-BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, size_t nUnitId)
 {
-    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitId);
+    size_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     m_pppDataBuffer[nUnitId] = new UINT16 * [nPalAmt];
 
     rgUnitRedir[nUnitId] = nUnitId; // this is presorted
 
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         GetPalOffsSz(nUnitId, nPalCtr);
 
@@ -206,11 +205,11 @@ BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     return TRUE;
 }
 
-BOOL CGame_SFIII3_D::SaveFile(CFile* SaveFile, UINT16 nUnitId)
+BOOL CGame_SFIII3_D::SaveFile(CFile* SaveFile, size_t nUnitId)
 {
-    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitId);
+    size_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         if (IsPaletteDirty(nUnitId, nPalCtr))
         {
@@ -224,10 +223,10 @@ BOOL CGame_SFIII3_D::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     return TRUE;
 }
 
-void CGame_SFIII3_D::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_SFIII3_D::CreateDefPal(sDescNode* srcNode, size_t nSepId)
 {
-    UINT16 nUnitId = srcNode->uUnitId;
-    UINT16 nPalId = srcNode->uPalId;
+    size_t nUnitId = srcNode->uUnitId;
+    size_t nPalId = srcNode->uPalId;
 
     GetPalOffsSz(nUnitId, nPalId);
 
@@ -252,15 +251,15 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         return FALSE;
     }
 
-    UINT16 uUnitId = NodeGet->uUnitId;
-    UINT16 uPalId = NodeGet->uPalId;
+    size_t uUnitId = NodeGet->uUnitId;
+    size_t uPalId = NodeGet->uPalId;
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = SFIII3_D_IMGID_SORTED_BY_UNIT[uUnitId];
+    size_t nImgUnitId = SFIII3_D_IMGID_SORTED_BY_UNIT[uUnitId];
 
-    UINT16 nSrcStart = 0;
-    UINT16 nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);//GetBasicAmt(uUnitId);
+    int nSrcStart = (int)0;
+    size_t nSrcAmt = DEF_BUTTONLABEL7_SF3.size();//GetBasicAmt(uUnitId);
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -275,7 +274,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     return TRUE;
 }
 
-COLORREF* CGame_SFIII3_D::CreatePal(UINT16 nUnitId, UINT16 nPalId)
+COLORREF* CGame_SFIII3_D::CreatePal(size_t nUnitId, size_t nPalId)
 {
     GetPalOffsSz(nUnitId, nPalId);
 

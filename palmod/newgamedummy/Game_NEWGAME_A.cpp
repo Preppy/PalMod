@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "GameDef.h"
 #include "Game_NEWGAME_A.h"
+#include "NEWGAME_A_DEF.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
@@ -77,8 +78,7 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     // If for some reason there *are* already usable images in imgdat, update these values to point to the right section
     // and create an array (NEWGAME_A_IMG_UNITS) that lists the sprites you want to use from that section.
     nImgGameFlag = IMGDAT_SECTION_CPS2; // This value is used to determine which section of the image file is used
-    m_prgGameImageSet = nullptr;  // NEWGAME_A_IMG_UNITS -- this is the array of images present in imgdat once that happens
-    nImgUnitAmt = 0; // ARRAYSIZE(NEWGAME_A_IMG_UNITS); // This is the size of the array tracking which IDs to load from the game's image section
+    m_prgGameImageSet.clear();  // NEWGAME_A_IMG_UNITS -- this is the vector of images present in imgdat once that happens
 
     nFileAmt = 1; // Always 1 for monolithic rom games
 
@@ -104,8 +104,8 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
 
 stExtraDef* CGame_NEWGAME_A::NEWGAME_A_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_NEWGAME_A::MainDescTree = nullptr;
-int CGame_NEWGAME_A::rgExtraCountAll[NEWGAME_A_NUMUNIT + 1];
-int CGame_NEWGAME_A::rgExtraLoc[NEWGAME_A_NUMUNIT + 1];
+size_t CGame_NEWGAME_A::rgExtraCountAll[NEWGAME_A_NUMUNIT + 1];
+size_t CGame_NEWGAME_A::rgExtraLoc[NEWGAME_A_NUMUNIT + 1];
 UINT32 CGame_NEWGAME_A::m_nTotalPaletteCountForNEWGAME = 0;
 UINT32 CGame_NEWGAME_A::m_nConfirmedROMSize = -1;
 
@@ -132,12 +132,12 @@ CDescTree* CGame_NEWGAME_A::GetMainTree()
     return &CGame_NEWGAME_A::MainDescTree;
 }
 
-int CGame_NEWGAME_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_NEWGAME_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, NEWGAME_A_NUMUNIT, nUnitId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
-int CGame_NEWGAME_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_NEWGAME_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, NEWGAME_A_NUMUNIT, nUnitId, NEWGAME_A_EXTRA_CUSTOM);
 }
@@ -147,7 +147,7 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_NEWGAME_A, NEWGAME_A_EXTRA, &NEWGAME_A_EXTRA_CUSTOM, NEWGAME_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = NEWGAME_A_NUMUNIT + (GetExtraCt(NEWGAME_A_EXTRALOC) ? 1 : 0);
+    size_t nUnitCt = NEWGAME_A_NUMUNIT + (GetExtraCt(NEWGAME_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -183,42 +183,42 @@ sFileRule CGame_NEWGAME_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_NEWGAME_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_NEWGAME_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_NEWGAME_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_NEWGAME_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, nCollectionId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_NEWGAME_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_NEWGAME_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(NEWGAME_A_UNITS, NEWGAME_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_NEWGAME_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_NEWGAME_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_NEWGAME_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_NEWGAME_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(NEWGAME_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_NEWGAME_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_NEWGAME_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, nPaletteId, NEWGAME_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_NEWGAME_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_NEWGAME_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, nPaletteId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
-void CGame_NEWGAME_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_NEWGAME_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != NEWGAME_A_EXTRALOC)
     {

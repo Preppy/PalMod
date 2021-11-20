@@ -2,7 +2,7 @@
 
 // This is mostly auto-generated using DumpPaletteHeaders
 
-const UINT16 KOF01_A_IMGIDS_USED[] =
+const std::vector<UINT16> KOF01_A_IMGIDS_USED =
 {
     indexKOF02UMSprites_K,
     indexKOF02UMSprites_Maxima,
@@ -48,6 +48,7 @@ const UINT16 KOF01_A_IMGIDS_USED[] =
     indexKOF02UMSprites_ZeroOG,
 
     indexKOF02Sprites_K9999,
+    indexKOF02UMSprites_Xiangfei,  // 0xB6
 
     indexKOF01Sprites_Athena,       // 0x147
     indexKOF01Sprites_Bao,          // 0x148
@@ -1054,13 +1055,13 @@ const sGame_PaletteDataset KOF01_A_HINAKO_KICK_PALETTES[] =
 
 const sGame_PaletteDataset KOF01_A_XIANGFEI_PUNCH_PALETTES[] =
 {
-    { L"Xiangfei Punch", 0x38dd22, 0x38dd42, indexKOF01Sprites_Xiangfei },
-    { L"Character Extra 1", 0x38dd42, 0x38dd62, indexKOF01Sprites_Xiangfei },
-    { L"Character Extra 2", 0x38dd62, 0x38dd82, indexKOF01Sprites_Xiangfei },
-    { L"Electric Palette", 0x38dd82, 0x38dda2, indexKOF01Sprites_Xiangfei },
-    { L"Lin Poison Palette (Unused)", 0x38dda2, 0x38ddc2, indexKOF01Sprites_Xiangfei },
-    { L"Freeze Palette (Unused)", 0x38ddc2, 0x38dde2, indexKOF01Sprites_Xiangfei },
-    { L"Super Trail", 0x38dde2, 0x38de02, indexKOF01Sprites_Xiangfei },
+    { L"Xiangfei Punch", 0x38dd22, 0x38dd42, indexKOF02UMSprites_Xiangfei },
+    { L"Character Extra 1", 0x38dd42, 0x38dd62 },
+    { L"Character Extra 2", 0x38dd62, 0x38dd82, indexKOF02UMSprites_Xiangfei },
+    { L"Electric Palette", 0x38dd82, 0x38dda2, indexKOF02UMSprites_Xiangfei },
+    { L"Lin Poison Palette (Unused)", 0x38dda2, 0x38ddc2, indexKOF02UMSprites_Xiangfei },
+    { L"Freeze Palette (Unused)", 0x38ddc2, 0x38dde2, indexKOF02UMSprites_Xiangfei },
+    { L"Super Trail", 0x38dde2, 0x38de02, indexKOF02UMSprites_Xiangfei },
     { L"Striker Portrait", 0x398d42, 0x398d62 },
     { L"Order Select Portrait", 0x3999e2, 0x399a02, indexKOF01Sprites_Xiangfei, 0x44 },
     { L"Select/VS Portrait", 0x39c0e2, 0x39c122, indexKOF01Sprites_Xiangfei, 0x42 },
@@ -1071,13 +1072,13 @@ const sGame_PaletteDataset KOF01_A_XIANGFEI_PUNCH_PALETTES[] =
 
 const sGame_PaletteDataset KOF01_A_XIANGFEI_KICK_PALETTES[] =
 {
-    { L"Xiangfei Kick", 0x38df22, 0x38df42, indexKOF01Sprites_Xiangfei },
-    { L"Character Extra 1", 0x38df42, 0x38df62, indexKOF01Sprites_Xiangfei },
-    { L"Character Extra 2", 0x38df62, 0x38df82, indexKOF01Sprites_Xiangfei },
-    { L"Electric Palette", 0x38df82, 0x38dfa2, indexKOF01Sprites_Xiangfei },
-    { L"Lin Poison Palette (Unused)", 0x38dfa2, 0x38dfc2, indexKOF01Sprites_Xiangfei },
-    { L"Freeze Palette (Unused)", 0x38dfc2, 0x38dfe2, indexKOF01Sprites_Xiangfei },
-    { L"Super Trail", 0x38dfe2, 0x38e002, indexKOF01Sprites_Xiangfei },
+    { L"Xiangfei Kick", 0x38df22, 0x38df42, indexKOF02UMSprites_Xiangfei },
+    { L"Character Extra 1", 0x38df42, 0x38df62 },
+    { L"Character Extra 2", 0x38df62, 0x38df82, indexKOF02UMSprites_Xiangfei },
+    { L"Electric Palette", 0x38df82, 0x38dfa2, indexKOF02UMSprites_Xiangfei },
+    { L"Lin Poison Palette (Unused)", 0x38dfa2, 0x38dfc2, indexKOF02UMSprites_Xiangfei },
+    { L"Freeze Palette (Unused)", 0x38dfc2, 0x38dfe2, indexKOF02UMSprites_Xiangfei },
+    { L"Super Trail", 0x38dfe2, 0x38e002, indexKOF02UMSprites_Xiangfei },
     { L"Striker Portrait", 0x398d62, 0x398d82 },
     { L"Order Select Portrait", 0x399a02, 0x399a22, indexKOF01Sprites_Xiangfei, 0x44 },
     { L"Select/VS Portrait", 0x39c122, 0x39c162, indexKOF01Sprites_Xiangfei, 0x42 },

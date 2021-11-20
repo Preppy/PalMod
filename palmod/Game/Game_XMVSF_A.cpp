@@ -11,8 +11,8 @@ CDescTree CGame_XMVSF_A::MainDescTree = nullptr;
 
 UINT32 CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
 
-int CGame_XMVSF_A::rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { -1 };
-int CGame_XMVSF_A::rgExtraLoc[XMVSF_A_NUMUNIT + 1] = { -1 };
+size_t CGame_XMVSF_A::rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { (size_t)-1 };
+size_t CGame_XMVSF_A::rgExtraLoc[XMVSF_A_NUMUNIT + 1] = { (size_t)-1 };
 UINT32 CGame_XMVSF_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_XMVSF_A::m_nConfirmedROMSize = -1;
 
@@ -56,18 +56,16 @@ CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
     nGameFlag = XMVSF_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     m_prgGameImageSet = XMVSF_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(XMVSF_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -138,7 +136,7 @@ GAME(1996, xmvsfu1d,   xmvsf,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
     return ARRAYSIZE(knownROMs);
 }
 
-sFileRule CGame_XMVSF_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_XMVSF_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -150,12 +148,12 @@ sFileRule CGame_XMVSF_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-int CGame_XMVSF_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_XMVSF_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, XMVSF_A_NUMUNIT, nUnitId, XMVSF_A_EXTRA_CUSTOM);
 }
 
-int CGame_XMVSF_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_XMVSF_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, XMVSF_A_NUMUNIT, nUnitId, XMVSF_A_EXTRA_CUSTOM);
 }
@@ -196,42 +194,42 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
     return NewDescTree;
 }
 
-UINT16 CGame_XMVSF_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_XMVSF_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, nUnitId, XMVSF_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_XMVSF_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_XMVSF_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, nUnitId, nCollectionId, XMVSF_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_XMVSF_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_XMVSF_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(XMVSF_A_UNITS, XMVSF_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_XMVSF_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_XMVSF_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, nUnitId, XMVSF_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_XMVSF_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_XMVSF_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(XMVSF_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_XMVSF_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_XMVSF_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, nUnitId, nPaletteId, XMVSF_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_XMVSF_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_XMVSF_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, nUnitId, nPaletteId, XMVSF_A_EXTRA_CUSTOM);
 }
 
-void CGame_XMVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_XMVSF_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != XMVSF_A_EXTRALOC)
     {

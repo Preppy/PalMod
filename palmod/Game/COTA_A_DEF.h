@@ -6,7 +6,7 @@
 // * Update every array using COTA_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const UINT16 COTA_A_IMGIDS_USED[] =
+const std::vector<UINT16> COTA_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Colossus,
     indexCPS2Sprites_Cyclops,

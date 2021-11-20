@@ -2,7 +2,7 @@
 
 #include "game\gamedef.h"
 
-void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
+void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
 
 class CGameWithExtrasFile : public CGameClass
 {
@@ -16,7 +16,7 @@ protected:
     LPCWSTR m_pszDupedPaletteName = nullptr;
 
 private:
-    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nStartingOffsetToCheck, UINT32 nEndOfRegionToCheck = 0);
+    bool IsROMOffsetDuplicated(size_t nUnitId, size_t nPalId, UINT32 nStartingOffsetToCheck, UINT32 nEndOfRegionToCheck = 0);
     int GetDupeCountInExtrasDataset();
     int GetDupeCountInDataset();
 

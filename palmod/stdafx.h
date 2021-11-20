@@ -49,6 +49,8 @@
 #define DEFAULT_GAME_DEBUG_STATE 0
 
 #include <tchar.h>
+#include <array>
+#include <vector>
 
 template<typename T> void safe_delete(T*& a) {
     delete a;

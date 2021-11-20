@@ -2,7 +2,7 @@
 #include "Game_VENTURE_A_DIR.h"
 #include "..\palmod.h"
 
-UINT16 CGame_VENTURE_A_DIR::uRuleCtr = 0;
+size_t CGame_VENTURE_A_DIR::uRuleCtr = 0;
 
 LPCWSTR CGame_VENTURE_A_DIR::VENTURE_Arcade_ROM_Base_31 = L"jojo-simm3.";
 LPCWSTR CGame_VENTURE_A_DIR::VENTURE_Arcade_ROM_Base_50 = L"jojo-simm5.";
@@ -29,7 +29,7 @@ CGame_VENTURE_A_DIR::~CGame_VENTURE_A_DIR(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_VENTURE_A_DIR::GetRule_31(UINT16 nUnitId)
+sFileRule CGame_VENTURE_A_DIR::GetRule_31(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -54,7 +54,7 @@ sFileRule CGame_VENTURE_A_DIR::GetNextRule_31()
     return NewFileRule;
 }
 
-sFileRule CGame_VENTURE_A_DIR::GetRule_50(UINT16 nUnitId)
+sFileRule CGame_VENTURE_A_DIR::GetRule_50(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -111,7 +111,7 @@ inline UINT32 CGame_VENTURE_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation
     return nSIMMLocation;
 }
 
-BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
+BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
 {
     // This code loads one SIMM pair at a time.
     BOOL fSuccess = TRUE;
@@ -152,9 +152,9 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         OutputDebugString(L"\tLoading VENTURE_A_DIR from SIMMs....\n");
         bool fShownCrossSIMMErrorOnce = false;
 
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
@@ -165,7 +165,7 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
             // These are already sorted, no need to redirect
             rgUnitRedir[nUnitCtr] = nUnitCtr;
 
-            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -236,7 +236,7 @@ inline UINT8 CGame_VENTURE_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
     return (nROMLocation > (2 * c_nVentureSIMMLength)) ? 1 : 0;
 }
 
-BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
+BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, size_t nSaveUnit)
 {
     CString strInfo;
     strInfo.Format(L"CGame_VENTURE_A_DIR::SaveFile: Preparing to save data for Venture ROM set %u\n", m_nVentureMode);
@@ -294,11 +294,11 @@ BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 
     if (fFileLoadSuccess)
     {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 if (IsPaletteDirty(nUnitCtr, nPalCtr))
                 {

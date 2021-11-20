@@ -1,5 +1,5 @@
 
-const UINT16 GGXX_ACR_IMGIDS_USED[] =
+const std::vector<UINT16> GGXX_ACR_IMGIDS_USED =
 {
 	indexGGXXSprites_ACR_ABA,   // 0x00
 	indexGGXXSprites_ACR_Anji,  // 0x01
@@ -29,7 +29,7 @@ const UINT16 GGXX_ACR_IMGIDS_USED[] =
 	indexGGXXSprites_ACR_Bonus, // 0x19
 };
 
-const LPCWSTR GGXXACRPaletteNamesNormal[] =
+const std::vector<LPCWSTR> GGXXACRPaletteNamesNormal =
 {
 	L"Punch",
 	L"Kick",
@@ -60,7 +60,7 @@ const LPCWSTR GGXXACRPaletteNamesNormal[] =
 };
 
 // For the smaller Export listbox
-const LPCWSTR GGXXACRPaletteNamesShort[] =
+const std::vector<LPCWSTR> GGXXACRPaletteNamesShort =
 {
 	L"Punch",
 	L"Kick",
@@ -90,9 +90,7 @@ const LPCWSTR GGXXACRPaletteNamesShort[] =
 	L"VsR. Dust",
 };
 
-static_assert(ARRAYSIZE(GGXXACRPaletteNamesNormal) == ARRAYSIZE(GGXXACRPaletteNamesShort), "The normal and short display name arrays need to be the same length.");
-
-const LPCWSTR GGXXACRPaletteNamesEx[] =
+const std::vector<LPCWSTR> GGXXACRPaletteNamesEx =
 {
 	L"Punch",
 	L"Kick",
@@ -119,7 +117,7 @@ const LPCWSTR GGXXACRPaletteNamesEx[] =
 	L"Shadow",
 };
 
-const LPCWSTR GGXXRPaletteNamesNormal[] =
+const std::vector<LPCWSTR> GGXXRPaletteNamesNormal =
 {
 	L"Punch",
 	L"Kick",
@@ -141,10 +139,8 @@ struct GGXXACRFileData
 	LPCWSTR pszFileName = nullptr;
 	LPCWSTR pszCharacter = nullptr;
 	UINT32 nExpectedFileSize = 0;
-	const LPCWSTR* ppszPaletteList = nullptr;
-	UINT32 nPaletteListSize = 0;
+	const std::vector<LPCWSTR> ppszPaletteList;
 	UINT32 nInitialLocation = 0;
-	UINT32 nSpriteIndex = -1;
-	const sGame_PaletteDataset* prgExtraPalettes = nullptr;
-	UINT16 nCountExtras = 0;
+	UINT32 nSpriteIndex = (UINT32)-1;
+	const std::vector<sGame_PaletteDataset> prgExtraPalettes;
 };

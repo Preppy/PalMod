@@ -12,12 +12,12 @@ stExtraDef* CGame_KOF99AE_A::KOF99AE_A_P3_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_KOF99AE_A::MainDescTree_P2 = nullptr;
 CDescTree CGame_KOF99AE_A::MainDescTree_P3 = nullptr;
 
-int CGame_KOF99AE_A::rgExtraCountAll_P2[KOF99AE_A_P2_NUMUNIT + 1];
-int CGame_KOF99AE_A::rgExtraCountAll_P3[KOF99AE_A_P3_NUMUNIT + 1];
-int CGame_KOF99AE_A::rgExtraLoc_P2[KOF99AE_A_P2_NUMUNIT + 1];
-int CGame_KOF99AE_A::rgExtraLoc_P3[KOF99AE_A_P3_NUMUNIT + 1];
+size_t CGame_KOF99AE_A::rgExtraCountAll_P2[KOF99AE_A_P2_NUMUNIT + 1];
+size_t CGame_KOF99AE_A::rgExtraCountAll_P3[KOF99AE_A_P3_NUMUNIT + 1];
+size_t CGame_KOF99AE_A::rgExtraLoc_P2[KOF99AE_A_P2_NUMUNIT + 1];
+size_t CGame_KOF99AE_A::rgExtraLoc_P3[KOF99AE_A_P3_NUMUNIT + 1];
 
-int CGame_KOF99AE_A::m_nSelectedRom = 22;
+size_t CGame_KOF99AE_A::m_nSelectedRom = 22;
 UINT32 CGame_KOF99AE_A::m_nTotalPaletteCountForKOF99AE_P2 = 0;
 UINT32 CGame_KOF99AE_A::m_nTotalPaletteCountForKOF99AE_P3 = 0;
 UINT32 CGame_KOF99AE_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
@@ -69,7 +69,6 @@ CGame_KOF99AE_A::CGame_KOF99AE_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 2*
     nGameFlag = KOF99AE_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
     m_prgGameImageSet = KOF99AE_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(KOF99AE_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -77,11 +76,10 @@ CGame_KOF99AE_A::CGame_KOF99AE_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 2*
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = UsePaletteSetForP2() ? DEF_BUTTONLABEL_2_AB  : DEF_BUTTONLABEL_KOF99AE_P3;
-    m_nNumberOfColorOptions = UsePaletteSetForP2() ? ARRAYSIZE(DEF_BUTTONLABEL_2_AB) : ARRAYSIZE(DEF_BUTTONLABEL_KOF99AE_P3);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -108,7 +106,7 @@ const sDescTreeNode* CGame_KOF99AE_A::GetCurrentUnitSet()
     }
 }
 
-UINT16 CGame_KOF99AE_A::GetCurrentExtraLoc()
+size_t CGame_KOF99AE_A::GetCurrentExtraLoc()
 {
     if (UsePaletteSetForP2())
     {
@@ -167,7 +165,7 @@ stExtraDef* CGame_KOF99AE_A::GetCurrentExtraDef(int nDefCtr)
     }
 }
 
-int CGame_KOF99AE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_KOF99AE_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     if (UsePaletteSetForP2())
     {
@@ -180,7 +178,7 @@ int CGame_KOF99AE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 }
 
-int CGame_KOF99AE_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_KOF99AE_A::GetExtraLoc(size_t nUnitId)
 {
     if (UsePaletteSetForP2())
     {
@@ -199,7 +197,7 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
 
     bool fHaveExtras;
     UINT16 nUnitCt;
-    UINT8 nExtraUnitLocation;
+    size_t nExtraUnitLocation;
 
     if (UsePaletteSetForP2())
     {
@@ -236,10 +234,10 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
+        size_t nExtraCt = GetExtraCt(iUnitCtr, TRUE);
         BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
 
-        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
+        size_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
@@ -257,7 +255,7 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
             OutputDebugString(strMsg);
 #endif
             
-            UINT16 nTotalPalettesUsedInUnit = 0;
+            size_t nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
@@ -269,7 +267,7 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
                 // Default label, since these aren't associated to collections
                 _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
-                UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
+                size_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
@@ -329,7 +327,7 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
         //Set up extra nodes
         if (bUseExtra)
         {
-            int nExtraPos = GetExtraLoc(iUnitCtr);
+            size_t nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nExtraUnitLocation > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
@@ -563,7 +561,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
     UINT16 nColorOptionsPerCharacter = 2;
     constexpr UINT32 KOF99AE_PALETTE_LENGTH = 0x20;
     const UINT16 nCountStatusEffects = 16;
-    const LPCWSTR* ppszButtonLabels;
+    std::vector<LPCWSTR> ppszButtonLabels;
 
     if (nHeaderSetToDump == 2)
     {
@@ -735,7 +733,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
     }
 }
 
-sFileRule CGame_KOF99AE_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_KOF99AE_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -748,7 +746,7 @@ sFileRule CGame_KOF99AE_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_KOF99AE_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_KOF99AE_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     if (nUnitId == GetCurrentExtraLoc())
     {
@@ -760,7 +758,7 @@ UINT16 CGame_KOF99AE_A::GetCollectionCountForUnit(UINT16 nUnitId)
     }
 }
 
-UINT16 CGame_KOF99AE_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_KOF99AE_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     if (nUnitId == GetCurrentExtraLoc())
     {
@@ -774,7 +772,7 @@ UINT16 CGame_KOF99AE_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
-LPCWSTR CGame_KOF99AE_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KOF99AE_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     if (nUnitId == GetCurrentExtraLoc())
     {
@@ -787,7 +785,7 @@ LPCWSTR CGame_KOF99AE_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCol
     }
 }
 
-UINT16 CGame_KOF99AE_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_KOF99AE_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     if (nUnitId == GetCurrentExtraLoc())
     {
@@ -795,13 +793,13 @@ UINT16 CGame_KOF99AE_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
     else
     {
-        UINT16 nCompleteCount = 0;
+        size_t nCompleteCount = 0;
         const sDescTreeNode* pCompleteROMTree = GetCurrentUnitSet();
-        UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
+        size_t nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
 
-        for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+        for (size_t nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
@@ -816,25 +814,25 @@ UINT16 CGame_KOF99AE_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_KOF99AE_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_KOF99AE_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_KOF99AE_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KOF99AE_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
+    size_t nDistanceFromZero = nPaletteId;
 
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount;
+        size_t nNodeCount;
 
         if (nUnitId == GetCurrentExtraLoc())
         {
@@ -855,7 +853,7 @@ const sDescTreeNode* CGame_KOF99AE_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
             if (nDistanceFromZero < nNodeCount)
             {
                 // We know it's within this group.  Now: is it basic?
-                if (!fReturnBasicNodesOnly || (nCollectionIndex < m_nNumberOfColorOptions))
+                if (!fReturnBasicNodesOnly || (nCollectionIndex < pButtonLabelSet.size()))
                 {
                     pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
                 }
@@ -874,17 +872,17 @@ const sDescTreeNode* CGame_KOF99AE_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_KOF99AE_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_KOF99AE_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
+    size_t nDistanceFromZero = nPaletteId;
 
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -913,13 +911,13 @@ void CGame_KOF99AE_A::ClearDataBuffer()
 
     if (m_pppDataBuffer)
     {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -934,7 +932,7 @@ void CGame_KOF99AE_A::ClearDataBuffer()
     m_nSelectedRom = nCurrentROMMode;
 }
 
-void CGame_KOF99AE_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_KOF99AE_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != GetCurrentExtraLoc())
     {
@@ -984,16 +982,16 @@ BOOL CGame_KOF99AE_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    int nSrcStart = (int)NodeGet->uPalId;
+    size_t nSrcAmt = 1;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+    size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -1014,7 +1012,7 @@ BOOL CGame_KOF99AE_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
             {
                 bool fIsCorePalette = false;
 
-                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
+                for (size_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
                 {
                     if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
                     {
@@ -1025,7 +1023,7 @@ BOOL CGame_KOF99AE_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
                 if (fIsCorePalette)
                 {
-                    nSrcAmt = m_nNumberOfColorOptions;
+                    nSrcAmt = pButtonLabelSet.size();
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)

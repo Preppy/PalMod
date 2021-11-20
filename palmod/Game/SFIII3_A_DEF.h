@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 SFIII3_A_IMGIDS_USED[] =
+const std::vector<UINT16> SFIII3_A_IMGIDS_USED =
 {
     index3SSprites_Alex,      // 0x00
     index3SSprites_Ryu,       // 0x01

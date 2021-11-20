@@ -41,7 +41,6 @@ CGame_KI_SNES::CGame_KI_SNES(UINT32 nConfirmedROMSize)
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
     m_prgGameImageSet = KI_SNES_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(KI_SNES_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -49,11 +48,10 @@ CGame_KI_SNES::CGame_KI_SNES(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_NOBUTTONS; // Check out the available options in buttondef.h
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -67,8 +65,8 @@ CGame_KI_SNES::CGame_KI_SNES(UINT32 nConfirmedROMSize)
 
 stExtraDef* CGame_KI_SNES::KI_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_KI_SNES::MainDescTree = nullptr;
-int CGame_KI_SNES::rgExtraCountAll[KI_SNES_NUMUNIT + 1];
-int CGame_KI_SNES::rgExtraLoc[KI_SNES_NUMUNIT + 1];
+size_t CGame_KI_SNES::rgExtraCountAll[KI_SNES_NUMUNIT + 1];
+size_t CGame_KI_SNES::rgExtraLoc[KI_SNES_NUMUNIT + 1];
 UINT32 CGame_KI_SNES::m_nTotalPaletteCountForKI = 0;
 UINT32 CGame_KI_SNES::m_nConfirmedROMSize = -1;
 
@@ -120,12 +118,12 @@ CDescTree* CGame_KI_SNES::GetMainTree()
     return &CGame_KI_SNES::MainDescTree;
 }
 
-int CGame_KI_SNES::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_KI_SNES::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KI_SNES_NUMUNIT, nUnitId, KI_SNES_EXTRA_CUSTOM);
 }
 
-int CGame_KI_SNES::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_KI_SNES::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, KI_SNES_NUMUNIT, nUnitId, KI_SNES_EXTRA_CUSTOM);
 }
@@ -158,7 +156,7 @@ sDescTreeNode* CGame_KI_SNES::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_KI_SNES::GetRule(UINT16 nUnitId)
+sFileRule CGame_KI_SNES::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -171,42 +169,42 @@ sFileRule CGame_KI_SNES::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_KI_SNES::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_KI_SNES::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(KI_SNES_UNITS, rgExtraCountAll, KI_SNES_NUMUNIT, KI_SNES_EXTRALOC, nUnitId, KI_SNES_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_KI_SNES::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_KI_SNES::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(KI_SNES_UNITS, rgExtraCountAll, KI_SNES_NUMUNIT, KI_SNES_EXTRALOC, nUnitId, nCollectionId, KI_SNES_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_KI_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KI_SNES::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(KI_SNES_UNITS, KI_SNES_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_KI_SNES::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_KI_SNES::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(KI_SNES_UNITS, rgExtraCountAll, KI_SNES_NUMUNIT, KI_SNES_EXTRALOC, nUnitId, KI_SNES_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_KI_SNES::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_KI_SNES::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(KI_SNES_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_KI_SNES::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KI_SNES::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(KI_SNES_UNITS, rgExtraCountAll, KI_SNES_NUMUNIT, KI_SNES_EXTRALOC, nUnitId, nPaletteId, KI_SNES_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_KI_SNES::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_KI_SNES::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(KI_SNES_UNITS, rgExtraCountAll, KI_SNES_NUMUNIT, KI_SNES_EXTRALOC, nUnitId, nPaletteId, KI_SNES_EXTRA_CUSTOM);
 }
 
-void CGame_KI_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_KI_SNES::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != KI_SNES_EXTRALOC)
     {

@@ -20,7 +20,7 @@ class CGame_SFA2_A : public CGameWithExtrasFile
 private:
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = 7;
-    static int m_nSFA2SelectedRom;
+    static size_t m_nSFA2SelectedRom;
     static SFA2_SupportedROMRevision m_currentSFA2ROMRevision;
     static UINT32 m_nTotalPaletteCountForSFA2_07_Rev1;
     static UINT32 m_nTotalPaletteCountForSFA2_07_Rev2;
@@ -30,18 +30,18 @@ private:
     static UINT32 m_nTotalPaletteCountForSFZ2A_08;
     static bool UsePaletteSetForCharacters() { return (m_nSFA2SelectedRom == 7); }
 
-    static int rgExtraCountAll_07_Rev1[SFA2_A_NUM_IND_07_REV1 + 1];
-    static int rgExtraCountAll_07_Rev2[SFA2_A_NUM_IND_07_REV2 + 1];
-    static int rgExtraCountAll_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1];
-    static int rgExtraCountAll_08_Rev1[SFA2_A_NUM_IND_08_REV1 + 1];
-    static int rgExtraCountAll_08_Rev2[SFA2_A_NUM_IND_08_REV2 + 1];
-    static int rgExtraCountAll_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1];
-    static int rgExtraLoc_07_Rev1[SFA2_A_NUM_IND_07_REV1 + 1];
-    static int rgExtraLoc_07_Rev2[SFA2_A_NUM_IND_07_REV2 + 1];
-    static int rgExtraLoc_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1];
-    static int rgExtraLoc_08_Rev1[SFA2_A_NUM_IND_08_REV1 + 1];
-    static int rgExtraLoc_08_Rev2[SFA2_A_NUM_IND_08_REV2 + 1];
-    static int rgExtraLoc_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1];
+    static size_t rgExtraCountAll_07_Rev1[SFA2_A_NUM_IND_07_REV1 + 1];
+    static size_t rgExtraCountAll_07_Rev2[SFA2_A_NUM_IND_07_REV2 + 1];
+    static size_t rgExtraCountAll_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1];
+    static size_t rgExtraCountAll_08_Rev1[SFA2_A_NUM_IND_08_REV1 + 1];
+    static size_t rgExtraCountAll_08_Rev2[SFA2_A_NUM_IND_08_REV2 + 1];
+    static size_t rgExtraCountAll_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1];
+    static size_t rgExtraLoc_07_Rev1[SFA2_A_NUM_IND_07_REV1 + 1];
+    static size_t rgExtraLoc_07_Rev2[SFA2_A_NUM_IND_07_REV2 + 1];
+    static size_t rgExtraLoc_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1];
+    static size_t rgExtraLoc_08_Rev1[SFA2_A_NUM_IND_08_REV1 + 1];
+    static size_t rgExtraLoc_08_Rev2[SFA2_A_NUM_IND_08_REV2 + 1];
+    static size_t rgExtraLoc_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1];
 
     void ResetActiveSFA2Revision();
 
@@ -52,13 +52,13 @@ private:
     static UINT32 m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
-    static UINT16 GetCurrentExtraLoc();
+    static size_t GetCurrentExtraLoc();
     static stExtraDef* GetCurrentExtraDef(int nDefCtr);
 
     SFA2_SupportedROMRevision GetSFA2ROMVersion(CFile* LoadedFile);
 
-    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
-    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+    void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
+    size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
@@ -76,26 +76,26 @@ public:
     static CDescTree MainDescTree_08_SFZ2A;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse, SFA2_SupportedROMRevision nROMRevision);
-    static sFileRule GetRule(UINT16 nUnitId);
+    static sFileRule GetRule(size_t nUnitId);
 
     //Extra palette function
-    static int GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly = FALSE);
-    static int GetExtraLoc(UINT16 nUnitId);
+    static size_t GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static size_t GetExtraLoc(size_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
-    static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
+    static size_t GetCollectionCountForUnit(size_t nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
+    static size_t GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(size_t nUnitId, size_t nPaletteId);
 
-    UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
-    const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
+    size_t GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId);
+    const sDescTreeNode* GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override;
+    BOOL LoadFile(CFile* LoadedFile, size_t nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;

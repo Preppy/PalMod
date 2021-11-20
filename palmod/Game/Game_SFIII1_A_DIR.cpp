@@ -2,7 +2,7 @@
 #include "Game_SFIII1_A_DIR.h"
 #include "..\PalMod.h"
 
-UINT16 CGame_SFIII1_A_DIR::uRuleCtr = 0;
+size_t CGame_SFIII1_A_DIR::uRuleCtr = 0;
 
 constexpr auto SFIII_Arcade_USA_ROM_Base = L"SFIII-simm";
 constexpr auto SFIII_Arcade_USA_ROMSet = 5;
@@ -27,11 +27,11 @@ CGame_SFIII1_A_DIR::CGame_SFIII1_A_DIR(UINT32 nConfirmedROMSize /* = -1 */) :
     PrepChangeTrackingArray();
 }
 
-sFileRule CGame_SFIII1_A_DIR::GetRule(UINT16 nUnitId)
+sFileRule CGame_SFIII1_A_DIR::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    const UINT16 nAdjustedSIMMFileNumber = SFIII_Arcade_USA_SIMMFileBaseNumber + (nUnitId & RULE_COUNTER_DEMASK);
+    const size_t nAdjustedSIMMFileNumber = SFIII_Arcade_USA_SIMMFileBaseNumber + (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_USA_ROM_Base, SFIII_Arcade_USA_ROMSet, nAdjustedSIMMFileNumber);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = SFIII_Arcade_USA_SIMMLength;

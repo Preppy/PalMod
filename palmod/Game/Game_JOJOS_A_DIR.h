@@ -16,16 +16,16 @@ public:
     inline UINT8 GetSIMMSetForROMLocation(UINT32 nROMLocation);
 
     //Static functions
-    static UINT16 uRuleCtr;
+    static size_t uRuleCtr;
 
-    static UINT16 GetRuleCtr() { return uRuleCtr; };
+    static size_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static sFileRule GetNextRule();
-    static sFileRule GetRule(UINT16 nRuleId);
+    static sFileRule GetRule(size_t nRuleId);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override;
-    BOOL SaveFile(CFile* SaveFile, UINT16 nSaveUnit) override;
+    BOOL LoadFile(CFile* LoadedFile, size_t nSIMMNumber) override;
+    BOOL SaveFile(CFile* SaveFile, size_t nSaveUnit) override;
 
     UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) override;
 };

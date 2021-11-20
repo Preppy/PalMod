@@ -8,7 +8,7 @@
 //       - look for usage of index_SFA1_Ryu to find them
 // That should be it.  Good luck.
 
-const UINT16 SFA1_A_IMGIDS_USED[] =
+const std::vector<UINT16> SFA1_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,              // 0x00,
     indexCPS2Sprites_Zangief,          // 0x01,

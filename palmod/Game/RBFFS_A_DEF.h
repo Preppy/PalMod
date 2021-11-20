@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 RBFFS_A_IMGIDS_USED[] =
+const std::vector<UINT16> RBFFS_A_IMGIDS_USED =
 {
     indexRBFFSSprites_Andy,         // 0x133
     indexRBFFSSprites_Billy,        // 0x134

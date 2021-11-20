@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 LASTBLADE2_A_IMGIDS_USED[] =
+const std::vector<UINT16> LASTBLADE2_A_IMGIDS_USED =
 {
     indexLastBlade2_Akari,        // 0x1D9
     indexLastBlade2_GenbuOkina,   // 0x1DA

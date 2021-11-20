@@ -5,12 +5,12 @@
 #include "..\PalMod.h"
 #include "..\regproc.h"
 
-UINT16 CGame_DanKuGa_A_DIR::uRuleCtr = 0;
+size_t CGame_DanKuGa_A_DIR::uRuleCtr = 0;
 
 stExtraDef* CGame_DanKuGa_A_DIR::DANKUGA_A_EXTRA_CUSTOM = NULL;
 
-int CGame_DanKuGa_A_DIR::rgExtraCountAll[DANKUGA_A_NUMUNIT + 1] = { -1 };
-int CGame_DanKuGa_A_DIR::rgExtraLoc[DANKUGA_A_NUMUNIT + 1] = { -1 };
+size_t CGame_DanKuGa_A_DIR::rgExtraCountAll[DANKUGA_A_NUMUNIT + 1] = { (size_t)-1 };
+size_t CGame_DanKuGa_A_DIR::rgExtraLoc[DANKUGA_A_NUMUNIT + 1] = { (size_t)-1 };
 
 CDescTree CGame_DanKuGa_A_DIR::MainDescTree = nullptr;
 UINT32 CGame_DanKuGa_A_DIR::m_nExpectedGameROMSize = 0x80000; // for each of the four files
@@ -66,7 +66,6 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
     nGameFlag = DANKUGA_A;
     nImgGameFlag = IMGDAT_SECTION_TAITO;
     m_prgGameImageSet = DANKUGA_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(DANKUGA_A_IMGIDS_USED);
     
     nFileAmt = ARRAYSIZE(c_ppszDanKuGa_Files);
 
@@ -74,10 +73,9 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
     pButtonLabelSet = DEF_NOBUTTONS;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    rgUnitRedir = new size_t[nUnitAmt + 1];
     memset(rgUnitRedir, 0, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag
@@ -92,12 +90,12 @@ CGame_DanKuGa_A_DIR::~CGame_DanKuGa_A_DIR(void)
     FlushChangeTrackingArray();
 }
 
-int CGame_DanKuGa_A_DIR::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_DanKuGa_A_DIR::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, DANKUGA_A_NUMUNIT, nUnitId, DANKUGA_A_EXTRA_CUSTOM);
 }
 
-int CGame_DanKuGa_A_DIR::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_DanKuGa_A_DIR::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, DANKUGA_A_NUMUNIT, nUnitId, DANKUGA_A_EXTRA_CUSTOM);
 }
@@ -138,7 +136,7 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_DanKuGa_A_DIR::GetRule(UINT16 nUnitId)
+sFileRule CGame_DanKuGa_A_DIR::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -169,42 +167,42 @@ inline UINT32 CGame_DanKuGa_A_DIR::GetSIMMLocationFromROMLocation(UINT32 nROMLoc
     return nSIMMLocation;
 }
 
-UINT16 CGame_DanKuGa_A_DIR::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_DanKuGa_A_DIR::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(DANKUGA_A_UNITS, rgExtraCountAll, DANKUGA_A_NUMUNIT, DANKUGA_A_EXTRALOC, nUnitId, DANKUGA_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_DanKuGa_A_DIR::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_DanKuGa_A_DIR::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(DANKUGA_A_UNITS, rgExtraCountAll, DANKUGA_A_NUMUNIT, DANKUGA_A_EXTRALOC, nUnitId, nCollectionId, DANKUGA_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_DanKuGa_A_DIR::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_DanKuGa_A_DIR::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(DANKUGA_A_UNITS, DANKUGA_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_DanKuGa_A_DIR::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_DanKuGa_A_DIR::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(DANKUGA_A_UNITS, rgExtraCountAll, DANKUGA_A_NUMUNIT, DANKUGA_A_EXTRALOC, nUnitId, DANKUGA_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_DanKuGa_A_DIR::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_DanKuGa_A_DIR::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(DANKUGA_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sGame_PaletteDataset* CGame_DanKuGa_A_DIR::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_DanKuGa_A_DIR::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(DANKUGA_A_UNITS, rgExtraCountAll, DANKUGA_A_NUMUNIT, DANKUGA_A_EXTRALOC, nUnitId, nPaletteId, DANKUGA_A_EXTRA_CUSTOM);
 }
 
-const sDescTreeNode* CGame_DanKuGa_A_DIR::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_DanKuGa_A_DIR::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(DANKUGA_A_UNITS, rgExtraCountAll, DANKUGA_A_NUMUNIT, DANKUGA_A_EXTRALOC, nUnitId, nPaletteId, DANKUGA_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-void CGame_DanKuGa_A_DIR::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_DanKuGa_A_DIR::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != DANKUGA_A_EXTRALOC)
     {
@@ -234,7 +232,7 @@ BOOL CGame_DanKuGa_A_DIR::UpdatePalImg(int Node01, int Node02, int Node03, int N
     return _UpdatePalImg(DANKUGA_A_UNITS, rgExtraCountAll, DANKUGA_A_NUMUNIT, DANKUGA_A_EXTRALOC, DANKUGA_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }
 
-BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
+BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
@@ -269,9 +267,9 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     {
         OutputDebugString(L"\tLoading DanKuGa from SIMMs....\n");
 
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
@@ -282,7 +280,7 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
             // These are already sorted, no need to redirect
             rgUnitRedir[nUnitCtr] = nUnitCtr;
 
-            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -345,7 +343,7 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     return fSuccess;
 }
 
-BOOL CGame_DanKuGa_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
+BOOL CGame_DanKuGa_A_DIR::SaveFile(CFile* SaveFile, size_t nSaveUnit)
 {
     CString strInfo;
     strInfo.Format(L"CGame_DanKuGa_A_DIR::SaveFile: Preparing to save data for DanKuGa ROM set\n");
@@ -373,11 +371,11 @@ BOOL CGame_DanKuGa_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
         (fileSIMM3.Open(strSIMMName3, CFile::modeWrite | CFile::typeBinary)) &&
         (fileSIMM4.Open(strSIMMName4, CFile::modeWrite | CFile::typeBinary)))
     {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 if (IsPaletteDirty(nUnitCtr, nPalCtr))
                 {

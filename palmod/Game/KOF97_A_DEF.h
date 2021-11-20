@@ -1,7 +1,7 @@
 #pragma once
 
 // These are hand-generated: don't remove these.
-const UINT16 KOF97_A_IMGIDS_USED[] =
+const std::vector<UINT16> KOF97_A_IMGIDS_USED =
 {
     indexKOF98Sprites_Kyo,
     indexKOF98Sprites_Benimaru,
@@ -83,7 +83,7 @@ const UINT16 KOF97_A_IMGIDS_USED[] =
     indexKOF97Sprites_Yuri,             // 0x2B5
     indexKOF97Sprites_Bonus,         // 0x1F0
     indexKOF97Sprites_Stages,        // 0x1F1
-};
+}; 
 
 const sGame_PaletteDataset KOF97_A_EFFECTS_PALETTES[] =
 {

@@ -41,7 +41,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"For MBAACC, please select the \"data\" folder.\nIf this is your first time loading MBAACC refer to the Read Me for more details.";
             break;
         case MBTL_A:
-            pszExtraInfo = L"For MBTL, please select the \"MELTY BLOOD TYPE LUMINA\" folder.\The folder is usually in steamapps\\common. If you didn't come from the guide refer to the Read Me for more details.";
+            pszExtraInfo = L"For MBTL, please select the \"MELTY BLOOD TYPE LUMINA\" folder.\nThe folder is usually in steamapps\\common. If you didn't come from the guide refer to the Read Me for more details.";
            break;
         case MVC2_A_DIR:
             pszExtraInfo = L"We need the mpr-*.* files from mvcs2.zip.";

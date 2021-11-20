@@ -9,9 +9,9 @@
 
 stExtraDef* CGame_SSF2T_GBA::SSF2T_GBA_EXTRA_CUSTOM = NULL;
 
-int CGame_SSF2T_GBA::rgExtraCountAll[SSF2T_GBA_NUMUNIT + 1] = { -1 };
-int CGame_SSF2T_GBA::rgExtraCountVisibleOnly[SSF2T_GBA_NUMUNIT + 1] = { -1 };
-int CGame_SSF2T_GBA::rgExtraLoc[SSF2T_GBA_NUMUNIT + 1] = { -1 };
+size_t CGame_SSF2T_GBA::rgExtraCountAll[SSF2T_GBA_NUMUNIT + 1] = { (size_t)-1 };
+size_t CGame_SSF2T_GBA::rgExtraCountVisibleOnly[SSF2T_GBA_NUMUNIT + 1] = { (size_t)-1 };
+size_t CGame_SSF2T_GBA::rgExtraLoc[SSF2T_GBA_NUMUNIT + 1] = { (size_t)-1 };
 
 CDescTree CGame_SSF2T_GBA::MainDescTree = nullptr;
 UINT32 CGame_SSF2T_GBA::m_nExpectedGameROMSize = 0x800000;
@@ -60,18 +60,16 @@ CGame_SSF2T_GBA::CGame_SSF2T_GBA(UINT32 nConfirmedROMSize)
     nGameFlag = SSF2T_GBA;
     nImgGameFlag = IMGDAT_SECTION_SF2;
     m_prgGameImageSet = SSF2T_GBA_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(SSF2T_GBA_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_GBA;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_GBA);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -110,12 +108,12 @@ UINT32 CGame_SSF2T_GBA::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
     return ARRAYSIZE(knownROMs);
 }
 
-int CGame_SSF2T_GBA::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_SSF2T_GBA::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SSF2T_GBA_NUMUNIT, nUnitId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
-int CGame_SSF2T_GBA::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_SSF2T_GBA::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, SSF2T_GBA_NUMUNIT, nUnitId, SSF2T_GBA_EXTRA_CUSTOM);
 }
@@ -125,7 +123,7 @@ const sDescTreeNode* CGame_SSF2T_GBA::GetCurrentUnitSet()
     return SSF2T_GBA_UNITS;
 }
 
-UINT16 CGame_SSF2T_GBA::GetCurrentExtraLoc()
+size_t CGame_SSF2T_GBA::GetCurrentExtraLoc()
 {
     return SSF2T_GBA_EXTRALOC;
 }
@@ -142,7 +140,7 @@ stExtraDef* CGame_SSF2T_GBA::GetCurrentExtraDef(int nDefCtr)
 
 sDescTreeNode* CGame_SSF2T_GBA::InitDescTree()
 {
-    UINT8 nExtraUnitLocation = SSF2T_GBA_EXTRALOC;
+    size_t nExtraUnitLocation = SSF2T_GBA_EXTRALOC;
     LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_GBA, SSF2T_GBA_EXTRA, &SSF2T_GBA_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
     bool fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
     UINT16 nUnitCt = SSF2T_GBA_NUMUNIT + (fHaveExtras ? 1 : 0);
@@ -168,7 +166,7 @@ sDescTreeNode* CGame_SSF2T_GBA::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_SSF2T_GBA::GetRule(UINT16 nUnitId)
+sFileRule CGame_SSF2T_GBA::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -180,48 +178,48 @@ sFileRule CGame_SSF2T_GBA::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_SSF2T_GBA::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_SSF2T_GBA::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(SSF2T_GBA_UNITS, rgExtraCountAll, SSF2T_GBA_NUMUNIT, SSF2T_GBA_EXTRALOC, nUnitId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_SSF2T_GBA::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_SSF2T_GBA::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(SSF2T_GBA_UNITS, rgExtraCountAll, SSF2T_GBA_NUMUNIT, SSF2T_GBA_EXTRALOC, nUnitId, nCollectionId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_SSF2T_GBA::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SSF2T_GBA::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(SSF2T_GBA_UNITS, SSF2T_GBA_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_SSF2T_GBA::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_SSF2T_GBA::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(SSF2T_GBA_UNITS, rgExtraCountAll, SSF2T_GBA_NUMUNIT, SSF2T_GBA_EXTRALOC, nUnitId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_SSF2T_GBA::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_SSF2T_GBA::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(SSF2T_GBA_UNITS, nUnitId, nCollectionId);
 }
 
-const sGame_PaletteDataset* CGame_SSF2T_GBA::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_SSF2T_GBA::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(SSF2T_GBA_UNITS, rgExtraCountAll, SSF2T_GBA_NUMUNIT, SSF2T_GBA_EXTRALOC, nUnitId, nPaletteId, SSF2T_GBA_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_SSF2T_GBA::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+size_t CGame_SSF2T_GBA::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    UINT16 nNodeSize = 0;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    size_t nNodeSize = 0;
+    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
+    size_t nDistanceFromZero = nPaletteId;
 
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -235,12 +233,12 @@ UINT16 CGame_SSF2T_GBA::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPalette
     return nNodeSize;
 }
 
-const sDescTreeNode* CGame_SSF2T_GBA::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SSF2T_GBA::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(SSF2T_GBA_UNITS, rgExtraCountAll, SSF2T_GBA_NUMUNIT, SSF2T_GBA_EXTRALOC, nUnitId, nPaletteId, SSF2T_GBA_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-void CGame_SSF2T_GBA::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_SSF2T_GBA::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != GetCurrentExtraLoc())
     {
@@ -290,11 +288,11 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = NodeGet->uUnitId;
+    size_t nImgUnitId = NodeGet->uUnitId;
 
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    int nSrcStart = (int)NodeGet->uPalId;
+    size_t nSrcAmt = 1;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -311,7 +309,7 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         {
             if (_wcsicmp(pCurrentNode->szDesc, L"Colors") == 0)
             {
-                nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL_GBA);
+                nSrcAmt = DEF_BUTTONLABEL_GBA.size();
                 nNodeIncrement = 1;
                 // The starting point is the absolute first palette for the sprite in question which is found in A
                 nSrcStart = 0;

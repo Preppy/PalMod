@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const UINT16 VENTURE_A_IMGIDS_USED[] =
+const std::vector<UINT16> VENTURE_A_IMGIDS_USED =
 {
     indexJojos51Jotaro,
     indexJojos51Kakyo,

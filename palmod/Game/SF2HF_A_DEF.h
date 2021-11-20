@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 SF2HF_A_IMGIDS_USED[] =
+const std::vector<UINT16> SF2HF_A_IMGIDS_USED =
 {
     indexSF2Sprites_Ryu,
     indexSF2Sprites_EHonda,

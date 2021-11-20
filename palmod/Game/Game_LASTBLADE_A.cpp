@@ -10,8 +10,8 @@ stExtraDef* CGame_LASTBLADE_A::LASTBLADE_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_LASTBLADE_A::MainDescTree = nullptr;
 
-int CGame_LASTBLADE_A::rgExtraCountAll[LASTBLADE_A_NUMUNIT + 1];
-int CGame_LASTBLADE_A::rgExtraLoc[LASTBLADE_A_NUMUNIT + 1];
+size_t CGame_LASTBLADE_A::rgExtraCountAll[LASTBLADE_A_NUMUNIT + 1];
+size_t CGame_LASTBLADE_A::rgExtraLoc[LASTBLADE_A_NUMUNIT + 1];
 
 UINT32 CGame_LASTBLADE_A::m_nTotalPaletteCountForLASTBLADE = 0;
 UINT32 CGame_LASTBLADE_A::m_nExpectedGameROMSize = 0x100000; // Update to the actual size of the ROM you expect
@@ -69,7 +69,6 @@ CGame_LASTBLADE_A::CGame_LASTBLADE_A(UINT32 nConfirmedROMSize)
     nGameFlag = LASTBLADE_A; // This value is defined in gamedef.h.  See usage of other values defined there
     nImgGameFlag = IMGDAT_SECTION_KOF; // This value is used to determine which section of the image file is used
     m_prgGameImageSet = LASTBLADE_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(LASTBLADE_A_IMGIDS_USED);
 
     nFileAmt = 1; // Always 1 for monolithic rom games
 
@@ -77,11 +76,10 @@ CGame_LASTBLADE_A::CGame_LASTBLADE_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_NOBUTTONS; // DEF_BUTTONLABEL_LASTBLADE1;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS); // ARRAYSIZE(DEF_BUTTONLABEL_LASTBLADE1);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -100,12 +98,12 @@ CDescTree* CGame_LASTBLADE_A::GetMainTree()
     return &CGame_LASTBLADE_A::MainDescTree;
 }
 
-int CGame_LASTBLADE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_LASTBLADE_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, LASTBLADE_A_NUMUNIT, nUnitId, LASTBLADE_A_EXTRA_CUSTOM);
 }
 
-int CGame_LASTBLADE_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_LASTBLADE_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, LASTBLADE_A_NUMUNIT, nUnitId, LASTBLADE_A_EXTRA_CUSTOM);
 }
@@ -188,7 +186,7 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         // We don't currently know where the p2 palettes are so just show the p1 offsets
-        for (UINT16 iButtonIndex = 0; iButtonIndex < 1 /* ARRAYSIZE(DEF_BUTTONLABEL_2) */; iButtonIndex++)
+        for (UINT16 iButtonIndex = 0; iButtonIndex < 1 /* DEF_BUTTONLABEL_2.size() */; iButtonIndex++)
         {
             nCurrentCharacterOffset = LASTBLADE_A_CharacterOffsetArray[iUnitCtr].locationInROM + (0x200 * iButtonIndex);
 
@@ -296,7 +294,7 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
     }
 }
 
-sFileRule CGame_LASTBLADE_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_LASTBLADE_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -330,42 +328,42 @@ UINT32 CGame_LASTBLADE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** pp
     return ARRAYSIZE(knownROMs);
 }
 
-UINT16 CGame_LASTBLADE_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_LASTBLADE_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(LASTBLADE_A_UNITS, rgExtraCountAll, LASTBLADE_A_NUMUNIT, LASTBLADE_A_EXTRALOC, nUnitId, LASTBLADE_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_LASTBLADE_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_LASTBLADE_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(LASTBLADE_A_UNITS, rgExtraCountAll, LASTBLADE_A_NUMUNIT, LASTBLADE_A_EXTRALOC, nUnitId, nCollectionId, LASTBLADE_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_LASTBLADE_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_LASTBLADE_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(LASTBLADE_A_UNITS, LASTBLADE_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_LASTBLADE_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_LASTBLADE_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(LASTBLADE_A_UNITS, rgExtraCountAll, LASTBLADE_A_NUMUNIT, LASTBLADE_A_EXTRALOC, nUnitId, LASTBLADE_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_LASTBLADE_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_LASTBLADE_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(LASTBLADE_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_LASTBLADE_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_LASTBLADE_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(LASTBLADE_A_UNITS, rgExtraCountAll, LASTBLADE_A_NUMUNIT, LASTBLADE_A_EXTRALOC, nUnitId, nPaletteId, LASTBLADE_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_LASTBLADE_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_LASTBLADE_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(LASTBLADE_A_UNITS, rgExtraCountAll, LASTBLADE_A_NUMUNIT, LASTBLADE_A_EXTRALOC, nUnitId, nPaletteId, LASTBLADE_A_EXTRA_CUSTOM);
 }
 
-void CGame_LASTBLADE_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_LASTBLADE_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != LASTBLADE_A_EXTRALOC)
     {

@@ -1,0 +1,4 @@
+;No existing Extras file for this game was found, so PalMod created one for you.
+;Please refer to the Read Me for a brief guide to Extras files, or the longer guide on the PalMod site.
+
+;When you are done making changes to the Extras file, reload the game to see those palettes.

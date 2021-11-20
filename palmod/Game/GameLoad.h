@@ -7,10 +7,10 @@ class CGameLoad
 private:
     BOOL SetGame(int nGameFlag);
 
-    UINT16(*GetRuleCtr)(void) = {};
+    size_t(*GetRuleCtr)(void) = {};
     void (*ResetRuleCtr)(void) = {};
     sFileRule(*GetNextRule)(void) = {};
-    sFileRule(*GetRule)(UINT16) = {};
+    sFileRule(*GetRule)(size_t) = {};
     CGameClass* CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData = 0);
 
     bool IsLocationOnReadOnlyDrive(LPCWSTR pszLocation, LPWSTR pszDrivePath = nullptr, size_t ccPathSize = 0);

@@ -48,7 +48,7 @@ public:
 
     BOOL bTransPNG = FALSE;
 
-    const LPCWSTR *pButtonLabelSet = nullptr;
+    std::vector<LPCWSTR> pButtonLabelSet;
 
     int nPalAmt = 0;
 

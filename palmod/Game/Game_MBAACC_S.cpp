@@ -3,7 +3,7 @@
 #include "MBAACC_S_DEF.h"
 #include "..\PalMod.h"
 
-UINT16 CGame_MBAACC_S::uRuleCtr = 0;
+size_t CGame_MBAACC_S::uRuleCtr = 0;
 
 CDescTree CGame_MBAACC_S::MainDescTree = nullptr;
 
@@ -28,16 +28,14 @@ CGame_MBAACC_S::CGame_MBAACC_S(UINT32 nConfirmedROMSize /* = -1 */)
     nGameFlag = MBAACC_S;
     nImgGameFlag = IMGDAT_SECTION_FRENCHBREAD;
     m_prgGameImageSet = MBAACC_S_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(MBAACC_S_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
     pButtonLabelSet = DEF_NOBUTTONS;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    rgUnitRedir = new size_t[nUnitAmt + 1];
     memset(rgUnitRedir, 0, sizeof(UINT16) * nUnitAmt);
 
     FlushChangeTrackingArray();
@@ -56,11 +54,11 @@ void CGame_MBAACC_S::InitializeStatics()
     MainDescTree.SetRootTree(CGame_MBAACC_S::InitDescTree());
 }
 
-sFileRule CGame_MBAACC_S::GetRule(UINT16 nUnitId)
+sFileRule CGame_MBAACC_S::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    const UINT16 nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
+    const size_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", MBAACCCharacterData[nAdjustedUnitId].pszFileName);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = MBAACCCharacterData[nAdjustedUnitId].nExpectedFileSize;
@@ -84,8 +82,8 @@ sFileRule CGame_MBAACC_S::GetNextRule()
 
 sDescTreeNode* CGame_MBAACC_S::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-    UINT16 nUnitCt = ARRAYSIZE(MBAACCCharacterData);
+    size_t nTotalPaletteCount = 0;
+    size_t nUnitCt = ARRAYSIZE(MBAACCCharacterData);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -101,13 +99,13 @@ sDescTreeNode* CGame_MBAACC_S::InitDescTree()
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (size_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
+        size_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
@@ -124,17 +122,17 @@ sDescTreeNode* CGame_MBAACC_S::InitDescTree()
         OutputDebugString(strMsg);
 #endif
 
-        UINT16 nTotalPalettesUsedInUnit = 0;
+        size_t nTotalPalettesUsedInUnit = 0;
 
         //Set data for each child group ("collection")
-        for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+        for (size_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
         {
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
             //Set each collection data
             _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
             //Collection children have nodes
-            UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
+            size_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nListedChildrenCount;
             CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
@@ -144,7 +142,7 @@ sDescTreeNode* CGame_MBAACC_S::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-            for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+            for (size_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -170,28 +168,28 @@ sDescTreeNode* CGame_MBAACC_S::InitDescTree()
     return NewDescTree;
 }
 
-UINT16 CGame_MBAACC_S::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_MBAACC_S::GetCollectionCountForUnit(size_t nUnitId)
 {
     // Just one palette set per character
     return 1;
 }
 
-UINT16 CGame_MBAACC_S::GetNodeCountForCollection(UINT16 nUnitId, UINT16 /*nCollectionId*/)
+size_t CGame_MBAACC_S::GetNodeCountForCollection(size_t nUnitId, size_t /*nCollectionId*/)
 {
     return MBAACCCharacterData[nUnitId].nPaletteListSize;
 }
 
-UINT16 CGame_MBAACC_S::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_MBAACC_S::GetPaletteCountForUnit(size_t nUnitId)
 {
     return MBAACCCharacterData[nUnitId].nPaletteListSize;
 }
 
-LPCWSTR CGame_MBAACC_S::GetDescriptionForCollection(UINT16 /*nUnitId */, UINT16 /*nCollectionId */)
+LPCWSTR CGame_MBAACC_S::GetDescriptionForCollection(size_t /*nUnitId */, size_t /*nCollectionId */)
 {
     return L"Palettes";
 }
 
-void CGame_MBAACC_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_MBAACC_S::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     const int cbPaletteSizeOnDisc = 0x400;
 
@@ -219,15 +217,14 @@ BOOL CGame_MBAACC_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = MBAACCCharacterData[NodeGet->uUnitId].nSpriteIndex;
+    size_t nImgUnitId = MBAACCCharacterData[NodeGet->uUnitId].nSpriteIndex;
 
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists and use
     // NodeGet->uPalId instead of 0 for the start for anything non-core.
-    UINT16 nSrcStart = 0;
-    UINT16 nSrcAmt = MBAACCCharacterData[NodeGet->uUnitId].nPaletteListSize;
-    pButtonLabelSet = MBAACCCharacterData[NodeGet->uUnitId].ppszPaletteList;
-    UINT16 nNodeIncrement = 1;
+    int nSrcStart = (int)0;
+    size_t nSrcAmt = MBAACCCharacterData[NodeGet->uUnitId].nPaletteListSize;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -239,11 +236,8 @@ BOOL CGame_MBAACC_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         //Create the default palette
         CreateDefPal(NodeGet, 0);
 
-        if (m_prgGameImageSet) // no need to show images until we get some. this check can be removed once that happens
-        {
-            // Only internal units get sprites
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-        }
+        // Only internal units get sprites
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }
@@ -251,7 +245,7 @@ BOOL CGame_MBAACC_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     return TRUE;
 }
 
-BOOL CGame_MBAACC_S::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
+BOOL CGame_MBAACC_S::LoadFile(CFile* LoadedFile, size_t nUnitNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
@@ -276,7 +270,7 @@ BOOL CGame_MBAACC_S::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     strInfo.Format(L"\tCGame_MBAACC_S_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", MBAACCCharacterData[nUnitNumber].nInitialLocation);
     OutputDebugString(strInfo);
 
-    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitNumber);
+    size_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
@@ -287,7 +281,7 @@ BOOL CGame_MBAACC_S::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     // These are already sorted, no need to redirect
     rgUnitRedir[nUnitNumber] = nUnitNumber;
 
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
@@ -307,12 +301,12 @@ BOOL CGame_MBAACC_S::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     return fSuccess;
 }
 
-BOOL CGame_MBAACC_S::SaveFile(CFile* SaveFile, UINT16 nUnitId)
+BOOL CGame_MBAACC_S::SaveFile(CFile* SaveFile, size_t nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
-    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitId);
+    size_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         if (IsPaletteDirty(nUnitId, nPalCtr))
         {

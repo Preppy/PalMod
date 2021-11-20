@@ -9,8 +9,8 @@ stExtraDef* CGame_WakuWaku7_A::WakuWaku7_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_WakuWaku7_A::MainDescTree = nullptr;
 
-int CGame_WakuWaku7_A::rgExtraCountAll[WakuWaku7_A_NUMUNIT + 1];
-int CGame_WakuWaku7_A::rgExtraLoc[WakuWaku7_A_NUMUNIT + 1];
+size_t CGame_WakuWaku7_A::rgExtraCountAll[WakuWaku7_A_NUMUNIT + 1];
+size_t CGame_WakuWaku7_A::rgExtraLoc[WakuWaku7_A_NUMUNIT + 1];
 
 UINT32 CGame_WakuWaku7_A::m_nTotalPaletteCountForWakuWaku7 = 0;
 const UINT32 CGame_WakuWaku7_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
@@ -56,7 +56,6 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
     nGameFlag = WakuWaku7_A;
     nImgGameFlag = IMGDAT_SECTION_WAKUWAKU7;
     m_prgGameImageSet = WAKUWAKU7_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(WAKUWAKU7_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -64,11 +63,10 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_WAKUWAKU7_FIVE;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_WAKUWAKU7_FIVE);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -87,12 +85,12 @@ CDescTree* CGame_WakuWaku7_A::GetMainTree()
     return &CGame_WakuWaku7_A::MainDescTree;
 }
 
-int CGame_WakuWaku7_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_WakuWaku7_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, WakuWaku7_A_NUMUNIT, nUnitId, WakuWaku7_A_EXTRA_CUSTOM);
 }
 
-int CGame_WakuWaku7_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_WakuWaku7_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, WakuWaku7_A_NUMUNIT, nUnitId, WakuWaku7_A_EXTRA_CUSTOM);
 }
@@ -127,7 +125,7 @@ sDescTreeNode* CGame_WakuWaku7_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_WakuWaku7_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_WakuWaku7_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -140,42 +138,42 @@ sFileRule CGame_WakuWaku7_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_WakuWaku7_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_WakuWaku7_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, WakuWaku7_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_WakuWaku7_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_WakuWaku7_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, nCollectionId, WakuWaku7_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_WakuWaku7_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_WakuWaku7_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(WakuWaku7_A_UNITS, WakuWaku7_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_WakuWaku7_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_WakuWaku7_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, WakuWaku7_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_WakuWaku7_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_WakuWaku7_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(WakuWaku7_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_WakuWaku7_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_WakuWaku7_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, nPaletteId, WakuWaku7_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_WakuWaku7_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_WakuWaku7_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, nPaletteId, WakuWaku7_A_EXTRA_CUSTOM);
 }
 
-void CGame_WakuWaku7_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_WakuWaku7_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != m_nExtraUnit)
     {
@@ -225,16 +223,16 @@ BOOL CGame_WakuWaku7_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    int nSrcStart = (int)NodeGet->uPalId;
+    size_t nSrcAmt = 1;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+    size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -258,12 +256,10 @@ BOOL CGame_WakuWaku7_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
                 case 4:
                     nSrcAmt = 4;
                     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-                    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
                     break;
                 case 5:
                     nSrcAmt = 5;
                     pButtonLabelSet = DEF_BUTTONLABEL_WAKUWAKU7_FIVE;
-                    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_WAKUWAKU7_FIVE);
                     break;
                 default:
                     break;

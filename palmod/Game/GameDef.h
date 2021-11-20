@@ -362,7 +362,7 @@ enum class eImageOutputSpriteDisplay
 
 struct stExtraDef
 {
-    UINT16 uUnitN = INVALID_UNIT_VALUE;
+    size_t uUnitN = INVALID_UNIT_VALUE;
     WCHAR szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
     UINT32 uOffset = 0;
     UINT16 cbPaletteSize = 0;
@@ -377,7 +377,7 @@ struct stPairedPaletteInfo
     int nXOffs = 0;
     int nYOffs = 0;
     bool fPairingIsFlipped = false;
-    int nPalettesToJoin = 2;
+    size_t nPalettesToJoin = 2;
     int nOverallNodeIncrementTo2ndPartner = 2;
     int nOverallNodeIncrementTo3rdPartner = 3;
     int nOverallNodeIncrementTo4thPartner = 4;

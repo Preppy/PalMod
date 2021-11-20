@@ -41,7 +41,7 @@ const sGame_PaletteDataset MSH_A_THANOS_PALETTES_P1[] =
 
 #endif
 
-const UINT16 MSH_A_IMGIDS_USED[] =
+const std::vector<UINT16> MSH_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Wolverine,
     indexCPS2Sprites_Psylocke,

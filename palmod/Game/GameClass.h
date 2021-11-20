@@ -14,7 +14,7 @@ struct sFileRule
 {
     WCHAR szFileName[MAX_FILENAME_LENGTH] = L"uninit";
     UINT32 uVerifyVar;
-    UINT16 uUnitId = INVALID_UNIT_VALUE;
+    size_t uUnitId = INVALID_UNIT_VALUE;
     bool fHasAltName = false;
     WCHAR szAltFileName[MAX_FILENAME_LENGTH] = L"uninit";
 };
@@ -31,9 +31,9 @@ protected:
     // This is an old array used to determine if the character-file or the ROM has been updated
     // Don't use this for SIMM-based games: use IsPaletteDirty there instead
     BOOL* rgFileChanged = nullptr;
-    UINT16 nFileAmt = 0;
+    size_t nFileAmt = 0;
 
-    UINT16 m_nTotalInternalUnits = INVALID_UNIT_VALUE;
+    size_t m_nTotalInternalUnits = INVALID_UNIT_VALUE;
     UINT32 m_nCurrentPaletteROMLocation = 0;
     UINT32 m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
     UINT16 m_nCurrentPaletteSizeInColors = 0;
@@ -43,11 +43,10 @@ protected:
     BOOL m_fIsDirectoryBasedGame = FALSE;
     BOOL m_fGameUnitsMapToIndividualFiles = FALSE;
 
-    UINT16 nUnitAmt = 0;
+    size_t nUnitAmt = 0;
     SupportedGamesList nGameFlag = NUM_GAMES;
     int nImgGameFlag = 0;
-    int nImgUnitAmt = 0;
-    const UINT16* m_prgGameImageSet = nullptr;
+    std::vector<UINT16> m_prgGameImageSet;
 
     //Values used for image out
     int nSrcPalUnit[MAX_PALETTES_DISPLAYABLE] = { 0 };
@@ -60,16 +59,14 @@ protected:
     CPalGroup BasePalGroup;
 
     eImageOutputSpriteDisplay DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // Used for the Export Image listbox
-    const LPCWSTR* pButtonLabelSet = nullptr;
-    // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc
-    UINT8 m_nNumberOfColorOptions = 0;
+    // Used for the Export Image listbox: P1/P2, LP-HK/A2, etc
+    std::vector<LPCWSTR> pButtonLabelSet;
 
     bool m_fGameUsesAlphaValue = false;
     bool m_fAllowIPSPatching = false;
 
     BOOL bUsesHybrid = FALSE;
-    UINT16* pIndexRedir = nullptr;
+    size_t* pIndexRedir = nullptr;
     int nHybridSz = 0;
 
     static BOOL m_fAllowTransparencyEdits;
@@ -92,8 +89,8 @@ protected:
 
     struct sPaletteIdentifier
     {
-        UINT16 nUnit = 0;
-        UINT16 nPaletteId = 0;
+        size_t nUnit = 0;
+        size_t nPaletteId = 0;
     };
 
     struct DoPalettesMatch
@@ -133,7 +130,7 @@ public:
 
     static BOOL m_ShouldUsePostSetPalProc;
 
-    UINT16* rgUnitRedir = nullptr;
+    size_t* rgUnitRedir = nullptr;
     int nRedirCtr = 0;
     //Used for image selection
     int nTargetImgId = 0;
@@ -141,7 +138,7 @@ public:
     // Currently only used by MVC2
     UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
     // This is called as part of Edit's debug information.  It wants the true ROM location, so correct for the nStartingPosition offset
-    UINT32 GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (createPalOptions.nStartingPosition * sizeof(UINT16)); };
+    UINT32 GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (createPalOptions.nStartingPosition * GetGameColorByteLength()); };
     UINT32 GetLowestExpectedPaletteLocation();
 
     inline UINT8 GetGameColorByteLength() { return m_nSizeOfColorsInBytes; };
@@ -189,14 +186,13 @@ public:
 
     SupportedGamesList GetGameFlag() { return nGameFlag; };
     int GetImgGameFlag() { return nImgGameFlag; };
-    int GetUnitCt() { return nUnitAmt; };
-    int GetImgUnitCt() { return nImgUnitAmt; };
-    const UINT16* GetImageSetForGame() { return m_prgGameImageSet; };
+    size_t GetUnitCt() { return nUnitAmt; };
+    std::vector<UINT16> GetImageSetForGame() { return m_prgGameImageSet; };
     sImgTicket* GetImgTicket() { return CurrImgTicket; };
 
     CPalGroup* GetPalGroup() { return &BasePalGroup; };
 
-    UINT16 GetFileAmt() { return nFileAmt; };
+    size_t GetFileAmt() { return nFileAmt; };
 
     void ResetFileChangeTrackingArray();
     BOOL* GetFileChangeTrackingArray() { return rgFileChanged; };
@@ -209,21 +205,21 @@ public:
 
     int GetPlaneAmt(ColFlag Flag);
 
-    void SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc);
+    void SetSourcePal(int nIndex, size_t nUnitId, int nStart, int nAmt, int nInc);
     void ClearSrcPal();
 
-    sImgTicket* CreateImgTicket(UINT16 nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0);
+    sImgTicket* CreateImgTicket(size_t nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0);
     void ClearSetImgTicket(sImgTicket* NewImgTicket = NULL);
 
     int GetCurrentPaletteIncrement() { return nSrcPalInc[0]; };
     eImageOutputSpriteDisplay GetImgDispType() { return DisplayType; };
     int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
 
-    const LPCWSTR* GetButtonDescSet() { return pButtonLabelSet; };
+    const std::vector<LPCWSTR> GetButtonDescSet() { return pButtonLabelSet; };
 
     void RevertChanges(int nPalId);
 
-    BOOL CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz);
+    BOOL CreateHybridPal(size_t nIndexAmt, size_t nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz);
 
     static void AllowTransparencyEdits(BOOL fAllow) { m_fAllowTransparencyEdits = fAllow; };
     static BOOL AllowTransparencyEdits() { return m_fAllowTransparencyEdits; };
@@ -235,53 +231,53 @@ public:
     virtual LPCWSTR GetGameName();
 
     virtual void CheckForErrorsInTables() {};
-    virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId);
-    virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
+    virtual BOOL LoadFile(CFile* LoadedFile, size_t nUnitId);
+    virtual BOOL SaveFile(CFile* SaveFile, size_t nUnitId);
 
-    virtual UINT32 SavePatchFile(CFile* PatchFile, UINT16 nUnitId);
+    virtual UINT32 SavePatchFile(CFile* PatchFile, size_t nUnitId);
     virtual UINT32 SaveMultiplePatchFiles(CString strTargetDirectory);
     bool UserWantsAllPalettesInPatch();
     void SetSpecificValuesForCRC(UINT32 nCRCForFile);
     virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
 
-    void WritePal(UINT16 nUnitId, UINT16 nPalId, COLORREF* rgColors, UINT16 nColorCount);
+    void WritePal(size_t nUnitId, size_t nPalId, COLORREF* rgColors, UINT16 nColorCount);
 
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
-    virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
+    virtual COLORREF* CreatePal(size_t nUnitId, size_t nPalId);
     virtual void UpdatePalData();
     void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); ClearDirtyPaletteTracker(); };
     virtual void PrepChangeTrackingArray();
     virtual void ValidateMixExtraColors(BOOL* pfChangesWereMade) {};
-    virtual void PostSetPal(UINT16 nUnitId, UINT16 nPalId) {};
-    virtual void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId) {};
-    virtual UINT16 GetPaletteCountForUnit(UINT16 nUnitId) { return INVALID_UNIT_VALUE; };
+    virtual void PostSetPal(size_t nUnitId, size_t nPalId) {};
+    virtual void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId) {};
+    virtual size_t GetPaletteCountForUnit(size_t nUnitId) { return INVALID_UNIT_VALUE; };
 
-    virtual void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
+    virtual void CreateDefPal(sDescNode* srcNode, size_t nSepId);
 
     COLORREF*** CreateImgOutPal();
 
-    BOOL _UpdatePalImg(const sDescTreeNode* pGameUnits, int* rgExtraCount, int nNormalUnitCount, UINT16 nExtraUnitLocation, stExtraDef* ppExtraDef, int Node01, int Node02, int Node03, int Node04);
+    BOOL _UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, stExtraDef* ppExtraDef, int Node01, int Node02, int Node03, int Node04);
 
-    static UINT16 _GetCollectionCountForUnit(const sDescTreeNode* pGameUnits, int* rgExtraCount, int nNormalUnitCount, UINT16 nExtraUnitLocation, UINT16 nUnitId, stExtraDef* ppExtraDef);
-    static UINT16 _GetNodeCountForCollection(const sDescTreeNode* pGameUnits, int* rgExtraCount, int nNormalUnitCount, UINT16 nExtraUnitLocation, UINT16 nUnitId, UINT16 nCollectionId, stExtraDef* ppExtraDef);
-    static LPCWSTR _GetDescriptionForCollection(const sDescTreeNode* pGameUnits, UINT16 nExtraUnitLocation, UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* _GetPaletteSet(const sDescTreeNode* pGameUnits, UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* _GetSpecificPalette(const sDescTreeNode* pGameUnits, int* rgExtraCount, int nNormalUnitCount, UINT16 nExtraUnitLocation, UINT16 nUnitId, UINT16 nPaletteId, stExtraDef* ppExtraDef);
+    static size_t _GetCollectionCountForUnit(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, stExtraDef* ppExtraDef);
+    static size_t _GetNodeCountForCollection(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, size_t nCollectionId, stExtraDef* ppExtraDef);
+    static LPCWSTR _GetDescriptionForCollection(const sDescTreeNode* pGameUnits, size_t nExtraUnitLocation, size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* _GetPaletteSet(const sDescTreeNode* pGameUnits, size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* _GetSpecificPalette(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, size_t nPaletteId, stExtraDef* ppExtraDef);
 
-    UINT16 _GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, int* rgExtraCount, int nNormalUnitCount, UINT16 nExtraUnitLocation, UINT16 nUnitId, stExtraDef* ppExtraDef);
-    UINT16 _GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, int* rgExtraCount, int nNormalUnitCount, UINT16 nExtraUnitLocation, UINT16 nUnitId, UINT16 nPaletteId, stExtraDef* ppExtraDef);
-    const sDescTreeNode* _GetNodeFromPaletteId(const sDescTreeNode* pGameUnits, int* rgExtraCount, int nNormalUnitCount, UINT16 nExtraUnitLocation, UINT16 nUnitId, UINT16 nPaletteId, stExtraDef* ppExtraDef, bool fReturnBasicNodesOnly);
+    size_t _GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, stExtraDef* ppExtraDef);
+    size_t _GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, size_t nPaletteId, stExtraDef* ppExtraDef);
+    const sDescTreeNode* _GetNodeFromPaletteId(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, size_t nPaletteId, stExtraDef* ppExtraDef, bool fReturnBasicNodesOnly);
 
-    static int _GetExtraCount(int* rgExtraCount, int nNormalUnitCount, UINT16 nUnitId, stExtraDef* ppExtraDef);
-    static int _GetExtraLocation(int *rgExtraLocations, int nNormalUnitCount, UINT16 nUnitId, stExtraDef* ppExtraDef);
+    static size_t _GetExtraCount(size_t* rgExtraCount, size_t nNormalUnitCount, size_t nUnitId, stExtraDef* ppExtraDef);
+    static size_t _GetExtraLocation(size_t*rgExtraLocations, size_t nNormalUnitCount, size_t nUnitId, stExtraDef* ppExtraDef);
 
     void DumpTreeSorted();
 
-    static UINT32 _InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, UINT16 nExtraUnitLocation, UINT16 nTotalNormalUnitCount, int *rgExtraCount, int *rgExtraLocations, stExtraDef *ppExtraDef);
+    static UINT32 _InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, size_t nExtraUnitLocation, size_t nTotalNormalUnitCount, size_t*rgExtraCount, size_t*rgExtraLocations, stExtraDef *ppExtraDef);
 
-    void MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);
-    void MarkPaletteClean(UINT16 nUnit, UINT16 nPaletteID);
-    bool IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);
+    void MarkPaletteDirty(size_t nUnit, size_t nPaletteId);
+    void MarkPaletteClean(size_t nUnit, size_t nPaletteId);
+    bool IsPaletteDirty(size_t nUnit, size_t nPaletteId);
 
     // This section covers SIMM-based games.
     // The length of one individual SIMM file
@@ -299,8 +295,8 @@ public:
     inline UINT32 GetSIMMLocationFromROMLocation(UINT32 nROMLocation);
     inline UINT32 GetLocationWithinSIMM(UINT32 nSIMMSetLocation);
     inline UINT8 GetSIMMSetForROMLocation(UINT32 nROMLocation);
-    BOOL LoadFileForSIMMGame(CFile* LoadedFile, UINT16 nSIMMNumber);
-    BOOL SaveFileForSIMMGame(CFile* SaveFile, UINT16 nSIMMNumber);
+    BOOL LoadFileForSIMMGame(CFile* LoadedFile, size_t nSIMMNumber);
+    BOOL SaveFileForSIMMGame(CFile* SaveFile, size_t nSIMMNumber);
     // this is a little hacky...
     virtual sFileRule GetNextRuleForSIMMGame() { sFileRule NewFileRule = {}; return NewFileRule; };
 };

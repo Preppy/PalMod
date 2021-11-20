@@ -25,17 +25,17 @@ int AdjustNumberForPossibleNegation(int nPossiblyNegativeNumber);
 class CSecondaryPaletteProcessing
 {
 protected:
-    void ProcessSecondaryCopyWithIndex(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);
-    void ProcessSecondaryWhite(UINT16 char_id, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc);
-    void ProcessSecondaryHSLEffects(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc);
-    void ProcessSecondaryTintEffects(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
+    void ProcessSecondaryCopyWithIndex(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);
+    void ProcessSecondaryWhite(size_t char_id, size_t destination_palette, UINT8 index_start, UINT8 index_inc);
+    void ProcessSecondaryHSLEffects(size_t char_id, UINT16 mod_type, int mod_amt, size_t destination_palette, UINT8 index_start, UINT8 index_inc);
+    void ProcessSecondaryTintEffects(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
         int tint_factor_r, int tint_factor_g, int tint_factor_b);
 
 public:
     virtual UINT16 GetCurrentPaletteSizeInColors() = 0;
     virtual void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA) = 0;
-    virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId) = 0;
-    virtual void WritePal(UINT16 nUnitId, UINT16 nPalId, COLORREF* rgColors, UINT16 nColorCount) = 0;
+    virtual COLORREF* CreatePal(size_t nUnitId, size_t nPalId) = 0;
+    virtual void WritePal(size_t nUnitId, size_t nPalId, COLORREF* rgColors, UINT16 nColorCount) = 0;
 
-    void ProcessAdditionalPaletteChangesRequired(const UINT16 nUnitId, const UINT16 nChangedPaletteNumber, const UINT16* supplementalEffectsData);
+    void ProcessAdditionalPaletteChangesRequired(const size_t nUnitId, const size_t nChangedPaletteNumber, const UINT16* supplementalEffectsData);
 };

@@ -11,16 +11,16 @@ stExtraDef* CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B = nullptr;
 CDescTree CGame_MSHVSF_A::MainDescTree_6A = nullptr;
 CDescTree CGame_MSHVSF_A::MainDescTree_7B = nullptr;
 
-int CGame_MSHVSF_A::m_nMSHVSFSelectedRom = 6;
+size_t CGame_MSHVSF_A::m_nMSHVSFSelectedRom = 6;
 UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_6A = 0;
 UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_7B = 0;
 UINT32 CGame_MSHVSF_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_MSHVSF_A::m_nConfirmedROMSize = -1;
 
-int CGame_MSHVSF_A::rgExtraLocation_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
-int CGame_MSHVSF_A::rgExtraLocation_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
-int CGame_MSHVSF_A::rgExtraCount_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
-int CGame_MSHVSF_A::rgExtraCount_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
+size_t CGame_MSHVSF_A::rgExtraLocation_6A[MSHVSF_A_NUM_IND_6A + 1] = { (size_t)-1 };
+size_t CGame_MSHVSF_A::rgExtraLocation_7B[MSHVSF_A_NUM_IND_7B + 1] = { (size_t)-1 };
+size_t CGame_MSHVSF_A::rgExtraCount_6A[MSHVSF_A_NUM_IND_6A + 1] = { (size_t)-1 };
+size_t CGame_MSHVSF_A::rgExtraCount_7B[MSHVSF_A_NUM_IND_7B + 1] = { (size_t)-1 };
 
 void CGame_MSHVSF_A::InitializeStatics()
 {
@@ -72,18 +72,16 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
     nGameFlag = MSHVSF_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     m_prgGameImageSet = MSHVSF_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(MSHVSF_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -159,7 +157,7 @@ GAME(1997, mshvsfu1d,  mshvsf,   dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
     return ARRAYSIZE(knownROMs);
 }
 
-int CGame_MSHVSF_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_MSHVSF_A::GetExtraLoc(size_t nUnitId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -171,7 +169,7 @@ int CGame_MSHVSF_A::GetExtraLoc(UINT16 nUnitId)
     }
 }
 
-int CGame_MSHVSF_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_MSHVSF_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -236,10 +234,10 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
+        size_t nExtraCt = GetExtraCt(iUnitCtr, TRUE);
         BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
 
-        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
+        size_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
@@ -257,7 +255,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
             OutputDebugString(strMsg);
 #endif
 
-            UINT16 nTotalPalettesUsedInUnit = 0;
+            size_t nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
@@ -269,7 +267,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                 // Default label, since these aren't associated to collections
                 _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
-                UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
+                size_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
@@ -329,7 +327,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
         //Set up extra nodes
         if (bUseExtra)
         {
-            int nExtraPos = GetExtraLoc(iUnitCtr);
+            size_t nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
             if (UsePaletteSetForCharacters())
@@ -404,7 +402,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
     return NewDescTree;
 }
 
-sFileRule CGame_MSHVSF_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_MSHVSF_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -416,7 +414,7 @@ sFileRule CGame_MSHVSF_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_MSHVSF_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_MSHVSF_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -443,7 +441,7 @@ UINT16 CGame_MSHVSF_A::GetCollectionCountForUnit(UINT16 nUnitId)
 
 }
 
-UINT16 CGame_MSHVSF_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_MSHVSF_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -473,7 +471,7 @@ UINT16 CGame_MSHVSF_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollect
     }
 }
 
-LPCWSTR CGame_MSHVSF_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_MSHVSF_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -501,7 +499,7 @@ LPCWSTR CGame_MSHVSF_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nColl
     }
 }
 
-UINT16 CGame_MSHVSF_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_MSHVSF_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     if (UsePaletteSetForCharacters() ? (nUnitId == MSHVSF_A_EXTRALOC_6A) :
                                        (nUnitId == MSHVSF_A_EXTRALOC_7B))
@@ -510,13 +508,13 @@ UINT16 CGame_MSHVSF_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
     else
     {
-        UINT16 nCompleteCount = 0;
+        size_t nCompleteCount = 0;
         const sDescTreeNode* pCompleteROMTree = UsePaletteSetForCharacters() ? MSHVSF_A_UNITS_6A : MSHVSF_A_UNITS_7B;
-        UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
+        size_t nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
 
-        for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+        for (size_t nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
@@ -531,7 +529,7 @@ UINT16 CGame_MSHVSF_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_MSHVSF_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_MSHVSF_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -547,18 +545,18 @@ const sGame_PaletteDataset* CGame_MSHVSF_A::GetPaletteSet(UINT16 nUnitId, UINT16
     }
 }
 
-UINT16 CGame_MSHVSF_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+size_t CGame_MSHVSF_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    UINT16 nNodeSize = 0;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    size_t nNodeSize = 0;
+    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
+    size_t nDistanceFromZero = nPaletteId;
 
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -572,18 +570,18 @@ UINT16 CGame_MSHVSF_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteI
     return nNodeSize;
 }
 
-const sDescTreeNode* CGame_MSHVSF_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_MSHVSF_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
+    size_t nDistanceFromZero = nPaletteId;
 
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount;
+        size_t nNodeCount;
 
         if (UsePaletteSetForCharacters() ? (nUnitId == MSHVSF_A_EXTRALOC_6A) :
                                            (nUnitId == MSHVSF_A_EXTRALOC_7B))
@@ -625,17 +623,17 @@ const sDescTreeNode* CGame_MSHVSF_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_MSHVSF_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_MSHVSF_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
+    size_t nDistanceFromZero = nPaletteId;
 
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -664,13 +662,13 @@ void CGame_MSHVSF_A::ClearDataBuffer()
 
     if (m_pppDataBuffer)
     {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -685,7 +683,7 @@ void CGame_MSHVSF_A::ClearDataBuffer()
     m_nMSHVSFSelectedRom = nCurrentROMMode;
 }
 
-void CGame_MSHVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_MSHVSF_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (UsePaletteSetForCharacters() ? (nUnitId != MSHVSF_A_EXTRALOC_6A) :
                                        (nUnitId != MSHVSF_A_EXTRALOC_7B))
@@ -738,16 +736,16 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    ptrdiff_t nSrcStart = NodeGet->uPalId;
+    size_t nSrcAmt = 1;
+    ptrdiff_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+    size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -770,13 +768,13 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                 if ((wcsstr(pCurrentNode->szDesc, L"P1") != nullptr) || (wcsstr(pCurrentNode->szDesc, L"P2") != nullptr))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal VS sprites
-                    nSrcAmt = m_nNumberOfColorOptions;
+                    nSrcAmt = pButtonLabelSet.size();
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     if (NodeGet->uUnitId == index_MSHVSF_Blackheart_Mephisto)
                     {
-                        constexpr auto nBlackheartNodeSize = ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH);
-                        constexpr auto nMephistoNodeSize = ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH);
+                        constexpr ptrdiff_t nBlackheartNodeSize = ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH);
+                        constexpr ptrdiff_t nMephistoNodeSize = ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH);
                         // Blackheart and Mephisto displays
                         if ((nSrcStart >= nNodeIncrement) && (nSrcStart <= (nNodeIncrement * nBlackheartNodeSize)))
                         {
@@ -785,7 +783,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         }
                         else // Mephisto
                         {
-                            if (nSrcStart > (nSrcAmt * nBlackheartNodeSize))
+                            if ((size_t)nSrcStart > (nSrcAmt * nBlackheartNodeSize))
                             {
                                 nSrcStart -= nMephistoNodeSize;
                             }
@@ -805,12 +803,12 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                 {
                     if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                     {
-                        const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                        const size_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                         fShouldUseAlternateLoadLogic = true;
                         sImgTicket* pImgArray = nullptr;
 
-                        for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                        for (size_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                         {
                             // The palettes get added forward, but the image tickets need to be generated in reverse order
                             const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));

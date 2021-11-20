@@ -47,7 +47,7 @@ void prep_supp(bool forDreamcast /*= true */)
     }
 }
 
-UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no)
+UINT16* get_pal_16(size_t char_id, size_t pal_no)
 {
     if (_mvc2_dreamcast_data)
     {
@@ -59,7 +59,7 @@ UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no)
     }
 }
 
-void HandleSpiralCopies(UINT16 char_no, UINT16 pal_no)
+void HandleSpiralCopies(size_t char_no, size_t pal_no)
 {
     // This should generally work, except for sentinel FX which is itself modified by sentinel.  handled post-proc below
          if ((char_no == 0x06) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x38); } // cyke
@@ -99,12 +99,12 @@ void HandleSpiralCopies(UINT16 char_no, UINT16 pal_no)
 }
 
 // This handles palettes that are modified as part of modifying a primary palette
-void HandleSpiralCopies_ForSupplementedPalettes(UINT16 char_no, UINT16 pal_no)
+void HandleSpiralCopies_ForSupplementedPalettes(size_t char_no, size_t pal_no)
 {
     if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, 0x01, 0x57, 1, 1, 7); } // copy sentinel FX
 }
 
-bool VerifyWriteIsSafe(UINT16 nCharId, UINT8 nCopyLength)
+bool VerifyWriteIsSafe(size_t nCharId, UINT8 nCopyLength)
 {
     // We can copy all 16 colors if we start at 0, but if we're shifting colors we need to not stomp on the transparency color
     if (nCopyLength > 16)
@@ -118,7 +118,7 @@ bool VerifyWriteIsSafe(UINT16 nCharId, UINT8 nCopyLength)
     return true;
 }
 
-void proc_supp(UINT16 char_no, UINT16 pal_no)
+void proc_supp(size_t char_no, size_t pal_no)
 {
     CString strDebugInfo;
 
@@ -142,9 +142,9 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
 
     UINT8 add = 0;
 
-    UINT16 source_palette;
+    size_t source_palette;
     UINT8 pal_ctr;
-    UINT16 destination_palette;
+    size_t destination_palette;
 
     BOOL isCurrentPaletteABasicPalette = FALSE, isCurrentPaletteAnExtraPalette = FALSE;
 
@@ -250,7 +250,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
 
             if (!thisNodeForExtraPalettesOnly)
             {
-                pal_ctr = pal_no / base_inc;
+                pal_ctr = (UINT8)(pal_no / base_inc);
                 destination_palette = node_start + (node_inc * pal_ctr);
 
                 if ((index_data & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
@@ -266,7 +266,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
                 if ((pal_no >= base_start) && ((pal_no - base_start) % base_inc == 0))
                 {
                     // Character offset will be a value from 0-5
-                    pal_ctr = (pal_no - base_start) / base_inc;
+                    pal_ctr = (UINT8)((pal_no - base_start) / base_inc);
                 }
                 else
                 {
@@ -429,7 +429,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
     OutputDebugString(strDebugInfo);
 }
 
-void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 source_index, UINT8 destination_index, UINT8 copy_amount)
+void supp_copy_spiral(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 source_index, UINT8 destination_index, UINT8 copy_amount)
 {
     CString strDebugInfo;
     strDebugInfo.Format(L"\tsupp_copy_spiral being applied: This sprite is used in Spiral's super.  Copying source unit 0x%02x palette 0x%02x to Spiral's destination palette 0x%02x\n", char_id, source_palette, destination_palette);
@@ -441,7 +441,7 @@ void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_
     memcpy(&dst_16[destination_index], &src_16[source_index], copy_amount * sizeof(UINT16));
 }
 
-void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)
+void supp_copy_index(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)
 {
     CString strDebugInfo;
     if ((src_index == 0) && (index_amt == 0x10))
@@ -462,7 +462,7 @@ void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_p
     memcpy(&dst_16[dst_index], &src_16[src_index], index_amt * sizeof(UINT16));
 }
 
-void supp_mod_white(UINT16 char_id, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc)
+void supp_mod_white(size_t char_id, size_t destination_palette, UINT8 index_start, UINT8 index_inc)
 {
     OutputDebugString(L"\tsupp_mod_white being applied\n");
 
@@ -474,7 +474,7 @@ void supp_mod_white(UINT16 char_id, UINT16 destination_palette, UINT8 index_star
     }
 }
 
-void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc)
+void supp_mod_hsl(size_t char_id, UINT16 mod_type, int mod_amt, size_t destination_palette, UINT8 index_start, UINT8 index_inc)
 {
     COLORREF input_col;
 
@@ -521,7 +521,7 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destinati
     }
 }
 
-void supp_mod_tint(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
+void supp_mod_tint(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
     int tint_factor_r, int tint_factor_g, int tint_factor_b)
 {
     UINT16* src_16 = get_pal_16(char_id, source_palette);

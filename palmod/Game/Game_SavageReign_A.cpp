@@ -10,8 +10,8 @@ stExtraDef* CGame_SAVAGEREIGN_A::SAVAGEREIGN_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SAVAGEREIGN_A::MainDescTree = nullptr;
 
-int CGame_SAVAGEREIGN_A::rgExtraCountAll[SAVAGEREIGN_A_NUMUNIT + 1];
-int CGame_SAVAGEREIGN_A::rgExtraLoc[SAVAGEREIGN_A_NUMUNIT + 1];
+size_t CGame_SAVAGEREIGN_A::rgExtraCountAll[SAVAGEREIGN_A_NUMUNIT + 1];
+size_t CGame_SAVAGEREIGN_A::rgExtraLoc[SAVAGEREIGN_A_NUMUNIT + 1];
 
 UINT32 CGame_SAVAGEREIGN_A::m_nTotalPaletteCountForSAVAGEREIGN = 0;
 UINT32 CGame_SAVAGEREIGN_A::m_nExpectedGameROMSize = 0x200000;
@@ -57,7 +57,6 @@ CGame_SAVAGEREIGN_A::CGame_SAVAGEREIGN_A(UINT32 nConfirmedROMSize)
     nGameFlag = SAVAGEREIGN_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
     m_prgGameImageSet = SAVAGEREIGN_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(SAVAGEREIGN_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -65,11 +64,10 @@ CGame_SAVAGEREIGN_A::CGame_SAVAGEREIGN_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_2_AB;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_AB);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -88,12 +86,12 @@ CDescTree* CGame_SAVAGEREIGN_A::GetMainTree()
     return &CGame_SAVAGEREIGN_A::MainDescTree;
 }
 
-int CGame_SAVAGEREIGN_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_SAVAGEREIGN_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SAVAGEREIGN_A_NUMUNIT, nUnitId, SAVAGEREIGN_A_EXTRA_CUSTOM);
 }
 
-int CGame_SAVAGEREIGN_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_SAVAGEREIGN_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, SAVAGEREIGN_A_NUMUNIT, nUnitId, SAVAGEREIGN_A_EXTRA_CUSTOM);
 }
@@ -128,7 +126,7 @@ sDescTreeNode* CGame_SAVAGEREIGN_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_SAVAGEREIGN_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_SAVAGEREIGN_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -162,42 +160,42 @@ UINT32 CGame_SAVAGEREIGN_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** 
     return ARRAYSIZE(knownROMs);
 }
 
-UINT16 CGame_SAVAGEREIGN_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_SAVAGEREIGN_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(SAVAGEREIGN_A_UNITS, rgExtraCountAll, SAVAGEREIGN_A_NUMUNIT, SAVAGEREIGN_A_EXTRALOC, nUnitId, SAVAGEREIGN_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_SAVAGEREIGN_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_SAVAGEREIGN_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(SAVAGEREIGN_A_UNITS, rgExtraCountAll, SAVAGEREIGN_A_NUMUNIT, SAVAGEREIGN_A_EXTRALOC, nUnitId, nCollectionId, SAVAGEREIGN_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_SAVAGEREIGN_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SAVAGEREIGN_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(SAVAGEREIGN_A_UNITS, SAVAGEREIGN_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_SAVAGEREIGN_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_SAVAGEREIGN_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(SAVAGEREIGN_A_UNITS, rgExtraCountAll, SAVAGEREIGN_A_NUMUNIT, SAVAGEREIGN_A_EXTRALOC, nUnitId, SAVAGEREIGN_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_SAVAGEREIGN_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_SAVAGEREIGN_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(SAVAGEREIGN_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_SAVAGEREIGN_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SAVAGEREIGN_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(SAVAGEREIGN_A_UNITS, rgExtraCountAll, SAVAGEREIGN_A_NUMUNIT, SAVAGEREIGN_A_EXTRALOC, nUnitId, nPaletteId, SAVAGEREIGN_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_SAVAGEREIGN_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_SAVAGEREIGN_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(SAVAGEREIGN_A_UNITS, rgExtraCountAll, SAVAGEREIGN_A_NUMUNIT, SAVAGEREIGN_A_EXTRALOC, nUnitId, nPaletteId, SAVAGEREIGN_A_EXTRA_CUSTOM);
 }
 
-void CGame_SAVAGEREIGN_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_SAVAGEREIGN_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != SAVAGEREIGN_A_EXTRALOC)
     {

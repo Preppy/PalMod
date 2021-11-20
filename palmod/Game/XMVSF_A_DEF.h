@@ -7,7 +7,7 @@
 // Sprite reference:
 // https://www.zytor.com/~johannax/jigsaw/sf/xvsf.html
 
-const UINT16 XMVSF_A_IMGIDS_USED[] =
+const std::vector<UINT16> XMVSF_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,          // 0x00
     indexCPS2Sprites_Zangief,      // 0x01

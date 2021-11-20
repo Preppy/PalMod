@@ -38,32 +38,32 @@ private:
     static UINT32 m_nTotalPaletteCountForKOF02UM_Rank;
     static UINT32 m_nTotalPaletteCountForKOF02UM_Conte;
 
-    static int rgExtraCountAll_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
-    static int rgExtraCountAll_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
-    static int rgExtraCountAll_Clear[KOF02UM_S_NUMUNIT_CLEAR + 1];
-    static int rgExtraCountAll_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
-    static int rgExtraCountAll_PSel[KOF02UM_S_NUMUNIT_PSEL + 1];
-    static int rgExtraCountAll_Rank[KOF02UM_S_NUMUNIT_RANK + 1];
-    static int rgExtraCountAll_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
+    static size_t rgExtraCountAll_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
+    static size_t rgExtraCountAll_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
+    static size_t rgExtraCountAll_Clear[KOF02UM_S_NUMUNIT_CLEAR + 1];
+    static size_t rgExtraCountAll_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
+    static size_t rgExtraCountAll_PSel[KOF02UM_S_NUMUNIT_PSEL + 1];
+    static size_t rgExtraCountAll_Rank[KOF02UM_S_NUMUNIT_RANK + 1];
+    static size_t rgExtraCountAll_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
 
-    static int rgExtraLoc_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
-    static int rgExtraLoc_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
-    static int rgExtraLoc_Clear[KOF02UM_S_NUMUNIT_CLEAR + 1];
-    static int rgExtraLoc_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
-    static int rgExtraLoc_PSel[KOF02UM_S_NUMUNIT_PSEL + 1];
-    static int rgExtraLoc_Rank[KOF02UM_S_NUMUNIT_RANK + 1];
-    static int rgExtraLoc_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
+    static size_t rgExtraLoc_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
+    static size_t rgExtraLoc_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
+    static size_t rgExtraLoc_Clear[KOF02UM_S_NUMUNIT_CLEAR + 1];
+    static size_t rgExtraLoc_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
+    static size_t rgExtraLoc_PSel[KOF02UM_S_NUMUNIT_PSEL + 1];
+    static size_t rgExtraLoc_Rank[KOF02UM_S_NUMUNIT_RANK + 1];
+    static size_t rgExtraLoc_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
-    static UINT16 GetCurrentExtraLoc();
+    static size_t GetCurrentExtraLoc();
     static stExtraDef* GetCurrentExtraDef(int nDefCtr);
 
-    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
-    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+    void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
+    size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
 public:
     CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nKOF02UMROMToLoad);
@@ -79,23 +79,23 @@ public:
     static CDescTree MainDescTree_Conte;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
-    static sFileRule GetRule(UINT16 nUnitId);
+    static sFileRule GetRule(size_t nUnitId);
 
     //Extra palette function
-    static int GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly = FALSE);
-    static int GetExtraLoc(UINT16 nUnitId);
+    static size_t GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static size_t GetExtraLoc(size_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
-    static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
+    static size_t GetCollectionCountForUnit(size_t nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
+    static size_t GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(size_t nUnitId, size_t nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(size_t nUnitId, size_t nPaletteId);
 
-    const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
+    const sDescTreeNode* GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 

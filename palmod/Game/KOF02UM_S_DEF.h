@@ -20,7 +20,7 @@ struct sKOF02_CharacterDump
     LPCWSTR pszHSDM3NameOverride = nullptr;
 };
 
-const UINT16 KOF02UM_S_IMGIDS_USED[] =
+const std::vector<UINT16> KOF02UM_S_IMGIDS_USED =
 {
     indexKOF98Sprites_Kyo,
     indexKOF98Sprites_Benimaru,

@@ -10,8 +10,8 @@ stExtraDef* CGame_KOTM_A::KOTM_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KOTM_A::MainDescTree = nullptr;
 
-int CGame_KOTM_A::rgExtraCountAll[KOTM_A_NUMUNIT + 1] = { -1 };
-int CGame_KOTM_A::rgExtraLoc[KOTM_A_NUMUNIT + 1] = { -1 };
+size_t CGame_KOTM_A::rgExtraCountAll[KOTM_A_NUMUNIT + 1] = { (size_t)-1 };
+size_t CGame_KOTM_A::rgExtraLoc[KOTM_A_NUMUNIT + 1] = { (size_t)-1 };
 
 UINT32 CGame_KOTM_A::m_nTotalPaletteCountForKOTM = 0;
 UINT32 CGame_KOTM_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
@@ -56,18 +56,16 @@ CGame_KOTM_A::CGame_KOTM_A(UINT32 nConfirmedROMSize)
     nGameFlag = KOTM_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
     m_prgGameImageSet = KOTM_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(KOTM_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -103,7 +101,7 @@ UINT32 CGame_KOTM_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
     return ARRAYSIZE(knownROMs);
 }
 
-sFileRule CGame_KOTM_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_KOTM_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -143,7 +141,7 @@ sDescTreeNode* CGame_KOTM_A::InitDescTree()
     return NewDescTree;
 }
 
-void CGame_KOTM_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_KOTM_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != KOTM_A_EXTRALOC)
     {
@@ -175,12 +173,12 @@ void CGame_KOTM_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-int CGame_KOTM_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_KOTM_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KOTM_A_NUMUNIT, nUnitId, KOTM_A_EXTRA_CUSTOM);
 }
 
-int CGame_KOTM_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_KOTM_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, KOTM_A_NUMUNIT, nUnitId, KOTM_A_EXTRA_CUSTOM);
 }
@@ -190,42 +188,42 @@ CDescTree* CGame_KOTM_A::GetMainTree()
     return &CGame_KOTM_A::MainDescTree;
 }
 
-UINT16 CGame_KOTM_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_KOTM_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(KOTM_UNITS, rgExtraCountAll, KOTM_A_NUMUNIT, KOTM_A_EXTRALOC, nUnitId, KOTM_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_KOTM_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_KOTM_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(KOTM_UNITS, rgExtraCountAll, KOTM_A_NUMUNIT, KOTM_A_EXTRALOC, nUnitId, nCollectionId, KOTM_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_KOTM_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KOTM_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(KOTM_UNITS, KOTM_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_KOTM_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_KOTM_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(KOTM_UNITS, rgExtraCountAll, KOTM_A_NUMUNIT, KOTM_A_EXTRALOC, nUnitId, KOTM_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_KOTM_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_KOTM_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(KOTM_UNITS, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_KOTM_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+size_t CGame_KOTM_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
 {
     return _GetNodeSizeFromPaletteId(KOTM_UNITS, rgExtraCountAll, KOTM_A_NUMUNIT, KOTM_A_EXTRALOC, nUnitId, nPaletteId, KOTM_A_EXTRA_CUSTOM);
 }
 
-const sDescTreeNode* CGame_KOTM_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KOTM_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(KOTM_UNITS, rgExtraCountAll, KOTM_A_NUMUNIT, KOTM_A_EXTRALOC, nUnitId, nPaletteId, KOTM_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_KOTM_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_KOTM_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(KOTM_UNITS, rgExtraCountAll, KOTM_A_NUMUNIT, KOTM_A_EXTRALOC, nUnitId, nPaletteId, KOTM_A_EXTRA_CUSTOM);
 }

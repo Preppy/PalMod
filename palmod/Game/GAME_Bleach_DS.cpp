@@ -10,8 +10,8 @@ stExtraDef* CGame_BLEACH_DS::BLEACH_DS_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_BLEACH_DS::MainDescTree = nullptr;
 
-int CGame_BLEACH_DS::rgExtraCountAll[BLEACH_DS_NUMUNIT + 1];
-int CGame_BLEACH_DS::rgExtraLoc[BLEACH_DS_NUMUNIT + 1];
+size_t CGame_BLEACH_DS::rgExtraCountAll[BLEACH_DS_NUMUNIT + 1];
+size_t CGame_BLEACH_DS::rgExtraLoc[BLEACH_DS_NUMUNIT + 1];
 
 UINT32 CGame_BLEACH_DS::m_nTotalPaletteCountForBleach = 0;
 UINT32 CGame_BLEACH_DS::m_nExpectedGameROMSize = 0x08000000; // Update to the actual size of the ROM you expect
@@ -57,7 +57,6 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
     nGameFlag = BLEACH_DS; // This value is defined in gamedef.h.  See usage of other values defined there
     nImgGameFlag = IMGDAT_SECTION_DS;
     m_prgGameImageSet = BLEACH_DS_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(BLEACH_DS_IMGIDS_USED);
 
     nFileAmt = 1; // Always 1 for monolithic rom games
 
@@ -65,11 +64,10 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_BLEACH; // Check out the available options in buttondef.h
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_BLEACH);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -110,12 +108,12 @@ CDescTree* CGame_BLEACH_DS::GetMainTree()
     return &CGame_BLEACH_DS::MainDescTree;
 }
 
-int CGame_BLEACH_DS::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_BLEACH_DS::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, BLEACH_DS_NUMUNIT, nUnitId, BLEACH_DS_EXTRA_CUSTOM);
 }
 
-int CGame_BLEACH_DS::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_BLEACH_DS::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, BLEACH_DS_NUMUNIT, nUnitId, BLEACH_DS_EXTRA_CUSTOM);
 }
@@ -150,7 +148,7 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_BLEACH_DS::GetRule(UINT16 nUnitId)
+sFileRule CGame_BLEACH_DS::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -163,42 +161,42 @@ sFileRule CGame_BLEACH_DS::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_BLEACH_DS::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_BLEACH_DS::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(BLEACH_DS_UNITS, rgExtraCountAll, BLEACH_DS_NUMUNIT, BLEACH_DS_EXTRALOC, nUnitId, BLEACH_DS_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_BLEACH_DS::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_BLEACH_DS::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(BLEACH_DS_UNITS, rgExtraCountAll, BLEACH_DS_NUMUNIT, BLEACH_DS_EXTRALOC, nUnitId, nCollectionId, BLEACH_DS_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_BLEACH_DS::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_BLEACH_DS::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(BLEACH_DS_UNITS, BLEACH_DS_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_BLEACH_DS::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_BLEACH_DS::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(BLEACH_DS_UNITS, rgExtraCountAll, BLEACH_DS_NUMUNIT, BLEACH_DS_EXTRALOC, nUnitId, BLEACH_DS_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_BLEACH_DS::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_BLEACH_DS::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(BLEACH_DS_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_BLEACH_DS::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_BLEACH_DS::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(BLEACH_DS_UNITS, rgExtraCountAll, BLEACH_DS_NUMUNIT, BLEACH_DS_EXTRALOC, nUnitId, nPaletteId, BLEACH_DS_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_BLEACH_DS::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_BLEACH_DS::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(BLEACH_DS_UNITS, rgExtraCountAll, BLEACH_DS_NUMUNIT, BLEACH_DS_EXTRALOC, nUnitId, nPaletteId, BLEACH_DS_EXTRA_CUSTOM);
 }
 
-void CGame_BLEACH_DS::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_BLEACH_DS::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != BLEACH_DS_EXTRALOC)
     {

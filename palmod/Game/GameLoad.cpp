@@ -1893,6 +1893,7 @@ bool CGameLoad::IsLocationOnReadOnlyDrive(LPCWSTR pszLocation, LPWSTR pszDrivePa
 
     // strip the directory down to actual path since that's what GetVolumeInformation requires
     wcsncpy_s(szPath, pszLocation, ARRAYSIZE(szPath));
+    szPath[ARRAYSIZE(szPath) - 1] = '\0';
 
     WCHAR* pszSlash = wcsstr(szPath, L"\\");
 
@@ -1946,9 +1947,9 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
     SetGame(CurrGame->GetGameFlag());
 
-    UINT16 nFileAmt = CurrGame->GetFileAmt();
+    size_t nFileAmt = CurrGame->GetFileAmt();
     LPCWSTR pszLoadDir = CurrGame->GetLoadDir();
-    UINT16* rgUnitRedir = CurrGame->rgUnitRedir;
+    size_t* rgUnitRedir = CurrGame->rgUnitRedir;
     CString strErrorFile;
 
     if (CurrGame->GetIsDir())
@@ -1957,7 +1958,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
         BOOL fWasGameChangedInSession = CurrGame->WasGameFileChangedInSession();
         BOOL fGameMapsUnitsToFiles = CurrGame->GetGameMapsUnitsToFiles();
 
-        for (UINT16 nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
+        for (size_t nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
         {
             if (fGameMapsUnitsToFiles ? rgFileIsChanged[nFileCtr] : fWasGameChangedInSession)
             {
@@ -2126,13 +2127,13 @@ void CGameLoad::CrosscopyGame(CGameClass* CurrGame)
 
         SetGame(CurrGame->GetGameFlag());
 
-        UINT16 nFileAmt = CurrGame->GetFileAmt();
+        size_t nFileAmt = CurrGame->GetFileAmt();
         CString strErrorFile;
         const bool fIsDreamcast = CurrGame->GetGameFlag() == MVC2_D;
 
         if (CurrGame->GetIsDir())
         {
-            for (UINT16 nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
+            for (size_t nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
             {
                 nSaveLoadCount++;
 

@@ -3,7 +3,7 @@
 #include "GGXXACR_P_DEF.h"
 #include "..\PalMod.h"
 
-UINT16 CGame_GGXXACR_P::uRuleCtr = 0;
+size_t CGame_GGXXACR_P::uRuleCtr = 0;
 
 CDescTree CGame_GGXXACR_P::MainDescTree = nullptr;
 
@@ -29,17 +29,15 @@ CGame_GGXXACR_P::CGame_GGXXACR_P(UINT32 nConfirmedROMSize /* = -1 */)
     nImgGameFlag = IMGDAT_SECTION_GUILTYGEAR;
     // no images yet
     m_prgGameImageSet = GGXX_ACR_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(GGXX_ACR_IMGIDS_USED);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
     // The label set is variable, so set correctly each time we load that specific unit
     pButtonLabelSet = DEF_NOBUTTONS;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    rgUnitRedir = new size_t[nUnitAmt + 1];
     memset(rgUnitRedir, 0, sizeof(UINT16) * nUnitAmt);
 
     FlushChangeTrackingArray();
@@ -58,11 +56,11 @@ void CGame_GGXXACR_P::InitializeStatics()
     MainDescTree.SetRootTree(CGame_GGXXACR_P::InitDescTree());
 }
 
-sFileRule CGame_GGXXACR_P::GetRule(UINT16 nUnitId)
+sFileRule CGame_GGXXACR_P::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    const UINT16 nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
+    const size_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", GGXXACR_P_CharacterData[nAdjustedUnitId].pszFileName);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = GGXXACR_P_CharacterData[nAdjustedUnitId].nExpectedFileSize;
@@ -109,7 +107,7 @@ sDescTreeNode* CGame_GGXXACR_P::InitDescTree()
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
+        size_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
@@ -126,7 +124,7 @@ sDescTreeNode* CGame_GGXXACR_P::InitDescTree()
         OutputDebugString(strMsg);
 #endif
 
-        UINT16 nTotalPalettesUsedInUnit = 0;
+        size_t nTotalPalettesUsedInUnit = 0;
 
         //Set data for each child group ("collection")
         for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
@@ -136,7 +134,7 @@ sDescTreeNode* CGame_GGXXACR_P::InitDescTree()
             //Set each collection data
             _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
             //Collection children have nodes
-            UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
+            size_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nListedChildrenCount;
             CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
@@ -179,30 +177,30 @@ sDescTreeNode* CGame_GGXXACR_P::InitDescTree()
     return NewDescTree;
 }
 
-UINT16 CGame_GGXXACR_P::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_GGXXACR_P::GetCollectionCountForUnit(size_t nUnitId)
 {
     // One core set per character, plus optional extras
-    return (GGXXACR_P_CharacterData[nUnitId].prgExtraPalettes == nullptr) ? 1 : 2;
+    return (GGXXACR_P_CharacterData[nUnitId].prgExtraPalettes.empty()) ? 1 : 2;
 }
 
-UINT16 CGame_GGXXACR_P::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_GGXXACR_P::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     if (nCollectionId == 0)
     {
-        return GGXXACR_P_CharacterData[nUnitId].nPaletteListSize;
+        return GGXXACR_P_CharacterData[nUnitId].ppszPaletteList.size();
     }
     else
     {
-        return GGXXACR_P_CharacterData[nUnitId].nCountExtras;
+        return GGXXACR_P_CharacterData[nUnitId].prgExtraPalettes.size();
     }
 }
 
-UINT16 CGame_GGXXACR_P::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_GGXXACR_P::GetPaletteCountForUnit(size_t nUnitId)
 {
-    return GGXXACR_P_CharacterData[nUnitId].nPaletteListSize + GGXXACR_P_CharacterData[nUnitId].nCountExtras;
+    return GGXXACR_P_CharacterData[nUnitId].ppszPaletteList.size() + GGXXACR_P_CharacterData[nUnitId].prgExtraPalettes.size();
 }
 
-LPCWSTR CGame_GGXXACR_P::GetDescriptionForCollection(UINT16 /*nUnitId */, UINT16 nCollectionId )
+LPCWSTR CGame_GGXXACR_P::GetDescriptionForCollection(size_t /*nUnitId */, size_t nCollectionId )
 {
     if (nCollectionId == 0)
     {
@@ -214,9 +212,9 @@ LPCWSTR CGame_GGXXACR_P::GetDescriptionForCollection(UINT16 /*nUnitId */, UINT16
     }
 }
 
-void CGame_GGXXACR_P::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_GGXXACR_P::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
-    if (nPalId < GGXXACR_P_CharacterData[nUnitId].nPaletteListSize)
+    if (nPalId < GGXXACR_P_CharacterData[nUnitId].ppszPaletteList.size())
     {
         // GGXXACR palettes are all 0x100 long
         const int cbPaletteSizeOnDisc = 0x400;
@@ -229,7 +227,7 @@ void CGame_GGXXACR_P::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
     else // effects palettes
     {
-        UINT16 nAdjustedPaletteId = nPalId - GGXXACR_P_CharacterData[nUnitId].nPaletteListSize;
+        size_t nAdjustedPaletteId = nPalId - GGXXACR_P_CharacterData[nUnitId].ppszPaletteList.size();
 
         int cbPaletteSizeOnDisc = GGXXACR_P_CharacterData[nUnitId].prgExtraPalettes[nAdjustedPaletteId].nPaletteOffsetEnd - GGXXACR_P_CharacterData[nUnitId].prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
 
@@ -258,32 +256,30 @@ BOOL CGame_GGXXACR_P::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
-    UINT16 nSrcStart = 0;
-    UINT16 nSrcAmt = 1;
+    size_t nImgUnitId = INVALID_UNIT_VALUE;
+    int nSrcStart = (int)0;
+    size_t nSrcAmt = 1;
     
-    if (NodeGet->uPalId < GGXXACR_P_CharacterData[NodeGet->uUnitId].nPaletteListSize)
+    if (NodeGet->uPalId < GGXXACR_P_CharacterData[NodeGet->uUnitId].ppszPaletteList.size())
     {
         // core palettes
         nSrcStart = 0;
-        nSrcAmt = GGXXACR_P_CharacterData[NodeGet->uUnitId].nPaletteListSize;
+        nSrcAmt = GGXXACR_P_CharacterData[NodeGet->uUnitId].ppszPaletteList.size();
         pButtonLabelSet = GGXXACR_P_CharacterData[NodeGet->uUnitId].ppszPaletteList;
-        m_nNumberOfColorOptions = GGXXACR_P_CharacterData[NodeGet->uUnitId].nPaletteListSize;
         nImgUnitId = GGXXACR_P_CharacterData[NodeGet->uUnitId].nSpriteIndex;
     }
     else
     {
         // effects palettes
-        UINT16 nPalIdInNode = NodeGet->uPalId - GGXXACR_P_CharacterData[NodeGet->uUnitId].nPaletteListSize;
+        size_t nPalIdInNode = NodeGet->uPalId - GGXXACR_P_CharacterData[NodeGet->uUnitId].ppszPaletteList.size();
         nSrcStart = NodeGet->uPalId;
         nSrcAmt = 1;
         pButtonLabelSet = DEF_NOBUTTONS;
-        m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
         nImgUnitId = GGXXACR_P_CharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode].indexImgToUse;
         nTargetImgId = GGXXACR_P_CharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode].indexOffsetToUse;
     }
 
-    UINT16 nNodeIncrement = 1;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -304,7 +300,7 @@ BOOL CGame_GGXXACR_P::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     return TRUE;
 }
 
-BOOL CGame_GGXXACR_P::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
+BOOL CGame_GGXXACR_P::LoadFile(CFile* LoadedFile, size_t nUnitNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
@@ -329,7 +325,7 @@ BOOL CGame_GGXXACR_P::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     strInfo.Format(L"\tCGame_GGXXACR_P_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", GGXXACR_P_CharacterData[nUnitNumber].nInitialLocation);
     OutputDebugString(strInfo);
 
-    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitNumber);
+    size_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
@@ -340,7 +336,7 @@ BOOL CGame_GGXXACR_P::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     // These are already sorted, no need to redirect
     rgUnitRedir[nUnitNumber] = nUnitNumber;
 
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
@@ -360,12 +356,12 @@ BOOL CGame_GGXXACR_P::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     return fSuccess;
 }
 
-BOOL CGame_GGXXACR_P::SaveFile(CFile* SaveFile, UINT16 nUnitId)
+BOOL CGame_GGXXACR_P::SaveFile(CFile* SaveFile, size_t nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
-    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitId);
+    size_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         if (IsPaletteDirty(nUnitId, nPalCtr))
         {

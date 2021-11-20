@@ -13,7 +13,7 @@ using namespace std;
 
 UINT32 CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 
-void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize /* = 2 */)
+void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize /* = 2 */)
 {
     ifstream extraFile;
     WCHAR szTargetFile[MAX_PATH];
@@ -351,22 +351,22 @@ void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtra
     safe_delete_array(prgTempExtraBuffer);
 }
 
-bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nStartingOffsetToCheck, UINT32 nEndOfRegionToCheck /* = 0 */)
+bool CGameWithExtrasFile::IsROMOffsetDuplicated(size_t nUnitId, size_t nPalId, UINT32 nStartingOffsetToCheck, UINT32 nEndOfRegionToCheck /* = 0 */)
 {
     UINT32 nTotalDupesFound = 0;
     CString strDupeText;
 
     // If we're in Extras territory, check it against itself.
-    UINT16 nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
+    size_t nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
 
     // skip the internal stub unit for Unknown Game mode: it's a dummy unit
-    const INT16 nStartingUnit = (nGameFlag == NEOGEO_A) ? m_nTotalInternalUnits : 0;
+    const size_t nStartingUnit = (nGameFlag == NEOGEO_A) ? m_nTotalInternalUnits : 0;
 
     //Go through each character
-    for (INT16 nUnitCtr = nStartingUnit; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
+    for (size_t nUnitCtr = nStartingUnit; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
     {
-        UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        size_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
+        for (size_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -433,15 +433,16 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
     const UINT32 k_nSpecialOverrideForTMNTTF = (nGameFlag == TMNTTF_SNES) ? 2 : 0;
 
     //Go through each character
-    for (UINT16 nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
+    for (size_t nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
     {
         if (nUnitCtr == m_nExtraUnit)
         {
             break;
         }
 
-        UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        size_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
+        for (size_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        for (size_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
             nTotalPalettesChecked++;
@@ -499,7 +500,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
     bool fHaveShownDupeWarning = false;
 
     //Go through the Extras
-    UINT16 nPalCount = GetPaletteCountForUnit(m_nExtraUnit);
+    size_t nPalCount = GetPaletteCountForUnit(m_nExtraUnit);
     for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
     {
         LoadSpecificPaletteData(m_nExtraUnit, nPalCtr);
@@ -535,7 +536,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 void CGameWithExtrasFile::CheckForErrorsInTables()
 {
     const UINT32 nPaletteCountForRom = m_nTotalPaletteCount;
-    const UINT16 nExtraCount = GetPaletteCountForUnit(m_nExtraUnit);
+    const size_t nExtraCount = GetPaletteCountForUnit(m_nExtraUnit);
     bool fShouldCheckExtras = (nExtraCount != 0);
     m_nLowestRomLocationThisPass = k_nBogusHighValue;
     m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;

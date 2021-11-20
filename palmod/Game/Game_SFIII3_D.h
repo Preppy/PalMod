@@ -1,6 +1,5 @@
 #pragma once
 #include "gameclass.h"
-#include "SFIII3_D_DEF.h"
 
 class CGame_SFIII3_D : public CGameClass
 {
@@ -9,7 +8,7 @@ private:
     int m_nCurrentPaletteROMLocation = 0;
     int nCurrPalSz = 0;
 
-    void GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId);
+    void GetPalOffsSz(size_t nUnitId, size_t nPalId);
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -25,25 +24,25 @@ public:
     static sDescTreeNode* InitDescTree();
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
 
-    static UINT16 uRuleCtr;
+    static size_t uRuleCtr;
     static sFileRule GetNextRule();
-    static sFileRule GetRule(UINT16 nUnitId);
+    static sFileRule GetRule(size_t nUnitId);
 
-    static UINT16 GetRuleCtr() { return uRuleCtr; };
+    static size_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     //Extra palette function
-    static int GetBasicAmt(UINT16 nUnitId);
+    static size_t GetBasicAmt(size_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
 
-    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+    size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId) override;
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override;
-    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId = 0) override;
+    void CreateDefPal(sDescNode* srcNode, size_t nSepId) override;
+    BOOL LoadFile(CFile* LoadedFile, size_t nUnitId = 0) override;
+    BOOL SaveFile(CFile* SaveFile, size_t nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId) override;
+    COLORREF* CreatePal(size_t nUnitId, size_t nPalId) override;
 };

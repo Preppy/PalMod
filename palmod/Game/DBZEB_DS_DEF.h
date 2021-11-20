@@ -4,7 +4,7 @@
 // marking the first set as (Unused?) until thats figured out, so the order of palettes will look backwards according to their location
 //decent amount of character extras are missing from the main extras tree, used in DBZEB_DS_TRANSFORMATION_MAJINBUU, DBZEB_DS_TRANSFORMATION_DABURA & DBZEB_DS_TRANSFORMATION_MAJUUB
 
-const UINT16 DBZEB_3DS_IMGIDS_USED[] =
+const std::vector<UINT16> DBZEB_3DS_IMGIDS_USED =
 {
     indexDBZEB_Android18,                   // 0x2D
     indexDBZEB_Bardock,                     // 0x2E
@@ -473,14 +473,14 @@ const sDescTreeNode DBZEB_DS_GOHANSS_COLLECTION[] =
 
 const sGame_PaletteDataset DBZEB_DS_GOKUSSG_P1[] =
 {
-    { L"Goku (Super Saiyan God) P1",           0x1d2b5a0, 0x1d2b9a0, indexDBZEB_Goku, 0x00 },
-    { L"Goku (Super Saiyan God) P1 (Unused?)", 0x1d28820, 0x1d28c20, indexDBZEB_Goku, 0x00 },
+    { L"Goku (Super Saiyan God) P1",           0x1d2b5a0, 0x1d2b9a0, indexDBZEB_GokuSSJG, 0x00 },
+    { L"Goku (Super Saiyan God) P1 (Unused?)", 0x1d28820, 0x1d28c20, indexDBZEB_GokuSSJG, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_GOKUSSG_P2[] =
 {
-    { L"Goku (Super Saiyan God) P2",           0x1d2b9b0, 0x1d2bdb0, indexDBZEB_Goku, 0x00 },
-    { L"Goku (Super Saiyan God) P2 (Unused?)", 0x1d28c30, 0x1d29030, indexDBZEB_Goku, 0x00 },
+    { L"Goku (Super Saiyan God) P2",           0x1d2b9b0, 0x1d2bdb0, indexDBZEB_GokuSSJG, 0x00 },
+    { L"Goku (Super Saiyan God) P2 (Unused?)", 0x1d28c30, 0x1d29030, indexDBZEB_GokuSSJG, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_GOKUSSG_EXTRAS[] =
@@ -529,7 +529,7 @@ const sGame_PaletteDataset DBZEB_DS_GOKU_EXTRAS[] =
     { L"Extra 3",               0x1e9fb80, 0x1e9ff80 }, //Extra 3
     { L"Extra 4",               0x1e9ff90, 0x1ea0390 }, //Extra 4
     { L"Extra 5",               0x1ea0bc0, 0x1ea0fc0 }, //Extra 7
-    { L"Extra 6",               0x1ea13e0, 0x1ea17e0 }, //Extra 9
+    { L"Extra 6",               0x1ea0fd0, 0x1ea13d0 }, //Extra 9
     { L"Extra 7",               0x1ea17f0, 0x1ea1bf0 }, //Extra 10
 
     { L"Extra 1 (Unused?)",     0x1e9c1c0, 0x1e9c5c0 },
@@ -553,14 +553,14 @@ const sDescTreeNode DBZEB_DS_GOKU_COLLECTION[] =
 
 const sGame_PaletteDataset DBZEB_DS_GOKUSS_P1[] =
 {
-    { L"Goku (Super Saiyan) P1",            0x20444b0, 0x20448b0, indexDBZEB_Goku, 0x00 },
-    { L"Goku (Super Saiyan) P1 (Unused?)",  0x2041730, 0x2041b30, indexDBZEB_Goku, 0x00 },
+    { L"Goku (Super Saiyan) P1",            0x20444b0, 0x20448b0, indexDBZEB_GokuSSJ1, 0x00 },
+    { L"Goku (Super Saiyan) P1 (Unused?)",  0x2041730, 0x2041b30, indexDBZEB_GokuSSJ1, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_GOKUSS_P2[] =
 {
-    { L"Goku (Super Saiyan) P2",            0x20448c0, 0x2044cc0, indexDBZEB_Goku, 0x00 },
-    { L"Goku (Super Saiyan) P2 (Unused?)",  0x2041b40, 0x2041f40, indexDBZEB_Goku, 0x00 },
+    { L"Goku (Super Saiyan) P2",            0x20448c0, 0x2044cc0, indexDBZEB_GokuSSJ1, 0x00 },
+    { L"Goku (Super Saiyan) P2 (Unused?)",  0x2041b40, 0x2041f40, indexDBZEB_GokuSSJ1, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_GOKUSS_EXTRAS[] =
@@ -1103,7 +1103,7 @@ const sGame_PaletteDataset DBZEB_DS_ZASSIST[] =
     { L"Cooler (Final Form)",               0x15791030, 0x15791430 },
     { L"Dabura",                            0x15652870, 0x15652C70 },
     { L"Dende",                             0x1565B190, 0x1565B590 },
-    { L"Devilman",                          0x155D8040, 0x155D8440 },
+    { L"Devilman",                          0x155D8040, 0x155D8440, indexDBZEB_ZAssists, 0x14 },
     { L"Dodoria",                           0x1566AAB0, 0x1566AEB0 },
     { L"Dr. Briefs",                        0x156591F0, 0x156595F0 },
     { L"Dr. Gero",                          0x1565FCE0, 0x156600E0 },
@@ -1139,8 +1139,8 @@ const sGame_PaletteDataset DBZEB_DS_ZASSIST[] =
     { L"King Kai",                          0x15769FD0, 0x1576A3D0 },
     { L"King Piccolo",                      0x157CF670, 0x157CFA70 },
     { L"Launch",                            0x1579AB10, 0x1579AF10 },
-    { L"Majin Vegeta",                      0x158DE720, 0x158DEB20 },
-    { L"Majuub",                            0x158B8B20, 0x158B8F20 },
+    { L"Majin Vegeta",                      0x158DE720, 0x158DEB20, indexDBZEB_ZAssists, 0x37 },
+    { L"Majuub",                            0x158B8B20, 0x158B8F20, indexDBZEB_ZAssists, 0x38 },
     { L"Master Roshi",                      0x15782D20, 0x15783120 },
     { L"Mecha Frieza",                      0x1579ECE0, 0x1579F0E0 },
     { L"Mercenary Tao",                     0x1589CEB0, 0x1589D2B0 },
@@ -1170,7 +1170,7 @@ const sGame_PaletteDataset DBZEB_DS_ZASSIST[] =
     { L"Super Buu",                         0x155F5E70, 0x155F6270 },
     { L"Super Gogeta",                      0x156C93D0, 0x156C97D0 },
     { L"Super Janemba",                     0x1573A490, 0x1573A890 },
-    { L"Super Vegito",                      0x158D11A0, 0x158D15A0 },
+    { L"Super Vegito",                      0x158D11A0, 0x158D15A0, indexDBZEB_ZAssists, 0x5c },
     { L"Tapion",                            0x1588C210, 0x1588C610 },
     { L"Tien Shinhan",                      0x15892260, 0x15892660 },
     { L"Trunks",                            0x1589FBA0, 0x1589FFA0 },
@@ -1186,7 +1186,7 @@ const sGame_PaletteDataset DBZEB_DS_ZASSIST[] =
     { L"Yakon",                             0x1590D850, 0x1590DC50 },
     { L"Yamcha",                            0x158FF240, 0x158FF640 },
     { L"Yamu",                              0x15911440, 0x15911840 },
-    { L"Zarbon",                            0x15919F40, 0x1591A340 },
+    { L"Zarbon",                            0x15919F40, 0x1591A340, indexDBZEB_ZAssists, 0x6c },
 };
 
 const sGame_PaletteDataset DBZEB_DS_TRANSFORMATION_DABURA[] =
@@ -1201,9 +1201,9 @@ const sGame_PaletteDataset DBZEB_DS_TRANSFORMATION_DABURA[] =
     { L"Frieza",                        0x18c8f60, 0x18c9360, indexDBZEB_Frieza, 0x00 },
     { L"Gohan",                         0x1a404e0, 0x1a408e0, indexDBZEB_Gohan, 0x00 },
     { L"Gohan (Super Saiyan)",          0x1bb91d0, 0x1bb95d0, indexDBZEB_Gohan, 0x00 },
-    { L"Goku (Super Saiyan God)",       0x1d2ce00, 0x1d2d200, indexDBZEB_Goku, 0x00 },
+    { L"Goku (Super Saiyan God)",       0x1d2ce00, 0x1d2d200, indexDBZEB_GokuSSJG, 0x00 },
     { L"Goku",                          0x1ea07b0, 0x1ea0bb0, indexDBZEB_Goku, 0x00 },
-    { L"Goku (Super Saiyan)",           0x2045d10, 0x2046110, indexDBZEB_Goku, 0x00 },
+    { L"Goku (Super Saiyan)",           0x2045d10, 0x2046110, indexDBZEB_GokuSSJ1, 0x00 },
     { L"Captain Ginyu",                 0x226ad70, 0x226b170, indexDBZEB_CaptainGinyu, 0x00 },
     { L"Kid Gohan",                     0x237a870, 0x237ac70, indexDBZEB_KidGohan, 0x00 },
     { L"Kid Gohan (Super Saiyan 2)",    0x24c6da0, 0x24c71a0, indexDBZEB_KidGohan, 0x00 },
@@ -1231,7 +1231,7 @@ const sGame_PaletteDataset DBZEB_DS_TRANSFORMATION_MAJUUB[] =
     { L"Gohan",                         0x1a40d00, 0x1a41100 },
     { L"Gohan (Super Saiyan)",          0x1bb99f0, 0x1bb9df0 },
     { L"Goku (Super Saiyan God)",       0x1d2d620, 0x1d2da20 },
-    { L"Goku",                          0x1ea0fd0, 0x1ea13d0 },
+    { L"Goku",                          0x1ea13e0, 0x1ea17e0 },
     { L"Goku (Super Saiyan)",           0x2046530, 0x2046930 },
     { L"Captain Ginyu",                 0x226b590, 0x226b990 },
     { L"Kid Gohan",                     0x237b090, 0x237b490 },

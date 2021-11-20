@@ -41,7 +41,6 @@ CGame_TMNTTF_SNES::CGame_TMNTTF_SNES(UINT32 nConfirmedROMSize)
 
     nImgGameFlag = IMGDAT_SECTION_SNES;
     m_prgGameImageSet = TMNTTF_SNES_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(TMNTTF_SNES_IMGIDS_USED);
 
     nFileAmt = 1;
 
@@ -49,11 +48,10 @@ CGame_TMNTTF_SNES::CGame_TMNTTF_SNES(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_2; // Check out the available options in buttondef.h
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -67,8 +65,8 @@ CGame_TMNTTF_SNES::CGame_TMNTTF_SNES(UINT32 nConfirmedROMSize)
 
 stExtraDef* CGame_TMNTTF_SNES::TMNTTF_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_TMNTTF_SNES::MainDescTree = nullptr;
-int CGame_TMNTTF_SNES::rgExtraCountAll[TMNTTF_SNES_NUMUNIT + 1];
-int CGame_TMNTTF_SNES::rgExtraLoc[TMNTTF_SNES_NUMUNIT + 1];
+size_t CGame_TMNTTF_SNES::rgExtraCountAll[TMNTTF_SNES_NUMUNIT + 1];
+size_t CGame_TMNTTF_SNES::rgExtraLoc[TMNTTF_SNES_NUMUNIT + 1];
 UINT32 CGame_TMNTTF_SNES::m_nTotalPaletteCountForTMNTTF = 0;
 UINT32 CGame_TMNTTF_SNES::m_nConfirmedROMSize = -1;
 
@@ -95,12 +93,12 @@ CDescTree* CGame_TMNTTF_SNES::GetMainTree()
     return &CGame_TMNTTF_SNES::MainDescTree;
 }
 
-int CGame_TMNTTF_SNES::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_TMNTTF_SNES::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, TMNTTF_SNES_NUMUNIT, nUnitId, TMNTTF_SNES_EXTRA_CUSTOM);
 }
 
-int CGame_TMNTTF_SNES::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_TMNTTF_SNES::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, TMNTTF_SNES_NUMUNIT, nUnitId, TMNTTF_SNES_EXTRA_CUSTOM);
 }
@@ -133,7 +131,7 @@ sDescTreeNode* CGame_TMNTTF_SNES::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_TMNTTF_SNES::GetRule(UINT16 nUnitId)
+sFileRule CGame_TMNTTF_SNES::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -146,42 +144,42 @@ sFileRule CGame_TMNTTF_SNES::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_TMNTTF_SNES::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_TMNTTF_SNES::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(TMNTTF_SNES_UNITS, rgExtraCountAll, TMNTTF_SNES_NUMUNIT, TMNTTF_SNES_EXTRALOC, nUnitId, TMNTTF_SNES_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_TMNTTF_SNES::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_TMNTTF_SNES::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(TMNTTF_SNES_UNITS, rgExtraCountAll, TMNTTF_SNES_NUMUNIT, TMNTTF_SNES_EXTRALOC, nUnitId, nCollectionId, TMNTTF_SNES_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_TMNTTF_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_TMNTTF_SNES::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(TMNTTF_SNES_UNITS, TMNTTF_SNES_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_TMNTTF_SNES::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_TMNTTF_SNES::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(TMNTTF_SNES_UNITS, rgExtraCountAll, TMNTTF_SNES_NUMUNIT, TMNTTF_SNES_EXTRALOC, nUnitId, TMNTTF_SNES_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_TMNTTF_SNES::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_TMNTTF_SNES::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(TMNTTF_SNES_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_TMNTTF_SNES::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_TMNTTF_SNES::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(TMNTTF_SNES_UNITS, rgExtraCountAll, TMNTTF_SNES_NUMUNIT, TMNTTF_SNES_EXTRALOC, nUnitId, nPaletteId, TMNTTF_SNES_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_TMNTTF_SNES::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_TMNTTF_SNES::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(TMNTTF_SNES_UNITS, rgExtraCountAll, TMNTTF_SNES_NUMUNIT, TMNTTF_SNES_EXTRALOC, nUnitId, nPaletteId, TMNTTF_SNES_EXTRA_CUSTOM);
 }
 
-void CGame_TMNTTF_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_TMNTTF_SNES::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != TMNTTF_SNES_EXTRALOC)
     {
@@ -231,16 +229,16 @@ BOOL CGame_TMNTTF_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    int nSrcStart = (int)NodeGet->uPalId;
+    size_t nSrcAmt = 1;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+    size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -261,7 +259,7 @@ BOOL CGame_TMNTTF_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
             {
                 bool fIsCorePalette = false;
 
-                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
+                for (size_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
                 {
                     if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
                     {
@@ -272,7 +270,7 @@ BOOL CGame_TMNTTF_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
 
                 if (fIsCorePalette)
                 {
-                    nSrcAmt = m_nNumberOfColorOptions;
+                    nSrcAmt = pButtonLabelSet.size();
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)

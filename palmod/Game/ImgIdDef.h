@@ -1652,6 +1652,8 @@ enum SupportedSNES_PaletteListIndex
     indexJoJoRPGSprites_Heroes,          // 0xA7
     indexJoJoRPGSprites_NPCs,            // 0xA8
     indexJoJoRPGSprites_Bonus,           // 0xA9
+
+    indexRanmaCRHSprites_Herb,           // 0xaa
 };
 
 enum SupportedNEOGEO_PaletteListIndex

@@ -26,7 +26,7 @@ struct sKOF02_A_CharacterDump
 // Sorted by ROM layout...
 const sKOF02_A_CharacterDump KOF02_A_CharacterOffsetArray[] =
 {
-    { L"Kyo",        0x88b62 + (0x800 *  0), L"indexKOF02UMSprites_KyoKusa", L"MAX2 Fire Palette", 0x2, L"MAX Orochinagi Fire", 0x3, L"Shingo Intro Stuff", 0x19 },
+    { L"Kyo",        0x88b62 + (0x800 *  0), L"indexKOF02UMSprites_KyoKusa", L"MAX2 Fire Palette", 0x2, L"MAX Orochinagi Fire", 0x3 },
     { L"Benimaru",   0x88b62 + (0x800 *  1), L"indexKOF02UMSprites_Benimaru", L"Raijiken Flash", 0x4, L"Phantom Hurricane Effects", 0x10 },
     { L"Daimon",     0x88b62 + (0x800 *  2), L"indexKOF02UMSprites_Daimon" },
     { L"Terry",      0x88b62 + (0x800 *  3), L"indexKOF02UMSprites_Terry",    L"Terry and Child Winpose", 0x19, L"MAX2 Trail", 0xa },
@@ -72,7 +72,7 @@ const sKOF02_A_CharacterDump KOF02_A_CharacterOffsetArray[] =
     { L"O.Chris",    0x88b62 + (0x800 * 43), L"indexKOF02Sprites_ChrisOrochi",    nullptr, 0, L"MAX2 Orochi", 0, nullptr, 0, L"Orochi Fire Palette", 0x19 },
 };
 
-const UINT16 KOF02_A_IMGIDS_USED[] =
+const std::vector<UINT16> KOF02_A_IMGIDS_USED =
 {
     indexKOF02UMSprites_Andy,      // 0x79
     indexKOF02UMSprites_Angel,     // 0x7A
@@ -1144,7 +1144,7 @@ const sGame_PaletteDataset KOF02_A_KYO_PALETTES_A[] =
     { L"A - MAX Orochinagi Fire", 0x0088ba2, 0x0088bc2, indexKOF02UMSprites_KyoKusa, 0x03 },
     { L"A - Electric Shock Effect", 0x0088bc2, 0x0088be2, indexKOF02UMSprites_KyoKusa, 0x18 },
     { L"A - MAX Flash", 0x0088be2, 0x0088c02, indexKOF02UMSprites_KyoKusa, 0x08 },
-    { L"A - Shingo Intro Stuff", 0x0088c02, 0x0088c22, indexKOF02UMSprites_KyoKusa, 0x19 },
+    { L"A - Hidden Super Desperation Move 2", 0x0088c02, 0x0088c22 },
     { L"A - Soul Palette", 0x0088c22, 0x0088c42, indexKOF02UMSprites_KyoKusa, 0x18 },
     { L"A - Hidden Super Desperation Move 3", 0x0088c42, 0x0088c62, indexKOF02UMSprites_KyoKusa, 0x00 },
 };
@@ -1156,7 +1156,7 @@ const sGame_PaletteDataset KOF02_A_KYO_PALETTES_B[] =
     { L"B - MAX Orochinagi Fire", 0x0088da2, 0x0088dc2, indexKOF02UMSprites_KyoKusa, 0x03 },
     { L"B - Electric Shock Effect", 0x0088dc2, 0x0088de2, indexKOF02UMSprites_KyoKusa, 0x18 },
     { L"B - MAX Flash", 0x0088de2, 0x0088e02, indexKOF02UMSprites_KyoKusa, 0x08 },
-    { L"B - Shingo Intro Stuff", 0x0088e02, 0x0088e22, indexKOF02UMSprites_KyoKusa, 0x19 },
+    { L"B - Hidden Super Desperation Move 2", 0x0088e02, 0x0088e22 },
     { L"B - Soul Palette", 0x0088e22, 0x0088e42, indexKOF02UMSprites_KyoKusa, 0x18 },
     { L"B - Hidden Super Desperation Move 3", 0x0088e42, 0x0088e62, indexKOF02UMSprites_KyoKusa, 0x00 },
 };
@@ -1168,7 +1168,7 @@ const sGame_PaletteDataset KOF02_A_KYO_PALETTES_C[] =
     { L"C - MAX Orochinagi Fire", 0x0088fa2, 0x0088fc2, indexKOF02UMSprites_KyoKusa, 0x03 },
     { L"C - Electric Shock Effect", 0x0088fc2, 0x0088fe2, indexKOF02UMSprites_KyoKusa, 0x18 },
     { L"C - MAX Flash", 0x0088fe2, 0x0089002, indexKOF02UMSprites_KyoKusa, 0x08 },
-    { L"C - Shingo Intro Stuff", 0x0089002, 0x0089022, indexKOF02UMSprites_KyoKusa, 0x19 },
+    { L"C - Hidden Super Desperation Move 2", 0x0089002, 0x0089022 },
     { L"C - Soul Palette", 0x0089022, 0x0089042, indexKOF02UMSprites_KyoKusa, 0x18 },
     { L"C - Hidden Super Desperation Move 3", 0x0089042, 0x0089062, indexKOF02UMSprites_KyoKusa, 0x00 },
 };
@@ -1180,7 +1180,7 @@ const sGame_PaletteDataset KOF02_A_KYO_PALETTES_D[] =
     { L"D - MAX Orochinagi Fire", 0x00891a2, 0x00891c2, indexKOF02UMSprites_KyoKusa, 0x03 },
     { L"D - Electric Shock Effect", 0x00891c2, 0x00891e2, indexKOF02UMSprites_KyoKusa, 0x18 },
     { L"D - MAX Flash", 0x00891e2, 0x0089202, indexKOF02UMSprites_KyoKusa, 0x08 },
-    { L"D - Shingo Intro Stuff", 0x0089202, 0x0089222, indexKOF02UMSprites_KyoKusa, 0x19 },
+    { L"D - Hidden Super Desperation Move 2", 0x0089202, 0x0089222 },
     { L"D - Soul Palette", 0x0089222, 0x0089242, indexKOF02UMSprites_KyoKusa, 0x18 },
     { L"D - Hidden Super Desperation Move 3", 0x0089242, 0x0089262, indexKOF02UMSprites_KyoKusa, 0x00 },
 };
@@ -4141,7 +4141,25 @@ const sDescTreeNode KOF02_A_OCHRIS_COLLECTION[] =
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT) },
 };
 
-const sGame_PaletteDataset KOF02_A_EXTRA_PALETTES[] =
+const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
+{
+    { L"Rugal (Ending)", 0xa3b02, 0xa3b22, indexKOF02UMSprites_OmegaRugal },
+    { L"Aya and Hermione", 0xa3b22, 0xa3b42 },
+    { L"Ending Character Extras", 0xa3b42, 0xa3b62 },
+    { L"Character Select Icons 1/3", 0xb8f62, 0xb9162 },
+    { L"Character Select Icons 2/3", 0xb9162, 0xb9362 },
+    { L"Character Select Icons 2/3", 0xb9362, 0xb9462 },
+    //^ These follow the typical character order for 2002, up to Angel, where it ends.  Each is 0x20 in length.  The extra black row is unused.
+    { L"Character Select Background 1P", 0xb4d62, 0xb4d82 },
+    { L"Character Select Background 2P", 0xb4d82, 0xb4da2 },
+    { L"Character Select Player Text", 0xb4da2, 0xb4ea2 },
+    //^ Each palette is 0x20 long, don't question SNK on that decision.
+
+    { L"Character Select Name", 0xb4ea2, 0xb4ec2 },
+    { L"Character Select Order Numbers", 0xb4ec2, 0xb4ee2 },
+};
+
+const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
 {
     { L"Blood Effects", 0x86f22, 0x86f42 },
     { L"Grab Sparks", 0x86ee2, 0x86f02 },
@@ -4159,7 +4177,8 @@ const sGame_PaletteDataset KOF02_A_EXTRA_PALETTES[] =
 
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =
 {
-    { L"Extra Effects", DESC_NODETYPE_TREE, (void*)KOF02_A_EXTRA_PALETTES, ARRAYSIZE(KOF02_A_EXTRA_PALETTES) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_EFFECTS_PALETTES) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_BONUS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_BONUS_PALETTES) },
 };
 
 const sDescTreeNode KOF02_A_UNITS[] =

@@ -12,8 +12,8 @@ struct sDescNode
 {
     WCHAR szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
 
-    UINT16 uUnitId = INVALID_UNIT_VALUE;
-    UINT16 uPalId = 0;
+    size_t uUnitId = INVALID_UNIT_VALUE;
+    size_t uPalId = 0;
 };
 
 struct sDescTreeNode
@@ -22,7 +22,7 @@ struct sDescTreeNode
 
     UINT8 uChildType = DESC_NODETYPE_TREE;
     void* ChildNodes = nullptr;
-    UINT16 uChildAmt = 0;
+    size_t uChildAmt = 0;
 };
 
 class CDescTree

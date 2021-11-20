@@ -136,7 +136,7 @@ void CPalModApp::SetGameClass(CGameClass* NewGame)
     BasePal = CurrGame->GetPalGroup();
 
     //Load the game's image set
-    bImgLoaded = ImgBase.LoadGameImages(ImgStr.GetBuffer(), CurrGame->GetGameFlag(), CurrGame->GetImgGameFlag(), CurrGame->GetUnitCt(), CurrGame->GetImageSetForGame(), CurrGame->GetImgUnitCt());
+    bImgLoaded = ImgBase.LoadGameImages(ImgStr.GetBuffer(), CurrGame->GetGameFlag(), CurrGame->GetImgGameFlag(), CurrGame->GetUnitCt(), CurrGame->GetImageSetForGame());
                                                                                                               
     if (!bImgLoaded)
     {
@@ -170,7 +170,7 @@ void CPalModApp::LaunchReadMe()
 
 void LaunchFileOrURL(LPCWSTR pszFileName, LPCWSTR pszBackupURL)
 {
-    WCHAR szReadMeFile[MAX_PATH];
+    WCHAR szReadMeFile[MAX_PATH] = {};
     DWORD nFileAttrib = INVALID_FILE_ATTRIBUTES;
 
     if (pszFileName)
@@ -186,6 +186,8 @@ void LaunchFileOrURL(LPCWSTR pszFileName, LPCWSTR pszBackupURL)
     {
         wcsncpy(szReadMeFile, pszBackupURL, ARRAYSIZE(szReadMeFile));
     }
+
+    szReadMeFile[ARRAYSIZE(szReadMeFile) - 1] = '\0';
 
     ShellExecute(
         g_appHWnd,

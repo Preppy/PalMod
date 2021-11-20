@@ -73,9 +73,9 @@ enum SupportedMVC2_A_PaletteListIndex
 
 constexpr auto MVC2_A_NUMUNIT = indexMVC2ALast;
 
-#define MVC2_A_EXTRALOC MVC2_A_NUMUNIT
+constexpr auto MVC2_A_EXTRALOC = MVC2_A_NUMUNIT;
 
-const UINT16 MVC2_IMGIDS_USED[] =
+const std::vector<UINT16> MVC2_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,          // 0x00
     indexCPS2Sprites_Zangief,      // 0x01

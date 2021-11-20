@@ -35,8 +35,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT16 uUnitId = NodeGet->uUnitId;
-    UINT16 uPalId = NodeGet->uPalId;
+    size_t uUnitId = NodeGet->uUnitId;
+    size_t uPalId = NodeGet->uPalId;
 
     //Change the image id if we need to
     nTargetImgId = -1;
@@ -1738,9 +1738,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case indexCPS2Sprites_Colossus: //Colossus
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (SpecSel(&nSpecOffs, uPalId, 3, 8) || // stance frame
+            SpecSel(&nSpecOffs, uPalId, 6, 8)) // unknown core palette highlight
         {
-            // unknown core palette highlight
             nTargetImgId = 0;
             break;
         }
@@ -2015,10 +2015,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         UINT16 nJoinedUnit2 = indexMVC2AStorm;
         UINT16 nJoinedUnit3 = indexMVC2APsylocke;
         bool fTeamFound = false;
-        UINT16 nSrcAmt = 1;
-        UINT16 nNodeIncrement = 1;
+        size_t nSrcAmt = 1;
+        int nNodeIncrement = 1;
 
-        UINT16 nTeamViewNode = (UINT16)floor(NodeGet->uPalId / (UINT16)ARRAYSIZE(DEF_BUTTONLABEL6_MVC2));
+        UINT16 nTeamViewNode = (UINT16)floor(NodeGet->uPalId / (UINT16)DEF_BUTTONLABEL6_MVC2.size());
         const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
 
         for (UINT16 nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
@@ -2077,8 +2077,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nXOffsetForThird += 20;
         }
 
-        UINT16 nNodeIndex = ((NodeGet->uPalId) % ARRAYSIZE(DEF_BUTTONLABEL6_MVC2));
-        UINT16 nPaletteIndex = nNodeIndex * 8;  // this is 8 since we're dealing with base mvc2 character palettes
+        size_t nNodeIndex = ((NodeGet->uPalId) % DEF_BUTTONLABEL6_MVC2.size());
+        size_t nPaletteIndex = nNodeIndex * 8;  // this is 8 since we're dealing with base mvc2 character palettes
 
         ClearSetImgTicket(
             CreateImgTicket(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex,

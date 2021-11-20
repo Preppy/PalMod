@@ -154,7 +154,7 @@ const UINT8 SFZ2A_A_UNITSORT_07_0826[SFZ2A_A_NUM_IND_07 + 1] = // Plus 1 for the
     SFZ2A_A_EXTRALOC_07 // Extra palettes
 };
 
-const UINT16 SFA2_A_IMGIDS_USED[] =
+const std::vector<UINT16> SFA2_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,              // 0x00,
     indexCPS2Sprites_Zangief,          // 0x01,

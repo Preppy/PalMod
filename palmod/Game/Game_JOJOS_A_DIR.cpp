@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_JOJOS_A_DIR.h"
 
-UINT16 CGame_JOJOS_A_DIR::uRuleCtr = 0;
+size_t CGame_JOJOS_A_DIR::uRuleCtr = 0;
 
 constexpr auto JOJOS_Arcade_ROM_Base = L"jojoba-simm5.";
 
@@ -25,7 +25,7 @@ CGame_JOJOS_A_DIR::~CGame_JOJOS_A_DIR(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_JOJOS_A_DIR::GetRule(UINT16 nUnitId)
+sFileRule CGame_JOJOS_A_DIR::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -70,7 +70,7 @@ inline UINT32 CGame_JOJOS_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
     return nSIMMLocation;
 }
 
-BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
+BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
@@ -111,9 +111,9 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         OutputDebugString(L"\tLoading JOJOS_A_DIR from SIMMs....\n");
         bool fShownCrossSIMMErrorOnce = false;
 
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
@@ -124,7 +124,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
             // These are already sorted, no need to redirect
             rgUnitRedir[nUnitCtr] = nUnitCtr;
 
-            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -197,7 +197,7 @@ inline UINT8 CGame_JOJOS_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
     return (nROMLocation > (2 * c_nJOJOSSIMMLength)) ? 1 : 0;
 }
 
-BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
+BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, size_t nSaveUnit)
 {
     CString strInfo;
     strInfo.Format(L"CGame_JOJOS_A_DIR::SaveFile: Preparing to save data for Jojos ROM set %u\n", m_nJojosMode);
@@ -232,11 +232,11 @@ BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
         (fileSIMM3.Open(strSIMMName3, CFile::modeWrite | CFile::typeBinary)) &&
         (fileSIMM4.Open(strSIMMName4, CFile::modeWrite | CFile::typeBinary)))
     {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 if (IsPaletteDirty(nUnitCtr, nPalCtr))
                 {
@@ -312,7 +312,7 @@ UINT32 CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
 {
     CString strInfo;
     UINT32 nPaletteSaveCount = 0;
-    UINT16 nSIMMNumber = 0;
+    size_t nSIMMNumber = 0;
 
     // 50 maps to 5.0-5.3
     // 51 maps to 5.4-5.7
@@ -348,11 +348,11 @@ UINT32 CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     bool fSetOneOpened = false;
     bool fSetTwoOpened = false;
 
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             if (fUserWantsAllChanges || IsPaletteDirty(nUnitCtr, nPalCtr))
             {

@@ -1,6 +1,6 @@
 #pragma once
 
-const UINT16 SAMSHO1_A_IMGIDS_USED[] =
+const std::vector<UINT16> SAMSHO1_A_IMGIDS_USED =
 {
     indexSamSho1Sprites_Amakusa,    // 0x60
     indexSamSho1Sprites_Charlotte,  // 0x61

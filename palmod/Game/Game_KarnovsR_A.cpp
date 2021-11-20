@@ -9,8 +9,8 @@ stExtraDef* CGame_KarnovsR_A::KarnovsR_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KarnovsR_A::MainDescTree = nullptr;
 
-int CGame_KarnovsR_A::rgExtraCountAll[KarnovsR_A_NUMUNIT + 1];
-int CGame_KarnovsR_A::rgExtraLoc[KarnovsR_A_NUMUNIT + 1];
+size_t CGame_KarnovsR_A::rgExtraCountAll[KarnovsR_A_NUMUNIT + 1];
+size_t CGame_KarnovsR_A::rgExtraLoc[KarnovsR_A_NUMUNIT + 1];
 
 UINT32 CGame_KarnovsR_A::m_nTotalPaletteCountForKarnovsR = 0;
 const UINT32 CGame_KarnovsR_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
@@ -55,7 +55,6 @@ CGame_KarnovsR_A::CGame_KarnovsR_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = KarnovsR_A;
     nImgGameFlag = IMGDAT_SECTION_KARNOVSR;
-    nImgUnitAmt = ARRAYSIZE(KARNOVSR_A_IMGIDS_USED);
     m_prgGameImageSet = KARNOVSR_A_IMGIDS_USED;
 
     nFileAmt = 1;
@@ -64,11 +63,10 @@ CGame_KarnovsR_A::CGame_KarnovsR_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_2_PK;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_PK);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -87,12 +85,12 @@ CDescTree* CGame_KarnovsR_A::GetMainTree()
     return &CGame_KarnovsR_A::MainDescTree;
 }
 
-int CGame_KarnovsR_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_KarnovsR_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KarnovsR_A_NUMUNIT, nUnitId, KarnovsR_A_EXTRA_CUSTOM);
 }
 
-int CGame_KarnovsR_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_KarnovsR_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, KarnovsR_A_NUMUNIT, nUnitId, KarnovsR_A_EXTRA_CUSTOM);
 }
@@ -127,7 +125,7 @@ sDescTreeNode* CGame_KarnovsR_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_KarnovsR_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_KarnovsR_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -140,42 +138,42 @@ sFileRule CGame_KarnovsR_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_KarnovsR_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_KarnovsR_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(KarnovsR_A_UNITS, rgExtraCountAll, KarnovsR_A_NUMUNIT, KarnovsR_A_EXTRALOC, nUnitId, KarnovsR_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_KarnovsR_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_KarnovsR_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(KarnovsR_A_UNITS, rgExtraCountAll, KarnovsR_A_NUMUNIT, KarnovsR_A_EXTRALOC, nUnitId, nCollectionId, KarnovsR_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_KarnovsR_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KarnovsR_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(KarnovsR_A_UNITS, KarnovsR_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_KarnovsR_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_KarnovsR_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(KarnovsR_A_UNITS, rgExtraCountAll, KarnovsR_A_NUMUNIT, KarnovsR_A_EXTRALOC, nUnitId, KarnovsR_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_KarnovsR_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_KarnovsR_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(KarnovsR_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_KarnovsR_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KarnovsR_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(KarnovsR_A_UNITS, rgExtraCountAll, KarnovsR_A_NUMUNIT, KarnovsR_A_EXTRALOC, nUnitId, nPaletteId, KarnovsR_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_KarnovsR_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_KarnovsR_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(KarnovsR_A_UNITS, rgExtraCountAll, KarnovsR_A_NUMUNIT, KarnovsR_A_EXTRALOC, nUnitId, nPaletteId, KarnovsR_A_EXTRA_CUSTOM);
 }
 
-void CGame_KarnovsR_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_KarnovsR_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != m_nExtraUnit)
     {
@@ -225,16 +223,16 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    int nSrcStart = (int)NodeGet->uPalId;
+    size_t nSrcAmt = 1;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+    size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 

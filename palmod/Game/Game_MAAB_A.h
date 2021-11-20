@@ -11,21 +11,21 @@ public:
     static void InitializeStatics();
     static UINT32 m_nConfirmedROMSize;
 
-    void LoadSpecificPaletteDataByFileUnit(UINT16 nFileUnitId, UINT16 nFilePalId);
-    void LoadSpecificPaletteData(UINT16 nDisplayUnitId, UINT16 nDisplayPalId);
-    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+    void LoadSpecificPaletteDataByFileUnit(size_t nFileUnitId, size_t nFilePalId);
+    void LoadSpecificPaletteData(size_t nDisplayUnitId, size_t nDisplayPalId);
+    size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
     //Static functions
-    static UINT16 uRuleCtr;
+    static size_t uRuleCtr;
 
-    static UINT16 GetRuleCtr() { return uRuleCtr; };
+    static size_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static sFileRule GetNextRule();
-    static sFileRule GetRule(UINT16 nRuleId);
+    static sFileRule GetRule(size_t nRuleId);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nFileUnitNumber) override;
-    BOOL SaveFile(CFile* SaveFile, UINT16 nFileUnitNumber) override;
+    BOOL LoadFile(CFile* LoadedFile, size_t nFileUnitNumber) override;
+    BOOL SaveFile(CFile* SaveFile, size_t nFileUnitNumber) override;
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -33,21 +33,21 @@ public:
     static sDescTreeNode* InitDescTree();
 
     CDescTree* GetMainTree() { return &MainDescTree; };
-    static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
-    static UINT16 GetNodeCountForCollection(UINT16 nCharacterUnitId, UINT16 nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static size_t GetCollectionCountForUnit(size_t nUnitId);
+    static size_t GetNodeCountForCollection(size_t nCharacterUnitId, size_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     LPCWSTR GetGameName() override { return L"Million Arthur Arcana Blood (Steam)"; };
 	
-	static bool ShouldUseBasePaletteSet(UINT16 nCharacterUnitId, UINT16 nCollectionId);
+	static bool ShouldUseBasePaletteSet(size_t nCharacterUnitId, size_t nCollectionId);
 
-    static bool PaletteIsInFileUnit(UINT16 nTargetFileUnitId, UINT16 nDisplayUnitId, INT16 nDisplayPalId);
-    static UINT16 GetUniqueUnitCount();
-    static UINT16 GetFileCount();
+    static bool PaletteIsInFileUnit(size_t nTargetFileUnitId, size_t nDisplayUnitId, size_t nDisplayPalId);
+    static size_t GetUniqueUnitCount();
+    static size_t GetFileCount();
 
-    static void GetCharacterIndexFromFileIndex(UINT16 nFileUnitId, UINT16 nFilePalId, UINT16* pnCharacterUnitId, UINT16* pnCharacterPalId);
-    static void GetFileIndexFromCharacterIndex(UINT16 nCharacterUnitId, UINT16 nCharacterPalId, UINT16* nFileUnitId, UINT16* nFilePalId);
-    static void GetFileIndexFromCharacterCollection(UINT16 nCharacterUnitId, UINT16 nCollectionId, UINT16* nFileUnitId, UINT16* nFileCollectionId);
+    static void GetCharacterIndexFromFileIndex(size_t nFileUnitId, size_t nFilePalId, size_t* pnCharacterUnitId, size_t* pnCharacterPalId);
+    static void GetFileIndexFromCharacterIndex(size_t nCharacterUnitId, size_t nCharacterPalId, size_t* nFileUnitId, size_t* nFilePalId);
+    static void GetFileIndexFromCharacterCollection(size_t nCharacterUnitId, size_t nCollectionId, size_t* nFileUnitId, size_t* nFileCollectionId);
 };

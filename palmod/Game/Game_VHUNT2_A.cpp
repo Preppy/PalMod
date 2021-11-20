@@ -9,9 +9,9 @@ stExtraDef* CGame_VHUNT2_A::VHUNT2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_VHUNT2_A::MainDescTree = nullptr;
 
-int CGame_VHUNT2_A::rgExtraCountAll[VHUNT2_A_NUMUNIT + 1] = { -1 };
-int CGame_VHUNT2_A::rgExtraCountVisibleOnly[VHUNT2_A_NUMUNIT + 1] = { -1 };
-int CGame_VHUNT2_A::rgExtraLoc[VHUNT2_A_NUMUNIT + 1] = { -1 };
+size_t CGame_VHUNT2_A::rgExtraCountAll[VHUNT2_A_NUMUNIT + 1] = { (size_t)-1 };
+size_t CGame_VHUNT2_A::rgExtraCountVisibleOnly[VHUNT2_A_NUMUNIT + 1] = { (size_t)-1 };
+size_t CGame_VHUNT2_A::rgExtraLoc[VHUNT2_A_NUMUNIT + 1] = { (size_t)-1 };
 
 UINT32 CGame_VHUNT2_A::m_nTotalPaletteCountForVHUNT2 = 0;
 UINT32 CGame_VHUNT2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
@@ -57,18 +57,16 @@ CGame_VHUNT2_A::CGame_VHUNT2_A(UINT32 nConfirmedROMSize)
     nGameFlag = VHUNT2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     m_prgGameImageSet = VHUNT2_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(VHUNT2_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_VSAV;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_VSAV);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -103,12 +101,12 @@ UINT32 CGame_VHUNT2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKno
     return ARRAYSIZE(knownROMs);
 }
 
-int CGame_VHUNT2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_VHUNT2_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, VHUNT2_A_NUMUNIT, nUnitId, VHUNT2_A_EXTRA_CUSTOM);
 }
 
-int CGame_VHUNT2_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_VHUNT2_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, VHUNT2_A_NUMUNIT, nUnitId, VHUNT2_A_EXTRA_CUSTOM);
 }
@@ -148,7 +146,7 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_VHUNT2_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_VHUNT2_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -160,42 +158,42 @@ sFileRule CGame_VHUNT2_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_VHUNT2_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_VHUNT2_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(VHUNT2_A_UNITS, rgExtraCountAll, VHUNT2_A_NUMUNIT, VHUNT2_A_EXTRALOC, nUnitId, VHUNT2_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_VHUNT2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_VHUNT2_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(VHUNT2_A_UNITS, rgExtraCountAll, VHUNT2_A_NUMUNIT, VHUNT2_A_EXTRALOC, nUnitId, nCollectionId, VHUNT2_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_VHUNT2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_VHUNT2_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(VHUNT2_A_UNITS, VHUNT2_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_VHUNT2_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_VHUNT2_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(VHUNT2_A_UNITS, rgExtraCountAll, VHUNT2_A_NUMUNIT, VHUNT2_A_EXTRALOC, nUnitId, VHUNT2_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_VHUNT2_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_VHUNT2_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(VHUNT2_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_VHUNT2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_VHUNT2_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(VHUNT2_A_UNITS, rgExtraCountAll, VHUNT2_A_NUMUNIT, VHUNT2_A_EXTRALOC, nUnitId, nPaletteId, VHUNT2_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_VHUNT2_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_VHUNT2_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(VHUNT2_A_UNITS, rgExtraCountAll, VHUNT2_A_NUMUNIT, VHUNT2_A_EXTRALOC, nUnitId, nPaletteId, VHUNT2_A_EXTRA_CUSTOM);
 }
 
-void CGame_VHUNT2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_VHUNT2_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != VHUNT2_A_EXTRALOC)
     {

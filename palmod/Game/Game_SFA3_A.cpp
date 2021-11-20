@@ -12,8 +12,8 @@ CDescTree CGame_SFA3_A::MainDescTree = nullptr;
 
 UINT32 CGame_SFA3_A::m_nTotalPaletteCountForSFA3 = 0;
 
-int CGame_SFA3_A::rgExtraCountAll[SFA3_A_NUMUNIT + 1] = { -1 };
-int CGame_SFA3_A::rgExtraLoc[SFA3_A_NUMUNIT + 1] = { -1 };
+size_t CGame_SFA3_A::rgExtraCountAll[SFA3_A_NUMUNIT + 1] = { (size_t)-1 };
+size_t CGame_SFA3_A::rgExtraLoc[SFA3_A_NUMUNIT + 1] = { (size_t)-1 };
 UINT32 CGame_SFA3_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_SFA3_A::m_nConfirmedROMSize = -1;
 
@@ -54,18 +54,16 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
     nGameFlag = SFA3_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     m_prgGameImageSet = SFA3_A_IMGIDS_USED;
-    nImgUnitAmt = ARRAYSIZE(SFA3_A_IMGIDS_USED);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_ISMS;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_ISMS);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -150,12 +148,12 @@ UINT32 CGame_SFA3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 #endif
 }
 
-int CGame_SFA3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_SFA3_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SFA3_A_NUMUNIT, nUnitId, SFA3_A_EXTRA_CUSTOM);
 }
 
-int CGame_SFA3_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_SFA3_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, SFA3_A_NUMUNIT, nUnitId, SFA3_A_EXTRA_CUSTOM);
 }
@@ -288,7 +286,7 @@ void CGame_SFA3_A::DumpHeaderPalettes()
     }
 }
 
-sFileRule CGame_SFA3_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_SFA3_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -300,47 +298,47 @@ sFileRule CGame_SFA3_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_SFA3_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_SFA3_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, SFA3_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_SFA3_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_SFA3_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, nCollectionId, SFA3_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_SFA3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SFA3_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(SFA3_A_UNITS, SFA3_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_SFA3_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_SFA3_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, SFA3_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_SFA3_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_SFA3_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(SFA3_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sGame_PaletteDataset* CGame_SFA3_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_SFA3_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, nPaletteId, SFA3_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_SFA3_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+size_t CGame_SFA3_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
 {
     return _GetNodeSizeFromPaletteId(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, nPaletteId, SFA3_A_EXTRA_CUSTOM);
 }
 
-const sDescTreeNode* CGame_SFA3_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SFA3_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, nPaletteId, SFA3_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-void CGame_SFA3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_SFA3_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != SFA3_A_EXTRALOC)
     {
@@ -389,16 +387,16 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    int nSrcStart = (int)NodeGet->uPalId;
+    size_t nSrcAmt = 1;
+    int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+    size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -488,12 +486,12 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             {
                 if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
-                    const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                    const size_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                     fShouldUseAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;
 
-                    for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    for (size_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                     {
                         // The palettes get added forward, but the image tickets need to be generated in reverse order
                         const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
@@ -543,7 +541,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         nPeerPaletteIdInNode += nDeltaToSecondElement;
                     }
 
-                    UINT16 nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
+                    size_t nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
 
                     if (fShouldUseAlternateLoadLogic)
                     {

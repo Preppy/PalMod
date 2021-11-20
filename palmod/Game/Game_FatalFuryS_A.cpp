@@ -10,8 +10,8 @@ stExtraDef* CGame_FatalFuryS_A::FatalFuryS_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_FatalFuryS_A::MainDescTree = nullptr;
 
-int CGame_FatalFuryS_A::rgExtraCountAll[FatalFuryS_A_NUMUNIT + 1];
-int CGame_FatalFuryS_A::rgExtraLoc[FatalFuryS_A_NUMUNIT + 1];
+size_t CGame_FatalFuryS_A::rgExtraCountAll[FatalFuryS_A_NUMUNIT + 1];
+size_t CGame_FatalFuryS_A::rgExtraLoc[FatalFuryS_A_NUMUNIT + 1];
 
 UINT32 CGame_FatalFuryS_A::m_nTotalPaletteCountForFatalFuryS = 0;
 UINT32 CGame_FatalFuryS_A::m_nExpectedGameROMSize = 0x100000;
@@ -56,8 +56,7 @@ CGame_FatalFuryS_A::CGame_FatalFuryS_A(UINT32 nConfirmedROMSize)
 
     nGameFlag = FatalFuryS_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet.clear();
 
     nFileAmt = 1;
 
@@ -65,11 +64,10 @@ CGame_FatalFuryS_A::CGame_FatalFuryS_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabelSet = DEF_BUTTONLABEL_2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new size_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -83,7 +81,7 @@ CGame_FatalFuryS_A::~CGame_FatalFuryS_A(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_FatalFuryS_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_FatalFuryS_A::GetRule(size_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -123,12 +121,12 @@ CDescTree* CGame_FatalFuryS_A::GetMainTree()
     return &CGame_FatalFuryS_A::MainDescTree;
 }
 
-int CGame_FatalFuryS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_FatalFuryS_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, FatalFuryS_A_NUMUNIT, nUnitId, FatalFuryS_A_EXTRA_CUSTOM);
 }
 
-int CGame_FatalFuryS_A::GetExtraLoc(UINT16 nUnitId)
+size_t CGame_FatalFuryS_A::GetExtraLoc(size_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, FatalFuryS_A_NUMUNIT, nUnitId, FatalFuryS_A_EXTRA_CUSTOM);
 }
@@ -161,42 +159,42 @@ sDescTreeNode* CGame_FatalFuryS_A::InitDescTree()
     return NewDescTree;
 }
 
-UINT16 CGame_FatalFuryS_A::GetCollectionCountForUnit(UINT16 nUnitId)
+size_t CGame_FatalFuryS_A::GetCollectionCountForUnit(size_t nUnitId)
 {
     return _GetCollectionCountForUnit(FatalFuryS_A_UNITS, rgExtraCountAll, FatalFuryS_A_NUMUNIT, FatalFuryS_A_EXTRALOC, nUnitId, FatalFuryS_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_FatalFuryS_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+size_t CGame_FatalFuryS_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetNodeCountForCollection(FatalFuryS_A_UNITS, rgExtraCountAll, FatalFuryS_A_NUMUNIT, FatalFuryS_A_EXTRALOC, nUnitId, nCollectionId, FatalFuryS_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_FatalFuryS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_FatalFuryS_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
 {
     return _GetDescriptionForCollection(FatalFuryS_A_UNITS, FatalFuryS_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_FatalFuryS_A::GetPaletteCountForUnit(UINT16 nUnitId)
+size_t CGame_FatalFuryS_A::GetPaletteCountForUnit(size_t nUnitId)
 {
     return _GetPaletteCountForUnit(FatalFuryS_A_UNITS, rgExtraCountAll, FatalFuryS_A_NUMUNIT, FatalFuryS_A_EXTRALOC, nUnitId, FatalFuryS_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_FatalFuryS_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_FatalFuryS_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
 {
     return _GetPaletteSet(FatalFuryS_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_FatalFuryS_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_FatalFuryS_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(FatalFuryS_A_UNITS, rgExtraCountAll, FatalFuryS_A_NUMUNIT, FatalFuryS_A_EXTRALOC, nUnitId, nPaletteId, FatalFuryS_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_FatalFuryS_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_FatalFuryS_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(FatalFuryS_A_UNITS, rgExtraCountAll, FatalFuryS_A_NUMUNIT, FatalFuryS_A_EXTRALOC, nUnitId, nPaletteId, FatalFuryS_A_EXTRA_CUSTOM);
 }
 
-void CGame_FatalFuryS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_FatalFuryS_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
     if (nUnitId != FatalFuryS_A_EXTRALOC)
     {

@@ -64,7 +64,7 @@ const sKOF02PS2_A_CharacterDump KOF02PS2_A_CharacterOffsetArray[] =
     { L"Seth",       0x388c00 + (0x800 * 34), L"indexKOF02UMSprites_Seth",      L"indexKOF02Sprites_Seth",          },
     { L"Ramon",      0x388c00 + (0x800 * 35), L"indexKOF02UMSprites_Ramon",     L"indexKOF02Sprites_Ramon",         },
     { L"Kula",       0x388c00 + (0x800 * 36), L"indexKOF02UMSprites_Kula",      L"indexKOF02Sprites_Kula",          L"Diana and Candy Stuff", 0x1c, L"Foxy Stuff", 0x1b, nullptr, 0, L"Critical Ice", 0x2 },
-    { L"K9999",      0x388c00 + (0x800 * 37), L"indexKOF02UMSprites_K9999",     L"indexKOF02Sprites_K9999",         L"Intro Stuff", 0x19, L"MAX2 and Win", 0x9, L"SDM Shield", 0x10, L"Tentacle Arm", 0x1a },
+    { L"K9999",      0x388c00 + (0x800 * 37), L"indexKOF02Sprites_K9999",       L"indexKOF02Sprites_K9999",         L"Intro Stuff", 0x19, L"MAX2 and Win", 0x9, L"SDM Shield", 0x10, L"Tentacle Arm", 0x1a },
     { L"Angel",      0x388c00 + (0x800 * 38), L"indexKOF02UMSprites_Angel",     L"indexKOF02Sprites_Angel",         L"Time Over Lose", 0x19 },
     { L"Omega Rugal", 0x388c00 + (0x800 * 39), L"indexKOF02UMSprites_OmegaRugal", L"indexKOF02Sprites_OmegaRugal",  nullptr, 0, nullptr, 0, L"Superboss Intro Stuff", 0x19 },
     { L"KUSANAGI",   0x388c00 + (0x800 * 40), L"indexKOF02UMSprites_Kusanagi",  L"indexKOF02Sprites_KUSANAGI",      L"Super Move Palette", 0x3, L"MAX Orochinagi Fire", 0x4 },
@@ -80,7 +80,7 @@ const sKOF02PS2_A_CharacterDump KOF02PS2_A_CharacterOffsetArray[] =
     { L"Goenitz",   0x3b7800,                 L"indexKOF02UMSprites_Goenitz",    L"indexKOF02Sprites_Goenitz",      },
 };
 
-const UINT16 KOF02PS2_A_IMGIDS_USED[] =
+const std::vector<UINT16> KOF02PS2_A_IMGIDS_USED =
 {
     indexKOF02UMSprites_Andy,      // 0x79
     indexKOF02UMSprites_Angel,     // 0x7A
@@ -150,7 +150,6 @@ const UINT16 KOF02PS2_A_IMGIDS_USED[] =
     indexKOF02UMSprites_Yuri,      // 0xBa
     indexKOF02UMSprites_ZeroOG,    // 0xBb
 
-    indexKOF02UMSprites_K9999,
     indexKOF02Sprites_K9999,
 
     indexKOF02Sprites_Angel,    // 0x26
@@ -2974,7 +2973,7 @@ const sGame_PaletteDataset KOF02PS2_A_KULA_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_A[] =
 {
-    { L"K9999 A", 0x039b400, 0x039b420, indexKOF02UMSprites_K9999 },
+    { L"K9999 A", 0x039b400, 0x039b420, indexKOF02Sprites_K9999 },
     { L"A - Intro Stuff", 0x039b420, 0x039b440, indexKOF02UMSprites_K9999, 0x19 },
     { L"A - MAX2 and Win", 0x039b440, 0x039b460, indexKOF02UMSprites_K9999, 0x09 },
     { L"A - Electric Shock Effect", 0x039b460, 0x039b480, indexKOF02UMSprites_K9999, 0x18 },
@@ -2986,7 +2985,7 @@ const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_B[] =
 {
-    { L"K9999 B", 0x039b600, 0x039b620, indexKOF02UMSprites_K9999 },
+    { L"K9999 B", 0x039b600, 0x039b620, indexKOF02Sprites_K9999 },
     { L"B - Intro Stuff", 0x039b620, 0x039b640, indexKOF02UMSprites_K9999, 0x19 },
     { L"B - MAX2 and Win", 0x039b640, 0x039b660, indexKOF02UMSprites_K9999, 0x09 },
     { L"B - Electric Shock Effect", 0x039b660, 0x039b680, indexKOF02UMSprites_K9999, 0x18 },
@@ -2998,7 +2997,7 @@ const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_C[] =
 {
-    { L"K9999 C", 0x039b800, 0x039b820, indexKOF02UMSprites_K9999 },
+    { L"K9999 C", 0x039b800, 0x039b820, indexKOF02Sprites_K9999 },
     { L"C - Intro Stuff", 0x039b820, 0x039b840, indexKOF02UMSprites_K9999, 0x19 },
     { L"C - MAX2 and Win", 0x039b840, 0x039b860, indexKOF02UMSprites_K9999, 0x09 },
     { L"C - Electric Shock Effect", 0x039b860, 0x039b880, indexKOF02UMSprites_K9999, 0x18 },
@@ -3010,7 +3009,7 @@ const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF02PS2_A_K9999_PALETTES_D[] =
 {
-    { L"K9999 D", 0x039ba00, 0x039ba20, indexKOF02UMSprites_K9999 },
+    { L"K9999 D", 0x039ba00, 0x039ba20, indexKOF02Sprites_K9999 },
     { L"D - Intro Stuff", 0x039ba20, 0x039ba40, indexKOF02UMSprites_K9999, 0x19 },
     { L"D - MAX2 and Win", 0x039ba40, 0x039ba60, indexKOF02UMSprites_K9999, 0x09 },
     { L"D - Electric Shock Effect", 0x039ba60, 0x039ba80, indexKOF02UMSprites_K9999, 0x18 },
