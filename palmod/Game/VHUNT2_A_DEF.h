@@ -35,6 +35,7 @@ const std::vector<UINT16> VHUNT2_A_IMGIDS_USED =
     indexCPS2Sprites_Vamp_Shadow,    // 0x75
     indexCPS2Sprites_VSAV1_MidnightBliss,
     indexCPS2Sprites_Vamp_DarkGallon,
+
 };
 
 // This dataset is functionally identical to the VSAV2 dataset, except that for VHUNT2

@@ -33,6 +33,7 @@ const std::vector<UINT16> VSAV_A_IMGIDS_USED =
     indexCPS2Sprites_VSAV1_WinPortraits, // 0x78
     indexCPS2Sprites_VSAV1_MidnightBliss, // 0x79
     indexCPS2Sprites_Vamp_DarkGallon,
+    indexCPS2Sprites_Vamp_OboroBishamon, // 0x7b
     indexCPS2Sprites_Anita,
     indexCPS2Sprites_VSAV1_Bonus, // 0x7c
 };
@@ -852,7 +853,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LP[] =
     { L"LP Poisoned", 0x144e0 - 0xf6, 0x14500 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
     { L"LP Zapped", 0x14620 - 0xf6, 0x14640 - 0xf6, indexCPS2Sprites_Morrigan, 0x08 },
     { L"LP Burned", 0x14760 - 0xf6, 0x14780 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"LP Pharaoh's Curse", 0x148a0 - 0xf6, 0x148c0 - 0xf6 },
+    { L"LP Pharaoh's Curse", 0x148a0 - 0xf6, 0x148c0 - 0xf6, indexCPS2Sprites_Morrigan, 0x0a },
     { L"LP Midnight Bliss", 0x14bc0 - 0xf6, 0x14be0 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Morrigan },
 };
 
@@ -867,7 +868,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MP[] =
     { L"MP Poisoned", 0x14500 - 0xf6, 0x14520 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
     { L"MP Zapped", 0x14640 - 0xf6, 0x14660 - 0xf6, indexCPS2Sprites_Morrigan, 0x08 },
     { L"MP Burned", 0x14780 - 0xf6, 0x147a0 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"MP Pharaoh's Curse", 0x148c0 - 0xf6, 0x148e0 - 0xf6 },
+    { L"MP Pharaoh's Curse", 0x148c0 - 0xf6, 0x148e0 - 0xf6, indexCPS2Sprites_Morrigan, 0x0a },
     { L"MP Midnight Bliss", 0x14be0 - 0xf6, 0x14c00 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Morrigan },
 };
 
@@ -882,7 +883,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HP[] =
     { L"HP Poisoned", 0x14520 - 0xf6, 0x14540 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
     { L"HP Zapped", 0x14660 - 0xf6, 0x14680 - 0xf6, indexCPS2Sprites_Morrigan, 0x08 },
     { L"HP Burned", 0x147a0 - 0xf6, 0x147c0 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"HP Pharaoh's Curse", 0x148e0 - 0xf6, 0x14900 - 0xf6 },
+    { L"HP Pharaoh's Curse", 0x148e0 - 0xf6, 0x14900 - 0xf6, indexCPS2Sprites_Morrigan, 0x0a },
     { L"HP Midnight Bliss", 0x14c00 - 0xf6, 0x14c20 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Morrigan },
 };
 
@@ -897,7 +898,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LK[] =
     { L"LK Poisoned", 0x14540 - 0xf6, 0x14560 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
     { L"LK Zapped", 0x14680 - 0xf6, 0x146a0 - 0xf6, indexCPS2Sprites_Morrigan, 0x08 },
     { L"LK Burned", 0x147c0 - 0xf6, 0x147e0 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"LK Pharaoh's Curse", 0x14900 - 0xf6, 0x14920 - 0xf6 },
+    { L"LK Pharaoh's Curse", 0x14900 - 0xf6, 0x14920 - 0xf6, indexCPS2Sprites_Morrigan, 0x0a },
     { L"LK Midnight Bliss", 0x14c20 - 0xf6, 0x14c40 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Morrigan },
 };
 
@@ -912,7 +913,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MK[] =
     { L"MK Poisoned", 0x14560 - 0xf6, 0x14580 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
     { L"MK Zapped", 0x146a0 - 0xf6, 0x146c0 - 0xf6, indexCPS2Sprites_Morrigan, 0x08 },
     { L"MK Burned", 0x147e0 - 0xf6, 0x14800 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"MK Pharaoh's Curse", 0x14920 - 0xf6, 0x14940 - 0xf6 },
+    { L"MK Pharaoh's Curse", 0x14920 - 0xf6, 0x14940 - 0xf6, indexCPS2Sprites_Morrigan, 0x0a },
     { L"MK Midnight Bliss", 0x14c40 - 0xf6, 0x14c60 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Morrigan },
 };
 
@@ -927,7 +928,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HK[] =
     { L"HK Poisoned", 0x14580 - 0xf6, 0x145a0 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
     { L"HK Zapped", 0x146c0 - 0xf6, 0x146e0 - 0xf6, indexCPS2Sprites_Morrigan, 0x08 },
     { L"HK Burned", 0x14800 - 0xf6, 0x14820 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"HK Pharaoh's Curse", 0x14940 - 0xf6, 0x14960 - 0xf6 },
+    { L"HK Pharaoh's Curse", 0x14940 - 0xf6, 0x14960 - 0xf6, indexCPS2Sprites_Morrigan, 0x0a },
     { L"HK Midnight Bliss", 0x14c60 - 0xf6, 0x14c80 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Morrigan },
 };
 
@@ -942,7 +943,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_PP[] =
     { L"PP Poisoned", 0x145a0 - 0xf6, 0x145c0 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
     { L"PP Zapped", 0x146e0 - 0xf6, 0x14700 - 0xf6, indexCPS2Sprites_Morrigan, 0x08 },
     { L"PP Burned", 0x14820 - 0xf6, 0x14840 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"PP Pharaoh's Curse", 0x14960 - 0xf6, 0x14980 - 0xf6 },
+    { L"PP Pharaoh's Curse", 0x14960 - 0xf6, 0x14980 - 0xf6, indexCPS2Sprites_Morrigan, 0x0a },
     { L"PP Midnight Bliss", 0x14c80 - 0xf6, 0x14ca0 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Morrigan },
 };
 
@@ -957,7 +958,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_KK[] =
     { L"KK Poisoned", 0x145c0 - 0xf6, 0x145e0 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
     { L"KK Zapped", 0x14700 - 0xf6, 0x14720 - 0xf6, indexCPS2Sprites_Morrigan, 0x08 },
     { L"KK Burned", 0x14840 - 0xf6, 0x14860 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"KK Pharaoh's Curse", 0x14980 - 0xf6, 0x149a0 - 0xf6 },
+    { L"KK Pharaoh's Curse", 0x14980 - 0xf6, 0x149a0 - 0xf6, indexCPS2Sprites_Morrigan, 0x0a },
     { L"KK Midnight Bliss", 0x14ca0 - 0xf6, 0x14cc0 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Morrigan },
 };
 
@@ -972,7 +973,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AP[] =
     { L"AP Poisoned", 0x145e0 - 0xf6, 0x14600 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
     { L"AP Zapped", 0x14720 - 0xf6, 0x14740 - 0xf6, indexCPS2Sprites_Morrigan, 0x08 },
     { L"AP Burned", 0x14860 - 0xf6, 0x14880 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"AP Pharaoh's Curse", 0x149a0 - 0xf6, 0x149c0 - 0xf6 },
+    { L"AP Pharaoh's Curse", 0x149a0 - 0xf6, 0x149c0 - 0xf6, indexCPS2Sprites_Morrigan, 0x0a },
     { L"AP Midnight Bliss", 0x14ce0 - 0xf6, 0x14d00 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Morrigan },
 };
 
@@ -987,7 +988,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AK[] =
     { L"AK Poisoned", 0x14600 - 0xf6, 0x14620 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
     { L"AK Zapped", 0x14740 - 0xf6, 0x14760 - 0xf6, indexCPS2Sprites_Morrigan, 0x08 },
     { L"AK Burned", 0x14880 - 0xf6, 0x148a0 - 0xf6, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"AK Pharaoh's Curse", 0x149c0 - 0xf6, 0x149e0 - 0xf6 },
+    { L"AK Pharaoh's Curse", 0x149c0 - 0xf6, 0x149e0 - 0xf6, indexCPS2Sprites_Morrigan, 0x0a },
     { L"AK Midnight Bliss", 0x14cc0 - 0xf6, 0x14ce0 - 0xf6, indexCPS2Sprites_VSAV1_MidnightBliss, indexCPS2Sprites_Morrigan },
 };
 
@@ -1319,7 +1320,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_LP[] =
 {
     { L"LP Bishamon", 0x0e9aa, 0x0e9ca, indexCPS2Sprites_Vamp_Bishamon, 0 },
     { L"LP Ghosts/Hitsparks", 0x0e9ea, 0x0ea0a, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
-    { L"LP 41236KK", 0x0e9ca, 0x0e9ea, indexCPS2Sprites_Vamp_Bishamon, 0 },
+    { L"LP 41236KK", 0x0e9ca, 0x0e9ea, indexCPS2Sprites_Vamp_Bishamon, 0x01 },
     { L"LP Unknown Extra", 0x0ea0a, 0x0ea2a },
     { L"LP Select Portrait", 0x2C00a, 0x2C02a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
     { L"LP Win Portrait", 0x2DB0a, 0x2DBAa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Vamp_Bishamon },

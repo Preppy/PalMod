@@ -1835,12 +1835,12 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_STAGE_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_ONSLAUGHT_STAGE_PALETTES[] =
 {
-    { L"Ground Splat", 0x51FE2, 0x52002 },
-    { L"Floor FG", 0x3E298, 0x3E2B8 },
-    { L"Side Tech Object", 0x51F62, 0x51FA2 },
-    { L"City Skyline MG 1/2", 0x332B8, 0x334B8 },
-    { L"City Skyline MG 2/2", 0x334B8, 0x336B8 },
-    { L"Sky BG", 0x3E0F8, 0x3E258 },
+    { L"Sky BG",                0x3E0F8, 0x3E258, indexCPS2Sprites_MVCAssets, 0x93, &pairFullyLinkedNode },
+    { L"City Skyline MG 2/2",   0x334B8, 0x336B8, indexCPS2Sprites_MVCAssets, 0x95 },
+    { L"City Skyline MG 1/2",   0x332B8, 0x334B8, indexCPS2Sprites_MVCAssets, 0x94 },
+    { L"Side Tech Object",      0x51F62, 0x51FA2, indexCPS2Sprites_MVCAssets, 0x96 },
+    { L"Floor FG",              0x3E298, 0x3E2B8, indexCPS2Sprites_MVCAssets, 0x97 },
+    { L"Ground Splat",          0x51FE2, 0x52002, indexCPS2Sprites_MVCAssets, 0x98 },
 };
 
 const sGame_PaletteDataset MVC_A_ZABEL_STAGE_PALETTES[] =
