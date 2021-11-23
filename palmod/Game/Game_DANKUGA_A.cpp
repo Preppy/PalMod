@@ -76,7 +76,7 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(UINT16) * nUnitAmt);
+    memset(rgUnitRedir, 0, sizeof(size_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();

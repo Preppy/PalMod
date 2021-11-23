@@ -1263,7 +1263,6 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_EFR_EXTRAS = // work in progre
 
 const std::vector<sGame_PaletteDataset> GGXXACR_S_EXTRAS_JPF =
 {
-
     //Missing Faultless defense, Slash back, Clashes, grab techs, etc
     //Leaving out hitsparks for now since theres so many, but they are in the archive_jpf.bin file
 

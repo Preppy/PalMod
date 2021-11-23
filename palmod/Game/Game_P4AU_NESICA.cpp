@@ -37,7 +37,7 @@ CGame_P4AU_NESICA::CGame_P4AU_NESICA(UINT32 nConfirmedROMSize /* = -1 */)
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(UINT16) * nUnitAmt);
+    memset(rgUnitRedir, 0, sizeof(size_t) * nUnitAmt);
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();

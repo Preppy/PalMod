@@ -396,7 +396,6 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
     UINT16 nUnitCt;
     size_t nExtraUnitLocation;
 
-
     switch (m_nSelectedRom)
     {
     default:

@@ -38,6 +38,7 @@
 #include "Game_KOF02_A.h"
 #include "Game_KOF02PS2_A.h"
 #include "Game_KOF02UM_S.h"
+#include "Game_KOF02UM_S_DIR.h"
 #include "Game_KOF03_A.h"
 #include "Game_KOF94_A.h"
 #include "Game_KOF95_A.h"
@@ -197,7 +198,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_BMKNS_SNES::GetRule;
         return TRUE;
     }
-    
+
     case BREAKERS_A:
     {
         GetRule = &CGame_BREAKERS_A::GetRule;
@@ -426,6 +427,33 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case KOF02UM_S:
     {
         GetRule = &CGame_KOF02UM_S::GetRule;
+        return TRUE;
+    }
+    case KOF02UM_S_DIR_8888:
+    {
+        GetRuleCtr = &CGame_KOF02UM_S_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_KOF02UM_S_DIR::ResetRuleCtr;
+        GetRule = &CGame_KOF02UM_S_DIR::GetRule_8888;
+        GetNextRule = &CGame_KOF02UM_S_DIR::GetNextRule_8888;
+
+        return TRUE;
+    }
+    case KOF02UM_S_DIR_BGR555:
+    {
+        GetRuleCtr = &CGame_KOF02UM_S_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_KOF02UM_S_DIR::ResetRuleCtr;
+        GetRule = &CGame_KOF02UM_S_DIR::GetRule_BGR555;
+        GetNextRule = &CGame_KOF02UM_S_DIR::GetNextRule_BGR555;
+
+        return TRUE;
+    }
+    case KOF02UM_S_DIR_RGB555:
+    {
+        GetRuleCtr = &CGame_KOF02UM_S_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_KOF02UM_S_DIR::ResetRuleCtr;
+        GetRule = &CGame_KOF02UM_S_DIR::GetRule_RGB555;
+        GetNextRule = &CGame_KOF02UM_S_DIR::GetNextRule_RGB555;
+
         return TRUE;
     }
     case KOF03_A:
@@ -1121,6 +1149,12 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case KOF02UM_S:
     {
         return new CGame_KOF02UM_S(nConfirmedROMSize, nExtraGameData);
+    }
+    case KOF02UM_S_DIR_8888:
+    case KOF02UM_S_DIR_BGR555:
+    case KOF02UM_S_DIR_RGB555:
+    {
+        return new CGame_KOF02UM_S_DIR(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
     }
     case KOF03_A:
     {

@@ -36,7 +36,7 @@ CGame_MBAACC_S::CGame_MBAACC_S(UINT32 nConfirmedROMSize /* = -1 */)
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(UINT16) * nUnitAmt);
+    memset(rgUnitRedir, 0, sizeof(size_t) * nUnitAmt);
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -176,12 +176,12 @@ size_t CGame_MBAACC_S::GetCollectionCountForUnit(size_t nUnitId)
 
 size_t CGame_MBAACC_S::GetNodeCountForCollection(size_t nUnitId, size_t /*nCollectionId*/)
 {
-    return MBAACCCharacterData[nUnitId].nPaletteListSize;
+    return MBAACCCharacterData[nUnitId].ppszPaletteList.size();
 }
 
 size_t CGame_MBAACC_S::GetPaletteCountForUnit(size_t nUnitId)
 {
-    return MBAACCCharacterData[nUnitId].nPaletteListSize;
+    return MBAACCCharacterData[nUnitId].ppszPaletteList.size();
 }
 
 LPCWSTR CGame_MBAACC_S::GetDescriptionForCollection(size_t /*nUnitId */, size_t /*nCollectionId */)
@@ -223,7 +223,7 @@ BOOL CGame_MBAACC_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     // anything else, we'd want to validate that the palette in question is in the core lists and use
     // NodeGet->uPalId instead of 0 for the start for anything non-core.
     int nSrcStart = (int)0;
-    size_t nSrcAmt = MBAACCCharacterData[NodeGet->uUnitId].nPaletteListSize;
+    size_t nSrcAmt = MBAACCCharacterData[NodeGet->uUnitId].ppszPaletteList.size();
     int nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any

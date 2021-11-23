@@ -894,6 +894,12 @@
     <ClCompile Include="Game\Game_MBTL_A.cpp">
       <Filter>Games\Other Platforms\Melty Blood Type Lumina %28Steam%29</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game_KOF02UM_S_DIR.cpp">
+      <Filter>Games\SNK Games\KOF02UM_S</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameClassByFile.cpp">
+      <Filter>Games\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -1681,6 +1687,15 @@
     </ClInclude>
     <ClInclude Include="Game\Game_MBTL_A.h">
       <Filter>Games\Other Platforms\Melty Blood Type Lumina %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF02UM_S_DIR.h">
+      <Filter>Games\SNK Games\KOF02UM_S</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF02UM_S_DIR_DEF.h">
+      <Filter>Games\SNK Games\KOF02UM_S</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClassByFile.h">
+      <Filter>Games\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -40,7 +40,7 @@ const MBTLNodeData MBTLPaletteNodes[] =
     { L"Right", 0x7800 },
 };
 
-const LPCWSTR MBTLPaletteNamesNormal[] =
+const std::vector <LPCWSTR> MBTLPaletteNamesNormal =
 {
     L"1",
     L"2",
@@ -60,31 +60,30 @@ struct MBTLFileData
     LPCWSTR pszFileName = nullptr;
     LPCWSTR pszCharacter = nullptr;
     UINT32 nExpectedFileSize = 0;
-    const LPCWSTR* ppszPaletteList = nullptr;
-    UINT32 nPaletteListSize = 0;
+    std::vector <LPCWSTR> ppszPaletteList;
     UINT32 nInitialLocation = 0;
     UINT32 nSpriteIndex = 0;
 };
 
-MBTLFileData MBTLCharacterData[] =
+std::vector <MBTLFileData> MBTLCharacterData =
 {
     //The character order is alphabetical instead of ID order
-    { L"data\\_csel\\Chr002.pal",       L"Akiha Tohno",                            61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Akiha },
-    { L"data\\_csel\\Chr000.pal",       L"Arcueid",                                61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Arcueid },
-    { L"data\\_csel\\Chr011.pal",       L"Ciel",                                   61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Ciel },
-    { L"data\\_csel\\Chr001.pal",       L"Hisui",                                  61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Hisui },
-    { L"data\\_csel\\Chr004.pal",       L"Kohaku",                                 61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Kohaku },
-    { L"data\\_csel\\Chr006.pal",       L"Kouma Kishima",                          61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Kouma },
-    { L"data\\_csel\\Chr013.pal",       L"Miyako Arima",                           61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Miyako },
-    { L"data\\_csel\\Chr008.pal",       L"Noel",                                   61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Noel },
-    { L"data\\_csel\\Chr010.pal",       L"Red Arcueid",                            61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_RedArcueid },
-    { L"data\\_csel\\Chr005.pal",       L"Roa",                                    61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Roa },
-    { L"data\\_csel\\Chr012.pal",       L"Saber",                                  61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Saber },
-    { L"data\\_csel\\Chr003.pal",       L"Shiki Tohno",                            61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Shiki },
-    { L"data\\_csel\\Chr009.pal",       L"Vlov",                                   61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_Vlov },
+    { L"data\\_csel\\Chr002.pal",       L"Akiha Tohno",                            61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Akiha },
+    { L"data\\_csel\\Chr000.pal",       L"Arcueid",                                61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Arcueid },
+    { L"data\\_csel\\Chr011.pal",       L"Ciel",                                   61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Ciel },
+    { L"data\\_csel\\Chr001.pal",       L"Hisui",                                  61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Hisui },
+    { L"data\\_csel\\Chr004.pal",       L"Kohaku",                                 61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Kohaku },
+    { L"data\\_csel\\Chr006.pal",       L"Kouma Kishima",                          61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Kouma },
+    { L"data\\_csel\\Chr013.pal",       L"Miyako Arima",                           61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Miyako },
+    { L"data\\_csel\\Chr008.pal",       L"Noel",                                   61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Noel },
+    { L"data\\_csel\\Chr010.pal",       L"Red Arcueid",                            61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_RedArcueid },
+    { L"data\\_csel\\Chr005.pal",       L"Roa",                                    61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Roa },
+    { L"data\\_csel\\Chr012.pal",       L"Saber",                                  61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Saber },
+    { L"data\\_csel\\Chr003.pal",       L"Shiki Tohno",                            61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Shiki },
+    { L"data\\_csel\\Chr009.pal",       L"Vlov",                                   61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Vlov },
 
-    { L"data\\chr011\\Chr011_p1.pal",   L"Ciel (Arc Drive/Last Arc)",              61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_CielSupers },
-    { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Mask Shiki)",                     61456,    MBTLPaletteNamesNormal,    ARRAYSIZE(MBTLPaletteNamesNormal), 0x10, indexFrenchBreadSprites_MBTL_HisuiMaskShiki },
+    { L"data\\chr011\\Chr011_p1.pal",   L"Ciel (Arc Drive/Last Arc)",              61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_CielSupers },
+    { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Mask Shiki)",                     61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_HisuiMaskShiki },
 };
 
 CGame_MBTL_A::CGame_MBTL_A(UINT32 nConfirmedROMSize /* = -1 */)
@@ -99,7 +98,7 @@ CGame_MBTL_A::CGame_MBTL_A(UINT32 nConfirmedROMSize /* = -1 */)
     // Don't load extras
     m_pszExtraFilename = nullptr;
 
-    nFileAmt = nUnitAmt = m_nTotalInternalUnits = ARRAYSIZE(MBTLCharacterData);
+    nFileAmt = nUnitAmt = m_nTotalInternalUnits = MBTLCharacterData.size();
 
     InitDataBuffer();
 
@@ -114,7 +113,7 @@ CGame_MBTL_A::CGame_MBTL_A(UINT32 nConfirmedROMSize /* = -1 */)
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(UINT16) * nUnitAmt);
+    memset(rgUnitRedir, 0, sizeof(size_t) * nUnitAmt);
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -150,7 +149,7 @@ sFileRule CGame_MBTL_A::GetNextRule()
 
     uRuleCtr++;
 
-    if (uRuleCtr >= ARRAYSIZE(MBTLCharacterData))
+    if (uRuleCtr >= MBTLCharacterData.size())
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
@@ -161,7 +160,7 @@ sFileRule CGame_MBTL_A::GetNextRule()
 sDescTreeNode* CGame_MBTL_A::InitDescTree()
 {
     size_t nTotalPaletteCount = 0;
-    size_t nUnitCt = ARRAYSIZE(MBTLCharacterData);
+    size_t nUnitCt = MBTLCharacterData.size();
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -254,12 +253,12 @@ size_t CGame_MBTL_A::GetCollectionCountForUnit(size_t nUnitId)
 
 size_t CGame_MBTL_A::GetNodeCountForCollection(size_t nUnitId, size_t  /*nCollectionId*/)
 {
-    return MBTLCharacterData[nUnitId].nPaletteListSize;
+    return MBTLCharacterData[nUnitId].ppszPaletteList.size();
 }
 
 size_t CGame_MBTL_A::GetPaletteCountForUnit(size_t nUnitId)
 {
-    return MBTLCharacterData[nUnitId].nPaletteListSize * ARRAYSIZE(MBTLPaletteNodes);
+    return MBTLCharacterData[nUnitId].ppszPaletteList.size() * ARRAYSIZE(MBTLPaletteNodes);
 }
 
 LPCWSTR CGame_MBTL_A::GetDescriptionForCollection(size_t  /*nUnitId */, size_t nCollectionId)
@@ -272,8 +271,8 @@ void CGame_MBTL_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
     // MBTL palettes are all 0x400 long
     const int cbPaletteSizeOnDisc = 0x400;
 
-    size_t nAdjustedPalId = nPalId % ARRAYSIZE(MBTLPaletteNamesNormal);
-    size_t nPaletteSet = nPalId / ARRAYSIZE(MBTLPaletteNamesNormal);
+    size_t nAdjustedPalId = nPalId % MBTLPaletteNamesNormal.size();
+    size_t nPaletteSet = nPalId / MBTLPaletteNamesNormal.size();
 
     m_pszCurrentPaletteName = MBTLCharacterData[nUnitId].ppszPaletteList[nAdjustedPalId];
     m_nCurrentPaletteROMLocation = MBTLCharacterData[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nAdjustedPalId) + (0x0 * nAdjustedPalId);
@@ -308,9 +307,9 @@ BOOL CGame_MBTL_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists
-    int nSrcStart = (int)(NodeGet->uPalId % MBTLCharacterData[NodeGet->uUnitId].nPaletteListSize);
+    int nSrcStart = (int)(NodeGet->uPalId % MBTLCharacterData[NodeGet->uUnitId].ppszPaletteList.size());
     size_t nSrcAmt = pButtonLabelSet.size();
-    UINT16 nNodeIncrement = MBTLCharacterData[NodeGet->uUnitId].nPaletteListSize;
+    size_t nNodeIncrement = MBTLCharacterData[NodeGet->uUnitId].ppszPaletteList.size();
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();

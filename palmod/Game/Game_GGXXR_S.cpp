@@ -37,7 +37,7 @@ CGame_GGXXR_S::CGame_GGXXR_S(UINT32 nConfirmedROMSize /* = -1 */)
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(UINT16) * nUnitAmt);
+    memset(rgUnitRedir, 0, sizeof(size_t) * nUnitAmt);
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -84,7 +84,7 @@ sFileRule CGame_GGXXR_S::GetNextRule()
 sDescTreeNode* CGame_GGXXR_S::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
-    UINT16 nUnitCt = ARRAYSIZE(GGXXR_S_CharacterData);
+    size_t nUnitCt = ARRAYSIZE(GGXXR_S_CharacterData);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -100,7 +100,7 @@ sDescTreeNode* CGame_GGXXR_S::InitDescTree()
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (size_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
@@ -126,7 +126,7 @@ sDescTreeNode* CGame_GGXXR_S::InitDescTree()
         size_t nTotalPalettesUsedInUnit = 0;
 
         //Set data for each child group ("collection")
-        for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+        for (size_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
         {
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
@@ -143,7 +143,7 @@ sDescTreeNode* CGame_GGXXR_S::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-            for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+            for (size_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 

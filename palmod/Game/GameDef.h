@@ -151,6 +151,9 @@ enum SupportedGamesList
     CYBERBOTS_A,
     DBZEB_DS,
     MBTL_A,
+    KOF02UM_S_DIR_8888,
+    KOF02UM_S_DIR_BGR555,
+    KOF02UM_S_DIR_RGB555,
 
     NUM_GAMES // This needs to be last
 };
@@ -298,6 +301,9 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Cyberbots: Fullmetal Madness (Arcade)",
     L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)",
     L"Melty Blood: Type Lumina (Steam)",
+    L"King of Fighters 2002UM (Steam, ARGB8888 parts)",
+    L"King of Fighters 2002UM (Steam, BGR555 parts)",
+    L"King of Fighters 2002UM (Steam, RGB555 parts)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -421,6 +427,7 @@ const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 const stPairedPaletteInfo pairPrevious2 = { -2, 0, 0 };
 const stPairedPaletteInfo pairPrevious3 = { -3, 0, 0 };
 const stPairedPaletteInfo pairPrevious4 = { -4, 0, 0 };
+const stPairedPaletteInfo pairPrevious5 = { -5, 0, 0 };
 const stPairedPaletteInfo pairPrevious9 = { -9, 0, 0 };
 
 // Same thing as Previous, except flip the order of the joins to avoid sprite occlusion 

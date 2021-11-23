@@ -328,6 +328,9 @@ public:
     afx_msg void OnLoadDir_GGXXACR_P()      { OnLoadGameByDirectory(GGXXACR_P); };
     afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };
     afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };
+    afx_msg void OnLoadDir_KOF02UM_S_8888() { OnLoadGameByDirectory(KOF02UM_S_DIR_8888); };
+    afx_msg void OnLoadDir_KOF02UM_S_BGR555() { OnLoadGameByDirectory(KOF02UM_S_DIR_BGR555); };
+    afx_msg void OnLoadDir_KOF02UM_S_RGB555() { OnLoadGameByDirectory(KOF02UM_S_DIR_RGB555); };
     afx_msg void OnLoadDir_MAAB_S()         { OnLoadGameByDirectory(MAAB_A); };
     afx_msg void OnLoadDir_MBTL_A()         { OnLoadGameByDirectory(MBTL_A); };
     afx_msg void OnLoadDir_MBAACC_S()       { OnLoadGameByDirectory(MBAACC_S); };

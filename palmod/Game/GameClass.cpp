@@ -1088,6 +1088,11 @@ const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode*
         nDistanceFromZero -= nNodeCount;
     }
 
+    if (!paletteToUse)
+    {
+        DebugBreak();
+    }
+
     return paletteToUse;
 }
 

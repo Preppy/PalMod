@@ -46,7 +46,7 @@ const UNICLRNodeData UNICLRPaletteNodes[] =
     { L"Right", 0xA800 },
 };
 
-const LPCWSTR UNICLRPaletteNamesNormal[] =
+const std::vector<LPCWSTR> UNICLRPaletteNamesNormal =
 {
     L"1",
     L"2",
@@ -105,35 +105,34 @@ struct UNICLRFileData
     LPCWSTR pszFileName = nullptr;
     LPCWSTR pszCharacter = nullptr;
     UINT32 nExpectedFileSize = 0;
-    const LPCWSTR* ppszPaletteList = nullptr;
-    UINT32 nPaletteListSize = 0;
+    const std::vector <LPCWSTR> ppszPaletteList;
     UINT32 nInitialLocation = 0;
     UINT32 nSpriteIndex = 0;
 };
 
-UNICLRFileData UNICLRCharacterData[] =
+const std::vector<UNICLRFileData> UNICLRCharacterData =
 {
-    { L"___English\\data\\_csel\\Aka.pal",    L"Akatsuki",          86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Akat },
-	{ L"___English\\data\\_csel\\Bya.pal",    L"Byakuya",           86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Byak },
-	{ L"___English\\data\\_csel\\Car.pal",    L"Carmine",           86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Carm },
-	{ L"___English\\data\\_csel\\Cha.pal",    L"Chaos",             86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Chao },
-	{ L"___English\\data\\_csel\\Elt.pal",    L"Eltnum",            86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Eltn },
-	{ L"___English\\data\\_csel\\Enk.pal",    L"Enkidu",            86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Enki },
-	{ L"___English\\data\\_csel\\Gor.pal",    L"Gordeau",           86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Gord },
-	{ L"___English\\data\\_csel\\Hil.pal",    L"Hilda",             86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Hild },
-	{ L"___English\\data\\_csel\\Hyd.pal",    L"Hyde",              86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Hyde },
-	{ L"___English\\data\\_csel\\Lin.pal",    L"Linne",             86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Linn },
-	{ L"___English\\data\\_csel\\Lnd.pal",    L"Londrekia",         86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Lond },
-	{ L"___English\\data\\_csel\\Mer.pal",    L"Merkava",           86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Merk },
-	{ L"___English\\data\\_csel\\Mik.pal",    L"Mika",              86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Mika },
-	{ L"___English\\data\\_csel\\Nan.pal",    L"Nanase",            86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Nana },
-	{ L"___English\\data\\_csel\\Ori.pal",    L"Orie",              86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Orie },
-	{ L"___English\\data\\_csel\\Pho.pal",    L"Phonon",            86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Phon },
-	{ L"___English\\data\\_csel\\Set.pal",    L"Seth",              86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Seth },
-	{ L"___English\\data\\_csel\\Vat.pal",    L"Vatista",           86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Vati },
-	{ L"___English\\data\\_csel\\Wag.pal",    L"Wagner",            86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Wagn },
-	{ L"___English\\data\\_csel\\Wal.pal",    L"Waldstein",         86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Wald },
-	{ L"___English\\data\\_csel\\Yuz.pal",    L"Yuzuriha",          86032,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Yuzu },
+    { L"___English\\data\\_csel\\Aka.pal",    L"Akatsuki",          86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Akat },
+    { L"___English\\data\\_csel\\Bya.pal",    L"Byakuya",           86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Byak },
+    { L"___English\\data\\_csel\\Car.pal",    L"Carmine",           86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Carm },
+    { L"___English\\data\\_csel\\Cha.pal",    L"Chaos",             86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Chao },
+    { L"___English\\data\\_csel\\Elt.pal",    L"Eltnum",            86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Eltn },
+    { L"___English\\data\\_csel\\Enk.pal",    L"Enkidu",            86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Enki },
+    { L"___English\\data\\_csel\\Gor.pal",    L"Gordeau",           86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Gord },
+    { L"___English\\data\\_csel\\Hil.pal",    L"Hilda",             86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Hild },
+    { L"___English\\data\\_csel\\Hyd.pal",    L"Hyde",              86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Hyde },
+    { L"___English\\data\\_csel\\Lin.pal",    L"Linne",             86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Linn },
+    { L"___English\\data\\_csel\\Lnd.pal",    L"Londrekia",         86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Lond },
+    { L"___English\\data\\_csel\\Mer.pal",    L"Merkava",           86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Merk },
+    { L"___English\\data\\_csel\\Mik.pal",    L"Mika",              86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Mika },
+    { L"___English\\data\\_csel\\Nan.pal",    L"Nanase",            86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Nana },
+    { L"___English\\data\\_csel\\Ori.pal",    L"Orie",              86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Orie },
+    { L"___English\\data\\_csel\\Pho.pal",    L"Phonon",            86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Phon },
+    { L"___English\\data\\_csel\\Set.pal",    L"Seth",              86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Seth },
+    { L"___English\\data\\_csel\\Vat.pal",    L"Vatista",           86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Vati },
+    { L"___English\\data\\_csel\\Wag.pal",    L"Wagner",            86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Wagn },
+    { L"___English\\data\\_csel\\Wal.pal",    L"Waldstein",         86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Wald },
+    { L"___English\\data\\_csel\\Yuz.pal",    L"Yuzuriha",          86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Yuzu },
 };
 
 CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
@@ -148,7 +147,7 @@ CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
     // Don't load extras
     m_pszExtraFilename = nullptr;
 
-    nFileAmt = nUnitAmt = m_nTotalInternalUnits = ARRAYSIZE(UNICLRCharacterData);
+    nFileAmt = nUnitAmt = m_nTotalInternalUnits = UNICLRCharacterData.size();
 
     InitDataBuffer();
 
@@ -163,7 +162,7 @@ CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(UINT16) * nUnitAmt);
+    memset(rgUnitRedir, 0, sizeof(size_t) * nUnitAmt);
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -199,7 +198,7 @@ sFileRule CGame_UNICLR_A::GetNextRule()
 
     uRuleCtr++;
 
-    if (uRuleCtr >= ARRAYSIZE(UNICLRCharacterData))
+    if (uRuleCtr >= UNICLRCharacterData.size())
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
@@ -210,7 +209,7 @@ sFileRule CGame_UNICLR_A::GetNextRule()
 sDescTreeNode* CGame_UNICLR_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
-    UINT16 nUnitCt = ARRAYSIZE(UNICLRCharacterData);
+    size_t nUnitCt = UNICLRCharacterData.size();
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -226,7 +225,7 @@ sDescTreeNode* CGame_UNICLR_A::InitDescTree()
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (size_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
@@ -252,7 +251,7 @@ sDescTreeNode* CGame_UNICLR_A::InitDescTree()
         size_t nTotalPalettesUsedInUnit = 0;
 
         //Set data for each child group ("collection")
-        for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+        for (size_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
         {
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
@@ -269,7 +268,7 @@ sDescTreeNode* CGame_UNICLR_A::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-            for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+            for (size_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -303,12 +302,12 @@ size_t CGame_UNICLR_A::GetCollectionCountForUnit(size_t nUnitId)
 
 size_t CGame_UNICLR_A::GetNodeCountForCollection(size_t nUnitId, size_t /*nCollectionId*/)
 {
-    return UNICLRCharacterData[nUnitId].nPaletteListSize;
+    return UNICLRCharacterData[nUnitId].ppszPaletteList.size();
 }
 
 size_t CGame_UNICLR_A::GetPaletteCountForUnit(size_t nUnitId)
 {
-    return UNICLRCharacterData[nUnitId].nPaletteListSize * ARRAYSIZE(UNICLRPaletteNodes);
+    return UNICLRCharacterData[nUnitId].ppszPaletteList.size() * ARRAYSIZE(UNICLRPaletteNodes);
 }
 
 LPCWSTR CGame_UNICLR_A::GetDescriptionForCollection(size_t /*nUnitId */, size_t nCollectionId)
@@ -321,8 +320,8 @@ void CGame_UNICLR_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
     // UNICLR palettes are all 0x400 long
     const int cbPaletteSizeOnDisc = 0x400;
 
-    size_t nAdjustedPalId = nPalId % ARRAYSIZE(UNICLRPaletteNamesNormal);
-    size_t nPaletteSet = nPalId / ARRAYSIZE(UNICLRPaletteNamesNormal);
+    size_t nAdjustedPalId = nPalId % UNICLRPaletteNamesNormal.size();
+    size_t nPaletteSet = nPalId / UNICLRPaletteNamesNormal.size();
 
     m_pszCurrentPaletteName = UNICLRCharacterData[nUnitId].ppszPaletteList[nAdjustedPalId];
     m_nCurrentPaletteROMLocation = UNICLRCharacterData[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nAdjustedPalId) + (0x0 * nAdjustedPalId);
@@ -357,9 +356,9 @@ BOOL CGame_UNICLR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists
-    int nSrcStart = (int)(NodeGet->uPalId % UNICLRCharacterData[NodeGet->uUnitId].nPaletteListSize);
+    int nSrcStart = (int)(NodeGet->uPalId % UNICLRCharacterData[NodeGet->uUnitId].ppszPaletteList.size());
     size_t nSrcAmt = pButtonLabelSet.size();
-    UINT16 nNodeIncrement = UNICLRCharacterData[NodeGet->uUnitId].nPaletteListSize;
+    size_t nNodeIncrement = UNICLRCharacterData[NodeGet->uUnitId].ppszPaletteList.size();
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();

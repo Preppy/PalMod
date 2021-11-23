@@ -51,6 +51,7 @@
 #include <tchar.h>
 #include <array>
 #include <vector>
+#include <string>
 
 template<typename T> void safe_delete(T*& a) {
     delete a;

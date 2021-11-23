@@ -340,6 +340,12 @@ BEGIN
                 MENUITEM "Venture Characters (Japan Arcade)", ID_LD_VENTURE50
                 MENUITEM "Venture HUD (Japan Arcade)",  ID_LD_VENTURE31
             END
+            POPUP "King of Fighters"
+            BEGIN
+                MENUITEM "King of Fighters 02UM (Steam, RGBA8888 parts)", ID_LD_KOF02UM_S_8888
+                MENUITEM "King of Fighters 02UM (Steam, BGR555 parts)", ID_LD_KOF02UM_S_BGR555
+                MENUITEM "King of Fighters 02UM (Steam, RGB555 parts, Characters)", ID_LD_KOF02UM_S_RGB555
+            END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
             MENUITEM "Melty Blood: Type Lumina (Steam)", ID_LD_MBTL_A
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
@@ -672,11 +678,11 @@ BEGIN
     IDS_LOADERROR_SINGLE    " (1 error)"
     IDS_LOADERROR_MULTI     " (%d errors)"
     IDS_LOADGAME_SINGLE     "%d of %d file loaded successfully%s."
-    IDS_LOADGAME_MULTI      "%d of %d files loaded successfully%s."
+    IDS_LOADGAME_MULTI      "%d of %d units loaded successfully%s."
     IDS_PATCH_FAIL          "Game patching failed."
     IDS_PATCH_SUCCESS       "Game patched successfully."
     IDS_PATCHGAME_SINGLE    "%d of %d file patched successfully%s."
-    IDS_PATCHGAME_MULTI     "%d of %d files patched successfully%s."
+    IDS_PATCHGAME_MULTI     "%d of %d units patched successfully%s."
     IDS_PATCH_EMPTY         "No changes detected: nothing to patch."
     IDS_CROSSCOPY_SINGLE_SUCCESS "Game crosscopied successfully%s."
     IDS_CROSSCOPY_MULTI_SUCCESS "%d of %d files crosscopied successfully%s."
