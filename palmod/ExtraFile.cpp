@@ -442,7 +442,6 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
         size_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
         for (size_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
-        for (size_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
             nTotalPalettesChecked++;

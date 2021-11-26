@@ -369,6 +369,9 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
     { L"Mai-Ling Punch Fire", 0x411680, 0x411700, indexRedEarthSprites_MaiLing, 0x02 },
     { L"Mai-Ling Punch Fireball", 0x411780, 0x411800, indexRedEarthSprites_MaiLing, 0x01 },
     { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x4118C0, 0x411900 },
+
+    { L"Valerie, Dentry & Bellery", 0x412a00, 0x412b00, indexRedEarthSprites_Bonus, 0x1d },
+
     { L"Mai-Ling Punch Ultimate Guard Flash and Burn 1", 0x414000, 0x414080, indexRedEarthSprites_MaiLing, 0 },
     { L"Mai-Ling Punch Burn 2", 0x414080, 0x414100, indexRedEarthSprites_MaiLing, 0 },
     { L"Mai-Ling Punch Shock 1", 0x414100, 0x414180, indexRedEarthSprites_MaiLing, 0 },
@@ -398,6 +401,9 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
     { L"Mai-Ling Kick Fire", 0x41DE80, 0x41DF00, indexRedEarthSprites_MaiLing, 0x02 },
     { L"Mai-Ling Kick Fireball", 0x41DF80, 0x41E000, indexRedEarthSprites_MaiLing, 0x01 },
     { L"Mai-Ling Kick HCB.1/2/3 Fireball", 0x41E0C0, 0x41E100 },
+
+    { L"Valerie, Dentry & Bellery", 0x41f200, 0x41f300, indexRedEarthSprites_Bonus, 0x1d },
+
     { L"Mai-Ling Kick Ultimate Guard Flash and Burn 1", 0x420800, 0x420880, indexRedEarthSprites_MaiLing, 0 },
     { L"Mai-Ling Kick Burn 2", 0x420880, 0x420900, indexRedEarthSprites_MaiLing, 0 },
     { L"Mai-Ling Kick Shock 1", 0x420900, 0x420980, indexRedEarthSprites_MaiLing, 0 },
@@ -526,22 +532,43 @@ const sGame_PaletteDataset REDEARTH_A_LAVIA_PALETTES[] =
     { L"Sparks", 0x42a700, 0x42a780},
     { L"Feather Projectiles", 0x42a780, 0x42a800 },
     { L"Lavia's Soul Second Palette", 0x42a800, 0x42a880 },
-    { L"Lavia Burned 1", 0x42a880, 0x42a900, indexRedEarthSprites_Lavia },
-    { L"Lavia Burned 2", 0x42a900, 0x42a980, indexRedEarthSprites_Lavia },
-    { L"Lavia Shocked 1", 0x42a980, 0x42aa00, indexRedEarthSprites_Lavia },
-    { L"Lavia Shocked 2", 0x42aa00, 0x42aa80, indexRedEarthSprites_Lavia },
-    { L"Lavia Poisoned 1", 0x42aa80, 0x42ab00, indexRedEarthSprites_Lavia },
-    { L"Lavia Poisoned 2", 0x42ab00, 0x42ab80, indexRedEarthSprites_Lavia },
-    { L"Lavia Poisoned 3", 0x42ab80, 0x42ac00, indexRedEarthSprites_Lavia },
-    { L"Lavia Poisoned 4", 0x42ac00, 0x42ac80, indexRedEarthSprites_Lavia },
-    { L"Lavia Petrified 1", 0x42ac80, 0x42ad00, indexRedEarthSprites_Lavia },
-    { L"Lavia Petrified 2", 0x42ad00, 0x42ad80, indexRedEarthSprites_Lavia },
-    { L"Lavia Petrified 3", 0x42ad80, 0x42ae00, indexRedEarthSprites_Lavia },
-    { L"Lavia Frozen 1", 0x42ae00, 0x42ae80, indexRedEarthSprites_Lavia },
-    { L"Lavia Frozen 2", 0x42ae80, 0x42af00, indexRedEarthSprites_Lavia },
-    { L"Lavia Frozen 3", 0x42af00, 0x42af80, indexRedEarthSprites_Lavia },
-    { L"Lavia Frozen 4", 0x42af80, 0x42b000, indexRedEarthSprites_Lavia },
-    { L"Lavia Frozen 5", 0x42b000, 0x42b080, indexRedEarthSprites_Lavia },
+
+    { L"Lavia Burned 1", 0x42d000, 0x42d080, indexRedEarthSprites_Lavia },
+    { L"Lavia Burned 2", 0x42d080, 0x42d100, indexRedEarthSprites_Lavia },
+    { L"Lavia Shocked 1", 0x42d100, 0x42d180, indexRedEarthSprites_Lavia },
+    { L"Lavia Shocked 2", 0x42d180, 0x42d200, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 1", 0x42d200, 0x42d280, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 2", 0x42d280, 0x42d300, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 3", 0x42d300, 0x42d380, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 4", 0x42d380, 0x42d400, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 1", 0x42d400, 0x42d480, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 2", 0x42d480, 0x42d500, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 3", 0x42d500, 0x42d580, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 1", 0x42d580, 0x42d600, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 2", 0x42d600, 0x42d680, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 3", 0x42d680, 0x42d700, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 4", 0x42d700, 0x42d780, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 5", 0x42d780, 0x42d800, indexRedEarthSprites_Lavia },
+};
+
+const sGame_PaletteDataset REDEARTH_A_LAVIA_PALETTES_UNUSED[] =
+{
+    { L"Lavia Burned 1 Unused", 0x42a880, 0x42a900, indexRedEarthSprites_Lavia },
+    { L"Lavia Burned 2 Unused", 0x42a900, 0x42a980, indexRedEarthSprites_Lavia },
+    { L"Lavia Shocked 1 Unused", 0x42a980, 0x42aa00, indexRedEarthSprites_Lavia },
+    { L"Lavia Shocked 2 Unused", 0x42aa00, 0x42aa80, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 1 Unused", 0x42aa80, 0x42ab00, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 2 Unused", 0x42ab00, 0x42ab80, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 3 Unused", 0x42ab80, 0x42ac00, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 4 Unused", 0x42ac00, 0x42ac80, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 1 Unused", 0x42ac80, 0x42ad00, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 2 Unused", 0x42ad00, 0x42ad80, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 3 Unused", 0x42ad80, 0x42ae00, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 1 Unused", 0x42ae00, 0x42ae80, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 2 Unused", 0x42ae80, 0x42af00, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 3 Unused", 0x42af00, 0x42af80, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 4 Unused", 0x42af80, 0x42b000, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 5 Unused", 0x42b000, 0x42b080, indexRedEarthSprites_Lavia },
 };
 
 const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
@@ -885,6 +912,7 @@ const sDescTreeNode REDEARTH_A_KONGOU_COLLECTION[] =
 const sDescTreeNode REDEARTH_A_LAVIA_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_LAVIA_PALETTES, ARRAYSIZE(REDEARTH_A_LAVIA_PALETTES) },
+    { L"Unused", DESC_NODETYPE_TREE, (void*)REDEARTH_A_LAVIA_PALETTES_UNUSED, ARRAYSIZE(REDEARTH_A_LAVIA_PALETTES_UNUSED) },
 };
 
 const sDescTreeNode REDEARTH_A_RAVANGE_COLLECTION[] =

@@ -3200,6 +3200,56 @@ const sGame_PaletteDataset VSAV_A_BONUS_CSI_PALETTES[] =
     { L"Character Select Icons", 0x237Aa, 0x239Aa, indexCPS2Sprites_VSAV1_Bonus, 0x0c },
 };
 
+const sGame_PaletteDataset VSAV_A_BONUS_CSS_PALETTES[] =
+{
+    { L"P1 Character Select Ring", 0x23aca, 0x23aea, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 2", 0x294ea, 0x2950a, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 3", 0x2950a, 0x2952a, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 4", 0x2952a, 0x2954a, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 5", 0x2954a, 0x2956a, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 6", 0x2956a, 0x2958a, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 7", 0x2958a, 0x295aa, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 8", 0x295aa, 0x295ca, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 9", 0x295ca, 0x295ea, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 10", 0x295ea, 0x2960a, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 11", 0x2960a, 0x2962a, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 12", 0x2962a, 0x2964a, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Select Ring Frame 13", 0x2964a, 0x2966a, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+    { L"P1 Character Select Ring Flash", 0x297ea, 0x2980a, indexCPS2Sprites_VSAV1_Bonus, 0x10 },
+
+    { L"P2 Character Select Ring", 0x23aea, 0x23b0a, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 2", 0x2966a, 0x2968a, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 3", 0x2968a, 0x296aa, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 4", 0x296aa, 0x296ca, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 5", 0x296ca, 0x296ea, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 6", 0x296ea, 0x2970a, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 7", 0x2970a, 0x2972a, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 8", 0x2972a, 0x2974a, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 9", 0x2974a, 0x2976a, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 10", 0x2976a, 0x2978a, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 11", 0x2978a, 0x297aa, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 12", 0x297aa, 0x297ca, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Select Ring Frame 13", 0x297ca, 0x297ea, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+    { L"P2 Character Select Ring Flash", 0x2980a, 0x2982a, indexCPS2Sprites_VSAV1_Bonus, 0x11 },
+};
+
+const sGame_PaletteDataset VSAV_A_BONUS_TEXT_PALETTES[] =
+{
+    { L"Ready", 0x2984a, 0x2986a, indexCPS2Sprites_VSAV1_Bonus, 0x13 },
+    { L"Fight", 0x2986a, 0x2988a, indexCPS2Sprites_VSAV1_Bonus, 0x0e },
+    { L"Fight Flash 1", 0x2896a, 0x2898a, indexCPS2Sprites_VSAV1_Bonus, 0x0e },
+    { L"Fight Flash 2", 0x2898a, 0x289Aa, indexCPS2Sprites_VSAV1_Bonus, 0x0e },
+    { L"Fight Flash 3", 0x289Aa, 0x289Ca, indexCPS2Sprites_VSAV1_Bonus, 0x0e },
+    { L"Fight Flash 4", 0x289Ca, 0x289Ea, indexCPS2Sprites_VSAV1_Bonus, 0x0e },
+    { L"Fight Flash 5", 0x289Ea, 0x28A0a, indexCPS2Sprites_VSAV1_Bonus, 0x0e },
+    { L"KO", 0x2988a, 0x298aa, indexCPS2Sprites_VSAV1_Bonus, 0x0f },
+    { L"Perfect/Complete", 0x298aa, 0x298ca, indexCPS2Sprites_VSAV1_Bonus, 0x12 },
+    { L"Time Over", 0x298ca, 0x298ea, indexCPS2Sprites_VSAV1_Bonus, 0x14 },
+    { L"Draw Game", 0x298ea, 0x2990a, indexCPS2Sprites_VSAV1_Bonus, 0x0d },
+    { L"You Win", 0x2990a, 0x2992a, indexCPS2Sprites_VSAV1_Bonus, 0x16 },
+    { L"You Lose", 0x2992a, 0x2994a, indexCPS2Sprites_VSAV1_Bonus, 0x15 },
+};
+
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_STATUS[] =
 {
     { L"Bulleta ES 1", 0x120a0 - 0xf6, 0x120c0 - 0xf6, indexCPS2Sprites_BBHood },
@@ -3970,6 +4020,8 @@ const sDescTreeNode VSAV_A_BONUS_COLLECTION[] =
     { L"Shadow",     DESC_NODETYPE_TREE, (void*)VSAV_A_SHADOW_PALETTES,  ARRAYSIZE(VSAV_A_SHADOW_PALETTES) },
     { L"Title/Select Screen", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_TITLES_PALETTES,  ARRAYSIZE(VSAV_A_BONUS_TITLES_PALETTES) },
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_CSI_PALETTES, ARRAYSIZE(VSAV_A_BONUS_CSI_PALETTES) },
+    { L"Character Select Screen", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_CSS_PALETTES, ARRAYSIZE(VSAV_A_BONUS_CSS_PALETTES) },
+    { L"Match Text", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_TEXT_PALETTES, ARRAYSIZE(VSAV_A_BONUS_TEXT_PALETTES) },
 };
 
 const sDescTreeNode VSAV_A_UNITS[] =
@@ -3998,7 +4050,7 @@ const sDescTreeNode VSAV_A_UNITS[] =
 
 constexpr auto VSAV_A_NUMUNIT = ARRAYSIZE(VSAV_A_UNITS);
 
-#define VSAV_A_EXTRALOC VSAV_A_NUMUNIT
+constexpr auto VSAV_A_EXTRALOC = VSAV_A_NUMUNIT; 
 
 // We extend this array with data groveled from the VSAVe.txt extensible extras file, if any.
 const stExtraDef VSAV_A_EXTRA[] =

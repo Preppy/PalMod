@@ -345,7 +345,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_X3[] =
 const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_A[] =
 {
     { L"Tessa A", 0xab66, 0xab86, indexCPS2Sprites_SPF_Tessa, 0x00 },
-    { L"Tessa A: Dragon Attacks", 0xab86, 0xaba6 },
+    { L"Tessa A: Dragon Attacks", 0xab86, 0xaba6, indexCPS2Sprites_SPF_Tessa, 0x01 },
     { L"Tessa A: Broom Attacks", 0xaba6, 0xabc6 },
     { L"Tessa A: Special Effects", 0xabc6, 0xabe6 },
     { L"Tessa A: Portrait", 0xcd06, 0xcd66 },
@@ -354,7 +354,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_A[] =
 const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_B[] =
 {
     { L"Tessa B", 0xac06, 0xac26, indexCPS2Sprites_SPF_Tessa, 0x00 },
-    { L"Tessa B: Dragon Attacks", 0xac26, 0xac46 },
+    { L"Tessa B: Dragon Attacks", 0xac26, 0xac46, indexCPS2Sprites_SPF_Tessa, 0x01 },
     { L"Tessa B: Broom Attacks", 0xac46, 0xac66 },
     { L"Tessa B: Special Effects", 0xac66, 0xac86 },
     { L"Tessa B: Portrait", 0xcd66, 0xcdc6 },
@@ -363,7 +363,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_B[] =
 const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_C[] =
 {
     { L"Tessa C", 0xaca6, 0xacc6, indexCPS2Sprites_SPF_Tessa, 0x00 },
-    { L"Tessa C: Dragon Attacks", 0xacc6, 0xace6 },
+    { L"Tessa C: Dragon Attacks", 0xacc6, 0xace6, indexCPS2Sprites_SPF_Tessa, 0x01 },
     { L"Tessa C: Broom Attacks", 0xace6, 0xad06 },
     { L"Tessa C: Special Effects", 0xad06, 0xad26 },
     { L"Tessa C: Portrait", 0xcdc6, 0xce26 },
@@ -372,7 +372,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_C[] =
 const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_X3[] =
 {
     { L"Tessa x3", 0xad46, 0xad66, indexCPS2Sprites_SPF_Tessa, 0x00 },
-    { L"Tessa x3: Dragon Attacks", 0xad66, 0xad86 },
+    { L"Tessa x3: Dragon Attacks", 0xad66, 0xad86, indexCPS2Sprites_SPF_Tessa, 0x01 },
     { L"Tessa x3: Broom Attacks", 0xad86, 0xada6 },
     { L"Tessa x3: Special Effects", 0xada6, 0xadc6 },
     { L"Tessa x3: Portrait", 0xce26, 0xce86 },
