@@ -293,6 +293,7 @@ void CPalModDlg::OnEditCopy()
             break;
         case ColMode::COLMODE_xRGB888:
         case ColMode::COLMODE_xBGR888:
+        case ColMode::COLMODE_xGRB888:
         case ColMode::COLMODE_ARGB1888_32STEPS:
         case ColMode::COLMODE_GRB555_LE:
         case ColMode::COLMODE_ABGR8888:

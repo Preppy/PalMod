@@ -116,6 +116,7 @@ public:
     void SetColorFormatToGRB555_LE() { SetColorFormatTo(ColMode::COLMODE_GRB555_LE); };
     void SetColorFormatToxRGB888() { SetColorFormatTo(ColMode::COLMODE_xRGB888); };
     void SetColorFormatToxBGR888() { SetColorFormatTo(ColMode::COLMODE_xBGR888); };
+    void SetColorFormatToxGRB888() { SetColorFormatTo(ColMode::COLMODE_xGRB888); };
     void SetColorFormatToARGB1888() { SetColorFormatTo(ColMode::COLMODE_ARGB1888); };
     // I'm deliberately not exposing ColMode::COLMODE_ARGB1888_32STEPS here at this point:
     // it's only currently used for MBAACC.

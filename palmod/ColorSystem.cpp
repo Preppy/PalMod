@@ -30,8 +30,9 @@ UINT8 GetCbForColMode(ColMode colorMode)
     case ColMode::COLMODE_RGB666_NEOGEO:
     case ColMode::COLMODE_RGB333:
         return 2;
-    case ColMode::COLMODE_xRGB888:
     case ColMode::COLMODE_xBGR888:
+    case ColMode::COLMODE_xGRB888:
+    case ColMode::COLMODE_xRGB888:
         return 3;
     case ColMode::COLMODE_ARGB7888:
     case ColMode::COLMODE_ARGB1888:
@@ -605,6 +606,34 @@ UINT32 CColorSystem::CONV_32_xBGR888(UINT32 inCol)
     auxr = auxr << 16;
     auxg = auxg << 8;
     auxb = auxb;
+
+    return (auxr | auxg | auxb);
+}
+
+UINT32 CColorSystem::CONV_xGRB888_32(UINT32 inCol)
+{
+    UINT32 auxb = (inCol & 0x00FF0000) >> 16;
+    UINT32 auxr = (inCol & 0x0000FF00) >> 8;
+    UINT32 auxg = (inCol & 0x000000FF);
+    UINT32 auxa = 0xFF;
+
+    auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT32 CColorSystem::CONV_32_xGRB888(UINT32 inCol)
+{
+    UINT32 auxb = (inCol & 0x00FF0000) >> 16;
+    UINT32 auxg = (inCol & 0x0000FF00) >> 8;
+    UINT32 auxr = (inCol & 0x000000FF);
+
+    auxg = auxg;
+    auxr = auxr << 8;
+    auxb = auxb << 16;
 
     return (auxr | auxg | auxb);
 }

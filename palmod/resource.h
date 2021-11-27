@@ -286,13 +286,14 @@
 #define ID_LD_KOF02UM_S_8888            32912
 #define ID_LD_KOF02UM_S_RGB555          32913
 #define ID_LD_KOF02UM_S_BGR555          32914
+#define ID_COLORFORMAT_xGRB888          32915
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32915
+#define _APS_NEXT_COMMAND_VALUE         32916
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

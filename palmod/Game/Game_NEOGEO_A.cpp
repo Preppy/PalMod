@@ -151,13 +151,14 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     // ID_COLORFORMAT_RGB444_LE
     // ID_COLORFORMAT_ARGB8888
     // ID_COLORFORMAT_ARGB1888
-    // ID_COLORFORMAT_xRGB888
     // ID_COLORFORMAT_xBGR888
+    // ID_COLORFORMAT_xGRB888
+    // ID_COLORFORMAT_xRGB888
     // ID_COLORFORMAT_GRB555_LE
     // ID_COLORFORMAT_ABGR8888
     // ID_COLORFORMAT_BGR555_BE
     // I am explicitly and needlessly listing out all of those string IDs because Visual Studio search sometimes misses the color modes below,
-    // and we have to add expolicity color handling here so that people can change to that color mode in Unknown Game mode
+    // and we have to add explicit color handling here so that people can change to that color mode in Unknown Game mode
 
     switch (NewMode)
     {
@@ -178,8 +179,9 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
         m_fGameUsesAlphaValue = true;
         break;
-    case ColMode::COLMODE_xRGB888:
     case ColMode::COLMODE_xBGR888:
+    case ColMode::COLMODE_xGRB888:
+    case ColMode::COLMODE_xRGB888:
         cbRequiredColorSize = 3;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         m_fGameUsesAlphaValue = false;
