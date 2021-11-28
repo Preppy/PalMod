@@ -3185,11 +3185,43 @@ const sGame_PaletteDataset VSAV_A_SHADOW_PALETTES[] =
 
 const sGame_PaletteDataset VSAV_A_BONUS_TITLES_PALETTES[] =
 {
-    { L"Morrigan Intro Portrait",       0x2362a, 0x2368a, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
-    { L"Lilith Intro Portrait",         0x515ba, 0x5161a, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+    { L"Morrigan Intro Portrait 1", 0x2360a, 0x2362a },
+
+    { L"Morrigan Intro 1 Fade 1", 0x2a88a, 0x2a8aa },
+    { L"Morrigan Intro 1 Fade 2", 0x2a8aa, 0x2a8ca },
+    { L"Morrigan Intro 1 Fade 3", 0x2a8ca, 0x2a8ea },
+    { L"Morrigan Intro 1 Fade 4", 0x2a8ea, 0x2a90a },
+    { L"Morrigan Intro 1 Fade 5", 0x2a90a, 0x2a92a },
+    { L"Morrigan Intro 1 Fade 6", 0x2a92a, 0x2A94a },
+
+    { L"Morrigan Intro Portrait 2", 0x2362a, 0x2368a, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
+
+    { L"Morrigan Intro 2 Fade 1", 0x2a9ca, 0x2aa2a, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
+    { L"Morrigan Intro 2 Fade 2", 0x2aa2a, 0x2aa8a, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
+    { L"Morrigan Intro 2 Fade 3", 0x2aa8a, 0x2aaea, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
+    { L"Morrigan Intro 2 Fade 4", 0x2aaea, 0x2ab4a, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
+    { L"Morrigan Intro 2 Fade 5", 0x2ab4a, 0x2abaa, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
+    { L"Morrigan Intro 2 Fade 6", 0x2abaa, 0x2ac0a, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
+    { L"Morrigan Intro 2 Fade 7", 0x2ac0a, 0x2ac6a, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
+    { L"Morrigan Intro 2 Fade 8", 0x2ac6a, 0x2acca, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
+    { L"Morrigan Intro 2 Fade 9", 0x2acca, 0x2ad2a, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
+
+    { L"Lilith Intro Portrait", 0x515ba, 0x5161a, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+
+    { L"Lilith Intro Fade 1", 0x48e7a, 0x48eda, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+    { L"Lilith Intro Fade 2", 0x48eda, 0x48f3a, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+    { L"Lilith Intro Fade 3", 0x48f3a, 0x48f9a, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+    { L"Lilith Intro Fade 4", 0x48f9a, 0x48ffa, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+    { L"Lilith Intro Fade 5", 0x48ffa, 0x4905a, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+    { L"Lilith Intro Fade 6", 0x4905a, 0x490ba, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+    { L"Lilith Intro Fade 7", 0x490ba, 0x4911a, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+    { L"Lilith Intro Fade 8", 0x4911a, 0x4917a, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+    { L"Lilith Intro Fade 9", 0x4917a, 0x491da, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
+
+    { L"Dirty Beret Portrait",          0x357ea, 0x3580a },
     { L"Demitri Intro",                 0x233ca, 0x2340a, indexCPS2Sprites_VSAV1_Bonus, 0x04 },
     { L"Bulleta Intro",                 0x234aa, 0x2354a, indexCPS2Sprites_VSAV1_Bonus, 0x03 },
-    { L"Bulleta Intro Flash Palette",   0x2a94a, 0x2a9ea, indexCPS2Sprites_VSAV1_Bonus, 0x02 },
+    { L"Bulleta Intro Flash Palette",   0x2a94a, 0x2a9ca, indexCPS2Sprites_VSAV1_Bonus, 0x02 },
     { L"Bulleta Intro BG",              0x659a2, 0x659c2, indexCPS2Sprites_VSAV1_Bonus, 0x01 },
 
     { L"Character Select BG",           0x518fa, 0x51a5a, indexCPS2Sprites_VSAV1_Bonus, 0x09 },
