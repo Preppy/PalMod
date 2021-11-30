@@ -172,8 +172,10 @@ public:
     virtual void SetAlphaMode(AlphaMode NewMode) { CColorSystem::SetAlphaMode(NewMode); };
 
     ColMode GetColorMode() { return CurrColMode; };
-    BOOL _SetColorMode(ColMode NewMode);
-    virtual BOOL SetColorMode(ColMode NewMode);
+    bool _UpdateColorConverters(ColMode NewMode);
+    bool _UpdateColorSteps(ColMode NewMode);
+    bool _SetColorMode(ColMode NewMode);
+    virtual bool SetColorMode(ColMode NewMode);
     virtual bool AllowUpdatingColorFormatForGame() { return false; };
     virtual void OpenExtraFile() { };
     virtual bool GameAllowsExtraFile() { return false; };

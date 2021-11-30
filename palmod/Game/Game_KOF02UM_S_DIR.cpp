@@ -17,7 +17,7 @@ CGame_KOF02UM_S_DIR::CGame_KOF02UM_S_DIR(UINT32 nConfirmedROMSize, SupportedGame
     switch (nKOF02UMROMSetToLoad)
     {
     case KOF02UM_S_DIR_8888:
-        SetColorMode(ColMode::COLMODE_ARGB7888);
+        SetColorMode(ColMode::COLMODE_RGBA8887);
         pButtonLabelSet = DEF_NOBUTTONS;
         _sCurrentGameUnits = KOF02UM_S_DIR_8888_UNITS;
         break;

@@ -432,14 +432,14 @@ const sDescTreeNode DBZEB_DS_GOHAN_COLLECTION[] =
 
 const sGame_PaletteDataset DBZEB_DS_GOHANSS_P1[] =
 {
-    { L"Gohan (Super Saiyan) P1",           0x1bb7560, 0x1bb7960, indexDBZEB_Gohan, 0x00 },
-    { L"Gohan (Super Saiyan) P1 (Unused?)", 0x1bb43c0, 0x1bb47c0, indexDBZEB_Gohan, 0x00 },
+    { L"Gohan (Super Saiyan) P1",           0x1bb7560, 0x1bb7960, indexDBZEB_GohanSSJ1, 0x00 },
+    { L"Gohan (Super Saiyan) P1 (Unused?)", 0x1bb43c0, 0x1bb47c0, indexDBZEB_GohanSSJ1, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_GOHANSS_P2[] =
 {
-    { L"Gohan (Super Saiyan) P2",           0x1bb7970, 0x1bb7d70, indexDBZEB_Gohan, 0x00 },
-    { L"Gohan (Super Saiyan) P2 (Unused?)", 0x1bb47d0, 0x1bb4bd0, indexDBZEB_Gohan, 0x00 },
+    { L"Gohan (Super Saiyan) P2",           0x1bb7970, 0x1bb7d70, indexDBZEB_GohanSSJ1, 0x00 },
+    { L"Gohan (Super Saiyan) P2 (Unused?)", 0x1bb47d0, 0x1bb4bd0, indexDBZEB_GohanSSJ1, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_GOHANSS_EXTRAS[] =
@@ -1078,7 +1078,7 @@ const sDescTreeNode DBZEB_DS_VEGETASS_COLLECTION[] =
 
 const sGame_PaletteDataset DBZEB_DS_ZASSIST[] =
 {
-    { L"Android 8",                         0x1570C0E0, 0x1570C4E0 },
+    { L"Android 8",                         0x1570C0E0, 0x1570C4E0, indexDBZEB_ZAssists, 0x00 },
     { L"Android 13 (Fusion)",               0x15764720, 0x15764B20, indexDBZEB_ZAssists, 0x01 },
     { L"Android 16",                        0x1575A4B0, 0x1575A8B0, indexDBZEB_ZAssists, 0x02 },
     { L"Android 17",                        0x1574F750, 0x1574FB50, indexDBZEB_ZAssists, 0x03 },
@@ -1141,7 +1141,7 @@ const sGame_PaletteDataset DBZEB_DS_ZASSIST[] =
     { L"Launch",                            0x1579AB10, 0x1579AF10 },
     { L"Majin Vegeta",                      0x158DE720, 0x158DEB20 },
     { L"Majuub",                            0x158B8B20, 0x158B8F20 },
-    { L"Master Roshi",                      0x15782D20, 0x15783120 },
+    { L"Master Roshi",                      0x15782D20, 0x15783120, indexDBZEB_ZAssists, 0x39 },
     { L"Mecha Frieza",                      0x1579ECE0, 0x1579F0E0 },
     { L"Mercenary Tao",                     0x1589CEB0, 0x1589D2B0, indexDBZEB_ZAssists, 0x41 },
     { L"Mercenary Tao (Extra 1)",           0x1589CAA0, 0x1589CEA0, indexDBZEB_ZAssists, 0x42 },
@@ -1200,7 +1200,7 @@ const sGame_PaletteDataset DBZEB_DS_TRANSFORMATION_DABURA[] =
     { L"Krillin",                       0x1785280, 0x1785680, indexDBZEB_Krillin, 0x00 },
     { L"Frieza",                        0x18c8f60, 0x18c9360, indexDBZEB_Frieza, 0x00 },
     { L"Gohan",                         0x1a404e0, 0x1a408e0, indexDBZEB_Gohan, 0x00 },
-    { L"Gohan (Super Saiyan)",          0x1bb91d0, 0x1bb95d0, indexDBZEB_Gohan, 0x00 },
+    { L"Gohan (Super Saiyan)",          0x1bb91d0, 0x1bb95d0, indexDBZEB_GohanSSJ1, 0x00 },
     { L"Goku (Super Saiyan God)",       0x1d2ce00, 0x1d2d200, indexDBZEB_GokuSSJG, 0x00 },
     { L"Goku",                          0x1ea07b0, 0x1ea0bb0, indexDBZEB_Goku, 0x00 },
     { L"Goku (Super Saiyan)",           0x2045d10, 0x2046110, indexDBZEB_GokuSSJ1, 0x00 },

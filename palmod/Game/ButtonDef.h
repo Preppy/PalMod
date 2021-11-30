@@ -163,3 +163,7 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_LASTBLADE2 =
     L"Power A", L"Power D", L"Speed A", L"Speed D", L"EX A", L"EX D"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_DANKUGA =
+{
+    L"Punch", L"Kick", L"Start"
+};

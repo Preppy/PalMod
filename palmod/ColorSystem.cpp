@@ -20,25 +20,36 @@ UINT8 GetCbForColMode(ColMode colorMode)
 {
     switch (colorMode)
     {
-    case ColMode::COLMODE_BGR555_LE:
+    case ColMode::COLMODE_BGR333:
+    case ColMode::COLMODE_RBG333:
+    case ColMode::COLMODE_RGB333:
+
+    case ColMode::COLMODE_BGR444:
+    case ColMode::COLMODE_BRG444:
+    case ColMode::COLMODE_RBG444:
     case ColMode::COLMODE_RGB444_BE:
     case ColMode::COLMODE_RGB444_LE:
+
+    case ColMode::COLMODE_BGR555_LE:
     case ColMode::COLMODE_RGB555_LE:
     case ColMode::COLMODE_RGB555_BE:
     case ColMode::COLMODE_RGB555_SHARP:
+
     case ColMode::COLMODE_GRB555_LE:
     case ColMode::COLMODE_RGB666_NEOGEO:
-    case ColMode::COLMODE_RGB333:
         return 2;
-    case ColMode::COLMODE_xBGR888:
-    case ColMode::COLMODE_xGRB888:
-    case ColMode::COLMODE_xRGB888:
+
+    case ColMode::COLMODE_BGR888:
+    case ColMode::COLMODE_BRG888:
+    case ColMode::COLMODE_GRB888:
+    case ColMode::COLMODE_RGB888:
         return 3;
-    case ColMode::COLMODE_ARGB7888:
-    case ColMode::COLMODE_ARGB1888:
-    case ColMode::COLMODE_ARGB1888_32STEPS:
-    case ColMode::COLMODE_ARGB8888:
-    case ColMode::COLMODE_ABGR8888:
+
+    case ColMode::COLMODE_RGBA8887:
+    case ColMode::COLMODE_RGBA8881:
+    case ColMode::COLMODE_RGBA8881_32STEPS:
+    case ColMode::COLMODE_RGBA8888:
+    case ColMode::COLMODE_BGRA8888:
         return 4;
     }
 
@@ -88,6 +99,57 @@ UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag, UINT8 uPossibleColorFlag)
     }
 }
 
+UINT32 CColorSystem::CONV_BGR333_32(UINT16 inCol)
+{
+    // xxxxRRRx GGGxBBBx, where x is 0
+    // conversion code mostly by sega16
+    // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
+    UINT8* palP = (UINT8*)&inCol;
+    UINT8 r = (*palP++ & 14) * 18;
+    UINT8 g = ((*palP & 240) >> 5) * 36;
+    UINT8 b = (*palP & 14) * 18;
+
+    return (0xFF << 24) | (b << 16) | (g << 8) | r;
+}
+
+UINT16 CColorSystem::CONV_32_BGR333(UINT32 inCol)
+{
+    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT16 auxr = ((inCol & 0x000000FF));
+
+    auxr = (auxr + 18) / 36;
+    auxg = (auxg + 18) / 36;
+    auxb = (auxb + 18) / 36;
+
+    return (auxr << 1) | (auxb << 9) | (auxg << 13);
+}
+
+UINT32 CColorSystem::CONV_RBG333_32(UINT16 inCol)
+{
+    // xxxxGGGx BBBxRRRx, where x is 0
+    // conversion code mostly by sega16
+    // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
+    UINT8* palP = (UINT8*)&inCol;
+    UINT8 g = (*palP++ & 14) * 18;
+    UINT8 b = ((*palP & 240) >> 5) * 36;
+    UINT8 r = (*palP & 14) * 18;
+
+    return (0xFF << 24) | (b << 16) | (g << 8) | r;
+}
+
+UINT16 CColorSystem::CONV_32_RBG333(UINT32 inCol)
+{
+    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT16 auxr = ((inCol & 0x000000FF));
+
+    auxr = (auxr + 18) / 36;
+    auxg = (auxg + 18) / 36;
+    auxb = (auxb + 18) / 36;
+
+    return (auxg << 1) | (auxr << 9) | (auxb << 13);
+}
 UINT32 CColorSystem::CONV_RGB333_32(UINT16 inCol)
 {
     // xxxxBBBx GGGxRRRx, where x is 0
@@ -167,6 +229,164 @@ UINT16 CColorSystem::CONV_32_BGR555BE(UINT32 inCol)
     return _byteswap_ushort(CONV_32_BGR555LE(inCol));
 }
 
+UINT32 CColorSystem::CONV_BGR444_32(UINT16 inCol)
+{
+    UINT32 auxr = (inCol & 0xF);
+    UINT32 auxg = (inCol & 0xF0) >> 4;
+    UINT32 auxb = (inCol & 0xF00) >> 8;
+    UINT32 auxa = (inCol & 0xF000) >> 12;
+
+    auxr *= 17;
+    auxg *= 17;
+    auxb *= 17;
+    auxa *= 17;
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT16 CColorSystem::CONV_32_BGR444(UINT32 inCol)
+{
+    UINT16 auxa = ((inCol & 0xFF000000) >> 24);
+    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT16 auxr = ((inCol & 0x000000FF));
+
+    auxr = (UINT16)round(auxr / 17.0);
+    auxg = (UINT16)round(auxg / 17.0);
+    auxb = (UINT16)round(auxb / 17.0);
+
+    auxb = auxb << 8;
+    auxg = auxg << 4;
+    //auxr = auxr;
+
+    if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
+    {
+        auxa = 0;
+    }
+    else
+    {
+        auxa = (UINT16)round(auxa / 17.0);
+        auxa = auxa << 12;
+    }
+
+    return auxb | auxg | auxr | auxa;
+}
+
+UINT32 CColorSystem::CONV_BRG444_32(UINT16 inCol)
+{
+    UINT32 auxg = (inCol & 0xF);
+    UINT32 auxr = (inCol & 0xF0) >> 4;
+    UINT32 auxb = (inCol & 0xF00) >> 8;
+    UINT32 auxa = (inCol & 0xF000) >> 12;
+
+    auxr *= 17;
+    auxg *= 17;
+    auxb *= 17;
+    auxa *= 17;
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT16 CColorSystem::CONV_32_BRG444(UINT32 inCol)
+{
+    UINT16 auxa = ((inCol & 0xFF000000) >> 24);
+    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT16 auxr = ((inCol & 0x000000FF));
+
+    auxr = (UINT16)round(auxr / 17.0);
+    auxg = (UINT16)round(auxg / 17.0);
+    auxb = (UINT16)round(auxb / 17.0);
+
+    //auxb = auxb;
+    auxg = auxg << 8;
+    auxr = auxr << 4;
+
+    if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
+    {
+        auxa = 0;
+    }
+    else
+    {
+        auxa = (UINT16)round(auxa / 17.0);
+        auxa = auxa << 12;
+    }
+
+    return auxb | auxg | auxr | auxa;
+}
+
+UINT32 CColorSystem::CONV_RBG444_32(UINT16 inCol)
+{
+    UINT32 auxg = (inCol & 0xF);
+    UINT32 auxb = (inCol & 0xF0) >> 4;
+    UINT32 auxr = (inCol & 0xF00) >> 8;
+    UINT32 auxa = (inCol & 0xF000) >> 12;
+
+    auxr *= 17;
+    auxg *= 17;
+    auxb *= 17;
+    auxa *= 17;
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT16 CColorSystem::CONV_32_RBG444(UINT32 inCol)
+{
+    UINT16 auxa = ((inCol & 0xFF000000) >> 24);
+    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT16 auxr = ((inCol & 0x000000FF));
+
+    auxr = (UINT16)round(auxr / 17.0);
+    auxg = (UINT16)round(auxg / 17.0);
+    auxb = (UINT16)round(auxb / 17.0);
+
+    auxb = auxb << 4;
+    //auxg = auxg;
+    auxr = auxr << 8;
+
+    if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
+    {
+        auxa = 0;
+    }
+    else
+    {
+        auxa = (UINT16)round(auxa / 17.0);
+        auxa = auxa << 12;
+    }
+
+    return auxb | auxg | auxr | auxa;
+}
 
 UINT32 CColorSystem::CONV_RGB444BE_32(UINT16 inCol)
 {
@@ -582,7 +802,7 @@ UINT16 CColorSystem::SWAP_16(UINT16 palv)
     return aux;
 }
 
-UINT32 CColorSystem::CONV_xBGR888_32(UINT32 inCol)
+UINT32 CColorSystem::CONV_BGR888_32(UINT32 inCol)
 {
     UINT32 auxr = (inCol & 0x00FF0000) >> 16;
     UINT32 auxg = (inCol & 0x0000FF00) >> 8;
@@ -597,7 +817,35 @@ UINT32 CColorSystem::CONV_xBGR888_32(UINT32 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT32 CColorSystem::CONV_32_xBGR888(UINT32 inCol)
+UINT32 CColorSystem::CONV_32_BRG888(UINT32 inCol)
+{
+    UINT32 auxb = (inCol & 0x00FF0000) >> 16;
+    UINT32 auxg = (inCol & 0x0000FF00) >> 8;
+    UINT32 auxr = (inCol & 0x000000FF);
+
+    auxg = auxg << 16;
+    auxr = auxr << 8;
+    auxb = auxb;
+
+    return (auxr | auxg | auxb);
+}
+
+UINT32 CColorSystem::CONV_BRG888_32(UINT32 inCol)
+{
+    UINT32 auxg = (inCol & 0x00FF0000) >> 16;
+    UINT32 auxr = (inCol & 0x0000FF00) >> 8;
+    UINT32 auxb = (inCol & 0x000000FF);
+    UINT32 auxa = 0xFF;
+
+    auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT32 CColorSystem::CONV_32_BGR888(UINT32 inCol)
 {
     UINT32 auxb = (inCol & 0x00FF0000) >> 16;
     UINT32 auxg = (inCol & 0x0000FF00) >> 8;
@@ -610,7 +858,7 @@ UINT32 CColorSystem::CONV_32_xBGR888(UINT32 inCol)
     return (auxr | auxg | auxb);
 }
 
-UINT32 CColorSystem::CONV_xGRB888_32(UINT32 inCol)
+UINT32 CColorSystem::CONV_GRB888_32(UINT32 inCol)
 {
     UINT32 auxb = (inCol & 0x00FF0000) >> 16;
     UINT32 auxr = (inCol & 0x0000FF00) >> 8;
@@ -625,7 +873,7 @@ UINT32 CColorSystem::CONV_xGRB888_32(UINT32 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT32 CColorSystem::CONV_32_xGRB888(UINT32 inCol)
+UINT32 CColorSystem::CONV_32_GRB888(UINT32 inCol)
 {
     UINT32 auxb = (inCol & 0x00FF0000) >> 16;
     UINT32 auxg = (inCol & 0x0000FF00) >> 8;
@@ -638,7 +886,7 @@ UINT32 CColorSystem::CONV_32_xGRB888(UINT32 inCol)
     return (auxr | auxg | auxb);
 }
 
-UINT32 CColorSystem::CONV_xRGB888_32(UINT32 inCol)
+UINT32 CColorSystem::CONV_RGB888_32(UINT32 inCol)
 {
     UINT32 auxb = (inCol & 0x00FF0000) >> 16;
     UINT32 auxg = (inCol & 0x0000FF00) >> 8;
@@ -653,7 +901,7 @@ UINT32 CColorSystem::CONV_xRGB888_32(UINT32 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT32 CColorSystem::CONV_32_xRGB888(UINT32 inCol)
+UINT32 CColorSystem::CONV_32_RGB888(UINT32 inCol)
 {
     UINT32 auxa = 0xFF;
     UINT32 auxb = (inCol & 0x00FF0000) >> 16;
@@ -667,7 +915,7 @@ UINT32 CColorSystem::CONV_32_xRGB888(UINT32 inCol)
     return (auxb | auxg | auxr);
 }
 
-UINT32 CColorSystem::CONV_ARGB1888_32(UINT32 inCol)
+UINT32 CColorSystem::CONV_RGBA8881_32(UINT32 inCol)
 {
     UINT32 auxb = GetBValue(inCol);
     UINT32 auxg = GetGValue(inCol);
@@ -687,7 +935,7 @@ UINT32 CColorSystem::CONV_ARGB1888_32(UINT32 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT32 CColorSystem::CONV_32_ARGB1888(UINT32 inCol)
+UINT32 CColorSystem::CONV_32_RGBA8881(UINT32 inCol)
 {
     UINT32 auxa = (inCol & 0xFF000000) >> 24;
     UINT32 auxb = (inCol & 0x00FF0000) >> 16;
@@ -711,7 +959,7 @@ UINT32 CColorSystem::CONV_32_ARGB1888(UINT32 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT32 CColorSystem::CONV_ARGB7888_32(UINT32 inCol)
+UINT32 CColorSystem::CONV_RGBA8887_32(UINT32 inCol)
 {
     UINT32 auxb = GetBValue(inCol);
     UINT32 auxg = GetGValue(inCol);
@@ -731,7 +979,7 @@ UINT32 CColorSystem::CONV_ARGB7888_32(UINT32 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT32 CColorSystem::CONV_32_ARGB7888(UINT32 inCol)
+UINT32 CColorSystem::CONV_32_RGBA8887(UINT32 inCol)
 {
     UINT32 auxa = (inCol & 0xFF000000) >> 24;
     UINT32 auxb = (inCol & 0x00FF0000) >> 16;
@@ -756,7 +1004,7 @@ UINT32 CColorSystem::CONV_32_ARGB7888(UINT32 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT32 CColorSystem::CONV_ARGB8888_32(UINT32 inCol)
+UINT32 CColorSystem::CONV_RGBA8888_32(UINT32 inCol)
 {
     UINT32 auxb = GetBValue(inCol);
     UINT32 auxg = GetGValue(inCol);
@@ -776,7 +1024,7 @@ UINT32 CColorSystem::CONV_ARGB8888_32(UINT32 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT32 CColorSystem::CONV_32_ARGB8888(UINT32 inCol)
+UINT32 CColorSystem::CONV_32_RGBA8888(UINT32 inCol)
 {
     UINT32 auxa = (inCol & 0xFF000000) >> 24;
     UINT32 auxb = (inCol & 0x00FF0000) >> 16;
@@ -796,7 +1044,7 @@ UINT32 CColorSystem::CONV_32_ARGB8888(UINT32 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT32 CColorSystem::CONV_ABGR8888_32(UINT32 inCol)
+UINT32 CColorSystem::CONV_BGRA8888_32(UINT32 inCol)
 {
     // B<->R
     UINT32 auxb = GetRValue(inCol);
@@ -817,7 +1065,7 @@ UINT32 CColorSystem::CONV_ABGR8888_32(UINT32 inCol)
     return (auxb | auxg | auxr | auxa);
 }
 
-UINT32 CColorSystem::CONV_32_ABGR8888(UINT32 inCol)
+UINT32 CColorSystem::CONV_32_BGRA8888(UINT32 inCol)
 {
     UINT32 auxa = (inCol & 0xFF000000) >> 24;
     UINT32 auxb = (inCol & 0x00FF0000) >> 16;

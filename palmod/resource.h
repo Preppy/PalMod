@@ -245,7 +245,7 @@
 #define ID_FILE_OPEN_BY_GAME            32871
 #define ID_COLORFORMAT_RGB333_BE        32872
 #define ID_LD_SFIII3ARCADEEX            32873
-#define ID_COLORFORMAT_ARGB7888         32874
+#define ID_COLORFORMAT_RGBA8887         32874
 #define ID_TOOLS_REVERSE                32875
 #define ID_ACC_ESCAPE                   32876
 #define ID_LOADDIRECTORY_DANKUGA        32877
@@ -260,19 +260,19 @@
 #define ID_LD_DBFCI                     32886
 #define ID_LD_UNICLR                    32887
 #define ID_LOADDIRECTORY_REDEARTH_31    32888
-#define ID_COLORFORMAT_ARGB8888         32889
-#define ID_COLORFORMAT_ARGB1888         32890
+#define ID_COLORFORMAT_RGBA8888         32889
+#define ID_COLORFORMAT_RGBA8881         32890
 #define ID_TRANSPSETTING_16             32891
 #define ID_TRANSPSETTING_256            32892
 #define ID_FILE_OPENEXTRAS              32893
-#define ID_COLORFORMAT_xRGB888          32894
-#define ID_COLORFORMAT_xBGR888          32895
+#define ID_COLORFORMAT_RGB888          32894
+#define ID_COLORFORMAT_BGR888          32895
 #define ID_FILE_LOADSPRITEFLIPPED       32896
 #define ID_LD_GGXXACR_P                 32897
 #define ID_LD_MBAACC_S                  32898
 #define ID_COLORFORMAT_GRB555_LE        32899
 #define ID_LOADDIRECTORY_REDEARTH_50    32900
-#define ID_COLORFORMAT_ABGR8888         32901
+#define ID_COLORFORMAT_BGRA8888         32901
 #define ID_LD_MAAB                      32902
 #define ID_COLORFORMAT_BGR555_BE        32903
 #define ID_LD_GGXXR_S                   32904
@@ -286,15 +286,23 @@
 #define ID_LD_KOF02UM_S_8888            32912
 #define ID_LD_KOF02UM_S_RGB555          32913
 #define ID_LD_KOF02UM_S_BGR555          32914
-#define ID_COLORFORMAT_xGRB888          32915
+#define ID_COLORFORMAT_GRB888          32915
+#define ID_SETTINGS_CUSTOMCOLOR         32916
+
+#define ID_COLORFORMAT_RBG333           32917
+#define ID_COLORFORMAT_BGR333           32918
+#define ID_COLORFORMAT_RBG444           32919
+#define ID_COLORFORMAT_BRG444           32920
+#define ID_COLORFORMAT_BGR444           32921
+#define ID_COLORFORMAT_BRG888           32922
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32916
-#define _APS_NEXT_CONTROL_VALUE         1040
+#define _APS_NEXT_RESOURCE_VALUE        141
+#define _APS_NEXT_COMMAND_VALUE         32923
+#define _APS_NEXT_CONTROL_VALUE         1055
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif

@@ -26,7 +26,7 @@ private:
     size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
     void SetAlphaModeInternal(AlphaMode NewMode);
-    BOOL SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting);
+    bool SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting);
 
 public:
     CGame_NEOGEO_A(UINT32 nConfirmedROMSize);
@@ -55,7 +55,7 @@ public:
     const sDescTreeNode* GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly);
 
     void SetAlphaMode(AlphaMode NewMode) override;
-    BOOL SetColorMode(ColMode NewMode) override;
+    bool SetColorMode(ColMode NewMode) override;
     bool AllowUpdatingColorFormatForGame() override { return true; }
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);

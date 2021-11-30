@@ -369,27 +369,38 @@ void CPalModDlg::UpdateColorFormatMenu()
         PALWriteOutputOptions currWriteMode = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
         canChangeAlpha = canChangeFormat = GetHost()->GetCurrGame()->AllowUpdatingColorFormatForGame();
 
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR333) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RBG333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RBG333) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB333_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB333) ? MF_CHECKED : MF_UNCHECKED));
+
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR444, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR444) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_BRG444, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BRG444) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RBG444, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RBG444) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB444_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB444_BE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB444_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB444_LE) ? MF_CHECKED : MF_UNCHECKED));
+
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_LE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_BE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR555_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR555_LE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR555_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR555_BE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_SHARPRGB, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_SHARP) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_GRB555_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_GRB555_LE) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB666_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_xRGB888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xRGB888) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_xBGR888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xBGR888) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_xGRB888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_xGRB888) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB1888, 
-            MF_BYCOMMAND | (((currColMode == ColMode::COLMODE_ARGB1888) || (currColMode == ColMode::COLMODE_ARGB1888_32STEPS))? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB7888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB7888) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ARGB8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ARGB8888) ? MF_CHECKED : MF_UNCHECKED));
-        pSettMenu->CheckMenuItem(ID_COLORFORMAT_ABGR8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_ABGR8888) ? MF_CHECKED : MF_UNCHECKED));
 
-        // There's no allowance for alpha with NEOGEO colors
-        canChangeAlpha = canChangeAlpha && (currColMode != ColMode::COLMODE_RGB666_NEOGEO);
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB666_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
+
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR888) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_BRG888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BRG888) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_GRB888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_GRB888) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB888) ? MF_CHECKED : MF_UNCHECKED));
+
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGBA8881, 
+            MF_BYCOMMAND | (((currColMode == ColMode::COLMODE_RGBA8881) || (currColMode == ColMode::COLMODE_RGBA8881_32STEPS))? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGBA8887, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGBA8887) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGBA8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGBA8888) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGRA8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGRA8888) ? MF_CHECKED : MF_UNCHECKED));
+
+        // There's no allowance for alpha with NEOGEO colors, nor with 24-bit color
+        canChangeAlpha = canChangeAlpha && (currColMode != ColMode::COLMODE_RGB666_NEOGEO) && (GetCbForColMode(currColMode) != 3);
         canVaryAlphaSetting = canChangeAlpha && (GetHost()->GetCurrGame()->GameIsUsing32BitColor());
 
         pSettMenu->CheckMenuItem(ID_ALPHASETTING_FIXED, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesFixedAlpha) ? MF_CHECKED : MF_UNCHECKED));
@@ -399,25 +410,72 @@ void CPalModDlg::UpdateColorFormatMenu()
 
         pSettMenu->CheckMenuItem(ID_TRANSPSETTING_16, MF_BYCOMMAND | ((currWriteMode == PALWriteOutputOptions::WRITE_16) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_TRANSPSETTING_256, MF_BYCOMMAND | ((currWriteMode == PALWriteOutputOptions::WRITE_MAX) ? MF_CHECKED : MF_UNCHECKED));
+
+        // jump through some minor hoops to get the bitness popup menus checked appropriately...
+        const int nMenuOptions = pSettMenu->GetMenuItemCount();
+
+        for (int nCurrentMenu = 0; nCurrentMenu < nMenuOptions; nCurrentMenu++)
+        {
+            CString strMenuText;
+
+            pSettMenu->GetMenuString(nCurrentMenu, strMenuText, MF_BYPOSITION);
+
+            if (strMenuText == L"Color Format")
+            {
+                CMenu* pColorFormatMenu = pSettMenu->GetSubMenu(nCurrentMenu); //3 = settings menu
+
+                const int nCFMenuOptions = pColorFormatMenu->GetMenuItemCount();
+                UINT8 cbColorSize = GetCbForColMode(currColMode);
+
+                for (int nCFMItem = 0; nCFMItem < nCFMenuOptions; nCFMItem++)
+                {
+                    pColorFormatMenu->GetMenuString(nCFMItem, strMenuText, MF_BYPOSITION);
+                    if (strMenuText == L"16-bit color")
+                    {
+                        pColorFormatMenu->CheckMenuItem(nCFMItem, MF_BYPOSITION | ((cbColorSize == 2) ? MF_CHECKED : MF_UNCHECKED));
+                    }
+                    else if (strMenuText == L"24-bit color")
+                    {
+                        pColorFormatMenu->CheckMenuItem(nCFMItem, MF_BYPOSITION | ((cbColorSize == 3) ? MF_CHECKED : MF_UNCHECKED));
+                    }
+                    else if (strMenuText == L"32-bit color")
+                    {
+                        pColorFormatMenu->CheckMenuItem(nCFMItem, MF_BYPOSITION | ((cbColorSize == 4) ? MF_CHECKED : MF_UNCHECKED));
+                    }
+                }
+                break;
+            }
+        }
     }
 
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGR333, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RBG333, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB333_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGR444, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_BRG444, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RBG444, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB444_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB444_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
-    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
-    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGR555_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGR555_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_GRB555_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_SHARPRGB, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB666, canChangeFormat ? MF_ENABLED : MF_DISABLED);
-    pSettMenu->EnableMenuItem(ID_COLORFORMAT_xRGB888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
-    pSettMenu->EnableMenuItem(ID_COLORFORMAT_xBGR888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
-    pSettMenu->EnableMenuItem(ID_COLORFORMAT_xGRB888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
-    pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB1888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
-    pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB7888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
-    pSettMenu->EnableMenuItem(ID_COLORFORMAT_ARGB8888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
-    pSettMenu->EnableMenuItem(ID_COLORFORMAT_ABGR8888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGR888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_BRG888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_GRB888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8881, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8887, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGBA8888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGRA8888, canChangeFormat ? MF_ENABLED : MF_DISABLED);
 
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_FIXED, canChangeAlpha ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_ALPHASETTING_UNUSED, canChangeAlpha ? MF_ENABLED : MF_DISABLED);

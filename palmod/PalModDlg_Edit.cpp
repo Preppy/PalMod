@@ -243,7 +243,7 @@ void CPalModDlg::OnEditCopy()
         // You want to update this table so that older or newer versions of PalMod know the bpp of the 
         // copied colors.
         // Here we map the color mode to the poster child game for historical color modes.  For all new
-        // color modes we directly store the color mode the 2nd byte to keep life simple
+        // color modes we directly store the color mode in the 2nd byte to keep life simple
         UINT8 cbColor = 2;
 
         switch (CurrGame->GetColorMode())
@@ -279,24 +279,30 @@ void CPalModDlg::OnEditCopy()
         case ColMode::COLMODE_RGB555_SHARP:
             uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_ARGB1888:
+        case ColMode::COLMODE_RGBA8881:
             cbColor = 4;
             uCopyFlag1 = DBFCI_A + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_ARGB7888:
+        case ColMode::COLMODE_RGBA8887:
             cbColor = 4;
             uCopyFlag1 = GGXXACR_S + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_ARGB8888:
+        case ColMode::COLMODE_RGBA8888:
             cbColor = 4;
             uCopyFlag1 = UNICLR_A + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_xRGB888:
-        case ColMode::COLMODE_xBGR888:
-        case ColMode::COLMODE_xGRB888:
-        case ColMode::COLMODE_ARGB1888_32STEPS:
+        case ColMode::COLMODE_BGR333:
+        case ColMode::COLMODE_RBG333:
+        case ColMode::COLMODE_BGR444:
+        case ColMode::COLMODE_BRG444:
+        case ColMode::COLMODE_RBG444:
+        case ColMode::COLMODE_BGR888:
+        case ColMode::COLMODE_BRG888:
+        case ColMode::COLMODE_GRB888:
+        case ColMode::COLMODE_RGB888:
+        case ColMode::COLMODE_RGBA8881_32STEPS:
         case ColMode::COLMODE_GRB555_LE:
-        case ColMode::COLMODE_ABGR8888:
+        case ColMode::COLMODE_BGRA8888:
         default:
             {
                 // OK, this overflows the 127 character ascii table we use.
@@ -707,19 +713,19 @@ void CPalModDlg::HandlePasteFromPalMod()
             case DBFCI_A:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
-                eColModeForPastedColor = ColMode::COLMODE_ARGB1888;
+                eColModeForPastedColor = ColMode::COLMODE_RGBA8881;
                 break;
             }
             case GGXXACR_S:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
-                eColModeForPastedColor = ColMode::COLMODE_ARGB7888;
+                eColModeForPastedColor = ColMode::COLMODE_RGBA8887;
                 break;
             }
             case UNICLR_A:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
-                eColModeForPastedColor = ColMode::COLMODE_ARGB8888;
+                eColModeForPastedColor = ColMode::COLMODE_RGBA8888;
                 break;
             }
             case COTA_A:

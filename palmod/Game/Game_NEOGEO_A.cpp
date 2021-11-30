@@ -122,7 +122,7 @@ void CGame_NEOGEO_A::SetAlphaMode(AlphaMode NewMode)
     return SetAlphaModeInternal(NewMode);
 }
 
-BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting)
+bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting)
 {
     // ColorMode and AlphaMode need to be loosely tied together.  However, we do want to allow
     // people to override alpha mode for a given color mode.  The logic here allows for this.
@@ -162,39 +162,52 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
 
     switch (NewMode)
     {
+    case ColMode::COLMODE_BGR333:
+    case ColMode::COLMODE_RBG333:
     case ColMode::COLMODE_RGB333:
-    case ColMode::COLMODE_BGR555_LE:
-    case ColMode::COLMODE_BGR555_BE:
+
+    case ColMode::COLMODE_BGR444:
+    case ColMode::COLMODE_BRG444:
+    case ColMode::COLMODE_RBG444:
     case ColMode::COLMODE_RGB444_BE:
     case ColMode::COLMODE_RGB444_LE:
+
+    case ColMode::COLMODE_BGR555_LE:
+    case ColMode::COLMODE_BGR555_BE:
     case ColMode::COLMODE_GRB555_LE:
+
     case ColMode::COLMODE_RGB555_SHARP:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
         m_fGameUsesAlphaValue = false;
         break;
+
     case ColMode::COLMODE_RGB555_LE:
     case ColMode::COLMODE_RGB555_BE:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
         m_fGameUsesAlphaValue = true;
         break;
-    case ColMode::COLMODE_xBGR888:
-    case ColMode::COLMODE_xGRB888:
-    case ColMode::COLMODE_xRGB888:
+
+    case ColMode::COLMODE_BGR888:
+    case ColMode::COLMODE_BRG888:
+    case ColMode::COLMODE_GRB888:
+    case ColMode::COLMODE_RGB888:
         cbRequiredColorSize = 3;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         m_fGameUsesAlphaValue = false;
         break;        
-    case ColMode::COLMODE_ARGB1888:
-    case ColMode::COLMODE_ARGB1888_32STEPS:
-    case ColMode::COLMODE_ARGB7888:
-    case ColMode::COLMODE_ARGB8888:
-    case ColMode::COLMODE_ABGR8888:
+
+    case ColMode::COLMODE_RGBA8881:
+    case ColMode::COLMODE_RGBA8881_32STEPS:
+    case ColMode::COLMODE_RGBA8887:
+    case ColMode::COLMODE_RGBA8888:
+    case ColMode::COLMODE_BGRA8888:
         cbRequiredColorSize = 4;
         suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
         m_fGameUsesAlphaValue = true;
         break;
+
     default: // Something is wrong: reset
         MessageBox(g_appHWnd, L"Warning: unknown color mode was requested. Resetting to default\n", GetHost()->GetAppName(), MB_ICONSTOP);
         __fallthrough;
@@ -243,11 +256,11 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     }
     else
     {
-        return FALSE;
+        return false;
     }
 }
 
-BOOL CGame_NEOGEO_A::SetColorMode(ColMode NewMode)
+bool CGame_NEOGEO_A::SetColorMode(ColMode NewMode)
 {
     // Reset alpha mode since we're switching color formats...
     CRegProc::SetAlphaModeForUnknownGame(AlphaMode::Unknown);

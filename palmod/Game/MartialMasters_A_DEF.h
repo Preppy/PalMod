@@ -735,7 +735,7 @@ const sDescTreeNode MartialMasters_A_UNITS[] =
 
 constexpr auto MartialMasters_A_NUMUNIT = ARRAYSIZE(MartialMasters_A_UNITS);
 
-#define MartialMasters_A_EXTRALOC MartialMasters_A_NUMUNIT
+constexpr auto MartialMasters_A_EXTRALOC = MartialMasters_A_NUMUNIT;
 
 // We extend this array with data groveled from the extensible extras file, if any.
 const stExtraDef MartialMasters_A_EXTRA[] =

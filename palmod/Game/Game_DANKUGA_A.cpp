@@ -72,7 +72,7 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
-    pButtonLabelSet = DEF_NOBUTTONS;
+    pButtonLabelSet = DEF_BUTTONLABEL_DANKUGA;
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];

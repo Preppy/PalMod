@@ -39,20 +39,29 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
 {
     switch (CurrColMode)
     {
+    case ColMode::COLMODE_BGR333:
+    case ColMode::COLMODE_RBG333:
     case ColMode::COLMODE_RGB333:
         return CColorSystem::k_nRGBPlaneAmtForRGB333;
+
+    case ColMode::COLMODE_BGR444:
+    case ColMode::COLMODE_BRG444:
+    case ColMode::COLMODE_RBG444:
     case ColMode::COLMODE_RGB444_BE:
     case ColMode::COLMODE_RGB444_LE:
         return CColorSystem::k_nRGBPlaneAmtForRGB444;
+
     case ColMode::COLMODE_BGR555_LE:
     case ColMode::COLMODE_RGB555_LE:
     case ColMode::COLMODE_RGB555_BE:
     case ColMode::COLMODE_GRB555_LE:
     case ColMode::COLMODE_RGB555_SHARP:
         return CColorSystem::k_nRGBPlaneAmtForRGB555;
+
     case ColMode::COLMODE_RGB666_NEOGEO:
         return CColorSystem::k_nRGBPlaneAmtForNeoGeo;
-    case ColMode::COLMODE_ARGB1888:
+
+    case ColMode::COLMODE_RGBA8881:
         if (Flag == ColFlag::COL_A)
         {
             return CColorSystem::k_nRGBPlaneAmtForRGB111;
@@ -61,7 +70,7 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
         {
             return CColorSystem::k_nRGBPlaneAmtForRGB888;
         }
-    case ColMode::COLMODE_ARGB1888_32STEPS:
+    case ColMode::COLMODE_RGBA8881_32STEPS:
         if (Flag == ColFlag::COL_A)
         {
             return CColorSystem::k_nRGBPlaneAmtForRGB111;
@@ -70,7 +79,7 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
         {
             return CColorSystem::k_nRGBPlaneAmtForRGB555;
         }
-    case ColMode::COLMODE_ARGB7888:
+    case ColMode::COLMODE_RGBA8887:
         if (Flag == ColFlag::COL_A)
         {
             return CColorSystem::k_nRGBPlaneAmtForHalfAlpha;
@@ -79,11 +88,13 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
         {
             return CColorSystem::k_nRGBPlaneAmtForRGB888;
         }
-    case ColMode::COLMODE_ARGB8888:
-    case ColMode::COLMODE_ABGR8888:
-    case ColMode::COLMODE_xBGR888:
-    case ColMode::COLMODE_xGRB888:
-    case ColMode::COLMODE_xRGB888:        
+
+    case ColMode::COLMODE_RGBA8888:
+    case ColMode::COLMODE_BGRA8888:
+    case ColMode::COLMODE_BGR888:
+    case ColMode::COLMODE_BRG888:
+    case ColMode::COLMODE_GRB888:
+    case ColMode::COLMODE_RGB888:        
         return CColorSystem::k_nRGBPlaneAmtForRGB888;
     default:
         return 0;
@@ -160,12 +171,271 @@ void CGameClass::ClearSetImgTicket(sImgTicket* NewImgTicket)
     CurrImgTicket = NewImgTicket;
 }
 
-BOOL CGameClass::SetColorMode(ColMode NewMode)
+bool CGameClass::SetColorMode(ColMode NewMode)
 {
     return _SetColorMode(NewMode);
 }
 
-BOOL CGameClass::_SetColorMode(ColMode NewMode)
+bool CGameClass::_UpdateColorSteps(ColMode NewMode)
+{
+    bool fSuccess = true;
+
+    static_assert((ColMode)24 == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
+
+    switch (NewMode)
+    {
+    case ColMode::COLMODE_BGR333:
+    case ColMode::COLMODE_RBG333:
+    case ColMode::COLMODE_RGB333:
+        m_nSizeOfColorsInBytes = 2;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_8Steps;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_8Steps;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_8Steps;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_8Steps;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB333;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB333;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB333;
+        break;
+
+    default:
+        MessageBox(g_appHWnd, L"Warning: this color doesn't have defined color steps yet.  This is a bug in PalMod.", GetHost()->GetAppName(), MB_ICONERROR);
+        fSuccess = false;
+        __fallthrough;
+
+    case ColMode::COLMODE_BGR444:
+    case ColMode::COLMODE_BRG444:
+    case ColMode::COLMODE_RBG444:
+    case ColMode::COLMODE_RGB444_BE:
+    case ColMode::COLMODE_RGB444_LE:
+        m_nSizeOfColorsInBytes = 2;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_16Steps;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_16Steps;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_16Steps;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_16Steps;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB444;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB444;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB444;
+        break;
+
+    case ColMode::COLMODE_BGR555_LE:
+    case ColMode::COLMODE_BGR555_BE:
+    case ColMode::COLMODE_RGB555_LE:
+    case ColMode::COLMODE_RGB555_BE:
+    case ColMode::COLMODE_GRB555_LE:
+        m_nSizeOfColorsInBytes = 2;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_32Steps;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_32Steps;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB555;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB555;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
+        break;
+
+    case ColMode::COLMODE_RGB555_SHARP:
+        m_nSizeOfColorsInBytes = 2;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps_SharpCLUT;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps_SharpCLUT;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_32Steps_SharpCLUT;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_32Steps_SharpCLUT;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_SharpCLUT;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_SharpCLUT;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
+        break;
+
+    case ColMode::COLMODE_RGB666_NEOGEO:
+        m_nSizeOfColorsInBytes = 2;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_NeoGeoCLUT;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_NeoGeoCLUT;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
+        break;
+
+    case ColMode::COLMODE_RGBA8881:
+        m_nSizeOfColorsInBytes = 4;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_1Step;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_1Step;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB111;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
+        break;
+
+    case ColMode::COLMODE_RGBA8881_32STEPS:
+        m_nSizeOfColorsInBytes = 4;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_1Step;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_1Step;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB111;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
+        break;
+
+    case ColMode::COLMODE_RGBA8887:
+        m_nSizeOfColorsInBytes = 4;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_HalfAlpha;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_HalfAlpha;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_ARGB7888;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
+        break;
+
+    case ColMode::COLMODE_RGBA8888:
+    case ColMode::COLMODE_BGRA8888:
+        m_nSizeOfColorsInBytes = 4;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_256Steps;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_256Steps;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB888;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
+        break;
+
+    case ColMode::COLMODE_BGR888:
+    case ColMode::COLMODE_BRG888:
+    case ColMode::COLMODE_GRB888:
+    case ColMode::COLMODE_RGB888:
+        m_nSizeOfColorsInBytes = 3;
+        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
+        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
+        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_256Steps;
+        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_256Steps;
+        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
+        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB888;
+        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
+        break;
+    }
+
+    return fSuccess;
+}
+
+bool CGameClass::_UpdateColorConverters(ColMode NewMode)
+{
+    bool fSuccess = true;
+
+    static_assert((ColMode)24 == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
+
+    switch (NewMode)
+    {
+    case ColMode::COLMODE_BGR333:
+        ConvPal16 = &CColorSystem::CONV_BGR333_32;
+        ConvCol16 = &CColorSystem::CONV_32_BGR333;
+        break;
+    case ColMode::COLMODE_RBG333:
+        ConvPal16 = &CColorSystem::CONV_RBG333_32;
+        ConvCol16 = &CColorSystem::CONV_32_RBG333;
+        break;
+    case ColMode::COLMODE_RGB333:
+        ConvPal16 = &CColorSystem::CONV_RGB333_32;
+        ConvCol16 = &CColorSystem::CONV_32_RGB333;
+        break;
+
+    case ColMode::COLMODE_BGR444:
+        ConvPal16 = &CColorSystem::CONV_BGR444_32;
+        ConvCol16 = &CColorSystem::CONV_32_BGR444;
+        break;
+    case ColMode::COLMODE_BRG444:
+        ConvPal16 = &CColorSystem::CONV_BRG444_32;
+        ConvCol16 = &CColorSystem::CONV_32_BRG444;
+        break;
+    case ColMode::COLMODE_RBG444:
+        ConvPal16 = &CColorSystem::CONV_RBG444_32;
+        ConvCol16 = &CColorSystem::CONV_32_RBG444;
+        break;
+    case ColMode::COLMODE_RGB444_BE:
+        ConvPal16 = &CColorSystem::CONV_RGB444BE_32;
+        ConvCol16 = &CColorSystem::CONV_32_RGB444BE;
+        break;
+    case ColMode::COLMODE_RGB444_LE:
+        ConvPal16 = &CColorSystem::CONV_RGB444LE_32;
+        ConvCol16 = &CColorSystem::CONV_32_RGB444LE;
+        break;
+
+    case ColMode::COLMODE_BGR555_LE:
+        ConvPal16 = &CColorSystem::CONV_BGR555LE_32;
+        ConvCol16 = &CColorSystem::CONV_32_BGR555LE;
+        break;
+    case ColMode::COLMODE_BGR555_BE:
+        ConvPal16 = &CColorSystem::CONV_BGR555BE_32;
+        ConvCol16 = &CColorSystem::CONV_32_BGR555BE;
+        break;
+    case ColMode::COLMODE_RGB555_LE:
+        ConvPal16 = &CColorSystem::CONV_RGB555LE_32;
+        ConvCol16 = &CColorSystem::CONV_32_RGB555LE;
+        break;
+    case ColMode::COLMODE_RGB555_BE:
+        ConvPal16 = &CColorSystem::CONV_RGB555BE_32;
+        ConvCol16 = &CColorSystem::CONV_32_RGB555BE;
+        break;
+    case ColMode::COLMODE_GRB555_LE:
+        ConvPal16 = &CColorSystem::CONV_GRB555LE_32;
+        ConvCol16 = &CColorSystem::CONV_32_GRB555LE;
+        break;
+
+    case ColMode::COLMODE_RGB555_SHARP:
+        ConvPal16 = &CColorSystem::CONV_RGB555Sharp_32;
+        ConvCol16 = &CColorSystem::CONV_32_RGB555Sharp;
+        break;
+    case ColMode::COLMODE_RGB666_NEOGEO:
+        ConvPal16 = &CColorSystem::CONV_RGB666NeoGeo_32;
+        ConvCol16 = &CColorSystem::CONV_32_RGB666NeoGeo;
+        break;
+
+    case ColMode::COLMODE_RGBA8881:
+        ConvPal32 = &CColorSystem::CONV_RGBA8881_32;
+        ConvCol32 = &CColorSystem::CONV_32_RGBA8881;
+        break;
+    case ColMode::COLMODE_RGBA8881_32STEPS:
+        ConvPal32 = &CColorSystem::CONV_RGBA8881_32;
+        ConvCol32 = &CColorSystem::CONV_32_RGBA8881;
+        break;
+    case ColMode::COLMODE_RGBA8887:
+        ConvPal32 = &CColorSystem::CONV_RGBA8887_32;
+        ConvCol32 = &CColorSystem::CONV_32_RGBA8887;
+        break;
+    case ColMode::COLMODE_RGBA8888:
+        ConvPal32 = &CColorSystem::CONV_RGBA8888_32;
+        ConvCol32 = &CColorSystem::CONV_32_RGBA8888;
+        break;
+    case ColMode::COLMODE_BGRA8888:
+        ConvPal32 = &CColorSystem::CONV_BGRA8888_32;
+        ConvCol32 = &CColorSystem::CONV_32_BGRA8888;
+        break;
+
+    case ColMode::COLMODE_RGB888:
+        ConvPal24 = &CColorSystem::CONV_RGB888_32;
+        ConvCol24 = &CColorSystem::CONV_32_RGB888;
+        break;
+    case ColMode::COLMODE_BGR888:
+        ConvPal24 = &CColorSystem::CONV_BGR888_32;
+        ConvCol24 = &CColorSystem::CONV_32_BGR888;
+        break;
+    case ColMode::COLMODE_BRG888:
+        ConvPal24 = &CColorSystem::CONV_BRG888_32;
+        ConvCol24 = &CColorSystem::CONV_32_BRG888;
+        break;
+    case ColMode::COLMODE_GRB888:
+        ConvPal24 = &CColorSystem::CONV_GRB888_32;
+        ConvCol24 = &CColorSystem::CONV_32_GRB888;
+        break;
+
+    default:
+        fSuccess = false;
+    }
+
+    return fSuccess;
+}
+
+
+bool CGameClass::_SetColorMode(ColMode NewMode)
 {
     if (CurrColMode != NewMode)
     {
@@ -174,227 +444,10 @@ BOOL CGameClass::_SetColorMode(ColMode NewMode)
 
     CurrColMode = NewMode;
 
-    switch (NewMode)
-    {
-    case ColMode::COLMODE_RGB333:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CColorSystem::CONV_RGB333_32;
-        ConvCol16 = &CColorSystem::CONV_32_RGB333;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_8Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_8Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_8Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_8Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB333;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB333;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB333;
-        return TRUE;
-    case ColMode::COLMODE_RGB444_BE:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CColorSystem::CONV_RGB444BE_32;
-        ConvCol16 = &CColorSystem::CONV_32_RGB444BE;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_16Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_16Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_16Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_16Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB444;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB444;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB444;
-        return TRUE;
-    case ColMode::COLMODE_RGB444_LE:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CColorSystem::CONV_RGB444LE_32;
-        ConvCol16 = &CColorSystem::CONV_32_RGB444LE;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_16Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_16Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_16Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_16Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB444;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB444;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB444;
-        return TRUE;
-    case ColMode::COLMODE_BGR555_LE:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CColorSystem::CONV_BGR555LE_32;
-        ConvCol16 = &CColorSystem::CONV_32_BGR555LE;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB555;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB555;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
-        return TRUE;
-    case ColMode::COLMODE_BGR555_BE:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CColorSystem::CONV_BGR555BE_32;
-        ConvCol16 = &CColorSystem::CONV_32_BGR555BE;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB555;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB555;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
-        return TRUE;
-    case ColMode::COLMODE_RGB555_LE:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CColorSystem::CONV_RGB555LE_32;
-        ConvCol16 = &CColorSystem::CONV_32_RGB555LE;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB555;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB555;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
-        return TRUE;
-    case ColMode::COLMODE_RGB555_BE:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CColorSystem::CONV_RGB555BE_32;
-        ConvCol16 = &CColorSystem::CONV_32_RGB555BE;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB555;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB555;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
-        return TRUE;
-    case ColMode::COLMODE_GRB555_LE:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CColorSystem::CONV_GRB555LE_32;
-        ConvCol16 = &CColorSystem::CONV_32_GRB555LE;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB555;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB555;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
-        return TRUE;
-    case ColMode::COLMODE_RGB555_SHARP:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CColorSystem::CONV_RGB555Sharp_32;
-        ConvCol16 = &CColorSystem::CONV_32_RGB555Sharp;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps_SharpCLUT;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps_SharpCLUT;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_32Steps_SharpCLUT;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_32Steps_SharpCLUT;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_SharpCLUT;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_SharpCLUT;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
-        return TRUE;
-    case ColMode::COLMODE_RGB666_NEOGEO:
-        m_nSizeOfColorsInBytes = 2;
-        ConvPal16 = &CColorSystem::CONV_RGB666NeoGeo_32;
-        ConvCol16 = &CColorSystem::CONV_32_RGB666NeoGeo;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_NeoGeoCLUT;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_NeoGeoCLUT;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_NeoGeoCLUT;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_NeoGeoCLUT;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB555;
-        return TRUE;
-    case ColMode::COLMODE_ARGB1888:
-        m_nSizeOfColorsInBytes = 4;
-        ConvPal32 = &CColorSystem::CONV_ARGB1888_32;
-        ConvCol32 = &CColorSystem::CONV_32_ARGB1888;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_1Step;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_1Step;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB111;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
-        return TRUE;
-    case ColMode::COLMODE_ARGB1888_32STEPS:
-        m_nSizeOfColorsInBytes = 4;
-        ConvPal32 = &CColorSystem::CONV_ARGB1888_32;
-        ConvCol32 = &CColorSystem::CONV_32_ARGB1888;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_32Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_32Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_1Step;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_1Step;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB111;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
-        return TRUE;
-    case ColMode::COLMODE_ARGB7888:
-        m_nSizeOfColorsInBytes = 4;
-        ConvPal32 = &CColorSystem::CONV_ARGB7888_32;
-        ConvCol32 = &CColorSystem::CONV_32_ARGB7888;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_HalfAlpha;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_HalfAlpha;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_ARGB7888;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
-        return TRUE;
-    case ColMode::COLMODE_ARGB8888:
-        m_nSizeOfColorsInBytes = 4;
-        ConvPal32 = &CColorSystem::CONV_ARGB8888_32;
-        ConvCol32 = &CColorSystem::CONV_32_ARGB8888;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
-        return TRUE;
-    case ColMode::COLMODE_ABGR8888:
-        m_nSizeOfColorsInBytes = 4;
-        ConvPal32 = &CColorSystem::CONV_ABGR8888_32;
-        ConvCol32 = &CColorSystem::CONV_32_ABGR8888;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
-        return TRUE;
-    case ColMode::COLMODE_xRGB888:
-        m_nSizeOfColorsInBytes = 3;
-        ConvPal24 = &CColorSystem::CONV_xRGB888_32;
-        ConvCol24 = &CColorSystem::CONV_32_xRGB888;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
-        return TRUE;
-    case ColMode::COLMODE_xBGR888:
-        m_nSizeOfColorsInBytes = 3;
-        ConvPal24 = &CColorSystem::CONV_xBGR888_32;
-        ConvCol24 = &CColorSystem::CONV_32_xBGR888;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
-        return TRUE;
-    case ColMode::COLMODE_xGRB888:
-        m_nSizeOfColorsInBytes = 3;
-        ConvPal24 = &CColorSystem::CONV_xGRB888_32;
-        ConvCol24 = &CColorSystem::CONV_32_xGRB888;
-        GetColorStepFor8BitValue_RGB = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_RGB = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetColorStepFor8BitValue_A = &CColorSystem::GetColorStepFor8BitValue_256Steps;
-        Get8BitValueForColorStep_A = &CColorSystem::Get8BitValueForColorStep_256Steps;
-        GetNearestLegal8BitColorValue_RGB = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        GetNearestLegal8BitColorValue_A = &CColorSystem::GetNearestLegalColorValue_RGB888;
-        ValidateColorStep = &CColorSystem::ValidateColorStep_RGB888;
-        return TRUE;
-    default:
-        return FALSE;
-    }
+    bool fUpdatedColorConverters = _UpdateColorConverters(NewMode);
+    bool fUpdatedColorSteps = _UpdateColorSteps(NewMode);
+
+    return fUpdatedColorConverters && fUpdatedColorSteps;
 }
 
 UINT32 CGameClass::GetLowestExpectedPaletteLocation()

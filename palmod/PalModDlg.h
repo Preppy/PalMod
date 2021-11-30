@@ -104,25 +104,37 @@ public:
     void SetColorsPerLineTo8();
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
+
+    void SetColorFormatToBGR333() { SetColorFormatTo(ColMode::COLMODE_BGR333); };
+    void SetColorFormatToRBG333() { SetColorFormatTo(ColMode::COLMODE_RBG333); };
     void SetColorFormatToRGB333() { SetColorFormatTo(ColMode::COLMODE_RGB333); };
+
+    void SetColorFormatToBGR444() { SetColorFormatTo(ColMode::COLMODE_BGR444); };
+    void SetColorFormatToBRG444() { SetColorFormatTo(ColMode::COLMODE_BRG444); };
+    void SetColorFormatToRBG444() { SetColorFormatTo(ColMode::COLMODE_RBG444); };
     void SetColorFormatToRGB444_BE() { SetColorFormatTo(ColMode::COLMODE_RGB444_BE); };
     void SetColorFormatToRGB444_LE() { SetColorFormatTo(ColMode::COLMODE_RGB444_LE); };
-    void SetColorFormatToRGB555_BE() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
-    void SetColorFormatToRGB555_LE() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE); };
+
     void SetColorFormatToBGR555_BE() { SetColorFormatTo(ColMode::COLMODE_BGR555_BE); };
     void SetColorFormatToBGR555_LE() { SetColorFormatTo(ColMode::COLMODE_BGR555_LE); };
+    void SetColorFormatToGRB555_LE() { SetColorFormatTo(ColMode::COLMODE_GRB555_LE); };
+    void SetColorFormatToRGB555_BE() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
+    void SetColorFormatToRGB555_LE() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE); };
+
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
     void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_RGB555_SHARP); };
-    void SetColorFormatToGRB555_LE() { SetColorFormatTo(ColMode::COLMODE_GRB555_LE); };
-    void SetColorFormatToxRGB888() { SetColorFormatTo(ColMode::COLMODE_xRGB888); };
-    void SetColorFormatToxBGR888() { SetColorFormatTo(ColMode::COLMODE_xBGR888); };
-    void SetColorFormatToxGRB888() { SetColorFormatTo(ColMode::COLMODE_xGRB888); };
-    void SetColorFormatToARGB1888() { SetColorFormatTo(ColMode::COLMODE_ARGB1888); };
-    // I'm deliberately not exposing ColMode::COLMODE_ARGB1888_32STEPS here at this point:
+
+    void SetColorFormatToBGR888() { SetColorFormatTo(ColMode::COLMODE_BGR888); };
+    void SetColorFormatToBRG888() { SetColorFormatTo(ColMode::COLMODE_BRG888); };
+    void SetColorFormatToGRB888() { SetColorFormatTo(ColMode::COLMODE_GRB888); };
+    void SetColorFormatToRGB888() { SetColorFormatTo(ColMode::COLMODE_RGB888); };
+
+    void SetColorFormatToRGBA8881() { SetColorFormatTo(ColMode::COLMODE_RGBA8881); };
+    // I'm deliberately not exposing ColMode::COLMODE_RGBA8881_32STEPS here at this point:
     // it's only currently used for MBAACC.
-    void SetColorFormatToARGB7888() { SetColorFormatTo(ColMode::COLMODE_ARGB7888); };
-    void SetColorFormatToARGB8888() { SetColorFormatTo(ColMode::COLMODE_ARGB8888); };
-    void SetColorFormatToABGR8888() { SetColorFormatTo(ColMode::COLMODE_ABGR8888); };
+    void SetColorFormatToRGBA8887() { SetColorFormatTo(ColMode::COLMODE_RGBA8887); };
+    void SetColorFormatToRGBA8888() { SetColorFormatTo(ColMode::COLMODE_RGBA8888); };
+    void SetColorFormatToBGRA8888() { SetColorFormatTo(ColMode::COLMODE_BGRA8888); };
 
     void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption);
     void SetMaximumWriteTo16Colors() { SetMaximumWritePerEachTransparency(PALWriteOutputOptions::WRITE_16); };

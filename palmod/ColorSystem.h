@@ -26,17 +26,26 @@ enum class ColMode
     COLMODE_RGB555_BE,      // RGB555 big endian 
     COLMODE_RGB666_NEOGEO,  // RGB666 using the NeoGeo color table
     COLMODE_RGB333,         // RGB333 for Sega Genesis/MegaDrive
-    COLMODE_ARGB7888,       // 32bit color half alpha (guilty gear)
+    COLMODE_RGBA8887,       // 32bit color half alpha (guilty gear)
     COLMODE_RGB555_SHARP,   // RGB555 using the sharp x68000 color table
-    COLMODE_ARGB1888,       // 32bit color 1 bit alpha
-    COLMODE_ARGB8888,       // 32bit color (uniclr. and modern computing)
-    COLMODE_xRGB888,        // 24bit
-    COLMODE_xBGR888,        // 24bit
-    COLMODE_ARGB1888_32STEPS, // MBAACC: 32 bit color, except only 32 steps
+    COLMODE_RGBA8881,       // 32bit color 1 bit alpha
+    COLMODE_RGBA8888,       // 32bit color (uniclr. and modern computing)
+    COLMODE_RGB888,         // 24bit
+    COLMODE_BGR888,         // 24bit
+    COLMODE_RGBA8881_32STEPS, // MBAACC: 32 bit color, except only 32 steps
     COLMODE_GRB555_LE,      // GRB555 little endian
-    COLMODE_ABGR8888,       // 32bit color (arcana blood)
+    COLMODE_BGRA8888,       // 32bit color (arcana blood)
     COLMODE_BGR555_BE,      // BGR555 big endian: Motorola 68000 games
-    COLMODE_xGRB888,        // 24bit
+    COLMODE_GRB888,         // 24bit
+
+    // This section added for development purposes: not needed for any games yet
+    COLMODE_BGR333,         
+    COLMODE_RBG333,
+    COLMODE_BGR444,
+    COLMODE_BRG444,
+    COLMODE_RBG444,
+    COLMODE_BRG888,
+
     COLMODE_LAST,
 };
 
@@ -73,9 +82,20 @@ public:
     static const int k_nRGBPlaneAmtForHalfAlpha = 0x80;
     static const int k_nRGBPlaneAmtForRGB888 = 255;
 
+    // 16-bit
+    static UINT16 CONV_32_BGR333(UINT32 inCol);
+    static UINT32 CONV_BGR333_32(UINT16 inCol);
+    static UINT16 CONV_32_RBG333(UINT32 inCol);
+    static UINT32 CONV_RBG333_32(UINT16 inCol);
     static UINT16 CONV_32_RGB333(UINT32 inCol);
     static UINT32 CONV_RGB333_32(UINT16 inCol);
 
+    static UINT16 CONV_32_BGR444(UINT32 inCol);
+    static UINT32 CONV_BGR444_32(UINT16 inCol);
+    static UINT16 CONV_32_BRG444(UINT32 inCol);
+    static UINT32 CONV_BRG444_32(UINT16 inCol);
+    static UINT16 CONV_32_RBG444(UINT32 inCol);
+    static UINT32 CONV_RBG444_32(UINT16 inCol);
     static UINT16 CONV_32_RGB444BE(UINT32 inCol);
     static UINT32 CONV_RGB444BE_32(UINT16 inCol);
     static UINT16 CONV_32_RGB444LE(UINT32 inCol);
@@ -98,21 +118,25 @@ public:
     static UINT16 CONV_32_RGB555Sharp(UINT32 inCol);
     static UINT32 CONV_RGB555Sharp_32(UINT16 inCol);
 
-    static UINT32 CONV_32_xRGB888(UINT32 inCol);
-    static UINT32 CONV_xRGB888_32(UINT32 inCol);
-    static UINT32 CONV_32_xBGR888(UINT32 inCol);
-    static UINT32 CONV_xBGR888_32(UINT32 inCol);
-    static UINT32 CONV_32_xGRB888(UINT32 inCol);
-    static UINT32 CONV_xGRB888_32(UINT32 inCol);
+    // 24-bit
+    static UINT32 CONV_32_BGR888(UINT32 inCol);
+    static UINT32 CONV_BGR888_32(UINT32 inCol);
+    static UINT32 CONV_32_BRG888(UINT32 inCol);
+    static UINT32 CONV_BRG888_32(UINT32 inCol);
+    static UINT32 CONV_32_GRB888(UINT32 inCol);
+    static UINT32 CONV_GRB888_32(UINT32 inCol);
+    static UINT32 CONV_32_RGB888(UINT32 inCol);
+    static UINT32 CONV_RGB888_32(UINT32 inCol);
 
-    static UINT32 CONV_32_ARGB1888(UINT32 inCol);
-    static UINT32 CONV_ARGB1888_32(UINT32 inCol);
-    static UINT32 CONV_32_ARGB7888(UINT32 inCol);
-    static UINT32 CONV_ARGB7888_32(UINT32 inCol);
-    static UINT32 CONV_32_ARGB8888(UINT32 inCol);
-    static UINT32 CONV_ARGB8888_32(UINT32 inCol);
-    static UINT32 CONV_32_ABGR8888(UINT32 inCol);
-    static UINT32 CONV_ABGR8888_32(UINT32 inCol);
+    // 32-bit
+    static UINT32 CONV_32_RGBA8881(UINT32 inCol);
+    static UINT32 CONV_RGBA8881_32(UINT32 inCol);
+    static UINT32 CONV_32_RGBA8887(UINT32 inCol);
+    static UINT32 CONV_RGBA8887_32(UINT32 inCol);
+    static UINT32 CONV_32_RGBA8888(UINT32 inCol);
+    static UINT32 CONV_RGBA8888_32(UINT32 inCol);
+    static UINT32 CONV_32_BGRA8888(UINT32 inCol);
+    static UINT32 CONV_BGRA8888_32(UINT32 inCol);
 
     static int GetColorStepFor8BitValue_1Step(int nColorValue);
     static int Get8BitValueForColorStep_1Step(int nColorStep);

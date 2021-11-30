@@ -197,7 +197,7 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     case KOF02UMS_ROMOptions::PSel:
     case KOF02UMS_ROMOptions::Rank:
     case KOF02UMS_ROMOptions::Conte:
-        SetColorMode(ColMode::COLMODE_ARGB7888);
+        SetColorMode(ColMode::COLMODE_RGBA8887);
         break;
     }
 

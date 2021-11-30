@@ -18,7 +18,7 @@ CGame_DBZEB_DS::CGame_DBZEB_DS(UINT32 nConfirmedROMSize)
     };
 
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
-    SetColorMode(ColMode::COLMODE_ARGB8888);
+    SetColorMode(ColMode::COLMODE_RGBA8888);
 
     m_fGameUsesAlphaValue = true;
 

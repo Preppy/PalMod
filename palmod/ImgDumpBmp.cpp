@@ -689,7 +689,7 @@ void CImgDumpBmp::CleanUp()
 
 int CImgDumpBmp::GetImageCountForFirstLine()
 {
-    int nMaxImagesPerLine = GetMaxImagesPerLine();
+    const int nMaxImagesPerLine = GetMaxImagesPerLine();
 
     if (m_nTotalImagesToDisplay > nMaxImagesPerLine)
     {
@@ -715,6 +715,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     case 4: // Garou
         w_mul = 2;
         break;
+    case 3: // DanKuGa
     case 5: // NEOGEO, Jojos
     case 6:
         w_mul = 3;
@@ -735,7 +736,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
         w_mul = 6;
         break;
     default:
-        OutputDebugString(L"CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option.");
+        OutputDebugString(L"CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option.\n");
         __fallthrough;
     case 15:
     case 20: // GGXXACR ex color sets

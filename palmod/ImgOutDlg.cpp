@@ -82,6 +82,9 @@ BOOL CImgOutDlg::OnInitDialog()
     case 2: // MSH, XMvSF
         m_CB_Amt.AddString(L"2");
         break;
+    case 3: // DanKuGa
+        m_CB_Amt.AddString(L"3");
+        break;
     case 4: // Garou
         m_CB_Amt.AddString(L"4");
         break;

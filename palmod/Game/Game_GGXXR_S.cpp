@@ -14,7 +14,7 @@ CGame_GGXXR_S::CGame_GGXXR_S(UINT32 nConfirmedROMSize /* = -1 */)
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
     m_fGameUsesAlphaValue = true;
-    SetColorMode(ColMode::COLMODE_ARGB7888);
+    SetColorMode(ColMode::COLMODE_RGBA8887);
 
     InitializeStatics();
 
