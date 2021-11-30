@@ -4372,7 +4372,7 @@ const sGame_PaletteDataset NGBC_A_CYBERWOO_PALETTES_SD[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_A[] =
 {
-    { L"Goddess Athena A", 0x4236000, 0x4236020, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena A", 0x4236000, 0x4236020, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"A - Super Trail", 0x4236020, 0x4236040, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"A - Extra Move 1", 0x4236040, 0x4236060, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"A - Extra Move 2", 0x4236060, 0x4236080, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4384,7 +4384,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_A[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_B[] =
 {
-    { L"Goddess Athena B", 0x4236100, 0x4236120, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena B", 0x4236100, 0x4236120, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"B - Super Trail", 0x4236120, 0x4236140, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"B - Extra Move 1", 0x4236140, 0x4236160, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"B - Extra Move 2", 0x4236160, 0x4236180, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4396,7 +4396,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_B[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_C[] =
 {
-    { L"Goddess Athena C", 0x4236200, 0x4236220, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena C", 0x4236200, 0x4236220, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"C - Super Trail", 0x4236220, 0x4236240, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"C - Extra Move 1", 0x4236240, 0x4236260, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"C - Extra Move 2", 0x4236260, 0x4236280, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4408,7 +4408,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_C[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_D[] =
 {
-    { L"Goddess Athena D", 0x4236300, 0x4236320, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena D", 0x4236300, 0x4236320, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"D - Super Trail", 0x4236320, 0x4236340, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"D - Extra Move 1", 0x4236340, 0x4236360, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"D - Extra Move 2", 0x4236360, 0x4236380, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4420,7 +4420,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_D[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_EA[] =
 {
-    { L"Goddess Athena EA", 0x4236400, 0x4236420, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena EA", 0x4236400, 0x4236420, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"E+A - Super Trail", 0x4236420, 0x4236440, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"E+A - Extra Move 1", 0x4236440, 0x4236460, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"E+A - Extra Move 2", 0x4236460, 0x4236480, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4432,7 +4432,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_EA[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_EB[] =
 {
-    { L"Goddess Athena EB", 0x4236500, 0x4236520, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena EB", 0x4236500, 0x4236520, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"E+B - Super Trail", 0x4236520, 0x4236540, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"E+B - Extra Move 1", 0x4236540, 0x4236560, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"E+B - Extra Move 2", 0x4236560, 0x4236580, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4444,7 +4444,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_EB[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_EC[] =
 {
-    { L"Goddess Athena EC", 0x4236600, 0x4236620, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena EC", 0x4236600, 0x4236620, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"E+C - Super Trail", 0x4236620, 0x4236640, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"E+C - Extra Move 1", 0x4236640, 0x4236660, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"E+C - Extra Move 2", 0x4236660, 0x4236680, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4456,7 +4456,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_EC[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_ED[] =
 {
-    { L"Goddess Athena ED", 0x4236700, 0x4236720, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena ED", 0x4236700, 0x4236720, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"E+D - Super Trail", 0x4236720, 0x4236740, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"E+D - Extra Move 1", 0x4236740, 0x4236760, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"E+D - Extra Move 2", 0x4236760, 0x4236780, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4468,7 +4468,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_ED[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_SA[] =
 {
-    { L"Goddess Athena SA", 0x4236800, 0x4236820, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena SA", 0x4236800, 0x4236820, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"Start+A - Super Trail", 0x4236820, 0x4236840, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"Start+A - Extra Move 1", 0x4236840, 0x4236860, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"Start+A - Extra Move 2", 0x4236860, 0x4236880, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4480,7 +4480,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_SA[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_SB[] =
 {
-    { L"Goddess Athena SB", 0x4236900, 0x4236920, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena SB", 0x4236900, 0x4236920, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"Start+B - Super Trail", 0x4236920, 0x4236940, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"Start+B - Extra Move 1", 0x4236940, 0x4236960, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"Start+B - Extra Move 2", 0x4236960, 0x4236980, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4492,7 +4492,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_SB[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_SC[] =
 {
-    { L"Goddess Athena SC", 0x4236a00, 0x4236a20, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena SC", 0x4236a00, 0x4236a20, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"Start+C - Super Trail", 0x4236a20, 0x4236a40, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"Start+C - Extra Move 1", 0x4236a40, 0x4236a60, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"Start+C - Extra Move 2", 0x4236a60, 0x4236a80, indexNGBCSprites_GoddessAthena, 0x02 },
@@ -4504,7 +4504,7 @@ const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_SC[] =
 
 const sGame_PaletteDataset NGBC_A_GODDESSATHENA_PALETTES_SD[] =
 {
-    { L"Goddess Athena SD", 0x4236b00, 0x4236b20, indexNGBCSprites_GoddessAthena, 0x00, &pairHandledInCode },
+    { L"Goddess Athena SD", 0x4236b00, 0x4236b20, indexNGBCSprites_GoddessAthena, 0x00, &pairNext2AndNext3 },
     { L"Start+D - Super Trail", 0x4236b20, 0x4236b40, indexNGBCSprites_GoddessAthena, 0x00 },
     { L"Start+D - Extra Move 1", 0x4236b40, 0x4236b60, indexNGBCSprites_GoddessAthena, 0x01 },
     { L"Start+D - Extra Move 2", 0x4236b60, 0x4236b80, indexNGBCSprites_GoddessAthena, 0x02 },

@@ -4997,7 +4997,7 @@ const sGame_PaletteDataset MVC2_A_BBHOOD_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MVC2_A_BBHOOD_PALETTES_EXTRAS[] =
 {
-    { L"09: Bottle", 0x41ab560, 0x41ab580, indexCPS2Sprites_BBHood, 0x07 },
+    { L"09: Cheer and Fire", 0x41ab560, 0x41ab580, indexCPS2Sprites_BBHood, 0x07 },
     { L"0a: Water", 0x41ab580, 0x41ab5a0, indexCPS2Sprites_BBHood, 0x0e },
     { L"0b: Water Puddle", 0x41ab5a0, 0x41ab5c0, indexCPS2Sprites_BBHood, 0x0f },
     { L"0c: LP Cruel Hunting", 0x41ab5c0, 0x41ab5e0, indexCPS2Sprites_BBHood, 0x08 },
@@ -5008,7 +5008,7 @@ const sGame_PaletteDataset MVC2_A_BBHOOD_PALETTES_EXTRAS[] =
     { L"11: A2 Cruel Hunting", 0x41ab660, 0x41ab680, indexCPS2Sprites_BBHood, 0x08 },
     { L"12: Not Used", 0x41ab680, 0x41ab6a0 },
     { L"13: Apple for You", 0x41ab6a0, 0x41ab6c0, indexCPS2Sprites_BBHood, 0xa },
-    { L"14: Man in suit", 0x41ab6c0, 0x41ab6e0, indexCPS2Sprites_BBHood, 0x09 },
+    { L"14: Mr. K", 0x41ab6c0, 0x41ab6e0, indexCPS2Sprites_BBHood, 0x09 },
 };
 
 const sDescTreeNode MVC2_A_BBHOOD_COLLECTION[] =

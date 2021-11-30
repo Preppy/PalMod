@@ -585,7 +585,7 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
         }
         else if (m_nSafeCountForThisRom != nPaletteCountForRom)
         {
-            strError.Format(L"Warning: This game's known palette count (m_nSafeCountForThisRom) should be updated.\n\nNo duplicates were found thankfully.\n");
+            strError.Format(L"Warning: This game's known palette count (m_nSafeCountForThisRom) should be updated.\n\nNo duplicates were found.\n");
             strText.Append(strError);
         }
 

@@ -747,6 +747,10 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Emerald BG24", 0x3222a0, 0x322320, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG25", 0x322320, 0x3223a0, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG26", 0x3223a0, 0x322420, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG27", 0x322420, 0x3224a0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG28", 0x3224a0, 0x322520, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG29", 0x322520, 0x3225a0, indexRedEarthSprites_Bonus, 0x19 },
+    { L"Intro - Emerald BG30", 0x3225a0, 0x322620, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald FX", 0x3216be, 0x32171e },
 
     { L"Intro - Hauzer", 0x3213a0, 0x321420, indexRedEarthSprites_Bonus, 0x07 },

@@ -446,7 +446,7 @@ const sGame_PaletteDataset VHUNT2_A_ZABEL_PALETTES_AK[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_LP[] =
 {
     { L"LP Morrigan", 0x1859a, 0x185ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"LP Idle sparkles/Raging demon", 0x185ba, 0x185da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"LP Sparkles/Darkness Illusion", 0x185ba, 0x185da, indexCPS2Sprites_Morrigan, 0x2 },
     { L"LP Bats", 0x185da, 0x185fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"LP Unknown Extra", 0x185fa, 0x1861a },
 };
@@ -454,7 +454,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_LP[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_MP[] =
 {
     { L"MP Morrigan", 0x1861a, 0x1863a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"MP Idle sparkles/Raging demon", 0x1863a, 0x1865a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"MP Sparkles/Darkness Illusion", 0x1863a, 0x1865a, indexCPS2Sprites_Morrigan, 0x2 },
     { L"MP Bats", 0x1865a, 0x1867a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"MP Unknown Extra", 0x1867a, 0x1869a },
 };
@@ -462,7 +462,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_MP[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_HP[] =
 {
     { L"HP Morrigan", 0x1869a, 0x186ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"HP Idle sparkles/Raging demon", 0x186ba, 0x186da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"HP Sparkles/Darkness Illusion", 0x186ba, 0x186da, indexCPS2Sprites_Morrigan, 0x2 },
     { L"HP Bats", 0x186da, 0x186fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"HP Unknown Extra", 0x186fa, 0x1871a },
 };
@@ -470,7 +470,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_HP[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_LK[] =
 {
     { L"LK Morrigan", 0x1871a, 0x1873a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"LK Idle sparkles/Raging demon", 0x1873a, 0x1875a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"LK Sparkles/Darkness Illusion", 0x1873a, 0x1875a, indexCPS2Sprites_Morrigan, 0x2 },
     { L"LK Bats", 0x1875a, 0x1877a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"LK Unknown Extra", 0x1877a, 0x1879a },
 };
@@ -478,7 +478,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_LK[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_MK[] =
 {
     { L"MK Morrigan", 0x1879a, 0x187ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"MK Idle sparkles/Raging demon", 0x187ba, 0x187da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"MK Sparkles/Darkness Illusion", 0x187ba, 0x187da, indexCPS2Sprites_Morrigan, 0x2 },
     { L"MK Bats", 0x187da, 0x187fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"MK Unknown Extra", 0x187fa, 0x1881a },
 };
@@ -486,7 +486,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_MK[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_HK[] =
 {
     { L"HK Morrigan", 0x1881a, 0x1883a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"HK Idle sparkles/Raging demon", 0x1883a, 0x1885a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"HK Sparkles/Darkness Illusion", 0x1883a, 0x1885a, indexCPS2Sprites_Morrigan, 0x2 },
     { L"HK Bats", 0x1885a, 0x1887a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"HK Unknown Extra", 0x1887a, 0x1889a },
 };
@@ -494,7 +494,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_HK[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_PP[] =
 {
     { L"PP Morrigan", 0x1889a, 0x188ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"PP Idle sparkles/Raging demon", 0x188ba, 0x188da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"PP Sparkles/Darkness Illusion", 0x188ba, 0x188da, indexCPS2Sprites_Morrigan, 0x2 },
     { L"PP Bats", 0x188da, 0x188fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"PP Unknown Extra", 0x188fa, 0x1891a },
 };
@@ -502,7 +502,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_PP[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_KK[] =
 {
     { L"KK Morrigan", 0x1891a, 0x1893a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"KK Idle sparkles/Raging demon", 0x1893a, 0x1895a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"KK Sparkles/Darkness Illusion", 0x1893a, 0x1895a, indexCPS2Sprites_Morrigan, 0x2 },
     { L"KK Bats", 0x1895a, 0x1897a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"KK Unknown Extra", 0x1897a, 0x1899a },
 };
@@ -510,7 +510,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_KK[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_AP[] =
 {
     { L"AP Morrigan", 0x1899a, 0x189ba, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"AP Idle sparkles/Raging demon", 0x189ba, 0x189da, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"AP Sparkles/Darkness Illusion", 0x189ba, 0x189da, indexCPS2Sprites_Morrigan, 0x2 },
     { L"AP Bats", 0x189da, 0x189fa, indexCPS2Sprites_Morrigan, 0x09 },
     { L"AP Unknown Extra", 0x189fa, 0x18a1a },
 };
@@ -518,7 +518,7 @@ const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_AP[] =
 const sGame_PaletteDataset VHUNT2_A_MORRIGAN_PALETTES_AK[] =
 {
     { L"AK Morrigan", 0x18a1a, 0x18a3a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"AK Idle sparkles/Raging demon", 0x18a3a, 0x18a5a, indexCPS2Sprites_Morrigan, 0x2 },
+    { L"AK Sparkles/Darkness Illusion", 0x18a3a, 0x18a5a, indexCPS2Sprites_Morrigan, 0x2 },
     { L"AK Bats", 0x18a5a, 0x18a7a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"AK Unknown Extra", 0x18a7a, 0x18a9a },
 };
@@ -608,7 +608,7 @@ const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_LP[] =
     { L"LP Felicia", 0x18f9a, 0x18fba, indexCPS2Sprites_Felicia, 0x0 },
     { L"LP Helpers/Mouse", 0x18fba, 0x18fda, indexCPS2Sprites_Felicia, 0x09 },
     { L"LP Bubble/Butterfly", 0x18fda, 0x18ffa, indexCPS2Sprites_Felicia, 0x01 },
-    { L"LP Unknown Extra", 0x18ffa, 0x1901a },
+    { L"LP ES Hell Cat", 0x18ffa, 0x1901a, indexCPS2Sprites_Felicia, 0x0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_MP[] =
@@ -616,7 +616,7 @@ const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_MP[] =
     { L"MP Felicia", 0x1901a, 0x1903a, indexCPS2Sprites_Felicia, 0x0 },
     { L"MP Helpers/Mouse", 0x1903a, 0x1905a, indexCPS2Sprites_Felicia, 0x09 },
     { L"MP Bubble/Butterfly", 0x1905a, 0x1907a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"MP Unknown Extra", 0x1907a, 0x1909a },
+    { L"MP ES Hell Cat", 0x1907a, 0x1909a, indexCPS2Sprites_Felicia, 0x0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_HP[] =
@@ -624,7 +624,7 @@ const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_HP[] =
     { L"HP Felicia", 0x1909a, 0x190ba, indexCPS2Sprites_Felicia, 0x0 },
     { L"HP Helpers/Mouse", 0x190ba, 0x190da, indexCPS2Sprites_Felicia, 0x09 },
     { L"HP Bubble/Butterfly", 0x190da, 0x190fa, indexCPS2Sprites_Felicia, 0x01 },
-    { L"HP Unknown Extra", 0x190fa, 0x1911a },
+    { L"HP ES Hell Cat", 0x190fa, 0x1911a, indexCPS2Sprites_Felicia, 0x0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_LK[] =
@@ -632,7 +632,7 @@ const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_LK[] =
     { L"LK Felicia", 0x1911a, 0x1913a, indexCPS2Sprites_Felicia, 0x0 },
     { L"LK Helpers/Mouse", 0x1913a, 0x1915a, indexCPS2Sprites_Felicia, 0x09 },
     { L"LK Bubble/Butterfly", 0x1915a, 0x1917a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"LK Unknown Extra", 0x1917a, 0x1919a },
+    { L"LK ES Hell Cat", 0x1917a, 0x1919a, indexCPS2Sprites_Felicia, 0x0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_MK[] =
@@ -640,7 +640,7 @@ const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_MK[] =
     { L"MK Felicia", 0x1919a, 0x191ba, indexCPS2Sprites_Felicia, 0x0 },
     { L"MK Helpers/Mouse", 0x191ba, 0x191da, indexCPS2Sprites_Felicia, 0x09 },
     { L"MK Bubble/Butterfly", 0x191da, 0x191fa, indexCPS2Sprites_Felicia, 0x01 },
-    { L"MK Unknown Extra", 0x191fa, 0x1921a },
+    { L"MK ES Hell Cat", 0x191fa, 0x1921a, indexCPS2Sprites_Felicia, 0x0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_HK[] =
@@ -648,7 +648,7 @@ const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_HK[] =
     { L"HK Felicia", 0x1921a, 0x1923a, indexCPS2Sprites_Felicia, 0x0 },
     { L"HK Helpers/Mouse", 0x1923a, 0x1925a, indexCPS2Sprites_Felicia, 0x09 },
     { L"HK Bubble/Butterfly", 0x1925a, 0x1927a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"HK Unknown Extra", 0x1927a, 0x1929a },
+    { L"HK ES Hell Cat", 0x1927a, 0x1929a, indexCPS2Sprites_Felicia, 0x0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_PP[] =
@@ -656,7 +656,7 @@ const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_PP[] =
     { L"PP Felicia", 0x1929a, 0x192ba, indexCPS2Sprites_Felicia, 0x0 },
     { L"PP Helpers/Mouse", 0x192ba, 0x192da, indexCPS2Sprites_Felicia, 0x09 },
     { L"PP Bubble/Butterfly", 0x192da, 0x192fa, indexCPS2Sprites_Felicia, 0x01 },
-    { L"PP Unknown Extra", 0x192fa, 0x1931a },
+    { L"PP ES Hell Cat", 0x192fa, 0x1931a, indexCPS2Sprites_Felicia, 0x0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_KK[] =
@@ -664,7 +664,7 @@ const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_KK[] =
     { L"KK Felicia", 0x1931a, 0x1933a, indexCPS2Sprites_Felicia, 0x0 },
     { L"KK Helpers/Mouse", 0x1933a, 0x1935a, indexCPS2Sprites_Felicia, 0x09 },
     { L"KK Bubble/Butterfly", 0x1935a, 0x1937a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"KK Unknown Extra", 0x1937a, 0x1939a },
+    { L"KK ES Hell Cat", 0x1937a, 0x1939a, indexCPS2Sprites_Felicia, 0x0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_AP[] =
@@ -672,7 +672,7 @@ const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_AP[] =
     { L"AP Felicia", 0x1939a, 0x193ba, indexCPS2Sprites_Felicia, 0x0 },
     { L"AP Helpers/Mouse", 0x193ba, 0x193da, indexCPS2Sprites_Felicia, 0x09 },
     { L"AP Bubble/Butterfly", 0x193da, 0x193fa, indexCPS2Sprites_Felicia, 0x01 },
-    { L"AP Unknown Extra", 0x193fa, 0x1941a },
+    { L"AP ES Hell Cat", 0x193fa, 0x1941a, indexCPS2Sprites_Felicia, 0x0 },
 };
 
 const sGame_PaletteDataset VHUNT2_A_FELICIA_PALETTES_AK[] =

@@ -845,7 +845,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_AK[] =
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LP[] =
 {
     { L"LP Morrigan", 0x0daaa, 0x0daca, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"LP Idle sparkles/Raging demon", 0x0daca, 0x0daea, indexCPS2Sprites_Morrigan, 2 },
+    { L"LP Sparkles/Darkness Illusion", 0x0daca, 0x0daea, indexCPS2Sprites_Morrigan, 2 },
     { L"LP Bats", 0x0daea, 0x0db0a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"LP Unknown Extra", 0x0db0a, 0x0db2a },
     { L"LP Select Portrait", 0x2BFAa, 0x2BFCa, indexCPS2Sprites_Morrigan, 0x20 },
@@ -860,7 +860,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LP[] =
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MP[] =
 {
     { L"MP Morrigan", 0x0db2a, 0x0db4a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"MP Idle sparkles/Raging demon", 0x0db4a, 0x0db6a, indexCPS2Sprites_Morrigan, 2 },
+    { L"MP Sparkles/Darkness Illusion", 0x0db4a, 0x0db6a, indexCPS2Sprites_Morrigan, 2 },
     { L"MP Bats", 0x0db6a, 0x0db8a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"MP Unknown Extra", 0x0db8a, 0x0dbaa },
     { L"MP Select Portrait", 0x2C1Aa, 0x2C1Ca, indexCPS2Sprites_Morrigan, 0x20 },
@@ -875,7 +875,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MP[] =
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HP[] =
 {
     { L"HP Morrigan", 0x0dbaa, 0x0dbca, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"HP Idle sparkles/Raging demon", 0x0dbca, 0x0dbea, indexCPS2Sprites_Morrigan, 2 },
+    { L"HP Sparkles/Darkness Illusion", 0x0dbca, 0x0dbea, indexCPS2Sprites_Morrigan, 2 },
     { L"HP Bats", 0x0dbea, 0x0dc0a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"HP Unknown Extra", 0x0dc0a, 0x0dc2a },
     { L"HP Select Portrait", 0x2C3Aa, 0x2C3Ca, indexCPS2Sprites_Morrigan, 0x20 },
@@ -890,7 +890,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HP[] =
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LK[] =
 {
     { L"LK Morrigan", 0x0dc2a, 0x0dc4a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"LK Idle sparkles/Raging demon", 0x0dc4a, 0x0dc6a, indexCPS2Sprites_Morrigan, 2 },
+    { L"LK Sparkles/Darkness Illusion", 0x0dc4a, 0x0dc6a, indexCPS2Sprites_Morrigan, 2 },
     { L"LK Bats", 0x0dc6a, 0x0dc8a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"LK Unknown Extra", 0x0dc8a, 0x0dcaa },
     { L"LK Select Portrait", 0x2C5Aa, 0x2C5Ca, indexCPS2Sprites_Morrigan, 0x20 },
@@ -905,7 +905,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LK[] =
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MK[] =
 {
     { L"MK Morrigan", 0x0dcaa, 0x0dcca, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"MK Idle sparkles/Raging demon", 0x0dcca, 0x0dcea, indexCPS2Sprites_Morrigan, 2 },
+    { L"MK Sparkles/Darkness Illusion", 0x0dcca, 0x0dcea, indexCPS2Sprites_Morrigan, 2 },
     { L"MK Bats", 0x0dcea, 0x0dd0a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"MK Unknown Extra", 0x0dd0a, 0x0dd2a },
     { L"MK Select Portrait", 0x2C7Aa, 0x2C7Ca, indexCPS2Sprites_Morrigan, 0x20 },
@@ -920,7 +920,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MK[] =
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HK[] =
 {
     { L"HK Morrigan", 0x0dd2a, 0x0dd4a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"HK Idle sparkles/Raging demon", 0x0dd4a, 0x0dd6a, indexCPS2Sprites_Morrigan, 2 },
+    { L"HK Sparkles/Darkness Illusion", 0x0dd4a, 0x0dd6a, indexCPS2Sprites_Morrigan, 2 },
     { L"HK Bats", 0x0dd6a, 0x0dd8a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"HK Unknown Extra", 0x0dd8a, 0x0ddaa },
     { L"HK Select Portrait", 0x2C9Aa, 0x2C9Ca, indexCPS2Sprites_Morrigan, 0x20 },
@@ -935,7 +935,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HK[] =
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_PP[] =
 {
     { L"PP Morrigan", 0x0ddaa, 0x0ddca, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"PP Idle sparkles/Raging demon", 0x0ddca, 0x0ddea, indexCPS2Sprites_Morrigan, 2 },
+    { L"PP Sparkles/Darkness Illusion", 0x0ddca, 0x0ddea, indexCPS2Sprites_Morrigan, 2 },
     { L"PP Bats", 0x0ddea, 0x0de0a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"PP Unknown Extra", 0x0de0a, 0x0de2a },
     { L"PP Select Portrait", 0x2CBAa, 0x2CBCa, indexCPS2Sprites_Morrigan, 0x20 },
@@ -950,7 +950,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_PP[] =
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_KK[] =
 {
     { L"KK Morrigan", 0x0de2a, 0x0de4a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"KK Idle sparkles/Raging demon", 0x0de4a, 0x0de6a, indexCPS2Sprites_Morrigan, 2 },
+    { L"KK Sparkles/Darkness Illusion", 0x0de4a, 0x0de6a, indexCPS2Sprites_Morrigan, 2 },
     { L"KK Bats", 0x0de6a, 0x0de8a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"KK Unknown Extra", 0x0de8a, 0x0deaa },
     { L"KK Select Portrait", 0x2CDAa, 0x2CDCa, indexCPS2Sprites_Morrigan, 0x20 },
@@ -965,7 +965,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_KK[] =
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AP[] =
 {
     { L"AP Morrigan", 0x0deaa, 0x0deca, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"AP Idle sparkles/Raging demon", 0x0deca, 0x0deea, indexCPS2Sprites_Morrigan, 2 },
+    { L"AP Sparkles/Darkness Illusion", 0x0deca, 0x0deea, indexCPS2Sprites_Morrigan, 2 },
     { L"AP Bats", 0x0deea, 0x0df0a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"AP Unknown Extra", 0x0df0a, 0x0df2a },
     { L"AP Select Portrait", 0x2CFAa, 0x2CFCa, indexCPS2Sprites_Morrigan, 0x20 },
@@ -980,7 +980,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AP[] =
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AK[] =
 {
     { L"AK Morrigan", 0x0df2a, 0x0df4a, indexCPS2Sprites_Morrigan, 0x00 },
-    { L"AK Idle sparkles/Raging demon", 0x0df4a, 0x0df6a, indexCPS2Sprites_Morrigan, 2 },
+    { L"AK Sparkles/Darkness Illusion", 0x0df4a, 0x0df6a, indexCPS2Sprites_Morrigan, 2 },
     { L"AK Bats", 0x0df6a, 0x0df8a, indexCPS2Sprites_Morrigan, 0x09 },
     { L"AK Unknown Extra", 0x0df8a, 0x0dfaa },
     { L"AK Select Portrait", 0x2D1Aa, 0x2D1Ca, indexCPS2Sprites_Morrigan, 0x20 },
@@ -994,9 +994,9 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AK[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_SHARED[] =
 {
-    { L"Fireball 1/3", 0x01b18a, 0x01b1aa },
-    { L"Fireball 2/3", 0x01b1aa, 0x01b1ca },
-    { L"Fireball 3/3", 0x01b1ca, 0x01b1ea },
+    { L"Soul Fist 1/3", 0x01b18a, 0x01b1aa },
+    { L"Soul Fist 2/3", 0x01b1aa, 0x01b1ca },
+    { L"Soul Fist 3/3", 0x01b1ca, 0x01b1ea },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_LP[] =
@@ -1171,7 +1171,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_LP[] =
     { L"LP Felicia", 0x0e4aa, 0x0e4ca, indexCPS2Sprites_Felicia, 0 },
     { L"LP Helpers/Mouse", 0x0e4ca, 0x0e4ea, indexCPS2Sprites_Felicia, 0x09 },
     { L"LP Bubble/Butterfly", 0x0e4ea, 0x0e50a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"LP Unknown Extra", 0x0e50a, 0x0e52a },
+    { L"LP ES Hell Cat", 0x0e50a, 0x0e52a, indexCPS2Sprites_Felicia, 0x00 },
     { L"LP Select portrait", 0x2BFEa, 0x2C00a, indexCPS2Sprites_Felicia, 0x20 },
     { L"LP Win Portrait", 0x2DA6a, 0x2DB0a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"LP Poisoned", 0x15560 - 0xf6, 0x15580 - 0xf6, indexCPS2Sprites_Felicia },
@@ -1186,7 +1186,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_MP[] =
     { L"MP Felicia", 0x0e52a, 0x0e54a, indexCPS2Sprites_Felicia, 0 },
     { L"MP Helpers/Mouse", 0x0e54a, 0x0e56a, indexCPS2Sprites_Felicia, 0x09 },
     { L"MP Bubble/Butterfly", 0x0e56a, 0x0e58a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"MP Unknown Extra", 0x0e58a, 0x0e5aa },
+    { L"MP ES Hell Cat", 0x0e58a, 0x0e5aa, indexCPS2Sprites_Felicia, 0x00 },
     { L"MP Select Portrait", 0x2C1Ea, 0x2C20a, indexCPS2Sprites_Felicia, 0x20 },
     { L"MP Win Portrait", 0x2E50a, 0x2E5Aa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"MP Poisoned", 0x15580 - 0xf6, 0x155a0 - 0xf6, indexCPS2Sprites_Felicia },
@@ -1201,7 +1201,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_HP[] =
     { L"HP Felicia", 0x0e5aa, 0x0e5ca, indexCPS2Sprites_Felicia, 0 },
     { L"HP Helpers/Mouse", 0x0e5ca, 0x0e5ea, indexCPS2Sprites_Felicia, 0x09 },
     { L"HP Bubble/Butterfly", 0x0e5ea, 0x0e60a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"HP Unknown Extra", 0x0e60a, 0x0e62a },
+    { L"HP ES Hell Cat", 0x0e60a, 0x0e62a, indexCPS2Sprites_Felicia, 0x00 },
     { L"HP Select Portrait", 0x2C3Ea, 0x2C40a, indexCPS2Sprites_Felicia, 0x20 },
     { L"HP Win Portrait", 0x2EFAa, 0x2F04a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"HP Poisoned", 0x155a0 - 0xf6, 0x155c0 - 0xf6, indexCPS2Sprites_Felicia },
@@ -1216,7 +1216,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_LK[] =
     { L"LK Felicia", 0x0e62a, 0x0e64a, indexCPS2Sprites_Felicia, 0 },
     { L"LK Helpers/Mouse", 0x0e64a, 0x0e66a, indexCPS2Sprites_Felicia, 0x09 },
     { L"LK Bubble/Butterfly", 0x0e66a, 0x0e68a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"LK Unknown Extra", 0x0e68a, 0x0e6aa },
+    { L"LK ES Hell Cat", 0x0e68a, 0x0e6aa, indexCPS2Sprites_Felicia, 0x00 },
     { L"LK Select Portrait", 0x2C5Ea, 0x2C60a, indexCPS2Sprites_Felicia, 0x20 },
     { L"LK Win Portrait", 0x2FA4a, 0x2FAEa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"LK Poisoned", 0x155c0 - 0xf6, 0x155e0 - 0xf6, indexCPS2Sprites_Felicia },
@@ -1231,7 +1231,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_MK[] =
     { L"MK Felicia", 0x0e6aa, 0x0e6ca, indexCPS2Sprites_Felicia, 0 },
     { L"MK Helpers/Mouse", 0x0e6ca, 0x0e6ea, indexCPS2Sprites_Felicia, 0x09 },
     { L"MK Bubble/Butterfly", 0x0e6ea, 0x0e70a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"MK Unknown Extra", 0x0e70a, 0x0e72a },
+    { L"MK ES Hell Cat", 0x0e70a, 0x0e72a, indexCPS2Sprites_Felicia, 0x00 },
     { L"MK Select Portrait", 0x2C7Ea, 0x2C80a, indexCPS2Sprites_Felicia, 0x20 },
     { L"MK Win Portrait", 0x304Ea, 0x3058a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"MK Poisoned", 0x155e0 - 0xf6, 0x15600 - 0xf6, indexCPS2Sprites_Felicia },
@@ -1246,7 +1246,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_HK[] =
     { L"HK Felicia", 0x0e72a, 0x0e74a, indexCPS2Sprites_Felicia, 0 },
     { L"HK Helpers/Mouse", 0x0e74a, 0x0e76a, indexCPS2Sprites_Felicia, 0x09 },
     { L"HK Bubble/Butterfly", 0x0e76a, 0x0e78a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"HK Unknown Extra", 0x0e78a, 0x0e7aa },
+    { L"HK ES Hell Cat", 0x0e78a, 0x0e7aa, indexCPS2Sprites_Felicia, 0x00 },
     { L"HK Select Portrait", 0x2C9Ea, 0x2CA0a, indexCPS2Sprites_Felicia, 0x20 },
     { L"HK Win Portrait", 0x30F8a, 0x3102a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"HK Poisoned", 0x15600 - 0xf6, 0x15620 - 0xf6, indexCPS2Sprites_Felicia },
@@ -1261,7 +1261,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_PP[] =
     { L"PP Felicia", 0x0e7aa, 0x0e7ca, indexCPS2Sprites_Felicia, 0 },
     { L"PP Helpers/Mouse", 0x0e7ca, 0x0e7ea, indexCPS2Sprites_Felicia, 0x09 },
     { L"PP Bubble/Butterfly", 0x0e7ea, 0x0e80a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"PP Unknown Extra", 0x0e80a, 0x0e82a },
+    { L"PP ES Hell Cat", 0x0e80a, 0x0e82a, indexCPS2Sprites_Felicia, 0x00 },
     { L"PP Select Portrait", 0x2CBEa, 0x2CC0a, indexCPS2Sprites_Felicia, 0x20 },
     { L"PP Win Portrait", 0x31A2a, 0x31ACa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"PP Poisoned", 0x15620 - 0xf6, 0x15640 - 0xf6, indexCPS2Sprites_Felicia },
@@ -1276,7 +1276,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_KK[] =
     { L"KK Felicia", 0x0e82a, 0x0e84a, indexCPS2Sprites_Felicia, 0 },
     { L"KK Helpers/Mouse", 0x0e84a, 0x0e86a, indexCPS2Sprites_Felicia, 0x09 },
     { L"KK Bubble/Butterfly", 0x0e86a, 0x0e88a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"KK Unknown Extra", 0x0e88a, 0x0e8aa },
+    { L"KK ES Hell Cat", 0x0e88a, 0x0e8aa, indexCPS2Sprites_Felicia, 0x00 },
     { L"KK Select Portrait", 0x2CDEa, 0x2CE0a, indexCPS2Sprites_Felicia, 0x20 },
     { L"KK Win Portrait", 0x324Ca, 0x3256a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"KK Poisoned", 0x15640 - 0xf6, 0x15660 - 0xf6, indexCPS2Sprites_Felicia },
@@ -1291,7 +1291,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_AP[] =
     { L"AP Felicia", 0x0e8aa, 0x0e8ca, indexCPS2Sprites_Felicia, 0 },
     { L"AP Helpers/Mouse", 0x0e8ca, 0x0e8ea, indexCPS2Sprites_Felicia, 0x09 },
     { L"AP Bubble/Butterfly", 0x0e8ea, 0x0e90a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"AP Unknown Extra", 0x0e90a, 0x0e92a },
+    { L"AP ES Hell Cat", 0x0e90a, 0x0e92a, indexCPS2Sprites_Felicia, 0x00 },
     { L"AP Select Portrait", 0x2CFEa, 0x2D00a, indexCPS2Sprites_Felicia, 0x20 },
     { L"AP Win Portrait", 0x32F6a, 0x3300a, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"AP Poisoned", 0x15660 - 0xf6, 0x15680 - 0xf6, indexCPS2Sprites_Felicia },
@@ -1306,7 +1306,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_AK[] =
     { L"AK Felicia", 0x0e92a, 0x0e94a, indexCPS2Sprites_Felicia, 0 },
     { L"AK Helpers/Mouse", 0x0e94a, 0x0e96a, indexCPS2Sprites_Felicia, 0x09 },
     { L"AK Bubble/Butterfly", 0x0e96a, 0x0e98a, indexCPS2Sprites_Felicia, 0x01 },
-    { L"AK Unknown Extra", 0x0e98a, 0x0e9aa },
+    { L"AK ES Hell Cat", 0x0e98a, 0x0e9aa, indexCPS2Sprites_Felicia, 0x00 },
     { L"AK Select Portrait", 0x2D1Ea, 0x2D20a, indexCPS2Sprites_Felicia, 0x20 },
     { L"AK Win Portrait", 0x33A0a, 0x33AAa, indexCPS2Sprites_VSAV1_WinPortraits, indexCPS2Sprites_Felicia },
     { L"AK Poisoned", 0x15680 - 0xf6, 0x156a0 - 0xf6, indexCPS2Sprites_Felicia },
@@ -3282,6 +3282,90 @@ const sGame_PaletteDataset VSAV_A_BONUS_TEXT_PALETTES[] =
     { L"You Lose", 0x2992a, 0x2994a, indexCPS2Sprites_VSAV1_Bonus, 0x15 },
 };
 
+const sGame_PaletteDataset VSAV_A_BONUS_OTHER_PALETTES[] =
+{
+    { L"Score Ranking - Title 1", 0x299aa, 0x299CA },
+    { L"Score Ranking - Title 2", 0x299Ca, 0x299EA },
+    { L"Score Ranking - Title 3", 0x299Ea, 0x29A0A },
+    { L"Score Ranking - Title 4", 0x29A0a, 0x29A2A },
+    { L"Score Ranking - Title 5", 0x29A2a, 0x29A4A },
+    { L"Score Ranking - Title 6", 0x29A4a, 0x29A6A },
+    { L"Score Ranking - Title 7", 0x29A6a, 0x29A8A },
+    { L"Score Ranking - Title 8", 0x29A8a, 0x29AAA },
+    { L"Score Ranking - Title 9", 0x29AAa, 0x29ACA },
+    { L"Score Ranking - Title 10", 0x29ACa, 0x29AEA },
+    { L"Score Ranking - Title 11", 0x29AEa, 0x29B0A },
+    { L"Score Ranking - Title 12", 0x29B0a, 0x29B2A },
+    { L"Score Ranking - Title 13", 0x29B2a, 0x29B4A },
+    { L"Score Ranking - Title 14", 0x29B4a, 0x29B6A },
+    { L"Score Ranking - Title 15", 0x29B6a, 0x29B8A },
+    { L"Score Ranking - Title 16", 0x29B8a, 0x29BAA },
+    { L"Score Ranking - Title 17", 0x29BAa, 0x29BCA },
+    { L"Score Ranking - Title 18", 0x29BCa, 0x29BEA },
+    { L"Score Ranking - Title 19", 0x29BEa, 0x29C0A },
+    { L"Score Ranking - Title 20", 0x29C0a, 0x29C2A },
+    { L"Score Ranking - Title 21", 0x29C2a, 0x29C4A },
+
+    { L"Score Ranking - Rank", 0x23eea, 0x23f0A },
+    { L"Score Ranking - Initials & Score", 0x23eca, 0x23eeA },
+    { L"Score Ranking - Normal/Turbo", 0x23eaa, 0x23ecA },
+
+    { L"Arcade High Score Icons", 0x23baa, 0x23daA },
+    { L"End Credits Character Icons", 0x23f6a, 0x2416A },
+
+    { L"Boss Arcade Icons", 0x23daa, 0x23deA },
+
+    { L"New Challenger 1 Flash 1", 0x283aa, 0x283CA },
+    { L"New Challenger 1 Flash 2", 0x283Ca, 0x283EA },
+    { L"New Challenger 1 Flash 3", 0x283Ea, 0x2840A },
+    { L"New Challenger 1 Flash 4", 0x2840a, 0x2842A },
+    { L"New Challenger 1 Flash 5", 0x2842a, 0x2844A },
+    { L"New Challenger 1 Flash 6", 0x2844a, 0x2846A },
+    { L"New Challenger 1 Flash 7", 0x2846a, 0x2848A },
+    { L"New Challenger 1 Flash 8", 0x2848a, 0x284AA },
+    { L"New Challenger 1 Flash 9", 0x284Aa, 0x284CA },
+    { L"New Challenger 1 Flash 10", 0x284Ca, 0x284EA },
+    { L"New Challenger 1 Flash 11", 0x284Ea, 0x2850A },
+
+    { L"New Challenger 1 Color Cycle 1", 0x2850a, 0x2852A },
+    { L"New Challenger 1 Color Cycle 2", 0x2852a, 0x2854A },
+    { L"New Challenger 1 Color Cycle 3", 0x2854a, 0x2856A },
+    { L"New Challenger 1 Color Cycle 4", 0x2856a, 0x2858A },
+    { L"New Challenger 1 Color Cycle 5", 0x2858a, 0x285AA },
+    { L"New Challenger 1 Color Cycle 6", 0x285Aa, 0x285CA },
+    { L"New Challenger 1 Color Cycle 7", 0x285Ca, 0x285EA },
+    { L"New Challenger 1 Color Cycle 8", 0x285Ea, 0x2860A },
+    { L"New Challenger 1 Color Cycle 9", 0x2860a, 0x2862A },
+    { L"New Challenger 1 Color Cycle 10", 0x2862a, 0x2864A },
+    { L"New Challenger 1 Color Cycle 11", 0x2864a, 0x2866A },
+    { L"New Challenger 1 Color Cycle 12", 0x2866a, 0x2868A },
+
+    { L"New Challenger 2 Flash 1", 0x2868a, 0x286AA },
+    { L"New Challenger 2 Flash 2", 0x286Aa, 0x286CA },
+    { L"New Challenger 2 Flash 3", 0x286Ca, 0x286EA },
+    { L"New Challenger 2 Flash 4", 0x286Ea, 0x2870A },
+    { L"New Challenger 2 Flash 5", 0x2870a, 0x2872A },
+    { L"New Challenger 2 Flash 6", 0x2872a, 0x2874A },
+    { L"New Challenger 2 Flash 7", 0x2874a, 0x2876A },
+    { L"New Challenger 2 Flash 8", 0x2876a, 0x2878A },
+    { L"New Challenger 2 Flash 9", 0x2878a, 0x287AA },
+    { L"New Challenger 2 Flash 10", 0x287Aa, 0x287CA },
+    { L"New Challenger 2 Flash 11", 0x287Ca, 0x287EA },
+
+    { L"New Challenger 2 Color Cycle 1", 0x287ea, 0x2880A },
+    { L"New Challenger 2 Color Cycle 2", 0x2880a, 0x2882A },
+    { L"New Challenger 2 Color Cycle 3", 0x2882a, 0x2884A },
+    { L"New Challenger 2 Color Cycle 4", 0x2884A, 0x2886A },
+    { L"New Challenger 2 Color Cycle 5", 0x2886a, 0x2888A },
+    { L"New Challenger 2 Color Cycle 6", 0x2888a, 0x288AA },
+    { L"New Challenger 2 Color Cycle 7", 0x288Aa, 0x288CA },
+    { L"New Challenger 2 Color Cycle 8", 0x288Ca, 0x288EA },
+    { L"New Challenger 2 Color Cycle 9", 0x288Ea, 0x2890A },
+    { L"New Challenger 2 Color Cycle 10", 0x2890a, 0x2892A },
+    { L"New Challenger 2 Color Cycle 11", 0x2892a, 0x2894A },
+    { L"New Challenger 2 Color Cycle 12", 0x2894a, 0x2896A },
+};
+
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_STATUS[] =
 {
     { L"Bulleta ES 1", 0x120a0 - 0xf6, 0x120c0 - 0xf6, indexCPS2Sprites_BBHood },
@@ -3305,11 +3389,11 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_STATUS[] =
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_SHARED[] =
 {
     { L"Apple for You", 0x1a82a, 0x1a84a, indexCPS2Sprites_BBHood, 0x0a },
-    { L"Man in suit", 0x1a84a, 0x1a86a, indexCPS2Sprites_BBHood, 0x09 },
-    { L"Bottle", 0x1a86a, 0x1a88a, indexCPS2Sprites_BBHood, 0x07 },
+    { L"Mr. K", 0x1a84a, 0x1a86a, indexCPS2Sprites_BBHood, 0x09 },
+    { L"Cheer and Fire", 0x1a86a, 0x1a88a, indexCPS2Sprites_BBHood, 0x07 },
     { L"Water", 0x1ab0a, 0x1ab2a, indexCPS2Sprites_BBHood, 0x0e },
     { L"Water Puddle", 0x1ab2a, 0x1ab4a, indexCPS2Sprites_BBHood, 0x0f },
-    { L"Hunters", 0x1abaa, 0x1abca, indexCPS2Sprites_BBHood, 0x08 },
+    { L"Cruel Hunting", 0x1abaa, 0x1abca, indexCPS2Sprites_BBHood, 0x08 },
     { L"Bulleta P1 Dark Force 1", 0x1abca, 0x1abea, indexCPS2Sprites_BBHood },
     { L"Bulleta P1 Dark Force 2", 0x1abea, 0x1ac0a, indexCPS2Sprites_BBHood },
     { L"Bulleta P1 Dark Force 3", 0x1ac0a, 0x1ac2a, indexCPS2Sprites_BBHood },
@@ -4054,6 +4138,7 @@ const sDescTreeNode VSAV_A_BONUS_COLLECTION[] =
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_CSI_PALETTES, ARRAYSIZE(VSAV_A_BONUS_CSI_PALETTES) },
     { L"Character Select Screen", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_CSS_PALETTES, ARRAYSIZE(VSAV_A_BONUS_CSS_PALETTES) },
     { L"Match Text", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_TEXT_PALETTES, ARRAYSIZE(VSAV_A_BONUS_TEXT_PALETTES) },
+    { L"Other", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_OTHER_PALETTES, ARRAYSIZE(VSAV_A_BONUS_OTHER_PALETTES) },
 };
 
 const sDescTreeNode VSAV_A_UNITS[] =
