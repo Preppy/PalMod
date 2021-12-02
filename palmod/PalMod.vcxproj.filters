@@ -433,6 +433,12 @@
     <Filter Include="Games\Other Platforms\Melty Blood Type Lumina %28Steam%29">
       <UniqueIdentifier>{88ab9e2e-293c-4498-a53e-29040db87191}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Mortal Kombat 1 %28SNES%29">
+      <UniqueIdentifier>{371b5417-1e3d-4b88-b364-8b69b874cea2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Nintendo\Mortal Kombat 2 %28SNES%29">
+      <UniqueIdentifier>{051029cf-bb7f-4f1b-93f4-d29f56aa9eec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -899,6 +905,12 @@
     </ClCompile>
     <ClCompile Include="Game\GameClassByFile.cpp">
       <Filter>Games\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MK2_SNES.cpp">
+      <Filter>Games\Nintendo\Mortal Kombat 2 %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MK1_SNES.cpp">
+      <Filter>Games\Nintendo\Mortal Kombat 1 %28SNES%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1696,6 +1708,18 @@
     </ClInclude>
     <ClInclude Include="Game\GameClassByFile.h">
       <Filter>Games\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MK2_SNES_DEF.h">
+      <Filter>Games\Nintendo\Mortal Kombat 2 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MK2_SNES.h">
+      <Filter>Games\Nintendo\Mortal Kombat 2 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MK1_SNES.h">
+      <Filter>Games\Nintendo\Mortal Kombat 1 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MK1_SNES_DEF.h">
+      <Filter>Games\Nintendo\Mortal Kombat 1 %28SNES%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

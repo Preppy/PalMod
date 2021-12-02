@@ -67,6 +67,8 @@ sSupportedGameList SupportedGameList[] =
     { MMX2_SNES,        L"Mega Man X2 (SNES)", L"Mega Man X2 (SNES)|Mega*Man X2 (USA).s?c|", GamePlatform::Nintendo },
     { MMX3_SNES,        L"Mega Man X3 (SNES)", L"Mega Man X3 (SNES)|Mega*Man X3 (USA).s?c|", GamePlatform::Nintendo },
     { MMPR_SNES,        L"MMPR:TFE (SNES)", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).s?c|", GamePlatform::Nintendo },
+    { MK1_SNES,         L"Mortal Kombat (SNES)", L"Mortal Kombat (SNES)|Mortal Kombat (USA).sfc|", GamePlatform::Nintendo },
+    { MK2_SNES,         L"Mortal Kombat II (SNES)", L"Mortal Kombat 2 (SNES)|MK2 USA.sfc;Mortal Kombat II (USA).sfc|", GamePlatform::Nintendo },
     { MSHVSF_A,         L"MSHVSF", L"MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { MSHWOTG_SNES,     L"MSH: War of the Gems (SNES)", L"MSH: War of the Gems (SNES)|Marvel Super Heroes in War of the Gems (USA).s?c|", GamePlatform::Nintendo },
     // MarvelVsCapcom2.bin

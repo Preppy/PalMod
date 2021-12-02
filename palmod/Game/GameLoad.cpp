@@ -57,6 +57,8 @@
 #include "Game_MAAB_A.h"
 #include "Game_MBAACC_S.h"
 #include "Game_MBTL_A.h"
+#include "Game_MK1_SNES.h"
+#include "Game_MK2_SNES.h"
 #include "Game_MMPR_SNES.h"
 #include "Game_MMX_SNES.h"
 #include "Game_MMX2_SNES.h"
@@ -521,6 +523,16 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_MBTL_A::GetRule;
         GetNextRule = &CGame_MBTL_A::GetNextRule;
 
+        return TRUE;
+    }
+    case MK1_SNES:
+    {
+        GetRule = &CGame_MK1_SNES::GetRule;
+        return TRUE;
+    }
+    case MK2_SNES:
+    {
+        GetRule = &CGame_MK2_SNES::GetRule;
         return TRUE;
     }
     case MMPR_SNES:
@@ -1199,6 +1211,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case MBTL_A:
     {
         return new CGame_MBTL_A(nConfirmedROMSize);
+    }
+    case MK1_SNES:
+    {
+        return new CGame_MK1_SNES(nConfirmedROMSize);
+    }
+    case MK2_SNES:
+    {
+        return new CGame_MK2_SNES(nConfirmedROMSize);
     }
     case MMPR_SNES:
     {

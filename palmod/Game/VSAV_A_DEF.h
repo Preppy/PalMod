@@ -3224,7 +3224,85 @@ const sGame_PaletteDataset VSAV_A_BONUS_TITLES_PALETTES[] =
     { L"Bulleta Intro Flash Palette",   0x2a94a, 0x2a9ca, indexCPS2Sprites_VSAV1_Bonus, 0x02 },
     { L"Bulleta Intro BG",              0x659a2, 0x659c2, indexCPS2Sprites_VSAV1_Bonus, 0x01 },
 
+    { L"Demitri Intro R/B Fade 1", 0x2b22a, 0x2B24A },
+    { L"Demitri Intro R/G Fade 1", 0x2b40a, 0x2B42A },
+    { L"Demitri Intro R/B Fade 2", 0x2B24A, 0x2B26A },
+    { L"Demitri Intro R/G Fade 2", 0x2B42A, 0x2B44A },
+    { L"Demitri Intro R/B Fade 3", 0x2B26A, 0x2B28A },
+    { L"Demitri Intro R/G Fade 3", 0x2B44A, 0x2B46A },
+    { L"Demitri Intro R/B Fade 4", 0x2B28A, 0x2B2AA },
+    { L"Demitri Intro R/G Fade 4", 0x2B46A, 0x2B48A },
+    { L"Demitri Intro R/B Fade 5", 0x2B2AA, 0x2B2CA },
+    { L"Demitri Intro R/G Fade 5", 0x2B48A, 0x2B4AA },
+    { L"Demitri Intro R/B Fade 6", 0x2B2CA, 0x2B2EA },
+    { L"Demitri Intro R/G Fade 6", 0x2B4AA, 0x2B4CA },
+    { L"Demitri Intro R/B Fade 7", 0x2B2EA, 0x2B30A },
+    { L"Demitri Intro R/G Fade 7", 0x2B4CA, 0x2B4EA },
+    { L"Demitri Intro R/B Fade 8", 0x2B30A, 0x2B32A },
+    { L"Demitri Intro R/G Fade 8", 0x2B4EA, 0x2B50A },
+    { L"Demitri Intro R/B Fade 9", 0x2B32A, 0x2B34A },
+    { L"Demitri Intro R/G Fade 9", 0x2B50A, 0x2B52A },
+    { L"Demitri Intro R/B Fade 10", 0x2B34A, 0x2B36A },
+    { L"Demitri Intro R/G Fade 10", 0x2B52A, 0x2B54A },
+    { L"Demitri Intro R/B Fade 11", 0x2B36A, 0x2B38A },
+    { L"Demitri Intro R/G Fade 11", 0x2B54A, 0x2B56A },
+    { L"Demitri Intro R/B Fade 12", 0x2B38A, 0x2B3AA },
+    { L"Demitri Intro R/G Fade 12", 0x2B56A, 0x2B58A },
+    { L"Demitri Intro R/B Fade 13", 0x2B3AA, 0x2B3CA },
+    { L"Demitri Intro R/G Fade 13", 0x2B58A, 0x2B5AA },
+    { L"Demitri Intro R/B Fade 14", 0x2B3CA, 0x2B3EA },
+    { L"Demitri Intro R/G Fade 14", 0x2B5AA, 0x2B5CA },
+    { L"Demitri Intro R/B Fade 15", 0x2B3EA, 0x2B40A },
+    { L"Demitri Intro R/G Fade 15", 0x2B5CA, 0x2B5EA },
+
     { L"Character Select BG",           0x518fa, 0x51a5a, indexCPS2Sprites_VSAV1_Bonus, 0x09 },
+
+    { L"Title Screen - Background", 0x40332, 0x40352 },
+
+    { L"Title Screen - VS Logo 16x16 BG 1", 0x5163a, 0x5165a },
+    { L"Title Screen - VS Logo 16x16 BG 2", 0x491da, 0x491fa },
+    { L"Title Screen - VS Logo 16x16 BG 3", 0x491fa, 0x4921a },
+    { L"Title Screen - VS Logo 32x32 BG 1", 0x65bc2, 0x65be2 },
+    { L"Title Screen - VS Logo 32x32 BG 2", 0x5e9a2, 0x5e9c2 },
+    { L"Title Screen - VS Logo 32x32 BG 3", 0x5e9c2, 0x5e9e2 },
+};
+
+const sGame_PaletteDataset VSAV_A_BONUS_DARKFORCE_PALETTES[] =
+{
+    { L"Stages - Dark Force - 16x16 BG 1", 0x4a0fa, 0x4a29a },
+    { L"Stages - Dark Force - 16x16 BG 2", 0x4a29a, 0x4a41a },
+    { L"Stages - Dark Force - 32x32 BG 1", 0x5d562, 0x5d6e2 },
+    { L"Stages - Dark Force - 32x32 BG 2", 0x5d6e2, 0x5d882 },
+
+    { L"Stages - Dark Force Alt 1 (Unused) - 16x16 BG 1", 0x4a4fa, 0x4a69a },
+    { L"Stages - Dark Force Alt 1 (Unused) - 16x16 BG 2", 0x4a69a, 0x4a81a },
+    { L"Stages - Dark Force Alt 1 (Unused) - 32x32 BG 1", 0x5d962, 0x5dae2 },
+    { L"Stages - Dark Force Alt 1 (Unused) - 32x32 BG 2", 0x5dae2, 0x5dc82 },
+
+    { L"Stages - Dark Force Alt 2 (Unused) - 16x16 BG 1", 0x4a8fa, 0x4aa9a },
+    { L"Stages - Dark Force Alt 2 (Unused) - 16x16 BG 2", 0x4aa9a, 0x4ac1a },
+    { L"Stages - Dark Force Alt 2 (Unused) - 32x32 BG 1", 0x5dd62, 0x5dee2 },
+    { L"Stages - Dark Force Alt 2 (Unused) - 32x32 BG 2", 0x5dee2, 0x5e082 }, 
+};
+
+const sGame_PaletteDataset VSAV_A_BONUS_SEPIA_PALETTES[] =
+{
+    { L"Sepia Select Portraits - Bulleta", 0x2D30A, 0x2D32A },
+    { L"Sepia Select Portraits - Demitri", 0x2D32A, 0x2D34A },
+    { L"Sepia Select Portraits - Gallon", 0x2D34A, 0x2D36A },
+    { L"Sepia Select Portraits - Victor", 0x2D36A, 0x2D38A },
+    { L"Sepia Select Portraits - Zabel", 0x2D38A, 0x2D3AA },
+    { L"Sepia Select Portraits - Morrigan", 0x2D3AA, 0x2D3CA },
+    { L"Sepia Select Portraits - Anakaris", 0x2D3CA, 0x2D3EA },
+    { L"Sepia Select Portraits - Felicia", 0x2D3EA, 0x2D40A },
+    { L"Sepia Select Portraits - Bishamon", 0x2D40A, 0x2D42A },
+    { L"Sepia Select Portraits - Aulbath", 0x2D42A, 0x2D44A },
+    { L"Sepia Select Portraits - Sasquatch", 0x2D44A, 0x2D46A },
+    { L"Sepia Select Portraits - Phobos", 0x2D46A, 0x2D48A },
+    { L"Sepia Select Portraits - Q-Bee", 0x2D48A, 0x2D4AA },
+    { L"Sepia Select Portraits - Lei-Lei", 0x2D4AA, 0x2D4CA },
+    { L"Sepia Select Portraits - Lilith", 0x2D4CA, 0x2D4EA },
+    { L"Sepia Select Portraits - Jedah", 0x2D4EA, 0x2D50A }, 
 };
 
 const sGame_PaletteDataset VSAV_A_BONUS_CSI_PALETTES[] =
@@ -3310,10 +3388,20 @@ const sGame_PaletteDataset VSAV_A_BONUS_OTHER_PALETTES[] =
     { L"Score Ranking - Initials & Score", 0x23eca, 0x23eeA },
     { L"Score Ranking - Normal/Turbo", 0x23eaa, 0x23ecA },
 
+    { L"Score Ranking - Score Ranking BG", 0x51cfa, 0x51d5a },
+    { L"Score Ranking - VS Ranking BG", 0x51e7a, 0x51eda },
+    { L"Score Ranking - Unused Ranking BG", 0x51dba, 0x51e1a },
+
     { L"Arcade High Score Icons", 0x23baa, 0x23daA },
     { L"End Credits Character Icons", 0x23f6a, 0x2416A },
 
     { L"Boss Arcade Icons", 0x23daa, 0x23deA },
+
+    { L"Intro Capcom Logo", 0x402d2, 0x402f2 },
+
+    { L"Morrigan Intro 1 BG", 0x5161A, 0x5163a },
+
+    { L"Q-Bee Intro BG", 0x5189a, 0x518FA },
 
     { L"New Challenger 1 Flash 1", 0x283aa, 0x283CA },
     { L"New Challenger 1 Flash 2", 0x283Ca, 0x283EA },
@@ -4126,19 +4214,20 @@ const sDescTreeNode VSAV_A_PHOBOS_COLLECTION[] =
     //{ L"AK", DESC_NODETYPE_TREE, (void*)VSAV_A_PHOBOS_PALETTES_AK,         ARRAYSIZE(VSAV_A_PHOBOS_PALETTES_AK) },
 };
 
-
 const sDescTreeNode VSAV_A_BONUS_COLLECTION[] =
 {
-    { L"HUD",        DESC_NODETYPE_TREE, (void*)VSAV_A_HUD_PALETTES,     ARRAYSIZE(VSAV_A_HUD_PALETTES) },
-    { L"HUD (Player 1 Side)", DESC_NODETYPE_TREE, (void*)VSAV_A_HUD_P1_PALETTES, ARRAYSIZE(VSAV_A_HUD_P1_PALETTES) },
-    { L"HUD (Player 2 Side)", DESC_NODETYPE_TREE, (void*)VSAV_A_HUD_P2_PALETTES, ARRAYSIZE(VSAV_A_HUD_P2_PALETTES) },
-    { L"Effects",    DESC_NODETYPE_TREE, (void*)VSAV_A_EFFECTS_PALETTES,  ARRAYSIZE(VSAV_A_EFFECTS_PALETTES) },
-    { L"Shadow",     DESC_NODETYPE_TREE, (void*)VSAV_A_SHADOW_PALETTES,  ARRAYSIZE(VSAV_A_SHADOW_PALETTES) },
-    { L"Title/Select Screen", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_TITLES_PALETTES,  ARRAYSIZE(VSAV_A_BONUS_TITLES_PALETTES) },
-    { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_CSI_PALETTES, ARRAYSIZE(VSAV_A_BONUS_CSI_PALETTES) },
-    { L"Character Select Screen", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_CSS_PALETTES, ARRAYSIZE(VSAV_A_BONUS_CSS_PALETTES) },
-    { L"Match Text", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_TEXT_PALETTES, ARRAYSIZE(VSAV_A_BONUS_TEXT_PALETTES) },
-    { L"Other", DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_OTHER_PALETTES, ARRAYSIZE(VSAV_A_BONUS_OTHER_PALETTES) },
+    { L"HUD",                       DESC_NODETYPE_TREE, (void*)VSAV_A_HUD_PALETTES,     ARRAYSIZE(VSAV_A_HUD_PALETTES) },
+    { L"HUD (Player 1 Side)",       DESC_NODETYPE_TREE, (void*)VSAV_A_HUD_P1_PALETTES, ARRAYSIZE(VSAV_A_HUD_P1_PALETTES) },
+    { L"HUD (Player 2 Side)",       DESC_NODETYPE_TREE, (void*)VSAV_A_HUD_P2_PALETTES, ARRAYSIZE(VSAV_A_HUD_P2_PALETTES) },
+    { L"Effects",                   DESC_NODETYPE_TREE, (void*)VSAV_A_EFFECTS_PALETTES,  ARRAYSIZE(VSAV_A_EFFECTS_PALETTES) },
+    { L"Shadow",                    DESC_NODETYPE_TREE, (void*)VSAV_A_SHADOW_PALETTES,  ARRAYSIZE(VSAV_A_SHADOW_PALETTES) },
+    { L"Dark Force",                DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_DARKFORCE_PALETTES,  ARRAYSIZE(VSAV_A_BONUS_DARKFORCE_PALETTES) },
+    { L"Title/Select Screen",       DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_TITLES_PALETTES,  ARRAYSIZE(VSAV_A_BONUS_TITLES_PALETTES) },
+    { L"Character Select Icons",    DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_CSI_PALETTES, ARRAYSIZE(VSAV_A_BONUS_CSI_PALETTES) },
+    { L"Character Select Screen",   DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_CSS_PALETTES, ARRAYSIZE(VSAV_A_BONUS_CSS_PALETTES) },
+    { L"Match Text",                DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_TEXT_PALETTES, ARRAYSIZE(VSAV_A_BONUS_TEXT_PALETTES) },
+    { L"Sepia Portraits",           DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_SEPIA_PALETTES, ARRAYSIZE(VSAV_A_BONUS_SEPIA_PALETTES) },
+    { L"Other",                     DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_OTHER_PALETTES, ARRAYSIZE(VSAV_A_BONUS_OTHER_PALETTES) },
 };
 
 const sDescTreeNode VSAV_A_UNITS[] =

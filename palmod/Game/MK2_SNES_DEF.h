@@ -1,0 +1,246 @@
+#pragma once
+
+// To add characters or palette lists:
+// * If you need a new character, add them to MK2_SNES_UNITS.
+// * Add an associated collection of their respective nodes
+// * or expand nodes as needed
+// * Then create the set of palettes for that character
+// That should be it.  Good luck.
+
+const std::vector<UINT16> MK2_SNES_IMGIDS_USED =
+{
+    // stub
+    indexJoJoRPGSprites_Enemies,         // 0xA6
+};
+
+const sGame_PaletteDataset MK2_SNES_LIUKANG_P1_PALETTES[] =
+{
+    { L"Liu Kang P1", 0x2fc24e, 0x2fc26e },
+};
+
+const sGame_PaletteDataset MK2_SNES_LIUKANG_P2_PALETTES[] =
+{
+    { L"Liu Kang P2", 0x2fc22e, 0x2fc24e },
+};
+
+const sGame_PaletteDataset MK2_SNES_KUNGLAO_P1_PALETTES[] =
+{
+    { L"Kung Lao P1", 0x2fd190, 0x2fd1b0 },
+};
+
+const sGame_PaletteDataset MK2_SNES_KUNGLAO_P2_PALETTES[] =
+{
+    { L"Kung Lao P2", 0x2fd1b0, 0x2fd1d0 },
+};
+
+const sGame_PaletteDataset MK2_SNES_JONNYCAGE_P1_PALETTES[] =
+{
+    { L"Jonny Cage P1", 0x2f88be, 0x2f88de },
+};
+
+const sGame_PaletteDataset MK2_SNES_JONNYCAGE_P2_PALETTES[] =
+{
+    { L"Jonny Cage P2", 0x2f88de, 0x2f88fe },
+};
+
+const sGame_PaletteDataset MK2_SNES_REPTILE_P1_PALETTES[] =
+{
+    { L"Reptile P1", 0x2f3ece, 0x2f3eee },
+};
+
+const sGame_PaletteDataset MK2_SNES_REPTILE_P2_PALETTES[] =
+{
+    { L"Reptile P2", 0x2f3f2e, 0x2f3f4e },
+};
+
+const sGame_PaletteDataset MK2_SNES_SUBZERO_P1_PALETTES[] =
+{
+    { L"Sub-Zero P1", 0x2f3eae, 0x2f3ece },
+};
+
+const sGame_PaletteDataset MK2_SNES_SUBZERO_P2_PALETTES[] =
+{
+    { L"Sub-Zero P2", 0x2f3f0e, 0x2f3f2e },
+};
+
+const sGame_PaletteDataset MK2_SNES_SHANGTSUNG_P1_PALETTES[] =
+{
+    { L"Shang Tsung P1", 0xe7d9f, 0xe7dbf },
+};
+
+const sGame_PaletteDataset MK2_SNES_SHANGTSUNG_P2_PALETTES[] =
+{
+    { L"Shang Tsung P2", 0xe7dbf, 0xe7ddf },
+};
+
+const sGame_PaletteDataset MK2_SNES_KITANA_P1_PALETTES[] =
+{
+    { L"Kitana P1", 0x2f9173, 0x2f9193 },
+};
+
+const sGame_PaletteDataset MK2_SNES_KITANA_P2_PALETTES[] =
+{
+    { L"Kitana P2", 0x2f9193, 0x2f91b3 },
+};
+
+const sGame_PaletteDataset MK2_SNES_JAX_P1_PALETTES[] =
+{
+    { L"Jax P1", 0x2fd570, 0x2fd590 },
+};
+
+const sGame_PaletteDataset MK2_SNES_JAX_P2_PALETTES[] =
+{
+    { L"Jax P2", 0x2fd550, 0x2fd570 },
+};
+
+const sGame_PaletteDataset MK2_SNES_MILEENA_P1_PALETTES[] =
+{
+    { L"Mileena P1", 0x2f91b3, 0x2f91d3 },
+};
+
+const sGame_PaletteDataset MK2_SNES_MILEENA_P2_PALETTES[] =
+{
+    { L"Mileena P2", 0x2f91d3, 0x2f91f3 },
+};
+
+const sGame_PaletteDataset MK2_SNES_BARAKA_P1_PALETTES[] =
+{
+    { L"Baraka P1", 0x2fcad4, 0x2fcaf4 },
+};
+
+const sGame_PaletteDataset MK2_SNES_BARAKA_P2_PALETTES[] =
+{
+    { L"Baraka P2", 0x2fcaf4, 0x2fcb14 },
+};
+
+const sGame_PaletteDataset MK2_SNES_SCORPION_P1_PALETTES[] =
+{
+    { L"Scorpion P1", 0x2f3eee, 0x2f3f0e },
+};
+
+const sGame_PaletteDataset MK2_SNES_SCORPION_P2_PALETTES[] =
+{
+    { L"Scorpion P2", 0x2f3f4e, 0x2f3f6e },
+};
+
+const sGame_PaletteDataset MK2_SNES_RAYDEN_P1_PALETTES[] =
+{
+    { L"Rayden P1", 0x2fcbb4, 0x2fcbd4 },
+};
+
+const sGame_PaletteDataset MK2_SNES_RAYDEN_P2_PALETTES[] =
+{
+    { L"Rayden P2", 0x2fcbd4, 0x2fcbf4 },
+};
+
+const sGame_PaletteDataset MK2_SNES_JADE_PALETTES[] =
+{
+    { L"Jade", 0x2f91f3, 0x2f9213 },
+};
+
+const sDescTreeNode MK2_SNES_LIUKANG_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_LIUKANG_P1_PALETTES, ARRAYSIZE(MK2_SNES_LIUKANG_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_LIUKANG_P2_PALETTES, ARRAYSIZE(MK2_SNES_LIUKANG_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_KUNGLAO_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_KUNGLAO_P1_PALETTES, ARRAYSIZE(MK2_SNES_KUNGLAO_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_KUNGLAO_P2_PALETTES, ARRAYSIZE(MK2_SNES_KUNGLAO_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_JONNYCAGE_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_JONNYCAGE_P1_PALETTES, ARRAYSIZE(MK2_SNES_JONNYCAGE_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_JONNYCAGE_P2_PALETTES, ARRAYSIZE(MK2_SNES_JONNYCAGE_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_REPTILE_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_REPTILE_P1_PALETTES, ARRAYSIZE(MK2_SNES_REPTILE_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_REPTILE_P2_PALETTES, ARRAYSIZE(MK2_SNES_REPTILE_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_SUBZERO_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_SUBZERO_P1_PALETTES, ARRAYSIZE(MK2_SNES_SUBZERO_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_SUBZERO_P2_PALETTES, ARRAYSIZE(MK2_SNES_SUBZERO_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_SHANGTSUNG_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_SHANGTSUNG_P1_PALETTES, ARRAYSIZE(MK2_SNES_SHANGTSUNG_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_SHANGTSUNG_P2_PALETTES, ARRAYSIZE(MK2_SNES_SHANGTSUNG_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_KITANA_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_KITANA_P1_PALETTES, ARRAYSIZE(MK2_SNES_KITANA_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_KITANA_P2_PALETTES, ARRAYSIZE(MK2_SNES_KITANA_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_JAX_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_JAX_P1_PALETTES, ARRAYSIZE(MK2_SNES_JAX_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_JAX_P2_PALETTES, ARRAYSIZE(MK2_SNES_JAX_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_MILEENA_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_MILEENA_P1_PALETTES, ARRAYSIZE(MK2_SNES_MILEENA_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_MILEENA_P2_PALETTES, ARRAYSIZE(MK2_SNES_MILEENA_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_BARAKA_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_BARAKA_P1_PALETTES, ARRAYSIZE(MK2_SNES_BARAKA_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_BARAKA_P2_PALETTES, ARRAYSIZE(MK2_SNES_BARAKA_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_SCORPION_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_SCORPION_P1_PALETTES, ARRAYSIZE(MK2_SNES_SCORPION_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_SCORPION_P2_PALETTES, ARRAYSIZE(MK2_SNES_SCORPION_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_RAYDEN_COLLECTION[] =
+{
+    { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_RAYDEN_P1_PALETTES, ARRAYSIZE(MK2_SNES_RAYDEN_P1_PALETTES) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_RAYDEN_P2_PALETTES, ARRAYSIZE(MK2_SNES_RAYDEN_P2_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_JADE_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MK2_SNES_JADE_PALETTES, ARRAYSIZE(MK2_SNES_JADE_PALETTES) },
+};
+
+const sDescTreeNode MK2_SNES_UNITS[] =
+{
+    { L"Liu Kang", DESC_NODETYPE_TREE, (void*)MK2_SNES_LIUKANG_COLLECTION, ARRAYSIZE(MK2_SNES_LIUKANG_COLLECTION) },
+    { L"Kung Lao", DESC_NODETYPE_TREE, (void*)MK2_SNES_KUNGLAO_COLLECTION, ARRAYSIZE(MK2_SNES_KUNGLAO_COLLECTION) },
+    { L"Jonny Cage", DESC_NODETYPE_TREE, (void*)MK2_SNES_JONNYCAGE_COLLECTION, ARRAYSIZE(MK2_SNES_JONNYCAGE_COLLECTION) },
+    { L"Reptile", DESC_NODETYPE_TREE, (void*)MK2_SNES_REPTILE_COLLECTION, ARRAYSIZE(MK2_SNES_REPTILE_COLLECTION) },
+    { L"Sub-Zero", DESC_NODETYPE_TREE, (void*)MK2_SNES_SUBZERO_COLLECTION, ARRAYSIZE(MK2_SNES_SUBZERO_COLLECTION) },
+    { L"Shang Tsung", DESC_NODETYPE_TREE, (void*)MK2_SNES_SHANGTSUNG_COLLECTION, ARRAYSIZE(MK2_SNES_SHANGTSUNG_COLLECTION) },
+    { L"Kitana", DESC_NODETYPE_TREE, (void*)MK2_SNES_KITANA_COLLECTION, ARRAYSIZE(MK2_SNES_KITANA_COLLECTION) },
+    { L"Jax", DESC_NODETYPE_TREE, (void*)MK2_SNES_JAX_COLLECTION, ARRAYSIZE(MK2_SNES_JAX_COLLECTION) },
+    { L"Mileena", DESC_NODETYPE_TREE, (void*)MK2_SNES_MILEENA_COLLECTION, ARRAYSIZE(MK2_SNES_MILEENA_COLLECTION) },
+    { L"Baraka", DESC_NODETYPE_TREE, (void*)MK2_SNES_BARAKA_COLLECTION, ARRAYSIZE(MK2_SNES_BARAKA_COLLECTION) },
+    { L"Scorpion", DESC_NODETYPE_TREE, (void*)MK2_SNES_SCORPION_COLLECTION, ARRAYSIZE(MK2_SNES_SCORPION_COLLECTION) },
+    { L"Rayden", DESC_NODETYPE_TREE, (void*)MK2_SNES_RAYDEN_COLLECTION, ARRAYSIZE(MK2_SNES_RAYDEN_COLLECTION) },
+    { L"Jade", DESC_NODETYPE_TREE, (void*)MK2_SNES_JADE_COLLECTION, ARRAYSIZE(MK2_SNES_JADE_COLLECTION) },
+};
+
+constexpr auto MK2_SNES_NUMUNIT = ARRAYSIZE(MK2_SNES_UNITS);
+
+constexpr auto MK2_SNES_EXTRALOC = MK2_SNES_NUMUNIT;
+
+// We extend this array with data groveled from the extensible extras file, if any.
+const stExtraDef MK2_SNES_EXTRA[] =
+{
+    // Start
+    { UNIT_START_VALUE },
+
+    { INVALID_UNIT_VALUE }
+};
