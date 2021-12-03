@@ -53,6 +53,30 @@ const std::vector <LPCWSTR> MBTLPaletteNamesNormal =
     L"8",
     L"9",
     L"10",
+	
+    L"11",
+    L"12",
+    L"13",
+    L"14",
+    L"15",
+
+    L"16",
+    L"17",
+    L"18",
+    L"19",
+    L"20",
+	
+    L"21",
+    L"22",
+    L"23",
+    L"24",
+    L"25",
+
+    L"26",
+    L"27",
+    L"28",
+    L"29",
+    L"30",
 };
 
 struct MBTLFileData
@@ -83,7 +107,7 @@ std::vector <MBTLFileData> MBTLCharacterData =
     { L"data\\_csel\\Chr009.pal",       L"Vlov",                                   61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Vlov },
 
     { L"data\\chr011\\Chr011_p1.pal",   L"Ciel (Arc Drive/Last Arc)",              61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_CielSupers },
-    { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Mask Shiki)",                     61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_HisuiMaskShiki },
+    { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Mask Shiki)",                     61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Shiki },
 };
 
 CGame_MBTL_A::CGame_MBTL_A(UINT32 nConfirmedROMSize /* = -1 */)
