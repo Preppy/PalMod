@@ -821,6 +821,10 @@ void CGameClass::UpdatePalData()
             {
                 PostSetPal(srcDef->uUnitId, srcDef->uPalId);
             }
+            else
+            {
+                GetHost()->GetPalModDlg()->SetStatusText(L"Updated.");
+            }
         }
     }
 }

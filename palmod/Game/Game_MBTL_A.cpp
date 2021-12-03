@@ -422,8 +422,53 @@ BOOL CGame_MBTL_A::SaveFile(CFile* SaveFile, size_t nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format(L"CGameClass::SaveFile: Saved 0x%x palettes to disk for unit %u\n", nTotalPalettesSaved, nUnitId);
+    strMsg.Format(L"CGame_MBTL_A::SaveFile: Saved 0x%x palettes to disk for unit %u\n", nTotalPalettesSaved, nUnitId);
     OutputDebugString(strMsg);
 
     return TRUE;
+}
+
+void CGame_MBTL_A::PostSetPal(size_t nUnitId, size_t nPalId)
+{
+    CString strMessage;
+    strMessage.Format(L"CGame_MBTL_A::PostSetPal : Updating left/right partner for unit %u palette %u.\n", nUnitId, nPalId);
+    OutputDebugString(strMessage);
+
+    static_assert(ARRAYSIZE(MBTLPaletteNodes) == 2, "MBTL post-processing presumes two paired nodes: update PostSetPal for your change.");
+
+    size_t nPartnerId = nPalId;
+    const size_t nNodeCount = GetNodeCountForCollection(nUnitId, 0);
+
+    // Flip to the left/right partner
+    if (nPalId >= nNodeCount)
+    {
+        nPartnerId -= nNodeCount;
+        GetHost()->GetPalModDlg()->SetStatusText(L"Updated: updated Left partner palette as well.");
+    }
+    else
+    {
+        nPartnerId += nNodeCount;
+        GetHost()->GetPalModDlg()->SetStatusText(L"Updated: updated Right partner palette as well.");
+    }
+
+    LoadSpecificPaletteData(nUnitId, nPalId);
+
+    for (UINT16 nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
+    {
+        m_pppDataBuffer32[nUnitId][nPartnerId][nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nArrayIndex];
+    }
+
+    // Red Arcueid uses flipped glove positioning: adjust for that here.
+    if (wcscmp(MBTLCharacterData[nUnitId].pszCharacter, L"Red Arcueid") == 0)
+    {
+        const UINT16 nGlove1Position = 96;
+        const UINT16 nGlove2Position = 103;
+        const UINT16 nGloveLength = 6;
+
+        for (UINT16 nArrayIndex = 0; nArrayIndex < nGloveLength; nArrayIndex++)
+        {
+            m_pppDataBuffer32[nUnitId][nPartnerId][nGlove1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nGlove2Position + nArrayIndex];
+            m_pppDataBuffer32[nUnitId][nPartnerId][nGlove2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nGlove1Position + nArrayIndex];
+        }
+    }
 }

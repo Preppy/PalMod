@@ -203,9 +203,9 @@ CAPTION "Advanced Settings"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Settings",IDC_STATIC,6,6,249,95
-    CONTROL         "Allow changing transparency for games that support it. (Not Recommended)",IDC_CALPHATRANS,
+    CONTROL         "Allow changing transparency for games that support it.\n(Not Recommended)",IDC_CALPHATRANS,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,20,230,20
-    CONTROL         "Process Supplement Palettes for MvC2 and COTA (Recommended)\n(ex: Cyclops HK, Spider-Man win poses, etc)",IDC_CUPDSUPP,
+    CONTROL         "Process Supplement Palettes for MvC2, COTA, and MBTL\n(ex: Cyclops HK, Spider-Man win poses, etc)\n(Recommended)",IDC_CUPDSUPP,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,40,230,30
     PUSHBUTTON      "OK",IDOK,87,82,43,14
     PUSHBUTTON      "Cancel",IDCANCEL,131,82,43,14
@@ -351,7 +351,7 @@ BEGIN
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
             POPUP "MvC2"
             BEGIN
-                MENUITEM "Arcade",                      ID_LD_MVC2ARCADE
+                MENUITEM "Arcade (NAOMI)",              ID_LD_MVC2ARCADE
                 MENUITEM "DC",                          ID_LD_MVC2DCUSA
                 MENUITEM "PS2",                         ID_LD_MVC2PS2USA
             END

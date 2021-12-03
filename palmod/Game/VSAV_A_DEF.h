@@ -3206,6 +3206,13 @@ const sGame_PaletteDataset VSAV_A_BONUS_TITLES_PALETTES[] =
     { L"Morrigan Intro 2 Fade 8", 0x2ac6a, 0x2acca, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
     { L"Morrigan Intro 2 Fade 9", 0x2acca, 0x2ad2a, indexCPS2Sprites_VSAV1_Bonus, 0x06 },
 
+    { L"Morrigan Intro BG Fade 1", 0x48dba, 0x48DDa },
+    { L"Morrigan Intro BG Fade 2", 0x48DDa, 0x48DFa },
+    { L"Morrigan Intro BG Fade 3", 0x48DFa, 0x48E1a },
+    { L"Morrigan Intro BG Fade 4", 0x48E1a, 0x48E3a },
+    { L"Morrigan Intro BG Fade 5", 0x48E3a, 0x48E5a },
+    { L"Morrigan Intro BG Fade 6", 0x48E5a, 0x48E7a },
+
     { L"Lilith Intro Portrait", 0x515ba, 0x5161a, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
 
     { L"Lilith Intro Fade 1", 0x48e7a, 0x48eda, indexCPS2Sprites_VSAV1_Bonus, 0x05 },
@@ -3265,6 +3272,38 @@ const sGame_PaletteDataset VSAV_A_BONUS_TITLES_PALETTES[] =
     { L"Title Screen - VS Logo 32x32 BG 1", 0x65bc2, 0x65be2 },
     { L"Title Screen - VS Logo 32x32 BG 2", 0x5e9a2, 0x5e9c2 },
     { L"Title Screen - VS Logo 32x32 BG 3", 0x5e9c2, 0x5e9e2 },
+
+    { L"Title Screen - Lord of the Vampire 1", 0x2354a, 0x2356a },
+    { L"Title Screen - Lord of the Vampire 2", 0x2b02a, 0x2b04a },
+    { L"Title Screen - Lord of the Vampire 3", 0x2b04a, 0x2b06a },
+    { L"Title Screen - Lord of the Vampire 4", 0x2b06a, 0x2b08a },
+    { L"Title Screen - Lord of the Vampire 5", 0x2b08a, 0x2b0aa },
+    { L"Title Screen - Lord of the Vampire 6", 0x2b0aa, 0x2b0ca },
+    { L"Title Screen - Vampire Savior 1", 0x2356a, 0x2358a },
+    { L"Title Screen - Vampire Savior 2", 0x2b0ca, 0x2b0ea },
+    { L"Title Screen - Vampire Savior 3", 0x2b0ea, 0x2b10a },
+    { L"Title Screen - Crown 1", 0x2358a, 0x235Aa },
+    { L"Title Screen - Crown 2", 0x2af8a, 0x2afaa },
+    { L"Title Screen - Crown 3", 0x2afaa, 0x2afca },
+    { L"Title Screen - Crown 4", 0x2afca, 0x2afea },
+    { L"Title Screen - Crown 5", 0x2afea, 0x2b00a },
+    { L"Title Screen - Crown 6", 0x2b00a, 0x2b02a },
+    { L"Screen Fade/Title Screen - Shine 1", 0x235Aa, 0x235Ca },
+    { L"Screen Fade/Title Screen - Shine 2", 0x2b10a, 0x2b12a },
+    { L"Screen Fade/Title Screen - Shine 3", 0x2b12a, 0x2b14a },
+    { L"Title Screen - Circles 1", 0x235Ca, 0x235Ea },
+    { L"Title Screen - Circles 2", 0x2b14a, 0x2b16a },
+    { L"Title Screen - Circles 3", 0x2b16a, 0x2b18a },
+    { L"Title Screen - Circles 4", 0x2b18a, 0x2b1aa },
+
+    { L"Intro - Arcade Map BG", 0x65842, 0x65962 },
+
+    { L"Q-Bee Intro Portrait", 0x2340a, 0x2348a },
+    { L"Intro Eye", 0x402f2, 0x40312 },
+
+    { L"Versus/Arcade BG", 0x65c42, 0x65d62 },
+    { L"Versus/Arcade BG Flash 1", 0x5d242, 0x5d282 },
+    { L"Versus/Arcade BG Flash 2", 0x5d282, 0x5d2c2 },
 };
 
 const sGame_PaletteDataset VSAV_A_BONUS_DARKFORCE_PALETTES[] =
