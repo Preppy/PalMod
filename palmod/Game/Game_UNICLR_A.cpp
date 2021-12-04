@@ -452,3 +452,95 @@ BOOL CGame_UNICLR_A::SaveFile(CFile* SaveFile, size_t nUnitId)
 
     return TRUE;
 }
+
+void CGame_UNICLR_A::PostSetPal(size_t nUnitId, size_t nPalId)
+{
+    CString strMessage;
+    strMessage.Format(L"CGame_UNICLR_A::PostSetPal : Updating left/right partner for unit %u palette %u.\n", nUnitId, nPalId);
+    OutputDebugString(strMessage);
+
+    static_assert(ARRAYSIZE(UNICLRPaletteNodes) == 2, "UNICLR post-processing presumes two paired nodes: update PostSetPal for your change.");
+
+    size_t nPartnerId = nPalId;
+    const size_t nNodeCount = GetNodeCountForCollection(nUnitId, 0);
+
+    // Flip to the left/right partner
+    if (nPalId >= nNodeCount)
+    {
+        nPartnerId -= nNodeCount;
+        GetHost()->GetPalModDlg()->SetStatusText(L"Updated: updated Left partner palette as well.");
+    }
+    else
+    {
+        nPartnerId += nNodeCount;
+        GetHost()->GetPalModDlg()->SetStatusText(L"Updated: updated Right partner palette as well.");
+    }
+
+    LoadSpecificPaletteData(nUnitId, nPalId);
+
+    for (UINT16 nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
+    {
+        m_pppDataBuffer32[nUnitId][nPartnerId][nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nArrayIndex];
+    }
+
+    // Hilda uses flipped positioning: adjust for that here.
+    if (wcscmp(UNICLRCharacterData[nUnitId].pszCharacter, L"Hilda") == 0)
+    {
+        const UINT16 nEye1Position = 26;
+        const UINT16 nEye2Position = 42;
+        const UINT16 nEyeLength = 3;
+
+        for (UINT16 nArrayIndex = 0; nArrayIndex < nEyeLength; nArrayIndex++)
+        {
+            m_pppDataBuffer32[nUnitId][nPartnerId][nEye1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nEye2Position + nArrayIndex];
+            m_pppDataBuffer32[nUnitId][nPartnerId][nEye2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nEye1Position + nArrayIndex];
+        }
+
+        const UINT16 nDress1Position = 64;
+        const UINT16 nDress2Position = 70;
+        const UINT16 nDressLength = 5;
+
+        for (UINT16 nArrayIndex = 0; nArrayIndex < nDressLength; nArrayIndex++)
+        {
+            m_pppDataBuffer32[nUnitId][nPartnerId][nDress1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nDress2Position + nArrayIndex];
+            m_pppDataBuffer32[nUnitId][nPartnerId][nDress2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nDress1Position + nArrayIndex];
+        }
+
+        const UINT16 nBelt1Position = 80;
+        const UINT16 nBelt2Position = 85;
+        const UINT16 nBeltLength = 4;
+
+        for (UINT16 nArrayIndex = 0; nArrayIndex < nBeltLength; nArrayIndex++)
+        {
+            m_pppDataBuffer32[nUnitId][nPartnerId][nBelt1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nBelt2Position + nArrayIndex];
+            m_pppDataBuffer32[nUnitId][nPartnerId][nBelt2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nBelt1Position + nArrayIndex];
+        }
+
+    }
+    
+    {
+        // Seth uses flipped positioning: adjust for that here.
+        if (wcscmp(UNICLRCharacterData[nUnitId].pszCharacter, L"Seth") == 0)
+        {
+            const UINT16 nSetEye1Position = 11;
+            const UINT16 nSetEye2Position = 27;
+            const UINT16 nSetEyeLength = 3;
+
+            for (UINT16 nArrayIndex = 0; nArrayIndex < nSetEyeLength; nArrayIndex++)
+            {
+                m_pppDataBuffer32[nUnitId][nPartnerId][nSetEye1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nSetEye2Position + nArrayIndex];
+                m_pppDataBuffer32[nUnitId][nPartnerId][nSetEye2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nSetEye1Position + nArrayIndex];
+            }
+
+            const UINT16 nKnife1Position = 144;
+            const UINT16 nKnife2Position = 160;
+            const UINT16 nKnifeLength = 10;
+
+            for (UINT16 nArrayIndex = 0; nArrayIndex < nKnifeLength; nArrayIndex++)
+            {
+                m_pppDataBuffer32[nUnitId][nPartnerId][nKnife1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nKnife2Position + nArrayIndex];
+                m_pppDataBuffer32[nUnitId][nPartnerId][nKnife2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nKnife1Position + nArrayIndex];
+            }
+        }
+    }
+}

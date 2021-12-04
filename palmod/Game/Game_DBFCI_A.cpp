@@ -599,3 +599,47 @@ BOOL CGame_DBFCI_A::SaveFile(CFile* SaveFile, size_t nUnitId)
 
     return TRUE;
 }
+
+void CGame_DBFCI_A::PostSetPal(size_t nUnitId, size_t nPalId)
+{
+    CString strMessage;
+    strMessage.Format(L"CGame_DBFCI_A::PostSetPal : Updating left/right partner for unit %u palette %u.\n", nUnitId, nPalId);
+    OutputDebugString(strMessage);
+
+    static_assert(ARRAYSIZE(DBFCIPaletteNodes) == 2, "DBFCI post-processing presumes two paired nodes: update PostSetPal for your change.");
+
+    size_t nPartnerId = nPalId;
+    const size_t nNodeCount = GetNodeCountForCollection(nUnitId, 0);
+
+    // Flip to the left/right partner
+    if (nPalId >= nNodeCount)
+    {
+        nPartnerId -= nNodeCount;
+        GetHost()->GetPalModDlg()->SetStatusText(L"Updated: updated Left partner palette as well.");
+    }
+    else
+    {
+        nPartnerId += nNodeCount;
+        GetHost()->GetPalModDlg()->SetStatusText(L"Updated: updated Right partner palette as well.");
+    }
+
+    LoadSpecificPaletteData(nUnitId, nPalId);
+
+    for (UINT16 nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
+    {
+        m_pppDataBuffer32[nUnitId][nPartnerId][nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nArrayIndex];
+    }
+
+    if (wcscmp(DBFCICharacterData[nUnitId].pszCharacter, L"Rentaro") == 0)
+    {
+        const UINT16 nEye1Position = 11;
+        const UINT16 nEye2Position = 27;
+        const UINT16 nEyeLength = 3;
+
+        for (UINT16 nArrayIndex = 0; nArrayIndex < nEyeLength; nArrayIndex++)
+        {
+            m_pppDataBuffer32[nUnitId][nPartnerId][nEye1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nEye2Position + nArrayIndex];
+            m_pppDataBuffer32[nUnitId][nPartnerId][nEye2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nEye1Position + nArrayIndex];
+        }
+    }
+}
