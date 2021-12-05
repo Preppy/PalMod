@@ -402,7 +402,7 @@ void CPalModDlg::UpdateColorFormatMenu()
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGRA8888, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGRA8888) ? MF_CHECKED : MF_UNCHECKED));
 
         // There's no allowance for alpha with NEOGEO colors, nor with 24-bit color
-        canChangeAlpha = canChangeAlpha && (currColMode != ColMode::COLMODE_RGB666_NEOGEO) && (GetCbForColMode(currColMode) != 3);
+        canChangeAlpha = canChangeAlpha && (currColMode != ColMode::COLMODE_RGB666_NEOGEO) && (ColorSystem::GetCbForColMode(currColMode) != 3);
         canVaryAlphaSetting = canChangeAlpha && (GetHost()->GetCurrGame()->GameIsUsing32BitColor());
 
         pSettMenu->CheckMenuItem(ID_ALPHASETTING_FIXED, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesFixedAlpha) ? MF_CHECKED : MF_UNCHECKED));
@@ -427,7 +427,7 @@ void CPalModDlg::UpdateColorFormatMenu()
                 CMenu* pColorFormatMenu = pSettMenu->GetSubMenu(nCurrentMenu); //3 = settings menu
 
                 const int nCFMenuOptions = pColorFormatMenu->GetMenuItemCount();
-                UINT8 cbColorSize = GetCbForColMode(currColMode);
+                UINT8 cbColorSize = ColorSystem::GetCbForColMode(currColMode);
 
                 for (int nCFMItem = 0; nCFMItem < nCFMenuOptions; nCFMItem++)
                 {

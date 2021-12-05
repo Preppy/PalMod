@@ -309,7 +309,7 @@ void CPalModDlg::OnEditCopy()
                 // But since we've made copyflag2 obsolete, let's just hijack that and stuff the color mode there.
                 uCopyFlag1 = k_nEncodedColorStringOverflowIndicator;
                 uCopyFlag2 = min(k_nASCIIMaxValue, (UINT8)CurrGame->GetColorMode() + k_nASCIICharacterOffset);
-                cbColor = GetCbForColMode(CurrGame->GetColorMode());
+                cbColor = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
                 break;
             }
         }
@@ -498,7 +498,7 @@ void CPalModDlg::OnEditCopyOffset()
             CGameClass* CurrGame = GetHost()->GetCurrGame();
             CJunk* CurrPal = m_PalHost.GetNotifyPal();
 
-            UINT8 cbColor = GetCbForColMode(CurrGame->GetColorMode());
+            UINT8 cbColor = ColorSystem::GetCbForColMode(CurrGame->GetColorMode());
             int nInitialOffsetDelta = CurrPal->GetHighlightIndex();
 
             CopyText.Format("0x%x", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
@@ -562,7 +562,7 @@ BOOL CPalModDlg::IsPasteFromPalMod()
         if ((szTempStr[1] - k_nASCIICharacterOffset) < NUM_GAMES) //Gameflag
         {
             UINT16 nPaletteCount = 0;
-            UINT8 cbColorSize = GetCbForColorForGameFlag(szTempStr[1] - k_nASCIICharacterOffset, szTempStr[2]);
+            UINT8 cbColorSize = ColorSystem::GetCbForColorForGameFlag(szTempStr[1] - k_nASCIICharacterOffset, szTempStr[2]);
 
             if (cbColorSize != 0)
             {
@@ -673,12 +673,12 @@ void CPalModDlg::HandlePasteFromPalMod()
     char* szPasteBuff = m_strPasteStr.GetBuffer();
 
     // Do something with the data in 'buffer'
-    UINT8 uPasteGFlag1 = szPasteBuff[1] - k_nASCIICharacterOffset;
-    UINT8 uPasteGFlag2 = szPasteBuff[2];
-    UINT8 cbColor = GetCbForColorForGameFlag(uPasteGFlag1, uPasteGFlag2);
+    const UINT8 uPasteGFlag1 = szPasteBuff[1] - k_nASCIICharacterOffset;
+    const UINT8 uPasteGFlag2 = szPasteBuff[2];
+    const UINT8 cbColor = ColorSystem::GetCbForColorForGameFlag(uPasteGFlag1, uPasteGFlag2);
 
     // We want the number of colors per paste minus the () and game flag
-    UINT16 uPasteAmt = (UINT16)((strlen(szPasteBuff) - 3) / (cbColor * 2));
+    const UINT16 uPasteAmt = (UINT16)((strlen(szPasteBuff) - 3) / (cbColor * 2));
 
     if (uPasteAmt)
     {
@@ -847,7 +847,7 @@ void CPalModDlg::HandlePasteFromPalMod()
                 // Don't change this code.  It automatically handles new games and color modes.
             {
                 fWasOverflowHandled = true;
-                eColModeForPastedColor = DecodeColorFlag(uPasteGFlag2);
+                eColModeForPastedColor = ColorSystem::DecodeColorFlag(uPasteGFlag2);
                 break;
             }
             }

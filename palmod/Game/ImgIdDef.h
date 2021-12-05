@@ -1653,7 +1653,37 @@ enum SupportedSNES_PaletteListIndex
     indexJoJoRPGSprites_NPCs,            // 0xA8
     indexJoJoRPGSprites_Bonus,           // 0xA9
 
-    indexRanmaCRHSprites_Herb,           // 0xaa
+    indexMK1Sprites_Goro,                // 0xAA
+    indexMK1Sprites_JohnnyCage,          // 0xAB
+    indexMK1Sprites_Kano,                // 0xAC
+    indexMK1Sprites_LiuKang,             // 0xAD
+    indexMK1Sprites_Raiden,              // 0xAE
+    indexMK1Sprites_Reptile,             // 0xAF
+    indexMK1Sprites_Scorpion,            // 0xB0
+    indexMK1Sprites_ShangTsung,          // 0xB1
+    indexMK1Sprites_Sonya,               // 0xB2
+    indexMK1Sprites_SubZero,             // 0xB3
+    indexMK1Sprites_Bonus,               // 0xB4
+    indexMK1Sprites_Stages,              // 0xB5
+    indexMK2Sprites_Baraka,              // 0xB6
+    indexMK2Sprites_Jade,                // 0xB7
+    indexMK2Sprites_Jax,                 // 0xB8
+    indexMK2Sprites_JohnnyCage,          // 0xB9
+    indexMK2Sprites_Kintaro,             // 0xBA
+    indexMK2Sprites_Kitana,              // 0xBB
+    indexMK2Sprites_KungLao,             // 0xBC
+    indexMK2Sprites_LiuKang,             // 0xBD
+    indexMK2Sprites_Mileena,             // 0xBE
+    indexMK2Sprites_NoobSaibot,          // 0xBF
+    indexMK2Sprites_Raiden,              // 0xC0
+    indexMK2Sprites_Reptile,             // 0xC1
+    indexMK2Sprites_Scorpion,            // 0xC2
+    indexMK2Sprites_ShangTsung,          // 0xC3
+    indexMK2Sprites_ShaoKahn,            // 0xC4
+    indexMK2Sprites_Smoke,               // 0xC5
+    indexMK2Sprites_SubZero,             // 0xC6
+    indexMK2Sprites_Bonus,               // 0xC7
+    indexMK2Sprites_Stages,              // 0xC8
 };
 
 enum SupportedNEOGEO_PaletteListIndex

@@ -9,8 +9,25 @@
 
 const std::vector<UINT16> MK2_SNES_IMGIDS_USED =
 {
-    // stub
-    indexJoJoRPGSprites_Enemies,         // 0xA6
+    indexMK2Sprites_Baraka,              // 0xB6
+    indexMK2Sprites_Jade,                // 0xB7
+    indexMK2Sprites_Jax,                 // 0xB8
+    indexMK2Sprites_JohnnyCage,          // 0xB9
+    indexMK2Sprites_Kintaro,             // 0xBA
+    indexMK2Sprites_Kitana,              // 0xBB
+    indexMK2Sprites_KungLao,             // 0xBC
+    indexMK2Sprites_LiuKang,             // 0xBD
+    indexMK2Sprites_Mileena,             // 0xBE
+    indexMK2Sprites_NoobSaibot,          // 0xBF
+    indexMK2Sprites_Raiden,              // 0xC0
+    indexMK2Sprites_Reptile,             // 0xC1
+    indexMK2Sprites_Scorpion,            // 0xC2
+    indexMK2Sprites_ShangTsung,          // 0xC3
+    indexMK2Sprites_ShaoKahn,            // 0xC4
+    indexMK2Sprites_Smoke,               // 0xC5
+    indexMK2Sprites_SubZero,             // 0xC6
+    indexMK2Sprites_Bonus,               // 0xC7
+    indexMK2Sprites_Stages,              // 0xC8
 };
 
 const sGame_PaletteDataset MK2_SNES_LIUKANG_P1_PALETTES[] =

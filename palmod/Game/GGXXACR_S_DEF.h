@@ -991,11 +991,11 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_SY_EXTRAS =
     //General
     { L"Coffin Portal Intro", 0x43ec30, 0x43ec70, indexGGXXSprites_ACR_Slayer, 0x0a },
     { L"Sharon Intro Corpse", 0x46bf50, 0x46bf90, indexGGXXSprites_ACR_Slayer, 0x15 },
-    { L"Sharon Intro Blood (1/5)", 0x465a60, 0x465aa0, indexGGXXSprites_ACR_Slayer, 0x15 },
-    { L"Sharon Intro Blood (2/5)", 0x465c60, 0x465ca0, indexGGXXSprites_ACR_Slayer, 0x15 },
-    { L"Sharon Intro Blood (3/5)", 0x465e80, 0x465ec0, indexGGXXSprites_ACR_Slayer, 0x15 },
-    { L"Sharon Intro Blood (4/5)", 0x466060, 0x4660a0, indexGGXXSprites_ACR_Slayer, 0x15 },
-    { L"Sharon Intro Blood (5/5)", 0x4661f0, 0x466230, indexGGXXSprites_ACR_Slayer, 0x15 },
+    { L"Sharon Intro Blood (1/5)", 0x465a60, 0x465aa0, indexGGXXSprites_ACR_Slayer, 0x09 },
+    { L"Sharon Intro Blood (2/5)", 0x465c60, 0x465ca0, indexGGXXSprites_ACR_Slayer, 0x09 },
+    { L"Sharon Intro Blood (3/5)", 0x465e80, 0x465ec0, indexGGXXSprites_ACR_Slayer, 0x09 },
+    { L"Sharon Intro Blood (4/5)", 0x466060, 0x4660a0, indexGGXXSprites_ACR_Slayer, 0x09 },
+    { L"Sharon Intro Blood (5/5)", 0x4661f0, 0x466230, indexGGXXSprites_ACR_Slayer, 0x09 },
 
     { L"Forwards Jump (1/2)", 0x3c5970, 0x3c59b0, indexGGXXSprites_ACR_Slayer, 0x0f },
     { L"Forwards Jump (2/2)", 0x3c7260, 0x3c72a0, indexGGXXSprites_ACR_Slayer, 0x0f },

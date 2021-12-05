@@ -22,7 +22,6 @@ const std::vector<UINT16> RANMACRH_SNES_IMGIDS_USED =
     indexRanmaCRHSprites_Shampoo,       // 0x84
     indexRanmaCRHSprites_Ukyo,          // 0x85
     indexRanmaCRHSprites_Bonus,         // 0x86
-    indexRanmaCRHSprites_Herb,           // 0xaa
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_RANMAM_P1_PALETTES[] =
@@ -267,22 +266,22 @@ const sGame_PaletteDataset RANMACRH_SNES_KODACHI_P4_PALETTES[] =
 
 const sGame_PaletteDataset RANMACRH_SNES_HERB_P1_PALETTES[] =
 {
-    { L"Herb P1", 0x62f62, 0x62f82, indexRanmaCRHSprites_Herb },
+    { L"Herb P1", 0x62f62, 0x62f82 },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_HERB_P2_PALETTES[] =
 {
-    { L"Herb P2", 0x62f82, 0x62fa2, indexRanmaCRHSprites_Herb },
+    { L"Herb P2", 0x62f82, 0x62fa2 },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_HERB_P3_PALETTES[] =
 {
-    { L"Herb P3", 0x62fa2, 0x62fc2, indexRanmaCRHSprites_Herb },
+    { L"Herb P3", 0x62fa2, 0x62fc2 },
 };
 
 const sGame_PaletteDataset RANMACRH_SNES_HERB_P4_PALETTES[] =
 {
-    { L"Herb P4", 0x62fc2, 0x62fe2, indexRanmaCRHSprites_Herb },
+    { L"Herb P4", 0x62fc2, 0x62fe2 },
 };
 
 const sDescTreeNode RANMACRH_SNES_RANMAM_COLLECTION[] =

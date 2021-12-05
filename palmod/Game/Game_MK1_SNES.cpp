@@ -47,7 +47,7 @@ CGame_MK1_SNES::CGame_MK1_SNES(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_NOBUTTONS; // Check out the available options in buttondef.
+    pButtonLabelSet = DEF_BUTTONLABEL_2; // Check out the available options in buttondef.
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];

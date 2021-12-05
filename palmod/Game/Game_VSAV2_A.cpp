@@ -43,7 +43,7 @@ CGame_VSAV2_A::CGame_VSAV2_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = VSAV2_A_NUMUNIT;
     m_nExtraUnit = VSAV2_A_EXTRALOC;
-    m_nSafeCountForThisRom = 3343 + GetExtraCt(VSAV2_A_EXTRALOC);
+    m_nSafeCountForThisRom = 3387 + GetExtraCt(VSAV2_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_VSAV2;
     m_nTotalPaletteCount = m_nTotalPaletteCountForVSAV2;
 

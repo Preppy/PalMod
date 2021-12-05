@@ -168,8 +168,8 @@ public:
     LPCWSTR GetLoadDir() { return m_pszLoadDir; };
     BOOL SetLoadDir(LPCWSTR pszNewDir);
 
-    AlphaMode GetAlphaMode() { return CColorSystem::GetAlphaMode(); };
-    virtual void SetAlphaMode(AlphaMode NewMode) { CColorSystem::SetAlphaMode(NewMode); };
+    AlphaMode GetAlphaMode() { return ColorSystem::GetAlphaMode(); };
+    virtual void SetAlphaMode(AlphaMode NewMode) { ColorSystem::SetAlphaMode(NewMode); };
 
     ColMode GetColorMode() { return CurrColMode; };
     bool _UpdateColorConverters(ColMode NewMode);

@@ -5,6 +5,7 @@
 #include "mvc2_validate.h"
 #include "MVC2_SUPP.h"
 #include "mvc2_descs.h"
+#include "..\PalMod.h"
 
 #define MV2C_D_DEBUG DEFAULT_GAME_DEBUG_STATE
 
@@ -637,6 +638,7 @@ void CGame_MVC2_D::UpdatePalData()
             //0 out the 1st index alpha flag
             ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16)] &= 0x0FFF;
 
+            GetHost()->GetPalModDlg()->SetStatusText(L"Updated.");
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->bChanged = FALSE;
             rgFileChanged[srcDef->uUnitId] = TRUE;

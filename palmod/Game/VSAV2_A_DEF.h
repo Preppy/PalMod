@@ -1592,6 +1592,7 @@ const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_LP[] =
     { L"LP Unknown Extra 1", 0x1bcba, 0x1bcda },
     { L"LP Unknown Extra 2", 0x1bcda, 0x1bcfa },
     { L"LP Cecil",           0x1bcfa, 0x1bd1a, indexCPS2Sprites_Vamp_Phobos, 0x1 },
+    { L"LP Phobos Select Portrait", 0x412da, 0x412fa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_MP[] =
@@ -1600,6 +1601,7 @@ const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_MP[] =
     { L"MP Unknown Extra 1", 0x1bd3a, 0x1bd5a },
     { L"MP Unknown Extra 2", 0x1bd5a, 0x1bd7a },
     { L"MP Cecil",           0x1bd7a, 0x1bd9a, indexCPS2Sprites_Vamp_Phobos, 0x1 },
+    { L"MP Phobos Select Portrait", 0x414da, 0x414fa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_HP[] =
@@ -1608,6 +1610,7 @@ const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_HP[] =
     { L"HP Unknown Extra 1", 0x1bdba, 0x1bdda },
     { L"HP Unknown Extra 2", 0x1bdda, 0x1bdfa },
     { L"HP Cecil",           0x1bdfa, 0x1be1a, indexCPS2Sprites_Vamp_Phobos, 0x1 },
+    { L"HP Phobos Select Portrait", 0x416da, 0x416fa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_LK[] =
@@ -1616,6 +1619,7 @@ const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_LK[] =
     { L"LK Unknown Extra 1", 0x1be3a, 0x1be5a },
     { L"LK Unknown Extra 2", 0x1be5a, 0x1be7a },
     { L"LK Cecil",           0x1be7a, 0x1be9a, indexCPS2Sprites_Vamp_Phobos, 0x1 },
+    { L"LK Phobos Select Portrait", 0x418da, 0x418fa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_MK[] =
@@ -1624,6 +1628,7 @@ const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_MK[] =
     { L"MK Unknown Extra 1", 0x1beba, 0x1beda },
     { L"MK Unknown Extra 2", 0x1beda, 0x1befa },
     { L"MK Cecil",           0x1befa, 0x1bf1a, indexCPS2Sprites_Vamp_Phobos, 0x1 },
+    { L"MK Phobos Select Portrait", 0x41ada, 0x41afa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_HK[] =
@@ -1632,6 +1637,7 @@ const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_HK[] =
     { L"HK Unknown Extra 1", 0x1bf3a, 0x1bf5a },
     { L"HK Unknown Extra 2", 0x1bf5a, 0x1bf7a },
     { L"HK Cecil",           0x1bf7a, 0x1bf9a, indexCPS2Sprites_Vamp_Phobos, 0x1 },
+    { L"HK Phobos Select Portrait", 0x41cda, 0x41cfa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_PP[] =
@@ -1640,6 +1646,7 @@ const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_PP[] =
     { L"PP Unknown Extra 1", 0x1bfba, 0x1bfda },
     { L"PP Unknown Extra 2", 0x1bfda, 0x1bffa },
     { L"PP Cecil",           0x1bffa, 0x1c01a, indexCPS2Sprites_Vamp_Phobos, 0x1 },
+    { L"PP Phobos Select Portrait", 0x41eda, 0x41efa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_KK[] =
@@ -1648,6 +1655,7 @@ const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_KK[] =
     { L"KK Unknown Extra 1", 0x1c03a, 0x1c05a },
     { L"KK Unknown Extra 2", 0x1c05a, 0x1c07a },
     { L"KK Cecil",           0x1c07a, 0x1c09a, indexCPS2Sprites_Vamp_Phobos, 0x1 },
+    { L"KK Phobos Select Portrait", 0x420da, 0x420fa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_AP[] =
@@ -1656,6 +1664,7 @@ const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_AP[] =
     { L"AP Unknown Extra 1", 0x1c0ba, 0x1c0da },
     { L"AP Unknown Extra 2", 0x1c0da, 0x1c0fa },
     { L"AP Cecil",           0x1c0fa, 0x1c11a, indexCPS2Sprites_Vamp_Phobos, 0x1 },
+    { L"AP Phobos Select Portrait", 0x422da, 0x422fa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_AK[] =
@@ -1664,6 +1673,7 @@ const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_AK[] =
     { L"AK Unknown Extra 1", 0x1c13a, 0x1c15a },
     { L"AK Unknown Extra 2", 0x1c15a, 0x1c17a },
     { L"AK Cecil",           0x1c17a, 0x1c19a, indexCPS2Sprites_Vamp_Phobos, 0x1 },
+    { L"AK Phobos Select Portrait", 0x424da, 0x424fa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_LP[] =
@@ -1672,6 +1682,7 @@ const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_LP[] =
     { L"LP Unknown Extra 1", 0x1c1ba, 0x1c1da },
     { L"LP Unknown Extra 2", 0x1c1da, 0x1c1fa },
     { L"LP Unknown Extra 3", 0x1c1fa, 0x1c21a, indexCPS2Sprites_Vamp_Pyron, 0x0 },
+    { L"LP Pyron Select Portrait", 0x428fa, 0x4291A, indexCPS2Sprites_Vamp_Pyron, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_MP[] =
@@ -1680,6 +1691,7 @@ const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_MP[] =
     { L"MP Unknown Extra 1", 0x1c23a, 0x1c25a },
     { L"MP Unknown Extra 2", 0x1c25a, 0x1c27a },
     { L"MP Unknown Extra 3", 0x1c27a, 0x1c29a, indexCPS2Sprites_Vamp_Pyron, 0x0 },
+    { L"MP Pyron Select Portrait", 0x4291a, 0x4293A, indexCPS2Sprites_Vamp_Pyron, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_HP[] =
@@ -1688,6 +1700,7 @@ const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_HP[] =
     { L"HP Unknown Extra 1", 0x1c2ba, 0x1c2da },
     { L"HP Unknown Extra 2", 0x1c2da, 0x1c2fa },
     { L"HP Unknown Extra 3", 0x1c2fa, 0x1c31a, indexCPS2Sprites_Vamp_Pyron, 0x0 },
+    { L"HP Pyron Select Portrait", 0x4293a, 0x4295A, indexCPS2Sprites_Vamp_Pyron, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_LK[] =
@@ -1696,6 +1709,7 @@ const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_LK[] =
     { L"LK Unknown Extra 1", 0x1c33a, 0x1c35a },
     { L"LK Unknown Extra 2", 0x1c35a, 0x1c37a },
     { L"LK Unknown Extra 3", 0x1c37a, 0x1c39a, indexCPS2Sprites_Vamp_Pyron, 0x0 },
+    { L"LK Pyron Select Portrait", 0x4295a, 0x4297A, indexCPS2Sprites_Vamp_Pyron, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_MK[] =
@@ -1704,6 +1718,7 @@ const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_MK[] =
     { L"MK Unknown Extra 1", 0x1c3ba, 0x1c3da },
     { L"MK Unknown Extra 2", 0x1c3da, 0x1c3fa },
     { L"MK Unknown Extra 3", 0x1c3fa, 0x1c41a, indexCPS2Sprites_Vamp_Pyron, 0x0 },
+    { L"MK Pyron Select Portrait", 0x4297a, 0x4299A, indexCPS2Sprites_Vamp_Pyron, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_HK[] =
@@ -1712,6 +1727,7 @@ const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_HK[] =
     { L"HK Unknown Extra 1", 0x1c43a, 0x1c45a },
     { L"HK Unknown Extra 2", 0x1c45a, 0x1c47a },
     { L"HK Unknown Extra 3", 0x1c47a, 0x1c49a, indexCPS2Sprites_Vamp_Pyron, 0x0 },
+    { L"HK Pyron Select Portrait", 0x4299a, 0x429BA, indexCPS2Sprites_Vamp_Pyron, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_PP[] =
@@ -1720,6 +1736,7 @@ const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_PP[] =
     { L"PP Unknown Extra 1", 0x1c4ba, 0x1c4da },
     { L"PP Unknown Extra 2", 0x1c4da, 0x1c4fa },
     { L"PP Unknown Extra 3", 0x1c4fa, 0x1c51a, indexCPS2Sprites_Vamp_Pyron, 0x0 },
+    { L"PP Pyron Select Portrait", 0x429Ba, 0x429DA, indexCPS2Sprites_Vamp_Pyron, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_KK[] =
@@ -1728,6 +1745,7 @@ const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_KK[] =
     { L"KK Unknown Extra 1", 0x1c53a, 0x1c55a },
     { L"KK Unknown Extra 2", 0x1c55a, 0x1c57a },
     { L"KK Unknown Extra 3", 0x1c57a, 0x1c59a, indexCPS2Sprites_Vamp_Pyron, 0x0 },
+    { L"KK Pyron Select Portrait", 0x429Da, 0x429FA, indexCPS2Sprites_Vamp_Pyron, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_AP[] =
@@ -1736,6 +1754,7 @@ const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_AP[] =
     { L"AP Unknown Extra 1", 0x1c5ba, 0x1c5da },
     { L"AP Unknown Extra 2", 0x1c5da, 0x1c5fa },
     { L"AP Unknown Extra 3", 0x1c5fa, 0x1c61a, indexCPS2Sprites_Vamp_Pyron, 0x0 },
+    { L"AP Pyron Select Portrait", 0x429Fa, 0x42A1A, indexCPS2Sprites_Vamp_Pyron, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_AK[] =
@@ -1744,6 +1763,7 @@ const sGame_PaletteDataset VSAV2_A_PYRON_PALETTES_AK[] =
     { L"AK Unknown Extra 1", 0x1c63a, 0x1c65a },
     { L"AK Unknown Extra 2", 0x1c65a, 0x1c67a },
     { L"AK Unknown Extra 3", 0x1c67a, 0x1c69a, indexCPS2Sprites_Vamp_Pyron, 0x0 },
+    { L"AK Pyron Select Portrait", 0x42A1a, 0x42A3A, indexCPS2Sprites_Vamp_Pyron, 0x20 },
 };
 
 // portraits / dark effects
@@ -1828,7 +1848,12 @@ const sGame_PaletteDataset VSAV2_A_DARKGALLON_PALETTES_AK[] =
     { L"AK 236P/28K/Outro Flash", 0x1c67a + 0x500, 0x1CB9a },
 };
 
-
+const sGame_PaletteDataset VSAV2_A_DARKGALLON_PALETTES_SELECT[] =
+{
+    // These aren't per-button
+    { L"P1 Dark Gallon Select Portrait", 0x428ba, 0x428da, indexCPS2Sprites_Vamp_Gallon, 0x20 },
+    { L"P2 Dark Gallon Select Portrait", 0x428da, 0x428fa, indexCPS2Sprites_Vamp_Gallon, 0x20 },
+};
 
 const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_LP[] =
 {
@@ -1837,6 +1862,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_LP[] =
     { L"LP Unknown Extra",   0x1cbba, 0x1cbda },
     { L"LP Weapons",         0x1cbda, 0x1cbfa, indexCPS2Sprites_Vamp_Donovan, 0x1 },
     { L"LP Anita",           0x1cbfa, 0x1cc1a, indexCPS2Sprites_Anita, 0 },
+    { L"LP Donovan Select Portrait", 0x42a3a, 0x42A5A, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_MP[] =
@@ -1845,6 +1871,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_MP[] =
     { L"MP Unknown Extra",   0x1cc3a, 0x1cc5a },
     { L"MP Weapons",         0x1cc5a, 0x1cc7a, indexCPS2Sprites_Vamp_Donovan, 0x1 },
     { L"MP Anita",           0x1cc7a, 0x1cc9a, indexCPS2Sprites_Anita, 0 },
+    { L"MP Donovan Select Portrait", 0x42A5a, 0x42A7A, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_HP[] =
@@ -1853,6 +1880,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_HP[] =
     { L"HP Unknown Extra",   0x1ccba, 0x1ccda },
     { L"HP Weapons",         0x1ccda, 0x1ccfa, indexCPS2Sprites_Vamp_Donovan, 0x1 },
     { L"HP Anita",           0x1ccfa, 0x1cd1a, indexCPS2Sprites_Anita, 0 },
+    { L"HP Donovan Select Portrait", 0x42A7a, 0x42A9A, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_LK[] =
@@ -1861,6 +1889,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_LK[] =
     { L"LK Unknown Extra",   0x1cd3a, 0x1cd5a },
     { L"LK Weapons",         0x1cd5a, 0x1cd7a, indexCPS2Sprites_Vamp_Donovan, 0x1 },
     { L"LK Anita",           0x1cd7a, 0x1cd9a, indexCPS2Sprites_Anita, 0 },
+    { L"LK Donovan Select Portrait", 0x42A9a, 0x42ABA, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_MK[] =
@@ -1869,6 +1898,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_MK[] =
     { L"MK Unknown Extra",   0x1cdba, 0x1cdda },
     { L"MK Weapons",         0x1cdda, 0x1cdfa, indexCPS2Sprites_Vamp_Donovan, 0x1 },
     { L"MK Anita",           0x1cdfa, 0x1ce1a, indexCPS2Sprites_Anita, 0 },
+    { L"MK Donovan Select Portrait", 0x42ABa, 0x42ADA, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_HK[] =
@@ -1877,6 +1907,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_HK[] =
     { L"HK Unknown Extra",   0x1ce3a, 0x1ce5a },
     { L"HK Weapons",         0x1ce5a, 0x1ce7a, indexCPS2Sprites_Vamp_Donovan, 0x1 },
     { L"HK Anita",           0x1ce7a, 0x1ce9a, indexCPS2Sprites_Anita, 0 },
+    { L"HK Donovan Select Portrait", 0x42ADa, 0x42AFA, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_PP[] =
@@ -1885,6 +1916,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_PP[] =
     { L"PP Unknown Extra",   0x1ceba, 0x1ceda },
     { L"PP Weapons",         0x1ceda, 0x1cefa, indexCPS2Sprites_Vamp_Donovan, 0x1 },
     { L"PP Anita",           0x1cefa, 0x1cf1a, indexCPS2Sprites_Anita, 0 },
+    { L"PP Donovan Select Portrait", 0x42AFa, 0x42B1A, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_KK[] =
@@ -1893,6 +1925,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_KK[] =
     { L"KK Unknown Extra",   0x1cf3a, 0x1cf5a },
     { L"KK Weapons",         0x1cf5a, 0x1cf7a, indexCPS2Sprites_Vamp_Donovan, 0x1 },
     { L"KK Anita",           0x1cf7a, 0x1cf9a, indexCPS2Sprites_Anita, 0 },
+    { L"KK Donovan Select Portrait", 0x42B1a, 0x42B3A, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_AP[] =
@@ -1901,6 +1934,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_AP[] =
     { L"AP Unknown Extra",   0x1cfba, 0x1cfda },
     { L"AP Weapons",         0x1cfda, 0x1cffa, indexCPS2Sprites_Vamp_Donovan, 0x1 },
     { L"AP Anita",           0x1cffa, 0x1d01a, indexCPS2Sprites_Anita, 0 },
+    { L"AP Donovan Select Portrait", 0x42B3a, 0x42B5A, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_AK[] =
@@ -1909,6 +1943,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_AK[] =
     { L"AK Unknown Extra",   0x1d03a, 0x1d05a },
     { L"AK Weapons",         0x1d05a, 0x1d07a, indexCPS2Sprites_Vamp_Donovan, 0x1 },
     { L"AK Anita",           0x1d07a, 0x1d09a, indexCPS2Sprites_Anita, 0 },
+    { L"AK Donovan Select Portrait", 0x42B5a, 0x42B7A, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 
@@ -1998,6 +2033,7 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_LP[] =
     { L"LP Intro", 0x1c5ba + 0x1000, 0x1c5da + 0x1000, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"LP Ghosts/Hitsparks", 0x1c5da + 0x1000, 0x1c5fa + 0x1000, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"LP Unknown Extra", 0x1c5fa + 0x1000, 0x1c61a + 0x1000 },
+    { L"LP Oboro Bishamon Select Portrait", 0x4277a, 0x4279A, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_MP[] =
@@ -2006,6 +2042,7 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_MP[] =
     { L"MP Intro", 0x1c63a + 0x1000, 0x1c65a + 0x1000, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"MP Ghosts/Hitsparks", 0x1c65a + 0x1000, 0x1c67a + 0x1000, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"MP Unknown Extra", 0x1c67a + 0x1000, 0x1c69a + 0x1000 },
+    { L"MP Oboro Bishamon Select Portrait", 0x4279a, 0x427BA, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_HP[] =
@@ -2014,6 +2051,7 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_HP[] =
     { L"HP Intro", 0x1c1ba + 0x1500, 0x1c1da + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"HP Ghosts/Hitsparks", 0x1c1da + 0x1500, 0x1c1fa + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"HP Unknown Extra", 0x1c1fa + 0x1500, 0x1c21a + 0x1500 },
+    { L"HP Oboro Bishamon Select Portrait", 0x427Ba, 0x427DA, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_LK[] =
@@ -2022,6 +2060,7 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_LK[] =
     { L"LK Intro", 0x1c23a + 0x1500, 0x1c25a + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"LK Ghosts/Hitsparks", 0x1c25a + 0x1500, 0x1c27a + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"LK Unknown Extra", 0x1c27a + 0x1500, 0x1c29a + 0x1500 },
+    { L"LK Oboro Bishamon Select Portrait", 0x427Da, 0x427FA, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_MK[] =
@@ -2030,6 +2069,7 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_MK[] =
     { L"MK Intro", 0x1c2ba + 0x1500, 0x1c2da + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"MK Ghosts/Hitsparks", 0x1c2da + 0x1500, 0x1c2fa + 0x1500 },
     { L"MK Unknown Extra", 0x1c2fa + 0x1500, 0x1c31a + 0x1500 },
+    { L"MK Oboro Bishamon Select Portrait", 0x427Fa, 0x4281A, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_HK[] =
@@ -2038,6 +2078,7 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_HK[] =
     { L"HK Intro", 0x1c33a + 0x1500, 0x1c35a + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"HK Ghosts/Hitsparks", 0x1c35a + 0x1500, 0x1c37a + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"HK Unknown Extra", 0x1c37a + 0x1500, 0x1c39a + 0x1500 },
+    { L"HK Oboro Bishamon Select Portrait", 0x4281a, 0x4283A, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_PP[] =
@@ -2046,6 +2087,7 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_PP[] =
     { L"PP Intro", 0x1c3ba + 0x1500, 0x1c3da + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"PP Ghosts/Hitsparks", 0x1c3da + 0x1500, 0x1c3fa + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"PP Unknown Extra", 0x1c3fa + 0x1500, 0x1c41a + 0x1500 },
+    { L"PP Oboro Bishamon Select Portrait", 0x4283a, 0x4285A, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_KK[] =
@@ -2054,6 +2096,7 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_KK[] =
     { L"KK Intro", 0x1c43a + 0x1500, 0x1c45a + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"KK Ghosts/Hitsparks", 0x1c45a + 0x1500, 0x1c47a + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"KK Unknown Extra", 0x1c47a + 0x1500, 0x1c49a + 0x1500 },
+    { L"KK Oboro Bishamon Select Portrait", 0x4285a, 0x4287A, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_AP[] =
@@ -2062,6 +2105,7 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_AP[] =
     { L"AP Intro", 0x1c4ba + 0x1500, 0x1c4da + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"AP Ghosts/Hitsparks", 0x1c4da + 0x1500, 0x1c4fa + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"AP Unknown Extra", 0x1c4fa + 0x1500, 0x1c51a + 0x1500 },
+    { L"AP Oboro Bishamon Select Portrait", 0x4287a, 0x4289A, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_AK[] =
@@ -2070,6 +2114,7 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_AK[] =
     { L"AK Intro",               0x1c53a + 0x1500, 0x1c55a + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x0 },
     { L"AK Ghosts/Hitsparks",    0x1c55a + 0x1500, 0x1c57a + 0x1500, indexCPS2Sprites_Vamp_Bishamon, 0x02 },
     { L"AK Unknown Extra",       0x1c57a + 0x1500, 0x1DA9a },
+    { L"AK Oboro Bishamon Select Portrait", 0x4289a, 0x428BA, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_ENDING_PALETTES_PORTRAITS[] =
@@ -2085,11 +2130,13 @@ const sGame_PaletteDataset VSAV2_A_ENDING_PALETTES_PORTRAITS[] =
     { L"Bishamon Portrait",   0x4267a, 0x4269a, indexCPS2Sprites_Vamp_Bishamon, 0x20 },
     { L"Aulbath Portrait",    0x4269a, 0x426ba, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
     { L"Sasquatch Portrait",  0x426ba, 0x426da, indexCPS2Sprites_Vamp_Sasquatch, 0x20 },
-    { L"Alt Zabel Portrait",  0x426da, 0x426fa, indexCPS2Sprites_Vamp_Zabel, 0x20 },
+    { L"Phobos Portrait",     0x426da, 0x426fa, indexCPS2Sprites_Vamp_Phobos, 0x20 },
     { L"Q-Bee Portrait",      0x426fa, 0x4271a, indexCPS2Sprites_Vamp_QBee, 0x20 },
     { L"Lei-Lei Portrait",    0x4271a, 0x4273a, indexCPS2Sprites_Vamp_LeiLei, 0x20 },
     { L"Lilith Portrait",     0x4273a, 0x4275a, indexCPS2Sprites_Vamp_Lilith, 0x20 },
     { L"Jedah Portrait",      0x4275a, 0x4277a, indexCPS2Sprites_Vamp_Jedah, 0x20 },
+    { L"Pyron Portrait",      0x42b7a, 0x42b9a, indexCPS2Sprites_Vamp_Pyron, 0x20 },
+    { L"Donovan Portrait",    0x42b9a, 0x42bba, indexCPS2Sprites_Vamp_Donovan, 0x20 },
 };
 
 const sGame_PaletteDataset VSAV2_A_BULLETA_PALETTES_SPECIAL[] =
@@ -4654,6 +4701,7 @@ const sDescTreeNode VSAV2_A_DARKGALLON_COLLECTION[] =
     { L"AP", DESC_NODETYPE_TREE, (void*)VSAV2_A_DARKGALLON_PALETTES_AP,         ARRAYSIZE(VSAV2_A_DARKGALLON_PALETTES_AP) },
     { L"AK", DESC_NODETYPE_TREE, (void*)VSAV2_A_DARKGALLON_PALETTES_AK,         ARRAYSIZE(VSAV2_A_DARKGALLON_PALETTES_AK) },
     { L"Status Effects", DESC_NODETYPE_TREE, (void*)VSAV2_A_DarkGallon_PALETTES_SPECIAL, ARRAYSIZE(VSAV2_A_DarkGallon_PALETTES_SPECIAL) },
+    { L"Select Portraits", DESC_NODETYPE_TREE, (void*)VSAV2_A_DARKGALLON_PALETTES_SELECT, ARRAYSIZE(VSAV2_A_DARKGALLON_PALETTES_SELECT) },
 };
 
 const sDescTreeNode VSAV2_A_UNKNOWN_COLLECTION[] =
