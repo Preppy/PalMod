@@ -40,7 +40,7 @@ enum ePalType
     PALTYPE_16STEPS,
     PALTYPE_8STEPS,
     PALTYPE_256STEPS,
-    // NeoGeo is a special snowflake: see comments for k_nRGBPlaneAmtForRGB666 in GameClass.h
+    // NeoGeo is a special snowflake: see comments for k_nRGBPlaneAmtForRGB666 in ColorSystem.cpp
     PALTYPE_NEOGEO,
 };
 

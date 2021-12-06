@@ -37,68 +37,7 @@ CGameClass::~CGameClass(void)
 
 int CGameClass::GetPlaneAmt(ColFlag Flag)
 {
-    switch (CurrColMode)
-    {
-    case ColMode::COLMODE_BGR333:
-    case ColMode::COLMODE_RBG333:
-    case ColMode::COLMODE_RGB333:
-        return ColorSystem::k_nRGBPlaneAmtForRGB333;
-
-    case ColMode::COLMODE_BGR444:
-    case ColMode::COLMODE_BRG444:
-    case ColMode::COLMODE_RBG444:
-    case ColMode::COLMODE_RGB444_BE:
-    case ColMode::COLMODE_RGB444_LE:
-        return ColorSystem::k_nRGBPlaneAmtForRGB444;
-
-    case ColMode::COLMODE_BGR555_LE:
-    case ColMode::COLMODE_RGB555_LE:
-    case ColMode::COLMODE_RGB555_BE:
-    case ColMode::COLMODE_GRB555_LE:
-    case ColMode::COLMODE_RGB555_SHARP:
-        return ColorSystem::k_nRGBPlaneAmtForRGB555;
-
-    case ColMode::COLMODE_RGB666_NEOGEO:
-        return ColorSystem::k_nRGBPlaneAmtForNeoGeo;
-
-    case ColMode::COLMODE_RGBA8881:
-        if (Flag == ColFlag::COL_A)
-        {
-            return ColorSystem::k_nRGBPlaneAmtForRGB111;
-        }
-        else
-        {
-            return ColorSystem::k_nRGBPlaneAmtForRGB888;
-        }
-    case ColMode::COLMODE_RGBA8881_32STEPS:
-        if (Flag == ColFlag::COL_A)
-        {
-            return ColorSystem::k_nRGBPlaneAmtForRGB111;
-        }
-        else
-        {
-            return ColorSystem::k_nRGBPlaneAmtForRGB555;
-        }
-    case ColMode::COLMODE_RGBA8887:
-        if (Flag == ColFlag::COL_A)
-        {
-            return ColorSystem::k_nRGBPlaneAmtForHalfAlpha;
-        }
-        else
-        {
-            return ColorSystem::k_nRGBPlaneAmtForRGB888;
-        }
-
-    case ColMode::COLMODE_RGBA8888:
-    case ColMode::COLMODE_BGRA8888:
-    case ColMode::COLMODE_BGR888:
-    case ColMode::COLMODE_BRG888:
-    case ColMode::COLMODE_GRB888:
-    case ColMode::COLMODE_RGB888:        
-        return ColorSystem::k_nRGBPlaneAmtForRGB888;
-    default:
-        return 0;
-    }
+    return ColorSystem::GetPlaneAmtForColor(CurrColMode, Flag);
 }
 
 void CGameClass::AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA)

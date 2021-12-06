@@ -38,7 +38,7 @@ enum class ColMode
     COLMODE_BGR555_BE,      // BGR555 big endian: Motorola 68000 games
     COLMODE_GRB888,         // 24bit
 
-    // This section added for development purposes: not needed for any games yet
+    // This section added to enable user exploration in dev mode: not needed directly for any games yet
     COLMODE_BGR333,         
     COLMODE_RBG333,
     COLMODE_BGR444,
@@ -60,25 +60,7 @@ namespace ColorSystem
     ColMode DecodeColorFlag(UINT8 uPossibleColorFlag);
     UINT8 GetCbForColMode(ColMode colorMode);
     UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag, UINT8 uPossibleColorFlag);
-
-    // These are the multipliers that can be used for color formats
-    // so long as they don't use color lookup tables (CLUTs)
-    const double k_nRGBPlaneMulForRGB111 = 255;
-    const double k_nRGBPlaneMulForRGB333 = 36.428;
-    const double k_nRGBPlaneMulForRGB444 = 17.0;
-    const double k_nRGBPlaneMulForRGB555 = 8.225;
-    const double k_nRGBPlaneMulForRGB777 = 2;
-    const double k_nRGBPlaneMulForRGB888 = 1;
-
-    // These are the number of colors available for each color format
-    const int k_nRGBPlaneAmtForRGB111 = 1;
-    const int k_nRGBPlaneAmtForRGB333 = 7;
-    const int k_nRGBPlaneAmtForRGB444 = 15;
-    const int k_nRGBPlaneAmtForRGB555 = 31;
-    // The 64 color NeoGeo color table is split bright/dark, but we only use bright
-    const int k_nRGBPlaneAmtForNeoGeo = 31;
-    const int k_nRGBPlaneAmtForHalfAlpha = 0x80;
-    const int k_nRGBPlaneAmtForRGB888 = 255;
+    int GetPlaneAmtForColor(ColMode colorMode, ColFlag colorFlag);
 
     // 16-bit
     UINT16 CONV_32_BGR333(UINT32 inCol);

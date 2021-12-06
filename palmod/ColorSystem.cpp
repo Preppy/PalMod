@@ -10,6 +10,25 @@ namespace ColorSystem
 {
     AlphaMode CurrAlphaMode = AlphaMode::Unknown;
 
+    // These are the multipliers that can be used for color formats
+    // so long as they don't use color lookup tables (CLUTs)
+    const double k_nRGBPlaneMulForRGB111 = 255;
+    const double k_nRGBPlaneMulForRGB333 = 36.428;
+    const double k_nRGBPlaneMulForRGB444 = 17.0;
+    const double k_nRGBPlaneMulForRGB555 = 8.225;
+    const double k_nRGBPlaneMulForRGB777 = 2;
+    const double k_nRGBPlaneMulForRGB888 = 1;
+
+    // These are the number of colors available for each color format
+    const int k_nRGBPlaneAmtForRGB111 = 1;
+    const int k_nRGBPlaneAmtForRGB333 = 7;
+    const int k_nRGBPlaneAmtForRGB444 = 15;
+    const int k_nRGBPlaneAmtForRGB555 = 31;
+    // The 64 color NeoGeo color table is split bright/dark, but we only use bright
+    const int k_nRGBPlaneAmtForNeoGeo = 31;
+    const int k_nRGBPlaneAmtForHalfAlpha = 0x80;
+    const int k_nRGBPlaneAmtForRGB888 = 255;
+
     UINT16 SWAP_16(UINT16 palv)
     {
         UINT16 aux = 0;
@@ -98,6 +117,72 @@ namespace ColorSystem
             }
 
             return 2;
+        }
+    }
+
+    int GetPlaneAmtForColor(ColMode colorMode, ColFlag Flag)
+    {
+        switch (colorMode)
+        {
+        case ColMode::COLMODE_BGR333:
+        case ColMode::COLMODE_RBG333:
+        case ColMode::COLMODE_RGB333:
+            return k_nRGBPlaneAmtForRGB333;
+
+        case ColMode::COLMODE_BGR444:
+        case ColMode::COLMODE_BRG444:
+        case ColMode::COLMODE_RBG444:
+        case ColMode::COLMODE_RGB444_BE:
+        case ColMode::COLMODE_RGB444_LE:
+            return k_nRGBPlaneAmtForRGB444;
+
+        case ColMode::COLMODE_BGR555_LE:
+        case ColMode::COLMODE_RGB555_LE:
+        case ColMode::COLMODE_RGB555_BE:
+        case ColMode::COLMODE_GRB555_LE:
+        case ColMode::COLMODE_RGB555_SHARP:
+            return k_nRGBPlaneAmtForRGB555;
+
+        case ColMode::COLMODE_RGB666_NEOGEO:
+            return k_nRGBPlaneAmtForNeoGeo;
+
+        case ColMode::COLMODE_RGBA8881:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneAmtForRGB111;
+            }
+            else
+            {
+                return k_nRGBPlaneAmtForRGB888;
+            }
+        case ColMode::COLMODE_RGBA8881_32STEPS:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneAmtForRGB111;
+            }
+            else
+            {
+                return k_nRGBPlaneAmtForRGB555;
+            }
+        case ColMode::COLMODE_RGBA8887:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneAmtForHalfAlpha;
+            }
+            else
+            {
+                return k_nRGBPlaneAmtForRGB888;
+            }
+
+        case ColMode::COLMODE_RGBA8888:
+        case ColMode::COLMODE_BGRA8888:
+        case ColMode::COLMODE_BGR888:
+        case ColMode::COLMODE_BRG888:
+        case ColMode::COLMODE_GRB888:
+        case ColMode::COLMODE_RGB888:
+            return k_nRGBPlaneAmtForRGB888;
+        default:
+            return 0;
         }
     }
 
@@ -695,10 +780,6 @@ namespace ColorSystem
         UINT8 red = NGColorVals[((red1 + redm) - darkbit) + 1];
 
         UINT32 color = (auxa << 24) | (blue << 16) | (green << 8) | (red);
-
-        //CString strColor;
-        //strColor.Format(L"ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", nColorData, color, red, green, blue);
-        //OutputDebugString(strColor);
 
         return color;
     }
@@ -1316,7 +1397,7 @@ namespace ColorSystem
         int nConvertedVal = NGColorVals[nColorIndex];
         return nConvertedVal * (fIsNegative ? -1 : 1);
     }
-
+    
     int GetNearestLegalColorValue_ARGB7888(int nColorValue)
     {
         int nAdjustmentValue = (nColorValue < 0) ? -1 : 1;
