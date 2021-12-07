@@ -1666,14 +1666,12 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
 
         if (!isSafeToRunGame)
         {
-            if ((nGameFlag == SAMSHO5SP_A) && (nGameFileLength == 0x800000))
+            if (CurrRule.fHasAltName &&
+                pszFileNameLowercase &&
+                (_wcsicmp(pszFileNameLowercase, CurrRule.szAltFileName) == 0) &&
+                (CurrRule.uAltVerifyVar == nGameFileLength))
             {
-                // Samurai Shodown has a second ROM variant, but we only use the first half here, and things align.
-                isSafeToRunGame = true;
-            }
-            else if ((nGameFlag == SVCPLUSA_A) && (nGameFileLength == 0x200000))
-            {
-                // SVCPlus uses different ROM sizes that the code accounts for
+                OutputDebugString(L"CGameLoad::LoadFile: Confirmed this file is safe to load due to an alternate acceptable file size.\n");
                 isSafeToRunGame = true;
             }
         }

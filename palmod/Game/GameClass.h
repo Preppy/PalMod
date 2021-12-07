@@ -17,6 +17,7 @@ struct sFileRule
     size_t uUnitId = INVALID_UNIT_VALUE;
     bool fHasAltName = false;
     WCHAR szAltFileName[MAX_FILENAME_LENGTH] = L"uninit";
+    UINT32 uAltVerifyVar = (UINT32)-1;
 };
 
 const UINT32 k_nBogusHighValue = 0xFEEDFED;

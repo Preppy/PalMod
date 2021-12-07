@@ -95,6 +95,11 @@ sFileRule CGame_KOF96_A::GetRule(size_t nUnitId)
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
+    // There's a hack variant that matches hexes exactly but uses a different file size
+    NewFileRule.fHasAltName = true;
+    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"214ae-p2.p2");
+    NewFileRule.uAltVerifyVar = 0x400000;
+
     return NewFileRule;
 }
 
@@ -103,6 +108,8 @@ UINT32 CGame_KOF96_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     static sCRC32ValueSet knownROMs[] =
     {
         { L"King of Fighters '96 (Neo-Geo)", L"214-p2.sp2", 0x002ccb73, 0 },
+        { L"King of Fighters '96 (Neo-Geo)", L"214-p2.bin", 0x002ccb73, 0 },
+        { L"King of Fighters '96 (The Anniversary Edition 2.0 Hack, Neo-Geo)", L"214ae-p2.p2", 0x2638be07, 0 },
     };
 
     if (ppKnownROMSet != nullptr)

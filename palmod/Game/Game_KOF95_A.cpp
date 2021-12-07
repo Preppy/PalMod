@@ -42,7 +42,7 @@ CGame_KOF95_A::CGame_KOF95_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF95_A_NUMUNIT;
     m_nExtraUnit = KOF95_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 730;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 470;
     m_pszExtraFilename = EXTRA_FILENAME_KOF95_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF95;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -95,6 +95,12 @@ sFileRule CGame_KOF95_A::GetRule(size_t nUnitId)
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
+    // There's a hack variant that matches hexes exactly but uses a different file size
+    NewFileRule.fHasAltName = true;
+    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"084-p2sp.p2");
+    NewFileRule.uAltVerifyVar = 0x100000;
+
+
     return NewFileRule;
 }
 
@@ -102,7 +108,9 @@ UINT32 CGame_KOF95_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"King of Fighters '95 (Neo-Geo)", L"084-p1.p1", 0x2cba2716, 0 },
+        { L"King of Fighters '95 (Neo-Geo)", L"084-p1.p1", 0x2c4b4cbf, 0 },
+        { L"King of Fighters '95 (Neo-Geo)", L"084-p1.bin", 0x2cba2716, 0 },
+        { L"King of Fighters '95 (Special 2017 Hack, Neo-Geo)", L"084-p2sp.p2", 0x5cb1af9e, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -195,7 +203,7 @@ sKOF95_A_PaletteData KOF95_A_CharacterEffectPalettes[] =
     { L"Mai",       0xde800, false, L"indexKOF94Sprites_Mai" },
     { L"King",      0xdec00, false, L"indexKOF94Sprites_King" },
     { L"Saisyu",    0xdf000, false, L"indexKOF95Sprites_Saisyu" },
-    { L"Omega Rugal", 0xdf400, true, L"indexKOF95Sprites_Rugal" },
+    { L"Omega Rugal", 0xdf400, false, L"indexKOF95Sprites_OmegaRugal" },
 };
 
 void CGame_KOF95_A::DumpPaletteHeaders()
@@ -273,33 +281,18 @@ void CGame_KOF95_A::DumpPaletteHeaders()
                     break;
                 case 6:
                     pszCurrentEffectName = L"Win Portrait?";
-                    nTerminalOffset += (2 * KOF95_PALETTE_LENGTH);
+                    nTerminalOffset += (7 * KOF95_PALETTE_LENGTH);
                     nCurrentImageIndex = -1;
                     break;
                 case 7:
                 case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                case 13:
                     // These are part of the win portrait
                     continue;
-                case 9:
-                    pszCurrentEffectName = L"Extra 5";
-                    nCurrentImageIndex = -1;
-                    break;
-                case 10:
-                    pszCurrentEffectName = L"Extra 6";
-                    nCurrentImageIndex = -1;
-                    break;
-                case 11:
-                    pszCurrentEffectName = L"Extra 7";
-                    nCurrentImageIndex = -1;
-                    break;
-                case 12:
-                    pszCurrentEffectName = L"Extra 8";
-                    nCurrentImageIndex = -1;
-                    break;
-                case 13:
-                    pszCurrentEffectName = L"Extra 9";
-                    nCurrentImageIndex = -1;
-                    break;
                 case 14:
                     pszCurrentEffectName = L"Lifebar Portrait";
                     nCurrentImageIndex = 0x20;

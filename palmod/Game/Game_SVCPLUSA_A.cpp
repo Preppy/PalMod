@@ -560,6 +560,13 @@ sFileRule CGame_SVCPLUSA_A::GetRule(size_t nUnitId)
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
+    // SVC has a second differently sized ROM variant, but the area of interest matches
+    NewFileRule.fHasAltName = true;
+    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"svc-p2p.bin");
+    NewFileRule.uAltVerifyVar = 0x200000;
+
+
+
     return NewFileRule;
 }
 

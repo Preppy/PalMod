@@ -418,8 +418,9 @@ BOOL CGame_GGXXACR_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 bool CGame_GGXXACR_S::IsGGXXACRFileEncrypted(CFile* LoadedFile)
 {
     bool fIsEncrypted = false;
-    const size_t nFileLengthToCheck = 4;
-    std::array<uint16_t, nFileLengthToCheck> prgFileStart = { 0, 0, 0, 0 };
+    // check the first four bytes
+    const size_t nUINT16sToRead = 2;
+    std::array<uint16_t, nUINT16sToRead> prgFileStart = { 0, 0 };
     std::map<std::wstring, uint64_t> decryptedFileBytes =
     {
         { L"ab.bin", 0x20000000 },
@@ -474,11 +475,11 @@ bool CGame_GGXXACR_S::IsGGXXACRFileEncrypted(CFile* LoadedFile)
     };
 
     LoadedFile->Seek(0, CFile::begin);
-    LoadedFile->Read((void*)&prgFileStart[0], 2);
+    LoadedFile->Read((void*)&prgFileStart[0], nUINT16sToRead * sizeof(uint16_t));
 
     CString strByteWatch;
     OutputDebugString(L"\tByte sniff for this file: ");
-    for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
+    for (UINT16 nIndex = 0; nIndex < nUINT16sToRead; nIndex++)
     {
         strByteWatch.Format(L"0x%04x, ", prgFileStart[nIndex]);
         OutputDebugString(strByteWatch);
@@ -489,9 +490,7 @@ bool CGame_GGXXACR_S::IsGGXXACRFileEncrypted(CFile* LoadedFile)
     if (thisFile != decryptedFileBytes.end())
     {
         fIsEncrypted = ((((thisFile->second & 0xFF000000) >> 24) != prgFileStart[0]) ||
-                        (((thisFile->second & 0xFF0000) >> 16) != prgFileStart[1]) ||
-                        (((thisFile->second & 0xFF00) >> 8) != prgFileStart[2]) ||
-                        (((thisFile->second & 0xFF)) != prgFileStart[3]));
+                          (((thisFile->second & 0xFF0000) >> 16) != prgFileStart[1]));
     }
 
     OutputDebugString(fIsEncrypted ? L": confirmed ENCRYPTED\n" : L": confirmed decrypted\n");

@@ -129,13 +129,15 @@ sFileRule CGame_SAMSHO5SP_A::GetRule(size_t nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, (nUnitId == 0) ? L"272-p1.bin" : L"p1.bin");
-
     // The arcade and Steam versions of 5SP are identical other than ROM size.  Thankfully the offsets are unchanged.
-    m_nExpectedGameROMSize = (nUnitId == 0) ? m_nExpectedGameROMSizeArcade : m_nExpectedGameROMSizeSteam;
-
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"272-p1.p1");
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSizeArcade;
+
+    // Samurai Shodown Steam has a second differently sized ROM variant, but we only use the first half here, and things align.
+    NewFileRule.fHasAltName = true;
+    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"p1h.bin");
+    NewFileRule.uAltVerifyVar = m_nExpectedGameROMSizeSteam;
 
     return NewFileRule;
 }
