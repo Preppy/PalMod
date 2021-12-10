@@ -330,7 +330,14 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 
 void CImgOutDlg::FillPalCombo()
 {
-    if ((nPalAmt != 1) && (!pButtonLabelSet.empty()))
+    bool fShouldShowMultipleOptions = (nPalAmt != 1) && (!pButtonLabelSet.empty());
+
+    if (fShouldShowMultipleOptions && (nPalAmt > pButtonLabelSet.size()))
+    {
+        MessageBox(L"Error: list of output options doesn't match list size.\n\nPlease report this bug in PalMod and it'll be fixed promptly.", GetHost()->GetAppName(), MB_ICONERROR);
+    }
+
+    if (fShouldShowMultipleOptions)
     {
         for (int nNodeIndex = 0; nNodeIndex < nPalAmt; nNodeIndex++)
         {
