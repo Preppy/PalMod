@@ -337,6 +337,7 @@
     <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp" />
     <ClCompile Include="Game\Game_SFIII3_D.cpp" />
     <ClCompile Include="Game\Game_SFZ3U_A.cpp" />
+    <ClCompile Include="Game\Game_SHAQFU_SNES.cpp" />
     <ClCompile Include="Game\Game_SPF2T_A.cpp" />
     <ClCompile Include="Game\Game_SSF2T_A.cpp" />
     <ClCompile Include="Game\Game_SSF2T_GBA.cpp" />
@@ -520,6 +521,7 @@
     <ClInclude Include="Game\Game_SFIII3_A_DIR.h" />
     <ClInclude Include="Game\Game_SFIII3_D.h" />
     <ClInclude Include="Game\Game_SFZ3U_A.h" />
+    <ClInclude Include="Game\Game_SHAQFU_SNES.h" />
     <ClInclude Include="Game\Game_SPF2T_A.h" />
     <ClInclude Include="Game\Game_SSF2T_A.h" />
     <ClInclude Include="Game\Game_SSF2T_GBA.h" />
@@ -623,6 +625,7 @@
     <ClInclude Include="Game\SFIII3_A_DEF.h" />
     <ClInclude Include="Game\SFIII3_D_DEF.h" />
     <ClInclude Include="Game\SFZ3U_A_DEF.h" />
+    <ClInclude Include="Game\SHAQFU_SNES_DEF.h" />
     <ClInclude Include="Game\SPF2T_A_DEF.h" />
     <ClInclude Include="Game\SSF2T_A_DEF.h" />
     <ClInclude Include="Game\SSF2T_GBA_DEF.h" />

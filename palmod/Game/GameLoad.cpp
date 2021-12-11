@@ -107,6 +107,7 @@
 #include "Game_SFIII3_D.h"
 #include "Game_SF2CE_A.h"
 #include "Game_SF2HF_A.h"
+#include "Game_SHAQFU_SNES.h"
 #include "Game_SPF2T_A.h"
 #include "Game_SSF2T_A.h"
 #include "Game_SSF2T_GBA.h"
@@ -860,6 +861,12 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SFZ3U_A::GetRule;
         return TRUE;
     }
+    case SHAQFU_SNES:
+    {
+        GetRule = &CGame_SHAQFU_SNES::GetRule;
+        return TRUE;
+    }
+
     case SPF2T_A:
     {
         GetRule = &CGame_SPF2T_A::GetRule;
@@ -1431,6 +1438,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SF2HF_A:
     {
         return new CGame_SF2HF_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case SHAQFU_SNES:
+    {
+        return new CGame_SHAQFU_SNES(nConfirmedROMSize);
     }
     case SPF2T_A:
     {

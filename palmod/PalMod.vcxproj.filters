@@ -439,6 +439,9 @@
     <Filter Include="Games\Nintendo\Mortal Kombat 2 %28SNES%29">
       <UniqueIdentifier>{051029cf-bb7f-4f1b-93f4-d29f56aa9eec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Shaq Fu %28SNES%29">
+      <UniqueIdentifier>{4e148aee-15c3-4fac-96a7-4e6398442d48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -911,6 +914,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_MK1_SNES.cpp">
       <Filter>Games\Nintendo\Mortal Kombat 1 %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SHAQFU_SNES.cpp">
+      <Filter>Games\Nintendo\Shaq Fu %28SNES%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1720,6 +1726,12 @@
     </ClInclude>
     <ClInclude Include="Game\MK1_SNES_DEF.h">
       <Filter>Games\Nintendo\Mortal Kombat 1 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SHAQFU_SNES.h">
+      <Filter>Games\Nintendo\Shaq Fu %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SHAQFU_SNES_DEF.h">
+      <Filter>Games\Nintendo\Shaq Fu %28SNES%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

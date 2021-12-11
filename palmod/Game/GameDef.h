@@ -156,6 +156,7 @@ enum SupportedGamesList
     KOF02UM_S_DIR_RGB555,
     MK1_SNES,
     MK2_SNES,
+    SHAQFU_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -308,6 +309,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"King of Fighters 2002UM (Steam, RGB555 parts)",
     L"Mortal Kombat (SNES)",
     L"Mortal Kombat II (SNES)",
+    L"Shaq Fu (SNES)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
