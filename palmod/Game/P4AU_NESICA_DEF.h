@@ -66,7 +66,7 @@ struct PersonaNodeData
     uint32_t nAdjustmentFromBaseNode = 0;
 };
 
-std::array<PersonaNodeData, 32> PersonaPaletteNodes =
+const std::vector<PersonaNodeData> PersonaPaletteNodes =
 { {
     { L"Color 1",	0x0 },
     { L"Color 2",	0x2100 },
@@ -109,7 +109,7 @@ struct Persona4PaletteData
     int16_t nImageIndex = -1;
 };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesDefault =
+const std::vector<Persona4PaletteData> Persona4PalettesDefault =
 { {
     { L"Main" },
     { L"Persona" },
@@ -121,7 +121,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesDefault =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesAigis =
+const std::vector<Persona4PaletteData> Persona4PalettesAigis =
 { {
     { L"Main", indexP4AUSprites_Aigis, 0x00 },
     { L"Persona: Athena", indexP4AUSprites_Aigis, 0x20 },
@@ -133,7 +133,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesAigis =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesAkihiko =
+const std::vector<Persona4PaletteData> Persona4PalettesAkihiko =
 { {
     { L"Main", indexP4AUSprites_Akihiko, 0x00 },
     { L"Persona: Caesar", indexP4AUSprites_Akihiko, 0x20 },
@@ -145,7 +145,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesAkihiko =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesKen =
+const std::vector<Persona4PaletteData> Persona4PalettesKen =
 { {
     { L"Main", indexP4AUSprites_Ken, 0x00 },
     { L"Persona: Kala-Nemi (Ken)", indexP4AUSprites_Ken, 0x40 },
@@ -157,7 +157,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesKen =
     { L"Extra 4" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesChie =
+const std::vector<Persona4PaletteData> Persona4PalettesChie =
 { {
     { L"Main", indexP4AUSprites_Chie, 0x00 },
     { L"Persona: Tomoe", indexP4AUSprites_Chie, 0x20 },
@@ -169,7 +169,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesChie =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesElizabeth =
+const std::vector<Persona4PaletteData> Persona4PalettesElizabeth =
 { {
     { L"Main", indexP4AUSprites_Elizabeth, 0x00 },
     { L"Persona: Thanatos", indexP4AUSprites_Elizabeth, 0x20 },
@@ -181,7 +181,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesElizabeth =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesJunpei =
+const std::vector<Persona4PaletteData> Persona4PalettesJunpei =
 { {
     { L"Main", indexP4AUSprites_Junpei, 0x00 },
     { L"Persona: Trismegistus", indexP4AUSprites_Junpei, 0x20 },
@@ -193,7 +193,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesJunpei =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesKanji =
+const std::vector<Persona4PaletteData> Persona4PalettesKanji =
 { {
     { L"Main", indexP4AUSprites_Kanji, 0x00 },
     { L"Persona: Take-Mikazuchi", indexP4AUSprites_Kanji, 0x20 },
@@ -205,7 +205,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesKanji =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesLabrys =
+const std::vector<Persona4PaletteData> Persona4PalettesLabrys =
 { {
     { L"Main", indexP4AUSprites_Labrys, 0x00 },
     { L"Persona: Ariadne", indexP4AUSprites_Labrys, 0x20 },
@@ -217,7 +217,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesLabrys =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesMargaret =
+const std::vector<Persona4PaletteData> Persona4PalettesMargaret =
 { {
     { L"Main", indexP4AUSprites_Margaret, 0x00 },
     { L"Persona: Ardha", indexP4AUSprites_Margaret, 0x20 },
@@ -229,7 +229,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesMargaret =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesMarie =
+const std::vector<Persona4PaletteData> Persona4PalettesMarie =
 { {
     { L"Main", indexP4AUSprites_Marie, 0x00 },
     { L"Persona: Kaguya", indexP4AUSprites_Marie, 0x20 },
@@ -241,7 +241,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesMarie =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesMitsuru =
+const std::vector<Persona4PaletteData> Persona4PalettesMitsuru =
 { {
     { L"Main", indexP4AUSprites_Mitsuru, 0x00 },
     { L"Persona: Artemisia", indexP4AUSprites_Mitsuru, 0x20 },
@@ -253,7 +253,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesMitsuru =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesNaoto =
+const std::vector<Persona4PaletteData> Persona4PalettesNaoto =
 { {
     { L"Main", indexP4AUSprites_Naoto, 0x00 },
     { L"Persona: Sukuna-Hikona", indexP4AUSprites_Naoto, 0x20 },
@@ -265,7 +265,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesNaoto =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesRise =
+const std::vector<Persona4PaletteData> Persona4PalettesRise =
 { {
     { L"Main", indexP4AUSprites_Rise, 0x00 },
     { L"Persona: Himiko", indexP4AUSprites_Rise, 0x20 },
@@ -277,7 +277,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesRise =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesShadow =
+const std::vector<Persona4PaletteData> Persona4PalettesShadow =
 { {
     { L"Main", indexP4AUSprites_Shadow, 0x00 },
     { L"Persona: Asterius", indexP4AUSprites_Shadow, 0x20 },
@@ -289,7 +289,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesShadow =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesSho =
+const std::vector<Persona4PaletteData> Persona4PalettesSho =
 { {
     { L"Main", indexP4AUSprites_Sho, 0x00 },
     { L"Persona: Tsukiyomi", indexP4AUSprites_Sho, 0x20 },
@@ -301,7 +301,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesSho =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesSolo =
+const std::vector<Persona4PaletteData> Persona4PalettesSolo =
 { {
     { L"Main", indexP4AUSprites_Solo, 0x00 },
     { L"Persona (None)" },
@@ -313,7 +313,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesSolo =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesTeddie =
+const std::vector<Persona4PaletteData> Persona4PalettesTeddie =
 { {
     { L"Main", indexP4AUSprites_Teddie, 0x00 },
     { L"Persona: Kintoki-Douji", indexP4AUSprites_Teddie, 0x20 },
@@ -325,7 +325,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesTeddie =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesTohru =
+const std::vector<Persona4PaletteData> Persona4PalettesTohru =
 { {
     { L"Main", indexP4AUSprites_Tohru, 0x00 },
     { L"Persona: Magatsu Izanagi", indexP4AUSprites_Tohru, 0x20 },
@@ -337,7 +337,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesTohru =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesYosuke =
+const std::vector<Persona4PaletteData> Persona4PalettesYosuke =
 { {
     { L"Main", indexP4AUSprites_Yosuke, 0x00 },
     { L"Persona: Jiraiya", indexP4AUSprites_Yosuke, 0x20 },
@@ -349,7 +349,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesYosuke =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesYu =
+const std::vector<Persona4PaletteData> Persona4PalettesYu =
 { {
     { L"Main", indexP4AUSprites_Yu, 0x00 },
     { L"Persona: Izanagi", indexP4AUSprites_Yu, 0x20 },
@@ -361,7 +361,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesYu =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesYukari =
+const std::vector<Persona4PaletteData> Persona4PalettesYukari =
 { {
     { L"Main", indexP4AUSprites_Yukari, 0x00 },
     { L"Persona: Isis", indexP4AUSprites_Yukari, 0x20 },
@@ -373,7 +373,7 @@ std::array<Persona4PaletteData, 8> Persona4PalettesYukari =
     { L"Extra 6" },
 } };
 
-std::array<Persona4PaletteData, 8> Persona4PalettesYukiko =
+const std::vector<Persona4PaletteData> Persona4PalettesYukiko =
 { {
     { L"Main", indexP4AUSprites_Yukiko, 0x00 },
     { L"Persona: Konohana-Sakuya", indexP4AUSprites_Yukiko, 0x20 },
@@ -390,11 +390,11 @@ struct PersonaFileData
     std::wstring pszFileName;
     std::wstring pszCharacter;
     size_t nExpectedFileSize = 0;
-    std::array<Persona4PaletteData, 8> *paletteInfo = nullptr;
+    const std::vector<Persona4PaletteData> *paletteInfo = nullptr;
     uint32_t nInitialLocation = 0;
 };
 
-std::array<PersonaFileData, 22> PersonaCharacterData =
+const std::vector<PersonaFileData> PersonaCharacterData =
 { {
     //Persona 3, alphabetical
         { L"char_ag_pal.pac",    L"Aigis",                  278560,    &Persona4PalettesAigis,      0x2040 },
