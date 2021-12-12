@@ -607,7 +607,7 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, size_t nUnitId)
                 nExpectedSize = MVC2_D_PALDATASIZE_16COLORS[nUnitId];
             }
             
-            if (nDataSz != nExpectedSize);
+            if (nDataSz != nExpectedSize)
             {
                 CString strError;
                 strError.Format(L"CGame_MVC2_D::LoadFile: Palette data size 0x%08x does not match with expected palette data size 0x%08x.  Failing file load.\n", nDataSz, nExpectedSize);
