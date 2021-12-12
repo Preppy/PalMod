@@ -1,6 +1,7 @@
 #pragma once
 #include "Default.h"
 
+// Number of colors per each palette
 constexpr UINT16 MVC2_D_PALSZ = 16;
 
 constexpr UINT16 EXTRA_START = 0x0F00;
@@ -12,10 +13,21 @@ constexpr auto MVC2_D_NUMUNIT = 59;
 constexpr auto MVC2_D_NUMUNIT_WITH_TEAMVIEW = MVC2_D_NUMUNIT + 1;
 
 // Extras for a character are located at an zero-based offset of (6 colors * 8 base palettes)
-constexpr UINT16 EXTRA_OMNI = 47; //  (8 * 6) - 1;
+extern size_t EXTRA_OMNI; // = default of 47:  (8 * 6) - 1;
 constexpr auto MVC2_D_TEAMVIEW_LOCATION = MVC2_D_NUMUNIT;
 
-const UINT32 MVC2_D_FILESZ[MVC2_D_NUMUNIT_WITH_TEAMVIEW] = {
+struct sMoveDescription
+{
+    UINT16 nCharacterIndex = 0;
+    LPCWSTR szMoveName = L"uninit";
+    UINT16 nImageIndex = 0xFF;
+    LPCWSTR pszImageUnitOverride = nullptr;
+    LPCWSTR pszPairedPaletteName = nullptr;
+};
+
+// These are the filesizes for each normal MVC2 PAL file.
+// This is sorted by character ID: Ryu is 0x0
+const UINT32 MVC2_D_FILESIZES_6COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] = {
 
     557408, 
     926400, 
@@ -79,7 +91,72 @@ const UINT32 MVC2_D_FILESZ[MVC2_D_NUMUNIT_WITH_TEAMVIEW] = {
     0
 };
 
-const UINT32 MVC2_D_PALDATASZ[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
+// These are the filesizes for the MVC2 PAL files created for the palette expansion
+const UINT32 MVC2_D_FILESIZES_16COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
+{
+    561792,
+    934592,
+    645312,
+    870496,
+    1201920,
+    936288,
+    1007584,
+    1075872,
+    1105920,
+    1017888,
+    999168,
+    1046208,
+    963680,
+    1196064,
+    1245984,
+    1186080,
+    1195904,
+    946368,
+    1090176,
+    1137952,
+    1208768,
+    1191968,
+    1045792,
+    1143744,
+    994336,
+    605760,
+    928096,
+    572896,
+    716544,
+    572448,
+    590720,
+    1211936,
+    1255136,
+    489504,
+    870624,
+    358176,
+    706976,
+    795904,
+    582816,
+    595968,
+    1007616,
+    1278560,
+    1164288,
+    1095808,
+    1200512,
+    1031072,
+    1101824,
+    1220544,
+    1089088,
+    1198432,
+    1284288,
+    1111552,
+    1248224,
+    1266784,
+    1014912,
+    998848,
+    1030688,
+    1096320,
+    471872,
+    0
+};
+
+const UINT32 MVC2_D_PALDATASIZE_6COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
 {
     0x00000720,
     0x00000D40,
@@ -141,6 +218,70 @@ const UINT32 MVC2_D_PALDATASZ[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
     0x00000840,
     0x00000B80,
     0x00000720
+};
+
+const UINT32 MVC2_D_PALDATASIZE_16COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
+{
+    0x0001a720,
+    0x0001c400,
+    0x0001afa0,
+    0x0001e5e0,
+    0x0001c1c0,
+    0x0001cc40,
+    0x0001e600,
+    0x0001bd60,
+    0x0001c7a0,
+    0x0001cf20,
+    0x0001d860,
+    0x000214e0,
+    0x000204c0,
+    0x0001a180,
+    0x0001c600,
+    0x0001db00,
+    0x0001d740,
+    0x0001b640,
+    0x0001cb00,
+    0x0001c6e0,
+    0x0001d620,
+    0x0001a300,
+    0x0001a800,
+    0x0001b2a0,
+    0x00016d20,
+    0x000169c0,
+    0x00018cc0,
+    0x0001b9c0,
+    0x00027dc0,
+    0x00027e20,
+    0x0001aee0,
+    0x0001da40,
+    0x0001b6e0,
+    0x0001a780,
+    0x0001db40,
+    0x000194c0,
+    0x0001c820,
+    0x0001bb40,
+    0x00019ba0,
+    0x0001b620,
+    0x0001c620,
+    0x0001b3a0,
+    0x0001e000,
+    0x0001a7a0,
+    0x0001e2e0,
+    0x00021260,
+    0x0001ef60,
+    0x0001e420,
+    0x0001d8e0,
+    0x0001dcc0,
+    0x0001df20,
+    0x0001e320,
+    //0x00013780,
+    0x00019740,
+    0x0001dfa0,
+    0x00019600,
+    0x0001eaa0,
+    0x0001cd80,
+    0x0001c760,
+    0x0001d4c0,
 };
 
 const WCHAR MVC2_D_UNITDESC[MVC2_D_NUMUNIT_WITH_TEAMVIEW][MAX_DESCRIPTION_LENGTH] =

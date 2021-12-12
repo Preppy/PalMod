@@ -3,16 +3,7 @@
 // This is converted from Eidrian's reference guide at:
 //    http://zachd.com/mvc2/colors/tools/Palette%20Variant%20Full.pdf
 
-struct sMoveDescription
-{
-    UINT16 nCharacterIndex = 0;
-    LPCWSTR szMoveName = L"uninit";
-    UINT16 nImageIndex = 0xFF;
-    LPCWSTR pszImageUnitOverride = nullptr;
-    LPCWSTR pszPairedPaletteName = nullptr;
-};
-
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_RYU[] = // 00
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_RYU = // 00
 {
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Hadouken // Shinkuu Hadouken" },
@@ -24,7 +15,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_RYU[] = // 00
     { 0x07, L"(08) Not Used: A-Groove/Super trail dark" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ZANGIEF[] = // 01
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ZANGIEF = // 01
 {
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:02-11 - Banishing Fist ID:12-15 - Banishing Fist (wristband)" },
@@ -85,7 +76,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ZANGIEF[] = // 01
     { 0x3A, L"(U)FAB 75perc Effect frame - A2 Mecha Gief", 12 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_GUILE[] = 
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_GUILE =
 {
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID: 01-08 Sonic Boom/ Flash Kick/ Supers ID:09-15 Sonic Boom (tip)" },
@@ -97,7 +88,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_GUILE[] =
     { 0x07, L"(08) Not used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_MORRIGAN[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_MORRIGAN =
 { //    { 0x03, L": Morrigan" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Lilith" },
@@ -241,7 +232,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_MORRIGAN[] =
     { 0x8C, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ANAKARIS[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ANAKARIS =
 { //    { 0x04, L": Anakaris" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Not Used" },
@@ -277,7 +268,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ANAKARIS[] =
     { 0x20, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_STRIDER[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_STRIDER =
 { //    { 0x05, L": Strider" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used" },
@@ -289,7 +280,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_STRIDER[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CYCLOPS[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_CYCLOPS =
 { //{ 0x06, L": Cyclops" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) s.HK, (s)j.HK Swing effect" },
@@ -393,7 +384,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CYCLOPS[] =
     { 0x64, L"A2 Mega Optic Blast Stance Glimmer", 13 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_WOLVERINE[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_WOLVERINE =
 { //    { 0x07, L": Wolverine" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Wolverine's Claws" },
@@ -407,7 +398,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_WOLVERINE[] =
     { 0x12, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_PSYLOCKE[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_PSYLOCKE =
 { //08: Psylocke" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) FP / PsyBlast / Kochou Gakure/ Psy-Maelstrom" },
@@ -421,7 +412,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_PSYLOCKE[] =
     { 0x0A, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ICEMAN[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ICEMAN =
 { //09: Ice-Man" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Stance Frame" },
@@ -499,7 +490,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ICEMAN[] =
     { 0x4A, L"A2 - Shine Frame 7", 0 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ROGUE[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ROGUE =
 { //0A: Rogue" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Taunt - Heart" },
@@ -537,7 +528,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ROGUE[] =
     { 0x22, L"A2 - Winpose", 11 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CAPTAINAMERICA[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_CAPTAINAMERICA =
 { //0B: Captain America" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield" },
@@ -560,7 +551,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CAPTAINAMERICA[] =
     { 0x1B, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SPIDERMAN[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_SPIDERMAN =
 { //0C: Spider-man" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Taunt Balloon" },
@@ -668,7 +659,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SPIDERMAN[] =
     { 0x68, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_HULK[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_HULK =
 { //0D: Hulk" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) j.FP (effect) / Gamma Charge (effect)" },
@@ -682,7 +673,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_HULK[] =
     { 0x0A, L"Gamma Crush (Meteor Pieces)", 11 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_VENOM[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_VENOM =
 { //0E: Venom" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-09 Taunt (Eddie Brock's Face) ID:10-15 Taunt (Ballon & Letters)" },
@@ -695,7 +686,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_VENOM[] =
     { 0x09, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_DRDOOM[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_DRDOOM =
 { //0F: Dr. Doom" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) FP, c.FP" },
@@ -875,7 +866,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_DRDOOM[] =
     { 0xB0, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_TRONBONNE[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_TRONBONNE =
 { //10: Tron Bonne" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Tron Bonne (girl)" },
@@ -892,7 +883,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_TRONBONNE[] =
     { 0x15, L"Drill Flame", 14 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_JILL[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_JILL =
 { //11: Jill Valentine" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Rocket Launcher / Ribbon / Granade Launcher / Key" },
@@ -907,7 +898,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_JILL[] =
     { 0x0B, L"Zombie Frame (Shining Frame) - all buttons", 2 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_HAYATO[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_HAYATO =
 { //12: Hayato" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword" },
@@ -926,7 +917,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_HAYATO[] =
     { 0x17, L"Winpose - Elle" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_RUBYHEART[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_RUBYHEART =
 { //13: Ruby Heart" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Chest" },
@@ -957,7 +948,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_RUBYHEART[] =
     { 0x1B, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SONSON[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_SONSON =
 { //14: Son Son" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Monkeys" },
@@ -1001,7 +992,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SONSON[] =
     { 0x28, L"A2 - Monkey King (Laser Reflect Frame 2)", 11 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_AMINGO[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_AMINGO =
 { //15: Amingo" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Not Used" },
@@ -1016,7 +1007,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_AMINGO[] =
     { 0x0B, L"ID: 01-08 Not Used ID:09-15: Enhance Assist", 11 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_MARROW[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_MARROW =
 { //16: Marrow" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-07 : Not Used ID: 08-15 Sewer Lid / fp / Broken Monitor" },
@@ -1028,7 +1019,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_MARROW[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CABLE[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_CABLE =
 { //17: Cable" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID: 01-08 : ElecTrap(Burst)/Intro/Crackdown/Viper Beam || ID: 09-15 : Eye & Arm Flash (stance) / Scimitar (shine) / Psy-Charge" },
@@ -1040,7 +1031,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CABLE[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ABYSS1[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ABYSS1 =
 { //18: Abyss (Form 1)" },
     { 0x00, L"Main Color (shared for all buttons)" },
     { 0x01, L"(02) ID:02-09 Titan Dash // Electric Sphere ID: 10-15 Not Used" },
@@ -1053,7 +1044,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ABYSS1[] =
     { 0x09, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ABYSS2[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ABYSS2 =
 { //19: Abyss (Form 2)" },
     { 0x00, L"Main Color (button specific)" },
     { 0x01, L"(02) Not Used" },
@@ -1067,7 +1058,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ABYSS2[] =
     { 0x09, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ABYSS3[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ABYSS3 =
 { //1A: Abyss (Form 3)" },
     { 0x00, L"Main Color (shared for all buttons) / Rising Fire" },
     { 0x01, L"(02) Beast Flame / Beast Pillar" },
@@ -1080,7 +1071,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ABYSS3[] =
     { 0x09, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CHUNLI[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_CHUNLI =
 { //1B: Chun-Li" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Keiokuken (shades)" },
@@ -1092,7 +1083,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CHUNLI[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_MEGAMAN[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_MEGAMAN =
 { //1C: Megaman" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Tornado Hold Special // Rush (stance & after super frame) // FlipTop (stance & after super frame)" },
@@ -1632,7 +1623,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_MEGAMAN[] =
     { 0x212, L"A2 Magnetic Shockwave Power Up (MvC1 Ending)", 0, L"indexCPS2Sprites_Megaman" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ROLL[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ROLL =
 { //1D: Roll" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Tornado Hold Special // Rush (stance & after super frame) // FlipTop (stance & after super frame)", 1, L"indexCPS2Sprites_Megaman" },
@@ -2207,7 +2198,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ROLL[] =
     { 0x212, L"A2 Magnetic Shockwave Power Up (MvC1 Ending)", 0, L"indexCPS2Sprites_Megaman" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_GOUKI[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_GOUKI =
 { //1E: Gouki" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:02-09: Gou Hadou(Frame1) / Messatsu GouHadou / Gou Shoryuken (Flame) ID:10-15: Gou Hadou (Frame 2)" },
@@ -2219,7 +2210,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_GOUKI[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_BBHOOD[] =
+const std::vector<sMoveDescription> MVC2_6COLOR_MOVE_DESCRIPTIONS_BBHOOD =
 { //1F: B.B.Hood" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Dog / Butterflies" },
@@ -2250,7 +2241,49 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_BBHOOD[] =
     { 0x1B, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_FELICIA[] =
+const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_BBHOOD =
+{ //1F: B.B.Hood" },
+    { 0x00, L"Main Color" },
+    { 0x01, L"(02) Dog / Butterflies" },
+    { 0x02, L"(03) Mines / Uzi / Missiles" },
+    { 0x03, L"(04) Explosions" },
+    { 0x04, L"(05) ID:01-09 Explosion (Burst) / GunMen (Fire) ID:10-15: Not Used" },
+    { 0x05, L"(06) ID:01-08: Missile Smog Trail ID:09-15 Not used" },
+    { 0x06, L"(07) ID:01-07: Applebomb ID:08-15: Molotov Cocktail (fire)" },
+    { 0x07, L"(08) ID:01-07: Molotov Cocktail (bottle) ID:08-14: Molotov Cocktail (Sticker!)" },
+    { 0x09, L"Cheer and Fire" },
+    { 0x0A, L"Water" },
+    { 0x0B, L"Water Puddle" },
+    { 0x0C, L"LP Cruel Hunting" },
+    { 0x0D, L"LK Cruel Hunting" },
+    { 0x0E, L"HP Cruel Hunting" },
+    { 0x0F, L"HK Cruel Hunting" },
+    { 0x10, L"LP+A1 Cruel Hunting" },
+    { 0x11, L"LK+A1 Cruel Hunting" },
+    { 0x12, L"HP+A1 Cruel Hunting" },
+    { 0x13, L"HK+A1 Cruel Hunting" },
+    { 0x14, L"LP+A2 Cruel Hunting" },
+    { 0x15, L"LK+A2 Cruel Hunting" },
+    { 0x16, L"HP+A2 Cruel Hunting" },
+    { 0x17, L"HK+A2 Cruel Hunting" },
+    { 0x18, L"LP+A1+A2 Cruel Hunting" },
+    { 0x19, L"LK+A1+A2 Cruel Hunting" },
+    { 0x1a, L"HP+A1+A2 Cruel Hunting" },
+    { 0x1b, L"HK+A1+A2 Cruel Hunting" },
+
+    { 0x1c, L"Not Used" },
+    { 0x1e, L"Apple for You" },
+    { 0x1e, L"Mr. K" },
+    { 0x1f, L"Not Used" },
+    { 0x20, L"Not Used" },
+    { 0x21, L"Not Used" },
+    { 0x22, L"Not Used" },
+    { 0x23, L"Not Used" },
+    { 0x24, L"Not Used" },
+    { 0x25, L"Not Used" },
+};
+
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_FELICIA =
 { //20: Felicia" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-07 Sand Splash / CatSpike ID:08-15 Sand Splash/ Catball" },
@@ -2262,7 +2295,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_FELICIA[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CHARLIE[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_CHARLIE =
 { //21: Charlie" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-08 Sonic Boom (inner) ID:09-15 Sonic Boom (tip)" },
@@ -2274,7 +2307,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CHARLIE[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SAKURA[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_SAKURA =
 { //22: Sakura" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:02-09 - Hadouken ID:10-15 - Not Used" },
@@ -2312,7 +2345,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SAKURA[] =
     { 0x22, L"A2 Evil Sakura", 0 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_DAN[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_DAN =
 { //23: Dan" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) 02-09 Gadouken ID:10-15 Gadouken" },
@@ -2324,7 +2357,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_DAN[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CAMMY[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_CAMMY =
 { //24: Cammy" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:02-09 Cannon Drill (effect), Gauntlet (glow)" },
@@ -2390,7 +2423,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CAMMY[] =
     { 0x3E, L"A2 - Counterflash Frame 9", 11 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_DHALSIM[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_DHALSIM =
 { //25: Dhalsim" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-11Yoga Fire / Yoga Flame / Yoga Inferno" },
@@ -2432,7 +2465,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_DHALSIM[] =
     { 0x26, L"A2 - Teleport Frame 5 fullwhite", 11 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_MBISON[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_MBISON =
 { //26: M.Bison" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:02-08 Intro (dust) / Teleport / Super Spark ID:09-15 Teleport / Super Spark" },
@@ -2456,7 +2489,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_MBISON[] =
     { 0x14, L"Psycho Crusher (Glow Frame 2) A2 color" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_KEN[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_KEN =
 { //27: Ken" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:02-09 Hadouken" },
@@ -2468,7 +2501,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_KEN[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_GAMBIT[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_GAMBIT =
 { //28: Gambit" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-08 Kinetic Card // Trick Card" },
@@ -2510,7 +2543,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_GAMBIT[] =
     { 0x26, L"A2 - Winpose Frame 5 a2 color + (lumin-10)", 0 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_JUGGERNAUT[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_JUGGERNAUT =
 { //29: Juggernaut" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Not Used" },
@@ -2584,7 +2617,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_JUGGERNAUT[] =
     { 0x3D + 7, L"A2 - Power-Up Frames 8", 11 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_STORM[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_STORM =
 { //2A: Storm" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Not Used" },
@@ -2631,7 +2664,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_STORM[] =
     { 0x2A, L"A2 lightning effect 3 ! lumin+25", 15 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SABRETOOTH[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_SABRETOOTH =
 { //2B: Sabretooth" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Berserker Barrage (Claw) / Birdie's gun / LPx2" },
@@ -2643,7 +2676,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SABRETOOTH[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_MAGNETO[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_MAGNETO =
 { //2C: Magneto" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:02-06: Guard (Reflect) || ID:07-09: HyperGrav, EM Disruptor (inner), Magnetic Tempest (rocks), Guard (when hit) || ID:10-15 EM Disruptor (outer) / c.hk (effect)" },
@@ -2657,7 +2690,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_MAGNETO[] =
     { 0x0A, L"ID:01-09 Not Used - Glitched Palette ID:10-15 c.mp (ball - all buttons) / c.hk (effect after c.mp)", 11 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SHUMA[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_SHUMA =
 { //2D: Shuma-Gorath" },
     { 0x00, L"Main Color / Mystic Stare" },
     { 0x01, L"(02) Dash Frame / Guard Frame" },
@@ -2927,7 +2960,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SHUMA[] =
     { 0x130, L"A2 - Mystic Smash Shadows", 0 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_WARMACHINE[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_WARMACHINE =
 { //2E: War Machine" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-08 Proton Cannon ID:09-15 Rocket (Flame)" },
@@ -2939,7 +2972,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_WARMACHINE[] =
     { 0x07, L"(08) Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SILVERSAMURAI[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_SILVERSAMURAI =
 { //2F: Silver-Samurai" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) LP Color - Shadow Frame LP Color + Lumin-5", 0 },
@@ -2999,7 +3032,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SILVERSAMURAI[] =
     { 0x38, L"Separator" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_OMEGARED[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_OMEGARED =
 { //30: Omega Red" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Energy Drain (Coil Effect)" },
@@ -3036,7 +3069,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_OMEGARED[] =
     { 0x21, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SPIRAL[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_SPIRAL =
 { //31: Spiral" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Not Used" },
@@ -3262,7 +3295,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SPIRAL[] =
     { 0xC7 + 11, L"A2 - Metamorphosis Dance frames 12", 12 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_COLOSSUS[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_COLOSSUS =
 { //32: Colossus" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-09 Armor Shine (sparks) / FP ID:10-15 Not Used" },
@@ -3466,7 +3499,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_COLOSSUS[] =
     { 0xC8, L"A2 - Super Armor Stance Frame 7", 0 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_IRONMAN[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_IRONMAN =
 { //33: Iron-Man" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-08 Proton Cannon, ID:09-15 Rocket Flames (fly)" },
@@ -3481,7 +3514,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_IRONMAN[] =
     { 0x0B, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SENTINEL[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_SENTINEL =
 { //34: Sentinel" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Drones (bombs) / Guts" },
@@ -3503,7 +3536,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SENTINEL[] =
     { 0x1A, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_BLACKHEART[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_BLACKHEART =
 { //35: Black Heart" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Dark Thunder" },
@@ -3571,7 +3604,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_BLACKHEART[] =
     { 0x40, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_THANOS[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_THANOS =
 { //36: Thanos" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Stand Up Frame 2" },
@@ -3608,7 +3641,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_THANOS[] =
     { 0x21, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_JIN[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_JIN =
 { //37: Jin" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID: 01-08: FP// HK // Saotome Typhoon // Saotome Dynamite" },
@@ -3763,7 +3796,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_JIN[] =
     { 0x81 + 5, L"A2 Taunt 6", 15 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO =
 { //38: Captain Commando" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Commando Strike (Sho, Genity, Hoover)", 1, L"indexCPS2Sprites_CapCom", L"&pairCapComNinjas" },
@@ -3793,7 +3826,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO[] =
     { 0x19, L"Taunt A2", 14 },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_BONERINE[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_BONERINE =
 { //39: Bonerine" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) Claws" },
@@ -3807,7 +3840,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_BONERINE[] =
     { 0x12, L"Not Used" },
 };
 
-const sMoveDescription MVC2_MOVE_DESCRIPTIONS_KOBUN[] =
+const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_KOBUN =
 { //3A: Kobun" },
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 1, L"indexCPS2Sprites_Tron" },
@@ -3849,71 +3882,130 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_KOBUN[] =
     { 0x26, L"A2 - King Kobun Frame 5 Full white" },
 };
 
-struct sMoveDescriptionLookup
+const std::vector<std::vector<sMoveDescription>> MVC2_6COLOR_MOVE_DESCRIPTIONS =
 {
-    const sMoveDescription* pMoveDescriptions;
-    UINT32 nArraySize = 0;
+    { MVC2_MOVE_DESCRIPTIONS_RYU },
+    { MVC2_MOVE_DESCRIPTIONS_ZANGIEF },
+    { MVC2_MOVE_DESCRIPTIONS_GUILE },
+    { MVC2_MOVE_DESCRIPTIONS_MORRIGAN },
+    { MVC2_MOVE_DESCRIPTIONS_ANAKARIS },
+    { MVC2_MOVE_DESCRIPTIONS_STRIDER },
+    { MVC2_MOVE_DESCRIPTIONS_CYCLOPS },
+    { MVC2_MOVE_DESCRIPTIONS_WOLVERINE },
+    { MVC2_MOVE_DESCRIPTIONS_PSYLOCKE },
+    { MVC2_MOVE_DESCRIPTIONS_ICEMAN },
+    { MVC2_MOVE_DESCRIPTIONS_ROGUE },
+    { MVC2_MOVE_DESCRIPTIONS_CAPTAINAMERICA },
+    { MVC2_MOVE_DESCRIPTIONS_SPIDERMAN },
+    { MVC2_MOVE_DESCRIPTIONS_HULK },
+    { MVC2_MOVE_DESCRIPTIONS_VENOM },
+    { MVC2_MOVE_DESCRIPTIONS_DRDOOM },
+    { MVC2_MOVE_DESCRIPTIONS_TRONBONNE },
+    { MVC2_MOVE_DESCRIPTIONS_JILL },
+    { MVC2_MOVE_DESCRIPTIONS_HAYATO },
+    { MVC2_MOVE_DESCRIPTIONS_RUBYHEART },
+    { MVC2_MOVE_DESCRIPTIONS_SONSON },
+    { MVC2_MOVE_DESCRIPTIONS_AMINGO },
+    { MVC2_MOVE_DESCRIPTIONS_MARROW },
+    { MVC2_MOVE_DESCRIPTIONS_CABLE },
+    { MVC2_MOVE_DESCRIPTIONS_ABYSS1 },
+    { MVC2_MOVE_DESCRIPTIONS_ABYSS2 },
+    { MVC2_MOVE_DESCRIPTIONS_ABYSS3 },
+    { MVC2_MOVE_DESCRIPTIONS_CHUNLI },
+    { MVC2_MOVE_DESCRIPTIONS_MEGAMAN },
+    { MVC2_MOVE_DESCRIPTIONS_ROLL },
+    { MVC2_MOVE_DESCRIPTIONS_GOUKI },
+    { MVC2_6COLOR_MOVE_DESCRIPTIONS_BBHOOD },
+    { MVC2_MOVE_DESCRIPTIONS_FELICIA },
+    { MVC2_MOVE_DESCRIPTIONS_CHARLIE },
+    { MVC2_MOVE_DESCRIPTIONS_SAKURA },
+    { MVC2_MOVE_DESCRIPTIONS_DAN },
+    { MVC2_MOVE_DESCRIPTIONS_CAMMY },
+    { MVC2_MOVE_DESCRIPTIONS_DHALSIM },
+    { MVC2_MOVE_DESCRIPTIONS_MBISON },
+    { MVC2_MOVE_DESCRIPTIONS_KEN },
+    { MVC2_MOVE_DESCRIPTIONS_GAMBIT },
+    { MVC2_MOVE_DESCRIPTIONS_JUGGERNAUT },
+    { MVC2_MOVE_DESCRIPTIONS_STORM },
+    { MVC2_MOVE_DESCRIPTIONS_SABRETOOTH },
+    { MVC2_MOVE_DESCRIPTIONS_MAGNETO },
+    { MVC2_MOVE_DESCRIPTIONS_SHUMA },
+    { MVC2_MOVE_DESCRIPTIONS_WARMACHINE },
+    { MVC2_MOVE_DESCRIPTIONS_SILVERSAMURAI },
+    { MVC2_MOVE_DESCRIPTIONS_OMEGARED },
+    { MVC2_MOVE_DESCRIPTIONS_SPIRAL },
+    { MVC2_MOVE_DESCRIPTIONS_COLOSSUS },
+    { MVC2_MOVE_DESCRIPTIONS_IRONMAN },
+    { MVC2_MOVE_DESCRIPTIONS_SENTINEL },
+    { MVC2_MOVE_DESCRIPTIONS_BLACKHEART },
+    { MVC2_MOVE_DESCRIPTIONS_THANOS },
+    { MVC2_MOVE_DESCRIPTIONS_JIN },
+    { MVC2_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO },
+    { MVC2_MOVE_DESCRIPTIONS_BONERINE },
+    { MVC2_MOVE_DESCRIPTIONS_KOBUN },
 };
 
-const sMoveDescriptionLookup MVC2_MOVE_DESCRIPTIONS[] =
+const std::vector<std::vector<sMoveDescription>> MVC2_16COLOR_MOVE_DESCRIPTIONS =
 {
-    { MVC2_MOVE_DESCRIPTIONS_RYU, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_RYU) },
-    { MVC2_MOVE_DESCRIPTIONS_ZANGIEF, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_ZANGIEF) },
-    { MVC2_MOVE_DESCRIPTIONS_GUILE, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_GUILE) },
-    { MVC2_MOVE_DESCRIPTIONS_MORRIGAN, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_MORRIGAN) },
-    { MVC2_MOVE_DESCRIPTIONS_ANAKARIS, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_ANAKARIS) },
-    { MVC2_MOVE_DESCRIPTIONS_STRIDER, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_STRIDER) },
-    { MVC2_MOVE_DESCRIPTIONS_CYCLOPS, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_CYCLOPS) },
-    { MVC2_MOVE_DESCRIPTIONS_WOLVERINE, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_WOLVERINE) },
-    { MVC2_MOVE_DESCRIPTIONS_PSYLOCKE, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_PSYLOCKE) },
-    { MVC2_MOVE_DESCRIPTIONS_ICEMAN, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_ICEMAN) },
-    { MVC2_MOVE_DESCRIPTIONS_ROGUE, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_ROGUE) },
-    { MVC2_MOVE_DESCRIPTIONS_CAPTAINAMERICA, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_CAPTAINAMERICA) },
-    { MVC2_MOVE_DESCRIPTIONS_SPIDERMAN, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_SPIDERMAN) },
-    { MVC2_MOVE_DESCRIPTIONS_HULK, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_HULK) },
-    { MVC2_MOVE_DESCRIPTIONS_VENOM, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_VENOM) },
-    { MVC2_MOVE_DESCRIPTIONS_DRDOOM, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_DRDOOM) },
-    { MVC2_MOVE_DESCRIPTIONS_TRONBONNE, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_TRONBONNE) },
-    { MVC2_MOVE_DESCRIPTIONS_JILL, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_JILL) },
-    { MVC2_MOVE_DESCRIPTIONS_HAYATO, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_HAYATO) },
-    { MVC2_MOVE_DESCRIPTIONS_RUBYHEART, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_RUBYHEART) },
-    { MVC2_MOVE_DESCRIPTIONS_SONSON, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_SONSON) },
-    { MVC2_MOVE_DESCRIPTIONS_AMINGO, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_AMINGO) },
-    { MVC2_MOVE_DESCRIPTIONS_MARROW, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_MARROW) },
-    { MVC2_MOVE_DESCRIPTIONS_CABLE, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_CABLE) },
-    { MVC2_MOVE_DESCRIPTIONS_ABYSS1, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_ABYSS1) },
-    { MVC2_MOVE_DESCRIPTIONS_ABYSS2, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_ABYSS2) },
-    { MVC2_MOVE_DESCRIPTIONS_ABYSS3, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_ABYSS3) },
-    { MVC2_MOVE_DESCRIPTIONS_CHUNLI, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_CHUNLI) },
-    { MVC2_MOVE_DESCRIPTIONS_MEGAMAN, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_MEGAMAN) },
-    { MVC2_MOVE_DESCRIPTIONS_ROLL, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_ROLL) },
-    { MVC2_MOVE_DESCRIPTIONS_GOUKI, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_GOUKI) },
-    { MVC2_MOVE_DESCRIPTIONS_BBHOOD, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_BBHOOD) },
-    { MVC2_MOVE_DESCRIPTIONS_FELICIA, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_FELICIA) },
-    { MVC2_MOVE_DESCRIPTIONS_CHARLIE, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_CHARLIE) },
-    { MVC2_MOVE_DESCRIPTIONS_SAKURA, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_SAKURA) },
-    { MVC2_MOVE_DESCRIPTIONS_DAN, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_DAN) },
-    { MVC2_MOVE_DESCRIPTIONS_CAMMY, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_CAMMY) },
-    { MVC2_MOVE_DESCRIPTIONS_DHALSIM, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_DHALSIM) },
-    { MVC2_MOVE_DESCRIPTIONS_MBISON, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_MBISON) },
-    { MVC2_MOVE_DESCRIPTIONS_KEN, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_KEN) },
-    { MVC2_MOVE_DESCRIPTIONS_GAMBIT, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_GAMBIT) },
-    { MVC2_MOVE_DESCRIPTIONS_JUGGERNAUT, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_JUGGERNAUT) },
-    { MVC2_MOVE_DESCRIPTIONS_STORM, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_STORM) },
-    { MVC2_MOVE_DESCRIPTIONS_SABRETOOTH, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_SABRETOOTH) },
-    { MVC2_MOVE_DESCRIPTIONS_MAGNETO, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_MAGNETO) },
-    { MVC2_MOVE_DESCRIPTIONS_SHUMA, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_SHUMA) },
-    { MVC2_MOVE_DESCRIPTIONS_WARMACHINE, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_WARMACHINE) },
-    { MVC2_MOVE_DESCRIPTIONS_SILVERSAMURAI, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_SILVERSAMURAI) },
-    { MVC2_MOVE_DESCRIPTIONS_OMEGARED, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_OMEGARED) },
-    { MVC2_MOVE_DESCRIPTIONS_SPIRAL, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_SPIRAL) },
-    { MVC2_MOVE_DESCRIPTIONS_COLOSSUS, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_COLOSSUS) },
-    { MVC2_MOVE_DESCRIPTIONS_IRONMAN, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_IRONMAN) },
-    { MVC2_MOVE_DESCRIPTIONS_SENTINEL, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_SENTINEL) },
-    { MVC2_MOVE_DESCRIPTIONS_BLACKHEART, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_BLACKHEART) },
-    { MVC2_MOVE_DESCRIPTIONS_THANOS, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_THANOS) },
-    { MVC2_MOVE_DESCRIPTIONS_JIN, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_JIN) },
-    { MVC2_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO) },
-    { MVC2_MOVE_DESCRIPTIONS_BONERINE, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_BONERINE) },
-    { MVC2_MOVE_DESCRIPTIONS_KOBUN, ARRAYSIZE(MVC2_MOVE_DESCRIPTIONS_KOBUN) },
+    // Quick shorthand: double indents mean nothing left to do there.
+    // This table is hamstrung by MVC2_D_EXTRADEF and requires a corresponding fork/update there.
+        { MVC2_MOVE_DESCRIPTIONS_RYU },
+    { MVC2_MOVE_DESCRIPTIONS_ZANGIEF },
+        { MVC2_MOVE_DESCRIPTIONS_GUILE },
+    { MVC2_MOVE_DESCRIPTIONS_MORRIGAN },
+        { MVC2_MOVE_DESCRIPTIONS_ANAKARIS },
+        { MVC2_MOVE_DESCRIPTIONS_STRIDER },
+    { MVC2_MOVE_DESCRIPTIONS_CYCLOPS },
+        { MVC2_MOVE_DESCRIPTIONS_WOLVERINE },
+        { MVC2_MOVE_DESCRIPTIONS_PSYLOCKE },
+    { MVC2_MOVE_DESCRIPTIONS_ICEMAN },
+    { MVC2_MOVE_DESCRIPTIONS_ROGUE },
+        { MVC2_MOVE_DESCRIPTIONS_CAPTAINAMERICA },
+    { MVC2_MOVE_DESCRIPTIONS_SPIDERMAN },
+        { MVC2_MOVE_DESCRIPTIONS_HULK },
+        { MVC2_MOVE_DESCRIPTIONS_VENOM },
+    { MVC2_MOVE_DESCRIPTIONS_DRDOOM },
+        { MVC2_MOVE_DESCRIPTIONS_TRONBONNE },
+        { MVC2_MOVE_DESCRIPTIONS_JILL },
+        { MVC2_MOVE_DESCRIPTIONS_HAYATO },
+        { MVC2_MOVE_DESCRIPTIONS_RUBYHEART },
+    { MVC2_MOVE_DESCRIPTIONS_SONSON },
+        { MVC2_MOVE_DESCRIPTIONS_AMINGO },
+        { MVC2_MOVE_DESCRIPTIONS_MARROW },
+        { MVC2_MOVE_DESCRIPTIONS_CABLE },
+        { MVC2_MOVE_DESCRIPTIONS_ABYSS1 },
+        { MVC2_MOVE_DESCRIPTIONS_ABYSS2 },
+        { MVC2_MOVE_DESCRIPTIONS_ABYSS3 },
+        { MVC2_MOVE_DESCRIPTIONS_CHUNLI },
+    { MVC2_MOVE_DESCRIPTIONS_MEGAMAN },
+    { MVC2_MOVE_DESCRIPTIONS_ROLL },
+        { MVC2_MOVE_DESCRIPTIONS_GOUKI },
+    { MVC2_16COLOR_MOVE_DESCRIPTIONS_BBHOOD },
+        { MVC2_MOVE_DESCRIPTIONS_FELICIA },
+        { MVC2_MOVE_DESCRIPTIONS_CHARLIE },
+    { MVC2_MOVE_DESCRIPTIONS_SAKURA },
+        { MVC2_MOVE_DESCRIPTIONS_DAN },
+    { MVC2_MOVE_DESCRIPTIONS_CAMMY },
+    { MVC2_MOVE_DESCRIPTIONS_DHALSIM },
+    { MVC2_MOVE_DESCRIPTIONS_MBISON },
+        { MVC2_MOVE_DESCRIPTIONS_KEN },
+    { MVC2_MOVE_DESCRIPTIONS_GAMBIT },
+    { MVC2_MOVE_DESCRIPTIONS_JUGGERNAUT },
+    { MVC2_MOVE_DESCRIPTIONS_STORM },
+        { MVC2_MOVE_DESCRIPTIONS_SABRETOOTH },
+    { MVC2_MOVE_DESCRIPTIONS_MAGNETO },
+    { MVC2_MOVE_DESCRIPTIONS_SHUMA },
+        { MVC2_MOVE_DESCRIPTIONS_WARMACHINE },
+    { MVC2_MOVE_DESCRIPTIONS_SILVERSAMURAI },
+    { MVC2_MOVE_DESCRIPTIONS_OMEGARED },
+    { MVC2_MOVE_DESCRIPTIONS_SPIRAL },
+    { MVC2_MOVE_DESCRIPTIONS_COLOSSUS },
+        { MVC2_MOVE_DESCRIPTIONS_IRONMAN },
+        { MVC2_MOVE_DESCRIPTIONS_SENTINEL },
+        { MVC2_MOVE_DESCRIPTIONS_BLACKHEART },
+        { MVC2_MOVE_DESCRIPTIONS_THANOS },
+    { MVC2_MOVE_DESCRIPTIONS_JIN },
+    { MVC2_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO },
+        { MVC2_MOVE_DESCRIPTIONS_BONERINE },
+    { MVC2_MOVE_DESCRIPTIONS_KOBUN },
 };

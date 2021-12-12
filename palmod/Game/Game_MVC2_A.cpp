@@ -195,8 +195,8 @@ void CGame_MVC2_A::DumpAllCharacters()
     {
         if (MVC2ArcadeCharacterArray[iUnitCtr].nStartingPosition != 0)
         {
-            const sMoveDescription* sCurrentMoveDescriptors = MVC2_MOVE_DESCRIPTIONS[iUnitCtr].pMoveDescriptions;
-            const UINT32 nMoveDescriptorCount = MVC2_MOVE_DESCRIPTIONS[iUnitCtr].nArraySize;
+            const sMoveDescription* sCurrentMoveDescriptors = MVC2_6COLOR_MOVE_DESCRIPTIONS[iUnitCtr].data();
+            const UINT32 nMoveDescriptorCount = MVC2_6COLOR_MOVE_DESCRIPTIONS[iUnitCtr].size();
 
             UINT32 nCurrentCharacterOffset = MVC2ArcadeCharacterArray[iUnitCtr].nStartingPosition;
             UINT16 nPaletteCount = 0;
@@ -944,7 +944,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 size_t CGame_MVC2_A::GetBasicOffset(size_t nPalId)
 {
     // Each character by default gets 6 buttons worth of 8 palettes.  
-    if (nPalId >= (8 * k_mvc2_character_coloroption_count))
+    if (nPalId >= (size_t)(8 * k_mvc2_character_coloroption_count))
     {
         // This palette is in the Extra group for this character
         return -1;

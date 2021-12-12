@@ -108,6 +108,15 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL6_MVC2 =
    L"LP", L"LK", L"HP", L"HK", L"A1", L"A2"
 };
 
+// palette expansion
+const std::vector<LPCWSTR> DEF_BUTTONLABEL16_MVC2 =
+{
+   L"LP", L"LK", L"HP", L"HK",
+   L"LP+A1", L"LK+A1", L"HP+A1", L"HK+A1",
+   L"LP+A2", L"LK+A2", L"HP+A2", L"HK+A2",
+   L"LP+A1+A2", L"LK+A1+A2", L"HP+A1+A2", L"HK+A1+A2",
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL7_SF3 =
 {
    L"LP", L"MP", L"HP", L"LK", L"MK", L"HK", L"EX"

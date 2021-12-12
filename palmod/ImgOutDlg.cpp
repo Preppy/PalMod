@@ -120,6 +120,10 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(L"8");
         m_CB_Amt.AddString(L"12");
         break;
+    case 16:
+        m_CB_Amt.AddString(L"6");
+        m_CB_Amt.AddString(L"16");
+        break;
     case 20:
         m_CB_Amt.AddString(L"5");
         m_CB_Amt.AddString(L"10");
@@ -338,7 +342,7 @@ void CImgOutDlg::FillPalCombo()
 {
     bool fShouldShowMultipleOptions = (nPalAmt != 1) && (!pButtonLabelSet.empty());
 
-    if (fShouldShowMultipleOptions && (nPalAmt > pButtonLabelSet.size()))
+    if (fShouldShowMultipleOptions && ((size_t)nPalAmt > pButtonLabelSet.size()))
     {
         MessageBox(L"Error: list of output options doesn't match list size.\n\nPlease report this bug in PalMod and it'll be fixed promptly.", GetHost()->GetAppName(), MB_ICONERROR);
     }
@@ -454,8 +458,6 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
     bool fShouldExportAsIndexed = true;
 
     // Establish the raw image data
-    unsigned maxSrcWidth = 0;
-    unsigned maxSrcHeight = 0;
     size_t nTotalPaletteSize = 0;
 
     RECT rectCompleteDimensions = {};
@@ -471,8 +473,8 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
         nTotalPaletteSize += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
     }
 
-    maxSrcWidth = rectCompleteDimensions.right - rectCompleteDimensions.left;
-    maxSrcHeight = rectCompleteDimensions.bottom - rectCompleteDimensions.top;
+    unsigned maxSrcWidth = rectCompleteDimensions.right - rectCompleteDimensions.left;
+    unsigned maxSrcHeight = rectCompleteDimensions.bottom - rectCompleteDimensions.top;
 
     int nXSkew = abs(rectCompleteDimensions.left);
     int nYSkew = abs(rectCompleteDimensions.top);

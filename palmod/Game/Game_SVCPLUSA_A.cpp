@@ -565,8 +565,6 @@ sFileRule CGame_SVCPLUSA_A::GetRule(size_t nUnitId)
     _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"svc-p2p.bin");
     NewFileRule.uAltVerifyVar = 0x200000;
 
-
-
     return NewFileRule;
 }
 

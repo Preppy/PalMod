@@ -2,8 +2,6 @@
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_A.h"
 
-constexpr auto k_mvc2_character_coloroption_count = 6;
-
 //SUPP_NODE_ABSOL, Dest Start, Dest Increment, Src Start, Src Increment
 // SUPP_NODE_ABSOL adds two values: the starting palette and the number of colors to include.
 constexpr UINT16 SUPP_NODE_ABSOL = 0x4002;
@@ -11,7 +9,12 @@ constexpr UINT16 SUPP_NODE_ABSOL = 0x4002;
 // Normally we offset at ID_MOD unless MOD_ABS is specified.  If MOD_ABS is specified we use the 
 // raw palette ID.
 constexpr UINT16 MOD_ABS = 0x8000; // Start at absolute 0x0 within the unit for this palette
-constexpr UINT16 ID_MOD = 47; // Index mod - this is also EXTRA_OMNI for MvC2 only
+// ID_MOD is 47: (button_colors * palettes_per_button) - 1 (zero-based)
+
+extern UINT8 k_mvc2_character_coloroption_count;
+
+extern UINT16 ID_MOD; // = ((6 * 8) - 1); // Index mod - this is also EXTRA_OMNI for MvC2 only
+
 
 // These are palettes wholly located within the Extra nodes.  
 constexpr UINT16 EXTRA_NODE_ONLY = 0x4008;
@@ -38,7 +41,7 @@ const UINT16 _mvc2_supp_const [] =
         // 0x17-0x19 are the mashed tint for FAB
             //Type, Pal Index Start, Pal Index Amt
         SUPP_NODE, 0x17, 3,
-            MOD_TINT, 1, 7, 1, 2, NEG + 2,  NEG + 2, // ~15% tint
+            MOD_TINT, 1, 7, 1, 2, NEG + 2, NEG + 2, // ~15% tint
         SUPP_NODE, 0x18, 3, 
             MOD_TINT, 1, 7, 1, 4, NEG + 4, NEG + 4, // ~35% tint
         SUPP_NODE, 0x19, 3,

@@ -15,8 +15,8 @@ private:
     int GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, int nStartOfRange, int nPalettePositionIncrements, int nRangeLength);
 
 public:
-    CGame_MVC2_D(void);
-    ~CGame_MVC2_D(void);
+    CGame_MVC2_D(UINT32 nConfirmedROMSize);
+    ~CGame_MVC2_D();
 
     //Vars used for extra processing
     int nExtraAmt = 0;
@@ -25,6 +25,11 @@ public:
     //Static functions
     static size_t uRuleCtr;
     static size_t rgExtraChrLoc[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
+
+    static std::vector<LPCWSTR> pCurrentButtonLabelSet;
+    static std::vector<std::vector<sMoveDescription>> pCurrentMoveDescriptions;
+    static UINT8 _nCurrentTotalColorOptions;
+    void SetNumberOfColorOptions(UINT8 nColorOptions);
 
     static size_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
@@ -59,4 +64,6 @@ public:
     void CreateDefPal(sDescNode* srcNode, size_t nSepId) override;
     BOOL CreateExtraPal(size_t nUnitId, size_t nPalId, int nStart, int nInc, int nImgId, int nSepId = 0, int nAmt = 1);
     void ResetChangeFlag(size_t nUnitId);
+
+    LPCWSTR GetGameName() override;
 };

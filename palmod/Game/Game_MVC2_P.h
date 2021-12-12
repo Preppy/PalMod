@@ -5,8 +5,8 @@ class CGame_MVC2_P :
     public CGame_MVC2_D
 {
 public:
-    CGame_MVC2_P(void);
-    ~CGame_MVC2_P(void);
+    CGame_MVC2_P(UINT32 nConfirmedROMSize);
+    ~CGame_MVC2_P();
 
     //Static functions
     static sFileRule GetNextRule();

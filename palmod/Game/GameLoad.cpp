@@ -1269,11 +1269,11 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
     case MVC2_D:
     {
-        return new CGame_MVC2_D;
+        return new CGame_MVC2_D(nConfirmedROMSize);
     }
     case MVC2_P:
     {
-        return new CGame_MVC2_P;
+        return new CGame_MVC2_P(nConfirmedROMSize);
     }
     case NeoBomberman_A:
     {
@@ -1842,7 +1842,20 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
 
         if (fFileOpened)
         {
-            bool fActualFileSizeIsSafe = ((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar);
+            bool fActualFileSizeIsSafe = false;
+            ULONGLONG nGameFileLength = CurrFile.GetLength();
+            UINT32 nConfirmedVerifyVar = CurrRule.uVerifyVar;
+            
+            if (((short int)CurrRule.uVerifyVar == -1) ||
+                ((CurrRule.uVerifyVar == nGameFileLength)))
+            {
+                fActualFileSizeIsSafe = true;
+            }
+            else if (CurrRule.fHasAltName && (CurrRule.uAltVerifyVar == nGameFileLength))
+            {
+                fActualFileSizeIsSafe = true;
+                nConfirmedVerifyVar = CurrRule.uAltVerifyVar;
+            }
 
             if (!fActualFileSizeIsSafe)
             {
@@ -1857,7 +1870,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
             {
                 if (!OutGame)
                 {
-                    OutGame = CreateGame(nGameFlag, -1);
+                    OutGame = CreateGame(nGameFlag, nConfirmedVerifyVar);
 
                     if (OutGame)
                     {

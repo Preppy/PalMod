@@ -460,8 +460,8 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
             pMainBmpData = (UINT32*)pDstData;
         }
 
-        const int nImageCountOnFirstLine = GetImageCountForFirstLine();
         const int nMaxImagesPerLine = GetMaxImagesPerLine();
+        const int nImageCountOnFirstLine = min(GetImageCountForFirstLine(), nMaxImagesPerLine);
 
         for (int iCurrentImage = 0; iCurrentImage < m_nTotalImagesToDisplay; iCurrentImage++)
         {
@@ -478,16 +478,11 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
             }
             else if (DispType == eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM)
             {
-                if (iCurrentImage % 2)
-                {
-                    row_ctr = 1;
-                }
-                else
-                {
-                    row_ctr = 0;
-                }
+                const uint8_t nLinesUsed = (uint8_t)ceil(m_nTotalImagesToDisplay / nMaxImagesPerLine);
 
-                nTargetX = (iCurrentImage / 2);
+                row_ctr = iCurrentImage % nLinesUsed;
+
+                nTargetX = (iCurrentImage / nLinesUsed);
             }
 
             for (int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)
@@ -716,7 +711,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
         break;
     case 7: // SF3
     case 8: // MBAACC
-    case 16: // MBAACC
+    case 16: // MBAACC and MvC2's palette expansion
     case 32: // MBAACC
     case 36: // MBAACC
     case 64: // MBAACC

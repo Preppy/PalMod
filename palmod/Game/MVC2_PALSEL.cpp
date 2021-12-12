@@ -12,6 +12,11 @@ int CGame_MVC2_D::GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, i
 
 BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
+    auto MvC2SpecSel = [&](int* nRelativizedPalId, int nPalId, int nRelativePalIdToMatch, int nNodeLength)
+    {
+        return this->SpecSel(nRelativizedPalId, nPalId, nRelativePalIdToMatch, nNodeLength, 1, this->_nCurrentTotalColorOptions);
+    };
+
     //Reset palette sources
     ClearSrcPal();
 
@@ -21,8 +26,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     //Reset the extra amount
-    nExtraAmt = 6; // BUGBUG: This is apparently an artifact of an earlier system.  It can be replaced with setting nAmt 
-                   // in calls to CreateExtraPal.
+    nExtraAmt = _nCurrentTotalColorOptions; // BUGBUG: This is apparently an artifact of an earlier system.  It can be replaced with setting nAmt 
+                                            // in calls to CreateExtraPal.
 
     int nSpecOffs;
     BOOL bLoadDefPal = TRUE;
@@ -66,13 +71,13 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
 
             break;
         }
 
-        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
-            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        if ((MvC2SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (MvC2SpecSel(&nSpecOffs, uPalId, 7, 8)))
         {
             // super shadow trail...?
             nTargetImgId = 0;
@@ -100,8 +105,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Guile:
     {
-        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
-            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        if ((MvC2SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (MvC2SpecSel(&nSpecOffs, uPalId, 7, 8)))
         {
             // super shadow trail...?
             nTargetImgId = 0;
@@ -113,7 +118,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Morrigan: //Morrigan
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -133,8 +138,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Anakaris:
     {
-        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
-            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        if ((MvC2SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (MvC2SpecSel(&nSpecOffs, uPalId, 7, 8)))
         {
             // super shadow trail...?
             nTargetImgId = 0;
@@ -146,7 +151,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case indexCPS2Sprites_Strider:
     {
         // Core sprite join
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
             bLoadDefPal = FALSE;
 
@@ -170,9 +175,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[1], 1);
             CreateDefPal(NodeGet[2], 2);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
-            SetSourcePal(2, uUnitId, 2, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 1, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(2, uUnitId, 2, _nCurrentTotalColorOptions, 8);
             break;
         }
 
@@ -181,7 +186,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case indexCPS2Sprites_Cyclops:
     {
         // Handle his jHK
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
             bLoadDefPal = FALSE;
 
@@ -202,8 +207,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 1, _nCurrentTotalColorOptions, 8);
             break;
         }
 
@@ -227,8 +232,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case indexCPS2Sprites_Wolverine:
     {
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8) || // core sprite
-            SpecSel(&nSpecOffs, uPalId, 6, 8))   // unknown highlight
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8) || // core sprite
+            MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))   // unknown highlight
         {
             bLoadDefPal = FALSE;
 
@@ -249,13 +254,13 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
 
-            SetSourcePal(0, uUnitId, uPalId % 8, 6, 8);
-            SetSourcePal(1, uUnitId, (uPalId + 1) % 8, 6, 8);
+            SetSourcePal(0, uUnitId, uPalId % 8, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, (uPalId + 1) % 8, _nCurrentTotalColorOptions, 8);
 
             break;
         }
 
-        if (SpecSel(&nSpecOffs, uPalId, 7, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 7, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 1;
@@ -270,7 +275,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Iceman:
     {
-        if (SpecSel(&nSpecOffs, uPalId, 1, 8) || SpecSel(&nSpecOffs, uPalId, 2, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 1, 8) ||
+            MvC2SpecSel(&nSpecOffs, uPalId, 2, 8))
         {
             SetExtraImg(0, uUnitId, uPalId);
         }
@@ -288,7 +294,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case indexCPS2Sprites_Rogue:
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -310,7 +316,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case indexCPS2Sprites_CapAm: //Captain America
     {
         // Handle his shield
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
             bLoadDefPal = FALSE;
 
@@ -331,15 +337,15 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 1, _nCurrentTotalColorOptions, 8);
         }
         break;
     }
 
     case indexCPS2Sprites_Spidey: //Spider-Man
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -362,7 +368,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Hulk:
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -406,8 +412,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(DoomPoseNode[0], 0);
             CreateDefPal(DoomPoseNode[1], 1);
 
-            SetSourcePal(0, uUnitId, 0xA + EXTRA_OMNI, 6, 0x1C);
-            SetSourcePal(1, uUnitId, 0x9 + EXTRA_OMNI, 6, 0x1C);
+            SetSourcePal(0, uUnitId, 0xA + EXTRA_OMNI, _nCurrentTotalColorOptions, 0x1C);
+            SetSourcePal(1, uUnitId, 0x9 + EXTRA_OMNI, _nCurrentTotalColorOptions, 0x1C);
         }
         else */ if (
                CreateExtraPal(uUnitId, uPalId, 0x09, 0x1C, 11)
@@ -424,7 +430,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Tron:
     {
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
             bLoadDefPal = FALSE;
 
@@ -448,9 +454,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[1], 1);
             CreateDefPal(NodeGet[2], 2);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
-            SetSourcePal(2, uUnitId, 3, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 1, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(2, uUnitId, 3, _nCurrentTotalColorOptions, 8);
             break;
         }
 
@@ -473,7 +479,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         nExtraAmt = 1;
 
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // Jill and weapons
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // Jill and weapons
         {
             bLoadDefPal = FALSE;
 
@@ -493,8 +499,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 1, _nCurrentTotalColorOptions, 8);
             break;
         }
         else  if (
@@ -511,7 +517,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Hayato:
     {
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // Hayato and laser sword
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // Hayato and laser sword
         {
             bLoadDefPal = FALSE;
 
@@ -531,13 +537,13 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 1, _nCurrentTotalColorOptions, 8);
             break;
         }
 
-        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
-            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        if ((MvC2SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (MvC2SpecSel(&nSpecOffs, uPalId, 7, 8)))
         {
             // super shadow trail...?
             nTargetImgId = 0;
@@ -568,7 +574,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case indexCPS2Sprites_SonSon:
     {
         // Core sprite join
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
             bLoadDefPal = FALSE;
 
@@ -585,7 +591,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             );
 
             //Set each palette
-            sDescNode* NodeGet[7] = {
+            sDescNode* NodeGet[] = {
                 GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
                 GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1),
                 GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 2, -1),
@@ -604,13 +610,13 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[5], 5);
             CreateDefPal(NodeGet[6], 6);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
-            SetSourcePal(2, uUnitId, 2, 6, 8);
-            SetSourcePal(3, uUnitId, 3, 6, 8);
-            SetSourcePal(4, uUnitId, 4, 6, 8);
-            SetSourcePal(5, uUnitId, 5, 6, 8);
-            SetSourcePal(6, uUnitId, 6, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 1, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(2, uUnitId, 2, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(3, uUnitId, 3, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(4, uUnitId, 4, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(5, uUnitId, 5, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(6, uUnitId, 6, _nCurrentTotalColorOptions, 8);
             break;
         }
 
@@ -622,7 +628,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             break;
         }
 
-        nExtraAmt = 6;
+        nExtraAmt = _nCurrentTotalColorOptions;
         if (CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 11) || // giant monkey
             CreateExtraPal(uUnitId, uPalId, 0x17, 1, 11) || // giant monkey when hit
             CreateExtraPal(uUnitId, uPalId, 0x1D, 2, 11, 0, 2)) // giant monkey laser reflect
@@ -647,7 +653,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Cable:
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -660,7 +666,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case indexCPS2Sprites_Abyss1:
     {
         // Handle his super armor frame
-        if (SpecSel(&nSpecOffs, uPalId, 4, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 4, 8))
         {
             nTargetImgId = 0;
             break;
@@ -671,7 +677,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case indexCPS2Sprites_Abyss2:
     {
         // Core sprite join
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
             bLoadDefPal = FALSE;
 
@@ -698,10 +704,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[2], 2);
             CreateDefPal(NodeGet[3], 3);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 4, 6, 8);
-            SetSourcePal(2, uUnitId, 5, 6, 8);
-            SetSourcePal(3, uUnitId, 6, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 4, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(2, uUnitId, 5, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(3, uUnitId, 6, _nCurrentTotalColorOptions, 8);
             break;
         }
 
@@ -711,7 +717,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case indexCPS2Sprites_ChunLi: // Chun-Li
     {
         // Handle her legs
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
             bLoadDefPal = FALSE;
 
@@ -732,8 +738,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 1, _nCurrentTotalColorOptions, 8);
         }
         break;
     }
@@ -779,8 +785,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushAndBeat[1], 1);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x14, 0x57, 0x09);
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
 
             break;
         } 
@@ -810,8 +816,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushAndBeat[1], 1);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x1d, 0x57, 0x09);
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
 
             break;
         }
@@ -842,8 +848,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushAndBeat[0], 0);
             CreateDefPal(NodeRushAndBeat[1], 1);
 
-            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), 6, 0x08);
-            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, 6, 0x08);
+            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), _nCurrentTotalColorOptions, 0x08);
+            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x08);
             break;
         }
         else if ((uPalId == 0x2) || // Beat sprite, join with Rush
@@ -874,8 +880,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushAndBeat[0], 0);
             CreateDefPal(NodeRushAndBeat[1], 1);
 
-            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), 6, 0x08);
-            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, 6, 0x08);
+            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), _nCurrentTotalColorOptions, 0x08);
+            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x08);
 
             break;
         }
@@ -895,7 +901,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, 0x1C, 0x5E + EXTRA_OMNI, 6, 0x57);
+            SetSourcePal(0, 0x1C, 0x5E + EXTRA_OMNI, _nCurrentTotalColorOptions, 0x57);
             break;
         }
         else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x3F + EXTRA_OMNI))) || // Rush Drill: joined
@@ -929,8 +935,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushDrill[1], 1);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x38, 0x57, 0x08);
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
 
             break;
         }
@@ -951,7 +957,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet, 0);
 
             // Boring white sprite
-            SetSourcePal(0, uUnitId, 0x40 + EXTRA_OMNI, 6, 0x57);
+            SetSourcePal(0, uUnitId, 0x40 + EXTRA_OMNI, _nCurrentTotalColorOptions, 0x57);
             break;
         }
         else if (((uPalId >= (0x56 + EXTRA_OMNI)) && (uPalId <= (0x5D + EXTRA_OMNI))) || // Rush Drill metal bits
@@ -989,8 +995,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushDrill[1], 1);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x56, 0x57, 0x08);
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
 #else
             bLoadDefPal = FALSE;
 
@@ -1001,7 +1007,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, 0x40, 6, 0x57); 
+            SetSourcePal(0, uUnitId, 0x40, _nCurrentTotalColorOptions, 0x57);
 #endif
             break;
         }
@@ -1034,8 +1040,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeHMMM[1], 1);
 
             const int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x43, 0x57, 0x09); // HMM has 9 palettes
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
 
             break;
         }
@@ -1071,8 +1077,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeHMMM[1], 1);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x4C, 0x57, 0x09); // HMM has 9 palettes
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
 #else
             nTargetImgId = 0x28;
             fImgIsFromNewImgDatRange = true;
@@ -1114,8 +1120,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeHMMM[1], 1);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x55, 0x57, 0x1); // HMM missiles have 1 palette
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
 #else
             bLoadDefPal = FALSE;
 
@@ -1146,9 +1152,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeHMMM[2], 2);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x55, 0x57, 0x1); // HMM missiles have 1 palette
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nDistanceToArmor, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nDistanceToBody, 6, 0x57);
-            SetSourcePal(2, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nDistanceToArmor, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nDistanceToBody, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(2, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
 #endif
 
             break;
@@ -1196,8 +1202,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushAndBeat[1], 1);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x14, 0x57, 0x09);
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
 
             break;
         }
@@ -1225,8 +1231,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushAndBeat[1], 1);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x1d, 0x57, 0x09);
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
 
             break;
         }
@@ -1263,8 +1269,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushAndBeat[0], 0);
             CreateDefPal(NodeRushAndBeat[1], 1);
 
-            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), 6, 0x08);
-            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, 6, 0x08);
+            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), _nCurrentTotalColorOptions, 0x08);
+            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x08);
             break;
         }
         else if ((uPalId == 0x2) || // Pull in Megaman's Beat sprite, join with Rush
@@ -1295,8 +1301,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushAndBeat[0], 0);
             CreateDefPal(NodeRushAndBeat[1], 1);
 
-            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), 6, 0x08);
-            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, 6, 0x08);
+            SetSourcePal(0, NodeGet->uUnitId, GetBasicOffset(uPalId), _nCurrentTotalColorOptions, 0x08);
+            SetSourcePal(1, NodeGet->uUnitId, GetBasicOffset(uPalId) + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x08);
 
             break;
         }
@@ -1311,7 +1317,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, GetBasicOffset(uPalId), 6, 8);
+            SetSourcePal(0, uUnitId, GetBasicOffset(uPalId), _nCurrentTotalColorOptions, 8);
         }
         else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x3F + EXTRA_OMNI))) || // Rush Drill
                  ((uPalId >= (0x8F + EXTRA_OMNI)) && (uPalId <= (0x96 + EXTRA_OMNI))) ||
@@ -1344,8 +1350,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushDrill[1], 1);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x38, 0x57, 0x08);
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
 
             break;
         }
@@ -1364,7 +1370,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, 0x40, 6, 0x57);
+            SetSourcePal(0, uUnitId, 0x40, _nCurrentTotalColorOptions, 0x57);
             break;
         }
         else if (((uPalId >= (0x56 + EXTRA_OMNI)) && (uPalId <= (0x5D + EXTRA_OMNI))) || // Rush Drill metal bits
@@ -1399,8 +1405,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushDrill[1], 1);
 
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x56, 0x57, 0x08);
-            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
-            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, _nCurrentTotalColorOptions, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette, _nCurrentTotalColorOptions, 0x57);
 #else
             nTargetImgId = 0x0C;
             fImgIsFromNewImgDatRange = true;
@@ -1447,8 +1453,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Charlie:
     {
-        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
-            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        if ((MvC2SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (MvC2SpecSel(&nSpecOffs, uPalId, 7, 8)))
         {
             // super shadow trail...?
             nTargetImgId = 0;
@@ -1460,8 +1466,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Sakura: // Sakura
     {
-        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
-            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        if ((MvC2SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (MvC2SpecSel(&nSpecOffs, uPalId, 7, 8)))
         {
             // super shadow trail...?
             nTargetImgId = 0;
@@ -1524,14 +1530,14 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Dan: //Dan
     {
-        if (SpecSel(&nSpecOffs, uPalId, 2, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 2, 8))
         {
             SetExtraImg(1, uUnitId, uPalId);
             break;
         }
 
-        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
-            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        if ((MvC2SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (MvC2SpecSel(&nSpecOffs, uPalId, 7, 8)))
         {
             // super shadow trail...?
             nTargetImgId = 0;
@@ -1565,7 +1571,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Ken:
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -1577,7 +1583,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Gambit: //Gambit
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -1627,7 +1633,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Sabretooth:
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -1639,7 +1645,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_Magneto: // Magneto
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -1668,7 +1674,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2Sprites_SilverSamurai: //Silver Samurai
     {
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -1738,8 +1744,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case indexCPS2Sprites_Colossus: //Colossus
     {
-        if (SpecSel(&nSpecOffs, uPalId, 3, 8) || // stance frame
-            SpecSel(&nSpecOffs, uPalId, 6, 8)) // unknown core palette highlight
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 3, 8) || // stance frame
+            MvC2SpecSel(&nSpecOffs, uPalId, 6, 8)) // unknown core palette highlight
         {
             nTargetImgId = 0;
             break;
@@ -1750,7 +1756,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case indexCPS2Sprites_Sentinel: // 0x34
     {
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // guts, flames
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8)) // guts, flames
         {
             bLoadDefPal = FALSE;
 
@@ -1774,13 +1780,13 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[1], 1);
             CreateDefPal(NodeGet[2], 2);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
-            SetSourcePal(2, uUnitId, 3, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 1, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(2, uUnitId, 3, _nCurrentTotalColorOptions, 8);
             break;
         }
 
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -1843,7 +1849,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case indexCPS2Sprites_CapCom: //CapCom
     {
         // Handle the joined ninja sprites
-        if (SpecSel(&nSpecOffs, uPalId, 1, 8) || SpecSel(&nSpecOffs, uPalId, 2, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 1, 8) ||
+            MvC2SpecSel(&nSpecOffs, uPalId, 2, 8))
         {
             bLoadDefPal = FALSE;
 
@@ -1864,13 +1871,13 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
 
-            SetSourcePal(0, uUnitId, 1, 6, 8);
-            SetSourcePal(1, uUnitId, 2, 6, 8);
+            SetSourcePal(0, uUnitId, 1, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, 2, _nCurrentTotalColorOptions, 8);
 
             break;
         }
 
-        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 0;
@@ -1891,7 +1898,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             break;
         }
 
-        nExtraAmt = 6;
+        nExtraAmt = _nCurrentTotalColorOptions;
 
         if (CreateExtraPal(uUnitId, uPalId, 0x0E, 2, 15) ||
             CreateExtraPal(uUnitId, uPalId, 0x0F, 2, 14))
@@ -1903,8 +1910,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case indexCPS2Sprites_Bonerine: //Bonerine
     {
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8) || // core sprite
-            SpecSel(&nSpecOffs, uPalId, 6, 8))   // unknown highlight
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 0, 8) || // core sprite
+            MvC2SpecSel(&nSpecOffs, uPalId, 6, 8))   // unknown highlight
         {
             bLoadDefPal = FALSE;
 
@@ -1924,12 +1931,12 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
 
-            SetSourcePal(0, uUnitId, uPalId % 8, 6, 8);
-            SetSourcePal(1, uUnitId, (uPalId + 1) % 8, 6, 8);
+            SetSourcePal(0, uUnitId, uPalId % 8, _nCurrentTotalColorOptions, 8);
+            SetSourcePal(1, uUnitId, (uPalId + 1) % 8, _nCurrentTotalColorOptions, 8);
             break;
         }
 
-        if (SpecSel(&nSpecOffs, uPalId, 7, 8))
+        if (MvC2SpecSel(&nSpecOffs, uPalId, 7, 8))
         {
             // unknown core palette highlight
             nTargetImgId = 1;
@@ -1958,7 +1965,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
 
             break;
         }
@@ -1979,7 +1986,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(0, uUnitId, 0, _nCurrentTotalColorOptions, 8);
 
             break;
         }
@@ -2018,7 +2025,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         size_t nSrcAmt = 1;
         int nNodeIncrement = 1;
 
-        UINT16 nTeamViewNode = (UINT16)floor(NodeGet->uPalId / (UINT16)DEF_BUTTONLABEL6_MVC2.size());
+        UINT16 nTeamViewNode = (UINT16)floor(NodeGet->uPalId / (UINT16)pCurrentButtonLabelSet.size());
         const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
 
         for (UINT16 nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
@@ -2077,7 +2084,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nXOffsetForThird += 20;
         }
 
-        size_t nNodeIndex = ((NodeGet->uPalId) % DEF_BUTTONLABEL6_MVC2.size());
+        size_t nNodeIndex = ((NodeGet->uPalId) % pCurrentButtonLabelSet.size());
         size_t nPaletteIndex = nNodeIndex * 8;  // this is 8 since we're dealing with base mvc2 character palettes
 
         ClearSetImgTicket(
@@ -2100,7 +2107,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         CreateDefPal(JoinedNode[1], 1);
         CreateDefPal(JoinedNode[2], 2);
 
-        nSrcAmt = 6;
+        nSrcAmt = _nCurrentTotalColorOptions;
         nNodeIncrement = 8; // this is 8 since we're dealing with base mvc2 character palettes
         SetSourcePal(0, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
         SetSourcePal(1, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
@@ -2136,7 +2143,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         if (nBasicOffset != -1)
         {
-            SetSourcePal(0, uUnitId, nBasicOffset, 6, 8);
+            SetSourcePal(0, uUnitId, nBasicOffset, _nCurrentTotalColorOptions, 8);
         }
         else
         {

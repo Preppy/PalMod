@@ -9,6 +9,19 @@
 
 #define MV2C_D_DEBUG DEFAULT_GAME_DEBUG_STATE
 
+// TODO: Clean up this / use of statics once the code gets more fleshed out/finished
+UINT8 k_mvc2_character_coloroption_count = 6;
+
+// ID_MOD is 47: (button_colors * palettes_per_button) - 1 (zero-based)
+UINT16 ID_MOD = ((k_mvc2_character_coloroption_count * 8) - 1); // Index mod - this is also EXTRA_OMNI for MvC2 only
+// Extras for a character are located at an zero-based offset of (6 colors * 8 base palettes)
+size_t EXTRA_OMNI = ID_MOD; //  (8 * 6) - 1;
+
+UINT8 CGame_MVC2_D::_nCurrentTotalColorOptions = 6;
+
+std::vector<LPCWSTR> CGame_MVC2_D::pCurrentButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
+std::vector<std::vector<sMoveDescription>>  CGame_MVC2_D::pCurrentMoveDescriptions = MVC2_6COLOR_MOVE_DESCRIPTIONS;
+
 //Initialize the selection tree
 CDescTree CGame_MVC2_D::MainDescTree = nullptr;
 
@@ -21,13 +34,53 @@ void CGame_MVC2_D::InitializeStatics()
     MainDescTree.SetRootTree(CGame_MVC2_D::InitDescTree());
 }
 
-CGame_MVC2_D::CGame_MVC2_D(void)
+void CGame_MVC2_D::SetNumberOfColorOptions(UINT8 nColorOptions)
+{
+    switch (nColorOptions)
+    {
+    default:
+    case 6:
+        _nCurrentTotalColorOptions = 6;
+        k_mvc2_character_coloroption_count = 6;
+        pCurrentButtonLabelSet = pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
+        pCurrentMoveDescriptions = MVC2_6COLOR_MOVE_DESCRIPTIONS;
+        break;
+
+    case 16:
+        _nCurrentTotalColorOptions = 16;
+        k_mvc2_character_coloroption_count = 16;
+        pCurrentButtonLabelSet = pButtonLabelSet = DEF_BUTTONLABEL16_MVC2;
+        pCurrentMoveDescriptions = MVC2_16COLOR_MOVE_DESCRIPTIONS;
+        break;
+    }
+
+    // Reset these, as they need to be (button_colors * palettes_per_button) - 1 (zero-based)
+    ID_MOD = ((k_mvc2_character_coloroption_count * 8) - 1);
+    EXTRA_OMNI = ID_MOD;
+}
+
+CGame_MVC2_D::CGame_MVC2_D(UINT32 nConfirmedROMSize)
 {
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 
+    //Set the image out display type
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM;
+
+    {
+        sFileRule FirstRuleOfMVC2Club = GetRule(0);
+        if (nConfirmedROMSize == FirstRuleOfMVC2Club.uAltVerifyVar)
+        {
+            SetNumberOfColorOptions(16);
+        }
+        else
+        {
+            SetNumberOfColorOptions(6);
+        }
+    }
+   
     InitializeStatics();
 
     // InitDataBuffer uses this value so make sure to set first
@@ -48,10 +101,6 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     PrepChangeTrackingArray();
     // the DC and PS2 games use one file per character/unit: we can handle those slightly differently
     m_fGameUnitsMapToIndividualFiles = TRUE;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM;
-    pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
 
     //Set the MVC2 supp game
     CurrMVC2 = this;
@@ -110,11 +159,11 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", MVC2_D_UNITDESC[iUnitCtr]);
 
         //Init each character to have all 6 basic buttons + extra
-        UnitNode->ChildNodes = new sDescTreeNode[DEF_BUTTONLABEL6_MVC2.size() + (nNumExtra ? 1 : 0)];
+        UnitNode->ChildNodes = new sDescTreeNode[pCurrentButtonLabelSet.size() + (nNumExtra ? 1 : 0)];
 
         //All children have button trees
         UnitNode->uChildType = DESC_NODETYPE_TREE;
-        UnitNode->uChildAmt = DEF_BUTTONLABEL6_MVC2.size() + (nNumExtra ? 1 : 0);
+        UnitNode->uChildAmt = pCurrentButtonLabelSet.size() + (nNumExtra ? 1 : 0);
 
         //Set each button data
         const int nButtonExtraCt = CountExtraRg(iUnitCtr, FALSE) + 1;
@@ -124,14 +173,14 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         OutputDebugString(strMsg);
 #endif
 
-        for (size_t iButtonCtr = 0; iButtonCtr < DEF_BUTTONLABEL6_MVC2.size(); iButtonCtr++)
+        for (size_t iButtonCtr = 0; iButtonCtr < pCurrentButtonLabelSet.size(); iButtonCtr++)
         {
             int nExtraPos = 0;
 
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
             //Set each button data
-            _snwprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, L"%s", DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
+            _snwprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, L"%s", pCurrentButtonLabelSet[iButtonCtr]);
 
             //Button children have nodes
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -154,7 +203,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-            const sMoveDescriptionLookup CurrentMoveDescriptionSet = MVC2_MOVE_DESCRIPTIONS[iUnitCtr];
+            std::vector<sMoveDescription> CurrentMoveDescriptionSet = pCurrentMoveDescriptions[iUnitCtr];
 
             //Set each button's extra nodes
             for (size_t nButtonExtra = 0; nButtonExtra < nButtonExtraTotal; nButtonExtra++)
@@ -162,13 +211,13 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 BOOL bSetInfo = false;
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraPos];
 
-                for (UINT32 nDescriptionLookup = 0; nDescriptionLookup < CurrentMoveDescriptionSet.nArraySize; nDescriptionLookup++)
+                for (UINT32 nDescriptionLookup = 0; nDescriptionLookup < CurrentMoveDescriptionSet.size(); nDescriptionLookup++)
                 {
-                    if (CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].nCharacterIndex == nButtonExtra)
+                    if (CurrentMoveDescriptionSet[nDescriptionLookup].nCharacterIndex == nButtonExtra)
                     {
-                        //_snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s %s", DEF_BUTTONLABEL6_MVC2[iButtonCtr], CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                        //_snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s %s", pCurrentButtonLabelSet[iButtonCtr], CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
                         // We can skip the button label since the second combo box already has that information
-                        _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                        _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", CurrentMoveDescriptionSet[nDescriptionLookup].szMoveName);
                         ChildNode->szDesc[ARRAYSIZE(ChildNode->szDesc) - 1] = 0;
                         bSetInfo = true;
                         break;
@@ -179,12 +228,12 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 {
                     if (nButtonExtra == 0)
                     {
-                        _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s Main", DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
+                        _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s Main", pCurrentButtonLabelSet[iButtonCtr]);
                         bSetInfo = true;
                     }
                     else if (!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
                     {
-                        _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%02X %s (Extra - %02X)", nExtraPos, DEF_BUTTONLABEL6_MVC2[iButtonCtr],
+                        _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%02X %s (Extra - %02X)", nExtraPos, pCurrentButtonLabelSet[iButtonCtr],
                             (iButtonCtr * nButtonExtraTotal) + nExtraPos + 1);
 
                         bSetInfo = true;
@@ -209,7 +258,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         //Set extra data
         if (nNumExtra)
         {
-            const int nExtraNodeIndex = 6;
+            const int nExtraNodeIndex = _nCurrentTotalColorOptions;
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[nExtraNodeIndex]; //Extra data node
             wcscpy(ButtonNode->szDesc, L"Extra");
             ButtonNode->uChildAmt = nNumExtra;
@@ -222,7 +271,18 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-            if (nNumExtra == (MVC2_D_PALDATASZ[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32)
+            bool fNoDescriptionAvailable;
+
+            if (_nCurrentTotalColorOptions == 6)
+            {
+                fNoDescriptionAvailable = (nNumExtra == (MVC2_D_PALDATASIZE_6COLORS[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
+            }
+            else
+            {
+                fNoDescriptionAvailable = (nNumExtra == (MVC2_D_PALDATASIZE_16COLORS[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
+            }
+
+            if (fNoDescriptionAvailable)
             {
                 // This path is used for Akuma/Gouki and War Machine only.
                 // We don't have extended descriptions for these: instead of using MVC2_MOVE_DESCRIPTIONS just use the old defaults
@@ -249,7 +309,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 int i = 0;
 
                 UINT16* pCurrVal = const_cast<UINT16*>(&MVC2_D_EXTRADEF[nStart]);
-                const sMoveDescriptionLookup CurrentMoveDescriptionSet = MVC2_MOVE_DESCRIPTIONS[iUnitCtr];
+                std::vector<sMoveDescription> CurrentMoveDescriptionSet = pCurrentMoveDescriptions[iUnitCtr];
 
                 while ((pCurrVal[0] & 0x0F00) != EXTRA_START)
                 {
@@ -262,11 +322,11 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 
                         ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
-                        for (UINT32 nDescriptionLookup = 0; nDescriptionLookup < CurrentMoveDescriptionSet.nArraySize; nDescriptionLookup++)
+                        for (UINT32 nDescriptionLookup = 0; nDescriptionLookup < CurrentMoveDescriptionSet.size(); nDescriptionLookup++)
                         {
-                            if (CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].nCharacterIndex == nCurrentExtraValue)
+                            if (CurrentMoveDescriptionSet[nDescriptionLookup].nCharacterIndex == nCurrentExtraValue)
                             {
-                                _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%02X: %s", nCurrentExtraValue, CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                                _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%02X: %s", nCurrentExtraValue, CurrentMoveDescriptionSet[nDescriptionLookup].szMoveName);
                                 ChildNode->szDesc[ARRAYSIZE(ChildNode->szDesc) - 1] = 0;
                                 bSetInfo = true;
                                 break;
@@ -311,7 +371,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", MVC2_D_UNITDESC[iUnitCtr]);
 
         const UINT32 nTeamCount = ARRAYSIZE(mvc2TeamList);
-        const UINT32 nColorOptionCount = DEF_BUTTONLABEL6_MVC2.size();
+        const UINT32 nColorOptionCount = pCurrentButtonLabelSet.size();
         UnitNode->ChildNodes = new sDescTreeNode[nTeamCount];
         UnitNode->uChildType = DESC_NODETYPE_TREE;
         UnitNode->uChildAmt = nTeamCount;
@@ -342,7 +402,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 ChildNode = &((sDescNode*)TeamNode->ChildNodes)[iColorOption];
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (iTeamIndex * nColorOptionCount) + iColorOption;
-                _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", MVC2_A_GENERICSET_PALETTES[iColorOption].szPaletteName);
+                _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", pCurrentButtonLabelSet[iColorOption]);
 
 #if MV2C_D_DEBUG
                 strMsg.Format(L"\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, iColorOption + 1, nColorOptionCount);
@@ -386,7 +446,14 @@ size_t CGame_MVC2_D::CountExtraRg(size_t nUnitId, BOOL bOmniExtra)
     //(MVC2_D_PALDATASZ[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32;
     if (!rgExtraChrLoc[nUnitId])
     {
-        return (bOmniExtra ? ((MVC2_D_PALDATASZ[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32) : 7);
+        if (_nCurrentTotalColorOptions == 6)
+        {
+            return (bOmniExtra ? ((MVC2_D_PALDATASIZE_6COLORS[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32) : 7);
+        }
+        else
+        {
+            return (bOmniExtra ? ((MVC2_D_PALDATASIZE_16COLORS[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32) : 7);
+        }
     }
     else
     {
@@ -414,7 +481,14 @@ size_t CGame_MVC2_D::CountExtraRg(size_t nUnitId, BOOL bOmniExtra)
 
                 if (!nRetVal)
                 {
-                    return ((MVC2_D_PALDATASZ[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
+                    if (_nCurrentTotalColorOptions == 6)
+                    {
+                        return ((MVC2_D_PALDATASIZE_6COLORS[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
+                    }
+                    else
+                    {
+                        return ((MVC2_D_PALDATASIZE_16COLORS[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
+                    }
                 }
 
                 return nRetVal;
@@ -438,7 +512,12 @@ sFileRule CGame_MVC2_D::GetRule(size_t nRuleId)
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"PL%02X_DAT.BIN", nRuleId);
 
     NewFileRule.uUnitId = nRuleId;
-    NewFileRule.uVerifyVar = MVC2_D_FILESZ[nRuleId];
+    NewFileRule.uVerifyVar = MVC2_D_FILESIZES_6COLORS[nRuleId];
+
+    // Allow for the 16 color variant
+    NewFileRule.fHasAltName = true;
+    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, NewFileRule.szFileName);
+    NewFileRule.uAltVerifyVar = MVC2_D_FILESIZES_16COLORS[nRuleId];
 
     return NewFileRule;
 }
@@ -479,7 +558,7 @@ void CGame_MVC2_D::ClearDataBuffer()
 size_t CGame_MVC2_D::GetBasicOffset(size_t nPalId)
 {
     // Each character by default gets 6 buttons worth of 8 palettes.  
-    if (nPalId >= (8 * k_mvc2_character_coloroption_count))
+    if (nPalId >= (size_t)(8 * k_mvc2_character_coloroption_count))
     {
         // This palette is in the Extra group for this character
         return -1;
@@ -508,13 +587,30 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, size_t nUnitId)
 
             LoadedFile->Seek(0x08, CFile::begin);
 
+            // These two location values represent the start of the palette data and the end of the palette data for the original PALs
+            // For the 16 color variant, the second number represents the start of the palette data
             LoadedFile->Read(&nStart, 0x04);
             LoadedFile->Read(&nEnd, 0x04);
 
-            int nDataSz = nEnd - nStart;
-
-            if (nDataSz != MVC2_D_PALDATASZ[nUnitId])
+            // 16color and 6color PAL files have different meanings for the second value, so fork our usage
+            int nDataSz = 0;
+            bool fIsValidSize = false;
+            
+            if (_nCurrentTotalColorOptions == 6)
             {
+                nDataSz = (nEnd - nStart);
+                fIsValidSize = (nDataSz == MVC2_D_PALDATASIZE_6COLORS[nUnitId]);
+            }
+            else
+            {
+                nDataSz = (int)(LoadedFile->GetLength() - nEnd);
+
+                fIsValidSize = (nDataSz == MVC2_D_PALDATASIZE_16COLORS[nUnitId]);
+            }
+            
+            if (!fIsValidSize)
+            {
+                OutputDebugString(L"CGame_MVC2_D::LoadFile: Palette data size does not match with expected palette data size.  Failing file load.\n");
                 return FALSE;
             }
 
@@ -540,21 +636,33 @@ BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, size_t nUnitId)
     {
         if (nUnitId != MVC2_D_TEAMVIEW_LOCATION)
         {
-            UINT32 uPalPos, uPalSz;
+            UINT32 nStart, nEnd;
 
             SaveFile->Seek(0x08, CFile::begin);
-            SaveFile->Read(&uPalPos, 0x04);
-            SaveFile->Read(&uPalSz, 0x04);
+            // These two location values represent the start of the palette data and the end of the palette data for the original PALs
+            // For the 16 color variant, the second number represents the start of the palette data
+            SaveFile->Read(&nStart, 0x04);
+            SaveFile->Read(&nEnd, 0x04);
 
-            uPalSz = uPalSz - uPalPos;
+            // 16color and 6color PAL files have different meanings for the second value, so fork our usage
+            int nDataSz = 0;
 
-            if (uPalPos > SaveFile->GetLength())
+            if (_nCurrentTotalColorOptions == 6)
+            {
+                nDataSz = (nEnd - nStart);
+            }
+            else
+            {
+                nDataSz = (int)(SaveFile->GetLength() - nEnd);
+            }
+
+            if (nStart > SaveFile->GetLength())
             {
                 return FALSE;
             }
 
-            SaveFile->Seek(uPalPos, CFile::begin);
-            SaveFile->Write(ppDataBuffer[nUnitId], uPalSz);
+            SaveFile->Seek(nStart, CFile::begin);
+            SaveFile->Write(ppDataBuffer[nUnitId], nDataSz);
         }
 
         return TRUE;
@@ -678,4 +786,16 @@ void CGame_MVC2_D::SetExtraImg(UINT16 nImgId, size_t nUnitId, size_t nPalId)
     nTargetImgId = nImgId + 0xFF00;
 
     SetSourcePal(0, nUnitId, nPalId, 1, 1);
+}
+
+LPCWSTR CGame_MVC2_D::GetGameName()
+{
+    if (k_mvc2_character_coloroption_count == 6)
+    {
+        return L"MvC2 (Dreamcast)";
+    }
+    else
+    {
+        return L"MvC2 (Dreamcast Palette Expansion)";
+    }
 }
