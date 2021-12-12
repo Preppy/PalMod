@@ -295,11 +295,11 @@ void CGame_KOF94_A::DumpPaletteHeaders()
                     continue;
                 case 8:
                     pszCurrentEffectName = L"Lifebar Portrait";
-                    nCurrentImageIndex = 0x20;
+                    nCurrentImageIndex = 0x40;
                     break;
                 case 9:
                     pszCurrentEffectName = L"Lifebar Portrait Defeated/Grayed";
-                    nCurrentImageIndex = 0x20;
+                    nCurrentImageIndex = 0x40;
                     break;
                 case 10:
                     pszCurrentEffectName = L"Darker Palette";

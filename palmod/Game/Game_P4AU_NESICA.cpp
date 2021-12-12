@@ -33,7 +33,7 @@ CGame_P4AU_NESICA::CGame_P4AU_NESICA(UINT32 nConfirmedROMSize /* = -1 */)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
-    pButtonLabelSet = DEF_NOBUTTONS;
+    pButtonLabelSet = PersonaPaletteNodes;
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];
@@ -187,7 +187,7 @@ size_t CGame_P4AU_NESICA::GetPaletteCountForUnit(size_t nUnitId)
 
 LPCWSTR CGame_P4AU_NESICA::GetDescriptionForCollection(size_t  /*nUnitId */, size_t nCollectionId)
 {
-    return PersonaPaletteNodes[nCollectionId].pszNodeName.c_str();
+    return PersonaPaletteNodes[nCollectionId];
 }
 
 void CGame_P4AU_NESICA::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
@@ -204,7 +204,8 @@ void CGame_P4AU_NESICA::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 
     if (nPaletteSet)
     {
-        m_nCurrentPaletteROMLocation += PersonaPaletteNodes[nPaletteSet].nAdjustmentFromBaseNode;
+        // Each palette is spaced 0x2100 bytes apart
+        m_nCurrentPaletteROMLocation += nPaletteSet * 0x2100;
     }
 }
 
@@ -234,7 +235,6 @@ BOOL CGame_P4AU_NESICA::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
     //Change the image id if we need to, using the single image index list used for each color
     size_t nImgUnitId = PersonaCharacterData[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageSet;
     nTargetImgId = PersonaCharacterData[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageIndex;
-
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();

@@ -60,47 +60,41 @@ const std::vector<UINT16> P4AU_S_IMGIDS_USED =
     indexP4AUSprites_Bonus,         // 0x16
 };
 
-struct PersonaNodeData
+const std::vector<LPCWSTR> PersonaPaletteNodes =
 {
-    std::wstring pszNodeName = L"uninit";
-    uint32_t nAdjustmentFromBaseNode = 0;
+    L"Color 1",
+    L"Color 2",
+    L"Color 3",
+    L"Color 4",
+    L"Color 5",
+    L"Color 6",
+    L"Color 7",
+    L"Color 8",
+    L"Color 9",
+    L"Color 10",
+    L"Color 11",
+    L"Color 12",
+    L"Color 13",
+    L"Color 14",
+    L"Color 15",
+    L"Color 16",
+    L"Color 17",
+    L"Color 18",
+    L"Color 19",
+    L"Color 20",
+    L"Color 21",
+    L"Color 22",
+    L"Color 23",
+    L"Color 24",
+    L"Color 25",
+    L"Color 26",
+    L"Color 27",
+    L"Color 28",
+    L"Color 29",
+    L"Color 30",
+    L"Color 31",
+    L"Color 32",
 };
-
-const std::vector<PersonaNodeData> PersonaPaletteNodes =
-{ {
-    { L"Color 1",	0x0 },
-    { L"Color 2",	0x2100 },
-    { L"Color 3",	0x4200 },
-    { L"Color 4",	0x6300 },
-    { L"Color 5",	0x8400 },
-    { L"Color 6",	0xA500 },
-    { L"Color 7",	0xC600 },
-    { L"Color 8",	0xE700 },
-    { L"Color 9",	0x10800 },
-    { L"Color 10",  0x12900 },
-    { L"Color 11",  0x14A00 },
-    { L"Color 12",  0x16B00 },
-    { L"Color 13",  0x18C00 },
-    { L"Color 14",  0x1AD00 },
-    { L"Color 15",  0x1CE00 },
-    { L"Color 16",  0x1EF00 },
-    { L"Color 17",  0x21000 },
-    { L"Color 18",  0x23100 },
-    { L"Color 19",  0x25200 },
-    { L"Color 20",  0x27300 },
-    { L"Color 21",  0x29400 },
-    { L"Color 22",  0x2B500 },
-    { L"Color 23",  0x2D600 },
-    { L"Color 24",  0x2F700 },
-    { L"Color 25",  0x31800 },
-    { L"Color 26",  0x33900 },
-    { L"Color 27",  0x35A00 },
-    { L"Color 28",  0x37B00 },
-    { L"Color 29",  0x39C00 },
-    { L"Color 30",  0x3BD00 },
-    { L"Color 31",  0x3DE00 },
-    { L"Color 32",  0x3FF00 },
-} };
 
 struct Persona4PaletteData
 {

@@ -452,7 +452,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
         int nPal = 0;
         int nTargetX = 0, nTargetY = 0;
 
-        UINT8* pMainData;
+        UINT8* pMainData = nullptr;
 
         if (pDstData)
         {
@@ -523,125 +523,119 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
 
 BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, double fpZoom, BOOL bTransBG)
 {
-    int nWidth = rgSrcImg[nSrcIndex]->uImgW;
-    int nHeight = rgSrcImg[nSrcIndex]->uImgH;
-    int nBltW, nBltH;
-    int nSrcX = 0, nSrcY = 0;
-
-    UINT8 uIndex;
-
-    int nStartRow;
-    int nSrcStartRow;
-    int nDstPos;
-
-    double fpXDiff = (double)nWidth / ((double)nWidth * fpZoom);
-    double fpYDiff = (double)nHeight / ((double)nHeight * fpZoom);
-
-    int nXCtr = 0;
-    int nYCtr = 0;
-
     UINT8* pDstBmpData = (UINT8*)pMainBmpData;
-    UINT8* pImgData = (UINT8*)rgSrcImg[nSrcIndex]->pImgData;
-    UINT8* pCurrPal = (UINT8*)pppPalettes[nSrcIndex][nPalIndex];
 
-    CRect rBltRct(nDstX, nDstY, nDstX + (int)(nWidth * fpZoom), nDstY + (int)(nHeight * fpZoom));
-
-    if (nDstX < 0)
+    if (pDstBmpData)
     {
-        rBltRct.left = 0;
-        nSrcX = abs(nDstX);
-    }
+        int nWidth = rgSrcImg[nSrcIndex]->uImgW;
+        int nHeight = rgSrcImg[nSrcIndex]->uImgH;
+        int nSrcX = 0, nSrcY = 0;
 
-    if (nDstY < 0)
-    {
-        rBltRct.top = 0;
-        nSrcY = abs(nDstY);
-    }
+        double fpXDiff = (double)nWidth / ((double)nWidth * fpZoom);
+        double fpYDiff = (double)nHeight / ((double)nHeight * fpZoom);
 
-    if (rBltRct.right > nMainW)
-    {
-        rBltRct.right = nMainW;
-    }
+        UINT8* pImgData = (UINT8*)rgSrcImg[nSrcIndex]->pImgData;
+        UINT8* pCurrPal = (UINT8*)pppPalettes[nSrcIndex][nPalIndex];
 
-    if (rBltRct.bottom > nMainH)
-    {
-        rBltRct.bottom = nMainH;
-    }
+        CRect rBltRct(nDstX, nDstY, nDstX + (int)(nWidth * fpZoom), nDstY + (int)(nHeight * fpZoom));
 
-    nBltW = rBltRct.right - rBltRct.left;
-    nBltH = rBltRct.bottom - rBltRct.top;
-
-    UINT16 nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
-    UINT16 nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
-        
-    if (bTransBG)
-    {
-        for (int yIndex = 0; yIndex < nBltH; yIndex++)
+        if (nDstX < 0)
         {
-            nYCtr = (int)((double)yIndex * fpYDiff);
+            rBltRct.left = 0;
+            nSrcX = abs(nDstX);
+        }
 
-            nStartRow = (yIndex + rBltRct.top) * (nMainW * 4) + (rBltRct.left * 4);
-            nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
+        if (nDstY < 0)
+        {
+            rBltRct.top = 0;
+            nSrcY = abs(nDstY);
+        }
 
-            for (int xIndex = 0; xIndex < (nBltW * 4); xIndex += 4)
+        if (rBltRct.right > nMainW)
+        {
+            rBltRct.right = nMainW;
+        }
+
+        if (rBltRct.bottom > nMainH)
+        {
+            rBltRct.bottom = nMainH;
+        }
+
+        int nBltW = rBltRct.right - rBltRct.left;
+        int nBltH = rBltRct.bottom - rBltRct.top;
+
+        UINT16 nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+        UINT16 nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+
+        if (bTransBG)
+        {
+            for (int yIndex = 0; yIndex < nBltH; yIndex++)
             {
-                nXCtr = (int)((double)xIndex * fpXDiff);
+                int nYCtr = (int)((double)yIndex * fpYDiff);
 
-                uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
+                int nStartRow = (yIndex + rBltRct.top) * (nMainW * 4) + (rBltRct.left * 4);
+                int nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
-                if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
+                for (int xIndex = 0; xIndex < (nBltW * 4); xIndex += 4)
                 {
-                    nDstPos = nStartRow + xIndex;
+                    int nXCtr = (int)((double)xIndex * fpXDiff);
+
+                    UINT8 uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
+
+                    if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
+                    {
+                        int nDstPos = nStartRow + xIndex;
 
 #ifdef BLEND_TO_BACKGROUND
-                    // zachd 2020/10/02: I am baffled why we would blend to background on a transparent background.  For one image there's nothing to blend to.  For multiple images we break layering and instead
-                    // muddle everything together.  I think this was just early experiemental code.  I'll leave it in case it matters, but don't think it's ever correct.
-                    double fpAdd = ((double)pCurrPal[(uIndex * 4) + 3] / 255.0);
+                        // zachd 2020/10/02: I am baffled why we would blend to background on a transparent background.  For one image there's nothing to blend to.  For multiple images we break layering and instead
+                        // muddle everything together.  I think this was just early experiemental code.  I'll leave it in case it matters, but don't think it's ever correct.
+                        double fpAdd = ((double)pCurrPal[(uIndex * 4) + 3] / 255.0);
 
-                    pDstBmpData[nDstPos + 3] += pCurrPal[(uIndex * 4) + 3];
+                        pDstBmpData[nDstPos + 3] += pCurrPal[(uIndex * 4) + 3];
 
-                    pDstBmpData[nDstPos + 2] = (UINT8)(pDstBmpData[nDstPos + 2] ? (pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd)    ) : (pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)]));
-                    pDstBmpData[nDstPos + 1] = (UINT8)(pDstBmpData[nDstPos + 1] ? (pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd)) : (pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1]));
-                    pDstBmpData[nDstPos] =     (UINT8)(pDstBmpData[nDstPos]     ? (pDstBmpData[nDstPos]     + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd)) : (pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2]));
+                        pDstBmpData[nDstPos + 2] = (UINT8)(pDstBmpData[nDstPos + 2] ? (pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd)) : (pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)]));
+                        pDstBmpData[nDstPos + 1] = (UINT8)(pDstBmpData[nDstPos + 1] ? (pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd)) : (pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1]));
+                        pDstBmpData[nDstPos] = (UINT8)(pDstBmpData[nDstPos] ? (pDstBmpData[nDstPos] + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd)) : (pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2]));
 #else
-                    pDstBmpData[nDstPos + 3] = pCurrPal[(uIndex * 4) + 3];
-                    pDstBmpData[nDstPos + 2] = pCurrPal[(uIndex * 4)];
-                    pDstBmpData[nDstPos + 1] = pCurrPal[(uIndex * 4) + 1];
-                    pDstBmpData[nDstPos]     = pCurrPal[(uIndex * 4) + 2];
+                        pDstBmpData[nDstPos + 3] = pCurrPal[(uIndex * 4) + 3];
+                        pDstBmpData[nDstPos + 2] = pCurrPal[(uIndex * 4)];
+                        pDstBmpData[nDstPos + 1] = pCurrPal[(uIndex * 4) + 1];
+                        pDstBmpData[nDstPos] = pCurrPal[(uIndex * 4) + 2];
 #endif
+                    }
                 }
             }
         }
-    }
-    else // show the background color they've selected
-    {
-        for (int yIndex = 0; yIndex < nBltH; yIndex++)
+        else // show the background color they've selected
         {
-            nYCtr = (int)((double)yIndex * fpYDiff);
-
-            nStartRow = (yIndex + rBltRct.top) * (nMainW * 4) + (rBltRct.left * 4);
-            nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
-
-            for (int xIndex = 0; xIndex < (nBltW * 4); xIndex += 4)
+            for (int yIndex = 0; yIndex < nBltH; yIndex++)
             {
-                nXCtr = (int)((double)xIndex * fpXDiff);
+                int nYCtr = (int)((double)yIndex * fpYDiff);
 
-                uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
+                int nStartRow = (yIndex + rBltRct.top) * (nMainW * 4) + (rBltRct.left * 4);
+                int nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
-                if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
+                for (int xIndex = 0; xIndex < (nBltW * 4); xIndex += 4)
                 {
-                    nDstPos = nStartRow + xIndex;
+                    int nXCtr = (int)((double)xIndex * fpXDiff);
 
-                    double fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
-                    double fpDstA1 = 1.0 - fpDstA2;
+                    UINT8 uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
 
-                    UINT8* uDstR = &pDstBmpData[nDstPos + 2];
-                    UINT8* uDstG = &pDstBmpData[nDstPos + 1];
-                    UINT8* uDstB = &pDstBmpData[nDstPos];
+                    if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
+                    {
+                        int nDstPos = nStartRow + xIndex;
 
-                    *uDstR = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4)]), (fpDstA2 * (double)*uDstR));
-                    *uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 1]), (fpDstA2 * (double)*uDstG));
-                    *uDstB = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 2]), (fpDstA2 * (double)*uDstB));
+                        double fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
+                        double fpDstA1 = 1.0 - fpDstA2;
+
+                        UINT8* uDstR = &pDstBmpData[nDstPos + 2];
+                        UINT8* uDstG = &pDstBmpData[nDstPos + 1];
+                        UINT8* uDstB = &pDstBmpData[nDstPos];
+
+                        *uDstR = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4)]), (fpDstA2 * (double)*uDstR));
+                        *uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 1]), (fpDstA2 * (double)*uDstG));
+                        *uDstB = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 2]), (fpDstA2 * (double)*uDstB));
+                    }
                 }
             }
         }
@@ -794,6 +788,11 @@ void CImgDumpBmp::ResizeMainBmp()
         MainBmpi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 
         MainHBmp = CreateDIBSection(MainDC.GetSafeHdc(), &MainBmpi, DIB_RGB_COLORS, (void**)&pMainBmpData, NULL, 0);
+
+        if (!MainHBmp)
+        {
+            MessageBox(L"Warning: requested image is too large.  Please select a smaller image size.", GetHost()->GetAppName(), MB_ICONERROR);
+        }
 
         if (m_fInitialized)
         {

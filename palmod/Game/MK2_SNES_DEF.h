@@ -32,127 +32,127 @@ const std::vector<UINT16> MK2_SNES_IMGIDS_USED =
 
 const sGame_PaletteDataset MK2_SNES_LIUKANG_P1_PALETTES[] =
 {
-    { L"Liu Kang P1", 0x2fc24e, 0x2fc26e },
+    { L"Liu Kang P1", 0x2fc24e, 0x2fc26e, indexMK2Sprites_LiuKang },
 };
 
 const sGame_PaletteDataset MK2_SNES_LIUKANG_P2_PALETTES[] =
 {
-    { L"Liu Kang P2", 0x2fc22e, 0x2fc24e },
+    { L"Liu Kang P2", 0x2fc22e, 0x2fc24e, indexMK2Sprites_LiuKang },
 };
 
 const sGame_PaletteDataset MK2_SNES_KUNGLAO_P1_PALETTES[] =
 {
-    { L"Kung Lao P1", 0x2fd190, 0x2fd1b0 },
+    { L"Kung Lao P1", 0x2fd190, 0x2fd1b0, indexMK2Sprites_KungLao },
 };
 
 const sGame_PaletteDataset MK2_SNES_KUNGLAO_P2_PALETTES[] =
 {
-    { L"Kung Lao P2", 0x2fd1b0, 0x2fd1d0 },
+    { L"Kung Lao P2", 0x2fd1b0, 0x2fd1d0, indexMK2Sprites_KungLao },
 };
 
 const sGame_PaletteDataset MK2_SNES_JOHNNYCAGE_P1_PALETTES[] =
 {
-    { L"Johnny Cage P1", 0x2f88be, 0x2f88de },
+    { L"Johnny Cage P1", 0x2f88be, 0x2f88de, indexMK2Sprites_JohnnyCage },
 };
 
 const sGame_PaletteDataset MK2_SNES_JOHNNYCAGE_P2_PALETTES[] =
 {
-    { L"Johnny Cage P2", 0x2f88de, 0x2f88fe },
+    { L"Johnny Cage P2", 0x2f88de, 0x2f88fe, indexMK2Sprites_JohnnyCage },
 };
 
 const sGame_PaletteDataset MK2_SNES_REPTILE_P1_PALETTES[] =
 {
-    { L"Reptile P1", 0x2f3ece, 0x2f3eee },
+    { L"Reptile P1", 0x2f3ece, 0x2f3eee, indexMK2Sprites_Reptile },
 };
 
 const sGame_PaletteDataset MK2_SNES_REPTILE_P2_PALETTES[] =
 {
-    { L"Reptile P2", 0x2f3f2e, 0x2f3f4e },
+    { L"Reptile P2", 0x2f3f2e, 0x2f3f4e, indexMK2Sprites_Reptile },
 };
 
 const sGame_PaletteDataset MK2_SNES_SUBZERO_P1_PALETTES[] =
 {
-    { L"Sub-Zero P1", 0x2f3eae, 0x2f3ece },
+    { L"Sub-Zero P1", 0x2f3eae, 0x2f3ece, indexMK2Sprites_SubZero },
 };
 
 const sGame_PaletteDataset MK2_SNES_SUBZERO_P2_PALETTES[] =
 {
-    { L"Sub-Zero P2", 0x2f3f0e, 0x2f3f2e },
+    { L"Sub-Zero P2", 0x2f3f0e, 0x2f3f2e, indexMK2Sprites_SubZero },
 };
 
 const sGame_PaletteDataset MK2_SNES_SHANGTSUNG_P1_PALETTES[] =
 {
-    { L"Shang Tsung P1", 0xe7d9f, 0xe7dbf },
+    { L"Shang Tsung P1", 0xe7d9f, 0xe7dbf, indexMK2Sprites_ShangTsung },
 };
 
 const sGame_PaletteDataset MK2_SNES_SHANGTSUNG_P2_PALETTES[] =
 {
-    { L"Shang Tsung P2", 0xe7dbf, 0xe7ddf },
+    { L"Shang Tsung P2", 0xe7dbf, 0xe7ddf, indexMK2Sprites_ShangTsung },
 };
 
 const sGame_PaletteDataset MK2_SNES_KITANA_P1_PALETTES[] =
 {
-    { L"Kitana P1", 0x2f9173, 0x2f9193 },
+    { L"Kitana P1", 0x2f9173, 0x2f9193, indexMK2Sprites_Kitana },
 };
 
 const sGame_PaletteDataset MK2_SNES_KITANA_P2_PALETTES[] =
 {
-    { L"Kitana P2", 0x2f9193, 0x2f91b3 },
+    { L"Kitana P2", 0x2f9193, 0x2f91b3, indexMK2Sprites_Kitana },
 };
 
 const sGame_PaletteDataset MK2_SNES_JAX_P1_PALETTES[] =
 {
-    { L"Jax P1", 0x2fd570, 0x2fd590 },
+    { L"Jax P1", 0x2fd570, 0x2fd590, indexMK2Sprites_Jax },
 };
 
 const sGame_PaletteDataset MK2_SNES_JAX_P2_PALETTES[] =
 {
-    { L"Jax P2", 0x2fd550, 0x2fd570 },
+    { L"Jax P2", 0x2fd550, 0x2fd570, indexMK2Sprites_Jax },
 };
 
 const sGame_PaletteDataset MK2_SNES_MILEENA_P1_PALETTES[] =
 {
-    { L"Mileena P1", 0x2f91b3, 0x2f91d3 },
+    { L"Mileena P1", 0x2f91b3, 0x2f91d3, indexMK2Sprites_Mileena },
 };
 
 const sGame_PaletteDataset MK2_SNES_MILEENA_P2_PALETTES[] =
 {
-    { L"Mileena P2", 0x2f91d3, 0x2f91f3 },
+    { L"Mileena P2", 0x2f91d3, 0x2f91f3, indexMK2Sprites_Mileena },
 };
 
 const sGame_PaletteDataset MK2_SNES_BARAKA_P1_PALETTES[] =
 {
-    { L"Baraka P1", 0x2fcad4, 0x2fcaf4 },
+    { L"Baraka P1", 0x2fcad4, 0x2fcaf4, indexMK2Sprites_Baraka },
 };
 
 const sGame_PaletteDataset MK2_SNES_BARAKA_P2_PALETTES[] =
 {
-    { L"Baraka P2", 0x2fcaf4, 0x2fcb14 },
+    { L"Baraka P2", 0x2fcaf4, 0x2fcb14, indexMK2Sprites_Baraka },
 };
 
 const sGame_PaletteDataset MK2_SNES_SCORPION_P1_PALETTES[] =
 {
-    { L"Scorpion P1", 0x2f3eee, 0x2f3f0e },
+    { L"Scorpion P1", 0x2f3eee, 0x2f3f0e, indexMK2Sprites_Scorpion },
 };
 
 const sGame_PaletteDataset MK2_SNES_SCORPION_P2_PALETTES[] =
 {
-    { L"Scorpion P2", 0x2f3f4e, 0x2f3f6e },
+    { L"Scorpion P2", 0x2f3f4e, 0x2f3f6e, indexMK2Sprites_Scorpion },
 };
 
 const sGame_PaletteDataset MK2_SNES_RAIDEN_P1_PALETTES[] =
 {
-    { L"Raiden P1", 0x2fcbb4, 0x2fcbd4 },
+    { L"Raiden P1", 0x2fcbb4, 0x2fcbd4, indexMK2Sprites_Raiden },
 };
 
 const sGame_PaletteDataset MK2_SNES_RAIDEN_P2_PALETTES[] =
 {
-    { L"Raiden P2", 0x2fcbd4, 0x2fcbf4 },
+    { L"Raiden P2", 0x2fcbd4, 0x2fcbf4, indexMK2Sprites_Raiden },
 };
 
 const sGame_PaletteDataset MK2_SNES_JADE_PALETTES[] =
 {
-    { L"Jade", 0x2f91f3, 0x2f9213 },
+    { L"Jade", 0x2f91f3, 0x2f9213, indexMK2Sprites_Jade },
 };
 
 const sDescTreeNode MK2_SNES_LIUKANG_COLLECTION[] =

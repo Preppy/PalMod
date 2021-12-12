@@ -174,36 +174,37 @@ struct sKOF95_A_PaletteData
     UINT32 nROMOffset = 0;
     bool fIsMultipart = false;
     LPCWSTR pszImageSet = nullptr;
+    LPCWSTR pszPortraitImageSet = nullptr;
 };
 
 sKOF95_A_PaletteData KOF95_A_CharacterEffectPalettes[] =
 {
-    { L"Heidern",   0xd9000, false, L"indexKOF94Sprites_Heidern" },
-    { L"Ralf",      0xd9400, true, L"indexKOF94Sprites_Ralf" },
-    { L"Clark",     0xd9800, true, L"indexKOF94Sprites_Clark" },
-    { L"Athena",    0xd9c00, false, L"indexKOF94Sprites_Athena" },
-    { L"Kensou",    0xda000, false, L"indexKOF94Sprites_Kensou" },
-    { L"Chin",      0xda400, false, L"indexKOF94Sprites_Chin" },
-    { L"Kyo",       0xda800, false, L"indexKOF94Sprites_Kyo" },
-    { L"Benimaru",  0xdac00, false, L"indexKOF94Sprites_Benimaru" },
-    { L"Daimon",    0xdb000, false, L"indexKOF94Sprites_Daimon" },
-    { L"Iori",      0xdb400, false, L"indexKOF95Sprites_Iori" },
-    { L"Eiji",      0xdb800, false, L"indexKOF95Sprites_Eiji" },
-    { L"Billy",     0xdbc00, false, L"indexKOF95Sprites_Billy" },
-    { L"Kim",       0xdc000, false, L"indexKOF94Sprites_Kim" },
-    { L"Chang",     0xdc400, true, L"indexKOF95Sprites_Chang" },
-    { L"Choi",      0xdc800, false, L"indexKOF95Sprites_Chin" },
-    { L"Terry",     0xdcc00, false, L"indexKOF94Sprites_Terry" },
-    { L"Andy",      0xdd000, false, L"indexKOF94Sprites_Andy" },
-    { L"Joe",       0xdd400, false, L"indexKOF94Sprites_Joe" },
-    { L"Ryo",       0xdd800, false, L"indexKOF94Sprites_Ryo" },
-    { L"Robert",    0xddc00, false, L"indexKOF94Sprites_Robert" },
-    { L"Takuma",    0xde000, false, L"indexKOF94Sprites_Takuma" },
-    { L"Yuri",      0xde400, false, L"indexKOF94Sprites_Yuri" },
-    { L"Mai",       0xde800, false, L"indexKOF94Sprites_Mai" },
-    { L"King",      0xdec00, false, L"indexKOF94Sprites_King" },
-    { L"Saisyu",    0xdf000, false, L"indexKOF95Sprites_Saisyu" },
-    { L"Omega Rugal", 0xdf400, false, L"indexKOF95Sprites_OmegaRugal" },
+    { L"Heidern",   0xd9000, false, L"indexKOF94Sprites_Heidern",       L"indexKOF95Sprites_Heidern" },
+    { L"Ralf",      0xd9400, true,  L"indexKOF94Sprites_Ralf",          L"indexKOF95Sprites_Ralf" },
+    { L"Clark",     0xd9800, true,  L"indexKOF94Sprites_Clark",         L"indexKOF95Sprites_Clark" },
+    { L"Athena",    0xd9c00, false, L"indexKOF94Sprites_Athena",        L"indexKOF95Sprites_Athena" },
+    { L"Kensou",    0xda000, false, L"indexKOF94Sprites_Kensou",        L"indexKOF95Sprites_Kensou" },
+    { L"Chin",      0xda400, false, L"indexKOF94Sprites_Chin",          L"indexKOF95Sprites_Chin" },
+    { L"Kyo",       0xda800, false, L"indexKOF94Sprites_Kyo",           L"indexKOF95Sprites_Kyo" },
+    { L"Benimaru",  0xdac00, false, L"indexKOF94Sprites_Benimaru",      L"indexKOF95Sprites_Benimaru" },
+    { L"Daimon",    0xdb000, false, L"indexKOF94Sprites_Daimon",        L"indexKOF95Sprites_Daimon" },
+    { L"Iori",      0xdb400, false, L"indexKOF95Sprites_Iori",          L"indexKOF95Sprites_Iori" },
+    { L"Eiji",      0xdb800, false, L"indexKOF95Sprites_Eiji",          L"indexKOF95Sprites_Eiji" },
+    { L"Billy",     0xdbc00, false, L"indexKOF95Sprites_Billy",         L"indexKOF95Sprites_Billy" },
+    { L"Kim",       0xdc000, false, L"indexKOF94Sprites_Kim",           L"indexKOF95Sprites_Kim" },
+    { L"Chang",     0xdc400, true,  L"indexKOF95Sprites_Chang",         L"indexKOF95Sprites_Chang" },
+    { L"Choi",      0xdc800, false, L"indexKOF95Sprites_Chin",          L"indexKOF95Sprites_Chin" },
+    { L"Terry",     0xdcc00, false, L"indexKOF94Sprites_Terry",         L"indexKOF95Sprites_Terry" },
+    { L"Andy",      0xdd000, false, L"indexKOF94Sprites_Andy",          L"indexKOF95Sprites_Andy" },
+    { L"Joe",       0xdd400, false, L"indexKOF94Sprites_Joe",           L"indexKOF95Sprites_Joe" },
+    { L"Ryo",       0xdd800, false, L"indexKOF94Sprites_Ryo",           L"indexKOF95Sprites_Ryo" },
+    { L"Robert",    0xddc00, false, L"indexKOF94Sprites_Robert",        L"indexKOF95Sprites_Robert" },
+    { L"Takuma",    0xde000, false, L"indexKOF94Sprites_Takuma",        L"indexKOF95Sprites_Takuma" },
+    { L"Yuri",      0xde400, false, L"indexKOF94Sprites_Yuri",          L"indexKOF95Sprites_Yuri" },
+    { L"Mai",       0xde800, false, L"indexKOF94Sprites_Mai",           L"indexKOF95Sprites_Mai" },
+    { L"King",      0xdec00, false, L"indexKOF94Sprites_King",          L"indexKOF95Sprites_King" },
+    { L"Saisyu",    0xdf000, false, L"indexKOF95Sprites_Saisyu",        L"indexKOF95Sprites_Saisyu" },
+    { L"Omega Rugal", 0xdf400, false, L"indexKOF95Sprites_OmegaRugal",  L"indexKOF95Sprites_OmegaRugal" },
 };
 
 void CGame_KOF95_A::DumpPaletteHeaders()
@@ -227,8 +228,10 @@ void CGame_KOF95_A::DumpPaletteHeaders()
                 UINT32 nCurrentOffset = KOF95_A_CharacterEffectPalettes[nCharIndex].nROMOffset + (nStatusIndex * KOF95_PALETTE_LENGTH) + (nCharacterColor * 0x200);
                 UINT32 nTerminalOffset = nCurrentOffset + KOF95_PALETTE_LENGTH;
                 LPCWSTR pszCurrentEffectName = nullptr;
+                LPCWSTR pszCurrentImageSet = KOF95_A_CharacterEffectPalettes[nCharIndex].pszImageSet;
                 int nCurrentImageIndex = 0;
                 bool fIsPairable = false;
+
 
                 switch (nStatusIndex)
                 {
@@ -282,7 +285,8 @@ void CGame_KOF95_A::DumpPaletteHeaders()
                 case 6:
                     pszCurrentEffectName = L"Win Portrait?";
                     nTerminalOffset += (7 * KOF95_PALETTE_LENGTH);
-                    nCurrentImageIndex = -1;
+                    pszCurrentImageSet = KOF95_A_CharacterEffectPalettes[nCharIndex].pszPortraitImageSet;
+                    nCurrentImageIndex = 0x41;
                     break;
                 case 7:
                 case 8:
@@ -295,11 +299,13 @@ void CGame_KOF95_A::DumpPaletteHeaders()
                     continue;
                 case 14:
                     pszCurrentEffectName = L"Lifebar Portrait";
-                    nCurrentImageIndex = 0x20;
+                    pszCurrentImageSet = KOF95_A_CharacterEffectPalettes[nCharIndex].pszPortraitImageSet;
+                    nCurrentImageIndex = 0x40;
                     break;
                 case 15:
                     pszCurrentEffectName = L"Lifebar Portrait Defeated/Grayed";
-                    nCurrentImageIndex = 0x20;
+                    pszCurrentImageSet = KOF95_A_CharacterEffectPalettes[nCharIndex].pszPortraitImageSet;
+                    nCurrentImageIndex = 0x40;
                     break;
                 default:
                     DebugBreak();
@@ -308,9 +314,10 @@ void CGame_KOF95_A::DumpPaletteHeaders()
                 strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x", pszCurrentEffectName, nCurrentOffset, nTerminalOffset);
                 OutputDebugString(strOutput);
 
-                if (KOF95_A_CharacterEffectPalettes[nCharIndex].pszImageSet && (nCurrentImageIndex != -1))
+                if (pszCurrentImageSet && (nCurrentImageIndex != -1))
                 {
-                    strOutput.Format(L", %s, 0x%02x", KOF95_A_CharacterEffectPalettes[nCharIndex].pszImageSet, nCurrentImageIndex);
+                    strOutput.Format(L", %s, 0x%02x", pszCurrentImageSet, nCurrentImageIndex);
+                    
                     OutputDebugString(strOutput);
 
                     if (fIsPairable)

@@ -1123,6 +1123,7 @@ enum KOFSpriteList
     indexKOF97Sprites_Yashiro,          // 0x2B3
     indexKOF97Sprites_YashiroOrochi,    // 0x2B4
     indexKOF97Sprites_Yuri,             // 0x2B5
+    indexKOF95Sprites_Yuri,             // 0x2B6
     // indexKOF97Sprites_Bonus,         // 0x1F0
     // indexKOF97Sprites_Stages,        // 0x1F1
 };

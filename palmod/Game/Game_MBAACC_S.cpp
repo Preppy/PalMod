@@ -222,7 +222,7 @@ BOOL CGame_MBAACC_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists and use
     // NodeGet->uPalId instead of 0 for the start for anything non-core.
-    int nSrcStart = (int)0;
+    int nSrcStart = 0;
     
     // We update this at runtime so we can use different list lengths
     pButtonLabelSet = MBAACCCharacterData[NodeGet->uUnitId].ppszPaletteList;

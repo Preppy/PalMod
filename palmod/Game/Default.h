@@ -5,6 +5,7 @@ constexpr auto MAX_FILENAME_LENGTH = 32;
 
 constexpr auto UNIT_START_VALUE   = 0xf000;
 constexpr auto INVALID_UNIT_VALUE = 0xffff;
+constexpr auto INVALID_UNIT_VALUE32 = 0xffffffff;
 
 constexpr auto MAX_IMAGES_DISPLAYABLE = 32;
 constexpr auto FLIPPED_IMAGES_MESSAGE_OFFSET = MAX_IMAGES_DISPLAYABLE + 1;
