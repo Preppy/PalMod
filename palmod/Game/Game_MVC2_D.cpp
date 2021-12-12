@@ -594,23 +594,24 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, size_t nUnitId)
 
             // 16color and 6color PAL files have different meanings for the second value, so fork our usage
             int nDataSz = 0;
-            bool fIsValidSize = false;
+            int nExpectedSize = 0;
             
             if (_nCurrentTotalColorOptions == 6)
             {
                 nDataSz = (nEnd - nStart);
-                fIsValidSize = (nDataSz == MVC2_D_PALDATASIZE_6COLORS[nUnitId]);
+                nExpectedSize = MVC2_D_PALDATASIZE_6COLORS[nUnitId];
             }
             else
             {
                 nDataSz = (int)(LoadedFile->GetLength() - nEnd);
-
-                fIsValidSize = (nDataSz == MVC2_D_PALDATASIZE_16COLORS[nUnitId]);
+                nExpectedSize = MVC2_D_PALDATASIZE_16COLORS[nUnitId];
             }
             
-            if (!fIsValidSize)
+            if (nDataSz != nExpectedSize);
             {
-                OutputDebugString(L"CGame_MVC2_D::LoadFile: Palette data size does not match with expected palette data size.  Failing file load.\n");
+                CString strError;
+                strError.Format(L"CGame_MVC2_D::LoadFile: Palette data size 0x%08x does not match with expected palette data size 0x%08x.  Failing file load.\n", nDataSz, nExpectedSize);
+                OutputDebugString(strError);
                 return FALSE;
             }
 
