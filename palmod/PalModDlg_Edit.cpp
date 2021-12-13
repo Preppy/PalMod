@@ -734,6 +734,7 @@ void CPalModDlg::HandlePasteFromPalMod()
             case MVC2_A:
             case MVC2_A_DIR:
             case MVC2_D:
+            case MVC2_D_16:
             case MVC2_P:
             case MVC_A:
             case GEMFIGHTER_A:

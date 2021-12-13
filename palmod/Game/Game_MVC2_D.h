@@ -13,6 +13,7 @@ private:
     UINT16** ppDataBuffer = nullptr;
 
     int GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, int nStartOfRange, int nPalettePositionIncrements, int nRangeLength);
+    sMoveDescription* GetMoveDescriptionInfo(size_t nUnitId, size_t nPalId);
 
 public:
     CGame_MVC2_D(UINT32 nConfirmedROMSize);
@@ -28,6 +29,7 @@ public:
 
     static std::vector<LPCWSTR> pCurrentButtonLabelSet;
     static std::vector<std::vector<sMoveDescription>> pCurrentMoveDescriptions;
+    static std::vector<UINT16> pCurrentExtrasLayout;
     static UINT8 _nCurrentTotalColorOptions;
     void SetNumberOfColorOptions(UINT8 nColorOptions);
 

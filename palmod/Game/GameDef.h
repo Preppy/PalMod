@@ -157,6 +157,7 @@ enum SupportedGamesList
     MK1_SNES,
     MK2_SNES,
     SHAQFU_SNES,
+    MVC2_D_16,
 
     NUM_GAMES // This needs to be last
 };
@@ -310,6 +311,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Mortal Kombat (SNES)",
     L"Mortal Kombat II (SNES)",
     L"Shaq Fu (SNES)",
+    L"MvC2 (Dreamcast Palette Expansion)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -393,6 +395,9 @@ struct stPairedPaletteInfo
     int nOverallNodeIncrementTo2ndPartner = 2;
     int nOverallNodeIncrementTo3rdPartner = 3;
     int nOverallNodeIncrementTo4thPartner = 4;
+    int nOverallNodeIncrementTo5thPartner = 5;
+    int nOverallNodeIncrementTo6thPartner = 6;
+    int nOverallNodeIncrementTo7thPartner = 7;
 };
 
 struct stPaletteProcessingInformation
@@ -457,12 +462,14 @@ const stPairedPaletteInfo pairNextAndNextAndNext =                  { 1, 0, 0, f
 const stPairedPaletteInfo pairNextAndNext32AndNextSkipped =         { 1, 0, 0, false, 4, 32, 34 }; // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext41AndNext =                { 1, 0, 0, false, 4, 41, 42 }; // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext =    { 2, 0, 0, false, 4, 4, 5 }; // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext4AndNextAndNext =                 { 4, 0, 0, false, 4, 5, 6 }; // quad display... requires special handling in code
 
-const stPairedPaletteInfo pairNextAndNextAndNextAndNext =           { 1, 0, 0, false, 5, 2, 3, 4 };    // quad display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, 0, 0, false, 5, 2, 3, 8 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext =           { 1, 0, 0, false, 5, 2, 3, 4 };     // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, 0, 0, false, 5, 2, 3, 8 };     // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext9 =          { 1, 0, 0, false, 5, 2, 3, 12 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext13 =         { 1, 0, 0, false, 5, 2, 3, 16 };    // quad display... requires special handling in code
 
+const stPairedPaletteInfo pairNext6Palettes =                        { 1, 0, 0, false, 7, 2, 3, 4, 5, 6 }; // Seven-display: MvC2-DC only
 
 // Vs Series
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, -4 };

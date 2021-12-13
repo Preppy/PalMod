@@ -2434,7 +2434,7 @@ const sDescTreeNode MVC2_A_TRON_COLLECTION[] =
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x35f3160, 0x35f3180, indexCPS2Sprites_Jill, 0, &pairNext },
-    { L"(02) Rocket Launcher / Ribbon / Granade Launcher / Key", 0x35f3180, 0x35f31a0, indexCPS2Sprites_Jill, 1 },
+    { L"(02) Rocket Launcher / Ribbon / Grenade Launcher / Key", 0x35f3180, 0x35f31a0, indexCPS2Sprites_Jill, 1 },
     { L"(03) Zombie", 0x35f31a0, 0x35f31c0, indexCPS2Sprites_Jill, 2 },
     { L"(04) Dog / Crow / Fire Zombie", 0x35f31c0, 0x35f31e0, indexCPS2Sprites_Jill, 3 },
     { L"(05) Tyrant", 0x35f31e0, 0x35f3200, indexCPS2Sprites_Jill, 4 },
@@ -2446,7 +2446,7 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LP[] =
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LK[] =
 {
     { L"Main Color LK", 0x35f3260, 0x35f3280, indexCPS2Sprites_Jill, 0, &pairNext },
-    { L"(02) Rocket Launcher / Ribbon / Granade Launcher / Key", 0x35f3280, 0x35f32a0, indexCPS2Sprites_Jill, 1 },
+    { L"(02) Rocket Launcher / Ribbon / Grenade Launcher / Key", 0x35f3280, 0x35f32a0, indexCPS2Sprites_Jill, 1 },
     { L"(03) Zombie", 0x35f32a0, 0x35f32c0, indexCPS2Sprites_Jill, 2 },
     { L"(04) Dog / Crow / Fire Zombie", 0x35f32c0, 0x35f32e0, indexCPS2Sprites_Jill, 3 },
     { L"(05) Tyrant", 0x35f32e0, 0x35f3300, indexCPS2Sprites_Jill, 4 },
@@ -2458,7 +2458,7 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LK[] =
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HP[] =
 {
     { L"Main Color HP", 0x35f3360, 0x35f3380, indexCPS2Sprites_Jill, 0, &pairNext },
-    { L"(02) Rocket Launcher / Ribbon / Granade Launcher / Key", 0x35f3380, 0x35f33a0, indexCPS2Sprites_Jill, 1 },
+    { L"(02) Rocket Launcher / Ribbon / Grenade Launcher / Key", 0x35f3380, 0x35f33a0, indexCPS2Sprites_Jill, 1 },
     { L"(03) Zombie", 0x35f33a0, 0x35f33c0, indexCPS2Sprites_Jill, 2 },
     { L"(04) Dog / Crow / Fire Zombie", 0x35f33c0, 0x35f33e0, indexCPS2Sprites_Jill, 3 },
     { L"(05) Tyrant", 0x35f33e0, 0x35f3400, indexCPS2Sprites_Jill, 4 },
@@ -2470,7 +2470,7 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HP[] =
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HK[] =
 {
     { L"Main Color HK", 0x35f3460, 0x35f3480, indexCPS2Sprites_Jill, 0, &pairNext },
-    { L"(02) Rocket Launcher / Ribbon / Granade Launcher / Key", 0x35f3480, 0x35f34a0, indexCPS2Sprites_Jill, 1 },
+    { L"(02) Rocket Launcher / Ribbon / Grenade Launcher / Key", 0x35f3480, 0x35f34a0, indexCPS2Sprites_Jill, 1 },
     { L"(03) Zombie", 0x35f34a0, 0x35f34c0, indexCPS2Sprites_Jill, 2 },
     { L"(04) Dog / Crow / Fire Zombie", 0x35f34c0, 0x35f34e0, indexCPS2Sprites_Jill, 3 },
     { L"(05) Tyrant", 0x35f34e0, 0x35f3500, indexCPS2Sprites_Jill, 4 },
@@ -2482,7 +2482,7 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HK[] =
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A1[] =
 {
     { L"Main Color A1", 0x35f3560, 0x35f3580, indexCPS2Sprites_Jill, 0, &pairNext },
-    { L"(02) Rocket Launcher / Ribbon / Granade Launcher / Key", 0x35f3580, 0x35f35a0, indexCPS2Sprites_Jill, 1 },
+    { L"(02) Rocket Launcher / Ribbon / Grenade Launcher / Key", 0x35f3580, 0x35f35a0, indexCPS2Sprites_Jill, 1 },
     { L"(03) Zombie", 0x35f35a0, 0x35f35c0, indexCPS2Sprites_Jill, 2 },
     { L"(04) Dog / Crow / Fire Zombie", 0x35f35c0, 0x35f35e0, indexCPS2Sprites_Jill, 3 },
     { L"(05) Tyrant", 0x35f35e0, 0x35f3600, indexCPS2Sprites_Jill, 4 },
@@ -2494,7 +2494,7 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A1[] =
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A2[] =
 {
     { L"Main Color A2", 0x35f3660, 0x35f3680, indexCPS2Sprites_Jill, 0, &pairNext },
-    { L"(02) Rocket Launcher / Ribbon / Granade Launcher / Key", 0x35f3680, 0x35f36a0, indexCPS2Sprites_Jill, 1 },
+    { L"(02) Rocket Launcher / Ribbon / Grenade Launcher / Key", 0x35f3680, 0x35f36a0, indexCPS2Sprites_Jill, 1 },
     { L"(03) Zombie", 0x35f36a0, 0x35f36c0, indexCPS2Sprites_Jill, 2 },
     { L"(04) Dog / Crow / Fire Zombie", 0x35f36c0, 0x35f36e0, indexCPS2Sprites_Jill, 3 },
     { L"(05) Tyrant", 0x35f36e0, 0x35f3700, indexCPS2Sprites_Jill, 4 },
@@ -2654,7 +2654,7 @@ const sGame_PaletteDataset MVC2_A_RUBY_PALETTES_LP[] =
     { L"Main Color LP", 0x37f9ce0, 0x37f9d00, indexCPS2Sprites_Ruby, 0 },
     { L"(02) Chest", 0x37f9d00, 0x37f9d20, indexCPS2Sprites_Ruby, 1 },
     { L"(03) Phantom", 0x37f9d20, 0x37f9d40, indexCPS2Sprites_Ruby, 2 },
-    { L"(04) Canon fire", 0x37f9d40, 0x37f9d60, indexCPS2Sprites_Ruby, 3 },
+    { L"(04) Cannon fire", 0x37f9d40, 0x37f9d60, indexCPS2Sprites_Ruby, 3 },
     { L"(05) Sublimation", 0x37f9d60, 0x37f9d80, indexCPS2Sprites_Ruby, 4 },
     { L"(06) Ship", 0x37f9d80, 0x37f9da0, indexCPS2Sprites_Ruby, 5 },
     { L"(07) Anchor/barrel/swords", 0x37f9da0, 0x37f9dc0, indexCPS2Sprites_Ruby, 6 },
@@ -2666,7 +2666,7 @@ const sGame_PaletteDataset MVC2_A_RUBY_PALETTES_LK[] =
     { L"Main Color LK", 0x37f9de0, 0x37f9e00, indexCPS2Sprites_Ruby, 0 },
     { L"(02) Chest", 0x37f9e00, 0x37f9e20, indexCPS2Sprites_Ruby, 1 },
     { L"(03) Phantom", 0x37f9e20, 0x37f9e40, indexCPS2Sprites_Ruby, 2 },
-    { L"(04) Canon fire", 0x37f9e40, 0x37f9e60, indexCPS2Sprites_Ruby, 3 },
+    { L"(04) Cannon fire", 0x37f9e40, 0x37f9e60, indexCPS2Sprites_Ruby, 3 },
     { L"(05) Sublimation", 0x37f9e60, 0x37f9e80, indexCPS2Sprites_Ruby, 4 },
     { L"(06) Ship", 0x37f9e80, 0x37f9ea0, indexCPS2Sprites_Ruby, 5 },
     { L"(07) Anchor/barrel/swords", 0x37f9ea0, 0x37f9ec0, indexCPS2Sprites_Ruby, 6 },
@@ -2678,7 +2678,7 @@ const sGame_PaletteDataset MVC2_A_RUBY_PALETTES_HP[] =
     { L"Main Color HP", 0x37f9ee0, 0x37f9f00, indexCPS2Sprites_Ruby, 0 },
     { L"(02) Chest", 0x37f9f00, 0x37f9f20, indexCPS2Sprites_Ruby, 1 },
     { L"(03) Phantom", 0x37f9f20, 0x37f9f40, indexCPS2Sprites_Ruby, 2 },
-    { L"(04) Canon fire", 0x37f9f40, 0x37f9f60, indexCPS2Sprites_Ruby, 3 },
+    { L"(04) Cannon fire", 0x37f9f40, 0x37f9f60, indexCPS2Sprites_Ruby, 3 },
     { L"(05) Sublimation", 0x37f9f60, 0x37f9f80, indexCPS2Sprites_Ruby, 4 },
     { L"(06) Ship", 0x37f9f80, 0x37f9fa0, indexCPS2Sprites_Ruby, 5 },
     { L"(07) Anchor/barrel/swords", 0x37f9fa0, 0x37f9fc0, indexCPS2Sprites_Ruby, 6 },
@@ -2690,7 +2690,7 @@ const sGame_PaletteDataset MVC2_A_RUBY_PALETTES_HK[] =
     { L"Main Color HK", 0x37f9fe0, 0x37fa000, indexCPS2Sprites_Ruby, 0 },
     { L"(02) Chest", 0x37fa000, 0x37fa020, indexCPS2Sprites_Ruby, 1 },
     { L"(03) Phantom", 0x37fa020, 0x37fa040, indexCPS2Sprites_Ruby, 2 },
-    { L"(04) Canon fire", 0x37fa040, 0x37fa060, indexCPS2Sprites_Ruby, 3 },
+    { L"(04) Cannon fire", 0x37fa040, 0x37fa060, indexCPS2Sprites_Ruby, 3 },
     { L"(05) Sublimation", 0x37fa060, 0x37fa080, indexCPS2Sprites_Ruby, 4 },
     { L"(06) Ship", 0x37fa080, 0x37fa0a0, indexCPS2Sprites_Ruby, 5 },
     { L"(07) Anchor/barrel/swords", 0x37fa0a0, 0x37fa0c0, indexCPS2Sprites_Ruby, 6 },
@@ -2702,7 +2702,7 @@ const sGame_PaletteDataset MVC2_A_RUBY_PALETTES_A1[] =
     { L"Main Color A1", 0x37fa0e0, 0x37fa100, indexCPS2Sprites_Ruby, 0 },
     { L"(02) Chest", 0x37fa100, 0x37fa120, indexCPS2Sprites_Ruby, 1 },
     { L"(03) Phantom", 0x37fa120, 0x37fa140, indexCPS2Sprites_Ruby, 2 },
-    { L"(04) Canon fire", 0x37fa140, 0x37fa160, indexCPS2Sprites_Ruby, 3 },
+    { L"(04) Cannon fire", 0x37fa140, 0x37fa160, indexCPS2Sprites_Ruby, 3 },
     { L"(05) Sublimation", 0x37fa160, 0x37fa180, indexCPS2Sprites_Ruby, 4 },
     { L"(06) Ship", 0x37fa180, 0x37fa1a0, indexCPS2Sprites_Ruby, 5 },
     { L"(07) Anchor/barrel/swords", 0x37fa1a0, 0x37fa1c0, indexCPS2Sprites_Ruby, 6 },
@@ -2714,7 +2714,7 @@ const sGame_PaletteDataset MVC2_A_RUBY_PALETTES_A2[] =
     { L"Main Color A2", 0x37fa1e0, 0x37fa200, indexCPS2Sprites_Ruby, 0 },
     { L"(02) Chest", 0x37fa200, 0x37fa220, indexCPS2Sprites_Ruby, 1 },
     { L"(03) Phantom", 0x37fa220, 0x37fa240, indexCPS2Sprites_Ruby, 2 },
-    { L"(04) Canon fire", 0x37fa240, 0x37fa260, indexCPS2Sprites_Ruby, 3 },
+    { L"(04) Cannon fire", 0x37fa240, 0x37fa260, indexCPS2Sprites_Ruby, 3 },
     { L"(05) Sublimation", 0x37fa260, 0x37fa280, indexCPS2Sprites_Ruby, 4 },
     { L"(06) Ship", 0x37fa280, 0x37fa2a0, indexCPS2Sprites_Ruby, 5 },
     { L"(07) Anchor/barrel/swords", 0x37fa2a0, 0x37fa2c0, indexCPS2Sprites_Ruby, 6 },
@@ -8116,7 +8116,7 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_LP[] =
     { L"(04) Not Used", 0x5585460, 0x5585480, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585480, 0x55854a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55854a0, 0x55854c0, indexCPS2Sprites_Blackheart, 5 },
-    { L"(07) Not Used", 0x55854c0, 0x55854e0, indexCPS2Sprites_Blackheart, 6 },
+    { L"(07) Not Used", 0x55854c0, 0x55854e0, indexCPS2Sprites_Blackheart, 0 },
     { L"(08) Not Used", 0x55854e0, 0x5585500, indexCPS2Sprites_Blackheart, 7 },
 };
 
@@ -8128,7 +8128,7 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_LK[] =
     { L"(04) Not Used", 0x5585560, 0x5585580, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585580, 0x55855a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55855a0, 0x55855c0, indexCPS2Sprites_Blackheart, 5 },
-    { L"(07) Not Used", 0x55855c0, 0x55855e0, indexCPS2Sprites_Blackheart, 6 },
+    { L"(07) Not Used", 0x55855c0, 0x55855e0, indexCPS2Sprites_Blackheart, 0 },
     { L"(08) Not Used", 0x55855e0, 0x5585600, indexCPS2Sprites_Blackheart, 7 },
 };
 
@@ -8140,7 +8140,7 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_HP[] =
     { L"(04) Not Used", 0x5585660, 0x5585680, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585680, 0x55856a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55856a0, 0x55856c0, indexCPS2Sprites_Blackheart, 5 },
-    { L"(07) Not Used", 0x55856c0, 0x55856e0, indexCPS2Sprites_Blackheart, 6 },
+    { L"(07) Not Used", 0x55856c0, 0x55856e0, indexCPS2Sprites_Blackheart, 0 },
     { L"(08) Not Used", 0x55856e0, 0x5585700, indexCPS2Sprites_Blackheart, 7 },
 };
 
@@ -8152,7 +8152,7 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_HK[] =
     { L"(04) Not Used", 0x5585760, 0x5585780, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585780, 0x55857a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55857a0, 0x55857c0, indexCPS2Sprites_Blackheart, 5 },
-    { L"(07) Not Used", 0x55857c0, 0x55857e0, indexCPS2Sprites_Blackheart, 6 },
+    { L"(07) Not Used", 0x55857c0, 0x55857e0, indexCPS2Sprites_Blackheart, 0 },
     { L"(08) Not Used", 0x55857e0, 0x5585800, indexCPS2Sprites_Blackheart, 7 },
 };
 
@@ -8164,7 +8164,7 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_A1[] =
     { L"(04) Not Used", 0x5585860, 0x5585880, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585880, 0x55858a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55858a0, 0x55858c0, indexCPS2Sprites_Blackheart, 5 },
-    { L"(07) Not Used", 0x55858c0, 0x55858e0, indexCPS2Sprites_Blackheart, 6 },
+    { L"(07) Not Used", 0x55858c0, 0x55858e0, indexCPS2Sprites_Blackheart, 0 },
     { L"(08) Not Used", 0x55858e0, 0x5585900, indexCPS2Sprites_Blackheart, 7 },
 };
 
@@ -8176,7 +8176,7 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_A2[] =
     { L"(04) Not Used", 0x5585960, 0x5585980, indexCPS2Sprites_Blackheart, 3 },
     { L"(05) Not Used", 0x5585980, 0x55859a0, indexCPS2Sprites_Blackheart, 4 },
     { L"(06) Not Used", 0x55859a0, 0x55859c0, indexCPS2Sprites_Blackheart, 5 },
-    { L"(07) Not Used", 0x55859c0, 0x55859e0, indexCPS2Sprites_Blackheart, 6 },
+    { L"(07) Not Used", 0x55859c0, 0x55859e0, indexCPS2Sprites_Blackheart, 0 },
     { L"(08) Not Used", 0x55859e0, 0x5585a00, indexCPS2Sprites_Blackheart, 7 },
 };
 

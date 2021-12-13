@@ -21,6 +21,7 @@ UINT8 CGame_MVC2_D::_nCurrentTotalColorOptions = 6;
 
 std::vector<LPCWSTR> CGame_MVC2_D::pCurrentButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
 std::vector<std::vector<sMoveDescription>>  CGame_MVC2_D::pCurrentMoveDescriptions = MVC2_6COLOR_MOVE_DESCRIPTIONS;
+std::vector<UINT16> CGame_MVC2_D::pCurrentExtrasLayout = MVC2_D_6COLORS_EXTRADEF;
 
 //Initialize the selection tree
 CDescTree CGame_MVC2_D::MainDescTree = nullptr;
@@ -44,6 +45,7 @@ void CGame_MVC2_D::SetNumberOfColorOptions(UINT8 nColorOptions)
         k_mvc2_character_coloroption_count = 6;
         pCurrentButtonLabelSet = pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
         pCurrentMoveDescriptions = MVC2_6COLOR_MOVE_DESCRIPTIONS;
+        pCurrentExtrasLayout = MVC2_D_6COLORS_EXTRADEF;
         break;
 
     case 16:
@@ -51,6 +53,7 @@ void CGame_MVC2_D::SetNumberOfColorOptions(UINT8 nColorOptions)
         k_mvc2_character_coloroption_count = 16;
         pCurrentButtonLabelSet = pButtonLabelSet = DEF_BUTTONLABEL16_MVC2;
         pCurrentMoveDescriptions = MVC2_16COLOR_MOVE_DESCRIPTIONS;
+        pCurrentExtrasLayout = MVC2_D_16COLORS_EXTRADEF;
         break;
     }
 
@@ -74,10 +77,12 @@ CGame_MVC2_D::CGame_MVC2_D(UINT32 nConfirmedROMSize)
         if (nConfirmedROMSize == FirstRuleOfMVC2Club.uAltVerifyVar)
         {
             SetNumberOfColorOptions(16);
+            nGameFlag = MVC2_D_16;
         }
         else
         {
             SetNumberOfColorOptions(6);
+            nGameFlag = MVC2_D;
         }
     }
    
@@ -89,7 +94,6 @@ CGame_MVC2_D::CGame_MVC2_D(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set game information
-    nGameFlag = MVC2_D;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     m_prgGameImageSet = MVC2_IMGIDS_USED;
 
@@ -231,7 +235,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                         _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s Main", pCurrentButtonLabelSet[iButtonCtr]);
                         bSetInfo = true;
                     }
-                    else if (!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
+                    else if (!nBasicStart || 1)//MVC2_D_6COLORS_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
                     {
                         _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%02X %s (Extra - %02X)", nExtraPos, pCurrentButtonLabelSet[iButtonCtr],
                             (iButtonCtr * nButtonExtraTotal) + nExtraPos + 1);
@@ -308,7 +312,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 int nRangeAmt = 0;
                 int i = 0;
 
-                UINT16* pCurrVal = const_cast<UINT16*>(&MVC2_D_EXTRADEF[nStart]);
+                UINT16* pCurrVal = const_cast<UINT16*>(&pCurrentExtrasLayout[nStart]);
                 std::vector<sMoveDescription> CurrentMoveDescriptionSet = pCurrentMoveDescriptions[iUnitCtr];
 
                 while ((pCurrVal[0] & 0x0F00) != EXTRA_START)
@@ -352,7 +356,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 
                     i += 2;
 
-                    pCurrVal = const_cast<UINT16*>(&MVC2_D_EXTRADEF[nStart + i]);
+                    pCurrVal = const_cast<UINT16*>(&pCurrentExtrasLayout[nStart + i]);
                 }
             }
         }
@@ -423,14 +427,14 @@ void CGame_MVC2_D::InitExtraRg()
     memset(CGame_MVC2_D::rgExtraChrLoc, 0, sizeof(UINT16) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
 
     // Set up the 
-    while (MVC2_D_EXTRADEF[i] != EXTRA_END)
+    while (pCurrentExtrasLayout[i] != EXTRA_END)
     {
-        if ((MVC2_D_EXTRADEF[i] & EXTRA_START) == EXTRA_START)
+        if ((pCurrentExtrasLayout[i] & EXTRA_START) == EXTRA_START)
         {
             // This is associating each character's starting point in the EXTRADEF table to the corresponding index in rgExtraChrLoc.
             // So 0x0 is set to Ryu offset 0x0, then Ryu has eight extra slots available, then 0x1 is set to 0xa for 0x1 Gief,
-            // 0x2 is set to 0x14 for 0x2 Guile, and so forth.  Look at MVC2_D_EXTRADEF and this should be easy to follow.
-            rgExtraChrLoc[(MVC2_D_EXTRADEF[i] & 0x00FF)] = i;
+            // 0x2 is set to 0x14 for 0x2 Guile, and so forth.  Look at MVC2_D_6COLORS_EXTRADEF and this should be easy to follow.
+            rgExtraChrLoc[(pCurrentExtrasLayout[i] & 0x00FF)] = i;
             i += 8;
         }
         else
@@ -463,7 +467,7 @@ size_t CGame_MVC2_D::CountExtraRg(size_t nUnitId, BOOL bOmniExtra)
             int nRetVal = 0;
             int i = 0;
 
-            UINT16* pCurrVal = const_cast<UINT16*>(&MVC2_D_EXTRADEF[nStart]);
+            UINT16* pCurrVal = const_cast<UINT16*>(&pCurrentExtrasLayout[nStart]);
 
             if (pCurrVal[0] == 0x00)
             {
@@ -476,7 +480,7 @@ size_t CGame_MVC2_D::CountExtraRg(size_t nUnitId, BOOL bOmniExtra)
                     nRetVal += (pCurrVal[1] + 1) - pCurrVal[0];
 
                     i += 2;
-                    pCurrVal = const_cast<UINT16*>(&MVC2_D_EXTRADEF[nStart + i]);
+                    pCurrVal = const_cast<UINT16*>(&pCurrentExtrasLayout[nStart + i]);
                 }
 
                 if (!nRetVal)
@@ -705,6 +709,7 @@ BOOL CGame_MVC2_D::CreateExtraPal(size_t nUnitId, size_t nPalId, int nStart, int
         nTargetImgId = nImgId | 0xFF00;
         nImgUnitId = nUnitId;
 
+        // This code is not _nCurrentTotalColorOptions aware and presumes 6 color sets
         if (nExtraAmt == 6)
         {
             // I feel like nAmt in the next line should be nInc?

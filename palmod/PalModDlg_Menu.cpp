@@ -52,6 +52,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"We need the mpr-*.* files from mvcs2.zip.";
             break;
         case MVC2_D:
+        case MVC2_D_16:
             pszExtraInfo = L"We need the PLxx_DAT.bin files from the root of the game image.";
             break;
         case MVC2_P:

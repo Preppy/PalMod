@@ -591,6 +591,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     case MVC2_D:
+    case MVC2_D_16:
     {
         GetRuleCtr = &CGame_MVC2_D::GetRuleCtr;
         ResetRuleCtr = &CGame_MVC2_D::ResetRuleCtr;
@@ -1268,6 +1269,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
         return new CGame_MVC2_A_DIR(nConfirmedROMSize);
     }
     case MVC2_D:
+    case MVC2_D_16:
     {
         return new CGame_MVC2_D(nConfirmedROMSize);
     }
@@ -1907,6 +1909,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
             }
             else if (OutGame && 
                    (((nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
+                    ((nGameFlag == MVC2_D_16) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
                     ((nGameFlag == MVC2_P) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION))))
             {
                 OutputDebugString(L"CGameLoad::LoadDir : Team View for MvC2. Ignoring file open.\n");
@@ -1926,7 +1929,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
                     CString strError;
                     strError.Format(L"Could not find file \"%s\" needed for this game.", strCurrFile.GetString());
 
-                    if ((nGameFlag == MVC2_D) || (nGameFlag == MVC2_P))
+                    if ((nGameFlag == MVC2_D) || (nGameFlag == MVC2_D_16) || (nGameFlag == MVC2_P))
                     {
                         strError.Append(L"\n\nPlease note that PalMod can not read game CD ISOs.  You need to mount those and extract the files out before PalMod can use them.");
                     }
@@ -2042,6 +2045,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
                 // Ignore the virtualized team view
                 bool fIsMvC2TeamView = ((CurrGame->GetGameFlag() == MVC2_D) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
+                                       ((CurrGame->GetGameFlag() == MVC2_D_16) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
                                        ((CurrGame->GetGameFlag() == MVC2_P) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION));
 
                 if (!fIsMvC2TeamView)

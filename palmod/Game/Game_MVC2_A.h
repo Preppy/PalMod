@@ -21,9 +21,6 @@ public:
     void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
     size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
-    // Developer-only mode to regenerate the header file quickly.
-    void DumpAllCharacters();
-
 public:
     CGame_MVC2_A(UINT32 nConfirmedROMSize);
     ~CGame_MVC2_A(void);
