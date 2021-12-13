@@ -4199,36 +4199,36 @@ const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x4007740, 0x4007760, indexCPS2Sprites_Roll, 0 },
     { L"(02) Tornado Hold Special // Rush (stance & after super frame) // FlipTop (stance & after super frame)", 0x4007760, 0x4007780, indexCPS2Sprites_Megaman, 1, &pairNext },
-    { L"(03) ID:01-04: Rockball ID:05-11 Beat // FlipTop's Cake ID:12-15: Beat (wings)", 0x4007780, 0x40077a0, indexCPS2Sprites_Megaman, 2, &pairPrevious9 },
+    { L"(03) ID:01-04: Rockball ID:05-11 Beat // FlipTop's Cake ID:12-15: Beat (wings)", 0x4007780, 0x40077a0, indexCPS2Sprites_Megaman, 2, &pairPrevious },
     { L"(04) ID:01-08: Beat Plane (Fire) ID:09-15 Hyper Roll (StartUp glow)", 0x40077a0, 0x40077c0, indexCPS2Sprites_Roll, 3 },
     { L"(05) ID:01-08: Rush Drill (jets) ID:09-15: Power Ups (text)", 0x40077c0, 0x40077e0, indexCPS2Sprites_Megaman, 4 },
     { L"(06) ID:01-08: Buster Shot // RockBall (shadows) ID:09-14: Leaf Shield", 0x40077e0, 0x4007800, indexCPS2Sprites_Roll, 5 },
     { L"(07) ID:01-08: Mega Buster Charged ID:09-15: Not Used", 0x4007800, 0x4007820, indexCPS2Sprites_Roll, 6 },
-    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007820, 0x4007840, indexCPS2Sprites_Roll, 7 },
+    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007820, 0x4007840, indexCPS2Sprites_Megaman, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_LK[] =
 {
     { L"Main Color LK", 0x4007840, 0x4007860, indexCPS2Sprites_Roll, 0 },
     { L"(02) Tornado Hold Special // Rush (stance & after super frame) // FlipTop (stance & after super frame)", 0x4007860, 0x4007880, indexCPS2Sprites_Megaman, 1, &pairNext },
-    { L"(03) ID:01-04: Rockball ID:05-11 Beat // FlipTop's Cake ID:12-15: Beat (wings)", 0x4007880, 0x40078a0, indexCPS2Sprites_Megaman, 2, &pairPrevious9 },
+    { L"(03) ID:01-04: Rockball ID:05-11 Beat // FlipTop's Cake ID:12-15: Beat (wings)", 0x4007880, 0x40078a0, indexCPS2Sprites_Megaman, 2, &pairPrevious },
     { L"(04) ID:01-08: Beat Plane (Fire) ID:09-15 Hyper Roll (StartUp glow)", 0x40078a0, 0x40078c0, indexCPS2Sprites_Roll, 3 },
     { L"(05) ID:01-08: Rush Drill (jets) ID:09-15: Power Ups (text)", 0x40078c0, 0x40078e0, indexCPS2Sprites_Megaman, 4 },
     { L"(06) ID:01-08: Buster Shot // RockBall (shadows) ID:09-14: Leaf Shield", 0x40078e0, 0x4007900, indexCPS2Sprites_Roll, 5 },
     { L"(07) ID:01-08: Mega Buster Charged ID:09-15: Not Used", 0x4007900, 0x4007920, indexCPS2Sprites_Roll, 6 },
-    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007920, 0x4007940, indexCPS2Sprites_Roll, 7 },
+    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007920, 0x4007940, indexCPS2Sprites_Megaman, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_HP[] =
 {
     { L"Main Color HP", 0x4007940, 0x4007960, indexCPS2Sprites_Roll, 0 },
     { L"(02) Tornado Hold Special // Rush (stance & after super frame) // FlipTop (stance & after super frame)", 0x4007960, 0x4007980, indexCPS2Sprites_Megaman, 1, &pairNext },
-    { L"(03) ID:01-04: Rockball ID:05-11 Beat // FlipTop's Cake ID:12-15: Beat (wings)", 0x4007980, 0x40079a0, indexCPS2Sprites_Megaman, 2, &pairPrevious9 },
+    { L"(03) ID:01-04: Rockball ID:05-11 Beat // FlipTop's Cake ID:12-15: Beat (wings)", 0x4007980, 0x40079a0, indexCPS2Sprites_Megaman, 2, &pairPrevious },
     { L"(04) ID:01-08: Beat Plane (Fire) ID:09-15 Hyper Roll (StartUp glow)", 0x40079a0, 0x40079c0, indexCPS2Sprites_Roll, 3 },
     { L"(05) ID:01-08: Rush Drill (jets) ID:09-15: Power Ups (text)", 0x40079c0, 0x40079e0, indexCPS2Sprites_Megaman, 4 },
     { L"(06) ID:01-08: Buster Shot // RockBall (shadows) ID:09-14: Leaf Shield", 0x40079e0, 0x4007a00, indexCPS2Sprites_Roll, 5 },
     { L"(07) ID:01-08: Mega Buster Charged ID:09-15: Not Used", 0x4007a00, 0x4007a20, indexCPS2Sprites_Roll, 6 },
-    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007a20, 0x4007a40, indexCPS2Sprites_Roll, 7 },
+    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007a20, 0x4007a40, indexCPS2Sprites_Megaman, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_HK[] =
@@ -4240,7 +4240,7 @@ const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_HK[] =
     { L"(05) ID:01-08: Rush Drill (jets) ID:09-15: Power Ups (text)", 0x4007ac0, 0x4007ae0, indexCPS2Sprites_Megaman, 4 },
     { L"(06) ID:01-08: Buster Shot // RockBall (shadows) ID:09-14: Leaf Shield", 0x4007ae0, 0x4007b00, indexCPS2Sprites_Roll, 5 },
     { L"(07) ID:01-08: Mega Buster Charged ID:09-15: Not Used", 0x4007b00, 0x4007b20, indexCPS2Sprites_Roll, 6 },
-    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007b20, 0x4007b40, indexCPS2Sprites_Roll, 7 },
+    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007b20, 0x4007b40, indexCPS2Sprites_Megaman, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_A1[] =
@@ -4252,7 +4252,7 @@ const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_A1[] =
     { L"(05) ID:01-08: Rush Drill (jets) ID:09-15: Power Ups (text)", 0x4007bc0, 0x4007be0, indexCPS2Sprites_Megaman, 4 },
     { L"(06) ID:01-08: Buster Shot // RockBall (shadows) ID:09-14: Leaf Shield", 0x4007be0, 0x4007c00, indexCPS2Sprites_Roll, 5 },
     { L"(07) ID:01-08: Mega Buster Charged ID:09-15: Not Used", 0x4007c00, 0x4007c20, indexCPS2Sprites_Roll, 6 },
-    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007c20, 0x4007c40, indexCPS2Sprites_Roll, 7 },
+    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007c20, 0x4007c40, indexCPS2Sprites_Megaman, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_A2[] =
@@ -4264,7 +4264,7 @@ const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_A2[] =
     { L"(05) ID:01-08: Rush Drill (jets) ID:09-15: Power Ups (text)", 0x4007cc0, 0x4007ce0, indexCPS2Sprites_Megaman, 4 },
     { L"(06) ID:01-08: Buster Shot // RockBall (shadows) ID:09-14: Leaf Shield", 0x4007ce0, 0x4007d00, indexCPS2Sprites_Roll, 5 },
     { L"(07) ID:01-08: Mega Buster Charged ID:09-15: Not Used", 0x4007d00, 0x4007d20, indexCPS2Sprites_Roll, 6 },
-    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007d20, 0x4007d40, indexCPS2Sprites_Roll, 7 },
+    { L"(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)", 0x4007d20, 0x4007d40, indexCPS2Sprites_Megaman, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_SHARED[] =

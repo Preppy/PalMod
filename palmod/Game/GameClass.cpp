@@ -1099,7 +1099,7 @@ const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode*
 
     if (!paletteToUse)
     {
-        DebugBreak();
+        MessageBox(g_appHWnd, L"Warning: invalid palette requested.\n\nThis is a bug in PalMod: please report how you got this error and it'll be fixed promptly.", GetHost()->GetAppName(), MB_ICONERROR);
     }
 
     return paletteToUse;
