@@ -264,7 +264,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         {
             const int nExtraNodeIndex = _nCurrentTotalColorOptions;
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[nExtraNodeIndex]; //Extra data node
-            wcscpy(ButtonNode->szDesc, L"Extra");
+            wcscpy(ButtonNode->szDesc, L"Extras");
             ButtonNode->uChildAmt = nNumExtra;
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
 
@@ -631,8 +631,6 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, size_t nUnitId)
 
         return TRUE;
     }
-
-    return FALSE; // not reachable
 }
 
 BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, size_t nUnitId)
@@ -673,7 +671,7 @@ BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, size_t nUnitId)
         return TRUE;
     }
 
-    return FALSE; // not reachable
+    return FALSE;
 }
 
 COLORREF* CGame_MVC2_D::CreatePal(size_t nUnitId, size_t nPalId)
@@ -696,34 +694,6 @@ void CGame_MVC2_D::CreateDefPal(sDescNode* srcNode, size_t nSepId)
 
     BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), MVC2_D_PALSZ, nUnitId, nPalId);
     BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, MVC2_D_PALSZ);
-}
-
-BOOL CGame_MVC2_D::CreateExtraPal(size_t nUnitId, size_t nPalId, int nStart, int nInc, int nImgId, int nSepId, int nAmt)
-{
-    int nSpecOffs;
-
-    nStart = EXTRA_OMNI + nStart;
-
-    if (SpecSel(&nSpecOffs, nPalId, nStart, nInc, nAmt, nExtraAmt))
-    {
-        nTargetImgId = nImgId | 0xFF00;
-        nImgUnitId = nUnitId;
-
-        // This code is not _nCurrentTotalColorOptions aware and presumes 6 color sets
-        if (nExtraAmt == 6)
-        {
-            // I feel like nAmt in the next line should be nInc?
-            SetSourcePal(0, nUnitId, nStart + (nPalId - nStart) % nAmt, 6, nInc);
-        }
-        else
-        {
-            SetSourcePal(0, nUnitId, nPalId, 1, 1);
-        }
-
-        return TRUE;
-    }
-
-    return FALSE;
 }
 
 void CGame_MVC2_D::UpdatePalData()
@@ -785,13 +755,6 @@ void CGame_MVC2_D::PostSetPal(size_t nUnitId, size_t nPalId)
     OutputDebugString(strMessage);
 
     proc_supp(nUnitId, nPalId);
-}
-
-void CGame_MVC2_D::SetExtraImg(UINT16 nImgId, size_t nUnitId, size_t nPalId)
-{
-    nTargetImgId = nImgId + 0xFF00;
-
-    SetSourcePal(0, nUnitId, nPalId, 1, 1);
 }
 
 LPCWSTR CGame_MVC2_D::GetGameName()

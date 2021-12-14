@@ -4,10 +4,46 @@
 
 // This file handles the logic for pairing ( unit id :: palette id ) sets to the best preview we have, if any
 
-int CGame_MVC2_D::GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, int nStartOfRange, int nPalettePositionIncrements, int nRangeLength)
+void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, int uUnitId, int uPalId, int& nStart, int& nColorOptions, int& nIncrementToNext)
 {
-    int nExtraAdjustedStart = nStartOfRange + EXTRA_OMNI;
-    return nExtraAdjustedStart + ((nExtraPaletteIdint - nExtraAdjustedStart) % nPalettePositionIncrements);
+    for (size_t nButtonCount = 0; nButtonCount < pCurrentButtonLabelSet.size(); nButtonCount++)
+    {
+        if (wcsncmp(pMoveDescription->szMoveName, pCurrentButtonLabelSet[nButtonCount], wcslen(pCurrentButtonLabelSet[nButtonCount])) == 0)
+        {
+            // Tentative match...
+            LPCWSTR pszSubstring = pMoveDescription->szMoveName + wcslen(pCurrentButtonLabelSet[nButtonCount]);
+
+            if ((pszSubstring[0] == ' ') && (pszSubstring[1] == '-') && (pszSubstring[2] == ' '))
+            {
+                // Actual match: check for peers
+                pszSubstring = &(pszSubstring[3]);
+
+                int nStride = (nButtonCount > (pCurrentButtonLabelSet.size() / 2)) ? -1 : 1;
+
+                CString strCheckString;
+                strCheckString.Format(L"%s - %s", pCurrentButtonLabelSet[nButtonCount + nStride], pszSubstring);
+
+                for (int nStepsTaken = nStride; true; nStepsTaken += nStride)
+                {
+                    sMoveDescription* pDescriptionToCheck = GetMoveDescriptionInfo(uUnitId, uPalId + nStepsTaken);
+
+                    if (!pDescriptionToCheck)
+                    {
+                        break;
+                    }
+
+                    if (wcscmp(pDescriptionToCheck->szMoveName, strCheckString) == 0)
+                    {
+                        nStart = uPalId + (nButtonCount * (-nStride) * nStepsTaken);
+                        nColorOptions = pCurrentButtonLabelSet.size();
+                        nIncrementToNext = abs(nStepsTaken);
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    }
 }
 
 sMoveDescription* CGame_MVC2_D::GetMoveDescriptionInfo(size_t nUnitId, size_t nPalId)
@@ -99,7 +135,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     if (pDescriptionForPalId && pDescriptionForPalId->pPairedPaletteInfo)
     {
-        if ((pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin > 2) && (pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin < 8))
+        if ((pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin > 1) && (pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin < 8))
         {
             std::vector<const sMoveDescription*> vMoveDescriptionSetToJoin;
             std::vector<int> vnPeerPaletteDistances;
@@ -178,10 +214,14 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 for (int nNodeIndex = ((int)pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
                 {
-                    size_t nUnitToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride : nImgUnitId;
-                    UINT16 nImageToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex : vMoveDescriptionSetToJoin[nNodeIndex]->nCharacterIndex;
+                    const size_t nUnitToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride : nImgUnitId;
+                    const UINT16 nImageToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex : vMoveDescriptionSetToJoin[nNodeIndex]->nCharacterIndex;
 
-                    sImgTicket* pThisImage = CreateImgTicket(nUnitToUse, nImageToUse, pPreviousImage);
+                    // We allow shifted layout for the second paired palette only
+                    const int nXOffs = (nNodeIndex == 1) ? pDescriptionForPalId->pPairedPaletteInfo->nXOffs : 0;
+                    const int nYOffs = (nNodeIndex == 1) ? pDescriptionForPalId->pPairedPaletteInfo->nYOffs : 0;
+
+                    sImgTicket* pThisImage = CreateImgTicket(nUnitToUse, nImageToUse, pPreviousImage, nXOffs, nYOffs);
 
                     vsImagePairs.push_back(pThisImage);
 
@@ -190,61 +230,27 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 ClearSetImgTicket(vsImagePairs[(pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin - 1)]);
 
+                // Use core vs Extra defaults, and then use lookup to find potential linkage for Extras
+                int nColorOptions = (NodeGet->uPalId < EXTRA_OMNI) ? _nCurrentTotalColorOptions : 1;
+                int nSrcStart = (int)NodeGet->uPalId;
+                int nNodeIncrement = (NodeGet->uPalId < EXTRA_OMNI) ? 8 : 1;
+
+                if (NodeGet->uPalId > EXTRA_OMNI)
+                {
+                    FindMultispriteExportValuesForExtrasPalette(pDescriptionForPalId, uUnitId, uPalId, nSrcStart, nColorOptions, nNodeIncrement);
+                }
+
                 for (int nPairIndex = 0; nPairIndex < (int)pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin; nPairIndex++)
                 {
                     //Set each palette
-                    int nSrcAmt = (NodeGet->uPalId < EXTRA_OMNI) ? _nCurrentTotalColorOptions : 1;
-                    int nSrcStart = (int)NodeGet->uPalId;
-                    int nNodeIncrement = (NodeGet->uPalId < EXTRA_OMNI) ? 8 : 1;
                     CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
 
-                    SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement);
+                    SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nColorOptions, nNodeIncrement);
                 }
             }
             else
             {
                 OutputDebugString(L"ERROR: Invalid palette pairing requested.   You probably want to check the linkage here.\n");
-            }
-        }
-        else // Old two pair style: this still allows for offset shifts which we're mostly not using in current previews
-        {
-            INT8 nPeerPaletteDistance = pDescriptionForPalId->pPairedPaletteInfo->nNodeIncrementToPartner;
-            sMoveDescription* pDescriptionForPartner = GetMoveDescriptionInfo(uUnitId, uPalId + nPeerPaletteDistance);
-
-            if (pDescriptionForPartner)
-            {
-                int nXOffs = pDescriptionForPalId->pPairedPaletteInfo->nXOffs;
-                int nYOffs = pDescriptionForPalId->pPairedPaletteInfo->nYOffs;
-
-                bLoadDefPal = FALSE;
-                fUsingDataFromDescriptionSet = true;
-
-                // Use fall backs if values aren't specified
-                size_t nPartnerUnitToUse = (pDescriptionForPartner->nImageUnitOverride != 0xFF) ? pDescriptionForPartner->nImageUnitOverride : nImgUnitId;
-                UINT16 nPartnerImageToUse = (pDescriptionForPartner->nImageIndex != 0xFF) ? pDescriptionForPartner->nImageIndex : pDescriptionForPartner->nCharacterIndex;
-
-                ClearSetImgTicket(
-                    CreateImgTicket(nImgUnitId, nTargetImgId,
-                        CreateImgTicket(nPartnerUnitToUse, nPartnerImageToUse, nullptr, nXOffs, nYOffs)
-                    )
-                );
-
-                //Set each palette
-                std::vector<sDescNode*> JoinedNode = {
-                    GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                    GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
-                };
-
-                //Set each palette
-                CreateDefPal(JoinedNode[0], 0);
-                CreateDefPal(JoinedNode[1], 1);
-
-                int nSrcAmt = (NodeGet->uPalId < EXTRA_OMNI) ? _nCurrentTotalColorOptions : 1;
-                int nNodeIncrement = (NodeGet->uPalId < EXTRA_OMNI) ? 8 : 1;
-                int nSrcStart = (int)NodeGet->uPalId;
-
-                SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
             }
         }
     }
@@ -382,16 +388,20 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             SetSourcePal(0, uUnitId, nBasicOffset, _nCurrentTotalColorOptions, 8);
         }
-        else
+        else if (fUsingDataFromDescriptionSet)
         {
             // For Extras we handle above, CreateExtraPal handles the call to SetSourcePal
             // For anybody that wants multisprite export, they need to define their node increment and corrected starting point above.
-            if (fUsingDataFromDescriptionSet)
-            {
-                SetSourcePal(0, uUnitId, uPalId, 1, 1);
-            }
+            int nStart = uPalId;
+            int nColorOptions = 1;
+            int nIncrementToNext = 1;
+
+            FindMultispriteExportValuesForExtrasPalette(pDescriptionForPalId, uUnitId, uPalId, nStart, nColorOptions, nIncrementToNext);
+
+            SetSourcePal(0, uUnitId, nStart, nColorOptions, nIncrementToNext);
         }
     }
 
     return TRUE;
 }
+

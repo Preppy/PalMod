@@ -12,7 +12,8 @@ private:
 
     UINT16** ppDataBuffer = nullptr;
 
-    int GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, int nStartOfRange, int nPalettePositionIncrements, int nRangeLength);
+    void FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, int uUnitId, int uPalId, int& nStart, int& nColorOptions, int& nIncrementToNext);
+
     sMoveDescription* GetMoveDescriptionInfo(size_t nUnitId, size_t nPalId);
 
 public:
@@ -57,14 +58,11 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
     size_t GetBasicOffset(size_t nPalId);
 
-    void SetExtraImg(UINT16 nImgId, size_t nUnitId, size_t nPalId);
-
     void UpdatePalData(); // This is old code and uses its own logic
 
     UINT16** GetDataBuffer() { return ppDataBuffer; };
     void PostSetPal(size_t nUnitId, size_t nPalId) override;
     void CreateDefPal(sDescNode* srcNode, size_t nSepId) override;
-    BOOL CreateExtraPal(size_t nUnitId, size_t nPalId, int nStart, int nInc, int nImgId, int nSepId = 0, int nAmt = 1);
     void ResetChangeFlag(size_t nUnitId);
 
     LPCWSTR GetGameName() override;
