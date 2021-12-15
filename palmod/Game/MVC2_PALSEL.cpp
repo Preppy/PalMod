@@ -18,18 +18,22 @@ void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription*
                 // Actual match: check for peers
                 pszSubstring = &(pszSubstring[3]);
 
-                int nStride = (nButtonCount > (pCurrentButtonLabelSet.size() / 2)) ? -1 : 1;
+                const int nStride = (nButtonCount > (pCurrentButtonLabelSet.size() / 2)) ? -1 : 1;
 
                 CString strCheckString;
                 strCheckString.Format(L"%s - %s", pCurrentButtonLabelSet[nButtonCount + nStride], pszSubstring);
 
-                for (int nStepsTaken = nStride; true; nStepsTaken += nStride)
+                const int nMaximumKnownPaletteId = pCurrentMoveDescriptions[uUnitId][pCurrentMoveDescriptions[uUnitId].size() - 1].nCharacterIndex;
+                const int nAdjustedPalId = uPalId - EXTRA_OMNI;
+
+                for (int nStepsTaken = nStride; ((nStepsTaken + nAdjustedPalId) > 0) && ((nStepsTaken + nAdjustedPalId) < nMaximumKnownPaletteId); nStepsTaken += nStride)
                 {
                     sMoveDescription* pDescriptionToCheck = GetMoveDescriptionInfo(uUnitId, uPalId + nStepsTaken);
 
                     if (!pDescriptionToCheck)
                     {
-                        break;
+                        // Shuma for example doesn't have descriptions for unused palettes, so continue over those gaps
+                        continue;
                     }
 
                     if (wcscmp(pDescriptionToCheck->szMoveName, strCheckString) == 0)
@@ -50,30 +54,33 @@ sMoveDescription* CGame_MVC2_D::GetMoveDescriptionInfo(size_t nUnitId, size_t nP
 {
     sMoveDescription* pDescriptionForPalId = nullptr;
 
-    if (nPalId < EXTRA_OMNI)
+    if (nUnitId < pCurrentMoveDescriptions.size()) // TeamView is a valid UnitId but uses its own description storage
     {
-        size_t uCorePalId = nPalId % 8;
-
-        for (size_t uPalPos = 0; (uPalPos < 8) && (uPalPos < pCurrentMoveDescriptions[nUnitId].size()); uPalPos++)
+        if (nPalId < EXTRA_OMNI)
         {
-            if (pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uCorePalId)
+            size_t uCorePalId = nPalId % 8;
+
+            for (size_t uPalPos = 0; (uPalPos < 8) && (uPalPos < pCurrentMoveDescriptions[nUnitId].size()); uPalPos++)
             {
-                pDescriptionForPalId = &pCurrentMoveDescriptions[nUnitId][uPalPos];
-                break;
+                if (pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uCorePalId)
+                {
+                    pDescriptionForPalId = &pCurrentMoveDescriptions[nUnitId][uPalPos];
+                    break;
+                }
             }
         }
-    }
-    else
-    {
-        size_t uPalIdPostExtras = nPalId - EXTRA_OMNI;
-
-        // SKip past the core 8 palettes into extras space and see if we have a match
-        for (size_t uPalPos = 8; uPalPos < pCurrentMoveDescriptions[nUnitId].size(); uPalPos++)
+        else
         {
-            if (pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uPalIdPostExtras)
+            size_t uPalIdPostExtras = nPalId - EXTRA_OMNI;
+
+            // SKip past the core 8 palettes into extras space and see if we have a match
+            for (size_t uPalPos = 8; uPalPos < pCurrentMoveDescriptions[nUnitId].size(); uPalPos++)
             {
-                pDescriptionForPalId = &pCurrentMoveDescriptions[nUnitId][uPalPos];
-                break;
+                if (pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uPalIdPostExtras)
+                {
+                    pDescriptionForPalId = &pCurrentMoveDescriptions[nUnitId][uPalPos];
+                    break;
+                }
             }
         }
     }
@@ -232,7 +239,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 // Use core vs Extra defaults, and then use lookup to find potential linkage for Extras
                 int nColorOptions = (NodeGet->uPalId < EXTRA_OMNI) ? _nCurrentTotalColorOptions : 1;
-                int nSrcStart = (int)NodeGet->uPalId;
+                int nSrcStart = GetBasicOffset(NodeGet->uPalId);
                 int nNodeIncrement = (NodeGet->uPalId < EXTRA_OMNI) ? 8 : 1;
 
                 if (NodeGet->uPalId > EXTRA_OMNI)
@@ -368,7 +375,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     if (bLoadDefPal)
     {
-        int nBasicOffset = GetBasicOffset(uPalId);
+        const int nBasicOffset = GetBasicOffset(uPalId);
 
         // This flag is used to de-extra-ize sprite values.  But for imgdat2020 sprites we actually want a higher range.
         // So here we allow either choice of ranges, with the explicit need to ask for the new range.
