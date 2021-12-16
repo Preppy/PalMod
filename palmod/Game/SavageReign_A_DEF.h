@@ -408,16 +408,29 @@ const sGame_PaletteDataset SAVAGEREIGN_A_LEO_PORTRAITS[] =
 
 const sGame_PaletteDataset SAVAGEREIGN_A_BONUS_SelectScreen[] =
 {
-    { L"Hayate Icon", 0xa3400, 0xa3420 },
-    { L"Eagle Icon", 0xa3420, 0xa3440 },
-    { L"Gozu Icon", 0xa3440, 0xa3460 },
-    { L"Mezu Icon", 0xa3460, 0xa3480 },
-    { L"Carol Icon", 0xa3480, 0xa34a0 },
-    { L"Nicola Icon", 0xa34a0, 0xa34c0 },
-    { L"Joker Icon", 0xa34c0, 0xa34e0 },
-    { L"Chung Icon", 0xa34e0, 0xa3500 },
-    { L"Gordon Icon", 0xa3500, 0xa3520 },
-    { L"King Lion Icon", 0xa3520, 0xa3540 },
+    { L"Title Screen Logo", 0xa3660, 0xa36a0 },
+    { L"Title Screen Background", 0xa38a0, 0xa3900 },
+    { L"Demo Logo", 0xa3180, 0xa31a0 },
+    { L"Select Screen Map", 0xa3800, 0xa38a0 },
+    { L"Select Screen Icons", 0xa3400, 0xa3540 },
+    { L"Select Cursor", 0xa36c0, 0xa36e0 },
+    { L"Score Screen Background", 0xaaba0, 0xaabe0 },
+    { L"Tutorial Joystick & Buttons", 0xa3720, 0xa3740 },
+    { L"Text Board", 0xa3760, 0xa3780 },
+    { L"Character Names", 0xa37e0, 0xa3800 },
+    { L"VS Text", 0xa37c0, 0xa37e0 },
+    { L"Round Text", 0xa37a0, 0xa37c0 },
+    { L"Fight! Text", 0xa3780, 0xa37a0 },
+    { L"Timer", 0xa3040, 0xa3060 },
+    { L"Lifebar", 0xa3080, 0xa30c0 },
+    { L"Lifebar Flashing 01", 0xaa980, 0xaa9a0 },
+    { L"Lifebar Flashing 02", 0xaa9a0, 0xaa9c0 },
+    { L"Lifebar P1 Text", 0xa3020, 0xa3040 },
+    { L"Lifebar P2 Text", 0xa3100, 0xa3120 },
+    { L"Win Icon", 0xa3120, 0xa3140 },
+    { L"SNK Logo & Win Trophy", 0xa3140, 0xa3160 },
+    { L"Various Text", 0xa30e0, 0xa3100 },
+    { L"Various Text Flash", 0xa3000, 0xa3020 },
 };
 
 const sGame_PaletteDataset SAVAGEREIGN_A_BONUS_Intro[] =
@@ -425,6 +438,72 @@ const sGame_PaletteDataset SAVAGEREIGN_A_BONUS_Intro[] =
     { L"Intro Hayate", 0xa3540, 0xa3560 },
     { L"Intro King Leo", 0xa3560, 0xa3580 },
     { L"Intro Background", 0xa3580, 0xa35a0 },
+};
+
+const sGame_PaletteDataset SAVAGEREIGN_A_STAGES_TEMPLE[]
+{
+    { L"Temple of Kahli 1/2", 0xa6c00, 0xa6e00 },
+    { L"Temple of Kahli 2/2", 0xa6e00, 0xa7000 },
+};
+
+const sGame_PaletteDataset SAVAGEREIGN_A_STAGES_RING[]
+{
+    { L"Ring of Doom 1/3", 0xa7200, 0xa7400 },
+    { L"Ring of Doom 2/3", 0xa7400, 0xa7600 },
+    { L"Ring of Doom 3/3", 0xa7600, 0xa7800 },
+};
+
+const sGame_PaletteDataset SAVAGEREIGN_A_STAGES_FIRES[]
+{
+    { L"Fires of Hades 1/2", 0xa7800, 0xa7a00 },
+    { L"Fires of Hades 2/2", 0xa7a00, 0xa7c00 },
+};
+
+const sGame_PaletteDataset SAVAGEREIGN_A_STAGES_TUNDRA[]
+{
+    { L"Satan's Tundra 1/2", 0xa7e00, 0xa8000 },
+    { L"Satan's Tundra 2/2", 0xa8000, 0xa8200 },
+};
+
+const sGame_PaletteDataset SAVAGEREIGN_A_STAGES_DIAMUSE[]
+{
+    { L"La Rue Diamuse 1/3", 0xa8400, 0xa8600 },
+    { L"La Rue Diamuse 2/3", 0xa8600, 0xa8800 },
+    { L"La Rue Diamuse 3/3", 0xa8800, 0xa8a00 },
+};
+
+const sGame_PaletteDataset SAVAGEREIGN_A_STAGES_LAB[]
+{
+    { L"Nicola's Lab 1/2", 0xa8a00, 0xa8c00 },
+    { L"Nicola's Lab 2/2", 0xa8c00, 0xa8e00 },
+};
+
+const sGame_PaletteDataset SAVAGEREIGN_A_STAGES_FUN[]
+{
+    { L"Palace of Fun 1/3", 0xa9000, 0xa9200 },
+    { L"Palace of Fun 2/3", 0xa9200, 0xa9400 },
+    { L"Palace of Fun 3/3", 0xa9400, 0xa9600 },
+};
+
+const sGame_PaletteDataset SAVAGEREIGN_A_STAGES_BOOMTOWN[]
+{
+    { L"China Boomtown 1/3", 0xa9600, 0xa9800 },
+    { L"China Boomtown 2/3", 0xa9800, 0xa9a00 },
+    { L"China Boomtown 3/3", 0xa9a00, 0xa9c00 },
+};
+
+const sGame_PaletteDataset SAVAGEREIGN_A_STAGES_DOCK[]
+{
+    { L"Dock of Darkness 1/3", 0xa9c00, 0xa9e00 },
+    { L"Dock of Darkness 2/3", 0xa9e00, 0xaa000 },
+    { L"Dock of Darkness 3/3", 0xaa000, 0xaa200 },
+};
+
+const sGame_PaletteDataset SAVAGEREIGN_A_STAGES_LAIR[]
+{
+    { L"Lair of the Lion 1/3", 0xaa200, 0xaa400 },
+    { L"Lair of the Lion 2/3", 0xaa400, 0xaa600 },
+    { L"Lair of the Lion 3/3", 0xaa600, 0xaa800 },
 };
 
 const sDescTreeNode SAVAGEREIGN_A_SHO_COLLECTION[] =
@@ -504,10 +583,24 @@ const sDescTreeNode SAVAGEREIGN_A_LEO_COLLECTION[] =
     { L"Portraits", DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_LEO_PORTRAITS, ARRAYSIZE(SAVAGEREIGN_A_LEO_PORTRAITS) },
 };
 
+const sDescTreeNode SAVAGEREIGN_A_STAGE_COLLECTION[]
+{
+    { L"Temple of Kahli",   DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGES_TEMPLE, ARRAYSIZE(SAVAGEREIGN_A_STAGES_TEMPLE) },
+    { L"Ring of Doom",      DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGES_RING, ARRAYSIZE(SAVAGEREIGN_A_STAGES_RING) },
+    { L"Fires of Hades",    DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGES_FIRES, ARRAYSIZE(SAVAGEREIGN_A_STAGES_FIRES) },
+    { L"Satan's Tundra",    DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGES_TUNDRA, ARRAYSIZE(SAVAGEREIGN_A_STAGES_TUNDRA) },
+    { L"La Rue Diamuse",    DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGES_DIAMUSE, ARRAYSIZE(SAVAGEREIGN_A_STAGES_DIAMUSE) },
+    { L"Nicola's Lab",      DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGES_LAB, ARRAYSIZE(SAVAGEREIGN_A_STAGES_LAB) },
+    { L"Palace of Fun",     DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGES_FUN, ARRAYSIZE(SAVAGEREIGN_A_STAGES_FUN) },
+    { L"China Boomtown",    DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGES_BOOMTOWN, ARRAYSIZE(SAVAGEREIGN_A_STAGES_BOOMTOWN) },
+    { L"Dock of Darkness",  DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGES_DOCK, ARRAYSIZE(SAVAGEREIGN_A_STAGES_DOCK) },
+    { L"Lair of the Lion",  DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGES_LAIR, ARRAYSIZE(SAVAGEREIGN_A_STAGES_LAIR) },
+};
+
 const sDescTreeNode SAVAGEREIGN_A_BONUS_COLLECTION[] =
 {
-    { L"Select Screen", DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_BONUS_SelectScreen, ARRAYSIZE(SAVAGEREIGN_A_BONUS_SelectScreen) },
     { L"Intro", DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_BONUS_Intro, ARRAYSIZE(SAVAGEREIGN_A_BONUS_Intro) },
+    { L"Select Screen", DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_BONUS_SelectScreen, ARRAYSIZE(SAVAGEREIGN_A_BONUS_SelectScreen) },
 };
 
 const sDescTreeNode SAVAGEREIGN_A_UNITS[] =
@@ -523,12 +616,13 @@ const sDescTreeNode SAVAGEREIGN_A_UNITS[] =
     { L"Gordon Bowman", DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_GORDON_COLLECTION, ARRAYSIZE(SAVAGEREIGN_A_GORDON_COLLECTION) },
     { L"King Lion", DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_KING_COLLECTION, ARRAYSIZE(SAVAGEREIGN_A_KING_COLLECTION) },
     { L"King Leo", DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_LEO_COLLECTION, ARRAYSIZE(SAVAGEREIGN_A_LEO_COLLECTION) },
-    { L"Bonus", DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_BONUS_COLLECTION, ARRAYSIZE(SAVAGEREIGN_A_BONUS_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_STAGE_COLLECTION, ARRAYSIZE(SAVAGEREIGN_A_STAGE_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SAVAGEREIGN_A_BONUS_COLLECTION, ARRAYSIZE(SAVAGEREIGN_A_BONUS_COLLECTION) },
 };
 
 constexpr auto SAVAGEREIGN_A_NUMUNIT = ARRAYSIZE(SAVAGEREIGN_A_UNITS);
 
-#define SAVAGEREIGN_A_EXTRALOC SAVAGEREIGN_A_NUMUNIT
+constexpr auto SAVAGEREIGN_A_EXTRALOC = SAVAGEREIGN_A_NUMUNIT;
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef SAVAGEREIGN_A_EXTRA[] =
@@ -538,3 +632,4 @@ const stExtraDef SAVAGEREIGN_A_EXTRA[] =
 
     { INVALID_UNIT_VALUE }
 };
+

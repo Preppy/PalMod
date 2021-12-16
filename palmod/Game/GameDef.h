@@ -469,7 +469,10 @@ const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, 0, 0, f
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext9 =          { 1, 0, 0, false, 5, 2, 3, 12 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext13 =         { 1, 0, 0, false, 5, 2, 3, 16 };    // quad display... requires special handling in code
 
-const stPairedPaletteInfo pairNext6Palettes =                        { 1, 0, 0, false, 7, 2, 3, 4, 5, 6 }; // Seven-display: MvC2-DC only
+const stPairedPaletteInfo pairNext4Palettes =                       { 1, 0, 0, false, 5, 2, 3, 4, 5 }; // quint-display -- specially handled
+const stPairedPaletteInfo pairNext5Palettes =                       { 1, 0, 0, false, 6, 2, 3, 4, 5, 6 }; // six-display -- specially handled
+
+const stPairedPaletteInfo pairNext6Palettes =                        { 1, 0, 0, false, 7, 2, 3, 4, 5, 6 }; // Seven-display -- specially handled
 
 // Vs Series
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, -4 };

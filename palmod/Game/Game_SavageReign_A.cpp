@@ -43,11 +43,11 @@ CGame_SAVAGEREIGN_A::CGame_SAVAGEREIGN_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SAVAGEREIGN_A_NUMUNIT;
     m_nExtraUnit = SAVAGEREIGN_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 269;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 308;
     m_pszExtraFilename = EXTRA_FILENAME_SAVAGEREIGN_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSAVAGEREIGN;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0xa3400;
+    m_nLowestKnownPaletteRomLocation = 0xa3000;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
