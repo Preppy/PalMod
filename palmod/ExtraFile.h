@@ -2,8 +2,6 @@
 
 #include "game\gamedef.h"
 
-void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
-
 class CGameWithExtrasFile : public CGameClass
 {
 protected:
@@ -29,4 +27,6 @@ public:
 
     void OpenExtraFile() override;
     bool GameAllowsExtraFile() override { return m_pszExtraFilename != nullptr; };
+
+    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
 };

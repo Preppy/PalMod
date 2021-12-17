@@ -4064,45 +4064,22 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST[] =
 {
     { L"8BG.0.0.1", 0x35892, 0x35a32, indexCPS2Sprites_VSAV1_Stages, 0x04, &pairFullyLinkedNode },
     { L"8BG.0.0.2", 0x35a32, 0x35c12, indexCPS2Sprites_VSAV1_Stages, 0x05 },
+
+    { L"32BG.0.0.0", 0x57d62, 0x57f42, indexCPS2Sprites_VSAV1_Stages, 0x14 },
+
+    { L"SS.0.0.0", 0x1FCCa, 0x1FE0A, indexCPS2Sprites_VSAV1_Stages, 0x20 },
+
+    { L"16BG.0.0.0", 0x45bba, 0x45cfa, indexCPS2Sprites_VSAV1_Stages, 0x26 },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_PARTS[] =
+{
     { L"8BG.1.1.1", 0x39432, 0x39452, indexCPS2Sprites_VSAV1_Stages, 0x06, &pairNext4Palettes },
     { L"8BG.1.1.2", 0x394D2, 0x394F2, indexCPS2Sprites_VSAV1_Stages, 0x07 },
     { L"8BG.1.1.3", 0x39572, 0x39592, indexCPS2Sprites_VSAV1_Stages, 0x08 },
     { L"8BG.1.1.4", 0x39612, 0x39632, indexCPS2Sprites_VSAV1_Stages, 0x09 },
     { L"8BG.1.1.5", 0x396B2, 0x396D2, indexCPS2Sprites_VSAV1_Stages, 0x0a },
 
-    { L"8BG.2.1.1", 0x38A52, 0x38A72, indexCPS2Sprites_VSAV1_Stages, 0x0b, &pairNext4Palettes },
-    { L"8BG.2.1.2", 0x38AD2, 0x38AF2, indexCPS2Sprites_VSAV1_Stages, 0x0c },
-    { L"8BG.2.1.3", 0x38B52, 0x38B72, indexCPS2Sprites_VSAV1_Stages, 0x0d },
-    { L"8BG.2.1.4", 0x38BD2, 0x38BF2, indexCPS2Sprites_VSAV1_Stages, 0x0e },
-    { L"8BG.2.1.5", 0x38C52, 0x38C72, indexCPS2Sprites_VSAV1_Stages, 0x0f },
-
-    { L"8BG.3.1.1", 0x38892, 0x388B2, indexCPS2Sprites_VSAV1_Stages, 0x10, &pairNext },
-    { L"8BG.3.1.2", 0x38932, 0x38952, indexCPS2Sprites_VSAV1_Stages, 0x11 },
-
-    { L"8BG.4.1.1", 0x389D2, 0x389F2, indexCPS2Sprites_VSAV1_Stages, 0x12, &pairNext },
-    { L"8BG.4.1.2", 0x38A12, 0x38A32, indexCPS2Sprites_VSAV1_Stages, 0x13 },
-
-    { L"16BG.0.0.0", 0x45bba, 0x45cfa, indexCPS2Sprites_VSAV1_Stages, 0x26 },
-
-    { L"32BG.0.0.0", 0x57d62, 0x57f42, indexCPS2Sprites_VSAV1_Stages, 0x14 },
-    { L"32BG.1.1.1", 0x5b022, 0x5B042, indexCPS2Sprites_VSAV1_Stages, 0x15, &pairNext6Palettes },
-    { L"32BG.1.1.2", 0x5B0E2, 0x5B102, indexCPS2Sprites_VSAV1_Stages, 0x16 },
-    { L"32BG.1.1.3", 0x5B1A2, 0x5B1C2, indexCPS2Sprites_VSAV1_Stages, 0x17 },
-    { L"32BG.1.1.4", 0x5B262, 0x5B282, indexCPS2Sprites_VSAV1_Stages, 0x18 },
-    { L"32BG.1.1.5", 0x5B322, 0x5B342, indexCPS2Sprites_VSAV1_Stages, 0x19 },
-    { L"32BG.1.1.6", 0x5B3E2, 0x5B402, indexCPS2Sprites_VSAV1_Stages, 0x1a },
-    { L"32BG.1.1.7", 0x5B4A2, 0x5B4C2, indexCPS2Sprites_VSAV1_Stages, 0x1b },
-
-    { L"32BG.2.1.1", 0x5ae22, 0x5AE42, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
-    { L"32BG.2.1.2", 0x5AEA2, 0x5AEC2, indexCPS2Sprites_VSAV1_Stages, 0x1d },
-    { L"32BG.2.1.3", 0x5AF22, 0x5AF42, indexCPS2Sprites_VSAV1_Stages, 0x1e },
-    { L"32BG.2.1.4", 0x5AFA2, 0x5AFC2, indexCPS2Sprites_VSAV1_Stages, 0x1f },
-
-    { L"SS.0.0.0", 0x1FCCa, 0x1FE0A, indexCPS2Sprites_VSAV1_Stages, 0x20 },
-};
-
-const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_PARTS[] =
-{
     { L"8BG.1.2.1", 0x39452, 0x39472, indexCPS2Sprites_VSAV1_Stages, 0x06, &pairNext4Palettes },
     { L"8BG.1.2.2", 0x394F2, 0x39512, indexCPS2Sprites_VSAV1_Stages, 0x07 },
     { L"8BG.1.2.3", 0x39592, 0x395B2, indexCPS2Sprites_VSAV1_Stages, 0x08 },
@@ -4124,6 +4101,11 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_PARTS[] =
     { L"8BG.1.5.4", 0x39692, 0x396B2, indexCPS2Sprites_VSAV1_Stages, 0x09 },
     { L"8BG.1.5.5", 0x39732, 0x39752, indexCPS2Sprites_VSAV1_Stages, 0x0a },
 
+    { L"8BG.2.1.1", 0x38A52, 0x38A72, indexCPS2Sprites_VSAV1_Stages, 0x0b, &pairNext4Palettes },
+    { L"8BG.2.1.2", 0x38AD2, 0x38AF2, indexCPS2Sprites_VSAV1_Stages, 0x0c },
+    { L"8BG.2.1.3", 0x38B52, 0x38B72, indexCPS2Sprites_VSAV1_Stages, 0x0d },
+    { L"8BG.2.1.4", 0x38BD2, 0x38BF2, indexCPS2Sprites_VSAV1_Stages, 0x0e },
+    { L"8BG.2.1.5", 0x38C52, 0x38C72, indexCPS2Sprites_VSAV1_Stages, 0x0f },
     { L"8BG.2.2.1", 0x38A72, 0x38A92, indexCPS2Sprites_VSAV1_Stages, 0x0b, &pairNext4Palettes },
     { L"8BG.2.2.2", 0x38AF2, 0x38B12, indexCPS2Sprites_VSAV1_Stages, 0x0c },
     { L"8BG.2.2.3", 0x38B72, 0x38B92, indexCPS2Sprites_VSAV1_Stages, 0x0d },
@@ -4140,6 +4122,8 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_PARTS[] =
     { L"8BG.2.4.4", 0x38C32, 0x38C52, indexCPS2Sprites_VSAV1_Stages, 0x0e },
     { L"8BG.2.4.5", 0x39772, 0x39792, indexCPS2Sprites_VSAV1_Stages, 0x0f },
 
+    { L"8BG.3.1.1", 0x38892, 0x388B2, indexCPS2Sprites_VSAV1_Stages, 0x10, &pairNext },
+    { L"8BG.3.1.2", 0x38932, 0x38952, indexCPS2Sprites_VSAV1_Stages, 0x11 },
     { L"8BG.3.2.1", 0x388B2, 0x388D2, indexCPS2Sprites_VSAV1_Stages, 0x10, &pairNext },
     { L"8BG.3.2.2", 0x38952, 0x38972, indexCPS2Sprites_VSAV1_Stages, 0x11 },
     { L"8BG.3.3.1", 0x388D2, 0x388F2, indexCPS2Sprites_VSAV1_Stages, 0x10, &pairNext },
@@ -4149,10 +4133,18 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_PARTS[] =
     { L"8BG.3.5.1", 0x38912, 0x38932, indexCPS2Sprites_VSAV1_Stages, 0x10, &pairNext },
     { L"8BG.3.5.2", 0x389B2, 0x389D2, indexCPS2Sprites_VSAV1_Stages, 0x11 },
 
-
+    { L"8BG.4.1.1", 0x389D2, 0x389F2, indexCPS2Sprites_VSAV1_Stages, 0x12, &pairNext },
+    { L"8BG.4.1.2", 0x38A12, 0x38A32, indexCPS2Sprites_VSAV1_Stages, 0x13 },
     { L"8BG.4.2.1", 0x389F2, 0x38A12, indexCPS2Sprites_VSAV1_Stages, 0x12, &pairNext },
     { L"8BG.4.2.2", 0x38A32, 0x38A52, indexCPS2Sprites_VSAV1_Stages, 0x13 },
 
+    { L"32BG.1.1.1", 0x5b022, 0x5B042, indexCPS2Sprites_VSAV1_Stages, 0x15, &pairNext6Palettes },
+    { L"32BG.1.1.2", 0x5B0E2, 0x5B102, indexCPS2Sprites_VSAV1_Stages, 0x16 },
+    { L"32BG.1.1.3", 0x5B1A2, 0x5B1C2, indexCPS2Sprites_VSAV1_Stages, 0x17 },
+    { L"32BG.1.1.4", 0x5B262, 0x5B282, indexCPS2Sprites_VSAV1_Stages, 0x18 },
+    { L"32BG.1.1.5", 0x5B322, 0x5B342, indexCPS2Sprites_VSAV1_Stages, 0x19 },
+    { L"32BG.1.1.6", 0x5B3E2, 0x5B402, indexCPS2Sprites_VSAV1_Stages, 0x1a },
+    { L"32BG.1.1.7", 0x5B4A2, 0x5B4C2, indexCPS2Sprites_VSAV1_Stages, 0x1b },
     { L"32BG.1.2.1", 0x5B042, 0x5B062, indexCPS2Sprites_VSAV1_Stages, 0x15, &pairNext6Palettes },
     { L"32BG.1.2.2", 0x5B102, 0x5B122, indexCPS2Sprites_VSAV1_Stages, 0x16 },
     { L"32BG.1.2.3", 0x5B1C2, 0x5B1E2, indexCPS2Sprites_VSAV1_Stages, 0x17 },
@@ -4189,6 +4181,10 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_PARTS[] =
     { L"32BG.1.6.6", 0x5B482, 0x5B4A2, indexCPS2Sprites_VSAV1_Stages, 0x1a },
     { L"32BG.1.6.7", 0x5B542, 0x5B562, indexCPS2Sprites_VSAV1_Stages, 0x1b },
 
+    { L"32BG.2.1.1", 0x5ae22, 0x5AE42, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
+    { L"32BG.2.1.2", 0x5AEA2, 0x5AEC2, indexCPS2Sprites_VSAV1_Stages, 0x1d },
+    { L"32BG.2.1.3", 0x5AF22, 0x5AF42, indexCPS2Sprites_VSAV1_Stages, 0x1e },
+    { L"32BG.2.1.4", 0x5AFA2, 0x5AFC2, indexCPS2Sprites_VSAV1_Stages, 0x1f },
     { L"32BG.2.2.1", 0x5AE42, 0x5AE62, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
     { L"32BG.2.2.2", 0x5AEC2, 0x5AEE2, indexCPS2Sprites_VSAV1_Stages, 0x1d },
     { L"32BG.2.2.3", 0x5AF42, 0x5AF62, indexCPS2Sprites_VSAV1_Stages, 0x1e },
@@ -4236,46 +4232,20 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_EX[] =
     { L"8BG.0.0.1", 0x3ADB2, 0x3AF52, indexCPS2Sprites_VSAV1_Stages, 0x04, &pairFullyLinkedNode },
     { L"8BG.0.0.2", 0x3AF52, 0x3B132, indexCPS2Sprites_VSAV1_Stages, 0x05 },
 
+    { L"32BG.0.0.0", 0x5EBC2, 0x5EDA2, indexCPS2Sprites_VSAV1_Stages, 0x14 },
+
+    { L"SS.0.0.0", 0x217EA, 0x2192A, indexCPS2Sprites_VSAV1_Stages, 0x20 },
+
+    { L"16BG.0.0.0", 0x4B9BA, 0x4BAFA, indexCPS2Sprites_VSAV1_Stages, 0x26 },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS[] =
+{
     { L"8BG.1.1.1", 0x3E952, 0x3E972, indexCPS2Sprites_VSAV1_Stages, 0x06, &pairNext4Palettes },
     { L"8BG.1.1.2", 0x3E9F2, 0x3EA12, indexCPS2Sprites_VSAV1_Stages, 0x07 },
     { L"8BG.1.1.3", 0x3EA92, 0x3EAB2, indexCPS2Sprites_VSAV1_Stages, 0x08 },
     { L"8BG.1.1.4", 0x3EB32, 0x3EB52, indexCPS2Sprites_VSAV1_Stages, 0x09 },
     { L"8BG.1.1.5", 0x3EBD2, 0x3EBF2, indexCPS2Sprites_VSAV1_Stages, 0x0a },
-
-    { L"8BG.2.1.1", 0x3DF72, 0x3DF92, indexCPS2Sprites_VSAV1_Stages, 0x0b, &pairNext4Palettes },
-    { L"8BG.2.1.2", 0x3DFF2, 0x3E012, indexCPS2Sprites_VSAV1_Stages, 0x0c },
-    { L"8BG.2.1.3", 0x3E072, 0x3E092, indexCPS2Sprites_VSAV1_Stages, 0x0d },
-    { L"8BG.2.1.4", 0x3E0F2, 0x3E112, indexCPS2Sprites_VSAV1_Stages, 0x0e },
-    { L"8BG.2.1.5", 0x3E172, 0x3E192, indexCPS2Sprites_VSAV1_Stages, 0x0f },
-
-    { L"8BG.3.1.1", 0x3DDB2, 0x3DDD2, indexCPS2Sprites_VSAV1_Stages, 0x10, &pairNext },
-    { L"8BG.3.1.2", 0x3DE52, 0x3DE72, indexCPS2Sprites_VSAV1_Stages, 0x11 },
-
-    { L"8BG.4.1.1", 0x3DEF2, 0x3DF12, indexCPS2Sprites_VSAV1_Stages, 0x12, &pairNext },
-    { L"8BG.4.1.2", 0x3DF32, 0x3DF52, indexCPS2Sprites_VSAV1_Stages, 0x13 },
-
-    { L"16BG.0.0.0", 0x4B9BA, 0x4BAFA, indexCPS2Sprites_VSAV1_Stages, 0x26 },
-
-    { L"32BG.0.0.0", 0x5EBC2, 0x5EDA2, indexCPS2Sprites_VSAV1_Stages, 0x14 },
-
-    { L"32BG.1.1.1", 0x61E82, 0x61EA2, indexCPS2Sprites_VSAV1_Stages, 0x15, &pairNext6Palettes },
-    { L"32BG.1.1.2", 0x61F42, 0x61F62, indexCPS2Sprites_VSAV1_Stages, 0x16 },
-    { L"32BG.1.1.3", 0x62002, 0x62022, indexCPS2Sprites_VSAV1_Stages, 0x17 },
-    { L"32BG.1.1.4", 0x620C2, 0x620E2, indexCPS2Sprites_VSAV1_Stages, 0x18 },
-    { L"32BG.1.1.5", 0x62182, 0x621A2, indexCPS2Sprites_VSAV1_Stages, 0x19 },
-    { L"32BG.1.1.6", 0x62242, 0x62262, indexCPS2Sprites_VSAV1_Stages, 0x1a },
-    { L"32BG.1.1.7", 0x62302, 0x62322, indexCPS2Sprites_VSAV1_Stages, 0x1b },
-
-    { L"32BG.2.1.1", 0x61C82, 0x61CA2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
-    { L"32BG.2.1.2", 0x61D02, 0x61D22, indexCPS2Sprites_VSAV1_Stages, 0x1d },
-    { L"32BG.2.1.3", 0x61D82, 0x61DA2, indexCPS2Sprites_VSAV1_Stages, 0x1e },
-    { L"32BG.2.1.4", 0x61E02, 0x61E22, indexCPS2Sprites_VSAV1_Stages, 0x1f },
-
-    { L"SS.0.0.0", 0x217EA, 0x2192A, indexCPS2Sprites_VSAV1_Stages, 0x20 },
-};
-
-const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS[] =
-{
     { L"8BG.1.2.1", 0x3E972, 0x3E992, indexCPS2Sprites_VSAV1_Stages, 0x06, &pairNext4Palettes },
     { L"8BG.1.2.2", 0x3EA12, 0x3EA32, indexCPS2Sprites_VSAV1_Stages, 0x07 },
     { L"8BG.1.2.3", 0x3EAB2, 0x3EAD2, indexCPS2Sprites_VSAV1_Stages, 0x08 },
@@ -4297,6 +4267,11 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS[] =
     { L"8BG.1.5.4", 0x3EBB2, 0x3EBD2, indexCPS2Sprites_VSAV1_Stages, 0x09 },
     { L"8BG.1.5.5", 0x3EC52, 0x3EC72, indexCPS2Sprites_VSAV1_Stages, 0x0a },
 
+    { L"8BG.2.1.1", 0x3DF72, 0x3DF92, indexCPS2Sprites_VSAV1_Stages, 0x0b, &pairNext4Palettes },
+    { L"8BG.2.1.2", 0x3DFF2, 0x3E012, indexCPS2Sprites_VSAV1_Stages, 0x0c },
+    { L"8BG.2.1.3", 0x3E072, 0x3E092, indexCPS2Sprites_VSAV1_Stages, 0x0d },
+    { L"8BG.2.1.4", 0x3E0F2, 0x3E112, indexCPS2Sprites_VSAV1_Stages, 0x0e },
+    { L"8BG.2.1.5", 0x3E172, 0x3E192, indexCPS2Sprites_VSAV1_Stages, 0x0f },
     { L"8BG.2.2.1", 0x3DF92, 0x3DFB2, indexCPS2Sprites_VSAV1_Stages, 0x0b, &pairNext4Palettes },
     { L"8BG.2.2.2", 0x3E012, 0x3E032, indexCPS2Sprites_VSAV1_Stages, 0x0c },
     { L"8BG.2.2.3", 0x3E092, 0x3E0B2, indexCPS2Sprites_VSAV1_Stages, 0x0d },
@@ -4313,6 +4288,8 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS[] =
     { L"8BG.2.4.4", 0x3E152, 0x3E172, indexCPS2Sprites_VSAV1_Stages, 0x0e },
     { L"8BG.2.4.5", 0x3EC92, 0x3ECB2, indexCPS2Sprites_VSAV1_Stages, 0x0f },
 
+    { L"8BG.3.1.1", 0x3DDB2, 0x3DDD2, indexCPS2Sprites_VSAV1_Stages, 0x10, &pairNext },
+    { L"8BG.3.1.2", 0x3DE52, 0x3DE72, indexCPS2Sprites_VSAV1_Stages, 0x11 },
     { L"8BG.3.2.1", 0x3DDD2, 0x3DDF2, indexCPS2Sprites_VSAV1_Stages, 0x10, &pairNext },
     { L"8BG.3.2.2", 0x3DE72, 0x3DE92, indexCPS2Sprites_VSAV1_Stages, 0x11 },
     { L"8BG.3.3.1", 0x3DDF2, 0x3DE12, indexCPS2Sprites_VSAV1_Stages, 0x10, &pairNext },
@@ -4322,9 +4299,18 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS[] =
     { L"8BG.3.5.1", 0x3DE32, 0x3DE52, indexCPS2Sprites_VSAV1_Stages, 0x10, &pairNext },
     { L"8BG.3.5.2", 0x3DED2, 0x3DEF2, indexCPS2Sprites_VSAV1_Stages, 0x11 },
 
+    { L"8BG.4.1.1", 0x3DEF2, 0x3DF12, indexCPS2Sprites_VSAV1_Stages, 0x12, &pairNext },
+    { L"8BG.4.1.2", 0x3DF32, 0x3DF52, indexCPS2Sprites_VSAV1_Stages, 0x13 },
     { L"8BG.4.2.1", 0x3DF12, 0x3DF32, indexCPS2Sprites_VSAV1_Stages, 0x12, &pairNext },
     { L"8BG.4.2.2", 0x3DF52, 0x3DF72, indexCPS2Sprites_VSAV1_Stages, 0x13 },
 
+    { L"32BG.1.1.1", 0x61E82, 0x61EA2, indexCPS2Sprites_VSAV1_Stages, 0x15, &pairNext6Palettes },
+    { L"32BG.1.1.2", 0x61F42, 0x61F62, indexCPS2Sprites_VSAV1_Stages, 0x16 },
+    { L"32BG.1.1.3", 0x62002, 0x62022, indexCPS2Sprites_VSAV1_Stages, 0x17 },
+    { L"32BG.1.1.4", 0x620C2, 0x620E2, indexCPS2Sprites_VSAV1_Stages, 0x18 },
+    { L"32BG.1.1.5", 0x62182, 0x621A2, indexCPS2Sprites_VSAV1_Stages, 0x19 },
+    { L"32BG.1.1.6", 0x62242, 0x62262, indexCPS2Sprites_VSAV1_Stages, 0x1a },
+    { L"32BG.1.1.7", 0x62302, 0x62322, indexCPS2Sprites_VSAV1_Stages, 0x1b },
     { L"32BG.1.2.1", 0x61EA2, 0x61EC2, indexCPS2Sprites_VSAV1_Stages, 0x15, &pairNext6Palettes },
     { L"32BG.1.2.2", 0x61F62, 0x61F82, indexCPS2Sprites_VSAV1_Stages, 0x16 },
     { L"32BG.1.2.3", 0x62022, 0x62042, indexCPS2Sprites_VSAV1_Stages, 0x17 },
@@ -4361,6 +4347,10 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS[] =
     { L"32BG.1.6.6", 0x622E2, 0x62302, indexCPS2Sprites_VSAV1_Stages, 0x1a },
     { L"32BG.1.6.7", 0x623A2, 0x623C2, indexCPS2Sprites_VSAV1_Stages, 0x1b },
 
+    { L"32BG.2.1.1", 0x61C82, 0x61CA2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
+    { L"32BG.2.1.2", 0x61D02, 0x61D22, indexCPS2Sprites_VSAV1_Stages, 0x1d },
+    { L"32BG.2.1.3", 0x61D82, 0x61DA2, indexCPS2Sprites_VSAV1_Stages, 0x1e },
+    { L"32BG.2.1.4", 0x61E02, 0x61E22, indexCPS2Sprites_VSAV1_Stages, 0x1f },
     { L"32BG.2.2.1", 0x61CA2, 0x61CC2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
     { L"32BG.2.2.2", 0x61D22, 0x61D42, indexCPS2Sprites_VSAV1_Stages, 0x1d },
     { L"32BG.2.2.3", 0x61DA2, 0x61DC2, indexCPS2Sprites_VSAV1_Stages, 0x1e },
@@ -4405,7 +4395,6 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS[] =
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_SCREAM[] =
 {
     { L"32BG.0.0.0",    0x5a162, 0x5a322, indexCPS2Sprites_VSAV1_Stages, 0x27, &pairFullyLinkedNode },
-    { L"32BG.1.1.1",    0x5b7e2, 0x5b802, indexCPS2Sprites_VSAV1_Stages, 0x28 },
 
     { L"8BG.0.0.1",     0x37c92, 0x37df2, indexCPS2Sprites_VSAV1_Stages, 0x29 },
     { L"8BG.0.0.2",     0x37df2, 0x37f32, indexCPS2Sprites_VSAV1_Stages, 0x2a },
@@ -4418,14 +4407,14 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_SCREAM[] =
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_SCREAM_PARTS[] =
 {
-    { L"32BG.1.2.1", 0x5b802, 0x5b822, indexCPS2Sprites_VSAV1_Stages, 0x28 },
-    { L"32BG.1.3.1", 0x5b822, 0x5b842, indexCPS2Sprites_VSAV1_Stages, 0x28 },
+    { L"32BG.1.1.1",    0x5b7e2, 0x5b802, indexCPS2Sprites_VSAV1_Stages, 0x28 },
+    { L"32BG.1.2.1",    0x5b802, 0x5b822, indexCPS2Sprites_VSAV1_Stages, 0x28 },
+    { L"32BG.1.3.1",    0x5b822, 0x5b842, indexCPS2Sprites_VSAV1_Stages, 0x28 },
 };
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_SCREAM_EX[] =
 {
     { L"32BG.0.0.0",    0x60FC2, 0x61182, indexCPS2Sprites_VSAV1_Stages, 0x27, &pairFullyLinkedNode },
-    { L"32BG.1.1.1",    0x62642, 0x62662, indexCPS2Sprites_VSAV1_Stages, 0x28 },
 
     { L"8BG.0.0.1",     0x3D1B2, 0x3D312, indexCPS2Sprites_VSAV1_Stages, 0x29 },
     { L"8BG.0.0.2",     0x3D312, 0x3D452, indexCPS2Sprites_VSAV1_Stages, 0x2a },
@@ -4437,6 +4426,7 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_SCREAM_EX[] =
 
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_SCREAM_EX_PARTS[] =
 {
+    { L"32BG.1.1.1",    0x62642, 0x62662, indexCPS2Sprites_VSAV1_Stages, 0x28 },
     { L"32BG.1.2.1",    0x62662, 0x62682, indexCPS2Sprites_VSAV1_Stages, 0x28 },
     { L"32BG.1.3.1",    0x62682, 0x626A2, indexCPS2Sprites_VSAV1_Stages, 0x28 },
 };

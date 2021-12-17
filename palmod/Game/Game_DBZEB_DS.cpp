@@ -96,7 +96,7 @@ size_t CGame_DBZEB_DS::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_DBZEB_DS::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_DBZEB_DS, DBZEB_DS_EXTRA, &DBZEB_DS_EXTRA_CUSTOM, DBZEB_DS_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_DBZEB_DS, DBZEB_DS_EXTRA, &DBZEB_DS_EXTRA_CUSTOM, DBZEB_DS_EXTRALOC, m_nConfirmedROMSize, ColorSystem::GetCbForColMode(ColMode::COLMODE_RGBA8888));
 
     UINT16 nUnitCt = DBZEB_DS_NUMUNIT + (GetExtraCt(DBZEB_DS_EXTRALOC) ? 1 : 0);
     
