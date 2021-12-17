@@ -679,7 +679,7 @@ const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_ANAKARIS =
 
 const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_STRIDER =
 { //    { 0x05, L": Strider" },
-    { 0x00, L"Main Color", 0x00, indexCPS2Sprites_Strider, &pairNextAndNextAndNext },
+    { 0x00, L"Main Color", 0x00, indexCPS2Sprites_Strider, &pairNextAndNext },
     { 0x01, L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used" },
     { 0x02, L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used" },
     { 0x03, L"(04) Not Used" },
@@ -11515,7 +11515,7 @@ const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_BONERINE =
 };
 
 const std::vector<sMoveDescription> MVC2_6COLOR_MOVE_DESCRIPTIONS_KOBUN =
-{ //3A: Kobun" },
+{ //3A: Kobun/Servbot
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 1, indexCPS2Sprites_Tron },
     { 0x02, L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 12, indexCPS2Sprites_Tron },
@@ -11557,7 +11557,7 @@ const std::vector<sMoveDescription> MVC2_6COLOR_MOVE_DESCRIPTIONS_KOBUN =
 };
 
 const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_KOBUN =
-{ //3A: Kobun" },
+{ //3A: Kobun/Servbot
     { 0x00, L"Main Color" },
     { 0x01, L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 1, indexCPS2Sprites_Tron },
     { 0x02, L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 12, indexCPS2Sprites_Tron },

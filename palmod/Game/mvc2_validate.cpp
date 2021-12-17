@@ -2497,7 +2497,7 @@ void dump_palettes(UINT16 char_id, UINT16 source_palette, UINT16 compare_char, U
     strPaletteData.Format(L" { 0x%x /* %s */, 0x%x, { ", char_id, MVC2_D_UNITDESC[char_id], source_palette);
     OutputDebugString(strPaletteData);
 
-    UINT16 *source_colors = get_pal_16(char_id, source_palette);
+    UINT16 *source_colors = MVC2_SupplementProcessing::get_pal_16(char_id, source_palette);
 
     for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
     {
@@ -2508,7 +2508,7 @@ void dump_palettes(UINT16 char_id, UINT16 source_palette, UINT16 compare_char, U
     strPaletteData.Format(L"},\n\t 0x%x /* %s */, 0x%x, { ", compare_char, MVC2_D_UNITDESC[compare_char], destination_palette);
     OutputDebugString(strPaletteData);
 
-    UINT16 *destination_colors = get_pal_16(compare_char, destination_palette);
+    UINT16 *destination_colors = MVC2_SupplementProcessing::get_pal_16(compare_char, destination_palette);
     for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
     {
         strPaletteData.Format(L"0x%x, ", destination_colors[nIndex]);
@@ -2557,7 +2557,7 @@ void DumpAllPalettes()
         for (UINT16 charPalette = 0; charPalette < 6; charPalette++)
         {
             // This was temporarily hooked to dump_palettes
-            proc_supp(characterCode, charPalette * 8);
+            MVC2_SupplementProcessing::proc_supp(characterCode, charPalette * 8);
         }
     }
 
@@ -2625,7 +2625,7 @@ bool IsPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 compare_ch
             bool sourceIsChanged = false, destinationIsChanged = false;
 
             // both should match stock values. if EITHER both are matching OR neither matches then we are happy.
-            UINT16* source_colors = get_pal_16(char_id, source_palette);
+            UINT16* source_colors = MVC2_SupplementProcessing::get_pal_16(char_id, source_palette);
 
             for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
             {
@@ -2636,7 +2636,7 @@ bool IsPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 compare_ch
                 }
             }
 
-            UINT16* destination_colors = get_pal_16(compare_char, destination_palette);
+            UINT16* destination_colors = MVC2_SupplementProcessing::get_pal_16(compare_char, destination_palette);
             for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
             {
                 if ((nIndex == 0) && (char_val_array[nValIndex].destColors[nIndex] != 0x0))
@@ -2711,8 +2711,8 @@ bool IsSpiralPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 comp
     bool colorsDoNotMatch = false;
 
     // These sprites should match.
-    UINT16* source_colors = get_pal_16(char_id, source_palette);
-    UINT16* destination_colors = get_pal_16(compare_char, destination_palette);
+    UINT16* source_colors = MVC2_SupplementProcessing::get_pal_16(char_id, source_palette);
+    UINT16* destination_colors = MVC2_SupplementProcessing::get_pal_16(compare_char, destination_palette);
     for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
     {
         if (source_colors[nIndex] != destination_colors[nIndex])
@@ -2901,7 +2901,7 @@ void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
 
             bool isModified = false;
 
-            UINT16* source_colors = get_pal_16(paletteToCheck.character_number, paletteToCheck.source_palette);
+            UINT16* source_colors = MVC2_SupplementProcessing::get_pal_16(paletteToCheck.character_number, paletteToCheck.source_palette);
 
             for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
             {
@@ -2915,7 +2915,7 @@ void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
             if (isModified)
             {
                 OutputDebugString(L"\tThis was modified: fixing...\n");
-                proc_supp(paletteToCheck.character_number, paletteToCheck.source_palette);
+                MVC2_SupplementProcessing::proc_supp(paletteToCheck.character_number, paletteToCheck.source_palette);
                 OutputDebugString(L"\tUpdates are complete.\n");
             }
             else
@@ -2932,7 +2932,7 @@ void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
     {
         for (palette_validation paletteToCheck : char_val_array_spiral)
         {
-            supp_copy_spiral(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.destination_palette);
+            MVC2_SupplementProcessing::supp_copy_spiral(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.destination_palette);
         }
 
         rgPaletteChangeArray[indexCPS2Sprites_Spiral] = TRUE;

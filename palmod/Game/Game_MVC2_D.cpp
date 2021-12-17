@@ -107,10 +107,10 @@ CGame_MVC2_D::CGame_MVC2_D(UINT32 nConfirmedROMSize)
     m_fGameUnitsMapToIndividualFiles = TRUE;
 
     //Set the MVC2 supp game
-    CurrMVC2 = this;
-    CurrMVC2_Arcade = nullptr;
+    MVC2_SupplementProcessing::CurrMVC2 = this;
+    MVC2_SupplementProcessing::CurrMVC2_Arcade = nullptr;
     //Prepare it
-    prep_supp();
+    MVC2_SupplementProcessing::prep_supp();
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];
@@ -122,7 +122,7 @@ CGame_MVC2_D::~CGame_MVC2_D(void)
     FlushChangeTrackingArray();
     ClearDataBuffer();
 
-    CurrMVC2 = NULL;
+    MVC2_SupplementProcessing::CurrMVC2 = nullptr;
 }
 
 CDescTree* CGame_MVC2_D::GetMainTree()
@@ -751,10 +751,10 @@ void CGame_MVC2_D::PostSetPal(size_t nUnitId, size_t nPalId)
     size_t nBasicOffset = GetBasicOffset(nPalId);
 
     CString strMessage;
-    strMessage.Format(L"CGame_MVC2_D::GetBasicOffset : Palette %u updated.  This palette is %s.\n", nPalId, (nBasicOffset != -1) ? L"basic" : L"Extra");
+    strMessage.Format(L"CGame_MVC2_D::GetBasicOffset : Palette %u was updated.  This palette is %s.  Checking for secondary palettes...\n", nPalId, (nBasicOffset != -1) ? L"basic" : L"Extra");
     OutputDebugString(strMessage);
 
-    proc_supp(nUnitId, nPalId);
+    MVC2_SupplementProcessing::proc_supp(nUnitId, nPalId);
 }
 
 LPCWSTR CGame_MVC2_D::GetGameName()

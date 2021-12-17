@@ -71,10 +71,10 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
 
     //Set the MVC2 supp game
-    CurrMVC2 = (CGame_MVC2_D*)this;
-    CurrMVC2_Arcade = this;
+    MVC2_SupplementProcessing::CurrMVC2 = (CGame_MVC2_D*)this;
+    MVC2_SupplementProcessing::CurrMVC2_Arcade = this;
     //Prepare it
-    prep_supp(false);
+    MVC2_SupplementProcessing::prep_supp(false);
 
     //Create the redirect buffer
     rgUnitRedir = new size_t[nUnitAmt + 1];
@@ -91,8 +91,8 @@ CGame_MVC2_A::~CGame_MVC2_A(void)
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 
-    CurrMVC2 = nullptr;
-    CurrMVC2_Arcade = nullptr;
+    MVC2_SupplementProcessing::CurrMVC2 = nullptr;
+    MVC2_SupplementProcessing::CurrMVC2_Arcade = nullptr;
 }
 
 CDescTree* CGame_MVC2_A::GetMainTree()
@@ -696,5 +696,5 @@ void CGame_MVC2_A::PostSetPal(size_t nUnitId, size_t nPalId)
     strMessage.Format(L"CGame_MVC2_A::GetBasicOffset : Palette %u updated.  This palette is %s.\n", nPalId, (nBasicOffset != -1) ? L"basic" : L"Extra");
     OutputDebugString(strMessage);
 
-    proc_supp(nUnitId, nPalId);
+    MVC2_SupplementProcessing::proc_supp(nUnitId, nPalId);
 }
