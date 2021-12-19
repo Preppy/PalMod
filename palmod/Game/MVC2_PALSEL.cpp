@@ -98,10 +98,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    //Reset the extra amount
-    nExtraAmt = _nCurrentTotalColorOptions; // BUGBUG: This is apparently an artifact of an earlier system.  It can be replaced with setting nAmt 
-                                            // in calls to CreateExtraPal.
-
     BOOL bLoadDefPal = TRUE;
     bool fImgIsFromNewImgDatRange = false;
 

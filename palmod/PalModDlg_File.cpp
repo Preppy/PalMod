@@ -112,6 +112,7 @@ sSupportedGameList SupportedGameList[] =
     { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo|pzf.04*|", GamePlatform::CapcomCPS12 },
     { TMNTTF_SNES,      L"Teenage Mutant Ninja Turtles: TF (SNES)", L"Teenage Mutant Ninja Turtles: TF (SNES)|sns-ky-0.u1;teenage mutant ninja turtles - tournament fighters (U*.s*c|", GamePlatform::Nintendo },
     { TOPF2005_SEGA,    L"Top Fighter 2005 (Mega Drive)", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::Sega },
+    { UMK3_SNES,        L"Ultimate Mortal Kombat 3 (SNES)", L"Ultimate Mortal Kombat 3 (SNES)|Ultimate Mortal Kombat 3 (USA).sfc;sns-a3ze.u1|", GamePlatform::Nintendo },
     { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2|vh2j.09|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
     { VSAV_A,           L"Vampire Savior", L"Vampire Savior|vm3*.10b|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
     { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2|vs2j.10|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },

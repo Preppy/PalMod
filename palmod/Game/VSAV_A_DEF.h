@@ -4181,19 +4181,19 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_PARTS[] =
     { L"32BG.1.6.6", 0x5B482, 0x5B4A2, indexCPS2Sprites_VSAV1_Stages, 0x1a },
     { L"32BG.1.6.7", 0x5B542, 0x5B562, indexCPS2Sprites_VSAV1_Stages, 0x1b },
 
-    { L"32BG.2.1.1", 0x5ae22, 0x5AE42, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
+    { L"32BG.2.1.1", 0x5ae22, 0x5AE42, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNext },
     { L"32BG.2.1.2", 0x5AEA2, 0x5AEC2, indexCPS2Sprites_VSAV1_Stages, 0x1d },
     { L"32BG.2.1.3", 0x5AF22, 0x5AF42, indexCPS2Sprites_VSAV1_Stages, 0x1e },
     { L"32BG.2.1.4", 0x5AFA2, 0x5AFC2, indexCPS2Sprites_VSAV1_Stages, 0x1f },
-    { L"32BG.2.2.1", 0x5AE42, 0x5AE62, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
+    { L"32BG.2.2.1", 0x5AE42, 0x5AE62, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNext },
     { L"32BG.2.2.2", 0x5AEC2, 0x5AEE2, indexCPS2Sprites_VSAV1_Stages, 0x1d },
     { L"32BG.2.2.3", 0x5AF42, 0x5AF62, indexCPS2Sprites_VSAV1_Stages, 0x1e },
     { L"32BG.2.2.4", 0x5AFC2, 0x5AFE2, indexCPS2Sprites_VSAV1_Stages, 0x1f },
-    { L"32BG.2.3.1", 0x5AE62, 0x5AE82, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
+    { L"32BG.2.3.1", 0x5AE62, 0x5AE82, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNext },
     { L"32BG.2.3.2", 0x5AEE2, 0x5AF02, indexCPS2Sprites_VSAV1_Stages, 0x1d },
     { L"32BG.2.3.3", 0x5AF62, 0x5AF82, indexCPS2Sprites_VSAV1_Stages, 0x1e },
     { L"32BG.2.3.4", 0x5AFE2, 0x5B002, indexCPS2Sprites_VSAV1_Stages, 0x1f },
-    { L"32BG.2.4.1", 0x5AE82, 0x5AEA2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
+    { L"32BG.2.4.1", 0x5AE82, 0x5AEA2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNext },
     { L"32BG.2.4.2", 0x5AF02, 0x5AF22, indexCPS2Sprites_VSAV1_Stages, 0x1d },
     { L"32BG.2.4.3", 0x5AF82, 0x5AFA2, indexCPS2Sprites_VSAV1_Stages, 0x1e },
     { L"32BG.2.4.4", 0x5B002, 0x5B022, indexCPS2Sprites_VSAV1_Stages, 0x1f },
@@ -4347,19 +4347,19 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS[] =
     { L"32BG.1.6.6", 0x622E2, 0x62302, indexCPS2Sprites_VSAV1_Stages, 0x1a },
     { L"32BG.1.6.7", 0x623A2, 0x623C2, indexCPS2Sprites_VSAV1_Stages, 0x1b },
 
-    { L"32BG.2.1.1", 0x61C82, 0x61CA2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
+    { L"32BG.2.1.1", 0x61C82, 0x61CA2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNext },
     { L"32BG.2.1.2", 0x61D02, 0x61D22, indexCPS2Sprites_VSAV1_Stages, 0x1d },
     { L"32BG.2.1.3", 0x61D82, 0x61DA2, indexCPS2Sprites_VSAV1_Stages, 0x1e },
     { L"32BG.2.1.4", 0x61E02, 0x61E22, indexCPS2Sprites_VSAV1_Stages, 0x1f },
-    { L"32BG.2.2.1", 0x61CA2, 0x61CC2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
+    { L"32BG.2.2.1", 0x61CA2, 0x61CC2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNext },
     { L"32BG.2.2.2", 0x61D22, 0x61D42, indexCPS2Sprites_VSAV1_Stages, 0x1d },
     { L"32BG.2.2.3", 0x61DA2, 0x61DC2, indexCPS2Sprites_VSAV1_Stages, 0x1e },
     { L"32BG.2.2.4", 0x61E22, 0x61E42, indexCPS2Sprites_VSAV1_Stages, 0x1f },
-    { L"32BG.2.3.1", 0x61CC2, 0x61CE2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
+    { L"32BG.2.3.1", 0x61CC2, 0x61CE2, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNext },
     { L"32BG.2.3.2", 0x61D42, 0x61D62, indexCPS2Sprites_VSAV1_Stages, 0x1d },
     { L"32BG.2.3.3", 0x61DC2, 0x61DE2, indexCPS2Sprites_VSAV1_Stages, 0x1e },
     { L"32BG.2.3.4", 0x61E42, 0x61E62, indexCPS2Sprites_VSAV1_Stages, 0x1f },
-    { L"32BG.2.4.1", 0x61CE2, 0x61D02, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNextAndNext },
+    { L"32BG.2.4.1", 0x61CE2, 0x61D02, indexCPS2Sprites_VSAV1_Stages, 0x1c, &pairNextAndNextAndNext },
     { L"32BG.2.4.2", 0x61D62, 0x61D82, indexCPS2Sprites_VSAV1_Stages, 0x1d },
     { L"32BG.2.4.3", 0x61DE2, 0x61E02, indexCPS2Sprites_VSAV1_Stages, 0x1e },
     { L"32BG.2.4.4", 0x61E62, 0x61E82, indexCPS2Sprites_VSAV1_Stages, 0x1f },
@@ -4497,6 +4497,154 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_ABARAYA_EX_PARTS[] =
     { L"16BG.2.2.3", 0x4E85A, 0x4E87A, indexCPS2Sprites_VSAV1_Stages, 0x39 },
     { L"16BG.2.2.4", 0x4E89A, 0x4E8BA, indexCPS2Sprites_VSAV1_Stages, 0x3a },
     { L"16BG.3.1.1", 0x4E8BA, 0x4E8DA, indexCPS2Sprites_VSAV1_Stages, 0x3b },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_CAVE[] =
+{
+    { L"8BG.0.0.0", 0x35c92, 0x35cb2 },
+    { L"16BG.0.0.1", 0x45cfa, 0x45efa },
+    { L"16BG.0.0", 0x45efa, 0x460fa },
+    { L"32BG.0.0.1", 0x58162, 0x58302 },
+    { L"32BG.0.0", 0x58362, 0x58382 },
+
+    { L"SS.0.0.0", 0x1FE0A, 0x1FF4A },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_CAVE_EX[] =
+{
+    { L"8BG.0.0.0", 0x3B1B2, 0x3B1D2 },
+    { L"16BG.0.0.1", 0x4BAFA, 0x4BCFA },
+    { L"16BG.0.0.2", 0x4BCFA, 0x4BEFA },
+    { L"32BG.0.0.1", 0x5EFC2, 0x5F162 },
+    { L"32BG.0.0.2", 0x5F1C2, 0x5F1E2 },
+
+    { L"SS.0.0.0", 0x2192A, 0x21A6A },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_REDTHIRST[] =
+{
+    { L"8BG.0.0.0", 0x36492, 0x36672 },
+    { L"16BG.0.0.0", 0x464fa, 0x466fa },
+    { L"32BG.0.0.0", 0x58962, 0x58a82 },
+
+    { L"SS.0.0.0", 0x2010a, 0x201CA },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_REDTHIRST_PARTS[] =
+{
+    { L"8BG.1.1.1", 0x39792, 0x39812 },
+
+    { L"SS.1.1.1", 0x20fca, 0x20fea },
+    { L"SS.1.2.1", 0x20fea, 0x2100a },
+    { L"SS.2.1.1", 0x2100a, 0x210aa },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_REDTHIRST_EX[] =
+{
+    { L"8BG.0.0.0", 0x3B9B2, 0x3BB92 },
+    { L"16BG.0.0.0", 0x4C2Fa, 0x4C4FA },
+    { L"32BG.0.0.0", 0x5F7C2, 0x5F8E2 },
+
+    { L"SS.0.0.0", 0x21C2a, 0x21CEA },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_REDTHIRST_EX_PARTS[] =
+{
+    { L"8BG.1.1.1", 0x3ECB2, 0x3ED32 },
+
+    { L"SS.1.1.1", 0x22AEa, 0x22B0A },
+    { L"SS.1.2.1", 0x22B0a, 0x22B2A },
+    { L"SS.2.1.1", 0x22B2a, 0x22BCA },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_WARAGONY[] =
+{
+    { L"8BG.0.0.0", 0x37492, 0x37652 },
+    { L"16BG.0.0.1", 0x474fa, 0x476ba },
+    { L"16BG.0.0.2", 0x476da, 0x4771a },
+    { L"16BG.0.0.3", 0x4773a, 0x4783a },
+    { L"16BG.0.0.4", 0x4785a, 0x4789a },
+    { L"32BG.0.0.1", 0x59982, 0x599a2 },
+    { L"32BG.0.0.2", 0x59a42, 0x59a62 },
+    { L"32BG.0.0.3", 0x59b02, 0x59b22 },
+    { L"32BG.0.0.4", 0x59bc2, 0x59be2 },
+
+    { L"SS.0.0.0", 0x2062a, 0x206CA },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_WARAGONY_PARTS[] =
+{
+    { L"32BG.1.1.1", 0x5b842, 0x5B862 },
+    { L"32BG.1.1.2", 0x5b8e2, 0x5B902 },
+    { L"32BG.1.1.3", 0x5b982, 0x5B9A2 },
+    { L"32BG.1.1.4", 0x5ba22, 0x5BA42 },
+    { L"32BG.1.2.1", 0x5B862, 0x5B882 },
+    { L"32BG.1.2.2", 0x5B902, 0x5B922 },
+    { L"32BG.1.2.3", 0x5B9A2, 0x5B9C2 },
+    { L"32BG.1.2.4", 0x5BA42, 0x5BA62 },
+    { L"32BG.1.3.1", 0x5B882, 0x5B8A2 },
+    { L"32BG.1.3.2", 0x5B922, 0x5B942 },
+    { L"32BG.1.3.3", 0x5B9C2, 0x5B9E2 },
+    { L"32BG.1.3.4", 0x5BA62, 0x5BA82 },
+    { L"32BG.1.4.1", 0x5B8A2, 0x5B8C2 },
+    { L"32BG.1.4.2", 0x5B942, 0x5B962 },
+    { L"32BG.1.4.3", 0x5B9E2, 0x5BA02 },
+    { L"32BG.1.4.4", 0x5BA82, 0x5BAA2 },
+    { L"32BG.1.5.1", 0x5B8C2, 0x5B8E2 },
+    { L"32BG.1.5.2", 0x5B962, 0x5B982 },
+    { L"32BG.1.5.3", 0x5BA02, 0x5BA22 },
+    { L"32BG.1.5.4", 0x5BAA2, 0x5BAC2 },
+
+    { L"SS.1.1.1", 0x2134a, 0x2136a },
+    { L"SS.1.2.1", 0x2136a, 0x2138a },
+    { L"SS.1.3.1", 0x2138a, 0x213aa },
+    { L"SS.1.4.1", 0x213aa, 0x213ca },
+    { L"SS.1.5.1", 0x213ca, 0x213ea },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_WARAGONY_EX[] =
+{
+    { L"8BG.0.0.0", 0x3C9B2, 0x3CB72 },
+    { L"16BG.0.0.1", 0x4D2FA, 0x4D4BA },
+    { L"16BG.0.0.2", 0x4D4DA, 0x4D51A },
+    { L"16BG.0.0.3", 0x4D53A, 0x4D63A },
+    { L"16BG.0.0.4", 0x4D65A, 0x4D69A },
+    { L"32BG.0.0.1", 0x607E2, 0x60802 },
+    { L"32BG.0.0.2", 0x608A2, 0x608C2 },
+    { L"32BG.0.0.3", 0x60962, 0x60982 },
+    { L"32BG.0.0.4", 0x60A22, 0x60A42 },
+
+    { L"SS.0.0.0", 0x2214A, 0x221EA },
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_WARAGONY_EX_PARTS[] =
+{
+    { L"32BG.1.1.1", 0x626A2, 0x626C2 },
+    { L"32BG.1.1.2", 0x62742, 0x62762 },
+    { L"32BG.1.1.3", 0x627E2, 0x62802 },
+    { L"32BG.1.1.4", 0x62882, 0x628A2 },
+    { L"32BG.1.2.1", 0x626C2, 0x626E2 },
+    { L"32BG.1.2.2", 0x62762, 0x62782 },
+    { L"32BG.1.2.3", 0x62802, 0x62822 },
+    { L"32BG.1.2.4", 0x628A2, 0x628C2 },
+    { L"32BG.1.3.1", 0x626E2, 0x62702 },
+    { L"32BG.1.3.2", 0x62782, 0x627A2 },
+    { L"32BG.1.3.3", 0x62822, 0x62842 },
+    { L"32BG.1.3.4", 0x628C2, 0x628E2 },
+    { L"32BG.1.4.1", 0x62702, 0x62722 },
+    { L"32BG.1.4.2", 0x627A2, 0x627C2 },
+    { L"32BG.1.4.3", 0x62842, 0x62862 },
+    { L"32BG.1.4.4", 0x628E2, 0x62902 },
+    { L"32BG.1.5.1", 0x62722, 0x62742 },
+    { L"32BG.1.5.2", 0x627C2, 0x627E2 },
+    { L"32BG.1.5.3", 0x62862, 0x62882 },
+    { L"32BG.1.5.4", 0x62902, 0x62922 },
+
+    { L"SS.1.1.1", 0x22E6A, 0x22E8A },
+    { L"SS.1.2.1", 0x22E8A, 0x22EAA },
+    { L"SS.1.3.1", 0x22EAA, 0x22ECA },
+    { L"SS.1.4.1", 0x22ECA, 0x22EEA },
+    { L"SS.1.5.1", 0x22EEA, 0x22F0A },
 };
 
 const sDescTreeNode VSAV_A_BULLETA_COLLECTION[] =
@@ -4808,22 +4956,47 @@ const sDescTreeNode VSAV_A_BONUS_COLLECTION[] =
 
 const sDescTreeNode VSAV_A_STAGE_COLLECTION[] =
 {
+    { L"Abaraya",                                   DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_ABARAYA, ARRAYSIZE(VSAV_A_STAGE_PALETTES_ABARAYA) },
+    { L"Abaraya: Animation palettes",               DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_ABARAYA_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_ABARAYA_PARTS) },
+    { L"EX Abaraya",                                DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_ABARAYA_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_ABARAYA_EX) },
+    { L"EX Abaraya: Animation palettes",            DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_ABARAYA_EX_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_ABARAYA_EX_PARTS) },
+
+    { L"Concrete Cave",                             DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_CAVE, ARRAYSIZE(VSAV_A_STAGE_PALETTES_CAVE) },
+    { L"EX Concrete Cave",                          DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_CAVE_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_CAVE_EX) },
+
+    { L"Deserted Chateau",                          DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_CHATEAU, ARRAYSIZE(VSAV_A_STAGE_PALETTES_CHATEAU) },
+
     { L"Feast of the Damned",                       DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_FEAST, ARRAYSIZE(VSAV_A_STAGE_PALETTES_FEAST) },
     { L"Feast of the Damned: Animation palettes",   DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_FEAST_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_FEAST_PARTS) },
     { L"EX Feast of the Damned",                    DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_FEAST_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_FEAST_EX) },
     { L"EX Feast of the Damned: Animation palettes", DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_FEAST_EX_PARTS) },
 
+    // Forever Torment
+
     { L"Green Scream",                              DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_SCREAM, ARRAYSIZE(VSAV_A_STAGE_PALETTES_SCREAM) },
     { L"Green Scream: Animation palettes",          DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_SCREAM_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_SCREAM_PARTS) },
     { L"EX Green Scream",                           DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_SCREAM_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_SCREAM_EX) },
     { L"EX Green Scream: Animation palettes",       DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_SCREAM_EX_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_SCREAM_EX_PARTS) },
-
-    { L"Abaraya",                                   DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_ABARAYA, ARRAYSIZE(VSAV_A_STAGE_PALETTES_ABARAYA) },
-    { L"Abaraya: Animation palettes",               DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_ABARAYA_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_ABARAYA_PARTS) },
-    { L"EX Abaraya",                                DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_ABARAYA_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_ABARAYA_EX) },
-    { L"EX Abaraya: Animation palettes",            DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_ABARAYA_EX_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_ABARAYA_EX_PARTS) },
     
-    { L"Deserted Chateau",                          DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_CHATEAU, ARRAYSIZE(VSAV_A_STAGE_PALETTES_CHATEAU) },
+    { L"Red Thirst",                                DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_REDTHIRST, ARRAYSIZE(VSAV_A_STAGE_PALETTES_REDTHIRST) },
+    { L"Red Thirst: Animation palettes",            DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_REDTHIRST_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_REDTHIRST_PARTS) },
+    { L"EX Red Thirst",                             DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_REDTHIRST_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_REDTHIRST_EX) },
+    { L"EX Red Thirst: Animation palettes",         DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_REDTHIRST_EX_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_REDTHIRST_EX_PARTS) },
+
+    // Revenger's Roost
+
+    // Tower of Arrogance
+
+    // Vanity Paradise
+
+    { L"War Agony",                                 DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_WARAGONY, ARRAYSIZE(VSAV_A_STAGE_PALETTES_WARAGONY) },
+    { L"War Agony: Animation palettes",             DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_WARAGONY_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_WARAGONY_PARTS) },
+    { L"EX War Agony",                              DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_WARAGONY_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_WARAGONY_EX) },
+    { L"EX War Agony: Animation palettes",          DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_WARAGONY_EX_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_WARAGONY_EX_PARTS) },
+
+    // Iron Horse, Iron Terror
+
+    // Fetus of God
 };
 
 const sDescTreeNode VSAV_A_UNITS[] =

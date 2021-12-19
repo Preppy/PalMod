@@ -20,8 +20,6 @@ public:
     CGame_MVC2_D(UINT32 nConfirmedROMSize);
     ~CGame_MVC2_D();
 
-    //Vars used for extra processing
-    int nExtraAmt = 0;
     size_t nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
 
     //Static functions

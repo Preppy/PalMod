@@ -614,7 +614,7 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, size_t nUnitId)
             if (nDataSz != nExpectedSize)
             {
                 CString strError;
-                strError.Format(L"CGame_MVC2_D::LoadFile: Palette data size 0x%08x does not match with expected palette data size 0x%08x.  Failing file load.\n", nDataSz, nExpectedSize);
+                strError.Format(L"CGame_MVC2_D::LoadFile: Palette data size 0x%08x does not match with expected palette data size 0x%08x.  Failing file load for file ID 0x%02x.\n", nDataSz, nExpectedSize, nUnitId);
                 OutputDebugString(strError);
                 return FALSE;
             }

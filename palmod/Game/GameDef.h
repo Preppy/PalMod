@@ -158,6 +158,7 @@ enum SupportedGamesList
     MK2_SNES,
     SHAQFU_SNES,
     MVC2_D_16,
+    UMK3_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -312,6 +313,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Mortal Kombat II (SNES)",
     L"Shaq Fu (SNES)",
     L"MvC2 (Dreamcast Palette Expansion)",
+    L"Ultimate Mortal Kombat 3 (USA SNES)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

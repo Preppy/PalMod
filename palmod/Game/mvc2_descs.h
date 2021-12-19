@@ -3,6 +3,20 @@
 // This is converted from Eidrian's reference guide at:
 //    http://zachd.com/mvc2/colors/tools/Palette%20Variant%20Full.pdf
 
+// The core character palette section is from 0x00 to 0x07.
+// This is repeated for (number of color options) times.
+// There is then a 8 palette section for status effects: this is currently exposed for MVC2-A but not for MVC2-(console).
+// After that point, starting at 0x09, we begin the optional Extras section.
+// The Extras section is where palettes shared for all character colors are stored, as well as storage for palettes that
+// don't fit within the main 8 palette section. 
+
+// One useful implementation detail of our support for Extras files is that if you prefix the naming scheme of a per-color Extra
+// section with the button name plus " - " then PalMod will automatically link that set of per-color palettes up for multisprite export
+// as used in the Export Image dialog.  So a palette of form:
+//   "LP - foo"
+// will be presumed to have partner palette "LK - foo" and so forth.  We'll check the distance to "LK" (or appropriate partner) and 
+// then link the set if we have a base confirmation of the linked palettes.
+
 const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_RYU = // 00
 {
     { 0x00, L"Main Color" },

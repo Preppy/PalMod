@@ -115,6 +115,7 @@
 #include "Game_SVCPLUSA_A.h"
 #include "Game_TMNTTF_SNES.h"
 #include "Game_TopF2005_Sega.h"
+#include "Game_UMK3_SNES.h"
 #include "Game_UNICLR_A.h"
 #include "Game_Venture_A.h"
 #include "Game_Venture_A_DIR.h"
@@ -867,7 +868,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SHAQFU_SNES::GetRule;
         return TRUE;
     }
-
     case SPF2T_A:
     {
         GetRule = &CGame_SPF2T_A::GetRule;
@@ -901,6 +901,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case TOPF2005_SEGA:
     {
         GetRule = &CGame_TOPF2005_SEGA::GetRule;
+        return TRUE;
+    }
+    case UMK3_SNES:
+    {
+        GetRule = &CGame_UMK3_SNES::GetRule;
         return TRUE;
     }
     case UNICLR_A:
@@ -1473,6 +1478,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_TOPF2005_SEGA(nConfirmedROMSize);
     }    
+    case UMK3_SNES:
+    {
+        return new CGame_UMK3_SNES(nConfirmedROMSize);
+    }
     case UNICLR_A:
     {
         return new CGame_UNICLR_A(nConfirmedROMSize);

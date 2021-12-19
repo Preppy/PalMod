@@ -345,6 +345,7 @@
     <ClCompile Include="Game\Game_SVG_SNES.cpp" />
     <ClCompile Include="Game\Game_TMNTTF_SNES.cpp" />
     <ClCompile Include="Game\Game_TopF2005_Sega.cpp" />
+    <ClCompile Include="Game\Game_UMK3_SNES.cpp" />
     <ClCompile Include="Game\Game_UNICLR_A.cpp" />
     <ClCompile Include="Game\Game_Venture_A.cpp" />
     <ClCompile Include="Game\Game_Venture_A_DIR.cpp" />
@@ -529,6 +530,7 @@
     <ClInclude Include="Game\Game_SVG_SNES.h" />
     <ClInclude Include="Game\Game_TMNTTF_SNES.h" />
     <ClInclude Include="Game\Game_TopF2005_Sega.h" />
+    <ClInclude Include="Game\Game_UMK3_SNES.h" />
     <ClInclude Include="Game\Game_UNICLR_A.h" />
     <ClInclude Include="Game\Game_Venture_A.h" />
     <ClInclude Include="Game\Game_Venture_A_DIR.h" />
@@ -634,6 +636,7 @@
     <ClInclude Include="Game\SVG_SNES_DEF.h" />
     <ClInclude Include="Game\TMNTTF_SNES_DEF.h" />
     <ClInclude Include="Game\TopF2005_Sega_DEF.h" />
+    <ClInclude Include="Game\UMK3_SNES_DEF.h" />
     <ClInclude Include="Game\Venture_A_DEF.h" />
     <ClInclude Include="Game\VHUNT2_A_DEF.h" />
     <ClInclude Include="Game\VSAV2_A_DEF.h" />
