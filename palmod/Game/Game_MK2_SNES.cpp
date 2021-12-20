@@ -27,7 +27,7 @@ CGame_MK2_SNES::CGame_MK2_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = MK2_SNES_NUMUNIT;
     m_nExtraUnit = MK2_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 25;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 37;
     m_pszExtraFilename = EXTRA_FILENAME_MK2_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMK2;
 

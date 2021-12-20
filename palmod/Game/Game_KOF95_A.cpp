@@ -283,7 +283,7 @@ void CGame_KOF95_A::DumpPaletteHeaders()
                     }
                     break;
                 case 6:
-                    pszCurrentEffectName = L"Win Portrait?";
+                    pszCurrentEffectName = L"Win Portrait";
                     nTerminalOffset += (7 * KOF95_PALETTE_LENGTH);
                     pszCurrentImageSet = KOF95_A_CharacterEffectPalettes[nCharIndex].pszPortraitImageSet;
                     nCurrentImageIndex = 0x41;

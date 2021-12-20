@@ -203,11 +203,6 @@ void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgD
     //Set used
     bUsed[nIndex] = 1;
 
-    //rImgRct.SetRect(0, 0, 0, 0);
-
-    nXOffs = nImgAmt ? (nXOffs + (pImgBuffer[0]->uImgW / 2) - (uImgW / 2)) : 0;
-    nYOffs = nImgAmt ? (nYOffs + (pImgBuffer[0]->uImgH / 2) - (uImgH / 2)) : 0;
-
     if (nXOffs < rImgRct.left)
     {
         rImgRct.left = nXOffs;

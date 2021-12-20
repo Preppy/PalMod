@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "Game_MVC2_D.h"
 #include "mvc2_a_def.h"
+#include "..\PalMod.h"
 
 // This file handles the logic for pairing ( unit id :: palette id ) sets to the best preview we have, if any
 
@@ -296,61 +297,36 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 OutputDebugString(L"WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n");
             }
 
-            // Fudge some visual offsets here so fatter sprites don't collide.
-            int nXOffsetForSecond = 100;
-            int nYOffsetForSecond = 0;
-            int nXOffsetForThird = nXOffsetForSecond + 80;
-            int nYOffsetForThird = 0;
-
-            if (nJoinedUnit2 == indexMVC2ASentinel)
-            {
-                nXOffsetForSecond += 40;
-                nXOffsetForThird += 40;
-            }
-            else if (nJoinedUnit2 == indexMVC2AStrider)
-            {
-                nXOffsetForSecond += 280;
-                nXOffsetForThird += 80;
-            }
-            else if (nJoinedUnit2 == indexMVC2ADrDoom)
-            {
-                nXOffsetForSecond += 80;
-                nXOffsetForThird += 80;
-            }
-            else if (nJoinedUnit2 == indexMVC2AColossus)
-            {
-                nXOffsetForThird += 80;
-            }
-
-            if (nJoinedUnit3 == indexMVC2ASentinel)
-            {
-                nXOffsetForThird += 40;
-            }
-            else if (nJoinedUnit3 == indexMVC2ACaptainCommando)
-            {
-                nXOffsetForThird += 50;
-            }
-            else if (nJoinedUnit3 == indexMVC2AAkuma)
-            {
-                nXOffsetForThird += 20;
-            }
-
             size_t nNodeIndex = ((NodeGet->uPalId) % pCurrentButtonLabelSet.size());
             size_t nPaletteIndex = nNodeIndex * 8;  // this is 8 since we're dealing with base mvc2 character palettes
+
+            // Get the image dimensions so that we can collate them into one contiguous strip
+            std::array<sImgDef*, 3> pImgDefSet = {
+                                                GetHost()->GetImgFile()->GetImageDef(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex),
+                                                GetHost()->GetImgFile()->GetImageDef(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex),
+                                                GetHost()->GetImgFile()->GetImageDef(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex)
+            };
+
+            const int nXOffsetForFirst = 0;
+            const int nXOffsetForSecond = pImgDefSet[0]->uImgWidth;
+            const int nXOffsetForThird = pImgDefSet[0]->uImgWidth + pImgDefSet[1]->uImgWidth;
+
+            // Height is always 186, so we can't use image height to adjust positions: ignore Y for now.
 
             ClearSetImgTicket(
                 CreateImgTicket(nJoinedUnit1, k_nSpecialTeamSpriteImageIndex,
                     CreateImgTicket(nJoinedUnit2, k_nSpecialTeamSpriteImageIndex,
-                        CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex, nullptr, nXOffsetForThird, nYOffsetForThird),
-                        nXOffsetForSecond, nYOffsetForSecond)
+                        CreateImgTicket(nJoinedUnit3, k_nSpecialTeamSpriteImageIndex, nullptr, nXOffsetForThird),
+                        nXOffsetForSecond),
+                    nXOffsetForFirst
                 )
             );
 
             //Set each palette
             std::vector<sDescNode*> JoinedNode = {
-               GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1),
-               GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1),
-               GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1)
+                GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1),
+                GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1),
+                GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1)
             };
 
             //Set each palette
@@ -359,7 +335,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(JoinedNode[2], 2);
 
             nSrcAmt = _nCurrentTotalColorOptions;
-            nNodeIncrement = 8; // this is 8 since we're dealing with base mvc2 character palettes
+            nNodeIncrement = 8; // 8 palettes per main character color set
             SetSourcePal(0, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
             SetSourcePal(1, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
             SetSourcePal(2, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);

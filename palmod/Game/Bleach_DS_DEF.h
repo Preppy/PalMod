@@ -2933,7 +2933,7 @@ const sDescTreeNode BLEACH_DS_UNITS[] =
 
 constexpr auto BLEACH_DS_NUMUNIT = ARRAYSIZE(BLEACH_DS_UNITS);
 
-#define BLEACH_DS_EXTRALOC BLEACH_DS_NUMUNIT
+constexpr auto BLEACH_DS_EXTRALOC = BLEACH_DS_NUMUNIT;
 
 // We extend this array with data groveled from the extensible extras file, if any.
 const stExtraDef BLEACH_DS_EXTRA[] =

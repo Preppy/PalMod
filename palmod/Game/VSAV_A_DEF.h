@@ -4557,6 +4557,31 @@ const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_REDTHIRST_EX_PARTS[] =
     { L"SS.2.1.1", 0x22B2a, 0x22BCA },
 };
 
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_VANITY[] =
+{
+    { L"32BG.0.0.0", 0x59562, 0x596c2 },
+    { L"8BG.0.0.0", 0x37092, 0x371b2 },
+    { L"SS.1.0.1", 0x2050a, 0x2054a },
+    { L"16BG.0.0.1", 0x4711a, 0x4729a },
+    { L"16BG.0.0.2", 0x472ba, 0x4747a },
+    { L"SS.2.0.1", 0x2044a, 0x204aa },
+    { L"SS.2.0.2", 0x2054a, 0x2058A },
+    { L"SS.2.0.3", 0x204aa, 0x2050a },
+
+};
+
+const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_VANITY_EX[] =
+{
+    { L"32BG.0.0.0", 0x603C2, 0x60522 },
+    { L"8BG.0.0.0", 0x3C5B2, 0x3C6D2 },
+    { L"SS.1.0.1", 0x2202A, 0x2206A },
+    { L"16BG.0.0.1", 0x4CF1A, 0x4D09A },
+    { L"16BG.0.0.2", 0x4D0BA, 0x4D27A },
+    { L"SS.2.0.1", 0x21F6A, 0x21FCA },
+    { L"SS.2.0.2", 0x2206A, 0x220AA },
+    { L"SS.2.0.3", 0x21FCA, 0x2202A },
+};
+
 const sGame_PaletteDataset VSAV_A_STAGE_PALETTES_WARAGONY[] =
 {
     { L"8BG.0.0.0", 0x37492, 0x37652 },
@@ -4987,7 +5012,8 @@ const sDescTreeNode VSAV_A_STAGE_COLLECTION[] =
 
     // Tower of Arrogance
 
-    // Vanity Paradise
+    { L"Vanity Paradise",                           DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_VANITY, ARRAYSIZE(VSAV_A_STAGE_PALETTES_VANITY) },
+    { L"EX Vanity Paradise",                        DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_VANITY_EX, ARRAYSIZE(VSAV_A_STAGE_PALETTES_VANITY_EX) },
 
     { L"War Agony",                                 DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_WARAGONY, ARRAYSIZE(VSAV_A_STAGE_PALETTES_WARAGONY) },
     { L"War Agony: Animation palettes",             DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_PALETTES_WARAGONY_PARTS, ARRAYSIZE(VSAV_A_STAGE_PALETTES_WARAGONY_PARTS) },

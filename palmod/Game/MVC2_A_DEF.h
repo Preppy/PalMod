@@ -801,7 +801,7 @@ const sDescTreeNode MVC2_A_ANAKARIS_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x2a2c5e0, 0x2a2c600, indexCPS2Sprites_Strider, 0, &pairFullyLinkedNode },
+    { L"Main Color LP", 0x2a2c5e0, 0x2a2c600, indexCPS2Sprites_Strider, 0, &pairNextAndNext },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2c600, 0x2a2c620, indexCPS2Sprites_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2c620, 0x2a2c640, indexCPS2Sprites_Strider, 2 },
     { L"(04) Not Used", 0x2a2c640, 0x2a2c660, indexCPS2Sprites_Strider, 3 },
@@ -813,7 +813,7 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x2a2c6e0, 0x2a2c700, indexCPS2Sprites_Strider, 0, &pairFullyLinkedNode },
+    { L"Main Color LK", 0x2a2c6e0, 0x2a2c700, indexCPS2Sprites_Strider, 0, &pairNextAndNext },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2c700, 0x2a2c720, indexCPS2Sprites_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2c720, 0x2a2c740, indexCPS2Sprites_Strider, 2 },
     { L"(04) Not Used", 0x2a2c740, 0x2a2c760, indexCPS2Sprites_Strider, 3 },
@@ -825,7 +825,7 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x2a2c7e0, 0x2a2c800, indexCPS2Sprites_Strider, 0, &pairFullyLinkedNode },
+    { L"Main Color HP", 0x2a2c7e0, 0x2a2c800, indexCPS2Sprites_Strider, 0, &pairNextAndNext },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2c800, 0x2a2c820, indexCPS2Sprites_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2c820, 0x2a2c840, indexCPS2Sprites_Strider, 2 },
     { L"(04) Not Used", 0x2a2c840, 0x2a2c860, indexCPS2Sprites_Strider, 3 },
@@ -837,7 +837,7 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x2a2c8e0, 0x2a2c900, indexCPS2Sprites_Strider, 0, &pairFullyLinkedNode },
+    { L"Main Color HK", 0x2a2c8e0, 0x2a2c900, indexCPS2Sprites_Strider, 0, &pairNextAndNext },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2c900, 0x2a2c920, indexCPS2Sprites_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2c920, 0x2a2c940, indexCPS2Sprites_Strider, 2 },
     { L"(04) Not Used", 0x2a2c940, 0x2a2c960, indexCPS2Sprites_Strider, 3 },
@@ -849,7 +849,7 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x2a2c9e0, 0x2a2ca00, indexCPS2Sprites_Strider, 0, &pairFullyLinkedNode },
+    { L"Main Color A1", 0x2a2c9e0, 0x2a2ca00, indexCPS2Sprites_Strider, 0, &pairNextAndNext },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2ca00, 0x2a2ca20, indexCPS2Sprites_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2ca20, 0x2a2ca40, indexCPS2Sprites_Strider, 2 },
     { L"(04) Not Used", 0x2a2ca40, 0x2a2ca60, indexCPS2Sprites_Strider, 3 },
@@ -861,7 +861,7 @@ const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_STRIDER_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x2a2cae0, 0x2a2cb00, indexCPS2Sprites_Strider, 0, &pairFullyLinkedNode },
+    { L"Main Color A2", 0x2a2cae0, 0x2a2cb00, indexCPS2Sprites_Strider, 0, &pairNextAndNext },
     { L"(02) ID:01-06 Ouroboros (orbs)/Teleport Kick/Sword Swing ID: 07-12 Sword Swing (Outline) ID: 13-15 Not used", 0x2a2cb00, 0x2a2cb20, indexCPS2Sprites_Strider, 1 },
     { L"(03) ID:02-08 Ouroboros (Robot)/ Eagle(body) / Tiger (body) ID: 09-12: Ouroboros (Middle Line) / Eagle (claws/peak/wing) / Tiger (eye) ID: 13-15 Not used", 0x2a2cb20, 0x2a2cb40, indexCPS2Sprites_Strider, 2 },
     { L"(04) Not Used", 0x2a2cb40, 0x2a2cb60, indexCPS2Sprites_Strider, 3 },
@@ -2320,7 +2320,7 @@ const sDescTreeNode MVC2_A_DRDOOM_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x35175c0, 0x35175e0, indexCPS2Sprites_Tron, 0, &pairHandledInCode },
+    { L"Main Color LP", 0x35175c0, 0x35175e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
     { L"(02) Tron Bonne (girl)", 0x35175e0, 0x3517600, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517600, 0x3517620, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517620, 0x3517640, indexCPS2Sprites_Tron, 3 },
@@ -2332,7 +2332,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x35176c0, 0x35176e0, indexCPS2Sprites_Tron, 0, &pairHandledInCode },
+    { L"Main Color LK", 0x35176c0, 0x35176e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
     { L"(02) Tron Bonne (girl)", 0x35176e0, 0x3517700, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517700, 0x3517720, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517720, 0x3517740, indexCPS2Sprites_Tron, 3 },
@@ -2344,7 +2344,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x35177c0, 0x35177e0, indexCPS2Sprites_Tron, 0, &pairHandledInCode },
+    { L"Main Color HP", 0x35177c0, 0x35177e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
     { L"(02) Tron Bonne (girl)", 0x35177e0, 0x3517800, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517800, 0x3517820, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517820, 0x3517840, indexCPS2Sprites_Tron, 3 },
@@ -2356,7 +2356,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x35178c0, 0x35178e0, indexCPS2Sprites_Tron, 0, &pairHandledInCode },
+    { L"Main Color HK", 0x35178c0, 0x35178e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
     { L"(02) Tron Bonne (girl)", 0x35178e0, 0x3517900, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517900, 0x3517920, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517920, 0x3517940, indexCPS2Sprites_Tron, 3 },
@@ -2368,7 +2368,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x35179c0, 0x35179e0, indexCPS2Sprites_Tron, 0, &pairHandledInCode },
+    { L"Main Color A1", 0x35179c0, 0x35179e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
     { L"(02) Tron Bonne (girl)", 0x35179e0, 0x3517a00, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517a00, 0x3517a20, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517a20, 0x3517a40, indexCPS2Sprites_Tron, 3 },
@@ -2380,7 +2380,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x3517ac0, 0x3517ae0, indexCPS2Sprites_Tron, 0, &pairHandledInCode },
+    { L"Main Color A2", 0x3517ac0, 0x3517ae0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
     { L"(02) Tron Bonne (girl)", 0x3517ae0, 0x3517b00, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517b00, 0x3517b20, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517b20, 0x3517b40, indexCPS2Sprites_Tron, 3 },
@@ -7999,7 +7999,7 @@ const sDescTreeNode MVC2_A_IRONMAN_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x545e420, 0x545e440, indexCPS2Sprites_Sentinel, 0, &pairHandledInCode },
+    { L"Main Color LP", 0x545e420, 0x545e440, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
     { L"(02) Drones (bombs) / Guts", 0x545e440, 0x545e460, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e460, 0x545e480, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e480, 0x545e4a0, indexCPS2Sprites_Sentinel, 3 },
@@ -8011,7 +8011,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x545e520, 0x545e540, indexCPS2Sprites_Sentinel, 0, &pairHandledInCode },
+    { L"Main Color LK", 0x545e520, 0x545e540, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
     { L"(02) Drones (bombs) / Guts", 0x545e540, 0x545e560, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e560, 0x545e580, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e580, 0x545e5a0, indexCPS2Sprites_Sentinel, 3 },
@@ -8023,7 +8023,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x545e620, 0x545e640, indexCPS2Sprites_Sentinel, 0, &pairHandledInCode },
+    { L"Main Color HP", 0x545e620, 0x545e640, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
     { L"(02) Drones (bombs) / Guts", 0x545e640, 0x545e660, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e660, 0x545e680, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e680, 0x545e6a0, indexCPS2Sprites_Sentinel, 3 },
@@ -8035,7 +8035,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x545e720, 0x545e740, indexCPS2Sprites_Sentinel, 0, &pairHandledInCode },
+    { L"Main Color HK", 0x545e720, 0x545e740, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
     { L"(02) Drones (bombs) / Guts", 0x545e740, 0x545e760, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e760, 0x545e780, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e780, 0x545e7a0, indexCPS2Sprites_Sentinel, 3 },
@@ -8047,7 +8047,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x545e820, 0x545e840, indexCPS2Sprites_Sentinel, 0, &pairHandledInCode },
+    { L"Main Color A1", 0x545e820, 0x545e840, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
     { L"(02) Drones (bombs) / Guts", 0x545e840, 0x545e860, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e860, 0x545e880, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e880, 0x545e8a0, indexCPS2Sprites_Sentinel, 3 },
@@ -8059,7 +8059,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x545e920, 0x545e940, indexCPS2Sprites_Sentinel, 0, &pairHandledInCode },
+    { L"Main Color A2", 0x545e920, 0x545e940, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
     { L"(02) Drones (bombs) / Guts", 0x545e940, 0x545e960, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e960, 0x545e980, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e980, 0x545e9a0, indexCPS2Sprites_Sentinel, 3 },
