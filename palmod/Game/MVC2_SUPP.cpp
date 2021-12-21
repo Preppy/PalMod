@@ -543,12 +543,13 @@ namespace MVC2_SupplementProcessing
     #endif                
 
                         // Unless we get told otherwise, we do a copy first and then worry about modifying values.
-                        if (index_data != SUPP_NODE_NOCOPY)
+                        if ((index_data & SUPP_NODE_NOCOPY) != SUPP_NODE_NOCOPY)
                         {
                             if (shouldProcessEffectsForThisNode)
                             {
                                 if (VerifyWriteIsSafe(char_no, copy_dst + copy_amt))
                                 {
+                                    OutputDebugString(L"\t\tproc_supp: SUPP_NODE_NOCOPY not specified: copying over entire palette first\n");
                                     nTotalLinkedPalettesUpdated += supp_copy_index(char_no, source_palette, destination_palette, copy_dst, copy_start, copy_amt);
                                 }
                             }

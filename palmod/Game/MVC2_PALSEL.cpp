@@ -274,8 +274,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             UINT16 nJoinedUnit2 = indexMVC2AStorm;
             UINT16 nJoinedUnit3 = indexMVC2APsylocke;
             bool fTeamFound = false;
-            size_t nSrcAmt = 1;
-            int nNodeIncrement = 1;
 
             UINT16 nTeamViewNode = (UINT16)floor(NodeGet->uPalId / (UINT16)pCurrentButtonLabelSet.size());
             const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
@@ -334,8 +332,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(JoinedNode[1], 1);
             CreateDefPal(JoinedNode[2], 2);
 
-            nSrcAmt = _nCurrentTotalColorOptions;
-            nNodeIncrement = 8; // 8 palettes per main character color set
+            size_t nSrcAmt = _nCurrentTotalColorOptions;
+            int nNodeIncrement = 8; // 8 palettes per main character color set
             SetSourcePal(0, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
             SetSourcePal(1, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
             SetSourcePal(2, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);

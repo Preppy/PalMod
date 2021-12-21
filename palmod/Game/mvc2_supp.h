@@ -444,10 +444,10 @@ namespace MVC2_SupplementProcessing
 
         0x22 | SUPP_START, // Sakura - indexCPS2Sprites_Sakura 0x22
             //Kei should have the same outfit
-            SUPP_NODE, 0x11, 2,
+            SUPP_NODE | SUPP_NODE_NOCOPY, 0x11, 2,
                 MOD_COPY, 10, 6, 10,
             // Likewise with Evil Sakura
-            SUPP_NODE, 0x1d, 1,
+            SUPP_NODE | SUPP_NODE_NOCOPY, 0x1d, 1,
                 MOD_COPY, 10, 6, 10,
 
         0x24 | SUPP_START, //Cammy
@@ -1322,10 +1322,10 @@ namespace MVC2_SupplementProcessing
 
         0x22 | SUPP_START, // Sakura - indexCPS2Sprites_Sakura 0x22
             //Kei should have the same outfit
-            SUPP_NODE, 0x11, 2,
+            SUPP_NODE | SUPP_NODE_NOCOPY, 0x11, 2,
                 MOD_COPY, 10, 6, 10,
             // Likewise with Evil Sakura
-            SUPP_NODE, 0x31, 1,
+            SUPP_NODE | SUPP_NODE_NOCOPY, 0x31, 1,
                 MOD_COPY, 10, 6, 10,
 
         0x24 | SUPP_START, //Cammy
