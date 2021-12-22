@@ -307,12 +307,11 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             }
             else
             {
-                int nStart = rgExtraChrLoc[iUnitCtr] + 1 + 7;
+                int nExtraIndex = rgExtraChrLoc[iUnitCtr] + 1 + 7;
                 int nExtraCtr = 0;
                 int nRangeAmt = 0;
-                int i = 0;
 
-                UINT16* pCurrVal = const_cast<UINT16*>(&pCurrentExtrasLayout[nStart]);
+                UINT16* pCurrVal = const_cast<UINT16*>(&pCurrentExtrasLayout[nExtraIndex]);
                 std::vector<sMoveDescription> CurrentMoveDescriptionSet = pCurrentMoveDescriptions[iUnitCtr];
 
                 while ((pCurrVal[0] & 0x0F00) != EXTRA_START)
@@ -354,9 +353,9 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 
                     }
 
-                    i += 2;
+                    nExtraIndex += 2;
 
-                    pCurrVal = const_cast<UINT16*>(&pCurrentExtrasLayout[nStart + i]);
+                    pCurrVal = const_cast<UINT16*>(&pCurrentExtrasLayout[nExtraIndex]);
                 }
             }
         }
@@ -751,7 +750,7 @@ void CGame_MVC2_D::PostSetPal(size_t nUnitId, size_t nPalId)
     size_t nBasicOffset = GetBasicOffset(nPalId);
 
     CString strMessage;
-    strMessage.Format(L"CGame_MVC2_D::GetBasicOffset : Palette %u was updated.  This palette is %s.  Checking for secondary palettes...\n", nPalId, (nBasicOffset != -1) ? L"basic" : L"Extra");
+    strMessage.Format(L"CGame_MVC2_D::GetBasicOffset : Palette 0x%x was updated.  This palette is %s.  Checking for secondary palettes...\n", nPalId, (nBasicOffset != -1) ? L"basic" : L"Extra");
     OutputDebugString(strMessage);
 
     MVC2_SupplementProcessing::proc_supp(nUnitId, nPalId);
@@ -762,6 +761,7 @@ LPCWSTR CGame_MVC2_D::GetGameName()
     if (k_mvc2_character_coloroption_count == 6)
     {
         return L"MvC2 (Dreamcast)";
+
     }
     else
     {

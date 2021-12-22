@@ -14,8 +14,7 @@ namespace MVC2_SupplementProcessing
 {
     UINT8** _mvc2_dreamcast_data = nullptr;
     UINT16*** _mvc2_arcade_data = nullptr;
-    int rgSuppLoc[MVC2_D_NUMUNIT] = {};
-    std::vector<UINT16> mvc2_supp_const;
+    std::vector<std::vector<UINT16>> mvc2_supp_const;
 
     CGame_MVC2_D* CurrMVC2 = nullptr;
     CGame_MVC2_A* CurrMVC2_Arcade = nullptr;
@@ -46,20 +45,6 @@ namespace MVC2_SupplementProcessing
         else
         {
             mvc2_supp_const = mvc2_16color_supp_const;
-        }
-
-        //0 each location
-        memset(rgSuppLoc, 0, sizeof(int) * MVC2_D_NUMUNIT);
-
-        while (mvc2_supp_const[nIndexCtr] != SUPP_END)
-        {
-            if ((mvc2_supp_const[nIndexCtr] & 0xFF00) == SUPP_START)
-            {
-                const UINT8 nArrayIndex = mvc2_supp_const[nIndexCtr] & 0x00FF;
-                rgSuppLoc[nArrayIndex] = nIndexCtr;
-            }
-
-            nIndexCtr++;
         }
 
         if (forDreamcast)
@@ -353,15 +338,11 @@ namespace MVC2_SupplementProcessing
         int nBisonCammyPalettesUpdated = HandleCammyBisonCopies(char_no, pal_no);
         int nSpiralPalettesUpdated = HandleSpiralCopies(char_no, pal_no);
 
-        if (rgSuppLoc[char_no])
+        if (!mvc2_supp_const[char_no].empty())
         {
-            BOOL isCurrentPaletteABasicPalette = FALSE, isCurrentPaletteAnExtraPalette = FALSE;
-
             // Load the supplemental data for this character
-            UINT16* supplementalEffectsData = const_cast<UINT16*>(&mvc2_supp_const[rgSuppLoc[char_no]]);
-            UINT16 indexCounterForEffects = 1; //1 to skip the count
-
-            UINT16 index_sz = supplementalEffectsData[0];
+            std::vector<UINT16> supplementalEffectsData = mvc2_supp_const[char_no];
+            UINT16 indexCounterForEffects = 1; // 1 to skip the character id
 
             //SUPP_NODE
             // Node_start: offset within the palette set.
@@ -369,24 +350,23 @@ namespace MVC2_SupplementProcessing
                 // Consider an animation comprised of three sprites: you would want to increment three sprites further 
             // Base_Start: which palette to be copying from if it isn't the main BUTTON palette
             // Base_inc: the number of palettes to increment on the copy side.
-            UINT16 node_start = 0, node_inc = 0, base_start = 0, base_inc = 1;
 
-            //Check to see if we are modifying any basic palettes
-            UINT16 index_data = supplementalEffectsData[indexCounterForEffects];
-
-            while ((index_data & 0xF000) != SUPP_START) // SUPP_START marks the beginning of the next character
+            while (indexCounterForEffects < supplementalEffectsData.size())
             {
-                isCurrentPaletteABasicPalette = FALSE;
-                isCurrentPaletteAnExtraPalette = FALSE;
+                UINT16 node_start = 0, node_inc = 0, base_start = 0, base_inc = 1;
+                UINT16 effect_node_type = supplementalEffectsData[indexCounterForEffects];
+
+                BOOL isCurrentPaletteABasicPalette = FALSE;
+                BOOL isCurrentPaletteAnExtraPalette = FALSE;
 
                 // If the current position is SUPP_NODE or SUPP_NODE_*, that indicates the beginning of a new modifier array
                     //Possible sources = SUPP_NODE, SUPP_NODE_EX, SUPP_NODE_ABSOL, SUPP_NODE_EX | SUPP_NODE_NOCOPY, SUPP_NODE_EX | SUPP_NODE_ABSOL
-                if ((index_data & 0xF000) == SUPP_NODE) //&& indexCounterForEffects < index_sz)
+
+                UINT8 add = 3; // minimum count of data provided for a SUPP_NODE entry
+
+                if ((effect_node_type & SUPP_NODE) == SUPP_NODE) //&& indexCounterForEffects < index_sz)
                 {
                     OutputDebugString(L"\t\tproc_supp: New modification node encountered\n");
-
-                    //Fix later
-                    UINT8 add = 3; //count of data provided for a SUPP_NODE entry, which is the minimum.
 
                     UINT16 in_start = supplementalEffectsData[indexCounterForEffects + 1];
 
@@ -404,7 +384,7 @@ namespace MVC2_SupplementProcessing
                     //Set the source palette
                     size_t source_palette = pal_no;
 
-                    if ((index_data & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
+                    if ((effect_node_type & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
                     {
                         // SUPP_NODE_ABSOL adds two values: the first is the palette to copy from, and the second is the incrementation value
                         base_start = supplementalEffectsData[indexCounterForEffects + 3];
@@ -423,7 +403,7 @@ namespace MVC2_SupplementProcessing
                         /*
                         if ((pal_no / base_inc) < k_mvc2_character_coloroption_count && pal_no - ((pal_no / base_inc) * base_inc) == base_start)
                             isCurrentPaletteAnExtraPalette = TRUE;
-                        else if ((index_data & SUPP_NODE_NOCOPY) == SUPP_NODE_NOCOPY)
+                        else if ((effect_node_type & SUPP_NODE_NOCOPY) == SUPP_NODE_NOCOPY)
                         {
                             isCurrentPaletteAnExtraPalette = TRUE;
                         }
@@ -437,7 +417,7 @@ namespace MVC2_SupplementProcessing
                         base_inc = 8; // increment is one character set of 8 palettes
                     }
 
-                    bool thisNodeForExtraPalettesOnly = ((index_data & EXTRA_NODE_ONLY) == EXTRA_NODE_ONLY);
+                    bool thisNodeForExtraPalettesOnly = ((effect_node_type & EXTRA_NODE_ONLY) == EXTRA_NODE_ONLY);
 
                     // Ensure that this palette comes from one of the first BUTTON_COUNT * NORMAL_PALETTE_COUNT (8 *k_mvc2_character_coloroption_count)
                     if ((pal_no / 8) < k_mvc2_character_coloroption_count && (pal_no % 8) == 0)
@@ -464,7 +444,7 @@ namespace MVC2_SupplementProcessing
                         pal_ctr = (UINT8)(pal_no / base_inc);
                         destination_palette = node_start + (node_inc * pal_ctr);
 
-                        if ((index_data & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
+                        if ((effect_node_type & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
                         {
                             //Set the absolute source palette
                             source_palette = base_start + (base_inc * pal_ctr);
@@ -487,7 +467,7 @@ namespace MVC2_SupplementProcessing
 
                         destination_palette = node_start + (node_inc * pal_ctr);
 
-                        if ((index_data & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
+                        if ((effect_node_type & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
                         {
                             //Set the absolute source palette
                             source_palette = base_start + (base_inc * pal_ctr);
@@ -501,26 +481,26 @@ namespace MVC2_SupplementProcessing
                         }
                     }
 
-                    //Set the counter past the indexes into the actual actions and reset the step counter
-                    indexCounterForEffects += add;
+                    UINT16 indexCounterForOptionalModifiers = indexCounterForEffects + add;
                     add = 0;
 
-                    if ((index_data & SUPP_NODE_EX) == SUPP_NODE_EX)
+                    if ((effect_node_type & SUPP_NODE_EX) == SUPP_NODE_EX)
                     {
                         add = 3;
                     }
 
                     //if (isCurrentPaletteABasicPalette)
                     {
-                        int copy_start = 0;
+                        // By default skip the transparency color but copy the entire palette
+                        int copy_start = 1;
+                        int copy_dst = 1;
                         int copy_amt = 15;
-                        int copy_dst = 0;
 
-                        if ((index_data & SUPP_NODE_EX) == SUPP_NODE_EX)
+                        if ((effect_node_type & SUPP_NODE_EX) == SUPP_NODE_EX)
                         {
-                            copy_start = supplementalEffectsData[indexCounterForEffects + 0];
-                            copy_amt = supplementalEffectsData[indexCounterForEffects + 1];
-                            copy_dst = supplementalEffectsData[indexCounterForEffects + 2];
+                            copy_start = supplementalEffectsData[indexCounterForOptionalModifiers + 0];
+                            copy_amt = supplementalEffectsData[indexCounterForOptionalModifiers + 1];
+                            copy_dst = supplementalEffectsData[indexCounterForOptionalModifiers + 2];
                         }
 
                         if (shouldProcessEffectsForThisNode)
@@ -543,7 +523,7 @@ namespace MVC2_SupplementProcessing
     #endif                
 
                         // Unless we get told otherwise, we do a copy first and then worry about modifying values.
-                        if ((index_data & SUPP_NODE_NOCOPY) != SUPP_NODE_NOCOPY)
+                        if ((effect_node_type & SUPP_NODE_NOCOPY) != SUPP_NODE_NOCOPY)
                         {
                             if (shouldProcessEffectsForThisNode)
                             {
@@ -555,29 +535,22 @@ namespace MVC2_SupplementProcessing
                             }
                         }
 
-                        indexCounterForEffects += add;
-                        index_data = supplementalEffectsData[indexCounterForEffects];
+                        indexCounterForEffects = indexCounterForOptionalModifiers + add;
+                        add = 0;
 
-                        int iNodeBeingProcessed = 0x0;
-
-                        while (((index_data & 0xF000) != SUPP_NODE) && ((index_data & 0xF000) != SUPP_START))
+                        while ((indexCounterForEffects < supplementalEffectsData.size()) &&
+                                ((supplementalEffectsData[indexCounterForEffects] & SUPP_NODE) != SUPP_NODE))
                         {
                             if (shouldProcessEffectsForThisNode)
                             {
                                 OutputDebugString(L"\t\tproc_supp: Processing FX for this node\n");
                             }
 
-                            if (iNodeBeingProcessed > 200)
-                            {
-                                // This character node is corrupt and needs to be fixed.
-                                DebugBreak();
-                            }
-
                             //pi = palette index - value should be from 0-15.
                             UINT8 pi_start = (UINT8)supplementalEffectsData[indexCounterForEffects + 1];
                             UINT8 pi_amt = (UINT8)supplementalEffectsData[indexCounterForEffects + 2];
 
-                            switch (index_data)
+                            switch (supplementalEffectsData[indexCounterForEffects])
                             {
                             case MOD_TINT:
                             {
@@ -627,11 +600,11 @@ namespace MVC2_SupplementProcessing
                                 break;
                             }
                             }
-
-                            index_data = supplementalEffectsData[indexCounterForEffects];
                         }
                     }
                 }
+
+                indexCounterForEffects += add;
             }
 
             // We catch indirectly updated palettes here.

@@ -37,3 +37,8 @@ sFileRule CGame_MVC2_P::GetNextRule()
 
     return NewFileRule;
 }
+
+LPCWSTR CGame_MVC2_P::GetGameName()
+{
+    return L"MvC2 (Playstation 2)";
+}
