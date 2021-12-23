@@ -83,6 +83,9 @@ const std::vector<UINT16> KOF97_A_IMGIDS_USED =
     indexKOF97Sprites_Yuri,             // 0x2B5
     indexKOF97Sprites_Bonus,         // 0x1F0
     indexKOF97Sprites_Stages,        // 0x1F1
+
+    indexKOF99Sprites_K,            // 0x18d
+    indexKOF99Sprites_Kasumi,       // 0x18e
 }; 
 
 const sGame_PaletteDataset KOF97_A_EFFECTS_PALETTES[] =
@@ -3324,7 +3327,6 @@ const sGame_PaletteDataset KOF97_A_OROCHICHRIS_EFFECT_PALETTES[] =
     { L"Effect 10", 0x2e7d30, 0x2e7d50 },
 };
 
-
 const sGame_PaletteDataset KOF97_A_OROCHI_SHARED_PALETTES[] =
 {
     { L"Orochi Shared Flash 1", 0x2ff9f0, 0x2ffa10, indexKOF97Sprites_Orochi },
@@ -3344,6 +3346,197 @@ const sGame_PaletteDataset KOF97_A_OROCHI_SHARED_PALETTES[] =
     { L"Orochi Shared Flash 15", 0x2ffbb0, 0x2ffbd0, indexKOF97Sprites_Orochi },
     { L"Orochi Shared Flash 16", 0x2ffbd0, 0x2ffbf0, indexKOF97Sprites_Orochi },
 };
+
+#pragma region KOF97AE_Exclusive_Characters
+
+const sGame_PaletteDataset KOF97AE_A_K_PALETTES_A[] =
+{
+    { L"K' Advanced A - Main", 0x2dfff0, 0x2e0010, indexKOF99Sprites_K },
+    { L"K' Advanced A - Extra 1", 0x2e0010, 0x2e0030, indexKOF99Sprites_K },
+    { L"K' Advanced A - Extra 2", 0x2e0030, 0x2e0050, indexKOF99Sprites_K },
+    { L"K' Advanced A - Max Mode", 0x2e0050, 0x2e0070, indexKOF99Sprites_K },
+    { L"K' Advanced A - Extra 4", 0x2e0070, 0x2e0090, indexKOF99Sprites_K },
+    { L"K' Advanced A - Extra 5", 0x2e0090, 0x2e00b0, indexKOF99Sprites_K },
+    { L"K' Advanced A - Super Trail", 0x2e00b0, 0x2e00d0, indexKOF99Sprites_K },
+    { L"K' Advanced A - Extra 7", 0x2e00d0, 0x2e00f0, indexKOF99Sprites_K },
+    { L"K' Advanced A - Extra 8", 0x2e00f0, 0x2e0110, indexKOF99Sprites_K },
+    { L"K' Advanced A - Electric Palette", 0x2e0110, 0x2e0130, indexKOF99Sprites_K },
+    { L"K' Advanced A - Extra 10", 0x2e0130, 0x2e0150, indexKOF99Sprites_K },
+    { L"K' Advanced A - Extra 11", 0x2e0150, 0x2e0170, indexKOF99Sprites_K },
+    { L"K' Advanced A - Extra 12", 0x2e0170, 0x2e0190, indexKOF99Sprites_K },
+    { L"K' Advanced A - Extra 13", 0x2e0190, 0x2e01b0 },
+    { L"K' Advanced A - Character Select/Win Assist Portrait", 0x2e01b0, 0x2e01d0 },
+    { L"K' Advanced A - Lifebar Portrait", 0x2e01d0, 0x2e01f0 },
+    { L"K' Advanced A - Win Portrait", 0x2f1110, 0x2f1150 },
+};
+
+const sGame_PaletteDataset KOF97AE_A_K_PALETTES_B[] =
+{
+    { L"K' Advanced D - Main", 0x2e01f0, 0x2e0210, indexKOF99Sprites_K },
+    { L"K' Advanced D - Extra 1", 0x2e0210, 0x2e0230, indexKOF99Sprites_K },
+    { L"K' Advanced D - Extra 2", 0x2e0230, 0x2e0250, indexKOF99Sprites_K },
+    { L"K' Advanced D - Max Mode", 0x2e0250, 0x2e0270, indexKOF99Sprites_K },
+    { L"K' Advanced D - Extra 4", 0x2e0270, 0x2e0290, indexKOF99Sprites_K },
+    { L"K' Advanced D - Extra 5", 0x2e0290, 0x2e02b0, indexKOF99Sprites_K },
+    { L"K' Advanced D - Super Trail", 0x2e02b0, 0x2e02d0, indexKOF99Sprites_K },
+    { L"K' Advanced D - Extra 7", 0x2e02d0, 0x2e02f0, indexKOF99Sprites_K },
+    { L"K' Advanced D - Extra 8", 0x2e02f0, 0x2e0310, indexKOF99Sprites_K },
+    { L"K' Advanced D - Electric Palette", 0x2e0310, 0x2e0330, indexKOF99Sprites_K },
+    { L"K' Advanced D - Extra 10", 0x2e0330, 0x2e0350, indexKOF99Sprites_K },
+    { L"K' Advanced D - Extra 11", 0x2e0350, 0x2e0370, indexKOF99Sprites_K },
+    { L"K' Advanced D - Extra 12", 0x2e0370, 0x2e0390, indexKOF99Sprites_K },
+    { L"K' Advanced D - Extra 13", 0x2e0390, 0x2e03b0 },
+    { L"K' Advanced D - Character Select/Win Assist Portrait", 0x2e03b0, 0x2e03d0 },
+    { L"K' Advanced D - Lifebar Portrait", 0x2e03d0, 0x2e03f0 },
+    { L"K' Advanced D - Win Portrait", 0x2f1150, 0x2f1190 },
+};
+
+const sGame_PaletteDataset KOF97AE_A_K_PALETTES_C[] =
+{
+    { L"K' Extra A - Main", 0x2e03f0, 0x2e0410, indexKOF99Sprites_K },
+    { L"K' Extra A - Extra 1", 0x2e0410, 0x2e0430, indexKOF99Sprites_K },
+    { L"K' Extra A - Extra 2", 0x2e0430, 0x2e0450, indexKOF99Sprites_K },
+    { L"K' Extra A - Max Mode", 0x2e0450, 0x2e0470, indexKOF99Sprites_K },
+    { L"K' Extra A - Extra 4", 0x2e0470, 0x2e0490, indexKOF99Sprites_K },
+    { L"K' Extra A - Extra 5", 0x2e0490, 0x2e04b0, indexKOF99Sprites_K },
+    { L"K' Extra A - Super Trail", 0x2e04b0, 0x2e04d0, indexKOF99Sprites_K },
+    { L"K' Extra A - Extra 7", 0x2e04d0, 0x2e04f0, indexKOF99Sprites_K },
+    { L"K' Extra A - Extra 8", 0x2e04f0, 0x2e0510, indexKOF99Sprites_K },
+    { L"K' Extra A - Electric Palette", 0x2e0510, 0x2e0530, indexKOF99Sprites_K },
+    { L"K' Extra A - Extra 10", 0x2e0530, 0x2e0550, indexKOF99Sprites_K },
+    { L"K' Extra A - Extra 11", 0x2e0550, 0x2e0570, indexKOF99Sprites_K },
+    { L"K' Extra A - Extra 12", 0x2e0570, 0x2e0590, indexKOF99Sprites_K },
+    { L"K' Extra A - Extra 13", 0x2e0590, 0x2e05b0 },
+    { L"K' Extra A - Character Select/Win Assist Portrait", 0x2e05b0, 0x2e05d0 },
+    { L"K' Extra A - Lifebar Portrait", 0x2e05d0, 0x2e05f0 },
+    { L"K' Extra A - Win Portrait", 0x2f1190, 0x2f11d0 },
+};
+
+const sGame_PaletteDataset KOF97AE_A_K_PALETTES_D[] =
+{
+    { L"K' Extra D - Main", 0x2e05f0, 0x2e0610, indexKOF99Sprites_K },
+    { L"K' Extra D - Extra 1", 0x2e0610, 0x2e0630, indexKOF99Sprites_K },
+    { L"K' Extra D - Extra 2", 0x2e0630, 0x2e0650, indexKOF99Sprites_K },
+    { L"K' Extra D - Max Mode", 0x2e0650, 0x2e0670, indexKOF99Sprites_K },
+    { L"K' Extra D - Extra 4", 0x2e0670, 0x2e0690, indexKOF99Sprites_K },
+    { L"K' Extra D - Extra 5", 0x2e0690, 0x2e06b0, indexKOF99Sprites_K },
+    { L"K' Extra D - Super Trail", 0x2e06b0, 0x2e06d0, indexKOF99Sprites_K },
+    { L"K' Extra D - Extra 7", 0x2e06d0, 0x2e06f0, indexKOF99Sprites_K },
+    { L"K' Extra D - Extra 8", 0x2e06f0, 0x2e0710, indexKOF99Sprites_K },
+    { L"K' Extra D - Electric Palette", 0x2e0710, 0x2e0730, indexKOF99Sprites_K },
+    { L"K' Extra D - Extra 10", 0x2e0730, 0x2e0750, indexKOF99Sprites_K },
+    { L"K' Extra D - Extra 11", 0x2e0750, 0x2e0770, indexKOF99Sprites_K },
+    { L"K' Extra D - Extra 12", 0x2e0770, 0x2e0790, indexKOF99Sprites_K },
+    { L"K' Extra D - Extra 13", 0x2e0790, 0x2e07b0 },
+    { L"K' Extra D - Character Select/Win Assist Portrait", 0x2e07b0, 0x2e07d0 },
+    { L"K' Extra D - Lifebar Portrait", 0x2e07d0, 0x2e07f0 },
+    { L"K' Extra D - Win Portrait", 0x2f11d0, 0x2f1210 },
+};
+
+const sGame_PaletteDataset KOF97AE_A_KASUMI_PALETTES_A[] =
+{
+    { L"Kasumi Advanced A - Main", 0x2e07f0, 0x2e0810, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Extra 1", 0x2e0810, 0x2e0830, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Extra 2", 0x2e0830, 0x2e0850, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Max Mode", 0x2e0850, 0x2e0870, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Extra 4", 0x2e0870, 0x2e0890, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Extra 5", 0x2e0890, 0x2e08b0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Super Trail", 0x2e08b0, 0x2e08d0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Extra 7", 0x2e08d0, 0x2e08f0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Extra 8", 0x2e08f0, 0x2e0910, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Electric Palette", 0x2e0910, 0x2e0930, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Extra 10", 0x2e0930, 0x2e0950, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Extra 11", 0x2e0950, 0x2e0970, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Extra 12", 0x2e0970, 0x2e0990, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced A - Extra 13", 0x2e0990, 0x2e09b0 },
+    { L"Kasumi Advanced A - Character Select/Win Assist Portrait", 0x2e09b0, 0x2e09d0 },
+    { L"Kasumi Advanced A - Lifebar Portrait", 0x2e09d0, 0x2e09f0 },
+    { L"Kasumi Advanced A - Win Portrait", 0x2f15f0, 0x2f1670 },
+};
+
+const sGame_PaletteDataset KOF97AE_A_KASUMI_PALETTES_B[] =
+{
+    { L"Kasumi Advanced D - Main", 0x2e09f0, 0x2e0a10, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Extra 1", 0x2e0a10, 0x2e0a30, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Extra 2", 0x2e0a30, 0x2e0a50, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Max Mode", 0x2e0a50, 0x2e0a70, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Extra 4", 0x2e0a70, 0x2e0a90, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Extra 5", 0x2e0a90, 0x2e0ab0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Super Trail", 0x2e0ab0, 0x2e0ad0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Extra 7", 0x2e0ad0, 0x2e0af0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Extra 8", 0x2e0af0, 0x2e0b10, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Electric Palette", 0x2e0b10, 0x2e0b30, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Extra 10", 0x2e0b30, 0x2e0b50, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Extra 11", 0x2e0b50, 0x2e0b70, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Extra 12", 0x2e0b70, 0x2e0b90, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Advanced D - Extra 13", 0x2e0b90, 0x2e0bb0 },
+    { L"Kasumi Advanced D - Character Select/Win Assist Portrait", 0x2e0bb0, 0x2e0bd0 },
+    { L"Kasumi Advanced D - Lifebar Portrait", 0x2e0bd0, 0x2e0bf0 },
+    { L"Kasumi Advanced D - Win Portrait", 0x2f1670, 0x2f16f0 },
+};
+
+const sGame_PaletteDataset KOF97AE_A_KASUMI_PALETTES_C[] =
+{
+    { L"Kasumi Extra A - Main", 0x2e0bf0, 0x2e0c10, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Extra 1", 0x2e0c10, 0x2e0c30, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Extra 2", 0x2e0c30, 0x2e0c50, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Max Mode", 0x2e0c50, 0x2e0c70, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Extra 4", 0x2e0c70, 0x2e0c90, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Extra 5", 0x2e0c90, 0x2e0cb0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Super Trail", 0x2e0cb0, 0x2e0cd0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Extra 7", 0x2e0cd0, 0x2e0cf0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Extra 8", 0x2e0cf0, 0x2e0d10, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Electric Palette", 0x2e0d10, 0x2e0d30, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Extra 10", 0x2e0d30, 0x2e0d50, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Extra 11", 0x2e0d50, 0x2e0d70, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Extra 12", 0x2e0d70, 0x2e0d90, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra A - Extra 13", 0x2e0d90, 0x2e0db0 },
+    { L"Kasumi Extra A - Character Select/Win Assist Portrait", 0x2e0db0, 0x2e0dd0 },
+    { L"Kasumi Extra A - Lifebar Portrait", 0x2e0dd0, 0x2e0df0 },
+    { L"Kasumi Extra A - Win Portrait", 0x2f16f0, 0x2f1770 },
+};
+
+const sGame_PaletteDataset KOF97AE_A_KASUMI_PALETTES_D[] =
+{
+    { L"Kasumi Extra D - Main", 0x2e0df0, 0x2e0e10, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Extra 1", 0x2e0e10, 0x2e0e30, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Extra 2", 0x2e0e30, 0x2e0e50, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Max Mode", 0x2e0e50, 0x2e0e70, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Extra 4", 0x2e0e70, 0x2e0e90, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Extra 5", 0x2e0e90, 0x2e0eb0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Super Trail", 0x2e0eb0, 0x2e0ed0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Extra 7", 0x2e0ed0, 0x2e0ef0, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Extra 8", 0x2e0ef0, 0x2e0f10, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Electric Palette", 0x2e0f10, 0x2e0f30, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Extra 10", 0x2e0f30, 0x2e0f50, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Extra 11", 0x2e0f50, 0x2e0f70, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Extra 12", 0x2e0f70, 0x2e0f90, indexKOF99Sprites_Kasumi },
+    { L"Kasumi Extra D - Extra 13", 0x2e0f90, 0x2e0fb0 },
+    { L"Kasumi Extra D - Character Select/Win Assist Portrait", 0x2e0fb0, 0x2e0fd0 },
+    { L"Kasumi Extra D - Lifebar Portrait", 0x2e0fd0, 0x2e0ff0 },
+    { L"Kasumi Extra D - Win Portrait", 0x2f1770, 0x2f17f0 },
+};
+
+const sGame_PaletteDataset KOF97AE_A_K_EFFECT_PALETTES[] =
+{
+    { L"Effect 0", 0x2e6ff0, 0x2e7010 },
+    { L"Effect 1", 0x2e7010, 0x2e7030 },
+    { L"Effect 2", 0x2e7030, 0x2e7050 },
+    { L"Effect 3", 0x2e7050, 0x2e7070 },
+    { L"Effect 4", 0x2e7070, 0x2e7090 },
+};
+
+const sGame_PaletteDataset KOF97AE_A_KASUMI_EFFECT_PALETTES[] =
+{
+    { L"Effect 0", 0x2e71f0, 0x2e7210 },
+    { L"Effect 1", 0x2e7210, 0x2e7230 },
+    { L"Effect 2", 0x2e7230, 0x2e7250 },
+    { L"Effect 3", 0x2e7250, 0x2e7270 },
+    { L"Effect 4", 0x2e7270, 0x2e7290 },
+    { L"Effect 5", 0x2e7290, 0x2e72b0 },
+};
+
+#pragma endregion
 
 const sDescTreeNode KOF97_A_KYO_COLLECTION[] =
 {
@@ -3655,6 +3848,24 @@ const sDescTreeNode KOF97_A_OROCHICHRIS_COLLECTION[] =
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF97_A_OROCHICHRIS_EFFECT_PALETTES, ARRAYSIZE(KOF97_A_OROCHICHRIS_EFFECT_PALETTES) },
 };
 
+const sDescTreeNode KOF97AE_A_K_COLLECTION[] =
+{
+    { L"Advanced A", DESC_NODETYPE_TREE, (void*)KOF97AE_A_K_PALETTES_A, ARRAYSIZE(KOF97AE_A_K_PALETTES_A) },
+    { L"Advanced D", DESC_NODETYPE_TREE, (void*)KOF97AE_A_K_PALETTES_B, ARRAYSIZE(KOF97AE_A_K_PALETTES_B) },
+    { L"Extra A", DESC_NODETYPE_TREE, (void*)KOF97AE_A_K_PALETTES_C, ARRAYSIZE(KOF97AE_A_K_PALETTES_C) },
+    { L"Extra D", DESC_NODETYPE_TREE, (void*)KOF97AE_A_K_PALETTES_D, ARRAYSIZE(KOF97AE_A_K_PALETTES_D) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF97AE_A_K_EFFECT_PALETTES, ARRAYSIZE(KOF97AE_A_K_EFFECT_PALETTES) },
+};
+
+const sDescTreeNode KOF97AE_A_KASUMI_COLLECTION[] =
+{
+    { L"Advanced A", DESC_NODETYPE_TREE, (void*)KOF97AE_A_KASUMI_PALETTES_A, ARRAYSIZE(KOF97AE_A_KASUMI_PALETTES_A) },
+    { L"Advanced D", DESC_NODETYPE_TREE, (void*)KOF97AE_A_KASUMI_PALETTES_B, ARRAYSIZE(KOF97AE_A_KASUMI_PALETTES_B) },
+    { L"Extra A", DESC_NODETYPE_TREE, (void*)KOF97AE_A_KASUMI_PALETTES_C, ARRAYSIZE(KOF97AE_A_KASUMI_PALETTES_C) },
+    { L"Extra D", DESC_NODETYPE_TREE, (void*)KOF97AE_A_KASUMI_PALETTES_D, ARRAYSIZE(KOF97AE_A_KASUMI_PALETTES_D) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF97AE_A_KASUMI_EFFECT_PALETTES, ARRAYSIZE(KOF97AE_A_KASUMI_EFFECT_PALETTES) },
+};
+
 const sDescTreeNode KOF97_A_UNITS[] =
 {
     { L"Kyo", DESC_NODETYPE_TREE, (void*)KOF97_A_KYO_COLLECTION, ARRAYSIZE(KOF97_A_KYO_COLLECTION) },
@@ -3696,11 +3907,61 @@ const sDescTreeNode KOF97_A_UNITS[] =
 };
 
 constexpr auto KOF97_A_NUMUNIT = ARRAYSIZE(KOF97_A_UNITS);
+constexpr auto KOF97_A_EXTRALOC = KOF97_A_NUMUNIT;
 
-#define KOF97_A_EXTRALOC KOF97_A_NUMUNIT
+const sDescTreeNode KOF97AE_A_UNITS[] =
+{
+    { L"Kyo", DESC_NODETYPE_TREE, (void*)KOF97_A_KYO_COLLECTION, ARRAYSIZE(KOF97_A_KYO_COLLECTION) },
+    { L"Benimaru", DESC_NODETYPE_TREE, (void*)KOF97_A_BENIMARU_COLLECTION, ARRAYSIZE(KOF97_A_BENIMARU_COLLECTION) },
+    { L"Daimon", DESC_NODETYPE_TREE, (void*)KOF97_A_DAIMON_COLLECTION, ARRAYSIZE(KOF97_A_DAIMON_COLLECTION) },
+    { L"Terry", DESC_NODETYPE_TREE, (void*)KOF97_A_TERRY_COLLECTION, ARRAYSIZE(KOF97_A_TERRY_COLLECTION) },
+    { L"Andy", DESC_NODETYPE_TREE, (void*)KOF97_A_ANDY_COLLECTION, ARRAYSIZE(KOF97_A_ANDY_COLLECTION) },
+    { L"Joe", DESC_NODETYPE_TREE, (void*)KOF97_A_JOE_COLLECTION, ARRAYSIZE(KOF97_A_JOE_COLLECTION) },
+    { L"Ryo", DESC_NODETYPE_TREE, (void*)KOF97_A_RYO_COLLECTION, ARRAYSIZE(KOF97_A_RYO_COLLECTION) },
+    { L"Robert", DESC_NODETYPE_TREE, (void*)KOF97_A_ROBERT_COLLECTION, ARRAYSIZE(KOF97_A_ROBERT_COLLECTION) },
+    { L"Yuri", DESC_NODETYPE_TREE, (void*)KOF97_A_YURI_COLLECTION, ARRAYSIZE(KOF97_A_YURI_COLLECTION) },
+    { L"Leona", DESC_NODETYPE_TREE, (void*)KOF97_A_LEONA_COLLECTION, ARRAYSIZE(KOF97_A_LEONA_COLLECTION) },
+    { L"Ralf", DESC_NODETYPE_TREE, (void*)KOF97_A_RALF_COLLECTION, ARRAYSIZE(KOF97_A_RALF_COLLECTION) },
+    { L"Clark", DESC_NODETYPE_TREE, (void*)KOF97_A_CLARK_COLLECTION, ARRAYSIZE(KOF97_A_CLARK_COLLECTION) },
+    { L"Athena", DESC_NODETYPE_TREE, (void*)KOF97_A_ATHENA_COLLECTION, ARRAYSIZE(KOF97_A_ATHENA_COLLECTION) },
+    { L"Kensou", DESC_NODETYPE_TREE, (void*)KOF97_A_KENSOU_COLLECTION, ARRAYSIZE(KOF97_A_KENSOU_COLLECTION) },
+    { L"Chin", DESC_NODETYPE_TREE, (void*)KOF97_A_CHIN_COLLECTION, ARRAYSIZE(KOF97_A_CHIN_COLLECTION) },
+    { L"Chizuru", DESC_NODETYPE_TREE, (void*)KOF97_A_CHIZURU_COLLECTION, ARRAYSIZE(KOF97_A_CHIZURU_COLLECTION) },
+    { L"Mai", DESC_NODETYPE_TREE, (void*)KOF97_A_MAI_COLLECTION, ARRAYSIZE(KOF97_A_MAI_COLLECTION) },
+    { L"King", DESC_NODETYPE_TREE, (void*)KOF97_A_KING_COLLECTION, ARRAYSIZE(KOF97_A_KING_COLLECTION) },
+    { L"Kim", DESC_NODETYPE_TREE, (void*)KOF97_A_KIM_COLLECTION, ARRAYSIZE(KOF97_A_KIM_COLLECTION) },
+    { L"Chang", DESC_NODETYPE_TREE, (void*)KOF97_A_CHANG_COLLECTION, ARRAYSIZE(KOF97_A_CHANG_COLLECTION) },
+    { L"Choi", DESC_NODETYPE_TREE, (void*)KOF97_A_CHOI_COLLECTION, ARRAYSIZE(KOF97_A_CHOI_COLLECTION) },
+    { L"Yamazaki", DESC_NODETYPE_TREE, (void*)KOF97_A_YAMAZAKI_COLLECTION, ARRAYSIZE(KOF97_A_YAMAZAKI_COLLECTION) },
+    { L"Blue Mary", DESC_NODETYPE_TREE, (void*)KOF97_A_BLUEMARY_COLLECTION, ARRAYSIZE(KOF97_A_BLUEMARY_COLLECTION) },
+    { L"Billy", DESC_NODETYPE_TREE, (void*)KOF97_A_BILLY_COLLECTION, ARRAYSIZE(KOF97_A_BILLY_COLLECTION) },
+    { L"Yashiro", DESC_NODETYPE_TREE, (void*)KOF97_A_YASHIRO_COLLECTION, ARRAYSIZE(KOF97_A_YASHIRO_COLLECTION) },
+    { L"Shermie", DESC_NODETYPE_TREE, (void*)KOF97_A_SHERMIE_COLLECTION, ARRAYSIZE(KOF97_A_SHERMIE_COLLECTION) },
+    { L"Chris", DESC_NODETYPE_TREE, (void*)KOF97_A_CHRIS_COLLECTION, ARRAYSIZE(KOF97_A_CHRIS_COLLECTION) },
+    { L"Iori", DESC_NODETYPE_TREE, (void*)KOF97_A_IORI_COLLECTION, ARRAYSIZE(KOF97_A_IORI_COLLECTION) },
+    { L"K'", DESC_NODETYPE_TREE, (void*)KOF97AE_A_K_COLLECTION, ARRAYSIZE(KOF97AE_A_K_COLLECTION) },
+    { L"Kasumi", DESC_NODETYPE_TREE, (void*)KOF97AE_A_KASUMI_COLLECTION, ARRAYSIZE(KOF97AE_A_KASUMI_COLLECTION) },
+    { L"Orochi", DESC_NODETYPE_TREE, (void*)KOF97_A_OROCHI_COLLECTION, ARRAYSIZE(KOF97_A_OROCHI_COLLECTION) },
+    { L"Shingo", DESC_NODETYPE_TREE, (void*)KOF97_A_SHINGO_COLLECTION, ARRAYSIZE(KOF97_A_SHINGO_COLLECTION) },
+    { L"Orochi Yashiro", DESC_NODETYPE_TREE, (void*)KOF97_A_OROCHIYASHIRO_COLLECTION, ARRAYSIZE(KOF97_A_OROCHIYASHIRO_COLLECTION) },
+    { L"Orochi Shermie", DESC_NODETYPE_TREE, (void*)KOF97_A_OROCHISHERMIE_COLLECTION, ARRAYSIZE(KOF97_A_OROCHISHERMIE_COLLECTION) },
+    { L"Orochi Chris", DESC_NODETYPE_TREE, (void*)KOF97_A_OROCHICHRIS_COLLECTION, ARRAYSIZE(KOF97_A_OROCHICHRIS_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF97_A_BONUS_COLLECTION, ARRAYSIZE(KOF97_A_BONUS_COLLECTION) },
+};
+
+constexpr auto KOF97AE_A_NUMUNIT = ARRAYSIZE(KOF97AE_A_UNITS);
+constexpr auto KOF97AE_A_EXTRALOC = KOF97AE_A_NUMUNIT;
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef KOF97_A_EXTRA[] =
+{
+    // Start
+    { UNIT_START_VALUE },
+
+    { INVALID_UNIT_VALUE }
+};
+
+const stExtraDef KOF97AE_A_EXTRA[] =
 {
     // Start
     { UNIT_START_VALUE },

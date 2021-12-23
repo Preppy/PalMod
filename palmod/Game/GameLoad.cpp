@@ -389,6 +389,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     case KOF97_A:
+    case KOF97AE_A:
     {
         GetRule = &CGame_KOF97_A::GetRule;
         return TRUE;
@@ -1140,8 +1141,9 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
         return new CGame_KOF96_A(nConfirmedROMSize);
     }
     case KOF97_A:
+    case KOF97AE_A:
     {
-        return new CGame_KOF97_A(nConfirmedROMSize);
+        return new CGame_KOF97_A(nConfirmedROMSize, nExtraGameData);
     }
     case KOF98_A:
     {
@@ -1568,6 +1570,12 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
             break;
         case JOJOS_A:
             nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? 50 : 51);
+            break;
+        case KOF97_A:
+            nGameRule = 0x97;
+            break;
+        case KOF97AE_A:
+            nGameRule = 0x97AE;
             break;
         case KOF99AE_A:
             nGameRule = ((wcsstr(pszFileNameLowercase, L"p2") != nullptr) ? 2 : 3);

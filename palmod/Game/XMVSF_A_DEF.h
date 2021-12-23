@@ -306,24 +306,24 @@ const sGame_PaletteDataset XMVSF_A_Apocalypse_PALETTES[] =
 const sGame_PaletteDataset XMVSF_A_Ken_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x15a1a, 0x15a3a, indexCPS2Sprites_Ken, 0x00 },
-    { L"P1 fireballs", 0x15a3a, 0x15a5a, indexCPS2Sprites_Ken, 0x01 },
+    { L"P1 fireballs", 0x15a3a, 0x15a5a },
     { L"P1 shoryuken", 0x15a5a, 0x15a7a, indexCPS2Sprites_Ken, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Ken_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x15a7a, 0x15a9a, indexCPS2Sprites_Ken, 0x00 },
-    { L"P2 fireballs", 0x15a9a, 0x15aba, indexCPS2Sprites_Ken, 0x01 },
+    { L"P2 fireballs", 0x15a9a, 0x15aba },
     { L"P2 shoryuken", 0x15aba, 0x15ada, indexCPS2Sprites_Ken, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Ken_PALETTES_Extras[] =
 {
     { L"Palette (06)",           0x15ada, 0x15afa, indexCPS2Sprites_Ken, 0x00 },
-    { L"Palette (07) fireballs", 0x15afa, 0x15b1a, indexCPS2Sprites_Ken, 0x01 },
+    { L"Palette (07) fireballs", 0x15afa, 0x15b1a },
     { L"Palette (08) shoryuken", 0x15b1a, 0x15b3a, indexCPS2Sprites_Ken, 0x02 },
     { L"Palette (09)",           0x15b3a, 0x15b5a, indexCPS2Sprites_Ken, 0x00 },
-    { L"Palette (0A) fireballs", 0x15b5a, 0x15b7a, indexCPS2Sprites_Ken, 0x01 },
+    { L"Palette (0A) fireballs", 0x15b5a, 0x15b7a },
     { L"Palette (0B) shoryuken", 0x15b7a, 0x15b9a, indexCPS2Sprites_Ken, 0x02 },
 };
 

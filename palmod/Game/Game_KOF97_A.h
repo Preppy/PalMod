@@ -4,19 +4,32 @@
 #include "..\extrafile.h"
 
 constexpr auto EXTRA_FILENAME_KOF97_A = L"KOF97E.txt";
-#define GetExtraDefForKOF97(x)((stExtraDef *)&KOF97_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_KOF97AE_A = L"KOF97AEe.txt";
+#define GetExtraDefForKOF97(x)((UsePaletteSetFor97()) ? (stExtraDef *)&KOF97_A_EXTRA_CUSTOM[x] : (stExtraDef *)&KOF97AE_A_EXTRA_CUSTOM[x])
 
 class CGame_KOF97_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForKOF97;
+    int m_nBufferSelectedRom = 0x97;
+    static size_t m_nSelectedRom;
 
-    static size_t rgExtraCountAll[KOF97_A_NUMUNIT + 1];
-    static size_t rgExtraLoc[KOF97_A_NUMUNIT + 1];
+    static UINT32 m_nTotalPaletteCountForKOF97;
+    static UINT32 m_nTotalPaletteCountForKOF97AE;
+
+    static bool UsePaletteSetFor97() { return (m_nSelectedRom != _KOF97AEValue); }
+
+    static size_t rgExtraCountAll_97[KOF97_A_NUMUNIT + 1];
+    static size_t rgExtraCountAll_97AE[KOF97AE_A_NUMUNIT + 1];
+    static size_t rgExtraLoc_97[KOF97_A_NUMUNIT + 1];
+    static size_t rgExtraLoc_97AE[KOF97AE_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
+
+    // Needed for multiple ROM support
+    void InitDataBuffer() override;
+    void ClearDataBuffer() override;
 
     void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
     size_t GetPaletteCountForUnit(size_t nUnitId) override;
@@ -24,14 +37,18 @@ private:
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
 
+    static constexpr auto _KOF97Value = 0x97;
+    static constexpr auto _KOF97AEValue = 0x97AE;
+
 public:
-    CGame_KOF97_A(UINT32 nConfirmedROMSize);
+    CGame_KOF97_A(UINT32 nConfirmedROMSize, int nROMToLoad = _KOF97Value);
     ~CGame_KOF97_A(void);
 
     //Static functions / variables
-    static CDescTree MainDescTree;
+    static CDescTree MainDescTree_97;
+    static CDescTree MainDescTree_97AE;
 
-    static sDescTreeNode* InitDescTree();
+    static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
     static sFileRule GetRule(size_t nUnitId);
 
     //Extra palette function
@@ -55,4 +72,5 @@ public:
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* KOF97_A_EXTRA_CUSTOM;
+    static stExtraDef* KOF97AE_A_EXTRA_CUSTOM;
 };
