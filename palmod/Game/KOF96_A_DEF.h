@@ -34,6 +34,9 @@ const std::vector<UINT16> KOF96_A_IMGIDS_USED =
     indexKOF98Sprites_Mature,
     indexKOF98Sprites_Robert,
     indexKOF98Sprites_Vice,
+   
+    
+    indexKOF01Sprites_Leona,        // 0x1c4, for intro dress
 
     indexKOF02Sprites_Geese,
     indexKOF02Sprites_Goenitz,
@@ -496,7 +499,7 @@ const sGame_PaletteDataset KOF96_A_YURI_SHARED_PALETTES[] =
 const sGame_PaletteDataset KOF96_A_LEONA_A_PALETTES[] =
 {
     { L"Leona", 0x104402, 0x104422, indexKOF98Sprites_Leona, 0x00 },
-    { L"Extra 1", 0x104422, 0x104442 },
+    { L"Extra 1: Dress", 0x104422, 0x104442, indexKOF01Sprites_Leona, 0x10 },
     { L"Super Trail 1", 0x104442, 0x104462, indexKOF98Sprites_Leona, 0x00 },
     { L"Super Trail 2", 0x104462, 0x104482 },
     { L"MAX Mode", 0x104482, 0x1044a2, indexKOF98Sprites_Leona, 0x00 },
@@ -517,7 +520,7 @@ const sGame_PaletteDataset KOF96_A_LEONA_A_PALETTES[] =
 const sGame_PaletteDataset KOF96_A_LEONA_D_PALETTES[] =
 {
     { L"Leona", 0x104602, 0x104622, indexKOF98Sprites_Leona, 0x00 },
-    { L"Extra 1", 0x104622, 0x104642 },
+    { L"Extra 1: Dress", 0x104622, 0x104642, indexKOF01Sprites_Leona, 0x10  },
     { L"Super Trail 1", 0x104642, 0x104662, indexKOF98Sprites_Leona, 0x00 },
     { L"Super Trail 2", 0x104662, 0x104682 },
     { L"MAX Mode", 0x104682, 0x1046a2, indexKOF98Sprites_Leona, 0x00 },

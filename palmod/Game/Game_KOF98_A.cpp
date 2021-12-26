@@ -94,9 +94,10 @@ UINT32 CGame_KOF98_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     {
         // There are three unique ROM sets, but the first two share the same palette file,
         // and the third one we don't care about.
-        { L"KOF '98 (Neo-Geo)", L"242-p2.sp2", 0x980aba4c, 0 },
-        { L"KOF '98 (Neo-Geo)", L"kof98_p2.rom", 0x980aba4c, 0 },
-        { L"KOF '98 (Neo-Geo Alt)", L"242-ep.ep2", 0x6e474841, 0 },
+        { L"King of Fighters '98 (Neo-Geo)", L"242-p2.sp2", 0x980aba4c, 0 },
+        { L"King of Fighters '98 (Neo-Geo)", L"kof98_p2.rom", 0x980aba4c, 0 },
+        { L"King of Fighters '98 (Neo-Geo Alt)", L"242-ep.ep2", 0x6e474841, 0 },
+        { L"King of Fighters '98 Combo (Neo-Geo Hack)", L"242cb-p2.sp2", 0xd34a4d38, 0 },
     };
 
     if (ppKnownROMSet != nullptr)

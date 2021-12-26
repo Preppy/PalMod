@@ -1514,7 +1514,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
 
                     ClearSetImgTicket(pImgArray);
                 }
-                else if ((paletteDataSet->pPalettePairingInfo->nPalettesToJoin > 1) && (paletteDataSet->pPalettePairingInfo->nPalettesToJoin < 8))
+                else if ((paletteDataSet->pPalettePairingInfo->nPalettesToJoin > 1) && (paletteDataSet->pPalettePairingInfo->nPalettesToJoin < 9))
                 {
                     std::vector<const sGame_PaletteDataset*> vsPaletteDataSetToJoin;
                     std::vector<int> vnPeerPaletteDistances;

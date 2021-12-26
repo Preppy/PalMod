@@ -823,9 +823,9 @@ const sGame_PaletteDataset KOF02UM_S_DAIMON_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_MOVES[] =
 {
-    { L"VS Igniz Win Stuff: Diana", 0x52a20, 0x52a40, indexKOF02UMSprites_Foxy, 0x19 },
-    { L"VS Igniz Win Stuff: Kula",  0x52a40, 0x52a60 },
-    { L"VS Igniz Win Stuff: Foxy",  0x52a60, 0x52a80 },
+    { L"VS Igniz Win Stuff: Diana", 0x52a20, 0x52a40, indexKOF02UMSprites_Foxy, 0x1a, &pairNextAndNext },
+    { L"VS Igniz Win Stuff: Kula",  0x52a40, 0x52a60, indexKOF02UMSprites_Foxy, 0x1b },
+    { L"VS Igniz Win Stuff: Foxy",  0x52a60, 0x52a80, indexKOF02UMSprites_Foxy, 0x1c },
 };
 
 const sGame_PaletteDataset KOF02UM_S_GEESE_PALETTES_MOVES[] =
@@ -4425,7 +4425,7 @@ const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_A[] =
     { L"A - Diana Win Stuff", 0x004ac40, 0x004ac60, indexKOF02UMSprites_Foxy, 0x19 },
     { L"A - Electric Shock Effect", 0x004ac60, 0x004ac80, indexKOF02UMSprites_Foxy, 0x18 },
     { L"A - MAX Flash", 0x004ac80, 0x004aca0, indexKOF02UMSprites_Foxy, 0x08 },
-    { L"A - NESTS Flag Super", 0x004aca0, 0x004acc0, indexKOF02UMSprites_Foxy, 0x1a },
+    { L"A - NESTS Flag Super", 0x004aca0, 0x004acc0, indexKOF02UMSprites_Foxy, 0x1d },
     { L"A - Soul Palette", 0x004acc0, 0x004ace0, indexKOF02UMSprites_Foxy, 0x18 },
     { L"A - Hidden Super Desperation Move 3", 0x004ace0, 0x004ad00, indexKOF02UMSprites_Foxy, 0x00 },
 };
@@ -4437,7 +4437,7 @@ const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_B[] =
     { L"B - Diana Win Stuff", 0x004ad40, 0x004ad60, indexKOF02UMSprites_Foxy, 0x19 },
     { L"B - Electric Shock Effect", 0x004ad60, 0x004ad80, indexKOF02UMSprites_Foxy, 0x18 },
     { L"B - MAX Flash", 0x004ad80, 0x004ada0, indexKOF02UMSprites_Foxy, 0x08 },
-    { L"B - NESTS Flag Super", 0x004ada0, 0x004adc0, indexKOF02UMSprites_Foxy, 0x1a },
+    { L"B - NESTS Flag Super", 0x004ada0, 0x004adc0, indexKOF02UMSprites_Foxy, 0x1d },
     { L"B - Soul Palette", 0x004adc0, 0x004ade0, indexKOF02UMSprites_Foxy, 0x18 },
     { L"B - Hidden Super Desperation Move 3", 0x004ade0, 0x004ae00, indexKOF02UMSprites_Foxy, 0x00 },
 };
@@ -4449,7 +4449,7 @@ const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_C[] =
     { L"C - Diana Win Stuff", 0x004ae40, 0x004ae60, indexKOF02UMSprites_Foxy, 0x19 },
     { L"C - Electric Shock Effect", 0x004ae60, 0x004ae80, indexKOF02UMSprites_Foxy, 0x18 },
     { L"C - MAX Flash", 0x004ae80, 0x004aea0, indexKOF02UMSprites_Foxy, 0x08 },
-    { L"C - NESTS Flag Super", 0x004aea0, 0x004aec0, indexKOF02UMSprites_Foxy, 0x1a },
+    { L"C - NESTS Flag Super", 0x004aea0, 0x004aec0, indexKOF02UMSprites_Foxy, 0x1d },
     { L"C - Soul Palette", 0x004aec0, 0x004aee0, indexKOF02UMSprites_Foxy, 0x18 },
     { L"C - Hidden Super Desperation Move 3", 0x004aee0, 0x004af00, indexKOF02UMSprites_Foxy, 0x00 },
 };
@@ -4461,7 +4461,7 @@ const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_D[] =
     { L"D - Diana Win Stuff", 0x004af40, 0x004af60, indexKOF02UMSprites_Foxy, 0x19 },
     { L"D - Electric Shock Effect", 0x004af60, 0x004af80, indexKOF02UMSprites_Foxy, 0x18 },
     { L"D - MAX Flash", 0x004af80, 0x004afa0, indexKOF02UMSprites_Foxy, 0x08 },
-    { L"D - NESTS Flag Super", 0x004afa0, 0x004afc0, indexKOF02UMSprites_Foxy, 0x1a },
+    { L"D - NESTS Flag Super", 0x004afa0, 0x004afc0, indexKOF02UMSprites_Foxy, 0x1d },
     { L"D - Soul Palette", 0x004afc0, 0x004afe0, indexKOF02UMSprites_Foxy, 0x18 },
     { L"D - Hidden Super Desperation Move 3", 0x004afe0, 0x004b000, indexKOF02UMSprites_Foxy, 0x00 },
 };

@@ -7999,7 +7999,7 @@ const sDescTreeNode MVC2_A_IRONMAN_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x545e420, 0x545e440, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
+    { L"Main Color LP", 0x545e420, 0x545e440, indexCPS2Sprites_Sentinel, 0, &pairNextAndNextSkipped },
     { L"(02) Drones (bombs) / Guts", 0x545e440, 0x545e460, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e460, 0x545e480, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e480, 0x545e4a0, indexCPS2Sprites_Sentinel, 3 },
@@ -8011,7 +8011,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x545e520, 0x545e540, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
+    { L"Main Color LK", 0x545e520, 0x545e540, indexCPS2Sprites_Sentinel, 0, &pairNextAndNextSkipped },
     { L"(02) Drones (bombs) / Guts", 0x545e540, 0x545e560, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e560, 0x545e580, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e580, 0x545e5a0, indexCPS2Sprites_Sentinel, 3 },
@@ -8023,7 +8023,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x545e620, 0x545e640, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
+    { L"Main Color HP", 0x545e620, 0x545e640, indexCPS2Sprites_Sentinel, 0, &pairNextAndNextSkipped },
     { L"(02) Drones (bombs) / Guts", 0x545e640, 0x545e660, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e660, 0x545e680, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e680, 0x545e6a0, indexCPS2Sprites_Sentinel, 3 },
@@ -8035,7 +8035,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x545e720, 0x545e740, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
+    { L"Main Color HK", 0x545e720, 0x545e740, indexCPS2Sprites_Sentinel, 0, &pairNextAndNextSkipped },
     { L"(02) Drones (bombs) / Guts", 0x545e740, 0x545e760, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e760, 0x545e780, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e780, 0x545e7a0, indexCPS2Sprites_Sentinel, 3 },
@@ -8047,7 +8047,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x545e820, 0x545e840, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
+    { L"Main Color A1", 0x545e820, 0x545e840, indexCPS2Sprites_Sentinel, 0, &pairNextAndNextSkipped },
     { L"(02) Drones (bombs) / Guts", 0x545e840, 0x545e860, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e860, 0x545e880, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e880, 0x545e8a0, indexCPS2Sprites_Sentinel, 3 },
@@ -8059,7 +8059,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x545e920, 0x545e940, indexCPS2Sprites_Sentinel, 0, &pairNext2AndNext3 },
+    { L"Main Color A2", 0x545e920, 0x545e940, indexCPS2Sprites_Sentinel, 0, &pairNextAndNextSkipped },
     { L"(02) Drones (bombs) / Guts", 0x545e940, 0x545e960, indexCPS2Sprites_Sentinel, 1 },
     { L"(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e960, 0x545e980, indexCPS2Sprites_Sentinel, 2 },
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Jumping flames", 0x545e980, 0x545e9a0, indexCPS2Sprites_Sentinel, 3 },

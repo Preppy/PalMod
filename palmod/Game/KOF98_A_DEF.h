@@ -50,6 +50,8 @@ const std::vector<UINT16> KOF98_A_IMGIDS_USED =
     indexKOF98Sprites_OrderSelect,
     indexKOF98Sprites_Lifebar,      // 77
     indexKOF98Sprites_WinPortrait,  // 78
+
+    indexKOF01Sprites_Leona,    // 0x1c4 - for intro dress
 };
 
 const sGame_PaletteDataset KOF98_A_KYO_PALETTE_A[] =
@@ -523,7 +525,7 @@ const sGame_PaletteDataset KOF98_A_Yuri_PALETTE_D[] =
 const sGame_PaletteDataset KOF98_A_Leona_PALETTE_A[] =
 {
     { L"Leona A - Main",  0x2ddff0, 0x2de010, indexKOF98Sprites_Leona },
-    { L"Leona A - Extra 1",  0x2de010, 0x2de030, indexKOF98Sprites_Leona },
+    { L"Leona A - Extra 1: Dress",  0x2de010, 0x2de030, indexKOF01Sprites_Leona, 0x10 },
     { L"Leona A - Extra 2",  0x2de030, 0x2de050, indexKOF98Sprites_Leona },
     { L"Leona A - Max Mode",  0x2de050, 0x2de070, indexKOF98Sprites_Leona },
     { L"Leona A - Extra 3",  0x2de070, 0x2de090, indexKOF98Sprites_Leona },
@@ -536,7 +538,7 @@ const sGame_PaletteDataset KOF98_A_Leona_PALETTE_A[] =
 const sGame_PaletteDataset KOF98_A_Leona_PALETTE_B[] =
 {
     { L"Leona B - Main",  0x2de1f0, 0x2de210, indexKOF98Sprites_Leona },
-    { L"Leona B - Extra 1",  0x2de210, 0x2de230, indexKOF98Sprites_Leona },
+    { L"Leona B - Extra 1: Dress",  0x2de210, 0x2de230, indexKOF01Sprites_Leona, 0x10 },
     { L"Leona B - Extra 2",  0x2de230, 0x2de250, indexKOF98Sprites_Leona },
     { L"Leona B - Max Mode",  0x2de250, 0x2de270, indexKOF98Sprites_Leona },
     { L"Leona B - Extra 3",  0x2de270, 0x2de290, indexKOF98Sprites_Leona },
@@ -549,7 +551,7 @@ const sGame_PaletteDataset KOF98_A_Leona_PALETTE_B[] =
 const sGame_PaletteDataset KOF98_A_Leona_PALETTE_C[] =
 {
     { L"Leona C - Main",  0x2de3f0, 0x2de410, indexKOF98Sprites_Leona },
-    { L"Leona C - Extra 1",  0x2de410, 0x2de430, indexKOF98Sprites_Leona },
+    { L"Leona C - Extra 1: Dress",  0x2de410, 0x2de430, indexKOF01Sprites_Leona, 0x10 },
     { L"Leona C - Extra 2",  0x2de430, 0x2de450, indexKOF98Sprites_Leona },
     { L"Leona C - Max Mode",  0x2de450, 0x2de470, indexKOF98Sprites_Leona },
     { L"Leona C - Extra 3",  0x2de470, 0x2de490, indexKOF98Sprites_Leona },
@@ -562,7 +564,7 @@ const sGame_PaletteDataset KOF98_A_Leona_PALETTE_C[] =
 const sGame_PaletteDataset KOF98_A_Leona_PALETTE_D[] =
 {
     { L"Leona D - Main",  0x2de5f0, 0x2de610, indexKOF98Sprites_Leona },
-    { L"Leona D - Extra 1",  0x2de610, 0x2de630, indexKOF98Sprites_Leona },
+    { L"Leona D - Extra 1: Dress",  0x2de610, 0x2de630, indexKOF01Sprites_Leona, 0x10 },
     { L"Leona D - Extra 2",  0x2de630, 0x2de650, indexKOF98Sprites_Leona },
     { L"Leona D - Max Mode",  0x2de650, 0x2de670, indexKOF98Sprites_Leona },
     { L"Leona D - Extra 3",  0x2de670, 0x2de690, indexKOF98Sprites_Leona },

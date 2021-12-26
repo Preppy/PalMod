@@ -146,8 +146,8 @@ const sGame_PaletteDataset MK1_SNES_SHANGTSUNG_PALETTES[] =
 
 const sGame_PaletteDataset MK1_SNES_BONUS_PALETTES[] =
 {
+    { L"Character Select Icons", 0xFFD6C, 0xFFE6C, indexMK1Sprites_Bonus, 0x00 },
     { L"Sweat/Blood", 0x1C16, 0x1C36 },
-    { L"Character Select Icons", 0xFFD6C, 0xFFE6C },
     
     { L"Mortal Kombat text", 0x1D7EB4, 0x1D7FB4 },
     { L"HUD Name Font", 0x1CCCCB, 0x1CCCEB },

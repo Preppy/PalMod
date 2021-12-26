@@ -546,8 +546,8 @@ const sGame_PaletteDataset KOF01_A_RAMON_KICK_PALETTES[] =
 const sGame_PaletteDataset KOF01_A_LEONA_PUNCH_PALETTES[] =
 {
     { L"Leona Punch", 0x38a122, 0x38a142, indexKOF02UMSprites_Leona },
-    { L"Character Extra 1", 0x38a142, 0x38a162, indexKOF02UMSprites_Leona },
-    { L"Character Extra 2", 0x38a162, 0x38a182, indexKOF02UMSprites_Leona },
+    { L"Character Extra 1", 0x38a142, 0x38a162 },
+    { L"Character Extra 2: Intro dress", 0x38a162, 0x38a182, indexKOF01Sprites_Leona, 0x10 },
     { L"Electric Palette", 0x38a182, 0x38a1a2, indexKOF02UMSprites_Leona },
     { L"Lin Poison Palette (Unused)", 0x38a1a2, 0x38a1c2, indexKOF02UMSprites_Leona },
     { L"Freeze Palette (Unused)", 0x38a1c2, 0x38a1e2, indexKOF02UMSprites_Leona },
@@ -563,8 +563,8 @@ const sGame_PaletteDataset KOF01_A_LEONA_PUNCH_PALETTES[] =
 const sGame_PaletteDataset KOF01_A_LEONA_KICK_PALETTES[] =
 {
     { L"Leona Kick", 0x38a322, 0x38a342, indexKOF02UMSprites_Leona },
-    { L"Character Extra 1", 0x38a342, 0x38a362, indexKOF02UMSprites_Leona },
-    { L"Character Extra 2", 0x38a362, 0x38a382, indexKOF02UMSprites_Leona },
+    { L"Character Extra 1", 0x38a342, 0x38a362 },
+    { L"Character Extra 2: Intro dress", 0x38a362, 0x38a382, indexKOF01Sprites_Leona, 0x10 },
     { L"Electric Palette", 0x38a382, 0x38a3a2, indexKOF02UMSprites_Leona },
     { L"Lin Poison Palette (Unused)", 0x38a3a2, 0x38a3c2, indexKOF02UMSprites_Leona },
     { L"Freeze Palette (Unused)", 0x38a3c2, 0x38a3e2, indexKOF02UMSprites_Leona },
@@ -1022,8 +1022,8 @@ const sGame_PaletteDataset KOF01_A_MAI_KICK_PALETTES[] =
 const sGame_PaletteDataset KOF01_A_HINAKO_PUNCH_PALETTES[] =
 {
     { L"Hinako Punch", 0x38d922, 0x38d942, indexKOF02UMSprites_Hinako },
-    { L"Character Extra 1", 0x38d942, 0x38d962, indexKOF02UMSprites_Hinako },
-    { L"Character Extra 2", 0x38d962, 0x38d982, indexKOF02UMSprites_Hinako },
+    { L"Character Extra 1", 0x38d942, 0x38d962 },
+    { L"Character Extra 2: Win pose dog", 0x38d962, 0x38d982, indexKOF01Sprites_Hinako, 0x10 },
     { L"Electric Palette", 0x38d982, 0x38d9a2, indexKOF02UMSprites_Hinako },
     { L"Lin Poison Palette (Unused)", 0x38d9a2, 0x38d9c2, indexKOF02UMSprites_Hinako },
     { L"Freeze Palette (Unused)", 0x38d9c2, 0x38d9e2, indexKOF02UMSprites_Hinako },
@@ -1039,8 +1039,8 @@ const sGame_PaletteDataset KOF01_A_HINAKO_PUNCH_PALETTES[] =
 const sGame_PaletteDataset KOF01_A_HINAKO_KICK_PALETTES[] =
 {
     { L"Hinako Kick", 0x38db22, 0x38db42, indexKOF02UMSprites_Hinako },
-    { L"Character Extra 1", 0x38db42, 0x38db62, indexKOF02UMSprites_Hinako },
-    { L"Character Extra 2", 0x38db62, 0x38db82, indexKOF02UMSprites_Hinako },
+    { L"Character Extra 1", 0x38db42, 0x38db62 },
+    { L"Character Extra 2: Win pose dog", 0x38db62, 0x38db82, indexKOF01Sprites_Hinako, 0x10 },
     { L"Electric Palette", 0x38db82, 0x38dba2, indexKOF02UMSprites_Hinako },
     { L"Lin Poison Palette (Unused)", 0x38dba2, 0x38dbc2, indexKOF02UMSprites_Hinako },
     { L"Freeze Palette (Unused)", 0x38dbc2, 0x38dbe2, indexKOF02UMSprites_Hinako },

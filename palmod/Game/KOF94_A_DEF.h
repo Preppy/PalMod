@@ -791,6 +791,12 @@ const sGame_PaletteDataset KOF94_A_RUGAL_ALT_PALETTES[] =
     { L"MAX Flash Extra", 0x17b760, 0x17b780, indexKOF94Sprites_Rugal, 0x01 },
 };
 
+const sGame_PaletteDataset KOF94_A_LUCKY_SHARED_PALETTES[]
+{
+    // Lucky's ball is for his Intro and WinPose.
+    { L"Lucky's Ball (Shared)", 0x16fe00, 0x16fe20 },
+};
+
 const sDescTreeNode KOF94_A_HEIDERN_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_HEIDERN_MAIN_PALETTES, ARRAYSIZE(KOF94_A_HEIDERN_MAIN_PALETTES) },
@@ -855,6 +861,7 @@ const sDescTreeNode KOF94_A_LUCKY_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_LUCKY_MAIN_PALETTES, ARRAYSIZE(KOF94_A_LUCKY_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_LUCKY_ALT_PALETTES, ARRAYSIZE(KOF94_A_LUCKY_ALT_PALETTES) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)KOF94_A_LUCKY_SHARED_PALETTES, ARRAYSIZE(KOF94_A_LUCKY_SHARED_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_BRIAN_COLLECTION[] =

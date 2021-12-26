@@ -124,6 +124,8 @@ sDescTreeNode* CGame_KOF01_A::InitDescTree()
     );
 
     // For development use to speed things up
+    // NOTE: I've done some manual tweaks on Leona and Hinako that this doesn't account for, 
+    // so be sure not to lose those changes.
     //DumpPaletteHeaders();
 
     return NewDescTree;
