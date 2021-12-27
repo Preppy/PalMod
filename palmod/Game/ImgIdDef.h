@@ -1685,6 +1685,36 @@ enum SupportedSNES_PaletteListIndex
     indexMK2Sprites_SubZero,             // 0xC6
     indexMK2Sprites_Bonus,               // 0xC7
     indexMK2Sprites_Stages,              // 0xC8
+
+    indexUMK3Sprites_Cyrax,              // 0xC9
+    indexUMK3Sprites_Ermac,              // 0xCA
+    indexUMK3Sprites_Jade,               // 0xCB
+    indexUMK3Sprites_Jax,                // 0xCC
+    indexUMK3Sprites_Kabal,              // 0xCD
+    indexUMK3Sprites_Kano,               // 0xCE
+    indexUMK3Sprites_Kitana,             // 0xCF
+    indexUMK3Sprites_KungLao,            // 0xD0
+    indexUMK3Sprites_LiuKang,            // 0xD1
+    indexUMK3Sprites_Mileena,            // 0xD2
+    indexUMK3Sprites_Motaro,             // 0xD3
+    indexUMK3Sprites_Nightwolf,          // 0xD4
+    indexUMK3Sprites_NoobSaibot,         // 0xD5
+    indexUMK3Sprites_Rain,               // 0xD6
+    indexUMK3Sprites_Reptile,            // 0xD7
+    indexUMK3Sprites_Scorpion,           // 0xD8
+    indexUMK3Sprites_Sektor,             // 0xD9
+    indexUMK3Sprites_ShangTsung,         // 0xDA
+    indexUMK3Sprites_ShaoKahn,           // 0xDB
+    indexUMK3Sprites_Sheeva,             // 0xDC
+    indexUMK3Sprites_Sindel,             // 0xDD
+    indexUMK3Sprites_Smoke,              // 0xDE
+    indexUMK3Sprites_SmokeHuman,         // 0xDF
+    indexUMK3Sprites_Sonya,              // 0xE0
+    indexUMK3Sprites_Stryker,            // 0xE1
+    indexUMK3Sprites_SubZero,            // 0xE2
+    indexUMK3Sprites_SubZeroClassic,     // 0xE3
+    indexUMK3Sprites_Bonus,              // 0xE4
+    indexUMK3Sprites_Stages,             // 0xE5
 };
 
 enum SupportedNEOGEO_PaletteListIndex
@@ -1818,6 +1848,22 @@ enum SupportedNEOGEO_PaletteListIndex
     indexNEOGEOSprites_SDB_Sabu,            // 0x77
     indexNEOGEOSprites_SDB_Shinji,          // 0x78
     indexNEOGEOSprites_SDB_Bonus,           // 0x79
+        indexNEOGEOSprites_SDB_Stages,           // 0x7A
+
+    indexNEOGEOSprites_VFG_Brider,          // 0x7B
+    indexNEOGEOSprites_VFG_Captain,         // 0x7C
+    indexNEOGEOSprites_VFG_Fudomaru,        // 0x7D
+    indexNEOGEOSprites_VFG_Gowcaizer,       // 0x7E
+    indexNEOGEOSprites_VFG_Karin,           // 0x7F
+    indexNEOGEOSprites_VFG_Kyosuke,         // 0x80
+    indexNEOGEOSprites_VFG_Marion,          // 0x81
+    indexNEOGEOSprites_VFG_Ohga,            // 0x82
+    indexNEOGEOSprites_VFG_PlatonicTwins,   // 0x83
+    indexNEOGEOSprites_VFG_Shaia,           // 0x84
+    indexNEOGEOSprites_VFG_Shenlong,        // 0x85
+    indexNEOGEOSprites_VFG_Stinger,         // 0x86
+    indexNEOGEOSprites_VFG_Bonus,           // 0x87
+    indexNEOGEOSprites_VFG_Stages,          // 0x88
 };
 
 enum SupportedGGXX_PaletteListIndex

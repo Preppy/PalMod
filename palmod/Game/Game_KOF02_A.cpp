@@ -327,6 +327,28 @@ const sGame_PaletteDataset* CGame_KOF02_A::GetSpecificPalette(size_t nUnitId, si
     return _GetSpecificPalette(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, nPaletteId, KOF02_A_EXTRA_CUSTOM);
 }
 
+UINT32 CGame_KOF02_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"King of Fighters 2002 (Neo-Geo)", L"265-p2.sp2", 0x327266b8, 0 },
+        { L"King of Fighters 2002 Remix Ultra 3.5 (Neo-Geo Hack)", L"kf2k2ru35-p2.bin", 0x75185760, 0x300000 },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
+
 void CGame_KOF02_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != KOF02_A_EXTRALOC)
@@ -346,6 +368,12 @@ void CGame_KOF02_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
         {
             // A bogus palette was requested: this is unrecoverable.
             DebugBreak();
+        }
+
+        // Adjust for ROM-specific variant locations
+        if (m_pCRC32SpecificData)
+        {
+            m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
         }
     }
     else // KOF02_A_EXTRALOC

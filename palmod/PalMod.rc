@@ -89,7 +89,7 @@ BEGIN
     LTEXT           "Preppy",IDC_STATIC,23,66,50,8
     LTEXT           "Magnetro",IDC_STATIC,75,56,50,8
     LTEXT           "Eidrian",IDC_STATIC,75,66,50,8
-    LTEXT           "2020 Core Creative Team",IDC_STATIC,7,79,125,8
+    LTEXT           "Current Core Creative Team",IDC_STATIC,7,79,125,8
     LTEXT           "Preppy",IDC_STATIC,23,92,50,8
     LTEXT           "IceManual",IDC_STATIC,23,102,50,8
     LTEXT           "TVIndustries",IDC_STATIC,75,92,50,8
@@ -238,8 +238,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,75,0
- PRODUCTVERSION 1,0,75,0
+ FILEVERSION 1,0,76,0
+ PRODUCTVERSION 1,0,76,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -256,12 +256,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.75.0"
+            VALUE "FileVersion", "1.0.76.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.75.0"
+            VALUE "ProductVersion", "1.0.76.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -424,26 +424,22 @@ BEGIN
         BEGIN
             POPUP "16-bit color"
             BEGIN
-                MENUITEM "BGR333 (big endian)", ID_COLORFORMAT_BGR333
-                MENUITEM "RBG333 (big endian)", ID_COLORFORMAT_RBG333
+                MENUITEM "BGR333 (big endian)",         ID_COLORFORMAT_BGR333
+                MENUITEM "RBG333 (big endian)",         ID_COLORFORMAT_RBG333
                 MENUITEM "RGB333 (big endian for Sega Genesis)", ID_COLORFORMAT_RGB333_BE
-
                 MENUITEM SEPARATOR
-                MENUITEM "BGR444 (big endian)", ID_COLORFORMAT_BGR444
-                MENUITEM "BRG444 (big endian)", ID_COLORFORMAT_BRG444
-                MENUITEM "RBG444 (big endian)", ID_COLORFORMAT_RBG444
+                MENUITEM "BGR444 (big endian)",         ID_COLORFORMAT_BGR444
+                MENUITEM "BRG444 (big endian)",         ID_COLORFORMAT_BRG444
+                MENUITEM "RBG444 (big endian)",         ID_COLORFORMAT_RBG444
                 MENUITEM "RGB444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444_BE
                 MENUITEM "RGB444 (little endian for SF2/SFA 30th)", ID_COLORFORMAT_RGB444_LE
-
                 MENUITEM SEPARATOR
-
                 MENUITEM "BGR555 (little endian for GBA, SNES)", ID_COLORFORMAT_BGR555_LE
                 MENUITEM "BGR555 (big endian for Motorola 68000)", ID_COLORFORMAT_BGR555_BE
                 MENUITEM "GRB555 (little endian)",      ID_COLORFORMAT_GRB555_LE
                 MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555_LE
                 MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_BE
                 MENUITEM "RGB555 (Sharp X68000 color table)", ID_COLORFORMAT_SHARPRGB
-
                 MENUITEM "RGB666 (Neo-Geo color table)", ID_COLORFORMAT_RGB666
             END
             POPUP "24-bit color"
@@ -452,7 +448,6 @@ BEGIN
                 MENUITEM "BRG888",                      ID_COLORFORMAT_BRG888
                 MENUITEM "GRB888",                      ID_COLORFORMAT_GRB888
                 MENUITEM "RGB888",                      ID_COLORFORMAT_RGB888
-
             END
             POPUP "32-bit color"
             BEGIN
@@ -464,10 +459,10 @@ BEGIN
             MENUITEM SEPARATOR
             POPUP "Alpha"
             BEGIN
-                 MENUITEM "No Alpha",                   ID_ALPHASETTING_UNUSED
-                 MENUITEM "Fixed Alpha",                ID_ALPHASETTING_FIXED
-                 MENUITEM "Variable Alpha",             ID_ALPHASETTING_VARIABLE
-                 MENUITEM "Unknown Alpha",              ID_ALPHASETTING_CHAOTIC
+                MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
+                MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED
+                MENUITEM "Variable Alpha",              ID_ALPHASETTING_VARIABLE
+                MENUITEM "Unknown Alpha",               ID_ALPHASETTING_CHAOTIC
             END
             MENUITEM SEPARATOR
             MENUITEM "Transparency every 16 colors", ID_TRANSPSETTING_16
@@ -622,7 +617,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.75"
+    IDS_CURRENTAPPNAME      "PalMod 1.76"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."

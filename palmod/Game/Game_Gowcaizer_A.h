@@ -10,7 +10,6 @@ class CGame_Gowcaizer_A : public CGameWithExtrasFile
 {
 private:
     static UINT32 m_nTotalPaletteCountForGowcaizer;
-    static void DumpAllCharacters();
 
     static size_t rgExtraCountAll[Gowcaizer_A_NUMUNIT + 1];
     static size_t rgExtraLoc[Gowcaizer_A_NUMUNIT + 1];

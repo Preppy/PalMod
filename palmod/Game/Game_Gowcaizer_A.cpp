@@ -43,11 +43,11 @@ CGame_Gowcaizer_A::CGame_Gowcaizer_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = Gowcaizer_A_NUMUNIT;
     m_nExtraUnit = Gowcaizer_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 7680;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 291;
     m_pszExtraFilename = EXTRA_FILENAME_Gowcaizer_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForGowcaizer;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x1011000;
+    m_nLowestKnownPaletteRomLocation = 0x1354c0;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 

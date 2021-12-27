@@ -52,7 +52,7 @@ sSupportedGameList SupportedGameList[] =
     { KOF00N_A,         L"KOF00N", L"KOF00N|257-pg2.sp2;257-p2n.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2;5003-p2.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
-    { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", GamePlatform::NEOGEO, GameSeries::KOF },
+    { KOF02_A,          L"KOF02", L"KOF02|265*p2*;kf2k2ru35-p2.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF02PS2_A,       L"KOF02 (2002PS2)", L"KOF02 (2002PS2)|265ps2*p2*|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOF02UM_S,        L"KOF02UM", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin;clear.bin;psel.bin-n;rank.bin;conte.bin|", GamePlatform::Steam },
     { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
@@ -120,7 +120,7 @@ sSupportedGameList SupportedGameList[] =
     { WakuWaku7_A,      L"Waku Waku 7", L"Waku Waku 7|225-p1.p1|", GamePlatform::NEOGEO },
     { WINDJAMMERS_A,    L"Windjammers", L"Windjammers|065-p1.p1|", GamePlatform::NEOGEO }, // Data East on NEOGEO
 // Not quite ready yet - palettes need tweaks
-//    { Gowcaizer_A,      L"Voltage Fighter Gowcaizer", L"Voltage Fighter Gowcaizer|094-p1.p1|", GamePlatform::NEOGEO },
+    { Gowcaizer_A,      L"Voltage Fighter Gowcaizer", L"Voltage Fighter Gowcaizer|094-p1.*|", GamePlatform::NEOGEO },
     { XMMA_SNES,        L"X-Men: Mutant Apocalypse (SNES)", L"X-Men: Mutant Apocalypse (SNES)|X-Men - Mutant Apocalypse (USA).s?c|", GamePlatform::Nintendo },
     { XMVSF_A,          L"XMVSF", L"XMVSF|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
