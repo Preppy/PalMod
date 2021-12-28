@@ -551,7 +551,7 @@ const sGame_PaletteDataset Cyberbots_A_CYCLONE_P1_UNDERWATER_PALETTES[] =
 
 const sGame_PaletteDataset Cyberbots_A_CYCLONE_P2_UNDERWATER_PALETTES[] =
 {
-    { L"P2 Cyclone Top Underwater", 0x500e6, 0x50106, indexCyberbots_Cyclone, 0x3, &pairNextAndNextAndNextAndNext },
+    { L"P2 Cyclone Top Underwater", 0x500e6, 0x50106, indexCyberbots_Cyclone, 0x3, &pairNext4Palettes },
     { L"P2 Cyclone Legs Underwater", 0x50966, 0x50986, indexCyberbots_Cyclone, 0x2 },
     { L"P2 Cyclone Arm Underwater", 0x51166, 0x51186, indexCyberbots_Cyclone, 0x0 },
     { L"P2 Cyclone Weapon Underwater", 0x52086, 0x520a6, indexCyberbots_Cyclone, 0x4 },

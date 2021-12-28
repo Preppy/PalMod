@@ -300,7 +300,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                             );
 
                             //Set each palette
-                            sDescNode* JoinedNode[2] = {
+                            std::vector<sDescNode*> JoinedNode = {
                                 GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                                 GetMainTree()->GetDescNode(nWeakpointUnit, iPorKIndex, iCollectionIndex, -1)
                             };
@@ -325,19 +325,16 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                         if (paletteDataSetToJoin)
                         {
-                            int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                            int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
-
                             fShouldUseAlternateLoadLogic = true;
 
                             ClearSetImgTicket(
                                 CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
                                 )
                             );
 
                             //Set each palette
-                            sDescNode* JoinedNode[2] = {
+                            std::vector<sDescNode*> JoinedNode = {
                                 GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                                 GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
                             };

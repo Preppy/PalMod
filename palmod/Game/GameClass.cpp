@@ -1514,7 +1514,8 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
 
                     ClearSetImgTicket(pImgArray);
                 }
-                else if ((paletteDataSet->pPalettePairingInfo->nPalettesToJoin > 1) && (paletteDataSet->pPalettePairingInfo->nPalettesToJoin < 9))
+                else if ((paletteDataSet->pPalettePairingInfo->nPalettesToJoin > 1) &&
+                         (paletteDataSet->pPalettePairingInfo->nPalettesToJoin <= MAXIMUM_PALETTE_PAIRS_ALLOWED))
                 {
                     std::vector<const sGame_PaletteDataset*> vsPaletteDataSetToJoin;
                     std::vector<int> vnPeerPaletteDistances;
@@ -1524,10 +1525,6 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
                     {
                         switch (nPairIndex)
                         {
-                        default:
-                            // Fail
-                            fAllNodesFound = false;
-                            __fallthrough;
                         case 0:
                             vnPeerPaletteDistances.push_back(0);
                             break;
@@ -1551,6 +1548,10 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
                             break;
                         case 7:
                             vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo7thPartner);
+                            break;
+                        default:
+                            // Anything past this just gets default pairing
+                            vnPeerPaletteDistances.push_back(nPairIndex);
                             break;
                         }
 
@@ -1610,11 +1611,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
 
                         for (int nNodeIndex = ((int)paletteDataSet->pPalettePairingInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
                         {
-                            // We allow shifted layout for the second paired palette only
-                            const int nXOffs = (nNodeIndex == 1) ? paletteDataSet->pPalettePairingInfo->nXOffs : 0;
-                            const int nYOffs = (nNodeIndex == 1) ? paletteDataSet->pPalettePairingInfo->nYOffs : 0;
-
-                            sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage, nXOffs, nYOffs);
+                            sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage);
 
                             vsImagePairs.push_back(pThisImage);
                             

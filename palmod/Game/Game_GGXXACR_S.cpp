@@ -351,7 +351,7 @@ BOOL CGame_GGXXACR_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                 );
 
                 //Set each palette
-                sDescNode* JoinedNode[] = {
+                std::vector<sDescNode*> JoinedNode = {
                     GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                     GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
                     GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
@@ -368,8 +368,6 @@ BOOL CGame_GGXXACR_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
             }
             else
             {
-                int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
                 INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                 const sGame_PaletteDataset* paletteDataSetToJoin = &GGXXACR_S_CharacterData[NodeGet->uUnitId].prgExtraPalettes[nPalIdInNode + nPeerPaletteDistance];
@@ -380,12 +378,12 @@ BOOL CGame_GGXXACR_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
                     ClearSetImgTicket(
                         CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
                         )
                     );
 
                     //Set each palette
-                    sDescNode* JoinedNode[2] = {
+                    std::vector<sDescNode*> JoinedNode = {
                         GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                         GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
                     };

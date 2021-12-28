@@ -18,8 +18,6 @@
 // JoJo_Story - ScaredKakyoin || 0x1F - 0x02
 // JoJo_Story - ShadowDIOStanding || 0x1F - 0x03
 
-const stPairedPaletteInfo pairCoffinRoom = { 1, 31, 32 };
-
 const WCHAR JOJOS_A_UNITDESC_50[][32] =
 {
     L"HUD",           // JOJOS_A_50_HUD_COLLECTION
@@ -351,11 +349,12 @@ const sDescTreeNode JOJOS_A_50_HUD_PORTRAIT_COLLECTION[]
 #pragma region HUD
 const sGame_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
 {
-    { L"Round Markers", 0x07C0160, 0x07C0180, indexJojos51Bonus, 0x28, &pairHandledInCode },
+    { L"Round Markers", 0x07C0160, 0x07C0180, indexJojos51Bonus, 0x28, &pairHandledInCode }, // paired with the next four palettes
     { L"Timer", 0x07C00C0, 0x07C00E0, indexJojos51Bonus, 0x2b },
     { L"Lifebar", 0x07C01E0, 0x07C0200, indexJojos51Bonus, 0x27 },
     { L"Stand Meter", 0x07C0200, 0x07C0220, indexJojos51Bonus, 0x29 },
     { L"Stand Text Under The Stand Gauge", 0x07C0320, 0x07C0340, indexJojos51Bonus, 0x2a },
+
     { L"Combo Meter", 0x07C01C0, 0x07C01E0, indexJojos51Bonus, 0x44 },
     { L"Combo Messages", 0x07C0220, 0x07C0240 },
     { L"Text Above The Lifebars",  0x07C0280, 0x07C02A0 }, // Could use 0x2a sprite here
@@ -580,7 +579,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_INHOUSE[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CROOM[] =
 {
-    { L"Coffin Room (1/6)", 0x07e4300, 0x07e4500, indexJojos50Stages, 0x5, &pairCoffinRoom },
+    { L"Coffin Room (1/6)", 0x07e4300, 0x07e4500, indexJojos50Stages, 0x5, &pairNext },
     { L"Coffin Room (2/6)", 0x07e4500, 0x07e4700, indexJojos50Stages, 0x6 },
     { L"Coffin Room (3/6)", 0x07e4700, 0x07e4900, indexJojos50Stages, 0x7 },
     { L"Coffin Room (4/6)", 0x07e4900, 0x07e4b00, indexJojos50Stages, 0x8 },
@@ -845,7 +844,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW6[] = // aka Inside House
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW7[] = // aka Coffin Room
 {
-    { L"New 7 (1/6)", 0x07e4f00, 0x07e5100, indexJojos50Stages, 0x5, &pairCoffinRoom },
+    { L"New 7 (1/6)", 0x07e4f00, 0x07e5100, indexJojos50Stages, 0x5, &pairNext },
     { L"New 7 (2/6)", 0x07e5100, 0x07e5300, indexJojos50Stages, 0x6 },
     { L"New 7 (3/6)", 0x07e5300, 0x07e5500, indexJojos50Stages, 0x7 },
     { L"New 7 (4/6)", 0x07e5500, 0x07e5700, indexJojos50Stages, 0x8 },

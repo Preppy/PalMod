@@ -303,7 +303,7 @@ const sGame_PaletteDataset KI_SNES_BONUS_CharactersSpecials[] =
     { L"Thunder Pheonix", 0x2566 - 0x08, 0x2572 - 0x08 },
 
     { L"Fulgore Reflect", 0x52e6 - 0x08, 0x5306 - 0x08, indexKISprites_Fulgore, 0x01 },
-    { L"Fulgore Laser Storm Spark", 0x257e - 0x08, 0x258a - 0x08 },
+    { L"Fulgore Laser Storm Spark", 0x257e - 0x08, 0x258a - 0x08, indexKISprites_Fulgore, 0x02 },
 
     { L"Orchid Lasaken", 0x2572 - 0x08, 0x257e - 0x08 },
     { L"Orchid Fire Cat", 0x2848 - 0x08, 0x285a - 0x08 },

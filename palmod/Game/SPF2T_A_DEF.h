@@ -217,7 +217,7 @@ const sGame_PaletteDataset SPF2T_A_DONOVAN_PALETTES_B[] =
 
 const sGame_PaletteDataset SPF2T_A_DEVILOT_PALETTES_A[] =
 {
-    { L"Devilot A", 0x0207fe, 0x02081e, indexPuzzleFighter_Devilotte, 0x00, &pairNextAndNextAndNext },
+    { L"Devilot A", 0x0207fe, 0x02081e, indexPuzzleFighter_Devilotte, 0x00, &pairNext3Palettes },
     { L"Devilot A: Dave", 0x02081e, 0x02083e, indexPuzzleFighter_Devilotte, 0x01 },
     { L"Devilot A: Xavier", 0x02083e, 0x02085e, indexPuzzleFighter_Devilotte, 0x03 },
     { L"Devilot A: Laser Gun", 0x02085e, 0x02087e, indexPuzzleFighter_Devilotte, 0x02 },
@@ -226,7 +226,7 @@ const sGame_PaletteDataset SPF2T_A_DEVILOT_PALETTES_A[] =
 
 const sGame_PaletteDataset SPF2T_A_DEVILOT_PALETTES_B[] =
 {
-    { L"Devilot B", 0x02087e, 0x02089e, indexPuzzleFighter_Devilotte, 0x00, &pairNextAndNextAndNext },
+    { L"Devilot B", 0x02087e, 0x02089e, indexPuzzleFighter_Devilotte, 0x00, &pairNext3Palettes },
     { L"Devilot B: Dave", 0x02089e, 0x0208be, indexPuzzleFighter_Devilotte, 0x01 },
     { L"Devilot B: Xavier", 0x0208be, 0x0208de, indexPuzzleFighter_Devilotte, 0x03 },
     { L"Devilot B: Laser Gun", 0x0208de, 0x0208fe, indexPuzzleFighter_Devilotte, 0x02 },

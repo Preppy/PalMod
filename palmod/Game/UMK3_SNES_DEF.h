@@ -42,22 +42,22 @@ const std::vector<UINT16> UMK3_SNES_IMGIDS_USED =
 
 const sGame_PaletteDataset UMK3_SNES_CYRAX_PALETTES_P1[] =
 {
-    { L"Cyrax P1", 0x3EAD0F, 0x3EAD2F, indexUMK3Sprites_Cyrax, 0x00 },
+    { L"Cyrax P1", 0x3EAD0F, 0x3EAD2F, indexUMK3Sprites_Sektor, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_CYRAX_PALETTES_P2[] =
 {
-    { L"Cyrax P2", 0x3EAD2F, 0x3EAD4F, indexUMK3Sprites_Cyrax, 0x00 },
+    { L"Cyrax P2", 0x3EAD2F, 0x3EAD4F, indexUMK3Sprites_Sektor, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_ERMAC_PALETTES_P1[] =
 {
-    { L"Ermac P1", 0x3EAF2F, 0x3EAF4F, indexUMK3Sprites_Ermac, 0x00 },
+    { L"Ermac P1", 0x3EAF2F, 0x3EAF4F, indexUMK3Sprites_Scorpion, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_ERMAC_PALETTES_P2[] =
 {
-    { L"Ermac P2", 0x8C44D, 0x8C46D, indexUMK3Sprites_Ermac, 0x00 },
+    { L"Ermac P2", 0x8C44D, 0x8C46D, indexUMK3Sprites_Scorpion, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_JADE_PALETTES_P1[] =
@@ -150,32 +150,35 @@ const sGame_PaletteDataset UMK3_SNES_NIGHTWOLF_PALETTES_P2[] =
     { L"Nightwolf P2", 0x3FB670, 0x3FB690, indexUMK3Sprites_Nightwolf, 0x00 },
 };
 
-// Noob P1...?
+const sGame_PaletteDataset UMK3_SNES_NOOB_PALETTES_P1[] =
+{
+    { L"Noob Saibot P1", 0x3EAF8F, 0x3EAFAF, indexUMK3Sprites_Scorpion, 0x00 },
+};
 
 const sGame_PaletteDataset UMK3_SNES_NOOB_PALETTES_P2[] =
 {
-    { L"Noob Saibot P2", 0x8C4ED, 0x8C50D, indexUMK3Sprites_NoobSaibot, 0x00 },
+    { L"Noob Saibot P2", 0x8C4ED, 0x8C50D, indexUMK3Sprites_Scorpion, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_RAIN_PALETTES_P1[] =
 {
-    { L"Rain P1", 0x3EAFAF, 0x3EAFCF, indexUMK3Sprites_Rain, 0x00 },
+    { L"Rain P1", 0x3EAFAF, 0x3EAFCF, indexUMK3Sprites_Scorpion, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_RAIN_PALETTES_P2[] =
 {
-    { L"Rain P2", 0x8C4AD, 0x8C4CD, indexUMK3Sprites_Rain, 0x00 },
+    { L"Rain P2", 0x8C4AD, 0x8C4CD, indexUMK3Sprites_Scorpion, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_REPTILE_PALETTES_P1[] =
 {
-    { L"Reptile P1", 0x3EAFCF, 0x3EAFEF, indexUMK3Sprites_Reptile, 0x00 },
+    { L"Reptile P1", 0x3EAFCF, 0x3EAFEF, indexUMK3Sprites_Scorpion, 0x00 },
     { L"Reptile P1 FX", 0x3EAFEF, 0x3EB00F },
 };
 
 const sGame_PaletteDataset UMK3_SNES_REPTILE_PALETTES_P2[] =
 {
-    { L"Reptile P2", 0x8C4CD, 0x8C4ED, indexUMK3Sprites_Reptile, 0x00 },
+    { L"Reptile P2", 0x8C4CD, 0x8C4ED, indexUMK3Sprites_Scorpion, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_SCORPION_PALETTES_P1[] =
@@ -220,12 +223,12 @@ const sGame_PaletteDataset UMK3_SNES_SINDEL_PALETTES_P2[] =
 
 const sGame_PaletteDataset UMK3_SNES_SMOKE_PALETTES_P1[] =
 {
-    { L"Smoke P1", 0x3EAD6F, 0x3EAD8F, indexUMK3Sprites_Smoke, 0x00 },
+    { L"Smoke P1", 0x3EAD6F, 0x3EAD8F, indexUMK3Sprites_Sektor, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_SMOKE_PALETTES_P2[] =
 {
-    { L"Smoke P2", 0x3EAD8F, 0x3EADAF, indexUMK3Sprites_Smoke, 0x00 },
+    { L"Smoke P2", 0x3EAD8F, 0x3EADAF, indexUMK3Sprites_Sektor, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_SMOKE_HUMAN_PALETTES_P1[] =
@@ -258,29 +261,35 @@ const sGame_PaletteDataset UMK3_SNES_STRYKER_PALETTES_P2[] =
     { L"Stryker P2", 0xAFF20, 0xAFF40, indexUMK3Sprites_Stryker, 0x00 },
 };
 
-const sGame_PaletteDataset UMK3_SNES_SUBZERO_PALETTES_P1[] =
+const sGame_PaletteDataset UMK3_SNES_SUBZERO_HUMAN_PALETTES_P1[] =
 {
     { L"Sub-Zero P1", 0x3F91B0, 0x3F91D0, indexUMK3Sprites_SubZero, 0x00 },
 };
 
-const sGame_PaletteDataset UMK3_SNES_SUBZERO_PALETTES_P2[] =
+const sGame_PaletteDataset UMK3_SNES_SUBZERO_HUMAN_PALETTES_P2[] =
 {
     { L"Sub-Zero P2", 0x3F91D0, 0x3F91F0, indexUMK3Sprites_SubZero, 0x00 },
 };
 
-const sGame_PaletteDataset UMK3_SNES_SUBZERO_HUMAN_PALETTES_P1[] =
+const sGame_PaletteDataset UMK3_SNES_SUBZERO_PALETTES_P1[] =
 {
-    { L"Sub-Zero (Original) P1", 0x3EAF4F, 0x3EAF6F, indexUMK3Sprites_SubZeroClassic, 0x00 },
+    { L"Sub-Zero (Original) P1", 0x3EAF4F, 0x3EAF6F, indexUMK3Sprites_Scorpion, 0x00 },
 };
 
-const sGame_PaletteDataset UMK3_SNES_SUBZERO_HUMAN_PALETTES_P2[] =
+const sGame_PaletteDataset UMK3_SNES_SUBZERO_PALETTES_P2[] =
 {
-    { L"Sub-Zero (Original) P2", 0x8C46D, 0x8C48D, indexUMK3Sprites_SubZeroClassic, 0x00 },
+    { L"Sub-Zero (Original) P2", 0x8C46D, 0x8C48D, indexUMK3Sprites_Scorpion, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_BONUS_PALETTES[] =
 {
     { L"Tower Select", 0x45610, 0x456F0 },
+    { L"\"FIGHT!\" text", 0x3F9110, 0x3F9130 },
+    { L"\"FIGHT!\" text flash", 0x3F9130, 0x3F9150 },
+    { L"Frozen Robots", 0x3EAD4F, 0x3EAD6F },
+    { L"Normal Blood", 0x3FB970, 0x3FB990 },
+    { L"Robot Blood", 0x3FB990, 0x3FB9B0 },
+    { L"Reptile's Blood", 0x3FB9B0, 0x3FB9D0 },
 };
 
 const sDescTreeNode UMK3_SNES_CYRAX_COLLECTION[] =
@@ -352,8 +361,8 @@ const sDescTreeNode UMK3_SNES_NIGHTWOLF_COLLECTION[] =
 
 const sDescTreeNode UMK3_SNES_NOOB_COLLECTION[] =
 {
-    //{ L"P1", DESC_NODETYPE_TREE, (void*)UMK3_SNES_NOOB_PALETTES_P1, ARRAYSIZE(UMK3_SNES_NOOB_PALETTES_P1) },
-    { L"P2_", DESC_NODETYPE_TREE, (void*)UMK3_SNES_NOOB_PALETTES_P2, ARRAYSIZE(UMK3_SNES_NOOB_PALETTES_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)UMK3_SNES_NOOB_PALETTES_P1, ARRAYSIZE(UMK3_SNES_NOOB_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)UMK3_SNES_NOOB_PALETTES_P2, ARRAYSIZE(UMK3_SNES_NOOB_PALETTES_P2) },
 };
 
 const sDescTreeNode UMK3_SNES_RAIN_COLLECTION[] =

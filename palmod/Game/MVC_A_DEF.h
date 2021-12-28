@@ -325,14 +325,14 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
     { L"P1 Charged HP 8", 0x4c5e2, 0x4c602, indexCPS2Sprites_Megaman },
     { L"P1 Charged HP 9", 0x4c602, 0x4c622, indexCPS2Sprites_Megaman },
 
-    { L"P1 Rush Drill 1", 0x4c622, 0x4c642, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill }, // 38
-    { L"P1 Rush Drill 2", 0x4c642, 0x4c662, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 3", 0x4c662, 0x4c682, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 4", 0x4c682, 0x4c6a2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 5", 0x4c6a2, 0x4c6c2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 6", 0x4c6c2, 0x4c6e2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 7", 0x4c6e2, 0x4c702, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 8", 0x4c702, 0x4c722, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
+    { L"P1 Rush Drill 1", 0x4c622, 0x4c642, indexCPS2Sprites_Roll, 0x0B, &pairNext9 }, // 38
+    { L"P1 Rush Drill 2", 0x4c642, 0x4c662, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 3", 0x4c662, 0x4c682, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 4", 0x4c682, 0x4c6a2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 5", 0x4c6a2, 0x4c6c2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 6", 0x4c6c2, 0x4c6e2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 7", 0x4c6e2, 0x4c702, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 8", 0x4c702, 0x4c722, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
     { L"P1 Rush Drill 9", 0x4c722, 0x4c742, indexCPS2Sprites_Roll, 0x0B },
 
     { L"P1 Rush Drill Metal 1", 0x4c9e2 + 0x0, 0x4c9e2 + 0x20, indexCPS2Sprites_Roll, 0x0C },
@@ -347,15 +347,15 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
     { L"P1 Teleport Intro", 0x4c742, 0x4c762, indexCPS2Sprites_Megaman, 0x0D }, // 41
     { L"P1 Dr Light", 0x4c762, 0x4c782, indexCPS2Sprites_Megaman, 0x25 }, // 42
 
-    { L"P1 Hyper Megaman Armor 1", 0x4c782, 0x4c7a2, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman }, // 43
-    { L"P1 Hyper Megaman Armor 2", 0x4c7a2, 0x4c7c2, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P1 Hyper Megaman Armor 3", 0x4c7c2, 0x4c7e2, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P1 Hyper Megaman Armor 4", 0x4c7e2, 0x4c802, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P1 Hyper Megaman Armor 5", 0x4c802, 0x4c822, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P1 Hyper Megaman Armor 6", 0x4c822, 0x4c842, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P1 Hyper Megaman Armor 7", 0x4c842, 0x4c862, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P1 Hyper Megaman Armor 8", 0x4c862, 0x4c882, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P1 Hyper Megaman Armor 9", 0x4c882, 0x4c8a2, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
+    { L"P1 Hyper Megaman Armor 1", 0x4c782, 0x4c7a2, indexCPS2Sprites_Megaman, 0x27, &pairNext9 }, // 43
+    { L"P1 Hyper Megaman Armor 2", 0x4c7a2, 0x4c7c2, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P1 Hyper Megaman Armor 3", 0x4c7c2, 0x4c7e2, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P1 Hyper Megaman Armor 4", 0x4c7e2, 0x4c802, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P1 Hyper Megaman Armor 5", 0x4c802, 0x4c822, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P1 Hyper Megaman Armor 6", 0x4c822, 0x4c842, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P1 Hyper Megaman Armor 7", 0x4c842, 0x4c862, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P1 Hyper Megaman Armor 8", 0x4c862, 0x4c882, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P1 Hyper Megaman Armor 9", 0x4c882, 0x4c8a2, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
 
     { L"P1 Hyper Megaman 1", 0x4c8a2, 0x4c8c2, indexCPS2Sprites_Megaman, 0x28 }, // 4C
     { L"P1 Hyper Megaman 2", 0x4c8c2, 0x4c8e2, indexCPS2Sprites_Megaman, 0x28 },
@@ -432,14 +432,14 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
     { L"P2 Charged HP 8", 0x4d0c2, 0x4d0e2, indexCPS2Sprites_Megaman },
     { L"P2 Charged HP 9", 0x4d0e2, 0x4d102, indexCPS2Sprites_Megaman },
 
-    { L"P2 Rush Drill 1", 0x4d102, 0x4d122, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 2", 0x4d122, 0x4d142, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 3", 0x4d142, 0x4d162, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 4", 0x4d162, 0x4d182, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 5", 0x4d182, 0x4d1a2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 6", 0x4d1a2, 0x4d1c2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 7", 0x4d1c2, 0x4d1e2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 8", 0x4d1e2, 0x4d202, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
+    { L"P2 Rush Drill 1", 0x4d102, 0x4d122, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 2", 0x4d122, 0x4d142, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 3", 0x4d142, 0x4d162, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 4", 0x4d162, 0x4d182, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 5", 0x4d182, 0x4d1a2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 6", 0x4d1a2, 0x4d1c2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 7", 0x4d1c2, 0x4d1e2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 8", 0x4d1e2, 0x4d202, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
     { L"P2 Rush Drill 9", 0x4d202, 0x4d222, indexCPS2Sprites_Roll, 0x0B }, // 97
 
     // Presented out of order because they are associated
@@ -456,15 +456,15 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
     { L"P2 Teleport Intro", 0x4d222, 0x4d242, indexCPS2Sprites_Megaman, 0x0D },
     { L"P2 Dr Light", 0x4d242, 0x4d262, indexCPS2Sprites_Megaman, 0x25 },
 
-    { L"P2 Hyper Megaman Armor 1", 0x4d262, 0x4d282, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P2 Hyper Megaman Armor 2", 0x4d282, 0x4d2a2, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P2 Hyper Megaman Armor 3", 0x4d2a2, 0x4d2c2, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P2 Hyper Megaman Armor 4", 0x4d2c2, 0x4d2e2, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P2 Hyper Megaman Armor 5", 0x4d2e2, 0x4d302, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P2 Hyper Megaman Armor 6", 0x4d302, 0x4d322, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P2 Hyper Megaman Armor 7", 0x4d322, 0x4d342, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P2 Hyper Megaman Armor 8", 0x4d342, 0x4d362, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman },
-    { L"P2 Hyper Megaman Armor 9", 0x4d362, 0x4d382, indexCPS2Sprites_Megaman, 0x27, &pairHyperMegaman }, // a2
+    { L"P2 Hyper Megaman Armor 1", 0x4d262, 0x4d282, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P2 Hyper Megaman Armor 2", 0x4d282, 0x4d2a2, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P2 Hyper Megaman Armor 3", 0x4d2a2, 0x4d2c2, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P2 Hyper Megaman Armor 4", 0x4d2c2, 0x4d2e2, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P2 Hyper Megaman Armor 5", 0x4d2e2, 0x4d302, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P2 Hyper Megaman Armor 6", 0x4d302, 0x4d322, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P2 Hyper Megaman Armor 7", 0x4d322, 0x4d342, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P2 Hyper Megaman Armor 8", 0x4d342, 0x4d362, indexCPS2Sprites_Megaman, 0x27, &pairNext9 },
+    { L"P2 Hyper Megaman Armor 9", 0x4d362, 0x4d382, indexCPS2Sprites_Megaman, 0x27, &pairNext9 }, // a2
 
     { L"P2 Hyper Megaman 1", 0x4d382, 0x4d3a2, indexCPS2Sprites_Megaman, 0x28 },
     { L"P2 Hyper Megaman 2", 0x4d3a2, 0x4d3c2, indexCPS2Sprites_Megaman, 0x28 },
@@ -560,14 +560,14 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P1[] =
     { L"P1 Beat Plane 8", 0x4da82, 0x4daa2, indexCPS2Sprites_Megaman, 0x24 },
     { L"P1 Beat Plane 9", 0x4daa2, 0x4dac2, indexCPS2Sprites_Megaman, 0x24 },
 
-    { L"P1 Rush Drill 1", 0x4dbe2, 0x4dc02, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 2", 0x4dc02, 0x4dc22, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 3", 0x4dc22, 0x4dc42, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 4", 0x4dc42, 0x4dc62, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 5", 0x4dc62, 0x4dc82, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 6", 0x4dc82, 0x4dca2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 7", 0x4dca2, 0x4dcc2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P1 Rush Drill 8", 0x4dcc2, 0x4dce2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
+    { L"P1 Rush Drill 1", 0x4dbe2, 0x4dc02, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 2", 0x4dc02, 0x4dc22, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 3", 0x4dc22, 0x4dc42, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 4", 0x4dc42, 0x4dc62, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 5", 0x4dc62, 0x4dc82, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 6", 0x4dc82, 0x4dca2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 7", 0x4dca2, 0x4dcc2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P1 Rush Drill 8", 0x4dcc2, 0x4dce2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
     { L"P1 Rush Drill 9", 0x4dce2, 0x4dd02, indexCPS2Sprites_Roll, 0x0B },
 
     { L"P1 Rush Drill Metal 1", 0x4dfa2, 0x4dfc2, indexCPS2Sprites_Roll, 0x0C },
@@ -632,14 +632,14 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P2[] =
     { L"P2 Beat Plane 8", 0x4e562, 0x4e582, indexCPS2Sprites_Megaman, 0x24 },
     { L"P2 Beat Plane 9", 0x4e582, 0x4e5a2, indexCPS2Sprites_Megaman, 0x24 },
 
-    { L"P2 Rush Drill 1", 0x4e6c2, 0x4e6e2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 2", 0x4e6e2, 0x4e702, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 3", 0x4e702, 0x4e722, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 4", 0x4e722, 0x4e742, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 5", 0x4e742, 0x4e762, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 6", 0x4e762, 0x4e782, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 7", 0x4e782, 0x4e7a2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
-    { L"P2 Rush Drill 8", 0x4e7a2, 0x4e7c2, indexCPS2Sprites_Roll, 0x0B, &pairMVC1RushDrill },
+    { L"P2 Rush Drill 1", 0x4e6c2, 0x4e6e2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 2", 0x4e6e2, 0x4e702, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 3", 0x4e702, 0x4e722, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 4", 0x4e722, 0x4e742, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 5", 0x4e742, 0x4e762, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 6", 0x4e762, 0x4e782, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 7", 0x4e782, 0x4e7a2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
+    { L"P2 Rush Drill 8", 0x4e7a2, 0x4e7c2, indexCPS2Sprites_Roll, 0x0B, &pairNext9 },
     { L"P2 Rush Drill 9", 0x4e7c2, 0x4e7e2, indexCPS2Sprites_Roll, 0x0B },
 
     { L"P2 Rush Drill Metal 1", 0x4ea82, 0x4eaa2, indexCPS2Sprites_Roll, 0x0C },
@@ -720,7 +720,7 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
     { L"Main Body Glimmer 3", 0x4BC02, 0x4BC22, indexCPS2Sprites_Onslaught },
     { L"Teleport 1", 0x4BC62, 0x4BC82, indexCPS2Sprites_Onslaught },
     { L"Teleport 2", 0x4BC82, 0x4BCA2, indexCPS2Sprites_Onslaught },
-    { L"Body Ram (Body)", 0x4BD22, 0x4BD42, indexCPS2Sprites_Onslaught, 0x08, &pairOnslaught },
+    { L"Body Ram (Body)", 0x4BD22, 0x4BD42, indexCPS2Sprites_Onslaught, 0x08, &pairNext },
     { L"Body Ram (Effect)", 0x4BD42, 0x4BD62, indexCPS2Sprites_Onslaught, 0x09 },
     { L"Magnetic Shockwave", 0x4BC42, 0x4BC62, indexCPS2Sprites_Onslaught, 0x06 },
     { L"Magnetic Tempest", 0x4BCC2, 0x4BCE2, indexCPS2Sprites_Onslaught, 0x0A },
@@ -901,7 +901,7 @@ const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P2[] =
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P1[] =
 {
     { L"P1 Color",  0x48882, 0x488a2, indexCPS2Sprites_CapCom },
-    { L"P1 Ninjas", 0x488a2, 0x488c2, indexCPS2Sprites_CapCom, 1, &pairCapComNinjas },
+    { L"P1 Ninjas", 0x488a2, 0x488c2, indexCPS2Sprites_CapCom, 1, &pairNext },
     { L"P1 Hoover", 0x488c2, 0x488e2, indexCPS2Sprites_CapCom, 2 },
     { L"P1 Suit Intro", 0x4F302, 0x4F322, indexCPS2Sprites_CapCom, 0x0F },
     { L"P1 Taunt", 0x4F342, 0x4F362, indexCPS2Sprites_CapCom, 14 },
@@ -910,7 +910,7 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P1[] =
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P2[] =
 {
     { L"P2 Color",  0x488e2, 0x48902, indexCPS2Sprites_CapCom },
-    { L"P2 Ninjas", 0x48902, 0x48922, indexCPS2Sprites_CapCom, 1, &pairCapComNinjas },
+    { L"P2 Ninjas", 0x48902, 0x48922, indexCPS2Sprites_CapCom, 1, &pairNext },
     { L"P2 Hoover", 0x48922, 0x48942, indexCPS2Sprites_CapCom, 2 },
     { L"P2 Suit Intro", 0x4F322, 0x4F342, indexCPS2Sprites_CapCom, 0x0F },
     { L"P2 Taunt", 0x4F362, 0x4F382, indexCPS2Sprites_CapCom, 14 },
@@ -1041,6 +1041,7 @@ const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P2[] =
     { L"P2 Lighting 5", 0x4fA62, 0x4fA82, indexCPS2Sprites_Gambit },
 };
 
+
 const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 {
     { L"Anita P1", 0x50fa2, 0x50fc2, indexCPS2Sprites_Anita },
@@ -1073,12 +1074,12 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { L"Devilot P1", 0x510c2, 0x510e2, indexCPS2Sprites_MVCAssets, 3, &pairMVCDevilotNormal },
     { L"Devilot P1: Dave and Xavier", 0x510e2, 0x51102, indexCPS2Sprites_MVCAssets, 4 },
     { L"Devilot P1: Platform", 0x51102, 0x51122, indexCPS2Sprites_MVCAssets, 2 },
-    { L"Devilot P1: Burnt", 0x51182, 0x511a2, indexCPS2Sprites_MVCAssets, 5, &pairMVCDevilotBurnt },
+    { L"Devilot P1: Burnt", 0x51182, 0x511a2, indexCPS2Sprites_MVCAssets, 5, &pairNext },
     { L"Devilot P1: Burnt Dave and Xavier", 0x511a2, 0x511c2, indexCPS2Sprites_MVCAssets, 6 },
     { L"Devilot P2", 0x51122, 0x51142, indexCPS2Sprites_MVCAssets, 3, &pairMVCDevilotNormal },
     { L"Devilot P2: Dave and Xavier", 0x51142, 0x51162, indexCPS2Sprites_MVCAssets, 4 },
     { L"Devilot P2: Platform", 0x51162, 0x51182, indexCPS2Sprites_MVCAssets, 2 },
-    { L"Devilot P2: Burnt", 0x511c2, 0x511e2, indexCPS2Sprites_MVCAssets, 5, &pairMVCDevilotBurnt },
+    { L"Devilot P2: Burnt", 0x511c2, 0x511e2, indexCPS2Sprites_MVCAssets, 5, &pairNext },
     { L"Devilot P2: Burnt Dave and Xavier", 0x511e2, 0x51202, indexCPS2Sprites_MVCAssets, 6 },
 
     { L"Iceman P1", 0x50d62, 0x50d82, indexCPS2Sprites_Iceman },
@@ -1096,9 +1097,9 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { L"Juggernaut P2", 0x50322, 0x50342, indexCPS2Sprites_Juggy },
     { L"Juggernaut P2 Extra 1", 0x50362, 0x50382, indexCPS2Sprites_Juggy, 2 },
 
-    { L"Lou P1", 0x50202, 0x50222, indexCPS2Sprites_MVCAssets, 0x09, &pairMVCLou },
+    { L"Lou P1", 0x50202, 0x50222, indexCPS2Sprites_MVCAssets, 0x09, &pairNext },
     { L"Lou P1 Extra", 0x50222, 0x50242, indexCPS2Sprites_MVCAssets, 0x0A },
-    { L"Lou P2", 0x50262, 0x50282, indexCPS2Sprites_MVCAssets, 0x09, &pairMVCLou },
+    { L"Lou P2", 0x50262, 0x50282, indexCPS2Sprites_MVCAssets, 0x09, &pairNext },
     { L"Lou P2 Extra", 0x50282, 0x502a2, indexCPS2Sprites_MVCAssets, 0x0A },
 
     { L"Magneto P1", 0x50382, 0x503a2, indexCPS2Sprites_Magneto },

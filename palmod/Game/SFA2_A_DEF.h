@@ -2186,7 +2186,7 @@ const sGame_PaletteDataset SFA2_A_08REV1_INTROPORTRAIT_PALETTES[] =
     { L"Ryu Ken Intro Blast", 0x2b500 - 0x900 - 0x02, 0x2b520 - 0x900 - 0x02, indexCPS2Sprites_SFA2_Bonus, 0x16 },
 
     { L"Rose", 0xB660 - 0x7fe, 0xB740 - 0x7fe, indexCPS2Sprites_SFA2_Bonus, 0x10 },
-    { L"Bison", 0xB740 - 0x7fe, 0xB880 - 0x7fe, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairSFA2BisonHand },
+    { L"Bison", 0xB740 - 0x7fe, 0xB880 - 0x7fe, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext },
     { L"Bison pt.2", 0xB900 - 0x7fe, 0xB920 - 0x7fe, indexCPS2Sprites_SFA2_Bonus, 0x0d },
     { L"Intro - Purple BG pt.2", 0x15A20 - 0x3fe, 0x15A40 - 0x3fe },
     { L"Intro - Blue BG pt.1", 0x2117e, 0x2119e },
@@ -2216,7 +2216,7 @@ const sGame_PaletteDataset SFA2_A_08REV2_INTROPORTRAIT_PALETTES[] =
     { L"Ryu Ken Intro Blast", 0x2b4fe, 0x2b51e, indexCPS2Sprites_SFA2_Bonus, 0x16 },
 
     { L"Rose", 0xB65e, 0xB73e, indexCPS2Sprites_SFA2_Bonus, 0x10 },
-    { L"Bison", 0xB73e, 0xB87e, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairSFA2BisonHand },
+    { L"Bison", 0xB73e, 0xB87e, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext },
     { L"Bison pt.2", 0xB900 - 0x02, 0xB91e, indexCPS2Sprites_SFA2_Bonus, 0x0d },
     { L"Intro - Purple BG pt.2", 0x15A1e, 0x15A3e },
     { L"Intro - Blue BG pt.1", 0x2117e, 0x2119e },
@@ -2247,7 +2247,7 @@ const sGame_PaletteDataset SFA2_A_08REV3_INTROPORTRAIT_PALETTES[] =
     { L"Ryu Ken Intro Blast", 0x2b500 + 0x143e, 0x2b520 + 0x143e, indexCPS2Sprites_SFA2_Bonus, 0x16 },
 
     { L"Rose", 0xB65e, 0xB73e, indexCPS2Sprites_SFA2_Bonus, 0x10 },
-    { L"Bison", 0xB73e, 0xB87e, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairSFA2BisonHand },
+    { L"Bison", 0xB73e, 0xB87e, indexCPS2Sprites_SFA2_Bonus, 0x0c, &pairNext },
     { L"Bison pt.2", 0xB900 - 0x02, 0xB91e, indexCPS2Sprites_SFA2_Bonus, 0x0d },
     { L"Intro - Purple BG pt.2", 0x15A1e, 0x15A3e },
     { L"Intro - Blue BG pt.1", 0x2117e, 0x2119e },

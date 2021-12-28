@@ -360,8 +360,6 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
                 INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                 const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
@@ -385,13 +383,13 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse,
                                 CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse, 
-                                    CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                    CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse)
                                 )
                             )
                         );
 
                         //Set each palette
-                        sDescNode* JoinedNode[] = {
+                        std::vector<sDescNode*> JoinedNode = {
                             GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerNodeDistance, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerNodeDistance2, -1)
@@ -412,7 +410,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             ClearSetImgTicket(
                                 CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
                                 )
                             );
                         }
@@ -420,7 +418,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             ClearSetImgTicket(
                                 CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                    CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse)
                                 )
                             );
                         }
@@ -446,7 +444,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         }
 
                         //Set each palette
-                        sDescNode* JoinedNode[2] = {
+                        std::vector<sDescNode*> JoinedNode = {
                             GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                             GetMainTree()->GetDescNode(Node01, Node02 + nNodeDistance, Node03 + nPeerNodeDistance, -1)
                         };

@@ -1039,7 +1039,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         );
 
                         //Set each palette
-                        sDescNode* JoinedNode[2] = {
+                        std::vector<sDescNode*> JoinedNode = {
                             GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                             GetMainTree()->GetDescNode(Node01, nNodeCount - 1, 0, -1)  // The cross-chop is palette 0 in the final node
                         };
@@ -1111,7 +1111,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     );
 
                     //Set each palette
-                    sDescNode* JoinedNode[] = {
+                    std::vector<sDescNode*> JoinedNode = {
                         GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                         GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
                         GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
@@ -1129,8 +1129,6 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                 else
                 {
                     int nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
 
                     const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nDeltaToSecondElement);
                     if (paletteDataSetToJoin)
@@ -1139,12 +1137,12 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
                             )
                         );
 
                         //Set each palette
-                        sDescNode* JoinedNode[2] = {
+                        std::vector<sDescNode*> JoinedNode = {
                             GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nDeltaToSecondElement, -1)
                         };

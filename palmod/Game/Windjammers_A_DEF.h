@@ -74,13 +74,17 @@ const sGame_PaletteDataset Windjammers_A_ITALY_P2[] =
 const sGame_PaletteDataset Windjammers_A_JAPAN_P1[] =
 {
     { L"Player 1", 0x30540, 0x30560, indexWindjammersSprites_Japan },
-    { L"P1 Portraits (A)", 0x31280, 0x312c0, indexWindjammersSprites_Japan, 0x80, &pairNext },
-    { L"P1 Portraits (B)", 0x31380, 0x313a0, indexWindjammersSprites_Japan, 0x81 },
 };
 
 const sGame_PaletteDataset Windjammers_A_JAPAN_P2[] =
 {
     { L"Player 2", 0x30560, 0x30580, indexWindjammersSprites_Japan },
+};
+
+const sGame_PaletteDataset Windjammers_A_JAPAN_PORTRAITS[] =
+{
+    { L"P1 Portraits (A)", 0x31280, 0x312c0, indexWindjammersSprites_Japan, 0x80, &pairNext },
+    { L"P1 Portraits (B)", 0x31380, 0x313a0, indexWindjammersSprites_Japan, 0x81 },
     { L"P2 Portraits", 0x31c80, 0x31cc0, indexWindjammersSprites_Japan, 0x82 },
 };
 
@@ -160,6 +164,8 @@ const sDescTreeNode Windjammers_A_JAPAN_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE,   (void*)Windjammers_A_JAPAN_P1, ARRAYSIZE(Windjammers_A_JAPAN_P1) },
     { L"P2", DESC_NODETYPE_TREE,   (void*)Windjammers_A_JAPAN_P2, ARRAYSIZE(Windjammers_A_JAPAN_P2) },
+    { L"Portraits", DESC_NODETYPE_TREE,   (void*)Windjammers_A_JAPAN_PORTRAITS, ARRAYSIZE(Windjammers_A_JAPAN_PORTRAITS) },
+    
 };
 
 const sDescTreeNode Windjammers_A_STAGES_COLLECTION[] =

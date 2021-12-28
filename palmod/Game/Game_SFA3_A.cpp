@@ -511,35 +511,9 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 else
                 {
                     UINT16 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
 
-                    UINT16 nPeerPaletteIdInNode = Node03;
-
-                    if (paletteDataSet->indexImgToUse == indexCPS2Sprites_SFA3Assets)
-                    {
-                        if (paletteDataSet->indexOffsetToUse == 0x01) // Waterfall landing
-                        {
-                            nXOffs = 86;
-                            nYOffs = -31;
-                            nDeltaToSecondElement = 4;
-                            nPeerPaletteIdInNode += 4;
-                            fShouldUseAlternateLoadLogic = true;
-                        }
-                        else if (paletteDataSet->indexOffsetToUse == 0x02) // Waterfall stream
-                        {
-                            nXOffs = -86;
-                            nYOffs = 31;
-                            nDeltaToSecondElement = -4;
-                            nPeerPaletteIdInNode -= 4;
-                            fShouldUseAlternateLoadLogic = true;
-                        }
-                    }
-                    else
-                    {
-                        fShouldUseAlternateLoadLogic = true;
-                        nPeerPaletteIdInNode += nDeltaToSecondElement;
-                    }
+                    fShouldUseAlternateLoadLogic = true;
+                    UINT16 nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
 
                     size_t nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
 
@@ -551,12 +525,12 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             ClearSetImgTicket(
                                 CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
                                 )
                             );
 
                             //Set each palette
-                            sDescNode* JoinedNode[2] = {
+                            std::vector<sDescNode*> JoinedNode = {
                                 GetMainTree()->GetDescNode(NodeGet->uUnitId, Node02, Node03, -1),
                                 GetMainTree()->GetDescNode(NodeGet->uUnitId, Node02, nPeerPaletteIdInNode, -1)
                             };

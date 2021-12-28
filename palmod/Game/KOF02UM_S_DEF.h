@@ -824,8 +824,8 @@ const sGame_PaletteDataset KOF02UM_S_DAIMON_PALETTES_MOVES[] =
 const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_MOVES[] =
 {
     { L"VS Igniz Win Stuff: Diana", 0x52a20, 0x52a40, indexKOF02UMSprites_Foxy, 0x1a, &pairNextAndNext },
-    { L"VS Igniz Win Stuff: Kula",  0x52a40, 0x52a60, indexKOF02UMSprites_Foxy, 0x1b },
-    { L"VS Igniz Win Stuff: Foxy",  0x52a60, 0x52a80, indexKOF02UMSprites_Foxy, 0x1c },
+    { L"VS Igniz Win Stuff: Kula",  0x52a40, 0x52a60, indexKOF02UMSprites_Foxy, 0x1c },
+    { L"VS Igniz Win Stuff: Foxy",  0x52a60, 0x52a80, indexKOF02UMSprites_Foxy, 0x1b },
 };
 
 const sGame_PaletteDataset KOF02UM_S_GEESE_PALETTES_MOVES[] =
@@ -5287,7 +5287,7 @@ const sGame_PaletteDataset KOF02UM_S_PSEL_PALETTES[] =
     { L"Player Select Icons", 0x209c0, 0x20a40 },
     { L"Character Select Center", 0x619c0, 0x61ac0 },
     { L"Character Select Center Red", 0x61ac0, 0x61bc0 },
-    { L"Select Portraits 1", 0x71dc0, 0x721c0, indexKOF02UMSprites_Bonus, 0x40, &pairNextAndNextAndNext },
+    { L"Select Portraits 1", 0x71dc0, 0x721c0, indexKOF02UMSprites_Bonus, 0x40, &pairNext3Palettes },
     { L"Select Portraits 2",  0x821c0, 0x825c0, indexKOF02UMSprites_Bonus, 0x41 },
     { L"Select Portraits 3",  0x925c0, 0x929c0, indexKOF02UMSprites_Bonus, 0x42 },
     { L"Select Portraits 4", 0xa29c0, 0xa2dc0, indexKOF02UMSprites_Bonus, 0x43 },

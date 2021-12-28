@@ -135,14 +135,14 @@ const sGame_PaletteDataset Gowcaizer_A_SHAIA_PALETTES_P2[] =
 const sGame_PaletteDataset Gowcaizer_A_SHENLONG_PALETTES_P1[] =
 {
     { L"Shen Long P1", 0x190f62, 0x190f82, indexNEOGEOSprites_VFG_Shenlong, 0x00 },
-    { L"Shen Long Illusion P1", 0x190fa2, 0x190fc2 },
+    { L"Shen Long Illusion P1", 0x190fa2, 0x190fc2, indexNEOGEOSprites_VFG_Shenlong, 0x00 },
     { L"Shen Long Select/Win Portrait P1", 0x199fe2, 0x19A022 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_SHENLONG_PALETTES_P2[] =
 {
     { L"Shen Long P2", 0x190f82, 0x190fa2, indexNEOGEOSprites_VFG_Shenlong, 0x00 },
-    { L"Shen Long Illusion P2", 0x190fc2, 0x190fe2 },
+    { L"Shen Long Illusion P2", 0x190fc2, 0x190fe2, indexNEOGEOSprites_VFG_Shenlong, 0x00 },
     { L"Shen Long Select/Win Portrait P2", 0x19A0E2, 0x19A122 },
 };
 
@@ -187,7 +187,7 @@ const sGame_PaletteDataset Gowcaizer_A_HELLSTINGER_PALETTES_P2[] =
 const sGame_PaletteDataset Gowcaizer_A_BRIDER_PALETTES_P1[] =
 {
     { L"Brider P1", 0x1910a2, 0x1910c2, indexNEOGEOSprites_VFG_Brider, 0x00 },
-    { L"Double Brider P1", 0x191122, 0x191142 },
+    { L"Double Brider P1", 0x191122, 0x191142, indexNEOGEOSprites_VFG_Brider, 0x00 },
     { L"Brider Intro P1", 0x1975e2, 0x197602 },
     { L"Brider Select/Win Portrait P1", 0x19A3E2, 0x19A4e2 },
 };
@@ -195,7 +195,7 @@ const sGame_PaletteDataset Gowcaizer_A_BRIDER_PALETTES_P1[] =
 const sGame_PaletteDataset Gowcaizer_A_BRIDER_PALETTES_P2[] =
 {
     { L"Brider P2", 0x1910c2, 0x1910e2, indexNEOGEOSprites_VFG_Brider, 0x00 },
-    { L"Double Brider P2", 0x191142, 0x191162 },
+    { L"Double Brider P2", 0x191142, 0x191162, indexNEOGEOSprites_VFG_Brider, 0x00 },
     { L"Brider Intro P2", 0x197602, 0x197622 },
     { L"Brider Select/Win Portrait P2", 0x19A4E2, 0x19A5e2 },
 };
@@ -506,73 +506,73 @@ const sGame_PaletteDataset Gowcaizer_A_BONUS_Effects_PALETTES[] =
 const sDescTreeNode Gowcaizer_A_GOWCAIZER_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_GOWCAIZER_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_GOWCAIZER_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_GOWCAIZER_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_GOWCAIZER_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_GOWCAIZER_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_GOWCAIZER_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_ATLANTIS_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_ATLANTIS_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_ATLANTIS_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_ATLANTIS_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_ATLANTIS_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_ATLANTIS_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_ATLANTIS_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_KARIN_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_KARIN_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_KARIN_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_KARIN_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_KARIN_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_KARIN_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_KARIN_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_FUDOMARU_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_FUDOMARU_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_FUDOMARU_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_FUDOMARU_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_FUDOMARU_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_FUDOMARU_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_FUDOMARU_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_MARION_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_MARION_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_MARION_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_MARION_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_MARION_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_MARION_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_MARION_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_SHAIA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_SHAIA_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_SHAIA_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_SHAIA_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_SHAIA_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_SHAIA_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_SHAIA_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_SHENLONG_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_SHENLONG_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_SHENLONG_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_SHENLONG_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_SHENLONG_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_SHENLONG_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_SHENLONG_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_KYOSUKE_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_KYOSUKE_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_KYOSUKE_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_KYOSUKE_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_KYOSUKE_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_KYOSUKE_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_KYOSUKE_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_HELLSTINGER_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_HELLSTINGER_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_HELLSTINGER_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_HELLSTINGER_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_HELLSTINGER_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_HELLSTINGER_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_HELLSTINGER_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_BRIDER_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_BRIDER_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_BRIDER_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_BRIDER_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_BRIDER_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_BRIDER_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_BRIDER_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_PLATONIC_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_PLATONIC_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_PLATONIC_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_PLATONIC_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_PLATONIC_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_PLATONIC_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_PLATONIC_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_OHGA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_OHGA_PALETTES_P1, ARRAYSIZE(Gowcaizer_A_OHGA_PALETTES_P1) },
-    { L"P1", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_OHGA_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_OHGA_PALETTES_P2) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_OHGA_PALETTES_P2, ARRAYSIZE(Gowcaizer_A_OHGA_PALETTES_P2) },
 };
 
 const sDescTreeNode Gowcaizer_A_STAGES_COLLECTION[] =

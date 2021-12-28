@@ -891,8 +891,6 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         // this is for next/previous/etc
                         nPaletteOneDelta = 0;
                         nPaletteTwoDelta = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                        nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                        nYOffs= paletteDataSet->pPalettePairingInfo->nYOffs;
                         fUseDefaultPaletteLoad = false;
                     }
 
@@ -919,7 +917,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         );
 
                         //Set each palette
-                        sDescNode* JoinedNode[2] = {
+                        std::vector<sDescNode*> JoinedNode = {
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteOneDelta, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1)
                         };
@@ -965,7 +963,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         );
 
                         //Set each palette
-                        sDescNode* JoinedNode[5] = {
+                        std::vector<sDescNode*> JoinedNode = {
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteOneDelta, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteThreeDelta, -1),
@@ -991,8 +989,6 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         // this is for next/previous/etc
                         nPaletteOneDelta = 0;
                         nPaletteTwoDelta = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                        nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                        nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
                         fUseDefaultPaletteLoad = false;
 
                         const sGame_PaletteDataset* paletteDataSetOne = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteOneDelta);
@@ -1000,12 +996,12 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSetOne->indexImgToUse, paletteDataSetOne->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetTwo->indexImgToUse, paletteDataSetTwo->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                CreateImgTicket(paletteDataSetTwo->indexImgToUse, paletteDataSetTwo->indexOffsetToUse)
                             )
                         );
 
                         //Set each palette
-                        sDescNode* JoinedNode[2] = {
+                        std::vector<sDescNode*> JoinedNode = {
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteOneDelta, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1)
                         };

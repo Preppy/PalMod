@@ -831,20 +831,18 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                         if (paletteDataSetToJoin)
                         {
-                            int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                            int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
                             INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                             fShouldUseAlternateLoadLogic = true;
 
                             ClearSetImgTicket(
                                 CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
                                 )
                             );
 
                             //Set each palette
-                            sDescNode* JoinedNode[2] = {
+                            std::vector<sDescNode*> JoinedNode = {
                                 GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                                 GetMainTree()->GetDescNode(Node01, Node02, Node03 + 1, -1)
                             };

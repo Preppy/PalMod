@@ -767,7 +767,7 @@ const sGame_PaletteDataset MSH_A_BONUS_CSI_PALETTES[] =
 const sGame_PaletteDataset MSH_A_BONUS_TITLE_05_PALETTES[] =
 {
     { L"Title Screen Gems",                 0x6CB0c, 0x6CBCc, indexCPS2Sprites_MSHAssets, 0x02 },
-    { L"Title Screen Outline",              0x6CC6c, 0x6CC8c, indexCPS2Sprites_MSHAssets, 0x03, &pairNextAndNextAndNext },
+    { L"Title Screen Outline",              0x6CC6c, 0x6CC8c, indexCPS2Sprites_MSHAssets, 0x03, &pairNext3Palettes },
     { L"Title Screen Fill",                 0x75B40 - 0x02, 0x75BC0 - 0x02, indexCPS2Sprites_MSHAssets, 0x04 },
     { L"Title Screen Marvel Sparkles",      0x6C00c, 0x6C02c, indexCPS2Sprites_MSHAssets, 0x07 },
     { L"Title Screen Marvel Comics",        0x6CBCc, 0x6CBEc, indexCPS2Sprites_MSHAssets, 0x05 },

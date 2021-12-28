@@ -614,11 +614,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                             for (int nNodeIndex = ((int)paletteDataSet->pPalettePairingInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
                             {
-                                // We allow shifted layout for the second paired palette only
-                                const int nXOffs = (nNodeIndex == 1) ? paletteDataSet->pPalettePairingInfo->nXOffs : 0;
-                                const int nYOffs = (nNodeIndex == 1) ? paletteDataSet->pPalettePairingInfo->nYOffs : 0;
-
-                                sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage, nXOffs, nYOffs);
+                                sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage);
 
                                 vsImagePairs.push_back(pThisImage);
 
