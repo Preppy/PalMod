@@ -14,7 +14,8 @@ size_t CGame_SAMSHO5_A::rgExtraCountAll[SAMSHO5_A_NUMUNIT + 1];
 size_t CGame_SAMSHO5_A::rgExtraLoc[SAMSHO5_A_NUMUNIT + 1];
 
 UINT32 CGame_SAMSHO5_A::m_nTotalPaletteCountForSAMSHO5 = 0;
-UINT32 CGame_SAMSHO5_A::m_nExpectedGameROMSize = 0x400000;
+UINT32 CGame_SAMSHO5_A::m_nExpectedGameROMSize_5 = 0x400000;
+UINT32 CGame_SAMSHO5_A::m_nExpectedGameROMSize_5X = 0x800000;
 UINT32 CGame_SAMSHO5_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO5_A::InitializeStatics()
@@ -27,7 +28,7 @@ void CGame_SAMSHO5_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SAMSHO5_A::InitDescTree());
 }
 
-CGame_SAMSHO5_A::CGame_SAMSHO5_A(UINT32 nConfirmedROMSize)
+CGame_SAMSHO5_A::CGame_SAMSHO5_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad /*= SAMSHO5_A*/)
 {
     OutputDebugString(L"CGame_SAMSHO5_A::CGame_SAMSHO5_A: Loading ROM...\n");
 
@@ -54,7 +55,7 @@ CGame_SAMSHO5_A::CGame_SAMSHO5_A(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set game information
-    nGameFlag = SAMSHO5_A;
+    nGameFlag = (SupportedGamesList)nROMToLoad;
     nImgGameFlag = IMGDAT_SECTION_SAMSHO;
     m_prgGameImageSet = SAMSHO5_A_IMGIDS_USED;
 
@@ -131,7 +132,7 @@ sFileRule CGame_SAMSHO5_A::GetRule(size_t nUnitId)
     // This value is only used for directory-based games
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"270-p1.bin");
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+    NewFileRule.uVerifyVar = (nUnitId == SAMSHO5X_A) ? m_nExpectedGameROMSize_5X : m_nExpectedGameROMSize_5;
 
     return NewFileRule;
 }
@@ -176,6 +177,30 @@ const sGame_PaletteDataset* CGame_SAMSHO5_A::GetSpecificPalette(size_t nUnitId, 
     return _GetSpecificPalette(SAMSHO5_A_UNITS, rgExtraCountAll, SAMSHO5_A_NUMUNIT, SAMSHO5_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO5_A_EXTRA_CUSTOM);
 }
 
+UINT32 CGame_SAMSHO5_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Samurai Shodown V (Neo-Geo)", L"270-p1.bin", 0x4a2a09e6, 0 },
+        { L"Samurai Shodown V (Neo-Geo)", L"270-p1.p1", 0x4a2a09e6, 0 },
+
+        { L"Samurai Shodown V (Xbox)", L"ssvx_p1.rom", 0x16983af9, 0x6d1000 - 0x0d5000 },
+    };
+
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
+
 void CGame_SAMSHO5_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 {
      if (nUnitId != SAMSHO5_A_EXTRALOC)
@@ -190,6 +215,12 @@ void CGame_SAMSHO5_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            // Adjust for ROM-specific variant locations
+            if (m_pCRC32SpecificData)
+            {
+                m_nCurrentPaletteROMLocation = max(0, m_nCurrentPaletteROMLocation + m_pCRC32SpecificData->nROMSpecificOffset);
+            }
         }
         else
         {

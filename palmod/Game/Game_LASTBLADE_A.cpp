@@ -14,7 +14,8 @@ size_t CGame_LASTBLADE_A::rgExtraCountAll[LASTBLADE_A_NUMUNIT + 1];
 size_t CGame_LASTBLADE_A::rgExtraLoc[LASTBLADE_A_NUMUNIT + 1];
 
 UINT32 CGame_LASTBLADE_A::m_nTotalPaletteCountForLASTBLADE = 0;
-UINT32 CGame_LASTBLADE_A::m_nExpectedGameROMSize = 0x100000; // Update to the actual size of the ROM you expect
+UINT32 CGame_LASTBLADE_A::m_nExpectedGameROMSize_A = 0x100000;
+UINT32 CGame_LASTBLADE_A::m_nExpectedGameROMSize_S = 0x500000;
 UINT32 CGame_LASTBLADE_A::m_nConfirmedROMSize = -1;
 
 void CGame_LASTBLADE_A::InitializeStatics()
@@ -27,7 +28,7 @@ void CGame_LASTBLADE_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_LASTBLADE_A::InitDescTree());
 }
 
-CGame_LASTBLADE_A::CGame_LASTBLADE_A(UINT32 nConfirmedROMSize)
+CGame_LASTBLADE_A::CGame_LASTBLADE_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad /*= LASTBLADE_A */)
 {
     OutputDebugString(L"CGame_LASTBLADE_A::CGame_LASTBLADE_A: Loading ROM...\n");
 
@@ -66,7 +67,7 @@ CGame_LASTBLADE_A::CGame_LASTBLADE_A(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set game information
-    nGameFlag = LASTBLADE_A; // This value is defined in gamedef.h.  See usage of other values defined there
+    nGameFlag = (SupportedGamesList)nROMToLoad; // This value is defined in gamedef.h.  See usage of other values defined there
     nImgGameFlag = IMGDAT_SECTION_KOF; // This value is used to determine which section of the image file is used
     m_prgGameImageSet = LASTBLADE_A_IMGIDS_USED;
 
@@ -302,7 +303,7 @@ sFileRule CGame_LASTBLADE_A::GetRule(size_t nUnitId)
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"234-p1.p1"); // Update with the primary expected ROM name here.
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+    NewFileRule.uVerifyVar = (nUnitId == LASTBLADE_S) ? m_nExpectedGameROMSize_S : m_nExpectedGameROMSize_A;
 
     return NewFileRule;
 }
@@ -312,6 +313,7 @@ UINT32 CGame_LASTBLADE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** pp
     static sCRC32ValueSet knownROMs[] =
     {
         { L"The Last Blade (Neo-Geo)", L"234-p1.p1", 0xe123a5a3, 0 },
+        { L"The Last Blade (Steam)", L"lastblad_game_m68k", 0xe72943de, 0 },
     };
 
     if (ppKnownROMSet)
@@ -377,6 +379,12 @@ void CGame_LASTBLADE_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            // Adjust for ROM-specific variant locations
+            if (m_pCRC32SpecificData)
+            {
+                m_nCurrentPaletteROMLocation = max(0, m_nCurrentPaletteROMLocation + m_pCRC32SpecificData->nROMSpecificOffset);
+            }
         }
         else
         {

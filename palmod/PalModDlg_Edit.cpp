@@ -794,6 +794,7 @@ void CPalModDlg::HandlePasteFromPalMod()
             case KOF94_A:
             case KOF97_A:
             case KOF97AE_A:
+            case KOF97GM_S:
             case KOF98_A:
             case KOF99AE_A:
             case KOF01_A:

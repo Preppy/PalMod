@@ -178,9 +178,7 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    // SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-    SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
-    m_fGameUsesAlphaValue = true; 
+    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
 
     switch (m_nSelectedRom)
     {

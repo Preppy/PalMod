@@ -10,13 +10,13 @@ constexpr auto EXTRA_FILENAME_KOF97AE_A = L"KOF97AEe.txt";
 class CGame_KOF97_A : public CGameWithExtrasFile
 {
 private:
-    int m_nBufferSelectedRom = 0x97;
-    static size_t m_nSelectedRom;
+    SupportedGamesList m_nBufferSelectedRom = KOF97_A;
+    static SupportedGamesList m_nSelectedRom;
 
     static UINT32 m_nTotalPaletteCountForKOF97;
     static UINT32 m_nTotalPaletteCountForKOF97AE;
 
-    static bool UsePaletteSetFor97() { return (m_nSelectedRom != _KOF97AEValue); }
+    static bool UsePaletteSetFor97() { return (m_nSelectedRom != KOF97AE_A); }
 
     static size_t rgExtraCountAll_97[KOF97_A_NUMUNIT + 1];
     static size_t rgExtraCountAll_97AE[KOF97AE_A_NUMUNIT + 1];
@@ -24,7 +24,8 @@ private:
     static size_t rgExtraLoc_97AE[KOF97AE_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
+    static UINT32 m_nExpectedGameROMSize_KOF97;
+    static UINT32 m_nExpectedGameROMSize_KOF97GM;
     static UINT32 m_nConfirmedROMSize;
 
     // Needed for multiple ROM support
@@ -37,18 +38,15 @@ private:
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
 
-    static constexpr auto _KOF97Value = 0x97;
-    static constexpr auto _KOF97AEValue = 0x97AE;
-
 public:
-    CGame_KOF97_A(UINT32 nConfirmedROMSize, int nROMToLoad = _KOF97Value);
+    CGame_KOF97_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad = KOF97_A);
     ~CGame_KOF97_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree_97;
     static CDescTree MainDescTree_97AE;
 
-    static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
+    static sDescTreeNode* InitDescTree(SupportedGamesList nROMPaletteSetToUse);
     static sFileRule GetRule(size_t nUnitId);
 
     //Extra palette function

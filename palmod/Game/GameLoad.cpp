@@ -390,6 +390,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     }
     case KOF97_A:
     case KOF97AE_A:
+    case KOF97GM_S:
     {
         GetRule = &CGame_KOF97_A::GetRule;
         return TRUE;
@@ -477,11 +478,13 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     case LASTBLADE_A:
+    case LASTBLADE_S:
     {
         GetRule = &CGame_LASTBLADE_A::GetRule;
         return TRUE;
     }
     case LASTBLADE2_A:
+    case LASTBLADE2_S:
     {
         GetRule = &CGame_LASTBLADE2_A::GetRule;
         return TRUE;
@@ -728,6 +731,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     case SAMSHO5_A:
+    case SAMSHO5X_A:
     {
         GetRule = &CGame_SAMSHO5_A::GetRule;
         return TRUE;
@@ -1142,9 +1146,8 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
     case KOF97_A:
     case KOF97AE_A:
-    {
-        return new CGame_KOF97_A(nConfirmedROMSize, nExtraGameData);
-    }
+    case KOF97GM_S:
+        return new CGame_KOF97_A(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
     case KOF98_A:
     {
         return new CGame_KOF98_A(nConfirmedROMSize);
@@ -1196,12 +1199,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
         return new CGame_KOTM_A(nConfirmedROMSize);
     }
     case LASTBLADE_A:
+    case LASTBLADE_S:
     {
-        return new CGame_LASTBLADE_A(nConfirmedROMSize);
+        return new CGame_LASTBLADE_A(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
     }
     case LASTBLADE2_A:
+    case LASTBLADE2_S:
     {
-        return new CGame_LASTBLADE2_A(nConfirmedROMSize);
+        return new CGame_LASTBLADE2_A(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
     }
     case MAAB_A:
     {
@@ -1365,8 +1370,9 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
         return new CGame_SAMSHO4_A(nConfirmedROMSize);
     }
     case SAMSHO5_A:
+    case SAMSHO5X_A:
     {
-        return new CGame_SAMSHO5_A(nConfirmedROMSize);
+        return new CGame_SAMSHO5_A(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
     }
     case SAMSHO5SP_A:
     {
@@ -1572,10 +1578,15 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
             nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? 50 : 51);
             break;
         case KOF97_A:
-            nGameRule = 0x97;
-            break;
         case KOF97AE_A:
-            nGameRule = 0x97AE;
+        case KOF97GM_S:
+        case LASTBLADE_A:
+        case LASTBLADE_S:
+        case LASTBLADE2_A:
+        case LASTBLADE2_S:
+        case SAMSHO5_A:
+        case SAMSHO5X_A:
+            nGameRule = nGameFlag;
             break;
         case KOF99AE_A:
             nGameRule = ((wcsstr(pszFileNameLowercase, L"p2") != nullptr) ? 2 : 3);

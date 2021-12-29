@@ -118,8 +118,8 @@ GAME(1996, xmvsfb,     xmvsf,    cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
 GAME(1996, xmvsfu1d,   xmvsf,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "bootleg", "X-Men Vs. Street Fighter (USA 961004 Phoenix Edition) (bootleg)", MACHINE_SUPPORTS_SAVE)
     ROM_LOAD16_WORD_SWAP("xvs.05a",   0x100000, 0x80000, CRC(7db6025d) SHA1(2d74f48f83f45359bfaca28ab686625766af12ee))
 #endif
-        { L"XVSF (Arcade)", L"xvs.05a", 0x7db6025d, 0 },
-        { L"XVSF (960909 Japan Arcade)", L"xvs.05", 0x030e0e1e, 0 },
+        { L"XVSF (CPS2)", L"xvs.05a", 0x7db6025d, 0 },
+        { L"XVSF (960909 Japan CPS2)", L"xvs.05", 0x030e0e1e, 0 },
     };
 
     if (ppKnownROMSet)

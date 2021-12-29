@@ -6,7 +6,7 @@
 
 #define KOF97_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-size_t CGame_KOF97_A::m_nSelectedRom = 0x97;
+SupportedGamesList CGame_KOF97_A::m_nSelectedRom = KOF97_A;
 
 stExtraDef* CGame_KOF97_A::KOF97_A_EXTRA_CUSTOM = nullptr;
 stExtraDef* CGame_KOF97_A::KOF97AE_A_EXTRA_CUSTOM = nullptr;
@@ -21,7 +21,8 @@ size_t CGame_KOF97_A::rgExtraLoc_97AE[KOF97AE_A_NUMUNIT + 1];
 
 UINT32 CGame_KOF97_A::m_nTotalPaletteCountForKOF97 = 0;
 UINT32 CGame_KOF97_A::m_nTotalPaletteCountForKOF97AE = 0;
-UINT32 CGame_KOF97_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
+UINT32 CGame_KOF97_A::m_nExpectedGameROMSize_KOF97 = 0x400000;  // 4194304 bytes
+UINT32 CGame_KOF97_A::m_nExpectedGameROMSize_KOF97GM = 0x500000;
 UINT32 CGame_KOF97_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF97_A::InitializeStatics()
@@ -34,11 +35,11 @@ void CGame_KOF97_A::InitializeStatics()
     memset(rgExtraLoc_97, -1, sizeof(rgExtraLoc_97));
     memset(rgExtraLoc_97AE, -1, sizeof(rgExtraLoc_97AE));
 
-    MainDescTree_97.SetRootTree(CGame_KOF97_A::InitDescTree(_KOF97Value));
-    MainDescTree_97AE.SetRootTree(CGame_KOF97_A::InitDescTree(_KOF97AEValue));
+    MainDescTree_97.SetRootTree(CGame_KOF97_A::InitDescTree(KOF97_A));
+    MainDescTree_97AE.SetRootTree(CGame_KOF97_A::InitDescTree(KOF97AE_A));
 }
 
-CGame_KOF97_A::CGame_KOF97_A(UINT32 nConfirmedROMSize, int nROMToLoad /* = _KOF97Value */)
+CGame_KOF97_A::CGame_KOF97_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad /* = KOF97_A */)
 {
     OutputDebugString(L"CGame_KOF97_A::CGame_KOF97_A: Loading ROM...\n");
 
@@ -51,7 +52,7 @@ CGame_KOF97_A::CGame_KOF97_A(UINT32 nConfirmedROMSize, int nROMToLoad /* = _KOF9
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nSelectedRom = nROMToLoad;
+    nGameFlag = m_nSelectedRom = nROMToLoad;
 
     m_nTotalInternalUnits = UsePaletteSetFor97() ? KOF97_A_NUMUNIT : KOF97AE_A_NUMUNIT;
     m_nExtraUnit = UsePaletteSetFor97() ? KOF97_A_EXTRALOC : KOF97AE_A_EXTRALOC;
@@ -66,8 +67,6 @@ CGame_KOF97_A::CGame_KOF97_A(UINT32 nConfirmedROMSize, int nROMToLoad /* = _KOF9
 
     InitDataBuffer();
 
-    //Set game information
-    nGameFlag = UsePaletteSetFor97() ? KOF97_A : KOF97AE_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
     m_prgGameImageSet = KOF97_A_IMGIDS_USED;
 
@@ -131,7 +130,7 @@ size_t CGame_KOF97_A::GetExtraLoc(size_t nUnitId)
     }
 }
 
-sDescTreeNode* CGame_KOF97_A::InitDescTree(int nROMPaletteSetToUse)
+sDescTreeNode* CGame_KOF97_A::InitDescTree(SupportedGamesList nROMPaletteSetToUse)
 {
     m_nSelectedRom = nROMPaletteSetToUse;
 
@@ -473,7 +472,15 @@ sFileRule CGame_KOF97_A::GetRule(size_t nUnitId)
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"232-p2.sp2");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+
+    if (nUnitId != KOF97GM_S)
+    {
+        NewFileRule.uVerifyVar = m_nExpectedGameROMSize_KOF97;
+    }
+    else
+    {
+        NewFileRule.uVerifyVar = m_nExpectedGameROMSize_KOF97GM;
+    }
 
     return NewFileRule;
 }
@@ -487,6 +494,8 @@ UINT32 CGame_KOF97_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
         { L"King of Fighters '97AE (Neo-Geo)", L"232ae.p2", -1, 0 },
         { L"King of Fighters '97 Plus (Neo-Geo bootleg)", L"kf97-p2p.bin", 0x5502b020, 0 },
         { L"King of Fighters '97 Anniversary Edition (Neo-Geo)", L"232ae-p2.sp2", 0x228aa8d1, 0 },
+
+        { L"King of Fighters '97 Global Match (Steam)", L"p1.bin", 0x228aa8d1, 0x100000 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -596,7 +605,7 @@ void CGame_KOF97_A::InitDataBuffer()
 
 void CGame_KOF97_A::ClearDataBuffer()
 {
-    int nCurrentROMMode = m_nSelectedRom;
+    SupportedGamesList nCurrentROMMode = m_nSelectedRom;
 
     m_nSelectedRom = m_nBufferSelectedRom;
 
@@ -637,6 +646,12 @@ void CGame_KOF97_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            // Adjust for ROM-specific variant locations
+            if (m_pCRC32SpecificData)
+            {
+                m_nCurrentPaletteROMLocation = max(0, m_nCurrentPaletteROMLocation + m_pCRC32SpecificData->nROMSpecificOffset);
+            }
         }
         else
         {

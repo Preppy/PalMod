@@ -27,7 +27,7 @@ void CGame_LASTBLADE2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_LASTBLADE2_A::InitDescTree());
 }
 
-CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize)
+CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad /*= LASTBLADE2_A */)
 {
     OutputDebugString(L"CGame_LASTBLADE2_A::CGame_LASTBLADE2_A: Loading ROM...\n");
 
@@ -66,7 +66,7 @@ CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set game information
-    nGameFlag = LASTBLADE2_A; // This value is defined in gamedef.h.  See usage of other values defined there
+    nGameFlag = (SupportedGamesList)nROMToLoad; // This value is defined in gamedef.h.  See usage of other values defined there
     nImgGameFlag = IMGDAT_SECTION_KOF; // This value is used to determine which section of the image file is used
     m_prgGameImageSet = LASTBLADE2_A_IMGIDS_USED;
 

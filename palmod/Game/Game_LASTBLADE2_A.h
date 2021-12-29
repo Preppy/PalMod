@@ -22,7 +22,7 @@ private:
     size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
 public:
-    CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize);
+    CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad /*= LASTBLADE2_A */);
     ~CGame_LASTBLADE2_A(void);
 
     //Static functions / variables

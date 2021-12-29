@@ -16,14 +16,15 @@ private:
     static size_t rgExtraLoc[LASTBLADE_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
+    static UINT32 m_nExpectedGameROMSize_A;
+    static UINT32 m_nExpectedGameROMSize_S;
     static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
     size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
 public:
-    CGame_LASTBLADE_A(UINT32 nConfirmedROMSize);
+    CGame_LASTBLADE_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad = LASTBLADE_A);
     ~CGame_LASTBLADE_A(void);
 
     //Static functions / variables
