@@ -2791,6 +2791,74 @@ const sGame_PaletteDataset KOF98_A_OMEGARUGAL_EFFECT_PALETTES[] =
     { L"Super Trail 3", 0x2f35d0, 0x2f35f0, indexKOF98Sprites_Rugal },
 };
 
+const sGame_PaletteDataset KOF98_A_BONUS_CSI_PALETTES[] =
+{
+// MENU CHARACTERS 98
+// Hero Team
+    { L"Kyo Kusanagi", 0x2F3730, 0x2F3750 },
+    { L"Benimaru Nikaido", 0x2F3750, 0x2F3770 },
+    { L"Goro Daimo", 0x2F3770, 0x2F3790 },
+// Fatal Fury Team
+    { L"Terry Bogard", 0x2F3790, 0x2F37B0 },
+    { L"Andy Bogard", 0x2F37B0, 0x2F37D0 },
+    { L"Joe Higashi", 0x2F37D0, 0x2F37F0 },
+// Art of Fighting Team
+    { L"Ryo Sakazaki", 0x2F37F0, 0x2F3810 },
+    { L"Robert Garcia", 0x2F3810, 0x2F3830 },
+    { L"Yuri Sakazaki", 0x2F3830, 0x2F3850 },
+// Psycho Soldier Team
+    { L"Athena Asamiya", 0x2F38B0, 0x2F38D0 },
+    { L"Sie Kensou", 0x2F38D0, 0x2F38F0 },
+    { L"Chin Gentsai", 0x2F38F0, 0x2F3910 },
+// Ikari Team
+    { L"Leona Heidern", 0x2F3850, 0x2F3870 },
+    { L"Ralf Jones", 0x2F3870, 0x2F3890 },
+    { L"Clark Still", 0x2F3890, 0x2F38b0 },
+// Women Fighters Team
+    { L"Chizuru Kagura", 0x2F3910, 0x2F3930 },
+    { L"Mai Shiranui", 0x2F3930, 0x2F3950 },
+    { L"King", 0x2F3950, 0x2F3970 },
+// Kim Team
+    { L"Kim Kaphwan", 0x2F3970, 0x2F3990 },
+    { L"Chang Koehan", 0x2F3990, 0x2F39B0 },
+    { L"Choi Bounge", 0x2F39B0, 0x2F39d0 },
+// New Face Team
+    { L"Yashiro Nanakase", 0x2F39D0, 0x2F39F0 },
+    { L"Shermie", 0x2F39F0, 0x2F3A10 },
+    { L"Chris", 0x2F3A10, 0x2F3A30 },
+// '97 Special Team
+    { L"Ryuji Yamazaki", 0x2F3A30, 0x2F3A50 },
+    { L"Blue Mary", 0x2F3A50, 0x2F3A70 },
+    { L"Billy Kane", 0x2F3A70, 0x2F3A90 },
+// Yagami Team
+    { L"Iori Yagami", 0x2F3A90, 0x2F3AB0 },
+    { L"Mature", 0x2F3AB0, 0x2F3AD0 },
+    { L"Vice", 0x2F3AD0, 0x2F3AF0 },
+// Oyaji Team
+    { L"Heidern", 0x2F3AF0, 0x2F3B10 },
+    { L"Takuma Sakazaki", 0x2F3B10, 0x2F3B30 },
+    { L"Saisyu Kusanagi", 0x2F3B30, 0x2F3B50 },
+// American Sport Team
+    { L"Heavy D!", 0x2F3B50, 0x2F3B70 },
+    { L"Lucky Glauber", 0x2F3B70, 0x2F3B90 },
+    { L"Brian Battler", 0x2F3B90, 0x2F3BB0 },
+ 
+    { L"Rugal Bernstein", 0x2F3BB0, 0x2F3BD0 },
+    { L"Shingo Yabuki", 0x2F3BD0, 0x2F3Bf0 },
+	
+    { L"O-Yashiro Nanakase", 0x2F3610, 0x2F3630 },
+    { L"O-Shermie", 0x2F3630, 0x2F3650 },
+    { L"O-Chris", 0x2F3650, 0x2F36B0 },
+    { L"Omega Rugal", 0x2F36B0, 0x2F36d0 },
+
+//    { L"back ground select characters", 0x2F36F0, 0x2F3710 },
+//    { L"Mode Select", 0x2F3C30, 0x2F3C50 },
+//    { L"Advanced", 0x2F3DB0, 0x2F3DD0 },
+//    { L"Extra text", 0x2F3DD0, 0x2F3Df0 },
+//    { L"background winner", 0x2F41F0, 0x2F4210 },
+//    { L"background king of fighter98", 0x2F4ED0, zzzz },
+};
+
 const sGame_PaletteDataset KOF98_A_BONUS_INGAME_PALETTES[] =
 {
     { L"Hitsparks", 0x2d8210, 0x2d8230 },
@@ -3203,6 +3271,7 @@ const sDescTreeNode KOF98_A_OmegaRugal_COLLECTION[] =
 
 const sDescTreeNode KOF98_A_BONUS_COLLECTION[] =
 {
+    { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_CSI_PALETTES, ARRAYSIZE(KOF98_A_BONUS_CSI_PALETTES) },
     { L"In-Game Effects", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_INGAME_PALETTES, ARRAYSIZE(KOF98_A_BONUS_INGAME_PALETTES) },
     { L"Intro", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_INTRO_PALETTES, ARRAYSIZE(KOF98_A_BONUS_INTRO_PALETTES) },
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF98_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF98_A_BONUS_EFFECTS_PALETTES) },
@@ -3257,7 +3326,7 @@ const sDescTreeNode KOF98_A_UNITS[] =
 
 constexpr auto KOF98_A_NUMUNIT = ARRAYSIZE(KOF98_A_UNITS);
 
-#define KOF98_A_EXTRALOC KOF98_A_NUMUNIT
+constexpr auto KOF98_A_EXTRALOC = KOF98_A_NUMUNIT;
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef KOF98_A_EXTRA[] =

@@ -291,11 +291,6 @@ const sGame_PaletteDataset UMK3_SNES_SHAOKAHN_PALETTES[] =
     { L"Shao Khan", 0x3FC279, 0x3FC299, indexUMK3Sprites_ShaoKahn, 0x00 },
 };
 
-const sGame_PaletteDataset UMK3_SNES_STAGE_PALETTES_PORTAL[] =
-{
-    { L"Scislac Busorez (Portal)", 0x45610, 0x456B0 },
-};
-
 const sGame_PaletteDataset UMK3_SNES_STAGE_PALETTES_DESERT[] =
 {
     { L"Jade's Desert", 0x6549F, 0x6555F },
@@ -328,7 +323,8 @@ const sGame_PaletteDataset UMK3_SNES_BONUS_PALETTES[] =
     { L"Continue Screen", 0x87E88, 0x87EA8 },
     { L"Ultimate Mortal Kombat Screen", 0x87EAC, 0x87ECC },
 
-    //{ L"Tower Select", 0x45610, 0x456F0 },
+    { L"Tower Select/Lost 1/2", 0x45610, 0x45690 },
+    { L"Tower Select/Lost 2/2", 0x45690, 0x456F0 },
     { L"\"FIGHT!\" text", 0x3F9110, 0x3F9130 },
     { L"\"FIGHT!\" text flash", 0x3F9130, 0x3F9150 },
     { L"Frozen Robots", 0x3EAD4F, 0x3EAD6F, indexUMK3Sprites_Sektor, 0x00 },
@@ -494,7 +490,6 @@ const sDescTreeNode UMK3_SNES_SHAOKAHN_COLLECTION[] =
 
 const sDescTreeNode UMK3_SNES_STAGE_COLLECTION[] =
 {
-    { L"Scislac Busorez (Portal)", DESC_NODETYPE_TREE, (void*)UMK3_SNES_STAGE_PALETTES_PORTAL, ARRAYSIZE(UMK3_SNES_STAGE_PALETTES_PORTAL) },
     { L"Jade's Desert", DESC_NODETYPE_TREE, (void*)UMK3_SNES_STAGE_PALETTES_DESERT, ARRAYSIZE(UMK3_SNES_STAGE_PALETTES_DESERT) },
     { L"Scorpion's Lair", DESC_NODETYPE_TREE, (void*)UMK3_SNES_STAGE_PALETTES_SCORPION, ARRAYSIZE(UMK3_SNES_STAGE_PALETTES_SCORPION) },
     { L"Kahn's Kave", DESC_NODETYPE_TREE, (void*)UMK3_SNES_STAGE_PALETTES_KAVE, ARRAYSIZE(UMK3_SNES_STAGE_PALETTES_KAVE) },

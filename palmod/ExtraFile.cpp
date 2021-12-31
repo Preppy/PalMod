@@ -180,7 +180,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, const s
                             {
                                 CString strError;
                                 strError.Format(L"In file \"%s\", Extra \"%S\" is broken: trying to display from starting offset 0x%x to ending offset 0x%x:"
-                                                    L"that ending offset actually starts before the starting offset!\n\n"
+                                                    L" that ending offset actually starts before the starting offset!\n\n"
                                                 L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
                                 MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
 

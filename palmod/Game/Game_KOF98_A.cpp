@@ -29,9 +29,7 @@ void CGame_KOF98_A::InitializeStatics()
 
 CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_KOF98_A::CGame_KOF98_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_KOF98_A::CGame_KOF98_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -45,7 +43,7 @@ CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF98_A_NUMUNIT;
     m_nExtraUnit = KOF98_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1932;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1974;
     m_pszExtraFilename = EXTRA_FILENAME_KOF98_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF98;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
