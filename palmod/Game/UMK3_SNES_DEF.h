@@ -172,13 +172,13 @@ const sGame_PaletteDataset UMK3_SNES_RAIN_PALETTES_P2[] =
 
 const sGame_PaletteDataset UMK3_SNES_REPTILE_PALETTES_P1[] =
 {
-    { L"Reptile P1", 0x3EAFCF, 0x3EAFEF, indexUMK3Sprites_Scorpion, 0x00 },
+    { L"Reptile P1", 0x3EAFCF, 0x3EAFEF, indexUMK3Sprites_Reptile, 0x00 },
     { L"Reptile P1 FX", 0x3EAFEF, 0x3EB00F },
 };
 
 const sGame_PaletteDataset UMK3_SNES_REPTILE_PALETTES_P2[] =
 {
-    { L"Reptile P2", 0x8C4CD, 0x8C4ED, indexUMK3Sprites_Scorpion, 0x00 },
+    { L"Reptile P2", 0x8C4CD, 0x8C4ED, indexUMK3Sprites_Reptile, 0x00 },
 };
 
 const sGame_PaletteDataset UMK3_SNES_SCORPION_PALETTES_P1[] =
@@ -321,16 +321,16 @@ const sGame_PaletteDataset UMK3_SNES_BONUS_PALETTES[] =
     { L"Title", 0x7797A, 0x77A7A },
     { L"Options Title", 0x96559, 0x965F9 },
     { L"Continue Screen", 0x87E88, 0x87EA8 },
-    { L"Ultimate Mortal Kombat Screen", 0x87EAC, 0x87ECC },
+    { L"Ultimate Mortal Kombat Screen", 0x87EAC, 0x87ECC, indexUMK3Sprites_Bonus, 0x01 },
 
     { L"Tower Select/Lost 1/2", 0x45610, 0x45690 },
     { L"Tower Select/Lost 2/2", 0x45690, 0x456F0 },
     { L"\"FIGHT!\" text", 0x3F9110, 0x3F9130 },
     { L"\"FIGHT!\" text flash", 0x3F9130, 0x3F9150 },
     { L"Frozen Robots", 0x3EAD4F, 0x3EAD6F, indexUMK3Sprites_Sektor, 0x00 },
-    { L"Normal Blood", 0x3FB970, 0x3FB990 },
-    { L"Robot Blood", 0x3FB990, 0x3FB9B0 },
-    { L"Reptile's Blood", 0x3FB9B0, 0x3FB9D0 },
+    { L"Normal Blood", 0x3FB970, 0x3FB990, indexUMK3Sprites_Bonus, 0x00 },
+    { L"Robot Blood", 0x3FB990, 0x3FB9B0, indexUMK3Sprites_Bonus, 0x00 },
+    { L"Reptile's Blood", 0x3FB9B0, 0x3FB9D0, indexUMK3Sprites_Bonus, 0x00 },
 };
 
 const sDescTreeNode UMK3_SNES_CYRAX_COLLECTION[] =

@@ -9,15 +9,11 @@
 const std::vector<UINT16> KOF95_A_IMGIDS_USED =
 {
     indexKOF94Sprites_Andy,         // 0x164
-    indexKOF94Sprites_Athena,       // 0x165
-    indexKOF94Sprites_Benimaru,     // 0x166
     indexKOF94Sprites_Brian,        // 0x167
     indexKOF94Sprites_Chin,         // 0x169
-    indexKOF94Sprites_Clark,        // 0x16b
     indexKOF94Sprites_Daimon,       // 0x16c
     indexKOF94Sprites_HeavyD,       // 0x16d
     indexKOF94Sprites_Heidern,      // 0x16e
-    indexKOF94Sprites_Joe,          // 0x16f
     indexKOF94Sprites_Kensou,       // 0x170
     indexKOF94Sprites_Kim,          // 0x171
     indexKOF94Sprites_King,         // 0x172
@@ -28,7 +24,6 @@ const std::vector<UINT16> KOF95_A_IMGIDS_USED =
     indexKOF94Sprites_Robert,       // 0x177
     indexKOF94Sprites_Ryo,          // 0x179
     indexKOF94Sprites_Takuma,       // 0x17a
-    indexKOF94Sprites_Terry,        // 0x17b
     indexKOF94Sprites_Yuri,         // 0x17c
     
     indexKOF95Sprites_Andy,         // 0x22D
@@ -114,12 +109,12 @@ const sGame_PaletteDataset KOF95_A_RALF_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_CLARK_MAIN_PALETTES[] =
 {
-    { L"Clark", 0xd9800, 0xd9820, indexKOF94Sprites_Clark, 0x00, &pairNext },
-    { L"Extra 1", 0xd9820, 0xd9840, indexKOF94Sprites_Clark, 0x01 },
-    { L"MAX Flash", 0xd9840, 0xd9860, indexKOF94Sprites_Clark, 0x00, &pairNext },
-    { L"MAX Flash Extra", 0xd9860, 0xd9880, indexKOF94Sprites_Clark, 0x01 },
-    { L"Electric Palette?", 0xd9880, 0xd98a0, indexKOF94Sprites_Clark, 0x00, &pairNext },
-    { L"Electric Palette? Extra", 0xd98a0, 0xd98c0, indexKOF94Sprites_Clark, 0x01 },
+    { L"Clark", 0xd9800, 0xd9820, indexKOF95Sprites_Clark, 0x00, &pairNext },
+    { L"Extra 1", 0xd9820, 0xd9840, indexKOF95Sprites_Clark, 0x01 },
+    { L"MAX Flash", 0xd9840, 0xd9860, indexKOF95Sprites_Clark, 0x00, &pairNext },
+    { L"MAX Flash Extra", 0xd9860, 0xd9880, indexKOF95Sprites_Clark, 0x01 },
+    { L"Electric Palette?", 0xd9880, 0xd98a0, indexKOF95Sprites_Clark, 0x00, &pairNext },
+    { L"Electric Palette? Extra", 0xd98a0, 0xd98c0, indexKOF95Sprites_Clark, 0x01 },
     { L"Win Portrait", 0xd98c0, 0xd99c0, indexKOF95Sprites_Clark, 0x41 },
     { L"Lifebar Portrait", 0xd99c0, 0xd99e0, indexKOF95Sprites_Clark, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0xd99e0, 0xd9a00, indexKOF95Sprites_Clark, 0x40 },
@@ -127,12 +122,12 @@ const sGame_PaletteDataset KOF95_A_CLARK_MAIN_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_CLARK_ALT_PALETTES[] =
 {
-    { L"Clark", 0xd9a00, 0xd9a20, indexKOF94Sprites_Clark, 0x00, &pairNext },
-    { L"Extra 1", 0xd9a20, 0xd9a40, indexKOF94Sprites_Clark, 0x01 },
-    { L"MAX Flash", 0xd9a40, 0xd9a60, indexKOF94Sprites_Clark, 0x00, &pairNext },
-    { L"MAX Flash Extra", 0xd9a60, 0xd9a80, indexKOF94Sprites_Clark, 0x01 },
-    { L"Electric Palette?", 0xd9a80, 0xd9aa0, indexKOF94Sprites_Clark, 0x00, &pairNext },
-    { L"Electric Palette? Extra", 0xd9aa0, 0xd9ac0, indexKOF94Sprites_Clark, 0x01 },
+    { L"Clark", 0xd9a00, 0xd9a20, indexKOF95Sprites_Clark, 0x00, &pairNext },
+    { L"Extra 1", 0xd9a20, 0xd9a40, indexKOF95Sprites_Clark, 0x01 },
+    { L"MAX Flash", 0xd9a40, 0xd9a60, indexKOF95Sprites_Clark, 0x00, &pairNext },
+    { L"MAX Flash Extra", 0xd9a60, 0xd9a80, indexKOF95Sprites_Clark, 0x01 },
+    { L"Electric Palette?", 0xd9a80, 0xd9aa0, indexKOF95Sprites_Clark, 0x00, &pairNext },
+    { L"Electric Palette? Extra", 0xd9aa0, 0xd9ac0, indexKOF95Sprites_Clark, 0x01 },
     { L"Win Portrait", 0xd9ac0, 0xd9bc0, indexKOF95Sprites_Clark, 0x41 },
     { L"Lifebar Portrait", 0xd9bc0, 0xd9be0, indexKOF95Sprites_Clark, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0xd9be0, 0xd9c00, indexKOF95Sprites_Clark, 0x40 },
@@ -140,11 +135,11 @@ const sGame_PaletteDataset KOF95_A_CLARK_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_ATHENA_MAIN_PALETTES[] =
 {
-    { L"Athena", 0xd9c00, 0xd9c20, indexKOF94Sprites_Athena, 0x00 },
+    { L"Athena", 0xd9c00, 0xd9c20, indexKOF95Sprites_Athena, 0x00 },
     { L"Extra 1", 0xd9c20, 0xd9c40 },
-    { L"MAX Flash", 0xd9c40, 0xd9c60, indexKOF94Sprites_Athena, 0x00 },
+    { L"MAX Flash", 0xd9c40, 0xd9c60, indexKOF95Sprites_Athena, 0x00 },
     { L"Extra 2", 0xd9c60, 0xd9c80 },
-    { L"Electric Palette?", 0xd9c80, 0xd9ca0, indexKOF94Sprites_Athena, 0x00 },
+    { L"Electric Palette?", 0xd9c80, 0xd9ca0, indexKOF95Sprites_Athena, 0x00 },
     { L"Extra 4", 0xd9ca0, 0xd9cc0 },
     { L"Win Portrait", 0xd9cc0, 0xd9dc0, indexKOF95Sprites_Athena, 0x41 },
     { L"Lifebar Portrait", 0xd9dc0, 0xd9de0, indexKOF95Sprites_Athena, 0x40 },
@@ -153,11 +148,11 @@ const sGame_PaletteDataset KOF95_A_ATHENA_MAIN_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_ATHENA_ALT_PALETTES[] =
 {
-    { L"Athena", 0xd9e00, 0xd9e20, indexKOF94Sprites_Athena, 0x00 },
+    { L"Athena", 0xd9e00, 0xd9e20, indexKOF95Sprites_Athena, 0x00 },
     { L"Extra 1", 0xd9e20, 0xd9e40 },
-    { L"MAX Flash", 0xd9e40, 0xd9e60, indexKOF94Sprites_Athena, 0x00 },
+    { L"MAX Flash", 0xd9e40, 0xd9e60, indexKOF95Sprites_Athena, 0x00 },
     { L"Extra 2", 0xd9e60, 0xd9e80 },
-    { L"Electric Palette?", 0xd9e80, 0xd9ea0, indexKOF94Sprites_Athena, 0x00 },
+    { L"Electric Palette?", 0xd9e80, 0xd9ea0, indexKOF95Sprites_Athena, 0x00 },
     { L"Extra 4", 0xd9ea0, 0xd9ec0 },
     { L"Win Portrait", 0xd9ec0, 0xd9fc0, indexKOF95Sprites_Athena, 0x41 },
     { L"Lifebar Portrait", 0xd9fc0, 0xd9fe0, indexKOF95Sprites_Athena, 0x40 },
@@ -244,11 +239,11 @@ const sGame_PaletteDataset KOF95_A_KYO_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_BENIMARU_MAIN_PALETTES[] =
 {
-    { L"Benimaru", 0xdac00, 0xdac20, indexKOF94Sprites_Benimaru, 0x00 },
+    { L"Benimaru", 0xdac00, 0xdac20, indexKOF95Sprites_Benimaru, 0x00 },
     { L"Extra 1", 0xdac20, 0xdac40 },
-    { L"MAX Flash", 0xdac40, 0xdac60, indexKOF94Sprites_Benimaru, 0x00 },
+    { L"MAX Flash", 0xdac40, 0xdac60, indexKOF95Sprites_Benimaru, 0x00 },
     { L"Extra 2", 0xdac60, 0xdac80 },
-    { L"Electric Palette?", 0xdac80, 0xdaca0, indexKOF94Sprites_Benimaru, 0x00 },
+    { L"Electric Palette?", 0xdac80, 0xdaca0, indexKOF95Sprites_Benimaru, 0x00 },
     { L"Extra 4", 0xdaca0, 0xdacc0 },
     { L"Win Portrait", 0xdacc0, 0xdadc0, indexKOF95Sprites_Benimaru, 0x41 },
     { L"Lifebar Portrait", 0xdadc0, 0xdade0, indexKOF95Sprites_Benimaru, 0x40 },
@@ -257,11 +252,11 @@ const sGame_PaletteDataset KOF95_A_BENIMARU_MAIN_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_BENIMARU_ALT_PALETTES[] =
 {
-    { L"Benimaru", 0xdae00, 0xdae20, indexKOF94Sprites_Benimaru, 0x00 },
+    { L"Benimaru", 0xdae00, 0xdae20, indexKOF95Sprites_Benimaru, 0x00 },
     { L"Extra 1", 0xdae20, 0xdae40 },
-    { L"MAX Flash", 0xdae40, 0xdae60, indexKOF94Sprites_Benimaru, 0x00 },
+    { L"MAX Flash", 0xdae40, 0xdae60, indexKOF95Sprites_Benimaru, 0x00 },
     { L"Extra 2", 0xdae60, 0xdae80 },
-    { L"Electric Palette?", 0xdae80, 0xdaea0, indexKOF94Sprites_Benimaru, 0x00 },
+    { L"Electric Palette?", 0xdae80, 0xdaea0, indexKOF95Sprites_Benimaru, 0x00 },
     { L"Extra 4", 0xdaea0, 0xdaec0 },
     { L"Win Portrait", 0xdaec0, 0xdafc0, indexKOF95Sprites_Benimaru, 0x41 },
     { L"Lifebar Portrait", 0xdafc0, 0xdafe0, indexKOF95Sprites_Benimaru, 0x40 },
@@ -322,12 +317,12 @@ const sGame_PaletteDataset KOF95_A_IORI_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_EIJI_MAIN_PALETTES[] =
 {
-    { L"Eiji", 0xdb800, 0xdb820, indexKOF95Sprites_Eiji, 0x00 },
-    { L"Extra 1", 0xdb820, 0xdb840 },
-    { L"MAX Flash", 0xdb840, 0xdb860, indexKOF95Sprites_Eiji, 0x00 },
-    { L"Extra 2", 0xdb860, 0xdb880 },
-    { L"Electric Palette?", 0xdb880, 0xdb8a0, indexKOF95Sprites_Eiji, 0x00 },
-    { L"Extra 4", 0xdb8a0, 0xdb8c0 },
+    { L"Eiji", 0xdb800, 0xdb820, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 1", 0xdb820, 0xdb840, indexKOF95Sprites_Eiji, 0x01 },
+    { L"MAX Flash", 0xdb840, 0xdb860, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 2", 0xdb860, 0xdb880, indexKOF95Sprites_Eiji, 0x01 },
+    { L"Electric Palette?", 0xdb880, 0xdb8a0, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 4", 0xdb8a0, 0xdb8c0, indexKOF95Sprites_Eiji, 0x01 },
     { L"Win Portrait", 0xdb8c0, 0xdb9c0, indexKOF95Sprites_Eiji, 0x41 },
     { L"Lifebar Portrait", 0xdb9c0, 0xdb9e0, indexKOF95Sprites_Eiji, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0xdb9e0, 0xdba00, indexKOF95Sprites_Eiji, 0x40 },
@@ -335,12 +330,12 @@ const sGame_PaletteDataset KOF95_A_EIJI_MAIN_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_EIJI_ALT_PALETTES[] =
 {
-    { L"Eiji", 0xdba00, 0xdba20, indexKOF95Sprites_Eiji, 0x00 },
-    { L"Extra 1", 0xdba20, 0xdba40 },
-    { L"MAX Flash", 0xdba40, 0xdba60, indexKOF95Sprites_Eiji, 0x00 },
-    { L"Extra 2", 0xdba60, 0xdba80 },
-    { L"Electric Palette?", 0xdba80, 0xdbaa0, indexKOF95Sprites_Eiji, 0x00 },
-    { L"Extra 4", 0xdbaa0, 0xdbac0 },
+    { L"Eiji", 0xdba00, 0xdba20, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 1", 0xdba20, 0xdba40, indexKOF95Sprites_Eiji, 0x01 },
+    { L"MAX Flash", 0xdba40, 0xdba60, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 2", 0xdba60, 0xdba80, indexKOF95Sprites_Eiji, 0x01 },
+    { L"Electric Palette?", 0xdba80, 0xdbaa0, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 4", 0xdbaa0, 0xdbac0, indexKOF95Sprites_Eiji, 0x01 },
     { L"Win Portrait", 0xdbac0, 0xdbbc0, indexKOF95Sprites_Eiji, 0x41 },
     { L"Lifebar Portrait", 0xdbbc0, 0xdbbe0, indexKOF95Sprites_Eiji, 0x40 },
     { L"Lifebar Portrait Defeated/Grayed", 0xdbbe0, 0xdbc00, indexKOF95Sprites_Eiji, 0x40 },
@@ -452,11 +447,11 @@ const sGame_PaletteDataset KOF95_A_CHOI_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_TERRY_MAIN_PALETTES[] =
 {
-    { L"Terry", 0xdcc00, 0xdcc20, indexKOF94Sprites_Terry, 0x00 },
+    { L"Terry", 0xdcc00, 0xdcc20, indexKOF95Sprites_Terry, 0x00 },
     { L"Extra 1", 0xdcc20, 0xdcc40 },
-    { L"MAX Flash", 0xdcc40, 0xdcc60, indexKOF94Sprites_Terry, 0x00 },
+    { L"MAX Flash", 0xdcc40, 0xdcc60, indexKOF95Sprites_Terry, 0x00 },
     { L"Extra 2", 0xdcc60, 0xdcc80 },
-    { L"Electric Palette?", 0xdcc80, 0xdcca0, indexKOF94Sprites_Terry, 0x00 },
+    { L"Electric Palette?", 0xdcc80, 0xdcca0, indexKOF95Sprites_Terry, 0x00 },
     { L"Extra 4", 0xdcca0, 0xdccc0 },
     { L"Win Portrait", 0xdccc0, 0xdcdc0, indexKOF95Sprites_Terry, 0x41 },
     { L"Lifebar Portrait", 0xdcdc0, 0xdcde0, indexKOF95Sprites_Terry, 0x40 },
@@ -465,11 +460,11 @@ const sGame_PaletteDataset KOF95_A_TERRY_MAIN_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_TERRY_ALT_PALETTES[] =
 {
-    { L"Terry", 0xdce00, 0xdce20, indexKOF94Sprites_Terry, 0x00 },
+    { L"Terry", 0xdce00, 0xdce20, indexKOF95Sprites_Terry, 0x00 },
     { L"Extra 1", 0xdce20, 0xdce40 },
-    { L"MAX Flash", 0xdce40, 0xdce60, indexKOF94Sprites_Terry, 0x00 },
+    { L"MAX Flash", 0xdce40, 0xdce60, indexKOF95Sprites_Terry, 0x00 },
     { L"Extra 2", 0xdce60, 0xdce80 },
-    { L"Electric Palette?", 0xdce80, 0xdcea0, indexKOF94Sprites_Terry, 0x00 },
+    { L"Electric Palette?", 0xdce80, 0xdcea0, indexKOF95Sprites_Terry, 0x00 },
     { L"Extra 4", 0xdcea0, 0xdcec0 },
     { L"Win Portrait", 0xdcec0, 0xdcfc0, indexKOF95Sprites_Terry, 0x41 },
     { L"Lifebar Portrait", 0xdcfc0, 0xdcfe0, indexKOF95Sprites_Terry, 0x40 },
@@ -504,11 +499,11 @@ const sGame_PaletteDataset KOF95_A_ANDY_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_JOE_MAIN_PALETTES[] =
 {
-    { L"Joe", 0xdd400, 0xdd420, indexKOF94Sprites_Joe, 0x00 },
+    { L"Joe", 0xdd400, 0xdd420, indexKOF95Sprites_Joe, 0x00 },
     { L"Extra 1", 0xdd420, 0xdd440 },
-    { L"MAX Flash", 0xdd440, 0xdd460, indexKOF94Sprites_Joe, 0x00 },
+    { L"MAX Flash", 0xdd440, 0xdd460, indexKOF95Sprites_Joe, 0x00 },
     { L"Extra 2", 0xdd460, 0xdd480 },
-    { L"Electric Palette?", 0xdd480, 0xdd4a0, indexKOF94Sprites_Joe, 0x00 },
+    { L"Electric Palette?", 0xdd480, 0xdd4a0, indexKOF95Sprites_Joe, 0x00 },
     { L"Extra 4", 0xdd4a0, 0xdd4c0 },
     { L"Win Portrait", 0xdd4c0, 0xdd5c0, indexKOF95Sprites_Joe, 0x41 },
     { L"Lifebar Portrait", 0xdd5c0, 0xdd5e0, indexKOF95Sprites_Joe, 0x40 },
@@ -517,11 +512,11 @@ const sGame_PaletteDataset KOF95_A_JOE_MAIN_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_JOE_ALT_PALETTES[] =
 {
-    { L"Joe", 0xdd600, 0xdd620, indexKOF94Sprites_Joe, 0x00 },
+    { L"Joe", 0xdd600, 0xdd620, indexKOF95Sprites_Joe, 0x00 },
     { L"Extra 1", 0xdd620, 0xdd640 },
-    { L"MAX Flash", 0xdd640, 0xdd660, indexKOF94Sprites_Joe, 0x00 },
+    { L"MAX Flash", 0xdd640, 0xdd660, indexKOF95Sprites_Joe, 0x00 },
     { L"Extra 2", 0xdd660, 0xdd680 },
-    { L"Electric Palette?", 0xdd680, 0xdd6a0, indexKOF94Sprites_Joe, 0x00 },
+    { L"Electric Palette?", 0xdd680, 0xdd6a0, indexKOF95Sprites_Joe, 0x00 },
     { L"Extra 4", 0xdd6a0, 0xdd6c0 },
     { L"Win Portrait", 0xdd6c0, 0xdd7c0, indexKOF95Sprites_Joe, 0x41 },
     { L"Lifebar Portrait", 0xdd7c0, 0xdd7e0, indexKOF95Sprites_Joe, 0x40 },

@@ -2752,7 +2752,7 @@ bool AreEditsOutOfSync()
 {
     bool editsAreOutofSync = false;
 
-    for (palette_validation paletteToCheck : char_val_array)
+    for (const palette_validation& paletteToCheck : char_val_array)
     {
         if (IsPaletteOutOfSync(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.compare_character, paletteToCheck.destination_palette))
         {
@@ -2783,7 +2783,7 @@ bool AreEditsOutOfSync()
         }
     }
 
-    for (palette_validation paletteToCheck : char_val_array_spiral)
+    for (const palette_validation& paletteToCheck : char_val_array_spiral)
     {
         if (IsSpiralPaletteOutOfSync(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.compare_character, paletteToCheck.destination_palette))
         {
@@ -2807,7 +2807,7 @@ bool AreEditsOutOfSync()
 void ValidateAllPalettes(BOOL *pfChangesWereMade, BOOL* rgPaletteChangeArray)
 {
     // Reset the validation...
-    for (palette_validation paletteToCheck : char_val_array)
+    for (const palette_validation& paletteToCheck : char_val_array)
     {
         g_rgfCharacterHasIssues[paletteToCheck.character_number] = false;
     }
@@ -2887,7 +2887,7 @@ void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
         ValidateAllPalettes(&fChangesWereMade, rgPaletteChangeArray);
     }
 
-    for (palette_validation paletteToCheck : char_val_array)
+    for (const palette_validation& paletteToCheck : char_val_array)
     {
         if (g_rgfCharacterHasIssues[paletteToCheck.character_number] && 
             ((lastFixedCharacter != paletteToCheck.character_number)  || (lastFixedPalette != paletteToCheck.source_palette)))
@@ -2930,7 +2930,7 @@ void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
     // Spiral logic... just bulk copy if we have a problem, since it's a flat copy instead of tinting or anything special.
     if (g_rgfCharacterHasIssues[indexCPS2Sprites_Spiral])
     {
-        for (palette_validation paletteToCheck : char_val_array_spiral)
+        for (const palette_validation& paletteToCheck : char_val_array_spiral)
         {
             MVC2_SupplementProcessing::supp_copy_spiral(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.destination_palette);
         }
@@ -2938,7 +2938,7 @@ void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
         rgPaletteChangeArray[indexCPS2Sprites_Spiral] = TRUE;
     }
 
-    for (palette_validation paletteToCheck : char_val_array)
+    for (const palette_validation& paletteToCheck : char_val_array)
     {
         g_rgfCharacterHasIssues[paletteToCheck.character_number] = false;
     }

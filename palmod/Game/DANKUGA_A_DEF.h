@@ -155,6 +155,8 @@ const sGame_PaletteDataset DANKUGA_A_LIHUA_OTHER_PALETTES[] =
 const sGame_PaletteDataset DANKUGA_A_LIZA_PUNCH_PALETTES[] =
 {
     { L"Liza Character Punch", 0x2da38, 0x2da78, indexDanKuGa_Liza, 0x0 },
+    { L"Kiki Character Punch", 0x2e138, 0x2e178 },
+    { L"Toto Character Punch", 0x2e1f8, 0x2e238 },
     { L"Liza Winquote Portrait Punch", 0x47680, 0x476c0 },
     { L"Liza Select Screen Punch", 0x2e978, 0x2e9b8, indexDanKuGa_Liza, 0x40 },
 };
@@ -162,6 +164,8 @@ const sGame_PaletteDataset DANKUGA_A_LIZA_PUNCH_PALETTES[] =
 const sGame_PaletteDataset DANKUGA_A_LIZA_KICK_PALETTES[] =
 {
     { L"Liza Character Kick", 0x2da78, 0x2dab8, indexDanKuGa_Liza, 0x0 },
+    { L"Kiki Character Kick", 0x2e178, 0x2e1b8 },
+    { L"Toto Character Kick", 0x2e238, 0x2e278 },
     { L"Liza Winquote Portrait Kick", 0x476c0, 0x47700 },
     { L"Liza Select Screen Kick", 0x2e9b8, 0x2e9f8, indexDanKuGa_Liza, 0x40 },
 };
@@ -169,6 +173,8 @@ const sGame_PaletteDataset DANKUGA_A_LIZA_KICK_PALETTES[] =
 const sGame_PaletteDataset DANKUGA_A_LIZA_START_PALETTES[] =
 {
     { L"Liza Character Start", 0x2dab8, 0x2daf8, indexDanKuGa_Liza, 0x0 },
+    { L"Kiki Character Start", 0x2e1b8, 0x2e1f8 },
+    { L"Toto Character Start", 0x2e278, 0x2e2b8 },
     { L"Liza Winquote Portrait Start", 0x47700, 0x47740 },
     { L"Liza Select Screen Start", 0x2e9f8, 0x2ea38, indexDanKuGa_Liza, 0x40 },
 };
@@ -341,7 +347,24 @@ const sGame_PaletteDataset DANKUGA_A_GENERAL_OTHER_PALETTES[] =
     { L"General Winquote Portrait Unused", 0x47d40, 0x47d80 },
 };
 
-const sGame_PaletteDataset DANKUGA_A_BONUS_PALETTES[] =
+const sGame_PaletteDataset DANKUGA_A_BONUS_PALETTES_CSN[] =
+{
+    { L"Kazuya Name", 0x2eeb8, 0x2eef8 },
+    { L"Bartz Name", 0x2eef8, 0x2ef38 },
+    { L"Gekkou Name", 0x2ef38, 0x2ef78 },
+    { L"Wulong Name", 0x2ef78, 0x2efb8 },
+    { L"Lihua Name", 0x2efb8, 0x2eff8 },
+    { L"Liza Name", 0x2eff8, 0x2f038 },
+    { L"McCoy Name", 0x2f038, 0x2f078 },
+    { L"Boggy Name", 0x2f078, 0x2f0b8 },
+    { L"Gonzales Name", 0x2f0b8, 0x2f0f8 },
+
+    { L"Azteca Name", 0x2f0f8, 0x2f138 },
+    { L"Marco Name", 0x2f138, 0x2f178 },
+    { L"General Name", 0x2f178, 0x2f1b8 },
+};
+
+const sGame_PaletteDataset DANKUGA_A_BONUS_PALETTES_OTHER[] =
 {
     { L"Menu Background", 0xc2e80, 0xc2ea0 },
 };
@@ -384,7 +407,6 @@ const sDescTreeNode DANKUGA_A_LIHUA_COLLECTION[] =
     { L"Kick", DESC_NODETYPE_TREE, (void*)DANKUGA_A_LIHUA_KICK_PALETTES, ARRAYSIZE(DANKUGA_A_LIHUA_KICK_PALETTES) },
     { L"Start", DESC_NODETYPE_TREE, (void*)DANKUGA_A_LIHUA_START_PALETTES, ARRAYSIZE(DANKUGA_A_LIHUA_START_PALETTES) },
     { L"Other", DESC_NODETYPE_TREE, (void*)DANKUGA_A_LIHUA_OTHER_PALETTES, ARRAYSIZE(DANKUGA_A_LIHUA_OTHER_PALETTES) },
-
 };
 
 const sDescTreeNode DANKUGA_A_LIZA_COLLECTION[] =
@@ -445,7 +467,8 @@ const sDescTreeNode DANKUGA_A_GENERAL_COLLECTION[] =
 
 const sDescTreeNode DANKUGA_A_BONUS_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)DANKUGA_A_BONUS_PALETTES, ARRAYSIZE(DANKUGA_A_BONUS_PALETTES) },
+    { L"Character Select Names", DESC_NODETYPE_TREE, (void*)DANKUGA_A_BONUS_PALETTES_CSN, ARRAYSIZE(DANKUGA_A_BONUS_PALETTES_CSN) },
+    { L"Other", DESC_NODETYPE_TREE, (void*)DANKUGA_A_BONUS_PALETTES_OTHER, ARRAYSIZE(DANKUGA_A_BONUS_PALETTES_OTHER) },
 };
 
 const sDescTreeNode DANKUGA_A_UNITS[] =
@@ -467,7 +490,7 @@ const sDescTreeNode DANKUGA_A_UNITS[] =
 };
 
 constexpr auto DANKUGA_A_NUMUNIT = ARRAYSIZE(DANKUGA_A_UNITS);
-#define DANKUGA_A_EXTRALOC DANKUGA_A_NUMUNIT
+constexpr auto DANKUGA_A_EXTRALOC = DANKUGA_A_NUMUNIT;
 
 const stExtraDef DANKUGA_A_EXTRA[] = 
 {

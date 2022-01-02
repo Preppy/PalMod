@@ -152,7 +152,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
     for (int iUnitCtr = 0; iUnitCtr < MVC2_D_NUMUNIT; iUnitCtr++)
     {
         //Omni extra count
-        int nNumExtra = CountExtraRg(iUnitCtr, TRUE);
+        int nNumSharedExtras = CountExtraRg(iUnitCtr, TRUE);
 
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* ButtonNode = nullptr;
@@ -163,11 +163,11 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", MVC2_D_UNITDESC[iUnitCtr]);
 
         //Init each character to have all 6 basic buttons + extra
-        UnitNode->ChildNodes = new sDescTreeNode[pCurrentButtonLabelSet.size() + (nNumExtra ? 1 : 0)];
+        UnitNode->ChildNodes = new sDescTreeNode[pCurrentButtonLabelSet.size() + (nNumSharedExtras ? 1 : 0)];
 
         //All children have button trees
         UnitNode->uChildType = DESC_NODETYPE_TREE;
-        UnitNode->uChildAmt = pCurrentButtonLabelSet.size() + (nNumExtra ? 1 : 0);
+        UnitNode->uChildAmt = pCurrentButtonLabelSet.size() + (nNumSharedExtras ? 1 : 0);
 
         //Set each button data
         const int nButtonExtraCt = CountExtraRg(iUnitCtr, FALSE) + 1;
@@ -260,15 +260,15 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         }
 
         //Set extra data
-        if (nNumExtra)
+        if (nNumSharedExtras)
         {
             const int nExtraNodeIndex = _nCurrentTotalColorOptions;
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[nExtraNodeIndex]; //Extra data node
             wcscpy(ButtonNode->szDesc, L"Extras");
-            ButtonNode->uChildAmt = nNumExtra;
+            ButtonNode->uChildAmt = nNumSharedExtras;
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
 
-            ButtonNode->ChildNodes = (sDescTreeNode*)(new sDescTreeNode[nNumExtra]);
+            ButtonNode->ChildNodes = (sDescTreeNode*)(new sDescTreeNode[nNumSharedExtras]);
 
 #if MV2C_D_DEBUG
             strMsg.Format(L"\t\"%s\" Extra Data Collection: \"%s\", %u of %u, %u children\n", UnitNode->szDesc, ButtonNode->szDesc, nExtraNodeIndex, UnitNode->uChildAmt, nNumExtra);
@@ -279,18 +279,18 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 
             if (_nCurrentTotalColorOptions == 6)
             {
-                fNoDescriptionAvailable = (nNumExtra == (MVC2_D_PALDATASIZE_6COLORS[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
+                fNoDescriptionAvailable = (nNumSharedExtras == (MVC2_D_PALDATASIZE_6COLORS[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
             }
             else
             {
-                fNoDescriptionAvailable = (nNumExtra == (MVC2_D_PALDATASIZE_16COLORS[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
+                fNoDescriptionAvailable = (nNumSharedExtras == (MVC2_D_PALDATASIZE_16COLORS[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
             }
 
             if (fNoDescriptionAvailable)
             {
                 // This path is used for Akuma/Gouki and War Machine only.
                 // We don't have extended descriptions for these: instead of using MVC2_MOVE_DESCRIPTIONS just use the old defaults
-                for (int nExtraCtr = 0; nExtraCtr < nNumExtra; nExtraCtr++)
+                for (int nExtraCtr = 0; nExtraCtr < nNumSharedExtras; nExtraCtr++)
                 {
                     ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
@@ -418,6 +418,8 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
     return NewDescTree;
 }
 
+// This updates rgExtraChrLoc so that each character entry points to the corresponding point within the extra layout array
+// TODO: Rip this out and just give each character their own array to start with.
 void CGame_MVC2_D::InitExtraRg()
 {
     int i = 0;
@@ -444,25 +446,25 @@ void CGame_MVC2_D::InitExtraRg()
 }
 
 // Returns a count of the extra sprites available for a given unit/character
-size_t CGame_MVC2_D::CountExtraRg(size_t nUnitId, BOOL bOmniExtra)
+size_t CGame_MVC2_D::CountExtraRg(size_t nUnitId, BOOL fCountIsOfSharedExtras)
 {
     //(MVC2_D_PALDATASZ[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32;
     if (!rgExtraChrLoc[nUnitId])
     {
         if (_nCurrentTotalColorOptions == 6)
         {
-            return (bOmniExtra ? ((MVC2_D_PALDATASIZE_6COLORS[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32) : 7);
+            return (fCountIsOfSharedExtras ? ((MVC2_D_PALDATASIZE_6COLORS[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32) : 7);
         }
         else
         {
-            return (bOmniExtra ? ((MVC2_D_PALDATASIZE_16COLORS[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32) : 7);
+            return (fCountIsOfSharedExtras ? ((MVC2_D_PALDATASIZE_16COLORS[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32) : 7);
         }
     }
     else
     {
-        if (bOmniExtra)
+        if (fCountIsOfSharedExtras)
         {
-            int nStart = rgExtraChrLoc[nUnitId] + 1 + 7;
+            int nStart = rgExtraChrLoc[nUnitId] + 1 + 7;  // Walk past the start token + the seven core extra palettes per button
             int nRetVal = 0;
             int i = 0;
 
@@ -474,6 +476,8 @@ size_t CGame_MVC2_D::CountExtraRg(size_t nUnitId, BOOL bOmniExtra)
             }
             else
             {
+                // We now walk the extra visibility sets until we hit EXTRA_START for the next character.
+                // Each visibility setting is a two integer long set of "start, end"
                 while ((pCurrVal[0] & EXTRA_START) != EXTRA_START)
                 {
                     nRetVal += (pCurrVal[1] + 1) - pCurrVal[0];

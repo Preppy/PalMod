@@ -3,12 +3,6 @@
 // These are hand-generated: don't remove these.
 const std::vector<UINT16> KOF99AE_A_IMGIDS_USED =
 {
-    indexKOF98Sprites_Kensou,
-    indexKOF02UMSprites_Chin,
-    indexKOF98Sprites_Choi,
-
-    indexKOF02UMSprites_Bao,
-
     indexKOF99Sprites_Andy,         // 0x17f
     indexKOF99Sprites_Athena,       // 0x180
     indexKOF99Sprites_Bao,          // 0x181

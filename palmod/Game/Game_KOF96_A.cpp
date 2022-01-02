@@ -162,6 +162,7 @@ sDescTreeNode* CGame_KOF96_A::InitDescTree()
     );
 
     // For development use to speed things up
+    // NOTE: Output is skewed due to new palettes.  pszImageSet is now just used for the lifebar portrait.  everything else comes from the portraitimageset now
     //DumpPaletteHeaders();
 
     return NewDescTree;

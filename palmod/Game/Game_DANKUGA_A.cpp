@@ -53,7 +53,7 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 133;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 151;
     m_nLowestKnownPaletteRomLocation = 0x2d538;
 
     CString strInfo;

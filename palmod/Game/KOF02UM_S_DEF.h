@@ -95,7 +95,6 @@ const std::vector<UINT16> KOF02UM_S_IMGIDS_USED =
     indexKOF01Sprites_Xiangfei,
     indexKOF02Sprites_Andy,
     indexKOF02Sprites_Chin,
-    indexKOF02Sprites_Kusanagi,
     indexKOF02Sprites_Robert,
     indexKOF02Sprites_Yuri,
 

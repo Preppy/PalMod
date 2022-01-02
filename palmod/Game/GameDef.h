@@ -460,6 +460,7 @@ const stPairedPaletteInfo pairNextAndNext =                         { 1, false, 
 const stPairedPaletteInfo pairNext2AndNext3 =                       { 2, false, 3, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextSkipped =                  { 1, false, 3, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext6 =                        { 1, false, 3, 6 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext7 =                        { 1, false, 3, 7 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext9 =                        { 1, false, 3, 9 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext12 =                       { 1, false, 3, 12 }; // triple display... requires special handling in code
 

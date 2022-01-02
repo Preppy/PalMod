@@ -343,6 +343,21 @@ const sGame_PaletteDataset KI_SNES_BONUS_CinderEffects[] =
     { L"Meltdown", 0x4646 - 0x08, 0x4666 - 0x08, indexKISprites_Cinder, 0x01 },
 };
 
+const sGame_PaletteDataset KI_SNES_BONUS_SpinalEffects[] =
+{
+    { L"Morph Jago", 0x2391 - 0x08, 0x23b1 - 0x08, indexKISprites_Jago, 0x00 },
+    { L"Morph Combo", 0x23b1 - 0x08, 0x23d1 - 0x08, indexKISprites_TJCombo, 0x00 },
+    { L"Morph Spinal", 0x23d1 - 0x08, 0x23f1 - 0x08, indexKISprites_Spinal, 0x00 },
+    { L"Morph Thunder", 0x23f1 - 0x08, 0x2411 - 0x08, indexKISprites_Thunder, 0x00 },
+    { L"Morph Glacius", 0x2411 - 0x08, 0x2431 - 0x08, indexKISprites_Glacius, 0x00 },
+    { L"Morph Fulgore", 0x2431 - 0x08, 0x2451 - 0x08, indexKISprites_Fulgore, 0x00 },
+    { L"Morph Cinder", 0x2451 - 0x08, 0x2471 - 0x08, indexKISprites_Cinder, 0x00 },
+    { L"Morph Sabrewulf", 0x2471 - 0x08, 0x2491 - 0x08, indexKISprites_Sabrewulf, 0x00 },
+    { L"Morph Orchid", 0x2491 - 0x08, 0x24b1 - 0x08, indexKISprites_Orchid, 0x00 },
+    { L"Morph Riptor", 0x24b1 - 0x08, 0x24d1 - 0x08, indexKISprites_Riptor, 0x00 },
+    { L"Morph Eyedol", 0x24d1 - 0x08, 0x24f1 - 0x08, indexKISprites_Eyedol, 0x00 },
+};
+
 const sGame_PaletteDataset KI_SNES_BONUS_Palettes[] =
 {
     { L"Info Portraits", 0x359c - 0x08, 0x36dc - 0x08, indexKISprites_Bonus, 0x01 },
@@ -421,6 +436,7 @@ const sDescTreeNode KI_SNES_BONUS_COLLECTION[] =
     { L"Character Specials", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_CharactersSpecials, ARRAYSIZE(KI_SNES_BONUS_CharactersSpecials) },
     { L"Glacius Effects", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_GlaciusEffects, ARRAYSIZE(KI_SNES_BONUS_GlaciusEffects) },
     { L"Cinder Effects", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_CinderEffects, ARRAYSIZE(KI_SNES_BONUS_CinderEffects) },
+    { L"Spinal Effects", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_SpinalEffects, ARRAYSIZE(KI_SNES_BONUS_SpinalEffects) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KI_SNES_BONUS_Palettes, ARRAYSIZE(KI_SNES_BONUS_Palettes) },
 };
 
