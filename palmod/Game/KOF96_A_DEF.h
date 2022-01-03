@@ -11,33 +11,14 @@ const std::vector<UINT16> KOF96_A_IMGIDS_USED =
     // We get the lifebar portrait from these preview sets
     indexKOF94Sprites_Kyo,
     indexKOF94Sprites_Benimaru,
-    indexKOF98Sprites_Daimon,
     indexKOF94Sprites_Terry,
-    indexKOF97Sprites_Andy,
     indexKOF94Sprites_Ryo,
     indexKOF94Sprites_Yuri,
-    indexKOF98Sprites_Leona,
     indexKOF94Sprites_Ralf,
     indexKOF94Sprites_Clark,
     indexKOF94Sprites_Kensou,
     indexKOF94Sprites_Chin,
     indexKOF94Sprites_Mai,
-
-    indexKOF98Sprites_Chang,
-    indexKOF98Sprites_Chizuru,
-    indexKOF98Sprites_Choi,
-    indexKOF98Sprites_Iori,
-    indexKOF98Sprites_Joe,
-    indexKOF98Sprites_Kim,
-    indexKOF98Sprites_Mature,
-    indexKOF98Sprites_Robert,
-    indexKOF98Sprites_Vice,
-   
-    
-    indexKOF01Sprites_Leona,        // 0x1c4, for intro dress
-
-    indexKOF02Sprites_Geese,
-    indexKOF02Sprites_Goenitz,
 
     indexKOF96Sprites_Andy,         // 0x247
     indexKOF96Sprites_Athena,       // 0x248
@@ -69,6 +50,26 @@ const std::vector<UINT16> KOF96_A_IMGIDS_USED =
     indexKOF96Sprites_Vice,         // 0x262
     indexKOF96Sprites_Yuri,         // 0x263
     indexKOF96Sprites_Bonus,        // 0x264	
+
+    // Everything that follows is for portraits or extra previews
+    indexKOF97Sprites_Andy,
+
+    indexKOF98Sprites_Chang,
+    indexKOF98Sprites_Chizuru,
+    indexKOF98Sprites_Choi,
+    indexKOF98Sprites_Daimon,
+    indexKOF98Sprites_Iori,
+    indexKOF98Sprites_Joe,
+    indexKOF98Sprites_Kim,
+    indexKOF98Sprites_Leona,
+    indexKOF98Sprites_Mature,
+    indexKOF98Sprites_Robert,
+    indexKOF98Sprites_Vice,
+
+    indexKOF01Sprites_Leona,        // 0x1c4, for intro dress
+
+    indexKOF02Sprites_Geese,
+    indexKOF02Sprites_Goenitz,
 };
 
 const sGame_PaletteDataset KOF96_A_KYO_A_PALETTES[] =
@@ -1342,19 +1343,19 @@ const sGame_PaletteDataset KOF96_A_MRBIG_SHARED_PALETTES[] =
 
 const sGame_PaletteDataset KOF96_A_CHIZURU_A_PALETTES[] =
 {
-    { L"Chizuru", 0x108c02, 0x108c22, indexKOF96Sprites_Chin, 0x00 },
+    { L"Chizuru", 0x108c02, 0x108c22, indexKOF96Sprites_Chizuru, 0x00 },
     { L"Extra 1", 0x108c22, 0x108c42 },
-    { L"Super Trail 1", 0x108c42, 0x108c62, indexKOF96Sprites_Chin, 0x00 },
+    { L"Super Trail 1", 0x108c42, 0x108c62, indexKOF96Sprites_Chizuru, 0x00 },
     { L"Super Trail 2", 0x108c62, 0x108c82 },
-    { L"MAX Mode", 0x108c82, 0x108ca2, indexKOF96Sprites_Chin, 0x00 },
+    { L"MAX Mode", 0x108c82, 0x108ca2, indexKOF96Sprites_Chizuru, 0x00 },
     { L"Extra 1", 0x108ca2, 0x108cc2 },
-    { L"Electric Palette?", 0x108cc2, 0x108ce2, indexKOF96Sprites_Chin, 0x00 },
+    { L"Electric Palette?", 0x108cc2, 0x108ce2, indexKOF96Sprites_Chizuru, 0x00 },
     { L"Extra 3", 0x108ce2, 0x108d02 },
     { L"Extra 5", 0x108d22, 0x108d42 },
     { L"Extra 6", 0x108d42, 0x108d62 },
     { L"Extra 7", 0x108d62, 0x108d82 },
     { L"Extra 8", 0x108d82, 0x108da2 },
-    { L"Game Over Palette", 0x108da2, 0x108dc2, indexKOF96Sprites_Chin, 0x00 },
+    { L"Game Over Palette", 0x108da2, 0x108dc2, indexKOF96Sprites_Chizuru, 0x00 },
     { L"Extra 9", 0x108dc2, 0x108de2 },
     { L"Lifebar Portrait", 0x108de2, 0x108e02, indexKOF98Sprites_Chizuru, 0x20 },
     { L"Win Portrait", 0x10ca02, 0x10cb02, indexKOF96Sprites_Chizuru, 0x40 },
@@ -1363,19 +1364,19 @@ const sGame_PaletteDataset KOF96_A_CHIZURU_A_PALETTES[] =
 
 const sGame_PaletteDataset KOF96_A_CHIZURU_D_PALETTES[] =
 {
-    { L"Chizuru", 0x108e02, 0x108e22, indexKOF96Sprites_Chin, 0x00 },
+    { L"Chizuru", 0x108e02, 0x108e22, indexKOF96Sprites_Chizuru, 0x00 },
     { L"Extra 1", 0x108e22, 0x108e42 },
-    { L"Super Trail 1", 0x108e42, 0x108e62, indexKOF96Sprites_Chin, 0x00 },
+    { L"Super Trail 1", 0x108e42, 0x108e62, indexKOF96Sprites_Chizuru, 0x00 },
     { L"Super Trail 2", 0x108e62, 0x108e82 },
-    { L"MAX Mode", 0x108e82, 0x108ea2, indexKOF96Sprites_Chin, 0x00 },
+    { L"MAX Mode", 0x108e82, 0x108ea2, indexKOF96Sprites_Chizuru, 0x00 },
     { L"Extra 1", 0x108ea2, 0x108ec2 },
-    { L"Electric Palette?", 0x108ec2, 0x108ee2, indexKOF96Sprites_Chin, 0x00 },
+    { L"Electric Palette?", 0x108ec2, 0x108ee2, indexKOF96Sprites_Chizuru, 0x00 },
     { L"Extra 3", 0x108ee2, 0x108f02 },
     { L"Extra 5", 0x108f22, 0x108f42 },
     { L"Extra 6", 0x108f42, 0x108f62 },
     { L"Extra 7", 0x108f62, 0x108f82 },
     { L"Extra 8", 0x108f82, 0x108fa2 },
-    { L"Game Over Palette", 0x108fa2, 0x108fc2, indexKOF96Sprites_Chin, 0x00 },
+    { L"Game Over Palette", 0x108fa2, 0x108fc2, indexKOF96Sprites_Chizuru, 0x00 },
     { L"Extra 9", 0x108fc2, 0x108fe2 },
     { L"Lifebar Portrait", 0x108fe2, 0x109002, indexKOF98Sprites_Chizuru, 0x20 },
     { L"Win Portrait", 0x10cb02, 0x10cc02, indexKOF96Sprites_Chizuru, 0x40 },
@@ -1684,7 +1685,7 @@ const sDescTreeNode KOF96_A_UNITS[] =
 
 constexpr auto KOF96_A_NUMUNIT = ARRAYSIZE(KOF96_A_UNITS);
 
-#define KOF96_A_EXTRALOC KOF96_A_NUMUNIT
+constexpr auto KOF96_A_EXTRALOC = KOF96_A_NUMUNIT;
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef KOF96_A_EXTRA[] =

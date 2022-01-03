@@ -222,12 +222,12 @@ void CPalModDlg::PostPalSel()
         //Fill the image control
         if (ImgFile)
         {
-            if (CurrTicket != NULL)
+            if (CurrTicket != nullptr)
             {
                 // This is where we load our images from img.dat .
                 // nUnitId is the character/palette index.
                 // nImgId is the extra offset for that character.
-                int nImgKey = (UINT16)(CurrTicket->nUnitId << 8) | (UINT8)CurrTicket->nImgId;
+                int nImgKey = (static_cast<UINT16>(CurrTicket->nUnitId) << 16) | static_cast<UINT16>(CurrTicket->nImgId);
                 static int s_nLastPalAmt = 1;
 
                 CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);

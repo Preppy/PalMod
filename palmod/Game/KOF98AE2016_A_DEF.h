@@ -48,12 +48,11 @@ const std::vector<UINT16> KOF98ae_A_IMGIDS_USED =
     indexKOF02Sprites_Geese,
     //indexKOF98Sprites_Krauser,
     //indexKOF98Sprites_MrBig,
-    indexKOF00Sprites_Kasumi_ForKOF98AE,
+    indexKOF99Sprites_Kasumi,
     indexKOF97Sprites_Orochi,
     indexKOF97Sprites_IoriOrochi,   // 0x1F7
     indexKOF97Sprites_LeonaOrochi,  // 0x1F8
     indexKOF02UMSprites_KyoKusa,
-    indexKOF02Sprites_Robert,
 
     indexKOF95Sprites_Eiji,
 
@@ -63,6 +62,8 @@ const std::vector<UINT16> KOF98ae_A_IMGIDS_USED =
     indexKOF98Sprites_OrderSelect,
     indexKOF98Sprites_Lifebar,      // 77
     indexKOF98Sprites_WinPortrait,  // 78
+
+    indexKOF01Sprites_Robert,       // 0x1cb // EX Robert
 };
 
 const sGame_PaletteDataset KOF98AE2016_A_Kyo_A[] =
@@ -2572,10 +2573,10 @@ const sGame_PaletteDataset KOF98AE2016_A_MrBig_D[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Kasumi_A[] =
 {
-    { L"Kasumi A - Main", 0x1bb7f0, 0x1bb810, indexKOF00Sprites_Kasumi_ForKOF98AE },
+    { L"Kasumi A - Main", 0x1bb7f0, 0x1bb810, indexKOF99Sprites_Kasumi },
     { L"Extra 1", 0x1bb810, 0x1bb830 },
     { L"Extra 2", 0x1bb830, 0x1bb850 },
-    { L"Max Mode", 0x1bb850, 0x1bb870, indexKOF00Sprites_Kasumi_ForKOF98AE },
+    { L"Max Mode", 0x1bb850, 0x1bb870, indexKOF99Sprites_Kasumi },
     { L"Extra 3", 0x1bb870, 0x1bb890 },
     { L"Extra 4", 0x1bb890, 0x1bb8b0 },
     { L"Extra 5", 0x1bb8b0, 0x1bb8d0 },
@@ -2592,10 +2593,10 @@ const sGame_PaletteDataset KOF98AE2016_A_Kasumi_A[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Kasumi_B[] =
 {
-    { L"Kasumi B - Main", 0x1bb9f0, 0x1bba10, indexKOF00Sprites_Kasumi_ForKOF98AE },
+    { L"Kasumi B - Main", 0x1bb9f0, 0x1bba10, indexKOF99Sprites_Kasumi },
     { L"Extra 1", 0x1bba10, 0x1bba30 },
     { L"Extra 2", 0x1bba30, 0x1bba50 },
-    { L"Max Mode", 0x1bba50, 0x1bba70, indexKOF00Sprites_Kasumi_ForKOF98AE },
+    { L"Max Mode", 0x1bba50, 0x1bba70, indexKOF99Sprites_Kasumi },
     { L"Extra 3", 0x1bba70, 0x1bba90 },
     { L"Extra 4", 0x1bba90, 0x1bbab0 },
     { L"Extra 5", 0x1bbab0, 0x1bbad0 },
@@ -2612,10 +2613,10 @@ const sGame_PaletteDataset KOF98AE2016_A_Kasumi_B[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Kasumi_C[] =
 {
-    { L"Kasumi C - Main", 0x1bbbf0, 0x1bbc10, indexKOF00Sprites_Kasumi_ForKOF98AE },
+    { L"Kasumi C - Main", 0x1bbbf0, 0x1bbc10, indexKOF99Sprites_Kasumi },
     { L"Extra 1", 0x1bbc10, 0x1bbc30 },
     { L"Extra 2", 0x1bbc30, 0x1bbc50 },
-    { L"Max Mode", 0x1bbc50, 0x1bbc70, indexKOF00Sprites_Kasumi_ForKOF98AE },
+    { L"Max Mode", 0x1bbc50, 0x1bbc70, indexKOF99Sprites_Kasumi },
     { L"Extra 3", 0x1bbc70, 0x1bbc90 },
     { L"Extra 4", 0x1bbc90, 0x1bbcb0 },
     { L"Extra 5", 0x1bbcb0, 0x1bbcd0 },
@@ -2632,10 +2633,10 @@ const sGame_PaletteDataset KOF98AE2016_A_Kasumi_C[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Kasumi_D[] =
 {
-    { L"Kasumi D - Main", 0x1bbdf0, 0x1bbe10, indexKOF00Sprites_Kasumi_ForKOF98AE },
+    { L"Kasumi D - Main", 0x1bbdf0, 0x1bbe10, indexKOF99Sprites_Kasumi },
     { L"Extra 1", 0x1bbe10, 0x1bbe30 },
     { L"Extra 2", 0x1bbe30, 0x1bbe50 },
-    { L"Max Mode", 0x1bbe50, 0x1bbe70, indexKOF00Sprites_Kasumi_ForKOF98AE },
+    { L"Max Mode", 0x1bbe50, 0x1bbe70, indexKOF99Sprites_Kasumi },
     { L"Extra 3", 0x1bbe70, 0x1bbe90 },
     { L"Extra 4", 0x1bbe90, 0x1bbeb0 },
     { L"Extra 5", 0x1bbeb0, 0x1bbed0 },
@@ -2732,11 +2733,11 @@ const sGame_PaletteDataset KOF98AE2016_A_Orochi_D[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Eiji_A[] =
 {
-    { L"Eiji A - Main", 0x1bc7f0, 0x1bc810, indexKOF95Sprites_Eiji },
-    { L"Extra 1", 0x1bc810, 0x1bc830 },
+    { L"Eiji A - Main", 0x1bc7f0, 0x1bc810, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 1", 0x1bc810, 0x1bc830, indexKOF95Sprites_Eiji, 0x01 },
     { L"Extra 2", 0x1bc830, 0x1bc850 },
-    { L"Max Mode", 0x1bc850, 0x1bc870, indexKOF95Sprites_Eiji },
-    { L"Extra 3", 0x1bc870, 0x1bc890 },
+    { L"Max Mode", 0x1bc850, 0x1bc870, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 3", 0x1bc870, 0x1bc890, indexKOF95Sprites_Eiji, 0x01 },
     { L"Extra 4", 0x1bc890, 0x1bc8b0 },
     { L"Extra 5", 0x1bc8b0, 0x1bc8d0 },
     { L"Extra 6", 0x1bc8d0, 0x1bc8f0 },
@@ -2752,11 +2753,11 @@ const sGame_PaletteDataset KOF98AE2016_A_Eiji_A[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Eiji_B[] =
 {
-    { L"Eiji B - Main", 0x1bc9f0, 0x1bca10, indexKOF95Sprites_Eiji },
-    { L"Extra 1", 0x1bca10, 0x1bca30 },
+    { L"Eiji B - Main", 0x1bc9f0, 0x1bca10, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 1", 0x1bca10, 0x1bca30, indexKOF95Sprites_Eiji, 0x01 },
     { L"Extra 2", 0x1bca30, 0x1bca50 },
-    { L"Max Mode", 0x1bca50, 0x1bca70, indexKOF95Sprites_Eiji },
-    { L"Extra 3", 0x1bca70, 0x1bca90 },
+    { L"Max Mode", 0x1bca50, 0x1bca70, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 3", 0x1bca70, 0x1bca90, indexKOF95Sprites_Eiji, 0x01 },
     { L"Extra 4", 0x1bca90, 0x1bcab0 },
     { L"Extra 5", 0x1bcab0, 0x1bcad0 },
     { L"Extra 6", 0x1bcad0, 0x1bcaf0 },
@@ -2772,11 +2773,11 @@ const sGame_PaletteDataset KOF98AE2016_A_Eiji_B[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Eiji_C[] =
 {
-    { L"Eiji C - Main", 0x1bcbf0, 0x1bcc10, indexKOF95Sprites_Eiji },
-    { L"Extra 1", 0x1bcc10, 0x1bcc30 },
+    { L"Eiji C - Main", 0x1bcbf0, 0x1bcc10, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 1", 0x1bcc10, 0x1bcc30, indexKOF95Sprites_Eiji, 0x01 },
     { L"Extra 2", 0x1bcc30, 0x1bcc50 },
-    { L"Max Mode", 0x1bcc50, 0x1bcc70, indexKOF95Sprites_Eiji },
-    { L"Extra 3", 0x1bcc70, 0x1bcc90 },
+    { L"Max Mode", 0x1bcc50, 0x1bcc70, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 3", 0x1bcc70, 0x1bcc90, indexKOF95Sprites_Eiji, 0x01 },
     { L"Extra 4", 0x1bcc90, 0x1bccb0 },
     { L"Extra 5", 0x1bccb0, 0x1bccd0 },
     { L"Extra 6", 0x1bccd0, 0x1bccf0 },
@@ -2792,11 +2793,11 @@ const sGame_PaletteDataset KOF98AE2016_A_Eiji_C[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Eiji_D[] =
 {
-    { L"Eiji D - Main", 0x1bcdf0, 0x1bce10, indexKOF95Sprites_Eiji },
-    { L"Extra 1", 0x1bce10, 0x1bce30 },
+    { L"Eiji D - Main", 0x1bcdf0, 0x1bce10, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 1", 0x1bce10, 0x1bce30, indexKOF95Sprites_Eiji, 0x01 },
     { L"Extra 2", 0x1bce30, 0x1bce50 },
-    { L"Max Mode", 0x1bce50, 0x1bce70, indexKOF95Sprites_Eiji },
-    { L"Extra 3", 0x1bce70, 0x1bce90 },
+    { L"Max Mode", 0x1bce50, 0x1bce70, indexKOF95Sprites_Eiji, 0x00, &pairNext },
+    { L"Extra 3", 0x1bce70, 0x1bce90, indexKOF95Sprites_Eiji, 0x01 },
     { L"Extra 4", 0x1bce90, 0x1bceb0 },
     { L"Extra 5", 0x1bceb0, 0x1bced0 },
     { L"Extra 6", 0x1bced0, 0x1bcef0 },
@@ -2812,10 +2813,10 @@ const sGame_PaletteDataset KOF98AE2016_A_Eiji_D[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_RobertEX_A[] =
 {
-    { L"Robert (EX) A - Main", 0x1bcff0, 0x1bd010, indexKOF02Sprites_Robert },
+    { L"Robert (EX) A - Main", 0x1bcff0, 0x1bd010, indexKOF01Sprites_Robert },
     { L"Extra 1", 0x1bd010, 0x1bd030 },
     { L"Extra 2", 0x1bd030, 0x1bd050 },
-    { L"Max Mode", 0x1bd050, 0x1bd070, indexKOF02Sprites_Robert },
+    { L"Max Mode", 0x1bd050, 0x1bd070, indexKOF01Sprites_Robert },
     { L"Extra 3", 0x1bd070, 0x1bd090 },
     { L"Extra 4", 0x1bd090, 0x1bd0b0 },
     { L"Extra 5", 0x1bd0b0, 0x1bd0d0 },
@@ -2832,10 +2833,10 @@ const sGame_PaletteDataset KOF98AE2016_A_RobertEX_A[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_RobertEX_B[] =
 {
-    { L"Robert (EX) B - Main", 0x1bd1f0, 0x1bd210, indexKOF02Sprites_Robert },
+    { L"Robert (EX) B - Main", 0x1bd1f0, 0x1bd210, indexKOF01Sprites_Robert },
     { L"Extra 1", 0x1bd210, 0x1bd230 },
     { L"Extra 2", 0x1bd230, 0x1bd250 },
-    { L"Max Mode", 0x1bd250, 0x1bd270, indexKOF02Sprites_Robert },
+    { L"Max Mode", 0x1bd250, 0x1bd270, indexKOF01Sprites_Robert },
     { L"Extra 3", 0x1bd270, 0x1bd290 },
     { L"Extra 4", 0x1bd290, 0x1bd2b0 },
     { L"Extra 5", 0x1bd2b0, 0x1bd2d0 },
@@ -2852,10 +2853,10 @@ const sGame_PaletteDataset KOF98AE2016_A_RobertEX_B[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_RobertEX_C[] =
 {
-    { L"Robert (EX) C - Main", 0x1bd3f0, 0x1bd410, indexKOF02Sprites_Robert },
+    { L"Robert (EX) C - Main", 0x1bd3f0, 0x1bd410, indexKOF01Sprites_Robert },
     { L"Extra 1", 0x1bd410, 0x1bd430 },
     { L"Extra 2", 0x1bd430, 0x1bd450 },
-    { L"Max Mode", 0x1bd450, 0x1bd470, indexKOF02Sprites_Robert },
+    { L"Max Mode", 0x1bd450, 0x1bd470, indexKOF01Sprites_Robert },
     { L"Extra 3", 0x1bd470, 0x1bd490 },
     { L"Extra 4", 0x1bd490, 0x1bd4b0 },
     { L"Extra 5", 0x1bd4b0, 0x1bd4d0 },
@@ -2872,10 +2873,10 @@ const sGame_PaletteDataset KOF98AE2016_A_RobertEX_C[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_RobertEX_D[] =
 {
-    { L"Robert (EX) D - Main", 0x1bd5f0, 0x1bd610, indexKOF02Sprites_Robert },
+    { L"Robert (EX) D - Main", 0x1bd5f0, 0x1bd610, indexKOF01Sprites_Robert },
     { L"Extra 1", 0x1bd610, 0x1bd630 },
     { L"Extra 2", 0x1bd630, 0x1bd650 },
-    { L"Max Mode", 0x1bd650, 0x1bd670, indexKOF02Sprites_Robert },
+    { L"Max Mode", 0x1bd650, 0x1bd670, indexKOF01Sprites_Robert },
     { L"Extra 3", 0x1bd670, 0x1bd690 },
     { L"Extra 4", 0x1bd690, 0x1bd6b0 },
     { L"Extra 5", 0x1bd6b0, 0x1bd6d0 },

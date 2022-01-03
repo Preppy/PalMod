@@ -6319,22 +6319,22 @@ const sGame_PaletteDataset MVC2_A_STORM_PALETTES_EXTRAS[] =
     { L"18: Not Used", 0x49da760, 0x49da780 },
     { L"19: LP lightning effect 1 orig.color", 0x49da780, 0x49da7a0, indexCPS2Sprites_Storm, 15 },
     { L"1a: LP lightning effect 2 ! lumin+10", 0x49da7a0, 0x49da7c0, indexCPS2Sprites_Storm, 15 },
-    { L"1b: LP lightning effect 3 ! lumin+25", 0x49da7c0, 0x49da7e0, indexCPS2Sprites_Storm, 15 },
+    { L"1b: LP lightning effect 3 ! lumin+25", 0x49da7c0, 0x49da7e0, indexCPS2Sprites_Storm, 0xe },
     { L"1c: LK lightning effect 1 orig.color", 0x49da7e0, 0x49da800, indexCPS2Sprites_Storm, 15 },
     { L"1d: LK lightning effect 2 ! lumin+10", 0x49da800, 0x49da820, indexCPS2Sprites_Storm, 15 },
-    { L"1e: LK lightning effect 3 ! lumin+25", 0x49da820, 0x49da840, indexCPS2Sprites_Storm, 15 },
+    { L"1e: LK lightning effect 3 ! lumin+25", 0x49da820, 0x49da840, indexCPS2Sprites_Storm, 0xe },
     { L"1f: HP lightning effect 1 orig.color", 0x49da840, 0x49da860, indexCPS2Sprites_Storm, 15 },
     { L"20: HP lightning effect 2 ! lumin+10", 0x49da860, 0x49da880, indexCPS2Sprites_Storm, 15 },
-    { L"21: HP lightning effect 3 ! lumin+25", 0x49da880, 0x49da8a0, indexCPS2Sprites_Storm, 15 },
+    { L"21: HP lightning effect 3 ! lumin+25", 0x49da880, 0x49da8a0, indexCPS2Sprites_Storm, 0xe },
     { L"22: HK lightning effect 1 orig.color", 0x49da8a0, 0x49da8c0, indexCPS2Sprites_Storm, 15 },
     { L"23: HK lightning effect 2 ! lumin+10", 0x49da8c0, 0x49da8e0, indexCPS2Sprites_Storm, 15 },
-    { L"24: HK lightning effect 3 ! lumin+25", 0x49da8e0, 0x49da900, indexCPS2Sprites_Storm, 15 },
+    { L"24: HK lightning effect 3 ! lumin+25", 0x49da8e0, 0x49da900, indexCPS2Sprites_Storm, 0xe },
     { L"25: A1 lightning effect 1 orig.color", 0x49da900, 0x49da920, indexCPS2Sprites_Storm, 15 },
     { L"26: A1 lightning effect 2 ! lumin+10", 0x49da920, 0x49da940, indexCPS2Sprites_Storm, 15 },
-    { L"27: A1 lightning effect 3 ! lumin+25", 0x49da940, 0x49da960, indexCPS2Sprites_Storm, 15 },
+    { L"27: A1 lightning effect 3 ! lumin+25", 0x49da940, 0x49da960, indexCPS2Sprites_Storm, 0xe },
     { L"28: A2 lightning effect 1 orig.color", 0x49da960, 0x49da980, indexCPS2Sprites_Storm, 15 },
     { L"29: A2 lightning effect 2 ! lumin+10", 0x49da980, 0x49da9a0, indexCPS2Sprites_Storm, 15 },
-    { L"2a: A2 lightning effect 3 ! lumin+25", 0x49da9a0, 0x49da9c0, indexCPS2Sprites_Storm, 15 },
+    { L"2a: A2 lightning effect 3 ! lumin+25", 0x49da9a0, 0x49da9c0, indexCPS2Sprites_Storm, 0xe },
 };
 
 const sDescTreeNode MVC2_A_STORM_COLLECTION[] =
@@ -8580,7 +8580,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x5847ec0, 0x5847ee0, indexCPS2Sprites_CapCom, 0 },
     { L"(02) Commando Strike (Sho, Genity, Hoover)", 0x5847ee0, 0x5847f00, indexCPS2Sprites_CapCom, 1, &pairNext },
-    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5847f00, 0x5847f20, indexCPS2Sprites_CapCom, 2 },
+    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5847f00, 0x5847f20, indexCPS2Sprites_CapCom, 2, &pairPrevious },
     { L"(04) Captain Corridor // Captain Sword", 0x5847f20, 0x5847f40, indexCPS2Sprites_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5847f40, 0x5847f60, indexCPS2Sprites_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5847f60, 0x5847f80, indexCPS2Sprites_CapCom, 5 },
@@ -8592,7 +8592,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_LK[] =
 {
     { L"Main Color LK", 0x5847fc0, 0x5847fe0, indexCPS2Sprites_CapCom, 0 },
     { L"(02) Commando Strike (Sho, Genity, Hoover)", 0x5847fe0, 0x5848000, indexCPS2Sprites_CapCom, 1, &pairNext },
-    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5848000, 0x5848020, indexCPS2Sprites_CapCom, 2 },
+    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5848000, 0x5848020, indexCPS2Sprites_CapCom, 2, &pairPrevious },
     { L"(04) Captain Corridor // Captain Sword", 0x5848020, 0x5848040, indexCPS2Sprites_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848040, 0x5848060, indexCPS2Sprites_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5848060, 0x5848080, indexCPS2Sprites_CapCom, 5 },
@@ -8604,7 +8604,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_HP[] =
 {
     { L"Main Color HP", 0x58480c0, 0x58480e0, indexCPS2Sprites_CapCom, 0 },
     { L"(02) Commando Strike (Sho, Genity, Hoover)", 0x58480e0, 0x5848100, indexCPS2Sprites_CapCom, 1, &pairNext },
-    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5848100, 0x5848120, indexCPS2Sprites_CapCom, 2 },
+    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5848100, 0x5848120, indexCPS2Sprites_CapCom, 2, &pairPrevious },
     { L"(04) Captain Corridor // Captain Sword", 0x5848120, 0x5848140, indexCPS2Sprites_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848140, 0x5848160, indexCPS2Sprites_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5848160, 0x5848180, indexCPS2Sprites_CapCom, 5 },
@@ -8616,7 +8616,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_HK[] =
 {
     { L"Main Color HK", 0x58481c0, 0x58481e0, indexCPS2Sprites_CapCom, 0 },
     { L"(02) Commando Strike (Sho, Genity, Hoover)", 0x58481e0, 0x5848200, indexCPS2Sprites_CapCom, 1, &pairNext },
-    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5848200, 0x5848220, indexCPS2Sprites_CapCom, 2 },
+    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5848200, 0x5848220, indexCPS2Sprites_CapCom, 2, &pairPrevious },
     { L"(04) Captain Corridor // Captain Sword", 0x5848220, 0x5848240, indexCPS2Sprites_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848240, 0x5848260, indexCPS2Sprites_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5848260, 0x5848280, indexCPS2Sprites_CapCom, 5 },
@@ -8628,7 +8628,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_A1[] =
 {
     { L"Main Color A1", 0x58482c0, 0x58482e0, indexCPS2Sprites_CapCom, 0 },
     { L"(02) Commando Strike (Sho, Genity, Hoover)", 0x58482e0, 0x5848300, indexCPS2Sprites_CapCom, 1, &pairNext },
-    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5848300, 0x5848320, indexCPS2Sprites_CapCom, 2 },
+    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5848300, 0x5848320, indexCPS2Sprites_CapCom, 2, &pairPrevious },
     { L"(04) Captain Corridor // Captain Sword", 0x5848320, 0x5848340, indexCPS2Sprites_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848340, 0x5848360, indexCPS2Sprites_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5848360, 0x5848380, indexCPS2Sprites_CapCom, 5 },
@@ -8640,7 +8640,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_A2[] =
 {
     { L"Main Color A2", 0x58483c0, 0x58483e0, indexCPS2Sprites_CapCom, 0 },
     { L"(02) Commando Strike (Sho, Genity, Hoover)", 0x58483e0, 0x5848400, indexCPS2Sprites_CapCom, 1, &pairNext },
-    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5848400, 0x5848420, indexCPS2Sprites_CapCom, 2 },
+    { L"(03) Commando Strike (Sho, Genity, Hoover)", 0x5848400, 0x5848420, indexCPS2Sprites_CapCom, 2, &pairPrevious },
     { L"(04) Captain Corridor // Captain Sword", 0x5848420, 0x5848440, indexCPS2Sprites_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848440, 0x5848460, indexCPS2Sprites_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5848460, 0x5848480, indexCPS2Sprites_CapCom, 5 },

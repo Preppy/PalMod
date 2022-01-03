@@ -11,8 +11,8 @@ const std::vector<UINT16> KOF95_A_IMGIDS_USED =
     indexKOF94Sprites_Andy,         // 0x164
     indexKOF94Sprites_Brian,        // 0x167
     indexKOF94Sprites_Chin,         // 0x169
+    indexKOF94Sprites_Choi,         // 0x16a
     indexKOF94Sprites_Daimon,       // 0x16c
-    indexKOF94Sprites_HeavyD,       // 0x16d
     indexKOF94Sprites_Heidern,      // 0x16e
     indexKOF94Sprites_Kensou,       // 0x170
     indexKOF94Sprites_Kim,          // 0x171
@@ -421,11 +421,11 @@ const sGame_PaletteDataset KOF95_A_CHANG_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_CHOI_MAIN_PALETTES[] =
 {
-    { L"Choi", 0xdc800, 0xdc820, indexKOF95Sprites_Chin, 0x00 },
+    { L"Choi", 0xdc800, 0xdc820, indexKOF94Sprites_Choi, 0x00 },
     { L"Extra 1", 0xdc820, 0xdc840 },
-    { L"MAX Flash", 0xdc840, 0xdc860, indexKOF95Sprites_Chin, 0x00 },
+    { L"MAX Flash", 0xdc840, 0xdc860, indexKOF94Sprites_Choi, 0x00 },
     { L"Extra 2", 0xdc860, 0xdc880 },
-    { L"Electric Palette?", 0xdc880, 0xdc8a0, indexKOF95Sprites_Chin, 0x00 },
+    { L"Electric Palette?", 0xdc880, 0xdc8a0, indexKOF94Sprites_Choi, 0x00 },
     { L"Extra 4", 0xdc8a0, 0xdc8c0 },
     { L"Win Portrait", 0xdc8c0, 0xdc9c0, indexKOF95Sprites_Choi, 0x41 },
     { L"Lifebar Portrait", 0xdc9c0, 0xdc9e0, indexKOF95Sprites_Choi, 0x40 },
@@ -434,11 +434,11 @@ const sGame_PaletteDataset KOF95_A_CHOI_MAIN_PALETTES[] =
 
 const sGame_PaletteDataset KOF95_A_CHOI_ALT_PALETTES[] =
 {
-    { L"Choi", 0xdca00, 0xdca20, indexKOF95Sprites_Chin, 0x00 },
+    { L"Choi", 0xdca00, 0xdca20, indexKOF94Sprites_Choi, 0x00 },
     { L"Extra 1", 0xdca20, 0xdca40 },
-    { L"MAX Flash", 0xdca40, 0xdca60, indexKOF95Sprites_Chin, 0x00 },
+    { L"MAX Flash", 0xdca40, 0xdca60, indexKOF94Sprites_Choi, 0x00 },
     { L"Extra 2", 0xdca60, 0xdca80 },
-    { L"Electric Palette?", 0xdca80, 0xdcaa0, indexKOF95Sprites_Chin, 0x00 },
+    { L"Electric Palette?", 0xdca80, 0xdcaa0, indexKOF94Sprites_Choi, 0x00 },
     { L"Extra 4", 0xdcaa0, 0xdcac0 },
     { L"Win Portrait", 0xdcac0, 0xdcbc0, indexKOF95Sprites_Choi, 0x41 },
     { L"Lifebar Portrait", 0xdcbc0, 0xdcbe0, indexKOF95Sprites_Choi, 0x40 },

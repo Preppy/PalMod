@@ -81,7 +81,7 @@ sImgTicket* CGameClass::CreateImgTicket(size_t nUnitId, int nImgId, sImgTicket* 
 {
     if (nImgId == INVALID_UNIT_VALUE)
     {
-        return NULL;
+        return nullptr;
     }
 
     sImgTicket* NewTicket = new sImgTicket;
@@ -575,11 +575,9 @@ COLORREF* CGameClass::CreatePal(size_t nUnitId, size_t nPalId)
 
 COLORREF*** CGameClass::CreateImgOutPal()
 {
-    COLORREF*** pppReturnPal;
-
     if (nSrcPalStart[0] == -1)
     {
-        return NULL;
+        return nullptr;
     }
     else
     {
@@ -591,7 +589,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
             iIndex++;
         }
 
-        pppReturnPal = new COLORREF * *[iIndex];
+        COLORREF*** pppReturnPal = new COLORREF * *[iIndex];
 
         //Pass 2
         iIndex = 0; 
@@ -606,9 +604,9 @@ COLORREF*** CGameClass::CreateImgOutPal()
 
             iIndex++;
         }
-    }
 
-    return pppReturnPal;
+        return pppReturnPal;
+    }
 }
 
 BOOL CGameClass::CreateHybridPal(size_t nIndexAmt, size_t nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz)
