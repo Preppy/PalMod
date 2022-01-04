@@ -20,26 +20,17 @@ const std::vector<UINT16> KOF03_A_IMGIDS_USED =
     indexKOF99Sprites_Leona,        // 0x195
     indexKOF99Sprites_Mai,          // 0x196
     indexKOF99Sprites_Maxima,       // 0x197
+    indexKOF99Sprites_Shingo,       // 0x19b
     indexKOF99Sprites_Whip,         // 0x19e
 
     indexKOF01Sprites_Chang,        // 0x1b3
     indexKOF01Sprites_Hinako,       // 0x1b9
     indexKOF01Sprites_Iori,         // 0x1bb
+    indexKOF01Sprites_King,         // 0x1c1
     indexKOF01Sprites_Ralf,         // 0x1c9
 
     indexKOF02Sprites_Kim,          // 0x155
     indexKOF02Sprites_KUSANAGI,     // 0x156
-
-    indexKOF02UMSprites_Chang,     // 0x80
-    indexKOF02UMSprites_K,         // 0x92
-    indexKOF02UMSprites_Leona,
-
-    indexKOF02UMSprites_Kusanagi,
-    indexKOF02UMSprites_Mai,
-
-    indexKOFXISprites_BlueMary,
-    indexKOFXISprites_Kyo,
-    indexKOFXISprites_Shingo,
 
     indexKOF03Sprites_Adelheid,     // 0xe4
     indexKOF03Sprites_Ash,          // 0xe5
@@ -1334,13 +1325,13 @@ const sGame_PaletteDataset KOF03_A_YAMAZAKI_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_KING_PALETTES_A[] =
 {
-    { L"King A", 0xb000, 0xb020, indexKOF03Sprites_King, 0x00 },
+    { L"King A", 0xb000, 0xb020, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 1 A", 0xb020, 0xb040 },
-    { L"King Electricity A", 0xb040, 0xb060, indexKOF03Sprites_King, 0x00 },
+    { L"King Electricity A", 0xb040, 0xb060, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 2 A", 0xb060, 0xb080 },
-    { L"King Super Trail A", 0xb080, 0xb0a0, indexKOF03Sprites_King, 0x00 },
+    { L"King Super Trail A", 0xb080, 0xb0a0, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 3 A", 0xb0a0, 0xb0c0 },
-    { L"King Shikai Palette A", 0xb0c0, 0xb0e0, indexKOF03Sprites_King, 0x00 },
+    { L"King Shikai Palette A", 0xb0c0, 0xb0e0, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 4 A", 0xb0e0, 0xb100 },
 
     { L"Venom Strike A", 0xb100, 0xb120 },
@@ -1355,13 +1346,13 @@ const sGame_PaletteDataset KOF03_A_KING_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_KING_PALETTES_B[] =
 {
-    { L"King B", 0xb200, 0xb220, indexKOF03Sprites_King, 0x00 },
+    { L"King B", 0xb200, 0xb220, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 1 B", 0xb220, 0xb240 },
-    { L"King Electricity B", 0xb240, 0xb260, indexKOF03Sprites_King, 0x00 },
+    { L"King Electricity B", 0xb240, 0xb260, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 2 B", 0xb260, 0xb280 },
-    { L"King Super Trail B", 0xb280, 0xb2a0, indexKOF03Sprites_King, 0x00 },
+    { L"King Super Trail B", 0xb280, 0xb2a0, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 3 B", 0xb2a0, 0xb2c0 },
-    { L"King Shikai Palette B", 0xb2c0, 0xb2e0, indexKOF03Sprites_King, 0x00 },
+    { L"King Shikai Palette B", 0xb2c0, 0xb2e0, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 4 B", 0xb2e0, 0xb300 },
 
     { L"Venom Strike B", 0xb300, 0xb320 },
@@ -1376,13 +1367,13 @@ const sGame_PaletteDataset KOF03_A_KING_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_KING_PALETTES_C[] =
 {
-    { L"King C", 0xb400, 0xb420, indexKOF03Sprites_King, 0x00 },
+    { L"King C", 0xb400, 0xb420, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 1 C", 0xb420, 0xb440 },
-    { L"King Electricity C", 0xb440, 0xb460, indexKOF03Sprites_King, 0x00 },
+    { L"King Electricity C", 0xb440, 0xb460, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 2 C", 0xb460, 0xb480 },
-    { L"King Super Trail C", 0xb480, 0xb4a0, indexKOF03Sprites_King, 0x00 },
+    { L"King Super Trail C", 0xb480, 0xb4a0, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 3 C", 0xb4a0, 0xb4c0 },
-    { L"King Shikai Palette C", 0xb4c0, 0xb4e0, indexKOF03Sprites_King, 0x00 },
+    { L"King Shikai Palette C", 0xb4c0, 0xb4e0, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 4 C", 0xb4e0, 0xb500 },
 
     { L"Venom Strike C", 0xb500, 0xb520 },
@@ -1397,13 +1388,13 @@ const sGame_PaletteDataset KOF03_A_KING_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_KING_PALETTES_D[] =
 {
-    { L"King D", 0xb600, 0xb620, indexKOF03Sprites_King, 0x00 },
+    { L"King D", 0xb600, 0xb620, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 1 D", 0xb620, 0xb640 },
-    { L"King Electricity D", 0xb640, 0xb660, indexKOF03Sprites_King, 0x00 },
+    { L"King Electricity D", 0xb640, 0xb660, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 2 D", 0xb660, 0xb680 },
-    { L"King Super Trail D", 0xb680, 0xb6a0, indexKOF03Sprites_King, 0x00 },
+    { L"King Super Trail D", 0xb680, 0xb6a0, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 3 D", 0xb6a0, 0xb6c0 },
-    { L"King Shikai Palette D", 0xb6c0, 0xb6e0, indexKOF03Sprites_King, 0x00 },
+    { L"King Shikai Palette D", 0xb6c0, 0xb6e0, indexKOF01Sprites_King, 0x00 },
     { L"King Extra 4 D", 0xb6e0, 0xb700 },
 
     { L"Venom Strike D", 0xb700, 0xb720 },
@@ -1634,13 +1625,13 @@ const sGame_PaletteDataset KOF03_A_BENIMARU_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_SHINGO_PALETTES_A[] =
 {
-    { L"Shingo A", 0xd000, 0xd020, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo A", 0xd000, 0xd020, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 1 A", 0xd020, 0xd040 },
-    { L"Shingo Electricity A", 0xd040, 0xd060, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Electricity A", 0xd040, 0xd060, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 2 A", 0xd060, 0xd080 },
-    { L"Shingo Super Trail A", 0xd080, 0xd0a0, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Super Trail A", 0xd080, 0xd0a0, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 3 A", 0xd0a0, 0xd0c0 },
-    { L"Shingo Shikai Palette A", 0xd0c0, 0xd0e0, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Shikai Palette A", 0xd0c0, 0xd0e0, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 4 A", 0xd0e0, 0xd100 },
 
     { L"Fire Effects A", 0xd100, 0xd120 },
@@ -1650,13 +1641,13 @@ const sGame_PaletteDataset KOF03_A_SHINGO_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_SHINGO_PALETTES_B[] =
 {
-    { L"Shingo B", 0xd200, 0xd220, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo B", 0xd200, 0xd220, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 1 B", 0xd220, 0xd240 },
-    { L"Shingo Electricity B", 0xd240, 0xd260, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Electricity B", 0xd240, 0xd260, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 2 B", 0xd260, 0xd280 },
-    { L"Shingo Super Trail B", 0xd280, 0xd2a0, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Super Trail B", 0xd280, 0xd2a0, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 3 B", 0xd2a0, 0xd2c0 },
-    { L"Shingo Shikai Palette B", 0xd2c0, 0xd2e0, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Shikai Palette B", 0xd2c0, 0xd2e0, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 4 B", 0xd2e0, 0xd300 },
 
     { L"Fire Effects B", 0xd300, 0xd320 },
@@ -1666,13 +1657,13 @@ const sGame_PaletteDataset KOF03_A_SHINGO_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_SHINGO_PALETTES_C[] =
 {
-    { L"Shingo C", 0xd400, 0xd420, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo C", 0xd400, 0xd420, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 1 C", 0xd420, 0xd440 },
-    { L"Shingo Electricity C", 0xd440, 0xd460, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Electricity C", 0xd440, 0xd460, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 2 C", 0xd460, 0xd480 },
-    { L"Shingo Super Trail C", 0xd480, 0xd4a0, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Super Trail C", 0xd480, 0xd4a0, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 3 C", 0xd4a0, 0xd4c0 },
-    { L"Shingo Shikai Palette C", 0xd4c0, 0xd4e0, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Shikai Palette C", 0xd4c0, 0xd4e0, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 4 C", 0xd4e0, 0xd500 },
 
     { L"Fire Effects C", 0xd500, 0xd520 },
@@ -1682,13 +1673,13 @@ const sGame_PaletteDataset KOF03_A_SHINGO_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_SHINGO_PALETTES_D[] =
 {
-    { L"Shingo D", 0xd600, 0xd620, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo D", 0xd600, 0xd620, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 1 D", 0xd620, 0xd640 },
-    { L"Shingo Electricity D", 0xd640, 0xd660, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Electricity D", 0xd640, 0xd660, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 2 D", 0xd660, 0xd680 },
-    { L"Shingo Super Trail D", 0xd680, 0xd6a0, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Super Trail D", 0xd680, 0xd6a0, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 3 D", 0xd6a0, 0xd6c0 },
-    { L"Shingo Shikai Palette D", 0xd6c0, 0xd6e0, indexKOFXISprites_Shingo, 0x00 },
+    { L"Shingo Shikai Palette D", 0xd6c0, 0xd6e0, indexKOF99Sprites_Shingo, 0x00 },
     { L"Shingo Extra 4 D", 0xd6e0, 0xd700 },
 
     { L"Fire Effects D", 0xd700, 0xd720 },

@@ -868,6 +868,7 @@ const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P1[] =
     { L"P1 Color", 0x48642, 0x48662, indexCPS2Sprites_Spidey },
     { L"P1 Spotlight", 0x48662, 0x48682, indexCPS2Sprites_Spidey, 0x0C },
     { L"P1 Web", 0x48682, 0x486a2, indexCPS2Sprites_Spidey, 2 },
+
     { L"P1 Intro 1", 0x4B822, 0x4B842, indexCPS2Sprites_Spidey, 11 },
     { L"P1 Intro 2", 0x4B842, 0x4B862, indexCPS2Sprites_Spidey, 11 },
     { L"P1 Intro 3", 0x4B862, 0x4B882, indexCPS2Sprites_Spidey, 11 },

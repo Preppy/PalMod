@@ -80,7 +80,6 @@ const std::vector<UINT16> KOF02_A_IMGIDS_USED =
 
     indexKOF97Sprites_Billy,            // 0x299
     indexKOF97Sprites_BlueMary,         // 0x29A
-    indexKOF97Sprites_LeonaOrochi,      // 0x1F8
     indexKOF97Sprites_Terry,            // 0x2B1
     indexKOF97Sprites_Yamazaki,         // 0x2B2
 
@@ -89,6 +88,7 @@ const std::vector<UINT16> KOF02_A_IMGIDS_USED =
     indexKOF99Sprites_Joe,          // 0x18c
     indexKOF99Sprites_K,            // 0x18d
     indexKOF99Sprites_Kyo,          // 0x194
+    indexKOF99Sprites_Leona,        // 0x195
     indexKOF99Sprites_Mai,          // 0x196
     indexKOF99Sprites_Maxima,       // 0x197
     indexKOF99Sprites_Whip,         // 0x19e
@@ -1743,49 +1743,49 @@ const sGame_PaletteDataset KOF02_A_CHIN_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF02_A_LEONA_PALETTES_A[] =
 {
-    { L"Leona A", 0x008eb62, 0x008eb82, indexKOF97Sprites_LeonaOrochi },
+    { L"Leona A", 0x008eb62, 0x008eb82, indexKOF99Sprites_Leona },
     { L"A - Jump Blowback Attack", 0x008eb82, 0x008eba2, indexKOF02UMSprites_Leona, 0x06 },
-    { L"A - Desperation Move / Super Desperation Move", 0x008eba2, 0x008ebc2, indexKOF97Sprites_LeonaOrochi, 0x00 },
-    { L"A - Electric Shock Effect", 0x008ebc2, 0x008ebe2, indexKOF97Sprites_LeonaOrochi, 0x00 },
-    { L"A - MAX Flash", 0x008ebe2, 0x008ec02, indexKOF97Sprites_LeonaOrochi, 0x00 },
+    { L"A - Desperation Move / Super Desperation Move", 0x008eba2, 0x008ebc2, indexKOF99Sprites_Leona, 0x00 },
+    { L"A - Electric Shock Effect", 0x008ebc2, 0x008ebe2, indexKOF99Sprites_Leona, 0x00 },
+    { L"A - MAX Flash", 0x008ebe2, 0x008ec02, indexKOF99Sprites_Leona, 0x00 },
     { L"A - Orochi Leona", 0x008ec02, 0x008ec22, indexKOF02UMSprites_Leona, 0x1b },
-    { L"A - Soul Palette", 0x008ec22, 0x008ec42, indexKOF97Sprites_LeonaOrochi, 0x00 },
+    { L"A - Soul Palette", 0x008ec22, 0x008ec42, indexKOF99Sprites_Leona, 0x00 },
     { L"A - Intro Stuff", 0x008ec42, 0x008ec62, indexKOF02UMSprites_Leona, 0x19 },
 };
 
 const sGame_PaletteDataset KOF02_A_LEONA_PALETTES_B[] =
 {
-    { L"Leona B", 0x008ed62, 0x008ed82, indexKOF97Sprites_LeonaOrochi },
+    { L"Leona B", 0x008ed62, 0x008ed82, indexKOF99Sprites_Leona },
     { L"B - Jump Blowback Attack", 0x008ed82, 0x008eda2, indexKOF02UMSprites_Leona, 0x06 },
-    { L"B - Desperation Move / Super Desperation Move", 0x008eda2, 0x008edc2, indexKOF97Sprites_LeonaOrochi, 0x00 },
-    { L"B - Electric Shock Effect", 0x008edc2, 0x008ede2, indexKOF97Sprites_LeonaOrochi, 0x00 },
-    { L"B - MAX Flash", 0x008ede2, 0x008ee02, indexKOF97Sprites_LeonaOrochi, 0x00 },
+    { L"B - Desperation Move / Super Desperation Move", 0x008eda2, 0x008edc2, indexKOF99Sprites_Leona, 0x00 },
+    { L"B - Electric Shock Effect", 0x008edc2, 0x008ede2, indexKOF99Sprites_Leona, 0x00 },
+    { L"B - MAX Flash", 0x008ede2, 0x008ee02, indexKOF99Sprites_Leona, 0x00 },
     { L"B - Orochi Leona", 0x008ee02, 0x008ee22, indexKOF02UMSprites_Leona, 0x1b },
-    { L"B - Soul Palette", 0x008ee22, 0x008ee42, indexKOF97Sprites_LeonaOrochi, 0x00 },
+    { L"B - Soul Palette", 0x008ee22, 0x008ee42, indexKOF99Sprites_Leona, 0x00 },
     { L"B - Intro Stuff", 0x008ee42, 0x008ee62, indexKOF02UMSprites_Leona, 0x19 },
 };
 
 const sGame_PaletteDataset KOF02_A_LEONA_PALETTES_C[] =
 {
-    { L"Leona C", 0x008ef62, 0x008ef82, indexKOF97Sprites_LeonaOrochi },
+    { L"Leona C", 0x008ef62, 0x008ef82, indexKOF99Sprites_Leona },
     { L"C - Jump Blowback Attack", 0x008ef82, 0x008efa2, indexKOF02UMSprites_Leona, 0x06 },
-    { L"C - Desperation Move / Super Desperation Move", 0x008efa2, 0x008efc2, indexKOF97Sprites_LeonaOrochi, 0x00 },
-    { L"C - Electric Shock Effect", 0x008efc2, 0x008efe2, indexKOF97Sprites_LeonaOrochi, 0x00 },
-    { L"C - MAX Flash", 0x008efe2, 0x008f002, indexKOF97Sprites_LeonaOrochi, 0x00 },
+    { L"C - Desperation Move / Super Desperation Move", 0x008efa2, 0x008efc2, indexKOF99Sprites_Leona, 0x00 },
+    { L"C - Electric Shock Effect", 0x008efc2, 0x008efe2, indexKOF99Sprites_Leona, 0x00 },
+    { L"C - MAX Flash", 0x008efe2, 0x008f002, indexKOF99Sprites_Leona, 0x00 },
     { L"C - Orochi Leona", 0x008f002, 0x008f022, indexKOF02UMSprites_Leona, 0x1b },
-    { L"C - Soul Palette", 0x008f022, 0x008f042, indexKOF97Sprites_LeonaOrochi, 0x00 },
+    { L"C - Soul Palette", 0x008f022, 0x008f042, indexKOF99Sprites_Leona, 0x00 },
     { L"C - Intro Stuff", 0x008f042, 0x008f062, indexKOF02UMSprites_Leona, 0x19 },
 };
 
 const sGame_PaletteDataset KOF02_A_LEONA_PALETTES_D[] =
 {
-    { L"Leona D", 0x008f162, 0x008f182, indexKOF97Sprites_LeonaOrochi },
+    { L"Leona D", 0x008f162, 0x008f182, indexKOF99Sprites_Leona },
     { L"D - Jump Blowback Attack", 0x008f182, 0x008f1a2, indexKOF02UMSprites_Leona, 0x06 },
-    { L"D - Desperation Move / Super Desperation Move", 0x008f1a2, 0x008f1c2, indexKOF97Sprites_LeonaOrochi, 0x00 },
-    { L"D - Electric Shock Effect", 0x008f1c2, 0x008f1e2, indexKOF97Sprites_LeonaOrochi, 0x00 },
-    { L"D - MAX Flash", 0x008f1e2, 0x008f202, indexKOF97Sprites_LeonaOrochi, 0x00 },
+    { L"D - Desperation Move / Super Desperation Move", 0x008f1a2, 0x008f1c2, indexKOF99Sprites_Leona, 0x00 },
+    { L"D - Electric Shock Effect", 0x008f1c2, 0x008f1e2, indexKOF99Sprites_Leona, 0x00 },
+    { L"D - MAX Flash", 0x008f1e2, 0x008f202, indexKOF99Sprites_Leona, 0x00 },
     { L"D - Orochi Leona", 0x008f202, 0x008f222, indexKOF02UMSprites_Leona, 0x1b },
-    { L"D - Soul Palette", 0x008f222, 0x008f242, indexKOF97Sprites_LeonaOrochi, 0x00 },
+    { L"D - Soul Palette", 0x008f222, 0x008f242, indexKOF99Sprites_Leona, 0x00 },
     { L"D - Intro Stuff", 0x008f242, 0x008f262, indexKOF02UMSprites_Leona, 0x19 },
 };
 

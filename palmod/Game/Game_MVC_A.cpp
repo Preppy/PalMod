@@ -48,7 +48,7 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x030b18;
+    m_nLowestKnownPaletteRomLocation = 0x30b18;
 
     // 0x38xxx large body Onslaught sprites
     // 0x39xxx+ unknown
