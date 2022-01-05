@@ -1039,7 +1039,7 @@ const sDescTreeNode XMVSF_A_UNITS[] =
 
 constexpr auto XMVSF_A_NUMUNIT = ARRAYSIZE(XMVSF_A_UNITS);
 
-#define XMVSF_A_EXTRALOC XMVSF_A_NUMUNIT
+constexpr auto XMVSF_A_EXTRALOC = XMVSF_A_NUMUNIT;
 
 // This is the alphabetically sorted list of ROM locations:
 /*

@@ -159,112 +159,103 @@ void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(size_t char_id, si
     }
 }
 
-void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const size_t nUnitId, const size_t nChangedPaletteNumber, const UINT16* supplementalEffectsData)
+void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const size_t nUnitId, const size_t nChangedPaletteNumber, const std::vector<std::vector<UINT16>> supplementalEffectsData)
 {
     CString strDebugInfo;
-    strDebugInfo.Format(L"\tProcessAdditionalPaletteChangesRequired: Processing supplemental palettes for unit 0x%02x palette number 0x%x\n", nUnitId, nChangedPaletteNumber);
+    strDebugInfo.Format(L"\tProcessAdditionalPaletteChangesRequired: Processing supplemental palettes for unit 0x%02x palette number 0x%x. %u effects to apply.\n", nUnitId, nChangedPaletteNumber,
+                                    supplementalEffectsData.size());
     OutputDebugString(strDebugInfo);
 
-    UINT8 tokens_used = 0;
-
-    //SUPP_NODE
-    // Syntax:
+    //SUPP_NODE syntax:
     //  SUPP_NODE, <Increment to palette to change>, <MVC2 only value, leave as 0>
 
-    //Check to see if we are modifying any basic palettes
-    UINT16 indexCounterForEffects = 1; // 1 to skip the START token
-    UINT16 currentEffectsToken = supplementalEffectsData[indexCounterForEffects];
-
-    while ((currentEffectsToken & 0xF000) != SUPP_START) // SUPP_START marks the beginning of the next character
+    for (const std::vector<UINT16> currentEffectsData : supplementalEffectsData)
     {
-        // If the current position is SUPP_NODE or SUPP_NODE_*, that indicates the beginning of a new modifier array
+        UINT16 currentEffectsToken = currentEffectsData[0];
+
+        // Some variant of SUPP_NODE or SUPP_NODE_* indicates the beginning of a new modifier array
             //Possible sources = SUPP_NODE, SUPP_NODE_EX, SUPP_NODE_ABSOL, SUPP_NODE_EX | SUPP_NODE_NOCOPY, SUPP_NODE_EX | SUPP_NODE_ABSOL
+        // The _EX syntax is unique to MVC2 where MVC2 crosses nodes from core button colors to the shared extra nodes.
         if ((currentEffectsToken & 0xF000) == SUPP_NODE)
         {
             OutputDebugString(L"\tProcessAdditionalPaletteChangesRequired: New modification node encountered\n");
 
-            tokens_used = 3; //count of data provided for a SUPP_NODE entry, which is the minimum.
-
-            UINT16 in_start = supplementalEffectsData[indexCounterForEffects + 1];
+            UINT16 in_start = currentEffectsData[1];
 
             // Figure out what palettes we're going to be modifying
             size_t destination_palette = nChangedPaletteNumber + (in_start & 0x7FFF);
 
-            //Set the counter past the indexes into the actual actions and reset the step counter
-            indexCounterForEffects += tokens_used;
-            tokens_used = 0;
+            strDebugInfo.Format(L"\t\tPreparing to process from palette 0x%x to palette 0x%x\n", nChangedPaletteNumber, destination_palette);
+            OutputDebugString(strDebugInfo);
 
+            // Unless we get told otherwise, we do a copy first and then worry about modifying values.
+            if (currentEffectsToken != SUPP_NODE_NOCOPY)
             {
-                strDebugInfo.Format(L"\t\tPreparing to process from palette 0x%x to palette 0x%x\n", nChangedPaletteNumber, destination_palette);
-                OutputDebugString(strDebugInfo);
+                int copy_start = 0;
+                int copy_amt = GetCurrentPaletteSizeInColors();
+                int copy_dst = 0;
 
-                // Unless we get told otherwise, we do a copy first and then worry about modifying values.
-                if (currentEffectsToken != SUPP_NODE_NOCOPY)
+                ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, copy_dst, copy_start, copy_amt);
+            }
+
+            //Set the counter past the indexes into the actual actions and reset the step counter
+            UINT16 indexCounterForEffects = 3; // Minimum set of data for a SUPP_NODE entry: <node_type>, <palette distance>, <unused>
+
+            while (indexCounterForEffects < currentEffectsData.size())
+            {
+                currentEffectsToken = currentEffectsData[indexCounterForEffects];
+
+                OutputDebugString(L"\t\t\tProcessing FX for this node\n");
+
+                //pi = palette index - value should be from 0 to <palette length>, maxing at 255.
+                UINT8 pi_start = (UINT8)currentEffectsData[indexCounterForEffects + 1];
+                UINT8 pi_amt = (UINT8)currentEffectsData[indexCounterForEffects + 2];
+
+                switch (currentEffectsToken)
                 {
-                    int copy_start = 0;
-                    int copy_amt = GetCurrentPaletteSizeInColors();
-                    int copy_dst = 0;
+                case MOD_TINT:
+                {
+                    ProcessSecondaryTintEffects(nUnitId, nChangedPaletteNumber, destination_palette, (UINT8)currentEffectsData[indexCounterForEffects + 3], pi_start, pi_amt,
+                        currentEffectsData[indexCounterForEffects + 4], currentEffectsData[indexCounterForEffects + 5], currentEffectsData[indexCounterForEffects + 6]);
 
-                    ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, copy_dst, copy_start, copy_amt);
+                    indexCounterForEffects += 7;
+                    break;
+                }
+                case MOD_WHITE:
+                {
+                    ProcessSecondaryWhite(nUnitId, destination_palette, pi_start, pi_amt);
+
+                    indexCounterForEffects += 3;
+                    break;
                 }
 
-                indexCounterForEffects += tokens_used;
-                currentEffectsToken = supplementalEffectsData[indexCounterForEffects];
-
-                while (((currentEffectsToken & 0xF000) != SUPP_NODE) && ((currentEffectsToken & 0xF000) != SUPP_START))
+                case MOD_COPY:
                 {
-                    OutputDebugString(L"\t\t\tProcessing FX for this node\n");
+                    ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, (UINT8)currentEffectsData[indexCounterForEffects + 3], pi_start, pi_amt);
 
-                    //pi = palette index - value should be from 0 to <palette length>, maxing at 255.
-                    UINT8 pi_start = (UINT8)supplementalEffectsData[indexCounterForEffects + 1];
-                    UINT8 pi_amt = (UINT8)supplementalEffectsData[indexCounterForEffects + 2];
+                    indexCounterForEffects += 4;
+                    break;
+                }
 
-                    switch (currentEffectsToken)
-                    {
-                    case MOD_TINT:
-                    {
-                        ProcessSecondaryTintEffects(nUnitId, nChangedPaletteNumber, destination_palette, (UINT8)supplementalEffectsData[indexCounterForEffects + 3], pi_start, pi_amt,
-                            supplementalEffectsData[indexCounterForEffects + 4], supplementalEffectsData[indexCounterForEffects + 5], supplementalEffectsData[indexCounterForEffects + 6]);
+                case MOD_LUM:
+                case MOD_SAT:
+                {
+                    // We have first done a full copy of the source palette to dest palette here, and now we apply desired LUM/SAT tweaks.
+                    UINT16 mod_type = currentEffectsData[indexCounterForEffects];
+                    UINT16 mod_amt = currentEffectsData[indexCounterForEffects + 3];
 
-                        indexCounterForEffects += 7;
-                        break;
-                    }
-                    case MOD_WHITE:
-                    {
-                        ProcessSecondaryWhite(nUnitId, destination_palette, pi_start, pi_amt);
+                    ProcessSecondaryHSLEffects(nUnitId, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
 
-                        indexCounterForEffects += 3;
-                        break;
-                    }
-
-                    case MOD_COPY:
-                    {
-                        ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, (UINT8)supplementalEffectsData[indexCounterForEffects + 3], pi_start, pi_amt);
-
-                        indexCounterForEffects += 4;
-                        break;
-                    }
-
-                    case MOD_LUM:
-                    case MOD_SAT:
-                    {
-                        // We have first done a full copy of the source palette to dest palette here, and now we apply desired LUM/SAT tweaks.
-                        UINT16 mod_type = supplementalEffectsData[indexCounterForEffects];
-                        UINT16 mod_amt = supplementalEffectsData[indexCounterForEffects + 3];
-
-                        ProcessSecondaryHSLEffects(nUnitId, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
-
-                        indexCounterForEffects += 4;
-                        break;
-                    }
-                    }
-
-                    currentEffectsToken = supplementalEffectsData[indexCounterForEffects];
+                    indexCounterForEffects += 4;
+                    break;
+                }
+                default:
+                    OutputDebugString(L"Error: bogus token in supp_proc commands.\n");
+                    break;
                 }
             }
 
             GetHost()->GetPalModDlg()->SetStatusText(L"Palette updated in memory.  Also updated secondary palettes.");
-
         }
     }
 

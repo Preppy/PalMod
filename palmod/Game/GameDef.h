@@ -412,7 +412,7 @@ struct stPairedPaletteInfo
 
 struct stPaletteProcessingInformation
 {
-    const UINT16* pProcessingSteps = nullptr;
+    const std::vector<std::vector<UINT16>> pProcessingSteps;
     bool fIsTarget = false;
 };
 

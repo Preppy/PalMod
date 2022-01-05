@@ -27,370 +27,350 @@ const std::vector<UINT16> COTA_A_IMGIDS_USED =
 
 #pragma region SecondaryPaletteEffects
 
-const UINT16 paletteBuddy_COTA_Colossus[] =
+const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Colossus =
 {
-    SUPP_START,
-        // Shoulder tackle shadows
-        SUPP_NODE, 0x03, 4,
-            MOD_LUM, 1, 15, 4 + NEG,
+    // Shoulder tackle shadows
+    { SUPP_NODE, 0x03, 4,
+        MOD_LUM, 1, 15, 4 + NEG },
+    // Super Armor Shine 1-7
+    { SUPP_NODE, 0x04, 32,
+        MOD_LUM, 02, 5, 13 + NEG,
+        MOD_LUM, 12, 3, 13 + NEG,
+        MOD_WHITE, 7, 1 },
+    { SUPP_NODE, 0x05, 32,
+        MOD_LUM, 02, 5, 5 + NEG,
+        MOD_LUM, 12, 3, 5 + NEG,
+        MOD_WHITE, 6, 1 },
+    { SUPP_NODE, 0x06, 32,
+        MOD_LUM, 02, 5, 8,
+        MOD_LUM, 12, 3, 8,
+        MOD_WHITE, 5, 1 },
+    { SUPP_NODE, 0x07, 32,
+        MOD_LUM, 02, 5, 13,
+        MOD_LUM, 12, 3, 13,
+        MOD_WHITE, 4, 1 },
+    { SUPP_NODE, 0x08, 32,
+        MOD_LUM, 02, 5, 29,
+        MOD_LUM, 12, 3, 29,
+        MOD_WHITE, 3, 1 },
+    { SUPP_NODE, 0x09, 32,
+        MOD_LUM, 02, 5, 46,
+        MOD_LUM, 12, 3, 46,
+        MOD_WHITE, 2, 1 },
+    { SUPP_NODE, 0x0a, 32 },
 
-        // Super Armor Shine 1-7
-        SUPP_NODE, 0x04, 32,
-            MOD_LUM, 02, 5, 13 + NEG,
-            MOD_LUM, 12, 3, 13 + NEG,
-            MOD_WHITE, 7, 1,
-        SUPP_NODE, 0x05, 32,
-            MOD_LUM, 02, 5, 5 + NEG,
-            MOD_LUM, 12, 3, 5 + NEG,
-            MOD_WHITE, 6, 1,
-        SUPP_NODE, 0x06, 32,
-            MOD_LUM, 02, 5, 8,
-            MOD_LUM, 12, 3, 8,
-            MOD_WHITE, 5, 1,
-        SUPP_NODE, 0x07, 32,
-            MOD_LUM, 02, 5, 13,
-            MOD_LUM, 12, 3, 13,
-            MOD_WHITE, 4, 1,
-        SUPP_NODE, 0x08, 32,
-            MOD_LUM, 02, 5, 29,
-            MOD_LUM, 12, 3, 29,
-            MOD_WHITE, 3, 1,
-        SUPP_NODE, 0x09, 32,
-            MOD_LUM, 02, 5, 46,
-            MOD_LUM, 12, 3, 46,
-            MOD_WHITE, 2, 1,
-        SUPP_NODE, 0x0a, 32,
+    // Shine 1-8: skips the first stance frame from mvc2
+    { SUPP_NODE, 0x0b, 32,
+        MOD_WHITE, 2, 6 },
+    { SUPP_NODE, 0x0c, 32,
+        MOD_COPY, 3, 2, 6 },
+    { SUPP_NODE, 0x0d, 32,
+        MOD_COPY, 2, 2, 4 },
+    { SUPP_NODE, 0x0e, 32,
+        MOD_WHITE, 3, 1 },
+    { SUPP_NODE, 0x0f, 32,
+        MOD_COPY, 4, 1, 7 },
+    { SUPP_NODE, 0x10, 32,
+        MOD_COPY, 3, 1, 6 },
+    { SUPP_NODE, 0x11, 32,
+        MOD_COPY, 2, 1, 5 },
+    { SUPP_NODE, 0x12, 32,
+        MOD_COPY, 2, 1, 4 },
+    // Power Dive 1-7
+    { SUPP_NODE, 0x13, 32,
+        MOD_LUM, 1, 15, 31 },
+    { SUPP_NODE, 0x14, 32,
+        MOD_LUM, 1, 15, 45 },
+    // 0x15 is just full white always: no need to change
+    { SUPP_NODE, 0x16, 32,
+        MOD_LUM, 1, 15, NEG + 18 },
 
-        // Shine 1-8: skips the first stance frame from mvc2
-        SUPP_NODE, 0x0b, 32,
-            MOD_WHITE, 2, 6,
-        SUPP_NODE, 0x0c, 32,
-            MOD_COPY, 3, 2, 6,
-        SUPP_NODE, 0x0d, 32,
-            MOD_COPY, 2, 2, 4,
-        SUPP_NODE, 0x0e, 32,
-            MOD_WHITE, 3, 1,
-        SUPP_NODE, 0x0f, 32,
-            MOD_COPY, 4, 1, 7,
-        SUPP_NODE, 0x10, 32,
-            MOD_COPY, 3, 1, 6,
-        SUPP_NODE, 0x11, 32,
-            MOD_COPY, 2, 1, 5,
-        SUPP_NODE, 0x12, 32,
-            MOD_COPY, 2, 1, 4,
+    // I'm skipping these color moving tweaks for now
+    //{ SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x16, 32, 0x1B, 32, 9, 1, 8 },
+    //{ SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x16, 32, 0x1B, 32, 3, 1, 2 },
 
-        // Power Dive 1-7
-        SUPP_NODE, 0x13, 32,
-            MOD_LUM, 1, 15, 31,
-        SUPP_NODE, 0x14, 32,
-            MOD_LUM, 1, 15, 45,
-        // 0x15 is just full white always: no need to change
-        SUPP_NODE, 0x16, 32,
-            MOD_LUM, 1, 15, NEG + 18,
+    { SUPP_NODE, 0x17, 32,
+        MOD_LUM, 1, 15, NEG + 13 },
 
-        // I'm skipping these color moving tweaks for now
-        //SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x16, 32, 0x1B, 32, 9, 1, 8,
-        //SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x16, 32, 0x1B, 32, 3, 1, 2,
+    //{ SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x17, 32, 0x1C, 32, 9, 1, 8 },
+    //{ SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x17, 32, 0x1C, 32, 3, 1, 2 },
 
-        SUPP_NODE, 0x17, 32,
-            MOD_LUM, 1, 15, NEG + 13,
+    { SUPP_NODE, 0x18, 32,
+        MOD_LUM, 1, 15, NEG + 6 },
 
-        //SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x17, 32, 0x1C, 32, 9, 1, 8,
-        //SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x17, 32, 0x1C, 32, 3, 1, 2,
+    //{ SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x18, 32, 0x1D, 32, 9, 1, 8 },
+    //{ SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x18, 32, 0x1D, 32, 3, 1, 6 },
+    //{ SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x18, 32, 0x1D, 32, 4, 1, 7 },
+    //{ SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x18, 32, 0x1D, 32, 3, 1, 2 },
 
-        SUPP_NODE, 0x18, 32,
-            MOD_LUM, 1, 15, NEG + 6,
+    { SUPP_NODE, 0x19, 32 },
 
-        //SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x18, 32, 0x1D, 32, 9, 1, 8,
-        //SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x18, 32, 0x1D, 32, 3, 1, 6,
-        //SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x18, 32, 0x1D, 32, 4, 1, 7,
-        //SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x18, 32, 0x1D, 32, 3, 1, 2,
-
-        SUPP_NODE, 0x19, 32,
-
-        // HP Shine 1-10
-        SUPP_NODE, 0x1a, 32,
-            MOD_LUM, 1, 15, NEG + 5,
-        SUPP_NODE, 0x1b, 32,
-            MOD_LUM, 1, 15, 25,
-        SUPP_NODE, 0x1c, 32,
-
-        SUPP_NODE, 0x1d, 32,
-            MOD_LUM, 2, 14, NEG + 5,
-            MOD_WHITE, 7, 1,
-        SUPP_NODE, 0x1e, 32,
-            MOD_LUM, 2, 14, NEG + 8,
-            MOD_WHITE, 6, 1,
-        SUPP_NODE, 0x1f, 32,
-            MOD_LUM, 2, 14, NEG + 4,
-            MOD_WHITE, 5, 1,
-        SUPP_NODE, 0x20, 32,
-            MOD_WHITE, 4, 1,
-        SUPP_NODE, 0x21, 32,
-            MOD_LUM, 2, 14, 30,
-        SUPP_NODE, 0x22, 32,
-            MOD_LUM, 2, 14, 45,
-            MOD_LUM, 07, 1, NEG + 7,
-            MOD_SAT, 07, 1, 50,
-        SUPP_NODE, 0x23, 32,
-
-    SUPP_END
+    // HP Shine 1-10
+    { SUPP_NODE, 0x1a, 32,
+        MOD_LUM, 1, 15, NEG + 5 },
+    { SUPP_NODE, 0x1b, 32,
+        MOD_LUM, 1, 15, 25 },
+    { SUPP_NODE, 0x1c, 32 },
+    { SUPP_NODE, 0x1d, 32,
+        MOD_LUM, 2, 14, NEG + 5,
+        MOD_WHITE, 7, 1 },
+    { SUPP_NODE, 0x1e, 32,
+        MOD_LUM, 2, 14, NEG + 8,
+        MOD_WHITE, 6, 1 },
+    { SUPP_NODE, 0x1f, 32,
+        MOD_LUM, 2, 14, NEG + 4,
+        MOD_WHITE, 5, 1 },
+    { SUPP_NODE, 0x20, 32,
+        MOD_WHITE, 4, 1, },
+    { SUPP_NODE, 0x21, 32,
+        MOD_LUM, 2, 14, 30 },
+    { SUPP_NODE, 0x22, 32,
+        MOD_LUM, 2, 14, 45,
+        MOD_LUM, 07, 1, NEG + 7,
+        MOD_SAT, 07, 1, 50 },
+    { SUPP_NODE, 0x23, 32 },
 };
 
-const UINT16 paletteBuddy_COTA_Cyclops[] =
+const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Cyclops =
 {
-    SUPP_START,
-        // Mega Optic Blast Stance
-        // default color
-        SUPP_NODE, 0x04, 2,
-        // default color with red tint
-        SUPP_NODE, 0x05, 2,
-            MOD_TINT, 1, 15, 1, 3, NEG + 1, NEG + 1,
+    // Mega Optic Blast Stance
+    // default color
+    { SUPP_NODE, 0x04, 2 },
+    // default color with red tint
+    { SUPP_NODE, 0x05, 2,
+        MOD_TINT, 1, 15, 1, 3, NEG + 1, NEG + 1 },
         
-         // there are 8 intro frames
-        SUPP_NODE, 0x06, 8,
-            MOD_LUM, 1, 15, NEG + 3,
-        SUPP_NODE, 0x07, 8,
-            MOD_LUM, 1, 15, NEG + 7,
-        SUPP_NODE, 0x08, 8,
-            MOD_LUM, 1, 15, NEG + 11,
-        SUPP_NODE, 0x09, 8,
-            MOD_LUM, 1, 15, NEG + 17,
-        SUPP_NODE, 0x0a, 8,
-            MOD_LUM, 1, 15, NEG + 24,
-        SUPP_NODE, 0x0b, 8,
-            MOD_LUM, 1, 15, NEG + 30,
-        SUPP_NODE, 0x0c, 8,
-            MOD_LUM, 1, 15, NEG + 33,
-        SUPP_NODE, 0x0d, 8,
-            MOD_LUM, 1, 15, NEG + 39,
-    SUPP_END
+        // there are 8 intro frames
+    { SUPP_NODE, 0x06, 8,
+        MOD_LUM, 1, 15, NEG + 3 },
+    { SUPP_NODE, 0x07, 8,
+        MOD_LUM, 1, 15, NEG + 7 },
+    { SUPP_NODE, 0x08, 8,
+        MOD_LUM, 1, 15, NEG + 11 },
+    { SUPP_NODE, 0x09, 8,
+        MOD_LUM, 1, 15, NEG + 17 },
+    { SUPP_NODE, 0x0a, 8,
+        MOD_LUM, 1, 15, NEG + 24 },
+    { SUPP_NODE, 0x0b, 8,
+        MOD_LUM, 1, 15, NEG + 30 },
+    { SUPP_NODE, 0x0c, 8,
+        MOD_LUM, 1, 15, NEG + 33 },
+    { SUPP_NODE, 0x0d, 8,
+        MOD_LUM, 1, 15, NEG + 39 },
 };
 
-const UINT16 paletteBuddy_COTA_Iceman[] =
+const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Iceman =
 {
-    SUPP_START, // Glimmer frame
+    // Glimmer frame
 
-        // Iceballs: copy main sprite
-        SUPP_NODE, 0x01, 8,
+    // Iceballs: copy main sprite
+    { SUPP_NODE, 0x01, 8 },
 
-        // Bobby Drake taunt: normal plus face colors
-        // 6 colors for costume, and then the belt
-        //SUPP_NODE_EX, Dest Start, Dest Inc, Src Start, Src Amt, Dst Index
-        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 8,
+    // Bobby Drake taunt: normal plus face colors
+    // 6 colors for costume, and then the belt
+    //{ SUPP_NODE_EX, Dest Start, Dest Inc, Src Start, Src Amt, Dst Index
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 8,
             MOD_COPY, 1, 1, 1,
             MOD_COPY, 3, 1, 2,
             MOD_COPY, 5, 1, 3,
             MOD_COPY, 7, 1, 4,
             MOD_COPY, 9, 1, 5,
             MOD_COPY, 10, 1, 6,
-            MOD_COPY, 11, 4, 11,
+            MOD_COPY, 11, 4, 11 },
         // Stance Frame: copy main sprite
         // 7 shine frames, but the second (0x22) is pure white
-        SUPP_NODE, 0x03, 7,
-        // solid white frame here
-        // We need to duplicate some pixels here
-        SUPP_NODE, 0x05, 7,
-            MOD_COPY, 11, 1, 9,
-            MOD_COPY, 11, 1, 10,
-        SUPP_NODE, 0x06, 7,
-            MOD_COPY, 11, 1, 7,
-            MOD_COPY, 11, 1, 8,
-        SUPP_NODE, 0x07, 7,
-            MOD_COPY, 1, 2, 5,
-        SUPP_NODE, 0x08, 7,
-            MOD_COPY, 11, 1, 3,
-            MOD_COPY, 11, 1, 4,
-        SUPP_NODE, 0x09, 7,
-            MOD_COPY, 11, 1, 1,
-            MOD_COPY, 11, 1, 2,
-    SUPP_END
+    { SUPP_NODE, 0x03, 7 },
+    // solid white frame here
+    // We need to duplicate some pixels here
+    { SUPP_NODE, 0x05, 7,
+        MOD_COPY, 11, 1, 9,
+        MOD_COPY, 11, 1, 10 },
+    { SUPP_NODE, 0x06, 7,
+        MOD_COPY, 11, 1, 7,
+        MOD_COPY, 11, 1, 8 },
+    { SUPP_NODE, 0x07, 7,
+        MOD_COPY, 1, 2, 5 },
+    { SUPP_NODE, 0x08, 7,
+        MOD_COPY, 11, 1, 3,
+        MOD_COPY, 11, 1, 4 },
+    { SUPP_NODE, 0x09, 7,
+        MOD_COPY, 11, 1, 1,
+        MOD_COPY, 11, 1, 2 },
 };
 
-const UINT16 paletteBuddy_COTA_OmegaRed[] =
+const std::vector<std::vector<UINT16>> paletteBuddy_COTA_OmegaRed =
 {
-    SUPP_START, //Omega Red: intro frames
-        SUPP_NODE, 0x04, 4,
-            MOD_LUM, 1, 15, 25 + NEG,
-        SUPP_NODE, 0x05, 4,
-            MOD_LUM, 1, 15, 12 + NEG,
-        SUPP_NODE, 0x06, 4,
-            MOD_LUM, 1, 15, 9 + NEG,
-        SUPP_NODE, 0x07, 4,
-            MOD_LUM, 1, 15, 5 + NEG,
-    SUPP_END
+    //Omega Red: intro frames
+    { SUPP_NODE, 0x04, 4,
+            MOD_LUM, 1, 15, 25 + NEG },
+    { SUPP_NODE, 0x05, 4,
+            MOD_LUM, 1, 15, 12 + NEG },
+    { SUPP_NODE, 0x06, 4,
+            MOD_LUM, 1, 15, 9 + NEG },
+    { SUPP_NODE, 0x07, 4,
+            MOD_LUM, 1, 15, 5 + NEG },
 };
 
-const UINT16 paletteBuddy_COTA_Psylocke[] =
+const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Psylocke =
 {
-    SUPP_START, // Glimmer frame
-        SUPP_NODE, 0x02, 4,
-            MOD_LUM, 1, 15, 15,
-    SUPP_END
+    // Glimmer frame
+    { SUPP_NODE, 0x02, 4,
+            MOD_LUM, 1, 15, 15 },
 };
 
-const UINT16 paletteBuddy_COTA_SilverSamurai[] =
+const std::vector<std::vector<UINT16>> paletteBuddy_COTA_SilverSamurai =
 {
-    SUPP_START,
-        // Shadow frame
-        SUPP_NODE, 0x01, 8,
-            MOD_LUM, 1, 15, 5 + NEG,
-        // Shine frames 1-7
-        SUPP_NODE, 0x04, 8,
-        SUPP_NODE, 0x05, 8,
-            MOD_LUM, 8, 7, 10 + NEG,
-        SUPP_NODE, 0x06, 8,
-            MOD_COPY, 7, 2, 13,
-        SUPP_NODE, 0x07, 8,
-            MOD_COPY, 7, 4, 11,
-        SUPP_NODE, 0x08, 8,
-            MOD_COPY, 7, 6, 10,
-        SUPP_NODE, 0x09, 8,
-        SUPP_NODE, 0x0a, 8,
-            MOD_LUM, 1, 15, 5 + NEG,
-    SUPP_END
+    // Shadow frame
+    { SUPP_NODE, 0x01, 8,
+            MOD_LUM, 1, 15, 5 + NEG },
+    // Shine frames 1-7
+    { SUPP_NODE, 0x04, 8 },
+    { SUPP_NODE, 0x05, 8,
+            MOD_LUM, 8, 7, 10 + NEG },
+    { SUPP_NODE, 0x06, 8,
+            MOD_COPY, 7, 2, 13 },
+    { SUPP_NODE, 0x07, 8,
+            MOD_COPY, 7, 4, 11 },
+    { SUPP_NODE, 0x08, 8,
+            MOD_COPY, 7, 6, 10 },
+    { SUPP_NODE, 0x09, 8 },
+    { SUPP_NODE, 0x0a, 8,
+            MOD_LUM, 1, 15, 5 + NEG },
 };
 
-const UINT16 paletteBuddy_COTA_Spiral[] =
+const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Spiral =
 {
-    SUPP_START,
-        SUPP_NODE, 0x01, 4,
-            MOD_LUM, 1, 15, 25,
+    { SUPP_NODE, 0x01, 4,
+            MOD_LUM, 1, 15, 25 },
 
         // Power-Up Enhance 1-6
-        SUPP_NODE, 0x04, 28,
-        SUPP_NODE, 0x05, 28,
+    { SUPP_NODE, 0x04, 28 },
+    { SUPP_NODE, 0x05, 28,
             MOD_SAT, 1, 1, 60,
-            MOD_SAT, 6, 10, 60,
-        SUPP_NODE, 0x06, 28,
+            MOD_SAT, 6, 10, 60 },
+    { SUPP_NODE, 0x06, 28,
             MOD_SAT, 2, 4, NEG + 80,
-            MOD_LUM, 2, 4, NEG + 8,
-        SUPP_NODE, 0x07, 28,
+            MOD_LUM, 2, 4, NEG + 8 },
+    { SUPP_NODE, 0x07, 28,
             MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
             MOD_TINT, 6, 3, 6, 2, 0, 0,
             MOD_TINT, 14, 2, 14, 2, 0, 0,
-            MOD_TINT, 10, 4, 10, 8, 0, 0,
-        SUPP_NODE, 0x08, 28,
+            MOD_TINT, 10, 4, 10, 8, 0, 0 },
+    { SUPP_NODE, 0x08, 28,
             MOD_TINT, 2, 4, 2, 6, 0, 0,
             MOD_TINT, 6, 3, 6, 4, 0, 0,
             MOD_TINT, 14, 2, 14, 4, 0, 0,
-            MOD_TINT, 10, 4, 10, 8, NEG + 2, NEG + 2,
-        SUPP_NODE, 0x09, 28,
+            MOD_TINT, 10, 4, 10, 8, NEG + 2, NEG + 2 },
+    { SUPP_NODE, 0x09, 28,
             MOD_TINT, 2, 4, 2, 5, NEG + 1, NEG + 1,
             MOD_TINT, 6, 3, 6, 2, 0, 0,
             MOD_TINT, 14, 2, 14, 2, 0, 0,
-            MOD_TINT, 10, 4, 10, 10, 0, 0,
+            MOD_TINT, 10, 4, 10, 10, 0, 0 },
 
         // Speed-up Enhance 1-6
-        SUPP_NODE, 0x0a, 28,
-        SUPP_NODE, 0x0b, 28,
-            MOD_LUM, 1, 15, 5,
-        SUPP_NODE, 0x0c, 28,
-            MOD_LUM, 1, 15, 10,
-        SUPP_NODE, 0x0d, 28,
-            MOD_LUM, 1, 15, 13,
-        SUPP_NODE, 0x0e, 28,
-            MOD_LUM, 1, 15, 23,
-        SUPP_NODE, 0x0f, 28,
-            MOD_LUM, 1, 15, 40,
+    { SUPP_NODE, 0x0a, 28 },
+    { SUPP_NODE, 0x0b, 28,
+            MOD_LUM, 1, 15, 5 },
+    { SUPP_NODE, 0x0c, 28,
+            MOD_LUM, 1, 15, 10 },
+    { SUPP_NODE, 0x0d, 28,
+            MOD_LUM, 1, 15, 13 },
+    { SUPP_NODE, 0x0e, 28,
+            MOD_LUM, 1, 15, 23 },
+    { SUPP_NODE, 0x0f, 28,
+            MOD_LUM, 1, 15, 40 },
 
         // Metamorphosis Dance 1-12
-        SUPP_NODE, 0x10, 28,
+    { SUPP_NODE, 0x10, 28 },
 
-        SUPP_NODE, 0x11, 28,
+    { SUPP_NODE, 0x11, 28,
             MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
             MOD_TINT, 6, 3, 6, 4, 0, 0,
             MOD_TINT, 14, 2, 14, 4, 0, 0,
-            MOD_TINT, 10, 4, 10, 2, 2, 4,
-        SUPP_NODE, 0x12, 28,
+            MOD_TINT, 10, 4, 10, 2, 2, 4 },
+    { SUPP_NODE, 0x12, 28,
             MOD_TINT, 2, 4, 2, 6, 0, 0,
             MOD_TINT, 6, 3, 6, 2, 0, 0,
             MOD_TINT, 14, 2, 14, 2, 0, 0,
-            MOD_TINT, 10, 4, 10, 3, 5, NEG + 3,
-        SUPP_NODE, 0x13, 28,
+            MOD_TINT, 10, 4, 10, 3, 5, NEG + 3 },
+    { SUPP_NODE, 0x13, 28,
             MOD_TINT, 2, 4, 2, 5, NEG + 1, NEG + 1,
             MOD_TINT, 6, 3, 6, 4, 0, 0,
             MOD_TINT, 14, 2, 14, 4, 0, 0,
-            MOD_TINT, 10, 4, 10, 5, 5, NEG + 3,
-        SUPP_NODE, 0x14, 28,
+            MOD_TINT, 10, 4, 10, 5, 5, NEG + 3 },
+    { SUPP_NODE, 0x14, 28,
             MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
             MOD_TINT, 6, 3, 6, 2, 0, 0,
             MOD_TINT, 14, 2, 14, 2, 0, 0,
-            MOD_TINT, 10, 4, 10, 5, 5, NEG + 6,
-        SUPP_NODE, 0x15, 28,
+            MOD_TINT, 10, 4, 10, 5, 5, NEG + 6 },
+    { SUPP_NODE, 0x15, 28,
             MOD_TINT, 2, 4, 2, 6, 0, 0,
             MOD_TINT, 6, 3, 6, 4, 0, 0,
             MOD_TINT, 14, 2, 14, 4, 0, 0,
-            MOD_TINT, 10, 4, 10, 5, 4, NEG + 4,
-        SUPP_NODE, 0x16, 28,
+            MOD_TINT, 10, 4, 10, 5, 4, NEG + 4 },
+    { SUPP_NODE, 0x16, 28,
             MOD_TINT, 2, 4, 2, 5, NEG + 1, NEG + 1,
             MOD_TINT, 6, 3, 6, 2, 0, 0,
             MOD_TINT, 14, 2, 14, 2, 0, 0,
-            MOD_TINT, 10, 4, 10, 7, NEG + 1, NEG + 4,
-        SUPP_NODE, 0x17, 28,
+            MOD_TINT, 10, 4, 10, 7, NEG + 1, NEG + 4 },
+    { SUPP_NODE, 0x17, 28,
             MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
             MOD_TINT, 6, 3, 6, 4, 0, 0,
             MOD_TINT, 14, 2, 14, 4, 0, 0,
-            MOD_TINT, 10, 4, 10, 10, NEG + 2, NEG + 2,
-        SUPP_NODE, 0x18, 28,
+            MOD_TINT, 10, 4, 10, 10, NEG + 2, NEG + 2 },
+    { SUPP_NODE, 0x18, 28,
             MOD_TINT, 2, 4, 2, 6, 0, 0,
             MOD_TINT, 6, 3, 6, 2, 0, 0,
             MOD_TINT, 14, 2, 14, 2, 0, 0,
-            MOD_TINT, 10, 4, 10, 10, 0, 0,
-        SUPP_NODE, 0x19, 28,
+            MOD_TINT, 10, 4, 10, 10, 0, 0 },
+    { SUPP_NODE, 0x19, 28,
             MOD_TINT, 2, 4, 2, 5, NEG + 1, NEG + 1,
             MOD_TINT, 6, 3, 6, 4, 0, 0,
             MOD_TINT, 14, 2, 14, 4, 0, 0,
-            MOD_TINT, 10, 4, 10, 2, NEG + 1, 9,
-        SUPP_NODE, 0x1a, 28,
+            MOD_TINT, 10, 4, 10, 2, NEG + 1, 9 },
+    { SUPP_NODE, 0x1a, 28,
             MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
             MOD_TINT, 6, 3, 6, 2, 0, 0,
             MOD_TINT, 14, 2, 14, 2, 0, 0,
-            MOD_TINT, 10, 4, 10, 2, 2, 13,
-        SUPP_NODE, 0x1b, 28,
-    SUPP_END
+            MOD_TINT, 10, 4, 10, 2, 2, 13 },
+    { SUPP_NODE, 0x1b, 28 },
 };
 
-const UINT16 paletteBuddy_COTA_Storm[] =
+const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Storm =
 {
-    SUPP_START,
         // Extra 3: darker
-        SUPP_NODE, 0x03, 28,
-            MOD_LUM, 1, 15, NEG + 15,
+    { SUPP_NODE, 0x03, 28,
+            MOD_LUM, 1, 15, NEG + 15 },
         // Ending Sprite
-        SUPP_NODE, 0x04, 28,
+    { SUPP_NODE, 0x04, 28 },
         // Shine cycle 1-5
-        SUPP_NODE, 0x05, 28,
-        SUPP_NODE, 0x06, 28,
-            MOD_LUM, 1, 15, NEG + 15,
-        SUPP_NODE, 0x07, 28,
-            MOD_LUM, 1, 15, NEG + 8,
-        SUPP_NODE, 0x08, 28,
-            MOD_LUM, 1, 15, 10,
-        SUPP_NODE, 0x09, 28,
-    SUPP_END
+    { SUPP_NODE, 0x05, 28 },
+    { SUPP_NODE, 0x06, 28,
+            MOD_LUM, 1, 15, NEG + 15 },
+    { SUPP_NODE, 0x07, 28,
+            MOD_LUM, 1, 15, NEG + 8 },
+    { SUPP_NODE, 0x08, 28,
+            MOD_LUM, 1, 15, 10 },
+    { SUPP_NODE, 0x09, 28 },
 };
 
-const UINT16 paletteBuddy_COTA_Wolverine[] =
+const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Wolverine =
 {
-    SUPP_START,
-        // his berserker barrage trails a bit of his costume.
-        SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,
-                MOD_COPY,  2, 1, 12,
-                MOD_COPY, 11, 1, 13,
-                MOD_COPY, 10, 1, 14,
-                MOD_COPY,  9, 1, 15,
-    SUPP_END
+    // his berserker barrage trails a bit of his costume.
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,
+            MOD_COPY,  2, 1, 12,
+            MOD_COPY, 11, 1, 13,
+            MOD_COPY, 10, 1, 14,
+            MOD_COPY,  9, 1, 15 },
 };
 
-const UINT16 paletteBuddy_COTA_Akuma[] =
+const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Akuma =
 {
-    SUPP_START, // Dash, teleport
-        SUPP_NODE, 0x01, 4,
-            MOD_LUM, 1, 15, 10 + NEG,
-        SUPP_NODE, 0x02, 4,
-            MOD_LUM, 1, 15, 20 + NEG,
-    SUPP_END
+    // Dash, teleport
+    { SUPP_NODE, 0x01, 4,
+        MOD_LUM, 1, 15, 10 + NEG },
+    { SUPP_NODE, 0x02, 4,
+        MOD_LUM, 1, 15, 20 + NEG },
 };
 
 const stPaletteProcessingInformation secondaryCyclopsEffects{ paletteBuddy_COTA_Cyclops };
@@ -1266,7 +1246,7 @@ const sDescTreeNode COTA_A_UNITS[] =
 };
 
 constexpr auto COTA_A_NUMUNIT = ARRAYSIZE(COTA_A_UNITS);
-#define COTA_A_EXTRALOC COTA_A_NUMUNIT
+constexpr auto COTA_A_EXTRALOC = COTA_A_NUMUNIT;
 
 // We extend this array with data groveled from the cotae.txt extensible extras file, if any.
 const stExtraDef COTA_A_EXTRA[] =

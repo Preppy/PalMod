@@ -290,7 +290,7 @@ void CGame_COTA_A::PostSetPal(size_t nUnitId, size_t nPalId)
 
     const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
 
-    if (pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps)
+    if (pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
     {
         OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
         ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);

@@ -962,7 +962,7 @@ const sDescTreeNode MSH_UNITS_05[] =
 };
 
 constexpr auto MSH_A_NUMUNIT_05 = ARRAYSIZE(MSH_UNITS_05);
-#define MSH_A_EXTRALOC_05 MSH_A_NUMUNIT_05
+constexpr auto MSH_A_EXTRALOC_05 = MSH_A_NUMUNIT_05;
 
 const sDescTreeNode MSH_UNITS_06[] =
 {
@@ -972,7 +972,7 @@ const sDescTreeNode MSH_UNITS_06[] =
 };
 
 constexpr auto MSH_A_NUMUNIT_06 = ARRAYSIZE(MSH_UNITS_06);
-#define MSH_A_EXTRALOC_06 MSH_A_NUMUNIT_06
+constexpr auto MSH_A_EXTRALOC_06 = MSH_A_NUMUNIT_06;
 
 // We extend this array with data groveled from the MSHe.txt extensible extras file, if any.
 const stExtraDef MSH_A_EXTRA[] =
