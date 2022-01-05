@@ -754,13 +754,14 @@ void CGameClass::UpdatePalData()
             srcDef->bChanged = FALSE;
             rgFileChanged[srcDef->uUnitId] = TRUE;
 
+            if (nPalCtr == 0)
+            {
+                GetHost()->GetPalModDlg()->SetStatusText(L"Updated.");
+            }
+
             if (m_ShouldUsePostSetPalProc)
             {
                 PostSetPal(srcDef->uUnitId, srcDef->uPalId);
-            }
-            else
-            {
-                GetHost()->GetPalModDlg()->SetStatusText(L"Updated.");
             }
         }
     }

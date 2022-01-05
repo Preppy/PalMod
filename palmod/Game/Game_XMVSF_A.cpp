@@ -261,3 +261,22 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     return _UpdatePalImg(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, XMVSF_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }
+
+void CGame_XMVSF_A::PostSetPal(size_t nUnitId, size_t nPalId)
+{
+    CString strMessage;
+    strMessage.Format(L"CGame_XMVSF_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
+    OutputDebugString(strMessage);
+
+    const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
+
+    if (pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
+    {
+        OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
+        ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+    }
+    else
+    {
+        OutputDebugString(L"\tNo further processing needed.\n");
+    }
+}

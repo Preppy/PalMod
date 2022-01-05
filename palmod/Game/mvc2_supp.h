@@ -790,6 +790,7 @@ namespace MVC2_SupplementProcessing
 
     const std::vector<UINT16> supp_data_dhalsim =
     {
+        // 5 teleport frames
         0x25 | SUPP_START, //Dhalsim
             SUPP_NODE, 0x09, 5,
                 MOD_LUM, 1, 15, 15,
@@ -803,6 +804,7 @@ namespace MVC2_SupplementProcessing
 
     const std::vector<UINT16> supp_data_gambit =
     {
+        // 5 win pose frames
         0x28 | SUPP_START, //Gambit
             SUPP_NODE, 0x09, 5,
                 MOD_LUM, 1, 15, 10,
@@ -818,7 +820,8 @@ namespace MVC2_SupplementProcessing
     const std::vector<UINT16> supp_data_juggernaut =
     {
         0x29 | SUPP_START, //Juggernaut
-            SUPP_NODE, 0x0B, 10,    // Power-up frames
+            // 8 Power-up frames
+            SUPP_NODE, 0x0B, 10, 
                 MOD_LUM, 1, 15, 6,
             SUPP_NODE, 0x0C, 10,
                 MOD_LUM, 1, 15, 12,

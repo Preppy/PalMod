@@ -29,23 +29,162 @@ const std::vector<UINT16> XMVSF_A_IMGIDS_USED =
     indexCPS2Sprites_Apocalypse,   // 0x4f
 };
 
+#pragma region SecondaryPaletteEffects
+
+const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Cammy =
+{
+    // counter flash
+    { SUPP_NODE, 0x03, 9,
+        MOD_TINT, 1, 15, 1, 0, 8, 15 }, // blue + 15
+    { SUPP_NODE, 0x04, 9,
+        MOD_TINT, 1, 15, 1, 0, 6, 14 }, // blue + 14
+    { SUPP_NODE, 0x05, 9,
+        MOD_TINT, 1, 15, 1, 0, 4, 10 }, // blue + 10
+    { SUPP_NODE, 0x06, 9,
+        MOD_TINT, 1, 15, 1, 0, 2, 7 }, // blue + 7
+    { SUPP_NODE, 0x07, 9,
+        MOD_TINT, 1, 15, 1, 0, 0, 4 }, // blue + 3
+    { SUPP_NODE, 0x08, 9 },  // xcopy
+    { SUPP_NODE, 0x09, 9,
+        MOD_TINT, 1, 15, 1, NEG + 1, NEG + 1, 3 }, // dark blue + 3
+    { SUPP_NODE, 0x0a, 9,
+        MOD_TINT, 1, 15, 1, NEG + 2, NEG + 2, 5 }, // dark blue + 5
+    { SUPP_NODE, 0x0b, 9,
+        MOD_TINT, 1, 15, 1, NEG + 4, NEG + 4, 7 }, // dark blue + 7
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Cyclops =
+{
+    // there are 8 intro frames
+    { SUPP_NODE, 0x03, 8,
+        MOD_LUM, 1, 15, NEG + 3 },
+    { SUPP_NODE, 0x04, 8,
+        MOD_LUM, 1, 15, NEG + 7 },
+    { SUPP_NODE, 0x05, 8,
+        MOD_LUM, 1, 15, NEG + 11 },
+    { SUPP_NODE, 0x06, 8,
+        MOD_LUM, 1, 15, NEG + 17 },
+    { SUPP_NODE, 0x07, 8,
+        MOD_LUM, 1, 15, NEG + 24 },
+    { SUPP_NODE, 0x08, 8,
+        MOD_LUM, 1, 15, NEG + 30 },
+    { SUPP_NODE, 0x09, 8,
+        MOD_LUM, 1, 15, NEG + 33 },
+    { SUPP_NODE, 0x0a, 8,
+        MOD_LUM, 1, 15, NEG + 39 },
+
+    // Mega Optic Blast Stance
+    // default color slightly darkened
+    { SUPP_NODE, 0x0b, 2,
+        MOD_LUM, 1, 15, NEG + 2 },
+    // default color with red tint
+    { SUPP_NODE, 0x0c, 2,
+        MOD_TINT, 1, 15, 1, 5, NEG + 1, NEG + 1 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Dhalsim =
+{
+    // 5 teleport frames
+    { SUPP_NODE, 0x03, 5,
+        MOD_LUM, 1, 15, 15 },
+    { SUPP_NODE, 0x04, 5,
+        MOD_LUM, 1, 15, 27 },
+    { SUPP_NODE, 0x05, 5,
+        MOD_LUM, 1, 15, 42 },
+    { SUPP_NODE, 0x06, 5,
+        MOD_LUM, 1, 15, 65 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Gambit =
+{
+    // 5 win pose frames
+    { SUPP_NODE, 0x03, 5,
+        MOD_LUM, 1, 15, 10 },
+    { SUPP_NODE, 0x04, 5,
+        MOD_LUM, 1, 15, 5 },
+    { SUPP_NODE, 0x05, 5 },
+    { SUPP_NODE, 0x06, 5,
+        MOD_LUM, 1, 15, 5 + NEG },
+    { SUPP_NODE, 0x07, 5,
+        MOD_LUM, 1, 15, 10 + NEG },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Juggernaut =
+{
+    // 8 Power-up frames
+    { SUPP_NODE, 0x05, 10,
+        MOD_LUM, 1, 15, 6 },
+    { SUPP_NODE, 0x06, 10,
+        MOD_LUM, 1, 15, 12 },
+    { SUPP_NODE, 0x07, 10,
+        MOD_LUM, 1, 15, 15 },
+    { SUPP_NODE, 0x08, 10,
+        MOD_LUM, 1, 15, 18 },
+    { SUPP_NODE, 0x09, 10,
+        MOD_LUM, 1, 15, 12 },
+    { SUPP_NODE, 0x0a, 10,
+        MOD_LUM, 1, 15, 7 },
+    { SUPP_NODE, 0x0b, 10,
+        MOD_LUM, 1, 15, 4 },
+    { SUPP_NODE, 0x0c, 10 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Rogue =
+{
+    // Dash shadows
+    { SUPP_NODE, 0x03, 8,
+        MOD_LUM, 1, 15, NEG + 8 },
+    { SUPP_NODE, 0x04, 8,
+        MOD_LUM, 1, 15, NEG + 12 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Storm =
+{
+    // two palettes of shine cycle
+    { SUPP_NODE, 0x01, 28,
+        MOD_SAT, 1, 15, NEG + 40 },
+    { SUPP_NODE, 0x02, 28,
+        MOD_SAT, 1, 15, NEG + 60 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Wolverine =
+{
+    // his berserker barrage trails a bit of his costume.
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,
+        MOD_COPY,  2, 1, 12,
+        MOD_COPY, 11, 1, 13,
+        MOD_COPY, 10, 1, 14,
+        MOD_COPY,  9, 1, 15 },
+};
+
+const stPaletteProcessingInformation secondaryXMVSFCammyEffects{ paletteBuddy_XMVSF_Cammy };
+const stPaletteProcessingInformation secondaryXMVSFCyclopsEffects{ paletteBuddy_XMVSF_Cyclops };
+const stPaletteProcessingInformation secondaryXMVSFDhalsimEffects{ paletteBuddy_XMVSF_Dhalsim };
+const stPaletteProcessingInformation secondaryXMVSFGambitEffects{ paletteBuddy_XMVSF_Gambit };
+const stPaletteProcessingInformation secondaryXMVSFJuggernautEffects{ paletteBuddy_XMVSF_Juggernaut };
+const stPaletteProcessingInformation secondaryXMVSFRogueEffects{ paletteBuddy_XMVSF_Rogue };
+const stPaletteProcessingInformation secondaryXMVSFStormEffects{ paletteBuddy_XMVSF_Storm };
+const stPaletteProcessingInformation secondaryXMVSFWolverineEffects{ paletteBuddy_XMVSF_Wolverine };
+
+#pragma endregion 
+
 const sGame_PaletteDataset XMVSF_A_Wolverine_PALETTES_P1[] =
 {
-    { L"P1 Punch Color",    0x14d7a, 0x14d9a, indexCPS2Sprites_Wolverine, 0x00, &pairNext },
+    { L"P1 Punch Color",    0x14d7a, 0x14d9a, indexCPS2Sprites_Wolverine, 0x00, &pairNext, &secondaryXMVSFWolverineEffects },
     { L"P1 claw",           0x14d9a, 0x14dba, indexCPS2Sprites_Wolverine, 0x01 },
     { L"P1 slash FX",       0x14dba, 0x14dda, indexCPS2Sprites_Wolverine, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Wolverine_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x14dda, 0x14dfa, indexCPS2Sprites_Wolverine, 0x00, &pairNext },
+    { L"P2 Kick Color", 0x14dda, 0x14dfa, indexCPS2Sprites_Wolverine, 0x00, &pairNext, &secondaryXMVSFWolverineEffects },
     { L"P2 claw",       0x14dfa, 0x14e1a, indexCPS2Sprites_Wolverine, 0x01 },
     { L"P2 slash FX",   0x14e1a, 0x14e3a, indexCPS2Sprites_Wolverine, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P1[] =
 {
-    { L"P1 Punch Color",    0x14e3a, 0x14e5a, indexCPS2Sprites_Cyclops, 0x00, &pairNext },
+    { L"P1 Punch Color",    0x14e3a, 0x14e5a, indexCPS2Sprites_Cyclops, 0x00, &pairNext, &secondaryXMVSFCyclopsEffects },
     { L"P1 HK",             0x14e5a, 0x14e7a, indexCPS2Sprites_Cyclops, 0x01 },
     { L"P1 optic FX",       0x14e7a, 0x14e9a, indexCPS2Sprites_Cyclops, 0x02 },
 
@@ -64,7 +203,7 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P1[] =
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x14e9a, 0x14eba, indexCPS2Sprites_Cyclops, 0x00, &pairNext },
+    { L"P2 Kick Color", 0x14e9a, 0x14eba, indexCPS2Sprites_Cyclops, 0x00, &pairNext, &secondaryXMVSFCyclopsEffects },
     { L"P2 HK", 0x14eba, 0x14eda, indexCPS2Sprites_Cyclops, 0x01 },
     { L"P2 optic FX", 0x14eda, 0x14efa, indexCPS2Sprites_Cyclops, 0x02 },
 
@@ -93,14 +232,14 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_Extras[] =
 
 const sGame_PaletteDataset XMVSF_A_Storm_PALETTES_P1[] =
 {
-    { L"P1 Punch Color", 0x14fba, 0x14fda, indexCPS2Sprites_Storm, 0x00 },
+    { L"P1 Punch Color", 0x14fba, 0x14fda, indexCPS2Sprites_Storm, 0x00, nullptr, &secondaryXMVSFStormEffects },
     { L"Palette (01)",   0x14fda, 0x14ffa, indexCPS2Sprites_Storm, 0x00 },
     { L"Palette (02)",   0x14ffa, 0x1501a, indexCPS2Sprites_Storm, 0x00 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Storm_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x1501a, 0x1503a, indexCPS2Sprites_Storm, 0x00 },
+    { L"P2 Kick Color", 0x1501a, 0x1503a, indexCPS2Sprites_Storm, 0x00, nullptr, &secondaryXMVSFStormEffects },
     { L"Palette (04)",  0x1503a, 0x1505a, indexCPS2Sprites_Storm, 0x00 },
     { L"Palette (05)",  0x1505a, 0x1507a, indexCPS2Sprites_Storm, 0x00 },
 };
@@ -132,7 +271,7 @@ const sGame_PaletteDataset XMVSF_A_Storm_PALETTES_Extras[] =
 
 const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P1[] =
 {
-    { L"P1 Punch Color", 0x153da, 0x153fa, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P1 Punch Color", 0x153da, 0x153fa, indexCPS2Sprites_Gambit, 0x00, nullptr, &secondaryXMVSFGambitEffects },
     { L"P1 slash FX", 0x153fa, 0x1541a, indexCPS2Sprites_Gambit, 0x01 },
     { L"P1 card FX", 0x1541a, 0x1543a, indexCPS2Sprites_Gambit, 0x02 },
 
@@ -146,7 +285,7 @@ const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P1[] =
 
 const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x1543a, 0x1545a, indexCPS2Sprites_Gambit, 0x00 },
+    { L"P2 Kick Color", 0x1543a, 0x1545a, indexCPS2Sprites_Gambit, 0x00, nullptr, &secondaryXMVSFGambitEffects },
     { L"P2 slash FX", 0x1545a, 0x1547a, indexCPS2Sprites_Gambit, 0x01 },
     { L"P2 card FX", 0x1547a, 0x1549a, indexCPS2Sprites_Gambit, 0x02 },
 
@@ -175,38 +314,38 @@ const sGame_PaletteDataset XMVSF_A_Sabretooth_PALETTES_P2[] =
 
 const sGame_PaletteDataset XMVSF_A_Juggernaut_PALETTES_P1[] =
 {
-    { L"P1 Punch Color", 0x1559a, 0x155ba, indexCPS2Sprites_Juggy, 0x00 },
+    { L"P1 Punch Color", 0x1559a, 0x155ba, indexCPS2Sprites_Juggy, 0x00, nullptr, &secondaryXMVSFJuggernautEffects },
     { L"Palette (01)", 0x155ba, 0x155da },
     { L"P1 ground FX", 0x155da, 0x155fa, indexCPS2Sprites_Juggy, 0x02 },
 
-    { L"P1 Cyttorak Power-Up 1?", 0x184ba, 0x184da, indexCPS2Sprites_Juggy, 11 },
-    { L"P1 Cyttorak Power-Up 2?", 0x184da, 0x184fa, indexCPS2Sprites_Juggy, 11 },
-    { L"P1 Cyttorak Power-Up 3?", 0x184fa, 0x1851a, indexCPS2Sprites_Juggy, 11 },
-    { L"P1 Cyttorak Power-Up 4?", 0x1851a, 0x1853a, indexCPS2Sprites_Juggy, 11 },
-    { L"P1 Cyttorak Power-Up 5?", 0x1853a, 0x1855a, indexCPS2Sprites_Juggy, 11 },
-    { L"P1 Cyttorak Power-Up 6?", 0x1855a, 0x1857a, indexCPS2Sprites_Juggy, 11 },
-    { L"P1 Cyttorak Power-Up 7?", 0x1857a, 0x1859a, indexCPS2Sprites_Juggy, 11 },
-    { L"P1 Cyttorak Power-Up 8?", 0x1859a, 0x185Ba, indexCPS2Sprites_Juggy, 11 },
-    { L"P1 Cyttorak Power-Up 9?", 0x185Ba, 0x185Da, indexCPS2Sprites_Juggy, 11 },
-    { L"P1 Cyttorak Power-Up 10?", 0x185Da, 0x185Fa, indexCPS2Sprites_Juggy, 11 },
+    { L"P1 Juggernaut Headcrush Frame 1", 0x184ba, 0x184da, indexCPS2Sprites_Juggy, 0x00 },
+    { L"P1 Juggernaut Headcrush Frame 2", 0x184da, 0x184fa, indexCPS2Sprites_Juggy, 0x00 },
+    { L"P1 Cyttorak Power-Up 1", 0x184fa, 0x1851a, indexCPS2Sprites_Juggy, 11 },
+    { L"P1 Cyttorak Power-Up 2", 0x1851a, 0x1853a, indexCPS2Sprites_Juggy, 11 },
+    { L"P1 Cyttorak Power-Up 3", 0x1853a, 0x1855a, indexCPS2Sprites_Juggy, 11 },
+    { L"P1 Cyttorak Power-Up 4", 0x1855a, 0x1857a, indexCPS2Sprites_Juggy, 11 },
+    { L"P1 Cyttorak Power-Up 5", 0x1857a, 0x1859a, indexCPS2Sprites_Juggy, 11 },
+    { L"P1 Cyttorak Power-Up 6", 0x1859a, 0x185Ba, indexCPS2Sprites_Juggy, 11 },
+    { L"P1 Cyttorak Power-Up 7", 0x185Ba, 0x185Da, indexCPS2Sprites_Juggy, 11 },
+    { L"P1 Cyttorak Power-Up 8", 0x185Da, 0x185Fa, indexCPS2Sprites_Juggy, 11 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Juggernaut_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x155fa, 0x1561a, indexCPS2Sprites_Juggy, 0x00 },
+    { L"P2 Kick Color", 0x155fa, 0x1561a, indexCPS2Sprites_Juggy, 0x00, nullptr, &secondaryXMVSFJuggernautEffects },
     { L"Palette (04)", 0x1561a, 0x1563a },
     { L"P2 ground FX", 0x1563a, 0x1565a, indexCPS2Sprites_Juggy, 0x02 },
 
-    { L"P2 Cyttorak Power-Up 1?", 0x185fa, 0x1861a, indexCPS2Sprites_Juggy, 11 },
-    { L"P2 Cyttorak Power-Up 2?", 0x1861a, 0x1863a, indexCPS2Sprites_Juggy, 11 },
-    { L"P2 Cyttorak Power-Up 3?", 0x1863a, 0x1865a, indexCPS2Sprites_Juggy, 11 },
-    { L"P2 Cyttorak Power-Up 4?", 0x1865a, 0x1867a, indexCPS2Sprites_Juggy, 11 },
-    { L"P2 Cyttorak Power-Up 5?", 0x1867a, 0x1869a, indexCPS2Sprites_Juggy, 11 },
-    { L"P2 Cyttorak Power-Up 6?", 0x1869a, 0x186Ba, indexCPS2Sprites_Juggy, 11 },
-    { L"P2 Cyttorak Power-Up 7?", 0x186Ba, 0x186Da, indexCPS2Sprites_Juggy, 11 },
-    { L"P2 Cyttorak Power-Up 8?", 0x186Da, 0x186Fa, indexCPS2Sprites_Juggy, 11 },
-    { L"P2 Cyttorak Power-Up 9?", 0x186Fa, 0x1871a, indexCPS2Sprites_Juggy, 11 },
-    { L"P2 Cyttorak Power-Up 10?", 0x1871a, 0x1873a, indexCPS2Sprites_Juggy, 11 },
+    { L"P2 Juggernaut Headcrush Frame 1", 0x185fa, 0x1861a, indexCPS2Sprites_Juggy, 0x00 },
+    { L"P2 Juggernaut Headcrush Frame 2", 0x1861a, 0x1863a, indexCPS2Sprites_Juggy, 0x00 },
+    { L"P2 Cyttorak Power-Up 1", 0x1863a, 0x1865a, indexCPS2Sprites_Juggy, 11 },
+    { L"P2 Cyttorak Power-Up 2", 0x1865a, 0x1867a, indexCPS2Sprites_Juggy, 11 },
+    { L"P2 Cyttorak Power-Up 3", 0x1867a, 0x1869a, indexCPS2Sprites_Juggy, 11 },
+    { L"P2 Cyttorak Power-Up 4", 0x1869a, 0x186Ba, indexCPS2Sprites_Juggy, 11 },
+    { L"P2 Cyttorak Power-Up 5", 0x186Ba, 0x186Da, indexCPS2Sprites_Juggy, 11 },
+    { L"P2 Cyttorak Power-Up 6", 0x186Da, 0x186Fa, indexCPS2Sprites_Juggy, 11 },
+    { L"P2 Cyttorak Power-Up 7", 0x186Fa, 0x1871a, indexCPS2Sprites_Juggy, 11 },
+    { L"P2 Cyttorak Power-Up 8", 0x1871a, 0x1873a, indexCPS2Sprites_Juggy, 11 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Juggernaut_PALETTES_Extras[] =
@@ -246,7 +385,7 @@ const sGame_PaletteDataset XMVSF_A_Magneto_PALETTES_P2[] =
 
 const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P1[] =
 {
-    { L"P1 Punch Color", 0x1531a, 0x1533a, indexCPS2Sprites_Rogue, 0x0c },
+    { L"P1 Punch Color", 0x1531a, 0x1533a, indexCPS2Sprites_Rogue, 0x0c, nullptr, &secondaryXMVSFRogueEffects },
     { L"Palette (01)", 0x1533a, 0x1535a, indexCPS2Sprites_Rogue, 0x0c },
     { L"P1 ground FX", 0x1535a, 0x1537a, indexCPS2Sprites_Rogue, 0x02 },
 
@@ -256,7 +395,7 @@ const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P1[] =
 
 const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x1537a, 0x1539a, indexCPS2Sprites_Rogue, 0x0c },
+    { L"P2 Kick Color", 0x1537a, 0x1539a, indexCPS2Sprites_Rogue, 0x0c, nullptr, &secondaryXMVSFRogueEffects },
     { L"Palette (04)", 0x1539a, 0x153ba, indexCPS2Sprites_Rogue, 0x0c },
     { L"P2 ground FX", 0x153ba, 0x153da, indexCPS2Sprites_Rogue, 0x02 },
 
@@ -329,7 +468,7 @@ const sGame_PaletteDataset XMVSF_A_Ken_PALETTES_Extras[] =
 
 const sGame_PaletteDataset XMVSF_A_Dhalsim_PALETTES_P1[] =
 {
-    { L"P1 Punch Color", 0x15c5a, 0x15c7a, indexCPS2Sprites_Dhalsim, 0x00 },
+    { L"P1 Punch Color", 0x15c5a, 0x15c7a, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryXMVSFDhalsimEffects },
     { L"P1 fire FX", 0x15c7a, 0x15c9a, indexCPS2Sprites_Dhalsim, 0x01 },
     { L"P1 Sally", 0x15c9a, 0x15cba, indexCPS2Sprites_Dhalsim, 0x02 },
 
@@ -342,7 +481,7 @@ const sGame_PaletteDataset XMVSF_A_Dhalsim_PALETTES_P1[] =
 
 const sGame_PaletteDataset XMVSF_A_Dhalsim_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x15cba, 0x15cda, indexCPS2Sprites_Dhalsim, 0x00 },
+    { L"P2 Kick Color", 0x15cba, 0x15cda, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryXMVSFDhalsimEffects },
     { L"P2 fire FX", 0x15cda, 0x15cfa, indexCPS2Sprites_Dhalsim, 0x01 },
     { L"P2 Sally", 0x15cfa, 0x15d1a, indexCPS2Sprites_Dhalsim, 0x02 },
 
@@ -441,7 +580,7 @@ const sGame_PaletteDataset XMVSF_A_Charlie_PALETTES_Extras[] =
 
 const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P1[] =
 {
-    { L"P1 Punch Color", 0x1639a, 0x163ba, indexCPS2Sprites_Cammy, 0x00 },
+    { L"P1 Punch Color", 0x1639a, 0x163ba, indexCPS2Sprites_Cammy, 0x00, nullptr, &secondaryXMVSFCammyEffects },
     { L"P1 psycho FX", 0x163ba, 0x163da, indexCPS2Sprites_Cammy, 0x01 },
     { L"P1 Coat", 0x163da, 0x163fa, indexCPS2Sprites_Cammy, 0x02 },
 
@@ -458,7 +597,7 @@ const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P1[] =
 
 const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P2[] =
 {
-    { L"P2 Kick Color", 0x163fa, 0x1641a, indexCPS2Sprites_Cammy, 0x00 },
+    { L"P2 Kick Color", 0x163fa, 0x1641a, indexCPS2Sprites_Cammy, 0x00, nullptr, &secondaryXMVSFCammyEffects },
     { L"P2 psycho FX", 0x1641a, 0x1643a, indexCPS2Sprites_Cammy, 0x01 },
     { L"P2 Coat", 0x1643a, 0x1645a, indexCPS2Sprites_Cammy, 0x02 },
 

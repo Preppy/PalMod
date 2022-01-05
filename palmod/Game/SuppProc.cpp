@@ -45,6 +45,9 @@ void CSecondaryPaletteProcessing::ProcessSecondaryCopyWithIndex(size_t char_id, 
     {
         MessageBox(g_appHWnd, L"Warning: invalid secondary palette change requested.  This is a bug in PalMod: please report.", GetHost()->GetAppName(), MB_ICONERROR);
     }
+
+    safe_delete(pSourcePalette);
+    safe_delete(pDestinationPalette);
 }
 
 void CSecondaryPaletteProcessing::ProcessSecondaryWhite(size_t char_id, size_t destination_palette, UINT8 index_start, UINT8 index_inc)
@@ -61,11 +64,14 @@ void CSecondaryPaletteProcessing::ProcessSecondaryWhite(size_t char_id, size_t d
         }
 
         WritePal(char_id, destination_palette, pDestinationPalette, -1);
+
+        safe_delete(pDestinationPalette);
     }
     else
     {
         MessageBox(g_appHWnd, L"Warning: invalid secondary palette change requested.  This is a bug in PalMod: please report.", GetHost()->GetAppName(), MB_ICONERROR);
     }
+
 }
 
 void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(size_t char_id, UINT16 mod_type, int mod_amt, size_t destination_palette, UINT8 index_start, UINT8 index_inc)
@@ -114,6 +120,8 @@ void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(size_t char_id, UIN
         }
 
         WritePal(char_id, destination_palette, pDestinationPalette, -1);
+
+        safe_delete(pDestinationPalette);
     }
     else
     {
@@ -157,6 +165,9 @@ void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(size_t char_id, si
     {
         MessageBox(g_appHWnd, L"Warning: invalid secondary palette change requested.  This is a bug in PalMod: please report.", GetHost()->GetAppName(), MB_ICONERROR);
     }
+
+    safe_delete(pSourcePalette);
+    safe_delete(pDestinationPalette);
 }
 
 void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const size_t nUnitId, const size_t nChangedPaletteNumber, const std::vector<std::vector<UINT16>> supplementalEffectsData)

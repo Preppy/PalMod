@@ -373,22 +373,22 @@ const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Akuma =
         MOD_LUM, 1, 15, 20 + NEG },
 };
 
-const stPaletteProcessingInformation secondaryCyclopsEffects{ paletteBuddy_COTA_Cyclops };
-const stPaletteProcessingInformation secondaryColossusEffects{ paletteBuddy_COTA_Colossus };
-const stPaletteProcessingInformation secondaryIcemanEffects{ paletteBuddy_COTA_Iceman };
-const stPaletteProcessingInformation secondaryOmegaRedEffects{ paletteBuddy_COTA_OmegaRed };
-const stPaletteProcessingInformation secondaryPsylockeEffects{ paletteBuddy_COTA_Psylocke };
-const stPaletteProcessingInformation secondarySilverSamuraiEffects{ paletteBuddy_COTA_SilverSamurai };
-const stPaletteProcessingInformation secondarySpiralEffects{ paletteBuddy_COTA_Spiral };
-const stPaletteProcessingInformation secondaryStormEffects{ paletteBuddy_COTA_Storm };
-const stPaletteProcessingInformation secondaryWolverineEffects{ paletteBuddy_COTA_Wolverine };
-const stPaletteProcessingInformation secondaryAkumaEffects{ paletteBuddy_COTA_Akuma };
+const stPaletteProcessingInformation secondaryCOTACyclopsEffects{ paletteBuddy_COTA_Cyclops };
+const stPaletteProcessingInformation secondaryCOTAColossusEffects{ paletteBuddy_COTA_Colossus };
+const stPaletteProcessingInformation secondaryCOTAIcemanEffects{ paletteBuddy_COTA_Iceman };
+const stPaletteProcessingInformation secondaryCOTAOmegaRedEffects{ paletteBuddy_COTA_OmegaRed };
+const stPaletteProcessingInformation secondaryCOTAPsylockeEffects{ paletteBuddy_COTA_Psylocke };
+const stPaletteProcessingInformation secondaryCOTASilverSamuraiEffects{ paletteBuddy_COTA_SilverSamurai };
+const stPaletteProcessingInformation secondaryCOTASpiralEffects{ paletteBuddy_COTA_Spiral };
+const stPaletteProcessingInformation secondaryCOTAStormEffects{ paletteBuddy_COTA_Storm };
+const stPaletteProcessingInformation secondaryCOTAWolverineEffects{ paletteBuddy_COTA_Wolverine };
+const stPaletteProcessingInformation secondaryCOTAAkumaEffects{ paletteBuddy_COTA_Akuma };
 
 #pragma endregion
 
 const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P1[] =
 {
-    { L"P1",          0x2683c, 0x2685c, indexCPS2Sprites_Colossus, 0x00, nullptr, &secondaryColossusEffects },
+    { L"P1",          0x2683c, 0x2685c, indexCPS2Sprites_Colossus, 0x00, nullptr, &secondaryCOTAColossusEffects },
     { L"P1 Extras 1: Armor Sparks", 0x2685c, 0x2687c },
     { L"P1 Extras 2", 0x2687c, 0x2689c },
     { L"P1 Shoulder Tackle Shadows", 0x2689c, 0x268bc, indexCPS2Sprites_Colossus },
@@ -432,7 +432,7 @@ const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P1[] =
 
 const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P2[] =
 {
-    { L"P2",          0x268bc, 0x268Dc, indexCPS2Sprites_Colossus, 0x00, nullptr, &secondaryColossusEffects },
+    { L"P2",          0x268bc, 0x268Dc, indexCPS2Sprites_Colossus, 0x00, nullptr, &secondaryCOTAColossusEffects },
     { L"P2 Extras 1: Armor Sparks", 0x268dc, 0x268Fc },
     { L"P2 Extras 2", 0x268fc, 0x2691c },
     { L"P2 Shoulder Tackle Shadows", 0x2691c, 0x2693c, indexCPS2Sprites_Colossus }, // looks like P1 but confirmed this is correct
@@ -477,7 +477,7 @@ const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P2[] =
 // There's also a cyclops range from 0x276fE to 0x277fE: unclear what it's used for
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P1[] =
 {
-    { L"P1",          0x2693c, 0x2695c, indexCPS2Sprites_Cyclops, 0, &pairNext2, &secondaryCyclopsEffects },
+    { L"P1",          0x2693c, 0x2695c, indexCPS2Sprites_Cyclops, 0, &pairNext2, &secondaryCOTACyclopsEffects },
     { L"P1 Extras 1: Coat", 0x2695c, 0x2697c, indexCPS2Sprites_Cyclops, 0x0f },
     { L"P1 jHK",      0x2697c, 0x2699c, indexCPS2Sprites_Cyclops, 0x1 },
     { L"P1 Extras 3: Mega Optic Blast", 0x2699c, 0x269Bc, indexCPS2Sprites_Cyclops, 0x10 },
@@ -509,7 +509,7 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P2[] =
 {
-    { L"P2",          0x269Bc, 0x269Dc, indexCPS2Sprites_Cyclops, 0, &pairNext2, &secondaryCyclopsEffects },
+    { L"P2",          0x269Bc, 0x269Dc, indexCPS2Sprites_Cyclops, 0, &pairNext2, &secondaryCOTACyclopsEffects },
     { L"P2 Extras 1: Coat", 0x269Dc, 0x269Fc, indexCPS2Sprites_Cyclops, 0x0f },
     // Yes, the purple/gold p2 cyclops is using the wrong P2 jHK palette.
     // this is just an old palette bug in COTA itself
@@ -531,7 +531,7 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P2[] =
 // missing icebeam palette
 const sGame_PaletteDataset COTA_A_ICEMAN_PALETTES_P1[] =
 {
-    { L"P1",         0x26B3c, 0x26B5c, indexCPS2Sprites_Iceman, 0x00, nullptr, &secondaryIcemanEffects },
+    { L"P1",         0x26B3c, 0x26B5c, indexCPS2Sprites_Iceman, 0x00, nullptr, &secondaryCOTAIcemanEffects },
     { L"P1 Extras",  0x26B7c, 0x26B9c, indexCPS2Sprites_Iceman, 5 },
     { L"P1 Win Pose (Human)", 0x26B9c, 0x26BBc, indexCPS2Sprites_Iceman, 3 },
     { L"P1 Shine 1 (shared?)", 0x28E7c, 0x28E9c, indexCPS2Sprites_Iceman },
@@ -550,7 +550,7 @@ const sGame_PaletteDataset COTA_A_ICEMAN_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset COTA_A_ICEMAN_PALETTES_P2[] =
 {
-    { L"P2",         0x26BBc, 0x26BDc, indexCPS2Sprites_Iceman, 0x00, nullptr, &secondaryIcemanEffects },
+    { L"P2",         0x26BBc, 0x26BDc, indexCPS2Sprites_Iceman, 0x00, nullptr, &secondaryCOTAIcemanEffects },
     // { L"P2 Extra 1", 0x26BDc, 0x26BFc, indexCPS2Sprites_Iceman, 1 }, unused apparently.
     
     { L"P2 Extras",  0x26BFc, 0x26C1c, indexCPS2Sprites_Iceman, 5 },
@@ -610,7 +610,7 @@ const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P1[] =
 {
-    { L"P1",          0x26D3c, 0x26D5c, indexCPS2Sprites_OmegaRed, 0x00, nullptr, &secondaryOmegaRedEffects },
+    { L"P1",          0x26D3c, 0x26D5c, indexCPS2Sprites_OmegaRed, 0x00, nullptr, &secondaryCOTAOmegaRedEffects },
     { L"P1 Extras 1", 0x26D5c, 0x26D7c, indexCPS2Sprites_OmegaRed, 1 },
     { L"P1 Extras 2", 0x26D7c, 0x26D9c, indexCPS2Sprites_OmegaRed, 2 },
     { L"P1 Extras 3", 0x26D9c, 0x26DBc, indexCPS2Sprites_OmegaRed, 3 },
@@ -623,7 +623,7 @@ const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P1[] =
 
 const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P2[] =
 {
-    { L"P2",          0x26DBc, 0x26DDc, indexCPS2Sprites_OmegaRed, 0x00, nullptr, &secondaryOmegaRedEffects },
+    { L"P2",          0x26DBc, 0x26DDc, indexCPS2Sprites_OmegaRed, 0x00, nullptr, &secondaryCOTAOmegaRedEffects },
     { L"P2 Extras 1", 0x26DDc, 0x26DFc, indexCPS2Sprites_OmegaRed, 1 },
     { L"P2 Extras 2", 0x26DFc, 0x26E1c, indexCPS2Sprites_OmegaRed, 2 },
     { L"P2 Extras 3", 0x26E1c, 0x26E3c, indexCPS2Sprites_OmegaRed, 3 },
@@ -636,7 +636,7 @@ const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P1[] =
 {
-    { L"Psylocke P1", 0x2673c, 0x2675c, indexCPS2Sprites_Psylocke, 0x00, nullptr, &secondaryPsylockeEffects },
+    { L"Psylocke P1", 0x2673c, 0x2675c, indexCPS2Sprites_Psylocke, 0x00, nullptr, &secondaryCOTAPsylockeEffects },
     { L"P1 Extras 1", 0x2675c, 0x2677c, indexCPS2Sprites_Psylocke, 1 },
     { L"P1 Extras 2", 0x2677c, 0x2679c, indexCPS2Sprites_Psylocke, 0 },
     { L"P1 Extras 3", 0x2679c, 0x267Bc, indexCPS2Sprites_Psylocke, 3 },
@@ -644,7 +644,7 @@ const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P1[] =
 
 const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P2[] =
 {
-    { L"Psylocke P2", 0x267Bc, 0x267Dc, indexCPS2Sprites_Psylocke, 0x00, nullptr, &secondaryPsylockeEffects },
+    { L"Psylocke P2", 0x267Bc, 0x267Dc, indexCPS2Sprites_Psylocke, 0x00, nullptr, &secondaryCOTAPsylockeEffects },
     { L"P2 Extras 1", 0x267Dc, 0x267Fc, indexCPS2Sprites_Psylocke, 1 },
     { L"P2 Extras 2", 0x267Fc, 0x2681c, indexCPS2Sprites_Psylocke, 0 },
     { L"P2 Extras 3", 0x2681c, 0x2683c, indexCPS2Sprites_Psylocke, 3 },
@@ -674,7 +674,7 @@ const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P1[] =
 {
-    { L"P1",          0x2727c, 0x2729c, indexCPS2Sprites_SilverSamurai, 0x00, nullptr, &secondarySilverSamuraiEffects },
+    { L"P1",          0x2727c, 0x2729c, indexCPS2Sprites_SilverSamurai, 0x00, nullptr, &secondaryCOTASilverSamuraiEffects },
     { L"P1 Extras 1: Shadow Frame", 0x2729c, 0x272Bc, indexCPS2Sprites_SilverSamurai },
     { L"P1 Extras 2: Slash", 0x272Bc, 0x272Dc, indexCPS2Sprites_SilverSamurai, 0x08 },
     { L"P1 Extras 3: Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x272Dc, 0x272Fc, indexCPS2Sprites_SilverSamurai, 0x03 },
@@ -691,7 +691,7 @@ const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P1[] =
 
 const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P2[] =
 {
-    { L"P2",          0x272Fc, 0x2731c, indexCPS2Sprites_SilverSamurai, 0x00, nullptr, &secondarySilverSamuraiEffects },
+    { L"P2",          0x272Fc, 0x2731c, indexCPS2Sprites_SilverSamurai, 0x00, nullptr, &secondaryCOTASilverSamuraiEffects },
     { L"P2 Extras 1: Shadow Frame", 0x2731c, 0x2733c, indexCPS2Sprites_SilverSamurai, 1 },
     { L"P2 Extras 2: Slash", 0x2733c, 0x2735c, indexCPS2Sprites_SilverSamurai, 0x08 },
     { L"P2 Extras 3: Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x2735c, 0x2737c, indexCPS2Sprites_SilverSamurai, 0x03 },
@@ -716,7 +716,7 @@ const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P1[] =
 {
-    { L"P1",          0x26C3c, 0x26C5c, indexCPS2Sprites_Spiral, 0x00, nullptr, &secondarySpiralEffects },
+    { L"P1",          0x26C3c, 0x26C5c, indexCPS2Sprites_Spiral, 0x00, nullptr, &secondaryCOTASpiralEffects },
     { L"P1 Extras 1", 0x26C5c, 0x26C7c, indexCPS2Sprites_Spiral, 1 },
     { L"P1 Extras 2", 0x26C7c, 0x26C9c, indexCPS2Sprites_Spiral, 2 },
     { L"P1 Sword flashing palette", 0x26C9c, 0x26CBc, indexCPS2Sprites_Spiral, 3 },
@@ -749,7 +749,7 @@ const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P1[] =
 
 const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P2[] =
 {
-    { L"P2",          0x26CBc, 0x26CDc, indexCPS2Sprites_Spiral, 0x00, nullptr, &secondarySpiralEffects },
+    { L"P2",          0x26CBc, 0x26CDc, indexCPS2Sprites_Spiral, 0x00, nullptr, &secondaryCOTASpiralEffects },
     { L"P2 Extras 1", 0x26CDc, 0x26CFc, indexCPS2Sprites_Spiral, 1 },
     { L"P2 Extras 2", 0x26CFc, 0x26D1c, indexCPS2Sprites_Spiral, 2 },
     { L"P2 Sword flashing palette", 0x26D1c, 0x26D3c, indexCPS2Sprites_Spiral, 3 },
@@ -782,7 +782,7 @@ const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_STORM_PALETTES_P1[] =
 {
-    { L"P1",         0x26A3c, 0x26A5c, indexCPS2Sprites_Storm, 0x00, nullptr, &secondaryStormEffects },
+    { L"P1",         0x26A3c, 0x26A5c, indexCPS2Sprites_Storm, 0x00, nullptr, &secondaryCOTAStormEffects },
     { L"P1 Extras 1: Lightning FX", 0x26A7c, 0x26A9c, indexCPS2Sprites_Storm, 0x08 }, // lightning fx
     { L"P1 Extras 2: Lightning FX", 0x26A9c, 0x26ABc, indexCPS2Sprites_Storm, 0x09 }, // head of lightning attack
 
@@ -805,7 +805,7 @@ const sGame_PaletteDataset COTA_A_STORM_PALETTES_P1[] =
 
 const sGame_PaletteDataset COTA_A_STORM_PALETTES_P2[] =
 {
-    { L"P2", 0x26ABc, 0x26ADc, indexCPS2Sprites_Storm, 0x00, nullptr, &secondaryStormEffects },
+    { L"P2", 0x26ABc, 0x26ADc, indexCPS2Sprites_Storm, 0x00, nullptr, &secondaryCOTAStormEffects },
     { L"P2 Extras 1: Lightning FX", 0x26AFc, 0x26B1c, indexCPS2Sprites_Storm, 0x08 },
     { L"P2 Extras 2: Lightning FX", 0x26B1c, 0x26B3c, indexCPS2Sprites_Storm, 0x09 },
 
@@ -828,7 +828,7 @@ const sGame_PaletteDataset COTA_A_STORM_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P1[] =
 {
-    { L"Wolverine P1",          0x2713c, 0x2715c, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryWolverineEffects },
+    { L"Wolverine P1",          0x2713c, 0x2715c, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryCOTAWolverineEffects },
     { L"P1 Claws",              0x2715c, 0x2717c, indexCPS2Sprites_Wolverine, 1 },
     { L"P1 Berserker Barrage",  0x2717c, 0x2719c, indexCPS2Sprites_Wolverine, 2 },
     { L"P1 ?",                  0x2719c, 0x271bc },
@@ -836,7 +836,7 @@ const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P1[] =
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
 {
-    { L"Wolverine P2",          0x271bc, 0x271dc, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryWolverineEffects },
+    { L"Wolverine P2",          0x271bc, 0x271dc, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryCOTAWolverineEffects },
     { L"P2 Claws",              0x271dc, 0x271fc, indexCPS2Sprites_Wolverine, 1 },
     { L"P2 Berserker Barrage",  0x271fc, 0x2721c, indexCPS2Sprites_Wolverine, 2 },
     { L"P2 ?",                  0x2721c, 0x2723c },
@@ -844,7 +844,7 @@ const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P1[] = // aka Gouki
 {
-    { L"P1",          0x2737c, 0x2739c, indexCPS2Sprites_STAkuma, 0x00, nullptr, &secondaryAkumaEffects },
+    { L"P1",          0x2737c, 0x2739c, indexCPS2Sprites_STAkuma, 0x00, nullptr, &secondaryCOTAAkumaEffects },
     { L"P1 Extras 1: dash/teleport 1/2", 0x2739c, 0x273bc, indexCPS2Sprites_STAkuma },
     { L"P1 Extras 2: dash/teleport 2/2", 0x273bc, 0x273dc, indexCPS2Sprites_STAkuma },
     { L"P1 Extras 3", 0x273dc, 0x273fc, indexCPS2Sprites_STAkuma, 1 },
@@ -852,7 +852,7 @@ const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P1[] = // aka Gouki
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P2[] =
 {
-    { L"P2",          0x273fc, 0x2741c, indexCPS2Sprites_STAkuma, 0x00, nullptr, &secondaryAkumaEffects },
+    { L"P2",          0x273fc, 0x2741c, indexCPS2Sprites_STAkuma, 0x00, nullptr, &secondaryCOTAAkumaEffects },
     { L"P2 Extras 1: dash/teleport 1/2", 0x2741c, 0x2743c, indexCPS2Sprites_STAkuma },
     { L"P2 Extras 2: dash/teleport 2/2", 0x2743c, 0x2745c, indexCPS2Sprites_STAkuma },
     { L"P2 Extras 3", 0x2745c, 0x2747c, indexCPS2Sprites_STAkuma, 1 },

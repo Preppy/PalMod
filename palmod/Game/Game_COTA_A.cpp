@@ -295,4 +295,8 @@ void CGame_COTA_A::PostSetPal(size_t nUnitId, size_t nPalId)
         OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
         ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
     }
+    else
+    {
+        OutputDebugString(L"\tNo further processing needed.\n");
+    }
 }
