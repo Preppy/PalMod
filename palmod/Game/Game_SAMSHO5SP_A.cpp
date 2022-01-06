@@ -27,7 +27,7 @@ void CGame_SAMSHO5SP_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SAMSHO5SP_A::InitDescTree());
 }
 
-CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A(UINT32 nConfirmedROMSize)
+CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad /*= SAMSHO5SP_A */)
 {
     OutputDebugString(L"CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A: Loading ROM...\n");
 
@@ -54,7 +54,7 @@ CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set game information
-    nGameFlag = SAMSHO5SP_A;
+    nGameFlag = (SupportedGamesList)nROMToLoad;
     nImgGameFlag = IMGDAT_SECTION_SAMSHO;
     m_prgGameImageSet = SAMSHO5SP_A_IMGIDS_USED;
 
@@ -122,6 +122,31 @@ sDescTreeNode* CGame_SAMSHO5SP_A::InitDescTree()
     );
 
     return NewDescTree;
+}
+
+UINT32 CGame_SAMSHO5SP_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1.p1", 0xfb7a6bba, 0 },
+        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1ca.p1", 0xc30a08dd, 0 },
+        { L"Samurai Shodown V Special (Neo-Geo)", L"272-p1c.p1", 0x9291794d, 0 },
+
+        { L"Samurai Shodown V Special (Steam)", L"p1h.bin", 0x2d1e9ae5, 0x2dbd32dc },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
 }
 
 sFileRule CGame_SAMSHO5SP_A::GetRule(size_t nUnitId)

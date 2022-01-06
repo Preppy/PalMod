@@ -445,6 +445,12 @@
     <Filter Include="Games\Nintendo\Ultimate Mortal Kombat 3 %28SNES%29">
       <UniqueIdentifier>{df923a13-addb-4215-9433-314f536ba837}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\Vampire Hunter_A">
+      <UniqueIdentifier>{671459a5-fde0-4709-b487-27b2b5495d98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Capcom Games\Vampire Night Warriors_A">
+      <UniqueIdentifier>{1f22d570-9706-467c-b227-56f0b2ca667b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -923,6 +929,12 @@
     </ClCompile>
     <ClCompile Include="Game\Game_UMK3_SNES.cpp">
       <Filter>Games\Nintendo\Ultimate Mortal Kombat 3 %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_VampireHunter_A.cpp">
+      <Filter>Games\Capcom Games\Vampire Hunter_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_VampireNightWarriors_A.cpp">
+      <Filter>Games\Capcom Games\Vampire Night Warriors_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1744,6 +1756,18 @@
     </ClInclude>
     <ClInclude Include="Game\UMK3_SNES_DEF.h">
       <Filter>Games\Nintendo\Ultimate Mortal Kombat 3 %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_VampireHunter_A.h">
+      <Filter>Games\Capcom Games\Vampire Hunter_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VampireHunter_A_DEF.h">
+      <Filter>Games\Capcom Games\Vampire Hunter_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_VampireNightWarriors_A.h">
+      <Filter>Games\Capcom Games\Vampire Night Warriors_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VampireNightWarriors_A_DEF.h">
+      <Filter>Games\Capcom Games\Vampire Night Warriors_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

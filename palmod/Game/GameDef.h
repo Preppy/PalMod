@@ -164,6 +164,9 @@ enum SupportedGamesList
     LASTBLADE_S,
     LASTBLADE2_S,
     SAMSHO5X_A,
+    VampireNightWarriors_A,
+    VampireHunter_A,
+    SAMSHO5SP_S,
 
     NUM_GAMES // This needs to be last
 };
@@ -324,6 +327,9 @@ const WCHAR g_GameFriendlyName[][64] =
     L"The Last Blade 1 (Steam)",
     L"The Last Blade 2 (Steam)",
     L"Samurai Shodown V (Xbox)",
+    L"Vampire: The Night Warriors (CPS2)",
+    L"Vampire Hunter (CPS2)",
+    L"Samurai Shodown V Special (Steam)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

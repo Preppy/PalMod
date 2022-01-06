@@ -147,6 +147,11 @@ const std::vector<LPCWSTR> DEF_LABEL_STATUS_EFFECTS =
    L"Burn 1", L"Burn 2", L"Shock 1", L"Shock 2", L"Dark 1", L"Dark 2", L"Kinetic 1", L"Kinetic 2"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_VAMPIREHUNTER =
+{
+   L"LP", L"MP", L"HP", L"LK", L"MK", L"HK", L"Start", L"Jab+Forward"
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_VSAV =
 {
    L"LP", L"MP", L"HP", L"LK", L"MK", L"HK", L"PP", L"KK", L"AP", L"AK"

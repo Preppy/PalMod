@@ -119,6 +119,8 @@
 #include "Game_UNICLR_A.h"
 #include "Game_Venture_A.h"
 #include "Game_Venture_A_DIR.h"
+#include "Game_VampireHunter_A.h"
+#include "Game_VampireNightWarriors_A.h"
 #include "Game_VHUNT2_A.h"
 #include "Game_VSAV_A.h"
 #include "Game_VSAV2_A.h"
@@ -737,6 +739,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     case SAMSHO5SP_A:
+    case SAMSHO5SP_S:
     {
         GetRule = &CGame_SAMSHO5SP_A::GetRule;
         return TRUE;
@@ -920,6 +923,16 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_UNICLR_A::GetRule;
         GetNextRule = &CGame_UNICLR_A::GetNextRule;
 
+        return TRUE;
+    }
+    case VampireHunter_A:
+    {
+        GetRule = &CGame_VampireHunter_A::GetRule;
+        return TRUE;
+    }
+    case VampireNightWarriors_A:
+    {
+        GetRule = &CGame_VampireNightWarriors_A::GetRule;
         return TRUE;
     }
     case VENTURE_A:
@@ -1375,8 +1388,9 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
         return new CGame_SAMSHO5_A(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
     }
     case SAMSHO5SP_A:
+    case SAMSHO5SP_S:
     {
-        return new CGame_SAMSHO5SP_A(nConfirmedROMSize);
+        return new CGame_SAMSHO5SP_A(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
     }
     case SAVAGEREIGN_A:
     {
@@ -1494,6 +1508,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_UNICLR_A(nConfirmedROMSize);
     }
+    case VampireHunter_A:
+    {
+        return new CGame_VampireHunter_A(nConfirmedROMSize);
+    }
+    case VampireNightWarriors_A:
+    {
+        return new CGame_VampireNightWarriors_A(nConfirmedROMSize);
+    }
     case VENTURE_A:
     {
         return new CGame_VENTURE_A(nConfirmedROMSize, nExtraGameData);
@@ -1586,6 +1608,8 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
         case LASTBLADE2_S:
         case SAMSHO5_A:
         case SAMSHO5X_A:
+        case SAMSHO5SP_A:
+        case SAMSHO5SP_S:
             nGameRule = nGameFlag;
             break;
         case KOF99AE_A:
