@@ -605,74 +605,74 @@ const sGame_PaletteDataset VampireHunter_A_BISHAMON_PALETTES_LPMK[] =
 
 const sGame_PaletteDataset VampireHunter_A_AULBATH_PALETTES_HK[] =
 {
-    { L"Aulbath",    0x5d5cc + ((325 - 5) * 0x20), 0x5d5ec + ((325 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
-    { L"Unknown 1",  0x5d5ec + ((325 - 5) * 0x20), 0x5d60c + ((325 - 5) * 0x20) },
-    { L"Unknown 2",  0x5d60c + ((325 - 5) * 0x20), 0x5d62c + ((325 - 5) * 0x20) },
-    { L"Unknown 3",  0x5d62c + ((325 - 5) * 0x20), 0x5d64c + ((325 - 5) * 0x20) },
-    { L"Unknown 4",  0x5d64c + ((325 - 5) * 0x20), 0x5d66c + ((325 - 5) * 0x20) },
+    { L"Aulbath",     0x5d5cc + ((325 - 5) * 0x20), 0x5d5ec + ((325 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
+    { L"Unknown",     0x5d5ec + ((325 - 5) * 0x20), 0x5d60c + ((325 - 5) * 0x20) },
+    { L"Poison Gas",  0x5d60c + ((325 - 5) * 0x20), 0x5d62c + ((325 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"Water",       0x5d62c + ((325 - 5) * 0x20), 0x5d64c + ((325 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x02 },
+    { L"Sonic Wave",  0x5d64c + ((325 - 5) * 0x20), 0x5d66c + ((325 - 5) * 0x20) },
 };
 
 const sGame_PaletteDataset VampireHunter_A_AULBATH_PALETTES_Start[] =
 {
-    { L"Aulbath",    0x5d5cc + ((330 - 5) * 0x20), 0x5d5ec + ((330 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
-    { L"Unknown 1",  0x5d5ec + ((330 - 5) * 0x20), 0x5d60c + ((330 - 5) * 0x20) },
-    { L"Unknown 2",  0x5d60c + ((330 - 5) * 0x20), 0x5d62c + ((330 - 5) * 0x20) },
-    { L"Unknown 3",  0x5d62c + ((330 - 5) * 0x20), 0x5d64c + ((330 - 5) * 0x20) },
-    { L"Unknown 4",  0x5d64c + ((330 - 5) * 0x20), 0x5d66c + ((330 - 5) * 0x20) },
+    { L"Aulbath",     0x5d5cc + ((330 - 5) * 0x20), 0x5d5ec + ((330 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
+    { L"Unknown",     0x5d5ec + ((330 - 5) * 0x20), 0x5d60c + ((330 - 5) * 0x20) },
+    { L"Poison Gas",  0x5d60c + ((330 - 5) * 0x20), 0x5d62c + ((330 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"Water",       0x5d62c + ((330 - 5) * 0x20), 0x5d64c + ((330 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x02 },
+    { L"Sonic Wave",  0x5d64c + ((330 - 5) * 0x20), 0x5d66c + ((330 - 5) * 0x20) },
 };
 
 const sGame_PaletteDataset VampireHunter_A_AULBATH_PALETTES_LP[] =
 {
-    { L"Aulbath",    0x5d5cc + ((335 - 5) * 0x20), 0x5d5ec + ((335 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
-    { L"Unknown 1",  0x5d5ec + ((335 - 5) * 0x20), 0x5d60c + ((335 - 5) * 0x20) },
-    { L"Unknown 2",  0x5d60c + ((335 - 5) * 0x20), 0x5d62c + ((335 - 5) * 0x20) },
-    { L"Unknown 3",  0x5d62c + ((335 - 5) * 0x20), 0x5d64c + ((335 - 5) * 0x20) },
-    { L"Unknown 4",  0x5d64c + ((335 - 5) * 0x20), 0x5d66c + ((335 - 5) * 0x20) },
+    { L"Aulbath",     0x5d5cc + ((335 - 5) * 0x20), 0x5d5ec + ((335 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
+    { L"Unknown",     0x5d5ec + ((335 - 5) * 0x20), 0x5d60c + ((335 - 5) * 0x20) },
+    { L"Poison Gas",  0x5d60c + ((335 - 5) * 0x20), 0x5d62c + ((335 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"Water",       0x5d62c + ((335 - 5) * 0x20), 0x5d64c + ((335 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x02 },
+    { L"Sonic Wave",  0x5d64c + ((335 - 5) * 0x20), 0x5d66c + ((335 - 5) * 0x20) },
 };
 
 const sGame_PaletteDataset VampireHunter_A_AULBATH_PALETTES_MP[] =
 {
-    { L"Aulbath",    0x5d5cc + ((340 - 5) * 0x20), 0x5d5ec + ((340 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
-    { L"Unknown 1",  0x5d5ec + ((340 - 5) * 0x20), 0x5d60c + ((340 - 5) * 0x20) },
-    { L"Unknown 2",  0x5d60c + ((340 - 5) * 0x20), 0x5d62c + ((340 - 5) * 0x20) },
-    { L"Unknown 3",  0x5d62c + ((340 - 5) * 0x20), 0x5d64c + ((340 - 5) * 0x20) },
-    { L"Unknown 4",  0x5d64c + ((340 - 5) * 0x20), 0x5d66c + ((340 - 5) * 0x20) },
+    { L"Aulbath",     0x5d5cc + ((340 - 5) * 0x20), 0x5d5ec + ((340 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
+    { L"Unknown",     0x5d5ec + ((340 - 5) * 0x20), 0x5d60c + ((340 - 5) * 0x20) },
+    { L"Poison Gas",  0x5d60c + ((340 - 5) * 0x20), 0x5d62c + ((340 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"Water",       0x5d62c + ((340 - 5) * 0x20), 0x5d64c + ((340 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x02 },
+    { L"Sonic Wave",  0x5d64c + ((340 - 5) * 0x20), 0x5d66c + ((340 - 5) * 0x20) },
 };
 
 const sGame_PaletteDataset VampireHunter_A_AULBATH_PALETTES_HP[] =
 {
-    { L"Aulbath",    0x5d5cc + ((345 - 5) * 0x20), 0x5d5ec + ((345 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
-    { L"Unknown 1",  0x5d5ec + ((345 - 5) * 0x20), 0x5d60c + ((345 - 5) * 0x20) },
-    { L"Unknown 2",  0x5d60c + ((345 - 5) * 0x20), 0x5d62c + ((345 - 5) * 0x20) },
-    { L"Unknown 3",  0x5d62c + ((345 - 5) * 0x20), 0x5d64c + ((345 - 5) * 0x20) },
-    { L"Unknown 4",  0x5d64c + ((345 - 5) * 0x20), 0x5d66c + ((345 - 5) * 0x20) },
+    { L"Aulbath",     0x5d5cc + ((345 - 5) * 0x20), 0x5d5ec + ((345 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
+    { L"Unknown",     0x5d5ec + ((345 - 5) * 0x20), 0x5d60c + ((345 - 5) * 0x20) },
+    { L"Poison Gas",  0x5d60c + ((345 - 5) * 0x20), 0x5d62c + ((345 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"Water",       0x5d62c + ((345 - 5) * 0x20), 0x5d64c + ((345 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x02 },
+    { L"Sonic Wave",  0x5d64c + ((345 - 5) * 0x20), 0x5d66c + ((345 - 5) * 0x20) },
 };
 
 const sGame_PaletteDataset VampireHunter_A_AULBATH_PALETTES_LK[] =
 {
-    { L"Aulbath",    0x5d5cc + ((350 - 5) * 0x20), 0x5d5ec + ((350 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
-    { L"Unknown 1",  0x5d5ec + ((350 - 5) * 0x20), 0x5d60c + ((350 - 5) * 0x20) },
-    { L"Unknown 2",  0x5d60c + ((350 - 5) * 0x20), 0x5d62c + ((350 - 5) * 0x20) },
-    { L"Unknown 3",  0x5d62c + ((350 - 5) * 0x20), 0x5d64c + ((350 - 5) * 0x20) },
-    { L"Unknown 4",  0x5d64c + ((350 - 5) * 0x20), 0x5d66c + ((350 - 5) * 0x20) },
+    { L"Aulbath",     0x5d5cc + ((350 - 5) * 0x20), 0x5d5ec + ((350 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
+    { L"Unknown",     0x5d5ec + ((350 - 5) * 0x20), 0x5d60c + ((350 - 5) * 0x20) },
+    { L"Poison Gas",  0x5d60c + ((350 - 5) * 0x20), 0x5d62c + ((350 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"Water",       0x5d62c + ((350 - 5) * 0x20), 0x5d64c + ((350 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x02 },
+    { L"Sonic Wave",  0x5d64c + ((350 - 5) * 0x20), 0x5d66c + ((350 - 5) * 0x20) },
 };
 
 const sGame_PaletteDataset VampireHunter_A_AULBATH_PALETTES_MK[] =
 {
-    { L"Aulbath",    0x5d5cc + ((355 - 5) * 0x20), 0x5d5ec + ((355 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
-    { L"Unknown 1",  0x5d5ec + ((355 - 5) * 0x20), 0x5d60c + ((355 - 5) * 0x20) },
-    { L"Unknown 2",  0x5d60c + ((355 - 5) * 0x20), 0x5d62c + ((355 - 5) * 0x20) },
-    { L"Unknown 3",  0x5d62c + ((355 - 5) * 0x20), 0x5d64c + ((355 - 5) * 0x20) },
-    { L"Unknown 4",  0x5d64c + ((355 - 5) * 0x20), 0x5d66c + ((355 - 5) * 0x20) },
+    { L"Aulbath",     0x5d5cc + ((355 - 5) * 0x20), 0x5d5ec + ((355 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
+    { L"Unknown",     0x5d5ec + ((355 - 5) * 0x20), 0x5d60c + ((355 - 5) * 0x20) },
+    { L"Poison Gas",  0x5d60c + ((355 - 5) * 0x20), 0x5d62c + ((355 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"Water",       0x5d62c + ((355 - 5) * 0x20), 0x5d64c + ((355 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x02 },
+    { L"Sonic Wave",  0x5d64c + ((355 - 5) * 0x20), 0x5d66c + ((355 - 5) * 0x20) },
 };
 
 const sGame_PaletteDataset VampireHunter_A_AULBATH_PALETTES_LPMK[] =
 {
-    { L"Aulbath",    0x5d5cc + ((360 - 5) * 0x20), 0x5d5ec + ((360 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
-    { L"Unknown 1",  0x5d5ec + ((360 - 5) * 0x20), 0x5d60c + ((360 - 5) * 0x20) },
-    { L"Unknown 2",  0x5d60c + ((360 - 5) * 0x20), 0x5d62c + ((360 - 5) * 0x20) },
-    { L"Unknown 3",  0x5d62c + ((360 - 5) * 0x20), 0x5d64c + ((360 - 5) * 0x20) },
-    { L"Unknown 4",  0x5d64c + ((360 - 5) * 0x20), 0x5d66c + ((360 - 5) * 0x20) },
+    { L"Aulbath",     0x5d5cc + ((360 - 5) * 0x20), 0x5d5ec + ((360 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x0 },
+    { L"Unknown",     0x5d5ec + ((360 - 5) * 0x20), 0x5d60c + ((360 - 5) * 0x20) },
+    { L"Poison Gas",  0x5d60c + ((360 - 5) * 0x20), 0x5d62c + ((360 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"Water",       0x5d62c + ((360 - 5) * 0x20), 0x5d64c + ((360 - 5) * 0x20), indexCPS2Sprites_Vamp_Aulbath, 0x02 },
+    { L"Sonic Wave",  0x5d64c + ((360 - 5) * 0x20), 0x5d66c + ((360 - 5) * 0x20) },
 };
 
 const sGame_PaletteDataset VampireHunter_A_SASQUATCH_PALETTES_HK[] =

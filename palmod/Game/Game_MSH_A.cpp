@@ -193,19 +193,23 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
     UINT32 nTotalPaletteCount = 0;
     m_nMSHSelectedRom = nROMPaletteSetToUse;
 
+    UINT16 nUnitCt;
+    UINT8 nExtraUnitLocation;
+
     //Load extra file if we're using it
     if (UsePaletteSetForCharacters())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_MSH_05, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_05, MSH_A_EXTRALOC_05, m_nConfirmedROMSize);
+        nExtraUnitLocation = MSH_A_EXTRALOC_05;
+        LoadExtraFileForGame(EXTRA_FILENAME_MSH_05, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_05, nExtraUnitLocation, m_nConfirmedROMSize);
+        nUnitCt = (MSH_A_NUMUNIT_05 + (GetExtraCt(nExtraUnitLocation) ? 1 : 0));
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_MSH_06, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_06, MSH_A_EXTRALOC_06, m_nConfirmedROMSize);
+        nExtraUnitLocation = MSH_A_EXTRALOC_06;
+        LoadExtraFileForGame(EXTRA_FILENAME_MSH_06, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_06, nExtraUnitLocation, m_nConfirmedROMSize);
+        nUnitCt = (MSH_A_NUMUNIT_06 + (GetExtraCt(nExtraUnitLocation) ? 1 : 0));
     }
-
-    UINT16 nUnitCt = UsePaletteSetForCharacters() ? (MSH_A_NUMUNIT_05 + (GetExtraCt(MSH_A_EXTRALOC_05) ? 1 : 0)) :
-                                                    (MSH_A_NUMUNIT_06 + (GetExtraCt(MSH_A_EXTRALOC_06) ? 1 : 0));
-    
+   
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
@@ -215,183 +219,28 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg;
-    bool fHaveExtras = (GetExtraCt(UsePaletteSetForCharacters() ? MSH_A_EXTRALOC_05 : MSH_A_EXTRALOC_06) > 0);
-    strMsg.Format(L"CGame_MSH_A::InitDescTree: Building desc tree for MSH %s extras...\n", fHaveExtras ? L"with" : L"without");
-    OutputDebugString(strMsg);
-
-    //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
-    {
-        sDescTreeNode* UnitNode = nullptr;
-        sDescTreeNode* CollectionNode = nullptr;
-        sDescNode* ChildNode = nullptr;
-
-        size_t nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
-
-        size_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
-
-        UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
-
-        if (UsePaletteSetForCharacters() ? (iUnitCtr < MSH_A_EXTRALOC_05) : (iUnitCtr < MSH_A_EXTRALOC_06))
-        {
-            //Set each description
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", UsePaletteSetForCharacters() ? MSH_UNITS_05[iUnitCtr].szDesc : MSH_UNITS_06[iUnitCtr].szDesc);
-            UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
-            //All children have collection trees
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = nUnitChildCount;
-
-#if MSH_DEBUG
-            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
-            OutputDebugString(strMsg);
-#endif
-            
-            size_t nTotalPalettesUsedInUnit = 0;
-
-            //Set data for each child group ("collection")
-            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
-            {
-                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
-
-                //Set each collection data
-
-                // Default label, since these aren't associated to collections
-                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
-                //Collection children have nodes
-                size_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
-                CollectionNode->uChildType = DESC_NODETYPE_NODE;
-                CollectionNode->uChildAmt = nListedChildrenCount;
-                CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
-
-#if MSH_DEBUG
-                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
-                OutputDebugString(strMsg);
-#endif
-
-                const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
-
-                //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
-                {
-                    ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
-
-                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
-
-                    ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
-                    ChildNode->uPalId = nTotalPalettesUsedInUnit++;
-                    nTotalPaletteCount++;
-
-#if MSH_DEBUG
-                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
-                    OutputDebugString(strMsg);
-                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
-                    OutputDebugString(strMsg);
-
-                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
-                    {
-                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
-                    }
-                    else
-                    {
-                        strMsg.Format(L" no image available.\n");
-                    }
-                    OutputDebugString(strMsg);
-#endif
-                }
-            }
-        }
-        else
-        {
-            // This handles data loaded from the Extra extension file, which are treated
-            // each as their own separate node with one collection with everything under that.
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
-            UnitNode->ChildNodes = new sDescTreeNode[1];
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = 1;
-
-#if MSH_DEBUG
-            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
-            OutputDebugString(strMsg);
-#endif
-        }
-
-        //Set up extra nodes
-        if (bUseExtra)
-        {
-            size_t nExtraPos = GetExtraLoc(iUnitCtr);
-            int nCurrExtra = 0;
-
-            if (UsePaletteSetForCharacters())
-            {
-                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MSH_A_EXTRALOC_05 > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            }
-            else
-            {
-                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MSH_A_EXTRALOC_06 > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            }
-
-            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
-
-            CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
-
-            CollectionNode->uChildType = DESC_NODETYPE_NODE;
-            CollectionNode->uChildAmt = nExtraCt; //EX + Extra
-
-#if MSH_DEBUG
-            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
-            OutputDebugString(strMsg);
-#endif
-
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
-            {
-                ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
-
-                stExtraDef* pCurrDef = GetExtraDefForMSH(nExtraPos + nCurrExtra);
-
-                while (pCurrDef->isInvisible)
-                {
-                    nCurrExtra++;
-
-                    pCurrDef = GetExtraDefForMSH(nExtraPos + nCurrExtra);
-                }
-
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
-
-                ChildNode->uUnitId = iUnitCtr;
-                if (UsePaletteSetForCharacters())
-                {
-                    ChildNode->uPalId = (((MSH_A_EXTRALOC_05 > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
-                }
-                else
-                {
-                    ChildNode->uPalId = (((MSH_A_EXTRALOC_06 > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
-                }
-
-#if MSH_DEBUG
-                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
-                OutputDebugString(strMsg);
-#endif
-
-                nCurrExtra++;
-                nTotalPaletteCount++;
-            }
-        }
-    }
-
-    strMsg.Format(L"CGame_MSH_A::InitDescTree: Loaded %u palettes for MSH\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
     if (UsePaletteSetForCharacters())
     {
-        m_nTotalPaletteCountForMSH_05 = nTotalPaletteCount;
+        m_nTotalPaletteCountForMSH_05 = _InitDescTree(NewDescTree,
+            MSH_UNITS_05,
+            nExtraUnitLocation,
+            MSH_A_NUMUNIT_05,
+            rgExtraCountAll_05,
+            rgExtraLoc_05,
+            MSH_A_EXTRA_CUSTOM_05
+        );
     }
     else
     {
-        m_nTotalPaletteCountForMSH_06 = nTotalPaletteCount;
+        m_nTotalPaletteCountForMSH_06 = _InitDescTree(NewDescTree,
+            MSH_UNITS_06,
+            nExtraUnitLocation,
+            MSH_A_NUMUNIT_06,
+            rgExtraCountAll_06,
+            rgExtraLoc_06,
+            MSH_A_EXTRA_CUSTOM_06
+        );
     }
-
 
     return NewDescTree;
 }
@@ -693,5 +542,24 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     else
     {
         return _UpdatePalImg(MSH_UNITS_06, rgExtraCountAll_06, MSH_A_NUMUNIT_06, MSH_A_EXTRALOC_06, MSH_A_EXTRA_CUSTOM_06, Node01, Node02, Node03, Node03);
+    }
+}
+
+void CGame_MSH_A::PostSetPal(size_t nUnitId, size_t nPalId)
+{
+    CString strMessage;
+    strMessage.Format(L"CGame_MSH_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
+    OutputDebugString(strMessage);
+
+    const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
+
+    if (pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
+    {
+        OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
+        ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+    }
+    else
+    {
+        OutputDebugString(L"\tNo further processing needed.\n");
     }
 }

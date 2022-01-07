@@ -1688,7 +1688,7 @@ const sDescTreeNode MVC2_A_CAPTAINAMERICA_COLLECTION[] =
 const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_LP[] =
 {
     { L"Main Color LP", 0x30ae9c0, 0x30ae9e0, indexCPS2Sprites_Spidey, 0 },
-    { L"(02) Taunt Balloon", 0x30ae9e0, 0x30aea00, indexCPS2Sprites_Spidey, 1 },
+    { L"(02) Taunt Balloon", 0x30ae9e0, 0x30aea00, indexCPS2Sprites_Spidey, 0x0d },
     { L"(03) ID: 01-03 Spider-sense Intro ID:04-07 Winpose (camera) ID: 08-15 Webs", 0x30aea00, 0x30aea20, indexCPS2Sprites_Spidey, 2 },
     { L"(04) Not Used", 0x30aea20, 0x30aea40, indexCPS2Sprites_Spidey, 3 },
     { L"(05) Not Used", 0x30aea40, 0x30aea60, indexCPS2Sprites_Spidey, 4 },
@@ -1700,7 +1700,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_LP[] =
 const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_LK[] =
 {
     { L"Main Color LK", 0x30aeac0, 0x30aeae0, indexCPS2Sprites_Spidey, 0 },
-    { L"(02) Taunt Balloon", 0x30aeae0, 0x30aeb00, indexCPS2Sprites_Spidey, 1 },
+    { L"(02) Taunt Balloon", 0x30aeae0, 0x30aeb00, indexCPS2Sprites_Spidey, 0x0d },
     { L"(03) ID: 01-03 Spider-sense Intro ID:04-07 Winpose (camera) ID: 08-15 Webs", 0x30aeb00, 0x30aeb20, indexCPS2Sprites_Spidey, 2 },
     { L"(04) Not Used", 0x30aeb20, 0x30aeb40, indexCPS2Sprites_Spidey, 3 },
     { L"(05) Not Used", 0x30aeb40, 0x30aeb60, indexCPS2Sprites_Spidey, 4 },
@@ -1712,7 +1712,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_LK[] =
 const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_HP[] =
 {
     { L"Main Color HP", 0x30aebc0, 0x30aebe0, indexCPS2Sprites_Spidey, 0 },
-    { L"(02) Taunt Balloon", 0x30aebe0, 0x30aec00, indexCPS2Sprites_Spidey, 1 },
+    { L"(02) Taunt Balloon", 0x30aebe0, 0x30aec00, indexCPS2Sprites_Spidey, 0x0d },
     { L"(03) ID: 01-03 Spider-sense Intro ID:04-07 Winpose (camera) ID: 08-15 Webs", 0x30aec00, 0x30aec20, indexCPS2Sprites_Spidey, 2 },
     { L"(04) Not Used", 0x30aec20, 0x30aec40, indexCPS2Sprites_Spidey, 3 },
     { L"(05) Not Used", 0x30aec40, 0x30aec60, indexCPS2Sprites_Spidey, 4 },
@@ -1724,7 +1724,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_HP[] =
 const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_HK[] =
 {
     { L"Main Color HK", 0x30aecc0, 0x30aece0, indexCPS2Sprites_Spidey, 0 },
-    { L"(02) Taunt Balloon", 0x30aece0, 0x30aed00, indexCPS2Sprites_Spidey, 1 },
+    { L"(02) Taunt Balloon", 0x30aece0, 0x30aed00, indexCPS2Sprites_Spidey, 0x0d },
     { L"(03) ID: 01-03 Spider-sense Intro ID:04-07 Winpose (camera) ID: 08-15 Webs", 0x30aed00, 0x30aed20, indexCPS2Sprites_Spidey, 2 },
     { L"(04) Not Used", 0x30aed20, 0x30aed40, indexCPS2Sprites_Spidey, 3 },
     { L"(05) Not Used", 0x30aed40, 0x30aed60, indexCPS2Sprites_Spidey, 4 },
@@ -1736,7 +1736,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_HK[] =
 const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_A1[] =
 {
     { L"Main Color A1", 0x30aedc0, 0x30aede0, indexCPS2Sprites_Spidey, 0 },
-    { L"(02) Taunt Balloon", 0x30aede0, 0x30aee00, indexCPS2Sprites_Spidey, 1 },
+    { L"(02) Taunt Balloon", 0x30aede0, 0x30aee00, indexCPS2Sprites_Spidey, 0x0d },
     { L"(03) ID: 01-03 Spider-sense Intro ID:04-07 Winpose (camera) ID: 08-15 Webs", 0x30aee00, 0x30aee20, indexCPS2Sprites_Spidey, 2 },
     { L"(04) Not Used", 0x30aee20, 0x30aee40, indexCPS2Sprites_Spidey, 3 },
     { L"(05) Not Used", 0x30aee40, 0x30aee60, indexCPS2Sprites_Spidey, 4 },
@@ -1748,7 +1748,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_A1[] =
 const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_A2[] =
 {
     { L"Main Color A2", 0x30aeec0, 0x30aeee0, indexCPS2Sprites_Spidey, 0 },
-    { L"(02) Taunt Balloon", 0x30aeee0, 0x30aef00, indexCPS2Sprites_Spidey, 1 },
+    { L"(02) Taunt Balloon", 0x30aeee0, 0x30aef00, indexCPS2Sprites_Spidey, 0x0d },
     { L"(03) ID: 01-03 Spider-sense Intro ID:04-07 Winpose (camera) ID: 08-15 Webs", 0x30aef00, 0x30aef20, indexCPS2Sprites_Spidey, 2 },
     { L"(04) Not Used", 0x30aef20, 0x30aef40, indexCPS2Sprites_Spidey, 3 },
     { L"(05) Not Used", 0x30aef40, 0x30aef60, indexCPS2Sprites_Spidey, 4 },

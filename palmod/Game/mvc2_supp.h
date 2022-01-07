@@ -567,40 +567,8 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 01, 10, NEG + 3,
 
             // 11/12, 20/21, 31,32, etc are the spider signal pairs
-            // 11 is (12 - 18LUM) or so of main.
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 1, 1, 1,
-                MOD_LUM, 1, 1, 55,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 1, 1, 2,
-                MOD_LUM, 2, 1, 40,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 1, 1, 3,
-                MOD_LUM, 3, 1, 30,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 2, 1, 4,
-                MOD_LUM, 4, 1, 30,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 3, 1, 5,
-                MOD_LUM, 5, 1, 20,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 4, 1, 6,
-                MOD_LUM, 6, 1, 20,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 5, 1, 7,
-                MOD_LUM, 7, 1, 20,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 6, 1, 8,
-                MOD_LUM, 8, 1, 20,
+            // These aren't changed per color, though
 
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 1, 1, 1,
-                MOD_LUM, 1, 1, 40,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 1, 1, 2,
-                MOD_LUM, 2, 1, 25,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 1, 1, 3,
-                MOD_LUM, 3, 1, 15,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 2, 1, 4,
-                MOD_LUM, 4, 1, 15,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 3, 1, 5,
-                MOD_LUM, 5, 1, 10,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 4, 1, 6,
-                MOD_LUM, 6, 1, 10,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 5, 1, 7,
-                MOD_LUM, 7, 1, 10,
-            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 6, 1, 8,
-                MOD_LUM, 8, 1, 10,
     };
 
     const std::vector<UINT16> supp_data_doom =
@@ -868,37 +836,24 @@ namespace MVC2_SupplementProcessing
             // Stone Drop (d+HK): 16-1A
             SUPP_NODE_EX, 0x16, 0x30, 9, 3, 9,
             SUPP_NODE, 0x17, 0x30,
-                MOD_SAT, 1, 8, 155,
+                MOD_SAT, 1, 8, NEG + 70,
                 MOD_LUM, 1, 8, 5,
             SUPP_NODE, 0x18, 0x30,
-                MOD_SAT, 1, 8, 55,
+                MOD_SAT, 1, 8, NEG + 55,
                 MOD_LUM, 1, 8, 5,
             SUPP_NODE, 0x19, 0x30,
-                MOD_SAT, 1, 8, 30,
+                MOD_SAT, 1, 8, NEG + 30,
                 MOD_LUM, 1, 8, 5,
             SUPP_NODE, 0x1A, 0x30,
 
             // HP Flash frames: 2F-35
             SUPP_NODE_EX, 0x2F, 0x30, 2, 7, 2,
-            SUPP_NODE_EX, 0x2F, 0x30, 9, 3, 9,
-
             SUPP_NODE_EX, 0x30, 0x30, 2, 7, 2,
-            SUPP_NODE_EX, 0x30, 0x30, 9, 3, 9,
-
             SUPP_NODE_EX, 0x31, 0x30, 2, 7, 2,
-            SUPP_NODE_EX, 0x31, 0x30, 9, 3, 9,
-
             SUPP_NODE_EX, 0x32, 0x30, 2, 7, 2,
-            SUPP_NODE_EX, 0x32, 0x30, 9, 3, 9,
-
             SUPP_NODE_EX, 0x33, 0x30, 2, 7, 2,
-            SUPP_NODE_EX, 0x33, 0x30, 9, 3, 9,
-
             SUPP_NODE_EX, 0x34, 0x30, 2, 7, 2,
-            SUPP_NODE_EX, 0x34, 0x30, 9, 3, 9,
-
             SUPP_NODE_EX, 0x35, 0x30, 2, 7, 2,
-            SUPP_NODE_EX, 0x35, 0x30, 9, 3, 9,
 
             // Chaos Dimension: 0x36-3F
             SUPP_NODE_EX, 0x36, 0x30, 1, 11, 1,
@@ -951,8 +906,7 @@ namespace MVC2_SupplementProcessing
 
             // Mystic Smash Shadows
             SUPP_NODE, 0x40, 0x30,
-                MOD_LUM, 1, 15, NEG + 50,
-                MOD_LUM, 1, 15, NEG + 10,
+                MOD_LUM, 1, 15, NEG + 60,
     };
 
     const std::vector<UINT16> supp_data_silversamurai =

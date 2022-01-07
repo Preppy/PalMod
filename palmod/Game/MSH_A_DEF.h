@@ -41,6 +41,176 @@ const sGame_PaletteDataset MSH_A_THANOS_PALETTES_P1[] =
 
 #endif
 
+#pragma region SecondaryPaletteEffects
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Blackheart =
+{
+    // 16 intro palettes starting at 4, last 3 minus about 4 LUM per step
+    { SUPP_NODE, 4, 0 },
+    { SUPP_NODE, 5, 0,
+        MOD_LUM, 13, 3, NEG + 4 },
+    { SUPP_NODE, 6, 0,
+        MOD_LUM, 13, 3, NEG + 7 },
+    { SUPP_NODE, 7, 0,
+        MOD_LUM, 13, 3, NEG + 10 },
+    { SUPP_NODE, 8, 0,
+        MOD_LUM, 13, 3, NEG + 14 },
+    { SUPP_NODE, 9, 0,
+        MOD_LUM, 13, 3, NEG + 17 },
+    { SUPP_NODE, 10, 0,
+        MOD_LUM, 13, 3, NEG + 20 },
+    { SUPP_NODE, 11, 0,
+        MOD_LUM, 13, 3, NEG + 24 },
+    { SUPP_NODE, 12, 0,
+        MOD_LUM, 13, 3, NEG + 27 },
+    { SUPP_NODE, 13, 0,
+        MOD_LUM, 13, 3, NEG + 30 },
+    { SUPP_NODE, 14, 0,
+        MOD_LUM, 13, 3, NEG + 34 },
+    { SUPP_NODE, 15, 0,
+        MOD_LUM, 13, 3, NEG + 37 },
+    { SUPP_NODE, 16, 0,
+        MOD_LUM, 13, 3, NEG + 40 },
+    { SUPP_NODE, 17, 0,
+        MOD_LUM, 13, 3, NEG + 44 },
+    { SUPP_NODE, 18, 0,
+        MOD_LUM, 13, 3, NEG + 44 },
+    { SUPP_NODE, 19, 0,
+        MOD_LUM, 13, 3, NEG + 47 },
+
+    // unknown palette, last three solid black
+    { SUPP_NODE, 20, 0,
+        MOD_LUM, 13, 3, NEG + 50 },
+
+    // 3 unknown palettes
+    { SUPP_NODE, 21, 0 },
+    { SUPP_NODE, 22, 0,
+        MOD_LUM, 13, 1, NEG + 50 },
+    { SUPP_NODE, 23, 0,
+        MOD_WHITE, 13, 1 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Shuma =
+{
+    // Dash/Guard: Extra 01
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 8,
+        MOD_COPY, 1, 8, 1 },
+
+    // Stance (after FP): 5 frames
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x03, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x04, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x05, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x06, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x07, 0x30, MOD_COPY, 2, 7, 2 },
+
+    // Stone Drop (d+HK): 5 frames
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x08, 0x30,
+        MOD_COPY, 9, 3, 9 },
+    { SUPP_NODE, 0x09, 0x30,
+        MOD_SAT, 1, 8, NEG + 70,
+        MOD_LUM, 1, 8, 5 },
+    { SUPP_NODE, 0x0a, 0x30,
+        MOD_SAT, 1, 8, NEG + 55,
+        MOD_LUM, 1, 8, 5 },
+    { SUPP_NODE, 0x0b, 0x30,
+        MOD_SAT, 1, 8, NEG + 30,
+        MOD_LUM, 1, 8, 5 },
+    { SUPP_NODE, 0x0c, 0x30 },
+
+    // HP Flash frames: 7 frames
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x21, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x22, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x23, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x24, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x25, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x26, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x27, 0x30, MOD_COPY, 2, 7, 2 },
+
+    // Chaos Dimension: 5 paired frames: different sort than MvC2
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x28, 0x30,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 65,
+        MOD_LUM, 2, 7, 17,
+        MOD_LUM, 9, 3, 10 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x29, 0x30, 
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 45,
+        MOD_LUM, 2, 7, 13 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2a, 0x30,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 35,
+        MOD_LUM, 2, 7, 14 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2b, 0x30,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 25,
+        MOD_LUM, 2, 7, 17 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x2c, 0x30,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 15,
+        MOD_LUM, 2, 7, 20,
+        MOD_LUM, 9, 3, 10 },
+
+    // Chaos Dimension: 5 dash frames
+    { SUPP_NODE, 0x2d, 0x30,
+        MOD_LUM, 1, 8, 5 },
+    { SUPP_NODE, 0x2e, 0x30,
+       MOD_LUM, 1, 8, 10 },
+    { SUPP_NODE, 0x2f, 0x30,
+        MOD_LUM, 1, 8, 15 },
+    { SUPP_NODE, 0x30, 0x30,
+        MOD_LUM, 1, 8, 20 },
+    { SUPP_NODE, 0x31, 0x30,
+        MOD_LUM, 1, 8, 25 },
+
+    // Mystic Smash Shadows
+    { SUPP_NODE, 0x32, 0x30,
+        MOD_LUM, 1, 15, NEG + 20 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Spidey =
+{
+    // Taunt balloon: we don't touch
+
+    // Intro
+    { SUPP_NODE, 0x03, 16,
+        MOD_LUM, 01, 10, NEG + 29 },
+    { SUPP_NODE, 0x04, 16,
+        MOD_LUM, 01, 10, NEG + 23 },
+    { SUPP_NODE, 0x05, 16,
+        MOD_LUM, 01, 10, NEG + 17 },
+    { SUPP_NODE, 0x06, 16,
+        MOD_LUM, 01, 10, NEG + 12 },
+    { SUPP_NODE, 0x07, 16,
+        MOD_LUM, 01, 10, NEG + 8 },
+    { SUPP_NODE, 0x08, 16,
+        MOD_LUM, 01, 10, NEG + 7 },
+    { SUPP_NODE, 0x09, 16,
+        MOD_LUM, 01, 10, NEG + 5 },
+    { SUPP_NODE, 0x0a, 16,
+        MOD_LUM, 01, 10, NEG + 3 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Wolverine =
+{
+    // his berserker barrage trails a bit of his costume.
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,
+        MOD_COPY,  2, 1, 12,
+        MOD_COPY, 11, 1, 13,
+        MOD_COPY, 10, 1, 14,
+        MOD_COPY,  9, 1, 15 },
+};
+
+const stPaletteProcessingInformation secondaryMSHBlackheartEffects{ paletteBuddy_MSH_Blackheart };
+const stPaletteProcessingInformation secondaryMSHShumaEffects{ paletteBuddy_MSH_Shuma };
+const stPaletteProcessingInformation secondaryMSHSpideyEffects{ paletteBuddy_MSH_Spidey };
+const stPaletteProcessingInformation secondaryMSHWolverineEffects{ paletteBuddy_MSH_Wolverine };
+
+#pragma endregion
+
 const std::vector<UINT16> MSH_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Wolverine,
@@ -83,7 +253,7 @@ const sGame_PaletteDataset MSH_A_ANITA_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P1[] =
 {
-    { L"P1 Main", 0x6214c, 0x6216c, indexCPS2Sprites_Blackheart },
+    { L"P1 Main", 0x6214c, 0x6216c, indexCPS2Sprites_Blackheart, 0x00, nullptr, &secondaryMSHBlackheartEffects },
     { L"P1 HP + HK Demons", 0x62F2c, 0x62F4c, indexCPS2Sprites_Blackheart, 0x02 },
     { L"P1 Dark Thunder", 0x62F8c, 0x62FAc, indexCPS2Sprites_Blackheart, 0x01 },
     { L"P1 Armageddon", 0x632Ec, 0x6330c, indexCPS2Sprites_Blackheart, 0x0B },
@@ -113,7 +283,7 @@ const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P1[] =
 
 const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P2[] =
 {
-    { L"P2 Main",  0x621Cc, 0x621Ec, indexCPS2Sprites_Blackheart },
+    { L"P2 Main",  0x621Cc, 0x621Ec, indexCPS2Sprites_Blackheart, 0x00, nullptr, &secondaryMSHBlackheartEffects },
     { L"P2 HP + HK Demons",  0x6372c, 0x6374c, indexCPS2Sprites_Blackheart, 0x02 },
     { L"P2 Dark Thunder",  0x6378c, 0x637Ac, indexCPS2Sprites_Blackheart, 0x01 },
     { L"P2 Armageddon", 0x63AEc, 0x63B0c, indexCPS2Sprites_Blackheart, 0x0B },
@@ -272,9 +442,9 @@ const sGame_PaletteDataset MSH_A_PSYLOCKE_PALETTES_P2[] =
 
 const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P1[] =
 {
-    { L"P1 Main", 0x6222c, 0x6224c, indexCPS2Sprites_Shuma },
+    { L"P1 Main", 0x6222c, 0x6224c, indexCPS2Sprites_Shuma, 0x00, nullptr, &secondaryMSHShumaEffects },
     { L"P1 Dash Frame / Guard Frame", 0x6224c, 0x6226c, indexCPS2Sprites_Shuma },
-    { L"P1 FP / jFP / cFP / Intro", 0x6226c, 0x6228c, indexCPS2Sprites_Shuma },
+    { L"P1 FP / jFP / cFP / Intro", 0x6226c, 0x6228c },
 
     { L"P1 Stance Frame (after FP) 1", 0x63bac + (0 * 0x20), 0x63bcc + (0 * 0x20), indexCPS2Sprites_Shuma },
     { L"P1 Stance Frame (after FP) 2", 0x63bac + (1 * 0x20), 0x63bcc + (1 * 0x20), indexCPS2Sprites_Shuma },
@@ -319,23 +489,24 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P1[] =
     { L"P1 HP Flash Frames 7", 0x63bac + (36 * 0x20), 0x63bcc + (36 * 0x20), indexCPS2Sprites_Shuma },
 
     { L"P1 Chaos Dimension Frame 1", 0x63bac + (37 * 0x20), 0x63bcc + (37 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension (Dash) Frame 1", 0x63bac + (38 * 0x20), 0x63bcc + (38 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension Frame 2", 0x63bac + (39 * 0x20), 0x63bcc + (39 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension (Dash) Frame 2", 0x63bac + (40 * 0x20), 0x63bcc + (40 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension Frame 3", 0x63bac + (41 * 0x20), 0x63bcc + (41 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension (Dash) Frame 3", 0x63bac + (42 * 0x20), 0x63bcc + (42 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension Frame 4", 0x63bac + (43 * 0x20), 0x63bcc + (43 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension (Dash) Frame 4", 0x63bac + (44 * 0x20), 0x63bcc + (44 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P1 Chaos Dimension Frame 5", 0x63bac + (45 * 0x20), 0x63bcc + (45 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P1 Chaos Dimension Frame 2", 0x63bac + (38 * 0x20), 0x63bcc + (38 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P1 Chaos Dimension Frame 3", 0x63bac + (39 * 0x20), 0x63bcc + (39 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P1 Chaos Dimension Frame 4", 0x63bac + (40 * 0x20), 0x63bcc + (40 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P1 Chaos Dimension Frame 5", 0x63bac + (41 * 0x20), 0x63bcc + (41 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P1 Chaos Dimension (Dash) Frame 1", 0x63bac + (42 * 0x20), 0x63bcc + (42 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P1 Chaos Dimension (Dash) Frame 2", 0x63bac + (43 * 0x20), 0x63bcc + (43 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P1 Chaos Dimension (Dash) Frame 3", 0x63bac + (44 * 0x20), 0x63bcc + (44 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P1 Chaos Dimension (Dash) Frame 4", 0x63bac + (45 * 0x20), 0x63bcc + (45 * 0x20), indexCPS2Sprites_Shuma },
     { L"P1 Chaos Dimension (Dash) Frame 5", 0x63bac + (46 * 0x20), 0x63bcc + (46 * 0x20), indexCPS2Sprites_Shuma },
+
     { L"P1 Mystic Smash Shadows", 0x63bac + (47 * 0x20), 0x63bcc + (47 * 0x20), indexCPS2Sprites_Shuma },
 };
 
 const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P2[] =
 {
-    { L"P2 Main", 0x622Ac, 0x622Cc, indexCPS2Sprites_Shuma },
+    { L"P2 Main", 0x622Ac, 0x622Cc, indexCPS2Sprites_Shuma, 0x00, nullptr, &secondaryMSHShumaEffects },
     { L"P2 Dash Frame / Guard Frame", 0x622Cc, 0x622Ec, indexCPS2Sprites_Shuma },
-    { L"P2 FP / jFP / cFP / Intro", 0x622ec, 0x6230c, indexCPS2Sprites_Shuma  },
+    { L"P2 FP / jFP / cFP / Intro", 0x622ec, 0x6230c  },
 
     { L"P2 Stance Frame (after FP) 1", 0x641ac + (0 * 0x20), 0x641cc + (0 * 0x20), indexCPS2Sprites_Shuma },
     { L"P2 Stance Frame (after FP) 2", 0x641ac + (1 * 0x20), 0x641cc + (1 * 0x20), indexCPS2Sprites_Shuma },
@@ -380,21 +551,22 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_P2[] =
     { L"P2 HP Flash Frames 7", 0x641ac + (36 * 0x20), 0x641cc + (36 * 0x20), indexCPS2Sprites_Shuma },
 
     { L"P2 Chaos Dimension Frame 1", 0x641ac + (37 * 0x20), 0x641cc + (37 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension (Dash) Frame 1", 0x641ac + (38 * 0x20), 0x641cc + (38 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension Frame 2", 0x641ac + (39 * 0x20), 0x641cc + (39 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension (Dash) Frame 2", 0x641ac + (40 * 0x20), 0x641cc + (40 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension Frame 3", 0x641ac + (41 * 0x20), 0x641cc + (41 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension (Dash) Frame 3", 0x641ac + (42 * 0x20), 0x641cc + (42 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension Frame 4", 0x641ac + (43 * 0x20), 0x641cc + (43 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension (Dash) Frame 4", 0x641ac + (44 * 0x20), 0x641cc + (44 * 0x20), indexCPS2Sprites_Shuma },
-    { L"P2 Chaos Dimension Frame 5", 0x641ac + (45 * 0x20), 0x641cc + (45 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P2 Chaos Dimension Frame 2", 0x641ac + (38 * 0x20), 0x641cc + (38 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P2 Chaos Dimension Frame 3", 0x641ac + (39 * 0x20), 0x641cc + (39 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P2 Chaos Dimension Frame 4", 0x641ac + (40 * 0x20), 0x641cc + (40 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P2 Chaos Dimension Frame 5", 0x641ac + (41 * 0x20), 0x641cc + (41 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P2 Chaos Dimension (Dash) Frame 1", 0x641ac + (42 * 0x20), 0x641cc + (42 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P2 Chaos Dimension (Dash) Frame 2", 0x641ac + (43 * 0x20), 0x641cc + (43 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P2 Chaos Dimension (Dash) Frame 3", 0x641ac + (44 * 0x20), 0x641cc + (44 * 0x20), indexCPS2Sprites_Shuma },
+    { L"P2 Chaos Dimension (Dash) Frame 4", 0x641ac + (45 * 0x20), 0x641cc + (45 * 0x20), indexCPS2Sprites_Shuma },
     { L"P2 Chaos Dimension (Dash) Frame 5", 0x641ac + (46 * 0x20), 0x641cc + (46 * 0x20), indexCPS2Sprites_Shuma },
+
     { L"P2 Mystic Smash Shadows", 0x641ac + (47 * 0x20), 0x641cc + (47 * 0x20), indexCPS2Sprites_Shuma },
 };
 
 const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_P1[] =
 {
-    { L"P1 Main", 0x61C0c, 0x61C2c, indexCPS2Sprites_Spidey },
+    { L"P1 Main", 0x61C0c, 0x61C2c, indexCPS2Sprites_Spidey, 0x00, nullptr, &secondaryMSHSpideyEffects },
     { L"P1 Spider-sense / Webs", 0x61C2c, 0x61C4c, indexCPS2Sprites_Spidey, 2 },
     { L"P1 Taunt Balloon", 0x61C4c, 0x61C6c, indexCPS2Sprites_Spidey, 0xd },
 
@@ -414,7 +586,7 @@ const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_P1[] =
 
 const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_P2[] =
 {
-    { L"P2 Main", 0x61C8c, 0x61CAc, indexCPS2Sprites_Spidey },
+    { L"P2 Main", 0x61C8c, 0x61CAc, indexCPS2Sprites_Spidey, 0x00, nullptr, &secondaryMSHSpideyEffects },
     { L"P2 Spider-sense / Webs", 0x61CAc, 0x61CCc, indexCPS2Sprites_Spidey, 2 },
     { L"P2 Taunt Balloon", 0x61CCc, 0x61CEc, indexCPS2Sprites_Spidey, 0xd },
 
@@ -457,14 +629,14 @@ const sGame_PaletteDataset MSH_A_THANOS_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P1[] =
 {
-    { L"P1 Main", 0x61F8c, 0x61FAc, indexCPS2Sprites_Wolverine, 0, &pairNext },
+    { L"P1 Main", 0x61F8c, 0x61FAc, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryMSHWolverineEffects },
     { L"P1 Claws", 0x61FAc, 0x61FCc, indexCPS2Sprites_Wolverine, 1 },
     { L"P1 Berserker Barrage", 0x61FCc, 0x61FEc, indexCPS2Sprites_Wolverine, 2 },
 };
 
 const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P2[] =
 {
-    { L"P2 Main", 0x6200c, 0x6202c, indexCPS2Sprites_Wolverine, 0, &pairNext },
+    { L"P2 Main", 0x6200c, 0x6202c, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryMSHWolverineEffects },
     { L"P2 Claws", 0x6202c, 0x6204c, indexCPS2Sprites_Wolverine, 1 },
     { L"P2 Berserker Barrage", 0x6204c, 0x6206c, indexCPS2Sprites_Wolverine, 2 },
 };

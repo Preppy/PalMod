@@ -8,8 +8,6 @@ constexpr auto EXTRA_FILENAME_NINJAMASTERS_A = L"NINJAMASTERSE.txt";
 class CGame_NINJAMASTERS_A : public CGameWithExtrasFile
 {
 private:
-    int m_nBufferSelectedRom = 2;
-    static size_t m_nSelectedRom;
     static UINT32 m_nTotalPaletteCountForNINJAMASTERS;
 
     static size_t rgExtraCountAll[NINJAMASTERS_A_NUMUNIT + 1];
@@ -19,9 +17,6 @@ private:
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
-    // Needed for multiple ROM support
-    void InitDataBuffer() override;
-    void ClearDataBuffer() override;
     static const sDescTreeNode* GetCurrentUnitSet();
     static size_t GetCurrentExtraLoc();
     static stExtraDef* GetCurrentExtraDef(int nDefCtr);
@@ -30,7 +25,7 @@ private:
     size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
 public:
-    CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize, int nROMToLoad = 1);
+    CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize);
     ~CGame_NINJAMASTERS_A(void);
 
     //Static functions / variables

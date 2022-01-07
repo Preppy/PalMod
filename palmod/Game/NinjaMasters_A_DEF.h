@@ -609,18 +609,7 @@ const sGame_PaletteDataset NINJAMASTERS_A_NOBUNAGA_Portrait[] =
 // -BONUS-
 const sGame_PaletteDataset NINJAMASTERS_A_BONUS_SelectScreen[] =
 {
-    { L"Sasuke Select Icon", 0x081404, 0x081424 },
-    { L"Kamui Select Icon", 0x081424, 0x081444 },
-    { L"Raiga Select Icon", 0x081444, 0x081464 },
-    { L"Tenho Select Icon", 0x081464, 0x081484 },
-    { L"Karasu Select Icon", 0x081484, 0x0814a4 },
-    { L"Houoh Select Icon", 0x0814a4, 0x0814c4 },
-    { L"Natsume Select Icon", 0x0814c4, 0x0814e4 },
-    { L"Goemon Select Icon", 0x0814e4, 0x081504 },
-    { L"Unzen Select Icon", 0x081504, 0x081524 },
-    { L"Kasumi Select Icon", 0x081524, 0x081544 },
-    { L"Ranmaru Select Icon", 0x081544, 0x081564 },
-    { L"Nobunaga Select Icon", 0x081564, 0x081584 },
+    { L"Character Select Icons", 0x081404, 0x081584 },
 };
 
 const sDescTreeNode NINJAMASTERS_A_SASUKE_COLLECTION[] =
@@ -727,11 +716,11 @@ const sDescTreeNode NINJAMASTERS_A_UNITS[] =
     { L"Ranmaru", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_RANMARU_COLLECTION, ARRAYSIZE(NINJAMASTERS_A_RANMARU_COLLECTION) },
     { L"Nobunaga", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_NOBUNAGA_COLLECTION, ARRAYSIZE(NINJAMASTERS_A_NOBUNAGA_COLLECTION) },
 
-    { L"Bonus", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_BONUS_COLLECTION, ARRAYSIZE(NINJAMASTERS_A_BONUS_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)NINJAMASTERS_A_BONUS_COLLECTION, ARRAYSIZE(NINJAMASTERS_A_BONUS_COLLECTION) },
 };
 
 constexpr auto NINJAMASTERS_A_NUMUNIT = ARRAYSIZE(NINJAMASTERS_A_UNITS);
-#define NINJAMASTERS_A_EXTRALOC NINJAMASTERS_A_NUMUNIT
+constexpr auto NINJAMASTERS_A_EXTRALOC = NINJAMASTERS_A_NUMUNIT;
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef NINJAMASTERS_A_EXTRA[] =

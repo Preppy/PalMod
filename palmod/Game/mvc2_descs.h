@@ -1404,7 +1404,7 @@ const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_CAPTAINAMERICA =
 const std::vector<sMoveDescription> MVC2_6COLOR_MOVE_DESCRIPTIONS_SPIDERMAN =
 { //0C: Spider-man" },
     { 0x00, L"Main Color" },
-    { 0x01, L"(02) Taunt Balloon" },
+    { 0x01, L"(02) Taunt Balloon", 0x0d },
     { 0x02, L"(03) ID: 01-03 Spider-sense Intro ID:04-07 Winpose (camera) ID: 08-15 Webs" },
     { 0x03, L"(04) Not Used" },
     { 0x04, L"(05) Not Used" },
@@ -1513,7 +1513,7 @@ const std::vector<sMoveDescription> MVC2_6COLOR_MOVE_DESCRIPTIONS_SPIDERMAN =
 const std::vector<sMoveDescription> MVC2_16COLOR_MOVE_DESCRIPTIONS_SPIDERMAN =
 { //0C: Spider-man" },
     { 0x00, L"Main Color" },
-    { 0x01, L"(02) Taunt Balloon" },
+    { 0x01, L"(02) Taunt Balloon", 0x0d },
     { 0x02, L"(03) ID: 01-03 Spider-sense Intro ID:04-07 Winpose (camera) ID: 08-15 Webs" },
     { 0x03, L"(04) Not Used" },
     { 0x04, L"(05) Not Used" },

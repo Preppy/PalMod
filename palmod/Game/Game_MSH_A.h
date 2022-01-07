@@ -33,7 +33,7 @@ private:
     size_t GetPaletteCountForUnit(size_t nUnitId) override;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation_05 = 0x6108c;
+    const int m_uLowestKnownPaletteROMLocation_05 = 0x60f4c;
     const int m_uLowestKnownPaletteROMLocation_06 = 0xa78;
 
 public:
@@ -64,6 +64,8 @@ public:
     const sDescTreeNode* GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+
+    void PostSetPal(size_t nUnitId, size_t nPalId) override;
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 

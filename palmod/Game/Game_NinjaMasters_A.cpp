@@ -13,7 +13,6 @@ CDescTree CGame_NINJAMASTERS_A::MainDescTree = nullptr;
 size_t CGame_NINJAMASTERS_A::rgExtraCountAll[NINJAMASTERS_A_NUMUNIT + 1];
 size_t CGame_NINJAMASTERS_A::rgExtraLoc[NINJAMASTERS_A_NUMUNIT + 1];
 
-size_t CGame_NINJAMASTERS_A::m_nSelectedRom = 1;
 UINT32 CGame_NINJAMASTERS_A::m_nTotalPaletteCountForNINJAMASTERS = 0;
 UINT32 CGame_NINJAMASTERS_A::m_nExpectedGameROMSize = 0x200000;
 UINT32 CGame_NINJAMASTERS_A::m_nConfirmedROMSize = -1;
@@ -28,7 +27,7 @@ void CGame_NINJAMASTERS_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_NINJAMASTERS_A::InitDescTree());
 }
 
-CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
+CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A: Loading ROM...\n");
 
@@ -37,12 +36,10 @@ CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize, int nROMToL
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nSelectedRom = nROMToLoad;
-
     m_nTotalInternalUnits = NINJAMASTERS_A_NUMUNIT;
     m_nExtraUnit = NINJAMASTERS_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 444;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 433;
     m_pszExtraFilename = EXTRA_FILENAME_NINJAMASTERS_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNINJAMASTERS;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -216,42 +213,6 @@ const sDescTreeNode* CGame_NINJAMASTERS_A::GetNodeFromPaletteId(size_t nUnitId, 
 const sGame_PaletteDataset* CGame_NINJAMASTERS_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
 {
     return _GetSpecificPalette(NINJAMASTERS_A_UNITS, rgExtraCountAll, NINJAMASTERS_A_NUMUNIT, NINJAMASTERS_A_EXTRALOC, nUnitId, nPaletteId, NINJAMASTERS_A_EXTRA_CUSTOM);
-}
-
-void CGame_NINJAMASTERS_A::InitDataBuffer()
-{
-    m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
-}
-
-void CGame_NINJAMASTERS_A::ClearDataBuffer()
-{
-    int nCurrentROMMode = m_nSelectedRom;
-
-    m_nSelectedRom = m_nBufferSelectedRom;
-
-    if (m_pppDataBuffer)
-    {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            if (m_pppDataBuffer[nUnitCtr])
-            {
-                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-                {
-                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
-                }
-
-                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
-            }
-        }
-
-        safe_delete_array(m_pppDataBuffer);
-    }
-
-    m_nSelectedRom = nCurrentROMMode;
 }
 
 void CGame_NINJAMASTERS_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)

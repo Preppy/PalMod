@@ -62,8 +62,8 @@ const sGame_PaletteDataset VampireNightWarriors_A_GALLON_PALETTES_P2[] =
 const sGame_PaletteDataset VampireNightWarriors_A_VICTOR_PALETTES_P1[] =
 {
     { L"P1 Victor",                 0x11aaa, 0x11aca, indexCPS2Sprites_Vamp_Victor, 0x0 },
-    { L"P1 Unknown",                0x11aea, 0x11b0a },
-    { L"P1 Electric Flash",         0x11aca, 0x11aea, indexCPS2Sprites_Vamp_Victor, 0x0 },
+    { L"P1 Unknown",                0x11aca, 0x11aea },
+    { L"P1 Electric Flash",         0x11aea, 0x11b0a, indexCPS2Sprites_Vamp_Victor, 0x0 },
     { L"P1 Electricity 1?",         0x11b0a, 0x11b2a, indexCPS2Sprites_Vamp_Victor, 0x09 },
     { L"P1 Electricity 2?",         0x11b2a, 0x11b4a, indexCPS2Sprites_Vamp_Victor, 0x09 },
 };
@@ -170,19 +170,19 @@ const sGame_PaletteDataset VampireNightWarriors_A_BISHAMON_PALETTES_P2[] =
 const sGame_PaletteDataset VampireNightWarriors_A_AULBATH_PALETTES_P1[] =
 {
     { L"P1 Aulbath",    0x1222a, 0x1224a, indexCPS2Sprites_Vamp_Aulbath, 0x0 },
-    { L"P1 Unknown 1",  0x1224a, 0x1226a },
-    { L"P1 Unknown 2",  0x1226a, 0x1228a },
-    { L"P1 Unknown 3",  0x1228a, 0x122aa },
-    { L"P1 Unknown 4",  0x122aa, 0x122ca },
+    { L"P1 Unknown",    0x1224a, 0x1226a },
+    { L"P1 Poison Gas", 0x1226a, 0x1228a, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"P1 Water",      0x1228a, 0x122aa, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
+    { L"P1 Sonic Wave", 0x122aa, 0x122ca },
 };
 
 const sGame_PaletteDataset VampireNightWarriors_A_AULBATH_PALETTES_P2[] =
 {
     { L"P2 Aulbath",    0x122ca, 0x122ea, indexCPS2Sprites_Vamp_Aulbath, 0x0 },
-    { L"P2 Unknown 1",  0x122ea, 0x1230a },
-    { L"P2 Unknown 2",  0x1230a, 0x1232a },
-    { L"P2 Unknown 3",  0x1232a, 0x1234a },
-    { L"P2 Unknown 4",  0x1234a, 0x1236a },
+    { L"P2 Unknown",    0x122ea, 0x1230a },
+    { L"P2 Poison Gas", 0x1230a, 0x1232a, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"P2 Water",      0x1232a, 0x1234a, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
+    { L"P2 Sonic Wave", 0x1234a, 0x1236a },
 };
 
 const sGame_PaletteDataset VampireNightWarriors_A_SASQUATCH_PALETTES_P1[] =

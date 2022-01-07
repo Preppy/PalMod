@@ -325,7 +325,7 @@ const sDescTreeNode RBFF1_A_UNITS[] =
 
 constexpr auto RBFF1_A_NUMUNIT = ARRAYSIZE(RBFF1_A_UNITS);
 
-#define RBFF1_A_EXTRALOC RBFF1_A_NUMUNIT
+constexpr auto RBFF1_A_EXTRALOC = RBFF1_A_NUMUNIT;
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef RBFF1_A_EXTRA[] =

@@ -108,6 +108,16 @@ const sGame_PaletteDataset FatalFuryS_A_Cheng_PALETTES_P2[] =
     { L"Cheng Sinzan Portrait P2", 0x41940, 0x41960 },
 };
 
+const sGame_PaletteDataset FatalFuryS_A_BONUS_PALETTES_CSI[] =
+{
+    { L"Ryo Select Icon", 0x40ca0, 0x40cc0 },
+};
+
+const sGame_PaletteDataset FatalFuryS_A_BONUS_PALETTES_TUTORIAL[] =
+{
+    { L"Tutorial Things Flash", 0x41cc0, 0x41d00 },
+};
+
 const sDescTreeNode FatalFuryS_A_Cheng_COLLECTION[] =
 {
    { L"P1", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Cheng_PALETTES_P1, ARRAYSIZE(FatalFuryS_A_Cheng_PALETTES_P1) },
@@ -391,11 +401,13 @@ const sGame_PaletteDataset FatalFuryS_A_BONUS_SELECTSCREEN_PALETTES[] =
 
 const sDescTreeNode FatalFuryS_A_BONUS_COLLECTION[] =
 {
-   { L"Intro", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_INTRO_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_INTRO_PALETTES) },
-   { L"Start Menu", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_STARTMENU_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_STARTMENU_PALETTES) },
-   { L"In-game Extras", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_INGAME_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_INGAME_PALETTES) },
-   { L"HUD", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_HUD_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_HUD_PALETTES) },
-   { L"Select Screen", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_SELECTSCREEN_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_SELECTSCREEN_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_INTRO_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_INTRO_PALETTES) },
+    { L"Start Menu", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_STARTMENU_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_STARTMENU_PALETTES) },
+    { L"In-game Extras", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_INGAME_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_INGAME_PALETTES) },
+    { L"HUD", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_HUD_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_HUD_PALETTES) },
+    { L"Select Screen", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_SELECTSCREEN_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_SELECTSCREEN_PALETTES) },
+    { L"Select Icons", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_PALETTES_CSI, ARRAYSIZE(FatalFuryS_A_BONUS_PALETTES_CSI) },
+    { L"Tutorial", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_PALETTES_TUTORIAL, ARRAYSIZE(FatalFuryS_A_BONUS_PALETTES_TUTORIAL) },
 };
 
 const sDescTreeNode FatalFuryS_A_UNITS[] =
@@ -421,7 +433,7 @@ const sDescTreeNode FatalFuryS_A_UNITS[] =
 
 constexpr auto FatalFuryS_A_NUMUNIT = ARRAYSIZE(FatalFuryS_A_UNITS);
 
-#define FatalFuryS_A_EXTRALOC FatalFuryS_A_NUMUNIT
+constexpr auto FatalFuryS_A_EXTRALOC = FatalFuryS_A_NUMUNIT;
 
 // We extend this array with data groveled from the extensible extras file, if any.
 const stExtraDef FatalFuryS_A_EXTRA[] =
