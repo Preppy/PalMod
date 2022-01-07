@@ -990,7 +990,7 @@ BOOL CGame_KOF99AE_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
-    nTargetImgId = 0;
+    int nTargetImgId = 0;
     size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;

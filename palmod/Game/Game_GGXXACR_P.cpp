@@ -255,7 +255,7 @@ BOOL CGame_GGXXACR_P::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     }
 
     //Change the image id if we need to
-    nTargetImgId = 0;
+    int nTargetImgId = 0;
     size_t nImgUnitId = INVALID_UNIT_VALUE;
     int nSrcStart = (int)0;
     size_t nSrcAmt = 1;

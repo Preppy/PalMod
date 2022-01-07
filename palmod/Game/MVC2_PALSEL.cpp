@@ -114,7 +114,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     bool fUsingDataFromDescriptionSet = false;
 
     //Change the image id if we need to
-    nTargetImgId = -1;
+    int nTargetImgId = -1;
     nImgUnitId = uUnitId;
 
     //Get rid of any palettes if there are any

@@ -133,8 +133,6 @@ public:
 
     size_t* rgUnitRedir = nullptr;
     int nRedirCtr = 0;
-    //Used for image selection
-    int nTargetImgId = 0;
 
     // Currently only used by MVC2
     UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
@@ -146,7 +144,6 @@ public:
     inline BOOL GameIsUsing16BitColor() { return m_nSizeOfColorsInBytes == 2; };
     inline BOOL GameIsUsing24BitColor() { return m_nSizeOfColorsInBytes == 3; };
     inline BOOL GameIsUsing32BitColor() { return m_nSizeOfColorsInBytes == 4; };
-
 
     UINT16 GetCurrentPaletteSizeInColors() { return m_nCurrentPaletteSizeInColors; };
 

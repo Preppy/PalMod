@@ -1443,7 +1443,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
-    nTargetImgId = 0;
+    int nTargetImgId = 0;
     size_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;

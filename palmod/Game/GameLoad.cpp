@@ -2080,7 +2080,6 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
     size_t nFileAmt = CurrGame->GetFileAmt();
     LPCWSTR pszLoadDir = CurrGame->GetLoadDir();
-    size_t* rgUnitRedir = CurrGame->rgUnitRedir;
     CString strErrorFile;
 
     if (CurrGame->GetIsDir())

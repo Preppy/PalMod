@@ -234,7 +234,7 @@ BOOL CGame_P4AU_NESICA::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
 
     //Change the image id if we need to, using the single image index list used for each color
     size_t nImgUnitId = PersonaCharacterData[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageSet;
-    nTargetImgId = PersonaCharacterData[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageIndex;
+    int nTargetImgId = PersonaCharacterData[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageIndex;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
