@@ -727,10 +727,10 @@ namespace MVC2_SupplementProcessing
         0x22 | SUPP_START, // Sakura - indexCPS2Sprites_Sakura 0x22
             //Kei should have the same outfit
             SUPP_NODE | SUPP_NODE_NOCOPY, 0x11, 2,
-                MOD_COPY, 10, 6, 10,
+                MOD_COPY, 9, 7, 9,
             // Likewise with Evil Sakura
             SUPP_NODE | SUPP_NODE_NOCOPY, 0x31, 1,
-                MOD_COPY, 10, 6, 10,
+                MOD_COPY, 9, 7, 9,
     };
 
     const std::vector<UINT16> supp_data_cammy =

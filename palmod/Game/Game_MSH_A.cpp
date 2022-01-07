@@ -190,7 +190,6 @@ size_t CGame_MSH_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
     m_nMSHSelectedRom = nROMPaletteSetToUse;
 
     UINT16 nUnitCt;

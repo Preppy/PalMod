@@ -1072,6 +1072,22 @@ const sGame_PaletteDataset SAMSHO3_A_ZANKURO_PALETTES_B2[] =
     { L"End of Portrait / Character Extra 5", 0xefc0, 0xf000 },
 };
 
+const sGame_PaletteDataset SAMSHO3_A_BONUS_PALETTES_CSIS[] =
+{
+    { L"Haohmaru", 0xA00, 0xA20 },
+    { L"Nakoruru", 0xA20, 0xA40 },
+    { L"Rimururu", 0xA40, 0xA60 },
+    { L"Hanzo Hattori", 0xA60, 0xA80 },
+    { L"Galford", 0xA80, 0xAA0 },
+    { L"Kyoshiro Senryo", 0xAA0, 0xAC0 },
+    { L"Ukyo Tachibana", 0xAC0, 0xAE0 },
+    { L"Genjuro Kibagami", 0xAE0, 0xB00 },
+    { L"Basara Kubikiri", 0xB00, 0xB20 },
+    { L"Shizumaru Hisame", 0xB20, 0xB40 },
+    { L"Gaira Caffeine", 0xB40, 0xB60 },
+    { L"Shiro Tokisada Amakusa", 0xB60, 0xB80 },
+};
+
 const sDescTreeNode SAMSHO3_A_HAOHMARU_COLLECTION[] =
 {
     { L"Slash 1", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_HAOHMARU_PALETTES_S1, ARRAYSIZE(SAMSHO3_A_HAOHMARU_PALETTES_S1) },
@@ -1176,6 +1192,11 @@ const sDescTreeNode SAMSHO3_A_ZANKURO_COLLECTION[] =
     { L"Bust 2", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_ZANKURO_PALETTES_B2, ARRAYSIZE(SAMSHO3_A_ZANKURO_PALETTES_B2) },
 };
 
+const sDescTreeNode SAMSHO3_A_BONUS_COLLECTION[] =
+{
+    { L"Select Screen Icons", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BONUS_PALETTES_CSIS, ARRAYSIZE(SAMSHO3_A_BONUS_PALETTES_CSIS) },
+};
+
 const sDescTreeNode SAMSHO3_A_UNITS[] =
 {
     { L"Amakusa", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_AMAKUSA_COLLECTION, ARRAYSIZE(SAMSHO3_A_AMAKUSA_COLLECTION) },
@@ -1191,11 +1212,13 @@ const sDescTreeNode SAMSHO3_A_UNITS[] =
     { L"Shizumaru", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_SHIZUMARU_COLLECTION, ARRAYSIZE(SAMSHO3_A_SHIZUMARU_COLLECTION) },
     { L"Ukyo", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_UKYO_COLLECTION, ARRAYSIZE(SAMSHO3_A_UKYO_COLLECTION) },
     { L"Zankuro", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_ZANKURO_COLLECTION, ARRAYSIZE(SAMSHO3_A_ZANKURO_COLLECTION) },
+
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BONUS_COLLECTION, ARRAYSIZE(SAMSHO3_A_BONUS_COLLECTION) },
 };
 
 constexpr auto SAMSHO3_A_NUMUNIT = ARRAYSIZE(SAMSHO3_A_UNITS);
 
-#define SAMSHO3_A_EXTRALOC SAMSHO3_A_NUMUNIT
+constexpr auto SAMSHO3_A_EXTRALOC = SAMSHO3_A_NUMUNIT;
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef SAMSHO3_A_EXTRA[] =

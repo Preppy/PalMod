@@ -29,9 +29,7 @@ void CGame_SAMSHO3_A::InitializeStatics()
 
 CGame_SAMSHO3_A::CGame_SAMSHO3_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_SAMSHO3_A::CGame_SAMSHO3_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_SAMSHO3_A::CGame_SAMSHO3_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -45,11 +43,11 @@ CGame_SAMSHO3_A::CGame_SAMSHO3_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SAMSHO3_A_NUMUNIT;
     m_nExtraUnit = SAMSHO3_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 832;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 844;
     m_pszExtraFilename = EXTRA_FILENAME_SAMSHO3_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSAMSHO3;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x1000;
+    m_nLowestKnownPaletteRomLocation = 0xa00;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 

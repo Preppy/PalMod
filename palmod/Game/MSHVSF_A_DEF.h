@@ -36,6 +36,261 @@ const std::vector<UINT16> MSHVSF_A_IMGIDS_USED =
     indexCPS2Sprites_MSHVSFAssets,
 };
 
+#pragma region SecondaryPaletteEffects
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Cyclops =
+{
+    // there are 8 intro frames
+    { SUPP_NODE, 0x04, 8,
+        MOD_LUM, 1, 15, NEG + 3 },
+    { SUPP_NODE, 0x05, 8,
+        MOD_LUM, 1, 15, NEG + 7 },
+    { SUPP_NODE, 0x06, 8,
+        MOD_LUM, 1, 15, NEG + 11 },
+    { SUPP_NODE, 0x07, 8,
+        MOD_LUM, 1, 15, NEG + 17 },
+    { SUPP_NODE, 0x08, 8,
+        MOD_LUM, 1, 15, NEG + 24 },
+    { SUPP_NODE, 0x09, 8,
+        MOD_LUM, 1, 15, NEG + 30 },
+    { SUPP_NODE, 0x0a, 8,
+        MOD_LUM, 1, 15, NEG + 33 },
+    { SUPP_NODE, 0x0b, 8,
+        MOD_LUM, 1, 15, NEG + 39 },
+
+    // Mega Optic Blast Stance
+    // default color slightly darkened
+    { SUPP_NODE, 0x0c, 2,
+        MOD_LUM, 1, 15, NEG + 2 },
+    // default color with red tint
+    { SUPP_NODE, 0x0d, 2,
+        MOD_TINT, 1, 15, 1, 5, NEG + 1, NEG + 1 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Dhalsim =
+{
+    // 5 teleport frames
+    { SUPP_NODE, 0x03, 5,
+        MOD_LUM, 1, 15, 15 },
+    { SUPP_NODE, 0x04, 5,
+        MOD_LUM, 1, 15, 27 },
+    { SUPP_NODE, 0x05, 5,
+        MOD_LUM, 1, 15, 42 },
+    { SUPP_NODE, 0x06, 5,
+        MOD_LUM, 1, 15, 65 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Norimaro =
+{
+    // Throw rage
+    { SUPP_NODE, 0x01, 2,
+        MOD_TINT, 2, 5, 1, 3, NEG + 3, NEG + 3 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_OmegaRed =
+{
+    //Omega Red: intro frames
+    { SUPP_NODE, 0x01, 4,
+            MOD_LUM, 1, 15, 25 + NEG },
+    { SUPP_NODE, 0x02, 4,
+            MOD_LUM, 1, 15, 12 + NEG },
+    { SUPP_NODE, 0x03, 4,
+            MOD_LUM, 1, 15, 9 + NEG },
+    { SUPP_NODE, 0x04, 4,
+            MOD_LUM, 1, 15, 5 + NEG },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Sakura =
+{
+    //Kei should have the same outfit
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 2,
+        MOD_COPY, 9, 7, 9 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Shuma =
+{
+    // We don't expose the unused blue palettes here, so this sort is different than MSH
+    // 
+    // Dash/Guard: Extra 01
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 8,
+        MOD_COPY, 1, 8, 1 },
+
+    // Stance (after FP): 5 frames
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x03, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x04, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x05, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x06, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x07, 0x30, MOD_COPY, 2, 7, 2 },
+
+    // Stone Drop (d+HK): 5 frames
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x08, 0x30,
+        MOD_COPY, 9, 3, 9 },
+    { SUPP_NODE, 0x09, 0x30,
+        MOD_SAT, 1, 8, NEG + 70,
+        MOD_LUM, 1, 8, 5 },
+    { SUPP_NODE, 0x0a, 0x30,
+        MOD_SAT, 1, 8, NEG + 55,
+        MOD_LUM, 1, 8, 5 },
+    { SUPP_NODE, 0x0b, 0x30,
+        MOD_SAT, 1, 8, NEG + 30,
+        MOD_LUM, 1, 8, 5 },
+    { SUPP_NODE, 0x0c, 0x30 },
+
+    // 10 unexposed blue palettes
+    // 10 unchanged life drain palettes
+
+    // HP Flash frames: 7 frames
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x17, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x18, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x19, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x1a, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x1b, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x1c, 0x30, MOD_COPY, 2, 7, 2 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x1d, 0x30, MOD_COPY, 2, 7, 2 },
+
+    // Chaos Dimension: 5 paired frames: same sort as MvC2
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x1e, 0x30,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 65,
+        MOD_LUM, 2, 7, 17,
+        MOD_LUM, 9, 3, 10 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x1f, 0x30,
+        MOD_COPY, 1, 8, 1,
+        MOD_LUM, 1, 8, 5 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x20, 0x30,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 45,
+        MOD_LUM, 2, 7, 13 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x21, 0x30,
+        MOD_COPY, 1, 8, 1,
+        MOD_LUM, 1, 8, 10 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x22, 0x30,
+        MOD_COPY, 1, 11, 1,
+        MOD_SAT, 2, 7, NEG + 35,
+        MOD_LUM, 2, 7, 14 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x23, 0x30,
+        MOD_COPY, 1, 8, 1,
+        MOD_LUM, 1, 8, 15 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x24, 0x30,
+    // the skin highlight is flipped here
+        MOD_COPY, 1, 1, 1,
+        MOD_COPY, 2, 1, 8,
+        MOD_COPY, 3, 1, 7,
+        MOD_COPY, 4, 1, 6,
+        MOD_COPY, 5, 1, 5,
+        MOD_COPY, 6, 1, 4,
+        MOD_COPY, 7, 1, 3,
+        MOD_COPY, 8, 1, 2,
+        MOD_COPY, 9, 3, 9,
+        MOD_SAT, 2, 7, NEG + 25,
+        MOD_LUM, 2, 7, 17 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x25, 0x30,
+    // the skin highlight is flipped here
+        MOD_COPY, 1, 1, 1,
+        MOD_COPY, 2, 1, 8,
+        MOD_COPY, 3, 1, 7,
+        MOD_COPY, 4, 1, 6,
+        MOD_COPY, 5, 1, 5,
+        MOD_COPY, 6, 1, 4,
+        MOD_COPY, 7, 1, 3,
+        MOD_COPY, 8, 1, 2,
+        MOD_LUM, 1, 8, 20 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x26, 0x30,
+    // the skin highlight is flipped here
+        MOD_COPY, 1, 1, 1,
+        MOD_COPY, 2, 1, 8,
+        MOD_COPY, 3, 1, 7,
+        MOD_COPY, 4, 1, 6,
+        MOD_COPY, 5, 1, 5,
+        MOD_COPY, 6, 1, 4,
+        MOD_COPY, 7, 1, 3,
+        MOD_COPY, 8, 1, 2,
+        MOD_COPY, 9, 3, 9,
+        MOD_SAT, 2, 7, NEG + 15,
+        MOD_LUM, 2, 7, 20,
+        MOD_LUM, 9, 3, 10 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x27, 0x30,
+    // the skin highlight is flipped here
+        MOD_COPY, 1, 1, 1,
+        MOD_COPY, 2, 1, 8,
+        MOD_COPY, 3, 1, 7,
+        MOD_COPY, 4, 1, 6,
+        MOD_COPY, 5, 1, 5,
+        MOD_COPY, 6, 1, 4,
+        MOD_COPY, 7, 1, 3,
+        MOD_COPY, 8, 1, 2,
+        MOD_LUM, 1, 8, 25 },
+
+    // Mystic Smash Shadows
+    { SUPP_NODE, 0x28, 0x30,
+        MOD_LUM, 1, 15, NEG + 20 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Spidey =
+{
+    // Taunt balloon: we don't touch
+
+    // Intro
+    { SUPP_NODE, 0x03, 16,
+        MOD_LUM, 01, 10, NEG + 29 },
+    { SUPP_NODE, 0x04, 16,
+        MOD_LUM, 01, 10, NEG + 23 },
+    { SUPP_NODE, 0x05, 16,
+        MOD_LUM, 01, 10, NEG + 17 },
+    { SUPP_NODE, 0x06, 16,
+        MOD_LUM, 01, 10, NEG + 12 },
+    { SUPP_NODE, 0x07, 16,
+        MOD_LUM, 01, 10, NEG + 8 },
+    { SUPP_NODE, 0x08, 16,
+        MOD_LUM, 01, 10, NEG + 7 },
+    { SUPP_NODE, 0x09, 16,
+        MOD_LUM, 01, 10, NEG + 5 },
+    { SUPP_NODE, 0x0a, 16,
+        MOD_LUM, 01, 10, NEG + 3 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Wolverine =
+{
+    // his berserker barrage trails a bit of his costume.
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,
+        MOD_COPY,  2, 1, 12,
+        MOD_COPY, 11, 1, 13,
+        MOD_COPY, 10, 1, 14,
+        MOD_COPY,  9, 1, 15 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Zangief =
+{
+    // 3 FAB rage palettes
+    { SUPP_NODE, 0x03, 3,
+        MOD_TINT, 1, 7, 1, 2, NEG + 2, NEG + 2 }, // ~15% tint
+    { SUPP_NODE, 0x04, 3,
+        MOD_TINT, 1, 7, 1, 4, NEG + 4, NEG + 4 }, // ~35% tint
+    { SUPP_NODE, 0x05, 3,
+        MOD_TINT, 1, 7, 1, 7, NEG + 6, NEG + 6 }, // ~75% tint
+};
+
+const stPaletteProcessingInformation secondaryMSHVSFCyclopsEffects{ paletteBuddy_MSHVSF_Cyclops };
+const stPaletteProcessingInformation secondaryMSHVSFDhalsimEffects{ paletteBuddy_MSHVSF_Dhalsim };
+const stPaletteProcessingInformation secondaryMSHVSFNorimaroEffects{ paletteBuddy_MSHVSF_Norimaro };
+const stPaletteProcessingInformation secondaryMSHVSFOmegaRedEffects{ paletteBuddy_MSHVSF_OmegaRed };
+const stPaletteProcessingInformation secondaryMSHVSFSakuraEffects{ paletteBuddy_MSHVSF_Sakura };
+const stPaletteProcessingInformation secondaryMSHVSFShumaEffects{ paletteBuddy_MSHVSF_Shuma };
+const stPaletteProcessingInformation secondaryMSHVSFSpideyEffects{ paletteBuddy_MSHVSF_Spidey };
+const stPaletteProcessingInformation secondaryMSHVSFWolverineEffects{ paletteBuddy_MSHVSF_Wolverine };
+const stPaletteProcessingInformation secondaryMSHVSFZangiefEffects{ paletteBuddy_MSHVSF_Zangief };
+
+#pragma endregion
+
 const sGame_PaletteDataset MSHVSF_A_APOCALYPSE_PALETTES_SHARED[] =
 {
     { L"Small Body (Intro)", 0x71ECc, 0x71EEc, indexCPS2Sprites_Apocalypse, 0x00 },
@@ -109,6 +364,7 @@ const sGame_PaletteDataset MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P1COLOR_PUNCH[] =
     { L"P1 Charging Star",           0x7214c, 0x7216c, indexCPS2Sprites_CapAm, 2 },
 
 };
+
 const sGame_PaletteDataset MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P2COLOR_KICK[] =
 {
     { L"P2 Color (Kick)",            0x7216c, 0x7218c, indexCPS2Sprites_CapAm, 0, &pairNext },
@@ -122,6 +378,7 @@ const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P1COLOR_PUNCH[] =
     { L"P1 Keiokuken (shades)", 0x727Ec, 0x7280c, indexCPS2Sprites_ChunLi, 1 },
     { L"P1 Kikosho",         0x7280c, 0x7282c, indexCPS2Sprites_ChunLi, 2 },
 };
+
 const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK[] =
 {
     { L"P2 Color (Kick)",    0x7282c, 0x7284c, indexCPS2Sprites_ChunLi, 0, &pairNext },
@@ -135,6 +392,7 @@ const sGame_PaletteDataset MSHVSF_A_CYBER_AKUMA_PALETTES_P1COLOR_PUNCH[] =
     { L"P1 Machinery, Hadouken 2", 0x72F0c, 0x72F2c, indexCPS2Sprites_CyberAkuma, 1 },
     { L"P1 Hadouken 1 Tatsu Flames", 0x72EEc, 0x72F0c, indexCPS2Sprites_Akuma, 1 },
 };
+
 const sGame_PaletteDataset MSHVSF_A_CYBER_AKUMA_PALETTES_P2COLOR_KICK[] =
 {
     { L"P2 Color (Kick)", 0x72F2c, 0x72F4c, indexCPS2Sprites_CyberAkuma, 0, &pairNext },
@@ -144,7 +402,7 @@ const sGame_PaletteDataset MSHVSF_A_CYBER_AKUMA_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)", 0x71F8c, 0x71FAc, indexCPS2Sprites_Cyclops, 0, &pairNext },
+    { L"P1 Color (Punch)", 0x71F8c, 0x71FAc, indexCPS2Sprites_Cyclops, 0, &pairNext, &secondaryMSHVSFCyclopsEffects },
     { L"P1 HK Extra", 0x71FAc, 0x71FCc, indexCPS2Sprites_Cyclops, 1 },
     { L"P1 Optic Blast Super", 0x71FCc, 0x71FEc, indexCPS2Sprites_Cyclops, 2 },
     // ? don't know what this maps to
@@ -164,7 +422,7 @@ const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH[] =
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)", 0x71FEc, 0x7200c, indexCPS2Sprites_Cyclops, 0, &pairNext },
+    { L"P2 Color (Kick)", 0x71FEc, 0x7200c, indexCPS2Sprites_Cyclops, 0, &pairNext, &secondaryMSHVSFCyclopsEffects },
     { L"P2 HK Extra", 0x7200c, 0x7202c, indexCPS2Sprites_Cyclops, 1 },
     { L"P2 Optic Blast Super", 0x7202c, 0x7204c, indexCPS2Sprites_Cyclops, 2 },
     // ? don't know what this maps to
@@ -219,7 +477,7 @@ const sGame_PaletteDataset MSHVSF_A_DARK_SAKURA_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",        0x7288c, 0x728Ac, indexCPS2Sprites_Dhalsim },
+    { L"P1 Color (Punch)",        0x7288c, 0x728Ac, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryMSHVSFDhalsimEffects },
     { L"P1 Extras 1 Flames",      0x728Ac, 0x728Cc, indexCPS2Sprites_Dhalsim, 1 },
     { L"P1 Extras Sally",         0x728Cc, 0x728Ec, indexCPS2Sprites_Dhalsim, 2 },
     { L"P1 Teleport 1", 0x76CCc, 0x76CEc, indexCPS2Sprites_Dhalsim, 0xb },
@@ -231,7 +489,7 @@ const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P1COLOR_PUNCH[] =
 };
 const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x728Ec, 0x7290c, indexCPS2Sprites_Dhalsim },
+    { L"P2 Color (Kick)",        0x728Ec, 0x7290c, indexCPS2Sprites_Dhalsim, 0x00, nullptr, &secondaryMSHVSFDhalsimEffects },
     { L"P2 Extras 1 Flames",     0x7290c, 0x7292c, indexCPS2Sprites_Dhalsim, 1 },
     { L"P2 Extras Sally",        0x7292c, 0x7294c, indexCPS2Sprites_Dhalsim, 2 },
     { L"P2 Teleport 1",          0x76D6c, 0x76D8c, indexCPS2Sprites_Dhalsim, 0xb },
@@ -319,14 +577,14 @@ const sGame_PaletteDataset MSHVSF_A_MECH_ZANGIEF_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSHVSF_A_NORIMARO_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x72D4c, 0x72D6c, indexCPS2Sprites_Norimaro },
+    { L"P1 Color (Punch)",       0x72D4c, 0x72D6c, indexCPS2Sprites_Norimaro, 0x00, nullptr, &secondaryMSHVSFNorimaroEffects },
     { L"P1 Extras 1",            0x7710c, 0x7712c, indexCPS2Sprites_Norimaro, 0x02 },
     { L"P1 Extras 2",            0x7716c, 0x7718c },
 };
 
 const sGame_PaletteDataset MSHVSF_A_NORIMARO_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x72DAc, 0x72DCc, indexCPS2Sprites_Norimaro },
+    { L"P2 Color (Kick)",        0x72DAc, 0x72DCc, indexCPS2Sprites_Norimaro, 0x00, nullptr, &secondaryMSHVSFNorimaroEffects },
     { L"P2 Extras 1",            0x7718c, 0x771Ac, indexCPS2Sprites_Norimaro, 0x02 },
     { L"P2 Extras 2",            0x72DCc, 0x72DEc },
 };
@@ -338,7 +596,7 @@ const sGame_PaletteDataset MSHVSF_A_NORIMARO_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MSHVSF_A_OMEGARED_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x7240c, 0x7242c, indexCPS2Sprites_OmegaRed },
+    { L"P1 Color (Punch)",       0x7240c, 0x7242c, indexCPS2Sprites_OmegaRed, 0x00, nullptr, &secondaryMSHVSFOmegaRedEffects },
     { L"P1 Intro 1", 0x764Ac, 0x764Cc, indexCPS2Sprites_OmegaRed },
     { L"P1 Intro 2", 0x764Cc, 0x764Ec, indexCPS2Sprites_OmegaRed },
     { L"P1 Intro 3", 0x764Ec, 0x7650c, indexCPS2Sprites_OmegaRed },
@@ -349,7 +607,7 @@ const sGame_PaletteDataset MSHVSF_A_OMEGARED_PALETTES_P1COLOR_PUNCH[] =
 
 const sGame_PaletteDataset MSHVSF_A_OMEGARED_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",       0x7246c, 0x7248c, indexCPS2Sprites_OmegaRed },
+    { L"P2 Color (Kick)",       0x7246c, 0x7248c, indexCPS2Sprites_OmegaRed, 0x00, nullptr, &secondaryMSHVSFOmegaRedEffects },
     { L"P2 Intro 1", 0x7652c, 0x7654c, indexCPS2Sprites_OmegaRed },
     { L"P2 Intro 2", 0x7654c, 0x7656c, indexCPS2Sprites_OmegaRed },
     { L"P2 Intro 3", 0x7656c, 0x7658c, indexCPS2Sprites_OmegaRed },
@@ -374,7 +632,7 @@ const sGame_PaletteDataset MSHVSF_A_RYU_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",          0x72C8c, 0x72CAc, indexCPS2Sprites_Sakura },
+    { L"P1 Color (Punch)",          0x72C8c, 0x72CAc, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
     { L"P1 Extras 1 Hadouken",      0x72CAc, 0x72CCc, indexCPS2Sprites_Ken, 1 },
     { L"P1 Extras 2 Friend (Kei)",  0x77FCc, 0x77FEc, indexCPS2Sprites_Sakura, 0x09, &pairNext },
     { L"P1 Extras 3 Bag",           0x77FEc, 0x7800c, indexCPS2Sprites_Sakura, 0x0a },
@@ -384,7 +642,7 @@ const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH[] =
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",           0x72CEc, 0x72D0c, indexCPS2Sprites_Sakura },
+    { L"P2 Color (Kick)",           0x72CEc, 0x72D0c, indexCPS2Sprites_Sakura, 0x00, nullptr, &secondaryMSHVSFSakuraEffects },
     { L"P2 Extras 1 Hadouken",      0x72D0c, 0x72D2c, indexCPS2Sprites_Ken, 1 },
     { L"P2 Extras 2 Friend (Kei)",  0x7800c, 0x7802c, indexCPS2Sprites_Sakura, 0x09, &pairNext },
     { L"P2 Extras 3 Bag",           0x7802c, 0x7804c, indexCPS2Sprites_Sakura, 0x0a },
@@ -413,9 +671,9 @@ const sGame_PaletteDataset MSHVSF_A_SHADOW_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",        0x7234c, 0x7236c, indexCPS2Sprites_Shuma },
+    { L"P1 Color (Punch)",        0x7234c, 0x7236c, indexCPS2Sprites_Shuma, 0x00, nullptr, &secondaryMSHVSFShumaEffects },
         { L"P1 HP", 0x7236c, 0x7238c, indexCPS2Sprites_Shuma },
-        { L"P1 Mystic Stare", 0x7238c, 0x723Ac, indexCPS2Sprites_Shuma },
+        { L"P1 FP / jFP / cFP / Intro", 0x7238c, 0x723Ac },
 
     { L"P1 Post HP Stance 1", 0x7728c, 0x772Ac, indexCPS2Sprites_Shuma },
     { L"P1 Post HP Stance 2", 0x772Ac, 0x772Cc, indexCPS2Sprites_Shuma },
@@ -471,9 +729,9 @@ const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH[] =
 const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK[] =
 {
 
-    { L"P2 Color (Kick)", 0x723Ac, 0x723Cc, indexCPS2Sprites_Shuma },
+    { L"P2 Color (Kick)", 0x723Ac, 0x723Cc, indexCPS2Sprites_Shuma, 0x00, nullptr, &secondaryMSHVSFShumaEffects },
     { L"P2 HP", 0x723Cc, 0x723Ec, indexCPS2Sprites_Shuma },
-    { L"P2 Mystic Stare", 0x723Ec, 0x7240c, indexCPS2Sprites_Shuma },
+    { L"P2 FP / jFP / cFP / Intro", 0x723Ec, 0x7240c },
 
     { L"P2 Post HP Stance 1", 0x7788c, 0x778Ac, indexCPS2Sprites_Shuma },
     { L"P2 Post HP Stance 2", 0x778Ac, 0x778Cc, indexCPS2Sprites_Shuma },
@@ -526,7 +784,7 @@ const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =
 { // 2 is web
-    { L"P1 Color (Punch)", 0x724Cc, 0x724Ec, indexCPS2Sprites_Spidey },
+    { L"P1 Color (Punch)", 0x724Cc, 0x724Ec, indexCPS2Sprites_Spidey, 0x00, nullptr, &secondaryMSHVSFSpideyEffects },
     { L"P1 Extras 1", 0x724Ec, 0x7250c, indexCPS2Sprites_Spidey, 0x2 },
     { L"P1 Spotlight", 0x7250c, 0x7252c, indexCPS2Sprites_Spidey, 13 },
     { L"P1 Intro 1", 0x765Cc, 0x765Ec, indexCPS2Sprites_Spidey, 0x0B },
@@ -541,7 +799,7 @@ const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =
 
 const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)", 0x7252c, 0x7254c, indexCPS2Sprites_Spidey },
+    { L"P2 Color (Kick)", 0x7252c, 0x7254c, indexCPS2Sprites_Spidey, 0x00, nullptr, &secondaryMSHVSFSpideyEffects },
     { L"P2 Extras 1", 0x7254c, 0x7256c, indexCPS2Sprites_Spidey, 0x2 },
     { L"P2 Spotlight", 0x7256c, 0x7258c, indexCPS2Sprites_Spidey, 13 },
     { L"P2 Intro 1", 0x767Cc, 0x767Ec, indexCPS2Sprites_Spidey, 0x0B },
@@ -575,7 +833,7 @@ const sGame_PaletteDataset MSHVSF_A_USAGENT_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_WOLVERINE_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",       0x7228c, 0x722Ac, indexCPS2Sprites_Wolverine, 0, &pairNext },
+    { L"P1 Color (Punch)",       0x7228c, 0x722Ac, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryMSHVSFWolverineEffects },
     { L"P1 Claws", 0x722Ac, 0x722Cc, indexCPS2Sprites_Wolverine, 1 },
     { L"P1 Extras 1", 0x722Cc, 0x722Ec, indexCPS2Sprites_Wolverine, 2 },
     { L"P1 Extras 2 (Fatal Claw)", 0x7804c, 0x7806c },
@@ -583,7 +841,7 @@ const sGame_PaletteDataset MSHVSF_A_WOLVERINE_PALETTES_P1COLOR_PUNCH[] =
 
 const sGame_PaletteDataset MSHVSF_A_WOLVERINE_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x722Ec, 0x7230c, indexCPS2Sprites_Wolverine, 0, &pairNext },
+    { L"P2 Color (Kick)",        0x722Ec, 0x7230c, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryMSHVSFWolverineEffects },
     { L"P2 Claws", 0x7230c, 0x7232c, indexCPS2Sprites_Wolverine, 1 },
     { L"P2 Extras 1", 0x7232c, 0x7234c, indexCPS2Sprites_Wolverine, 2 },
     { L"P2 Extras 2 (Fatal Claw)", 0x7806c, 0x7808c },
@@ -591,7 +849,7 @@ const sGame_PaletteDataset MSHVSF_A_WOLVERINE_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P1COLOR_PUNCH[] =
 {
-    { L"P1 Color (Punch)",   0x7294c, 0x7296c, indexCPS2Sprites_Zangief },
+    { L"P1 Color (Punch)",   0x7294c, 0x7296c, indexCPS2Sprites_Zangief, 0x00, nullptr, &secondaryMSHVSFZangiefEffects },
     { L"P1 Banishing Fist",  0x7296c, 0x7298c, indexCPS2Sprites_Zangief, 1 },
     { L"P1 Extra 2",         0x7298c, 0x729Ac },
     { L"P1 FAB 1",           0x72A4c, 0x72A6c, indexCPS2Sprites_Zangief },
@@ -601,7 +859,7 @@ const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P1COLOR_PUNCH[] =
 
 const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK[] =
 {
-    { L"P2 Color (Kick)",        0x729Ac, 0x729Cc, indexCPS2Sprites_Zangief },
+    { L"P2 Color (Kick)",        0x729Ac, 0x729Cc, indexCPS2Sprites_Zangief, 0x00, nullptr, &secondaryMSHVSFZangiefEffects },
     { L"P2 Banishing Fist",      0x729Cc, 0x729Ec, indexCPS2Sprites_Zangief, 1 },
     { L"P2 Extra 2",             0x729Ec, 0x72A0c },
     { L"P2 FAB 1",               0x72AAc, 0x72ACc, indexCPS2Sprites_Zangief },
@@ -1268,7 +1526,7 @@ const sDescTreeNode MSHVSF_A_UNITS_6A[] =
 };
 
 constexpr auto MSHVSF_A_NUM_IND_6A = ARRAYSIZE(MSHVSF_A_UNITS_6A);
-#define MSHVSF_A_EXTRALOC_6A MSHVSF_A_NUM_IND_6A
+constexpr auto MSHVSF_A_EXTRALOC_6A = MSHVSF_A_NUM_IND_6A;
 
 enum Supported_MSHVSF_6A_PaletteListIndex
 {
