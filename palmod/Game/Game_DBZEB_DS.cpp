@@ -28,7 +28,7 @@ CGame_DBZEB_DS::CGame_DBZEB_DS(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = DBZEB_DS_NUMUNIT;
     m_nExtraUnit = DBZEB_DS_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 695;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 696;
     m_pszExtraFilename = EXTRA_FILENAME_DBZEB_DS;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNEWGAME; 
     m_nLowestKnownPaletteRomLocation = 0xc981a0;

@@ -34,6 +34,13 @@ const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_P2[] =
     { L"Goku P2 portrait", 0x18160, 0x18180, indexDBZHDSprites_Goku, 0x41 },
 };
 
+const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_NORMAL[] =
+{
+    { L"Normal Goku", 0x27B161, 0x27B181 },
+    { L"Normal Goku Sunset", 0x27B1E1, 0x27B201 },
+    { L"Normal Goku Nighttime", 0x27B201, 0x27B221 },
+};
+
 const sGame_PaletteDataset DBZHD_SNES_VEGETA_PALETTES_P1[] =
 {
     { L"Vegeta P1 (Day)", 0xB0200, 0xB0220, indexDBZHDSprites_Vegeta },
@@ -73,12 +80,14 @@ const sGame_PaletteDataset DBZHD_SNES_GOHAN_PALETTES_P2[] =
 const sGame_PaletteDataset DBZHD_SNES_VEGITO_PALETTES_P1[] =
 {
     { L"Vegito P1 (Day)", 0xB0EB0, 0xB0ED0, indexDBZHDSprites_Vegito },
+    { L"Vegito Intro P1", 0xB10B0, 0xB10D0 },
     { L"Vegito P1 portrait", 0x18240, 0x18260, indexDBZHDSprites_Vegito, 0x40 },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_VEGITO_PALETTES_P2[] =
 {
     { L"Vegito P2 (Day)", 0xB0ED0, 0xB0EF0, indexDBZHDSprites_Vegito},
+    { L"Vegito Intro P2", 0xB10D0, 0xB10F0 },
     { L"Vegito P2 portrait", 0x18260, 0x18280, indexDBZHDSprites_Vegito, 0x40 },
 };
 
@@ -164,6 +173,7 @@ const sDescTreeNode DBZHD_SNES_GOKU_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_GOKU_PALETTES_P1, ARRAYSIZE(DBZHD_SNES_GOKU_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_GOKU_PALETTES_P2, ARRAYSIZE(DBZHD_SNES_GOKU_PALETTES_P2) },
+    { L"Normal", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_GOKU_PALETTES_NORMAL, ARRAYSIZE(DBZHD_SNES_GOKU_PALETTES_NORMAL) },
 };
 
 const sDescTreeNode DBZHD_SNES_VEGETA_COLLECTION[] =

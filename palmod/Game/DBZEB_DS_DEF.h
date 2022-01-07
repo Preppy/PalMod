@@ -1165,6 +1165,7 @@ const sGame_PaletteDataset DBZEB_DS_ZASSIST[] =
     { L"Saibamen",                          0x15806300, 0x15806700, indexDBZEB_ZAssists, 0x4e },
     { L"Shenron",                           0x1586A6F0, 0x1586AAF0, indexDBZEB_ZAssists, 0x4f },
     { L"Shin",                              0x158710B0, 0x158714B0, indexDBZEB_ZAssists, 0x50 },
+    { L"Shin 02 (with the Cube)",           0x158714c0, 0x158718c0, indexDBZEB_ZAssists, 0x50 },
     { L"Spopovich",                         0x15882830, 0x15882C30, indexDBZEB_ZAssists, 0x51 },
     { L"Super 17",                          0x15743580, 0x15743980, indexDBZEB_ZAssists, 0x52 },
     { L"Super Buu",                         0x155F5E70, 0x155F6270, indexDBZEB_ZAssists, 0x53 },
