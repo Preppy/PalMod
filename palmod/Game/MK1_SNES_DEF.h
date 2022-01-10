@@ -144,13 +144,26 @@ const sGame_PaletteDataset MK1_SNES_SHANGTSUNG_PALETTES[] =
     { L"Shang Tsung", 0x1CFF86, 0x1CFFA6, indexMK1Sprites_ShangTsung, 0x00 },
 };
 
-const sGame_PaletteDataset MK1_SNES_BONUS_PALETTES[] =
+const sGame_PaletteDataset MK1_SNES_BONUS_PALETTES_BONUS[] =
 {
     { L"Character Select Icons", 0xFFD6C, 0xFFE6C, indexMK1Sprites_Bonus, 0x00 },
     { L"Sweat/Blood", 0x1C16, 0x1C36 },
     
     { L"Mortal Kombat text", 0x1D7EB4, 0x1D7FB4 },
     { L"HUD Name Font", 0x1CCCCB, 0x1CCCEB },
+
+    { L"Acclaim Logo", 0xFFF4C, 0xFFFAC },
+};
+
+const sGame_PaletteDataset MK1_SNES_BONUS_PALETTES_TESTYOURMIGHT[] =
+{
+    { L"Johnny Cage", 0x131C90, 0x131CD0 },
+    { L"Kano", 0x131CD0, 0x131D10 },
+    { L"Rayden", 0x131D10, 0x131D50 },
+    { L"Liu Kang", 0x131D50, 0x131D90 },
+    { L"Scorpion", 0x131D90, 0x131DD0 },
+    { L"Sub-Zero", 0x131DD0, 0x131E10 },
+    { L"Sonya", 0x131E10, 0x131E50 },
 };
 
 const sGame_PaletteDataset MK1_SNES_STAGE_PALETTES_COURTYARD[] =
@@ -259,7 +272,8 @@ const sDescTreeNode MK1_SNES_STAGE_COLLECTION[] =
 
 const sDescTreeNode MK1_SNES_BONUS_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)MK1_SNES_BONUS_PALETTES, ARRAYSIZE(MK1_SNES_BONUS_PALETTES) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)MK1_SNES_BONUS_PALETTES_BONUS, ARRAYSIZE(MK1_SNES_BONUS_PALETTES_BONUS) },
+    { L"Test Your Might", DESC_NODETYPE_TREE, (void*)MK1_SNES_BONUS_PALETTES_TESTYOURMIGHT, ARRAYSIZE(MK1_SNES_BONUS_PALETTES_TESTYOURMIGHT) },
 };
 
 const sDescTreeNode MK1_SNES_UNITS[] =

@@ -477,6 +477,7 @@ void CGame_UNICLR_A::PostSetPal(size_t nUnitId, size_t nPalId)
     }
 
     LoadSpecificPaletteData(nUnitId, nPalId);
+    MarkPaletteDirty(nUnitId, nPartnerId);
 
     for (UINT16 nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
     {
@@ -515,7 +516,6 @@ void CGame_UNICLR_A::PostSetPal(size_t nUnitId, size_t nPalId)
             m_pppDataBuffer32[nUnitId][nPartnerId][nBelt1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nBelt2Position + nArrayIndex];
             m_pppDataBuffer32[nUnitId][nPartnerId][nBelt2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nBelt1Position + nArrayIndex];
         }
-
     }
     
     {

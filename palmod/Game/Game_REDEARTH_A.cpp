@@ -318,9 +318,9 @@ UINT32 CGame_REDEARTH_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppK
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"Red Earth: Stages (Arcade ROM 30)",     L"30", 0x074cab4d, 0 },
-        { L"Red Earth: Characters (Arcade ROM 31)", L"31", 0x14e2cad4, 0 },
-        { L"Red Earth: Coming Next (Arcade ROM 50)", L"50", 0x2f5b44bd, 0 },
+        { L"Red Earth: Stages (CPS3 ROM 30)",     L"30", 0x074cab4d, 0 },
+        { L"Red Earth: Characters (CPS3 ROM 31)", L"31", 0x14e2cad4, 0 },
+        { L"Red Earth: Coming Next (CPS3 ROM 50)", L"50", 0x2f5b44bd, 0 },
     };
 
     if (ppKnownROMSet != nullptr)

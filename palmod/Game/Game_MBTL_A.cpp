@@ -452,6 +452,7 @@ void CGame_MBTL_A::PostSetPal(size_t nUnitId, size_t nPalId)
     }
 
     LoadSpecificPaletteData(nUnitId, nPalId);
+    MarkPaletteDirty(nUnitId, nPartnerId);
 
     for (UINT16 nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
     {

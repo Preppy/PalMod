@@ -241,33 +241,33 @@ UINT32 CGame_SFA2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
         // Street Fighter Alpha 2 variants...
         // Since the character list changes between revisions, the offsets do as well. 
         // The offset logic is handled in LoadSpecificPaletteData
-        { L"SFA2 Rev 1 (Arcade)", L"sz2.07", 0x8e184246, 0 },
-        { L"SFA2 Rev 1 (Arcade)", L"sz2.08", 0x0fe8585d, 0 },
+        { L"SFA2 Rev 1 (CPS2)", L"sz2.07", 0x8e184246, 0 },
+        { L"SFA2 Rev 1 (CPS2)", L"sz2.08", 0x0fe8585d, 0 },
 
-        { L"SFA2 Rev 2 (Arcade)(USA)", L"sz2u.07", 0x5de01cc5, 0 },
-        { L"SFA2 Rev 2 (Arcade)(USA)", L"sz2u.08", 0xbea11d56, 0 },
+        { L"SFA2 Rev 2 (CPS2 USA)", L"sz2u.07", 0x5de01cc5, 0 },
+        { L"SFA2 Rev 2 (CPS2 USA)", L"sz2u.08", 0xbea11d56, 0 },
 
-        { L"SFA2 960227 (Arcade)(Asia)", L"sz2a.07", 0x0aed2494, 0 },
-        { L"SFA2 960227 (Arcade)(Asia)", L"sz2j.07a", 0xd910b2a2, 0 },
+        { L"SFA2 960227 (CPS2 Asia)", L"sz2a.07", 0x0aed2494, 0 },
+        { L"SFA2 960227 (CPS2 Asia)", L"sz2j.07a", 0xd910b2a2, 0 },
 
-        { L"SFZ2A 960826 (Arcade)(Asia)", L"szaa.07", 0x5de01cc5, 0 },
-        { L"SFZ2A 960826 (Arcade)(Asia)", L"szaa.08", 0xbea11d56, 0 },
+        { L"SFZ2A 960826 (CPS2 Asia)", L"szaa.07", 0x5de01cc5, 0 },
+        { L"SFZ2A 960826 (CPS2 Asia)", L"szaa.08", 0xbea11d56, 0 },
 
-        { L"SFZA2 960813 (Arcade)(B/H)", L"sza.07", 0xe9430762, 0 },
-        { L"SFZA2 960813 (Arcade)(B/H)", L"sza.08", 0xb65711a9, 0 },
+        { L"SFZA2 960813 (CPS2 B/H)", L"sza.07", 0xe9430762, 0 },
+        { L"SFZA2 960813 (CPS2 B/H)", L"sza.08", 0xb65711a9, 0 },
 
-        { L"SFZA2 960805 (Arcade)(Japan)", L"szaj.07a", 0x975dcb3e, 0 },
-        { L"SFZA2 960805 (Arcade)(Japan)", L"szaj.08a", 0xdc73f2d7, 0 },
+        { L"SFZA2 960805 (CPS2 Japan)", L"szaj.07a", 0x975dcb3e, 0 },
+        { L"SFZA2 960805 (CPS2 Japan)", L"szaj.08a", 0xdc73f2d7, 0 },
 
-        { L"SFZ2 960304 (Arcade)(Brazil)", L"sz2b.07", 0x947e8ac6, 0 },
-        { L"SFZ2 960531 (Arcade)(Brazil)", L"sz2b.07a", 0x7d19d5ec, 0 },
-        { L"SFZ2 (Arcade)(Brazil)", L"sz2b.08", 0x92b66e01, 0 },
+        { L"SFZ2 960304 (CPS2 Brazil)", L"sz2b.07", 0x947e8ac6, 0 },
+        { L"SFZ2 960531 (CPS2 Brazil)", L"sz2b.07a", 0x7d19d5ec, 0 },
+        { L"SFZ2 (CPS2 Brazil)", L"sz2b.08", 0x92b66e01, 0 },
 
-        { L"SFZ2 960403 (Arcade)(Hispanic)", L"sz2h.07", 0x947e8ac6, 0 },
-        { L"SFZ2 960403 (Arcade)(Hispanic)", L"sz2h.08", 0x92b66e01, 0 },
+        { L"SFZ2 960403 (CPS2 Hispanic)", L"sz2h.07", 0x947e8ac6, 0 },
+        { L"SFZ2 960403 (CPS2 Hispanic)", L"sz2h.08", 0x92b66e01, 0 },
 
-        { L"SFZ2 960403 (Arcade)(Japan)", L"sz2j.07b", 0x6352f038, 0 },
-        { L"SFZ2 960403 (Arcade)(Japan)", L"sz2j.08b", 0x92b66e01, 0 },
+        { L"SFZ2 960403 (CPS2 Japan)", L"sz2j.07b", 0x6352f038, 0 },
+        { L"SFZ2 960403 (CPS2 Japan)", L"sz2j.08b", 0x92b66e01, 0 },
     };
 
     if (ppKnownROMSet)

@@ -112,11 +112,11 @@ LPCWSTR CGame_RedEarth_A_DIR::GetGameName()
     switch (m_nRedEarthMode)
     {
     case 30:
-        return L"Red Earth: Stages (Arcade 3.x Rerip)";
+        return L"Red Earth: Stages (CPS3 3.x Rerip)";
     case 31:
     default:
-        return L"Red Earth: Characters (Arcade 3.x Rerip)";
+        return L"Red Earth: Characters (CPS3 3.x Rerip)";
     case 50:
-        return L"Red Earth: Next (Arcade 5.x Rerip)";
+        return L"Red Earth: Next (CPS3 5.x Rerip)";
     }
 }

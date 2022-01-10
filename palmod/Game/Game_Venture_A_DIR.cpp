@@ -83,11 +83,11 @@ LPCWSTR CGame_VENTURE_A_DIR::GetGameName()
 {
     if (UsePaletteSetFor50())
     {
-        return L"Jojo's Venture (Japan Arcade, 5.x: Characters)";
+        return L"Jojo's Venture (Japan CPS3, 5.x: Characters)";
     }
     else
     {
-        return L"Jojo's Venture (Japan Arcade, 3.x: HUD Portraits)";
+        return L"Jojo's Venture (Japan CPS3, 3.x: HUD Portraits)";
     }
 }
 

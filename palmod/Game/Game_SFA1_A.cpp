@@ -517,7 +517,7 @@ UINT32 CGame_SFA1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
     static sCRC32ValueSet knownROMs[] =
     {
         // All versions of SFA1/SFZ1 use the same exact palette rom
-        { L"SFA1 (Arcade)", L"sfz.06", 0x806e8f38, 0 },
+        { L"SFA1 (CPS2)", L"sfz.06", 0x806e8f38, 0 },
     };
 
     if (ppKnownROMSet != nullptr)

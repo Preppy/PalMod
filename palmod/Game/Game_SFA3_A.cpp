@@ -82,9 +82,9 @@ UINT32 CGame_SFA3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
     static const sCRC32ValueSet knownROMs[] =
     {
         // Street Fighter Alpha 3 variants...
-        { L"SFA3 980904 (Arcade)", L"sz3.09c", 0xb29e5199, 0 },
-        { L"SFA3 (Arcade)", L"sz3.09", 0xc5589553, -0x28 }, 
-        { L"SFZ3 980726 (Japan Arcade)", L"sz3.09a", 0x2180892, -0x28 },
+        { L"SFA3 980904 (CPS2)", L"sz3.09c", 0xb29e5199, 0 },
+        { L"SFA3 (CPS2)", L"sz3.09", 0xc5589553, -0x28 }, 
+        { L"SFZ3 980726 (CPS2 Japan)", L"sz3.09a", 0x2180892, -0x28 },
 
         // We are aligned to the character sprites here, but not the portraits/stages.
         // Accordingly, we don't actually expose this in the file picker UI.

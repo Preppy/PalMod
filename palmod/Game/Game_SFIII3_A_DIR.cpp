@@ -754,21 +754,21 @@ LPCWSTR CGame_SFIII3_A_DIR::GetGameName()
         switch (m_currentSFIII3ROMRevision)
         {
         case SFIII3_SupportedROMRevision::SFIII3_10_990512:
-            return L"SFIII:3S Gill Glow (990512 Arcade Rerip Japan)";
+            return L"SFIII:3S Gill Glow (CPS3 990512 Rerip Japan)";
         case SFIII3_SupportedROMRevision::SFIII3_10_990608:
-            return L"SFIII:3S Gill Glow (990608 Arcade Rerip Japan)";
+            return L"SFIII:3S Gill Glow (CPS3 990608 Rerip Japan)";
         default:
         case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
             OutputDebugString(L"Warning: unknown ROM\n");
             __fallthrough;
         case SFIII3_SupportedROMRevision::SFIII3_51:
-            return L"SFIII:3S (Arcade Rerip Japan)";
+            return L"SFIII:3S (CPS3 Rerip Japan)";
         case SFIII3_SupportedROMRevision::SFIII3_4rd:
-            return L"SFIII:4rd (3S Hack Japan)";
+            return L"SFIII:4rd (CPS3 3S Hack Japan)";
         case SFIII3_SupportedROMRevision::SFIII3_3Ex:
-            return L"SFIII:3S Ex (Japan)";
+            return L"SFIII:3S Ex (CPS3 Japan)";
         case SFIII3_SupportedROMRevision::SFIII3_10_4rd:
-            return L"SFIII:4rd Gill Glow (Arcade Rerip Japan)";
+            return L"SFIII:4rd Gill Glow (CPS3 Rerip Japan)";
         };
     }
     else
@@ -776,21 +776,21 @@ LPCWSTR CGame_SFIII3_A_DIR::GetGameName()
         switch (m_currentSFIII3ROMRevision)
         {
         case SFIII3_SupportedROMRevision::SFIII3_10_990512:
-            return L"SFIII:3S Gill Glow (990512 Arcade Rerip)";
+            return L"SFIII:3S Gill Glow (CPS3 990512 Rerip)";
         case SFIII3_SupportedROMRevision::SFIII3_10_990608:
-            return L"SFIII:3S Gill Glow (990608 Arcade Rerip)";
+            return L"SFIII:3S Gill Glow (CPS3 990608 Rerip)";
         default:
         case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
             OutputDebugString(L"Warning: unknown ROM\n");
             __fallthrough;
         case SFIII3_SupportedROMRevision::SFIII3_51:
-            return L"SFIII:3S (Arcade Rerip)";
+            return L"SFIII:3S (CPS3 Rerip)";
         case SFIII3_SupportedROMRevision::SFIII3_4rd:
-            return L"SFIII:4rd (3S Hack)";
+            return L"SFIII:4rd (CPS3 3S Hack)";
         case SFIII3_SupportedROMRevision::SFIII3_3Ex:
             return L"SFIII:3S Ex";
         case SFIII3_SupportedROMRevision::SFIII3_10_4rd:
-            return L"SFIII:4rd Gill Glow (Arcade Rerip)";
+            return L"SFIII:4rd Gill Glow (CPS3 Rerip)";
         };
     }
 }

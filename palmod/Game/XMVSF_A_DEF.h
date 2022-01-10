@@ -272,8 +272,8 @@ const sGame_PaletteDataset XMVSF_A_Storm_PALETTES_Extras[] =
 const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x153da, 0x153fa, indexCPS2Sprites_Gambit, 0x00, nullptr, &secondaryXMVSFGambitEffects },
-    { L"P1 slash FX", 0x153fa, 0x1541a, indexCPS2Sprites_Gambit, 0x01 },
-    { L"P1 card FX", 0x1541a, 0x1543a, indexCPS2Sprites_Gambit, 0x02 },
+    { L"P1 Kinetic Card // Trick Card", 0x153fa, 0x1541a, indexCPS2Sprites_Gambit, 0x01 },
+    { L"P1 Cajun Strike", 0x1541a, 0x1543a, indexCPS2Sprites_Gambit, 0x02 },
 
     // le tournament es finit
     { L"P1 glow effects 1", 0x1e63a, 0x1e65a, indexCPS2Sprites_Gambit, 0x00 },
@@ -286,8 +286,8 @@ const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P1[] =
 const sGame_PaletteDataset XMVSF_A_Gambit_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x1543a, 0x1545a, indexCPS2Sprites_Gambit, 0x00, nullptr, &secondaryXMVSFGambitEffects },
-    { L"P2 slash FX", 0x1545a, 0x1547a, indexCPS2Sprites_Gambit, 0x01 },
-    { L"P2 card FX", 0x1547a, 0x1549a, indexCPS2Sprites_Gambit, 0x02 },
+    { L"P2 Kinetic Card // Trick Card", 0x1545a, 0x1547a, indexCPS2Sprites_Gambit, 0x01 },
+    { L"P2 Cajun Strike", 0x1547a, 0x1549a, indexCPS2Sprites_Gambit, 0x02 },
 
     { L"P2 glow effects 1", 0x1e6da, 0x1e6fa, indexCPS2Sprites_Gambit, 0x00 },
     { L"P2 glow effects 2", 0x1e6fa, 0x1e71a, indexCPS2Sprites_Gambit, 0x00 },
