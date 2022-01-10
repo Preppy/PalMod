@@ -195,6 +195,7 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
 
             // Figure out what palettes we're going to be modifying
             size_t destination_palette = nChangedPaletteNumber + (in_start & 0x7FFF);
+            MarkPaletteDirty(nUnitId, destination_palette);
 
             strDebugInfo.Format(L"\t\tPreparing to process from palette 0x%x to palette 0x%x\n", nChangedPaletteNumber, destination_palette);
             OutputDebugString(strDebugInfo);

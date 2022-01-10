@@ -158,9 +158,9 @@ UINT32 CGame_MVC_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownR
     static sCRC32ValueSet knownROMs[] =
     {
         // Marvel Vs. Capcom: Clash of Super Heroes
-        { L"MvC Arcade (980112)", L"mvc.06",  0x4b0b6d3e, 0 },
-        { L"MvC Arcade (980123)", L"mvc.06a", 0x8528e1f5, 0 },
-        { L"MvC Arcade (980123)", L"mvcu.06", 0x2f1524bc, -0x60 },
+        { L"MvC (CPS2 980112)", L"mvc.06",  0x4b0b6d3e, 0 },
+        { L"MvC (CPS2 980123)", L"mvc.06a", 0x8528e1f5, 0 },
+        { L"MvC (CPS2 980123)", L"mvcu.06", 0x2f1524bc, -0x60 },
     };
 
     if (ppKnownROMSet)
@@ -594,4 +594,23 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     return TRUE;
+}
+
+void CGame_MVC_A::PostSetPal(size_t nUnitId, size_t nPalId)
+{
+    CString strMessage;
+    strMessage.Format(L"CGame_MVC_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
+    OutputDebugString(strMessage);
+
+    const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
+
+    if (pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
+    {
+        OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
+        ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+    }
+    else
+    {
+        OutputDebugString(L"\tNo further processing needed.\n");
+    }
 }

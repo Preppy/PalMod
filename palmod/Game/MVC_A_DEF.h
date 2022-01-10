@@ -79,12 +79,236 @@ const std::vector<UINT16> MVC_A_IMGIDS_USED =
     indexCPS2Sprites_Anita,        // 0x51
 };
 
+#pragma region SecondaryPaletteEffects
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_CaptainCommando =
+{
+    // the taunt shares most of his coloring
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 4, 8,
+        MOD_COPY, 1, 1, 1,
+        MOD_COPY, 3, 12, 3
+    },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Gambit =
+{
+    // 5 win pose frames
+    { SUPP_NODE, 0x03, 5,
+        MOD_LUM, 1, 15, 10 },
+    { SUPP_NODE, 0x04, 5,
+        MOD_LUM, 1, 15, 5 },
+    { SUPP_NODE, 0x05, 5 },
+    { SUPP_NODE, 0x06, 5,
+        MOD_LUM, 1, 15, 5 + NEG },
+    { SUPP_NODE, 0x07, 5,
+        MOD_LUM, 1, 15, 10 + NEG },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Jin =
+{
+    // these are for the 6 towel taunt palettes
+    { SUPP_NODE, 0x9, 6,
+        MOD_TINT, 2, 4, 2, 0, NEG + 1, NEG + 1 },
+    { SUPP_NODE, 0xa, 6,
+        MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2 },
+    { SUPP_NODE, 0xb, 6,
+        MOD_TINT, 2, 4, 2, 0, NEG + 3, NEG + 3 },
+    { SUPP_NODE, 0xc, 6,
+        MOD_TINT, 2, 4, 2, 0, NEG + 4, NEG + 4 },
+    { SUPP_NODE, 0xd, 6,
+        MOD_TINT, 2, 4, 2, 0, NEG + 5, NEG + 5 },
+    { SUPP_NODE, 0xe, 6,
+        MOD_TINT, 2, 4, 2, 0, NEG + 6, NEG + 6 },
+        
+     // power-up flash: 6 frames
+        // first palette is solid white, sixth is gold
+    { SUPP_NODE, 0x10, 6,
+        MOD_LUM, 1, 15, 32 },
+    { SUPP_NODE, 0x11, 6,
+        MOD_LUM, 1, 15, 25 },
+    { SUPP_NODE, 0x12, 6,
+        MOD_LUM, 1, 15, 16 },
+    { SUPP_NODE, 0x13, 6,
+        MOD_LUM, 1, 15, 10 },
+
+    //SUPP_NODE_EX, Dest Palette, Dest Inc, Src Start, Src Amt, Dst Index
+    // the "player" hands for blodia vulcan
+    { SUPP_NODE, 0x15, 3,
+        MOD_COPY, 6, 10, 6,
+        MOD_LUM, 6, 10, 10 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Megaman =
+{
+    // 9 frames intro animation
+    { SUPP_NODE, 0x05, 0x57,
+        MOD_LUM, 1, 15, NEG + 25 },
+    { SUPP_NODE, 0x06, 0x57,
+        MOD_LUM, 1, 15, NEG + 7 },
+    { SUPP_NODE, 0x07, 0x57,
+        MOD_LUM, 1, 15, NEG + 5 },
+    { SUPP_NODE, 0x08, 0x57 },
+    { SUPP_NODE, 0x09, 0x57,
+        MOD_LUM, 1, 15, 5 },
+    { SUPP_NODE, 0x0a, 0x57,
+        MOD_LUM, 1, 15, 10 },
+    { SUPP_NODE, 0x0b, 0x57,
+        MOD_LUM, 1, 15, 16 },
+    { SUPP_NODE, 0x0c, 0x57,
+        MOD_LUM, 1, 15, 22 },
+
+    // 9 frames hyper megaman: darkened version of the main palette
+    { SUPP_NODE, 0x4e, 0x57,
+        MOD_LUM, 1, 15, NEG + 35 },
+    { SUPP_NODE, 0x4f, 0x57,
+        MOD_LUM, 1, 15, NEG + 27 },
+    { SUPP_NODE, 0x50, 0x57,
+        MOD_LUM, 1, 15, NEG + 21 },
+    { SUPP_NODE, 0x51, 0x57 },
+    { SUPP_NODE, 0x52, 0x57,
+        MOD_LUM, 1, 15, 13 },
+    { SUPP_NODE, 0x53, 0x57,
+        MOD_LUM, 1, 15, 21 },
+    { SUPP_NODE, 0x54, 0x57,
+        MOD_LUM, 1, 15, 27 },
+    { SUPP_NODE, 0x55, 0x57,
+        MOD_LUM, 1, 15, 35 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Morrigan =
+{
+    // the morrigan intro and join poses should match her core morrigan palette
+    { SUPP_NODE, 0x05, 9 },
+    { SUPP_NODE, 0x08, 9 },
+    { SUPP_NODE, 0x09, 9,
+        MOD_WHITE, 1, 1 },
+
+    // Morrigan phase-in intro: 4 frames
+    { SUPP_NODE, 0x0a, 9,
+            MOD_LUM, 1, 15, 20 },
+    { SUPP_NODE, 0x0b, 9,
+            MOD_LUM, 1, 15, 13 },
+    { SUPP_NODE, 0x0c, 9,
+            MOD_LUM, 1, 15, 7 },
+    { SUPP_NODE, 0x0d, 9 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_MorriganLilith =
+{
+    // the lilith join poses should match her core morrigan palette
+    { SUPP_NODE, 0x05, 9 },
+    { SUPP_NODE, 0x06, 9,
+        MOD_WHITE, 1, 1 }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Roll =
+{
+    // 9 frames intro animation
+    { SUPP_NODE, 0x05, 0x57,
+        MOD_LUM, 1, 15, NEG + 25 },
+    { SUPP_NODE, 0x06, 0x57,
+        MOD_LUM, 1, 15, NEG + 7 },
+    { SUPP_NODE, 0x07, 0x57,
+        MOD_LUM, 1, 15, NEG + 5 },
+    { SUPP_NODE, 0x08, 0x57 },
+    { SUPP_NODE, 0x09, 0x57,
+        MOD_LUM, 1, 15, 5 },
+    { SUPP_NODE, 0x0a, 0x57,
+        MOD_LUM, 1, 15, 10 },
+    { SUPP_NODE, 0x0b, 0x57,
+        MOD_LUM, 1, 15, 16 },
+    { SUPP_NODE, 0x0c, 0x57,
+        MOD_LUM, 1, 15, 22 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_RyuKen =
+{
+    // Ryu Ken and Ken background should share the same outfit
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 6, 8,
+        MOD_COPY,  9, 5, 9 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_ShadowLady =
+{
+    // 8 frames glimmer
+    { SUPP_NODE, 1, 8,
+        MOD_LUM, 14, 1, NEG + 10 },
+    { SUPP_NODE, 2, 8,
+        MOD_LUM, 14, 1, NEG + 7 },
+    { SUPP_NODE, 3, 8,
+        MOD_LUM, 14, 1, NEG + 4 },
+    { SUPP_NODE, 4, 8 },
+    { SUPP_NODE, 5, 8,
+        MOD_LUM, 14, 1, 16 },
+    { SUPP_NODE, 6, 8,
+        MOD_LUM, 14, 1, 33 },
+    { SUPP_NODE, 7, 8,
+        MOD_LUM, 14, 1, 50 },
+    { SUPP_NODE, 8, 8,
+        MOD_LUM, 14, 1, NEG + 10 },
+
+    // Infinity legs
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 11, 8,
+        MOD_COPY, 1, 5, 1,
+        MOD_COPY, 8, 6, 6,
+        MOD_COPY, 8, 4, 12,
+        MOD_LUM, 1, 1, 12,
+        MOD_LUM, 6, 9, 12 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Spidey =
+{
+    // Taunt balloon: we don't touch
+
+    // Intro
+    { SUPP_NODE, 0x03, 16,
+        MOD_LUM, 01, 10, NEG + 29 },
+    { SUPP_NODE, 0x04, 16,
+        MOD_LUM, 01, 10, NEG + 23 },
+    { SUPP_NODE, 0x05, 16,
+        MOD_LUM, 01, 10, NEG + 17 },
+    { SUPP_NODE, 0x06, 16,
+        MOD_LUM, 01, 10, NEG + 12 },
+    { SUPP_NODE, 0x07, 16,
+        MOD_LUM, 01, 10, NEG + 8 },
+    { SUPP_NODE, 0x08, 16,
+        MOD_LUM, 01, 10, NEG + 7 },
+    { SUPP_NODE, 0x09, 16,
+        MOD_LUM, 01, 10, NEG + 5 },
+    { SUPP_NODE, 0x0a, 16,
+        MOD_LUM, 01, 10, NEG + 3 },
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Wolverine =
+{
+    // his berserker barrage trails a bit of his costume.
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,
+        MOD_COPY,  2, 1, 12,
+        MOD_COPY, 11, 1, 13,
+        MOD_COPY, 10, 1, 14,
+        MOD_COPY,  9, 1, 15 },
+};
+
+const stPaletteProcessingInformation secondaryMVCCaptainCommandoPalettes{ paletteBuddy_MVC_CaptainCommando };
+const stPaletteProcessingInformation secondaryMVCGambitEffects{ paletteBuddy_MVC_Gambit };
+const stPaletteProcessingInformation secondaryMVCJinPalettes{ paletteBuddy_MVC_Jin };
+const stPaletteProcessingInformation secondaryMVCMegamanPalettes{ paletteBuddy_MVC_Megaman };
+const stPaletteProcessingInformation secondaryMVCMorriganPalettes{ paletteBuddy_MVC_Morrigan };
+const stPaletteProcessingInformation secondaryMVCMorriganLilithPalettes{ paletteBuddy_MVC_MorriganLilith };
+const stPaletteProcessingInformation secondaryMVCRollPalettes{ paletteBuddy_MVC_Roll };
+const stPaletteProcessingInformation secondaryMVCRyuKenPalettes{ paletteBuddy_MVC_RyuKen };
+const stPaletteProcessingInformation secondaryMVCShadowLadyEffects{ paletteBuddy_MVC_ShadowLady };
+const stPaletteProcessingInformation secondaryMVCSpideyEffects{ paletteBuddy_MVC_Spidey };
+const stPaletteProcessingInformation secondaryMVCWolverineEffects{ paletteBuddy_MVC_Wolverine };
+
+#pragma endregion
+
 const sGame_PaletteDataset MVC_A_RYU_PALETTES_P1[] =
 {
     { L"Ryu P1", 0x487c2, 0x487e2, indexCPS2Sprites_Ryu, 0x09 },
     { L"Ryu P1 Hadouken", 0x487e2, 0x48802, indexCPS2Sprites_Ryu, 1 },
     { L"Ryu P1 Extra", 0x48802, 0x48822 },
-    { L"Ken P1", 0x4ec42, 0x4ec62, indexCPS2Sprites_Ryu, 0x09 },
+    { L"Ken P1", 0x4ec42, 0x4ec62, indexCPS2Sprites_Ryu, 0x09, nullptr, &secondaryMVCRyuKenPalettes },
     { L"Ken P1 Hakouken", 0x4ec62, 0x4ec82, indexCPS2Sprites_Ken, 1 },
     { L"Ken P1 Shoryuken", 0x4ec82, 0x4eca2, indexCPS2Sprites_Ken, 2 },
     { L"Akuma P1", 0x4ed02, 0x4ed22, indexCPS2Sprites_Ryu, 0x09 },
@@ -99,7 +323,7 @@ const sGame_PaletteDataset MVC_A_RYU_PALETTES_P2[] =
     { L"Ryu P2", 0x48822, 0x48842, indexCPS2Sprites_Ryu, 0x09 },
     { L"Ryu P2 Hadouken", 0x48842, 0x48862, indexCPS2Sprites_Ryu, 1 },
     { L"Ryu P2 Extra", 0x48862, 0x48882 },
-    { L"Ken P2", 0x4eca2, 0x4ecc2, indexCPS2Sprites_Ryu, 0x09 },
+    { L"Ken P2", 0x4eca2, 0x4ecc2, indexCPS2Sprites_Ryu, 0x09, nullptr, &secondaryMVCRyuKenPalettes },
     { L"Ken P2 Hadouken", 0x4ecc2, 0x4ece2, indexCPS2Sprites_Ken, 1 },
     { L"Ken P2 Shoryuken", 0x4ece2, 0x4ed02, indexCPS2Sprites_Ken, 2 },
     { L"Akuma P2", 0x4ed62, 0x4ed82, indexCPS2Sprites_Ryu, 0x09 },
@@ -149,7 +373,7 @@ const sGame_PaletteDataset MVC_A_GIEF_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
 {
-    { L"P1 Color", 0x492e2, 0x49302, indexCPS2Sprites_ChunLi },
+    { L"P1 Color", 0x492e2, 0x49302, indexCPS2Sprites_ChunLi, 0x00, nullptr, &secondaryMVCShadowLadyEffects },
     { L"P1 Glimmer 1", 0x4ff62, 0x4ff82, indexCPS2Sprites_ChunLi },
     { L"P1 Glimmer 2", 0x4ff82, 0x4ffa2, indexCPS2Sprites_ChunLi },
     { L"P1 Glimmer 3", 0x4ffa2, 0x4ffc2, indexCPS2Sprites_ChunLi },
@@ -166,7 +390,7 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P2[] =
 {
-    { L"P2 Color", 0x49342, 0x49362, indexCPS2Sprites_ChunLi },
+    { L"P2 Color", 0x49342, 0x49362, indexCPS2Sprites_ChunLi, 0x00, nullptr, &secondaryMVCShadowLadyEffects },
     { L"P2 Glimmer 1", 0x50042, 0x50062, indexCPS2Sprites_ChunLi },
     { L"P2 Glimmer 2", 0x50062, 0x50082, indexCPS2Sprites_ChunLi },
     { L"P2 Glimmer 3", 0x50082, 0x500A2, indexCPS2Sprites_ChunLi },
@@ -197,7 +421,7 @@ const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_JIN_PALETTES_P1[] =
 {
-    { L"P1 Color", 0x48a02, 0x48a22, indexCPS2Sprites_Jin },
+    { L"P1 Color", 0x48a02, 0x48a22, indexCPS2Sprites_Jin, 0x00, nullptr, &secondaryMVCJinPalettes },
     { L"P1 Blodia FX", 0x48a22, 0x48a42, indexCPS2Sprites_Jin, 1 },
     { L"P1 Blodia Punch", 0x48a42, 0x48a62, indexCPS2Sprites_Jin, 2 },
 
@@ -215,12 +439,12 @@ const sGame_PaletteDataset MVC_A_JIN_PALETTES_P1[] =
     { L"P1 Burning Taunt 5", 0x4f822, 0x4f842, indexCPS2Sprites_Jin, 15  },
     { L"P1 Burning Taunt 6", 0x4f842, 0x4f862, indexCPS2Sprites_Jin, 15  },
 
-    { L"P1 Leaving Blodia 1", 0x4f562, 0x4f582, indexCPS2Sprites_Jin, 11 },
-    { L"P1 Leaving Blodia 2", 0x4f582, 0x4f5a2, indexCPS2Sprites_Jin, 11 },
-    { L"P1 Leaving Blodia 3", 0x4f5a2, 0x4f5c2, indexCPS2Sprites_Jin, 11 },
-    { L"P1 Leaving Blodia 4", 0x4f5c2, 0x4f5e2, indexCPS2Sprites_Jin, 11 },
-    { L"P1 Leaving Blodia 5", 0x4f5e2, 0x4f602, indexCPS2Sprites_Jin, 11 },
-    { L"P1 Leaving Blodia 6", 0x4f602, 0x4f622, indexCPS2Sprites_Jin, 11 },
+    { L"P1 Power-up Flash 1", 0x4f562, 0x4f582, indexCPS2Sprites_Jin, 11 },
+    { L"P1 Power-up Flash 2", 0x4f582, 0x4f5a2, indexCPS2Sprites_Jin, 11 },
+    { L"P1 Power-up Flash 3", 0x4f5a2, 0x4f5c2, indexCPS2Sprites_Jin, 11 },
+    { L"P1 Power-up Flash 4", 0x4f5c2, 0x4f5e2, indexCPS2Sprites_Jin, 11 },
+    { L"P1 Power-up Flash 5", 0x4f5e2, 0x4f602, indexCPS2Sprites_Jin, 11 },
+    { L"P1 Power-up Flash 6", 0x4f602, 0x4f622, indexCPS2Sprites_Jin, 11 },
 
     { L"P1 Vulcan Super (Hands)", 0x4f6e2, 0x4f702, indexCPS2Sprites_Jin, 12 },
     { L"P1 Vulcan Super (Muzzle Flash)", 0x4f702, 0x4f722, indexCPS2Sprites_Jin, 13 },
@@ -229,7 +453,7 @@ const sGame_PaletteDataset MVC_A_JIN_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_JIN_PALETTES_P2[] =
 {
-    { L"P2 Color", 0x48a62, 0x48a82, indexCPS2Sprites_Jin },
+    { L"P2 Color", 0x48a62, 0x48a82, indexCPS2Sprites_Jin, 0x00, nullptr, &secondaryMVCJinPalettes },
     { L"P2 Blodia FX", 0x48a82, 0x48aa2, indexCPS2Sprites_Jin, 1 },
     { L"P2 Blodia Punch", 0x48aa2, 0x48ac2, indexCPS2Sprites_Jin, 2 },
 
@@ -247,12 +471,12 @@ const sGame_PaletteDataset MVC_A_JIN_PALETTES_P2[] =
     { L"P2 Burning Taunt 5", 0x4f8E2, 0x4f902, indexCPS2Sprites_Jin, 15  },
     { L"P2 Burning Taunt 6", 0x4f902, 0x4f922, indexCPS2Sprites_Jin, 15  },
 
-    { L"P2 Leaving Blodia 1", 0x4f622, 0x4f642, indexCPS2Sprites_Jin, 11 },
-    { L"P2 Leaving Blodia 2", 0x4f642, 0x4f662, indexCPS2Sprites_Jin, 11 },
-    { L"P2 Leaving Blodia 3", 0x4f662, 0x4f682, indexCPS2Sprites_Jin, 11 },
-    { L"P2 Leaving Blodia 4", 0x4f682, 0x4f6a2, indexCPS2Sprites_Jin, 11 },
-    { L"P2 Leaving Blodia 5", 0x4f6a2, 0x4f6c2, indexCPS2Sprites_Jin, 11 },
-    { L"P2 Leaving Blodia 6", 0x4f6c2, 0x4f6e2, indexCPS2Sprites_Jin, 11 },
+    { L"P2 Power-up Flash 1", 0x4f622, 0x4f642, indexCPS2Sprites_Jin, 11 },
+    { L"P2 Power-up Flash 2", 0x4f642, 0x4f662, indexCPS2Sprites_Jin, 11 },
+    { L"P2 Power-up Flash 3", 0x4f662, 0x4f682, indexCPS2Sprites_Jin, 11 },
+    { L"P2 Power-up Flash 4", 0x4f682, 0x4f6a2, indexCPS2Sprites_Jin, 11 },
+    { L"P2 Power-up Flash 5", 0x4f6a2, 0x4f6c2, indexCPS2Sprites_Jin, 11 },
+    { L"P2 Power-up Flash 6", 0x4f6c2, 0x4f6e2, indexCPS2Sprites_Jin, 11 },
 
     { L"P2 Vulcan Super (Hands)", 0x4f742, 0x4f762, indexCPS2Sprites_Jin, 12 },
     { L"P2 Vulcan Super (Muzzle Flash)", 0x4f762, 0x4f782, indexCPS2Sprites_Jin, 13 },
@@ -268,7 +492,7 @@ const sGame_PaletteDataset MVC_A_JIN_PALETTES_EXTRAS[] =
 // To unwind that we would want to specify the correct sprites to use everywhere.  MM is 0x1C .
 const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
 {
-    { L"Megaman P1", 0x48f82, 0x48fa2, indexCPS2Sprites_Megaman },
+    { L"Megaman P1", 0x48f82, 0x48fa2, indexCPS2Sprites_Megaman, 0x00, nullptr, &secondaryMVCMegamanPalettes },
     { L"P1 Rush/Eddie", 0x48fa2, 0x48fc2, indexCPS2Sprites_Megaman, 0x01, &pairNext },
     { L"P1 Beat", 0x48fc2, 0x48fe2, indexCPS2Sprites_Megaman, 0x2, &pairPrevious },
 
@@ -375,7 +599,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
 {
-    { L"Megaman P2", 0x48fe2, 0x49002, indexCPS2Sprites_Megaman },
+    { L"Megaman P2", 0x48fe2, 0x49002, indexCPS2Sprites_Megaman, 0x00, nullptr, &secondaryMVCMegamanPalettes },
     { L"P2 Rush/Eddie", 0x49002, 0x49022, indexCPS2Sprites_Megaman, 0x01, &pairNext },
     { L"P2 Beat", 0x49022, 0x49042, indexCPS2Sprites_Megaman, 0x2, &pairPrevious },
 
@@ -513,7 +737,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P1[] =
 {
-    { L"P1 Color", 0x48702, 0x48722, indexCPS2Sprites_Roll },
+    { L"P1 Color", 0x48702, 0x48722, indexCPS2Sprites_Roll, 0x00, nullptr, &secondaryMVCRollPalettes },
     { L"P1 Rush/Eddie", 0x48722, 0x48742, indexCPS2Sprites_Megaman, 0x01, &pairNext },
     { L"P1 Beat", 0x48742, 0x48762, indexCPS2Sprites_Megaman, 0x2, &pairPrevious },
 
@@ -585,7 +809,7 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P2[] =
 {
-    { L"P2 Color", 0x48762, 0x48782, indexCPS2Sprites_Roll },
+    { L"P2 Color", 0x48762, 0x48782, indexCPS2Sprites_Roll, 0x00, nullptr, &secondaryMVCRollPalettes },
     { L"P2 Rush/Eddie", 0x48782, 0x487a2, indexCPS2Sprites_Megaman, 0x01, &pairNext },
     { L"P2 Beat", 0x487a2, 0x487c2, indexCPS2Sprites_Megaman, 0x2, &pairPrevious }, // 09 : these numbers align to the mvc2 extra ids as identified in the Palette Variant Full spreadsheet
 
@@ -823,14 +1047,14 @@ const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_P1[] =
 {
-    { L"P1 Color", 0x48402, 0x48422, indexCPS2Sprites_Wolverine, 0, &pairNext },
+    { L"P1 Color", 0x48402, 0x48422, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryMVCWolverineEffects },
     { L"P1 Claws", 0x48422, 0x48442, indexCPS2Sprites_Wolverine, 1 },
     { L"P1 Berserker FX", 0x48442, 0x48462, indexCPS2Sprites_Wolverine, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_P2[] =
 {
-    { L"P2 Color", 0x48462, 0x48482, indexCPS2Sprites_Wolverine, 0, &pairNext },
+    { L"P2 Color", 0x48462, 0x48482, indexCPS2Sprites_Wolverine, 0, &pairNext, &secondaryMVCWolverineEffects },
     { L"P2 Claws", 0x48482, 0x484a2, indexCPS2Sprites_Wolverine, 1 },
     { L"P2 Berserker FX", 0x484a2, 0x484c2, indexCPS2Sprites_Wolverine, 2 },
 };
@@ -865,7 +1089,7 @@ const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P1[] =
 {
-    { L"P1 Color", 0x48642, 0x48662, indexCPS2Sprites_Spidey },
+    { L"P1 Color", 0x48642, 0x48662, indexCPS2Sprites_Spidey, 0, nullptr, &secondaryMVCSpideyEffects },
     { L"P1 Spotlight", 0x48662, 0x48682, indexCPS2Sprites_Spidey, 0x0C },
     { L"P1 Web", 0x48682, 0x486a2, indexCPS2Sprites_Spidey, 2 },
 
@@ -883,7 +1107,7 @@ const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P2[] =
 {
-    { L"P2 Color", 0x486a2, 0x486c2, indexCPS2Sprites_Spidey },
+    { L"P2 Color", 0x486a2, 0x486c2, indexCPS2Sprites_Spidey, 0, nullptr, &secondaryMVCSpideyEffects },
     { L"P2 Spotlight", 0x486c2, 0x486e2, indexCPS2Sprites_Spidey, 0x0C },
     { L"P2 Web", 0x486e2, 0x48702, indexCPS2Sprites_Spidey, 2 },
 
@@ -901,7 +1125,7 @@ const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P1[] =
 {
-    { L"P1 Color",  0x48882, 0x488a2, indexCPS2Sprites_CapCom },
+    { L"P1 Color",  0x48882, 0x488a2, indexCPS2Sprites_CapCom, 0x00, nullptr, &secondaryMVCCaptainCommandoPalettes },
     { L"P1 Ninjas", 0x488a2, 0x488c2, indexCPS2Sprites_CapCom, 1, &pairNext },
     { L"P1 Hoover", 0x488c2, 0x488e2, indexCPS2Sprites_CapCom, 2 },
     { L"P1 Suit Intro", 0x4F302, 0x4F322, indexCPS2Sprites_CapCom, 0x0F },
@@ -910,7 +1134,7 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P2[] =
 {
-    { L"P2 Color",  0x488e2, 0x48902, indexCPS2Sprites_CapCom },
+    { L"P2 Color",  0x488e2, 0x48902, indexCPS2Sprites_CapCom, 0x00, nullptr, &secondaryMVCCaptainCommandoPalettes },
     { L"P2 Ninjas", 0x48902, 0x48922, indexCPS2Sprites_CapCom, 1, &pairNext },
     { L"P2 Hoover", 0x48922, 0x48942, indexCPS2Sprites_CapCom, 2 },
     { L"P2 Suit Intro", 0x4F322, 0x4F342, indexCPS2Sprites_CapCom, 0x0F },
@@ -929,8 +1153,8 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
 {
-    { L"P1 Color", 0x48ec2, 0x48ee2, indexCPS2Sprites_Morrigan },
-    { L"P1 Lilith", 0x48ee2, 0x48f02, indexCPS2Sprites_Morrigan, 1 },
+    { L"P1 Color", 0x48ec2, 0x48ee2, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCMorriganPalettes },
+    { L"P1 Lilith", 0x48ee2, 0x48f02, indexCPS2Sprites_Morrigan, 1, nullptr, &secondaryMVCMorriganLilithPalettes },
     { L"P1 Extra 2", 0x48f02, 0x48f22, indexCPS2Sprites_Morrigan, 2 },
 
     { L"P1 Soul Eraser 1", 0x4edE2, 0x4ee02, indexCPS2Sprites_Morrigan, 11 },
@@ -949,8 +1173,8 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
 {
-    { L"P2 Color", 0x48f22, 0x48f42, indexCPS2Sprites_Morrigan },
-    { L"P2 Lilith", 0x48f42, 0x48f62, indexCPS2Sprites_Morrigan, 1 },
+    { L"P2 Color", 0x48f22, 0x48f42, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCMorriganPalettes },
+    { L"P2 Lilith", 0x48f42, 0x48f62, indexCPS2Sprites_Morrigan, 1, nullptr, &secondaryMVCMorriganLilithPalettes },
     { L"P2 Extra 2", 0x48f62, 0x48f82, indexCPS2Sprites_Morrigan, 2 },
 
     { L"P2 Soul Eraser 1", 0x4ee42, 0x4ee62, indexCPS2Sprites_Morrigan, 11 },
@@ -1018,9 +1242,9 @@ const sGame_PaletteDataset MVC_A_STRIDER_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P1[] =
 {
-    { L"P1 Color",   0x484c2, 0x484e2, indexCPS2Sprites_Gambit },
-    { L"P1 Extra 1", 0x484e2, 0x48502, indexCPS2Sprites_Gambit, 1 },
-    { L"P1 Extra 2", 0x48502, 0x48522, indexCPS2Sprites_Gambit, 2 },
+    { L"P1 Color",   0x484c2, 0x484e2, indexCPS2Sprites_Gambit, 0x00, nullptr, &secondaryMVCGambitEffects },
+    { L"P1 Kinetic Card // Trick Card", 0x484e2, 0x48502, indexCPS2Sprites_Gambit, 1 },
+    { L"P1 Cajun Strike", 0x48502, 0x48522, indexCPS2Sprites_Gambit, 2 },
 
     { L"P1 Lighting 1", 0x4f942, 0x4f962, indexCPS2Sprites_Gambit },
     { L"P1 Lighting 2", 0x4f962, 0x4f982, indexCPS2Sprites_Gambit },
@@ -1031,9 +1255,9 @@ const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P2[] =
 {
-    { L"P2 Color",   0x48522, 0x48542, indexCPS2Sprites_Gambit },
-    { L"P2 Extra 1", 0x48542, 0x48562, indexCPS2Sprites_Gambit, 1 },
-    { L"P2 Extra 2", 0x48562, 0x48582, indexCPS2Sprites_Gambit, 2 },
+    { L"P2 Color",   0x48522, 0x48542, indexCPS2Sprites_Gambit, 0x00, nullptr, &secondaryMVCGambitEffects },
+    { L"P2 Kinetic Card // Trick Card", 0x48542, 0x48562, indexCPS2Sprites_Gambit, 1 },
+    { L"P2 Cajun Strike", 0x48562, 0x48582, indexCPS2Sprites_Gambit, 2 },
 
     { L"P2 Lighting 1", 0x4f9E2, 0x4fA02, indexCPS2Sprites_Gambit },
     { L"P2 Lighting 2", 0x4fA02, 0x4fA22, indexCPS2Sprites_Gambit },
@@ -1041,7 +1265,6 @@ const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P2[] =
     { L"P2 Lighting 4", 0x4fA42, 0x4fA62, indexCPS2Sprites_Gambit },
     { L"P2 Lighting 5", 0x4fA62, 0x4fA82, indexCPS2Sprites_Gambit },
 };
-
 
 const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 {

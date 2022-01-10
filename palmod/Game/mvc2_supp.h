@@ -73,15 +73,17 @@ namespace MVC2_SupplementProcessing
         0x03 | SUPP_START, //Morrigan
             //SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
 
-            // Lilith
+            // Lilith join pose: should match main lilith
             SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x4B, 9, MOD_ABS | 0x01, 8,
             SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x4C, 9, MOD_ABS | 0x01, 8,
                 MOD_WHITE, 1, 1,
 
-            // Morrigan phase-in intro
+            // Morrigan join pose: should match main morrigan
             SUPP_NODE, 0x4D, 9,
             SUPP_NODE, 0x4E, 9,
                 MOD_WHITE, 1, 1,
+
+            // Morrigan phase-in intro: 4 frames
             SUPP_NODE, 0x50, 9,
                 MOD_LUM, 1, 15, 20,
             SUPP_NODE, 0x51, 9,
@@ -345,30 +347,30 @@ namespace MVC2_SupplementProcessing
             SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x6a, 9, MOD_ABS | 0x01, 8,
                 MOD_WHITE, 1, 1,
 
-                // Morrigan phase-in intro
-                SUPP_NODE, 0x6b, 9,
-                SUPP_NODE, 0x6c, 9,
-                    MOD_WHITE, 1, 1,
-                SUPP_NODE, 0x6e, 9,
-                    MOD_LUM, 1, 15, 20,
-                SUPP_NODE, 0x6f, 9,
-                    MOD_LUM, 1, 15, 13,
-                SUPP_NODE, 0x70, 9,
-                    MOD_LUM, 1, 15, 7,
-                SUPP_NODE, 0x71, 9,
-                //    MOD_LUM, 1, 15, 0
+            // Morrigan phase-in intro
+            SUPP_NODE, 0x6b, 9,
+            SUPP_NODE, 0x6c, 9,
+                MOD_WHITE, 1, 1,
+            SUPP_NODE, 0x6e, 9,
+                MOD_LUM, 1, 15, 20,
+            SUPP_NODE, 0x6f, 9,
+                MOD_LUM, 1, 15, 13,
+            SUPP_NODE, 0x70, 9,
+                MOD_LUM, 1, 15, 7,
+            SUPP_NODE, 0x71, 9,
+            //    MOD_LUM, 1, 15, 0
 
-                // Taunt sprite: full copy and then we manually tweak further.
-                SUPP_NODE, 0xf9, 1,
+            // Taunt sprite: full copy and then we manually tweak further.
+            SUPP_NODE, 0xf9, 1,
 
-                // pose sprite sleeves
-                SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 10, 1, 10,
-                    MOD_LUM, 10, 1, NEG + 21,
-                SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 10, 1, 11,
-                    MOD_LUM, 11, 1, NEG + 13,
-                SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 10, 1, 12,
-                SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 11, 1, 13,
-                SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 12, 1, 14,
+            // pose sprite sleeves
+            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 10, 1, 10,
+                MOD_LUM, 10, 1, NEG + 21,
+            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 10, 1, 11,
+                MOD_LUM, 11, 1, NEG + 13,
+            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 10, 1, 12,
+            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 11, 1, 13,
+            SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 12, 1, 14,
     };
 
     const std::vector<UINT16> supp_data_anakaris =
@@ -636,44 +638,44 @@ namespace MVC2_SupplementProcessing
     const std::vector<UINT16> supp_data_megaman =
     {
         0x1C | SUPP_START, // Megaman
-            // intro animation is frames 0xb-0x13
+            // intro animation is 9 frames 0xb-0x13
                     // SUPP_NODE: starting_palette, palette_increment
             // color 0x01 is his outline, but it does change to align with the dominant color
             SUPP_NODE, 0x0B, 0x57,
-                MOD_LUM, 1, 15, NEG + 21,
+                MOD_LUM, 1, 15, NEG + 25,
             SUPP_NODE, 0x0C, 0x57,
-                MOD_LUM, 1, 15, NEG + 13,
+                MOD_LUM, 1, 15, NEG + 7,
             SUPP_NODE, 0x0D, 0x57,
                 MOD_LUM, 1, 15, NEG + 5,
             SUPP_NODE, 0x0E, 0x57,
             SUPP_NODE, 0x0F, 0x57,
                 MOD_LUM, 1, 15, 5,
             SUPP_NODE, 0x10, 0x57,
-                MOD_LUM, 1, 15, 13,
+                MOD_LUM, 1, 15, 10,
             SUPP_NODE, 0x11, 0x57,
-                MOD_LUM, 1, 15, 21,
+                MOD_LUM, 1, 15, 16,
             SUPP_NODE, 0x12, 0x57,
-                MOD_LUM, 1, 15, 35,
-            // 0x14-1c: rush
-            // 0x1d-25: beat
-            // 0x26-23: beat plane
+                MOD_LUM, 1, 15, 22,
+            // 0x14-1c: rush: brightened version of the main rush/beat palette
+            // 0x1d-25: beat: brightened version of the main rush/beat palette
+            // 0x26-23: beat plane: uses a 5-color stretch of beat's 4 colors
             // 0x2f-37: charging
-            // 0x38-40: rush drill
+            // 0x38-40: rush drill: rush drill uses 6 colors of the rush palette starting at 0x02
             // 0x43-4b: hyper megaman armor/wings
-            // 0x4c-54: hyper megaman
+            // 0x4c-54: hyper megaman: darkened version of the main palette
             SUPP_NODE, 0x4C, 0x57,
-                MOD_LUM, 1, 15, NEG + 21,
+                MOD_LUM, 1, 15, NEG + 35,
             SUPP_NODE, 0x4D, 0x57,
-                MOD_LUM, 1, 15, NEG + 13,
+                MOD_LUM, 1, 15, NEG + 27,
             SUPP_NODE, 0x4E, 0x57,
-                MOD_LUM, 1, 15, NEG + 5,
+                MOD_LUM, 1, 15, NEG + 21,
             SUPP_NODE, 0x4F, 0x57,
             SUPP_NODE, 0x50, 0x57,
-                MOD_LUM, 1, 15, 5,
-            SUPP_NODE, 0x51, 0x57,
                 MOD_LUM, 1, 15, 13,
-            SUPP_NODE, 0x52, 0x57,
+            SUPP_NODE, 0x51, 0x57,
                 MOD_LUM, 1, 15, 21,
+            SUPP_NODE, 0x52, 0x57,
+                MOD_LUM, 1, 15, 27,
             SUPP_NODE, 0x53, 0x57,
                 MOD_LUM, 1, 15, 35,
             // 0x56-5d: hyper megaman switching back
@@ -705,20 +707,20 @@ namespace MVC2_SupplementProcessing
             // 0x38-40: rush drill
             // 0x4c-54: hyper roll
             SUPP_NODE, 0x4C, 0x57,
-                MOD_LUM, 1, 14, NEG + 21,
+                MOD_LUM, 1, 14, NEG + 25,
             SUPP_NODE, 0x4D, 0x57,
-                MOD_LUM, 1, 14, NEG + 13,
+                MOD_LUM, 1, 14, NEG + 7,
             SUPP_NODE, 0x4E, 0x57,
                 MOD_LUM, 1, 14, NEG + 5,
             SUPP_NODE, 0x4F, 0x57,
             SUPP_NODE, 0x50, 0x57,
                 MOD_LUM, 1, 14, 5,
             SUPP_NODE, 0x51, 0x57,
-                MOD_LUM, 1, 14, 13,
+                MOD_LUM, 1, 14, 10,
             SUPP_NODE, 0x52, 0x57,
-                MOD_LUM, 1, 14, 21,
+                MOD_LUM, 1, 14, 16,
             SUPP_NODE, 0x53, 0x57,
-                MOD_LUM, 1, 14, 35,
+                MOD_LUM, 1, 14, 22,
             // 0x56-5d: hyper roll switching back
     };
 
@@ -1164,7 +1166,7 @@ namespace MVC2_SupplementProcessing
         0x37 | SUPP_START, //Jin
             // Special armor isn't linked to the main palette
             // 
-            // power-up flash
+            // power-up flash: 6 frames
                 // first palette is solid white
             SUPP_NODE, 0x6a, 6,
                 MOD_LUM, 1, 15, 32,
@@ -1180,7 +1182,7 @@ namespace MVC2_SupplementProcessing
             SUPP_NODE_EX, 0xc9, 3, 6, 10, 6,
                 MOD_LUM, 6, 10, 10,
 
-            // these are for the towel taunt
+            // these are for the 6 towel taunt palettes
             SUPP_NODE, 0xf9, 6,
                 MOD_TINT, 2, 4, 2, 0, NEG + 1, NEG + 1,
             SUPP_NODE, 0xfa, 6,

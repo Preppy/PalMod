@@ -51,6 +51,8 @@ public:
     BOOL LoadFile(CFile* LoadedFile, size_t nUnitId = 0) override; // overriding for sorting
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
+    void PostSetPal(size_t nUnitId, size_t nPalId) override;
+
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* MVC_A_EXTRA_CUSTOM;

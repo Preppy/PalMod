@@ -36,6 +36,7 @@ public:
     virtual void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA) = 0;
     virtual COLORREF* CreatePal(size_t nUnitId, size_t nPalId) = 0;
     virtual void WritePal(size_t nUnitId, size_t nPalId, COLORREF* rgColors, UINT16 nColorCount) = 0;
+    virtual void MarkPaletteDirty(size_t nUnit, size_t nPaletteId) = 0;
 
     void ProcessAdditionalPaletteChangesRequired(const size_t nUnitId, const size_t nChangedPaletteNumber, const std::vector<std::vector<UINT16>> supplementalEffectsData);
 };
