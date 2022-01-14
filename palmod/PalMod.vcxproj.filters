@@ -451,6 +451,9 @@
     <Filter Include="Games\Capcom Games\Vampire Night Warriors_A">
       <UniqueIdentifier>{1f22d570-9706-467c-b227-56f0b2ca667b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Justice League Task Force %28SNES%29">
+      <UniqueIdentifier>{d91ac85f-5204-43c2-849f-b300b60a3bf3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -935,6 +938,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_VampireNightWarriors_A.cpp">
       <Filter>Games\Capcom Games\Vampire Night Warriors_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_JusticeLeagueTF_SNES.cpp">
+      <Filter>Games\Nintendo\Justice League Task Force %28SNES%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1768,6 +1774,12 @@
     </ClInclude>
     <ClInclude Include="Game\VampireNightWarriors_A_DEF.h">
       <Filter>Games\Capcom Games\Vampire Night Warriors_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_JusticeLeagueTF_SNES.h">
+      <Filter>Games\Nintendo\Justice League Task Force %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\JusticeLeagueTF_SNES_DEF.h">
+      <Filter>Games\Nintendo\Justice League Task Force %28SNES%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
