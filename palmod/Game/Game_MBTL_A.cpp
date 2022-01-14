@@ -25,7 +25,9 @@ const std::vector<UINT16> MBTL_A_IMGIDS_USED =
     indexFrenchBreadSprites_MBTL_Saber,             // 0x74
     indexFrenchBreadSprites_MBTL_Shiki,             // 0x75
     indexFrenchBreadSprites_MBTL_Vlov,              // 0x76
-    indexFrenchBreadSprites_MBTL_Bonus,             // 0x76	
+    indexFrenchBreadSprites_MBTL_Aoko,              // 0x77
+    indexFrenchBreadSprites_MBTL_DANoel,            // 0x78
+    indexFrenchBreadSprites_MBTL_Bonus,             // 0x79
 };
 
 struct MBTLNodeData
@@ -93,8 +95,10 @@ std::vector <MBTLFileData> MBTLCharacterData =
 {
     //The character order is alphabetical instead of ID order
     { L"data\\_csel\\Chr002.pal",       L"Akiha Tohno",                            61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Akiha },
+    { L"data\\_csel\\Chr015.pal",       L"Aoko Aozaki",                            61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Aoko },
     { L"data\\_csel\\Chr000.pal",       L"Arcueid",                                61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Arcueid },
     { L"data\\_csel\\Chr011.pal",       L"Ciel",                                   61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Ciel },
+    { L"data\\_csel\\Chr014.pal",       L"Dead Apostle Noel",                      61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_DANoel },
     { L"data\\_csel\\Chr001.pal",       L"Hisui",                                  61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Hisui },
     { L"data\\_csel\\Chr004.pal",       L"Kohaku",                                 61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Kohaku },
     { L"data\\_csel\\Chr006.pal",       L"Kouma Kishima",                          61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Kouma },
