@@ -1478,7 +1478,11 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
 
                 if (fIsCorePalette)
                 {
-                    nSrcAmt = pButtonLabelSet.size();
+                    // We've confirmed that the string matches one of the indicated button names.  Since we're doing a color per node, ensure we only ever
+                    // expose to max node.  This covers the situation where a game might have LP/LK but not LP/LK/MP/MK out of a set.
+                    const size_t nCollectionCount = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, ppExtraDef);
+
+                    nSrcAmt = min(pButtonLabelSet.size(), nCollectionCount);
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)

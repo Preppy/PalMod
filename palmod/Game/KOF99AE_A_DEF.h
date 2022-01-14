@@ -11,6 +11,8 @@ const std::vector<UINT16> KOF99AE_A_IMGIDS_USED =
     indexKOF97Sprites_BlueMary,         // 0x29A
     indexKOF97Sprites_Terry,            // 0x2B1
 
+    indexKOF99Sprites_Krizalid, // 42
+
     indexKOF99Sprites_Andy,         // 0x17f
     indexKOF99Sprites_Athena,       // 0x180
     indexKOF99Sprites_Bao,          // 0x181
@@ -1474,20 +1476,20 @@ const sGame_PaletteDataset KOF99AE_A_JACKETKRIZALID_B_PALETTES[] =
 
 const sGame_PaletteDataset KOF99AE_A_BOSSKRIZALID_A_PALETTES[] =
 {
-    { L"Main", 0x2e17f0, 0x2e1810, indexKOF99Sprites_BossKrizalid, 0x00 },
+    { L"Main", 0x2e17f0, 0x2e1810, indexKOF99Sprites_Krizalid, 0x00 },
     { L"Extra 1", 0x2e1810, 0x2e1830, indexKOF99Sprites_BossKrizalid, 0x01 },
     { L"Extra 2", 0x2e1830, 0x2e1850, indexKOF99Sprites_BossKrizalid, 0x02 },
-    { L"Electric Palette", 0x2e1850, 0x2e1870, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Extra 3", 0x2e1870, 0x2e1890, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Counter Mode Flash", 0x2e1890, 0x2e18b0, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Counter Extra 1", 0x2e18b0, 0x2e18d0, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Counter Extra 2", 0x2e18d0, 0x2e18f0, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Armor Mode Flash", 0x2e18f0, 0x2e1910, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Armor Mode Extra 1", 0x2e1910, 0x2e1930, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Armor Mode Extra 2", 0x2e1930, 0x2e1950, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Super Trail Palette", 0x2e1950, 0x2e1970, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Extra 4", 0x2e1970, 0x2e1990, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Extra 5", 0x2e1990, 0x2e19b0, indexKOF99Sprites_BossKrizalid, 0x00 },
+    { L"Electric Palette", 0x2e1850, 0x2e1870, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Extra 3", 0x2e1870, 0x2e1890, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Counter Mode Flash", 0x2e1890, 0x2e18b0, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Counter Extra 1", 0x2e18b0, 0x2e18d0, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Counter Extra 2", 0x2e18d0, 0x2e18f0, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Armor Mode Flash", 0x2e18f0, 0x2e1910, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Armor Mode Extra 1", 0x2e1910, 0x2e1930, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Armor Mode Extra 2", 0x2e1930, 0x2e1950, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Super Trail Palette", 0x2e1950, 0x2e1970, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Extra 4", 0x2e1970, 0x2e1990, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Extra 5", 0x2e1990, 0x2e19b0, indexKOF99Sprites_Krizalid, 0x00 },
     { L"Lifebar Portrait", 0x2e19b0, 0x2e19d0, indexKOF99Sprites_BossKrizalid, 0x32 },
     { L"Character Portrait", 0x2e19d0, 0x2e19f0, indexKOF99Sprites_BossKrizalid, 0x31 },
     { L"Striker Portrait", 0x2fa3f0, 0x2fa410, indexKOF99Sprites_BossKrizalid, 0x33 },
@@ -1496,20 +1498,20 @@ const sGame_PaletteDataset KOF99AE_A_BOSSKRIZALID_A_PALETTES[] =
 
 const sGame_PaletteDataset KOF99AE_A_BOSSKRIZALID_B_PALETTES[] =
 {
-    { L"Main", 0x2e19f0, 0x2e1a10, indexKOF99Sprites_BossKrizalid, 0x00 },
+    { L"Main", 0x2e19f0, 0x2e1a10, indexKOF99Sprites_Krizalid, 0x00 },
     { L"Extra 1", 0x2e1a10, 0x2e1a30, indexKOF99Sprites_BossKrizalid, 0x01 },
     { L"Extra 2", 0x2e1a30, 0x2e1a50, indexKOF99Sprites_BossKrizalid, 0x02 },
-    { L"Electric Palette", 0x2e1a50, 0x2e1a70, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Extra 3", 0x2e1a70, 0x2e1a90, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Counter Mode Flash", 0x2e1a90, 0x2e1ab0, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Counter Extra 1", 0x2e1ab0, 0x2e1ad0, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Counter Extra 2", 0x2e1ad0, 0x2e1af0, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Armor Mode Flash", 0x2e1af0, 0x2e1b10, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Armor Mode Extra 1", 0x2e1b10, 0x2e1b30, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Armor Mode Extra 2", 0x2e1b30, 0x2e1b50, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Super Trail Palette", 0x2e1b50, 0x2e1b70, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Extra 4", 0x2e1b70, 0x2e1b90, indexKOF99Sprites_BossKrizalid, 0x00 },
-    { L"Extra 5", 0x2e1b90, 0x2e1bb0, indexKOF99Sprites_BossKrizalid, 0x00 },
+    { L"Electric Palette", 0x2e1a50, 0x2e1a70, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Extra 3", 0x2e1a70, 0x2e1a90, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Counter Mode Flash", 0x2e1a90, 0x2e1ab0, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Counter Extra 1", 0x2e1ab0, 0x2e1ad0, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Counter Extra 2", 0x2e1ad0, 0x2e1af0, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Armor Mode Flash", 0x2e1af0, 0x2e1b10, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Armor Mode Extra 1", 0x2e1b10, 0x2e1b30, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Armor Mode Extra 2", 0x2e1b30, 0x2e1b50, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Super Trail Palette", 0x2e1b50, 0x2e1b70, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Extra 4", 0x2e1b70, 0x2e1b90, indexKOF99Sprites_Krizalid, 0x00 },
+    { L"Extra 5", 0x2e1b90, 0x2e1bb0, indexKOF99Sprites_Krizalid, 0x00 },
     { L"Lifebar Portrait", 0x2e1bb0, 0x2e1bd0, indexKOF99Sprites_BossKrizalid, 0x32 },
     { L"Character Portrait", 0x2e1bd0, 0x2e1bf0, indexKOF99Sprites_BossKrizalid, 0x31 },
     { L"Striker Portrait", 0x2fa410, 0x2fa430, indexKOF99Sprites_BossKrizalid, 0x33 },

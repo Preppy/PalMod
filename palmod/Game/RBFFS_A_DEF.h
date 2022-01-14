@@ -22,6 +22,7 @@ const std::vector<UINT16> RBFFS_A_IMGIDS_USED =
     indexRBFFSSprites_Terry,        // 0x144
     indexRBFFSSprites_Tung,         // 0x145
     indexRBFFSSprites_Yamazaki,     // 0x146
+    indexRBFFSSprites_Bonus,        // 0x2B7
 };
 
 const sGame_PaletteDataset RBFFS_A_TERRY_PALETTES_P1[] =

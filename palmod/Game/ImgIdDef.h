@@ -454,7 +454,7 @@ enum KOFSpriteList
     indexKOF02Sprites_OZero,    // 40
     indexKOF02Sprites_NGeese,   // unused currently
 
-    indexKOF99Sprites_Krizalid_Unused_Use_BossKrizalid, // 42
+    indexKOF99Sprites_Krizalid, // 42
     indexKOF02UMSprites_OrochiIori, // 43
     indexKOF00Sprites_Kasumi_ForKOF98AE,   // 44
     indexKOF02Sprites_OrochiIori,   // 45
@@ -1124,6 +1124,32 @@ enum KOFSpriteList
     indexKOF97Sprites_YashiroOrochi,    // 0x2B4
     indexKOF97Sprites_Yuri,             // 0x2B5
     indexKOF95Sprites_Yuri,             // 0x2B6
+    indexRBFFSSprites_Bonus,            // 0x2B7
+
+    indexRBFFSSprites_Axel,             // 0x2B8
+    indexRBFFSSprites_BigBear,          // 0x2B9
+    indexRBFFSSprites_Jubei,            // 0x2BA
+    indexRBFFSSprites_Ryo,              // 0x2BB
+
+    indexRBFF1Sprites_Andy,             // 0x2BC
+    indexRBFF1Sprites_Billy,            // 0x2BD
+    indexRBFF1Sprites_BlueMary,         // 0x2BE
+    indexRBFF1Sprites_Bob,              // 0x2BF
+    indexRBFF1Sprites_Chonrei,          // 0x2C0
+    indexRBFF1Sprites_Chonshu,          // 0x2C1
+    indexRBFF1Sprites_DuckKing,         // 0x2C2
+    indexRBFF1Sprites_Franco,           // 0x2C3
+    indexRBFF1Sprites_Geese,            // 0x2C4
+    indexRBFF1Sprites_HonFu,            // 0x2C5
+    indexRBFF1Sprites_Joe,              // 0x2C6
+    indexRBFF1Sprites_Kim,              // 0x2C7
+    indexRBFF1Sprites_Mai,              // 0x2C8
+    indexRBFF1Sprites_Sokaku,           // 0x2C9
+    indexRBFF1Sprites_Terry,            // 0x2CA
+    indexRBFF1Sprites_Yamazaki,         // 0x2CB
+    indexRBFF1Sprites_Bonus,            // 0x2CC
+    indexRBFF1Sprites_Stages,           // 0x2CD
+
     // indexKOF97Sprites_Bonus,         // 0x1F0
     // indexKOF97Sprites_Stages,        // 0x1F1
 };

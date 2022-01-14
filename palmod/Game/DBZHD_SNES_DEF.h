@@ -80,14 +80,14 @@ const sGame_PaletteDataset DBZHD_SNES_GOHAN_PALETTES_P2[] =
 const sGame_PaletteDataset DBZHD_SNES_VEGITO_PALETTES_P1[] =
 {
     { L"Vegito P1 (Day)", 0xB0EB0, 0xB0ED0, indexDBZHDSprites_Vegito },
-    { L"Vegito Intro P1", 0xB10B0, 0xB10D0 },
+    { L"Vegito Intro P1", 0xB10B0, 0xB10D0, indexDBZHDSprites_Bonus, 0x01 },
     { L"Vegito P1 portrait", 0x18240, 0x18260, indexDBZHDSprites_Vegito, 0x40 },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_VEGITO_PALETTES_P2[] =
 {
     { L"Vegito P2 (Day)", 0xB0ED0, 0xB0EF0, indexDBZHDSprites_Vegito},
-    { L"Vegito Intro P2", 0xB10D0, 0xB10F0 },
+    { L"Vegito Intro P2", 0xB10D0, 0xB10F0, indexDBZHDSprites_Bonus, 0x01 },
     { L"Vegito P2 portrait", 0x18260, 0x18280, indexDBZHDSprites_Vegito, 0x40 },
 };
 

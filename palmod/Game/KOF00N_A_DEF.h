@@ -274,10 +274,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_RAMON_Striker[] =
     { L"Duke A Electric Shock Effect", 0xd0d90, 0xd0db0, indexKOF00Sprites_Ramon, 0x08 },
     { L"Duke B", 0xd0f50, 0xd0f70, indexKOF00Sprites_Ramon, 0x08 },
     { L"Duke B Electric Shock Effect", 0xd0f90, 0xd0fb0, indexKOF00Sprites_Ramon, 0x08 },
-    { L"Neo & Geo A", 0xdcdf0, 0xdce10 },
-    { L"Neo & Geo A Electric Shock Effect", 0xdce30, 0xdce50 },
-    { L"Neo & Geo B", 0xdce70, 0xdce90 },
-    { L"Neo & Geo B Electric Shock Effect", 0xdceb0, 0xdced0 },
+    { L"Neo & Geo A", 0xdcdf0, 0xdce10, indexKOF00Sprites_Ramon, 0x09 },
+    { L"Neo & Geo A Electric Shock Effect", 0xdce30, 0xdce50, indexKOF00Sprites_Ramon, 0x09 },
+    { L"Neo & Geo B", 0xdce70, 0xdce90, indexKOF00Sprites_Ramon, 0x09 },
+    { L"Neo & Geo B Electric Shock Effect", 0xdceb0, 0xdced0, indexKOF00Sprites_Ramon, 0x09 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RAMON_LifebarPortrait[] =
@@ -379,12 +379,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_BENIMARU_CD[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_BENIMARU_Striker[] =
 {
-    { L"Another Benimaru A", 0xca150, 0xca170 },
-    { L"Another Benimaru A Electric Shock Effect", 0xca190, 0xca1b0 },
-    { L"Another Benimaru B", 0xca350, 0xca370 },
-    { L"Another Benimaru B Electric Shock Effect", 0xca390, 0xca3b0 },
-    { L"Another Benimaru CD", 0xedb50, 0xedb70 },
-    { L"Another Benimaru CD Electric Shock Effect", 0xedb90, 0xedbb0 },
+    { L"Another Benimaru A", 0xca150, 0xca170, indexKOF00Sprites_Benimaru, 0x08 },
+    { L"Another Benimaru A Electric Shock Effect", 0xca190, 0xca1b0, indexKOF00Sprites_Benimaru, 0x08 },
+    { L"Another Benimaru B", 0xca350, 0xca370, indexKOF00Sprites_Benimaru, 0x08 },
+    { L"Another Benimaru B Electric Shock Effect", 0xca390, 0xca3b0, indexKOF00Sprites_Benimaru, 0x08 },
+    { L"Another Benimaru CD", 0xedb50, 0xedb70, indexKOF00Sprites_Benimaru, 0x08 },
+    { L"Another Benimaru CD Electric Shock Effect", 0xedb90, 0xedbb0, indexKOF00Sprites_Benimaru, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_BENIMARU_Moves[] =
@@ -855,12 +855,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_RYO_Striker[] =
     { L"Kaede B Electric Shock Effect", 0xcbb90, 0xcbbb0, indexKOF00Sprites_Ryo, 0x08 },
     { L"Kaede CD", 0xee150, 0xee170, indexKOF00Sprites_Ryo, 0x08 },
     { L"Kaede CD Electric Shock Effect", 0xee190, 0xee1b0, indexKOF00Sprites_Ryo, 0x08 },
-    { L"G-Mantle A", 0xdcef0, 0xdcf10 },
-    { L"G-Mantle A Electric Shock Effect", 0xdcf30, 0xdcf50 },
-    { L"G-Mantle B", 0xdcf70, 0xdcf90 },
-    { L"G-Mantle B Electric Shock Effect", 0xdcfb0, 0xdcfd0 },
-    { L"G-Mantle CD", 0xdd9f0, 0xdda10 },
-    { L"G-Mantle CD Electric Shock Effect", 0xdda30, 0xdda50 },
+    { L"G-Mantle A", 0xdcef0, 0xdcf10, indexKOF00Sprites_Ryo, 0x09 },
+    { L"G-Mantle A Electric Shock Effect", 0xdcf30, 0xdcf50, indexKOF00Sprites_Ryo, 0x09 },
+    { L"G-Mantle B", 0xdcf70, 0xdcf90, indexKOF00Sprites_Ryo, 0x09 },
+    { L"G-Mantle B Electric Shock Effect", 0xdcfb0, 0xdcfd0, indexKOF00Sprites_Ryo, 0x09 },
+    { L"G-Mantle CD", 0xdd9f0, 0xdda10, indexKOF00Sprites_Ryo, 0x09 },
+    { L"G-Mantle CD Electric Shock Effect", 0xdda30, 0xdda50, indexKOF00Sprites_Ryo, 0x09 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_RYO_Moves[] =
@@ -915,10 +915,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_ROBERT_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ROBERT_Striker[] =
 {
-    { L"Another Robert A", 0xcbd50, 0xcbd70 },
-    { L"Another Robert A Electric Shock Effect", 0xcbd90, 0xcbdb0 },
-    { L"Another Robert B", 0xcbf50, 0xcbf70 },
-    { L"Another Robert B Electric Shock Effect", 0xcbf90, 0xcbfb0 },
+    { L"Another Robert A", 0xcbd50, 0xcbd70, indexKOF00Sprites_Robert, 0x08 },
+    { L"Another Robert A Electric Shock Effect", 0xcbd90, 0xcbdb0, indexKOF00Sprites_Robert, 0x08 },
+    { L"Another Robert B", 0xcbf50, 0xcbf70, indexKOF00Sprites_Robert, 0x08 },
+    { L"Another Robert B Electric Shock Effect", 0xcbf90, 0xcbfb0, indexKOF00Sprites_Robert, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_ROBERT_Moves[] =
@@ -1439,10 +1439,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CHIN_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHIN_Striker[] =
 {
-    { L"Baitang A", 0xce150, 0xce170 },
-    { L"Baitang A Electric Shock Effect", 0xce190, 0xce1b0 },
-    { L"Baitang B", 0xce350, 0xce370 },
-    { L"Baitang B Electric Shock Effect", 0xce390, 0xce3b0 },
+    { L"Baitang A", 0xce150, 0xce170, indexKOF00Sprites_Chin, 0x08 },
+    { L"Baitang A Electric Shock Effect", 0xce190, 0xce1b0, indexKOF00Sprites_Chin, 0x08 },
+    { L"Baitang B", 0xce350, 0xce370, indexKOF00Sprites_Chin, 0x08 },
+    { L"Baitang B Electric Shock Effect", 0xce390, 0xce3b0, indexKOF00Sprites_Chin, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHIN_Moves[] =
@@ -1565,12 +1565,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_MAI_CD[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MAI_Striker[] =
 {
-    { L"Chizuru A", 0xcb550, 0xcb570, indexKOF98Sprites_Chizuru, 0x00 },
-    { L"Chizuru A Electric Shock Effect", 0xcb590, 0xcb5b0, indexKOF98Sprites_Chizuru, 0x00 },
-    { L"Chizuru B", 0xcb750, 0xcb770, indexKOF98Sprites_Chizuru, 0x00 },
-    { L"Chizuru B Electric Shock Effect", 0xcb790, 0xcb7b0, indexKOF98Sprites_Chizuru, 0x00 },
-    { L"Chizuru CD", 0xedf50, 0xedf70, indexKOF98Sprites_Chizuru, 0x00 },
-    { L"Chizuru CD Electric Shock Effect", 0xedf90, 0xedfb0, indexKOF98Sprites_Chizuru, 0x00 },
+    { L"Chizuru A", 0xcb550, 0xcb570, indexKOF00Sprites_Mai, 0x08 },
+    { L"Chizuru A Electric Shock Effect", 0xcb590, 0xcb5b0, indexKOF00Sprites_Mai, 0x08 },
+    { L"Chizuru B", 0xcb750, 0xcb770, indexKOF00Sprites_Mai, 0x08 },
+    { L"Chizuru B Electric Shock Effect", 0xcb790, 0xcb7b0, indexKOF00Sprites_Mai, 0x08 },
+    { L"Chizuru CD", 0xedf50, 0xedf70, indexKOF00Sprites_Mai, 0x08 },
+    { L"Chizuru CD Electric Shock Effect", 0xedf90, 0xedfb0, indexKOF00Sprites_Mai, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_MAI_Moves[] =
@@ -1682,10 +1682,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_KASUMI_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_KASUMI_Striker[] =
 {
-    { L"Xiangfei A", 0xcf150, 0xcf170, indexKOF02UMSprites_Xiangfei },
-    { L"Xiangfei A Electric Shock Effect", 0xcf190, 0xcf1b0, indexKOF02UMSprites_Xiangfei },
-    { L"Xiangfei B", 0xcf350, 0xcf370, indexKOF02UMSprites_Xiangfei },
-    { L"Xiangfei B Electric Shock Effect", 0xcf390, 0xcf3b0, indexKOF02UMSprites_Xiangfei },
+    { L"Xiangfei A", 0xcf150, 0xcf170, indexKOF00Sprites_Kasumi, 0x08 },
+    { L"Xiangfei A Electric Shock Effect", 0xcf190, 0xcf1b0, indexKOF00Sprites_Kasumi, 0x08 },
+    { L"Xiangfei B", 0xcf350, 0xcf370, indexKOF00Sprites_Kasumi, 0x08 },
+    { L"Xiangfei B Electric Shock Effect", 0xcf390, 0xcf3b0, indexKOF00Sprites_Kasumi, 0x08 },
     { L"Unknown A", 0xdcff0, 0xdd010 },
     { L"Unknown A Electric Shock Effect", 0xdd030, 0xdd050 },
     { L"Unknown B", 0xdd070, 0xdd090 },
@@ -1832,10 +1832,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CHANG_Striker[] =
     { L"Dong Hwan A Electric Shock Effect", 0xcfd90, 0xcfdb0, indexKOF00Sprites_Chang, 0x08 },
     { L"Dong Hwan B", 0xcff50, 0xcff70, indexKOF00Sprites_Chang, 0x08 },
     { L"Dong Hwan B Electric Shock Effect", 0xcff90, 0xcffb0, indexKOF00Sprites_Chang, 0x08 },
-    { L"Smart Chang A", 0xdd0f0, 0xdd110 },
-    { L"Smart Chang A Electric Shock Effect", 0xdd130, 0xdd150 },
-    { L"Smart Chang B", 0xdd170, 0xdd190 },
-    { L"Smart Chang B Electric Shock Effect", 0xdd1b0, 0xdd1d0 },
+    { L"Smart Chang A", 0xdd0f0, 0xdd110, indexKOF00Sprites_Chang, 0x09 },
+    { L"Smart Chang A Electric Shock Effect", 0xdd130, 0xdd150, indexKOF00Sprites_Chang, 0x09 },
+    { L"Smart Chang B", 0xdd170, 0xdd190, indexKOF00Sprites_Chang, 0x09 },
+    { L"Smart Chang B Electric Shock Effect", 0xdd1b0, 0xdd1d0, indexKOF00Sprites_Chang, 0x09 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHANG_Moves[] =
@@ -1903,12 +1903,12 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_CHOI_Striker[] =
     { L"Jae Hoon B Electric Shock Effect", 0xd0390, 0xd03b0, indexKOF00Sprites_Choi, 0x08 },
     { L"Jae Hoon CD", 0xee950, 0xee970, indexKOF00Sprites_Choi, 0x08 },
     { L"Jae Hoon CD Electric Shock Effect", 0xee990, 0xee9b0, indexKOF00Sprites_Choi, 0x08 },
-    { L"Cool Choi A", 0xdd1f0, 0xdd210 },
-    { L"Cool Choi A Electric Shock Effect", 0xdd230, 0xdd250 },
-    { L"Cool Choi B", 0xdd270, 0xdd290 },
-    { L"Cool Choi B Electric Shock Effect", 0xdd2b0, 0xdd2d0 },
-    { L"Cool Choi CD", 0xdda70, 0xdda90 },
-    { L"Cool Choi CD Electric Shock Effect", 0xddab0, 0xddad0 },
+    { L"Cool Choi A", 0xdd1f0, 0xdd210, indexKOF00Sprites_Choi, 0x09 },
+    { L"Cool Choi A Electric Shock Effect", 0xdd230, 0xdd250, indexKOF00Sprites_Choi, 0x09 },
+    { L"Cool Choi B", 0xdd270, 0xdd290, indexKOF00Sprites_Choi, 0x09 },
+    { L"Cool Choi B Electric Shock Effect", 0xdd2b0, 0xdd2d0, indexKOF00Sprites_Choi, 0x09 },
+    { L"Cool Choi CD", 0xdda70, 0xdda90, indexKOF00Sprites_Choi, 0x09 },
+    { L"Cool Choi CD Electric Shock Effect", 0xddab0, 0xddad0, indexKOF00Sprites_Choi, 0x09 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_CHOI_Moves[] =
@@ -1962,10 +1962,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_JHUN_B[] =
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_JHUN_Striker[] =
 {
-    { L"Baedal A", 0xd0550, 0xd0570 },
-    { L"Baedal A Electric Shock Effect", 0xd0590, 0xd05b0 },
-    { L"Baedal B", 0xd0750, 0xd0770 },
-    { L"Baedal B Electric Shock Effect", 0xd0790, 0xd07b0 },
+    { L"Baedal A", 0xd0550, 0xd0570, indexKOF00Sprites_JhunHoon, 0x08 },
+    { L"Baedal A Electric Shock Effect", 0xd0590, 0xd05b0, indexKOF00Sprites_JhunHoon, 0x08 },
+    { L"Baedal B", 0xd0750, 0xd0770, indexKOF00Sprites_JhunHoon, 0x08 },
+    { L"Baedal B Electric Shock Effect", 0xd0790, 0xd07b0, indexKOF00Sprites_JhunHoon, 0x08 },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_JHUN_Moves[] =
@@ -2105,10 +2105,10 @@ const sGame_PaletteDataset KOF00N_A_PALETTES_IORI_Striker[] =
     { L"Vice A Electric Shock Effect", 0xd11b0, 0xd11d0, indexKOF00Sprites_Iori, 0x09 },
     { L"Vice B", 0xd1370, 0xd1390, indexKOF00Sprites_Iori, 0x09 },
     { L"Vice B Electric Shock Effect", 0xd13b0, 0xd13d0, indexKOF00Sprites_Iori, 0x09 },
-    { L"Another Iori A", 0xdd3f0, 0xdd410 },
-    { L"Another Iori A Electric Shock Effect", 0xdd430, 0xdd450 },
-    { L"Another Iori B", 0xdd470, 0xdd490 },
-    { L"Another Iori B Electric Shock Effect", 0xdd4b0, 0xdd4d0 },
+    { L"Another Iori A", 0xdd3f0, 0xdd410,  indexKOF00Sprites_Iori, 0x0a },
+    { L"Another Iori A Electric Shock Effect", 0xdd430, 0xdd450,  indexKOF00Sprites_Iori, 0x0a },
+    { L"Another Iori B", 0xdd470, 0xdd490,  indexKOF00Sprites_Iori, 0x0a },
+    { L"Another Iori B Electric Shock Effect", 0xdd4b0, 0xdd4d0,  indexKOF00Sprites_Iori, 0x0a },
 };
 
 const sGame_PaletteDataset KOF00N_A_PALETTES_IORI_Moves[] =

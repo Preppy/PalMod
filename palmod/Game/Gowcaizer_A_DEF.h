@@ -32,14 +32,14 @@ const sGame_PaletteDataset Gowcaizer_A_GOWCAIZER_PALETTES_P1[] =
 {
     { L"Gowcaizer P1", 0x190e62, 0x190e82, indexNEOGEOSprites_VFG_Gowcaizer, 0x00 },
     { L"Gowcaizer Intro P1", 0x196ee2, 0x196f02 },
-    { L"Gowcaizer Select/Win Portrait P1", 0x191FE2, 0x1920c2 },
+    { L"Gowcaizer Select/Win Portrait P1", 0x191FE2, 0x1920c2, indexNEOGEOSprites_VFG_Gowcaizer, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_GOWCAIZER_PALETTES_P2[] =
 {
     { L"Gowcaizer P2", 0x190e82, 0x190ea2, indexNEOGEOSprites_VFG_Gowcaizer, 0x00 },
     { L"Gowcaizer Intro P2", 0x196f02, 0x196f22 },
-    { L"Gowcaizer Select/Win Portrait P2", 0x1920E2, 0x1921c2 },
+    { L"Gowcaizer Select/Win Portrait P2", 0x1920E2, 0x1921c2, indexNEOGEOSprites_VFG_Gowcaizer, 0x40 },
 };
 
 // "Captain Atlantis" Randy Riggs
@@ -47,13 +47,13 @@ const sGame_PaletteDataset Gowcaizer_A_GOWCAIZER_PALETTES_P2[] =
 const sGame_PaletteDataset Gowcaizer_A_ATLANTIS_PALETTES_P1[] =
 {
     { L"Captain Atlantis P1", 0x190ea2, 0x190ec2, indexNEOGEOSprites_VFG_Captain, 0x00 },
-    { L"Captain Atlantis Select/Win Portrait P1", 0x1921E2, 0x1922e2 },
+    { L"Captain Atlantis Select/Win Portrait P1", 0x1921E2, 0x1922e2, indexNEOGEOSprites_VFG_Captain, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_ATLANTIS_PALETTES_P2[] =
 {
     { L"Captain Atlantis P2", 0x190ec2, 0x190ee2, indexNEOGEOSprites_VFG_Captain, 0x00 },
-    { L"Captain Atlantis Select/Win Portrait P2", 0x1922E2, 0x1923e2 },
+    { L"Captain Atlantis Select/Win Portrait P2", 0x1922E2, 0x1923e2, indexNEOGEOSprites_VFG_Captain, 0x40 },
 };
 
 // "Karin" Son Hualing
@@ -64,8 +64,8 @@ const sGame_PaletteDataset Gowcaizer_A_KARIN_PALETTES_P1[] =
     { L"Karin Intro P1", 0x1971e2, 0x197202 },
     { L"Karin Intro Extra 1 P1", 0x197222, 0x197242 },
     { L"Karin Intro Extra 2 P1", 0x197262, 0x197282 },
-    { L"Karin Select Portrait P1", 0x199BE2, 0x199Ce2 },
-    { L"Karin Win Portrait P1", 0x198DE2, 0x198EE2 },
+    { L"Karin Select Portrait P1", 0x199BE2, 0x199Ce2, indexNEOGEOSprites_VFG_Karin, 0x40 },
+    { L"Karin Win Portrait P1", 0x198DE2, 0x198EE2, indexNEOGEOSprites_VFG_Karin, 0x41 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_KARIN_PALETTES_P2[] =
@@ -74,8 +74,8 @@ const sGame_PaletteDataset Gowcaizer_A_KARIN_PALETTES_P2[] =
     { L"Karin Intro P2", 0x197202, 0x197222 },
     { L"Karin Intro Extra 1 P2", 0x197242, 0x197262 },
     { L"Karin Intro Extra 2 P2", 0x197282, 0x1972a2 },
-    { L"Karin Select Portrait P2", 0x199CE2, 0x199De2 },
-    { L"Karin Win Portrait P2", 0x198eE2, 0x198fE2 },
+    { L"Karin Select Portrait P2", 0x199CE2, 0x199De2, indexNEOGEOSprites_VFG_Karin, 0x40 },
+    { L"Karin Win Portrait P2", 0x198eE2, 0x198fE2, indexNEOGEOSprites_VFG_Karin, 0x41 },
 };
 
 // "Fudomaru" Ranpo Fudoh
@@ -85,7 +85,7 @@ const sGame_PaletteDataset Gowcaizer_A_FUDOMARU_PALETTES_P1[] =
     { L"Fudomaru P1", 0x190ee2, 0x190f02, indexNEOGEOSprites_VFG_Fudomaru, 0x00 },
     { L"Fudomaru Intro P1", 0x1972a2, 0x1972c2 },
     { L"Fudomaru Intro Extra P1", 0x1972e2, 0x197302 },
-    { L"Fudomaru Select/Win Portrait P1", 0x1923e2, 0x1924e2 },
+    { L"Fudomaru Select/Win Portrait P1", 0x1923e2, 0x1924e2, indexNEOGEOSprites_VFG_Fudomaru, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_FUDOMARU_PALETTES_P2[] =
@@ -93,7 +93,7 @@ const sGame_PaletteDataset Gowcaizer_A_FUDOMARU_PALETTES_P2[] =
     { L"Fudomaru P2", 0x190f02, 0x190f22, indexNEOGEOSprites_VFG_Fudomaru, 0x00 },
     { L"Fudomaru Intro P2", 0x1972c2, 0x1972e2 },
     { L"Fudomaru Intro Extra P2", 0x197302, 0x197322 },
-    { L"Fudomaru Select/Win Portrait P2", 0x1924E2, 0x1925e2 },
+    { L"Fudomaru Select/Win Portrait P2", 0x1924E2, 0x1925e2, indexNEOGEOSprites_VFG_Fudomaru, 0x40 },
 };
 
 // "Marion" DES/CO-P IV Marionette
@@ -101,33 +101,33 @@ const sGame_PaletteDataset Gowcaizer_A_FUDOMARU_PALETTES_P2[] =
 const sGame_PaletteDataset Gowcaizer_A_MARION_PALETTES_P1[] =
 {
     { L"Marion P1", 0x1911e2, 0x191202, indexNEOGEOSprites_VFG_Marion, 0x00 },
-    { L"Marion Select/Win Portrait P1", 0x19A7E2, 0x19A8e2 },
+    { L"Marion Select/Win Portrait P1", 0x19A7E2, 0x19A8e2, indexNEOGEOSprites_VFG_Marion, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_MARION_PALETTES_P2[] =
 {
     { L"Marion P2", 0x191202, 0x191222, indexNEOGEOSprites_VFG_Marion, 0x00 },
-    { L"Marion Select/Win Portrait P2", 0x19A8E2, 0x19A9e2 },
+    { L"Marion Select/Win Portrait P2", 0x19A8E2, 0x19A9e2, indexNEOGEOSprites_VFG_Marion, 0x40 },
 };
 
 // "Shaia" Shaia Hishizaki
 
 const sGame_PaletteDataset Gowcaizer_A_SHAIA_PALETTES_P1[] =
 {
-    { L"Shaia P1", 0x191162, 0x191182, indexNEOGEOSprites_VFG_Shaia, 0x00 },
+    { L"Shaia P1", 0x191162, 0x191182, indexNEOGEOSprites_VFG_Shaia, 0x00, &pairNext },
     { L"Ball Boy P1", 0x1911a2, 0x1911c2, indexNEOGEOSprites_VFG_Shaia, 0x01 },
     { L"Shaia Intro P1", 0x1976e2, 0x197702 },
-    { L"Shaia Select Portrait P1", 0x19A5E2, 0x19A6e2 },
-    { L"Shaia Win Portrait P1", 0x19b1e2, 0x19b2c2 },
+    { L"Shaia Select Portrait P1", 0x19A5E2, 0x19A6e2, indexNEOGEOSprites_VFG_Shaia, 0x40 },
+    { L"Shaia Win Portrait P1", 0x19b1e2, 0x19b2c2, indexNEOGEOSprites_VFG_Shaia, 0x41 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_SHAIA_PALETTES_P2[] =
 {
-    { L"Shaia P2", 0x191182, 0x1911a2, indexNEOGEOSprites_VFG_Shaia, 0x00 },
+    { L"Shaia P2", 0x191182, 0x1911a2, indexNEOGEOSprites_VFG_Shaia, 0x00, &pairNext },
     { L"Ball Boy P2", 0x1911c2, 0x1911e2, indexNEOGEOSprites_VFG_Shaia, 0x01 },
     { L"Shaia Intro P2", 0x197702, 0x197722 },
-    { L"Shaia Select Portrait P2", 0x19A6E2, 0x19A7e2 },
-    { L"Shaia Win Portrait P2", 0x19b2e2, 0x19b3c2 },
+    { L"Shaia Select Portrait P2", 0x19A6E2, 0x19A7e2, indexNEOGEOSprites_VFG_Shaia, 0x40 },
+    { L"Shaia Win Portrait P2", 0x19b2e2, 0x19b3c2, indexNEOGEOSprites_VFG_Shaia, 0x41 },
 };
 
 // "Shen Long" Goichiro Kaiza
@@ -136,14 +136,14 @@ const sGame_PaletteDataset Gowcaizer_A_SHENLONG_PALETTES_P1[] =
 {
     { L"Shen Long P1", 0x190f62, 0x190f82, indexNEOGEOSprites_VFG_Shenlong, 0x00 },
     { L"Shen Long Illusion P1", 0x190fa2, 0x190fc2, indexNEOGEOSprites_VFG_Shenlong, 0x00 },
-    { L"Shen Long Select/Win Portrait P1", 0x199fe2, 0x19A022 },
+    { L"Shen Long Select/Win Portrait P1", 0x199fe2, 0x19A022, indexNEOGEOSprites_VFG_Shenlong, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_SHENLONG_PALETTES_P2[] =
 {
     { L"Shen Long P2", 0x190f82, 0x190fa2, indexNEOGEOSprites_VFG_Shenlong, 0x00 },
     { L"Shen Long Illusion P2", 0x190fc2, 0x190fe2, indexNEOGEOSprites_VFG_Shenlong, 0x00 },
-    { L"Shen Long Select/Win Portrait P2", 0x19A0E2, 0x19A122 },
+    { L"Shen Long Select/Win Portrait P2", 0x19A0E2, 0x19A122, indexNEOGEOSprites_VFG_Shenlong, 0x40 },
 };
 
 // Kyosuke Shigure
@@ -152,14 +152,14 @@ const sGame_PaletteDataset Gowcaizer_A_KYOSUKE_PALETTES_P1[] =
 {
     { L"Kyosuke Shigure P1", 0x190fe2, 0x191002, indexNEOGEOSprites_VFG_Kyosuke, 0x00 },
     { L"Kyosuke Shigure Summons P1", 0x191022, 0x191042 },
-    { L"Kyosuke Select/Win Portrait P1", 0x19A1E2, 0x19A2c2 },
+    { L"Kyosuke Select/Win Portrait P1", 0x19A1E2, 0x19A2c2, indexNEOGEOSprites_VFG_Kyosuke, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_KYOSUKE_PALETTES_P2[] =
 {
     { L"Kyosuke Shigure P2", 0x191002, 0x191022, indexNEOGEOSprites_VFG_Kyosuke, 0x00 },
     { L"Kyosuke Shigure Summons P2", 0x191042, 0x191062 },
-    { L"Kyosuke Select/Win Portrait P2", 0x19A2E2, 0x19A3C2 },
+    { L"Kyosuke Select/Win Portrait P2", 0x19A2E2, 0x19A3C2, indexNEOGEOSprites_VFG_Kyosuke, 0x40 },
 };
 
 // "HellStinger" Kash Gyustan
@@ -170,7 +170,7 @@ const sGame_PaletteDataset Gowcaizer_A_HELLSTINGER_PALETTES_P1[] =
     { L"Hellstinger Guitar P1", 0x190e22, 0x190e42 },
     { L"HellStinger Intro P1", 0x196de2, 0x196e02 },
     { L"HellStinger Intro Extra P1", 0x196e22, 0x196e42 },
-    { L"HellStinger Select/Win Portrait P1", 0x191DE2, 0x191Ee2 },
+    { L"HellStinger Select/Win Portrait P1", 0x191DE2, 0x191Ee2, indexNEOGEOSprites_VFG_Stinger, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_HELLSTINGER_PALETTES_P2[] =
@@ -179,7 +179,7 @@ const sGame_PaletteDataset Gowcaizer_A_HELLSTINGER_PALETTES_P2[] =
     { L"Hellstinger Guitar P2", 0x190e42, 0x190e62 },
     { L"HellStinger Intro P2", 0x196e02, 0x196e22 },
     { L"HellStinger Intro Extra P2", 0x196e42, 0x196e62 },
-    { L"HellStinger Select/Win Portrait P2", 0x191EE2, 0x191Fe2 },
+    { L"HellStinger Select/Win Portrait P2", 0x191EE2, 0x191Fe2, indexNEOGEOSprites_VFG_Stinger, 0x40 },
 };
 
 // "Brider" Kazuki Tachibana
@@ -189,7 +189,7 @@ const sGame_PaletteDataset Gowcaizer_A_BRIDER_PALETTES_P1[] =
     { L"Brider P1", 0x1910a2, 0x1910c2, indexNEOGEOSprites_VFG_Brider, 0x00 },
     { L"Double Brider P1", 0x191122, 0x191142, indexNEOGEOSprites_VFG_Brider, 0x00 },
     { L"Brider Intro P1", 0x1975e2, 0x197602 },
-    { L"Brider Select/Win Portrait P1", 0x19A3E2, 0x19A4e2 },
+    { L"Brider Select/Win Portrait P1", 0x19A3E2, 0x19A4e2, indexNEOGEOSprites_VFG_Brider, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_BRIDER_PALETTES_P2[] =
@@ -197,7 +197,7 @@ const sGame_PaletteDataset Gowcaizer_A_BRIDER_PALETTES_P2[] =
     { L"Brider P2", 0x1910c2, 0x1910e2, indexNEOGEOSprites_VFG_Brider, 0x00 },
     { L"Double Brider P2", 0x191142, 0x191162, indexNEOGEOSprites_VFG_Brider, 0x00 },
     { L"Brider Intro P2", 0x197602, 0x197622 },
-    { L"Brider Select/Win Portrait P2", 0x19A4E2, 0x19A5e2 },
+    { L"Brider Select/Win Portrait P2", 0x19A4E2, 0x19A5e2, indexNEOGEOSprites_VFG_Brider, 0x40 },
 };
 
 // "Platonic Twins" Ryo Asahina & Suzu Asahina
@@ -208,7 +208,7 @@ const sGame_PaletteDataset Gowcaizer_A_PLATONIC_PALETTES_P1[] =
     { L"Platonic Twins Intro P1", 0x1977e2, 0x197822 },
     { L"Platonic Twins Intro Extra 1 P1", 0x197822, 0x197842 },
     { L"Platonic Twins Intro Extra 2 P1", 0x197842, 0x197862 },
-    { L"Platonic Twins Select/Win Portrait P1", 0x199DE2, 0x199Ee2 },
+    { L"Platonic Twins Select/Win Portrait P1", 0x199DE2, 0x199Ee2, indexNEOGEOSprites_VFG_PlatonicTwins, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_PLATONIC_PALETTES_P2[] =
@@ -217,7 +217,7 @@ const sGame_PaletteDataset Gowcaizer_A_PLATONIC_PALETTES_P2[] =
     { L"Platonic Twins Intro P2", 0x197862, 0x1978a2 },
     { L"Platonic Twins Intro Extra 1 P2", 0x1978a2, 0x1978c2 },
     { L"Platonic Twins Intro Extra 2 P2", 0x1978c2, 0x1978e2 },
-    { L"Platonic Twins Select/Win Portrait P2", 0x199EE2, 0x199Fe2 },
+    { L"Platonic Twins Select/Win Portrait P2", 0x199EE2, 0x199Fe2, indexNEOGEOSprites_VFG_PlatonicTwins, 0x40 },
 };
 
 // "Ohga" Shizuru Osaki
@@ -228,7 +228,7 @@ const sGame_PaletteDataset Gowcaizer_A_OHGA_PALETTES_P1[] =
     { L"Ohga Intro P1", 0x197962, 0x197982 },
     { L"Ohga Intro Extra P1", 0x197982, 0x1979a2 },
     { L"Ohga Winpose P1", 0x1912a2, 0x1912c2 },
-    { L"Ohga Select/Win Portrait P1", 0x19A9E2, 0x19AAe2 },
+    { L"Ohga Select/Win Portrait P1", 0x19A9E2, 0x19AAe2, indexNEOGEOSprites_VFG_Ohga, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_OHGA_PALETTES_P2[] =
@@ -237,9 +237,8 @@ const sGame_PaletteDataset Gowcaizer_A_OHGA_PALETTES_P2[] =
     { L"Ohga Intro P2", 0x1979a2, 0x1979c2 },
     { L"Ohga Intro Extra P2", 0x1979c2, 0x1979e2 },
     { L"Ohga Winpose P2", 0x1912c2, 0x1912e2 },
-    { L"Ohga Select/Win Portrait P2", 0x19AAE2, 0x19ABe2 },
+    { L"Ohga Select/Win Portrait P2", 0x19AAE2, 0x19ABe2, indexNEOGEOSprites_VFG_Ohga, 0x40 },
 };
-
 
 // STAGES
 
@@ -443,44 +442,44 @@ const sGame_PaletteDataset Gowcaizer_A_STAGES_POWERROOM_PALETTES[] =
 
 const sGame_PaletteDataset Gowcaizer_A_BONUS_Intro_PALETTES[] =
 {
-    { L"Intro Logo 1/3", 0x19B9E2, 0x19Bbe2 },
-    { L"Intro Logo 2/3", 0x19BbE2, 0x19Bde2 },
-    { L"Intro Logo 3/3", 0x19BdE2, 0x19BEC2 },
-    { L"Intro Panel 1/3", 0x19BEC2, 0x19BEe2 },
-    { L"Intro Panel 2/3", 0x19BF02, 0x19BF22 },
+    { L"Intro Logo 1/3", 0x19B9E2, 0x19Bbe2, indexNEOGEOSprites_VFG_Bonus, 0x07, &pairNextAndNext },
+    { L"Intro Logo 2/3", 0x19BbE2, 0x19Bde2, indexNEOGEOSprites_VFG_Bonus, 0x08 },
+    { L"Intro Logo 3/3", 0x19BdE2, 0x19BEC2, indexNEOGEOSprites_VFG_Bonus, 0x09 },
+    { L"Intro Panel 1/3", 0x19BEC2, 0x19BEe2, indexNEOGEOSprites_VFG_Bonus, 0x0a },
+    { L"Intro Panel 2/3", 0x19BF02, 0x19BF22, indexNEOGEOSprites_VFG_Bonus, 0x0b },
     { L"Intro Panel 3/3", 0x19BF22, 0x19BF82 },
-    { L"Intro Logo Background 1", 0x19c4c2, 0x19c4e2 },
-    { L"Intro Logo Background 2", 0x19c522, 0x19c542 },
-    { L"Karin vs Shaia Intro", 0x19c3e2, 0x19c442 },
-    { L"Captain Atlantis vs Karin Intro", 0x19c442, 0x19c482 },
-    { L"Ball Boy Intro", 0x19c482, 0x19c4c2 },
-    { L"HellStinger Intro", 0x19c042, 0x19c0a2 },
-    { L"Gowcaizer Intro", 0x19c0a2, 0x19c102 },
-    { L"HellStinger vs Gowcaizer Intro", 0x19c102, 0x19c162 },
-    { L"Punch Intro Flash", 0x19bfe2, 0x19c002 },
-    { L"Full Gowcaizer Intro", 0x19c1e2, 0x19c3e2 },
-    { L"Title Screen Background", 0x19c182, 0x19c1a2 },
-    { L"Title Screen Logo", 0x19BFA2, 0x19BFc2 },
+    { L"Intro Logo Background 1", 0x19c4c2, 0x19c4e2, indexNEOGEOSprites_VFG_Bonus, 0x00 },
+    { L"Intro Logo Background 2", 0x19c522, 0x19c542, indexNEOGEOSprites_VFG_Bonus, 0x01 },
+    { L"Karin vs Shaia Intro", 0x19c3e2, 0x19c442, indexNEOGEOSprites_VFG_Bonus, 0x0e },
+    { L"Captain Atlantis vs Karin Intro", 0x19c442, 0x19c482, indexNEOGEOSprites_VFG_Bonus, 0x03 },
+    { L"Ball Boy Intro", 0x19c482, 0x19c4c2, indexNEOGEOSprites_VFG_Bonus, 0x02 },
+    { L"HellStinger Intro", 0x19c042, 0x19c0a2, indexNEOGEOSprites_VFG_Bonus, 0x06 },
+    { L"Gowcaizer Intro", 0x19c0a2, 0x19c102, indexNEOGEOSprites_VFG_Bonus, 0x05 },
+    { L"HellStinger vs Gowcaizer Intro", 0x19c102, 0x19c162, indexNEOGEOSprites_VFG_Bonus, 0x0d },
+    { L"Punch Intro Flash", 0x19bfe2, 0x19c002, indexNEOGEOSprites_VFG_Bonus, 0x0c },
+    { L"Full Gowcaizer Intro", 0x19c1e2, 0x19c3e2, indexNEOGEOSprites_VFG_Bonus, 0x04 },
+    { L"Title Screen Background", 0x19c182, 0x19c1a2, indexNEOGEOSprites_VFG_Bonus, 0x0f },
+    { L"Title Screen Logo", 0x19BFA2, 0x19BFc2, indexNEOGEOSprites_VFG_Bonus, 0x10 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_BONUS_SelectScreen_PALETTES[] =
 {
     { L"Select Screen", 0x1969e2, 0x196be2 },
-    { L"Tutorial Buttons", 0x196CE2, 0x196Dc2 },
+    { L"Tutorial Buttons", 0x196CE2, 0x196Dc2, indexNEOGEOSprites_VFG_Bonus, 0x11 },
     { L"VS Background", 0x196c42, 0x196c62 },
     { L"Fight Text", 0x196be2, 0x196c02 },
     { L"Attack Copy System Movelist", 0x196c02, 0x196c22 },
 
-    { L"Gowcaizer Portrait Faded", 0x1990e2, 0x1991c2 },
-    { L"Captain Atlantis Portrait Faded", 0x1991e2, 0x1992e2 },
-    { L"Karin Portrait Faded", 0x1993e2, 0x1994e2 },
-    { L"Fudomaru Portrait Faded", 0x1992e2, 0x1993e2 },
-    { L"Marion Portrait Faded", 0x1999e2, 0x199ae2 },
-    { L"Shaia Portrait Faded", 0x1998e2, 0x1999e2 },
-    { L"Shen Long Portrait Faded", 0x1994e2, 0x199522 },
-    { L"Kyosuke Portrait Faded", 0x1996e2, 0x1997c2 },
-    { L"HellStinger Portrait Faded", 0x198fe2, 0x1990e2 },
-    { L"Brider Portrait Faded", 0x1997e2, 0x1998e2 },
+    { L"Gowcaizer Portrait Faded",          0x1990e2, 0x1991c2, indexNEOGEOSprites_VFG_Gowcaizer, 0x40 },
+    { L"Captain Atlantis Portrait Faded",   0x1991e2, 0x1992e2, indexNEOGEOSprites_VFG_Captain, 0x40 },
+    { L"Karin Portrait Faded",              0x1993e2, 0x1994e2, indexNEOGEOSprites_VFG_Karin, 0x40 },
+    { L"Fudomaru Portrait Faded",           0x1992e2, 0x1993e2, indexNEOGEOSprites_VFG_Fudomaru, 0x40 },
+    { L"Marion Portrait Faded",             0x1999e2, 0x199ae2, indexNEOGEOSprites_VFG_Marion, 0x40 },
+    { L"Shaia Portrait Faded",              0x1998e2, 0x1999e2, indexNEOGEOSprites_VFG_Shaia, 0x40 },
+    { L"Shen Long Portrait Faded",          0x1994e2, 0x199522, indexNEOGEOSprites_VFG_Shenlong, 0x40 },
+    { L"Kyosuke Portrait Faded",            0x1996e2, 0x1997c2, indexNEOGEOSprites_VFG_Kyosuke, 0x40 },
+    { L"HellStinger Portrait Faded",        0x198fe2, 0x1990e2, indexNEOGEOSprites_VFG_Stinger, 0x40 },
+    { L"Brider Portrait Faded",             0x1997e2, 0x1998e2, indexNEOGEOSprites_VFG_Brider, 0x40 },
 };
 
 const sGame_PaletteDataset Gowcaizer_A_BONUS_Effects_PALETTES[] =

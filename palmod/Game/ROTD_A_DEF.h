@@ -850,21 +850,21 @@ const sGame_PaletteDataset ROTD_A_JOHANN_PALETTES[] =
 
 const sGame_PaletteDataset ROTD_A_BONUS_CONTINUE_PALETTES[] =
 {
-    { L"Billy Continue Palette", 0x080486, 0x0804a6 },
-    { L"Lynn Continue Palette", 0x082bb6, 0x082bd6 },
-    { L"Radel Continue Palette", 0x082774, 0x082794 },
-    { L"Annie Continue Palette", 0x080e2a, 0x080e4a },
-    { L"Cassandra Continue Palette", 0x083d9e, 0x083dbe },
-    { L"Oni Continue Palette", 0x084280, 0x0842a0 },
-    { L"Pepe Continue Palette", 0x081e70, 0x081e90 },
-    { L"Pupa Continue Palette", 0x08353a, 0x08355a },
-    { L"Alice Continue Palette", 0x08198e, 0x0819ae },
-    { L"Elias Continue Palette", 0x08132c, 0x08134c },
-    { L"Jones Continue Palette", 0x084722, 0x084742 },
-    { L"Kang Continue Palette", 0x08397c, 0x08399c },
-    { L"Sonia Continue Palette", 0x082332, 0x082352 },
-    { L"Jimmy Continue Palette", 0x080968, 0x080988 },
-    { L"Abubo Continue Palette", 0x0830d8, 0x0830f8 },
+    { L"Billy Continue Palette",        0x080486, 0x0804a6, indexRotDSprites_Billy, 0x00 },
+    { L"Lynn Continue Palette",         0x082bb6, 0x082bd6, indexRotDSprites_Lynn, 0x00 },
+    { L"Radel Continue Palette",        0x082774, 0x082794, indexRotDSprites_Radel, 0x00 },
+    { L"Annie Continue Palette",        0x080e2a, 0x080e4a, indexRotDSprites_Annie, 0x00 },
+    { L"Cassandra Continue Palette",    0x083d9e, 0x083dbe, indexRotDSprites_Cassandra, 0x00 },
+    { L"Oni Continue Palette",          0x084280, 0x0842a0, indexRotDSprites_Oni, 0x00 },
+    { L"Pepe Continue Palette",         0x081e70, 0x081e90, indexRotDSprites_Pepe, 0x00 },
+    { L"Pupa Continue Palette",         0x08353a, 0x08355a, indexRotDSprites_Pupa, 0x00 },
+    { L"Alice Continue Palette",        0x08198e, 0x0819ae, indexRotDSprites_Alice, 0x00 },
+    { L"Elias Continue Palette",        0x08132c, 0x08134c, indexRotDSprites_Elias, 0x00 },
+    { L"Jones Continue Palette",        0x084722, 0x084742, indexRotDSprites_Johnny, 0x00 },
+    { L"Kang Continue Palette",         0x08397c, 0x08399c, indexRotDSprites_JaeMo, 0x00 },
+    { L"Sonia Continue Palette",        0x082332, 0x082352, indexRotDSprites_Sonia, 0x00 },
+    { L"Jimmy Continue Palette",        0x080968, 0x080988, indexRotDSprites_Jimmy, 0x00 },
+    { L"Abubo Continue Palette",        0x0830d8, 0x0830f8, indexRotDSprites_Abubo, 0x00 },
 };
 
 const sDescTreeNode ROTD_A_BILLY_COLLECTION[] =
@@ -1029,7 +1029,7 @@ const sDescTreeNode ROTD_A_UNITS[] =
     { L"James \"Jimmy\" Lewis", DESC_NODETYPE_TREE, (void*)ROTD_A_JIMMY_COLLECTION, ARRAYSIZE(ROTD_A_JIMMY_COLLECTION) },
     { L"Abubo Rao", DESC_NODETYPE_TREE, (void*)ROTD_A_ABUBO_COLLECTION, ARRAYSIZE(ROTD_A_ABUBO_COLLECTION) },
     { L"Johann", DESC_NODETYPE_TREE, (void*)ROTD_A_JOHANN_COLLECTION, ARRAYSIZE(ROTD_A_JOHANN_COLLECTION) },
-    { L"Bonus", DESC_NODETYPE_TREE, (void*)ROTD_A_BONUS_COLLECTION, ARRAYSIZE(ROTD_A_BONUS_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)ROTD_A_BONUS_COLLECTION, ARRAYSIZE(ROTD_A_BONUS_COLLECTION) },
 };
 
 constexpr auto ROTD_A_NUMUNIT = ARRAYSIZE(ROTD_A_UNITS);

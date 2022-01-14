@@ -57,40 +57,40 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_AB_EXTRAS =
 const std::vector<sGame_PaletteDataset> GGXXACR_S_AN_EXTRAS =
 {
     //Specials
-    { L"Shitsu", 0x423e10, 0x423e50 },
-    { L"Falling Butterfly (1/4)", 0x426240, 0x426280 },
-    { L"Falling Butterfly (2/4)", 0x4268c0, 0x426900 },
-    { L"Falling Butterfly (3/4)", 0x427490, 0x4274d0 },
-    { L"Falling Butterfly (4/4)", 0x428150, 0x428190 },
+    { L"Shitsu", 0x423e10, 0x423e50, indexGGXXSprites_ACR_Anji, 0x06 },
+    { L"Falling Butterfly (1/4)", 0x426240, 0x426280, indexGGXXSprites_ACR_Anji, 0x01 },
+    { L"Falling Butterfly (2/4)", 0x4268c0, 0x426900, indexGGXXSprites_ACR_Anji, 0x01 },
+    { L"Falling Butterfly (3/4)", 0x427490, 0x4274d0, indexGGXXSprites_ACR_Anji, 0x01 },
+    { L"Falling Butterfly (4/4)", 0x428150, 0x428190, indexGGXXSprites_ACR_Anji, 0x01 },
 
-    { L"Fuujin (1/2)", 0x41ab80, 0x41abc0 },
-    { L"Fuujin (2/2)", 0x420f70, 0x420fb0 },
+    { L"Fuujin (1/2)", 0x41ab80, 0x41abc0, indexGGXXSprites_ACR_Anji, 0x03 },
+    { L"Fuujin (2/2)", 0x420f70, 0x420fb0, indexGGXXSprites_ACR_Anji, 0x03 },
 
-    { L"Nagiha (1/2)", 0x42e370, 0x42e3b0 },
-    { L"Nagiha (2/2)", 0x42f560, 0x42f5a0 },
+    { L"Nagiha (1/2)", 0x42e370, 0x42e3b0, indexGGXXSprites_ACR_Anji, 0x05 },
+    { L"Nagiha (2/2)", 0x42f560, 0x42f5a0, indexGGXXSprites_ACR_Anji, 0x05 },
 
     //Force Breaks
-    { L"FB Shitsu", 0x4290c0, 0x429100 },
-    { L"FB Falling Butterfly (1/4)", 0x42b4f0, 0x42b530 },
-    { L"FB Falling Butterfly (2/4)", 0x42bb70, 0x42bbb0 },
-    { L"FB Falling Butterfly (3/4)", 0x42c740, 0x42c780 },
-    { L"FB Falling Butterfly (4/4)", 0x42d400, 0x42d440 },
+    { L"FB Shitsu", 0x4290c0, 0x429100, indexGGXXSprites_ACR_Anji, 0x06 },
+    { L"FB Falling Butterfly (1/4)", 0x42b4f0, 0x42b530, indexGGXXSprites_ACR_Anji, 0x01 },
+    { L"FB Falling Butterfly (2/4)", 0x42bb70, 0x42bbb0, indexGGXXSprites_ACR_Anji, 0x01 },
+    { L"FB Falling Butterfly (3/4)", 0x42c740, 0x42c780, indexGGXXSprites_ACR_Anji, 0x01 },
+    { L"FB Falling Butterfly (4/4)", 0x42d400, 0x42d440, indexGGXXSprites_ACR_Anji, 0x01 },
     
-    { L"FB Kou/Tenjinkyaku Effects (1/2)", 0x4304d0, 0x430510 },
-    { L"FB Kou/Tenjinkyaku Effects (2/2)", 0x431660, 0x4316a0 },
+    { L"FB Kou/Tenjinkyaku Effects (1/2)", 0x4304d0, 0x430510, indexGGXXSprites_ACR_Anji, 0x02 },
+    { L"FB Kou/Tenjinkyaku Effects (2/2)", 0x431660, 0x4316a0, indexGGXXSprites_ACR_Anji, 0x02 },
 
     //Overdrives  
     //{ L"Issei Ougi: Sai (Unused)", 0x3f19b0, 0x3f19f0 },
     //{ L"Issei Ougi: Sai (Unused)", 0x3f4760, 0x3f47a0 },
     //{ L"Issei Ougi: Sai (Unused)", 0x3fb9c0, 0x3fba00 },
     
-    { L"Kachoufuugetsu (1/7)", 0x401260, 0x4012a0 },
-    { L"Kachoufuugetsu (2/7)", 0x4018a0, 0x4018e0 },
-    { L"Kachoufuugetsu (3/7)", 0x402f90, 0x402fd0 },
-    { L"Kachoufuugetsu (4/7)", 0x405990, 0x4059d0 },
-    { L"Kachoufuugetsu (5/7)", 0x408b30, 0x408b70 },
-    { L"Kachoufuugetsu (6/7)", 0x40b780, 0x40b7c0 },
-    { L"Kachoufuugetsu (7/7)", 0x40c8f0, 0x40c930 },
+    { L"Kachoufuugetsu (1/7)", 0x401260, 0x4012a0, indexGGXXSprites_ACR_Anji, 0x04 },
+    { L"Kachoufuugetsu (2/7)", 0x4018a0, 0x4018e0, indexGGXXSprites_ACR_Anji, 0x04 },
+    { L"Kachoufuugetsu (3/7)", 0x402f90, 0x402fd0, indexGGXXSprites_ACR_Anji, 0x04 },
+    { L"Kachoufuugetsu (4/7)", 0x405990, 0x4059d0, indexGGXXSprites_ACR_Anji, 0x04 },
+    { L"Kachoufuugetsu (5/7)", 0x408b30, 0x408b70, indexGGXXSprites_ACR_Anji, 0x04 },
+    { L"Kachoufuugetsu (6/7)", 0x40b780, 0x40b7c0, indexGGXXSprites_ACR_Anji, 0x04 },
+    { L"Kachoufuugetsu (7/7)", 0x40c8f0, 0x40c930, indexGGXXSprites_ACR_Anji, 0x04 },
 };
 
 const std::vector<sGame_PaletteDataset> GGXXACR_S_BK_EXTRAS =
@@ -695,53 +695,53 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_JS_EXTRAS =
 const std::vector<sGame_PaletteDataset> GGXXACR_S_JY_EXTRAS =
 {
     //General
-    { L"Intro rose (Tossed)", 0x3d02b0, 0x3d02f0 },
+    { L"Intro rose (Tossed)", 0x3d02b0, 0x3d02f0, indexGGXXSprites_ACR_Johnny, 0x09 },
     
     //Normals
-    { L"5P (1/2)", 0x3d0430, 0x3d0470 },
-    { L"5P (2/2)", 0x3d0520, 0x3d0560 },
+    { L"5P (1/2)", 0x3d0430, 0x3d0470, indexGGXXSprites_ACR_Johnny, 0x02 },
+    { L"5P (2/2)", 0x3d0520, 0x3d0560, indexGGXXSprites_ACR_Johnny, 0x02 },
 
-    { L"5H (Extra dust)", 0x3d0620, 0x3d0660 },
-    { L"6H (1/2)", 0x3d5eb0, 0x3d5ef0 },
-    { L"6H (2/2)", 0x3d76c0, 0x3d7700 },
+    { L"5H (Extra dust)", 0x3d0620, 0x3d0660, indexGGXXSprites_ACR_Johnny, 0x05, &pairNextAndNext },
+    { L"6H (1/2)", 0x3d5eb0, 0x3d5ef0, indexGGXXSprites_ACR_Johnny, 0x06 },
+    { L"6H (2/2)", 0x3d76c0, 0x3d7700, indexGGXXSprites_ACR_Johnny, 0x07 },
 
-    { L"2H (1/2)", 0x3da900, 0x3da940 },
-    { L"2H (2/2)", 0x3dc770, 0x3dc7b0 },
+    { L"2H (1/2)", 0x3da900, 0x3da940, indexGGXXSprites_ACR_Johnny, 0x01 },
+    { L"2H (2/2)", 0x3dc770, 0x3dc7b0, indexGGXXSprites_ACR_Johnny, 0x01 },
     
     //Specials
-    { L"Mist Finer Stance (1/8)", 0x3d8820, 0x3d8860 },
-    { L"Mist Finer Stance (2/8)", 0x3da420, 0x3da460 },
-    { L"Mist Finer Stance (3/8)", 0x3d8e20, 0x3d8e60 },
-    { L"Mist Finer Stance (4/8)", 0x3d9310, 0x3d9350 },
-    { L"Mist Finer Stance (5/8)", 0x3d9740, 0x3d9780 },
-    { L"Mist Finer Stance (6/8)", 0x3d9b50, 0x3d9b90 },
-    { L"Mist Finer Stance (7/8)", 0x3d9eb0, 0x3d9ef0 },
-    { L"Mist Finer Stance (8/8)", 0x3da420, 0x3da460 },
-    { L"Mist Finer Slash", 0x3d21e0, 0x3d2220 },
+    { L"Mist Finer Stance (1/8)", 0x3d8820, 0x3d8860, indexGGXXSprites_ACR_Johnny, 0x10 },
+    { L"Mist Finer Stance (2/8)", 0x3da420, 0x3da460, indexGGXXSprites_ACR_Johnny, 0x10 },
+    { L"Mist Finer Stance (3/8)", 0x3d8e20, 0x3d8e60, indexGGXXSprites_ACR_Johnny, 0x10 },
+    { L"Mist Finer Stance (4/8)", 0x3d9310, 0x3d9350, indexGGXXSprites_ACR_Johnny, 0x10 },
+    { L"Mist Finer Stance (5/8)", 0x3d9740, 0x3d9780, indexGGXXSprites_ACR_Johnny, 0x10 },
+    { L"Mist Finer Stance (6/8)", 0x3d9b50, 0x3d9b90, indexGGXXSprites_ACR_Johnny, 0x10 },
+    { L"Mist Finer Stance (7/8)", 0x3d9eb0, 0x3d9ef0, indexGGXXSprites_ACR_Johnny, 0x10 },
+    { L"Mist Finer Stance (8/8)", 0x3da420, 0x3da460, indexGGXXSprites_ACR_Johnny, 0x10 },
+    { L"Mist Finer Slash", 0x3d21e0, 0x3d2220, indexGGXXSprites_ACR_Johnny, 0x0f },
 
-    { L"Coins", 0x3f0f60, 0x3f0fa0 },
-    { L"Mist", 0x3bfe40, 0x3bfe80 },
+    { L"Coins", 0x3f0f60, 0x3f0fa0, indexGGXXSprites_ACR_Johnny, 0x03 },
+    { L"Mist", 0x3bfe40, 0x3bfe80, indexGGXXSprites_ACR_Johnny, 0x0e },
 
-    { L"Ensenga (1/3)", 0x3dd2e0, 0x3dd320 },
-    { L"Ensenga (2/3)", 0x3de4a0, 0x3de4e0 },
-    { L"Ensenga (3/3)", 0x3e3220, 0x3e3260 },
+    { L"Ensenga (1/3)", 0x3dd2e0, 0x3dd320, indexGGXXSprites_ACR_Johnny, 0x08 },
+    { L"Ensenga (2/3)", 0x3de4a0, 0x3de4e0, indexGGXXSprites_ACR_Johnny, 0x08 },
+    { L"Ensenga (3/3)", 0x3e3220, 0x3e3260, indexGGXXSprites_ACR_Johnny, 0x08 },
 
-    { L"Divine Blade", 0x3b9bb0, 0x3b9bf0 },
-    { L"Killer Joker", 0x3ebf30, 0x3ebf70 },
+    { L"Divine Blade", 0x3b9bb0, 0x3b9bf0, indexGGXXSprites_ACR_Johnny, 0x03 },
+    { L"Killer Joker", 0x3ebf30, 0x3ebf70, indexGGXXSprites_ACR_Johnny, 0x0d },
     
     //Forcebreaks
-    { L"Jackhound", 0x3e9bf0, 0x3e9c30 },
+    { L"Jackhound", 0x3e9bf0, 0x3e9c30, indexGGXXSprites_ACR_Johnny, 0x0a },
     
     //Overdrives
-    { L"Thats my name (1/3)", 0x3c6560, 0x3c65a0 },
-    { L"Thats my name (2/3)", 0x3c7b00, 0x3c7b40 },
-    { L"Thats my name (3/3)", 0x3cf120, 0x3cf160 },
+    { L"Thats my name (1/3)", 0x3c6560, 0x3c65a0, indexGGXXSprites_ACR_Johnny, 0x11 },
+    { L"Thats my name (2/3)", 0x3c7b00, 0x3c7b40, indexGGXXSprites_ACR_Johnny, 0x12 },
+    { L"Thats my name (3/3)", 0x3cf120, 0x3cf160, indexGGXXSprites_ACR_Johnny, 0x13 },
 
-    { L"Uncho's Iai", 0x3eeef0, 0x3eef30 },
+    { L"Uncho's Iai", 0x3eeef0, 0x3eef30, indexGGXXSprites_ACR_Johnny, 0x14 },
 
     //Instant Kill
-    { L"Joker Trick (Thrown card)", 0x3d0180, 0x3d01c0 },
-    { L"Joker Trick (Back of card)", 0x3b5fd0, 0x3b6010 },
+    { L"Joker Trick (Thrown card)", 0x3d0180, 0x3d01c0, indexGGXXSprites_ACR_Johnny, 0x0c },
+    { L"Joker Trick (Back of card)", 0x3b5fd0, 0x3b6010, indexGGXXSprites_ACR_Johnny, 0x0b },
 };
 
 const std::vector<sGame_PaletteDataset> GGXXACR_S_KY_EXTRAS =

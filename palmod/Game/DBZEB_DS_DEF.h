@@ -132,7 +132,7 @@ const sGame_PaletteDataset DBZEB_DS_BROLY_P2[] =
 const sGame_PaletteDataset DBZEB_DS_BROLY_EXTRAS[] =
 {
     { L"Extra 1",               0x10e48e0, 0x10e4ce0 }, //Extra 1
-    { L"Extra 2",               0x10e4cf0, 0x10E50F0 }, //Extra 2
+    { L"Extra 2",               0x10e4cf0, 0x10E50F0, indexDBZEB_Broly, 0x02 }, //Extra 2
     { L"Extra 3",               0x10e5100, 0x10e5500 }, //Extra 3
     { L"Extra 4",               0x10e5d30, 0x10e6130 }, //Extra 6
     { L"Extra 5",               0x10e6550, 0x10e6950 }, //Extra 8
