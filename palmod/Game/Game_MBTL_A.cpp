@@ -25,8 +25,8 @@ const std::vector<UINT16> MBTL_A_IMGIDS_USED =
     indexFrenchBreadSprites_MBTL_Saber,             // 0x74
     indexFrenchBreadSprites_MBTL_Shiki,             // 0x75
     indexFrenchBreadSprites_MBTL_Vlov,              // 0x76
-	indexFrenchBreadSprites_MBTL_Aoko,              // 0x77
-	indexFrenchBreadSprites_MBTL_DANoel,            // 0x78
+    indexFrenchBreadSprites_MBTL_Aoko,              // 0x77
+    indexFrenchBreadSprites_MBTL_DANoel,            // 0x78
     indexFrenchBreadSprites_MBTL_Bonus,             // 0x79
 };
 
