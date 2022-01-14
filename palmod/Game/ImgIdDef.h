@@ -1949,7 +1949,7 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_DBFCI_Touma,         // 0x30
     indexFrenchBreadSprites_DBFCI_Wilhelmina,    // 0x31
     indexFrenchBreadSprites_DBFCI_Zero,          // 0x32
-	indexFrenchBreadSprites_DBFCI_Bonus,         // 0x33
+    indexFrenchBreadSprites_DBFCI_Bonus,         // 0x33
     indexFrenchBreadSprites_UNICLR_Akat,    // 0x34
     indexFrenchBreadSprites_UNICLR_Byak,    // 0x35
     indexFrenchBreadSprites_UNICLR_Carm,    // 0x36
@@ -2019,8 +2019,8 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_MBTL_Saber,             // 0x74
     indexFrenchBreadSprites_MBTL_Shiki,             // 0x75
     indexFrenchBreadSprites_MBTL_Vlov,              // 0x76
-	indexFrenchBreadSprites_MBTL_Aoko,              // 0x77
-	indexFrenchBreadSprites_MBTL_DANoel,            // 0x78
+    indexFrenchBreadSprites_MBTL_Aoko,              // 0x77
+    indexFrenchBreadSprites_MBTL_DANoel,            // 0x78
     indexFrenchBreadSprites_MBTL_Bonus,             // 0x79
 };
 
