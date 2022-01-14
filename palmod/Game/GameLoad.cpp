@@ -30,6 +30,7 @@
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
 #include "Game_JOJOSRPG_SNES.h"
+#include "Game_JusticeLeagueTF_SNES.h"
 #include "Game_KarnovsR_A.h"
 #include "Game_KI_SNES.h"
 #include "Game_Kizuna_A.h"
@@ -358,6 +359,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case JOJOSRPG_SNES:
     {
         GetRule = &CGame_JOJOSRPG_SNES::GetRule;
+        return TRUE;
+    }
+    case JusticeLeagueTF_SNES:
+    {
+        GetRule = &CGame_JusticeLeagueTF_SNES::GetRule;
         return TRUE;
     }
     case KarnovsR_A:
@@ -1132,6 +1138,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case JOJOSRPG_SNES:
     {
         return new CGame_JOJOSRPG_SNES(nConfirmedROMSize);
+    }
+    case JusticeLeagueTF_SNES:
+    {
+        return new CGame_JusticeLeagueTF_SNES(nConfirmedROMSize);
     }
     case KarnovsR_A:
     {

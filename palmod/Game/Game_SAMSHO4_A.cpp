@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define SAMSHO4_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_SAMSHO4_A::SAMSHO4_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SAMSHO4_A::MainDescTree = nullptr;
@@ -175,7 +173,7 @@ void CGame_SAMSHO4_A::DumpAllPalettes()
 sDescTreeNode* CGame_SAMSHO4_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO4_A, SAMSHO4_A_EXTRA, &SAMSHO4_A_EXTRA_CUSTOM, SAMSHO4_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO4_A, &SAMSHO4_A_EXTRA_CUSTOM, SAMSHO4_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = SAMSHO4_A_NUMUNIT + (GetExtraCt(SAMSHO4_A_EXTRALOC) ? 1 : 0);
     

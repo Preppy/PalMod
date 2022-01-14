@@ -4672,7 +4672,7 @@ const sDescTreeNode SFA2_A_UNITS_08_REV1[] =
 };
 
 constexpr auto SFA2_A_NUM_IND_08_REV1 = ARRAYSIZE(SFA2_A_UNITS_08_REV1);
-#define SFA2_A_EXTRALOC_08_REV1 SFA2_A_NUM_IND_08_REV1
+constexpr auto SFA2_A_EXTRALOC_08_REV1 = SFA2_A_NUM_IND_08_REV1;
 
 const sDescTreeNode SFA2_A_UNITS_08_REV2[] =
 {
@@ -4715,7 +4715,7 @@ const sDescTreeNode SFA2_A_UNITS_08_REV2[] =
 };
 
 constexpr auto SFA2_A_NUM_IND_08_REV2 = ARRAYSIZE(SFA2_A_UNITS_08_REV2);
-#define SFA2_A_EXTRALOC_08_REV2 SFA2_A_NUM_IND_08_REV2
+constexpr auto SFA2_A_EXTRALOC_08_REV2 = SFA2_A_NUM_IND_08_REV2;
 
 const sDescTreeNode SFZ2A_A_UNITS_08[] =
 {
@@ -4764,13 +4764,4 @@ const sDescTreeNode SFZ2A_A_UNITS_08[] =
 };
 
 constexpr auto SFZ2A_A_NUM_IND_08 = ARRAYSIZE(SFZ2A_A_UNITS_08);
-#define SFZ2A_A_EXTRALOC_08 SFZ2A_A_NUM_IND_08
-
-// We extend this array with data groveled from the SFA2e.txt extensible extras file, if any.
-const stExtraDef SFA2_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto SFZ2A_A_EXTRALOC_08 = SFZ2A_A_NUM_IND_08;

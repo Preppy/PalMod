@@ -4,9 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-// This decides whether or not you get extra debug output while running under the debugger
-#define JOJOSRPG_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 UINT32 CGame_JOJOSRPG_SNES::m_nExpectedGameROMSize = 0x100000;
 
 CGame_JOJOSRPG_SNES::CGame_JOJOSRPG_SNES(UINT32 nConfirmedROMSize)
@@ -106,7 +103,7 @@ size_t CGame_JOJOSRPG_SNES::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_JOJOSRPG_SNES::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_JOJOSRPG_SNES, JOJOSRPG_SNES_EXTRA, &JOJOSRPG_SNES_EXTRA_CUSTOM, JOJOSRPG_SNES_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_JOJOSRPG_SNES, &JOJOSRPG_SNES_EXTRA_CUSTOM, JOJOSRPG_SNES_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = JOJOSRPG_SNES_NUMUNIT + (GetExtraCt(JOJOSRPG_SNES_EXTRALOC) ? 1 : 0);
     

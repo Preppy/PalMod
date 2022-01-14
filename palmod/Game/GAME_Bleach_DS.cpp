@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define BLEACH_DS_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_BLEACH_DS::BLEACH_DS_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_BLEACH_DS::MainDescTree = nullptr;
@@ -120,10 +118,8 @@ size_t CGame_BLEACH_DS::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_BLEACH_DS, BLEACH_DS_EXTRA, &BLEACH_DS_EXTRA_CUSTOM, BLEACH_DS_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_BLEACH_DS, &BLEACH_DS_EXTRA_CUSTOM, BLEACH_DS_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = BLEACH_DS_NUMUNIT + (GetExtraCt(BLEACH_DS_EXTRALOC) ? 1 : 0);
 

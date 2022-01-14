@@ -5500,12 +5500,3 @@ constexpr auto KOF99AE_A_P2_EXTRALOC = KOF99AE_A_P2_NUMUNIT;
 
 constexpr auto KOF99AE_A_P3_NUMUNIT = ARRAYSIZE(KOF99AE_A_P3_UNITS);
 constexpr auto KOF99AE_A_P3_EXTRALOC = KOF99AE_A_P3_NUMUNIT;
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef KOF99AE_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

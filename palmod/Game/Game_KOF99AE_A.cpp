@@ -202,14 +202,14 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
     if (UsePaletteSetForP2())
     {
         nExtraUnitLocation = KOF99AE_A_P2_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF99AE_A_P2, KOF99AE_A_EXTRA, &KOF99AE_A_P2_EXTRA_CUSTOM, KOF99AE_A_P2_EXTRALOC, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF99AE_A_P2, &KOF99AE_A_P2_EXTRA_CUSTOM, KOF99AE_A_P2_EXTRALOC, m_nConfirmedROMSize);
         fHaveExtras = GetExtraCt(KOF99AE_A_P2_EXTRALOC);
         nUnitCt = KOF99AE_A_P2_NUMUNIT + (fHaveExtras ? 1 : 0);
     }
     else
     {
         nExtraUnitLocation = KOF99AE_A_P3_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF99AE_A_P3, KOF99AE_A_EXTRA, &KOF99AE_A_P3_EXTRA_CUSTOM, KOF99AE_A_P3_EXTRALOC, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF99AE_A_P3, &KOF99AE_A_P3_EXTRA_CUSTOM, KOF99AE_A_P3_EXTRALOC, m_nConfirmedROMSize);
         fHaveExtras = GetExtraCt(KOF99AE_A_P3_EXTRALOC);
         nUnitCt = KOF99AE_A_P3_NUMUNIT + (fHaveExtras ? 1 : 0);
     }

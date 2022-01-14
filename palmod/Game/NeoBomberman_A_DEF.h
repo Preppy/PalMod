@@ -192,13 +192,4 @@ const sDescTreeNode NeoBomberman_A_UNITS[] =
 };
 
 constexpr auto NeoBomberman_A_NUMUNIT = ARRAYSIZE(NeoBomberman_A_UNITS);
-#define NeoBomberman_A_EXTRALOC NeoBomberman_A_NUMUNIT
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef NeoBomberman_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto NeoBomberman_A_EXTRALOC = NeoBomberman_A_NUMUNIT;

@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define KOF95_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_KOF95_A::KOF95_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KOF95_A::MainDescTree = nullptr;
@@ -140,7 +138,7 @@ size_t CGame_KOF95_A::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_KOF95_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOF95_A, KOF95_A_EXTRA, &KOF95_A_EXTRA_CUSTOM, KOF95_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_KOF95_A, &KOF95_A_EXTRA_CUSTOM, KOF95_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = KOF95_A_NUMUNIT + (GetExtraCt(KOF95_A_EXTRALOC) ? 1 : 0);
     

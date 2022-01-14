@@ -290,13 +290,4 @@ const sDescTreeNode AOF1_A_UNITS[] =
 };
 
 constexpr auto AOF1_A_NUMUNIT = ARRAYSIZE(AOF1_A_UNITS);
-#define AOF1_A_EXTRALOC AOF1_A_NUMUNIT
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef AOF1_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto AOF1_A_EXTRALOC = AOF1_A_NUMUNIT;

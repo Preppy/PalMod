@@ -211,11 +211,11 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     //Load extra file if we're using it
     if (UsePaletteSetFor50())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_50, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_50, JOJOS_A_EXTRALOC_50, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_50, &JOJOS_A_EXTRA_CUSTOM_50, JOJOS_A_EXTRALOC_50, m_nConfirmedROMSize);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_51, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_51, JOJOS_A_EXTRALOC_51, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_51, &JOJOS_A_EXTRA_CUSTOM_51, JOJOS_A_EXTRALOC_51, m_nConfirmedROMSize);
     }
 #endif
 

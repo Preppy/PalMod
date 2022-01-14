@@ -5,8 +5,6 @@
 
 CDescTree CGame_KOF02UM_S_DIR::MainDescTree = nullptr;
 
-#define KOF02UM_S_DIR_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 CGame_KOF02UM_S_DIR::CGame_KOF02UM_S_DIR(UINT32 nConfirmedROMSize, SupportedGamesList nKOF02UMROMSetToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX, 0 };

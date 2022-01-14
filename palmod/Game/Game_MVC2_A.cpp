@@ -7,8 +7,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define MVC2_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MVC2_A::MainDescTree = nullptr;
@@ -112,10 +110,8 @@ size_t CGame_MVC2_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_MVC2_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MVC2_A, MVC2_A_EXTRA, &MVC2_A_EXTRA_CUSTOM, MVC2_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_MVC2_A, &MVC2_A_EXTRA_CUSTOM, MVC2_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = MVC2_A_NUMUNIT + (GetExtraCt(MVC2_A_EXTRALOC) ? 1 : 0);
     
@@ -135,7 +131,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
         rgExtraCountAll,
         rgExtraLoc,
         MVC2_A_EXTRA_CUSTOM
-    );;
+    );
 
     // For development use to speed things up
     //DumpAllCharacters();

@@ -479,13 +479,4 @@ const sDescTreeNode DOUBLEDRAGON_A_UNITS[] =
 };
 
 constexpr auto DOUBLEDRAGON_A_NUMUNIT = ARRAYSIZE(DOUBLEDRAGON_A_UNITS);
-#define DOUBLEDRAGON_A_EXTRALOC DOUBLEDRAGON_A_NUMUNIT
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef DOUBLEDRAGON_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto DOUBLEDRAGON_A_EXTRALOC = DOUBLEDRAGON_A_NUMUNIT;

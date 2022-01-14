@@ -525,13 +525,4 @@ const sDescTreeNode SAMSHO1_A_UNITS[] =
 
 constexpr auto SAMSHO1_A_NUMUNIT = ARRAYSIZE(SAMSHO1_A_UNITS);
 
-#define SAMSHO1_A_EXTRALOC SAMSHO1_A_NUMUNIT
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef SAMSHO1_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto SAMSHO1_A_EXTRALOC = SAMSHO1_A_NUMUNIT;

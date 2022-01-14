@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define SDODGEBALL_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_SDODGEBALL_A::SDODGEBALL_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SDODGEBALL_A::MainDescTree = nullptr;
@@ -116,10 +114,8 @@ size_t CGame_SDODGEBALL_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_SDODGEBALL_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     size_t nExtraUnitLocation = SDODGEBALL_A_EXTRALOC;
-    LoadExtraFileForGame(EXTRA_FILENAME_SDODGEBALL_A, SDODGEBALL_A_EXTRA, &SDODGEBALL_A_EXTRA_CUSTOM, SDODGEBALL_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SDODGEBALL_A, &SDODGEBALL_A_EXTRA_CUSTOM, SDODGEBALL_A_EXTRALOC, m_nConfirmedROMSize);
     bool fHaveExtras = GetExtraCt(SDODGEBALL_A_EXTRALOC);
     size_t nUnitCt = SDODGEBALL_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 

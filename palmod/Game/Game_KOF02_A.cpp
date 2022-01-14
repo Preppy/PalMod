@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define KOF02_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_KOF02_A::KOF02_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KOF02_A::MainDescTree = nullptr;
@@ -250,7 +248,7 @@ void CGame_KOF02_A::DumpAllCharacters()
 sDescTreeNode* CGame_KOF02_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOF02_A, KOF02_A_EXTRA, &KOF02_A_EXTRA_CUSTOM, KOF02_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_KOF02_A, &KOF02_A_EXTRA_CUSTOM, KOF02_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = KOF02_A_NUMUNIT + (GetExtraCt(KOF02_A_EXTRALOC) ? 1 : 0);
     

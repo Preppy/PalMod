@@ -552,20 +552,20 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
         {
         case SFA2_SupportedROMRevision::SFA2_960229:
             nExtraUnitLocation = SFA2_A_EXTRALOC_07_REV1;
-            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, SFA2_A_EXTRA, &SFA2_A_EXTRA_CUSTOM_07_REV1, nExtraUnitLocation, m_nConfirmedROMSize);
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, &SFA2_A_EXTRA_CUSTOM_07_REV1, nExtraUnitLocation, m_nConfirmedROMSize);
             fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
             nUnitCt = SFA2_A_NUM_IND_07_REV1 + (fHaveExtras ? 1 : 0);
             break;
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
         default:
             nExtraUnitLocation = SFA2_A_EXTRALOC_07_REV2;
-            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, SFA2_A_EXTRA, &SFA2_A_EXTRA_CUSTOM_07_REV2, nExtraUnitLocation, m_nConfirmedROMSize);
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, &SFA2_A_EXTRA_CUSTOM_07_REV2, nExtraUnitLocation, m_nConfirmedROMSize);
             fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
             nUnitCt = SFA2_A_NUM_IND_07_REV2 + (fHaveExtras ? 1 : 0);
             break;
         case SFA2_SupportedROMRevision::SFZ2A_960826:
             nExtraUnitLocation = SFZ2A_A_EXTRALOC_07;
-            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, SFA2_A_EXTRA, &SFZ2A_A_EXTRA_CUSTOM_07, nExtraUnitLocation, m_nConfirmedROMSize);
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, &SFZ2A_A_EXTRA_CUSTOM_07, nExtraUnitLocation, m_nConfirmedROMSize);
             fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
             nUnitCt = SFZ2A_A_NUM_IND_07 + (fHaveExtras ? 1 : 0);
             break;
@@ -577,20 +577,20 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
         {
         case SFA2_SupportedROMRevision::SFA2_960229:
             nExtraUnitLocation = SFA2_A_EXTRALOC_08_REV1;
-            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_08, SFA2_A_EXTRA, &SFA2_A_EXTRA_CUSTOM_08_REV1, nExtraUnitLocation, m_nConfirmedROMSize);
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_08, &SFA2_A_EXTRA_CUSTOM_08_REV1, nExtraUnitLocation, m_nConfirmedROMSize);
             fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
             nUnitCt = SFA2_A_NUM_IND_08_REV1 + (fHaveExtras ? 1 : 0);
             break;
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
         default:
             nExtraUnitLocation = SFA2_A_EXTRALOC_08_REV2;
-            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_08, SFA2_A_EXTRA, &SFA2_A_EXTRA_CUSTOM_08_REV2, nExtraUnitLocation, m_nConfirmedROMSize);
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_08, &SFA2_A_EXTRA_CUSTOM_08_REV2, nExtraUnitLocation, m_nConfirmedROMSize);
             fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
             nUnitCt = SFA2_A_NUM_IND_08_REV2 + (fHaveExtras ? 1 : 0);
             break;
         case SFA2_SupportedROMRevision::SFZ2A_960826:
             nExtraUnitLocation = SFZ2A_A_EXTRALOC_08;
-            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_08, SFA2_A_EXTRA, &SFZ2A_A_EXTRA_CUSTOM_08, nExtraUnitLocation, m_nConfirmedROMSize);
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_08, &SFZ2A_A_EXTRA_CUSTOM_08, nExtraUnitLocation, m_nConfirmedROMSize);
             fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
             nUnitCt = SFZ2A_A_NUM_IND_08 + (fHaveExtras ? 1 : 0);
             break;

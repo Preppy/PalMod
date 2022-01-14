@@ -623,13 +623,3 @@ const sDescTreeNode SAVAGEREIGN_A_UNITS[] =
 constexpr auto SAVAGEREIGN_A_NUMUNIT = ARRAYSIZE(SAVAGEREIGN_A_UNITS);
 
 constexpr auto SAVAGEREIGN_A_EXTRALOC = SAVAGEREIGN_A_NUMUNIT;
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef SAVAGEREIGN_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
-

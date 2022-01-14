@@ -2390,12 +2390,3 @@ const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =
     { L"Stages", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_STAGES_COLLECTION, ARRAYSIZE(SVCPLUSA_A_STAGES_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_BONUS_COLLECTION, ARRAYSIZE(SVCPLUSA_A_BONUS_COLLECTION) },
 };
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef SVCPLUSA_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

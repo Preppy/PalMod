@@ -22,12 +22,6 @@
 
 // That's it!  Good luck!  If you have any questions, feel free to ask.
 
-// This decides whether or not you get extra debug output while running under the debugger
-#define NEWGAME_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
- // ** Update to the actual byte size in hex of the ROM file size you expect
-UINT32 CGame_NEWGAME_A::m_nExpectedGameROMSize = 0x200000;
-
 CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_NEWGAME_A::CGame_NEWGAME_A: Loading ROM...\n");
@@ -144,7 +138,7 @@ size_t CGame_NEWGAME_A::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_NEWGAME_A, NEWGAME_A_EXTRA, &NEWGAME_A_EXTRA_CUSTOM, NEWGAME_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_NEWGAME_A, nullptr, &NEWGAME_A_EXTRA_CUSTOM, NEWGAME_A_EXTRALOC, m_nConfirmedROMSize);
 
     size_t nUnitCt = NEWGAME_A_NUMUNIT + (GetExtraCt(NEWGAME_A_EXTRALOC) ? 1 : 0);
     

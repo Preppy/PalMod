@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define RBFF2_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_RBFF2_A::RBFF2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_RBFF2_A::MainDescTree = nullptr;
@@ -134,7 +132,7 @@ size_t CGame_RBFF2_A::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_RBFF2_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_RBFF2_A, RBFF2_A_EXTRA, &RBFF2_A_EXTRA_CUSTOM, RBFF2_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_RBFF2_A, &RBFF2_A_EXTRA_CUSTOM, RBFF2_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = RBFF2_A_NUMUNIT + (GetExtraCt(RBFF2_A_EXTRALOC) ? 1 : 0);
     

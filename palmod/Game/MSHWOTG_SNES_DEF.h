@@ -279,13 +279,4 @@ const sDescTreeNode MSHWOTG_SNES_UNITS[] =
 
 constexpr auto MSHWOTG_SNES_NUMUNIT = ARRAYSIZE(MSHWOTG_SNES_UNITS);
 
-#define MSHWOTG_SNES_EXTRALOC MSHWOTG_SNES_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef MSHWOTG_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto MSHWOTG_SNES_EXTRALOC = MSHWOTG_SNES_NUMUNIT;

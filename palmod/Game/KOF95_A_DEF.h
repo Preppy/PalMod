@@ -934,12 +934,3 @@ const sDescTreeNode KOF95_A_UNITS[] =
 constexpr auto KOF95_A_NUMUNIT = ARRAYSIZE(KOF95_A_UNITS);
 
 constexpr auto KOF95_A_EXTRALOC = KOF95_A_NUMUNIT;
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef KOF95_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

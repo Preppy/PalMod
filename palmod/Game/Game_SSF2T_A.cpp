@@ -273,19 +273,19 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
     {
         nCurrentExtraLocation = SSF2T_A_EXTRALOC_3C;
         nUnitCt = SSF2T_A_NUM_IND_3C;
-        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_3C, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_3C, nCurrentExtraLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_3C, &SSF2T_A_EXTRA_CUSTOM_3C, nCurrentExtraLocation, m_nConfirmedROMSize);
     }
     else if (UsePaletteSetForCharacters())
     {
         nCurrentExtraLocation = SSF2T_A_EXTRALOC_4A;
         nUnitCt = SSF2T_A_NUM_IND_4A;
-        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_4A, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_4A, nCurrentExtraLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_4A, &SSF2T_A_EXTRA_CUSTOM_4A, nCurrentExtraLocation, m_nConfirmedROMSize);
     }
     else
     {
         nCurrentExtraLocation = SSF2T_A_EXTRALOC_8;
         nUnitCt = SSF2T_A_NUM_IND_8;
-        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_8, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_8, nCurrentExtraLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_8, &SSF2T_A_EXTRA_CUSTOM_8, nCurrentExtraLocation, m_nConfirmedROMSize);
     }
 
     bool fHaveExtras = (GetExtraCt(nCurrentExtraLocation) > 0);

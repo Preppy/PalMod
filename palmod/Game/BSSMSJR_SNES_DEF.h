@@ -180,13 +180,4 @@ const sDescTreeNode BSSMSJR_SNES_UNITS[] =
 
 constexpr auto BSSMSJR_SNES_NUMUNIT = ARRAYSIZE(BSSMSJR_SNES_UNITS);
 
-#define BSSMSJR_SNES_EXTRALOC BSSMSJR_SNES_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef BSSMSJR_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto BSSMSJR_SNES_EXTRALOC = BSSMSJR_SNES_NUMUNIT;

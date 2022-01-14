@@ -4,9 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-// This decides whether or not you get extra debug output while running under the debugger
-#define Cyberbots_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 UINT32 CGame_Cyberbots_A::m_nExpectedGameROMSize = 0x80000;
 
 CGame_Cyberbots_A::CGame_Cyberbots_A(UINT32 nConfirmedROMSize)
@@ -148,7 +145,7 @@ size_t CGame_Cyberbots_A::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_Cyberbots_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_Cyberbots_A, Cyberbots_A_EXTRA, &Cyberbots_A_EXTRA_CUSTOM, Cyberbots_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_Cyberbots_A, &Cyberbots_A_EXTRA_CUSTOM, Cyberbots_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = Cyberbots_A_NUMUNIT + (GetExtraCt(Cyberbots_A_EXTRALOC) ? 1 : 0);
     

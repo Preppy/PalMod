@@ -662,12 +662,3 @@ const sDescTreeNode VENTURE_A_UNITS_31[] =
 
 constexpr auto VENTURE_A_NUMUNIT_31 = ARRAYSIZE(VENTURE_A_UNITS_31);
 constexpr auto VENTURE_A_EXTRALOC_31 = VENTURE_A_NUMUNIT_31;
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef VENTURE_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

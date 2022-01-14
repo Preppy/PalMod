@@ -6498,13 +6498,4 @@ const sDescTreeNode NGBC_A_UNITS[] =
 
 constexpr auto NGBC_A_NUMUNIT = ARRAYSIZE(NGBC_A_UNITS);
 
-#define NGBC_A_EXTRALOC NGBC_A_NUMUNIT
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef NGBC_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto NGBC_A_EXTRALOC = NGBC_A_NUMUNIT;

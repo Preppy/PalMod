@@ -370,14 +370,4 @@ const sDescTreeNode SSF2T_GBA_UNITS[] =
 };
 
 constexpr auto SSF2T_GBA_NUMUNIT = ARRAYSIZE(SSF2T_GBA_UNITS);
-#define SSF2T_GBA_EXTRALOC SSF2T_GBA_NUMUNIT
-
-const stExtraDef SSF2T_GBA_EXTRA[] = 
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    //Extra
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto SSF2T_GBA_EXTRALOC = SSF2T_GBA_NUMUNIT;

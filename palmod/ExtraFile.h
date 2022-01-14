@@ -28,5 +28,5 @@ public:
     void OpenExtraFile() override;
     bool GameAllowsExtraFile() override { return m_pszExtraFilename != nullptr; };
 
-    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
+    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
 };

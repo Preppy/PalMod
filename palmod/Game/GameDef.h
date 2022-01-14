@@ -167,6 +167,7 @@ enum SupportedGamesList
     VampireNightWarriors_A,
     VampireHunter_A,
     SAMSHO5SP_S,
+    JusticeLeagueTF_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -330,6 +331,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Vampire: The Night Warriors (CPS2)",
     L"Vampire Hunter (CPS2)",
     L"Samurai Shodown V Special (Steam)",
+    L"Justice League Task Force (USA SNES)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

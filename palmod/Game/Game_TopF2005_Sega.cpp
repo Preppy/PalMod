@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define TOPF2005_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_TOPF2005_SEGA::TOPF2005_SEGA_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_TOPF2005_SEGA::MainDescTree = nullptr;
@@ -115,7 +113,7 @@ sFileRule CGame_TOPF2005_SEGA::GetRule(size_t nUnitId)
 sDescTreeNode* CGame_TOPF2005_SEGA::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_TOPF2005, TOPF2005_SEGA_EXTRA, &TOPF2005_SEGA_EXTRA_CUSTOM, TOPF2005_SEGA_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_TOPF2005, &TOPF2005_SEGA_EXTRA_CUSTOM, TOPF2005_SEGA_EXTRALOC, m_nConfirmedROMSize);
 
     const UINT16 nUnitCt = TOPF2005_SEGA_NUMUNIT + (GetExtraCt(TOPF2005_SEGA_EXTRALOC) ? 1 : 0);
 

@@ -176,13 +176,4 @@ const sDescTreeNode KOTM_UNITS[] =
 };
 
 constexpr auto KOTM_A_NUMUNIT = ARRAYSIZE(KOTM_UNITS);
-#define KOTM_A_EXTRALOC KOTM_A_NUMUNIT
-
-// We extend this array with data groveled from the KOTMe.txt extensible extras file, if any.
-const stExtraDef KOTM_A_EXTRA[] =
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto KOTM_A_EXTRALOC = KOTM_A_NUMUNIT;

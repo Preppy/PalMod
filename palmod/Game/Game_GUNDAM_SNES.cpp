@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define GUNDAM_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_GUNDAM_SNES::GUNDAM_SNES_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_GUNDAM_SNES::MainDescTree = nullptr;
@@ -119,10 +117,8 @@ size_t CGame_GUNDAM_SNES::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_GUNDAM_SNES::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_GUNDAM_SNES, GUNDAM_SNES_EXTRA, &GUNDAM_SNES_EXTRA_CUSTOM, GUNDAM_SNES_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_GUNDAM_SNES, &GUNDAM_SNES_EXTRA_CUSTOM, GUNDAM_SNES_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = GUNDAM_SNES_NUMUNIT + (GetExtraCt(GUNDAM_SNES_EXTRALOC) ? 1 : 0);
 

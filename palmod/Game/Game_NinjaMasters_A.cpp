@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define NINJAMASTERS_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_NINJAMASTERS_A::NINJAMASTERS_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_NINJAMASTERS_A::MainDescTree = nullptr;
@@ -113,16 +111,10 @@ size_t CGame_NINJAMASTERS_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_NINJAMASTERS_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
-    bool fHaveExtras;
-    UINT16 nUnitCt;
-    size_t nExtraUnitLocation;
-
-    nExtraUnitLocation = NINJAMASTERS_A_EXTRALOC;
-    LoadExtraFileForGame(EXTRA_FILENAME_NINJAMASTERS_A, NINJAMASTERS_A_EXTRA, &NINJAMASTERS_A_EXTRA_CUSTOM, NINJAMASTERS_A_EXTRALOC, m_nConfirmedROMSize);
-    fHaveExtras = GetExtraCt(NINJAMASTERS_A_EXTRALOC);
-    nUnitCt = NINJAMASTERS_A_NUMUNIT + (fHaveExtras ? 1 : 0);
+    size_t nExtraUnitLocation = NINJAMASTERS_A_EXTRALOC;
+    LoadExtraFileForGame(EXTRA_FILENAME_NINJAMASTERS_A, &NINJAMASTERS_A_EXTRA_CUSTOM, NINJAMASTERS_A_EXTRALOC, m_nConfirmedROMSize);
+    bool fHaveExtras = GetExtraCt(NINJAMASTERS_A_EXTRALOC);
+    UINT16 nUnitCt = NINJAMASTERS_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

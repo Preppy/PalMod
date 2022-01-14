@@ -1247,12 +1247,3 @@ const sDescTreeNode COTA_A_UNITS[] =
 
 constexpr auto COTA_A_NUMUNIT = ARRAYSIZE(COTA_A_UNITS);
 constexpr auto COTA_A_EXTRALOC = COTA_A_NUMUNIT;
-
-// We extend this array with data groveled from the cotae.txt extensible extras file, if any.
-const stExtraDef COTA_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

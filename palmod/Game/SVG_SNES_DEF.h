@@ -217,13 +217,4 @@ const sDescTreeNode SVG_SNES_UNITS[] =
 
 constexpr auto SVG_SNES_NUMUNIT = ARRAYSIZE(SVG_SNES_UNITS);
 
-#define SVG_SNES_EXTRALOC SVG_SNES_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef SVG_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto SVG_SNES_EXTRALOC = SVG_SNES_NUMUNIT;

@@ -261,13 +261,4 @@ const sDescTreeNode FatalFuryS_SNES_UNITS[] =
 
 constexpr auto FatalFuryS_SNES_NUMUNIT = ARRAYSIZE(FatalFuryS_SNES_UNITS);
 
-#define FatalFuryS_SNES_EXTRALOC FatalFuryS_SNES_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef FatalFuryS_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto FatalFuryS_SNES_EXTRALOC = FatalFuryS_SNES_NUMUNIT;

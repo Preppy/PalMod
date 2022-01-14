@@ -107,10 +107,8 @@ CDescTree* CGame_DanKuGa_A_DIR::GetMainTree()
 
 sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_DANKUGA, DANKUGA_A_EXTRA, &DANKUGA_A_EXTRA_CUSTOM, DANKUGA_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_DANKUGA, &DANKUGA_A_EXTRA_CUSTOM, DANKUGA_A_EXTRALOC, m_nConfirmedROMSize);
 
     bool fHaveExtras = (GetExtraCt(DANKUGA_A_EXTRALOC) > 0);
     UINT16 nUnitCt = DANKUGA_A_NUMUNIT + (GetExtraCt(DANKUGA_A_EXTRALOC) ? 1 : 0);

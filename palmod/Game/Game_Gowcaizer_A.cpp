@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define Gowcaizer_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_Gowcaizer_A::Gowcaizer_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_Gowcaizer_A::MainDescTree = nullptr;
@@ -98,10 +96,8 @@ size_t CGame_Gowcaizer_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_Gowcaizer_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_Gowcaizer_A, Gowcaizer_A_EXTRA, &Gowcaizer_A_EXTRA_CUSTOM, Gowcaizer_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_Gowcaizer_A, &Gowcaizer_A_EXTRA_CUSTOM, Gowcaizer_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = Gowcaizer_A_NUMUNIT + (GetExtraCt(Gowcaizer_A_EXTRALOC) ? 1 : 0);
     

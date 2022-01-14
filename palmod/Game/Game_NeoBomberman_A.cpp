@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define NeoBomberman_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_NeoBomberman_A::NeoBomberman_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_NeoBomberman_A::MainDescTree = nullptr;
@@ -29,9 +27,7 @@ void CGame_NeoBomberman_A::InitializeStatics()
 
 CGame_NeoBomberman_A::CGame_NeoBomberman_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_NeoBomberman_A::CGame_NeoBomberman_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_NeoBomberman_A::CGame_NeoBomberman_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -101,7 +97,7 @@ size_t CGame_NeoBomberman_A::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_NeoBomberman_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_NeoBomberman_A, NeoBomberman_A_EXTRA, &NeoBomberman_A_EXTRA_CUSTOM, NeoBomberman_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_NeoBomberman_A, &NeoBomberman_A_EXTRA_CUSTOM, NeoBomberman_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = NeoBomberman_A_NUMUNIT + (GetExtraCt(NeoBomberman_A_EXTRALOC) ? 1 : 0);
     

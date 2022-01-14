@@ -358,7 +358,7 @@ sDescTreeNode* CGame_SF2CE_A::InitDescTree(int nROMPaletteSetToUse)
     case 21:
     {
         nExtraUnitLocation = SF2CE_A_21_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_SF2CE_21, SF2CE_A_EXTRA, &SF2CE_A_21_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SF2CE_21, &SF2CE_A_21_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
         nUnitCt = SF2CE_A_21_NUMUNIT + (fHaveExtras ? 1 : 0);
         break;
@@ -368,7 +368,7 @@ sDescTreeNode* CGame_SF2CE_A::InitDescTree(int nROMPaletteSetToUse)
     {
         nExtraUnitLocation = SF2CE_A_22_EXTRALOC;
         //Load extra file if we're using it
-        LoadExtraFileForGame(EXTRA_FILENAME_SF2CE_22, SF2CE_A_EXTRA, &SF2CE_A_22_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SF2CE_22, &SF2CE_A_22_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
         nUnitCt = SF2CE_A_22_NUMUNIT + (fHaveExtras ? 1 : 0);
         break;
@@ -377,7 +377,7 @@ sDescTreeNode* CGame_SF2CE_A::InitDescTree(int nROMPaletteSetToUse)
     {
         nExtraUnitLocation = SF2CE_A_23_EXTRALOC;
         //Load extra file if we're using it
-        LoadExtraFileForGame(EXTRA_FILENAME_SF2CE_23, SF2CE_A_EXTRA, &SF2CE_A_23_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SF2CE_23, &SF2CE_A_23_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
         nUnitCt = SF2CE_A_23_NUMUNIT + (fHaveExtras ? 1 : 0);
         break;

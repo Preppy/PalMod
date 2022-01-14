@@ -316,12 +316,12 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
     {
     case SF3ROM_10:
         nExtraUnitLocation = SFIII3_A_10_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_SF3_10, SFIII3_A_EXTRA, &SFIII3_A_10_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SF3_10, &SFIII3_A_10_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = SFIII3_A_10_NUMUNIT;
         break;
     case SF3ROM_10_4rd:
         nExtraUnitLocation = SFIII3_A_10_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_SF3_10, SFIII3_A_EXTRA, &SFIII3_A_14_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SF3_10, &SFIII3_A_14_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = SFIII3_A_10_NUMUNIT;
         break;
     default:
@@ -329,18 +329,18 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
         __fallthrough;
     case SF3ROM_51:
         nExtraUnitLocation = SFIII3_A_51_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_SF3_51, SFIII3_A_EXTRA, &SFIII3_A_51_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SF3_51, &SFIII3_A_51_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = SFIII3_A_51_NUMUNIT;
         break;
     case SF3ROM_51_4rd:
         nExtraUnitLocation = SFIII3_A_51_EXTRALOC;
         // Don't load extras for this version: it's only half the expected size so early extras would be in space
-        LoadExtraFileForGame(nullptr, SFIII3_A_EXTRA, &SFIII3_A_4_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(nullptr, &SFIII3_A_4_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = SFIII3_A_51_NUMUNIT;
         break;
     case SF3ROM_70_EX:
         nExtraUnitLocation = SFIII3_A_70_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_SF3_51, SFIII3_A_EXTRA, &SFIII3_A_70_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SF3_51, &SFIII3_A_70_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = SFIII3_A_70_NUMUNIT;
         break;
     }

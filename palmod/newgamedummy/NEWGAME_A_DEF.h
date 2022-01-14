@@ -52,12 +52,3 @@ const sDescTreeNode NEWGAME_A_UNITS[] =
 constexpr auto NEWGAME_A_NUMUNIT = ARRAYSIZE(NEWGAME_A_UNITS);
 
 constexpr auto NEWGAME_A_EXTRALOC = NEWGAME_A_NUMUNIT;
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef NEWGAME_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

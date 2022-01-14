@@ -199,13 +199,13 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
     if (UsePaletteSetForCharacters())
     {
         nExtraUnitLocation = MSH_A_EXTRALOC_05;
-        LoadExtraFileForGame(EXTRA_FILENAME_MSH_05, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_05, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSH_05, &MSH_A_EXTRA_CUSTOM_05, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = (MSH_A_NUMUNIT_05 + (GetExtraCt(nExtraUnitLocation) ? 1 : 0));
     }
     else
     {
         nExtraUnitLocation = MSH_A_EXTRALOC_06;
-        LoadExtraFileForGame(EXTRA_FILENAME_MSH_06, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_06, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSH_06, &MSH_A_EXTRA_CUSTOM_06, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = (MSH_A_NUMUNIT_06 + (GetExtraCt(nExtraUnitLocation) ? 1 : 0));
     }
    

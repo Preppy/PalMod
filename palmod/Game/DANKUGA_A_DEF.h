@@ -491,12 +491,3 @@ const sDescTreeNode DANKUGA_A_UNITS[] =
 
 constexpr auto DANKUGA_A_NUMUNIT = ARRAYSIZE(DANKUGA_A_UNITS);
 constexpr auto DANKUGA_A_EXTRALOC = DANKUGA_A_NUMUNIT;
-
-const stExtraDef DANKUGA_A_EXTRA[] = 
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    //Extra
-    { INVALID_UNIT_VALUE }
-};

@@ -2337,12 +2337,3 @@ const sDescTreeNode MVC_A_UNITS[MVC_A_NUMUNIT] =
     { L"Character Icons",              DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_COLLECTION,             ARRAYSIZE(MVC_A_CSIS_COLLECTION) },
     { L"Bonus and Stages",             DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_COLLECTION,            ARRAYSIZE(MVC_A_BONUS_COLLECTION) },
 };
-
-// We extend this array with data groveled from the mvce.txt extensible extras file, if any.
-const stExtraDef MVC_A_EXTRA[] =
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

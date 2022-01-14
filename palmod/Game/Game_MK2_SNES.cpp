@@ -4,9 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-// This decides whether or not you get extra debug output while running under the debugger
-#define MK2_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 UINT32 CGame_MK2_SNES::m_nExpectedGameROMSize = 0x300000;
 
 CGame_MK2_SNES::CGame_MK2_SNES(UINT32 nConfirmedROMSize)
@@ -106,7 +103,7 @@ size_t CGame_MK2_SNES::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_MK2_SNES::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MK2_SNES, MK2_SNES_EXTRA, &MK2_SNES_EXTRA_CUSTOM, MK2_SNES_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_MK2_SNES, &MK2_SNES_EXTRA_CUSTOM, MK2_SNES_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = MK2_SNES_NUMUNIT + (GetExtraCt(MK2_SNES_EXTRALOC) ? 1 : 0);
     

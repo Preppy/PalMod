@@ -657,13 +657,4 @@ const sDescTreeNode MAGICALDROPIII_A_UNITS[] =
 
 constexpr auto MAGICALDROPIII_A_NUMUNIT = ARRAYSIZE(MAGICALDROPIII_A_UNITS);
 
-#define MAGICALDROPIII_A_EXTRALOC MAGICALDROPIII_A_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef MAGICALDROPIII_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto MAGICALDROPIII_A_EXTRALOC = MAGICALDROPIII_A_NUMUNIT;

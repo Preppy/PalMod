@@ -11,7 +11,7 @@
 const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_P1[] =
     { L"Spider-Man P1",  0x61C0c, 0x61C2c, 0x0C },
 const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_P1[] =
-    { L"Captain America P1", 0x61CEc, 0x61D0c, indexCPS2Sprites_CapAm, 0, &pairCaptainAmericaShie
+{ L"Captain America P1", 0x61CEc, 0x61D0c, indexCPS2Sprites_CapAm, 0, &pairNext },
 const sGame_PaletteDataset MSH_A_HULK_PALETTES_P1[] =
     { L"Hulk P1",        0x61DCc, 0x61DEc, 0x0D },
 const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_P1[] =
@@ -1183,12 +1183,3 @@ const sDescTreeNode MSH_UNITS_06[] =
 
 constexpr auto MSH_A_NUMUNIT_06 = ARRAYSIZE(MSH_UNITS_06);
 constexpr auto MSH_A_EXTRALOC_06 = MSH_A_NUMUNIT_06;
-
-// We extend this array with data groveled from the MSHe.txt extensible extras file, if any.
-const stExtraDef MSH_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

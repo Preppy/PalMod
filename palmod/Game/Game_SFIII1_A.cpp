@@ -121,12 +121,11 @@ stExtraDef* CGame_SFIII1_A::GetCurrentExtraDef(int nDefCtr)
 
 sDescTreeNode* CGame_SFIII1_A::InitDescTree(int nROMPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
     m_nSelectedRom = nROMPaletteSetToUse;
 
     size_t nExtraUnitLocation = SFIII1_A_50_EXTRALOC;
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SFIII1_50, SFIII1_A_EXTRA, &SFIII1_A_50_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SFIII1_50, &SFIII1_A_50_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
     bool fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
     UINT16 nUnitCt = SFIII1_A_50_NUMUNIT + (fHaveExtras ? 1 : 0);
 

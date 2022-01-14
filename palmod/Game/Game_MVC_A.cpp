@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define MVC_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MVC_A::MainDescTree = nullptr;
@@ -238,7 +236,7 @@ CDescTree* CGame_MVC_A::GetMainTree()
 sDescTreeNode* CGame_MVC_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MVC, MVC_A_EXTRA, &MVC_A_EXTRA_CUSTOM, MVC_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_MVC, &MVC_A_EXTRA_CUSTOM, MVC_A_EXTRALOC, m_nConfirmedROMSize);
 
     const UINT16 nUnitCt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
 

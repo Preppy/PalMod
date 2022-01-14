@@ -5509,12 +5509,3 @@ constexpr auto KOF02UM_S_NUMUNIT_MAIN = ARRAYSIZE(KOF02UM_S_UNITS_MAIN);
 constexpr auto KOF02UM_S_EXTRALOC_MAIN = KOF02UM_S_NUMUNIT_MAIN;
 
 #pragma endregion MAIN
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef KOF02UM_S_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

@@ -1318,13 +1318,4 @@ const sDescTreeNode DBZEB_DS_UNITS[] =
 
 constexpr auto DBZEB_DS_NUMUNIT = ARRAYSIZE(DBZEB_DS_UNITS);
 
-#define DBZEB_DS_EXTRALOC DBZEB_DS_NUMUNIT
-
-// We extend this array with data groveled from the extensiBle extras file, if any.
-const stExtraDef DBZEB_DS_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto DBZEB_DS_EXTRALOC = DBZEB_DS_NUMUNIT;

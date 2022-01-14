@@ -106,7 +106,7 @@ size_t CGame_XMMA_SNES::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_XMMA_SNES::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_XMMA_SNES, XMMA_SNES_EXTRA, &XMMA_SNES_EXTRA_CUSTOM, XMMA_SNES_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_XMMA_SNES, &XMMA_SNES_EXTRA_CUSTOM, XMMA_SNES_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = XMMA_SNES_NUMUNIT + (GetExtraCt(XMMA_SNES_EXTRALOC) ? 1 : 0);
     

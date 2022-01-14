@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define RBFFS_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_RBFFS_A::RBFFS_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_RBFFS_A::MainDescTree = nullptr;
@@ -29,9 +27,7 @@ void CGame_RBFFS_A::InitializeStatics()
 
 CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_RBFFS_A::CGame_RBFFS_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_RBFFS_A::CGame_RBFFS_A: Loading ROM...\n");
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -123,7 +119,7 @@ size_t CGame_RBFFS_A::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_RBFFS_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_RBFFS_A, RBFFS_A_EXTRA, &RBFFS_A_EXTRA_CUSTOM, RBFFS_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_RBFFS_A, &RBFFS_A_EXTRA_CUSTOM, RBFFS_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = RBFFS_A_NUMUNIT + (GetExtraCt(RBFFS_A_EXTRALOC) ? 1 : 0);
     

@@ -167,13 +167,4 @@ const sDescTreeNode MMX2_SNES_UNITS[] =
 
 constexpr auto MMX2_SNES_NUMUNIT = ARRAYSIZE(MMX2_SNES_UNITS);
 
-#define MMX2_SNES_EXTRALOC MMX2_SNES_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef MMX2_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto MMX2_SNES_EXTRALOC = MMX2_SNES_NUMUNIT;

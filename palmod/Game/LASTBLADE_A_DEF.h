@@ -625,13 +625,4 @@ const sDescTreeNode LASTBLADE_A_UNITS[] =
 
 constexpr auto LASTBLADE_A_NUMUNIT = ARRAYSIZE(LASTBLADE_A_UNITS);
 
-#define LASTBLADE_A_EXTRALOC LASTBLADE_A_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef LASTBLADE_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto LASTBLADE_A_EXTRALOC = LASTBLADE_A_NUMUNIT;

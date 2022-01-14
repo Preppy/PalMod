@@ -251,13 +251,4 @@ const sDescTreeNode TOPF2005_UNITS[] =
 };
 
 constexpr auto TOPF2005_SEGA_NUMUNIT = ARRAYSIZE(TOPF2005_UNITS);
-#define TOPF2005_SEGA_EXTRALOC TOPF2005_SEGA_NUMUNIT
-
-// We extend this array with data groveled from the KOTMe.txt extensible extras file, if any.
-const stExtraDef TOPF2005_SEGA_EXTRA[] =
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto TOPF2005_SEGA_EXTRALOC = TOPF2005_SEGA_NUMUNIT;

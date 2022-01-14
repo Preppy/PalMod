@@ -1034,13 +1034,4 @@ const sDescTreeNode ROTD_A_UNITS[] =
 
 constexpr auto ROTD_A_NUMUNIT = ARRAYSIZE(ROTD_A_UNITS);
 
-#define ROTD_A_EXTRALOC ROTD_A_NUMUNIT
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef ROTD_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto ROTD_A_EXTRALOC = ROTD_A_NUMUNIT;

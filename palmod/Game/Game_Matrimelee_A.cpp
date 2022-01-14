@@ -3,8 +3,6 @@
 #include "Game_Matrimelee_A.h"
 #include "..\RegProc.h"
 
-#define Matrimelee_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_Matrimelee_A::Matrimelee_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_Matrimelee_A::MainDescTree = nullptr;
@@ -97,10 +95,8 @@ size_t CGame_Matrimelee_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_Matrimelee_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_Matrimelee_A, Matrimelee_A_EXTRA, &Matrimelee_A_EXTRA_CUSTOM, Matrimelee_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_Matrimelee_A, &Matrimelee_A_EXTRA_CUSTOM, Matrimelee_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = Matrimelee_A_NUMUNIT + (GetExtraCt(Matrimelee_A_EXTRALOC) ? 1 : 0);
     

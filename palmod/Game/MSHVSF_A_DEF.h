@@ -1564,12 +1564,3 @@ const sDescTreeNode MSHVSF_A_UNITS_7B[MSHVSF_A_NUM_IND_7B] =
 {
     { L"Victory Screen Portraits",  DESC_NODETYPE_TREE, (void*)MSHVSF_A_BONUS_COLLECTION_7B, ARRAYSIZE(MSHVSF_A_BONUS_COLLECTION_7B) },
 };
-
-// We extend this array with data groveled from the mshvsfe.txt extensible extras file, if any.
-const stExtraDef MSHVSF_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

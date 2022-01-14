@@ -16,7 +16,6 @@ private:
     static size_t rgExtraLoc[NEWGAME_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
@@ -24,6 +23,8 @@ private:
 
     static constexpr auto EXTRA_FILENAME_NEWGAME_A = L"NewGameE.txt";
     static constexpr auto NEWGAME_A_PRIMARY_ROMNAME = L"NEWGAME.ROM"; // the file that your palettes are stored in
+     // Update to the actual byte size in hex of the ROM file size you expect
+    static constexpr UINT32 m_nExpectedGameROMSize = 0x200000;
 
 public:
     CGame_NEWGAME_A(UINT32 nConfirmedROMSize);

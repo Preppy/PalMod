@@ -7,8 +7,7 @@ size_t CGame_MAAB_A::uRuleCtr = 0;
 
 CDescTree CGame_MAAB_A::MainDescTree = nullptr;
 
-//#define MAAB_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-#define MAAB_A_DEBUG 1
+#define MAAB_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 CGame_MAAB_A::CGame_MAAB_A(UINT32 nConfirmedROMSize /* = -1 */)
 {

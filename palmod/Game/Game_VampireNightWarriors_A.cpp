@@ -3,8 +3,6 @@
 #include "GameDef.h"
 #include "..\PalMod.h"
 
-#define VampireNightWarriors_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_VampireNightWarriors_A::VampireNightWarriors_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_VampireNightWarriors_A::MainDescTree = nullptr;
@@ -145,10 +143,8 @@ CDescTree* CGame_VampireNightWarriors_A::GetMainTree()
 
 sDescTreeNode* CGame_VampireNightWarriors_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_VampireNightWarriors, VampireNightWarriors_A_EXTRA, &VampireNightWarriors_A_EXTRA_CUSTOM, VampireNightWarriors_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_VampireNightWarriors, &VampireNightWarriors_A_EXTRA_CUSTOM, VampireNightWarriors_A_EXTRALOC, m_nConfirmedROMSize);
 
     const UINT16 nUnitCt = VampireNightWarriors_A_NUMUNIT + (GetExtraCt(VampireNightWarriors_A_EXTRALOC) ? 1 : 0);
 

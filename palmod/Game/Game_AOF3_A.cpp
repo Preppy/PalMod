@@ -181,14 +181,14 @@ sDescTreeNode* CGame_AOF3_A::InitDescTree(int nROMPaletteSetToUse)
     if (UsePaletteSetForP1())
     {
         nExtraUnitLocation = AOF3_A_P1_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_AOF3_A_P1, AOF3_A_EXTRA, &AOF3_A_P1_EXTRA_CUSTOM, AOF3_A_P1_EXTRALOC, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_AOF3_A_P1, &AOF3_A_P1_EXTRA_CUSTOM, AOF3_A_P1_EXTRALOC, m_nConfirmedROMSize);
         fHaveExtras = GetExtraCt(AOF3_A_P1_EXTRALOC);
         nUnitCt = AOF3_A_P1_NUMUNIT + (fHaveExtras ? 1 : 0);
     }
     else
     {
         nExtraUnitLocation = AOF3_A_P2_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_AOF3_A_P2, AOF3_A_EXTRA, &AOF3_A_P2_EXTRA_CUSTOM, AOF3_A_P2_EXTRALOC, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_AOF3_A_P2, &AOF3_A_P2_EXTRA_CUSTOM, AOF3_A_P2_EXTRALOC, m_nConfirmedROMSize);
         fHaveExtras = GetExtraCt(AOF3_A_P2_EXTRALOC);
         nUnitCt = AOF3_A_P2_NUMUNIT + (fHaveExtras ? 1 : 0);
     }
