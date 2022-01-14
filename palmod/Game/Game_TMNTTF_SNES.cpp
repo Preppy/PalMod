@@ -4,9 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-// This decides whether or not you get extra debug output while running under the debugger
-#define TMNTTF_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 UINT32 CGame_TMNTTF_SNES::m_nExpectedGameROMSize = 0x200000;
 
 CGame_TMNTTF_SNES::CGame_TMNTTF_SNES(UINT32 nConfirmedROMSize)
@@ -106,7 +103,7 @@ size_t CGame_TMNTTF_SNES::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_TMNTTF_SNES::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_TMNTTF_SNES, TMNTTF_SNES_EXTRA, &TMNTTF_SNES_EXTRA_CUSTOM, TMNTTF_SNES_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_TMNTTF_SNES, &TMNTTF_SNES_EXTRA_CUSTOM, TMNTTF_SNES_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = TMNTTF_SNES_NUMUNIT + (GetExtraCt(TMNTTF_SNES_EXTRALOC) ? 1 : 0);
     

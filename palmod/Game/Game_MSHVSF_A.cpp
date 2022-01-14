@@ -3,8 +3,6 @@
 #include "GameDef.h"
 #include "..\PalMod.h"
 
-#define MSHVSF_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A = nullptr;
 stExtraDef* CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B = nullptr;
 
@@ -195,7 +193,6 @@ CDescTree* CGame_MSHVSF_A::GetMainTree()
 
 sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
     m_nMSHVSFSelectedRom = nROMPaletteSetToUse;
 
     UINT16 nUnitCt;
@@ -205,14 +202,14 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
     if (UsePaletteSetForCharacters())
     {
         nExtraUnitLocation = MSHVSF_A_EXTRALOC_6A;
-        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_6A, MSHVSF_A_EXTRA, &MSHVSF_A_EXTRA_CUSTOM_6A, MSHVSF_A_EXTRALOC_6A, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_6A, &MSHVSF_A_EXTRA_CUSTOM_6A, MSHVSF_A_EXTRALOC_6A, m_nConfirmedROMSize);
         nUnitCt = (MSHVSF_A_NUM_IND_6A + (GetExtraCt(nExtraUnitLocation) ? 1 : 0));
 
     }
     else
     {
         nExtraUnitLocation = MSHVSF_A_EXTRALOC_7B;
-        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_7B, MSHVSF_A_EXTRA, &MSHVSF_A_EXTRA_CUSTOM_7B, MSHVSF_A_EXTRALOC_7B, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_7B, &MSHVSF_A_EXTRA_CUSTOM_7B, MSHVSF_A_EXTRALOC_7B, m_nConfirmedROMSize);
         nUnitCt = (MSHVSF_A_NUM_IND_7B + (GetExtraCt(nExtraUnitLocation) ? 1 : 0));
     }
 

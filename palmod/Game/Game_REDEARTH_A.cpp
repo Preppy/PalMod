@@ -5,8 +5,6 @@
 #include "..\PalMod.h"
 #include "..\regproc.h"
 
-#define REDEARTH_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_30 = NULL;
 stExtraDef* CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_31 = NULL;
 stExtraDef* CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_50 = NULL;
@@ -215,7 +213,6 @@ void CGame_REDEARTH_A::ClearDataBuffer()
 
 sDescTreeNode* CGame_REDEARTH_A::InitDescTree(int nPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
     m_nRedEarthMode = nPaletteSetToUse;
 
     bool fHaveExtras;
@@ -224,18 +221,18 @@ sDescTreeNode* CGame_REDEARTH_A::InitDescTree(int nPaletteSetToUse)
     switch (m_nRedEarthMode)
     {
     case 30:
-        LoadExtraFileForGame(EXTRA_FILENAME_REDEARTH_30, REDEARTH_A_EXTRA, &REDEARTH_A_EXTRA_CUSTOM_30, REDEARTH_A_EXTRALOC_30, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_REDEARTH_30, &REDEARTH_A_EXTRA_CUSTOM_30, REDEARTH_A_EXTRALOC_30, m_nConfirmedROMSize);
         fHaveExtras = GetExtraCt(REDEARTH_A_EXTRALOC_30) != 0;
         nUnitCt = REDEARTH_A_NUMUNIT_30 + (GetExtraCt(REDEARTH_A_EXTRALOC_30) ? 1 : 0);
         break;
     case 31:
     default:
-        LoadExtraFileForGame(EXTRA_FILENAME_REDEARTH_31, REDEARTH_A_EXTRA, &REDEARTH_A_EXTRA_CUSTOM_31, REDEARTH_A_EXTRALOC_31, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_REDEARTH_31, &REDEARTH_A_EXTRA_CUSTOM_31, REDEARTH_A_EXTRALOC_31, m_nConfirmedROMSize);
         fHaveExtras = GetExtraCt(REDEARTH_A_EXTRALOC_31) != 0;
         nUnitCt = REDEARTH_A_NUMUNIT_31 + (GetExtraCt(REDEARTH_A_EXTRALOC_31) ? 1 : 0);
         break;
     case 50:
-        LoadExtraFileForGame(EXTRA_FILENAME_REDEARTH_50, REDEARTH_A_EXTRA, &REDEARTH_A_EXTRA_CUSTOM_50, REDEARTH_A_EXTRALOC_50, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_REDEARTH_50, &REDEARTH_A_EXTRA_CUSTOM_50, REDEARTH_A_EXTRALOC_50, m_nConfirmedROMSize);
         fHaveExtras = GetExtraCt(REDEARTH_A_EXTRALOC_50) != 0;
         nUnitCt = REDEARTH_A_NUMUNIT_50 + (GetExtraCt(REDEARTH_A_EXTRALOC_50) ? 1 : 0);
         break;

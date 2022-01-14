@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define KOFXI_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_KOFXI_A::KOFXI_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KOFXI_A::MainDescTree = nullptr;
@@ -280,10 +278,8 @@ void CGame_KOFXI_A::DumpAllCharacters()
 
 sDescTreeNode* CGame_KOFXI_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOFXI_A, KOFXI_A_EXTRA, &KOFXI_A_EXTRA_CUSTOM, KOFXI_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_KOFXI_A, &KOFXI_A_EXTRA_CUSTOM, KOFXI_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = KOFXI_A_NUMUNIT + (GetExtraCt(KOFXI_A_EXTRALOC) ? 1 : 0);
     

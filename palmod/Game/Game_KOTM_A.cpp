@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define KOTM_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_KOTM_A::KOTM_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KOTM_A::MainDescTree = nullptr;
@@ -116,7 +114,7 @@ sFileRule CGame_KOTM_A::GetRule(size_t nUnitId)
 sDescTreeNode* CGame_KOTM_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOTM, KOTM_A_EXTRA, &KOTM_A_EXTRA_CUSTOM, KOTM_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_KOTM, &KOTM_A_EXTRA_CUSTOM, KOTM_A_EXTRALOC, m_nConfirmedROMSize);
 
     const UINT16 nUnitCt = KOTM_A_NUMUNIT + (GetExtraCt(KOTM_A_EXTRALOC) ? 1 : 0);
 

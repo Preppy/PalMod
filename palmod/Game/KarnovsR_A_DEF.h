@@ -383,13 +383,4 @@ const sDescTreeNode KarnovsR_A_UNITS[] =
 };
 
 constexpr auto KarnovsR_A_NUMUNIT = ARRAYSIZE(KarnovsR_A_UNITS);
-#define KarnovsR_A_EXTRALOC KarnovsR_A_NUMUNIT
-
-const stExtraDef KarnovsR_A_EXTRA[] =
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    //Extra
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto KarnovsR_A_EXTRALOC = KarnovsR_A_NUMUNIT;

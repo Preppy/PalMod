@@ -176,13 +176,4 @@ const sDescTreeNode CFTE_SNES_UNITS[] =
 
 constexpr auto CFTE_SNES_NUMUNIT = ARRAYSIZE(CFTE_SNES_UNITS);
 
-#define CFTE_SNES_EXTRALOC CFTE_SNES_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef CFTE_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto CFTE_SNES_EXTRALOC = CFTE_SNES_NUMUNIT;

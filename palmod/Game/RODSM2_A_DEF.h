@@ -536,13 +536,4 @@ const sDescTreeNode RODSM2_A_UNITS[] =
 
 constexpr auto RODSM2_A_NUMUNITS = ARRAYSIZE(RODSM2_A_UNITS);
 
-#define RODSM2_A_EXTRALOC RODSM2_A_NUMUNITS
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef RODSM2_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto RODSM2_A_EXTRALOC = RODSM2_A_NUMUNITS;

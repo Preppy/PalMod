@@ -22,12 +22,3 @@ const sDescTreeNode NEOGEO_A_UNITS[] =
 };
 
 constexpr auto NEOGEO_A_NUMUNIT = ARRAYSIZE(NEOGEO_A_UNITS);
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef NEOGEO_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define AOF1_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_AOF1_A::AOF1_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_AOF1_A::MainDescTree = nullptr;
@@ -116,10 +114,8 @@ size_t CGame_AOF1_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_AOF1_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     size_t nExtraUnitLocation = AOF1_A_EXTRALOC;
-    LoadExtraFileForGame(EXTRA_FILENAME_AOF1_A, AOF1_A_EXTRA, &AOF1_A_EXTRA_CUSTOM, AOF1_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_AOF1_A, &AOF1_A_EXTRA_CUSTOM, AOF1_A_EXTRALOC, m_nConfirmedROMSize);
     bool fHaveExtras = GetExtraCt(AOF1_A_EXTRALOC);
     UINT16 nUnitCt = AOF1_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 

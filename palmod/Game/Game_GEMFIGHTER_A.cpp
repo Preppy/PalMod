@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define GEMFIGHTER_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_GEMFIGHTER_A::GEMFIGHTER_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_GEMFIGHTER_A::MainDescTree = nullptr;
@@ -123,10 +121,8 @@ size_t CGame_GEMFIGHTER_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_GEMFIGHTER_A, GEMFIGHTER_A_EXTRA, &GEMFIGHTER_A_EXTRA_CUSTOM, GEMFIGHTER_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_GEMFIGHTER_A, &GEMFIGHTER_A_EXTRA_CUSTOM, GEMFIGHTER_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = GEMFIGHTER_A_NUMUNITS + (GetExtraCt(GEMFIGHTER_A_EXTRALOC) ? 1 : 0);
     

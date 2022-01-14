@@ -3,8 +3,6 @@
 #include "GameDef.h"
 #include "..\PalMod.h"
 
-#define VSAV_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_VSAV_A::VSAV_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_VSAV_A::MainDescTree = nullptr;
@@ -118,10 +116,8 @@ CDescTree* CGame_VSAV_A::GetMainTree()
 
 sDescTreeNode* CGame_VSAV_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_VSAV, VSAV_A_EXTRA, &VSAV_A_EXTRA_CUSTOM, VSAV_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_VSAV, &VSAV_A_EXTRA_CUSTOM, VSAV_A_EXTRALOC, m_nConfirmedROMSize);
 
     const UINT16 nUnitCt = VSAV_A_NUMUNIT + (GetExtraCt(VSAV_A_EXTRALOC) ? 1 : 0);
 

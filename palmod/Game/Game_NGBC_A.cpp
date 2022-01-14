@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define NGBC_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_NGBC_A::NGBC_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_NGBC_A::MainDescTree = nullptr;
@@ -267,10 +265,8 @@ void CGame_NGBC_A::DumpAllCharacters()
 
 sDescTreeNode* CGame_NGBC_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_NGBC_A, NGBC_A_EXTRA, &NGBC_A_EXTRA_CUSTOM, NGBC_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_NGBC_A, &NGBC_A_EXTRA_CUSTOM, NGBC_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = NGBC_A_NUMUNIT + (GetExtraCt(NGBC_A_EXTRALOC) ? 1 : 0);
     

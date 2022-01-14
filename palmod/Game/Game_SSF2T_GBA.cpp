@@ -5,8 +5,6 @@
 #include "..\PalMod.h"
 #include "..\regproc.h" // for palettepagesize
 
-#define SSF2T_GBA_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_SSF2T_GBA::SSF2T_GBA_EXTRA_CUSTOM = NULL;
 
 size_t CGame_SSF2T_GBA::rgExtraCountAll[SSF2T_GBA_NUMUNIT + 1] = { (size_t)-1 };
@@ -141,7 +139,7 @@ stExtraDef* CGame_SSF2T_GBA::GetCurrentExtraDef(int nDefCtr)
 sDescTreeNode* CGame_SSF2T_GBA::InitDescTree()
 {
     size_t nExtraUnitLocation = SSF2T_GBA_EXTRALOC;
-    LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_GBA, SSF2T_GBA_EXTRA, &SSF2T_GBA_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_GBA, &SSF2T_GBA_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
     bool fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
     UINT16 nUnitCt = SSF2T_GBA_NUMUNIT + (fHaveExtras ? 1 : 0);
 

@@ -2683,13 +2683,4 @@ const sDescTreeNode SFZ3U_A_UNITS[] =
 
 
 constexpr auto SFZ3U_A_NUMUNIT = ARRAYSIZE(SFZ3U_A_UNITS);
-#define SFZ3U_A_EXTRALOC SFZ3U_A_NUMUNIT
-
-// We extend this array with data groveled from the CVS2E.txt extensible extras file, if any.
-const stExtraDef SFZ3U_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto SFZ3U_A_EXTRALOC = SFZ3U_A_NUMUNIT;

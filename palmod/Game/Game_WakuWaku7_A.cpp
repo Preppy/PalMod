@@ -3,8 +3,6 @@
 #include "Game_WakuWaku7_A.h"
 #include "..\RegProc.h"
 
-#define WakuWaku7_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_WakuWaku7_A::WakuWaku7_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_WakuWaku7_A::MainDescTree = nullptr;
@@ -100,7 +98,7 @@ sDescTreeNode* CGame_WakuWaku7_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_WakuWaku7_A, WakuWaku7_A_EXTRA, &WakuWaku7_A_EXTRA_CUSTOM, WakuWaku7_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_WakuWaku7_A, &WakuWaku7_A_EXTRA_CUSTOM, WakuWaku7_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = WakuWaku7_A_NUMUNIT + (GetExtraCt(WakuWaku7_A_EXTRALOC) ? 1 : 0);
     

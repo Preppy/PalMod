@@ -401,10 +401,10 @@ const sDescTreeNode SF2HF_A_22_UNITS[] =
 };
 
 constexpr auto SF2HF_A_21_NUMUNIT = ARRAYSIZE(SF2HF_A_21_UNITS);
-#define SF2HF_A_21_EXTRALOC SF2HF_A_21_NUMUNIT
+constexpr auto SF2HF_A_21_EXTRALOC = SF2HF_A_21_NUMUNIT;
 
 constexpr auto SF2HF_A_22_NUMUNIT = ARRAYSIZE(SF2HF_A_22_UNITS);
-#define SF2HF_A_22_EXTRALOC SF2HF_A_22_NUMUNIT
+constexpr auto SF2HF_A_22_EXTRALOC = SF2HF_A_22_NUMUNIT;
 
 const sGame_PaletteDataset SF2HF_A_RYU_23_PORTRAITS_NODE[] =
 {
@@ -473,14 +473,4 @@ const sDescTreeNode SF2HF_A_23_UNITS[] =
 };
 
 constexpr auto SF2HF_A_23_NUMUNIT = ARRAYSIZE(SF2HF_A_23_UNITS);
-#define SF2HF_A_23_EXTRALOC SF2HF_A_23_NUMUNIT
-
-const stExtraDef SF2HF_A_EXTRA[] = 
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    //Extra
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto SF2HF_A_23_EXTRALOC = SF2HF_A_23_NUMUNIT;

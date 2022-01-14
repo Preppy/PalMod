@@ -460,12 +460,3 @@ const sDescTreeNode KI_SNES_UNITS[] =
 constexpr auto KI_SNES_NUMUNIT = ARRAYSIZE(KI_SNES_UNITS);
 
 constexpr auto KI_SNES_EXTRALOC = KI_SNES_NUMUNIT;
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef KI_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

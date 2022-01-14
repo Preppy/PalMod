@@ -1219,12 +1219,3 @@ const sDescTreeNode SAMSHO3_A_UNITS[] =
 constexpr auto SAMSHO3_A_NUMUNIT = ARRAYSIZE(SAMSHO3_A_UNITS);
 
 constexpr auto SAMSHO3_A_EXTRALOC = SAMSHO3_A_NUMUNIT;
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef SAMSHO3_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

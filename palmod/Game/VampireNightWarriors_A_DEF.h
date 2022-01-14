@@ -331,12 +331,3 @@ const sDescTreeNode VampireNightWarriors_A_UNITS[] =
 constexpr auto VampireNightWarriors_A_NUMUNIT = ARRAYSIZE(VampireNightWarriors_A_UNITS);
 
 constexpr auto VampireNightWarriors_A_EXTRALOC = VampireNightWarriors_A_NUMUNIT;
-
-// We extend this array with data groveled from the VampireNightWarriorsE.txt extensible extras file, if any.
-const stExtraDef VampireNightWarriors_A_EXTRA[] =
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

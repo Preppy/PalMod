@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define NEOGEO_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_NEOGEO_A::MainDescTree = nullptr;
@@ -276,7 +274,7 @@ size_t CGame_NEOGEO_A::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_UNKNOWN_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+    LoadExtraFileForGame(EXTRA_FILENAME_UNKNOWN_A, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
 
     if (GetExtraCt(NEOGEO_A_EXTRALOC) == 0)
     {
@@ -285,7 +283,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
         memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
         memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-        LoadExtraFileForGame(EXTRA_FILENAME_NEO_GEO_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+        LoadExtraFileForGame(EXTRA_FILENAME_NEO_GEO_A, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
     }
 
     UINT16 nUnitCt = NEOGEO_A_NUMUNIT + (GetExtraCt(NEOGEO_A_EXTRALOC) ? 1 : 0);

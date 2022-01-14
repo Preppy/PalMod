@@ -814,13 +814,4 @@ const sDescTreeNode SPF2T_A_UNITS[] =
 
 constexpr auto SPF2T_A_NUMUNITS = ARRAYSIZE(SPF2T_A_UNITS);
 
-#define SPF2T_A_EXTRALOC SPF2T_A_NUMUNITS
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef SPF2T_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto SPF2T_A_EXTRALOC = SPF2T_A_NUMUNITS;

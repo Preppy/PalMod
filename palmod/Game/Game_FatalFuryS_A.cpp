@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define FatalFuryS_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_FatalFuryS_A::FatalFuryS_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_FatalFuryS_A::MainDescTree = nullptr;
@@ -134,7 +132,7 @@ size_t CGame_FatalFuryS_A::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_FatalFuryS_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_FatalFuryS_A, FatalFuryS_A_EXTRA, &FatalFuryS_A_EXTRA_CUSTOM, FatalFuryS_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_FatalFuryS_A, &FatalFuryS_A_EXTRA_CUSTOM, FatalFuryS_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = FatalFuryS_A_NUMUNIT + (GetExtraCt(FatalFuryS_A_EXTRALOC) ? 1 : 0);
 

@@ -804,13 +804,4 @@ const sDescTreeNode BREAKERS_A_UNITS[] =
 
 constexpr auto BREAKERS_A_NUMUNIT = ARRAYSIZE(BREAKERS_A_UNITS);
 
-#define BREAKERS_A_EXTRALOC BREAKERS_A_NUMUNIT
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef BREAKERS_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto BREAKERS_A_EXTRALOC = BREAKERS_A_NUMUNIT;

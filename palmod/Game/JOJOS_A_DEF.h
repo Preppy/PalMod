@@ -3843,15 +3843,3 @@ const sDescTreeNode JOJOS_UNITS_51[ARRAYSIZE(JOJOS_A_UNITDESC_51)] =
     { L"Timestop", 					DESC_NODETYPE_TREE, (void*)JOJOS_TIMESTOP_COLLECTION, ARRAYSIZE(JOJOS_TIMESTOP_COLLECTION) },
     { L"Bonus Palettes", 			DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_COLLECTION, ARRAYSIZE(JOJOS_A_BONUS_COLLECTION) },
 };
-
-// Unused natively, but used for Extra extension files people plug in.  May need to fork into 50/51 versions.
-const stExtraDef JOJOS_A_EXTRA[] =
-{
-    //Start
-
-    { UNIT_START_VALUE },
-
-    //Extra
-
-    { INVALID_UNIT_VALUE }
-};

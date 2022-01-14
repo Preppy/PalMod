@@ -4,9 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-// This decides whether or not you get extra debug output while running under the debugger
-#define MMX_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 // There are two different versions of game: one split, and one not.
 // So we just won't use sizing values here.
 UINT32 CGame_MMX_SNES::m_nExpectedGameROMSize = 0x100000;
@@ -108,7 +105,7 @@ size_t CGame_MMX_SNES::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_MMX_SNES::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MMX_SNES, MMX_SNES_EXTRA, &MMX_SNES_EXTRA_CUSTOM, MMX_SNES_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_MMX_SNES, &MMX_SNES_EXTRA_CUSTOM, MMX_SNES_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = MMX_SNES_NUMUNIT + (GetExtraCt(MMX_SNES_EXTRALOC) ? 1 : 0);
     

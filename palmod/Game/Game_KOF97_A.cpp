@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define KOF97_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 SupportedGamesList CGame_KOF97_A::m_nSelectedRom = KOF97_A;
 
 stExtraDef* CGame_KOF97_A::KOF97_A_EXTRA_CUSTOM = nullptr;
@@ -138,12 +136,12 @@ sDescTreeNode* CGame_KOF97_A::InitDescTree(SupportedGamesList nROMPaletteSetToUs
 
     if (UsePaletteSetFor97())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF97_A, KOF97_A_EXTRA, &KOF97_A_EXTRA_CUSTOM, KOF97_A_EXTRALOC, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF97_A, &KOF97_A_EXTRA_CUSTOM, KOF97_A_EXTRALOC, m_nConfirmedROMSize);
         nUnitCt = KOF97_A_NUMUNIT + (GetExtraCt(KOF97_A_EXTRALOC) ? 1 : 0);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF97AE_A, KOF97AE_A_EXTRA, &KOF97AE_A_EXTRA_CUSTOM, KOF97AE_A_EXTRALOC, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF97AE_A, &KOF97AE_A_EXTRA_CUSTOM, KOF97AE_A_EXTRALOC, m_nConfirmedROMSize);
         nUnitCt = KOF97AE_A_NUMUNIT + (GetExtraCt(KOF97AE_A_EXTRALOC) ? 1 : 0);
     }
     

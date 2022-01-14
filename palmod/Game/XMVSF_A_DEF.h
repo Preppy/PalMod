@@ -1227,12 +1227,3 @@ These are the ROM locations sorted by layout rather than alphabetically:
     0x164Ba, // Chun-Li (SFA)
     0x1657a,
 */
-
-// We extend this array with data groveled from the xmvsfe.txt extensible extras file, if any.
-const stExtraDef XMVSF_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

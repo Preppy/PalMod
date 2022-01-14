@@ -637,13 +637,4 @@ const sDescTreeNode Gowcaizer_A_UNITS[] =
 
 constexpr auto Gowcaizer_A_NUMUNIT = ARRAYSIZE(Gowcaizer_A_UNITS);
 
-#define Gowcaizer_A_EXTRALOC Gowcaizer_A_NUMUNIT
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef Gowcaizer_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto Gowcaizer_A_EXTRALOC = Gowcaizer_A_NUMUNIT;

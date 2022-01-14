@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define Kizuna_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_Kizuna_A::Kizuna_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_Kizuna_A::MainDescTree = nullptr;
@@ -133,10 +131,8 @@ size_t CGame_Kizuna_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_Kizuna_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_Kizuna_A, Kizuna_A_EXTRA, &Kizuna_A_EXTRA_CUSTOM, Kizuna_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_Kizuna_A, &Kizuna_A_EXTRA_CUSTOM, Kizuna_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = Kizuna_A_NUMUNIT + (GetExtraCt(Kizuna_A_EXTRALOC) ? 1 : 0);
     

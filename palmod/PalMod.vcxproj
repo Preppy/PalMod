@@ -260,6 +260,7 @@
     <ClCompile Include="Game\Game_JojosRPG_SNES.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
+    <ClCompile Include="Game\Game_JusticeLeagueTF_SNES.cpp" />
     <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
     <ClCompile Include="Game\Game_Kizuna_A.cpp" />
     <ClCompile Include="Game\Game_KI_SNES.cpp" />
@@ -447,6 +448,7 @@
     <ClInclude Include="Game\Game_JojosRPG_SNES.h" />
     <ClInclude Include="Game\Game_JOJOS_A.h" />
     <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />
+    <ClInclude Include="Game\Game_JusticeLeagueTF_SNES.h" />
     <ClInclude Include="Game\Game_KarnovsR_A.h" />
     <ClInclude Include="Game\Game_Kizuna_A.h" />
     <ClInclude Include="Game\Game_KI_SNES.h" />
@@ -557,6 +559,7 @@
     <ClInclude Include="Game\ImgTicket.h" />
     <ClInclude Include="Game\JojosRPG_SNES_DEF.h" />
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
+    <ClInclude Include="Game\JusticeLeagueTF_SNES_DEF.h" />
     <ClInclude Include="Game\KarnovsR_A_DEF.h" />
     <ClInclude Include="Game\KIZUNA_A_DEF.h" />
     <ClInclude Include="Game\KI_SNES_DEF.h" />

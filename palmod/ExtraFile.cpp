@@ -13,7 +13,7 @@ using namespace std;
 
 UINT32 CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 
-void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize /* = 2 */)
+void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize /* = 2 */)
 {
     ifstream extraFile;
     WCHAR szTargetFile[MAX_PATH];
@@ -23,33 +23,24 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, const s
     int nArrayOffsetDesired = 0;
     bool fAlertedToTruncation = false;
 
-    // Before we load the Extra extension file, load our hardcoded known Extras list.
-    stExtraDef* pCurrDef = const_cast<stExtraDef*>(&pBaseExtraDefs[nStockExtrasCount]);
-
-    if (pCurrDef->uUnitN == UNIT_START_VALUE)
-    {
-        // Check count to ensure correct offset of the file additions
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            nStockExtrasCount++;
-            pCurrDef = const_cast<stExtraDef*>(&pBaseExtraDefs[nStockExtrasCount]);
-        }
-    }
-    else
-    {
-        // I was hitting a compiler bug for a bit, so added this in.
-        // You shouldn't be able to hit this any longer: the revisions to make LoadExtraFile a common function worked around the compiler issue.
-        OutputDebugString(L"BUGBUG: MEMORY CORRUPTION!\n");
-    }
-
     const int nMaxExtraBufferSize = 10000;
-    stExtraDef* prgTempExtraBuffer = nullptr;
+    stExtraDef* prgTempExtraBuffer = new stExtraDef[nMaxExtraBufferSize];
 
-    prgTempExtraBuffer = new stExtraDef[nMaxExtraBufferSize];
-
-    if (prgTempExtraBuffer != nullptr)
+    if (prgTempExtraBuffer)
     {
-        memcpy(prgTempExtraBuffer, pBaseExtraDefs, nStockExtrasCount * sizeof(stExtraDef));
+        {
+            // We always want the extra list to have a starting position and an ending position.
+            const stExtraDef STOCKEXTRALIST_EXTRA[] =
+            {
+                // Start
+                { UNIT_START_VALUE },
+
+                { INVALID_UNIT_VALUE }
+            };
+
+            nStockExtrasCount = ARRAYSIZE(STOCKEXTRALIST_EXTRA);
+            memcpy(prgTempExtraBuffer, STOCKEXTRALIST_EXTRA, nStockExtrasCount * sizeof(stExtraDef));
+        }
 
         if ((nGameROMSize != -1) && pszExtraFileName) // If we don't know the ROM size we don't know how to sanely bounds-check our file access, so can't trust our handling of Extra files.
         {
@@ -266,31 +257,31 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, const s
 
                                 if (nArrayOffsetDesired < nMaxExtraBufferSize)
                                 {
-                                    pCurrDef = &prgTempExtraBuffer[nArrayOffsetDesired];
+                                    stExtraDef* pDefToSplit = &prgTempExtraBuffer[nArrayOffsetDesired];
 
-                                    pCurrDef->uUnitN = nExtraUnitStart;
+                                    pDefToSplit->uUnitN = nExtraUnitStart;
                                     if (nTotalPagesNeeded > 1)
                                     {
                                         //pCurrDef->isInvisible = (nCurrentPage == 1);
-                                        _snwprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * cbColorSize * nPos));
+                                        _snwprintf(pDefToSplit->szDesc, sizeof(pDefToSplit->szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * cbColorSize * nPos));
                                     }
                                     else
                                     {
-                                        _snwprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S", aszCurrDesc);
+                                        _snwprintf(pDefToSplit->szDesc, sizeof(pDefToSplit->szDesc), L"%S", aszCurrDesc);
                                         //pCurrDef->isInvisible = false;
                                     }
-                                    pCurrDef->uOffset = nCurrStart + (k_colorsPerPage * cbColorSize * nPos);
-                                    pCurrDef->cbPaletteSize = nCurrentPaletteEntries * cbColorSize;
-                                    pCurrDef->isInvisible = false;
-                                }
+                                    pDefToSplit->uOffset = nCurrStart + (k_colorsPerPage * cbColorSize * nPos);
+                                    pDefToSplit->cbPaletteSize = nCurrentPaletteEntries * cbColorSize;
+                                    pDefToSplit->isInvisible = false;
 
 #ifdef DUMP_EXTRAS_ON_LOAD
-                                if (fPaletteUsesMultiplePages)
-                                {
-                                    strText.Format(L"    { L\"%s\", 0x%x, 0x%x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + pCurrDef->cbPaletteSize);
-                                    OutputDebugString(strText);
-                                }
+                                    if (fPaletteUsesMultiplePages)
+                                    {
+                                        strText.Format(L"    { L\"%s\", 0x%x, 0x%x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + pCurrDef->cbPaletteSize);
+                                        OutputDebugString(strText);
+                                    }
 #endif
+                                }
 
                                 // Ensure that if we loop through here again we are using a new Extra node item
                                 nPos++;

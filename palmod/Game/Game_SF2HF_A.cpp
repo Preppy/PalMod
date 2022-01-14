@@ -5,8 +5,6 @@
 #include "..\PalMod.h"
 #include "..\regproc.h"
 
-#define SF2HF_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_SF2HF_A::SF2HF_A_21_EXTRA_CUSTOM = NULL;
 stExtraDef* CGame_SF2HF_A::SF2HF_A_22_EXTRA_CUSTOM = NULL;
 stExtraDef* CGame_SF2HF_A::SF2HF_A_23_EXTRA_CUSTOM = NULL;
@@ -266,20 +264,20 @@ sDescTreeNode* CGame_SF2HF_A::InitDescTree(int nROMPaletteSetToUse)
     {
     case 21:
         nExtraUnitLocation = SF2HF_A_21_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_SF2HF_21, SF2HF_A_EXTRA, &SF2HF_A_21_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SF2HF_21, &SF2HF_A_21_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
         nUnitCt = SF2HF_A_21_NUMUNIT + (fHaveExtras ? 1 : 0);
         break;
     case 22:
     default:
         nExtraUnitLocation = SF2HF_A_22_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_SF2HF_22, SF2HF_A_EXTRA, &SF2HF_A_22_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SF2HF_22, &SF2HF_A_22_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
         nUnitCt = SF2HF_A_22_NUMUNIT + (fHaveExtras ? 1 : 0);
         break;
     case 23:
         nExtraUnitLocation = SF2HF_A_23_EXTRALOC;
-        LoadExtraFileForGame(EXTRA_FILENAME_SF2HF_23, SF2HF_A_EXTRA, &SF2HF_A_23_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SF2HF_23, &SF2HF_A_23_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
         nUnitCt = SF2HF_A_23_NUMUNIT + (fHaveExtras ? 1 : 0);
         break;

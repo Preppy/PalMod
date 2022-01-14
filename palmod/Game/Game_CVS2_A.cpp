@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define CVS2_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_CVS2_A::CVS2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_CVS2_A::MainDescTree = nullptr;
@@ -204,7 +202,7 @@ void CGame_CVS2_A::DumpAllCharacters()
 sDescTreeNode* CGame_CVS2_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_CVS2_A, CVS2_A_EXTRA, &CVS2_A_EXTRA_CUSTOM, CVS2_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_CVS2_A, &CVS2_A_EXTRA_CUSTOM, CVS2_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = CVS2_A_NUMUNIT + (GetExtraCt(CVS2_A_EXTRALOC) ? 1 : 0);
 

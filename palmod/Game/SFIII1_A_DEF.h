@@ -692,13 +692,4 @@ const sDescTreeNode SFIII1_A_50_UNITS[] =
 };
 
 constexpr auto SFIII1_A_50_NUMUNIT = ARRAYSIZE(SFIII1_A_50_UNITS);
-#define SFIII1_A_50_EXTRALOC SFIII1_A_50_NUMUNIT
-
-const stExtraDef SFIII1_A_EXTRA[] = 
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    //Extra
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto SFIII1_A_50_EXTRALOC = SFIII1_A_50_NUMUNIT;

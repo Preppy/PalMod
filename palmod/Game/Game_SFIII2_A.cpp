@@ -128,7 +128,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
 
     nExtraUnitLocation = SFIII2_A_50_EXTRALOC;
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SF3_50, SFIII2_A_EXTRA, &SFIII2_A_50_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SF3_50, &SFIII2_A_50_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
     fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
     nUnitCt = SFIII2_A_50_NUMUNIT + (fHaveExtras ? 1 : 0);
 

@@ -232,13 +232,4 @@ const sDescTreeNode Kizuna_A_UNITS[] =
 
 constexpr auto Kizuna_A_NUMUNIT = ARRAYSIZE(Kizuna_A_UNITS);
 
-#define Kizuna_A_EXTRALOC Kizuna_A_NUMUNIT
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef Kizuna_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto Kizuna_A_EXTRALOC = Kizuna_A_NUMUNIT;

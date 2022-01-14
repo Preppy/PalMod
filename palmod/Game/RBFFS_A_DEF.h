@@ -1299,12 +1299,3 @@ const sDescTreeNode RBFFS_A_UNITS[] =
 constexpr auto RBFFS_A_NUMUNIT = ARRAYSIZE(RBFFS_A_UNITS);
 
 constexpr auto RBFFS_A_EXTRALOC = RBFFS_A_NUMUNIT;
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef RBFFS_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

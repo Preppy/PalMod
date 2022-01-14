@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define MSHWOTG_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_MSHWOTG_SNES::MSHWOTG_SNES_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MSHWOTG_SNES::MainDescTree = nullptr;
@@ -132,10 +130,8 @@ size_t CGame_MSHWOTG_SNES::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_MSHWOTG_SNES::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MSHWOTG_SNES, MSHWOTG_SNES_EXTRA, &MSHWOTG_SNES_EXTRA_CUSTOM, MSHWOTG_SNES_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_MSHWOTG_SNES, &MSHWOTG_SNES_EXTRA_CUSTOM, MSHWOTG_SNES_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = MSHWOTG_SNES_NUMUNIT + (GetExtraCt(MSHWOTG_SNES_EXTRALOC) ? 1 : 0);
 

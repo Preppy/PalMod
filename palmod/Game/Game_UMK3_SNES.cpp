@@ -4,9 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-// This decides whether or not you get extra debug output while running under the debugger
-#define UMK3_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 UINT32 CGame_UMK3_SNES::m_nExpectedGameROMSize = 0x400000;
 
 CGame_UMK3_SNES::CGame_UMK3_SNES(UINT32 nConfirmedROMSize)
@@ -106,7 +103,7 @@ size_t CGame_UMK3_SNES::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_UMK3_SNES::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_UMK3_SNES, UMK3_SNES_EXTRA, &UMK3_SNES_EXTRA_CUSTOM, UMK3_SNES_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_UMK3_SNES, &UMK3_SNES_EXTRA_CUSTOM, UMK3_SNES_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = UMK3_SNES_NUMUNIT + (GetExtraCt(UMK3_SNES_EXTRALOC) ? 1 : 0);
     

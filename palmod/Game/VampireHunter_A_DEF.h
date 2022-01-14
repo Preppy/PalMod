@@ -1226,12 +1226,3 @@ const sDescTreeNode VampireHunter_A_UNITS[] =
 constexpr auto VampireHunter_A_NUMUNIT = ARRAYSIZE(VampireHunter_A_UNITS);
 
 constexpr auto VampireHunter_A_EXTRALOC = VampireHunter_A_NUMUNIT;
-
-// We extend this array with data groveled from the VampireHunterE.txt extensible extras file, if any.
-const stExtraDef VampireHunter_A_EXTRA[] =
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

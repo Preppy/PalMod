@@ -1,10 +1,8 @@
 #pragma once
 
-#include <string>
 #include <iterator>
 #include <iostream>
 #include <algorithm>
-#include <array>
 
 enum PersonaSpriteList
 {

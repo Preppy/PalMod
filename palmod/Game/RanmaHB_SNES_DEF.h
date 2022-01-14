@@ -234,13 +234,4 @@ const sDescTreeNode RANMAHB_SNES_UNITS[] =
 
 constexpr auto RANMAHB_SNES_NUMUNIT = ARRAYSIZE(RANMAHB_SNES_UNITS);
 
-#define RANMAHB_SNES_EXTRALOC RANMAHB_SNES_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef RANMAHB_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto RANMAHB_SNES_EXTRALOC = RANMAHB_SNES_NUMUNIT;

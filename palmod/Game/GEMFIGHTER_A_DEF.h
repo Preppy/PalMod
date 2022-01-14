@@ -735,13 +735,4 @@ const sDescTreeNode GEMFIGHTER_A_UNITS[] =
 
 constexpr auto GEMFIGHTER_A_NUMUNITS = ARRAYSIZE(GEMFIGHTER_A_UNITS);
 
-#define GEMFIGHTER_A_EXTRALOC GEMFIGHTER_A_NUMUNITS
-
-// We extend this array with data groveled from the extras file, if any.
-const stExtraDef GEMFIGHTER_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto GEMFIGHTER_A_EXTRALOC = GEMFIGHTER_A_NUMUNITS;

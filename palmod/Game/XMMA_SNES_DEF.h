@@ -266,13 +266,4 @@ const sDescTreeNode XMMA_SNES_UNITS[] =
 
 constexpr auto XMMA_SNES_NUMUNIT = ARRAYSIZE(XMMA_SNES_UNITS);
 
-#define XMMA_SNES_EXTRALOC XMMA_SNES_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef XMMA_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto XMMA_SNES_EXTRALOC = XMMA_SNES_NUMUNIT;

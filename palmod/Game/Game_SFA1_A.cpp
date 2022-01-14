@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define SFA1_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_SFA1_A::SFA1_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SFA1_A::MainDescTree = nullptr;
@@ -94,10 +92,8 @@ CDescTree* CGame_SFA1_A::GetMainTree()
 
 sDescTreeNode* CGame_SFA1_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SFA1, SFA1_A_EXTRA, &SFA1_A_EXTRA_CUSTOM, SFA1_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SFA1, &SFA1_A_EXTRA_CUSTOM, SFA1_A_EXTRALOC, m_nConfirmedROMSize);
 
     bool fHaveExtras = (GetExtraCt(SFA1_A_EXTRALOC) > 0);
     UINT16 nUnitCt = SFA1_A_NUMUNIT + (fHaveExtras ? 1 : 0);

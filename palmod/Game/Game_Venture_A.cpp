@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define VENTURE_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_31 = nullptr;
 stExtraDef* CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_50 = nullptr;
 
@@ -147,12 +145,12 @@ sDescTreeNode* CGame_VENTURE_A::InitDescTree(int nPaletteSetToUse)
     //Load extra file if we're using it
     if (UsePaletteSetFor50())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_VENTURE_A_50, VENTURE_A_EXTRA, &VENTURE_A_EXTRA_CUSTOM_50, VENTURE_A_EXTRALOC_50, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_VENTURE_A_50, &VENTURE_A_EXTRA_CUSTOM_50, VENTURE_A_EXTRALOC_50, m_nConfirmedROMSize);
         nUnitCt = VENTURE_A_NUMUNIT_50 + (GetExtraCt(VENTURE_A_EXTRALOC_50) ? 1 : 0);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_VENTURE_A_31, VENTURE_A_EXTRA, &VENTURE_A_EXTRA_CUSTOM_31, VENTURE_A_EXTRALOC_31, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_VENTURE_A_31, &VENTURE_A_EXTRA_CUSTOM_31, VENTURE_A_EXTRALOC_31, m_nConfirmedROMSize);
         nUnitCt = VENTURE_A_NUMUNIT_31 + (GetExtraCt(VENTURE_A_EXTRALOC_31) ? 1 : 0);
     }
     

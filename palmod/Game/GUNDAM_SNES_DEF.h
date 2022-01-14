@@ -369,13 +369,4 @@ const sDescTreeNode GUNDAM_SNES_UNITS[] =
 
 constexpr auto GUNDAM_SNES_NUMUNIT = ARRAYSIZE(GUNDAM_SNES_UNITS);
 
-#define GUNDAM_SNES_EXTRALOC GUNDAM_SNES_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef GUNDAM_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto GUNDAM_SNES_EXTRALOC = GUNDAM_SNES_NUMUNIT;

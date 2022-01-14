@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define SPF2T_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_SPF2T_A::SPF2T_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SPF2T_A::MainDescTree = nullptr;
@@ -133,10 +131,8 @@ size_t CGame_SPF2T_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_SPF2T_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SPF2T_A, SPF2T_A_EXTRA, &SPF2T_A_EXTRA_CUSTOM, SPF2T_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SPF2T_A, &SPF2T_A_EXTRA_CUSTOM, SPF2T_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = SPF2T_A_NUMUNITS + (GetExtraCt(SPF2T_A_EXTRALOC) ? 1 : 0);
     

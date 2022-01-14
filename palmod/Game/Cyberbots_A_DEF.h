@@ -1111,12 +1111,3 @@ const sDescTreeNode Cyberbots_A_UNITS[] =
 constexpr auto Cyberbots_A_NUMUNIT = ARRAYSIZE(Cyberbots_A_UNITS);
 
 constexpr auto Cyberbots_A_EXTRALOC = Cyberbots_A_NUMUNIT;
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef Cyberbots_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

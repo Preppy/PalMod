@@ -3040,7 +3040,7 @@ const sDescTreeNode SSF2T_A_UNITS_3C[] =
 };
 
 constexpr auto SSF2T_A_NUM_IND_3C = ARRAYSIZE(SSF2T_A_UNITS_3C);
-#define SSF2T_A_EXTRALOC_3C SSF2T_A_NUM_IND_3C
+constexpr auto SSF2T_A_EXTRALOC_3C = SSF2T_A_NUM_IND_3C;
 
 #define k_stNameKey_Bonus L"Bonus Palettes"
 
@@ -3076,13 +3076,4 @@ const sDescTreeNode SSF2T_A_UNITS_8[] =
 };
 
 constexpr auto SSF2T_A_NUM_IND_8 = ARRAYSIZE(SSF2T_A_UNITS_8);
-#define SSF2T_A_EXTRALOC_8 SSF2T_A_NUM_IND_8
-
-// We extend this array with data groveled from the SSF2T-3Ce.txt or SSF2T-4Ae.txt extensible extras filc, if any.
-const stExtraDef SSF2T_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto SSF2T_A_EXTRALOC_8 = SSF2T_A_NUM_IND_8;

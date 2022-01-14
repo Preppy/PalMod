@@ -4795,13 +4795,4 @@ const sDescTreeNode VSAV2_A_UNITS[] =
 
 constexpr auto VSAV2_A_NUMUNIT = ARRAYSIZE(VSAV2_A_UNITS);
 
-#define VSAV2_A_EXTRALOC VSAV2_A_NUMUNIT
-
-// We extend this array with data groveled from the VSAV2e.txt extensible extras file, if any.
-const stExtraDef VSAV2_A_EXTRA[] =
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto VSAV2_A_EXTRALOC = VSAV2_A_NUMUNIT;

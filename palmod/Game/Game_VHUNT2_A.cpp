@@ -3,8 +3,6 @@
 #include "GameDef.h"
 #include "..\PalMod.h"
 
-#define VHUNT2_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_VHUNT2_A::VHUNT2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_VHUNT2_A::MainDescTree = nullptr;
@@ -118,10 +116,8 @@ CDescTree* CGame_VHUNT2_A::GetMainTree()
 
 sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_VHUNT2, VHUNT2_A_EXTRA, &VHUNT2_A_EXTRA_CUSTOM, VHUNT2_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_VHUNT2, &VHUNT2_A_EXTRA_CUSTOM, VHUNT2_A_EXTRALOC, m_nConfirmedROMSize);
 
     const UINT16 nUnitCt = VHUNT2_A_NUMUNIT + (GetExtraCt(VHUNT2_A_EXTRALOC) ? 1 : 0);
 

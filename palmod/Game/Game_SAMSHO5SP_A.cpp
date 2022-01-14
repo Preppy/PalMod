@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define SAMSHO5SP_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_SAMSHO5SP_A::SAMSHO5SP_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SAMSHO5SP_A::MainDescTree = nullptr;
@@ -99,7 +97,7 @@ size_t CGame_SAMSHO5SP_A::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_SAMSHO5SP_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO5SP_A, SAMSHO5SP_A_EXTRA, &SAMSHO5SP_A_EXTRA_CUSTOM, SAMSHO5SP_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO5SP_A, &SAMSHO5SP_A_EXTRA_CUSTOM, SAMSHO5SP_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = SAMSHO5SP_A_NUMUNIT + (GetExtraCt(SAMSHO5SP_A_EXTRALOC) ? 1 : 0);
     

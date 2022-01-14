@@ -9114,12 +9114,3 @@ const sDescTreeNode MVC2_A_UNITS[MVC2_A_NUMUNIT] =
     { L"Servbot",            DESC_NODETYPE_TREE, (void*)MVC2_A_KOBUN_COLLECTION,             ARRAYSIZE(MVC2_A_KOBUN_COLLECTION) },
     { L"Team Views",         DESC_NODETYPE_TREE, (void*)MVC2_A_TEAMVIEW_COLLECTION,          ARRAYSIZE(MVC2_A_TEAMVIEW_COLLECTION) },
 };
-
-// We extend this array with data groveled from the MVC2e.txt extensible extras file, if any.
-const stExtraDef MVC2_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};

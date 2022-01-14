@@ -254,13 +254,4 @@ const sDescTreeNode DBZHD_SNES_UNITS[] =
 
 constexpr auto DBZHD_SNES_NUMUNIT = ARRAYSIZE(DBZHD_SNES_UNITS);
 
-#define DBZHD_SNES_EXTRALOC DBZHD_SNES_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef DBZHD_SNES_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto DBZHD_SNES_EXTRALOC = DBZHD_SNES_NUMUNIT;

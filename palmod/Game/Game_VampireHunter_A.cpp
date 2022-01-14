@@ -3,8 +3,6 @@
 #include "GameDef.h"
 #include "..\PalMod.h"
 
-#define VampireHunter_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_VampireHunter_A::VampireHunter_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_VampireHunter_A::MainDescTree = nullptr;
@@ -155,10 +153,8 @@ CDescTree* CGame_VampireHunter_A::GetMainTree()
 
 sDescTreeNode* CGame_VampireHunter_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_VampireHunter, VampireHunter_A_EXTRA, &VampireHunter_A_EXTRA_CUSTOM, VampireHunter_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_VampireHunter, &VampireHunter_A_EXTRA_CUSTOM, VampireHunter_A_EXTRALOC, m_nConfirmedROMSize);
 
     const UINT16 nUnitCt = VampireHunter_A_NUMUNIT + (GetExtraCt(VampireHunter_A_EXTRALOC) ? 1 : 0);
 

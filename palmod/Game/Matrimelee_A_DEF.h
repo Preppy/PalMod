@@ -1531,13 +1531,4 @@ const sDescTreeNode Matrimelee_A_UNITS[] =
 };
 
 constexpr auto Matrimelee_A_NUMUNIT = ARRAYSIZE(Matrimelee_A_UNITS);
-#define Matrimelee_A_EXTRALOC Matrimelee_A_NUMUNIT
-
-const stExtraDef Matrimelee_A_EXTRA[] =
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    //Extra
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto Matrimelee_A_EXTRALOC = Matrimelee_A_NUMUNIT;

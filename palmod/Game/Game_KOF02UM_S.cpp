@@ -404,37 +404,37 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
         __fallthrough;
     case KOF02UMS_ROMOptions::Main:
         nExtraUnitLocation = KOF02UM_S_EXTRALOC_MAIN;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_MAIN, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_MAIN, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_MAIN, &KOF02UM_S_EXTRA_CUSTOM_MAIN, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_MAIN + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
         break;
     case KOF02UMS_ROMOptions::Bar:
         nExtraUnitLocation = KOF02UM_S_EXTRALOC_BAR;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_BAR, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_BAR, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_BAR, &KOF02UM_S_EXTRA_CUSTOM_BAR, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_BAR + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
         break;
     case KOF02UMS_ROMOptions::Max2BG:
         nExtraUnitLocation = KOF02UM_S_EXTRALOC_MAX2;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_MAX2, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_MAX2, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_MAX2, &KOF02UM_S_EXTRA_CUSTOM_MAX2, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_MAX2 + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
         break;
     case KOF02UMS_ROMOptions::Clear:
         nExtraUnitLocation = KOF02UM_S_EXTRALOC_CLEAR;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_CLEAR, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_CLEAR, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_CLEAR, &KOF02UM_S_EXTRA_CUSTOM_CLEAR, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_CLEAR + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
         break;
     case KOF02UMS_ROMOptions::PSel:
         nExtraUnitLocation = KOF02UM_S_EXTRALOC_PSEL;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_PSEL, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_PSEL, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_PSEL, &KOF02UM_S_EXTRA_CUSTOM_PSEL, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_PSEL + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
         break;
     case KOF02UMS_ROMOptions::Rank:
         nExtraUnitLocation = KOF02UM_S_EXTRALOC_RANK;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_RANK, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_RANK, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_RANK, &KOF02UM_S_EXTRA_CUSTOM_RANK, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_RANK + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
         break;
     case KOF02UMS_ROMOptions::Conte:
         nExtraUnitLocation = KOF02UM_S_EXTRALOC_CONTE;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_CONTE, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_CONTE, nExtraUnitLocation, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_CONTE, &KOF02UM_S_EXTRA_CUSTOM_CONTE, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_CONTE + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
         break;
     }

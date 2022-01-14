@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define KOF98AE2016_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_KOF98AE2016_A::KOF98AE2016_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KOF98AE2016_A::MainDescTree = nullptr;
@@ -140,7 +138,7 @@ UINT32 CGame_KOF98AE2016_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** 
 sDescTreeNode* CGame_KOF98AE2016_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOF98AE2016_A, KOF98AE2016_A_EXTRA, &KOF98AE2016_A_EXTRA_CUSTOM, KOF98AE2016_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_KOF98AE2016_A, &KOF98AE2016_A_EXTRA_CUSTOM, KOF98AE2016_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = KOF98AE2016_A_NUMUNIT + (GetExtraCt(KOF98AE2016_A_EXTRALOC) ? 1 : 0);
 

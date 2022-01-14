@@ -531,13 +531,4 @@ const sDescTreeNode SFA1_A_UNITS[] =
 
 constexpr auto SFA1_A_NUMUNIT = ARRAYSIZE(SFA1_A_UNITS);
 
-#define SFA1_A_EXTRALOC SFA1_A_NUMUNIT
-
-// We extend this array with data groveled from the SFA1e.txt extensible extras file, if any.
-const stExtraDef SFA1_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto SFA1_A_EXTRALOC = SFA1_A_NUMUNIT;

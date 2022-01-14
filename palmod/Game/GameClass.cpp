@@ -956,7 +956,7 @@ size_t CGameClass::_GetExtraCount(size_t* rgExtraCount, size_t nNormalUnitCount,
         // +1 for the extras
         memset(rgExtraCount, 0, (nNormalUnitCount + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = (stExtraDef*)&ppExtraDef[0];
+        stExtraDef* pCurrDef = &ppExtraDef[0];
 
         if (pCurrDef)
         {
@@ -985,7 +985,7 @@ size_t CGameClass::_GetExtraLocation(size_t* rgExtraLocations, size_t nNormalUni
         size_t nCurrUnit = UNIT_START_VALUE;
         memset(rgExtraLocations, 0, (nNormalUnitCount + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = (stExtraDef*)&ppExtraDef[0];
+        stExtraDef* pCurrDef = &ppExtraDef[0];
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {

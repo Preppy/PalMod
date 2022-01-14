@@ -131,13 +131,4 @@ const sDescTreeNode FatalFury1_A_UNITS[] =
 
 constexpr auto FatalFury1_A_NUMUNIT = ARRAYSIZE(FatalFury1_A_UNITS);
 
-#define FatalFury1_A_EXTRALOC FatalFury1_A_NUMUNIT
-
-// We extend this array with data groveled from the extensible extras file, if any.
-const stExtraDef FatalFury1_A_EXTRA[] =
-{
-    // Start
-    { UNIT_START_VALUE },
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto FatalFury1_A_EXTRALOC = FatalFury1_A_NUMUNIT;

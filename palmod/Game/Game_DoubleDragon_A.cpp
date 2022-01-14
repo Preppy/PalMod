@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define DOUBLEDRAGON_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_DOUBLEDRAGON_A::DOUBLEDRAGON_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_DOUBLEDRAGON_A::MainDescTree = nullptr;
@@ -30,9 +28,7 @@ void CGame_DOUBLEDRAGON_A::InitializeStatics()
 
 CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A: Loading ROM...\n");
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -118,16 +114,10 @@ size_t CGame_DOUBLEDRAGON_A::GetExtraLoc(size_t nUnitId)
 
 sDescTreeNode* CGame_DOUBLEDRAGON_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
-    bool fHaveExtras;
-    UINT16 nUnitCt;
-    size_t nExtraUnitLocation;
-
-    nExtraUnitLocation = DOUBLEDRAGON_A_EXTRALOC;
-    LoadExtraFileForGame(EXTRA_FILENAME_DOUBLEDRAGON_A, DOUBLEDRAGON_A_EXTRA, &DOUBLEDRAGON_A_EXTRA_CUSTOM, DOUBLEDRAGON_A_EXTRALOC, m_nConfirmedROMSize);
-    fHaveExtras = GetExtraCt(DOUBLEDRAGON_A_EXTRALOC);
-    nUnitCt = DOUBLEDRAGON_A_NUMUNIT + (fHaveExtras ? 1 : 0);
+    size_t nExtraUnitLocation = DOUBLEDRAGON_A_EXTRALOC;
+    LoadExtraFileForGame(EXTRA_FILENAME_DOUBLEDRAGON_A, &DOUBLEDRAGON_A_EXTRA_CUSTOM, DOUBLEDRAGON_A_EXTRALOC, m_nConfirmedROMSize);
+    bool fHaveExtras = GetExtraCt(DOUBLEDRAGON_A_EXTRALOC);
+    UINT16 nUnitCt = DOUBLEDRAGON_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

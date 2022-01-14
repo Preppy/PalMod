@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define Garou_S_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 UINT32 CGame_Garou_S::m_nExpectedGameROMSize = 0x900000; // 9,437,184 bytes
 UINT32 CGame_Garou_S::m_nConfirmedROMSize = -1;
 

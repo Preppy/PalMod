@@ -198,12 +198,3 @@ const sDescTreeNode Windjammers_A_UNITS[] =
 
 constexpr auto Windjammers_A_NUMUNIT = ARRAYSIZE(Windjammers_A_UNITS);
 constexpr auto Windjammers_A_EXTRALOC = Windjammers_A_NUMUNIT;
-
-const stExtraDef Windjammers_A_EXTRA[] =
-{
-    //Start
-    { UNIT_START_VALUE },
-
-    //Extra
-    { INVALID_UNIT_VALUE }
-};

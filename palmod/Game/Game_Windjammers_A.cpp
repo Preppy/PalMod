@@ -3,8 +3,6 @@
 #include "Game_Windjammers_A.h"
 #include "..\RegProc.h"
 
-#define Windjammers_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_Windjammers_A::Windjammers_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_Windjammers_A::MainDescTree = nullptr;
@@ -28,9 +26,7 @@ void CGame_Windjammers_A::InitializeStatics()
 
 CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_Windjammers_A::CGame_Windjammers_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_Windjammers_A::CGame_Windjammers_A: Loading ROM...\n");
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -103,7 +99,7 @@ sDescTreeNode* CGame_Windjammers_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_Windjammers_A, Windjammers_A_EXTRA, &Windjammers_A_EXTRA_CUSTOM, Windjammers_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_Windjammers_A, &Windjammers_A_EXTRA_CUSTOM, Windjammers_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = Windjammers_A_NUMUNIT + (GetExtraCt(Windjammers_A_EXTRALOC) ? 1 : 0);
     

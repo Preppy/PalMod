@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define MAGICALDROPIII_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_MAGICALDROPIII_A::MAGICALDROPIII_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MAGICALDROPIII_A::MainDescTree = nullptr;
@@ -111,7 +109,7 @@ size_t CGame_MAGICALDROPIII_A::GetExtraLoc(size_t nUnitId)
 sDescTreeNode* CGame_MAGICALDROPIII_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MAGICALDROPIII_A, MAGICALDROPIII_A_EXTRA, &MAGICALDROPIII_A_EXTRA_CUSTOM, MAGICALDROPIII_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_MAGICALDROPIII_A, &MAGICALDROPIII_A_EXTRA_CUSTOM, MAGICALDROPIII_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = MAGICALDROPIII_A_NUMUNIT + (GetExtraCt(MAGICALDROPIII_A_EXTRALOC) ? 1 : 0);
 

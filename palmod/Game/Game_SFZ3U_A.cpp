@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define SFZ3U_A_DEBUG DEFAULT_GAME_DEBUG_STATE
-
 stExtraDef* CGame_SFZ3U_A::SFZ3U_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SFZ3U_A::MainDescTree = nullptr;
@@ -256,10 +254,8 @@ void CGame_SFZ3U_A::DumpAllCharacters()
 
 sDescTreeNode* CGame_SFZ3U_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SFZ3U_A, SFZ3U_A_EXTRA, &SFZ3U_A_EXTRA_CUSTOM, SFZ3U_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SFZ3U_A, &SFZ3U_A_EXTRA_CUSTOM, SFZ3U_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = SFZ3U_A_NUMUNIT + (GetExtraCt(SFZ3U_A_EXTRALOC) ? 1 : 0);
     

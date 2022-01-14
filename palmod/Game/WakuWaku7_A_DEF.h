@@ -464,15 +464,4 @@ const sDescTreeNode WakuWaku7_A_UNITS[] =
 };
 
 constexpr auto WakuWaku7_A_NUMUNIT = ARRAYSIZE(WakuWaku7_A_UNITS);
-#define WakuWaku7_A_EXTRALOC WakuWaku7_A_NUMUNIT
-
-const stExtraDef WakuWaku7_A_EXTRA[] =
-{
-    //Start
-
-    { UNIT_START_VALUE },
-
-    //Extra
-
-    { INVALID_UNIT_VALUE }
-};
+constexpr auto WakuWaku7_A_EXTRALOC = WakuWaku7_A_NUMUNIT;
