@@ -1,13 +1,36 @@
 #pragma once
 
+const std::vector<UINT16> FFS_SNES_IMGIDS_USED =
+{
+    indexFFSSprites_Andy,               // 0x2ce
+    indexFFSSprites_Axel,               // 0x2cf
+    indexFFSSprites_BigBear,            // 0x2d0
+    indexFFSSprites_Billy,              // 0x2d1
+    indexFFSSprites_Cheng,              // 0x2d2
+    indexFFSSprites_DuckKing,           // 0x2d3
+    indexFFSSprites_Geese,              // 0x2d4
+    indexFFSSprites_Joe,                // 0x2d5
+    indexFFSSprites_Jubei,              // 0x2d6
+    indexFFSSprites_Kim,                // 0x2d7
+    indexFFSSprites_Krauser,            // 0x2d8
+    indexFFSSprites_Laurence,           // 0x2d9
+    indexFFSSprites_Mai,                // 0x2da
+    indexFFSSprites_Ryo,                // 0x2db
+    indexFFSSprites_Terry,              // 0x2dc
+    indexFFSSprites_Tung,               // 0x2dd
+    indexFFSSprites_Bonus,              // 0x2de
+    indexFFSSprites_Stages,             // 0x2df
+
+};
+
 const sGame_PaletteDataset FatalFuryS_Terry_PALETTES_A[] =
 {
-    { L"Terry A", 0x13f1a0, 0x13f1c0 },
+    { L"Terry A", 0x13f1a0, 0x13f1c0, indexFFSSprites_Terry, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_Terry_PALETTES_B[] =
 {
-    { L"Terry B", 0x13f1c0, 0x13f1e0 },
+    { L"Terry B", 0x13f1c0, 0x13f1e0, indexFFSSprites_Terry, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_Terry_COLLECTION[] =
@@ -18,12 +41,12 @@ const sDescTreeNode FatalFuryS_Terry_COLLECTION[] =
 
 const sGame_PaletteDataset FatalFuryS_Andy_PALETTES_A[] =
 {
-    { L"Andy A", 0x13f1e0, 0x13f200 },
+    { L"Andy A", 0x13f1e0, 0x13f200, indexFFSSprites_Andy, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_Andy_PALETTES_B[] =
 {
-    { L"Andy B", 0x13f200, 0x13f220 },
+    { L"Andy B", 0x13f200, 0x13f220, indexFFSSprites_Andy, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_Andy_COLLECTION[] =
@@ -34,12 +57,12 @@ const sDescTreeNode FatalFuryS_Andy_COLLECTION[] =
 
 const sGame_PaletteDataset FatalFuryS_Joe_PALETTES_A[] =
 {
-    { L"Joe A", 0x13f220, 0x13f240 },
+    { L"Joe A", 0x13f220, 0x13f240, indexFFSSprites_Joe, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_Joe_PALETTES_B[] =
 {
-    { L"Joe B", 0x13f240, 0x13f260 },
+    { L"Joe B", 0x13f240, 0x13f260, indexFFSSprites_Joe, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_Joe_COLLECTION[] =
@@ -114,12 +137,12 @@ const sDescTreeNode FatalFuryS_Kim_COLLECTION[] =
 
 const sGame_PaletteDataset FatalFuryS_Mai_PALETTES_A[] =
 {
-    { L"Mai A", 0x13f360, 0x13f380 },
+    { L"Mai A", 0x13f360, 0x13f380, indexFFSSprites_Mai, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_Mai_PALETTES_B[] =
 {
-    { L"Mai B", 0x13f380, 0x13f3a0 },
+    { L"Mai B", 0x13f380, 0x13f3a0, indexFFSSprites_Mai, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_Mai_COLLECTION[] =
@@ -130,12 +153,12 @@ const sDescTreeNode FatalFuryS_Mai_COLLECTION[] =
 
 const sGame_PaletteDataset FatalFuryS_Duck_PALETTES_A[] =
 {
-    { L"Duck A", 0x13f3a0, 0x13f3c0 },
+    { L"Duck A", 0x13f3a0, 0x13f3c0, indexFFSSprites_DuckKing, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_Duck_PALETTES_B[] =
 {
-    { L"Duck B", 0x13f3c0, 0x13f3e0 },
+    { L"Duck B", 0x13f3c0, 0x13f3e0, indexFFSSprites_DuckKing, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_Duck_COLLECTION[] =
@@ -146,12 +169,12 @@ const sDescTreeNode FatalFuryS_Duck_COLLECTION[] =
 
 const sGame_PaletteDataset FatalFuryS_Tung_PALETTES_A[] =
 {
-    { L"Tung A", 0x13f3e0, 0x13f400 },
+    { L"Tung A", 0x13f3e0, 0x13f400, indexFFSSprites_Tung, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_Tung_PALETTES_B[] =
 {
-    { L"Tung B", 0x13f400, 0x13f420 },
+    { L"Tung B", 0x13f400, 0x13f420, indexFFSSprites_Tung, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_Tung_COLLECTION[] =
@@ -162,12 +185,12 @@ const sDescTreeNode FatalFuryS_Tung_COLLECTION[] =
 
 const sGame_PaletteDataset FatalFuryS_Billy_PALETTES_A[] =
 {
-    { L"Billy A", 0x13f420, 0x13f440 },
+    { L"Billy A", 0x13f420, 0x13f440, indexFFSSprites_Billy, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_Billy_PALETTES_B[] =
 {
-    { L"Billy B", 0x13f440, 0x13f460 },
+    { L"Billy B", 0x13f440, 0x13f460, indexFFSSprites_Billy, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_Billy_COLLECTION[] =
@@ -178,12 +201,12 @@ const sDescTreeNode FatalFuryS_Billy_COLLECTION[] =
 
 const sGame_PaletteDataset FatalFuryS_AxelHawk_PALETTES_A[] =
 {
-    { L"Axel Hawk A", 0x13f460, 0x13f480 },
+    { L"Axel Hawk A", 0x13f460, 0x13f480, indexFFSSprites_Axel, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_AxelHawk_PALETTES_B[] =
 {
-    { L"Axel Hawk B", 0x13f480, 0x13f4a0 },
+    { L"Axel Hawk B", 0x13f480, 0x13f4a0, indexFFSSprites_Axel, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_AxelHawk_COLLECTION[] =
@@ -194,12 +217,12 @@ const sDescTreeNode FatalFuryS_AxelHawk_COLLECTION[] =
 
 const sGame_PaletteDataset FatalFuryS_Laurence_PALETTES_A[] =
 {
-    { L"Laurence A", 0x13f4a0, 0x13f4c0 },
+    { L"Laurence A", 0x13f4a0, 0x13f4c0, indexFFSSprites_Laurence, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_Laurence_PALETTES_B[] =
 {
-    { L"Laurence B", 0x13f4c0, 0x13f4e0 },
+    { L"Laurence B", 0x13f4c0, 0x13f4e0, indexFFSSprites_Laurence, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_Laurence_COLLECTION[] =
@@ -210,12 +233,12 @@ const sDescTreeNode FatalFuryS_Laurence_COLLECTION[] =
 
 const sGame_PaletteDataset FatalFuryS_Geese_PALETTES_A[] =
 {
-    { L"Geese A", 0x13f4e0, 0x13f500 },
+    { L"Geese A", 0x13f4e0, 0x13f500, indexFFSSprites_Geese, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_Geese_PALETTES_B[] =
 {
-    { L"Geese B", 0x13f500, 0x13f520 },
+    { L"Geese B", 0x13f500, 0x13f520, indexFFSSprites_Geese, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_Geese_COLLECTION[] =
@@ -226,12 +249,12 @@ const sDescTreeNode FatalFuryS_Geese_COLLECTION[] =
 
 const sGame_PaletteDataset FatalFuryS_Wolfgang_PALETTES_A[] =
 {
-    { L"Wolfgang A", 0x13f520, 0x13f540 },
+    { L"Wolfgang A", 0x13f520, 0x13f540, indexFFSSprites_Krauser, 0x00 },
 };
 
 const sGame_PaletteDataset FatalFuryS_Wolfgang_PALETTES_B[] =
 {
-    { L"Wolfgang B", 0x13f540, 0x13f560 },
+    { L"Wolfgang B", 0x13f540, 0x13f560, indexFFSSprites_Krauser, 0x00 },
 };
 
 const sDescTreeNode FatalFuryS_Wolfgang_COLLECTION[] =
@@ -256,7 +279,7 @@ const sDescTreeNode FatalFuryS_SNES_UNITS[] =
     { L"Axel Hawk",  DESC_NODETYPE_TREE, (void*)FatalFuryS_AxelHawk_COLLECTION,   ARRAYSIZE(FatalFuryS_AxelHawk_COLLECTION) },
     { L"Laurence",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Laurence_COLLECTION,   ARRAYSIZE(FatalFuryS_Laurence_COLLECTION) },
     { L"Geese",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Geese_COLLECTION,   ARRAYSIZE(FatalFuryS_Geese_COLLECTION) },
-    { L"Wolfgang",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Wolfgang_COLLECTION,   ARRAYSIZE(FatalFuryS_Wolfgang_COLLECTION) },
+    { L"Wolfgang Krauser",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Wolfgang_COLLECTION,   ARRAYSIZE(FatalFuryS_Wolfgang_COLLECTION) },
 };
 
 constexpr auto FatalFuryS_SNES_NUMUNIT = ARRAYSIZE(FatalFuryS_SNES_UNITS);

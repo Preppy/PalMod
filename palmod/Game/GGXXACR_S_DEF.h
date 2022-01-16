@@ -726,7 +726,7 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_JY_EXTRAS =
     { L"Ensenga (2/3)", 0x3de4a0, 0x3de4e0, indexGGXXSprites_ACR_Johnny, 0x08 },
     { L"Ensenga (3/3)", 0x3e3220, 0x3e3260, indexGGXXSprites_ACR_Johnny, 0x08 },
 
-    { L"Divine Blade", 0x3b9bb0, 0x3b9bf0, indexGGXXSprites_ACR_Johnny, 0x03 },
+    { L"Divine Blade", 0x3b9bb0, 0x3b9bf0, indexGGXXSprites_ACR_Johnny, 0x04 },
     { L"Killer Joker", 0x3ebf30, 0x3ebf70, indexGGXXSprites_ACR_Johnny, 0x0d },
     
     //Forcebreaks

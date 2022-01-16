@@ -924,10 +924,11 @@ const sGame_PaletteDataset RBFF2_A_YAMAZAKI_PALETTES_P2[] =
     { L"Break Shot/Background Palette 2", 0xd2be0, 0xd2c00, indexRBFFSSprites_Yamazaki },
 };
 
+// Chonshu and Chonrei sprites are flipped: Chonrei is blue with spikey hair
 const sGame_PaletteDataset RBFF2_A_CHONREI_PALETTES_P1[] =
 {
-    { L"Main Palette", 0xd2c00, 0xd2c20, indexRBFFSSprites_Chonrei },
-    { L"Background Palette", 0xd2c20, 0xd2c40, indexRBFFSSprites_Chonrei },
+    { L"Main Palette", 0xd2c00, 0xd2c20, indexRBFFSSprites_Chonshu },
+    { L"Background Palette", 0xd2c20, 0xd2c40, indexRBFFSSprites_Chonshu },
     { L"Extra Palette 2", 0xd2c40, 0xd2c60 },
     { L"Extra Palette 3", 0xd2c60, 0xd2c80 },
     { L"Extra Palette 4", 0xd2c80, 0xd2ca0 },
@@ -937,17 +938,17 @@ const sGame_PaletteDataset RBFF2_A_CHONREI_PALETTES_P1[] =
     { L"Extra Palette 8", 0xd2d00, 0xd2d20 },
     { L"Extra Palette 9", 0xd2d20, 0xd2d40 },
     { L"Extra Palette 10", 0xd2d40, 0xd2d60 },
-    { L"Extra Palette 11", 0xd2d60, 0xd2d80, indexRBFFSSprites_Chonrei },
-    { L"Burn Palette", 0xd2d80, 0xd2da0, indexRBFFSSprites_Chonrei },
-    { L"Purple Burn Palette", 0xd2da0, 0xd2dc0, indexRBFFSSprites_Chonrei },
-    { L"Electricity Palette", 0xd2dc0, 0xd2de0, indexRBFFSSprites_Chonrei },
-    { L"Break Shot/Background Palette 2", 0xd2de0, 0xd2e00, indexRBFFSSprites_Chonrei },
+    { L"Extra Palette 11", 0xd2d60, 0xd2d80, indexRBFFSSprites_Chonshu },
+    { L"Burn Palette", 0xd2d80, 0xd2da0, indexRBFFSSprites_Chonshu },
+    { L"Purple Burn Palette", 0xd2da0, 0xd2dc0, indexRBFFSSprites_Chonshu },
+    { L"Electricity Palette", 0xd2dc0, 0xd2de0, indexRBFFSSprites_Chonshu },
+    { L"Break Shot/Background Palette 2", 0xd2de0, 0xd2e00, indexRBFFSSprites_Chonshu },
 };
 
 const sGame_PaletteDataset RBFF2_A_CHONREI_PALETTES_P2[] =
 {
-    { L"Main Palette", 0xd2e00, 0xd2e20, indexRBFFSSprites_Chonrei },
-    { L"Background Palette", 0xd2e20, 0xd2e40, indexRBFFSSprites_Chonrei },
+    { L"Main Palette", 0xd2e00, 0xd2e20, indexRBFFSSprites_Chonshu },
+    { L"Background Palette", 0xd2e20, 0xd2e40, indexRBFFSSprites_Chonshu },
     { L"Extra Palette 2", 0xd2e40, 0xd2e60 },
     { L"Extra Palette 3", 0xd2e60, 0xd2e80 },
     { L"Extra Palette 4", 0xd2e80, 0xd2ea0 },
@@ -957,17 +958,18 @@ const sGame_PaletteDataset RBFF2_A_CHONREI_PALETTES_P2[] =
     { L"Extra Palette 8", 0xd2f00, 0xd2f20 },
     { L"Extra Palette 9", 0xd2f20, 0xd2f40 },
     { L"Extra Palette 10", 0xd2f40, 0xd2f60 },
-    { L"Extra Palette 11", 0xd2f60, 0xd2f80, indexRBFFSSprites_Chonrei },
-    { L"Burn Palette", 0xd2f80, 0xd2fa0, indexRBFFSSprites_Chonrei },
-    { L"Purple Burn Palette", 0xd2fa0, 0xd2fc0, indexRBFFSSprites_Chonrei },
-    { L"Electricity Palette", 0xd2fc0, 0xd2fe0, indexRBFFSSprites_Chonrei },
-    { L"Break Shot/Background Palette 2", 0xd2fe0, 0xd3000, indexRBFFSSprites_Chonrei },
+    { L"Extra Palette 11", 0xd2f60, 0xd2f80, indexRBFFSSprites_Chonshu },
+    { L"Burn Palette", 0xd2f80, 0xd2fa0, indexRBFFSSprites_Chonshu },
+    { L"Purple Burn Palette", 0xd2fa0, 0xd2fc0, indexRBFFSSprites_Chonshu },
+    { L"Electricity Palette", 0xd2fc0, 0xd2fe0, indexRBFFSSprites_Chonshu },
+    { L"Break Shot/Background Palette 2", 0xd2fe0, 0xd3000, indexRBFFSSprites_Chonshu },
 };
 
+// Chonshu and Chonrei sprites are flipped: Chonshu is red with a bowl cut
 const sGame_PaletteDataset RBFF2_A_CHONSHU_PALETTES_P1[] =
 {
-    { L"Main Palette", 0xd3000, 0xd3020, indexRBFFSSprites_Chonshu },
-    { L"Background Palette", 0xd3020, 0xd3040, indexRBFFSSprites_Chonshu },
+    { L"Main Palette", 0xd3000, 0xd3020, indexRBFFSSprites_Chonrei },
+    { L"Background Palette", 0xd3020, 0xd3040, indexRBFFSSprites_Chonrei },
     { L"Extra Palette 2", 0xd3040, 0xd3060 },
     { L"Extra Palette 3", 0xd3060, 0xd3080 },
     { L"Extra Palette 4", 0xd3080, 0xd30a0 },
@@ -977,17 +979,17 @@ const sGame_PaletteDataset RBFF2_A_CHONSHU_PALETTES_P1[] =
     { L"Extra Palette 8", 0xd3100, 0xd3120 },
     { L"Extra Palette 9", 0xd3120, 0xd3140 },
     { L"Extra Palette 10", 0xd3140, 0xd3160 },
-    { L"Extra Palette 11", 0xd3160, 0xd3180, indexRBFFSSprites_Chonshu },
-    { L"Burn Palette", 0xd3180, 0xd31a0, indexRBFFSSprites_Chonshu },
-    { L"Purple Burn Palette", 0xd31a0, 0xd31c0, indexRBFFSSprites_Chonshu },
-    { L"Electricity Palette", 0xd31c0, 0xd31e0, indexRBFFSSprites_Chonshu },
-    { L"Break Shot/Background Palette 2", 0xd31e0, 0xd3200, indexRBFFSSprites_Chonshu },
+    { L"Extra Palette 11", 0xd3160, 0xd3180, indexRBFFSSprites_Chonrei },
+    { L"Burn Palette", 0xd3180, 0xd31a0, indexRBFFSSprites_Chonrei },
+    { L"Purple Burn Palette", 0xd31a0, 0xd31c0, indexRBFFSSprites_Chonrei },
+    { L"Electricity Palette", 0xd31c0, 0xd31e0, indexRBFFSSprites_Chonrei },
+    { L"Break Shot/Background Palette 2", 0xd31e0, 0xd3200, indexRBFFSSprites_Chonrei },
 };
 
 const sGame_PaletteDataset RBFF2_A_CHONSHU_PALETTES_P2[] =
 {
-    { L"Main Palette", 0xd3200, 0xd3220, indexRBFFSSprites_Chonshu },
-    { L"Background Palette", 0xd3220, 0xd3240, indexRBFFSSprites_Chonshu },
+    { L"Main Palette", 0xd3200, 0xd3220, indexRBFFSSprites_Chonrei },
+    { L"Background Palette", 0xd3220, 0xd3240, indexRBFFSSprites_Chonrei },
     { L"Extra Palette 2", 0xd3240, 0xd3260 },
     { L"Extra Palette 3", 0xd3260, 0xd3280 },
     { L"Extra Palette 4", 0xd3280, 0xd32a0 },
@@ -997,11 +999,11 @@ const sGame_PaletteDataset RBFF2_A_CHONSHU_PALETTES_P2[] =
     { L"Extra Palette 8", 0xd3300, 0xd3320 },
     { L"Extra Palette 9", 0xd3320, 0xd3340 },
     { L"Extra Palette 10", 0xd3340, 0xd3360 },
-    { L"Extra Palette 11", 0xd3360, 0xd3380, indexRBFFSSprites_Chonshu },
-    { L"Burn Palette", 0xd3380, 0xd33a0, indexRBFFSSprites_Chonshu },
-    { L"Purple Burn Palette", 0xd33a0, 0xd33c0, indexRBFFSSprites_Chonshu },
-    { L"Electricity Palette", 0xd33c0, 0xd33e0, indexRBFFSSprites_Chonshu },
-    { L"Break Shot/Background Palette 2", 0xd33e0, 0xd3400, indexRBFFSSprites_Chonshu },
+    { L"Extra Palette 11", 0xd3360, 0xd3380, indexRBFFSSprites_Chonrei },
+    { L"Burn Palette", 0xd3380, 0xd33a0, indexRBFFSSprites_Chonrei },
+    { L"Purple Burn Palette", 0xd33a0, 0xd33c0, indexRBFFSSprites_Chonrei },
+    { L"Electricity Palette", 0xd33c0, 0xd33e0, indexRBFFSSprites_Chonrei },
+    { L"Break Shot/Background Palette 2", 0xd33e0, 0xd3400, indexRBFFSSprites_Chonrei },
 };
 
 const sGame_PaletteDataset RBFF2_A_DUCKKING_PALETTES_P1[] =

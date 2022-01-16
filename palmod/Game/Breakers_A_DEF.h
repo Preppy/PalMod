@@ -644,7 +644,7 @@ const sGame_PaletteDataset BREAKERS_A_BAIHU_PALETTES[] =
 
 const sGame_PaletteDataset BREAKERS_A_BONUS_INTRO_PALETTES[] =
 {
-    { L"Intro Portraits", 0x1a33a8, 0x1a34e8 },
+    { L"Intro Portraits", 0x1a33a8, 0x1a34e8, indexBreakersSprites_Bonus, 0x03 },
     { L"Intro Background", 0x1a34e8, 0x1a36c8 },
     { L"Intro Dao 1", 0x1a1be8, 0x1a1d68, indexBreakersSprites_Bonus, 0x04 },
     { L"Intro Sho 1", 0x1a1d68, 0x1a1f68, indexBreakersSprites_Bonus, 0x05 },

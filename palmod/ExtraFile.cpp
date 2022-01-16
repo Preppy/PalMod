@@ -38,8 +38,8 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 { INVALID_UNIT_VALUE }
             };
 
-            nStockExtrasCount = ARRAYSIZE(STOCKEXTRALIST_EXTRA);
-            memcpy(prgTempExtraBuffer, STOCKEXTRALIST_EXTRA, nStockExtrasCount * sizeof(stExtraDef));
+            nStockExtrasCount = 1; // count the empty starting value
+            memcpy(prgTempExtraBuffer, STOCKEXTRALIST_EXTRA, ARRAYSIZE(STOCKEXTRALIST_EXTRA) * sizeof(stExtraDef));
         }
 
         if ((nGameROMSize != -1) && pszExtraFileName) // If we don't know the ROM size we don't know how to sanely bounds-check our file access, so can't trust our handling of Extra files.

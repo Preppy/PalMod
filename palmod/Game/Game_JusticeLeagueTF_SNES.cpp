@@ -22,7 +22,7 @@ CGame_JusticeLeagueTF_SNES::CGame_JusticeLeagueTF_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = JusticeLeagueTF_SNES_NUMUNIT;
     m_nExtraUnit = JusticeLeagueTF_SNES_EXTRALOC;
 
-    constexpr UINT32 nInternalPaletteCount = 52;
+    constexpr UINT32 nInternalPaletteCount = 77;
     constexpr UINT32 nLowestInternalPaletteLocation = 0x1a92a;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nInternalPaletteCount;

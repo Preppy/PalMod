@@ -53,8 +53,8 @@ CGame_FatalFuryS_SNES::CGame_FatalFuryS_SNES(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     nGameFlag = FatalFuryS_SNES;
-    nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet.clear();
+    nImgGameFlag = IMGDAT_SECTION_KOF;
+    m_prgGameImageSet = FFS_SNES_IMGIDS_USED;
 
     nFileAmt = 1;
 

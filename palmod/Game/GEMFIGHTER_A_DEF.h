@@ -339,7 +339,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_FELICIA_PALETTES_X3[] =
     { L"Felicia x3", 0xaac6, 0xaae6, indexCPS2Sprites_SPF_Felicia, 0x00 },
     { L"Felicia x3: Rolling Buckler & Claws", 0xab06, 0xab26 },
     { L"Felicia x3: Megaman Shot & Sand Splash", 0xab26, 0xab46 },
-    { L"Felicia x3: Portrait", 0xcca6, 0xcd06 },
+    { L"Felicia x3: Portrait", 0xcca6, 0xcd06, indexCPS2Sprites_SPF_Felicia, 0x40 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_TESSA_PALETTES_A[] =

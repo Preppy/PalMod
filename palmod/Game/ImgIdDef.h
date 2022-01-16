@@ -1150,6 +1150,25 @@ enum KOFSpriteList
     indexRBFF1Sprites_Bonus,            // 0x2CC
     indexRBFF1Sprites_Stages,           // 0x2CD
 
+    indexFFSSprites_Andy,               // 0x2ce
+    indexFFSSprites_Axel,               // 0x2cf
+    indexFFSSprites_BigBear,            // 0x2d0
+    indexFFSSprites_Billy,              // 0x2d1
+    indexFFSSprites_Cheng,              // 0x2d2
+    indexFFSSprites_DuckKing,           // 0x2d3
+    indexFFSSprites_Geese,              // 0x2d4
+    indexFFSSprites_Joe,                // 0x2d5
+    indexFFSSprites_Jubei,              // 0x2d6
+    indexFFSSprites_Kim,                // 0x2d7
+    indexFFSSprites_Krauser,            // 0x2d8
+    indexFFSSprites_Laurence,           // 0x2d9
+    indexFFSSprites_Mai,                // 0x2da
+    indexFFSSprites_Ryo,                // 0x2db
+    indexFFSSprites_Terry,              // 0x2dc
+    indexFFSSprites_Tung,               // 0x2dd
+    indexFFSSprites_Bonus,              // 0x2de
+    indexFFSSprites_Stages,             // 0x2df
+
     // indexKOF97Sprites_Bonus,         // 0x1F0
     // indexKOF97Sprites_Stages,        // 0x1F1
 };

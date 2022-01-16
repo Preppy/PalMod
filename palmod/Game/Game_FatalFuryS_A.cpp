@@ -54,7 +54,7 @@ CGame_FatalFuryS_A::CGame_FatalFuryS_A(UINT32 nConfirmedROMSize)
 
     nGameFlag = FatalFuryS_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet.clear();
+    m_prgGameImageSet = FFS_A_IMGIDS_USED;
 
     nFileAmt = 1;
 

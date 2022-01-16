@@ -101,6 +101,65 @@ const sGame_PaletteDataset JusticeLeagueTF_SNES_DARKSEID_PALETTES_P2[] =
     { L"Darkseid P2", 0x1B8A9D, 0x1B8ABD },
 };
 
+const sGame_PaletteDataset JusticeLeagueTF_SNES_SUPERMAN_PALETTES_MOVES[] =
+{
+    { L"Superman Freeze Breath", 0x107FBA, 0x107FDA },
+};
+
+const sGame_PaletteDataset JusticeLeagueTF_SNES_SUPERMAN_PALETTES_EFFECTS[] =
+{
+    { L"Superman Burned", 0x1b867F, 0x1b869f },
+    { L"Superman Frozen", 0x1b86a1, 0x1b86c1 },
+};
+
+const sGame_PaletteDataset JusticeLeagueTF_SNES_WW_PALETTES_EFFECTS[] =
+{
+    { L"Wonder Woman Burned", 0x1B8707, 0x1b8727 },
+    { L"Wonder Woman Frozen", 0x1b8729, 0x1b8749 },
+};
+
+const sGame_PaletteDataset JusticeLeagueTF_SNES_FLASH_PALETTES_EFFECTS[] =
+{
+    { L"The Flash Burned", 0x1B878F, 0x1B87af },
+    { L"The Flash Frozen", 0x1B87b1, 0x1B87d1 },
+};
+
+const sGame_PaletteDataset JusticeLeagueTF_SNES_GA_PALETTES_EFFECTS[] =
+{
+    { L"Green Arrow Burned", 0x1B8817, 0x1B8837 },
+    { L"Green Arrow Frozen", 0x1B8839, 0x1B8859 },
+};
+
+const sGame_PaletteDataset JusticeLeagueTF_SNES_BATMAN_PALETTES_EFFECTS[] =
+{
+    { L"Batman Burned", 0x1B889F, 0x1B88bf },
+    { L"Batman Frozen", 0x1B88c1, 0x1B88e1 },
+};
+
+const sGame_PaletteDataset JusticeLeagueTF_SNES_AQUAMAN_PALETTES_EFFECTS[] =
+{
+    { L"Aquaman Burned", 0x1B8927, 0x1B8947 },
+    { L"Aquaman Frozen", 0x1B8949, 0x1B8969 },
+};
+
+const sGame_PaletteDataset JusticeLeagueTF_SNES_CHEETAH_PALETTES_EFFECTS[] =
+{
+    { L"Cheetah Burned", 0x1B89AF, 0x1B89cf },
+    { L"Cheetah Frozen", 0x1B89d1, 0x1B89f1 },
+};
+
+const sGame_PaletteDataset JusticeLeagueTF_SNES_DESPERO_PALETTES_EFFECTS[] =
+{
+    { L"Despero Burned", 0x1B8A37, 0x1B8A57 },
+    { L"Despero Frozen", 0x1B8A59, 0x1B8A79 },
+};
+
+const sGame_PaletteDataset JusticeLeagueTF_SNES_DARKSEID_PALETTES_EFFECTS[] =
+{
+    { L"Darkseid Burned", 0x1B8ABF, 0x1B8Adf },
+    { L"Darkseid Frozen", 0x1B8Ae1, 0x1B8b01 },
+};
+
 const sGame_PaletteDataset JusticeLeagueTF_SNES_BONUS_CS_PALETTES[] =
 {
     { L"Character Select BG", 0x8634D, 0x8636D },
@@ -130,17 +189,22 @@ const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_AQUAMAN[] =
 {
     { L"Aquaman Stage", 0x87AF6, 0x87BD6 },
     { L"Aquaman Stage (Orange Fish extra)", 0x1BB186, 0x1BB1A6 },
+    { L"Aquaman Stage (Shark extra)", 0x1BB1A8, 0x1BB1C8 },
     { L"Aquaman Stage (Manta extra)", 0x1BB1CA, 0x1BB1EA },
 };
 
 const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_BATMAN[] =
 {
     { L"Batman Stage", 0x87EE9, 0x87FC9 },
+    { L"Batman Stage (Pipe extra)", 0x1bac95, 0x1bacb5 },
+    { L"Batman Stage (Bat extra)", 0x1bc7fd, 0x1bc81d },
 };
 
 const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_FLASH[] =
 {
     { L"Flash Stage", 0xB7090, 0xB7130 },
+    { L"Flash Stage (Vulture extra)", 0x1bbe2F, 0x1bbe4f },
+    { L"Flash Stage (Leaf/Paper extra)", 0x1bc6bF, 0x1bc6df },
 };
 
 const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_SUPERMAN[] =
@@ -151,6 +215,7 @@ const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_SUPERMAN[] =
 const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_GA[] =
 {
     { L"Green Arrow Stage", 0xD7CD8, 0xD7DB8 },
+    { L"Green Arrow Stage (Leaf extra)", 0x1bb93d, 0x1bb95d },
 };
 
 const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_WW[] =
@@ -174,6 +239,7 @@ const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_DESPERO[] =
 const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_DARKSEID[] =
 {
     { L"Darkseid Stage", 0x15FB6F, 0x15FC0F },
+    { L"Darkseid Stage (Pillar extra)", 0x1b9d41, 0x1b9d61 },
 };
 
 const sGame_PaletteDataset JusticeLeagueTF_SNES_BONUS_LOGO_PALETTES[] =
@@ -187,54 +253,64 @@ const sDescTreeNode JusticeLeagueTF_SNES_SUPERMAN_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_SUPERMAN_PALETTES_P1, ARRAYSIZE(JusticeLeagueTF_SNES_SUPERMAN_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_SUPERMAN_PALETTES_P2, ARRAYSIZE(JusticeLeagueTF_SNES_SUPERMAN_PALETTES_P2) },
+    //{ L"Powers", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_SUPERMAN_PALETTES_MOVES, ARRAYSIZE(JusticeLeagueTF_SNES_SUPERMAN_PALETTES_MOVES) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_SUPERMAN_PALETTES_EFFECTS, ARRAYSIZE(JusticeLeagueTF_SNES_SUPERMAN_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_WW_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_WW_PALETTES_P1, ARRAYSIZE(JusticeLeagueTF_SNES_WW_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_WW_PALETTES_P2, ARRAYSIZE(JusticeLeagueTF_SNES_WW_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_WW_PALETTES_EFFECTS, ARRAYSIZE(JusticeLeagueTF_SNES_WW_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_FLASH_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_FLASH_PALETTES_P1, ARRAYSIZE(JusticeLeagueTF_SNES_FLASH_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_FLASH_PALETTES_P2, ARRAYSIZE(JusticeLeagueTF_SNES_FLASH_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_FLASH_PALETTES_EFFECTS, ARRAYSIZE(JusticeLeagueTF_SNES_FLASH_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_GA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_GA_PALETTES_P1, ARRAYSIZE(JusticeLeagueTF_SNES_GA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_GA_PALETTES_P2, ARRAYSIZE(JusticeLeagueTF_SNES_GA_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_GA_PALETTES_EFFECTS, ARRAYSIZE(JusticeLeagueTF_SNES_GA_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_BATMAN_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_BATMAN_PALETTES_P1, ARRAYSIZE(JusticeLeagueTF_SNES_BATMAN_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_BATMAN_PALETTES_P2, ARRAYSIZE(JusticeLeagueTF_SNES_BATMAN_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_BATMAN_PALETTES_EFFECTS, ARRAYSIZE(JusticeLeagueTF_SNES_BATMAN_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_AQUAMAN_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_AQUAMAN_PALETTES_P1, ARRAYSIZE(JusticeLeagueTF_SNES_AQUAMAN_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_AQUAMAN_PALETTES_P2, ARRAYSIZE(JusticeLeagueTF_SNES_AQUAMAN_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_AQUAMAN_PALETTES_EFFECTS, ARRAYSIZE(JusticeLeagueTF_SNES_AQUAMAN_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_CHEETAH_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_CHEETAH_PALETTES_P1, ARRAYSIZE(JusticeLeagueTF_SNES_CHEETAH_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_CHEETAH_PALETTES_P2, ARRAYSIZE(JusticeLeagueTF_SNES_CHEETAH_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_CHEETAH_PALETTES_EFFECTS, ARRAYSIZE(JusticeLeagueTF_SNES_CHEETAH_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_DESPERO_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_DESPERO_PALETTES_P1, ARRAYSIZE(JusticeLeagueTF_SNES_DESPERO_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_DESPERO_PALETTES_P2, ARRAYSIZE(JusticeLeagueTF_SNES_DESPERO_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_DESPERO_PALETTES_EFFECTS, ARRAYSIZE(JusticeLeagueTF_SNES_DESPERO_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_DARKSEID_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_DARKSEID_PALETTES_P1, ARRAYSIZE(JusticeLeagueTF_SNES_DARKSEID_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_DARKSEID_PALETTES_P2, ARRAYSIZE(JusticeLeagueTF_SNES_DARKSEID_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_DARKSEID_PALETTES_EFFECTS, ARRAYSIZE(JusticeLeagueTF_SNES_DARKSEID_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_STAGE_COLLECTION[] =
