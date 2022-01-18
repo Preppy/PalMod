@@ -23,7 +23,7 @@ CGame_GGXXACR_S::CGame_GGXXACR_S(UINT32 nConfirmedROMSize /* = -1 */)
     // Don't load extras
     m_pszExtraFilename = nullptr;
 
-    nFileAmt = nUnitAmt = m_nTotalInternalUnits = ARRAYSIZE(GGXXACR_S_CharacterData);
+    nFileAmt = nUnitAmt = m_nTotalInternalUnits = GGXXACR_S_CharacterData.size();
 
     InitDataBuffer();
 
@@ -75,7 +75,7 @@ sFileRule CGame_GGXXACR_S::GetNextRule()
 
     uRuleCtr++;
 
-    if (uRuleCtr >= ARRAYSIZE(GGXXACR_S_CharacterData))
+    if (uRuleCtr >= GGXXACR_S_CharacterData.size())
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
@@ -86,7 +86,7 @@ sFileRule CGame_GGXXACR_S::GetNextRule()
 sDescTreeNode* CGame_GGXXACR_S::InitDescTree()
 {
     size_t nTotalPaletteCount = 0;
-    size_t nUnitCt = ARRAYSIZE(GGXXACR_S_CharacterData);
+    size_t nUnitCt = GGXXACR_S_CharacterData.size();
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

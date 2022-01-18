@@ -692,6 +692,69 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_JS_EXTRAS =
     //{ L"Unknown", 0x3fe1e0, 0x3fe5e0 },
 };
 
+const std::vector<sGame_PaletteDataset> GGXXACR_S_KR_EXTRAS =
+{
+    { L"Bellowing Roar (P) 1/5", 0x291bd0, 0x291c10 },
+    { L"Bellowing Roar (P) 2/5", 0x292b00, 0x292b40 },
+    { L"Bellowing Roar (P) 3/5", 0x293a50, 0x293a90 },
+    { L"Bellowing Roar (P) 4/5", 0x294aa0, 0x294ae0 },
+    { L"Bellowing Roar (P) 5/5", 0x295f40, 0x295f80 },
+    { L"Bellowing Roar (S) 1/5", 0x296af0, 0x296b30 },
+    { L"Bellowing Roar (S) 2/5", 0x298cd0, 0x298d10 },
+    { L"Bellowing Roar (S) 3/5", 0x29b5d0, 0x29b610 },
+    { L"Bellowing Roar (S) 4/5", 0x29def0, 0x29df30 },
+    { L"Bellowing Roar (S) 5/5", 0x2a1150, 0x2a1190 },
+    { L"Air B. Roar/Reflex Roar 1/4", 0x2a30c0, 0x2a3100 },
+    { L"Air B. Roar/Reflex Roar 2/4", 0x2aab60, 0x2aaba0 },
+    { L"Air B. Roar/Reflex Roar 3/4", 0x2b0720, 0x2b0760 },
+    { L"Air B. Roar/Reflex Roar 4/4", 0x2b0cc0, 0x2b0d00 },
+    { L"Scale Ripper Dust 1/17", 0x2b1aa0, 0x2b1ae0 },
+    { L"Scale Ripper Dust 2/17", 0x2b1cb0, 0x2b1cf0 },
+    { L"Scale Ripper Dust 3/17", 0x2b2030, 0x2b2070 },
+    { L"Scale Ripper Dust 4/17", 0x2b2490, 0x2b24d0 },
+    { L"Scale Ripper Dust 5/17", 0x2b2aa0, 0x2b2ae0 },
+    { L"Scale Ripper Dust 6/17", 0x2b3160, 0x2b31a0 },
+    { L"Scale Ripper Dust 7/17", 0x2b3860, 0x2b38a0 },
+    { L"Scale Ripper Dust 8/17", 0x2b4040, 0x2b4080 },
+    { L"Scale Ripper Dust 9/17", 0x2b4810, 0x2b4850 },
+    { L"Scale Ripper Dust 10/17", 0x2b5070, 0x2b50b0 },
+    { L"Scale Ripper Dust 11/17", 0x2b5750, 0x2b5790 },
+    { L"Scale Ripper Dust 12/17", 0x2b5d10, 0x2b5d50 },
+    { L"Scale Ripper Dust 13/17", 0x2b60d0, 0x2b6110 },
+    { L"Scale Ripper Dust 14/17", 0x2b63a0, 0x2b63e0 },
+    { L"Scale Ripper Dust 15/17", 0x2b65e0, 0x2b6620 },
+    { L"Scale Ripper Dust 16/17", 0x2b67d0, 0x2b6810 },
+    { L"Scale Ripper Dust 17/17", 0x2b69a0, 0x2b69e0 },
+    { L"Sole Survivor 1/6", 0x2b6b60, 0x2b6ba0 },
+    { L"Sole Survivor 2/6", 0x2b6ea0, 0x2b6ee0 },
+    { L"Sole Survivor 3/6", 0x2b7270, 0x2b72b0 },
+    { L"Sole Survivor 4/6", 0x2b7730, 0x2b7770 },
+    { L"Sole Survivor 5/6", 0x2b7f10, 0x2b7f50 },
+    { L"Sole Survivor 6/6", 0x2b8870, 0x2b88b0 },
+    { L"IK Dragons 1/2", 0x2b9640, 0x2b9680 },
+    { L"IK Dragons 2/2", 0x2c3c90, 0x2c3cd0 },
+    { L"\"BAKAMON!\" 1/4", 0x2ce990, 0x2ce9d0 },
+    { L"\"BAKAMON!\" 2/4 ", 0x2ced10, 0x2ced50 },
+    { L"\"BAKAMON!\" 3/4", 0x2cef70, 0x2cefb0 },
+    { L"\"BAKAMON!\" 4/4", 0x2cf1e0, 0x2cf220 },
+    { L"Extra?", 0x2cf400, 0x2cf440 },
+    { L"Intro Tea Cup 1/4", 0x2d1820, 0x2d1860 },
+    { L"Intro Tea Cup 2/4", 0x2d1920, 0x2d1960 },
+    { L"Intro Tea Cup 3/4", 0x2d1a10, 0x2d1a50 },
+    { L"Intro Tea Cup 4/4", 0x2d1ae0, 0x2d1b20 },
+    { L"Air Grab Letters 1/2", 0x2d1f80, 0x2d1fc0 },
+    { L"Air Grab Letters 2/2", 0x2d3ab0, 0x2d3af0 },
+    { L"Limb Severer 1/9", 0x2d4d70, 0x2d4db0 },
+    { L"Limb Severer 2/9", 0x2d7200, 0x2d7240 },
+    { L"Limb Severer 3/9", 0x2d85e0, 0x2d8620 },
+    { L"Limb Severer 4/9", 0x2da8d0, 0x2da910 },
+    { L"Limb Severer 5/9", 0x2dc9c0, 0x2dca00 },
+    { L"Limb Severer 6/9", 0x2df0a0, 0x2df0e0 },
+    { L"Limb Severer 7/9", 0x2e0e40, 0x2e0e80 },
+    { L"Limb Severer 8/9", 0x2e2e40, 0x2e2e80 },
+    { L"Limb Severer 9/9", 0x2e5150, 0x2e5190 },
+};
+
 const std::vector<sGame_PaletteDataset> GGXXACR_S_JY_EXTRAS =
 {
     //General
@@ -1807,7 +1870,7 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_MissionIcons =
     { L"Zappa Icon", 0x564f0, 0x568F0, indexGGXXSprites_ACR_Zappa, 0x46 },
 };
 
-GGXXACRFileData GGXXACR_S_CharacterData[] =
+const std::vector<GGXXACRFileData> GGXXACR_S_CharacterData =
 {
     //Alphabetical by character name, not by file name
     { L"ab.bin",    L"A.B.A",           5715300,    GGXXACRPaletteNamesNormal,    0x48ab50, indexGGXXSprites_ACR_ABA, GGXXACR_S_AB_EXTRAS },
@@ -1823,7 +1886,7 @@ GGXXACRFileData GGXXACR_S_CharacterData[] =
     { L"jm.bin",    L"Jam Kuradoberi",  3827044,    GGXXACRPaletteNamesNormal,    0x2c4e80, indexGGXXSprites_ACR_Jam, GGXXACR_S_JM_EXTRAS },
     { L"jy.bin",    L"Johnny",          4205892,    GGXXACRPaletteNamesNormal,    0x3b0620, indexGGXXSprites_ACR_Johnny, GGXXACR_S_JY_EXTRAS },
     { L"js.bin",    L"Justice",         4556788,    GGXXACRPaletteNamesNormal,    0x3789b0, indexGGXXSprites_ACR_Justice, GGXXACR_S_JS_EXTRAS },
-    { L"kr.bin",    L"Kliff Undersn",   3114036,    GGXXACRPaletteNamesNormal,    0x28abf0, indexGGXXSprites_ACR_Kliff },
+    { L"kr.bin",    L"Kliff Undersn",   3114036,    GGXXACRPaletteNamesNormal,    0x28abf0, indexGGXXSprites_ACR_Kliff, GGXXACR_S_KR_EXTRAS },
     { L"ky.bin",    L"Ky Kiske",        4571540,    GGXXACRPaletteNamesNormal,    0x38bbc0, indexGGXXSprites_ACR_Ky, GGXXACR_S_KY_EXTRAS },
     { L"my.bin",    L"May",             4311684,    GGXXACRPaletteNamesNormal,    0x363d50, indexGGXXSprites_ACR_May },
     { L"ml.bin",    L"Millia Rage",     3034084,    GGXXACRPaletteNamesNormal,    0x2a4950, indexGGXXSprites_ACR_Millia },
