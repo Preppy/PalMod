@@ -351,7 +351,7 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(size_t nUnitId, size_t nPalId, U
     size_t nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
 
     // skip the internal stub unit for Unknown Game mode: it's a dummy unit
-    const size_t nStartingUnit = (nGameFlag == NEOGEO_A) ? m_nTotalInternalUnits : 0;
+    const size_t nStartingUnit = m_nTotalInternalUnits;
 
     //Go through each character
     for (size_t nUnitCtr = nStartingUnit; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
@@ -474,7 +474,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
         }
     }
 
-    strDupeText.Format(L"CGameWithExtrasFile::AreThereDupesInDataset: Checked %u core palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    strDupeText.Format(L"CGameWithExtrasFile::GetDupeCountInDataset: Checked %u core palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
     return nTotalDupesFound;
@@ -517,7 +517,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
         }
     }
 
-    strDupeText.Format(L"CGameWithExtrasFile::AreThereDupesInExtrasDataset: Checked %u Extras palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    strDupeText.Format(L"CGameWithExtrasFile::GetDupeCountInExtrasDataset: Checked %u Extras palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
     return nTotalDupesFound;
@@ -558,7 +558,9 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     int nInternalDupeCount = fShouldRunDupeCheck ?  GetDupeCountInDataset() : 0;
     int nExtraDupeCount = fShouldCheckExtras ? GetDupeCountInExtrasDataset() : 0;
 
-    if (nInternalDupeCount || nExtraDupeCount || (m_nSafeCountForThisRom != nPaletteCountForRom))
+    if (nInternalDupeCount ||
+        nExtraDupeCount ||
+        ((m_nSafeCountForThisRom != nPaletteCountForRom) && (m_nTotalInternalUnits != 0)))
     {
         CString strError;
         strText.Empty();
@@ -574,7 +576,7 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
             strError.Format(L"WARNING: There are currently %u duplicates in PalMod's internal palettes tables for this game.\n\nThis is a bug in PalMod.  Please report.\n", nInternalDupeCount);
             strText.Append(strError);
         }
-        else if (m_nSafeCountForThisRom != nPaletteCountForRom)
+        else if ((m_nSafeCountForThisRom != nPaletteCountForRom) && (m_nTotalInternalUnits != 0))
         {
             strError.Format(L"Warning: This game's known palette count (m_nSafeCountForThisRom) should be updated.\n\nNo duplicates were found.\n");
             strText.Append(strError);

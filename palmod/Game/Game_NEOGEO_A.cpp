@@ -40,26 +40,15 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     InitializeStatics();
 
     m_nTotalInternalUnits = NEOGEO_A_NUMUNIT;
-    m_nExtraUnit = NEOGEO_A_EXTRALOC;
+    m_nExtraUnit = m_nTotalInternalUnits;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1;
+    m_nSafeCountForThisRom = GetExtraCountForUnit(m_nExtraUnit) + 1;
     m_pszExtraFilename = EXTRA_FILENAME_UNKNOWN_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNEOGEO;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     m_nLowestKnownPaletteRomLocation = 0x0; // Don't worry about locations for a stubbed game...
 
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    if (GetExtraCt(m_nExtraUnit) == 0)
-    {
-        CString strIntro;
-        strIntro = L"Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random game ROM that PalMod does not already support. \n\n";
-        strIntro += L"PalMod will read / write specified RAM offsets as if they indicated colors for the color format specified in the Settings menu.\n\n";
-        strIntro += L"Right now, you don't have any entries in your UnknownE.txt Extras file: you will want to add entries there if you wish to use this \"dummy\" mode.\n\n";
-        strIntro += L"Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n";
-        strIntro += L"Good luck!";
-        MessageBox(g_appHWnd, strIntro, GetHost()->GetAppName(), MB_ICONINFORMATION);
-    }
+    nUnitAmt = m_nTotalInternalUnits + (GetExtraCountForUnit(m_nExtraUnit) ? 1 : 0);
 
     // InitDataBuffer needs color size configured by color mode, so call after that
     InitDataBuffer();
@@ -97,7 +86,7 @@ CDescTree* CGame_NEOGEO_A::GetMainTree()
     return &CGame_NEOGEO_A::MainDescTree;
 }
 
-size_t CGame_NEOGEO_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+size_t CGame_NEOGEO_A::GetExtraCountForUnit(size_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, NEOGEO_A_NUMUNIT, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
 }
@@ -276,7 +265,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_UNKNOWN_A, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
 
-    if (GetExtraCt(NEOGEO_A_EXTRALOC) == 0)
+    if (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) == 0)
     {
         // Fall over to the old filename option
         safe_delete_array(NEOGEO_A_EXTRA_CUSTOM);
@@ -284,9 +273,30 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
         memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
         LoadExtraFileForGame(EXTRA_FILENAME_NEO_GEO_A, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+
+        if (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) == 0)
+        {
+            // Load the stock dummy Extra
+            safe_delete_array(NEOGEO_A_EXTRA_CUSTOM);
+            memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+            memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+
+            size_t nExtraArraySize = ARRAYSIZE(UNKNOWN_GAME_EXTRAS_LIST);
+
+            NEOGEO_A_EXTRA_CUSTOM = new stExtraDef[nExtraArraySize];
+            memcpy(NEOGEO_A_EXTRA_CUSTOM, UNKNOWN_GAME_EXTRAS_LIST, nExtraArraySize * sizeof(stExtraDef));
+
+            CString strIntro;
+            strIntro = L"Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random game ROM that PalMod does not already support. \n\n";
+            strIntro += L"PalMod will read / write specified RAM offsets as if they indicated colors for the color format specified in the Settings menu.\n\n";
+            strIntro += L"Right now, you don't have any entries in your UnknownE.txt Extras file: you will want to add entries there if you wish to use this \"dummy\" mode.\n\n";
+            strIntro += L"Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n";
+            strIntro += L"Good luck!";
+            MessageBox(g_appHWnd, strIntro, GetHost()->GetAppName(), MB_ICONINFORMATION);
+        }
     }
 
-    UINT16 nUnitCt = NEOGEO_A_NUMUNIT + (GetExtraCt(NEOGEO_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = NEOGEO_A_NUMUNIT + (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -381,7 +391,7 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
     else // NEOGEO_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForNEOGEO(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = (stExtraDef*)&NEOGEO_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes;

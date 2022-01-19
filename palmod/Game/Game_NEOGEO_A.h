@@ -6,8 +6,6 @@
 constexpr auto EXTRA_FILENAME_NEO_GEO_A = L"NEOGEOE.txt";
 constexpr auto EXTRA_FILENAME_UNKNOWN_A = L"UnknownE.txt";
 
-#define GetExtraDefForNEOGEO(x)((stExtraDef *)&NEOGEO_A_EXTRA_CUSTOM[x])
-
 class CGame_NEOGEO_A : public CGameWithExtrasFile
 {
 private:
@@ -39,7 +37,7 @@ public:
     static sFileRule GetRule(size_t nUnitId);
 
     //Extra palette function
-    static size_t GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static size_t GetExtraCountForUnit(size_t nUnitId, BOOL bCountVisibleOnly = FALSE);
     static size_t GetExtraLoc(size_t nUnitId);
 
     //Normal functions
