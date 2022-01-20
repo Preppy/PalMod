@@ -3,9 +3,6 @@
 #include "NEOGEO_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_NEO_GEO_A = L"NEOGEOE.txt";
-constexpr auto EXTRA_FILENAME_UNKNOWN_A = L"UnknownE.txt";
-
 class CGame_NEOGEO_A : public CGameWithExtrasFile
 {
 private:
@@ -15,10 +12,11 @@ private:
     static size_t rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
     const static UINT8 NEOGEO_A_EXTRALOC = NEOGEO_A_NUMUNIT;
 
-    static void InitializeStatics();
+    static void InitializeStatics(LPCWSTR pszFileLoaded);
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
-    bool m_fHaveDoneInitialSet = false;
+    bool m_fHaveDoneInitialColorSet = false;
+    WCHAR m_pszGameNameOverride[MAX_PATH];
 
     void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
     size_t GetPaletteCountForUnit(size_t nUnitId) override;
@@ -27,13 +25,17 @@ private:
     bool SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting);
 
 public:
-    CGame_NEOGEO_A(UINT32 nConfirmedROMSize);
+    static constexpr auto EXTRA_FILENAME_NEO_GEO_A = L"NEOGEOE.txt";
+    static constexpr auto EXTRA_FILENAME_UNKNOWN_A = L"UnknownE.txt";
+    static WCHAR m_pszExtraNameOverride[MAX_PATH];
+
+    CGame_NEOGEO_A(UINT32 nConfirmedROMSize, LPCWSTR pszFileLoaded);
     ~CGame_NEOGEO_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
 
-    static sDescTreeNode* InitDescTree();
+    static sDescTreeNode* InitDescTree(LPCWSTR pszFileLoaded);
     static sFileRule GetRule(size_t nUnitId);
 
     //Extra palette function
@@ -59,4 +61,6 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     static stExtraDef* NEOGEO_A_EXTRA_CUSTOM;
+
+    LPCWSTR GetGameName() override;
 };

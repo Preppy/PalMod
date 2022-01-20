@@ -13,6 +13,15 @@ protected:
     LPCWSTR m_pszExtraFilename = nullptr;
     LPCWSTR m_pszDupedPaletteName = nullptr;
 
+    static char m_paszGameNameOverride[MAX_PATH];
+    static AlphaMode m_AlphaModeOverride;
+    static ColMode m_ColorModeOverride;
+
+    static void ResetStaticOverrideVariables();
+    static void SetGameNameOverride(LPCSTR paszGameNameString);
+    static void SetAlphaOverride(LPCSTR paszAlphaString);
+    static void SetColorFormatOverride(LPCSTR paszColorString);
+
 private:
     bool IsROMOffsetDuplicated(size_t nUnitId, size_t nPalId, UINT32 nStartingOffsetToCheck, UINT32 nEndOfRegionToCheck = 0);
     int GetDupeCountInExtrasDataset();
@@ -27,6 +36,10 @@ public:
 
     void OpenExtraFile() override;
     bool GameAllowsExtraFile() override { return m_pszExtraFilename != nullptr; };
+
+    static AlphaMode GetExtrasOverrideForAlphaType() { return m_AlphaModeOverride; };
+    static ColMode GetExtrasOverrideForColorFormat() { return m_ColorModeOverride; };
+    static LPCSTR GetExtrasOverrideForGameName() { return m_paszGameNameOverride; };
 
     static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
 };

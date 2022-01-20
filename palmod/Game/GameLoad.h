@@ -11,7 +11,7 @@ private:
     void (*ResetRuleCtr)(void) = {};
     sFileRule(*GetNextRule)(void) = {};
     sFileRule(*GetRule)(size_t) = {};
-    CGameClass* CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData = 0);
+    CGameClass* CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData = 0, LPCWSTR pszFilePath = nullptr);
 
     bool IsLocationOnReadOnlyDrive(LPCWSTR pszLocation, LPWSTR pszDrivePath = nullptr, size_t ccPathSize = 0);
     bool VerifyLocationIsUsable(LPCWSTR pszLocation);

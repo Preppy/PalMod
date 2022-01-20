@@ -1009,7 +1009,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     return FALSE;
 }
 
-CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData)
+CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData /* = 0 */, LPCWSTR pszFilePath /* = nullptr */)
 {
     switch (nGameFlag)
     {
@@ -1318,7 +1318,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
     case NEOGEO_A:
     {
-        return new CGame_NEOGEO_A(nConfirmedROMSize);
+        return new CGame_NEOGEO_A(nConfirmedROMSize, pszFilePath);
     }
     case NGBC_A:
     {
@@ -1734,6 +1734,8 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
 
     CurrRule = GetRule(nGameRule);
 
+    GetHost()->GetPalModDlg()->SetStatusText(L"Opening file...");
+
     if (CurrFile.Open(pszLoadFile, CFile::modeRead | CFile::typeBinary))
     {
         ULONGLONG nGameFileLength = CurrFile.GetLength();
@@ -1787,7 +1789,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
 
         if (isSafeToRunGame)
         {
-            OutGame = CreateGame(nGameFlag, (UINT32)nGameFileLength, nGameRule);
+            OutGame = CreateGame(nGameFlag, (UINT32)nGameFileLength, nGameRule, pszLoadFile);
             OutGame->SetLoadDir(pszLoadFile);
 
             UINT32 crcValue = 0;
@@ -1882,6 +1884,8 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
     ResetRuleCtr();
 
     int nCurrRuleCtr = GetRuleCtr();
+
+    GetHost()->GetPalModDlg()->SetStatusText(L"Opening files...");
 
     while (nCurrRuleCtr != INVALID_UNIT_VALUE)
     {

@@ -14,18 +14,19 @@ size_t CGame_NEOGEO_A::rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
 UINT32 CGame_NEOGEO_A::m_nTotalPaletteCountForNEOGEO = 0;
 UINT32 CGame_NEOGEO_A::m_nExpectedGameROMSize = -1; // This is a stub: we can't care about size
 UINT32 CGame_NEOGEO_A::m_nConfirmedROMSize = -1;
+WCHAR CGame_NEOGEO_A::m_pszExtraNameOverride[MAX_PATH] = L"";
 
-void CGame_NEOGEO_A::InitializeStatics()
+void CGame_NEOGEO_A::InitializeStatics(LPCWSTR pszFileLoaded)
 {
     safe_delete_array(CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(InitDescTree());
+    MainDescTree.SetRootTree(InitDescTree(pszFileLoaded));
 }
 
-CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
+CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize, LPCWSTR pszFileLoaded)
 {
     OutputDebugString(L"CGame_NEOGEO_A::CGame_NEOGEO_A: Loading ROM...\n");
 
@@ -34,16 +35,30 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
 
     createPalOptions = { NO_SPECIAL_OPTIONS, CRegProc::GetMaxWriteForUnknownGame()};
-    SetAlphaAndColorModeInternal(CRegProc::GetColorModeForUnknownGame(), CRegProc::GetAlphaModeForUnknownGame());
+
+    ColMode cmCurrentDefault = CRegProc::GetColorModeForUnknownGame();
+    AlphaMode amCurrentDefault = CRegProc::GetAlphaModeForUnknownGame();
+
+    SetAlphaAndColorModeInternal(cmCurrentDefault, amCurrentDefault);
 
     // InitializeStatics needs color size configured by color mode, so call after that
-    InitializeStatics();
+    // An Extras file can override this sizing, but we want the initial size to be correct
+    InitializeStatics(pszFileLoaded);
 
+    if ((m_AlphaModeOverride != AlphaMode::Unknown) ||
+        (m_ColorModeOverride != ColMode::COLMODE_LAST))
+    {
+        m_fHaveDoneInitialColorSet = false;
+        amCurrentDefault = (m_AlphaModeOverride != AlphaMode::Unknown) ? m_AlphaModeOverride : amCurrentDefault;
+        cmCurrentDefault = (m_ColorModeOverride != ColMode::COLMODE_LAST) ? m_ColorModeOverride : cmCurrentDefault;
+        SetAlphaAndColorModeInternal(cmCurrentDefault, amCurrentDefault);
+    }
+
+    m_pszExtraFilename = m_pszExtraNameOverride;
     m_nTotalInternalUnits = NEOGEO_A_NUMUNIT;
-    m_nExtraUnit = m_nTotalInternalUnits;
+    m_nExtraUnit = (UINT16)m_nTotalInternalUnits;
 
     m_nSafeCountForThisRom = GetExtraCountForUnit(m_nExtraUnit) + 1;
-    m_pszExtraFilename = EXTRA_FILENAME_UNKNOWN_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNEOGEO;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     m_nLowestKnownPaletteRomLocation = 0x0; // Don't worry about locations for a stubbed game...
@@ -208,7 +223,7 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
 
     if (cbRequiredColorSize != cbPreviousColorSize)
     {
-        if (!m_fHaveDoneInitialSet)
+        if (!m_fHaveDoneInitialColorSet)
         {
             m_nSizeOfColorsInBytes = cbRequiredColorSize;
         }
@@ -222,7 +237,7 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     }
     else
     {
-        if (m_fHaveDoneInitialSet)
+        if (m_fHaveDoneInitialColorSet)
         {
             CString strMsg = L"Updated.  The next palette displayed will use this color format.";
 
@@ -230,7 +245,7 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
         }
     }
 
-    m_fHaveDoneInitialSet = true;
+    m_fHaveDoneInitialColorSet = true;
 
     if (fShouldSetAlpha)
     {
@@ -260,10 +275,43 @@ size_t CGame_NEOGEO_A::GetExtraLoc(size_t nUnitId)
     return _GetExtraLocation(rgExtraLoc, NEOGEO_A_NUMUNIT, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
 }
 
-sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
+sDescTreeNode* CGame_NEOGEO_A::InitDescTree(LPCWSTR pszFileLoaded)
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_UNKNOWN_A, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+    if (pszFileLoaded)
+    {
+        size_t nStrLen = wcslen(pszFileLoaded);
+        LPCWSTR pszNewSuffix = L"E.txt";
+
+        if (nStrLen < (MAX_PATH - (wcslen(pszNewSuffix) + 1))) // room for extras suffix
+        {
+            const WCHAR* pszSlash = wcsrchr(pszFileLoaded, L'\\');
+
+            if (pszSlash)
+            {
+                wcsncpy_s(m_pszExtraNameOverride, pszSlash + 1, ARRAYSIZE(m_pszExtraNameOverride));
+
+                WCHAR* pszDot = wcsrchr(m_pszExtraNameOverride, L'.');
+                if (pszDot)
+                {
+                    pszDot[0] = 0;
+
+                    wcsncat(m_pszExtraNameOverride, pszNewSuffix, ARRAYSIZE(m_pszExtraNameOverride) - wcslen(m_pszExtraNameOverride));
+                    LoadExtraFileForGame(m_pszExtraNameOverride, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+                }
+            }
+        }
+    }
+
+    if (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) == 0)
+    {
+        safe_delete_array(NEOGEO_A_EXTRA_CUSTOM);
+        memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+        memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+
+        wcsncpy_s(m_pszExtraNameOverride, EXTRA_FILENAME_UNKNOWN_A, ARRAYSIZE(m_pszExtraNameOverride));
+        LoadExtraFileForGame(m_pszExtraNameOverride, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
+    }
 
     if (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) == 0)
     {
@@ -402,4 +450,20 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
 BOOL CGame_NEOGEO_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     return _UpdatePalImg(NEOGEO_A_UNITS, rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, NEOGEO_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
+}
+
+LPCWSTR CGame_NEOGEO_A::GetGameName()
+{
+    size_t nOverrideLength = strlen(m_paszGameNameOverride);
+
+    if (nOverrideLength)
+    {
+        _snwprintf_s(m_pszGameNameOverride, ARRAYSIZE(m_pszGameNameOverride), _TRUNCATE, L"%S", m_paszGameNameOverride);
+
+        return m_pszGameNameOverride;
+    }
+    else
+    {
+        return L"Unknown Game";
+    }
 }
