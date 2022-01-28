@@ -52,73 +52,75 @@ private:
     void LoadDefaultPal();
 
     //Default variables
-    BOOL LButtonDown = FALSE;
-    BOOL bFirstDCInit = TRUE;
-    BOOL bFirstInit = TRUE;
+    BOOL m_LButtonDown = FALSE;
+    BOOL m_bFirstDCInit = TRUE;
+    BOOL m_bFirstInit = TRUE;
 
-    BOOL bEnabled = TRUE;
-    BOOL bOverControl = FALSE;
-    BOOL bInCtrl = FALSE;
+    BOOL m_bEnabled = TRUE;
+    BOOL m_bOverControl = FALSE;
+    BOOL m_bInCtrl = FALSE;
 
     //Draw variables
-    RECT rIndexRect;
+    RECT m_rIndexRect;
 
-    HBITMAP hBmp = nullptr;
-    BITMAPINFO Bmpi;
-    UINT32* pBmpData = nullptr;
-    CDC dcBaseDC;
+    HBITMAP m_hBmp = nullptr;
+    BITMAPINFO m_Bmpi;
+    UINT32* m_pBmpData = nullptr;
+    CDC m_dcBaseDC;
 
-    static CPen PIndexHL;
-    static CPen PIndexSL;
-    static CPen PIndexMHL;
-    static CPen PIndexBG;
+    static BOOL m_bCreatedPens;
 
-    int nCurrAmt = -1;
+    static CPen m_PIndexHL;
+    static CPen m_PIndexSL;
+    static CPen m_PIndexMHL;
+    static CPen m_PIndexBG;
 
-    int iBaseW = 0;
-    int iBaseH = 0;
+    int m_nCurrAmt = -1;
 
-    int iPalW = 0;
-    int iPalH = 0;
+    int m_iBaseW = 0;
+    int m_iBaseH = 0;
 
-    RECT rUnused = {};
+    int m_iPalW = 0;
+    int m_iPalH = 0;
+
+    RECT m_rUnused = {};
 
     // These are initialized in the constructor
-    int nWidthMax;
-    int nMaximumColorsPerPage;
+    int m_nWidthMax;
+    int m_nMaximumColorsPerPage;
 
     //Input variables
 
-    UCHAR* Highlighted = nullptr;
-    UCHAR* Selected = nullptr;
-    UCHAR* SelView = nullptr;
+    UCHAR* m_Highlighted = nullptr;
+    UCHAR* m_Selected = nullptr;
+    UCHAR* m_SelView = nullptr;
 
     inline void SetJunkState(UCHAR* State, LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
     inline void SetHighlighted(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
     inline void SetSelected(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
     inline void SetSelViewItem(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
 
-    int iHLAmt = 0;
-    int iWorkingAmt = 0;
-    int nAllocationLength = 0;
+    int m_iHLAmt = 0;
+    int m_iWorkingAmt = 0;
+    int m_nAllocationLength = 0;
 
-    int iHighlightx = 0;
-    int iHighlighty = 0;
+    int m_iHighlightx = 0;
+    int m_iHighlighty = 0;
 
-    int SingleSelect = 0;
-    int iSelAmt = 0;
+    int m_SingleSelect = 0;
+    int m_iSelAmt = 0;
 
-    int xHLOld = 0;
-    int yHLOld = 0;
+    int m_xHLOld = 0;
+    int m_yHLOld = 0;
 
-    int xInSelStart = 0;
-    int yInSelStart = 0;
+    int m_xInSelStart = 0;
+    int m_yInSelStart = 0;
 
-    int iHighlightIndex = 0;
-    int nArrayIndex = 0;
+    int m_iHighlightIndex = 0;
+    int m_nArrayIndex = 0;
 
     //Main palette
-    COLORREF* BasePal = nullptr;
+    COLORREF* m_BasePal = nullptr;
 
     void UpdateFace();
 
@@ -126,35 +128,35 @@ public:
     CJunk();
     ~CJunk(void);
 
-    void Enable(BOOL bEnableFlag = TRUE) { bEnabled = bEnableFlag; UpdateCtrl(); }
+    void Enable(BOOL bEnableFlag = TRUE) { m_bEnabled = bEnableFlag; UpdateCtrl(); }
 
     BOOL InitNewSize(int nNewAmt, COLORREF* rgNewPal);
     static BOOL InitPen();
 
-    int GetBaseWidth() { return iBaseW; };
-    int GetBaseHeight() { return iBaseH; };
+    int GetBaseWidth() { return m_iBaseW; };
+    int GetBaseHeight() { return m_iBaseH; };
     BOOL UpdateCtrl(BOOL bUpdFace = TRUE);
 
     void ClearSelected();
     void ClearSelView();
     void ClearHighlighted();
-    bool SelectMatchingColorsInPalette(DWORD dwColorToMatch);
+    bool SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor);
 
     void SelectAll();
 
-    int GetWorkingAmt() { return iWorkingAmt; };
-    UCHAR* GetSelIndex() { return Selected; };
+    int GetWorkingAmt() { return m_iWorkingAmt; };
+    UCHAR* GetSelIndex() { return m_Selected; };
 
-    int GetSS() { return SingleSelect; };
-    COLORREF* GetBasePal() { return BasePal; };
+    int GetSS() { return m_SingleSelect; };
+    COLORREF* GetBasePal() { return m_BasePal; };
 
-    int GetHighlightIndex() { return iHighlightIndex; };
+    int GetHighlightIndex() { return m_iHighlightIndex; };
 
     void UpdateSelAmt();
 
-    int GetSelAmt() { return iSelAmt; };
-    int GetHLAmt() { return iHLAmt; };
-    void SetArrayIndex(int nIndex) { nArrayIndex = nIndex; };
+    int GetSelAmt() { return m_iSelAmt; };
+    int GetHLAmt() { return m_iHLAmt; };
+    void SetArrayIndex(int nIndex) { m_nArrayIndex = nIndex; };
     void UpdateIndex(int nIndex);
     void UpdateIndexAll();
 

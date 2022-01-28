@@ -2,6 +2,9 @@
 
 const std::vector<UINT16> SAMSHO2_A_IMGIDS_USED =
 {
+    indexSamSho1Sprites_Haohmaru,   // 0x67
+    indexSamSho1Sprites_Ukyo,       // 0x6c
+
     indexSamSho2Sprites_ChamCham,   // 0x4E
     indexSamSho2Sprites_Charlotte,  // 0x4F
     indexSamSho2Sprites_Earthquake, // 0x50
@@ -24,27 +27,27 @@ const std::vector<UINT16> SAMSHO2_A_IMGIDS_USED =
 
 const sGame_PaletteDataset SAMSHO2_A_HAOHMARU_P[] =
 {
-    { L"Haohmaru P", 0x14a00, 0x14a20 },
-    { L"Haohmaru P Rage 1", 0x14a20, 0x14a40 },
-    { L"Haohmaru P Rage 2", 0x14a40, 0x14a60 },
-    { L"Haohmaru P Weapon 1", 0x14a60, 0x14a80 },
-    { L"Haohmaru P Weapon 2", 0x14a80, 0x14aa0 },
-    { L"Haohmaru P Burned", 0x14aa0, 0x14ac0 },
-    { L"Haohmaru P Zapped", 0x14ac0, 0x14ae0 },
-    { L"Haohmaru P Poisoned", 0x14ae0, 0x14b00 },
+    { L"Haohmaru P", 0x14a00, 0x14a20, indexSamSho1Sprites_Haohmaru, 0x00, &pairNext3 },
+    { L"Haohmaru P Rage 1", 0x14a20, 0x14a40, indexSamSho1Sprites_Haohmaru, 0x00, &pairNext2 },
+    { L"Haohmaru P Rage 2", 0x14a40, 0x14a60, indexSamSho1Sprites_Haohmaru, 0x00, &pairNext2 },
+    { L"Haohmaru P Weapon 1", 0x14a60, 0x14a80, indexSamSho1Sprites_Haohmaru, 0x01 },
+    { L"Haohmaru P Weapon 2", 0x14a80, 0x14aa0, indexSamSho1Sprites_Haohmaru, 0x01 },
+    { L"Haohmaru P Burned", 0x14aa0, 0x14ac0, indexSamSho1Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru P Zapped", 0x14ac0, 0x14ae0, indexSamSho1Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru P Poisoned", 0x14ae0, 0x14b00, indexSamSho1Sprites_Haohmaru, 0x00 },
     { L"Haohmaru P Portrait/Doll", 0x16800, 0x16840 },
 };
 
 const sGame_PaletteDataset SAMSHO2_A_HAOHMARU_K[] =
 {
-    { L"Haohmaru K", 0x14b00, 0x14b20 },
-    { L"Haohmaru K Rage 1", 0x14b20, 0x14b40 },
-    { L"Haohmaru K Rage 2", 0x14b40, 0x14b60 },
-    { L"Haohmaru K Weapon 1", 0x14b60, 0x14b80 },
-    { L"Haohmaru K Weapon 2", 0x14b80, 0x14ba0 },
-    { L"Haohmaru K Burned", 0x14ba0, 0x14bc0 },
-    { L"Haohmaru K Zapped", 0x14bc0, 0x14be0 },
-    { L"Haohmaru K Poisoned", 0x14be0, 0x14c00 },
+    { L"Haohmaru K", 0x14b00, 0x14b20, indexSamSho1Sprites_Haohmaru, 0x00, &pairNext3 },
+    { L"Haohmaru K Rage 1", 0x14b20, 0x14b40, indexSamSho1Sprites_Haohmaru, 0x00, &pairNext2 },
+    { L"Haohmaru K Rage 2", 0x14b40, 0x14b60, indexSamSho1Sprites_Haohmaru, 0x00, &pairNext2 },
+    { L"Haohmaru K Weapon 1", 0x14b60, 0x14b80, indexSamSho1Sprites_Haohmaru, 0x01 },
+    { L"Haohmaru K Weapon 2", 0x14b80, 0x14ba0, indexSamSho1Sprites_Haohmaru, 0x01 },
+    { L"Haohmaru K Burned", 0x14ba0, 0x14bc0, indexSamSho1Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru K Zapped", 0x14bc0, 0x14be0, indexSamSho1Sprites_Haohmaru, 0x00 },
+    { L"Haohmaru K Poisoned", 0x14be0, 0x14c00, indexSamSho1Sprites_Haohmaru, 0x00 },
     { L"Haohmaru K Portrait/Doll", 0x16840, 0x16880 },
 };
 
@@ -184,27 +187,27 @@ const sGame_PaletteDataset SAMSHO2_A_WANFU_Shared[] =
 
 const sGame_PaletteDataset SAMSHO2_A_UKYO_P[] =
 {
-    { L"Ukyo P", 0x14600, 0x14620 },
-    { L"Ukyo P Rage 1", 0x14620, 0x14640 },
-    { L"Ukyo P Rage 2", 0x14640, 0x14660 },
-    { L"Ukyo P Weapon 1", 0x14660, 0x14680 },
-    { L"Ukyo P Weapon 2", 0x14680, 0x146a0 },
-    { L"Ukyo P Burned", 0x146a0, 0x146c0 },
-    { L"Ukyo P Zapped", 0x146c0, 0x146e0 },
-    { L"Ukyo P Poisoned", 0x146e0, 0x14700 },
+    { L"Ukyo P", 0x14600, 0x14620, indexSamSho1Sprites_Ukyo, 0x00, &pairNext3 },
+    { L"Ukyo P Rage 1", 0x14620, 0x14640, indexSamSho1Sprites_Ukyo, 0x00, &pairNext2 },
+    { L"Ukyo P Rage 2", 0x14640, 0x14660, indexSamSho1Sprites_Ukyo, 0x00, &pairNext2 },
+    { L"Ukyo P Weapon 1", 0x14660, 0x14680, indexSamSho1Sprites_Ukyo, 0x01 },
+    { L"Ukyo P Weapon 2", 0x14680, 0x146a0, indexSamSho1Sprites_Ukyo, 0x01 },
+    { L"Ukyo P Burned", 0x146a0, 0x146c0, indexSamSho1Sprites_Ukyo, 0x00 },
+    { L"Ukyo P Zapped", 0x146c0, 0x146e0, indexSamSho1Sprites_Ukyo, 0x00 },
+    { L"Ukyo P Poisoned", 0x146e0, 0x14700, indexSamSho1Sprites_Ukyo, 0x00 },
     { L"Ukyo P Portrait/Doll", 0x16c00, 0x16c40 },
 };
 
 const sGame_PaletteDataset SAMSHO2_A_UKYO_K[] =
 {
-    { L"Ukyo K", 0x14700, 0x14720 },
-    { L"Ukyo K Rage 1", 0x14720, 0x14740 },
-    { L"Ukyo K Rage 2", 0x14740, 0x14760 },
-    { L"Ukyo K Weapon 1", 0x14760, 0x14780 },
-    { L"Ukyo K Weapon 2", 0x14780, 0x147a0 },
-    { L"Ukyo K Burned", 0x147a0, 0x147c0 },
-    { L"Ukyo K Zapped", 0x147c0, 0x147e0 },
-    { L"Ukyo K Poisoned", 0x147e0, 0x14800 },
+    { L"Ukyo K", 0x14700, 0x14720, indexSamSho1Sprites_Ukyo, 0x00, &pairNext3 },
+    { L"Ukyo K Rage 1", 0x14720, 0x14740, indexSamSho1Sprites_Ukyo, 0x00, &pairNext2 },
+    { L"Ukyo K Rage 2", 0x14740, 0x14760, indexSamSho1Sprites_Ukyo, 0x00, &pairNext2 },
+    { L"Ukyo K Weapon 1", 0x14760, 0x14780, indexSamSho1Sprites_Ukyo, 0x01 },
+    { L"Ukyo K Weapon 2", 0x14780, 0x147a0, indexSamSho1Sprites_Ukyo, 0x01 },
+    { L"Ukyo K Burned", 0x147a0, 0x147c0, indexSamSho1Sprites_Ukyo, 0x00 },
+    { L"Ukyo K Zapped", 0x147c0, 0x147e0, indexSamSho1Sprites_Ukyo, 0x00 },
+    { L"Ukyo K Poisoned", 0x147e0, 0x14800, indexSamSho1Sprites_Ukyo, 0x00 },
     { L"Ukyo K Portrait/Doll", 0x16c40, 0x16c80 },
 };
 

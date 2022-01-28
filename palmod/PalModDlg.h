@@ -296,7 +296,7 @@ public:
     afx_msg void OnEditCopyOffset();
 
     DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
-    bool SelectMatchingColorsInPalette(DWORD dwColorToMatch);
+    bool SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor);
 
     static BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
     static int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData);

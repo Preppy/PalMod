@@ -1345,13 +1345,13 @@ DWORD CPalModDlg::GetColorAtCurrentMouseCursorPosition(int ptX /* = -1 */, int p
     return colorAsDWORD;
 }
 
-bool CPalModDlg::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
+bool CPalModDlg::SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor)
 {
     bool fFoundColor = false;
     if (CurrPalCtrl)
     {
         // Update the CJunk controls to highlight the color desired
-        fFoundColor = CurrPalCtrl->SelectMatchingColorsInPalette(dwColorToMatch);
+        fFoundColor = CurrPalCtrl->SelectMatchingColorsInPalette(dwColorToMatch, dwBackgroundColor);
         CurrPalCtrl->UpdateCtrl();
         // Update the Edit Color options.
         UpdateSliderSel();

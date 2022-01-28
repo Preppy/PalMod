@@ -6,12 +6,12 @@
 //This is used for the edit commands
 #include "resource.h"
 
-CPen CJunk::PIndexHL;
-CPen CJunk::PIndexSL;
-CPen CJunk::PIndexMHL;
-CPen CJunk::PIndexBG;
+CPen CJunk::m_PIndexHL;
+CPen CJunk::m_PIndexSL;
+CPen CJunk::m_PIndexMHL;
+CPen CJunk::m_PIndexBG;
 
-BOOL bCreatedPens = CJunk::InitPen();
+BOOL CJunk::m_bCreatedPens = CJunk::InitPen();
 
 int GetDpiForScreen()
 {
@@ -43,29 +43,50 @@ UCHAR CJunk::Toggle(UCHAR& tVar)
 
 void CJunk::ClearSelView()
 {
-    if (SelView)
+    if (m_SelView)
     {
-        for (int i = 0; i < iWorkingAmt; i++)
+        for (int i = 0; i < m_iWorkingAmt; i++)
         {
             SetSelViewItem(L"ClearSelView", i, FALSE);
         }
     }
 
-    iHLAmt = 0;
+    m_iHLAmt = 0;
 }
 
-bool CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
+bool CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor)
 {
     bool fFoundColor = false;
-    if (Selected)
+
+    if (m_Selected)
     {
         COLORREF dwordAsColor = RGB(GetBValue(dwColorToMatch), GetGValue(dwColorToMatch), GetRValue(dwColorToMatch));
+        COLORREF crBackgroundColor = RGB(GetBValue(dwBackgroundColor), GetGValue(dwBackgroundColor), GetRValue(dwBackgroundColor));
 
-        for (int i = 0; i < iWorkingAmt; i++)
+        bool fShouldProcessColor = (dwordAsColor != crBackgroundColor);
+
+        if (!fShouldProcessColor)
         {
-            bool fIsSameColorAtIndex = ((BasePal[i] & 0xFFFFFF) == dwordAsColor);
-            Selected[i] = fIsSameColorAtIndex ? 1 : 0;
-            fFoundColor = fFoundColor || fIsSameColorAtIndex;
+            // The clicked color might be the background color: as such only deselect a current selection
+            // if we're making a positive selection.
+            for (int iIndex = 0; iIndex < m_iWorkingAmt; iIndex++)
+            {
+                if ((m_BasePal[iIndex] & 0xFFFFFF) == dwordAsColor)
+                {
+                    fShouldProcessColor = true;
+                    break;
+                }
+            }
+        }
+
+        if (fShouldProcessColor)
+        {
+            for (int iIndex = 0; iIndex < m_iWorkingAmt; iIndex++)
+            {
+                bool fIsSameColorAtIndex = ((m_BasePal[iIndex] & 0xFFFFFF) == dwordAsColor);
+                m_Selected[iIndex] = fIsSameColorAtIndex ? 1 : 0;
+                fFoundColor = fFoundColor || fIsSameColorAtIndex;
+            }
         }
     }
 
@@ -76,30 +97,30 @@ bool CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
 
 void CJunk::ClearSelected()
 {
-    if (Selected)
+    if (m_Selected)
     {
-        for (int i = 0; i < iWorkingAmt; i++)
+        for (int i = 0; i < m_iWorkingAmt; i++)
         {
-            Selected[i] = 0;
+            m_Selected[i] = 0;
         }
     }
 
-    SingleSelect = -1;
+    m_SingleSelect = -1;
 
-    iSelAmt = 0;
+    m_iSelAmt = 0;
 }
 
 void CJunk::ClearHighlighted()
 {
-    if (Highlighted)
+    if (m_Highlighted)
     {
-        for (int i = 0; i < iWorkingAmt; i++)
+        for (int i = 0; i < m_iWorkingAmt; i++)
         {
-            Highlighted[i] = 0;
+            m_Highlighted[i] = 0;
         }
     }
 
-    //iHLAmt = 0;
+    //m_iHLAmt = 0;
 }
 
 void CJunk::SetJunkState(UCHAR* State, LPCWSTR pszFunctionName, int nIndex, UCHAR nValue)
@@ -109,7 +130,7 @@ void CJunk::SetJunkState(UCHAR* State, LPCWSTR pszFunctionName, int nIndex, UCHA
     {
         // The user can be mousing over the palette boxes while they are also updating the palettes being
         // shown.  As such, we want to ensure that we aren't processing a message relevant to a larger palette set.
-        if ((nIndex >= 0) && (nIndex < nAllocationLength))
+        if ((nIndex >= 0) && (nIndex < m_nAllocationLength))
         {
             State[nIndex] = nValue;
             fSuccess = true;
@@ -119,40 +140,40 @@ void CJunk::SetJunkState(UCHAR* State, LPCWSTR pszFunctionName, int nIndex, UCHA
 
 void CJunk::SetHighlighted(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue)
 {
-    SetJunkState(Highlighted, pszFunctionName, nIndex, nValue);
+    SetJunkState(m_Highlighted, pszFunctionName, nIndex, nValue);
 }
 
 void CJunk::SetSelViewItem(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue)
 {
-    SetJunkState(SelView, pszFunctionName, nIndex, nValue);
+    SetJunkState(m_SelView, pszFunctionName, nIndex, nValue);
 }
 
 void CJunk::SetSelected(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue)
 {
-    SetJunkState(Selected, pszFunctionName, nIndex, nValue);
+    SetJunkState(m_Selected, pszFunctionName, nIndex, nValue);
 }
 
 void CJunk::LoadDefaultPal()
 {
-    for (int i = 0; i < (iPalH * iPalW); i++)
+    for (int i = 0; i < (m_iPalH * m_iPalW); i++)
     {
-        BasePal[i] = RGB((F_R + 1) * i / 13, (F_G + 1) * i / 13, (F_B + 1) * i / 13);
+        m_BasePal[i] = RGB((F_R + 1) * i / 13, (F_G + 1) * i / 13, (F_B + 1) * i / 13);
     }
 }
 
 BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
 {
     //Clear the current variables/pointers/arrays etc
-    if (nNewAmt != nCurrAmt)
+    if (nNewAmt != m_nCurrAmt)
     {
-        if (nNewAmt > nMaximumColorsPerPage)
+        if (nNewAmt > m_nMaximumColorsPerPage)
         {
             CString strError;
             static bool s_fAlreadyShown = false;
             // You can either slice the palette or add separators so that PalGroup can handle page divisions
             // You can easily have separators added for you automatically by using the new ::CreateDefPal logic
             // that is already in use for SFA3 and MSH and some of the other more recently added games
-            strError.Format(L"ERROR: Our color table can only show %u colors per page, but this palette wants %u colors on one page.  This palette is too large and needs to be modified or split.\n\nThis is a bug in PalMod: please report it.\n", nMaximumColorsPerPage, nNewAmt);
+            strError.Format(L"ERROR: Our color table can only show %u colors per page, but this palette wants %u colors on one page.  This palette is too large and needs to be modified or split.\n\nThis is a bug in PalMod: please report it.\n", m_nMaximumColorsPerPage, nNewAmt);
             OutputDebugString(strError);
             if (!s_fAlreadyShown)
             {
@@ -162,51 +183,51 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
             return FALSE;
         }
 
-        if (!bFirstInit)
+        if (!m_bFirstInit)
         {
             CleanUp();
         }
         else
         {
-            bFirstInit = FALSE;
+            m_bFirstInit = FALSE;
         }
 
         //Set new width/height
-        iPalW = (nNewAmt > nWidthMax) ? nWidthMax : nNewAmt;
+        m_iPalW = (nNewAmt > m_nWidthMax) ? m_nWidthMax : nNewAmt;
 
-        if (nNewAmt > nWidthMax)
+        if (nNewAmt > m_nWidthMax)
         {
-            iPalH = (nNewAmt / nWidthMax) + (nNewAmt % nWidthMax ? 1 : 0);
+            m_iPalH = (nNewAmt / m_nWidthMax) + (nNewAmt % m_nWidthMax ? 1 : 0);
         }
         else
         {
-            iPalH = 1;
+            m_iPalH = 1;
         }
 
         //Set control width/height
-        iBaseW = (iPalW * GetPaletteSquareSize()) + ((iPalW * BDR_SZ) + BDR_SZ);
-        iBaseH = (iPalH * GetPaletteSquareSize()) + ((iPalH * BDR_SZ) + BDR_SZ);
+        m_iBaseW = (m_iPalW * GetPaletteSquareSize()) + ((m_iPalW * BDR_SZ) + BDR_SZ);
+        m_iBaseH = (m_iPalH * GetPaletteSquareSize()) + ((m_iPalH * BDR_SZ) + BDR_SZ);
 
         //Set the working amount
-        iWorkingAmt = nNewAmt;
-        nAllocationLength = iPalW * iPalH;
+        m_iWorkingAmt = nNewAmt;
+        m_nAllocationLength = m_iPalW * m_iPalH;
 
-        if (nAllocationLength != iWorkingAmt)
+        if (m_nAllocationLength != m_iWorkingAmt)
         {
             // This handles non-rectangular layouts, since we allocate a H*W layout
-            int nSrcIndex = (iWorkingAmt % nWidthMax) + ((iPalH - 1) * nWidthMax);
-            int nDstIndex = ((iPalH * nWidthMax) - 1);
+            int nSrcIndex = (m_iWorkingAmt % m_nWidthMax) + ((m_iPalH - 1) * m_nWidthMax);
+            int nDstIndex = ((m_iPalH * m_nWidthMax) - 1);
 
-            rUnused.top = (BDR_SZ * ((nSrcIndex / iPalW) + 1)) + ((GetPaletteSquareSize()) * (nSrcIndex / iPalW));
-            rUnused.left = (BDR_SZ * ((nSrcIndex % iPalW) + 1)) + ((GetPaletteSquareSize()) * (nSrcIndex % iPalW));
-            rUnused.right = (BDR_SZ * ((nDstIndex % iPalW) + 2)) + (GetPaletteSquareSize() * ((nDstIndex % iPalW) + 1));
-            rUnused.bottom = (BDR_SZ * ((nDstIndex / iPalW) + 2)) + (GetPaletteSquareSize() * ((nDstIndex / iPalW) + 1));
+            m_rUnused.top = (BDR_SZ * ((nSrcIndex / m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (nSrcIndex / m_iPalW));
+            m_rUnused.left = (BDR_SZ * ((nSrcIndex % m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (nSrcIndex % m_iPalW));
+            m_rUnused.right = (BDR_SZ * ((nDstIndex % m_iPalW) + 2)) + (GetPaletteSquareSize() * ((nDstIndex % m_iPalW) + 1));
+            m_rUnused.bottom = (BDR_SZ * ((nDstIndex / m_iPalW) + 2)) + (GetPaletteSquareSize() * ((nDstIndex / m_iPalW) + 1));
         }
 
         //Create Selected, Highlighted and SelView
-        Highlighted = new UCHAR[nAllocationLength];
-        Selected = new UCHAR[nAllocationLength];
-        SelView = new UCHAR[nAllocationLength];
+        m_Highlighted = new UCHAR[m_nAllocationLength];
+        m_Selected = new UCHAR[m_nAllocationLength];
+        m_SelView = new UCHAR[m_nAllocationLength];
 
         ClearSelView();
         ClearSelected();
@@ -215,15 +236,15 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
         ProcBaseBMP();
 
         //Set the palette
-        BasePal = rgNewPal;
+        m_BasePal = rgNewPal;
 
         UpdateIndexAll();
 
-        nCurrAmt = nNewAmt;
+        m_nCurrAmt = nNewAmt;
     }
     else
     {
-        BasePal = rgNewPal;
+        m_BasePal = rgNewPal;
 
         UpdateIndexAll();
     }
@@ -234,9 +255,9 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
 void CJunk::CleanUp()
 {
     //Remove Selected, SelView and Highlighted
-    safe_delete_array(Selected);
-    safe_delete_array(SelView);
-    safe_delete_array(Highlighted);
+    safe_delete_array(m_Selected);
+    safe_delete_array(m_SelView);
+    safe_delete_array(m_Highlighted);
 }
 
 void CJunk::NotifyParent(int iCustomMessage)
@@ -244,7 +265,7 @@ void CJunk::NotifyParent(int iCustomMessage)
     static NMHDR myhdr = {};
 
     myhdr.hwndFrom = GetSafeHwnd();
-    myhdr.idFrom = nArrayIndex;
+    myhdr.idFrom = m_nArrayIndex;
     myhdr.code = iCustomMessage;
 
     GetParent()->PostMessage(WM_NOTIFY, 0, (LPARAM)&myhdr);
@@ -255,34 +276,34 @@ void CJunk::SetIndexPen(int nIndex, int pFlag)
     switch (pFlag)
     {
     case FLAG_HIGHLIGHT:
-        dcBaseDC.SelectObject(&PIndexHL);
+        m_dcBaseDC.SelectObject(&m_PIndexHL);
         break;
     case FLAG_SELECTED:
-        dcBaseDC.SelectObject(&PIndexSL);
+        m_dcBaseDC.SelectObject(&m_PIndexSL);
         break;
     case FLAG_MULTIHIGHLIGHT:
-        dcBaseDC.SelectObject(&PIndexMHL);
+        m_dcBaseDC.SelectObject(&m_PIndexMHL);
         break;
     case FLAG_DEFAULT:
-        dcBaseDC.SelectObject(&PIndexBG);
+        m_dcBaseDC.SelectObject(&m_PIndexBG);
         break;
     }
 }
 
 BOOL CJunk::InitPen()
 {
-    PIndexHL.CreatePen(0, 1, RGB(HL_R, HL_G, HL_B));
-    PIndexSL.CreatePen(0, 1, RGB(SL_R, SL_G, SL_B));
-    PIndexMHL.CreatePen(0, 1, RGB(MH_R, MH_G, MH_B));
-    PIndexBG.CreatePen(0, 1, RGB(BG_R, BG_G, BG_B));
+    m_PIndexHL.CreatePen(0, 1, RGB(HL_R, HL_G, HL_B));
+    m_PIndexSL.CreatePen(0, 1, RGB(SL_R, SL_G, SL_B));
+    m_PIndexMHL.CreatePen(0, 1, RGB(MH_R, MH_G, MH_B));
+    m_PIndexBG.CreatePen(0, 1, RGB(BG_R, BG_G, BG_B));
 
     return TRUE;
 }
 
 CJunk::CJunk()
 {
-    nWidthMax = CRegProc::GetColorsPerLine();
-    nMaximumColorsPerPage = CRegProc::GetMaxPalettePageSize();
+    m_nWidthMax = CRegProc::GetColorsPerLine();
+    m_nMaximumColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
     RegisterWindowClass();
 }
@@ -292,13 +313,13 @@ CJunk::~CJunk(void)
     //delete (dcPaintDC);
     CleanUp();
 
-    if (bCreatedPens)
+    if (m_bCreatedPens)
     {
-        bCreatedPens = FALSE;
-        DeleteObject(PIndexHL);
-        DeleteObject(PIndexSL);
-        DeleteObject(PIndexMHL);
-        DeleteObject(PIndexBG);
+        m_bCreatedPens = FALSE;
+        DeleteObject(m_PIndexHL);
+        DeleteObject(m_PIndexSL);
+        DeleteObject(m_PIndexMHL);
+        DeleteObject(m_PIndexBG);
     }
 }
 
@@ -365,27 +386,27 @@ BOOL CJunk::OnEraseBkgnd(CDC* pDC)
 
 BOOL CJunk::ProcBaseBMP()
 {
-    if (hBmp && !DeleteObject(hBmp))
+    if (m_hBmp && !DeleteObject(m_hBmp))
     {
         OutputDebugString(L"ERROR: Could not delete old hBmp\n");
     }
 
-    Bmpi.bmiHeader.biWidth = iBaseW;
-    Bmpi.bmiHeader.biHeight = -iBaseH;
-    Bmpi.bmiHeader.biPlanes = 1;
-    Bmpi.bmiHeader.biBitCount = 32;
-    Bmpi.bmiHeader.biCompression = BI_RGB;
-    Bmpi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+    m_Bmpi.bmiHeader.biWidth = m_iBaseW;
+    m_Bmpi.bmiHeader.biHeight = -m_iBaseH;
+    m_Bmpi.bmiHeader.biPlanes = 1;
+    m_Bmpi.bmiHeader.biBitCount = 32;
+    m_Bmpi.bmiHeader.biCompression = BI_RGB;
+    m_Bmpi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 
     //HBITMAP hTempBmp;
     //dcBaseDC.SelectObject(&hTempBmp);
 
-    hBmp = CreateDIBSection(dcBaseDC.GetSafeHdc(), &Bmpi, DIB_RGB_COLORS, (void**)&pBmpData, NULL, 0);
+    m_hBmp = CreateDIBSection(m_dcBaseDC.GetSafeHdc(), &m_Bmpi, DIB_RGB_COLORS, (void**)&m_pBmpData, NULL, 0);
 
-    if (!bFirstDCInit)
+    if (!m_bFirstDCInit)
     {
-        dcBaseDC.SelectObject(hBmp);
-        dcBaseDC.SelectStockObject(NULL_BRUSH);
+        m_dcBaseDC.SelectObject(m_hBmp);
+        m_dcBaseDC.SelectStockObject(NULL_BRUSH);
     }
 
     DrawBG();
@@ -395,19 +416,19 @@ BOOL CJunk::ProcBaseBMP()
 
 void CJunk::ClearBaseBMP()
 {
-    safe_delete_array(pBmpData);
+    safe_delete_array(m_pBmpData);
 }
 
 void CJunk::InitDC(CPaintDC &PaintDC)
 {
-    if (bFirstDCInit)
+    if (m_bFirstDCInit)
     {
         //Init base
-        dcBaseDC.CreateCompatibleDC(&PaintDC);
-        dcBaseDC.SelectObject(hBmp);
-        dcBaseDC.SelectStockObject(NULL_BRUSH);
+        m_dcBaseDC.CreateCompatibleDC(&PaintDC);
+        m_dcBaseDC.SelectObject(m_hBmp);
+        m_dcBaseDC.SelectStockObject(NULL_BRUSH);
 
-        bFirstDCInit = FALSE;
+        m_bFirstDCInit = FALSE;
 
         UpdateIndexAll();
     }
@@ -415,27 +436,27 @@ void CJunk::InitDC(CPaintDC &PaintDC)
 
 void CJunk::DrawBG()
 {
-    if (!bFirstDCInit)
+    if (!m_bFirstDCInit)
     {
-        CRect rBGRect(0, 0, iBaseW, iBaseH);
+        CRect rBGRect(0, 0, m_iBaseW, m_iBaseH);
 
-        dcBaseDC.FillSolidRect(&rBGRect, RGB(BG_R, BG_G, BG_B));
+        m_dcBaseDC.FillSolidRect(&rBGRect, RGB(BG_R, BG_G, BG_B));
 
         //Draw the unused palette indexes
-        if (nAllocationLength != iWorkingAmt)
+        if (m_nAllocationLength != m_iWorkingAmt)
         {
-            dcBaseDC.FillSolidRect(&rUnused, GetSysColor(COLOR_3DFACE));
+            m_dcBaseDC.FillSolidRect(&m_rUnused, GetSysColor(COLOR_3DFACE));
         }
     }
 }
 
 void CJunk::SelectAll()
 {
-    if (Selected)
+    if (m_Selected)
     {
-        for (int i = 0; i < iWorkingAmt; i++)
+        for (int i = 0; i < m_iWorkingAmt; i++)
         {
-            Selected[i] = TRUE;
+            m_Selected[i] = TRUE;
         }
     }
 
@@ -444,16 +465,16 @@ void CJunk::SelectAll()
 
 void CJunk::UpdateIndex(int index)
 {
-    if (bEnabled && !bFirstDCInit)
+    if (m_bEnabled && !m_bFirstDCInit)
     {
-        if (index < iWorkingAmt)
+        if (index < m_iWorkingAmt)
         {
-            rIndexRect.top = (BDR_SZ * ((index / iPalW) + 1)) + ((GetPaletteSquareSize()) * (index / iPalW));
-            rIndexRect.left = (BDR_SZ * ((index % iPalW) + 1)) + ((GetPaletteSquareSize()) * (index % iPalW));
-            rIndexRect.right = (BDR_SZ * ((index % iPalW) + 1)) + (GetPaletteSquareSize() * ((index % iPalW) + 1));
-            rIndexRect.bottom = (BDR_SZ * ((index / iPalW) + 1)) + (GetPaletteSquareSize() * ((index / iPalW) + 1));
+            m_rIndexRect.top = (BDR_SZ * ((index / m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (index / m_iPalW));
+            m_rIndexRect.left = (BDR_SZ * ((index % m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (index % m_iPalW));
+            m_rIndexRect.right = (BDR_SZ * ((index % m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index % m_iPalW) + 1));
+            m_rIndexRect.bottom = (BDR_SZ * ((index / m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index / m_iPalW) + 1));
 
-            CustomFillRect(&rIndexRect, (UINT8*)&BasePal[index]);
+            CustomFillRect(&m_rIndexRect, (UINT8*)&m_BasePal[index]);
         }
     }
 }
@@ -463,50 +484,50 @@ void CJunk::UpdateFace()
     static int nNewCt = 0;
     static int nDelCt = 0;
 
-    if (bEnabled)
+    if (m_bEnabled)
     {
-        RECT* rSqRct = new RECT[iWorkingAmt];
+        RECT* rSqRct = new RECT[m_iWorkingAmt];
 
         nNewCt++;
 
-        for (int index = 0; index < iWorkingAmt; index++)
+        for (int index = 0; index < m_iWorkingAmt; index++)
         {
             SetIndexPen(index, FLAG_DEFAULT);
 
-            rSqRct[index].top = (BDR_SZ * ((index / iPalW) + 1)) + ((GetPaletteSquareSize()) * (index / iPalW));
-            rSqRct[index].left = (BDR_SZ * ((index % iPalW) + 1)) + ((GetPaletteSquareSize()) * (index % iPalW));
-            rSqRct[index].right = (BDR_SZ * ((index % iPalW) + 1)) + (GetPaletteSquareSize() * ((index % iPalW) + 1));
-            rSqRct[index].bottom = (BDR_SZ * ((index / iPalW) + 1)) + (GetPaletteSquareSize() * ((index / iPalW) + 1));
+            rSqRct[index].top = (BDR_SZ * ((index / m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (index / m_iPalW));
+            rSqRct[index].left = (BDR_SZ * ((index % m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (index % m_iPalW));
+            rSqRct[index].right = (BDR_SZ * ((index % m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index % m_iPalW) + 1));
+            rSqRct[index].bottom = (BDR_SZ * ((index / m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index / m_iPalW) + 1));
 
             InflateRect(&rSqRct[index], 1, 1);
 
-            dcBaseDC.Rectangle(&rSqRct[index]);
+            m_dcBaseDC.Rectangle(&rSqRct[index]);
         }
 
-        for (int index = 0; index < iWorkingAmt; index++)
+        for (int index = 0; index < m_iWorkingAmt; index++)
         {
-            if (Selected[index])
+            if (m_Selected[index])
             {
                 SetIndexPen(index, FLAG_SELECTED);
-                dcBaseDC.Rectangle(&rSqRct[index]);
+                m_dcBaseDC.Rectangle(&rSqRct[index]);
             }
         }
 
-        for (int index = 0; index < iWorkingAmt; index++)
+        for (int index = 0; index < m_iWorkingAmt; index++)
         {
-            if (SelView && SelView[index])
+            if (m_SelView && m_SelView[index])
             {
                 SetIndexPen(index, FLAG_MULTIHIGHLIGHT);
-                dcBaseDC.Rectangle(&rSqRct[index]);
+                m_dcBaseDC.Rectangle(&rSqRct[index]);
             }
         }
 
-        for (int index = 0; index < iWorkingAmt; index++)
+        for (int index = 0; index < m_iWorkingAmt; index++)
         {
-            if (Highlighted[index])
+            if (m_Highlighted[index])
             {
                 SetIndexPen(index, FLAG_HIGHLIGHT);
-                dcBaseDC.Rectangle(&rSqRct[index]);
+                m_dcBaseDC.Rectangle(&rSqRct[index]);
             }
         }
 
@@ -520,7 +541,7 @@ void CJunk::CustomFillRect(RECT* lpRect, UINT8* crSrcCol)
     int nSqW = lpRect->right - lpRect->left;
     int nSqH = lpRect->top - lpRect->bottom;
 
-    UINT8* pDstImgData = (UINT8*)pBmpData;
+    UINT8* pDstImgData = (UINT8*)m_pBmpData;
 
     double fpDstA2 = (1.0f - ((double)crSrcCol[3]) / 255.0f);
     double fpDstA1 = 1.0f - fpDstA2;
@@ -531,16 +552,16 @@ void CJunk::CustomFillRect(RECT* lpRect, UINT8* crSrcCol)
         {
             UINT8* crDstCol = const_cast<UINT8*>((UINT8*)&JUNK_BG[(y % JUNK_BG_H) * JUNK_BG_W + (x % JUNK_BG_W)]);
 
-            pDstImgData[(y * iBaseW) + x + 2] = aaadd((fpDstA1 * (double)crSrcCol[0]), (fpDstA2 * (double)crDstCol[0]));
-            pDstImgData[(y * iBaseW) + x + 1] = aaadd((fpDstA1 * (double)crSrcCol[1]), (fpDstA2 * (double)crDstCol[1]));
-            pDstImgData[(y * iBaseW) + x] =     aaadd((fpDstA1 * (double)crSrcCol[2]), (fpDstA2 * (double)crDstCol[2]));
+            pDstImgData[(y * m_iBaseW) + x + 2] = aaadd((fpDstA1 * (double)crSrcCol[0]), (fpDstA2 * (double)crDstCol[0]));
+            pDstImgData[(y * m_iBaseW) + x + 1] = aaadd((fpDstA1 * (double)crSrcCol[1]), (fpDstA2 * (double)crDstCol[1]));
+            pDstImgData[(y * m_iBaseW) + x] =     aaadd((fpDstA1 * (double)crSrcCol[2]), (fpDstA2 * (double)crDstCol[2]));
         }
     }
 }
 
 void CJunk::UpdateIndexAll()
 {
-    for (int nCtr = 0; nCtr < iWorkingAmt; nCtr++)
+    for (int nCtr = 0; nCtr < m_iWorkingAmt; nCtr++)
     {
         UpdateIndex(nCtr);
     }
@@ -548,7 +569,7 @@ void CJunk::UpdateIndexAll()
 
 BOOL CJunk::UpdateCtrl(BOOL bUpdFace)
 {
-    if (dcBaseDC)
+    if (m_dcBaseDC)
     {
         CClientDC* cdc = new CClientDC(this);
 
@@ -557,7 +578,7 @@ BOOL CJunk::UpdateCtrl(BOOL bUpdFace)
             UpdateFace();
         }
 
-        cdc->BitBlt(0, 0, iBaseW, iBaseH, &dcBaseDC, 0, 0, SRCCOPY);
+        cdc->BitBlt(0, 0, m_iBaseW, m_iBaseH, &m_dcBaseDC, 0, 0, SRCCOPY);
 
         safe_delete(cdc);
     }
@@ -567,57 +588,57 @@ BOOL CJunk::UpdateCtrl(BOOL bUpdFace)
 
 void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 {
-    if (!bEnabled)
+    if (!m_bEnabled)
     {
         return;
     }
 
-    if ((xHLOld != -1 ) && (yHLOld != -1))
+    if ((m_xHLOld != -1 ) && (m_yHLOld != -1))
     {
-        SetHighlighted(L"OnMouseMove", (yHLOld * iPalW) + xHLOld, FALSE);
+        SetHighlighted(L"OnMouseMove", (m_yHLOld * m_iPalW) + m_xHLOld, FALSE);
     }
 
-    if (!bOverControl)
+    if (!m_bOverControl)
     {
-        bOverControl = TRUE;
+        m_bOverControl = TRUE;
 
         SetTimer(10, 100, NULL);
     }
 
     CPoint PalIndex;
 
-    if (!LButtonDown)
+    if (!m_LButtonDown)
     {
         //bMulHL = FALSE;
 
         if (ProcessHovered(point, PalIndex))
         {
-            if (!((PalIndex.y >= iPalH) || (PalIndex.x >= iPalW)))
+            if (!((PalIndex.y >= m_iPalH) || (PalIndex.x >= m_iPalW)))
             {
-                SetHighlighted(L"OnMouseMove Hover", (PalIndex.y * iPalW) + PalIndex.x, TRUE);
+                SetHighlighted(L"OnMouseMove Hover", (PalIndex.y * m_iPalW) + PalIndex.x, TRUE);
             }
 
-            if (PalIndex.y != yHLOld || PalIndex.x != xHLOld)
+            if (PalIndex.y != m_yHLOld || PalIndex.x != m_xHLOld)
             {
-                iHighlightIndex = (PalIndex.x) + (PalIndex.y * iPalW);
-                iHighlightx = PalIndex.x;
-                iHighlighty = PalIndex.y;
+                m_iHighlightIndex = (PalIndex.x) + (PalIndex.y * m_iPalW);
+                m_iHighlightx = PalIndex.x;
+                m_iHighlighty = PalIndex.y;
 
-                iHLAmt = 1;
+                m_iHLAmt = 1;
 
                 NotifyParent(CUSTOM_HLCHANGE);
 
                 UpdateCtrl();
             }
 
-            yHLOld = PalIndex.y;
-            xHLOld = PalIndex.x;
+            m_yHLOld = PalIndex.y;
+            m_xHLOld = PalIndex.x;
         }
         else
         {
-            if ((xHLOld != -1) && (yHLOld != -1))
+            if ((m_xHLOld != -1) && (m_yHLOld != -1))
             {
-                SetHighlighted(L"OnMouseMove", (yHLOld * iPalW) + xHLOld, FALSE);
+                SetHighlighted(L"OnMouseMove", (m_yHLOld * m_iPalW) + m_xHLOld, FALSE);
             }
         }
     }
@@ -625,15 +646,15 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
     {
         if (ProcessHovered(point, PalIndex))
         {
-            if ((yHLOld != PalIndex.y) || (xHLOld != PalIndex.x))
+            if ((m_yHLOld != PalIndex.y) || (m_xHLOld != PalIndex.x))
             {
                 //bMulHL = TRUE;
                 ClearSelView();
 
-                if ((PalIndex.y == yInSelStart) && (PalIndex.x == xInSelStart))
+                if ((PalIndex.y == m_yInSelStart) && (PalIndex.x == m_xInSelStart))
                 {
-                    SetHighlighted(L"OnMouseMove", (PalIndex.y * iPalW) + PalIndex.x, TRUE);
-                    iHLAmt = 1;
+                    SetHighlighted(L"OnMouseMove", (PalIndex.y * m_iPalW) + PalIndex.x, TRUE);
+                    m_iHLAmt = 1;
                 }
                 else
                 {
@@ -643,8 +664,8 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 
                     ix = iy = jx = jy = x = y = ks = ke = kt = 0;
 
-                    ks = (yInSelStart * iPalW) + xInSelStart;
-                    ke = (PalIndex.y * iPalW) + PalIndex.x;
+                    ks = (m_yInSelStart * m_iPalW) + m_xInSelStart;
+                    ke = (PalIndex.y * m_iPalW) + PalIndex.x;
 
                     if (ks > ke)
                     {
@@ -656,14 +677,14 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
                     for (y = ks; y <= ke; y++)
                     {
                         SetSelViewItem(L"OnMouseMove::ProcessHovered", y, TRUE);
-                        iHLAmt++;
+                        m_iHLAmt++;
                     }
                 }
 
                 NotifyParent(CUSTOM_HLCHANGE);
 
-                xHLOld = PalIndex.x;
-                yHLOld = PalIndex.y;
+                m_xHLOld = PalIndex.x;
+                m_yHLOld = PalIndex.y;
 
                 UpdateCtrl();
             }
@@ -675,48 +696,48 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 
 void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
 {
-    if (!bEnabled)
+    if (!m_bEnabled)
     {
         return;
     }
 
     SetCapture();
 
-    LButtonDown = TRUE;
+    m_LButtonDown = TRUE;
 
     CPoint PalIndex;
 
     if (ProcessHovered(point, PalIndex))
     {
-        yInSelStart = PalIndex.y;
-        xInSelStart = PalIndex.x;
+        m_yInSelStart = PalIndex.y;
+        m_xInSelStart = PalIndex.x;
 
-        int nNewSingleSel = (yInSelStart * iPalW) + (xInSelStart);
+        int nNewSingleSel = (m_yInSelStart * m_iPalW) + (m_xInSelStart);
 
         if (!(nFlags & MK_CONTROL))
         {
-            if (nNewSingleSel != SingleSelect)
+            if (nNewSingleSel != m_SingleSelect)
             {
                 ClearSelected();
             }
             else
             {
-                if (iSelAmt > 1)
+                if (m_iSelAmt > 1)
                 {
                     ClearSelected();
                 }
             }
         }
 
-        SingleSelect = nNewSingleSel;
+        m_SingleSelect = nNewSingleSel;
 
         UpdateCtrl();
 
-        bInCtrl = TRUE;
+        m_bInCtrl = TRUE;
     }
     else
     {
-        bInCtrl = FALSE;
+        m_bInCtrl = FALSE;
     }
 
     CWnd::OnLButtonDown(nFlags, point);
@@ -724,17 +745,17 @@ void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CJunk::UpdateSelAmt()
 {
-    iSelAmt = 0;
+    m_iSelAmt = 0;
 
-    for (int iy = 0; iy < iPalH; iy++)
+    for (int iy = 0; iy < m_iPalH; iy++)
     {
-        for (int ix = 0; ix < iPalW; ix++)
+        for (int ix = 0; ix < m_iPalW; ix++)
         {
-            const int iSelIndex = (iy * iPalW) + ix;
+            const int iSelIndex = (iy * m_iPalW) + ix;
 
-            if ((iSelIndex < iWorkingAmt) && Selected[iSelIndex])
+            if ((iSelIndex < m_iWorkingAmt) && m_Selected[iSelIndex])
             {
-                iSelAmt++;
+                m_iSelAmt++;
             }
         }
     }
@@ -742,51 +763,51 @@ void CJunk::UpdateSelAmt()
 
 void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
 {
-    if (!bEnabled)
+    if (!m_bEnabled)
     {
         return;
     }
 
     ReleaseCapture();
 
-    LButtonDown = FALSE;
+    m_LButtonDown = FALSE;
 
-    if (bInCtrl)
+    if (m_bInCtrl)
     {
-        if (iHLAmt > 1)
+        if (m_iHLAmt > 1)
         {
-            for (int iy = 0; iy < iPalH; iy++)
+            for (int iy = 0; iy < m_iPalH; iy++)
             {
-                for (int ix = 0; ix < iPalW; ix++)
+                for (int ix = 0; ix < m_iPalW; ix++)
                 {
-                    if (SelView[(iy * iPalW) + ix])
+                    if (m_SelView[(iy * m_iPalW) + ix])
                     {
-                        if (!Selected[(iy * iPalW) + ix])
+                        if (!m_Selected[(iy * m_iPalW) + ix])
                         {
-                            SetSelected(L"OnLButtonUp", (iy * iPalW) + ix, TRUE);
+                            SetSelected(L"OnLButtonUp", (iy * m_iPalW) + ix, TRUE);
                         }
 
-                        SetSelViewItem(L"OnLButtonUp::HLAmt > 1", (iy * iPalW) + ix, FALSE);
+                        SetSelViewItem(L"OnLButtonUp::HLAmt > 1", (iy * m_iPalW) + ix, FALSE);
                     }
                 }
             }
 
-            iHLAmt = 0;
+            m_iHLAmt = 0;
 
             NotifyParent(CUSTOM_MS);
         }
         else
         {
-            if (Toggle(Selected[(yInSelStart * iPalW) + xInSelStart]))
+            if (Toggle(m_Selected[(m_yInSelStart * m_iPalW) + m_xInSelStart]))
             {
-                iSelAmt++;
+                m_iSelAmt++;
             }
             else
             {
-                iSelAmt--;
+                m_iSelAmt--;
             }
 
-            SetSelViewItem(L"OnLButtonUp::HLAmt == 1", (yInSelStart * iPalW) + xInSelStart, FALSE);
+            SetSelViewItem(L"OnLButtonUp::HLAmt == 1", (m_yInSelStart * m_iPalW) + m_xInSelStart, FALSE);
 
             NotifyParent(CUSTOM_SS);
         }
@@ -810,9 +831,9 @@ BOOL CJunk::ProcessHovered(CPoint hPoint, CPoint& PalPos)
     int yIn = y / posmod;
 
     // Verify the hover is over the control still
-    if ((xIn >= iPalW) || (xIn < 0) ||
-        (yIn >= iPalH) || (yIn < 0) ||
-        (((yIn * iPalW) + xIn) >= iWorkingAmt))
+    if ((xIn >= m_iPalW) || (xIn < 0) ||
+        (yIn >= m_iPalH) || (yIn < 0) ||
+        (((yIn * m_iPalW) + xIn) >= m_iWorkingAmt))
     {
         return FALSE;
     }
@@ -833,18 +854,18 @@ void CJunk::OnTimer(UINT_PTR nIDEvent)
     rect.top = 0;
     rect.left = 0;
 
-    rect.right = iBaseW;
-    rect.bottom = iBaseH;
+    rect.right = m_iBaseW;
+    rect.bottom = m_iBaseH;
 
     // Check the mouse is inside the control
     if (!rect.PtInRect(p))
     {
         // if not then stop looking...
-        bOverControl = FALSE;
+        m_bOverControl = FALSE;
         KillTimer(10);
 
-        yHLOld = -1;
-        xHLOld = -1;
+        m_yHLOld = -1;
+        m_xHLOld = -1;
 
         ClearHighlighted();
         UpdateCtrl();
@@ -868,18 +889,18 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         bool canCopyOrPaste = false;
         bool canReverse = false;
 
-        for (int i = 0; i < iWorkingAmt; i++)
+        for (int i = 0; i < m_iWorkingAmt; i++)
         {
             if (!canCopyOrPaste)
             {
-                if (Selected[i])
+                if (m_Selected[i])
                 {
                     canCopyOrPaste = true;
                 }
             }
             else
             {
-                if (Selected[i])
+                if (m_Selected[i])
                 {
                     canReverse = true;
                     break;
@@ -895,7 +916,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, L"Select &All");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, L"Select &None");
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
-        PopupMenu.AppendMenu(nAllocationLength ? MF_ENABLED : MF_DISABLED, CUSTOM_COPYOFFSET, L"Copy Offset");
+        PopupMenu.AppendMenu(m_nAllocationLength ? MF_ENABLED : MF_DISABLED, CUSTOM_COPYOFFSET, L"Copy Offset");
 
         int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
 

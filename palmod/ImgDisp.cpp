@@ -924,7 +924,7 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
     if (GetClickToFindColorSetting())
     {
         // Update the current palette selections based upon this click
-        GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition());
+        GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(), crBGCol);
     }
 
     CWnd::OnLButtonUp(nFlags, point);
@@ -969,13 +969,13 @@ void CImgDisp::OnRButtonDown(UINT nFlags, CPoint point)
             switch (result)
             {
             case CUSTOM_FINDCOLOR:
-                GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y));
+                GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y), crBGCol);
                 break;
             case CUSTOM_COPYCOLOR:
                 GetHost()->GetPalModDlg()->CopyColorToClipboard(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y));
                 break;
             case CUSTOM_PASTECOLOR:
-                if (GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y)))
+                if (GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y), crBGCol))
                 {
                     GetHost()->GetPalModDlg()->OnEditPaste();
                 }
