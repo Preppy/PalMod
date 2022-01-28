@@ -77,6 +77,102 @@ namespace ColorSystem
         return 2;
     }
 
+    std::map<LPCSTR, ColMode> rgColorNameToFormatMap =
+    {
+        { "BGR555LE", ColMode::COLMODE_BGR555_LE },             // BGR555 little endian (GBA)
+        { "RGB444BE", ColMode::COLMODE_RGB444_BE },             // RGB444 big endian (CPS1/2)
+        { "RGB444LE", ColMode::COLMODE_RGB444_LE },             // RGB444 little endian (SF 30th steam)
+        { "RGB555LE", ColMode::COLMODE_RGB555_LE },             // RGB555 little endian (CPS3)
+        { "RGB555BE", ColMode::COLMODE_RGB555_BE },             // RGB555 big endian 
+        { "RGB666", ColMode::COLMODE_RGB666_NEOGEO },           // RGB666 using the NeoGeo color table
+        { "RGB333", ColMode::COLMODE_RGB333 },                  // RGB333 for Sega Genesis/MegaDrive
+        { "RGBA8887", ColMode::COLMODE_RGBA8887 },              // 32bit color half alpha (guilty gear)
+        { "RGB555Sharp", ColMode::COLMODE_RGB555_SHARP },       // RGB555 using the sharp x68000 color table
+        { "RGBA8881", ColMode::COLMODE_RGBA8881 },              // 32bit color 1 bit alpha
+        { "RGBA8888", ColMode::COLMODE_RGBA8888 },              // 32bit color (uniclr. and modern computing)
+        { "RGB888", ColMode::COLMODE_RGB888 },                  // 24bit
+        { "BGR888", ColMode::COLMODE_BGR888 },                  // 24bit
+        { "RGBA8881_32", ColMode::COLMODE_RGBA8881_32STEPS },   // MBAACC: 32 bit color, except only 32 steps
+        { "GRB555LE", ColMode::COLMODE_GRB555_LE },             // GRB555 little endian
+        { "BGRA8888", ColMode::COLMODE_BGRA8888 },              // 32bit color (arcana blood)
+        { "BGR555BE", ColMode::COLMODE_BGR555_BE },             // BGR555 big endian: Motorola 68000 games
+        { "GRB888", ColMode::COLMODE_GRB888 },                  // 24bit
+        // This section added to enable user exploration in dev mode: not needed directly for any games yet
+        { "BGR333", ColMode::COLMODE_BGR333 },
+        { "RGB333", ColMode::COLMODE_RBG333 },
+        { "BGR444", ColMode::COLMODE_BGR444 },
+        { "BRG444", ColMode::COLMODE_BRG444 },
+        { "RGB444", ColMode::COLMODE_RBG444 },
+        { "BRG888", ColMode::COLMODE_BRG888 }
+    };
+
+    bool GetColorFormatForColorFormatString(LPCSTR paszColorString, ColMode& cmColorMode)
+    {
+        bool fFoundMatch = false;
+
+        for (const auto& [key, value] : rgColorNameToFormatMap)
+        {
+            if (_stricmp(paszColorString, key) == 0)
+            {
+                cmColorMode = value;
+                fFoundMatch = true;
+                break;
+            }
+        }
+
+        return fFoundMatch;
+    }
+
+    LPCSTR GetColorFormatStringForColorFormat(ColMode cmColorMode)
+    {
+        for (const auto& [value, key] : rgColorNameToFormatMap)
+        {
+            if (cmColorMode == key)
+            {
+                return value;
+            }
+        }
+
+        return nullptr;
+    }
+
+    std::map<LPCSTR, AlphaMode> rgAlphaNameToModeMap =
+    {
+        { "None", AlphaMode::GameDoesNotUseAlpha },
+        { "Fixed", AlphaMode::GameUsesFixedAlpha }
+        // We deliberately do not expose the Variable or Chaotic alpha types
+    };
+
+    bool GetAlphaModeForAlphaModeString(LPCSTR paszAlphaString, AlphaMode& amAlphaMode)
+    {
+        bool fFoundMatch = false;
+
+        for (const auto& [key, value] : rgAlphaNameToModeMap)
+        {
+            if (_stricmp(paszAlphaString, key) == 0)
+            {
+                amAlphaMode = value;
+                fFoundMatch = true;
+                break;
+            }
+        }
+
+        return fFoundMatch;
+    }
+
+    LPCSTR GetAlphaModeStringForAlphaMode(AlphaMode amAlphaMode)
+    {
+        for (const auto& [value, key] : rgAlphaNameToModeMap)
+        {
+            if (amAlphaMode == key)
+            {
+                return value;
+            }
+        }
+
+        return nullptr;
+    }
+
     ColMode DecodeColorFlag(UINT8 uPossibleColorFlag)
     {
         ColMode colorMode = ColMode::COLMODE_RGB444_BE;

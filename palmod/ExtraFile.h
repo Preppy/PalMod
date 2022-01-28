@@ -13,6 +13,10 @@ protected:
     LPCWSTR m_pszExtraFilename = nullptr;
     LPCWSTR m_pszDupedPaletteName = nullptr;
 
+    static constexpr LPCSTR m_kpszGameNameKey = ";GameName=";
+    static constexpr LPCSTR m_kpszColorFormatKey = ";ColorFormat=";
+    static constexpr LPCSTR m_kpszAlphaModeKey = ";AlphaMode=";
+
     static char m_paszGameNameOverride[MAX_PATH];
     static AlphaMode m_AlphaModeOverride;
     static ColMode m_ColorModeOverride;

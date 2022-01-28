@@ -4,7 +4,6 @@
 #include "RegProc.h"
 
 #include "ExtraFile.h"
-#include <algorithm>
 
 // Uncomment this to have this file help convert an Extra file to our header style
 //#define DUMP_EXTRAS_ON_LOAD
@@ -30,67 +29,21 @@ void CGameWithExtrasFile::SetGameNameOverride(LPCSTR paszAlphaString)
 
 void CGameWithExtrasFile::SetAlphaOverride(LPCSTR paszAlphaString)
 {
-    std::map<LPCSTR, AlphaMode> rgAlphaNameMap =
+    if (ColorSystem::GetAlphaModeForAlphaModeString(paszAlphaString, m_AlphaModeOverride))
     {
-        { "None", AlphaMode::GameDoesNotUseAlpha },
-        { "Fixed", AlphaMode::GameUsesFixedAlpha }
-    };
-
-    for (const auto& [key, value] : rgAlphaNameMap)
-    {
-        if (_stricmp(paszAlphaString, key) == 0)
-        {
-            CStringA astrMsg;
-            astrMsg.Format("\tCGameWithExtrasFile: Extras file is setting Alpha mode to %s\n", key);
-            OutputDebugStringA(astrMsg);
-            m_AlphaModeOverride = value;
-            break;
-        }
+        CStringA astrMsg;
+        astrMsg.Format("\tCGameWithExtrasFile: Extras file is setting Alpha mode to %s\n", paszAlphaString);
+        OutputDebugStringA(astrMsg);
     }
 }
 
 void CGameWithExtrasFile::SetColorFormatOverride(LPCSTR paszColorString)
 {
-    std::map<LPCSTR, ColMode> rgColorNameMap =
+    if (ColorSystem::GetColorFormatForColorFormatString(paszColorString, m_ColorModeOverride))
     {
-        { "BGR555LE", ColMode::COLMODE_BGR555_LE },             // BGR555 little endian (GBA)
-        { "RGB444BE", ColMode::COLMODE_RGB444_BE },             // RGB444 big endian (CPS1/2)
-        { "RGB444LE", ColMode::COLMODE_RGB444_LE },             // RGB444 little endian (SF 30th steam)
-        { "RGB555LE", ColMode::COLMODE_RGB555_LE },             // RGB555 little endian (CPS3)
-        { "RGB555BE", ColMode::COLMODE_RGB555_BE },             // RGB555 big endian 
-        { "RGB666", ColMode::COLMODE_RGB666_NEOGEO },           // RGB666 using the NeoGeo color table
-        { "RGB333", ColMode::COLMODE_RGB333 },                  // RGB333 for Sega Genesis/MegaDrive
-        { "RGBA8887", ColMode::COLMODE_RGBA8887 },              // 32bit color half alpha (guilty gear)
-        { "RGB555Sharp", ColMode::COLMODE_RGB555_SHARP },       // RGB555 using the sharp x68000 color table
-        { "RGBA8881", ColMode::COLMODE_RGBA8881 },              // 32bit color 1 bit alpha
-        { "RGBA8888", ColMode::COLMODE_RGBA8888 },              // 32bit color (uniclr. and modern computing)
-        { "RGB888", ColMode::COLMODE_RGB888 },                  // 24bit
-        { "BGR888", ColMode::COLMODE_BGR888 },                  // 24bit
-        { "RGBA8881_32", ColMode::COLMODE_RGBA8881_32STEPS },   // MBAACC: 32 bit color, except only 32 steps
-        { "GRB555LE", ColMode::COLMODE_GRB555_LE },             // GRB555 little endian
-        { "BGRA8888", ColMode::COLMODE_BGRA8888 },              // 32bit color (arcana blood)
-        { "BGR555BE", ColMode::COLMODE_BGR555_BE },             // BGR555 big endian: Motorola 68000 games
-        { "GRB888", ColMode::COLMODE_GRB888 },                  // 24bit
-        // This section added to enable user exploration in dev mode: not needed directly for any games yet
-        { "BGR333", ColMode::COLMODE_BGR333 },
-        { "RGB333", ColMode::COLMODE_RBG333 },
-        { "BGR444", ColMode::COLMODE_BGR444 },
-        { "BRG444", ColMode::COLMODE_BRG444 },
-        { "RGB444", ColMode::COLMODE_RBG444 },
-        { "BRG888", ColMode::COLMODE_BRG888 }
-    };
-
-    for (const auto& [key, value] : rgColorNameMap)
-    {
-        if (_stricmp(paszColorString, key) == 0)
-        {
-            CStringA astrMsg;
-            astrMsg.Format("\tCGameWithExtrasFile: Extras file is setting Color mode to %s\n", key);
-            OutputDebugStringA(astrMsg);
-
-            m_ColorModeOverride = value;
-            break;
-        }
+        CStringA astrMsg;
+        astrMsg.Format("\tCGameWithExtrasFile: Extras file is setting Color mode to %s\n", paszColorString);
+        OutputDebugStringA(astrMsg);
     }
 }
 
@@ -177,7 +130,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
             {
                 // This is raw file and deliberately char
                 char aszCurrLine[MAX_PATH]; // arbitrary line length: in practice it should be MAX_DESCRIPTION_LENGTH + 1
-                char aszCurrDesc[MAX_DESCRIPTION_LENGTH];
+                char aszCurrDesc[MAX_DESCRIPTION_LENGTH] = "";
                 char* aszFinalLine = nullptr;
                 int nCurrStart = 0;
                 int nCurrEnd = 0;
@@ -194,7 +147,13 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                 while (!extraFile.eof())
                 {
-                    extraFile.getline(aszCurrLine, sizeof(aszCurrLine));
+                    std::string strCurrLine;
+                    // Use a std::string here to ensure we get the full length of the string, even 
+                    // if it's pathologically long,
+                    std::getline(extraFile, strCurrLine);
+
+                    // Truncate to reasonability
+                    strncpy_s(aszCurrLine, strCurrLine.c_str(), ARRAYSIZE(aszCurrLine) - 1);
 
                     aszFinalLine = aszCurrLine;
 
@@ -387,9 +346,9 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                             std::map<LPCSTR, overrideFunction> rgOverrideMap =
                             {
-                                { ";GameName=", SetGameNameOverride },
-                                { ";ColorFormat=", SetColorFormatOverride },
-                                { ";AlphaMode=", SetAlphaOverride },
+                                { m_kpszGameNameKey, SetGameNameOverride },
+                                { m_kpszColorFormatKey, SetColorFormatOverride },
+                                { m_kpszAlphaModeKey, SetAlphaOverride },
                             };
 
                             for (const auto& [key, override] : rgOverrideMap)
@@ -400,6 +359,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                 {
                                     size_t nNameLength = strlen(aszFinalLine + nKeyLength);
                                     override(aszFinalLine + nKeyLength);
+                                    break;
                                 }
                             }
                         }
@@ -454,11 +414,8 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(size_t nUnitId, size_t nPalId, U
     // If we're in Extras territory, check it against itself.
     size_t nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
 
-    // skip the internal stub unit for Unknown Game mode: it's a dummy unit
-    const size_t nStartingUnit = m_nTotalInternalUnits;
-
     //Go through each character
-    for (size_t nUnitCtr = nStartingUnit; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
+    for (size_t nUnitCtr = 0; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
     {
         size_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
         for (size_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
@@ -766,6 +723,32 @@ void CGameWithExtrasFile::OpenExtraFile()
                 strSampleText += ";When you are done making changes to the Extras file, reload the game to see those palettes.\r\n\r\n";
 
                 ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
+
+                // Add in the basic game information
+
+                if (GetGameName())
+                {
+                    strSampleText.Format("%s%S\r\n", m_kpszGameNameKey, GetGameName());
+                    ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
+                }
+
+                LPCSTR paszColorFormat = ColorSystem::GetColorFormatStringForColorFormat(GetColorMode());
+                if (paszColorFormat)
+                {
+                    strSampleText.Format("%s%s\r\n", m_kpszColorFormatKey, paszColorFormat);
+                    ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
+                }
+
+                LPCSTR paszAlphaMode = ColorSystem::GetAlphaModeStringForAlphaMode(GetAlphaMode());
+                if (paszAlphaMode)
+                {
+                    strSampleText.Format("%s%s\r\n", m_kpszAlphaModeKey, paszAlphaMode);
+                    ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
+                }
+
+                strSampleText = "\r\n";
+                ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
+
                 ExtraFile.Close();
             }
         }

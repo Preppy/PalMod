@@ -52,6 +52,7 @@
 #include <array>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 template<typename T> void safe_delete(T*& a) {
     delete a;
