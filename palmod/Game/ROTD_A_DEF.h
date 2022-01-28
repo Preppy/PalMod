@@ -77,7 +77,9 @@ const sGame_PaletteDataset ROTD_A_BILLY_D[] =
 
 const sGame_PaletteDataset ROTD_A_BILLY_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x0808a6, 0x0808e6, indexRotDSprites_Billy, 0x80 },
+    { L"Select Portrait", 0x808a6, 0x808e6, indexRotDSprites_Billy, 0x80 },
+    { L"VS Portrait", 0x85e5c, 0x85e9c },
+    { L"Win Portrait", 0x8669e, 0x866de },
 };
 
 const sGame_PaletteDataset ROTD_A_JIMMY_A[] =
@@ -134,7 +136,9 @@ const sGame_PaletteDataset ROTD_A_JIMMY_D[] =
 
 const sGame_PaletteDataset ROTD_A_JIMMY_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x080d88, 0x080dc8, indexRotDSprites_Jimmy, 0x80 },
+    { L"Select Portrait", 0x80d88, 0x80dc8, indexRotDSprites_Jimmy, 0x80 },
+    { L"VS Portrait", 0x85d9c, 0x85ddc },
+    { L"Win Portrait", 0x865de, 0x8661e },
 };
 
 const sGame_PaletteDataset ROTD_A_ANNIE_A[] =
@@ -187,7 +191,9 @@ const sGame_PaletteDataset ROTD_A_ANNIE_D[] =
 
 const sGame_PaletteDataset ROTD_A_ANNIE_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x0811ea, 0x08122a, indexRotDSprites_Annie, 0x80 },
+    { L"Select Portrait", 0x811ea, 0x8122a, indexRotDSprites_Annie, 0x80 },
+    { L"VS Portrait", 0x85e9c, 0x85edc },
+    { L"Win Portrait", 0x866de, 0x8671e },
 };
 
 const sGame_PaletteDataset ROTD_A_ELIAS_A[] =
@@ -252,7 +258,9 @@ const sGame_PaletteDataset ROTD_A_ELIAS_D[] =
 
 const sGame_PaletteDataset ROTD_A_ELIAS_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x0818cc, 0x08190c, indexRotDSprites_Elias, 0x80 },
+    { L"Select Portrait", 0x818cc, 0x8190c, indexRotDSprites_Elias, 0x80 },
+    { L"VS Portrait", 0x85ddc, 0x85e1c },
+    { L"Win Portrait", 0x8661e, 0x8665e },
 };
 
 const sGame_PaletteDataset ROTD_A_ALICE_A[] =
@@ -309,7 +317,9 @@ const sGame_PaletteDataset ROTD_A_ALICE_D[] =
 
 const sGame_PaletteDataset ROTD_A_ALICE_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x081dae, 0x081dee, indexRotDSprites_Alice, 0x80 },
+    { L"Select Portrait", 0x81dae, 0x81dee, indexRotDSprites_Alice, 0x80 },
+    { L"VS Portrait", 0x85edc, 0x85f1c },
+    { L"Win Portrait", 0x8671e, 0x8677e },
 };
 
 const sGame_PaletteDataset ROTD_A_PEPE_A[] =
@@ -362,7 +372,9 @@ const sGame_PaletteDataset ROTD_A_PEPE_D[] =
 
 const sGame_PaletteDataset ROTD_A_PEPE_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x082290, 0x0822d0, indexRotDSprites_Pepe, 0x80 },
+    { L"Select Portrait", 0x82290, 0x822d0, indexRotDSprites_Pepe, 0x80 },
+    { L"VS Portrait", 0x85c5c, 0x85c9c },
+    { L"Win Portrait", 0x864be, 0x8651e },
 };
 
 const sGame_PaletteDataset ROTD_A_SONIA_A[] =
@@ -415,7 +427,9 @@ const sGame_PaletteDataset ROTD_A_SONIA_D[] =
 
 const sGame_PaletteDataset ROTD_A_SONIA_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x0826f2, 0x082732, indexRotDSprites_Sonia, 0x80 },
+    { L"Select Portrait", 0x826f2, 0x82732, indexRotDSprites_Sonia, 0x80 },
+    { L"VS Portrait", 0x85b9c, 0x85bdc },
+    { L"Win Portrait", 0x8635e, 0x863be },
 };
 
 const sGame_PaletteDataset ROTD_A_RADEL_A[] =
@@ -464,7 +478,9 @@ const sGame_PaletteDataset ROTD_A_RADEL_D[] =
 
 const sGame_PaletteDataset ROTD_A_RADEL_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x082ad4, 0x082b14, indexRotDSprites_Radel, 0x80 },
+    { L"Select Portrait", 0x82ad4, 0x82b14, indexRotDSprites_Radel, 0x80 },
+    { L"VS Portrait", 0x85bdc, 0x85c1c },
+    { L"Win Portrait", 0x8641e, 0x8645e },
 };
 
 const sGame_PaletteDataset ROTD_A_LYNN_A[] =
@@ -521,7 +537,9 @@ const sGame_PaletteDataset ROTD_A_LYNN_D[] =
 
 const sGame_PaletteDataset ROTD_A_LYNN_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x083036, 0x083076, indexRotDSprites_Lynn, 0x80 },
+    { L"Select Portrait", 0x83036, 0x83076, indexRotDSprites_Lynn, 0x80 },
+    { L"VS Portrait", 0x85cdc, 0x85d1c },
+    { L"Win Portrait", 0x863be, 0x8641e },
 };
 
 const sGame_PaletteDataset ROTD_A_ABUBO_A[] =
@@ -574,7 +592,9 @@ const sGame_PaletteDataset ROTD_A_ABUBO_D[] =
 
 const sGame_PaletteDataset ROTD_A_ABUBO_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x083498, 0x0834d8, indexRotDSprites_Abubo, 0x80 },
+    { L"Select Portrait", 0x83498, 0x834d8, indexRotDSprites_Abubo, 0x80 },
+    { L"VS Portrait", 0x85f1c, 0x85f5c },
+    { L"Win Portrait", 0x8677e, 0x867be },
 };
 
 const sGame_PaletteDataset ROTD_A_PUPA_A[] =
@@ -623,7 +643,9 @@ const sGame_PaletteDataset ROTD_A_PUPA_D[] =
 
 const sGame_PaletteDataset ROTD_A_PUPA_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x0838fa, 0x08393a, indexRotDSprites_Pupa, 0x80 },
+    { L"Select Portrait", 0x838fa, 0x8393a, indexRotDSprites_Pupa, 0x80 },
+    { L"VS Portrait", 0x85c1c, 0x85c5c },
+    { L"Win Portrait", 0x8645e, 0x864be },
 };
 
 const sGame_PaletteDataset ROTD_A_KANG_A[] =
@@ -672,7 +694,9 @@ const sGame_PaletteDataset ROTD_A_KANG_D[] =
 
 const sGame_PaletteDataset ROTD_A_KANG_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x083cdc, 0x083d1c, indexRotDSprites_JaeMo, 0x80 },
+    { L"Select Portrait", 0x83cdc, 0x83d1c, indexRotDSprites_JaeMo, 0x80 },
+    { L"VS Portrait", 0x85d1c, 0x85d5c },
+    { L"Win Portrait", 0x8655e, 0x8659e },
 };
 
 const sGame_PaletteDataset ROTD_A_CASSANDRA_A[] =
@@ -729,7 +753,9 @@ const sGame_PaletteDataset ROTD_A_CASSANDRA_D[] =
 
 const sGame_PaletteDataset ROTD_A_CASSANDRA_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x0841be, 0x0841fe, indexRotDSprites_Cassandra, 0x80 },
+    { L"Select Portrait", 0x841be, 0x841fe, indexRotDSprites_Cassandra, 0x80 },
+    { L"VS Portrait", 0x85e1c, 0x85e5c },
+    { L"Win Portrait", 0x8665e, 0x8669e },
 };
 
 const sGame_PaletteDataset ROTD_A_ONI_A[] =
@@ -782,7 +808,9 @@ const sGame_PaletteDataset ROTD_A_ONI_D[] =
 
 const sGame_PaletteDataset ROTD_A_ONI_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x0846a0, 0x0846e0, indexRotDSprites_Oni, 0x80 },
+    { L"Select Portrait", 0x846a0, 0x846e0, indexRotDSprites_Oni, 0x80 },
+    { L"VS Portrait", 0x85c9c, 0x85cdc },
+    { L"Win Portrait", 0x8651e, 0x8655e },
 };
 
 const sGame_PaletteDataset ROTD_A_JONES_A[] =
@@ -831,7 +859,9 @@ const sGame_PaletteDataset ROTD_A_JONES_D[] =
 
 const sGame_PaletteDataset ROTD_A_JONES_PORTRAITS[] =
 {
-    { L"Shared Portrait", 0x084a82, 0x084ac2, indexRotDSprites_Johnny, 0x80 },
+    { L"Select Portrait", 0x84a82, 0x84ac2, indexRotDSprites_Johnny, 0x80 },
+    { L"VS Portrait", 0x85d5c, 0x85d9c },
+    { L"Win Portrait", 0x8659e, 0x865de },
 };
 
 const sGame_PaletteDataset ROTD_A_JOHANN_PALETTES[] =
@@ -846,6 +876,9 @@ const sGame_PaletteDataset ROTD_A_JOHANN_PALETTES[] =
     { L"EX/Super Trail A", 0x084bc4, 0x084be4, indexRotDSprites_Johann, 0x00 },
     { L"Guard Cancel Trail A", 0x084be4, 0x084c04, indexRotDSprites_Johann, 0x00 },
     { L"Normal Hud A", 0x084b84, 0x084ba4 },
+
+    { L"Johann VS Portrait", 0x8543c, 0x8547c },
+    { L"Johann Win Portrait", 0x860be, 0x860fe },
 };
 
 const sGame_PaletteDataset ROTD_A_BONUS_CONTINUE_PALETTES[] =
@@ -865,6 +898,15 @@ const sGame_PaletteDataset ROTD_A_BONUS_CONTINUE_PALETTES[] =
     { L"Sonia Continue Palette",        0x082332, 0x082352, indexRotDSprites_Sonia, 0x00 },
     { L"Jimmy Continue Palette",        0x080968, 0x080988, indexRotDSprites_Jimmy, 0x00 },
     { L"Abubo Continue Palette",        0x0830d8, 0x0830f8, indexRotDSprites_Abubo, 0x00 },
+};
+
+const sGame_PaletteDataset ROTD_A_BONUS_ICON_PALETTES[] =
+{
+    { L"Template Portraits", 0x8523a, 0x8543a },
+    { L"Select Icons", 0x84df8, 0x84fb8 },
+    { L"Abubo Select Icon", 0x84fb8, 0x85018 },
+    { L"Faded Select Icons", 0x85018, 0x85218 },
+    { L"Ranking Icons", 0x869a0, 0x86b80 },
 };
 
 const sDescTreeNode ROTD_A_BILLY_COLLECTION[] =
@@ -1010,7 +1052,9 @@ const sDescTreeNode ROTD_A_JOHANN_COLLECTION[] =
 const sDescTreeNode ROTD_A_BONUS_COLLECTION[] =
 {
     { L"Continue Palettes", DESC_NODETYPE_TREE, (void*)ROTD_A_BONUS_CONTINUE_PALETTES, ARRAYSIZE(ROTD_A_BONUS_CONTINUE_PALETTES) },
+    { L"Icons", DESC_NODETYPE_TREE, (void*)ROTD_A_BONUS_ICON_PALETTES, ARRAYSIZE(ROTD_A_BONUS_ICON_PALETTES) },
 };
+
 const sDescTreeNode ROTD_A_UNITS[] =
 {
     { L"William \"Billy\" Lewis", DESC_NODETYPE_TREE, (void*)ROTD_A_BILLY_COLLECTION, ARRAYSIZE(ROTD_A_BILLY_COLLECTION) },

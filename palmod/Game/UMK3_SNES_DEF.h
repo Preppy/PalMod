@@ -331,6 +331,7 @@ const sGame_PaletteDataset UMK3_SNES_BONUS_PALETTES[] =
     { L"Normal Blood", 0x3FB970, 0x3FB990, indexUMK3Sprites_Bonus, 0x00 },
     { L"Robot Blood", 0x3FB990, 0x3FB9B0, indexUMK3Sprites_Bonus, 0x00 },
     { L"Reptile's Blood", 0x3FB9B0, 0x3FB9D0, indexUMK3Sprites_Bonus, 0x00 },
+    { L"Frozen Ninjas", 0x3EB0CF, 0x3EB0EF },
 
     { L"Select Coin Icon", 0x3ED76D, 0x3ED78D },
 };

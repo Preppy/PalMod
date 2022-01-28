@@ -721,6 +721,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Red Earth", 0x322ca0, 0x322d80 },
     { L"Intro - Leo closeup", 0x3226ae, 0x32272e },
     { L"Intro - Emerald", 0x321320, 0x321380, indexRedEarthSprites_Bonus, 0x05 },
+    { L"Intro - Emerald BG0", 0x3212a0, 0x321320, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG1", 0x321720, 0x3217a0, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG2", 0x3217a0, 0x321820, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG3", 0x321820, 0x3218a0, indexRedEarthSprites_Bonus, 0x19 },

@@ -130,16 +130,6 @@ const sGame_PaletteDataset FatalFuryS_A_Cheng_PALETTES_P2[] =
     { L"Cheng Sinzan Portrait P2", 0x41940, 0x41960, indexFFSSprites_Cheng, 0x40 },
 };
 
-const sGame_PaletteDataset FatalFuryS_A_BONUS_PALETTES_CSI[] =
-{
-    { L"Ryo Select Icon", 0x40ca0, 0x40cc0, indexFFSSprites_Bonus, 0x11 },
-};
-
-const sGame_PaletteDataset FatalFuryS_A_BONUS_PALETTES_TUTORIAL[] =
-{
-    { L"Tutorial Things Flash", 0x41cc0, 0x41d00, indexFFSSprites_Bonus, 0x12 },
-};
-
 const sDescTreeNode FatalFuryS_A_Cheng_COLLECTION[] =
 {
    { L"P1", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Cheng_PALETTES_P1, ARRAYSIZE(FatalFuryS_A_Cheng_PALETTES_P1) },
@@ -411,14 +401,16 @@ const sGame_PaletteDataset FatalFuryS_A_BONUS_SELECTSCREEN_PALETTES[] =
     { L"Select Cursor", 0x40dc0, 0x40de0, indexFFSSprites_Bonus, 0x02 },
     { L"Select Icons", 0x40e00, 0x40fe0, indexFFSSprites_Bonus, 0x03 },
     { L"Defeated Icons", 0x41e00, 0x41fe0, indexFFSSprites_Bonus, 0x03 },
+    { L"Ryo Select Icon", 0x40ca0, 0x40cc0, indexFFSSprites_Bonus, 0x11 },
     { L"Character Names P1", 0x41a40, 0x41a60, indexFFSSprites_Bonus, 0x00 },
     { L"Faded Character Names P1", 0x41a60, 0x41a80, indexFFSSprites_Bonus, 0x00 },
     { L"Character Names P2 ", 0x41420, 0x41440, indexFFSSprites_Bonus, 0x00 },
     { L"Faded Character Names P2", 0x41820, 0x41840, indexFFSSprites_Bonus, 0x00 },
     { L"VS Map", 0x40c20, 0x40c60, indexFFSSprites_Bonus, 0x15 },
     { L"VS Logo", 0x40860, 0x40880, indexFFSSprites_Bonus, 0x14 },
+    { L"Tutorial Things", 0x40cc0, 0x40d00, indexFFSSprites_Bonus, 0x12 },
+    { L"Tutorial Things Flash", 0x41cc0, 0x41d00, indexFFSSprites_Bonus, 0x12 },
     { L"Tutorial/Win Background", 0x40880, 0x408a0, indexFFSSprites_Bonus, 0x13 },
-    { L"Tutorial Things", 0x40cc0, 0x40d00 },
 };
 
 const sDescTreeNode FatalFuryS_A_BONUS_COLLECTION[] =
@@ -428,8 +420,6 @@ const sDescTreeNode FatalFuryS_A_BONUS_COLLECTION[] =
     { L"In-game Extras", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_INGAME_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_INGAME_PALETTES) },
     { L"HUD", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_HUD_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_HUD_PALETTES) },
     { L"Select Screen", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_SELECTSCREEN_PALETTES, ARRAYSIZE(FatalFuryS_A_BONUS_SELECTSCREEN_PALETTES) },
-    { L"Select Icons", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_PALETTES_CSI, ARRAYSIZE(FatalFuryS_A_BONUS_PALETTES_CSI) },
-    { L"Tutorial", DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_PALETTES_TUTORIAL, ARRAYSIZE(FatalFuryS_A_BONUS_PALETTES_TUTORIAL) },
 };
 
 const sDescTreeNode FatalFuryS_A_UNITS[] =

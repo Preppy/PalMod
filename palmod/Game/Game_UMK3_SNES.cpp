@@ -24,7 +24,7 @@ CGame_UMK3_SNES::CGame_UMK3_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = UMK3_SNES_NUMUNIT;
     m_nExtraUnit = UMK3_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 69;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 70;
     m_pszExtraFilename = EXTRA_FILENAME_UMK3_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForUMK3;
 
