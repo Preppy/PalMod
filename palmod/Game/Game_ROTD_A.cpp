@@ -41,11 +41,11 @@ CGame_ROTD_A::CGame_ROTD_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = ROTD_A_NUMUNIT;
     m_nExtraUnit = ROTD_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 573;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 634;
     m_pszExtraFilename = EXTRA_FILENAME_ROTD_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForROTD;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x80406;
+    m_nLowestKnownPaletteRomLocation = 0x80102;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 

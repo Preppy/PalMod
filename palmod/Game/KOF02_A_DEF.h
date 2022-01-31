@@ -4169,14 +4169,18 @@ const sDescTreeNode KOF02_A_OCHRIS_COLLECTION[] =
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT) },
 };
 
-const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
+const sGame_PaletteDataset KOF02_A_BONUS_ENDING_PALETTES[] =
 {
     { L"Rugal (Ending)", 0xa3b02, 0xa3b22, indexKOF02UMSprites_OmegaRugal },
     { L"Aya and Hermione", 0xa3b22, 0xa3b42 },
     { L"Ending Character Extras", 0xa3b42, 0xa3b62 },
+};
+
+const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
+{
     { L"Character Select Icons 1/3", 0xb8f62, 0xb9162 },
     { L"Character Select Icons 2/3", 0xb9162, 0xb9362 },
-    { L"Character Select Icons 2/3", 0xb9362, 0xb9462 },
+    { L"Character Select Icons 3/3", 0xb9362, 0xb9462 },
     //^ These follow the typical character order for 2002, up to Angel, where it ends.  Each is 0x20 in length.  The extra black row is unused.
     { L"Character Select Background 1P", 0xb4d62, 0xb4d82 },
     { L"Character Select Background 2P", 0xb4d82, 0xb4da2 },
@@ -4206,7 +4210,8 @@ const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =
 {
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_EFFECTS_PALETTES) },
-    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_BONUS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_BONUS_PALETTES) },
+    { L"Ending", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_ENDING_PALETTES, ARRAYSIZE(KOF02_A_BONUS_ENDING_PALETTES) },
+    { L"Character Select Stuff", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_BONUS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_BONUS_PALETTES) },
 };
 
 const sDescTreeNode KOF02_A_UNITS[] =

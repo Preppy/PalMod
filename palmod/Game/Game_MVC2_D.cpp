@@ -595,7 +595,7 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, size_t nUnitId)
             LoadedFile->Seek(0x08, CFile::begin);
 
             // These two location values represent the start of the palette data and the end of the palette data for the original PALs
-            // For the 16 color variant, the second number represents the start of the palette data
+            // For the 16 color variant, just ignore the second pointer: the palette data goes until the end of the file.
             LoadedFile->Read(&nStart, 0x04);
             LoadedFile->Read(&nEnd, 0x04);
 
@@ -610,7 +610,7 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, size_t nUnitId)
             }
             else
             {
-                nDataSz = (int)(LoadedFile->GetLength() - nEnd);
+                nDataSz = (int)(LoadedFile->GetLength() - nStart);
                 nExpectedSize = MVC2_D_PALDATASIZE_16COLORS[nUnitId];
             }
             
@@ -659,7 +659,7 @@ BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, size_t nUnitId)
             }
             else
             {
-                nDataSz = (int)(SaveFile->GetLength() - nEnd);
+                nDataSz = (int)(SaveFile->GetLength() - nStart);
             }
 
             if (nStart > SaveFile->GetLength())
