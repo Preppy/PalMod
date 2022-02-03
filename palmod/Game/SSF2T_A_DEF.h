@@ -1757,6 +1757,51 @@ const sGame_PaletteDataset SSF2T_A_CAMMY_STAGE_NODE_4[] =
     { L"Bird Castle Entrance", 0x5717a, 0x5723a, indexSF2Sprites_Stages, 0x13 },
 };
 
+const sGame_PaletteDataset SSF2T_A_DHALSIM_STAGE_NODE_08[] =
+{
+    { L"BG wall painting", 0x69C00 - 0x2, 0x69C00 + 0x20 - 0x2 },
+    { L"BG curtains + lamp", 0x69C20 - 0x2, 0x69C20 + 0x20 - 0x2 },
+    { L"BG columns", 0x69C40 - 0x2, 0x69C40 + 0x20 - 0x2 },
+    { L"BG elephant (static part)", 0x69C60 - 0x2, 0x69C60 + 0x20 - 0x2 },
+    { L"BG topmost curtain + column piece", 0x69C80 - 0x2, 0x69C80 + 0x20 - 0x2 },
+    { L"BG stairs", 0x69CA0 - 0x2, 0x69CA0 + 0x20 - 0x2 },
+    { L"parallaxed ground, stones", 0x69CC0 - 0x2, 0x69CC0 + 0x20 - 0x2 },
+    { L"BG curtains + BG elephant ivory fangs (static part)", 0x69CE0 - 0x2, 0x69CE0 + 0x20 - 0x2 },
+    { L"BG purpley grid", 0x69D00 - 0x2, 0x69D00 + 0x20 - 0x2 },
+    { L"BG elephant feet", 0x69D20 - 0x2, 0x69D20 + 0x20 - 0x2 },
+    { L"?", 0x69D40 - 0x2, 0x69D40 + 0x20 - 0x2 },
+    { L"BG wall, after the purple grid", 0x69D60 - 0x2, 0x69D60 + 0x20 - 0x2 },
+    { L"BG elephant head + curtain", 0x69D80 - 0x2, 0x69D80 + 0x20 - 0x2 },
+    { L"BG elephant head + curtain", 0x69DA0 - 0x2, 0x69DA0 + 0x20 - 0x2 },
+    { L"BG elephant head + curtain", 0x69DC0 - 0x2, 0x69DC0 + 0x20 - 0x2 },
+    { L"BG elephant head + curtain", 0x69DE0 - 0x2, 0x69DE0 + 0x20 - 0x2 },
+    { L"BG elephant head + curtain", 0x69E00 - 0x2, 0x69E00 + 0x20 - 0x2 },
+    { L"BG elephant trunk + curtain", 0x69E20 - 0x2, 0x69E20 + 0x20 - 0x2 },
+    { L"BG elephant back + purpley grid", 0x69E40 - 0x2, 0x69E40 + 0x20 - 0x2 },
+    { L"BG elephant back + purpley grid", 0x69E60 - 0x2, 0x69E60 + 0x20 - 0x2 },
+    { L"BG elephant back + purpley grid", 0x69E80 - 0x2, 0x69E80 + 0x20 - 0x2 },
+    { L"BG wall, after the purple grid, but on the footer", 0x69EA0 - 0x2, 0x69EA0 + 0x20 - 0x2 },
+    { L"parallaxed ground, carpet", 0x69EC0 - 0x2, 0x69EC0 + 0x20 - 0x2 },
+    { L"parallaxed ground, border between carpet and stones", 0x69EE0 - 0x2, 0x69EE0 + 0x20 - 0x2 },
+    { L"parallaxed ground, border between carpet and stones, topmost part", 0x69F00 - 0x2, 0x69F00 + 0x20 - 0x2 },
+    { L"BG wall painting, frame/border", 0x69F20 - 0x2, 0x69F20 + 0x20 - 0x2 },
+    { L"BG wall painting, topmost part", 0x69F40 - 0x2, 0x69F40 + 0x20 - 0x2 },
+    { L"BG curtains above the wall painting", 0x69F60 - 0x2, 0x69F60 + 0x20 - 0x2 },
+    { L"BG wall painting, frame/border, topmost part", 0x69F80 - 0x2, 0x69F80 + 0x20 - 0x2 },
+    { L"BG elephant trunk, when it's raised (in front of column)", 0x69FA0 - 0x2, 0x69FA0 + 0x20 - 0x2 },
+    { L"BG elephant trunk, when it's raised (in front of curtain)", 0x69FC0 - 0x2, 0x69FC0 + 0x20 - 0x2 },
+    { L"BG elephant trunk, when it's raised (in front of foremost column)", 0x69FE0 - 0x2, 0x69FE0 + 0x20 - 0x2 },
+
+    { L"Mid layer elephant", 0x72000 - 0x2, 0x72000 + 0x20 - 0x2 },
+    { L"Mid layer elephant, legs/shadow", 0x72020 - 0x2, 0x72020 + 0x20 - 0x2 },
+
+    //{ L"left vase", 0xD5DFC, 0xD5DFC + 0x20 },
+    //{ L"right vase", 0xD5E1C, 0xD5E1C + 0x20 },
+
+    //{ L"\"front layer\" elephant (OBS  there's a duplicate @2E1C00, but apparently it's unused)", 0xD5E3C, 0xD5E3C + 0x20 },
+    //{ L"\"front layer\" elephant, legs/shadow", 0x2E1C20, 0x2E1C20 + 0x20 },
+};
+
 const sGame_PaletteDataset SSF2T_A_CAMMY_STAGE_NODE[] =
 {
     { L"Cammy Town BG", 0x73400 - 0x02, 0x73600 - 0x02, indexSF2Sprites_Stages, 0x0e, &pairFullyLinkedNode },
@@ -3010,9 +3055,10 @@ const sDescTreeNode SSF2T_A_08_BONUS_COLLECTION[] =
     { L"Palettes",                  DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_NODE,   ARRAYSIZE(SSF2T_A_08_BONUS_NODE) },
 };
 
-const sDescTreeNode SSF2T_A_STAGES_COLLECTION[] =
+const sDescTreeNode SSF2T_A_08_STAGES_COLLECTION[] =
 {
     { L"Cammy Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE,    ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE) },
+    { L"Dhalsim's Stage", DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_STAGE_NODE_08,  ARRAYSIZE(SSF2T_A_DHALSIM_STAGE_NODE_08) },
     { L"Ryu Stage",     DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE,      ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE) },
     { L"Sagat Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE,    ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE) },
     { L"Balrog's Casino Stage (08 parts)",   DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BALROG_STAGE_NODE,    ARRAYSIZE(SSF2T_A_08_BALROG_STAGE_NODE) },
@@ -3065,14 +3111,14 @@ const sDescTreeNode SSF2T_A_UNITS_4A[SSF2T_A_NUM_IND_4A] =
     { L"Zangief",     DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_COLLECTION,    ARRAYSIZE(SSF2T_A_ZANGIEF_COLLECTION) },
     { L"Stages",      DESC_NODETYPE_TREE, (void*)SSF2T_A_4A_STAGES_COLLECTION,    ARRAYSIZE(SSF2T_A_4A_STAGES_COLLECTION) },
     // We special-case handling this, so use a namekey
-    { k_stNameKey_Bonus,    DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_COLLECTION,      ARRAYSIZE(SSF2T_A_04_BONUS_COLLECTION) },
+    { k_stNameKey_Bonus,    DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_COLLECTION,     ARRAYSIZE(SSF2T_A_04_BONUS_COLLECTION) },
 };
 
 const sDescTreeNode SSF2T_A_UNITS_8[] =
 {
-    { L"Stages",            DESC_NODETYPE_TREE, (void*)SSF2T_A_STAGES_COLLECTION, ARRAYSIZE(SSF2T_A_STAGES_COLLECTION) },
+    { L"Stages",            DESC_NODETYPE_TREE, (void*)SSF2T_A_08_STAGES_COLLECTION,    ARRAYSIZE(SSF2T_A_08_STAGES_COLLECTION) },
     // We special-case handling this, so use a namekey
-    { k_stNameKey_Bonus,    DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_COLLECTION,      ARRAYSIZE(SSF2T_A_08_BONUS_COLLECTION) },
+    { k_stNameKey_Bonus,    DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_COLLECTION,     ARRAYSIZE(SSF2T_A_08_BONUS_COLLECTION) },
 };
 
 constexpr auto SSF2T_A_NUM_IND_8 = ARRAYSIZE(SSF2T_A_UNITS_8);

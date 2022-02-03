@@ -515,16 +515,19 @@ sFileRule CGame_MVC2_D::GetRule(size_t nRuleId)
 {
     sFileRule NewFileRule;
 
-    nRuleId = (nRuleId & RULE_COUNTER_MASK) == RULE_COUNTER_MASK ? (nRuleId & RULE_COUNTER_DEMASK) : MVC2_D_UNITSORT[nRuleId];
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"PL%02X_DAT.BIN", nRuleId);
+    if (nRuleId < MVC2_D_NUMUNIT_WITH_TEAMVIEW)
+    {
+        nRuleId = (nRuleId & RULE_COUNTER_MASK) == RULE_COUNTER_MASK ? (nRuleId & RULE_COUNTER_DEMASK) : MVC2_D_UNITSORT[nRuleId];
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"PL%02X_DAT.BIN", nRuleId);
 
-    NewFileRule.uUnitId = nRuleId;
-    NewFileRule.uVerifyVar = MVC2_D_FILESIZES_6COLORS[nRuleId];
+        NewFileRule.uUnitId = nRuleId;
+        NewFileRule.uVerifyVar = MVC2_D_FILESIZES_6COLORS[nRuleId];
 
-    // Allow for the 16 color variant
-    NewFileRule.fHasAltName = true;
-    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, NewFileRule.szFileName);
-    NewFileRule.uAltVerifyVar = MVC2_D_FILESIZES_16COLORS[nRuleId];
+        // Allow for the 16 color variant
+        NewFileRule.fHasAltName = true;
+        _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, NewFileRule.szFileName);
+        NewFileRule.uAltVerifyVar = MVC2_D_FILESIZES_16COLORS[nRuleId];
+    }
 
     return NewFileRule;
 }

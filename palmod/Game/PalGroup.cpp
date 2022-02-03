@@ -44,22 +44,24 @@ void CPalGroup::FlushPalAll()
 
 BOOL CPalGroup::FlushPal(size_t nIndex)
 {
-    if (nIndex > MAX_PALETTES_DISPLAYABLE)
+    if (nIndex < MAX_PALETTES_DISPLAYABLE)
+    {
+        safe_delete_array(rgPalettes[nIndex].pPal);
+        safe_delete_array(rgPalettes[nIndex].pBasePal);
+
+        for (size_t i = 0; i < rgPalettes[nIndex].uSepAmt; i++)
+        {
+            safe_delete(rgPalettes[nIndex].SepList[i]);
+        }
+
+        memset(&rgPalettes[nIndex], NULL, sizeof(sPalDef));
+
+        return TRUE;
+    }
+    else
     {
         return FALSE;
     }
-
-    safe_delete_array(rgPalettes[nIndex].pPal);
-    safe_delete_array(rgPalettes[nIndex].pBasePal);
-
-    for (size_t i = 0; i < rgPalettes[nIndex].uSepAmt; i++)
-    {
-        safe_delete(rgPalettes[nIndex].SepList[i]);
-    }
-
-    memset(&rgPalettes[nIndex], NULL, sizeof(sPalDef));
-
-    return TRUE;
 }
 
 BOOL CPalGroup::AddSep(size_t nIndex, LPCWSTR szDesc, size_t nStart, size_t nAmt)

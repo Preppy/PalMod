@@ -2967,7 +2967,7 @@ const sGame_PaletteDataset KOF02_A_K9999_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_C[] =
 {
-    { L"K9999 C", 0x009b762, 0x009b782, indexKOF02Sprites_K9999 },
+    { L"K9999 C", 0x009b762, 0x009b782, indexKOF01Sprites_K9999 },
     { L"C - SDM Shield", 0x009b782, 0x009b7a2, indexKOF02UMSprites_K9999, 0x10 },
     { L"C - MAX2 and Win", 0x009b7a2, 0x009b7c2, indexKOF02UMSprites_K9999, 0x09 },
     { L"C - Electric Shock Effect", 0x009b7c2, 0x009b7e2, indexKOF01Sprites_K9999, 0x00 },

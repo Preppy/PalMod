@@ -665,6 +665,7 @@ BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesLis
                 }
                 else
                 {
+                    GetHost()->GetPalModDlg()->SetStatusText(L"Checking file...");
                     DWORD dwAttribs = GetFileAttributes(szPath);
 
                     if (INVALID_FILE_ATTRIBUTES != dwAttribs)

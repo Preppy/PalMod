@@ -19,20 +19,20 @@ CImgDisp::CImgDisp()
 
 CImgDisp::~CImgDisp()
 {
-    BGBitmap.DeleteObject();
-    BGBrush.DeleteObject();
+    m_BGBitmap.DeleteObject();
+    m_BGBrush.DeleteObject();
 
     FlushImages();
 
-    safe_delete(MainDC);
-    safe_delete(ImageDC);
+    safe_delete(m_MainDC);
+    safe_delete(m_ImageDC);
 
     for (int iPos = 0; iPos < MAX_IMAGES_DISPLAYABLE; iPos++)
     {
         safe_delete_array(m_ppSpriteOverrideTexture[iPos]);
     }
 
-    DeleteObject(hBmp);
+    DeleteObject(m_hBmp);
 }
 
 BOOL CImgDisp::RegisterWindowClass()
@@ -77,28 +77,28 @@ void CImgDisp::InitImgBuffer()
 {
     for (int i = 0; i < MAX_IMAGES_DISPLAYABLE; i++)
     {
-        pImgBuffer[i] = NULL;
+        m_pImgBuffer[i] = NULL;
     }
 
-    rImgRct.SetRectEmpty();
+    m_rImgRct.SetRectEmpty();
 }
 
 void CImgDisp::ResizeMainBitmap()
 {
-    if (MainDC)
+    if (m_MainDC)
     {
-        DeleteObject(hBmp);
+        DeleteObject(m_hBmp);
 
-        Bmpi.bmiHeader.biWidth = MAIN_W;
-        Bmpi.bmiHeader.biHeight = MAIN_H;
-        Bmpi.bmiHeader.biPlanes = 1;
-        Bmpi.bmiHeader.biBitCount = 32;
-        Bmpi.bmiHeader.biCompression = BI_RGB;
-        Bmpi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+        m_Bmpi.bmiHeader.biWidth = MAIN_W;
+        m_Bmpi.bmiHeader.biHeight = MAIN_H;
+        m_Bmpi.bmiHeader.biPlanes = 1;
+        m_Bmpi.bmiHeader.biBitCount = 32;
+        m_Bmpi.bmiHeader.biCompression = BI_RGB;
+        m_Bmpi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 
-        hBmp = CreateDIBSection(MainDC->GetSafeHdc(), &Bmpi, DIB_RGB_COLORS, (void**)&pBmpData, NULL, 0);
+        m_hBmp = CreateDIBSection(m_MainDC->GetSafeHdc(), &m_Bmpi, DIB_RGB_COLORS, (void**)&m_pBmpData, NULL, 0);
 
-        MainDC->SelectObject(hBmp);
+        m_MainDC->SelectObject(m_hBmp);
     }
 }
 
@@ -123,13 +123,13 @@ void CImgDisp::CreateImgBitmap(int nIndex, int nWidth, int nHeight)
 
 void CImgDisp::ClearUsed()
 {
-    memset(bUsed, 0, sizeof(UINT8) * MAX_IMAGES_DISPLAYABLE);
-    rImgRct.SetRectEmpty();
+    memset(m_bUsed, 0, sizeof(UINT8) * MAX_IMAGES_DISPLAYABLE);
+    m_rImgRct.SetRectEmpty();
 
-    nXOffsTop = 0;
-    nYOffsTop = 0;
-    nImgRctW = 0;
-    nImgRctH = 0;
+    m_nXOffsTop = 0;
+    m_nYOffsTop = 0;
+    m_nImgRctW = 0;
+    m_nImgRctH = 0;
 
     for (int iPos = 0; iPos < MAX_IMAGES_DISPLAYABLE; iPos++)
     {
@@ -137,22 +137,22 @@ void CImgDisp::ClearUsed()
     }
 
     // reset offsets
-    for (size_t iPos = 0; iPos < ARRAYSIZE(ptOffs); iPos++)
+    for (size_t iPos = 0; iPos < ARRAYSIZE(m_ptOffs); iPos++)
     {
-        ptOffs[iPos].x = ptOffs[iPos].y = 0;
+        m_ptOffs[iPos].x = m_ptOffs[iPos].y = 0;
     }
 }
 
 void CImgDisp::ResetForNewImage()
 {
-    rImgRct.right += abs(rImgRct.left);
-    rImgRct.left = 0;
+    m_rImgRct.right += abs(m_rImgRct.left);
+    m_rImgRct.left = 0;
 
-    rImgRct.bottom += abs(rImgRct.top);
-    rImgRct.top = 0;
+    m_rImgRct.bottom += abs(m_rImgRct.top);
+    m_rImgRct.top = 0;
 
-    nImgRctW = rImgRct.Width();
-    nImgRctH = rImgRct.Height();
+    m_nImgRctW = m_rImgRct.Width();
+    m_nImgRctH = m_rImgRct.Height();
 
     ModifySrcRect();
 
@@ -161,11 +161,11 @@ void CImgDisp::ResetForNewImage()
 
 void CImgDisp::FlushUnused()
 {
-    if (nImgAmt)
+    if (m_nImgAmt)
     {
         for (int i = 0; i < MAX_IMAGES_DISPLAYABLE; i++)
         {
-            if (!bUsed[i])
+            if (!m_bUsed[i])
             {
                 FlushImageNode(i);
             }
@@ -193,62 +193,62 @@ void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgD
     pNewNode->pPalette = pPalette;
     pNewNode->uPalSz = uPalSz;
 
-    if (pImgBuffer[nIndex])
+    if (m_pImgBuffer[nIndex])
     {
         FlushImageNode(nIndex);
     }
 
-    pImgBuffer[nIndex] = pNewNode;
+    m_pImgBuffer[nIndex] = pNewNode;
 
     //Set used
-    bUsed[nIndex] = 1;
+    m_bUsed[nIndex] = 1;
 
-    if (nXOffs < rImgRct.left)
+    if (nXOffs < m_rImgRct.left)
     {
-        rImgRct.left = nXOffs;
-        nXOffsTop = nXOffs;
+        m_rImgRct.left = nXOffs;
+        m_nXOffsTop = nXOffs;
     }
 
-    if (nYOffs < rImgRct.top)
+    if (nYOffs < m_rImgRct.top)
     {
-        rImgRct.top = nYOffs;
-        nYOffsTop = nYOffs;
+        m_rImgRct.top = nYOffs;
+        m_nYOffsTop = nYOffs;
     }
 
-    if ((nXOffs + uImgW) > rImgRct.right)
+    if ((nXOffs + uImgW) > m_rImgRct.right)
     {
-        rImgRct.right = nXOffs + uImgW;
+        m_rImgRct.right = nXOffs + uImgW;
     }
 
-    if ((nYOffs + uImgH) > rImgRct.bottom)
+    if ((nYOffs + uImgH) > m_rImgRct.bottom)
     {
-        rImgRct.bottom = nYOffs + uImgH;
+        m_rImgRct.bottom = nYOffs + uImgH;
     }
 
-    ptOffs[nIndex].x = nXOffs;
-    ptOffs[nIndex].y = nYOffs;
+    m_ptOffs[nIndex].x = nXOffs;
+    m_ptOffs[nIndex].y = nYOffs;
 
     //Add image amount
-    nImgAmt++;
+    m_nImgAmt++;
 }
 
 void CImgDisp::UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz)
 {
-    if (pImgBuffer[nIndex])
+    if (m_pImgBuffer[nIndex])
     {
-        pImgBuffer[nIndex]->pPalette = pPalette;
-        pImgBuffer[nIndex]->uPalSz = nPalSz;
-        bUsed[nIndex] = 1;
+        m_pImgBuffer[nIndex]->pPalette = pPalette;
+        m_pImgBuffer[nIndex]->uPalSz = nPalSz;
+        m_bUsed[nIndex] = 1;
     }
 }
 
 void CImgDisp::FlushImageNode(int nIndex)
 {
-    if (pImgBuffer[nIndex])
+    if (m_pImgBuffer[nIndex])
     {
-        safe_delete(pImgBuffer[nIndex]);
+        safe_delete(m_pImgBuffer[nIndex]);
 
-        nImgAmt--;
+        m_nImgAmt--;
     }
 }
 
@@ -260,34 +260,34 @@ void CImgDisp::FlushImages()
     }
 }
 
-BOOL CImgDisp::LoadBGBmp(WCHAR* szBmpLoc)
+BOOL CImgDisp::LoadBGBmp(LPCWSTR pszBmpLoc)
 {
     CImage backgroundImage;
 
-    if (szBmpLoc != nullptr)
+    if (pszBmpLoc != nullptr)
     {
-        m_strBackgroundLoc = szBmpLoc;
+        m_strBackgroundLoc = pszBmpLoc;
     }
 
     if (SUCCEEDED(backgroundImage.Load(m_strBackgroundLoc)))
     {
-        hBGBitmap = backgroundImage.Detach();
+        m_hBGBitmap = backgroundImage.Detach();
             
         m_fIsBGAvail = TRUE;
 
-        BGBitmap.DeleteObject();
-        BGBitmap.Attach(hBGBitmap);
+        m_BGBitmap.DeleteObject();
+        m_BGBitmap.Attach(m_hBGBitmap);
 
-        BGBrush.DeleteObject();
-        BGBrush.CreatePatternBrush(&BGBitmap);
+        m_BGBrush.DeleteObject();
+        m_BGBrush.CreatePatternBrush(&m_BGBitmap);
 
         //Get the bitmap dimensions
         BITMAP bmp = {};
 
-        if (GetObject(hBGBitmap, sizeof(BITMAP), (BITMAP*)&bmp))
+        if (GetObject(m_hBGBitmap, sizeof(BITMAP), (BITMAP*)&bmp))
         {
-            nBGBmpW = bmp.bmWidth;
-            nBGBmpH = bmp.bmHeight;
+            m_nBGBmpW = bmp.bmWidth;
+            m_nBGBmpH = bmp.bmHeight;
         }
 
         return TRUE;
@@ -313,11 +313,11 @@ void CImgDisp::InitDC(CPaintDC& PaintDC)
 {
     if (m_fNeedFirstInit)
     {
-        MainDC = new CDC;
-        ImageDC = new CDC;
+        m_MainDC = new CDC;
+        m_ImageDC = new CDC;
 
-        MainDC->CreateCompatibleDC(&PaintDC);
-        ImageDC->CreateCompatibleDC(&PaintDC);
+        m_MainDC->CreateCompatibleDC(&PaintDC);
+        m_ImageDC->CreateCompatibleDC(&PaintDC);
 
         m_fNeedFirstInit = FALSE;
 
@@ -325,7 +325,7 @@ void CImgDisp::InitDC(CPaintDC& PaintDC)
         ModifySrcRect();
 
         //ResizeMainBitmap(rCtrlRct.Width(), rCtrlRct.Height());
-        MainDC->SelectObject(hBmp); //OnSize should be called first
+        m_MainDC->SelectObject(m_hBmp); //OnSize should be called first
 
         UpdateCtrl(FALSE);
     }
@@ -333,65 +333,65 @@ void CImgDisp::InitDC(CPaintDC& PaintDC)
 
 void CImgDisp::ModifySrcRect()
 {
-    int nCtrlW = rCtrlRct.right;
-    int nCtrlH = rCtrlRct.bottom;
+    int nCtrlW = m_rCtrlRct.right;
+    int nCtrlH = m_rCtrlRct.bottom;
 
-    if (nCtrlW > nImgRctW)
+    if (nCtrlW > m_nImgRctW)
     {
-        MAIN_W = nCtrlW * 2 - nImgRctW;
+        MAIN_W = nCtrlW * 2 - m_nImgRctW;
     }
     else
     {
-        MAIN_W = nImgRctW;
+        MAIN_W = m_nImgRctW;
     }
 
-    if (nCtrlH > nImgRctH)
+    if (nCtrlH > m_nImgRctH)
     {
-        MAIN_H = nCtrlH * 2 - nImgRctH;
+        MAIN_H = nCtrlH * 2 - m_nImgRctH;
     }
     else
     {
-        MAIN_H = nImgRctH;
+        MAIN_H = m_nImgRctH;
     }
 
-    rSrcRct.top = (MAIN_H / 2) - (int)((double)(nCtrlH / 2) / fpZoom);
-    rSrcRct.left = (MAIN_W / 2) - (int)((double)(nCtrlW / 2) / fpZoom);
-    rSrcRct.bottom = rSrcRct.top + (int)((double)nCtrlH / fpZoom);
-    rSrcRct.right = rSrcRct.left + (int)((double)nCtrlW / fpZoom);
+    m_rSrcRct.top = (MAIN_H / 2) - (int)((double)(nCtrlH / 2) / m_fpZoom);
+    m_rSrcRct.left = (MAIN_W / 2) - (int)((double)(nCtrlW / 2) / m_fpZoom);
+    m_rSrcRct.bottom = m_rSrcRct.top + (int)((double)nCtrlH / m_fpZoom);
+    m_rSrcRct.right = m_rSrcRct.left + (int)((double)nCtrlW / m_fpZoom);
 
-    rImgRct.left = -(nImgRctW / 2) + (MAIN_W / 2);
-    rImgRct.right = (nImgRctW / 2) + (MAIN_W / 2);
-    rImgRct.top = -(nImgRctH / 2) + (MAIN_H / 2);
-    rImgRct.bottom = (nImgRctH / 2) + (MAIN_H / 2);
+    m_rImgRct.left = -(m_nImgRctW / 2) + (MAIN_W / 2);
+    m_rImgRct.right = (m_nImgRctW / 2) + (MAIN_W / 2);
+    m_rImgRct.top = -(m_nImgRctH / 2) + (MAIN_H / 2);
+    m_rImgRct.bottom = (m_nImgRctH / 2) + (MAIN_H / 2);
 }
 
 void CImgDisp::ModifyClRect()
 {
-    GetClientRect(&rCtrlRct);
+    GetClientRect(&m_rCtrlRct);
 }
 
 void CImgDisp::DrawMainBG()
 {
-    if (MainDC)
+    if (m_MainDC)
     {
         if (m_fShouldTileBGBmp && !m_fShouldUseBGCol && CanForceBGBitmapAvailable())
         {
-            MainDC->FillRect(CRect(0, 0, MAIN_W, MAIN_H), &BGBrush);
+            m_MainDC->FillRect(CRect(0, 0, MAIN_W, MAIN_H), &m_BGBrush);
         }
         else
         {
-            MainDC->FillSolidRect(CRect(0, 0, MAIN_W, MAIN_H), crBGCol);
+            m_MainDC->FillSolidRect(CRect(0, 0, MAIN_W, MAIN_H), m_crBGCol);
         }
 
         if (!m_fShouldTileBGBmp && !m_fShouldUseBGCol && CanForceBGBitmapAvailable())
         {
-            ImageDC->SelectObject(&BGBitmap);
+            m_ImageDC->SelectObject(&m_BGBitmap);
 
-            MainDC->BitBlt(
-                (MAIN_W / 2) - (nBGBmpW / 2) + nBGXOffs,
-                (MAIN_H / 2) - (nBGBmpH / 2) + nBGYOffs,
-                nBGBmpW, nBGBmpH,
-                ImageDC,
+            m_MainDC->BitBlt(
+                (MAIN_W / 2) - (m_nBGBmpW / 2) + m_nBGXOffs,
+                (MAIN_H / 2) - (m_nBGBmpH / 2) + m_nBGYOffs,
+                m_nBGBmpW, m_nBGBmpH,
+                m_ImageDC,
                 0, 0, SRCCOPY);
         }
     }
@@ -418,13 +418,13 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw /* = TRUE */, int nUseAltPal /* = 0 */)
 
     for (int nImgCtr = 0; nImgCtr < MAX_IMAGES_DISPLAYABLE; nImgCtr++)
     {
-        if (pImgBuffer[nImgCtr])
+        if (m_pImgBuffer[nImgCtr])
         {
             //Draw the img
             CustomBlt(
                 nImgCtr,
-                ptOffs[nImgCtr].x + rImgRct.left + abs(nXOffsTop),
-                ptOffs[nImgCtr].y + rImgRct.top + abs(nYOffsTop),
+                m_ptOffs[nImgCtr].x + m_rImgRct.left + abs(m_nXOffsTop),
+                m_ptOffs[nImgCtr].y + m_rImgRct.top + abs(m_nYOffsTop),
                 (nAltPalIndex == nImgCtr)
             );
 
@@ -465,20 +465,20 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw /* = TRUE */, int nUseAltPal /* = 0 */)
 
 void CImgDisp::Redraw()
 {
-    if (MainDC)
+    if (m_MainDC)
     {
         CClientDC* cdc = new CClientDC(this);
 
         cdc->StretchBlt(
-            rCtrlRct.left,
-            rCtrlRct.top,
-            rCtrlRct.right,
-            rCtrlRct.bottom,
-            MainDC,
-            rSrcRct.left,
-            rSrcRct.top,
-            rSrcRct.right - rSrcRct.left,
-            rSrcRct.bottom - rSrcRct.top,
+            m_rCtrlRct.left,
+            m_rCtrlRct.top,
+            m_rCtrlRct.right,
+            m_rCtrlRct.bottom,
+            m_MainDC,
+            m_rSrcRct.left,
+            m_rSrcRct.top,
+            m_rSrcRct.right - m_rSrcRct.left,
+            m_rSrcRct.bottom - m_rSrcRct.top,
             SRCCOPY);
 
         safe_delete(cdc);
@@ -528,7 +528,7 @@ void CImgDisp::AssignBackupPalette(sPalDef* pBackupPaletteDef)
 
 bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
 {
-    if (pImgBuffer && pImgBuffer[nIndex])
+    if (m_pImgBuffer && m_pImgBuffer[nIndex])
     {
         return true;
     }
@@ -625,9 +625,9 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
                     TextureFile.Close();
 
-                    if (pImgBuffer[nPositionToLoadTo])
+                    if (m_pImgBuffer[nPositionToLoadTo])
                     {
-                        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo], pImgBuffer[nPositionToLoadTo]->pPalette, pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
+                        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo], m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
                     }
                     else
                     {
@@ -658,14 +658,14 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
     int nSrcX = 0, nSrcY = 0;
     UINT8* pImgData = nullptr;
     UINT8* pCurrPal = nullptr;
-    UINT8* pDstBmpData = (UINT8*)pBmpData;
+    UINT8* pDstBmpData = (UINT8*)m_pBmpData;
 
-    if ((nSrcIndex != -1) && pImgBuffer && pImgBuffer[nSrcIndex])
+    if ((nSrcIndex != -1) && m_pImgBuffer && m_pImgBuffer[nSrcIndex])
     {
-        pImgData = (UINT8*)pImgBuffer[nSrcIndex]->pImgData;
-        pCurrPal = (UINT8*)(fUseAltPal ? pImgBuffer[nSrcIndex]->pAltPal : pImgBuffer[nSrcIndex]->pPalette);
-        nWidth = pImgBuffer[nSrcIndex]->uImgW;
-        nHeight = pImgBuffer[nSrcIndex]->uImgH;
+        pImgData = (UINT8*)m_pImgBuffer[nSrcIndex]->pImgData;
+        pCurrPal = (UINT8*)(fUseAltPal ? m_pImgBuffer[nSrcIndex]->pAltPal : m_pImgBuffer[nSrcIndex]->pPalette);
+        nWidth = m_pImgBuffer[nSrcIndex]->uImgW;
+        nHeight = m_pImgBuffer[nSrcIndex]->uImgH;
     }
     else
     {
@@ -690,13 +690,13 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
         nHeight = m_nTextureOverrideH[nSrcIndex];
 
         // Reset the rect now that W/H have changed...
-        rImgRct.left = -(m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
-        rImgRct.right = (m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
-        rImgRct.top = -(m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
-        rImgRct.bottom = (m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
+        m_rImgRct.left = -(m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
+        m_rImgRct.right = (m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
+        m_rImgRct.top = -(m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
+        m_rImgRct.bottom = (m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
 
-        xWidth = ptOffs[nSrcIndex].x + rImgRct.left + abs(nXOffsTop);
-        yHeight = ptOffs[nSrcIndex].y + rImgRct.top + abs(nYOffsTop);
+        xWidth = m_ptOffs[nSrcIndex].x + m_rImgRct.left + abs(m_nXOffsTop);
+        yHeight = m_ptOffs[nSrcIndex].y + m_rImgRct.top + abs(m_nYOffsTop);
     }
 
     if (pImgData == nullptr)
@@ -774,113 +774,113 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
 
 void CImgDisp::OnLButtonDown(UINT nFlags, CPoint point)
 {
-    bLButtonDown = TRUE;
-    bCtrlDown = (GetAsyncKeyState(VK_CONTROL) & 0x8000);
+    m_bLButtonDown = TRUE;
+    m_bCtrlDown = (GetAsyncKeyState(VK_CONTROL) & 0x8000);
     SetCapture();
 
-    fpPrevX = (double)point.x;
-    fpPrevY = (double)point.y;
+    m_fpPrevX = (double)point.x;
+    m_fpPrevY = (double)point.y;
 
-    fpDiffX = 0.0f;
-    fpDiffY = 0.0f;
+    m_fpDiffX = 0.0f;
+    m_fpDiffY = 0.0f;
 
     CWnd::OnLButtonDown(nFlags, point);
 }
 
 void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 {
-    if (bLButtonDown && (nImgAmt || bCtrlDown))
+    if (m_bLButtonDown && (m_nImgAmt || m_bCtrlDown))
     {
-        fpDiffX += (fpPrevX - (double)point.x) / fpZoom;
-        fpDiffY += (fpPrevY - (double)point.y) / fpZoom;
+        m_fpDiffX += (m_fpPrevX - (double)point.x) / m_fpZoom;
+        m_fpDiffY += (m_fpPrevY - (double)point.y) / m_fpZoom;
 
         int nAdd = 1;
 
-        if (fpDiffX < 0)
+        if (m_fpDiffX < 0)
         {
             nAdd = -nAdd;
         }
 
 #ifndef SETIMGPOS
 
-        if (bCtrlDown && !m_fShouldTileBGBmp)
+        if (m_bCtrlDown && !m_fShouldTileBGBmp)
         {
-            while (fabs(fpDiffX) >= 1.0f)
+            while (fabs(m_fpDiffX) >= 1.0f)
             {
-                nBGXOffs -= nAdd;
-                fpDiffX -= (double)nAdd;
+                m_nBGXOffs -= nAdd;
+                m_fpDiffX -= (double)nAdd;
             }
         }
         else
         {
-            while (fabs(fpDiffX) >= 1.0f)
+            while (fabs(m_fpDiffX) >= 1.0f)
             {
-                rSrcRct.left += nAdd;
-                rSrcRct.right += nAdd;
+                m_rSrcRct.left += nAdd;
+                m_rSrcRct.right += nAdd;
 
-                if (rSrcRct.Width() > rImgRct.Width())
+                if (m_rSrcRct.Width() > m_rImgRct.Width())
                 {
-                    if ((rSrcRct.left > rImgRct.left) || (rSrcRct.right < rImgRct.right))
+                    if ((m_rSrcRct.left > m_rImgRct.left) || (m_rSrcRct.right < m_rImgRct.right))
                     {
-                        rSrcRct.left -= nAdd;
-                        rSrcRct.right -= nAdd;
+                        m_rSrcRct.left -= nAdd;
+                        m_rSrcRct.right -= nAdd;
                     }
                 }
                 else
                 {
-                    if ((rSrcRct.left < rImgRct.left) || (rSrcRct.right > rImgRct.right))
+                    if ((m_rSrcRct.left < m_rImgRct.left) || (m_rSrcRct.right > m_rImgRct.right))
                     {
-                        rSrcRct.left -= nAdd;
-                        rSrcRct.right -= nAdd;
+                        m_rSrcRct.left -= nAdd;
+                        m_rSrcRct.right -= nAdd;
                     }
                 }
 
-                fpDiffX -= (double)nAdd;
+                m_fpDiffX -= (double)nAdd;
             }
         }
 #endif
         nAdd = 1;
 
-        if (fpDiffY < 0)
+        if (m_fpDiffY < 0)
         {
             nAdd = -nAdd;
         }
 
 #ifndef SETIMGPOS
 
-        if (bCtrlDown && !m_fShouldTileBGBmp)
+        if (m_bCtrlDown && !m_fShouldTileBGBmp)
         {
-            while (fabs(fpDiffY) >= 1.0f)
+            while (fabs(m_fpDiffY) >= 1.0f)
             {
-                nBGYOffs -= nAdd;
-                fpDiffY -= (double)nAdd;
+                m_nBGYOffs -= nAdd;
+                m_fpDiffY -= (double)nAdd;
             }
         }
         else
         {
-            while (fabs(fpDiffY) >= 1.0f)
+            while (fabs(m_fpDiffY) >= 1.0f)
             {
-                rSrcRct.top += nAdd;
-                rSrcRct.bottom += nAdd;
+                m_rSrcRct.top += nAdd;
+                m_rSrcRct.bottom += nAdd;
 
-                if (rSrcRct.Height() > rImgRct.Height())
+                if (m_rSrcRct.Height() > m_rImgRct.Height())
                 {
-                    if ((rSrcRct.top > rImgRct.top) || (rSrcRct.bottom < rImgRct.bottom))
+                    if ((m_rSrcRct.top > m_rImgRct.top) || (m_rSrcRct.bottom < m_rImgRct.bottom))
                     {
-                        rSrcRct.top -= nAdd;
-                        rSrcRct.bottom -= nAdd;
+                        m_rSrcRct.top -= nAdd;
+                        m_rSrcRct.bottom -= nAdd;
                     }
                 }
                 else
                 {
-                    if ((rSrcRct.top < rImgRct.top) || (rSrcRct.bottom > rImgRct.bottom))
+                    if ((m_rSrcRct.top < m_rImgRct.top) || (m_rSrcRct.bottom > m_rImgRct.bottom))
                     {
-                        rSrcRct.top -= nAdd;
-                        rSrcRct.bottom -= nAdd;
+                        m_rSrcRct.top -= nAdd;
+                        m_rSrcRct.bottom -= nAdd;
                     }
                 }
 
-                fpDiffY -= (double)nAdd;
+                m_fpDiffY -= (double)nAdd;
             }
         }
 
@@ -899,8 +899,8 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 
         UpdateCtrl();
 
-        fpPrevX = (double)point.x;
-        fpPrevY = (double)point.y;
+        m_fpPrevX = (double)point.x;
+        m_fpPrevY = (double)point.y;
     }
 
     CWnd::OnMouseMove(nFlags, point);
@@ -908,7 +908,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 
 void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
 {
-    bLButtonDown = FALSE;
+    m_bLButtonDown = FALSE;
     ReleaseCapture();
 
 #ifdef SETIMGPOS
@@ -924,7 +924,7 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
     if (GetClickToFindColorSetting())
     {
         // Update the current palette selections based upon this click
-        GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(), crBGCol);
+        GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(), m_crBGCol);
     }
 
     CWnd::OnLButtonUp(nFlags, point);
@@ -932,9 +932,9 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
 
 void CImgDisp::SetAltPal(int nIndex, COLORREF* pAltPal)
 {
-    if (pImgBuffer[nIndex])
+    if (m_pImgBuffer[nIndex])
     {
-        pImgBuffer[nIndex]->pAltPal = pAltPal;
+        m_pImgBuffer[nIndex]->pAltPal = pAltPal;
     }
 
     m_pBackupAltPalette = pAltPal;
@@ -969,13 +969,13 @@ void CImgDisp::OnRButtonDown(UINT nFlags, CPoint point)
             switch (result)
             {
             case CUSTOM_FINDCOLOR:
-                GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y), crBGCol);
+                GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y), m_crBGCol);
                 break;
             case CUSTOM_COPYCOLOR:
                 GetHost()->GetPalModDlg()->CopyColorToClipboard(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y));
                 break;
             case CUSTOM_PASTECOLOR:
-                if (GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y), crBGCol))
+                if (GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y), m_crBGCol))
                 {
                     GetHost()->GetPalModDlg()->OnEditPaste();
                 }

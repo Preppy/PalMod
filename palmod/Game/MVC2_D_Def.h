@@ -27,7 +27,7 @@ struct sMoveDescription
 
 // These are the filesizes for each normal MVC2 PAL file.
 // This is sorted by character ID: Ryu is 0x0
-const UINT32 MVC2_D_FILESIZES_6COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] = {
+const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_6COLORS = {
 
     557408, 
     926400, 
@@ -92,7 +92,7 @@ const UINT32 MVC2_D_FILESIZES_6COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] = {
 };
 
 // These are the filesizes for the MVC2 PAL files created for the palette expansion
-const UINT32 MVC2_D_FILESIZES_16COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
+const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_16COLORS =
 {
     561792,
     934592,
@@ -156,7 +156,7 @@ const UINT32 MVC2_D_FILESIZES_16COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
     0
 };
 
-const UINT32 MVC2_D_PALDATASIZE_6COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
+const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_PALDATASIZE_6COLORS =
 {
     0x00000720,
     0x00000D40,
@@ -220,7 +220,7 @@ const UINT32 MVC2_D_PALDATASIZE_6COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
     0x00000720
 };
 
-const UINT32 MVC2_D_PALDATASIZE_16COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
+const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_PALDATASIZE_16COLORS =
 {
     0x00001120,
     0x00002000,
@@ -284,7 +284,7 @@ const UINT32 MVC2_D_PALDATASIZE_16COLORS[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
     0xbadf00d, // This is the unused/unvalidated team view slot
 };
 
-const WCHAR MVC2_D_UNITDESC[MVC2_D_NUMUNIT_WITH_TEAMVIEW][MAX_DESCRIPTION_LENGTH] =
+const std::array<LPCWSTR, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_UNITDESC =
 {
     L"Ryu",
     L"Zangief",
@@ -348,7 +348,7 @@ const WCHAR MVC2_D_UNITDESC[MVC2_D_NUMUNIT_WITH_TEAMVIEW][MAX_DESCRIPTION_LENGTH
     L"Team View"
 };
 
-const UINT8 MVC2_D_UNITSORT[MVC2_D_NUMUNIT_WITH_TEAMVIEW + 1] = // plus one for terminal entry
+const std::array<UINT8, MVC2_D_NUMUNIT_WITH_TEAMVIEW + 1> MVC2_D_UNITSORT = // plus one for terminal entry
 {
     0x18,
     0x19,
@@ -411,45 +411,6 @@ const UINT8 MVC2_D_UNITSORT[MVC2_D_NUMUNIT_WITH_TEAMVIEW + 1] = // plus one for 
     0x01, // Zangief
     MVC2_D_TEAMVIEW_LOCATION,
     0xFF
-};
-
-// This is all for Spiral's Metamorphosis super....
-const UINT16 MVC2_D_0x31_EXTRAREDIR[] = 
-{
-    0x06, 0,
-    0x07, 0,
-    0x07, 1,
-    0x08, 0,
-    0x08, 1,
-    0x09, 0,
-    0x0A, 0,
-    0x0B, 0,
-    0x0C, 0,
-    0x0D, 0,
-    0x0E, 0,
-    0x0F, 0,
-    0x0F, 1,
-    0x16, 0,
-    0, 0,
-    0x17, 0,
-    0, 0,
-    0x28, 0,
-    0x29, 0,
-    0x2A, 0,
-    0x2A, 13,
-    0x2B, 0,
-    0x2C, 0,
-    0, 0,
-    0x2D, 0,
-    0x2E, 0,
-    0x2F, 0,
-    0x30, 0,
-    0x32, 0,
-    0x33, 0,
-    indexCPS2Sprites_Sentinel, 0,
-    indexCPS2Sprites_Sentinel, 1, // Sentinel FX
-    0x35, 0,
-    0x36, 0
 };
 
 // For these entries we use the EXTRA_START offset.
