@@ -47,9 +47,10 @@ const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_S1[] =
     { L"Extra Palette 10", 0x1280, 0x12c0 },
     { L"Extra Palette 11", 0x12c0, 0x1300 },
     { L"Extra Palette 12", 0x1300, 0x1340 },
-    { L"Slashes (1+2/3)", 0x1340, 0x1380 },
-    { L"Slashes (3/3) / Start of Portrait", 0x1380, 0x13c0 },
-    { L"End of Portrait / Character Extra 5", 0x13c0, 0x1400 },
+    { L"Slashes (1/3)", 0x1340, 0x1360 },
+    { L"Slashes (2/3)", 0x1360, 0x1380 },
+    { L"Slashes (3/3)", 0x1380, 0x13a0 },
+    { L"Portrait", 0x13a0, 0x13e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_S2[] =
@@ -67,9 +68,10 @@ const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_S2[] =
     { L"Extra Palette 10", 0x1680, 0x16c0 },
     { L"Extra Palette 11", 0x16c0, 0x1700 },
     { L"Extra Palette 12", 0x1700, 0x1740 },
-    { L"Slashes (1+2/3)", 0x1740, 0x1780 },
-    { L"Slashes (3/3) / Start of Portrait", 0x1780, 0x17c0 },
-    { L"End of Portrait / Character Extra 5", 0x17c0, 0x1800 },
+    { L"Slashes (1/3)", 0x1740, 0x1760 },
+    { L"Slashes (2/3)", 0x1760, 0x1780 },
+    { L"Slashes (3/3)", 0x1780, 0x17a0 },
+    { L"Portrait", 0x17a0, 0x17e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_B1[] =
@@ -87,9 +89,10 @@ const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_B1[] =
     { L"Extra Palette 10", 0x1a80, 0x1ac0 },
     { L"Extra Palette 11", 0x1ac0, 0x1b00 },
     { L"Extra Palette 12", 0x1b00, 0x1b40 },
-    { L"Slashes (1+2/3)", 0x1b40, 0x1b80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x1b80, 0x1bc0 },
-    { L"End of Portrait / Character Extra 5", 0x1bc0, 0x1c00 },
+    { L"Slashes (1/3)", 0x1b40, 0x1b60 },
+    { L"Slashes (2/3)", 0x1b60, 0x1b80 },
+    { L"Slashes (3/3)", 0x1b80, 0x1ba0 },
+    { L"Portrait", 0x1ba0, 0x1be0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_B2[] =
@@ -107,9 +110,10 @@ const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_B2[] =
     { L"Extra Palette 10", 0x1e80, 0x1ec0 },
     { L"Extra Palette 11", 0x1ec0, 0x1f00 },
     { L"Extra Palette 12", 0x1f00, 0x1f40 },
-    { L"Slashes (1+2/3)", 0x1f40, 0x1f80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x1f80, 0x1fc0 },
-    { L"End of Portrait / Character Extra 5", 0x1fc0, 0x2000 },
+    { L"Slashes (1/3)", 0x1f40, 0x1f60 },
+    { L"Slashes (2/3)", 0x1f60, 0x1f80 },
+    { L"Slashes (3/3)", 0x1f80, 0x1fa0 },
+    { L"Portrait", 0x1fa0, 0x1fe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_S1[] =
@@ -127,9 +131,10 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_S1[] =
     { L"Extra Palette 10: Mamahaha", 0x2280, 0x22c0, indexSamSho5Sprites_Nakoruru, 1 },
     { L"Extra Palette 11: Mamahaha", 0x22c0, 0x2300, indexSamSho5Sprites_Nakoruru, 1 },
     { L"Extra Palette 12: Mamahaha", 0x2300, 0x2340, indexSamSho5Sprites_Nakoruru, 1 },
-    { L"Slashes (1+2/3)", 0x2340, 0x2380 },
-    { L"Slashes (3/3) / Start of Portrait", 0x2380, 0x23c0 },
-    { L"End of Portrait / Character Extra 5", 0x23c0, 0x2400 },
+    { L"Slashes (1/3)", 0x2340, 0x2360 },
+    { L"Slashes (2/3)", 0x2360, 0x2380 },
+    { L"Slashes (3/3)", 0x2380, 0x23a0 },
+    { L"Portrait", 0x23a0, 0x23e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_S2[] =
@@ -147,9 +152,10 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_S2[] =
     { L"Extra Palette 10: Mamahaha", 0x2680, 0x26c0, indexSamSho5Sprites_Nakoruru, 1 },
     { L"Extra Palette 11: Mamahaha", 0x26c0, 0x2700, indexSamSho5Sprites_Nakoruru, 1 },
     { L"Extra Palette 12: Mamahaha", 0x2700, 0x2740, indexSamSho5Sprites_Nakoruru, 1 },
-    { L"Slashes (1+2/3)", 0x2740, 0x2780 },
-    { L"Slashes (3/3) / Start of Portrait", 0x2780, 0x27c0 },
-    { L"End of Portrait / Character Extra 5", 0x27c0, 0x2800 },
+    { L"Slashes (1/3)", 0x2740, 0x2760 },
+    { L"Slashes (2/3)", 0x2760, 0x2780 },
+    { L"Slashes (3/3)", 0x2780, 0x27a0 },
+    { L"Portrait", 0x27a0, 0x27e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_B1[] =
@@ -167,9 +173,10 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_B1[] =
     { L"Extra Palette 10: Shikuru", 0x2aa0, 0x2ac0, indexSamSho5Sprites_Rera, 1 },
     { L"Extra Palette 11: Shikuru", 0x2ae0, 0x2b00, indexSamSho5Sprites_Rera, 1 },
     { L"Extra Palette 12: Shikuru", 0x2b20, 0x2b40, indexSamSho5Sprites_Rera, 1 },
-    { L"Slashes (1+2/3)", 0x2b40, 0x2b80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x2b80, 0x2bc0 },
-    { L"End of Portrait / Character Extra 5", 0x2bc0, 0x2c00 },
+    { L"Slashes (1/3)", 0x2b40, 0x2b60 },
+    { L"Slashes (2/3)", 0x2b60, 0x2b80 },
+    { L"Slashes (3/3)", 0x2b80, 0x2ba0 },
+    { L"Portrait", 0x2ba0, 0x2be0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_B2[] =
@@ -187,9 +194,10 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_B2[] =
     { L"Extra Palette 10: Shikuru", 0x2ea0, 0x2ec0, indexSamSho5Sprites_Rera, 1 },
     { L"Extra Palette 11: Shikuru", 0x2ee0, 0x2f00, indexSamSho5Sprites_Rera, 1 },
     { L"Extra Palette 12: Shikuru", 0x2f20, 0x2f40, indexSamSho5Sprites_Rera, 1 },
-    { L"Slashes (1+2/3)", 0x2f40, 0x2f80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x2f80, 0x2fc0 },
-    { L"End of Portrait / Character Extra 5", 0x2fc0, 0x3000 },
+    { L"Slashes (1/3)", 0x2f40, 0x2f60 },
+    { L"Slashes (2/3)", 0x2f60, 0x2f80 },
+    { L"Slashes (3/3)", 0x2f80, 0x2fa0 },
+    { L"Portrait", 0x2fa0, 0x2fe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_RIMURURU_PALETTES_S1[] =
@@ -207,9 +215,10 @@ const sGame_PaletteDataset SAMSHO3_A_RIMURURU_PALETTES_S1[] =
     { L"Extra Palette 10", 0x3280, 0x32c0 },
     { L"Extra Palette 11", 0x32c0, 0x3300 },
     { L"Extra Palette 12", 0x3300, 0x3340 },
-    { L"Slashes (1+2/3)", 0x3340, 0x3380 },
-    { L"Slashes (3/3) / Start of Portrait", 0x3380, 0x33c0 },
-    { L"End of Portrait / Character Extra 5", 0x33c0, 0x3400 },
+    { L"Slashes (1/3)", 0x3340, 0x3360 },
+    { L"Slashes (2/3)", 0x3360, 0x3380 },
+    { L"Slashes (3/3)", 0x3380, 0x33a0 },
+    { L"Portrait", 0x33a0, 0x33e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_RIMURURU_PALETTES_S2[] =
@@ -227,9 +236,10 @@ const sGame_PaletteDataset SAMSHO3_A_RIMURURU_PALETTES_S2[] =
     { L"Extra Palette 10", 0x3680, 0x36c0 },
     { L"Extra Palette 11", 0x36c0, 0x3700 },
     { L"Extra Palette 12", 0x3700, 0x3740 },
-    { L"Slashes (1+2/3)", 0x3740, 0x3780 },
-    { L"Slashes (3/3) / Start of Portrait", 0x3780, 0x37c0 },
-    { L"End of Portrait / Character Extra 5", 0x37c0, 0x3800 },
+    { L"Slashes (1/3)", 0x3740, 0x3760 },
+    { L"Slashes (2/3)", 0x3760, 0x3780 },
+    { L"Slashes (3/3)", 0x3780, 0x37a0 },
+    { L"Portrait", 0x37a0, 0x37e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_RIMURURU_PALETTES_B1[] =
@@ -247,9 +257,10 @@ const sGame_PaletteDataset SAMSHO3_A_RIMURURU_PALETTES_B1[] =
     { L"Extra Palette 10", 0x3a80, 0x3ac0 },
     { L"Extra Palette 11", 0x3ac0, 0x3b00 },
     { L"Extra Palette 12", 0x3b00, 0x3b40 },
-    { L"Slashes (1+2/3)", 0x3b40, 0x3b80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x3b80, 0x3bc0 },
-    { L"End of Portrait / Character Extra 5", 0x3bc0, 0x3c00 },
+    { L"Slashes (1/3)", 0x3b40, 0x3b60 },
+    { L"Slashes (2/3)", 0x3b60, 0x3b80 },
+    { L"Slashes (3/3)", 0x3b80, 0x3ba0 },
+    { L"Portrait", 0x3ba0, 0x3be0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_RIMURURU_PALETTES_B2[] =
@@ -267,9 +278,10 @@ const sGame_PaletteDataset SAMSHO3_A_RIMURURU_PALETTES_B2[] =
     { L"Extra Palette 10", 0x3e80, 0x3ec0 },
     { L"Extra Palette 11", 0x3ec0, 0x3f00 },
     { L"Extra Palette 12", 0x3f00, 0x3f40 },
-    { L"Slashes (1+2/3)", 0x3f40, 0x3f80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x3f80, 0x3fc0 },
-    { L"End of Portrait / Character Extra 5", 0x3fc0, 0x4000 },
+    { L"Slashes (1/3)", 0x3f40, 0x3f60 },
+    { L"Slashes (2/3)", 0x3f60, 0x3f80 },
+    { L"Slashes (3/3)", 0x3f80, 0x3fa0 },
+    { L"Portrait", 0x3fa0, 0x3fe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_HANZO_PALETTES_S1[] =
@@ -287,9 +299,10 @@ const sGame_PaletteDataset SAMSHO3_A_HANZO_PALETTES_S1[] =
     { L"Extra Palette 10", 0x4280, 0x42c0 },
     { L"Extra Palette 11", 0x42c0, 0x4300 },
     { L"Extra Palette 12", 0x4300, 0x4340 },
-    { L"Slashes (1+2/3)", 0x4340, 0x4380 },
-    { L"Slashes (3/3) / Start of Portrait", 0x4380, 0x43c0 },
-    { L"End of Portrait / Character Extra 5", 0x43c0, 0x4400 },
+    { L"Slashes (1/3)", 0x4340, 0x4360 },
+    { L"Slashes (2/3)", 0x4360, 0x4380 },
+    { L"Slashes (3/3)", 0x4380, 0x43a0 },
+    { L"Portrait", 0x43a0, 0x43e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_HANZO_PALETTES_S2[] =
@@ -307,9 +320,10 @@ const sGame_PaletteDataset SAMSHO3_A_HANZO_PALETTES_S2[] =
     { L"Extra Palette 10", 0x4680, 0x46c0 },
     { L"Extra Palette 11", 0x46c0, 0x4700 },
     { L"Extra Palette 12", 0x4700, 0x4740 },
-    { L"Slashes (1+2/3)", 0x4740, 0x4780 },
-    { L"Slashes (3/3) / Start of Portrait", 0x4780, 0x47c0 },
-    { L"End of Portrait / Character Extra 5", 0x47c0, 0x4800 },
+    { L"Slashes (1/3)", 0x4740, 0x4760 },
+    { L"Slashes (2/3)", 0x4760, 0x4780 },
+    { L"Slashes (3/3)", 0x4780, 0x47a0 },
+    { L"Portrait", 0x47a0, 0x47e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_HANZO_PALETTES_B1[] =
@@ -327,9 +341,10 @@ const sGame_PaletteDataset SAMSHO3_A_HANZO_PALETTES_B1[] =
     { L"Extra Palette 10", 0x4a80, 0x4ac0 },
     { L"Extra Palette 11", 0x4ac0, 0x4b00 },
     { L"Extra Palette 12", 0x4b00, 0x4b40 },
-    { L"Slashes (1+2/3)", 0x4b40, 0x4b80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x4b80, 0x4bc0 },
-    { L"End of Portrait / Character Extra 5", 0x4bc0, 0x4c00 },
+    { L"Slashes (1/3)", 0x4b40, 0x4b60 },
+    { L"Slashes (2/3)", 0x4b60, 0x4b80 },
+    { L"Slashes (3/3)", 0x4b80, 0x4ba0 },
+    { L"Portrait", 0x4ba0, 0x4be0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_HANZO_PALETTES_B2[] =
@@ -347,14 +362,15 @@ const sGame_PaletteDataset SAMSHO3_A_HANZO_PALETTES_B2[] =
     { L"Extra Palette 10", 0x4e80, 0x4ec0 },
     { L"Extra Palette 11", 0x4ec0, 0x4f00 },
     { L"Extra Palette 12", 0x4f00, 0x4f40 },
-    { L"Slashes (1+2/3)", 0x4f40, 0x4f80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x4f80, 0x4fc0 },
-    { L"End of Portrait / Character Extra 5", 0x4fc0, 0x5000 },
+    { L"Slashes (1/3)", 0x4f40, 0x4f60 },
+    { L"Slashes (2/3)", 0x4f60, 0x4f80 },
+    { L"Slashes (3/3)", 0x4f80, 0x4fa0 },
+    { L"Portrait", 0x4fa0, 0x4fe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S1[] =
 {
-    { L"Main",   0x5000, 0x5040, indexSamSho5Sprites_Galford, 0, &pairNext10 },
+    { L"Main", 0x5000, 0x5040, indexSamSho5Sprites_Galford, 0, &pairNext10 },
     { L"Rage Flash", 0x5040, 0x5080, indexSamSho5Sprites_Galford, 0, &pairNext10 },
     { L"Extra Palette 2", 0x5080, 0x50c0 },
     { L"Extra Palette 3", 0x50c0, 0x5100, indexSamSho5Sprites_Galford },
@@ -367,9 +383,10 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S1[] =
     { L"Extra Palette 10: Poppy", 0x5280, 0x52c0, indexSamSho5Sprites_Galford, 1 },
     { L"Extra Palette 11: Poppy", 0x52c0, 0x5300, indexSamSho5Sprites_Galford, 1 },
     { L"Extra Palette 12: Poppy", 0x5300, 0x5340, indexSamSho5Sprites_Galford, 1 },
-    { L"Slashes (1+2/3)", 0x5340, 0x5380 },
-    { L"Slashes (3/3) / Start of Portrait", 0x5380, 0x53c0 },
-    { L"End of Portrait / Character Extra 5", 0x53c0, 0x5400 },
+    { L"Slashes (1/3)", 0x5340, 0x5360 },
+    { L"Slashes (2/3)", 0x5360, 0x5380 },
+    { L"Slashes (3/3)", 0x5380, 0x53a0 },
+    { L"Portrait", 0x53a0, 0x53e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S2[] =
@@ -387,9 +404,10 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S2[] =
     { L"Extra Palette 10: Poppy", 0x5680, 0x56c0, indexSamSho5Sprites_Galford, 1 },
     { L"Extra Palette 11: Poppy", 0x56c0, 0x5700, indexSamSho5Sprites_Galford, 1 },
     { L"Extra Palette 12: Poppy", 0x5700, 0x5740, indexSamSho5Sprites_Galford, 1 },
-    { L"Slashes (1+2/3)", 0x5740, 0x5780 },
-    { L"Slashes (3/3) / Start of Portrait", 0x5780, 0x57c0 },
-    { L"End of Portrait / Character Extra 5", 0x57c0, 0x5800 },
+    { L"Slashes (1/3)", 0x5740, 0x5760 },
+    { L"Slashes (2/3)", 0x5760, 0x5780 },
+    { L"Slashes (3/3)", 0x5780, 0x57a0 },
+    { L"Portrait", 0x57a0, 0x57e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B1[] =
@@ -407,9 +425,10 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B1[] =
     { L"Extra Palette 10: Poppy", 0x5a80, 0x5ac0, indexSamSho5Sprites_Galford, 1 },
     { L"Extra Palette 11: Poppy", 0x5ac0, 0x5b00, indexSamSho5Sprites_Galford, 1 },
     { L"Extra Palette 12: Poppy", 0x5b00, 0x5b40, indexSamSho5Sprites_Galford, 1 },
-    { L"Slashes (1+2/3)", 0x5b40, 0x5b80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x5b80, 0x5bc0 },
-    { L"End of Portrait / Character Extra 5", 0x5bc0, 0x5c00 },
+    { L"Slashes (1/3)", 0x5b40, 0x5b60 },
+    { L"Slashes (2/3)", 0x5b60, 0x5b80 },
+    { L"Slashes (3/3)", 0x5b80, 0x5ba0 },
+    { L"Portrait", 0x5ba0, 0x5be0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B2[] =
@@ -427,9 +446,10 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B2[] =
     { L"Extra Palette 10: Poppy", 0x5e80, 0x5ec0, indexSamSho5Sprites_Galford, 1 },
     { L"Extra Palette 11: Poppy", 0x5ec0, 0x5f00, indexSamSho5Sprites_Galford, 1 },
     { L"Extra Palette 12: Poppy", 0x5f00, 0x5f40, indexSamSho5Sprites_Galford, 1 },
-    { L"Slashes (1+2/3)", 0x5f40, 0x5f80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x5f80, 0x5fc0 },
-    { L"End of Portrait / Character Extra 5", 0x5fc0, 0x6000 },
+    { L"Slashes (1/3)", 0x5f40, 0x5f60 },
+    { L"Slashes (2/3)", 0x5f60, 0x5f80 },
+    { L"Slashes (3/3)", 0x5f80, 0x5fa0 },
+    { L"Portrait", 0x5fa0, 0x5fe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_S1[] =
@@ -447,9 +467,10 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_S1[] =
     { L"Extra Palette 10: Toad", 0x6280, 0x62c0, indexSamSho5Sprites_Kyoshiro, 1 },
     { L"Extra Palette 11: Toad", 0x62c0, 0x6300, indexSamSho5Sprites_Kyoshiro, 1 },
     { L"Extra Palette 12: Toad", 0x6300, 0x6340, indexSamSho5Sprites_Kyoshiro, 1 },
-    { L"Slashes (1+2/3)", 0x6340, 0x6380 },
-    { L"Slashes (3/3) / Start of Portrait", 0x6380, 0x63c0 },
-    { L"End of Portrait / Character Extra 5", 0x63c0, 0x6400 },
+    { L"Slashes (1/3)", 0x6340, 0x6360 },
+    { L"Slashes (2/3)", 0x6360, 0x6380 },
+    { L"Slashes (3/3)", 0x6380, 0x63a0 },
+    { L"Portrait", 0x63a0, 0x63e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_S2[] =
@@ -467,9 +488,10 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_S2[] =
     { L"Extra Palette 10: Toad", 0x6680, 0x66c0, indexSamSho5Sprites_Kyoshiro, 1 },
     { L"Extra Palette 11: Toad", 0x66c0, 0x6700, indexSamSho5Sprites_Kyoshiro, 1 },
     { L"Extra Palette 12: Toad", 0x6700, 0x6740, indexSamSho5Sprites_Kyoshiro, 1 },
-    { L"Slashes (1+2/3)", 0x6740, 0x6780 },
-    { L"Slashes (3/3) / Start of Portrait", 0x6780, 0x67c0 },
-    { L"End of Portrait / Character Extra 5", 0x67c0, 0x6800 },
+    { L"Slashes (1/3)", 0x6740, 0x6760 },
+    { L"Slashes (2/3)", 0x6760, 0x6780 },
+    { L"Slashes (3/3)", 0x6780, 0x67a0 },
+    { L"Portrait", 0x67a0, 0x67e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_B1[] =
@@ -487,9 +509,10 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_B1[] =
     { L"Extra Palette 10: Toad", 0x6a80, 0x6ac0, indexSamSho5Sprites_Kyoshiro, 1 },
     { L"Extra Palette 11: Toad", 0x6ac0, 0x6b00, indexSamSho5Sprites_Kyoshiro, 1 },
     { L"Extra Palette 12: Toad", 0x6b00, 0x6b40, indexSamSho5Sprites_Kyoshiro, 1 },
-    { L"Slashes (1+2/3)", 0x6b40, 0x6b80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x6b80, 0x6bc0 },
-    { L"End of Portrait / Character Extra 5", 0x6bc0, 0x6c00 },
+    { L"Slashes (1/3)", 0x6b40, 0x6b60 },
+    { L"Slashes (2/3)", 0x6b60, 0x6b80 },
+    { L"Slashes (3/3)", 0x6b80, 0x6ba0 },
+    { L"Portrait", 0x6ba0, 0x6be0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_B2[] =
@@ -507,9 +530,10 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_B2[] =
     { L"Extra Palette 10: Toad", 0x6e80, 0x6ec0, indexSamSho5Sprites_Kyoshiro, 1 },
     { L"Extra Palette 11: Toad", 0x6ec0, 0x6f00, indexSamSho5Sprites_Kyoshiro, 1 },
     { L"Extra Palette 12: Toad", 0x6f00, 0x6f40, indexSamSho5Sprites_Kyoshiro, 1 },
-    { L"Slashes (1+2/3)", 0x6f40, 0x6f80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x6f80, 0x6fc0 },
-    { L"End of Portrait / Character Extra 5", 0x6fc0, 0x7000 },
+    { L"Slashes (1/3)", 0x6f40, 0x6f60 },
+    { L"Slashes (2/3)", 0x6f60, 0x6f80 },
+    { L"Slashes (3/3)", 0x6f80, 0x6fa0 },
+    { L"Portrait", 0x6fa0, 0x6fe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_UKYO_PALETTES_S1[] =
@@ -527,9 +551,10 @@ const sGame_PaletteDataset SAMSHO3_A_UKYO_PALETTES_S1[] =
     { L"Extra Palette 10", 0x7280, 0x72c0 },
     { L"Extra Palette 11", 0x72c0, 0x7300 },
     { L"Extra Palette 12", 0x7300, 0x7340 },
-    { L"Slashes (1+2/3)", 0x7340, 0x7380 },
-    { L"Slashes (3/3) / Start of Portrait", 0x7380, 0x73c0 },
-    { L"End of Portrait / Character Extra 5", 0x73c0, 0x7400 },
+    { L"Slashes (1/3)", 0x7340, 0x7360 },
+    { L"Slashes (2/3)", 0x7360, 0x7380 },
+    { L"Slashes (3/3)", 0x7380, 0x73a0 },
+    { L"Portrait", 0x73a0, 0x73e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_UKYO_PALETTES_S2[] =
@@ -547,9 +572,10 @@ const sGame_PaletteDataset SAMSHO3_A_UKYO_PALETTES_S2[] =
     { L"Extra Palette 10", 0x7680, 0x76c0 },
     { L"Extra Palette 11", 0x76c0, 0x7700 },
     { L"Extra Palette 12", 0x7700, 0x7740 },
-    { L"Slashes (1+2/3)", 0x7740, 0x7780 },
-    { L"Slashes (3/3) / Start of Portrait", 0x7780, 0x77c0 },
-    { L"End of Portrait / Character Extra 5", 0x77c0, 0x7800 },
+    { L"Slashes (1/3)", 0x7740, 0x7760 },
+    { L"Slashes (2/3)", 0x7760, 0x7780 },
+    { L"Slashes (3/3)", 0x7780, 0x77a0 },
+    { L"Portrait", 0x77a0, 0x77e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_UKYO_PALETTES_B1[] =
@@ -567,9 +593,10 @@ const sGame_PaletteDataset SAMSHO3_A_UKYO_PALETTES_B1[] =
     { L"Extra Palette 10", 0x7a80, 0x7ac0 },
     { L"Extra Palette 11", 0x7ac0, 0x7b00 },
     { L"Extra Palette 12", 0x7b00, 0x7b40 },
-    { L"Slashes (1+2/3)", 0x7b40, 0x7b80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x7b80, 0x7bc0 },
-    { L"End of Portrait / Character Extra 5", 0x7bc0, 0x7c00 },
+    { L"Slashes (1/3)", 0x7b40, 0x7b60 },
+    { L"Slashes (2/3)", 0x7b60, 0x7b80 },
+    { L"Slashes (3/3)", 0x7b80, 0x7ba0 },
+    { L"Portrait", 0x7ba0, 0x7be0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_UKYO_PALETTES_B2[] =
@@ -587,9 +614,10 @@ const sGame_PaletteDataset SAMSHO3_A_UKYO_PALETTES_B2[] =
     { L"Extra Palette 10", 0x7e80, 0x7ec0 },
     { L"Extra Palette 11", 0x7ec0, 0x7f00 },
     { L"Extra Palette 12", 0x7f00, 0x7f40 },
-    { L"Slashes (1+2/3)", 0x7f40, 0x7f80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x7f80, 0x7fc0 },
-    { L"End of Portrait / Character Extra 5", 0x7fc0, 0x8000 },
+    { L"Slashes (1/3)", 0x7f40, 0x7f60 },
+    { L"Slashes (2/3)", 0x7f60, 0x7f80 },
+    { L"Slashes (3/3)", 0x7f80, 0x7fa0 },
+    { L"Portrait", 0x7fa0, 0x7fe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GENJURO_PALETTES_S1[] =
@@ -607,9 +635,10 @@ const sGame_PaletteDataset SAMSHO3_A_GENJURO_PALETTES_S1[] =
     { L"Extra Palette 10", 0x8280, 0x82c0 },
     { L"Extra Palette 11", 0x82c0, 0x8300 },
     { L"Extra Palette 12", 0x8300, 0x8340 },
-    { L"Slashes (1+2/3)", 0x8340, 0x8380 },
-    { L"Slashes (3/3) / Start of Portrait", 0x8380, 0x83c0 },
-    { L"End of Portrait / Character Extra 5", 0x83c0, 0x8400 },
+    { L"Slashes (1/3)", 0x8340, 0x8360 },
+    { L"Slashes (2/3)", 0x8360, 0x8380 },
+    { L"Slashes (3/3)", 0x8380, 0x83a0 },
+    { L"Portrait", 0x83a0, 0x83e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GENJURO_PALETTES_S2[] =
@@ -627,9 +656,10 @@ const sGame_PaletteDataset SAMSHO3_A_GENJURO_PALETTES_S2[] =
     { L"Extra Palette 10", 0x8680, 0x86c0 },
     { L"Extra Palette 11", 0x86c0, 0x8700 },
     { L"Extra Palette 12", 0x8700, 0x8740 },
-    { L"Slashes (1+2/3)", 0x8740, 0x8780 },
-    { L"Slashes (3/3) / Start of Portrait", 0x8780, 0x87c0 },
-    { L"End of Portrait / Character Extra 5", 0x87c0, 0x8800 },
+    { L"Slashes (1/3)", 0x8740, 0x8760 },
+    { L"Slashes (2/3)", 0x8760, 0x8780 },
+    { L"Slashes (3/3)", 0x8780, 0x87a0 },
+    { L"Portrait", 0x87a0, 0x87e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GENJURO_PALETTES_B1[] =
@@ -647,9 +677,10 @@ const sGame_PaletteDataset SAMSHO3_A_GENJURO_PALETTES_B1[] =
     { L"Extra Palette 10", 0x8a80, 0x8ac0 },
     { L"Extra Palette 11", 0x8ac0, 0x8b00 },
     { L"Extra Palette 12", 0x8b00, 0x8b40 },
-    { L"Slashes (1+2/3)", 0x8b40, 0x8b80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x8b80, 0x8bc0 },
-    { L"End of Portrait / Character Extra 5", 0x8bc0, 0x8c00 },
+    { L"Slashes (1/3)", 0x8b40, 0x8b60 },
+    { L"Slashes (2/3)", 0x8b60, 0x8b80 },
+    { L"Slashes (3/3)", 0x8b80, 0x8ba0 },
+    { L"Portrait", 0x8ba0, 0x8be0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GENJURO_PALETTES_B2[] =
@@ -667,9 +698,10 @@ const sGame_PaletteDataset SAMSHO3_A_GENJURO_PALETTES_B2[] =
     { L"Extra Palette 10", 0x8e80, 0x8ec0 },
     { L"Extra Palette 11", 0x8ec0, 0x8f00 },
     { L"Extra Palette 12", 0x8f00, 0x8f40 },
-    { L"Slashes (1+2/3)", 0x8f40, 0x8f80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x8f80, 0x8fc0 },
-    { L"End of Portrait / Character Extra 5", 0x8fc0, 0x9000 },
+    { L"Slashes (1/3)", 0x8f40, 0x8f60 },
+    { L"Slashes (2/3)", 0x8f60, 0x8f80 },
+    { L"Slashes (3/3)", 0x8f80, 0x8fa0 },
+    { L"Portrait", 0x8fa0, 0x8fe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_S1[] =
@@ -687,9 +719,10 @@ const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_S1[] =
     { L"Extra Palette 10", 0x9280, 0x92c0 },
     { L"Extra Palette 11", 0x92c0, 0x9300 },
     { L"Extra Palette 12", 0x9300, 0x9340 },
-    { L"Slashes (1+2/3)", 0x9340, 0x9380 },
-    { L"Slashes (3/3) / Start of Portrait", 0x9380, 0x93c0 },
-    { L"End of Portrait / Character Extra 5", 0x93c0, 0x9400 },
+    { L"Slashes (1/3)", 0x9340, 0x9360 },
+    { L"Slashes (2/3)", 0x9360, 0x9380 },
+    { L"Slashes (3/3)", 0x9380, 0x93a0 },
+    { L"Portrait", 0x93a0, 0x93e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_S2[] =
@@ -707,9 +740,10 @@ const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_S2[] =
     { L"Extra Palette 10", 0x9680, 0x96c0 },
     { L"Extra Palette 11", 0x96c0, 0x9700 },
     { L"Extra Palette 12", 0x9700, 0x9740 },
-    { L"Slashes (1+2/3)", 0x9740, 0x9780 },
-    { L"Slashes (3/3) / Start of Portrait", 0x9780, 0x97c0 },
-    { L"End of Portrait / Character Extra 5", 0x97c0, 0x9800 },
+    { L"Slashes (1/3)", 0x9740, 0x9760 },
+    { L"Slashes (2/3)", 0x9760, 0x9780 },
+    { L"Slashes (3/3)", 0x9780, 0x97a0 },
+    { L"Portrait", 0x97a0, 0x97e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_B1[] =
@@ -727,9 +761,10 @@ const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_B1[] =
     { L"Extra Palette 10", 0x9a80, 0x9ac0 },
     { L"Extra Palette 11", 0x9ac0, 0x9b00 },
     { L"Extra Palette 12", 0x9b00, 0x9b40 },
-    { L"Slashes (1+2/3)", 0x9b40, 0x9b80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x9b80, 0x9bc0 },
-    { L"End of Portrait / Character Extra 5", 0x9bc0, 0x9c00 },
+    { L"Slashes (1/3)", 0x9b40, 0x9b60 },
+    { L"Slashes (2/3)", 0x9b60, 0x9b80 },
+    { L"Slashes (3/3)", 0x9b80, 0x9ba0 },
+    { L"Portrait", 0x9ba0, 0x9be0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_B2[] =
@@ -747,9 +782,10 @@ const sGame_PaletteDataset SAMSHO3_A_BASARA_PALETTES_B2[] =
     { L"Extra Palette 10", 0x9e80, 0x9ec0 },
     { L"Extra Palette 11", 0x9ec0, 0x9f00 },
     { L"Extra Palette 12", 0x9f00, 0x9f40 },
-    { L"Slashes (1+2/3)", 0x9f40, 0x9f80 },
-    { L"Slashes (3/3) / Start of Portrait", 0x9f80, 0x9fc0 },
-    { L"End of Portrait / Character Extra 5", 0x9fc0, 0xa000 },
+    { L"Slashes (1/3)", 0x9f40, 0x9f60 },
+    { L"Slashes (2/3)", 0x9f60, 0x9f80 },
+    { L"Slashes (3/3)", 0x9f80, 0x9fa0 },
+    { L"Portrait", 0x9fa0, 0x9fe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_SHIZUMARU_PALETTES_S1[] =
@@ -767,9 +803,10 @@ const sGame_PaletteDataset SAMSHO3_A_SHIZUMARU_PALETTES_S1[] =
     { L"Extra Palette 10", 0xa280, 0xa2c0 },
     { L"Extra Palette 11", 0xa2c0, 0xa300 },
     { L"Extra Palette 12", 0xa300, 0xa340 },
-    { L"Slashes (1+2/3)", 0xa340, 0xa380 },
-    { L"Slashes (3/3) / Start of Portrait", 0xa380, 0xa3c0 },
-    { L"End of Portrait / Character Extra 5", 0xa3c0, 0xa400 },
+    { L"Slashes (1/3)", 0xa340, 0xa360 },
+    { L"Slashes (2/3)", 0xa360, 0xa380 },
+    { L"Slashes (3/3)", 0xa380, 0xa3a0 },
+    { L"Portrait", 0xa3a0, 0xa3e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_SHIZUMARU_PALETTES_S2[] =
@@ -787,9 +824,10 @@ const sGame_PaletteDataset SAMSHO3_A_SHIZUMARU_PALETTES_S2[] =
     { L"Extra Palette 10", 0xa680, 0xa6c0 },
     { L"Extra Palette 11", 0xa6c0, 0xa700 },
     { L"Extra Palette 12", 0xa700, 0xa740 },
-    { L"Slashes (1+2/3)", 0xa740, 0xa780 },
-    { L"Slashes (3/3) / Start of Portrait", 0xa780, 0xa7c0 },
-    { L"End of Portrait / Character Extra 5", 0xa7c0, 0xa800 },
+    { L"Slashes (1/3)", 0xa740, 0xa760 },
+    { L"Slashes (2/3)", 0xa760, 0xa780 },
+    { L"Slashes (3/3)", 0xa780, 0xa7a0 },
+    { L"Portrait", 0xa7a0, 0xa7e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_SHIZUMARU_PALETTES_B1[] =
@@ -807,9 +845,10 @@ const sGame_PaletteDataset SAMSHO3_A_SHIZUMARU_PALETTES_B1[] =
     { L"Extra Palette 10", 0xaa80, 0xaac0 },
     { L"Extra Palette 11", 0xaac0, 0xab00 },
     { L"Extra Palette 12", 0xab00, 0xab40 },
-    { L"Slashes (1+2/3)", 0xab40, 0xab80 },
-    { L"Slashes (3/3) / Start of Portrait", 0xab80, 0xabc0 },
-    { L"End of Portrait / Character Extra 5", 0xabc0, 0xac00 },
+    { L"Slashes (1/3)", 0xab40, 0xab60 },
+    { L"Slashes (2/3)", 0xab60, 0xab80 },
+    { L"Slashes (3/3)", 0xab80, 0xaba0 },
+    { L"Portrait", 0xaba0, 0xabe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_SHIZUMARU_PALETTES_B2[] =
@@ -827,9 +866,10 @@ const sGame_PaletteDataset SAMSHO3_A_SHIZUMARU_PALETTES_B2[] =
     { L"Extra Palette 10", 0xae80, 0xaec0 },
     { L"Extra Palette 11", 0xaec0, 0xaf00 },
     { L"Extra Palette 12", 0xaf00, 0xaf40 },
-    { L"Slashes (1+2/3)", 0xaf40, 0xaf80 },
-    { L"Slashes (3/3) / Start of Portrait", 0xaf80, 0xafc0 },
-    { L"End of Portrait / Character Extra 5", 0xafc0, 0xb000 },
+    { L"Slashes (1/3)", 0xaf40, 0xaf60 },
+    { L"Slashes (2/3)", 0xaf60, 0xaf80 },
+    { L"Slashes (3/3)", 0xaf80, 0xafa0 },
+    { L"Portrait", 0xafa0, 0xafe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GAIRA_PALETTES_S1[] =
@@ -847,9 +887,10 @@ const sGame_PaletteDataset SAMSHO3_A_GAIRA_PALETTES_S1[] =
     { L"Extra Palette 10", 0xb280, 0xb2c0 },
     { L"Extra Palette 11", 0xb2c0, 0xb300 },
     { L"Extra Palette 12", 0xb300, 0xb340 },
-    { L"Slashes (1+2/3)", 0xb340, 0xb380 },
-    { L"Slashes (3/3) / Start of Portrait", 0xb380, 0xb3c0 },
-    { L"End of Portrait / Character Extra 5", 0xb3c0, 0xb400 },
+    { L"Slashes (1/3)", 0xb340, 0xb360 },
+    { L"Slashes (2/3)", 0xb360, 0xb380 },
+    { L"Slashes (3/3)", 0xb380, 0xb3a0 },
+    { L"Portrait", 0xb3a0, 0xb3e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GAIRA_PALETTES_S2[] =
@@ -867,9 +908,10 @@ const sGame_PaletteDataset SAMSHO3_A_GAIRA_PALETTES_S2[] =
     { L"Extra Palette 10", 0xb680, 0xb6c0 },
     { L"Extra Palette 11", 0xb6c0, 0xb700 },
     { L"Extra Palette 12", 0xb700, 0xb740 },
-    { L"Slashes (1+2/3)", 0xb740, 0xb780 },
-    { L"Slashes (3/3) / Start of Portrait", 0xb780, 0xb7c0 },
-    { L"End of Portrait / Character Extra 5", 0xb7c0, 0xb800 },
+    { L"Slashes (1/3)", 0xb740, 0xb760 },
+    { L"Slashes (2/3)", 0xb760, 0xb780 },
+    { L"Slashes (3/3)", 0xb780, 0xb7a0 },
+    { L"Portrait", 0xb7a0, 0xb7e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GAIRA_PALETTES_B1[] =
@@ -887,9 +929,10 @@ const sGame_PaletteDataset SAMSHO3_A_GAIRA_PALETTES_B1[] =
     { L"Extra Palette 10", 0xba80, 0xbac0 },
     { L"Extra Palette 11", 0xbac0, 0xbb00 },
     { L"Extra Palette 12", 0xbb00, 0xbb40 },
-    { L"Slashes (1+2/3)", 0xbb40, 0xbb80 },
-    { L"Slashes (3/3) / Start of Portrait", 0xbb80, 0xbbc0 },
-    { L"End of Portrait / Character Extra 5", 0xbbc0, 0xbc00 },
+    { L"Slashes (1/3)", 0xbb40, 0xbb60 },
+    { L"Slashes (2/3)", 0xbb60, 0xbb80 },
+    { L"Slashes (3/3)", 0xbb80, 0xbba0 },
+    { L"Portrait", 0xbba0, 0xbbe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_GAIRA_PALETTES_B2[] =
@@ -907,9 +950,10 @@ const sGame_PaletteDataset SAMSHO3_A_GAIRA_PALETTES_B2[] =
     { L"Extra Palette 10", 0xbe80, 0xbec0 },
     { L"Extra Palette 11", 0xbec0, 0xbf00 },
     { L"Extra Palette 12", 0xbf00, 0xbf40 },
-    { L"Slashes (1+2/3)", 0xbf40, 0xbf80 },
-    { L"Slashes (3/3) / Start of Portrait", 0xbf80, 0xbfc0 },
-    { L"End of Portrait / Character Extra 5", 0xbfc0, 0xc000 },
+    { L"Slashes (1/3)", 0xbf40, 0xbf60 },
+    { L"Slashes (2/3)", 0xbf60, 0xbf80 },
+    { L"Slashes (3/3)", 0xbf80, 0xbfa0 },
+    { L"Portrait", 0xbfa0, 0xbfe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_AMAKUSA_PALETTES_S1[] =
@@ -927,9 +971,10 @@ const sGame_PaletteDataset SAMSHO3_A_AMAKUSA_PALETTES_S1[] =
     { L"Extra Palette 10", 0xc280, 0xc2c0 },
     { L"Extra Palette 11", 0xc2c0, 0xc300 },
     { L"Extra Palette 12", 0xc300, 0xc340 },
-    { L"Slashes (1+2/3)", 0xc340, 0xc380 },
-    { L"Slashes (3/3) / Start of Portrait", 0xc380, 0xc3c0 },
-    { L"End of Portrait / Character Extra 5", 0xc3c0, 0xc400 },
+    { L"Slashes (1/3)", 0xc340, 0xc360 },
+    { L"Slashes (2/3)", 0xc360, 0xc380 },
+    { L"Slashes (3/3)", 0xc380, 0xc3a0 },
+    { L"Portrait", 0xc3a0, 0xc3e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_AMAKUSA_PALETTES_S2[] =
@@ -947,9 +992,10 @@ const sGame_PaletteDataset SAMSHO3_A_AMAKUSA_PALETTES_S2[] =
     { L"Extra Palette 10", 0xc680, 0xc6c0 },
     { L"Extra Palette 11", 0xc6c0, 0xc700 },
     { L"Extra Palette 12", 0xc700, 0xc740 },
-    { L"Slashes (1+2/3)", 0xc740, 0xc780 },
-    { L"Slashes (3/3) / Start of Portrait", 0xc780, 0xc7c0 },
-    { L"End of Portrait / Character Extra 5", 0xc7c0, 0xc800 },
+    { L"Slashes (1/3)", 0xc740, 0xc760 },
+    { L"Slashes (2/3)", 0xc760, 0xc780 },
+    { L"Slashes (3/3)", 0xc780, 0xc7a0 },
+    { L"Portrait", 0xc7a0, 0xc7e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_AMAKUSA_PALETTES_B1[] =
@@ -967,9 +1013,10 @@ const sGame_PaletteDataset SAMSHO3_A_AMAKUSA_PALETTES_B1[] =
     { L"Extra Palette 10", 0xca80, 0xcac0 },
     { L"Extra Palette 11", 0xcac0, 0xcb00 },
     { L"Extra Palette 12", 0xcb00, 0xcb40 },
-    { L"Slashes (1+2/3)", 0xcb40, 0xcb80 },
-    { L"Slashes (3/3) / Start of Portrait", 0xcb80, 0xcbc0 },
-    { L"End of Portrait / Character Extra 5", 0xcbc0, 0xcc00 },
+    { L"Slashes (1/3)", 0xcb40, 0xcb60 },
+    { L"Slashes (2/3)", 0xcb60, 0xcb80 },
+    { L"Slashes (3/3)", 0xcb80, 0xcba0 },
+    { L"Portrait", 0xcba0, 0xcbe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_AMAKUSA_PALETTES_B2[] =
@@ -987,9 +1034,10 @@ const sGame_PaletteDataset SAMSHO3_A_AMAKUSA_PALETTES_B2[] =
     { L"Extra Palette 10", 0xce80, 0xcec0 },
     { L"Extra Palette 11", 0xcec0, 0xcf00 },
     { L"Extra Palette 12", 0xcf00, 0xcf40 },
-    { L"Slashes (1+2/3)", 0xcf40, 0xcf80 },
-    { L"Slashes (3/3) / Start of Portrait", 0xcf80, 0xcfc0 },
-    { L"End of Portrait / Character Extra 5", 0xcfc0, 0xd000 },
+    { L"Slashes (1/3)", 0xcf40, 0xcf60 },
+    { L"Slashes (2/3)", 0xcf60, 0xcf80 },
+    { L"Slashes (3/3)", 0xcf80, 0xcfa0 },
+    { L"Portrait", 0xcfa0, 0xcfe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_ZANKURO_PALETTES_S1[] =
@@ -1007,9 +1055,10 @@ const sGame_PaletteDataset SAMSHO3_A_ZANKURO_PALETTES_S1[] =
     { L"Extra Palette 10", 0xe280, 0xe2c0 },
     { L"Extra Palette 11", 0xe2c0, 0xe300 },
     { L"Extra Palette 12", 0xe300, 0xe340 },
-    { L"Slashes (1+2/3)", 0xe340, 0xe380 },
-    { L"Slashes (3/3) / Start of Portrait", 0xe380, 0xe3c0 },
-    { L"End of Portrait / Character Extra 5", 0xe3c0, 0xe400 },
+    { L"Slashes (1/3)", 0xe340, 0xe360 },
+    { L"Slashes (2/3)", 0xe360, 0xe380 },
+    { L"Slashes (3/3)", 0xe380, 0xe3a0 },
+    { L"Portrait", 0xe3a0, 0xe3e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_ZANKURO_PALETTES_S2[] =
@@ -1027,9 +1076,10 @@ const sGame_PaletteDataset SAMSHO3_A_ZANKURO_PALETTES_S2[] =
     { L"Extra Palette 10", 0xe680, 0xe6c0 },
     { L"Extra Palette 11", 0xe6c0, 0xe700 },
     { L"Extra Palette 12", 0xe700, 0xe740 },
-    { L"Slashes (1+2/3)", 0xe740, 0xe780 },
-    { L"Slashes (3/3) / Start of Portrait", 0xe780, 0xe7c0 },
-    { L"End of Portrait / Character Extra 5", 0xe7c0, 0xe800 },
+    { L"Slashes (1/3)", 0xe740, 0xe760 },
+    { L"Slashes (2/3)", 0xe760, 0xe780 },
+    { L"Slashes (3/3)", 0xe780, 0xe7a0 },
+    { L"Portrait", 0xe7a0, 0xe7e0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_ZANKURO_PALETTES_B1[] =
@@ -1047,9 +1097,10 @@ const sGame_PaletteDataset SAMSHO3_A_ZANKURO_PALETTES_B1[] =
     { L"Extra Palette 10", 0xea80, 0xeac0 },
     { L"Extra Palette 11", 0xeac0, 0xeb00 },
     { L"Extra Palette 12", 0xeb00, 0xeb40 },
-    { L"Slashes (1+2/3)", 0xeb40, 0xeb80 },
-    { L"Slashes (3/3) / Start of Portrait", 0xeb80, 0xebc0 },
-    { L"End of Portrait / Character Extra 5", 0xebc0, 0xec00 },
+    { L"Slashes (1/3)", 0xeb40, 0xeb60 },
+    { L"Slashes (2/3)", 0xeb60, 0xeb80 },
+    { L"Slashes (3/3)", 0xeb80, 0xeba0 },
+    { L"Portrait", 0xeba0, 0xebe0 },
 };
 
 const sGame_PaletteDataset SAMSHO3_A_ZANKURO_PALETTES_B2[] =
@@ -1067,10 +1118,13 @@ const sGame_PaletteDataset SAMSHO3_A_ZANKURO_PALETTES_B2[] =
     { L"Extra Palette 10", 0xee80, 0xeec0 },
     { L"Extra Palette 11", 0xeec0, 0xef00 },
     { L"Extra Palette 12", 0xef00, 0xef40 },
-    { L"Slashes (1+2/3)", 0xef40, 0xef80 },
-    { L"Slashes (3/3) / Start of Portrait", 0xef80, 0xefc0 },
-    { L"End of Portrait / Character Extra 5", 0xefc0, 0xf000 },
+    { L"Slashes (1/3)", 0xef40, 0xef60 },
+    { L"Slashes (2/3)", 0xef60, 0xef80 },
+    { L"Slashes (3/3)", 0xef80, 0xefa0 },
+    { L"Portrait", 0xefa0, 0xefe0 },
 };
+
+// Everything below this point is hand-generated
 
 const sGame_PaletteDataset SAMSHO3_A_BONUS_PALETTES_CSIS[] =
 {
@@ -1199,18 +1253,18 @@ const sDescTreeNode SAMSHO3_A_BONUS_COLLECTION[] =
 
 const sDescTreeNode SAMSHO3_A_UNITS[] =
 {
-    { L"Amakusa", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_AMAKUSA_COLLECTION, ARRAYSIZE(SAMSHO3_A_AMAKUSA_COLLECTION) },
-    { L"Basara", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BASARA_COLLECTION, ARRAYSIZE(SAMSHO3_A_BASARA_COLLECTION) },
-    { L"Gaira", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_GAIRA_COLLECTION, ARRAYSIZE(SAMSHO3_A_GAIRA_COLLECTION) },
-    { L"Galford", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_GALFORD_COLLECTION, ARRAYSIZE(SAMSHO3_A_GALFORD_COLLECTION) },
-    { L"Genjuro", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_GENJURO_COLLECTION, ARRAYSIZE(SAMSHO3_A_GENJURO_COLLECTION) },
-    { L"Hanzo", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_HANZO_COLLECTION, ARRAYSIZE(SAMSHO3_A_HANZO_COLLECTION) },
     { L"Haohmaru", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_HAOHMARU_COLLECTION, ARRAYSIZE(SAMSHO3_A_HAOHMARU_COLLECTION) },
-    { L"Kyoshiro", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_KYOSHIRO_COLLECTION, ARRAYSIZE(SAMSHO3_A_KYOSHIRO_COLLECTION) },
     { L"Nakoruru", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_NAKORURU_COLLECTION, ARRAYSIZE(SAMSHO3_A_NAKORURU_COLLECTION) },
     { L"Rimururu", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_RIMURURU_COLLECTION, ARRAYSIZE(SAMSHO3_A_RIMURURU_COLLECTION) },
-    { L"Shizumaru", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_SHIZUMARU_COLLECTION, ARRAYSIZE(SAMSHO3_A_SHIZUMARU_COLLECTION) },
+    { L"Hanzo", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_HANZO_COLLECTION, ARRAYSIZE(SAMSHO3_A_HANZO_COLLECTION) },
+    { L"Galford", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_GALFORD_COLLECTION, ARRAYSIZE(SAMSHO3_A_GALFORD_COLLECTION) },
+    { L"Kyoshiro", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_KYOSHIRO_COLLECTION, ARRAYSIZE(SAMSHO3_A_KYOSHIRO_COLLECTION) },
     { L"Ukyo", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_UKYO_COLLECTION, ARRAYSIZE(SAMSHO3_A_UKYO_COLLECTION) },
+    { L"Genjuro", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_GENJURO_COLLECTION, ARRAYSIZE(SAMSHO3_A_GENJURO_COLLECTION) },
+    { L"Basara", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BASARA_COLLECTION, ARRAYSIZE(SAMSHO3_A_BASARA_COLLECTION) },
+    { L"Shizumaru", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_SHIZUMARU_COLLECTION, ARRAYSIZE(SAMSHO3_A_SHIZUMARU_COLLECTION) },
+    { L"Gaira", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_GAIRA_COLLECTION, ARRAYSIZE(SAMSHO3_A_GAIRA_COLLECTION) },
+    { L"Amakusa", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_AMAKUSA_COLLECTION, ARRAYSIZE(SAMSHO3_A_AMAKUSA_COLLECTION) },
     { L"Zankuro", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_ZANKURO_COLLECTION, ARRAYSIZE(SAMSHO3_A_ZANKURO_COLLECTION) },
 
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_BONUS_COLLECTION, ARRAYSIZE(SAMSHO3_A_BONUS_COLLECTION) },

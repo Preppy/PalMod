@@ -41,7 +41,7 @@ CGame_SAMSHO3_A::CGame_SAMSHO3_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SAMSHO3_A_NUMUNIT;
     m_nExtraUnit = SAMSHO3_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 844;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 896;
     m_pszExtraFilename = EXTRA_FILENAME_SAMSHO3_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSAMSHO3;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -130,121 +130,221 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
     CString strOutput;
     const UINT32 SAMSHO_PALETTE_LENGTH = 0x40;
 
-    LPCWSTR rgCharacters[] = {
-                                L"Haohmaru",
-                                L"Nakoruru",
-                                L"Rimururu",
-                                L"Hanzo",
-                                L"Galford",
-                                L"Kyoshiro",
-                                L"Ukyo",
-                                L"Genjuro",
-                                L"Basara",
-                                L"Shizumaru",
-                                L"Gaira",
-                                L"Amakusa",
-                                L"Unused",
-                                L"Zankuro",
+    struct sSamSho3CharacterInfo
+    {
+        std::wstring strCharacter;
+        std::wstring strImageId;
+        std::wstring strPetName;
+        std::wstring strPetNameBImageOverride;
+        bool shouldShowSpriteForExtra2;
+    };
+
+    const std::vector<sSamSho3CharacterInfo> rgCharacters = {
+        { L"Haohmaru",  L"indexSamSho3Sprites_Haohmaru",    L"",            L"",        1 },
+        { L"Nakoruru",  L"indexSamSho5Sprites_Nakoruru",    L"Mamahaha",    L"Shikuru", 1 },
+        { L"Rimururu",  L"indexSamSho5Sprites_Rimururu",    L"",            L"",        0 },
+        { L"Hanzo",     L"indexSamSho3Sprites_Hanzo",       L"",            L"",        0 },
+        { L"Galford",   L"indexSamSho5Sprites_Galford",     L"Poppy",       L"",        0 },
+        { L"Kyoshiro",  L"indexSamSho5Sprites_Kyoshiro",    L"Toad",        L"",        0 },
+        { L"Ukyo",      L"indexSamSho3Sprites_Ukyo",        L"",            L"",        0 },
+        { L"Genjuro",   L"indexSamSho3Sprites_Genjuro",     L"",            L"",        0 },
+        { L"Basara",    L"indexSamSho3Sprites_Basara",      L"",            L"",        1 },
+        { L"Shizumaru", L"indexSamSho5Sprites_Shizumaru",   L"",            L"",        0 },
+        { L"Gaira",     L"indexSamSho5Sprites_Gaira",       L"",            L"",        0 },
+        { L"Amakusa",   L"indexSamSho5Sprites_Amakusa",     L"",            L"",        0 },
+        // Unused
+        { L"",          L"",                                L"",            L"",        0 },
+        { L"Zankuro",   L"indexSamSho5Sprites_Zankuro",     L"",            L"",        0 },
     };
 
     const UINT32 k_nBasePalette = 0x01000;
     UINT32 nCurrentPalettePosition = k_nBasePalette;
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (UINT16 nCharIndex = 0; nCharIndex < rgCharacters.size(); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex].strCharacter.c_str());
 
-        // Status effects
+        // Character effects
         for (UINT16 nStatusIndex = 0; nStatusIndex < 64; nStatusIndex++)
         {
-            CString strPaletteName;
-
-            if ((nStatusIndex == 0) || (nStatusIndex == 16) || (nStatusIndex == 32) || (nStatusIndex == 48))
+            if (rgCharacters[nCharIndex].strCharacter.length())
             {
-                switch (nStatusIndex)
+
+                CString strPaletteName;
+                CString strImageString;
+
+                if ((nStatusIndex % 16) == 0)
+                {
+                    switch (nStatusIndex)
+                    {
+                    case 0:
+                        strOutput.Format(L"const sGame_PaletteDataset SAMSHO3_A_%s_PALETTES_S1[] = \r\n{\r\n", szCodeDesc);
+                        break;
+                    case 16:
+                        strOutput.Format(L"const sGame_PaletteDataset SAMSHO3_A_%s_PALETTES_S2[] = \r\n{\r\n", szCodeDesc);
+                        break;
+                    case 32:
+                        strOutput.Format(L"const sGame_PaletteDataset SAMSHO3_A_%s_PALETTES_B1[] = \r\n{\r\n", szCodeDesc);
+                        break;
+                    case 48:
+                        strOutput.Format(L"const sGame_PaletteDataset SAMSHO3_A_%s_PALETTES_B2[] = \r\n{\r\n", szCodeDesc);
+                        break;
+                    }
+
+                    OutputDebugString(strOutput);
+                }
+
+                UINT32 nAdjustedIndex = nStatusIndex % 16;
+
+                strImageString.Format(L", %s", rgCharacters[nCharIndex].strImageId.c_str());
+
+                UINT32 nPaletteStart = nCurrentPalettePosition;
+                UINT32 nPaletteEnd = nCurrentPalettePosition + SAMSHO_PALETTE_LENGTH;
+
+                switch (nAdjustedIndex)
                 {
                 case 0:
-                    strOutput.Format(L"const sGame_PaletteDataset SAMSHO3_A_%s_PALETTES_S1[] = \r\n{\r\n", szCodeDesc);
+                    strPaletteName = L"Main";
+
+                    // Pair for all pets except if they have a unique "B" pet
+                    if (rgCharacters[nCharIndex].strPetName.length())
+                    {
+                        if (!rgCharacters[nCharIndex].strPetNameBImageOverride.length() || (nStatusIndex < 32))
+                        {
+                            strImageString += ", 0, &pairNext10";
+                        }
+                        else
+                        {
+                            strImageString += ", 0";
+                        }
+                    }
                     break;
-                case 16:
-                    strOutput.Format(L"const sGame_PaletteDataset SAMSHO3_A_%s_PALETTES_S2[] = \r\n{\r\n", szCodeDesc);
+                case 1:
+                    strPaletteName = L"Rage Flash";
+
+                    // Pair for all pets except if they have a unique "B" pet
+                    if (rgCharacters[nCharIndex].strPetName.length())
+                    {
+                        if (!rgCharacters[nCharIndex].strPetNameBImageOverride.length() || (nStatusIndex < 32))
+                        {
+                            strImageString += ", 0, &pairNext10";
+                        }
+                        else
+                        {
+                            strImageString += ", 0";
+                        }
+                    }
                     break;
-                case 32:
-                    strOutput.Format(L"const sGame_PaletteDataset SAMSHO3_A_%s_PALETTES_B1[] = \r\n{\r\n", szCodeDesc);
+                case 2: // Extra palette 2
+                    if (!rgCharacters[nCharIndex].shouldShowSpriteForExtra2)
+                    {
+                        strImageString = L"";
+                    }
+                    __fallthrough;
+                case 3:
+                    strPaletteName.Format(L"Extra Palette %u", nAdjustedIndex);
                     break;
-                case 48:
-                    strOutput.Format(L"const sGame_PaletteDataset SAMSHO3_A_%s_PALETTES_B2[] = \r\n{\r\n", szCodeDesc);
+                case 4:
+                    strPaletteName = L"Shocked";
+                    break;
+                case 5:
+                    strPaletteName = L"Frozen";
+                    break;
+                case 6:
+                    strPaletteName = L"Burning";
+                    break;
+                case 8:
+                    strPaletteName = L"Daylight";
+                    break;
+                case 9:
+                    strPaletteName = L"Moonlight";
+                    break;
+                case 10:
+                case 11:
+                case 12:
+                    strPaletteName.Format(L"Extra Palette %u", nAdjustedIndex);
+
+                    if (rgCharacters[nCharIndex].strPetName.length())
+                    {
+                        strPaletteName += L": ";
+                        if ((nStatusIndex >= 32) && rgCharacters[nCharIndex].strPetNameBImageOverride.length())
+                        {
+                            // This is Nakoruru B which is a little odd.
+                            strPaletteName += rgCharacters[nCharIndex].strPetNameBImageOverride.c_str();
+                            strImageString.Format(L", indexSamSho5Sprites_Rera", rgCharacters[nCharIndex].strPetNameBImageOverride.c_str());
+                            nPaletteStart += 0x20;
+                        }
+                        else
+                        {
+                            strPaletteName += rgCharacters[nCharIndex].strPetName.c_str();
+                        }
+                        strImageString += ", 1";
+                    }
+                    else
+                    {
+                        strImageString = L"";
+                    }
+                    break;
+                case 13:
+                    // Slashes are three sets of 16 colors each
+                    strPaletteName = L"Slashes (1/3)";
+                    strImageString = L"";
+                    nPaletteEnd -= 0x20;
+
+                    strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x%s },\r\n", strPaletteName.GetString(),
+                        nPaletteStart, nPaletteEnd,
+                        strImageString.GetString());
+                    OutputDebugString(strOutput);
+
+                    nPaletteStart += 0x20;
+                    nPaletteEnd += 0x20;
+                    strPaletteName = L"Slashes (2/3)";
+
+                    break;
+                case 14:
+                    strPaletteName = L"Slashes (3/3)";
+                    strImageString = L"";
+                    nPaletteEnd -= 0x20;
+                    break;
+                case 15:
+                    // Portrait is the last "half" of slash 3
+                    strPaletteName = L"Portrait";
+                    strImageString = L"";
+                    nPaletteStart -= 0x20;
+                    nPaletteEnd -= 0x20;
+                    break;
+                default:
+                    strPaletteName.Format(L"Extra Palette %u", nAdjustedIndex);
+                    strImageString = L"";
                     break;
                 }
-               
+
+                strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x%s },\r\n", strPaletteName.GetString(),
+                    nPaletteStart, nPaletteEnd,
+                    strImageString.GetString());
                 OutputDebugString(strOutput);
+
+                if (nAdjustedIndex == 15)
+                {
+                    strOutput.Format(L"};\r\n\r\n");
+                    OutputDebugString(strOutput);
+                }
             }
-
-            UINT32 nAdjustedIndex = nStatusIndex % 16;
-
-            bool fShouldShowMainSprite = true;
-
-            switch (nAdjustedIndex)
-            {
-            case 0:
-                strPaletteName = L"Main";
-                break;
-            case 1:
-                strPaletteName = L"Rage Flash";
-                break;
-            case 4:
-                strPaletteName = L"Shocked";
-                break;
-            case 5:
-                strPaletteName = L"Frozen";
-                break;
-            case 6:
-                strPaletteName = L"Burning";
-                break;
-            case 8:
-                strPaletteName = L"Daylight";
-                break;
-            case 9:
-                strPaletteName = L"Moonlight";
-                break;
-            case 13:
-                strPaletteName = L"Slashes (1+2/3)";
-                fShouldShowMainSprite = false;
-                break;
-            case 14:
-                strPaletteName = L"Slashes (3/3) / Start of Portrait";
-                fShouldShowMainSprite = false;
-                break;
-            case 15:
-                strPaletteName = L"End of Portrait / Character Extra 5";
-                fShouldShowMainSprite = false;
-                break;
-            default:
-                strPaletteName.Format(L"Extra Palette %u", nAdjustedIndex);
-                fShouldShowMainSprite = false;
-                break;
-            }
-
-            strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x%s%s },\r\n", strPaletteName.GetString(), 
-                nCurrentPalettePosition, nCurrentPalettePosition + SAMSHO_PALETTE_LENGTH,
-                fShouldShowMainSprite ? L", indexSamSho5Sprites_" : L"", fShouldShowMainSprite ? rgCharacters[nCharIndex] : L"");
-            OutputDebugString(strOutput);
 
             nCurrentPalettePosition += SAMSHO_PALETTE_LENGTH;
-
-            if (nAdjustedIndex == 15)
-            {
-                strOutput.Format(L"};\r\n\r\n");
-                OutputDebugString(strOutput);
-            }
         }
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (UINT16 nCharIndex = 0; nCharIndex < rgCharacters.size(); nCharIndex++)
     {
+        if (!rgCharacters[nCharIndex].strCharacter.length())
+        {
+            continue;
+        }
+
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex].strCharacter.c_str());
 
         strOutput.Format(L"const sDescTreeNode SAMSHO3_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
@@ -263,12 +363,17 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
     strOutput.Format(L"const sDescTreeNode SAMSHO3_A_UNITS[] = \r\n{\r\n");
     OutputDebugString(strOutput);
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (UINT16 nCharIndex = 0; nCharIndex < rgCharacters.size(); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        if (!rgCharacters[nCharIndex].strCharacter.length())
+        {
+            continue;
+        }
 
-        strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_%s_COLLECTION, ARRAYSIZE(SAMSHO3_A_%s_COLLECTION) },\r\n", rgCharacters[nCharIndex], szCodeDesc, szCodeDesc);
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex].strCharacter.c_str());
+
+        strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_%s_COLLECTION, ARRAYSIZE(SAMSHO3_A_%s_COLLECTION) },\r\n", rgCharacters[nCharIndex].strCharacter.c_str(), szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
     }
 

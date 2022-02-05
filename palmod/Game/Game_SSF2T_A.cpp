@@ -63,8 +63,8 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     strMessage.Format(L"CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %u ROM\n", m_nSSF2TSelectedRom);
     OutputDebugString(strMessage);
 
-    const UINT32 nSafeCountFor3C = 321;
-    const UINT32 nSafeCountFor4A = 701;
+    const UINT32 nSafeCountFor3C = 322;
+    const UINT32 nSafeCountFor4A = 704;
     const UINT32 nSafeCountFor8 = 69;
 
     switch (m_nSSF2TSelectedRom)
@@ -177,27 +177,27 @@ GAME(1994, ssf2tad,    ssf2t,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
     ROM_LOAD16_WORD_SWAP("sfxad.08",  0x280000, 0x80000, CRC(d399c36c) SHA1(b4c4217843e5c3ef00ab04d58ca9368d2d734065))
 
 #endif
-        { L"SSF2T (CPS2 World 940223)", L"sfxe.03c", 0x2fa1f396, 0 },
-        { L"SSF2T (CPS2 World 940223)", L"sfxe.04a", 0xd0bc29c6, 0 },
-        { L"SSF2T (CPS2 World 940223)", L"sfxe.08", 0x74c24062, 0 },
-        { L"SSF2T (CPS2 Asia 940223)", L"sfxa.03c", 0x04b9ff34, 0 },
-        { L"SSF2T (CPS2 Asia 940223)", L"sfxa.04a", 0x16ea5f7a, 0 },
-        { L"SSF2T (CPS2 Asia 940223)", L"sfxa.08", 0x39be596c, 0 },
-        { L"SSF2T (CPS2 Hispanic 940223)", L"sfxh.03c", 0xfbe80dfe, 0 },
-        { L"SSF2T (CPS2 Hispanic 940223)", L"sfxh.04a", 0xef9dd4b1, 0 },
-        { L"SSF2T (CPS2 Hispanic 940223)", L"sfxh.08", 0xc15f0424, 0 },
-        { L"SSF2T (CPS2 USA 940223)", L"sfxu.03e", 0xd6ff689e, 0 },
-        { L"SSF2T (CPS2 USA 940223)", L"sfxu.03c", 0x86e4a335, 0 },
-        { L"SSF2T (CPS2 USA 940223)", L"sfxu.04a", 0x532b5ffd, 0 },
-        { L"SSF2T (CPS2 USA 940223)", L"sfxu.08", 0xb3c71810, 0 },
+        { L"SSF2T (CPS2 World 940223 03)", L"sfxe.03c", 0x2fa1f396, 0 },
+        { L"SSF2T (CPS2 World 940223 04)", L"sfxe.04a", 0xd0bc29c6, 0 },
+        { L"SSF2T (CPS2 World 940223 08)", L"sfxe.08", 0x74c24062, 0 },
+        { L"SSF2T (CPS2 Asia 940223 03)", L"sfxa.03c", 0x04b9ff34, 0 },
+        { L"SSF2T (CPS2 Asia 940223 04)", L"sfxa.04a", 0x16ea5f7a, 0 },
+        { L"SSF2T (CPS2 Asia 940223 08)", L"sfxa.08", 0x39be596c, 0 },
+        { L"SSF2T (CPS2 Hispanic 940223 03)", L"sfxh.03c", 0xfbe80dfe, 0 },
+        { L"SSF2T (CPS2 Hispanic 940223 04)", L"sfxh.04a", 0xef9dd4b1, 0 },
+        { L"SSF2T (CPS2 Hispanic 940223 08)", L"sfxh.08", 0xc15f0424, 0 },
+        { L"SSF2T (CPS2 USA 940223 03)", L"sfxu.03e", 0xd6ff689e, 0 },
+        { L"SSF2T (CPS2 USA 940223 03)", L"sfxu.03c", 0x86e4a335, 0 },
+        { L"SSF2T (CPS2 USA 940223 04)", L"sfxu.04a", 0x532b5ffd, 0 },
+        { L"SSF2T (CPS2 USA 940223 08)", L"sfxu.08", 0xb3c71810, 0 },
 
-        { L"SSF2X:GMC (CPS2 Japan)", L"sfxj.03c", 0xa7417b79, 0 },
-        { L"SSF2X:GMC (CPS2 Japan)", L"sfxj.04a", 0xaf7767b4, 0 },
-        { L"SSF2X:GMC (CPS2 Japan)", L"sfxj.08", 0x2de76f10, 0 },
+        { L"SSF2X:GMC (CPS2 Japan 03)", L"sfxj.03c", 0xa7417b79, 0 },
+        { L"SSF2X:GMC (CPS2 Japan 04)", L"sfxj.04a", 0xaf7767b4, 0 },
+        { L"SSF2X:GMC (CPS2 Japan 08)", L"sfxj.08", 0x2de76f10, 0 },
 
-        { L"SSF2T (CPS2 Asia 940223 bootleg)", L"sfxad.03c", 0xe3c92ece, 0 },
-        { L"SSF2T (CPS2 Asia 940223 bootleg)", L"sfxad.04a", 0x9bf3bb2e, 0 },
-        { L"SSF2T (CPS2 Asia 940223 bootleg)", L"sfxad.08", 0xd399c36c, 0 },
+        { L"SSF2T (CPS2 Asia 940223 bootleg 03)", L"sfxad.03c", 0xe3c92ece, 0 },
+        { L"SSF2T (CPS2 Asia 940223 bootleg 04)", L"sfxad.04a", 0x9bf3bb2e, 0 },
+        { L"SSF2T (CPS2 Asia 940223 bootleg 08)", L"sfxad.08", 0xd399c36c, 0 },
     };
 
     if (ppKnownROMSet)

@@ -1757,7 +1757,19 @@ const sGame_PaletteDataset SSF2T_A_CAMMY_STAGE_NODE_4[] =
     { L"Bird Castle Entrance", 0x5717a, 0x5723a, indexSF2Sprites_Stages, 0x13 },
 };
 
-const sGame_PaletteDataset SSF2T_A_DHALSIM_STAGE_NODE_08[] =
+const sGame_PaletteDataset SSF2T_A_03_DHALSIM_STAGE_NODE[] =
+{
+    { L"front elephant, legs/shadow", 0x61C20, 0x61C20 + 0x20 },
+};
+
+const sGame_PaletteDataset SSF2T_A_04_DHALSIM_STAGE_NODE[] =
+{
+    { L"left vase", 0x55DFC, 0x55DFC + 0x20 },
+    { L"right vase", 0x55E1C, 0x55E1C + 0x20 },
+    { L"front elephant", 0x55E3C, 0x55E3C + 0x20 },
+};
+
+const sGame_PaletteDataset SSF2T_A_08_DHALSIM_STAGE_NODE[] =
 {
     { L"BG wall painting", 0x69C00 - 0x2, 0x69C00 + 0x20 - 0x2 },
     { L"BG curtains + lamp", 0x69C20 - 0x2, 0x69C20 + 0x20 - 0x2 },
@@ -3032,6 +3044,7 @@ const sDescTreeNode SSF2T_A_DEEJAY_PORTRAIT_COLLECTION[] =
 const sDescTreeNode SSF2T_A_03_STAGES_COLLECTION[] =
 {
     { L"Balrog's Casino Stage (03 parts)",  DESC_NODETYPE_TREE, (void*)SSF2T_A_03_STAGES_CASINO_NODE,   ARRAYSIZE(SSF2T_A_03_STAGES_CASINO_NODE) },
+    { L"Dhalsim's Stage (03 parts)",        DESC_NODETYPE_TREE, (void*)SSF2T_A_03_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_03_DHALSIM_STAGE_NODE) },
 };
 
 const sDescTreeNode SSF2T_A_4A_STAGES_COLLECTION[] =
@@ -3039,8 +3052,8 @@ const sDescTreeNode SSF2T_A_4A_STAGES_COLLECTION[] =
     { L"Stage HUDs and Extras",     DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGEHUD_NODE, ARRAYSIZE(SSF2T_A_04_STAGEHUD_NODE) },
 
     { L"Balrog's Casino Stage (04 parts)",  DESC_NODETYPE_TREE, (void*)SSF2T_A_04_STAGES_CASINO_NODE, ARRAYSIZE(SSF2T_A_04_STAGES_CASINO_NODE) },
-
     { L"Cammy Stage (04 parts)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
+    { L"Dhalsim's Stage (04 parts)", DESC_NODETYPE_TREE, (void*)SSF2T_A_04_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_04_DHALSIM_STAGE_NODE) },
     { L"Ryu Stage (04 parts)",      DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
 };
 
@@ -3058,7 +3071,7 @@ const sDescTreeNode SSF2T_A_08_BONUS_COLLECTION[] =
 const sDescTreeNode SSF2T_A_08_STAGES_COLLECTION[] =
 {
     { L"Cammy Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE,    ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE) },
-    { L"Dhalsim's Stage", DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_STAGE_NODE_08,  ARRAYSIZE(SSF2T_A_DHALSIM_STAGE_NODE_08) },
+    { L"Dhalsim's Stage (08 parts)", DESC_NODETYPE_TREE, (void*)SSF2T_A_08_DHALSIM_STAGE_NODE,  ARRAYSIZE(SSF2T_A_08_DHALSIM_STAGE_NODE) },
     { L"Ryu Stage",     DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE,      ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE) },
     { L"Sagat Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE,    ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE) },
     { L"Balrog's Casino Stage (08 parts)",   DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BALROG_STAGE_NODE,    ARRAYSIZE(SSF2T_A_08_BALROG_STAGE_NODE) },
