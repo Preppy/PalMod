@@ -272,7 +272,7 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
                         {
                             // This is Nakoruru B which is a little odd.
                             strPaletteName += rgCharacters[nCharIndex].strPetNameBImageOverride.c_str();
-                            strImageString.Format(L", indexSamSho5Sprites_Rera", rgCharacters[nCharIndex].strPetNameBImageOverride.c_str());
+                            strImageString = L", indexSamSho5Sprites_Rera";
                             nPaletteStart += 0x20;
                         }
                         else
