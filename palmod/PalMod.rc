@@ -231,6 +231,25 @@ BEGIN
     LTEXT           "Dummy",IDC_DUMMY,129,48,56,137,NOT WS_VISIBLE
 END
 
+IDD_EXTRAS_EXPORT DIALOGEX 0, 0, 253, 153
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create Extras File"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Create options",IDC_STATIC,7,9,239,136
+    CONTROL         "Add known palette regions as comments",IDC_EXTRAS_ADDKNOWN,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,20,215,20
+    CONTROL         "Sort into known regions",IDC_EXTRAS_SORTKNOWN,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,32,40,205,20
+    CONTROL         "Create entries for unknown regions",IDC_EXTRAS_MAPUNKNOWN,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,60,214,20
+    CONTROL         "Create entries before the first known palette",IDC_EXTRAS_UNKNOWNBEFORE,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,32,80,207,20
+    CONTROL         "Create entries from the last known palette to end of ROM",IDC_EXTRAS_UNKNOWNAFTER,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,32,101,204,20
+    PUSHBUTTON      "Create",IDOK,82,127,43,14
+    PUSHBUTTON      "Cancel",IDCANCEL,126,127,43,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -307,6 +326,10 @@ BEGIN
     IDD_IMGDDLG, DIALOG
     BEGIN
         RIGHTMARGIN, 343
+    END
+
+    IDD_EXTRAS_EXPORT, DIALOG
+    BEGIN
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -581,6 +604,11 @@ BEGIN
 END
 
 IDD_PALMOD_DIALOG_FAT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_EXTRAS_EXPORT AFX_DIALOG_LAYOUT
 BEGIN
     0
 END

@@ -1214,6 +1214,12 @@ void CGameClass::DumpTreeSorted()
 
                 LoadSpecificPaletteData(DescNode->uUnitId, DescNode->uPalId);
 
+                if (m_nCurrentPaletteSizeInColors == 0)
+                {
+                    // We use zero-length palettes for virtual units.
+                    continue;
+                }
+
                 sPaletteTrackingInformation* pNewListEntry = new sPaletteTrackingInformation;
 
                 pNewListEntry->nPaletteOffset = m_nCurrentPaletteROMLocation;

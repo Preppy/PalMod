@@ -36,6 +36,7 @@
 #define IDR_PALMOD_ACC                  134
 #define IDS_ERROR_LOADING_BITMAP_BG     136
 #define IDD_IMGDDLG                     139
+#define IDD_EXTRAS_EXPORT               140
 #define IDR_MENUIMGOUT                  141
 #define IDD_PALMOD_DIALOG_FAT           142
 #define IDC_SLIDER1                     1001
@@ -95,6 +96,11 @@
 #define IDC_UPDATE                      1067
 #define IDC_ABOUTNAME                   1070
 #define IDC_ABOUTNAME2                  1071
+#define IDC_EXTRAS_ADDKNOWN             1072
+#define IDC_EXTRAS_SORTKNOWN            1073
+#define IDC_EXTRAS_MAPUNKNOWN           1074
+#define IDC_EXTRAS_UNKNOWNBEFORE        1075
+#define IDC_EXTRAS_UNKNOWNAFTER         1076
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -300,9 +306,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        141
+#define _APS_NEXT_RESOURCE_VALUE        143
 #define _APS_NEXT_COMMAND_VALUE         32923
-#define _APS_NEXT_CONTROL_VALUE         1055
+#define _APS_NEXT_CONTROL_VALUE         1077
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif

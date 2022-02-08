@@ -31,6 +31,19 @@ private:
     int GetDupeCountInExtrasDataset();
     int GetDupeCountInDataset();
 
+    struct sExtrasFileCreationOptions
+    {
+        BOOL fAddKnownAsComments = FALSE;
+        BOOL fSortKnownPalettes = TRUE;
+        BOOL fShowUnknownRegions = FALSE;
+        BOOL fShowPreUnknown = FALSE;
+        BOOL fShowPostUnknown = FALSE;
+    };
+
+    bool _CreateNewExtrasFile(LPCWSTR pszFilePath);
+    bool _GetExtrasOptionsFromUser(sExtrasFileCreationOptions& sCreationOptions);
+    void _CreateExtrasFileWithOptions(CFile& ExtraFile, sExtrasFileCreationOptions& sCreationOptions);
+
 public:
     CGameWithExtrasFile() {};
     virtual ~CGameWithExtrasFile() {};

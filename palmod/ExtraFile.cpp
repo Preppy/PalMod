@@ -15,6 +15,75 @@ char CGameWithExtrasFile::m_paszGameNameOverride[MAX_PATH] = "";
 AlphaMode CGameWithExtrasFile::m_AlphaModeOverride = AlphaMode::Unknown;
 ColMode CGameWithExtrasFile::m_ColorModeOverride = ColMode::COLMODE_LAST;
 
+class CCreateExtraFileDlg : public CDialog
+{
+    DECLARE_DYNAMIC(CCreateExtraFileDlg)
+
+public:
+    CCreateExtraFileDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CCreateExtraFileDlg() {};
+
+    BOOL OnInitDialog();
+    afx_msg void OnUpdateCheckboxes();
+
+    // Dialog Data
+    enum { IDD = IDD_EXTRAS_EXPORT };
+
+protected:
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+
+    DECLARE_MESSAGE_MAP()
+
+public:
+    BOOL m_fAddKnownAsComments = FALSE;
+    BOOL m_fSortKnownPalettes = TRUE;
+    BOOL m_fShowUnknownRegions = FALSE;
+    BOOL m_fShowPreUnknown = FALSE;
+    BOOL m_fShowPostUnknown = FALSE;
+};
+
+IMPLEMENT_DYNAMIC(CCreateExtraFileDlg, CDialog)
+
+CCreateExtraFileDlg::CCreateExtraFileDlg(CWnd* pParent /*=NULL*/)
+    : CDialog(CCreateExtraFileDlg::IDD, pParent)
+{
+}
+
+void CCreateExtraFileDlg::OnUpdateCheckboxes()
+{
+    UpdateData();
+
+    GetDlgItem(IDC_EXTRAS_SORTKNOWN)->EnableWindow(m_fAddKnownAsComments);
+
+    GetDlgItem(IDC_EXTRAS_UNKNOWNBEFORE)->EnableWindow(m_fShowUnknownRegions);
+    GetDlgItem(IDC_EXTRAS_UNKNOWNAFTER)->EnableWindow(m_fShowUnknownRegions);
+}
+
+BOOL CCreateExtraFileDlg::OnInitDialog()
+{
+    CDialog::OnInitDialog();
+
+    OnUpdateCheckboxes();
+
+    return TRUE;
+}
+
+void CCreateExtraFileDlg::DoDataExchange(CDataExchange* pDX)
+{
+    CDialog::DoDataExchange(pDX);
+
+    DDX_Check(pDX, IDC_EXTRAS_ADDKNOWN, m_fAddKnownAsComments);
+    DDX_Check(pDX, IDC_EXTRAS_SORTKNOWN, m_fSortKnownPalettes);
+    DDX_Check(pDX, IDC_EXTRAS_MAPUNKNOWN, m_fShowUnknownRegions);
+    DDX_Check(pDX, IDC_EXTRAS_UNKNOWNBEFORE, m_fShowPreUnknown);
+    DDX_Check(pDX, IDC_EXTRAS_UNKNOWNAFTER, m_fShowPostUnknown);
+}
+
+BEGIN_MESSAGE_MAP(CCreateExtraFileDlg, CDialog)
+    ON_COMMAND(IDC_EXTRAS_ADDKNOWN, &CCreateExtraFileDlg::OnUpdateCheckboxes)
+    ON_COMMAND(IDC_EXTRAS_MAPUNKNOWN, &CCreateExtraFileDlg::OnUpdateCheckboxes)
+END_MESSAGE_MAP()
+
 void CGameWithExtrasFile::ResetStaticOverrideVariables()
 {
     strcpy(m_paszGameNameOverride, "");
@@ -422,6 +491,12 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(size_t nUnitId, size_t nPalId, U
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
+            if (m_nCurrentPaletteSizeInColors == 0)
+            {
+                // We use zero-length palettes for virtual units.
+                continue;
+            }
+
             // Yes this takes a while. Thankfully it only runs once for normal usage.  For the developer. :'(
             if ( !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)))
             {
@@ -687,6 +762,248 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     }
 }
 
+void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtrasFileCreationOptions& sCreationOptions)
+{
+    if (GetIsDir())
+    {
+        OutputDebugString(L"Sorted tree dump not supported for directory-based games as the locations will be identical between files.\r\n");
+        return;
+    }
+
+    sDescTreeNode* pRootTree = GetMainTree()->GetDescTree(-1);
+
+    const size_t c_nUnitCount = GetUnitCt();
+
+    struct sPaletteTrackingInformation
+    {
+        int nPaletteOffset = -1;
+        int nTerminalOffset = -1;
+        std::wstring strUnitName;
+        std::wstring strCollectionName;
+        std::wstring strPaletteName;
+        struct sPaletteTrackingInformation* pNext = nullptr;
+    };
+
+    sPaletteTrackingInformation* pListRoot = nullptr;
+
+    if (sCreationOptions.fAddKnownAsComments)
+    {
+        for (size_t nUnitIndex = 0; nUnitIndex < c_nUnitCount; nUnitIndex++)
+        {
+            sDescTreeNode* UnitTree = &((sDescTreeNode*)pRootTree->ChildNodes)[nUnitIndex];
+
+            for (size_t nCollectionIndex = 0; nCollectionIndex < UnitTree->uChildAmt; nCollectionIndex++)
+            {
+                sDescTreeNode* CollectionTree = &((sDescTreeNode*)UnitTree->ChildNodes)[nCollectionIndex];
+
+                for (size_t nPaletteIndex = 0; nPaletteIndex < CollectionTree->uChildAmt; nPaletteIndex++)
+                {
+                    sDescNode* DescNode = &((sDescNode*)CollectionTree->ChildNodes)[nPaletteIndex];
+
+                    LoadSpecificPaletteData(DescNode->uUnitId, DescNode->uPalId);
+
+                    if (m_nCurrentPaletteSizeInColors == 0)
+                    {
+                        // We use virtual zero length palettes for MvC2 Team Views
+                        continue;
+                    }
+
+                    sPaletteTrackingInformation* pNewListEntry = new sPaletteTrackingInformation;
+
+                    pNewListEntry->nPaletteOffset = m_nCurrentPaletteROMLocation;
+                    pNewListEntry->nTerminalOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                    pNewListEntry->strUnitName = UnitTree->szDesc;
+                    pNewListEntry->strCollectionName = CollectionTree->szDesc;
+                    pNewListEntry->strPaletteName = m_pszCurrentPaletteName;
+
+                    sPaletteTrackingInformation* pCurrent = pListRoot;
+
+                    if (!pCurrent ||
+                        !sCreationOptions.fSortKnownPalettes ||
+                        (pCurrent->nPaletteOffset > pNewListEntry->nPaletteOffset))
+                    {
+                        pNewListEntry->pNext = pCurrent;
+                        pListRoot = pNewListEntry;
+                    }
+                    else
+                    {
+                        while (pCurrent->pNext &&
+                            (pCurrent->pNext->nPaletteOffset < pNewListEntry->nPaletteOffset))
+                        {
+                            pCurrent = pCurrent->pNext;
+                        }
+
+                        pNewListEntry->pNext = pCurrent->pNext;
+                        pCurrent->pNext = pNewListEntry;
+                    }
+                }
+            }
+        }
+    }
+
+    // Write the header
+    CStringA straExtraFileText;
+
+    straExtraFileText = ";Please refer to the Read Me for a brief guide to Extras files, or the longer guide on the PalMod site.\r\n\r\n";
+    straExtraFileText += ";When you are done making changes to the Extras file, reload the game to see those palettes.\r\n\r\n";
+
+    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+
+    // Add in the basic game information
+
+    if (GetGameName())
+    {
+        straExtraFileText.Format("%s%S\r\n", m_kpszGameNameKey, GetGameName());
+        ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+    }
+
+    LPCSTR paszColorFormat = ColorSystem::GetColorFormatStringForColorFormat(GetColorMode());
+    if (paszColorFormat)
+    {
+        straExtraFileText.Format("%s%s\r\n", m_kpszColorFormatKey, paszColorFormat);
+        ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+    }
+
+    LPCSTR paszAlphaMode = ColorSystem::GetAlphaModeStringForAlphaMode(GetAlphaMode());
+    if (paszAlphaMode)
+    {
+        straExtraFileText.Format("%s%s\r\n", m_kpszAlphaModeKey, paszAlphaMode);
+        ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+    }
+
+    straExtraFileText = "\r\n";
+    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+
+    if (sCreationOptions.fAddKnownAsComments)
+    {
+        if (sCreationOptions.fShowUnknownRegions && sCreationOptions.fShowPreUnknown)
+        {
+            straExtraFileText = "Start of this ROM\r\n";
+            straExtraFileText += L"0x0\r\n";
+            straExtraFileText += ";To: first known palette\r\n";
+            ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+            straExtraFileText.Format("0x%x\r\n\r\n", m_nLowestKnownPaletteRomLocation);
+            ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+        }
+
+        sPaletteTrackingInformation* pCurrent = pListRoot;
+
+        // Output the list
+        while (pCurrent)
+        {
+            straExtraFileText.Format(";Known: %S, %S, %S\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+            ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+
+            straExtraFileText.Format(";Start: 0x%x\r\n", pCurrent->nPaletteOffset);
+            ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+
+            bool fHaveExtendedTheRange = false;
+
+            while (pCurrent->pNext)
+            {
+                if (pCurrent->nTerminalOffset == pCurrent->pNext->nPaletteOffset)
+                {
+                    fHaveExtendedTheRange = true;
+                    sPaletteTrackingInformation* pTemp = pCurrent->pNext;
+                    safe_delete(pCurrent);
+                    pCurrent = pTemp;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (fHaveExtendedTheRange)
+            {
+                straExtraFileText.Format("; to %S, %S, %S\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+            }
+
+            straExtraFileText.Format(";End: 0x%x\r\n\r\n", pCurrent->nTerminalOffset);
+            ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+
+            if (pCurrent->pNext)
+            {
+                if (sCreationOptions.fShowUnknownRegions)
+                {
+                    straExtraFileText.Format("After: %S, %S, %S\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                    straExtraFileText.Format("0x%x\r\n", pCurrent->nTerminalOffset);
+                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                    straExtraFileText.Format(";Before: %S, %S, %S\r\n", pCurrent->pNext->strUnitName.c_str(), pCurrent->pNext->strCollectionName.c_str(), pCurrent->pNext->strPaletteName.c_str());
+                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                    straExtraFileText.Format("0x%x\r\n\r\n", pCurrent->pNext->nPaletteOffset);
+                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                }
+            }
+            else if (sCreationOptions.fShowUnknownRegions && sCreationOptions.fShowPostUnknown && m_pszLoadDir)
+            {
+                // How do we want to handle trailing palettes?  We need the file size to do this correctly.
+                CFile GameROM;
+
+                if (GameROM.Open(m_pszLoadDir, CFile::modeRead | CFile::typeBinary))
+                {
+                    straExtraFileText.Format("After: %S, %S, %S\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                    straExtraFileText.Format("0x%x\r\n", pCurrent->nTerminalOffset);
+                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                    straExtraFileText = ";To: end of ROM\r\n";
+                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                    straExtraFileText.Format("0x%x\r\n\r\n", (int)GameROM.GetLength());
+                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+
+                    GameROM.Abort();
+                }
+            }
+
+            sPaletteTrackingInformation* pTemp = pCurrent->pNext;
+            safe_delete(pCurrent);
+            pCurrent = pTemp;
+        }
+    }
+
+    // Close the file
+    ExtraFile.Close();
+}
+
+bool CGameWithExtrasFile::_GetExtrasOptionsFromUser(sExtrasFileCreationOptions& sCreationOptions)
+{
+    bool fSuccess = false;
+    CCreateExtraFileDlg createDlg;
+
+    if (createDlg.DoModal() == IDOK)
+    {
+        sCreationOptions.fAddKnownAsComments = createDlg.m_fAddKnownAsComments;
+        sCreationOptions.fSortKnownPalettes = createDlg.m_fSortKnownPalettes;
+        sCreationOptions.fShowUnknownRegions = createDlg.m_fShowUnknownRegions;
+        sCreationOptions.fShowPreUnknown = createDlg.m_fShowPreUnknown;
+        sCreationOptions.fShowPostUnknown = createDlg.m_fShowPostUnknown;
+
+        fSuccess = true;
+    }
+
+    return fSuccess;
+}
+
+bool CGameWithExtrasFile::_CreateNewExtrasFile(LPCWSTR pszFilePath)
+{
+    CFile ExtraFile;
+    bool fSuccess = false;
+
+    sExtrasFileCreationOptions sCreationOptions;
+    if (_GetExtrasOptionsFromUser(sCreationOptions))
+    {
+        if (ExtraFile.Open(pszFilePath, CFile::modeCreate | CFile::modeWrite))
+        {
+            fSuccess = true;
+            _CreateExtrasFileWithOptions(ExtraFile, sCreationOptions);
+        }
+    }
+
+    return fSuccess;
+}
+
 void CGameWithExtrasFile::OpenExtraFile()
 {
     if (m_pszExtraFilename)
@@ -709,57 +1026,17 @@ void CGameWithExtrasFile::OpenExtraFile()
 
         DWORD nFileAttrib = GetFileAttributes(szExtraFileWithPath);
 
-        if (nFileAttrib == INVALID_FILE_ATTRIBUTES)
+        if ((nFileAttrib != INVALID_FILE_ATTRIBUTES) ||
+            (_CreateNewExtrasFile(szExtraFileWithPath)))
         {
-            // create file here: maybe prompt?
-            CFile ExtraFile;
-
-            if (ExtraFile.Open(szExtraFileWithPath, CFile::modeCreate | CFile::modeWrite))
-            {
-                CStringA strSampleText;
-
-                strSampleText = ";No existing Extras file for this game was found, so PalMod created one for you.\r\n";
-                strSampleText += ";Please refer to the Read Me for a brief guide to Extras files, or the longer guide on the PalMod site.\r\n\r\n";
-                strSampleText += ";When you are done making changes to the Extras file, reload the game to see those palettes.\r\n\r\n";
-
-                ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
-
-                // Add in the basic game information
-
-                if (GetGameName())
-                {
-                    strSampleText.Format("%s%S\r\n", m_kpszGameNameKey, GetGameName());
-                    ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
-                }
-
-                LPCSTR paszColorFormat = ColorSystem::GetColorFormatStringForColorFormat(GetColorMode());
-                if (paszColorFormat)
-                {
-                    strSampleText.Format("%s%s\r\n", m_kpszColorFormatKey, paszColorFormat);
-                    ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
-                }
-
-                LPCSTR paszAlphaMode = ColorSystem::GetAlphaModeStringForAlphaMode(GetAlphaMode());
-                if (paszAlphaMode)
-                {
-                    strSampleText.Format("%s%s\r\n", m_kpszAlphaModeKey, paszAlphaMode);
-                    ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
-                }
-
-                strSampleText = "\r\n";
-                ExtraFile.Write(strSampleText.GetString(), (UINT)strlen(strSampleText.GetString()));
-
-                ExtraFile.Close();
-            }
+            ShellExecute(
+                g_appHWnd,
+                L"open",
+                szExtraFileWithPath,
+                NULL,
+                NULL,
+                SW_SHOWNORMAL
+            );
         }
-
-        ShellExecute(
-            g_appHWnd,
-            L"open",
-            szExtraFileWithPath,
-            NULL,
-            NULL,
-            SW_SHOWNORMAL
-        );
     }
 }
