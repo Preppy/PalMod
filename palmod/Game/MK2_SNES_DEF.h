@@ -171,12 +171,12 @@ const sGame_PaletteDataset MK2_SNES_JADE_PALETTES[] =
     { L"Jade", 0x2f91f3, 0x2f9213, indexMK2Sprites_Jade },
 };
 
-const sGame_PaletteDataset MK2_SNES_KINTARO_PALETTES[] =
+const sGame_PaletteDataset MK2_SNES_KHAN_PALETTES[] =
 {
     { L"Shao Khan", 0x2FD850, 0x2FD870 },
 };
 
-const sGame_PaletteDataset MK2_SNES_KHAN_PALETTES[] =
+const sGame_PaletteDataset MK2_SNES_KINTARO_PALETTES[] =
 {
     { L"Kintaro", 0x2FF2BD, 0x2FF2DD },
 };
@@ -226,7 +226,20 @@ const sGame_PaletteDataset MK2_SNES_STAGE_PALETTES_ARENA[] =
     { L"Khan's Arena", 0x2fd3d0, 0x2fd490 },
 };
 
-const sGame_PaletteDataset MK2_SNES_STAGE_PALETTES_BONUS[] =
+const sGame_PaletteDataset MK2_SNES_BONUS_PALETTES_EFFECTS[] =
+{
+    { L"Dragon", 0x2FC30E, 0x2FC32E },
+    { L"Scorpion Spear", 0x2F90B3, 0x2F90D3 },
+    { L"Force Ball", 0x2FA1A8, 0x2FA1C8 },
+    { L"Shadow Kick", 0x2F88FE, 0x2F891E },
+    { L"Scorpion Skull", 0x2F9073, 0x2F9093 },
+    { L"Raiden Lighting Bolt", 0x2F90F3, 0x2F9113 },
+    { L"Raiden Teleport", 0x2F9113, 0x2F9133 },
+    { L"Jax Projectile", 0x2F9133, 0x2F9153 },
+    { L"Kung Lao Hat Toss", 0x2FA148, 0x2FA168 },
+};
+
+const sGame_PaletteDataset MK2_SNES_BONUS_PALETTES_SELECT[] =
 {
     { L"Select 1/2", 0x2F40AE, 0x2F41AE },
     { L"Select 2/2", 0x2F41AE, 0x2F426E },
@@ -340,7 +353,8 @@ const sDescTreeNode MK2_SNES_STAGE_COLLECTION[] =
 
 const sDescTreeNode MK2_SNES_BONUS_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)MK2_SNES_STAGE_PALETTES_BONUS, ARRAYSIZE(MK2_SNES_STAGE_PALETTES_BONUS) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)MK2_SNES_BONUS_PALETTES_EFFECTS, ARRAYSIZE(MK2_SNES_BONUS_PALETTES_EFFECTS) },
+    { L"Select Screen", DESC_NODETYPE_TREE, (void*)MK2_SNES_BONUS_PALETTES_SELECT, ARRAYSIZE(MK2_SNES_BONUS_PALETTES_SELECT) },
 };
 
 const sDescTreeNode MK2_SNES_UNITS[] =

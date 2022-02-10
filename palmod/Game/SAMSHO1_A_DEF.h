@@ -60,6 +60,8 @@ const sGame_PaletteDataset SAMSHO1_A_NAKORURU_P[] =
     { L"Nakoruru P Weapon 3", 0x0e514a, 0x0e516a },
     { L"Nakoruru P Poisoned", 0x0e516a, 0x0e518a, indexSamSho1Sprites_Nakoruru, 0 },
     { L"Mamahaha P", 0x0e672a, 0x0e674a, indexSamSho1Sprites_Nakoruru, 1 },
+
+    { L"Nakoruru P Win Portrait Extra", 0xe6c4a, 0xe6c6a },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_NAKORURU_K[] =
@@ -73,6 +75,8 @@ const sGame_PaletteDataset SAMSHO1_A_NAKORURU_K[] =
     { L"Nakoruru K Weapon 3", 0x0e5d4a, 0x0e5d6a },
     { L"Nakoruru K Poisoned", 0x0e5d6a, 0x0e5d8a, indexSamSho1Sprites_Nakoruru, 0 },
     { L"Mamahaha K", 0x0e674a, 0x0e676a, indexSamSho1Sprites_Nakoruru, 1 },
+
+    { L"Nakoruru K Win Portrait Extra", 0xe6c6a, 0xe6c8a },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_TAMTAM_P[] =

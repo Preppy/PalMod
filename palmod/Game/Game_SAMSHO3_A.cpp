@@ -41,11 +41,11 @@ CGame_SAMSHO3_A::CGame_SAMSHO3_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SAMSHO3_A_NUMUNIT;
     m_nExtraUnit = SAMSHO3_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 896;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 897;
     m_pszExtraFilename = EXTRA_FILENAME_SAMSHO3_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSAMSHO3;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0xa00;
+    m_nLowestKnownPaletteRomLocation = 0x3a0;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 

@@ -41,7 +41,7 @@ CGame_SAMSHO1_A::CGame_SAMSHO1_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SAMSHO1_A_NUMUNIT;
     m_nExtraUnit = SAMSHO1_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 258;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 260;
     m_pszExtraFilename = EXTRA_FILENAME_SAMSHO1_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSAMSHO1;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
