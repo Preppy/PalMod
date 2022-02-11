@@ -8,8 +8,8 @@ stExtraDef* CGame_KOF03_A::KOF03_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KOF03_A::MainDescTree = nullptr;
 
-size_t CGame_KOF03_A::rgExtraCountAll[KOF03_A_NUMUNIT + 1];
-size_t CGame_KOF03_A::rgExtraLoc[KOF03_A_NUMUNIT + 1];
+uint32_t CGame_KOF03_A::rgExtraCountAll[KOF03_A_NUMUNIT + 1];
+uint32_t CGame_KOF03_A::rgExtraLoc[KOF03_A_NUMUNIT + 1];
 
 UINT32 CGame_KOF03_A::m_nTotalPaletteCountForKOF03 = 0;
 UINT32 CGame_KOF03_A::m_nExpectedGameROMSize = 0x800000;
@@ -64,8 +64,8 @@ CGame_KOF03_A::CGame_KOF03_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -84,12 +84,12 @@ CDescTree* CGame_KOF03_A::GetMainTree()
     return &CGame_KOF03_A::MainDescTree;
 }
 
-size_t CGame_KOF03_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KOF03_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KOF03_A_NUMUNIT, nUnitId, KOF03_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_KOF03_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_KOF03_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, KOF03_A_NUMUNIT, nUnitId, KOF03_A_EXTRA_CUSTOM);
 }
@@ -142,7 +142,7 @@ void CGame_KOF03_A::DumpGameHeaders()
         LPCWSTR pszImageSet = nullptr;
         LPCWSTR pszVictoryImageSet = nullptr;
         sKOF03PalData* prgSpecialMoves = nullptr;
-        size_t nCountSpecialMoves = 0;
+        uint32_t nCountSpecialMoves = 0;
         LPCWSTR pszExtraNameOverride1 = nullptr;
         int nExtraImageOverride1 = -1;
         LPCWSTR pszExtraNameOverride2 = nullptr;
@@ -431,13 +431,13 @@ void CGame_KOF03_A::DumpGameHeaders()
 
     const auto c_nBaseCharacterOffset = 0x2000;
 
-    for (size_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF03CharData); nCharIndex++)
+    for (uint32_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF03CharData); nCharIndex++)
     {
         wchar_t szNodeName[128];
 
         StruprRemoveNonASCII(szNodeName, ARRAYSIZE(szNodeName), KOF03CharData[nCharIndex].pszName);
 
-        for (size_t nButtonIndex = 0; nButtonIndex < DEF_BUTTONLABEL_NEOGEO.size(); nButtonIndex++)
+        for (uint32_t nButtonIndex = 0; nButtonIndex < DEF_BUTTONLABEL_NEOGEO.size(); nButtonIndex++)
         {
             strInfo.Format(L"const sGame_PaletteDataset KOF03_A_%s_PALETTES_%s[] =\r\n{\r\n",
                 szNodeName,
@@ -457,9 +457,9 @@ void CGame_KOF03_A::DumpGameHeaders()
                 { L" Extra 4", -1 },
             };
 
-            for (size_t nMoveIndex = 0; nMoveIndex < ARRAYSIZE(KOF03CharacterPalData); nMoveIndex++)
+            for (uint32_t nMoveIndex = 0; nMoveIndex < ARRAYSIZE(KOF03CharacterPalData); nMoveIndex++)
             {
-                size_t nCurrentOffset = c_nBaseCharacterOffset + (0x800 * nCharIndex) + (0x200 * nButtonIndex) + (nMoveIndex * 0x20);
+                uint32_t nCurrentOffset = c_nBaseCharacterOffset + (0x800 * nCharIndex) + (0x200 * nButtonIndex) + (nMoveIndex * 0x20);
 
                 LPCWSTR pszOverrideName = nullptr;
                 int nImageIndex = KOF03CharacterPalData[nMoveIndex].nImageIndex;
@@ -512,9 +512,9 @@ void CGame_KOF03_A::DumpGameHeaders()
             if (KOF03CharData[nCharIndex].prgSpecialMoves)
             {
                 OutputDebugString(L"\r\n");
-                for (size_t nSpecialIndex = 0; nSpecialIndex < KOF03CharData[nCharIndex].nCountSpecialMoves; nSpecialIndex++)
+                for (uint32_t nSpecialIndex = 0; nSpecialIndex < KOF03CharData[nCharIndex].nCountSpecialMoves; nSpecialIndex++)
                 {
-                    size_t nCurrentOffset = c_nBaseCharacterOffset + (0x800 * nCharIndex) + (0x200 * nButtonIndex) + KOF03CharData[nCharIndex].prgSpecialMoves[nSpecialIndex].nSpecificOffset;
+                    uint32_t nCurrentOffset = c_nBaseCharacterOffset + (0x800 * nCharIndex) + (0x200 * nButtonIndex) + KOF03CharData[nCharIndex].prgSpecialMoves[nSpecialIndex].nSpecificOffset;
                     strInfo.Format(L"    { L\"%s %s\", ",
                         KOF03CharData[nCharIndex].prgSpecialMoves[nSpecialIndex].pszPaletteName,
                         DEF_BUTTONLABEL_NEOGEO[nButtonIndex]
@@ -547,7 +547,7 @@ void CGame_KOF03_A::DumpGameHeaders()
 
             // Victory palette
             const auto c_nBaseCharacterOffset = 0x1f120;
-            size_t nVictoryOffset = c_nBaseCharacterOffset + (0x100 * nCharIndex) + (0x40 * nButtonIndex);
+            uint32_t nVictoryOffset = c_nBaseCharacterOffset + (0x100 * nCharIndex) + (0x40 * nButtonIndex);
             strInfo.Format(L"    { L\"%s Victory %s\", 0x%x, 0x%x, %s, 0x30 },\r\n",
                 KOF03CharData[nCharIndex].pszName,
                 DEF_BUTTONLABEL_NEOGEO[nButtonIndex],
@@ -564,7 +564,7 @@ void CGame_KOF03_A::DumpGameHeaders()
     return;
 }
 
-sFileRule CGame_KOF03_A::GetRule(size_t nUnitId)
+sFileRule CGame_KOF03_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -577,42 +577,42 @@ sFileRule CGame_KOF03_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_KOF03_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_KOF03_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(KOF03_A_UNITS, rgExtraCountAll, KOF03_A_NUMUNIT, KOF03_A_EXTRALOC, nUnitId, KOF03_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_KOF03_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_KOF03_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(KOF03_A_UNITS, rgExtraCountAll, KOF03_A_NUMUNIT, KOF03_A_EXTRALOC, nUnitId, nCollectionId, KOF03_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_KOF03_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_KOF03_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(KOF03_A_UNITS, KOF03_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_KOF03_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_KOF03_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(KOF03_A_UNITS, rgExtraCountAll, KOF03_A_NUMUNIT, KOF03_A_EXTRALOC, nUnitId, KOF03_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_KOF03_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_KOF03_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(KOF03_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_KOF03_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KOF03_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(KOF03_A_UNITS, rgExtraCountAll, KOF03_A_NUMUNIT, KOF03_A_EXTRALOC, nUnitId, nPaletteId, KOF03_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_KOF03_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_KOF03_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(KOF03_A_UNITS, rgExtraCountAll, KOF03_A_NUMUNIT, KOF03_A_EXTRALOC, nUnitId, nPaletteId, KOF03_A_EXTRA_CUSTOM);
 }
 
-void CGame_KOF03_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_KOF03_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != KOF03_A_EXTRALOC)
     {
@@ -662,16 +662,16 @@ BOOL CGame_KOF03_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     // Default values for multisprite image display for Export
-    int nSrcStart = (int)NodeGet->uPalId;
-    size_t nSrcAmt = 1;
-    int nNodeIncrement = 1;
+    uint32_t nSrcStart = NodeGet->uPalId;
+    uint32_t nSrcAmt = 1;
+    uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
-    size_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 

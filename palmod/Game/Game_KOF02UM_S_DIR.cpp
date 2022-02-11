@@ -37,7 +37,7 @@ CGame_KOF02UM_S_DIR::CGame_KOF02UM_S_DIR(UINT32 nConfirmedROMSize, SupportedGame
     // Don't load extras
     m_pszExtraFilename = nullptr;
 
-    nFileAmt = nUnitAmt = m_nTotalInternalUnits = _sCurrentGameUnits.size();
+    nFileAmt = nUnitAmt = m_nTotalInternalUnits = static_cast<uint32_t>(_sCurrentGameUnits.size());
 
     InitDataBuffer();
 
@@ -48,8 +48,8 @@ CGame_KOF02UM_S_DIR::CGame_KOF02UM_S_DIR(UINT32 nConfirmedROMSize, SupportedGame
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, 0, sizeof(uint32_t) * nUnitAmt);
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -62,11 +62,11 @@ CGame_KOF02UM_S_DIR::~CGame_KOF02UM_S_DIR()
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_KOF02UM_S_DIR::GetRule_8888(size_t nUnitId)
+sFileRule CGame_KOF02UM_S_DIR::GetRule_8888(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    const size_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
+    const uint32_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", KOF02UM_S_DIR_8888_UNITS[nAdjustedUnitId].strFileName.c_str());
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = KOF02UM_S_DIR_8888_UNITS[nAdjustedUnitId].nExpectedFileSize;
@@ -88,11 +88,11 @@ sFileRule CGame_KOF02UM_S_DIR::GetNextRule_8888()
     return NewFileRule;
 }
 
-sFileRule CGame_KOF02UM_S_DIR::GetRule_BGR555(size_t nUnitId)
+sFileRule CGame_KOF02UM_S_DIR::GetRule_BGR555(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    const size_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
+    const uint32_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", KOF02UM_S_DIR_BGR555_UNITS[nAdjustedUnitId].strFileName.c_str());
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = KOF02UM_S_DIR_BGR555_UNITS[nAdjustedUnitId].nExpectedFileSize;
@@ -114,11 +114,11 @@ sFileRule CGame_KOF02UM_S_DIR::GetNextRule_BGR555()
     return NewFileRule;
 }
 
-sFileRule CGame_KOF02UM_S_DIR::GetRule_RGB555(size_t nUnitId)
+sFileRule CGame_KOF02UM_S_DIR::GetRule_RGB555(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    const size_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
+    const uint32_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", KOF02UM_S_DIR_RGB555_UNITS[nAdjustedUnitId].strFileName.c_str());
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = KOF02UM_S_DIR_RGB555_UNITS[nAdjustedUnitId].nExpectedFileSize;
@@ -144,7 +144,7 @@ void CGame_KOF02UM_S_DIR::InitializeStatics()
 {
     sDescTreeNode* NewTree = new sDescTreeNode;
     
-    size_t nPaletteCount = InitDescTreeForFileSet(NewTree);
+    uint32_t nPaletteCount = InitDescTreeForFileSet(NewTree);
 
     MainDescTree.SetRootTree(NewTree);
 }

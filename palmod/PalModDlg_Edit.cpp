@@ -571,7 +571,7 @@ BOOL CPalModDlg::IsPasteFromPalMod()
 
             if (nPaletteCount <= CRegProc::GetMaxPalettePageSize())
             {
-                UINT16 nTerminalLocation = (UINT16)min(strlen(szTempStr), (size_t)(nPaletteCount * (cbColorSize * 2)) + 3);
+                UINT16 nTerminalLocation = (UINT16)min(strlen(szTempStr), (uint32_t)(nPaletteCount * (cbColorSize * 2)) + 3);
                 
                 if (szTempStr[nTerminalLocation] == ')')
                 {
@@ -582,7 +582,7 @@ BOOL CPalModDlg::IsPasteFromPalMod()
                     // So we're in "technically wrong" space here, but maybe it's workable...
                     nPaletteCount = (UINT16)((strlen(szTempStr) - 3) / (cbColorSize * 2));
 
-                    nTerminalLocation = (UINT16)min(strlen(szTempStr), (size_t)(nPaletteCount * (cbColorSize * 2)) + 3);
+                    nTerminalLocation = (UINT16)min(strlen(szTempStr), (uint32_t)(nPaletteCount * (cbColorSize * 2)) + 3);
 
                     if (szTempStr[nTerminalLocation] == ')')
                     {
@@ -622,15 +622,15 @@ BOOL CPalModDlg::IsPasteRGB()
     m_strPasteStr.Remove(' ');
     m_strPasteStr.Remove('\n');
 
-    size_t nCountChars = strlen(szTempStr);
-    size_t nOffset = 0;
+    uint32_t nCountChars = static_cast<uint32_t>(strlen(szTempStr));
+    uint32_t nOffset = 0;
 
     if (szTempStr[0] == '#')
     {
         nOffset = 1;
     }
 
-    size_t nXPos = nOffset;
+    uint32_t nXPos = nOffset;
 
     if ((nCountChars > 7) && (nCountChars < 11))
     {
@@ -641,14 +641,14 @@ BOOL CPalModDlg::IsPasteRGB()
         }
     }
 
-    size_t nCountColorChars = nCountChars - nXPos;
+    uint32_t nCountColorChars = nCountChars - nXPos;
 
     // Accept rrggbb or aarrggbb
     if ((nCountColorChars == 6) || (nCountColorChars == 8))
     {
         fCanPaste = TRUE;
 
-        for (size_t nIndex = nXPos; nIndex < nCountChars; nIndex++)
+        for (uint32_t nIndex = nXPos; nIndex < nCountChars; nIndex++)
         {
             if (isxdigit(szTempStr[nIndex]) == 0)
             {
@@ -1034,15 +1034,15 @@ void CPalModDlg::HandlePasteFromRGB()
     COleDataObject obj;
 
     char* szPasteBuff = m_strPasteStr.GetBuffer();
-    size_t nCountChars = strlen(szPasteBuff);
-    size_t nOffset = 0;
+    uint32_t nCountChars = static_cast<uint32_t>(strlen(szPasteBuff));
+    uint32_t nOffset = 0;
 
     if (szPasteBuff[0] == '#')
     {
         nOffset = 1;
     }
 
-    size_t nXPos = nOffset;
+    uint32_t nXPos = nOffset;
 
     if ((nCountChars > 7) && (nCountChars < 11))
     {
@@ -1053,7 +1053,7 @@ void CPalModDlg::HandlePasteFromRGB()
         }
     }
 
-    size_t nCountColorChars = nCountChars - nXPos;
+    uint32_t nCountColorChars = nCountChars - nXPos;
 
     // Allow for either RGB or ARGB pastes
     bool fIsARGB = (nCountColorChars == 8);

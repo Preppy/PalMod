@@ -8,10 +8,10 @@ stExtraDef* CGame_DOUBLEDRAGON_A::DOUBLEDRAGON_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_DOUBLEDRAGON_A::MainDescTree = nullptr;
 
-size_t CGame_DOUBLEDRAGON_A::rgExtraCountAll[DOUBLEDRAGON_A_NUMUNIT + 1];
-size_t CGame_DOUBLEDRAGON_A::rgExtraLoc[DOUBLEDRAGON_A_NUMUNIT + 1];
+uint32_t CGame_DOUBLEDRAGON_A::rgExtraCountAll[DOUBLEDRAGON_A_NUMUNIT + 1];
+uint32_t CGame_DOUBLEDRAGON_A::rgExtraLoc[DOUBLEDRAGON_A_NUMUNIT + 1];
 
-size_t CGame_DOUBLEDRAGON_A::m_nSelectedRom = 1;
+uint32_t CGame_DOUBLEDRAGON_A::m_nSelectedRom = 1;
 UINT32 CGame_DOUBLEDRAGON_A::m_nTotalPaletteCountForDOUBLEDRAGON = 0;
 UINT32 CGame_DOUBLEDRAGON_A::m_nExpectedGameROMSize = 0x200000;
 UINT32 CGame_DOUBLEDRAGON_A::m_nConfirmedROMSize = -1;
@@ -67,8 +67,8 @@ CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A(UINT32 nConfirmedROMSize, int nROMToL
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -87,7 +87,7 @@ const sDescTreeNode* CGame_DOUBLEDRAGON_A::GetCurrentUnitSet()
     return DOUBLEDRAGON_A_UNITS;
 }
 
-size_t CGame_DOUBLEDRAGON_A::GetCurrentExtraLoc()
+uint32_t CGame_DOUBLEDRAGON_A::GetCurrentExtraLoc()
 {
     return DOUBLEDRAGON_A_EXTRALOC;
 }
@@ -102,19 +102,19 @@ stExtraDef* CGame_DOUBLEDRAGON_A::GetCurrentExtraDef(int nDefCtr)
     return (stExtraDef*)&DOUBLEDRAGON_A_EXTRA_CUSTOM[nDefCtr];
 }
 
-size_t CGame_DOUBLEDRAGON_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_DOUBLEDRAGON_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, DOUBLEDRAGON_A_NUMUNIT, nUnitId, DOUBLEDRAGON_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_DOUBLEDRAGON_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_DOUBLEDRAGON_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, DOUBLEDRAGON_A_NUMUNIT, nUnitId, DOUBLEDRAGON_A_EXTRA_CUSTOM);
 }
 
 sDescTreeNode* CGame_DOUBLEDRAGON_A::InitDescTree()
 {
-    size_t nExtraUnitLocation = DOUBLEDRAGON_A_EXTRALOC;
+    uint32_t nExtraUnitLocation = DOUBLEDRAGON_A_EXTRALOC;
     LoadExtraFileForGame(EXTRA_FILENAME_DOUBLEDRAGON_A, &DOUBLEDRAGON_A_EXTRA_CUSTOM, DOUBLEDRAGON_A_EXTRALOC, m_nConfirmedROMSize);
     bool fHaveExtras = GetExtraCt(DOUBLEDRAGON_A_EXTRALOC);
     UINT16 nUnitCt = DOUBLEDRAGON_A_NUMUNIT + (fHaveExtras ? 1 : 0);
@@ -140,7 +140,7 @@ sDescTreeNode* CGame_DOUBLEDRAGON_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_DOUBLEDRAGON_A::GetRule(size_t nUnitId)
+sFileRule CGame_DOUBLEDRAGON_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -175,37 +175,37 @@ UINT32 CGame_DOUBLEDRAGON_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet**
     return ARRAYSIZE(knownROMs);
 }
 
-size_t CGame_DOUBLEDRAGON_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_DOUBLEDRAGON_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(DOUBLEDRAGON_A_UNITS, rgExtraCountAll, DOUBLEDRAGON_A_NUMUNIT, DOUBLEDRAGON_A_EXTRALOC, nUnitId, DOUBLEDRAGON_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_DOUBLEDRAGON_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_DOUBLEDRAGON_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(DOUBLEDRAGON_A_UNITS, rgExtraCountAll, DOUBLEDRAGON_A_NUMUNIT, DOUBLEDRAGON_A_EXTRALOC, nUnitId, nCollectionId, DOUBLEDRAGON_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_DOUBLEDRAGON_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_DOUBLEDRAGON_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(DOUBLEDRAGON_A_UNITS, DOUBLEDRAGON_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_DOUBLEDRAGON_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_DOUBLEDRAGON_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(DOUBLEDRAGON_A_UNITS, rgExtraCountAll, DOUBLEDRAGON_A_NUMUNIT, DOUBLEDRAGON_A_EXTRALOC, nUnitId, DOUBLEDRAGON_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_DOUBLEDRAGON_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_DOUBLEDRAGON_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(DOUBLEDRAGON_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_DOUBLEDRAGON_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_DOUBLEDRAGON_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(DOUBLEDRAGON_A_UNITS, rgExtraCountAll, DOUBLEDRAGON_A_NUMUNIT, DOUBLEDRAGON_A_EXTRALOC, nUnitId, nPaletteId, DOUBLEDRAGON_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_DOUBLEDRAGON_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_DOUBLEDRAGON_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(DOUBLEDRAGON_A_UNITS, rgExtraCountAll, DOUBLEDRAGON_A_NUMUNIT, DOUBLEDRAGON_A_EXTRALOC, nUnitId, nPaletteId, DOUBLEDRAGON_A_EXTRA_CUSTOM);
 }
@@ -225,13 +225,13 @@ void CGame_DOUBLEDRAGON_A::ClearDataBuffer()
 
     if (m_pppDataBuffer)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -246,7 +246,7 @@ void CGame_DOUBLEDRAGON_A::ClearDataBuffer()
     m_nSelectedRom = nCurrentROMMode;
 }
 
-void CGame_DOUBLEDRAGON_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_DOUBLEDRAGON_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != GetCurrentExtraLoc())
     {

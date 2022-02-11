@@ -8,8 +8,8 @@ stExtraDef* CGame_MMPR_SNES::MMPR_SNES_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MMPR_SNES::MainDescTree = nullptr;
 
-size_t CGame_MMPR_SNES::rgExtraCountAll[MMPR_SNES_NUMUNIT + 1];
-size_t CGame_MMPR_SNES::rgExtraLoc[MMPR_SNES_NUMUNIT + 1];
+uint32_t CGame_MMPR_SNES::rgExtraCountAll[MMPR_SNES_NUMUNIT + 1];
+uint32_t CGame_MMPR_SNES::rgExtraLoc[MMPR_SNES_NUMUNIT + 1];
 
 UINT32 CGame_MMPR_SNES::m_nTotalPaletteCountForMMPR = 0;
 UINT32 CGame_MMPR_SNES::m_nExpectedGameROMSize = 0x180000;
@@ -63,8 +63,8 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_2_AB;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -104,12 +104,12 @@ CDescTree* CGame_MMPR_SNES::GetMainTree()
     return &CGame_MMPR_SNES::MainDescTree;
 }
 
-size_t CGame_MMPR_SNES::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_MMPR_SNES::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, MMPR_SNES_NUMUNIT, nUnitId, MMPR_SNES_EXTRA_CUSTOM);
 }
 
-size_t CGame_MMPR_SNES::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_MMPR_SNES::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, MMPR_SNES_NUMUNIT, nUnitId, MMPR_SNES_EXTRA_CUSTOM);
 }
@@ -142,7 +142,7 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_MMPR_SNES::GetRule(size_t nUnitId)
+sFileRule CGame_MMPR_SNES::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -155,42 +155,42 @@ sFileRule CGame_MMPR_SNES::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_MMPR_SNES::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_MMPR_SNES::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(MMPR_SNES_UNITS, rgExtraCountAll, MMPR_SNES_NUMUNIT, MMPR_SNES_EXTRALOC, nUnitId, MMPR_SNES_EXTRA_CUSTOM);
 }
 
-size_t CGame_MMPR_SNES::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_MMPR_SNES::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(MMPR_SNES_UNITS, rgExtraCountAll, MMPR_SNES_NUMUNIT, MMPR_SNES_EXTRALOC, nUnitId, nCollectionId, MMPR_SNES_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_MMPR_SNES::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_MMPR_SNES::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(MMPR_SNES_UNITS, MMPR_SNES_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_MMPR_SNES::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_MMPR_SNES::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(MMPR_SNES_UNITS, rgExtraCountAll, MMPR_SNES_NUMUNIT, MMPR_SNES_EXTRALOC, nUnitId, MMPR_SNES_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_MMPR_SNES::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_MMPR_SNES::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(MMPR_SNES_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_MMPR_SNES::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_MMPR_SNES::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(MMPR_SNES_UNITS, rgExtraCountAll, MMPR_SNES_NUMUNIT, MMPR_SNES_EXTRALOC, nUnitId, nPaletteId, MMPR_SNES_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_MMPR_SNES::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_MMPR_SNES::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(MMPR_SNES_UNITS, rgExtraCountAll, MMPR_SNES_NUMUNIT, MMPR_SNES_EXTRALOC, nUnitId, nPaletteId, MMPR_SNES_EXTRA_CUSTOM);
 }
 
-void CGame_MMPR_SNES::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_MMPR_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     if (nUnitId != MMPR_SNES_EXTRALOC)
     {

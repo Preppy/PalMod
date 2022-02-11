@@ -19,7 +19,7 @@ namespace MVC2_SupplementProcessing
     CGame_MVC2_D* CurrMVC2 = nullptr;
     CGame_MVC2_A* CurrMVC2_Arcade = nullptr;
 
-    bool VerifyWriteIsSafe(size_t nCharId, UINT8 nCopyLength)
+    bool VerifyWriteIsSafe(uint32_t nCharId, UINT8 nCopyLength)
     {
         // We can copy all 16 colors if we start at 0, but if we're shifting colors we need to not stomp on the transparency color
         if (nCopyLength > 16)
@@ -59,7 +59,7 @@ namespace MVC2_SupplementProcessing
         }
     }
 
-    UINT16* get_pal_16(size_t char_id, size_t pal_no)
+    UINT16* get_pal_16(uint32_t char_id, uint32_t pal_no)
     {
         if (_mvc2_dreamcast_data)
         {
@@ -71,7 +71,7 @@ namespace MVC2_SupplementProcessing
         }
     }
 
-    int supp_copy_index(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)
+    int supp_copy_index(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)
     {
         CString strDebugInfo;
         if ((src_index == 0) && (index_amt == 0x10))
@@ -94,7 +94,7 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_mod_white(size_t char_id, size_t destination_palette, UINT8 index_start, UINT8 index_inc)
+    int supp_mod_white(uint32_t char_id, uint32_t destination_palette, UINT8 index_start, UINT8 index_inc)
     {
         OutputDebugString(L"\t\t\tsupp_mod_white being applied\n");
 
@@ -108,7 +108,7 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_mod_hsl(size_t char_id, UINT16 mod_type, int mod_amt, size_t destination_palette, UINT8 index_start, UINT8 index_inc)
+    int supp_mod_hsl(uint32_t char_id, UINT16 mod_type, int mod_amt, uint32_t destination_palette, UINT8 index_start, UINT8 index_inc)
     {
         COLORREF input_col;
 
@@ -157,7 +157,7 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_mod_tint(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
+    int supp_mod_tint(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
         int tint_factor_r, int tint_factor_g, int tint_factor_b)
     {
         UINT16* src_16 = get_pal_16(char_id, source_palette);
@@ -189,7 +189,7 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_copy_crosscharacter(size_t source_id, size_t source_palette, size_t destination_id, size_t destination_palette, UINT8 source_index, UINT8 destination_index, UINT8 copy_amount)
+    int supp_copy_crosscharacter(uint32_t source_id, uint32_t source_palette, uint32_t destination_id, uint32_t destination_palette, UINT8 source_index, UINT8 destination_index, UINT8 copy_amount)
     {
         CString strDebugInfo;
         strDebugInfo.Format(L"\t\t\tsupp_copy_crosscharacter being applied: Copying source unit 0x%02x palette 0x%02x to destination unit 0x%02x palette 0x%02x\n", source_id, source_palette, destination_id, destination_palette);
@@ -203,12 +203,12 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_copy_spiral(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 source_index /* = 0 */, UINT8 destination_index /* = 0 */, UINT8 copy_amount /* = 0x10 */)
+    int supp_copy_spiral(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 source_index /* = 0 */, UINT8 destination_index /* = 0 */, UINT8 copy_amount /* = 0x10 */)
     {
         return supp_copy_crosscharacter(char_id, source_palette, indexCPS2Sprites_Spiral /*0x31, spiral*/, destination_palette, source_index, destination_index, copy_amount);
     }
 
-    int HandleCammyCopies(size_t char_no, size_t pal_no)
+    int HandleCammyCopies(uint32_t char_no, uint32_t pal_no)
     {
         int nTotalLinkedPalettesUpdated = 0;
 
@@ -221,7 +221,7 @@ namespace MVC2_SupplementProcessing
 
                 if (nColorInQuestion == 0x03) // Cammy's M.Bison
                 {
-                    const int nSourceNode = (int)floor(pal_no / 8);
+                    const uint32_t nSourceNode = (uint32_t)floor(pal_no / 8);
                     nTotalLinkedPalettesUpdated += supp_copy_crosscharacter(char_no, pal_no, indexCPS2Sprites_Bison, nSourceNode * 8, 0, 0, 0x10);
                 }
             }
@@ -230,7 +230,7 @@ namespace MVC2_SupplementProcessing
         return nTotalLinkedPalettesUpdated;
     }
 
-    int HandleBisonCopies(size_t char_no, size_t pal_no)
+    int HandleBisonCopies(uint32_t char_no, uint32_t pal_no)
     {
         int nTotalLinkedPalettesUpdated = 0;
 
@@ -243,7 +243,7 @@ namespace MVC2_SupplementProcessing
 
                 if (nColorInQuestion == 0x00) // core M.Bison
                 {
-                    const int nSourceNode = (int)floor(pal_no / 8);
+                    const uint32_t nSourceNode = (uint32_t)floor(pal_no / 8);
                     nTotalLinkedPalettesUpdated += supp_copy_crosscharacter(char_no, pal_no, indexCPS2Sprites_Cammy, (nSourceNode * 8) + 0x03, 0, 0, 0x10);
                 }
             }
@@ -253,7 +253,7 @@ namespace MVC2_SupplementProcessing
     }
 
     // Spiral's shared transform super uses all of the other LP Marvel character sprites, so copy those across
-    int HandleSpiralCopies(size_t char_no, size_t pal_no)
+    int HandleSpiralCopies(uint32_t char_no, uint32_t pal_no)
     {
         int nTotalLinkedPalettesUpdated = 0;
 
@@ -297,7 +297,7 @@ namespace MVC2_SupplementProcessing
     }
 
     // This handles palettes that are modified as part of modifying a primary palette
-    int HandleSpiralCopies_ForSupplementedPalettes(size_t char_no, size_t pal_no)
+    int HandleSpiralCopies_ForSupplementedPalettes(uint32_t char_no, uint32_t pal_no)
     {
         int nTotalLinkedPalettesUpdated = 0;
 
@@ -310,7 +310,7 @@ namespace MVC2_SupplementProcessing
         return nTotalLinkedPalettesUpdated;
     }
 
-    int HandleCammyBisonCopies(size_t char_no, size_t pal_no)
+    int HandleCammyBisonCopies(uint32_t char_no, uint32_t pal_no)
     {
         int nTotalLinkedPalettesUpdated = 0;
 
@@ -320,7 +320,7 @@ namespace MVC2_SupplementProcessing
         return nTotalLinkedPalettesUpdated;
     }
 
-    void proc_supp(size_t char_no, size_t pal_no)
+    void proc_supp(uint32_t char_no, uint32_t pal_no)
     {
         CString strDebugInfo;
         int nTotalLinkedPalettesUpdated = 0;
@@ -382,7 +382,7 @@ namespace MVC2_SupplementProcessing
                     node_inc = supplementalEffectsData[indexCounterForEffects + 2];
 
                     //Set the source palette
-                    size_t source_palette = pal_no;
+                    uint32_t source_palette = pal_no;
 
                     if ((effect_node_type & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
                     {
@@ -437,7 +437,7 @@ namespace MVC2_SupplementProcessing
                     }
 
                     UINT8 pal_ctr;
-                    size_t destination_palette;
+                    uint32_t destination_palette;
 
                     if (!thisNodeForExtraPalettesOnly)
                     {

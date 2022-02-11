@@ -5,9 +5,9 @@
 
 // This file handles the logic for pairing ( unit id :: palette id ) sets to the best preview we have, if any
 
-void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, int uUnitId, int uPalId, int& nStart, int& nColorOptions, int& nIncrementToNext)
+void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, uint32_t uUnitId, uint32_t uPalId, uint32_t& nStart, uint32_t& nColorOptions, uint32_t& nIncrementToNext)
 {
-    for (size_t nButtonCount = 0; nButtonCount < pCurrentButtonLabelSet.size(); nButtonCount++)
+    for (uint32_t nButtonCount = 0; nButtonCount < pCurrentButtonLabelSet.size(); nButtonCount++)
     {
         if (wcsncmp(pMoveDescription->szMoveName, pCurrentButtonLabelSet[nButtonCount], wcslen(pCurrentButtonLabelSet[nButtonCount])) == 0)
         {
@@ -19,15 +19,15 @@ void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription*
                 // Actual match: check for peers
                 pszSubstring = &(pszSubstring[3]);
 
-                const int nStride = (nButtonCount > (pCurrentButtonLabelSet.size() / 2)) ? -1 : 1;
+                const int32_t nStride = (nButtonCount > (pCurrentButtonLabelSet.size() / 2)) ? -1 : 1;
 
                 CString strCheckString;
                 strCheckString.Format(L"%s - %s", pCurrentButtonLabelSet[nButtonCount + nStride], pszSubstring);
 
-                const int nMaximumKnownPaletteId = pCurrentMoveDescriptions[uUnitId][pCurrentMoveDescriptions[uUnitId].size() - 1].nCharacterIndex;
-                const int nAdjustedPalId = uPalId - EXTRA_OMNI;
+                const uint32_t nMaximumKnownPaletteId = pCurrentMoveDescriptions[uUnitId][pCurrentMoveDescriptions[uUnitId].size() - 1].nCharacterIndex;
+                const uint32_t nAdjustedPalId = uPalId - EXTRA_OMNI;
 
-                for (int nStepsTaken = nStride; ((nStepsTaken + nAdjustedPalId) > 0) && ((nStepsTaken + nAdjustedPalId) < nMaximumKnownPaletteId); nStepsTaken += nStride)
+                for (int32_t nStepsTaken = nStride; ((nStepsTaken + nAdjustedPalId) > 0) && ((nStepsTaken + nAdjustedPalId) < nMaximumKnownPaletteId); nStepsTaken += nStride)
                 {
                     sMoveDescription* pDescriptionToCheck = GetMoveDescriptionInfo(uUnitId, uPalId + nStepsTaken);
 
@@ -40,7 +40,7 @@ void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription*
                     if (wcscmp(pDescriptionToCheck->szMoveName, strCheckString) == 0)
                     {
                         nStart = uPalId + (nButtonCount * (-nStride) * nStepsTaken);
-                        nColorOptions = pCurrentButtonLabelSet.size();
+                        nColorOptions = static_cast<uint32_t>(pCurrentButtonLabelSet.size());
                         nIncrementToNext = abs(nStepsTaken);
                         break;
                     }
@@ -51,7 +51,7 @@ void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription*
     }
 }
 
-sMoveDescription* CGame_MVC2_D::GetMoveDescriptionInfo(size_t nUnitId, size_t nPalId)
+sMoveDescription* CGame_MVC2_D::GetMoveDescriptionInfo(uint32_t nUnitId, uint32_t nPalId)
 {
     sMoveDescription* pDescriptionForPalId = nullptr;
 
@@ -59,9 +59,9 @@ sMoveDescription* CGame_MVC2_D::GetMoveDescriptionInfo(size_t nUnitId, size_t nP
     {
         if (nPalId < EXTRA_OMNI)
         {
-            size_t uCorePalId = nPalId % 8;
+            uint32_t uCorePalId = nPalId % 8;
 
-            for (size_t uPalPos = 0; (uPalPos < 8) && (uPalPos < pCurrentMoveDescriptions[nUnitId].size()); uPalPos++)
+            for (uint32_t uPalPos = 0; (uPalPos < 8) && (uPalPos < pCurrentMoveDescriptions[nUnitId].size()); uPalPos++)
             {
                 if (pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uCorePalId)
                 {
@@ -72,10 +72,10 @@ sMoveDescription* CGame_MVC2_D::GetMoveDescriptionInfo(size_t nUnitId, size_t nP
         }
         else
         {
-            size_t uPalIdPostExtras = nPalId - EXTRA_OMNI;
+            uint32_t uPalIdPostExtras = nPalId - EXTRA_OMNI;
 
             // SKip past the core 8 palettes into extras space and see if we have a match
-            for (size_t uPalPos = 8; uPalPos < pCurrentMoveDescriptions[nUnitId].size(); uPalPos++)
+            for (uint32_t uPalPos = 8; uPalPos < pCurrentMoveDescriptions[nUnitId].size(); uPalPos++)
             {
                 if (pCurrentMoveDescriptions[nUnitId][uPalPos].nCharacterIndex == uPalIdPostExtras)
                 {
@@ -109,8 +109,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    size_t uUnitId = NodeGet->uUnitId;
-    size_t uPalId = NodeGet->uPalId;
+    uint32_t uUnitId = NodeGet->uUnitId;
+    uint32_t uPalId = NodeGet->uPalId;
     bool fUsingDataFromDescriptionSet = false;
 
     //Change the image id if we need to
@@ -142,10 +142,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         if ((pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin > 1) && (pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin < 8))
         {
             std::vector<const sMoveDescription*> vMoveDescriptionSetToJoin;
-            std::vector<int> vnPeerPaletteDistances;
+            std::vector<int8_t> vnPeerPaletteDistances;
             bool fAllNodesFound = true;
 
-            for (size_t nPairIndex = 0; nPairIndex < pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin; nPairIndex++)
+            for (uint32_t nPairIndex = 0; nPairIndex < pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin; nPairIndex++)
             {
                 switch (nPairIndex)
                 {
@@ -193,7 +193,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             std::vector<sDescNode*> vsJoinedNodes;
 
-            for (size_t nNodeIndex = 0; nNodeIndex < pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin; nNodeIndex++)
+            for (uint32_t nNodeIndex = 0; nNodeIndex < pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin; nNodeIndex++)
             {
                 // Note that this MvC2-specific version doesn't cross "nodes" since the layout is different
                 sDescNode* sSearchedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + vnPeerPaletteDistances[nNodeIndex], -1);
@@ -218,7 +218,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 for (int nNodeIndex = ((int)pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
                 {
-                    const size_t nUnitToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride : nImgUnitId;
+                    const uint32_t nUnitToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride : nImgUnitId;
                     const UINT16 nImageToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex : vMoveDescriptionSetToJoin[nNodeIndex]->nCharacterIndex;
 
                     sImgTicket* pThisImage = CreateImgTicket(nUnitToUse, nImageToUse, pPreviousImage);
@@ -231,16 +231,16 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 ClearSetImgTicket(vsImagePairs[(pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin - 1)]);
 
                 // Use core vs Extra defaults, and then use lookup to find potential linkage for Extras
-                int nColorOptions = (NodeGet->uPalId < EXTRA_OMNI) ? _nCurrentTotalColorOptions : 1;
-                int nSrcStart = GetBasicOffset(NodeGet->uPalId);
-                int nNodeIncrement = (NodeGet->uPalId < EXTRA_OMNI) ? 8 : 1;
+                uint32_t nColorOptions = (NodeGet->uPalId < EXTRA_OMNI) ? _nCurrentTotalColorOptions : 1;
+                uint32_t nSrcStart = GetBasicOffset(NodeGet->uPalId);
+                uint32_t nNodeIncrement = (NodeGet->uPalId < EXTRA_OMNI) ? 8 : 1;
 
                 if (NodeGet->uPalId > EXTRA_OMNI)
                 {
                     FindMultispriteExportValuesForExtrasPalette(pDescriptionForPalId, uUnitId, uPalId, nSrcStart, nColorOptions, nNodeIncrement);
                 }
 
-                for (int nPairIndex = 0; nPairIndex < (int)pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin; nPairIndex++)
+                for (uint32_t nPairIndex = 0; nPairIndex < pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin; nPairIndex++)
                 {
                     //Set each palette
                     CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
@@ -291,8 +291,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 OutputDebugString(L"WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n");
             }
 
-            size_t nNodeIndex = ((NodeGet->uPalId) % pCurrentButtonLabelSet.size());
-            size_t nPaletteIndex = nNodeIndex * 8;  // this is 8 since we're dealing with base mvc2 character palettes
+            uint32_t nNodeIndex = ((NodeGet->uPalId) % pCurrentButtonLabelSet.size());
+            uint32_t nPaletteIndex = nNodeIndex * 8;  // this is 8 since we're dealing with base mvc2 character palettes
 
             // Get the image dimensions so that we can collate them into one contiguous strip
             std::array<sImgDef*, 3> pImgDefSet = {
@@ -328,8 +328,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(JoinedNode[1], 1);
             CreateDefPal(JoinedNode[2], 2);
 
-            size_t nSrcAmt = _nCurrentTotalColorOptions;
-            int nNodeIncrement = 8; // 8 palettes per main character color set
+            uint32_t nSrcAmt = _nCurrentTotalColorOptions;
+            uint32_t nNodeIncrement = 8; // 8 palettes per main character color set
             SetSourcePal(0, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
             SetSourcePal(1, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
             SetSourcePal(2, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);
@@ -341,7 +341,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     if (bLoadDefPal)
     {
-        const int nBasicOffset = GetBasicOffset(uPalId);
+        const uint32_t nBasicOffset = GetBasicOffset(uPalId);
 
         // This flag is used to de-extra-ize sprite values.  But for imgdat2020 sprites we actually want a higher range.
         // So here we allow either choice of ranges, with the explicit need to ask for the new range.
@@ -365,9 +365,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             // For Extras we handle above, CreateExtraPal handles the call to SetSourcePal
             // For anybody that wants multisprite export, they need to define their node increment and corrected starting point above.
-            int nStart = uPalId;
-            int nColorOptions = 1;
-            int nIncrementToNext = 1;
+            uint32_t nStart = uPalId;
+            uint32_t nColorOptions = 1;
+            uint32_t nIncrementToNext = 1;
 
             FindMultispriteExportValuesForExtrasPalette(pDescriptionForPalId, uUnitId, uPalId, nStart, nColorOptions, nIncrementToNext);
 

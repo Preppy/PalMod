@@ -27,12 +27,12 @@ namespace MVC2_SupplementProcessing
     extern CGame_MVC2_D* CurrMVC2;
     extern CGame_MVC2_A* CurrMVC2_Arcade;
 
-    UINT16* get_pal_16(size_t char_id, size_t pal_no);
+    UINT16* get_pal_16(uint32_t char_id, uint32_t pal_no);
 
-    int supp_copy_spiral(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 source_index = 0, UINT8 destination_index = 0, UINT8 copy_amount = 0x10);
+    int supp_copy_spiral(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 source_index = 0, UINT8 destination_index = 0, UINT8 copy_amount = 0x10);
 
     void prep_supp(bool forDreamcast = true);
-    void proc_supp(size_t char_no, size_t pal_no);
+    void proc_supp(uint32_t char_no, uint32_t pal_no);
 
     // We fork some characters in order to accommodate for the non-linear extras in the expansion.
     // While LP...A2 Extras transfer perfectly, Extras of form "LP...A2...LP...A2" need adjustments for the initial locations

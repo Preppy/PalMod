@@ -8,7 +8,7 @@ private:
     int m_nCurrentPaletteROMLocation = 0;
     int nCurrPalSz = 0;
 
-    void GetPalOffsSz(size_t nUnitId, size_t nPalId);
+    void GetPalOffsSz(uint32_t nUnitId, uint32_t nPalId);
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -24,25 +24,25 @@ public:
     static sDescTreeNode* InitDescTree();
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
 
-    static size_t uRuleCtr;
+    static uint32_t uRuleCtr;
     static sFileRule GetNextRule();
-    static sFileRule GetRule(size_t nUnitId);
+    static sFileRule GetRule(uint32_t nUnitId);
 
-    static size_t GetRuleCtr() { return uRuleCtr; };
+    static uint32_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     //Extra palette function
-    static size_t GetBasicAmt(size_t nUnitId);
+    static uint32_t GetBasicAmt(uint32_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
 
-    size_t GetPaletteCountForUnit(size_t nUnitId) override;
+    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
-    void CreateDefPal(sDescNode* srcNode, size_t nSepId) override;
-    BOOL LoadFile(CFile* LoadedFile, size_t nUnitId = 0) override;
-    BOOL SaveFile(CFile* SaveFile, size_t nUnitId = 0) override;
+    void CreateDefPal(sDescNode* srcNode, uint32_t nSepId) override;
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId = 0) override;
+    BOOL SaveFile(CFile* SaveFile, uint32_t nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    COLORREF* CreatePal(size_t nUnitId, size_t nPalId) override;
+    COLORREF* CreatePal(uint32_t nUnitId, uint32_t nPalId) override;
 };

@@ -2,7 +2,7 @@
 #include "Game_UNICLR_A.h"
 #include "..\PalMod.h"
 
-size_t CGame_UNICLR_A::uRuleCtr = 0;
+uint32_t CGame_UNICLR_A::uRuleCtr = 0;
 
 CDescTree CGame_UNICLR_A::MainDescTree = nullptr;
 
@@ -147,7 +147,7 @@ CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
     // Don't load extras
     m_pszExtraFilename = nullptr;
 
-    nFileAmt = nUnitAmt = m_nTotalInternalUnits = UNICLRCharacterData.size();
+    nFileAmt = nUnitAmt = m_nTotalInternalUnits = static_cast<uint32_t>(UNICLRCharacterData.size());
 
     InitDataBuffer();
 
@@ -161,8 +161,8 @@ CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
     pButtonLabelSet = DEF_BUTTONLABEL_2_LEFTRIGHT;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, 0, sizeof(uint32_t) * nUnitAmt);
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -180,11 +180,11 @@ void CGame_UNICLR_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_UNICLR_A::InitDescTree());
 }
 
-sFileRule CGame_UNICLR_A::GetRule(size_t nUnitId)
+sFileRule CGame_UNICLR_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    const size_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
+    const uint32_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", UNICLRCharacterData[nAdjustedUnitId].pszFileName);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = UNICLRCharacterData[nAdjustedUnitId].nExpectedFileSize;
@@ -209,7 +209,7 @@ sFileRule CGame_UNICLR_A::GetNextRule()
 sDescTreeNode* CGame_UNICLR_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
-    size_t nUnitCt = UNICLRCharacterData.size();
+    uint32_t nUnitCt = static_cast<uint32_t>(UNICLRCharacterData.size());
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -225,13 +225,13 @@ sDescTreeNode* CGame_UNICLR_A::InitDescTree()
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (size_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (uint32_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        size_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
+        uint32_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
@@ -248,17 +248,17 @@ sDescTreeNode* CGame_UNICLR_A::InitDescTree()
         OutputDebugString(strMsg);
 #endif
 
-        size_t nTotalPalettesUsedInUnit = 0;
+        uint32_t nTotalPalettesUsedInUnit = 0;
 
         //Set data for each child group ("collection")
-        for (size_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+        for (uint32_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
         {
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
             //Set each collection data
             _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
             //Collection children have nodes
-            size_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
+            uint32_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nListedChildrenCount;
             CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
@@ -268,7 +268,7 @@ sDescTreeNode* CGame_UNICLR_A::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-            for (size_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+            for (uint32_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -294,34 +294,34 @@ sDescTreeNode* CGame_UNICLR_A::InitDescTree()
     return NewDescTree;
 }
 
-size_t CGame_UNICLR_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_UNICLR_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     // Just one palette set per character
     return ARRAYSIZE(UNICLRPaletteNodes);
 }
 
-size_t CGame_UNICLR_A::GetNodeCountForCollection(size_t nUnitId, size_t /*nCollectionId*/)
+uint32_t CGame_UNICLR_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t /*nCollectionId*/)
 {
-    return UNICLRCharacterData[nUnitId].ppszPaletteList.size();
+    return static_cast<uint32_t>(UNICLRCharacterData[nUnitId].ppszPaletteList.size());
 }
 
-size_t CGame_UNICLR_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_UNICLR_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
-    return UNICLRCharacterData[nUnitId].ppszPaletteList.size() * ARRAYSIZE(UNICLRPaletteNodes);
+    return static_cast<uint32_t>(UNICLRCharacterData[nUnitId].ppszPaletteList.size()) * ARRAYSIZE(UNICLRPaletteNodes);
 }
 
-LPCWSTR CGame_UNICLR_A::GetDescriptionForCollection(size_t /*nUnitId */, size_t nCollectionId)
+LPCWSTR CGame_UNICLR_A::GetDescriptionForCollection(uint32_t /*nUnitId */, uint32_t nCollectionId)
 {
     return UNICLRPaletteNodes[nCollectionId].pszNodeName;
 }
 
-void CGame_UNICLR_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_UNICLR_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     // UNICLR palettes are all 0x400 long
     const int cbPaletteSizeOnDisc = 0x400;
 
-    size_t nAdjustedPalId = nPalId % UNICLRPaletteNamesNormal.size();
-    size_t nPaletteSet = nPalId / UNICLRPaletteNamesNormal.size();
+    uint32_t nAdjustedPalId = nPalId % static_cast<uint32_t>(UNICLRPaletteNamesNormal.size());
+    uint32_t nPaletteSet = nPalId / static_cast<uint32_t>(UNICLRPaletteNamesNormal.size());
 
     m_pszCurrentPaletteName = UNICLRCharacterData[nUnitId].ppszPaletteList[nAdjustedPalId];
     m_nCurrentPaletteROMLocation = UNICLRCharacterData[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nAdjustedPalId) + (0x0 * nAdjustedPalId);
@@ -352,13 +352,13 @@ BOOL CGame_UNICLR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     //Change the image id if we need to
     int nTargetImgId = 0;
-    size_t nImgUnitId = UNICLRCharacterData[NodeGet->uUnitId].nSpriteIndex;
+    uint32_t nImgUnitId = UNICLRCharacterData[NodeGet->uUnitId].nSpriteIndex;
 
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists
     int nSrcStart = (int)(NodeGet->uPalId % UNICLRCharacterData[NodeGet->uUnitId].ppszPaletteList.size());
-    size_t nSrcAmt = pButtonLabelSet.size();
-    size_t nNodeIncrement = UNICLRCharacterData[NodeGet->uUnitId].ppszPaletteList.size();
+    uint32_t nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
+    uint32_t nNodeIncrement = static_cast<uint32_t>(UNICLRCharacterData[NodeGet->uUnitId].ppszPaletteList.size());
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -379,7 +379,7 @@ BOOL CGame_UNICLR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     return TRUE;
 }
 
-BOOL CGame_UNICLR_A::LoadFile(CFile* LoadedFile, size_t nUnitNumber)
+BOOL CGame_UNICLR_A::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
@@ -390,7 +390,7 @@ BOOL CGame_UNICLR_A::LoadFile(CFile* LoadedFile, size_t nUnitNumber)
     strInfo.Format(L"\tCGame_UNICLR_A_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", UNICLRCharacterData[nUnitNumber].nInitialLocation);
     OutputDebugString(strInfo);
 
-    size_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);
+    uint32_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
@@ -401,7 +401,7 @@ BOOL CGame_UNICLR_A::LoadFile(CFile* LoadedFile, size_t nUnitNumber)
     // These are already sorted, no need to redirect
     rgUnitRedir[nUnitNumber] = nUnitNumber;
 
-    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
@@ -421,12 +421,12 @@ BOOL CGame_UNICLR_A::LoadFile(CFile* LoadedFile, size_t nUnitNumber)
     return fSuccess;
 }
 
-BOOL CGame_UNICLR_A::SaveFile(CFile* SaveFile, size_t nUnitId)
+BOOL CGame_UNICLR_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
-    size_t nPalAmt = GetPaletteCountForUnit(nUnitId);
+    uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
-    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         if (IsPaletteDirty(nUnitId, nPalCtr))
         {
@@ -453,7 +453,7 @@ BOOL CGame_UNICLR_A::SaveFile(CFile* SaveFile, size_t nUnitId)
     return TRUE;
 }
 
-void CGame_UNICLR_A::PostSetPal(size_t nUnitId, size_t nPalId)
+void CGame_UNICLR_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
     CString strMessage;
     strMessage.Format(L"CGame_UNICLR_A::PostSetPal : Updating left/right partner for unit %u palette %u.\n", nUnitId, nPalId);
@@ -461,8 +461,8 @@ void CGame_UNICLR_A::PostSetPal(size_t nUnitId, size_t nPalId)
 
     static_assert(ARRAYSIZE(UNICLRPaletteNodes) == 2, "UNICLR post-processing presumes two paired nodes: update PostSetPal for your change.");
 
-    size_t nPartnerId = nPalId;
-    const size_t nNodeCount = GetNodeCountForCollection(nUnitId, 0);
+    uint32_t nPartnerId = nPalId;
+    const uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, 0);
 
     // Flip to the left/right partner
     if (nPalId >= nNodeCount)

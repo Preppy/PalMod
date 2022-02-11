@@ -8,8 +8,8 @@ stExtraDef* CGame_NINJAMASTERS_A::NINJAMASTERS_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_NINJAMASTERS_A::MainDescTree = nullptr;
 
-size_t CGame_NINJAMASTERS_A::rgExtraCountAll[NINJAMASTERS_A_NUMUNIT + 1];
-size_t CGame_NINJAMASTERS_A::rgExtraLoc[NINJAMASTERS_A_NUMUNIT + 1];
+uint32_t CGame_NINJAMASTERS_A::rgExtraCountAll[NINJAMASTERS_A_NUMUNIT + 1];
+uint32_t CGame_NINJAMASTERS_A::rgExtraLoc[NINJAMASTERS_A_NUMUNIT + 1];
 
 UINT32 CGame_NINJAMASTERS_A::m_nTotalPaletteCountForNINJAMASTERS = 0;
 UINT32 CGame_NINJAMASTERS_A::m_nExpectedGameROMSize = 0x200000;
@@ -64,8 +64,8 @@ CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_2_AB;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -84,7 +84,7 @@ const sDescTreeNode* CGame_NINJAMASTERS_A::GetCurrentUnitSet()
     return NINJAMASTERS_A_UNITS;
 }
 
-size_t CGame_NINJAMASTERS_A::GetCurrentExtraLoc()
+uint32_t CGame_NINJAMASTERS_A::GetCurrentExtraLoc()
 {
     return NINJAMASTERS_A_EXTRALOC;
 }
@@ -94,24 +94,24 @@ CDescTree* CGame_NINJAMASTERS_A::GetMainTree()
     return &CGame_NINJAMASTERS_A::MainDescTree;
 }
 
-stExtraDef* CGame_NINJAMASTERS_A::GetCurrentExtraDef(int nDefCtr)
+stExtraDef* CGame_NINJAMASTERS_A::GetCurrentExtraDef(uint32_t nDefCtr)
 {
     return (stExtraDef*)&NINJAMASTERS_A_EXTRA_CUSTOM[nDefCtr];
 }
 
-size_t CGame_NINJAMASTERS_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_NINJAMASTERS_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, NINJAMASTERS_A_NUMUNIT, nUnitId, NINJAMASTERS_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_NINJAMASTERS_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_NINJAMASTERS_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, NINJAMASTERS_A_NUMUNIT, nUnitId, NINJAMASTERS_A_EXTRA_CUSTOM);
 }
 
 sDescTreeNode* CGame_NINJAMASTERS_A::InitDescTree()
 {
-    size_t nExtraUnitLocation = NINJAMASTERS_A_EXTRALOC;
+    uint32_t nExtraUnitLocation = NINJAMASTERS_A_EXTRALOC;
     LoadExtraFileForGame(EXTRA_FILENAME_NINJAMASTERS_A, &NINJAMASTERS_A_EXTRA_CUSTOM, NINJAMASTERS_A_EXTRALOC, m_nConfirmedROMSize);
     bool fHaveExtras = GetExtraCt(NINJAMASTERS_A_EXTRALOC);
     UINT16 nUnitCt = NINJAMASTERS_A_NUMUNIT + (fHaveExtras ? 1 : 0);
@@ -137,7 +137,7 @@ sDescTreeNode* CGame_NINJAMASTERS_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_NINJAMASTERS_A::GetRule(size_t nUnitId)
+sFileRule CGame_NINJAMASTERS_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -172,42 +172,42 @@ UINT32 CGame_NINJAMASTERS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet**
     return ARRAYSIZE(knownROMs);
 }
 
-size_t CGame_NINJAMASTERS_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_NINJAMASTERS_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(NINJAMASTERS_A_UNITS, rgExtraCountAll, NINJAMASTERS_A_NUMUNIT, NINJAMASTERS_A_EXTRALOC, nUnitId, NINJAMASTERS_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_NINJAMASTERS_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_NINJAMASTERS_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(NINJAMASTERS_A_UNITS, rgExtraCountAll, NINJAMASTERS_A_NUMUNIT, NINJAMASTERS_A_EXTRALOC, nUnitId, nCollectionId, NINJAMASTERS_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_NINJAMASTERS_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_NINJAMASTERS_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(NINJAMASTERS_A_UNITS, NINJAMASTERS_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_NINJAMASTERS_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_NINJAMASTERS_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(NINJAMASTERS_A_UNITS, rgExtraCountAll, NINJAMASTERS_A_NUMUNIT, NINJAMASTERS_A_EXTRALOC, nUnitId, NINJAMASTERS_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_NINJAMASTERS_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_NINJAMASTERS_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(NINJAMASTERS_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_NINJAMASTERS_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_NINJAMASTERS_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(NINJAMASTERS_A_UNITS, rgExtraCountAll, NINJAMASTERS_A_NUMUNIT, NINJAMASTERS_A_EXTRALOC, nUnitId, nPaletteId, NINJAMASTERS_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_NINJAMASTERS_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_NINJAMASTERS_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(NINJAMASTERS_A_UNITS, rgExtraCountAll, NINJAMASTERS_A_NUMUNIT, NINJAMASTERS_A_EXTRALOC, nUnitId, nPaletteId, NINJAMASTERS_A_EXTRA_CUSTOM);
 }
 
-void CGame_NINJAMASTERS_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_NINJAMASTERS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != GetCurrentExtraLoc())
     {

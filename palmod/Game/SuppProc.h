@@ -25,18 +25,18 @@ int AdjustNumberForPossibleNegation(int nPossiblyNegativeNumber);
 class CSecondaryPaletteProcessing
 {
 protected:
-    void ProcessSecondaryCopyWithIndex(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);
-    void ProcessSecondaryWhite(size_t char_id, size_t destination_palette, UINT8 index_start, UINT8 index_inc);
-    void ProcessSecondaryHSLEffects(size_t char_id, UINT16 mod_type, int mod_amt, size_t destination_palette, UINT8 index_start, UINT8 index_inc);
-    void ProcessSecondaryTintEffects(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
+    void ProcessSecondaryCopyWithIndex(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);
+    void ProcessSecondaryWhite(uint32_t char_id, uint32_t destination_palette, UINT8 index_start, UINT8 index_inc);
+    void ProcessSecondaryHSLEffects(uint32_t char_id, UINT16 mod_type, int mod_amt, uint32_t destination_palette, UINT8 index_start, UINT8 index_inc);
+    void ProcessSecondaryTintEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
         int tint_factor_r, int tint_factor_g, int tint_factor_b);
 
 public:
     virtual UINT16 GetCurrentPaletteSizeInColors() = 0;
     virtual void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA) = 0;
-    virtual COLORREF* CreatePal(size_t nUnitId, size_t nPalId) = 0;
-    virtual void WritePal(size_t nUnitId, size_t nPalId, COLORREF* rgColors, UINT16 nColorCount) = 0;
-    virtual void MarkPaletteDirty(size_t nUnit, size_t nPaletteId) = 0;
+    virtual COLORREF* CreatePal(uint32_t nUnitId, uint32_t nPalId) = 0;
+    virtual void WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, UINT16 nColorCount) = 0;
+    virtual void MarkPaletteDirty(uint32_t nUnit, uint32_t nPaletteId) = 0;
 
-    void ProcessAdditionalPaletteChangesRequired(const size_t nUnitId, const size_t nChangedPaletteNumber, const std::vector<std::vector<UINT16>> supplementalEffectsData);
+    void ProcessAdditionalPaletteChangesRequired(const uint32_t nUnitId, const uint32_t nChangedPaletteNumber, const std::vector<std::vector<UINT16>> supplementalEffectsData);
 };

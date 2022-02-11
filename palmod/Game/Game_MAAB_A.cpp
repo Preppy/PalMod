@@ -3,7 +3,7 @@
 #include "MAAB_A_DEF.h"
 #include "..\PalMod.h"
 
-size_t CGame_MAAB_A::uRuleCtr = 0;
+uint32_t CGame_MAAB_A::uRuleCtr = 0;
 
 CDescTree CGame_MAAB_A::MainDescTree = nullptr;
 
@@ -37,8 +37,8 @@ CGame_MAAB_A::CGame_MAAB_A(UINT32 nConfirmedROMSize /* = -1 */)
     pButtonLabelSet = DEF_NOBUTTONS;
 
     //Create the redirect buffer: size it to the file count so that LoadFile works as needed
-    rgUnitRedir = new size_t[nFileAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(size_t) * nFileAmt);
+    rgUnitRedir = new uint32_t[nFileAmt + 1];
+    memset(rgUnitRedir, 0, sizeof(uint32_t) * nFileAmt);
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -56,11 +56,11 @@ void CGame_MAAB_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_MAAB_A::InitDescTree());
 }
 
-sFileRule CGame_MAAB_A::GetRule(size_t nUnitId)
+sFileRule CGame_MAAB_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    const size_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
+    const uint32_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", MAAB_A_CharacterData[nAdjustedUnitId].pszFileName);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = MAAB_A_CharacterData[nAdjustedUnitId].nExpectedFileSize;
@@ -84,8 +84,8 @@ sFileRule CGame_MAAB_A::GetNextRule()
 
 sDescTreeNode* CGame_MAAB_A::InitDescTree()
 {
-    size_t nTotalPaletteCount = 0;
-    size_t nUnitCt = GetUniqueUnitCount();
+    uint32_t nTotalPaletteCount = 0;
+    uint32_t nUnitCt = GetUniqueUnitCount();
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -100,13 +100,13 @@ sDescTreeNode* CGame_MAAB_A::InitDescTree()
     OutputDebugString(L"CGame_MAAB_A_DIR::InitDescTree: Building desc tree for MAAB_A...\n");
 
     //Go through each character
-    for (size_t nUnitCtrByFile = 0; nUnitCtrByFile < nUnitCt; nUnitCtrByFile++)
+    for (uint32_t nUnitCtrByFile = 0; nUnitCtrByFile < nUnitCt; nUnitCtrByFile++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        size_t nUnitChildCount = GetCollectionCountForUnit(nUnitCtrByFile);
+        uint32_t nUnitChildCount = GetCollectionCountForUnit(nUnitCtrByFile);
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[nUnitCtrByFile];
 
@@ -123,17 +123,17 @@ sDescTreeNode* CGame_MAAB_A::InitDescTree()
         OutputDebugString(strMsg);
 #endif
 
-        size_t nTotalPalettesUsedInUnit = 0;
+        uint32_t nTotalPalettesUsedInUnit = 0;
 
         //Set data for each child group ("collection")
-        for (size_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+        for (uint32_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
         {
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
             //Set each collection data
             _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(nUnitCtrByFile, iCollectionCtr));
             //Collection children have nodes
-            size_t nListedChildrenCount = GetNodeCountForCollection(nUnitCtrByFile, iCollectionCtr);
+            uint32_t nListedChildrenCount = GetNodeCountForCollection(nUnitCtrByFile, iCollectionCtr);
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nListedChildrenCount;
             CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
@@ -145,15 +145,15 @@ sDescTreeNode* CGame_MAAB_A::InitDescTree()
 
             UINT16 nHandledChildren = 0;
             UINT16 nNodeIndexForCharacter = 0;
-            size_t nUnitCtrByCharacter = nUnitCtrByFile;
+            uint32_t nUnitCtrByCharacter = nUnitCtrByFile;
 
-            for (size_t nNodeIndexForUnit = 0; nNodeIndexForUnit < nListedChildrenCount; nNodeIndexForUnit++)
+            for (uint32_t nNodeIndexForUnit = 0; nNodeIndexForUnit < nListedChildrenCount; nNodeIndexForUnit++)
             {
                 bool fShouldUseBasicPalettes = ShouldUseBasePaletteSet(nUnitCtrByFile, iCollectionCtr);
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndexForUnit];
 
-                size_t nFileUnitId = 0;
-                size_t nFilePalId = 0;
+                uint32_t nFileUnitId = 0;
+                uint32_t nFilePalId = 0;
 
                 GetFileIndexFromCharacterIndex(nUnitCtrByCharacter, nNodeIndexForUnit, &nFileUnitId, &nFilePalId);
 
@@ -172,12 +172,12 @@ sDescTreeNode* CGame_MAAB_A::InitDescTree()
 
                 nHandledChildren++;
 
-                const size_t nTotalPalettesThisCharacter = MAAB_A_CharacterData[nUnitCtrByCharacter].ppszPaletteList.size() + MAAB_A_CharacterData[nUnitCtrByCharacter].prgExtraPalettes.size();
+                const uint32_t nTotalPalettesThisCharacter = static_cast<uint32_t>(MAAB_A_CharacterData[nUnitCtrByCharacter].ppszPaletteList.size() + MAAB_A_CharacterData[nUnitCtrByCharacter].prgExtraPalettes.size());
 
                 if ((nHandledChildren == nTotalPalettesThisCharacter) && MAAB_A_CharacterData[nUnitCtrByCharacter].pszNodeName)
                 {
                     // Step forward to the next part of this collection
-                    for (size_t nNextIndex = nUnitCtrByCharacter + 1; nNextIndex < ARRAYSIZE(MAAB_A_CharacterData); nNextIndex++)
+                    for (uint32_t nNextIndex = nUnitCtrByCharacter + 1; nNextIndex < ARRAYSIZE(MAAB_A_CharacterData); nNextIndex++)
                     {
                         if (MAAB_A_CharacterData[nNextIndex].pszNodeName && (_wcsicmp(MAAB_A_CharacterData[nNextIndex].pszCharacter, MAAB_A_CharacterData[nUnitCtrByCharacter].pszCharacter) == 0))
                         {
@@ -204,10 +204,10 @@ sDescTreeNode* CGame_MAAB_A::InitDescTree()
     return NewDescTree;
 }
 
-size_t CGame_MAAB_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_MAAB_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     // One core set per character, plus optional extras
-    size_t nCollectionCount = 0;
+    uint32_t nCollectionCount = 0;
 
     if (MAAB_A_CharacterData[nUnitId].pszNodeName == nullptr)
     {
@@ -224,7 +224,7 @@ size_t CGame_MAAB_A::GetCollectionCountForUnit(size_t nUnitId)
     }
     else
     {
-        for (size_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
+        for (uint32_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
         {
             // This is a crossfile unit: the collection count is equal to files also sharing this unit name
             if (MAAB_A_CharacterData[nIndex].pszNodeName && (_wcsicmp(MAAB_A_CharacterData[nUnitId].pszCharacter, MAAB_A_CharacterData[nIndex].pszCharacter) == 0))
@@ -237,10 +237,10 @@ size_t CGame_MAAB_A::GetCollectionCountForUnit(size_t nUnitId)
     return nCollectionCount;
 }
 
-bool CGame_MAAB_A::ShouldUseBasePaletteSet(size_t nCharacterUnitId, size_t nCollectionId)
+bool CGame_MAAB_A::ShouldUseBasePaletteSet(uint32_t nCharacterUnitId, uint32_t nCollectionId)
 {
-    size_t nFileUnitId = 0;
-    size_t nAdjustedCollectionId = 0;
+    uint32_t nFileUnitId = 0;
+    uint32_t nAdjustedCollectionId = 0;
 
     GetFileIndexFromCharacterCollection(nCharacterUnitId, nCollectionId, &nFileUnitId, &nAdjustedCollectionId);
 
@@ -254,24 +254,24 @@ bool CGame_MAAB_A::ShouldUseBasePaletteSet(size_t nCharacterUnitId, size_t nColl
     }
 }
 
-size_t CGame_MAAB_A::GetNodeCountForCollection(size_t nCharacterUnitId, size_t nCollectionId)
+uint32_t CGame_MAAB_A::GetNodeCountForCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId)
 {
     if (MAAB_A_CharacterData[nCharacterUnitId].pszNodeName == nullptr)
     {
         if (ShouldUseBasePaletteSet(nCharacterUnitId, nCollectionId))
         {
-            return MAAB_A_CharacterData[nCharacterUnitId].ppszPaletteList.size();
+            return static_cast<uint32_t>(MAAB_A_CharacterData[nCharacterUnitId].ppszPaletteList.size());
         }
         else
         {
-            return MAAB_A_CharacterData[nCharacterUnitId].prgExtraPalettes.size();
+            return static_cast<uint32_t>(MAAB_A_CharacterData[nCharacterUnitId].prgExtraPalettes.size());
         }
     }
     else
     {
-        size_t nCurrentCollection = 0;
+        uint32_t nCurrentCollection = 0;
 
-        for (size_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
+        for (uint32_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
         {
             // This is a crossfile unit: the collection count is equal to files also sharing this unit name
             if (!MAAB_A_CharacterData[nIndex].pszNodeName || (_wcsicmp(MAAB_A_CharacterData[nCharacterUnitId].pszCharacter, MAAB_A_CharacterData[nIndex].pszCharacter) != 0))
@@ -283,11 +283,11 @@ size_t CGame_MAAB_A::GetNodeCountForCollection(size_t nCharacterUnitId, size_t n
             {
                 if (ShouldUseBasePaletteSet(nCharacterUnitId, nCollectionId))
                 {
-                    return MAAB_A_CharacterData[nIndex].ppszPaletteList.size();
+                    return static_cast<uint32_t>(MAAB_A_CharacterData[nIndex].ppszPaletteList.size());
                 }
                 else
                 {
-                    return MAAB_A_CharacterData[nIndex].prgExtraPalettes.size();
+                    return static_cast<uint32_t>(MAAB_A_CharacterData[nIndex].prgExtraPalettes.size());
                 }
             }
 
@@ -298,22 +298,22 @@ size_t CGame_MAAB_A::GetNodeCountForCollection(size_t nCharacterUnitId, size_t n
     }
 }
 
-size_t CGame_MAAB_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_MAAB_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     if (MAAB_A_CharacterData[nUnitId].pszNodeName == nullptr)
     {
-        return MAAB_A_CharacterData[nUnitId].ppszPaletteList.size() + MAAB_A_CharacterData[nUnitId].prgExtraPalettes.size();
+        return static_cast<uint32_t>(MAAB_A_CharacterData[nUnitId].ppszPaletteList.size() + MAAB_A_CharacterData[nUnitId].prgExtraPalettes.size());
     }
     else
     {
-        size_t nPaletteCount = 0;
+        uint32_t nPaletteCount = 0;
 
-        for (int nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
+        for (uint32_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
         {
             // This is a crossfile unit: the collection count is equal to files also sharing this unit name
             if (MAAB_A_CharacterData[nIndex].pszNodeName && (_wcsicmp(MAAB_A_CharacterData[nUnitId].pszCharacter, MAAB_A_CharacterData[nIndex].pszCharacter) == 0))
             {
-                nPaletteCount += MAAB_A_CharacterData[nIndex].ppszPaletteList.size() + MAAB_A_CharacterData[nIndex].prgExtraPalettes.size();
+                nPaletteCount += static_cast<uint32_t>(MAAB_A_CharacterData[nIndex].ppszPaletteList.size() + MAAB_A_CharacterData[nIndex].prgExtraPalettes.size());
             }
         }
 
@@ -321,7 +321,7 @@ size_t CGame_MAAB_A::GetPaletteCountForUnit(size_t nUnitId)
     }
 }
 
-LPCWSTR CGame_MAAB_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_MAAB_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (ShouldUseBasePaletteSet(nUnitId, nCollectionId))
     {
@@ -333,7 +333,7 @@ LPCWSTR CGame_MAAB_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollec
         {
             UINT16 nCurrentCollection = 0;
 
-            for (int nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
+            for (uint32_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
             {
                 // This is a crossfile unit: the collection count is equal to files also sharing this unit name
                 if (!MAAB_A_CharacterData[nIndex].pszNodeName || (_wcsicmp(MAAB_A_CharacterData[nUnitId].pszCharacter, MAAB_A_CharacterData[nIndex].pszCharacter) != 0))
@@ -365,15 +365,15 @@ LPCWSTR CGame_MAAB_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollec
     }
 }
 
-size_t CGame_MAAB_A::GetUniqueUnitCount()
+uint32_t CGame_MAAB_A::GetUniqueUnitCount()
 {
-    size_t nUniqueCount = 0;
+    uint32_t nUniqueCount = 0;
 
-    for (size_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
+    for (uint32_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
     {
         bool fIsUnique = true;
 
-        for (size_t nCheckIndex = 0; nCheckIndex < nIndex; nCheckIndex++)
+        for (uint32_t nCheckIndex = 0; nCheckIndex < nIndex; nCheckIndex++)
         {
             if (_wcsicmp(MAAB_A_CharacterData[nIndex].pszCharacter, MAAB_A_CharacterData[nCheckIndex].pszCharacter) == 0)
             {
@@ -391,22 +391,22 @@ size_t CGame_MAAB_A::GetUniqueUnitCount()
     return nUniqueCount;
 }
 
-size_t CGame_MAAB_A::GetFileCount()
+uint32_t CGame_MAAB_A::GetFileCount()
 {
     return ARRAYSIZE(MAAB_A_CharacterData);
 }
 
-bool CGame_MAAB_A::PaletteIsInFileUnit(size_t nTargetFileUnitId, size_t nDisplayUnitId, size_t nDisplayPalId)
+bool CGame_MAAB_A::PaletteIsInFileUnit(uint32_t nTargetFileUnitId, uint32_t nDisplayUnitId, uint32_t nDisplayPalId)
 {
-    size_t nActualFileUnitId = 0;
-    size_t nFilePalId = 0;
+    uint32_t nActualFileUnitId = 0;
+    uint32_t nFilePalId = 0;
 
     GetFileIndexFromCharacterIndex(nDisplayUnitId, nDisplayPalId, &nActualFileUnitId, &nFilePalId);
 
     return (nTargetFileUnitId == nActualFileUnitId);
 }
 
-void CGame_MAAB_A::GetFileIndexFromCharacterCollection(size_t nCharacterUnitId, size_t nCollectionId, size_t* pnFileUnitId, size_t* pnFilePaletteId)
+void CGame_MAAB_A::GetFileIndexFromCharacterCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId, uint32_t* pnFileUnitId, uint32_t* pnFilePaletteId)
 {
     *pnFileUnitId = nCharacterUnitId;
     // Collections map to the 0 entry in files for now.
@@ -430,20 +430,20 @@ void CGame_MAAB_A::GetFileIndexFromCharacterCollection(size_t nCharacterUnitId, 
     }
 }
 
-void CGame_MAAB_A::GetFileIndexFromCharacterIndex(size_t nCharacterUnitId, size_t nCharacterPalId, size_t* pnFileUnitId, size_t* pnFilePalId)
+void CGame_MAAB_A::GetFileIndexFromCharacterIndex(uint32_t nCharacterUnitId, uint32_t nCharacterPalId, uint32_t* pnFileUnitId, uint32_t* pnFilePalId)
 {
     *pnFileUnitId = nCharacterUnitId;
     *pnFilePalId = nCharacterPalId;
 
     if (MAAB_A_CharacterData[nCharacterUnitId].pszNodeName != nullptr)
     {
-        for (size_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
+        for (uint32_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
         {
             if (MAAB_A_CharacterData[nIndex].pszNodeName && (_wcsicmp(MAAB_A_CharacterData[nIndex].pszCharacter, MAAB_A_CharacterData[nCharacterUnitId].pszCharacter) == 0))
             {
                 *pnFileUnitId = nIndex;
 
-                size_t nPalettesThisUnit = MAAB_A_CharacterData[nIndex].ppszPaletteList.size() + MAAB_A_CharacterData[nIndex].prgExtraPalettes.size();
+                uint32_t nPalettesThisUnit = static_cast<uint32_t>(MAAB_A_CharacterData[nIndex].ppszPaletteList.size() + MAAB_A_CharacterData[nIndex].prgExtraPalettes.size());
                 if (nPalettesThisUnit > *pnFilePalId)
                 {
                     break;
@@ -455,7 +455,7 @@ void CGame_MAAB_A::GetFileIndexFromCharacterIndex(size_t nCharacterUnitId, size_
     }
 }
 
-void CGame_MAAB_A::GetCharacterIndexFromFileIndex(size_t nFileUnitId, size_t nFilePalId, size_t* nCharacterUnitId, size_t* nCharacterPalId)
+void CGame_MAAB_A::GetCharacterIndexFromFileIndex(uint32_t nFileUnitId, uint32_t nFilePalId, uint32_t* nCharacterUnitId, uint32_t* nCharacterPalId)
 {
     *nCharacterUnitId = nFileUnitId;
     *nCharacterPalId = nFilePalId;
@@ -464,7 +464,7 @@ void CGame_MAAB_A::GetCharacterIndexFromFileIndex(size_t nFileUnitId, size_t nFi
     {
         bool fFoundCharacterUnit = false;
 
-        for (size_t nIndex = 0; nIndex < nFileUnitId; nIndex++)
+        for (uint32_t nIndex = 0; nIndex < nFileUnitId; nIndex++)
         {
             if (MAAB_A_CharacterData[nIndex].pszNodeName && (_wcsicmp(MAAB_A_CharacterData[nIndex].pszCharacter, MAAB_A_CharacterData[nFileUnitId].pszCharacter) == 0))
             {
@@ -475,13 +475,13 @@ void CGame_MAAB_A::GetCharacterIndexFromFileIndex(size_t nFileUnitId, size_t nFi
                     fFoundCharacterUnit = true;
                 }
 
-                *nCharacterPalId += MAAB_A_CharacterData[nIndex].ppszPaletteList.size() + MAAB_A_CharacterData[nIndex].prgExtraPalettes.size();
+                *nCharacterPalId += static_cast<uint32_t>(MAAB_A_CharacterData[nIndex].ppszPaletteList.size() + MAAB_A_CharacterData[nIndex].prgExtraPalettes.size());
             }
         }
     }
 }
 
-void CGame_MAAB_A::LoadSpecificPaletteDataByFileUnit(size_t nFileUnitId, size_t nFilePalId)
+void CGame_MAAB_A::LoadSpecificPaletteDataByFileUnit(uint32_t nFileUnitId, uint32_t nFilePalId)
 {
     if (nFilePalId < MAAB_A_CharacterData[nFileUnitId].ppszPaletteList.size())
     {
@@ -494,7 +494,7 @@ void CGame_MAAB_A::LoadSpecificPaletteDataByFileUnit(size_t nFileUnitId, size_t 
     }
     else // effects palettes
     {
-        size_t nAdjustedPaletteId = nFilePalId - MAAB_A_CharacterData[nFileUnitId].ppszPaletteList.size();
+        uint32_t nAdjustedPaletteId = nFilePalId - static_cast<uint32_t>(MAAB_A_CharacterData[nFileUnitId].ppszPaletteList.size());
 
         int cbPaletteSizeOnDisc = MAAB_A_CharacterData[nFileUnitId].prgExtraPalettes[nAdjustedPaletteId].nPaletteOffsetEnd - MAAB_A_CharacterData[nFileUnitId].prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
 
@@ -515,10 +515,10 @@ void CGame_MAAB_A::LoadSpecificPaletteDataByFileUnit(size_t nFileUnitId, size_t 
     }
 }
 
-void CGame_MAAB_A::LoadSpecificPaletteData(size_t nDisplayUnitId, size_t nDisplayPalId)
+void CGame_MAAB_A::LoadSpecificPaletteData(uint32_t nDisplayUnitId, uint32_t nDisplayPalId)
 {
-    size_t nFileUnitId = 0;
-    size_t nFilePalId = 0;
+    uint32_t nFileUnitId = 0;
+    uint32_t nFilePalId = 0;
 
     GetFileIndexFromCharacterIndex(nDisplayUnitId, nDisplayPalId, &nFileUnitId, &nFilePalId);
 
@@ -544,13 +544,13 @@ BOOL CGame_MAAB_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     //Change the image id if we need to
     int nTargetImgId = 0;
-    size_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
     int nSrcStart = (int)0;
-    size_t nSrcAmt = 1;
+    uint32_t nSrcAmt = 1;
     int nNodeIncrement = 1;
 
-    size_t nFileUnitId = 0;
-    size_t nFilePalId = 0;
+    uint32_t nFileUnitId = 0;
+    uint32_t nFilePalId = 0;
 
     GetFileIndexFromCharacterIndex(CharacterNodeGet->uUnitId, CharacterNodeGet->uPalId, &nFileUnitId, &nFilePalId);
 
@@ -563,7 +563,7 @@ BOOL CGame_MAAB_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         // core palettes
         nSrcStart = 0;
-        nSrcAmt = MAAB_A_CharacterData[nFileUnitId].ppszPaletteList.size();
+        nSrcAmt = static_cast<uint32_t>(MAAB_A_CharacterData[nFileUnitId].ppszPaletteList.size());
         pButtonLabelSet = MAAB_A_CharacterData[nFileUnitId].ppszPaletteList;
         nImgUnitId = MAAB_A_CharacterData[nFileUnitId].nSpriteUnitIndex;
         nTargetImgId = MAAB_A_CharacterData[nFileUnitId].nSpriteImageIndex;
@@ -571,7 +571,7 @@ BOOL CGame_MAAB_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     else
     {
         // effects palettes
-        size_t nPalIdInNode = nFilePalId - MAAB_A_CharacterData[nFileUnitId].ppszPaletteList.size();
+        uint32_t nPalIdInNode = nFilePalId - static_cast<uint32_t>(MAAB_A_CharacterData[nFileUnitId].ppszPaletteList.size());
         nSrcStart = nFilePalId;
         nSrcAmt = 1;
         pButtonLabelSet = DEF_NOBUTTONS;
@@ -594,7 +594,7 @@ BOOL CGame_MAAB_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, size_t nFileUnitNumber)
+BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, uint32_t nFileUnitNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
@@ -605,10 +605,10 @@ BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, size_t nFileUnitNumber)
     strInfo.Format(L"\tCGame_MAAB_A_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", MAAB_A_CharacterData[nFileUnitNumber].nInitialLocation);
     OutputDebugString(strInfo);
 
-    size_t nPalAmt = GetPaletteCountForUnit(nFileUnitNumber);
+    uint32_t nPalAmt = GetPaletteCountForUnit(nFileUnitNumber);
 
-    size_t nCharacterUnitId = 0;
-    size_t nTrash = 0;
+    uint32_t nCharacterUnitId = 0;
+    uint32_t nTrash = 0;
 
     GetCharacterIndexFromFileIndex(nFileUnitNumber, 0, &nCharacterUnitId, &nTrash);
 
@@ -621,10 +621,10 @@ BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, size_t nFileUnitNumber)
     // These are already sorted, no need to redirect
     rgUnitRedir[nCharacterUnitId] = nCharacterUnitId;
 
-    for (size_t nCharacterPalCtr = 0; nCharacterPalCtr < nPalAmt; nCharacterPalCtr++)
+    for (uint32_t nCharacterPalCtr = 0; nCharacterPalCtr < nPalAmt; nCharacterPalCtr++)
     {
-        size_t nFileUnitId = 0;
-        size_t nFilePalId = 0;
+        uint32_t nFileUnitId = 0;
+        uint32_t nFilePalId = 0;
 
         GetFileIndexFromCharacterIndex(nCharacterUnitId, nCharacterPalCtr, &nFileUnitId, &nFilePalId);
 
@@ -650,20 +650,20 @@ BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, size_t nFileUnitNumber)
     return fSuccess;
 }
 
-BOOL CGame_MAAB_A::SaveFile(CFile* SaveFile, size_t nFileUnitNumber)
+BOOL CGame_MAAB_A::SaveFile(CFile* SaveFile, uint32_t nFileUnitNumber)
 {
     UINT32 nTotalPalettesSaved = 0;
-    size_t nPalAmt = GetPaletteCountForUnit(nFileUnitNumber);
+    uint32_t nPalAmt = GetPaletteCountForUnit(nFileUnitNumber);
 
-    size_t nCharacterUnitId = 0;
-    size_t nTrash = 0;
+    uint32_t nCharacterUnitId = 0;
+    uint32_t nTrash = 0;
 
     GetCharacterIndexFromFileIndex(nFileUnitNumber, 0, &nCharacterUnitId, &nTrash);
 
-    for (size_t nCharacterPalCtr = 0; nCharacterPalCtr < nPalAmt; nCharacterPalCtr++)
+    for (uint32_t nCharacterPalCtr = 0; nCharacterPalCtr < nPalAmt; nCharacterPalCtr++)
     {
-        size_t nFileUnitId = 0;
-        size_t nFilePalId = 0;
+        uint32_t nFileUnitId = 0;
+        uint32_t nFilePalId = 0;
 
         GetFileIndexFromCharacterIndex(nCharacterUnitId, nCharacterPalCtr, &nFileUnitId, &nFilePalId);
 

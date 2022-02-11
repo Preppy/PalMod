@@ -116,7 +116,7 @@ void CGameWithExtrasFile::SetColorFormatOverride(LPCSTR paszColorString)
     }
 }
 
-void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize /* = 2 */)
+void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize /* = 2 */)
 {
     ifstream extraFile;
     WCHAR szTargetFile[MAX_PATH];
@@ -423,10 +423,10 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                             for (const auto& [key, override] : rgOverrideMap)
                             {
                                 // Special allowance here for super secret items
-                                const size_t nKeyLength = strlen(key);
+                                const uint32_t nKeyLength = static_cast<uint32_t>(strlen(key));
                                 if (_strnicmp(aszFinalLine, key, nKeyLength) == 0)
                                 {
-                                    size_t nNameLength = strlen(aszFinalLine + nKeyLength);
+                                    uint32_t nNameLength = static_cast<uint32_t>(strlen(aszFinalLine + nKeyLength));
                                     override(aszFinalLine + nKeyLength);
                                     break;
                                 }
@@ -475,19 +475,19 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
     safe_delete_array(prgTempExtraBuffer);
 }
 
-bool CGameWithExtrasFile::IsROMOffsetDuplicated(size_t nUnitId, size_t nPalId, UINT32 nStartingOffsetToCheck, UINT32 nEndOfRegionToCheck /* = 0 */)
+bool CGameWithExtrasFile::IsROMOffsetDuplicated(uint32_t nUnitId, uint32_t nPalId, uint32_t nStartingOffsetToCheck, uint32_t nEndOfRegionToCheck /* = 0 */)
 {
     UINT32 nTotalDupesFound = 0;
     CString strDupeText;
 
     // If we're in Extras territory, check it against itself.
-    size_t nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
+    uint32_t nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
 
     //Go through each character
-    for (size_t nUnitCtr = 0; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
     {
-        size_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
-        for (size_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        uint32_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -501,7 +501,7 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(size_t nUnitId, size_t nPalId, U
             if ( !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)))
             {
                 bool fIsDupe = false;
-                const UINT32 nCurrentEndOfPaletteRegion = (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
+                const uint32_t nCurrentEndOfPaletteRegion = (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
 
                 if ((nStartingOffsetToCheck >= m_nCurrentPaletteROMLocation) &&
                     (nStartingOffsetToCheck < nCurrentEndOfPaletteRegion))
@@ -560,20 +560,20 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
     const UINT32 k_nSpecialOverrideForTMNTTF = (nGameFlag == TMNTTF_SNES) ? 2 : 0;
 
     //Go through each character
-    for (size_t nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
     {
         if (nUnitCtr == m_nExtraUnit)
         {
             break;
         }
 
-        size_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
-        for (size_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        uint32_t nPalCount = GetPaletteCountForUnit(nUnitCtr);
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
             nTotalPalettesChecked++;
 
-            UINT32 nCurrentROMOffset = m_nCurrentPaletteROMLocation;
+            uint32_t nCurrentROMOffset = m_nCurrentPaletteROMLocation;
 
             if (nCurrentROMOffset == INVALID_UNIT_VALUE)
             {
@@ -626,14 +626,14 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
     bool fHaveShownDupeWarning = false;
 
     //Go through the Extras
-    size_t nPalCount = GetPaletteCountForUnit(m_nExtraUnit);
+    uint32_t nPalCount = GetPaletteCountForUnit(m_nExtraUnit);
     for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
     {
         LoadSpecificPaletteData(m_nExtraUnit, nPalCtr);
         nTotalPalettesChecked++;
 
-        UINT32 nCurrentROMOffset = m_nCurrentPaletteROMLocation;
-        UINT32 nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+        uint32_t nCurrentROMOffset = m_nCurrentPaletteROMLocation;
+        uint32_t nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
         LPCWSTR pszExtraPaletteBeingChecked = m_pszCurrentPaletteName;
         m_nLowestRomExtrasLocationThisPass = min(m_nLowestRomExtrasLocationThisPass, m_nCurrentPaletteROMLocation);
 
@@ -662,7 +662,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 void CGameWithExtrasFile::CheckForErrorsInTables()
 {
     const UINT32 nPaletteCountForRom = m_nTotalPaletteCount;
-    const size_t nExtraCount = GetPaletteCountForUnit(m_nExtraUnit);
+    const uint32_t nExtraCount = GetPaletteCountForUnit(m_nExtraUnit);
     bool fShouldCheckExtras = (nExtraCount != 0);
     m_nLowestRomLocationThisPass = k_nBogusHighValue;
     m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
@@ -772,12 +772,12 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
 
     sDescTreeNode* pRootTree = GetMainTree()->GetDescTree(-1);
 
-    const size_t c_nUnitCount = GetUnitCt();
+    const uint32_t c_nUnitCount = GetUnitCt();
 
     struct sPaletteTrackingInformation
     {
-        int nPaletteOffset = -1;
-        int nTerminalOffset = -1;
+        uint32_t nPaletteOffset = -1;
+        uint32_t nTerminalOffset = -1;
         std::wstring strUnitName;
         std::wstring strCollectionName;
         std::wstring strPaletteName;
@@ -788,15 +788,15 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
 
     if (sCreationOptions.fAddKnownAsComments)
     {
-        for (size_t nUnitIndex = 0; nUnitIndex < c_nUnitCount; nUnitIndex++)
+        for (uint32_t nUnitIndex = 0; nUnitIndex < c_nUnitCount; nUnitIndex++)
         {
             sDescTreeNode* UnitTree = &((sDescTreeNode*)pRootTree->ChildNodes)[nUnitIndex];
 
-            for (size_t nCollectionIndex = 0; nCollectionIndex < UnitTree->uChildAmt; nCollectionIndex++)
+            for (uint32_t nCollectionIndex = 0; nCollectionIndex < UnitTree->uChildAmt; nCollectionIndex++)
             {
                 sDescTreeNode* CollectionTree = &((sDescTreeNode*)UnitTree->ChildNodes)[nCollectionIndex];
 
-                for (size_t nPaletteIndex = 0; nPaletteIndex < CollectionTree->uChildAmt; nPaletteIndex++)
+                for (uint32_t nPaletteIndex = 0; nPaletteIndex < CollectionTree->uChildAmt; nPaletteIndex++)
                 {
                     sDescNode* DescNode = &((sDescNode*)CollectionTree->ChildNodes)[nPaletteIndex];
 

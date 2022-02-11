@@ -13,14 +13,14 @@ stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51 = nullptr;
 CDescTree CGame_JOJOS_A::MainDescTree_50 = nullptr;
 CDescTree CGame_JOJOS_A::MainDescTree_51 = nullptr;
 
-size_t CGame_JOJOS_A::m_nJojosMode = 50;
+uint32_t CGame_JOJOS_A::m_nJojosMode = 50;
 UINT32 CGame_JOJOS_A::m_nTotalPaletteCount50 = 0;
 UINT32 CGame_JOJOS_A::m_nTotalPaletteCount51 = 0;
 
-size_t CGame_JOJOS_A::rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1] = { (size_t)-1 };
-size_t CGame_JOJOS_A::rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { (size_t)-1 };
-size_t CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { (size_t)-1 };
-size_t CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { (size_t)-1 };
+uint32_t CGame_JOJOS_A::rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1] = { (uint32_t)-1 };
+uint32_t CGame_JOJOS_A::rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { (uint32_t)-1 };
+uint32_t CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { (uint32_t)-1 };
+uint32_t CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { (uint32_t)-1 };
 UINT32 CGame_JOJOS_A::m_nConfirmedROMSize = -1;
 
 void CGame_JOJOS_A::InitializeStatics()
@@ -90,8 +90,8 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     pButtonLabelSet = DEF_BUTTONLABEL_JOJOS_5;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[max(10, nUnitAmt) + 1]; // We need at least 8 redirs because we have that many SIMMs
-    memset(rgUnitRedir, NULL, sizeof(size_t) * max(10, nUnitAmt));
+    rgUnitRedir = new uint32_t[max(10, nUnitAmt) + 1]; // We need at least 8 redirs because we have that many SIMMs
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * max(10, nUnitAmt));
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -106,7 +106,7 @@ CGame_JOJOS_A::~CGame_JOJOS_A(void)
     FlushChangeTrackingArray();
 }
 
-size_t CGame_JOJOS_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_JOJOS_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     if (UsePaletteSetFor50())
     {
@@ -118,7 +118,7 @@ size_t CGame_JOJOS_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
     }
 }
 
-size_t CGame_JOJOS_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_JOJOS_A::GetExtraLoc(uint32_t nUnitId)
 {
     if (UsePaletteSetFor50())
     {
@@ -219,7 +219,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     }
 #endif
 
-    size_t nUnitCt = UsePaletteSetFor50() ? (JOJOS_A_NUMUNIT_50 + (GetExtraCt(JOJOS_A_EXTRALOC_50) ? 1 : 0)) :
+    uint32_t nUnitCt = UsePaletteSetFor50() ? (JOJOS_A_NUMUNIT_50 + (GetExtraCt(JOJOS_A_EXTRALOC_50) ? 1 : 0)) :
                                             (JOJOS_A_NUMUNIT_51 + (GetExtraCt(JOJOS_A_EXTRALOC_51) ? 1 : 0));
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
@@ -237,16 +237,16 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (size_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (uint32_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        size_t nExtraCt = GetExtraCt(iUnitCtr, TRUE);
+        uint32_t nExtraCt = GetExtraCt(iUnitCtr, TRUE);
         BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
 
-        size_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
+        uint32_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
@@ -264,10 +264,10 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             OutputDebugString(strMsg);
 #endif
 
-            size_t nTotalPalettesUsedInUnit = 0;
+            uint32_t nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
-            for (size_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+            for (uint32_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
@@ -276,7 +276,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                 // Default label, since these aren't associated to collections
                 _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
-                size_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
+                uint32_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
@@ -289,7 +289,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                 const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (size_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+                for (uint32_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -336,7 +336,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
         //Set up extra nodes
         if (bUseExtra)
         {
-            size_t nExtraPos = GetExtraLoc(iUnitCtr);
+            uint32_t nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
             if (UsePaletteSetFor50())
@@ -360,7 +360,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             OutputDebugString(strMsg);
 #endif
 
-            for (size_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+            for (uint32_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
@@ -411,7 +411,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     return NewDescTree;
 }
 
-sFileRule CGame_JOJOS_A::GetRule(size_t nUnitId)
+sFileRule CGame_JOJOS_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -423,7 +423,7 @@ sFileRule CGame_JOJOS_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_JOJOS_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_JOJOS_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     if (UsePaletteSetFor50())
     {
@@ -449,7 +449,7 @@ size_t CGame_JOJOS_A::GetCollectionCountForUnit(size_t nUnitId)
     }
 }
 
-size_t CGame_JOJOS_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_JOJOS_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetFor50())
     {
@@ -481,7 +481,7 @@ size_t CGame_JOJOS_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollecti
     }
 }
 
-LPCWSTR CGame_JOJOS_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_JOJOS_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetFor50())
     {
@@ -509,7 +509,7 @@ LPCWSTR CGame_JOJOS_A::GetDescriptionForCollection(size_t nUnitId, size_t nColle
     }
 }
 
-size_t CGame_JOJOS_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_JOJOS_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     if (UsePaletteSetFor50() ?  (nUnitId == JOJOS_A_EXTRALOC_50) :
                                 (nUnitId == JOJOS_A_EXTRALOC_51))
@@ -518,12 +518,12 @@ size_t CGame_JOJOS_A::GetPaletteCountForUnit(size_t nUnitId)
     }
     else
     {
-        size_t nCompleteCount = 0;
+        uint32_t nCompleteCount = 0;
         const sDescTreeNode* pCompleteROMTree = UsePaletteSetFor50() ? JOJOS_UNITS_50 : JOJOS_UNITS_51;
-        size_t nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
+        uint32_t nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode *)(pCompleteROMTree[nUnitId].ChildNodes);
 
-        for (size_t nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+        for (uint32_t nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
@@ -538,7 +538,7 @@ size_t CGame_JOJOS_A::GetPaletteCountForUnit(size_t nUnitId)
     }
 }
 
-bool CGame_JOJOS_A::CanEnableMultispriteExport(size_t nUnitId, size_t nPalId)
+bool CGame_JOJOS_A::CanEnableMultispriteExport(uint32_t nUnitId, uint32_t nPalId)
 {
     bool isBalanced = false;
 
@@ -571,18 +571,18 @@ bool CGame_JOJOS_A::CanEnableMultispriteExport(size_t nUnitId, size_t nPalId)
     return isBalanced;
 }
 
-const sDescTreeNode* CGame_JOJOS_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId)
+const sDescTreeNode* CGame_JOJOS_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
-    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
+    uint32_t nDistanceFromZero = nPaletteId;
 
-    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        size_t nNodeCount;
+        uint32_t nNodeCount;
 
         if (nUnitId == m_nExtraUnit)
         {
@@ -613,17 +613,17 @@ const sDescTreeNode* CGame_JOJOS_A::GetNodeFromPaletteId(size_t nUnitId, size_t 
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_JOJOS_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_JOJOS_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
+    uint32_t nDistanceFromZero = nPaletteId;
 
-    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
-        size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -654,13 +654,13 @@ void CGame_JOJOS_A::ClearDataBuffer()
 
     if (m_pppDataBuffer)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                size_t nPaletteCount = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPaletteCount = GetPaletteCountForUnit(nUnitCtr);
 
-                for (size_t nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
+                for (uint32_t nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPaletteIndex]);
                 }
@@ -675,7 +675,7 @@ void CGame_JOJOS_A::ClearDataBuffer()
     m_nJojosMode = nCurrentJojosMode;
 }
 
-const sGame_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
 
@@ -693,9 +693,9 @@ const sGame_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(size_t nUnitId, size_t 
     return paletteSetToUse;
 }
 
-void CGame_JOJOS_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
-    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     UINT32 nOffset = 0;
     int cbPaletteSizeOnDisc = 0;
     BOOL isPaletteFromExtensionsFile = FALSE;
@@ -709,13 +709,13 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
     if (!isPaletteFromExtensionsFile)
     {
         UINT32 nCurrentPaletteOffset = 0;
-        size_t nDistanceFromZero = nPalId;
+        uint32_t nDistanceFromZero = nPalId;
         const sGame_PaletteDataset* paletteSetToUse = nullptr;
 
-        for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+        for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
         {
             paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
-            size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+            uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
             if (nDistanceFromZero < nNodeCount)
             {
@@ -761,16 +761,16 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     // Default values for multisprite image display for Export.
-    int nSrcStart = (int)NodeGet->uPalId;
-    size_t nSrcAmt = 1;
-    int nNodeIncrement = 1;
+    int32_t nSrcStart = NodeGet->uPalId;
+    uint32_t nSrcAmt = 1;
+    uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
-    size_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
 
     //Select the image
     int nNormalPalettesCount = ((GetCollectionCountForUnit(NodeGet->uUnitId) * 2) + 10);
@@ -785,7 +785,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             if (CanEnableMultispriteExport(NodeGet->uUnitId, NodeGet->uPalId))
             {
                 const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
-                nSrcAmt = pButtonLabelSet.size();
+                nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
                 nSrcStart = NodeGet->uPalId % pCurrentNode->uChildAmt;
                 nNodeIncrement = pCurrentNode->uChildAmt;
             }
@@ -802,12 +802,12 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
                     const sDescTreeNode* pThisNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
-                    const size_t nStageCount = pThisNode->uChildAmt;
+                    const uint32_t nStageCount = pThisNode->uChildAmt;
 
                     fUseDefaultPaletteLoad = false;
                     sImgTicket* pImgArray = nullptr;
 
-                    for (size_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                     {
                         // The palettes get added forward, but the image tickets need to be generated in reverse order
                         const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));

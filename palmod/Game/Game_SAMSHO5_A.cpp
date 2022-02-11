@@ -8,8 +8,8 @@ stExtraDef* CGame_SAMSHO5_A::SAMSHO5_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SAMSHO5_A::MainDescTree = nullptr;
 
-size_t CGame_SAMSHO5_A::rgExtraCountAll[SAMSHO5_A_NUMUNIT + 1];
-size_t CGame_SAMSHO5_A::rgExtraLoc[SAMSHO5_A_NUMUNIT + 1];
+uint32_t CGame_SAMSHO5_A::rgExtraCountAll[SAMSHO5_A_NUMUNIT + 1];
+uint32_t CGame_SAMSHO5_A::rgExtraLoc[SAMSHO5_A_NUMUNIT + 1];
 
 UINT32 CGame_SAMSHO5_A::m_nTotalPaletteCountForSAMSHO5 = 0;
 UINT32 CGame_SAMSHO5_A::m_nExpectedGameROMSize_5 = 0x400000;
@@ -65,8 +65,8 @@ CGame_SAMSHO5_A::CGame_SAMSHO5_A(UINT32 nConfirmedROMSize, SupportedGamesList nR
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -85,12 +85,12 @@ CDescTree* CGame_SAMSHO5_A::GetMainTree()
     return &CGame_SAMSHO5_A::MainDescTree;
 }
 
-size_t CGame_SAMSHO5_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SAMSHO5_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SAMSHO5_A_NUMUNIT, nUnitId, SAMSHO5_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_SAMSHO5_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_SAMSHO5_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, SAMSHO5_A_NUMUNIT, nUnitId, SAMSHO5_A_EXTRA_CUSTOM);
 }
@@ -123,7 +123,7 @@ sDescTreeNode* CGame_SAMSHO5_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_SAMSHO5_A::GetRule(size_t nUnitId)
+sFileRule CGame_SAMSHO5_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -135,42 +135,42 @@ sFileRule CGame_SAMSHO5_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_SAMSHO5_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_SAMSHO5_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(SAMSHO5_A_UNITS, rgExtraCountAll, SAMSHO5_A_NUMUNIT, SAMSHO5_A_EXTRALOC, nUnitId, SAMSHO5_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_SAMSHO5_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_SAMSHO5_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(SAMSHO5_A_UNITS, rgExtraCountAll, SAMSHO5_A_NUMUNIT, SAMSHO5_A_EXTRALOC, nUnitId, nCollectionId, SAMSHO5_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_SAMSHO5_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_SAMSHO5_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(SAMSHO5_A_UNITS, SAMSHO5_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_SAMSHO5_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_SAMSHO5_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(SAMSHO5_A_UNITS, rgExtraCountAll, SAMSHO5_A_NUMUNIT, SAMSHO5_A_EXTRALOC, nUnitId, SAMSHO5_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_SAMSHO5_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_SAMSHO5_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(SAMSHO5_A_UNITS, nUnitId, nCollectionId);
 }
 
-size_t CGame_SAMSHO5_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
+uint32_t CGame_SAMSHO5_A::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetNodeSizeFromPaletteId(SAMSHO5_A_UNITS, rgExtraCountAll, SAMSHO5_A_NUMUNIT, SAMSHO5_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO5_A_EXTRA_CUSTOM);
 }
 
-const sDescTreeNode* CGame_SAMSHO5_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SAMSHO5_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(SAMSHO5_A_UNITS, rgExtraCountAll, SAMSHO5_A_NUMUNIT, SAMSHO5_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO5_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_SAMSHO5_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_SAMSHO5_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(SAMSHO5_A_UNITS, rgExtraCountAll, SAMSHO5_A_NUMUNIT, SAMSHO5_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO5_A_EXTRA_CUSTOM);
 }
@@ -199,7 +199,7 @@ UINT32 CGame_SAMSHO5_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
     return ARRAYSIZE(knownROMs);
 }
 
-void CGame_SAMSHO5_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_SAMSHO5_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != SAMSHO5_A_EXTRALOC)
     {

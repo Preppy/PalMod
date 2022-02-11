@@ -2,7 +2,7 @@
 #include "Game_MVC2_A_DIR.h"
 #include "..\palmod.h" // getappname
 
-size_t CGame_MVC2_A_DIR::uRuleCtr = 0;
+uint32_t CGame_MVC2_A_DIR::uRuleCtr = 0;
 
 constexpr auto MVC2_Arcade_ROM_Base = L"mpr-230";
 constexpr auto MVC2_ROMReripOffsetDelta = 0x2000000;
@@ -28,7 +28,7 @@ CGame_MVC2_A_DIR::~CGame_MVC2_A_DIR(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_MVC2_A_DIR::GetRule(size_t nUnitId)
+sFileRule CGame_MVC2_A_DIR::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -69,7 +69,7 @@ inline UINT32 CGame_MVC2_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
     return nSIMMLocation;
 }
 
-BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
+BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
@@ -77,8 +77,8 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
     strInfo.Format(L"CGame_MVC2_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n", nSIMMNumber);
     OutputDebugString(strInfo);
 
-    const UINT32 nBeginningRange =  MVC2_ROMReripOffsetDelta + (c_nMVC2SIMMLength * nSIMMNumber);
-    const UINT32 nEndingRange =     MVC2_ROMReripOffsetDelta + (c_nMVC2SIMMLength * nSIMMNumber) + c_nMVC2SIMMLength;
+    const uint32_t nBeginningRange =  MVC2_ROMReripOffsetDelta + (c_nMVC2SIMMLength * nSIMMNumber);
+    const uint32_t nEndingRange =     MVC2_ROMReripOffsetDelta + (c_nMVC2SIMMLength * nSIMMNumber) + c_nMVC2SIMMLength;
 
     strInfo.Format(L"\tSIMM %u begins at 0x%06x and ends at 0x%06x\n", nSIMMNumber, nBeginningRange, nEndingRange);
     OutputDebugString(strInfo);
@@ -88,9 +88,9 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
 
     // this is a little obnoxious since it's per simm - could just load all 8 and party
 
-    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         if (m_pppDataBuffer[nUnitCtr] == nullptr)
         {
@@ -100,7 +100,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
         // Use a sorted layout
         rgUnitRedir[nUnitCtr] = MVC2_A_UNITSORT[nUnitCtr];
 
-        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -160,7 +160,7 @@ inline UINT8 CGame_MVC2_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
     return (UINT8)(floor((nROMLocation - MVC2_ROMReripOffsetDelta) / c_nMVC2SIMMLength));
 }
 
-BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, size_t nSaveUnit)
+BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 {
     if (nSaveUnit != 0)
     {
@@ -201,7 +201,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, size_t nSaveUnit)
 
     if (fLoadedEverything)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (nUnitCtr == indexMVC2ATeamView)
             {
@@ -210,9 +210,9 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, size_t nSaveUnit)
                 continue;
             }
 
-            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 // proc_supp doesn't mark palettes changed, so only use this check if you change that logic
                 //if (IsPaletteDirty(nUnitCtr, nPalCtr))

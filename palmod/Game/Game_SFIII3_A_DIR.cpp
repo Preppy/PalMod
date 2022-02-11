@@ -2,7 +2,7 @@
 #include "Game_SFIII3_A_DIR.h"
 #include "..\PalMod.h"
 
-size_t CGame_SFIII3_A_DIR::uRuleCtr = 0;
+uint32_t CGame_SFIII3_A_DIR::uRuleCtr = 0;
 
 SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_Unsupported;
 
@@ -59,7 +59,7 @@ CGame_SFIII3_A_DIR::~CGame_SFIII3_A_DIR(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(size_t nUnitId, int nSF3ModeToLoad)
+sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(uint32_t nUnitId, int nSF3ModeToLoad)
 {
     sFileRule NewFileRule;
 
@@ -173,7 +173,7 @@ SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::GetSFIII3ROMVersion(CFile* Loade
 
     // The two SF3 1.x simm variants have a shift in palette locations: account for that. 
     // We use byte-sniffing to ensure we know which revision we're looking at.
-    const size_t nFileLengthToCheck = 32;
+    const uint32_t nFileLengthToCheck = 32;
     UINT16* prgFileStart = new UINT16[nFileLengthToCheck];
     SFIII3_SupportedROMRevision detectedROMVersion = SFIII3_SupportedROMRevision::SFIII3_10_990512;
 
@@ -248,7 +248,7 @@ SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::GetSFIII3ROMVersion(CFile* Loade
     return detectedROMVersion;
 }
 
-BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
+BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
@@ -383,9 +383,9 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
         strInfo.Format(L"CGame_SFIII3_A_DIR::LoadFile: Preparing to load data from SIMM number %u with peer %s (range 0x%x to 0x%x)\n", nSIMMNumber, PeerRule.szFileName, nBeginningRange, nEndingRange);
         OutputDebugString(strInfo);
 
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
@@ -396,7 +396,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
             // Layout is presorted
             rgUnitRedir[nUnitCtr] = nUnitCtr;
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -519,7 +519,7 @@ inline UINT8 CGame_SFIII3_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
     return (nROMLocation > (2 * c_nSFIII3SIMMLength)) ? 1 : 0;
 }
 
-BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, size_t nSIMMNumber)
+BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
 {
     CString strInfo;
 
@@ -629,11 +629,11 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, size_t nSIMMNumber)
         OutputDebugString(strInfo);
         UINT32 nPaletteSaveCount = 0;
 
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 if (IsPaletteDirty(nUnitCtr, nPalCtr))
                 {
@@ -799,7 +799,7 @@ UINT32 CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
 {
     CString strInfo;
     UINT32 nPaletteSaveCount = 0;
-    size_t nSIMMNumber = 0;
+    uint32_t nSIMMNumber = 0;
 
     // 50 maps to 5.0-5.3
     // 51 maps to 5.4-5.7
@@ -863,11 +863,11 @@ UINT32 CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     bool fSetOneOpened = false;
     bool fSetTwoOpened = false;
 
-    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             if (fUserWantsAllChanges || IsPaletteDirty(nUnitCtr, nPalCtr))
             {

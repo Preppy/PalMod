@@ -11,8 +11,8 @@ CDescTree CGame_XMVSF_A::MainDescTree = nullptr;
 
 UINT32 CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
 
-size_t CGame_XMVSF_A::rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { (size_t)-1 };
-size_t CGame_XMVSF_A::rgExtraLoc[XMVSF_A_NUMUNIT + 1] = { (size_t)-1 };
+uint32_t CGame_XMVSF_A::rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { (uint32_t)-1 };
+uint32_t CGame_XMVSF_A::rgExtraLoc[XMVSF_A_NUMUNIT + 1] = { (uint32_t)-1 };
 UINT32 CGame_XMVSF_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_XMVSF_A::m_nConfirmedROMSize = -1;
 
@@ -64,8 +64,8 @@ CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_2;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -136,7 +136,7 @@ GAME(1996, xmvsfu1d,   xmvsf,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
     return ARRAYSIZE(knownROMs);
 }
 
-sFileRule CGame_XMVSF_A::GetRule(size_t nUnitId)
+sFileRule CGame_XMVSF_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -148,12 +148,12 @@ sFileRule CGame_XMVSF_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_XMVSF_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_XMVSF_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, XMVSF_A_NUMUNIT, nUnitId, XMVSF_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_XMVSF_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_XMVSF_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, XMVSF_A_NUMUNIT, nUnitId, XMVSF_A_EXTRA_CUSTOM);
 }
@@ -194,42 +194,42 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
     return NewDescTree;
 }
 
-size_t CGame_XMVSF_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_XMVSF_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, nUnitId, XMVSF_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_XMVSF_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_XMVSF_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, nUnitId, nCollectionId, XMVSF_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_XMVSF_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_XMVSF_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(XMVSF_A_UNITS, XMVSF_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_XMVSF_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_XMVSF_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, nUnitId, XMVSF_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_XMVSF_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_XMVSF_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(XMVSF_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_XMVSF_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_XMVSF_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, nUnitId, nPaletteId, XMVSF_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_XMVSF_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_XMVSF_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, nUnitId, nPaletteId, XMVSF_A_EXTRA_CUSTOM);
 }
 
-void CGame_XMVSF_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_XMVSF_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     if (nUnitId != XMVSF_A_EXTRALOC)
     {
@@ -262,7 +262,7 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return _UpdatePalImg(XMVSF_A_UNITS, rgExtraCountAll, XMVSF_A_NUMUNIT, XMVSF_A_EXTRALOC, XMVSF_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }
 
-void CGame_XMVSF_A::PostSetPal(size_t nUnitId, size_t nPalId)
+void CGame_XMVSF_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
     CString strMessage;
     strMessage.Format(L"CGame_XMVSF_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);

@@ -7,8 +7,8 @@ stExtraDef* CGame_VSAV2_A::VSAV2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_VSAV2_A::MainDescTree = nullptr;
 
-size_t CGame_VSAV2_A::rgExtraCountAll[VSAV2_A_NUMUNIT + 1] = { (size_t)-1 };
-size_t CGame_VSAV2_A::rgExtraLoc[VSAV2_A_NUMUNIT + 1] = { (size_t)-1 };
+uint32_t CGame_VSAV2_A::rgExtraCountAll[VSAV2_A_NUMUNIT + 1] = { (uint32_t)-1 };
+uint32_t CGame_VSAV2_A::rgExtraLoc[VSAV2_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 UINT32 CGame_VSAV2_A::m_nTotalPaletteCountForVSAV2 = 0;
 UINT32 CGame_VSAV2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
@@ -62,8 +62,8 @@ CGame_VSAV2_A::CGame_VSAV2_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_VSAV;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -98,12 +98,12 @@ UINT32 CGame_VSAV2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     return ARRAYSIZE(knownROMs);
 }
 
-size_t CGame_VSAV2_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_VSAV2_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, VSAV2_A_NUMUNIT, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_VSAV2_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_VSAV2_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, VSAV2_A_NUMUNIT, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }
@@ -141,7 +141,7 @@ sDescTreeNode* CGame_VSAV2_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_VSAV2_A::GetRule(size_t nUnitId)
+sFileRule CGame_VSAV2_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -153,42 +153,42 @@ sFileRule CGame_VSAV2_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_VSAV2_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_VSAV2_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(VSAV2_A_UNITS, rgExtraCountAll, VSAV2_A_NUMUNIT, VSAV2_A_EXTRALOC, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_VSAV2_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_VSAV2_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(VSAV2_A_UNITS, rgExtraCountAll, VSAV2_A_NUMUNIT, VSAV2_A_EXTRALOC, nUnitId, nCollectionId, VSAV2_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_VSAV2_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_VSAV2_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(VSAV2_A_UNITS, VSAV2_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_VSAV2_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_VSAV2_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(VSAV2_A_UNITS, rgExtraCountAll, VSAV2_A_NUMUNIT, VSAV2_A_EXTRALOC, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_VSAV2_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_VSAV2_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(VSAV2_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_VSAV2_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_VSAV2_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(VSAV2_A_UNITS, rgExtraCountAll, VSAV2_A_NUMUNIT, VSAV2_A_EXTRALOC, nUnitId, nPaletteId, VSAV2_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_VSAV2_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_VSAV2_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(VSAV2_A_UNITS, rgExtraCountAll, VSAV2_A_NUMUNIT, VSAV2_A_EXTRALOC, nUnitId, nPaletteId, VSAV2_A_EXTRA_CUSTOM);
 }
 
-void CGame_VSAV2_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_VSAV2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     if (nUnitId != VSAV2_A_EXTRALOC)
     {

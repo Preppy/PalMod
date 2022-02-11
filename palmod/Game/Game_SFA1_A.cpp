@@ -10,8 +10,8 @@ CDescTree CGame_SFA1_A::MainDescTree = nullptr;
 
 UINT32 CGame_SFA1_A::m_nTotalPaletteCountForSFA1 = 0;
 
-size_t CGame_SFA1_A::rgExtraCountAll[SFA1_A_NUMUNIT + 1] = { (size_t)-1 };
-size_t CGame_SFA1_A::rgExtraLoc[SFA1_A_NUMUNIT + 1] = { (size_t)-1 };
+uint32_t CGame_SFA1_A::rgExtraCountAll[SFA1_A_NUMUNIT + 1] = { (uint32_t)-1 };
+uint32_t CGame_SFA1_A::rgExtraLoc[SFA1_A_NUMUNIT + 1] = { (uint32_t)-1 };
 UINT32 CGame_SFA1_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_SFA1_A::m_nConfirmedROMSize = -1;
 
@@ -60,8 +60,8 @@ CGame_SFA1_A::CGame_SFA1_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_2_PK;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -75,12 +75,12 @@ CGame_SFA1_A::~CGame_SFA1_A(void)
     FlushChangeTrackingArray();
 }
 
-size_t CGame_SFA1_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SFA1_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SFA1_A_NUMUNIT, nUnitId, SFA1_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_SFA1_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_SFA1_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, SFA1_A_NUMUNIT, nUnitId, SFA1_A_EXTRA_CUSTOM);
 }
@@ -211,7 +211,7 @@ void CGame_SFA1_A::DumpHeaderPalettes()
     }
 }
 
-sFileRule CGame_SFA1_A::GetRule(size_t nUnitId)
+sFileRule CGame_SFA1_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -223,48 +223,48 @@ sFileRule CGame_SFA1_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_SFA1_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_SFA1_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(SFA1_A_UNITS, rgExtraCountAll, SFA1_A_NUMUNIT, SFA1_A_EXTRALOC, nUnitId, SFA1_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_SFA1_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_SFA1_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(SFA1_A_UNITS, rgExtraCountAll, SFA1_A_NUMUNIT, SFA1_A_EXTRALOC, nUnitId, nCollectionId, SFA1_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_SFA1_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_SFA1_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(SFA1_A_UNITS, SFA1_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_SFA1_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_SFA1_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(SFA1_A_UNITS, rgExtraCountAll, SFA1_A_NUMUNIT, SFA1_A_EXTRALOC, nUnitId, SFA1_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_SFA1_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_SFA1_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(SFA1_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sGame_PaletteDataset* CGame_SFA1_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_SFA1_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(SFA1_A_UNITS, rgExtraCountAll, SFA1_A_NUMUNIT, SFA1_A_EXTRALOC, nUnitId, nPaletteId, SFA1_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_SFA1_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
+uint32_t CGame_SFA1_A::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    size_t nNodeSize = 0;
-    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    uint32_t nNodeSize = 0;
+    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
+    uint32_t nDistanceFromZero = nPaletteId;
 
-    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -278,18 +278,18 @@ size_t CGame_SFA1_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
     return nNodeSize;
 }
 
-const sDescTreeNode* CGame_SFA1_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SFA1_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
-    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
+    uint32_t nDistanceFromZero = nPaletteId;
 
-    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        size_t nNodeCount;
+        uint32_t nNodeCount;
 
         if (nUnitId == SFA1_A_EXTRALOC)
         {
@@ -329,7 +329,7 @@ const sDescTreeNode* CGame_SFA1_A::GetNodeFromPaletteId(size_t nUnitId, size_t n
     return pCollectionNode;
 }
 
-void CGame_SFA1_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_SFA1_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     if (nUnitId != SFA1_A_EXTRALOC)
     {
@@ -371,16 +371,16 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     // Default values for multisprite image display for Export
-    int nSrcStart = (int)NodeGet->uPalId;
-    size_t nSrcAmt = 1;
-    int nNodeIncrement = 1;
+    uint32_t nSrcStart = NodeGet->uPalId;
+    uint32_t nSrcAmt = 1;
+    uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
-    size_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -433,12 +433,12 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             {
                 if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
-                    const size_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                    const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                     fShouldUseAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;
 
-                    for (size_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                     {
                         // The palettes get added forward, but the image tickets need to be generated in reverse order
                         const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
@@ -462,7 +462,7 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                     fShouldUseAlternateLoadLogic = true;
 
-                    size_t nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
+                    uint32_t nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
 
                     if (fShouldUseAlternateLoadLogic)
                     {

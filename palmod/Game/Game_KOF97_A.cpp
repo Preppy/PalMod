@@ -12,10 +12,10 @@ stExtraDef* CGame_KOF97_A::KOF97AE_A_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_KOF97_A::MainDescTree_97 = nullptr;
 CDescTree CGame_KOF97_A::MainDescTree_97AE = nullptr;
 
-size_t CGame_KOF97_A::rgExtraCountAll_97[KOF97_A_NUMUNIT + 1];
-size_t CGame_KOF97_A::rgExtraCountAll_97AE[KOF97AE_A_NUMUNIT + 1];
-size_t CGame_KOF97_A::rgExtraLoc_97[KOF97_A_NUMUNIT + 1];
-size_t CGame_KOF97_A::rgExtraLoc_97AE[KOF97AE_A_NUMUNIT + 1];
+uint32_t CGame_KOF97_A::rgExtraCountAll_97[KOF97_A_NUMUNIT + 1];
+uint32_t CGame_KOF97_A::rgExtraCountAll_97AE[KOF97AE_A_NUMUNIT + 1];
+uint32_t CGame_KOF97_A::rgExtraLoc_97[KOF97_A_NUMUNIT + 1];
+uint32_t CGame_KOF97_A::rgExtraLoc_97AE[KOF97AE_A_NUMUNIT + 1];
 
 UINT32 CGame_KOF97_A::m_nTotalPaletteCountForKOF97 = 0;
 UINT32 CGame_KOF97_A::m_nTotalPaletteCountForKOF97AE = 0;
@@ -76,8 +76,8 @@ CGame_KOF97_A::CGame_KOF97_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMTo
     pButtonLabelSet = DEF_BUTTONLABEL_4_KOF97;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -104,7 +104,7 @@ CDescTree* CGame_KOF97_A::GetMainTree()
     }
 }
 
-size_t CGame_KOF97_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KOF97_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     if (UsePaletteSetFor97())
     {
@@ -116,7 +116,7 @@ size_t CGame_KOF97_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
     }
 }
 
-size_t CGame_KOF97_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_KOF97_A::GetExtraLoc(uint32_t nUnitId)
 {
     if (UsePaletteSetFor97())
     {
@@ -462,7 +462,7 @@ void CGame_KOF97_A::DumpPaletteHeaders()
     OutputDebugString(L"};\r\n\r\n");
 }
 
-sFileRule CGame_KOF97_A::GetRule(size_t nUnitId)
+sFileRule CGame_KOF97_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -510,7 +510,7 @@ UINT32 CGame_KOF97_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     return ARRAYSIZE(knownROMs);
 }
 
-size_t CGame_KOF97_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_KOF97_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     if (UsePaletteSetFor97())
     {
@@ -522,7 +522,7 @@ size_t CGame_KOF97_A::GetCollectionCountForUnit(size_t nUnitId)
     }
 }
 
-size_t CGame_KOF97_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_KOF97_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetFor97())
     {
@@ -534,7 +534,7 @@ size_t CGame_KOF97_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollecti
     }
 }
 
-LPCWSTR CGame_KOF97_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_KOF97_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetFor97())
     {
@@ -546,7 +546,7 @@ LPCWSTR CGame_KOF97_A::GetDescriptionForCollection(size_t nUnitId, size_t nColle
     }
 }
 
-size_t CGame_KOF97_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_KOF97_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     if (UsePaletteSetFor97())
     {
@@ -558,7 +558,7 @@ size_t CGame_KOF97_A::GetPaletteCountForUnit(size_t nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_KOF97_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_KOF97_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetFor97())
     {
@@ -570,7 +570,7 @@ const sGame_PaletteDataset* CGame_KOF97_A::GetPaletteSet(size_t nUnitId, size_t 
     }
 }
 
-const sDescTreeNode* CGame_KOF97_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KOF97_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     if (UsePaletteSetFor97())
     {
@@ -582,7 +582,7 @@ const sDescTreeNode* CGame_KOF97_A::GetNodeFromPaletteId(size_t nUnitId, size_t 
     }
 }
 
-const sGame_PaletteDataset* CGame_KOF97_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_KOF97_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     if (UsePaletteSetFor97())
     {
@@ -609,13 +609,13 @@ void CGame_KOF97_A::ClearDataBuffer()
 
     if (m_pppDataBuffer)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -630,7 +630,7 @@ void CGame_KOF97_A::ClearDataBuffer()
     m_nSelectedRom = nCurrentROMMode;
 }
 
-void CGame_KOF97_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_KOF97_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (UsePaletteSetFor97() ? (nUnitId != KOF97_A_EXTRALOC) : (nUnitId != KOF97AE_A_EXTRALOC))
     {

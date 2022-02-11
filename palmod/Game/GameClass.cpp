@@ -77,7 +77,7 @@ BOOL CGameClass::SpecSel(int* nRelativizedPalId, int nPalId, int nRelativePalIdT
     return TRUE;
 }
 
-sImgTicket* CGameClass::CreateImgTicket(size_t nUnitId, int nImgId, sImgTicket* NextTicket, int nXOffs, int nYOffs)
+sImgTicket* CGameClass::CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket* NextTicket, int nXOffs, int nYOffs)
 {
     if (nImgId == INVALID_UNIT_VALUE)
     {
@@ -389,9 +389,9 @@ bool CGameClass::_SetColorMode(ColMode NewMode)
     return fUpdatedColorConverters && fUpdatedColorSteps;
 }
 
-UINT32 CGameClass::GetLowestExpectedPaletteLocation()
+uint32_t CGameClass::GetLowestExpectedPaletteLocation()
 {
-    UINT32 nAdjustedLocation = m_nLowestKnownPaletteRomLocation;
+    uint32_t nAdjustedLocation = m_nLowestKnownPaletteRomLocation;
 
     if (m_pCRC32SpecificData)
     {
@@ -447,7 +447,7 @@ BOOL CGameClass::SetLoadDir(LPCWSTR pszNewDir)
     }
 }
 
-void CGameClass::SetSourcePal(int nIndex, size_t nUnitId, int nStart, int nAmt, int nInc)
+void CGameClass::SetSourcePal(uint32_t nIndex, uint32_t nUnitId, uint32_t nStart, uint32_t nAmt, uint32_t nInc)
 {
     if (nIndex >= MAX_PALETTES_DISPLAYABLE)
     {
@@ -484,10 +484,10 @@ void CGameClass::RevertChanges(int nPalId)
 
     COLORREF* pTempPal = CreatePal(CurrPalDef->uUnitId, CurrPalDef->uPalId);
 
-    int nStart = CurrPalSep->nStart;
-    int nAmt = CurrPalSep->nAmt;
+    uint32_t nStart = CurrPalSep->nStart;
+    uint32_t nAmt = CurrPalSep->nAmt;
 
-    for (int i = nStart; i < nStart + nAmt; i++)
+    for (uint32_t i = nStart; i < nStart + nAmt; i++)
     {
         CurrPalDef->pPal[i] = pTempPal[i];
         //CurrPalDef->pBasePal[i] = pTempPal[i];
@@ -501,7 +501,7 @@ void CGameClass::RevertChanges(int nPalId)
     //MarkPaletteClean(CurrPalDef->uUnitId, CurrPalDef->uPalId);
 }
 
-void CGameClass::WritePal(size_t nUnitId, size_t nPalId, COLORREF* rgColors, UINT16 nColorCount)
+void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, UINT16 nColorCount)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
@@ -535,7 +535,7 @@ void CGameClass::WritePal(size_t nUnitId, size_t nPalId, COLORREF* rgColors, UIN
     }
 }
 
-COLORREF* CGameClass::CreatePal(size_t nUnitId, size_t nPalId)
+COLORREF* CGameClass::CreatePal(uint32_t nUnitId, uint32_t nPalId)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
@@ -582,7 +582,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
     else
     {
         int iIndex = 0;
-        const size_t nPalAmt = nSrcPalAmt[0];
+        const uint32_t nPalAmt = nSrcPalAmt[0];
 
         while ((nSrcPalStart[iIndex] != -1) && (iIndex < MAX_PALETTES_DISPLAYABLE))
         {
@@ -597,7 +597,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
         {
             pppReturnPal[iIndex] = new COLORREF * [nPalAmt];
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 pppReturnPal[iIndex][nPalCtr] = CreatePal(nSrcPalUnit[iIndex], nSrcPalStart[iIndex] + (nPalCtr * nSrcPalInc[iIndex]));
             }
@@ -609,14 +609,14 @@ COLORREF*** CGameClass::CreateImgOutPal()
     }
 }
 
-BOOL CGameClass::CreateHybridPal(size_t nIndexAmt, size_t nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz)
+BOOL CGameClass::CreateHybridPal(uint32_t nIndexAmt, uint32_t nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, uint32_t* nNewPalSz)
 {
     UINT32* pMulRg = new UINT32[nIndexAmt];
-    size_t nNewPalSzCpy = 0;
+    uint32_t nNewPalSzCpy = 0;
 
     memset(pMulRg, 0xFF, nIndexAmt * sizeof(UINT32));
 
-    for (size_t nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
+    for (uint32_t nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
     {
         if ((nPalSz - (nPICtr / nPalSz) * nPalSz) == nExclusion)
         {
@@ -625,7 +625,7 @@ BOOL CGameClass::CreateHybridPal(size_t nIndexAmt, size_t nPalSz, UINT16* pData,
 
         if (nPICtr < nIndexAmt)
         {
-            size_t nMulCtr = 0;
+            uint32_t nMulCtr = 0;
 
             while (pMulRg[nMulCtr] != 0xFFFFFFFF)
             {
@@ -651,9 +651,9 @@ BOOL CGameClass::CreateHybridPal(size_t nIndexAmt, size_t nPalSz, UINT16* pData,
         safe_delete_array(pIndexRedir);
 
         //Create the redirect
-        pIndexRedir = new size_t[nIndexAmt];
+        pIndexRedir = new uint32_t[nIndexAmt];
 
-        for (size_t nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
+        for (uint32_t nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
         {
             if ((nPalSz - (nPICtr / nPalSz) * nPalSz) == nExclusion)
             {
@@ -661,7 +661,7 @@ BOOL CGameClass::CreateHybridPal(size_t nIndexAmt, size_t nPalSz, UINT16* pData,
             }
             else
             {
-                for (size_t nMulCtr = 0; nMulCtr < nNewPalSzCpy; nMulCtr++)
+                for (uint32_t nMulCtr = 0; nMulCtr < nNewPalSzCpy; nMulCtr++)
                 {
                     if (pMulRg[nMulCtr] == pData[nPICtr])
                     {
@@ -675,7 +675,7 @@ BOOL CGameClass::CreateHybridPal(size_t nIndexAmt, size_t nPalSz, UINT16* pData,
         //Create the palette
         *pNewPal = new COLORREF[nNewPalSzCpy];
 
-        for (size_t nPICtr = 0; nPICtr < nNewPalSzCpy; nPICtr++)
+        for (uint32_t nPICtr = 0; nPICtr < nNewPalSzCpy; nPICtr++)
         {
             (*pNewPal)[nPICtr] = ConvPal16(pMulRg[nPICtr]);
         }
@@ -767,10 +767,10 @@ void CGameClass::UpdatePalData()
     }
 }
 
-void CGameClass::CreateDefPal(sDescNode* srcNode, size_t nSepId)
+void CGameClass::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
 {
-    size_t nUnitId = srcNode->uUnitId;
-    size_t nPalId = srcNode->uPalId;
+    uint32_t nUnitId = srcNode->uUnitId;
+    uint32_t nPalId = srcNode->uPalId;
     static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
     LoadSpecificPaletteData(nUnitId, nPalId);
@@ -834,13 +834,13 @@ void CGameClass::ClearDataBuffer()
 {
     if (m_pppDataBuffer)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -854,13 +854,13 @@ void CGameClass::ClearDataBuffer()
 
     if (m_pppDataBuffer24)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer24[nUnitCtr])
             {
-                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(m_pppDataBuffer24[nUnitCtr][nPalCtr]);
                 }
@@ -874,13 +874,13 @@ void CGameClass::ClearDataBuffer()
 
     if (m_pppDataBuffer32)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer32[nUnitCtr])
             {
-                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(m_pppDataBuffer32[nUnitCtr][nPalCtr]);
                 }
@@ -903,7 +903,7 @@ BOOL CGameClass::WasGameFileChangedInSession()
 {
     BOOL fSomethingChanged = FALSE;
 
-    for (size_t nPos = 0; rgUnitRedir[nPos] != INVALID_UNIT_VALUE; nPos++)
+    for (uint32_t nPos = 0; rgUnitRedir[nPos] != INVALID_UNIT_VALUE; nPos++)
     {
         fSomethingChanged = fSomethingChanged || rgFileChanged[rgUnitRedir[nPos]];
     }
@@ -915,13 +915,13 @@ void CGameClass::PrepChangeTrackingArray()
 {
     if (!rgFileChanged)
     {
-        const size_t rgCountChangableUnits = max(nUnitAmt, nFileAmt) + 1;
+        const uint32_t rgCountChangableUnits = max(nUnitAmt, nFileAmt) + 1;
         rgFileChanged = new BOOL[rgCountChangableUnits];
         memset(rgFileChanged, FALSE, sizeof(BOOL) * rgCountChangableUnits);
     }
 }
 
-void CGameClass::MarkPaletteDirty(size_t nUnit, size_t nPaletteId)
+void CGameClass::MarkPaletteDirty(uint32_t nUnit, uint32_t nPaletteId)
 {
     sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteId };
 
@@ -933,14 +933,14 @@ void CGameClass::MarkPaletteDirty(size_t nUnit, size_t nPaletteId)
     return;
 }
 
-void CGameClass::MarkPaletteClean(size_t nUnit, size_t nPaletteId)
+void CGameClass::MarkPaletteClean(uint32_t nUnit, uint32_t nPaletteId)
 {
     sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteId };
     m_vDirtyPaletteList.erase(std::remove_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest)), m_vDirtyPaletteList.end());
     return;
 }
 
-bool CGameClass::IsPaletteDirty(size_t nUnit, size_t nPaletteId)
+bool CGameClass::IsPaletteDirty(uint32_t nUnit, uint32_t nPaletteId)
 {
     sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteId };
     auto it = std::find_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest));
@@ -948,13 +948,13 @@ bool CGameClass::IsPaletteDirty(size_t nUnit, size_t nPaletteId)
     return it != m_vDirtyPaletteList.end();
 }
 
-size_t CGameClass::_GetExtraCount(size_t* rgExtraCount, size_t nNormalUnitCount, size_t nUnitId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetExtraCount(uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nUnitId, stExtraDef* ppExtraDef)
 {
     if (rgExtraCount[0] == -1)
     {
-        size_t nDefCtr = 0;
+        uint32_t nDefCtr = 0;
         // +1 for the extras
-        memset(rgExtraCount, 0, (nNormalUnitCount + 1) * sizeof(int));
+        memset(rgExtraCount, 0, (nNormalUnitCount + 1) * sizeof(uint32_t));
 
         stExtraDef* pCurrDef = &ppExtraDef[0];
 
@@ -977,13 +977,13 @@ size_t CGameClass::_GetExtraCount(size_t* rgExtraCount, size_t nNormalUnitCount,
     return rgExtraCount[nUnitId];
 }
 
-size_t CGameClass::_GetExtraLocation(size_t* rgExtraLocations, size_t nNormalUnitCount, size_t nUnitId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetExtraLocation(uint32_t* rgExtraLocations, uint32_t nNormalUnitCount, uint32_t nUnitId, stExtraDef* ppExtraDef)
 {
     if (rgExtraLocations[0] == -1)
     {
-        size_t nDefCtr = 0;
-        size_t nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLocations, 0, (nNormalUnitCount + 1) * sizeof(int));
+        uint32_t nDefCtr = 0;
+        uint32_t nCurrUnit = UNIT_START_VALUE;
+        memset(rgExtraLocations, 0, (nNormalUnitCount + 1) * sizeof(uint32_t));
 
         stExtraDef* pCurrDef = &ppExtraDef[0];
 
@@ -1003,7 +1003,7 @@ size_t CGameClass::_GetExtraLocation(size_t* rgExtraLocations, size_t nNormalUni
     return rgExtraLocations[nUnitId];
 }
 
-size_t CGameClass::_GetCollectionCountForUnit(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetCollectionCountForUnit(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, stExtraDef* ppExtraDef)
 {
     if (nUnitId == nExtraUnitLocation)
     {
@@ -1015,7 +1015,7 @@ size_t CGameClass::_GetCollectionCountForUnit(const sDescTreeNode* pGameUnits, s
     }
 }
 
-size_t CGameClass::_GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, stExtraDef* ppExtraDef)
 {
     if (nUnitId == nExtraUnitLocation)
     {
@@ -1023,11 +1023,11 @@ size_t CGameClass::_GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, size
     }
     else
     {
-        size_t  nCompleteCount = 0;
-        size_t nCollectionCount = pGameUnits[nUnitId].uChildAmt;
+        uint32_t  nCompleteCount = 0;
+        uint32_t nCollectionCount = pGameUnits[nUnitId].uChildAmt;
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pGameUnits[nUnitId].ChildNodes);
 
-        for (size_t  nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+        for (uint32_t  nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
@@ -1042,7 +1042,7 @@ size_t CGameClass::_GetPaletteCountForUnit(const sDescTreeNode* pGameUnits, size
     }
 }
 
-size_t CGameClass::_GetNodeCountForCollection(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, size_t nCollectionId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetNodeCountForCollection(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nCollectionId, stExtraDef* ppExtraDef)
 {
     if (nUnitId == nExtraUnitLocation)
     {
@@ -1056,7 +1056,7 @@ size_t CGameClass::_GetNodeCountForCollection(const sDescTreeNode* pGameUnits, s
     }
 }
 
-LPCWSTR CGameClass::_GetDescriptionForCollection(const sDescTreeNode* pGameUnits, size_t nExtraUnitLocation, size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGameClass::_GetDescriptionForCollection(const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (nUnitId == nExtraUnitLocation)
     {
@@ -1069,23 +1069,23 @@ LPCWSTR CGameClass::_GetDescriptionForCollection(const sDescTreeNode* pGameUnits
     }
 }
 
-const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGameUnits, size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGameUnits, uint32_t nUnitId, uint32_t nCollectionId)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)pGameUnits[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, size_t nPaletteId, stExtraDef* ppExtraDef)
+const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef)
 {
     // Don't use this for Extra palettes.
-    size_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
+    uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
     const sGame_PaletteDataset* paletteToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
-    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    uint32_t nDistanceFromZero = nPaletteId;
+    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToUse = _GetPaletteSet(pGameUnits, nUnitId, nCollectionIndex);
-        size_t nNodeCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, nCollectionIndex, ppExtraDef);
+        uint32_t nNodeCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, nCollectionIndex, ppExtraDef);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -1106,18 +1106,18 @@ const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode*
     return paletteToUse;
 }
 
-size_t CGameClass::_GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, size_t nPaletteId, stExtraDef* ppExtraDef)
+uint32_t CGameClass::_GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef)
 {
     // Don't use this for Extra palettes.
-    size_t nNodeSize = 0;
-    size_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
+    uint32_t nNodeSize = 0;
+    uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
+    uint32_t nDistanceFromZero = nPaletteId;
 
-    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = _GetPaletteSet(pGameUnits, nUnitId, nCollectionIndex);
-        size_t nNodeCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, nCollectionIndex, ppExtraDef);
+        uint32_t nNodeCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, nCollectionIndex, ppExtraDef);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -1131,18 +1131,18 @@ size_t CGameClass::_GetNodeSizeFromPaletteId(const sDescTreeNode* pGameUnits, si
     return nNodeSize;
 }
 
-const sDescTreeNode* CGameClass::_GetNodeFromPaletteId(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, size_t nUnitId, size_t nPaletteId, stExtraDef* ppExtraDef, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGameClass::_GetNodeFromPaletteId(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
-    size_t  nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
+    uint32_t  nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
+    uint32_t nDistanceFromZero = nPaletteId;
 
-    for (size_t  nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint32_t  nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = _GetPaletteSet(pGameUnits, nUnitId, nCollectionIndex);
-        size_t nNodeCount;
+        uint32_t nNodeCount;
 
         if (nUnitId == nExtraUnitLocation)
         {
@@ -1186,12 +1186,12 @@ void CGameClass::DumpTreeSorted()
 {
     sDescTreeNode* pRootTree = GetMainTree()->GetDescTree(-1);
 
-    const size_t c_nUnitCount = GetUnitCt();
+    const uint32_t c_nUnitCount = GetUnitCt();
 
     struct sPaletteTrackingInformation
     {
-        int nPaletteOffset = -1;
-        int nTerminalOffset = -1;
+        uint32_t nPaletteOffset = -1;
+        uint32_t nTerminalOffset = -1;
         std::wstring strUnitName;
         std::wstring strCollectionName;
         std::wstring strPaletteName;
@@ -1200,15 +1200,15 @@ void CGameClass::DumpTreeSorted()
 
     sPaletteTrackingInformation * pListRoot = nullptr;
 
-    for (size_t nUnitIndex = 0; nUnitIndex < c_nUnitCount; nUnitIndex++)
+    for (uint32_t nUnitIndex = 0; nUnitIndex < c_nUnitCount; nUnitIndex++)
     {
         sDescTreeNode* UnitTree = &((sDescTreeNode*)pRootTree->ChildNodes)[nUnitIndex];
 
-        for (size_t nCollectionIndex = 0; nCollectionIndex < UnitTree->uChildAmt; nCollectionIndex++)
+        for (uint32_t nCollectionIndex = 0; nCollectionIndex < UnitTree->uChildAmt; nCollectionIndex++)
         {
             sDescTreeNode* CollectionTree = &((sDescTreeNode *)UnitTree->ChildNodes)[nCollectionIndex];
 
-            for (size_t nPaletteIndex = 0; nPaletteIndex < CollectionTree->uChildAmt; nPaletteIndex++)
+            for (uint32_t nPaletteIndex = 0; nPaletteIndex < CollectionTree->uChildAmt; nPaletteIndex++)
             {
                 sDescNode* DescNode = &((sDescNode*)CollectionTree->ChildNodes)[nPaletteIndex];
 
@@ -1266,8 +1266,8 @@ void CGameClass::DumpTreeSorted()
     }
 }
 
-UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, size_t nExtraUnitLocation, size_t nTotalNormalUnitCount,
-                                 size_t* rgExtraCount, size_t* rgExtraLocations, stExtraDef* ppExtraDef)
+UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nTotalNormalUnitCount,
+                                 uint32_t* rgExtraCount, uint32_t* rgExtraLocations, stExtraDef* ppExtraDef)
 {
     CString strMsg;
     UINT32 nTotalPaletteCount = 0;
@@ -1275,16 +1275,16 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
     OutputDebugString(L"CGameClass::_InitDescTree: Building desc tree for game...\n");
 
     //Go through each character
-    for (size_t iUnitCtr = 0; iUnitCtr < pNewDescTree->uChildAmt; iUnitCtr++)
+    for (uint32_t iUnitCtr = 0; iUnitCtr < pNewDescTree->uChildAmt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        size_t nExtraCt = _GetExtraCount(rgExtraCount, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
+        uint32_t nExtraCt = _GetExtraCount(rgExtraCount, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
         BOOL bUseExtra = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef) != 0;
 
-        size_t nUnitChildCount = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nTotalNormalUnitCount, nExtraUnitLocation, iUnitCtr, ppExtraDef);
+        uint32_t nUnitChildCount = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nTotalNormalUnitCount, nExtraUnitLocation, iUnitCtr, ppExtraDef);
 
         UnitNode = &((sDescTreeNode*)pNewDescTree->ChildNodes)[iUnitCtr];
 
@@ -1302,10 +1302,10 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
             OutputDebugString(strMsg);
 #endif
 
-            size_t nTotalPalettesUsedInUnit = 0;
+            uint32_t nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
-            for (size_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+            for (uint32_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
@@ -1314,7 +1314,7 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
                 // Default label, since these aren't associated to collections
                 _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _GetDescriptionForCollection(pGameUnits, nExtraUnitLocation, iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
-                size_t nListedChildrenCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nTotalNormalUnitCount, nExtraUnitLocation, iUnitCtr, iCollectionCtr, ppExtraDef);
+                uint32_t nListedChildrenCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nTotalNormalUnitCount, nExtraUnitLocation, iUnitCtr, iCollectionCtr, ppExtraDef);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
@@ -1327,7 +1327,7 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
                 const sGame_PaletteDataset* paletteSetToUse = _GetPaletteSet(pGameUnits, iUnitCtr, iCollectionCtr);
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (size_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+                for (uint32_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -1374,8 +1374,8 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
         //Set up extra nodes
         if (bUseExtra)
         {
-            size_t nExtraPos = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
-            size_t nCurrExtra = 0;
+            uint32_t nExtraPos = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
+            uint32_t nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nExtraUnitLocation > iUnitCtr) ? (nUnitChildCount - 1) : 0]; // Extra node
             _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
@@ -1390,7 +1390,7 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
             OutputDebugString(strMsg);
 #endif
 
-            for (size_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+            for (uint32_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
@@ -1425,7 +1425,7 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
     return nTotalPaletteCount;
 }
 
-BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraCount, size_t nNormalUnitCount, size_t nExtraUnitLocation, stExtraDef* ppExtraDef, int Node01, int Node02, int Node03, int Node04)
+BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, stExtraDef* ppExtraDef, int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -1443,16 +1443,16 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
     }
 
     // Default values for multisprite image display for Export
-    int nSrcStart = (int)NodeGet->uPalId;
-    size_t nSrcAmt = 1;
-    int nNodeIncrement = 1;
+    uint32_t nSrcStart = NodeGet->uPalId;
+    uint32_t nSrcAmt = 1;
+    uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
-    size_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -1473,7 +1473,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
             {
                 bool fIsCorePalette = false;
 
-                for (size_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
+                for (uint32_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
                 {
                     if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
                     {
@@ -1486,9 +1486,9 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
                 {
                     // We've confirmed that the string matches one of the indicated button names.  Since we're doing a color per node, ensure we only ever
                     // expose to max node.  This covers the situation where a game might have LP/LK but not LP/LK/MP/MK out of a set.
-                    const size_t nCollectionCount = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, ppExtraDef);
+                    const uint32_t nCollectionCount = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, ppExtraDef);
 
-                    nSrcAmt = min(pButtonLabelSet.size(), nCollectionCount);
+                    nSrcAmt = min(static_cast<uint32_t>(pButtonLabelSet.size()), nCollectionCount);
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)
@@ -1503,12 +1503,12 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
             {
                 if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
                 {
-                    const size_t nStageCount = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
+                    const uint32_t nStageCount = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
 
                     fShouldUseAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;
 
-                    for (size_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                     {
                         // The palettes get added forward, but the image tickets need to be generated in reverse order
                         const sGame_PaletteDataset* paletteDataSetToJoin = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex), ppExtraDef);
@@ -1529,10 +1529,10 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
                          (paletteDataSet->pPalettePairingInfo->nPalettesToJoin <= MAXIMUM_PALETTE_PAIRS_ALLOWED))
                 {
                     std::vector<const sGame_PaletteDataset*> vsPaletteDataSetToJoin;
-                    std::vector<int> vnPeerPaletteDistances;
+                    std::vector<int8_t> vnPeerPaletteDistances;
                     bool fAllNodesFound = true;
 
-                    for (size_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
+                    for (uint32_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
                     {
                         switch (nPairIndex)
                         {
@@ -1580,14 +1580,14 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, size_t* rgExtraC
 
                     std::vector<sDescNode*> vsJoinedNodes;
 
-                    for (size_t nNodeIndex = 0; nNodeIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nNodeIndex++)
+                    for (uint32_t nNodeIndex = 0; nNodeIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nNodeIndex++)
                     {
                         sDescNode* sSearchedNode = nullptr;
 
                         // We need to readjust the nodes here.
-                        size_t nNodeSize = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
-                        size_t nAdjustedCollectionIndex = Node02;
-                        INT32 nAdjustedButtonIndex = Node03 + vnPeerPaletteDistances[nNodeIndex];
+                        uint32_t nNodeSize = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
+                        uint32_t nAdjustedCollectionIndex = Node02;
+                        ptrdiff_t nAdjustedButtonIndex = Node03 + vnPeerPaletteDistances[nNodeIndex];
 
                         while (nAdjustedButtonIndex >= 0)
                         {
@@ -1685,20 +1685,20 @@ inline UINT32 CGameClass::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
     return nSIMMLocation;
 }
 
-BOOL CGameClass::LoadFile(CFile* LoadedFile, size_t nUnitId)
+BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
     if (GameIsUsing16BitColor() && m_pppDataBuffer)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
             // Anything using the base implementation is presorted
             rgUnitRedir[nUnitCtr] = nUnitCtr;
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -1711,16 +1711,16 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, size_t nUnitId)
     }
     else if (GameIsUsing24BitColor() && m_pppDataBuffer24)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             m_pppDataBuffer24[nUnitCtr] = new UINT32 * [nPalAmt];
 
             // Anything using the base implementation is presorted
             rgUnitRedir[nUnitCtr] = nUnitCtr;
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
                 m_pppDataBuffer24[nUnitCtr][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
@@ -1747,16 +1747,16 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, size_t nUnitId)
     }
     else if (GameIsUsing32BitColor() && m_pppDataBuffer32)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             m_pppDataBuffer32[nUnitCtr] = new UINT32 * [nPalAmt];
 
             // Anything using the base implementation is presorted
             rgUnitRedir[nUnitCtr] = nUnitCtr;
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -1784,15 +1784,15 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, size_t nUnitId)
     return TRUE;
 }
 
-BOOL CGameClass::SaveFile(CFile* SaveFile, size_t nUnitId)
+BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
 
-    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             if (IsPaletteDirty(nUnitCtr, nPalCtr))
             {
@@ -1855,7 +1855,7 @@ bool CGameClass::UserWantsAllPalettesInPatch()
     return (MessageBox(g_appHWnd, strOptions, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON2) == IDYES);
 }
 
-UINT32 CGameClass::SavePatchFile(CFile* PatchFile, size_t nUnitId)
+UINT32 CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
 {
     const bool fUserWantsAllChanges = UserWantsAllPalettesInPatch();
 
@@ -1863,11 +1863,11 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, size_t nUnitId)
     LPCSTR szIPSOpener = "PATCH";
     PatchFile->Write(szIPSOpener, (UINT)strlen(szIPSOpener));
 
-    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             if (fUserWantsAllChanges || IsPaletteDirty(nUnitCtr, nPalCtr))
             {
@@ -1969,10 +1969,10 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, size_t nUnitId)
     return nTotalPalettesSaved;
 }
 
-BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, size_t nSIMMNumber)
+BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber)
 {
     CString strInfo;
-    size_t nAdjustedSIMMFileNumber = nSIMMNumber + m_nSIMMSetStartingFileNumber;
+    uint32_t nAdjustedSIMMFileNumber = nSIMMNumber + m_nSIMMSetStartingFileNumber;
     BOOL fSuccess = TRUE;
 
     if ((nAdjustedSIMMFileNumber % m_nNumberOfSIMMsPerSet) != 0)
@@ -1981,7 +1981,7 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, size_t nSIMMNumber)
         OutputDebugString(strInfo);
         return TRUE;
     }
-    else if (nAdjustedSIMMFileNumber > (size_t)(m_nSIMMSetStartingFileNumber + m_nTotalNumberOfSIMMFilesNeeded))
+    else if (nAdjustedSIMMFileNumber > (uint32_t)(m_nSIMMSetStartingFileNumber + m_nTotalNumberOfSIMMFilesNeeded))
     {
         // Nothing useful on those SIMMs
         strInfo.Format(L"\tCGameClass::LoadFileForSIMMGame: SIMM %u.%u is unused: skipping.\n", m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
@@ -1993,8 +1993,8 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, size_t nSIMMNumber)
     // For example, one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
     // That is then followed by one byte from 5.6 followed by one byte from 5.7, repeat until end of SIMM.
     // So to read the SIMMs we need to perform shenanigans.
-    const UINT32 nBeginningRange = 0 + (m_nSIMMLength * (nAdjustedSIMMFileNumber - m_nSIMMSetStartingFileNumber));
-    UINT32 nEndingRange = (m_nSIMMLength * m_nNumberOfSIMMsPerSet) + (m_nSIMMLength * (nAdjustedSIMMFileNumber - m_nSIMMSetStartingFileNumber));
+    const uint32_t nBeginningRange = 0 + (m_nSIMMLength * (nAdjustedSIMMFileNumber - m_nSIMMSetStartingFileNumber));
+    uint32_t nEndingRange = (m_nSIMMLength * m_nNumberOfSIMMsPerSet) + (m_nSIMMLength * (nAdjustedSIMMFileNumber - m_nSIMMSetStartingFileNumber));
 
     CFile FilePeer;
     sFileRule PeerRule = GetNextRuleForSIMMGame();
@@ -2012,9 +2012,9 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, size_t nSIMMNumber)
                             PeerRule.szFileName, nBeginningRange, nEndingRange);
         OutputDebugString(strInfo);
 
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
@@ -2025,7 +2025,7 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, size_t nSIMMNumber)
             // Layout is presorted
             rgUnitRedir[nUnitCtr] = nUnitCtr;
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -2097,10 +2097,10 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, size_t nSIMMNumber)
     return fSuccess;
 }
 
-BOOL CGameClass::SaveFileForSIMMGame(CFile* SaveFile, size_t nSIMMNumber)
+BOOL CGameClass::SaveFileForSIMMGame(CFile* SaveFile, uint32_t nSIMMNumber)
 {
     CString strInfo;
-    size_t nAdjustedSIMMFileNumber = nSIMMNumber + m_nSIMMSetStartingFileNumber;
+    uint32_t nAdjustedSIMMFileNumber = nSIMMNumber + m_nSIMMSetStartingFileNumber;
 
     strInfo.Format(L"CGameClass::SaveFileForSIMMGame: Preparing to save data for game unit number %u\n", nSIMMNumber);
     OutputDebugString(strInfo);
@@ -2154,11 +2154,11 @@ BOOL CGameClass::SaveFileForSIMMGame(CFile* SaveFile, size_t nSIMMNumber)
         OutputDebugString(strInfo);
         UINT32 nPaletteSaveCount = 0;
 
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 if (IsPaletteDirty(nUnitCtr, nPalCtr))
                 {
@@ -2238,7 +2238,7 @@ UINT32 CGameClass::SaveMultiplePatchFiles(CString strTargetDirectory)
 {
     CString strInfo;
     UINT32 nPaletteSaveCount = 0;
-    size_t nSIMMNumber = m_nSIMMSetStartingFileNumber;
+    uint32_t nSIMMNumber = m_nSIMMSetStartingFileNumber;
 
     // 50 maps to 5.0-5.3
     // 51 maps to 5.4-5.7
@@ -2261,11 +2261,11 @@ UINT32 CGameClass::SaveMultiplePatchFiles(CString strTargetDirectory)
     bool fSetOneOpened = false;
     bool fSetTwoOpened = false;
 
-    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             if (fUserWantsAllChanges || IsPaletteDirty(nUnitCtr, nPalCtr))
             {

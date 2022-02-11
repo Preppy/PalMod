@@ -36,8 +36,8 @@ public:
     CImgDat(void);
     ~CImgDat(void);
 
-    BOOL LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, size_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL bLoadAll = TRUE);
-    sImgDef* GetImageDef(size_t uUnitId, UINT16 uImgId);
+    BOOL LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, uint32_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL bLoadAll = TRUE);
+    sImgDef* GetImageDef(uint32_t uUnitId, UINT16 uImgId);
     bool FlushImageBuffer();
     UINT8* DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);
     UINT8* RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight);

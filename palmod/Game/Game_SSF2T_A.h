@@ -14,7 +14,7 @@ class CGame_SSF2T_A : public CGameWithExtrasFile
 private:
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = 3;
-    static size_t m_nSSF2TSelectedRom;
+    static uint32_t m_nSSF2TSelectedRom;
     static UINT32 m_nTotalPaletteCountForSSF2T_3C;
     static UINT32 m_nTotalPaletteCountForSSF2T_4A;
     static UINT32 m_nTotalPaletteCountForSSF2T_8;
@@ -22,12 +22,12 @@ private:
     static bool UsePaletteSetForCharacters() { return (m_nSSF2TSelectedRom == 4); }
     static bool UsePaletteSetForStages() { return (m_nSSF2TSelectedRom == 8); }
 
-    static size_t rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1];
-    static size_t rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1];
-    static size_t rgExtraLoc_8[SSF2T_A_NUM_IND_8 + 1];
-    static size_t rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1];
-    static size_t rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1];
-    static size_t rgExtraCountAll_8[SSF2T_A_NUM_IND_8 + 1];
+    static uint32_t rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1];
+    static uint32_t rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1];
+    static uint32_t rgExtraLoc_8[SSF2T_A_NUM_IND_8 + 1];
+    static uint32_t rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1];
+    static uint32_t rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1];
+    static uint32_t rgExtraCountAll_8[SSF2T_A_NUM_IND_8 + 1];
 
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
@@ -36,8 +36,8 @@ private:
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
-    void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
-    size_t GetPaletteCountForUnit(size_t nUnitId) override;
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     const int m_uLowestKnownPaletteROMLocation_3C = 0x31c00;
@@ -54,23 +54,23 @@ public:
     static CDescTree MainDescTree_8;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
-    static sFileRule GetRule(size_t nUnitId);
+    static sFileRule GetRule(uint32_t nUnitId);
 
     //Extra palette function
-    static size_t GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly = FALSE);
-    static size_t GetExtraLoc(size_t nUnitId);
+    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static uint32_t GetExtraLoc(uint32_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
-    static size_t GetCollectionCountForUnit(size_t nUnitId);
+    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static size_t GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(size_t nUnitId, size_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(size_t nUnitId, size_t nPaletteId);
+    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
 
-    size_t GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId);
+    uint32_t GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 

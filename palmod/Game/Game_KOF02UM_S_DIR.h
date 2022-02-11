@@ -9,11 +9,11 @@ public:
     ~CGame_KOF02UM_S_DIR();
 
     static sFileRule GetNextRule_8888();
-    static sFileRule GetRule_8888(size_t nRuleId);
+    static sFileRule GetRule_8888(uint32_t nRuleId);
     static sFileRule GetNextRule_BGR555();
-    static sFileRule GetRule_BGR555(size_t nRuleId);
+    static sFileRule GetRule_BGR555(uint32_t nRuleId);
     static sFileRule GetNextRule_RGB555();
-    static sFileRule GetRule_RGB555(size_t nRuleId);
+    static sFileRule GetRule_RGB555(uint32_t nRuleId);
 
     static void InitializeStatics();
     static UINT32 m_nConfirmedROMSize;

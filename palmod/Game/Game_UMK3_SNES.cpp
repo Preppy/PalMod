@@ -47,8 +47,8 @@ CGame_UMK3_SNES::CGame_UMK3_SNES(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_2; // Check out the available options in buttondef.
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -62,8 +62,8 @@ CGame_UMK3_SNES::CGame_UMK3_SNES(UINT32 nConfirmedROMSize)
 
 stExtraDef* CGame_UMK3_SNES::UMK3_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_UMK3_SNES::MainDescTree = nullptr;
-size_t CGame_UMK3_SNES::rgExtraCountAll[UMK3_SNES_NUMUNIT + 1];
-size_t CGame_UMK3_SNES::rgExtraLoc[UMK3_SNES_NUMUNIT + 1];
+uint32_t CGame_UMK3_SNES::rgExtraCountAll[UMK3_SNES_NUMUNIT + 1];
+uint32_t CGame_UMK3_SNES::rgExtraLoc[UMK3_SNES_NUMUNIT + 1];
 UINT32 CGame_UMK3_SNES::m_nTotalPaletteCountForUMK3 = 0;
 UINT32 CGame_UMK3_SNES::m_nConfirmedROMSize = -1;
 
@@ -90,12 +90,12 @@ CDescTree* CGame_UMK3_SNES::GetMainTree()
     return &CGame_UMK3_SNES::MainDescTree;
 }
 
-size_t CGame_UMK3_SNES::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_UMK3_SNES::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, UMK3_SNES_NUMUNIT, nUnitId, UMK3_SNES_EXTRA_CUSTOM);
 }
 
-size_t CGame_UMK3_SNES::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_UMK3_SNES::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, UMK3_SNES_NUMUNIT, nUnitId, UMK3_SNES_EXTRA_CUSTOM);
 }
@@ -128,7 +128,7 @@ sDescTreeNode* CGame_UMK3_SNES::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_UMK3_SNES::GetRule(size_t nUnitId)
+sFileRule CGame_UMK3_SNES::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -141,42 +141,42 @@ sFileRule CGame_UMK3_SNES::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_UMK3_SNES::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_UMK3_SNES::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(UMK3_SNES_UNITS, rgExtraCountAll, UMK3_SNES_NUMUNIT, UMK3_SNES_EXTRALOC, nUnitId, UMK3_SNES_EXTRA_CUSTOM);
 }
 
-size_t CGame_UMK3_SNES::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_UMK3_SNES::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(UMK3_SNES_UNITS, rgExtraCountAll, UMK3_SNES_NUMUNIT, UMK3_SNES_EXTRALOC, nUnitId, nCollectionId, UMK3_SNES_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_UMK3_SNES::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_UMK3_SNES::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(UMK3_SNES_UNITS, UMK3_SNES_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_UMK3_SNES::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_UMK3_SNES::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(UMK3_SNES_UNITS, rgExtraCountAll, UMK3_SNES_NUMUNIT, UMK3_SNES_EXTRALOC, nUnitId, UMK3_SNES_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_UMK3_SNES::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_UMK3_SNES::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(UMK3_SNES_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_UMK3_SNES::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_UMK3_SNES::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(UMK3_SNES_UNITS, rgExtraCountAll, UMK3_SNES_NUMUNIT, UMK3_SNES_EXTRALOC, nUnitId, nPaletteId, UMK3_SNES_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_UMK3_SNES::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_UMK3_SNES::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(UMK3_SNES_UNITS, rgExtraCountAll, UMK3_SNES_NUMUNIT, UMK3_SNES_EXTRALOC, nUnitId, nPaletteId, UMK3_SNES_EXTRA_CUSTOM);
 }
 
-void CGame_UMK3_SNES::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_UMK3_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != UMK3_SNES_EXTRALOC)
     {

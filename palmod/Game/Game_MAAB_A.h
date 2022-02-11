@@ -11,21 +11,21 @@ public:
     static void InitializeStatics();
     static UINT32 m_nConfirmedROMSize;
 
-    void LoadSpecificPaletteDataByFileUnit(size_t nFileUnitId, size_t nFilePalId);
-    void LoadSpecificPaletteData(size_t nDisplayUnitId, size_t nDisplayPalId);
-    size_t GetPaletteCountForUnit(size_t nUnitId) override;
+    void LoadSpecificPaletteDataByFileUnit(uint32_t nFileUnitId, uint32_t nFilePalId);
+    void LoadSpecificPaletteData(uint32_t nDisplayUnitId, uint32_t nDisplayPalId);
+    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     //Static functions
-    static size_t uRuleCtr;
+    static uint32_t uRuleCtr;
 
-    static size_t GetRuleCtr() { return uRuleCtr; };
+    static uint32_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static sFileRule GetNextRule();
-    static sFileRule GetRule(size_t nRuleId);
+    static sFileRule GetRule(uint32_t nRuleId);
 
-    BOOL LoadFile(CFile* LoadedFile, size_t nFileUnitNumber) override;
-    BOOL SaveFile(CFile* SaveFile, size_t nFileUnitNumber) override;
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nFileUnitNumber) override;
+    BOOL SaveFile(CFile* SaveFile, uint32_t nFileUnitNumber) override;
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -33,21 +33,21 @@ public:
     static sDescTreeNode* InitDescTree();
 
     CDescTree* GetMainTree() { return &MainDescTree; };
-    static size_t GetCollectionCountForUnit(size_t nUnitId);
-    static size_t GetNodeCountForCollection(size_t nCharacterUnitId, size_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
+    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
+    static uint32_t GetNodeCountForCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     LPCWSTR GetGameName() override { return L"Million Arthur Arcana Blood (Steam)"; };
 	
-	static bool ShouldUseBasePaletteSet(size_t nCharacterUnitId, size_t nCollectionId);
+	static bool ShouldUseBasePaletteSet(uint32_t nCharacterUnitId, uint32_t nCollectionId);
 
-    static bool PaletteIsInFileUnit(size_t nTargetFileUnitId, size_t nDisplayUnitId, size_t nDisplayPalId);
-    static size_t GetUniqueUnitCount();
-    static size_t GetFileCount();
+    static bool PaletteIsInFileUnit(uint32_t nTargetFileUnitId, uint32_t nDisplayUnitId, uint32_t nDisplayPalId);
+    static uint32_t GetUniqueUnitCount();
+    static uint32_t GetFileCount();
 
-    static void GetCharacterIndexFromFileIndex(size_t nFileUnitId, size_t nFilePalId, size_t* pnCharacterUnitId, size_t* pnCharacterPalId);
-    static void GetFileIndexFromCharacterIndex(size_t nCharacterUnitId, size_t nCharacterPalId, size_t* nFileUnitId, size_t* nFilePalId);
-    static void GetFileIndexFromCharacterCollection(size_t nCharacterUnitId, size_t nCollectionId, size_t* nFileUnitId, size_t* nFileCollectionId);
+    static void GetCharacterIndexFromFileIndex(uint32_t nFileUnitId, uint32_t nFilePalId, uint32_t* pnCharacterUnitId, uint32_t* pnCharacterPalId);
+    static void GetFileIndexFromCharacterIndex(uint32_t nCharacterUnitId, uint32_t nCharacterPalId, uint32_t* nFileUnitId, uint32_t* nFilePalId);
+    static void GetFileIndexFromCharacterCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId, uint32_t* nFileUnitId, uint32_t* nFileCollectionId);
 };

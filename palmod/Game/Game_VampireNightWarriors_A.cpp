@@ -7,8 +7,8 @@ stExtraDef* CGame_VampireNightWarriors_A::VampireNightWarriors_A_EXTRA_CUSTOM = 
 
 CDescTree CGame_VampireNightWarriors_A::MainDescTree = nullptr;
 
-size_t CGame_VampireNightWarriors_A::rgExtraCountAll[VampireNightWarriors_A_NUMUNIT + 1] = { (size_t)-1 };
-size_t CGame_VampireNightWarriors_A::rgExtraLoc[VampireNightWarriors_A_NUMUNIT + 1] = { (size_t)-1 };
+uint32_t CGame_VampireNightWarriors_A::rgExtraCountAll[VampireNightWarriors_A_NUMUNIT + 1] = { (uint32_t)-1 };
+uint32_t CGame_VampireNightWarriors_A::rgExtraLoc[VampireNightWarriors_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 UINT32 CGame_VampireNightWarriors_A::m_nTotalPaletteCountForVampireNightWarriors = 0;
 UINT32 CGame_VampireNightWarriors_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
@@ -61,8 +61,8 @@ CGame_VampireNightWarriors_A::CGame_VampireNightWarriors_A(UINT32 nConfirmedROMS
     pButtonLabelSet = DEF_BUTTONLABEL_2;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -126,12 +126,12 @@ UINT32 CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32Va
     return ARRAYSIZE(knownROMs);
 }
 
-size_t CGame_VampireNightWarriors_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_VampireNightWarriors_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, VampireNightWarriors_A_NUMUNIT, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_VampireNightWarriors_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_VampireNightWarriors_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, VampireNightWarriors_A_NUMUNIT, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM);
 }
@@ -169,7 +169,7 @@ sDescTreeNode* CGame_VampireNightWarriors_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_VampireNightWarriors_A::GetRule(size_t nUnitId)
+sFileRule CGame_VampireNightWarriors_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -181,42 +181,42 @@ sFileRule CGame_VampireNightWarriors_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_VampireNightWarriors_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_VampireNightWarriors_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(VampireNightWarriors_A_UNITS, rgExtraCountAll, VampireNightWarriors_A_NUMUNIT, VampireNightWarriors_A_EXTRALOC, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_VampireNightWarriors_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_VampireNightWarriors_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(VampireNightWarriors_A_UNITS, rgExtraCountAll, VampireNightWarriors_A_NUMUNIT, VampireNightWarriors_A_EXTRALOC, nUnitId, nCollectionId, VampireNightWarriors_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_VampireNightWarriors_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_VampireNightWarriors_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(VampireNightWarriors_A_UNITS, VampireNightWarriors_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_VampireNightWarriors_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_VampireNightWarriors_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(VampireNightWarriors_A_UNITS, rgExtraCountAll, VampireNightWarriors_A_NUMUNIT, VampireNightWarriors_A_EXTRALOC, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_VampireNightWarriors_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_VampireNightWarriors_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(VampireNightWarriors_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_VampireNightWarriors_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_VampireNightWarriors_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(VampireNightWarriors_A_UNITS, rgExtraCountAll, VampireNightWarriors_A_NUMUNIT, VampireNightWarriors_A_EXTRALOC, nUnitId, nPaletteId, VampireNightWarriors_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_VampireNightWarriors_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_VampireNightWarriors_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(VampireNightWarriors_A_UNITS, rgExtraCountAll, VampireNightWarriors_A_NUMUNIT, VampireNightWarriors_A_EXTRALOC, nUnitId, nPaletteId, VampireNightWarriors_A_EXTRA_CUSTOM);
 }
 
-void CGame_VampireNightWarriors_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_VampireNightWarriors_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     if (nUnitId != VampireNightWarriors_A_EXTRALOC)
     {

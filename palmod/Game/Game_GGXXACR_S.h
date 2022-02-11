@@ -11,20 +11,20 @@ public:
     static void InitializeStatics();
     static UINT32 m_nConfirmedROMSize;
 
-    void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
-    size_t GetPaletteCountForUnit(size_t nUnitId) override;
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     //Static functions
-    static size_t uRuleCtr;
+    static uint32_t uRuleCtr;
 
-    static size_t GetRuleCtr() { return uRuleCtr; };
+    static uint32_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static sFileRule GetNextRule();
-    static sFileRule GetRule(size_t nRuleId);
+    static sFileRule GetRule(uint32_t nRuleId);
 
-    BOOL LoadFile(CFile* LoadedFile, size_t nUnitNumber) override;
-    BOOL SaveFile(CFile* SaveFile, size_t nUnitNumber) override;
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitNumber) override;
+    BOOL SaveFile(CFile* SaveFile, uint32_t nUnitNumber) override;
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -32,15 +32,15 @@ public:
     static sDescTreeNode* InitDescTree();
 
     CDescTree* GetMainTree() { return &MainDescTree; };
-    static size_t GetCollectionCountForUnit(size_t nUnitId);
-    static size_t GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
+    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
+    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     LPCWSTR GetGameName() override { return L"GGXX:AC+R (Steam)"; };
 
-    static bool ShouldUseBasePaletteSet(size_t nUnitId, size_t nCollectionId);
+    static bool ShouldUseBasePaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
 
     bool IsGGXXACRFileEncrypted(CFile* LoadedFile);
     bool m_fIsFileSetEncrypted = false;

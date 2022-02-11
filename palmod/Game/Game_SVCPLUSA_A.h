@@ -11,15 +11,15 @@ class CGame_SVCPLUSA_A : public CGameWithExtrasFile
 private:
     static UINT32 m_nTotalPaletteCountForSVCPLUSA;
 
-    static size_t rgExtraCountAll[SVCPLUSA_A_NUMUNIT + 1];
-    static size_t rgExtraLoc[SVCPLUSA_A_NUMUNIT + 1];
+    static uint32_t rgExtraCountAll[SVCPLUSA_A_NUMUNIT + 1];
+    static uint32_t rgExtraLoc[SVCPLUSA_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
-    void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
-    size_t GetPaletteCountForUnit(size_t nUnitId) override;
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
@@ -55,30 +55,30 @@ public:
     static CDescTree MainDescTree;
 
     static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(size_t nUnitId);
+    static sFileRule GetRule(uint32_t nUnitId);
 
     //Extra palette function
-    static size_t GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly = FALSE);
-    static size_t GetExtraLoc(size_t nUnitId);
+    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static uint32_t GetExtraLoc(uint32_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
-    static size_t GetCollectionCountForUnit(size_t nUnitId);
+    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static size_t GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(size_t nUnitId, size_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(size_t nUnitId, size_t nPaletteId);
+    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
 
-    const sDescTreeNode* GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly);
+    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
 
     LPCWSTR GetGameName() { return m_loadedROMRevision.pszRevisionName; };
 
-    BOOL LoadFile(CFile* LoadedFile, size_t nUnitId = 0) override;
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    BOOL SaveFile(CFile* SaveFile, size_t nUnitId) override;
+    BOOL SaveFile(CFile* SaveFile, uint32_t nUnitId) override;
 
     static stExtraDef* SVCPLUSA_A_EXTRA_CUSTOM;
 };

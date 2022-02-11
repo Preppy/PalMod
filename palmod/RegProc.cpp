@@ -610,7 +610,7 @@ const std::array<double, 6> CPalModZoom::m_nZoomSizes{ 1.0, 2.0, 3.0, 4.0, 5.0, 
 
 void CPalModZoom::IncrementZoom(double* fpPreviousZoom)
 {
-    size_t nCurrentPosition = 0;
+    uint32_t nCurrentPosition = 0;
 
     for (; nCurrentPosition < m_nZoomSizes.size(); nCurrentPosition++)
     {
@@ -620,13 +620,13 @@ void CPalModZoom::IncrementZoom(double* fpPreviousZoom)
         }
     }
 
-    nCurrentPosition = min(nCurrentPosition + 1, m_nZoomSizes.size() - 1);
+    nCurrentPosition = min(nCurrentPosition + 1, static_cast<uint32_t>(m_nZoomSizes.size()) - 1);
     *fpPreviousZoom = m_nZoomSizes[nCurrentPosition];
 }
 
 void CPalModZoom::DecrementZoom(double *fpPreviousZoom)
 {
-    int nCurrentPosition = m_nZoomSizes.size() - 1;
+    uint32_t nCurrentPosition = static_cast<uint32_t>(m_nZoomSizes.size()) - 1;
 
     for (; nCurrentPosition > 0; nCurrentPosition--)
     {

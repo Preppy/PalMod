@@ -13,7 +13,7 @@ constexpr auto MVC2_D_NUMUNIT = 59;
 constexpr auto MVC2_D_NUMUNIT_WITH_TEAMVIEW = MVC2_D_NUMUNIT + 1;
 
 // Extras for a character are located at an zero-based offset of (6 colors * 8 base palettes)
-extern size_t EXTRA_OMNI; // = default of 47:  (8 * 6) - 1;
+extern uint32_t EXTRA_OMNI; // = default of 47:  (8 * 6) - 1;
 constexpr auto MVC2_D_TEAMVIEW_LOCATION = MVC2_D_NUMUNIT;
 
 struct sMoveDescription

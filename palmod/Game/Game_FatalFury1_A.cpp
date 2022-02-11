@@ -8,8 +8,8 @@ stExtraDef* CGame_FatalFury1_A::FatalFury1_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_FatalFury1_A::MainDescTree = nullptr;
 
-size_t CGame_FatalFury1_A::rgExtraCountAll[FatalFury1_A_NUMUNIT + 1];
-size_t CGame_FatalFury1_A::rgExtraLoc[FatalFury1_A_NUMUNIT + 1];
+uint32_t CGame_FatalFury1_A::rgExtraCountAll[FatalFury1_A_NUMUNIT + 1];
+uint32_t CGame_FatalFury1_A::rgExtraLoc[FatalFury1_A_NUMUNIT + 1];
 
 UINT32 CGame_FatalFury1_A::m_nTotalPaletteCountForFatalFury1 = 0;
 UINT32 CGame_FatalFury1_A::m_nExpectedGameROMSize = 0x80000;
@@ -64,8 +64,8 @@ CGame_FatalFury1_A::CGame_FatalFury1_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_NOBUTTONS;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -79,7 +79,7 @@ CGame_FatalFury1_A::~CGame_FatalFury1_A(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_FatalFury1_A::GetRule(size_t nUnitId)
+sFileRule CGame_FatalFury1_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -119,12 +119,12 @@ CDescTree* CGame_FatalFury1_A::GetMainTree()
     return &CGame_FatalFury1_A::MainDescTree;
 }
 
-size_t CGame_FatalFury1_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_FatalFury1_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, FatalFury1_A_NUMUNIT, nUnitId, FatalFury1_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_FatalFury1_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_FatalFury1_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, FatalFury1_A_NUMUNIT, nUnitId, FatalFury1_A_EXTRA_CUSTOM);
 }
@@ -157,42 +157,42 @@ sDescTreeNode* CGame_FatalFury1_A::InitDescTree()
     return NewDescTree;
 }
 
-size_t CGame_FatalFury1_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_FatalFury1_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(FatalFury1_A_UNITS, rgExtraCountAll, FatalFury1_A_NUMUNIT, FatalFury1_A_EXTRALOC, nUnitId, FatalFury1_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_FatalFury1_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_FatalFury1_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(FatalFury1_A_UNITS, rgExtraCountAll, FatalFury1_A_NUMUNIT, FatalFury1_A_EXTRALOC, nUnitId, nCollectionId, FatalFury1_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_FatalFury1_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_FatalFury1_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(FatalFury1_A_UNITS, FatalFury1_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_FatalFury1_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_FatalFury1_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(FatalFury1_A_UNITS, rgExtraCountAll, FatalFury1_A_NUMUNIT, FatalFury1_A_EXTRALOC, nUnitId, FatalFury1_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_FatalFury1_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_FatalFury1_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(FatalFury1_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_FatalFury1_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_FatalFury1_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(FatalFury1_A_UNITS, rgExtraCountAll, FatalFury1_A_NUMUNIT, FatalFury1_A_EXTRALOC, nUnitId, nPaletteId, FatalFury1_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_FatalFury1_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_FatalFury1_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(FatalFury1_A_UNITS, rgExtraCountAll, FatalFury1_A_NUMUNIT, FatalFury1_A_EXTRALOC, nUnitId, nPaletteId, FatalFury1_A_EXTRA_CUSTOM);
 }
 
-void CGame_FatalFury1_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_FatalFury1_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     if (nUnitId != FatalFury1_A_EXTRALOC)
     {

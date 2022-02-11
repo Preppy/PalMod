@@ -8,8 +8,8 @@ stExtraDef* CGame_SVCPLUSA_A::SVCPLUSA_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SVCPLUSA_A::MainDescTree = nullptr;
 
-size_t CGame_SVCPLUSA_A::rgExtraCountAll[SVCPLUSA_A_NUMUNIT + 1];
-size_t CGame_SVCPLUSA_A::rgExtraLoc[SVCPLUSA_A_NUMUNIT + 1];
+uint32_t CGame_SVCPLUSA_A::rgExtraCountAll[SVCPLUSA_A_NUMUNIT + 1];
+uint32_t CGame_SVCPLUSA_A::rgExtraLoc[SVCPLUSA_A_NUMUNIT + 1];
 
 UINT32 CGame_SVCPLUSA_A::m_nTotalPaletteCountForSVCPLUSA = 0;
 UINT32 CGame_SVCPLUSA_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
@@ -245,8 +245,8 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_2_PK;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -266,12 +266,12 @@ CDescTree* CGame_SVCPLUSA_A::GetMainTree()
     return &CGame_SVCPLUSA_A::MainDescTree;
 }
 
-size_t CGame_SVCPLUSA_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SVCPLUSA_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SVCPLUSA_A_NUMUNIT, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_SVCPLUSA_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_SVCPLUSA_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, SVCPLUSA_A_NUMUNIT, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
@@ -381,12 +381,12 @@ const LPCWSTR SVC_CharacterEffectNames[] =
 void CGame_SVCPLUSA_A::DumpPaletteHeaders()
 {
     CString strOutput;
-    const size_t nColorOptionsPerCharacter = 2;
+    const uint32_t nColorOptionsPerCharacter = 2;
     constexpr UINT32 SVCPLUSA_PALETTE_LENGTH = 0x20;
     constexpr UINT16 c_nEffectsPerCharacter = 7;
     constexpr UINT32 c_nSVCDistanceBetweenColorss = 0x200;
 
-    for (size_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
+    for (uint32_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
@@ -397,7 +397,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
         if (nCurrentOffset != 0)
         {
             // First handle the core sprite and moves.
-            for (size_t iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_2_PK.size(); iButtonIndex++)
+            for (uint32_t iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_2_PK.size(); iButtonIndex++)
             {
                 if (iButtonIndex != 0)
                 {
@@ -415,7 +415,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
 
                 nCurrentOffset += SVCPLUSA_PALETTE_LENGTH;
 
-                for (size_t nEffectIndex = 0; nEffectIndex < c_nEffectsPerCharacter; nEffectIndex++)
+                for (uint32_t nEffectIndex = 0; nEffectIndex < c_nEffectsPerCharacter; nEffectIndex++)
                 {
                     strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, %s },\r\n", SVC_CharacterEffectNames[nEffectIndex], nCurrentOffset, nCurrentOffset + SVCPLUSA_PALETTE_LENGTH, SVCPLUSA_A_CharacterPalettes[nCharIndex].pszImageSet);
                     OutputDebugString(strOutput);
@@ -431,11 +431,11 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
 
         if (nCurrentOffset != 0)
         {
-            constexpr size_t c_nExtraEffectsPerCharacter = 8;
+            constexpr uint32_t c_nExtraEffectsPerCharacter = 8;
             strOutput.Format(L"const sGame_PaletteDataset SVCPLUSA_A_%s_%s_PALETTES[] = \r\n{\r\n", szCodeDesc, L"EFFECTS");
             OutputDebugString(strOutput);
 
-            for (size_t nEffectIndex = 0; nEffectIndex < c_nExtraEffectsPerCharacter; nEffectIndex++)
+            for (uint32_t nEffectIndex = 0; nEffectIndex < c_nExtraEffectsPerCharacter; nEffectIndex++)
             {
                 strOutput.Format(L"    { L\"Effect %u\", 0x%x, 0x%x },\r\n", nEffectIndex, nCurrentOffset, nCurrentOffset + SVCPLUSA_PALETTE_LENGTH);
                 OutputDebugString(strOutput);
@@ -456,7 +456,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
             strOutput.Format(L"const sGame_PaletteDataset SVCPLUSA_A_%s_%s_PALETTES[] = \r\n{\r\n", szCodeDesc, L"WIN_PORTRAITS");
             OutputDebugString(strOutput);
 
-            for (size_t iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_2_PK.size(); iButtonIndex++)
+            for (uint32_t iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_2_PK.size(); iButtonIndex++)
             {
                 strOutput.Format(L"    { L\"%s %s\", 0x%x, 0x%x, %s, 0x%02x },\r\n", SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_2_PK[iButtonIndex], nCurrentOffset, nCurrentOffset + c_nWinPortraitPaletteLength,
                                                                                 SVCPLUSA_A_CharacterPalettes[nCharIndex].pszImageSet, c_nWinPortraitImageOffset);
@@ -478,7 +478,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
             strOutput.Format(L"const sGame_PaletteDataset SVCPLUSA_A_%s_%s_PALETTES[] = \r\n{\r\n", szCodeDesc, L"INTRO_PORTRAITS");
             OutputDebugString(strOutput);
 
-            for (size_t iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_2_PK.size(); iButtonIndex++)
+            for (uint32_t iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_2_PK.size(); iButtonIndex++)
             {
                 strOutput.Format(L"    { L\"%s %s\", 0x%x, 0x%x, %s, 0x%02x },\r\n", SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_2_PK[iButtonIndex], nCurrentOffset, nCurrentOffset + c_nIntroPortraitPaletteLength,
                                                                                 SVCPLUSA_A_CharacterPalettes[nCharIndex].pszImageSet, c_nIntroPortraitImageOffset);
@@ -492,7 +492,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
     }
 
     // All the collections...
-    for (size_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
+    for (uint32_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
@@ -502,7 +502,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
 
         if (SVCPLUSA_A_CharacterPalettes[nCharIndex].nCoreOffset != 0)
         {
-            for (size_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+            for (uint32_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
             {
                 WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
                 StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_PK[nColorIndex]);
@@ -536,7 +536,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
     // And now the units...
     OutputDebugString(L"const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =\n{\n");
 
-    for (size_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
+    for (uint32_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
@@ -548,7 +548,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
     OutputDebugString(L"};\r\n\r\n");
 }
 
-sFileRule CGame_SVCPLUSA_A::GetRule(size_t nUnitId)
+sFileRule CGame_SVCPLUSA_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -566,42 +566,42 @@ sFileRule CGame_SVCPLUSA_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_SVCPLUSA_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_SVCPLUSA_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_SVCPLUSA_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_SVCPLUSA_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, nCollectionId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_SVCPLUSA_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_SVCPLUSA_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(SVCPLUSA_A_UNITS, SVCPLUSA_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_SVCPLUSA_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_SVCPLUSA_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_SVCPLUSA_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_SVCPLUSA_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(SVCPLUSA_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_SVCPLUSA_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SVCPLUSA_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, nPaletteId, SVCPLUSA_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_SVCPLUSA_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_SVCPLUSA_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, nPaletteId, SVCPLUSA_A_EXTRA_CUSTOM);
 }
 
-void CGame_SVCPLUSA_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_SVCPLUSA_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != m_nExtraUnit)
     {
@@ -673,7 +673,7 @@ void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
     }
 }
 
-BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, size_t nUnitId)
+BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
     BOOL fSuccess = TRUE;
 
@@ -725,16 +725,16 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, size_t nUnitId)
                     }
 #endif
 
-                    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
                     {
-                        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
                         // Use a sorted layout
                         rgUnitRedir[nUnitCtr] = SVCPLUSA_A_UNITSORT[nUnitCtr];
 
-                        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -796,16 +796,16 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, size_t nUnitId)
                 }
 #endif
 
-                for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
                 {
-                    size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                    uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                     m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
                     // Use a sorted layout
                     rgUnitRedir[nUnitCtr] = SVCPLUSA_A_UNITSORT[nUnitCtr];
 
-                    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                    for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                     {
                         LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -834,16 +834,16 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, size_t nUnitId)
     case eSVCRevisionName::SVCPlusA:
         {
             // SVCPlusA is already decrypted
-            for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+            for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
             {
-                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                 m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
                 // Use a sorted layout
                 rgUnitRedir[nUnitCtr] = SVCPLUSA_A_UNITSORT[nUnitCtr];
 
-                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -885,16 +885,16 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     }
 
     // Default values for multisprite image display for Export
-    int nSrcStart = (int)NodeGet->uPalId;
-    size_t nSrcAmt = 1;
-    int nNodeIncrement = 1;
+    uint32_t nSrcStart = NodeGet->uPalId;
+    uint32_t nSrcAmt = 1;
+    uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
-    size_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -930,12 +930,12 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
             {
                 if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
-                    const size_t nStageCount = _GetNodeSizeFromPaletteId(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, NodeGet->uUnitId, NodeGet->uPalId, SVCPLUSA_A_EXTRA_CUSTOM);
+                    const uint32_t nStageCount = _GetNodeSizeFromPaletteId(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, NodeGet->uUnitId, NodeGet->uPalId, SVCPLUSA_A_EXTRA_CUSTOM);
 
                     fShouldUseAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;
 
-                    for (size_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                     {
                         // The palettes get added forward, but the image tickets need to be generated in reverse order
                         const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
@@ -1122,7 +1122,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     return TRUE;
 }
 
-BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, size_t nUnitId)
+BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
     if (m_loadedROMRevision.allowWrites)
     {
@@ -1144,11 +1144,11 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, size_t nUnitId)
                     (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP | MB_YESNO) == IDYES))
                 {
                     // Save the palette changes
-                    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
                     {
-                        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -1203,11 +1203,11 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, size_t nUnitId)
                     (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO) == IDYES))
                 {
                     // Save the palette changes
-                    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
                     {
-                        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 

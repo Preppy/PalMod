@@ -148,7 +148,7 @@ sDescNode* CDescTree::GetDescNode(int nChildId, ...)
     sDescTreeNode* CurrTree = RootTree;
     sDescNode* OutNode = nullptr;
 
-    size_t nCurrId = 0;
+    uint32_t nCurrId = 0;
     BOOL bFoundNode = FALSE;
 
     va_list args;

@@ -5,7 +5,7 @@
 
 CDescTree CGame_SFIII3_D::MainDescTree = nullptr;
 
-size_t CGame_SFIII3_D::uRuleCtr = 0;
+uint32_t CGame_SFIII3_D::uRuleCtr = 0;
 
 void CGame_SFIII3_D::InitializeStatics()
 {
@@ -38,8 +38,8 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     pButtonLabelSet = DEF_BUTTONLABEL7_SF3;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag array
     PrepChangeTrackingArray();
@@ -132,7 +132,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_SFIII3_D::GetRule(size_t nUnitId)
+sFileRule CGame_SFIII3_D::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -167,31 +167,31 @@ sFileRule CGame_SFIII3_D::GetNextRule()
     return NewFileRule;
 }
 
-size_t CGame_SFIII3_D::GetBasicAmt(size_t nUnitId)
+uint32_t CGame_SFIII3_D::GetBasicAmt(uint32_t nUnitId)
 {
-    return DEF_BUTTONLABEL7_SF3.size();
+    return static_cast<uint32_t>(DEF_BUTTONLABEL7_SF3.size());
 }
 
-size_t CGame_SFIII3_D::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_SFIII3_D::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return 32;
 }
 
-void CGame_SFIII3_D::GetPalOffsSz(size_t nUnitId, size_t nPalId)
+void CGame_SFIII3_D::GetPalOffsSz(uint32_t nUnitId, uint32_t nPalId)
 {
     m_nCurrentPaletteROMLocation = 0x80 * nPalId;
     nCurrPalSz = 0x80 / 2;
 }
 
-BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, size_t nUnitId)
+BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
-    size_t nPalAmt = GetPaletteCountForUnit(nUnitId);
+    uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     m_pppDataBuffer[nUnitId] = new UINT16 * [nPalAmt];
 
     rgUnitRedir[nUnitId] = nUnitId; // this is presorted
 
-    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         GetPalOffsSz(nUnitId, nPalCtr);
 
@@ -205,11 +205,11 @@ BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, size_t nUnitId)
     return TRUE;
 }
 
-BOOL CGame_SFIII3_D::SaveFile(CFile* SaveFile, size_t nUnitId)
+BOOL CGame_SFIII3_D::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    size_t nPalAmt = GetPaletteCountForUnit(nUnitId);
+    uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
-    for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
         if (IsPaletteDirty(nUnitId, nPalCtr))
         {
@@ -223,10 +223,10 @@ BOOL CGame_SFIII3_D::SaveFile(CFile* SaveFile, size_t nUnitId)
     return TRUE;
 }
 
-void CGame_SFIII3_D::CreateDefPal(sDescNode* srcNode, size_t nSepId)
+void CGame_SFIII3_D::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
 {
-    size_t nUnitId = srcNode->uUnitId;
-    size_t nPalId = srcNode->uPalId;
+    uint32_t nUnitId = srcNode->uUnitId;
+    uint32_t nPalId = srcNode->uPalId;
 
     GetPalOffsSz(nUnitId, nPalId);
 
@@ -251,15 +251,15 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         return FALSE;
     }
 
-    size_t uUnitId = NodeGet->uUnitId;
-    size_t uPalId = NodeGet->uPalId;
+    uint32_t uUnitId = NodeGet->uUnitId;
+    uint32_t uPalId = NodeGet->uPalId;
 
     //Change the image id if we need to
     int nTargetImgId = 0;
-    size_t nImgUnitId = SFIII3_D_IMGID_SORTED_BY_UNIT[uUnitId];
+    uint32_t nImgUnitId = SFIII3_D_IMGID_SORTED_BY_UNIT[uUnitId];
 
     int nSrcStart = (int)0;
-    size_t nSrcAmt = pButtonLabelSet.size();//GetBasicAmt(uUnitId);
+    uint32_t nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());//GetBasicAmt(uUnitId);
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -274,7 +274,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     return TRUE;
 }
 
-COLORREF* CGame_SFIII3_D::CreatePal(size_t nUnitId, size_t nPalId)
+COLORREF* CGame_SFIII3_D::CreatePal(uint32_t nUnitId, uint32_t nPalId)
 {
     GetPalOffsSz(nUnitId, nPalId);
 

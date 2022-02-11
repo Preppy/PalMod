@@ -158,7 +158,7 @@ BOOL CImgOutDlg::OnInitDialog()
     //Cannot get accurate remainder amount
 
     //Populate Zoom combo box: 1-8x
-    for (size_t i = 0; i < CPalModZoom::GetZoomListSize(); i++)
+    for (uint32_t i = 0; i < CPalModZoom::GetZoomListSize(); i++)
     {
         tmp_str.Format(L"%.0fx", CPalModZoom::GetValueAt(i));
         m_CB_Zoom.AddString(tmp_str);
@@ -342,7 +342,7 @@ void CImgOutDlg::FillPalCombo()
 {
     bool fShouldShowMultipleOptions = (nPalAmt != 1) && (!pButtonLabelSet.empty());
 
-    if (fShouldShowMultipleOptions && ((size_t)nPalAmt > pButtonLabelSet.size()))
+    if (fShouldShowMultipleOptions && ((uint32_t)nPalAmt > pButtonLabelSet.size()))
     {
         MessageBox(L"Error: list of output options doesn't match list size.\n\nPlease report this bug in PalMod and it'll be fixed promptly.", GetHost()->GetAppName(), MB_ICONERROR);
     }
@@ -458,7 +458,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
     bool fShouldExportAsIndexed = true;
 
     // Establish the raw image data
-    size_t nTotalPaletteSize = 0;
+    uint32_t nTotalPaletteSize = 0;
 
     RECT rectCompleteDimensions = {};
 
@@ -567,7 +567,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 UINT8* pCurrPal = (UINT8*)m_DumpBmp.pppPalettes[nImageIndex][nCurrentPalIndex];
                 CGameClass* CurrGame = GetHost()->GetCurrGame();
                 // the PNG PLTE section goes up to 256 colors, so use that as our initial cap
-                for (size_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
+                for (uint32_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
                 {
 #ifdef ALLOW_MULTIPLE_TRANSPARENCY_COLORS
                     if ((iCurrentColor % nMaxWritePerTransparency) == nTransparencyPosition)
@@ -598,9 +598,9 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                             lodepng_palette_add(&state.info_raw, GetRValue(m_DumpBmp.crBGCol), GetGValue(m_DumpBmp.crBGCol), GetBValue(m_DumpBmp.crBGCol), 0xFF);
                         }
                     }
-                    else if (iCurrentColor < (size_t)m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz) // actual colors
+                    else if (iCurrentColor < (uint32_t)m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz) // actual colors
                     {
-                        size_t nCurrentPosition = iCurrentColor * 4;
+                        uint32_t nCurrentPosition = iCurrentColor * 4;
                         const UINT8 currAVal = pCurrPal[nCurrentPosition + 3];
                         const UINT8 currBVal = pCurrPal[nCurrentPosition + 2];
                         const UINT8 currGVal = pCurrPal[nCurrentPosition + 1];

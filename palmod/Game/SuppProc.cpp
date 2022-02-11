@@ -17,7 +17,7 @@ int AdjustNumberForPossibleNegation(int nPossiblyNegativeNumber)
     return nPossiblyNegativeNumber;
 }
 
-void CSecondaryPaletteProcessing::ProcessSecondaryCopyWithIndex(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)
+void CSecondaryPaletteProcessing::ProcessSecondaryCopyWithIndex(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)
 {
     CString strDebugInfo;
     if ((src_index == 0) && (index_amt == 0x10))
@@ -50,7 +50,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryCopyWithIndex(size_t char_id, 
     safe_delete(pDestinationPalette);
 }
 
-void CSecondaryPaletteProcessing::ProcessSecondaryWhite(size_t char_id, size_t destination_palette, UINT8 index_start, UINT8 index_inc)
+void CSecondaryPaletteProcessing::ProcessSecondaryWhite(uint32_t char_id, uint32_t destination_palette, UINT8 index_start, UINT8 index_inc)
 {
     OutputDebugString(L"\t\tProcessSecondaryWhite being applied\n");
 
@@ -74,7 +74,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryWhite(size_t char_id, size_t d
 
 }
 
-void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(size_t char_id, UINT16 mod_type, int mod_amt, size_t destination_palette, UINT8 index_start, UINT8 index_inc)
+void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, UINT16 mod_type, int mod_amt, uint32_t destination_palette, UINT8 index_start, UINT8 index_inc)
 {
     COLORREF* pDestinationPalette = CreatePal(char_id, destination_palette);
 
@@ -129,7 +129,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(size_t char_id, UIN
     }
 }
 
-void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(size_t char_id, size_t source_palette, size_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
+void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
     int tint_factor_r, int tint_factor_g, int tint_factor_b)
 {
     COLORREF* pSourcePalette = CreatePal(char_id, source_palette);
@@ -170,7 +170,7 @@ void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(size_t char_id, si
     safe_delete(pDestinationPalette);
 }
 
-void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const size_t nUnitId, const size_t nChangedPaletteNumber, const std::vector<std::vector<UINT16>> supplementalEffectsData)
+void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const uint32_t nUnitId, const uint32_t nChangedPaletteNumber, const std::vector<std::vector<UINT16>> supplementalEffectsData)
 {
     CString strDebugInfo;
     strDebugInfo.Format(L"\tProcessAdditionalPaletteChangesRequired: Processing supplemental palettes for unit 0x%02x palette number 0x%x. %u effects to apply.\n", nUnitId, nChangedPaletteNumber,
@@ -194,7 +194,7 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
             UINT16 in_start = currentEffectsData[1];
 
             // Figure out what palettes we're going to be modifying
-            size_t destination_palette = nChangedPaletteNumber + (in_start & 0x7FFF);
+            uint32_t destination_palette = nChangedPaletteNumber + (in_start & 0x7FFF);
             MarkPaletteDirty(nUnitId, destination_palette);
 
             strDebugInfo.Format(L"\t\tPreparing to process from palette 0x%x to palette 0x%x\n", nChangedPaletteNumber, destination_palette);

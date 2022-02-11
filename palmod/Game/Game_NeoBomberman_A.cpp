@@ -8,8 +8,8 @@ stExtraDef* CGame_NeoBomberman_A::NeoBomberman_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_NeoBomberman_A::MainDescTree = nullptr;
 
-size_t CGame_NeoBomberman_A::rgExtraCountAll[NeoBomberman_A_NUMUNIT + 1];
-size_t CGame_NeoBomberman_A::rgExtraLoc[NeoBomberman_A_NUMUNIT + 1];
+uint32_t CGame_NeoBomberman_A::rgExtraCountAll[NeoBomberman_A_NUMUNIT + 1];
+uint32_t CGame_NeoBomberman_A::rgExtraLoc[NeoBomberman_A_NUMUNIT + 1];
 
 UINT32 CGame_NeoBomberman_A::m_nTotalPaletteCountForNeoBomberman = 0;
 UINT32 CGame_NeoBomberman_A::m_nExpectedGameROMSize = 0x100000;
@@ -64,8 +64,8 @@ CGame_NeoBomberman_A::CGame_NeoBomberman_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_NOBUTTONS;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -84,12 +84,12 @@ CDescTree* CGame_NeoBomberman_A::GetMainTree()
     return &CGame_NeoBomberman_A::MainDescTree;
 }
 
-size_t CGame_NeoBomberman_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_NeoBomberman_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, NeoBomberman_A_NUMUNIT, nUnitId, NeoBomberman_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_NeoBomberman_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_NeoBomberman_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, NeoBomberman_A_NUMUNIT, nUnitId, NeoBomberman_A_EXTRA_CUSTOM);
 }
@@ -122,7 +122,7 @@ sDescTreeNode* CGame_NeoBomberman_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_NeoBomberman_A::GetRule(size_t nUnitId)
+sFileRule CGame_NeoBomberman_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -135,42 +135,42 @@ sFileRule CGame_NeoBomberman_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_NeoBomberman_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_NeoBomberman_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(NeoBomberman_A_UNITS, rgExtraCountAll, NeoBomberman_A_NUMUNIT, NeoBomberman_A_EXTRALOC, nUnitId, NeoBomberman_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_NeoBomberman_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_NeoBomberman_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(NeoBomberman_A_UNITS, rgExtraCountAll, NeoBomberman_A_NUMUNIT, NeoBomberman_A_EXTRALOC, nUnitId, nCollectionId, NeoBomberman_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_NeoBomberman_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_NeoBomberman_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(NeoBomberman_A_UNITS, NeoBomberman_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_NeoBomberman_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_NeoBomberman_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(NeoBomberman_A_UNITS, rgExtraCountAll, NeoBomberman_A_NUMUNIT, NeoBomberman_A_EXTRALOC, nUnitId, NeoBomberman_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_NeoBomberman_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_NeoBomberman_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(NeoBomberman_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_NeoBomberman_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_NeoBomberman_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(NeoBomberman_A_UNITS, rgExtraCountAll, NeoBomberman_A_NUMUNIT, NeoBomberman_A_EXTRALOC, nUnitId, nPaletteId, NeoBomberman_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_NeoBomberman_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_NeoBomberman_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(NeoBomberman_A_UNITS, rgExtraCountAll, NeoBomberman_A_NUMUNIT, NeoBomberman_A_EXTRALOC, nUnitId, nPaletteId, NeoBomberman_A_EXTRA_CUSTOM);
 }
 
-void CGame_NeoBomberman_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_NeoBomberman_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != NeoBomberman_A_EXTRALOC)
     {

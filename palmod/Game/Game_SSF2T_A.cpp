@@ -13,17 +13,17 @@ CDescTree CGame_SSF2T_A::MainDescTree_3C = nullptr;
 CDescTree CGame_SSF2T_A::MainDescTree_4A = nullptr;
 CDescTree CGame_SSF2T_A::MainDescTree_8 = nullptr;
 
-size_t CGame_SSF2T_A::m_nSSF2TSelectedRom = 4;
+uint32_t CGame_SSF2T_A::m_nSSF2TSelectedRom = 4;
 UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_3C = 0;
 UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_4A = 0;
 UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_8 = 0;
 
-size_t CGame_SSF2T_A::rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1] = { (size_t)-1 };
-size_t CGame_SSF2T_A::rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1] = { (size_t)-1 };
-size_t CGame_SSF2T_A::rgExtraLoc_8[SSF2T_A_NUM_IND_8 + 1] = { (size_t)-1 };
-size_t CGame_SSF2T_A::rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1] = { (size_t)-1 };
-size_t CGame_SSF2T_A::rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1] = { (size_t)-1 };
-size_t CGame_SSF2T_A::rgExtraCountAll_8[SSF2T_A_NUM_IND_8 + 1] = { (size_t)-1 };
+uint32_t CGame_SSF2T_A::rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1] = { (uint32_t)-1 };
+uint32_t CGame_SSF2T_A::rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1] = { (uint32_t)-1 };
+uint32_t CGame_SSF2T_A::rgExtraLoc_8[SSF2T_A_NUM_IND_8 + 1] = { (uint32_t)-1 };
+uint32_t CGame_SSF2T_A::rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1] = { (uint32_t)-1 };
+uint32_t CGame_SSF2T_A::rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1] = { (uint32_t)-1 };
+uint32_t CGame_SSF2T_A::rgExtraCountAll_8[SSF2T_A_NUM_IND_8 + 1] = { (uint32_t)-1 };
 
 UINT32 CGame_SSF2T_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_SSF2T_A::m_nConfirmedROMSize = -1;
@@ -114,8 +114,8 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     pButtonLabelSet = DEF_BUTTONLABEL_ST10;
     
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -214,7 +214,7 @@ GAME(1994, ssf2tad,    ssf2t,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
     return ARRAYSIZE(knownROMs);
 }
 
-size_t CGame_SSF2T_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_SSF2T_A::GetExtraLoc(uint32_t nUnitId)
 {
     if (UsePaletteSetForPortraits())
     {
@@ -230,7 +230,7 @@ size_t CGame_SSF2T_A::GetExtraLoc(size_t nUnitId)
     }
 }
 
-size_t CGame_SSF2T_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SSF2T_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     if (UsePaletteSetForPortraits())
     {
@@ -338,7 +338,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
     return NewDescTree;
 }
 
-sFileRule CGame_SSF2T_A::GetRule(size_t nUnitId)
+sFileRule CGame_SSF2T_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -362,7 +362,7 @@ sFileRule CGame_SSF2T_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_SSF2T_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_SSF2T_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     if (UsePaletteSetForPortraits())
     {
@@ -399,7 +399,7 @@ size_t CGame_SSF2T_A::GetCollectionCountForUnit(size_t nUnitId)
     }
 }
 
-size_t CGame_SSF2T_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_SSF2T_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetForPortraits())
     {
@@ -442,7 +442,7 @@ size_t CGame_SSF2T_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollecti
     }
 }
 
-LPCWSTR CGame_SSF2T_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_SSF2T_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetForPortraits())
     {
@@ -482,7 +482,7 @@ LPCWSTR CGame_SSF2T_A::GetDescriptionForCollection(size_t nUnitId, size_t nColle
     }
 }
 
-size_t CGame_SSF2T_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_SSF2T_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     if ((UsePaletteSetForPortraits() && (nUnitId == SSF2T_A_EXTRALOC_3C)) ||
         (UsePaletteSetForCharacters() && (nUnitId == SSF2T_A_EXTRALOC_4A)) ||
@@ -492,12 +492,12 @@ size_t CGame_SSF2T_A::GetPaletteCountForUnit(size_t nUnitId)
     }
     else
     {
-        size_t nCompleteCount = 0;
+        uint32_t nCompleteCount = 0;
         const sDescTreeNode* pCompleteROMTree = UsePaletteSetForPortraits() ? SSF2T_A_UNITS_3C : (UsePaletteSetForCharacters() ? SSF2T_A_UNITS_4A : SSF2T_A_UNITS_8);
-        size_t nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
+        uint32_t nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
 
-        for (size_t nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+        for (uint32_t nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
@@ -512,7 +512,7 @@ size_t CGame_SSF2T_A::GetPaletteCountForUnit(size_t nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_SSF2T_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_SSF2T_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     // Don't use this for Extra palettes.
     if (UsePaletteSetForPortraits())
@@ -532,18 +532,18 @@ const sGame_PaletteDataset* CGame_SSF2T_A::GetPaletteSet(size_t nUnitId, size_t 
     }
 }
 
-size_t CGame_SSF2T_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
+uint32_t CGame_SSF2T_A::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    size_t nNodeSize = 0;
-    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    uint32_t nNodeSize = 0;
+    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
+    uint32_t nDistanceFromZero = nPaletteId;
 
-    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -557,17 +557,17 @@ size_t CGame_SSF2T_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId
     return nNodeSize;
 }
 
-const sGame_PaletteDataset* CGame_SSF2T_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_SSF2T_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
+    uint32_t nDistanceFromZero = nPaletteId;
 
-    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
-        size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -596,13 +596,13 @@ void CGame_SSF2T_A::ClearDataBuffer()
 
     if (m_pppDataBuffer)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -617,7 +617,7 @@ void CGame_SSF2T_A::ClearDataBuffer()
     m_nSSF2TSelectedRom = nCurrentROMMode;
 }
 
-void CGame_SSF2T_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_SSF2T_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     if ((UsePaletteSetForPortraits() && (nUnitId != SSF2T_A_EXTRALOC_3C)) ||
         (UsePaletteSetForCharacters() && (nUnitId != SSF2T_A_EXTRALOC_4A)) ||
@@ -660,18 +660,18 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    size_t nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
+    uint32_t nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
 
-    int nSrcStart = (int)NodeGet->uPalId;
-    size_t nSrcAmt = 1;
-    int nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+    uint32_t nSrcStart = NodeGet->uPalId;
+    uint32_t nSrcAmt = 1;
+    uint32_t nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
-    size_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -709,7 +709,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             {
                 bool fIsCorePalette = false;
 
-                for (size_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
+                for (uint32_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
                 {
                     if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
                     {
@@ -720,7 +720,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (fIsCorePalette)
                 {
-                    nSrcAmt = pButtonLabelSet.size();
+                    nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)
@@ -735,12 +735,12 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             {
                 if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
-                    const size_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                    const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                     fShouldUseAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;
 
-                    for (size_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                     {
                         // The palettes get added forward, but the image tickets need to be generated in reverse order
                         const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));

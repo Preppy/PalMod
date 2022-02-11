@@ -8,8 +8,8 @@ stExtraDef* CGame_TOPF2005_SEGA::TOPF2005_SEGA_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_TOPF2005_SEGA::MainDescTree = nullptr;
 
-size_t CGame_TOPF2005_SEGA::rgExtraCountAll[TOPF2005_SEGA_NUMUNIT + 1] = { (size_t)-1 };
-size_t CGame_TOPF2005_SEGA::rgExtraLoc[TOPF2005_SEGA_NUMUNIT + 1] = { (size_t)-1 };
+uint32_t CGame_TOPF2005_SEGA::rgExtraCountAll[TOPF2005_SEGA_NUMUNIT + 1] = { (uint32_t)-1 };
+uint32_t CGame_TOPF2005_SEGA::rgExtraLoc[TOPF2005_SEGA_NUMUNIT + 1] = { (uint32_t)-1 };
 
 UINT32 CGame_TOPF2005_SEGA::m_nTotalPaletteCountForTOPF2005 = 0;
 UINT32 CGame_TOPF2005_SEGA::m_nExpectedGameROMSize = 0x200000;
@@ -62,8 +62,8 @@ CGame_TOPF2005_SEGA::CGame_TOPF2005_SEGA(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -98,7 +98,7 @@ UINT32 CGame_TOPF2005_SEGA::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** 
     return ARRAYSIZE(knownROMs);
 }
 
-sFileRule CGame_TOPF2005_SEGA::GetRule(size_t nUnitId)
+sFileRule CGame_TOPF2005_SEGA::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -138,7 +138,7 @@ sDescTreeNode* CGame_TOPF2005_SEGA::InitDescTree()
     return NewDescTree;
 }
 
-void CGame_TOPF2005_SEGA::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_TOPF2005_SEGA::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     if (nUnitId != TOPF2005_SEGA_EXTRALOC)
     {
@@ -170,12 +170,12 @@ void CGame_TOPF2005_SEGA::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
     }
 }
 
-size_t CGame_TOPF2005_SEGA::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_TOPF2005_SEGA::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, TOPF2005_SEGA_NUMUNIT, nUnitId, TOPF2005_SEGA_EXTRA_CUSTOM);
 }
 
-size_t CGame_TOPF2005_SEGA::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_TOPF2005_SEGA::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, TOPF2005_SEGA_NUMUNIT, nUnitId, TOPF2005_SEGA_EXTRA_CUSTOM);
 }
@@ -185,42 +185,42 @@ CDescTree* CGame_TOPF2005_SEGA::GetMainTree()
     return &CGame_TOPF2005_SEGA::MainDescTree;
 }
 
-size_t CGame_TOPF2005_SEGA::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_TOPF2005_SEGA::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(TOPF2005_UNITS, rgExtraCountAll, TOPF2005_SEGA_NUMUNIT, TOPF2005_SEGA_EXTRALOC, nUnitId, TOPF2005_SEGA_EXTRA_CUSTOM);
 }
 
-size_t CGame_TOPF2005_SEGA::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_TOPF2005_SEGA::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(TOPF2005_UNITS, rgExtraCountAll, TOPF2005_SEGA_NUMUNIT, TOPF2005_SEGA_EXTRALOC, nUnitId, nCollectionId, TOPF2005_SEGA_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_TOPF2005_SEGA::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_TOPF2005_SEGA::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(TOPF2005_UNITS, TOPF2005_SEGA_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_TOPF2005_SEGA::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_TOPF2005_SEGA::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(TOPF2005_UNITS, rgExtraCountAll, TOPF2005_SEGA_NUMUNIT, TOPF2005_SEGA_EXTRALOC, nUnitId, TOPF2005_SEGA_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_TOPF2005_SEGA::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_TOPF2005_SEGA::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(TOPF2005_UNITS, nUnitId, nCollectionId);
 }
 
-size_t CGame_TOPF2005_SEGA::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
+uint32_t CGame_TOPF2005_SEGA::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetNodeSizeFromPaletteId(TOPF2005_UNITS, rgExtraCountAll, TOPF2005_SEGA_NUMUNIT, TOPF2005_SEGA_EXTRALOC, nUnitId, nPaletteId, TOPF2005_SEGA_EXTRA_CUSTOM);
 }
 
-const sDescTreeNode* CGame_TOPF2005_SEGA::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_TOPF2005_SEGA::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(TOPF2005_UNITS, rgExtraCountAll, TOPF2005_SEGA_NUMUNIT, TOPF2005_SEGA_EXTRALOC, nUnitId, nPaletteId, TOPF2005_SEGA_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_TOPF2005_SEGA::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_TOPF2005_SEGA::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(TOPF2005_UNITS, rgExtraCountAll, TOPF2005_SEGA_NUMUNIT, TOPF2005_SEGA_EXTRALOC, nUnitId, nPaletteId, TOPF2005_SEGA_EXTRA_CUSTOM);
 }

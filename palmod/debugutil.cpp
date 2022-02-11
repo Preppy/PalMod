@@ -8,7 +8,7 @@ CDebugHelper g_DebugHelper;
 CDebugHelper::CDebugHelper()
 {
     // figure out canary status here
-    for (size_t iPos = 0; iPos < ARRAYSIZE(ppszKnownCanaries); iPos++)
+    for (uint32_t iPos = 0; iPos < ARRAYSIZE(ppszKnownCanaries); iPos++)
     {
         CRegKey extraKey;
 
@@ -69,7 +69,7 @@ bool CDebugHelper::CanaryWasKilled(LPCWSTR pszCanaryName)
 {
     bool fWasItKilled = false;
 
-    for (size_t iPos = 0; iPos < ARRAYSIZE(ppszKnownCanaries); iPos++)
+    for (uint32_t iPos = 0; iPos < ARRAYSIZE(ppszKnownCanaries); iPos++)
     {
         if (wcscmp(pszCanaryName, ppszKnownCanaries[iPos]) == 0)
         {

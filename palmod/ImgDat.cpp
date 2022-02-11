@@ -99,7 +99,7 @@ bool CImgDat::PrepImageBuffer(std::vector<UINT16> prgGameImageSet, const UINT8 u
     return true;
 }
 
-sImgDef* CImgDat::GetImageDef(size_t uUnitId, UINT16 uImgId)
+sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, UINT16 uImgId)
 {
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -332,7 +332,7 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
     }
 }
 
-BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, size_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL bLoadAll)
+BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, uint32_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL bLoadAll)
 {
     UINT8 uNumGames = 0xFF;
 

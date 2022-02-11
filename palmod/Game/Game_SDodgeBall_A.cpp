@@ -8,10 +8,10 @@ stExtraDef* CGame_SDODGEBALL_A::SDODGEBALL_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SDODGEBALL_A::MainDescTree = nullptr;
 
-size_t CGame_SDODGEBALL_A::rgExtraCountAll[SDODGEBALL_A_NUMUNIT + 1];
-size_t CGame_SDODGEBALL_A::rgExtraLoc[SDODGEBALL_A_NUMUNIT + 1];
+uint32_t CGame_SDODGEBALL_A::rgExtraCountAll[SDODGEBALL_A_NUMUNIT + 1];
+uint32_t CGame_SDODGEBALL_A::rgExtraLoc[SDODGEBALL_A_NUMUNIT + 1];
 
-size_t CGame_SDODGEBALL_A::m_nSelectedRom = 1;
+uint32_t CGame_SDODGEBALL_A::m_nSelectedRom = 1;
 UINT32 CGame_SDODGEBALL_A::m_nTotalPaletteCountForSDODGEBALL = 0;
 UINT32 CGame_SDODGEBALL_A::m_nExpectedGameROMSize = 0x200000;
 UINT32 CGame_SDODGEBALL_A::m_nConfirmedROMSize = -1;
@@ -67,8 +67,8 @@ CGame_SDODGEBALL_A::CGame_SDODGEBALL_A(UINT32 nConfirmedROMSize, int nROMToLoad 
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -87,7 +87,7 @@ const sDescTreeNode* CGame_SDODGEBALL_A::GetCurrentUnitSet()
     return SDODGEBALL_A_UNITS;
 }
 
-size_t CGame_SDODGEBALL_A::GetCurrentExtraLoc()
+uint32_t CGame_SDODGEBALL_A::GetCurrentExtraLoc()
 {
     return SDODGEBALL_A_EXTRALOC;
 }
@@ -102,22 +102,22 @@ stExtraDef* CGame_SDODGEBALL_A::GetCurrentExtraDef(int nDefCtr)
     return (stExtraDef*)&SDODGEBALL_A_EXTRA_CUSTOM[nDefCtr];
 }
 
-size_t CGame_SDODGEBALL_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SDODGEBALL_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SDODGEBALL_A_NUMUNIT, nUnitId, SDODGEBALL_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_SDODGEBALL_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_SDODGEBALL_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, SDODGEBALL_A_NUMUNIT, nUnitId, SDODGEBALL_A_EXTRA_CUSTOM);
 }
 
 sDescTreeNode* CGame_SDODGEBALL_A::InitDescTree()
 {
-    size_t nExtraUnitLocation = SDODGEBALL_A_EXTRALOC;
+    uint32_t nExtraUnitLocation = SDODGEBALL_A_EXTRALOC;
     LoadExtraFileForGame(EXTRA_FILENAME_SDODGEBALL_A, &SDODGEBALL_A_EXTRA_CUSTOM, SDODGEBALL_A_EXTRALOC, m_nConfirmedROMSize);
     bool fHaveExtras = GetExtraCt(SDODGEBALL_A_EXTRALOC);
-    size_t nUnitCt = SDODGEBALL_A_NUMUNIT + (fHaveExtras ? 1 : 0);
+    uint32_t nUnitCt = SDODGEBALL_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -140,7 +140,7 @@ sDescTreeNode* CGame_SDODGEBALL_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_SDODGEBALL_A::GetRule(size_t nUnitId)
+sFileRule CGame_SDODGEBALL_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -175,37 +175,37 @@ UINT32 CGame_SDODGEBALL_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** p
     return ARRAYSIZE(knownROMs);
 }
 
-size_t CGame_SDODGEBALL_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_SDODGEBALL_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(SDODGEBALL_A_UNITS, rgExtraCountAll, SDODGEBALL_A_NUMUNIT, SDODGEBALL_A_EXTRALOC, nUnitId, SDODGEBALL_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_SDODGEBALL_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_SDODGEBALL_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(SDODGEBALL_A_UNITS, rgExtraCountAll, SDODGEBALL_A_NUMUNIT, SDODGEBALL_A_EXTRALOC, nUnitId, nCollectionId, SDODGEBALL_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_SDODGEBALL_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_SDODGEBALL_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(SDODGEBALL_A_UNITS, SDODGEBALL_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_SDODGEBALL_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_SDODGEBALL_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(SDODGEBALL_A_UNITS, rgExtraCountAll, SDODGEBALL_A_NUMUNIT, SDODGEBALL_A_EXTRALOC, nUnitId, SDODGEBALL_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_SDODGEBALL_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_SDODGEBALL_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(SDODGEBALL_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_SDODGEBALL_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SDODGEBALL_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(SDODGEBALL_A_UNITS, rgExtraCountAll, SDODGEBALL_A_NUMUNIT, SDODGEBALL_A_EXTRALOC, nUnitId, nPaletteId, SDODGEBALL_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_SDODGEBALL_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_SDODGEBALL_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(SDODGEBALL_A_UNITS, rgExtraCountAll, SDODGEBALL_A_NUMUNIT, SDODGEBALL_A_EXTRALOC, nUnitId, nPaletteId, SDODGEBALL_A_EXTRA_CUSTOM);
 }
@@ -225,13 +225,13 @@ void CGame_SDODGEBALL_A::ClearDataBuffer()
 
     if (m_pppDataBuffer)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -246,7 +246,7 @@ void CGame_SDODGEBALL_A::ClearDataBuffer()
     m_nSelectedRom = nCurrentROMMode;
 }
 
-void CGame_SDODGEBALL_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_SDODGEBALL_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != GetCurrentExtraLoc())
     {

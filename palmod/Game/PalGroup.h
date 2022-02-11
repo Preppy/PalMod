@@ -13,8 +13,8 @@ struct sPalRedir
 struct sPalSep
 {
     WCHAR szDesc[MAX_DESCRIPTION_LENGTH];
-    int nStart;
-    int nAmt;
+    uint32_t nStart;
+    uint32_t nAmt;
 };
 
 struct sPalDef
@@ -23,9 +23,9 @@ struct sPalDef
     COLORREF* pBasePal = nullptr;
     UINT16 uPalSz = 0;
 
-    size_t uUnitId = 0;
-    size_t uCollectionId = 0;
-    size_t uPalId = 0;
+    uint32_t uUnitId = 0;
+    uint32_t uCollectionId = 0;
+    uint32_t uPalId = 0;
 
     sPalSep* SepList[MAX_SEPARATORS] = {};
     UINT16 uSepAmt = 0;
@@ -49,23 +49,23 @@ class CPalGroup
 private:
     sPalDef rgPalettes[MAX_PALETTES_DISPLAYABLE];
     sPalRedir rgRedir[MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS];
-    size_t nRedirCtr = 0;
-    size_t nCurrPalAmt = 0;
+    uint32_t nRedirCtr = 0;
+    uint32_t nCurrPalAmt = 0;
 
     void InitPal();
 
-    BOOL FlushPal(size_t nIndex);
+    BOOL FlushPal(uint32_t nIndex);
 
 public:
     CPalGroup(void);
     ~CPalGroup(void);
 
-    int GetAddIndex() { return nCurrPalAmt - 1; };
+    uint32_t GetAddIndex() { return nCurrPalAmt - 1; };
 
-    int GetPalAmt() { return nCurrPalAmt; };
+    uint32_t GetPalAmt() { return nCurrPalAmt; };
 
-    BOOL AddPal(COLORREF* pPal, UINT16 uPalSz, size_t uUnitId, size_t uPalId);
-    BOOL AddSep(size_t nIndex, LPCWSTR szDesc, size_t nStart, size_t nAmt);
+    BOOL AddPal(COLORREF* pPal, UINT16 uPalSz, uint32_t uUnitId, uint32_t uPalId);
+    BOOL AddSep(uint32_t nIndex, LPCWSTR szDesc, uint32_t nStart, uint32_t nAmt);
 
     void SetRGBA(COLORREF* crTarget, UINT8 rVal, UINT8 gVal, UINT8 bVal, UINT8 aVal = 0);
     void SetHLSA(COLORREF* crTarget, double dH, double dL, double dS, UINT8 aVal);
@@ -73,8 +73,8 @@ public:
     void SetAddHLSA(COLORREF crSrc, COLORREF* crTarget, double fpAddH, double fpAddL, double fpAddS, int uAddA);
     void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA);
 
-    sPalDef* GetPalDef(size_t nIndex) { return &rgPalettes[nIndex]; };
-    sPalSep* GetSep(size_t nPal, size_t nSep) { return rgPalettes[nPal].SepList[nSep]; };
+    sPalDef* GetPalDef(uint32_t nIndex) { return &rgPalettes[nIndex]; };
+    sPalSep* GetSep(uint32_t nPal, uint32_t nSep) { return rgPalettes[nPal].SepList[nSep]; };
     sPalRedir* GetRedir() { return rgRedir; };
 
     void FlushPalAll();

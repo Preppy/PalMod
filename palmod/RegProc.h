@@ -27,7 +27,7 @@ public:
     static void DecrementZoom(double *fpPreviousZoom);
 
     static double GetMaximumZoomFactor() { return m_nZoomSizes[m_nZoomSizes.size() - 1]; };
-    static double GetValueAt(size_t nIndex) { return m_nZoomSizes[nIndex]; };
+    static double GetValueAt(uint32_t nIndex) { return m_nZoomSizes[nIndex]; };
     static size_t GetZoomListSize() { return m_nZoomSizes.size(); };
 };
 
@@ -97,4 +97,3 @@ public:
 
 CString RectToStr(RECT in_rect);
 RECT StrToRect(CString in_str);
-

@@ -10,7 +10,7 @@ public:
 
     //Static functions
     static sFileRule GetNextRule();
-    static sFileRule GetRule(size_t nRuleId);
+    static sFileRule GetRule(uint32_t nRuleId);
 
     LPCWSTR GetGameName() override;
 };

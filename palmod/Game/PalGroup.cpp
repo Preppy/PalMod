@@ -17,7 +17,7 @@ CPalGroup::~CPalGroup(void)
 
 void CPalGroup::InitPal()
 {
-    for (size_t i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (uint32_t i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         rgPalettes[i].pPal = nullptr;
         rgPalettes[i].pBasePal = nullptr;
@@ -30,7 +30,7 @@ void CPalGroup::InitPal()
 
 void CPalGroup::FlushPalAll()
 {
-    for (size_t i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (uint32_t i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         FlushPal(i);
 
@@ -42,14 +42,14 @@ void CPalGroup::FlushPalAll()
     nRedirCtr = 0;
 }
 
-BOOL CPalGroup::FlushPal(size_t nIndex)
+BOOL CPalGroup::FlushPal(uint32_t nIndex)
 {
     if (nIndex < MAX_PALETTES_DISPLAYABLE)
     {
         safe_delete_array(rgPalettes[nIndex].pPal);
         safe_delete_array(rgPalettes[nIndex].pBasePal);
 
-        for (size_t i = 0; i < rgPalettes[nIndex].uSepAmt; i++)
+        for (uint32_t i = 0; i < rgPalettes[nIndex].uSepAmt; i++)
         {
             safe_delete(rgPalettes[nIndex].SepList[i]);
         }
@@ -64,7 +64,7 @@ BOOL CPalGroup::FlushPal(size_t nIndex)
     }
 }
 
-BOOL CPalGroup::AddSep(size_t nIndex, LPCWSTR szDesc, size_t nStart, size_t nAmt)
+BOOL CPalGroup::AddSep(uint32_t nIndex, LPCWSTR szDesc, uint32_t nStart, uint32_t nAmt)
 {
     // Separators enable us to have multiple groups of palettes within a palette display.
     if ((rgPalettes[nIndex].uSepAmt >= MAX_SEPARATORS) || ((nStart + nAmt) > rgPalettes[nIndex].uPalSz))
@@ -95,7 +95,7 @@ BOOL CPalGroup::AddSep(size_t nIndex, LPCWSTR szDesc, size_t nStart, size_t nAmt
     return TRUE;
 }
 
-BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, size_t uUnitId, size_t uPalId)
+BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, uint32_t uUnitId, uint32_t uPalId)
 {
     if ((nCurrPalAmt >= MAX_PALETTES_DISPLAYABLE) || !pPal || !uPalSz)
     {

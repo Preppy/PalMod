@@ -133,11 +133,11 @@
 #include "..\resource.h"
 #include "..\palmod.h"
 
-void StrRemoveNonASCII(WCHAR* pszOutput, size_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
+void StrRemoveNonASCII(WCHAR* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
-    size_t iStrOutputIndex = 0;
+    uint32_t iStrOutputIndex = 0;
 
-    for (size_t iStrIndex = 0; iStrIndex < ccSize; iStrIndex++)
+    for (uint32_t iStrIndex = 0; iStrIndex < ccSize; iStrIndex++)
     {
         if (!pszInput[iStrIndex])
         {
@@ -165,7 +165,7 @@ void StrRemoveNonASCII(WCHAR* pszOutput, size_t ccSize, LPCWSTR pszInput, bool f
     pszOutput[iStrOutputIndex] = 0;
 }
 
-void StruprRemoveNonASCII(WCHAR* pszOutput, size_t ccSize, LPCWSTR pszInput)
+void StruprRemoveNonASCII(WCHAR* pszOutput, uint32_t ccSize, LPCWSTR pszInput)
 {
     StrRemoveNonASCII(pszOutput, ccSize, pszInput, true);
 }
@@ -1883,7 +1883,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
 
     ResetRuleCtr();
 
-    int nCurrRuleCtr = GetRuleCtr();
+    uint32_t nCurrRuleCtr = GetRuleCtr();
 
     GetHost()->GetPalModDlg()->SetStatusText(L"Opening files...");
 
@@ -2031,7 +2031,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
     return (nSaveLoadErr == 0) ? OutGame : nullptr;
 }
 
-bool CGameLoad::IsLocationOnReadOnlyDrive(LPCWSTR pszLocation, LPWSTR pszDrivePath /*= nullptr*/, size_t ccPathSize /*= 0*/)
+bool CGameLoad::IsLocationOnReadOnlyDrive(LPCWSTR pszLocation, LPWSTR pszDrivePath /*= nullptr*/, uint32_t ccPathSize /*= 0*/)
 {
     bool fIsMediaReadOnly = false;
     WCHAR szPath[MAX_PATH];
@@ -2092,7 +2092,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
     SetGame(CurrGame->GetGameFlag());
 
-    size_t nFileAmt = CurrGame->GetFileAmt();
+    uint32_t nFileAmt = CurrGame->GetFileAmt();
     LPCWSTR pszLoadDir = CurrGame->GetLoadDir();
     CString strErrorFile;
 
@@ -2102,7 +2102,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
         BOOL fWasGameChangedInSession = CurrGame->WasGameFileChangedInSession();
         BOOL fGameMapsUnitsToFiles = CurrGame->GetGameMapsUnitsToFiles();
 
-        for (size_t nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
+        for (uint32_t nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
         {
             if (fGameMapsUnitsToFiles ? rgFileIsChanged[nFileCtr] : fWasGameChangedInSession)
             {
@@ -2272,13 +2272,13 @@ void CGameLoad::CrosscopyGame(CGameClass* CurrGame)
 
         SetGame(CurrGame->GetGameFlag());
 
-        size_t nFileAmt = CurrGame->GetFileAmt();
+        uint32_t nFileAmt = CurrGame->GetFileAmt();
         CString strErrorFile;
         const bool fIsDreamcast = CurrGame->GetGameFlag() == MVC2_D;
 
         if (CurrGame->GetIsDir())
         {
-            for (size_t nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
+            for (uint32_t nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
             {
                 nSaveLoadCount++;
 

@@ -8,8 +8,8 @@ stExtraDef* CGame_KOF98_A::KOF98_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KOF98_A::MainDescTree = nullptr;
 
-size_t CGame_KOF98_A::rgExtraCountAll[KOF98_A_NUMUNIT + 1];
-size_t CGame_KOF98_A::rgExtraLoc[KOF98_A_NUMUNIT + 1];
+uint32_t CGame_KOF98_A::rgExtraCountAll[KOF98_A_NUMUNIT + 1];
+uint32_t CGame_KOF98_A::rgExtraLoc[KOF98_A_NUMUNIT + 1];
 
 UINT32 CGame_KOF98_A::m_nTotalPaletteCountForKOF98 = 0;
 UINT32 CGame_KOF98_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
@@ -64,8 +64,8 @@ CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -133,12 +133,12 @@ UINT32 CGame_KOF98_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
 #endif
 }
 
-size_t CGame_KOF98_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KOF98_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KOF98_A_NUMUNIT, nUnitId, KOF98_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_KOF98_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_KOF98_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, KOF98_A_NUMUNIT, nUnitId, KOF98_A_EXTRA_CUSTOM);
 }
@@ -311,7 +311,7 @@ void CGame_KOF98_A::DumpPaletteHeaders()
     }
 }
 
-sFileRule CGame_KOF98_A::GetRule(size_t nUnitId)
+sFileRule CGame_KOF98_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -324,42 +324,42 @@ sFileRule CGame_KOF98_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_KOF98_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_KOF98_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(KOF98_A_UNITS, rgExtraCountAll, KOF98_A_NUMUNIT, KOF98_A_EXTRALOC, nUnitId, KOF98_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_KOF98_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_KOF98_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(KOF98_A_UNITS, rgExtraCountAll, KOF98_A_NUMUNIT, KOF98_A_EXTRALOC, nUnitId, nCollectionId, KOF98_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_KOF98_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_KOF98_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(KOF98_A_UNITS, KOF98_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_KOF98_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_KOF98_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(KOF98_A_UNITS, rgExtraCountAll, KOF98_A_NUMUNIT, KOF98_A_EXTRALOC, nUnitId, KOF98_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_KOF98_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_KOF98_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(KOF98_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_KOF98_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KOF98_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(KOF98_A_UNITS, rgExtraCountAll, KOF98_A_NUMUNIT, KOF98_A_EXTRALOC, nUnitId, nPaletteId, KOF98_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_KOF98_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_KOF98_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(KOF98_A_UNITS, rgExtraCountAll, KOF98_A_NUMUNIT, KOF98_A_EXTRALOC, nUnitId, nPaletteId, KOF98_A_EXTRA_CUSTOM);
 }
 
-void CGame_KOF98_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_KOF98_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != KOF98_A_EXTRALOC)
     {

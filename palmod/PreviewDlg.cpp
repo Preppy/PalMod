@@ -383,12 +383,12 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
                 { ID_FILE_LOADSPRITEFLIPPED, (LPWSTR)L"Load Flipped Texture", L"Load Flipped Texture for Palette %u", FLIPPED_IMAGES_MESSAGE_OFFSET },
             };
 
-            for (int iIndex = 0; iIndex < ARRAYSIZE(rgImportMenuOptions); iIndex++)
+            for (UINT iIndex = 0; iIndex < ARRAYSIZE(rgImportMenuOptions); iIndex++)
             {
                 // Since the optional submenu is dynamically sized, reset everything...
                 pPopupMenu->DeleteMenu(rgImportMenuOptions[iIndex].nOriginalMenuId, MF_BYCOMMAND);
 
-                const int nPaletteCount = GetHost()->GetPalModDlg()->MainPalGroup->GetPalAmt();
+                const uint32_t nPaletteCount = GetHost()->GetPalModDlg()->MainPalGroup->GetPalAmt();
 
                 MENUITEMINFO miiNew = { 0 };
                 miiNew.cbSize = sizeof(MENUITEMINFO);
@@ -399,12 +399,12 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
                 if (nPaletteCount > 1)
                 {
                     MENUITEMINFO mii = { 0 };
-                    int nCurrentPosition = iIndex + 1; // after Export
+                    UINT nCurrentPosition = iIndex + 1; // after Export
                     CMenu spriteMenu;
                     spriteMenu.CreatePopupMenu();
                     CString strMenuName;
 
-                    for (int nSpritePos = 0; nSpritePos < nPaletteCount; nSpritePos++)
+                    for (uint32_t nSpritePos = 0; nSpritePos < nPaletteCount; nSpritePos++)
                     {
                         mii.cbSize = sizeof(MENUITEMINFO);
                         mii.fMask = MIIM_ID | MIIM_STRING;

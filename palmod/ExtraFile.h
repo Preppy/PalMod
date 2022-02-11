@@ -7,9 +7,9 @@ class CGameWithExtrasFile : public CGameClass
 protected:
     static UINT32 m_nTotalPaletteCount;
     UINT16 m_nExtraUnit = INVALID_UNIT_VALUE;
-    UINT32 m_nSafeCountForThisRom = 0;
-    UINT32 m_nLowestRomLocationThisPass = k_nBogusHighValue;
-    UINT32 m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
+    uint32_t m_nSafeCountForThisRom = 0;
+    uint32_t m_nLowestRomLocationThisPass = k_nBogusHighValue;
+    uint32_t m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
     LPCWSTR m_pszExtraFilename = nullptr;
     LPCWSTR m_pszDupedPaletteName = nullptr;
 
@@ -27,7 +27,7 @@ protected:
     static void SetColorFormatOverride(LPCSTR paszColorString);
 
 private:
-    bool IsROMOffsetDuplicated(size_t nUnitId, size_t nPalId, UINT32 nStartingOffsetToCheck, UINT32 nEndOfRegionToCheck = 0);
+    bool IsROMOffsetDuplicated(uint32_t nUnitId, uint32_t nPalId, uint32_t nStartingOffsetToCheck, uint32_t nEndOfRegionToCheck = 0);
     int GetDupeCountInExtrasDataset();
     int GetDupeCountInDataset();
 
@@ -58,5 +58,5 @@ public:
     static ColMode GetExtrasOverrideForColorFormat() { return m_ColorModeOverride; };
     static LPCSTR GetExtrasOverrideForGameName() { return m_paszGameNameOverride; };
 
-    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, size_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
+    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
 };

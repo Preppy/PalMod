@@ -9,8 +9,8 @@
 //SNES = ...
 
 // Needed for game tables
-void StrRemoveNonASCII(WCHAR* pszOutput, size_t ccSize, LPCWSTR pszInput, bool fForceUpperCase = false);
-void StruprRemoveNonASCII(WCHAR* pszOutput, size_t ccSize, LPCWSTR pszInput);
+void StrRemoveNonASCII(WCHAR* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase = false);
+void StruprRemoveNonASCII(WCHAR* pszOutput, uint32_t ccSize, LPCWSTR pszInput);
 
 #include "ButtonDef.h"
 #include "ImgIdDef.h"
@@ -396,7 +396,7 @@ enum class eImageOutputSpriteDisplay
 
 struct stExtraDef
 {
-    size_t uUnitN = INVALID_UNIT_VALUE;
+    uint32_t uUnitN = INVALID_UNIT_VALUE;
     WCHAR szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
     UINT32 uOffset = 0;
     UINT16 cbPaletteSize = 0;
@@ -407,15 +407,15 @@ struct stExtraDef
 
 struct stPairedPaletteInfo
 {
-    int nNodeIncrementToPartner = 1;
+    INT8 nNodeIncrementToPartner = 1;
     bool fPairingIsFlipped = false;
-    size_t nPalettesToJoin = 2;
-    int nOverallNodeIncrementTo2ndPartner = 2;
-    int nOverallNodeIncrementTo3rdPartner = 3;
-    int nOverallNodeIncrementTo4thPartner = 4;
-    int nOverallNodeIncrementTo5thPartner = 5;
-    int nOverallNodeIncrementTo6thPartner = 6;
-    int nOverallNodeIncrementTo7thPartner = 7;
+    uint32_t nPalettesToJoin = 2;
+    INT8 nOverallNodeIncrementTo2ndPartner = 2;
+    INT8 nOverallNodeIncrementTo3rdPartner = 3;
+    INT8 nOverallNodeIncrementTo4thPartner = 4;
+    INT8 nOverallNodeIncrementTo5thPartner = 5;
+    INT8 nOverallNodeIncrementTo6thPartner = 6;
+    INT8 nOverallNodeIncrementTo7thPartner = 7;
 };
 
 struct stPaletteProcessingInformation

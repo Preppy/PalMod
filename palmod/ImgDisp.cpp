@@ -137,7 +137,7 @@ void CImgDisp::ClearUsed()
     }
 
     // reset offsets
-    for (size_t iPos = 0; iPos < ARRAYSIZE(m_ptOffs); iPos++)
+    for (uint32_t iPos = 0; iPos < ARRAYSIZE(m_ptOffs); iPos++)
     {
         m_ptOffs[iPos].x = m_ptOffs[iPos].y = 0;
     }

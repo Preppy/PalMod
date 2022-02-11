@@ -11,7 +11,7 @@ CGame_MVC2_P::~CGame_MVC2_P()
     //~CGame_MVC2_D();
 }
 
-sFileRule CGame_MVC2_P::GetRule(size_t nRuleId)
+sFileRule CGame_MVC2_P::GetRule(uint32_t nRuleId)
 {
     sFileRule NewFileRule;
 

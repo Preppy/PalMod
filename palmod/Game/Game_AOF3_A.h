@@ -10,15 +10,15 @@ class CGame_AOF3_A : public CGameWithExtrasFile
 {
 private:
     int m_nBufferSelectedRom = 2;
-    static size_t m_nSelectedRom;
+    static uint32_t m_nSelectedRom;
     static UINT32 m_nTotalPaletteCountForAOF3_P1;
     static UINT32 m_nTotalPaletteCountForAOF3_P2;
     static bool UsePaletteSetForP1() { return (m_nSelectedRom == 1); }
 
-    static size_t rgExtraCountAll_P1[AOF3_A_P1_NUMUNIT + 1];
-    static size_t rgExtraCountAll_P2[AOF3_A_P2_NUMUNIT + 1];
-    static size_t rgExtraLoc_P1[AOF3_A_P1_NUMUNIT + 1];
-    static size_t rgExtraLoc_P2[AOF3_A_P2_NUMUNIT + 1];
+    static uint32_t rgExtraCountAll_P1[AOF3_A_P1_NUMUNIT + 1];
+    static uint32_t rgExtraCountAll_P2[AOF3_A_P2_NUMUNIT + 1];
+    static uint32_t rgExtraLoc_P1[AOF3_A_P1_NUMUNIT + 1];
+    static uint32_t rgExtraLoc_P2[AOF3_A_P2_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSizeP1;
@@ -29,11 +29,11 @@ private:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static const sDescTreeNode* GetCurrentUnitSet();
-    static size_t GetCurrentExtraLoc();
+    static uint32_t GetCurrentExtraLoc();
     static stExtraDef* GetCurrentExtraDef(int nDefCtr);
 
-    void LoadSpecificPaletteData(size_t nUnitId, size_t nPalId);
-    size_t GetPaletteCountForUnit(size_t nUnitId) override;
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
     CGame_AOF3_A(UINT32 nConfirmedROMSize, int nROMToLoad = 1);
@@ -44,23 +44,23 @@ public:
     static CDescTree MainDescTree_P2;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
-    static sFileRule GetRule(size_t nUnitId);
+    static sFileRule GetRule(uint32_t nUnitId);
 
     //Extra palette function
-    static size_t GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly = FALSE);
-    static size_t GetExtraLoc(size_t nUnitId);
+    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static uint32_t GetExtraLoc(uint32_t nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
-    static size_t GetCollectionCountForUnit(size_t nUnitId);
+    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static size_t GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(size_t nUnitId, size_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(size_t nUnitId, size_t nPaletteId);
+    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
 
-    const sDescTreeNode* GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly);
+    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 

@@ -10,12 +10,12 @@ stExtraDef* CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_50 = nullptr;
 CDescTree CGame_VENTURE_A::MainDescTree_31 = nullptr;
 CDescTree CGame_VENTURE_A::MainDescTree_50 = nullptr;
 
-size_t CGame_VENTURE_A::rgExtraCountAll_31[VENTURE_A_NUMUNIT_31 + 1];
-size_t CGame_VENTURE_A::rgExtraCountAll_50[VENTURE_A_NUMUNIT_50 + 1];
-size_t CGame_VENTURE_A::rgExtraLoc_31[VENTURE_A_NUMUNIT_31 + 1];
-size_t CGame_VENTURE_A::rgExtraLoc_50[VENTURE_A_NUMUNIT_50 + 1];
+uint32_t CGame_VENTURE_A::rgExtraCountAll_31[VENTURE_A_NUMUNIT_31 + 1];
+uint32_t CGame_VENTURE_A::rgExtraCountAll_50[VENTURE_A_NUMUNIT_50 + 1];
+uint32_t CGame_VENTURE_A::rgExtraLoc_31[VENTURE_A_NUMUNIT_31 + 1];
+uint32_t CGame_VENTURE_A::rgExtraLoc_50[VENTURE_A_NUMUNIT_50 + 1];
 
-size_t CGame_VENTURE_A::m_nVentureMode = 50;
+uint32_t CGame_VENTURE_A::m_nVentureMode = 50;
 UINT32 CGame_VENTURE_A::m_nTotalPaletteCountFor31 = 0;
 UINT32 CGame_VENTURE_A::m_nTotalPaletteCountFor50 = 0;
 UINT32 CGame_VENTURE_A::m_nConfirmedROMSize = -1;
@@ -85,8 +85,8 @@ CGame_VENTURE_A::CGame_VENTURE_A(UINT32 nConfirmedROMSize /* = -1 */, int nVentu
     pButtonLabelSet = DEF_BUTTONLABEL_2; // Check out the available options in gamedef.h
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -113,7 +113,7 @@ CDescTree* CGame_VENTURE_A::GetMainTree()
     }
 }
 
-size_t CGame_VENTURE_A::GetExtraCt(size_t nUnitId)
+uint32_t CGame_VENTURE_A::GetExtraCt(uint32_t nUnitId)
 {
     if (UsePaletteSetFor50())
     {
@@ -125,7 +125,7 @@ size_t CGame_VENTURE_A::GetExtraCt(size_t nUnitId)
     }
 }
 
-size_t CGame_VENTURE_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_VENTURE_A::GetExtraLoc(uint32_t nUnitId)
 {
     if (UsePaletteSetFor50())
     {
@@ -189,7 +189,7 @@ sDescTreeNode* CGame_VENTURE_A::InitDescTree(int nPaletteSetToUse)
     return NewDescTree;
 }
 
-sFileRule CGame_VENTURE_A::GetRule(size_t nUnitId)
+sFileRule CGame_VENTURE_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -239,11 +239,11 @@ void CGame_VENTURE_A::ClearDataBuffer()
 
     if (m_pppDataBuffer)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                size_t nPaletteCount = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPaletteCount = GetPaletteCountForUnit(nUnitCtr);
 
                 for (UINT16 nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
                 {
@@ -260,7 +260,7 @@ void CGame_VENTURE_A::ClearDataBuffer()
     m_nVentureMode = nCurrentVentureMode;
 }
 
-size_t CGame_VENTURE_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_VENTURE_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     if (UsePaletteSetFor50())
     {
@@ -272,7 +272,7 @@ size_t CGame_VENTURE_A::GetCollectionCountForUnit(size_t nUnitId)
     }
 }
 
-size_t CGame_VENTURE_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_VENTURE_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetFor50())
     {
@@ -284,7 +284,7 @@ size_t CGame_VENTURE_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollec
     }
 }
 
-LPCWSTR CGame_VENTURE_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_VENTURE_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetFor50())
     {
@@ -297,7 +297,7 @@ LPCWSTR CGame_VENTURE_A::GetDescriptionForCollection(size_t nUnitId, size_t nCol
 
 }
 
-size_t CGame_VENTURE_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_VENTURE_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     if (UsePaletteSetFor50())
     {
@@ -309,7 +309,7 @@ size_t CGame_VENTURE_A::GetPaletteCountForUnit(size_t nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_VENTURE_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_VENTURE_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetFor50())
     {
@@ -321,7 +321,7 @@ const sGame_PaletteDataset* CGame_VENTURE_A::GetPaletteSet(size_t nUnitId, size_
     }
 }
 
-const sDescTreeNode* CGame_VENTURE_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_VENTURE_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     if (UsePaletteSetFor50())
     {
@@ -333,7 +333,7 @@ const sDescTreeNode* CGame_VENTURE_A::GetNodeFromPaletteId(size_t nUnitId, size_
     }
 }
 
-const sGame_PaletteDataset* CGame_VENTURE_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_VENTURE_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     if (UsePaletteSetFor50())
     {
@@ -345,7 +345,7 @@ const sGame_PaletteDataset* CGame_VENTURE_A::GetSpecificPalette(size_t nUnitId, 
     }
 }
 
-void CGame_VENTURE_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_VENTURE_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     bool isPaletteFromExtensionsFile = false;
 

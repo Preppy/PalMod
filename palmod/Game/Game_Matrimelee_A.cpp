@@ -7,8 +7,8 @@ stExtraDef* CGame_Matrimelee_A::Matrimelee_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_Matrimelee_A::MainDescTree = nullptr;
 
-size_t CGame_Matrimelee_A::rgExtraCountAll[Matrimelee_A_NUMUNIT + 1];
-size_t CGame_Matrimelee_A::rgExtraLoc[Matrimelee_A_NUMUNIT + 1];
+uint32_t CGame_Matrimelee_A::rgExtraCountAll[Matrimelee_A_NUMUNIT + 1];
+uint32_t CGame_Matrimelee_A::rgExtraLoc[Matrimelee_A_NUMUNIT + 1];
 
 UINT32 CGame_Matrimelee_A::m_nTotalPaletteCountForMatrimelee = 0;
 const UINT32 CGame_Matrimelee_A::m_nExpectedGameROMSize = 0x400000;
@@ -63,8 +63,8 @@ CGame_Matrimelee_A::CGame_Matrimelee_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -83,12 +83,12 @@ CDescTree* CGame_Matrimelee_A::GetMainTree()
     return &CGame_Matrimelee_A::MainDescTree;
 }
 
-size_t CGame_Matrimelee_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_Matrimelee_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, Matrimelee_A_NUMUNIT, nUnitId, Matrimelee_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_Matrimelee_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_Matrimelee_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, Matrimelee_A_NUMUNIT, nUnitId, Matrimelee_A_EXTRA_CUSTOM);
 }
@@ -121,7 +121,7 @@ sDescTreeNode* CGame_Matrimelee_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_Matrimelee_A::GetRule(size_t nUnitId)
+sFileRule CGame_Matrimelee_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -134,42 +134,42 @@ sFileRule CGame_Matrimelee_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_Matrimelee_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_Matrimelee_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(Matrimelee_A_UNITS, rgExtraCountAll, Matrimelee_A_NUMUNIT, Matrimelee_A_EXTRALOC, nUnitId, Matrimelee_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_Matrimelee_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_Matrimelee_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(Matrimelee_A_UNITS, rgExtraCountAll, Matrimelee_A_NUMUNIT, Matrimelee_A_EXTRALOC, nUnitId, nCollectionId, Matrimelee_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_Matrimelee_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_Matrimelee_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(Matrimelee_A_UNITS, Matrimelee_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_Matrimelee_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_Matrimelee_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(Matrimelee_A_UNITS, rgExtraCountAll, Matrimelee_A_NUMUNIT, Matrimelee_A_EXTRALOC, nUnitId, Matrimelee_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_Matrimelee_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_Matrimelee_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(Matrimelee_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_Matrimelee_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_Matrimelee_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(Matrimelee_A_UNITS, rgExtraCountAll, Matrimelee_A_NUMUNIT, Matrimelee_A_EXTRALOC, nUnitId, nPaletteId, Matrimelee_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_Matrimelee_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_Matrimelee_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(Matrimelee_A_UNITS, rgExtraCountAll, Matrimelee_A_NUMUNIT, Matrimelee_A_EXTRALOC, nUnitId, nPaletteId, Matrimelee_A_EXTRA_CUSTOM);
 }
 
-void CGame_Matrimelee_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_Matrimelee_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != m_nExtraUnit)
     {

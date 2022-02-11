@@ -8,8 +8,8 @@ stExtraDef* CGame_NGBC_A::NGBC_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_NGBC_A::MainDescTree = nullptr;
 
-size_t CGame_NGBC_A::rgExtraCountAll[NGBC_A_NUMUNIT + 1];
-size_t CGame_NGBC_A::rgExtraLoc[NGBC_A_NUMUNIT + 1];
+uint32_t CGame_NGBC_A::rgExtraCountAll[NGBC_A_NUMUNIT + 1];
+uint32_t CGame_NGBC_A::rgExtraLoc[NGBC_A_NUMUNIT + 1];
 
 UINT32 CGame_NGBC_A::m_nTotalPaletteCountForNGBC = 0;
 UINT32 CGame_NGBC_A::m_nExpectedGameROMSize = 0xf000000;
@@ -65,8 +65,8 @@ CGame_NGBC_A::CGame_NGBC_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_KOFXI;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -85,12 +85,12 @@ CDescTree* CGame_NGBC_A::GetMainTree()
     return &CGame_NGBC_A::MainDescTree;
 }
 
-size_t CGame_NGBC_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_NGBC_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, NGBC_A_NUMUNIT, nUnitId, NGBC_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_NGBC_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_NGBC_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, NGBC_A_NUMUNIT, nUnitId, NGBC_A_EXTRA_CUSTOM);
 }
@@ -295,7 +295,7 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_NGBC_A::GetRule(size_t nUnitId)
+sFileRule CGame_NGBC_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -308,42 +308,42 @@ sFileRule CGame_NGBC_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_NGBC_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_NGBC_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(NGBC_A_UNITS, rgExtraCountAll, NGBC_A_NUMUNIT, NGBC_A_EXTRALOC, nUnitId, NGBC_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_NGBC_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_NGBC_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(NGBC_A_UNITS, rgExtraCountAll, NGBC_A_NUMUNIT, NGBC_A_EXTRALOC, nUnitId, nCollectionId, NGBC_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_NGBC_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_NGBC_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(NGBC_A_UNITS, NGBC_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_NGBC_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_NGBC_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(NGBC_A_UNITS, rgExtraCountAll, NGBC_A_NUMUNIT, NGBC_A_EXTRALOC, nUnitId, NGBC_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_NGBC_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_NGBC_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(NGBC_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_NGBC_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_NGBC_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(NGBC_A_UNITS, rgExtraCountAll, NGBC_A_NUMUNIT, NGBC_A_EXTRALOC, nUnitId, nPaletteId, NGBC_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_NGBC_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_NGBC_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(NGBC_A_UNITS, rgExtraCountAll, NGBC_A_NUMUNIT, NGBC_A_EXTRALOC, nUnitId, nPaletteId, NGBC_A_EXTRA_CUSTOM);
 }
 
-void CGame_NGBC_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_NGBC_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != NGBC_A_EXTRALOC)
     {

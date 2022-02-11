@@ -2,7 +2,7 @@
 #include "Game_VENTURE_A_DIR.h"
 #include "..\palmod.h"
 
-size_t CGame_VENTURE_A_DIR::uRuleCtr = 0;
+uint32_t CGame_VENTURE_A_DIR::uRuleCtr = 0;
 
 LPCWSTR CGame_VENTURE_A_DIR::VENTURE_Arcade_ROM_Base_31 = L"jojo-simm3.";
 LPCWSTR CGame_VENTURE_A_DIR::VENTURE_Arcade_ROM_Base_50 = L"jojo-simm5.";
@@ -29,7 +29,7 @@ CGame_VENTURE_A_DIR::~CGame_VENTURE_A_DIR(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_VENTURE_A_DIR::GetRule_31(size_t nUnitId)
+sFileRule CGame_VENTURE_A_DIR::GetRule_31(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -54,7 +54,7 @@ sFileRule CGame_VENTURE_A_DIR::GetNextRule_31()
     return NewFileRule;
 }
 
-sFileRule CGame_VENTURE_A_DIR::GetRule_50(size_t nUnitId)
+sFileRule CGame_VENTURE_A_DIR::GetRule_50(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -111,7 +111,7 @@ inline UINT32 CGame_VENTURE_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation
     return nSIMMLocation;
 }
 
-BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
+BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 {
     // This code loads one SIMM pair at a time.
     BOOL fSuccess = TRUE;
@@ -139,7 +139,7 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
     const UINT32 nBeginningRange = 0 + (c_nVentureSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
     const UINT32 nEndingRange = (c_nVentureSIMMLength * 2) + (c_nVentureSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
 
-    strInfo.Format(L"\tThe SIMM %u set begins at 0x%06x and ends at 0x%06x\n", nSIMMNumber, nBeginningRange, nEndingRange);
+    strInfo.Format(L"\tThe SIMM %zu set begins at 0x%06x and ends at 0x%06x\n", nSIMMNumber, nBeginningRange, nEndingRange);
     OutputDebugString(strInfo);
 
     CFile FilePeer;
@@ -152,9 +152,9 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
         OutputDebugString(L"\tLoading VENTURE_A_DIR from SIMMs....\n");
         bool fShownCrossSIMMErrorOnce = false;
 
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
@@ -165,7 +165,7 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, size_t nSIMMNumber)
             // These are already sorted, no need to redirect
             rgUnitRedir[nUnitCtr] = nUnitCtr;
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -236,10 +236,10 @@ inline UINT8 CGame_VENTURE_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
     return (nROMLocation > (2 * c_nVentureSIMMLength)) ? 1 : 0;
 }
 
-BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, size_t nSaveUnit)
+BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 {
     CString strInfo;
-    strInfo.Format(L"CGame_VENTURE_A_DIR::SaveFile: Preparing to save data for Venture ROM set %u\n", m_nVentureMode);
+    strInfo.Format(L"CGame_VENTURE_A_DIR::SaveFile: Preparing to save data for Venture ROM set %zu\n", m_nVentureMode);
     OutputDebugString(strInfo);
 
     // OK, so the old 50 ROM in the SIMM redump is interleaved.
@@ -294,11 +294,11 @@ BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, size_t nSaveUnit)
 
     if (fFileLoadSuccess)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+            uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 if (IsPaletteDirty(nUnitCtr, nPalCtr))
                 {

@@ -12,12 +12,12 @@ stExtraDef* CGame_MSH_A::MSH_A_EXTRA_CUSTOM_06 = nullptr;
 CDescTree CGame_MSH_A::MainDescTree_05 = nullptr;
 CDescTree CGame_MSH_A::MainDescTree_06 = nullptr;
 
-size_t CGame_MSH_A::rgExtraCountAll_05[MSH_A_NUMUNIT_05 + 1] = { (size_t)-1 };
-size_t CGame_MSH_A::rgExtraCountAll_06[MSH_A_NUMUNIT_06 + 1] = { (size_t)-1 };
-size_t CGame_MSH_A::rgExtraLoc_05[MSH_A_NUMUNIT_05 + 1] = { (size_t)-1 };
-size_t CGame_MSH_A::rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1] = { (size_t)-1 };
+uint32_t CGame_MSH_A::rgExtraCountAll_05[MSH_A_NUMUNIT_05 + 1] = { (uint32_t)-1 };
+uint32_t CGame_MSH_A::rgExtraCountAll_06[MSH_A_NUMUNIT_06 + 1] = { (uint32_t)-1 };
+uint32_t CGame_MSH_A::rgExtraLoc_05[MSH_A_NUMUNIT_05 + 1] = { (uint32_t)-1 };
+uint32_t CGame_MSH_A::rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1] = { (uint32_t)-1 };
 
-size_t CGame_MSH_A::m_nMSHSelectedRom = 5;
+uint32_t CGame_MSH_A::m_nMSHSelectedRom = 5;
 UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_05 = 0;
 UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_06 = 0;
 UINT32 CGame_MSH_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
@@ -81,8 +81,8 @@ CGame_MSH_A::CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad)
     pButtonLabelSet = DEF_BUTTONLABEL_2;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -164,7 +164,7 @@ CDescTree* CGame_MSH_A::GetMainTree()
     }
 }
 
-size_t CGame_MSH_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_MSH_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -176,7 +176,7 @@ size_t CGame_MSH_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
     }
 }
 
-size_t CGame_MSH_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_MSH_A::GetExtraLoc(uint32_t nUnitId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -188,7 +188,7 @@ size_t CGame_MSH_A::GetExtraLoc(size_t nUnitId)
     }
 }
 
-sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
+sDescTreeNode* CGame_MSH_A::InitDescTree(uint32_t nROMPaletteSetToUse)
 {
     m_nMSHSelectedRom = nROMPaletteSetToUse;
 
@@ -244,7 +244,7 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
     return NewDescTree;
 }
 
-sFileRule CGame_MSH_A::GetRule(size_t nUnitId)
+sFileRule CGame_MSH_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -256,7 +256,7 @@ sFileRule CGame_MSH_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_MSH_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_MSH_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -282,7 +282,7 @@ size_t CGame_MSH_A::GetCollectionCountForUnit(size_t nUnitId)
     }
 }
 
-size_t CGame_MSH_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_MSH_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -312,7 +312,7 @@ size_t CGame_MSH_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollection
     }
 }
 
-LPCWSTR CGame_MSH_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_MSH_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -340,7 +340,7 @@ LPCWSTR CGame_MSH_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollect
     }
 }
 
-size_t CGame_MSH_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_MSH_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     if (UsePaletteSetForCharacters() ? (nUnitId == MSH_A_EXTRALOC_05) :
                                       (nUnitId == MSH_A_EXTRALOC_06))
@@ -349,13 +349,13 @@ size_t CGame_MSH_A::GetPaletteCountForUnit(size_t nUnitId)
     }
     else
     {
-        size_t nCompleteCount = 0;
+        uint32_t nCompleteCount = 0;
         const sDescTreeNode* pCompleteROMTree = UsePaletteSetForCharacters() ? MSH_UNITS_05 : MSH_UNITS_06;
-        size_t nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
+        uint32_t nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
 
-        for (size_t nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+        for (uint32_t nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
@@ -370,7 +370,7 @@ size_t CGame_MSH_A::GetPaletteCountForUnit(size_t nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_MSH_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_MSH_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -386,18 +386,18 @@ const sGame_PaletteDataset* CGame_MSH_A::GetPaletteSet(size_t nUnitId, size_t nC
     }
 }
 
-const sDescTreeNode* CGame_MSH_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_MSH_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
-    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
+    uint32_t nDistanceFromZero = nPaletteId;
 
-    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        size_t nNodeCount;
+        uint32_t nNodeCount;
 
         if (UsePaletteSetForCharacters() ? (nUnitId == MSH_A_EXTRALOC_05) :
                                            (nUnitId == MSH_A_EXTRALOC_06))
@@ -439,17 +439,17 @@ const sDescTreeNode* CGame_MSH_A::GetNodeFromPaletteId(size_t nUnitId, size_t nP
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_MSH_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_MSH_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     // Don't use this for Extra palettes.
-    size_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteToUse = nullptr;
-    size_t nDistanceFromZero = nPaletteId;
+    uint32_t nDistanceFromZero = nPaletteId;
 
-    for (size_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
-        size_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
         {
@@ -472,19 +472,19 @@ void CGame_MSH_A::InitDataBuffer()
 
 void CGame_MSH_A::ClearDataBuffer()
 {
-    int nCurrentROMMode = m_nMSHSelectedRom;
+    uint32_t nCurrentROMMode = m_nMSHSelectedRom;
 
     m_nMSHSelectedRom = m_nBufferSelectedRom;
 
     if (m_pppDataBuffer)
     {
-        for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (m_pppDataBuffer[nUnitCtr])
             {
-                size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -499,7 +499,7 @@ void CGame_MSH_A::ClearDataBuffer()
     m_nMSHSelectedRom = nCurrentROMMode;
 }
 
-void CGame_MSH_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_MSH_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (UsePaletteSetForCharacters() ? (nUnitId != MSH_A_EXTRALOC_05) :
                                         (nUnitId != MSH_A_EXTRALOC_06))
@@ -544,7 +544,7 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 }
 
-void CGame_MSH_A::PostSetPal(size_t nUnitId, size_t nPalId)
+void CGame_MSH_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
     CString strMessage;
     strMessage.Format(L"CGame_MSH_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);

@@ -8,8 +8,8 @@ stExtraDef* CGame_KOF02PS2_A::KOF02PS2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_KOF02PS2_A::MainDescTree = nullptr;
 
-size_t CGame_KOF02PS2_A::rgExtraCountAll[KOF02PS2_A_NUMUNIT + 1];
-size_t CGame_KOF02PS2_A::rgExtraLoc[KOF02PS2_A_NUMUNIT + 1];
+uint32_t CGame_KOF02PS2_A::rgExtraCountAll[KOF02PS2_A_NUMUNIT + 1];
+uint32_t CGame_KOF02PS2_A::rgExtraLoc[KOF02PS2_A_NUMUNIT + 1];
 
 UINT32 CGame_KOF02PS2_A::m_nTotalPaletteCountForKOF02PS2 = 0;
 UINT32 CGame_KOF02PS2_A::m_nExpectedGameROMSize = 0x500000;
@@ -64,8 +64,8 @@ CGame_KOF02PS2_A::CGame_KOF02PS2_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -84,12 +84,12 @@ CDescTree* CGame_KOF02PS2_A::GetMainTree()
     return &CGame_KOF02PS2_A::MainDescTree;
 }
 
-size_t CGame_KOF02PS2_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KOF02PS2_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KOF02PS2_A_NUMUNIT, nUnitId, KOF02PS2_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_KOF02PS2_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_KOF02PS2_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, KOF02PS2_A_NUMUNIT, nUnitId, KOF02PS2_A_EXTRA_CUSTOM);
 }
@@ -364,7 +364,7 @@ sDescTreeNode* CGame_KOF02PS2_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_KOF02PS2_A::GetRule(size_t nUnitId)
+sFileRule CGame_KOF02PS2_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -377,42 +377,42 @@ sFileRule CGame_KOF02PS2_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_KOF02PS2_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_KOF02PS2_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(KOF02PS2_A_UNITS, rgExtraCountAll, KOF02PS2_A_NUMUNIT, KOF02PS2_A_EXTRALOC, nUnitId, KOF02PS2_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_KOF02PS2_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_KOF02PS2_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(KOF02PS2_A_UNITS, rgExtraCountAll, KOF02PS2_A_NUMUNIT, KOF02PS2_A_EXTRALOC, nUnitId, nCollectionId, KOF02PS2_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_KOF02PS2_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_KOF02PS2_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(KOF02PS2_A_UNITS, KOF02PS2_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_KOF02PS2_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_KOF02PS2_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(KOF02PS2_A_UNITS, rgExtraCountAll, KOF02PS2_A_NUMUNIT, KOF02PS2_A_EXTRALOC, nUnitId, KOF02PS2_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_KOF02PS2_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_KOF02PS2_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(KOF02PS2_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_KOF02PS2_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KOF02PS2_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(KOF02PS2_A_UNITS, rgExtraCountAll, KOF02PS2_A_NUMUNIT, KOF02PS2_A_EXTRALOC, nUnitId, nPaletteId, KOF02PS2_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_KOF02PS2_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_KOF02PS2_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(KOF02PS2_A_UNITS, rgExtraCountAll, KOF02PS2_A_NUMUNIT, KOF02PS2_A_EXTRALOC, nUnitId, nPaletteId, KOF02PS2_A_EXTRA_CUSTOM);
 }
 
-void CGame_KOF02PS2_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_KOF02PS2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != KOF02PS2_A_EXTRALOC)
     {

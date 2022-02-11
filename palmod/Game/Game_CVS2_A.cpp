@@ -8,8 +8,8 @@ stExtraDef* CGame_CVS2_A::CVS2_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_CVS2_A::MainDescTree = nullptr;
 
-size_t CGame_CVS2_A::rgExtraCountAll[CVS2_A_NUMUNIT + 1];
-size_t CGame_CVS2_A::rgExtraLoc[CVS2_A_NUMUNIT + 1];
+uint32_t CGame_CVS2_A::rgExtraCountAll[CVS2_A_NUMUNIT + 1];
+uint32_t CGame_CVS2_A::rgExtraLoc[CVS2_A_NUMUNIT + 1];
 
 UINT32 CGame_CVS2_A::m_nTotalPaletteCountForCVS2 = 0;
 UINT32 CGame_CVS2_A::m_nExpectedGameROMSize = 0x9800000;  // 159,383,552 bytes
@@ -65,8 +65,8 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_CVS2;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -85,12 +85,12 @@ CDescTree* CGame_CVS2_A::GetMainTree()
     return &CGame_CVS2_A::MainDescTree;
 }
 
-size_t CGame_CVS2_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_CVS2_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, CVS2_A_NUMUNIT, nUnitId, CVS2_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_CVS2_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_CVS2_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, CVS2_A_NUMUNIT, nUnitId, CVS2_A_EXTRA_CUSTOM);
 }
@@ -100,15 +100,15 @@ void CGame_CVS2_A::DumpAllCharacters()
     //Go through each character
     for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
+        uint32_t nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
-        const size_t k_nCharacterColorCount = DEF_BUTTONLABEL_CVS2.size();
+        const uint32_t k_nCharacterColorCount = static_cast<uint32_t>(DEF_BUTTONLABEL_CVS2.size());
         CString strOutput;
 
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
-        for (size_t iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
+        for (uint32_t iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
         {
             nCurrentCharacterOffset = CVS2_CharacterOffsetArray[iUnitCtr].romOffset + (0xc0 * iButtonIndex);
 
@@ -171,7 +171,7 @@ void CGame_CVS2_A::DumpAllCharacters()
         strOutput.Format(L"const sDescTreeNode CVS2_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (size_t iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
+        for (uint32_t iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
         {
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)CVS2_A_%s_PALETTES_%s, ARRAYSIZE(CVS2_A_%s_PALETTES_%s) },\r\n",
                 DEF_BUTTONLABEL_CVS2[iButtonIndex],
@@ -183,7 +183,7 @@ void CGame_CVS2_A::DumpAllCharacters()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (size_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
+    for (uint32_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
     {
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
@@ -230,7 +230,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_CVS2_A::GetRule(size_t nUnitId)
+sFileRule CGame_CVS2_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -243,42 +243,42 @@ sFileRule CGame_CVS2_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_CVS2_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_CVS2_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(CVS2_A_UNITS, rgExtraCountAll, CVS2_A_NUMUNIT, CVS2_A_EXTRALOC, nUnitId, CVS2_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_CVS2_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_CVS2_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(CVS2_A_UNITS, rgExtraCountAll, CVS2_A_NUMUNIT, CVS2_A_EXTRALOC, nUnitId, nCollectionId, CVS2_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_CVS2_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_CVS2_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(CVS2_A_UNITS, CVS2_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_CVS2_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_CVS2_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(CVS2_A_UNITS, rgExtraCountAll, CVS2_A_NUMUNIT, CVS2_A_EXTRALOC, nUnitId, CVS2_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_CVS2_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_CVS2_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(CVS2_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(CVS2_A_UNITS, rgExtraCountAll, CVS2_A_NUMUNIT, CVS2_A_EXTRALOC, nUnitId, nPaletteId, CVS2_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_CVS2_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_CVS2_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(CVS2_A_UNITS, rgExtraCountAll, CVS2_A_NUMUNIT, CVS2_A_EXTRALOC, nUnitId, nPaletteId, CVS2_A_EXTRA_CUSTOM);
 }
 
-void CGame_CVS2_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_CVS2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != CVS2_A_EXTRALOC)
     {

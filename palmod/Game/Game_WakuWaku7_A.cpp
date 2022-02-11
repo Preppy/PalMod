@@ -7,8 +7,8 @@ stExtraDef* CGame_WakuWaku7_A::WakuWaku7_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_WakuWaku7_A::MainDescTree = nullptr;
 
-size_t CGame_WakuWaku7_A::rgExtraCountAll[WakuWaku7_A_NUMUNIT + 1];
-size_t CGame_WakuWaku7_A::rgExtraLoc[WakuWaku7_A_NUMUNIT + 1];
+uint32_t CGame_WakuWaku7_A::rgExtraCountAll[WakuWaku7_A_NUMUNIT + 1];
+uint32_t CGame_WakuWaku7_A::rgExtraLoc[WakuWaku7_A_NUMUNIT + 1];
 
 UINT32 CGame_WakuWaku7_A::m_nTotalPaletteCountForWakuWaku7 = 0;
 const UINT32 CGame_WakuWaku7_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
@@ -63,8 +63,8 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_WAKUWAKU7_FIVE;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -83,12 +83,12 @@ CDescTree* CGame_WakuWaku7_A::GetMainTree()
     return &CGame_WakuWaku7_A::MainDescTree;
 }
 
-size_t CGame_WakuWaku7_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_WakuWaku7_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, WakuWaku7_A_NUMUNIT, nUnitId, WakuWaku7_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_WakuWaku7_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_WakuWaku7_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, WakuWaku7_A_NUMUNIT, nUnitId, WakuWaku7_A_EXTRA_CUSTOM);
 }
@@ -123,7 +123,7 @@ sDescTreeNode* CGame_WakuWaku7_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_WakuWaku7_A::GetRule(size_t nUnitId)
+sFileRule CGame_WakuWaku7_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -136,42 +136,42 @@ sFileRule CGame_WakuWaku7_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_WakuWaku7_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_WakuWaku7_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, WakuWaku7_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_WakuWaku7_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_WakuWaku7_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, nCollectionId, WakuWaku7_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_WakuWaku7_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_WakuWaku7_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(WakuWaku7_A_UNITS, WakuWaku7_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_WakuWaku7_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_WakuWaku7_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, WakuWaku7_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_WakuWaku7_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_WakuWaku7_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(WakuWaku7_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_WakuWaku7_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_WakuWaku7_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, nPaletteId, WakuWaku7_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_WakuWaku7_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_WakuWaku7_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, nPaletteId, WakuWaku7_A_EXTRA_CUSTOM);
 }
 
-void CGame_WakuWaku7_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_WakuWaku7_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != m_nExtraUnit)
     {
@@ -221,16 +221,16 @@ BOOL CGame_WakuWaku7_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
     }
 
     // Default values for multisprite image display for Export
-    int nSrcStart = (int)NodeGet->uPalId;
-    size_t nSrcAmt = 1;
-    int nNodeIncrement = 1;
+    uint32_t nSrcStart = NodeGet->uPalId;
+    uint32_t nSrcAmt = 1;
+    uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
-    size_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 

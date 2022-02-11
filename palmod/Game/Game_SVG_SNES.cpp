@@ -47,8 +47,8 @@ CGame_SVG_SNES::CGame_SVG_SNES(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_2; // Check out the available options in buttondef.h
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -62,8 +62,8 @@ CGame_SVG_SNES::CGame_SVG_SNES(UINT32 nConfirmedROMSize)
 
 stExtraDef* CGame_SVG_SNES::SVG_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_SVG_SNES::MainDescTree = nullptr;
-size_t CGame_SVG_SNES::rgExtraCountAll[SVG_SNES_NUMUNIT + 1];
-size_t CGame_SVG_SNES::rgExtraLoc[SVG_SNES_NUMUNIT + 1];
+uint32_t CGame_SVG_SNES::rgExtraCountAll[SVG_SNES_NUMUNIT + 1];
+uint32_t CGame_SVG_SNES::rgExtraLoc[SVG_SNES_NUMUNIT + 1];
 UINT32 CGame_SVG_SNES::m_nTotalPaletteCountForSVG = 0;
 UINT32 CGame_SVG_SNES::m_nConfirmedROMSize = -1;
 
@@ -90,12 +90,12 @@ CDescTree* CGame_SVG_SNES::GetMainTree()
     return &CGame_SVG_SNES::MainDescTree;
 }
 
-size_t CGame_SVG_SNES::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SVG_SNES::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SVG_SNES_NUMUNIT, nUnitId, SVG_SNES_EXTRA_CUSTOM);
 }
 
-size_t CGame_SVG_SNES::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_SVG_SNES::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, SVG_SNES_NUMUNIT, nUnitId, SVG_SNES_EXTRA_CUSTOM);
 }
@@ -128,7 +128,7 @@ sDescTreeNode* CGame_SVG_SNES::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_SVG_SNES::GetRule(size_t nUnitId)
+sFileRule CGame_SVG_SNES::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -141,42 +141,42 @@ sFileRule CGame_SVG_SNES::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_SVG_SNES::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_SVG_SNES::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(SVG_SNES_UNITS, rgExtraCountAll, SVG_SNES_NUMUNIT, SVG_SNES_EXTRALOC, nUnitId, SVG_SNES_EXTRA_CUSTOM);
 }
 
-size_t CGame_SVG_SNES::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_SVG_SNES::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(SVG_SNES_UNITS, rgExtraCountAll, SVG_SNES_NUMUNIT, SVG_SNES_EXTRALOC, nUnitId, nCollectionId, SVG_SNES_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_SVG_SNES::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_SVG_SNES::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(SVG_SNES_UNITS, SVG_SNES_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_SVG_SNES::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_SVG_SNES::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(SVG_SNES_UNITS, rgExtraCountAll, SVG_SNES_NUMUNIT, SVG_SNES_EXTRALOC, nUnitId, SVG_SNES_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_SVG_SNES::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_SVG_SNES::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(SVG_SNES_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_SVG_SNES::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SVG_SNES::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(SVG_SNES_UNITS, rgExtraCountAll, SVG_SNES_NUMUNIT, SVG_SNES_EXTRALOC, nUnitId, nPaletteId, SVG_SNES_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_SVG_SNES::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_SVG_SNES::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(SVG_SNES_UNITS, rgExtraCountAll, SVG_SNES_NUMUNIT, SVG_SNES_EXTRALOC, nUnitId, nPaletteId, SVG_SNES_EXTRA_CUSTOM);
 }
 
-void CGame_SVG_SNES::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_SVG_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != SVG_SNES_EXTRALOC)
     {

@@ -20,18 +20,18 @@ public:
     inline UINT8 GetSIMMSetForROMLocation(UINT32 nROMLocation);
 
     //Static functions
-    static size_t uRuleCtr;
+    static uint32_t uRuleCtr;
 
-    static size_t GetRuleCtr() { return uRuleCtr; };
+    static uint32_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static sFileRule GetNextRule_31();
-    static sFileRule GetRule_31(size_t nRuleId);
+    static sFileRule GetRule_31(uint32_t nRuleId);
     static sFileRule GetNextRule_50();
-    static sFileRule GetRule_50(size_t nRuleId);
+    static sFileRule GetRule_50(uint32_t nRuleId);
 
-    BOOL LoadFile(CFile* LoadedFile, size_t nSIMMNumber) override;
-    BOOL SaveFile(CFile* SaveFile, size_t nSaveUnit) override;
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber) override;
+    BOOL SaveFile(CFile* SaveFile, uint32_t nSaveUnit) override;
 
     LPCWSTR GetGameName() override;
 };

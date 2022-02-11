@@ -381,7 +381,7 @@ struct PersonaFileData
 {
     std::wstring pszFileName;
     std::wstring pszCharacter;
-    size_t nExpectedFileSize = 0;
+    uint32_t nExpectedFileSize = 0;
     const std::vector<Persona4PaletteData> *paletteInfo = nullptr;
     uint32_t nInitialLocation = 0;
 };

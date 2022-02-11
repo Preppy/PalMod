@@ -8,8 +8,8 @@ stExtraDef* CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_NEOGEO_A::MainDescTree = nullptr;
 
-size_t CGame_NEOGEO_A::rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
-size_t CGame_NEOGEO_A::rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
+uint32_t CGame_NEOGEO_A::rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
+uint32_t CGame_NEOGEO_A::rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
 
 UINT32 CGame_NEOGEO_A::m_nTotalPaletteCountForNEOGEO = 0;
 UINT32 CGame_NEOGEO_A::m_nExpectedGameROMSize = -1; // This is a stub: we can't care about size
@@ -81,8 +81,8 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize, LPCWSTR pszFileLoaded)
     pButtonLabelSet = DEF_NOBUTTONS;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -101,7 +101,7 @@ CDescTree* CGame_NEOGEO_A::GetMainTree()
     return &CGame_NEOGEO_A::MainDescTree;
 }
 
-size_t CGame_NEOGEO_A::GetExtraCountForUnit(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_NEOGEO_A::GetExtraCountForUnit(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, NEOGEO_A_NUMUNIT, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
 }
@@ -270,7 +270,7 @@ bool CGame_NEOGEO_A::SetColorMode(ColMode NewMode)
     return SetAlphaAndColorModeInternal(NewMode, AlphaMode::Unknown);
 }
 
-size_t CGame_NEOGEO_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_NEOGEO_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, NEOGEO_A_NUMUNIT, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
 }
@@ -280,7 +280,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree(LPCWSTR pszFileLoaded)
     //Load extra file if we're using it
     if (pszFileLoaded)
     {
-        size_t nStrLen = wcslen(pszFileLoaded);
+        uint32_t nStrLen = static_cast<uint32_t>(wcslen(pszFileLoaded));
         LPCWSTR pszNewSuffix = L"E.txt";
 
         if (nStrLen < (MAX_PATH - (wcslen(pszNewSuffix) + 1))) // room for extras suffix
@@ -329,7 +329,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree(LPCWSTR pszFileLoaded)
             memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
             memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-            size_t nExtraArraySize = ARRAYSIZE(UNKNOWN_GAME_EXTRAS_LIST);
+            uint32_t nExtraArraySize = ARRAYSIZE(UNKNOWN_GAME_EXTRAS_LIST);
 
             NEOGEO_A_EXTRA_CUSTOM = new stExtraDef[nExtraArraySize];
             memcpy(NEOGEO_A_EXTRA_CUSTOM, UNKNOWN_GAME_EXTRAS_LIST, nExtraArraySize * sizeof(stExtraDef));
@@ -367,7 +367,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree(LPCWSTR pszFileLoaded)
     return NewDescTree;
 }
 
-sFileRule CGame_NEOGEO_A::GetRule(size_t nUnitId)
+sFileRule CGame_NEOGEO_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -380,42 +380,42 @@ sFileRule CGame_NEOGEO_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_NEOGEO_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_NEOGEO_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(NEOGEO_A_UNITS, rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_NEOGEO_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_NEOGEO_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(NEOGEO_A_UNITS, rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, nUnitId, nCollectionId, NEOGEO_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_NEOGEO_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_NEOGEO_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(NEOGEO_A_UNITS, NEOGEO_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_NEOGEO_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_NEOGEO_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(NEOGEO_A_UNITS, rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_NEOGEO_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_NEOGEO_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(NEOGEO_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_NEOGEO_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_NEOGEO_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(NEOGEO_A_UNITS, rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, nUnitId, nPaletteId, NEOGEO_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_NEOGEO_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_NEOGEO_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(NEOGEO_A_UNITS, rgExtraCountAll, NEOGEO_A_NUMUNIT, NEOGEO_A_EXTRALOC, nUnitId, nPaletteId, NEOGEO_A_EXTRA_CUSTOM);
 }
 
-void CGame_NEOGEO_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_NEOGEO_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != NEOGEO_A_EXTRALOC)
     {
@@ -454,7 +454,7 @@ BOOL CGame_NEOGEO_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
 LPCWSTR CGame_NEOGEO_A::GetGameName()
 {
-    size_t nOverrideLength = strlen(m_paszGameNameOverride);
+    uint32_t nOverrideLength = static_cast<uint32_t>(strlen(m_paszGameNameOverride));
 
     if (nOverrideLength)
     {

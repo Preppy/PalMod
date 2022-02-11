@@ -8,8 +8,8 @@ stExtraDef* CGame_Gowcaizer_A::Gowcaizer_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_Gowcaizer_A::MainDescTree = nullptr;
 
-size_t CGame_Gowcaizer_A::rgExtraCountAll[Gowcaizer_A_NUMUNIT + 1];
-size_t CGame_Gowcaizer_A::rgExtraLoc[Gowcaizer_A_NUMUNIT + 1];
+uint32_t CGame_Gowcaizer_A::rgExtraCountAll[Gowcaizer_A_NUMUNIT + 1];
+uint32_t CGame_Gowcaizer_A::rgExtraLoc[Gowcaizer_A_NUMUNIT + 1];
 
 UINT32 CGame_Gowcaizer_A::m_nTotalPaletteCountForGowcaizer = 0;
 UINT32 CGame_Gowcaizer_A::m_nExpectedGameROMSize = 0x200000;
@@ -64,8 +64,8 @@ CGame_Gowcaizer_A::CGame_Gowcaizer_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_2;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -84,12 +84,12 @@ CDescTree* CGame_Gowcaizer_A::GetMainTree()
     return &CGame_Gowcaizer_A::MainDescTree;
 }
 
-size_t CGame_Gowcaizer_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_Gowcaizer_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, Gowcaizer_A_NUMUNIT, nUnitId, Gowcaizer_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_Gowcaizer_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_Gowcaizer_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, Gowcaizer_A_NUMUNIT, nUnitId, Gowcaizer_A_EXTRA_CUSTOM);
 }
@@ -122,7 +122,7 @@ sDescTreeNode* CGame_Gowcaizer_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_Gowcaizer_A::GetRule(size_t nUnitId)
+sFileRule CGame_Gowcaizer_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -135,42 +135,42 @@ sFileRule CGame_Gowcaizer_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_Gowcaizer_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_Gowcaizer_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(Gowcaizer_A_UNITS, rgExtraCountAll, Gowcaizer_A_NUMUNIT, Gowcaizer_A_EXTRALOC, nUnitId, Gowcaizer_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_Gowcaizer_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_Gowcaizer_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(Gowcaizer_A_UNITS, rgExtraCountAll, Gowcaizer_A_NUMUNIT, Gowcaizer_A_EXTRALOC, nUnitId, nCollectionId, Gowcaizer_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_Gowcaizer_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_Gowcaizer_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(Gowcaizer_A_UNITS, Gowcaizer_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_Gowcaizer_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_Gowcaizer_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(Gowcaizer_A_UNITS, rgExtraCountAll, Gowcaizer_A_NUMUNIT, Gowcaizer_A_EXTRALOC, nUnitId, Gowcaizer_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_Gowcaizer_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_Gowcaizer_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(Gowcaizer_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_Gowcaizer_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_Gowcaizer_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(Gowcaizer_A_UNITS, rgExtraCountAll, Gowcaizer_A_NUMUNIT, Gowcaizer_A_EXTRALOC, nUnitId, nPaletteId, Gowcaizer_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_Gowcaizer_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_Gowcaizer_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(Gowcaizer_A_UNITS, rgExtraCountAll, Gowcaizer_A_NUMUNIT, Gowcaizer_A_EXTRALOC, nUnitId, nPaletteId, Gowcaizer_A_EXTRA_CUSTOM);
 }
 
-void CGame_Gowcaizer_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_Gowcaizer_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != Gowcaizer_A_EXTRALOC)
     {

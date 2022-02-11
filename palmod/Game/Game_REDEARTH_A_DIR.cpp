@@ -2,8 +2,8 @@
 #include "Game_RedEarth_A_DIR.h"
 #include "..\palmod.h"
 
-size_t CGame_RedEarth_A_DIR::uRuleCtr = 0;
-size_t CGame_RedEarth_A_DIR::m_nSavedMode = 31;
+uint32_t CGame_RedEarth_A_DIR::uRuleCtr = 0;
+uint32_t CGame_RedEarth_A_DIR::m_nSavedMode = 31;
 
 constexpr auto RedEarth_Arcade_ROM_Base = L"redearth-simm";
 constexpr auto RedEarth_Arcade_ROMSet_3 = 3;
@@ -49,7 +49,7 @@ CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR(UINT32 nConfirmedROMSize, int nRedEar
     PrepChangeTrackingArray();
 }
 
-sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(int nGameMode, size_t nUnitId)
+sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(uint32_t nGameMode, uint32_t nUnitId)
 {
     sFileRule NewFileRule;
     m_nSavedMode = nGameMode;
@@ -78,7 +78,7 @@ sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(int nGameMode, size_t nUnitId)
     return NewFileRule;
 }
 
-sFileRule CGame_RedEarth_A_DIR::GetNextRuleInternal(int nGameMode)
+sFileRule CGame_RedEarth_A_DIR::GetNextRuleInternal(uint32_t nGameMode)
 {
     sFileRule NewFileRule = GetRuleInternal(nGameMode, uRuleCtr);
     UINT16 nMaxRuleNumber;

@@ -8,8 +8,8 @@ stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MVC_A::MainDescTree = nullptr;
 
-size_t CGame_MVC_A::rgExtraCountAll[MVC_A_NUMUNIT + 1] = { (size_t)-1 };
-size_t CGame_MVC_A::rgExtraLoc[MVC_A_NUMUNIT + 1] = { (size_t)-1 };
+uint32_t CGame_MVC_A::rgExtraCountAll[MVC_A_NUMUNIT + 1] = { (uint32_t)-1 };
+uint32_t CGame_MVC_A::rgExtraLoc[MVC_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 UINT32 CGame_MVC_A::m_nTotalPaletteCountForMVC = 0;
 UINT32 CGame_MVC_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
@@ -136,8 +136,8 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_2;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -218,12 +218,12 @@ UINT32 CGame_MVC_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownR
 #endif
 }
 
-size_t CGame_MVC_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_MVC_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, MVC_A_NUMUNIT, nUnitId, MVC_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_MVC_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_MVC_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, MVC_A_NUMUNIT, nUnitId, MVC_A_EXTRA_CUSTOM);
 }
@@ -261,7 +261,7 @@ sDescTreeNode* CGame_MVC_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_MVC_A::GetRule(size_t nUnitId)
+sFileRule CGame_MVC_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -273,48 +273,48 @@ sFileRule CGame_MVC_A::GetRule(size_t nUnitId)
     return NewFileRule;
 }
 
-size_t CGame_MVC_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_MVC_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, MVC_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_MVC_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_MVC_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nCollectionId, MVC_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_MVC_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_MVC_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(MVC_A_UNITS, MVC_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_MVC_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_MVC_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, MVC_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_MVC_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_MVC_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(MVC_A_UNITS, nUnitId, nCollectionId);
 }
 
-size_t CGame_MVC_A::GetNodeSizeFromPaletteId(size_t nUnitId, size_t nPaletteId)
+uint32_t CGame_MVC_A::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetNodeSizeFromPaletteId(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM);
 }
 
-const sDescTreeNode* CGame_MVC_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_MVC_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_MVC_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_MVC_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     // Don't use this for Extra palettes.
     return _GetSpecificPalette(MVC_A_UNITS, rgExtraCountAll, MVC_A_NUMUNIT, MVC_A_EXTRALOC, nUnitId, nPaletteId, MVC_A_EXTRA_CUSTOM);
 }
 
-void CGame_MVC_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_MVC_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     if (nUnitId != MVC_A_EXTRALOC)
     {
@@ -356,18 +356,18 @@ void CGame_MVC_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
     }
 }
 
-BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, size_t nUnitId)
+BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
-    for (size_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        size_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         // Use a sorted layout
         rgUnitRedir[nUnitCtr] = MVC_A_UNITSORT[nUnitCtr];
 
-        for (size_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
@@ -404,16 +404,16 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
    
     // Default values for multisprite image display for Export
-    int nSrcStart = (int)NodeGet->uPalId;
-    size_t nSrcAmt = 1;
-    int nNodeIncrement = 1;
+    uint32_t nSrcStart = (int)NodeGet->uPalId;
+    uint32_t nSrcAmt = 1;
+    uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     int nTargetImgId = 0;
-    size_t nImgUnitId = INVALID_UNIT_VALUE;
+    uint32_t nImgUnitId = INVALID_UNIT_VALUE;
 
     bool fShouldUseAlternateLoadLogic = false;
 
@@ -525,12 +525,12 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
-                    const size_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                    const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                     fShouldUseAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;
 
-                    for (size_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    for (uint32_t nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                     {
                         // The palettes get added forward, but the image tickets need to be generated in reverse order
                         const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
@@ -594,7 +594,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-void CGame_MVC_A::PostSetPal(size_t nUnitId, size_t nPalId)
+void CGame_MVC_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
     CString strMessage;
     strMessage.Format(L"CGame_MVC_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);

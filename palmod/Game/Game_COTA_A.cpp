@@ -6,8 +6,8 @@
 stExtraDef* CGame_COTA_A::COTA_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_COTA_A::MainDescTree = nullptr;
-size_t CGame_COTA_A::rgExtraCountAll[COTA_A_NUMUNIT + 1] = { (size_t)-1 };
-size_t CGame_COTA_A::rgExtraLoc[COTA_A_NUMUNIT + 1] = { (size_t)-1 };
+uint32_t CGame_COTA_A::rgExtraCountAll[COTA_A_NUMUNIT + 1] = { (uint32_t)-1 };
+uint32_t CGame_COTA_A::rgExtraLoc[COTA_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 UINT32 CGame_COTA_A::m_nTotalPaletteCountForCOTA = 0;
 UINT32 CGame_COTA_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
@@ -60,8 +60,8 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_BUTTONLABEL_2;
 
     //Create the redirect buffer
-    rgUnitRedir = new size_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(size_t) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -136,7 +136,7 @@ UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 #endif
 }
 
-sFileRule CGame_COTA_A::GetRule(size_t nUnitId)
+sFileRule CGame_COTA_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -181,52 +181,52 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
     return NewDescTree;
 }
 
-size_t CGame_COTA_A::GetExtraCt(size_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_COTA_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_COTA_A::GetExtraLoc(size_t nUnitId)
+uint32_t CGame_COTA_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_COTA_A::GetCollectionCountForUnit(size_t nUnitId)
+uint32_t CGame_COTA_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(COTA_A_UNITS, rgExtraCountAll, COTA_A_NUMUNIT, COTA_A_EXTRALOC, nUnitId, COTA_A_EXTRA_CUSTOM);
 }
 
-size_t CGame_COTA_A::GetNodeCountForCollection(size_t nUnitId, size_t nCollectionId)
+uint32_t CGame_COTA_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(COTA_A_UNITS, rgExtraCountAll, COTA_A_NUMUNIT, COTA_A_EXTRALOC, nUnitId, nCollectionId, COTA_A_EXTRA_CUSTOM);
 }
 
-LPCWSTR CGame_COTA_A::GetDescriptionForCollection(size_t nUnitId, size_t nCollectionId)
+LPCWSTR CGame_COTA_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetDescriptionForCollection(COTA_A_UNITS, COTA_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-size_t CGame_COTA_A::GetPaletteCountForUnit(size_t nUnitId)
+uint32_t CGame_COTA_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(COTA_A_UNITS, rgExtraCountAll, COTA_A_NUMUNIT, COTA_A_EXTRALOC, nUnitId, COTA_A_EXTRA_CUSTOM);
 }
 
-const sGame_PaletteDataset* CGame_COTA_A::GetPaletteSet(size_t nUnitId, size_t nCollectionId)
+const sGame_PaletteDataset* CGame_COTA_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetPaletteSet(COTA_A_UNITS, nUnitId, nCollectionId);
 }
 
-const sDescTreeNode* CGame_COTA_A::GetNodeFromPaletteId(size_t nUnitId, size_t nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_COTA_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
 {
     return _GetNodeFromPaletteId(COTA_A_UNITS, rgExtraCountAll, COTA_A_NUMUNIT, COTA_A_EXTRALOC, nUnitId, nPaletteId, COTA_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
-const sGame_PaletteDataset* CGame_COTA_A::GetSpecificPalette(size_t nUnitId, size_t nPaletteId)
+const sGame_PaletteDataset* CGame_COTA_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
 {
     return _GetSpecificPalette(COTA_A_UNITS, rgExtraCountAll, COTA_A_NUMUNIT, COTA_A_EXTRALOC, nUnitId, nPaletteId, COTA_A_EXTRA_CUSTOM);
 }
 
-void CGame_COTA_A::LoadSpecificPaletteData(size_t nUnitId, size_t nPalId)
+void CGame_COTA_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
      if (nUnitId != COTA_A_EXTRALOC)
     {
@@ -280,7 +280,7 @@ BOOL CGame_COTA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return _UpdatePalImg(COTA_A_UNITS, rgExtraCountAll, COTA_A_NUMUNIT, COTA_A_EXTRALOC, COTA_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }
 
-void CGame_COTA_A::PostSetPal(size_t nUnitId, size_t nPalId)
+void CGame_COTA_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
     CString strMessage;
     strMessage.Format(L"CGame_COTA_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
