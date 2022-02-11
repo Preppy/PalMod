@@ -1253,8 +1253,8 @@ const sDescTreeNode DBZEB_DS_ZASSIST_COLLECTION[] =
     { L"Z Assists",                 DESC_NODETYPE_TREE, (void*)DBZEB_DS_ZASSIST,         ARRAYSIZE(DBZEB_DS_ZASSIST) },
     { L"Dabura Transformations",    DESC_NODETYPE_TREE, (void*)DBZEB_DS_TRANSFORMATION_DABURA,  ARRAYSIZE(DBZEB_DS_TRANSFORMATION_DABURA) },
     { L"Majuub Transformations",    DESC_NODETYPE_TREE, (void*)DBZEB_DS_TRANSFORMATION_MAJUUB,  ARRAYSIZE(DBZEB_DS_TRANSFORMATION_MAJUUB) },
-
 };
+
 const sDescTreeNode DBZEB_DS_UNITS[] =
 {
 // Order by rom, used when defining palettes:

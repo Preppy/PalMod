@@ -164,6 +164,7 @@ const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset DBZHD_SNES_BONUS_PALETTES[] =
 {
+    { L"Character Select icons", 0x1B48A, 0x1b4ca },
     { L"Super Buu", 0x1b4ca, 0x1b51e, indexDBZHDSprites_Bonus, 0x00 },
     { L"Sand 1", 0x2e5a2, 0x2e7a2 },
     { L"Sand 2", 0x2e7a2, 0x2e942 },

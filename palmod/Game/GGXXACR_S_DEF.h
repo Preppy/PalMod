@@ -1527,13 +1527,13 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_EXTRAS_JPF =
     { L"Running Dust Effects (3/3)", 0x1DF470, 0x1DF4B0 },
 
     //May uses her own dust palettes for tons of attacks, these also change based on the stage
-    { L"May Dust Effects (1/7)", 0x1E1950, 0x1E1990 },
-    { L"May Dust Effects (2/7)", 0x1E2700, 0x1E2740 },
-    { L"May Dust Effects (3/7)", 0x1E2F40, 0x1E2F80 },
-    { L"May Dust Effects (4/7)", 0x1E3E50, 0x1E3E90 },
-    { L"May Dust Effects (5/7)", 0x1E4A80, 0x1E4AC0 },
-    { L"May Dust Effects (6/7)", 0x1E55F0, 0x1E5630 },
-    { L"May Dust Effects (7/7)", 0x1E6580, 0x1E65C0 },
+    { L"Attack Dust Effects (1/7)", 0x1E1950, 0x1E1990 },
+    { L"Attack Dust Effects (2/7)", 0x1E2700, 0x1E2740 },
+    { L"Attack Dust Effects (3/7)", 0x1E2F40, 0x1E2F80 },
+    { L"Attack Dust Effects (4/7)", 0x1E3E50, 0x1E3E90 },
+    { L"Attack Dust Effects (5/7)", 0x1E4A80, 0x1E4AC0 },
+    { L"Attack Dust Effects (6/7)", 0x1E55F0, 0x1E5630 },
+    { L"Attack Dust Effects (7/7)", 0x1E6580, 0x1E65C0 },
 };
 
 const std::vector<sGame_PaletteDataset> GGXXACR_S_HUDMenu =
@@ -1583,10 +1583,10 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_HUDMenu =
 const std::vector<sGame_PaletteDataset> GGXXACR_S_RoundMessages =
 {
     //Round opening
-    { L"Opening Text: Heaven", 0x1efc0, 0x1f000 },
-    { L"Opening Text: Or", 0x208e0, 0x20920 },
-    { L"Opening Text: Hell", 0x21340, 0x21380 },
-    { L"Opening Text: Heaven or Hell circle", 0x229c0, 0x22a00 },
+    { L"Opening Text: Heaven", 0x1efc0, 0x1f000, indexGGXXSprites_ACR_Bonus, (UINT16)-1, &pairNext3Palettes },
+    { L"Opening Text: Or", 0x208e0, 0x20920, indexGGXXSprites_ACR_Bonus, (UINT16)-1 },
+    { L"Opening Text: Hell", 0x21340, 0x21380, indexGGXXSprites_ACR_Bonus, (UINT16)-1 },
+    { L"Opening Text: Heaven or Hell circle", 0x229c0, 0x22a00, indexGGXXSprites_ACR_Bonus, (UINT16)-1 },
     { L"Opening Text: Duel", 0x319c0, 0x31a00 },
     { L"Opening Text: Final", 0x328c0, 0x32900 },
     { L"Opening Text: 1, 2, 3", 0x33B40, 0x33B80 },
