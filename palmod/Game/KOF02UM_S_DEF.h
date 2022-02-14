@@ -4704,7 +4704,7 @@ const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_B[] =
 {
-    { L"EX Robert B", 0x004cd00, 0x004cd20, indexKOF02UMSprites_RobertEX },
+    { L"EX Robert B", 0x004cd00, 0x004cd20, indexKOF99Sprites_Robert },
     { L"B - Hidden Super Desperation Move 1", 0x004cd20, 0x004cd40, indexKOF99Sprites_Robert, 0x00 },
     { L"B - Desperation Move / Super Desperation Move", 0x004cd40, 0x004cd60, indexKOF99Sprites_Robert, 0x00 },
     { L"B - Electric Shock Effect", 0x004cd60, 0x004cd80, indexKOF99Sprites_Robert, 0x00 },
@@ -4716,7 +4716,7 @@ const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_C[] =
 {
-    { L"EX Robert C", 0x004ce00, 0x004ce20, indexKOF02UMSprites_RobertEX },
+    { L"EX Robert C", 0x004ce00, 0x004ce20, indexKOF99Sprites_Robert },
     { L"C - Hidden Super Desperation Move 1", 0x004ce20, 0x004ce40, indexKOF99Sprites_Robert, 0x00 },
     { L"C - Desperation Move / Super Desperation Move", 0x004ce40, 0x004ce60, indexKOF99Sprites_Robert, 0x00 },
     { L"C - Electric Shock Effect", 0x004ce60, 0x004ce80, indexKOF99Sprites_Robert, 0x00 },
@@ -4728,7 +4728,7 @@ const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_D[] =
 {
-    { L"EX Robert D", 0x004cf00, 0x004cf20, indexKOF02UMSprites_RobertEX },
+    { L"EX Robert D", 0x004cf00, 0x004cf20, indexKOF99Sprites_Robert },
     { L"D - Hidden Super Desperation Move 1", 0x004cf20, 0x004cf40, indexKOF99Sprites_Robert, 0x00 },
     { L"D - Desperation Move / Super Desperation Move", 0x004cf40, 0x004cf60, indexKOF99Sprites_Robert, 0x00 },
     { L"D - Electric Shock Effect", 0x004cf60, 0x004cf80, indexKOF99Sprites_Robert, 0x00 },

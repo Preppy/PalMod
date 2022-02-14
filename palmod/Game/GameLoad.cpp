@@ -2254,7 +2254,10 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     }
     else
     {
-        strLoadSaveStr.LoadString(IDS_PATCH_EMPTY);
+        if (!strLoadSaveStr.LoadString(IDS_PATCH_EMPTY))
+        {
+            strLoadSaveStr = L"error loading string";
+        }
     }
 }
 
@@ -2420,7 +2423,10 @@ void CGameLoad::SavePatchFile(CGameClass* CurrGame)
     }
     else
     {
-        strLoadSaveStr.LoadString(IDS_IPS_EMPTY);
+        if (!strLoadSaveStr.LoadString(IDS_IPS_EMPTY))
+        {
+            strLoadSaveStr = L"error loading string";
+        }
     }
 }
 
@@ -2441,6 +2447,9 @@ void CGameLoad::SaveMultiplePatchFiles(CGameClass* CurrGame, CString strTargetDi
     }
     else
     {
-        strLoadSaveStr.LoadString(IDS_IPS_EMPTY);
+        if (!strLoadSaveStr.LoadString(IDS_IPS_EMPTY))
+        {
+            strLoadSaveStr = L"error loading string";
+        }
     }
 }

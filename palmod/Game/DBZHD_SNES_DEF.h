@@ -162,9 +162,21 @@ const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_SHARED[] =
     { L"Cell Jr and Cell Kamehameha", 0x2ab093, 0x2ab0d3, indexDBZHDSprites_Cell , 0x10 },
 };
 
+const sGame_PaletteDataset DBZHD_SNES_STAGE_PALETTES[] =
+{
+    { L"Tournament Day", 0x50C6E, 0x50D0E },
+    { L"Tournament Sunset", 0x50D0E, 0x50DAE },
+    { L"Tournament Night", 0x50DAE, 0x50E4E },
+    { L"Lookout Day", 0x536B7, 0x53757 },
+    { L"Lookout Sunset", 0x53757, 0x537F7 },
+    { L"Lookout Night", 0x537F7, 0x53897 },
+    { L"Goku Intro", 0x232F1, 0x23311 },
+};
+
 const sGame_PaletteDataset DBZHD_SNES_BONUS_PALETTES[] =
 {
-    { L"Character Select icons", 0x1B48A, 0x1b4ca },
+    { L"Character Select icons 1/2", 0x1B48A, 0x1b4aa },
+    { L"Character Select icons 2/2", 0x1B4aA, 0x1b4ca },
     { L"Super Buu", 0x1b4ca, 0x1b51e, indexDBZHDSprites_Bonus, 0x00 },
     { L"Sand 1", 0x2e5a2, 0x2e7a2 },
     { L"Sand 2", 0x2e7a2, 0x2e942 },
@@ -233,6 +245,11 @@ const sDescTreeNode DBZHD_SNES_CELL_COLLECTION[] =
     { L"Shared", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_CELL_PALETTES_SHARED, ARRAYSIZE(DBZHD_SNES_CELL_PALETTES_SHARED) },
 };
 
+const sDescTreeNode DBZHD_SNES_STAGE_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_STAGE_PALETTES, ARRAYSIZE(DBZHD_SNES_STAGE_PALETTES) },
+};
+
 const sDescTreeNode DBZHD_SNES_BONUS_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_BONUS_PALETTES, ARRAYSIZE(DBZHD_SNES_BONUS_PALETTES) },
@@ -250,6 +267,8 @@ const sDescTreeNode DBZHD_SNES_UNITS[] =
     { L"Kid Buu", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_KIDBUU_COLLECTION, ARRAYSIZE(DBZHD_SNES_KIDBUU_COLLECTION) },
     { L"Frieza", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_FRIEZA_COLLECTION, ARRAYSIZE(DBZHD_SNES_FRIEZA_COLLECTION) },
     { L"Cell", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_CELL_COLLECTION, ARRAYSIZE(DBZHD_SNES_CELL_COLLECTION) },
+
+    { L"Stages", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_STAGE_COLLECTION, ARRAYSIZE(DBZHD_SNES_STAGE_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_BONUS_COLLECTION, ARRAYSIZE(DBZHD_SNES_BONUS_COLLECTION) },
 };
 

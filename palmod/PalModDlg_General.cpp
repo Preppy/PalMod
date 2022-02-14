@@ -172,10 +172,10 @@ void CPalModDlg::PostPalSel()
 
     sImgTicket* CurrTicket = CurrGame->GetImgTicket();
 
-    int nPalAmt = MainPalGroup->GetPalAmt();
-    int nPalIndexCtr = 0;
-    int nImgIndexCtr = 0;
-    int nCurrSepAmt = 0;
+    uint32_t nPalAmt = MainPalGroup->GetPalAmt();
+    uint32_t nPalIndexCtr = 0;
+    uint32_t nImgIndexCtr = 0;
+    uint32_t nCurrSepAmt = 0;
 
     BOOL bSameImg = FALSE;
 
@@ -202,17 +202,17 @@ void CPalModDlg::PostPalSel()
         PreviewDlg->SetWindowCaption(strInformation);
     }
 
-    for (int i = 0; i < nPalAmt; i++)
+    for (uint32_t nCurrentPalette = 0; nCurrentPalette < nPalAmt; nCurrentPalette++)
     {
-        CurrPalDef = MainPalGroup->GetPalDef(i);
+        CurrPalDef = MainPalGroup->GetPalDef(nCurrentPalette);
         nCurrSepAmt = CurrPalDef->uSepAmt;
 
-        ImgDispCtrl->AssignBackupPalette(CurrPalDef);
+        ImgDispCtrl->AssignBackupPalette(nCurrentPalette, CurrPalDef);
 
         //Fill the palette control
-        for (int nSepCtr = 0; nSepCtr < nCurrSepAmt; nSepCtr++)
+        for (uint32_t nSepCtr = 0; nSepCtr < nCurrSepAmt; nSepCtr++)
         {
-            CurrSep = MainPalGroup->GetSep(i, nSepCtr);
+            CurrSep = MainPalGroup->GetSep(nCurrentPalette, nSepCtr);
 
             m_PalHost.SetPal(nPalIndexCtr, CurrSep->nAmt, &CurrPalDef->pPal[CurrSep->nStart], CurrSep->szDesc);
 
@@ -246,8 +246,8 @@ void CPalModDlg::PostPalSel()
                             CurrImgDef->uImgWidth,
                             CurrImgDef->uImgHeight,
                             ImgFile->GetImgData(CurrImgDef, CurrGame->GetGameFlag(), CurrTicket->nUnitId, CurrTicket->nImgId),
-                            MainPalGroup->GetPalDef(i)->pPal,
-                            MainPalGroup->GetPalDef(i)->uPalSz,
+                            MainPalGroup->GetPalDef(nCurrentPalette)->pPal,
+                            MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz,
                             CurrTicket->nXOffs,
                             CurrTicket->nYOffs);
                     }
@@ -259,19 +259,25 @@ void CPalModDlg::PostPalSel()
                             0,
                             0,
                             nullptr,
-                            MainPalGroup->GetPalDef(i)->pPal,
-                            MainPalGroup->GetPalDef(i)->uPalSz,
+                            MainPalGroup->GetPalDef(nCurrentPalette)->pPal,
+                            MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz,
                             CurrTicket->nXOffs,
                             CurrTicket->nYOffs);
                     }
                 }
                 else
                 {
+                    if (nImgIndexCtr == 0)
+                    {
+                        // New palette: reset external overrides
+                        ImgDispCtrl->ClearExternalLoads();
+                    }
+
                     // The sprite hasn't changed: just update the palette
                     ImgDispCtrl->UpdateImgPalette(
                         nImgIndexCtr,
-                        MainPalGroup->GetPalDef(i)->pPal,
-                        MainPalGroup->GetPalDef(i)->uPalSz);
+                        MainPalGroup->GetPalDef(nCurrentPalette)->pPal,
+                        MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz);
 
                     bSameImg = TRUE;
                 }

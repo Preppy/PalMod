@@ -24,8 +24,8 @@ void CGame_MVC2_D::FindMultispriteExportValuesForExtrasPalette(sMoveDescription*
                 CString strCheckString;
                 strCheckString.Format(L"%s - %s", pCurrentButtonLabelSet[nButtonCount + nStride], pszSubstring);
 
-                const uint32_t nMaximumKnownPaletteId = pCurrentMoveDescriptions[uUnitId][pCurrentMoveDescriptions[uUnitId].size() - 1].nCharacterIndex;
-                const uint32_t nAdjustedPalId = uPalId - EXTRA_OMNI;
+                const int32_t nMaximumKnownPaletteId = pCurrentMoveDescriptions[uUnitId][pCurrentMoveDescriptions[uUnitId].size() - 1].nCharacterIndex;
+                const int32_t nAdjustedPalId = uPalId - EXTRA_OMNI;
 
                 for (int32_t nStepsTaken = nStride; ((nStepsTaken + nAdjustedPalId) > 0) && ((nStepsTaken + nAdjustedPalId) < nMaximumKnownPaletteId); nStepsTaken += nStride)
                 {

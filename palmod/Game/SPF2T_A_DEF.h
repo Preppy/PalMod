@@ -567,8 +567,8 @@ const sGame_PaletteDataset SPF2T_A_DEVILOT_PALETTES_EFFECTS[] =
 const sGame_PaletteDataset SPF2T_A_GOUKI_PALETTES_EFFECTS[] =
 {
     // Gouki
-    { L"Gouki: Gou-Hadouken", 0x2a0fe, 0x2a11e, indexPuzzleFighter_Akuma, 0x00 },
-    { L"Gouki: Fire Gou-Hadouken", 0x2a11e, 0x2a13e, indexPuzzleFighter_Akuma, 0x00 },
+    { L"Gouki: Gou-Hadouken", 0x2a0fe, 0x2a11e, indexPuzzleFighter_Akuma, 0x01 },
+    { L"Gouki: Fire Gou-Hadouken", 0x2a11e, 0x2a13e, indexPuzzleFighter_Akuma, 0x01 },
     { L"Gouki: Burning", 0x29efe, 0x29f1e, indexPuzzleFighter_Akuma, 0x00 },
     { L"Gouki: Blue-Burning", 0x29f5e, 0x29f7e, indexPuzzleFighter_Akuma, 0x00 },
 };
