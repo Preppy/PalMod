@@ -90,7 +90,7 @@ CDescTree* CGame_SVG_SNES::GetMainTree()
     return &CGame_SVG_SNES::MainDescTree;
 }
 
-uint32_t CGame_SVG_SNES::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SVG_SNES::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SVG_SNES_NUMUNIT, nUnitId, SVG_SNES_EXTRA_CUSTOM);
 }

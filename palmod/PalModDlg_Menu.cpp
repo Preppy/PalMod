@@ -109,9 +109,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
     }
 }
 
-void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
+void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 {
-    CDialog::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
+    CDialog::OnInitMenuPopup(pPopupMenu, nIndex, fSysMenu);
 
     //Set the menu variables
     CMenu* m_SubFileMenu = GetMenu()->GetSubMenu(0);
@@ -122,7 +122,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 
     if (pPopupMenu == m_SubFileMenu)
     {
-        pPopupMenu->EnableMenuItem(ID_FILE_PATCH, !fFileChanged);
+        pPopupMenu->EnableMenuItem(ID_FILE_PATCH, !m_fFileChanged);
         pPopupMenu->EnableMenuItem(ID_FILE_OPENEXTRAS, !fIsGameAvailable || !GetHost()->GetCurrGame()->GameAllowsExtraFile());
         pPopupMenu->EnableMenuItem(ID_FILE_CLOSEFILEDIR, !fIsGameAvailable);
         pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedPath(NULL, 0, NULL, TRUE));
@@ -333,13 +333,13 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 
         while ((nMenuID = pPopupMenu->GetMenuItemID(i)) != -1)
         {
-            pPopupMenu->EnableMenuItem(nMenuID, !bEnabled);
+            pPopupMenu->EnableMenuItem(nMenuID, !m_fEnabled);
 
             i++;
         }
 
         // Right now we can generate patches collecting changes that are for single-binary game sets OR for the few that have had explicit multifile IPS support added
-        const bool shouldEnable = fFileChanged && GetHost()->GetCurrGame() && GetHost()->GetCurrGame()->AllowIPSPatchGeneration();
+        const bool shouldEnable = m_fFileChanged && GetHost()->GetCurrGame() && GetHost()->GetCurrGame()->AllowIPSPatchGeneration();
         pPopupMenu->EnableMenuItem(ID_TOOLS_GENERATEPATCHFILE, !shouldEnable);
     }
     else if (pPopupMenu == m_SubSettMenu)

@@ -96,7 +96,7 @@ CDescTree* CGame_LASTBLADE2_A::GetMainTree()
     return &CGame_LASTBLADE2_A::MainDescTree;
 }
 
-uint32_t CGame_LASTBLADE2_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_LASTBLADE2_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, LASTBLADE2_A_NUMUNIT, nUnitId, LASTBLADE2_A_EXTRA_CUSTOM);
 }

@@ -98,7 +98,7 @@ UINT32 CGame_VSAV2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_VSAV2_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_VSAV2_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, VSAV2_A_NUMUNIT, nUnitId, VSAV2_A_EXTRA_CUSTOM);
 }

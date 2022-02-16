@@ -38,31 +38,31 @@ private:
     void ExportToCImageType(CString output_str, GUID img_format, DWORD dwExportFlags);
 
 public:
-    BOOL bDlgInit = FALSE;
+    BOOL m_fDlgInit = FALSE;
 
     CComboBox m_CB_Amt;
     CComboBox m_CB_Pal;
     CComboBox m_CB_Zoom;
 
-    BOOL bCanSize = FALSE;
+    BOOL m_fCanSize = FALSE;
 
-    BOOL bTransPNG = FALSE;
+    BOOL m_fTransPNG = FALSE;
 
     std::vector<LPCWSTR> pButtonLabelSet;
 
-    int nPalAmt = 0;
+    int m_nPalAmt = 0;
 
     int m_pal = 0;
     int m_zoomSelIndex = 0;
-    int border_sz = 0;
+    int m_border_sz = 0;
 
     const int m_nZoomSelOptionsMin = 0;
 
-    void UpdImgVar(BOOL bResize = TRUE);
+    void UpdImgVar(BOOL fResize = TRUE);
     void FillPalCombo();
 
     afx_msg void OnSize(UINT nType, int cx, int cy);
-    afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
+    afx_msg void OnShowWindow(BOOL fShow, UINT nStatus);
 
     void UpdateImg();
     afx_msg void OnCbnSelchangeAmt();
@@ -89,5 +89,5 @@ public:
     void SubZoom();
     afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
     afx_msg void OnSettingsUseTransparentPNG();
-    afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
+    afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu);
 };

@@ -101,7 +101,7 @@ CDescTree* CGame_NEOGEO_A::GetMainTree()
     return &CGame_NEOGEO_A::MainDescTree;
 }
 
-uint32_t CGame_NEOGEO_A::GetExtraCountForUnit(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_NEOGEO_A::GetExtraCountForUnit(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, NEOGEO_A_NUMUNIT, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
 }

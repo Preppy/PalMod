@@ -51,44 +51,44 @@ public:
     CImgDat* ImgFile = nullptr;
     CPalDropTarget m_dropTarget;
 
-    BOOL bOleInit = TRUE;
-    BOOL bEnabled = FALSE;
+    BOOL m_fOleInit = TRUE;
+    BOOL m_fEnabled = FALSE;
 
     BOOL m_fForceShowAs32bitColor = TRUE;
     BOOL m_fShowAsRGBNotHSL = TRUE;
-    BOOL bCopyFromBase = FALSE;
+    BOOL m_fCopyFromBase = FALSE;
     BOOL m_fShowExtraCopyData = TRUE;
 
-    BOOL fFileChanged = FALSE;
-    BOOL bPalChanged = FALSE;
+    BOOL m_fFileChanged = FALSE;
+    BOOL m_fPalChanged = FALSE;
 
-    BOOL bGetSliderUndo = TRUE;
+    BOOL m_fGetSliderUndo = TRUE;
 
     sPalDef* CurrPalDef = nullptr;
     sPalSep* CurrPalSep = nullptr;
     CJunk* CurrPalCtrl = nullptr;
 
-    BOOL bCanBlink = TRUE;
-    COLORREF* pTempPalCopy = nullptr;
+    BOOL m_fCanBlink = TRUE;
+    COLORREF* m_pTempPalCopy = nullptr;
 
-    BOOL bForceImg = FALSE; 
-    UINT_PTR nCurrSelPal = 0;
-    int nPalSelAmt = 0;
+    BOOL m_fForceImg = FALSE; 
+    UINT_PTR m_nCurrSelPal = 0;
+    int m_nPalSelAmt = 0;
 
-    int nPalImgIndex = 0;
+    int m_nPalImgIndex = 0;
     
-    BOOL bLoadUnit = TRUE;
-    int nPrevUnitSel = 0xffff;
-    int nPrevChildSel1 = 0xffff;
-    int nPrevChildSel2 = 0xffff;
+    BOOL m_fLoadUnit = TRUE;
+    int m_nPrevUnitSel = 0xffff;
+    int m_nPrevChildSel1 = 0xffff;
+    int m_nPrevChildSel2 = 0xffff;
 
     int m_nRGBAmt = 0, m_nAAmt = 0;
 
     CUndoRedo UndoProc;
 
-    COLORREF crBlinkCol = 0;
+    COLORREF m_crBlinkCol = 0;
 
-    BOOL bCanMinMax = FALSE;
+    BOOL m_fCanMinMax = FALSE;
 
     //Program functions
 
@@ -166,22 +166,22 @@ public:
     bool SavePaletteToGPL(LPCWSTR pszFileName);
     bool SavePaletteToPAL(LPCWSTR pszFileName);
 
-    void UpdateSliderSel(BOOL bModeChange = FALSE, BOOL bResetRF = FALSE);
+    void UpdateSliderSel(BOOL fModeChange = FALSE, BOOL fResetRF = FALSE);
     void SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB);
     void GetPlaneData();
-    void UpdatePalSel(BOOL bSetSingleCol = FALSE);
+    void UpdatePalSel(BOOL fSetSingleCol = FALSE);
 
     void Blink();
 
     void GetSetSingleCol();
     void SetSliderCol(int nRH, int nGS, int nBL, int nA = -1);
-    void UpdateMultiEdit(BOOL bForce = FALSE);
+    void UpdateMultiEdit(BOOL fForce = FALSE);
     void SetSliderDescEdit();
     int BoundStepBySliderRange(int nIntValue, CSliderCtrl* pSlider);
 
-    void NewUndoData(BOOL bUndo = TRUE);
-    void DoUndoRedo(BOOL bUndo);
-    void ProcChange(BOOL bReset = FALSE);
+    void NewUndoData(BOOL fUndo = TRUE);
+    void DoUndoRedo(BOOL fUndo);
+    void ProcChange(BOOL fReset = FALSE);
 
     void PerformBlink();
 
@@ -206,10 +206,10 @@ public:
 
     void UpdateSliderPos(int nCtrlId);
 
-    void Enable(BOOL bEnableFlag = TRUE);
+    void Enable(BOOL fEnableFlag = TRUE);
     void UpdateEnableCtrls();
     void EnableSlider(int RH, int GS, int BL);
-    void ResetSlider(BOOL bSetZero = TRUE);
+    void ResetSlider(BOOL fSetZero = TRUE);
 
     void UpdateEditKillFocus(int nCtrlId);
     void CloseFileDir();
@@ -261,8 +261,8 @@ public:
     int m_Edit_BL = 0;
     int m_Edit_A = 0;
 
-    int nBlinkState = 0;
-    int nBlinkCount = 0;
+    int m_nBlinkState = 0;
+    int m_nBlinkCount = 0;
 
     CStatusBar m_StatusBar;
     afx_msg void OnKillFocusEditRh();
@@ -283,7 +283,7 @@ public:
     afx_msg void OnSavePatchFile();
 
     static void SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameFlag);
-    static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL bCheckOnly = FALSE, BOOL* bIsDir = NULL);
+    static BOOL GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL fCheckOnly = FALSE, BOOL* fIsDir = nullptr);
 
     static BOOL IsPasteFromPalMod();
     static BOOL IsPasteSupported();
@@ -301,7 +301,7 @@ public:
     static BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
     static int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData);
 
-    afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
+    afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu);
     afx_msg void OnSettingsSettings();
     afx_msg void OnEditUndo();
     afx_msg void OnEditRedo();
@@ -318,7 +318,7 @@ public:
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnBnShowPrev();
     afx_msg void OnSetFocus(CWnd* pOldWnd);
-    afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
+    afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL fMinimized);
     afx_msg void OnFileOpen() { OnFileOpenInternal(); };
     afx_msg void OnButtonClickCheckEdits();
     afx_msg void OnBnRevert();

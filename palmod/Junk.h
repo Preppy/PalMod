@@ -128,14 +128,14 @@ public:
     CJunk();
     ~CJunk(void);
 
-    void Enable(BOOL bEnableFlag = TRUE) { m_bEnabled = bEnableFlag; UpdateCtrl(); }
+    void Enable(BOOL fEnableFlag = TRUE) { m_bEnabled = fEnableFlag; UpdateCtrl(); }
 
     BOOL InitNewSize(int nNewAmt, COLORREF* rgNewPal);
     static BOOL InitPen();
 
     int GetBaseWidth() { return m_iBaseW; };
     int GetBaseHeight() { return m_iBaseH; };
-    BOOL UpdateCtrl(BOOL bUpdFace = TRUE);
+    BOOL UpdateCtrl(BOOL fUpdFace = TRUE);
 
     void ClearSelected();
     void ClearSelView();
@@ -171,7 +171,7 @@ public:
     afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
-    afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
+    afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu);
     afx_msg void OnMenuSelect(UINT nItemID, UINT nFlags, HMENU hSysMenu);
 
 protected:

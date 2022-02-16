@@ -136,7 +136,7 @@ UINT32 CGame_VampireHunter_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet*
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_VampireHunter_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_VampireHunter_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, VampireHunter_A_NUMUNIT, nUnitId, VampireHunter_A_EXTRA_CUSTOM);
 }

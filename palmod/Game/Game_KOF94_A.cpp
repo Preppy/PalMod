@@ -146,7 +146,7 @@ UINT32 CGame_KOF94_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
 #endif
 }
 
-uint32_t CGame_KOF94_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KOF94_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KOF94_A_NUMUNIT, nUnitId, KOF94_A_EXTRA_CUSTOM);
 }

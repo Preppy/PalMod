@@ -75,7 +75,7 @@ CGame_SFA1_A::~CGame_SFA1_A(void)
     FlushChangeTrackingArray();
 }
 
-uint32_t CGame_SFA1_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SFA1_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SFA1_A_NUMUNIT, nUnitId, SFA1_A_EXTRA_CUSTOM);
 }

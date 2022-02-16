@@ -124,7 +124,7 @@ UINT32 CGame_KOF96_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_KOF96_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KOF96_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KOF96_A_NUMUNIT, nUnitId, KOF96_A_EXTRA_CUSTOM);
 }

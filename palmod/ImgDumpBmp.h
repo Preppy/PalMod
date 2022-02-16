@@ -22,15 +22,15 @@ public:
     //void DrawSource();
     void SetBG(COLORREF new_crBGCol);
 
-    BITMAPINFO MainBmpi; 
-    HBITMAP MainHBmp;
-    UINT32* pMainBmpData = nullptr;
+    BITMAPINFO m_MainBmpi; 
+    HBITMAP m_MainHBmp;
+    UINT32* m_pMainBmpData = nullptr;
 
     //Main preview image control
-    CImgDisp* pMainImgCtrl = nullptr;
-    sImgNode** rgSrcImg = nullptr;
+    CImgDisp* m_pMainImgCtrl = nullptr;
+    sImgNode** m_rgSrcImg = nullptr;
 
-    BOOL LButtonDown = FALSE;
+    BOOL m_LButtonDown = FALSE;
 
     BOOL HScroll_Enabled = FALSE;
     BOOL VScroll_Enabled = FALSE;
@@ -38,49 +38,42 @@ public:
     BOOL m_fInitialized = FALSE;
     BOOL m_fScrollbarIsReady = FALSE;
 
-    POINT ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
-    CRect rImgRct = {};
+    POINT m_ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
+    CRect m_rImgRct = {};
 
-    CDC MainDC;
+    CDC m_MainDC;
 
-    COLORREF*** pppPalettes = nullptr;
+    COLORREF*** m_pppPalettes = nullptr;
     
-    COLORREF crBGCol = RGB(0, 0, 0);
+    COLORREF m_crBGCol = RGB(0, 0, 0);
 
-    POINT old_pt;
+    POINT m_old_pt;
 
-    int complete_w = 0;
-    int complete_h = 0;
+    RECT m_ctrl_rect = {};
 
-    RECT ctrl_rect = {};
-    RECT blt_rct = {};
+    RECT m_main_blt = {};
 
-    RECT main_blt = {};
+    int m_clip_right = 0, m_clip_bottom = 0;
 
-    int clip_right = 0, clip_bottom = 0;
+    int m_blt_w = 0, m_blt_h = 0;
 
-    int blt_w = 0, blt_h = 0;
-
-    int nPalAmt = 0;
-    int img_amt = 0;
+    int m_nPalAmt = 0;
+    int m_nImageAmt = 0;
 
     int m_nTotalImagesToDisplay = 0;
-    int nPalIndex = 0;
-    float zoom = 0.0f;
-    int border_sz = 0;
-    int outline_sz = 0;
+    int m_nPalIndex = 0;
+    float m_flZoomLevel = 0.0f;
+    int m_border_sz = 0;
+    int m_outline_sz = 0;
 
-    int output_width = 0;
-    int output_height = 0;
+    int m_cl_width = 0, m_cl_height = 0;
 
-    int cl_width = 0, cl_height = 0;
-
-    void UpdateCtrl(BOOL bDraw = TRUE, UINT8 * pDstData = NULL);
+    void UpdateCtrl(BOOL fDraw = TRUE, UINT8* pDstData = NULL);
     void UpdateClip();
 
     void ClearCtrlBG();
 
-    int nMainW = 0, nMainH = 0;
+    int m_nMainW = 0, m_nMainH = 0;
 
     int GetImageCountForFirstLine();
     int GetMaxImagesPerLine();
@@ -88,8 +81,8 @@ public:
     CScrollBar m_HScroll;
     CScrollBar m_VScroll;
 
-    RECT h_rect = {};
-    RECT v_rect = {};
+    RECT m_h_rect = {};
+    RECT m_v_rect = {};
 
     eImageOutputSpriteDisplay DispType;
 
@@ -97,7 +90,6 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 public:
-
     BOOL RegisterWndClass();
 
     afx_msg void OnPaint();
@@ -124,7 +116,7 @@ public:
 
     void Draw();
 
-    BOOL CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, double fpZoom, BOOL bTransBG = FALSE);
+    BOOL CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, double fpZoom, BOOL fTransBG = FALSE);
 
     void ResizeMainBmp();
 };

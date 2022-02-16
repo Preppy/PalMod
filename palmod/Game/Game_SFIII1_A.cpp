@@ -89,9 +89,9 @@ CGame_SFIII1_A::~CGame_SFIII1_A(void)
     FlushChangeTrackingArray();
 }
 
-uint32_t CGame_SFIII1_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SFIII1_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
-    return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_50 : rgExtraCountAll_50, SFIII1_A_50_NUMUNIT, nUnitId, SFIII1_A_50_EXTRA_CUSTOM);
+    return _GetExtraCount(fCountVisibleOnly ? rgExtraCountVisibleOnly_50 : rgExtraCountAll_50, SFIII1_A_50_NUMUNIT, nUnitId, SFIII1_A_50_EXTRA_CUSTOM);
 }
 
 uint32_t CGame_SFIII1_A::GetExtraLoc(uint32_t nUnitId)

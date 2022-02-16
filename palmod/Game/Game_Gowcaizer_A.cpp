@@ -84,7 +84,7 @@ CDescTree* CGame_Gowcaizer_A::GetMainTree()
     return &CGame_Gowcaizer_A::MainDescTree;
 }
 
-uint32_t CGame_Gowcaizer_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_Gowcaizer_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, Gowcaizer_A_NUMUNIT, nUnitId, Gowcaizer_A_EXTRA_CUSTOM);
 }

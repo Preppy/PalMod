@@ -106,7 +106,7 @@ CDescTree* CGame_BLEACH_DS::GetMainTree()
     return &CGame_BLEACH_DS::MainDescTree;
 }
 
-uint32_t CGame_BLEACH_DS::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_BLEACH_DS::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, BLEACH_DS_NUMUNIT, nUnitId, BLEACH_DS_EXTRA_CUSTOM);
 }

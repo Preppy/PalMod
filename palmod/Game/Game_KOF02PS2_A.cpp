@@ -84,7 +84,7 @@ CDescTree* CGame_KOF02PS2_A::GetMainTree()
     return &CGame_KOF02PS2_A::MainDescTree;
 }
 
-uint32_t CGame_KOF02PS2_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KOF02PS2_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KOF02PS2_A_NUMUNIT, nUnitId, KOF02PS2_A_EXTRA_CUSTOM);
 }

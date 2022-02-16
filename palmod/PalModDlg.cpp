@@ -318,7 +318,7 @@ BOOL CPalModDlg::OnInitDialog()
     if (!AfxOleInit())
     {
         AfxMessageBox(L"AfxOleInit Error!");
-        bOleInit = FALSE;
+        m_fOleInit = FALSE;
     }
 
     //Create and attach the status bar
@@ -414,7 +414,7 @@ void CPalModDlg::OnPaint()
         CDialog::OnPaint();
     }
 
-    bCanMinMax = TRUE;
+    m_fCanMinMax = TRUE;
 }
 
 // The system calls this function to obtain the cursor to display while the user drags
@@ -424,9 +424,9 @@ HCURSOR CPalModDlg::OnQueryDragIcon()
     return static_cast<HCURSOR>(m_hIcon);
 }
 
-void CPalModDlg::Enable(BOOL bEnableFlag)
+void CPalModDlg::Enable(BOOL fEnableFlag)
 {
-    bEnabled = bEnableFlag;
+    m_fEnabled = fEnableFlag;
 
     UpdateEnableCtrls();
 }
@@ -461,7 +461,7 @@ BOOL CALLBACK CPalModDlg::EnumChildProc(HWND hwnd, LPARAM lParam)
     case IDC_SPIN_A:
         break;
     default:
-        ::EnableWindow(hwnd, ((CPalModDlg*)lParam)->bEnabled);
+        ::EnableWindow(hwnd, ((CPalModDlg*)lParam)->m_fEnabled);
         break;
     }
 
@@ -510,9 +510,9 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
 {
     m_ToolTip.RelayEvent(pMsg);
 
-    if (m_hAccelTable)
+    if (g_hAccelTable)
     {
-        if (::TranslateAccelerator(GetSafeHwnd(), m_hAccelTable, pMsg))
+        if (::TranslateAccelerator(GetSafeHwnd(), g_hAccelTable, pMsg))
         {
             return(TRUE);
         }
@@ -574,7 +574,7 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
     {
     case eVerifyType::VM_PALCHANGE:
     {
-        if (bPalChanged)
+        if (m_fPalChanged)
         {
             const int nMBDefault = CRegProc::GetUserSavePaletteToMemoryPreference();
             // WINE currently muffs their implementation of SHMessageBoxCheck - special-case handling there
@@ -611,14 +611,14 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
             }
             case IDNO:
             {
-                bPalChanged = FALSE;
+                m_fPalChanged = FALSE;
                 return TRUE;
             }
             case IDCANCEL:
             {
-                nPrevUnitSel != m_CBUnitSel.GetCurSel() ? m_CBUnitSel.SetCurSel(nPrevUnitSel) : NULL;
-                nPrevChildSel1 != m_CBChildSel1.GetCurSel() ? m_CBChildSel1.SetCurSel(nPrevChildSel1) : NULL;
-                nPrevChildSel2 != m_CBChildSel2.GetCurSel() ? m_CBChildSel2.SetCurSel(nPrevChildSel2) : NULL;
+                m_nPrevUnitSel != m_CBUnitSel.GetCurSel() ? m_CBUnitSel.SetCurSel(m_nPrevUnitSel) : NULL;
+                m_nPrevChildSel1 != m_CBChildSel1.GetCurSel() ? m_CBChildSel1.SetCurSel(m_nPrevChildSel1) : NULL;
+                m_nPrevChildSel2 != m_CBChildSel2.GetCurSel() ? m_CBChildSel2.SetCurSel(m_nPrevChildSel2) : NULL;
 
                 return FALSE;
             }
@@ -633,7 +633,7 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
     break;
     case eVerifyType::VM_FILECHANGE:
     {
-        if (fFileChanged)
+        if (m_fFileChanged)
         {
             CString strQuestion;
             if (strQuestion.LoadString(IDS_SAVE_FILE_CHANGES))
@@ -647,8 +647,8 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
                 }
                 case IDNO:
                 {
-                    fFileChanged = FALSE;
-                    bPalChanged = FALSE;
+                    m_fFileChanged = FALSE;
+                    m_fPalChanged = FALSE;
                     return TRUE;
                 }
                 case IDCANCEL:
@@ -689,7 +689,7 @@ void CPalModDlg::OnClose()
 
 void CPalModDlg::CloseFileDir()
 {
-    if (bEnabled)
+    if (m_fEnabled)
     {
         ClearGameVar();
 
@@ -708,14 +708,9 @@ void CPalModDlg::ClearGameVar()
     if (ImgDispCtrl)
     {
         //Get rid of any images
-        ImgDispCtrl->FlushImages();
+        ImgDispCtrl->ClearAllImages();
         ImgDispCtrl->UpdateCtrl();
     }
-
-    //if (ImgFile)
-    //{
-        //ImgFile->FlushImageBuffer();
-    //}
 
     //Clear each combo box
     while (m_CBUnitSel.DeleteString(0) >= 0) NULL;
@@ -725,12 +720,12 @@ void CPalModDlg::ClearGameVar()
     //Clear the game class
     GetHost()->ClearGameClass();
 
-    bLoadUnit = TRUE;
-    nPrevUnitSel = nPrevChildSel1 = nPrevChildSel2 = 0xFF;
+    m_fLoadUnit = TRUE;
+    m_nPrevUnitSel = m_nPrevChildSel1 = m_nPrevChildSel2 = 0xFF;
 
-    CurrPalDef = NULL;
-    CurrPalSep = NULL;
-    CurrPalCtrl = NULL;
+    CurrPalDef = nullptr;
+    CurrPalSep = nullptr;
+    CurrPalCtrl = nullptr;
 
     //Set the edits to 0
     UpdateData();
@@ -739,7 +734,7 @@ void CPalModDlg::ClearGameVar()
     //Clear plane amt
     m_nRGBAmt = m_nAAmt = 0;
 
-    bCopyFromBase = FALSE;
+    m_fCopyFromBase = FALSE;
 
     // Indicate no game is loaded
     Enable(FALSE);

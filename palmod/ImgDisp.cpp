@@ -22,7 +22,7 @@ CImgDisp::~CImgDisp()
     m_BGBitmap.DeleteObject();
     m_BGBrush.DeleteObject();
 
-    FlushImages();
+    ClearAllImages();
 
     safe_delete(m_MainDC);
     safe_delete(m_ImageDC);
@@ -75,9 +75,9 @@ END_MESSAGE_MAP()
 
 void CImgDisp::InitImgBuffer()
 {
-    for (int i = 0; i < MAX_IMAGES_DISPLAYABLE; i++)
+    for (int iImageIndex = 0; iImageIndex < MAX_IMAGES_DISPLAYABLE; iImageIndex++)
     {
-        m_pImgBuffer[i] = NULL;
+        m_pImgBuffer[iImageIndex] = nullptr;
     }
 
     m_rImgRct.SetRectEmpty();
@@ -131,11 +131,6 @@ void CImgDisp::ClearUsed()
     m_nImgRctW = 0;
     m_nImgRctH = 0;
 
-    for (int iPos = 0; iPos < MAX_IMAGES_DISPLAYABLE; iPos++)
-    {
-        safe_delete_array(m_ppSpriteOverrideTexture[iPos]);
-    }
-
     // reset offsets
     for (uint32_t iPos = 0; iPos < ARRAYSIZE(m_ptOffs); iPos++)
     {
@@ -163,11 +158,11 @@ void CImgDisp::FlushUnused()
 {
     if (m_nImgAmt)
     {
-        for (int i = 0; i < MAX_IMAGES_DISPLAYABLE; i++)
+        for (int iImageIndex = 0; iImageIndex < MAX_IMAGES_DISPLAYABLE; iImageIndex++)
         {
-            if (!m_bUsed[i])
+            if (!m_bUsed[iImageIndex])
             {
-                FlushImageNode(i);
+                FlushImageNode(iImageIndex);
             }
         }
 
@@ -252,11 +247,11 @@ void CImgDisp::FlushImageNode(int nIndex)
     }
 }
 
-void CImgDisp::FlushImages()
+void CImgDisp::ClearAllImages()
 {
-    for (int i = 0; i < MAX_IMAGES_DISPLAYABLE; i++)
+    for (int iIndex = 0; iIndex < MAX_IMAGES_DISPLAYABLE; iIndex++)
     {
-        FlushImageNode(i);
+        FlushImageNode(iIndex);
     }
 }
 
@@ -264,7 +259,7 @@ BOOL CImgDisp::LoadBGBmp(LPCWSTR pszBmpLoc)
 {
     CImage backgroundImage;
 
-    if (pszBmpLoc != nullptr)
+    if (pszBmpLoc)
     {
         m_strBackgroundLoc = pszBmpLoc;
     }
@@ -397,7 +392,7 @@ void CImgDisp::DrawMainBG()
     }
 }
 
-void CImgDisp::UpdateCtrl(BOOL bRedraw /* = TRUE */, int nUseAltPal /* = 0 */)
+void CImgDisp::UpdateCtrl(BOOL fRedraw /* = TRUE */, int indexOfImageUsingBlinkPalette /* = 0 */)
 {
     //Do nothing on a hidden window
     if (!IsWindowVisible())
@@ -411,53 +406,36 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw /* = TRUE */, int nUseAltPal /* = 0 */)
     //Reset the BLT rect
     //memset(&rBlt, 0, sizof(RECT));
 
-    int nAltPalIndex = (nUseAltPal ? (nUseAltPal & 0x00FF) : MAX_IMAGES_DISPLAYABLE);
-
-    BOOL bFirst = TRUE;
-    bool fImageFound = false;
+    int nBlinkImageIndex = (indexOfImageUsingBlinkPalette ? (indexOfImageUsingBlinkPalette & 0x00FF) : MAX_IMAGES_DISPLAYABLE);
 
     for (int nImgCtr = 0; nImgCtr < MAX_IMAGES_DISPLAYABLE; nImgCtr++)
     {
-        if (m_pImgBuffer[nImgCtr])
+        if (m_pImgBuffer[nImgCtr] && m_pImgBuffer[nImgCtr]->pImgData)
         {
             //Draw the img
             CustomBlt(
                 nImgCtr,
                 m_ptOffs[nImgCtr].x + m_rImgRct.left + abs(m_nXOffsTop),
                 m_ptOffs[nImgCtr].y + m_rImgRct.top + abs(m_nYOffsTop),
-                (nAltPalIndex == nImgCtr)
+                (nBlinkImageIndex == nImgCtr)
+            );
+        }
+        else if (m_ppSpriteOverrideTexture[nImgCtr])
+        {
+            //Draw the img
+            CustomBlt(
+                nImgCtr,
+                -1, // overridden 
+                -1, // overridden 
+                (nBlinkImageIndex == nImgCtr)
             );
 
-            fImageFound = true;
-        }
-    }
-
-    if (!fImageFound)
-    {
-        for (int nImgCtr = 0; nImgCtr < MAX_IMAGES_DISPLAYABLE; nImgCtr++)
-        {
-            if (m_ppSpriteOverrideTexture[nImgCtr])
-            {
-                //Draw the img
-                CustomBlt(
-                    nImgCtr,
-                    -1, // overridden 
-                    -1, // overridden 
-                    (nAltPalIndex == nImgCtr)
-                );
-
-                fImageFound = true;
-            }
-        }
-
-        if (fImageFound)
-        {
             OutputDebugString(L"Loaded alternate sprite for character with no sprite... \n");
         }
     }
 
     //Repaint
-    if (bRedraw)
+    if (fRedraw)
     {
         Redraw();
     }
@@ -523,21 +501,13 @@ void CImgDisp::OnSize(UINT nType, int cx, int cy)
 void CImgDisp::AssignBackupPalette(sPalDef* pBackupPaletteDef)
 {
     m_pBackupPaletteDef = pBackupPaletteDef;
-    m_pBackupAltPalette = nullptr;
+    m_pBackupBlinkPalette = nullptr;
 }
 
 bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
 {
-    if (m_pImgBuffer && m_pImgBuffer[nIndex])
-    {
-        return true;
-    }
-    else if (m_ppSpriteOverrideTexture[nIndex])
-    {
-        return true;
-    }
-
-    return false;
+    return ((m_pImgBuffer[nIndex] && m_pImgBuffer[nIndex]->pImgData) ||
+            m_ppSpriteOverrideTexture[nIndex]);
 }
 
 bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszTextureLocation)
@@ -567,9 +537,13 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
             pszDataH += ARRAYSIZE(L"H-");
             pszTermination[0] = 0;
 
-            if (_stscanf_s(pszDataW, L"%u", &m_nTextureOverrideW[nPositionToLoadTo]) &&
-                _stscanf_s(pszDataH, L"%u", &m_nTextureOverrideH[nPositionToLoadTo]))
+            uint32_t nScannedH = 0, nScannedW = 0;
+
+            if (_stscanf_s(pszDataW, L"%u", &nScannedW) && _stscanf_s(pszDataH, L"%u", &nScannedH))
             {
+                m_nTextureOverrideW[nPositionToLoadTo] = static_cast<UINT16>(nScannedW);
+                m_nTextureOverrideH[nPositionToLoadTo] = static_cast<UINT16>(nScannedH);
+
                 if ((m_nTextureOverrideW[nPositionToLoadTo] > 0) && (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
                     (m_nTextureOverrideH[nPositionToLoadTo] > 0) && (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
                 {
@@ -590,6 +564,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                         MessageBox(L"The W and H values specified in the RAW filename are wrong.  This will not look right.", GetHost()->GetAppName(), MB_ICONERROR);
                     }
 
+                    safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
                     m_ppSpriteOverrideTexture[nPositionToLoadTo] = new UINT8[nSizeToRead];
 
                     CString wcsstr;
@@ -627,12 +602,15 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
                     if (m_pImgBuffer[nPositionToLoadTo])
                     {
-                        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo], m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
+                        // Override but use the stock palette
+                        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+                                                        m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
                     }
                     else
                     {
                         // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
-                        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo], m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
+                        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+                                                        m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
                     }
 
                     ResetForNewImage();
@@ -646,7 +624,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
     return false;
 }
 
-BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal)
+BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkPal)
 {
     if ((MAIN_W <= 0) || (MAIN_H <= 0))
     {
@@ -660,30 +638,28 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
     UINT8* pCurrPal = nullptr;
     UINT8* pDstBmpData = (UINT8*)m_pBmpData;
 
-    if ((nSrcIndex != -1) && m_pImgBuffer && m_pImgBuffer[nSrcIndex])
+    if ((nSrcIndex != -1) && m_pImgBuffer[nSrcIndex])
     {
         pImgData = (UINT8*)m_pImgBuffer[nSrcIndex]->pImgData;
-        pCurrPal = (UINT8*)(fUseAltPal ? m_pImgBuffer[nSrcIndex]->pAltPal : m_pImgBuffer[nSrcIndex]->pPalette);
+        pCurrPal = (UINT8*)(fUseBlinkPal ? m_pImgBuffer[nSrcIndex]->pBlinkPalette : m_pImgBuffer[nSrcIndex]->pPalette);
         nWidth = m_pImgBuffer[nSrcIndex]->uImgW;
         nHeight = m_pImgBuffer[nSrcIndex]->uImgH;
     }
+    else if (m_pBackupPaletteDef != nullptr)
+    {
+        pCurrPal = (UINT8*)(fUseBlinkPal ? m_pBackupBlinkPalette : m_pBackupPaletteDef->pPal);
+    }
     else
     {
-        if (m_pBackupPaletteDef != nullptr)
-        {
-            pCurrPal = (UINT8*)(fUseAltPal ? m_pBackupAltPalette : m_pBackupPaletteDef->pPal);
-        }
-        else
-        {
-            OutputDebugString(L"CImgDisp::CustomBlt: No image available and no backup palette available. No image will be loaded.\n");
-            return FALSE;
-        }
+        OutputDebugString(L"CImgDisp::CustomBlt: No image available and no backup palette available. No image will be loaded.\n");
+        return FALSE;
     }
 
+    // The user can override the internal sprite here
     if (m_ppSpriteOverrideTexture[nSrcIndex])
     {
         CString strInfo;
-        strInfo.Format(L"CImgDisp::CustomBlt: Loading alternate sprite for sprite %u\n", nSrcIndex);
+        strInfo.Format(L"CImgDisp::CustomBlt: Displaying alternate sprite for sprite %u\n", nSrcIndex);
         OutputDebugString(strInfo.GetString());
         pImgData = m_ppSpriteOverrideTexture[nSrcIndex];
         nWidth = m_nTextureOverrideW[nSrcIndex];
@@ -930,14 +906,16 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
     CWnd::OnLButtonUp(nFlags, point);
 }
 
-void CImgDisp::SetAltPal(int nIndex, COLORREF* pAltPal)
+void CImgDisp::SetBlinkPalette(int nIndex, COLORREF* pBlinkPalette)
 {
+    // This is a copy of the main palette: we need that so we can swap out the highlighted color(s) for the
+    // selected blink color
     if (m_pImgBuffer[nIndex])
     {
-        m_pImgBuffer[nIndex]->pAltPal = pAltPal;
+        m_pImgBuffer[nIndex]->pBlinkPalette = pBlinkPalette;
     }
 
-    m_pBackupAltPalette = pAltPal;
+    m_pBackupBlinkPalette = pBlinkPalette;
 }
 
 void CImgDisp::OnRButtonDown(UINT nFlags, CPoint point)

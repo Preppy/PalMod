@@ -248,22 +248,22 @@ UINT32 CGame_SF2CE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_SF2CE_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SF2CE_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     switch (m_nSelectedRom)
     {
     case 21:
     {
-        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_21 : rgExtraCountAll_21, SF2CE_A_21_NUMUNIT, nUnitId, SF2CE_A_21_EXTRA_CUSTOM);
+        return _GetExtraCount(fCountVisibleOnly ? rgExtraCountVisibleOnly_21 : rgExtraCountAll_21, SF2CE_A_21_NUMUNIT, nUnitId, SF2CE_A_21_EXTRA_CUSTOM);
     }
     case 22:
     default:
     {
-        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_22 : rgExtraCountAll_22, SF2CE_A_22_NUMUNIT, nUnitId, SF2CE_A_22_EXTRA_CUSTOM);
+        return _GetExtraCount(fCountVisibleOnly ? rgExtraCountVisibleOnly_22 : rgExtraCountAll_22, SF2CE_A_22_NUMUNIT, nUnitId, SF2CE_A_22_EXTRA_CUSTOM);
     }
     case 23:
     {
-        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_23 : rgExtraCountAll_23, SF2CE_A_23_NUMUNIT, nUnitId, SF2CE_A_23_EXTRA_CUSTOM);
+        return _GetExtraCount(fCountVisibleOnly ? rgExtraCountVisibleOnly_23 : rgExtraCountAll_23, SF2CE_A_23_NUMUNIT, nUnitId, SF2CE_A_23_EXTRA_CUSTOM);
     }
     };
 }

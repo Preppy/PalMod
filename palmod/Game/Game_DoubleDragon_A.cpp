@@ -102,7 +102,7 @@ stExtraDef* CGame_DOUBLEDRAGON_A::GetCurrentExtraDef(int nDefCtr)
     return (stExtraDef*)&DOUBLEDRAGON_A_EXTRA_CUSTOM[nDefCtr];
 }
 
-uint32_t CGame_DOUBLEDRAGON_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_DOUBLEDRAGON_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, DOUBLEDRAGON_A_NUMUNIT, nUnitId, DOUBLEDRAGON_A_EXTRA_CUSTOM);
 }

@@ -106,7 +106,7 @@ CGame_JOJOS_A::~CGame_JOJOS_A(void)
     FlushChangeTrackingArray();
 }
 
-uint32_t CGame_JOJOS_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_JOJOS_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     if (UsePaletteSetFor50())
     {
@@ -244,7 +244,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
         sDescNode* ChildNode = nullptr;
 
         uint32_t nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
+        BOOL fUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
 
         uint32_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
@@ -260,7 +260,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if JOJOS_DEBUG
-            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, fUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -334,7 +334,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
         }
 
         //Set up extra nodes
-        if (bUseExtra)
+        if (fUseExtra)
         {
             uint32_t nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;

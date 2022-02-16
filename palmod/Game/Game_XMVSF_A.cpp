@@ -148,7 +148,7 @@ sFileRule CGame_XMVSF_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-uint32_t CGame_XMVSF_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_XMVSF_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, XMVSF_A_NUMUNIT, nUnitId, XMVSF_A_EXTRA_CUSTOM);
 }

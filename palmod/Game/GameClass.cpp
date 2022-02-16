@@ -698,7 +698,7 @@ void CGameClass::UpdatePalData()
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
-        if (srcDef->bAvail)
+        if (srcDef->fPalAvailable)
         {
             COLORREF* crSrc = srcDef->pPal;
             INT16 nTotalColorsRemaining = srcDef->uPalSz;
@@ -751,7 +751,7 @@ void CGameClass::UpdatePalData()
             }
 
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
+            srcDef->fIsChanged = FALSE;
             rgFileChanged[srcDef->uUnitId] = TRUE;
 
             if (nPalCtr == 0)
@@ -1282,7 +1282,7 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
         sDescNode* ChildNode = nullptr;
 
         uint32_t nExtraCt = _GetExtraCount(rgExtraCount, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
-        BOOL bUseExtra = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef) != 0;
+        BOOL fUseExtra = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef) != 0;
 
         uint32_t nUnitChildCount = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nTotalNormalUnitCount, nExtraUnitLocation, iUnitCtr, ppExtraDef);
 
@@ -1298,7 +1298,7 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if GAMECLASS_DBG
-            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, pNewDescTree->uChildAmt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, pNewDescTree->uChildAmt, fUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -1372,7 +1372,7 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
         }
 
         //Set up extra nodes
-        if (bUseExtra)
+        if (fUseExtra)
         {
             uint32_t nExtraPos = _GetExtraLocation(rgExtraLocations, nTotalNormalUnitCount, iUnitCtr, ppExtraDef);
             uint32_t nCurrExtra = 0;

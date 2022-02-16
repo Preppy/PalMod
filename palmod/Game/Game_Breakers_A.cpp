@@ -84,7 +84,7 @@ CDescTree* CGame_BREAKERS_A::GetMainTree()
     return &CGame_BREAKERS_A::MainDescTree;
 }
 
-uint32_t CGame_BREAKERS_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_BREAKERS_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, BREAKERS_A_NUMUNIT, nUnitId, BREAKERS_A_EXTRA_CUSTOM);
 }

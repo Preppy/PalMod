@@ -190,7 +190,7 @@ void CPalModDlg::PostGameLoad()
     GetPlaneData();
 
     //Force the image to redisplay
-    bForceImg = TRUE;
+    m_fForceImg = TRUE;
 
     //Init the first palette selection
     OnPalSelChange(0);
@@ -218,24 +218,24 @@ void CPalModDlg::OnBnUpdate()
 {
     GetHost()->GetCurrGame()->UpdatePalData();
 
-    bPalChanged = FALSE;
+    m_fPalChanged = FALSE;
 }
 
 void CPalModDlg::OnButtonClickCheckEdits()
 {
     // Commit current changes to memory if needed
-    if (bPalChanged)
+    if (m_fPalChanged)
     {
         OnBnUpdate();
     }
 
-    GetHost()->GetCurrGame()->ValidateMixExtraColors(&fFileChanged);
+    GetHost()->GetCurrGame()->ValidateMixExtraColors(&m_fFileChanged);
 }
 
 void CPalModDlg::OnFilePatch()
 {
     // Commit current changes to memory
-    if (bPalChanged)
+    if (m_fPalChanged)
     {
         OnBnUpdate();
     }
@@ -246,7 +246,7 @@ void CPalModDlg::OnFilePatch()
 
     if (!GetHost()->GetLoader()->GetErrCt())
     {
-        fFileChanged = FALSE;
+        m_fFileChanged = FALSE;
     }
 }
 
@@ -261,7 +261,7 @@ void CPalModDlg::OnFileCrossPatch()
 void CPalModDlg::OnSavePatchFile()
 {
     // Commit current changes to memory
-    if (bPalChanged)
+    if (m_fPalChanged)
     {
         OnBnUpdate();
     }
@@ -286,29 +286,29 @@ void CPalModDlg::OnSavePatchFile()
 
 void CPalModDlg::OnNMReleasedCaptureAll(NMHDR* pNMHDR, LRESULT* pResult)
 {
-    if (!bGetSliderUndo)
+    if (!m_fGetSliderUndo)
     {
-        bGetSliderUndo = TRUE;
+        m_fGetSliderUndo = TRUE;
     }
 
     *pResult = 0;
 }
 
-void CPalModDlg::ProcChange(BOOL bReset /* = FALSE */)
+void CPalModDlg::ProcChange(BOOL fReset /* = FALSE */)
 {
-    if (bReset)
+    if (fReset)
     {
         UndoProc.Clear();
 
-        bPalChanged = FALSE;
+        m_fPalChanged = FALSE;
     }
     else
     {
         UndoProc.DeleteRedoList();
         NewUndoData();
 
-        fFileChanged = TRUE;
-        bPalChanged = TRUE;
+        m_fFileChanged = TRUE;
+        m_fPalChanged = TRUE;
     }
 }
 
@@ -529,10 +529,10 @@ void CPalModDlg::SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdat
 void CPalModDlg::LoadLastDir()
 {
     SupportedGamesList nLastUsedGFlag = NUM_GAMES;
-    BOOL bIsDir;
+    BOOL fIsDir;
     WCHAR szLastDir[MAX_PATH];
 
-    if (GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &bIsDir))
+    if (GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &fIsDir))
     {
         if (VerifyMsg(eVerifyType::VM_FILECHANGE)) // Save current changes if needed
         {
@@ -547,7 +547,7 @@ void CPalModDlg::LoadLastDir()
             }
             else
             {
-                if (bIsDir)
+                if (fIsDir)
                 {
                     LoadGameDir(nLastUsedGFlag, szLastDir);
                 }
@@ -622,7 +622,7 @@ void CPalModDlg::SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameF
     return;
 }
 
-BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL bCheckOnly, BOOL* bIsDir)
+BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesList* nGameFlag, BOOL fCheckOnly, BOOL* pfIsDir)
 {
     BOOL fFound = FALSE;
     HKEY hKey = nullptr;
@@ -659,7 +659,7 @@ BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesLis
             if ((ERROR_SUCCESS == RegQueryValueEx(hKey, strPerGameString, 0, &dwRegType, (LPBYTE)szPath, &cbDataSize))
                 && (REG_SZ == dwRegType))
             {
-                if (bCheckOnly)
+                if (fCheckOnly)
                 {
                     fFound = TRUE;
                 }
@@ -670,10 +670,10 @@ BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesLis
 
                     if (INVALID_FILE_ATTRIBUTES != dwAttribs)
                     {
-                        if (bIsDir)
+                        if (pfIsDir)
                         {
                             //Check to see if it's actually a file without an extension
-                            *bIsDir = (dwAttribs & FILE_ATTRIBUTE_DIRECTORY);
+                            *pfIsDir = (dwAttribs & FILE_ATTRIBUTE_DIRECTORY);
                         }
 
                         // This code used to be testing for (dwAttribs & FILE_ATTRIBUTE_ARCHIVE), but I don't think we need that currently.
@@ -711,9 +711,9 @@ void CPalModDlg::OnSetFocus(CWnd* pOldWnd)
     // TODO: Add your message handler code here
 }
 
-void CPalModDlg::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
+void CPalModDlg::OnActivate(UINT nState, CWnd* pWndOther, BOOL fMinimized)
 {
-    CDialog::OnActivate(nState, pWndOther, bMinimized);
+    CDialog::OnActivate(nState, pWndOther, fMinimized);
 
     // TODO: Add your message handler code here
 }
@@ -1728,7 +1728,7 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
 
 void CPalModDlg::OnImportPalette()
 {
-    if (bEnabled)
+    if (m_fEnabled)
     {
         int nGameFlag = GetHost()->GetCurrGame()->GetGameFlag();
         bool fIsSF3 = false;
@@ -2078,7 +2078,7 @@ void CPalModDlg::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
 {
     // TODO: Add your message handler code here and/or call default
 
-    if (bCanMinMax)
+    if (m_fCanMinMax)
     {
         //lpMMI->ptMinTrackSize = r
     }

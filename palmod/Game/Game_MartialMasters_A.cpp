@@ -96,7 +96,7 @@ CDescTree* CGame_MartialMasters_A::GetMainTree()
     return &CGame_MartialMasters_A::MainDescTree;
 }
 
-uint32_t CGame_MartialMasters_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_MartialMasters_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, MartialMasters_A_NUMUNIT, nUnitId, MartialMasters_A_EXTRA_CUSTOM);
 }

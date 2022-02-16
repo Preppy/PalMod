@@ -218,7 +218,7 @@ UINT32 CGame_MVC_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownR
 #endif
 }
 
-uint32_t CGame_MVC_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_MVC_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, MVC_A_NUMUNIT, nUnitId, MVC_A_EXTRA_CUSTOM);
 }

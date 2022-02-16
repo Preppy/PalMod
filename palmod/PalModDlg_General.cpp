@@ -23,7 +23,7 @@ void CPalModDlg::UpdateCombo()
     CGameClass* CurrGame = GetHost()->GetCurrGame();
     uint32_t* rgRedir = CurrGame->rgUnitRedir;
 
-    if (bLoadUnit)
+    if (m_fLoadUnit)
     {
         //Grab the main tree
         sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(-1);
@@ -57,7 +57,7 @@ void CPalModDlg::UpdateCombo()
         //Since we just updated, set to 0
         m_CBUnitSel.SetCurSel(0);
 
-        bLoadUnit = FALSE;
+        m_fLoadUnit = FALSE;
     }
 
     int nCurrUnitSel = m_CBUnitSel.GetCurSel();
@@ -67,7 +67,7 @@ void CPalModDlg::UpdateCombo()
         return;
     }
 
-    if (nCurrUnitSel != nPrevUnitSel)
+    if (nCurrUnitSel != m_nPrevUnitSel)
     {
         sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], -1);
 
@@ -81,10 +81,10 @@ void CPalModDlg::UpdateCombo()
 
         //Set to 0 since update
         m_CBChildSel1.SetCurSel(0);
-        nPrevUnitSel = nCurrUnitSel;
+        m_nPrevUnitSel = nCurrUnitSel;
 
         //Reset the next list
-        nPrevChildSel1 = 0xFFFF;
+        m_nPrevChildSel1 = 0xFFFF;
     }
 
     int nCurrChildSel1 = m_CBChildSel1.GetCurSel();
@@ -94,7 +94,7 @@ void CPalModDlg::UpdateCombo()
         return;
     }
 
-    if (nCurrChildSel1 != nPrevChildSel1)
+    if (nCurrChildSel1 != m_nPrevChildSel1)
     {
         sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], nCurrChildSel1, -1);
 
@@ -108,10 +108,10 @@ void CPalModDlg::UpdateCombo()
 
         //Set to 0 since update
         m_CBChildSel2.SetCurSel(0);
-        nPrevChildSel1 = nCurrChildSel1;
+        m_nPrevChildSel1 = nCurrChildSel1;
 
         //Reset the next selection
-        nPrevChildSel2 = 0xFFFF;
+        m_nPrevChildSel2 = 0xFFFF;
     }
 
     int nCurrChildSel2 = m_CBChildSel2.GetCurSel();
@@ -121,7 +121,7 @@ void CPalModDlg::UpdateCombo()
         return;
     }
 
-    if (nCurrChildSel2 != nPrevChildSel2)
+    if (nCurrChildSel2 != m_nPrevChildSel2)
     {
         //Clear the undo data
         UndoProc.Clear();
@@ -132,7 +132,7 @@ void CPalModDlg::UpdateCombo()
 
         PostPalSel();
 
-        nPrevChildSel2 = nCurrChildSel2;
+        m_nPrevChildSel2 = nCurrChildSel2;
 
         //Select None
         //OnEditSelectNone();
@@ -177,7 +177,7 @@ void CPalModDlg::PostPalSel()
     uint32_t nImgIndexCtr = 0;
     uint32_t nCurrSepAmt = 0;
 
-    BOOL bSameImg = FALSE;
+    BOOL fSameImg = FALSE;
 
     StopBlink();
 
@@ -207,7 +207,7 @@ void CPalModDlg::PostPalSel()
         CurrPalDef = MainPalGroup->GetPalDef(nCurrentPalette);
         nCurrSepAmt = CurrPalDef->uSepAmt;
 
-        ImgDispCtrl->AssignBackupPalette(nCurrentPalette, CurrPalDef);
+        ImgDispCtrl->AssignBackupPalette(CurrPalDef);
 
         //Fill the palette control
         for (uint32_t nSepCtr = 0; nSepCtr < nCurrSepAmt; nSepCtr++)
@@ -232,7 +232,7 @@ void CPalModDlg::PostPalSel()
 
                 CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
 
-                if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || bForceImg || (nPalAmt > 1) || (s_nLastPalAmt != nPalAmt))
+                if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || m_fForceImg || (nPalAmt > 1) || (s_nLastPalAmt != nPalAmt))
                 {
                     if (nImgIndexCtr == 0)
                     {
@@ -267,19 +267,13 @@ void CPalModDlg::PostPalSel()
                 }
                 else
                 {
-                    if (nImgIndexCtr == 0)
-                    {
-                        // New palette: reset external overrides
-                        ImgDispCtrl->ClearExternalLoads();
-                    }
-
                     // The sprite hasn't changed: just update the palette
                     ImgDispCtrl->UpdateImgPalette(
                         nImgIndexCtr,
                         MainPalGroup->GetPalDef(nCurrentPalette)->pPal,
                         MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz);
 
-                    bSameImg = TRUE;
+                    fSameImg = TRUE;
                 }
 
                 nPrevImgIndex[nImgIndexCtr] = nImgKey;
@@ -302,7 +296,7 @@ void CPalModDlg::PostPalSel()
     }
 
     //Get rid of the unused images
-    if (!bSameImg)
+    if (!fSameImg)
     {
         ImgDispCtrl->FlushUnused();
     }
@@ -326,7 +320,7 @@ void CPalModDlg::PostPalSel()
     //m_PalHost.ResetNotifyPal(0);
 
     //If force img was set, unset it
-    bForceImg = FALSE;
+    m_fForceImg = FALSE;
 }
 
 void CPalModDlg::OnPalSelChange(UINT_PTR nCtrlId)
@@ -335,11 +329,11 @@ void CPalModDlg::OnPalSelChange(UINT_PTR nCtrlId)
     UpdateMultiEdit();
 
     //Fill the current palette info
-    nCurrSelPal = nCtrlId;
-    CurrPalCtrl = m_PalHost.GetPalCtrl(nCurrSelPal);
-    CurrPalDef = MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex);
-    CurrPalSep = CurrPalDef->SepList[MainPalGroup->GetRedir()[nCurrSelPal].nSepIndex];
-    nPalImgIndex = MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex;
+    m_nCurrSelPal = nCtrlId;
+    CurrPalCtrl = m_PalHost.GetPalCtrl(m_nCurrSelPal);
+    CurrPalDef = MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[m_nCurrSelPal].nDefIndex);
+    CurrPalSep = CurrPalDef->SepList[MainPalGroup->GetRedir()[m_nCurrSelPal].nSepIndex];
+    m_nPalImgIndex = MainPalGroup->GetRedir()[m_nCurrSelPal].nDefIndex;
 
     UpdateSliderSel();
 }
@@ -382,13 +376,13 @@ void CPalModDlg::OnTimer(UINT_PTR nIDEvent)
         {
             PerformBlink();
 
-            if (!nBlinkState)
+            if (!m_nBlinkState)
             {
                 KillTimer(TIMER_BLINK);
 
-                bCanBlink = TRUE;
+                m_fCanBlink = TRUE;
 
-                safe_delete_array(pTempPalCopy);
+                safe_delete_array(m_pTempPalCopy);
             }
 
             ImgDispCtrl->Redraw();
@@ -404,9 +398,9 @@ void CPalModDlg::OnTimer(UINT_PTR nIDEvent)
 void CPalModDlg::StopBlink()
 {
     //Stop blinking
-    nBlinkState = 0;
+    m_nBlinkState = 0;
     KillTimer(TIMER_BLINK);
-    bCanBlink = TRUE;
+    m_fCanBlink = TRUE;
 
-    safe_delete_array(pTempPalCopy);
+    safe_delete_array(m_pTempPalCopy);
 }

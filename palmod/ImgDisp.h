@@ -33,7 +33,7 @@ struct sImgNode
 
     int uPalSz = 0;
     COLORREF* pPalette = nullptr;
-    COLORREF* pAltPal = nullptr;
+    COLORREF* pBlinkPalette = nullptr;
 };
 
 enum class SpriteImportDirection { TopDown, UpsideDown };
@@ -66,7 +66,7 @@ private:
     int m_nBGYOffs = 0;
 
     BOOL m_fIsBGAvail = FALSE;
-    //BOOL bFillBGBmp = FALSE;
+    //BOOL m_fFillBGBmp = FALSE;
     BOOL m_fShouldTileBGBmp = FALSE;
     BOOL m_fShouldUseBGCol = FALSE;
     BOOL m_fNeedFirstInit = TRUE;
@@ -86,7 +86,7 @@ private:
     void ModifySrcRect();
     void ModifyClRect();
 
-    BOOL CustomBlt(int nSrcIndex, int x, int y, bool fUseAltPal = false);
+    BOOL CustomBlt(int nSrcIndex, int x, int y, bool fUseBlinkPal = false);
 
     CScrollBar m_HScroll;
     CScrollBar m_VScroll;
@@ -122,7 +122,7 @@ private:
     int m_nTextureOverrideH[MAX_IMAGES_DISPLAYABLE] = { 0 };
 
     sPalDef* m_pBackupPaletteDef = nullptr;
-    COLORREF* m_pBackupAltPalette = nullptr;
+    COLORREF* m_pBackupBlinkPalette = nullptr;
 
 public:
     CImgDisp();
@@ -130,8 +130,8 @@ public:
 
     void AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs);
     void FlushImageNode(int nIndex);
-    void FlushImages();
-    void UpdateCtrl(BOOL bRedraw = TRUE, int nUseAltPal = 0);
+    void ClearAllImages();
+    void UpdateCtrl(BOOL fRedraw = TRUE, int nUseBlinkPal = 0);
     void Redraw();
     void SetBGCol(COLORREF crNewCol) { m_crBGCol = crNewCol; };
     void SetBlinkCol(COLORREF crNewCol) { m_crBlinkCol = crNewCol; };
@@ -139,14 +139,14 @@ public:
     COLORREF GetBlinkCol() { return m_crBlinkCol; };
     void CenterImg() { ModifySrcRect(); };
 
-    void SetAltPal(int nIndex, COLORREF* pAltPal);
+    void SetBlinkPalette(int nIndex, COLORREF* pBlinkPalette);
 
     BOOL IsBGTiled() { return m_fShouldTileBGBmp; };
     BOOL IsUsingBGCol() { return m_fShouldUseBGCol; };
     void SetBGXOffs(int nOffs) { m_nBGXOffs = nOffs; };
     void SetBGYOffs(int nOffs) { m_nBGYOffs = nOffs; };
-    void SetBGTiled(BOOL bTiled) { m_fShouldTileBGBmp = bTiled; };
-    void SetUseBGCol(BOOL bUse) { m_fShouldUseBGCol = bUse; };
+    void SetBGTiled(BOOL fTiled) { m_fShouldTileBGBmp = fTiled; };
+    void SetUseBGCol(BOOL fUse) { m_fShouldUseBGCol = fUse; };
     void SetClickToFindColorSetting(BOOL fClickToFind) { m_fClickToFindColor = fClickToFind; };
     BOOL GetClickToFindColorSetting() { return m_fClickToFindColor; };
     BOOL CanForceBGBitmapAvailable();

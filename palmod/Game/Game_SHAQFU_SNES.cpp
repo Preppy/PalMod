@@ -90,7 +90,7 @@ CDescTree* CGame_SHAQFU_SNES::GetMainTree()
     return &CGame_SHAQFU_SNES::MainDescTree;
 }
 
-uint32_t CGame_SHAQFU_SNES::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SHAQFU_SNES::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SHAQFU_SNES_NUMUNIT, nUnitId, SHAQFU_SNES_EXTRA_CUSTOM);
 }

@@ -99,7 +99,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    BOOL bLoadDefPal = TRUE;
+    BOOL fLoadDefPal = TRUE;
     bool fImgIsFromNewImgDatRange = false;
 
     sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
@@ -210,7 +210,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (fAllNodesFound)
             {
-                bLoadDefPal = FALSE;
+                fLoadDefPal = FALSE;
                 fUsingDataFromDescriptionSet = true;
 
                 std::vector<sImgTicket*> vsImagePairs;
@@ -264,7 +264,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             break;
         case MVC2_D_TEAMVIEW_LOCATION: // Team View: generated.
         {
-            bLoadDefPal = FALSE;
+            fLoadDefPal = FALSE;
 
             UINT16 nJoinedUnit1 = indexMVC2AMagneto;
             UINT16 nJoinedUnit2 = indexMVC2AStorm;
@@ -339,7 +339,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
     }
 
-    if (bLoadDefPal)
+    if (fLoadDefPal)
     {
         const uint32_t nBasicOffset = GetBasicOffset(uPalId);
 

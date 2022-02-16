@@ -87,7 +87,7 @@ CGame_SFIII2_A::~CGame_SFIII2_A(void)
     FlushChangeTrackingArray();
 }
 
-uint32_t CGame_SFIII2_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SFIII2_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll_50, SFIII2_A_50_NUMUNIT, nUnitId, SFIII2_A_50_EXTRA_CUSTOM);
 }
@@ -153,7 +153,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
         sDescNode* ChildNode = nullptr;
 
         uint32_t nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
+        BOOL fUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
 
         uint32_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
@@ -245,7 +245,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
         }
 
         //Set up extra nodes
-        if (bUseExtra)
+        if (fUseExtra)
         {
             uint32_t nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;

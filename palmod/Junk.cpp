@@ -567,13 +567,13 @@ void CJunk::UpdateIndexAll()
     }
 }
 
-BOOL CJunk::UpdateCtrl(BOOL bUpdFace)
+BOOL CJunk::UpdateCtrl(BOOL fUpdFace)
 {
     if (m_dcBaseDC)
     {
         CClientDC* cdc = new CClientDC(this);
 
-        if (bUpdFace)
+        if (fUpdFace)
         {
             UpdateFace();
         }
@@ -948,9 +948,9 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
     CWnd::OnRButtonDown(nFlags, point);
 }
 
-void CJunk::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
+void CJunk::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 {
-    CWnd::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
+    CWnd::OnInitMenuPopup(pPopupMenu, nIndex, fSysMenu);
 
     // TODO: Add your message handler code here
 }

@@ -39,7 +39,7 @@ public:
 
     static sDescTreeNode* InitDescTree();
     static void InitExtraRg();
-    static uint32_t CountExtraRg(uint32_t nUnitId, BOOL bOmniExtra);
+    static uint32_t CountExtraRg(uint32_t nUnitId, BOOL fOmniExtra);
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
     static sFileRule GetNextRule();
     static sFileRule GetRule(uint32_t nRuleId);

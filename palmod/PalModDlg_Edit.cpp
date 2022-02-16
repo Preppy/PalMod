@@ -36,7 +36,7 @@ CStringA CPalModDlg::m_strPasteStr = "";
 
 void CPalModDlg::CopyColorToClipboard(COLORREF crColor)
 {
-    if (!bOleInit)
+    if (!m_fOleInit)
     {
         return;
     }
@@ -197,13 +197,13 @@ void CPalModDlg::OnEditCopy()
 
     g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Start\r\n");
 
-    if (bEnabled)
+    if (m_fEnabled)
     {
         CStringA strDebugInfo;
         CStringA CopyText;
         CStringA FormatTxt;
 
-        if (!bOleInit)
+        if (!m_fOleInit)
         {
             g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy:: Failed OLEInit\r\n");
             return;
@@ -234,10 +234,10 @@ void CPalModDlg::OnEditCopy()
 
         strDebugInfo.Format(" %u color(s) are selected.\r\n\tChecking if selection is complete or partial...", nPaletteSelectionLength - k_nASCIICharacterOffset);
         g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
-        BOOL bCopyAll = !CurrPal->GetSelAmt();
+        BOOL fCopyAll = !CurrPal->GetSelAmt();
         bool fHitError = false;
 
-        strDebugInfo.Format(" %s.\r\n\tChecking color mode\r\n", bCopyAll ? "complete" : "partial");
+        strDebugInfo.Format(" %s.\r\n\tChecking color mode\r\n", fCopyAll ? "complete" : "partial");
         g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
 
         // You want to update this table so that older or newer versions of PalMod know the bpp of the 
@@ -333,7 +333,7 @@ void CPalModDlg::OnEditCopy()
 
         for (int i = 0; i < nWorkingAmt; i++)
         {
-            if (pSelIndex[i] || bCopyAll)
+            if (pSelIndex[i] || fCopyAll)
             {
                 if (!fHaveSetDelta)
                 {
@@ -417,7 +417,7 @@ void CPalModDlg::OnEditCopy()
 
             for (int i = 0; i < nWorkingAmt; i++)
             {
-                if (pSelIndex[i] || bCopyAll)
+                if (pSelIndex[i] || fCopyAll)
                 {
                     switch (cbColor)
                     {
@@ -486,9 +486,9 @@ void CPalModDlg::OnEditCopy()
 
 void CPalModDlg::OnEditCopyOffset()
 {
-    if (bEnabled)
+    if (m_fEnabled)
     {
-        if (bOleInit)
+        if (m_fOleInit)
         {
             CStringA CopyText;
 
@@ -539,7 +539,7 @@ void CPalModDlg::OnEditCopyOffset()
 BOOL CPalModDlg::IsPasteFromPalMod()
 {
     COleDataObject obj;
-    BOOL bCanPaste = FALSE;
+    BOOL fCanPaste = FALSE;
 
     if ((!obj.AttachClipboard()) ||
         (!obj.IsDataAvailable(CF_TEXT)))
@@ -575,7 +575,7 @@ BOOL CPalModDlg::IsPasteFromPalMod()
                 
                 if (szTempStr[nTerminalLocation] == ')')
                 {
-                    bCanPaste = TRUE;
+                    fCanPaste = TRUE;
                 }
                 else
                 {
@@ -586,14 +586,14 @@ BOOL CPalModDlg::IsPasteFromPalMod()
 
                     if (szTempStr[nTerminalLocation] == ')')
                     {
-                        bCanPaste = TRUE;
+                        fCanPaste = TRUE;
                     }
                 }
             }
         }
     }
 
-    return bCanPaste;
+    return fCanPaste;
 }
 
 // This accepts strings of the forms:
@@ -1163,17 +1163,17 @@ void CPalModDlg::OnEditPaste()
     }
 }
 
-void CPalModDlg::NewUndoData(BOOL bUndo)
+void CPalModDlg::NewUndoData(BOOL fUndo)
 {
-    CUndoNode* NewNode = bUndo ? UndoProc.NewUndo() : UndoProc.NewRedo();
+    CUndoNode* NewNode = fUndo ? UndoProc.NewUndo() : UndoProc.NewRedo();
 
     sPalRedir* rgRedir = MainPalGroup->GetRedir();
-    sPalDef* srcDef = MainPalGroup->GetPalDef(rgRedir[nCurrSelPal].nDefIndex);
-    sPalSep* srcSep = MainPalGroup->GetSep(rgRedir[nCurrSelPal].nDefIndex, rgRedir[nCurrSelPal].nSepIndex);
+    sPalDef* srcDef = MainPalGroup->GetPalDef(rgRedir[m_nCurrSelPal].nDefIndex);
+    sPalSep* srcSep = MainPalGroup->GetSep(rgRedir[m_nCurrSelPal].nDefIndex, rgRedir[m_nCurrSelPal].nSepIndex);
 
     int nPalSz = srcSep->nAmt;
 
-    NewNode->nPalIndex = (int)nCurrSelPal;
+    NewNode->nPalIndex = (int)m_nCurrSelPal;
     NewNode->nPalSz = nPalSz;
 
     NewNode->rgPalData = new COLORREF[nPalSz];
@@ -1186,11 +1186,11 @@ void CPalModDlg::NewUndoData(BOOL bUndo)
     //UndoProc.DeleteRedoList();
 }
 
-void CPalModDlg::DoUndoRedo(BOOL bUndo)
+void CPalModDlg::DoUndoRedo(BOOL fUndo)
 {
-    CUndoNode* PopNode = bUndo ? UndoProc.PopUndo() : UndoProc.PopRedo();
+    CUndoNode* PopNode = fUndo ? UndoProc.PopUndo() : UndoProc.PopRedo();
 
-    NewUndoData(!bUndo);
+    NewUndoData(!fUndo);
 
     //Copy data to the program
     sPalRedir* rgRedir = MainPalGroup->GetRedir();
@@ -1201,7 +1201,7 @@ void CPalModDlg::DoUndoRedo(BOOL bUndo)
     memcpy(&srcDef->pBasePal[srcSep->nStart], PopNode->rgBasePalData, srcSep->nAmt * sizeof(COLORREF));
 
     //Refresh slider selection
-    if (PopNode->nPalIndex == nCurrSelPal)
+    if (PopNode->nPalIndex == m_nCurrSelPal)
     {
         UpdateSliderSel();
     }
@@ -1213,8 +1213,8 @@ void CPalModDlg::DoUndoRedo(BOOL bUndo)
     ImgDispCtrl->UpdateCtrl();
 
     // OnBnUpdate locks in changes at an unknown point on the undoredo stack, so just mark dirty
-    fFileChanged = TRUE;  
-    bPalChanged = TRUE;
+    m_fFileChanged = TRUE;  
+    m_fPalChanged = TRUE;
 }
 
 void CPalModDlg::UpdateSettingsMenuItems()

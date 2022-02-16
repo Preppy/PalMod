@@ -99,7 +99,7 @@ UINT32 CGame_VHUNT2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKno
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_VHUNT2_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_VHUNT2_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, VHUNT2_A_NUMUNIT, nUnitId, VHUNT2_A_EXTRA_CUSTOM);
 }

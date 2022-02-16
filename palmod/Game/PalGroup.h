@@ -30,8 +30,8 @@ struct sPalDef
     sPalSep* SepList[MAX_SEPARATORS] = {};
     UINT16 uSepAmt = 0;
 
-    BOOL bChanged = FALSE;
-    BOOL bAvail = FALSE;
+    BOOL fIsChanged = FALSE;
+    BOOL fPalAvailable = FALSE;
 };
 
 enum ePalType
@@ -50,7 +50,7 @@ private:
     sPalDef rgPalettes[MAX_PALETTES_DISPLAYABLE];
     sPalRedir rgRedir[MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS];
     uint32_t nRedirCtr = 0;
-    uint32_t nCurrPalAmt = 0;
+    uint32_t m_nCurrPalAmt = 0;
 
     void InitPal();
 
@@ -60,9 +60,9 @@ public:
     CPalGroup(void);
     ~CPalGroup(void);
 
-    uint32_t GetAddIndex() { return nCurrPalAmt - 1; };
+    uint32_t GetAddIndex() { return m_nCurrPalAmt - 1; };
 
-    uint32_t GetPalAmt() { return nCurrPalAmt; };
+    uint32_t GetPalAmt() { return m_nCurrPalAmt; };
 
     BOOL AddPal(COLORREF* pPal, UINT16 uPalSz, uint32_t uUnitId, uint32_t uPalId);
     BOOL AddSep(uint32_t nIndex, LPCWSTR szDesc, uint32_t nStart, uint32_t nAmt);

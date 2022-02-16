@@ -46,7 +46,7 @@ public:
     static sDescTreeNode* InitDescTree();
 
     //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
     static uint32_t GetExtraLoc(uint32_t nUnitId);
 
     //Normal functions

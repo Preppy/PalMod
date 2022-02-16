@@ -83,7 +83,7 @@ CDescTree* CGame_Matrimelee_A::GetMainTree()
     return &CGame_Matrimelee_A::MainDescTree;
 }
 
-uint32_t CGame_Matrimelee_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_Matrimelee_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, Matrimelee_A_NUMUNIT, nUnitId, Matrimelee_A_EXTRA_CUSTOM);
 }

@@ -66,7 +66,7 @@ protected:
     bool m_fGameUsesAlphaValue = false;
     bool m_fAllowIPSPatching = false;
 
-    BOOL bUsesHybrid = FALSE;
+    BOOL fUsesHybrid = FALSE;
     uint32_t* pIndexRedir = nullptr;
     int nHybridSz = 0;
 
@@ -198,7 +198,7 @@ public:
     BOOL* GetFileChangeTrackingArray() { return rgFileChanged; };
     BOOL WasGameFileChangedInSession();
 
-    void SetIsDir(BOOL bNewIsDir = TRUE) { m_fIsDirectoryBasedGame = bNewIsDir; };
+    void SetIsDir(BOOL fNewIsDir = TRUE) { m_fIsDirectoryBasedGame = fNewIsDir; };
     BOOL GetIsDir() { return m_fIsDirectoryBasedGame; };
     BOOL GetGameMapsUnitsToFiles() { return m_fGameUnitsMapToIndividualFiles; };
     bool AllowIPSPatchGeneration() { return !m_fIsDirectoryBasedGame || m_fAllowIPSPatching; };

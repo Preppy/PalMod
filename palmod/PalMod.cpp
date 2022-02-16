@@ -6,7 +6,7 @@
 #include "regproc.h"
 
 CString ImgStr;
-HACCEL m_hAccelTable;
+HACCEL g_hAccelTable;
 HWND g_appHWnd = nullptr;
 
 // CPalModApp
@@ -102,7 +102,7 @@ BOOL CPalModApp::InitInstance()
     PreviewDlg->ShowWindow(SW_SHOW);
 
     //Load the accelerator table
-    m_hAccelTable = LoadAccelerators(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_PALMOD_ACC));
+    g_hAccelTable = LoadAccelerators(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_PALMOD_ACC));
 
     //Get the image dat file
     GetModuleFileName(NULL, ImgStr.GetBufferSetLength(MAX_PATH), MAX_PATH);
@@ -136,9 +136,9 @@ void CPalModApp::SetGameClass(CGameClass* NewGame)
     BasePal = CurrGame->GetPalGroup();
 
     //Load the game's image set
-    bImgLoaded = ImgBase.LoadGameImages(ImgStr.GetBuffer(), CurrGame->GetGameFlag(), CurrGame->GetImgGameFlag(), CurrGame->GetUnitCt(), CurrGame->GetImageSetForGame());
+    m_fIsImageLoaded = ImgBase.LoadGameImages(ImgStr.GetBuffer(), CurrGame->GetGameFlag(), CurrGame->GetImgGameFlag(), CurrGame->GetUnitCt(), CurrGame->GetImageSetForGame());
                                                                                                               
-    if (!bImgLoaded)
+    if (!m_fIsImageLoaded)
     {
         CString strMessage;
         strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, IMGDATFILE, ImgStr, IMGDATFILE);

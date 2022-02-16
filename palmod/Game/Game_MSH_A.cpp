@@ -164,7 +164,7 @@ CDescTree* CGame_MSH_A::GetMainTree()
     }
 }
 
-uint32_t CGame_MSH_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_MSH_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     if (UsePaletteSetForCharacters())
     {

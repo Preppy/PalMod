@@ -114,19 +114,19 @@ sDescTreeNode* CDescTree::GetDescTree(int nChildId, ...)
     }
 
     sDescTreeNode* OutTree = RootTree;
-    BOOL bChildIsNode = FALSE;
+    BOOL fChildIsNode = FALSE;
 
     int nCurrId = nChildId;
     va_list args;
 
     va_start(args, nChildId);
 
-    while ((nCurrId != -1) && !bChildIsNode)
+    while ((nCurrId != -1) && !fChildIsNode)
     {
         switch (OutTree->uChildType)
         {
         case DESC_NODETYPE_NODE:
-            bChildIsNode = TRUE;
+            fChildIsNode = TRUE;
             // Caller needs to cast to sDescNode
             OutTree = &((sDescTreeNode*)OutTree->ChildNodes)[nCurrId];
             break;
@@ -149,7 +149,7 @@ sDescNode* CDescTree::GetDescNode(int nChildId, ...)
     sDescNode* OutNode = nullptr;
 
     uint32_t nCurrId = 0;
-    BOOL bFoundNode = FALSE;
+    BOOL fFoundNode = FALSE;
 
     va_list args;
 
@@ -157,13 +157,13 @@ sDescNode* CDescTree::GetDescNode(int nChildId, ...)
 
     nCurrId = nChildId;
 
-    while (!bFoundNode && (nCurrId != -1))
+    while (!fFoundNode && (nCurrId != -1))
     {
         switch (CurrTree->uChildType)
         {
         case DESC_NODETYPE_NODE:
         {
-            bFoundNode = TRUE;
+            fFoundNode = TRUE;
 
             if (nCurrId < CurrTree->uChildAmt)
             {

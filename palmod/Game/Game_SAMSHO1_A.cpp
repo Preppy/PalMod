@@ -84,7 +84,7 @@ CDescTree* CGame_SAMSHO1_A::GetMainTree()
     return &CGame_SAMSHO1_A::MainDescTree;
 }
 
-uint32_t CGame_SAMSHO1_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SAMSHO1_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SAMSHO1_A_NUMUNIT, nUnitId, SAMSHO1_A_EXTRA_CUSTOM);
 }

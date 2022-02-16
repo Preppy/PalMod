@@ -81,7 +81,7 @@ CDescTree* CGame_DBZEB_DS::GetMainTree()
     return &CGame_DBZEB_DS::MainDescTree;
 }
 
-uint32_t CGame_DBZEB_DS::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_DBZEB_DS::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, DBZEB_DS_NUMUNIT, nUnitId, DBZEB_DS_EXTRA_CUSTOM);
 }

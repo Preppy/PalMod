@@ -266,7 +266,7 @@ CDescTree* CGame_SVCPLUSA_A::GetMainTree()
     return &CGame_SVCPLUSA_A::MainDescTree;
 }
 
-uint32_t CGame_SVCPLUSA_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SVCPLUSA_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SVCPLUSA_A_NUMUNIT, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
 }

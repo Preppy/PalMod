@@ -14,13 +14,13 @@ CUndoNode* CUndoRedo::NewNode(CUndoNode** start, CUndoNode** tail)
 
     CUndoNode* newnode;
 
-    BOOL bIsTail = (*start == NULL);
+    BOOL fIsTail = (*start == NULL);
 
     newnode = new CUndoNode;
     newnode->next = *start;
     *start = newnode;
 
-    if (bIsTail) *tail = *start;
+    if (fIsTail) *tail = *start;
 
     return newnode;
 }
@@ -32,12 +32,12 @@ void CUndoRedo::Insert(CUndoNode* newnode, CUndoNode** start, CUndoNode** tail)
         DeleteTail(start, tail);
     }
 
-    BOOL bIsTail = (*start == NULL);
+    BOOL fIsTail = (*start == NULL);
 
     newnode->next = *start;
     *start = newnode;
 
-    if (bIsTail) *tail = *start;
+    if (fIsTail) *tail = *start;
 }
 
 void CUndoRedo::Delete(CUndoNode** start, CUndoNode** tail)

@@ -118,7 +118,7 @@ CDescTree* CGame_FatalFuryS_SNES::GetMainTree()
     return &CGame_FatalFuryS_SNES::MainDescTree;
 }
 
-uint32_t CGame_FatalFuryS_SNES::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_FatalFuryS_SNES::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, FatalFuryS_SNES_NUMUNIT, nUnitId, FatalFuryS_SNES_EXTRA_CUSTOM);
 }

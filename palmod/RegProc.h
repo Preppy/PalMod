@@ -81,9 +81,9 @@ public:
     WCHAR szPrevBGLoc[MAX_PATH];
     int nBGXOffs;
     int nBGYOffs;
-    BOOL bTileBG;
-    BOOL bUseBGCol;
-    BOOL bClickToFind;
+    BOOL fTileBG;
+    BOOL fUseBGCol;
+    BOOL fClickToFind;
     double dPreviewZoom = 0.0;
 
     //New Image
@@ -92,7 +92,7 @@ public:
     COLORREF imgout_bgcol;
     DWORD imgout_border;
     DWORD imgout_zoomindex;
-    BOOL bTransPNG;
+    BOOL fTransPNG;
 };
 
 CString RectToStr(RECT in_rect);

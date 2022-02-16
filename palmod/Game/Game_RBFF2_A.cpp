@@ -119,7 +119,7 @@ sFileRule CGame_RBFF2_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-uint32_t CGame_RBFF2_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_RBFF2_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, RBFF2_A_NUMUNIT, nUnitId, RBFF2_A_EXTRA_CUSTOM);
 }

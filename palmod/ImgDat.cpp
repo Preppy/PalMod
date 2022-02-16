@@ -276,7 +276,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, UINT16 nCurrentUn
 
 void CImgDat::CloseImgFile()
 {
-    if (bOnTheFly)
+    if (m_fOnTheFly)
     {
         ImgDatFile.Abort();
     }
@@ -332,7 +332,7 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
     }
 }
 
-BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, uint32_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL bLoadAll)
+BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, uint32_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL fLoadAll)
 {
     UINT8 uNumGames = 0xFF;
 
@@ -369,7 +369,7 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
         return FALSE;
     }
 
-    bOnTheFly = !bLoadAll;
+    m_fOnTheFly = !fLoadAll;
 
     UINT16 nYear = 0;
     UINT8 nMonth = 0, nDay = 0, nDailyRevision = 0;
@@ -459,7 +459,7 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
                         strDebugInfo.Format(L"\t W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
                         OutputDebugString_ImgDat(strDebugInfo);
 #endif
-                        if (bLoadAll)
+                        if (fLoadAll)
                         {
                             GetImgData(pCurrImg, uReadGameFlag, uCurrUnitId, uCurrImgId);
                         }
@@ -485,7 +485,7 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
         nCurGameFlag = uGameFlag;
         nCurImgGameFlag = uImgGameFlag;
 
-        if (bLoadAll)
+        if (fLoadAll)
         {
             ImgDatFile.Abort();
         }

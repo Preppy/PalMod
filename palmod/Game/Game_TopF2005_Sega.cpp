@@ -170,7 +170,7 @@ void CGame_TOPF2005_SEGA::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPa
     }
 }
 
-uint32_t CGame_TOPF2005_SEGA::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_TOPF2005_SEGA::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, TOPF2005_SEGA_NUMUNIT, nUnitId, TOPF2005_SEGA_EXTRA_CUSTOM);
 }

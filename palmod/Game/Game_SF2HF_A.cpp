@@ -168,7 +168,7 @@ UINT32 CGame_SF2HF_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_SF2HF_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SF2HF_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     switch (m_nSelectedRom)
     {

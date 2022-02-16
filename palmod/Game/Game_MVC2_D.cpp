@@ -212,7 +212,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             //Set each button's extra nodes
             for (uint32_t nButtonExtra = 0; nButtonExtra < nButtonExtraTotal; nButtonExtra++)
             {
-                BOOL bSetInfo = false;
+                BOOL fSetInfo = false;
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraPos];
 
                 for (UINT32 nDescriptionLookup = 0; nDescriptionLookup < CurrentMoveDescriptionSet.size(); nDescriptionLookup++)
@@ -223,28 +223,28 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                         // We can skip the button label since the second combo box already has that information
                         _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", CurrentMoveDescriptionSet[nDescriptionLookup].szMoveName);
                         ChildNode->szDesc[ARRAYSIZE(ChildNode->szDesc) - 1] = 0;
-                        bSetInfo = true;
+                        fSetInfo = true;
                         break;
                     }
                 }
 
-                if (!bSetInfo)
+                if (!fSetInfo)
                 {
                     if (nButtonExtra == 0)
                     {
                         _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s Main", pCurrentButtonLabelSet[iButtonCtr]);
-                        bSetInfo = true;
+                        fSetInfo = true;
                     }
                     else if (!nBasicStart || 1)//MVC2_D_6COLORS_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
                     {
                         _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%02X %s (Extra - %02X)", nExtraPos, pCurrentButtonLabelSet[iButtonCtr],
                             (iButtonCtr * nButtonExtraTotal) + nExtraPos + 1);
 
-                        bSetInfo = true;
+                        fSetInfo = true;
                     }
                 }
 
-                if (bSetInfo)
+                if (fSetInfo)
                 {
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = (iButtonCtr * 8) + nExtraPos;
@@ -320,7 +320,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 
                     for (int nRangeCtr = 0; nRangeCtr < nRangeAmt; nRangeCtr++)
                     {
-                        bool bSetInfo = false;
+                        bool fSetInfo = false;
                         const UINT16 nCurrentExtraValue = pCurrVal[0] + nRangeCtr;
 
                         ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
@@ -331,12 +331,12 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                             {
                                 _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%02X: %s", nCurrentExtraValue, CurrentMoveDescriptionSet[nDescriptionLookup].szMoveName);
                                 ChildNode->szDesc[ARRAYSIZE(ChildNode->szDesc) - 1] = 0;
-                                bSetInfo = true;
+                                fSetInfo = true;
                                 break;
                             }
                         }
 
-                        if (!bSetInfo)
+                        if (!fSetInfo)
                         {
                             _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"(%02X Extra)", nCurrentExtraValue);
                         }
@@ -707,7 +707,7 @@ void CGame_MVC2_D::UpdatePalData()
     for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-        if (srcDef->bAvail)
+        if (srcDef->fPalAvailable)
         {
             COLORREF* crSrc = srcDef->pPal;
             UINT16 uAmt = srcDef->uPalSz;
@@ -730,7 +730,7 @@ void CGame_MVC2_D::UpdatePalData()
 
             GetHost()->GetPalModDlg()->SetStatusText(L"Updated.");
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
+            srcDef->fIsChanged = FALSE;
             rgFileChanged[srcDef->uUnitId] = TRUE;
 
             //Process supplement palettes

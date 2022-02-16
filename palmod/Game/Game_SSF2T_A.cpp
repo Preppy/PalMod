@@ -230,7 +230,7 @@ uint32_t CGame_SSF2T_A::GetExtraLoc(uint32_t nUnitId)
     }
 }
 
-uint32_t CGame_SSF2T_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SSF2T_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     if (UsePaletteSetForPortraits())
     {

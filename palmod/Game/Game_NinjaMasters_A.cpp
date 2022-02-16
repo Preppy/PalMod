@@ -99,7 +99,7 @@ stExtraDef* CGame_NINJAMASTERS_A::GetCurrentExtraDef(uint32_t nDefCtr)
     return (stExtraDef*)&NINJAMASTERS_A_EXTRA_CUSTOM[nDefCtr];
 }
 
-uint32_t CGame_NINJAMASTERS_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_NINJAMASTERS_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, NINJAMASTERS_A_NUMUNIT, nUnitId, NINJAMASTERS_A_EXTRA_CUSTOM);
 }

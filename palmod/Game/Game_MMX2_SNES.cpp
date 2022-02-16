@@ -90,7 +90,7 @@ CDescTree* CGame_MMX2_SNES::GetMainTree()
     return &CGame_MMX2_SNES::MainDescTree;
 }
 
-uint32_t CGame_MMX2_SNES::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_MMX2_SNES::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, MMX2_SNES_NUMUNIT, nUnitId, MMX2_SNES_EXTRA_CUSTOM);
 }

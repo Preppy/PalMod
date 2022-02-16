@@ -105,7 +105,7 @@ CDescTree* CGame_GUNDAM_SNES::GetMainTree()
     return &CGame_GUNDAM_SNES::MainDescTree;
 }
 
-uint32_t CGame_GUNDAM_SNES::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_GUNDAM_SNES::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, GUNDAM_SNES_NUMUNIT, nUnitId, GUNDAM_SNES_EXTRA_CUSTOM);
 }

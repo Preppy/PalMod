@@ -54,47 +54,47 @@ BOOL CPalTool::RegisterWindowClass()
 
 void CPalTool::SendPalMsg(UINT_PTR nCtrlId, int nType)
 {
-    static NMHDR hdr;
+    static NMHDR hdr = {};
 
-    hdr.hwndFrom = pPalEntry[nCtrlId].PaletteCtrl->GetSafeHwnd();
+    hdr.hwndFrom = m_sPalEntry[nCtrlId].PaletteCtrl->GetSafeHwnd();
     hdr.idFrom = nCtrlId;
     hdr.code = nType;
 
     GetParent()->PostMessage(WM_NOTIFY, 0, (LPARAM)&hdr);
 }
 
-void CPalTool::OnPalSelChange(UINT_PTR nCtrlId, BOOL bCurrPage)
+void CPalTool::OnPalSelChange(UINT_PTR nCtrlId, BOOL fCurrPage)
 {
     //Deselect each palette that is not selected
-    int nPalStart = rgPalRedir[nCurrPage - 1];
-    int nPalEnd = rgPalRedir[nCurrPage];
+    int nPalStart = m_rgPalRedir[m_nCurrPage - 1];
+    int nPalEnd = m_rgPalRedir[m_nCurrPage];
 
     if (nPalEnd == 0xFF)
     {
-        nPalEnd = nCurrPalAmt;
+        nPalEnd = m_nCurrPalAmt;
     }
 
-    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (int iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        if (pPalEntry[i].bAvail)
+        if (m_sPalEntry[iPalette].fPalAvailable)
         {
-            if (nCtrlId != i)
+            if (nCtrlId != iPalette)
             {
-                pPalEntry[i].PaletteCtrl->ClearSelected();
+                m_sPalEntry[iPalette].PaletteCtrl->ClearSelected();
 
-                if (bCurrPage && (i >= nPalStart) && (i < nPalEnd))
+                if (fCurrPage && (iPalette >= nPalStart) && (iPalette < nPalEnd))
                 {
-                    pPalEntry[i].PaletteCtrl->UpdateCtrl();
+                    m_sPalEntry[iPalette].PaletteCtrl->UpdateCtrl();
                 }
             }
         }
         else
         {
-            //pPalEntry[i].PaletteCtrl->ClearSelected();
+            //m_sPalEntry[iPalette].PaletteCtrl->ClearSelected();
         }
     }
 
-    nNotifyCtrlIndex = nCtrlId;
+    m_nNotifyCtrlIndex = nCtrlId;
 
     DrawText();
     Invalidate();
@@ -102,36 +102,36 @@ void CPalTool::OnPalSelChange(UINT_PTR nCtrlId, BOOL bCurrPage)
 
 void CPalTool::Init()
 {
-    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (int iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        pPalEntry[i].PaletteCtrl = new CJunk;
-        pPalEntry[i].PaletteCtrl->SetArrayIndex(i);
-        pPalEntry[i].bAvail = FALSE;
+        m_sPalEntry[iPalette].PaletteCtrl = new CJunk;
+        m_sPalEntry[iPalette].PaletteCtrl->SetArrayIndex(iPalette);
+        m_sPalEntry[iPalette].fPalAvailable = FALSE;
     }
 
     //Set the base font
-    LOGFONT lf;
+    LOGFONT lf = {};
     HFONT hf = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
     GetObject(hf, sizeof(lf), &lf);
 
     // Default to bold since we will be in an unloaded state that we want the user to understand.
     lf.lfWeight = FW_BOLD;
-    BaseFont.CreateFontIndirect(&lf);
+    m_BaseFont.CreateFontIndirect(&lf);
 }
 
 void CPalTool::CleanUp()
 {
-    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (int iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        if (pPalEntry[i].PaletteCtrl)
+        if (m_sPalEntry[iPalette].PaletteCtrl)
         {
-            pPalEntry[i].PaletteCtrl->DestroyWindow();
-            safe_delete(pPalEntry[i].PaletteCtrl);
+            m_sPalEntry[iPalette].PaletteCtrl->DestroyWindow();
+            safe_delete(m_sPalEntry[iPalette].PaletteCtrl);
         }
     }
 
     //Delete the font
-    BaseFont.Detach();
+    m_BaseFont.Detach();
 }
 
 void CPalTool::SetFontToBold(bool beBold)
@@ -139,9 +139,9 @@ void CPalTool::SetFontToBold(bool beBold)
     if (m_fFontIsBold != beBold)
     {
         m_fFontIsBold = beBold;
-        BaseFont.Detach();
+        m_BaseFont.Detach();
 
-        LOGFONT lf;
+        LOGFONT lf = {};
         HFONT hf = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
         GetObject(hf, sizeof(lf), &lf);
 
@@ -150,7 +150,7 @@ void CPalTool::SetFontToBold(bool beBold)
             lf.lfWeight = FW_BOLD;
         }
 
-        BaseFont.CreateFontIndirect(&lf);
+        m_BaseFont.CreateFontIndirect(&lf);
     }
 }
 
@@ -165,14 +165,14 @@ void CPalTool::ClearBG(CPaintDC* PaintDC)
 
 void CPalTool::BeginSetPal()
 {
-    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (int iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        pPalEntry[i].bAvail = FALSE;
+        m_sPalEntry[iPalette].fPalAvailable = FALSE;
     }
 
-    nCurrPalAmt = 0;
+    m_nCurrPalAmt = 0;
 
-    //nNotifyCtrlIndex ? pPalEntry[nNotifyCtrlIndex].PaletteCtrl->ClearSelected() : NULL;
+    //m_nNotifyCtrlIndex ? m_sPalEntry[m_nNotifyCtrlIndex].PaletteCtrl->ClearSelected() : NULL;
 
     ResetNotifyIndex();
 }
@@ -181,40 +181,40 @@ void CPalTool::SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, WCHAR* szNewPalS
 {
     SetFontToBold(false);
     //Set palette width/height/color
-    pPalEntry[nIndex].PaletteCtrl->InitNewSize(nAmt, rgNewCol);
-    pPalEntry[nIndex].szPalStr = szNewPalStr;
+    m_sPalEntry[nIndex].PaletteCtrl->InitNewSize(nAmt, rgNewCol);
+    m_sPalEntry[nIndex].pszPalStr = szNewPalStr;
 
     //Set offset
-    PalSize[nIndex].cx = pPalEntry[nIndex].PaletteCtrl->GetBaseWidth();
-    PalSize[nIndex].cy = pPalEntry[nIndex].PaletteCtrl->GetBaseHeight();
+    m_PalSize[nIndex].cx = m_sPalEntry[nIndex].PaletteCtrl->GetBaseWidth();
+    m_PalSize[nIndex].cy = m_sPalEntry[nIndex].PaletteCtrl->GetBaseHeight();
 
-    pPalEntry[nIndex].bAvail = TRUE;
+    m_sPalEntry[nIndex].fPalAvailable = TRUE;
 
-    nCurrPalAmt++;
+    m_nCurrPalAmt++;
 }
 
 void CPalTool::EndSetPal()
 {
-    if (nCurrPalAmt)
+    if (m_nCurrPalAmt)
     {
         int nCurrentPageHeight = 0;
         int nCurrentPage = 0;
         // Once we turn on navigation controls, make sure to lock that space in
         int nUsedNavigationSpace = 0;
         const int nNavigationControlSize = PAL_TXT_SPACE * 2;
-        const int nSpaceRequiredForText = nFontHeight + (PAL_TXT_SPACE * 2);
+        const int nSpaceRequiredForText = m_nFontHeight + (PAL_TXT_SPACE * 2);
 
-        rgPalRedir[nCurrentPage] = 0;
+        m_rgPalRedir[nCurrentPage] = 0;
 
         // Verify whether or not we will be showing navigation controls for this set...
         int nTotalHeightNeeded = 0;
-        for (int nIndex = 0; nIndex < nCurrPalAmt; nIndex++)
+        for (int nIndex = 0; nIndex < m_nCurrPalAmt; nIndex++)
         {
-            if (pPalEntry[nIndex].bAvail)
+            if (m_sPalEntry[nIndex].fPalAvailable)
             {
-                nTotalHeightNeeded += PalSize[nIndex].cy + nSpaceRequiredForText;
+                nTotalHeightNeeded += m_PalSize[nIndex].cy + nSpaceRequiredForText;
 
-                if (nTotalHeightNeeded > nPalViewH)
+                if (nTotalHeightNeeded > m_nPalViewH)
                 {
                     nUsedNavigationSpace = nNavigationControlSize;
                     break;
@@ -222,20 +222,20 @@ void CPalTool::EndSetPal()
             }
         }
 
-        const int nAvailablePageH = nPalViewH - nUsedNavigationSpace;
+        const int nAvailablePageH = m_nPalViewH - nUsedNavigationSpace;
         int nPalettesThisPage = 0;
 
-        for (int iCurrentPalette = 0; iCurrentPalette < nCurrPalAmt; iCurrentPalette++)
+        for (int iCurrentPalette = 0; iCurrentPalette < m_nCurrPalAmt; iCurrentPalette++)
         {
-            if (pPalEntry[iCurrentPalette].bAvail)
+            if (m_sPalEntry[iCurrentPalette].fPalAvailable)
             {
                 // Need space for the palette and the descriptive text.  And maybe navigation arrows.
-                const int nCurrentPaletteHeight = PalSize[iCurrentPalette].cy + nSpaceRequiredForText;
+                const int nCurrentPaletteHeight = m_PalSize[iCurrentPalette].cy + nSpaceRequiredForText;
                 nCurrentPageHeight += nCurrentPaletteHeight;
 
                 // We want to know information about future pages so that we can display navigation controls appropriately.
-                const bool isNextPaletteAvailable = ((iCurrentPalette + 1) < nCurrPalAmt) && (pPalEntry[iCurrentPalette + 1].bAvail);
-                const int nNextPaletteHeight = isNextPaletteAvailable ? (PalSize[iCurrentPalette + 1].cy + nSpaceRequiredForText) : 0;
+                const bool isNextPaletteAvailable = ((iCurrentPalette + 1) < m_nCurrPalAmt) && (m_sPalEntry[iCurrentPalette + 1].fPalAvailable);
+                const int nNextPaletteHeight = isNextPaletteAvailable ? (m_PalSize[iCurrentPalette + 1].cy + nSpaceRequiredForText) : 0;
 
                 if ((nCurrentPageHeight + nNextPaletteHeight) > nAvailablePageH)
                 {
@@ -244,8 +244,8 @@ void CPalTool::EndSetPal()
 
                     if (nPalettesThisPage == 0)
                     {
-                        // rgPalRedir indicates the first palette to show for any given page: set the indicator for the first palette every page
-                        rgPalRedir[nCurrentPage] = (UINT8)iCurrentPalette;
+                        // m_rgPalRedir indicates the first palette to show for any given page: set the indicator for the first palette every page
+                        m_rgPalRedir[nCurrentPage] = (UINT8)iCurrentPalette;
                     }
 
                     nPalettesThisPage = 0;
@@ -253,9 +253,9 @@ void CPalTool::EndSetPal()
                     if (isNextPaletteAvailable)
                     {
                         // Ensure that a final palette has a page to show upon, as without this that final palette
-                        // will not be associated in rgPalRedir
+                        // will not be associated in m_rgPalRedir
                         nCurrentPage++;
-                        rgPalRedir[nCurrentPage] = (UINT8)(iCurrentPalette + 1);
+                        m_rgPalRedir[nCurrentPage] = (UINT8)(iCurrentPalette + 1);
                     }
                 }
 
@@ -263,22 +263,22 @@ void CPalTool::EndSetPal()
             }
         }
 
-        rgPalRedir[nCurrentPage + 1] = 0xFF;
+        m_rgPalRedir[nCurrentPage + 1] = 0xFF;
 
-        nCurrPage = 1;
-        nPageAmt = nCurrentPage + 1;
+        m_nCurrPage = 1;
+        m_nPageAmt = nCurrentPage + 1;
 
-        m_PgSpin.SetRange(1, nPageAmt);
+        m_PgSpin.SetRange(1, m_nPageAmt);
     }
     else
     {
         m_PgSpin.SetRange(0, 0);
 
-        nCurrPage = 0;
-        nPageAmt = 0;
+        m_nCurrPage = 0;
+        m_nPageAmt = 0;
     }
 
-    if (nPageAmt > 1)
+    if (m_nPageAmt > 1)
     {
         m_PgSpin.ShowWindow(SW_SHOW);
         m_PgSpin.EnableWindow(TRUE);
@@ -289,12 +289,12 @@ void CPalTool::EndSetPal()
         //m_PgSpin.EnableWindow(FALSE);
     }
 
-    nPrevPalAmt = nCurrPalAmt;
+    m_nPrevPalAmt = m_nCurrPalAmt;
 }
 
 void CPalTool::UpdateAllPalCtrls()
 {
-    for (UINT8 nCurPalSet = 0; nCurPalSet < nCurrPalAmt; nCurPalSet++)
+    for (UINT8 nCurPalSet = 0; nCurPalSet < m_nCurrPalAmt; nCurPalSet++)
     {
         GetPalCtrl(nCurPalSet)->UpdateIndexAll();
         GetPalCtrl(nCurPalSet)->UpdateCtrl();
@@ -313,45 +313,45 @@ void CPalTool::ShowAvailPal()
     //The left will always be the same position
     CRect rCurrPos(PAL_TXT_SPACE, 0, 0, 0);
 
-    int nPalStart = rgPalRedir[nCurrPage - 1];
-    int nPalEnd = rgPalRedir[nCurrPage];
+    int nPalStart = m_rgPalRedir[m_nCurrPage - 1];
+    int nPalEnd = m_rgPalRedir[m_nCurrPage];
 
     if (nPalEnd == 0xFF)
     {
-        nPalEnd = nCurrPalAmt;
+        nPalEnd = m_nCurrPalAmt;
     }
 
-    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (int iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        if ((i >= nPalStart) && (i < nPalEnd) || !nCurrPalAmt)
+        if ((iPalette >= nPalStart) && (iPalette < nPalEnd) || !m_nCurrPalAmt)
         {
-            if (pPalEntry[i].bAvail)
+            if (m_sPalEntry[iPalette].fPalAvailable)
             {
-                rCurrPos.right = rCurrPos.left + PalSize[i].cx;
+                rCurrPos.right = rCurrPos.left + m_PalSize[iPalette].cx;
 
                 //The top is always going downward
-                rCurrPos.top += (PAL_TXT_SPACE * 2) + nFontHeight;
-                rCurrPos.bottom = rCurrPos.top + PalSize[i].cy;
+                rCurrPos.top += (PAL_TXT_SPACE * 2) + m_nFontHeight;
+                rCurrPos.bottom = rCurrPos.top + m_PalSize[iPalette].cy;
 
                 //Do window resize
-                pPalEntry[i].PaletteCtrl->MoveWindow(&rCurrPos);
-                pPalEntry[i].PaletteCtrl->ShowWindow(SW_SHOW);
-                //pPalEntry[i].PaletteCtrl->UpdateCtrl();
+                m_sPalEntry[iPalette].PaletteCtrl->MoveWindow(&rCurrPos);
+                m_sPalEntry[iPalette].PaletteCtrl->ShowWindow(SW_SHOW);
+                //m_sPalEntry[i].PaletteCtrl->UpdateCtrl();
 
                 //Add the current palette size to the top
-                rCurrPos.top += PalSize[i].cy;
+                rCurrPos.top += m_PalSize[iPalette].cy;
             }
             else
             {
-                //if (pPalEntry[i].PaletteCtrl->IsWindowVisible())
-                //    pPalEntry[i].PaletteCtrl->ShowWindow(SW_HIDE);
+                //if (m_sPalEntry[i].PaletteCtrl->IsWindowVisible())
+                //    m_sPalEntry[i].PaletteCtrl->ShowWindow(SW_HIDE);
             }
         }
         else
         {
-            if (pPalEntry[i].PaletteCtrl->IsWindowVisible())
+            if (m_sPalEntry[iPalette].PaletteCtrl->IsWindowVisible())
             {
-                pPalEntry[i].PaletteCtrl->ShowWindow(SW_HIDE);
+                m_sPalEntry[iPalette].PaletteCtrl->ShowWindow(SW_HIDE);
             }
         }
     }
@@ -365,43 +365,43 @@ void CPalTool::DrawText()
 
     CSize CurrPos(PAL_TXT_SPACE, PAL_TXT_SPACE); //Set a margin from the top/left
 
-    dc.SelectObject(BaseFont);
+    dc.SelectObject(m_BaseFont);
     dc.SetBkColor(GetSysColor(COLOR_3DFACE));
 
-    if (bFirstPaint)
+    if (m_fIsFirstPaint)
     {
-        nFontHeight = (dc.GetTextExtent(L"Height", 5).cy + 4); // height plus padding
-        bFirstPaint = FALSE;
+        m_nFontHeight = (dc.GetTextExtent(L"Height", 5).cy + 4); // height plus padding
+        m_fIsFirstPaint = FALSE;
     }
 
     ClearBG(&dc);
 
     //Draw page numbers
-    if (nPageAmt > 1)
+    if (m_nPageAmt > 1)
     {
         CString szTemp;
-        szTemp.Format(L"%d/%d", nCurrPage, nPageAmt);
+        szTemp.Format(L"%d/%d", m_nCurrPage, m_nPageAmt);
         dc.SetTextColor(RGB(0, 0, 0)); //Red for selected palette
-        const int nLeftOffset = (nCurrPage > 9) ? 30 : 25; // extra space for 10/10 vs narrower 9/9
-        dc.TextOut(rClient.right - nLeftOffset + 1, rClient.bottom - 15 + 1, szTemp);
+        const int nLeftOffset = (m_nCurrPage > 9) ? 30 : 25; // extra space for 10/10 vs narrower 9/9
+        dc.TextOut(m_rClient.right - nLeftOffset + 1, m_rClient.bottom - 15 + 1, szTemp);
     }
 
-    if (nCurrPalAmt)
+    if (m_nCurrPalAmt)
     {
         //Get the page information
-        int nPalStart = rgPalRedir[nCurrPage - 1];
-        int nPalEnd = rgPalRedir[nCurrPage];
+        int nPalStart = m_rgPalRedir[m_nCurrPage - 1];
+        int nPalEnd = m_rgPalRedir[m_nCurrPage];
 
         if (nPalEnd == 0xFF)
         {
-            nPalEnd = nCurrPalAmt;
+            nPalEnd = m_nCurrPalAmt;
         }
 
-        for (int i = nPalStart; i < nPalEnd; i++)
+        for (int iPaletteIndex = nPalStart; iPaletteIndex < nPalEnd; iPaletteIndex++)
         {
-            if (pPalEntry[i].bAvail)
+            if (m_sPalEntry[iPaletteIndex].fPalAvailable)
             {
-                if (i == (int)nNotifyCtrlIndex)
+                if (iPaletteIndex == (int)m_nNotifyCtrlIndex)
                 {
                     dc.SetTextColor(RGB(0, 0, 0)); //Black for selected palette
                 }
@@ -412,9 +412,9 @@ void CPalTool::DrawText()
 
                 nVisibleAmt++;
 
-                dc.TextOut(CurrPos.cx, CurrPos.cy, CString(pPalEntry[i].szPalStr));
+                dc.TextOut(CurrPos.cx, CurrPos.cy, CString(m_sPalEntry[iPaletteIndex].pszPalStr));
 
-                CurrPos.cy += ((PAL_TXT_SPACE * 2) + nFontHeight + PalSize[i].cy);
+                CurrPos.cy += ((PAL_TXT_SPACE * 2) + m_nFontHeight + m_PalSize[iPaletteIndex].cy);
             }
         }
     }
@@ -428,22 +428,22 @@ void CPalTool::DrawText()
 
 void CPalTool::OnPaint()
 {
-    if (bSpinInit)
+    if (m_fSpinInit)
     {
-        bSpinInit = FALSE;
+        m_fSpinInit = FALSE;
 
-        GetClientRect(&rClient);
+        GetClientRect(&m_rClient);
 
-        nPalViewH = rClient.bottom - 15;
+        m_nPalViewH = m_rClient.bottom - 15;
 
         m_PgSpin.Create(
             UDS_ARROWKEYS | UDS_HOTTRACK | UDS_HORZ | UDS_WRAP,
-            CRect(rClient.right - 55, nPalViewH, rClient.right - 30, rClient.bottom),
+            CRect(m_rClient.right - 55, m_nPalViewH, m_rClient.right - 30, m_rClient.bottom),
             this, ID_PALTOOLSPIN);
 
         //m_PgSpin.ShowWindow(SW_SHOW);
 
-        bSpinInit = FALSE;
+        m_fSpinInit = FALSE;
     }
 
     DrawText();
@@ -463,9 +463,9 @@ BOOL CPalTool::OnEraseBkgnd(CDC* pDC)
 void CPalTool::PreSubclassWindow()
 {
     //Initialize each palette window
-    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (int iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        pPalEntry[i].PaletteCtrl->Create(L"CJunk", L"", 0, CRect(0, 0, 100, 100), this, i);
+        m_sPalEntry[iPalette].PaletteCtrl->Create(L"CJunk", L"", 0, CRect(0, 0, 100, 100), this, iPalette);
     }
 
     CWnd::PreSubclassWindow();
@@ -484,7 +484,7 @@ BOOL CPalTool::PreTranslateMessage(MSG* pMsg)
         {
             OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
 
-            SendPalMsg(nNotifyCtrlIndex, ((LPNMHDR)pMsg->lParam)->code);
+            SendPalMsg(m_nNotifyCtrlIndex, ((LPNMHDR)pMsg->lParam)->code);
         }
         break;
 
@@ -520,22 +520,22 @@ BOOL CPalTool::PreTranslateMessage(MSG* pMsg)
 
 void CPalTool::UpdateEveryIndex()
 {
-    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (int iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        if (pPalEntry[i].bAvail)
+        if (m_sPalEntry[iPalette].fPalAvailable)
         {
-            pPalEntry[i].PaletteCtrl->UpdateIndexAll();
+            m_sPalEntry[iPalette].PaletteCtrl->UpdateIndexAll();
         }
     }
 }
 
 void CPalTool::UpdateEveryCtrl()
 {
-    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (int iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        if (pPalEntry[i].bAvail)
+        if (m_sPalEntry[iPalette].fPalAvailable)
         {
-            pPalEntry[i].PaletteCtrl->UpdateCtrl();
+            m_sPalEntry[iPalette].PaletteCtrl->UpdateCtrl();
         }
     }
 }
@@ -545,14 +545,14 @@ void CPalTool::OnDeltaposSpin(NMHDR* pNMHDR, LRESULT* pResult)
     LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
     int nAdd = pNMUpDown->iDelta;//(~pNMUpDown->iDelta) + 1;
 
-    if (nAdd + nCurrPage <= nPageAmt && nAdd + nCurrPage >= 1)
+    if (nAdd + m_nCurrPage <= m_nPageAmt && nAdd + m_nCurrPage >= 1)
     {
-        nCurrPage += nAdd;
+        m_nCurrPage += nAdd;
 
         UpdateCtrl();
 
-        OnPalSelChange(rgPalRedir[nCurrPage - 1], FALSE);
-        SendPalMsg(nNotifyCtrlIndex, CUSTOM_SS);
+        OnPalSelChange(m_rgPalRedir[m_nCurrPage - 1], FALSE);
+        SendPalMsg(m_nNotifyCtrlIndex, CUSTOM_SS);
     }
 
     *pResult = 0;

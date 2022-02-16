@@ -102,7 +102,7 @@ stExtraDef* CGame_SDODGEBALL_A::GetCurrentExtraDef(int nDefCtr)
     return (stExtraDef*)&SDODGEBALL_A_EXTRA_CUSTOM[nDefCtr];
 }
 
-uint32_t CGame_SDODGEBALL_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SDODGEBALL_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SDODGEBALL_A_NUMUNIT, nUnitId, SDODGEBALL_A_EXTRA_CUSTOM);
 }

@@ -85,7 +85,7 @@ CDescTree* CGame_SFZ3U_A::GetMainTree()
     return &CGame_SFZ3U_A::MainDescTree;
 }
 
-uint32_t CGame_SFZ3U_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SFZ3U_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SFZ3U_A_NUMUNIT, nUnitId, SFZ3U_A_EXTRA_CUSTOM);
 }

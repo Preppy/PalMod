@@ -84,7 +84,7 @@ CDescTree* CGame_NeoBomberman_A::GetMainTree()
     return &CGame_NeoBomberman_A::MainDescTree;
 }
 
-uint32_t CGame_NeoBomberman_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_NeoBomberman_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, NeoBomberman_A_NUMUNIT, nUnitId, NeoBomberman_A_EXTRA_CUSTOM);
 }

@@ -131,7 +131,7 @@ CGame_REDEARTH_A::~CGame_REDEARTH_A(void)
     FlushChangeTrackingArray();
 }
 
-uint32_t CGame_REDEARTH_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_REDEARTH_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     switch (m_nRedEarthMode)
     {

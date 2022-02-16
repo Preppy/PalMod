@@ -126,7 +126,7 @@ UINT32 CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32Va
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_VampireNightWarriors_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_VampireNightWarriors_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, VampireNightWarriors_A_NUMUNIT, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM);
 }

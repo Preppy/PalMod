@@ -30,13 +30,13 @@ private:
 
     CFile ImgDatFile;
 
-    BOOL bOnTheFly = FALSE;
+    BOOL m_fOnTheFly = FALSE;
 
 public:
     CImgDat(void);
     ~CImgDat(void);
 
-    BOOL LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, uint32_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL bLoadAll = TRUE);
+    BOOL LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, uint32_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL fLoadAll = TRUE);
     sImgDef* GetImageDef(uint32_t uUnitId, UINT16 uImgId);
     bool FlushImageBuffer();
     UINT8* DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);

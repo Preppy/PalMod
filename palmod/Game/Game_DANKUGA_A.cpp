@@ -90,7 +90,7 @@ CGame_DanKuGa_A_DIR::~CGame_DanKuGa_A_DIR(void)
     FlushChangeTrackingArray();
 }
 
-uint32_t CGame_DanKuGa_A_DIR::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_DanKuGa_A_DIR::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, DANKUGA_A_NUMUNIT, nUnitId, DANKUGA_A_EXTRA_CUSTOM);
 }

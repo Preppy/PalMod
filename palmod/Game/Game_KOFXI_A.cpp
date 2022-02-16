@@ -84,7 +84,7 @@ CDescTree* CGame_KOFXI_A::GetMainTree()
     return &CGame_KOFXI_A::MainDescTree;
 }
 
-uint32_t CGame_KOFXI_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KOFXI_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KOFXI_A_NUMUNIT, nUnitId, KOFXI_A_EXTRA_CUSTOM);
 }

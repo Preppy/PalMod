@@ -119,7 +119,7 @@ UINT32 CGame_Kizuna_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKno
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_Kizuna_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_Kizuna_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, Kizuna_A_NUMUNIT, nUnitId, Kizuna_A_EXTRA_CUSTOM);
 }

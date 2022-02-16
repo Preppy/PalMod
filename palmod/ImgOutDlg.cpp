@@ -33,7 +33,7 @@ void CImgOutDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_AMT, m_CB_Amt);
     DDX_Control(pDX, IDC_PAL, m_CB_Pal);
     DDX_Control(pDX, IDC_ZOOM, m_CB_Zoom); // see also m_zoomSelIndex
-    DDX_Text(pDX, IDC_EDIT_BDRSZ, border_sz);
+    DDX_Text(pDX, IDC_EDIT_BDRSZ, m_border_sz);
     DDX_CBIndex(pDX, IDC_PAL, m_pal);
     DDX_CBIndex(pDX, IDC_ZOOM, m_zoomSelIndex); // see also m_CB_Zoom
     DDX_Control(pDX, IDC_BDRSPN, m_BdrSpn);
@@ -49,9 +49,9 @@ BOOL CImgOutDlg::OnInitDialog()
     pButtonLabelSet = CurrGame->GetButtonDescSet();
 
     //Set the image controls data
-    m_DumpBmp.pMainImgCtrl = &GetHost()->GetPreviewDlg()->m_ImgDisp;
-    m_DumpBmp.pppPalettes = CurrGame->CreateImgOutPal();
-    m_DumpBmp.nPalAmt = CurrGame->GetImgOutPalAmt();
+    m_DumpBmp.m_pMainImgCtrl = &GetHost()->GetPreviewDlg()->m_ImgDisp;
+    m_DumpBmp.m_pppPalettes = CurrGame->CreateImgOutPal();
+    m_DumpBmp.m_nPalAmt = CurrGame->GetImgOutPalAmt();
     m_DumpBmp.DispType = CurrGame->GetImgDispType();
 
     // Set the icon
@@ -61,15 +61,15 @@ BOOL CImgOutDlg::OnInitDialog()
     CString tmp_str;
     UpdateData();
 
-    nPalAmt = m_DumpBmp.nPalAmt;
+    m_nPalAmt = m_DumpBmp.m_nPalAmt;
 
     m_CB_Amt.AddString(L"1");
 
-    tmp_str.Format(L"CImgOutDlg::OnInitDialog: preparing to show up to %u sprites\n", nPalAmt);
+    tmp_str.Format(L"CImgOutDlg::OnInitDialog: preparing to show up to %u sprites\n", m_nPalAmt);
     OutputDebugString(tmp_str);
 
     // Update here as needed to add new division options
-    switch (nPalAmt)
+    switch (m_nPalAmt)
     {
     default:
         OutputDebugString(L"WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog yet!\n");
@@ -100,7 +100,7 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(L"6");
         // Allow the user to export either the "normal" 6 sprite set or to export
         // the entire 7 sprite set
-        nPalAmt == 7 ? m_CB_Amt.AddString(L"7") : NULL;
+        m_nPalAmt == 7 ? m_CB_Amt.AddString(L"7") : NULL;
         break;
     case 8: // status effects or cvs2
         m_CB_Amt.AddString(L"6");
@@ -175,7 +175,7 @@ BOOL CImgOutDlg::OnInitDialog()
 
     LoadSettings();
 
-    bCanSize = TRUE;
+    m_fCanSize = TRUE;
 
     UpdateData(FALSE);
 
@@ -184,7 +184,7 @@ BOOL CImgOutDlg::OnInitDialog()
     m_DumpBmp.InitImgData();
 
     //Get the rest of the data
-    bDlgInit = TRUE;
+    m_fDlgInit = TRUE;
     return TRUE;
 }
 
@@ -269,9 +269,9 @@ END_MESSAGE_MAP()
 
 // CImgOutDlg message handlers
 
-void CImgOutDlg::OnShowWindow(BOOL bShow, UINT nStatus)
+void CImgOutDlg::OnShowWindow(BOOL fShow, UINT nStatus)
 {
-    CDialog::OnShowWindow(bShow, nStatus);
+    CDialog::OnShowWindow(fShow, nStatus);
 
     m_CB_Amt.SetCurSel(0);
     m_CB_Pal.SetCurSel(0);
@@ -279,24 +279,24 @@ void CImgOutDlg::OnShowWindow(BOOL bShow, UINT nStatus)
     ResizeBmp();
 }
 
-void CImgOutDlg::UpdImgVar(BOOL bResize)
+void CImgOutDlg::UpdImgVar(BOOL fResize)
 {
     UpdateData();
 
     m_DumpBmp.m_nTotalImagesToDisplay = img_amt;
-    m_DumpBmp.nPalIndex = m_pal;
+    m_DumpBmp.m_nPalIndex = m_pal;
 
     m_zoomSelIndex = min(m_zoomSelIndex, (int)CPalModZoom::GetZoomListSize());
     m_zoomSelIndex = max(m_zoomSelIndex, m_nZoomSelOptionsMin);
 
-    m_DumpBmp.zoom = (float)(1 + m_zoomSelIndex);
-    m_DumpBmp.outline_sz = 0;
-    m_DumpBmp.border_sz = border_sz;
+    m_DumpBmp.m_flZoomLevel = (float)(1 + m_zoomSelIndex);
+    m_DumpBmp.m_outline_sz = 0;
+    m_DumpBmp.m_border_sz = m_border_sz;
 
     m_DumpBmp.GetOutputW();
     m_DumpBmp.GetOutputH();
 
-    if (bResize)
+    if (fResize)
     {
         m_DumpBmp.ResizeMainBmp();
     }
@@ -340,16 +340,16 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 
 void CImgOutDlg::FillPalCombo()
 {
-    bool fShouldShowMultipleOptions = (nPalAmt != 1) && (!pButtonLabelSet.empty());
+    bool fShouldShowMultipleOptions = (m_nPalAmt != 1) && (!pButtonLabelSet.empty());
 
-    if (fShouldShowMultipleOptions && ((uint32_t)nPalAmt > pButtonLabelSet.size()))
+    if (fShouldShowMultipleOptions && ((uint32_t)m_nPalAmt > pButtonLabelSet.size()))
     {
         MessageBox(L"Error: list of output options doesn't match list size.\n\nPlease report this bug in PalMod and it'll be fixed promptly.", GetHost()->GetAppName(), MB_ICONERROR);
     }
 
     if (fShouldShowMultipleOptions)
     {
-        for (int nNodeIndex = 0; nNodeIndex < nPalAmt; nNodeIndex++)
+        for (int nNodeIndex = 0; nNodeIndex < m_nPalAmt; nNodeIndex++)
         {
             m_CB_Pal.AddString(pButtonLabelSet[nNodeIndex]);
         }
@@ -375,7 +375,7 @@ void CImgOutDlg::OnDeltaposBdrspn(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CImgOutDlg::OnSettingsSetBackgroundColor()
 {
-    CColorDialog c_dlg(m_DumpBmp.crBGCol);
+    CColorDialog c_dlg(m_DumpBmp.m_crBGCol);
 
     if (c_dlg.DoModal() == IDOK)
     {
@@ -390,14 +390,14 @@ void CImgOutDlg::LoadSettings()
 
     sett.LoadReg(REG_IMGOUT);
 
-    m_DumpBmp.crBGCol = sett.imgout_bgcol;
+    m_DumpBmp.m_crBGCol = sett.imgout_bgcol;
 
     m_CB_Zoom.SetCurSel(sett.imgout_zoomindex);
 
     UpdateData();
 
-    bTransPNG = sett.bTransPNG;
-    border_sz = sett.imgout_border;
+    m_fTransPNG = sett.fTransPNG;
+    m_border_sz = sett.imgout_border;
 
     UpdateData(FALSE);
 
@@ -415,11 +415,11 @@ void CImgOutDlg::SaveSettings()
 {
     CRegProc sett;
 
-    sett.imgout_bgcol = m_DumpBmp.crBGCol;
+    sett.imgout_bgcol = m_DumpBmp.m_crBGCol;
 
-    sett.imgout_border = border_sz;
+    sett.imgout_border = m_border_sz;
     sett.imgout_zoomindex = m_CB_Zoom.GetCurSel();
-    sett.bTransPNG = bTransPNG;
+    sett.fTransPNG = m_fTransPNG;
 
     RECT window_rect;
 
@@ -431,7 +431,7 @@ void CImgOutDlg::SaveSettings()
 
 void CImgOutDlg::ResizeBmp()
 {
-    if (bCanSize)
+    if (m_fCanSize)
     {
         RECT new_sz;
         GetClientRect(&new_sz);
@@ -447,10 +447,10 @@ void CImgOutDlg::ResizeBmp()
 void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CString output_ext)
 {
     const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
-    const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
-    sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
+    const int nImageCount = m_DumpBmp.m_pMainImgCtrl->GetImgAmt();
+    sImgNode** rgSrcImg = m_DumpBmp.m_pMainImgCtrl->GetImgBuffer();
 
-    const UINT8 currentZoom = (UINT8)m_DumpBmp.zoom;
+    const UINT8 currentZoom = (UINT8)m_DumpBmp.m_flZoomLevel;
 
     // We want to ensure filename syntax, so strip the extension in order to rebuild it below
     save_str.Replace(output_ext.GetString(), L"");
@@ -470,7 +470,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
         rectCompleteDimensions.top = min(rectCompleteDimensions.top, 0 + rgSrcImg[nImageIndex]->nYOffs);
         rectCompleteDimensions.bottom = max(rectCompleteDimensions.bottom, rgSrcImg[nImageIndex]->uImgH + rgSrcImg[nImageIndex]->nYOffs);
 
-        nTotalPaletteSize += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
+        nTotalPaletteSize += m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
     }
 
     unsigned maxSrcWidth = rectCompleteDimensions.right - rectCompleteDimensions.left;
@@ -514,10 +514,10 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
         for (int nNodeIndex = 0; nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay; nNodeIndex++)
         {
             LPCWSTR pszCurrentNodeName = fShowingSingleVersion ? L"" : pButtonLabelSet[nNodeIndex];
-            int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.nPalIndex : nNodeIndex;
+            int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.m_nPalIndex : nNodeIndex;
 
-            const unsigned destWidth = (maxSrcWidth * currentZoom) + (2 * m_DumpBmp.border_sz);
-            const unsigned destHeight = (maxSrcHeight * currentZoom) + (2 * m_DumpBmp.border_sz);
+            const unsigned destWidth = (maxSrcWidth * currentZoom) + (2 * m_DumpBmp.m_border_sz);
+            const unsigned destHeight = (maxSrcHeight * currentZoom) + (2 * m_DumpBmp.m_border_sz);
 
             std::vector<unsigned char> image(destWidth * destHeight);
             lodepng::State state;
@@ -547,7 +547,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
                             for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
                             {
-                                int destIndex = ((m_DumpBmp.border_sz + adjustedY + zoomY) * destWidth) + (m_DumpBmp.border_sz + adjustedX + zoomX);
+                                int destIndex = ((m_DumpBmp.m_border_sz + adjustedY + zoomY) * destWidth) + (m_DumpBmp.m_border_sz + adjustedX + zoomX);
                                 // this is the upside-down version:
                                 //int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
                                 // and this is the rightside-up version:
@@ -564,7 +564,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 }
 
                 // Establish the PLTE header data.
-                UINT8* pCurrPal = (UINT8*)m_DumpBmp.pppPalettes[nImageIndex][nCurrentPalIndex];
+                UINT8* pCurrPal = (UINT8*)m_DumpBmp.m_pppPalettes[nImageIndex][nCurrentPalIndex];
                 CGameClass* CurrGame = GetHost()->GetCurrGame();
                 // the PNG PLTE section goes up to 256 colors, so use that as our initial cap
                 for (uint32_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
@@ -575,7 +575,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     if (iCurrentColor == nTransparencyPosition) // transparency color
 #endif
                     {
-                        if (bTransPNG)
+                        if (m_fTransPNG)
                         {
                             if (!fWrittenTheOneTransparencyColor)
                             {
@@ -594,11 +594,11 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                         else
                         {
                             // Use the background color, but be sure to force alpha
-                            lodepng_palette_add(&state.info_png.color, GetRValue(m_DumpBmp.crBGCol), GetGValue(m_DumpBmp.crBGCol), GetBValue(m_DumpBmp.crBGCol), 0xFF);
-                            lodepng_palette_add(&state.info_raw, GetRValue(m_DumpBmp.crBGCol), GetGValue(m_DumpBmp.crBGCol), GetBValue(m_DumpBmp.crBGCol), 0xFF);
+                            lodepng_palette_add(&state.info_png.color, GetRValue(m_DumpBmp.m_crBGCol), GetGValue(m_DumpBmp.m_crBGCol), GetBValue(m_DumpBmp.m_crBGCol), 0xFF);
+                            lodepng_palette_add(&state.info_raw, GetRValue(m_DumpBmp.m_crBGCol), GetGValue(m_DumpBmp.m_crBGCol), GetBValue(m_DumpBmp.m_crBGCol), 0xFF);
                         }
                     }
-                    else if (iCurrentColor < (uint32_t)m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz) // actual colors
+                    else if (iCurrentColor < (uint32_t)m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz) // actual colors
                     {
                         uint32_t nCurrentPosition = iCurrentColor * 4;
                         const UINT8 currAVal = pCurrPal[nCurrentPosition + 3];
@@ -614,7 +614,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     }
                 }
 
-                nPaletteOffset += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
+                nPaletteOffset += m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
             }
 
 #ifdef DEBUG
@@ -623,7 +623,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             state.encoder.text_compression = 0; // use tExt
             LodePNGInfo& info = state.info_png;
             CStringA astrText;
-            astrText.Format("%S", GetHost()->GetAppName(false));
+            astrText.Format("%S", GetHost()->GetAppName(false).GetString());
             lodepng_add_text(&info, "Software", astrText.GetString());
             // What should title be?  Node name plus current palette name...?
             lodepng_add_text(&info, "Title", "...");
@@ -657,7 +657,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 void CImgOutDlg::ExportToRAW(CString save_str, CString output_str, CString output_ext, LPCWSTR pszSuggestedFileName)
 {
     // raw
-    const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
+    const int nImageCount = m_DumpBmp.m_pMainImgCtrl->GetImgAmt();
     bool fShouldExport = true;
 
     if (nImageCount > 1)
@@ -675,9 +675,9 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_str, CString outpu
     {
         CString strDimensions;
         const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
-        sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
+        sImgNode** rgSrcImg = m_DumpBmp.m_pMainImgCtrl->GetImgBuffer();
 
-        const UINT8 currentZoom = (UINT8)m_DumpBmp.zoom;
+        const UINT8 currentZoom = (UINT8)m_DumpBmp.m_flZoomLevel;
 
         // We want to ensure filename syntax, so strip the extension in order to rebuild it below
         save_str.Replace(output_ext.GetString(), L"");
@@ -726,7 +726,7 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
         else
         {
             CDC* output_DC = CDC::FromHandle(out_img.GetDC());
-            output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);
+            output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.m_MainDC, 0, 0, SRCCOPY);
         }
 
         HRESULT hr = out_img.Save(output_str, img_format);
@@ -793,7 +793,7 @@ void CImgOutDlg::OnFileSave()
             {
                 img_format = ImageFormatPNG;
                 output_ext = L".png";
-                dwExportFlags = bTransPNG ? CImage::createAlphaChannel : 0;
+                dwExportFlags = m_fTransPNG ? CImage::createAlphaChannel : 0;
                 break;
             }
             case 3:
@@ -873,16 +873,16 @@ void CImgOutDlg::OnEnChangeEditBdrsz()
     // function and call CRichEditCtrl().SetEventMask()
     // with the ENM_CHANGE flag ORed into the mask.
 
-    static BOOL bFirstSet = TRUE;
+    static BOOL fFirstSet = TRUE;
 
-    if (bFirstSet)
+    if (fFirstSet)
     {
-        bFirstSet = FALSE;
+        fFirstSet = FALSE;
     }
     else
     {
         UpdateData();
-        m_BdrSpn.SetPos(border_sz);
+        m_BdrSpn.SetPos(m_border_sz);
         UpdateData(FALSE);
         UpdateImg();
     }
@@ -890,9 +890,9 @@ void CImgOutDlg::OnEnChangeEditBdrsz()
 
 BOOL CImgOutDlg::PreTranslateMessage(MSG* pMsg)
 {
-    if (m_hAccelTable)
+    if (g_hAccelTable)
     {
-        if (::TranslateAccelerator(GetSafeHwnd(), m_hAccelTable, pMsg))
+        if (::TranslateAccelerator(GetSafeHwnd(), g_hAccelTable, pMsg))
         {
             return(TRUE);
         }
@@ -911,7 +911,7 @@ BOOL CImgOutDlg::PreTranslateMessage(MSG* pMsg)
 
 void CImgOutDlg::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
 {
-    if (bDlgInit)
+    if (m_fDlgInit)
     {
         RECT rDummy;
         GetDlgItem(IDC_DUMMY)->GetWindowRect(&rDummy);
@@ -925,17 +925,17 @@ void CImgOutDlg::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
 
 void CImgOutDlg::OnSettingsUseTransparentPNG()
 {
-    bTransPNG = !bTransPNG;
+    m_fTransPNG = !m_fTransPNG;
 }
 
-void CImgOutDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
+void CImgOutDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 {
-    CDialog::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
+    CDialog::OnInitMenuPopup(pPopupMenu, nIndex, fSysMenu);
 
     CMenu* SettMenu = GetMenu()->GetSubMenu(1); //1 == Settings Menu
 
     if (pPopupMenu == SettMenu)
     {
-        pPopupMenu->CheckMenuItem(ID_SETTINGS_USETRANSPARENTPNG, MF_CHECKED * bTransPNG);
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_USETRANSPARENTPNG, MF_CHECKED * m_fTransPNG);
     }
 }

@@ -119,7 +119,7 @@ CDescTree* CGame_FatalFuryS_A::GetMainTree()
     return &CGame_FatalFuryS_A::MainDescTree;
 }
 
-uint32_t CGame_FatalFuryS_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_FatalFuryS_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, FatalFuryS_A_NUMUNIT, nUnitId, FatalFuryS_A_EXTRA_CUSTOM);
 }

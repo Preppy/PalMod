@@ -66,13 +66,13 @@ END_MESSAGE_MAP()
 
 void CPreviewDlg::InitDispCtrl()
 {
-    if (!bImgDispInit)
+    if (!m_fImgDispInit)
     {
         RECT rClient;
         GetClientRect(&rClient);
 
         m_ImgDisp.Create(L"CImgDisp", L"ImgDisp", WS_CHILD | WS_VISIBLE, rClient, this, 1234);
-        bImgDispInit = TRUE;
+        m_fImgDispInit = TRUE;
     }
 }
 
@@ -81,11 +81,11 @@ void CPreviewDlg::SetWindowCaption(LPCWSTR pszCaption)
     SetWindowText(pszCaption);
 }
 
-void CPreviewDlg::OnShowWindow(BOOL bShow, UINT nStatus)
+void CPreviewDlg::OnShowWindow(BOOL fShow, UINT nStatus)
 {
-    CDialog::OnShowWindow(bShow, nStatus);
+    CDialog::OnShowWindow(fShow, nStatus);
 
-    if (bImgDispInit)
+    if (m_fImgDispInit)
     {
         m_ImgDisp.UpdateCtrl();
     }
@@ -99,7 +99,7 @@ void CPreviewDlg::OnSize(UINT nType, int cx, int cy)
 {
     CDialog::OnSize(nType, cx, cy);
 
-    if (bImgDispInit)
+    if (m_fImgDispInit)
     {
         RECT rClient;
         GetClientRect(&rClient);
@@ -198,14 +198,14 @@ void CPreviewDlg::LoadSettings()
 
     m_ImgDisp.SetBGCol(LoadSett.prev_bgcol);
     m_ImgDisp.SetBlinkCol(LoadSett.prev_blinkcol);
-    m_ImgDisp.SetBGTiled(LoadSett.bTileBG);
+    m_ImgDisp.SetBGTiled(LoadSett.fTileBG);
     m_ImgDisp.SetBGXOffs(LoadSett.nBGXOffs);
     m_ImgDisp.SetBGYOffs(LoadSett.nBGYOffs);
-    m_ImgDisp.SetUseBGCol(LoadSett.bUseBGCol);
+    m_ImgDisp.SetUseBGCol(LoadSett.fUseBGCol);
     m_ImgDisp.SetZoom(LoadSett.dPreviewZoom);
-    m_ImgDisp.SetClickToFindColorSetting(LoadSett.bClickToFind);
+    m_ImgDisp.SetClickToFindColorSetting(LoadSett.fClickToFind);
 
-    if (LoadSett.bUseBGCol)
+    if (LoadSett.fUseBGCol)
     {
         // Don't bother loading the image yet: just make sure the right path is in use.
         m_ImgDisp.SetBGBmpPath(szBGLoc.GetBuffer());
@@ -254,7 +254,7 @@ void CPreviewDlg::LoadSettings()
         }
     }
 
-    if (bImgDispInit)
+    if (m_fImgDispInit)
     {
         m_ImgDisp.UpdateCtrl();
     }
@@ -267,12 +267,12 @@ void CPreviewDlg::SaveSettings()
     wcscpy(SaveSett.szPrevBGLoc, szBGLoc.GetBuffer());
     SaveSett.prev_bgcol = m_ImgDisp.GetBGCol();
     SaveSett.prev_blinkcol = m_ImgDisp.GetBlinkCol();
-    SaveSett.bTileBG = m_ImgDisp.IsBGTiled();
+    SaveSett.fTileBG = m_ImgDisp.IsBGTiled();
     SaveSett.nBGXOffs = m_ImgDisp.GetBGXOffs();
     SaveSett.nBGYOffs = m_ImgDisp.GetBGYOffs();
-    SaveSett.bUseBGCol = m_ImgDisp.IsUsingBGCol();
+    SaveSett.fUseBGCol = m_ImgDisp.IsUsingBGCol();
     SaveSett.dPreviewZoom = m_ImgDisp.GetZoom();
-    SaveSett.bClickToFind = m_ImgDisp.GetClickToFindColorSetting();
+    SaveSett.fClickToFind = m_ImgDisp.GetClickToFindColorSetting();
 
     RECT window_rect;
 
@@ -312,9 +312,9 @@ void CPreviewDlg::OnFileClose()
 
 BOOL CPreviewDlg::PreTranslateMessage(MSG* pMsg)
 {
-    if (m_hAccelTable)
+    if (g_hAccelTable)
     {
-        if (::TranslateAccelerator(GetSafeHwnd(), m_hAccelTable, pMsg))
+        if (::TranslateAccelerator(GetSafeHwnd(), g_hAccelTable, pMsg))
         {
             return(TRUE);
         }
@@ -354,9 +354,9 @@ void CPreviewDlg::OnTileBackground()
     m_ImgDisp.UpdateCtrl();
 }
 
-void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
+void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 {
-    CDialog::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
+    CDialog::OnInitMenuPopup(pPopupMenu, nIndex, fSysMenu);
 
     CMenu* pFileMenu = GetMenu()->GetSubMenu(0); // edit menu
 

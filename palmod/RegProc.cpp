@@ -418,8 +418,8 @@ void CRegProc::LoadReg(int src)
             if (RegQueryValueEx(hKey, L"prev_blinkcol", 0, &RegType, (BYTE*)&prev_blinkcol, &GetSz) != ERROR_SUCCESS)
                 prev_blinkcol = RGB(255, 255, 255);
 
-            if (RegQueryValueEx(hKey, L"PreviewTiledBG", 0, &RegType, (BYTE*)&bTileBG, &GetSz) != ERROR_SUCCESS)
-                bTileBG = TRUE;
+            if (RegQueryValueEx(hKey, L"PreviewTiledBG", 0, &RegType, (BYTE*)&fTileBG, &GetSz) != ERROR_SUCCESS)
+                fTileBG = TRUE;
 
             if (RegQueryValueEx(hKey, L"PreviewBGXOffset", 0, &RegType, (BYTE*)&nBGXOffs, &GetSz) != ERROR_SUCCESS)
                 nBGXOffs = 0;
@@ -427,11 +427,11 @@ void CRegProc::LoadReg(int src)
             if (RegQueryValueEx(hKey, L"PreviewBGYOffset", 0, &RegType, (BYTE*)&nBGYOffs, &GetSz) != ERROR_SUCCESS)
                 nBGYOffs = 0;
 
-            if (RegQueryValueEx(hKey, L"UseBGCol", 0, &RegType, (BYTE*)&bUseBGCol, &GetSz) != ERROR_SUCCESS)
-                bUseBGCol = TRUE;
+            if (RegQueryValueEx(hKey, L"UseBGCol", 0, &RegType, (BYTE*)&fUseBGCol, &GetSz) != ERROR_SUCCESS)
+                fUseBGCol = TRUE;
 
-            if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, (BYTE*)&bClickToFind, &GetSz) != ERROR_SUCCESS)
-                bClickToFind = TRUE;
+            if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, (BYTE*)&fClickToFind, &GetSz) != ERROR_SUCCESS)
+                fClickToFind = TRUE;
 
             int nTranslation = 0;
             if (RegQueryValueEx(hKey, L"PreviewZoom", 0, &RegType, (BYTE*)&nTranslation, &GetSz) == ERROR_SUCCESS)
@@ -488,9 +488,9 @@ void CRegProc::LoadReg(int src)
                 imgout_zoomindex = 0;
 
             GetSz = sizeof(BOOL);
-            if (RegQueryValueEx(hKey, L"TransparentPNG", 0, &RegType, (BYTE*)&bTransPNG, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"TransparentPNG", 0, &RegType, (BYTE*)&fTransPNG, &GetSz) != ERROR_SUCCESS)
             {
-                bTransPNG = TRUE;
+                fTransPNG = TRUE;
             }
 
             RegType = REG_SZ;
@@ -554,11 +554,11 @@ void CRegProc::SaveReg(int src)
 
             RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(WCHAR) * (conv_str.GetLength() + 1));
             RegSetValueEx(hKey, L"PreviewBGFile", 0, REG_SZ, (BYTE*)szPrevBGLoc, (DWORD)((wcslen(szPrevBGLoc) + 1) * sizeof(WCHAR)));
-            RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, (BYTE*)&bTileBG, sizeof(BOOL));
+            RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, (BYTE*)&fTileBG, sizeof(BOOL));
             RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, (BYTE*)&nBGXOffs, sizeof(int));
             RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, (BYTE*)&nBGYOffs, sizeof(int));
-            RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, (BYTE*)&bUseBGCol, sizeof(int));
-            RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, (BYTE*)&bClickToFind, sizeof(int));
+            RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, (BYTE*)&fUseBGCol, sizeof(int));
+            RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, (BYTE*)&fClickToFind, sizeof(int));
 
             int nTranslation = (int)dPreviewZoom;
             RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, (BYTE*)&nTranslation, sizeof(int));
@@ -570,7 +570,7 @@ void CRegProc::SaveReg(int src)
             RegSetValueEx(hKey, L"imgout_bgcol", 0, REG_DWORD, (BYTE*)&imgout_bgcol, sizeof(COLORREF));
             RegSetValueEx(hKey, L"imgout_border", 0, REG_DWORD, (BYTE*)&imgout_border, sizeof(DWORD));
             RegSetValueEx(hKey, L"imgout_zoomindex_2", 0, REG_DWORD, (BYTE*)&imgout_zoomindex, sizeof(DWORD));
-            RegSetValueEx(hKey, L"TransparentPNG", 0, REG_DWORD, (BYTE*)&bTransPNG, sizeof(BOOL));
+            RegSetValueEx(hKey, L"TransparentPNG", 0, REG_DWORD, (BYTE*)&fTransPNG, sizeof(BOOL));
 
             conv_str = RectToStr(imgout_szpos);
 

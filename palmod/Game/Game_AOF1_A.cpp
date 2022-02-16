@@ -102,7 +102,7 @@ stExtraDef* CGame_AOF1_A::GetCurrentExtraDef(int nDefCtr)
     return (stExtraDef*)&AOF1_A_EXTRA_CUSTOM[nDefCtr];
 }
 
-uint32_t CGame_AOF1_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_AOF1_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, AOF1_A_NUMUNIT, nUnitId, AOF1_A_EXTRA_CUSTOM);
 }

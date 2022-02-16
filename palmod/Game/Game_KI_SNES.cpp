@@ -115,7 +115,7 @@ CDescTree* CGame_KI_SNES::GetMainTree()
     return &CGame_KI_SNES::MainDescTree;
 }
 
-uint32_t CGame_KI_SNES::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KI_SNES::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KI_SNES_NUMUNIT, nUnitId, KI_SNES_EXTRA_CUSTOM);
 }

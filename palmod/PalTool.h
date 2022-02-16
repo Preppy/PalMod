@@ -14,43 +14,43 @@
 struct sPalEntry
 {
     CJunk* PaletteCtrl = nullptr;
-    WCHAR* szPalStr = nullptr;
-    BOOL bAvail = FALSE;
+    WCHAR* pszPalStr = nullptr;
+    BOOL fPalAvailable = FALSE;
 };
 
 class CPalTool : public CWnd
 {
 private:
-    sPalEntry pPalEntry[MAX_PALETTES_DISPLAYABLE];
-    CSize PalSize[MAX_PALETTES_DISPLAYABLE];
+    sPalEntry m_sPalEntry[MAX_PALETTES_DISPLAYABLE];
+    CSize m_PalSize[MAX_PALETTES_DISPLAYABLE];
 
-    BOOL bFirstPaint = TRUE;
-    BOOL bSpinInit = TRUE;
+    BOOL m_fIsFirstPaint = TRUE;
+    BOOL m_fSpinInit = TRUE;
 
-    CFont BaseFont;
+    CFont m_BaseFont;
     bool m_fFontIsBold = true;
-    int nFontHeight = -1;
+    int m_nFontHeight = -1;
 
-    UINT_PTR nNotifyCtrlIndex = 0;
+    UINT_PTR m_nNotifyCtrlIndex = 0;
 
     CSpinButtonCtrl m_PgSpin;
 
-    CRect rClient;
+    CRect m_rClient;
 
-    int nCurrPage = 0;
-    int nPageAmt = 0;
-    int nCurrPalAmt = 0;
-    int nPrevPalAmt = -1;
+    int m_nCurrPage = 0;
+    int m_nPageAmt = 0;
+    int m_nCurrPalAmt = 0;
+    int m_nPrevPalAmt = -1;
 
-    int nPalViewH = 0;
-    UINT16 rgPalRedir[MAX_PALETTES_DISPLAYABLE + 1];
+    int m_nPalViewH = 0;
+    UINT16 m_rgPalRedir[MAX_PALETTES_DISPLAYABLE + 1] = {};
 
     void Init();
 
     void ClearBG(CPaintDC* PaintDC);
     void DrawText();
 
-    void OnPalSelChange(UINT_PTR nCtrlId, BOOL bCurrPage = TRUE);
+    void OnPalSelChange(UINT_PTR nCtrlId, BOOL fCurrPage = TRUE);
 
     void SendPalMsg(UINT_PTR nCtrlId, int nType);
     void SetFontToBold(bool beBold);
@@ -64,21 +64,21 @@ public:
     void BeginSetPal();
     void EndSetPal();
     void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, WCHAR* szNewPalStr);
-    UINT_PTR GetNotifyIndex() { return nNotifyCtrlIndex; };
-    CJunk* GetNotifyPal() { return pPalEntry[nNotifyCtrlIndex].PaletteCtrl; };
-    CJunk* GetPalCtrl(UINT_PTR nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].PaletteCtrl : NULL; };
-    LPCWSTR GetPalName(UINT_PTR nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].szPalStr : L"Untitled Palette"; };
+    UINT_PTR GetNotifyIndex() { return m_nNotifyCtrlIndex; };
+    CJunk* GetNotifyPal() { return m_sPalEntry[m_nNotifyCtrlIndex].PaletteCtrl; };
+    CJunk* GetPalCtrl(UINT_PTR nIndex) { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].PaletteCtrl : NULL; };
+    LPCWSTR GetPalName(UINT_PTR nIndex) { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].pszPalStr : L"Untitled Palette"; };
 
-    void ResetNotifyIndex() { nNotifyCtrlIndex = 0; };
+    void ResetNotifyIndex() { m_nNotifyCtrlIndex = 0; };
 
-    BOOL CurrPalAvail() { return pPalEntry[nNotifyCtrlIndex].bAvail; };
+    BOOL CurrPalAvail() { return m_sPalEntry[m_nNotifyCtrlIndex].fPalAvailable; };
     void ShowAvailPal();
     void UpdateAllPalCtrls();
     void UpdateCtrl();
 
-    int GetCurrentPageCount() { return nPageAmt; };
+    int GetCurrentPageCount() { return m_nPageAmt; };
 
-    //void ResetNotifyPal(int nIndex){OnPalSelChange(0);SendPalMsg(nNotifyCtrlIndex);};
+    //void ResetNotifyPal(int nIndex){OnPalSelChange(0);SendPalMsg(m_nNotifyCtrlIndex);};
 
     BOOL RegisterWindowClass();
 

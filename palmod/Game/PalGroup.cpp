@@ -17,11 +17,11 @@ CPalGroup::~CPalGroup(void)
 
 void CPalGroup::InitPal()
 {
-    for (uint32_t i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (uint32_t iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        rgPalettes[i].pPal = nullptr;
-        rgPalettes[i].pBasePal = nullptr;
-        rgPalettes[i].uSepAmt = 0;
+        rgPalettes[iPalette].pPal = nullptr;
+        rgPalettes[iPalette].pBasePal = nullptr;
+        rgPalettes[iPalette].uSepAmt = 0;
     }
 
     //Clear the redirect buffer
@@ -30,11 +30,11 @@ void CPalGroup::InitPal()
 
 void CPalGroup::FlushPalAll()
 {
-    for (uint32_t i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
+    for (uint32_t iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        FlushPal(i);
+        FlushPal(iPalette);
 
-        nCurrPalAmt = 0;
+        m_nCurrPalAmt = 0;
     }
 
     //Clear the redirect buffer
@@ -49,9 +49,9 @@ BOOL CPalGroup::FlushPal(uint32_t nIndex)
         safe_delete_array(rgPalettes[nIndex].pPal);
         safe_delete_array(rgPalettes[nIndex].pBasePal);
 
-        for (uint32_t i = 0; i < rgPalettes[nIndex].uSepAmt; i++)
+        for (uint32_t iPos = 0; iPos < rgPalettes[nIndex].uSepAmt; iPos++)
         {
-            safe_delete(rgPalettes[nIndex].SepList[i]);
+            safe_delete(rgPalettes[nIndex].SepList[iPos]);
         }
 
         memset(&rgPalettes[nIndex], NULL, sizeof(sPalDef));
@@ -97,13 +97,13 @@ BOOL CPalGroup::AddSep(uint32_t nIndex, LPCWSTR szDesc, uint32_t nStart, uint32_
 
 BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, uint32_t uUnitId, uint32_t uPalId)
 {
-    if ((nCurrPalAmt >= MAX_PALETTES_DISPLAYABLE) || !pPal || !uPalSz)
+    if ((m_nCurrPalAmt >= MAX_PALETTES_DISPLAYABLE) || !pPal || !uPalSz)
     {
         OutputDebugString(L"CPalGroup::AddPal: bogus argument supplied\n");
         return FALSE;
     }
 
-    sPalDef* CurrPal = &rgPalettes[nCurrPalAmt];
+     sPalDef* CurrPal = &rgPalettes[m_nCurrPalAmt];
 
     //Init the basics of the palette
     CurrPal->pPal = pPal;
@@ -112,14 +112,14 @@ BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, uint32_t uUnitId, uint32_t
     CurrPal->uPalId = uPalId;
 
     CurrPal->uSepAmt = 0;
-    CurrPal->bAvail = TRUE;
-    CurrPal->bChanged = FALSE;
+    CurrPal->fPalAvailable = TRUE;
+    CurrPal->fIsChanged = FALSE;
 
     //Make a copy of the palette
     CurrPal->pBasePal = new COLORREF[uPalSz];
     memcpy(CurrPal->pBasePal, CurrPal->pPal, sizeof(COLORREF) * uPalSz);
 
-    nCurrPalAmt++;
+    m_nCurrPalAmt++;
 
     return TRUE;
 }

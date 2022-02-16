@@ -11,7 +11,7 @@ class CPreviewDlg : public CDialog
 
 private:
     void InitDispCtrl();
-    BOOL bImgDispInit = FALSE;
+    BOOL m_fImgDispInit = FALSE;
 
     void LoadSettings();
     void SaveSettings();
@@ -43,7 +43,7 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 public:
-    afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
+    afx_msg void OnShowWindow(BOOL fShow, UINT nStatus);
     afx_msg void OnSize(UINT nType, int cx, int cy);
     afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
     afx_msg void OnZoom1x() { UpdateZoomSetting(1.0); };
@@ -64,7 +64,7 @@ public:
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual BOOL OnInitDialog();
     afx_msg void OnTileBackground();
-    afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
+    afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu);
     afx_msg void OnResetBackgroundOffset();
     afx_msg void OnFileExportImg();
     afx_msg void OnSettingsUseBackgroundColor();

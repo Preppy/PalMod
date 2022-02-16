@@ -171,7 +171,7 @@ void CGame_KOTM_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     }
 }
 
-uint32_t CGame_KOTM_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KOTM_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KOTM_A_NUMUNIT, nUnitId, KOTM_A_EXTRA_CUSTOM);
 }

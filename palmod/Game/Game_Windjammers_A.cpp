@@ -84,7 +84,7 @@ CDescTree* CGame_Windjammers_A::GetMainTree()
     return &CGame_Windjammers_A::MainDescTree;
 }
 
-uint32_t CGame_Windjammers_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_Windjammers_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, Windjammers_A_NUMUNIT, nUnitId, Windjammers_A_EXTRA_CUSTOM);
 }

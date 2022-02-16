@@ -106,7 +106,7 @@ UINT32 CGame_RBFFS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_RBFFS_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_RBFFS_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, RBFFS_A_NUMUNIT, nUnitId, RBFFS_A_EXTRA_CUSTOM);
 }

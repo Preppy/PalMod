@@ -104,7 +104,7 @@ CDescTree* CGame_KOF97_A::GetMainTree()
     }
 }
 
-uint32_t CGame_KOF97_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KOF97_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     if (UsePaletteSetFor97())
     {

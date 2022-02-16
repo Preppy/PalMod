@@ -83,7 +83,7 @@ CDescTree* CGame_WakuWaku7_A::GetMainTree()
     return &CGame_WakuWaku7_A::MainDescTree;
 }
 
-uint32_t CGame_WakuWaku7_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_WakuWaku7_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, WakuWaku7_A_NUMUNIT, nUnitId, WakuWaku7_A_EXTRA_CUSTOM);
 }

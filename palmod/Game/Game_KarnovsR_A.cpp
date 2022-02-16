@@ -83,7 +83,7 @@ CDescTree* CGame_KarnovsR_A::GetMainTree()
     return &CGame_KarnovsR_A::MainDescTree;
 }
 
-uint32_t CGame_KarnovsR_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_KarnovsR_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, KarnovsR_A_NUMUNIT, nUnitId, KarnovsR_A_EXTRA_CUSTOM);
 }

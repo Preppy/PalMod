@@ -84,7 +84,7 @@ CDescTree* CGame_SAVAGEREIGN_A::GetMainTree()
     return &CGame_SAVAGEREIGN_A::MainDescTree;
 }
 
-uint32_t CGame_SAVAGEREIGN_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SAVAGEREIGN_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SAVAGEREIGN_A_NUMUNIT, nUnitId, SAVAGEREIGN_A_EXTRA_CUSTOM);
 }

@@ -44,7 +44,7 @@ private:
     void CleanUp();
     CPalGroup* BasePal = nullptr;
 
-    BOOL bImgLoaded = FALSE;
+    BOOL m_fIsImageLoaded = FALSE;
 
     CPalModDlg* PalModDlg = nullptr;
     CPreviewDlg* PreviewDlg = nullptr;
@@ -65,7 +65,7 @@ public:
     CPalModDlg* GetPalModDlg() { return PalModDlg; };
     CPreviewDlg* GetPreviewDlg() { return PreviewDlg; };
 
-    BOOL IsImgLoaded() { return bImgLoaded; };
+    BOOL IsImgLoaded() { return m_fIsImageLoaded; };
 
     void ClearGameClass();
     
@@ -84,4 +84,4 @@ public:
 extern CPalModApp theApp;
 extern CPalModApp* GetHost();
 
-extern HACCEL m_hAccelTable;
+extern HACCEL g_hAccelTable;

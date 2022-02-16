@@ -167,7 +167,7 @@ uint32_t CGame_MSHVSF_A::GetExtraLoc(uint32_t nUnitId)
     }
 }
 
-uint32_t CGame_MSHVSF_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_MSHVSF_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     if (UsePaletteSetForCharacters())
     {

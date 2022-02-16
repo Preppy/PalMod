@@ -84,7 +84,7 @@ CDescTree* CGame_ROTD_A::GetMainTree()
     return &CGame_ROTD_A::MainDescTree;
 }
 
-uint32_t CGame_ROTD_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_ROTD_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, ROTD_A_NUMUNIT, nUnitId, ROTD_A_EXTRA_CUSTOM);
 }

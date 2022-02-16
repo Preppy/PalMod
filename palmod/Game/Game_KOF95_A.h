@@ -35,7 +35,7 @@ public:
     static sFileRule GetRule(uint32_t nUnitId);
 
     //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
     static uint32_t GetExtraLoc(uint32_t nUnitId);
 
     //Normal functions

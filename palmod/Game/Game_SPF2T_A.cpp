@@ -119,7 +119,7 @@ CDescTree* CGame_SPF2T_A::GetMainTree()
     return &CGame_SPF2T_A::MainDescTree;
 }
 
-uint32_t CGame_SPF2T_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SPF2T_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, SPF2T_A_NUMUNITS, nUnitId, SPF2T_A_EXTRA_CUSTOM);
 }

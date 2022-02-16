@@ -84,7 +84,7 @@ CDescTree* CGame_Garou_A::GetMainTree()
     return &CGame_Garou_A::MainDescTree;
 }
 
-uint32_t CGame_Garou_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_Garou_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, Garou_A_NUMUNIT, nUnitId, Garou_A_EXTRA_CUSTOM);
 }

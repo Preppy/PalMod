@@ -109,7 +109,7 @@ CDescTree* CGame_GEMFIGHTER_A::GetMainTree()
     return &CGame_GEMFIGHTER_A::MainDescTree;
 }
 
-uint32_t CGame_GEMFIGHTER_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_GEMFIGHTER_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, GEMFIGHTER_A_NUMUNITS, nUnitId, GEMFIGHTER_A_EXTRA_CUSTOM);
 }

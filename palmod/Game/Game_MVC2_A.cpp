@@ -98,7 +98,7 @@ CDescTree* CGame_MVC2_A::GetMainTree()
     return &CGame_MVC2_A::MainDescTree;
 }
 
-uint32_t CGame_MVC2_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_MVC2_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, MVC2_A_NUMUNIT, nUnitId, MVC2_A_EXTRA_CUSTOM);
 }

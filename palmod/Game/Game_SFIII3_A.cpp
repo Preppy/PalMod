@@ -165,32 +165,32 @@ CGame_SFIII3_A::~CGame_SFIII3_A(void)
     FlushChangeTrackingArray();
 }
 
-uint32_t CGame_SFIII3_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_SFIII3_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     switch (m_nSelectedRom)
     {
     case SF3ROM_10:
     {
-        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_10 : rgExtraCountAll_10, SFIII3_A_10_NUMUNIT, nUnitId, SFIII3_A_10_EXTRA_CUSTOM);
+        return _GetExtraCount(fCountVisibleOnly ? rgExtraCountVisibleOnly_10 : rgExtraCountAll_10, SFIII3_A_10_NUMUNIT, nUnitId, SFIII3_A_10_EXTRA_CUSTOM);
     }
     case SF3ROM_10_4rd:
     {
-        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_14 : rgExtraCountAll_14, SFIII3_A_10_NUMUNIT, nUnitId, SFIII3_A_14_EXTRA_CUSTOM);
+        return _GetExtraCount(fCountVisibleOnly ? rgExtraCountVisibleOnly_14 : rgExtraCountAll_14, SFIII3_A_10_NUMUNIT, nUnitId, SFIII3_A_14_EXTRA_CUSTOM);
     }
     case SF3ROM_51_4rd:
     {
-        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_4 : rgExtraCountAll_4, SFIII3_A_51_NUMUNIT, nUnitId, SFIII3_A_4_EXTRA_CUSTOM);
+        return _GetExtraCount(fCountVisibleOnly ? rgExtraCountVisibleOnly_4 : rgExtraCountAll_4, SFIII3_A_51_NUMUNIT, nUnitId, SFIII3_A_4_EXTRA_CUSTOM);
     }
     case SF3ROM_70_EX:
     {
-        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_70 : rgExtraCountAll_70, SFIII3_A_70_NUMUNIT, nUnitId, SFIII3_A_70_EXTRA_CUSTOM);
+        return _GetExtraCount(fCountVisibleOnly ? rgExtraCountVisibleOnly_70 : rgExtraCountAll_70, SFIII3_A_70_NUMUNIT, nUnitId, SFIII3_A_70_EXTRA_CUSTOM);
     }
     default:
         OutputDebugString(L"Warning: unrecognized ROM.\n");
         __fallthrough;
     case SF3ROM_51:
     {
-        return _GetExtraCount(bCountVisibleOnly ? rgExtraCountVisibleOnly_51 : rgExtraCountAll_51, SFIII3_A_51_NUMUNIT, nUnitId, SFIII3_A_51_EXTRA_CUSTOM);
+        return _GetExtraCount(fCountVisibleOnly ? rgExtraCountVisibleOnly_51 : rgExtraCountAll_51, SFIII3_A_51_NUMUNIT, nUnitId, SFIII3_A_51_EXTRA_CUSTOM);
     }
     }
 }
@@ -371,7 +371,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
         sDescNode* ChildNode = nullptr;
 
         uint32_t nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
+        BOOL fUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
 
         uint32_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
@@ -463,7 +463,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
         }
 
         //Set up extra nodes
-        if (bUseExtra)
+        if (fUseExtra)
         {
             uint32_t nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;

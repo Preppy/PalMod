@@ -181,7 +181,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
     return NewDescTree;
 }
 
-uint32_t CGame_COTA_A::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly)
+uint32_t CGame_COTA_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
 {
     return _GetExtraCount(rgExtraCountAll, COTA_A_NUMUNIT, nUnitId, COTA_A_EXTRA_CUSTOM);
 }
