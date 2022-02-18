@@ -79,11 +79,6 @@ BOOL CGameClass::SpecSel(int* nRelativizedPalId, int nPalId, int nRelativePalIdT
 
 sImgTicket* CGameClass::CreateImgTicket(uint32_t nUnitId, int nImgId, sImgTicket* NextTicket, int nXOffs, int nYOffs)
 {
-    if (nImgId == INVALID_UNIT_VALUE)
-    {
-        return nullptr;
-    }
-
     sImgTicket* NewTicket = new sImgTicket;
 
     NewTicket->nUnitId = nUnitId;
@@ -100,7 +95,7 @@ void CGameClass::ClearSetImgTicket(sImgTicket* NewImgTicket)
     sImgTicket* DelTicket = CurrImgTicket;
     sImgTicket* NextTicket;
 
-    while (DelTicket != NULL)
+    while (DelTicket)
     {
         NextTicket = DelTicket->NextTicket;
         delete DelTicket;

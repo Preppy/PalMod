@@ -1569,7 +1569,7 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_HUDMenu =
     { L"Text (Normal) (1/3)",           0x7bcf0, 0x7bd30 },
     { L"Text (Normal) (2/3)",           0x7c1f0, 0x7c230 },
     { L"Text (Normal) (3/3)",           0x7c7d0, 0x7c810 },
-    { L"Text (Original) (1/3)",         0x89FF0, 0x8A030 },//This looks wrong, but its correct
+    { L"Text (Original) (1/3)",         0x89FF0, 0x8A030 }, // This looks wrong, but it's correct
     { L"Text (Original) (2/3)",         0x8A510, 0x8A550 },
     { L"Text (Original) (3/3)",         0x8AAB0, 0x8AAF0 },
     { L"Zappa summon/Move List icons",  0x7E450, 0x7E490 },
