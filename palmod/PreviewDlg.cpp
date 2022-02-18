@@ -192,7 +192,7 @@ void CPreviewDlg::LoadSettings()
 {
     CRegProc LoadSett;
 
-    LoadSett.LoadReg(REG_PREV);
+    LoadSett.LoadReg(eRegistryStoreID::REG_PREV);
 
     szBGLoc = LoadSett.szPrevBGLoc;
 
@@ -279,7 +279,7 @@ void CPreviewDlg::SaveSettings()
     GetWindowRect(&window_rect);
     SaveSett.prev_szpos = window_rect;
 
-    SaveSett.SaveReg(REG_PREV);
+    SaveSett.SaveReg(eRegistryStoreID::REG_PREV);
 }
 
 void CPreviewDlg::OnDestroy()

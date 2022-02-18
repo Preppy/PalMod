@@ -7,7 +7,7 @@
 
 void CPalModDlg::LoadSettings()
 {
-    CRegProc RegSett(REG_MAIN);
+    CRegProc RegSett(eRegistryStoreID::REG_MAIN);
 
     //Get main program data
     CGameClass::AllowTransparencyEdits(RegSett.main_fAllowAlphaChanges);
@@ -51,5 +51,5 @@ void CPalModDlg::SaveSettings()
     GetWindowRect(&window_rect);
     RegSett.main_szpos = window_rect;
 
-    RegSett.SaveReg(REG_MAIN);
+    RegSett.SaveReg(eRegistryStoreID::REG_MAIN);
 }

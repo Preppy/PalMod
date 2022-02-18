@@ -388,7 +388,7 @@ void CImgOutDlg::LoadSettings()
 {
     CRegProc sett;
 
-    sett.LoadReg(REG_IMGOUT);
+    sett.LoadReg(eRegistryStoreID::REG_IMGOUT);
 
     m_DumpBmp.m_crBGCol = sett.imgout_bgcol;
 
@@ -426,7 +426,7 @@ void CImgOutDlg::SaveSettings()
     GetWindowRect(&window_rect);
     sett.imgout_szpos = window_rect;
 
-    sett.SaveReg(REG_IMGOUT);
+    sett.SaveReg(eRegistryStoreID::REG_IMGOUT);
 }
 
 void CImgOutDlg::ResizeBmp()

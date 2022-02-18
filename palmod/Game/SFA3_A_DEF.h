@@ -2296,7 +2296,7 @@ const sGame_PaletteDataset SFA3_A_JULI_STATUS[] =
 
 const sGame_PaletteDataset SFA3_A_JUNI_XISMP[] =
 {
-    { L"X-Ism Punch", 0x32612, 0x32632, indexCPS2Sprites_Juni, 0x00 },
+    { L"X-Ism Punch", 0x32612, 0x32632, indexCPS2Sprites_Juni, 0x00, &pairNext },
     { L"X-Ism Punch Extra 1: Body", 0x32632, 0x32652, indexCPS2Sprites_Juni, 0x01 },
     { L"X-Ism Punch Extra 2: Psycho Charge", 0x32652, 0x32672, indexCPS2Sprites_Juni, 0x02 },
     { L"X-Ism Punch Super Trail Light", 0x32672, 0x32692, indexCPS2Sprites_Juni, 0x00 },
@@ -2366,7 +2366,7 @@ const sGame_PaletteDataset SFA3_A_JUNI_STATUS[] =
     { L"V-Ism Kick Zapped", 0x37c32 + 0x1A0, 0x37c32 + 0x1C0, indexCPS2Sprites_Juni, 0xa0 },
     { L"Zapped Skeleton", 0x37c32 + 0x1C0, 0x37c32 + 0x1E0, indexCPS2Sprites_Juni, 0xa1 },
     { L"X-Ism Punch Mash", 0x37c32 + 0x1e0, 0x37c32 + 0x200, indexCPS2Sprites_Juni, 0x00, &pairNext },
-        { L"Body X-Ism Punch Mash", 0x37f32, 0x37f52 },
+        { L"Body X-Ism Punch Mash", 0x37f32, 0x37f52, indexCPS2Sprites_Juni, 0x01 },
     { L"X-Ism Kick Mash", 0x37c32 + 0x200, 0x37c32 + 0x220, indexCPS2Sprites_Juni, 0x00, &pairNext },
         { L"Body X-Ism Kick Mash", 0x37f52, 0x37f72, indexCPS2Sprites_Juni, 0x01 },
     { L"A-Ism Punch Mash", 0x37c32 + 0x220, 0x37c32 + 0x240, indexCPS2Sprites_Juni, 0x00, &pairNext },

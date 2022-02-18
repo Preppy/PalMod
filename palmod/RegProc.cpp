@@ -23,9 +23,9 @@ extern int GetDpiForScreen();
 
 DWORD CRegProc::dwColorsPerLine = 0;
 
-CRegProc::CRegProc(int nSrcType)
+CRegProc::CRegProc(eRegistryStoreID nSrcType)
 {
-    if (nSrcType != -1)
+    if (nSrcType != eRegistryStoreID::REG_UNKNOWN)
     {
         LoadReg(nSrcType);
     }
@@ -333,20 +333,21 @@ bool CRegProc::UserIsOnWINE()
     return (pWGV);
 }
 
-void CRegProc::LoadReg(int src)
+void CRegProc::LoadReg(eRegistryStoreID src)
 {
     HKEY hKey;
-    DWORD RegType;
-    DWORD GetSz;
-
-    CString conv_str;
 
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE|KEY_READ, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
+        DWORD RegType;
+        DWORD GetSz;
+
+        CString conv_str;
+
         switch (src)
         {
-        case REG_MAIN:
+        case eRegistryStoreID::REG_MAIN:
         {
             RegType = REG_DWORD;
             GetSz = sizeof(BOOL);
@@ -385,12 +386,12 @@ void CRegProc::LoadReg(int src)
             }
 
             RegType = REG_SZ;
-            GetSz = RECT_STRSZ;
+            GetSz = MAX_PATH;
 
             CString strPosAndDpi;
             strPosAndDpi.Format(L"%s_%u", (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
 
-            if (RegQueryValueEx(hKey, strPosAndDpi, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, strPosAndDpi, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(MAX_PATH), &GetSz) == ERROR_SUCCESS)
             {
                 main_szpos = StrToRect(conv_str);
                 // This good faith check doesn't seem to do anything meaningful. 
@@ -407,7 +408,7 @@ void CRegProc::LoadReg(int src)
         }
         break;
 
-        case REG_PREV:
+        case eRegistryStoreID::REG_PREV:
         {
             RegType = REG_DWORD;
             GetSz = sizeof(BOOL); //int is same size as bool, so...
@@ -444,9 +445,9 @@ void CRegProc::LoadReg(int src)
             }
 
             RegType = REG_SZ;
-            GetSz = RECT_STRSZ;
+            GetSz = MAX_PATH;
 
-            if (RegQueryValueEx(hKey, c_previewWndPos, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, c_previewWndPos, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(MAX_PATH), &GetSz) == ERROR_SUCCESS)
             {
                 prev_szpos = StrToRect(conv_str);
                 // This is a good faith check to make sure we didn't get positioned off-screen
@@ -472,7 +473,7 @@ void CRegProc::LoadReg(int src)
             }
         }
         break;
-        case REG_IMGOUT:
+        case eRegistryStoreID::REG_IMGOUT:
         {
             RegType = REG_DWORD;
             GetSz = sizeof(DWORD);
@@ -494,9 +495,9 @@ void CRegProc::LoadReg(int src)
             }
 
             RegType = REG_SZ;
-            GetSz = RECT_STRSZ;
+            GetSz = MAX_PATH;
 
-            if (RegQueryValueEx(hKey, L"imgout_szpos", 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, L"imgout_szpos", 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(MAX_PATH), &GetSz) == ERROR_SUCCESS)
             {
                 imgout_szpos = StrToRect(conv_str);
 
@@ -518,18 +519,18 @@ void CRegProc::LoadReg(int src)
     }
 }
 
-void CRegProc::SaveReg(int src)
+void CRegProc::SaveReg(eRegistryStoreID src)
 {
     HKEY hKey;
-
-    CString conv_str;
 
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
+        CString conv_str;
+
         switch (src)
         {
-        case REG_MAIN:
+        case eRegistryStoreID::REG_MAIN:
         {
             RegSetValueEx(hKey, c_mainAllowAlphaChanges, 0, REG_DWORD, (BYTE*)&main_fAllowAlphaChanges, sizeof(BOOL));
             RegSetValueEx(hKey, L"main_show32", 0, REG_DWORD, (BYTE*)&main_bShow32, sizeof(BOOL));
@@ -545,7 +546,7 @@ void CRegProc::SaveReg(int src)
         }
         break;
 
-        case REG_PREV:
+        case eRegistryStoreID::REG_PREV:
         {
             RegSetValueEx(hKey, L"prev_bgCol", 0, REG_DWORD, (BYTE*)&prev_bgcol, sizeof(COLORREF));
             RegSetValueEx(hKey, L"prev_blinkCol", 0, REG_DWORD, (BYTE*)&prev_blinkcol, sizeof(COLORREF));
@@ -565,7 +566,7 @@ void CRegProc::SaveReg(int src)
         }
         break;
 
-        case REG_IMGOUT:
+        case eRegistryStoreID::REG_IMGOUT:
         {
             RegSetValueEx(hKey, L"imgout_bgcol", 0, REG_DWORD, (BYTE*)&imgout_bgcol, sizeof(COLORREF));
             RegSetValueEx(hKey, L"imgout_border", 0, REG_DWORD, (BYTE*)&imgout_border, sizeof(DWORD));

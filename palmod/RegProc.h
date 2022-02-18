@@ -2,11 +2,13 @@
 
 #include <array>
 
-#define REG_MAIN        0
-#define REG_PREV        1
-#define REG_IMGOUT      2
-
-#define RECT_STRSZ      256
+enum class eRegistryStoreID
+{
+    REG_MAIN,        // 0
+    REG_PREV,        // 1
+    REG_IMGOUT,      // 2
+    REG_UNKNOWN = 255,
+};
 
 #define BGBMPFILE L"bgbmp.bmp"
 constexpr auto c_badWindowPosValue = -512;
@@ -34,11 +36,11 @@ public:
 class CRegProc
 {
 public:
-    CRegProc(int nSrcType = -1);
+    CRegProc(eRegistryStoreID nSrcType = eRegistryStoreID::REG_UNKNOWN);
     ~CRegProc(void);
 
-    void LoadReg(int src);
-    void SaveReg(int src);
+    void LoadReg(eRegistryStoreID src);
+    void SaveReg(eRegistryStoreID src);
 
     static void SetAlphaModeForUnknownGame(AlphaMode alphaMode);
     static void SetColorModeForUnknownGame(ColMode colorMode);
