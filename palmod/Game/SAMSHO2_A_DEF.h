@@ -492,9 +492,9 @@ const sGame_PaletteDataset SAMSHO2_A_MIZUKI[] =
     { L"Mizuki Burned", 0x163a0, 0x163c0 },
     { L"Mizuki Zapped", 0x163c0, 0x163e0 },
     { L"Mizuki Poisoned", 0x163e0, 0x16400 },
-    { L"Mayu", 0x17700, 0x17720 },
-    { L"Mayu Changing Pal", 0x17720, 0x17740 },
-    { L"Mayu Dog Form", 0x17740, 0x17760 },
+    { L"Maju", 0x17700, 0x17720 },
+    { L"Maju Changing Pal", 0x17720, 0x17740 },
+    { L"Maju Dog Form", 0x17740, 0x17760 },
     { L"Mizuki Portrait", 0x16dc0, 0x16de0 },
     { L"Maju Portrait", 0x17280, 0x172a0 },
 };
