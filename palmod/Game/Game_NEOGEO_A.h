@@ -56,6 +56,7 @@ public:
 
     void SetAlphaMode(AlphaMode NewMode) override;
     bool SetColorMode(ColMode NewMode) override;
+    void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) override;
     bool AllowUpdatingColorFormatForGame() override { return true; }
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);

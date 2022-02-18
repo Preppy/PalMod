@@ -178,7 +178,7 @@ public:
     virtual void OpenExtraFile() { };
     virtual bool GameAllowsExtraFile() { return false; };
 
-    void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { createPalOptions.eWriteOutputOptions = eUpdatedOption; };
+    virtual void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { createPalOptions.eWriteOutputOptions = eUpdatedOption; };
     PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return createPalOptions.eWriteOutputOptions; };
     UINT16 GetTransparencyColorPosition() { return createPalOptions.nTransparencyColorPosition; };
 

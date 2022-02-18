@@ -270,6 +270,14 @@ bool CGame_NEOGEO_A::SetColorMode(ColMode NewMode)
     return SetAlphaAndColorModeInternal(NewMode, AlphaMode::Unknown);
 }
 
+void CGame_NEOGEO_A::SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption)
+{
+    // Store for next launch
+    CRegProc::SetMaxWriteForUnknownGame(eUpdatedOption);
+
+    return CGameClass::SetMaximumWritePerEachTransparency(eUpdatedOption);
+}
+
 uint32_t CGame_NEOGEO_A::GetExtraLoc(uint32_t nUnitId)
 {
     return _GetExtraLocation(rgExtraLoc, NEOGEO_A_NUMUNIT, nUnitId, NEOGEO_A_EXTRA_CUSTOM);
