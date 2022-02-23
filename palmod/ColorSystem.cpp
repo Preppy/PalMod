@@ -673,9 +673,9 @@ namespace ColorSystem
         UINT16 auxg = (inCol & 0x0000FF00) >> 8;
         UINT16 auxr = (inCol & 0x000000FF);
 
-        auxb = (UINT16)round(auxb / 8);
-        auxg = (UINT16)round(auxg / 8);
-        auxr = (UINT16)round(auxr / 8);
+        auxb = (UINT16)round(auxb / 8.0);
+        auxg = (UINT16)round(auxg / 8.0);
+        auxr = (UINT16)round(auxr / 8.0);
 
         //auxr = auxr; no-op
         auxg = auxg << 5;
@@ -721,9 +721,9 @@ namespace ColorSystem
         UINT16 auxg = (inCol & 0x0000FF00) >> 8;
         UINT16 auxr = (inCol & 0x000000FF);
 
-        auxb = (UINT16)round(auxb / 8);
-        auxg = (UINT16)round(auxg / 8);
-        auxr = (UINT16)round(auxr / 8);
+        auxb = (UINT16)round(auxb / 8.0);
+        auxg = (UINT16)round(auxg / 8.0);
+        auxr = (UINT16)round(auxr / 8.0);
 
         auxr = auxr << 5;
         auxg = auxg; // no-op
@@ -771,9 +771,9 @@ namespace ColorSystem
         UINT16 auxg = (inCol & 0x0000FF00) >> 8;
         UINT16 auxr = (inCol & 0x000000FF);
 
-        auxb = (UINT16)round(auxb / 8);
-        auxg = (UINT16)round(auxg / 8);
-        auxr = (UINT16)round(auxr / 8);
+        auxb = (UINT16)round(auxb / 8.0);
+        auxg = (UINT16)round(auxg / 8.0);
+        auxr = (UINT16)round(auxr / 8.0);
 
         auxr = auxr << 10;
         auxg = auxg << 5;
@@ -1164,7 +1164,7 @@ namespace ColorSystem
         else
         {
             // We want half alpha
-            auxa = (UINT32)floor((auxa + 1) / 2);
+            auxa = (UINT32)floor((auxa + 1) / 2.0);
         }
 
         //auxr = auxr;

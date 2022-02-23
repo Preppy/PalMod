@@ -112,9 +112,9 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL6_MVC2 =
 const std::vector<LPCWSTR> DEF_BUTTONLABEL16_MVC2 =
 {
    L"LP", L"LK", L"HP", L"HK",
-   L"LP+A1", L"LK+A1", L"HP+A1", L"HK+A1",
-   L"LP+A2", L"LK+A2", L"HP+A2", L"HK+A2",
-   L"LP+A1+A2", L"LK+A1+A2", L"HP+A1+A2", L"HK+A1+A2",
+   L"A1+LP", L"A1+LK", L"A1+HP", L"A1+HK",
+   L"A2+LP", L"A2+LK", L"A2+HP", L"A2+HK",
+   L"A1+A2+LP", L"A1+A2+LK", L"A1+A2+HP", L"A1+A2+HK",
 };
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL7_SF3 =

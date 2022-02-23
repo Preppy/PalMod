@@ -29,7 +29,7 @@ enum Supported_SSF2T_4A_UnitListIndex
 
 constexpr auto SSF2T_A_NUM_IND_4A = index_SSF2T_4A_Last;
 
-#define SSF2T_A_EXTRALOC_4A SSF2T_A_NUM_IND_4A
+constexpr auto SSF2T_A_EXTRALOC_4A = SSF2T_A_NUM_IND_4A;
 
 const UINT8 SSF2T_A_UNITSORT_4A[SSF2T_A_NUM_IND_4A + 1] = // Plus 1 for the extra palettes
 {
@@ -1764,14 +1764,14 @@ const sGame_PaletteDataset SSF2T_A_03_DHALSIM_STAGE_NODE[] =
 
 const sGame_PaletteDataset SSF2T_A_04_DHALSIM_STAGE_NODE[] =
 {
-    { L"left vase", 0x55DFC, 0x55DFC + 0x20 },
+    { L"left vase", 0x55DFC, 0x55DFC + 0x20, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
     { L"right vase", 0x55E1C, 0x55E1C + 0x20 },
     { L"front elephant", 0x55E3C, 0x55E3C + 0x20 },
 };
 
 const sGame_PaletteDataset SSF2T_A_08_DHALSIM_STAGE_NODE[] =
 {
-    { L"BG wall painting", 0x69C00 - 0x2, 0x69C00 + 0x20 - 0x2 },
+    { L"BG wall painting", 0x69C00 - 0x2, 0x69C00 + 0x20 - 0x2, indexSF2Sprites_Stages, -1, &pairFullyLinkedNode },
     { L"BG curtains + lamp", 0x69C20 - 0x2, 0x69C20 + 0x20 - 0x2 },
     { L"BG columns", 0x69C40 - 0x2, 0x69C40 + 0x20 - 0x2 },
     { L"BG elephant (static part)", 0x69C60 - 0x2, 0x69C60 + 0x20 - 0x2 },

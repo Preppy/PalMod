@@ -42,7 +42,7 @@ CGame_SAMSHO5_A::CGame_SAMSHO5_A(UINT32 nConfirmedROMSize, SupportedGamesList nR
     m_nTotalInternalUnits = SAMSHO5_A_NUMUNIT;
     m_nExtraUnit = SAMSHO5_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1689;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1665;
     m_pszExtraFilename = EXTRA_FILENAME_SAMSHO5_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSAMSHO5;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
