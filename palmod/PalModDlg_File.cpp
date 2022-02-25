@@ -680,6 +680,9 @@ BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesLis
                         wcscpy(pszPath, szPath);
                         fFound = TRUE;
                     }
+
+                    // Reset now that we're loaded
+                    GetHost()->GetPalModDlg()->SetStatusText(L"");
                 }
             }
         }

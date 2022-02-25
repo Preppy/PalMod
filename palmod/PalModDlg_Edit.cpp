@@ -331,14 +331,14 @@ void CPalModDlg::OnEditCopy()
         int nInitialOffsetDelta = 0;
         bool fHaveSetDelta = false;
 
-        for (int i = 0; i < nWorkingAmt; i++)
+        for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
         {
-            if (pSelIndex[i] || fCopyAll)
+            if (pSelIndex[iPalIndex] || fCopyAll)
             {
                 if (!fHaveSetDelta)
                 {
                     fHaveSetDelta = true;
-                    nInitialOffsetDelta = i;
+                    nInitialOffsetDelta = iPalIndex;
                 }
 
                 switch (cbColor)
@@ -346,7 +346,7 @@ void CPalModDlg::OnEditCopy()
                 default:
                 case 2:
                 {
-                    UINT16 uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[i]);
+                    UINT16 uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
 
                     FormatTxt.Format("%04X", uCurrData);
 
@@ -356,13 +356,13 @@ void CPalModDlg::OnEditCopy()
                 }
                 case 3:
                 {
-                    UINT32 uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[i]);
+                    UINT32 uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
                     FormatTxt.Format("%06X", uCurrData);
                     break;
                 }
                 case 4:
                 {
-                    UINT32 uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[i]);
+                    UINT32 uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
 
                     FormatTxt.Format("%08X", uCurrData);
                     break;
@@ -415,16 +415,16 @@ void CPalModDlg::OnEditCopy()
 
             strUnicodeData.Append(L"PalMod's version of the data in the ROM at that location reads:\r\n\t");
 
-            for (int i = 0; i < nWorkingAmt; i++)
+            for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
             {
-                if (pSelIndex[i] || fCopyAll)
+                if (pSelIndex[iPalIndex] || fCopyAll)
                 {
                     switch (cbColor)
                     {
                     default:
                     case 2:
                     {
-                        UINT16 uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[i]);
+                        UINT16 uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[iPalIndex]);
                         uCurrData = _byteswap_ushort(uCurrData);
 
                         strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
@@ -432,14 +432,14 @@ void CPalModDlg::OnEditCopy()
                     }
                     case 3:
                     {
-                        UINT32 uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[i]);
+                        UINT32 uCurrData = CurrGame->ConvCol24(CurrPal->GetBasePal()[iPalIndex]);
                         // we deliberately drop alpha here
                         strFormatU.Format(L"%02X %02X %02X ", (uCurrData & 0xFF0000) >> 16, (uCurrData & 0xFF00) >> 8, (uCurrData & 0xFF));
                         break;
                     }
                     case 4:
                     {
-                        UINT32 uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[i]);
+                        UINT32 uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
                         uCurrData = _byteswap_ulong(uCurrData);
 
                         strFormatU.Format(L"%02X %02X %02X %02X ", (uCurrData & 0xFF000000) >> 24, (uCurrData & 0xFF0000) >> 16,
@@ -881,24 +881,24 @@ void CPalModDlg::HandlePasteFromPalMod()
 
             // Pre-check.  Since the incoming color could be either xRGB or ARGB, flag if the value
             // is alpha-aware.  If not, force alpha for the incoming xRGB value.
-            for (UINT16 i = 0; i < uPasteAmt; i++)
+            for (UINT16 iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
             {
-                memcpy(&szFormatStr16[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
+                memcpy(&szFormatStr16[2], &szPasteBuff[3 + (4 * iPasteIndex)], sizeof(UINT8) * 4);
 
-                rgPasteCol[i] = CurrGame->ConvPal16((UINT16)strtoul(szFormatStr16, NULL, 16));
+                rgPasteCol[iPasteIndex] = CurrGame->ConvPal16((UINT16)strtoul(szFormatStr16, NULL, 16));
 
-                if (((UINT8*)rgPasteCol)[(i * 4) + 3] != 0)
+                if (((UINT8*)rgPasteCol)[(iPasteIndex * 4) + 3] != 0)
                 {
                     fAnyValueHasAlpha = true;
                     break;
                 }
             }
 
-            for (UINT16 i = 0; i < uPasteAmt; i++)
+            for (UINT16 iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
             {
-                memcpy(&szFormatStr16[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
+                memcpy(&szFormatStr16[2], &szPasteBuff[3 + (4 * iPasteIndex)], sizeof(UINT8) * 4);
 
-                rgPasteCol[i] = CurrGame->ConvPal16((UINT16)strtoul(szFormatStr16, NULL, 16));
+                rgPasteCol[iPasteIndex] = CurrGame->ConvPal16((UINT16)strtoul(szFormatStr16, NULL, 16));
 
                 // Allow Alpha only if both:
                 //      the current game accepts it, and
@@ -906,7 +906,7 @@ void CPalModDlg::HandlePasteFromPalMod()
                 if (!CurrGame->AllowTransparency() || !fAnyValueHasAlpha)
                 {
                     // this game doesn't use/want alpha, but we need alpha to display properly
-                    ((UINT8*)rgPasteCol)[(i * 4) + 3] |= 0xFF;
+                    ((UINT8*)rgPasteCol)[(iPasteIndex * 4) + 3] |= 0xFF;
                 }
             }
 
@@ -917,9 +917,9 @@ void CPalModDlg::HandlePasteFromPalMod()
                 OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
                 CurrGame->_SetColorMode(eCurrColMode);
 
-                for (UINT16 i = 0; i < uPasteAmt; i++)
+                for (UINT16 iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
                 {
-                    rgPasteCol[i] = CurrGame->ConvPal16(CurrGame->ConvCol16(rgPasteCol[i]));
+                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal16(CurrGame->ConvCol16(rgPasteCol[iPasteIndex]));
                 }
             }
             break;
@@ -928,11 +928,11 @@ void CPalModDlg::HandlePasteFromPalMod()
         {
             char szFormatStr24[] = "0x000000";
 
-            for (UINT16 i = 0; i < uPasteAmt; i++)
+            for (UINT16 iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
             {
-                memcpy(&szFormatStr24[2], &szPasteBuff[3 + (6 * i)], sizeof(UINT8) * 6);
+                memcpy(&szFormatStr24[2], &szPasteBuff[3 + (6 * iPasteIndex)], sizeof(UINT8) * 6);
 
-                rgPasteCol[i] = CurrGame->ConvPal24((UINT32)strtoul(szFormatStr24, NULL, 16));
+                rgPasteCol[iPasteIndex] = CurrGame->ConvPal24((UINT32)strtoul(szFormatStr24, NULL, 16));
             }
 
             if (eCurrColMode != eColModeForPastedColor)
@@ -942,9 +942,9 @@ void CPalModDlg::HandlePasteFromPalMod()
                 OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
                 CurrGame->_SetColorMode(eCurrColMode);
 
-                for (UINT16 i = 0; i < uPasteAmt; i++)
+                for (UINT16 iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
                 {
-                    rgPasteCol[i] = CurrGame->ConvPal24(CurrGame->ConvCol24(rgPasteCol[i]));
+                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal24(CurrGame->ConvCol24(rgPasteCol[iPasteIndex]));
                 }
             }
             break;
@@ -953,11 +953,11 @@ void CPalModDlg::HandlePasteFromPalMod()
         {
             char szFormatStr32[] = "0x00000000";
 
-            for (UINT16 i = 0; i < uPasteAmt; i++)
+            for (UINT16 iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
             {
-                memcpy(&szFormatStr32[2], &szPasteBuff[3 + (8 * i)], sizeof(UINT8) * 8);
+                memcpy(&szFormatStr32[2], &szPasteBuff[3 + (8 * iPasteIndex)], sizeof(UINT8) * 8);
 
-                rgPasteCol[i] = CurrGame->ConvPal32((UINT32)strtoul(szFormatStr32, NULL, 16));
+                rgPasteCol[iPasteIndex] = CurrGame->ConvPal32((UINT32)strtoul(szFormatStr32, NULL, 16));
             }
 
             if (eCurrColMode != eColModeForPastedColor)
@@ -967,9 +967,9 @@ void CPalModDlg::HandlePasteFromPalMod()
                 OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
                 CurrGame->_SetColorMode(eCurrColMode);
 
-                for (UINT16 i = 0; i < uPasteAmt; i++)
+                for (UINT16 iPasteIndex = 0; iPasteIndex < uPasteAmt; iPasteIndex++)
                 {
-                    rgPasteCol[i] = CurrGame->ConvPal32(CurrGame->ConvCol32(rgPasteCol[i]));
+                    rgPasteCol[iPasteIndex] = CurrGame->ConvPal32(CurrGame->ConvCol32(rgPasteCol[iPasteIndex]));
                 }
             }
             break;
@@ -988,14 +988,14 @@ void CPalModDlg::HandlePasteFromPalMod()
             UINT8* rgSelIndex = CurrPalCtrl->GetSelIndex();
             COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
 
-            for (int i = 0; i < nWorkingAmt; i++)
+            for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
             {
-                if (rgSelIndex[i])
+                if (rgSelIndex[iPalIndex])
                 {
                     // We could optimize this to never change the transparency color, but that
                     // can be at a varied position
-                    crTargetPal[i] = rgPasteCol[nIndexCtr];
-                    CurrPalDef->pBasePal[i + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
+                    crTargetPal[iPalIndex] = rgPasteCol[nIndexCtr];
+                    CurrPalDef->pBasePal[iPalIndex + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
 
                     nIndexCtr++;
 
@@ -1112,10 +1112,10 @@ void CPalModDlg::HandlePasteFromRGB()
         // Stomp the full palette...
         COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
 
-        for (int i = 0; i < nWorkingAmt; i++)
+        for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
         {
-            crTargetPal[i] = colPasteCol;
-            CurrPalDef->pBasePal[i + CurrPalSep->nStart] = colPasteCol;
+            crTargetPal[iPalIndex] = colPasteCol;
+            CurrPalDef->pBasePal[iPalIndex + CurrPalSep->nStart] = colPasteCol;
         }
     }
     else
@@ -1123,12 +1123,12 @@ void CPalModDlg::HandlePasteFromRGB()
         UINT8* rgSelIndex = CurrPalCtrl->GetSelIndex();
         COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
 
-        for (int i = 0; i < nWorkingAmt; i++)
+        for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
         {
-            if (rgSelIndex[i])
+            if (rgSelIndex[iPalIndex])
             {
-                crTargetPal[i] = colPasteCol;
-                CurrPalDef->pBasePal[i + CurrPalSep->nStart] = colPasteCol;
+                crTargetPal[iPalIndex] = colPasteCol;
+                CurrPalDef->pBasePal[iPalIndex + CurrPalSep->nStart] = colPasteCol;
             }
         }
     }
