@@ -1066,29 +1066,36 @@ LPCWSTR CGameClass::_GetDescriptionForCollection(const sDescTreeNode* pGameUnits
 
 const sGame_PaletteDataset* CGameClass::_GetPaletteSet(const sDescTreeNode* pGameUnits, uint32_t nUnitId, uint32_t nCollectionId)
 {
-    // Don't use this for Extra palettes.
     const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)pGameUnits[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
 const sGame_PaletteDataset* CGameClass::_GetSpecificPalette(const sDescTreeNode* pGameUnits, uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nExtraUnitLocation, uint32_t nUnitId, uint32_t nPaletteId, stExtraDef* ppExtraDef)
 {
-    // Don't use this for Extra palettes.
     uint32_t nTotalCollections = _GetCollectionCountForUnit(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, ppExtraDef);
     const sGame_PaletteDataset* paletteToUse = nullptr;
-    uint32_t nDistanceFromZero = nPaletteId;
-    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+
+    if (nUnitId >= nExtraUnitLocation)
     {
-        const sGame_PaletteDataset* paletteSetToUse = _GetPaletteSet(pGameUnits, nUnitId, nCollectionIndex);
-        uint32_t nNodeCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, nCollectionIndex, ppExtraDef);
-
-        if (nDistanceFromZero < nNodeCount)
+        // Don't use this for Extra palettes.
+    }
+    else
+    {
+        // For non-extra units, we can grab the palette set.  For extra units, we handle that elsewhere.
+        uint32_t nDistanceFromZero = nPaletteId;
+        for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
         {
-            paletteToUse = &paletteSetToUse[nDistanceFromZero];
-            break;
-        }
+            const sGame_PaletteDataset* paletteSetToUse = _GetPaletteSet(pGameUnits, nUnitId, nCollectionIndex);
+            uint32_t nNodeCount = _GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, nUnitId, nCollectionIndex, ppExtraDef);
 
-        nDistanceFromZero -= nNodeCount;
+            if (nDistanceFromZero < nNodeCount)
+            {
+                paletteToUse = &paletteSetToUse[nDistanceFromZero];
+                break;
+            }
+
+            nDistanceFromZero -= nNodeCount;
+        }
     }
 
     if (!paletteToUse)

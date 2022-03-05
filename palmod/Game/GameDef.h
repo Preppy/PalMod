@@ -168,6 +168,7 @@ enum SupportedGamesList
     VampireHunter_A,
     SAMSHO5SP_S,
     JusticeLeagueTF_SNES,
+    SFA2_Hack_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -332,6 +333,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Vampire Hunter (CPS2)",
     L"Samurai Shodown V Special (Steam)",
     L"Justice League Task Force (USA SNES)",
+    L"SFA2 (CPS2 Palette Expansion)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -478,11 +480,19 @@ const stPairedPaletteInfo pairNextAndNext54 =                       { 1, false, 
 const stPairedPaletteInfo pairNextSkippedAndNextSkipped =           { 2, false, 3, 4 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNext4AndNext =                        { 4, false, 3, 3 }; // triple display... requires special handling in code
 
+const stPairedPaletteInfo pairNext2AndNext6 =                        { 2, false, 3, 6 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext3AndNext7 =                        { 3, false, 3, 7 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext3AndNext8 =                        { 3, false, 3, 8 }; // triple display... requires special handling in code
+
 const stPairedPaletteInfo pairNext3Palettes =                       { 1, false, 4 };          // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext32AndNextSkipped =         { 1, false, 4, 32, 34 };  // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext41AndNext =                { 1, false, 4, 41, 42 };  // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext =    { 2, false, 4, 4, 5 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext4AndNextAndNext =                 { 4, false, 4, 5, 6 };    // quad display... requires special handling in code
+
+const stPairedPaletteInfo pairNext4AndNext8AndNext9 =               { 4, false, 4, 8, 9 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext4AndNext7AndNext8 =               { 4, false, 4, 7, 8 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext4AndNext6AndNext7 =               { 4, false, 4, 6, 7 };    // quad display... requires special handling in code
 
 const stPairedPaletteInfo pairNext4Palettes =                       { 1, false, 5, 2, 3, 4, 5 }; // quint-display -- specially handled
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, false, 5, 2, 3, 8 };     // quint display... requires special handling in code

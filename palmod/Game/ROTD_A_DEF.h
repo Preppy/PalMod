@@ -25,52 +25,52 @@ const std::vector<UINT16> ROTD_A_IMGIDS_USED =
 
 const sGame_PaletteDataset ROTD_A_BILLY_A[] =
 {
-    { L"Billy A", 0x080406, 0x080426, indexRotDSprites_Billy, 0x00 },
-    { L"Weak Cross Slasher A", 0x080426, 0x080446 },
-    { L"Strong Cross Slasher A", 0x080446, 0x080466 },
-    { L"Lightning Energy A", 0x080466, 0x080486 },
-    { L"Rolling/Super Jump/Impact Combo Trail A", 0x0804e6, 0x080506, indexRotDSprites_Billy, 0x00 },
-    { L"EX/Super Trail A", 0x080506, 0x080526, indexRotDSprites_Billy, 0x00 },
-    { L"Guard Cancel Trail A", 0x080526, 0x080546, indexRotDSprites_Billy, 0x00 },
-    { L"Normal Hud A", 0x0804c6, 0x0804e6 },
-    { L"Charging/Defeated Hud A", 0x0804a6, 0x0804c6 },
+    { L"Billy A", 0x080406, 0x080426, indexRotDSprites_Billy, 0x00, &pairNext3Palettes },
+    { L"Weak Cross Slasher A", 0x080426, 0x080446, indexRotDSprites_Billy, 0x02 },
+    { L"Strong Cross Slasher A", 0x080446, 0x080466, indexRotDSprites_Billy, 0x03 },
+    { L"Lightning Energy A", 0x080466, 0x080486, indexRotDSprites_Billy, 0x01 },
+    { L"Rolling/Super Jump/Impact Combo Trail A", 0x0804e6, 0x080506, indexRotDSprites_Billy, 0x04 },
+    { L"EX/Super Trail A", 0x080506, 0x080526, indexRotDSprites_Billy, 0x04 },
+    { L"Guard Cancel Trail A", 0x080526, 0x080546, indexRotDSprites_Billy, 0x04 },
+    { L"Normal Hud A", 0x0804c6, 0x0804e6, indexRotDSprites_Billy, 0x81 },
+    { L"Charging/Defeated Hud A", 0x0804a6, 0x0804c6, indexRotDSprites_Billy, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_BILLY_B[] =
 {
-    { L"Billy B", 0x080546, 0x080566, indexRotDSprites_Billy, 0x00 },
-    { L"Weak Cross Slasher B", 0x080566, 0x080586 },
-    { L"Strong Cross Slasher B", 0x080586, 0x0805a6 },
-    { L"Lightning Energy B", 0x0805a6, 0x0805c6 },
-    { L"Rolling/Super Jump/Impact Combo Trail B", 0x080606, 0x080626, indexRotDSprites_Billy, 0x00 },
-    { L"EX/Super Trail B", 0x080626, 0x080646, indexRotDSprites_Billy, 0x00 },
-    { L"Guard Cancel Trail B", 0x080646, 0x080666, indexRotDSprites_Billy, 0x00 },
-    { L"Normal Hud B", 0x0805e6, 0x080606 },
-    { L"Charging/Defeated Hud B", 0x0805c6, 0x0805e6 },
+    { L"Billy B", 0x080546, 0x080566, indexRotDSprites_Billy, 0x00, &pairNext3Palettes },
+    { L"Weak Cross Slasher B", 0x080566, 0x080586, indexRotDSprites_Billy, 0x02 },
+    { L"Strong Cross Slasher B", 0x080586, 0x0805a6, indexRotDSprites_Billy, 0x03 },
+    { L"Lightning Energy B", 0x0805a6, 0x0805c6, indexRotDSprites_Billy, 0x01 },
+    { L"Rolling/Super Jump/Impact Combo Trail B", 0x080606, 0x080626, indexRotDSprites_Billy, 0x04 },
+    { L"EX/Super Trail B", 0x080626, 0x080646, indexRotDSprites_Billy, 0x04 },
+    { L"Guard Cancel Trail B", 0x080646, 0x080666, indexRotDSprites_Billy, 0x04 },
+    { L"Normal Hud B", 0x0805e6, 0x080606, indexRotDSprites_Billy, 0x81 },
+    { L"Charging/Defeated Hud B", 0x0805c6, 0x0805e6, indexRotDSprites_Billy, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_BILLY_C[] =
 {
-    { L"Billy C", 0x080666, 0x080686, indexRotDSprites_Billy, 0x00 },
-    { L"Weak Cross Slasher C", 0x080686, 0x0806a6 },
-    { L"Strong Cross Slasher C", 0x0806a6, 0x0806c6 },
-    { L"Lightning Energy C", 0x0806c6, 0x0806e6 },
-    { L"Rolling/Super Jump/Impact Combo Trail C", 0x080726, 0x080746, indexRotDSprites_Billy, 0x00 },
-    { L"EX/Super Trail C", 0x080746, 0x080766, indexRotDSprites_Billy, 0x00 },
-    { L"Guard Cancel Trail C", 0x080766, 0x080786, indexRotDSprites_Billy, 0x00 },
+    { L"Billy C", 0x080666, 0x080686, indexRotDSprites_Billy, 0x00, &pairNext3Palettes },
+    { L"Weak Cross Slasher C", 0x080686, 0x0806a6, indexRotDSprites_Billy, 0x02 },
+    { L"Strong Cross Slasher C", 0x0806a6, 0x0806c6, indexRotDSprites_Billy, 0x03 },
+    { L"Lightning Energy C", 0x0806c6, 0x0806e6, indexRotDSprites_Billy, 0x01 },
+    { L"Rolling/Super Jump/Impact Combo Trail C", 0x080726, 0x080746, indexRotDSprites_Billy, 0x04 },
+    { L"EX/Super Trail C", 0x080746, 0x080766, indexRotDSprites_Billy, 0x04 },
+    { L"Guard Cancel Trail C", 0x080766, 0x080786, indexRotDSprites_Billy, 0x04 },
     { L"Normal Hud C", 0x080706, 0x080726 },
     { L"Charging/Defeated Hud C", 0x0806e6, 0x080706 },
 };
 
 const sGame_PaletteDataset ROTD_A_BILLY_D[] =
 {
-    { L"Billy D", 0x080786, 0x0807a6, indexRotDSprites_Billy, 0x00 },
-    { L"Weak Cross Slasher D", 0x0807a6, 0x0807c6 },
-    { L"Strong Cross Slasher D", 0x0807c6, 0x0807e6 },
-    { L"Lightning Energy D", 0x0807e6, 0x080806 },
-    { L"Rolling/Super Jump/Impact Combo Trail D", 0x080846, 0x080866, indexRotDSprites_Billy, 0x00 },
-    { L"EX/Super Trail D", 0x080866, 0x080886, indexRotDSprites_Billy, 0x00 },
-    { L"Guard Cancel Trail D", 0x080886, 0x0808a6, indexRotDSprites_Billy, 0x00 },
+    { L"Billy D", 0x080786, 0x0807a6, indexRotDSprites_Billy, 0x00, &pairNext3Palettes },
+    { L"Weak Cross Slasher D", 0x0807a6, 0x0807c6, indexRotDSprites_Billy, 0x02 },
+    { L"Strong Cross Slasher D", 0x0807c6, 0x0807e6, indexRotDSprites_Billy, 0x03 },
+    { L"Lightning Energy D", 0x0807e6, 0x080806, indexRotDSprites_Billy, 0x01 },
+    { L"Rolling/Super Jump/Impact Combo Trail D", 0x080846, 0x080866, indexRotDSprites_Billy, 0x04 },
+    { L"EX/Super Trail D", 0x080866, 0x080886, indexRotDSprites_Billy, 0x04 },
+    { L"Guard Cancel Trail D", 0x080886, 0x0808a6, indexRotDSprites_Billy, 0x04 },
     { L"Normal Hud D", 0x080826, 0x080846 },
     { L"Charging/Defeated Hud D", 0x080806, 0x080826 },
 };
@@ -78,67 +78,67 @@ const sGame_PaletteDataset ROTD_A_BILLY_D[] =
 const sGame_PaletteDataset ROTD_A_BILLY_PORTRAITS[] =
 {
     { L"Select Portrait", 0x808a6, 0x808e6, indexRotDSprites_Billy, 0x80 },
-    { L"VS Portrait", 0x85e5c, 0x85e9c },
-    { L"Win Portrait", 0x8669e, 0x866de },
+    { L"VS Portrait", 0x85e5c, 0x85e9c, indexRotDSprites_Billy, 0x82 },
+    { L"Win Portrait", 0x8669e, 0x866de, indexRotDSprites_Billy, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_JIMMY_A[] =
 {
-    { L"Jimmy A", 0x0808e8, 0x080908, indexRotDSprites_Jimmy, 0x00 },
-    { L"Red Rage A", 0x080908, 0x080928 },
-    { L"Fire Attacks A", 0x080928, 0x080948 },
-    { L"Intro Coat A", 0x080948, 0x080968 },
-    { L"Rolling/Super Jump/Impact Combo Trail A", 0x0809c8, 0x0809e8, indexRotDSprites_Jimmy, 0x00 },
-    { L"EX/Super Trail A", 0x0809e8, 0x080a08, indexRotDSprites_Jimmy, 0x00 },
-    { L"Guard Cancel Trail A", 0x080a08, 0x080a28, indexRotDSprites_Jimmy, 0x00 },
-    { L"Normal Hud A", 0x0809a8, 0x0809c8 },
-    { L"Charging/Defeated Hud A", 0x080988, 0x0809a8 },
+    { L"Jimmy A", 0x0808e8, 0x080908, indexRotDSprites_Jimmy, 0x00, &pairNext3Palettes },
+    { L"Red Rage A", 0x080908, 0x080928, indexRotDSprites_Jimmy, 0x03 },
+    { L"Fire Attacks A", 0x080928, 0x080948, indexRotDSprites_Jimmy, 0x04 },
+    { L"Intro Coat A", 0x080948, 0x080968, indexRotDSprites_Jimmy, 0x01 },
+    { L"Rolling/Super Jump/Impact Combo Trail A", 0x0809c8, 0x0809e8, indexRotDSprites_Jimmy, 0x02 },
+    { L"EX/Super Trail A", 0x0809e8, 0x080a08, indexRotDSprites_Jimmy, 0x02 },
+    { L"Guard Cancel Trail A", 0x080a08, 0x080a28, indexRotDSprites_Jimmy, 0x02 },
+    { L"Normal Hud A", 0x0809a8, 0x0809c8, indexRotDSprites_Jimmy, 0x81 },
+    { L"Charging/Defeated Hud A", 0x080988, 0x0809a8, indexRotDSprites_Jimmy, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_JIMMY_B[] =
 {
-    { L"Jimmy B", 0x080a28, 0x080a48, indexRotDSprites_Jimmy, 0x00 },
-    { L"Red Rage B", 0x080a48, 0x080a68 },
-    { L"Fire Attacks B", 0x080a68, 0x080a88 },
-    { L"Intro Coat B", 0x080a88, 0x080aa8 },
-    { L"Rolling/Super Jump/Impact Combo Trail B", 0x080ae8, 0x080b08, indexRotDSprites_Jimmy, 0x00 },
-    { L"EX/Super Trail B", 0x080b08, 0x080b28, indexRotDSprites_Jimmy, 0x00 },
-    { L"Guard Cancel Trail B", 0x080b28, 0x080b48, indexRotDSprites_Jimmy, 0x00 },
-    { L"Normal Hud B", 0x080ac8, 0x080ae8 },
-    { L"Charging/Defeated Hud B", 0x080aa8, 0x080ac8 },
+    { L"Jimmy B", 0x080a28, 0x080a48, indexRotDSprites_Jimmy, 0x00, &pairNext3Palettes },
+    { L"Red Rage B", 0x080a48, 0x080a68, indexRotDSprites_Jimmy, 0x03 },
+    { L"Fire Attacks B", 0x080a68, 0x080a88, indexRotDSprites_Jimmy, 0x04 },
+    { L"Intro Coat B", 0x080a88, 0x080aa8, indexRotDSprites_Jimmy, 0x01 },
+    { L"Rolling/Super Jump/Impact Combo Trail B", 0x080ae8, 0x080b08, indexRotDSprites_Jimmy, 0x02 },
+    { L"EX/Super Trail B", 0x080b08, 0x080b28, indexRotDSprites_Jimmy, 0x02 },
+    { L"Guard Cancel Trail B", 0x080b28, 0x080b48, indexRotDSprites_Jimmy, 0x02 },
+    { L"Normal Hud B", 0x080ac8, 0x080ae8, indexRotDSprites_Jimmy, 0x81 },
+    { L"Charging/Defeated Hud B", 0x080aa8, 0x080ac8, indexRotDSprites_Jimmy, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_JIMMY_C[] =
 {
-    { L"Jimmy C", 0x080b48, 0x080b68, indexRotDSprites_Jimmy, 0x00 },
-    { L"Red Rage C", 0x080b68, 0x080b88 },
-    { L"Fire Attacks C", 0x080b88, 0x080ba8 },
-    { L"Intro Coat C", 0x080ba8, 0x080bc8 },
-    { L"Rolling/Super Jump/Impact Combo Trail C", 0x080c08, 0x080c28, indexRotDSprites_Jimmy, 0x00 },
-    { L"EX/Super Trail C", 0x080c28, 0x080c48, indexRotDSprites_Jimmy, 0x00 },
-    { L"Guard Cancel Trail C", 0x080c48, 0x080c68, indexRotDSprites_Jimmy, 0x00 },
-    { L"Normal Hud C", 0x080be8, 0x080c08 },
-    { L"Charging/Defeated Hud C", 0x080bc8, 0x080be8 },
+    { L"Jimmy C", 0x080b48, 0x080b68, indexRotDSprites_Jimmy, 0x00, &pairNext3Palettes },
+    { L"Red Rage C", 0x080b68, 0x080b88, indexRotDSprites_Jimmy, 0x03 },
+    { L"Fire Attacks C", 0x080b88, 0x080ba8, indexRotDSprites_Jimmy, 0x04 },
+    { L"Intro Coat C", 0x080ba8, 0x080bc8, indexRotDSprites_Jimmy, 0x01 },
+    { L"Rolling/Super Jump/Impact Combo Trail C", 0x080c08, 0x080c28, indexRotDSprites_Jimmy, 0x02 },
+    { L"EX/Super Trail C", 0x080c28, 0x080c48, indexRotDSprites_Jimmy, 0x02 },
+    { L"Guard Cancel Trail C", 0x080c48, 0x080c68, indexRotDSprites_Jimmy, 0x02 },
+    { L"Normal Hud C", 0x080be8, 0x080c08, indexRotDSprites_Jimmy, 0x81 },
+    { L"Charging/Defeated Hud C", 0x080bc8, 0x080be8, indexRotDSprites_Jimmy, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_JIMMY_D[] =
 {
-    { L"Jimmy D", 0x080c68, 0x080c88, indexRotDSprites_Jimmy, 0x00 },
-    { L"Red Rage D", 0x080c88, 0x080ca8 },
-    { L"Fire Attacks D", 0x080ca8, 0x080cc8 },
-    { L"Intro Coat D", 0x080cc8, 0x080ce8 },
-    { L"Rolling/Super Jump/Impact Combo Trail D", 0x080d28, 0x080d48, indexRotDSprites_Jimmy, 0x00 },
-    { L"EX/Super Trail D", 0x080d48, 0x080d68, indexRotDSprites_Jimmy, 0x00 },
-    { L"Guard Cancel Trail D", 0x080d68, 0x080d88, indexRotDSprites_Jimmy, 0x00 },
-    { L"Normal Hud D", 0x080d08, 0x080d28 },
-    { L"Charging/Defeated Hud D", 0x080ce8, 0x080d08 },
+    { L"Jimmy D", 0x080c68, 0x080c88, indexRotDSprites_Jimmy, 0x00, &pairNext3Palettes },
+    { L"Red Rage D", 0x080c88, 0x080ca8, indexRotDSprites_Jimmy, 0x03 },
+    { L"Fire Attacks D", 0x080ca8, 0x080cc8, indexRotDSprites_Jimmy, 0x04 },
+    { L"Intro Coat D", 0x080cc8, 0x080ce8, indexRotDSprites_Jimmy, 0x01 },
+    { L"Rolling/Super Jump/Impact Combo Trail D", 0x080d28, 0x080d48, indexRotDSprites_Jimmy, 0x02 },
+    { L"EX/Super Trail D", 0x080d48, 0x080d68, indexRotDSprites_Jimmy, 0x02 },
+    { L"Guard Cancel Trail D", 0x080d68, 0x080d88, indexRotDSprites_Jimmy, 0x02 },
+    { L"Normal Hud D", 0x080d08, 0x080d28, indexRotDSprites_Jimmy, 0x81 },
+    { L"Charging/Defeated Hud D", 0x080ce8, 0x080d08, indexRotDSprites_Jimmy, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_JIMMY_PORTRAITS[] =
 {
     { L"Select Portrait", 0x80d88, 0x80dc8, indexRotDSprites_Jimmy, 0x80 },
-    { L"VS Portrait", 0x85d9c, 0x85ddc },
-    { L"Win Portrait", 0x865de, 0x8661e },
+    { L"VS Portrait", 0x85d9c, 0x85ddc, indexRotDSprites_Jimmy, 0x82 },
+    { L"Win Portrait", 0x865de, 0x8661e, indexRotDSprites_Jimmy, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_ANNIE_A[] =
@@ -149,8 +149,8 @@ const sGame_PaletteDataset ROTD_A_ANNIE_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x080e8a, 0x080eaa, indexRotDSprites_Annie, 0x00 },
     { L"EX/Super Trail A", 0x080eaa, 0x080eca, indexRotDSprites_Annie, 0x00 },
     { L"Guard Cancel Trail A", 0x080eca, 0x080eea, indexRotDSprites_Annie, 0x00 },
-    { L"Normal Hud A", 0x080e6a, 0x080e8a },
-    { L"Charging/Defeated Hud A", 0x080e4a, 0x080e6a },
+    { L"Normal Hud A", 0x080e6a, 0x080e8a, indexRotDSprites_Annie, 0x81 },
+    { L"Charging/Defeated Hud A", 0x080e4a, 0x080e6a, indexRotDSprites_Annie, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ANNIE_B[] =
@@ -161,8 +161,8 @@ const sGame_PaletteDataset ROTD_A_ANNIE_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x080f8a, 0x080faa, indexRotDSprites_Annie, 0x00 },
     { L"EX/Super Trail B", 0x080faa, 0x080fca, indexRotDSprites_Annie, 0x00 },
     { L"Guard Cancel Trail B", 0x080fca, 0x080fea, indexRotDSprites_Annie, 0x00 },
-    { L"Normal Hud B", 0x080f6a, 0x080f8a },
-    { L"Charging/Defeated Hud B", 0x080f4a, 0x080f6a },
+    { L"Normal Hud B", 0x080f6a, 0x080f8a, indexRotDSprites_Annie, 0x81 },
+    { L"Charging/Defeated Hud B", 0x080f4a, 0x080f6a, indexRotDSprites_Annie, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ANNIE_C[] =
@@ -173,8 +173,8 @@ const sGame_PaletteDataset ROTD_A_ANNIE_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x08108a, 0x0810aa, indexRotDSprites_Annie, 0x00 },
     { L"EX/Super Trail C", 0x0810aa, 0x0810ca, indexRotDSprites_Annie, 0x00 },
     { L"Guard Cancel Trail C", 0x0810ca, 0x0810ea, indexRotDSprites_Annie, 0x00 },
-    { L"Normal Hud C", 0x08106a, 0x08108a },
-    { L"Charging/Defeated Hud C", 0x08104a, 0x08106a },
+    { L"Normal Hud C", 0x08106a, 0x08108a, indexRotDSprites_Annie, 0x81 },
+    { L"Charging/Defeated Hud C", 0x08104a, 0x08106a, indexRotDSprites_Annie, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ANNIE_D[] =
@@ -185,15 +185,15 @@ const sGame_PaletteDataset ROTD_A_ANNIE_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x08118a, 0x0811aa, indexRotDSprites_Annie, 0x00 },
     { L"EX/Super Trail D", 0x0811aa, 0x0811ca, indexRotDSprites_Annie, 0x00 },
     { L"Guard Cancel Trail D", 0x0811ca, 0x0811ea, indexRotDSprites_Annie, 0x00 },
-    { L"Normal Hud D", 0x08116a, 0x08118a },
-    { L"Charging/Defeated Hud D", 0x08114a, 0x08116a },
+    { L"Normal Hud D", 0x08116a, 0x08118a, indexRotDSprites_Annie, 0x81 },
+    { L"Charging/Defeated Hud D", 0x08114a, 0x08116a, indexRotDSprites_Annie, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ANNIE_PORTRAITS[] =
 {
     { L"Select Portrait", 0x811ea, 0x8122a, indexRotDSprites_Annie, 0x80 },
-    { L"VS Portrait", 0x85e9c, 0x85edc },
-    { L"Win Portrait", 0x866de, 0x8671e },
+    { L"VS Portrait", 0x85e9c, 0x85edc, indexRotDSprites_Annie, 0x82 },
+    { L"Win Portrait", 0x866de, 0x8671e, indexRotDSprites_Annie, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_ELIAS_A[] =
@@ -207,8 +207,8 @@ const sGame_PaletteDataset ROTD_A_ELIAS_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x08138c, 0x0813ac, indexRotDSprites_Elias, 0x00 },
     { L"EX/Super Trail A", 0x0813ac, 0x0813cc, indexRotDSprites_Elias, 0x00 },
     { L"Guard Cancel Trail A", 0x0813cc, 0x0813ec, indexRotDSprites_Elias, 0x00 },
-    { L"Normal Hud A", 0x08136c, 0x08138c },
-    { L"Charging/Defeated Hud A", 0x08134c, 0x08136c },
+    { L"Normal Hud A", 0x08136c, 0x08138c, indexRotDSprites_Elias, 0x81 },
+    { L"Charging/Defeated Hud A", 0x08134c, 0x08136c, indexRotDSprites_Elias, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ELIAS_B[] =
@@ -222,8 +222,8 @@ const sGame_PaletteDataset ROTD_A_ELIAS_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x08152c, 0x08154c, indexRotDSprites_Elias, 0x00 },
     { L"EX/Super Trail B", 0x08154c, 0x08156c, indexRotDSprites_Elias, 0x00 },
     { L"Guard Cancel Trail B", 0x08156c, 0x08158c, indexRotDSprites_Elias, 0x00 },
-    { L"Normal Hud B", 0x08150c, 0x08152c },
-    { L"Charging/Defeated Hud B", 0x0814ec, 0x08150c },
+    { L"Normal Hud B", 0x08150c, 0x08152c, indexRotDSprites_Elias, 0x81 },
+    { L"Charging/Defeated Hud B", 0x0814ec, 0x08150c, indexRotDSprites_Elias, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ELIAS_C[] =
@@ -237,8 +237,8 @@ const sGame_PaletteDataset ROTD_A_ELIAS_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x0816cc, 0x0816ec, indexRotDSprites_Elias, 0x00 },
     { L"EX/Super Trail C", 0x0816ec, 0x08170c, indexRotDSprites_Elias, 0x00 },
     { L"Guard Cancel Trail C", 0x08170c, 0x08172c, indexRotDSprites_Elias, 0x00 },
-    { L"Normal Hud C", 0x0816ac, 0x0816cc },
-    { L"Charging/Defeated Hud C", 0x08168c, 0x0816ac },
+    { L"Normal Hud C", 0x0816ac, 0x0816cc, indexRotDSprites_Elias, 0x81 },
+    { L"Charging/Defeated Hud C", 0x08168c, 0x0816ac, indexRotDSprites_Elias, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ELIAS_D[] =
@@ -252,15 +252,15 @@ const sGame_PaletteDataset ROTD_A_ELIAS_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x08186c, 0x08188c, indexRotDSprites_Elias, 0x00 },
     { L"EX/Super Trail D", 0x08188c, 0x0818ac, indexRotDSprites_Elias, 0x00 },
     { L"Guard Cancel Trail D", 0x0818ac, 0x0818cc, indexRotDSprites_Elias, 0x00 },
-    { L"Normal Hud D", 0x08184c, 0x08186c },
-    { L"Charging/Defeated Hud D", 0x08182c, 0x08184c },
+    { L"Normal Hud D", 0x08184c, 0x08186c, indexRotDSprites_Elias, 0x81 },
+    { L"Charging/Defeated Hud D", 0x08182c, 0x08184c, indexRotDSprites_Elias, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ELIAS_PORTRAITS[] =
 {
     { L"Select Portrait", 0x818cc, 0x8190c, indexRotDSprites_Elias, 0x80 },
-    { L"VS Portrait", 0x85ddc, 0x85e1c },
-    { L"Win Portrait", 0x8661e, 0x8665e },
+    { L"VS Portrait", 0x85ddc, 0x85e1c, indexRotDSprites_Elias, 0x82 },
+    { L"Win Portrait", 0x8661e, 0x8665e, indexRotDSprites_Elias, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_ALICE_A[] =
@@ -272,8 +272,8 @@ const sGame_PaletteDataset ROTD_A_ALICE_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x0819ee, 0x081a0e, indexRotDSprites_Alice, 0x00 },
     { L"EX/Super Trail A", 0x081a0e, 0x081a2e, indexRotDSprites_Alice, 0x00 },
     { L"Guard Cancel Trail A", 0x081a2e, 0x081a4e, indexRotDSprites_Alice, 0x00 },
-    { L"Normal Hud A", 0x0819ce, 0x0819ee },
-    { L"Charging/Defeated Hud A", 0x0819ae, 0x0819ce },
+    { L"Normal Hud A", 0x0819ce, 0x0819ee, indexRotDSprites_Alice, 0x81 },
+    { L"Charging/Defeated Hud A", 0x0819ae, 0x0819ce, indexRotDSprites_Alice, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ALICE_B[] =
@@ -285,8 +285,8 @@ const sGame_PaletteDataset ROTD_A_ALICE_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x081b0e, 0x081b2e, indexRotDSprites_Alice, 0x00 },
     { L"EX/Super Trail B", 0x081b2e, 0x081b4e, indexRotDSprites_Alice, 0x00 },
     { L"Guard Cancel Trail B", 0x081b4e, 0x081b6e, indexRotDSprites_Alice, 0x00 },
-    { L"Normal Hud B", 0x081aee, 0x081b0e },
-    { L"Charging/Defeated Hud B", 0x081ace, 0x081aee },
+    { L"Normal Hud B", 0x081aee, 0x081b0e, indexRotDSprites_Alice, 0x81 },
+    { L"Charging/Defeated Hud B", 0x081ace, 0x081aee, indexRotDSprites_Alice, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ALICE_C[] =
@@ -298,8 +298,8 @@ const sGame_PaletteDataset ROTD_A_ALICE_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x081c2e, 0x081c4e, indexRotDSprites_Alice, 0x00 },
     { L"EX/Super Trail C", 0x081c4e, 0x081c6e, indexRotDSprites_Alice, 0x00 },
     { L"Guard Cancel Trail C", 0x081c6e, 0x081c8e, indexRotDSprites_Alice, 0x00 },
-    { L"Normal Hud C", 0x081c0e, 0x081c2e },
-    { L"Charging/Defeated Hud C", 0x081bee, 0x081c0e },
+    { L"Normal Hud C", 0x081c0e, 0x081c2e, indexRotDSprites_Alice, 0x81 },
+    { L"Charging/Defeated Hud C", 0x081bee, 0x081c0e, indexRotDSprites_Alice, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ALICE_D[] =
@@ -311,15 +311,15 @@ const sGame_PaletteDataset ROTD_A_ALICE_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x081d4e, 0x081d6e, indexRotDSprites_Alice, 0x00 },
     { L"EX/Super Trail D", 0x081d6e, 0x081d8e, indexRotDSprites_Alice, 0x00 },
     { L"Guard Cancel Trail D", 0x081d8e, 0x081dae, indexRotDSprites_Alice, 0x00 },
-    { L"Normal Hud D", 0x081d2e, 0x081d4e },
-    { L"Charging/Defeated Hud D", 0x081d0e, 0x081d2e },
+    { L"Normal Hud D", 0x081d2e, 0x081d4e, indexRotDSprites_Alice, 0x81 },
+    { L"Charging/Defeated Hud D", 0x081d0e, 0x081d2e, indexRotDSprites_Alice, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ALICE_PORTRAITS[] =
 {
     { L"Select Portrait", 0x81dae, 0x81dee, indexRotDSprites_Alice, 0x80 },
-    { L"VS Portrait", 0x85edc, 0x85f1c },
-    { L"Win Portrait", 0x8671e, 0x8677e },
+    { L"VS Portrait", 0x85edc, 0x85f1c, indexRotDSprites_Alice, 0x82 },
+    { L"Win Portrait", 0x8671e, 0x8677e, indexRotDSprites_Alice, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_PEPE_A[] =
@@ -330,8 +330,8 @@ const sGame_PaletteDataset ROTD_A_PEPE_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x081ed0, 0x081ef0, indexRotDSprites_Pepe, 0x00 },
     { L"EX/Super Trail A", 0x081ef0, 0x081f10, indexRotDSprites_Pepe, 0x00 },
     { L"Guard Cancel Trail A", 0x081f10, 0x081f30, indexRotDSprites_Pepe, 0x00 },
-    { L"Normal Hud A", 0x081eb0, 0x081ed0 },
-    { L"Charging/Defeated Hud A", 0x081e90, 0x081eb0 },
+    { L"Normal Hud A", 0x081eb0, 0x081ed0, indexRotDSprites_Pepe, 0x81 },
+    { L"Charging/Defeated Hud A", 0x081e90, 0x081eb0, indexRotDSprites_Pepe, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_PEPE_B[] =
@@ -342,8 +342,8 @@ const sGame_PaletteDataset ROTD_A_PEPE_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x081ff0, 0x082010, indexRotDSprites_Pepe, 0x00 },
     { L"EX/Super Trail B", 0x082010, 0x082030, indexRotDSprites_Pepe, 0x00 },
     { L"Guard Cancel Trail B", 0x082030, 0x082050, indexRotDSprites_Pepe, 0x00 },
-    { L"Normal Hud B", 0x081fd0, 0x081ff0 },
-    { L"Charging/Defeated Hud B", 0x081fb0, 0x081fd0 },
+    { L"Normal Hud B", 0x081fd0, 0x081ff0, indexRotDSprites_Pepe, 0x81 },
+    { L"Charging/Defeated Hud B", 0x081fb0, 0x081fd0, indexRotDSprites_Pepe, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_PEPE_C[] =
@@ -354,8 +354,8 @@ const sGame_PaletteDataset ROTD_A_PEPE_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x082110, 0x082130, indexRotDSprites_Pepe, 0x00 },
     { L"EX/Super Trail C", 0x082130, 0x082150, indexRotDSprites_Pepe, 0x00 },
     { L"Guard Cancel Trail C", 0x082150, 0x082170, indexRotDSprites_Pepe, 0x00 },
-    { L"Normal Hud C", 0x0820f0, 0x082110 },
-    { L"Charging/Defeated Hud C", 0x0820d0, 0x0820f0 },
+    { L"Normal Hud C", 0x0820f0, 0x082110, indexRotDSprites_Pepe, 0x81 },
+    { L"Charging/Defeated Hud C", 0x0820d0, 0x0820f0, indexRotDSprites_Pepe, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_PEPE_D[] =
@@ -366,15 +366,15 @@ const sGame_PaletteDataset ROTD_A_PEPE_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x082230, 0x082250, indexRotDSprites_Pepe, 0x00 },
     { L"EX/Super Trail D", 0x082250, 0x082270, indexRotDSprites_Pepe, 0x00 },
     { L"Guard Cancel Trail D", 0x082270, 0x082290, indexRotDSprites_Pepe, 0x00 },
-    { L"Normal Hud D", 0x082210, 0x082230 },
-    { L"Charging/Defeated Hud D", 0x0821f0, 0x082210 },
+    { L"Normal Hud D", 0x082210, 0x082230, indexRotDSprites_Pepe, 0x81 },
+    { L"Charging/Defeated Hud D", 0x0821f0, 0x082210, indexRotDSprites_Pepe, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_PEPE_PORTRAITS[] =
 {
     { L"Select Portrait", 0x82290, 0x822d0, indexRotDSprites_Pepe, 0x80 },
-    { L"VS Portrait", 0x85c5c, 0x85c9c },
-    { L"Win Portrait", 0x864be, 0x8651e },
+    { L"VS Portrait", 0x85c5c, 0x85c9c, indexRotDSprites_Pepe, 0x82 },
+    { L"Win Portrait", 0x864be, 0x8651e, indexRotDSprites_Pepe, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_SONIA_A[] =
@@ -385,8 +385,8 @@ const sGame_PaletteDataset ROTD_A_SONIA_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x082392, 0x0823b2, indexRotDSprites_Sonia, 0x00 },
     { L"EX/Super Trail A", 0x0823b2, 0x0823d2, indexRotDSprites_Sonia, 0x00 },
     { L"Guard Cancel Trail A", 0x0823d2, 0x0823f2, indexRotDSprites_Sonia, 0x00 },
-    { L"Normal Hud A", 0x082372, 0x082392 },
-    { L"Charging/Defeated Hud A", 0x082352, 0x082372 },
+    { L"Normal Hud A", 0x082372, 0x082392, indexRotDSprites_Sonia, 0x81 },
+    { L"Charging/Defeated Hud A", 0x082352, 0x082372, indexRotDSprites_Sonia, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_SONIA_B[] =
@@ -397,8 +397,8 @@ const sGame_PaletteDataset ROTD_A_SONIA_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x082492, 0x0824b2, indexRotDSprites_Sonia, 0x00 },
     { L"EX/Super Trail B", 0x0824b2, 0x0824d2, indexRotDSprites_Sonia, 0x00 },
     { L"Guard Cancel Trail B", 0x0824d2, 0x0824f2, indexRotDSprites_Sonia, 0x00 },
-    { L"Normal Hud B", 0x082472, 0x082492 },
-    { L"Charging/Defeated Hud B", 0x082452, 0x082472 },
+    { L"Normal Hud B", 0x082472, 0x082492, indexRotDSprites_Sonia, 0x81 },
+    { L"Charging/Defeated Hud B", 0x082452, 0x082472, indexRotDSprites_Sonia, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_SONIA_C[] =
@@ -409,8 +409,8 @@ const sGame_PaletteDataset ROTD_A_SONIA_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x082592, 0x0825b2, indexRotDSprites_Sonia, 0x00 },
     { L"EX/Super Trail C", 0x0825b2, 0x0825d2, indexRotDSprites_Sonia, 0x00 },
     { L"Guard Cancel Trail C", 0x0825d2, 0x0825f2, indexRotDSprites_Sonia, 0x00 },
-    { L"Normal Hud C", 0x082572, 0x082592 },
-    { L"Charging/Defeated Hud C", 0x082552, 0x082572 },
+    { L"Normal Hud C", 0x082572, 0x082592, indexRotDSprites_Sonia, 0x81 },
+    { L"Charging/Defeated Hud C", 0x082552, 0x082572, indexRotDSprites_Sonia, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_SONIA_D[] =
@@ -421,15 +421,15 @@ const sGame_PaletteDataset ROTD_A_SONIA_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x082692, 0x0826b2, indexRotDSprites_Sonia, 0x00 },
     { L"EX/Super Trail D", 0x0826b2, 0x0826d2, indexRotDSprites_Sonia, 0x00 },
     { L"Guard Cancel Trail D", 0x0826d2, 0x0826f2, indexRotDSprites_Sonia, 0x00 },
-    { L"Normal Hud D", 0x082672, 0x082692 },
-    { L"Charging/Defeated Hud D", 0x082652, 0x082672 },
+    { L"Normal Hud D", 0x082672, 0x082692, indexRotDSprites_Sonia, 0x81 },
+    { L"Charging/Defeated Hud D", 0x082652, 0x082672, indexRotDSprites_Sonia, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_SONIA_PORTRAITS[] =
 {
     { L"Select Portrait", 0x826f2, 0x82732, indexRotDSprites_Sonia, 0x80 },
-    { L"VS Portrait", 0x85b9c, 0x85bdc },
-    { L"Win Portrait", 0x8635e, 0x863be },
+    { L"VS Portrait", 0x85b9c, 0x85bdc, indexRotDSprites_Sonia, 0x82 },
+    { L"Win Portrait", 0x8635e, 0x863be, indexRotDSprites_Sonia, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_RADEL_A[] =
@@ -439,8 +439,8 @@ const sGame_PaletteDataset ROTD_A_RADEL_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x0827d4, 0x0827f4, indexRotDSprites_Radel, 0x00 },
     { L"EX/Super Trail A", 0x0827f4, 0x082814, indexRotDSprites_Radel, 0x00 },
     { L"Guard Cancel Trail A", 0x082814, 0x082834, indexRotDSprites_Radel, 0x00 },
-    { L"Normal Hud A", 0x0827b4, 0x0827d4 },
-    { L"Charging/Defeated Hud A", 0x082794, 0x0827b4 },
+    { L"Normal Hud A", 0x0827b4, 0x0827d4, indexRotDSprites_Radel, 0x81 },
+    { L"Charging/Defeated Hud A", 0x082794, 0x0827b4, indexRotDSprites_Radel, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_RADEL_B[] =
@@ -450,8 +450,8 @@ const sGame_PaletteDataset ROTD_A_RADEL_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x0828b4, 0x0828d4, indexRotDSprites_Radel, 0x00 },
     { L"EX/Super Trail B", 0x0828d4, 0x0828f4, indexRotDSprites_Radel, 0x00 },
     { L"Guard Cancel Trail B", 0x0828f4, 0x082914, indexRotDSprites_Radel, 0x00 },
-    { L"Normal Hud B", 0x082894, 0x0828b4 },
-    { L"Charging/Defeated Hud B", 0x082874, 0x082894 },
+    { L"Normal Hud B", 0x082894, 0x0828b4, indexRotDSprites_Radel, 0x81 },
+    { L"Charging/Defeated Hud B", 0x082874, 0x082894, indexRotDSprites_Radel, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_RADEL_C[] =
@@ -461,8 +461,8 @@ const sGame_PaletteDataset ROTD_A_RADEL_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x082994, 0x0829b4, indexRotDSprites_Radel, 0x00 },
     { L"EX/Super Trail C", 0x0829b4, 0x0829d4, indexRotDSprites_Radel, 0x00 },
     { L"Guard Cancel Trail C", 0x0829d4, 0x0829f4, indexRotDSprites_Radel, 0x00 },
-    { L"Normal Hud C", 0x082974, 0x082994 },
-    { L"Charging/Defeated Hud C", 0x082954, 0x082974 },
+    { L"Normal Hud C", 0x082974, 0x082994, indexRotDSprites_Radel, 0x81 },
+    { L"Charging/Defeated Hud C", 0x082954, 0x082974, indexRotDSprites_Radel, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_RADEL_D[] =
@@ -472,15 +472,15 @@ const sGame_PaletteDataset ROTD_A_RADEL_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x082a74, 0x082a94, indexRotDSprites_Radel, 0x00 },
     { L"EX/Super Trail D", 0x082a94, 0x082ab4, indexRotDSprites_Radel, 0x00 },
     { L"Guard Cancel Trail D", 0x082ab4, 0x082ad4, indexRotDSprites_Radel, 0x00 },
-    { L"Normal Hud D", 0x082a54, 0x082a74 },
-    { L"Charging/Defeated Hud D", 0x082a34, 0x082a54 },
+    { L"Normal Hud D", 0x082a54, 0x082a74, indexRotDSprites_Radel, 0x81 },
+    { L"Charging/Defeated Hud D", 0x082a34, 0x082a54, indexRotDSprites_Radel, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_RADEL_PORTRAITS[] =
 {
     { L"Select Portrait", 0x82ad4, 0x82b14, indexRotDSprites_Radel, 0x80 },
-    { L"VS Portrait", 0x85bdc, 0x85c1c },
-    { L"Win Portrait", 0x8641e, 0x8645e },
+    { L"VS Portrait", 0x85bdc, 0x85c1c, indexRotDSprites_Radel, 0x82 },
+    { L"Win Portrait", 0x8641e, 0x8645e, indexRotDSprites_Radel, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_LYNN_A[] =
@@ -492,8 +492,8 @@ const sGame_PaletteDataset ROTD_A_LYNN_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x082c16, 0x082c36, indexRotDSprites_Lynn, 0x00 },
     { L"EX/Super Trail A", 0x082c36, 0x082c56, indexRotDSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail A", 0x082c56, 0x082c76, indexRotDSprites_Lynn, 0x00 },
-    { L"Normal Hud A", 0x082bf6, 0x082c16 },
-    { L"Charging/Defeated Hud A", 0x082bd6, 0x082bf6 },
+    { L"Normal Hud A", 0x082bf6, 0x082c16, indexRotDSprites_Lynn, 0x81 },
+    { L"Charging/Defeated Hud A", 0x082bd6, 0x082bf6, indexRotDSprites_Lynn, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_LYNN_B[] =
@@ -505,8 +505,8 @@ const sGame_PaletteDataset ROTD_A_LYNN_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x082d56, 0x082d76, indexRotDSprites_Lynn, 0x00 },
     { L"EX/Super Trail B", 0x082d76, 0x082d96, indexRotDSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail B", 0x082d96, 0x082db6, indexRotDSprites_Lynn, 0x00 },
-    { L"Normal Hud B", 0x082d36, 0x082d56 },
-    { L"Charging/Defeated Hud B", 0x082d16, 0x082d36 },
+    { L"Normal Hud B", 0x082d36, 0x082d56, indexRotDSprites_Lynn, 0x81 },
+    { L"Charging/Defeated Hud B", 0x082d16, 0x082d36, indexRotDSprites_Lynn, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_LYNN_C[] =
@@ -518,8 +518,8 @@ const sGame_PaletteDataset ROTD_A_LYNN_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x082e96, 0x082eb6, indexRotDSprites_Lynn, 0x00 },
     { L"EX/Super Trail C", 0x082eb6, 0x082ed6, indexRotDSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail C", 0x082ed6, 0x082ef6, indexRotDSprites_Lynn, 0x00 },
-    { L"Normal Hud C", 0x082e76, 0x082e96 },
-    { L"Charging/Defeated Hud C", 0x082e56, 0x082e76 },
+    { L"Normal Hud C", 0x082e76, 0x082e96, indexRotDSprites_Lynn, 0x81 },
+    { L"Charging/Defeated Hud C", 0x082e56, 0x082e76, indexRotDSprites_Lynn, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_LYNN_D[] =
@@ -531,15 +531,15 @@ const sGame_PaletteDataset ROTD_A_LYNN_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x082fd6, 0x082ff6, indexRotDSprites_Lynn, 0x00 },
     { L"EX/Super Trail D", 0x082ff6, 0x083016, indexRotDSprites_Lynn, 0x00 },
     { L"Guard Cancel Trail D", 0x083016, 0x083036, indexRotDSprites_Lynn, 0x00 },
-    { L"Normal Hud D", 0x082fb6, 0x082fd6 },
-    { L"Charging/Defeated Hud D", 0x082f96, 0x082fb6 },
+    { L"Normal Hud D", 0x082fb6, 0x082fd6, indexRotDSprites_Lynn, 0x81 },
+    { L"Charging/Defeated Hud D", 0x082f96, 0x082fb6, indexRotDSprites_Lynn, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_LYNN_PORTRAITS[] =
 {
     { L"Select Portrait", 0x83036, 0x83076, indexRotDSprites_Lynn, 0x80 },
-    { L"VS Portrait", 0x85cdc, 0x85d1c },
-    { L"Win Portrait", 0x863be, 0x8641e },
+    { L"VS Portrait", 0x85cdc, 0x85d1c, indexRotDSprites_Lynn, 0x82 },
+    { L"Win Portrait", 0x863be, 0x8641e, indexRotDSprites_Lynn, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_ABUBO_A[] =
@@ -550,8 +550,8 @@ const sGame_PaletteDataset ROTD_A_ABUBO_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x083138, 0x083158, indexRotDSprites_Abubo, 0x00 },
     { L"EX/Super Trail A", 0x083158, 0x083178, indexRotDSprites_Abubo, 0x00 },
     { L"Guard Cancel Trail A", 0x083178, 0x083198, indexRotDSprites_Abubo, 0x00 },
-    { L"Normal Hud A", 0x083118, 0x083138 },
-    { L"Charging/Defeated Hud A", 0x0830f8, 0x083118 },
+    { L"Normal Hud A", 0x083118, 0x083138, indexRotDSprites_Abubo, 0x81 },
+    { L"Charging/Defeated Hud A", 0x0830f8, 0x083118, indexRotDSprites_Abubo, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ABUBO_B[] =
@@ -562,8 +562,8 @@ const sGame_PaletteDataset ROTD_A_ABUBO_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x083238, 0x083258, indexRotDSprites_Abubo, 0x00 },
     { L"EX/Super Trail B", 0x083258, 0x083278, indexRotDSprites_Abubo, 0x00 },
     { L"Guard Cancel Trail B", 0x083278, 0x083298, indexRotDSprites_Abubo, 0x00 },
-    { L"Normal Hud B", 0x083218, 0x083238 },
-    { L"Charging/Defeated Hud B", 0x0831f8, 0x083218 },
+    { L"Normal Hud B", 0x083218, 0x083238, indexRotDSprites_Abubo, 0x81 },
+    { L"Charging/Defeated Hud B", 0x0831f8, 0x083218, indexRotDSprites_Abubo, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ABUBO_C[] =
@@ -574,8 +574,8 @@ const sGame_PaletteDataset ROTD_A_ABUBO_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x083338, 0x083358, indexRotDSprites_Abubo, 0x00 },
     { L"EX/Super Trail C", 0x083358, 0x083378, indexRotDSprites_Abubo, 0x00 },
     { L"Guard Cancel Trail C", 0x083378, 0x083398, indexRotDSprites_Abubo, 0x00 },
-    { L"Normal Hud C", 0x083318, 0x083338 },
-    { L"Charging/Defeated Hud C", 0x0832f8, 0x083318 },
+    { L"Normal Hud C", 0x083318, 0x083338, indexRotDSprites_Abubo, 0x81 },
+    { L"Charging/Defeated Hud C", 0x0832f8, 0x083318, indexRotDSprites_Abubo, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ABUBO_D[] =
@@ -586,15 +586,15 @@ const sGame_PaletteDataset ROTD_A_ABUBO_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x083438, 0x083458, indexRotDSprites_Abubo, 0x00 },
     { L"EX/Super Trail D", 0x083458, 0x083478, indexRotDSprites_Abubo, 0x00 },
     { L"Guard Cancel Trail D", 0x083478, 0x083498, indexRotDSprites_Abubo, 0x00 },
-    { L"Normal Hud D", 0x083418, 0x083438 },
-    { L"Charging/Defeated Hud D", 0x0833f8, 0x083418 },
+    { L"Normal Hud D", 0x083418, 0x083438, indexRotDSprites_Abubo, 0x81 },
+    { L"Charging/Defeated Hud D", 0x0833f8, 0x083418, indexRotDSprites_Abubo, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ABUBO_PORTRAITS[] =
 {
     { L"Select Portrait", 0x83498, 0x834d8, indexRotDSprites_Abubo, 0x80 },
-    { L"VS Portrait", 0x85f1c, 0x85f5c },
-    { L"Win Portrait", 0x8677e, 0x867be },
+    { L"VS Portrait", 0x85f1c, 0x85f5c, indexRotDSprites_Abubo, 0x82 },
+    { L"Win Portrait", 0x8677e, 0x867be, indexRotDSprites_Abubo, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_PUPA_A[] =
@@ -604,8 +604,8 @@ const sGame_PaletteDataset ROTD_A_PUPA_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x08359a, 0x0835ba, indexRotDSprites_Pupa, 0x00 },
     { L"EX/Super Trail A", 0x0835ba, 0x0835da, indexRotDSprites_Pupa, 0x00 },
     { L"Guard Cancel Trail A", 0x0835da, 0x0835fa, indexRotDSprites_Pupa, 0x00 },
-    { L"Normal Hud A", 0x08357a, 0x08359a },
-    { L"Charging/Defeated Hud A", 0x08355a, 0x08357a },
+    { L"Normal Hud A", 0x08357a, 0x08359a, indexRotDSprites_Pupa, 0x81 },
+    { L"Charging/Defeated Hud A", 0x08355a, 0x08357a, indexRotDSprites_Pupa, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_PUPA_B[] =
@@ -615,8 +615,8 @@ const sGame_PaletteDataset ROTD_A_PUPA_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x08369a, 0x0836ba, indexRotDSprites_Pupa, 0x00 },
     { L"EX/Super Trail B", 0x0836ba, 0x0836da, indexRotDSprites_Pupa, 0x00 },
     { L"Guard Cancel Trail B", 0x0836da, 0x0836fa, indexRotDSprites_Pupa, 0x00 },
-    { L"Normal Hud B", 0x08367a, 0x08369a },
-    { L"Charging/Defeated Hud B", 0x08365a, 0x08367a },
+    { L"Normal Hud B", 0x08367a, 0x08369a , indexRotDSprites_Pupa, 0x81},
+    { L"Charging/Defeated Hud B", 0x08365a, 0x08367a, indexRotDSprites_Pupa, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_PUPA_C[] =
@@ -626,8 +626,8 @@ const sGame_PaletteDataset ROTD_A_PUPA_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x08379a, 0x0837ba, indexRotDSprites_Pupa, 0x00 },
     { L"EX/Super Trail C", 0x0837ba, 0x0837da, indexRotDSprites_Pupa, 0x00 },
     { L"Guard Cancel Trail C", 0x0837da, 0x0837fa, indexRotDSprites_Pupa, 0x00 },
-    { L"Normal Hud C", 0x08377a, 0x08379a },
-    { L"Charging/Defeated Hud C", 0x08375a, 0x08377a },
+    { L"Normal Hud C", 0x08377a, 0x08379a, indexRotDSprites_Pupa, 0x81 },
+    { L"Charging/Defeated Hud C", 0x08375a, 0x08377a, indexRotDSprites_Pupa, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_PUPA_D[] =
@@ -637,15 +637,15 @@ const sGame_PaletteDataset ROTD_A_PUPA_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x08389a, 0x0838ba, indexRotDSprites_Pupa, 0x00 },
     { L"EX/Super Trail D", 0x0838ba, 0x0838da, indexRotDSprites_Pupa, 0x00 },
     { L"Guard Cancel Trail D", 0x0838da, 0x0838fa, indexRotDSprites_Pupa, 0x00 },
-    { L"Normal Hud D", 0x08387a, 0x08389a },
-    { L"Charging/Defeated Hud D", 0x08385a, 0x08387a },
+    { L"Normal Hud D", 0x08387a, 0x08389a, indexRotDSprites_Pupa, 0x81 },
+    { L"Charging/Defeated Hud D", 0x08385a, 0x08387a, indexRotDSprites_Pupa, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_PUPA_PORTRAITS[] =
 {
     { L"Select Portrait", 0x838fa, 0x8393a, indexRotDSprites_Pupa, 0x80 },
-    { L"VS Portrait", 0x85c1c, 0x85c5c },
-    { L"Win Portrait", 0x8645e, 0x864be },
+    { L"VS Portrait", 0x85c1c, 0x85c5c, indexRotDSprites_Pupa, 0x82 },
+    { L"Win Portrait", 0x8645e, 0x864be, indexRotDSprites_Pupa, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_KANG_A[] =
@@ -655,8 +655,8 @@ const sGame_PaletteDataset ROTD_A_KANG_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x0839dc, 0x0839fc, indexRotDSprites_JaeMo, 0x00 },
     { L"EX/Super Trail A", 0x0839fc, 0x083a1c, indexRotDSprites_JaeMo, 0x00 },
     { L"Guard Cancel Trail A", 0x083a1c, 0x083a3c, indexRotDSprites_JaeMo, 0x00 },
-    { L"Normal Hud A", 0x0839bc, 0x0839dc },
-    { L"Charging/Defeated Hud A", 0x08399c, 0x0839bc },
+    { L"Normal Hud A", 0x0839bc, 0x0839dc, indexRotDSprites_JaeMo, 0x81 },
+    { L"Charging/Defeated Hud A", 0x08399c, 0x0839bc, indexRotDSprites_JaeMo, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_KANG_B[] =
@@ -666,8 +666,8 @@ const sGame_PaletteDataset ROTD_A_KANG_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x083abc, 0x083adc, indexRotDSprites_JaeMo, 0x00 },
     { L"EX/Super Trail B", 0x083adc, 0x083afc, indexRotDSprites_JaeMo, 0x00 },
     { L"Guard Cancel Trail B", 0x083afc, 0x083b1c, indexRotDSprites_JaeMo, 0x00 },
-    { L"Normal Hud B", 0x083a9c, 0x083abc },
-    { L"Charging/Defeated Hud B", 0x083a7c, 0x083a9c },
+    { L"Normal Hud B", 0x083a9c, 0x083abc, indexRotDSprites_JaeMo, 0x81 },
+    { L"Charging/Defeated Hud B", 0x083a7c, 0x083a9c, indexRotDSprites_JaeMo, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_KANG_C[] =
@@ -677,8 +677,8 @@ const sGame_PaletteDataset ROTD_A_KANG_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x083b9c, 0x083bbc, indexRotDSprites_JaeMo, 0x00 },
     { L"EX/Super Trail C", 0x083bbc, 0x083bdc, indexRotDSprites_JaeMo, 0x00 },
     { L"Guard Cancel Trail C", 0x083bdc, 0x083bfc, indexRotDSprites_JaeMo, 0x00 },
-    { L"Normal Hud C", 0x083b7c, 0x083b9c },
-    { L"Charging/Defeated Hud C", 0x083b5c, 0x083b7c },
+    { L"Normal Hud C", 0x083b7c, 0x083b9c, indexRotDSprites_JaeMo, 0x81 },
+    { L"Charging/Defeated Hud C", 0x083b5c, 0x083b7c, indexRotDSprites_JaeMo, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_KANG_D[] =
@@ -688,15 +688,15 @@ const sGame_PaletteDataset ROTD_A_KANG_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x083c7c, 0x083c9c, indexRotDSprites_JaeMo, 0x00 },
     { L"EX/Super Trail D", 0x083c9c, 0x083cbc, indexRotDSprites_JaeMo, 0x00 },
     { L"Guard Cancel Trail D", 0x083cbc, 0x083cdc, indexRotDSprites_JaeMo, 0x00 },
-    { L"Normal Hud D", 0x083c5c, 0x083c7c },
-    { L"Charging/Defeated Hud D", 0x083c3c, 0x083c5c },
+    { L"Normal Hud D", 0x083c5c, 0x083c7c, indexRotDSprites_JaeMo, 0x81 },
+    { L"Charging/Defeated Hud D", 0x083c3c, 0x083c5c, indexRotDSprites_JaeMo, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_KANG_PORTRAITS[] =
 {
     { L"Select Portrait", 0x83cdc, 0x83d1c, indexRotDSprites_JaeMo, 0x80 },
-    { L"VS Portrait", 0x85d1c, 0x85d5c },
-    { L"Win Portrait", 0x8655e, 0x8659e },
+    { L"VS Portrait", 0x85d1c, 0x85d5c, indexRotDSprites_JaeMo, 0x82 },
+    { L"Win Portrait", 0x8655e, 0x8659e, indexRotDSprites_JaeMo, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_CASSANDRA_A[] =
@@ -708,8 +708,8 @@ const sGame_PaletteDataset ROTD_A_CASSANDRA_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x083dfe, 0x083e1e, indexRotDSprites_Cassandra, 0x00 },
     { L"EX/Super Trail A", 0x083e1e, 0x083e3e, indexRotDSprites_Cassandra, 0x00 },
     { L"Guard Cancel Trail A", 0x083e3e, 0x083e5e, indexRotDSprites_Cassandra, 0x00 },
-    { L"Normal Hud A", 0x083dde, 0x083dfe },
-    { L"Charging/Defeated Hud A", 0x083dbe, 0x083dde },
+    { L"Normal Hud A", 0x083dde, 0x083dfe, indexRotDSprites_Cassandra, 0x81 },
+    { L"Charging/Defeated Hud A", 0x083dbe, 0x083dde, indexRotDSprites_Cassandra, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_CASSANDRA_B[] =
@@ -721,8 +721,8 @@ const sGame_PaletteDataset ROTD_A_CASSANDRA_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x083f1e, 0x083f3e, indexRotDSprites_Cassandra, 0x00 },
     { L"EX/Super Trail B", 0x083f3e, 0x083f5e, indexRotDSprites_Cassandra, 0x00 },
     { L"Guard Cancel Trail B", 0x083f5e, 0x083f7e, indexRotDSprites_Cassandra, 0x00 },
-    { L"Normal Hud B", 0x083efe, 0x083f1e },
-    { L"Charging/Defeated Hud B", 0x083ede, 0x083efe },
+    { L"Normal Hud B", 0x083efe, 0x083f1e, indexRotDSprites_Cassandra, 0x81 },
+    { L"Charging/Defeated Hud B", 0x083ede, 0x083efe, indexRotDSprites_Cassandra, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_CASSANDRA_C[] =
@@ -734,8 +734,8 @@ const sGame_PaletteDataset ROTD_A_CASSANDRA_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x08403e, 0x08405e, indexRotDSprites_Cassandra, 0x00 },
     { L"EX/Super Trail C", 0x08405e, 0x08407e, indexRotDSprites_Cassandra, 0x00 },
     { L"Guard Cancel Trail C", 0x08407e, 0x08409e, indexRotDSprites_Cassandra, 0x00 },
-    { L"Normal Hud C", 0x08401e, 0x08403e },
-    { L"Charging/Defeated Hud C", 0x083ffe, 0x08401e },
+    { L"Normal Hud C", 0x08401e, 0x08403e, indexRotDSprites_Cassandra, 0x81 },
+    { L"Charging/Defeated Hud C", 0x083ffe, 0x08401e, indexRotDSprites_Cassandra, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_CASSANDRA_D[] =
@@ -747,15 +747,15 @@ const sGame_PaletteDataset ROTD_A_CASSANDRA_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x08415e, 0x08417e, indexRotDSprites_Cassandra, 0x00 },
     { L"EX/Super Trail D", 0x08417e, 0x08419e, indexRotDSprites_Cassandra, 0x00 },
     { L"Guard Cancel Trail D", 0x08419e, 0x0841be, indexRotDSprites_Cassandra, 0x00 },
-    { L"Normal Hud D", 0x08413e, 0x08415e },
-    { L"Charging/Defeated Hud D", 0x08411e, 0x08413e },
+    { L"Normal Hud D", 0x08413e, 0x08415e, indexRotDSprites_Cassandra, 0x81 },
+    { L"Charging/Defeated Hud D", 0x08411e, 0x08413e, indexRotDSprites_Cassandra, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_CASSANDRA_PORTRAITS[] =
 {
     { L"Select Portrait", 0x841be, 0x841fe, indexRotDSprites_Cassandra, 0x80 },
-    { L"VS Portrait", 0x85e1c, 0x85e5c },
-    { L"Win Portrait", 0x8665e, 0x8669e },
+    { L"VS Portrait", 0x85e1c, 0x85e5c, indexRotDSprites_Cassandra, 0x82 },
+    { L"Win Portrait", 0x8665e, 0x8669e, indexRotDSprites_Cassandra, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_ONI_A[] =
@@ -766,8 +766,8 @@ const sGame_PaletteDataset ROTD_A_ONI_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x0842e0, 0x084300, indexRotDSprites_Oni, 0x00 },
     { L"EX/Super Trail A", 0x084300, 0x084320, indexRotDSprites_Oni, 0x00 },
     { L"Guard Cancel Trail A", 0x084320, 0x084340, indexRotDSprites_Oni, 0x00 },
-    { L"Normal Hud A", 0x0842c0, 0x0842e0 },
-    { L"Charging/Defeated Hud A", 0x0842a0, 0x0842c0 },
+    { L"Normal Hud A", 0x0842c0, 0x0842e0, indexRotDSprites_Oni, 0x81 },
+    { L"Charging/Defeated Hud A", 0x0842a0, 0x0842c0, indexRotDSprites_Oni, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ONI_B[] =
@@ -778,8 +778,8 @@ const sGame_PaletteDataset ROTD_A_ONI_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x084400, 0x084420, indexRotDSprites_Oni, 0x00 },
     { L"EX/Super Trail B", 0x084420, 0x084440, indexRotDSprites_Oni, 0x00 },
     { L"Guard Cancel Trail B", 0x084440, 0x084460, indexRotDSprites_Oni, 0x00 },
-    { L"Normal Hud B", 0x0843e0, 0x084400 },
-    { L"Charging/Defeated Hud B", 0x0843c0, 0x0843e0 },
+    { L"Normal Hud B", 0x0843e0, 0x084400, indexRotDSprites_Oni, 0x81 },
+    { L"Charging/Defeated Hud B", 0x0843c0, 0x0843e0, indexRotDSprites_Oni, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ONI_C[] =
@@ -790,8 +790,8 @@ const sGame_PaletteDataset ROTD_A_ONI_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x084520, 0x084540, indexRotDSprites_Oni, 0x00 },
     { L"EX/Super Trail C", 0x084540, 0x084560, indexRotDSprites_Oni, 0x00 },
     { L"Guard Cancel Trail C", 0x084560, 0x084580, indexRotDSprites_Oni, 0x00 },
-    { L"Normal Hud C", 0x084500, 0x084520 },
-    { L"Charging/Defeated Hud C", 0x0844e0, 0x084500 },
+    { L"Normal Hud C", 0x084500, 0x084520, indexRotDSprites_Oni, 0x81 },
+    { L"Charging/Defeated Hud C", 0x0844e0, 0x084500, indexRotDSprites_Oni, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ONI_D[] =
@@ -802,15 +802,15 @@ const sGame_PaletteDataset ROTD_A_ONI_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x084640, 0x084660, indexRotDSprites_Oni, 0x00 },
     { L"EX/Super Trail D", 0x084660, 0x084680, indexRotDSprites_Oni, 0x00 },
     { L"Guard Cancel Trail D", 0x084680, 0x0846a0, indexRotDSprites_Oni, 0x00 },
-    { L"Normal Hud D", 0x084620, 0x084640 },
-    { L"Charging/Defeated Hud D", 0x084600, 0x084620 },
+    { L"Normal Hud D", 0x084620, 0x084640, indexRotDSprites_Oni, 0x81 },
+    { L"Charging/Defeated Hud D", 0x084600, 0x084620, indexRotDSprites_Oni, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_ONI_PORTRAITS[] =
 {
     { L"Select Portrait", 0x846a0, 0x846e0, indexRotDSprites_Oni, 0x80 },
-    { L"VS Portrait", 0x85c9c, 0x85cdc },
-    { L"Win Portrait", 0x8651e, 0x8655e },
+    { L"VS Portrait", 0x85c9c, 0x85cdc, indexRotDSprites_Oni, 0x82 },
+    { L"Win Portrait", 0x8651e, 0x8655e, indexRotDSprites_Oni, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_JONES_A[] =
@@ -820,8 +820,8 @@ const sGame_PaletteDataset ROTD_A_JONES_A[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x084782, 0x0847a2, indexRotDSprites_Johnny, 0x00 },
     { L"EX/Super Trail A", 0x0847a2, 0x0847c2, indexRotDSprites_Johnny, 0x00 },
     { L"Guard Cancel Trail A", 0x0847c2, 0x0847e2, indexRotDSprites_Johnny, 0x00 },
-    { L"Normal Hud A", 0x084762, 0x084782 },
-    { L"Charging/Defeated Hud A", 0x084742, 0x084762 },
+    { L"Normal Hud A", 0x084762, 0x084782, indexRotDSprites_Johnny, 0x81 },
+    { L"Charging/Defeated Hud A", 0x084742, 0x084762, indexRotDSprites_Johnny, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_JONES_B[] =
@@ -831,8 +831,8 @@ const sGame_PaletteDataset ROTD_A_JONES_B[] =
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x084862, 0x084882, indexRotDSprites_Johnny, 0x00 },
     { L"EX/Super Trail B", 0x084882, 0x0848a2, indexRotDSprites_Johnny, 0x00 },
     { L"Guard Cancel Trail B", 0x0848a2, 0x0848c2, indexRotDSprites_Johnny, 0x00 },
-    { L"Normal Hud B", 0x084842, 0x084862 },
-    { L"Charging/Defeated Hud B", 0x084822, 0x084842 },
+    { L"Normal Hud B", 0x084842, 0x084862, indexRotDSprites_Johnny, 0x81 },
+    { L"Charging/Defeated Hud B", 0x084822, 0x084842, indexRotDSprites_Johnny, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_JONES_C[] =
@@ -842,8 +842,8 @@ const sGame_PaletteDataset ROTD_A_JONES_C[] =
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x084942, 0x084962, indexRotDSprites_Johnny, 0x00 },
     { L"EX/Super Trail C", 0x084962, 0x084982, indexRotDSprites_Johnny, 0x00 },
     { L"Guard Cancel Trail C", 0x084982, 0x0849a2, indexRotDSprites_Johnny, 0x00 },
-    { L"Normal Hud C", 0x084922, 0x084942 },
-    { L"Charging/Defeated Hud C", 0x084902, 0x084922 },
+    { L"Normal Hud C", 0x084922, 0x084942, indexRotDSprites_Johnny, 0x81 },
+    { L"Charging/Defeated Hud C", 0x084902, 0x084922, indexRotDSprites_Johnny, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_JONES_D[] =
@@ -853,15 +853,15 @@ const sGame_PaletteDataset ROTD_A_JONES_D[] =
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x084a22, 0x084a42, indexRotDSprites_Johnny, 0x00 },
     { L"EX/Super Trail D", 0x084a42, 0x084a62, indexRotDSprites_Johnny, 0x00 },
     { L"Guard Cancel Trail D", 0x084a62, 0x084a82, indexRotDSprites_Johnny, 0x00 },
-    { L"Normal Hud D", 0x084a02, 0x084a22 },
-    { L"Charging/Defeated Hud D", 0x0849e2, 0x084a02 },
+    { L"Normal Hud D", 0x084a02, 0x084a22, indexRotDSprites_Johnny, 0x81 },
+    { L"Charging/Defeated Hud D", 0x0849e2, 0x084a02, indexRotDSprites_Johnny, 0x81 },
 };
 
 const sGame_PaletteDataset ROTD_A_JONES_PORTRAITS[] =
 {
     { L"Select Portrait", 0x84a82, 0x84ac2, indexRotDSprites_Johnny, 0x80 },
-    { L"VS Portrait", 0x85d5c, 0x85d9c },
-    { L"Win Portrait", 0x8659e, 0x865de },
+    { L"VS Portrait", 0x85d5c, 0x85d9c, indexRotDSprites_Johnny, 0x82 },
+    { L"Win Portrait", 0x8659e, 0x865de, indexRotDSprites_Johnny, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_JOHANN_PALETTES[] =
@@ -875,10 +875,10 @@ const sGame_PaletteDataset ROTD_A_JOHANN_PALETTES[] =
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x084ba4, 0x084bc4, indexRotDSprites_Johann, 0x00 },
     { L"EX/Super Trail A", 0x084bc4, 0x084be4, indexRotDSprites_Johann, 0x00 },
     { L"Guard Cancel Trail A", 0x084be4, 0x084c04, indexRotDSprites_Johann, 0x00 },
-    { L"Normal Hud A", 0x084b84, 0x084ba4 },
+    { L"Normal Hud A", 0x084b84, 0x084ba4, indexRotDSprites_Johann, 0x81 },
 
-    { L"Johann VS Portrait", 0x8543c, 0x8547c },
-    { L"Johann Win Portrait", 0x860be, 0x860fe },
+    { L"Johann VS Portrait", 0x8543c, 0x8547c, indexRotDSprites_Johann, 0x82 },
+    { L"Johann Win Portrait", 0x860be, 0x860fe, indexRotDSprites_Johann, 0x83 },
 };
 
 const sGame_PaletteDataset ROTD_A_BONUS_CONTINUE_PALETTES[] =
@@ -914,10 +914,10 @@ const sGame_PaletteDataset ROTD_A_BONUS_SelectScreen_PALETTES[] =
     { L"Select Screen: Background", 0x84d38, 0x84d58 },
     { L"Select Screen: Timer Text", 0x84d18, 0x84d38 },
     { L"Select Screen: Timer Numbers", 0x85218, 0x85238 },
-    { L"Select Screen: Template Portraits", 0x8523a, 0x8543a },
-    { L"Select Screen: Icons", 0x84df8, 0x84fb8 },
-    { L"Select Screen: Abubo Icon", 0x84fb8, 0x85018 },
-    { L"Select Screen: Faded Icons", 0x85018, 0x85218 },
+    { L"Select Screen: Template Portraits", 0x8523a, 0x8543a, indexRotDSprites_Bonus, 0x04 },
+    { L"Select Screen: Icons", 0x84df8, 0x84fb8, indexRotDSprites_Bonus, 0x03 },
+    { L"Select Screen: Abubo Icon", 0x84fb8, 0x85018, indexRotDSprites_Bonus, 0x00 },
+    { L"Select Screen: Faded Icons", 0x85018, 0x85218, indexRotDSprites_Bonus, 0x01 },
     { L"Select Screen: 1P Cursor", 0x84db8, 0x84dd8 },
     { L"Select Screen: 2P Cursor", 0x84d98, 0x84db8 },
     { L"Select Screen: COM Cursor", 0x84dd8, 0x84df8 },
@@ -965,7 +965,7 @@ const sGame_PaletteDataset ROTD_A_BONUS_ContinueScreen_PALETTES[] =
 const sGame_PaletteDataset ROTD_A_BONUS_RankingScreen_PALETTES[] =
 {
     { L"Ranking: Background", 0x86940, 0x86960 },
-    { L"Ranking: Icons", 0x869a0, 0x86b80 },
+    { L"Ranking: Icons", 0x869a0, 0x86b80, indexRotDSprites_Bonus, 0x02 },
     { L"Ranking: Positions", 0x868a0, 0x86940 },
     { L"Ranking: Texts", 0x86960, 0x869a0 },
 };

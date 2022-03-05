@@ -71,6 +71,7 @@ const std::vector<UINT16> MVC_A_IMGIDS_USED =
     indexCPS2Sprites_Iceman,       // 0x09
     indexCPS2Sprites_Rogue,        // 0x0A
     indexCPS2Sprites_Charlie,      // 0x21, // Charlie/Nash/Shadow
+    indexCPS2Sprites_Bison,        // 0x26  // used for Chun-Li's ending
     indexCPS2Sprites_Juggy,        // 0x29, // Juggernaut
     indexCPS2Sprites_Storm,        // 0x2A
     indexCPS2Sprites_Magneto,      // 0x2C
@@ -1962,6 +1963,11 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { L"Level 3 Super BG",                      0x42564, 0x425C4 },
     { L"Character Select Background - Space",   0x3EBF8, 0x3ECB8 },
     { L"Character Select Background - Earth",   0x3E7D8, 0x3E918 },
+
+    { L"Portrait Window (VS screen)", 0x55D62, 0x55D82 },
+    { L"Red 'VS' text (VS screen)", 0x53C22, 0x53E22 },
+
+    { L"M. Bison (Chun-Li ending)", 0x597A2, 0x597C2, indexCPS2Sprites_Bison, 0x00 },
 
     { L"Timer 1", 0x47A8A, 0x47A96 },
     { L"Timer 2", 0x47AAA, 0x47AB6 },

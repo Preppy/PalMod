@@ -1422,11 +1422,11 @@ const sGame_PaletteDataset KOF98AE2016_A_BlueMary_D[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Billy_A[] =
 {
-    { L"Billy A - Main", 0x1e67f0, 0x1e6810, indexKOF98Sprites_Billy },
-    { L"Extra 1", 0x1e6810, 0x1e6830 },
+    { L"Billy A - Main", 0x1e67f0, 0x1e6810, indexKOF98Sprites_Billy, 0x00, &pairNext },
+    { L"Extra 1", 0x1e6810, 0x1e6830, indexKOF98Sprites_Billy, 0x01 },
     { L"Extra 2", 0x1e6830, 0x1e6850 },
-    { L"Max Mode", 0x1e6850, 0x1e6870, indexKOF98Sprites_Billy },
-    { L"Extra 3", 0x1e6870, 0x1e6890 },
+    { L"Max Mode", 0x1e6850, 0x1e6870, indexKOF98Sprites_Billy, 0x00, &pairNext },
+    { L"Extra 3", 0x1e6870, 0x1e6890, indexKOF98Sprites_Billy, 0x01 },
     { L"Extra 4", 0x1e6890, 0x1e68b0 },
     { L"Order Select", 0x1e68b0, 0x1e68d0, indexKOF98Sprites_OrderSelect, indexKOF98Sprites_Billy },
     { L"Life Bar Portrait", 0x1e68d0, 0x1e68f0, indexKOF98Sprites_Lifebar, indexKOF98Sprites_Billy },
@@ -1435,11 +1435,11 @@ const sGame_PaletteDataset KOF98AE2016_A_Billy_A[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Billy_B[] =
 {
-    { L"Billy B - Main", 0x1e69f0, 0x1e6a10, indexKOF98Sprites_Billy  },
-    { L"Extra 1", 0x1e6a10, 0x1e6a30 },
+    { L"Billy B - Main", 0x1e69f0, 0x1e6a10, indexKOF98Sprites_Billy, 0x00, &pairNext  },
+    { L"Extra 1", 0x1e6a10, 0x1e6a30, indexKOF98Sprites_Billy, 0x01 },
     { L"Extra 2", 0x1e6a30, 0x1e6a50 },
-    { L"Max Mode", 0x1e6a50, 0x1e6a70, indexKOF98Sprites_Billy },
-    { L"Extra 3", 0x1e6a70, 0x1e6a90 },
+    { L"Max Mode", 0x1e6a50, 0x1e6a70, indexKOF98Sprites_Billy, 0x00, &pairNext },
+    { L"Extra 3", 0x1e6a70, 0x1e6a90, indexKOF98Sprites_Billy, 0x01 },
     { L"Extra 4", 0x1e6a90, 0x1e6ab0 },
     { L"Order Select", 0x1e6ab0, 0x1e6ad0, indexKOF98Sprites_OrderSelect, indexKOF98Sprites_Billy },
     { L"Life Bar Portrait", 0x1e6ad0, 0x1e6af0, indexKOF98Sprites_Lifebar, indexKOF98Sprites_Billy },
@@ -1448,11 +1448,11 @@ const sGame_PaletteDataset KOF98AE2016_A_Billy_B[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Billy_C[] =
 {
-    { L"Billy C - Main", 0x1e6bf0, 0x1e6c10, indexKOF98Sprites_Billy },
-    { L"Extra 1", 0x1e6c10, 0x1e6c30 },
+    { L"Billy C - Main", 0x1e6bf0, 0x1e6c10, indexKOF98Sprites_Billy, 0x00, &pairNext },
+    { L"Extra 1", 0x1e6c10, 0x1e6c30, indexKOF98Sprites_Billy, 0x01 },
     { L"Extra 2", 0x1e6c30, 0x1e6c50 },
-    { L"Max Mode", 0x1e6c50, 0x1e6c70, indexKOF98Sprites_Billy },
-    { L"Extra 3", 0x1e6c70, 0x1e6c90 },
+    { L"Max Mode", 0x1e6c50, 0x1e6c70, indexKOF98Sprites_Billy, 0x00, &pairNext },
+    { L"Extra 3", 0x1e6c70, 0x1e6c90, indexKOF98Sprites_Billy, 0x01 },
     { L"Extra 4", 0x1e6c90, 0x1e6cb0 },
     { L"Order Select", 0x1e6cb0, 0x1e6cd0, indexKOF98Sprites_OrderSelect, indexKOF98Sprites_Billy },
     { L"Life Bar Portrait", 0x1e6cd0, 0x1e6cf0, indexKOF98Sprites_Lifebar, indexKOF98Sprites_Billy },
@@ -1461,11 +1461,11 @@ const sGame_PaletteDataset KOF98AE2016_A_Billy_C[] =
 
 const sGame_PaletteDataset KOF98AE2016_A_Billy_D[] =
 {
-    { L"Billy D - Main", 0x1e6df0, 0x1e6e10, indexKOF98Sprites_Billy },
-    { L"Extra 1", 0x1e6e10, 0x1e6e30 },
+    { L"Billy D - Main", 0x1e6df0, 0x1e6e10, indexKOF98Sprites_Billy, 0x00, &pairNext },
+    { L"Extra 1", 0x1e6e10, 0x1e6e30, indexKOF98Sprites_Billy, 0x01 },
     { L"Extra 2", 0x1e6e30, 0x1e6e50 },
-    { L"Max Mode", 0x1e6e50, 0x1e6e70 , indexKOF98Sprites_Billy },
-    { L"Extra 3", 0x1e6e70, 0x1e6e90 },
+    { L"Max Mode", 0x1e6e50, 0x1e6e70 , indexKOF98Sprites_Billy, 0x00, &pairNext },
+    { L"Extra 3", 0x1e6e70, 0x1e6e90, indexKOF98Sprites_Billy, 0x01 },
     { L"Extra 4", 0x1e6e90, 0x1e6eb0 },
     { L"Order Select", 0x1e6eb0, 0x1e6ed0, indexKOF98Sprites_OrderSelect, indexKOF98Sprites_Billy },
     { L"Life Bar Portrait", 0x1e6ed0, 0x1e6ef0, indexKOF98Sprites_Lifebar, indexKOF98Sprites_Billy },

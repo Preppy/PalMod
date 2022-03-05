@@ -1433,6 +1433,27 @@ enum SamuraiShodownSpriteList
     indexSamSho1Sprites_Wanfu,      // 0x6d
     indexSamSho1Sprites_Bonus,      // 0x6e
     indexSamSho1Sprites_Stages,     // 0x6f
+
+    indexSamSho4Sprites_Amakusa,    // 0x70
+    indexSamSho4Sprites_Basara,     // 0x71
+    indexSamSho4Sprites_Charlotte,  // 0x72
+    indexSamSho4Sprites_Gaira,      // 0x73
+    indexSamSho4Sprites_Galford,    // 0x74
+    indexSamSho4Sprites_Genjuro,    // 0x75
+    indexSamSho4Sprites_Hanzo,      // 0x76
+    indexSamSho4Sprites_Haohmaru,   // 0x77
+    indexSamSho4Sprites_Jubei,      // 0x78
+    indexSamSho4Sprites_Kazuki,     // 0x79
+    indexSamSho4Sprites_Kyoshiro,   // 0x7a
+    indexSamSho4Sprites_Nakoruru,   // 0x7b
+    indexSamSho4Sprites_Rimururu,   // 0x7c
+    indexSamSho4Sprites_Shizumaru,  // 0x7d
+    indexSamSho4Sprites_Sogetsu,    // 0x7e
+    indexSamSho4Sprites_TamTam,     // 0x7f
+    indexSamSho4Sprites_Ukyo,       // 0x80
+    indexSamSho4Sprites_Zankuro,    // 0x81
+    indexSamSho4Sprites_Bonus,      // 0x82
+    indexSamSho4Sprites_Stages,     // 0x83
 };
 
 enum SupportedKarnovsR_A_PaletteListIndex
@@ -1760,6 +1781,18 @@ enum SupportedSNES_PaletteListIndex
     indexUMK3Sprites_SubZeroClassic,     // 0xE3
     indexUMK3Sprites_Bonus,              // 0xE4
     indexUMK3Sprites_Stages,             // 0xE5
+
+    indexJLTFSprites_Aquaman,            // 0xE6
+    indexJLTFSprites_Batman,             // 0xE7
+    indexJLTFSprites_Cheetah,            // 0xE8
+    indexJLTFSprites_Darkseid,           // 0xE9
+    indexJLTFSprites_Despero,            // 0xEA
+    indexJLTFSprites_Flash,              // 0xEB
+    indexJLTFSprites_GreenArrow,         // 0xEC
+    indexJLTFSprites_Superman,           // 0xED
+    indexJLTFSprites_WonderWoman,        // 0xEE
+    indexJLTFSprites_Bonus,              // 0xEF
+    indexJLTFSprites_Stages,             // 0xF0
 };
 
 enum SupportedNEOGEO_PaletteListIndex

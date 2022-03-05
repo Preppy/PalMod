@@ -323,8 +323,8 @@ const sGame_PaletteDataset UMK3_SNES_BONUS_PALETTES[] =
     { L"Continue Screen", 0x87E88, 0x87EA8 },
     { L"Ultimate Mortal Kombat Screen", 0x87EAC, 0x87ECC, indexUMK3Sprites_Bonus, 0x01 },
 
-    { L"Tower Select/Lost 1/2", 0x45610, 0x45690, indexUMK3Sprites_Stages, 0x00 },
-    { L"Tower Select/Lost 2/2", 0x45690, 0x456F0, indexUMK3Sprites_Stages, 0x01 },
+    { L"Tower Select/Lost 1/2", 0x45610, 0x45690, indexUMK3Sprites_Stages, 0x00, &pairNext },
+    { L"Tower Select/Lost 2/2", 0x45690, 0x456F0, indexUMK3Sprites_Stages, 0x01, &pairPrevious },
     { L"\"FIGHT!\" text", 0x3F9110, 0x3F9130 },
     { L"\"FIGHT!\" text flash", 0x3F9130, 0x3F9150 },
     { L"Frozen Robots", 0x3EAD4F, 0x3EAD6F, indexUMK3Sprites_Sektor, 0x00 },

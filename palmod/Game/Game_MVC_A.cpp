@@ -41,7 +41,7 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = GetExtraCt(MVC_A_EXTRALOC) + 1318;
+    m_nSafeCountForThisRom = GetExtraCt(MVC_A_EXTRALOC) + 1321;
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
 
@@ -596,19 +596,22 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 void CGame_MVC_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_MVC_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
-    OutputDebugString(strMessage);
-
-    const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
-
-    if (pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
+    if (nUnitId != MVC_A_EXTRALOC)
     {
-        OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
-        ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
-    }
-    else
-    {
-        OutputDebugString(L"\tNo further processing needed.\n");
+        CString strMessage;
+        strMessage.Format(L"CGame_MVC_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
+        OutputDebugString(strMessage);
+
+        const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
+
+        if (pThisPalette && pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
+        {
+            OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
+            ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+        }
+        else
+        {
+            OutputDebugString(L"\tNo further processing needed.\n");
+        }
     }
 }

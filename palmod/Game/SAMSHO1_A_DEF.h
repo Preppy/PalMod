@@ -51,153 +51,153 @@ const sGame_PaletteDataset SAMSHO1_A_HAOHMARU_EFFECTS[] =
 
 const sGame_PaletteDataset SAMSHO1_A_NAKORURU_P[] =
 {
-    { L"Nakoruru P", 0x0e508a, 0x0e50aa, indexSamSho1Sprites_Nakoruru, 0, &pairNext8 },
-    { L"Nakoruru P Rage 1", 0x0e50aa, 0x0e50ca, indexSamSho1Sprites_Nakoruru, 0 },
-    { L"Nakoruru P Rage 2", 0x0e50ca, 0x0e50ea, indexSamSho1Sprites_Nakoruru, 0 },
-    { L"Nakoruru P Zapped/Burned", 0x0e50ea, 0x0e510a, indexSamSho1Sprites_Nakoruru, 0 },
-    { L"Nakoruru P Weapon 1", 0x0e510a, 0x0e512a },
-    { L"Nakoruru P Weapon 2", 0x0e512a, 0x0e514a },
-    { L"Nakoruru P Weapon 3", 0x0e514a, 0x0e516a },
+    { L"Nakoruru P", 0x0e508a, 0x0e50aa, indexSamSho1Sprites_Nakoruru, 0, &pairNext4AndNext8AndNext9 },
+    { L"Nakoruru P Rage 1", 0x0e50aa, 0x0e50ca, indexSamSho1Sprites_Nakoruru, 0, &pairNext4AndNext7AndNext8 },
+    { L"Nakoruru P Rage 2", 0x0e50ca, 0x0e50ea, indexSamSho1Sprites_Nakoruru, 0, &pairNext4AndNext6AndNext7 },
+    { L"Nakoruru P Zapped/Burned", 0x0e50ea, 0x0e510a, indexSamSho1Sprites_Nakoruru, 0, &pairNext },
+    { L"Nakoruru P Weapon 1", 0x0e510a, 0x0e512a, indexSamSho1Sprites_Nakoruru, 0x01 },
+    { L"Nakoruru P Weapon 2", 0x0e512a, 0x0e514a, indexSamSho1Sprites_Nakoruru, 0x01 },
+    { L"Nakoruru P Weapon 3", 0x0e514a, 0x0e516a, indexSamSho1Sprites_Nakoruru, 0x01 },
     { L"Nakoruru P Poisoned", 0x0e516a, 0x0e518a, indexSamSho1Sprites_Nakoruru, 0 },
-    { L"Mamahaha P", 0x0e672a, 0x0e674a, indexSamSho1Sprites_Nakoruru, 1 },
+    { L"Mamahaha P", 0x0e672a, 0x0e674a, indexSamSho1Sprites_Nakoruru, 0x02 },
 
-    { L"Nakoruru P Win Portrait Extra", 0xe6c4a, 0xe6c6a },
+    { L"Nakoruru P Win Portrait Extra", 0xe6c4a, 0xe6c6a, indexSamSho1Sprites_Nakoruru, 0x03 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_NAKORURU_K[] =
 {
-    { L"Nakoruru K", 0x0e5c8a, 0x0e5caa, indexSamSho1Sprites_Nakoruru, 0, &pairNext8 },
-    { L"Nakoruru K Rage 1", 0x0e5caa, 0x0e5cca, indexSamSho1Sprites_Nakoruru, 0 },
-    { L"Nakoruru K Rage 2", 0x0e5cca, 0x0e5cea, indexSamSho1Sprites_Nakoruru, 0 },
-    { L"Nakoruru K Zapped/Burned", 0x0e5cea, 0x0e5d0a, indexSamSho1Sprites_Nakoruru, 0 },
-    { L"Nakoruru K Weapon 1", 0x0e5d0a, 0x0e5d2a },
-    { L"Nakoruru K Weapon 2", 0x0e5d2a, 0x0e5d4a },
-    { L"Nakoruru K Weapon 3", 0x0e5d4a, 0x0e5d6a },
+    { L"Nakoruru K", 0x0e5c8a, 0x0e5caa, indexSamSho1Sprites_Nakoruru, 0, &pairNext4AndNext8AndNext9 },
+    { L"Nakoruru K Rage 1", 0x0e5caa, 0x0e5cca, indexSamSho1Sprites_Nakoruru, 0, &pairNext4AndNext7AndNext8 },
+    { L"Nakoruru K Rage 2", 0x0e5cca, 0x0e5cea, indexSamSho1Sprites_Nakoruru, 0, &pairNext4AndNext6AndNext7 },
+    { L"Nakoruru K Zapped/Burned", 0x0e5cea, 0x0e5d0a, indexSamSho1Sprites_Nakoruru, 0, &pairNext },
+    { L"Nakoruru K Weapon 1", 0x0e5d0a, 0x0e5d2a, indexSamSho1Sprites_Nakoruru, 0x01 },
+    { L"Nakoruru K Weapon 2", 0x0e5d2a, 0x0e5d4a, indexSamSho1Sprites_Nakoruru, 0x01 },
+    { L"Nakoruru K Weapon 3", 0x0e5d4a, 0x0e5d6a, indexSamSho1Sprites_Nakoruru, 0x01 },
     { L"Nakoruru K Poisoned", 0x0e5d6a, 0x0e5d8a, indexSamSho1Sprites_Nakoruru, 0 },
-    { L"Mamahaha K", 0x0e674a, 0x0e676a, indexSamSho1Sprites_Nakoruru, 1 },
+    { L"Mamahaha K", 0x0e674a, 0x0e676a, indexSamSho1Sprites_Nakoruru, 0x02 },
 
-    { L"Nakoruru K Win Portrait Extra", 0xe6c6a, 0xe6c8a },
+    { L"Nakoruru K Win Portrait Extra", 0xe6c6a, 0xe6c8a, indexSamSho1Sprites_Nakoruru, 03 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_TAMTAM_P[] =
 {
-    { L"Tam Tam P", 0x0e4d8a, 0x0e4daa, indexSamSho1Sprites_TamTam, 0x00 },
-    { L"Tam Tam P Rage 1", 0x0e4daa, 0x0e4dca, indexSamSho1Sprites_TamTam, 0x00 },
-    { L"Tam Tam P Rage 2", 0x0e4dca, 0x0e4dea, indexSamSho1Sprites_TamTam, 0x00 },
-    { L"Tam Tam P Zapped/Burned", 0x0e4dea, 0x0e4e0a, indexSamSho1Sprites_TamTam, 0x00 },
-    { L"Tam Tam P Weapon 1", 0x0e4e0a, 0x0e4e2a },
-    { L"Tam Tam P Weapon 2", 0x0e4e2a, 0x0e4e4a },
-    { L"Tam Tam P Weapon 3", 0x0e4e4a, 0x0e4e6a },
+    { L"Tam Tam P", 0x0e4d8a, 0x0e4daa, indexSamSho1Sprites_TamTam, 0x00, &pairNext4 },
+    { L"Tam Tam P Rage 1", 0x0e4daa, 0x0e4dca, indexSamSho1Sprites_TamTam, 0x00, &pairNext4 },
+    { L"Tam Tam P Rage 2", 0x0e4dca, 0x0e4dea, indexSamSho1Sprites_TamTam, 0x00, &pairNext4 },
+    { L"Tam Tam P Zapped/Burned", 0x0e4dea, 0x0e4e0a, indexSamSho1Sprites_TamTam, 0x00, &pairNext },
+    { L"Tam Tam P Weapon 1", 0x0e4e0a, 0x0e4e2a, indexSamSho1Sprites_TamTam, 0x01 },
+    { L"Tam Tam P Weapon 2", 0x0e4e2a, 0x0e4e4a, indexSamSho1Sprites_TamTam, 0x01 },
+    { L"Tam Tam P Weapon 3", 0x0e4e4a, 0x0e4e6a, indexSamSho1Sprites_TamTam, 0x01 },
     { L"Tam Tam P Poisoned", 0x0e4e6a, 0x0e4e8a, indexSamSho1Sprites_TamTam, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_TAMTAM_K[] =
 {
-    { L"Tam Tam K", 0x0e598a, 0x0e59aa, indexSamSho1Sprites_TamTam, 0x00 },
-    { L"Tam Tam K Rage 1", 0x0e59aa, 0x0e59ca, indexSamSho1Sprites_TamTam, 0x00 },
-    { L"Tam Tam K Rage 2", 0x0e59ca, 0x0e59ea, indexSamSho1Sprites_TamTam, 0x00 },
-    { L"Tam Tam K Zapped/Burned", 0x0e59ea, 0x0e5a0a, indexSamSho1Sprites_TamTam, 0x00 },
-    { L"Tam Tam K Weapon 1", 0x0e5a0a, 0x0e5a2a },
-    { L"Tam Tam K Weapon 2", 0x0e5a2a, 0x0e5a4a },
-    { L"Tam Tam K Weapon 3", 0x0e5a4a, 0x0e5a6a },
+    { L"Tam Tam K", 0x0e598a, 0x0e59aa, indexSamSho1Sprites_TamTam, 0x00, &pairNext4 },
+    { L"Tam Tam K Rage 1", 0x0e59aa, 0x0e59ca, indexSamSho1Sprites_TamTam, 0x00, &pairNext4 },
+    { L"Tam Tam K Rage 2", 0x0e59ca, 0x0e59ea, indexSamSho1Sprites_TamTam, 0x00, &pairNext4 },
+    { L"Tam Tam K Zapped/Burned", 0x0e59ea, 0x0e5a0a, indexSamSho1Sprites_TamTam, 0x00, &pairNext },
+    { L"Tam Tam K Weapon 1", 0x0e5a0a, 0x0e5a2a, indexSamSho1Sprites_TamTam, 0x01 },
+    { L"Tam Tam K Weapon 2", 0x0e5a2a, 0x0e5a4a, indexSamSho1Sprites_TamTam, 0x01 },
+    { L"Tam Tam K Weapon 3", 0x0e5a4a, 0x0e5a6a, indexSamSho1Sprites_TamTam, 0x01 },
     { L"Tam Tam K Poisoned", 0x0e5a6a, 0x0e5a8a, indexSamSho1Sprites_TamTam, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_GALFORD_P[] =
 {
-    { L"Galford P", 0x0e4e8a, 0x0e4eaa, indexSamSho1Sprites_Galford, 0x00, &pairNext8 },
-    { L"Galford P Rage 1", 0x0e4eaa, 0x0e4eca, indexSamSho1Sprites_Galford, 0x00 },
-    { L"Galford P Rage 2", 0x0e4eca, 0x0e4eea, indexSamSho1Sprites_Galford, 0x00 },
-    { L"Galford P Zapped/Burned", 0x0e4eea, 0x0e4f0a, indexSamSho1Sprites_Galford, 0x00 },
-    { L"Galford P Weapon 1", 0x0e4f0a, 0x0e4f2a },
-    { L"Galford P Weapon 2", 0x0e4f2a, 0x0e4f4a },
-    { L"Galford P Weapon 3", 0x0e4f4a, 0x0e4f6a },
+    { L"Galford P", 0x0e4e8a, 0x0e4eaa, indexSamSho1Sprites_Galford, 0x00, &pairNext4 },
+    { L"Galford P Rage 1", 0x0e4eaa, 0x0e4eca, indexSamSho1Sprites_Galford, 0x00, &pairNext4 },
+    { L"Galford P Rage 2", 0x0e4eca, 0x0e4eea, indexSamSho1Sprites_Galford, 0x00, &pairNext4 },
+    { L"Galford P Zapped/Burned", 0x0e4eea, 0x0e4f0a, indexSamSho1Sprites_Galford, 0x00, &pairNext },
+    { L"Galford P Weapon 1", 0x0e4f0a, 0x0e4f2a, indexSamSho1Sprites_Galford, 0x01 },
+    { L"Galford P Weapon 2", 0x0e4f2a, 0x0e4f4a, indexSamSho1Sprites_Galford, 0x01 },
+    { L"Galford P Weapon 3", 0x0e4f4a, 0x0e4f6a, indexSamSho1Sprites_Galford, 0x01 },
     { L"Galford P Poisoned", 0x0e4f6a, 0x0e4f8a, indexSamSho1Sprites_Galford, 0x00 },
-    { L"Poppy P", 0x0e676a, 0x0e678a, indexSamSho1Sprites_Galford, 1 },
+    { L"Poppy P", 0x0e676a, 0x0e678a, indexSamSho1Sprites_Galford, 0x02 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_GALFORD_K[] =
 {
-    { L"Galford K", 0x0e5a8a, 0x0e5aaa, indexSamSho1Sprites_Galford, 0x00, &pairNext8 },
-    { L"Galford K Rage 1", 0x0e5aaa, 0x0e5aca, indexSamSho1Sprites_Galford, 0x00 },
-    { L"Galford K Rage 2", 0x0e5aca, 0x0e5aea, indexSamSho1Sprites_Galford, 0x00 },
-    { L"Galford K Zapped/Burned", 0x0e5aea, 0x0e5b0a, indexSamSho1Sprites_Galford, 0x00 },
-    { L"Galford K Weapon 1", 0x0e5b0a, 0x0e5b2a },
-    { L"Galford K Weapon 2", 0x0e5b2a, 0x0e5b4a },
-    { L"Galford K Weapon 3", 0x0e5b4a, 0x0e5b6a },
+    { L"Galford K", 0x0e5a8a, 0x0e5aaa, indexSamSho1Sprites_Galford, 0x00, &pairNext4 },
+    { L"Galford K Rage 1", 0x0e5aaa, 0x0e5aca, indexSamSho1Sprites_Galford, 0x00, &pairNext4 },
+    { L"Galford K Rage 2", 0x0e5aca, 0x0e5aea, indexSamSho1Sprites_Galford, 0x00, &pairNext4 },
+    { L"Galford K Zapped/Burned", 0x0e5aea, 0x0e5b0a, indexSamSho1Sprites_Galford, 0x00, &pairNext },
+    { L"Galford K Weapon 1", 0x0e5b0a, 0x0e5b2a, indexSamSho1Sprites_Galford, 0x01 },
+    { L"Galford K Weapon 2", 0x0e5b2a, 0x0e5b4a, indexSamSho1Sprites_Galford, 0x01 },
+    { L"Galford K Weapon 3", 0x0e5b4a, 0x0e5b6a, indexSamSho1Sprites_Galford, 0x0 },
     { L"Galford K Poisoned", 0x0e5b6a, 0x0e5b8a, indexSamSho1Sprites_Galford, 0x00 },
-    { L"Poppy K", 0x0e678a, 0x0e67aa, indexSamSho1Sprites_Galford, 1 },
+    { L"Poppy K", 0x0e678a, 0x0e67aa, indexSamSho1Sprites_Galford, 0x02 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_HANZO_P[] =
 {
-    { L"Hanzo P", 0x0e4f8a, 0x0e4faa, indexSamSho1Sprites_Hanzo, 0x00 },
-    { L"Hanzo P Rage 1", 0x0e4faa, 0x0e4fca, indexSamSho1Sprites_Hanzo, 0x00 },
-    { L"Hanzo P Rage 2", 0x0e4fca, 0x0e4fea, indexSamSho1Sprites_Hanzo, 0x00 },
-    { L"Hanzo P Zapped/Burned", 0x0e4fea, 0x0e500a, indexSamSho1Sprites_Hanzo, 0x00 },
-    { L"Hanzo P Weapon 1", 0x0e500a, 0x0e502a },
-    { L"Hanzo P Weapon 2", 0x0e502a, 0x0e504a },
-    { L"Hanzo P Weapon 3", 0x0e504a, 0x0e506a },
+    { L"Hanzo P", 0x0e4f8a, 0x0e4faa, indexSamSho1Sprites_Hanzo, 0x00, &pairNext4 },
+    { L"Hanzo P Rage 1", 0x0e4faa, 0x0e4fca, indexSamSho1Sprites_Hanzo, 0x00, &pairNext4 },
+    { L"Hanzo P Rage 2", 0x0e4fca, 0x0e4fea, indexSamSho1Sprites_Hanzo, 0x00, &pairNext4 },
+    { L"Hanzo P Zapped/Burned", 0x0e4fea, 0x0e500a, indexSamSho1Sprites_Hanzo, 0x00, &pairNext },
+    { L"Hanzo P Weapon 1", 0x0e500a, 0x0e502a, indexSamSho1Sprites_Hanzo, 0x01 },
+    { L"Hanzo P Weapon 2", 0x0e502a, 0x0e504a, indexSamSho1Sprites_Hanzo, 0x01 },
+    { L"Hanzo P Weapon 3", 0x0e504a, 0x0e506a, indexSamSho1Sprites_Hanzo, 0x01 },
     { L"Hanzo P Poisoned", 0x0e506a, 0x0e508a, indexSamSho1Sprites_Hanzo, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_HANZO_K[] =
 {
-    { L"Hanzo K", 0x0e5b8a, 0x0e5baa, indexSamSho1Sprites_Hanzo, 0x00 },
-    { L"Hanzo K Rage 1", 0x0e5baa, 0x0e5bca, indexSamSho1Sprites_Hanzo, 0x00 },
-    { L"Hanzo K Rage 2", 0x0e5bca, 0x0e5bea, indexSamSho1Sprites_Hanzo, 0x00 },
-    { L"Hanzo K Zapped/Burned", 0x0e5bea, 0x0e5c0a, indexSamSho1Sprites_Hanzo, 0x00 },
-    { L"Hanzo K Weapon 1", 0x0e5c0a, 0x0e5c2a },
-    { L"Hanzo K Weapon 2", 0x0e5c2a, 0x0e5c4a },
-    { L"Hanzo K Weapon 3", 0x0e5c4a, 0x0e5c6a },
+    { L"Hanzo K", 0x0e5b8a, 0x0e5baa, indexSamSho1Sprites_Hanzo, 0x00, &pairNext4 },
+    { L"Hanzo K Rage 1", 0x0e5baa, 0x0e5bca, indexSamSho1Sprites_Hanzo, 0x00, &pairNext4 },
+    { L"Hanzo K Rage 2", 0x0e5bca, 0x0e5bea, indexSamSho1Sprites_Hanzo, 0x00, &pairNext4 },
+    { L"Hanzo K Zapped/Burned", 0x0e5bea, 0x0e5c0a, indexSamSho1Sprites_Hanzo, 0x00, &pairNext },
+    { L"Hanzo K Weapon 1", 0x0e5c0a, 0x0e5c2a, indexSamSho1Sprites_Hanzo, 0x01 },
+    { L"Hanzo K Weapon 2", 0x0e5c2a, 0x0e5c4a, indexSamSho1Sprites_Hanzo, 0x01 },
+    { L"Hanzo K Weapon 3", 0x0e5c4a, 0x0e5c6a, indexSamSho1Sprites_Hanzo, 0x0 },
     { L"Hanzo K Poisoned", 0x0e5c6a, 0x0e5c8a, indexSamSho1Sprites_Hanzo, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_WANFU_P[] =
 {
-    { L"Wan-Fu P", 0x0e518a, 0x0e51aa },
-    { L"Wan-Fu P Rage 1", 0x0e51aa, 0x0e51ca },
-    { L"Wan-Fu P Rage 2", 0x0e51ca, 0x0e51ea },
-    { L"Wan-Fu P Zapped/Burned", 0x0e51ea, 0x0e520a },
-    { L"Wan-Fu P Weapon 1", 0x0e520a, 0x0e522a },
-    { L"Wan-Fu P Weapon 2", 0x0e522a, 0x0e524a },
-    { L"Wan-Fu P Weapon 3", 0x0e524a, 0x0e526a },
-    { L"Wan-Fu P Poisoned", 0x0e526a, 0x0e528a },
+    { L"Wan-Fu P", 0x0e518a, 0x0e51aa, indexSamSho1Sprites_Wanfu, 0x00, &pairNext4 },
+    { L"Wan-Fu P Rage 1", 0x0e51aa, 0x0e51ca, indexSamSho1Sprites_Wanfu, 0x00, &pairNext4 },
+    { L"Wan-Fu P Rage 2", 0x0e51ca, 0x0e51ea, indexSamSho1Sprites_Wanfu, 0x00, &pairNext4 },
+    { L"Wan-Fu P Zapped/Burned", 0x0e51ea, 0x0e520a, indexSamSho1Sprites_Wanfu, 0x00, &pairNext },
+    { L"Wan-Fu P Weapon 1", 0x0e520a, 0x0e522a, indexSamSho1Sprites_Wanfu, 0x01 },
+    { L"Wan-Fu P Weapon 2", 0x0e522a, 0x0e524a, indexSamSho1Sprites_Wanfu, 0x01 },
+    { L"Wan-Fu P Weapon 3", 0x0e524a, 0x0e526a, indexSamSho1Sprites_Wanfu, 0x01 },
+    { L"Wan-Fu P Poisoned", 0x0e526a, 0x0e528a, indexSamSho1Sprites_Wanfu, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_WANFU_K[] =
 {
-    { L"Wan-Fu K", 0x0e5d8a, 0x0e5daa },
-    { L"Wan-Fu K Rage 1", 0x0e5daa, 0x0e5dca },
-    { L"Wan-Fu K Rage 2", 0x0e5dca, 0x0e5dea },
-    { L"Wan-Fu K Zapped/Burned", 0x0e5dea, 0x0e5e0a },
-    { L"Wan-Fu K Weapon 1", 0x0e5e0a, 0x0e5e2a },
-    { L"Wan-Fu K Weapon 2", 0x0e5e2a, 0x0e5e4a },
-    { L"Wan-Fu K Weapon 3", 0x0e5e4a, 0x0e5e6a },
-    { L"Wan-Fu K Poisoned", 0x0e5e6a, 0x0e5e8a },
+    { L"Wan-Fu K", 0x0e5d8a, 0x0e5daa, indexSamSho1Sprites_Wanfu, 0x00, &pairNext4 },
+    { L"Wan-Fu K Rage 1", 0x0e5daa, 0x0e5dca, indexSamSho1Sprites_Wanfu, 0x00, &pairNext4 },
+    { L"Wan-Fu K Rage 2", 0x0e5dca, 0x0e5dea, indexSamSho1Sprites_Wanfu, 0x00, &pairNext4 },
+    { L"Wan-Fu K Zapped/Burned", 0x0e5dea, 0x0e5e0a, indexSamSho1Sprites_Wanfu, 0x00, &pairNext },
+    { L"Wan-Fu K Weapon 1", 0x0e5e0a, 0x0e5e2a, indexSamSho1Sprites_Wanfu, 0x01 },
+    { L"Wan-Fu K Weapon 2", 0x0e5e2a, 0x0e5e4a, indexSamSho1Sprites_Wanfu, 0x01 },
+    { L"Wan-Fu K Weapon 3", 0x0e5e4a, 0x0e5e6a, indexSamSho1Sprites_Wanfu, 0x01 },
+    { L"Wan-Fu K Poisoned", 0x0e5e6a, 0x0e5e8a, indexSamSho1Sprites_Wanfu, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_KYOSHIRO_P[] =
 {
-    { L"Kyoshiro P", 0x0e528a, 0x0e52aa, indexSamSho1Sprites_Kyoshiro, 0x00 },
-    { L"Kyoshiro P Rage 1", 0x0e52aa, 0x0e52ca, indexSamSho1Sprites_Kyoshiro, 0x00 },
-    { L"Kyoshiro P Rage 2", 0x0e52ca, 0x0e52ea, indexSamSho1Sprites_Kyoshiro, 0x00 },
-    { L"Kyoshiro P Zapped/Burned", 0x0e52ea, 0x0e530a, indexSamSho1Sprites_Kyoshiro, 0x00 },
-    { L"Kyoshiro P Weapon 1", 0x0e530a, 0x0e532a },
-    { L"Kyoshiro P Weapon 2", 0x0e532a, 0x0e534a },
-    { L"Kyoshiro P Weapon 3", 0x0e534a, 0x0e536a },
+    { L"Kyoshiro P", 0x0e528a, 0x0e52aa, indexSamSho1Sprites_Kyoshiro, 0x00, &pairNext4 },
+    { L"Kyoshiro P Rage 1", 0x0e52aa, 0x0e52ca, indexSamSho1Sprites_Kyoshiro, 0x00, &pairNext4 },
+    { L"Kyoshiro P Rage 2", 0x0e52ca, 0x0e52ea, indexSamSho1Sprites_Kyoshiro, 0x00, &pairNext4 },
+    { L"Kyoshiro P Zapped/Burned", 0x0e52ea, 0x0e530a, indexSamSho1Sprites_Kyoshiro, 0x00, &pairNext },
+    { L"Kyoshiro P Weapon 1", 0x0e530a, 0x0e532a, indexSamSho1Sprites_Kyoshiro, 0x01 },
+    { L"Kyoshiro P Weapon 2", 0x0e532a, 0x0e534a, indexSamSho1Sprites_Kyoshiro, 0x01 },
+    { L"Kyoshiro P Weapon 3", 0x0e534a, 0x0e536a, indexSamSho1Sprites_Kyoshiro, 0x01 },
     { L"Kyoshiro P Poisoned", 0x0e536a, 0x0e538a, indexSamSho1Sprites_Kyoshiro, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_KYOSHIRO_K[] =
 {
-    { L"Kyoshiro K", 0x0e5e8a, 0x0e5eaa, indexSamSho1Sprites_Kyoshiro, 0x00 },
-    { L"Kyoshiro K Rage 1", 0x0e5eaa, 0x0e5eca, indexSamSho1Sprites_Kyoshiro, 0x00 },
-    { L"Kyoshiro K Rage 2", 0x0e5eca, 0x0e5eea, indexSamSho1Sprites_Kyoshiro, 0x00 },
-    { L"Kyoshiro K Zapped/Burned", 0x0e5eea, 0x0e5f0a, indexSamSho1Sprites_Kyoshiro, 0x00 },
-    { L"Kyoshiro K Weapon 1", 0x0e5f0a, 0x0e5f2a },
-    { L"Kyoshiro K Weapon 2", 0x0e5f2a, 0x0e5f4a },
-    { L"Kyoshiro K Weapon 3", 0x0e5f4a, 0x0e5f6a },
+    { L"Kyoshiro K", 0x0e5e8a, 0x0e5eaa, indexSamSho1Sprites_Kyoshiro, 0x00, &pairNext4 },
+    { L"Kyoshiro K Rage 1", 0x0e5eaa, 0x0e5eca, indexSamSho1Sprites_Kyoshiro, 0x00, &pairNext4 },
+    { L"Kyoshiro K Rage 2", 0x0e5eca, 0x0e5eea, indexSamSho1Sprites_Kyoshiro, 0x00, &pairNext4 },
+    { L"Kyoshiro K Zapped/Burned", 0x0e5eea, 0x0e5f0a, indexSamSho1Sprites_Kyoshiro, 0x00, &pairNext },
+    { L"Kyoshiro K Weapon 1", 0x0e5f0a, 0x0e5f2a, indexSamSho1Sprites_Kyoshiro, 0x01 },
+    { L"Kyoshiro K Weapon 2", 0x0e5f2a, 0x0e5f4a, indexSamSho1Sprites_Kyoshiro, 0x01 },
+    { L"Kyoshiro K Weapon 3", 0x0e5f4a, 0x0e5f6a, indexSamSho1Sprites_Kyoshiro, 0x01 },
     { L"Kyoshiro K Poisoned", 0x0e5f6a, 0x0e5f8a, indexSamSho1Sprites_Kyoshiro, 0x00 },
 };
 
@@ -227,26 +227,26 @@ const sGame_PaletteDataset SAMSHO1_A_UKYO_K[] =
 
 const sGame_PaletteDataset SAMSHO1_A_GENAN_P[] =
 {
-    { L"Gen-an P", 0x0e548a, 0x0e54aa },
-    { L"Gen-an P Rage 1", 0x0e54aa, 0x0e54ca },
-    { L"Gen-an P Rage 2", 0x0e54ca, 0x0e54ea },
-    { L"Gen-an P Zapped/Burned", 0x0e54ea, 0x0e550a },
-    { L"Gen-an P Weapon 1", 0x0e550a, 0x0e552a },
-    { L"Gen-an P Weapon 2", 0x0e552a, 0x0e554a },
-    { L"Gen-an P Weapon 3", 0x0e554a, 0x0e556a },
-    { L"Gen-an P Poisoned", 0x0e556a, 0x0e558a },
+    { L"Gen-an P", 0x0e548a, 0x0e54aa, indexSamSho1Sprites_Genan, 0x00, &pairNext4 },
+    { L"Gen-an P Rage 1", 0x0e54aa, 0x0e54ca, indexSamSho1Sprites_Genan, 0x00, &pairNext4 },
+    { L"Gen-an P Rage 2", 0x0e54ca, 0x0e54ea, indexSamSho1Sprites_Genan, 0x00, &pairNext4 },
+    { L"Gen-an P Zapped/Burned", 0x0e54ea, 0x0e550a, indexSamSho1Sprites_Genan, 0x00, &pairNext },
+    { L"Gen-an P Weapon 1", 0x0e550a, 0x0e552a, indexSamSho1Sprites_Genan, 0x01 },
+    { L"Gen-an P Weapon 2", 0x0e552a, 0x0e554a, indexSamSho1Sprites_Genan, 0x01 },
+    { L"Gen-an P Weapon 3", 0x0e554a, 0x0e556a, indexSamSho1Sprites_Genan, 0x01 },
+    { L"Gen-an P Poisoned", 0x0e556a, 0x0e558a, indexSamSho1Sprites_Genan, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_GENAN_K[] =
 {
-    { L"Gen-an K", 0x0e608a, 0x0e60aa },
-    { L"Gen-an K Rage 1", 0x0e60aa, 0x0e60ca },
-    { L"Gen-an K Rage 2", 0x0e60ca, 0x0e60ea },
-    { L"Gen-an K Zapped/Burned", 0x0e60ea, 0x0e610a },
-    { L"Gen-an K Weapon 1", 0x0e610a, 0x0e612a },
-    { L"Gen-an K Weapon 2", 0x0e612a, 0x0e614a },
-    { L"Gen-an K Weapon 3", 0x0e614a, 0x0e616a },
-    { L"Gen-an K Poisoned", 0x0e616a, 0x0e618a },
+    { L"Gen-an K", 0x0e608a, 0x0e60aa, indexSamSho1Sprites_Genan, 0x00, &pairNext4 },
+    { L"Gen-an K Rage 1", 0x0e60aa, 0x0e60ca, indexSamSho1Sprites_Genan, 0x00, &pairNext4 },
+    { L"Gen-an K Rage 2", 0x0e60ca, 0x0e60ea, indexSamSho1Sprites_Genan, 0x00, &pairNext4 },
+    { L"Gen-an K Zapped/Burned", 0x0e60ea, 0x0e610a, indexSamSho1Sprites_Genan, 0x00, &pairNext },
+    { L"Gen-an K Weapon 1", 0x0e610a, 0x0e612a, indexSamSho1Sprites_Genan, 0x01 },
+    { L"Gen-an K Weapon 2", 0x0e612a, 0x0e614a, indexSamSho1Sprites_Genan, 0x01 },
+    { L"Gen-an K Weapon 3", 0x0e614a, 0x0e616a, indexSamSho1Sprites_Genan, 0x01 },
+    { L"Gen-an K Poisoned", 0x0e616a, 0x0e618a, indexSamSho1Sprites_Genan, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_GENAN_EFFECTS[] =
@@ -256,73 +256,73 @@ const sGame_PaletteDataset SAMSHO1_A_GENAN_EFFECTS[] =
 
 const sGame_PaletteDataset SAMSHO1_A_EARTHQUAKE_P[] =
 {
-    { L"Earthquake P", 0x0e558a, 0x0e55aa },
-    { L"Earthquake P Rage 1", 0x0e55aa, 0x0e55ca },
-    { L"Earthquake P Rage 2", 0x0e55ca, 0x0e55ea },
-    { L"Earthquake P Zapped/Burned", 0x0e55ea, 0x0e560a },
-    { L"Earthquake P Weapon 1", 0x0e560a, 0x0e562a },
-    { L"Earthquake P Weapon 2", 0x0e562a, 0x0e564a },
-    { L"Earthquake P Weapon 3", 0x0e564a, 0x0e566a },
-    { L"Earthquake P Poisoned", 0x0e566a, 0x0e568a },
+    { L"Earthquake P", 0x0e558a, 0x0e55aa, indexSamSho1Sprites_Earthquake, 0x00, &pairNext4 },
+    { L"Earthquake P Rage 1", 0x0e55aa, 0x0e55ca, indexSamSho1Sprites_Earthquake, 0x00, &pairNext4 },
+    { L"Earthquake P Rage 2", 0x0e55ca, 0x0e55ea, indexSamSho1Sprites_Earthquake, 0x00, &pairNext4 },
+    { L"Earthquake P Zapped/Burned", 0x0e55ea, 0x0e560a, indexSamSho1Sprites_Earthquake, 0x00, &pairNext },
+    { L"Earthquake P Weapon 1", 0x0e560a, 0x0e562a, indexSamSho1Sprites_Earthquake, 0x01 },
+    { L"Earthquake P Weapon 2", 0x0e562a, 0x0e564a, indexSamSho1Sprites_Earthquake, 0x01 },
+    { L"Earthquake P Weapon 3", 0x0e564a, 0x0e566a, indexSamSho1Sprites_Earthquake, 0x01 },
+    { L"Earthquake P Poisoned", 0x0e566a, 0x0e568a, indexSamSho1Sprites_Earthquake, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_EARTHQUAKE_K[] =
 {
-    { L"Earthquake K", 0x0e618a, 0x0e61aa },
-    { L"Earthquake K Rage 1", 0x0e61aa, 0x0e61ca },
-    { L"Earthquake K Rage 2", 0x0e61ca, 0x0e61ea },
-    { L"Earthquake K Zapped/Burned", 0x0e61ea, 0x0e620a },
-    { L"Earthquake K Weapon 1", 0x0e620a, 0x0e622a },
-    { L"Earthquake K Weapon 2", 0x0e622a, 0x0e624a },
-    { L"Earthquake K Weapon 3", 0x0e624a, 0x0e626a },
-    { L"Earthquake K Poisoned", 0x0e626a, 0x0e628a },
+    { L"Earthquake K", 0x0e618a, 0x0e61aa, indexSamSho1Sprites_Earthquake, 0x00, &pairNext4 },
+    { L"Earthquake K Rage 1", 0x0e61aa, 0x0e61ca, indexSamSho1Sprites_Earthquake, 0x00, &pairNext4 },
+    { L"Earthquake K Rage 2", 0x0e61ca, 0x0e61ea, indexSamSho1Sprites_Earthquake, 0x00, &pairNext4 },
+    { L"Earthquake K Zapped/Burned", 0x0e61ea, 0x0e620a, indexSamSho1Sprites_Earthquake, 0x00, &pairNext },
+    { L"Earthquake K Weapon 1", 0x0e620a, 0x0e622a, indexSamSho1Sprites_Earthquake, 0x01 },
+    { L"Earthquake K Weapon 2", 0x0e622a, 0x0e624a, indexSamSho1Sprites_Earthquake, 0x01 },
+    { L"Earthquake K Weapon 3", 0x0e624a, 0x0e626a, indexSamSho1Sprites_Earthquake, 0x01 },
+    { L"Earthquake K Poisoned", 0x0e626a, 0x0e628a, indexSamSho1Sprites_Earthquake, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_JUBEI_P[] =
 {
-    { L"Jubei P", 0x0e568a, 0x0e56aa, indexSamSho1Sprites_Jubei, 0x00 },
-    { L"Jubei P Rage 1", 0x0e56aa, 0x0e56ca, indexSamSho1Sprites_Jubei, 0x00 },
-    { L"Jubei P Rage 2", 0x0e56ca, 0x0e56ea, indexSamSho1Sprites_Jubei, 0x00 },
-    { L"Jubei P Zapped/Burned", 0x0e56ea, 0x0e570a, indexSamSho1Sprites_Jubei, 0x00 },
-    { L"Jubei P Weapon 1", 0x0e570a, 0x0e572a },
-    { L"Jubei P Weapon 2", 0x0e572a, 0x0e574a },
-    { L"Jubei P Weapon 3", 0x0e574a, 0x0e576a },
+    { L"Jubei P", 0x0e568a, 0x0e56aa, indexSamSho1Sprites_Jubei, 0x00, &pairNext4 },
+    { L"Jubei P Rage 1", 0x0e56aa, 0x0e56ca, indexSamSho1Sprites_Jubei, 0x00, &pairNext4 },
+    { L"Jubei P Rage 2", 0x0e56ca, 0x0e56ea, indexSamSho1Sprites_Jubei, 0x00, &pairNext4 },
+    { L"Jubei P Zapped/Burned", 0x0e56ea, 0x0e570a, indexSamSho1Sprites_Jubei, 0x00, &pairNext },
+    { L"Jubei P Weapon 1", 0x0e570a, 0x0e572a, indexSamSho1Sprites_Jubei, 0x01 },
+    { L"Jubei P Weapon 2", 0x0e572a, 0x0e574a, indexSamSho1Sprites_Jubei, 0x01 },
+    { L"Jubei P Weapon 3", 0x0e574a, 0x0e576a, indexSamSho1Sprites_Jubei, 0x01 },
     { L"Jubei P Poisoned", 0x0e576a, 0x0e578a, indexSamSho1Sprites_Jubei, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_JUBEI_K[] =
 {
-    { L"Jubei K", 0x0e628a, 0x0e62aa, indexSamSho1Sprites_Jubei, 0x00 },
-    { L"Jubei K Rage 1", 0x0e62aa, 0x0e62ca, indexSamSho1Sprites_Jubei, 0x00 },
-    { L"Jubei K Rage 2", 0x0e62ca, 0x0e62ea, indexSamSho1Sprites_Jubei, 0x00 },
-    { L"Jubei K Zapped/Burned", 0x0e62ea, 0x0e630a, indexSamSho1Sprites_Jubei, 0x00 },
-    { L"Jubei K Weapon 1", 0x0e630a, 0x0e632a },
-    { L"Jubei K Weapon 2", 0x0e632a, 0x0e634a },
-    { L"Jubei K Weapon 3", 0x0e634a, 0x0e636a },
+    { L"Jubei K", 0x0e628a, 0x0e62aa, indexSamSho1Sprites_Jubei, 0x00, &pairNext4 },
+    { L"Jubei K Rage 1", 0x0e62aa, 0x0e62ca, indexSamSho1Sprites_Jubei, 0x00, &pairNext4 },
+    { L"Jubei K Rage 2", 0x0e62ca, 0x0e62ea, indexSamSho1Sprites_Jubei, 0x00, &pairNext4 },
+    { L"Jubei K Zapped/Burned", 0x0e62ea, 0x0e630a, indexSamSho1Sprites_Jubei, 0x00, &pairNext },
+    { L"Jubei K Weapon 1", 0x0e630a, 0x0e632a, indexSamSho1Sprites_Jubei, 0x01 },
+    { L"Jubei K Weapon 2", 0x0e632a, 0x0e634a, indexSamSho1Sprites_Jubei, 0x01 },
+    { L"Jubei K Weapon 3", 0x0e634a, 0x0e636a, indexSamSho1Sprites_Jubei, 0x01 },
     { L"Jubei K Poisoned", 0x0e636a, 0x0e638a, indexSamSho1Sprites_Jubei, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_CHARLOTTE_P[] =
 {
-    { L"Charlotte P", 0x0e578a, 0x0e57aa, indexSamSho1Sprites_Charlotte, 0x00 },
-    { L"Charlotte P Rage 1", 0x0e57aa, 0x0e57ca, indexSamSho1Sprites_Charlotte, 0x00 },
-    { L"Charlotte P Rage 2", 0x0e57ca, 0x0e57ea, indexSamSho1Sprites_Charlotte, 0x00 },
-    { L"Charlotte P Zapped/Burned", 0x0e57ea, 0x0e580a, indexSamSho1Sprites_Charlotte, 0x00 },
-    { L"Charlotte P Weapon 1", 0x0e580a, 0x0e582a },
-    { L"Charlotte P Weapon 2", 0x0e582a, 0x0e584a },
-    { L"Charlotte P Weapon 3", 0x0e584a, 0x0e586a },
+    { L"Charlotte P", 0x0e578a, 0x0e57aa, indexSamSho1Sprites_Charlotte, 0x00, &pairNext4 },
+    { L"Charlotte P Rage 1", 0x0e57aa, 0x0e57ca, indexSamSho1Sprites_Charlotte, 0x00, &pairNext4 },
+    { L"Charlotte P Rage 2", 0x0e57ca, 0x0e57ea, indexSamSho1Sprites_Charlotte, 0x00, &pairNext4 },
+    { L"Charlotte P Zapped/Burned", 0x0e57ea, 0x0e580a, indexSamSho1Sprites_Charlotte, 0x00, &pairNext },
+    { L"Charlotte P Weapon 1", 0x0e580a, 0x0e582a, indexSamSho1Sprites_Charlotte, 0x01 },
+    { L"Charlotte P Weapon 2", 0x0e582a, 0x0e584a, indexSamSho1Sprites_Charlotte, 0x01 },
+    { L"Charlotte P Weapon 3", 0x0e584a, 0x0e586a, indexSamSho1Sprites_Charlotte, 0x01 },
     { L"Charlotte P Poisoned", 0x0e586a, 0x0e588a, indexSamSho1Sprites_Charlotte, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_CHARLOTTE_K[] =
 {
-    { L"Charlotte K", 0x0e638a, 0x0e63aa, indexSamSho1Sprites_Charlotte, 0x00 },
-    { L"Charlotte K Rage 1", 0x0e63aa, 0x0e63ca, indexSamSho1Sprites_Charlotte, 0x00 },
-    { L"Charlotte K Rage 2", 0x0e63ca, 0x0e63ea, indexSamSho1Sprites_Charlotte, 0x00 },
-    { L"Charlotte K Zapped/Burned", 0x0e63ea, 0x0e640a, indexSamSho1Sprites_Charlotte, 0x00 },
-    { L"Charlotte K Weapon 1", 0x0e640a, 0x0e642a },
-    { L"Charlotte K Weapon 2", 0x0e642a, 0x0e644a },
-    { L"Charlotte K Weapon 3", 0x0e644a, 0x0e646a },
+    { L"Charlotte K", 0x0e638a, 0x0e63aa, indexSamSho1Sprites_Charlotte, 0x00, &pairNext4 },
+    { L"Charlotte K Rage 1", 0x0e63aa, 0x0e63ca, indexSamSho1Sprites_Charlotte, 0x00, &pairNext4 },
+    { L"Charlotte K Rage 2", 0x0e63ca, 0x0e63ea, indexSamSho1Sprites_Charlotte, 0x00, &pairNext4 },
+    { L"Charlotte K Zapped/Burned", 0x0e63ea, 0x0e640a, indexSamSho1Sprites_Charlotte, 0x00, &pairNext },
+    { L"Charlotte K Weapon 1", 0x0e640a, 0x0e642a, indexSamSho1Sprites_Charlotte, 0x01 },
+    { L"Charlotte K Weapon 2", 0x0e642a, 0x0e644a, indexSamSho1Sprites_Charlotte, 0x01 },
+    { L"Charlotte K Weapon 3", 0x0e644a, 0x0e646a, indexSamSho1Sprites_Charlotte, 0x01 },
     { L"Charlotte K Poisoned", 0x0e646a, 0x0e648a, indexSamSho1Sprites_Charlotte, 0x00 },
 };
 
@@ -333,13 +333,13 @@ const sGame_PaletteDataset SAMSHO1_A_CHARLOTTE_EFFECTS[] =
 
 const sGame_PaletteDataset SAMSHO1_A_AMAKUSA[] =
 {
-    { L"Amakusa", 0x0ea88a, 0x0ea8aa, indexSamSho1Sprites_Amakusa, 0x00 },
-    { L"Amakusa Rage 1", 0x0ea8aa, 0x0ea8ca, indexSamSho1Sprites_Amakusa, 0x00 },
-    { L"Amakusa Rage 2", 0x0ea8ca, 0x0ea8ea, indexSamSho1Sprites_Amakusa, 0x00 },
-    { L"Amakusa Zapped/Burned", 0x0ea8ea, 0x0ea90a, indexSamSho1Sprites_Amakusa, 0x00 },
-    { L"Amakusa Weapon 1", 0x0ea90a, 0x0ea92a },
-    { L"Amakusa Weapon 2", 0x0ea92a, 0x0ea94a },
-    { L"Amakusa Weapon 3", 0x0ea94a, 0x0ea96a },
+    { L"Amakusa", 0x0ea88a, 0x0ea8aa, indexSamSho1Sprites_Amakusa, 0x00, &pairNext4 },
+    { L"Amakusa Rage 1", 0x0ea8aa, 0x0ea8ca, indexSamSho1Sprites_Amakusa, 0x00, &pairNext4 },
+    { L"Amakusa Rage 2", 0x0ea8ca, 0x0ea8ea, indexSamSho1Sprites_Amakusa, 0x00, &pairNext4 },
+    { L"Amakusa Zapped/Burned", 0x0ea8ea, 0x0ea90a, indexSamSho1Sprites_Amakusa, 0x00, &pairNext },
+    { L"Amakusa Weapon 1", 0x0ea90a, 0x0ea92a, indexSamSho1Sprites_Amakusa, 0x01 },
+    { L"Amakusa Weapon 2", 0x0ea92a, 0x0ea94a, indexSamSho1Sprites_Amakusa, 0x01 },
+    { L"Amakusa Weapon 3", 0x0ea94a, 0x0ea96a, indexSamSho1Sprites_Amakusa, 0x01 },
     { L"Amakusa Poisoned", 0x0ea96a, 0x0ea98a, indexSamSho1Sprites_Amakusa, 0x00 },
 };
 

@@ -8,21 +8,21 @@
 
 const std::vector<UINT16> COTA_A_IMGIDS_USED =
 {
-    indexCPS2Sprites_Colossus,
-    indexCPS2Sprites_Cyclops,
-    indexCPS2Sprites_Iceman,
-    indexCPS2Sprites_Juggy,
-    indexCPS2Sprites_Magneto,
-    indexCPS2Sprites_OmegaRed,
-    indexCPS2Sprites_Psylocke,
-    indexCPS2Sprites_Sentinel,
-    indexCPS2Sprites_SilverSamurai,
-    indexCPS2Sprites_Spiral,
-    indexCPS2Sprites_Storm,
-    indexCPS2Sprites_Wolverine,
-    indexCPS2Sprites_Akuma,
-    indexCPS2Sprites_STAkuma,
-    indexCPS2Sprites_COTAAssets,
+    indexCPS2Sprites_Colossus,     // 0x32
+    indexCPS2Sprites_Cyclops,      // 0x06
+    indexCPS2Sprites_Iceman,       // 0x09
+    indexCPS2Sprites_Juggy,        // 0x29, // Juggernaut
+    indexCPS2Sprites_Magneto,      // 0x2C
+    indexCPS2Sprites_OmegaRed,     // 0x30
+    indexCPS2Sprites_Psylocke,     // 0x08
+    indexCPS2Sprites_Sentinel,     // 0x34
+    indexCPS2Sprites_SilverSamurai, // 0x2F
+    indexCPS2Sprites_Spiral,       // 0x31
+    indexCPS2Sprites_Storm,        // 0x2A
+    indexCPS2Sprites_Wolverine,    // 0x07
+    indexCPS2Sprites_Akuma,        // 0x1E, // Gouki
+    indexCPS2Sprites_STAkuma,      // 0x57 - ST Akuma
+    indexCPS2Sprites_COTAAssets,   // 0x56 - HUD, stages, etc
 };
 
 #pragma region SecondaryPaletteEffects
@@ -1119,7 +1119,7 @@ const sGame_PaletteDataset COTA_A_HUD_PALETTES[] =
     { L"Meter (Unused) Cycle (3/5)", 0x2a15c, 0x2a17c },
     { L"Meter (Unused) Cycle (4/5)", 0x2a17c, 0x2a19c },
     { L"Meter (Unused) Cycle (5/5)", 0x2a19c, 0x2a1bc },
-    { L"HUD", 0x29cfc, 0x29d1c },
+    { L"HUD", 0x29cfc, 0x29d1c, indexCPS2Sprites_COTAAssets , 0x12 },
 };
 
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =

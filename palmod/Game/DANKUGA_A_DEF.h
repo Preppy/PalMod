@@ -349,8 +349,8 @@ const sGame_PaletteDataset DANKUGA_A_GENERAL_OTHER_PALETTES[] =
 
 const sGame_PaletteDataset DANKUGA_A_BONUS_PALETTES_CSN[] =
 {
-    { L"Kazuya Name", 0x2eeb8, 0x2eef8 },
-    { L"Bartz Name", 0x2eef8, 0x2ef38 },
+    { L"Kazuya Name", 0x2eeb8, 0x2eef8, indexDanKuGa_Bonus, 0x01 },
+    { L"Bartz Name", 0x2eef8, 0x2ef38, indexDanKuGa_Bonus, 0x00 },
     { L"Gekkou Name", 0x2ef38, 0x2ef78 },
     { L"Wulong Name", 0x2ef78, 0x2efb8 },
     { L"Lihua Name", 0x2efb8, 0x2eff8 },

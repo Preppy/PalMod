@@ -2,7 +2,7 @@
 
 enum SupportedMatriM_A_PaletteListIndex
 {
-    indexMatriMSprites_Annie,       // 0x00
+    indexMatriMSprites_Anny,       // 0x00
     indexMatriMSprites_Buntaro,     // 0x01
     indexMatriMSprites_Chinnen,     // 0x02
     indexMatriMSprites_Clara,       // 0x03
@@ -28,7 +28,7 @@ enum SupportedMatriM_A_PaletteListIndex
 
 const std::vector<UINT16> MATRIM_A_IMGIDS_USED =
 {
-    indexMatriMSprites_Annie,
+    indexMatriMSprites_Anny,
     indexMatriMSprites_Buntaro,
     indexMatriMSprites_Chinnen,
     indexMatriMSprites_Clara,
@@ -54,56 +54,56 @@ const std::vector<UINT16> MATRIM_A_IMGIDS_USED =
 
 const sGame_PaletteDataset Matrimelee_A_Annie_A_PALETTES[] =
 {
-    { L"Anny Hamilton A", 0x29c82c, 0x29c84c, indexMatriMSprites_Annie, 0x00 },
-    { L"Photon Energy", 0x29c84c, 0x29c86c },
-    { L"Rainbow Energy", 0x29c86c, 0x29c88c },
-    { L"Rolling/Super Jump Trail", 0x29c88c, 0x29c8ac, indexMatriMSprites_Annie, 0x00 },
-    { L"EX/Super Trail", 0x29c8ac, 0x29c8cc, indexMatriMSprites_Annie, 0x00 },
-    { L"Guard Cancel Trail", 0x29c8cc, 0x29c8ec, indexMatriMSprites_Annie, 0x00 },
-    { L"Hud Portrait", 0x29c8ec, 0x29c90c, indexMatriMSprites_Annie, 0x31 },
+    { L"Anny Hamilton A", 0x29c82c, 0x29c84c, indexMatriMSprites_Anny, 0x00 },
+    { L"Photon Energy", 0x29c84c, 0x29c86c, indexMatriMSprites_Anny, 0x03, &pairNext },
+    { L"Rainbow Energy", 0x29c86c, 0x29c88c, indexMatriMSprites_Anny, 0x04, &pairPrevious },
+    { L"Rolling/Super Jump Trail", 0x29c88c, 0x29c8ac, indexMatriMSprites_Anny, 0x00 },
+    { L"EX/Super Trail", 0x29c8ac, 0x29c8cc, indexMatriMSprites_Anny, 0x00 },
+    { L"Guard Cancel Trail", 0x29c8cc, 0x29c8ec, indexMatriMSprites_Anny, 0x00 },
+    { L"Hud Portrait", 0x29c8ec, 0x29c90c, indexMatriMSprites_Anny, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_Annie_B_PALETTES[] =
 {
-    { L"Anny Hamilton B", 0x29c90c, 0x29c92c, indexMatriMSprites_Annie, 0x00 },
-    { L"Photon Energy", 0x29c92c, 0x29c94c },
-    { L"Rainbow Energy", 0x29c94c, 0x29c96c },
-    { L"Rolling/Super Jump Trail", 0x29c96c, 0x29c98c, indexMatriMSprites_Annie, 0x00 },
-    { L"EX/Super Trail", 0x29c98c, 0x29c9ac, indexMatriMSprites_Annie, 0x00 },
-    { L"Guard Cancel Trail", 0x29c9ac, 0x29c9cc, indexMatriMSprites_Annie, 0x00 },
-    { L"Hud Portrait", 0x29c9cc, 0x29c9ec, indexMatriMSprites_Annie, 0x31 },
+    { L"Anny Hamilton B", 0x29c90c, 0x29c92c, indexMatriMSprites_Anny, 0x00 },
+    { L"Photon Energy", 0x29c92c, 0x29c94c, indexMatriMSprites_Anny, 0x03, &pairNext },
+    { L"Rainbow Energy", 0x29c94c, 0x29c96c, indexMatriMSprites_Anny, 0x04, &pairPrevious },
+    { L"Rolling/Super Jump Trail", 0x29c96c, 0x29c98c, indexMatriMSprites_Anny, 0x00 },
+    { L"EX/Super Trail", 0x29c98c, 0x29c9ac, indexMatriMSprites_Anny, 0x00 },
+    { L"Guard Cancel Trail", 0x29c9ac, 0x29c9cc, indexMatriMSprites_Anny, 0x00 },
+    { L"Hud Portrait", 0x29c9cc, 0x29c9ec, indexMatriMSprites_Anny, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_Annie_C_PALETTES[] =
 {
-    { L"Anny Hamilton C", 0x29c9ec, 0x29ca0c, indexMatriMSprites_Annie, 0x00 },
-    { L"Photon Energy", 0x29ca0c, 0x29ca2c },
-    { L"Rainbow Energy", 0x29ca2c, 0x29ca4c },
-    { L"Rolling/Super Jump Trail", 0x29ca4c, 0x29ca6c, indexMatriMSprites_Annie, 0x00 },
-    { L"EX/Super Trail", 0x29ca6c, 0x29ca8c, indexMatriMSprites_Annie, 0x00 },
-    { L"Guard Cancel Trail", 0x29ca8c, 0x29caac, indexMatriMSprites_Annie, 0x00 },
-    { L"Hud Portrait", 0x29caac, 0x29cacc, indexMatriMSprites_Annie, 0x31 },
+    { L"Anny Hamilton C", 0x29c9ec, 0x29ca0c, indexMatriMSprites_Anny, 0x00 },
+    { L"Photon Energy", 0x29ca0c, 0x29ca2c, indexMatriMSprites_Anny, 0x03, &pairNext },
+    { L"Rainbow Energy", 0x29ca2c, 0x29ca4c, indexMatriMSprites_Anny, 0x04, &pairPrevious },
+    { L"Rolling/Super Jump Trail", 0x29ca4c, 0x29ca6c, indexMatriMSprites_Anny, 0x00 },
+    { L"EX/Super Trail", 0x29ca6c, 0x29ca8c, indexMatriMSprites_Anny, 0x00 },
+    { L"Guard Cancel Trail", 0x29ca8c, 0x29caac, indexMatriMSprites_Anny, 0x00 },
+    { L"Hud Portrait", 0x29caac, 0x29cacc, indexMatriMSprites_Anny, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_Annie_D_PALETTES[] =
 {
-    { L"Anny Hamilton D", 0x29cacc, 0x29caec, indexMatriMSprites_Annie, 0x00 },
-    { L"Photon Energy", 0x29caec, 0x29cb0c },
-    { L"Rainbow Energy", 0x29cb0c, 0x29cb2c },
-    { L"Rolling/Super Jump Trail", 0x29cb2c, 0x29cb4c, indexMatriMSprites_Annie, 0x00 },
-    { L"EX/Super Trail", 0x29cb4c, 0x29cb6c, indexMatriMSprites_Annie, 0x00 },
-    { L"Guard Cancel Trail", 0x29cb6c, 0x29cb8c, indexMatriMSprites_Annie, 0x00 },
-    { L"Hud Portrait", 0x29cb8c, 0x29cbac, indexMatriMSprites_Annie, 0x31 },
+    { L"Anny Hamilton D", 0x29cacc, 0x29caec, indexMatriMSprites_Anny, 0x00 },
+    { L"Photon Energy", 0x29caec, 0x29cb0c, indexMatriMSprites_Anny, 0x03, &pairNext },
+    { L"Rainbow Energy", 0x29cb0c, 0x29cb2c, indexMatriMSprites_Anny, 0x04, &pairPrevious },
+    { L"Rolling/Super Jump Trail", 0x29cb2c, 0x29cb4c, indexMatriMSprites_Anny, 0x00 },
+    { L"EX/Super Trail", 0x29cb4c, 0x29cb6c, indexMatriMSprites_Anny, 0x00 },
+    { L"Guard Cancel Trail", 0x29cb6c, 0x29cb8c, indexMatriMSprites_Anny, 0x00 },
+    { L"Hud Portrait", 0x29cb8c, 0x29cbac, indexMatriMSprites_Anny, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_Annie_SHARED_PALETTES[] =
 {
-    { L"Psychedelic Throw", 0x29ae7e, 0x29aebe },
+    { L"Psychedelic Throw", 0x29ae7e, 0x29aebe, indexMatriMSprites_Anny, 0x02 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_Annie_PORTRAIT_PALETTES[] =
 {
-    { L"Shared Portrait", 0x29CBAc, 0x29CC4C, indexMatriMSprites_Annie, 0x30 },
+    { L"Shared Portrait", 0x29CBAc, 0x29CC4C, indexMatriMSprites_Anny, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_BUNTARO_A_PALETTES[] =
@@ -1219,7 +1219,7 @@ const sGame_PaletteDataset Matrimelee_A_HUD_PORTRAIT_PALETTES[] =
     { L"VS Dialogue 1P", 0x2a1c84, 0x2a1ca4, indexMatriMSprites_Bonus, 0x04 },
     { L"VS Dialogue 2P", 0x2a1ca4, 0x2a1cc4, indexMatriMSprites_Bonus, 0x05 },
     { L"VS Background", 0x2cbcb0, 0x2cbcf0, indexMatriMSprites_Bonus, 0x02 },
-    { L"VS Character Name", 0x2a2124, 0x2a2144 },
+    { L"VS Character Names", 0x2a2124, 0x2a2144, indexMatriMSprites_Bonus, 0x06 },
     { L"Character Select 1P/2P", 0x2a27a4, 0x2a27c4 },
     { L"Round Text", 0x29ac9e, 0x29acbe },
     { L"Round Number Text", 0x29acbe, 0x29acde },

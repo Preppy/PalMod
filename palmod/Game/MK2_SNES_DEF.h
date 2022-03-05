@@ -42,7 +42,7 @@ const sGame_PaletteDataset MK2_SNES_LIUKANG_P2_PALETTES[] =
 
 const sGame_PaletteDataset MK2_SNES_LIUKANG_EFFECT_PALETTES[] =
 {
-    { L"Liu Kang Fire", 0x2fa168, 0x2fa188 },
+    { L"Liu Kang Fire", 0x2fa168, 0x2fa188, indexMK2Sprites_LiuKang, 0x01 },
 };
 
 const sGame_PaletteDataset MK2_SNES_KUNGLAO_P1_PALETTES[] =
@@ -77,7 +77,7 @@ const sGame_PaletteDataset MK2_SNES_REPTILE_P2_PALETTES[] =
 
 const sGame_PaletteDataset MK2_SNES_REPTILE_EFFECT_PALETTES[] =
 {
-    { L"Reptile Spit Acid", 0x2f9013, 0xf9033 },
+    { L"Reptile Spit Acid", 0x2f9013, 0xf9033, indexMK2Sprites_Reptile, 0x01 },
     { L"Reptile Force Ball", 0x2f9053, 0xf9073 },
 };
 
@@ -93,7 +93,7 @@ const sGame_PaletteDataset MK2_SNES_SUBZERO_P2_PALETTES[] =
 
 const sGame_PaletteDataset MK2_SNES_SUBZERO_EFFECT_PALETTES[] =
 {
-    { L"Sub Zero Freeze", 0x2f9033, 0xf9053 },
+    { L"Sub Zero Freeze", 0x2f9033, 0xf9053, indexMK2Sprites_SubZero, 0x01 },
 };
 
 const sGame_PaletteDataset MK2_SNES_SHANGTSUNG_P1_PALETTES[] =
@@ -168,7 +168,7 @@ const sGame_PaletteDataset MK2_SNES_RAIDEN_P2_PALETTES[] =
 
 const sGame_PaletteDataset MK2_SNES_JADE_PALETTES[] =
 {
-    { L"Jade", 0x2f91f3, 0x2f9213, indexMK2Sprites_Jade },
+    { L"Jade", 0x2f91f3, 0x2f9213, indexMK2Sprites_Kitana },
 };
 
 const sGame_PaletteDataset MK2_SNES_KHAN_PALETTES[] =

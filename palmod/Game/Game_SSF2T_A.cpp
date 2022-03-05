@@ -64,8 +64,8 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     OutputDebugString(strMessage);
 
     const UINT32 nSafeCountFor3C = 322;
-    const UINT32 nSafeCountFor4A = 704;
-    const UINT32 nSafeCountFor8 = 69;
+    const UINT32 nSafeCountFor4A = 705;
+    const UINT32 nSafeCountFor8 = 72;
 
     switch (m_nSSF2TSelectedRom)
     {

@@ -597,19 +597,23 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
 void CGame_MSHVSF_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_MSHVSF_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
-    OutputDebugString(strMessage);
-
-    const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
-
-    if (pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
+    if (UsePaletteSetForCharacters() ? (nUnitId != MSHVSF_A_EXTRALOC_6A) :
+                                       (nUnitId != MSHVSF_A_EXTRALOC_7B))
     {
-        OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
-        ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
-    }
-    else
-    {
-        OutputDebugString(L"\tNo further processing needed.\n");
+        CString strMessage;
+        strMessage.Format(L"CGame_MSHVSF_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
+        OutputDebugString(strMessage);
+
+        const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
+
+        if (pThisPalette && pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
+        {
+            OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
+            ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+        }
+        else
+        {
+            OutputDebugString(L"\tNo further processing needed.\n");
+        }
     }
 }
