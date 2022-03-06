@@ -204,8 +204,8 @@ void CGame_P4AU_NESICA::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalI
 
     if (nPaletteSet)
     {
-        // Each palette is spaced 0x2100 bytes apart
-        m_nCurrentPaletteROMLocation += nPaletteSet * 0x2100;
+        // Each palette is spaced XXX bytes apart
+        m_nCurrentPaletteROMLocation += nPaletteSet * PersonaCharacterData[nUnitId].nPaletteSetLength;
     }
 }
 

@@ -30,15 +30,15 @@ const std::vector<UINT16> SAMSHO3_A_IMGIDS_USED =
 const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_S1[] =
 {
     { L"Main", 0x1000, 0x1040, indexSamSho3Sprites_Haohmaru, 0x10 },
-    { L"Rage Flash", 0x1040, 0x1080, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Extra Palette 2", 0x1080, 0x10c0, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Extra Palette 3", 0x10c0, 0x1100, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Shocked", 0x1100, 0x1140, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Frozen", 0x1140, 0x1180, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Burning", 0x1180, 0x11c0, indexSamSho3Sprites_Haohmaru, 0x00 },
+    { L"Rage Flash", 0x1040, 0x1080, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Extra Palette 2", 0x1080, 0x10c0, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Extra Palette 3", 0x10c0, 0x1100, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Shocked", 0x1100, 0x1140, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Frozen", 0x1140, 0x1180, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Burning", 0x1180, 0x11c0, indexSamSho3Sprites_Haohmaru, 0x10 },
     { L"Extra Palette 7", 0x11c0, 0x1200 },
-    { L"Daylight", 0x1200, 0x1240, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Moonlight", 0x1240, 0x1280, indexSamSho3Sprites_Haohmaru, 0x00 },
+    { L"Daylight", 0x1200, 0x1240, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Moonlight", 0x1240, 0x1280, indexSamSho3Sprites_Haohmaru, 0x10 },
     { L"Extra Palette 10", 0x1280, 0x12c0 },
     { L"Extra Palette 11", 0x12c0, 0x1300 },
     { L"Extra Palette 12", 0x1300, 0x1340 },
@@ -51,15 +51,15 @@ const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_S1[] =
 const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_S2[] =
 {
     { L"Main", 0x1400, 0x1440, indexSamSho3Sprites_Haohmaru, 0x10 },
-    { L"Rage Flash", 0x1440, 0x1480, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Extra Palette 2", 0x1480, 0x14c0, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Extra Palette 3", 0x14c0, 0x1500, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Shocked", 0x1500, 0x1540, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Frozen", 0x1540, 0x1580, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Burning", 0x1580, 0x15c0, indexSamSho3Sprites_Haohmaru, 0x00 },
+    { L"Rage Flash", 0x1440, 0x1480, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Extra Palette 2", 0x1480, 0x14c0, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Extra Palette 3", 0x14c0, 0x1500, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Shocked", 0x1500, 0x1540, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Frozen", 0x1540, 0x1580, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Burning", 0x1580, 0x15c0, indexSamSho3Sprites_Haohmaru, 0x10 },
     { L"Extra Palette 7", 0x15c0, 0x1600 },
-    { L"Daylight", 0x1600, 0x1640, indexSamSho3Sprites_Haohmaru, 0x00 },
-    { L"Moonlight", 0x1640, 0x1680, indexSamSho3Sprites_Haohmaru, 0x00 },
+    { L"Daylight", 0x1600, 0x1640, indexSamSho3Sprites_Haohmaru, 0x10 },
+    { L"Moonlight", 0x1640, 0x1680, indexSamSho3Sprites_Haohmaru, 0x10 },
     { L"Extra Palette 10", 0x1680, 0x16c0 },
     { L"Extra Palette 11", 0x16c0, 0x1700 },
     { L"Extra Palette 12", 0x1700, 0x1740 },
@@ -412,8 +412,8 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S2[] =
 
 const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B1[] =
 {
-    { L"Main", 0x5800, 0x5840, indexSamSho3Sprites_Galford, 0, &pairNext10 },
-    { L"Rage Flash", 0x5840, 0x5880, indexSamSho3Sprites_Galford, 0, &pairNext10 },
+    { L"Main", 0x5800, 0x5840, indexSamSho3Sprites_Galford, 0 },
+    { L"Rage Flash", 0x5840, 0x5880, indexSamSho3Sprites_Galford, 0 },
     { L"Extra Palette 2", 0x5880, 0x58c0 },
     { L"Extra Palette 3", 0x58c0, 0x5900, indexSamSho3Sprites_Galford },
     { L"Shocked", 0x5900, 0x5940, indexSamSho3Sprites_Galford },
@@ -433,8 +433,8 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B1[] =
 
 const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B2[] =
 {
-    { L"Main", 0x5c00, 0x5c40, indexSamSho3Sprites_Galford, 0, &pairNext10 },
-    { L"Rage Flash", 0x5c40, 0x5c80, indexSamSho3Sprites_Galford, 0, &pairNext10 },
+    { L"Main", 0x5c00, 0x5c40, indexSamSho3Sprites_Galford, 0 },
+    { L"Rage Flash", 0x5c40, 0x5c80, indexSamSho3Sprites_Galford, 0 },
     { L"Extra Palette 2", 0x5c80, 0x5cc0 },
     { L"Extra Palette 3", 0x5cc0, 0x5d00, indexSamSho3Sprites_Galford },
     { L"Shocked", 0x5d00, 0x5d40, indexSamSho3Sprites_Galford },

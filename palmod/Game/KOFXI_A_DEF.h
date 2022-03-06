@@ -8,6 +8,37 @@
 
 const std::vector<UINT16> KOFXI_A_IMGIDS_USED =
 {
+    // various of these sprites are unchanged from previous versions, so use those
+    indexKOF96Sprites_Ryo,          // 0x260
+
+    indexKOF97Sprites_BlueMary,         // 0x29A
+
+    indexKOF99Sprites_Clark,        // 0x1
+    indexKOF99Sprites_Whip,         // 0x19e
+    indexKOF99Sprites_Kasumi,       // 0x18e
+    indexKOF99Sprites_K,            // 0x18d
+    indexKOF99Sprites_Maxima,       // 0x197
+    indexKOF99Sprites_Shingo,       // 0x19b
+
+    indexKOF01Sprites_Ralf,         // 0x1c9
+    indexKOF01Sprites_King,         // 0x1c1
+    indexKOF01Sprites_Ramon,        // 0x1ca
+    indexKOF01Sprites_Vanessa,      // 0x1d1
+    indexKOF01Sprites_Kula,         // 0x1c2
+
+    indexKOF02Sprites_Kim,          // 0x155
+
+    indexKOF03Sprites_Adelheid,     // 0xe4
+    indexKOF03Sprites_Ash,          // 0xe5
+    indexKOF03Sprites_Benimaru,     // 0xe7
+    indexKOF03Sprites_Duo,          // 0xed
+    indexKOF03Sprites_Gato,         // 0xee
+    indexKOF03Sprites_Kyo,          // 0xf8
+    indexKOF03Sprites_Shen,         // 0x102
+    indexKOF03Sprites_Terry,        // 0x104
+    indexKOF03Sprites_Tizoc,        // 0x105
+    indexKOF03Sprites_Yuri,         // 0x108
+
     indexKOF02UMSprites_Iori,
     indexKOF02UMSprites_K,         // 0x92
     indexKOF02UMSprites_King,      // 0x97
@@ -62,7 +93,7 @@ const std::vector<UINT16> KOFXI_A_IMGIDS_USED =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_A[] =
 {
-    { L"Ash A", 0x1011000, 0x1011020, indexKOFXISprites_Ash },
+    { L"Ash A", 0x1011000, 0x1011020, indexKOF03Sprites_Ash },
     { L"A - Super Stuff 1", 0x1011020, 0x1011040, indexKOFXISprites_Ash, 0x20 },
     { L"A - Electric Palette", 0x1011040, 0x1011060, indexKOFXISprites_Ash, 0x41 },
     { L"A - Darker Palette", 0x1011060, 0x1011080, indexKOFXISprites_Ash, 0x40 },
@@ -82,7 +113,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_B[] =
 {
-    { L"Ash B", 0x1011200, 0x1011220, indexKOFXISprites_Ash },
+    { L"Ash B", 0x1011200, 0x1011220, indexKOF03Sprites_Ash },
     { L"B - Super Stuff 1", 0x1011220, 0x1011240, indexKOFXISprites_Ash, 0x20 },
     { L"B - Electric Palette", 0x1011240, 0x1011260, indexKOFXISprites_Ash, 0x41 },
     { L"B - Darker Palette", 0x1011260, 0x1011280, indexKOFXISprites_Ash, 0x40 },
@@ -102,7 +133,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_C[] =
 {
-    { L"Ash C", 0x1011400, 0x1011420, indexKOFXISprites_Ash },
+    { L"Ash C", 0x1011400, 0x1011420, indexKOF03Sprites_Ash },
     { L"C - Super Stuff 1", 0x1011420, 0x1011440, indexKOFXISprites_Ash, 0x20 },
     { L"C - Electric Palette", 0x1011440, 0x1011460, indexKOFXISprites_Ash, 0x41 },
     { L"C - Darker Palette", 0x1011460, 0x1011480, indexKOFXISprites_Ash, 0x40 },
@@ -122,7 +153,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_D[] =
 {
-    { L"Ash D", 0x1011600, 0x1011620, indexKOFXISprites_Ash },
+    { L"Ash D", 0x1011600, 0x1011620, indexKOF03Sprites_Ash },
     { L"D - Super Stuff 1", 0x1011620, 0x1011640, indexKOFXISprites_Ash, 0x20 },
     { L"D - Electric Palette", 0x1011640, 0x1011660, indexKOFXISprites_Ash, 0x41 },
     { L"D - Darker Palette", 0x1011660, 0x1011680, indexKOFXISprites_Ash, 0x40 },
@@ -142,7 +173,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_EA[] =
 {
-    { L"Ash EA", 0x1011800, 0x1011820, indexKOFXISprites_Ash },
+    { L"Ash EA", 0x1011800, 0x1011820, indexKOF03Sprites_Ash },
     { L"E+A - Super Stuff 1", 0x1011820, 0x1011840, indexKOFXISprites_Ash, 0x20 },
     { L"E+A - Electric Palette", 0x1011840, 0x1011860, indexKOFXISprites_Ash, 0x41 },
     { L"E+A - Darker Palette", 0x1011860, 0x1011880, indexKOFXISprites_Ash, 0x40 },
@@ -162,7 +193,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_EB[] =
 {
-    { L"Ash EB", 0x1011a00, 0x1011a20, indexKOFXISprites_Ash },
+    { L"Ash EB", 0x1011a00, 0x1011a20, indexKOF03Sprites_Ash },
     { L"E+B - Super Stuff 1", 0x1011a20, 0x1011a40, indexKOFXISprites_Ash, 0x20 },
     { L"E+B - Electric Palette", 0x1011a40, 0x1011a60, indexKOFXISprites_Ash, 0x41 },
     { L"E+B - Darker Palette", 0x1011a60, 0x1011a80, indexKOFXISprites_Ash, 0x40 },
@@ -182,7 +213,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_EC[] =
 {
-    { L"Ash EC", 0x1011c00, 0x1011c20, indexKOFXISprites_Ash },
+    { L"Ash EC", 0x1011c00, 0x1011c20, indexKOF03Sprites_Ash },
     { L"E+C - Super Stuff 1", 0x1011c20, 0x1011c40, indexKOFXISprites_Ash, 0x20 },
     { L"E+C - Electric Palette", 0x1011c40, 0x1011c60, indexKOFXISprites_Ash, 0x41 },
     { L"E+C - Darker Palette", 0x1011c60, 0x1011c80, indexKOFXISprites_Ash, 0x40 },
@@ -202,7 +233,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_ED[] =
 {
-    { L"Ash ED", 0x1011e00, 0x1011e20, indexKOFXISprites_Ash },
+    { L"Ash ED", 0x1011e00, 0x1011e20, indexKOF03Sprites_Ash },
     { L"E+D - Super Stuff 1", 0x1011e20, 0x1011e40, indexKOFXISprites_Ash, 0x20 },
     { L"E+D - Electric Palette", 0x1011e40, 0x1011e60, indexKOFXISprites_Ash, 0x41 },
     { L"E+D - Darker Palette", 0x1011e60, 0x1011e80, indexKOFXISprites_Ash, 0x40 },
@@ -222,7 +253,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_SA[] =
 {
-    { L"Ash SA", 0x1012000, 0x1012020, indexKOFXISprites_Ash },
+    { L"Ash SA", 0x1012000, 0x1012020, indexKOF03Sprites_Ash },
     { L"Start+A - Super Stuff 1", 0x1012020, 0x1012040, indexKOFXISprites_Ash, 0x20 },
     { L"Start+A - Electric Palette", 0x1012040, 0x1012060, indexKOFXISprites_Ash, 0x41 },
     { L"Start+A - Darker Palette", 0x1012060, 0x1012080, indexKOFXISprites_Ash, 0x40 },
@@ -242,7 +273,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_SB[] =
 {
-    { L"Ash SB", 0x1012200, 0x1012220, indexKOFXISprites_Ash },
+    { L"Ash SB", 0x1012200, 0x1012220, indexKOF03Sprites_Ash },
     { L"Start+B - Super Stuff 1", 0x1012220, 0x1012240, indexKOFXISprites_Ash, 0x20 },
     { L"Start+B - Electric Palette", 0x1012240, 0x1012260, indexKOFXISprites_Ash, 0x41 },
     { L"Start+B - Darker Palette", 0x1012260, 0x1012280, indexKOFXISprites_Ash, 0x40 },
@@ -262,7 +293,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_SC[] =
 {
-    { L"Ash SC", 0x1012400, 0x1012420, indexKOFXISprites_Ash },
+    { L"Ash SC", 0x1012400, 0x1012420, indexKOF03Sprites_Ash },
     { L"Start+C - Super Stuff 1", 0x1012420, 0x1012440, indexKOFXISprites_Ash, 0x20 },
     { L"Start+C - Electric Palette", 0x1012440, 0x1012460, indexKOFXISprites_Ash, 0x41 },
     { L"Start+C - Darker Palette", 0x1012460, 0x1012480, indexKOFXISprites_Ash, 0x40 },
@@ -282,7 +313,7 @@ const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_ASH_PALETTES_SD[] =
 {
-    { L"Ash SD", 0x1012600, 0x1012620, indexKOFXISprites_Ash },
+    { L"Ash SD", 0x1012600, 0x1012620, indexKOF03Sprites_Ash },
     { L"Start+D - Super Stuff 1", 0x1012620, 0x1012640, indexKOFXISprites_Ash, 0x20 },
     { L"Start+D - Electric Palette", 0x1012640, 0x1012660, indexKOFXISprites_Ash, 0x41 },
     { L"Start+D - Darker Palette", 0x1012660, 0x1012680, indexKOFXISprites_Ash, 0x40 },
@@ -542,7 +573,7 @@ const sGame_PaletteDataset KOFXI_A_OSWALD_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_A[] =
 {
-    { L"Shen A", 0x13ab000, 0x13ab020, indexKOFXISprites_Shen },
+    { L"Shen A", 0x13ab000, 0x13ab020, indexKOF03Sprites_Shen, 0x00 },
     { L"A - Super Stuff 1", 0x13ab020, 0x13ab040, indexKOFXISprites_Shen, 0x20 },
     { L"A - Electric Palette", 0x13ab040, 0x13ab060, indexKOFXISprites_Shen, 0x41 },
     { L"A - Darker Palette", 0x13ab060, 0x13ab080, indexKOFXISprites_Shen, 0x40 },
@@ -562,7 +593,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_B[] =
 {
-    { L"Shen B", 0x13ab200, 0x13ab220, indexKOFXISprites_Shen },
+    { L"Shen B", 0x13ab200, 0x13ab220, indexKOF03Sprites_Shen, 0x00 },
     { L"B - Super Stuff 1", 0x13ab220, 0x13ab240, indexKOFXISprites_Shen, 0x20 },
     { L"B - Electric Palette", 0x13ab240, 0x13ab260, indexKOFXISprites_Shen, 0x41 },
     { L"B - Darker Palette", 0x13ab260, 0x13ab280, indexKOFXISprites_Shen, 0x40 },
@@ -582,7 +613,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_C[] =
 {
-    { L"Shen C", 0x13ab400, 0x13ab420, indexKOFXISprites_Shen },
+    { L"Shen C", 0x13ab400, 0x13ab420, indexKOF03Sprites_Shen, 0x00 },
     { L"C - Super Stuff 1", 0x13ab420, 0x13ab440, indexKOFXISprites_Shen, 0x20 },
     { L"C - Electric Palette", 0x13ab440, 0x13ab460, indexKOFXISprites_Shen, 0x41 },
     { L"C - Darker Palette", 0x13ab460, 0x13ab480, indexKOFXISprites_Shen, 0x40 },
@@ -602,7 +633,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_D[] =
 {
-    { L"Shen D", 0x13ab600, 0x13ab620, indexKOFXISprites_Shen },
+    { L"Shen D", 0x13ab600, 0x13ab620, indexKOF03Sprites_Shen, 0x00 },
     { L"D - Super Stuff 1", 0x13ab620, 0x13ab640, indexKOFXISprites_Shen, 0x20 },
     { L"D - Electric Palette", 0x13ab640, 0x13ab660, indexKOFXISprites_Shen, 0x41 },
     { L"D - Darker Palette", 0x13ab660, 0x13ab680, indexKOFXISprites_Shen, 0x40 },
@@ -622,7 +653,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_EA[] =
 {
-    { L"Shen EA", 0x13ab800, 0x13ab820, indexKOFXISprites_Shen },
+    { L"Shen EA", 0x13ab800, 0x13ab820, indexKOF03Sprites_Shen, 0x00 },
     { L"E+A - Super Stuff 1", 0x13ab820, 0x13ab840, indexKOFXISprites_Shen, 0x20 },
     { L"E+A - Electric Palette", 0x13ab840, 0x13ab860, indexKOFXISprites_Shen, 0x41 },
     { L"E+A - Darker Palette", 0x13ab860, 0x13ab880, indexKOFXISprites_Shen, 0x40 },
@@ -642,7 +673,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_EB[] =
 {
-    { L"Shen EB", 0x13aba00, 0x13aba20, indexKOFXISprites_Shen },
+    { L"Shen EB", 0x13aba00, 0x13aba20, indexKOF03Sprites_Shen, 0x00 },
     { L"E+B - Super Stuff 1", 0x13aba20, 0x13aba40, indexKOFXISprites_Shen, 0x20 },
     { L"E+B - Electric Palette", 0x13aba40, 0x13aba60, indexKOFXISprites_Shen, 0x41 },
     { L"E+B - Darker Palette", 0x13aba60, 0x13aba80, indexKOFXISprites_Shen, 0x40 },
@@ -662,7 +693,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_EC[] =
 {
-    { L"Shen EC", 0x13abc00, 0x13abc20, indexKOFXISprites_Shen },
+    { L"Shen EC", 0x13abc00, 0x13abc20, indexKOF03Sprites_Shen, 0x00 },
     { L"E+C - Super Stuff 1", 0x13abc20, 0x13abc40, indexKOFXISprites_Shen, 0x20 },
     { L"E+C - Electric Palette", 0x13abc40, 0x13abc60, indexKOFXISprites_Shen, 0x41 },
     { L"E+C - Darker Palette", 0x13abc60, 0x13abc80, indexKOFXISprites_Shen, 0x40 },
@@ -682,7 +713,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_ED[] =
 {
-    { L"Shen ED", 0x13abe00, 0x13abe20, indexKOFXISprites_Shen },
+    { L"Shen ED", 0x13abe00, 0x13abe20, indexKOF03Sprites_Shen, 0x00 },
     { L"E+D - Super Stuff 1", 0x13abe20, 0x13abe40, indexKOFXISprites_Shen, 0x20 },
     { L"E+D - Electric Palette", 0x13abe40, 0x13abe60, indexKOFXISprites_Shen, 0x41 },
     { L"E+D - Darker Palette", 0x13abe60, 0x13abe80, indexKOFXISprites_Shen, 0x40 },
@@ -702,7 +733,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_SA[] =
 {
-    { L"Shen SA", 0x13ac000, 0x13ac020, indexKOFXISprites_Shen },
+    { L"Shen SA", 0x13ac000, 0x13ac020, indexKOF03Sprites_Shen, 0x00 },
     { L"Start+A - Super Stuff 1", 0x13ac020, 0x13ac040, indexKOFXISprites_Shen, 0x20 },
     { L"Start+A - Electric Palette", 0x13ac040, 0x13ac060, indexKOFXISprites_Shen, 0x41 },
     { L"Start+A - Darker Palette", 0x13ac060, 0x13ac080, indexKOFXISprites_Shen, 0x40 },
@@ -722,7 +753,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_SB[] =
 {
-    { L"Shen SB", 0x13ac200, 0x13ac220, indexKOFXISprites_Shen },
+    { L"Shen SB", 0x13ac200, 0x13ac220, indexKOF03Sprites_Shen, 0x00 },
     { L"Start+B - Super Stuff 1", 0x13ac220, 0x13ac240, indexKOFXISprites_Shen, 0x20 },
     { L"Start+B - Electric Palette", 0x13ac240, 0x13ac260, indexKOFXISprites_Shen, 0x41 },
     { L"Start+B - Darker Palette", 0x13ac260, 0x13ac280, indexKOFXISprites_Shen, 0x40 },
@@ -742,7 +773,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_SC[] =
 {
-    { L"Shen SC", 0x13ac400, 0x13ac420, indexKOFXISprites_Shen },
+    { L"Shen SC", 0x13ac400, 0x13ac420, indexKOF03Sprites_Shen, 0x00 },
     { L"Start+C - Super Stuff 1", 0x13ac420, 0x13ac440, indexKOFXISprites_Shen, 0x20 },
     { L"Start+C - Electric Palette", 0x13ac440, 0x13ac460, indexKOFXISprites_Shen, 0x41 },
     { L"Start+C - Darker Palette", 0x13ac460, 0x13ac480, indexKOFXISprites_Shen, 0x40 },
@@ -762,7 +793,7 @@ const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_SHEN_PALETTES_SD[] =
 {
-    { L"Shen SD", 0x13ac600, 0x13ac620, indexKOFXISprites_Shen },
+    { L"Shen SD", 0x13ac600, 0x13ac620, indexKOF03Sprites_Shen, 0x00 },
     { L"Start+D - Super Stuff 1", 0x13ac620, 0x13ac640, indexKOFXISprites_Shen, 0x20 },
     { L"Start+D - Electric Palette", 0x13ac640, 0x13ac660, indexKOFXISprites_Shen, 0x41 },
     { L"Start+D - Darker Palette", 0x13ac660, 0x13ac680, indexKOFXISprites_Shen, 0x40 },
@@ -1022,7 +1053,7 @@ const sGame_PaletteDataset KOFXI_A_ELIZABETH_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_A[] =
 {
-    { L"Duo Lon A", 0x16bf000, 0x16bf020, indexKOFXISprites_Duo },
+    { L"Duo Lon A", 0x16bf000, 0x16bf020, indexKOF03Sprites_Duo, 0x00 },
     { L"A - Super Stuff 1", 0x16bf020, 0x16bf040, indexKOFXISprites_Duo, 0x20 },
     { L"A - Electric Palette", 0x16bf040, 0x16bf060, indexKOFXISprites_Duo, 0x41 },
     { L"A - Darker Palette", 0x16bf060, 0x16bf080, indexKOFXISprites_Duo, 0x40 },
@@ -1042,7 +1073,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_B[] =
 {
-    { L"Duo Lon B", 0x16bf200, 0x16bf220, indexKOFXISprites_Duo },
+    { L"Duo Lon B", 0x16bf200, 0x16bf220, indexKOF03Sprites_Duo, 0x00 },
     { L"B - Super Stuff 1", 0x16bf220, 0x16bf240, indexKOFXISprites_Duo, 0x20 },
     { L"B - Electric Palette", 0x16bf240, 0x16bf260, indexKOFXISprites_Duo, 0x41 },
     { L"B - Darker Palette", 0x16bf260, 0x16bf280, indexKOFXISprites_Duo, 0x40 },
@@ -1062,7 +1093,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_C[] =
 {
-    { L"Duo Lon C", 0x16bf400, 0x16bf420, indexKOFXISprites_Duo },
+    { L"Duo Lon C", 0x16bf400, 0x16bf420, indexKOF03Sprites_Duo, 0x00 },
     { L"C - Super Stuff 1", 0x16bf420, 0x16bf440, indexKOFXISprites_Duo, 0x20 },
     { L"C - Electric Palette", 0x16bf440, 0x16bf460, indexKOFXISprites_Duo, 0x41 },
     { L"C - Darker Palette", 0x16bf460, 0x16bf480, indexKOFXISprites_Duo, 0x40 },
@@ -1082,7 +1113,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_D[] =
 {
-    { L"Duo Lon D", 0x16bf600, 0x16bf620, indexKOFXISprites_Duo },
+    { L"Duo Lon D", 0x16bf600, 0x16bf620, indexKOF03Sprites_Duo, 0x00 },
     { L"D - Super Stuff 1", 0x16bf620, 0x16bf640, indexKOFXISprites_Duo, 0x20 },
     { L"D - Electric Palette", 0x16bf640, 0x16bf660, indexKOFXISprites_Duo, 0x41 },
     { L"D - Darker Palette", 0x16bf660, 0x16bf680, indexKOFXISprites_Duo, 0x40 },
@@ -1102,7 +1133,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_EA[] =
 {
-    { L"Duo Lon EA", 0x16bf800, 0x16bf820, indexKOFXISprites_Duo },
+    { L"Duo Lon EA", 0x16bf800, 0x16bf820, indexKOF03Sprites_Duo, 0x00 },
     { L"E+A - Super Stuff 1", 0x16bf820, 0x16bf840, indexKOFXISprites_Duo, 0x20 },
     { L"E+A - Electric Palette", 0x16bf840, 0x16bf860, indexKOFXISprites_Duo, 0x41 },
     { L"E+A - Darker Palette", 0x16bf860, 0x16bf880, indexKOFXISprites_Duo, 0x40 },
@@ -1122,7 +1153,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_EB[] =
 {
-    { L"Duo Lon EB", 0x16bfa00, 0x16bfa20, indexKOFXISprites_Duo },
+    { L"Duo Lon EB", 0x16bfa00, 0x16bfa20, indexKOF03Sprites_Duo, 0x00 },
     { L"E+B - Super Stuff 1", 0x16bfa20, 0x16bfa40, indexKOFXISprites_Duo, 0x20 },
     { L"E+B - Electric Palette", 0x16bfa40, 0x16bfa60, indexKOFXISprites_Duo, 0x41 },
     { L"E+B - Darker Palette", 0x16bfa60, 0x16bfa80, indexKOFXISprites_Duo, 0x40 },
@@ -1142,7 +1173,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_EC[] =
 {
-    { L"Duo Lon EC", 0x16bfc00, 0x16bfc20, indexKOFXISprites_Duo },
+    { L"Duo Lon EC", 0x16bfc00, 0x16bfc20, indexKOF03Sprites_Duo, 0x00 },
     { L"E+C - Super Stuff 1", 0x16bfc20, 0x16bfc40, indexKOFXISprites_Duo, 0x20 },
     { L"E+C - Electric Palette", 0x16bfc40, 0x16bfc60, indexKOFXISprites_Duo, 0x41 },
     { L"E+C - Darker Palette", 0x16bfc60, 0x16bfc80, indexKOFXISprites_Duo, 0x40 },
@@ -1162,7 +1193,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_ED[] =
 {
-    { L"Duo Lon ED", 0x16bfe00, 0x16bfe20, indexKOFXISprites_Duo },
+    { L"Duo Lon ED", 0x16bfe00, 0x16bfe20, indexKOF03Sprites_Duo, 0x00 },
     { L"E+D - Super Stuff 1", 0x16bfe20, 0x16bfe40, indexKOFXISprites_Duo, 0x20 },
     { L"E+D - Electric Palette", 0x16bfe40, 0x16bfe60, indexKOFXISprites_Duo, 0x41 },
     { L"E+D - Darker Palette", 0x16bfe60, 0x16bfe80, indexKOFXISprites_Duo, 0x40 },
@@ -1182,7 +1213,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_SA[] =
 {
-    { L"Duo Lon SA", 0x16c0000, 0x16c0020, indexKOFXISprites_Duo },
+    { L"Duo Lon SA", 0x16c0000, 0x16c0020, indexKOF03Sprites_Duo, 0x00 },
     { L"Start+A - Super Stuff 1", 0x16c0020, 0x16c0040, indexKOFXISprites_Duo, 0x20 },
     { L"Start+A - Electric Palette", 0x16c0040, 0x16c0060, indexKOFXISprites_Duo, 0x41 },
     { L"Start+A - Darker Palette", 0x16c0060, 0x16c0080, indexKOFXISprites_Duo, 0x40 },
@@ -1202,7 +1233,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_SB[] =
 {
-    { L"Duo Lon SB", 0x16c0200, 0x16c0220, indexKOFXISprites_Duo },
+    { L"Duo Lon SB", 0x16c0200, 0x16c0220, indexKOF03Sprites_Duo, 0x00 },
     { L"Start+B - Super Stuff 1", 0x16c0220, 0x16c0240, indexKOFXISprites_Duo, 0x20 },
     { L"Start+B - Electric Palette", 0x16c0240, 0x16c0260, indexKOFXISprites_Duo, 0x41 },
     { L"Start+B - Darker Palette", 0x16c0260, 0x16c0280, indexKOFXISprites_Duo, 0x40 },
@@ -1222,7 +1253,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_SC[] =
 {
-    { L"Duo Lon SC", 0x16c0400, 0x16c0420, indexKOFXISprites_Duo },
+    { L"Duo Lon SC", 0x16c0400, 0x16c0420, indexKOF03Sprites_Duo, 0x00 },
     { L"Start+C - Super Stuff 1", 0x16c0420, 0x16c0440, indexKOFXISprites_Duo, 0x20 },
     { L"Start+C - Electric Palette", 0x16c0440, 0x16c0460, indexKOFXISprites_Duo, 0x41 },
     { L"Start+C - Darker Palette", 0x16c0460, 0x16c0480, indexKOFXISprites_Duo, 0x40 },
@@ -1242,7 +1273,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_SD[] =
 {
-    { L"Duo Lon SD", 0x16c0600, 0x16c0620, indexKOFXISprites_Duo },
+    { L"Duo Lon SD", 0x16c0600, 0x16c0620, indexKOF03Sprites_Duo, 0x00 },
     { L"Start+D - Super Stuff 1", 0x16c0620, 0x16c0640, indexKOFXISprites_Duo, 0x20 },
     { L"Start+D - Electric Palette", 0x16c0640, 0x16c0660, indexKOFXISprites_Duo, 0x41 },
     { L"Start+D - Darker Palette", 0x16c0660, 0x16c0680, indexKOFXISprites_Duo, 0x40 },
@@ -1262,7 +1293,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_A[] =
 {
-    { L"Benimaru A", 0x1861800, 0x1861820, indexKOFXISprites_Benimaru },
+    { L"Benimaru A", 0x1861800, 0x1861820, indexKOF03Sprites_Benimaru, 0x00 },
     { L"A - Super Stuff 1", 0x1861820, 0x1861840, indexKOFXISprites_Benimaru, 0x20 },
     { L"A - Electric Palette", 0x1861840, 0x1861860, indexKOFXISprites_Benimaru, 0x41 },
     { L"A - Darker Palette", 0x1861860, 0x1861880, indexKOFXISprites_Benimaru, 0x40 },
@@ -1282,7 +1313,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_B[] =
 {
-    { L"Benimaru B", 0x1861a00, 0x1861a20, indexKOFXISprites_Benimaru },
+    { L"Benimaru B", 0x1861a00, 0x1861a20, indexKOF03Sprites_Benimaru, 0x00 },
     { L"B - Super Stuff 1", 0x1861a20, 0x1861a40, indexKOFXISprites_Benimaru, 0x20 },
     { L"B - Electric Palette", 0x1861a40, 0x1861a60, indexKOFXISprites_Benimaru, 0x41 },
     { L"B - Darker Palette", 0x1861a60, 0x1861a80, indexKOFXISprites_Benimaru, 0x40 },
@@ -1302,7 +1333,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_C[] =
 {
-    { L"Benimaru C", 0x1861c00, 0x1861c20, indexKOFXISprites_Benimaru },
+    { L"Benimaru C", 0x1861c00, 0x1861c20, indexKOF03Sprites_Benimaru, 0x00 },
     { L"C - Super Stuff 1", 0x1861c20, 0x1861c40, indexKOFXISprites_Benimaru, 0x20 },
     { L"C - Electric Palette", 0x1861c40, 0x1861c60, indexKOFXISprites_Benimaru, 0x41 },
     { L"C - Darker Palette", 0x1861c60, 0x1861c80, indexKOFXISprites_Benimaru, 0x40 },
@@ -1322,7 +1353,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_D[] =
 {
-    { L"Benimaru D", 0x1861e00, 0x1861e20, indexKOFXISprites_Benimaru },
+    { L"Benimaru D", 0x1861e00, 0x1861e20, indexKOF03Sprites_Benimaru, 0x00 },
     { L"D - Super Stuff 1", 0x1861e20, 0x1861e40, indexKOFXISprites_Benimaru, 0x20 },
     { L"D - Electric Palette", 0x1861e40, 0x1861e60, indexKOFXISprites_Benimaru, 0x41 },
     { L"D - Darker Palette", 0x1861e60, 0x1861e80, indexKOFXISprites_Benimaru, 0x40 },
@@ -1342,7 +1373,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_EA[] =
 {
-    { L"Benimaru EA", 0x1862000, 0x1862020, indexKOFXISprites_Benimaru },
+    { L"Benimaru EA", 0x1862000, 0x1862020, indexKOF03Sprites_Benimaru, 0x00 },
     { L"E+A - Super Stuff 1", 0x1862020, 0x1862040, indexKOFXISprites_Benimaru, 0x20 },
     { L"E+A - Electric Palette", 0x1862040, 0x1862060, indexKOFXISprites_Benimaru, 0x41 },
     { L"E+A - Darker Palette", 0x1862060, 0x1862080, indexKOFXISprites_Benimaru, 0x40 },
@@ -1362,7 +1393,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_EB[] =
 {
-    { L"Benimaru EB", 0x1862200, 0x1862220, indexKOFXISprites_Benimaru },
+    { L"Benimaru EB", 0x1862200, 0x1862220, indexKOF03Sprites_Benimaru, 0x00 },
     { L"E+B - Super Stuff 1", 0x1862220, 0x1862240, indexKOFXISprites_Benimaru, 0x20 },
     { L"E+B - Electric Palette", 0x1862240, 0x1862260, indexKOFXISprites_Benimaru, 0x41 },
     { L"E+B - Darker Palette", 0x1862260, 0x1862280, indexKOFXISprites_Benimaru, 0x40 },
@@ -1382,7 +1413,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_EC[] =
 {
-    { L"Benimaru EC", 0x1862400, 0x1862420, indexKOFXISprites_Benimaru },
+    { L"Benimaru EC", 0x1862400, 0x1862420, indexKOF03Sprites_Benimaru, 0x00 },
     { L"E+C - Super Stuff 1", 0x1862420, 0x1862440, indexKOFXISprites_Benimaru, 0x20 },
     { L"E+C - Electric Palette", 0x1862440, 0x1862460, indexKOFXISprites_Benimaru, 0x41 },
     { L"E+C - Darker Palette", 0x1862460, 0x1862480, indexKOFXISprites_Benimaru, 0x40 },
@@ -1402,7 +1433,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_ED[] =
 {
-    { L"Benimaru ED", 0x1862600, 0x1862620, indexKOFXISprites_Benimaru },
+    { L"Benimaru ED", 0x1862600, 0x1862620, indexKOF03Sprites_Benimaru, 0x00 },
     { L"E+D - Super Stuff 1", 0x1862620, 0x1862640, indexKOFXISprites_Benimaru, 0x20 },
     { L"E+D - Electric Palette", 0x1862640, 0x1862660, indexKOFXISprites_Benimaru, 0x41 },
     { L"E+D - Darker Palette", 0x1862660, 0x1862680, indexKOFXISprites_Benimaru, 0x40 },
@@ -1422,7 +1453,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_SA[] =
 {
-    { L"Benimaru SA", 0x1862800, 0x1862820, indexKOFXISprites_Benimaru },
+    { L"Benimaru SA", 0x1862800, 0x1862820, indexKOF03Sprites_Benimaru, 0x00 },
     { L"Start+A - Super Stuff 1", 0x1862820, 0x1862840, indexKOFXISprites_Benimaru, 0x20 },
     { L"Start+A - Electric Palette", 0x1862840, 0x1862860, indexKOFXISprites_Benimaru, 0x41 },
     { L"Start+A - Darker Palette", 0x1862860, 0x1862880, indexKOFXISprites_Benimaru, 0x40 },
@@ -1442,7 +1473,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_SB[] =
 {
-    { L"Benimaru SB", 0x1862a00, 0x1862a20, indexKOFXISprites_Benimaru },
+    { L"Benimaru SB", 0x1862a00, 0x1862a20, indexKOF03Sprites_Benimaru, 0x00 },
     { L"Start+B - Super Stuff 1", 0x1862a20, 0x1862a40, indexKOFXISprites_Benimaru, 0x20 },
     { L"Start+B - Electric Palette", 0x1862a40, 0x1862a60, indexKOFXISprites_Benimaru, 0x41 },
     { L"Start+B - Darker Palette", 0x1862a60, 0x1862a80, indexKOFXISprites_Benimaru, 0x40 },
@@ -1462,7 +1493,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_SC[] =
 {
-    { L"Benimaru SC", 0x1862c00, 0x1862c20, indexKOFXISprites_Benimaru },
+    { L"Benimaru SC", 0x1862c00, 0x1862c20, indexKOF03Sprites_Benimaru, 0x00 },
     { L"Start+C - Super Stuff 1", 0x1862c20, 0x1862c40, indexKOFXISprites_Benimaru, 0x20 },
     { L"Start+C - Electric Palette", 0x1862c40, 0x1862c60, indexKOFXISprites_Benimaru, 0x41 },
     { L"Start+C - Darker Palette", 0x1862c60, 0x1862c80, indexKOFXISprites_Benimaru, 0x40 },
@@ -1482,7 +1513,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_SD[] =
 {
-    { L"Benimaru SD", 0x1862e00, 0x1862e20, indexKOFXISprites_Benimaru },
+    { L"Benimaru SD", 0x1862e00, 0x1862e20, indexKOF03Sprites_Benimaru, 0x00 },
     { L"Start+D - Super Stuff 1", 0x1862e20, 0x1862e40, indexKOFXISprites_Benimaru, 0x20 },
     { L"Start+D - Electric Palette", 0x1862e40, 0x1862e60, indexKOFXISprites_Benimaru, 0x41 },
     { L"Start+D - Darker Palette", 0x1862e60, 0x1862e80, indexKOFXISprites_Benimaru, 0x40 },
@@ -1502,7 +1533,7 @@ const sGame_PaletteDataset KOFXI_A_BENIMARU_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_A[] =
 {
-    { L"Terry A", 0x19b8000, 0x19b8020, indexKOFXISprites_Terry },
+    { L"Terry A", 0x19b8000, 0x19b8020, indexKOF03Sprites_Terry, 0x00 },
     { L"A - Super Stuff 1", 0x19b8020, 0x19b8040, indexKOFXISprites_Terry, 0x20 },
     { L"A - Electric Palette", 0x19b8040, 0x19b8060, indexKOFXISprites_Terry, 0x41 },
     { L"A - Darker Palette", 0x19b8060, 0x19b8080, indexKOFXISprites_Terry, 0x40 },
@@ -1522,7 +1553,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_B[] =
 {
-    { L"Terry B", 0x19b8200, 0x19b8220, indexKOFXISprites_Terry },
+    { L"Terry B", 0x19b8200, 0x19b8220, indexKOF03Sprites_Terry, 0x00 },
     { L"B - Super Stuff 1", 0x19b8220, 0x19b8240, indexKOFXISprites_Terry, 0x20 },
     { L"B - Electric Palette", 0x19b8240, 0x19b8260, indexKOFXISprites_Terry, 0x41 },
     { L"B - Darker Palette", 0x19b8260, 0x19b8280, indexKOFXISprites_Terry, 0x40 },
@@ -1542,7 +1573,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_C[] =
 {
-    { L"Terry C", 0x19b8400, 0x19b8420, indexKOFXISprites_Terry },
+    { L"Terry C", 0x19b8400, 0x19b8420, indexKOF03Sprites_Terry, 0x00 },
     { L"C - Super Stuff 1", 0x19b8420, 0x19b8440, indexKOFXISprites_Terry, 0x20 },
     { L"C - Electric Palette", 0x19b8440, 0x19b8460, indexKOFXISprites_Terry, 0x41 },
     { L"C - Darker Palette", 0x19b8460, 0x19b8480, indexKOFXISprites_Terry, 0x40 },
@@ -1562,7 +1593,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_D[] =
 {
-    { L"Terry D", 0x19b8600, 0x19b8620, indexKOFXISprites_Terry },
+    { L"Terry D", 0x19b8600, 0x19b8620, indexKOF03Sprites_Terry, 0x00 },
     { L"D - Super Stuff 1", 0x19b8620, 0x19b8640, indexKOFXISprites_Terry, 0x20 },
     { L"D - Electric Palette", 0x19b8640, 0x19b8660, indexKOFXISprites_Terry, 0x41 },
     { L"D - Darker Palette", 0x19b8660, 0x19b8680, indexKOFXISprites_Terry, 0x40 },
@@ -1582,7 +1613,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_EA[] =
 {
-    { L"Terry EA", 0x19b8800, 0x19b8820, indexKOFXISprites_Terry },
+    { L"Terry EA", 0x19b8800, 0x19b8820, indexKOF03Sprites_Terry, 0x00 },
     { L"E+A - Super Stuff 1", 0x19b8820, 0x19b8840, indexKOFXISprites_Terry, 0x20 },
     { L"E+A - Electric Palette", 0x19b8840, 0x19b8860, indexKOFXISprites_Terry, 0x41 },
     { L"E+A - Darker Palette", 0x19b8860, 0x19b8880, indexKOFXISprites_Terry, 0x40 },
@@ -1602,7 +1633,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_EB[] =
 {
-    { L"Terry EB", 0x19b8a00, 0x19b8a20, indexKOFXISprites_Terry },
+    { L"Terry EB", 0x19b8a00, 0x19b8a20, indexKOF03Sprites_Terry, 0x00 },
     { L"E+B - Super Stuff 1", 0x19b8a20, 0x19b8a40, indexKOFXISprites_Terry, 0x20 },
     { L"E+B - Electric Palette", 0x19b8a40, 0x19b8a60, indexKOFXISprites_Terry, 0x41 },
     { L"E+B - Darker Palette", 0x19b8a60, 0x19b8a80, indexKOFXISprites_Terry, 0x40 },
@@ -1622,7 +1653,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_EC[] =
 {
-    { L"Terry EC", 0x19b8c00, 0x19b8c20, indexKOFXISprites_Terry },
+    { L"Terry EC", 0x19b8c00, 0x19b8c20, indexKOF03Sprites_Terry, 0x00 },
     { L"E+C - Super Stuff 1", 0x19b8c20, 0x19b8c40, indexKOFXISprites_Terry, 0x20 },
     { L"E+C - Electric Palette", 0x19b8c40, 0x19b8c60, indexKOFXISprites_Terry, 0x41 },
     { L"E+C - Darker Palette", 0x19b8c60, 0x19b8c80, indexKOFXISprites_Terry, 0x40 },
@@ -1642,7 +1673,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_ED[] =
 {
-    { L"Terry ED", 0x19b8e00, 0x19b8e20, indexKOFXISprites_Terry },
+    { L"Terry ED", 0x19b8e00, 0x19b8e20, indexKOF03Sprites_Terry, 0x00 },
     { L"E+D - Super Stuff 1", 0x19b8e20, 0x19b8e40, indexKOFXISprites_Terry, 0x20 },
     { L"E+D - Electric Palette", 0x19b8e40, 0x19b8e60, indexKOFXISprites_Terry, 0x41 },
     { L"E+D - Darker Palette", 0x19b8e60, 0x19b8e80, indexKOFXISprites_Terry, 0x40 },
@@ -1662,7 +1693,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_SA[] =
 {
-    { L"Terry SA", 0x19b9000, 0x19b9020, indexKOFXISprites_Terry },
+    { L"Terry SA", 0x19b9000, 0x19b9020, indexKOF03Sprites_Terry, 0x00 },
     { L"Start+A - Super Stuff 1", 0x19b9020, 0x19b9040, indexKOFXISprites_Terry, 0x20 },
     { L"Start+A - Electric Palette", 0x19b9040, 0x19b9060, indexKOFXISprites_Terry, 0x41 },
     { L"Start+A - Darker Palette", 0x19b9060, 0x19b9080, indexKOFXISprites_Terry, 0x40 },
@@ -1682,7 +1713,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_SB[] =
 {
-    { L"Terry SB", 0x19b9200, 0x19b9220, indexKOFXISprites_Terry },
+    { L"Terry SB", 0x19b9200, 0x19b9220, indexKOF03Sprites_Terry, 0x00 },
     { L"Start+B - Super Stuff 1", 0x19b9220, 0x19b9240, indexKOFXISprites_Terry, 0x20 },
     { L"Start+B - Electric Palette", 0x19b9240, 0x19b9260, indexKOFXISprites_Terry, 0x41 },
     { L"Start+B - Darker Palette", 0x19b9260, 0x19b9280, indexKOFXISprites_Terry, 0x40 },
@@ -1702,7 +1733,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_SC[] =
 {
-    { L"Terry SC", 0x19b9400, 0x19b9420, indexKOFXISprites_Terry },
+    { L"Terry SC", 0x19b9400, 0x19b9420, indexKOF03Sprites_Terry, 0x00 },
     { L"Start+C - Super Stuff 1", 0x19b9420, 0x19b9440, indexKOFXISprites_Terry, 0x20 },
     { L"Start+C - Electric Palette", 0x19b9440, 0x19b9460, indexKOFXISprites_Terry, 0x41 },
     { L"Start+C - Darker Palette", 0x19b9460, 0x19b9480, indexKOFXISprites_Terry, 0x40 },
@@ -1722,7 +1753,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_SD[] =
 {
-    { L"Terry SD", 0x19b9600, 0x19b9620, indexKOFXISprites_Terry },
+    { L"Terry SD", 0x19b9600, 0x19b9620, indexKOF03Sprites_Terry, 0x00 },
     { L"Start+D - Super Stuff 1", 0x19b9620, 0x19b9640, indexKOFXISprites_Terry, 0x20 },
     { L"Start+D - Electric Palette", 0x19b9640, 0x19b9660, indexKOFXISprites_Terry, 0x41 },
     { L"Start+D - Darker Palette", 0x19b9660, 0x19b9680, indexKOFXISprites_Terry, 0x40 },
@@ -1742,7 +1773,7 @@ const sGame_PaletteDataset KOFXI_A_TERRY_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_A[] =
 {
-    { L"Kim A", 0x1b58000, 0x1b58020, indexKOFXISprites_Kim },
+    { L"Kim A", 0x1b58000, 0x1b58020, indexKOF02Sprites_Kim, 0x00 },
     { L"A - Super Stuff 1", 0x1b58020, 0x1b58040, indexKOFXISprites_Kim, 0x20 },
     { L"A - Electric Palette", 0x1b58040, 0x1b58060, indexKOFXISprites_Kim, 0x41 },
     { L"A - Darker Palette", 0x1b58060, 0x1b58080, indexKOFXISprites_Kim, 0x40 },
@@ -1762,7 +1793,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_B[] =
 {
-    { L"Kim B", 0x1b58200, 0x1b58220, indexKOFXISprites_Kim },
+    { L"Kim B", 0x1b58200, 0x1b58220, indexKOF02Sprites_Kim, 0x00 },
     { L"B - Super Stuff 1", 0x1b58220, 0x1b58240, indexKOFXISprites_Kim, 0x20 },
     { L"B - Electric Palette", 0x1b58240, 0x1b58260, indexKOFXISprites_Kim, 0x41 },
     { L"B - Darker Palette", 0x1b58260, 0x1b58280, indexKOFXISprites_Kim, 0x40 },
@@ -1782,7 +1813,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_C[] =
 {
-    { L"Kim C", 0x1b58400, 0x1b58420, indexKOFXISprites_Kim },
+    { L"Kim C", 0x1b58400, 0x1b58420, indexKOF02Sprites_Kim, 0x00 },
     { L"C - Super Stuff 1", 0x1b58420, 0x1b58440, indexKOFXISprites_Kim, 0x20 },
     { L"C - Electric Palette", 0x1b58440, 0x1b58460, indexKOFXISprites_Kim, 0x41 },
     { L"C - Darker Palette", 0x1b58460, 0x1b58480, indexKOFXISprites_Kim, 0x40 },
@@ -1802,7 +1833,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_D[] =
 {
-    { L"Kim D", 0x1b58600, 0x1b58620, indexKOFXISprites_Kim },
+    { L"Kim D", 0x1b58600, 0x1b58620, indexKOF02Sprites_Kim, 0x00 },
     { L"D - Super Stuff 1", 0x1b58620, 0x1b58640, indexKOFXISprites_Kim, 0x20 },
     { L"D - Electric Palette", 0x1b58640, 0x1b58660, indexKOFXISprites_Kim, 0x41 },
     { L"D - Darker Palette", 0x1b58660, 0x1b58680, indexKOFXISprites_Kim, 0x40 },
@@ -1822,7 +1853,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_EA[] =
 {
-    { L"Kim EA", 0x1b58800, 0x1b58820, indexKOFXISprites_Kim },
+    { L"Kim EA", 0x1b58800, 0x1b58820, indexKOF02Sprites_Kim, 0x00 },
     { L"E+A - Super Stuff 1", 0x1b58820, 0x1b58840, indexKOFXISprites_Kim, 0x20 },
     { L"E+A - Electric Palette", 0x1b58840, 0x1b58860, indexKOFXISprites_Kim, 0x41 },
     { L"E+A - Darker Palette", 0x1b58860, 0x1b58880, indexKOFXISprites_Kim, 0x40 },
@@ -1842,7 +1873,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_EB[] =
 {
-    { L"Kim EB", 0x1b58a00, 0x1b58a20, indexKOFXISprites_Kim },
+    { L"Kim EB", 0x1b58a00, 0x1b58a20, indexKOF02Sprites_Kim, 0x00 },
     { L"E+B - Super Stuff 1", 0x1b58a20, 0x1b58a40, indexKOFXISprites_Kim, 0x20 },
     { L"E+B - Electric Palette", 0x1b58a40, 0x1b58a60, indexKOFXISprites_Kim, 0x41 },
     { L"E+B - Darker Palette", 0x1b58a60, 0x1b58a80, indexKOFXISprites_Kim, 0x40 },
@@ -1862,7 +1893,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_EC[] =
 {
-    { L"Kim EC", 0x1b58c00, 0x1b58c20, indexKOFXISprites_Kim },
+    { L"Kim EC", 0x1b58c00, 0x1b58c20, indexKOF02Sprites_Kim, 0x00 },
     { L"E+C - Super Stuff 1", 0x1b58c20, 0x1b58c40, indexKOFXISprites_Kim, 0x20 },
     { L"E+C - Electric Palette", 0x1b58c40, 0x1b58c60, indexKOFXISprites_Kim, 0x41 },
     { L"E+C - Darker Palette", 0x1b58c60, 0x1b58c80, indexKOFXISprites_Kim, 0x40 },
@@ -1882,7 +1913,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_ED[] =
 {
-    { L"Kim ED", 0x1b58e00, 0x1b58e20, indexKOFXISprites_Kim },
+    { L"Kim ED", 0x1b58e00, 0x1b58e20, indexKOF02Sprites_Kim, 0x00 },
     { L"E+D - Super Stuff 1", 0x1b58e20, 0x1b58e40, indexKOFXISprites_Kim, 0x20 },
     { L"E+D - Electric Palette", 0x1b58e40, 0x1b58e60, indexKOFXISprites_Kim, 0x41 },
     { L"E+D - Darker Palette", 0x1b58e60, 0x1b58e80, indexKOFXISprites_Kim, 0x40 },
@@ -1902,7 +1933,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_SA[] =
 {
-    { L"Kim SA", 0x1b59000, 0x1b59020, indexKOFXISprites_Kim },
+    { L"Kim SA", 0x1b59000, 0x1b59020, indexKOF02Sprites_Kim, 0x00 },
     { L"Start+A - Super Stuff 1", 0x1b59020, 0x1b59040, indexKOFXISprites_Kim, 0x20 },
     { L"Start+A - Electric Palette", 0x1b59040, 0x1b59060, indexKOFXISprites_Kim, 0x41 },
     { L"Start+A - Darker Palette", 0x1b59060, 0x1b59080, indexKOFXISprites_Kim, 0x40 },
@@ -1922,7 +1953,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_SB[] =
 {
-    { L"Kim SB", 0x1b59200, 0x1b59220, indexKOFXISprites_Kim },
+    { L"Kim SB", 0x1b59200, 0x1b59220, indexKOF02Sprites_Kim, 0x00 },
     { L"Start+B - Super Stuff 1", 0x1b59220, 0x1b59240, indexKOFXISprites_Kim, 0x20 },
     { L"Start+B - Electric Palette", 0x1b59240, 0x1b59260, indexKOFXISprites_Kim, 0x41 },
     { L"Start+B - Darker Palette", 0x1b59260, 0x1b59280, indexKOFXISprites_Kim, 0x40 },
@@ -1942,7 +1973,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_SC[] =
 {
-    { L"Kim SC", 0x1b59400, 0x1b59420, indexKOFXISprites_Kim },
+    { L"Kim SC", 0x1b59400, 0x1b59420, indexKOF02Sprites_Kim, 0x00 },
     { L"Start+C - Super Stuff 1", 0x1b59420, 0x1b59440, indexKOFXISprites_Kim, 0x20 },
     { L"Start+C - Electric Palette", 0x1b59440, 0x1b59460, indexKOFXISprites_Kim, 0x41 },
     { L"Start+C - Darker Palette", 0x1b59460, 0x1b59480, indexKOFXISprites_Kim, 0x40 },
@@ -1962,7 +1993,7 @@ const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_KIM_PALETTES_SD[] =
 {
-    { L"Kim SD", 0x1b59600, 0x1b59620, indexKOFXISprites_Kim },
+    { L"Kim SD", 0x1b59600, 0x1b59620, indexKOF02Sprites_Kim, 0x00 },
     { L"Start+D - Super Stuff 1", 0x1b59620, 0x1b59640, indexKOFXISprites_Kim, 0x20 },
     { L"Start+D - Electric Palette", 0x1b59640, 0x1b59660, indexKOFXISprites_Kim, 0x41 },
     { L"Start+D - Darker Palette", 0x1b59660, 0x1b59680, indexKOFXISprites_Kim, 0x40 },
@@ -2222,7 +2253,7 @@ const sGame_PaletteDataset KOFXI_A_DUCKKING_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_A[] =
 {
-    { L"Ryo A", 0x1df4000, 0x1df4020, indexKOFXISprites_Ryo },
+    { L"Ryo A", 0x1df4000, 0x1df4020, indexKOF96Sprites_Ryo },
     { L"A - Super Stuff 1", 0x1df4020, 0x1df4040, indexKOFXISprites_Ryo, 0x20 },
     { L"A - Electric Palette", 0x1df4040, 0x1df4060, indexKOFXISprites_Ryo, 0x41 },
     { L"A - Darker Palette", 0x1df4060, 0x1df4080, indexKOFXISprites_Ryo, 0x40 },
@@ -2242,7 +2273,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_B[] =
 {
-    { L"Ryo B", 0x1df4200, 0x1df4220, indexKOFXISprites_Ryo },
+    { L"Ryo B", 0x1df4200, 0x1df4220, indexKOF96Sprites_Ryo },
     { L"B - Super Stuff 1", 0x1df4220, 0x1df4240, indexKOFXISprites_Ryo, 0x20 },
     { L"B - Electric Palette", 0x1df4240, 0x1df4260, indexKOFXISprites_Ryo, 0x41 },
     { L"B - Darker Palette", 0x1df4260, 0x1df4280, indexKOFXISprites_Ryo, 0x40 },
@@ -2262,7 +2293,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_C[] =
 {
-    { L"Ryo C", 0x1df4400, 0x1df4420, indexKOFXISprites_Ryo },
+    { L"Ryo C", 0x1df4400, 0x1df4420, indexKOF96Sprites_Ryo },
     { L"C - Super Stuff 1", 0x1df4420, 0x1df4440, indexKOFXISprites_Ryo, 0x20 },
     { L"C - Electric Palette", 0x1df4440, 0x1df4460, indexKOFXISprites_Ryo, 0x41 },
     { L"C - Darker Palette", 0x1df4460, 0x1df4480, indexKOFXISprites_Ryo, 0x40 },
@@ -2282,7 +2313,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_D[] =
 {
-    { L"Ryo D", 0x1df4600, 0x1df4620, indexKOFXISprites_Ryo },
+    { L"Ryo D", 0x1df4600, 0x1df4620, indexKOF96Sprites_Ryo },
     { L"D - Super Stuff 1", 0x1df4620, 0x1df4640, indexKOFXISprites_Ryo, 0x20 },
     { L"D - Electric Palette", 0x1df4640, 0x1df4660, indexKOFXISprites_Ryo, 0x41 },
     { L"D - Darker Palette", 0x1df4660, 0x1df4680, indexKOFXISprites_Ryo, 0x40 },
@@ -2302,7 +2333,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_EA[] =
 {
-    { L"Ryo EA", 0x1df4800, 0x1df4820, indexKOFXISprites_Ryo },
+    { L"Ryo EA", 0x1df4800, 0x1df4820, indexKOF96Sprites_Ryo },
     { L"E+A - Super Stuff 1", 0x1df4820, 0x1df4840, indexKOFXISprites_Ryo, 0x20 },
     { L"E+A - Electric Palette", 0x1df4840, 0x1df4860, indexKOFXISprites_Ryo, 0x41 },
     { L"E+A - Darker Palette", 0x1df4860, 0x1df4880, indexKOFXISprites_Ryo, 0x40 },
@@ -2322,7 +2353,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_EB[] =
 {
-    { L"Ryo EB", 0x1df4a00, 0x1df4a20, indexKOFXISprites_Ryo },
+    { L"Ryo EB", 0x1df4a00, 0x1df4a20, indexKOF96Sprites_Ryo },
     { L"E+B - Super Stuff 1", 0x1df4a20, 0x1df4a40, indexKOFXISprites_Ryo, 0x20 },
     { L"E+B - Electric Palette", 0x1df4a40, 0x1df4a60, indexKOFXISprites_Ryo, 0x41 },
     { L"E+B - Darker Palette", 0x1df4a60, 0x1df4a80, indexKOFXISprites_Ryo, 0x40 },
@@ -2342,7 +2373,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_EC[] =
 {
-    { L"Ryo EC", 0x1df4c00, 0x1df4c20, indexKOFXISprites_Ryo },
+    { L"Ryo EC", 0x1df4c00, 0x1df4c20, indexKOF96Sprites_Ryo },
     { L"E+C - Super Stuff 1", 0x1df4c20, 0x1df4c40, indexKOFXISprites_Ryo, 0x20 },
     { L"E+C - Electric Palette", 0x1df4c40, 0x1df4c60, indexKOFXISprites_Ryo, 0x41 },
     { L"E+C - Darker Palette", 0x1df4c60, 0x1df4c80, indexKOFXISprites_Ryo, 0x40 },
@@ -2362,7 +2393,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_ED[] =
 {
-    { L"Ryo ED", 0x1df4e00, 0x1df4e20, indexKOFXISprites_Ryo },
+    { L"Ryo ED", 0x1df4e00, 0x1df4e20, indexKOF96Sprites_Ryo },
     { L"E+D - Super Stuff 1", 0x1df4e20, 0x1df4e40, indexKOFXISprites_Ryo, 0x20 },
     { L"E+D - Electric Palette", 0x1df4e40, 0x1df4e60, indexKOFXISprites_Ryo, 0x41 },
     { L"E+D - Darker Palette", 0x1df4e60, 0x1df4e80, indexKOFXISprites_Ryo, 0x40 },
@@ -2382,7 +2413,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_SA[] =
 {
-    { L"Ryo SA", 0x1df5000, 0x1df5020, indexKOFXISprites_Ryo },
+    { L"Ryo SA", 0x1df5000, 0x1df5020, indexKOF96Sprites_Ryo },
     { L"Start+A - Super Stuff 1", 0x1df5020, 0x1df5040, indexKOFXISprites_Ryo, 0x20 },
     { L"Start+A - Electric Palette", 0x1df5040, 0x1df5060, indexKOFXISprites_Ryo, 0x41 },
     { L"Start+A - Darker Palette", 0x1df5060, 0x1df5080, indexKOFXISprites_Ryo, 0x40 },
@@ -2402,7 +2433,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_SB[] =
 {
-    { L"Ryo SB", 0x1df5200, 0x1df5220, indexKOFXISprites_Ryo },
+    { L"Ryo SB", 0x1df5200, 0x1df5220, indexKOF96Sprites_Ryo },
     { L"Start+B - Super Stuff 1", 0x1df5220, 0x1df5240, indexKOFXISprites_Ryo, 0x20 },
     { L"Start+B - Electric Palette", 0x1df5240, 0x1df5260, indexKOFXISprites_Ryo, 0x41 },
     { L"Start+B - Darker Palette", 0x1df5260, 0x1df5280, indexKOFXISprites_Ryo, 0x40 },
@@ -2422,7 +2453,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_SC[] =
 {
-    { L"Ryo SC", 0x1df5400, 0x1df5420, indexKOFXISprites_Ryo },
+    { L"Ryo SC", 0x1df5400, 0x1df5420, indexKOF96Sprites_Ryo },
     { L"Start+C - Super Stuff 1", 0x1df5420, 0x1df5440, indexKOFXISprites_Ryo, 0x20 },
     { L"Start+C - Electric Palette", 0x1df5440, 0x1df5460, indexKOFXISprites_Ryo, 0x41 },
     { L"Start+C - Darker Palette", 0x1df5460, 0x1df5480, indexKOFXISprites_Ryo, 0x40 },
@@ -2442,7 +2473,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_SD[] =
 {
-    { L"Ryo SD", 0x1df5600, 0x1df5620, indexKOFXISprites_Ryo },
+    { L"Ryo SD", 0x1df5600, 0x1df5620, indexKOF96Sprites_Ryo },
     { L"Start+D - Super Stuff 1", 0x1df5620, 0x1df5640, indexKOFXISprites_Ryo, 0x20 },
     { L"Start+D - Electric Palette", 0x1df5640, 0x1df5660, indexKOFXISprites_Ryo, 0x41 },
     { L"Start+D - Darker Palette", 0x1df5660, 0x1df5680, indexKOFXISprites_Ryo, 0x40 },
@@ -2462,7 +2493,7 @@ const sGame_PaletteDataset KOFXI_A_RYO_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_A[] =
 {
-    { L"Yuri A", 0x1f5f000, 0x1f5f020, indexKOFXISprites_Yuri },
+    { L"Yuri A", 0x1f5f000, 0x1f5f020, indexKOF03Sprites_Yuri, 0x00 },
     { L"A - Super Stuff 1", 0x1f5f020, 0x1f5f040, indexKOFXISprites_Yuri, 0x20 },
     { L"A - Electric Palette", 0x1f5f040, 0x1f5f060, indexKOFXISprites_Yuri, 0x41 },
     { L"A - Darker Palette", 0x1f5f060, 0x1f5f080, indexKOFXISprites_Yuri, 0x40 },
@@ -2482,7 +2513,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_B[] =
 {
-    { L"Yuri B", 0x1f5f200, 0x1f5f220, indexKOFXISprites_Yuri },
+    { L"Yuri B", 0x1f5f200, 0x1f5f220, indexKOF03Sprites_Yuri, 0x00 },
     { L"B - Super Stuff 1", 0x1f5f220, 0x1f5f240, indexKOFXISprites_Yuri, 0x20 },
     { L"B - Electric Palette", 0x1f5f240, 0x1f5f260, indexKOFXISprites_Yuri, 0x41 },
     { L"B - Darker Palette", 0x1f5f260, 0x1f5f280, indexKOFXISprites_Yuri, 0x40 },
@@ -2502,7 +2533,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_C[] =
 {
-    { L"Yuri C", 0x1f5f400, 0x1f5f420, indexKOFXISprites_Yuri },
+    { L"Yuri C", 0x1f5f400, 0x1f5f420, indexKOF03Sprites_Yuri, 0x00 },
     { L"C - Super Stuff 1", 0x1f5f420, 0x1f5f440, indexKOFXISprites_Yuri, 0x20 },
     { L"C - Electric Palette", 0x1f5f440, 0x1f5f460, indexKOFXISprites_Yuri, 0x41 },
     { L"C - Darker Palette", 0x1f5f460, 0x1f5f480, indexKOFXISprites_Yuri, 0x40 },
@@ -2522,7 +2553,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_D[] =
 {
-    { L"Yuri D", 0x1f5f600, 0x1f5f620, indexKOFXISprites_Yuri },
+    { L"Yuri D", 0x1f5f600, 0x1f5f620, indexKOF03Sprites_Yuri, 0x00 },
     { L"D - Super Stuff 1", 0x1f5f620, 0x1f5f640, indexKOFXISprites_Yuri, 0x20 },
     { L"D - Electric Palette", 0x1f5f640, 0x1f5f660, indexKOFXISprites_Yuri, 0x41 },
     { L"D - Darker Palette", 0x1f5f660, 0x1f5f680, indexKOFXISprites_Yuri, 0x40 },
@@ -2542,7 +2573,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_EA[] =
 {
-    { L"Yuri EA", 0x1f5f800, 0x1f5f820, indexKOFXISprites_Yuri },
+    { L"Yuri EA", 0x1f5f800, 0x1f5f820, indexKOF03Sprites_Yuri, 0x00 },
     { L"E+A - Super Stuff 1", 0x1f5f820, 0x1f5f840, indexKOFXISprites_Yuri, 0x20 },
     { L"E+A - Electric Palette", 0x1f5f840, 0x1f5f860, indexKOFXISprites_Yuri, 0x41 },
     { L"E+A - Darker Palette", 0x1f5f860, 0x1f5f880, indexKOFXISprites_Yuri, 0x40 },
@@ -2562,7 +2593,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_EB[] =
 {
-    { L"Yuri EB", 0x1f5fa00, 0x1f5fa20, indexKOFXISprites_Yuri },
+    { L"Yuri EB", 0x1f5fa00, 0x1f5fa20, indexKOF03Sprites_Yuri, 0x00 },
     { L"E+B - Super Stuff 1", 0x1f5fa20, 0x1f5fa40, indexKOFXISprites_Yuri, 0x20 },
     { L"E+B - Electric Palette", 0x1f5fa40, 0x1f5fa60, indexKOFXISprites_Yuri, 0x41 },
     { L"E+B - Darker Palette", 0x1f5fa60, 0x1f5fa80, indexKOFXISprites_Yuri, 0x40 },
@@ -2582,7 +2613,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_EC[] =
 {
-    { L"Yuri EC", 0x1f5fc00, 0x1f5fc20, indexKOFXISprites_Yuri },
+    { L"Yuri EC", 0x1f5fc00, 0x1f5fc20, indexKOF03Sprites_Yuri, 0x00 },
     { L"E+C - Super Stuff 1", 0x1f5fc20, 0x1f5fc40, indexKOFXISprites_Yuri, 0x20 },
     { L"E+C - Electric Palette", 0x1f5fc40, 0x1f5fc60, indexKOFXISprites_Yuri, 0x41 },
     { L"E+C - Darker Palette", 0x1f5fc60, 0x1f5fc80, indexKOFXISprites_Yuri, 0x40 },
@@ -2602,7 +2633,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_ED[] =
 {
-    { L"Yuri ED", 0x1f5fe00, 0x1f5fe20, indexKOFXISprites_Yuri },
+    { L"Yuri ED", 0x1f5fe00, 0x1f5fe20, indexKOF03Sprites_Yuri, 0x00 },
     { L"E+D - Super Stuff 1", 0x1f5fe20, 0x1f5fe40, indexKOFXISprites_Yuri, 0x20 },
     { L"E+D - Electric Palette", 0x1f5fe40, 0x1f5fe60, indexKOFXISprites_Yuri, 0x41 },
     { L"E+D - Darker Palette", 0x1f5fe60, 0x1f5fe80, indexKOFXISprites_Yuri, 0x40 },
@@ -2622,7 +2653,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_SA[] =
 {
-    { L"Yuri SA", 0x1f60000, 0x1f60020, indexKOFXISprites_Yuri },
+    { L"Yuri SA", 0x1f60000, 0x1f60020, indexKOF03Sprites_Yuri, 0x00 },
     { L"Start+A - Super Stuff 1", 0x1f60020, 0x1f60040, indexKOFXISprites_Yuri, 0x20 },
     { L"Start+A - Electric Palette", 0x1f60040, 0x1f60060, indexKOFXISprites_Yuri, 0x41 },
     { L"Start+A - Darker Palette", 0x1f60060, 0x1f60080, indexKOFXISprites_Yuri, 0x40 },
@@ -2642,7 +2673,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_SB[] =
 {
-    { L"Yuri SB", 0x1f60200, 0x1f60220, indexKOFXISprites_Yuri },
+    { L"Yuri SB", 0x1f60200, 0x1f60220, indexKOF03Sprites_Yuri, 0x00 },
     { L"Start+B - Super Stuff 1", 0x1f60220, 0x1f60240, indexKOFXISprites_Yuri, 0x20 },
     { L"Start+B - Electric Palette", 0x1f60240, 0x1f60260, indexKOFXISprites_Yuri, 0x41 },
     { L"Start+B - Darker Palette", 0x1f60260, 0x1f60280, indexKOFXISprites_Yuri, 0x40 },
@@ -2662,7 +2693,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_SC[] =
 {
-    { L"Yuri SC", 0x1f60400, 0x1f60420, indexKOFXISprites_Yuri },
+    { L"Yuri SC", 0x1f60400, 0x1f60420, indexKOF03Sprites_Yuri, 0x00 },
     { L"Start+C - Super Stuff 1", 0x1f60420, 0x1f60440, indexKOFXISprites_Yuri, 0x20 },
     { L"Start+C - Electric Palette", 0x1f60440, 0x1f60460, indexKOFXISprites_Yuri, 0x41 },
     { L"Start+C - Darker Palette", 0x1f60460, 0x1f60480, indexKOFXISprites_Yuri, 0x40 },
@@ -2682,7 +2713,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_SD[] =
 {
-    { L"Yuri SD", 0x1f60600, 0x1f60620, indexKOFXISprites_Yuri },
+    { L"Yuri SD", 0x1f60600, 0x1f60620, indexKOF03Sprites_Yuri, 0x00 },
     { L"Start+D - Super Stuff 1", 0x1f60620, 0x1f60640, indexKOFXISprites_Yuri, 0x20 },
     { L"Start+D - Electric Palette", 0x1f60640, 0x1f60660, indexKOFXISprites_Yuri, 0x41 },
     { L"Start+D - Darker Palette", 0x1f60660, 0x1f60680, indexKOFXISprites_Yuri, 0x40 },
@@ -2702,7 +2733,7 @@ const sGame_PaletteDataset KOFXI_A_YURI_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_A[] =
 {
-    { L"King A", 0x20ba800, 0x20ba820, indexKOFXISprites_King },
+    { L"King A", 0x20ba800, 0x20ba820, indexKOF01Sprites_King, 0x00 },
     { L"A - Super Stuff 1", 0x20ba820, 0x20ba840, indexKOFXISprites_King, 0x20 },
     { L"A - Electric Palette", 0x20ba840, 0x20ba860, indexKOFXISprites_King, 0x41 },
     { L"A - Darker Palette", 0x20ba860, 0x20ba880, indexKOFXISprites_King, 0x40 },
@@ -2722,7 +2753,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_B[] =
 {
-    { L"King B", 0x20baa00, 0x20baa20, indexKOFXISprites_King },
+    { L"King B", 0x20baa00, 0x20baa20, indexKOF01Sprites_King, 0x00 },
     { L"B - Super Stuff 1", 0x20baa20, 0x20baa40, indexKOFXISprites_King, 0x20 },
     { L"B - Electric Palette", 0x20baa40, 0x20baa60, indexKOFXISprites_King, 0x41 },
     { L"B - Darker Palette", 0x20baa60, 0x20baa80, indexKOFXISprites_King, 0x40 },
@@ -2742,7 +2773,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_C[] =
 {
-    { L"King C", 0x20bac00, 0x20bac20, indexKOFXISprites_King },
+    { L"King C", 0x20bac00, 0x20bac20, indexKOF01Sprites_King, 0x00 },
     { L"C - Super Stuff 1", 0x20bac20, 0x20bac40, indexKOFXISprites_King, 0x20 },
     { L"C - Electric Palette", 0x20bac40, 0x20bac60, indexKOFXISprites_King, 0x41 },
     { L"C - Darker Palette", 0x20bac60, 0x20bac80, indexKOFXISprites_King, 0x40 },
@@ -2762,7 +2793,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_D[] =
 {
-    { L"King D", 0x20bae00, 0x20bae20, indexKOFXISprites_King },
+    { L"King D", 0x20bae00, 0x20bae20, indexKOF01Sprites_King, 0x00 },
     { L"D - Super Stuff 1", 0x20bae20, 0x20bae40, indexKOFXISprites_King, 0x20 },
     { L"D - Electric Palette", 0x20bae40, 0x20bae60, indexKOFXISprites_King, 0x41 },
     { L"D - Darker Palette", 0x20bae60, 0x20bae80, indexKOFXISprites_King, 0x40 },
@@ -2782,7 +2813,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_EA[] =
 {
-    { L"King EA", 0x20bb000, 0x20bb020, indexKOFXISprites_King },
+    { L"King EA", 0x20bb000, 0x20bb020, indexKOF01Sprites_King, 0x00 },
     { L"E+A - Super Stuff 1", 0x20bb020, 0x20bb040, indexKOFXISprites_King, 0x20 },
     { L"E+A - Electric Palette", 0x20bb040, 0x20bb060, indexKOFXISprites_King, 0x41 },
     { L"E+A - Darker Palette", 0x20bb060, 0x20bb080, indexKOFXISprites_King, 0x40 },
@@ -2802,7 +2833,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_EB[] =
 {
-    { L"King EB", 0x20bb200, 0x20bb220, indexKOFXISprites_King },
+    { L"King EB", 0x20bb200, 0x20bb220, indexKOF01Sprites_King, 0x00 },
     { L"E+B - Super Stuff 1", 0x20bb220, 0x20bb240, indexKOFXISprites_King, 0x20 },
     { L"E+B - Electric Palette", 0x20bb240, 0x20bb260, indexKOFXISprites_King, 0x41 },
     { L"E+B - Darker Palette", 0x20bb260, 0x20bb280, indexKOFXISprites_King, 0x40 },
@@ -2822,7 +2853,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_EC[] =
 {
-    { L"King EC", 0x20bb400, 0x20bb420, indexKOFXISprites_King },
+    { L"King EC", 0x20bb400, 0x20bb420, indexKOF01Sprites_King, 0x00 },
     { L"E+C - Super Stuff 1", 0x20bb420, 0x20bb440, indexKOFXISprites_King, 0x20 },
     { L"E+C - Electric Palette", 0x20bb440, 0x20bb460, indexKOFXISprites_King, 0x41 },
     { L"E+C - Darker Palette", 0x20bb460, 0x20bb480, indexKOFXISprites_King, 0x40 },
@@ -2842,7 +2873,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_ED[] =
 {
-    { L"King ED", 0x20bb600, 0x20bb620, indexKOFXISprites_King },
+    { L"King ED", 0x20bb600, 0x20bb620, indexKOF01Sprites_King, 0x00 },
     { L"E+D - Super Stuff 1", 0x20bb620, 0x20bb640, indexKOFXISprites_King, 0x20 },
     { L"E+D - Electric Palette", 0x20bb640, 0x20bb660, indexKOFXISprites_King, 0x41 },
     { L"E+D - Darker Palette", 0x20bb660, 0x20bb680, indexKOFXISprites_King, 0x40 },
@@ -2862,7 +2893,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_SA[] =
 {
-    { L"King SA", 0x20bb800, 0x20bb820, indexKOFXISprites_King },
+    { L"King SA", 0x20bb800, 0x20bb820, indexKOF01Sprites_King, 0x00 },
     { L"Start+A - Super Stuff 1", 0x20bb820, 0x20bb840, indexKOFXISprites_King, 0x20 },
     { L"Start+A - Electric Palette", 0x20bb840, 0x20bb860, indexKOFXISprites_King, 0x41 },
     { L"Start+A - Darker Palette", 0x20bb860, 0x20bb880, indexKOFXISprites_King, 0x40 },
@@ -2882,7 +2913,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_SB[] =
 {
-    { L"King SB", 0x20bba00, 0x20bba20, indexKOFXISprites_King },
+    { L"King SB", 0x20bba00, 0x20bba20, indexKOF01Sprites_King, 0x00 },
     { L"Start+B - Super Stuff 1", 0x20bba20, 0x20bba40, indexKOFXISprites_King, 0x20 },
     { L"Start+B - Electric Palette", 0x20bba40, 0x20bba60, indexKOFXISprites_King, 0x41 },
     { L"Start+B - Darker Palette", 0x20bba60, 0x20bba80, indexKOFXISprites_King, 0x40 },
@@ -2902,7 +2933,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_SC[] =
 {
-    { L"King SC", 0x20bbc00, 0x20bbc20, indexKOFXISprites_King },
+    { L"King SC", 0x20bbc00, 0x20bbc20, indexKOF01Sprites_King, 0x00 },
     { L"Start+C - Super Stuff 1", 0x20bbc20, 0x20bbc40, indexKOFXISprites_King, 0x20 },
     { L"Start+C - Electric Palette", 0x20bbc40, 0x20bbc60, indexKOFXISprites_King, 0x41 },
     { L"Start+C - Darker Palette", 0x20bbc60, 0x20bbc80, indexKOFXISprites_King, 0x40 },
@@ -2922,7 +2953,7 @@ const sGame_PaletteDataset KOFXI_A_KING_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_KING_PALETTES_SD[] =
 {
-    { L"King SD", 0x20bbe00, 0x20bbe20, indexKOFXISprites_King },
+    { L"King SD", 0x20bbe00, 0x20bbe20, indexKOF01Sprites_King, 0x00 },
     { L"Start+D - Super Stuff 1", 0x20bbe20, 0x20bbe40, indexKOFXISprites_King, 0x20 },
     { L"Start+D - Electric Palette", 0x20bbe40, 0x20bbe60, indexKOFXISprites_King, 0x41 },
     { L"Start+D - Darker Palette", 0x20bbe60, 0x20bbe80, indexKOFXISprites_King, 0x40 },
@@ -3182,7 +3213,7 @@ const sGame_PaletteDataset KOFXI_A_BJENET_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_A[] =
 {
-    { L"Gato A", 0x2381000, 0x2381020, indexKOFXISprites_Gato },
+    { L"Gato A", 0x2381000, 0x2381020, indexKOF03Sprites_Gato, 0x00 },
     { L"A - Super Stuff 1", 0x2381020, 0x2381040, indexKOFXISprites_Gato, 0x20 },
     { L"A - Electric Palette", 0x2381040, 0x2381060, indexKOFXISprites_Gato, 0x41 },
     { L"A - Darker Palette", 0x2381060, 0x2381080, indexKOFXISprites_Gato, 0x40 },
@@ -3202,7 +3233,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_B[] =
 {
-    { L"Gato B", 0x2381200, 0x2381220, indexKOFXISprites_Gato },
+    { L"Gato B", 0x2381200, 0x2381220, indexKOF03Sprites_Gato, 0x00 },
     { L"B - Super Stuff 1", 0x2381220, 0x2381240, indexKOFXISprites_Gato, 0x20 },
     { L"B - Electric Palette", 0x2381240, 0x2381260, indexKOFXISprites_Gato, 0x41 },
     { L"B - Darker Palette", 0x2381260, 0x2381280, indexKOFXISprites_Gato, 0x40 },
@@ -3222,7 +3253,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_C[] =
 {
-    { L"Gato C", 0x2381400, 0x2381420, indexKOFXISprites_Gato },
+    { L"Gato C", 0x2381400, 0x2381420, indexKOF03Sprites_Gato, 0x00 },
     { L"C - Super Stuff 1", 0x2381420, 0x2381440, indexKOFXISprites_Gato, 0x20 },
     { L"C - Electric Palette", 0x2381440, 0x2381460, indexKOFXISprites_Gato, 0x41 },
     { L"C - Darker Palette", 0x2381460, 0x2381480, indexKOFXISprites_Gato, 0x40 },
@@ -3242,7 +3273,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_D[] =
 {
-    { L"Gato D", 0x2381600, 0x2381620, indexKOFXISprites_Gato },
+    { L"Gato D", 0x2381600, 0x2381620, indexKOF03Sprites_Gato, 0x00 },
     { L"D - Super Stuff 1", 0x2381620, 0x2381640, indexKOFXISprites_Gato, 0x20 },
     { L"D - Electric Palette", 0x2381640, 0x2381660, indexKOFXISprites_Gato, 0x41 },
     { L"D - Darker Palette", 0x2381660, 0x2381680, indexKOFXISprites_Gato, 0x40 },
@@ -3262,7 +3293,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EA[] =
 {
-    { L"Gato EA", 0x2381800, 0x2381820, indexKOFXISprites_Gato },
+    { L"Gato EA", 0x2381800, 0x2381820, indexKOF03Sprites_Gato, 0x00 },
     { L"E+A - Super Stuff 1", 0x2381820, 0x2381840, indexKOFXISprites_Gato, 0x20 },
     { L"E+A - Electric Palette", 0x2381840, 0x2381860, indexKOFXISprites_Gato, 0x41 },
     { L"E+A - Darker Palette", 0x2381860, 0x2381880, indexKOFXISprites_Gato, 0x40 },
@@ -3282,7 +3313,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EB[] =
 {
-    { L"Gato EB", 0x2381a00, 0x2381a20, indexKOFXISprites_Gato },
+    { L"Gato EB", 0x2381a00, 0x2381a20, indexKOF03Sprites_Gato, 0x00 },
     { L"E+B - Super Stuff 1", 0x2381a20, 0x2381a40, indexKOFXISprites_Gato, 0x20 },
     { L"E+B - Electric Palette", 0x2381a40, 0x2381a60, indexKOFXISprites_Gato, 0x41 },
     { L"E+B - Darker Palette", 0x2381a60, 0x2381a80, indexKOFXISprites_Gato, 0x40 },
@@ -3302,7 +3333,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EC[] =
 {
-    { L"Gato EC", 0x2381c00, 0x2381c20, indexKOFXISprites_Gato },
+    { L"Gato EC", 0x2381c00, 0x2381c20, indexKOF03Sprites_Gato, 0x00 },
     { L"E+C - Super Stuff 1", 0x2381c20, 0x2381c40, indexKOFXISprites_Gato, 0x20 },
     { L"E+C - Electric Palette", 0x2381c40, 0x2381c60, indexKOFXISprites_Gato, 0x41 },
     { L"E+C - Darker Palette", 0x2381c60, 0x2381c80, indexKOFXISprites_Gato, 0x40 },
@@ -3322,7 +3353,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_ED[] =
 {
-    { L"Gato ED", 0x2381e00, 0x2381e20, indexKOFXISprites_Gato },
+    { L"Gato ED", 0x2381e00, 0x2381e20, indexKOF03Sprites_Gato, 0x00 },
     { L"E+D - Super Stuff 1", 0x2381e20, 0x2381e40, indexKOFXISprites_Gato, 0x20 },
     { L"E+D - Electric Palette", 0x2381e40, 0x2381e60, indexKOFXISprites_Gato, 0x41 },
     { L"E+D - Darker Palette", 0x2381e60, 0x2381e80, indexKOFXISprites_Gato, 0x40 },
@@ -3342,7 +3373,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SA[] =
 {
-    { L"Gato SA", 0x2382000, 0x2382020, indexKOFXISprites_Gato },
+    { L"Gato SA", 0x2382000, 0x2382020, indexKOF03Sprites_Gato, 0x00 },
     { L"Start+A - Super Stuff 1", 0x2382020, 0x2382040, indexKOFXISprites_Gato, 0x20 },
     { L"Start+A - Electric Palette", 0x2382040, 0x2382060, indexKOFXISprites_Gato, 0x41 },
     { L"Start+A - Darker Palette", 0x2382060, 0x2382080, indexKOFXISprites_Gato, 0x40 },
@@ -3362,7 +3393,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SB[] =
 {
-    { L"Gato SB", 0x2382200, 0x2382220, indexKOFXISprites_Gato },
+    { L"Gato SB", 0x2382200, 0x2382220, indexKOF03Sprites_Gato, 0x00 },
     { L"Start+B - Super Stuff 1", 0x2382220, 0x2382240, indexKOFXISprites_Gato, 0x20 },
     { L"Start+B - Electric Palette", 0x2382240, 0x2382260, indexKOFXISprites_Gato, 0x41 },
     { L"Start+B - Darker Palette", 0x2382260, 0x2382280, indexKOFXISprites_Gato, 0x40 },
@@ -3382,7 +3413,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SC[] =
 {
-    { L"Gato SC", 0x2382400, 0x2382420, indexKOFXISprites_Gato },
+    { L"Gato SC", 0x2382400, 0x2382420, indexKOF03Sprites_Gato, 0x00 },
     { L"Start+C - Super Stuff 1", 0x2382420, 0x2382440, indexKOFXISprites_Gato, 0x20 },
     { L"Start+C - Electric Palette", 0x2382440, 0x2382460, indexKOFXISprites_Gato, 0x41 },
     { L"Start+C - Darker Palette", 0x2382460, 0x2382480, indexKOFXISprites_Gato, 0x40 },
@@ -3402,7 +3433,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SD[] =
 {
-    { L"Gato SD", 0x2382600, 0x2382620, indexKOFXISprites_Gato },
+    { L"Gato SD", 0x2382600, 0x2382620, indexKOF03Sprites_Gato, 0x00 },
     { L"Start+D - Super Stuff 1", 0x2382620, 0x2382640, indexKOFXISprites_Gato, 0x20 },
     { L"Start+D - Electric Palette", 0x2382640, 0x2382660, indexKOFXISprites_Gato, 0x41 },
     { L"Start+D - Darker Palette", 0x2382660, 0x2382680, indexKOFXISprites_Gato, 0x40 },
@@ -3422,7 +3453,7 @@ const sGame_PaletteDataset KOFXI_A_GATO_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_A[] =
 {
-    { L"Tizoc/The Griffon A", 0x24e1000, 0x24e1020, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon A", 0x24e1000, 0x24e1020, indexKOF03Sprites_Tizoc, 0x00 },
     { L"A - Super Stuff 1", 0x24e1020, 0x24e1040, indexKOFXISprites_Tizoc, 0x20 },
     { L"A - Electric Palette", 0x24e1040, 0x24e1060, indexKOFXISprites_Tizoc, 0x41 },
     { L"A - Darker Palette", 0x24e1060, 0x24e1080, indexKOFXISprites_Tizoc, 0x40 },
@@ -3442,7 +3473,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_B[] =
 {
-    { L"Tizoc/The Griffon B", 0x24e1200, 0x24e1220, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon B", 0x24e1200, 0x24e1220, indexKOF03Sprites_Tizoc, 0x00 },
     { L"B - Super Stuff 1", 0x24e1220, 0x24e1240, indexKOFXISprites_Tizoc, 0x20 },
     { L"B - Electric Palette", 0x24e1240, 0x24e1260, indexKOFXISprites_Tizoc, 0x41 },
     { L"B - Darker Palette", 0x24e1260, 0x24e1280, indexKOFXISprites_Tizoc, 0x40 },
@@ -3462,7 +3493,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_C[] =
 {
-    { L"Tizoc/The Griffon C", 0x24e1400, 0x24e1420, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon C", 0x24e1400, 0x24e1420, indexKOF03Sprites_Tizoc, 0x00 },
     { L"C - Super Stuff 1", 0x24e1420, 0x24e1440, indexKOFXISprites_Tizoc, 0x20 },
     { L"C - Electric Palette", 0x24e1440, 0x24e1460, indexKOFXISprites_Tizoc, 0x41 },
     { L"C - Darker Palette", 0x24e1460, 0x24e1480, indexKOFXISprites_Tizoc, 0x40 },
@@ -3482,7 +3513,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_D[] =
 {
-    { L"Tizoc/The Griffon D", 0x24e1600, 0x24e1620, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon D", 0x24e1600, 0x24e1620, indexKOF03Sprites_Tizoc, 0x00 },
     { L"D - Super Stuff 1", 0x24e1620, 0x24e1640, indexKOFXISprites_Tizoc, 0x20 },
     { L"D - Electric Palette", 0x24e1640, 0x24e1660, indexKOFXISprites_Tizoc, 0x41 },
     { L"D - Darker Palette", 0x24e1660, 0x24e1680, indexKOFXISprites_Tizoc, 0x40 },
@@ -3502,7 +3533,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_EA[] =
 {
-    { L"Tizoc/The Griffon EA", 0x24e1800, 0x24e1820, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon EA", 0x24e1800, 0x24e1820, indexKOF03Sprites_Tizoc, 0x00 },
     { L"E+A - Super Stuff 1", 0x24e1820, 0x24e1840, indexKOFXISprites_Tizoc, 0x20 },
     { L"E+A - Electric Palette", 0x24e1840, 0x24e1860, indexKOFXISprites_Tizoc, 0x41 },
     { L"E+A - Darker Palette", 0x24e1860, 0x24e1880, indexKOFXISprites_Tizoc, 0x40 },
@@ -3522,7 +3553,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_EB[] =
 {
-    { L"Tizoc/The Griffon EB", 0x24e1a00, 0x24e1a20, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon EB", 0x24e1a00, 0x24e1a20, indexKOF03Sprites_Tizoc, 0x00 },
     { L"E+B - Super Stuff 1", 0x24e1a20, 0x24e1a40, indexKOFXISprites_Tizoc, 0x20 },
     { L"E+B - Electric Palette", 0x24e1a40, 0x24e1a60, indexKOFXISprites_Tizoc, 0x41 },
     { L"E+B - Darker Palette", 0x24e1a60, 0x24e1a80, indexKOFXISprites_Tizoc, 0x40 },
@@ -3542,7 +3573,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_EC[] =
 {
-    { L"Tizoc/The Griffon EC", 0x24e1c00, 0x24e1c20, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon EC", 0x24e1c00, 0x24e1c20, indexKOF03Sprites_Tizoc, 0x00 },
     { L"E+C - Super Stuff 1", 0x24e1c20, 0x24e1c40, indexKOFXISprites_Tizoc, 0x20 },
     { L"E+C - Electric Palette", 0x24e1c40, 0x24e1c60, indexKOFXISprites_Tizoc, 0x41 },
     { L"E+C - Darker Palette", 0x24e1c60, 0x24e1c80, indexKOFXISprites_Tizoc, 0x40 },
@@ -3562,7 +3593,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_ED[] =
 {
-    { L"Tizoc/The Griffon ED", 0x24e1e00, 0x24e1e20, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon ED", 0x24e1e00, 0x24e1e20, indexKOF03Sprites_Tizoc, 0x00 },
     { L"E+D - Super Stuff 1", 0x24e1e20, 0x24e1e40, indexKOFXISprites_Tizoc, 0x20 },
     { L"E+D - Electric Palette", 0x24e1e40, 0x24e1e60, indexKOFXISprites_Tizoc, 0x41 },
     { L"E+D - Darker Palette", 0x24e1e60, 0x24e1e80, indexKOFXISprites_Tizoc, 0x40 },
@@ -3582,7 +3613,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_SA[] =
 {
-    { L"Tizoc/The Griffon SA", 0x24e2000, 0x24e2020, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon SA", 0x24e2000, 0x24e2020, indexKOF03Sprites_Tizoc, 0x00 },
     { L"Start+A - Super Stuff 1", 0x24e2020, 0x24e2040, indexKOFXISprites_Tizoc, 0x20 },
     { L"Start+A - Electric Palette", 0x24e2040, 0x24e2060, indexKOFXISprites_Tizoc, 0x41 },
     { L"Start+A - Darker Palette", 0x24e2060, 0x24e2080, indexKOFXISprites_Tizoc, 0x40 },
@@ -3602,7 +3633,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_SB[] =
 {
-    { L"Tizoc/The Griffon SB", 0x24e2200, 0x24e2220, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon SB", 0x24e2200, 0x24e2220, indexKOF03Sprites_Tizoc, 0x00 },
     { L"Start+B - Super Stuff 1", 0x24e2220, 0x24e2240, indexKOFXISprites_Tizoc, 0x20 },
     { L"Start+B - Electric Palette", 0x24e2240, 0x24e2260, indexKOFXISprites_Tizoc, 0x41 },
     { L"Start+B - Darker Palette", 0x24e2260, 0x24e2280, indexKOFXISprites_Tizoc, 0x40 },
@@ -3622,7 +3653,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_SC[] =
 {
-    { L"Tizoc/The Griffon SC", 0x24e2400, 0x24e2420, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon SC", 0x24e2400, 0x24e2420, indexKOF03Sprites_Tizoc, 0x00 },
     { L"Start+C - Super Stuff 1", 0x24e2420, 0x24e2440, indexKOFXISprites_Tizoc, 0x20 },
     { L"Start+C - Electric Palette", 0x24e2440, 0x24e2460, indexKOFXISprites_Tizoc, 0x41 },
     { L"Start+C - Darker Palette", 0x24e2460, 0x24e2480, indexKOFXISprites_Tizoc, 0x40 },
@@ -3642,7 +3673,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_SD[] =
 {
-    { L"Tizoc/The Griffon SD", 0x24e2600, 0x24e2620, indexKOFXISprites_Tizoc },
+    { L"Tizoc/The Griffon SD", 0x24e2600, 0x24e2620, indexKOF03Sprites_Tizoc, 0x00 },
     { L"Start+D - Super Stuff 1", 0x24e2620, 0x24e2640, indexKOFXISprites_Tizoc, 0x20 },
     { L"Start+D - Electric Palette", 0x24e2640, 0x24e2660, indexKOFXISprites_Tizoc, 0x41 },
     { L"Start+D - Darker Palette", 0x24e2660, 0x24e2680, indexKOFXISprites_Tizoc, 0x40 },
@@ -3662,7 +3693,7 @@ const sGame_PaletteDataset KOFXI_A_TIZOCTHEGRIFFON_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_A[] =
 {
-    { L"Ralf A", 0x2680000, 0x2680020, indexKOFXISprites_Ralf },
+    { L"Ralf A", 0x2680000, 0x2680020, indexKOF01Sprites_Ralf, 0x00 },
     { L"A - Super Stuff 1", 0x2680020, 0x2680040, indexKOFXISprites_Ralf, 0x20 },
     { L"A - Electric Palette", 0x2680040, 0x2680060, indexKOFXISprites_Ralf, 0x41 },
     { L"A - Darker Palette", 0x2680060, 0x2680080, indexKOFXISprites_Ralf, 0x40 },
@@ -3682,7 +3713,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_B[] =
 {
-    { L"Ralf B", 0x2680200, 0x2680220, indexKOFXISprites_Ralf },
+    { L"Ralf B", 0x2680200, 0x2680220, indexKOF01Sprites_Ralf, 0x00 },
     { L"B - Super Stuff 1", 0x2680220, 0x2680240, indexKOFXISprites_Ralf, 0x20 },
     { L"B - Electric Palette", 0x2680240, 0x2680260, indexKOFXISprites_Ralf, 0x41 },
     { L"B - Darker Palette", 0x2680260, 0x2680280, indexKOFXISprites_Ralf, 0x40 },
@@ -3702,7 +3733,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_C[] =
 {
-    { L"Ralf C", 0x2680400, 0x2680420, indexKOFXISprites_Ralf },
+    { L"Ralf C", 0x2680400, 0x2680420, indexKOF01Sprites_Ralf, 0x00 },
     { L"C - Super Stuff 1", 0x2680420, 0x2680440, indexKOFXISprites_Ralf, 0x20 },
     { L"C - Electric Palette", 0x2680440, 0x2680460, indexKOFXISprites_Ralf, 0x41 },
     { L"C - Darker Palette", 0x2680460, 0x2680480, indexKOFXISprites_Ralf, 0x40 },
@@ -3722,7 +3753,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_D[] =
 {
-    { L"Ralf D", 0x2680600, 0x2680620, indexKOFXISprites_Ralf },
+    { L"Ralf D", 0x2680600, 0x2680620, indexKOF01Sprites_Ralf, 0x00 },
     { L"D - Super Stuff 1", 0x2680620, 0x2680640, indexKOFXISprites_Ralf, 0x20 },
     { L"D - Electric Palette", 0x2680640, 0x2680660, indexKOFXISprites_Ralf, 0x41 },
     { L"D - Darker Palette", 0x2680660, 0x2680680, indexKOFXISprites_Ralf, 0x40 },
@@ -3742,7 +3773,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_EA[] =
 {
-    { L"Ralf EA", 0x2680800, 0x2680820, indexKOFXISprites_Ralf },
+    { L"Ralf EA", 0x2680800, 0x2680820, indexKOF01Sprites_Ralf, 0x00 },
     { L"E+A - Super Stuff 1", 0x2680820, 0x2680840, indexKOFXISprites_Ralf, 0x20 },
     { L"E+A - Electric Palette", 0x2680840, 0x2680860, indexKOFXISprites_Ralf, 0x41 },
     { L"E+A - Darker Palette", 0x2680860, 0x2680880, indexKOFXISprites_Ralf, 0x40 },
@@ -3762,7 +3793,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_EB[] =
 {
-    { L"Ralf EB", 0x2680a00, 0x2680a20, indexKOFXISprites_Ralf },
+    { L"Ralf EB", 0x2680a00, 0x2680a20, indexKOF01Sprites_Ralf, 0x00 },
     { L"E+B - Super Stuff 1", 0x2680a20, 0x2680a40, indexKOFXISprites_Ralf, 0x20 },
     { L"E+B - Electric Palette", 0x2680a40, 0x2680a60, indexKOFXISprites_Ralf, 0x41 },
     { L"E+B - Darker Palette", 0x2680a60, 0x2680a80, indexKOFXISprites_Ralf, 0x40 },
@@ -3782,7 +3813,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_EC[] =
 {
-    { L"Ralf EC", 0x2680c00, 0x2680c20, indexKOFXISprites_Ralf },
+    { L"Ralf EC", 0x2680c00, 0x2680c20, indexKOF01Sprites_Ralf, 0x00 },
     { L"E+C - Super Stuff 1", 0x2680c20, 0x2680c40, indexKOFXISprites_Ralf, 0x20 },
     { L"E+C - Electric Palette", 0x2680c40, 0x2680c60, indexKOFXISprites_Ralf, 0x41 },
     { L"E+C - Darker Palette", 0x2680c60, 0x2680c80, indexKOFXISprites_Ralf, 0x40 },
@@ -3802,7 +3833,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_ED[] =
 {
-    { L"Ralf ED", 0x2680e00, 0x2680e20, indexKOFXISprites_Ralf },
+    { L"Ralf ED", 0x2680e00, 0x2680e20, indexKOF01Sprites_Ralf, 0x00 },
     { L"E+D - Super Stuff 1", 0x2680e20, 0x2680e40, indexKOFXISprites_Ralf, 0x20 },
     { L"E+D - Electric Palette", 0x2680e40, 0x2680e60, indexKOFXISprites_Ralf, 0x41 },
     { L"E+D - Darker Palette", 0x2680e60, 0x2680e80, indexKOFXISprites_Ralf, 0x40 },
@@ -3822,7 +3853,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_SA[] =
 {
-    { L"Ralf SA", 0x2681000, 0x2681020, indexKOFXISprites_Ralf },
+    { L"Ralf SA", 0x2681000, 0x2681020, indexKOF01Sprites_Ralf, 0x00 },
     { L"Start+A - Super Stuff 1", 0x2681020, 0x2681040, indexKOFXISprites_Ralf, 0x20 },
     { L"Start+A - Electric Palette", 0x2681040, 0x2681060, indexKOFXISprites_Ralf, 0x41 },
     { L"Start+A - Darker Palette", 0x2681060, 0x2681080, indexKOFXISprites_Ralf, 0x40 },
@@ -3842,7 +3873,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_SB[] =
 {
-    { L"Ralf SB", 0x2681200, 0x2681220, indexKOFXISprites_Ralf },
+    { L"Ralf SB", 0x2681200, 0x2681220, indexKOF01Sprites_Ralf, 0x00 },
     { L"Start+B - Super Stuff 1", 0x2681220, 0x2681240, indexKOFXISprites_Ralf, 0x20 },
     { L"Start+B - Electric Palette", 0x2681240, 0x2681260, indexKOFXISprites_Ralf, 0x41 },
     { L"Start+B - Darker Palette", 0x2681260, 0x2681280, indexKOFXISprites_Ralf, 0x40 },
@@ -3862,7 +3893,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_SC[] =
 {
-    { L"Ralf SC", 0x2681400, 0x2681420, indexKOFXISprites_Ralf },
+    { L"Ralf SC", 0x2681400, 0x2681420, indexKOF01Sprites_Ralf, 0x00 },
     { L"Start+C - Super Stuff 1", 0x2681420, 0x2681440, indexKOFXISprites_Ralf, 0x20 },
     { L"Start+C - Electric Palette", 0x2681440, 0x2681460, indexKOFXISprites_Ralf, 0x41 },
     { L"Start+C - Darker Palette", 0x2681460, 0x2681480, indexKOFXISprites_Ralf, 0x40 },
@@ -3882,7 +3913,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_SD[] =
 {
-    { L"Ralf SD", 0x2681600, 0x2681620, indexKOFXISprites_Ralf },
+    { L"Ralf SD", 0x2681600, 0x2681620, indexKOF01Sprites_Ralf, 0x00 },
     { L"Start+D - Super Stuff 1", 0x2681620, 0x2681640, indexKOFXISprites_Ralf, 0x20 },
     { L"Start+D - Electric Palette", 0x2681640, 0x2681660, indexKOFXISprites_Ralf, 0x41 },
     { L"Start+D - Darker Palette", 0x2681660, 0x2681680, indexKOFXISprites_Ralf, 0x40 },
@@ -3902,7 +3933,7 @@ const sGame_PaletteDataset KOFXI_A_RALF_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_A[] =
 {
-    { L"Clark A", 0x27c1000, 0x27c1020, indexKOFXISprites_Clark },
+    { L"Clark A", 0x27c1000, 0x27c1020, indexKOF99Sprites_Clark, 0x00 },
     { L"A - Super Stuff 1", 0x27c1020, 0x27c1040, indexKOFXISprites_Clark, 0x20 },
     { L"A - Electric Palette", 0x27c1040, 0x27c1060, indexKOFXISprites_Clark, 0x41 },
     { L"A - Darker Palette", 0x27c1060, 0x27c1080, indexKOFXISprites_Clark, 0x40 },
@@ -3922,7 +3953,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_B[] =
 {
-    { L"Clark B", 0x27c1200, 0x27c1220, indexKOFXISprites_Clark },
+    { L"Clark B", 0x27c1200, 0x27c1220, indexKOF99Sprites_Clark, 0x00 },
     { L"B - Super Stuff 1", 0x27c1220, 0x27c1240, indexKOFXISprites_Clark, 0x20 },
     { L"B - Electric Palette", 0x27c1240, 0x27c1260, indexKOFXISprites_Clark, 0x41 },
     { L"B - Darker Palette", 0x27c1260, 0x27c1280, indexKOFXISprites_Clark, 0x40 },
@@ -3942,7 +3973,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_C[] =
 {
-    { L"Clark C", 0x27c1400, 0x27c1420, indexKOFXISprites_Clark },
+    { L"Clark C", 0x27c1400, 0x27c1420, indexKOF99Sprites_Clark, 0x00 },
     { L"C - Super Stuff 1", 0x27c1420, 0x27c1440, indexKOFXISprites_Clark, 0x20 },
     { L"C - Electric Palette", 0x27c1440, 0x27c1460, indexKOFXISprites_Clark, 0x41 },
     { L"C - Darker Palette", 0x27c1460, 0x27c1480, indexKOFXISprites_Clark, 0x40 },
@@ -3962,7 +3993,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_D[] =
 {
-    { L"Clark D", 0x27c1600, 0x27c1620, indexKOFXISprites_Clark },
+    { L"Clark D", 0x27c1600, 0x27c1620, indexKOF99Sprites_Clark, 0x00 },
     { L"D - Super Stuff 1", 0x27c1620, 0x27c1640, indexKOFXISprites_Clark, 0x20 },
     { L"D - Electric Palette", 0x27c1640, 0x27c1660, indexKOFXISprites_Clark, 0x41 },
     { L"D - Darker Palette", 0x27c1660, 0x27c1680, indexKOFXISprites_Clark, 0x40 },
@@ -3982,7 +4013,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_EA[] =
 {
-    { L"Clark EA", 0x27c1800, 0x27c1820, indexKOFXISprites_Clark },
+    { L"Clark EA", 0x27c1800, 0x27c1820, indexKOF99Sprites_Clark, 0x00 },
     { L"E+A - Super Stuff 1", 0x27c1820, 0x27c1840, indexKOFXISprites_Clark, 0x20 },
     { L"E+A - Electric Palette", 0x27c1840, 0x27c1860, indexKOFXISprites_Clark, 0x41 },
     { L"E+A - Darker Palette", 0x27c1860, 0x27c1880, indexKOFXISprites_Clark, 0x40 },
@@ -4002,7 +4033,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_EB[] =
 {
-    { L"Clark EB", 0x27c1a00, 0x27c1a20, indexKOFXISprites_Clark },
+    { L"Clark EB", 0x27c1a00, 0x27c1a20, indexKOF99Sprites_Clark, 0x00 },
     { L"E+B - Super Stuff 1", 0x27c1a20, 0x27c1a40, indexKOFXISprites_Clark, 0x20 },
     { L"E+B - Electric Palette", 0x27c1a40, 0x27c1a60, indexKOFXISprites_Clark, 0x41 },
     { L"E+B - Darker Palette", 0x27c1a60, 0x27c1a80, indexKOFXISprites_Clark, 0x40 },
@@ -4022,7 +4053,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_EC[] =
 {
-    { L"Clark EC", 0x27c1c00, 0x27c1c20, indexKOFXISprites_Clark },
+    { L"Clark EC", 0x27c1c00, 0x27c1c20, indexKOF99Sprites_Clark, 0x00 },
     { L"E+C - Super Stuff 1", 0x27c1c20, 0x27c1c40, indexKOFXISprites_Clark, 0x20 },
     { L"E+C - Electric Palette", 0x27c1c40, 0x27c1c60, indexKOFXISprites_Clark, 0x41 },
     { L"E+C - Darker Palette", 0x27c1c60, 0x27c1c80, indexKOFXISprites_Clark, 0x40 },
@@ -4042,7 +4073,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_ED[] =
 {
-    { L"Clark ED", 0x27c1e00, 0x27c1e20, indexKOFXISprites_Clark },
+    { L"Clark ED", 0x27c1e00, 0x27c1e20, indexKOF99Sprites_Clark, 0x00 },
     { L"E+D - Super Stuff 1", 0x27c1e20, 0x27c1e40, indexKOFXISprites_Clark, 0x20 },
     { L"E+D - Electric Palette", 0x27c1e40, 0x27c1e60, indexKOFXISprites_Clark, 0x41 },
     { L"E+D - Darker Palette", 0x27c1e60, 0x27c1e80, indexKOFXISprites_Clark, 0x40 },
@@ -4062,7 +4093,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_SA[] =
 {
-    { L"Clark SA", 0x27c2000, 0x27c2020, indexKOFXISprites_Clark },
+    { L"Clark SA", 0x27c2000, 0x27c2020, indexKOF99Sprites_Clark, 0x00 },
     { L"Start+A - Super Stuff 1", 0x27c2020, 0x27c2040, indexKOFXISprites_Clark, 0x20 },
     { L"Start+A - Electric Palette", 0x27c2040, 0x27c2060, indexKOFXISprites_Clark, 0x41 },
     { L"Start+A - Darker Palette", 0x27c2060, 0x27c2080, indexKOFXISprites_Clark, 0x40 },
@@ -4082,7 +4113,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_SB[] =
 {
-    { L"Clark SB", 0x27c2200, 0x27c2220, indexKOFXISprites_Clark },
+    { L"Clark SB", 0x27c2200, 0x27c2220, indexKOF99Sprites_Clark, 0x00 },
     { L"Start+B - Super Stuff 1", 0x27c2220, 0x27c2240, indexKOFXISprites_Clark, 0x20 },
     { L"Start+B - Electric Palette", 0x27c2240, 0x27c2260, indexKOFXISprites_Clark, 0x41 },
     { L"Start+B - Darker Palette", 0x27c2260, 0x27c2280, indexKOFXISprites_Clark, 0x40 },
@@ -4102,7 +4133,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_SC[] =
 {
-    { L"Clark SC", 0x27c2400, 0x27c2420, indexKOFXISprites_Clark },
+    { L"Clark SC", 0x27c2400, 0x27c2420, indexKOF99Sprites_Clark, 0x00 },
     { L"Start+C - Super Stuff 1", 0x27c2420, 0x27c2440, indexKOFXISprites_Clark, 0x20 },
     { L"Start+C - Electric Palette", 0x27c2440, 0x27c2460, indexKOFXISprites_Clark, 0x41 },
     { L"Start+C - Darker Palette", 0x27c2460, 0x27c2480, indexKOFXISprites_Clark, 0x40 },
@@ -4122,7 +4153,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_SD[] =
 {
-    { L"Clark SD", 0x27c2600, 0x27c2620, indexKOFXISprites_Clark },
+    { L"Clark SD", 0x27c2600, 0x27c2620, indexKOF99Sprites_Clark, 0x00 },
     { L"Start+D - Super Stuff 1", 0x27c2620, 0x27c2640, indexKOFXISprites_Clark, 0x20 },
     { L"Start+D - Electric Palette", 0x27c2640, 0x27c2660, indexKOFXISprites_Clark, 0x41 },
     { L"Start+D - Darker Palette", 0x27c2660, 0x27c2680, indexKOFXISprites_Clark, 0x40 },
@@ -4142,7 +4173,7 @@ const sGame_PaletteDataset KOFXI_A_CLARK_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_A[] =
 {
-    { L"Whip A", 0x28ed000, 0x28ed020, indexKOFXISprites_Whip },
+    { L"Whip A", 0x28ed000, 0x28ed020, indexKOF99Sprites_Whip, 0x00 },
     { L"A - Super Stuff 1", 0x28ed020, 0x28ed040, indexKOFXISprites_Whip, 0x20 },
     { L"A - Electric Palette", 0x28ed040, 0x28ed060, indexKOFXISprites_Whip, 0x41 },
     { L"A - Darker Palette", 0x28ed060, 0x28ed080, indexKOFXISprites_Whip, 0x40 },
@@ -4162,7 +4193,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_B[] =
 {
-    { L"Whip B", 0x28ed200, 0x28ed220, indexKOFXISprites_Whip },
+    { L"Whip B", 0x28ed200, 0x28ed220, indexKOF99Sprites_Whip, 0x00 },
     { L"B - Super Stuff 1", 0x28ed220, 0x28ed240, indexKOFXISprites_Whip, 0x20 },
     { L"B - Electric Palette", 0x28ed240, 0x28ed260, indexKOFXISprites_Whip, 0x41 },
     { L"B - Darker Palette", 0x28ed260, 0x28ed280, indexKOFXISprites_Whip, 0x40 },
@@ -4182,7 +4213,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_C[] =
 {
-    { L"Whip C", 0x28ed400, 0x28ed420, indexKOFXISprites_Whip },
+    { L"Whip C", 0x28ed400, 0x28ed420, indexKOF99Sprites_Whip, 0x00 },
     { L"C - Super Stuff 1", 0x28ed420, 0x28ed440, indexKOFXISprites_Whip, 0x20 },
     { L"C - Electric Palette", 0x28ed440, 0x28ed460, indexKOFXISprites_Whip, 0x41 },
     { L"C - Darker Palette", 0x28ed460, 0x28ed480, indexKOFXISprites_Whip, 0x40 },
@@ -4202,7 +4233,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_D[] =
 {
-    { L"Whip D", 0x28ed600, 0x28ed620, indexKOFXISprites_Whip },
+    { L"Whip D", 0x28ed600, 0x28ed620, indexKOF99Sprites_Whip, 0x00 },
     { L"D - Super Stuff 1", 0x28ed620, 0x28ed640, indexKOFXISprites_Whip, 0x20 },
     { L"D - Electric Palette", 0x28ed640, 0x28ed660, indexKOFXISprites_Whip, 0x41 },
     { L"D - Darker Palette", 0x28ed660, 0x28ed680, indexKOFXISprites_Whip, 0x40 },
@@ -4222,7 +4253,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_EA[] =
 {
-    { L"Whip EA", 0x28ed800, 0x28ed820, indexKOFXISprites_Whip },
+    { L"Whip EA", 0x28ed800, 0x28ed820, indexKOF99Sprites_Whip, 0x00 },
     { L"E+A - Super Stuff 1", 0x28ed820, 0x28ed840, indexKOFXISprites_Whip, 0x20 },
     { L"E+A - Electric Palette", 0x28ed840, 0x28ed860, indexKOFXISprites_Whip, 0x41 },
     { L"E+A - Darker Palette", 0x28ed860, 0x28ed880, indexKOFXISprites_Whip, 0x40 },
@@ -4242,7 +4273,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_EB[] =
 {
-    { L"Whip EB", 0x28eda00, 0x28eda20, indexKOFXISprites_Whip },
+    { L"Whip EB", 0x28eda00, 0x28eda20, indexKOF99Sprites_Whip, 0x00 },
     { L"E+B - Super Stuff 1", 0x28eda20, 0x28eda40, indexKOFXISprites_Whip, 0x20 },
     { L"E+B - Electric Palette", 0x28eda40, 0x28eda60, indexKOFXISprites_Whip, 0x41 },
     { L"E+B - Darker Palette", 0x28eda60, 0x28eda80, indexKOFXISprites_Whip, 0x40 },
@@ -4262,7 +4293,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_EC[] =
 {
-    { L"Whip EC", 0x28edc00, 0x28edc20, indexKOFXISprites_Whip },
+    { L"Whip EC", 0x28edc00, 0x28edc20, indexKOF99Sprites_Whip, 0x00 },
     { L"E+C - Super Stuff 1", 0x28edc20, 0x28edc40, indexKOFXISprites_Whip, 0x20 },
     { L"E+C - Electric Palette", 0x28edc40, 0x28edc60, indexKOFXISprites_Whip, 0x41 },
     { L"E+C - Darker Palette", 0x28edc60, 0x28edc80, indexKOFXISprites_Whip, 0x40 },
@@ -4282,7 +4313,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_ED[] =
 {
-    { L"Whip ED", 0x28ede00, 0x28ede20, indexKOFXISprites_Whip },
+    { L"Whip ED", 0x28ede00, 0x28ede20, indexKOF99Sprites_Whip, 0x00 },
     { L"E+D - Super Stuff 1", 0x28ede20, 0x28ede40, indexKOFXISprites_Whip, 0x20 },
     { L"E+D - Electric Palette", 0x28ede40, 0x28ede60, indexKOFXISprites_Whip, 0x41 },
     { L"E+D - Darker Palette", 0x28ede60, 0x28ede80, indexKOFXISprites_Whip, 0x40 },
@@ -4302,7 +4333,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_SA[] =
 {
-    { L"Whip SA", 0x28ee000, 0x28ee020, indexKOFXISprites_Whip },
+    { L"Whip SA", 0x28ee000, 0x28ee020, indexKOF99Sprites_Whip, 0x00 },
     { L"Start+A - Super Stuff 1", 0x28ee020, 0x28ee040, indexKOFXISprites_Whip, 0x20 },
     { L"Start+A - Electric Palette", 0x28ee040, 0x28ee060, indexKOFXISprites_Whip, 0x41 },
     { L"Start+A - Darker Palette", 0x28ee060, 0x28ee080, indexKOFXISprites_Whip, 0x40 },
@@ -4322,7 +4353,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_SB[] =
 {
-    { L"Whip SB", 0x28ee200, 0x28ee220, indexKOFXISprites_Whip },
+    { L"Whip SB", 0x28ee200, 0x28ee220, indexKOF99Sprites_Whip, 0x00 },
     { L"Start+B - Super Stuff 1", 0x28ee220, 0x28ee240, indexKOFXISprites_Whip, 0x20 },
     { L"Start+B - Electric Palette", 0x28ee240, 0x28ee260, indexKOFXISprites_Whip, 0x41 },
     { L"Start+B - Darker Palette", 0x28ee260, 0x28ee280, indexKOFXISprites_Whip, 0x40 },
@@ -4342,7 +4373,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_SC[] =
 {
-    { L"Whip SC", 0x28ee400, 0x28ee420, indexKOFXISprites_Whip },
+    { L"Whip SC", 0x28ee400, 0x28ee420, indexKOF99Sprites_Whip, 0x00 },
     { L"Start+C - Super Stuff 1", 0x28ee420, 0x28ee440, indexKOFXISprites_Whip, 0x20 },
     { L"Start+C - Electric Palette", 0x28ee440, 0x28ee460, indexKOFXISprites_Whip, 0x41 },
     { L"Start+C - Darker Palette", 0x28ee460, 0x28ee480, indexKOFXISprites_Whip, 0x40 },
@@ -4362,7 +4393,7 @@ const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_WHIP_PALETTES_SD[] =
 {
-    { L"Whip SD", 0x28ee600, 0x28ee620, indexKOFXISprites_Whip },
+    { L"Whip SD", 0x28ee600, 0x28ee620, indexKOF99Sprites_Whip, 0x00 },
     { L"Start+D - Super Stuff 1", 0x28ee620, 0x28ee640, indexKOFXISprites_Whip, 0x20 },
     { L"Start+D - Electric Palette", 0x28ee640, 0x28ee660, indexKOFXISprites_Whip, 0x41 },
     { L"Start+D - Darker Palette", 0x28ee660, 0x28ee680, indexKOFXISprites_Whip, 0x40 },
@@ -5102,7 +5133,7 @@ const sGame_PaletteDataset KOFXI_A_MOMOKO_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_A[] =
 {
-    { L"Vanessa A", 0x2f98000, 0x2f98020, indexKOFXISprites_Vanessa },
+    { L"Vanessa A", 0x2f98000, 0x2f98020, indexKOF01Sprites_Vanessa, 0x00 },
     { L"A - Super Stuff 1", 0x2f98020, 0x2f98040, indexKOFXISprites_Vanessa, 0x20 },
     { L"A - Electric Palette", 0x2f98040, 0x2f98060, indexKOFXISprites_Vanessa, 0x41 },
     { L"A - Darker Palette", 0x2f98060, 0x2f98080, indexKOFXISprites_Vanessa, 0x40 },
@@ -5122,7 +5153,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_B[] =
 {
-    { L"Vanessa B", 0x2f98200, 0x2f98220, indexKOFXISprites_Vanessa },
+    { L"Vanessa B", 0x2f98200, 0x2f98220, indexKOF01Sprites_Vanessa, 0x00 },
     { L"B - Super Stuff 1", 0x2f98220, 0x2f98240, indexKOFXISprites_Vanessa, 0x20 },
     { L"B - Electric Palette", 0x2f98240, 0x2f98260, indexKOFXISprites_Vanessa, 0x41 },
     { L"B - Darker Palette", 0x2f98260, 0x2f98280, indexKOFXISprites_Vanessa, 0x40 },
@@ -5142,7 +5173,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_C[] =
 {
-    { L"Vanessa C", 0x2f98400, 0x2f98420, indexKOFXISprites_Vanessa },
+    { L"Vanessa C", 0x2f98400, 0x2f98420, indexKOF01Sprites_Vanessa, 0x00 },
     { L"C - Super Stuff 1", 0x2f98420, 0x2f98440, indexKOFXISprites_Vanessa, 0x20 },
     { L"C - Electric Palette", 0x2f98440, 0x2f98460, indexKOFXISprites_Vanessa, 0x41 },
     { L"C - Darker Palette", 0x2f98460, 0x2f98480, indexKOFXISprites_Vanessa, 0x40 },
@@ -5162,7 +5193,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_D[] =
 {
-    { L"Vanessa D", 0x2f98600, 0x2f98620, indexKOFXISprites_Vanessa },
+    { L"Vanessa D", 0x2f98600, 0x2f98620, indexKOF01Sprites_Vanessa, 0x00 },
     { L"D - Super Stuff 1", 0x2f98620, 0x2f98640, indexKOFXISprites_Vanessa, 0x20 },
     { L"D - Electric Palette", 0x2f98640, 0x2f98660, indexKOFXISprites_Vanessa, 0x41 },
     { L"D - Darker Palette", 0x2f98660, 0x2f98680, indexKOFXISprites_Vanessa, 0x40 },
@@ -5182,7 +5213,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_EA[] =
 {
-    { L"Vanessa EA", 0x2f98800, 0x2f98820, indexKOFXISprites_Vanessa },
+    { L"Vanessa EA", 0x2f98800, 0x2f98820, indexKOF01Sprites_Vanessa, 0x00 },
     { L"E+A - Super Stuff 1", 0x2f98820, 0x2f98840, indexKOFXISprites_Vanessa, 0x20 },
     { L"E+A - Electric Palette", 0x2f98840, 0x2f98860, indexKOFXISprites_Vanessa, 0x41 },
     { L"E+A - Darker Palette", 0x2f98860, 0x2f98880, indexKOFXISprites_Vanessa, 0x40 },
@@ -5202,7 +5233,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_EB[] =
 {
-    { L"Vanessa EB", 0x2f98a00, 0x2f98a20, indexKOFXISprites_Vanessa },
+    { L"Vanessa EB", 0x2f98a00, 0x2f98a20, indexKOF01Sprites_Vanessa, 0x00 },
     { L"E+B - Super Stuff 1", 0x2f98a20, 0x2f98a40, indexKOFXISprites_Vanessa, 0x20 },
     { L"E+B - Electric Palette", 0x2f98a40, 0x2f98a60, indexKOFXISprites_Vanessa, 0x41 },
     { L"E+B - Darker Palette", 0x2f98a60, 0x2f98a80, indexKOFXISprites_Vanessa, 0x40 },
@@ -5222,7 +5253,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_EC[] =
 {
-    { L"Vanessa EC", 0x2f98c00, 0x2f98c20, indexKOFXISprites_Vanessa },
+    { L"Vanessa EC", 0x2f98c00, 0x2f98c20, indexKOF01Sprites_Vanessa, 0x00 },
     { L"E+C - Super Stuff 1", 0x2f98c20, 0x2f98c40, indexKOFXISprites_Vanessa, 0x20 },
     { L"E+C - Electric Palette", 0x2f98c40, 0x2f98c60, indexKOFXISprites_Vanessa, 0x41 },
     { L"E+C - Darker Palette", 0x2f98c60, 0x2f98c80, indexKOFXISprites_Vanessa, 0x40 },
@@ -5242,7 +5273,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_ED[] =
 {
-    { L"Vanessa ED", 0x2f98e00, 0x2f98e20, indexKOFXISprites_Vanessa },
+    { L"Vanessa ED", 0x2f98e00, 0x2f98e20, indexKOF01Sprites_Vanessa, 0x00 },
     { L"E+D - Super Stuff 1", 0x2f98e20, 0x2f98e40, indexKOFXISprites_Vanessa, 0x20 },
     { L"E+D - Electric Palette", 0x2f98e40, 0x2f98e60, indexKOFXISprites_Vanessa, 0x41 },
     { L"E+D - Darker Palette", 0x2f98e60, 0x2f98e80, indexKOFXISprites_Vanessa, 0x40 },
@@ -5262,7 +5293,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_SA[] =
 {
-    { L"Vanessa SA", 0x2f99000, 0x2f99020, indexKOFXISprites_Vanessa },
+    { L"Vanessa SA", 0x2f99000, 0x2f99020, indexKOF01Sprites_Vanessa, 0x00 },
     { L"Start+A - Super Stuff 1", 0x2f99020, 0x2f99040, indexKOFXISprites_Vanessa, 0x20 },
     { L"Start+A - Electric Palette", 0x2f99040, 0x2f99060, indexKOFXISprites_Vanessa, 0x41 },
     { L"Start+A - Darker Palette", 0x2f99060, 0x2f99080, indexKOFXISprites_Vanessa, 0x40 },
@@ -5282,7 +5313,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_SB[] =
 {
-    { L"Vanessa SB", 0x2f99200, 0x2f99220, indexKOFXISprites_Vanessa },
+    { L"Vanessa SB", 0x2f99200, 0x2f99220, indexKOF01Sprites_Vanessa, 0x00 },
     { L"Start+B - Super Stuff 1", 0x2f99220, 0x2f99240, indexKOFXISprites_Vanessa, 0x20 },
     { L"Start+B - Electric Palette", 0x2f99240, 0x2f99260, indexKOFXISprites_Vanessa, 0x41 },
     { L"Start+B - Darker Palette", 0x2f99260, 0x2f99280, indexKOFXISprites_Vanessa, 0x40 },
@@ -5302,7 +5333,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_SC[] =
 {
-    { L"Vanessa SC", 0x2f99400, 0x2f99420, indexKOFXISprites_Vanessa },
+    { L"Vanessa SC", 0x2f99400, 0x2f99420, indexKOF01Sprites_Vanessa, 0x00 },
     { L"Start+C - Super Stuff 1", 0x2f99420, 0x2f99440, indexKOFXISprites_Vanessa, 0x20 },
     { L"Start+C - Electric Palette", 0x2f99440, 0x2f99460, indexKOFXISprites_Vanessa, 0x41 },
     { L"Start+C - Darker Palette", 0x2f99460, 0x2f99480, indexKOFXISprites_Vanessa, 0x40 },
@@ -5322,7 +5353,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_SD[] =
 {
-    { L"Vanessa SD", 0x2f99600, 0x2f99620, indexKOFXISprites_Vanessa },
+    { L"Vanessa SD", 0x2f99600, 0x2f99620, indexKOF01Sprites_Vanessa, 0x00 },
     { L"Start+D - Super Stuff 1", 0x2f99620, 0x2f99640, indexKOFXISprites_Vanessa, 0x20 },
     { L"Start+D - Electric Palette", 0x2f99640, 0x2f99660, indexKOFXISprites_Vanessa, 0x41 },
     { L"Start+D - Darker Palette", 0x2f99660, 0x2f99680, indexKOFXISprites_Vanessa, 0x40 },
@@ -5342,7 +5373,7 @@ const sGame_PaletteDataset KOFXI_A_VANESSA_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_A[] =
 {
-    { L"Blue Mary A", 0x30ef000, 0x30ef020, indexKOFXISprites_BlueMary },
+    { L"Blue Mary A", 0x30ef000, 0x30ef020, indexKOF97Sprites_BlueMary, 0x00 },
     { L"A - Super Stuff 1", 0x30ef020, 0x30ef040, indexKOFXISprites_BlueMary, 0x20 },
     { L"A - Electric Palette", 0x30ef040, 0x30ef060, indexKOFXISprites_BlueMary, 0x41 },
     { L"A - Darker Palette", 0x30ef060, 0x30ef080, indexKOFXISprites_BlueMary, 0x40 },
@@ -5362,7 +5393,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_B[] =
 {
-    { L"Blue Mary B", 0x30ef200, 0x30ef220, indexKOFXISprites_BlueMary },
+    { L"Blue Mary B", 0x30ef200, 0x30ef220, indexKOF97Sprites_BlueMary, 0x00 },
     { L"B - Super Stuff 1", 0x30ef220, 0x30ef240, indexKOFXISprites_BlueMary, 0x20 },
     { L"B - Electric Palette", 0x30ef240, 0x30ef260, indexKOFXISprites_BlueMary, 0x41 },
     { L"B - Darker Palette", 0x30ef260, 0x30ef280, indexKOFXISprites_BlueMary, 0x40 },
@@ -5382,7 +5413,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_C[] =
 {
-    { L"Blue Mary C", 0x30ef400, 0x30ef420, indexKOFXISprites_BlueMary },
+    { L"Blue Mary C", 0x30ef400, 0x30ef420, indexKOF97Sprites_BlueMary, 0x00 },
     { L"C - Super Stuff 1", 0x30ef420, 0x30ef440, indexKOFXISprites_BlueMary, 0x20 },
     { L"C - Electric Palette", 0x30ef440, 0x30ef460, indexKOFXISprites_BlueMary, 0x41 },
     { L"C - Darker Palette", 0x30ef460, 0x30ef480, indexKOFXISprites_BlueMary, 0x40 },
@@ -5402,7 +5433,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_D[] =
 {
-    { L"Blue Mary D", 0x30ef600, 0x30ef620, indexKOFXISprites_BlueMary },
+    { L"Blue Mary D", 0x30ef600, 0x30ef620, indexKOF97Sprites_BlueMary, 0x00 },
     { L"D - Super Stuff 1", 0x30ef620, 0x30ef640, indexKOFXISprites_BlueMary, 0x20 },
     { L"D - Electric Palette", 0x30ef640, 0x30ef660, indexKOFXISprites_BlueMary, 0x41 },
     { L"D - Darker Palette", 0x30ef660, 0x30ef680, indexKOFXISprites_BlueMary, 0x40 },
@@ -5422,7 +5453,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_EA[] =
 {
-    { L"Blue Mary EA", 0x30ef800, 0x30ef820, indexKOFXISprites_BlueMary },
+    { L"Blue Mary EA", 0x30ef800, 0x30ef820, indexKOF97Sprites_BlueMary, 0x00 },
     { L"E+A - Super Stuff 1", 0x30ef820, 0x30ef840, indexKOFXISprites_BlueMary, 0x20 },
     { L"E+A - Electric Palette", 0x30ef840, 0x30ef860, indexKOFXISprites_BlueMary, 0x41 },
     { L"E+A - Darker Palette", 0x30ef860, 0x30ef880, indexKOFXISprites_BlueMary, 0x40 },
@@ -5442,7 +5473,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_EB[] =
 {
-    { L"Blue Mary EB", 0x30efa00, 0x30efa20, indexKOFXISprites_BlueMary },
+    { L"Blue Mary EB", 0x30efa00, 0x30efa20, indexKOF97Sprites_BlueMary, 0x00 },
     { L"E+B - Super Stuff 1", 0x30efa20, 0x30efa40, indexKOFXISprites_BlueMary, 0x20 },
     { L"E+B - Electric Palette", 0x30efa40, 0x30efa60, indexKOFXISprites_BlueMary, 0x41 },
     { L"E+B - Darker Palette", 0x30efa60, 0x30efa80, indexKOFXISprites_BlueMary, 0x40 },
@@ -5462,7 +5493,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_EC[] =
 {
-    { L"Blue Mary EC", 0x30efc00, 0x30efc20, indexKOFXISprites_BlueMary },
+    { L"Blue Mary EC", 0x30efc00, 0x30efc20, indexKOF97Sprites_BlueMary, 0x00 },
     { L"E+C - Super Stuff 1", 0x30efc20, 0x30efc40, indexKOFXISprites_BlueMary, 0x20 },
     { L"E+C - Electric Palette", 0x30efc40, 0x30efc60, indexKOFXISprites_BlueMary, 0x41 },
     { L"E+C - Darker Palette", 0x30efc60, 0x30efc80, indexKOFXISprites_BlueMary, 0x40 },
@@ -5482,7 +5513,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_ED[] =
 {
-    { L"Blue Mary ED", 0x30efe00, 0x30efe20, indexKOFXISprites_BlueMary },
+    { L"Blue Mary ED", 0x30efe00, 0x30efe20, indexKOF97Sprites_BlueMary, 0x00 },
     { L"E+D - Super Stuff 1", 0x30efe20, 0x30efe40, indexKOFXISprites_BlueMary, 0x20 },
     { L"E+D - Electric Palette", 0x30efe40, 0x30efe60, indexKOFXISprites_BlueMary, 0x41 },
     { L"E+D - Darker Palette", 0x30efe60, 0x30efe80, indexKOFXISprites_BlueMary, 0x40 },
@@ -5502,7 +5533,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_SA[] =
 {
-    { L"Blue Mary SA", 0x30f0000, 0x30f0020, indexKOFXISprites_BlueMary },
+    { L"Blue Mary SA", 0x30f0000, 0x30f0020, indexKOF97Sprites_BlueMary, 0x00 },
     { L"Start+A - Super Stuff 1", 0x30f0020, 0x30f0040, indexKOFXISprites_BlueMary, 0x20 },
     { L"Start+A - Electric Palette", 0x30f0040, 0x30f0060, indexKOFXISprites_BlueMary, 0x41 },
     { L"Start+A - Darker Palette", 0x30f0060, 0x30f0080, indexKOFXISprites_BlueMary, 0x40 },
@@ -5522,7 +5553,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_SB[] =
 {
-    { L"Blue Mary SB", 0x30f0200, 0x30f0220, indexKOFXISprites_BlueMary },
+    { L"Blue Mary SB", 0x30f0200, 0x30f0220, indexKOF97Sprites_BlueMary, 0x00 },
     { L"Start+B - Super Stuff 1", 0x30f0220, 0x30f0240, indexKOFXISprites_BlueMary, 0x20 },
     { L"Start+B - Electric Palette", 0x30f0240, 0x30f0260, indexKOFXISprites_BlueMary, 0x41 },
     { L"Start+B - Darker Palette", 0x30f0260, 0x30f0280, indexKOFXISprites_BlueMary, 0x40 },
@@ -5542,7 +5573,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_SC[] =
 {
-    { L"Blue Mary SC", 0x30f0400, 0x30f0420, indexKOFXISprites_BlueMary },
+    { L"Blue Mary SC", 0x30f0400, 0x30f0420, indexKOF97Sprites_BlueMary, 0x00 },
     { L"Start+C - Super Stuff 1", 0x30f0420, 0x30f0440, indexKOFXISprites_BlueMary, 0x20 },
     { L"Start+C - Electric Palette", 0x30f0440, 0x30f0460, indexKOFXISprites_BlueMary, 0x41 },
     { L"Start+C - Darker Palette", 0x30f0460, 0x30f0480, indexKOFXISprites_BlueMary, 0x40 },
@@ -5562,7 +5593,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_SD[] =
 {
-    { L"Blue Mary SD", 0x30f0600, 0x30f0620, indexKOFXISprites_BlueMary },
+    { L"Blue Mary SD", 0x30f0600, 0x30f0620, indexKOF97Sprites_BlueMary, 0x00 },
     { L"Start+D - Super Stuff 1", 0x30f0620, 0x30f0640, indexKOFXISprites_BlueMary, 0x20 },
     { L"Start+D - Electric Palette", 0x30f0640, 0x30f0660, indexKOFXISprites_BlueMary, 0x41 },
     { L"Start+D - Darker Palette", 0x30f0660, 0x30f0680, indexKOFXISprites_BlueMary, 0x40 },
@@ -5582,7 +5613,7 @@ const sGame_PaletteDataset KOFXI_A_BLUEMARY_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_A[] =
 {
-    { L"Ramon A", 0x3257000, 0x3257020, indexKOFXISprites_Ramon },
+    { L"Ramon A", 0x3257000, 0x3257020, indexKOF01Sprites_Ramon, 0x00 },
     { L"A - Super Stuff 1", 0x3257020, 0x3257040, indexKOFXISprites_Ramon, 0x20 },
     { L"A - Electric Palette", 0x3257040, 0x3257060, indexKOFXISprites_Ramon, 0x41 },
     { L"A - Darker Palette", 0x3257060, 0x3257080, indexKOFXISprites_Ramon, 0x40 },
@@ -5602,7 +5633,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_B[] =
 {
-    { L"Ramon B", 0x3257200, 0x3257220, indexKOFXISprites_Ramon },
+    { L"Ramon B", 0x3257200, 0x3257220, indexKOF01Sprites_Ramon, 0x00 },
     { L"B - Super Stuff 1", 0x3257220, 0x3257240, indexKOFXISprites_Ramon, 0x20 },
     { L"B - Electric Palette", 0x3257240, 0x3257260, indexKOFXISprites_Ramon, 0x41 },
     { L"B - Darker Palette", 0x3257260, 0x3257280, indexKOFXISprites_Ramon, 0x40 },
@@ -5622,7 +5653,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_C[] =
 {
-    { L"Ramon C", 0x3257400, 0x3257420, indexKOFXISprites_Ramon },
+    { L"Ramon C", 0x3257400, 0x3257420, indexKOF01Sprites_Ramon, 0x00 },
     { L"C - Super Stuff 1", 0x3257420, 0x3257440, indexKOFXISprites_Ramon, 0x20 },
     { L"C - Electric Palette", 0x3257440, 0x3257460, indexKOFXISprites_Ramon, 0x41 },
     { L"C - Darker Palette", 0x3257460, 0x3257480, indexKOFXISprites_Ramon, 0x40 },
@@ -5642,7 +5673,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_D[] =
 {
-    { L"Ramon D", 0x3257600, 0x3257620, indexKOFXISprites_Ramon },
+    { L"Ramon D", 0x3257600, 0x3257620, indexKOF01Sprites_Ramon, 0x00 },
     { L"D - Super Stuff 1", 0x3257620, 0x3257640, indexKOFXISprites_Ramon, 0x20 },
     { L"D - Electric Palette", 0x3257640, 0x3257660, indexKOFXISprites_Ramon, 0x41 },
     { L"D - Darker Palette", 0x3257660, 0x3257680, indexKOFXISprites_Ramon, 0x40 },
@@ -5662,7 +5693,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_EA[] =
 {
-    { L"Ramon EA", 0x3257800, 0x3257820, indexKOFXISprites_Ramon },
+    { L"Ramon EA", 0x3257800, 0x3257820, indexKOF01Sprites_Ramon, 0x00 },
     { L"E+A - Super Stuff 1", 0x3257820, 0x3257840, indexKOFXISprites_Ramon, 0x20 },
     { L"E+A - Electric Palette", 0x3257840, 0x3257860, indexKOFXISprites_Ramon, 0x41 },
     { L"E+A - Darker Palette", 0x3257860, 0x3257880, indexKOFXISprites_Ramon, 0x40 },
@@ -5682,7 +5713,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_EB[] =
 {
-    { L"Ramon EB", 0x3257a00, 0x3257a20, indexKOFXISprites_Ramon },
+    { L"Ramon EB", 0x3257a00, 0x3257a20, indexKOF01Sprites_Ramon, 0x00 },
     { L"E+B - Super Stuff 1", 0x3257a20, 0x3257a40, indexKOFXISprites_Ramon, 0x20 },
     { L"E+B - Electric Palette", 0x3257a40, 0x3257a60, indexKOFXISprites_Ramon, 0x41 },
     { L"E+B - Darker Palette", 0x3257a60, 0x3257a80, indexKOFXISprites_Ramon, 0x40 },
@@ -5702,7 +5733,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_EC[] =
 {
-    { L"Ramon EC", 0x3257c00, 0x3257c20, indexKOFXISprites_Ramon },
+    { L"Ramon EC", 0x3257c00, 0x3257c20, indexKOF01Sprites_Ramon, 0x00 },
     { L"E+C - Super Stuff 1", 0x3257c20, 0x3257c40, indexKOFXISprites_Ramon, 0x20 },
     { L"E+C - Electric Palette", 0x3257c40, 0x3257c60, indexKOFXISprites_Ramon, 0x41 },
     { L"E+C - Darker Palette", 0x3257c60, 0x3257c80, indexKOFXISprites_Ramon, 0x40 },
@@ -5722,7 +5753,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_ED[] =
 {
-    { L"Ramon ED", 0x3257e00, 0x3257e20, indexKOFXISprites_Ramon },
+    { L"Ramon ED", 0x3257e00, 0x3257e20, indexKOF01Sprites_Ramon, 0x00 },
     { L"E+D - Super Stuff 1", 0x3257e20, 0x3257e40, indexKOFXISprites_Ramon, 0x20 },
     { L"E+D - Electric Palette", 0x3257e40, 0x3257e60, indexKOFXISprites_Ramon, 0x41 },
     { L"E+D - Darker Palette", 0x3257e60, 0x3257e80, indexKOFXISprites_Ramon, 0x40 },
@@ -5742,7 +5773,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_SA[] =
 {
-    { L"Ramon SA", 0x3258000, 0x3258020, indexKOFXISprites_Ramon },
+    { L"Ramon SA", 0x3258000, 0x3258020, indexKOF01Sprites_Ramon, 0x00 },
     { L"Start+A - Super Stuff 1", 0x3258020, 0x3258040, indexKOFXISprites_Ramon, 0x20 },
     { L"Start+A - Electric Palette", 0x3258040, 0x3258060, indexKOFXISprites_Ramon, 0x41 },
     { L"Start+A - Darker Palette", 0x3258060, 0x3258080, indexKOFXISprites_Ramon, 0x40 },
@@ -5762,7 +5793,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_SB[] =
 {
-    { L"Ramon SB", 0x3258200, 0x3258220, indexKOFXISprites_Ramon },
+    { L"Ramon SB", 0x3258200, 0x3258220, indexKOF01Sprites_Ramon, 0x00 },
     { L"Start+B - Super Stuff 1", 0x3258220, 0x3258240, indexKOFXISprites_Ramon, 0x20 },
     { L"Start+B - Electric Palette", 0x3258240, 0x3258260, indexKOFXISprites_Ramon, 0x41 },
     { L"Start+B - Darker Palette", 0x3258260, 0x3258280, indexKOFXISprites_Ramon, 0x40 },
@@ -5782,7 +5813,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_SC[] =
 {
-    { L"Ramon SC", 0x3258400, 0x3258420, indexKOFXISprites_Ramon },
+    { L"Ramon SC", 0x3258400, 0x3258420, indexKOF01Sprites_Ramon, 0x00 },
     { L"Start+C - Super Stuff 1", 0x3258420, 0x3258440, indexKOFXISprites_Ramon, 0x20 },
     { L"Start+C - Electric Palette", 0x3258440, 0x3258460, indexKOFXISprites_Ramon, 0x41 },
     { L"Start+C - Darker Palette", 0x3258460, 0x3258480, indexKOFXISprites_Ramon, 0x40 },
@@ -5802,7 +5833,7 @@ const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_RAMON_PALETTES_SD[] =
 {
-    { L"Ramon SD", 0x3258600, 0x3258620, indexKOFXISprites_Ramon },
+    { L"Ramon SD", 0x3258600, 0x3258620, indexKOF01Sprites_Ramon, 0x00 },
     { L"Start+D - Super Stuff 1", 0x3258620, 0x3258640, indexKOFXISprites_Ramon, 0x20 },
     { L"Start+D - Electric Palette", 0x3258640, 0x3258660, indexKOFXISprites_Ramon, 0x41 },
     { L"Start+D - Darker Palette", 0x3258660, 0x3258680, indexKOFXISprites_Ramon, 0x40 },
@@ -6062,7 +6093,7 @@ const sGame_PaletteDataset KOFXI_A_MALIN_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_A[] =
 {
-    { L"Kasumi A", 0x34e4800, 0x34e4820, indexKOFXISprites_Kasumi },
+    { L"Kasumi A", 0x34e4800, 0x34e4820, indexKOF99Sprites_Kasumi, 0x00 },
     { L"A - Super Stuff 1", 0x34e4820, 0x34e4840, indexKOFXISprites_Kasumi, 0x20 },
     { L"A - Electric Palette", 0x34e4840, 0x34e4860, indexKOFXISprites_Kasumi, 0x41 },
     { L"A - Darker Palette", 0x34e4860, 0x34e4880, indexKOFXISprites_Kasumi, 0x40 },
@@ -6082,7 +6113,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_B[] =
 {
-    { L"Kasumi B", 0x34e4a00, 0x34e4a20, indexKOFXISprites_Kasumi },
+    { L"Kasumi B", 0x34e4a00, 0x34e4a20, indexKOF99Sprites_Kasumi, 0x00 },
     { L"B - Super Stuff 1", 0x34e4a20, 0x34e4a40, indexKOFXISprites_Kasumi, 0x20 },
     { L"B - Electric Palette", 0x34e4a40, 0x34e4a60, indexKOFXISprites_Kasumi, 0x41 },
     { L"B - Darker Palette", 0x34e4a60, 0x34e4a80, indexKOFXISprites_Kasumi, 0x40 },
@@ -6102,7 +6133,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_C[] =
 {
-    { L"Kasumi C", 0x34e4c00, 0x34e4c20, indexKOFXISprites_Kasumi },
+    { L"Kasumi C", 0x34e4c00, 0x34e4c20, indexKOF99Sprites_Kasumi, 0x00 },
     { L"C - Super Stuff 1", 0x34e4c20, 0x34e4c40, indexKOFXISprites_Kasumi, 0x20 },
     { L"C - Electric Palette", 0x34e4c40, 0x34e4c60, indexKOFXISprites_Kasumi, 0x41 },
     { L"C - Darker Palette", 0x34e4c60, 0x34e4c80, indexKOFXISprites_Kasumi, 0x40 },
@@ -6122,7 +6153,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_D[] =
 {
-    { L"Kasumi D", 0x34e4e00, 0x34e4e20, indexKOFXISprites_Kasumi },
+    { L"Kasumi D", 0x34e4e00, 0x34e4e20, indexKOF99Sprites_Kasumi, 0x00 },
     { L"D - Super Stuff 1", 0x34e4e20, 0x34e4e40, indexKOFXISprites_Kasumi, 0x20 },
     { L"D - Electric Palette", 0x34e4e40, 0x34e4e60, indexKOFXISprites_Kasumi, 0x41 },
     { L"D - Darker Palette", 0x34e4e60, 0x34e4e80, indexKOFXISprites_Kasumi, 0x40 },
@@ -6142,7 +6173,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_EA[] =
 {
-    { L"Kasumi EA", 0x34e5000, 0x34e5020, indexKOFXISprites_Kasumi },
+    { L"Kasumi EA", 0x34e5000, 0x34e5020, indexKOF99Sprites_Kasumi, 0x00 },
     { L"E+A - Super Stuff 1", 0x34e5020, 0x34e5040, indexKOFXISprites_Kasumi, 0x20 },
     { L"E+A - Electric Palette", 0x34e5040, 0x34e5060, indexKOFXISprites_Kasumi, 0x41 },
     { L"E+A - Darker Palette", 0x34e5060, 0x34e5080, indexKOFXISprites_Kasumi, 0x40 },
@@ -6162,7 +6193,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_EB[] =
 {
-    { L"Kasumi EB", 0x34e5200, 0x34e5220, indexKOFXISprites_Kasumi },
+    { L"Kasumi EB", 0x34e5200, 0x34e5220, indexKOF99Sprites_Kasumi, 0x00 },
     { L"E+B - Super Stuff 1", 0x34e5220, 0x34e5240, indexKOFXISprites_Kasumi, 0x20 },
     { L"E+B - Electric Palette", 0x34e5240, 0x34e5260, indexKOFXISprites_Kasumi, 0x41 },
     { L"E+B - Darker Palette", 0x34e5260, 0x34e5280, indexKOFXISprites_Kasumi, 0x40 },
@@ -6182,7 +6213,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_EC[] =
 {
-    { L"Kasumi EC", 0x34e5400, 0x34e5420, indexKOFXISprites_Kasumi },
+    { L"Kasumi EC", 0x34e5400, 0x34e5420, indexKOF99Sprites_Kasumi, 0x00 },
     { L"E+C - Super Stuff 1", 0x34e5420, 0x34e5440, indexKOFXISprites_Kasumi, 0x20 },
     { L"E+C - Electric Palette", 0x34e5440, 0x34e5460, indexKOFXISprites_Kasumi, 0x41 },
     { L"E+C - Darker Palette", 0x34e5460, 0x34e5480, indexKOFXISprites_Kasumi, 0x40 },
@@ -6202,7 +6233,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_ED[] =
 {
-    { L"Kasumi ED", 0x34e5600, 0x34e5620, indexKOFXISprites_Kasumi },
+    { L"Kasumi ED", 0x34e5600, 0x34e5620, indexKOF99Sprites_Kasumi, 0x00 },
     { L"E+D - Super Stuff 1", 0x34e5620, 0x34e5640, indexKOFXISprites_Kasumi, 0x20 },
     { L"E+D - Electric Palette", 0x34e5640, 0x34e5660, indexKOFXISprites_Kasumi, 0x41 },
     { L"E+D - Darker Palette", 0x34e5660, 0x34e5680, indexKOFXISprites_Kasumi, 0x40 },
@@ -6222,7 +6253,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_SA[] =
 {
-    { L"Kasumi SA", 0x34e5800, 0x34e5820, indexKOFXISprites_Kasumi },
+    { L"Kasumi SA", 0x34e5800, 0x34e5820, indexKOF99Sprites_Kasumi, 0x00 },
     { L"Start+A - Super Stuff 1", 0x34e5820, 0x34e5840, indexKOFXISprites_Kasumi, 0x20 },
     { L"Start+A - Electric Palette", 0x34e5840, 0x34e5860, indexKOFXISprites_Kasumi, 0x41 },
     { L"Start+A - Darker Palette", 0x34e5860, 0x34e5880, indexKOFXISprites_Kasumi, 0x40 },
@@ -6242,7 +6273,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_SB[] =
 {
-    { L"Kasumi SB", 0x34e5a00, 0x34e5a20, indexKOFXISprites_Kasumi },
+    { L"Kasumi SB", 0x34e5a00, 0x34e5a20, indexKOF99Sprites_Kasumi, 0x00 },
     { L"Start+B - Super Stuff 1", 0x34e5a20, 0x34e5a40, indexKOFXISprites_Kasumi, 0x20 },
     { L"Start+B - Electric Palette", 0x34e5a40, 0x34e5a60, indexKOFXISprites_Kasumi, 0x41 },
     { L"Start+B - Darker Palette", 0x34e5a60, 0x34e5a80, indexKOFXISprites_Kasumi, 0x40 },
@@ -6262,7 +6293,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_SC[] =
 {
-    { L"Kasumi SC", 0x34e5c00, 0x34e5c20, indexKOFXISprites_Kasumi },
+    { L"Kasumi SC", 0x34e5c00, 0x34e5c20, indexKOF99Sprites_Kasumi, 0x00 },
     { L"Start+C - Super Stuff 1", 0x34e5c20, 0x34e5c40, indexKOFXISprites_Kasumi, 0x20 },
     { L"Start+C - Electric Palette", 0x34e5c40, 0x34e5c60, indexKOFXISprites_Kasumi, 0x41 },
     { L"Start+C - Darker Palette", 0x34e5c60, 0x34e5c80, indexKOFXISprites_Kasumi, 0x40 },
@@ -6282,7 +6313,7 @@ const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_KASUMI_PALETTES_SD[] =
 {
-    { L"Kasumi SD", 0x34e5e00, 0x34e5e20, indexKOFXISprites_Kasumi },
+    { L"Kasumi SD", 0x34e5e00, 0x34e5e20, indexKOF99Sprites_Kasumi, 0x00 },
     { L"Start+D - Super Stuff 1", 0x34e5e20, 0x34e5e40, indexKOFXISprites_Kasumi, 0x20 },
     { L"Start+D - Electric Palette", 0x34e5e40, 0x34e5e60, indexKOFXISprites_Kasumi, 0x41 },
     { L"Start+D - Darker Palette", 0x34e5e60, 0x34e5e80, indexKOFXISprites_Kasumi, 0x40 },
@@ -6542,7 +6573,7 @@ const sGame_PaletteDataset KOFXI_A_EIJI_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_A[] =
 {
-    { L"K' A", 0x3763800, 0x3763820, indexKOFXISprites_K },
+    { L"K' A", 0x3763800, 0x3763820, indexKOF99Sprites_K, 0x00 },
     { L"A - Super Stuff 1", 0x3763820, 0x3763840, indexKOFXISprites_K, 0x20 },
     { L"A - Electric Palette", 0x3763840, 0x3763860, indexKOFXISprites_K, 0x41 },
     { L"A - Darker Palette", 0x3763860, 0x3763880, indexKOFXISprites_K, 0x40 },
@@ -6562,7 +6593,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_B[] =
 {
-    { L"K' B", 0x3763a00, 0x3763a20, indexKOFXISprites_K },
+    { L"K' B", 0x3763a00, 0x3763a20, indexKOF99Sprites_K, 0x00 },
     { L"B - Super Stuff 1", 0x3763a20, 0x3763a40, indexKOFXISprites_K, 0x20 },
     { L"B - Electric Palette", 0x3763a40, 0x3763a60, indexKOFXISprites_K, 0x41 },
     { L"B - Darker Palette", 0x3763a60, 0x3763a80, indexKOFXISprites_K, 0x40 },
@@ -6582,7 +6613,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_C[] =
 {
-    { L"K' C", 0x3763c00, 0x3763c20, indexKOFXISprites_K },
+    { L"K' C", 0x3763c00, 0x3763c20, indexKOF99Sprites_K, 0x00 },
     { L"C - Super Stuff 1", 0x3763c20, 0x3763c40, indexKOFXISprites_K, 0x20 },
     { L"C - Electric Palette", 0x3763c40, 0x3763c60, indexKOFXISprites_K, 0x41 },
     { L"C - Darker Palette", 0x3763c60, 0x3763c80, indexKOFXISprites_K, 0x40 },
@@ -6602,7 +6633,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_D[] =
 {
-    { L"K' D", 0x3763e00, 0x3763e20, indexKOFXISprites_K },
+    { L"K' D", 0x3763e00, 0x3763e20, indexKOF99Sprites_K, 0x00 },
     { L"D - Super Stuff 1", 0x3763e20, 0x3763e40, indexKOFXISprites_K, 0x20 },
     { L"D - Electric Palette", 0x3763e40, 0x3763e60, indexKOFXISprites_K, 0x41 },
     { L"D - Darker Palette", 0x3763e60, 0x3763e80, indexKOFXISprites_K, 0x40 },
@@ -6622,7 +6653,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_EA[] =
 {
-    { L"K' EA", 0x3764000, 0x3764020, indexKOFXISprites_K },
+    { L"K' EA", 0x3764000, 0x3764020, indexKOF99Sprites_K, 0x00 },
     { L"E+A - Super Stuff 1", 0x3764020, 0x3764040, indexKOFXISprites_K, 0x20 },
     { L"E+A - Electric Palette", 0x3764040, 0x3764060, indexKOFXISprites_K, 0x41 },
     { L"E+A - Darker Palette", 0x3764060, 0x3764080, indexKOFXISprites_K, 0x40 },
@@ -6642,7 +6673,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_EB[] =
 {
-    { L"K' EB", 0x3764200, 0x3764220, indexKOFXISprites_K },
+    { L"K' EB", 0x3764200, 0x3764220, indexKOF99Sprites_K, 0x00 },
     { L"E+B - Super Stuff 1", 0x3764220, 0x3764240, indexKOFXISprites_K, 0x20 },
     { L"E+B - Electric Palette", 0x3764240, 0x3764260, indexKOFXISprites_K, 0x41 },
     { L"E+B - Darker Palette", 0x3764260, 0x3764280, indexKOFXISprites_K, 0x40 },
@@ -6662,7 +6693,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_EC[] =
 {
-    { L"K' EC", 0x3764400, 0x3764420, indexKOFXISprites_K },
+    { L"K' EC", 0x3764400, 0x3764420, indexKOF99Sprites_K, 0x00 },
     { L"E+C - Super Stuff 1", 0x3764420, 0x3764440, indexKOFXISprites_K, 0x20 },
     { L"E+C - Electric Palette", 0x3764440, 0x3764460, indexKOFXISprites_K, 0x41 },
     { L"E+C - Darker Palette", 0x3764460, 0x3764480, indexKOFXISprites_K, 0x40 },
@@ -6682,7 +6713,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_ED[] =
 {
-    { L"K' ED", 0x3764600, 0x3764620, indexKOFXISprites_K },
+    { L"K' ED", 0x3764600, 0x3764620, indexKOF99Sprites_K, 0x00 },
     { L"E+D - Super Stuff 1", 0x3764620, 0x3764640, indexKOFXISprites_K, 0x20 },
     { L"E+D - Electric Palette", 0x3764640, 0x3764660, indexKOFXISprites_K, 0x41 },
     { L"E+D - Darker Palette", 0x3764660, 0x3764680, indexKOFXISprites_K, 0x40 },
@@ -6702,7 +6733,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_SA[] =
 {
-    { L"K' SA", 0x3764800, 0x3764820, indexKOFXISprites_K },
+    { L"K' SA", 0x3764800, 0x3764820, indexKOF99Sprites_K, 0x00 },
     { L"Start+A - Super Stuff 1", 0x3764820, 0x3764840, indexKOFXISprites_K, 0x20 },
     { L"Start+A - Electric Palette", 0x3764840, 0x3764860, indexKOFXISprites_K, 0x41 },
     { L"Start+A - Darker Palette", 0x3764860, 0x3764880, indexKOFXISprites_K, 0x40 },
@@ -6722,7 +6753,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_SB[] =
 {
-    { L"K' SB", 0x3764a00, 0x3764a20, indexKOFXISprites_K },
+    { L"K' SB", 0x3764a00, 0x3764a20, indexKOF99Sprites_K, 0x00 },
     { L"Start+B - Super Stuff 1", 0x3764a20, 0x3764a40, indexKOFXISprites_K, 0x20 },
     { L"Start+B - Electric Palette", 0x3764a40, 0x3764a60, indexKOFXISprites_K, 0x41 },
     { L"Start+B - Darker Palette", 0x3764a60, 0x3764a80, indexKOFXISprites_K, 0x40 },
@@ -6742,7 +6773,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_SC[] =
 {
-    { L"K' SC", 0x3764c00, 0x3764c20, indexKOFXISprites_K },
+    { L"K' SC", 0x3764c00, 0x3764c20, indexKOF99Sprites_K, 0x00 },
     { L"Start+C - Super Stuff 1", 0x3764c20, 0x3764c40, indexKOFXISprites_K, 0x20 },
     { L"Start+C - Electric Palette", 0x3764c40, 0x3764c60, indexKOFXISprites_K, 0x41 },
     { L"Start+C - Darker Palette", 0x3764c60, 0x3764c80, indexKOFXISprites_K, 0x40 },
@@ -6762,7 +6793,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_K_PALETTES_SD[] =
 {
-    { L"K' SD", 0x3764e00, 0x3764e20, indexKOFXISprites_K },
+    { L"K' SD", 0x3764e00, 0x3764e20, indexKOF99Sprites_K, 0x00 },
     { L"Start+D - Super Stuff 1", 0x3764e20, 0x3764e40, indexKOFXISprites_K, 0x20 },
     { L"Start+D - Electric Palette", 0x3764e40, 0x3764e60, indexKOFXISprites_K, 0x41 },
     { L"Start+D - Darker Palette", 0x3764e60, 0x3764e80, indexKOFXISprites_K, 0x40 },
@@ -6782,7 +6813,7 @@ const sGame_PaletteDataset KOFXI_A_K_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_A[] =
 {
-    { L"Kula A", 0x3901800, 0x3901820, indexKOFXISprites_Kula },
+    { L"Kula A", 0x3901800, 0x3901820, indexKOF01Sprites_Kula, 0x00 },
     { L"A - Super Stuff 1", 0x3901820, 0x3901840, indexKOFXISprites_Kula, 0x20 },
     { L"A - Electric Palette", 0x3901840, 0x3901860, indexKOFXISprites_Kula, 0x41 },
     { L"A - Darker Palette", 0x3901860, 0x3901880, indexKOFXISprites_Kula, 0x40 },
@@ -6802,7 +6833,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_B[] =
 {
-    { L"Kula B", 0x3901a00, 0x3901a20, indexKOFXISprites_Kula },
+    { L"Kula B", 0x3901a00, 0x3901a20, indexKOF01Sprites_Kula, 0x00 },
     { L"B - Super Stuff 1", 0x3901a20, 0x3901a40, indexKOFXISprites_Kula, 0x20 },
     { L"B - Electric Palette", 0x3901a40, 0x3901a60, indexKOFXISprites_Kula, 0x41 },
     { L"B - Darker Palette", 0x3901a60, 0x3901a80, indexKOFXISprites_Kula, 0x40 },
@@ -6822,7 +6853,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_C[] =
 {
-    { L"Kula C", 0x3901c00, 0x3901c20, indexKOFXISprites_Kula },
+    { L"Kula C", 0x3901c00, 0x3901c20, indexKOF01Sprites_Kula, 0x00 },
     { L"C - Super Stuff 1", 0x3901c20, 0x3901c40, indexKOFXISprites_Kula, 0x20 },
     { L"C - Electric Palette", 0x3901c40, 0x3901c60, indexKOFXISprites_Kula, 0x41 },
     { L"C - Darker Palette", 0x3901c60, 0x3901c80, indexKOFXISprites_Kula, 0x40 },
@@ -6842,7 +6873,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_D[] =
 {
-    { L"Kula D", 0x3901e00, 0x3901e20, indexKOFXISprites_Kula },
+    { L"Kula D", 0x3901e00, 0x3901e20, indexKOF01Sprites_Kula, 0x00 },
     { L"D - Super Stuff 1", 0x3901e20, 0x3901e40, indexKOFXISprites_Kula, 0x20 },
     { L"D - Electric Palette", 0x3901e40, 0x3901e60, indexKOFXISprites_Kula, 0x41 },
     { L"D - Darker Palette", 0x3901e60, 0x3901e80, indexKOFXISprites_Kula, 0x40 },
@@ -6862,7 +6893,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_EA[] =
 {
-    { L"Kula EA", 0x3902000, 0x3902020, indexKOFXISprites_Kula },
+    { L"Kula EA", 0x3902000, 0x3902020, indexKOF01Sprites_Kula, 0x00 },
     { L"E+A - Super Stuff 1", 0x3902020, 0x3902040, indexKOFXISprites_Kula, 0x20 },
     { L"E+A - Electric Palette", 0x3902040, 0x3902060, indexKOFXISprites_Kula, 0x41 },
     { L"E+A - Darker Palette", 0x3902060, 0x3902080, indexKOFXISprites_Kula, 0x40 },
@@ -6882,7 +6913,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_EB[] =
 {
-    { L"Kula EB", 0x3902200, 0x3902220, indexKOFXISprites_Kula },
+    { L"Kula EB", 0x3902200, 0x3902220, indexKOF01Sprites_Kula, 0x00 },
     { L"E+B - Super Stuff 1", 0x3902220, 0x3902240, indexKOFXISprites_Kula, 0x20 },
     { L"E+B - Electric Palette", 0x3902240, 0x3902260, indexKOFXISprites_Kula, 0x41 },
     { L"E+B - Darker Palette", 0x3902260, 0x3902280, indexKOFXISprites_Kula, 0x40 },
@@ -6902,7 +6933,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_EC[] =
 {
-    { L"Kula EC", 0x3902400, 0x3902420, indexKOFXISprites_Kula },
+    { L"Kula EC", 0x3902400, 0x3902420, indexKOF01Sprites_Kula, 0x00 },
     { L"E+C - Super Stuff 1", 0x3902420, 0x3902440, indexKOFXISprites_Kula, 0x20 },
     { L"E+C - Electric Palette", 0x3902440, 0x3902460, indexKOFXISprites_Kula, 0x41 },
     { L"E+C - Darker Palette", 0x3902460, 0x3902480, indexKOFXISprites_Kula, 0x40 },
@@ -6922,7 +6953,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_ED[] =
 {
-    { L"Kula ED", 0x3902600, 0x3902620, indexKOFXISprites_Kula },
+    { L"Kula ED", 0x3902600, 0x3902620, indexKOF01Sprites_Kula, 0x00 },
     { L"E+D - Super Stuff 1", 0x3902620, 0x3902640, indexKOFXISprites_Kula, 0x20 },
     { L"E+D - Electric Palette", 0x3902640, 0x3902660, indexKOFXISprites_Kula, 0x41 },
     { L"E+D - Darker Palette", 0x3902660, 0x3902680, indexKOFXISprites_Kula, 0x40 },
@@ -6942,7 +6973,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_SA[] =
 {
-    { L"Kula SA", 0x3902800, 0x3902820, indexKOFXISprites_Kula },
+    { L"Kula SA", 0x3902800, 0x3902820, indexKOF01Sprites_Kula, 0x00 },
     { L"Start+A - Super Stuff 1", 0x3902820, 0x3902840, indexKOFXISprites_Kula, 0x20 },
     { L"Start+A - Electric Palette", 0x3902840, 0x3902860, indexKOFXISprites_Kula, 0x41 },
     { L"Start+A - Darker Palette", 0x3902860, 0x3902880, indexKOFXISprites_Kula, 0x40 },
@@ -6962,7 +6993,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_SB[] =
 {
-    { L"Kula SB", 0x3902a00, 0x3902a20, indexKOFXISprites_Kula },
+    { L"Kula SB", 0x3902a00, 0x3902a20, indexKOF01Sprites_Kula, 0x00 },
     { L"Start+B - Super Stuff 1", 0x3902a20, 0x3902a40, indexKOFXISprites_Kula, 0x20 },
     { L"Start+B - Electric Palette", 0x3902a40, 0x3902a60, indexKOFXISprites_Kula, 0x41 },
     { L"Start+B - Darker Palette", 0x3902a60, 0x3902a80, indexKOFXISprites_Kula, 0x40 },
@@ -6982,7 +7013,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_SC[] =
 {
-    { L"Kula SC", 0x3902c00, 0x3902c20, indexKOFXISprites_Kula },
+    { L"Kula SC", 0x3902c00, 0x3902c20, indexKOF01Sprites_Kula, 0x00 },
     { L"Start+C - Super Stuff 1", 0x3902c20, 0x3902c40, indexKOFXISprites_Kula, 0x20 },
     { L"Start+C - Electric Palette", 0x3902c40, 0x3902c60, indexKOFXISprites_Kula, 0x41 },
     { L"Start+C - Darker Palette", 0x3902c60, 0x3902c80, indexKOFXISprites_Kula, 0x40 },
@@ -7002,7 +7033,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_SD[] =
 {
-    { L"Kula SD", 0x3902e00, 0x3902e20, indexKOFXISprites_Kula },
+    { L"Kula SD", 0x3902e00, 0x3902e20, indexKOF01Sprites_Kula, 0x00 },
     { L"Start+D - Super Stuff 1", 0x3902e20, 0x3902e40, indexKOFXISprites_Kula, 0x20 },
     { L"Start+D - Electric Palette", 0x3902e40, 0x3902e60, indexKOFXISprites_Kula, 0x41 },
     { L"Start+D - Darker Palette", 0x3902e60, 0x3902e80, indexKOFXISprites_Kula, 0x40 },
@@ -7022,7 +7053,7 @@ const sGame_PaletteDataset KOFXI_A_KULA_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_A[] =
 {
-    { L"Maxima A", 0x3ab6800, 0x3ab6820, indexKOFXISprites_Maxima },
+    { L"Maxima A", 0x3ab6800, 0x3ab6820, indexKOF99Sprites_Maxima, 0x00 },
     { L"A - Super Stuff 1", 0x3ab6820, 0x3ab6840, indexKOFXISprites_Maxima, 0x20 },
     { L"A - Electric Palette", 0x3ab6840, 0x3ab6860, indexKOFXISprites_Maxima, 0x41 },
     { L"A - Darker Palette", 0x3ab6860, 0x3ab6880, indexKOFXISprites_Maxima, 0x40 },
@@ -7042,7 +7073,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_B[] =
 {
-    { L"Maxima B", 0x3ab6a00, 0x3ab6a20, indexKOFXISprites_Maxima },
+    { L"Maxima B", 0x3ab6a00, 0x3ab6a20, indexKOF99Sprites_Maxima, 0x00 },
     { L"B - Super Stuff 1", 0x3ab6a20, 0x3ab6a40, indexKOFXISprites_Maxima, 0x20 },
     { L"B - Electric Palette", 0x3ab6a40, 0x3ab6a60, indexKOFXISprites_Maxima, 0x41 },
     { L"B - Darker Palette", 0x3ab6a60, 0x3ab6a80, indexKOFXISprites_Maxima, 0x40 },
@@ -7062,7 +7093,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_C[] =
 {
-    { L"Maxima C", 0x3ab6c00, 0x3ab6c20, indexKOFXISprites_Maxima },
+    { L"Maxima C", 0x3ab6c00, 0x3ab6c20, indexKOF99Sprites_Maxima, 0x00 },
     { L"C - Super Stuff 1", 0x3ab6c20, 0x3ab6c40, indexKOFXISprites_Maxima, 0x20 },
     { L"C - Electric Palette", 0x3ab6c40, 0x3ab6c60, indexKOFXISprites_Maxima, 0x41 },
     { L"C - Darker Palette", 0x3ab6c60, 0x3ab6c80, indexKOFXISprites_Maxima, 0x40 },
@@ -7082,7 +7113,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_D[] =
 {
-    { L"Maxima D", 0x3ab6e00, 0x3ab6e20, indexKOFXISprites_Maxima },
+    { L"Maxima D", 0x3ab6e00, 0x3ab6e20, indexKOF99Sprites_Maxima, 0x00 },
     { L"D - Super Stuff 1", 0x3ab6e20, 0x3ab6e40, indexKOFXISprites_Maxima, 0x20 },
     { L"D - Electric Palette", 0x3ab6e40, 0x3ab6e60, indexKOFXISprites_Maxima, 0x41 },
     { L"D - Darker Palette", 0x3ab6e60, 0x3ab6e80, indexKOFXISprites_Maxima, 0x40 },
@@ -7102,7 +7133,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_EA[] =
 {
-    { L"Maxima EA", 0x3ab7000, 0x3ab7020, indexKOFXISprites_Maxima },
+    { L"Maxima EA", 0x3ab7000, 0x3ab7020, indexKOF99Sprites_Maxima, 0x00 },
     { L"E+A - Super Stuff 1", 0x3ab7020, 0x3ab7040, indexKOFXISprites_Maxima, 0x20 },
     { L"E+A - Electric Palette", 0x3ab7040, 0x3ab7060, indexKOFXISprites_Maxima, 0x41 },
     { L"E+A - Darker Palette", 0x3ab7060, 0x3ab7080, indexKOFXISprites_Maxima, 0x40 },
@@ -7122,7 +7153,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_EB[] =
 {
-    { L"Maxima EB", 0x3ab7200, 0x3ab7220, indexKOFXISprites_Maxima },
+    { L"Maxima EB", 0x3ab7200, 0x3ab7220, indexKOF99Sprites_Maxima, 0x00 },
     { L"E+B - Super Stuff 1", 0x3ab7220, 0x3ab7240, indexKOFXISprites_Maxima, 0x20 },
     { L"E+B - Electric Palette", 0x3ab7240, 0x3ab7260, indexKOFXISprites_Maxima, 0x41 },
     { L"E+B - Darker Palette", 0x3ab7260, 0x3ab7280, indexKOFXISprites_Maxima, 0x40 },
@@ -7142,7 +7173,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_EC[] =
 {
-    { L"Maxima EC", 0x3ab7400, 0x3ab7420, indexKOFXISprites_Maxima },
+    { L"Maxima EC", 0x3ab7400, 0x3ab7420, indexKOF99Sprites_Maxima, 0x00 },
     { L"E+C - Super Stuff 1", 0x3ab7420, 0x3ab7440, indexKOFXISprites_Maxima, 0x20 },
     { L"E+C - Electric Palette", 0x3ab7440, 0x3ab7460, indexKOFXISprites_Maxima, 0x41 },
     { L"E+C - Darker Palette", 0x3ab7460, 0x3ab7480, indexKOFXISprites_Maxima, 0x40 },
@@ -7162,7 +7193,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_ED[] =
 {
-    { L"Maxima ED", 0x3ab7600, 0x3ab7620, indexKOFXISprites_Maxima },
+    { L"Maxima ED", 0x3ab7600, 0x3ab7620, indexKOF99Sprites_Maxima, 0x00 },
     { L"E+D - Super Stuff 1", 0x3ab7620, 0x3ab7640, indexKOFXISprites_Maxima, 0x20 },
     { L"E+D - Electric Palette", 0x3ab7640, 0x3ab7660, indexKOFXISprites_Maxima, 0x41 },
     { L"E+D - Darker Palette", 0x3ab7660, 0x3ab7680, indexKOFXISprites_Maxima, 0x40 },
@@ -7182,7 +7213,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_SA[] =
 {
-    { L"Maxima SA", 0x3ab7800, 0x3ab7820, indexKOFXISprites_Maxima },
+    { L"Maxima SA", 0x3ab7800, 0x3ab7820, indexKOF99Sprites_Maxima, 0x00 },
     { L"Start+A - Super Stuff 1", 0x3ab7820, 0x3ab7840, indexKOFXISprites_Maxima, 0x20 },
     { L"Start+A - Electric Palette", 0x3ab7840, 0x3ab7860, indexKOFXISprites_Maxima, 0x41 },
     { L"Start+A - Darker Palette", 0x3ab7860, 0x3ab7880, indexKOFXISprites_Maxima, 0x40 },
@@ -7202,7 +7233,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_SB[] =
 {
-    { L"Maxima SB", 0x3ab7a00, 0x3ab7a20, indexKOFXISprites_Maxima },
+    { L"Maxima SB", 0x3ab7a00, 0x3ab7a20, indexKOF99Sprites_Maxima, 0x00 },
     { L"Start+B - Super Stuff 1", 0x3ab7a20, 0x3ab7a40, indexKOFXISprites_Maxima, 0x20 },
     { L"Start+B - Electric Palette", 0x3ab7a40, 0x3ab7a60, indexKOFXISprites_Maxima, 0x41 },
     { L"Start+B - Darker Palette", 0x3ab7a60, 0x3ab7a80, indexKOFXISprites_Maxima, 0x40 },
@@ -7222,7 +7253,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_SC[] =
 {
-    { L"Maxima SC", 0x3ab7c00, 0x3ab7c20, indexKOFXISprites_Maxima },
+    { L"Maxima SC", 0x3ab7c00, 0x3ab7c20, indexKOF99Sprites_Maxima, 0x00 },
     { L"Start+C - Super Stuff 1", 0x3ab7c20, 0x3ab7c40, indexKOFXISprites_Maxima, 0x20 },
     { L"Start+C - Electric Palette", 0x3ab7c40, 0x3ab7c60, indexKOFXISprites_Maxima, 0x41 },
     { L"Start+C - Darker Palette", 0x3ab7c60, 0x3ab7c80, indexKOFXISprites_Maxima, 0x40 },
@@ -7242,7 +7273,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_SD[] =
 {
-    { L"Maxima SD", 0x3ab7e00, 0x3ab7e20, indexKOFXISprites_Maxima },
+    { L"Maxima SD", 0x3ab7e00, 0x3ab7e20, indexKOF99Sprites_Maxima, 0x00 },
     { L"Start+D - Super Stuff 1", 0x3ab7e20, 0x3ab7e40, indexKOFXISprites_Maxima, 0x20 },
     { L"Start+D - Electric Palette", 0x3ab7e40, 0x3ab7e60, indexKOFXISprites_Maxima, 0x41 },
     { L"Start+D - Darker Palette", 0x3ab7e60, 0x3ab7e80, indexKOFXISprites_Maxima, 0x40 },
@@ -7262,7 +7293,7 @@ const sGame_PaletteDataset KOFXI_A_MAXIMA_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_A[] =
 {
-    { L"Kyo A", 0x3c57800, 0x3c57820, indexKOFXISprites_Kyo },
+    { L"Kyo A", 0x3c57800, 0x3c57820, indexKOF03Sprites_Kyo, 0x00 },
     { L"A - Super Stuff 1", 0x3c57820, 0x3c57840, indexKOFXISprites_Kyo, 0x20 },
     { L"A - Electric Palette", 0x3c57840, 0x3c57860, indexKOFXISprites_Kyo, 0x41 },
     { L"A - Darker Palette", 0x3c57860, 0x3c57880, indexKOFXISprites_Kyo, 0x40 },
@@ -7282,7 +7313,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_B[] =
 {
-    { L"Kyo B", 0x3c57a00, 0x3c57a20, indexKOFXISprites_Kyo },
+    { L"Kyo B", 0x3c57a00, 0x3c57a20, indexKOF03Sprites_Kyo, 0x00 },
     { L"B - Super Stuff 1", 0x3c57a20, 0x3c57a40, indexKOFXISprites_Kyo, 0x20 },
     { L"B - Electric Palette", 0x3c57a40, 0x3c57a60, indexKOFXISprites_Kyo, 0x41 },
     { L"B - Darker Palette", 0x3c57a60, 0x3c57a80, indexKOFXISprites_Kyo, 0x40 },
@@ -7302,7 +7333,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_C[] =
 {
-    { L"Kyo C", 0x3c57c00, 0x3c57c20, indexKOFXISprites_Kyo },
+    { L"Kyo C", 0x3c57c00, 0x3c57c20, indexKOF03Sprites_Kyo, 0x00 },
     { L"C - Super Stuff 1", 0x3c57c20, 0x3c57c40, indexKOFXISprites_Kyo, 0x20 },
     { L"C - Electric Palette", 0x3c57c40, 0x3c57c60, indexKOFXISprites_Kyo, 0x41 },
     { L"C - Darker Palette", 0x3c57c60, 0x3c57c80, indexKOFXISprites_Kyo, 0x40 },
@@ -7322,7 +7353,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_D[] =
 {
-    { L"Kyo D", 0x3c57e00, 0x3c57e20, indexKOFXISprites_Kyo },
+    { L"Kyo D", 0x3c57e00, 0x3c57e20, indexKOF03Sprites_Kyo, 0x00 },
     { L"D - Super Stuff 1", 0x3c57e20, 0x3c57e40, indexKOFXISprites_Kyo, 0x20 },
     { L"D - Electric Palette", 0x3c57e40, 0x3c57e60, indexKOFXISprites_Kyo, 0x41 },
     { L"D - Darker Palette", 0x3c57e60, 0x3c57e80, indexKOFXISprites_Kyo, 0x40 },
@@ -7342,7 +7373,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_EA[] =
 {
-    { L"Kyo EA", 0x3c58000, 0x3c58020, indexKOFXISprites_Kyo },
+    { L"Kyo EA", 0x3c58000, 0x3c58020, indexKOF03Sprites_Kyo, 0x00 },
     { L"E+A - Super Stuff 1", 0x3c58020, 0x3c58040, indexKOFXISprites_Kyo, 0x20 },
     { L"E+A - Electric Palette", 0x3c58040, 0x3c58060, indexKOFXISprites_Kyo, 0x41 },
     { L"E+A - Darker Palette", 0x3c58060, 0x3c58080, indexKOFXISprites_Kyo, 0x40 },
@@ -7362,7 +7393,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_EB[] =
 {
-    { L"Kyo EB", 0x3c58200, 0x3c58220, indexKOFXISprites_Kyo },
+    { L"Kyo EB", 0x3c58200, 0x3c58220, indexKOF03Sprites_Kyo, 0x00 },
     { L"E+B - Super Stuff 1", 0x3c58220, 0x3c58240, indexKOFXISprites_Kyo, 0x20 },
     { L"E+B - Electric Palette", 0x3c58240, 0x3c58260, indexKOFXISprites_Kyo, 0x41 },
     { L"E+B - Darker Palette", 0x3c58260, 0x3c58280, indexKOFXISprites_Kyo, 0x40 },
@@ -7382,7 +7413,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_EC[] =
 {
-    { L"Kyo EC", 0x3c58400, 0x3c58420, indexKOFXISprites_Kyo },
+    { L"Kyo EC", 0x3c58400, 0x3c58420, indexKOF03Sprites_Kyo, 0x00 },
     { L"E+C - Super Stuff 1", 0x3c58420, 0x3c58440, indexKOFXISprites_Kyo, 0x20 },
     { L"E+C - Electric Palette", 0x3c58440, 0x3c58460, indexKOFXISprites_Kyo, 0x41 },
     { L"E+C - Darker Palette", 0x3c58460, 0x3c58480, indexKOFXISprites_Kyo, 0x40 },
@@ -7402,7 +7433,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_ED[] =
 {
-    { L"Kyo ED", 0x3c58600, 0x3c58620, indexKOFXISprites_Kyo },
+    { L"Kyo ED", 0x3c58600, 0x3c58620, indexKOF03Sprites_Kyo, 0x00 },
     { L"E+D - Super Stuff 1", 0x3c58620, 0x3c58640, indexKOFXISprites_Kyo, 0x20 },
     { L"E+D - Electric Palette", 0x3c58640, 0x3c58660, indexKOFXISprites_Kyo, 0x41 },
     { L"E+D - Darker Palette", 0x3c58660, 0x3c58680, indexKOFXISprites_Kyo, 0x40 },
@@ -7422,7 +7453,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_SA[] =
 {
-    { L"Kyo SA", 0x3c58800, 0x3c58820, indexKOFXISprites_Kyo },
+    { L"Kyo SA", 0x3c58800, 0x3c58820, indexKOF03Sprites_Kyo, 0x00 },
     { L"Start+A - Super Stuff 1", 0x3c58820, 0x3c58840, indexKOFXISprites_Kyo, 0x20 },
     { L"Start+A - Electric Palette", 0x3c58840, 0x3c58860, indexKOFXISprites_Kyo, 0x41 },
     { L"Start+A - Darker Palette", 0x3c58860, 0x3c58880, indexKOFXISprites_Kyo, 0x40 },
@@ -7442,7 +7473,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_SB[] =
 {
-    { L"Kyo SB", 0x3c58a00, 0x3c58a20, indexKOFXISprites_Kyo },
+    { L"Kyo SB", 0x3c58a00, 0x3c58a20, indexKOF03Sprites_Kyo, 0x00 },
     { L"Start+B - Super Stuff 1", 0x3c58a20, 0x3c58a40, indexKOFXISprites_Kyo, 0x20 },
     { L"Start+B - Electric Palette", 0x3c58a40, 0x3c58a60, indexKOFXISprites_Kyo, 0x41 },
     { L"Start+B - Darker Palette", 0x3c58a60, 0x3c58a80, indexKOFXISprites_Kyo, 0x40 },
@@ -7462,7 +7493,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_SC[] =
 {
-    { L"Kyo SC", 0x3c58c00, 0x3c58c20, indexKOFXISprites_Kyo },
+    { L"Kyo SC", 0x3c58c00, 0x3c58c20, indexKOF03Sprites_Kyo, 0x00 },
     { L"Start+C - Super Stuff 1", 0x3c58c20, 0x3c58c40, indexKOFXISprites_Kyo, 0x20 },
     { L"Start+C - Electric Palette", 0x3c58c40, 0x3c58c60, indexKOFXISprites_Kyo, 0x41 },
     { L"Start+C - Darker Palette", 0x3c58c60, 0x3c58c80, indexKOFXISprites_Kyo, 0x40 },
@@ -7482,7 +7513,7 @@ const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_KYO_PALETTES_SD[] =
 {
-    { L"Kyo SD", 0x3c58e00, 0x3c58e20, indexKOFXISprites_Kyo },
+    { L"Kyo SD", 0x3c58e00, 0x3c58e20, indexKOF03Sprites_Kyo, 0x00 },
     { L"Start+D - Super Stuff 1", 0x3c58e20, 0x3c58e40, indexKOFXISprites_Kyo, 0x20 },
     { L"Start+D - Electric Palette", 0x3c58e40, 0x3c58e60, indexKOFXISprites_Kyo, 0x41 },
     { L"Start+D - Darker Palette", 0x3c58e60, 0x3c58e80, indexKOFXISprites_Kyo, 0x40 },
@@ -7742,7 +7773,7 @@ const sGame_PaletteDataset KOFXI_A_IORI_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_A[] =
 {
-    { L"Shingo A", 0x3fc5800, 0x3fc5820, indexKOFXISprites_Shingo },
+    { L"Shingo A", 0x3fc5800, 0x3fc5820, indexKOF99Sprites_Shingo, 0x00 },
     { L"A - Super Stuff 1", 0x3fc5820, 0x3fc5840, indexKOFXISprites_Shingo, 0x20 },
     { L"A - Electric Palette", 0x3fc5840, 0x3fc5860, indexKOFXISprites_Shingo, 0x41 },
     { L"A - Darker Palette", 0x3fc5860, 0x3fc5880, indexKOFXISprites_Shingo, 0x40 },
@@ -7762,7 +7793,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_B[] =
 {
-    { L"Shingo B", 0x3fc5a00, 0x3fc5a20, indexKOFXISprites_Shingo },
+    { L"Shingo B", 0x3fc5a00, 0x3fc5a20, indexKOF99Sprites_Shingo, 0x00 },
     { L"B - Super Stuff 1", 0x3fc5a20, 0x3fc5a40, indexKOFXISprites_Shingo, 0x20 },
     { L"B - Electric Palette", 0x3fc5a40, 0x3fc5a60, indexKOFXISprites_Shingo, 0x41 },
     { L"B - Darker Palette", 0x3fc5a60, 0x3fc5a80, indexKOFXISprites_Shingo, 0x40 },
@@ -7782,7 +7813,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_C[] =
 {
-    { L"Shingo C", 0x3fc5c00, 0x3fc5c20, indexKOFXISprites_Shingo },
+    { L"Shingo C", 0x3fc5c00, 0x3fc5c20, indexKOF99Sprites_Shingo, 0x00 },
     { L"C - Super Stuff 1", 0x3fc5c20, 0x3fc5c40, indexKOFXISprites_Shingo, 0x20 },
     { L"C - Electric Palette", 0x3fc5c40, 0x3fc5c60, indexKOFXISprites_Shingo, 0x41 },
     { L"C - Darker Palette", 0x3fc5c60, 0x3fc5c80, indexKOFXISprites_Shingo, 0x40 },
@@ -7802,7 +7833,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_D[] =
 {
-    { L"Shingo D", 0x3fc5e00, 0x3fc5e20, indexKOFXISprites_Shingo },
+    { L"Shingo D", 0x3fc5e00, 0x3fc5e20, indexKOF99Sprites_Shingo, 0x00 },
     { L"D - Super Stuff 1", 0x3fc5e20, 0x3fc5e40, indexKOFXISprites_Shingo, 0x20 },
     { L"D - Electric Palette", 0x3fc5e40, 0x3fc5e60, indexKOFXISprites_Shingo, 0x41 },
     { L"D - Darker Palette", 0x3fc5e60, 0x3fc5e80, indexKOFXISprites_Shingo, 0x40 },
@@ -7822,7 +7853,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_EA[] =
 {
-    { L"Shingo EA", 0x3fc6000, 0x3fc6020, indexKOFXISprites_Shingo },
+    { L"Shingo EA", 0x3fc6000, 0x3fc6020, indexKOF99Sprites_Shingo, 0x00 },
     { L"E+A - Super Stuff 1", 0x3fc6020, 0x3fc6040, indexKOFXISprites_Shingo, 0x20 },
     { L"E+A - Electric Palette", 0x3fc6040, 0x3fc6060, indexKOFXISprites_Shingo, 0x41 },
     { L"E+A - Darker Palette", 0x3fc6060, 0x3fc6080, indexKOFXISprites_Shingo, 0x40 },
@@ -7842,7 +7873,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_EB[] =
 {
-    { L"Shingo EB", 0x3fc6200, 0x3fc6220, indexKOFXISprites_Shingo },
+    { L"Shingo EB", 0x3fc6200, 0x3fc6220, indexKOF99Sprites_Shingo, 0x00 },
     { L"E+B - Super Stuff 1", 0x3fc6220, 0x3fc6240, indexKOFXISprites_Shingo, 0x20 },
     { L"E+B - Electric Palette", 0x3fc6240, 0x3fc6260, indexKOFXISprites_Shingo, 0x41 },
     { L"E+B - Darker Palette", 0x3fc6260, 0x3fc6280, indexKOFXISprites_Shingo, 0x40 },
@@ -7862,7 +7893,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_EC[] =
 {
-    { L"Shingo EC", 0x3fc6400, 0x3fc6420, indexKOFXISprites_Shingo },
+    { L"Shingo EC", 0x3fc6400, 0x3fc6420, indexKOF99Sprites_Shingo, 0x00 },
     { L"E+C - Super Stuff 1", 0x3fc6420, 0x3fc6440, indexKOFXISprites_Shingo, 0x20 },
     { L"E+C - Electric Palette", 0x3fc6440, 0x3fc6460, indexKOFXISprites_Shingo, 0x41 },
     { L"E+C - Darker Palette", 0x3fc6460, 0x3fc6480, indexKOFXISprites_Shingo, 0x40 },
@@ -7882,7 +7913,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_ED[] =
 {
-    { L"Shingo ED", 0x3fc6600, 0x3fc6620, indexKOFXISprites_Shingo },
+    { L"Shingo ED", 0x3fc6600, 0x3fc6620, indexKOF99Sprites_Shingo, 0x00 },
     { L"E+D - Super Stuff 1", 0x3fc6620, 0x3fc6640, indexKOFXISprites_Shingo, 0x20 },
     { L"E+D - Electric Palette", 0x3fc6640, 0x3fc6660, indexKOFXISprites_Shingo, 0x41 },
     { L"E+D - Darker Palette", 0x3fc6660, 0x3fc6680, indexKOFXISprites_Shingo, 0x40 },
@@ -7902,7 +7933,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_SA[] =
 {
-    { L"Shingo SA", 0x3fc6800, 0x3fc6820, indexKOFXISprites_Shingo },
+    { L"Shingo SA", 0x3fc6800, 0x3fc6820, indexKOF99Sprites_Shingo, 0x00 },
     { L"Start+A - Super Stuff 1", 0x3fc6820, 0x3fc6840, indexKOFXISprites_Shingo, 0x20 },
     { L"Start+A - Electric Palette", 0x3fc6840, 0x3fc6860, indexKOFXISprites_Shingo, 0x41 },
     { L"Start+A - Darker Palette", 0x3fc6860, 0x3fc6880, indexKOFXISprites_Shingo, 0x40 },
@@ -7922,7 +7953,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_SB[] =
 {
-    { L"Shingo SB", 0x3fc6a00, 0x3fc6a20, indexKOFXISprites_Shingo },
+    { L"Shingo SB", 0x3fc6a00, 0x3fc6a20, indexKOF99Sprites_Shingo, 0x00 },
     { L"Start+B - Super Stuff 1", 0x3fc6a20, 0x3fc6a40, indexKOFXISprites_Shingo, 0x20 },
     { L"Start+B - Electric Palette", 0x3fc6a40, 0x3fc6a60, indexKOFXISprites_Shingo, 0x41 },
     { L"Start+B - Darker Palette", 0x3fc6a60, 0x3fc6a80, indexKOFXISprites_Shingo, 0x40 },
@@ -7942,7 +7973,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_SC[] =
 {
-    { L"Shingo SC", 0x3fc6c00, 0x3fc6c20, indexKOFXISprites_Shingo },
+    { L"Shingo SC", 0x3fc6c00, 0x3fc6c20, indexKOF99Sprites_Shingo, 0x00 },
     { L"Start+C - Super Stuff 1", 0x3fc6c20, 0x3fc6c40, indexKOFXISprites_Shingo, 0x20 },
     { L"Start+C - Electric Palette", 0x3fc6c40, 0x3fc6c60, indexKOFXISprites_Shingo, 0x41 },
     { L"Start+C - Darker Palette", 0x3fc6c60, 0x3fc6c80, indexKOFXISprites_Shingo, 0x40 },
@@ -7962,7 +7993,7 @@ const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_SHINGO_PALETTES_SD[] =
 {
-    { L"Shingo SD", 0x3fc6e00, 0x3fc6e20, indexKOFXISprites_Shingo },
+    { L"Shingo SD", 0x3fc6e00, 0x3fc6e20, indexKOF99Sprites_Shingo, 0x00 },
     { L"Start+D - Super Stuff 1", 0x3fc6e20, 0x3fc6e40, indexKOFXISprites_Shingo, 0x20 },
     { L"Start+D - Electric Palette", 0x3fc6e40, 0x3fc6e60, indexKOFXISprites_Shingo, 0x41 },
     { L"Start+D - Darker Palette", 0x3fc6e60, 0x3fc6e80, indexKOFXISprites_Shingo, 0x40 },
@@ -8462,7 +8493,7 @@ const sGame_PaletteDataset KOFXI_A_SHO_PALETTES_SD[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_A[] =
 {
-    { L"Adelheid A", 0x4366800, 0x4366820, indexKOFXISprites_Adelheid },
+    { L"Adelheid A", 0x4366800, 0x4366820, indexKOF03Sprites_Adelheid, 0x00 },
     { L"A - Super Stuff 1", 0x4366820, 0x4366840, indexKOFXISprites_Adelheid, 0x20 },
     { L"A - Electric Palette", 0x4366840, 0x4366860, indexKOFXISprites_Adelheid, 0x41 },
     { L"A - Darker Palette", 0x4366860, 0x4366880, indexKOFXISprites_Adelheid, 0x40 },
@@ -8482,7 +8513,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_A[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_B[] =
 {
-    { L"Adelheid B", 0x4366a00, 0x4366a20, indexKOFXISprites_Adelheid },
+    { L"Adelheid B", 0x4366a00, 0x4366a20, indexKOF03Sprites_Adelheid, 0x00 },
     { L"B - Super Stuff 1", 0x4366a20, 0x4366a40, indexKOFXISprites_Adelheid, 0x20 },
     { L"B - Electric Palette", 0x4366a40, 0x4366a60, indexKOFXISprites_Adelheid, 0x41 },
     { L"B - Darker Palette", 0x4366a60, 0x4366a80, indexKOFXISprites_Adelheid, 0x40 },
@@ -8502,7 +8533,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_B[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_C[] =
 {
-    { L"Adelheid C", 0x4366c00, 0x4366c20, indexKOFXISprites_Adelheid },
+    { L"Adelheid C", 0x4366c00, 0x4366c20, indexKOF03Sprites_Adelheid, 0x00 },
     { L"C - Super Stuff 1", 0x4366c20, 0x4366c40, indexKOFXISprites_Adelheid, 0x20 },
     { L"C - Electric Palette", 0x4366c40, 0x4366c60, indexKOFXISprites_Adelheid, 0x41 },
     { L"C - Darker Palette", 0x4366c60, 0x4366c80, indexKOFXISprites_Adelheid, 0x40 },
@@ -8522,7 +8553,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_C[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_D[] =
 {
-    { L"Adelheid D", 0x4366e00, 0x4366e20, indexKOFXISprites_Adelheid },
+    { L"Adelheid D", 0x4366e00, 0x4366e20, indexKOF03Sprites_Adelheid, 0x00 },
     { L"D - Super Stuff 1", 0x4366e20, 0x4366e40, indexKOFXISprites_Adelheid, 0x20 },
     { L"D - Electric Palette", 0x4366e40, 0x4366e60, indexKOFXISprites_Adelheid, 0x41 },
     { L"D - Darker Palette", 0x4366e60, 0x4366e80, indexKOFXISprites_Adelheid, 0x40 },
@@ -8542,7 +8573,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_D[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_EA[] =
 {
-    { L"Adelheid EA", 0x4367000, 0x4367020, indexKOFXISprites_Adelheid },
+    { L"Adelheid EA", 0x4367000, 0x4367020, indexKOF03Sprites_Adelheid, 0x00 },
     { L"E+A - Super Stuff 1", 0x4367020, 0x4367040, indexKOFXISprites_Adelheid, 0x20 },
     { L"E+A - Electric Palette", 0x4367040, 0x4367060, indexKOFXISprites_Adelheid, 0x41 },
     { L"E+A - Darker Palette", 0x4367060, 0x4367080, indexKOFXISprites_Adelheid, 0x40 },
@@ -8562,7 +8593,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_EA[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_EB[] =
 {
-    { L"Adelheid EB", 0x4367200, 0x4367220, indexKOFXISprites_Adelheid },
+    { L"Adelheid EB", 0x4367200, 0x4367220, indexKOF03Sprites_Adelheid, 0x00 },
     { L"E+B - Super Stuff 1", 0x4367220, 0x4367240, indexKOFXISprites_Adelheid, 0x20 },
     { L"E+B - Electric Palette", 0x4367240, 0x4367260, indexKOFXISprites_Adelheid, 0x41 },
     { L"E+B - Darker Palette", 0x4367260, 0x4367280, indexKOFXISprites_Adelheid, 0x40 },
@@ -8582,7 +8613,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_EB[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_EC[] =
 {
-    { L"Adelheid EC", 0x4367400, 0x4367420, indexKOFXISprites_Adelheid },
+    { L"Adelheid EC", 0x4367400, 0x4367420, indexKOF03Sprites_Adelheid, 0x00 },
     { L"E+C - Super Stuff 1", 0x4367420, 0x4367440, indexKOFXISprites_Adelheid, 0x20 },
     { L"E+C - Electric Palette", 0x4367440, 0x4367460, indexKOFXISprites_Adelheid, 0x41 },
     { L"E+C - Darker Palette", 0x4367460, 0x4367480, indexKOFXISprites_Adelheid, 0x40 },
@@ -8602,7 +8633,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_EC[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_ED[] =
 {
-    { L"Adelheid ED", 0x4367600, 0x4367620, indexKOFXISprites_Adelheid },
+    { L"Adelheid ED", 0x4367600, 0x4367620, indexKOF03Sprites_Adelheid, 0x00 },
     { L"E+D - Super Stuff 1", 0x4367620, 0x4367640, indexKOFXISprites_Adelheid, 0x20 },
     { L"E+D - Electric Palette", 0x4367640, 0x4367660, indexKOFXISprites_Adelheid, 0x41 },
     { L"E+D - Darker Palette", 0x4367660, 0x4367680, indexKOFXISprites_Adelheid, 0x40 },
@@ -8622,7 +8653,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_ED[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_SA[] =
 {
-    { L"Adelheid SA", 0x4367800, 0x4367820, indexKOFXISprites_Adelheid },
+    { L"Adelheid SA", 0x4367800, 0x4367820, indexKOF03Sprites_Adelheid, 0x00 },
     { L"Start+A - Super Stuff 1", 0x4367820, 0x4367840, indexKOFXISprites_Adelheid, 0x20 },
     { L"Start+A - Electric Palette", 0x4367840, 0x4367860, indexKOFXISprites_Adelheid, 0x41 },
     { L"Start+A - Darker Palette", 0x4367860, 0x4367880, indexKOFXISprites_Adelheid, 0x40 },
@@ -8642,7 +8673,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_SA[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_SB[] =
 {
-    { L"Adelheid SB", 0x4367a00, 0x4367a20, indexKOFXISprites_Adelheid },
+    { L"Adelheid SB", 0x4367a00, 0x4367a20, indexKOF03Sprites_Adelheid, 0x00 },
     { L"Start+B - Super Stuff 1", 0x4367a20, 0x4367a40, indexKOFXISprites_Adelheid, 0x20 },
     { L"Start+B - Electric Palette", 0x4367a40, 0x4367a60, indexKOFXISprites_Adelheid, 0x41 },
     { L"Start+B - Darker Palette", 0x4367a60, 0x4367a80, indexKOFXISprites_Adelheid, 0x40 },
@@ -8662,7 +8693,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_SB[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_SC[] =
 {
-    { L"Adelheid SC", 0x4367c00, 0x4367c20, indexKOFXISprites_Adelheid },
+    { L"Adelheid SC", 0x4367c00, 0x4367c20, indexKOF03Sprites_Adelheid, 0x00 },
     { L"Start+C - Super Stuff 1", 0x4367c20, 0x4367c40, indexKOFXISprites_Adelheid, 0x20 },
     { L"Start+C - Electric Palette", 0x4367c40, 0x4367c60, indexKOFXISprites_Adelheid, 0x41 },
     { L"Start+C - Darker Palette", 0x4367c60, 0x4367c80, indexKOFXISprites_Adelheid, 0x40 },
@@ -8682,7 +8713,7 @@ const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_SC[] =
 
 const sGame_PaletteDataset KOFXI_A_ADELHEID_PALETTES_SD[] =
 {
-    { L"Adelheid SD", 0x4367e00, 0x4367e20, indexKOFXISprites_Adelheid },
+    { L"Adelheid SD", 0x4367e00, 0x4367e20, indexKOF03Sprites_Adelheid, 0x00 },
     { L"Start+D - Super Stuff 1", 0x4367e20, 0x4367e40, indexKOFXISprites_Adelheid, 0x20 },
     { L"Start+D - Electric Palette", 0x4367e40, 0x4367e60, indexKOFXISprites_Adelheid, 0x41 },
     { L"Start+D - Darker Palette", 0x4367e60, 0x4367e80, indexKOFXISprites_Adelheid, 0x40 },

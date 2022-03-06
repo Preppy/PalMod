@@ -384,35 +384,61 @@ struct PersonaFileData
     uint32_t nExpectedFileSize = 0;
     const std::vector<Persona4PaletteData> *paletteInfo = nullptr;
     uint32_t nInitialLocation = 0;
+    uint32_t nPaletteSetLength = 0;
 };
 
 const std::vector<PersonaFileData> PersonaCharacterData =
 { {
     //Persona 3, alphabetical
-        { L"char_ag_pal.pac",    L"Aigis",                  278560,    &Persona4PalettesAigis,      0x2040 },
-        { L"char_ak_pal.pac",    L"Akihiko Sanada",         278560,    &Persona4PalettesAkihiko,    0x2040 },
-        { L"char_am_pal.pac",    L"Ken Amada and Koromaru", 278560,    &Persona4PalettesKen,        0x2040 },
-        { L"char_el_pal.pac",    L"Elizabeth",              278560,    &Persona4PalettesElizabeth,  0x2040 },
-        { L"char_ju_pal.pac",    L"Junpei Iori",            278560,    &Persona4PalettesJunpei,     0x2040 },
-        { L"char_mi_pal.pac",    L"Mitsuru Kirijo",         278560,    &Persona4PalettesMitsuru,    0x2040 },
-        { L"char_yk_pal.pac",    L"Yukari",                 278560,    &Persona4PalettesYukari,     0x2040 },
-    //Persona 4, alphabetical
-        { L"char_ce_pal.pac",    L"Chie Satonaka",          278560,    &Persona4PalettesChie,       0x2040 },
-        { L"char_ka_pal.pac",    L"Kanji Tatsumi",          278560,    &Persona4PalettesKanji,      0x2040 },
-        { L"char_ku_pal.pac",    L"Kuma/Teddie",            278560,    &Persona4PalettesTeddie,     0x2040 },
-        { L"char_la_pal.pac",    L"Labrys",                 278560,    &Persona4PalettesLabrys,     0x2040 },
-        { L"char_ls_pal.pac",    L"Shadow Labrys",          278560,    &Persona4PalettesShadow,     0x2040 },
-        { L"char_nx_pal.pac",    L"Margaret",               278560,    &Persona4PalettesMargaret,   0x2040 },
-        { L"char_mr_pal.pac",    L"Marie",                  278560,    &Persona4PalettesMarie,      0x2040 },
-        { L"char_na_pal.pac",    L"Naoto Shirogane",        278560,    &Persona4PalettesNaoto,      0x2040 },
-        { L"char_ri_pal.pac",    L"Rise Kujikawa",          278560,    &Persona4PalettesRise,       0x2040 },
-        { L"char_nb_pal.pac",    L"Sho Minazuki",           278560,    &Persona4PalettesSho,        0x2040 },
-        { L"char_no_pal.pac",    L"Sho (Solo)",             278560,    &Persona4PalettesSolo,       0x2040 },
-        { L"char_ad_pal.pac",    L"Tohru Adachi",           278560,    &Persona4PalettesTohru,      0x2040 },
-        { L"char_yo_pal.pac",    L"Yosuke Hanamura",        278560,    &Persona4PalettesYosuke,     0x2040 },
-        { L"char_bc_pal.pac",    L"Yu Narukami",            278560,    &Persona4PalettesYu,         0x2040 },
-        { L"char_yu_pal.pac",    L"Yukiko Amagi",           278560,    &Persona4PalettesYukiko,     0x2040 },
+        { L"char\\char_ag_pal.pac",    L"Aigis",                   278560,    &Persona4PalettesAigis,      0x2040,      0x2100 },
+        { L"char\\char_ak_pal.pac",    L"Akihiko Sanada",          278560,    &Persona4PalettesAkihiko,    0x2040,      0x2100 },
+        { L"char\\char_am_pal.pac",    L"Ken Amada & Koromaru",    278560,    &Persona4PalettesKen,        0x2040,      0x2100 },
+        { L"char\\char_el_pal.pac",    L"Elizabeth",               278560,    &Persona4PalettesElizabeth,  0x2040,      0x2100 },
+        { L"char\\char_ju_pal.pac",    L"Junpei Iori",             278560,    &Persona4PalettesJunpei,     0x2040,      0x2100 },
+        { L"char\\char_mi_pal.pac",    L"Mitsuru Kirijo",          278560,    &Persona4PalettesMitsuru,    0x2040,      0x2100 },
+        { L"char\\char_yk_pal.pac",    L"Yukari",                  278560,    &Persona4PalettesYukari,     0x2040,      0x2100 },
+        //Persona 4, alphabetical
+        { L"char\\char_ce_pal.pac",    L"Chie Satonaka",           278560,    &Persona4PalettesChie,       0x2040,      0x2100 },
+        { L"char\\char_ka_pal.pac",    L"Kanji Tatsumi",           278560,    &Persona4PalettesKanji,      0x2040,      0x2100 },
+        { L"char\\char_ku_pal.pac",    L"Teddie/Kuma",             278560,    &Persona4PalettesTeddie,     0x2040,      0x2100 },
+        { L"char\\char_la_pal.pac",    L"Labrys",                  278560,    &Persona4PalettesLabrys,     0x2040,      0x2100 },
+        { L"char\\char_ls_pal.pac",    L"Shadow Labrys",           278560,    &Persona4PalettesShadow,     0x2040,      0x2100 },
+        { L"char\\char_nx_pal.pac",    L"Margaret",                278560,    &Persona4PalettesMargaret,   0x2040,      0x2100 },
+        { L"char\\char_mr_pal.pac",    L"Marie",                   278560,    &Persona4PalettesMarie,      0x2040,      0x2100 },
+        { L"char\\char_na_pal.pac",    L"Naoto Shirogane",         278560,    &Persona4PalettesNaoto,      0x2040,      0x2100 },
+        { L"char\\char_ri_pal.pac",    L"Rise Kujikawa",           278560,    &Persona4PalettesRise,       0x2040,      0x2100 },
+        { L"char\\char_nb_pal.pac",    L"Sho Minazuki",            278560,    &Persona4PalettesSho,        0x2040,      0x2100 },
+        { L"char\\char_no_pal.pac",    L"Sho (Solo)",              278560,    &Persona4PalettesSolo,       0x2040,      0x2100 },
+        { L"char\\char_ad_pal.pac",    L"Tohru Adachi",            278560,    &Persona4PalettesTohru,      0x2040,      0x2100 },
+        { L"char\\char_yo_pal.pac",    L"Yosuke Hanamura",         278560,    &Persona4PalettesYosuke,     0x2040,      0x2100 },
+        { L"char\\char_bc_pal.pac",    L"Yu Narukami",             278560,    &Persona4PalettesYu,         0x2040,      0x2100 },
+        { L"char\\char_yu_pal.pac",    L"Yukiko Amagi",            278560,    &Persona4PalettesYukiko,     0x2040,      0x2100 },
 
-    //Unknown, doesnt follow the same format as other characters
-    //    { L"char_e0_pal.pac",    L"Unknown?",           13280,     Persona4Names,    ARRAYSIZE(Persona4Names), 0x280,  0x0 },
+        //Persona 3, alphabetical
+        { L"ETC\\CHSLDotV.pac",    L"Aigis (CSel)",                19154912,   &Persona4PalettesAigis,     0x191a90,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Akihiko Sanada (CSel)",       19154912,   &Persona4PalettesAkihiko,   0x24BE20,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Ken Amada & Koromaru (CSel)", 19154912,   &Persona4PalettesAkihiko,   0x2E9CD0,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Elizabeth (CSel)",            19154912,   &Persona4PalettesElizabeth, 0x5577D0,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Junpei Iori (CSel)",          19154912,   &Persona4PalettesJunpei,    0x5FE500,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Mitsuru Kirijo (CSel)",       19154912,   &Persona4PalettesMitsuru,   0xBA8150,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Yukari (CSel)",               19154912,   &Persona4PalettesYukari,    0xBA8150,    0x840 },
+        //Persona 4, alphabetical
+        { L"ETC\\CHSLDotV.pac",    L"Chie Satonaka (CSel)",        19154912,   &Persona4PalettesChie,      0x412340,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Kanji Tatsumi (CSel)",        19154912,   &Persona4PalettesKanji,     0x746950,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Teddie/Kuma (CSel)",          19154912,   &Persona4PalettesTeddie,    0x7E18E0,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Labrys (CSel)",               19154912,   &Persona4PalettesLabrys,    0x90E2F0,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Shadow Labrys (CSel)",        19154912,   &Persona4PalettesShadow,    0xAC5990,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Margaret (CSel)",             19154912,   &Persona4PalettesMargaret,  0xF4E5A0,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Marie (CSel)",                19154912,   &Persona4PalettesMarie,     0xC857B0,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Naoto Shirogane (CSel)",      19154912,   &Persona4PalettesNaoto,     0xD17BD0,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Rise Kujikawa (CSel)",        19154912,   &Persona4PalettesNaoto,     0x1026140,   0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Sho Minazuki (CSel)",         19154912,   &Persona4PalettesSho,       0xDF51D0,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Sho (Solo) (CSel)",           19154912,   &Persona4PalettesSolo,      0xEB3630,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Tohru Adachi (CSel)",         19154912,   &Persona4PalettesTohru,     0xA0840 ,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Yosuke Hanamura (CSel)",      19154912,   &Persona4PalettesYosuke,    0x112DB70,   0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Yu Narukami (CSel)",          19154912,   &Persona4PalettesYu,        0x38EC60,    0x840 },
+        { L"ETC\\CHSLDotV.pac",    L"Yukiko Amagi (CSel)",         19154912,   &Persona4PalettesYukiko,    0x1234000,   0x840 },
+
+    // Unknown, doesnt follow the same format as other characters
+    // { L"char_e0_pal.pac",    L"Unknown?",           13280,     Persona4Names,    ARRAYSIZE(Persona4Names), 0x280,  0x0 },
 } };

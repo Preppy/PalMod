@@ -270,8 +270,8 @@ const sGame_PaletteDataset SAMSHO4_A_GALFORD_PALETTES_S1[] =
     { L"Galford Slash A", 0x0c5000, 0x0c5040, indexSamSho5Sprites_Galford, 0, &pairNext2 },
     { L"Galford Slash A Rage", 0x0c5040, 0x0c5080, indexSamSho5Sprites_Galford, 0, &pairNext },
     { L"Poppy Slash A", 0x0c5280, 0x0c52a0, indexSamSho5Sprites_Galford, 1 },
-    { L"Galford Slash A Victory", 0x0c53a0, 0x0c53e0, indexSamSho4Sprites_Galford, 0x41 },
-    { L"Poppy Slash A Victory", 0x0c53e0, 0x0c5400, indexSamSho4Sprites_Galford, 0x42 },
+    { L"Galford Slash A Victory", 0x0c53a0, 0x0c53e0, indexSamSho4Sprites_Galford, 0x41, &pairNext },
+    { L"Poppy Slash A Victory", 0x0c53e0, 0x0c5400, indexSamSho4Sprites_Galford, 0x42, &pairPrevious },
 
     { L"Galford Slash A (Burning)", 0xc50c0, 0xc5100, indexSamSho5Sprites_Galford, 0x00 },
     { L"Galford Slash A (Shocked)", 0xc5100, 0xc5140, indexSamSho5Sprites_Galford, 0x00 },
@@ -285,8 +285,8 @@ const sGame_PaletteDataset SAMSHO4_A_GALFORD_PALETTES_S2[] =
     { L"Galford Slash B", 0x0c5400, 0x0c5440, indexSamSho5Sprites_Galford, 0, &pairNext2 },
     { L"Galford Slash B Rage", 0x0c5440, 0x0c5480, indexSamSho5Sprites_Galford, 0, &pairNext },
     { L"Poppy Slash B", 0x0c5680, 0x0c56a0, indexSamSho5Sprites_Galford, 1 },
-    { L"Galford Slash B Victory ", 0x0c57a0, 0x0c57e0, indexSamSho4Sprites_Galford, 0x41 },
-    { L"Poppy Slash B Victory", 0x0c57e0, 0x0c5800, indexSamSho4Sprites_Galford, 0x42 },
+    { L"Galford Slash B Victory ", 0x0c57a0, 0x0c57e0, indexSamSho4Sprites_Galford, 0x41, &pairNext },
+    { L"Poppy Slash B Victory", 0x0c57e0, 0x0c5800, indexSamSho4Sprites_Galford, 0x42, &pairPrevious },
 
     { L"Galford Slash B (Burning)", 0xc54c0, 0xc5500, indexSamSho5Sprites_Galford, 0x00 },
     { L"Galford Slash B (Shocked)", 0xc5500, 0xc5540, indexSamSho5Sprites_Galford, 0x00 },

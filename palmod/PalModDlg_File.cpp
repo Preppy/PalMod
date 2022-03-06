@@ -102,6 +102,9 @@ sSupportedGameList SupportedGameList[] =
     { SAVAGEREIGN_A,    L"Savage Reign", L"Savage Reign|059-p1.*;savag_p1.rom|", GamePlatform::NEOGEO },
     { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", GamePlatform::CapcomCPS12, GameSeries::SFA },
     { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
+#ifdef NOTREADY
+    { SFA2_Hack_A,      L"SFA2 Hack", L"SFA2 Hack: Characters (sz2u.09), Bonus (sz2u.08)|sz2u.08;sz2u.09|", GamePlatform::CapcomCPS12, GameSeries::SFA },
+#endif
     { SFA3_A,           L"SFA3", L"SFA3 sz3.09c|*.09*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
     { SFZ3U_A,          L"SFZ3U", L"SFZ3U|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::SegaNAOMI },
     { SFIII1_A,         L"SFIII:NG", L"SFIII:NG Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
@@ -119,6 +122,7 @@ sSupportedGameList SupportedGameList[] =
     { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo|pzf.04*|", GamePlatform::CapcomCPS12 },
     { TMNTTF_SNES,      L"Teenage Mutant Ninja Turtles: TF (SNES)", L"Teenage Mutant Ninja Turtles: TF (SNES)|sns-ky-0.u1;teenage mutant ninja turtles - tournament fighters (U*.s*c|", GamePlatform::Nintendo },
     { TOPF2005_SEGA,    L"Top Fighter 2005 (Mega Drive)", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::Sega },
+    { UMK3_DS,          L"Ultimate Mortal Kombat 3 (DS)", L"Ultimate Mortal Kombat 3 (DS)|Ultimate Mortal Kombat (USA) (En,Fr,De,Es,It).nds|", GamePlatform::Nintendo },
     { UMK3_SNES,        L"Ultimate Mortal Kombat 3 (SNES)", L"Ultimate Mortal Kombat 3 (SNES)|Ultimate Mortal Kombat 3 (USA).sfc;sns-a3ze.u1|", GamePlatform::Nintendo },
     { VampireNightWarriors_A,   L"Vampire: The Night Warriors", L"Vampire: The Night Warriors|vam*.09?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
     { VampireHunter_A,          L"Vampire Hunter: Darkstalkers' Revenge", L"Vampire Hunter: Darkstalkers' Revenge|vph?.09?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },

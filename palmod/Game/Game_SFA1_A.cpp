@@ -457,7 +457,7 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else
                 {
-                    UINT16 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    int8_t nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
                     UINT16 nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
 
                     fShouldUseAlternateLoadLogic = true;

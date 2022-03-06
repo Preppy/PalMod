@@ -116,6 +116,7 @@
 #include "Game_SVCPLUSA_A.h"
 #include "Game_TMNTTF_SNES.h"
 #include "Game_TopF2005_Sega.h"
+#include "Game_UMK3_DS.h"
 #include "Game_UMK3_SNES.h"
 #include "Game_UNICLR_A.h"
 #include "Game_Venture_A.h"
@@ -863,6 +864,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     case SFA2_A:
+    case SFA2_Hack_A:
     {
         GetRule = &CGame_SFA2_A::GetRule;
         return TRUE;
@@ -915,6 +917,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case TOPF2005_SEGA:
     {
         GetRule = &CGame_TOPF2005_SEGA::GetRule;
+        return TRUE;
+    }
+    case UMK3_DS:
+    {
+        GetRule = &CGame_UMK3_DS::GetRule;
         return TRUE;
     }
     case UMK3_SNES:
@@ -1459,6 +1466,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
         return new CGame_SFA1_A(nConfirmedROMSize);
     }
     case SFA2_A:
+    case SFA2_Hack_A:
     {
         return new CGame_SFA2_A(nConfirmedROMSize, nExtraGameData);
     }
@@ -1510,6 +1518,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_TOPF2005_SEGA(nConfirmedROMSize);
     }    
+    case UMK3_DS:
+    {
+        return new CGame_UMK3_DS(nConfirmedROMSize);
+    }
     case UMK3_SNES:
     {
         return new CGame_UMK3_SNES(nConfirmedROMSize);
@@ -1683,7 +1695,26 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
         }
         case SFA2_A:
         {
-            nGameRule = ((wcsstr(pszFileNameLowercase, L".08") != nullptr) ? 8 : 7);
+            if (wcsstr(pszFileNameLowercase, L".08") != nullptr)
+            {
+                nGameRule = 8;
+            }
+            else
+            {
+                nGameRule = 7;
+            }
+            break;
+        }
+        case SFA2_Hack_A:
+        {
+            if (wcsstr(pszFileNameLowercase, L".08") != nullptr)
+            {
+                nGameRule = 88;
+            }
+            else
+            {
+                nGameRule = 9;
+            }
             break;
         }
         case SFIII3_A:
@@ -2120,7 +2151,8 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
                     szLoad.Format(L"%s\\%s", pszLoadDir, CurrRule.szFileName);
 
-                    BOOL fFileOpened = FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary);
+                    CFileException pError;
+                    BOOL fFileOpened = FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary, &pError);
 
                     if (!fFileOpened && CurrRule.fHasAltName)
                     {
@@ -2130,7 +2162,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
                         strAltFileName.Format(L"%s\\%s", pszLoadDir, CurrRule.szAltFileName);
 
-                        fFileOpened = FileSave.Open(strAltFileName, CFile::modeReadWrite | CFile::typeBinary);
+                        fFileOpened = FileSave.Open(strAltFileName, CFile::modeReadWrite | CFile::typeBinary, &pError);
                     }
 
                     if (fFileOpened)
@@ -2159,6 +2191,10 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                     }
                     else
                     {
+                        wchar_t szError[MAX_PATH];
+                        pError.GetErrorMessage(szError, MAX_PATH);
+                        MessageBox(g_appHWnd, szError, GetHost()->GetAppName(), MB_ICONERROR);
+
                         strErrorFile = szLoad;
                         nSaveLoadErr++;
                     }
@@ -2177,9 +2213,11 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     {
         if (CurrGame->WasGameFileChangedInSession())
         {
+            CFileException pError;
+
             nSaveLoadCount = 1;
 
-            if (FileSave.Open(pszLoadDir, CFile::modeReadWrite | CFile::typeBinary))
+            if (FileSave.Open(pszLoadDir, CFile::modeReadWrite | CFile::typeBinary, &pError))
             {
                 if (CurrGame->SaveFile(&FileSave, 0))
                 {
@@ -2190,6 +2228,10 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             }
             else
             {
+                wchar_t szError[MAX_PATH];
+                pError.GetErrorMessage(szError, MAX_PATH);
+                MessageBox(g_appHWnd, szError, GetHost()->GetAppName(), MB_ICONERROR);
+
                 strErrorFile = pszLoadDir;
                 nSaveLoadErr = 1;
             }
@@ -2362,7 +2404,10 @@ void CGameLoad::CrosscopyGame(CGameClass* CurrGame)
     }
     else
     {
-        strLoadSaveStr.LoadString(IDS_CROSSCOPY_NODIR);
+        if (!strLoadSaveStr.LoadString(IDS_CROSSCOPY_NODIR))
+        {
+            strLoadSaveStr = L"<resource loading failure>";
+        }
     }
 }
 

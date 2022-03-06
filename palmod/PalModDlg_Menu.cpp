@@ -59,7 +59,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"We need the PLxxPAK.bin files from the root of the game image.\nFor the PS3 version, select the folder \"gdrom\" under \"NPUB30068\\USRDIR\".";
             break;
         case P4AU_NESICA:
-            pszExtraInfo = L"Select the \"Char\" folder, under \"data\"";
+            pszExtraInfo = L"Select the \"data\" folder.";
             break;
         case REDEARTH_A_DIR_30:
             pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
