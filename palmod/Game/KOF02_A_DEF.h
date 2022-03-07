@@ -4176,7 +4176,7 @@ const sGame_PaletteDataset KOF02_A_BONUS_ENDING_PALETTES[] =
     { L"Ending Character Extras", 0xa3b42, 0xa3b62, indexKOF02Sprites_Bonus, 0x04 },
 };
 
-const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
+const sGame_PaletteDataset KOF02_A_BONUS_SELECT_PALETTES[] =
 {
     { L"Character Select Icons 1/3", 0xb8f62, 0xb9162, indexKOF02Sprites_Bonus, 0x00, &pairNextAndNext },
     { L"Character Select Icons 2/3", 0xb9162, 0xb9362, indexKOF02Sprites_Bonus, 0x01 },
@@ -4189,6 +4189,11 @@ const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
 
     { L"Character Select Name", 0xb4ea2, 0xb4ec2 },
     { L"Character Select Order Numbers", 0xb4ec2, 0xb4ee2 },
+};
+
+const sGame_PaletteDataset KOF02_A_BONUS_HUD_PALETTES[] =
+{
+    { L"Super Meter", 0xb4602, 0xb46a2 },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
@@ -4211,7 +4216,8 @@ const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =
 {
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_EFFECTS_PALETTES) },
     { L"Ending", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_ENDING_PALETTES, ARRAYSIZE(KOF02_A_BONUS_ENDING_PALETTES) },
-    { L"Character Select Stuff", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_BONUS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_BONUS_PALETTES) },
+    { L"HUD", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_HUD_PALETTES, ARRAYSIZE(KOF02_A_BONUS_HUD_PALETTES) },
+    { L"Character Select Stuff", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_SELECT_PALETTES, ARRAYSIZE(KOF02_A_BONUS_SELECT_PALETTES) },
 };
 
 const sDescTreeNode KOF02_A_UNITS[] =

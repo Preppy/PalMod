@@ -889,6 +889,96 @@ const sDescTreeNode KOF95_A_OMEGARUGAL_COLLECTION[] =
 
 // Everything after this point is hand-crafted
 
+
+const sGame_PaletteDataset KOF95_A_STAGE_PALETTES_HERO[] =
+{
+    { L"Hero Team Stage 1/4", 0xd8600, 0xd8800 },
+    { L"Hero Team Stage 2/4", 0xd8800, 0xd8a00 },
+    { L"Hero Team Stage 3/4", 0xd8a00, 0xd8c00 },
+    { L"Hero Team Stage 4/4", 0xd8c00, 0xd8e00 },
+};
+
+const sGame_PaletteDataset KOF95_A_STAGE_PALETTES_FURY[] =
+{
+    { L"Fatal Fury Team Stage 1/4", 0xdf800, 0xdfa00 },
+    { L"Fatal Fury Team Stage 2/4", 0xdfa00, 0xdfc00 },
+    { L"Fatal Fury Team Stage 3/4", 0xdfc00, 0xdfe00 },
+    { L"Fatal Fury Team Stage 4/4", 0xdfe00, 0xe0000 },
+};
+
+const sGame_PaletteDataset KOF95_A_STAGE_PALETTES_AOF[] =
+{
+    { L"Art of Fighting Team Stage 1/4", 0xe0000, 0xe0200 },
+    { L"Art of Fighting Team Stage 2/4", 0xe0200, 0xe0400 },
+    { L"Art of Fighting Team Stage 3/4", 0xe0400, 0xe0600 },
+    { L"Art of Fighting Team Stage 4/4", 0xe0600, 0xe0800 },
+};
+
+const sGame_PaletteDataset KOF95_A_STAGE_PALETTES_IKARI[] =
+{
+    { L"Ikari Warriors Team Stage 1/8", 0xe0800, 0xe0a00 },
+    { L"Ikari Warriors Team Stage 2/8", 0xe0a00, 0xe0c00 },
+    { L"Ikari Warriors Team Stage 3/8", 0xe0c00, 0xe0e00 },
+    { L"Ikari Warriors Team Stage 4/8", 0xe0e00, 0xe1000 },
+    { L"Ikari Warriors Team Stage 5/8", 0xe1000, 0xe1200 },
+    { L"Ikari Warriors Team Stage 6/8", 0xe1200, 0xe1400 },
+    { L"Ikari Warriors Team Stage 7/8", 0xe1400, 0xe1600 },
+    { L"Ikari Warriors Team Stage 8/8", 0xe1600, 0xe1800 },
+};
+
+const sGame_PaletteDataset KOF95_A_STAGE_PALETTES_PSYCHO[] =
+{
+    { L"Psycho Soldier Team Stage 1/4", 0xe1800, 0xe1a00 },
+    { L"Psycho Soldier Team Stage 2/4", 0xe1a00, 0xe1c00 },
+    { L"Psycho Soldier Team Stage 3/4", 0xe1c00, 0xe1e00 },
+    { L"Psycho Soldier Team Stage 4/4", 0xe1e00, 0xe2000 },
+};
+
+const sGame_PaletteDataset KOF95_A_STAGE_PALETTES_KOREA[] =
+{
+    { L"Korea Justice Team Stage 1/4", 0xe2000, 0xe2200 },
+    { L"Korea Justice Team Stage 2/4", 0xe2200, 0xe2400 },
+    { L"Korea Justice Team Stage 3/4", 0xe2400, 0xe2600 },
+    { L"Korea Justice Team Stage 4/4", 0xe2600, 0xe2800 },
+};
+
+const sGame_PaletteDataset KOF95_A_STAGE_PALETTES_WOMENS[] =
+{
+    { L"Womens Fighters Team Stage 1/4", 0xe2800, 0xe2a00 },
+    { L"Womens Fighters Team Stage 2/4", 0xe2a00, 0xe2c00 },
+    { L"Womens Fighters Team Stage 3/4", 0xe2c00, 0xe2e00 },
+    { L"Womens Fighters Team Stage 4/4", 0xe2e00, 0xe3000 },
+};
+
+const sGame_PaletteDataset KOF95_A_STAGE_PALETTES_RIVAL[] =
+{
+    { L"Rival Team Stage 1/4", 0xe3000, 0xe3200 },
+    { L"Rival Team Stage 2/4", 0xe3200, 0xe3400 },
+    { L"Rival Team Stage 3/4", 0xe3400, 0xe3600 },
+    { L"Rival Team Stage 4/4", 0xe3600, 0xe3800 },
+};
+
+const sGame_PaletteDataset KOF95_A_STAGE_PALETTES_BOSS[] =
+{
+    { L"Boss Stage 1/4", 0xe3800, 0xe3a00 },
+    { L"Boss Stage 2/4", 0xe3a00, 0xe3c00 },
+    { L"Boss Stage 3/4", 0xe3c00, 0xe3e00 },
+    { L"Boss Stage 4/4", 0xe3e00, 0xe4000 },
+};
+
+const sDescTreeNode KOF95_A_STAGE_COLLECTION[] =
+{
+    { L"Hero Team Stage", DESC_NODETYPE_TREE, (void*)KOF95_A_STAGE_PALETTES_HERO, ARRAYSIZE(KOF95_A_STAGE_PALETTES_HERO) },
+    { L"Fatal Fury Team Stage", DESC_NODETYPE_TREE, (void*)KOF95_A_STAGE_PALETTES_FURY, ARRAYSIZE(KOF95_A_STAGE_PALETTES_FURY) },
+    { L"Art of Fighting Team Stage", DESC_NODETYPE_TREE, (void*)KOF95_A_STAGE_PALETTES_AOF, ARRAYSIZE(KOF95_A_STAGE_PALETTES_AOF) },
+    { L"Ikari Warriors Team Stage", DESC_NODETYPE_TREE, (void*)KOF95_A_STAGE_PALETTES_IKARI, ARRAYSIZE(KOF95_A_STAGE_PALETTES_IKARI) },
+    { L"Psycho Soldier Team Stage", DESC_NODETYPE_TREE, (void*)KOF95_A_STAGE_PALETTES_PSYCHO, ARRAYSIZE(KOF95_A_STAGE_PALETTES_PSYCHO) },
+    { L"Korea Justice Team Stage", DESC_NODETYPE_TREE, (void*)KOF95_A_STAGE_PALETTES_KOREA, ARRAYSIZE(KOF95_A_STAGE_PALETTES_KOREA) },
+    { L"Womens Fighters Team Stage", DESC_NODETYPE_TREE, (void*)KOF95_A_STAGE_PALETTES_WOMENS, ARRAYSIZE(KOF95_A_STAGE_PALETTES_WOMENS) },
+    { L"Rival Team Stage", DESC_NODETYPE_TREE, (void*)KOF95_A_STAGE_PALETTES_RIVAL, ARRAYSIZE(KOF95_A_STAGE_PALETTES_RIVAL) },
+    { L"Boss Stage", DESC_NODETYPE_TREE, (void*)KOF95_A_STAGE_PALETTES_BOSS, ARRAYSIZE(KOF95_A_STAGE_PALETTES_BOSS) },
+};
+
 const sGame_PaletteDataset KOF95_A_BONUS_EFFECTS_PALETTES[] =
 {
     { L"Main Fire Palette",     0xe6800, 0xe6a00 },
@@ -928,6 +1018,8 @@ const sDescTreeNode KOF95_A_UNITS[] =
     { L"King", DESC_NODETYPE_TREE, (void*)KOF95_A_KING_COLLECTION, ARRAYSIZE(KOF95_A_KING_COLLECTION) },
     { L"Saisyu", DESC_NODETYPE_TREE, (void*)KOF95_A_SAISYU_COLLECTION, ARRAYSIZE(KOF95_A_SAISYU_COLLECTION) },
     { L"Omega Rugal", DESC_NODETYPE_TREE, (void*)KOF95_A_OMEGARUGAL_COLLECTION, ARRAYSIZE(KOF95_A_OMEGARUGAL_COLLECTION) },
+
+    { L"Stages", DESC_NODETYPE_TREE, (void*)KOF95_A_STAGE_COLLECTION, ARRAYSIZE(KOF95_A_STAGE_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF95_A_BONUS_COLLECTION, ARRAYSIZE(KOF95_A_BONUS_COLLECTION) },
 };
 

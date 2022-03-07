@@ -958,6 +958,92 @@ const sDescTreeNode KOF94_A_BONUS_COLLECTION[] =
     { L"Effect Palettes", DESC_NODETYPE_TREE, (void*)KOF94_A_BONUS_PALETTES, ARRAYSIZE(KOF94_A_BONUS_PALETTES) },
 };
 
+const sGame_PaletteDataset KOF94_A_STAGE_PALETTES_BRAZIL[] =
+{
+    { L"Brazil Team Stage 1/4", 0x170600, 0x170800 },
+    { L"Brazil Team Stage 2/4", 0x170800, 0x170a00 },
+    { L"Brazil Team Stage 3/4", 0x170a00, 0x170c00 },
+    { L"Brazil Team Stage 4/4", 0x170c00, 0x170e00 },
+};
+
+const sGame_PaletteDataset KOF94_A_STAGE_PALETTES_CHINA[] =
+{
+    { L"China Team Stage 1/4", 0x171000, 0x171200 },
+    { L"China Team Stage 2/4", 0x171200, 0x171400 },
+    { L"China Team Stage 3/4", 0x171400, 0x171600 },
+    { L"China Team Stage 4/4", 0x171600, 0x171800 },
+};
+
+const sGame_PaletteDataset KOF94_A_STAGE_PALETTES_JAPAN[] =
+{
+    { L"Japan Team Stage 1/4", 0x171800, 0x171a00 },
+    { L"Japan Team Stage 2/4", 0x171a00, 0x171c00 },
+    { L"Japan Team Stage 3/4", 0x171c00, 0x171e00 },
+    { L"Japan Team Stage 4/4", 0x171e00, 0x172000 },
+};
+
+const sGame_PaletteDataset KOF94_A_STAGE_PALETTES_USA[] =
+{
+    { L"USA Team Stage 1/4", 0x172000, 0x172200 },
+    { L"USA Team Stage 2/4", 0x172200, 0x172400 },
+    { L"USA Team Stage 3/4", 0x172400, 0x172600 },
+    { L"USA Team Stage 4/4", 0x172600, 0x172800 },
+};
+
+const sGame_PaletteDataset KOF94_A_STAGE_PALETTES_KOREA[] =
+{
+    { L"Korea Team Stage 1/4", 0x172800, 0x172a00 },
+    { L"Korea Team Stage 2/4", 0x172a00, 0x172c00 },
+    { L"Korea Team Stage 3/4", 0x172c00, 0x172e00 },
+    { L"Korea Team Stage 4/4", 0x172e00, 0x173000 },
+};
+
+const sGame_PaletteDataset KOF94_A_STAGE_PALETTES_ITALY[] =
+{
+    { L"Italy Team Stage 1/4", 0x173000, 0x173200 },
+    { L"Italy Team Stage 2/4", 0x173200, 0x173400 },
+    { L"Italy Team Stage 3/4", 0x173400, 0x173600 },
+    { L"Italy Team Stage 4/4", 0x173600, 0x173800 },
+};
+
+const sGame_PaletteDataset KOF94_A_STAGE_PALETTES_MEXICO[] =
+{
+    { L"Mexico Team Stage 1/4", 0x173800, 0x173a00 },
+    { L"Mexico Team Stage 2/4", 0x173a00, 0x173c00 },
+    { L"Mexico Team Stage 3/4", 0x173c00, 0x173e00 },
+    { L"Mexico Team Stage 4/4", 0x173e00, 0x174000 },
+};
+
+const sGame_PaletteDataset KOF94_A_STAGE_PALETTES_ENGLAND[] =
+{
+    { L"England Team Stage 1/4", 0x174000, 0x174200 },
+    { L"England Team Stage 1/4", 0x174200, 0x174400 },
+    { L"England Team Stage 1/4", 0x174400, 0x174600 },
+    { L"England Team Stage 1/4", 0x174600, 0x174800 },
+};
+
+const sGame_PaletteDataset KOF94_A_STAGE_PALETTES_RUGAL[] =
+{
+    { L"Rugal Stage 1 1/2", 0x174800, 0x174a00 },
+    { L"Rugal Stage 1 1/2", 0x174a00, 0x174c00 },
+    
+    { L"Rugal Stage 2 1/2", 0x174c00, 0x174e00 },
+    { L"Rugal Stage 2 1/2", 0x174e00, 0x175000 },
+};
+
+const sDescTreeNode KOF94_A_STAGE_COLLECTION[] =
+{
+    { L"Brazil Team Stage", DESC_NODETYPE_TREE, (void*)KOF94_A_STAGE_PALETTES_BRAZIL, ARRAYSIZE(KOF94_A_STAGE_PALETTES_BRAZIL) },
+    { L"China Team Stage", DESC_NODETYPE_TREE, (void*)KOF94_A_STAGE_PALETTES_CHINA, ARRAYSIZE(KOF94_A_STAGE_PALETTES_CHINA) },
+    { L"Japan Team Stage", DESC_NODETYPE_TREE, (void*)KOF94_A_STAGE_PALETTES_JAPAN, ARRAYSIZE(KOF94_A_STAGE_PALETTES_JAPAN) },
+    { L"USA Team Stage", DESC_NODETYPE_TREE, (void*)KOF94_A_STAGE_PALETTES_USA, ARRAYSIZE(KOF94_A_STAGE_PALETTES_USA) },
+    { L"Korea Team Stage", DESC_NODETYPE_TREE, (void*)KOF94_A_STAGE_PALETTES_KOREA, ARRAYSIZE(KOF94_A_STAGE_PALETTES_KOREA) },
+    { L"Italy Team Stage", DESC_NODETYPE_TREE, (void*)KOF94_A_STAGE_PALETTES_ITALY, ARRAYSIZE(KOF94_A_STAGE_PALETTES_ITALY) },
+    { L"Mexico Team Stage", DESC_NODETYPE_TREE, (void*)KOF94_A_STAGE_PALETTES_MEXICO, ARRAYSIZE(KOF94_A_STAGE_PALETTES_MEXICO) },
+    { L"England Team Stage", DESC_NODETYPE_TREE, (void*)KOF94_A_STAGE_PALETTES_ENGLAND, ARRAYSIZE(KOF94_A_STAGE_PALETTES_ENGLAND) },
+    { L"Rugal Stage", DESC_NODETYPE_TREE, (void*)KOF94_A_STAGE_PALETTES_RUGAL, ARRAYSIZE(KOF94_A_STAGE_PALETTES_RUGAL) },
+};
+
 const sDescTreeNode KOF94_A_UNITS[] =
 {
     { L"Heidern", DESC_NODETYPE_TREE, (void*)KOF94_A_HEIDERN_COLLECTION, ARRAYSIZE(KOF94_A_HEIDERN_COLLECTION) },
@@ -985,6 +1071,8 @@ const sDescTreeNode KOF94_A_UNITS[] =
     { L"Mai", DESC_NODETYPE_TREE, (void*)KOF94_A_MAI_COLLECTION, ARRAYSIZE(KOF94_A_MAI_COLLECTION) },
     { L"King", DESC_NODETYPE_TREE, (void*)KOF94_A_KING_COLLECTION, ARRAYSIZE(KOF94_A_KING_COLLECTION) },
     { L"Rugal", DESC_NODETYPE_TREE, (void*)KOF94_A_RUGAL_COLLECTION, ARRAYSIZE(KOF94_A_RUGAL_COLLECTION) },
+
+    { L"Stages", DESC_NODETYPE_TREE, (void*)KOF94_A_STAGE_COLLECTION, ARRAYSIZE(KOF94_A_STAGE_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF94_A_BONUS_COLLECTION, ARRAYSIZE(KOF94_A_BONUS_COLLECTION) },
 };
 
