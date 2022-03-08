@@ -195,8 +195,8 @@ void CGame_P4AU_NESICA::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalI
     // UNICLR palettes are all 0x400 long
     const int cbPaletteSizeOnDisc = 0x400;
 
-    uint32_t nAdjustedPalId = (UINT16)(nPalId % Persona4PalettesDefault.size());
-    uint32_t nPaletteSet = (UINT16)(nPalId / Persona4PalettesDefault.size());
+    uint32_t nAdjustedPalId = (UINT16)(nPalId % PersonaCharacterData[nUnitId].paletteInfo->size());
+    uint32_t nPaletteSet = (UINT16)(nPalId / PersonaCharacterData[nUnitId].paletteInfo->size());
 
     m_pszCurrentPaletteName = PersonaCharacterData[nUnitId].paletteInfo->at(nAdjustedPalId).strName.c_str();
     m_nCurrentPaletteROMLocation = PersonaCharacterData[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nAdjustedPalId) + (0x20 * nAdjustedPalId);
