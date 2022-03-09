@@ -3583,7 +3583,7 @@ const sGame_PaletteDataset KOF02_A_OrochiShermie_PALETTES_SHARED[] =
 const sGame_PaletteDataset KOF02_A_OrochiChris_PALETTES_SHARED[] =
 {
     { L"Orochi Fire",               0xa4162, 0xa4182, indexKOF02UMSprites_ChrisOChi, 0x02 },
-    { L"Idle Orochi Flames",        0xa41e2, 0xa4202, indexKOF02UMSprites_ChrisOChi, 0x03 },
+    { L"Idle Orochi Flames",        0xa4242, 0xa4262, indexKOF02UMSprites_ChrisOChi, 0x03 },
     { L"Ankoku Orochinagi Fire 1",  0xa41c2, 0xa41e2, indexKOF02UMSprites_ChrisOChi, 0x02 },
     { L"Ankoku Orochinagi Fire 2",  0xa4202, 0xa4222, indexKOF02UMSprites_ChrisOChi, 0x04 },
 };

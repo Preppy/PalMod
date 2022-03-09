@@ -1697,24 +1697,17 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
         {
             if (wcsstr(pszFileNameLowercase, L".08") != nullptr)
             {
-                nGameRule = 8;
+                nGameRule = SFA2_A_GAMEKEY_08;
             }
             else
             {
-                nGameRule = 7;
+                nGameRule = SFA2_A_GAMEKEY_07;
             }
             break;
         }
         case SFA2_Hack_A:
         {
-            if (wcsstr(pszFileNameLowercase, L".08") != nullptr)
-            {
-                nGameRule = 88;
-            }
-            else
-            {
-                nGameRule = 9;
-            }
+            nGameRule = SFA2_HACK_GAMEKEY_09;
             break;
         }
         case SFIII3_A:

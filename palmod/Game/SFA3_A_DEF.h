@@ -2039,8 +2039,7 @@ const sGame_PaletteDataset SFA3_A_VEGA_XISMP[] =
 const sGame_PaletteDataset SFA3_A_VEGA_XISMK[] =
 {
     { L"X-Ism Kick", 0x31b72, 0x31b92, indexCPS2Sprites_Vega, 0x00, &pairNext },
-    { L"X-Ism Punch Claws", 0x031AF2, 0x031B12, indexCPS2Sprites_Vega, 1, &pairPrevious },
-    { L"X-Ism Kick Claws", 0x031B92, 0x031BB2 },
+    { L"X-Ism Kick Claws", 0x031B92, 0x031BB2, indexCPS2Sprites_Vega, 1, &pairPrevious },
     { L"X-Ism Kick Extra 2", 0x31bb2, 0x31bd2 },
     { L"X-Ism Kick Super Trail Light", 0x31bd2, 0x31bf2, indexCPS2Sprites_Vega, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x31bf2, 0x31c12, indexCPS2Sprites_Vega, 0x00 },

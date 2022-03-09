@@ -1793,6 +1793,9 @@
     <ClInclude Include="Game\UMK3_DS_DEF.h">
       <Filter>Games\Nintendo\Ultimate Mortal Kombat 3 %28DS%29</Filter>
     </ClInclude>
+    <ClInclude Include="Game\SFA2_Hack_DEF.h">
+      <Filter>Games\Capcom Games\SFA2_A</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\bgbmp.bmp">

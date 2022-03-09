@@ -103,6 +103,26 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_SFA2 =
    L"P", L"K", L"PP", L"KK", L"Auto P", L"Auto K"
 };
 
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_SFA2_HACK =
+{
+    L"LP",
+    L"LK",
+    L"MP",
+    L"MK",
+    L"HP",
+    L"HK",
+    L"3 punches",
+    L"3 kicks",
+    L"LP+LK",
+    L"MP+MK",
+    L"HP+HK",
+    L"LP+MK+HK",
+    L"LK+MP+HK",
+    L"LK+MP",
+    L"MK+HP",
+    L"LP+HK",
+};
+
 const std::vector<LPCWSTR> DEF_BUTTONLABEL6_MVC2 =
 {
    L"LP", L"LK", L"HP", L"HK", L"A1", L"A2"

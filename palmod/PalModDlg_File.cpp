@@ -102,9 +102,7 @@ sSupportedGameList SupportedGameList[] =
     { SAVAGEREIGN_A,    L"Savage Reign", L"Savage Reign|059-p1.*;savag_p1.rom|", GamePlatform::NEOGEO },
     { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", GamePlatform::CapcomCPS12, GameSeries::SFA },
     { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
-#ifdef NOTREADY
-    { SFA2_Hack_A,      L"SFA2 Hack", L"SFA2 Hack: Characters (sz2u.09), Bonus (sz2u.08)|sz2u.08;sz2u.09|", GamePlatform::CapcomCPS12, GameSeries::SFA },
-#endif
+    { SFA2_Hack_A,      L"SFA2 Hack", L"SFA2 Hack (sz2u.09)|sz2u.09|", GamePlatform::CapcomCPS12, GameSeries::SFA },
     { SFA3_A,           L"SFA3", L"SFA3 sz3.09c|*.09*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
     { SFZ3U_A,          L"SFZ3U", L"SFZ3U|StreetFighterZero3Upper.bin;Street_Fighter_Zero_3_Upper.dat|", GamePlatform::SegaNAOMI },
     { SFIII1_A,         L"SFIII:NG", L"SFIII:NG Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },

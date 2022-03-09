@@ -632,6 +632,7 @@
     <ClInclude Include="Game\SF2HF_A_DEF.h" />
     <ClInclude Include="Game\SFA1_A_DEF.h" />
     <ClInclude Include="Game\SFA2_A_DEF.h" />
+    <ClInclude Include="Game\SFA2_Hack_DEF.h" />
     <ClInclude Include="Game\SFA3_A_DEF.h" />
     <ClInclude Include="Game\SFIII1_A_DEF.h" />
     <ClInclude Include="Game\SFIII2_A_DEF.h" />

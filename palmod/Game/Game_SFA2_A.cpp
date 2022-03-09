@@ -12,6 +12,7 @@ stExtraDef* CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_07 = nullptr;
 stExtraDef* CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08_REV1 = nullptr;
 stExtraDef* CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08_REV2 = nullptr;
 stExtraDef* CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_08 = nullptr;
+stExtraDef* CGame_SFA2_A::SFA2_HACK_EXTRA_CUSTOM_09 = nullptr;
 
 CDescTree CGame_SFA2_A::MainDescTree_07_Rev1 = nullptr;
 CDescTree CGame_SFA2_A::MainDescTree_07_Rev2 = nullptr;
@@ -19,6 +20,7 @@ CDescTree CGame_SFA2_A::MainDescTree_07_SFZ2A = nullptr;
 CDescTree CGame_SFA2_A::MainDescTree_08_Rev1 = nullptr;
 CDescTree CGame_SFA2_A::MainDescTree_08_Rev2 = nullptr;
 CDescTree CGame_SFA2_A::MainDescTree_08_SFZ2A = nullptr;
+CDescTree CGame_SFA2_A::MainDescTree_09_Hack = nullptr;
 
 uint32_t CGame_SFA2_A::rgExtraCountAll_07_Rev1[SFA2_A_NUM_IND_07_REV1 + 1] = { (uint32_t)-1 };
 uint32_t CGame_SFA2_A::rgExtraCountAll_07_Rev2[SFA2_A_NUM_IND_07_REV2 + 1] = { (uint32_t)-1 };
@@ -26,6 +28,7 @@ uint32_t CGame_SFA2_A::rgExtraCountAll_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1] = { (uin
 uint32_t CGame_SFA2_A::rgExtraCountAll_08_Rev1[SFA2_A_NUM_IND_08_REV1 + 1] = { (uint32_t)-1 };
 uint32_t CGame_SFA2_A::rgExtraCountAll_08_Rev2[SFA2_A_NUM_IND_08_REV2 + 1] = { (uint32_t)-1 };
 uint32_t CGame_SFA2_A::rgExtraCountAll_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1] = { (uint32_t)-1 };
+uint32_t CGame_SFA2_A::rgExtraCountAll_09_SFA2_Hack[SFA2_HACK_NUM_09 + 1] = { (uint32_t)-1 };
 
 uint32_t CGame_SFA2_A::rgExtraLoc_07_Rev1[SFA2_A_NUM_IND_07_REV1 + 1] = { (uint32_t)-1 };
 uint32_t CGame_SFA2_A::rgExtraLoc_07_Rev2[SFA2_A_NUM_IND_07_REV2 + 1] = { (uint32_t)-1 };
@@ -33,8 +36,9 @@ uint32_t CGame_SFA2_A::rgExtraLoc_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1] = { (uint32_t
 uint32_t CGame_SFA2_A::rgExtraLoc_08_Rev1[SFA2_A_NUM_IND_08_REV1 + 1] = { (uint32_t)-1 };
 uint32_t CGame_SFA2_A::rgExtraLoc_08_Rev2[SFA2_A_NUM_IND_08_REV2 + 1] = { (uint32_t)-1 };
 uint32_t CGame_SFA2_A::rgExtraLoc_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1] = { (uint32_t)-1 };
+uint32_t CGame_SFA2_A::rgExtraLoc_09_SFA2_Hack[SFA2_HACK_NUM_09 + 1] = { (uint32_t)-1 };
 
-uint32_t CGame_SFA2_A::m_nSFA2SelectedRom = 7;
+uint32_t CGame_SFA2_A::m_nSFA2SelectedRom = SFA2_A_GAMEKEY_07;
 SFA2_SupportedROMRevision CGame_SFA2_A::m_currentSFA2ROMRevision = SFA2_SupportedROMRevision::SFA2_960229;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_Rev1 = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_Rev2 = 0;
@@ -42,6 +46,7 @@ UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFZ2A_07 = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08_Rev1 = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08_Rev2 = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFZ2A_08 = 0;
+UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_Hack_09 = 0;
 
 UINT32 CGame_SFA2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_SFA2_A::m_nConfirmedROMSize = -1;
@@ -54,6 +59,7 @@ void CGame_SFA2_A::InitializeStatics()
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08_REV1);
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08_REV2);
     safe_delete_array(CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_08);
+    safe_delete_array(CGame_SFA2_A::SFA2_HACK_EXTRA_CUSTOM_09);
 
     memset(rgExtraCountAll_07_Rev1, -1, sizeof(rgExtraCountAll_07_Rev1));
     memset(rgExtraCountAll_07_Rev2, -1, sizeof(rgExtraCountAll_07_Rev2));
@@ -61,6 +67,7 @@ void CGame_SFA2_A::InitializeStatics()
     memset(rgExtraCountAll_08_Rev1, -1, sizeof(rgExtraCountAll_08_Rev1));
     memset(rgExtraCountAll_08_Rev2, -1, sizeof(rgExtraCountAll_08_Rev2));
     memset(rgExtraCountAll_08_SFZ2A, -1, sizeof(rgExtraCountAll_08_SFZ2A));
+    memset(rgExtraCountAll_09_SFA2_Hack, -1, sizeof(rgExtraCountAll_09_SFA2_Hack));
 
     memset(rgExtraLoc_07_Rev1, -1, sizeof(rgExtraLoc_07_Rev1));
     memset(rgExtraLoc_07_Rev2, -1, sizeof(rgExtraLoc_07_Rev2));
@@ -68,13 +75,15 @@ void CGame_SFA2_A::InitializeStatics()
     memset(rgExtraLoc_08_Rev1, -1, sizeof(rgExtraLoc_08_Rev1));
     memset(rgExtraLoc_08_Rev2, -1, sizeof(rgExtraLoc_08_Rev2));
     memset(rgExtraLoc_08_SFZ2A, -1, sizeof(rgExtraLoc_08_SFZ2A));
+    memset(rgExtraLoc_09_SFA2_Hack, -1, sizeof(rgExtraLoc_09_SFA2_Hack));
 
-    MainDescTree_07_Rev1.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFA2_960229));
-    MainDescTree_07_Rev2.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFA2_960306_or_960430));
-    MainDescTree_07_SFZ2A.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFZ2A_960826));
-    MainDescTree_08_Rev1.SetRootTree(CGame_SFA2_A::InitDescTree(8, SFA2_SupportedROMRevision::SFA2_960229));
-    MainDescTree_08_Rev2.SetRootTree(CGame_SFA2_A::InitDescTree(8, SFA2_SupportedROMRevision::SFA2_960306_or_960430));
-    MainDescTree_08_SFZ2A.SetRootTree(CGame_SFA2_A::InitDescTree(8, SFA2_SupportedROMRevision::SFZ2A_960826));
+    MainDescTree_07_Rev1.SetRootTree(CGame_SFA2_A::InitDescTree(SFA2_A_GAMEKEY_07, SFA2_SupportedROMRevision::SFA2_960229));
+    MainDescTree_07_Rev2.SetRootTree(CGame_SFA2_A::InitDescTree(SFA2_A_GAMEKEY_07, SFA2_SupportedROMRevision::SFA2_960306_or_960430));
+    MainDescTree_07_SFZ2A.SetRootTree(CGame_SFA2_A::InitDescTree(SFA2_A_GAMEKEY_07, SFA2_SupportedROMRevision::SFZ2A_960826));
+    MainDescTree_08_Rev1.SetRootTree(CGame_SFA2_A::InitDescTree(SFA2_A_GAMEKEY_08, SFA2_SupportedROMRevision::SFA2_960229));
+    MainDescTree_08_Rev2.SetRootTree(CGame_SFA2_A::InitDescTree(SFA2_A_GAMEKEY_08, SFA2_SupportedROMRevision::SFA2_960306_or_960430));
+    MainDescTree_08_SFZ2A.SetRootTree(CGame_SFA2_A::InitDescTree(SFA2_A_GAMEKEY_08, SFA2_SupportedROMRevision::SFZ2A_960826));
+    MainDescTree_09_Hack.SetRootTree(CGame_SFA2_A::InitDescTree(SFA2_HACK_GAMEKEY_09, SFA2_SupportedROMRevision::SFA2_Hack_220203));
 }
 
 void CGame_SFA2_A::ResetActiveSFA2Revision()
@@ -87,6 +96,7 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     const UINT32 nSafeCountFor08_Rev1 = 258;
     const UINT32 nSafeCountFor08_Rev2 = 302;
     const UINT32 nSafeCountFor08_SFZ2A = 345;
+    const UINT32 nSafeCountFor09_Hack = 2400;
 
     if (UsePaletteSetForCharacters())
     {
@@ -110,6 +120,12 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
             m_nExtraUnit = SFZ2A_A_EXTRALOC_07;
             m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nSafeCountFor07_SFZ2A;
             m_nTotalPaletteCount = m_nTotalPaletteCountForSFZ2A_07;
+            break;
+        case SFA2_SupportedROMRevision::SFA2_Hack_220203:
+            m_nTotalInternalUnits = SFA2_HACK_NUM_09;
+            m_nExtraUnit = SFA2_HACK_EXTRALOC_09;
+            m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nSafeCountFor09_Hack;
+            m_nTotalPaletteCount = m_nTotalPaletteCountForSFA2_Hack_09;
             break;
         };
     }
@@ -141,8 +157,16 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 
     const UINT32 nLowestPaletteIn07 = 0x2C000;
     const UINT32 nLowestPaletteIn08 = 0x125e;
+    const UINT32 nLowestPaletteIn09 = 0x10e;
 
-    m_nLowestKnownPaletteRomLocation = UsePaletteSetForCharacters() ? nLowestPaletteIn07 : nLowestPaletteIn08;
+    if (UsingExpandedVersion())
+    {
+        m_nLowestKnownPaletteRomLocation = nLowestPaletteIn09;
+    }
+    else
+    {
+        m_nLowestKnownPaletteRomLocation = UsePaletteSetForCharacters() ? nLowestPaletteIn07 : nLowestPaletteIn08;
+    }
 
     //We need the proper unit amt before we init the main buffer
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
@@ -167,25 +191,36 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
 
     InitializeStatics();
 
-    m_nSFA2SelectedRom = (nSFA2RomToLoad == 7) ? 7 : 8;
-    m_pszExtraFilename = UsePaletteSetForCharacters() ? EXTRA_FILENAME_SFA2_07 : EXTRA_FILENAME_SFA2_08;
+    //Set the image out display type
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    pButtonLabelSet = DEF_BUTTONLABEL_SFA2;
 
-    CString strMessage;
-    strMessage.Format(L"CGame_SFA2_A::CGame_SFA2_A: Loading for the %s ROM\n", (m_nSFA2SelectedRom == 7) ? L"07" : L"08");
-    OutputDebugString(strMessage);
+    switch (nSFA2RomToLoad)
+    {
+    case SFA2_A_GAMEKEY_07:
+        m_nSFA2SelectedRom = SFA2_A_GAMEKEY_07;
+        m_pszExtraFilename = EXTRA_FILENAME_SFA2_07;
+        nGameFlag = SFA2_A;
+        break;
+    case SFA2_A_GAMEKEY_08:
+        m_nSFA2SelectedRom = SFA2_A_GAMEKEY_08;
+        m_pszExtraFilename = EXTRA_FILENAME_SFA2_08;
+        nGameFlag = SFA2_A;
+        break;
+    case SFA2_HACK_GAMEKEY_09:
+        pButtonLabelSet = DEF_BUTTONLABEL_SFA2_HACK;
+        m_nSFA2SelectedRom = SFA2_HACK_GAMEKEY_09;
+        m_pszExtraFilename = EXTRA_FILENAME_SFA2_09;
+        nGameFlag = SFA2_Hack_A;
+        break;
+    }
 
     ResetActiveSFA2Revision();
 
-    //Set game information
-    nGameFlag = SFA2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     m_prgGameImageSet = SFA2_A_IMGIDS_USED;
 
     nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabelSet = DEF_BUTTONLABEL_SFA2;
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -199,6 +234,7 @@ CGame_SFA2_A::~CGame_SFA2_A(void)
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08_REV1);
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08_REV2);
     safe_delete_array(CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_08);
+    safe_delete_array(CGame_SFA2_A::SFA2_HACK_EXTRA_CUSTOM_09);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
@@ -217,6 +253,8 @@ CDescTree* CGame_SFA2_A::GetMainTree()
             return &CGame_SFA2_A::MainDescTree_07_Rev2;
         case SFA2_SupportedROMRevision::SFZ2A_960826:
             return &CGame_SFA2_A::MainDescTree_07_SFZ2A;
+        case SFA2_SupportedROMRevision::SFA2_Hack_220203:
+            return &CGame_SFA2_A::MainDescTree_09_Hack;
         }
     }
     else
@@ -268,6 +306,8 @@ UINT32 CGame_SFA2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 
         { L"SFZ2 960403 (CPS2 Japan)", L"sz2j.07b", 0x6352f038, 0 },
         { L"SFZ2 960403 (CPS2 Japan)", L"sz2j.08b", 0x92b66e01, 0 },
+
+        { L"SFA2 Expansion Hack (CPS2)", L"sz2u.09", 0x35cce97b, 0 },
     };
 
     if (ppKnownROMSet)
@@ -365,6 +405,10 @@ uint32_t CGame_SFA2_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
         {
             return _GetExtraCount(rgExtraCountAll_07_SFZ2A, SFZ2A_A_NUM_IND_07, nUnitId, SFZ2A_A_EXTRA_CUSTOM_07);
         }
+        case SFA2_SupportedROMRevision::SFA2_Hack_220203:
+        {
+            return _GetExtraCount(rgExtraCountAll_09_SFA2_Hack, SFA2_HACK_NUM_09, nUnitId, SFA2_HACK_EXTRA_CUSTOM_09);
+        }
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
         default:
         {
@@ -407,6 +451,10 @@ uint32_t CGame_SFA2_A::GetExtraLoc(uint32_t nUnitId)
         {
             return _GetExtraLocation(rgExtraLoc_07_SFZ2A, SFZ2A_A_NUM_IND_07, nUnitId, SFZ2A_A_EXTRA_CUSTOM_07);
         }
+        case SFA2_SupportedROMRevision::SFA2_Hack_220203:
+        {
+            return _GetExtraLocation(rgExtraLoc_09_SFA2_Hack, SFA2_HACK_NUM_09, nUnitId, SFA2_HACK_EXTRA_CUSTOM_09);
+        }
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
         default:
         {
@@ -448,6 +496,8 @@ const sDescTreeNode* CGame_SFA2_A::GetCurrentUnitSet()
             return SFA2_A_UNITS_07_REV2;
         case SFA2_SupportedROMRevision::SFZ2A_960826:
             return SFZ2A_A_UNITS_07;
+        case SFA2_SupportedROMRevision::SFA2_Hack_220203:
+            return SFA2_HACK_UNITS_09;
         }
     }
     else
@@ -482,6 +532,9 @@ uint32_t CGame_SFA2_A::GetCurrentExtraLoc()
             break;
         case SFA2_SupportedROMRevision::SFZ2A_960826:
             nExtraLocation = SFZ2A_A_EXTRALOC_07;
+            break;
+        case SFA2_SupportedROMRevision::SFA2_Hack_220203:
+            nExtraLocation = SFA2_HACK_EXTRALOC_09;
             break;
         }
     }
@@ -518,6 +571,8 @@ stExtraDef* CGame_SFA2_A::GetCurrentExtraDef(int nDefCtr)
             return (stExtraDef*)&SFA2_A_EXTRA_CUSTOM_07_REV2[nDefCtr];
         case SFA2_SupportedROMRevision::SFZ2A_960826:
             return (stExtraDef*)&SFZ2A_A_EXTRA_CUSTOM_07[nDefCtr];
+        case SFA2_SupportedROMRevision::SFA2_Hack_220203:
+            return (stExtraDef*)&SFA2_HACK_EXTRA_CUSTOM_09[nDefCtr];
         }
     }
     else
@@ -568,6 +623,12 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
             LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, &SFZ2A_A_EXTRA_CUSTOM_07, nExtraUnitLocation, m_nConfirmedROMSize);
             fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
             nUnitCt = SFZ2A_A_NUM_IND_07 + (fHaveExtras ? 1 : 0);
+            break;
+        case SFA2_SupportedROMRevision::SFA2_Hack_220203:
+            nExtraUnitLocation = SFA2_HACK_EXTRALOC_09;
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_09, &SFA2_HACK_EXTRA_CUSTOM_09, nExtraUnitLocation, m_nConfirmedROMSize);
+            fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
+            nUnitCt = SFA2_HACK_NUM_09 + (fHaveExtras ? 1 : 0);
             break;
         }
     }
@@ -771,6 +832,9 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
             break;
         case SFA2_SupportedROMRevision::SFZ2A_960826:
             m_nTotalPaletteCountForSFZ2A_07 = nTotalPaletteCount;
+            break;
+        case SFA2_SupportedROMRevision::SFA2_Hack_220203:
+            m_nTotalPaletteCountForSFA2_Hack_09 = nTotalPaletteCount;
             break;
         }
     }
@@ -1083,8 +1147,19 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 sFileRule CGame_SFA2_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
-
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, (nUnitId == 7) ? L"sz2.07" : L"sz2.08");
+    
+    switch (nUnitId)
+    {
+    case SFA2_A_GAMEKEY_07:
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"sz2.07");
+        break;
+    case SFA2_A_GAMEKEY_08:
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"sz2.08");
+        break;
+    case SFA2_HACK_GAMEKEY_09:
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"sz2u.09");
+        break;
+    }
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -1317,6 +1392,8 @@ void CGame_SFA2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
             switch (m_currentSFA2ROMRevision)
             {
             case SFA2_SupportedROMRevision::SFA2_960229: // Rev 1
+            case SFA2_SupportedROMRevision::SFA2_Hack_220203: // Jed's "glasses" update
+                // no deltas needed
                 break;
             case SFA2_SupportedROMRevision::SFA2_960306_or_960430: // Rev 2
             default:
@@ -1478,6 +1555,13 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
                 0x7688, 0x0000, 0x7687, 0x0000,     0x7679, 0x1100, 0x7686, 0x1000,
                 0x0002, 0x0029, 0x0006, 0x1ea8,     0x7c21, 0x3020, 0x2520, 0x0000 }
         },
+        {
+            SFA2_SupportedROMRevision::SFA2_Hack_220203,
+            {   0x0030, 0x00c0, 0x0030, 0x1700,     0x0030, 0x2d40, 0x0030, 0x4380, 
+                0x0030, 0x59c0, 0x0030, 0x7000,     0x0030, 0x8640, 0x0030, 0x9c80, 
+                0x0030, 0xb2c0, 0x0030, 0xc900,     0x0030, 0xdf40, 0x0030, 0xf580, 
+                0x0031, 0x0bc0, 0x0031, 0x2200,     0x0031, 0x3840, 0x0031, 0x4e80 }
+        },
     };
 
     SFA2_ROM_Identification_Data rom8s[] =
@@ -1485,7 +1569,7 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
         {
             SFA2_SupportedROMRevision::SFA2_960229,
            { 0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888,     0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000,
-            0x111, 0x222, 0x333, 0x444,     0x555, 0x666, 0x777, 0x888,     0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000 }
+             0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888,     0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000 }
         },
         {
             SFA2_SupportedROMRevision::SFA2_960306_or_960430,
@@ -1579,8 +1663,374 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
     return detectedROMVersion;
 }
 
+// This dumps the headers from the Glasses expansion version of SFA2 provided
+// a pointer to the current version.  This sniffs and processes the layout:
+// if that changes this code would need to change.
+void DumpSFA2_Hack_Headers(CFile* LoadedFile)
+{
+    // jump to ryu pal 00
+    LONGLONG currpos = 0x100;
+    LoadedFile->Seek(currpos, CFile::begin);
+
+    char aszBuffer[MAX_PATH];
+
+    constexpr auto strreadlength = 16;
+    constexpr auto colorreadlength = 32;
+
+    struct core_decoder_sheet
+    {
+        LPCSTR pszTableName;
+        LPCSTR pszJedString;
+        LPCSTR pszCharacterName;
+        LPCSTR pszImageString = "";
+        LPCSTR pszExtraOneName = "Extra 1";
+        LPCSTR pszExtraOneString = "";
+        LPCSTR pszExtraTwoName = "Extra 2";
+        LPCSTR pszExtraTwoString = "";
+        LPCSTR pszPairingString = "";
+    };
+
+    struct portrait_decoder_sheet
+    {
+        LPCSTR pszTableName;
+        LPCSTR pszJedString;
+        LPCSTR pszCharacterName;
+        LPCSTR pszImageString;
+    };
+
+    struct specialmove_decoder_sheet
+    {
+        LPCSTR pszTableName;
+        LPCSTR pszJedString;
+        LPCSTR pszDescription;
+        LPCSTR pszEffectName;
+        uint16_t nCountExtras;
+        LPCSTR pszImageString;
+    };
+
+    const std::vector<core_decoder_sheet> sfa2_hack_core_charlist =
+    {
+        { "RYU", "RYU PALETTE 00 ", "Ryu", ", indexCPS2Sprites_Ryu, 0x00", "Hadoken", ", indexCPS2Sprites_Ryu, 0x01", "Red Hadoken", ", indexCPS2Sprites_Ryu, 0x01" },
+        { "KEN", "KEN PALETTE 00 ", "Ken", ", indexCPS2Sprites_Ken, 0x00", "Extra 1", ", indexCPS2Sprites_Ken, 0x01", "Extra 2", ", indexCPS2Sprites_Ken, 0x08" },
+        { "AKUMA",  "AKM PALETTE 00 ", "Akuma", ", indexCPS2Sprites_Akuma, 0x00", "Extra 1", ", indexCPS2Sprites_Akuma, 0x0c" },
+        { "NASH",  "NSH PALETTE 00 ", "Nash", ", indexCPS2Sprites_Charlie, 0x00", "Sonic Boom", ", indexCPS2Sprites_Charlie, 0x01", "Flash Kick", ", indexCPS2Sprites_Charlie, 0x02" },
+        { "CHUN",  "CHN PALETTE 00 ", "Chun-Li", ", indexCPS2Sprites_ChunLi, 0x0c", "Keiokuken (shades)", ", indexCPS2Sprites_ChunLi, 0x0f, &pairPrevious", "Extra 2", ", indexCPS2Sprites_ChunLi, 0x02", ", &pairNext" },
+        { "ADON",  "ADN PALETTE 00 ", "Adon", ", indexCPS2Sprites_Adon, 0x00", "Extra 1", ", indexCPS2Sprites_Adon, 0x01" },
+        { "SODOM",  "SDM PALETTE 00 ", "Sodom", ", indexCPS2Sprites_Sodom, 0x02", "Slashes", ", indexCPS2Sprites_Sodom, 0x04, &pairPrevious", "Intro", ", indexCPS2Sprites_Sodom, 0x03", ", &pairNext" },
+        { "GUY",  "GUY PALETTE 00 ", "Guy", ", indexCPS2Sprites_Guy, 0x00", "Extra 1", "", "Barrels", ", indexCPS2Sprites_Guy, 0x02" },
+        { "BIRDIE",  "BRD PALETTE 00 ", "Birdie", ", indexCPS2Sprites_Birdie, 0x00", "Extra 1", ", indexCPS2Sprites_Birdie, 0x00" },
+        { "ROSE",  "RSE PALETTE 00 ", "Rose", ", indexCPS2Sprites_Rose, 0x00", "Soul Power 1", ", indexCPS2Sprites_Rose, 0x02", "Soul Power 2", ", indexCPS2Sprites_Rose, 0x02" },
+        { "BISON",  "DIC PALETTE 00 ", "M.Bison", ", indexCPS2Sprites_Bison, 0x00", "Extra 1", ", indexCPS2Sprites_Bison, 0x08", "Extra 2", ", indexCPS2Sprites_Bison, 0x09" },
+        { "SAGAT",  "SAG PALETTE 00 ", "Sagat", ", indexCPS2Sprites_Sagat, 0x00", "Extra 1", ", indexCPS2Sprites_Sagat, 0x01", "Extra 2", ", indexCPS2Sprites_Sagat, 0x02" },
+        { "DAN",  "DAN PALETTE 00 ", "Dan", ", indexCPS2Sprites_Dan, 0x00", "Extra 1", ", indexCPS2Sprites_Dan, 0x01" },
+        { "SAKURA",  "SAK PALETTE 00 ", "Sakura", ", indexCPS2Sprites_Sakura, 0x00", "Extra 1", ", indexCPS2Sprites_Sakura, 0x01", "Extra 2", ", indexCPS2Sprites_Sakura, 0x02" },
+        { "ROLENTO",  "ROL PALETTE 00 ", "Rolento", ", indexCPS2Sprites_Rolento, 0x00" },
+        { "DHALSIM",  "SIM PALETTE 00 ", "Dhalsim", ", indexCPS2Sprites_Dhalsim, 0x00", "Extra 1", ", indexCPS2Sprites_Dhalsim, 0x01", "Sally", ", indexCPS2Sprites_Dhalsim, 0x02" },
+        { "ZANGIEF",  "ZAN PALETTE 00 ", "Zangief", ", indexCPS2Sprites_Zangief, 0x00", "Banishing Fist", ", indexCPS2Sprites_Zangief, 0x01" },
+        { "GEN",  "GEN PALETTE 00 ", "Gen", ", indexCPS2Sprites_Gen, 0x00", "Extra 1", ", indexCPS2Sprites_Gen, 0x00", "Extra 2", ", indexCPS2Sprites_Gen, 0x00" },
+        { "CHUNLI_OG",  "S2C PALETTE 00 ", "Chun-Li (Original)", ", indexCPS2Sprites_ChunLi, 0x00", "Keiokuken (shades)", ", indexCPS2Sprites_ChunLi, 0x0f, &pairPrevious", "Extra 2", ", indexCPS2Sprites_ChunLi, 0x02", ", &pairNext" },
+        // SNA PALETTE 00 is unused
+        { "WWGIEF",  "WWG PALETTE 00 ", "Zangief (WW)", ", indexCPS2Sprites_Zangief, 0x00", "Banishing Fist", ", indexCPS2Sprites_Zangief, 0x01" },
+        { "WWSIM",  "WWS PALETTE 00 ", "Dhalsim (WW)", ", indexCPS2Sprites_Dhalsim, 0x00", "Extra 1", ", indexCPS2Sprites_Dhalsim, 0x01", "Sally", ", indexCPS2Sprites_Dhalsim, 0x02" },
+        { "EVILRYU",  "ERY PALETTE 00 ", "Evil Ryu", ", indexCPS2Sprites_Ryu, 0x00", "Hadoken", ", indexCPS2Sprites_Ryu, 0x01", "Shoryuken" },
+    };
+
+    const std::vector<portrait_decoder_sheet> sfa2_hack_portrait_charlist =
+    {
+        { "RYU", "RYU PORT PAL 00", "Ryu", ", indexCPS2Sprites_Ryu" },
+        { "KEN", "KEN PORT PAL 00", "Ken", ", indexCPS2Sprites_Ken" },
+        { "AKUMA",  "AKM PORT PAL 00", "Akuma", ", indexCPS2Sprites_Akuma" },
+        { "NASH",  "NSH PORT PAL 00", "Nash", ", indexCPS2Sprites_Charlie" },
+        { "CHUN",  "CHN PORT PAL 00", "Chun-Li", ", indexCPS2Sprites_ChunLi" },
+        { "ADON",  "ADN PORT PAL 00", "Adon", ", indexCPS2Sprites_Adon" },
+        // Which sodom is this?
+            { "SODOM",  "SDM PORT PAL 00", "Sodom", ", indexCPS2Sprites_Sodom" },
+        { "GUY",  "GUY PORT PAL 00", "Guy", ", indexCPS2Sprites_Guy" },
+        { "BIRDIE",  "BRD PORT PAL 00", "Birdie", ", indexCPS2Sprites_Birdie" },
+        { "ROSE",  "RSE PORT PAL 00", "Rose", ", indexCPS2Sprites_Rose" },
+        { "BISON",  "DIC PORT PAL 00", "M.Bison", ", indexCPS2Sprites_Bison" },
+        { "SAGAT",  "SAG PORT PAL 00", "Sagat", ", indexCPS2Sprites_Sagat" },
+        { "DAN",  "DAN PORT PAL 00", "Dan", ", indexCPS2Sprites_Dan" },
+        { "SAKURA",  "SAK PORT PAL 00", "Sakura", ", indexCPS2Sprites_Sakura", },
+        { "ROLENTO",  "ROL PORT PAL 00", "Rolento", ", indexCPS2Sprites_Rolento" },
+        { "DHALSIM",  "SIM PORT PAL 00", "Dhalsim", ", indexCPS2Sprites_Dhalsim" },
+        { "ZANGIEF",  "ZAN PORT PAL 00", "Zangief", ", indexCPS2Sprites_Zangief" },
+        { "GEN",  "GEN PORT PAL 00", "Gen", ", indexCPS2Sprites_Gen",  },
+        { "CHUNLI_OG",  "S2C PORT PAL 00", "Chun-Li (Original)", ", 0x1c" },
+        // SNA PORT PAL 00 is unused
+        { "WWGIEF",  "WWG PORT PAL 00", "Zangief (WW)", ", indexCPS2Sprites_Zangief" },
+        { "WWSIM",  "WWS PORT PAL 00", "Dhalsim (WW)", ", indexCPS2Sprites_Dhalsim"  },
+        { "EVILRYU",  "ERY PORT PAL 00", "Evil Ryu", ", indexCPS2Sprites_Ryu"  },
+    };
+
+    const std::vector<specialmove_decoder_sheet> sfa2_hack_specialmove_list =
+    {
+        { "ROSE_DRESS", "Rose MP Winpose", "Rose Extras", "Dress Winpose", 1, ", indexCPS2Sprites_Rose, 0x01" },
+            // dress 1, 0x01
+        { "AKUMAEXTRA", "Akuma Stuff    ", "Akuma Extras", "Akuma", 5, ", indexCPS2Sprites_Akuma" },
+            // ?
+        // { "",  "AKM TELE 06", "Akuma", ", indexCPS2Sprites_Akuma" },
+        // { "",  "AKM TELE 07", "Akuma", ", indexCPS2Sprites_Akuma" },
+        // { "",  "AKM TELE 08", "Akuma", ", indexCPS2Sprites_Akuma" },
+        // { "",  "AKM TELE 09", "Akuma", ", indexCPS2Sprites_Akuma" },
+        // { "",  "AKM TELE 0A", "Akuma", ", indexCPS2Sprites_Akuma" },
+        // { "",  "AKM TELE 0B", "Akuma", ", indexCPS2Sprites_Akuma" },
+        // { "",  "AKM TELE 0C", "Akuma", ", indexCPS2Sprites_Akuma" },
+        // { "",  "AKM TELE 0D", "Akuma", ", indexCPS2Sprites_Akuma" },
+        // { "",  "AKM TELE 0E", "Akuma", ", indexCPS2Sprites_Akuma" },
+        // { "",  "AKM TELE 0F", "Akuma", ", indexCPS2Sprites_Akuma" },
+        { "BIRDIE_HEADRUSH",  "Birdie Headrush", "Birdie Bullrush", "Bullrush", 3, ", indexCPS2Sprites_Birdie" },
+        { "BISON_TELEPORT",  "DIC EFFECTS    ", "M.Bison Teleport", "Teleport", 4, ", indexCPS2Sprites_Bison" },
+        // Teleport 1-4, 00
+        { "SIM_TELEPORT",  "Sim Tele start ", "Dhalsim Teleport", "Teleport", 5, ", indexCPS2Sprites_Dhalsim" },
+        // Teleport 1-5, image 00
+    };
+
+    while (LoadedFile->Read(aszBuffer, strreadlength))
+    {
+        // only uses 00-0f, not the second pair of sixteen
+        CStringA strout;
+
+        if (isalpha((unsigned char)aszBuffer[0]) &&
+            (isalpha((unsigned char)aszBuffer[1]) || (aszBuffer[1] == '2')) &&
+            isalpha((unsigned char)aszBuffer[2]) &&
+            ((aszBuffer[3] == 0x20) || isalpha((unsigned char)aszBuffer[3])))
+        {
+            aszBuffer[15] = 0;
+
+            // jed's marker for normal palette section termination
+            if ((aszBuffer[0] == 'E') &&
+                (aszBuffer[1] == 'N') &&
+                (aszBuffer[2] == 'D'))
+            {
+                // we are palette complete for most stuff: only continue if you want PORTraits and effect palettes
+                //break;
+            }
+
+            uint32_t nCharacterStart = uint32_t(currpos) + strreadlength - 0x02;
+            if (strstr(aszBuffer, "PALETTE 00"))
+            {
+                for (const core_decoder_sheet& thischaracter : sfa2_hack_core_charlist)
+                {
+                    if (strcmp(thischaracter.pszJedString, aszBuffer) == 0)
+                    {
+                        // start of a2 section
+                        for (const LPCWSTR &pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
+                        {
+                            WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                            StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
+
+                            strout.Format("const sGame_PaletteDataset SFA2_HACK_%s_%S_PALETTES[] =\r\n{\r\n", thischaracter.pszTableName, szSafeButtonName);
+                            OutputDebugStringA(strout);
+
+                            strout.Format("    { L\"%s %S\", 0x%x, 0x%x%s%s },\r\n", thischaracter.pszCharacterName, pszSFA2HButtonName, nCharacterStart + (0x00 * colorreadlength), nCharacterStart + (0x01 * colorreadlength), thischaracter.pszImageString, thischaracter.pszPairingString);
+                            OutputDebugStringA(strout);
+                            strout.Format("    { L\"%s %S %s\", 0x%x, 0x%x%s },\r\n", thischaracter.pszCharacterName, pszSFA2HButtonName, thischaracter.pszExtraOneName, nCharacterStart + (0x01 * colorreadlength), nCharacterStart + (0x02 * colorreadlength), thischaracter.pszExtraOneString);
+                            OutputDebugStringA(strout);
+                            strout.Format("    { L\"%s %S %s\", 0x%x, 0x%x%s },\r\n", thischaracter.pszCharacterName, pszSFA2HButtonName, thischaracter.pszExtraTwoName, nCharacterStart + (0x02 * colorreadlength), nCharacterStart + (0x03 * colorreadlength), thischaracter.pszExtraTwoString);
+                            OutputDebugStringA(strout);
+                            strout.Format("    { L\"%s %S Super Trail Light\", 0x%x, 0x%x%s },\r\n", thischaracter.pszCharacterName, pszSFA2HButtonName, nCharacterStart + (0x03 * colorreadlength), nCharacterStart + (0x04 * colorreadlength), thischaracter.pszImageString);
+                            OutputDebugStringA(strout);
+                            strout.Format("    { L\"%s %S Super Trail Dark\", 0x%x, 0x%x%s },\r\n", thischaracter.pszCharacterName, pszSFA2HButtonName, nCharacterStart + (0x04 * colorreadlength), nCharacterStart + (0x05 * colorreadlength), thischaracter.pszImageString);
+                            OutputDebugStringA(strout);
+
+                            OutputDebugStringA("};\r\n\r\n");
+
+                            // Move forward one character set + the string name
+                            nCharacterStart += (0x05 * colorreadlength) + 0x10;
+                        }
+
+                        strout.Format("const sDescTreeNode SFA2_HACK_%s_COLLECTION[] =\r\n{\r\n", thischaracter.pszTableName);
+                        OutputDebugStringA(strout);
+
+                        for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
+                        {
+                            WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                            StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
+                            strout.Format("    { L\"%S\", DESC_NODETYPE_TREE, (void*)SFA2_HACK_%s_%S_PALETTES, ARRAYSIZE(SFA2_HACK_%s_%S_PALETTES) },\r\n", pszSFA2HButtonName, thischaracter.pszTableName, szSafeButtonName, thischaracter.pszTableName, szSafeButtonName);
+                            OutputDebugStringA(strout);
+                        };
+
+                        OutputDebugStringA("};\r\n\r\n");
+                    }
+                }
+            }
+            else if (strstr(aszBuffer, "PAL 00")) // Portraits
+            {
+                for (const portrait_decoder_sheet& thisportrait : sfa2_hack_portrait_charlist)
+                {
+                    if (strcmp(thisportrait.pszJedString, aszBuffer) == 0)
+                    {
+                        strout.Format("const sGame_PaletteDataset SFA2_HACK_%s_PORTRAIT_PALETTES[] =\r\n{\r\n", thisportrait.pszTableName);
+                        OutputDebugStringA(strout);
+
+                        for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
+                        {
+                            strout.Format("    { L\"%s %S\", 0x%x, 0x%x, indexCPS2Sprites_SFA2Portraits%s },\r\n", thisportrait.pszCharacterName, pszSFA2HButtonName, 
+                                    nCharacterStart + (0x00 * colorreadlength), nCharacterStart + (0x03 * colorreadlength), thisportrait.pszImageString);
+                            OutputDebugStringA(strout);
+
+                            // Move forward one character set + the string name
+                            nCharacterStart += (0x03 * colorreadlength) + 0x10;
+                        }
+
+                        OutputDebugStringA("};\r\n\r\n");
+                    }
+                }
+            }
+            else 
+            {
+                for (const specialmove_decoder_sheet& thismove : sfa2_hack_specialmove_list)
+                {
+                    if (strcmp(thismove.pszJedString, aszBuffer) == 0)
+                    {
+                        bool fShouldPrintCollectionData = false;
+
+                        if (strcmp(thismove.pszTableName, "ROSE_DRESS") == 0)
+                        {
+                            for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
+                            {
+                                WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                                StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
+
+                                strout.Format("const sGame_PaletteDataset SFA2_HACK_%s_%S_PALETTES[] =\r\n{\r\n", thismove.pszTableName, szSafeButtonName);
+                                OutputDebugStringA(strout);
+
+                                strout.Format("    { L\"%s %S\", 0x%x, 0x%x%s },\r\n", thismove.pszEffectName, pszSFA2HButtonName,
+                                    nCharacterStart + (0x00 * colorreadlength), nCharacterStart + (0x01 * colorreadlength), thismove.pszImageString);
+                                OutputDebugStringA(strout);
+
+                                OutputDebugStringA("};\r\n\r\n");
+
+                                // Move forward one character set
+                                nCharacterStart += colorreadlength;
+
+                                fShouldPrintCollectionData = true;
+                            }
+                        }
+                        else if (strcmp(thismove.pszTableName, "AKUMAEXTRA") == 0)
+                        {
+                            for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
+                            {
+                                WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                                StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
+
+                                strout.Format("const sGame_PaletteDataset SFA2_HACK_%s_%S_PALETTES[] =\r\n{\r\n", thismove.pszTableName, szSafeButtonName);
+                                OutputDebugStringA(strout);
+
+                                strout.Format("    { L\"%s %S\", 0x%x, 0x%x%s, 0x00 },\r\n", thismove.pszEffectName, pszSFA2HButtonName, nCharacterStart + (0x00 * colorreadlength), nCharacterStart + (0x01 * colorreadlength), thismove.pszImageString);
+                                OutputDebugStringA(strout);
+                                strout.Format("    { L\"%s %S Hadoken\", 0x%x, 0x%x%s, 0x01 },\r\n", thismove.pszEffectName, pszSFA2HButtonName, nCharacterStart + (0x01 * colorreadlength), nCharacterStart + (0x02 * colorreadlength), thismove.pszImageString);
+                                OutputDebugStringA(strout);
+                                strout.Format("    { L\"%s %S Shoryuken (Flame)\", 0x%x, 0x%x },\r\n", thismove.pszEffectName, pszSFA2HButtonName, nCharacterStart + (0x02 * colorreadlength), nCharacterStart + (0x03 * colorreadlength));
+                                OutputDebugStringA(strout);
+                                strout.Format("    { L\"%s %S Super Trail Light\", 0x%x, 0x%x%s, 0x00 },\r\n", thismove.pszEffectName, pszSFA2HButtonName, nCharacterStart + (0x03 * colorreadlength), nCharacterStart + (0x04 * colorreadlength), thismove.pszImageString);
+                                OutputDebugStringA(strout);
+                                strout.Format("    { L\"%s %S Super Trail Dark\", 0x%x, 0x%x%s, 0x00 },\r\n", thismove.pszEffectName, pszSFA2HButtonName, nCharacterStart + (0x04 * colorreadlength), nCharacterStart + (0x05 * colorreadlength), thismove.pszImageString);
+                                OutputDebugStringA(strout);
+
+                                OutputDebugStringA("};\r\n\r\n");
+
+                                // Move forward one character set
+                                nCharacterStart += (0x05 * colorreadlength);
+
+                                fShouldPrintCollectionData = true;
+                            }
+                        }
+                        else if ((strcmp(thismove.pszTableName, "BIRDIE_HEADRUSH") == 0) ||
+                                    (strcmp(thismove.pszTableName, "BISON_TELEPORT") == 0) ||
+                                    (strcmp(thismove.pszTableName, "SIM_TELEPORT") == 0))
+                        {
+                            for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
+                            {
+                                WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                                StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
+
+                                strout.Format("const sGame_PaletteDataset SFA2_HACK_%s_%S_PALETTES[] =\r\n{\r\n", thismove.pszTableName, szSafeButtonName);
+                                OutputDebugStringA(strout);
+
+                                for (int iPos = 0; iPos < thismove.nCountExtras; iPos++)
+                                {
+                                    strout.Format("    { L\"%s %S %u\", 0x%x, 0x%x%s },\r\n", thismove.pszEffectName, pszSFA2HButtonName, iPos + 1,
+                                        nCharacterStart + (iPos * colorreadlength), nCharacterStart + ((iPos + 1) * colorreadlength), thismove.pszImageString);
+                                    OutputDebugStringA(strout);
+                                }
+
+                                OutputDebugStringA("};\r\n\r\n");
+
+                                // Move forward one character set
+                                nCharacterStart += (thismove.nCountExtras * colorreadlength);
+
+                                fShouldPrintCollectionData = true;
+                            }
+                        }
+
+                        if (fShouldPrintCollectionData)
+                        {
+                            strout.Format("const sDescTreeNode SFA2_HACK_%s_COLLECTION[] =\r\n{\r\n", thismove.pszTableName);
+                            OutputDebugStringA(strout);
+
+                            for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
+                            {
+                                WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                                StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
+                                strout.Format("    { L\"%S\", DESC_NODETYPE_TREE, (void*)SFA2_HACK_%s_%S_PALETTES, ARRAYSIZE(SFA2_HACK_%s_%S_PALETTES) },\r\n", pszSFA2HButtonName, thismove.pszTableName, szSafeButtonName, thismove.pszTableName, szSafeButtonName);
+                                OutputDebugStringA(strout);
+                            };
+
+                            OutputDebugStringA("};\r\n\r\n");
+                        }
+                    }
+                }
+            }
+        }
+
+        currpos += strreadlength;
+    }
+
+    static bool s_fhaveprintedunits = false;
+
+    if (!s_fhaveprintedunits)
+    {
+        CStringA strout;
+
+        s_fhaveprintedunits = true;
+
+        OutputDebugStringA("const sDescTreeNode SFA2_HACK_PORTRAIT_COLLECTION[] =\r\n{\r\n");
+
+        for (const portrait_decoder_sheet& thisportrait : sfa2_hack_portrait_charlist)
+        {
+            strout.Format("    { L\"%s\", DESC_NODETYPE_TREE, (void*)SFA2_HACK_%s_PORTRAIT_PALETTES, ARRAYSIZE(SFA2_HACK_%s_PORTRAIT_PALETTES) },\r\n", thisportrait.pszCharacterName, thisportrait.pszTableName, thisportrait.pszTableName);
+            OutputDebugStringA(strout);
+        }
+
+        OutputDebugStringA("};\r\n\r\n");
+
+        OutputDebugStringA("const sDescTreeNode SFA2_HACK_UNITS_09[] =\r\n{\r\n");
+
+        for (const core_decoder_sheet& thischaracter : sfa2_hack_core_charlist)
+        {
+            strout.Format("    { L\"%s\", DESC_NODETYPE_TREE, (void*)SFA2_HACK_%s_COLLECTION, ARRAYSIZE(SFA2_HACK_%s_COLLECTION) },\r\n", thischaracter.pszCharacterName, thischaracter.pszTableName, thischaracter.pszTableName);
+            OutputDebugStringA(strout);
+        }
+
+        for (const specialmove_decoder_sheet& thismove : sfa2_hack_specialmove_list)
+        {
+            strout.Format("    { L\"%s\", DESC_NODETYPE_TREE, (void*)SFA2_HACK_%s_COLLECTION, ARRAYSIZE(SFA2_HACK_%s_COLLECTION) },\r\n", thismove.pszDescription, thismove.pszTableName, thismove.pszTableName);
+            OutputDebugStringA(strout);
+        }
+
+        strout.Format("    { L\"Portraits\", DESC_NODETYPE_TREE, (void*)SFA2_HACK_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_HACK_PORTRAIT_COLLECTION) },\r\n");
+        OutputDebugStringA(strout);
+
+        OutputDebugStringA("};\r\n\r\n");
+    }
+}
+
 BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
+    // DumpSFA2_Hack_Headers(LoadedFile);
+
     SFA2_SupportedROMRevision romRevision = GetSFA2ROMVersion(LoadedFile);
 
     if (m_currentSFA2ROMRevision != romRevision)
@@ -1660,6 +2110,7 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
             // Right now most of SFA2 is all six palettes within one node.
+            // These strings are the friendly names for DEF_BUTTONLABEL_SFA2
             if ((_wcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[0]) == 0) ||
                 (_wcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[1]) == 0) ||
                 (_wcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[2]) == 0) ||
@@ -1673,14 +2124,38 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 while (nSrcStart >= nNodeIncrement)
                 {
-                    // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
+                    // The starting point is the absolute first palette for the sprite in question which is found in Punch
                     nSrcStart -= nNodeIncrement;
                 }
             }
             else
             {
-                // Status effects and etc have no peer palettes
+                bool fIsCorePalette = false;
+
                 nSrcAmt = 1;
+
+                for (uint32_t nOptionsToTest = 0; nOptionsToTest < pButtonLabelSet.size(); nOptionsToTest++)
+                {
+                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                    {
+                        fIsCorePalette = true;
+                        break;
+                    }
+                }
+
+                if (fIsCorePalette)
+                {
+                    // We've confirmed that the string matches one of the indicated button names.  Since we're doing a color per node, ensure we only ever
+                    // expose to max node.  This covers the situation where a game might have LP/LK but not LP/LK/MP/MK out of a set.
+                    nSrcAmt = min(static_cast<uint32_t>(pButtonLabelSet.size()), GetCollectionCountForUnit(NodeGet->uUnitId));
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in LP
+                        nSrcStart -= nNodeIncrement;
+                    }
+                }
             }
         }
 
@@ -1717,7 +2192,7 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else
                 {
-                    UINT16 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    int8_t nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                     fShouldUseAlternateLoadLogic = true;
 
