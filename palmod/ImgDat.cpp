@@ -297,9 +297,9 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
         // not super critical for daily updates, but still useful
         const UINT16 nExpectedYear = 2022;
         const UINT8 nExpectedMonth = 3;
-        const UINT8 nExpectedDay = 2;
+        const UINT8 nExpectedDay = 11;
         const UINT8 nExpectedRevision = 0;
-        const ULONGLONG nExpectedFileSize = 157324836;
+        const ULONGLONG nExpectedFileSize = 158092332;
 
         const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 
@@ -474,7 +474,11 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
                         ImgDatFile.Read(&tImgHeight, 0x02);
                         ImgDatFile.Read(&tCompressed, 0x01);
                         ImgDatFile.Read(&tDataSize, 0x04);
-                        ImgDatFile.Read(&uReadNextImgLoc, 0x04);
+                        if (!ImgDatFile.Read(&uReadNextImgLoc, 0x04))
+                        {
+                            OutputDebugString(L"WARNING: CImgDat::LoadgameImages was unable to read the next image location.  This indicates a corrupt imgdat.\r\n");
+                            uReadNextImgLoc = 0;
+                        }
                     }
                 }
 

@@ -298,7 +298,7 @@ const sGame_PaletteDataset KI_SNES_BONUS_CharactersSpecials[] =
 
     { L"Jago Car", 0x272a - 0x08, 0x274a - 0x08, indexKISprites_Jago, 0x01 },
     { L"Spinal Skeleport", 0x5566 - 0x08, 0x5586 - 0x08, indexKISprites_Spinal, 0x02 },
-    { L"Spinal Power Devour", 0x2598 - 0x08, 0x25aa - 0x08, indexKISprites_Spinal, 0x01 },
+    { L"Spinal Power Devour", 0x259c - 0x08, 0x25aa - 0x08, indexKISprites_Spinal, 0x01 },
 
     { L"Spinal/Thunder Storm", 0x274a - 0x08, 0x2756 - 0x08, indexKISprites_Bonus, 0x05 },
     { L"Thunder Pheonix", 0x2566 - 0x08, 0x2572 - 0x08, indexKISprites_Thunder, 0x01 },

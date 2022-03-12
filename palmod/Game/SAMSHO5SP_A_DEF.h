@@ -1227,7 +1227,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Mizuki_PALETTES_D[] =
 
     { L"Mizuki D (Juka Soudan)", 0xf0c80, 0xf0ca0 },
     { L"Mizuki D (Misc Explosion Effects)", 0xf0ca0, 0xf0cc0 },
-    { L"Mizuki D (Burning)", 0xf0cc0, 0xf0d00 },
+    { L"Mizuki D (Burning)", 0xf0cc0, 0xf0d00, indexSamSho5Sprites_Mizuki  },
     { L"Mizuki D (Shocked)", 0xf0d00, 0xf0d40, indexSamSho5Sprites_Mizuki },
     { L"Mizuki D (Frozen/Wet)", 0xf0d40, 0xf0d80, indexSamSho5Sprites_Mizuki },
     { L"Mizuki D (Ki)", 0xf0d80, 0xf0dc0, indexSamSho5Sprites_Mizuki },
@@ -1289,8 +1289,8 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_C[] =
     { L"Nakoruru C (Frozen/Wet)", 0xd6940, 0xd6980, indexSamSho5Sprites_Nakoruru },
     { L"Nakoruru C (Ki)", 0xd6980, 0xd69c0, indexSamSho5Sprites_Nakoruru },
     { L"Nakoruru C (Annu/Rera Mutsube)", 0xd6ae0, 0xd6b00 },
-    { L"Nakoruru C (Issen Trail)", 0xd6a00, 0xd6a40 },
-    { L"Nakoruru C (Kamui Rimse/Slash Effect)", 0xd6b40, 0xd6b60, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru C (Kamui Rimse/Slash Effect)", 0xd6b40, 0xd6b60 },
+    { L"Nakoruru C (Issen Trail)", 0xd6a00, 0xd6a40, indexSamSho5Sprites_Nakoruru },
     { L"Nakoruru C (Elerushi Kamui Rimse)", 0xd6b60, 0xd6b80 },
 };
 

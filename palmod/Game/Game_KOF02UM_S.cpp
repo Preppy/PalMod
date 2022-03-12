@@ -65,7 +65,7 @@ void CGame_KOF02UM_S::InitializeStatics()
     memset(rgExtraCountAll_Clear, -1, sizeof(rgExtraCountAll_Clear));
     memset(rgExtraCountAll_MAX2, -1, sizeof(rgExtraCountAll_MAX2));
     memset(rgExtraCountAll_PSel, -1, sizeof(rgExtraCountAll_PSel));
-    memset(rgExtraCountAll_PSel, -1, sizeof(rgExtraCountAll_Rank));
+    memset(rgExtraCountAll_Rank, -1, sizeof(rgExtraCountAll_Rank));
     memset(rgExtraCountAll_PSel, -1, sizeof(rgExtraCountAll_Conte));
 
     memset(rgExtraLoc_Main, -1, sizeof(rgExtraLoc_Main));
@@ -73,8 +73,8 @@ void CGame_KOF02UM_S::InitializeStatics()
     memset(rgExtraLoc_Clear, -1, sizeof(rgExtraLoc_Clear));
     memset(rgExtraLoc_MAX2, -1, sizeof(rgExtraLoc_MAX2));
     memset(rgExtraLoc_PSel, -1, sizeof(rgExtraLoc_PSel));
-    memset(rgExtraLoc_PSel, -1, sizeof(rgExtraLoc_Rank));
-    memset(rgExtraLoc_PSel, -1, sizeof(rgExtraLoc_Conte));
+    memset(rgExtraLoc_Rank, -1, sizeof(rgExtraLoc_Rank));
+    memset(rgExtraLoc_Conte, -1, sizeof(rgExtraLoc_Conte));
 
     MainDescTree_Main.SetRootTree(CGame_KOF02UM_S::InitDescTree(0));
     MainDescTree_Bar.SetRootTree(CGame_KOF02UM_S::InitDescTree(1));

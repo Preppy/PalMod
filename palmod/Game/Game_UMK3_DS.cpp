@@ -10,7 +10,7 @@ CGame_UMK3_DS::CGame_UMK3_DS(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_UMK3_DS::CGame_UMK3_DS: Loading ROM...\n");
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
 
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB555_BE);

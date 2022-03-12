@@ -116,7 +116,7 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_SFA2_HACK =
     L"LP+LK",
     L"MP+MK",
     L"HP+HK",
-    L"LP+MK+HK",
+    L"LP+MK+HP",
     L"LK+MP+HK",
     L"LK+MP",
     L"MK+HP",

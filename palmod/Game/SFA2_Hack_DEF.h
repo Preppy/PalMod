@@ -100,11 +100,11 @@ const sGame_PaletteDataset SFA2_HACK_RYU_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_RYU_LPMKHK_PALETTES[] =
 {
-    { L"Ryu LP+MK+HK", 0x89e, 0x8be, indexCPS2Sprites_Ryu, 0x00 },
-    { L"Ryu LP+MK+HK Hadoken", 0x8be, 0x8de, indexCPS2Sprites_Ryu, 0x01 },
-    { L"Ryu LP+MK+HK Red Hadoken", 0x8de, 0x8fe, indexCPS2Sprites_Ryu, 0x01 },
-    { L"Ryu LP+MK+HK Super Trail Light", 0x8fe, 0x91e, indexCPS2Sprites_Ryu, 0x00 },
-    { L"Ryu LP+MK+HK Super Trail Dark", 0x91e, 0x93e, indexCPS2Sprites_Ryu, 0x00 },
+    { L"Ryu LP+MK+HP", 0x89e, 0x8be, indexCPS2Sprites_Ryu, 0x00 },
+    { L"Ryu LP+MK+HP Hadoken", 0x8be, 0x8de, indexCPS2Sprites_Ryu, 0x01 },
+    { L"Ryu LP+MK+HP Red Hadoken", 0x8de, 0x8fe, indexCPS2Sprites_Ryu, 0x01 },
+    { L"Ryu LP+MK+HP Super Trail Light", 0x8fe, 0x91e, indexCPS2Sprites_Ryu, 0x00 },
+    { L"Ryu LP+MK+HP Super Trail Dark", 0x91e, 0x93e, indexCPS2Sprites_Ryu, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_RYU_LKMPHK_PALETTES[] =
@@ -156,7 +156,7 @@ const sDescTreeNode SFA2_HACK_RYU_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_RYU_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_RYU_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_RYU_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_RYU_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_RYU_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_RYU_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_RYU_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_RYU_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_RYU_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_RYU_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_RYU_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_RYU_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_RYU_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_RYU_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_RYU_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_RYU_MKHP_PALETTES) },
@@ -264,11 +264,11 @@ const sGame_PaletteDataset SFA2_HACK_KEN_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_KEN_LPMKHK_PALETTES[] =
 {
-    { L"Ken LP+MK+HK", 0x1ede, 0x1efe, indexCPS2Sprites_Ken, 0x00 },
-    { L"Ken LP+MK+HK Extra 1", 0x1efe, 0x1f1e, indexCPS2Sprites_Ken, 0x01 },
-    { L"Ken LP+MK+HK Extra 2", 0x1f1e, 0x1f3e, indexCPS2Sprites_Ken, 0x08 },
-    { L"Ken LP+MK+HK Super Trail Light", 0x1f3e, 0x1f5e, indexCPS2Sprites_Ken, 0x00 },
-    { L"Ken LP+MK+HK Super Trail Dark", 0x1f5e, 0x1f7e, indexCPS2Sprites_Ken, 0x00 },
+    { L"Ken LP+MK+HP", 0x1ede, 0x1efe, indexCPS2Sprites_Ken, 0x00 },
+    { L"Ken LP+MK+HP Extra 1", 0x1efe, 0x1f1e, indexCPS2Sprites_Ken, 0x01 },
+    { L"Ken LP+MK+HP Extra 2", 0x1f1e, 0x1f3e, indexCPS2Sprites_Ken, 0x08 },
+    { L"Ken LP+MK+HP Super Trail Light", 0x1f3e, 0x1f5e, indexCPS2Sprites_Ken, 0x00 },
+    { L"Ken LP+MK+HP Super Trail Dark", 0x1f5e, 0x1f7e, indexCPS2Sprites_Ken, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_KEN_LKMPHK_PALETTES[] =
@@ -320,7 +320,7 @@ const sDescTreeNode SFA2_HACK_KEN_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_KEN_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_KEN_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_KEN_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_KEN_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_KEN_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_KEN_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_KEN_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_KEN_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_KEN_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_KEN_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_KEN_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_KEN_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_KEN_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_KEN_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_KEN_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_KEN_MKHP_PALETTES) },
@@ -428,11 +428,11 @@ const sGame_PaletteDataset SFA2_HACK_AKUMA_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_AKUMA_LPMKHK_PALETTES[] =
 {
-    { L"Akuma LP+MK+HK", 0x351e, 0x353e, indexCPS2Sprites_Akuma, 0x00 },
-    { L"Akuma LP+MK+HK Extra 1", 0x353e, 0x355e, indexCPS2Sprites_Akuma, 0x0c },
-    { L"Akuma LP+MK+HK Extra 2", 0x355e, 0x357e },
-    { L"Akuma LP+MK+HK Super Trail Light", 0x357e, 0x359e, indexCPS2Sprites_Akuma, 0x00 },
-    { L"Akuma LP+MK+HK Super Trail Dark", 0x359e, 0x35be, indexCPS2Sprites_Akuma, 0x00 },
+    { L"Akuma LP+MK+HP", 0x351e, 0x353e, indexCPS2Sprites_Akuma, 0x00 },
+    { L"Akuma LP+MK+HP Extra 1", 0x353e, 0x355e, indexCPS2Sprites_Akuma, 0x0c },
+    { L"Akuma LP+MK+HP Extra 2", 0x355e, 0x357e },
+    { L"Akuma LP+MK+HP Super Trail Light", 0x357e, 0x359e, indexCPS2Sprites_Akuma, 0x00 },
+    { L"Akuma LP+MK+HP Super Trail Dark", 0x359e, 0x35be, indexCPS2Sprites_Akuma, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_AKUMA_LKMPHK_PALETTES[] =
@@ -484,7 +484,7 @@ const sDescTreeNode SFA2_HACK_AKUMA_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMA_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMA_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMA_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMA_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMA_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMA_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMA_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMA_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMA_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMA_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMA_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMA_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMA_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMA_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMA_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMA_MKHP_PALETTES) },
@@ -592,11 +592,11 @@ const sGame_PaletteDataset SFA2_HACK_NASH_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_NASH_LPMKHK_PALETTES[] =
 {
-    { L"Nash LP+MK+HK", 0x4b5e, 0x4b7e, indexCPS2Sprites_Charlie, 0x00 },
-    { L"Nash LP+MK+HK Sonic Boom", 0x4b7e, 0x4b9e, indexCPS2Sprites_Charlie, 0x01 },
-    { L"Nash LP+MK+HK Flash Kick", 0x4b9e, 0x4bbe, indexCPS2Sprites_Charlie, 0x02 },
-    { L"Nash LP+MK+HK Super Trail Light", 0x4bbe, 0x4bde, indexCPS2Sprites_Charlie, 0x00 },
-    { L"Nash LP+MK+HK Super Trail Dark", 0x4bde, 0x4bfe, indexCPS2Sprites_Charlie, 0x00 },
+    { L"Nash LP+MK+HP", 0x4b5e, 0x4b7e, indexCPS2Sprites_Charlie, 0x00 },
+    { L"Nash LP+MK+HP Sonic Boom", 0x4b7e, 0x4b9e, indexCPS2Sprites_Charlie, 0x01 },
+    { L"Nash LP+MK+HP Flash Kick", 0x4b9e, 0x4bbe, indexCPS2Sprites_Charlie, 0x02 },
+    { L"Nash LP+MK+HP Super Trail Light", 0x4bbe, 0x4bde, indexCPS2Sprites_Charlie, 0x00 },
+    { L"Nash LP+MK+HP Super Trail Dark", 0x4bde, 0x4bfe, indexCPS2Sprites_Charlie, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_NASH_LKMPHK_PALETTES[] =
@@ -648,7 +648,7 @@ const sDescTreeNode SFA2_HACK_NASH_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_NASH_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_NASH_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_NASH_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_NASH_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_NASH_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_NASH_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_NASH_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_NASH_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_NASH_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_NASH_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_NASH_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_NASH_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_NASH_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_NASH_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_NASH_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_NASH_MKHP_PALETTES) },
@@ -756,11 +756,11 @@ const sGame_PaletteDataset SFA2_HACK_CHUN_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_CHUN_LPMKHK_PALETTES[] =
 {
-    { L"Chun-Li LP+MK+HK", 0x619e, 0x61be, indexCPS2Sprites_ChunLi, 0x0c, &pairNext },
-    { L"Chun-Li LP+MK+HK Keiokuken (shades)", 0x61be, 0x61de, indexCPS2Sprites_ChunLi, 0x0f, &pairPrevious },
-    { L"Chun-Li LP+MK+HK Extra 2", 0x61de, 0x61fe, indexCPS2Sprites_ChunLi, 0x02 },
-    { L"Chun-Li LP+MK+HK Super Trail Light", 0x61fe, 0x621e, indexCPS2Sprites_ChunLi, 0x0c },
-    { L"Chun-Li LP+MK+HK Super Trail Dark", 0x621e, 0x623e, indexCPS2Sprites_ChunLi, 0x0c },
+    { L"Chun-Li LP+MK+HP", 0x619e, 0x61be, indexCPS2Sprites_ChunLi, 0x0c, &pairNext },
+    { L"Chun-Li LP+MK+HP Keiokuken (shades)", 0x61be, 0x61de, indexCPS2Sprites_ChunLi, 0x0f, &pairPrevious },
+    { L"Chun-Li LP+MK+HP Extra 2", 0x61de, 0x61fe, indexCPS2Sprites_ChunLi, 0x02 },
+    { L"Chun-Li LP+MK+HP Super Trail Light", 0x61fe, 0x621e, indexCPS2Sprites_ChunLi, 0x0c },
+    { L"Chun-Li LP+MK+HP Super Trail Dark", 0x621e, 0x623e, indexCPS2Sprites_ChunLi, 0x0c },
 };
 
 const sGame_PaletteDataset SFA2_HACK_CHUN_LKMPHK_PALETTES[] =
@@ -812,7 +812,7 @@ const sDescTreeNode SFA2_HACK_CHUN_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUN_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUN_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUN_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUN_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUN_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUN_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUN_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUN_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUN_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUN_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUN_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUN_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUN_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_CHUN_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUN_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_CHUN_MKHP_PALETTES) },
@@ -920,11 +920,11 @@ const sGame_PaletteDataset SFA2_HACK_ADON_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_ADON_LPMKHK_PALETTES[] =
 {
-    { L"Adon LP+MK+HK", 0x77de, 0x77fe, indexCPS2Sprites_Adon, 0x00 },
-    { L"Adon LP+MK+HK Extra 1", 0x77fe, 0x781e, indexCPS2Sprites_Adon, 0x01 },
-    { L"Adon LP+MK+HK Extra 2", 0x781e, 0x783e },
-    { L"Adon LP+MK+HK Super Trail Light", 0x783e, 0x785e, indexCPS2Sprites_Adon, 0x00 },
-    { L"Adon LP+MK+HK Super Trail Dark", 0x785e, 0x787e, indexCPS2Sprites_Adon, 0x00 },
+    { L"Adon LP+MK+HP", 0x77de, 0x77fe, indexCPS2Sprites_Adon, 0x00 },
+    { L"Adon LP+MK+HP Extra 1", 0x77fe, 0x781e, indexCPS2Sprites_Adon, 0x01 },
+    { L"Adon LP+MK+HP Extra 2", 0x781e, 0x783e },
+    { L"Adon LP+MK+HP Super Trail Light", 0x783e, 0x785e, indexCPS2Sprites_Adon, 0x00 },
+    { L"Adon LP+MK+HP Super Trail Dark", 0x785e, 0x787e, indexCPS2Sprites_Adon, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_ADON_LKMPHK_PALETTES[] =
@@ -976,7 +976,7 @@ const sDescTreeNode SFA2_HACK_ADON_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ADON_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_ADON_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ADON_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_ADON_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ADON_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_ADON_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ADON_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_ADON_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ADON_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_ADON_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ADON_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_ADON_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ADON_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_ADON_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ADON_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_ADON_MKHP_PALETTES) },
@@ -1084,11 +1084,11 @@ const sGame_PaletteDataset SFA2_HACK_SODOM_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_SODOM_LPMKHK_PALETTES[] =
 {
-    { L"Sodom LP+MK+HK", 0x8e1e, 0x8e3e, indexCPS2Sprites_Sodom, 0x02, &pairNext },
-    { L"Sodom LP+MK+HK Slashes", 0x8e3e, 0x8e5e, indexCPS2Sprites_Sodom, 0x04, &pairPrevious },
-    { L"Sodom LP+MK+HK Intro", 0x8e5e, 0x8e7e, indexCPS2Sprites_Sodom, 0x03 },
-    { L"Sodom LP+MK+HK Super Trail Light", 0x8e7e, 0x8e9e, indexCPS2Sprites_Sodom, 0x02 },
-    { L"Sodom LP+MK+HK Super Trail Dark", 0x8e9e, 0x8ebe, indexCPS2Sprites_Sodom, 0x02 },
+    { L"Sodom LP+MK+HP", 0x8e1e, 0x8e3e, indexCPS2Sprites_Sodom, 0x02, &pairNext },
+    { L"Sodom LP+MK+HP Slashes", 0x8e3e, 0x8e5e, indexCPS2Sprites_Sodom, 0x04, &pairPrevious },
+    { L"Sodom LP+MK+HP Intro", 0x8e5e, 0x8e7e, indexCPS2Sprites_Sodom, 0x03 },
+    { L"Sodom LP+MK+HP Super Trail Light", 0x8e7e, 0x8e9e, indexCPS2Sprites_Sodom, 0x02 },
+    { L"Sodom LP+MK+HP Super Trail Dark", 0x8e9e, 0x8ebe, indexCPS2Sprites_Sodom, 0x02 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_SODOM_LKMPHK_PALETTES[] =
@@ -1140,7 +1140,7 @@ const sDescTreeNode SFA2_HACK_SODOM_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SODOM_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_SODOM_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SODOM_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_SODOM_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SODOM_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_SODOM_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SODOM_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_SODOM_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SODOM_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_SODOM_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SODOM_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_SODOM_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SODOM_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_SODOM_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SODOM_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_SODOM_MKHP_PALETTES) },
@@ -1248,11 +1248,11 @@ const sGame_PaletteDataset SFA2_HACK_GUY_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_GUY_LPMKHK_PALETTES[] =
 {
-    { L"Guy LP+MK+HK", 0xa45e, 0xa47e, indexCPS2Sprites_Guy, 0x00 },
-    { L"Guy LP+MK+HK Extra 1", 0xa47e, 0xa49e },
-    { L"Guy LP+MK+HK Barrels", 0xa49e, 0xa4be, indexCPS2Sprites_Guy, 0x02 },
-    { L"Guy LP+MK+HK Super Trail Light", 0xa4be, 0xa4de, indexCPS2Sprites_Guy, 0x00 },
-    { L"Guy LP+MK+HK Super Trail Dark", 0xa4de, 0xa4fe, indexCPS2Sprites_Guy, 0x00 },
+    { L"Guy LP+MK+HP", 0xa45e, 0xa47e, indexCPS2Sprites_Guy, 0x00 },
+    { L"Guy LP+MK+HP Extra 1", 0xa47e, 0xa49e },
+    { L"Guy LP+MK+HP Barrels", 0xa49e, 0xa4be, indexCPS2Sprites_Guy, 0x02 },
+    { L"Guy LP+MK+HP Super Trail Light", 0xa4be, 0xa4de, indexCPS2Sprites_Guy, 0x00 },
+    { L"Guy LP+MK+HP Super Trail Dark", 0xa4de, 0xa4fe, indexCPS2Sprites_Guy, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_GUY_LKMPHK_PALETTES[] =
@@ -1304,7 +1304,7 @@ const sDescTreeNode SFA2_HACK_GUY_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GUY_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_GUY_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GUY_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_GUY_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GUY_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_GUY_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GUY_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_GUY_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GUY_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_GUY_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GUY_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_GUY_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GUY_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_GUY_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GUY_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_GUY_MKHP_PALETTES) },
@@ -1412,11 +1412,11 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_BIRDIE_LPMKHK_PALETTES[] =
 {
-    { L"Birdie LP+MK+HK", 0xba9e, 0xbabe, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie LP+MK+HK Extra 1", 0xbabe, 0xbade, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie LP+MK+HK Extra 2", 0xbade, 0xbafe },
-    { L"Birdie LP+MK+HK Super Trail Light", 0xbafe, 0xbb1e, indexCPS2Sprites_Birdie, 0x00 },
-    { L"Birdie LP+MK+HK Super Trail Dark", 0xbb1e, 0xbb3e, indexCPS2Sprites_Birdie, 0x00 },
+    { L"Birdie LP+MK+HP", 0xba9e, 0xbabe, indexCPS2Sprites_Birdie, 0x00 },
+    { L"Birdie LP+MK+HP Extra 1", 0xbabe, 0xbade, indexCPS2Sprites_Birdie, 0x00 },
+    { L"Birdie LP+MK+HP Extra 2", 0xbade, 0xbafe },
+    { L"Birdie LP+MK+HP Super Trail Light", 0xbafe, 0xbb1e, indexCPS2Sprites_Birdie, 0x00 },
+    { L"Birdie LP+MK+HP Super Trail Dark", 0xbb1e, 0xbb3e, indexCPS2Sprites_Birdie, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_BIRDIE_LKMPHK_PALETTES[] =
@@ -1468,7 +1468,7 @@ const sDescTreeNode SFA2_HACK_BIRDIE_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_MKHP_PALETTES) },
@@ -1576,11 +1576,11 @@ const sGame_PaletteDataset SFA2_HACK_ROSE_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_ROSE_LPMKHK_PALETTES[] =
 {
-    { L"Rose LP+MK+HK", 0xd0de, 0xd0fe, indexCPS2Sprites_Rose, 0x00 },
-    { L"Rose LP+MK+HK Soul Power 1", 0xd0fe, 0xd11e, indexCPS2Sprites_Rose, 0x02 },
-    { L"Rose LP+MK+HK Soul Power 2", 0xd11e, 0xd13e, indexCPS2Sprites_Rose, 0x02 },
-    { L"Rose LP+MK+HK Super Trail Light", 0xd13e, 0xd15e, indexCPS2Sprites_Rose, 0x00 },
-    { L"Rose LP+MK+HK Super Trail Dark", 0xd15e, 0xd17e, indexCPS2Sprites_Rose, 0x00 },
+    { L"Rose LP+MK+HP", 0xd0de, 0xd0fe, indexCPS2Sprites_Rose, 0x00 },
+    { L"Rose LP+MK+HP Soul Power 1", 0xd0fe, 0xd11e, indexCPS2Sprites_Rose, 0x02 },
+    { L"Rose LP+MK+HP Soul Power 2", 0xd11e, 0xd13e, indexCPS2Sprites_Rose, 0x02 },
+    { L"Rose LP+MK+HP Super Trail Light", 0xd13e, 0xd15e, indexCPS2Sprites_Rose, 0x00 },
+    { L"Rose LP+MK+HP Super Trail Dark", 0xd15e, 0xd17e, indexCPS2Sprites_Rose, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_ROSE_LKMPHK_PALETTES[] =
@@ -1632,7 +1632,7 @@ const sDescTreeNode SFA2_HACK_ROSE_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_MKHP_PALETTES) },
@@ -1740,11 +1740,11 @@ const sGame_PaletteDataset SFA2_HACK_BISON_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_BISON_LPMKHK_PALETTES[] =
 {
-    { L"M.Bison LP+MK+HK", 0xe71e, 0xe73e, indexCPS2Sprites_Bison, 0x00 },
-    { L"M.Bison LP+MK+HK Extra 1", 0xe73e, 0xe75e, indexCPS2Sprites_Bison, 0x08 },
-    { L"M.Bison LP+MK+HK Extra 2", 0xe75e, 0xe77e, indexCPS2Sprites_Bison, 0x09 },
-    { L"M.Bison LP+MK+HK Super Trail Light", 0xe77e, 0xe79e, indexCPS2Sprites_Bison, 0x00 },
-    { L"M.Bison LP+MK+HK Super Trail Dark", 0xe79e, 0xe7be, indexCPS2Sprites_Bison, 0x00 },
+    { L"M.Bison LP+MK+HP", 0xe71e, 0xe73e, indexCPS2Sprites_Bison, 0x00 },
+    { L"M.Bison LP+MK+HP Extra 1", 0xe73e, 0xe75e, indexCPS2Sprites_Bison, 0x08 },
+    { L"M.Bison LP+MK+HP Extra 2", 0xe75e, 0xe77e, indexCPS2Sprites_Bison, 0x09 },
+    { L"M.Bison LP+MK+HP Super Trail Light", 0xe77e, 0xe79e, indexCPS2Sprites_Bison, 0x00 },
+    { L"M.Bison LP+MK+HP Super Trail Dark", 0xe79e, 0xe7be, indexCPS2Sprites_Bison, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_BISON_LKMPHK_PALETTES[] =
@@ -1796,7 +1796,7 @@ const sDescTreeNode SFA2_HACK_BISON_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_MKHP_PALETTES) },
@@ -1904,11 +1904,11 @@ const sGame_PaletteDataset SFA2_HACK_SAGAT_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_SAGAT_LPMKHK_PALETTES[] =
 {
-    { L"Sagat LP+MK+HK", 0xfd5e, 0xfd7e, indexCPS2Sprites_Sagat, 0x00 },
-    { L"Sagat LP+MK+HK Extra 1", 0xfd7e, 0xfd9e, indexCPS2Sprites_Sagat, 0x01 },
-    { L"Sagat LP+MK+HK Extra 2", 0xfd9e, 0xfdbe, indexCPS2Sprites_Sagat, 0x02 },
-    { L"Sagat LP+MK+HK Super Trail Light", 0xfdbe, 0xfdde, indexCPS2Sprites_Sagat, 0x00 },
-    { L"Sagat LP+MK+HK Super Trail Dark", 0xfdde, 0xfdfe, indexCPS2Sprites_Sagat, 0x00 },
+    { L"Sagat LP+MK+HP", 0xfd5e, 0xfd7e, indexCPS2Sprites_Sagat, 0x00 },
+    { L"Sagat LP+MK+HP Extra 1", 0xfd7e, 0xfd9e, indexCPS2Sprites_Sagat, 0x01 },
+    { L"Sagat LP+MK+HP Extra 2", 0xfd9e, 0xfdbe, indexCPS2Sprites_Sagat, 0x02 },
+    { L"Sagat LP+MK+HP Super Trail Light", 0xfdbe, 0xfdde, indexCPS2Sprites_Sagat, 0x00 },
+    { L"Sagat LP+MK+HP Super Trail Dark", 0xfdde, 0xfdfe, indexCPS2Sprites_Sagat, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_SAGAT_LKMPHK_PALETTES[] =
@@ -1960,7 +1960,7 @@ const sDescTreeNode SFA2_HACK_SAGAT_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAGAT_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_SAGAT_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAGAT_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_SAGAT_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAGAT_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_SAGAT_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAGAT_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_SAGAT_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAGAT_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_SAGAT_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAGAT_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_SAGAT_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAGAT_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_SAGAT_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAGAT_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_SAGAT_MKHP_PALETTES) },
@@ -2068,11 +2068,11 @@ const sGame_PaletteDataset SFA2_HACK_DAN_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_DAN_LPMKHK_PALETTES[] =
 {
-    { L"Dan LP+MK+HK", 0x1139e, 0x113be, indexCPS2Sprites_Dan, 0x00 },
-    { L"Dan LP+MK+HK Extra 1", 0x113be, 0x113de, indexCPS2Sprites_Dan, 0x01 },
-    { L"Dan LP+MK+HK Extra 2", 0x113de, 0x113fe },
-    { L"Dan LP+MK+HK Super Trail Light", 0x113fe, 0x1141e, indexCPS2Sprites_Dan, 0x00 },
-    { L"Dan LP+MK+HK Super Trail Dark", 0x1141e, 0x1143e, indexCPS2Sprites_Dan, 0x00 },
+    { L"Dan LP+MK+HP", 0x1139e, 0x113be, indexCPS2Sprites_Dan, 0x00 },
+    { L"Dan LP+MK+HP Extra 1", 0x113be, 0x113de, indexCPS2Sprites_Dan, 0x01 },
+    { L"Dan LP+MK+HP Extra 2", 0x113de, 0x113fe },
+    { L"Dan LP+MK+HP Super Trail Light", 0x113fe, 0x1141e, indexCPS2Sprites_Dan, 0x00 },
+    { L"Dan LP+MK+HP Super Trail Dark", 0x1141e, 0x1143e, indexCPS2Sprites_Dan, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_DAN_LKMPHK_PALETTES[] =
@@ -2124,7 +2124,7 @@ const sDescTreeNode SFA2_HACK_DAN_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DAN_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_DAN_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DAN_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_DAN_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DAN_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_DAN_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DAN_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_DAN_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DAN_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_DAN_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DAN_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_DAN_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DAN_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_DAN_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DAN_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_DAN_MKHP_PALETTES) },
@@ -2232,11 +2232,11 @@ const sGame_PaletteDataset SFA2_HACK_SAKURA_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_SAKURA_LPMKHK_PALETTES[] =
 {
-    { L"Sakura LP+MK+HK", 0x129de, 0x129fe, indexCPS2Sprites_Sakura, 0x00 },
-    { L"Sakura LP+MK+HK Extra 1", 0x129fe, 0x12a1e, indexCPS2Sprites_Sakura, 0x01 },
-    { L"Sakura LP+MK+HK Extra 2", 0x12a1e, 0x12a3e, indexCPS2Sprites_Sakura, 0x02 },
-    { L"Sakura LP+MK+HK Super Trail Light", 0x12a3e, 0x12a5e, indexCPS2Sprites_Sakura, 0x00 },
-    { L"Sakura LP+MK+HK Super Trail Dark", 0x12a5e, 0x12a7e, indexCPS2Sprites_Sakura, 0x00 },
+    { L"Sakura LP+MK+HP", 0x129de, 0x129fe, indexCPS2Sprites_Sakura, 0x00 },
+    { L"Sakura LP+MK+HP Extra 1", 0x129fe, 0x12a1e, indexCPS2Sprites_Sakura, 0x01 },
+    { L"Sakura LP+MK+HP Extra 2", 0x12a1e, 0x12a3e, indexCPS2Sprites_Sakura, 0x02 },
+    { L"Sakura LP+MK+HP Super Trail Light", 0x12a3e, 0x12a5e, indexCPS2Sprites_Sakura, 0x00 },
+    { L"Sakura LP+MK+HP Super Trail Dark", 0x12a5e, 0x12a7e, indexCPS2Sprites_Sakura, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_SAKURA_LKMPHK_PALETTES[] =
@@ -2288,7 +2288,7 @@ const sDescTreeNode SFA2_HACK_SAKURA_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAKURA_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_SAKURA_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAKURA_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_SAKURA_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAKURA_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_SAKURA_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAKURA_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_SAKURA_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAKURA_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_SAKURA_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAKURA_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_SAKURA_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAKURA_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_SAKURA_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SAKURA_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_SAKURA_MKHP_PALETTES) },
@@ -2396,11 +2396,11 @@ const sGame_PaletteDataset SFA2_HACK_ROLENTO_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_ROLENTO_LPMKHK_PALETTES[] =
 {
-    { L"Rolento LP+MK+HK", 0x1401e, 0x1403e, indexCPS2Sprites_Rolento, 0x00 },
-    { L"Rolento LP+MK+HK Extra 1", 0x1403e, 0x1405e },
-    { L"Rolento LP+MK+HK Extra 2", 0x1405e, 0x1407e },
-    { L"Rolento LP+MK+HK Super Trail Light", 0x1407e, 0x1409e, indexCPS2Sprites_Rolento, 0x00 },
-    { L"Rolento LP+MK+HK Super Trail Dark", 0x1409e, 0x140be, indexCPS2Sprites_Rolento, 0x00 },
+    { L"Rolento LP+MK+HP", 0x1401e, 0x1403e, indexCPS2Sprites_Rolento, 0x00 },
+    { L"Rolento LP+MK+HP Extra 1", 0x1403e, 0x1405e },
+    { L"Rolento LP+MK+HP Extra 2", 0x1405e, 0x1407e },
+    { L"Rolento LP+MK+HP Super Trail Light", 0x1407e, 0x1409e, indexCPS2Sprites_Rolento, 0x00 },
+    { L"Rolento LP+MK+HP Super Trail Dark", 0x1409e, 0x140be, indexCPS2Sprites_Rolento, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_ROLENTO_LKMPHK_PALETTES[] =
@@ -2452,7 +2452,7 @@ const sDescTreeNode SFA2_HACK_ROLENTO_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROLENTO_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_ROLENTO_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROLENTO_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_ROLENTO_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROLENTO_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROLENTO_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROLENTO_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROLENTO_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROLENTO_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROLENTO_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROLENTO_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROLENTO_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROLENTO_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_ROLENTO_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROLENTO_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_ROLENTO_MKHP_PALETTES) },
@@ -2560,11 +2560,11 @@ const sGame_PaletteDataset SFA2_HACK_DHALSIM_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_DHALSIM_LPMKHK_PALETTES[] =
 {
-    { L"Dhalsim LP+MK+HK", 0x1565e, 0x1567e, indexCPS2Sprites_Dhalsim, 0x00 },
-    { L"Dhalsim LP+MK+HK Extra 1", 0x1567e, 0x1569e, indexCPS2Sprites_Dhalsim, 0x01 },
-    { L"Dhalsim LP+MK+HK Sally", 0x1569e, 0x156be, indexCPS2Sprites_Dhalsim, 0x02 },
-    { L"Dhalsim LP+MK+HK Super Trail Light", 0x156be, 0x156de, indexCPS2Sprites_Dhalsim, 0x00 },
-    { L"Dhalsim LP+MK+HK Super Trail Dark", 0x156de, 0x156fe, indexCPS2Sprites_Dhalsim, 0x00 },
+    { L"Dhalsim LP+MK+HP", 0x1565e, 0x1567e, indexCPS2Sprites_Dhalsim, 0x00 },
+    { L"Dhalsim LP+MK+HP Extra 1", 0x1567e, 0x1569e, indexCPS2Sprites_Dhalsim, 0x01 },
+    { L"Dhalsim LP+MK+HP Sally", 0x1569e, 0x156be, indexCPS2Sprites_Dhalsim, 0x02 },
+    { L"Dhalsim LP+MK+HP Super Trail Light", 0x156be, 0x156de, indexCPS2Sprites_Dhalsim, 0x00 },
+    { L"Dhalsim LP+MK+HP Super Trail Dark", 0x156de, 0x156fe, indexCPS2Sprites_Dhalsim, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_DHALSIM_LKMPHK_PALETTES[] =
@@ -2616,7 +2616,7 @@ const sDescTreeNode SFA2_HACK_DHALSIM_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DHALSIM_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_DHALSIM_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DHALSIM_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_DHALSIM_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DHALSIM_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_DHALSIM_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DHALSIM_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_DHALSIM_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DHALSIM_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_DHALSIM_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DHALSIM_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_DHALSIM_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DHALSIM_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_DHALSIM_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_DHALSIM_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_DHALSIM_MKHP_PALETTES) },
@@ -2724,11 +2724,11 @@ const sGame_PaletteDataset SFA2_HACK_ZANGIEF_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_ZANGIEF_LPMKHK_PALETTES[] =
 {
-    { L"Zangief LP+MK+HK", 0x16c9e, 0x16cbe, indexCPS2Sprites_Zangief, 0x00 },
-    { L"Zangief LP+MK+HK Banishing Fist", 0x16cbe, 0x16cde, indexCPS2Sprites_Zangief, 0x01 },
-    { L"Zangief LP+MK+HK Extra 2", 0x16cde, 0x16cfe },
-    { L"Zangief LP+MK+HK Super Trail Light", 0x16cfe, 0x16d1e, indexCPS2Sprites_Zangief, 0x00 },
-    { L"Zangief LP+MK+HK Super Trail Dark", 0x16d1e, 0x16d3e, indexCPS2Sprites_Zangief, 0x00 },
+    { L"Zangief LP+MK+HP", 0x16c9e, 0x16cbe, indexCPS2Sprites_Zangief, 0x00 },
+    { L"Zangief LP+MK+HP Banishing Fist", 0x16cbe, 0x16cde, indexCPS2Sprites_Zangief, 0x01 },
+    { L"Zangief LP+MK+HP Extra 2", 0x16cde, 0x16cfe },
+    { L"Zangief LP+MK+HP Super Trail Light", 0x16cfe, 0x16d1e, indexCPS2Sprites_Zangief, 0x00 },
+    { L"Zangief LP+MK+HP Super Trail Dark", 0x16d1e, 0x16d3e, indexCPS2Sprites_Zangief, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_ZANGIEF_LKMPHK_PALETTES[] =
@@ -2780,7 +2780,7 @@ const sDescTreeNode SFA2_HACK_ZANGIEF_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ZANGIEF_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_ZANGIEF_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ZANGIEF_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_ZANGIEF_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ZANGIEF_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_ZANGIEF_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ZANGIEF_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_ZANGIEF_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ZANGIEF_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_ZANGIEF_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ZANGIEF_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_ZANGIEF_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ZANGIEF_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_ZANGIEF_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ZANGIEF_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_ZANGIEF_MKHP_PALETTES) },
@@ -2888,11 +2888,11 @@ const sGame_PaletteDataset SFA2_HACK_GEN_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_GEN_LPMKHK_PALETTES[] =
 {
-    { L"Gen LP+MK+HK", 0x182de, 0x182fe, indexCPS2Sprites_Gen, 0x00 },
-    { L"Gen LP+MK+HK Extra 1", 0x182fe, 0x1831e, indexCPS2Sprites_Gen, 0x00 },
-    { L"Gen LP+MK+HK Extra 2", 0x1831e, 0x1833e, indexCPS2Sprites_Gen, 0x00 },
-    { L"Gen LP+MK+HK Super Trail Light", 0x1833e, 0x1835e, indexCPS2Sprites_Gen, 0x00 },
-    { L"Gen LP+MK+HK Super Trail Dark", 0x1835e, 0x1837e, indexCPS2Sprites_Gen, 0x00 },
+    { L"Gen LP+MK+HP", 0x182de, 0x182fe, indexCPS2Sprites_Gen, 0x00 },
+    { L"Gen LP+MK+HP Extra 1", 0x182fe, 0x1831e, indexCPS2Sprites_Gen, 0x00 },
+    { L"Gen LP+MK+HP Extra 2", 0x1831e, 0x1833e, indexCPS2Sprites_Gen, 0x00 },
+    { L"Gen LP+MK+HP Super Trail Light", 0x1833e, 0x1835e, indexCPS2Sprites_Gen, 0x00 },
+    { L"Gen LP+MK+HP Super Trail Dark", 0x1835e, 0x1837e, indexCPS2Sprites_Gen, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_GEN_LKMPHK_PALETTES[] =
@@ -2944,7 +2944,7 @@ const sDescTreeNode SFA2_HACK_GEN_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GEN_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_GEN_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GEN_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_GEN_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GEN_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_GEN_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GEN_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_GEN_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GEN_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_GEN_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GEN_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_GEN_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GEN_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_GEN_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_GEN_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_GEN_MKHP_PALETTES) },
@@ -3052,11 +3052,11 @@ const sGame_PaletteDataset SFA2_HACK_CHUNLI_OG_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_CHUNLI_OG_LPMKHK_PALETTES[] =
 {
-    { L"Chun-Li (Original) LP+MK+HK", 0x1991e, 0x1993e, indexCPS2Sprites_ChunLi, 0x00, &pairNext },
-    { L"Chun-Li (Original) LP+MK+HK Keiokuken (shades)", 0x1993e, 0x1995e, indexCPS2Sprites_ChunLi, 0x0f, &pairPrevious },
-    { L"Chun-Li (Original) LP+MK+HK Extra 2", 0x1995e, 0x1997e, indexCPS2Sprites_ChunLi, 0x02 },
-    { L"Chun-Li (Original) LP+MK+HK Super Trail Light", 0x1997e, 0x1999e, indexCPS2Sprites_ChunLi, 0x00 },
-    { L"Chun-Li (Original) LP+MK+HK Super Trail Dark", 0x1999e, 0x199be, indexCPS2Sprites_ChunLi, 0x00 },
+    { L"Chun-Li (Original) LP+MK+HP", 0x1991e, 0x1993e, indexCPS2Sprites_ChunLi, 0x00, &pairNext },
+    { L"Chun-Li (Original) LP+MK+HP Keiokuken (shades)", 0x1993e, 0x1995e, indexCPS2Sprites_ChunLi, 0x0f, &pairPrevious },
+    { L"Chun-Li (Original) LP+MK+HP Extra 2", 0x1995e, 0x1997e, indexCPS2Sprites_ChunLi, 0x02 },
+    { L"Chun-Li (Original) LP+MK+HP Super Trail Light", 0x1997e, 0x1999e, indexCPS2Sprites_ChunLi, 0x00 },
+    { L"Chun-Li (Original) LP+MK+HP Super Trail Dark", 0x1999e, 0x199be, indexCPS2Sprites_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_CHUNLI_OG_LKMPHK_PALETTES[] =
@@ -3108,7 +3108,7 @@ const sDescTreeNode SFA2_HACK_CHUNLI_OG_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUNLI_OG_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUNLI_OG_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUNLI_OG_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUNLI_OG_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUNLI_OG_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUNLI_OG_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUNLI_OG_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUNLI_OG_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUNLI_OG_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUNLI_OG_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUNLI_OG_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_CHUNLI_OG_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUNLI_OG_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_CHUNLI_OG_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_CHUNLI_OG_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_CHUNLI_OG_MKHP_PALETTES) },
@@ -3216,11 +3216,11 @@ const sGame_PaletteDataset SFA2_HACK_WWGIEF_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_WWGIEF_LPMKHK_PALETTES[] =
 {
-    { L"Zangief (WW) LP+MK+HK", 0x1c59e, 0x1c5be, indexCPS2Sprites_Zangief, 0x00 },
-    { L"Zangief (WW) LP+MK+HK Banishing Fist", 0x1c5be, 0x1c5de, indexCPS2Sprites_Zangief, 0x01 },
-    { L"Zangief (WW) LP+MK+HK Extra 2", 0x1c5de, 0x1c5fe },
-    { L"Zangief (WW) LP+MK+HK Super Trail Light", 0x1c5fe, 0x1c61e, indexCPS2Sprites_Zangief, 0x00 },
-    { L"Zangief (WW) LP+MK+HK Super Trail Dark", 0x1c61e, 0x1c63e, indexCPS2Sprites_Zangief, 0x00 },
+    { L"Zangief (WW) LP+MK+HP", 0x1c59e, 0x1c5be, indexCPS2Sprites_Zangief, 0x00 },
+    { L"Zangief (WW) LP+MK+HP Banishing Fist", 0x1c5be, 0x1c5de, indexCPS2Sprites_Zangief, 0x01 },
+    { L"Zangief (WW) LP+MK+HP Extra 2", 0x1c5de, 0x1c5fe },
+    { L"Zangief (WW) LP+MK+HP Super Trail Light", 0x1c5fe, 0x1c61e, indexCPS2Sprites_Zangief, 0x00 },
+    { L"Zangief (WW) LP+MK+HP Super Trail Dark", 0x1c61e, 0x1c63e, indexCPS2Sprites_Zangief, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_WWGIEF_LKMPHK_PALETTES[] =
@@ -3272,7 +3272,7 @@ const sDescTreeNode SFA2_HACK_WWGIEF_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWGIEF_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_WWGIEF_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWGIEF_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_WWGIEF_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWGIEF_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_WWGIEF_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWGIEF_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_WWGIEF_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWGIEF_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_WWGIEF_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWGIEF_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_WWGIEF_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWGIEF_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_WWGIEF_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWGIEF_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_WWGIEF_MKHP_PALETTES) },
@@ -3380,11 +3380,11 @@ const sGame_PaletteDataset SFA2_HACK_WWSIM_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_WWSIM_LPMKHK_PALETTES[] =
 {
-    { L"Dhalsim (WW) LP+MK+HK", 0x1dbde, 0x1dbfe, indexCPS2Sprites_Dhalsim, 0x00 },
-    { L"Dhalsim (WW) LP+MK+HK Extra 1", 0x1dbfe, 0x1dc1e, indexCPS2Sprites_Dhalsim, 0x01 },
-    { L"Dhalsim (WW) LP+MK+HK Sally", 0x1dc1e, 0x1dc3e, indexCPS2Sprites_Dhalsim, 0x02 },
-    { L"Dhalsim (WW) LP+MK+HK Super Trail Light", 0x1dc3e, 0x1dc5e, indexCPS2Sprites_Dhalsim, 0x00 },
-    { L"Dhalsim (WW) LP+MK+HK Super Trail Dark", 0x1dc5e, 0x1dc7e, indexCPS2Sprites_Dhalsim, 0x00 },
+    { L"Dhalsim (WW) LP+MK+HP", 0x1dbde, 0x1dbfe, indexCPS2Sprites_Dhalsim, 0x00 },
+    { L"Dhalsim (WW) LP+MK+HP Extra 1", 0x1dbfe, 0x1dc1e, indexCPS2Sprites_Dhalsim, 0x01 },
+    { L"Dhalsim (WW) LP+MK+HP Sally", 0x1dc1e, 0x1dc3e, indexCPS2Sprites_Dhalsim, 0x02 },
+    { L"Dhalsim (WW) LP+MK+HP Super Trail Light", 0x1dc3e, 0x1dc5e, indexCPS2Sprites_Dhalsim, 0x00 },
+    { L"Dhalsim (WW) LP+MK+HP Super Trail Dark", 0x1dc5e, 0x1dc7e, indexCPS2Sprites_Dhalsim, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_WWSIM_LKMPHK_PALETTES[] =
@@ -3436,7 +3436,7 @@ const sDescTreeNode SFA2_HACK_WWSIM_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWSIM_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_WWSIM_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWSIM_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_WWSIM_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWSIM_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_WWSIM_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWSIM_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_WWSIM_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWSIM_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_WWSIM_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWSIM_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_WWSIM_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWSIM_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_WWSIM_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_WWSIM_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_WWSIM_MKHP_PALETTES) },
@@ -3544,11 +3544,11 @@ const sGame_PaletteDataset SFA2_HACK_EVILRYU_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_EVILRYU_LPMKHK_PALETTES[] =
 {
-    { L"Evil Ryu LP+MK+HK", 0x1f21e, 0x1f23e, indexCPS2Sprites_Ryu, 0x00 },
-    { L"Evil Ryu LP+MK+HK Hadoken", 0x1f23e, 0x1f25e, indexCPS2Sprites_Ryu, 0x01 },
-    { L"Evil Ryu LP+MK+HK Shoryuken", 0x1f25e, 0x1f27e },
-    { L"Evil Ryu LP+MK+HK Super Trail Light", 0x1f27e, 0x1f29e, indexCPS2Sprites_Ryu, 0x00 },
-    { L"Evil Ryu LP+MK+HK Super Trail Dark", 0x1f29e, 0x1f2be, indexCPS2Sprites_Ryu, 0x00 },
+    { L"Evil Ryu LP+MK+HP", 0x1f21e, 0x1f23e, indexCPS2Sprites_Ryu, 0x00 },
+    { L"Evil Ryu LP+MK+HP Hadoken", 0x1f23e, 0x1f25e, indexCPS2Sprites_Ryu, 0x01 },
+    { L"Evil Ryu LP+MK+HP Shoryuken", 0x1f25e, 0x1f27e },
+    { L"Evil Ryu LP+MK+HP Super Trail Light", 0x1f27e, 0x1f29e, indexCPS2Sprites_Ryu, 0x00 },
+    { L"Evil Ryu LP+MK+HP Super Trail Dark", 0x1f29e, 0x1f2be, indexCPS2Sprites_Ryu, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_EVILRYU_LKMPHK_PALETTES[] =
@@ -3600,7 +3600,7 @@ const sDescTreeNode SFA2_HACK_EVILRYU_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_EVILRYU_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_EVILRYU_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_EVILRYU_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_EVILRYU_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_EVILRYU_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_EVILRYU_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_EVILRYU_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_EVILRYU_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_EVILRYU_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_EVILRYU_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_EVILRYU_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_EVILRYU_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_EVILRYU_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_EVILRYU_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_EVILRYU_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_EVILRYU_MKHP_PALETTES) },
@@ -3620,7 +3620,7 @@ const sGame_PaletteDataset SFA2_HACK_RYU_PORTRAIT_PALETTES[] =
     { L"Ryu LP+LK", 0x204be, 0x2051e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
     { L"Ryu MP+MK", 0x2052e, 0x2058e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
     { L"Ryu HP+HK", 0x2059e, 0x205fe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
-    { L"Ryu LP+MK+HK", 0x2060e, 0x2066e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
+    { L"Ryu LP+MK+HP", 0x2060e, 0x2066e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
     { L"Ryu LK+MP+HK", 0x2067e, 0x206de, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
     { L"Ryu LK+MP", 0x206ee, 0x2074e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
     { L"Ryu MK+HP", 0x2075e, 0x207be, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
@@ -3640,7 +3640,7 @@ const sGame_PaletteDataset SFA2_HACK_KEN_PORTRAIT_PALETTES[] =
     { L"Ken LP+LK", 0x212fe, 0x2135e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ken },
     { L"Ken MP+MK", 0x2136e, 0x213ce, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ken },
     { L"Ken HP+HK", 0x213de, 0x2143e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ken },
-    { L"Ken LP+MK+HK", 0x2144e, 0x214ae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ken },
+    { L"Ken LP+MK+HP", 0x2144e, 0x214ae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ken },
     { L"Ken LK+MP+HK", 0x214be, 0x2151e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ken },
     { L"Ken LK+MP", 0x2152e, 0x2158e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ken },
     { L"Ken MK+HP", 0x2159e, 0x215fe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ken },
@@ -3660,7 +3660,7 @@ const sGame_PaletteDataset SFA2_HACK_AKUMA_PORTRAIT_PALETTES[] =
     { L"Akuma LP+LK", 0x2213e, 0x2219e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Akuma },
     { L"Akuma MP+MK", 0x221ae, 0x2220e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Akuma },
     { L"Akuma HP+HK", 0x2221e, 0x2227e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Akuma },
-    { L"Akuma LP+MK+HK", 0x2228e, 0x222ee, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Akuma },
+    { L"Akuma LP+MK+HP", 0x2228e, 0x222ee, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Akuma },
     { L"Akuma LK+MP+HK", 0x222fe, 0x2235e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Akuma },
     { L"Akuma LK+MP", 0x2236e, 0x223ce, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Akuma },
     { L"Akuma MK+HP", 0x223de, 0x2243e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Akuma },
@@ -3680,7 +3680,7 @@ const sGame_PaletteDataset SFA2_HACK_NASH_PORTRAIT_PALETTES[] =
     { L"Nash LP+LK", 0x22f7e, 0x22fde, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Charlie },
     { L"Nash MP+MK", 0x22fee, 0x2304e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Charlie },
     { L"Nash HP+HK", 0x2305e, 0x230be, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Charlie },
-    { L"Nash LP+MK+HK", 0x230ce, 0x2312e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Charlie },
+    { L"Nash LP+MK+HP", 0x230ce, 0x2312e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Charlie },
     { L"Nash LK+MP+HK", 0x2313e, 0x2319e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Charlie },
     { L"Nash LK+MP", 0x231ae, 0x2320e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Charlie },
     { L"Nash MK+HP", 0x2321e, 0x2327e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Charlie },
@@ -3700,7 +3700,7 @@ const sGame_PaletteDataset SFA2_HACK_CHUN_PORTRAIT_PALETTES[] =
     { L"Chun-Li LP+LK", 0x23dbe, 0x23e1e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_ChunLi },
     { L"Chun-Li MP+MK", 0x23e2e, 0x23e8e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_ChunLi },
     { L"Chun-Li HP+HK", 0x23e9e, 0x23efe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_ChunLi },
-    { L"Chun-Li LP+MK+HK", 0x23f0e, 0x23f6e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_ChunLi },
+    { L"Chun-Li LP+MK+HP", 0x23f0e, 0x23f6e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_ChunLi },
     { L"Chun-Li LK+MP+HK", 0x23f7e, 0x23fde, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_ChunLi },
     { L"Chun-Li LK+MP", 0x23fee, 0x2404e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_ChunLi },
     { L"Chun-Li MK+HP", 0x2405e, 0x240be, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_ChunLi },
@@ -3720,7 +3720,7 @@ const sGame_PaletteDataset SFA2_HACK_ADON_PORTRAIT_PALETTES[] =
     { L"Adon LP+LK", 0x24bfe, 0x24c5e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Adon },
     { L"Adon MP+MK", 0x24c6e, 0x24cce, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Adon },
     { L"Adon HP+HK", 0x24cde, 0x24d3e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Adon },
-    { L"Adon LP+MK+HK", 0x24d4e, 0x24dae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Adon },
+    { L"Adon LP+MK+HP", 0x24d4e, 0x24dae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Adon },
     { L"Adon LK+MP+HK", 0x24dbe, 0x24e1e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Adon },
     { L"Adon LK+MP", 0x24e2e, 0x24e8e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Adon },
     { L"Adon MK+HP", 0x24e9e, 0x24efe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Adon },
@@ -3740,7 +3740,7 @@ const sGame_PaletteDataset SFA2_HACK_SODOM_PORTRAIT_PALETTES[] =
     { L"Sodom LP+LK", 0x25a3e, 0x25a9e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sodom },
     { L"Sodom MP+MK", 0x25aae, 0x25b0e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sodom },
     { L"Sodom HP+HK", 0x25b1e, 0x25b7e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sodom },
-    { L"Sodom LP+MK+HK", 0x25b8e, 0x25bee, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sodom },
+    { L"Sodom LP+MK+HP", 0x25b8e, 0x25bee, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sodom },
     { L"Sodom LK+MP+HK", 0x25bfe, 0x25c5e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sodom },
     { L"Sodom LK+MP", 0x25c6e, 0x25cce, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sodom },
     { L"Sodom MK+HP", 0x25cde, 0x25d3e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sodom },
@@ -3760,7 +3760,7 @@ const sGame_PaletteDataset SFA2_HACK_GUY_PORTRAIT_PALETTES[] =
     { L"Guy LP+LK", 0x2687e, 0x268de, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Guy },
     { L"Guy MP+MK", 0x268ee, 0x2694e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Guy },
     { L"Guy HP+HK", 0x2695e, 0x269be, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Guy },
-    { L"Guy LP+MK+HK", 0x269ce, 0x26a2e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Guy },
+    { L"Guy LP+MK+HP", 0x269ce, 0x26a2e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Guy },
     { L"Guy LK+MP+HK", 0x26a3e, 0x26a9e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Guy },
     { L"Guy LK+MP", 0x26aae, 0x26b0e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Guy },
     { L"Guy MK+HP", 0x26b1e, 0x26b7e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Guy },
@@ -3780,7 +3780,7 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_PORTRAIT_PALETTES[] =
     { L"Birdie LP+LK", 0x276be, 0x2771e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Birdie },
     { L"Birdie MP+MK", 0x2772e, 0x2778e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Birdie },
     { L"Birdie HP+HK", 0x2779e, 0x277fe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Birdie },
-    { L"Birdie LP+MK+HK", 0x2780e, 0x2786e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Birdie },
+    { L"Birdie LP+MK+HP", 0x2780e, 0x2786e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Birdie },
     { L"Birdie LK+MP+HK", 0x2787e, 0x278de, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Birdie },
     { L"Birdie LK+MP", 0x278ee, 0x2794e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Birdie },
     { L"Birdie MK+HP", 0x2795e, 0x279be, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Birdie },
@@ -3800,7 +3800,7 @@ const sGame_PaletteDataset SFA2_HACK_ROSE_PORTRAIT_PALETTES[] =
     { L"Rose LP+LK", 0x284fe, 0x2855e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rose },
     { L"Rose MP+MK", 0x2856e, 0x285ce, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rose },
     { L"Rose HP+HK", 0x285de, 0x2863e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rose },
-    { L"Rose LP+MK+HK", 0x2864e, 0x286ae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rose },
+    { L"Rose LP+MK+HP", 0x2864e, 0x286ae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rose },
     { L"Rose LK+MP+HK", 0x286be, 0x2871e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rose },
     { L"Rose LK+MP", 0x2872e, 0x2878e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rose },
     { L"Rose MK+HP", 0x2879e, 0x287fe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rose },
@@ -3820,7 +3820,7 @@ const sGame_PaletteDataset SFA2_HACK_BISON_PORTRAIT_PALETTES[] =
     { L"M.Bison LP+LK", 0x2933e, 0x2939e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Bison },
     { L"M.Bison MP+MK", 0x293ae, 0x2940e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Bison },
     { L"M.Bison HP+HK", 0x2941e, 0x2947e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Bison },
-    { L"M.Bison LP+MK+HK", 0x2948e, 0x294ee, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Bison },
+    { L"M.Bison LP+MK+HP", 0x2948e, 0x294ee, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Bison },
     { L"M.Bison LK+MP+HK", 0x294fe, 0x2955e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Bison },
     { L"M.Bison LK+MP", 0x2956e, 0x295ce, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Bison },
     { L"M.Bison MK+HP", 0x295de, 0x2963e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Bison },
@@ -3840,7 +3840,7 @@ const sGame_PaletteDataset SFA2_HACK_SAGAT_PORTRAIT_PALETTES[] =
     { L"Sagat LP+LK", 0x2a17e, 0x2a1de, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sagat },
     { L"Sagat MP+MK", 0x2a1ee, 0x2a24e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sagat },
     { L"Sagat HP+HK", 0x2a25e, 0x2a2be, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sagat },
-    { L"Sagat LP+MK+HK", 0x2a2ce, 0x2a32e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sagat },
+    { L"Sagat LP+MK+HP", 0x2a2ce, 0x2a32e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sagat },
     { L"Sagat LK+MP+HK", 0x2a33e, 0x2a39e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sagat },
     { L"Sagat LK+MP", 0x2a3ae, 0x2a40e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sagat },
     { L"Sagat MK+HP", 0x2a41e, 0x2a47e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sagat },
@@ -3860,7 +3860,7 @@ const sGame_PaletteDataset SFA2_HACK_DAN_PORTRAIT_PALETTES[] =
     { L"Dan LP+LK", 0x2afbe, 0x2b01e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dan },
     { L"Dan MP+MK", 0x2b02e, 0x2b08e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dan },
     { L"Dan HP+HK", 0x2b09e, 0x2b0fe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dan },
-    { L"Dan LP+MK+HK", 0x2b10e, 0x2b16e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dan },
+    { L"Dan LP+MK+HP", 0x2b10e, 0x2b16e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dan },
     { L"Dan LK+MP+HK", 0x2b17e, 0x2b1de, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dan },
     { L"Dan LK+MP", 0x2b1ee, 0x2b24e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dan },
     { L"Dan MK+HP", 0x2b25e, 0x2b2be, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dan },
@@ -3880,7 +3880,7 @@ const sGame_PaletteDataset SFA2_HACK_SAKURA_PORTRAIT_PALETTES[] =
     { L"Sakura LP+LK", 0x2bdfe, 0x2be5e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sakura },
     { L"Sakura MP+MK", 0x2be6e, 0x2bece, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sakura },
     { L"Sakura HP+HK", 0x2bede, 0x2bf3e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sakura },
-    { L"Sakura LP+MK+HK", 0x2bf4e, 0x2bfae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sakura },
+    { L"Sakura LP+MK+HP", 0x2bf4e, 0x2bfae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sakura },
     { L"Sakura LK+MP+HK", 0x2bfbe, 0x2c01e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sakura },
     { L"Sakura LK+MP", 0x2c02e, 0x2c08e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sakura },
     { L"Sakura MK+HP", 0x2c09e, 0x2c0fe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Sakura },
@@ -3900,7 +3900,7 @@ const sGame_PaletteDataset SFA2_HACK_ROLENTO_PORTRAIT_PALETTES[] =
     { L"Rolento LP+LK", 0x2cc3e, 0x2cc9e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rolento },
     { L"Rolento MP+MK", 0x2ccae, 0x2cd0e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rolento },
     { L"Rolento HP+HK", 0x2cd1e, 0x2cd7e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rolento },
-    { L"Rolento LP+MK+HK", 0x2cd8e, 0x2cdee, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rolento },
+    { L"Rolento LP+MK+HP", 0x2cd8e, 0x2cdee, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rolento },
     { L"Rolento LK+MP+HK", 0x2cdfe, 0x2ce5e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rolento },
     { L"Rolento LK+MP", 0x2ce6e, 0x2cece, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rolento },
     { L"Rolento MK+HP", 0x2cede, 0x2cf3e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Rolento },
@@ -3920,7 +3920,7 @@ const sGame_PaletteDataset SFA2_HACK_DHALSIM_PORTRAIT_PALETTES[] =
     { L"Dhalsim LP+LK", 0x2da7e, 0x2dade, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
     { L"Dhalsim MP+MK", 0x2daee, 0x2db4e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
     { L"Dhalsim HP+HK", 0x2db5e, 0x2dbbe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
-    { L"Dhalsim LP+MK+HK", 0x2dbce, 0x2dc2e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
+    { L"Dhalsim LP+MK+HP", 0x2dbce, 0x2dc2e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
     { L"Dhalsim LK+MP+HK", 0x2dc3e, 0x2dc9e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
     { L"Dhalsim LK+MP", 0x2dcae, 0x2dd0e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
     { L"Dhalsim MK+HP", 0x2dd1e, 0x2dd7e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
@@ -3940,7 +3940,7 @@ const sGame_PaletteDataset SFA2_HACK_ZANGIEF_PORTRAIT_PALETTES[] =
     { L"Zangief LP+LK", 0x2e8be, 0x2e91e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
     { L"Zangief MP+MK", 0x2e92e, 0x2e98e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
     { L"Zangief HP+HK", 0x2e99e, 0x2e9fe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
-    { L"Zangief LP+MK+HK", 0x2ea0e, 0x2ea6e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
+    { L"Zangief LP+MK+HP", 0x2ea0e, 0x2ea6e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
     { L"Zangief LK+MP+HK", 0x2ea7e, 0x2eade, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
     { L"Zangief LK+MP", 0x2eaee, 0x2eb4e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
     { L"Zangief MK+HP", 0x2eb5e, 0x2ebbe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
@@ -3960,7 +3960,7 @@ const sGame_PaletteDataset SFA2_HACK_GEN_PORTRAIT_PALETTES[] =
     { L"Gen LP+LK", 0x2f6fe, 0x2f75e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Gen },
     { L"Gen MP+MK", 0x2f76e, 0x2f7ce, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Gen },
     { L"Gen HP+HK", 0x2f7de, 0x2f83e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Gen },
-    { L"Gen LP+MK+HK", 0x2f84e, 0x2f8ae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Gen },
+    { L"Gen LP+MK+HP", 0x2f84e, 0x2f8ae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Gen },
     { L"Gen LK+MP+HK", 0x2f8be, 0x2f91e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Gen },
     { L"Gen LK+MP", 0x2f92e, 0x2f98e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Gen },
     { L"Gen MK+HP", 0x2f99e, 0x2f9fe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Gen },
@@ -3980,7 +3980,7 @@ const sGame_PaletteDataset SFA2_HACK_CHUNLI_OG_PORTRAIT_PALETTES[] =
     { L"Chun-Li (Original) LP+LK", 0x3053e, 0x3059e, indexCPS2Sprites_SFA2Portraits, 0x1c },
     { L"Chun-Li (Original) MP+MK", 0x305ae, 0x3060e, indexCPS2Sprites_SFA2Portraits, 0x1c },
     { L"Chun-Li (Original) HP+HK", 0x3061e, 0x3067e, indexCPS2Sprites_SFA2Portraits, 0x1c },
-    { L"Chun-Li (Original) LP+MK+HK", 0x3068e, 0x306ee, indexCPS2Sprites_SFA2Portraits, 0x1c },
+    { L"Chun-Li (Original) LP+MK+HP", 0x3068e, 0x306ee, indexCPS2Sprites_SFA2Portraits, 0x1c },
     { L"Chun-Li (Original) LK+MP+HK", 0x306fe, 0x3075e, indexCPS2Sprites_SFA2Portraits, 0x1c },
     { L"Chun-Li (Original) LK+MP", 0x3076e, 0x307ce, indexCPS2Sprites_SFA2Portraits, 0x1c },
     { L"Chun-Li (Original) MK+HP", 0x307de, 0x3083e, indexCPS2Sprites_SFA2Portraits, 0x1c },
@@ -4000,7 +4000,7 @@ const sGame_PaletteDataset SFA2_HACK_WWGIEF_PORTRAIT_PALETTES[] =
     { L"Zangief (WW) LP+LK", 0x321be, 0x3221e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
     { L"Zangief (WW) MP+MK", 0x3222e, 0x3228e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
     { L"Zangief (WW) HP+HK", 0x3229e, 0x322fe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
-    { L"Zangief (WW) LP+MK+HK", 0x3230e, 0x3236e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
+    { L"Zangief (WW) LP+MK+HP", 0x3230e, 0x3236e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
     { L"Zangief (WW) LK+MP+HK", 0x3237e, 0x323de, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
     { L"Zangief (WW) LK+MP", 0x323ee, 0x3244e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
     { L"Zangief (WW) MK+HP", 0x3245e, 0x324be, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Zangief },
@@ -4020,7 +4020,7 @@ const sGame_PaletteDataset SFA2_HACK_WWSIM_PORTRAIT_PALETTES[] =
     { L"Dhalsim (WW) LP+LK", 0x32ffe, 0x3305e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
     { L"Dhalsim (WW) MP+MK", 0x3306e, 0x330ce, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
     { L"Dhalsim (WW) HP+HK", 0x330de, 0x3313e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
-    { L"Dhalsim (WW) LP+MK+HK", 0x3314e, 0x331ae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
+    { L"Dhalsim (WW) LP+MK+HP", 0x3314e, 0x331ae, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
     { L"Dhalsim (WW) LK+MP+HK", 0x331be, 0x3321e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
     { L"Dhalsim (WW) LK+MP", 0x3322e, 0x3328e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
     { L"Dhalsim (WW) MK+HP", 0x3329e, 0x332fe, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Dhalsim },
@@ -4040,7 +4040,7 @@ const sGame_PaletteDataset SFA2_HACK_EVILRYU_PORTRAIT_PALETTES[] =
     { L"Evil Ryu LP+LK", 0x33e3e, 0x33e9e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
     { L"Evil Ryu MP+MK", 0x33eae, 0x33f0e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
     { L"Evil Ryu HP+HK", 0x33f1e, 0x33f7e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
-    { L"Evil Ryu LP+MK+HK", 0x33f8e, 0x33fee, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
+    { L"Evil Ryu LP+MK+HP", 0x33f8e, 0x33fee, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
     { L"Evil Ryu LK+MP+HK", 0x33ffe, 0x3405e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
     { L"Evil Ryu LK+MP", 0x3406e, 0x340ce, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
     { L"Evil Ryu MK+HP", 0x340de, 0x3413e, indexCPS2Sprites_SFA2Portraits, indexCPS2Sprites_Ryu },
@@ -4130,7 +4130,7 @@ const sGame_PaletteDataset SFA2_HACK_ROSE_DRESS_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_ROSE_DRESS_LPMKHK_PALETTES[] =
 {
-    { L"Dress Winpose LP+MK+HK", 0x34a2e, 0x34a4e, indexCPS2Sprites_Rose, 0x01 },
+    { L"Dress Winpose LP+MK+HP", 0x34a2e, 0x34a4e, indexCPS2Sprites_Rose, 0x01 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_ROSE_DRESS_LKMPHK_PALETTES[] =
@@ -4166,7 +4166,7 @@ const sDescTreeNode SFA2_HACK_ROSE_DRESS_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_DRESS_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_DRESS_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_DRESS_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_DRESS_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_DRESS_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_DRESS_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_DRESS_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_DRESS_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_DRESS_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_DRESS_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_DRESS_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_DRESS_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_DRESS_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_DRESS_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_ROSE_DRESS_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_ROSE_DRESS_MKHP_PALETTES) },
@@ -4274,11 +4274,11 @@ const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_LPMKHK_PALETTES[] =
 {
-    { L"Akuma LP+MK+HK", 0x353ce, 0x353ee, indexCPS2Sprites_Akuma, 0x00 },
-    { L"Akuma LP+MK+HK Hadoken", 0x353ee, 0x3540e, indexCPS2Sprites_Akuma, 0x01 },
-    { L"Akuma LP+MK+HK Shoryuken (Flame)", 0x3540e, 0x3542e },
-    { L"Akuma LP+MK+HK Super Trail Light", 0x3542e, 0x3544e, indexCPS2Sprites_Akuma, 0x00 },
-    { L"Akuma LP+MK+HK Super Trail Dark", 0x3544e, 0x3546e, indexCPS2Sprites_Akuma, 0x00 },
+    { L"Akuma LP+MK+HP", 0x353ce, 0x353ee, indexCPS2Sprites_Akuma, 0x00 },
+    { L"Akuma LP+MK+HP Hadoken", 0x353ee, 0x3540e, indexCPS2Sprites_Akuma, 0x01 },
+    { L"Akuma LP+MK+HP Shoryuken (Flame)", 0x3540e, 0x3542e },
+    { L"Akuma LP+MK+HP Super Trail Light", 0x3542e, 0x3544e, indexCPS2Sprites_Akuma, 0x00 },
+    { L"Akuma LP+MK+HP Super Trail Dark", 0x3544e, 0x3546e, indexCPS2Sprites_Akuma, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_HACK_AKUMAEXTRA_LKMPHK_PALETTES[] =
@@ -4330,7 +4330,7 @@ const sDescTreeNode SFA2_HACK_AKUMAEXTRA_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMAEXTRA_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMAEXTRA_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMAEXTRA_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMAEXTRA_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMAEXTRA_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMAEXTRA_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMAEXTRA_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMAEXTRA_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMAEXTRA_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMAEXTRA_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMAEXTRA_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMAEXTRA_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMAEXTRA_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMAEXTRA_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_AKUMAEXTRA_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_AKUMAEXTRA_MKHP_PALETTES) },
@@ -4416,9 +4416,9 @@ const sGame_PaletteDataset SFA2_HACK_BIRDIE_HEADRUSH_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_BIRDIE_HEADRUSH_LPMKHK_PALETTES[] =
 {
-    { L"Bullrush LP+MK+HK 1", 0x3651e, 0x3653e, indexCPS2Sprites_Birdie },
-    { L"Bullrush LP+MK+HK 2", 0x3653e, 0x3655e, indexCPS2Sprites_Birdie },
-    { L"Bullrush LP+MK+HK 3", 0x3655e, 0x3657e, indexCPS2Sprites_Birdie },
+    { L"Bullrush LP+MK+HP 1", 0x3651e, 0x3653e, indexCPS2Sprites_Birdie },
+    { L"Bullrush LP+MK+HP 2", 0x3653e, 0x3655e, indexCPS2Sprites_Birdie },
+    { L"Bullrush LP+MK+HP 3", 0x3655e, 0x3657e, indexCPS2Sprites_Birdie },
 };
 
 const sGame_PaletteDataset SFA2_HACK_BIRDIE_HEADRUSH_LKMPHK_PALETTES[] =
@@ -4462,7 +4462,7 @@ const sDescTreeNode SFA2_HACK_BIRDIE_HEADRUSH_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_HEADRUSH_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_HEADRUSH_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_HEADRUSH_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_HEADRUSH_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_HEADRUSH_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_HEADRUSH_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_HEADRUSH_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_HEADRUSH_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_HEADRUSH_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_HEADRUSH_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_HEADRUSH_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_HEADRUSH_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_HEADRUSH_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_HEADRUSH_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BIRDIE_HEADRUSH_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_BIRDIE_HEADRUSH_MKHP_PALETTES) },
@@ -4559,10 +4559,10 @@ const sGame_PaletteDataset SFA2_HACK_BISON_TELEPORT_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_BISON_TELEPORT_LPMKHK_PALETTES[] =
 {
-    { L"Teleport LP+MK+HK 1", 0x3729e, 0x372be, indexCPS2Sprites_Bison },
-    { L"Teleport LP+MK+HK 2", 0x372be, 0x372de, indexCPS2Sprites_Bison },
-    { L"Teleport LP+MK+HK 3", 0x372de, 0x372fe, indexCPS2Sprites_Bison },
-    { L"Teleport LP+MK+HK 4", 0x372fe, 0x3731e, indexCPS2Sprites_Bison },
+    { L"Teleport LP+MK+HP 1", 0x3729e, 0x372be, indexCPS2Sprites_Bison },
+    { L"Teleport LP+MK+HP 2", 0x372be, 0x372de, indexCPS2Sprites_Bison },
+    { L"Teleport LP+MK+HP 3", 0x372de, 0x372fe, indexCPS2Sprites_Bison },
+    { L"Teleport LP+MK+HP 4", 0x372fe, 0x3731e, indexCPS2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SFA2_HACK_BISON_TELEPORT_LKMPHK_PALETTES[] =
@@ -4610,7 +4610,7 @@ const sDescTreeNode SFA2_HACK_BISON_TELEPORT_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_TELEPORT_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_TELEPORT_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_TELEPORT_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_TELEPORT_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_TELEPORT_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_TELEPORT_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_TELEPORT_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_TELEPORT_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_TELEPORT_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_TELEPORT_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_TELEPORT_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_TELEPORT_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_TELEPORT_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_TELEPORT_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_BISON_TELEPORT_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_BISON_TELEPORT_MKHP_PALETTES) },
@@ -4718,11 +4718,11 @@ const sGame_PaletteDataset SFA2_HACK_SIM_TELEPORT_HPHK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_HACK_SIM_TELEPORT_LPMKHK_PALETTES[] =
 {
-    { L"Teleport LP+MK+HK 1", 0x3841e, 0x3843e, indexCPS2Sprites_Dhalsim },
-    { L"Teleport LP+MK+HK 2", 0x3843e, 0x3845e, indexCPS2Sprites_Dhalsim },
-    { L"Teleport LP+MK+HK 3", 0x3845e, 0x3847e, indexCPS2Sprites_Dhalsim },
-    { L"Teleport LP+MK+HK 4", 0x3847e, 0x3849e, indexCPS2Sprites_Dhalsim },
-    { L"Teleport LP+MK+HK 5", 0x3849e, 0x384be, indexCPS2Sprites_Dhalsim },
+    { L"Teleport LP+MK+HP 1", 0x3841e, 0x3843e, indexCPS2Sprites_Dhalsim },
+    { L"Teleport LP+MK+HP 2", 0x3843e, 0x3845e, indexCPS2Sprites_Dhalsim },
+    { L"Teleport LP+MK+HP 3", 0x3845e, 0x3847e, indexCPS2Sprites_Dhalsim },
+    { L"Teleport LP+MK+HP 4", 0x3847e, 0x3849e, indexCPS2Sprites_Dhalsim },
+    { L"Teleport LP+MK+HP 5", 0x3849e, 0x384be, indexCPS2Sprites_Dhalsim },
 };
 
 const sGame_PaletteDataset SFA2_HACK_SIM_TELEPORT_LKMPHK_PALETTES[] =
@@ -4774,7 +4774,7 @@ const sDescTreeNode SFA2_HACK_SIM_TELEPORT_COLLECTION[] =
     { L"LP+LK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SIM_TELEPORT_LPLK_PALETTES, ARRAYSIZE(SFA2_HACK_SIM_TELEPORT_LPLK_PALETTES) },
     { L"MP+MK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SIM_TELEPORT_MPMK_PALETTES, ARRAYSIZE(SFA2_HACK_SIM_TELEPORT_MPMK_PALETTES) },
     { L"HP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SIM_TELEPORT_HPHK_PALETTES, ARRAYSIZE(SFA2_HACK_SIM_TELEPORT_HPHK_PALETTES) },
-    { L"LP+MK+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SIM_TELEPORT_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_SIM_TELEPORT_LPMKHK_PALETTES) },
+    { L"LP+MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SIM_TELEPORT_LPMKHK_PALETTES, ARRAYSIZE(SFA2_HACK_SIM_TELEPORT_LPMKHK_PALETTES) },
     { L"LK+MP+HK", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SIM_TELEPORT_LKMPHK_PALETTES, ARRAYSIZE(SFA2_HACK_SIM_TELEPORT_LKMPHK_PALETTES) },
     { L"LK+MP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SIM_TELEPORT_LKMP_PALETTES, ARRAYSIZE(SFA2_HACK_SIM_TELEPORT_LKMP_PALETTES) },
     { L"MK+HP", DESC_NODETYPE_TREE, (void*)SFA2_HACK_SIM_TELEPORT_MKHP_PALETTES, ARRAYSIZE(SFA2_HACK_SIM_TELEPORT_MKHP_PALETTES) },

@@ -387,9 +387,9 @@ const sGame_PaletteDataset Matrimelee_A_HIKARU_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_JIMMY_A_PALETTES[] =
 {
-    { L"Jimmy Lewis A", 0x2A1742, 0x2A1762, indexMatriMSprites_Jimmy, 0x00 },
-    { L"Fire Attacks", 0x2A1762, 0x2A1782 },
-    { L"Intro Coat", 0x2A1782, 0x2A17a2 },
+    { L"Jimmy Lewis A", 0x2A1742, 0x2A1762, indexMatriMSprites_Jimmy, 0x00, &pairNext2 },
+    { L"Fire Attacks", 0x2A1762, 0x2A1782, indexMatriMSprites_Jimmy, 0x08 },
+    { L"Intro Coat", 0x2A1782, 0x2A17a2, indexMatriMSprites_Jimmy, 0x01, &pairPrevious2 },
     { L"Rolling/Super Jump Trail", 0x2A17a2, 0x2A17c2, indexMatriMSprites_Jimmy, 0x00 },
     { L"EX/Super Trail", 0x2A17c2, 0x2A17e2, indexMatriMSprites_Jimmy, 0x00 },
     { L"Guard Cancel Trail", 0x2A17e2, 0x2A1802, indexMatriMSprites_Jimmy, 0x00 },
@@ -398,9 +398,9 @@ const sGame_PaletteDataset Matrimelee_A_JIMMY_A_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_JIMMY_B_PALETTES[] =
 {
-    { L"Jimmy Lewis B", 0x2A1822, 0x2A1842, indexMatriMSprites_Jimmy, 0x00 },
-    { L"Fire Attacks", 0x2A1842, 0x2A1862 },
-    { L"Intro Coat", 0x2A1862, 0x2A1882 },
+    { L"Jimmy Lewis B", 0x2A1822, 0x2A1842, indexMatriMSprites_Jimmy, 0x00, &pairNext2 },
+    { L"Fire Attacks", 0x2A1842, 0x2A1862, indexMatriMSprites_Jimmy, 0x08 },
+    { L"Intro Coat", 0x2A1862, 0x2A1882, indexMatriMSprites_Jimmy, 0x01, &pairPrevious2 },
     { L"Rolling/Super Jump Trail", 0x2A1882, 0x2A18a2, indexMatriMSprites_Jimmy, 0x00 },
     { L"EX/Super Trail", 0x2A18a2, 0x2A18c2, indexMatriMSprites_Jimmy, 0x00 },
     { L"Guard Cancel Trail", 0x2A18c2, 0x2A18e2, indexMatriMSprites_Jimmy, 0x00 },
@@ -409,9 +409,9 @@ const sGame_PaletteDataset Matrimelee_A_JIMMY_B_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_JIMMY_C_PALETTES[] =
 {
-    { L"Jimmy Lewis C", 0x2A1902, 0x2A1922, indexMatriMSprites_Jimmy, 0x00 },
-    { L"Fire Attacks", 0x2A1922, 0x2A1942 },
-    { L"Intro Coat", 0x2A1942, 0x2A1962 },
+    { L"Jimmy Lewis C", 0x2A1902, 0x2A1922, indexMatriMSprites_Jimmy, 0x00, &pairNext2 },
+    { L"Fire Attacks", 0x2A1922, 0x2A1942, indexMatriMSprites_Jimmy, 0x08 },
+    { L"Intro Coat", 0x2A1942, 0x2A1962, indexMatriMSprites_Jimmy, 0x01, &pairPrevious2 },
     { L"Rolling/Super Jump Trail", 0x2A1962, 0x2A1982, indexMatriMSprites_Jimmy, 0x00 },
     { L"EX/Super Trail", 0x2A1982, 0x2A19a2, indexMatriMSprites_Jimmy, 0x00 },
     { L"Guard Cancel Trail", 0x2A19a2, 0x2A19c2, indexMatriMSprites_Jimmy, 0x00 },
@@ -420,9 +420,9 @@ const sGame_PaletteDataset Matrimelee_A_JIMMY_C_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_JIMMY_D_PALETTES[] =
 {
-    { L"Jimmy Lewis D", 0x2A19e2, 0x2A1a02, indexMatriMSprites_Jimmy, 0x00 },
-    { L"Fire Attacks", 0x2A1a02, 0x2A1a22 },
-    { L"Intro Coat", 0x2A1a22, 0x2A1a42 },
+    { L"Jimmy Lewis D", 0x2A19e2, 0x2A1a02, indexMatriMSprites_Jimmy, 0x00, &pairNext2 },
+    { L"Fire Attacks", 0x2A1a02, 0x2A1a22, indexMatriMSprites_Jimmy, 0x08 },
+    { L"Intro Coat", 0x2A1a22, 0x2A1a42, indexMatriMSprites_Jimmy, 0x01, &pairPrevious2 },
     { L"Rolling/Super Jump Trail", 0x2A1a42, 0x2A1a62, indexMatriMSprites_Jimmy, 0x00 },
     { L"EX/Super Trail", 0x2A1a62, 0x2A1a82, indexMatriMSprites_Jimmy, 0x00 },
     { L"Guard Cancel Trail", 0x2A1a82, 0x2A1aa2, indexMatriMSprites_Jimmy, 0x00 },

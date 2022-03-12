@@ -158,8 +158,8 @@ const std::vector<Persona4PaletteData> Persona4PalettesKen =
 
 const std::vector<Persona4PaletteData> Persona4PalettesKenCSEL =
 { {
-    { L"Main + Koromaru", indexP4AUSprites_Ken, 0x00 },
-    { L"Personas: Kala-Nemi,Cerberus", indexP4AUSprites_Ken, 0x40 },
+    { L"Main + Koromaru", indexP4AUSprites_Ken, 0x80 },
+    { L"Personas: Kala-Nemi,Cerberus", indexP4AUSprites_Ken, 0x81 },
 } };
 
 const std::vector<Persona4PaletteData> Persona4PalettesChie =
@@ -237,7 +237,7 @@ const std::vector<Persona4PaletteData> Persona4PalettesMargaret =
 const std::vector<Persona4PaletteData> Persona4PalettesMargaretCSEL =
 { {
     { L"Main", indexP4AUSprites_Margaret, 0x00 },
-    { L"Personas: Ardha,Cu Chulainn,Yoshitsune", indexP4AUSprites_Margaret, 0x20 },
+    { L"Personas: Ardha,Cu Chulainn,Yoshitsune", indexP4AUSprites_Margaret, 0x81 },
     { L"Extra 1 (Don't Edit)" },
     { L"Extra 2 (Don't Edit)" },
     { L"Extra 3 (Don't Edit)" },
