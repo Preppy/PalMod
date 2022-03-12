@@ -4187,8 +4187,13 @@ const sGame_PaletteDataset KOF02_A_BONUS_SELECT_PALETTES[] =
     { L"Character Select Player Text", 0xb4da2, 0xb4ea2 },
     //^ Each palette is 0x20 long, don't question SNK on that decision.
 
-    { L"Character Select Name", 0xb4ea2, 0xb4ec2 },
-    { L"Character Select Order Numbers", 0xb4ec2, 0xb4ee2 },
+    // old incorrect location...?
+    //{ L"Character Select Name", 0xb4ea2, 0xb4ec2 },
+
+    { L"Character Select Order Name", 0xb5062, 0xb5082  },
+    { L"Character Select Order Numbers", 0xb4ec2, 0xb4f02 },
+    { L"How to Play Joystick", 0xb4c02, 0xb4c22 },
+    { L"How to Play Buttons", 0xb4d02, 0xb4d42 },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_HUD_PALETTES[] =

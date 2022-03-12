@@ -386,6 +386,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                             _snwprintf(pDefToSplit->szDesc, sizeof(pDefToSplit->szDesc), L"%S", aszCurrDesc);
                                             //pCurrDef->isInvisible = false;
                                         }
+
                                         pDefToSplit->uOffset = nCurrStart + (k_colorsPerPage * cbColorSize * nPos);
                                         pDefToSplit->cbPaletteSize = nCurrentPaletteEntries * cbColorSize;
                                         pDefToSplit->isInvisible = false;
@@ -393,7 +394,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 #ifdef DUMP_EXTRAS_ON_LOAD
                                         if (fPaletteUsesMultiplePages)
                                         {
-                                            strText.Format(L"    { L\"%s\", 0x%x, 0x%x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + pCurrDef->cbPaletteSize);
+                                            strText.Format(L"    { L\"%s\", 0x%x, 0x%x }, \n", pDefToSplit->szDesc, pDefToSplit->uOffset, pDefToSplit->uOffset + pDefToSplit->cbPaletteSize);
                                             OutputDebugString(strText);
                                         }
 #endif

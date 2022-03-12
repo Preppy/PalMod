@@ -1006,26 +1006,94 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_ML_EXTRAS =
     { L"Silent Force 6/6", 0x2d59d0, 0x2d5a10 },
 };
 
-const std::vector<sGame_PaletteDataset> GGXXACR_S_FR_EXTRAS = // work in progress!
+const std::vector<sGame_PaletteDataset> GGXXACR_S_FR_EXTRAS =
 {
     //General
-    { L"General Sparks", 0x4d6030, 0x4d6072 },
+    { L"General Sparks", 0x4d6030, 0x4d6070 },
+
+    { L"Fire Pillars (1/2)", 0x4cd5c0, 0x4cd600 },
+    { L"Fire Pillars (2/2)", 0x4cf960, 0x4cf9a0 },
 
     //Specials
-    { L"Gunblaze", 0x47d0e0, 0x47d120 },
-    { L"Storm Viper", 0x472740, 0x472780 },
-    
-    { L"Action Charge (1/2)", 0x519B80, 0x519BC0 },
-    { L"Action Charge (2/2)", 0x51FE00, 0x51FE40 },
-    //Overdrives	
-    { L"Savage Fang Level 1/2 (1/4)", 0x4f1560, 0x4f15a0 },
-    { L"Savage Fang Level 1/2 (2/4)", 0x4f8c00, 0x4f8c40 },
-    { L"Savage Fang Level 1/2 (3/4)", 0x4fc5b0, 0x4fc5f0 },
-    { L"Savage Fang Level 1/2 (4/4)", 0x4ffd50, 0x4ffd90 },
+    { L"Blockhead Buster (1/3)", 0x521170, 0x5211b0 },
+    { L"Blockhead Buster (2/3)", 0x52c0b0, 0x52c0f0 },
+    { L"Blockhead Buster (3/3)", 0x5392c0, 0x539300 },
+
+    { L"Gun Blaze", 0x47d0e0, 0x47d120 },
+    { L"Gun Blaze Trails", 0x485680, 0x4856c0 },
+
+    { L"Storm Viper (1/2)", 0x472740, 0x472780 },
+    { L"Storm Viper (2/2)", 0x47bdf0, 0x47be30 },
+
+    { L"Bandit Revolver Prototype (Lvl2) (1/2)", 0x4df610, 0x4df650 },
+    { L"Bandit Revolver Prototype (Lvl2) (2/2)", 0x4ea790, 0x4ea7d0 },
+    { L"Bandit Revolver Prototype (Lvl3) (1/2)", 0x485fd0, 0x486010 },
+    { L"Bandit Revolver Prototype (Lvl3) (2/2)", 0x48eed0, 0x48ef10 },
+
+    { L"Rock It (Lvl1) (1/2)", 0x497a10, 0x497a50 },
+    { L"Rock It (Lvl1) (2/2)", 0x49f990, 0x49f9d0 },
+    { L"Rock It (Lvl3)", 0x4d6ce0, 0x4d6d20 },
+    { L"Rock It (Lvl3)/Savage Fang (Lvl3) (1/2)", 0x4c8f40, 0x4c8f80 },
+    { L"Rock It (Lvl3)/Savage Fang (Lvl3) (2/2)", 0x4cb670, 0x4cb6b0 },
+
+    { L"Charge Burst (1/8)", 0x505e40, 0x505e80 },
+    { L"Charge Burst (2/8)", 0x5086d0, 0x508710 },
+    { L"Charge Burst (3/8)", 0x50a5a0, 0x50a5e0 },
+    { L"Charge Burst (4/8)", 0x50b3c0, 0x50b400 },
+    { L"Charge Burst (5/8)", 0x50e4b0, 0x50e4f0 },
+    { L"Charge Burst (6/8)", 0x511ea0, 0x511ee0 },
+    { L"Charge Burst (7/8)", 0x515000, 0x515040 },
+    { L"Charge Burst (8/8)", 0x517a70, 0x517ab0 },
+
+    { L"Action Charge (1/2)", 0x519b80, 0x519bc0 },
+    { L"Action Charge (2/2)", 0x51fe00, 0x51fe40 },
+
+    { L"Charge/Storm Viper Fire (1/7)", 0x494030, 0x494070 },
+    { L"Charge/Storm Viper Fire (2/7)", 0x494960, 0x4949a0 },
+    { L"Charge/Storm Viper Fire (3/7)", 0x494f00, 0x494f40 },
+    { L"Charge/Storm Viper Fire (4/7)", 0x4957e0, 0x495820 },
+    { L"Charge/Storm Viper Fire (5/7)", 0x496270, 0x4962b0 },
+    { L"Charge/Storm Viper Fire (6/7)", 0x496bf0, 0x496c30 },
+    { L"Charge/Storm Viper Fire (7/7)", 0x497550, 0x497590 },
+
+    //Force Breaks
+    { L"Fafnir (1/3)", 0x541c10, 0x541c50 },
+    { L"Fafnir (2/3)", 0x54b7a0, 0x54b7e0 },
+    { L"Fafnir (3/3)", 0x555a20, 0x555a60 },
+
+    //Overdrives
+    { L"Tyrant Rave ver. Omega (1/4)", 0x448480, 0x4484c0 },
+    { L"Tyrant Rave ver. Omega (2/4)", 0x455f00, 0x455f40 },
+    { L"Tyrant Rave ver. Omega (3/4)", 0x460ec0, 0x460f00 },
+    { L"Tyrant Rave ver. Omega (4/4)", 0x46d660, 0x46d6a0 },
+
+    { L"Savage Fang Level (Lvl1/2) (1/4)", 0x4f1560, 0x4f15a0 },
+    { L"Savage Fang Level (Lvl1/2) (2/4)", 0x4f8c00, 0x4f8c40 },
+    { L"Savage Fang Level (Lvl1/2) (3/4)", 0x4fc5b0, 0x4fc5f0 },
+    { L"Savage Fang Level (Lvl1/2) (4/4)", 0x4ffd50, 0x4ffd90 },
+    { L"Savage Fang Level (Lvl2) Trail", 0x4428d0, 0x442910 },
 
     //Instant Kill
     { L"Dragon Install: Sakkai Entry", 0x4d1590, 0x4d15d0 },
-    { L"Dragon Install: Sakkai 631246H (Base)", 0x4cd5c0, 0x4cd600 },
+    //the rest of DI:S is shared with Savage Fang LVL3 stuff
+    { L"DI: Sakkai Fire/Savage Fang (Lvl3) (1/5)", 0x4a17f0, 0x4a1830 },
+    { L"DI: Sakkai Fire/Savage Fang (Lvl3) (2/5)", 0x4acd00, 0x4acd40 },
+    { L"DI: Sakkai Fire/Savage Fang (Lvl3) (3/5)", 0x4b5ef0, 0x4b5f30 },
+    { L"DI: Sakkai Fire/Savage Fang (Lvl3) (4/5)", 0x4bf750, 0x4bf790 },
+    { L"DI: Sakkai Fire/Savage Fang (Lvl3) (5/5)", 0x4c6080, 0x4c60c0 },
+
+    //Unused/Unknown
+    { L"Meter Numbers (Unused)", 0x55c4b0, 0x55c4f0 },
+    { L"Meter (Unused)", 0x55c680, 0x55c6c0 },
+    { L"Meter Charge (Unused)", 0x55c9f0, 0x55ca30 },
+    { L"Meter Charge (Unused)", 0x55cab0, 0x55caf0 },
+    { L"Meter (Unused)", 0x55cbc0, 0x55cc00 },
+    { L"Weapon (Unused)", 0x55cce0, 0x55cd20 },
+    { L"6P (Unused)", 0x55d1e0, 0x55d220 },
+    { L"Unknown 1", 0x518c90, 0x518cd0 },
+    { L"Unknown 2", 0x519800, 0x519840 },
+    { L"Unknown 3", 0x519920, 0x519960 },
+    { L"Unknown 4", 0x519a50, 0x519a90 },
 };
 
 const std::vector<sGame_PaletteDataset> GGXXACR_S_PO_EXTRAS =
