@@ -49,7 +49,7 @@ void CGame_REDEARTH_A::InitializeStatics()
 
 CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRedEarthModeToLoad /* = 31 */)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(ColMode::COLMODE_RGB555_LE);
 

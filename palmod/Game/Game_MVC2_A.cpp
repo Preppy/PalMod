@@ -33,7 +33,7 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     OutputDebugString(L"CGame_MVC2_A::CGame_MVC2_A: Loading ROM...\n");
 
     //Set color mode
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 

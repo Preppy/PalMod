@@ -29,7 +29,7 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_BLEACH_DS::CGame_BLEACH_DS: Loading ROM...\n");
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_BGR555_LE);
 

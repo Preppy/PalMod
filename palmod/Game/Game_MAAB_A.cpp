@@ -11,7 +11,7 @@ CDescTree CGame_MAAB_A::MainDescTree = nullptr;
 
 CGame_MAAB_A::CGame_MAAB_A(UINT32 nConfirmedROMSize /* = -1 */)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX, 0 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX, 0 };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     m_fGameUsesAlphaValue = true;
     SetColorMode(ColMode::COLMODE_BGRA8888);

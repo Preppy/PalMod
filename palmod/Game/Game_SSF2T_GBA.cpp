@@ -28,7 +28,7 @@ void CGame_SSF2T_GBA::InitializeStatics()
 
 CGame_SSF2T_GBA::CGame_SSF2T_GBA(UINT32 nConfirmedROMSize)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     // GBA actually has alpha values on some colors, but not all of them.  Force it everywhere for sanity.
     SetAlphaMode(AlphaMode::GameUsesChaoticAlpha);
     SetColorMode(ColMode::COLMODE_BGR555_LE);

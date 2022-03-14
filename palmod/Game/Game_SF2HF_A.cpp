@@ -53,7 +53,7 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(IsSF30thBundleFile() ? ColMode::COLMODE_RGB444_LE : ColMode::COLMODE_RGB444_BE);
 

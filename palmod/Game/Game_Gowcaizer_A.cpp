@@ -29,7 +29,7 @@ CGame_Gowcaizer_A::CGame_Gowcaizer_A(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_Gowcaizer_A::CGame_Gowcaizer_A: Loading ROM...\n");
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 

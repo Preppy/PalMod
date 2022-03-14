@@ -11,7 +11,7 @@ CDescTree CGame_P4AU_NESICA::MainDescTree = nullptr;
 
 CGame_P4AU_NESICA::CGame_P4AU_NESICA(UINT32 nConfirmedROMSize /* = -1 */)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     m_fGameUsesAlphaValue = true;
     SetColorMode(ColMode::COLMODE_BGRA8888);

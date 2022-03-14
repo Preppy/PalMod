@@ -29,7 +29,7 @@ CGame_NeoBomberman_A::CGame_NeoBomberman_A(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_NeoBomberman_A::CGame_NeoBomberman_A: Loading ROM...\n");
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 

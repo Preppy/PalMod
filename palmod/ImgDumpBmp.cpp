@@ -557,7 +557,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
         int nBltH = rBltRct.bottom - rBltRct.top;
 
         UINT16 nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
-        UINT16 nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+        UINT16 nMaxWritePerTransparency = static_cast<UINT16>(GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency());
 
         if (fTransBG)
         {

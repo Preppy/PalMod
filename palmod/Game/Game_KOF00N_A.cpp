@@ -29,7 +29,7 @@ CGame_KOF00N_A::CGame_KOF00N_A(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOF00N_A::CGame_KOF00N_A: Loading ROM...\n");
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 

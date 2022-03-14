@@ -65,7 +65,7 @@ void CGame_MVC2_D::SetNumberOfColorOptions(UINT8 nColorOptions)
 CGame_MVC2_D::CGame_MVC2_D(UINT32 nConfirmedROMSize)
 {
     //Set color mode
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 

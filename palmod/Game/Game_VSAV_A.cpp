@@ -25,7 +25,7 @@ void CGame_VSAV_A::InitializeStatics()
 
 CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB444_BE);
 

@@ -30,7 +30,7 @@ CGame_FatalFury1_A::CGame_FatalFury1_A(UINT32 nConfirmedROMSize)
     OutputDebugString(L"CGame_FatalFury1_A::CGame_FatalFury1_A: Loading ROM...\n");
 
     //Set color mode: see the definitions in GameClass.h
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 

@@ -29,7 +29,7 @@ CGame_KOF02_A::CGame_KOF02_A(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOF02_A::CGame_KOF02_A: Loading ROM...\n");
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
 
@@ -41,7 +41,7 @@ CGame_KOF02_A::CGame_KOF02_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF02_A_NUMUNIT;
     m_nExtraUnit = KOF02_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2017;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2018;
     m_pszExtraFilename = EXTRA_FILENAME_KOF02_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

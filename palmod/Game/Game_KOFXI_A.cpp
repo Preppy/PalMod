@@ -29,7 +29,7 @@ CGame_KOFXI_A::CGame_KOFXI_A(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOFXI_A::CGame_KOFXI_A: Loading ROM...\n");
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(ColMode::COLMODE_RGB555_BE);
 

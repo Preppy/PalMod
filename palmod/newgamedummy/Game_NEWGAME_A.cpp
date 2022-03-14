@@ -28,8 +28,8 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
 
     createPalOptions = {
                         NO_SPECIAL_OPTIONS, // Obsolete, don't change.
-                        WRITE_16            // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
-                                            // You can set this to WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
+                        PALWriteOutputOptions::WRITE_16  // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
+                                                         // You can set this to PALWriteOutputOptions::WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
     };
 
     // ** Set alpha mode: this determines whether or not we set alpha values for the data we write back to the game ROM.

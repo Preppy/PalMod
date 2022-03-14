@@ -8,7 +8,7 @@ CGame_JusticeLeagueTF_SNES::CGame_JusticeLeagueTF_SNES(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_JusticeLeagueTF_SNES::CGame_JusticeLeagueTF_SNES: Loading ROM...\n");
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
 
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_BGR555_LE);

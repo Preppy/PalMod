@@ -27,7 +27,7 @@ void CGame_TOPF2005_SEGA::InitializeStatics()
 
 CGame_TOPF2005_SEGA::CGame_TOPF2005_SEGA(UINT32 nConfirmedROMSize)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_RGB333);
 

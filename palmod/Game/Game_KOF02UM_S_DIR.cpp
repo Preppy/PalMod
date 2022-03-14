@@ -7,7 +7,7 @@ CDescTree CGame_KOF02UM_S_DIR::MainDescTree = nullptr;
 
 CGame_KOF02UM_S_DIR::CGame_KOF02UM_S_DIR(UINT32 nConfirmedROMSize, SupportedGamesList nKOF02UMROMSetToLoad)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX, 0 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX, 0 };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
 
     _sCurrentGameFlag = nGameFlag = nKOF02UMROMSetToLoad;

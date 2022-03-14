@@ -13,7 +13,7 @@ CDescTree CGame_GGXXACR_S::MainDescTree = nullptr;
 
 CGame_GGXXACR_S::CGame_GGXXACR_S(UINT32 nConfirmedROMSize /* = -1 */)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX, 0 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX, 0 };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
     m_fGameUsesAlphaValue = true;
     SetColorMode(ColMode::COLMODE_RGBA8887);

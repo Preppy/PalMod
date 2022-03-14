@@ -12,7 +12,7 @@ CGame_DBZEB_DS::CGame_DBZEB_DS(UINT32 nConfirmedROMSize)
 
     createPalOptions = {
                         NO_SPECIAL_OPTIONS,
-                        WRITE_MAX
+                        PALWriteOutputOptions::WRITE_MAX
     };
 
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);

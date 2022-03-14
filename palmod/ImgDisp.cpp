@@ -715,7 +715,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
     if (GetHost()->GetCurrGame())
     {
         nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
-        nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+        nMaxWritePerTransparency = static_cast<UINT16>(GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency());
     }
 
     for (int yIndex = 0; yIndex < nBltH; yIndex++)

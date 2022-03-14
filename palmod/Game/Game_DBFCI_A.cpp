@@ -284,7 +284,7 @@ const DBFCIFileData DBFCICharacterData[] =
 
 CGame_DBFCI_A::CGame_DBFCI_A(UINT32 nConfirmedROMSize /* = -1 */)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     m_fGameUsesAlphaValue = true;
     SetColorMode(ColMode::COLMODE_RGBA8881);
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
