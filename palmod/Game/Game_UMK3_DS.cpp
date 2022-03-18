@@ -36,8 +36,8 @@ CGame_UMK3_DS::CGame_UMK3_DS(UINT32 nConfirmedROMSize)
 
     nGameFlag = UMK3_DS;
 
-    nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet.clear(); // we don't have useful images yet
+    nImgGameFlag = IMGDAT_SECTION_DS;
+    m_prgGameImageSet = UMK3_DS_IMGIDS_USED;
 
     nFileAmt = 1;
 

@@ -4182,17 +4182,17 @@ const sGame_PaletteDataset KOF02_A_BONUS_SELECT_PALETTES[] =
     { L"Character Select Icons 2/3", 0xb9162, 0xb9362, indexKOF02Sprites_Bonus, 0x01 },
     { L"Character Select Icons 3/3", 0xb9362, 0xb9462, indexKOF02Sprites_Bonus, 0x02 },
     //^ These follow the typical character order for 2002, up to Angel, where it ends.  Each is 0x20 in length.  The extra black row is unused.
-    { L"Character Select Background 1P", 0xb4d62, 0xb4d82 },
-    { L"Character Select Background 2P", 0xb4d82, 0xb4da2 },
-    { L"Character Select Player Text", 0xb4da2, 0xb4ea2 },
+    { L"Character Select Background 1P", 0xb4d62, 0xb4d82, indexKOF02Sprites_Bonus, 0x09 },
+    { L"Character Select Background 2P", 0xb4d82, 0xb4da2, indexKOF02Sprites_Bonus, 0x09 },
+    { L"Character Select Player Text", 0xb4da2, 0xb4ea2, indexKOF02Sprites_Bonus, 0x08 },
     //^ Each palette is 0x20 long, don't question SNK on that decision.
 
 
-    { L"Character Select Name", 0xb4ea2, 0xb4ec2 },
-    { L"Character Select Order Name", 0xb5062, 0xb5082  },
-    { L"Character Select Order Numbers", 0xb4ec2, 0xb4f02 },
-    { L"How to Play Joystick", 0xb4c02, 0xb4c22 },
-    { L"How to Play Buttons", 0xb4d02, 0xb4d42 },
+    { L"Character Select Name", 0xb4ea2, 0xb4ec2, indexKOF02Sprites_Bonus, 0x07 },
+    { L"Character Select Order Name", 0xb5062, 0xb5082, indexKOF02Sprites_Bonus, 0x0a },
+    { L"Character Select Order Numbers", 0xb4ec2, 0xb4f02, indexKOF02Sprites_Bonus, 0x0b },
+    { L"How to Play Joystick", 0xb4c02, 0xb4c22, indexKOF02Sprites_Bonus, 0x0d },
+    { L"How to Play Buttons", 0xb4d02, 0xb4d42, indexKOF02Sprites_Bonus, 0x0c },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_HUD_PALETTES[] =

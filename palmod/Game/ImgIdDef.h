@@ -2199,6 +2199,35 @@ enum SupportedNintendoDS_PaletteListIndex
     indexDBZEB_VegetaSSJ1,                  // 0x45
     indexDBZEB_ZAssists,                    // 0x46
     indexDBZEB_Bonus,                       // 0x47
+
+    indexUMK3Sprites_DS_Cyrax,              // 0x48
+    indexUMK3Sprites_DS_Ermac,              // 0x49
+    indexUMK3Sprites_DS_Jade,               // 0x4A
+    indexUMK3Sprites_DS_Jax,                // 0x4B
+    indexUMK3Sprites_DS_Kabal,              // 0x4C
+    indexUMK3Sprites_DS_Kano,               // 0x4D
+    indexUMK3Sprites_DS_Kitana,             // 0x4E
+    indexUMK3Sprites_DS_KungLao,            // 0x4F
+    indexUMK3Sprites_DS_LiuKang,            // 0x50
+    indexUMK3Sprites_DS_Mileena,            // 0x51
+    indexUMK3Sprites_DS_Motaro,             // 0x52
+    indexUMK3Sprites_DS_Nightwolf,          // 0x53
+    indexUMK3Sprites_DS_NoobSaibot,         // 0x54
+    indexUMK3Sprites_DS_Reptile,            // 0x55
+    indexUMK3Sprites_DS_Scorpion,           // 0x56
+    indexUMK3Sprites_DS_Sektor,             // 0x57
+    indexUMK3Sprites_DS_ShangTsung,         // 0x58
+    indexUMK3Sprites_DS_ShaoKhan,           // 0x59
+    indexUMK3Sprites_DS_Sheeva,             // 0x5A
+    indexUMK3Sprites_DS_Sindel,             // 0x5B
+    indexUMK3Sprites_DS_Smoke,              // 0x5C
+    indexUMK3Sprites_DS_SmokeHuman,         // 0x5D
+    indexUMK3Sprites_DS_SonyaBlade,         // 0x5E
+    indexUMK3Sprites_DS_Stryker,            // 0x5F
+    indexUMK3Sprites_DS_SubZeroBiHan,       // 0x60
+    indexUMK3Sprites_DS_SubZeroKuaiLiang,   // 0x61
+    indexUMK3Sprites_DS_Stages,             // 0x62
+    indexUMK3Sprites_DS_Bonus,              // 0x63
 };
 
 enum SupportedPGM_SpriteListIndex
