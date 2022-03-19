@@ -77,6 +77,7 @@
 #include "Game_NGBC_A.h"
 #include "Game_NINJAMASTERS_A.h"
 #include "Game_P4AU_NESICA.h"
+#include "Game_P4AU_STEAM.h"
 #include "Game_GEMFIGHTER_A.h"
 #include "Game_RanmaCRH_SNES.h"
 #include "Game_RanmaHB_SNES.h"
@@ -649,6 +650,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         ResetRuleCtr = &CGame_P4AU_NESICA::ResetRuleCtr;
         GetRule = &CGame_P4AU_NESICA::GetRule;
         GetNextRule = &CGame_P4AU_NESICA::GetNextRule;
+
+        return TRUE;
+    }
+	case P4AU_STEAM:
+    {
+        GetRuleCtr = &CGame_P4AU_STEAM::GetRuleCtr;
+        ResetRuleCtr = &CGame_P4AU_STEAM::ResetRuleCtr;
+        GetRule = &CGame_P4AU_STEAM::GetRule;
+        GetNextRule = &CGame_P4AU_STEAM::GetNextRule;
 
         return TRUE;
     }
@@ -1338,6 +1348,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case P4AU_NESICA:
     {
         return new CGame_P4AU_NESICA(nConfirmedROMSize);
+    }
+	case P4AU_STEAM:
+    {
+        return new CGame_P4AU_STEAM(nConfirmedROMSize);
     }
     case RANMACRH_SNES:
     {

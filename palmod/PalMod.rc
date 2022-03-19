@@ -378,7 +378,11 @@ BEGIN
                 MENUITEM "DC",                          ID_LD_MVC2DCUSA
                 MENUITEM "PS2",                         ID_LD_MVC2PS2USA
             END
-            MENUITEM "Persona 4 Arena Ultimax 2.0 (NESICA Community Port)", ID_LD_P4AU_NESICA
+            POPUP "Persona 4 Arena"
+            BEGIN
+                MENUITEM "Persona 4 Arena Ultimax (Steam)", ID_LD_P4AU_STEAM
+                MENUITEM "Persona 4 Arena Ultimax 2.0 (NESICA Community Port)", ID_LD_P4AU_NESICA
+            END
             POPUP "Red Earth / Warzard"
             BEGIN
                 MENUITEM "Red Earth / Warzard (Arcade, Stages)", ID_LOADDIRECTORY_REDEARTH_30
