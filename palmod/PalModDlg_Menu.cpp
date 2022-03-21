@@ -61,6 +61,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case P4AU_NESICA:
             pszExtraInfo = L"Select the \"data\" folder.";
             break;
+        case P4AU_STEAM:
+            pszExtraInfo = L"Select the \"asset\" folder.";
+            break;
         case REDEARTH_A_DIR_30:
             pszExtraInfo = L"We need the redearth-simm3.x files from redearth.zip.";
             break;
