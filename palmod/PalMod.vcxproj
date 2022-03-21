@@ -367,6 +367,7 @@
     <ClCompile Include="Game\MVC2_SUPP.cpp" />
     <ClCompile Include="Game\mvc2_validate.cpp" />
     <ClCompile Include="Game\PalGroup.cpp" />
+    <ClCompile Include="Game\Patching.cpp" />
     <ClCompile Include="Game\SuppProc.cpp" />
     <ClCompile Include="ImgDat.cpp" />
     <ClCompile Include="ImgDisp.cpp" />

@@ -98,6 +98,16 @@ UINT32 CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32Va
         ROM_LOAD16_WORD_SWAP("vamj.09", 0x300000, 0x80000, CRC(c119a827) SHA1(422864dda2a12621175350b8a130f970ed690719))
 #endif
 
+    const std::vector<ROMRevisionLookupData> VHHackROMHeader =
+    {
+        {
+            0,
+            {   0x8dd6, 0x3119, 0x8dd8, 0x2019,     0x8dea, 0x2419, 0x8d9a, 0x0019,     0x8dde, 0x0019, 0x8def, 0x0019,
+                0x8e10, 0x181a, 0x0001, 0x001f,     0x0009, 0xff80, 0x0000, 0x0000,     0x0030, 0x7b56, 0x8e19, 0x1318,
+                0x8df3, 0x0018, 0x8e30, 0x2318,     0x8df4, 0x1018, 0x8e00, 0x0118,}
+        },
+    };
+
     static sCRC32ValueSet knownROMs[] =
     {
         { L"Darkstalkers: The Night Warriors (Euro 940705)", L"vame.09a", 0xf16db74b, -0x2450 },
@@ -109,6 +119,9 @@ UINT32 CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32Va
 
         // we usually start at 0x1182a for demitri
         { L"Vampire: The Night Warriors (Japan 940630)", L"vamj.09", 0xc119a827, 0 },
+        // They used the wrong filename for the Boss Hack version, so we will use the needed shift if and only if
+        // we find a matching header.
+        { L"Vampire: The Night Warriors (Japan 940705 Boss Hack)", L"vamj.09", 0xfc0a4aac, 0x68, VHHackROMHeader },
         { L"Vampire: The Night Warriors (Japan 940705)", L"vamj.09a", 0xfc0a4aac, 0x68 },
     };
 

@@ -1846,7 +1846,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
                 OutputDebugString(strMsg);
             }
 
-            OutGame->SetSpecificValuesForCRC(crcValue);
+            OutGame->SetSpecificValuesForCRC(&CurrFile, crcValue);
 
             if (OutGame->LoadFile(&CurrFile, 0))
             {

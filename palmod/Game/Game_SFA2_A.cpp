@@ -1519,135 +1519,83 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
 {
     // There are a number of SFA2 ROMs floating around for different game versions.
     // We chiefly support 960229 and 960306.  Sniff the ROM to make sure we use the right logic.
-    const uint32_t nFileLengthToCheck = 32;
-    UINT16* prgFileStart = new UINT16[nFileLengthToCheck];
-    SFA2_SupportedROMRevision detectedROMVersion = SFA2_SupportedROMRevision::SFA2_960229;
+    uint16_t detectedROMVersion = static_cast<uint16_t>(SFA2_SupportedROMRevision::SFA2_960229);
 
-    struct SFA2_ROM_Identification_Data
-    {
-        SFA2_SupportedROMRevision sRevision = SFA2_SupportedROMRevision::SFA2_Unsupported;
-        UINT16 nBytesToMatch[32] = {};
-    };
-
-    SFA2_ROM_Identification_Data rom7s[] =
+    const std::vector<ROMRevisionLookupData> rom7s =
     {
         {
-            SFA2_SupportedROMRevision::SFA2_960229,
+            static_cast<uint16_t>(SFA2_SupportedROMRevision::SFA2_960229),
             {   0x0, 0x8, 0x0, 0x20,      0x775c, 0x0, 0x0, 0x0,    0x0, 0x8, 0x0, 0x20,      0x776c, 0x0, 0x0, 0x0,
                 0x0, 0x8, 0x0, 0x20,      0x774c, 0x0, 0x0, 0x0,    0x0, 0x8, 0x0, 0x20,      0x7714, 0x0, 0x0, 0x0 }
         },
         {
-            SFA2_SupportedROMRevision::SFA2_960306_or_960430,
-            {  0xB, 0x0, 0x0, 0xff,     0x1f, 0xfff0, 0x4, 0x0,         0x20, 0x1358, 0x2222, 0x1800,     0x400,  0xb216, 0xa, 0x0,
+            static_cast<uint16_t>(SFA2_SupportedROMRevision::SFA2_960306_or_960430),
+            {  0xB, 0x0, 0x0, 0xff,     0x1f, 0xfff0, 0x4, 0x0,         0x20, 0x1358, 0x2222, 0x1800,     0x400, 0xb216, 0xa, 0x0,
                0x0, 0xff, 0x4, 0x0,     0x20, 0x127c, 0x2020, 0x1900,   0x400, 0x3a16, 0x6, 0x0,          0x0, 0xff, 0x9, 0x0 }
         },
+#ifdef NOTNEEDED
         {
-            SFA2_SupportedROMRevision::SFA2_Unsupported, // SFZ2A_960805,
+            static_cast<uint16_t>(SFA2_SupportedROMRevision::SFA2_Unsupported), // SFZ2A_960805,
             {   0x68b0, 0x0000, 0x6893, 0x2000,     0x68c7, 0x1000, 0x68c4, 0x1000,
                 0x68d5, 0x0000, 0x0002, 0x0030,     0x0010, 0x1c00, 0x68e0, 0x1800,
                 0x68e9, 0x0400, 0x67f2, 0x0100,     0x6878, 0x0500, 0x6883, 0x0000,
                 0x686a, 0x0100, 0x58f6, 0x0000,     0x68d8, 0x0100, 0x58f7, 0x0000,  }
         },
+#endif
         {
-            SFA2_SupportedROMRevision::SFZ2A_960826,
+            static_cast<uint16_t>(SFA2_SupportedROMRevision::SFZ2A_960826),
             {   0x7677, 0x0000, 0x7678, 0x0000,     0x765d, 0x0100, 0x0002, 0x002b,
                 0x0006, 0x1ea4, 0x7680, 0x1000,     0x7682, 0x7300, 0x2470, 0x0000,
                 0x7688, 0x0000, 0x7687, 0x0000,     0x7679, 0x1100, 0x7686, 0x1000,
                 0x0002, 0x0029, 0x0006, 0x1ea8,     0x7c21, 0x3020, 0x2520, 0x0000 }
         },
         {
-            SFA2_SupportedROMRevision::SFA2_Hack_220203,
-            {   0x0030, 0x00c0, 0x0030, 0x1700,     0x0030, 0x2d40, 0x0030, 0x4380, 
-                0x0030, 0x59c0, 0x0030, 0x7000,     0x0030, 0x8640, 0x0030, 0x9c80, 
-                0x0030, 0xb2c0, 0x0030, 0xc900,     0x0030, 0xdf40, 0x0030, 0xf580, 
+            static_cast<uint16_t>(SFA2_SupportedROMRevision::SFA2_Hack_220203),
+            {   0x0030, 0x00c0, 0x0030, 0x1700,     0x0030, 0x2d40, 0x0030, 0x4380,
+                0x0030, 0x59c0, 0x0030, 0x7000,     0x0030, 0x8640, 0x0030, 0x9c80,
+                0x0030, 0xb2c0, 0x0030, 0xc900,     0x0030, 0xdf40, 0x0030, 0xf580,
                 0x0031, 0x0bc0, 0x0031, 0x2200,     0x0031, 0x3840, 0x0031, 0x4e80 }
         },
     };
 
-    SFA2_ROM_Identification_Data rom8s[] =
+    const std::vector<ROMRevisionLookupData> rom8s =
     {
         {
-            SFA2_SupportedROMRevision::SFA2_960229,
+            static_cast<uint16_t>(SFA2_SupportedROMRevision::SFA2_960229),
            { 0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888,     0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000,
              0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888,     0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000 }
         },
         {
-            SFA2_SupportedROMRevision::SFA2_960306_or_960430,
+            static_cast<uint16_t>(SFA2_SupportedROMRevision::SFA2_960306_or_960430),
             { 0x625, 0xfff, 0xffd, 0xdfa,    0xaf7, 0x6f4, 0x1e4, 0x1d9,    0x111, 0x333, 0x555, 0x888,    0xaaa, 0xccc, 0xfff, 0x000,
               0x413, 0xfff, 0xfef, 0xece,    0xead, 0xe8d, 0xd6c, 0xc5b,    0x111, 0x333, 0x555, 0x888,    0xaaa, 0xccc, 0xfff, 0x000 }
         },
+#ifdef NOTNEEDED
         {
-            SFA2_SupportedROMRevision::SFA2_Unsupported, //SFZ2A_960805,
+            static_cast<uint16_t>(SFA2_SupportedROMRevision::SFA2_Unsupported), //SFZ2A_960805,
             { 0x0c93, 0x0da3, 0x0eb5, 0x0cb6, 0x0ba5, 0x0a95, 0x0984, 0x0000,   0x0781, 0x0562, 0x0452, 0x0442, 0x0468, 0x0863, 0x0973, 0x0b83, 
               0x0c93, 0x0da3, 0x0765, 0x0446, 0x0457, 0x0567, 0x0653, 0x0000,   0x0781, 0x0562, 0x0452, 0x0442, 0x0332, 0x0543, 0x0443, 0x0432 }
         },
+#endif
         {
-            SFA2_SupportedROMRevision::SFZ2A_960826,
+            static_cast<uint16_t>(SFA2_SupportedROMRevision::SFZ2A_960826),
             { 0x0777, 0x0000, 0x0aac, 0x0555, 0x0019, 0x0430, 0x0b96, 0x0ca5,   0x0db6, 0x0ec6, 0x0fd7, 0x0fd8, 0x0bbb, 0x0aaa, 0x0999, 0x0888,
               0x0777, 0x0000, 0x0974, 0x0445, 0x0532, 0x0743, 0x0954, 0x0b65,   0x0d87, 0x0b96, 0x0ca5, 0x0db6, 0x0ec6, 0x0bbb, 0x0aaa, 0x0999 }
         },
     };
 
-    LoadedFile->Seek(UsePaletteSetForCharacters() ? 0 : 0xc0, CFile::begin);
-    LoadedFile->Read(prgFileStart, nFileLengthToCheck * 2);
-
     bool fFoundMatch = false;
 
     if (UsePaletteSetForCharacters())
     {
-        for (UINT16 nROMInfoIndex = 0; nROMInfoIndex < ARRAYSIZE(rom7s); nROMInfoIndex++)
-        {
-            fFoundMatch = true;
-
-            for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
-            {
-                if (prgFileStart[nIndex] != rom7s[nROMInfoIndex].nBytesToMatch[nIndex])
-                {
-                    fFoundMatch = false;
-                    break;
-                }
-            }
-
-            if (fFoundMatch)
-            {
-                detectedROMVersion = rom7s[nROMInfoIndex].sRevision;
-                break;
-            }
-        }
+        fFoundMatch = FindROMVersionFromByteSniff(LoadedFile, rom7s, detectedROMVersion);
     }
     else
     {
-        for (UINT16 nROMInfoIndex = 0; nROMInfoIndex < ARRAYSIZE(rom8s); nROMInfoIndex++)
-        {
-            fFoundMatch = true;
-
-            for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
-            {
-                if (prgFileStart[nIndex] != rom8s[nROMInfoIndex].nBytesToMatch[nIndex])
-                {
-                    fFoundMatch = false;
-                    break;
-                }
-            }
-
-            if (fFoundMatch)
-            {
-                detectedROMVersion = rom8s[nROMInfoIndex].sRevision;
-                break;
-            }
-        }
+        fFoundMatch = FindROMVersionFromByteSniff(LoadedFile, rom8s, detectedROMVersion, 0xc0);
     }
 
-    CString strByteWatch;
-    OutputDebugString(L"Byte sniff for this ROM: ");
-    for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
-    {
-        strByteWatch.Format(L"0x%04x, ", prgFileStart[nIndex]);
-        OutputDebugString(strByteWatch);
-    }
-    OutputDebugString(L"\n");
-
-    if (detectedROMVersion == SFA2_SupportedROMRevision::SFA2_Unsupported)
+    if (!fFoundMatch)
     {
         OutputDebugString(L"\tThis is an unknown SFA2 ROM.\n");
 
@@ -1656,11 +1604,11 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
         {
             MessageBox(g_appHWnd, strMessage.GetString(), GetHost()->GetAppName(), MB_ICONWARNING);
         }
+
+        detectedROMVersion = static_cast<uint16_t>(SFA2_SupportedROMRevision::SFA2_Unsupported);
     }
 
-    safe_delete_array(prgFileStart);
-
-    return detectedROMVersion;
+    return static_cast<SFA2_SupportedROMRevision>(detectedROMVersion);
 }
 
 // This dumps the headers from the Glasses expansion version of SFA2 provided

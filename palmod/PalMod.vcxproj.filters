@@ -954,6 +954,9 @@
     <ClCompile Include="Game\Game_P4AU_STEAM.cpp">
       <Filter>Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Patching.cpp">
+      <Filter>Games\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

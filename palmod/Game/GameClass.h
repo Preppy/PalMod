@@ -112,12 +112,22 @@ protected:
     UINT32*** m_pppDataBuffer24 = nullptr;
     UINT32*** m_pppDataBuffer32 = nullptr;
 
+    struct ROMRevisionLookupData
+    {
+        uint16_t nRevisionID;
+        std::array<uint16_t, 32> nBytesToMatch;
+    };
+
+    // Given a file pointer and a list of known byte sequences, return the first match, if any.
+    bool FindROMVersionFromByteSniff(CFile* LoadedFile, std::vector<ROMRevisionLookupData> vKnownROMVersions, uint16_t& nSniffedVersion, uint32_t nOffsetForRead = 0);
+
     struct sCRC32ValueSet
     {
         LPCWSTR szFriendlyName = L"Unknown Game";
         LPCWSTR szROMFileName = L"uninit";
         const UINT32 crcValueExpected = -1;
         const int32_t nROMSpecificOffset = 0;
+        std::vector<ROMRevisionLookupData> vValidationCheckBytes = {};
     };
 
     const sCRC32ValueSet* m_pCRC32SpecificData = nullptr;
@@ -234,10 +244,10 @@ public:
     virtual BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId);
     virtual BOOL SaveFile(CFile* SaveFile, uint32_t nUnitId);
 
-    virtual UINT32 SavePatchFile(CFile* PatchFile, uint32_t nUnitId);
-    virtual UINT32 SaveMultiplePatchFiles(CString strTargetDirectory);
+    virtual uint32_t SavePatchFile(CFile* PatchFile, uint32_t nUnitId);
+    virtual uint32_t SaveMultiplePatchFiles(CString strTargetDirectory);
     bool UserWantsAllPalettesInPatch();
-    void SetSpecificValuesForCRC(UINT32 nCRCForFile);
+    void SetSpecificValuesForCRC(CFile* CurrFile, uint32_t nCRCForFile);
     virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
 
     void WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, UINT16 nColorCount);
