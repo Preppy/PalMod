@@ -611,6 +611,7 @@
     <ClInclude Include="Game\NEOGEO_A_DEF.h" />
     <ClInclude Include="Game\NGBC_A_DEF.h" />
     <ClInclude Include="Game\NinjaMasters_A_DEF.h" />
+    <ClInclude Include="Game\P4AU_Common.h" />
     <ClInclude Include="Game\P4AU_NESICA_DEF.h" />
     <ClInclude Include="Game\P4AU_STEAM_DEF.h" />
     <ClInclude Include="Game\PalGroup.h" />
