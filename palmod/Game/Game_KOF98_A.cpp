@@ -94,6 +94,9 @@ UINT32 CGame_KOF98_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
         { L"King of Fighters '98 (Neo-Geo)", L"kof98_p2.rom", 0x980aba4c, 0 },
         { L"King of Fighters '98 (Neo-Geo Alt)", L"242-ep.ep2", 0x6e474841, 0 },
         { L"King of Fighters '98 Combo (Neo-Geo Hack)", L"242cb-p2.sp2", 0xd34a4d38, 0 },
+        { L"King of Fighters '98 Easy Combo King (Neo-Geo Hack)", L"98eckvs-p2.bin", 0x5d59e3ae, 0 },
+        { L"King of Fighters '98 Mix (Neo-Geo Hack)", L"242mix.p2", 0x73d3505d, 0 },
+        { L"King of Fighters '98 Plus Final Edition (Neo-Geo Hack)", L"242pfe.p2", 0xdfa686e9, 0 },
     };
 
     if (ppKnownROMSet != nullptr)

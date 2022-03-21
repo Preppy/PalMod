@@ -134,9 +134,11 @@ UINT32 CGame_KOF99AE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"KOF '99AE ROM P2 (Neo-Geo)", L"kof99ae_p2.bin", 0, 0 },
-        { L"KOF '99AE ROM P3 (Neo-Geo)", L"kof99ae_p3.bin", 0, 0 },
+        { L"KOF '99AE ROM P2 (Neo-Geo)", L"kof99ae_p2.bin", 0xf3f47f41, 0 },
+        { L"KOF '99AE ROM P3 (Neo-Geo)", L"kof99ae_p3.bin", 0xbc85cf02, 0 },
         { L"KOF '99ND (Neo-Geo)", L"152-p2.bin", 0, 0 },
+        { L"KOF '99 Evolution Ultra Remix (Neo-Geo Hack)", L"kf99eur.p2", 0xaec93904, 0 },
+        
     };
 
     if (ppKnownROMSet != nullptr)
