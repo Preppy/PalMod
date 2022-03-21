@@ -136,6 +136,29 @@ sFileRule CGame_WakuWaku7_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
+UINT32 CGame_WakuWaku7_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static const sCRC32ValueSet knownROMs[] =
+    {
+        // Waku Waku 7 variants...
+        { L"Waku Waku 7 (Neo-Geo)", L"225-p1.p1", 0xb14da766, 0 },
+        { L"Waku Waku 7 (Neo-Geo Boss Hack)", L"225-p1bh.p1", 0x0b7a3776, 0 },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
+
 uint32_t CGame_WakuWaku7_A::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     return _GetCollectionCountForUnit(WakuWaku7_A_UNITS, rgExtraCountAll, WakuWaku7_A_NUMUNIT, WakuWaku7_A_EXTRALOC, nUnitId, WakuWaku7_A_EXTRA_CUSTOM);

@@ -2379,6 +2379,34 @@ const sGame_PaletteDataset SAMSHOW5SP_A_BONUS_PALETTES[] =
     { L"Blood 2 (unused ? )",   0xd4620, 0xd4640, indexSamSho5Sprites_Bonus, 0x00 },
 };
 
+const sGame_PaletteDataset SAMSHOW5SP_A_BONUS_CSI_PALETTES[] =
+{
+    { L"Charlotte Select Icon", 0xd4960, 0xd4980 },
+    { L"Mina Select Icon", 0xd4980, 0xd49a0 },
+    { L"Rimururu Select Icon", 0xd49a0, 0xd49c0 },
+    { L"Rera Select Icon", 0xd49c0, 0xd49e0 },
+    { L"Nakoruru Select Icon", 0xd49e0, 0xd4a00 },
+    { L"Tam Tam/Genjuro/Shizumaru/Kazuk", 0xd4a00, 0xd4a20 },
+    { L"Mizuki Select Icon", 0xd4a20, 0xd4a40 },
+    { L"Ukyo/Suija Select Icon", 0xd4a40, 0xd4a60 },
+    { L"Amakusa Select Icon", 0xd4a60, 0xd4a80 },
+    { L"Zankuro Select Icon", 0xd4a80, 0xd4aa0 },
+    { L"Gaoh Select Icon", 0xd4aa0, 0xd4ac0 },
+    { L"Basara Select Icon", 0xd4ac0, 0xd4ae0 },
+    { L"Kusaregedo Select Icon", 0xd4ae0, 0xd4b00 },
+    { L"Haohmaru Select Icon", 0xd4b00, 0xd4b20 },
+    { L"Yunfei Select Icon", 0xd4b20, 0xd4b40 },
+    { L"Yoshitora Select Icon", 0xd4b40, 0xd4b60 },
+    { L"Enja Select Icon", 0xd4b60, 0xd4b80 },
+    { L"Rasetsumaru Select Icon", 0xd4b80, 0xd4ba0 },
+    { L"Sogetsu Select Icon", 0xd4ba0, 0xd4bc0 },
+    { L"Gaira Select Icon", 0xd4bc0, 0xd4be0 },
+    { L"Jubei Select Icon", 0xd4be0, 0xd4c00 },
+    { L"Galford Select Icon", 0xd4ec0, 0xd4ee0 },
+    { L"Hanzo Select Icon", 0xd4ee0, 0xd4f00 },
+    { L"Kyoshiro Select Icon", 0xd4f00, 0xd4f20 },
+};
+
 const sGame_PaletteDataset SAMSHOW5SP_A_HUD_PALETTES[] =
 {
    { L"Timer/Names/Rage Active Bar/New Challenger", 0xd40c0, 0xd40e0, indexSamSho5Sprites_Bonus, 0x08 },
@@ -2656,6 +2684,7 @@ const sDescTreeNode SAMSHO5SP_A_Zankuro_COLLECTION[] =
 const sDescTreeNode SAMSHO5SP_A_BONUS_COLLECTION[] =
 {
     { L"Bonus", DESC_NODETYPE_TREE, (void*)SAMSHOW5SP_A_BONUS_PALETTES, ARRAYSIZE(SAMSHOW5SP_A_BONUS_PALETTES) },
+    { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)SAMSHOW5SP_A_BONUS_CSI_PALETTES, ARRAYSIZE(SAMSHOW5SP_A_BONUS_CSI_PALETTES) },
     { L"HUD",   DESC_NODETYPE_TREE, (void*)SAMSHOW5SP_A_HUD_PALETTES,   ARRAYSIZE(SAMSHOW5SP_A_HUD_PALETTES) },
 };
 

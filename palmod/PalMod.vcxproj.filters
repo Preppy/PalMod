@@ -457,6 +457,9 @@
     <Filter Include="Games\Nintendo\Ultimate Mortal Kombat 3 %28DS%29">
       <UniqueIdentifier>{bf82d014-a0fe-4e32-9ec5-ad44a0a7419f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29">
+      <UniqueIdentifier>{79507b20-b975-408b-ac14-8c08279f9368}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -947,6 +950,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_UMK3_DS.cpp">
       <Filter>Games\Nintendo\Ultimate Mortal Kombat 3 %28DS%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_P4AU_STEAM.cpp">
+      <Filter>Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1795,6 +1801,12 @@
     </ClInclude>
     <ClInclude Include="Game\SFA2_Hack_DEF.h">
       <Filter>Games\Capcom Games\SFA2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_P4AU_STEAM.h">
+      <Filter>Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\P4AU_STEAM_DEF.h">
+      <Filter>Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

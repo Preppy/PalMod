@@ -21,7 +21,7 @@ CGame_P4AU_STEAM::CGame_P4AU_STEAM(UINT32 nConfirmedROMSize /* = -1 */)
     // Don't load extras
     m_pszExtraFilename = nullptr;
 
-    nFileAmt = nUnitAmt = m_nTotalInternalUnits = (UINT16)PersonaCharacterData.size();
+    nFileAmt = nUnitAmt = m_nTotalInternalUnits = (UINT16)PersonaCharacterData_Steam.size();
 
     InitDataBuffer();
 
@@ -33,7 +33,7 @@ CGame_P4AU_STEAM::CGame_P4AU_STEAM(UINT32 nConfirmedROMSize /* = -1 */)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
-    pButtonLabelSet = PersonaPaletteNodes;
+    pButtonLabelSet = PersonaPaletteNodes_Steam;
 
     //Create the redirect buffer
     rgUnitRedir = new uint32_t[nUnitAmt + 1];
@@ -60,9 +60,9 @@ sFileRule CGame_P4AU_STEAM::GetRule(uint32_t nUnitId)
     sFileRule NewFileRule;
 
     const uint32_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", PersonaCharacterData[nAdjustedUnitId].pszFileName.c_str());
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", PersonaCharacterData_Steam[nAdjustedUnitId].pszFileName.c_str());
     NewFileRule.uUnitId = nUnitId;
-    NewFileRule.uVerifyVar = PersonaCharacterData[nAdjustedUnitId].nExpectedFileSize;
+    NewFileRule.uVerifyVar = PersonaCharacterData_Steam[nAdjustedUnitId].nExpectedFileSize;
 
     return NewFileRule;
 }
@@ -73,7 +73,7 @@ sFileRule CGame_P4AU_STEAM::GetNextRule()
 
     uRuleCtr++;
 
-    if (uRuleCtr >= PersonaCharacterData.size())
+    if (uRuleCtr >= PersonaCharacterData_Steam.size())
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
@@ -84,7 +84,7 @@ sFileRule CGame_P4AU_STEAM::GetNextRule()
 sDescTreeNode* CGame_P4AU_STEAM::InitDescTree()
 {
     uint32_t  nTotalPaletteCount = 0;
-    uint32_t  nUnitCt = (UINT16)PersonaCharacterData.size();
+    uint32_t  nUnitCt = (UINT16)PersonaCharacterData_Steam.size();
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -111,7 +111,7 @@ sDescTreeNode* CGame_P4AU_STEAM::InitDescTree()
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
         //Set each description
-        _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", PersonaCharacterData[iUnitCtr].pszCharacter.c_str());
+        _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", PersonaCharacterData_Steam[iUnitCtr].pszCharacter.c_str());
 
         UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
         //All children have collection trees
@@ -147,7 +147,7 @@ sDescTreeNode* CGame_P4AU_STEAM::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", PersonaCharacterData[iUnitCtr].paletteInfo->at(nNodeIndex).strName.c_str());
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", PersonaCharacterData_Steam[iUnitCtr].paletteInfo->at(nNodeIndex).strName.c_str());
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = nTotalPalettesUsedInUnit++;
@@ -163,7 +163,7 @@ sDescTreeNode* CGame_P4AU_STEAM::InitDescTree()
 
     m_nTotalPaletteCount = nTotalPaletteCount;
 
-    strMsg.Format(L"CGame_P4AU_STEAM_DIR::InitDescTree: Loaded %u palettes for UNICLR ROM\n", nTotalPaletteCount);
+    strMsg.Format(L"CGame_P4AU_STEAM_DIR::InitDescTree: Loaded %u palettes.\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     return NewDescTree;
@@ -172,40 +172,40 @@ sDescTreeNode* CGame_P4AU_STEAM::InitDescTree()
 uint32_t CGame_P4AU_STEAM::GetCollectionCountForUnit(uint32_t nUnitId)
 {
     // Just one palette set per character
-    return static_cast<uint32_t>(PersonaPaletteNodes.size());
+    return static_cast<uint32_t>(PersonaPaletteNodes_Steam.size());
 }
 
 uint32_t CGame_P4AU_STEAM::GetNodeCountForCollection(uint32_t nUnitId, uint32_t  /*nCollectionId*/)
 {
-    return static_cast<uint32_t>(PersonaCharacterData[nUnitId].paletteInfo->size());
+    return static_cast<uint32_t>(PersonaCharacterData_Steam[nUnitId].paletteInfo->size());
 }
 
 uint32_t CGame_P4AU_STEAM::GetPaletteCountForUnit(uint32_t nUnitId)
 {
-    return static_cast<uint32_t>((PersonaCharacterData[nUnitId].paletteInfo->size() * PersonaPaletteNodes.size()));
+    return static_cast<uint32_t>((PersonaCharacterData_Steam[nUnitId].paletteInfo->size() * PersonaPaletteNodes_Steam.size()));
 }
 
 LPCWSTR CGame_P4AU_STEAM::GetDescriptionForCollection(uint32_t  /*nUnitId */, uint32_t nCollectionId)
 {
-    return PersonaPaletteNodes[nCollectionId];
+    return PersonaPaletteNodes_Steam[nCollectionId];
 }
 
 void CGame_P4AU_STEAM::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
-    // UNICLR palettes are all 0x400 long
+    // These palettes are all 0x400 long
     const int cbPaletteSizeOnDisc = 0x400;
 
-    uint32_t nAdjustedPalId = (UINT16)(nPalId % PersonaCharacterData[nUnitId].paletteInfo->size());
-    uint32_t nPaletteSet = (UINT16)(nPalId / PersonaCharacterData[nUnitId].paletteInfo->size());
+    uint32_t nAdjustedPalId = (UINT16)(nPalId % PersonaCharacterData_Steam[nUnitId].paletteInfo->size());
+    uint32_t nPaletteSet = (UINT16)(nPalId / PersonaCharacterData_Steam[nUnitId].paletteInfo->size());
 
-    m_pszCurrentPaletteName = PersonaCharacterData[nUnitId].paletteInfo->at(nAdjustedPalId).strName.c_str();
-    m_nCurrentPaletteROMLocation = PersonaCharacterData[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nAdjustedPalId) + (0x20 * nAdjustedPalId);
+    m_pszCurrentPaletteName = PersonaCharacterData_Steam[nUnitId].paletteInfo->at(nAdjustedPalId).strName.c_str();
+    m_nCurrentPaletteROMLocation = PersonaCharacterData_Steam[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nAdjustedPalId) + (0x20 * nAdjustedPalId);
     m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
 
     if (nPaletteSet)
     {
         // Each palette is spaced XXX bytes apart
-        m_nCurrentPaletteROMLocation += nPaletteSet * PersonaCharacterData[nUnitId].nPaletteSetLength;
+        m_nCurrentPaletteROMLocation += nPaletteSet * PersonaCharacterData_Steam[nUnitId].nPaletteSetLength;
     }
 }
 
@@ -228,13 +228,13 @@ BOOL CGame_P4AU_STEAM::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists
-    int nSrcStart = (int)(UINT16)(NodeGet->uPalId % PersonaCharacterData[NodeGet->uUnitId].paletteInfo->size());
+    int nSrcStart = (int)(UINT16)(NodeGet->uPalId % PersonaCharacterData_Steam[NodeGet->uUnitId].paletteInfo->size());
     uint32_t nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
-    UINT16 nNodeIncrement = (UINT16)PersonaCharacterData[NodeGet->uUnitId].paletteInfo->size();
+    UINT16 nNodeIncrement = (UINT16)PersonaCharacterData_Steam[NodeGet->uUnitId].paletteInfo->size();
 
     //Change the image id if we need to, using the single image index list used for each color
-    uint32_t nImgUnitId = PersonaCharacterData[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageSet;
-    int nTargetImgId = PersonaCharacterData[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageIndex;
+    uint32_t nImgUnitId = PersonaCharacterData_Steam[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageSet;
+    int nTargetImgId = PersonaCharacterData_Steam[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageIndex;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -260,10 +260,10 @@ BOOL CGame_P4AU_STEAM::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     BOOL fSuccess = TRUE;
     CString strInfo;
 
-    strInfo.Format(L"CGame_P4AU_STEAM_DIR::LoadFile: Preparing to load data for unit number %u (character %s)\n", nUnitNumber, PersonaCharacterData[nUnitNumber].pszCharacter.c_str());
+    strInfo.Format(L"CGame_P4AU_STEAM_DIR::LoadFile: Preparing to load data for unit number %u (character %s)\n", nUnitNumber, PersonaCharacterData_Steam[nUnitNumber].pszCharacter.c_str());
     OutputDebugString(strInfo);
 
-    strInfo.Format(L"\tCGame_P4AU_STEAM_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", PersonaCharacterData[nUnitNumber].nInitialLocation);
+    strInfo.Format(L"\tCGame_P4AU_STEAM_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", PersonaCharacterData_Steam[nUnitNumber].nInitialLocation);
     OutputDebugString(strInfo);
 
     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);

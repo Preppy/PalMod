@@ -2,7 +2,6 @@
 
 #include <iterator>
 #include <iostream>
-#include <algorithm>
 
 enum PersonaSpriteList
 {
@@ -58,7 +57,7 @@ const std::vector<UINT16> P4AU_S_IMGIDS_USED =
     indexP4AUSprites_Bonus,         // 0x16
 };
 
-const std::vector<LPCWSTR> PersonaPaletteNodes =
+const std::vector<LPCWSTR> PersonaPaletteNodes_NESICA =
 {
     L"Color 1",
     L"Color 2",
@@ -526,7 +525,7 @@ struct PersonaFileData
     uint32_t nPaletteSetLength = 0;
 };
 
-const std::vector<PersonaFileData> PersonaCharacterData =
+const std::vector<PersonaFileData> PersonaCharacterData_NESICA =
 { {
     //Alphabetical
     { L"char\\char_ag_pal.pac",    L"Aigis",                          278560,    &Persona4PalettesAigis,      0x2040,      0x2100 },

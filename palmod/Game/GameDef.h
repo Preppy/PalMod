@@ -170,6 +170,7 @@ enum SupportedGamesList
     JusticeLeagueTF_SNES,
     SFA2_Hack_A,
     UMK3_DS,
+    P4AU_STEAM,
 
     NUM_GAMES // This needs to be last
 };
@@ -336,6 +337,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Justice League Task Force (USA SNES)",
     L"SFA2 (CPS2 Palette Expansion)",
     L"Ultimate Mortal Kombat 3 (USA DS)",
+    L"Persona 4 Arena Ultimax (Steam)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
