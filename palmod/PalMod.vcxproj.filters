@@ -460,6 +460,9 @@
     <Filter Include="Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29">
       <UniqueIdentifier>{79507b20-b975-408b-ac14-8c08279f9368}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\BlazBlu CF">
+      <UniqueIdentifier>{78738e53-d714-499e-956f-451d4f6db1a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -956,6 +959,9 @@
     </ClCompile>
     <ClCompile Include="Game\Patching.cpp">
       <Filter>Games\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_BlazBlueCF_S.cpp">
+      <Filter>Games\Other Platforms\BlazBlu CF</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1810,6 +1816,12 @@
     </ClInclude>
     <ClInclude Include="Game\P4AU_STEAM_DEF.h">
       <Filter>Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BlazBlueCF_S_DEF.h">
+      <Filter>Games\Other Platforms\BlazBlu CF</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_BlazBlueCF_S.h">
+      <Filter>Games\Other Platforms\BlazBlu CF</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,6 +4,7 @@
 
 #include "Game_AOF1_A.h"
 #include "Game_AOF3_A.h"
+#include "Game_BlazBlueCF_S.h"
 #include "Game_Bleach_DS.h"
 #include "Game_BMKNS_SNES.h"
 #include "Game_Breakers_A.h"
@@ -195,7 +196,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_AOF3_A::GetRule;
         return TRUE;
     }
+    case BlazBlueCF_S:
+    {
+        GetRuleCtr = &CGame_BlazBlueCF_S::GetRuleCtr;
+        ResetRuleCtr = &CGame_BlazBlueCF_S::ResetRuleCtr;
+        GetRule = &CGame_BlazBlueCF_S::GetRule;
+        GetNextRule = &CGame_BlazBlueCF_S::GetNextRule;
 
+        return TRUE;
+    }
     case BLEACH_DS:
     {
         GetRule = &CGame_BLEACH_DS::GetRule;
@@ -1039,7 +1048,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
     }
-
+    case BlazBlueCF_S:
+    {
+        return new CGame_BlazBlueCF_S(nConfirmedROMSize);
+    }
     case BLEACH_DS:
     {
         return new CGame_BLEACH_DS(nConfirmedROMSize);

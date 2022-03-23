@@ -15,6 +15,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         default:
             // No extra description: that's fine.
             break;
+        case BlazBlueCF_S:
+            pszExtraInfo = L"Please select the \"data\" folder in the BlazBlue directory.";
+            break;
         case DANKUGA_A:
             pszExtraInfo = L"We need the dkg_mpr* files from dankuga.zip.";
             break;

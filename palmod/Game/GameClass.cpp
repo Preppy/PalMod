@@ -1849,7 +1849,6 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
     return TRUE;
 }
 
-
 BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber)
 {
     CString strInfo;

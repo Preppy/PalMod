@@ -137,6 +137,23 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(L"20");
         m_CB_Amt.AddString(L"22");
         break;
+    case 24:
+        m_CB_Amt.AddString(L"6");
+        m_CB_Amt.AddString(L"12");
+        m_CB_Amt.AddString(L"24");
+        break;
+    case 25:
+        m_CB_Amt.AddString(L"6");
+        m_CB_Amt.AddString(L"12");
+        m_CB_Amt.AddString(L"24");
+        m_CB_Amt.AddString(L"25");
+        break;
+    case 26:
+        m_CB_Amt.AddString(L"6");
+        m_CB_Amt.AddString(L"12");
+        m_CB_Amt.AddString(L"24");
+        m_CB_Amt.AddString(L"26");
+        break;
     case 32:
         m_CB_Amt.AddString(L"4");
         m_CB_Amt.AddString(L"8");

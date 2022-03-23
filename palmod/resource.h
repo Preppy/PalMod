@@ -301,6 +301,7 @@
 #define ID_COLORFORMAT_BGR444           32921
 #define ID_COLORFORMAT_BRG888           32922
 #define ID_LD_P4AU_STEAM                32923
+#define ID_LD_BLAZBLUECF                32924
 
 // Next default values for new objects
 // 
