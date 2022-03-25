@@ -98,7 +98,6 @@ sFileRule CGame_KOF95_A::GetRule(uint32_t nUnitId)
     _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"084-p2sp.p2");
     NewFileRule.uAltVerifyVar = 0x100000;
 
-
     return NewFileRule;
 }
 

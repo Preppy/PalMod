@@ -24,7 +24,7 @@ CGame_SHAQFU_SNES::CGame_SHAQFU_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SHAQFU_SNES_NUMUNIT;
     m_nExtraUnit = SHAQFU_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 19;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 34;
     m_pszExtraFilename = EXTRA_FILENAME_SHAQFU_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSHAQFU;
 

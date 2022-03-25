@@ -511,22 +511,31 @@ uint32_t CGame_MVC2_D::CountExtraRg(uint32_t nUnitId, BOOL fCountIsOfSharedExtra
     return 0;
 }
 
-sFileRule CGame_MVC2_D::GetRule(uint32_t nRuleId)
+sFileRule CGame_MVC2_D::GetRule(uint32_t nMaskedUnsortedRuleId)
 {
     sFileRule NewFileRule;
 
-    if (nRuleId < MVC2_D_NUMUNIT_WITH_TEAMVIEW)
-    {
-        nRuleId = (nRuleId & RULE_COUNTER_MASK) == RULE_COUNTER_MASK ? (nRuleId & RULE_COUNTER_DEMASK) : MVC2_D_UNITSORT[nRuleId];
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"PL%02X_DAT.BIN", nRuleId);
+    const uint32_t nTrueUnsortedRuleId = (nMaskedUnsortedRuleId & RULE_COUNTER_DEMASK);
 
-        NewFileRule.uUnitId = nRuleId;
-        NewFileRule.uVerifyVar = MVC2_D_FILESIZES_6COLORS[nRuleId];
+    if (nTrueUnsortedRuleId < MVC2_D_NUMUNIT_WITH_TEAMVIEW)
+    {
+        const uint32_t nRuleIdToUse = (nMaskedUnsortedRuleId & RULE_COUNTER_MASK) == RULE_COUNTER_MASK ? (nTrueUnsortedRuleId) : MVC2_D_UNITSORT[nTrueUnsortedRuleId];
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"PL%02X_DAT.BIN", nRuleIdToUse);
+
+        NewFileRule.uUnitId = nRuleIdToUse;
+        NewFileRule.uVerifyVar = MVC2_D_FILESIZES_6COLORS[nRuleIdToUse];
 
         // Allow for the 16 color variant
         NewFileRule.fHasAltName = true;
         _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, NewFileRule.szFileName);
-        NewFileRule.uAltVerifyVar = MVC2_D_FILESIZES_16COLORS[nRuleId];
+        NewFileRule.uAltVerifyVar = MVC2_D_FILESIZES_16COLORS[nRuleIdToUse];
+    }
+    else
+    {
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"TeamViewIsNotReal-%02X", nMaskedUnsortedRuleId);
+
+        NewFileRule.uUnitId = nMaskedUnsortedRuleId;
+        NewFileRule.uVerifyVar = -1;
     }
 
     return NewFileRule;

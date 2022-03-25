@@ -16,71 +16,85 @@ const std::vector<UINT16> SHAQFU_SNES_IMGIDS_USED =
 const sGame_PaletteDataset SHAQFU_SNES_SHAQ_P1_PALETTES[] =
 {
     { L"Shaq P1", 0x13FFAC, 0x13FFCC },
+    { L"Shaq Fu P1 Portrait", 0x1fdf88, 0x1fdfa8 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_SHAQ_P2_PALETTES[] =
 {
     { L"Shaq P2", 0x13FFCC, 0x13FFEC },
+    { L"Shaq Fu P2 Portrait", 0x1fe068, 0x1fe088 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_KAORI_P1_PALETTES[] =
 {
     { L"Kaori P1", 0x1FD921, 0x1FD941 },
+    { L"Kaori P1 Portrait", 0x1fdfa8, 0x1fdfc8 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_KAORI_P2_PALETTES[] =
 {
     { L"Kaori P2", 0x1FD941, 0x1FD961 },
+    { L"Kaori P2 Portrait", 0x1fe088, 0x1fe0a8 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_BEAST_P1_PALETTES[] =
 {
     { L"Beast P1", 0x1FD961, 0x1FD981 },
+    { L"Beast P1 Portrait", 0x1fdfc8, 0x1fdfe8 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_BEAST_P2_PALETTES[] =
 {
     { L"Beast P2", 0x1FD981, 0x1FD9A1 },
+    { L"Beast P2 Portrait", 0x1fe0a8, 0x1fe0c8 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_SETT_P1_PALETTES[] =
 {
     { L"Sett P1", 0x1FD8E1, 0x1FD901 },
+    { L"Sett P1 Portrait", 0x1fdfe8, 0x1fe008 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_SETT_P2_PALETTES[] =
 {
     { L"Sett P2", 0x1FD901, 0x1FD921 },
+    { L"Sett P2 Portrait", 0x1fe0c8, 0x1fe0e8 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_MEMPHIS_P1_PALETTES[] =
 {
     { L"Memphis P1", 0x1FD8A1, 0x1FD8C1 },
+    { L"Memphis P1 Portrait", 0x1fe008, 0x1fe028 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_MEMPHIS_P2_PALETTES[] =
 {
     { L"Memphis P2", 0x1FD8C1, 0x1FD8E1 },
+    { L"Memphis P2 Portrait", 0x1fe0e8, 0x1fe108 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_VOODOO_P1_PALETTES[] =
 {
     { L"Voodoo P1", 0x1FD9A1, 0x1FD9C1 },
+    { L"Voodoo P1 Portrait", 0x1fe028, 0x1fe048 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_VOODOO_P2_PALETTES[] =
 {
     { L"Voodoo P2", 0x1FD9C1, 0x1FD9E1 },
+    { L"Voodoo P2 Portrait", 0x1fe108, 0x1fe128 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_RAJAH_P1_PALETTES[] =
 {
     { L"Rajah P1", 0x1FD9E1, 0x1FDA01 },
+    { L"Rajah P1 Portrait", 0x1fe048, 0x1fe068 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_RAJAH_P2_PALETTES[] =
 {
     { L"Rajah P2", 0x1FDA01, 0x1FDA21 },
+    { L"Rajah P2 Portrait", 0x1fe128, 0x1fe148 },
 };
 
 const sGame_PaletteDataset SHAQFU_SNES_BONUS_PALETTES[] =
@@ -90,6 +104,7 @@ const sGame_PaletteDataset SHAQFU_SNES_BONUS_PALETTES[] =
     { L"CSS Icon (Memphis)", 0x1FBD96, 0x1FBDB6 },
     { L"CSS Icon (Shaq, Rajah)", 0x1FBDB6, 0x1FBDD6 },
     { L"1P/2P Select Cursor", 0x1FBD36, 0x1FBD56 },
+    { L"VS Text", 0x1fdf68, 0x1fdf88 },
 };
 
 const sDescTreeNode SHAQFU_SNES_SHAQ_COLLECTION[] =

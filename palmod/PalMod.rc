@@ -100,7 +100,7 @@ BEGIN
     LTEXT           "chloe",IDC_STATIC,75,128,50,8
     LTEXT           "RenGod",IDC_STATIC,75,138,50,8
     LTEXT           "Lui",IDC_STATIC,133,128,50,8
-    LTEXT           "Rei",IDC_STATIC,133,138,50,8
+    LTEXT           "Hikari",IDC_STATIC,133,138,50,8
     LTEXT           "Game data and images copyright those respective companies.",IDC_STATIC,7,151,210,8
     LTEXT           "Special thanks and gratitude to many others in the various communities who helped us find and understand game data.",IDC_STATIC,7,164,209,16
     LTEXT           "Updates and guides available at:",IDC_STATIC,7,185,209,8

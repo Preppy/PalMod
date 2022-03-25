@@ -304,8 +304,8 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_EXTRA_PALETTES[] =
 {
-    { L"Challenger Intro Car", 0x704C80, 0x704D00, index3SSprites_Dudley, 0x03, &pairNext },
-    { L"First Player Intro Car  + Rose (Shared)/Butler", 0x704D80, 0x704E00, index3SSprites_Dudley, 0x04, &pairPrevious },
+    { L"Challenger Intro Car", 0x704C80, 0x704D00, index3SSprites_Dudley, 0x04, &pairNext },
+    { L"First Player Intro Car + Rose (Shared)/Butler", 0x704D80, 0x704E00, index3SSprites_Dudley, 0x03, &pairPrevious },
     { L"SA1 wind", 0x704D00, 0x704D80, index3SSprites_Dudley, 0x02 },
 };
 
