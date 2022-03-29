@@ -630,6 +630,50 @@ const sDescTreeNode SFIII1_A_SEAN_COLLECTION[] =
     { L"Support", DESC_NODETYPE_TREE, (void*)SFIII1_A_SEAN_Support_PALETTES, ARRAYSIZE(SFIII1_A_SEAN_Support_PALETTES) },
 };
 
+const sGame_PaletteDataset SFIII1_A_STAGE_IBUKU_PALETTES[] =
+{
+    { L"Ibuki Stage Round 1 1/5", 0x3c6400, 0x3c6600 },
+    { L"Ibuki Stage Round 1 2/5", 0x3c6600, 0x3c6800 },
+    { L"Ibuki Stage Round 1 3/5", 0x3c6800, 0x3c6a00 },
+    { L"Ibuki Stage Round 1 4/5", 0x3c6a00, 0x3c6c00 },
+    { L"Ibuki Stage Round 1 5/5", 0x3c6c00, 0x3c6c80 },
+
+    { L"Ibuki Stage Round 1 (Faded) 1/5", 0x3c6c80, 0x3c6e80 },
+    { L"Ibuki Stage Round 1 (Faded) 2/5", 0x3c6e80, 0x3c7080 },
+    { L"Ibuki Stage Round 1 (Faded) 3/5", 0x3c7080, 0x3c7280 },
+    { L"Ibuki Stage Round 1 (Faded) 4/5", 0x3c7280, 0x3c7480 },
+    { L"Ibuki Stage Round 1 (Faded) 5/5", 0x3c7480, 0x3c7500 },
+
+    { L"Ibuki Stage Round 2 1/5", 0x3c4200, 0x3c4400 },
+    { L"Ibuki Stage Round 2 2/5", 0x3c4400, 0x3c4600 },
+    { L"Ibuki Stage Round 2 3/5", 0x3c4600, 0x3c4800 },
+    { L"Ibuki Stage Round 2 4/5", 0x3c4800, 0x3c4a00 },
+    { L"Ibuki Stage Round 2 5/5", 0x3c4a00, 0x3c4a80 },
+
+    { L"Ibuki Stage Round 2 (Faded) 1/5", 0x3c4a80, 0x3c4c80 },
+    { L"Ibuki Stage Round 2 (Faded) 2/5", 0x3c4c80, 0x3c4e80 },
+    { L"Ibuki Stage Round 2 (Faded) 3/5", 0x3c4e80, 0x3c5080 },
+    { L"Ibuki Stage Round 2 (Faded) 4/5", 0x3c5080, 0x3c5280 },
+    { L"Ibuki Stage Round 2 (Faded) 5/5", 0x3c5280, 0x3c5300 },
+
+    { L"Ibuki Stage Round 3 1/5", 0x3c5300, 0x3c5500 },
+    { L"Ibuki Stage Round 3 2/5", 0x3c5500, 0x3c5700 },
+    { L"Ibuki Stage Round 3 3/5", 0x3c5700, 0x3c5900 },
+    { L"Ibuki Stage Round 3 4/5", 0x3c5900, 0x3c5b00 },
+    { L"Ibuki Stage Round 3 5/5", 0x3c5b00, 0x3c5b80 },
+
+    { L"Ibuki Stage Round 3 (Faded) 1/5", 0x3c5b80, 0x3c5d80 },
+    { L"Ibuki Stage Round 3 (Faded) 2/5", 0x3c5d80, 0x3c5f80 },
+    { L"Ibuki Stage Round 3 (Faded) 3/5", 0x3c5f80, 0x3c6180 },
+    { L"Ibuki Stage Round 3 (Faded) 4/5", 0x3c6180, 0x3c6380 },
+    { L"Ibuki Stage Round 3 (Faded) 5/5", 0x3c6380, 0x3c6400 },
+};
+
+const sDescTreeNode SFIII1_A_STAGE_COLLECTION[] =
+{
+    { L"Ibuki", DESC_NODETYPE_TREE, (void*)SFIII1_A_STAGE_IBUKU_PALETTES, ARRAYSIZE(SFIII1_A_STAGE_IBUKU_PALETTES) },
+};
+
 const sGame_PaletteDataset SFIII1_A_BONUS_INTROPORTS_PALETTES[] =
 {
     { L"Yang Intro Panel",  0x3f5a00, 0x3f5a20, indexSFNGSprites_Bonus, 0x0f },
@@ -668,9 +712,45 @@ const sGame_PaletteDataset SFIII1_A_BONUS_PALETTES[] =
     { L"Universal Zap Skeleton", 0x3d4380, 0x3d4400 },
 };
 
+const sGame_PaletteDataset SFIII1_A_BONUS_LOGO_PALETTES[] =
+{
+    { L"Capcom Logo 1", 0x3ebb80, 0x3ebc00 },
+    { L"Capcom Logo 2", 0x3ebc00, 0x3ebc80 },
+    { L"Capcom Logo 3", 0x3ebc80, 0x3ebd00 },
+    { L"Capcom Logo 4", 0x3ebd00, 0x3ebd80 },
+    { L"Capcom Logo 5", 0x3ebd80, 0x3ebe00 },
+    { L"Capcom Logo 6", 0x3ebe00, 0x3ebe80 },
+    { L"Capcom Logo 7", 0x3ebe80, 0x3ebf00 },
+    { L"Capcom Logo 8", 0x3ebf00, 0x3ebf80 },
+    { L"Capcom Logo 9", 0x3ebf80, 0x3ec000 },
+    { L"Capcom Logo 10", 0x3ec000, 0x3ec080 },
+    { L"Capcom Logo 11", 0x3ec080, 0x3ec100 },
+    { L"Capcom Logo 12", 0x3ec100, 0x3ec180 },
+    { L"Capcom Logo 13", 0x3ec180, 0x3ec200 },
+    { L"Capcom Logo 14", 0x3ec200, 0x3ec280 },
+    { L"Capcom Logo 15", 0x3ec280, 0x3ec300 },
+    { L"Capcom Logo 16", 0x3ec300, 0x3ec380 },
+    { L"Capcom Logo 17", 0x3ec380, 0x3ec400 },
+    { L"Capcom Logo 18", 0x3ec400, 0x3ec480 },
+    { L"Capcom Logo 19", 0x3ec480, 0x3ec500 },
+    { L"Capcom Logo 20", 0x3ec500, 0x3ec580 },
+    { L"Capcom Logo 21", 0x3ec580, 0x3ec600 },
+    { L"Capcom Logo 22", 0x3ec600, 0x3ec680 },
+    { L"Capcom Logo 23", 0x3ec680, 0x3ec700 },
+    { L"Capcom Logo 24", 0x3ec700, 0x3ec780 },
+    { L"Capcom Logo 25", 0x3ec780, 0x3ec800 },
+    { L"Capcom Logo 26", 0x3ec800, 0x3ec880 },
+    { L"Capcom Logo 27", 0x3ec880, 0x3ec900 },
+    { L"Capcom Logo 28", 0x3ec900, 0x3ec980 },
+    { L"Capcom Logo 29", 0x3ec980, 0x3eca00 },
+    { L"Capcom Logo 30", 0x3eca00, 0x3eca80 },
+    { L"Capcom Logo 31", 0x3eca80, 0x3ecb00 },
+};
+
 const sDescTreeNode SFIII1_A_BONUS_COLLECTION[] =
 {
     { L"Intro Portraits",   DESC_NODETYPE_TREE, (void*)SFIII1_A_BONUS_INTROPORTS_PALETTES, ARRAYSIZE(SFIII1_A_BONUS_INTROPORTS_PALETTES) },
+    { L"Logo",              DESC_NODETYPE_TREE, (void*)SFIII1_A_BONUS_LOGO_PALETTES, ARRAYSIZE(SFIII1_A_BONUS_LOGO_PALETTES) },
     { L"Bonus",             DESC_NODETYPE_TREE, (void*)SFIII1_A_BONUS_PALETTES, ARRAYSIZE(SFIII1_A_BONUS_PALETTES) },
 };
 
@@ -688,6 +768,7 @@ const sDescTreeNode SFIII1_A_50_UNITS[] =
     { L"Sean",   DESC_NODETYPE_TREE, (void*)SFIII1_A_SEAN_COLLECTION, ARRAYSIZE(SFIII1_A_SEAN_COLLECTION) },
     { L"Gill",   DESC_NODETYPE_TREE, (void*)SFIII1_A_GILL_COLLECTION, ARRAYSIZE(SFIII1_A_GILL_COLLECTION) },
     { L"Hugo (unplayable)", DESC_NODETYPE_TREE, (void*)SFIII1_A_HUGO_COLLECTION, ARRAYSIZE(SFIII1_A_HUGO_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)SFIII1_A_STAGE_COLLECTION, ARRAYSIZE(SFIII1_A_STAGE_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFIII1_A_BONUS_COLLECTION, ARRAYSIZE(SFIII1_A_BONUS_COLLECTION) },
 };
 

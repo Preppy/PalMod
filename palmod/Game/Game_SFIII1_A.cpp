@@ -52,9 +52,9 @@ CGame_SFIII1_A::CGame_SFIII1_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 153;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 214;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII1_50;
-    m_nLowestKnownPaletteRomLocation = 0x3d0000;
+    m_nLowestKnownPaletteRomLocation = 0x3c4200;
 
     CString strInfo;
     strInfo.Format(L"CGame_SFIII1_A::CGame_SFIII1_A: Loaded SFIII1_A with %u Extras\n", GetExtraCt(m_nExtraUnit));

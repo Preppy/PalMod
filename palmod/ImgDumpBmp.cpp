@@ -724,7 +724,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     case 24: // BlazBlueCF
     case 25: // BlazBlueCF
     case 26: // BlazBlueCF
-        w_mul = 3;
+        w_mul = 4;
         break;
     default:
         OutputDebugString(L"CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option.\n");
