@@ -388,7 +388,7 @@ const sGame_PaletteDataset* CGame_KOF95_A::GetSpecificPalette(uint32_t nUnitId, 
 
 void CGame_KOF95_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
-     if (nUnitId != KOF95_A_EXTRALOC)
+    if (nUnitId != KOF95_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
