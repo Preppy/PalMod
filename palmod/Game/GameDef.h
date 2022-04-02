@@ -172,6 +172,7 @@ enum SupportedGamesList
     UMK3_DS,
     P4AU_STEAM,
     BlazBlueCF_S,
+    HSF2_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -340,6 +341,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Ultimate Mortal Kombat 3 (USA DS)",
     L"Persona 4 Arena Ultimax (Steam)",
     L"BlazBlue: Central Fiction (Steam)",
+    L"Hyper Street Fighter 2",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

@@ -463,6 +463,9 @@
     <Filter Include="Games\Other Platforms\BlazBlu CF">
       <UniqueIdentifier>{78738e53-d714-499e-956f-451d4f6db1a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\HSF2_A">
+      <UniqueIdentifier>{2e6869cb-602e-4222-a4a2-065868d749c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -962,6 +965,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_BlazBlueCF_S.cpp">
       <Filter>Games\Other Platforms\BlazBlu CF</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_HSF2_A.cpp">
+      <Filter>Games\Capcom Games\HSF2_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1822,6 +1828,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_BlazBlueCF_S.h">
       <Filter>Games\Other Platforms\BlazBlu CF</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_HSF2_A.h">
+      <Filter>Games\Capcom Games\HSF2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\HSF2_A_DEF.h">
+      <Filter>Games\Capcom Games\HSF2_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

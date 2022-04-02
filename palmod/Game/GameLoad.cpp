@@ -28,6 +28,7 @@
 #include "Game_GGXXACR_P.h"
 #include "Game_GGXXR_S.h"
 #include "Game_GUNDAM_SNES.h"
+#include "Game_HSF2_A.h"
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
 #include "Game_JOJOSRPG_SNES.h"
@@ -350,6 +351,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case GUNDAM_SNES:
     {
         GetRule = &CGame_GUNDAM_SNES::GetRule;
+        return TRUE;
+    }
+    case HSF2_A:
+    {
+        GetRule = &CGame_HSF2_A::GetRule;
         return TRUE;
     }
     case JOJOS_A:
@@ -1152,6 +1158,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_GUNDAM_SNES(nConfirmedROMSize);
     }
+    case HSF2_A:
+    {
+        return new CGame_HSF2_A(nConfirmedROMSize, nExtraGameData);
+    }
     case JOJOS_A:
     {
         return new CGame_JOJOS_A(nConfirmedROMSize, nExtraGameData);
@@ -1644,6 +1654,18 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
         case AOF3_A:
             nGameRule = ((wcsstr(pszFileNameLowercase, L"p1") != nullptr) ? 1 : 2);
             break;
+        case HSF2_A:
+        {
+            if (wcsstr(pszFileNameLowercase, L".03") != nullptr)
+            {
+                nGameRule = HSF2_A_GAMEKEY_03;
+            }
+            else
+            {
+                nGameRule = HSF2_A_GAMEKEY_04;
+            }
+            break;
+        }
         case JOJOS_A:
             nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? 50 : 51);
             break;
