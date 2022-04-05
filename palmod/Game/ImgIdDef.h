@@ -1173,6 +1173,7 @@ enum KOFSpriteList
     indexKOF98Sprites_OShermie,         // 0x2e1
     indexKOF98Sprites_OYashiro,         // 0x2e2
     indexKOF98Sprites_OmegaRugal,       // 0x2e3
+    indexKOF98Sprites_Bonus,            // 0x2e4
 
     // indexKOF97Sprites_Bonus,         // 0x1F0
     // indexKOF97Sprites_Stages,        // 0x1F1
@@ -2265,4 +2266,69 @@ enum SupportedArcana_SpriteListIndex
     indexArcanaSprites_Zechs,           // 0x0c
     indexArcanaSprites_Bonus,           // 0x0d
     indexArcanaSprites_Support,         // 0x0e
+};
+
+enum SupportedArcsys_SpriteListIndex
+{
+    indexP4AUSprites_Aigis,         // 0x00
+    indexP4AUSprites_Akihiko,       // 0x01
+    indexP4AUSprites_Chie,          // 0x02
+    indexP4AUSprites_Elizabeth,     // 0x03
+    indexP4AUSprites_Junpei,        // 0x04
+    indexP4AUSprites_Kanji,         // 0x05
+    indexP4AUSprites_Ken,           // 0x06
+    indexP4AUSprites_Labrys,        // 0x07
+    indexP4AUSprites_Margaret,      // 0x08
+    indexP4AUSprites_Marie,         // 0x09
+    indexP4AUSprites_Mitsuru,       // 0x0a
+    indexP4AUSprites_Naoto,         // 0x0b
+    indexP4AUSprites_Rise,          // 0x0c
+    indexP4AUSprites_Shadow,        // 0x0d
+    indexP4AUSprites_Sho,           // 0x0e
+    indexP4AUSprites_Solo,          // 0x0f
+    indexP4AUSprites_Teddie,        // 0x10
+    indexP4AUSprites_Tohru,         // 0x11
+    indexP4AUSprites_Yosuke,        // 0x12
+    indexP4AUSprites_Yu,            // 0x13
+    indexP4AUSprites_Yukari,        // 0x14
+    indexP4AUSprites_Yukiko,        // 0x15
+    indexP4AUSprites_Bonus,         // 0x16
+
+    indexBBCFSprites_AmaneNishiki,          // 0x17
+    indexBBCFSprites_Arakune,               // 0x18
+    indexBBCFSprites_Azrael,                // 0x19
+    indexBBCFSprites_BangShishigami,        // 0x1A
+    indexBBCFSprites_Bullet,                // 0x1B
+    indexBBCFSprites_CarlClover,            // 0x1C
+    indexBBCFSprites_CelicaAMercury,        // 0x1D
+    indexBBCFSprites_Es,                    // 0x1E
+    indexBBCFSprites_Hakumen,               // 0x1F
+    indexBBCFSprites_Hazama,                // 0x20
+    indexBBCFSprites_HibikiKohaku,          // 0x21
+    indexBBCFSprites_IronTager,             // 0x22
+    indexBBCFSprites_Izanami,               // 0x23
+    indexBBCFSprites_Izayoi,                // 0x24
+    indexBBCFSprites_JinKisaragi,           // 0x25
+    indexBBCFSprites_Jubei,                 // 0x26
+    indexBBCFSprites_KaguraMutsuki,         // 0x27
+    indexBBCFSprites_Kokonoe,               // 0x28
+    indexBBCFSprites_Lambda11,              // 0x29
+    indexBBCFSprites_LitchiFayeLing,        // 0x2A
+    indexBBCFSprites_MaiNatsume,            // 0x2B
+    indexBBCFSprites_MakotoNanaya,          // 0x2C
+    indexBBCFSprites_Mu12,                  // 0x2D
+    indexBBCFSprites_NaotoKurogane,         // 0x2E
+    indexBBCFSprites_NineThePhantom,        // 0x2F
+    indexBBCFSprites_NoelVermillion,        // 0x30
+    indexBBCFSprites_Nu13,                  // 0x31
+    indexBBCFSprites_PlatinumtheTrinity,    // 0x32
+    indexBBCFSprites_RachelAlucard,         // 0x33
+    indexBBCFSprites_RagnaTheBloodedge,     // 0x34
+    indexBBCFSprites_ReliusClover,          // 0x35
+    indexBBCFSprites_Susanoo,               // 0x36
+    indexBBCFSprites_Taokaka,               // 0x37
+    indexBBCFSprites_TsubakiYayoi,          // 0x38
+    indexBBCFSprites_ValkenhaynRHellsing,   // 0x39
+    indexBBCFSprites_YuukiTerumi,           // 0x3A
+    indexBBCFSprites_Bonus,                 // 0x3B
 };

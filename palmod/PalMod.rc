@@ -348,7 +348,7 @@ BEGIN
         MENUITEM "Load ROM by game",            ID_FILE_OPEN_BY_GAME
         POPUP "&Load Directory"
         BEGIN
-            MENUITEM "BlazBlue: Central Fiction (Steam)" ID_LD_BLAZBLUECF
+            MENUITEM "BlazBlue: Central Fiction (Steam)", ID_LD_BLAZBLUECF
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
             POPUP "Guilty Gear"

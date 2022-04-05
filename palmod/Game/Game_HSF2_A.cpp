@@ -54,8 +54,8 @@ CGame_HSF2_A::CGame_HSF2_A(UINT32 nConfirmedROMSize, int nHSF2RomToLoad)
     strMessage.Format(L"CGame_HSF2_A::CGame_HSF2_A: Loading for the %u ROM\n", m_nHSF2SelectedRom);
     OutputDebugString(strMessage);
 
-    const UINT32 nSafeCountFor03 = 322;
-    const UINT32 nSafeCountFor04 = 705;
+    const UINT32 nSafeCountFor03 = 385;
+    const UINT32 nSafeCountFor04 = 654;
 
     switch (m_nHSF2SelectedRom)
     {
@@ -430,6 +430,13 @@ BOOL CGame_HSF2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     else
     {
+        // Color options per game:
+        // WW: 2
+        // CE: 2
+        // HF: 2
+        // SSF2: 2
+        // ST: 8
+
         return _UpdatePalImg(HSF2_A_UNITS_04, rgExtraCountAll_04, HSF2_A_NUMUNIT_04, HSF2_A_EXTRALOC_04, HSF2_A_EXTRA_CUSTOM_04, Node01, Node02, Node03, Node03);
     }
 }

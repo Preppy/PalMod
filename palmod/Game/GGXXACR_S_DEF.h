@@ -1380,36 +1380,36 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_SY_EXTRAS =
 
 const std::vector<sGame_PaletteDataset> GGXXACR_S_TS_EXTRAS =
 {
-    { L"5D 1/2", 0x416c40, 0x416d40 }, // pair with 2/2 when we have previews
-    { L"5D 2/2", 0x4183d0, 0x4184d0 },
+    { L"5D 1/2", 0x416c40, 0x416d40, indexGGXXSprites_ACR_Testament, 0x08, &pairNext }, // pair with 2/2 when we have previews
+    { L"5D 2/2", 0x4183d0, 0x4184d0, indexGGXXSprites_ACR_Testament, 0x09, &pairPrevious },
 
-    { L"Ground Throw 1/2", 0x4465a0, 0x4469a0 },
-    { L"Ground Throw 2/2", 0x447600, 0x447a00 },
+    { L"Ground Throw 1/2", 0x4465a0, 0x4469a0, indexGGXXSprites_ACR_Testament, 0x0e },
+    { L"Ground Throw 2/2", 0x447600, 0x447a00, indexGGXXSprites_ACR_Testament, 0x0e },
 
-    { L"Phantom Soul (Aura)", 0x414ab0, 0x414af0 }, // pair with Skull when we have previews
-    { L"Phantom Soul (Skull)", 0x4169d0, 0x416a10 },
-    { L"Phantom Soul (Ring)", 0x448660, 0x4486a0 },
-    { L"Crow Feathers", 0x403a80, 0x403ac0 },
+    { L"Phantom Soul (Aura)", 0x414ab0, 0x414af0, indexGGXXSprites_ACR_Testament, 0x0b, &pairNext }, // pair with Skull when we have previews
+    { L"Phantom Soul (Skull)", 0x4169d0, 0x416a10, indexGGXXSprites_ACR_Testament, 0x0d }, // don't pair previous: it would obscure the skull
+    { L"Phantom Soul (Ring)", 0x448660, 0x4486a0, indexGGXXSprites_ACR_Testament, 0x0c },
+    { L"Crow Feathers", 0x403a80, 0x403ac0, indexGGXXSprites_ACR_Testament, 0x0a },
 
-    { L"Warrant 1/3", 0x419a60, 0x419aa0 },
-    { L"Warrant 2/3", 0x41f6d0, 0x41f710 },
-    { L"Warrant 3/3", 0x4256c0, 0x425700 },
+    { L"Warrant 1/3", 0x419a60, 0x419aa0, indexGGXXSprites_ACR_Testament, 0x11 },
+    { L"Warrant 2/3", 0x41f6d0, 0x41f710, indexGGXXSprites_ACR_Testament, 0x11 },
+    { L"Warrant 3/3", 0x4256c0, 0x425700, indexGGXXSprites_ACR_Testament, 0x11 },
 
-    { L"Zeinest (Blood) 1/2", 0x42d010, 0x42d050 },
-    { L"Zeinest (Blood) 2/2", 0x42e6a0, 0x42e6e0 },
-    { L"Zeinest (Nets) 1/3", 0x42f900, 0x42f940 },
-    { L"Zeinest (Nets) 2/3", 0x432580, 0x4325c0 },
-    { L"Zeinest (Nets) 3/3", 0x435350, 0x435390 },
-    { L"Zeinest (Skeleton Net) 1/3", 0x438050, 0x438090 },
-    { L"Zeinest (Skeleton Net) 2/3", 0x43b2f0, 0x43b330 },
-    { L"Zeinest (Skeleton Net) 3/3", 0x43e810, 0x43e850 },
+    { L"Zeinest (Blood) 1/2", 0x42d010, 0x42d050, indexGGXXSprites_ACR_Testament, 0x12 },
+    { L"Zeinest (Blood) 2/2", 0x42e6a0, 0x42e6e0, indexGGXXSprites_ACR_Testament, 0x12 },
+    { L"Zeinest (Nets) 1/3", 0x42f900, 0x42f940, indexGGXXSprites_ACR_Testament, 0x13 },
+    { L"Zeinest (Nets) 2/3", 0x432580, 0x4325c0, indexGGXXSprites_ACR_Testament, 0x13 },
+    { L"Zeinest (Nets) 3/3", 0x435350, 0x435390, indexGGXXSprites_ACR_Testament, 0x13 },
+    { L"Zeinest (Skeleton Net) 1/3", 0x438050, 0x438090, indexGGXXSprites_ACR_Testament, 0x14 },
+    { L"Zeinest (Skeleton Net) 2/3", 0x43b2f0, 0x43b330, indexGGXXSprites_ACR_Testament, 0x14 },
+    { L"Zeinest (Skeleton Net) 3/3", 0x43e810, 0x43e850, indexGGXXSprites_ACR_Testament, 0x14 },
 
-    { L"Nightmare Circular (Symbol)", 0x42a240, 0x42a280 }, // pair with Blood 1 when we have previews
-    { L"Nightmare Circular (Blood) 1/5", 0x44b370, 0x44b3b0 },
-    { L"Nightmare Circular (Blood) 2/5", 0x450460, 0x4504a0 },
-    { L"Nightmare Circular (Blood) 3/5", 0x454380, 0x4543c0 },
-    { L"Nightmare Circular (Blood) 4/5", 0x4587d0, 0x458810 },
-    { L"Nightmare Circular (Blood) 5/5", 0x45ae00, 0x45ae40 },
+    { L"Nightmare Circular (Symbol)", 0x42a240, 0x42a280, indexGGXXSprites_ACR_Testament, 0x10, &pairNext }, // pair with Blood 1 when we have previews
+    { L"Nightmare Circular (Blood) 1/5", 0x44b370, 0x44b3b0, indexGGXXSprites_ACR_Testament, 0x0f },
+    { L"Nightmare Circular (Blood) 2/5", 0x450460, 0x4504a0, indexGGXXSprites_ACR_Testament, 0x0f },
+    { L"Nightmare Circular (Blood) 3/5", 0x454380, 0x4543c0, indexGGXXSprites_ACR_Testament, 0x0f },
+    { L"Nightmare Circular (Blood) 4/5", 0x4587d0, 0x458810, indexGGXXSprites_ACR_Testament, 0x0f },
+    { L"Nightmare Circular (Blood) 5/5", 0x45ae00, 0x45ae40, indexGGXXSprites_ACR_Testament, 0x0f },
 };
 
 const std::vector<sGame_PaletteDataset> GGXXACR_S_VE_EXTRAS =

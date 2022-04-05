@@ -27,7 +27,7 @@ CGame_BlazBlueCF_S::CGame_BlazBlueCF_S(UINT32 nConfirmedROMSize /* = -1 */)
 
     nGameFlag = BlazBlueCF_S;
     nImgGameFlag = IMGDAT_SECTION_ARCSYS;
-    m_prgGameImageSet.clear();
+    m_prgGameImageSet = BlazBlueCF_S_IMGIDS_USED;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;

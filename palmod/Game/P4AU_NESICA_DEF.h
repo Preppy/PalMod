@@ -3,33 +3,6 @@
 #include <iterator>
 #include <iostream>
 
-enum PersonaSpriteList
-{
-    indexP4AUSprites_Aigis,         // 0x00
-    indexP4AUSprites_Akihiko,       // 0x01
-    indexP4AUSprites_Chie,          // 0x02
-    indexP4AUSprites_Elizabeth,     // 0x03
-    indexP4AUSprites_Junpei,        // 0x04
-    indexP4AUSprites_Kanji,         // 0x05
-    indexP4AUSprites_Ken,           // 0x06
-    indexP4AUSprites_Labrys,        // 0x07
-    indexP4AUSprites_Margaret,      // 0x08
-    indexP4AUSprites_Marie,         // 0x09
-    indexP4AUSprites_Mitsuru,       // 0x0a
-    indexP4AUSprites_Naoto,         // 0x0b
-    indexP4AUSprites_Rise,          // 0x0c
-    indexP4AUSprites_Shadow,        // 0x0d
-    indexP4AUSprites_Sho,           // 0x0e
-    indexP4AUSprites_Solo,          // 0x0f
-    indexP4AUSprites_Teddie,        // 0x10
-    indexP4AUSprites_Tohru,         // 0x11
-    indexP4AUSprites_Yosuke,        // 0x12
-    indexP4AUSprites_Yu,            // 0x13
-    indexP4AUSprites_Yukari,        // 0x14
-    indexP4AUSprites_Yukiko,        // 0x15
-    indexP4AUSprites_Bonus,         // 0x16
-};
-
 const std::vector<UINT16> P4AU_S_IMGIDS_USED =
 {
     indexP4AUSprites_Aigis,         // 0x00

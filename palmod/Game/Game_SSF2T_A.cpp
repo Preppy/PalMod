@@ -63,7 +63,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     strMessage.Format(L"CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %u ROM\n", m_nSSF2TSelectedRom);
     OutputDebugString(strMessage);
 
-    const UINT32 nSafeCountFor3C = 322;
+    const UINT32 nSafeCountFor3C = 323;
     const UINT32 nSafeCountFor4A = 705;
     const UINT32 nSafeCountFor8 = 72;
 

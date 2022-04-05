@@ -57,6 +57,7 @@ const std::vector<UINT16> KOF98_A_IMGIDS_USED =
     indexKOF98Sprites_OShermie,         // 0x2e1
     indexKOF98Sprites_OYashiro,         // 0x2e2
     indexKOF98Sprites_OmegaRugal,       // 0x2e3
+    indexKOF98Sprites_Bonus,            // 0x2e4
 };
 
 const sGame_PaletteDataset KOF98_A_KYO_PALETTE_A[] =
@@ -2798,22 +2799,22 @@ const sGame_PaletteDataset KOF98_A_OMEGARUGAL_EFFECT_PALETTES[] =
 
 const sGame_PaletteDataset KOF98_A_BONUS_CSI_PALETTES[] =
 {
-    { L"Hero Team", 0x2F3730, 0x2F3790 },
-    { L"Fatal Fury Team", 0x2F3790, 0x2F37F0 },
-    { L"Art of Fighting Team", 0x2F37F0, 0x2F3850 },
-    { L"Ikari Team", 0x2F3850, 0x2F38B0 },
-    { L"Psycho Soldier Team", 0x2F38B0, 0x2F3910 },
-    { L"Women Fighters Team", 0x2F3910, 0x2F3970 },
-    { L"Kim Team", 0x2F3970, 0x2F39D0 },
-    { L"New Face Team", 0x2F39D0, 0x2F3A30 },
-    { L"'97 Special Team", 0x2F3A30, 0x2F3A90 },
-    { L"Yagami Tea", 0x2F3A90, 0x2F3AF0 },
-    { L"Oyaji Team", 0x2F3AF0, 0x2F3B50 },
-    { L"American Sport Team", 0x2F3B50, 0x2F3BB0 },
-    { L"Rugal Bernstein", 0x2F3BB0, 0x2F3BD0 },
-    { L"Shingo Yabuki", 0x2F3BD0, 0x2F3BF0 },
-    { L"Orochi Team", 0x2F3610, 0x2F3670 },
-    { L"Omega Rugal ", 0x2F36B0, 0x2F36D0 },
+    { L"Hero Team", 0x2F3730, 0x2F3790, indexKOF98Sprites_Bonus, 0x03, &pairFullyLinkedNode },
+    { L"Fatal Fury Team", 0x2F3790, 0x2F37F0, indexKOF98Sprites_Bonus, 0x02 },
+    { L"Art of Fighting Team", 0x2F37F0, 0x2F3850, indexKOF98Sprites_Bonus, 0x01 },
+    { L"Ikari Team", 0x2F3850, 0x2F38B0, indexKOF98Sprites_Bonus, 0x04 },
+    { L"Psycho Soldier Team", 0x2F38B0, 0x2F3910, indexKOF98Sprites_Bonus, 0x0a },
+    { L"Women Fighters Team", 0x2F3910, 0x2F3970, indexKOF98Sprites_Bonus, 0x0d },
+    { L"Kim Team", 0x2F3970, 0x2F39D0, indexKOF98Sprites_Bonus, 0x05 },
+    { L"New Face Team", 0x2F39D0, 0x2F3A30, indexKOF98Sprites_Bonus, 0x07 },
+    { L"'97 Special Team", 0x2F3A30, 0x2F3A90, indexKOF98Sprites_Bonus, 0x00 },
+    { L"Yagami Tea", 0x2F3A90, 0x2F3AF0, indexKOF98Sprites_Bonus, 0x0e },
+    { L"Oyaji Team", 0x2F3AF0, 0x2F3B50, indexKOF98Sprites_Bonus, 0x06 },
+    { L"American Sport Team", 0x2F3B50, 0x2F3BB0, indexKOF98Sprites_Bonus, 0x0c },
+    { L"Rugal Bernstein", 0x2F3BB0, 0x2F3BD0, indexKOF98Sprites_Bonus, 0x0f },
+    { L"Shingo Yabuki", 0x2F3BD0, 0x2F3BF0, indexKOF98Sprites_Bonus, 0x0b },
+    { L"Orochi Team", 0x2F3610, 0x2F3670, indexKOF98Sprites_Bonus, 0x09 },
+    { L"Omega Rugal", 0x2F36B0, 0x2F36D0, indexKOF98Sprites_Bonus, 0x08 },
 
 //    { L"back ground select characters", 0x2F36F0, 0x2F3710 },
 //    { L"Mode Select", 0x2F3C30, 0x2F3C50 },

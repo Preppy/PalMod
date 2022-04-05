@@ -1666,6 +1666,11 @@ const sDescTreeNode SSF2T_A_GOUKI_COLLECTION[] =
     { L"P2 Color",    DESC_NODETYPE_TREE, (void*)SSF2T_A_GOUKI_PALETTES_P2COLOR,     ARRAYSIZE(SSF2T_A_GOUKI_PALETTES_P2COLOR) },
 };
 
+const sGame_PaletteDataset SSF2T_A_03_BONUS_NODE[] =
+{
+    { L"Character Select icons", 0xF1DA, 0xf3da, indexSF2Sprites_Bonus, 0x23 },
+};
+
 const sGame_PaletteDataset SSF2T_A_08_BONUS_NODE[] =
 {
     { L"Intro Ryu Part 1", 0x6d0be, 0x6d1fe },
@@ -3070,6 +3075,11 @@ const sDescTreeNode SSF2T_A_4A_STAGES_COLLECTION[] =
     { L"Ryu's Stage (04 parts)",      DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
 };
 
+const sDescTreeNode SSF2T_A_03_BONUS_COLLECTION[] =
+{
+    { L"Palettes",                  DESC_NODETYPE_TREE, (void*)SSF2T_A_03_BONUS_NODE,          ARRAYSIZE(SSF2T_A_03_BONUS_NODE) },
+};
+
 const sDescTreeNode SSF2T_A_04_BONUS_COLLECTION[] =
 {
     { L"Intro Palettes",            DESC_NODETYPE_TREE, (void*)SSF2T_A_04_BONUS_NODE,          ARRAYSIZE(SSF2T_A_04_BONUS_NODE) },
@@ -3091,6 +3101,8 @@ const sDescTreeNode SSF2T_A_08_STAGES_COLLECTION[] =
     { L"Sagat's Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE,    ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE) },
 };
 
+#define k_stNameKey_Bonus L"Bonus Palettes"
+
 const sDescTreeNode SSF2T_A_UNITS_3C[] =
 {
     { L"Balrog",      DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_PORTRAIT_COLLECTION,        ARRAYSIZE(SSF2T_A_BALROG_PORTRAIT_COLLECTION) },
@@ -3110,12 +3122,12 @@ const sDescTreeNode SSF2T_A_UNITS_3C[] =
     { L"Vega",        DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_PORTRAIT_COLLECTION,          ARRAYSIZE(SSF2T_A_VEGA_PORTRAIT_COLLECTION) },
     { L"Zangief",     DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_PORTRAIT_COLLECTION,       ARRAYSIZE(SSF2T_A_ZANGIEF_PORTRAIT_COLLECTION) },
     { L"Stages",      DESC_NODETYPE_TREE, (void*)SSF2T_A_03_STAGES_COLLECTION,              ARRAYSIZE(SSF2T_A_03_STAGES_COLLECTION) },
+    // We special-case handling this, so use a namekey
+    { k_stNameKey_Bonus,    DESC_NODETYPE_TREE, (void*)SSF2T_A_03_BONUS_COLLECTION,         ARRAYSIZE(SSF2T_A_03_BONUS_COLLECTION) },
 };
 
 constexpr auto SSF2T_A_NUM_IND_3C = ARRAYSIZE(SSF2T_A_UNITS_3C);
 constexpr auto SSF2T_A_EXTRALOC_3C = SSF2T_A_NUM_IND_3C;
-
-#define k_stNameKey_Bonus L"Bonus Palettes"
 
 const sDescTreeNode SSF2T_A_UNITS_4A[SSF2T_A_NUM_IND_4A] =
 {

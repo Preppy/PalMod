@@ -40,7 +40,7 @@ private:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation_3C = 0x31c00;
+    const int m_uLowestKnownPaletteROMLocation_3C = 0xf1da;
     const int m_uLowestKnownPaletteROMLocation_4A = 0x3FB00;
     const int m_uLowestKnownPaletteROMLocation_8 = 0x603be;
 

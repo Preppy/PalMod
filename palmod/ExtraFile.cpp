@@ -1000,6 +1000,12 @@ bool CGameWithExtrasFile::_CreateNewExtrasFile(LPCWSTR pszFilePath)
             fSuccess = true;
             _CreateExtrasFileWithOptions(ExtraFile, sCreationOptions);
         }
+        else
+        {
+            CString strError;
+            strError.Format(L"PalMod could not create a file at:\n\t\"%s\"\nPlease ensure that this is a writable location.\n", pszFilePath);
+            MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR | MB_OK);
+        }
     }
 
     return fSuccess;
