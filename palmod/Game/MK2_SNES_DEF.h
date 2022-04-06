@@ -43,6 +43,7 @@ const sGame_PaletteDataset MK2_SNES_LIUKANG_P2_PALETTES[] =
 const sGame_PaletteDataset MK2_SNES_LIUKANG_EFFECT_PALETTES[] =
 {
     { L"Liu Kang Fire", 0x2fa168, 0x2fa188, indexMK2Sprites_LiuKang, 0x01 },
+    { L"Liu Kang Dragon", 0x2FC30E, 0x2FC32E },
 };
 
 const sGame_PaletteDataset MK2_SNES_KUNGLAO_P1_PALETTES[] =
@@ -55,6 +56,11 @@ const sGame_PaletteDataset MK2_SNES_KUNGLAO_P2_PALETTES[] =
     { L"Kung Lao P2", 0x2fd1b0, 0x2fd1d0, indexMK2Sprites_KungLao },
 };
 
+const sGame_PaletteDataset MK2_SNES_KUNGLAO_EFFECT_PALETTES[] =
+{
+    { L"Kung Lao Hat Toss", 0x2FA148, 0x2FA168 },
+};
+
 const sGame_PaletteDataset MK2_SNES_JOHNNYCAGE_P1_PALETTES[] =
 {
     { L"Johnny Cage P1", 0x2f88be, 0x2f88de, indexMK2Sprites_JohnnyCage },
@@ -63,6 +69,12 @@ const sGame_PaletteDataset MK2_SNES_JOHNNYCAGE_P1_PALETTES[] =
 const sGame_PaletteDataset MK2_SNES_JOHNNYCAGE_P2_PALETTES[] =
 {
     { L"Johnny Cage P2", 0x2f88de, 0x2f88fe, indexMK2Sprites_JohnnyCage },
+};
+
+const sGame_PaletteDataset MK2_SNES_JOHNNYCAGE_EFFECT_PALETTES[] =
+{
+    { L"Johnny Cage Force Ball", 0x2FA1A8, 0x2FA1C8 },
+    { L"Johnny Cage Shadow Kick", 0x2F88FE, 0x2F891E },
 };
 
 const sGame_PaletteDataset MK2_SNES_REPTILE_P1_PALETTES[] =
@@ -93,7 +105,7 @@ const sGame_PaletteDataset MK2_SNES_SUBZERO_P2_PALETTES[] =
 
 const sGame_PaletteDataset MK2_SNES_SUBZERO_EFFECT_PALETTES[] =
 {
-    { L"Sub Zero Freeze", 0x2f9033, 0xf9053, indexMK2Sprites_SubZero, 0x01 },
+    { L"Sub-Zero Freeze", 0x2f9033, 0xf9053, indexMK2Sprites_SubZero, 0x01 },
 };
 
 const sGame_PaletteDataset MK2_SNES_SHANGTSUNG_P1_PALETTES[] =
@@ -126,6 +138,11 @@ const sGame_PaletteDataset MK2_SNES_JAX_P2_PALETTES[] =
     { L"Jax P2", 0x2fd550, 0x2fd570, indexMK2Sprites_Jax },
 };
 
+const sGame_PaletteDataset MK2_SNES_JAX_EFFECT_PALETTES[] =
+{
+    { L"Jax Projectile", 0x2F9133, 0x2F9153 },
+};
+
 const sGame_PaletteDataset MK2_SNES_MILEENA_P1_PALETTES[] =
 {
     { L"Mileena P1", 0x2f91b3, 0x2f91d3, indexMK2Sprites_Mileena },
@@ -156,6 +173,12 @@ const sGame_PaletteDataset MK2_SNES_SCORPION_P2_PALETTES[] =
     { L"Scorpion P2", 0x2f3f4e, 0x2f3f6e, indexMK2Sprites_Scorpion },
 };
 
+const sGame_PaletteDataset MK2_SNES_SCORPION_EFFECTS_PALETTES[] =
+{
+    { L"Scorpion Spear", 0x2F90B3, 0x2F90D3 },
+    { L"Scorpion Skull", 0x2F9073, 0x2F9093 },
+};
+
 const sGame_PaletteDataset MK2_SNES_RAIDEN_P1_PALETTES[] =
 {
     { L"Raiden P1", 0x2fcbb4, 0x2fcbd4, indexMK2Sprites_Raiden },
@@ -164,6 +187,12 @@ const sGame_PaletteDataset MK2_SNES_RAIDEN_P1_PALETTES[] =
 const sGame_PaletteDataset MK2_SNES_RAIDEN_P2_PALETTES[] =
 {
     { L"Raiden P2", 0x2fcbd4, 0x2fcbf4, indexMK2Sprites_Raiden },
+};
+
+const sGame_PaletteDataset MK2_SNES_RAIDEN_EFFECT_PALETTES[] =
+{
+    { L"Raiden Lighting Bolt", 0x2F90F3, 0x2F9113 },
+    { L"Raiden Teleport", 0x2F9113, 0x2F9133 },
 };
 
 const sGame_PaletteDataset MK2_SNES_JADE_PALETTES[] =
@@ -226,19 +255,6 @@ const sGame_PaletteDataset MK2_SNES_STAGE_PALETTES_ARENA[] =
     { L"Khan's Arena", 0x2fd3d0, 0x2fd490 },
 };
 
-const sGame_PaletteDataset MK2_SNES_BONUS_PALETTES_EFFECTS[] =
-{
-    { L"Dragon", 0x2FC30E, 0x2FC32E },
-    { L"Scorpion Spear", 0x2F90B3, 0x2F90D3 },
-    { L"Force Ball", 0x2FA1A8, 0x2FA1C8 },
-    { L"Shadow Kick", 0x2F88FE, 0x2F891E },
-    { L"Scorpion Skull", 0x2F9073, 0x2F9093 },
-    { L"Raiden Lighting Bolt", 0x2F90F3, 0x2F9113 },
-    { L"Raiden Teleport", 0x2F9113, 0x2F9133 },
-    { L"Jax Projectile", 0x2F9133, 0x2F9153 },
-    { L"Kung Lao Hat Toss", 0x2FA148, 0x2FA168 },
-};
-
 const sGame_PaletteDataset MK2_SNES_BONUS_PALETTES_SELECT[] =
 {
     { L"Select 1/2", 0x2F40AE, 0x2F41AE },
@@ -257,12 +273,16 @@ const sDescTreeNode MK2_SNES_KUNGLAO_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_KUNGLAO_P1_PALETTES, ARRAYSIZE(MK2_SNES_KUNGLAO_P1_PALETTES) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_KUNGLAO_P2_PALETTES, ARRAYSIZE(MK2_SNES_KUNGLAO_P2_PALETTES) },
+
+    { L"Effects", DESC_NODETYPE_TREE, (void*)MK2_SNES_KUNGLAO_EFFECT_PALETTES, ARRAYSIZE(MK2_SNES_KUNGLAO_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode MK2_SNES_JOHNNYCAGE_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_JOHNNYCAGE_P1_PALETTES, ARRAYSIZE(MK2_SNES_JOHNNYCAGE_P1_PALETTES) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_JOHNNYCAGE_P2_PALETTES, ARRAYSIZE(MK2_SNES_JOHNNYCAGE_P2_PALETTES) },
+
+    { L"Effects", DESC_NODETYPE_TREE, (void*)MK2_SNES_JOHNNYCAGE_EFFECT_PALETTES, ARRAYSIZE(MK2_SNES_JOHNNYCAGE_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode MK2_SNES_REPTILE_COLLECTION[] =
@@ -297,6 +317,8 @@ const sDescTreeNode MK2_SNES_JAX_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_JAX_P1_PALETTES, ARRAYSIZE(MK2_SNES_JAX_P1_PALETTES) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_JAX_P2_PALETTES, ARRAYSIZE(MK2_SNES_JAX_P2_PALETTES) },
+
+    { L"Effects", DESC_NODETYPE_TREE, (void*)MK2_SNES_JAX_EFFECT_PALETTES, ARRAYSIZE(MK2_SNES_JAX_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode MK2_SNES_MILEENA_COLLECTION[] =
@@ -315,12 +337,16 @@ const sDescTreeNode MK2_SNES_SCORPION_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_SCORPION_P1_PALETTES, ARRAYSIZE(MK2_SNES_SCORPION_P1_PALETTES) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_SCORPION_P2_PALETTES, ARRAYSIZE(MK2_SNES_SCORPION_P2_PALETTES) },
+
+    { L"Effects", DESC_NODETYPE_TREE, (void*)MK2_SNES_SCORPION_EFFECTS_PALETTES, ARRAYSIZE(MK2_SNES_SCORPION_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode MK2_SNES_RAIDEN_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MK2_SNES_RAIDEN_P1_PALETTES, ARRAYSIZE(MK2_SNES_RAIDEN_P1_PALETTES) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MK2_SNES_RAIDEN_P2_PALETTES, ARRAYSIZE(MK2_SNES_RAIDEN_P2_PALETTES) },
+    
+    { L"Effects", DESC_NODETYPE_TREE, (void*)MK2_SNES_RAIDEN_EFFECT_PALETTES, ARRAYSIZE(MK2_SNES_RAIDEN_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode MK2_SNES_JADE_COLLECTION[] =
@@ -353,7 +379,6 @@ const sDescTreeNode MK2_SNES_STAGE_COLLECTION[] =
 
 const sDescTreeNode MK2_SNES_BONUS_COLLECTION[] =
 {
-    { L"Effects", DESC_NODETYPE_TREE, (void*)MK2_SNES_BONUS_PALETTES_EFFECTS, ARRAYSIZE(MK2_SNES_BONUS_PALETTES_EFFECTS) },
     { L"Select Screen", DESC_NODETYPE_TREE, (void*)MK2_SNES_BONUS_PALETTES_SELECT, ARRAYSIZE(MK2_SNES_BONUS_PALETTES_SELECT) },
 };
 

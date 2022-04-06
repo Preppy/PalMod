@@ -39,7 +39,7 @@ protected:
     uint32_t m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
     UINT16 m_nCurrentPaletteSizeInColors = 0;
     LPCWSTR m_pszCurrentPaletteName = nullptr;
-    UINT32 m_nConfirmedCRCValue = 0;
+    uint32_t m_nConfirmedCRCValue = 0;
 
     BOOL m_fIsDirectoryBasedGame = FALSE;
     BOOL m_fGameUnitsMapToIndividualFiles = FALSE;
@@ -125,7 +125,7 @@ protected:
     {
         LPCWSTR szFriendlyName = L"Unknown Game";
         LPCWSTR szROMFileName = L"uninit";
-        const UINT32 crcValueExpected = -1;
+        const uint32_t crcValueExpected = 0;
         const int32_t nROMSpecificOffset = 0;
         std::vector<ROMRevisionLookupData> vValidationCheckBytes = {};
     };

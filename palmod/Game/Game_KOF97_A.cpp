@@ -489,7 +489,7 @@ UINT32 CGame_KOF97_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     {
         { L"King of Fighters '97 (Neo-Geo)", L"232-p2.sp2", 0x158b23f6, 0 },
         { L"King of Fighters '97 (Neo-Geo)", L"KOF97_p2.rom", 0x158b23f6, 0 },
-        { L"King of Fighters '97AE (Neo-Geo)", L"232ae.p2", -1, 0 },
+        { L"King of Fighters '97AE (Neo-Geo)", L"232ae.p2", 0x8cffe3f3, 0 },
         { L"King of Fighters '97 Plus (Neo-Geo bootleg)", L"kf97-p2p.bin", 0x5502b020, 0 },
         { L"King of Fighters '97 Anniversary Edition (Neo-Geo)", L"232ae-p2.sp2", 0x228aa8d1, 0 },
 

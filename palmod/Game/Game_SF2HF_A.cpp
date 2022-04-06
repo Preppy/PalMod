@@ -151,7 +151,7 @@ UINT32 CGame_SF2HF_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
         { L"Street Fighter II' - Hyper Fighting (Japan 921209)", L"s2tj_22.7f", 0xaea6e035, 0 },
         { L"Street Fighter II' - Hyper Fighting (Japan 921209)", L"s2tj_23.8f", 0xea73b4dc, 0 },
 
-        { L"Street Fighter II' - Hyper Fighting (30th Anniversary)", L"bundleStreetFighterII_HF.mbundle", -1, 0 },
+        { L"Street Fighter II' - Hyper Fighting (30th Anniversary)", L"bundleStreetFighterII_HF.mbundle", 0x299ce4f8, 0 },
     };
 
     if (ppKnownROMSet)

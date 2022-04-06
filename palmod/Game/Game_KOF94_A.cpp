@@ -103,7 +103,7 @@ UINT32 CGame_KOF94_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
         // There are three unique ROM sets, but the first two share the same palette file,
         // and the third one we don't care about.
         { L"KOF '94 (Neo-Geo)", L"055-p1.p1", 0xf10a2042, 0 },
-        { L"KOF '94 (Neo-Geo)", L"055-p1.bin", -1, 0 },
+        { L"KOF '94 (Neo-Geo)", L"055-p1.bin", 0xf10a2042, 0 },
         { L"KOF '94 (Neo-Geo)", L"242-p2.sp2", 0x940aba4c, 0 },
         { L"KOF '94 (Neo-Geo)", L"kof94_p2.rom", 0x940aba4c, 0 },
         { L"KOF '94 (Neo-Geo Alt)", L"242-ep.ep2", 0x6e474841, 0 },
