@@ -36,7 +36,7 @@ const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_P2[] =
 
 const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_NORMAL[] =
 {
-    { L"Normal Goku", 0x27B161, 0x27B181 },
+    { L"Goku's Hair lighting and KI Blast effects", 0x27B161, 0x27B181 },
     { L"Normal Goku Sunset", 0x27B1E1, 0x27B201 },
     { L"Normal Goku Nighttime", 0x27B201, 0x27B221 },
 };
