@@ -711,6 +711,9 @@ const sGame_PaletteDataset SFIII1_A_BONUS_PALETTES[] =
     { L"P2 Hitsparks/Other", 0x3d4300, 0x3d4380 },
     { L"Super Startup/Impact/Dust/Whatever", 0x3d4000, 0x3d4200 },
     { L"Universal Zap Skeleton", 0x3d4380, 0x3d4400 },
+
+    { L"Parry Flash", 0x3FF47a, 0x3FF47E },
+    { L"Parry Flash (Player Shadow)", 0x3FF7Fa, 0x3FF7FE },
 };
 
 const sGame_PaletteDataset SFIII1_A_BONUS_LOGO_PALETTES[] =

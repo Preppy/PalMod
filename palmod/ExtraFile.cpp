@@ -763,6 +763,21 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     }
 }
 
+void CGameWithExtrasFile::_WriteToFileAsANSI(CFile& ExtraFile, CString strData)
+{
+    DWORD dwSize = WideCharToMultiByte(CP_ACP, 0, strData.GetString(), -1, NULL, 0, NULL, FALSE);
+
+    char* paszBuffer = new char[dwSize];
+    memset(paszBuffer, 0, dwSize);
+    
+    if (WideCharToMultiByte(CP_ACP, 0, strData.GetString(), -1, paszBuffer, dwSize, NULL, FALSE))
+    {
+        ExtraFile.Write(paszBuffer, strlen(paszBuffer));
+    }
+
+    delete[] paszBuffer;
+};
+
 void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtrasFileCreationOptions& sCreationOptions)
 {
     if (GetIsDir())
@@ -787,7 +802,7 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
 
     sPaletteTrackingInformation* pListRoot = nullptr;
 
-    if (sCreationOptions.fAddKnownAsComments)
+    if (sCreationOptions.fAddKnownAsComments || sCreationOptions.fShowUnknownRegions)
     {
         for (uint32_t nUnitIndex = 0; nUnitIndex < c_nUnitCount; nUnitIndex++)
         {
@@ -843,48 +858,48 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
     }
 
     // Write the header
-    CStringA straExtraFileText;
+    CString strExtraFileText;
 
-    straExtraFileText = ";Please refer to the Read Me for a brief guide to Extras files, or the longer guide on the PalMod site.\r\n\r\n";
-    straExtraFileText += ";When you are done making changes to the Extras file, reload the game to see those palettes.\r\n\r\n";
+    strExtraFileText = L";Please refer to the Read Me for a brief guide to Extras files, or the longer guide on the PalMod site.\r\n\r\n";
+    strExtraFileText += L";When you are done making changes to the Extras file, reload the game to see those palettes.\r\n\r\n";
 
-    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
 
     // Add in the basic game information
 
     if (GetGameName())
     {
-        straExtraFileText.Format("%s%S\r\n", m_kpszGameNameKey, GetGameName());
-        ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+        strExtraFileText.Format(L"%S%s\r\n", m_kpszGameNameKey, GetGameName());
+        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
     }
 
     LPCSTR paszColorFormat = ColorSystem::GetColorFormatStringForColorFormat(GetColorMode());
     if (paszColorFormat)
     {
-        straExtraFileText.Format("%s%s\r\n", m_kpszColorFormatKey, paszColorFormat);
-        ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+        strExtraFileText.Format(L"%S%S\r\n", m_kpszColorFormatKey, paszColorFormat);
+        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
     }
 
     LPCSTR paszAlphaMode = ColorSystem::GetAlphaModeStringForAlphaMode(GetAlphaMode());
     if (paszAlphaMode)
     {
-        straExtraFileText.Format("%s%s\r\n", m_kpszAlphaModeKey, paszAlphaMode);
-        ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+        strExtraFileText.Format(L"%S%S\r\n", m_kpszAlphaModeKey, paszAlphaMode);
+        _WriteToFileAsANSI(ExtraFile, strExtraFileText);
     }
 
-    straExtraFileText = "\r\n";
-    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+    strExtraFileText = L"\r\n";
+    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
 
-    if (sCreationOptions.fAddKnownAsComments)
+    if (sCreationOptions.fAddKnownAsComments || sCreationOptions.fShowUnknownRegions)
     {
-        if (sCreationOptions.fShowUnknownRegions && sCreationOptions.fShowPreUnknown)
+        if (sCreationOptions.fShowUnknownRegions && sCreationOptions.fShowPreUnknown && (m_nLowestKnownPaletteRomLocation != 0))
         {
-            straExtraFileText = "Start of this ROM\r\n";
-            straExtraFileText += L"0x0\r\n";
-            straExtraFileText += ";To: first known palette\r\n";
-            ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
-            straExtraFileText.Format("0x%x\r\n\r\n", m_nLowestKnownPaletteRomLocation);
-            ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+            strExtraFileText = L"Start of this ROM\r\n";
+            strExtraFileText += L"0x0\r\n";
+            strExtraFileText += L";To: first known palette\r\n";
+            _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+            strExtraFileText.Format(L"0x%x\r\n\r\n", m_nLowestKnownPaletteRomLocation);
+            _WriteToFileAsANSI(ExtraFile, strExtraFileText);
         }
 
         sPaletteTrackingInformation* pCurrent = pListRoot;
@@ -892,11 +907,14 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
         // Output the list
         while (pCurrent)
         {
-            straExtraFileText.Format(";Known: %S, %S, %S\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
-            ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+            if (sCreationOptions.fAddKnownAsComments)
+            {
+                strExtraFileText.Format(L";Known: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                _WriteToFileAsANSI(ExtraFile, strExtraFileText);
 
-            straExtraFileText.Format(";Start: 0x%x\r\n", pCurrent->nPaletteOffset);
-            ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                strExtraFileText.Format(L";Start: 0x%x\r\n", pCurrent->nPaletteOffset);
+                _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+            }
 
             bool fHaveExtendedTheRange = false;
 
@@ -915,27 +933,30 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
                 }
             }
 
-            if (fHaveExtendedTheRange)
+            if (sCreationOptions.fAddKnownAsComments)
             {
-                straExtraFileText.Format("; to %S, %S, %S\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
-                ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
-            }
+                if (fHaveExtendedTheRange)
+                {
+                    strExtraFileText.Format(L"; to %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                }
 
-            straExtraFileText.Format(";End: 0x%x\r\n\r\n", pCurrent->nTerminalOffset);
-            ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                strExtraFileText.Format(L";End: 0x%x\r\n\r\n", pCurrent->nTerminalOffset);
+                _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+            }
 
             if (pCurrent->pNext)
             {
                 if (sCreationOptions.fShowUnknownRegions)
                 {
-                    straExtraFileText.Format("After: %S, %S, %S\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
-                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
-                    straExtraFileText.Format("0x%x\r\n", pCurrent->nTerminalOffset);
-                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
-                    straExtraFileText.Format(";Before: %S, %S, %S\r\n", pCurrent->pNext->strUnitName.c_str(), pCurrent->pNext->strCollectionName.c_str(), pCurrent->pNext->strPaletteName.c_str());
-                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
-                    straExtraFileText.Format("0x%x\r\n\r\n", pCurrent->pNext->nPaletteOffset);
-                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                    strExtraFileText.Format(L"After: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                    strExtraFileText.Format(L"0x%x\r\n", pCurrent->nTerminalOffset);
+                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                    strExtraFileText.Format(L";Before: %s, %s, %s\r\n", pCurrent->pNext->strUnitName.c_str(), pCurrent->pNext->strCollectionName.c_str(), pCurrent->pNext->strPaletteName.c_str());
+                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                    strExtraFileText.Format(L"0x%x\r\n\r\n", pCurrent->pNext->nPaletteOffset);
+                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
                 }
             }
             else if (sCreationOptions.fShowUnknownRegions && sCreationOptions.fShowPostUnknown && m_pszLoadDir)
@@ -945,14 +966,14 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
 
                 if (GameROM.Open(m_pszLoadDir, CFile::modeRead | CFile::typeBinary))
                 {
-                    straExtraFileText.Format("After: %S, %S, %S\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
-                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
-                    straExtraFileText.Format("0x%x\r\n", pCurrent->nTerminalOffset);
-                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
-                    straExtraFileText = ";To: end of ROM\r\n";
-                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
-                    straExtraFileText.Format("0x%x\r\n\r\n", (int)GameROM.GetLength());
-                    ExtraFile.Write(straExtraFileText.GetString(), (UINT)strlen(straExtraFileText.GetString()));
+                    strExtraFileText.Format(L"After: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
+                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                    strExtraFileText.Format(L"0x%x\r\n", pCurrent->nTerminalOffset);
+                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                    strExtraFileText = L";To: end of ROM\r\n";
+                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
+                    strExtraFileText.Format(L"0x%x\r\n\r\n", (int)GameROM.GetLength());
+                    _WriteToFileAsANSI(ExtraFile, strExtraFileText);
 
                     GameROM.Abort();
                 }
@@ -976,7 +997,7 @@ bool CGameWithExtrasFile::_GetExtrasOptionsFromUser(sExtrasFileCreationOptions& 
     if (createDlg.DoModal() == IDOK)
     {
         sCreationOptions.fAddKnownAsComments = createDlg.m_fAddKnownAsComments;
-        sCreationOptions.fSortKnownPalettes = createDlg.m_fSortKnownPalettes;
+        sCreationOptions.fSortKnownPalettes = createDlg.m_fSortKnownPalettes || createDlg.m_fShowUnknownRegions;
         sCreationOptions.fShowUnknownRegions = createDlg.m_fShowUnknownRegions;
         sCreationOptions.fShowPreUnknown = createDlg.m_fShowPreUnknown;
         sCreationOptions.fShowPostUnknown = createDlg.m_fShowPostUnknown;

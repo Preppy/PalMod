@@ -42,6 +42,7 @@ private:
 
     bool _CreateNewExtrasFile(LPCWSTR pszFilePath);
     bool _GetExtrasOptionsFromUser(sExtrasFileCreationOptions& sCreationOptions);
+    void _WriteToFileAsANSI(CFile& ExtraFile, CString strData);
     void _CreateExtrasFileWithOptions(CFile& ExtraFile, sExtrasFileCreationOptions& sCreationOptions);
 
 public:

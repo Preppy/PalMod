@@ -3298,7 +3298,8 @@ const sGame_PaletteDataset KOF02_A_Terry_PALETTES_SHARED[] =
     { L"Power Wave and Dunk",           0x9f182, 0x9f1a2, indexKOF02UMSprites_Terry, 0x02 },
     { L"Power Geyser and P. Wave Hit",  0x9f1a2, 0x9f1c2, indexKOF02UMSprites_Terry, 0x03 },
     { L"MAX2 Super",                    0x9f1c2, 0x9f1e2, indexKOF02UMSprites_Terry, 0x09 },
-    { L"Round Wave",                    0x9f262, 0x9f282, indexKOF02UMSprites_Terry, 0x05 },
+    { L"Round Wave",                    0x86f42, 0x86f62, indexKOF02UMSprites_Terry, 0x05 },
+    //{ L"Round Wave",                    0x9f262, 0x9f282, indexKOF02UMSprites_Terry, 0x05 },
 };
 
 const sGame_PaletteDataset KOF02_A_Andy_PALETTES_SHARED[] =
@@ -4205,8 +4206,11 @@ const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
     { L"Blood Effects", 0x86f22, 0x86f42 },
     { L"Grab Sparks", 0x86ee2, 0x86f02 },
     { L"Hitspark Effects", 0x87562, 0x87582 },
+    { L"Slash and Ground Effects", 0x87582, 0x875a2 },
     { L"Blocksparks Effects", 0x86e02, 0x86e22 },
     { L"Special/Super Blocksparks", 0x86e22, 0x86e42 },
+    { L"Dust and Fire Effects", 0x86ea2, 0x86ec2 },
+    { L"Dust and Orochi Fire Effects", 0x86f82, 0x86fa2 },
     { L"MAX Mode and SDM Flash", 0x87022, 0x87042 },
     { L"MAX Flash", 0x875e2, 0x87602 },
     { L"MAX2 Flash", 0x87602, 0x87622 },

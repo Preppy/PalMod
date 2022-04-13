@@ -75,8 +75,6 @@ const sGame_PaletteDataset REDEARTH_A_LEO_PUNCH_PALETTES[] =
     { L"Leo Punch Frozen 5", 0x40B180, 0x40B200, indexRedEarthSprites_Leo },
     { L"Mirror Trapped - Leo Punch", 0x433f00, 0x433f80, indexRedEarthSprites_Leo, 0x0 },
 
-    { L"Punch Palette Leo Unused?", 0x414880, 0x414900, indexRedEarthSprites_Leo, 0x00 },
-
     { L"Vigo, Valo & Vestu", 0x408f80, 0x409000 },
     { L"Wisemen Mist 1", 0x409000, 0x409080 },
     { L"Wisemen Mist 2", 0x409080, 0x409100 },
@@ -122,8 +120,6 @@ const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
     { L"Leo Kick Frozen 5", 0x417980, 0x417A00, indexRedEarthSprites_Leo }, 
     { L"Mirror Trapped - Leo Kick",         0x434000, 0x434080, indexRedEarthSprites_Leo, 0x0 },
 
-    { L"Kick Palette Leo Unused? ", 0x408080, 0x408100, indexRedEarthSprites_Leo, 0x00 },
-
     { L"Vigo, Valo & Vestu", 0x415780, 0x415800 },
     { L"Wisemen Mist 1", 0x415800, 0x415880 },
     { L"Wisemen Mist 2", 0x415880, 0x415900 },
@@ -134,8 +130,14 @@ const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
     { L"Leo Character Select",               0x1DF200, 0x1DF280, indexRedEarthSprites_Leo, 0x11 },
     { L"Leo Character Selected",             0x1DEB80, 0x1DEC00, indexRedEarthSprites_Leo, 0x11 },
     { L"Leo Character Select Portrait",      0x1DEF00, 0x1DEF80, indexRedEarthSprites_Leo, 0x12 },
-    { L"P1 Leo Character Select Portrait Highlighted", 0x1E0D80, 0x1E0E00, indexRedEarthSprites_Leo, 0x12 },
-    { L"P2 Leo Character Select Portrait Highlighted", 0x1E2F80, 0x1E3000, indexRedEarthSprites_Leo, 0x12 },
+    { L"P1 Leo Character Select Portrait Highlighted", 0x1E0D80, 0x1E0E00, indexRedEarthSprites_Leo, 0x11 },
+    { L"P2 Leo Character Select Portrait Highlighted", 0x1E2F80, 0x1E3000, indexRedEarthSprites_Leo, 0x11 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_LEO_UNUSED_PALETTES[] =
+{
+    { L"Punch Palette Leo Unused?", 0x414880, 0x414900, indexRedEarthSprites_Leo, 0x00 },
+    { L"Kick Palette Leo Unused? ", 0x408080, 0x408100, indexRedEarthSprites_Leo, 0x00 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
@@ -227,8 +229,8 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
     { L"Kenji Character Select",                 0x1DF380, 0x1DF400, indexRedEarthSprites_Kenji, 0x11 },
     { L"Kenji Character Selected",               0x1DED00, 0x1DED80, indexRedEarthSprites_Kenji, 0x11 },
     { L"Kenji Character Select Portrait",        0x1DF000, 0x1DF080, indexRedEarthSprites_Kenji, 0x12 },
-    { L"P1 Kenji Character Select Portrait Highlighted", 0x1E0F00, 0x1E0F80, indexRedEarthSprites_Kenji, 0x12 },
-    { L"P2 Kenji Character Select Portrait Highlighted", 0x1E3100, 0x1E3180, indexRedEarthSprites_Kenji, 0x12 },
+    { L"P1 Kenji Character Select Portrait Highlighted", 0x1E0F00, 0x1E0F80, indexRedEarthSprites_Kenji, 0x11 },
+    { L"P2 Kenji Character Select Portrait Highlighted", 0x1E3100, 0x1E3180, indexRedEarthSprites_Kenji, 0x11 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
@@ -372,8 +374,8 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
     { L"Tessa Character Select",                 0x1DF180, 0x1DF200, indexRedEarthSprites_Tessa, 0x11 },
     { L"Tessa Character Selected",               0x1DEB00, 0x1DEB80, indexRedEarthSprites_Tessa, 0x11 },
     { L"Tessa Character Select Portrait ",       0x1DEF80, 0x1DF000, indexRedEarthSprites_Tessa, 0x12 },
-    { L"P1 Tessa Character Select Portrait Highlighted", 0x1E0D00, 0x1E0D80, indexRedEarthSprites_Tessa, 0x12 },
-    { L"P2 Tessa Character Select Portrait Highlighted", 0x1E2F00, 0x1E2F80, indexRedEarthSprites_Tessa, 0x12 },
+    { L"P1 Tessa Character Select Portrait Highlighted", 0x1E0D00, 0x1E0D80, indexRedEarthSprites_Tessa, 0x11 },
+    { L"P2 Tessa Character Select Portrait Highlighted", 0x1E2F00, 0x1E2F80, indexRedEarthSprites_Tessa, 0x11 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
@@ -445,8 +447,8 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
     { L"Mai-Ling Character Select",          0x1DF300, 0x1DF380, indexRedEarthSprites_MaiLing, 0x11 },
     { L"Mai-Ling Character Selected",        0x1DEC80, 0x1DED00, indexRedEarthSprites_MaiLing, 0x11 },
     { L"Mai-Ling Character Select Portrait", 0x1DF080, 0x1DF100, indexRedEarthSprites_MaiLing, 0x12 },
-    { L"P1 Mai-Ling Character Select Portrait Highlighted", 0x1E0E80, 0x1E0F00, indexRedEarthSprites_MaiLing, 0x12 },
-    { L"P2 Mai-Ling Character Select Portrait Highlighted", 0x1E3080, 0x1E3100, indexRedEarthSprites_MaiLing, 0x12 },
+    { L"P1 Mai-Ling Character Select Portrait Highlighted", 0x1E0E80, 0x1E0F00, indexRedEarthSprites_MaiLing, 0x11 },
+    { L"P2 Mai-Ling Character Select Portrait Highlighted", 0x1E3080, 0x1E3100, indexRedEarthSprites_MaiLing, 0x11 },
 };
 
 //Bosses
@@ -869,10 +871,6 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_PUNCH_PALETTES[] =
 {
     // Punch palette Kenji
-    { L"Evil Subordinate Appears 1/4(Unused)", 0x40b980, 0x40ba00, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 2/4(Unused)", 0x40b900, 0x40b980, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 3/4(Unused)", 0x40b880, 0x40b900, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 4/4(Unused)", 0x40b800, 0x40b880, indexRedEarthSprites_Kenji, 0x00 },
     { L"Evil Subordinate Appears 1/4", 0x40bd80, 0x40be00, indexRedEarthSprites_Kenji, 0x00 },
     { L"Evil Subordinate Appears 2/4", 0x40bd00, 0x40bd80, indexRedEarthSprites_Kenji, 0x00 },
     { L"Evil Subordinate Appears 3/4", 0x40bc80, 0x40bd00, indexRedEarthSprites_Kenji, 0x00 },
@@ -886,10 +884,6 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_PUNCH_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_KICK_PALETTES[] =
 {
     // Kick Palette Kenji Subordinates
-    { L"Evil Subordinate Appears 1/4(Unused)", 0x418180, 0x418200, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 2/4(Unused)", 0x418100, 0x418180, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 3/4(Unused)", 0x418080, 0x418100, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 4/4(Unused)", 0x418000, 0x418080, indexRedEarthSprites_Kenji, 0x00 },
     { L"Evil Subordinate Appears 1/4", 0x418580, 0x418600, indexRedEarthSprites_Kenji, 0x00 },
     { L"Evil Subordinate Appears 2/4", 0x418500, 0x418580, indexRedEarthSprites_Kenji, 0x00 },
     { L"Evil Subordinate Appears 3/4", 0x418480, 0x418500, indexRedEarthSprites_Kenji, 0x00 },
@@ -900,13 +894,29 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_KICK_PALETTES[] =
     { L"Good Subordinate Appears 4/4", 0x418200, 0x418280, indexRedEarthSprites_Kenji, 0x00 },
 };
 
+const sGame_PaletteDataset REDEARTH_A_KENJI_UNUSED_PALETTES[] =
+{
+    { L"Punch Evil Subordinate Appears 1/4 (Unused)", 0x40b980, 0x40ba00, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Punch Evil Subordinate Appears 2/4 (Unused)", 0x40b900, 0x40b980, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Punch Evil Subordinate Appears 3/4 (Unused)", 0x40b880, 0x40b900, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Punch Evil Subordinate Appears 4/4 (Unused)", 0x40b800, 0x40b880, indexRedEarthSprites_Kenji, 0x00 },
+
+    { L"Kick Evil Subordinate Appears 1/4 (Unused)", 0x418180, 0x418200, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Kick Evil Subordinate Appears 2/4 (Unused)", 0x418100, 0x418180, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Kick Evil Subordinate Appears 3/4 (Unused)", 0x418080, 0x418100, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Kick Evil Subordinate Appears 4/4 (Unused)", 0x418000, 0x418080, indexRedEarthSprites_Kenji, 0x00 },
+};
+
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 {
     { L"Lifebar (danger)", 0x406700, 0x406720 },
     { L"Lifebar overlay (danger)", 0x406720, 0x406740 },
     { L"LVL Up Text 1", 0x406800, 0x406820 },
     { L"EXP / LVL Text", 0x406880, 0x406900 },
+};
 
+const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
+{
     { L"Coming Next? Original (Unused)", 0x411980, 0x411a00, indexRedEarthSprites_MaiLing, 0x58 },
     { L"Coming Next? Original (Unused)???", 0x41e180, 0x41e200, indexRedEarthSprites_MaiLing, 0x58 },
 };
@@ -917,6 +927,8 @@ const sDescTreeNode REDEARTH_A_LEO_COLLECTION[] =
     { L"Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_LEO_PUNCH_PALETTES) },
     { L"Kick",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_KICK_PALETTES,  ARRAYSIZE(REDEARTH_A_LEO_KICK_PALETTES) },
     { L"Bonus",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_BONUS_PALETTES, ARRAYSIZE(REDEARTH_A_LEO_BONUS_PALETTES) },
+
+    { L"Unused",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_LEO_UNUSED_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_KENJI_COLLECTION[] =
@@ -928,6 +940,8 @@ const sDescTreeNode REDEARTH_A_KENJI_COLLECTION[] =
     { L"Kick Ninjas",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_KENJI_NINJAS_KICK_PALETTES,  ARRAYSIZE(REDEARTH_A_KENJI_NINJAS_KICK_PALETTES) },
 
     { L"Bonus",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_KENJI_BONUS_PALETTES, ARRAYSIZE(REDEARTH_A_KENJI_BONUS_PALETTES) },
+
+    { L"Unused",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_KENJI_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_KENJI_UNUSED_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_TESSA_COLLECTION[] =
@@ -1006,6 +1020,7 @@ const sDescTreeNode REDEARTH_A_INTRO_COLLECTION[] =
 const sDescTreeNode REDEARTH_A_BONUS_31_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_UNUSED_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_UNITS_31[] =
