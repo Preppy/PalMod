@@ -4188,6 +4188,8 @@ const sGame_PaletteDataset KOF02_A_BONUS_SELECT_PALETTES[] =
     { L"Character Select Player Text", 0xb4da2, 0xb4ea2, indexKOF02Sprites_Bonus, 0x08 },
     //^ Each palette is 0x20 long, don't question SNK on that decision.
 
+    { L"Enemy Select Background ", 0xB48A2, 0xB4922 },
+    { L"Order Select Background", 0xB4942, 0xB49C2 },
 
     { L"Character Select Name", 0xb4ea2, 0xb4ec2, indexKOF02Sprites_Bonus, 0x07 },
     { L"Character Select Order Name", 0xb5062, 0xb5082, indexKOF02Sprites_Bonus, 0x0a },

@@ -1015,9 +1015,9 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_FR_EXTRAS =
     { L"Fire Pillars (2/2)", 0x4cf960, 0x4cf9a0 },
 
     //Specials
-    { L"Blockhead Buster (1/3)", 0x521170, 0x5211b0 },
-    { L"Blockhead Buster (2/3)", 0x52c0b0, 0x52c0f0 },
-    { L"Blockhead Buster (3/3)", 0x5392c0, 0x539300 },
+    { L"Blockhead Buster (1/3)", 0x541c10, 0x541c50 },
+    { L"Blockhead Buster (2/3)", 0x54b7a0, 0x54b7e0 },
+    { L"Blockhead Buster (3/3)", 0x555a20, 0x555a60 },
 
     { L"Gun Blaze", 0x47d0e0, 0x47d120 },
     { L"Gun Blaze Trails", 0x485680, 0x4856c0 },
@@ -1057,9 +1057,9 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_FR_EXTRAS =
     { L"Charge/Storm Viper Fire (7/7)", 0x497550, 0x497590 },
 
     //Force Breaks
-    { L"Fafnir (1/3)", 0x541c10, 0x541c50 },
-    { L"Fafnir (2/3)", 0x54b7a0, 0x54b7e0 },
-    { L"Fafnir (3/3)", 0x555a20, 0x555a60 },
+    { L"Fafnir (1/3)", 0x521170, 0x5211b0 },
+    { L"Fafnir (2/3)", 0x52c0b0, 0x52c0f0 },
+    { L"Fafnir (3/3)", 0x5392c0, 0x539300 },
 
     //Overdrives
     { L"Tyrant Rave ver. Omega (1/4)", 0x448480, 0x4484c0 },
