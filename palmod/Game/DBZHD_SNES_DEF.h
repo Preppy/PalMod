@@ -24,19 +24,19 @@ const std::vector<UINT16> DBZHD_SNES_IMGIDS_USED =
 
 const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_P1[] =
 {
-    { L"Goku P1 (Day)", 0xB0000, 0xB0020, indexDBZHDSprites_Goku },
+    { L"Goku P1 (Day)", 0xB0000, 0xB0020, indexDBZHDSprites_Goku, 0x00, &pairNext4 },
     { L"Goku P1 portrait", 0x18140, 0x18160, indexDBZHDSprites_Goku, 0x40 },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_P2[] =
 {
-    { L"Goku P2 (Day)", 0xB0020, 0xB0040, indexDBZHDSprites_Goku },
+    { L"Goku P2 (Day)", 0xB0020, 0xB0040, indexDBZHDSprites_Goku, 0x00, &pairNext2 },
     { L"Goku P2 portrait", 0x18160, 0x18180, indexDBZHDSprites_Goku, 0x41 },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_NORMAL[] =
 {
-    { L"Goku's Hair lighting and KI Blast effects", 0x27B161, 0x27B181 },
+    { L"Goku's Hair lighting and KI Blast effects", 0x27B161, 0x27B181, indexDBZHDSprites_Goku, 0x08 },
     { L"Goku (Sunset)", 0x27B1E1, 0x27B201 },
     { L"Goku (Nighttime)", 0x27B201, 0x27B221 },
 };
@@ -184,8 +184,9 @@ const sGame_PaletteDataset DBZHD_SNES_BONUS_PALETTES[] =
 
 const sDescTreeNode DBZHD_SNES_GOKU_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_GOKU_PALETTES_P1, ARRAYSIZE(DBZHD_SNES_GOKU_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_GOKU_PALETTES_P2, ARRAYSIZE(DBZHD_SNES_GOKU_PALETTES_P2) },
+    // These aren't equal length so can't be paired.
+    { L"P1_", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_GOKU_PALETTES_P1, ARRAYSIZE(DBZHD_SNES_GOKU_PALETTES_P1) },
+    { L"P2_", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_GOKU_PALETTES_P2, ARRAYSIZE(DBZHD_SNES_GOKU_PALETTES_P2) },
     { L"Normal", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_GOKU_PALETTES_NORMAL, ARRAYSIZE(DBZHD_SNES_GOKU_PALETTES_NORMAL) },
 };
 

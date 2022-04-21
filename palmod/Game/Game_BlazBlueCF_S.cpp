@@ -303,6 +303,21 @@ BOOL CGame_BlazBlueCF_S::UpdatePalImg(int Node01, int Node02, int Node03, int No
         pButtonLabelSet = BlazBlueCF_S_CharacterData[NodeGet->uUnitId].ppszCollectionList;
 
         nImgUnitId = BlazBlueCF_S_CharacterData[NodeGet->uUnitId].nSpriteUnitIndex;
+
+        // Ideally nTargetImgId == nSrcStart, but this is the current positioning for extra1 and extra5
+        switch (nSrcStart)
+        {
+        case 0:
+        default:
+            nTargetImgId = nSrcStart;
+            break;
+        case 1:
+            nTargetImgId = 0x08;
+            break;
+        case 5:
+            nTargetImgId = 0x0c;
+            break;
+        }
     }
     else
     {

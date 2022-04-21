@@ -1656,16 +1656,16 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_HUDMenu =
 const std::vector<sGame_PaletteDataset> GGXXACR_S_RoundMessages =
 {
     //Round opening
-    { L"Opening Text: Heaven", 0x1efc0, 0x1f000, indexGGXXSprites_ACR_Bonus, (UINT16)-1, &pairNext3Palettes },
-    { L"Opening Text: Or", 0x208e0, 0x20920, indexGGXXSprites_ACR_Bonus, (UINT16)-1 },
-    { L"Opening Text: Hell", 0x21340, 0x21380, indexGGXXSprites_ACR_Bonus, (UINT16)-1 },
-    { L"Opening Text: Heaven or Hell circle", 0x229c0, 0x22a00, indexGGXXSprites_ACR_Bonus, (UINT16)-1 },
+    { L"Opening Text: Heaven", 0x1efc0, 0x1f000, indexGGXXSprites_ACR_Bonus, 0x17, &pairNext3Palettes },
+    { L"Opening Text: Or", 0x208e0, 0x20920, indexGGXXSprites_ACR_Bonus, 0x1a },
+    { L"Opening Text: Hell", 0x21340, 0x21380, indexGGXXSprites_ACR_Bonus, 0x18 },
+    { L"Opening Text: Heaven or Hell circle", 0x229c0, 0x22a00, indexGGXXSprites_ACR_Bonus, 0x16 },
     { L"Opening Text: Duel", 0x319c0, 0x31a00 },
     { L"Opening Text: Final", 0x328c0, 0x32900 },
     { L"Opening Text: 1, 2, 3", 0x33B40, 0x33B80 },
     { L"Opening Text: The First, The Second, The Third", 0x2b850, 0x2b890 },
-    { L"Opening Text: Let's", 0x37ca0, 0x37ce0 },
-    { L"Opening Text: Rock", 0x38160, 0x381a0 },
+    { L"Opening Text: Let's", 0x37ca0, 0x37ce0, indexGGXXSprites_ACR_Bonus, 0x19, &pairNext },
+    { L"Opening Text: Rock", 0x38160, 0x381a0, indexGGXXSprites_ACR_Bonus, 0x1b, &pairPrevious },
     { L"Opening Background (1/7)", 0x234f0, 0x23530 },
     { L"Opening Background (2/7)", 0x24670, 0x246b0 },
     { L"Opening Background (3/7)", 0x25060, 0x250a0 },

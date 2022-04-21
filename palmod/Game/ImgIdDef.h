@@ -256,7 +256,7 @@ enum CHARACTERS_3S_CPS3
     index3SSprites_Stages,    // 0x15
     index3SSprites_Gill,      // 0x16
     indexSF2ISprites_Bonus,   // 0x17
-    indexSFNGSprites_Bonus,   // 0x18
+    indexSF3NGSprites_Bonus,   // 0x18
 };
 
 enum SF2Sprites
@@ -2105,7 +2105,11 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_MBTL_Vlov,              // 0x76
     indexFrenchBreadSprites_MBTL_Aoko,              // 0x77
     indexFrenchBreadSprites_MBTL_DANoel,            // 0x78
-    indexFrenchBreadSprites_MBTL_Bonus,             // 0x79
+    indexFrenchBreadSprites_MBTL_PoweredCiel,       // 0x79
+    indexFrenchBreadSprites_MBTL_Mario,             // 0x7a
+    indexFrenchBreadSprites_MBTL_MarioNuns,         // 0x7b
+
+    indexFrenchBreadSprites_MBTL_Bonus,             // 0x7c
 };
 
 enum SupportedTaito_PaletteListIndex

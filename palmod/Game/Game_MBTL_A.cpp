@@ -27,7 +27,11 @@ const std::vector<UINT16> MBTL_A_IMGIDS_USED =
     indexFrenchBreadSprites_MBTL_Vlov,              // 0x76
     indexFrenchBreadSprites_MBTL_Aoko,              // 0x77
     indexFrenchBreadSprites_MBTL_DANoel,            // 0x78
-    indexFrenchBreadSprites_MBTL_Bonus,             // 0x79
+    indexFrenchBreadSprites_MBTL_PoweredCiel,       // 0x79
+    indexFrenchBreadSprites_MBTL_Mario,             // 0x7a
+    indexFrenchBreadSprites_MBTL_MarioNuns,         // 0x7b
+
+    indexFrenchBreadSprites_MBTL_Bonus,             // 0x7c
 };
 
 struct MBTLNodeData
@@ -102,10 +106,10 @@ std::vector <MBTLFileData> MBTLCharacterData =
     { L"data\\_csel\\Chr001.pal",       L"Hisui",                                  61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Hisui },
     { L"data\\_csel\\Chr004.pal",       L"Kohaku",                                 61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Kohaku },
     { L"data\\_csel\\Chr006.pal",       L"Kouma Kishima",                          61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Kouma },
-    { L"data\\_csel\\Chr017.pal",       L"Mario Gallo Bestino",                    61456,    MBTLPaletteNamesNormal,    0x10 },
+    { L"data\\_csel\\Chr017.pal",       L"Mario Gallo Bestino",                    61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Mario },
     { L"data\\_csel\\Chr013.pal",       L"Miyako Arima",                           61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Miyako },
     { L"data\\_csel\\Chr008.pal",       L"Noel",                                   61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Noel },
-    { L"data\\_csel\\Chr016.pal",       L"Powered Ciel",                           61456,    MBTLPaletteNamesNormal,    0x10 },
+    { L"data\\_csel\\Chr016.pal",       L"Powered Ciel",                           61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_PoweredCiel },
     { L"data\\_csel\\Chr010.pal",       L"Red Arcueid",                            61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_RedArcueid },
     { L"data\\_csel\\Chr005.pal",       L"Roa",                                    61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Roa },
     { L"data\\_csel\\Chr012.pal",       L"Saber",                                  61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Saber },
@@ -115,8 +119,8 @@ std::vector <MBTLFileData> MBTLCharacterData =
 
     { L"data\\chr011\\Chr011_p1.pal",   L"Ciel (Arc Drive/Last Arc)",              61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_CielSupers },
     { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Mask Shiki)",                     61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Shiki },
-    { L"data\\_csel\\Chr018.pal",       L"Mario (Main Sister)",                    61456,    MBTLPaletteNamesNormal,    0x10, },
-    { L"data\\chr017\\Chr017_p1.pal",   L"Mario (Assist Sister)",                  61456,    MBTLPaletteNamesNormal,    0x10, },
+    { L"data\\_csel\\Chr018.pal",       L"Mario (Main Sister)",                    61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_MarioNuns },
+    { L"data\\chr017\\Chr017_p1.pal",   L"Mario (Assist Sister)",                  61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_MarioNuns },
     { L"data\\chr017\\Chr017_p2.pal",   L"Noel (Mario Arc Drive)",                 61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Noel },
 
 };

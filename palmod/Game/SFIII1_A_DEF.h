@@ -15,7 +15,7 @@ const std::vector<UINT16> SFIII1_A_IMGIDS_USED =
     index3SSprites_Ken,
     index3SSprites_Sean,
     index3SSprites_Gill,
-    indexSFNGSprites_Bonus,
+    indexSF3NGSprites_Bonus,
 };
 
 const sGame_PaletteDataset SFIII1_A_ALEX_LP_PALETTES[] =
@@ -578,7 +578,7 @@ const sGame_PaletteDataset SFIII1_A_GILL_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_ALEX_PORTRAIT_PALETTES[] =
 {
-    { L"Alex Select Portrait", 0x3e8c00, 0x3e8c80 },
+    { L"Alex Select Portrait", 0x3e8c00, 0x3e8c80, index3SSprites_Alex, 0x26 },
 
     { L"Alex Winning Portrait LP", 0x3ed300, 0x3ed380, index3SSprites_Alex, 0x28 },
     { L"Alex Winning Portrait MP", 0x3ed380, 0x3ed400, index3SSprites_Alex, 0x28 },
@@ -599,7 +599,7 @@ const sGame_PaletteDataset SFIII1_A_ALEX_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_RYU_PORTRAIT_PALETTES[] =
 {
-    { L"Ryu Select Portrait", 0x3e8c80, 0x3e8d00 },
+    { L"Ryu Select Portrait", 0x3e8c80, 0x3e8d00, index3SSprites_Ryu, 0x26 },
 
     { L"Ryu Winning Portrait LP", 0x3ed600, 0x3ed680, index3SSprites_Ryu, 0x28 },
     { L"Ryu Winning Portrait MP", 0x3ed680, 0x3ed700, index3SSprites_Ryu, 0x28 },
@@ -608,20 +608,20 @@ const sGame_PaletteDataset SFIII1_A_RYU_PORTRAIT_PALETTES[] =
     { L"Ryu Winning Portrait MK", 0x3ed800, 0x3ed880, index3SSprites_Ryu, 0x28 },
     { L"Ryu Winning Portrait HK", 0x3ed880, 0x3ed900, index3SSprites_Ryu, 0x28 },
 
-    { L"Ryu Losing Portrait LP", 0x3f0c00, 0x3f0d80 },
-    { L"Ryu Losing Portrait MP", 0x3f0d80, 0x3f0f00 },
-    { L"Ryu Losing Portrait HP", 0x3f0f00, 0x3f1080 },
-    { L"Ryu Losing Portrait LK", 0x3f1080, 0x3f1200 },
-    { L"Ryu Losing Portrait MK", 0x3f1200, 0x3f1380 },
-    { L"Ryu Losing Portrait HK", 0x3f1380, 0x3f1500 },
+    { L"Ryu Losing Portrait LP", 0x3f0c00, 0x3f0d80, index3SSprites_Ryu, 0x2b },
+    { L"Ryu Losing Portrait MP", 0x3f0d80, 0x3f0f00, index3SSprites_Ryu, 0x2b },
+    { L"Ryu Losing Portrait HP", 0x3f0f00, 0x3f1080, index3SSprites_Ryu, 0x2b },
+    { L"Ryu Losing Portrait LK", 0x3f1080, 0x3f1200, index3SSprites_Ryu, 0x2b },
+    { L"Ryu Losing Portrait MK", 0x3f1200, 0x3f1380, index3SSprites_Ryu, 0x2b },
+    { L"Ryu Losing Portrait HK", 0x3f1380, 0x3f1500, index3SSprites_Ryu, 0x2b },
 
     { L"Ryu Character Select Icon", 0x3e7500, 0x3e7580 },
 };
 
 const sGame_PaletteDataset SFIII1_A_YUNYANG_PORTRAIT_PALETTES[] =
 {
-    { L"Yun Select Portrait", 0x3e8d00, 0x3e8d80 },
-    { L"Yang Select Portrait", 0x3e9080, 0x3e9100 },
+    { L"Yun Select Portrait", 0x3e8d00, 0x3e8d80, index3SSprites_Yun, 0x26 },
+    { L"Yang Select Portrait", 0x3e9080, 0x3e9100, index3SSprites_Yang, 0x26 },
 
     { L"Yun Winning Portrait LP", 0x3ed900, 0x3eda00, index3SSprites_Yun, 0x28 },
     { L"Yun Winning Portrait MP", 0x3eda00, 0x3edb00, index3SSprites_Yun, 0x28 },
@@ -630,9 +630,9 @@ const sGame_PaletteDataset SFIII1_A_YUNYANG_PORTRAIT_PALETTES[] =
     { L"Yang Winning Portrait MK", 0x3efa80, 0x3efb00, index3SSprites_Yang, 0x28 },
     { L"Yang Winning Portrait HK", 0x3efb00, 0x3efb80, index3SSprites_Yang, 0x28 },
 
-    { L"Yun Losing Portrait LP", 0x3f1500, 0x3f1680 },
-    { L"Yun Losing Portrait MP", 0x3f1680, 0x3f1800 },
-    { L"Yun Losing Portrait HP", 0x3f1800, 0x3f1980 },
+    { L"Yun Losing Portrait LP", 0x3f1500, 0x3f1680, index3SSprites_Yun, 0x2b },
+    { L"Yun Losing Portrait MP", 0x3f1680, 0x3f1800, index3SSprites_Yun, 0x2b },
+    { L"Yun Losing Portrait HP", 0x3f1800, 0x3f1980, index3SSprites_Yun, 0x2b },
     { L"Yang Losing Portrait LK", 0x3f4500, 0x3f4600, index3SSprites_Yang, 0x24 },
     { L"Yang Losing Portrait MK", 0x3f4600, 0x3f4700, index3SSprites_Yang, 0x24 },
     { L"Yang Losing Portrait HK", 0x3f4700, 0x3f4800, index3SSprites_Yang, 0x24 },
@@ -643,7 +643,7 @@ const sGame_PaletteDataset SFIII1_A_YUNYANG_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_DUDLEY_PORTRAIT_PALETTES[] =
 {
-    { L"Dudley Select Portrait", 0x3e8d80, 0x3e8e00 },
+    { L"Dudley Select Portrait", 0x3e8d80, 0x3e8e00, index3SSprites_Dudley, 0x26 },
 
     { L"Dudley Winning Portrait LP", 0x3edf00, 0x3ee000, index3SSprites_Dudley, 0x28 },
     { L"Dudley Winning Portrait MP", 0x3ee000, 0x3ee100, index3SSprites_Dudley, 0x28 },
@@ -652,19 +652,19 @@ const sGame_PaletteDataset SFIII1_A_DUDLEY_PORTRAIT_PALETTES[] =
     { L"Dudley Winning Portrait MK", 0x3ee300, 0x3ee400, index3SSprites_Dudley, 0x28 },
     { L"Dudley Winning Portrait HK", 0x3ee400, 0x3ee500, index3SSprites_Dudley, 0x28 },
 
-    { L"Dudley Losing Portrait LP", 0x3f1e00, 0x3f1f80, index3SSprites_Dudley, 0x24 },
-    { L"Dudley Losing Portrait MP", 0x3f1f80, 0x3f2100, index3SSprites_Dudley, 0x24 },
-    { L"Dudley Losing Portrait HP", 0x3f2100, 0x3f2280, index3SSprites_Dudley, 0x24 },
-    { L"Dudley Losing Portrait LK", 0x3f2280, 0x3f2400, index3SSprites_Dudley, 0x24 },
-    { L"Dudley Losing Portrait MK", 0x3f2400, 0x3f2580, index3SSprites_Dudley, 0x24 },
-    { L"Dudley Losing Portrait HK", 0x3f2580, 0x3f2700, index3SSprites_Dudley, 0x24 },
+    { L"Dudley Losing Portrait LP", 0x3f1e00, 0x3f1f80, index3SSprites_Dudley, 0x2b },
+    { L"Dudley Losing Portrait MP", 0x3f1f80, 0x3f2100, index3SSprites_Dudley, 0x2b },
+    { L"Dudley Losing Portrait HP", 0x3f2100, 0x3f2280, index3SSprites_Dudley, 0x2b },
+    { L"Dudley Losing Portrait LK", 0x3f2280, 0x3f2400, index3SSprites_Dudley, 0x2b },
+    { L"Dudley Losing Portrait MK", 0x3f2400, 0x3f2580, index3SSprites_Dudley, 0x2b },
+    { L"Dudley Losing Portrait HK", 0x3f2580, 0x3f2700, index3SSprites_Dudley, 0x2b },
 
     { L"Dudley Character Select Icon", 0x3e7600, 0x3e7680 },
 };
 
 const sGame_PaletteDataset SFIII1_A_NECRO_PORTRAIT_PALETTES[] =
 {
-    { L"Necro Select Portrait", 0x3e8e00, 0x3e8e80 },
+    { L"Necro Select Portrait", 0x3e8e00, 0x3e8e80, index3SSprites_Necro, 0x26 },
 
     { L"Necro Winning Portrait LP", 0x3ee500, 0x3ee580, index3SSprites_Necro, 0x28 },
     { L"Necro Winning Portrait MP", 0x3ee580, 0x3ee600, index3SSprites_Necro, 0x28 },
@@ -685,7 +685,7 @@ const sGame_PaletteDataset SFIII1_A_NECRO_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_IBUKI_PORTRAIT_PALETTES[] =
 {
-    { L"Ibuki Select Portrait", 0x3e8f00, 0x3e8f80 },
+    { L"Ibuki Select Portrait", 0x3e8f00, 0x3e8f80, index3SSprites_Ibuki, 0x26 },
 
     { L"Ibuki Winning Portrait LP", 0x3eee00, 0x3eee80, index3SSprites_Ibuki, 0x28 },
     { L"Ibuki Winning Portrait MP", 0x3eee80, 0x3eef00, index3SSprites_Ibuki, 0x28 },
@@ -711,7 +711,7 @@ const sGame_PaletteDataset SFIII1_A_HUGO_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_ELENA_PORTRAIT_PALETTES[] =
 {
-    { L"Elena Select Portrait", 0x3e8f80, 0x3e9000 },
+    { L"Elena Select Portrait", 0x3e8f80, 0x3e9000, index3SSprites_Elena, 0x26 },
 
     { L"Elena Winning Portrait LP", 0x3ef100, 0x3ef200, index3SSprites_Elena, 0x28 },
     { L"Elena Winning Portrait MP", 0x3ef200, 0x3ef300, index3SSprites_Elena, 0x28 },
@@ -732,7 +732,7 @@ const sGame_PaletteDataset SFIII1_A_ELENA_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_ORO_PORTRAIT_PALETTES[] =
 {
-    { L"Oro Select Portrait", 0x3e9000, 0x3e9080 },
+    { L"Oro Select Portrait", 0x3e9000, 0x3e9080, index3SSprites_Oro, 0x26 },
 
     { L"Oro Winning Portrait LP", 0x3ef700, 0x3ef780, index3SSprites_Oro, 0x28 },
     { L"Oro Winning Portrait MP", 0x3ef780, 0x3ef800, index3SSprites_Oro, 0x28 },
@@ -753,7 +753,7 @@ const sGame_PaletteDataset SFIII1_A_ORO_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_KEN_PORTRAIT_PALETTES[] =
 {
-    { L"Ken Select Portrait", 0x3e9100, 0x3e9180 },
+    { L"Ken Select Portrait", 0x3e9100, 0x3e9180, index3SSprites_Ken, 0x26 },
 
     { L"Ken Winning Portrait LP", 0x3efd00, 0x3efd80, index3SSprites_Ken, 0x28 },
     { L"Ken Winning Portrait MP", 0x3efd80, 0x3efe00, index3SSprites_Ken, 0x28 },
@@ -774,7 +774,7 @@ const sGame_PaletteDataset SFIII1_A_KEN_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_SEAN_PORTRAIT_PALETTES[] =
 {
-    { L"Sean Select Portrait", 0x3e9180, 0x3e9200 },
+    { L"Sean Select Portrait", 0x3e9180, 0x3e9200, index3SSprites_Sean, 0x26 },
 
     { L"Sean Winning Portrait LP", 0x3f0000, 0x3f0100, index3SSprites_Sean, 0x28 },
     { L"Sean Winning Portrait MP", 0x3f0100, 0x3f0200, index3SSprites_Sean, 0x28 },
@@ -1238,33 +1238,33 @@ const sDescTreeNode SFIII1_A_STAGE_COLLECTION[] =
 
 const sGame_PaletteDataset SFIII1_A_BONUS_INTROPORTS_PALETTES[] =
 {
-    { L"Yang Intro Panel",  0x3f5a00, 0x3f5a20, indexSFNGSprites_Bonus, 0x0f },
-    { L"Elena Intro Panel", 0x3f5ac0, 0x3f5ae0, indexSFNGSprites_Bonus, 0x06 },
-    { L"Yun Intro Panel",   0x3f5a40, 0x3f5a60, indexSFNGSprites_Bonus, 0x10 },
-    { L"Ken Intro Panel",   0x3f5ae0, 0x3f5b00, indexSFNGSprites_Bonus, 0x09 },
-    { L"Sean Intro Panel",  0x3f5aa0, 0x3f5ac0, indexSFNGSprites_Bonus, 0x0d },
-    { L"Ibuki Intro Panel", 0x3f5a60, 0x3f5a80, indexSFNGSprites_Bonus, 0x08 },
-    { L"Oro Intro Panel",   0x3f5b40, 0x3f5b80, indexSFNGSprites_Bonus, 0x0b },
-    { L"Necro Intro Panel", 0x3f5b20, 0x3f5b40, indexSFNGSprites_Bonus, 0x0a },
-    { L"Dudley Intro Panel", 0x3f5b00, 0x3f5b20, indexSFNGSprites_Bonus, 0x05 },
-    { L"Alex Intro Panel",  0x3f5a20, 0x3f5a40, indexSFNGSprites_Bonus, 0x01 },
-    { L"Ryu Intro Panel",   0x3f5a80, 0x3f5aa0, indexSFNGSprites_Bonus, 0x0c },
-    { L"Gill Intro Panel",  0x3f5b80, 0x3f5c00, indexSFNGSprites_Bonus, 0x07 },
-    { L"Alex Back Portrait 1/10", 0x3f5c00, 0x3f5c80, indexSFNGSprites_Bonus, 0x02 },
-    { L"Alex Back Portrait 2/10", 0x3f5c80, 0x3f5d00, indexSFNGSprites_Bonus, 0x02 },
-    { L"Alex Back Portrait 3/10", 0x3f5d00, 0x3f5d80, indexSFNGSprites_Bonus, 0x02 },
-    { L"Alex Back Portrait 4/10", 0x3f5d80, 0x3f5e00, indexSFNGSprites_Bonus, 0x02 },
-    { L"Alex Back Portrait 5/10", 0x3f5e00, 0x3f5e80, indexSFNGSprites_Bonus, 0x02 },
-    { L"Alex Back Portrait 6/10", 0x3f5e80, 0x3f5f00, indexSFNGSprites_Bonus, 0x02 },
-    { L"Alex Back Portrait 7/10", 0x3f5f00, 0x3f5f80, indexSFNGSprites_Bonus, 0x02 },
-    { L"Alex Back Portrait 8/10", 0x3f5f80, 0x3f6000, indexSFNGSprites_Bonus, 0x02 },
-    { L"Alex Back Portrait 9/10", 0x3f6000, 0x3f6080, indexSFNGSprites_Bonus, 0x02 },
-    { L"Alex Back Portrait 10/10", 0x3f6380, 0x3f6400, indexSFNGSprites_Bonus, 0x02 },
-    { L"Alex Intro Portrait (Side Facing)", 0x3f6480, 0x3f6500, indexSFNGSprites_Bonus, 0x03 },
-    { L"Alex Intro Fist", 0x3f6400, 0x3f6480, indexSFNGSprites_Bonus, 0x00 },
-    { L"Alex Intro/Titlescreen Portrait",           0x3f6500, 0x3f6580, indexSFNGSprites_Bonus, 0x04 },
-    { L"Alex Intro/Titlescreen Portrait (Faded)",   0x3f6080, 0x3f6100, indexSFNGSprites_Bonus, 0x04 },
-    { L"Intro Text", 0x3f6100, 0x3f6120, indexSFNGSprites_Bonus, 0x0e },
+    { L"Yang Intro Panel",  0x3f5a00, 0x3f5a20, indexSF3NGSprites_Bonus, 0x0f },
+    { L"Elena Intro Panel", 0x3f5ac0, 0x3f5ae0, indexSF3NGSprites_Bonus, 0x06 },
+    { L"Yun Intro Panel",   0x3f5a40, 0x3f5a60, indexSF3NGSprites_Bonus, 0x10 },
+    { L"Ken Intro Panel",   0x3f5ae0, 0x3f5b00, indexSF3NGSprites_Bonus, 0x09 },
+    { L"Sean Intro Panel",  0x3f5aa0, 0x3f5ac0, indexSF3NGSprites_Bonus, 0x0d },
+    { L"Ibuki Intro Panel", 0x3f5a60, 0x3f5a80, indexSF3NGSprites_Bonus, 0x08 },
+    { L"Oro Intro Panel",   0x3f5b40, 0x3f5b80, indexSF3NGSprites_Bonus, 0x0b },
+    { L"Necro Intro Panel", 0x3f5b20, 0x3f5b40, indexSF3NGSprites_Bonus, 0x0a },
+    { L"Dudley Intro Panel", 0x3f5b00, 0x3f5b20, indexSF3NGSprites_Bonus, 0x05 },
+    { L"Alex Intro Panel",  0x3f5a20, 0x3f5a40, indexSF3NGSprites_Bonus, 0x01 },
+    { L"Ryu Intro Panel",   0x3f5a80, 0x3f5aa0, indexSF3NGSprites_Bonus, 0x0c },
+    { L"Gill Intro Panel",  0x3f5b80, 0x3f5c00, indexSF3NGSprites_Bonus, 0x07 },
+    { L"Alex Back Portrait 1/10", 0x3f5c00, 0x3f5c80, indexSF3NGSprites_Bonus, 0x02 },
+    { L"Alex Back Portrait 2/10", 0x3f5c80, 0x3f5d00, indexSF3NGSprites_Bonus, 0x02 },
+    { L"Alex Back Portrait 3/10", 0x3f5d00, 0x3f5d80, indexSF3NGSprites_Bonus, 0x02 },
+    { L"Alex Back Portrait 4/10", 0x3f5d80, 0x3f5e00, indexSF3NGSprites_Bonus, 0x02 },
+    { L"Alex Back Portrait 5/10", 0x3f5e00, 0x3f5e80, indexSF3NGSprites_Bonus, 0x02 },
+    { L"Alex Back Portrait 6/10", 0x3f5e80, 0x3f5f00, indexSF3NGSprites_Bonus, 0x02 },
+    { L"Alex Back Portrait 7/10", 0x3f5f00, 0x3f5f80, indexSF3NGSprites_Bonus, 0x02 },
+    { L"Alex Back Portrait 8/10", 0x3f5f80, 0x3f6000, indexSF3NGSprites_Bonus, 0x02 },
+    { L"Alex Back Portrait 9/10", 0x3f6000, 0x3f6080, indexSF3NGSprites_Bonus, 0x02 },
+    { L"Alex Back Portrait 10/10", 0x3f6380, 0x3f6400, indexSF3NGSprites_Bonus, 0x02 },
+    { L"Alex Intro Portrait (Side Facing)", 0x3f6480, 0x3f6500, indexSF3NGSprites_Bonus, 0x03 },
+    { L"Alex Intro Fist", 0x3f6400, 0x3f6480, indexSF3NGSprites_Bonus, 0x00 },
+    { L"Alex Intro/Titlescreen Portrait",           0x3f6500, 0x3f6580, indexSF3NGSprites_Bonus, 0x04 },
+    { L"Alex Intro/Titlescreen Portrait (Faded)",   0x3f6080, 0x3f6100, indexSF3NGSprites_Bonus, 0x04 },
+    { L"Intro Text", 0x3f6100, 0x3f6120, indexSF3NGSprites_Bonus, 0x0e },
 };
 
 const sGame_PaletteDataset SFIII1_A_BONUS_PALETTES[] =
@@ -1280,42 +1280,42 @@ const sGame_PaletteDataset SFIII1_A_BONUS_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_BONUS_LOGO_PALETTES[] =
 {
-    { L"Capcom Logo 1", 0x3ebb80, 0x3ebc00 },
-    { L"Capcom Logo 2", 0x3ebc00, 0x3ebc80 },
-    { L"Capcom Logo 3", 0x3ebc80, 0x3ebd00 },
-    { L"Capcom Logo 4", 0x3ebd00, 0x3ebd80 },
-    { L"Capcom Logo 5", 0x3ebd80, 0x3ebe00 },
-    { L"Capcom Logo 6", 0x3ebe00, 0x3ebe80 },
-    { L"Capcom Logo 7", 0x3ebe80, 0x3ebf00 },
-    { L"Capcom Logo 8", 0x3ebf00, 0x3ebf80 },
-    { L"Capcom Logo 9", 0x3ebf80, 0x3ec000 },
-    { L"Capcom Logo 10", 0x3ec000, 0x3ec080 },
-    { L"Capcom Logo 11", 0x3ec080, 0x3ec100 },
-    { L"Capcom Logo 12", 0x3ec100, 0x3ec180 },
-    { L"Capcom Logo 13", 0x3ec180, 0x3ec200 },
-    { L"Capcom Logo 14", 0x3ec200, 0x3ec280 },
-    { L"Capcom Logo 15", 0x3ec280, 0x3ec300 },
-    { L"Capcom Logo 16", 0x3ec300, 0x3ec380 },
-    { L"Capcom Logo 17", 0x3ec380, 0x3ec400 },
-    { L"Capcom Logo 18", 0x3ec400, 0x3ec480 },
-    { L"Capcom Logo 19", 0x3ec480, 0x3ec500 },
-    { L"Capcom Logo 20", 0x3ec500, 0x3ec580 },
-    { L"Capcom Logo 21", 0x3ec580, 0x3ec600 },
-    { L"Capcom Logo 22", 0x3ec600, 0x3ec680 },
-    { L"Capcom Logo 23", 0x3ec680, 0x3ec700 },
-    { L"Capcom Logo 24", 0x3ec700, 0x3ec780 },
-    { L"Capcom Logo 25", 0x3ec780, 0x3ec800 },
-    { L"Capcom Logo 26", 0x3ec800, 0x3ec880 },
-    { L"Capcom Logo 27", 0x3ec880, 0x3ec900 },
-    { L"Capcom Logo 28", 0x3ec900, 0x3ec980 },
-    { L"Capcom Logo 29", 0x3ec980, 0x3eca00 },
-    { L"Capcom Logo 30", 0x3eca00, 0x3eca80 },
-    { L"Capcom Logo 31", 0x3eca80, 0x3ecb00 },
+    { L"Capcom Logo 1", 0x3ebb80, 0x3ebc00, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 2", 0x3ebc00, 0x3ebc80, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 3", 0x3ebc80, 0x3ebd00, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 4", 0x3ebd00, 0x3ebd80, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 5", 0x3ebd80, 0x3ebe00, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 6", 0x3ebe00, 0x3ebe80, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 7", 0x3ebe80, 0x3ebf00, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 8", 0x3ebf00, 0x3ebf80, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 9", 0x3ebf80, 0x3ec000, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 10", 0x3ec000, 0x3ec080, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 11", 0x3ec080, 0x3ec100, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 12", 0x3ec100, 0x3ec180, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 13", 0x3ec180, 0x3ec200, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 14", 0x3ec200, 0x3ec280, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 15", 0x3ec280, 0x3ec300, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 16", 0x3ec300, 0x3ec380, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 17", 0x3ec380, 0x3ec400, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 18", 0x3ec400, 0x3ec480, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 19", 0x3ec480, 0x3ec500, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 20", 0x3ec500, 0x3ec580, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 21", 0x3ec580, 0x3ec600, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 22", 0x3ec600, 0x3ec680, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 23", 0x3ec680, 0x3ec700, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 24", 0x3ec700, 0x3ec780, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 25", 0x3ec780, 0x3ec800, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 26", 0x3ec800, 0x3ec880, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 27", 0x3ec880, 0x3ec900, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 28", 0x3ec900, 0x3ec980, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 29", 0x3ec980, 0x3eca00, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 30", 0x3eca00, 0x3eca80, indexSF3NGSprites_Bonus, 0x11 },
+    { L"Capcom Logo 31", 0x3eca80, 0x3ecb00, indexSF3NGSprites_Bonus, 0x11 },
 
     { L"SF3 Logo - Lightning Effect", 0x3f6200, 0x3f6280 },
-    { L"SF3 Logo - Street Fighter", 0x3f6180, 0x3f6200 },
-    { L"SF3 Logo - III", 0x3f6280, 0x3f6300 },
-    { L"SF3 Logo - New Generation", 0x3f6300, 0x3f6380 },
+    { L"SF3 Logo - III", 0x3f6280, 0x3f6300, indexSF3NGSprites_Bonus, 0x12, &pairNextAndNext },
+    { L"SF3 Logo - Street Fighter", 0x3f6180, 0x3f6200, indexSF3NGSprites_Bonus, 0x14 },
+    { L"SF3 Logo - New Generation", 0x3f6300, 0x3f6380, indexSF3NGSprites_Bonus, 0x13 },
 };
 
 const sDescTreeNode SFIII1_A_BONUS_COLLECTION[] =
