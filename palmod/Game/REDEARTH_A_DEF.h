@@ -1020,7 +1020,7 @@ const sDescTreeNode REDEARTH_A_INTRO_COLLECTION[] =
 const sDescTreeNode REDEARTH_A_BONUS_31_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_PALETTES) },
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_UNUSED_PALETTES) },
+    { L"Unused Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_UNUSED_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_UNITS_31[] =
@@ -1050,28 +1050,31 @@ const sDescTreeNode REDEARTH_A_UNITS_31[] =
 // RedEarth stage palettes from Yoshin
 const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_PALETTES[] =
 {
-    { L"Icelarn 1 - Layer 1-Ground/Ice/Building", 0x737000, 0x737200 },
-    { L"Icelarn 2 - Pallete Cycle 1 - 1", 0x737200, 0x737280 },
-    { L"Icelarn 2 - Pallete Cycle 1 - 2", 0x737280, 0x737300 },
-    { L"Icelarn 2 - Pallete Cycle 1 - 3", 0x737300, 0x737380 },
-    { L"Icelarn 2 - Pallete Cycle 1 - 4", 0x737380, 0x737400 },
-    { L"Icelarn 3 - Pal 1", 0x737400, 0x737500 },
-    { L"Icelarn 3 - Pal 2", 0x737500, 0x737580 },
-    { L"Icelarn 3 - Pal 3", 0x737580, 0x737600 },
-    { L"Icelarn 4 - Pal 1", 0x737600, 0x737700 },
-    { L"Icelarn 4 - Pal 2", 0x737700, 0x737740 },
-    { L"Icelarn 4 - Pal 3", 0x737740, 0x737780 },
-    { L"Icelarn 4 - Pal 4", 0x737780, 0x737800 },
-    { L"Icelarn 5 - Sky BG Pal Cycle 1", 0x737800, 0x737880 },
-    { L"Icelarn 5 - Sky BG Pal Cycle 2", 0x737880, 0x737900 },
-    { L"Icelarn 5 - Sky BG Pal Cycle 2", 0x737900, 0x737980 },
-    { L"Icelarn 5 - Pallete Cycle 2 - 1", 0x737980, 0x737A00 },
-    { L"Icelarn 6 - Pallete Cycle 2 - 2", 0x737A00, 0x737A80 },
-    { L"Icelarn 6 - Pallete Cycle 2 - 3", 0x737A80, 0x737B00 },
-    { L"Icelarn 6 - Pallete Cycle 3 - 1", 0x737B00, 0x737B80 },
-    { L"Icelarn 6 - Pallete Cycle 3 - 2", 0x737B80, 0x737C00 },
-    { L"Icelarn 7 - Pallete Cycle 3 - 3", 0x737C00, 0x737C80 },
-    { L"Icelarn 7 - Pallete Cycle 3 - 4", 0x737C80, 0x737D00 },
+    { L"Ice mountain and Christmas tree 1", 0x737000, 0x737080 },
+    { L"Ice mountain and Christmas tree 2", 0x737b00, 0x737b80 },
+    { L"Ice mountain and Christmas tree 3", 0x737b80, 0x737c00 },
+    { L"Ice mountain and Christmas tree 4", 0x737c00, 0x737c80 },
+    { L"Ice mountain and Christmas tree 5", 0x737c80, 0x737d00 },
+    { L"Tessa's House and Ground", 0x737080, 0x737100 },
+    { L"BG Trees 1/4", 0x737200, 0x737280 },
+    { L"BG Trees 2/4", 0x737280, 0x737300 },
+    { L"BG Trees 3/4", 0x737300, 0x737380 },
+    { L"BG Trees 4/4", 0x737380, 0x737400 },
+    { L"BG Icebergs", 0x737400, 0x737480 },
+    { L"BG Water waves", 0x737480, 0x737500 },
+    { L"Aurora Borealis 1/5", 0x737780, 0x737800 },
+    { L"Aurora Borealis 2/5", 0x737500, 0x737580 },
+    { L"Aurora Borealis 3/5", 0x737800, 0x737880 },
+    { L"Aurora Borealis 4/5", 0x737880, 0x737900 },
+    { L"Aurora Borealis 5/5", 0x737900, 0x737980 },
+    { L"Wave splash", 0x737580, 0x737600 },
+    { L"Boat", 0x737600, 0x737680 },
+    { L"Fish", 0x737680, 0x737700 },
+    { L"BG Small Water 1/3", 0x737980, 0x737a00 },
+    { L"BG Small Water 2/3", 0x737a00, 0x737a80 },
+    { L"BG Small Water 3/3", 0x737a80, 0x737b00 },
+    { L"Unknown 1", 0x737100, 0x737180 },
+    { L"Unknown 2", 0x737700, 0x737780 }, 
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_GORA_PALETTES[] =
