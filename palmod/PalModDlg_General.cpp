@@ -18,7 +18,7 @@ void CPalModDlg::OnCBUnitChildChange()
     }
 }
 
-void CPalModDlg::UpdateCombo()
+void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
 {
     CGameClass* CurrGame = GetHost()->GetCurrGame();
     uint32_t* rgRedir = CurrGame->rgUnitRedir;
@@ -121,7 +121,7 @@ void CPalModDlg::UpdateCombo()
         return;
     }
 
-    if (nCurrChildSel2 != m_nPrevChildSel2)
+    if ((nCurrChildSel2 != m_nPrevChildSel2) || fForceUpdate)
     {
         //Clear the undo data
         UndoProc.Clear();

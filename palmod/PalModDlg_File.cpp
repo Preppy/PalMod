@@ -1734,12 +1734,38 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
 
 void CPalModDlg::OnImportPalette()
 {
+    // This handles palette import via the Tools menu: CPalDropTarget::OnDrop is the drag/drop version
     if (m_fEnabled)
     {
-        int nGameFlag = GetHost()->GetCurrGame()->GetGameFlag();
-        bool fIsSF3 = false;
+        static LPCWSTR szBBCFOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*.hpl|"
+                                              L"ACT Palette|*.act|"
+                                              L"Indexed PNG|*.png|"
+                                              L"Microsoft PAL|*.pal|"
+                                              L"Upside-down ACT Palette|*.act|"
+                                              L"Upside-down Indexed PNG|*.png|"
+                                              L"BBCF palette file|*.hpl"
+                                              L"|" };
 
-        switch (nGameFlag)
+        static LPCWSTR szSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat|"
+                                              L"ACT Palette|*.act|"
+                                              L"Indexed PNG|*.png|"
+                                              L"Microsoft PAL|*.pal|"
+                                              L"Upside-down ACT Palette|*.act|"
+                                              L"Upside-down Indexed PNG|*.png|"
+                                              L"PS3 SF3::OE color file|*.txt.dat"
+                                              L"|" };
+
+        static LPCWSTR szOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal|"
+                                          L"ACT Palette|*.act|"
+                                          L"Indexed PNG|*.png|"
+                                          L"Microsoft PAL|*.pal|"
+                                          L"Upside-down ACT Palette|*.act|"
+                                          L"Upside-down Indexed PNG|*.png|"
+                                          L"|" };
+
+        LPCWSTR pszFilterInUse = nullptr;
+
+        switch (GetHost()->GetCurrGame()->GetGameFlag())
         {
         case SFIII3_A:
         case SFIII3_D:
@@ -1752,30 +1778,17 @@ void CPalModDlg::OnImportPalette()
         case SFIII3_A_DIR_4rd_10:
         case SFIII1_A_DIR:
         case SFIII2_A_DIR:
-            fIsSF3 = true;
+            pszFilterInUse = *szSF3OpenFilter;
+            break;
+        case BlazBlueCF_S:
+            pszFilterInUse = *szBBCFOpenFilter;
             break;
         default:
+            pszFilterInUse = *szOpenFilter;
             break;
         }
 
-        static LPCWSTR szSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat|"
-                                              L"ACT Palette|*.act|"
-                                              L"Indexed PNG|*.png|"
-                                              L"Microsoft PAL|*.pal|"
-                                              L"Upside-down ACT Palette|*.act|"
-                                              L"Upside-down Indexed PNG|*.png|"
-                                              L"PS3 SF3::OE color file|*.txt.dat"
-                                              L"|" };
-
-        static LPCWSTR szOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat|"
-                                          L"ACT Palette|*.act|"
-                                          L"Indexed PNG|*.png|"
-                                          L"Microsoft PAL|*.pal|"
-                                          L"Upside-down ACT Palette|*.act|"
-                                          L"Upside-down Indexed PNG|*.png|"
-                                          L"|" };
-
-        CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, fIsSF3 ? *szSF3OpenFilter : *szOpenFilter);
+        CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, pszFilterInUse);
 
         if (PaletteLoad.DoModal() == IDOK)
         {
@@ -1796,6 +1809,14 @@ void CPalModDlg::OnImportPalette()
             else if (_wcsicmp(szExtension, L".dat") == 0)
             {
                 LoadPaletteFromPS3SF3OETXT(strFileName);
+            }
+            else if (_wcsicmp(szExtension, L".cfpl") == 0)
+            {
+                LoadPaletteFromCFPL(strFileName);
+            }
+            else if (_wcsicmp(szExtension, L".hpl") == 0)
+            {
+                LoadPaletteFromHPAL(strFileName);
             }
             else
             {

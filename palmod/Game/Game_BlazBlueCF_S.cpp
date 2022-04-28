@@ -209,11 +209,11 @@ LPCWSTR CGame_BlazBlueCF_S::GetDescriptionForCollection(uint32_t nUnitId, uint32
 {
     if (!BlazBlueCF_S_CharacterData[nUnitId].ppszCollectionList.empty())
     {
-        return  L"%s", BlazBlueCF_S_CharacterData[nUnitId].ppszCollectionList[nCollectionId];
+        return L"%s", BlazBlueCF_S_CharacterData[nUnitId].ppszCollectionList[nCollectionId];
     }
     else
     {
-    return L"Extras";
+        return L"Extras";
     }
 }
 

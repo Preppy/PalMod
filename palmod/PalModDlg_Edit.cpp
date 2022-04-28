@@ -104,15 +104,20 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                     if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
                     {
                         // It's a file: is it a file type we know about?
-                        // act, pal, png
+                        // act, pal, png, raw
+                        // 3S: txt.dat: not supported for drag and drop
+                        // BBCF: cfpl, hpal
                         LPCWSTR pszExtension = wcsrchr(szPath, L'.');
+
+                        bool fAllowBBCFDrop = (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
 
                         if (pszExtension)
                         {
                             if ((_wcsicmp(pszExtension, L".act") == 0) ||
                                 (_wcsicmp(pszExtension, L".pal") == 0) ||
                                 (_wcsicmp(pszExtension, L".png") == 0) ||
-                                (_wcsicmp(pszExtension, L".raw") == 0))
+                                (_wcsicmp(pszExtension, L".raw") == 0) ||
+                                (fAllowBBCFDrop && ((_wcsicmp(pszExtension, L".cfpl") == 0) || (_wcsicmp(pszExtension, L".hpl") == 0))))
                             {
                                 m_currentEffectState = DROPEFFECT_COPY;
                             }
@@ -130,6 +135,7 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
 
 BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point)
 {
+    // This handles palette import via drag/drop: PalModDlg::OnImportPalette is the Tools menu version
     if (GetHost()->GetCurrGame())
     {
         LPCWSTR pszExtension = nullptr;
@@ -172,6 +178,14 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             if (_wcsicmp(pszExtension, L".act") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromACT(szPath);
+            }
+            else if (_wcsicmp(pszExtension, L".cfpl") == 0)
+            {
+                GetHost()->GetPalModDlg()->LoadPaletteFromCFPL(szPath);
+            }
+            else if (_wcsicmp(pszExtension, L".hpl") == 0)
+            {
+                GetHost()->GetPalModDlg()->LoadPaletteFromHPAL(szPath);
             }
             else if (_wcsicmp(pszExtension, L".pal") == 0)
             {
@@ -234,7 +248,7 @@ void CPalModDlg::OnEditCopy()
 
         strDebugInfo.Format(" %u color(s) are selected.\r\n\tChecking if selection is complete or partial...", nPaletteSelectionLength - k_nASCIICharacterOffset);
         g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
-        BOOL fCopyAll = !CurrPal->GetSelAmt();
+        BOOL fCopyAll = (CurrPal->GetSelAmt() == 0);
         bool fHitError = false;
 
         strDebugInfo.Format(" %s.\r\n\tChecking color mode\r\n", fCopyAll ? "complete" : "partial");

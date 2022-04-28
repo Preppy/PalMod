@@ -149,7 +149,7 @@ public:
     void UpdateColorFormatMenu();
 
     void PostGameLoad();
-    void UpdateCombo();
+    void UpdateCombo(bool fForceUpdate = false);
     void PostPalSel();
 
     void LoadSettings();
@@ -157,6 +157,8 @@ public:
     void UpdateSettingsMenuItems();
 
     bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
+    bool LoadPaletteFromCFPL(LPCWSTR pszFileName);
+    bool LoadPaletteFromHPAL(LPCWSTR pszFileName);
     bool LoadPaletteFromPAL(LPCWSTR pszFileName);
     bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName);

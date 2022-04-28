@@ -156,6 +156,10 @@
 #define IDS_SVC_UNKNOWNCRYPTO           2053
 #define IDS_SVC_WARNENCRYPT             2054
 #define IDS_SVC_CRYPTO_RO               2055
+#define IDS_CFPL_LOADED                 2056
+#define IDS_CFPL_LOADFAILURE            2057
+#define IDS_HPAL_LOADED                 2058
+#define IDS_HPAL_LOADFAILURE            2059
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
 #define ID_LD_MVC2DCUSA                 32773
