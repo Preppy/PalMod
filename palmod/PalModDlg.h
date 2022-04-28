@@ -166,6 +166,7 @@ public:
 
     bool SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp);
     bool SavePaletteToGPL(LPCWSTR pszFileName);
+    bool SavePaletteToHPAL(LPCWSTR pszFileName);
     bool SavePaletteToPAL(LPCWSTR pszFileName);
 
     void UpdateSliderSel(BOOL fModeChange = FALSE, BOOL fResetRF = FALSE);

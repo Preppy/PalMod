@@ -1737,31 +1737,34 @@ void CPalModDlg::OnImportPalette()
     // This handles palette import via the Tools menu: CPalDropTarget::OnDrop is the drag/drop version
     if (m_fEnabled)
     {
-        static LPCWSTR szBBCFOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*.hpl|"
-                                              L"ACT Palette|*.act|"
-                                              L"Indexed PNG|*.png|"
-                                              L"Microsoft PAL|*.pal|"
-                                              L"Upside-down ACT Palette|*.act|"
-                                              L"Upside-down Indexed PNG|*.png|"
-                                              L"BBCF palette file|*.hpl"
-                                              L"|" };
+        static LPCWSTR rgszBBCFOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*.hpl;*.cfpl|"
+                                                L"ACT Palette|*.act|"
+                                                L"Indexed PNG|*.png|"
+                                                L"Microsoft PAL|*.pal|"
+                                                L"Upside-down ACT Palette|*.act|"
+                                                L"Upside-down Indexed PNG|*.png|"
+                                                L"HipPalette|*.hpl|"
+                                                L"BBCF palette set|*.cfpl|"
+                                                L"|" };
 
-        static LPCWSTR szSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat|"
-                                              L"ACT Palette|*.act|"
-                                              L"Indexed PNG|*.png|"
-                                              L"Microsoft PAL|*.pal|"
-                                              L"Upside-down ACT Palette|*.act|"
-                                              L"Upside-down Indexed PNG|*.png|"
-                                              L"PS3 SF3::OE color file|*.txt.dat"
-                                              L"|" };
+        static LPCWSTR rgszSF3OpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*txt.dat;*.hpl|"
+                                               L"ACT Palette|*.act|"
+                                               L"Indexed PNG|*.png|"
+                                               L"Microsoft PAL|*.pal|"
+                                               L"Upside-down ACT Palette|*.act|"
+                                               L"Upside-down Indexed PNG|*.png|"
+                                               L"PS3 SF3::OE color file|*.txt.dat"
+                                               L"HipPalette|*.hpl|"
+                                               L"|" };
 
-        static LPCWSTR szOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal|"
-                                          L"ACT Palette|*.act|"
-                                          L"Indexed PNG|*.png|"
-                                          L"Microsoft PAL|*.pal|"
-                                          L"Upside-down ACT Palette|*.act|"
-                                          L"Upside-down Indexed PNG|*.png|"
-                                          L"|" };
+        static LPCWSTR rgszOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal;*.hpl|"
+                                            L"ACT Palette|*.act|"
+                                            L"Indexed PNG|*.png|"
+                                            L"Microsoft PAL|*.pal|"
+                                            L"Upside-down ACT Palette|*.act|"
+                                            L"Upside-down Indexed PNG|*.png|"
+                                            L"HipPalette|*.hpl|"
+                                            L"|" };
 
         LPCWSTR pszFilterInUse = nullptr;
 
@@ -1778,13 +1781,13 @@ void CPalModDlg::OnImportPalette()
         case SFIII3_A_DIR_4rd_10:
         case SFIII1_A_DIR:
         case SFIII2_A_DIR:
-            pszFilterInUse = *szSF3OpenFilter;
+            pszFilterInUse = *rgszSF3OpenFilter;
             break;
         case BlazBlueCF_S:
-            pszFilterInUse = *szBBCFOpenFilter;
+            pszFilterInUse = *rgszBBCFOpenFilter;
             break;
         default:
-            pszFilterInUse = *szOpenFilter;
+            pszFilterInUse = *rgszOpenFilter;
             break;
         }
 
@@ -2052,13 +2055,30 @@ bool CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName)
 
 void CPalModDlg::OnExportPalette()
 {
-    static LPCWSTR szSaveFilter[] = { L"ACT Palette|*.act|"
-                                      L"GIMP Palette File|*.gpl|"
-                                      L"Microsoft PAL|*.pal|"
-                                      L"Upside-down ACT Palette|*.act|"
-                                      L"|" };
+    static LPCWSTR rgszSaveFilter[] = { L"ACT Palette|*.act|"
+                                        L"GIMP Palette File|*.gpl|"
+                                        L"Microsoft PAL|*.pal|"
+                                        L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
+                                        L"HipPalette|*.hpl|"
+                                        L"|" };
 
-    CFileDialog ActSave(FALSE, L"act", nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, *szSaveFilter);
+    static LPCWSTR rgszBBCFSaveFilter[] = { L"HipPalette|*.hpl|"
+                                            L"ACT Palette|*.act|"
+                                            L"GIMP Palette File|*.gpl|"
+                                            L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
+                                            L"Microsoft PAL|*.pal|"
+                                            L"|" };
+
+    LPCWSTR pszDefaultExt = L"act";
+    LPCWSTR pszFilterToUse = *rgszSaveFilter;
+
+    if (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S)
+    {
+        pszDefaultExt = L"hpl";
+        pszFilterToUse = *rgszBBCFSaveFilter;
+    }
+
+    CFileDialog ActSave(FALSE, pszDefaultExt, nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, pszFilterToUse);
 
     if (ActSave.DoModal() == IDOK)
     {
@@ -2074,13 +2094,17 @@ void CPalModDlg::OnExportPalette()
         {
             fSuccess = SavePaletteToGPL(ActSave.GetOFN().lpstrFile);
         }
+        else if (_wcsicmp(szExtension, L".hpl") == 0)
+        {
+            fSuccess = SavePaletteToHPAL(ActSave.GetOFN().lpstrFile);
+        }
         else if (_wcsicmp(szExtension, L".pal") == 0)
         {
             fSuccess = SavePaletteToPAL(ActSave.GetOFN().lpstrFile);
         }
         else
         {
-            if (ActSave.GetOFN().nFilterIndex == 4)
+            if (ActSave.GetOFN().nFilterIndex == 4) // This is in reference to our array's sort order above
             {
                 fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile, false);
             }

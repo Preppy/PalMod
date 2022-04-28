@@ -117,7 +117,8 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                                 (_wcsicmp(pszExtension, L".pal") == 0) ||
                                 (_wcsicmp(pszExtension, L".png") == 0) ||
                                 (_wcsicmp(pszExtension, L".raw") == 0) ||
-                                (fAllowBBCFDrop && ((_wcsicmp(pszExtension, L".cfpl") == 0) || (_wcsicmp(pszExtension, L".hpl") == 0))))
+                                (_wcsicmp(pszExtension, L".hpl") == 0) ||
+                                (fAllowBBCFDrop && (_wcsicmp(pszExtension, L".cfpl") == 0)))
                             {
                                 m_currentEffectState = DROPEFFECT_COPY;
                             }

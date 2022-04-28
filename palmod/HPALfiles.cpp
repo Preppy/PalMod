@@ -7,9 +7,24 @@
 // HPAL is for one 256 color BGRA palette.
 // CFPL is a collection of eight 256 color BGRA palettes: exactly enough for one full character
 
+// HPALs are 1056 bytes (0x420 bytes) long.
+// There is a 40 byte header followed by 256 BGRA colors.
+const size_t k_nRequiredHPALFileSize = 0x420;
+const uint8_t k_nHPALHeaderLength = 32;
+
+const std::array<uint8_t, k_nHPALHeaderLength> k_rgHPALHeader =
+{
+    0x48, 0x50, 0x41, 0x4c, // H P A L
+                            0x25, 0x01, 0x00, 0x00,
+    0x20, 0x04, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00,
+};
+
 bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
 {
     bool fSuccess = false;
+    bool fUserWantsToApply = true;
 
     CFile CFPLFile;
     if (CFPLFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
@@ -66,7 +81,7 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
         }
 
         uint16_t nCollectionIndex = 0;
-        bool fFoundCharacter = false;
+        bool fCanUseCharacterAssignment = false;
 
         if (fFileIsValidCFPL)
         {
@@ -77,7 +92,7 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
             {
                 if (BlazBlueCF_S_CharacterData[nCollectionIndex].nBBCFIMId == nCharacterToApplyTo)
                 {
-                    fFoundCharacter = true;
+                    fCanUseCharacterAssignment = true;
                     break;
                 }
             }
@@ -85,7 +100,7 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
 
         uint8_t nColorPositionToWriteTo = -1;
 
-        if (fFoundCharacter)
+        if (fCanUseCharacterAssignment)
         {
             if (m_nPrevUnitSel == nCollectionIndex) // This character is being displayed
             {
@@ -95,9 +110,21 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
             {
                 nColorPositionToWriteTo = 0;
             }
+
+            if (nColorPositionToWriteTo < BlazBlueCF_S_CharacterData[nCollectionIndex].ppszCollectionList.size())
+            {
+                CString strReadyCheck;
+                strReadyCheck.Format(IDS_CFPL_CONFIRM, BlazBlueCF_S_CharacterData[nCollectionIndex].pszCharacter, BlazBlueCF_S_CharacterData[nCollectionIndex].ppszCollectionList[nColorPositionToWriteTo]);
+
+                if (MessageBox(strReadyCheck, GetHost()->GetAppName(), MB_ICONINFORMATION | MB_YESNO) != IDYES)
+                {
+                    fUserWantsToApply = false;
+                }
+            }
+
         }
 
-        if (nColorPositionToWriteTo < BlazBlueCF_S_CharacterData[nCollectionIndex].ppszCollectionList.size())
+        if (fCanUseCharacterAssignment && fUserWantsToApply)
         {
             const uint16_t k_nColorsPerPalette = 256; // An CFPL has 8 sets of 256 (1024 bytes / 4 bytes per color) colors.
             const uint8_t k_nBytesPerColor = 4;
@@ -147,7 +174,7 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
         }
     }
 
-    if (!fSuccess)
+    if (fUserWantsToApply && !fSuccess)
     {
         CString strError;
         if (strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE))
@@ -169,25 +196,11 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
     {
         ProcChange();
 
-        // HPALs are 1056 bytes (0x420 bytes) long.
-        // There is a 40 byte header followed by 256 BGRA colors.
-        const size_t k_nRequiredFileSize = 0x420;
-        const uint8_t k_nHPALHeaderLength = 32;
-
         bool fFileIsValidHPAL = false;
 
         // Read data from the HPAL...
-        if (HPALFile.GetLength() == k_nRequiredFileSize)
+        if (HPALFile.GetLength() == k_nRequiredHPALFileSize)
         {
-            const std::array<uint8_t, k_nHPALHeaderLength> k_rgHPALHeader =
-            {
-                0x48, 0x50, 0x41, 0x4c, // H P A L
-                                        0x25, 0x01, 0x00, 0x00,
-                0x20, 0x04, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00,
-            };
-
             std::array<uint8_t, k_nHPALHeaderLength> rgHeaderBytes = {};
 
             HPALFile.Seek(0, CFile::begin);
@@ -336,5 +349,79 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
         SetStatusText(IDS_HPAL_LOADFAILURE);
     }
 
+    return fSuccess;
+}
+
+bool CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName)
+{
+    CFile HPALFile;
+    bool fSuccess = false;
+
+    if (HPALFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+    {
+        HPALFile.Write(&k_rgHPALHeader, k_rgHPALHeader.size());
+
+        const uint16_t k_nColorsPerPalette = 256; // An HPAL has 256 colors.  Fill with black as needed.
+        uint8_t* pPal = (uint8_t*)CurrPalCtrl->GetBasePal();
+        int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+
+        int nTotalColorsUsed = 0;
+
+        for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
+        {
+            // Swap to BGRA
+            HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 2], 1);
+            HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 1], 1);
+            HPALFile.Write(&pPal[nTotalColorsUsed * 4], 1);
+            HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 3], 1);
+        }
+
+        // Check for remaining fill
+        uint8_t nPalettePageCount;
+
+        if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
+        {
+            nPalettePageCount = m_PalHost.GetCurrentPageCount();
+        }
+        else
+        {
+            nPalettePageCount = 1;
+        }
+
+        for (uint8_t nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+        {
+            CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+            if (pPalCtrlNextPage)
+            {
+                const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+
+                for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nColorsPerPalette) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++, nTotalColorsUsed++)
+                {
+                    HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 2], 1);
+                    HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 1], 1);
+                    HPALFile.Write(&pPal[nTotalColorsUsed * 4], 1);
+                    HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 3], 1);
+                }
+            }
+        }
+
+        // fill unused area with black
+        for (; nTotalColorsUsed < k_nColorsPerPalette; nTotalColorsUsed++)
+        {
+            uint8_t dwThisCol = 0;
+            HPALFile.Write(&dwThisCol, 1);
+            HPALFile.Write(&dwThisCol, 1);
+            HPALFile.Write(&dwThisCol, 1);
+            dwThisCol = 0xff; // alpha
+            HPALFile.Write(&dwThisCol, 1);
+        }
+
+        HPALFile.Close();
+
+        fSuccess = true;
+    }
+
+    SetStatusText(fSuccess ? IDS_HPALSAVE_SUCCESS : IDS_HPALSAVE_FAILURE);
     return fSuccess;
 }
