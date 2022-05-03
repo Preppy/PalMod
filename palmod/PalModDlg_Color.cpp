@@ -181,6 +181,9 @@ void CPalModDlg::OnDeltaposSpinA(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CPalModDlg::UpdateSliderSel(BOOL fModeChange, BOOL fResetRF)
 {
+    // RangeFlag is a cute way for us to know whether or not we need to reset 
+    // the min/max for each slider.  It's a combination of gameflag +
+    // a per-display-type value.
     static int nRangeFlag = 0xFFFF;
     static BOOL fSliderEnabled = TRUE;
     static BOOL fAlphaEnabled = TRUE;

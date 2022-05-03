@@ -4,11 +4,11 @@
 #include "Game\BlazBlueCF_S_DEF.h"
 
 // CFPL and HPAL are BBCF color palette files.
-// HPAL is for one 256 color BGRA palette.
+// HPAL is for one 256 color ABGR palette.
 // CFPL is a collection of eight 256 color BGRA palettes: exactly enough for one full character
 
 // HPALs are 1056 bytes (0x420 bytes) long.
-// There is a 40 byte header followed by 256 BGRA colors.
+// There is a 40 byte header followed by 256 ABGR colors.
 const size_t k_nRequiredHPALFileSize = 0x420;
 const uint8_t k_nHPALHeaderLength = 32;
 
@@ -284,7 +284,7 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
 
             for (size_t iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
             {
-                // incoming is BGRA, so flip to be RBGA
+                // incoming is ABGR, so flip to be RBGA
                 pPal[(iCurrentIndexInPalette * 4) + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgHPAL[(iHPALIndex * k_nBytesPerColor)]);
                 pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgHPAL[(iHPALIndex * k_nBytesPerColor) + 1]);
                 pPal[(iCurrentIndexInPalette * 4)] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rgHPAL[(iHPALIndex * k_nBytesPerColor) + 2]);
@@ -369,7 +369,7 @@ bool CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName)
 
         for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
         {
-            // Swap to BGRA
+            // Swap to ABGR
             HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 2], 1);
             HPALFile.Write(&pPal[nTotalColorsUsed * 4 + 1], 1);
             HPALFile.Write(&pPal[nTotalColorsUsed * 4], 1);

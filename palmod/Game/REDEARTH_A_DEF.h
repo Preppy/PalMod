@@ -650,7 +650,24 @@ const sGame_PaletteDataset REDEARTH_A_GIGI_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
 {
-    { L"Scion", 0x436e00, 0x436e80, indexRedEarthSprites_Scion },
+    { L"Scion", 0x436e00, 0x436e80, indexRedEarthSprites_Scion, 0x00 },
+
+    { L"Scion Burned 1", 0x439800, 0x439880, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Burned 2", 0x439880, 0x439900, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Shocked 1", 0x439900, 0x439980, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Shocked 2", 0x439980, 0x439a00, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Poisoned 1", 0x439a00, 0x439a80, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Poisoned 2", 0x439a80, 0x439b00, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Poisoned 3", 0x439b00, 0x439b80, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Poisoned 4", 0x439b80, 0x439c00, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Petrified 1", 0x439d00, 0x439d80, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Petrified 2", 0x439c80, 0x439d00, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Petrified 3", 0x439c00, 0x439c80, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Frozen 1", 0x439d80, 0x439e00, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Frozen 2", 0x439e00, 0x439e80, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Frozen 3", 0x439e80, 0x439f00, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Frozen 4", 0x439f00, 0x439f80, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Frozen 5", 0x439f80, 0x43a000, indexRedEarthSprites_Scion, 0x00 },
 };
 
 //Extra Stuff

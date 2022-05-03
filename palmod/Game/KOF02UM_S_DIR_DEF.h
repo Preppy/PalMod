@@ -157,6 +157,9 @@ const sGame_PaletteDataset KOF02UM_S_STAGE_PALETTES_ITALY[] =
     { L"Italy Asset 14", 0x3434c0, 0x3438c0 },
     { L"Italy Asset 15", 0x3838c0, 0x383cc0 },
     { L"Italy Asset 16", 0x3c3cc0, 0x3c40c0 },
+    { L"Italy Asset 17", 0x4040c0, 0x4044c0 },
+    { L"Italy Asset 18", 0x4444c0, 0x4448c0 },
+    { L"Italy Asset 19", 0x4848c0, 0x484cc0 },
 };
 
 const sDescTreeNode KOF02UM_S_STAGES_COLLECTION_ITALY[] =
