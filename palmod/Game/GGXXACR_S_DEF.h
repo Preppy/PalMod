@@ -1645,6 +1645,10 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_HUDMenu =
     { L"Text (Original) (1/3)",         0x89FF0, 0x8A030, indexGGXXSprites_ACR_Bonus, 0x13, &pairNextAndNext }, // This looks wrong, but it's correct
     { L"Text (Original) (2/3)",         0x8A510, 0x8A550, indexGGXXSprites_ACR_Bonus, 0x14 },
     { L"Text (Original) (3/3)",         0x8AAB0, 0x8AAF0, indexGGXXSprites_ACR_Bonus, 0x15 },
+
+    { L"Various Menus Font / Training Input History", 0x81AA0, 0x81AE0 },
+    { L"Various Menus Font", 0x82920, 0x82960 },
+
     { L"Zappa summon/Move List icons",  0x7E450, 0x7E490 },
 
     { L"Stagger joystick (1/3)",        0x1EE040, 0x1EE080, indexGGXXSprites_ACR_Bonus, 0x0f },

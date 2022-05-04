@@ -7,11 +7,11 @@ struct MAABFileData
     LPCWSTR pszFileName = nullptr;
     LPCWSTR pszCharacter = nullptr;
     LPCWSTR pszNodeName = nullptr;
-    UINT32 nExpectedFileSize = 0;
+    uint32_t nExpectedFileSize = 0;
     const std::vector<LPCWSTR> ppszPaletteList;
-    UINT32 nInitialLocation = 0;
-    UINT32 nSpriteUnitIndex = -1;
-    UINT32 nSpriteImageIndex = 0x00;
+    uint32_t nInitialLocation = 0;
+    uint32_t nSpriteUnitIndex = (uint32_t)-1;
+    uint32_t nSpriteImageIndex = 0x00;
     const std::vector<sGame_PaletteDataset> prgExtraPalettes;
 };
 
@@ -33,37 +33,76 @@ MAABFileData MAAB_A_CharacterData[] =
     { L"act\\chara\\chara_03_00.pal",       L"Zechs Siegfried",         nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Zechs },
 
     //Extras
-    { L"act\\chara\\chara_05s_00.pal",      L"Bisclavret Extra",        nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Bisclavret, 0x08 },
-    { L"act\\chara\\chara_06s_00.pal",      L"Eternal Flame Extra",     nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_EternalFlame, 0x08 },
-    { L"act\\chara\\chara_04s_00.pal",      L"Hybrid Nimue Extra",      nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Nimue, 0x08 },
-    { L"act\\chara\\chara_09s_00.pal",      L"Iai Arthur Extra",        nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_IaiArthur, 0x08 },
-    { L"act\\chara\\chara_09s_01.pal",      L"Iai Arthur Nyneue",       nullptr,                       65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_IaiArthur, 0x09 },
-    { L"act\\chara\\chara_09p_01.pal",      L"Iai Arthur Cat",          nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Bonus, 0x00 },
-    { L"act\\chara\\chara_0As_00.pal",      L"Koume Sakiyama Extra",    nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x08 },
-    { L"act\\chara\\chara_0As_01.pal",      L"Koume March Hare",        nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0b },
-    { L"act\\chara\\chara_0As_02.pal",      L"Koume Tri-Horn",          nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0d },
-    { L"act\\chara\\chara_0As_03.pal",      L"Koume Stolas",            nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0c },
-    { L"act\\chara\\chara_0As_04.pal",      L"Koume Fia",               nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0e },
-    { L"act\\chara\\chara_0As_05.pal",      L"Koume Eligos",            nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0a },
-    { L"act\\chara\\chara_0As_06.pal",      L"Koume Dantalion",         nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x09 },
-    { L"act\\chara\\chara_0As_07.pal",      L"Koume Wadatsumi",         nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0f },
-    { L"act\\chara\\chara_08s_00.pal",      L"Riesz Extra",             nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Riesz, 0x08 },
-    { L"act\\chara\\chara_07s_00.pal",      L"Snow White Extra",        nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x08 },
-    { L"act\\chara\\chara_07p_00.pal",      L"Snow White Blue Dwarf",  nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
-    { L"act\\chara\\chara_07p_01.pal",      L"Snow White White Dwarf", nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
-    { L"act\\chara\\chara_07p_02.pal",      L"Snow White Green Dwarf", nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
-    { L"act\\chara\\chara_07p_03.pal",      L"Snow White Brown Dwarf", nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
-    { L"act\\chara\\chara_07p_04.pal",      L"Snow White Gray Dwarf",  nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
-    { L"act\\chara\\chara_07p_05.pal",      L"Snow White Pink Dwarf",  nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
-    { L"act\\chara\\chara_07p_06.pal",      L"Snow White Red Dwarf",   nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
-    { L"act\\chara\\chara_02s_00.pal",      L"Thief Arthur Extra",      nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Thief, 0x08 },
-    { L"act\\chara\\chara_00s_01.pal",      L"Twinblade Arthur Extra",  nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Twinblade, 0x08 },
-    { L"act\\chara\\chara_00s_00.pal",      L"Twinblade Arthur Nimane", nullptr,                       65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Twinblade, 0x09  },
-    { L"act\\chara\\chara_00p_00.pal",      L"Twinblade Arthur Cats",   nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Bonus, 0x00 },
-    { L"act\\chara\\chara_0Bs_02.pal",      L"Wildcat Arthur Extra",    nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Wildcat, 0x08 },
-    { L"act\\chara\\chara_0Bs_00.pal",      L"Wildcat Arthur Coupy",    nullptr,                       65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Wildcat, 0x09 },
-    { L"act\\chara\\chara_0Bs_01.pal",      L"Wildcat Arthur Angelic Disaster",   nullptr,             65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Wildcat, 0x0a },
+    { L"act\\chara\\chara_05s_00.pal",      L"Bisclavret Extra",        nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Bisclavret, 0x08 },
+    { L"act\\chara\\chara_06s_00.pal",      L"Eternal Flame Extra",     nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_EternalFlame, 0x08 },
+    { L"act\\chara\\chara_04s_00.pal",      L"Hybrid Nimue Extra",      nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Nimue, 0x08 },
+    { L"act\\chara\\chara_09s_00.pal",      L"Iai Arthur Extra",        nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_IaiArthur, 0x08 },
+    { L"act\\chara\\chara_09s_01.pal",      L"Iai Arthur Nyneue",       nullptr,                        65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_IaiArthur, 0x09 },
+    { L"act\\chara\\chara_09p_01.pal",      L"Iai Arthur Cat",          nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Bonus, 0x00 },
+    { L"act\\chara\\chara_0As_00.pal",      L"Koume Sakiyama Extra",    nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x08 },
+    { L"act\\chara\\chara_0As_01.pal",      L"Koume March Hare",        nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0b },
+    { L"act\\chara\\chara_0As_02.pal",      L"Koume Tri-Horn",          nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0d },
+    { L"act\\chara\\chara_0As_03.pal",      L"Koume Stolas",            nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0c },
+    { L"act\\chara\\chara_0As_04.pal",      L"Koume Fia",               nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0e },
+    { L"act\\chara\\chara_0As_05.pal",      L"Koume Eligos",            nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0a },
+    { L"act\\chara\\chara_0As_06.pal",      L"Koume Dantalion",         nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x09 },
+    { L"act\\chara\\chara_0As_07.pal",      L"Koume Wadatsumi",         nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0f },
+    { L"act\\chara\\chara_08s_00.pal",      L"Riesz Extra",             nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Riesz, 0x08 },
+    { L"act\\chara\\chara_07s_00.pal",      L"Snow White Extra",        nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x08 },
+    { L"act\\chara\\chara_07p_00.pal",      L"Snow White Blue Dwarf",   nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
+    { L"act\\chara\\chara_07p_01.pal",      L"Snow White White Dwarf",  nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
+    { L"act\\chara\\chara_07p_02.pal",      L"Snow White Green Dwarf",  nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
+    { L"act\\chara\\chara_07p_03.pal",      L"Snow White Brown Dwarf",  nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
+    { L"act\\chara\\chara_07p_04.pal",      L"Snow White Gray Dwarf",   nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
+    { L"act\\chara\\chara_07p_05.pal",      L"Snow White Pink Dwarf",   nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
+    { L"act\\chara\\chara_07p_06.pal",      L"Snow White Red Dwarf",    nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x09 },
+    { L"act\\chara\\chara_02s_00.pal",      L"Thief Arthur Extra",      nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Thief, 0x08 },
+    { L"act\\chara\\chara_00s_01.pal",      L"Twinblade Arthur Extra",  nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Twinblade, 0x08 },
+    { L"act\\chara\\chara_00s_00.pal",      L"Twinblade Arthur Nimane", nullptr,                        65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Twinblade, 0x09  },
+    { L"act\\chara\\chara_00p_00.pal",      L"Twinblade Arthur Cats",   nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Bonus, 0x00 },
+    { L"act\\chara\\chara_0Bs_02.pal",      L"Wildcat Arthur Extra",    nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Wildcat, 0x08 },
+    { L"act\\chara\\chara_0Bs_00.pal",      L"Wildcat Arthur Coupy",    nullptr,                        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Wildcat, 0x09 },
+    { L"act\\chara\\chara_0Bs_01.pal",      L"Wildcat Arthur Angelic Disaster",   nullptr,              65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Wildcat, 0x0a },
 
+    // Underlighting for characters
+    { L"act\\chara\\chara_05_00g.pal",       L"Bisclavret (Underlighting)",             nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Bisclavret },
+    { L"act\\chara\\chara_01_00g.pal",       L"Blade Protector Arthur (Underlighting)", nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_BladeProtector },
+    { L"act\\chara\\chara_06_00g.pal",       L"Eternal Flame (Underlighting)",          nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_EternalFlame },
+    { L"act\\chara\\chara_04_00g.pal",       L"Hybrid Nimue (Underlighting)",           nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Nimue },
+    { L"act\\chara\\chara_09_00g.pal",       L"Iai Arthur (Underlighting)",             nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_IaiArthur },
+    { L"act\\chara\\chara_0C_00g.pal",       L"Iori Yagami (Underlighting)",            nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_IoriYagami },
+    { L"act\\chara\\chara_0A_00g.pal",       L"Koume Sakiyama (Underlighting)",         nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume},
+    { L"act\\chara\\chara_08_00g.pal",       L"Riesz (Underlighting)",                  nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Riesz },
+    { L"act\\chara\\chara_07_00g.pal",       L"Snow White (Underlighting)",             nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite },
+    { L"act\\chara\\chara_02_00g.pal",       L"Thief Arthur (Underlighting)",           nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Thief },
+    { L"act\\chara\\chara_00_00g.pal",       L"Twinblade Arthur (Underlighting)",       nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Twinblade },
+    { L"act\\chara\\chara_0B_00g.pal",       L"Wildcat Arthur (Underlighting)",         nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Wildcat },
+    { L"act\\chara\\chara_03_00g.pal",       L"Zechs Siegfried (Underlighting)",        nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Zechs },
+
+    // Underlighting for extras
+    { L"act\\chara\\chara_05s_00g.pal",      L"Bisclavret Extra (Underlighting)",       nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Bisclavret, 0x08 },
+    { L"act\\chara\\chara_06s_00g.pal",      L"Eternal Flame Extra (Underlighting)",    nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_EternalFlame, 0x08 },
+    { L"act\\chara\\chara_04s_00g.pal",      L"Hybrid Nimue Extra (Underlighting)",     nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Nimue, 0x08 },
+    { L"act\\chara\\chara_09s_00g.pal",      L"Iai Arthur Extra (Underlighting)",       nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_IaiArthur, 0x08 },
+    { L"act\\chara\\chara_09s_01g.pal",      L"Iai Arthur Nyneue (Underlighting)",      nullptr,        65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_IaiArthur, 0x09 },
+    { L"act\\chara\\chara_0As_00g.pal",      L"Koume Sakiyama Extra (Underlighting)",   nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x08 },
+    { L"act\\chara\\chara_0As_01g.pal",      L"Koume March Hare (Underlighting)",       nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0b },
+    { L"act\\chara\\chara_0As_02g.pal",      L"Koume Tri-Horn (Underlighting)",         nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0d },
+    { L"act\\chara\\chara_0As_03g.pal",      L"Koume Stolas (Underlighting)",           nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0c },
+    { L"act\\chara\\chara_0As_04g.pal",      L"Koume Fia (Underlighting)",              nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0e },
+    { L"act\\chara\\chara_0As_05g.pal",      L"Koume Eligos (Underlighting)",           nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0a },
+    { L"act\\chara\\chara_0As_06g.pal",      L"Koume Dantalion (Underlighting)",        nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x09 },
+    { L"act\\chara\\chara_0As_07g.pal",      L"Koume Wadatsumi (Underlighting)",        nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Koume, 0x0f },
+    { L"act\\chara\\chara_08s_00g.pal",      L"Riesz Extra (Underlighting)",            nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Riesz, 0x08 },
+    { L"act\\chara\\chara_07s_00g.pal",      L"Snow White Extra (Underlighting)",       nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_SnowWhite, 0x08 },
+
+    { L"act\\chara\\chara_02s_00g.pal",      L"Thief Arthur Extra (Underlighting)",     nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Thief, 0x08 },
+    { L"act\\chara\\chara_00s_01g.pal",      L"Twinblade Arthur Extra (Underlighting)", nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Twinblade, 0x08 },
+    { L"act\\chara\\chara_00s_00g.pal",      L"Twinblade Arthur Nimane (Underlighting)", nullptr,       65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Twinblade, 0x09  },
+
+    { L"act\\chara\\chara_0Bs_02g.pal",      L"Wildcat Arthur Extra (Underlighting)",   nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Wildcat, 0x08 },
+    { L"act\\chara\\chara_0Bs_00g.pal",      L"Wildcat Arthur Coupy (Underlighting)",   nullptr,        65552,    MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Wildcat, 0x09 },
+    { L"act\\chara\\chara_0Bs_01g.pal",      L"Wildcat Arthur Angelic Disaster (Underlighting)", nullptr, 65552,  MAABPaletteNamesNormal,    0x10, indexArcanaSprites_Wildcat, 0x0a },
 
     //Support
     { L"act\\partner\\partner_11_00.pal",   L"Support Knight",          L"Clone Aife",                  65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Support, 0x01 },
