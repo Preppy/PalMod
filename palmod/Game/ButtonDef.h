@@ -189,7 +189,7 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_BLEACH =
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_LASTBLADE1 =
 {
-    L"Power A", L"Power D", L"Speed A", L"Speed D"
+    L"Power A", L"Power D", L"EX"
 };
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_LASTBLADE2 =

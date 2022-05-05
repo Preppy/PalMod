@@ -52,7 +52,7 @@ CGame_LASTBLADE_A::CGame_LASTBLADE_A(UINT32 nConfirmedROMSize, SupportedGamesLis
 
     // You will need to update this once you modify palettes, but PalMod will prompt you to do so.
     // Exact count will be shown in debug output in the debugger
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 448;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1344;
     m_pszExtraFilename = EXTRA_FILENAME_LASTBLADE_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForLASTBLADE; // This value is calculated at runtime: don't change this.
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -74,7 +74,7 @@ CGame_LASTBLADE_A::CGame_LASTBLADE_A(UINT32 nConfirmedROMSize, SupportedGamesLis
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_NOBUTTONS; // DEF_BUTTONLABEL_LASTBLADE1;
+    pButtonLabelSet = DEF_BUTTONLABEL_LASTBLADE1;
 
     //Create the redirect buffer
     rgUnitRedir = new uint32_t[nUnitAmt + 1];
