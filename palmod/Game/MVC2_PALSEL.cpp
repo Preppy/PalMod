@@ -139,7 +139,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     if (pDescriptionForPalId && pDescriptionForPalId->pPairedPaletteInfo)
     {
-        if ((pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin > 1) && (pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin < 8))
+        if ((pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin > 1) && (pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin < 9))
         {
             std::vector<const sMoveDescription*> vMoveDescriptionSetToJoin;
             std::vector<int8_t> vnPeerPaletteDistances;

@@ -502,15 +502,15 @@ const stPairedPaletteInfo pairNext4AndNext8AndNext9 =               { 4, false, 
 const stPairedPaletteInfo pairNext4AndNext7AndNext8 =               { 4, false, 4, 7, 8 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNext4AndNext6AndNext7 =               { 4, false, 4, 6, 7 };    // quad display... requires special handling in code
 
-const stPairedPaletteInfo pairNext4Palettes =                       { 1, false, 5, 2, 3, 4, 5 }; // quint-display -- specially handled
+const stPairedPaletteInfo pairNext4Palettes =                       { 1, false, 5 }; // quint-display -- specially handled
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, false, 5, 2, 3, 8 };     // quint display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext9 =          { 1, false, 5, 2, 3, 12 };    // quint display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextAndNextAndNext13 =         { 1, false, 5, 2, 3, 16 };    // quint display... requires special handling in code
 
-const stPairedPaletteInfo pairNext5Palettes =                       { 1, false, 6, 2, 3, 4, 5, 6 }; // six-display -- specially handled
+const stPairedPaletteInfo pairNext5Palettes =                       { 1, false, 6 }; // six-display -- specially handled
 
-const stPairedPaletteInfo pairNext6Palettes =                       { 1, false, 7, 2, 3, 4, 5, 6 }; // Seven-display -- specially handled
-const stPairedPaletteInfo pairNext7Palettes =                       { 1, false, 8, 2, 3, 4, 5, 6, 7 }; // eight-display -- specially handled
+const stPairedPaletteInfo pairNext6Palettes =                       { 1, false, 7 }; // Seven-display -- specially handled
+const stPairedPaletteInfo pairNext7Palettes =                       { 1, false, 8 }; // eight-display -- specially handled
 const stPairedPaletteInfo pairNext11Palettes =                      { 1, false, 12 };
 
 constexpr auto MAXIMUM_PALETTE_PAIRS_ALLOWED = 12;
