@@ -39,7 +39,7 @@ const std::vector<LPCWSTR> PersonaPaletteNodes_Steam =
 };
 
 const std::vector<PersonaFileData> PersonaCharacterData_Steam =
-{ {
+{
     //Alphabetical
       { L"data\\char\\char_ag_pal.pac",    L"Aigis",                          282672,    &Persona4PalettesAigis,      0x3040,      0x2100 },
       { L"data\\ETC\\CHSLDotV.pac",        L"Aigis (CharaSelect)",            19190960,  &Persona4PalettesAigisCSEL,  0x192860,    0x840 },
@@ -88,4 +88,4 @@ const std::vector<PersonaFileData> PersonaCharacterData_Steam =
 
     //Unknown, doesnt follow the same format as other characters
     //{ L"char_e0_pal.pac",    L"Unknown?",           13280,     Persona4Names,    ARRAYSIZE(Persona4Names), 0x280,  0x0 },
-} };
+};

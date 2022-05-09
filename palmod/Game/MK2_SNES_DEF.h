@@ -43,7 +43,7 @@ const sGame_PaletteDataset MK2_SNES_LIUKANG_P2_PALETTES[] =
 const sGame_PaletteDataset MK2_SNES_LIUKANG_EFFECT_PALETTES[] =
 {
     { L"Liu Kang Fire", 0x2fa168, 0x2fa188, indexMK2Sprites_LiuKang, 0x01 },
-    { L"Liu Kang Dragon", 0x2FC30E, 0x2FC32E },
+    { L"Liu Kang Dragon", 0x2FC30E, 0x2FC32E, indexMK2Sprites_LiuKang, 0x08 },
 };
 
 const sGame_PaletteDataset MK2_SNES_KUNGLAO_P1_PALETTES[] =
@@ -130,12 +130,12 @@ const sGame_PaletteDataset MK2_SNES_KITANA_P2_PALETTES[] =
 
 const sGame_PaletteDataset MK2_SNES_JAX_P1_PALETTES[] =
 {
-    { L"Jax P1", 0x2fd570, 0x2fd590, indexMK2Sprites_Jax },
+    { L"Jax P1", 0x2fd570, 0x2fd590, indexMK2Sprites_Jax, 0x00 },
 };
 
 const sGame_PaletteDataset MK2_SNES_JAX_P2_PALETTES[] =
 {
-    { L"Jax P2", 0x2fd550, 0x2fd570, indexMK2Sprites_Jax },
+    { L"Jax P2", 0x2fd550, 0x2fd570, indexMK2Sprites_Jax, 0x00 },
 };
 
 const sGame_PaletteDataset MK2_SNES_JAX_EFFECT_PALETTES[] =
