@@ -112,8 +112,9 @@ namespace MVC2_SupplementProcessing
             //SUPP_NODE_ABSOL | SUPP_NODE_EX, Dest Start, Dest Inc, Src Pal Start, Src Pal Inc, Src Index Start, Src Index Amt, Dst Index
 
             // sHK swing effect: doesn't matter right now due to palette pairing
-            /*
+            // does matter for the team view palette
             SUPP_NODE_EX, 1 | MOD_ABS, 8, 1, 5, 9,
+
             SUPP_NODE_ABSOL | SUPP_NODE_EX, 1 | MOD_ABS, 8, 1 | MOD_ABS, 8, 13, 1, 14,
                 MOD_LUM, 14, 1, NEG + 5,
             SUPP_NODE_EX, 1 | MOD_ABS, 8, 6, 5, 3,
@@ -123,7 +124,6 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 1, 17,
             SUPP_NODE_ABSOL | SUPP_NODE_EX, 1 | MOD_ABS, 8, 1 | MOD_ABS, 8, 2, 1, 1,
                 MOD_LUM, 1, 1, 9,
-                */
 
             // there are 8 intro frames
             SUPP_NODE, 0x29, 8,
@@ -1154,11 +1154,11 @@ namespace MVC2_SupplementProcessing
 
     const std::vector<UINT16> supp_data_sentinel =
     {
-        /* This is paired, so the user needs to handle guts themselves.
+        // This is normally paired, so the user needs to handle guts themselves there.
+        // For team view, this is useful.
         0x34 | SUPP_START, //Sentinel
             SUPP_NODE | SUPP_NODE_NOCOPY, 0x01 | MOD_ABS, 8,
                 MOD_COPY, 1, 7, 1,
-        */
     };
 
     const std::vector<UINT16> supp_data_jin_16color =
