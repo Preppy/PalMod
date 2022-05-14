@@ -177,7 +177,7 @@ void CPalModDlg::PostPalSel()
     uint32_t nImgIndexCtr = 0;
     uint32_t nCurrSepAmt = 0;
 
-    BOOL fSameImg = FALSE;
+    bool fSameImg = false;
 
     StopBlink();
 
@@ -273,7 +273,7 @@ void CPalModDlg::PostPalSel()
                         MainPalGroup->GetPalDef(nCurrentPalette)->pPal,
                         MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz);
 
-                    fSameImg = TRUE;
+                    fSameImg = true;
                 }
 
                 nPrevImgIndex[nImgIndexCtr] = nImgKey;

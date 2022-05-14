@@ -4,18 +4,18 @@
 #include "game\Default.h"
 #include "Junk.h"
 
-#define PALTOOL_CLASSNAME    L"CPalTool"  // Window class name
+constexpr auto PALTOOL_CLASSNAME = L"CPalTool";  // Window class name
 
-#define PAL_TXT_SPACE    5
+constexpr auto PAL_TXT_SPACE = 5;
 
-#define ID_PALTOOLSPIN    0xFF00
-#define PT_PAGECHANGE    WM_USER - 100
+constexpr auto ID_PALTOOLSPIN = 0xFF00;
+constexpr auto PT_PAGECHANGE = WM_USER - 100;
 
 struct sPalEntry
 {
     CJunk* PaletteCtrl = nullptr;
-    WCHAR* pszPalStr = nullptr;
-    BOOL fPalAvailable = FALSE;
+    LPCWSTR pszPalStr = nullptr;
+    bool fPalAvailable = false;
 };
 
 class CPalTool : public CWnd
@@ -24,8 +24,8 @@ private:
     sPalEntry m_sPalEntry[MAX_PALETTES_DISPLAYABLE];
     CSize m_PalSize[MAX_PALETTES_DISPLAYABLE];
 
-    BOOL m_fIsFirstPaint = TRUE;
-    BOOL m_fSpinInit = TRUE;
+    bool m_fIsFirstPaint = true;
+    bool m_fSpinInit = true;
 
     CFont m_BaseFont;
     bool m_fFontIsBold = true;
@@ -63,15 +63,15 @@ public:
 
     void BeginSetPal();
     void EndSetPal();
-    void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, WCHAR* szNewPalStr);
+    void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, LPCWSTR pszNewPalStr);
     UINT_PTR GetNotifyIndex() { return m_nNotifyCtrlIndex; };
     CJunk* GetNotifyPal() { return m_sPalEntry[m_nNotifyCtrlIndex].PaletteCtrl; };
-    CJunk* GetPalCtrl(UINT_PTR nIndex) { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].PaletteCtrl : NULL; };
+    CJunk* GetPalCtrl(UINT_PTR nIndex) { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].PaletteCtrl : nullptr; };
     LPCWSTR GetPalName(UINT_PTR nIndex) { return m_sPalEntry[nIndex].fPalAvailable ? m_sPalEntry[nIndex].pszPalStr : L"Untitled Palette"; };
 
     void ResetNotifyIndex() { m_nNotifyCtrlIndex = 0; };
 
-    BOOL CurrPalAvail() { return m_sPalEntry[m_nNotifyCtrlIndex].fPalAvailable; };
+    bool CurrPalAvail() { return m_sPalEntry[m_nNotifyCtrlIndex].fPalAvailable; };
     void ShowAvailPal();
     void UpdateAllPalCtrls();
     void UpdateCtrl();

@@ -295,7 +295,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"Fatal Fury Special (Neo-Geo)",
     L"Fatal Fury: King of Fighters (Neo-Geo)",
     L"GGXX:AC+R (PlayStation 3)",
-    L"Melty blood Actress Again Current Code",
+    L"Melty Blood Actress Again Current Code",
     L"King of Fighters '98AE (2016 Romhack)",
     L"Mega Man X (SNES)",
     L"Mega Man X3 (SNES)",

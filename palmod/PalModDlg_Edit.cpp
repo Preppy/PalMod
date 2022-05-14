@@ -208,38 +208,24 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
 void CPalModDlg::OnEditCopy()
 {
-    g_DebugHelper.AddCanary(k_ContextMenuCopyCanary);
-
-    g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Start\r\n");
-
     if (m_fEnabled)
     {
-        CStringA strDebugInfo;
         CStringA CopyText;
         CStringA FormatTxt;
 
         if (!m_fOleInit)
         {
-            g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy:: Failed OLEInit\r\n");
             return;
         }
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tCreating OLE source...\r\n");
         COleDataSource* pSource = new COleDataSource();
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tCreating shared file...\r\n");
         CSharedFile sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
 
         CGameClass* CurrGame = GetHost()->GetCurrGame();
-        strDebugInfo.Format("\tGetting palette for game ID %u aka %S\r\n", CurrGame->GetGameFlag(), CurrGame->GetGameName());
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
         CJunk* CurrPal = m_PalHost.GetNotifyPal();
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tFiguring out total palette size...");
         int nWorkingAmt = CurrPal->GetWorkingAmt();
-        strDebugInfo.Format(" %u colors.\r\n\tGetting selection data\r\n", nWorkingAmt);
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
         UINT8* pSelIndex = CurrPal->GetSelIndex();
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tDetermining selection length...");
         UINT16 nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
         UINT8 uCopyFlag1;
         // We use a WCHAR as a UINT8 value to store the size.  This is compatible with all versions of palmod.
@@ -247,13 +233,8 @@ void CPalModDlg::OnEditCopy()
         // This allows old palmod to ignore the data and current palmod to work by figuring out the size itself.
         UINT8 uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? (UINT8)nPaletteSelectionLength : k_nASCIICharacterOffset;
 
-        strDebugInfo.Format(" %u color(s) are selected.\r\n\tChecking if selection is complete or partial...", nPaletteSelectionLength - k_nASCIICharacterOffset);
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
-        BOOL fCopyAll = (CurrPal->GetSelAmt() == 0);
+        bool fCopyAll = (CurrPal->GetSelAmt() == 0);
         bool fHitError = false;
-
-        strDebugInfo.Format(" %s.\r\n\tChecking color mode\r\n", fCopyAll ? "complete" : "partial");
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, strDebugInfo);
 
         // You want to update this table so that older or newer versions of PalMod know the bpp of the 
         // copied colors.
@@ -341,8 +322,6 @@ void CPalModDlg::OnEditCopy()
 
         CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tFormatting colors\r\n");
-
         int nInitialOffsetDelta = 0;
         bool fHaveSetDelta = false;
 
@@ -390,25 +369,20 @@ void CPalModDlg::OnEditCopy()
 
         CopyText.Append(")");
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tWriting to shared file\r\n");
-
         sf.Write(CopyText, CopyText.GetLength());
 
         HGLOBAL hMem = sf.Detach();
         if (!hMem)
         {
-            g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Memory detach failed\r\n");
             return;
         }
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tCacheing to global data\r\n");
         pSource->CacheGlobalData(CF_TEXT, hMem);
 
         // The above handles copying colors between palmod
         // The below handles generating the string pasted to the Unicode clipboard. This contains more useful data.
         CString strUnicodeData;
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tDebug output part\r\n");
         strUnicodeData.Format(L"%S", CopyText.GetString());
         if (m_fShowExtraCopyData)
         {
@@ -418,7 +392,8 @@ void CPalModDlg::OnEditCopy()
             strUnicodeData.Append(L" PalMod handles this automatically on CTRL+C /CTRL+V, but you're seeing 'secret' extra data right now using clipboard tricks.");
             strUnicodeData.Append(L" The following data is additional debug information useful for ROM hacking:");
 
-            // Bug/limitation: this location is in reference to palette 0, not the palette issueing the notification
+            // Bug/limitation: this location is in reference to palette 0, not the palette issuing the notification
+
             strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location:\r\n\t0x%x\r\n", CurrGame->GetCurrentPaletteLocation());
             strUnicodeData.Append(strFormatU);
 
@@ -467,36 +442,67 @@ void CPalModDlg::OnEditCopy()
                 }
             }
 
+            SupportedGamesList gameFlag = CurrGame->GetGameFlag();
+            bool fWantArcanaFormattedData = (gameFlag == MBAACC_S) || (gameFlag == MBTL_A) || (gameFlag == UNICLR_A) || (gameFlag == DBFCI_A);
+
+            if (fWantArcanaFormattedData)
+            {
+                bool haveShownOneColor = false;
+
+                strUnicodeData.Append(L"\r\nThe French Bread RBG version of this data is:\r\n\trgb = [ ");
+
+                for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
+                {
+                    if (pSelIndex[iPalIndex] || fCopyAll)
+                    {
+                        if (haveShownOneColor)
+                        {
+                            strUnicodeData.Append(L", ");
+                        }
+
+                        switch (cbColor)
+                        {
+                        default:
+                        case 2:
+                        case 3:
+                            // Unsupported
+                            break;
+                        case 4:
+                        {
+                            UINT32 uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
+                            strFormatU.Format(L"[ %u, %u, %u ]", uCurrData & 0xFF,
+                                                                 (uCurrData & 0xFF00) >> 8,
+                                                                 (uCurrData & 0xFF0000) >> 16);
+                            break;
+                        }
+                        }
+
+                        strUnicodeData.Append(strFormatU);
+                        haveShownOneColor = true;
+                    }
+                }
+
+                strUnicodeData.Append(L" ]\r\n");
+            }
+
             strUnicodeData.Append(L"\r\n\r\nYou can turn off this secret extended data by going to PalMod's Settings menu.\r\n");
         }
 
         OutputDebugString(strUnicodeData.GetString());
-
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tGenerating unicode form\r\n");
 
         CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
         sfUnicode.Write(strUnicodeData, strUnicodeData.GetLength() * sizeof(WCHAR));
         HGLOBAL hMemUnicode = sfUnicode.Detach();
         if (hMemUnicode)
         {
-            g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tCacheing unicode form\r\n");
             pSource->CacheGlobalData(CF_UNICODETEXT, hMemUnicode);
         }
 
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tSetting clipboard...");
         EmptyClipboard();
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, " emptied, ");
         pSource->SetClipboard();
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "set, ");
         pSource->FlushClipboard();
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "and saved.");
         CloseClipboard();
-        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "\tComplete!\r\n");
     }
-
-    g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Exit\r\n");
-    
-    g_DebugHelper.FreeCanary(k_ContextMenuCopyCanary);
 }
 
 void CPalModDlg::OnEditCopyOffset()

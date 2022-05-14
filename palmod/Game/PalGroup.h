@@ -30,8 +30,8 @@ struct sPalDef
     sPalSep* SepList[MAX_SEPARATORS] = {};
     UINT16 uSepAmt = 0;
 
-    BOOL fIsChanged = FALSE;
-    BOOL fPalAvailable = FALSE;
+    bool fIsChanged = false;
+    bool fPalAvailable = false;
 };
 
 enum ePalType

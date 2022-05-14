@@ -112,8 +112,8 @@ BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, uint32_t uUnitId, uint32_t
     CurrPal->uPalId = uPalId;
 
     CurrPal->uSepAmt = 0;
-    CurrPal->fPalAvailable = TRUE;
-    CurrPal->fIsChanged = FALSE;
+    CurrPal->fPalAvailable = true;
+    CurrPal->fIsChanged = false;
 
     //Make a copy of the palette
     CurrPal->pBasePal = new COLORREF[uPalSz];

@@ -746,7 +746,7 @@ void CGameClass::UpdatePalData()
             }
 
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->fIsChanged = FALSE;
+            srcDef->fIsChanged = false;
             rgFileChanged[srcDef->uUnitId] = TRUE;
 
             if (nPalCtr == 0)

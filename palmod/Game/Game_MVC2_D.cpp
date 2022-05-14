@@ -739,7 +739,7 @@ void CGame_MVC2_D::UpdatePalData()
 
             GetHost()->GetPalModDlg()->SetStatusText(L"Updated.");
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->fIsChanged = FALSE;
+            srcDef->fIsChanged = false;
             rgFileChanged[srcDef->uUnitId] = TRUE;
 
             //Process supplement palettes

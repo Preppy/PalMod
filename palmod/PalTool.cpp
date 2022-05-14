@@ -106,7 +106,7 @@ void CPalTool::Init()
     {
         m_sPalEntry[iPalette].PaletteCtrl = new CJunk;
         m_sPalEntry[iPalette].PaletteCtrl->SetArrayIndex(iPalette);
-        m_sPalEntry[iPalette].fPalAvailable = FALSE;
+        m_sPalEntry[iPalette].fPalAvailable = false;
     }
 
     //Set the base font
@@ -167,7 +167,7 @@ void CPalTool::BeginSetPal()
 {
     for (int iPalette = 0; iPalette < MAX_PALETTES_DISPLAYABLE; iPalette++)
     {
-        m_sPalEntry[iPalette].fPalAvailable = FALSE;
+        m_sPalEntry[iPalette].fPalAvailable = false;
     }
 
     m_nCurrPalAmt = 0;
@@ -177,18 +177,18 @@ void CPalTool::BeginSetPal()
     ResetNotifyIndex();
 }
 
-void CPalTool::SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, WCHAR* szNewPalStr)
+void CPalTool::SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, LPCWSTR pszNewPalStr)
 {
     SetFontToBold(false);
     //Set palette width/height/color
     m_sPalEntry[nIndex].PaletteCtrl->InitNewSize(nAmt, rgNewCol);
-    m_sPalEntry[nIndex].pszPalStr = szNewPalStr;
+    m_sPalEntry[nIndex].pszPalStr = pszNewPalStr;
 
     //Set offset
     m_PalSize[nIndex].cx = m_sPalEntry[nIndex].PaletteCtrl->GetBaseWidth();
     m_PalSize[nIndex].cy = m_sPalEntry[nIndex].PaletteCtrl->GetBaseHeight();
 
-    m_sPalEntry[nIndex].fPalAvailable = TRUE;
+    m_sPalEntry[nIndex].fPalAvailable = true;
 
     m_nCurrPalAmt++;
 }
@@ -370,8 +370,8 @@ void CPalTool::DrawText()
 
     if (m_fIsFirstPaint)
     {
+        m_fIsFirstPaint = false;
         m_nFontHeight = (dc.GetTextExtent(L"Height", 5).cy + 4); // height plus padding
-        m_fIsFirstPaint = FALSE;
     }
 
     ClearBG(&dc);
@@ -430,7 +430,7 @@ void CPalTool::OnPaint()
 {
     if (m_fSpinInit)
     {
-        m_fSpinInit = FALSE;
+        m_fSpinInit = false;
 
         GetClientRect(&m_rClient);
 
@@ -442,8 +442,6 @@ void CPalTool::OnPaint()
             this, ID_PALTOOLSPIN);
 
         //m_PgSpin.ShowWindow(SW_SHOW);
-
-        m_fSpinInit = FALSE;
     }
 
     DrawText();

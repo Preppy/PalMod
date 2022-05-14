@@ -726,7 +726,7 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
             ImgDispCtrl->UpdateCtrl();
 
             //Update the change flag on the base palette
-            CurrPalDef->fIsChanged = TRUE;
+            CurrPalDef->fIsChanged = true;
         }
         break;
         case 0: // Nothing selected: presume full coverage
@@ -782,7 +782,7 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
             m_fCopyFromBase = TRUE;
 
             //Update the change flag on the base palette
-            CurrPalDef->fIsChanged = TRUE;
+            CurrPalDef->fIsChanged = true;
         }
         break;
         }
@@ -839,7 +839,7 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
             ImgDispCtrl->UpdateCtrl();
 
             //Update the change flag on the base palette
-            CurrPalDef->fIsChanged = TRUE;
+            CurrPalDef->fIsChanged = true;
         }
     }
 }
