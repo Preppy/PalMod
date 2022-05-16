@@ -134,12 +134,6 @@ const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
     { L"P2 Leo Character Select Portrait Highlighted", 0x1E2F80, 0x1E3000, indexRedEarthSprites_Leo, 0x11 },
 };
 
-const sGame_PaletteDataset REDEARTH_A_LEO_UNUSED_PALETTES[] =
-{
-    { L"Punch Palette Leo Unused?", 0x414880, 0x414900, indexRedEarthSprites_Leo, 0x00 },
-    { L"Kick Palette Leo Unused? ", 0x408080, 0x408100, indexRedEarthSprites_Leo, 0x00 },
-};
-
 const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
 {
     { L"Kenji Punch",                            0x40B200, 0x40B280, indexRedEarthSprites_Kenji, 0x0, &pairNext4AndNext },
@@ -274,7 +268,7 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
     { L"Tessa Punch Electron Pixies Changing Pal", 0x40F400, 0x40F480 },
     { L"Tessa Punch Death Phenomenon - On Hit", 0x40FD80, 0x40FE00, indexRedEarthSprites_Tessa, 0x06 },
     { L"Tessa Punch Death Phenomenon - On Whiff", 0x40FE00, 0x40FE80, indexRedEarthSprites_Tessa, 0x07 },
-    { L"Tessa Punch Jammin' Ghost", 0x40F780, 0x40F800, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Jamming Ghost", 0x40F780, 0x40F800, indexRedEarthSprites_Tessa, 0x0e },
     { L"Tessa Punch Manot Arm", 0x40F200, 0x40F280, indexRedEarthSprites_Tessa, 0x1c },
     { L"Tessa Punch GC/Pursuit Wrecking Ball", 0x40F300, 0x40F380, indexRedEarthSprites_Tessa, 0x21 },
     { L"Tessa Punch Wrecking Ball Angels and Electron Pixies", 0x40F380, 0x40F400, indexRedEarthSprites_Tessa, 0x20 },
@@ -347,7 +341,7 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
     { L"Tessa Kick Electron Pixies Changing Pal", 0x40F400 + 0xc800, 0x40F480 + 0xc800 },
     { L"Tessa Kick Death Phenomenon - On Hit", 0x40FD80 + 0xc800, 0x40FE00 + 0xc800, indexRedEarthSprites_Tessa, 0x06 },
     { L"Tessa Kick Death Phenomenon - On Whiff", 0x40FE00 + 0xc800, 0x40FE80 + 0xc800, indexRedEarthSprites_Tessa, 0x07 },
-    { L"Tessa Kick Jammin' Ghost", 0x40F780 + 0xc800, 0x40F800 + 0xc800, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Jamming Ghost", 0x40F780 + 0xc800, 0x40F800 + 0xc800, indexRedEarthSprites_Tessa, 0x0e },
     { L"Tessa Kick Manot Arm", 0x40F200 + 0xc800, 0x40F280 + 0xc800, indexRedEarthSprites_Tessa, 0x1c },
     { L"Tessa Kick GC/Pursuit Wrecking Ball", 0x40F300 + 0xc800, 0x40F380 + 0xc800, indexRedEarthSprites_Tessa, 0x21 },
     { L"Tessa Kick Wrecking Ball Angels and Electron Pixies", 0x40F380 + 0xc800, 0x40F400 + 0xc800, indexRedEarthSprites_Tessa, 0x20 },
@@ -467,6 +461,23 @@ const sGame_PaletteDataset REDEARTH_A_BLADE_PALETTES[] =
     { L"Emerald FX/Intro 2", 0x433d00, 0x433d80, indexRedEarthSprites_Bonus, 0x0c },
     { L"Emerald FX/Intro 3", 0x433d80, 0x433e00, indexRedEarthSprites_Bonus, 0x0d },
     { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433e80, indexRedEarthSprites_Bonus, 0x10 },
+
+    { L"Blade Burned 1", 0x436600, 0x436680 },
+    { L"Blade Burned 2", 0x436680, 0x436700 },
+    { L"Blade Shocked 1", 0x436700, 0x436780 },
+    { L"Blade Shocked 2", 0x436780, 0x436800 },
+    { L"Blade Poisoned 1", 0x436800, 0x436880 },
+    { L"Blade Poisoned 2", 0x436880, 0x436900 },
+    { L"Blade Poisoned 3", 0x436900, 0x436980 },
+    { L"Blade Poisoned 4", 0x436980, 0x436a00 },
+    { L"Blade Petrified 1", 0x436a00, 0x436a80 },
+    { L"Blade Petrified 2", 0x436a80, 0x436b00 },
+    { L"Blade Petrified 3", 0x436b00, 0x436b80 },
+    { L"Blade Frozen 1", 0x436b80, 0x436c00 },
+    { L"Blade Frozen 2", 0x436c00, 0x436c80 },
+    { L"Blade Frozen 3", 0x436c80, 0x436d00 },
+    { L"Blade Frozen 4", 0x436d00, 0x436d80 },
+    { L"Blade Frozen 5", 0x436d80, 0x436e00 },
 };
 
 //const sGame_PaletteDataset REDEARTH_A_GIGI_PALETTES[] =
@@ -532,6 +543,27 @@ const sGame_PaletteDataset REDEARTH_A_HYDRON_PALETTES[] =
     { L"Firecharge PalFX", 0x427d00, 0x427d80, indexRedEarthSprites_Hydron, 0 },
     { L"Spin attack FX", 0x427d80, 0x427e00 },
     { L"Squid dudes spawn FX", 0x428000, 0x428080 },
+
+    { L"Isia", 0x428300, 0x428380 },
+    { L"Isia's White Dog", 0x428380, 0x428400 },
+    { L"Isia's Gray Dog", 0x428400, 0x428480 },
+
+    { L"Hydron Burned 1", 0x429e00, 0x429e80, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Burned 2", 0x429e80, 0x429f00, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Shocked 1", 0x429f00, 0x429f80, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Shocked 2", 0x429f80, 0x42a000, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 1", 0x42a000, 0x42a080, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 2", 0x42a080, 0x42a100, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 3", 0x42a100, 0x42a180, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Poisoned 4", 0x42a180, 0x42a200, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Petrified 1", 0x42a200, 0x42a280, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Petrified 2", 0x42a280, 0x42a300, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Petrified 3", 0x42a300, 0x42a380, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 1", 0x42a380, 0x42a400, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 2", 0x42a400, 0x42a480, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 3", 0x42a480, 0x42a500, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 4", 0x42a500, 0x42a580, indexRedEarthSprites_Hydron, 0 },
+    { L"Hydron Frozen 5", 0x42a580, 0x42a600, indexRedEarthSprites_Hydron, 0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KONGOU_PALETTES[] =
@@ -539,6 +571,21 @@ const sGame_PaletteDataset REDEARTH_A_KONGOU_PALETTES[] =
     { L"Kongou", 0x424200, 0x424280, indexRedEarthSprites_Kongou, 0, &pairNext },
     { L"Kanabo", 0x424280, 0x424300, indexRedEarthSprites_Kongou, 1 },
     { L"Stomach acid", 0x424300, 0x424380, indexRedEarthSprites_Kongou, 0x02 },
+    { L"Kongou Burned 1", 0x426c00, 0x426c80, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Burned 2", 0x426c80, 0x426d00, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Shocked 1", 0x426d00, 0x426d80, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Shocked 2", 0x426d80, 0x426e00, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Poisoned 1", 0x426e00, 0x426e80, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Poisoned 2", 0x426e80, 0x426f00, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Poisoned 3", 0x426f00, 0x426f80, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Poisoned 4", 0x426f80, 0x427000, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Petrified 1", 0x427000, 0x427080, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Petrified 2", 0x427080, 0x427100, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Petrified 3", 0x427100, 0x427180, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Frozen 1", 0x427180, 0x427200, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Frozen 2", 0x427200, 0x427280, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Frozen 3", 0x427280, 0x427300, indexRedEarthSprites_Kongou, 0 },
+    { L"Kongou Frozen 4", 0x427300, 0x427380, indexRedEarthSprites_Kongou, 0 },
     { L"Hurt flash", 0x427380, 0x427400, indexRedEarthSprites_Kongou, 0 },
     { L"Demon Beserker 1", 0x424380, 0x424400, indexRedEarthSprites_Kongou, 0 },
     { L"Demon Beserker 2", 0x424400, 0x424480, indexRedEarthSprites_Kongou, 0 },
@@ -649,11 +696,54 @@ const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
     { L"Clara Flashing 12", 0x42f900, 0x42f980, indexRedEarthSprites_Ravange, 0x08 },
     { L"Pyre", 0x42f980, 0x42fa00, indexRedEarthSprites_Ravange, 0x09 },
     { L"Clara ball FX", 0x42fb00, 0x42fb80 },
+
+    { L"Kids", 0x42fa00, 0x42fb00 },
+
+    { L"Ravange Burned 1", 0x430200, 0x430280, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Burned 2", 0x430280, 0x430300, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Shocked 1", 0x430300, 0x430380, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Shocked 2", 0x430380, 0x430400, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 1", 0x430400, 0x430480, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 2", 0x430480, 0x430500, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 3", 0x430500, 0x430580, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Poisoned 4", 0x430580, 0x430600, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Petrified 1", 0x430600, 0x430680, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Petrified 2", 0x430680, 0x430700, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Petrified 3", 0x430700, 0x430780, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 1", 0x430780, 0x430800, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 2", 0x430800, 0x430880, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 3", 0x430880, 0x430900, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 4", 0x430900, 0x430980, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Frozen 5", 0x430980, 0x430a00, indexRedEarthSprites_Ravange, 0x00 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_GIGI_PALETTES[] =
 {
     { L"Gi Gi", 0x430a00, 0x430a80 },
+
+    { L"Red Form Burned 1", 0x433400, 0x433480 },
+    { L"Red Form Burned 2", 0x433480, 0x433500 },
+    { L"Red Form Shocked 1", 0x433500, 0x433580 },
+    { L"Red Form Shocked 2", 0x433580, 0x433600 },
+    { L"Red Form Petrified 1", 0x433800, 0x433880 },
+    { L"Red Form Petrified 2", 0x433880, 0x433900 },
+    { L"Red Form Petrified 3", 0x433900, 0x433980 },
+    { L"Blue Form Burned 1", 0x433080, 0x433100 },
+    { L"Blue Form Burned 2", 0x433100, 0x433180 },
+    { L"Blue Form Shocked 1", 0x433180, 0x433200 },
+    { L"Blue Form Shocked 2", 0x433200, 0x433280 },
+    { L"Blue Form Petrified 1", 0x433280, 0x433300 },
+    { L"Blue Form Petrified 2", 0x433300, 0x433380 },
+    { L"Blue Form Petrified 3", 0x433380, 0x433400 },
+    { L"Gi Gi Poisoned 1", 0x433600, 0x433680 },
+    { L"Gi Gi Poisoned 2", 0x433680, 0x433700 },
+    { L"Gi Gi Poisoned 3", 0x433700, 0x433780 },
+    { L"Gi Gi Poisoned 4", 0x433780, 0x433800 },
+    { L"Gi Gi Frozen 1", 0x433980, 0x433a00 },
+    { L"Gi Gi Frozen 2", 0x433a00, 0x433a80 },
+    { L"Gi Gi Frozen 3", 0x433a80, 0x433b00 },
+    { L"Gi Gi Frozen 4", 0x433b00, 0x433b80 },
+    { L"Gi Gi Frozen 5", 0x433b80, 0x433c00 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
@@ -919,31 +1009,43 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_KICK_PALETTES[] =
     { L"Good Subordinate Appears 4/4", 0x418200, 0x418280, indexRedEarthSprites_Kenji, 0x00 },
 };
 
-const sGame_PaletteDataset REDEARTH_A_KENJI_UNUSED_PALETTES[] =
-{
-    { L"Punch Evil Subordinate Appears 1/4 (Unused)", 0x40b980, 0x40ba00, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Punch Evil Subordinate Appears 2/4 (Unused)", 0x40b900, 0x40b980, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Punch Evil Subordinate Appears 3/4 (Unused)", 0x40b880, 0x40b900, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Punch Evil Subordinate Appears 4/4 (Unused)", 0x40b800, 0x40b880, indexRedEarthSprites_Kenji, 0x00 },
-
-    { L"Kick Evil Subordinate Appears 1/4 (Unused)", 0x418180, 0x418200, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Kick Evil Subordinate Appears 2/4 (Unused)", 0x418100, 0x418180, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Kick Evil Subordinate Appears 3/4 (Unused)", 0x418080, 0x418100, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Kick Evil Subordinate Appears 4/4 (Unused)", 0x418000, 0x418080, indexRedEarthSprites_Kenji, 0x00 },
-};
-
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 {
     { L"Lifebar (danger)", 0x406700, 0x406720 },
     { L"Lifebar overlay (danger)", 0x406720, 0x406740 },
     { L"LVL Up Text 1", 0x406800, 0x406820 },
     { L"EXP / LVL Text", 0x406880, 0x406900 },
+
+    { L"Text: Insert Coin, Map Location", 0x4064c0, 0x4064e0 },
+
+    { L"Meteor Orb", 0x4065e0, 0x406600 }, // pair these when we have an image
+    { L"Poison Orb", 0x406600, 0x406620 },
+    { L"Fire Orb", 0x406420, 0x406440 },
+    { L"Wind Orb", 0x4065c0, 0x4065e0 },
+    { L"Thunder Orb", 0x406460, 0x406480 },
+    { L"Ice Orb", 0x406440, 0x406460 },
+
 };
 
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
 {
     { L"Coming Next? Original (Unused)", 0x411980, 0x411a00, indexRedEarthSprites_MaiLing, 0x58 },
     { L"Coming Next? Original (Unused)???", 0x41e180, 0x41e200, indexRedEarthSprites_MaiLing, 0x58 },
+
+    { L"Tessa Jamming Ghost Kick Palette", 0x41c000, 0x41c080, indexRedEarthSprites_Tessa, 0x0e },
+
+    { L"Punch Palette Leo Unused?", 0x414880, 0x414900, indexRedEarthSprites_Leo, 0x00 },
+    { L"Kick Palette Leo Unused? ", 0x408080, 0x408100, indexRedEarthSprites_Leo, 0x00 },
+
+    { L"Kenji Punch Evil Subordinate Appears 1/4 (Unused)", 0x40b980, 0x40ba00, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Kenji Punch Evil Subordinate Appears 2/4 (Unused)", 0x40b900, 0x40b980, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Kenji Punch Evil Subordinate Appears 3/4 (Unused)", 0x40b880, 0x40b900, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Kenji Punch Evil Subordinate Appears 4/4 (Unused)", 0x40b800, 0x40b880, indexRedEarthSprites_Kenji, 0x00 },
+
+    { L"Kenji Kick Evil Subordinate Appears 1/4 (Unused)", 0x418180, 0x418200, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Kenji Kick Evil Subordinate Appears 2/4 (Unused)", 0x418100, 0x418180, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Kenji Kick Evil Subordinate Appears 3/4 (Unused)", 0x418080, 0x418100, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Kenji Kick Evil Subordinate Appears 4/4 (Unused)", 0x418000, 0x418080, indexRedEarthSprites_Kenji, 0x00 },
 };
 
 //Playable Characters
@@ -952,8 +1054,6 @@ const sDescTreeNode REDEARTH_A_LEO_COLLECTION[] =
     { L"Punch",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_LEO_PUNCH_PALETTES) },
     { L"Kick",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_KICK_PALETTES,  ARRAYSIZE(REDEARTH_A_LEO_KICK_PALETTES) },
     { L"Bonus",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_BONUS_PALETTES, ARRAYSIZE(REDEARTH_A_LEO_BONUS_PALETTES) },
-
-    { L"Unused",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_LEO_UNUSED_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_KENJI_COLLECTION[] =
@@ -965,8 +1065,6 @@ const sDescTreeNode REDEARTH_A_KENJI_COLLECTION[] =
     { L"Kick Ninjas",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_KENJI_NINJAS_KICK_PALETTES,  ARRAYSIZE(REDEARTH_A_KENJI_NINJAS_KICK_PALETTES) },
 
     { L"Bonus",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_KENJI_BONUS_PALETTES, ARRAYSIZE(REDEARTH_A_KENJI_BONUS_PALETTES) },
-
-    { L"Unused",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_KENJI_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_KENJI_UNUSED_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_TESSA_COLLECTION[] =

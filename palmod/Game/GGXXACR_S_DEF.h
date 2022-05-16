@@ -1627,10 +1627,11 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_HUDMenu =
     { L"Round Counters",                0x1EE740, 0x1EE780 }, 
     { L"Round Counters (Win)",          0x1EE860, 0x1EE8A0 },
 
-    { L"Burst Icon",                    0x60b0, 0x60f0 },
-    { L"Burst Icon: Denied",            0x7840, 0x7880 },
-    { L"Burst Icon: Refilling",         0x6bf0, 0x6c30 },
-    { L"Burst Icon: Glow",              0x71d0, 0x7210 },
+    { L"Burst Icon (Full)",             0x60b0, 0x60f0 },
+    { L"Burst Icon (Glow)",             0x71d0, 0x7210 },
+    { L"Burst Icon (Empty)",            0x66C0, 0x6700 },
+    { L"Burst Icon (Refilling)",        0x6bf0, 0x6c30 },
+    { L"Burst Icon (Denied)",           0x7840, 0x7880 },
 
     { L"Tension (P1)",                  0xbb80, 0xbbc0 },
     { L"Tension Background (P1)",       0x8a30, 0x8a70 },

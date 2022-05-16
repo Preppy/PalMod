@@ -1003,6 +1003,16 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES[] =
     { L"Apocalypse (P2)",    0x1c2fa + 0xBE0, 0x1c39a + 0xBE0, indexCPS2Sprites_Apocalypse, 0x38 },
 };
 
+
+const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO[] =
+{
+    { L"Ken (Intro)", 0x20426, 0x20506 },
+    { L"Gambit (Intro)", 0x20506, 0x205C6 },
+    { L"Cammy (Intro)", 0x20746, 0x207C6 },
+    { L"Rogue (Intro)", 0x207C6, 0x20866 },
+    { L"Ryu & Cyclops (Intro)", 0x20946, 0x20AE6 },
+};
+
 const sDescTreeNode XMVSF_A_WOLVERINE_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Wolverine_PALETTES_P1, ARRAYSIZE(XMVSF_A_Wolverine_PALETTES_P1) },
@@ -1150,6 +1160,7 @@ const sDescTreeNode XMVSF_A_BONUS_COLLECTION[] =
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_CSI_PALETTES, ARRAYSIZE(XMVSF_A_BONUS_CSI_PALETTES) },
     { L"Portraits", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES) },
     { L"Versus / Super Portraits", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_VSP, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_VSP) },
+    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO) },
 };
 
 const sDescTreeNode XMVSF_A_UNITS[] =
