@@ -251,6 +251,7 @@
     <ClCompile Include="Game\Game_DBZHD_SNES.cpp" />
     <ClCompile Include="Game\Game_DoubleDragon_A.cpp" />
     <ClCompile Include="Game\Game_FatalFury1_A.cpp" />
+    <ClCompile Include="Game\Game_FatalFury2_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
@@ -423,6 +424,7 @@
     <ClInclude Include="Game\DescTree.h" />
     <ClInclude Include="Game\DoubleDragon_A_DEF.h" />
     <ClInclude Include="Game\FatalFury1_A_DEF.h" />
+    <ClInclude Include="Game\FatalFury2_A_DEF.h" />
     <ClInclude Include="Game\FatalFuryS_A_DEF.h" />
     <ClInclude Include="Game\FatalFuryS_SNES_DEF.h" />
     <ClInclude Include="Game\GameClass.h" />
@@ -446,6 +448,7 @@
     <ClInclude Include="Game\Game_DBZHD_SNES.h" />
     <ClInclude Include="Game\Game_DoubleDragon_A.h" />
     <ClInclude Include="Game\Game_FatalFury1_A.h" />
+    <ClInclude Include="Game\Game_FatalFury2_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
     <ClInclude Include="Game\Game_Garou_A.h" />

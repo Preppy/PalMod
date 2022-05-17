@@ -466,6 +466,9 @@
     <Filter Include="Games\Capcom Games\HSF2_A">
       <UniqueIdentifier>{2e6869cb-602e-4222-a4a2-065868d749c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Fatal Fury 2">
+      <UniqueIdentifier>{beb3d933-be7a-4973-b797-22d5962721ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -971,6 +974,9 @@
     </ClCompile>
     <ClCompile Include="HPALfiles.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_FatalFury2_A.cpp">
+      <Filter>Games\SNK Games\Fatal Fury 2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1837,6 +1843,12 @@
     </ClInclude>
     <ClInclude Include="Game\HSF2_A_DEF.h">
       <Filter>Games\Capcom Games\HSF2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FatalFury2_A_DEF.h">
+      <Filter>Games\SNK Games\Fatal Fury 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FatalFury2_A.h">
+      <Filter>Games\SNK Games\Fatal Fury 2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
