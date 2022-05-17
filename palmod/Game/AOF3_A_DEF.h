@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 const std::vector<UINT16> AOF3_A_IMGIDS_USED =
 {
@@ -563,12 +563,12 @@ const sGame_PaletteDataset AOF3_A_P2_STAGE_CINCO_PALETTES[] =
 
 const sGame_PaletteDataset AOF3_A_P2_STAGE_SIESTA_PALETTES[] =
 {
-    { L"Siesta Café 1", 0x1f5000, 0x1f5200 },
-    { L"Siesta Café 2", 0x1f5200, 0x1f5400 },
-    { L"Siesta Café 3", 0x1f5400, 0x1f5600 },
-    { L"Siesta Café 4", 0x1f5600, 0x1f5800 },
-    { L"Siesta Café 5", 0x1f5800, 0x1f5a00 },
-    { L"Siesta Café 6", 0x1f5a00, 0x1f5c00 },
+    { L"Siesta CafÃ© 1", 0x1f5000, 0x1f5200 },
+    { L"Siesta CafÃ© 2", 0x1f5200, 0x1f5400 },
+    { L"Siesta CafÃ© 3", 0x1f5400, 0x1f5600 },
+    { L"Siesta CafÃ© 4", 0x1f5600, 0x1f5800 },
+    { L"Siesta CafÃ© 5", 0x1f5800, 0x1f5a00 },
+    { L"Siesta CafÃ© 6", 0x1f5a00, 0x1f5c00 },
 };
 
 const sGame_PaletteDataset AOF3_A_P2_STAGE_BAR_PALETTES[] =
@@ -640,7 +640,7 @@ const sDescTreeNode AOF3_A_P2_STAGES_COLLECTION[] =
     { L"Train Yard Day",            DESC_NODETYPE_TREE, (void*)AOF3_A_P2_STAGE_TRAINDAY_PALETTES, ARRAYSIZE(AOF3_A_P2_STAGE_TRAINDAY_PALETTES) },
     { L"Train Yard Night",          DESC_NODETYPE_TREE, (void*)AOF3_A_P2_STAGE_TRAINNIGHT_PALETTES, ARRAYSIZE(AOF3_A_P2_STAGE_TRAINNIGHT_PALETTES) },
     { L"Cinco de Mayo",             DESC_NODETYPE_TREE, (void*)AOF3_A_P2_STAGE_CINCO_PALETTES, ARRAYSIZE(AOF3_A_P2_STAGE_CINCO_PALETTES) },
-    { L"Siesta Café",               DESC_NODETYPE_TREE, (void*)AOF3_A_P2_STAGE_SIESTA_PALETTES, ARRAYSIZE(AOF3_A_P2_STAGE_SIESTA_PALETTES) },
+    { L"Siesta CafÃ©",               DESC_NODETYPE_TREE, (void*)AOF3_A_P2_STAGE_SIESTA_PALETTES, ARRAYSIZE(AOF3_A_P2_STAGE_SIESTA_PALETTES) },
     { L"Bar Santana",               DESC_NODETYPE_TREE, (void*)AOF3_A_P2_STAGE_BAR_PALETTES, ARRAYSIZE(AOF3_A_P2_STAGE_BAR_PALETTES) },
     { L"Wyler Mansion Intro",       DESC_NODETYPE_TREE, (void*)AOF3_A_P2_STAGE_WYLERINTRO_PALETTES, ARRAYSIZE(AOF3_A_P2_STAGE_WYLERINTRO_PALETTES) },
     { L"Wyler Mansion",             DESC_NODETYPE_TREE, (void*)AOF3_A_P2_STAGE_WYLER_PALETTES, ARRAYSIZE(AOF3_A_P2_STAGE_WYLER_PALETTES) },
