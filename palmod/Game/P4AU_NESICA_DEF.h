@@ -203,10 +203,10 @@ const std::vector<Persona4PaletteData> Persona4PalettesKanjiCSEL =
 const std::vector<Persona4PaletteData> Persona4PalettesKen =
 {
     { L"Ken - Main", indexP4AUSprites_Ken, 0x00 },
-    { L"Ken - Persona: Kala-Nemi ", indexP4AUSprites_Ken, 0x1 },
+    { L"Ken - Persona: Kala-Nemi", indexP4AUSprites_Ken, 0x1 },
     { L"Koromaru - Main", indexP4AUSprites_Ken, 0x02 },
-    { L"Koromaru - Persona: Cerberus", indexP4AUSprites_Ken, 0x04 },
-    { L"Extra 1", indexP4AUSprites_Ken, 0x05 },
+    { L"Koromaru - Persona: Cerberus", indexP4AUSprites_Ken, 0x03 },
+    { L"Extra 1", indexP4AUSprites_Ken, 0x04 },
     { L"Extra 2" },
     { L"Extra 3" },
     { L"Extra 4" },
