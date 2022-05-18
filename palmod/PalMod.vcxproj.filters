@@ -978,6 +978,9 @@
     <ClCompile Include="Game\Game_FatalFury2_A.cpp">
       <Filter>Games\SNK Games\Fatal Fury 2</Filter>
     </ClCompile>
+    <ClCompile Include="CFPLfiles.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

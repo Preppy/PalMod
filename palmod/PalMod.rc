@@ -250,6 +250,19 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,126,127,43,14
 END
 
+IDD_CFPL_IMPORT DIALOGEX 0, 0, 223, 119
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Import CFPL File"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Import options",IDC_STATIC,10,7,205,106
+    LTEXT           "Apply to character:",IDC_STATIC,15,22,185,11
+    LTEXT           "TBD",IDC_CFPLIMPORTCHARACTER,49,35,147,11
+    LTEXT           "Apply to color option:",IDC_STATIC,15,51,175,11
+    COMBOBOX        IDC_CFCOLOROPTIONS,45,65,135,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "OK",IDOK,63,92,43,14
+    PUSHBUTTON      "Cancel",IDCANCEL,107,92,43,14
+END
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -330,6 +343,12 @@ BEGIN
 
     IDD_EXTRAS_EXPORT, DIALOG
     BEGIN
+    END
+
+    IDD_CFPL_IMPORT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 215
+        BOTTOMMARGIN, 118
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -618,6 +637,11 @@ BEGIN
     0
 END
 
+IDD_CFPL_IMPORT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -697,15 +721,10 @@ BEGIN
     IDS_DECRYPTING_START    "Decrypting game: please wait..."
     IDS_DECRYPTING_DONE     "Decryption complete!"
     IDS_ACT_LOADFAILURE     "Failed loading ACT file."
-    IDS_CFPL_LOADFAILURE    "Failed loading CFPL file."
-    IDS_HPAL_LOADFAILURE    "Failed loading HPL file."
     IDS_PAL_LOADFAILURE     "Failed loading PAL file."
     IDS_PNG_LOADFAILURE     "Failed loading PNG file."
     IDS_ACT_LOADED          "Loaded %u colors from %u color ACT file."
     IDS_ACT_REVERSEDLOAD    "ACT appears to have a reversed color table: loaded %u colors backwards."
-    IDS_CFPL_CONFIRM        "This CFPL will update all 8 palettes for %s %s.\n\nDo you want to apply these palettes?"
-    IDS_CFPL_LOADED         "Loaded 8 palettes for %s %s."
-    IDS_HPAL_LOADED         "Loaded %u colors from %u color HPAL file."
     IDS_PAL_LOADED          "Loaded %u colors from %u color PAL file."
     IDS_PNG_LOADED          "Loaded %u colors from %u color PNG file."
     IDS_PNG_REVERSEDLOAD    "PNG appears to have a reversed color table: loaded %u colors backwards."
@@ -727,6 +746,12 @@ BEGIN
     IDS_SVC_UNKNOWNCRYPTO   "This version of SNK vs. Capcom uses encryption that PalMod cannot read nor write. Palettes will not show up correctly.  Do not patch: we cannot write correctly to this encrypted ROMs"
     IDS_SVC_WARNENCRYPT     "This ROM is encrypted.  In order to save these changes, we will need to re-encrypt everything, which can cause issues.\n\nAre you sure you wish to continue?  Please make sure you have backups."
     IDS_SVC_CRYPTO_RO       "This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to this encrypted ROM.\n\nAre you sure you wish to continue?  Decryption will take a minute."
+    IDS_CFPL_LOADED         "Loaded 8 palettes for %s %s."
+    IDS_CFPL_LOADFAILURE    "Failed loading CFPL file."
+    IDS_HPAL_LOADED         "Loaded %u colors from %u color HPAL file."
+    IDS_HPAL_LOADFAILURE    "Failed loading HPL file."
+    IDS_HPALSAVE_SUCCESS    "HPL file saved successfully."
+    IDS_HPALSAVE_FAILURE    "Error saving HPL file."
 END
 
 STRINGTABLE
@@ -757,8 +782,6 @@ BEGIN
     IDS_ACTSAVE_FAILURE     "Error saving ACT file."
     IDS_GPLSAVE_SUCCESS     "GPL file saved successfully."
     IDS_GPLSAVE_FAILURE     "Error saving GPL file."
-    IDS_HPALSAVE_SUCCESS    "HPL file saved successfully."
-    IDS_HPALSAVE_FAILURE    "Error saving HPL file."
     IDS_PALSAVE_SUCCESS     "RIFF PAL file saved successfully."
     IDS_PALSAVE_FAILURE     "Error saving RIFF PAL file."
     IDS_PNGLOAD_NOTABLE     "Cannot use this PNG: it does not contain a palette table."

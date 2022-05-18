@@ -39,6 +39,7 @@
 #define IDD_EXTRAS_EXPORT               140
 #define IDR_MENUIMGOUT                  141
 #define IDD_PALMOD_DIALOG_FAT           142
+#define IDD_CFPL_IMPORT                 143
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT_RH                     1001
 #define IDC_EDIT_BL                     1002
@@ -101,6 +102,8 @@
 #define IDC_EXTRAS_MAPUNKNOWN           1074
 #define IDC_EXTRAS_UNKNOWNBEFORE        1075
 #define IDC_EXTRAS_UNKNOWNAFTER         1076
+#define IDC_CFCOLOROPTIONS              1077
+#define IDC_CFPLIMPORTCHARACTER         1078
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -156,7 +159,6 @@
 #define IDS_SVC_UNKNOWNCRYPTO           2053
 #define IDS_SVC_WARNENCRYPT             2054
 #define IDS_SVC_CRYPTO_RO               2055
-#define IDS_CFPL_CONFIRM                2056
 #define IDS_CFPL_LOADED                 2057
 #define IDS_CFPL_LOADFAILURE            2058
 #define IDS_HPAL_LOADED                 2059
@@ -315,9 +317,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        143
+#define _APS_NEXT_RESOURCE_VALUE        144
 #define _APS_NEXT_COMMAND_VALUE         32928
-#define _APS_NEXT_CONTROL_VALUE         1077
+#define _APS_NEXT_CONTROL_VALUE         1079
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif
