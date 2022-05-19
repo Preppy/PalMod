@@ -40,6 +40,7 @@
 #define IDR_MENUIMGOUT                  141
 #define IDD_PALMOD_DIALOG_FAT           142
 #define IDD_CFPL_IMPORT                 143
+#define IDD_CFPL_EXPORT                 144
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT_RH                     1001
 #define IDC_EDIT_BL                     1002
@@ -102,8 +103,11 @@
 #define IDC_EXTRAS_MAPUNKNOWN           1074
 #define IDC_EXTRAS_UNKNOWNBEFORE        1075
 #define IDC_EXTRAS_UNKNOWNAFTER         1076
-#define IDC_CFCOLOROPTIONS              1077
-#define IDC_CFPLIMPORTCHARACTER         1078
+#define IDC_CFPL_COLOROPTIONS           1077
+#define IDC_CFPL_CHARACTERNAME          1078
+#define IDC_CFPL_PALNAME                1079
+#define IDC_CFPL_CREATOR                1080
+#define IDC_CFPL_DESCRIPTION            1081
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -165,6 +169,8 @@
 #define IDS_HPAL_LOADFAILURE            2060
 #define IDS_HPALSAVE_SUCCESS            2061
 #define IDS_HPALSAVE_FAILURE            2062
+#define IDS_CFPLSAVE_SUCCESS            2063
+#define IDS_CFPLSAVE_FAILURE            2064
 
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
@@ -317,7 +323,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        144
+#define _APS_NEXT_RESOURCE_VALUE        145
 #define _APS_NEXT_COMMAND_VALUE         32928
 #define _APS_NEXT_CONTROL_VALUE         1079
 #define _APS_NEXT_SYMED_VALUE           104

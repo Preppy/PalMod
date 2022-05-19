@@ -2064,22 +2064,28 @@ void CPalModDlg::OnExportPalette()
                                         L"|" };
 
     static LPCWSTR rgszBBCFSaveFilter[] = { L"HipPalette|*.hpl|"
+                                            L"Central Fiction Palette Set|*.cfpl|"
                                             L"ACT Palette|*.act|"
-                                            L"GIMP Palette File|*.gpl|"
                                             L"Upside-down ACT Palette|*.act|" // This is at position four: that is important below!
+                                            L"GIMP Palette File|*.gpl|"
                                             L"Microsoft PAL|*.pal|"
                                             L"|" };
 
     LPCWSTR pszDefaultExt = L"act";
     LPCWSTR pszFilterToUse = *rgszSaveFilter;
+    bool fUseBBCLogic = (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
 
-    if (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S)
+    if (fUseBBCLogic)
     {
         pszDefaultExt = L"hpl";
         pszFilterToUse = *rgszBBCFSaveFilter;
     }
 
     CFileDialog ActSave(FALSE, pszDefaultExt, nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, pszFilterToUse);
+
+    OPENFILENAME& pOFN = ActSave.GetOFN();
+
+    pOFN.nFilterIndex = CRegProc::GetOFNIndexForPaletteExport(fUseBBCLogic);
 
     if (ActSave.DoModal() == IDOK)
     {
@@ -2094,6 +2100,10 @@ void CPalModDlg::OnExportPalette()
         if (_wcsicmp(szExtension, L".gpl") == 0)
         {
             fSuccess = SavePaletteToGPL(ActSave.GetOFN().lpstrFile);
+        }
+        else if (_wcsicmp(szExtension, L".cfpl") == 0)
+        {
+            fSuccess = SavePaletteToCFPL(ActSave.GetOFN().lpstrFile);
         }
         else if (_wcsicmp(szExtension, L".hpl") == 0)
         {
@@ -2123,6 +2133,8 @@ void CPalModDlg::OnExportPalette()
                 MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
+        
+         CRegProc::StoreOFNIndexForPaletteExport(fUseBBCLogic, pOFN.nFilterIndex);
     }
 }
 

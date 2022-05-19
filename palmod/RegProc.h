@@ -55,6 +55,9 @@ public:
     static DWORD dwColorsPerLine;
     static bool ShouldForcePeerPreviewWindow();
 
+    static DWORD GetOFNIndexForPaletteExport(bool fUsingBBCFOptions);
+    static void StoreOFNIndexForPaletteExport(bool fUsingBBCFOptions, DWORD nPreferredIndex);
+
     static int GetUserSavePaletteToMemoryPreference();
     static void SetUserSavePaletteToMemoryPreference(int nPreference);
 

@@ -43,6 +43,9 @@ private:
 // CPalModDlg dialog
 class CPalModDlg : public CDialog
 {
+private:
+    void _WriteToFileAsANSIWithForcedLength(CFile& OutFile, CString strData, UINT nForcedLength);
+
 public:
     
     //Program variables
@@ -165,6 +168,7 @@ public:
     // if you add a new palette type here, please update the CPalDropTarget support
 
     bool SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp);
+    bool SavePaletteToCFPL(LPCWSTR pszFileName);
     bool SavePaletteToGPL(LPCWSTR pszFileName);
     bool SavePaletteToHPAL(LPCWSTR pszFileName);
     bool SavePaletteToPAL(LPCWSTR pszFileName);

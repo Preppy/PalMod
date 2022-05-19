@@ -18,6 +18,8 @@ constexpr auto c_mainExtraFileCanaryKey = L"main_lastExtraFileSize_%s";
 
 constexpr auto c_nPrefSavePaletteToMemory = L"pref_ShouldSavePaletteToMemory";
 constexpr auto c_prevClickToFind = L"PreviewClickToFind";
+constexpr auto c_exportOFNValueName = L"pref_FavoriteExportIndex";
+constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
 
 extern int GetDpiForScreen();
 
@@ -639,4 +641,38 @@ void CPalModZoom::DecrementZoom(double *fpPreviousZoom)
 
     nCurrentPosition = max(nCurrentPosition - 1, 0);
     *fpPreviousZoom = m_nZoomSizes[nCurrentPosition];
+}
+
+DWORD CRegProc::GetOFNIndexForPaletteExport(bool fUsingBBCFOptions)
+{
+    HKEY hKey;
+    DWORD nPreferredIndex = 0;
+
+    if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey)
+        == ERROR_SUCCESS)
+    {
+        DWORD RegType = REG_DWORD;
+        DWORD GetSz = sizeof(DWORD);
+
+        if (RegQueryValueEx(hKey, fUsingBBCFOptions? c_exportBBCFOFNValueName : c_exportOFNValueName, 0, &RegType, (LPBYTE)&nPreferredIndex, &GetSz) != ERROR_SUCCESS)
+        {
+            nPreferredIndex = 0;
+        }
+
+        RegCloseKey(hKey);
+    }
+
+    return nPreferredIndex;
+}
+
+void CRegProc::StoreOFNIndexForPaletteExport(bool fUsingBBCFOptions, DWORD nPreferredIndex)
+{
+    HKEY hKey;
+    
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_SET_VALUE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        RegSetValueEx(hKey, fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName, 0, REG_DWORD, (LPBYTE)&nPreferredIndex, sizeof(DWORD));
+        RegCloseKey(hKey);
+    }
 }

@@ -2,10 +2,23 @@
 #include "PalMod.h"
 #include "PalModDlg.h"
 #include "Game\BlazBlueCF_S_DEF.h"
+#include "RegProc.h" // save/restore creator name
 
 // CFPL and HPAL are BBCF color palette files.
 // HPAL is for one 256 color ABGR palette.
 // CFPL is a collection of eight 256 color BGRA palettes: exactly enough for one full character
+
+const uint8_t k_nCFPLSignatureLength = 0x10;
+const uint8_t k_nPalettesPerFile = 8;
+const uint16_t k_nColorsPerPalette = 256; // An CFPL has 8 sets of 256 (1024 bytes / 4 bytes per color) colors.
+const uint8_t k_nBytesPerColor = 4;
+const size_t k_nColorDataSize = k_nColorsPerPalette * k_nBytesPerColor;
+
+const std::array<uint8_t, k_nCFPLSignatureLength> k_rgCFPLSignature =
+{
+    0x49, 0x4d, 0x50, 0x4c, 0x43, 0x46, 0x00, 0x00, // I M P L C F
+    0x14, 0x00, 0x00, 0x00, 0x81, 0x20, 0x00, 0x00, // header size, data size: we're going to lock to 0x2098 files for now.
+};
 
 class CCFPLFileImportDialog : public CDialog
 {
@@ -50,7 +63,7 @@ BOOL CCFPLFileImportDialog::OnInitDialog()
 {
     CDialog::OnInitDialog();
 
-    GetDlgItem(IDC_CFPLIMPORTCHARACTER)->SetWindowText(m_strCharacterName.data());
+    GetDlgItem(IDC_CFPL_CHARACTERNAME)->SetWindowText(m_strCharacterName.data());
 
     for (std::wstring strColorOption : m_vstrColorOptions)
     {
@@ -73,17 +86,105 @@ void CCFPLFileImportDialog::DoDataExchange(CDataExchange* pDX)
 {
     CDialog::DoDataExchange(pDX);
 
-    DDX_Control(pDX, IDC_CFCOLOROPTIONS, m_CBColorPosition);
+    DDX_Control(pDX, IDC_CFPL_COLOROPTIONS, m_CBColorPosition);
 }
 
 BEGIN_MESSAGE_MAP(CCFPLFileImportDialog, CDialog)
-    ON_CBN_SELCHANGE(IDC_CFCOLOROPTIONS, &OnUpdateCombobox)
+    ON_CBN_SELCHANGE(IDC_CFPL_COLOROPTIONS, &OnUpdateCombobox)
 END_MESSAGE_MAP()
+
+class CCFPLFileExportDialog : public CDialog
+{
+    DECLARE_DYNAMIC(CCFPLFileExportDialog)
+
+public:
+    CCFPLFileExportDialog(std::wstring strCurrentCharacter, CWnd* pParent = NULL);   // standard constructor
+    ~CCFPLFileExportDialog();
+
+    BOOL OnInitDialog();
+
+    // Dialog Data
+    enum { IDD = IDD_CFPL_EXPORT };
+
+protected:
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+
+    std::wstring m_strCharacterName;
+    const std::wstring m_strCreatorValueName = L"pref_CreatorName";
+
+public:
+    CString m_strPaletteName;
+    CString m_strCreator;
+    CString m_strDescription;
+};
+
+IMPLEMENT_DYNAMIC(CCFPLFileExportDialog, CDialog)
+
+CCFPLFileExportDialog::CCFPLFileExportDialog(std::wstring strCurrentCharacter, CWnd* pParent /*=NULL*/)
+    : CDialog(CCFPLFileExportDialog::IDD, pParent)
+{
+    m_strCharacterName = strCurrentCharacter;
+}
+
+CCFPLFileExportDialog::~CCFPLFileExportDialog()
+{
+    // Store creator name preference if found
+    if (m_strCreator.GetLength() > 0)
+    {
+        HKEY hKey = nullptr;
+
+        if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_SET_VALUE, &hKey) == ERROR_SUCCESS)
+        {
+            RegSetValueEx(hKey, m_strCreatorValueName.data(), 0, REG_SZ, (LPBYTE)m_strCreator.GetString(), (DWORD)(m_strCreator.GetLength() + 1) * sizeof(WCHAR));
+
+            RegCloseKey(hKey);
+        }
+    }
+}
+
+BOOL CCFPLFileExportDialog::OnInitDialog()
+{
+    CDialog::OnInitDialog();
+
+    GetDlgItem(IDC_CFPL_CHARACTERNAME)->SetWindowText(m_strCharacterName.data());
+
+    HKEY hKey = nullptr;
+
+    if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey) == ERROR_SUCCESS)
+    {
+        DWORD dwRegType = REG_SZ;
+        WCHAR szCreatorName[MAX_PATH] = {};
+        DWORD cbDataSize = sizeof(szCreatorName);
+
+        if ((RegQueryValueEx(hKey, m_strCreatorValueName.data(), 0, &dwRegType, (LPBYTE)szCreatorName, &cbDataSize) == ERROR_SUCCESS) &&
+            (dwRegType == REG_SZ))
+        {
+            m_strCreator = szCreatorName;
+        }
+
+        RegCloseKey(hKey);
+    }
+
+    GetDlgItem(IDC_CFPL_CREATOR)->SetWindowText(m_strCreator);
+
+    UpdateData();
+
+    return TRUE;
+}
+
+void CCFPLFileExportDialog::DoDataExchange(CDataExchange* pDX)
+{
+    CDialog::DoDataExchange(pDX);
+
+    DDX_Text(pDX, IDC_CFPL_PALNAME, m_strPaletteName);
+    DDX_Text(pDX, IDC_CFPL_CREATOR, m_strCreator);
+    DDX_Text(pDX, IDC_CFPL_DESCRIPTION, m_strDescription);
+}
 
 bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
 {
     bool fSuccess = false;
-    bool fUserWantsToApply = false;
+    bool fUserWantsToApply = true;
 
     CFile CFPLFile;
     if (CFPLFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
@@ -101,7 +202,6 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
             // 0x54-0x94 optional description
             // 0x94      "has bloom"
         const size_t k_nRequiredFileSize = 0x2098;
-        const uint8_t k_nCFPLSignatureLength = 0x10;
         const uint8_t k_nCFPLHeaderLength = 0x95;
 
         bool fFileIsValidCFPL = false;
@@ -109,12 +209,6 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
         // Read data from the CFPL...
         if (CFPLFile.GetLength() == k_nRequiredFileSize)
         {
-            const std::array<uint8_t, k_nCFPLSignatureLength> k_rgCFPLSignature =
-            {
-                0x49, 0x4d, 0x50, 0x4c, 0x43, 0x46, 0x00, 0x00, // I M P L C F
-                0x14, 0x00, 0x00, 0x00, 0x81, 0x20, 0x00, 0x00, // header size, data size: we're going to lock to 0x2098 files for now.
-            };
-
             std::array<uint8_t, k_nCFPLSignatureLength> rgHeaderBytes = {};
 
             CFPLFile.Seek(0, CFile::begin);
@@ -179,18 +273,20 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
                 if (cfplFileDialog.DoModal() == IDOK)
                 {
                     nColorPositionToWriteTo = static_cast<uint8_t>(cfplFileDialog.m_nCurrentSel);
-
-                    fUserWantsToApply = true;
                 }
+                else
+                {
+                    fUserWantsToApply = false;
+                }
+            }
+            else
+            {
+                fCanUseCharacterAssignment = false;
             }
         }
 
         if (fCanUseCharacterAssignment && fUserWantsToApply)
         {
-            const uint16_t k_nColorsPerPalette = 256; // An CFPL has 8 sets of 256 (1024 bytes / 4 bytes per color) colors.
-            const uint8_t k_nBytesPerColor = 4;
-            const size_t k_nColorDataSize = k_nColorsPerPalette * k_nBytesPerColor;
-            const uint8_t k_nPalettesPerFile = 8;
             const uint16_t k_nStartingPaletteAdjustment = k_nPalettesPerFile * nColorPositionToWriteTo;
 
             std::array<uint8_t, k_nColorDataSize> rgCFPL = {};
@@ -245,5 +341,127 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
         SetStatusText(IDS_CFPL_LOADFAILURE);
     }
 
+    return fSuccess;
+}
+
+void CPalModDlg::_WriteToFileAsANSIWithForcedLength(CFile& OutFile, CString strData, UINT nForcedLength)
+{
+    UINT nFillBytes = nForcedLength;
+
+    if (strData.GetLength() > 0)
+    {
+        DWORD dwSize = WideCharToMultiByte(CP_ACP, 0, strData.GetString(), -1, NULL, 0, NULL, FALSE);
+
+        char* paszBuffer = new char[dwSize];
+        memset(paszBuffer, 0, dwSize);
+
+        UINT nCountToWrite = min(dwSize, nForcedLength);
+
+        if (WideCharToMultiByte(CP_ACP, 0, strData.GetString(), -1, paszBuffer, dwSize, NULL, FALSE))
+        {
+            OutFile.Write(paszBuffer, nCountToWrite);
+            nFillBytes -= nCountToWrite;
+        }
+
+        delete[] paszBuffer;
+    }
+
+    if (nFillBytes > 0)
+    {
+        BYTE* rgBytes = new BYTE[nFillBytes];
+        memset(rgBytes, 0, nFillBytes);
+
+        OutFile.Write(rgBytes, nFillBytes);
+        delete[] rgBytes;
+    }
+}
+
+bool CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName)
+{
+    CFile CFPLFile;
+    bool fSuccess = false;
+
+    CCFPLFileExportDialog cfplFileDialog(BlazBlueCF_S_CharacterData[m_nPrevUnitSel].pszCharacter);
+
+    bool fShouldAllowExport = (cfplFileDialog.DoModal() == IDOK);
+
+    if (fShouldAllowExport)
+    {
+        if (cfplFileDialog.m_strPaletteName.GetLength() == 0)
+        {
+            fShouldAllowExport = false;
+            MessageBox(L"Error: Palette name is required.", GetHost()->GetAppName(), MB_ICONERROR);
+        }
+    }
+
+    if (fShouldAllowExport)
+    {
+        if (CFPLFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+        {
+            // CFPLs are 8344 bytes (0x2098 bytes) long.
+            // There is a 32 byte header followed by a text section (32b per section) followed by
+            // 8 sets of 256 ARGB colors.
+            // Header:
+                // 0x00-0x08 IMPLCF signature
+                // 0x08-0x0c header length
+                // 0x0c-0x10 data length
+                // 0x10-0x14 character ID
+                // 0x14-0x34 customized palette name
+                // 0x34-0x54 optional creator name 
+                // 0x54-0x94 optional description
+                // 0x94      "has bloom"
+            const UINT k_nRequiredLength = 0x20;
+            const UINT k_nDescRequiredLength = 0x40;
+            const std::array<BYTE, k_nDescRequiredLength> k_rgFillBytes = { };
+
+            CFPLFile.Write(&k_rgCFPLSignature, k_rgCFPLSignature.size());
+
+            CFPLFile.Write(&BlazBlueCF_S_CharacterData[m_nPrevUnitSel].nBBCFIMId, 1);
+            CFPLFile.Write(&k_rgFillBytes, 3);
+
+            _WriteToFileAsANSIWithForcedLength(CFPLFile, cfplFileDialog.m_strPaletteName, k_nRequiredLength);
+            _WriteToFileAsANSIWithForcedLength(CFPLFile, cfplFileDialog.m_strCreator, k_nRequiredLength);
+            _WriteToFileAsANSIWithForcedLength(CFPLFile, cfplFileDialog.m_strDescription, k_nDescRequiredLength);
+
+            // "is bloom" : gives the in-game character display a shine.
+            // we don't interact with that, so force off for now.
+            CFPLFile.Write(&k_rgFillBytes, 1);
+
+            const uint16_t k_nStartingPaletteAdjustment = k_nPalettesPerFile * m_nPrevChildSel1;
+
+            // Now write the actual palettes
+            for (uint8_t nPaletteId = 0; nPaletteId < k_nPalettesPerFile; nPaletteId++)
+            {
+                COLORREF* rgCurrentPalette = GetHost()->GetCurrGame()->CreatePal(m_nPrevUnitSel, nPaletteId + k_nStartingPaletteAdjustment);
+
+                for (size_t nPaletteIndex = 0; nPaletteIndex < k_nColorsPerPalette; nPaletteIndex++)
+                {
+                    // we store as RBGA, CFPLs want BGRA, so flip here.
+                    // incoming is BGRA, so flip to be RBGA
+
+                    uint8_t alpha = static_cast<uint8_t>((rgCurrentPalette[nPaletteIndex] & 0xFF000000) >> 24);
+                    uint8_t blue =  static_cast<uint8_t>((rgCurrentPalette[nPaletteIndex] & 0x00FF0000) >> 16);
+                    uint8_t green = static_cast<uint8_t>((rgCurrentPalette[nPaletteIndex] & 0x0000FF00) >> 8);
+                    uint8_t red =   static_cast<uint8_t>(rgCurrentPalette[nPaletteIndex] & 0xFF);
+                   
+                    CFPLFile.Write(&blue, 1);
+                    CFPLFile.Write(&green, 1);
+                    CFPLFile.Write(&red, 1);
+                    CFPLFile.Write(&alpha, 1);
+                }
+
+                delete[] rgCurrentPalette;
+            }
+            
+            // pad 3
+            CFPLFile.Write(&k_rgFillBytes, 3);
+
+            CFPLFile.Close();
+
+            fSuccess = true;
+        }
+    }
+
+    SetStatusText(fSuccess ? IDS_CFPLSAVE_SUCCESS : IDS_CFPLSAVE_FAILURE);
     return fSuccess;
 }
