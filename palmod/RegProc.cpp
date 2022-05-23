@@ -20,6 +20,7 @@ constexpr auto c_nPrefSavePaletteToMemory = L"pref_ShouldSavePaletteToMemory";
 constexpr auto c_prevClickToFind = L"PreviewClickToFind";
 constexpr auto c_exportOFNValueName = L"pref_FavoriteExportIndex";
 constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
+constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
 
 extern int GetDpiForScreen();
 
@@ -673,6 +674,40 @@ void CRegProc::StoreOFNIndexForPaletteExport(bool fUsingBBCFOptions, DWORD nPref
         == ERROR_SUCCESS)
     {
         RegSetValueEx(hKey, fUsingBBCFOptions ? c_exportBBCFOFNValueName : c_exportOFNValueName, 0, REG_DWORD, (LPBYTE)&nPreferredIndex, sizeof(DWORD));
+        RegCloseKey(hKey);
+    }
+}
+
+DWORD CRegProc::GetOFNIndexForImageExport()
+{
+    HKEY hKey;
+    DWORD nPreferredIndex = 0;
+
+    if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey)
+        == ERROR_SUCCESS)
+    {
+        DWORD RegType = REG_DWORD;
+        DWORD GetSz = sizeof(DWORD);
+
+        if (RegQueryValueEx(hKey, c_exportImageOFNValueName, 0, &RegType, (LPBYTE)&nPreferredIndex, &GetSz) != ERROR_SUCCESS)
+        {
+            nPreferredIndex = 0;
+        }
+
+        RegCloseKey(hKey);
+    }
+
+    return nPreferredIndex;
+}
+
+void CRegProc::StoreOFNIndexForImageExport(DWORD nPreferredIndex)
+{
+    HKEY hKey;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_SET_VALUE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        RegSetValueEx(hKey, c_exportImageOFNValueName, 0, REG_DWORD, (LPBYTE)&nPreferredIndex, sizeof(DWORD));
         RegCloseKey(hKey);
     }
 }

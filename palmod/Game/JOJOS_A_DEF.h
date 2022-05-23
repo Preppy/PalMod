@@ -2508,7 +2508,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_A[] =
 {
     { L"Mariah A", 0x0347700, 0x0347780, indexJojos51Mariah },
-    { L"Old Woman A", 0x0347f80, 0x0348000, indexJojos51Mariah, 6 },
+    { L"Old Woman A", 0x0347f80, 0x0348000, indexJojos51Mariah, 0x09 },
     { L"Mariah Winpose Stuff A (1/2)", 0x0348000, 0x0348080, indexJojos51Mariah, 1 },
     { L"Mariah Winpose Stuff A (2/2)", 0x0348080, 0x0348100, indexJojos51Mariah, 2 },
     { L"Mariah's Bastet A", 0x0348100, 0x0348180, indexJojos51Mariah, 8 },
@@ -2524,7 +2524,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_B[] =
 {
     { L"Mariah B", 0x035bc00, 0x035bc80, indexJojos51Mariah },
-    { L"Old Woman B", 0x035c480, 0x035c500, indexJojos51Mariah, 6 },
+    { L"Old Woman B", 0x035c480, 0x035c500, indexJojos51Mariah, 0x09 },
     { L"Mariah Winpose Stuff B (1/2)", 0x035c500, 0x035c580, indexJojos51Mariah, 1 },
     { L"Mariah Winpose Stuff B (2/2)", 0x035c580, 0x035c600, indexJojos51Mariah, 2 },
     { L"Mariah's Bastet B", 0x035c600, 0x035c680, indexJojos51Mariah, 8 },
@@ -2540,7 +2540,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_C[] =
 {
     { L"Mariah C", 0x0370100, 0x0370180, indexJojos51Mariah },
-    { L"Old Woman C", 0x0370980, 0x0370a00, indexJojos51Mariah, 6 },
+    { L"Old Woman C", 0x0370980, 0x0370a00, indexJojos51Mariah, 0x09 },
     { L"Mariah Winpose Stuff C (1/2)", 0x0370a00, 0x0370a80, indexJojos51Mariah, 1 },
     { L"Mariah Winpose Stuff C (2/2)", 0x0370a80, 0x0370b00, indexJojos51Mariah, 2 },
     { L"Mariah's Bastet C", 0x0370b00, 0x0370b80, indexJojos51Mariah, 8 },
@@ -2556,7 +2556,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_S[] =
 {
     { L"Mariah S", 0x0384600, 0x0384680, indexJojos51Mariah },
-    { L"Old Woman S", 0x0384e80, 0x0384f00, indexJojos51Mariah, 6 },
+    { L"Old Woman S", 0x0384e80, 0x0384f00, indexJojos51Mariah, 0x09 },
     { L"Mariah Winpose Stuff S (1/2)", 0x0384f00, 0x0384f80, indexJojos51Mariah, 1 },
     { L"Mariah Winpose Stuff S (2/2)", 0x0384f80, 0x0385000, indexJojos51Mariah, 2 },
     { L"Mariah's Bastet S", 0x0385000, 0x0385080, indexJojos51Mariah, 8 },
@@ -2572,7 +2572,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_Start[] =
 {
     { L"Mariah Start", 0x0398b00, 0x0398b80, indexJojos51Mariah },
-    { L"Old Woman Start", 0x0399380, 0x0399400, indexJojos51Mariah, 6 },
+    { L"Old Woman Start", 0x0399380, 0x0399400, indexJojos51Mariah, 0x09 },
     { L"Mariah Winpose Stuff Start (1/2)", 0x0399400, 0x0399480, indexJojos51Mariah, 1 },
     { L"Mariah Winpose Stuff Start (2/2)", 0x0399480, 0x0399500, indexJojos51Mariah, 2 },
     { L"Mariah's Bastet Start", 0x0399500, 0x0399580, indexJojos51Mariah, 8 },

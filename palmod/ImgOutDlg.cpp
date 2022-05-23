@@ -664,14 +664,14 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             }
             else
             {
-                output_str.Format(L"%s%s%s", save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
-                lodepng::save_file(buffer, output_str.GetString());
+            output_str.Format(L"%s%s%s", save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
+            lodepng::save_file(buffer, output_str.GetString());
             }
         }
     }
 }
 
-void CImgOutDlg::ExportToRAW(CString save_str, CString output_str, CString output_ext, LPCWSTR pszSuggestedFileName)
+void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSuggestedFileName)
 {
     // raw
     const int nImageCount = m_DumpBmp.m_pMainImgCtrl->GetImgAmt();
@@ -690,6 +690,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_str, CString outpu
 
     if (fShouldExport)
     {
+        CString strOutputFilename;
         CString strDimensions;
         const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
         sImgNode** rgSrcImg = m_DumpBmp.m_pMainImgCtrl->GetImgBuffer();
@@ -709,15 +710,77 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_str, CString outpu
             // RAW export
             if (nImageCount == 1)
             {
-                output_str.Format(L"%s%s%s", save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
+                strOutputFilename.Format(L"%s%s%s", save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
             }
             else
             {
-                output_str.Format(L"%s-%02x%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
+                strOutputFilename.Format(L"%s-%02x%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
             }
 
+#ifdef WANT_RAW_EXPORT_IMAGE_ADJUSTMENT
+            bool fShownError = false;
+
+            int nUnusedPaletteIndex = rgSrcImg[nImageIndex]->uPalSz - 1;
+
+            std::vector<bool> rgIsIndexUsed;
+            rgIsIndexUsed.resize(rgSrcImg[nImageIndex]->uPalSz);
+
+            for (int nImgIndex = 0; nImgIndex < rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW; nImgIndex++)
+            {
+                if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] < rgSrcImg[nImageIndex]->uPalSz)
+                {
+                    rgIsIndexUsed.at(rgSrcImg[nImageIndex]->pImgData[nImgIndex]) = true;
+                }
+            }
+
+            for (size_t nColorUsageIndex = 1; nColorUsageIndex < rgIsIndexUsed.size(); nColorUsageIndex++)
+            {
+                if (!rgIsIndexUsed.at(nColorUsageIndex))
+                {
+                    nUnusedPaletteIndex = nColorUsageIndex;
+                    break;
+                }
+            }
+
+            for (int nImgIndex = 0; nImgIndex < rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW; nImgIndex++)
+            {
+                // Validate that all color references are within the bounds of the current palette
+                if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] > rgSrcImg[nImageIndex]->uPalSz)
+                {
+                    int nOldColor = rgSrcImg[nImageIndex]->pImgData[nImgIndex];
+                    int nNewColor;
+
+                    // In some specific cases people were using out-of-bounds colors to color "shadow" / inferred sprites
+                    // Adjust those to something *in* the palette.  This is still "wrong" but at least more 
+                    // technically correct.
+                    if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] == 0xfe)
+                    {
+                        nNewColor = nUnusedPaletteIndex;
+                    }
+                    else
+                    {
+                        // this is likely a paired palette that is indexed to be using colors from the second palette.
+                        // for purposes of RAW, that is incorrect: this should be referencing the palette as color[0]
+                        nNewColor = nOldColor % rgSrcImg[nImageIndex]->uPalSz;
+                    }
+
+                    if (!fShownError)
+                    {
+                        fShownError = true;
+                        CString strError;
+                        strError.Format(L"WARNING: adjusting image to make it actually functional! 0x%x to 0x%x (out of 0x%x)\r\n",
+                            nOldColor, nNewColor, rgSrcImg[nImageIndex]->uPalSz);
+                        OutputDebugString(strError.GetString());
+                    }
+
+                    rgSrcImg[nImageIndex]->pImgData[nImgIndex] = nNewColor;
+
+                }
+            }
+#endif
+
             CFile rawFile;
-            if (rawFile.Open(output_str, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+            if (rawFile.Open(strOutputFilename, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
             {
                 rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW);
                 rawFile.Abort();
@@ -791,6 +854,10 @@ void CImgOutDlg::OnFileSave()
         *szSaveFilter
     );
 
+    OPENFILENAME& pOFN = sfd.GetOFN();
+
+    pOFN.nFilterIndex = CRegProc::GetOFNIndexForImageExport();
+
     if (sfd.DoModal() == IDOK)
     {
         CString output_ext = L".png";
@@ -845,7 +912,7 @@ void CImgOutDlg::OnFileSave()
 
         CString save_str = sfd_ofn.lpstrFile;
 
-        // Do a quick to confirm if have the file extension in the supplied filename
+        // Do a quick to confirm if we have the file extension in the supplied filename
         CString strExtCheck = save_str;
         strExtCheck.MakeLower();
         if (strExtCheck.Find(output_ext) == (strExtCheck.GetLength() - output_ext.GetLength()))
@@ -866,13 +933,15 @@ void CImgOutDlg::OnFileSave()
             }
             else
             {
-                ExportToRAW(save_str, output_str, output_ext, sfd_ofn.lpstrFile);
+                ExportToRAW(save_str, output_ext, sfd_ofn.lpstrFile);
             }
         }
         else // specific image type guid available
         {
             ExportToCImageType(output_str, img_format, dwExportFlags);
         }
+
+        CRegProc::StoreOFNIndexForImageExport(pOFN.nFilterIndex);
     }
 }
 

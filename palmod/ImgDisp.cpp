@@ -637,17 +637,20 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
     UINT8* pImgData = nullptr;
     UINT8* pCurrPal = nullptr;
     UINT8* pDstBmpData = (UINT8*)m_pBmpData;
+    int nPalSizeInUint8 = 0;
 
     if ((nSrcIndex != -1) && m_pImgBuffer[nSrcIndex])
     {
         pImgData = (UINT8*)m_pImgBuffer[nSrcIndex]->pImgData;
         pCurrPal = (UINT8*)(fUseBlinkPal ? m_pImgBuffer[nSrcIndex]->pBlinkPalette : m_pImgBuffer[nSrcIndex]->pPalette);
+        nPalSizeInUint8 = m_pImgBuffer[nSrcIndex]->uPalSz * 4;
         nWidth = m_pImgBuffer[nSrcIndex]->uImgW;
         nHeight = m_pImgBuffer[nSrcIndex]->uImgH;
     }
     else if (m_pBackupPaletteDef != nullptr)
     {
         pCurrPal = (UINT8*)(fUseBlinkPal ? m_pBackupBlinkPalette : m_pBackupPaletteDef->pPal);
+        nPalSizeInUint8 = m_pBackupPaletteDef->uPalSz * 4;
     }
     else
     {
@@ -718,6 +721,8 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
         nMaxWritePerTransparency = static_cast<UINT16>(GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency());
     }
 
+    bool fShownErrorForThisImage = false;
+
     for (int yIndex = 0; yIndex < nBltH; yIndex++)
     {
         int nStartRow = (rBltRct.top + ((nBltH - 1) - yIndex)) * (MAIN_W * 4) + (rBltRct.left * 4);
@@ -730,17 +735,27 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
             if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
             {
                 int nDstPos = nStartRow + xIndex;
+                const int nCurrentColorPosition = uIndex * 4; // we walk the UINT8 array at COLORREF size strides
 
-                double fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
+                if (!fShownErrorForThisImage && (nCurrentColorPosition > nPalSizeInUint8))
+                {
+                    CString strError;
+                    strError.Format(L"ERROR: This %u by %u image has out-of-bound color references and should be fixed.  Requested 0x%x but palette maxes at 0x%x.\r\n", 
+                                            nWidth, nHeight, nCurrentColorPosition, nPalSizeInUint8);
+                    OutputDebugString(strError.GetString());
+                    fShownErrorForThisImage = true;
+                }
+
+                double fpDstA2 = (1.0 - (pCurrPal[nCurrentColorPosition + 3]) / 255.0);
                 double fpDstA1 = 1.0 - fpDstA2;
 
                 UINT8* uDstR = &pDstBmpData[nDstPos + 2];
                 UINT8* uDstG = &pDstBmpData[nDstPos + 1];
                 UINT8* uDstB = &pDstBmpData[nDstPos];
 
-                *uDstR = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4)]), (fpDstA2 * (double)*uDstR));
-                *uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 1]), (fpDstA2 * (double)*uDstG));
-                *uDstB = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 2]), (fpDstA2 * (double)*uDstB));
+                *uDstR = (UINT8)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition]), (fpDstA2 * (double)*uDstR));
+                *uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 1]), (fpDstA2 * (double)*uDstG));
+                *uDstB = (UINT8)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 2]), (fpDstA2 * (double)*uDstB));
             }
         }
     }

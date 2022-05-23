@@ -2073,9 +2073,9 @@ void CPalModDlg::OnExportPalette()
 
     LPCWSTR pszDefaultExt = L"act";
     LPCWSTR pszFilterToUse = *rgszSaveFilter;
-    bool fUseBBCLogic = (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
+    bool fUseBBCFLogic = (GetHost()->GetCurrGame()->GetGameFlag() == BlazBlueCF_S);
 
-    if (fUseBBCLogic)
+    if (fUseBBCFLogic)
     {
         pszDefaultExt = L"hpl";
         pszFilterToUse = *rgszBBCFSaveFilter;
@@ -2085,7 +2085,7 @@ void CPalModDlg::OnExportPalette()
 
     OPENFILENAME& pOFN = ActSave.GetOFN();
 
-    pOFN.nFilterIndex = CRegProc::GetOFNIndexForPaletteExport(fUseBBCLogic);
+    pOFN.nFilterIndex = CRegProc::GetOFNIndexForPaletteExport(fUseBBCFLogic);
 
     if (ActSave.DoModal() == IDOK)
     {
@@ -2101,7 +2101,7 @@ void CPalModDlg::OnExportPalette()
         {
             fSuccess = SavePaletteToGPL(ActSave.GetOFN().lpstrFile);
         }
-        else if (_wcsicmp(szExtension, L".cfpl") == 0)
+        else if (fUseBBCFLogic && (_wcsicmp(szExtension, L".cfpl") == 0)) // only allow cfpl for BBCF
         {
             fSuccess = SavePaletteToCFPL(ActSave.GetOFN().lpstrFile);
         }
@@ -2134,7 +2134,7 @@ void CPalModDlg::OnExportPalette()
             }
         }
         
-         CRegProc::StoreOFNIndexForPaletteExport(fUseBBCLogic, pOFN.nFilterIndex);
+         CRegProc::StoreOFNIndexForPaletteExport(fUseBBCFLogic, pOFN.nFilterIndex);
     }
 }
 

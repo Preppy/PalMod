@@ -62,7 +62,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRed
     m_nRedEarthMode = nRedEarthModeToLoad;
 
     const UINT32 nSafeCountFor30 = 218;
-    const UINT32 nSafeCountFor31 = 879;
+    const UINT32 nSafeCountFor31 = 891;
     const UINT32 nSafeCountFor50 = 4;
 
     switch (m_nRedEarthMode)
@@ -626,7 +626,7 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                 if (paletteDataSetToJoin)
                 {
-                    if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
+                    if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1) // link the entire node
                     {
                         const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -650,60 +650,124 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                         ClearSetImgTicket(pImgArray);
                     }
-                    else if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == 3)
+                    else if ((paletteDataSet->pPalettePairingInfo->nPalettesToJoin > 1) &&
+                             (paletteDataSet->pPalettePairingInfo->nPalettesToJoin <= MAXIMUM_PALETTE_PAIRS_ALLOWED))
                     {
-                        const INT8 nPeerPaletteDistance1 = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                        const INT8 nPeerPaletteDistance2 = paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner;
-                        const sGame_PaletteDataset* paletteDataSetToJoin1 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance1);
-                        const sGame_PaletteDataset* paletteDataSetToJoin2 = GetSpecificPalette( NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance2);
-                        fShouldUseAlternateLoadLogic = true;
+                        std::vector<const sGame_PaletteDataset*> vsPaletteDataSetToJoin;
+                        std::vector<int8_t> vnPeerPaletteDistances;
+                        bool fAllNodesFound = true;
 
-                        ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse)
-                                ))
-                        );
+                        for (uint32_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
+                        {
+                            switch (nPairIndex)
+                            {
+                            case 0:
+                                vnPeerPaletteDistances.push_back(0);
+                                break;
+                            case 1:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner);
+                                break;
+                            case 2:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo2ndPartner);
+                                break;
+                            case 3:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo3rdPartner);
+                                break;
+                            case 4:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo4thPartner);
+                                break;
+                            case 5:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo5thPartner);
+                                break;
+                            case 6:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo6thPartner);
+                                break;
+                            case 7:
+                                vnPeerPaletteDistances.push_back(paletteDataSet->pPalettePairingInfo->nOverallNodeIncrementTo7thPartner);
+                                break;
+                            default:
+                                // Anything past this just gets default pairing
+                                vnPeerPaletteDistances.push_back(nPairIndex);
+                                break;
+                            }
 
-                        //Set each palette
-                        std::vector<sDescNode*> JoinedNode = {
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
-                        };
+                            const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + vnPeerPaletteDistances[nPairIndex]);
 
-                        //Set each palette
-                        CreateDefPal(JoinedNode[0], 0);
-                        CreateDefPal(JoinedNode[1], 1);
-                        CreateDefPal(JoinedNode[2], 2);
+                            if (paletteDataSetToJoin)
+                            {
+                                vsPaletteDataSetToJoin.push_back(paletteDataSetToJoin);
+                            }
+                            else
+                            {
+                                fAllNodesFound = false;
+                            }
+                        }
 
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
+                        std::vector<sDescNode*> vsJoinedNodes;
 
-                    }
-                    else
-                    {
-                        fShouldUseAlternateLoadLogic = true;
+                        for (uint32_t nNodeIndex = 0; nNodeIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nNodeIndex++)
+                        {
+                            sDescNode* sSearchedNode = nullptr;
 
-                        ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
-                            )
-                        );
+                            // We need to readjust the nodes here.
+                            uint32_t nNodeSize = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                            uint32_t nAdjustedCollectionIndex = Node02;
+                            ptrdiff_t nAdjustedButtonIndex = Node03 + vnPeerPaletteDistances[nNodeIndex];
 
-                        //Set each palette
-                        std::vector<sDescNode*> JoinedNode = {
-                           GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                           GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
-                        };
+                            while (nAdjustedButtonIndex >= 0)
+                            {
+                                sSearchedNode = GetMainTree()->GetDescNode(Node01, nAdjustedCollectionIndex, nAdjustedButtonIndex, -1);
 
-                        //Set each palette
-                        CreateDefPal(JoinedNode[0], 0);
-                        CreateDefPal(JoinedNode[1], 1);
+                                if (sSearchedNode)
+                                {
+                                    break;
+                                }
 
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                                // This palette isn't in this node: walk to the next available node for this unit.
+                                nAdjustedButtonIndex -= nNodeSize;
+                                nAdjustedCollectionIndex++;
+                            }
+
+                            if (sSearchedNode)
+                            {
+                                vsJoinedNodes.push_back(sSearchedNode);
+                            }
+                            else
+                            {
+                                fAllNodesFound = false;
+                            }
+                        }
+
+                        if (fAllNodesFound)
+                        {
+                            fShouldUseAlternateLoadLogic = true;
+
+                            std::vector<sImgTicket*> vsImagePairs;
+                            sImgTicket* pPreviousImage = nullptr;
+
+                            for (int32_t nNodeIndex = (paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1); nNodeIndex >= 0; nNodeIndex--)
+                            {
+                                sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage);
+
+                                vsImagePairs.push_back(pThisImage);
+
+                                pPreviousImage = pThisImage;
+                            }
+
+                            ClearSetImgTicket(vsImagePairs[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1)]);
+
+                            for (uint32_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
+                            {
+                                //Set each palette
+                                CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
+
+                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement);
+                            }
+                        }
+                        else
+                        {
+                            OutputDebugString(L"ERROR: Invalid palette pairing requested.   You probably want to check the linkage here.\n");
+                        }
                     }
                 }
             }

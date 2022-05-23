@@ -225,6 +225,8 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
     { L"Kenji Character Select Portrait",        0x1DF000, 0x1DF080, indexRedEarthSprites_Kenji, 0x12 },
     { L"P1 Kenji Character Select Portrait Highlighted", 0x1E0F00, 0x1E0F80, indexRedEarthSprites_Kenji, 0x11 },
     { L"P2 Kenji Character Select Portrait Highlighted", 0x1E3100, 0x1E3180, indexRedEarthSprites_Kenji, 0x11 },
+
+    { L"Shogun Credits", 0x424880, 0x424900 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
@@ -544,9 +546,9 @@ const sGame_PaletteDataset REDEARTH_A_HYDRON_PALETTES[] =
     { L"Spin attack FX", 0x427d80, 0x427e00 },
     { L"Squid dudes spawn FX", 0x428000, 0x428080 },
 
-    { L"Isia", 0x428300, 0x428380 },
-    { L"Isia's White Dog", 0x428380, 0x428400 },
-    { L"Isia's Gray Dog", 0x428400, 0x428480 },
+    { L"Isia, Janna, Elena", 0x428300, 0x428380, indexRedEarthSprites_Hydron, 0x01 },
+    { L"Isia's White Dog", 0x428380, 0x428400, indexRedEarthSprites_Hydron, 0x02 },
+    { L"Isia's Gray Dog", 0x428400, 0x428480, indexRedEarthSprites_Hydron, 0x02 },
 
     { L"Hydron Burned 1", 0x429e00, 0x429e80, indexRedEarthSprites_Hydron, 0 },
     { L"Hydron Burned 2", 0x429e80, 0x429f00, indexRedEarthSprites_Hydron, 0 },
@@ -697,7 +699,7 @@ const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
     { L"Pyre", 0x42f980, 0x42fa00, indexRedEarthSprites_Ravange, 0x09 },
     { L"Clara ball FX", 0x42fb00, 0x42fb80 },
 
-    { L"Kids", 0x42fa00, 0x42fb00 },
+    { L"Kids", 0x42fa00, 0x42fb00, indexRedEarthSprites_Ravange, 0x01 },
 
     { L"Ravange Burned 1", 0x430200, 0x430280, indexRedEarthSprites_Ravange, 0x00 },
     { L"Ravange Burned 2", 0x430280, 0x430300, indexRedEarthSprites_Ravange, 0x00 },
@@ -805,7 +807,7 @@ const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
     { L"Character Select Transition Skyline (2/4)", 0x1DE680, 0x1DE700, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
     { L"Character Select Transition Skyline (3/4)", 0x1DE700, 0x1DE780, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
     { L"Character Select Transition Skyline (4/4)", 0x1DE780, 0x1DE800, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
-    { L"Vs Screen Transition - Leo (1/4)", 0x406000, 0x406100 },
+    { L"Vs Screen Transition - Leo (1/4)", 0x406000, 0x406100, indexRedEarthSprites_Bonus, 0x35 },
     { L"Vs Screen Transition - Kenji (2/4)", 0x406100, 0x406200 },
     { L"Vs Screen Transition - Tessa (3/4)", 0x406200, 0x406300 },
     { L"Vs Screen Transition - Mai-Ling (4/4)", 0x406300, 0x406400 },
@@ -986,81 +988,102 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_PUNCH_PALETTES[] =
 {
     // Punch palette Kenji
-    { L"Evil Subordinate Appears 1/4", 0x40bd80, 0x40be00, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 2/4", 0x40bd00, 0x40bd80, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 3/4", 0x40bc80, 0x40bd00, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 4/4", 0x40bc00, 0x40bc80, indexRedEarthSprites_Kenji, 0x00 },
     { L"Good Subordinate Appears 1/4", 0x40bb80, 0x40bc00, indexRedEarthSprites_Kenji, 0x00 },
     { L"Good Subordinate Appears 2/4", 0x40bb00, 0x40bb80, indexRedEarthSprites_Kenji, 0x00 },
     { L"Good Subordinate Appears 3/4", 0x40ba80, 0x40bb00, indexRedEarthSprites_Kenji, 0x00 },
     { L"Good Subordinate Appears 4/4", 0x40ba00, 0x40ba80, indexRedEarthSprites_Kenji, 0x00 },
+
+    { L"Punch Evil Ninja 1/4", 0x40b980, 0x40ba00, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 2/4", 0x40b900, 0x40b980, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja & Shogun 3/4", 0x40b880, 0x40b900, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja 4/4", 0x40b800, 0x40b880, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Punch Evil Ninja Cape 1/4", 0x40bd80, 0x40be00, indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 2/4", 0x40bd00, 0x40bd80, indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 3/4", 0x40bc80, 0x40bd00, indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Punch Evil Ninja Cape 4/4", 0x40bc00, 0x40bc80, indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_KICK_PALETTES[] =
 {
     // Kick Palette Kenji Subordinates
-    { L"Evil Subordinate Appears 1/4", 0x418580, 0x418600, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 2/4", 0x418500, 0x418580, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 3/4", 0x418480, 0x418500, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Evil Subordinate Appears 4/4", 0x418400, 0x418480, indexRedEarthSprites_Kenji, 0x00 },
     { L"Good Subordinate Appears 1/4", 0x418380, 0x418400, indexRedEarthSprites_Kenji, 0x00 },
     { L"Good Subordinate Appears 2/4", 0x418300, 0x418380, indexRedEarthSprites_Kenji, 0x00 },
     { L"Good Subordinate Appears 3/4", 0x418280, 0x418300, indexRedEarthSprites_Kenji, 0x00 },
     { L"Good Subordinate Appears 4/4", 0x418200, 0x418280, indexRedEarthSprites_Kenji, 0x00 },
+
+    { L"Kick Evil Ninja 1/4", 0x418180, 0x418200, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 2/4", 0x418100, 0x418180, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja & Shogun 3/4", 0x418080, 0x418100, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja 4/4", 0x418000, 0x418080, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
+    { L"Kick Evil Ninja Cape 1/4", 0x418580, 0x418600, indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 2/4", 0x418500, 0x418580, indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 3/4", 0x418480, 0x418500, indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
+    { L"Kick Evil Ninja Cape 4/4", 0x418400, 0x418480, indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 {
-    { L"EXP / LVL Text", 0x406880, 0x406900 },
+    //{ L"EXP / LVL Text", 0x406880, 0x406900 },
 
-    { L"Timer (Running Out)", 0x4065a0, 0x4065c0 },
-    { L"Timer Overlay (Running Out)", 0x406720, 0x406740 },
+    { L"Timer, Blade's Hud Name", 0x4064e0, 0x406500, indexRedEarthSprites_Bonus, 0x2f, &pairNext }, // pair next 
+    { L"Timer Overlay", 0x406620, 0x406640, indexRedEarthSprites_Bonus, 0x30, &pairPrevious }, // pair previous
 
-    { L"Boss Lifebar Frame, Fire/Red Bg", 0x4064a0, 0x4064c0 }, // pair next
-    { L"Lifebar", 0x406560, 0x406580 }, // pair previous
+    { L"Timer (Running Out)", 0x4065a0, 0x4065c0, indexRedEarthSprites_Bonus, 0x2f, &pairNext }, // pair next
+    { L"Timer Overlay (Running Out)", 0x406720, 0x406740, indexRedEarthSprites_Bonus, 0x30, &pairPrevious }, // pair previous
+
+    { L"Boss Lifebar Frame, Fire/Red Bg", 0x4064a0, 0x4064c0, indexRedEarthSprites_Bonus, 0x1e, &pairNext }, // pair next
+    { L"Lifebar", 0x406560, 0x406580, indexRedEarthSprites_Bonus, 0x21, &pairPrevious }, // pair previous
 
     { L"Lifebar (Danger)", 0x4066e0, 0x406700 },
     { L"Boss Lifebar Frame (Danger)", 0x406700, 0x406720 },
 
-    { L"Text: Character Level Titles", 0x406500, 0x406520 },
-    { L"Text: Ingame Dialogue, Black Bg", 0x406520, 0x406540 },
-    { L"Text: Insert Coin, Map Location", 0x4064c0, 0x4064e0 },
-    { L"Text: LV Up Fire, AT Power", 0x406de0, 0x406e00 },
-    { L"Text: LV Up Title, Ice, Wind", 0x406e00, 0x406e20 },
-    { L"Text: LV Up Character, Lightning", 0x406e20, 0x406e40 },
-    { L"Text: LV Up Number, Move", 0x406800, 0x406820 },
+    { L"Hud Names", 0x406580, 0x4065a0, indexRedEarthSprites_Bonus, 0x1f },
 
-    { L"Timer Overlay", 0x406620, 0x406640 }, // pair this with next
-    { L"Timer", 0x4064e0, 0x406500 }, // pair this with previous
+    { L"Some Elemental & Other Bg Flash", 0x406400, 0x406420, indexRedEarthSprites_Bonus, 0x2b },
 
-    { L"Meteor Orb", 0x4065e0, 0x406600 }, // pair these when we have an image
-    { L"Poison Orb", 0x406600, 0x406620 },
-    { L"Fire Orb", 0x406420, 0x406440 },
-    { L"Wind Orb", 0x4065c0, 0x4065e0 },
-    { L"Thunder Orb", 0x406460, 0x406480 },
-    { L"Ice Orb", 0x406440, 0x406460 },
+    { L"New Warrior! 1/2 Hud Lv, Exp", 0x406880, 0x4068a0 }, // pair next
+    { L"New Warrior! 2/2", 0x406bc0, 0x406be0 },
 
-    { L"Red Earth 1st Logo Cycle 1/17", 0x406ee0, 0x406f00 },
-    { L"Red Earth 1st Logo Cycle 2/17", 0x406f00, 0x406f20 },
-    { L"Red Earth 1st Logo Cycle 3/17", 0x406f20, 0x406f40 },
-    { L"Red Earth 1st Logo Cycle 4/17", 0x406f40, 0x406f60 },
-    { L"Red Earth 1st Logo Cycle 5/17", 0x406f60, 0x406f80 },
-    { L"Red Earth 1st Logo Cycle 6/17", 0x406f80, 0x406fa0 },
-    { L"Red Earth 1st Logo Cycle 7/17", 0x406cc0, 0x406ce0 },
-    { L"Red Earth 1st Logo Cycle 8/17", 0x406ce0, 0x406d00 },
-    { L"Red Earth 1st Logo Cycle 9/17", 0x406d00, 0x406d20 },
-    { L"Red Earth 1st Logo Cycle 10/17", 0x406d20, 0x406d40 },
-    { L"Red Earth 1st Logo Cycle 11/17", 0x406d40, 0x406d60 },
-    { L"Red Earth 1st Logo Cycle 12/17", 0x406d60, 0x406d80 },
-    { L"Red Earth 1st Logo Cycle 13/17", 0x406e40, 0x406e60 },
-    { L"Red Earth 1st Logo Cycle 14/17", 0x406e60, 0x406e80 },
-    { L"Red Earth 1st Logo Cycle 15/17", 0x406e80, 0x406ea0 },
-    { L"Red Earth 1st Logo Cycle 16/17", 0x406ea0, 0x406ec0 },
-    { L"Red Earth 1st Logo Cycle 17/17", 0x406ec0, 0x406ee0 },
+    { L"Bonus Game Timer Seconds", 0x406d80, 0x406da0 },
+    { L"Bonus Game Timer Milliseconds", 0x406dc0, 0x406de0 },
 
-    { L"RoundPoint: Others", 0x406780, 0x4067a0 }, // pair with next 2
-    { L"RoundPoint: Timeout", 0x406760, 0x406780 },
-    { L"RoundPoint : Cherry Weak Attack", 0x406740, 0x406760 },
+    { L"Text: Character Level Titles", 0x406500, 0x406520, indexRedEarthSprites_Bonus, 0x2c },
+    { L"Text: Ingame Dialogue, Black Bg", 0x406520, 0x406540, indexRedEarthSprites_Bonus, 0x2d },
+    { L"Text: Insert Coin, Map Location", 0x4064c0, 0x4064e0, indexRedEarthSprites_Bonus, 0x2e },
+    { L"Text: LV Up Fire, AT Power", 0x406de0, 0x406e00, indexRedEarthSprites_Bonus, 0x32 },
+    { L"Text: LV Up Title, Ice, Wind", 0x406e00, 0x406e20, indexRedEarthSprites_Bonus, 0x34 },
+    { L"Text: LV Up Character, Lightning", 0x406e20, 0x406e40, indexRedEarthSprites_Bonus, 0x31 },
+    { L"Text: LV Up Number, Move", 0x406800, 0x406820, indexRedEarthSprites_Bonus, 0x33 },
+    { L"Text: Parental Advisory", 0x406480, 0x4064a0 },
+
+    { L"Meteor Orb", 0x4065e0, 0x406600, indexRedEarthSprites_Bonus, 0x24, &pairNext5Palettes }, // pair these when we have an image
+    { L"Poison Orb", 0x406600, 0x406620, indexRedEarthSprites_Bonus, 0x25 },
+    { L"Fire Orb", 0x406420, 0x406440, indexRedEarthSprites_Bonus, 0x22 },
+    { L"Wind Orb", 0x4065c0, 0x4065e0, indexRedEarthSprites_Bonus, 0x27 },
+    { L"Thunder Orb", 0x406460, 0x406480, indexRedEarthSprites_Bonus, 0x26 },
+    { L"Ice Orb", 0x406440, 0x406460, indexRedEarthSprites_Bonus, 0x23 },
+
+    { L"Red Earth 1st Logo Cycle 1/17", 0x406ee0, 0x406f00, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 2/17", 0x406f00, 0x406f20, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 3/17", 0x406f20, 0x406f40, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 4/17", 0x406f40, 0x406f60, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 5/17", 0x406f60, 0x406f80, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 6/17", 0x406f80, 0x406fa0, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 7/17", 0x406cc0, 0x406ce0, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 8/17", 0x406ce0, 0x406d00, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 9/17", 0x406d00, 0x406d20, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 10/17", 0x406d20, 0x406d40, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 11/17", 0x406d40, 0x406d60, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 12/17", 0x406d60, 0x406d80, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 13/17", 0x406e40, 0x406e60, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 14/17", 0x406e60, 0x406e80, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 15/17", 0x406e80, 0x406ea0, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 16/17", 0x406ea0, 0x406ec0, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 17/17", 0x406ec0, 0x406ee0, indexRedEarthSprites_Bonus, 0x20 },
+
+    { L"RoundPoint: Others", 0x406780, 0x4067a0, indexRedEarthSprites_Bonus, 0x29, &pairNextAndNext }, // pair with next 2
+    { L"RoundPoint: Timeout", 0x406760, 0x406780, indexRedEarthSprites_Bonus, 0x2a },
+    { L"RoundPoint: Cherry Weak Attack", 0x406740, 0x406760, indexRedEarthSprites_Bonus, 0x28 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
@@ -1073,20 +1096,16 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Punch Palette Leo Unused?", 0x414880, 0x414900, indexRedEarthSprites_Leo, 0x00 },
     { L"Kick Palette Leo Unused? ", 0x408080, 0x408100, indexRedEarthSprites_Leo, 0x00 },
 
-    { L"Kenji Punch Evil Subordinate Appears 1/4 (Unused)", 0x40b980, 0x40ba00, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Kenji Punch Evil Subordinate Appears 2/4 (Unused)", 0x40b900, 0x40b980, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Kenji Punch Evil Subordinate Appears 3/4 (Unused)", 0x40b880, 0x40b900, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Kenji Punch Evil Subordinate Appears 4/4 (Unused)", 0x40b800, 0x40b880, indexRedEarthSprites_Kenji, 0x00 },
-
-    { L"Kenji Kick Evil Subordinate Appears 1/4 (Unused)", 0x418180, 0x418200, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Kenji Kick Evil Subordinate Appears 2/4 (Unused)", 0x418100, 0x418180, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Kenji Kick Evil Subordinate Appears 3/4 (Unused)", 0x418080, 0x418100, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Kenji Kick Evil Subordinate Appears 4/4 (Unused)", 0x418000, 0x418080, indexRedEarthSprites_Kenji, 0x00 },
-
     { L"Tessa Punch Pixies", 0x40f680, 0x40f700 },
     { L"Tessa Punch Pixies Changing Pal", 0x40f700, 0x40f780 },
     { L"Tessa Kick Pixies", 0x41be80, 0x41bf00 },
     { L"Tessa Kick Pixies Changing Pal", 0x41bf00, 0x41bf80 },
+
+    { L"Unused Vigo, Valu, Vestu", 0x421f80, 0x422000 },
+    { L"Unused Vigo, Valo, Vestu Punch", 0x408900, 0x408980 },
+    { L"Unused Vigo, Valo, Vestu Kick", 0x415100, 0x415180 },
+    { L"Unused Wisemen Mist 1", 0x421100, 0x421180 },
+    { L"Unused Wisemen Mist 2", 0x421080, 0x421100 },
 };
 
 //Playable Characters
@@ -1653,7 +1672,6 @@ const sDescTreeNode REDEARTH_A_STAGES_CRYPT_COLLECTION[] =
 {
     { L"Stage", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_PALETTES) },
     { L"Other", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_OTHER_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_OTHER_PALETTES) },
-    
 };
 
 const sDescTreeNode REDEARTH_A_30_BONUSGAME_COLLECTION[] =
