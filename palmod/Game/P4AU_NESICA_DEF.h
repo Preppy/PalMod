@@ -261,8 +261,8 @@ const std::vector<Persona4PaletteData> Persona4PalettesMarie =
     { L"Extra 1", indexP4AUSprites_Marie, 0x02 },
     { L"Extra 2", indexP4AUSprites_Marie, 0x03 },
     { L"Extra 3" },
-    { L"Extra 4", indexP4AUSprites_Marie, 0x04 },
-    { L"Extra 5", indexP4AUSprites_Marie, 0x04 }, //Reuse the preview from Extra4
+    { L"Extra 4", indexP4AUSprites_Marie, 0x05 },
+    { L"Extra 5", indexP4AUSprites_Marie, 0x05 }, //Reuse the preview from Extra4
     { L"Extra 6" },
 };
 

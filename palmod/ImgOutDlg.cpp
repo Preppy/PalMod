@@ -717,10 +717,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
                 strOutputFilename.Format(L"%s-%02x%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
             }
 
-#ifdef WANT_RAW_EXPORT_IMAGE_ADJUSTMENT
-            bool fShownError = false;
-
-            int nUnusedPaletteIndex = rgSrcImg[nImageIndex]->uPalSz - 1;
+            bool fHasErrorAndShouldFix = false;
 
             std::vector<bool> rgIsIndexUsed;
             rgIsIndexUsed.resize(rgSrcImg[nImageIndex]->uPalSz);
@@ -731,53 +728,70 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
                 {
                     rgIsIndexUsed.at(rgSrcImg[nImageIndex]->pImgData[nImgIndex]) = true;
                 }
-            }
-
-            for (size_t nColorUsageIndex = 1; nColorUsageIndex < rgIsIndexUsed.size(); nColorUsageIndex++)
-            {
-                if (!rgIsIndexUsed.at(nColorUsageIndex))
+                else
                 {
-                    nUnusedPaletteIndex = nColorUsageIndex;
-                    break;
+                    fHasErrorAndShouldFix = true;
                 }
             }
 
-            for (int nImgIndex = 0; nImgIndex < rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW; nImgIndex++)
+            if (fHasErrorAndShouldFix)
             {
-                // Validate that all color references are within the bounds of the current palette
-                if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] > rgSrcImg[nImageIndex]->uPalSz)
+                CString strMsg = L"This preview uses non-standard color references.  Do you want PalMod to export it using normalized and recommended color references instead?";
+                fHasErrorAndShouldFix = (MessageBox(strMsg.GetString(), GetHost()->GetAppName(), MB_YESNO) == IDYES);
+            }
+
+            if (fHasErrorAndShouldFix)
+            {
+                // Default to the last color in the palette: we'll optimize to an actually unused color index if possible.
+                int nUnusedPaletteIndex = rgSrcImg[nImageIndex]->uPalSz - 1;
+
+                for (size_t nColorUsageIndex = 1; nColorUsageIndex < rgIsIndexUsed.size(); nColorUsageIndex++)
                 {
-                    int nOldColor = rgSrcImg[nImageIndex]->pImgData[nImgIndex];
-                    int nNewColor;
-
-                    // In some specific cases people were using out-of-bounds colors to color "shadow" / inferred sprites
-                    // Adjust those to something *in* the palette.  This is still "wrong" but at least more 
-                    // technically correct.
-                    if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] == 0xfe)
+                    if (!rgIsIndexUsed.at(nColorUsageIndex))
                     {
-                        nNewColor = nUnusedPaletteIndex;
+                        nUnusedPaletteIndex = nColorUsageIndex;
+                        break;
                     }
-                    else
+                }
+
+                bool fShownError = false;
+
+                for (int nImgIndex = 0; nImgIndex < rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW; nImgIndex++)
+                {
+                    // Validate that all color references are within the bounds of the current palette
+                    if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] > rgSrcImg[nImageIndex]->uPalSz)
                     {
-                        // this is likely a paired palette that is indexed to be using colors from the second palette.
-                        // for purposes of RAW, that is incorrect: this should be referencing the palette as color[0]
-                        nNewColor = nOldColor % rgSrcImg[nImageIndex]->uPalSz;
+                        int nOldColor = rgSrcImg[nImageIndex]->pImgData[nImgIndex];
+                        int nNewColor;
+
+                        // In some specific cases people were using out-of-bounds colors to color "shadow" / inferred sprites
+                        // Adjust those to something *in* the palette.  This is still "wrong" but at least more 
+                        // technically correct.
+                        if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] == 0xfe)
+                        {
+                            nNewColor = nUnusedPaletteIndex;
+                        }
+                        else
+                        {
+                            // this is likely a paired palette that is indexed to be using colors from the second palette.
+                            // for purposes of RAW, that is incorrect: this should be referencing the palette as color[0]
+                            nNewColor = nOldColor % rgSrcImg[nImageIndex]->uPalSz;
+                        }
+
+                        if (!fShownError)
+                        {
+                            fShownError = true;
+                            CString strError;
+                            strError.Format(L"WARNING: adjusting image to make it actually functional! 0x%x to 0x%x (out of 0x%x)\r\n",
+                                nOldColor, nNewColor, rgSrcImg[nImageIndex]->uPalSz);
+                            OutputDebugString(strError.GetString());
+                        }
+
+                        rgSrcImg[nImageIndex]->pImgData[nImgIndex] = nNewColor;
+
                     }
-
-                    if (!fShownError)
-                    {
-                        fShownError = true;
-                        CString strError;
-                        strError.Format(L"WARNING: adjusting image to make it actually functional! 0x%x to 0x%x (out of 0x%x)\r\n",
-                            nOldColor, nNewColor, rgSrcImg[nImageIndex]->uPalSz);
-                        OutputDebugString(strError.GetString());
-                    }
-
-                    rgSrcImg[nImageIndex]->pImgData[nImgIndex] = nNewColor;
-
                 }
             }
-#endif
 
             CFile rawFile;
             if (rawFile.Open(strOutputFilename, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))

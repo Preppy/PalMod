@@ -459,10 +459,12 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_BLADE_PALETTES[] =
 {
     { L"Blade/Mirror Frame", 0x433c00, 0x433c80, indexRedEarthSprites_Blade, 0x00, &pairNext },
+    { L"Blade Lifebar Portrait", 0x406ac0, 0x406ae0 },
     { L"Emerald FX/Intro 1/Adrayer+attacking gauntlets", 0x433c80, 0x433d00, indexRedEarthSprites_Blade, 0x01 },
     { L"Emerald FX/Intro 2", 0x433d00, 0x433d80, indexRedEarthSprites_Bonus, 0x0c },
     { L"Emerald FX/Intro 3", 0x433d80, 0x433e00, indexRedEarthSprites_Bonus, 0x0d },
     { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433e80, indexRedEarthSprites_Bonus, 0x10 },
+
 
     { L"Blade Burned 1", 0x436600, 0x436680 },
     { L"Blade Burned 2", 0x436680, 0x436700 },
@@ -482,14 +484,10 @@ const sGame_PaletteDataset REDEARTH_A_BLADE_PALETTES[] =
     { L"Blade Frozen 5", 0x436d80, 0x436e00 },
 };
 
-//const sGame_PaletteDataset REDEARTH_A_GIGI_PALETTES[] =
-//{
-//
-//};
-
 const sGame_PaletteDataset REDEARTH_A_HAUZER_PALETTES[] =
 {
     { L"Hauzer", 0x421000, 0x421080, indexRedEarthSprites_Hauzer, 0 },
+    { L"Hauzer Lifebar Portrait", 0x406b20, 0x406b40 },
     { L"Hauzer Hit Effect 1", 0x423e80, 0x423f00, indexRedEarthSprites_Hauzer, 0 },
     { L"Hauzer Hit Effect 2", 0x421180, 0x421200, indexRedEarthSprites_Hauzer, 0 },
     { L"Hauzer Fire Effects", 0x421200, 0x421280 },
@@ -506,6 +504,7 @@ const sGame_PaletteDataset REDEARTH_A_HAUZER_PALETTES[] =
     { L"Hauzer End Berserker 2", 0x421980, 0x421a00, indexRedEarthSprites_Hauzer, 0 },
     { L"Hauzer End Berserker 3", 0x421900, 0x421980, indexRedEarthSprites_Hauzer, 0 },
     { L"Hauzer End Berserker 4", 0x421880, 0x421900, indexRedEarthSprites_Hauzer, 0 },
+
     { L"Hauzer Burned 1", 0x423a00, 0x423a80, indexRedEarthSprites_Hauzer, 0 },
     { L"Hauzer Burned 2", 0x423a80, 0x423b00, indexRedEarthSprites_Hauzer, 0 },
     { L"Hauzer Shocked 1", 0x423b00, 0x423b80, indexRedEarthSprites_Hauzer, 0 },
@@ -527,9 +526,10 @@ const sGame_PaletteDataset REDEARTH_A_HAUZER_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_HYDRON_PALETTES[] =
 {
     { L"Hydron", 0x427400, 0x427480, indexRedEarthSprites_Hydron, 0 },
-
+    { L"Hydron Lifebar Portrait", 0x406ae0, 0x406b00 },
     { L"Poison Blast FX", 0x427500, 0x427580 },
     { L"Squid boys spawn Tentacle", 0x427580, 0x427600 },
+
     { L"Electric PalFX1", 0x427600, 0x427680, indexRedEarthSprites_Hydron, 0 },
     { L"Electric PalFX1", 0x427680, 0x427700, indexRedEarthSprites_Hydron, 0 },
     { L"Electric PalFX1", 0x427780, 0x427800, indexRedEarthSprites_Hydron, 0 },
@@ -573,6 +573,9 @@ const sGame_PaletteDataset REDEARTH_A_KONGOU_PALETTES[] =
     { L"Kongou", 0x424200, 0x424280, indexRedEarthSprites_Kongou, 0, &pairNext },
     { L"Kanabo", 0x424280, 0x424300, indexRedEarthSprites_Kongou, 1 },
     { L"Stomach acid", 0x424300, 0x424380, indexRedEarthSprites_Kongou, 0x02 },
+
+    { L"Kongou Lifebar Portrait",  0x406a80, 0x406aa0 },
+
     { L"Kongou Burned 1", 0x426c00, 0x426c80, indexRedEarthSprites_Kongou, 0 },
     { L"Kongou Burned 2", 0x426c80, 0x426d00, indexRedEarthSprites_Kongou, 0 },
     { L"Kongou Shocked 1", 0x426d00, 0x426d80, indexRedEarthSprites_Kongou, 0 },
@@ -604,6 +607,7 @@ const sGame_PaletteDataset REDEARTH_A_KONGOU_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_LAVIA_PALETTES[] =
 {
     { L"Lavia", 0x42a600, 0x42a680, indexRedEarthSprites_Lavia },
+    { L"Lavia Lifebar Portrait", 0x406b00, 0x406b20 },
     { L"Intro Effects, Soul, Dust, Fire", 0x42a680, 0x42a700 },
     { L"Sparks", 0x42a700, 0x42a780},
     { L"Feather Projectiles", 0x42a780, 0x42a800 },
@@ -650,6 +654,8 @@ const sGame_PaletteDataset REDEARTH_A_LAVIA_PALETTES_UNUSED[] =
 const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
 {
     { L"Ravange", 0x42d800, 0x42d880, indexRedEarthSprites_Ravange, 0x00 },
+    { L"Ravange Lifebar Portrait", 0x406aa0, 0x406ac0 },
+
     { L"Fire FX", 0x42d880, 0x42d900 },
     { L"Beam FX", 0x42d900, 0x42d980 },
     { L"Sand FX", 0x42d980, 0x42da00 },
@@ -721,7 +727,32 @@ const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_GIGI_PALETTES[] =
 {
-    { L"Gi Gi", 0x430a00, 0x430a80 },
+    { L"Gi Gi Red Form", 0x430a00, 0x430a80 },
+    { L"Gi Gi From Red to Blue Switch", 0x431700, 0x431780 },
+    { L"Gi Gi From Blue to Red Switch", 0x431780, 0x431800 },
+    { L"Gi Gi Blue Form", 0x431800, 0x431880 },
+    { L"Gi Gi Lifebar Portrait", 0x406b40, 0x406b60 },
+
+    { L"Gi Gi Block 1", 0x430c00, 0x430c80 },
+    { L"Gi Gi Block & Golden Chair 2", 0x430c80, 0x430d00 },
+    { L"Gi Gi Block 3", 0x430d00, 0x430d80 },
+    { L"Gi Gi Block 4", 0x430d80, 0x430e00 },
+
+    { L"Gi Gi Columns & Rocks 1/2", 0x431180, 0x431200 },
+    { L"Gi Gi Columns & Rocks 2/2", 0x431600, 0x431680 },
+    { L"Gi Gi Column Summon", 0x431280, 0x431300 },
+    { L"Gi Gi Falling Rock Summon", 0x431300, 0x431380 },
+    { L"Gi Gi Spear Summon", 0x431380, 0x431400 },
+
+    { L"Gi Gi Ground Spears", 0x431200, 0x431280 },
+    { L"Gi Gi Super Fast Sword Slash", 0x431000, 0x431080 },
+    { L"Gi Gi Lighter Sword Slash", 0x431080, 0x431100 },
+    { L"Gi Gi Stunned", 0x431100, 0x431180 },
+
+    { L"Gi Gi Victory Column 1/4", 0x431400, 0x431480 },
+    { L"Gi Gi Victory Column 2/4", 0x431480, 0x431500 },
+    { L"Gi Gi Victory Column 3/4", 0x431500, 0x431580 },
+    { L"Gi Gi Victory Column 4/4", 0x431580, 0x431600 },
 
     { L"Red Form Burned 1", 0x433400, 0x433480 },
     { L"Red Form Burned 2", 0x433480, 0x433500 },
@@ -751,6 +782,7 @@ const sGame_PaletteDataset REDEARTH_A_GIGI_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
 {
     { L"Scion", 0x436e00, 0x436e80, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Lifebar Portrait", 0x4066c0, 0x4066e0 },
 
     { L"Scion Burned 1", 0x439800, 0x439880, indexRedEarthSprites_Scion, 0x00 },
     { L"Scion Burned 2", 0x439880, 0x439900, indexRedEarthSprites_Scion, 0x00 },
@@ -853,8 +885,26 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Capcom Logo30", 0x320f00, 0x320f80, indexRedEarthSprites_Bonus, 0x04 },
     { L"Capcom Logo31", 0x320f80, 0x321000, indexRedEarthSprites_Bonus, 0x04 },
 
+    { L"Intro - Red Earth", 0x322ca0, 0x322d80, indexRedEarthSprites_Bonus, 0x20 },
 
-    { L"Intro - Red Earth", 0x322ca0, 0x322d80 },
+    { L"Red Earth 1st Logo Cycle 1/17", 0x406ee0, 0x406f00, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 2/17", 0x406f00, 0x406f20, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 3/17", 0x406f20, 0x406f40, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 4/17", 0x406f40, 0x406f60, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 5/17", 0x406f60, 0x406f80, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 6/17", 0x406f80, 0x406fa0, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 7/17", 0x406cc0, 0x406ce0, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 8/17", 0x406ce0, 0x406d00, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 9/17", 0x406d00, 0x406d20, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 10/17", 0x406d20, 0x406d40, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 11/17", 0x406d40, 0x406d60, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 12/17", 0x406d60, 0x406d80, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 13/17", 0x406e40, 0x406e60, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 14/17", 0x406e60, 0x406e80, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 15/17", 0x406e80, 0x406ea0, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 16/17", 0x406ea0, 0x406ec0, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth 1st Logo Cycle 17/17", 0x406ec0, 0x406ee0, indexRedEarthSprites_Bonus, 0x20 },
+
     { L"Intro - Leo closeup", 0x3226ae, 0x32272e },
     { L"Intro - Emerald", 0x321320, 0x321380, indexRedEarthSprites_Bonus, 0x05 },
     { L"Intro - Emerald BG0", 0x3212a0, 0x321320, indexRedEarthSprites_Bonus, 0x19 },
@@ -983,6 +1033,9 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro-Leo.S.BG62", 0x3236c0, 0x3236e0 },
     { L"Intro-Leo.S.BG63", 0x3236e0, 0x323700 },
     { L"Intro-Leo.S.BG64", 0x323700, 0x323720 },
+
+    { L"Mini Capcom Logo", 0x406be0, 0x406c00, indexRedEarthSprites_Bonus, 0x39 },
+    { L"Mini Red Earth Logo", 0x406fa0, 0x406fc0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_PUNCH_PALETTES[] =
@@ -1034,8 +1087,8 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
     { L"Boss Lifebar Frame, Fire/Red Bg", 0x4064a0, 0x4064c0, indexRedEarthSprites_Bonus, 0x1e, &pairNext }, // pair next
     { L"Lifebar", 0x406560, 0x406580, indexRedEarthSprites_Bonus, 0x21, &pairPrevious }, // pair previous
 
-    { L"Lifebar (Danger)", 0x4066e0, 0x406700 },
-    { L"Boss Lifebar Frame (Danger)", 0x406700, 0x406720 },
+    { L"Boss Lifebar Frame (Danger)", 0x406700, 0x406720, indexRedEarthSprites_Bonus, 0x1e, &pairNext },
+    { L"Lifebar (Danger)", 0x4066e0, 0x406700 , indexRedEarthSprites_Bonus, 0x21, &pairPrevious},
 
     { L"Hud Names", 0x406580, 0x4065a0, indexRedEarthSprites_Bonus, 0x1f },
 
@@ -1047,6 +1100,8 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
     { L"Bonus Game Timer Seconds", 0x406d80, 0x406da0 },
     { L"Bonus Game Timer Milliseconds", 0x406dc0, 0x406de0 },
 
+    { L"Game Over", 0x406fe0, 0x407000 },
+
     { L"Text: Character Level Titles", 0x406500, 0x406520, indexRedEarthSprites_Bonus, 0x2c },
     { L"Text: Ingame Dialogue, Black Bg", 0x406520, 0x406540, indexRedEarthSprites_Bonus, 0x2d },
     { L"Text: Insert Coin, Map Location", 0x4064c0, 0x4064e0, indexRedEarthSprites_Bonus, 0x2e },
@@ -1056,30 +1111,12 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
     { L"Text: LV Up Number, Move", 0x406800, 0x406820, indexRedEarthSprites_Bonus, 0x33 },
     { L"Text: Parental Advisory", 0x406480, 0x4064a0 },
 
-    { L"Meteor Orb", 0x4065e0, 0x406600, indexRedEarthSprites_Bonus, 0x24, &pairNext5Palettes }, // pair these when we have an image
+    { L"Meteor Orb", 0x4065e0, 0x406600, indexRedEarthSprites_Bonus, 0x24, &pairNext5Palettes }, // pair the orb set
     { L"Poison Orb", 0x406600, 0x406620, indexRedEarthSprites_Bonus, 0x25 },
     { L"Fire Orb", 0x406420, 0x406440, indexRedEarthSprites_Bonus, 0x22 },
     { L"Wind Orb", 0x4065c0, 0x4065e0, indexRedEarthSprites_Bonus, 0x27 },
     { L"Thunder Orb", 0x406460, 0x406480, indexRedEarthSprites_Bonus, 0x26 },
     { L"Ice Orb", 0x406440, 0x406460, indexRedEarthSprites_Bonus, 0x23 },
-
-    { L"Red Earth 1st Logo Cycle 1/17", 0x406ee0, 0x406f00, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 2/17", 0x406f00, 0x406f20, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 3/17", 0x406f20, 0x406f40, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 4/17", 0x406f40, 0x406f60, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 5/17", 0x406f60, 0x406f80, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 6/17", 0x406f80, 0x406fa0, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 7/17", 0x406cc0, 0x406ce0, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 8/17", 0x406ce0, 0x406d00, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 9/17", 0x406d00, 0x406d20, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 10/17", 0x406d20, 0x406d40, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 11/17", 0x406d40, 0x406d60, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 12/17", 0x406d60, 0x406d80, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 13/17", 0x406e40, 0x406e60, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 14/17", 0x406e60, 0x406e80, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 15/17", 0x406e80, 0x406ea0, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 16/17", 0x406ea0, 0x406ec0, indexRedEarthSprites_Bonus, 0x20 },
-    { L"Red Earth 1st Logo Cycle 17/17", 0x406ec0, 0x406ee0, indexRedEarthSprites_Bonus, 0x20 },
 
     { L"RoundPoint: Others", 0x406780, 0x4067a0, indexRedEarthSprites_Bonus, 0x29, &pairNextAndNext }, // pair with next 2
     { L"RoundPoint: Timeout", 0x406760, 0x406780, indexRedEarthSprites_Bonus, 0x2a },
@@ -1147,11 +1184,6 @@ const sDescTreeNode REDEARTH_A_BLADE_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BLADE_PALETTES, ARRAYSIZE(REDEARTH_A_BLADE_PALETTES) },
 };
-
-//const sDescTreeNode REDEARTH_A_GIGI_COLLECTION[] =
-//{
-//    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_GIGI_PALETTES, ARRAYSIZE(REDEARTH_A_GIGI_PALETTES) },
-//};
 
 const sDescTreeNode REDEARTH_A_HAUZER_COLLECTION[] =
 {
