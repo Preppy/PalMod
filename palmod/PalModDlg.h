@@ -17,10 +17,10 @@
 
 #define round(x)(x > 0.0 ? x + 0.5 : x + -0.5)
 
-#define TIMER_STATUS 1
-#define TIMER_BLINK 2
-#define TIMER_ELAPSE 10 * 1000
-#define TIMER_BLINK_ELAPSE 1 * 200
+constexpr auto TIMER_STATUS = 1;
+constexpr auto TIMER_BLINK = 2;
+constexpr auto TIMER_ELAPSE = 10 * 1000;
+constexpr auto TIMER_BLINK_ELAPSE = 1 * 200;
 
 enum class eVerifyType
 {

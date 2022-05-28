@@ -85,6 +85,7 @@ public:
 
     COLORREF prev_bgcol;
     COLORREF prev_blinkcol;
+    BOOL prev_blinkinverts;
 
     WCHAR szPrevBGLoc[MAX_PATH];
     int nBGXOffs;

@@ -415,12 +415,16 @@ void CRegProc::LoadReg(eRegistryStoreID src)
         {
             RegType = REG_DWORD;
             GetSz = sizeof(BOOL); //int is same size as bool, so...
+            static_assert(sizeof(BOOL) == sizeof(int));
 
             if (RegQueryValueEx(hKey, L"prev_bgcol", 0, &RegType, (BYTE*)&prev_bgcol, &GetSz) != ERROR_SUCCESS)
-                prev_bgcol = RGB(0, 0, 0);
+                prev_bgcol = RGB(0xd0, 0xd0, 0xd0); // Default to grey background
 
             if (RegQueryValueEx(hKey, L"prev_blinkcol", 0, &RegType, (BYTE*)&prev_blinkcol, &GetSz) != ERROR_SUCCESS)
-                prev_blinkcol = RGB(255, 255, 255);
+                prev_blinkcol = RGB(255, 255, 255); // Default to white blink
+
+            if (RegQueryValueEx(hKey, L"prev_blinkinverts", 0, &RegType, (BYTE*)&prev_blinkinverts, &GetSz) != ERROR_SUCCESS)
+                prev_blinkinverts = FALSE; // Default to non-inverting blink
 
             if (RegQueryValueEx(hKey, L"PreviewTiledBG", 0, &RegType, (BYTE*)&fTileBG, &GetSz) != ERROR_SUCCESS)
                 fTileBG = TRUE;
@@ -553,6 +557,7 @@ void CRegProc::SaveReg(eRegistryStoreID src)
         {
             RegSetValueEx(hKey, L"prev_bgCol", 0, REG_DWORD, (BYTE*)&prev_bgcol, sizeof(COLORREF));
             RegSetValueEx(hKey, L"prev_blinkCol", 0, REG_DWORD, (BYTE*)&prev_blinkcol, sizeof(COLORREF));
+            RegSetValueEx(hKey, L"prev_blinkinverts", 0, REG_DWORD, (BYTE*)&prev_blinkinverts, sizeof(BOOL));
 
             conv_str = RectToStr(prev_szpos);
 

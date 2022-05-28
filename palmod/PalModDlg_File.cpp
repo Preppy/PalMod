@@ -972,19 +972,24 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
             int nOffsetThisPass = 0;
             for (int iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
             {
-                for (iACTIndex = nOffsetThisPass; (iACTIndex < nACTColorCount) && ((iACTIndex - nOffsetThisPass) < MainPalGroup->GetPalDef(iPalette)->uPalSz); iACTIndex++)
+                const UINT16 nColorsNeededForThisPalette = MainPalGroup->GetPalDef(iPalette)->uPalSz;
+                for (iACTIndex = nOffsetThisPass; (iACTIndex < nACTColorCount) && ((iACTIndex - nOffsetThisPass) < nColorsNeededForThisPalette); iACTIndex++)
                 {
                     int iIndexToUse= fShouldProcessTopdown ? iACTIndex : (nACTColorCount - iACTIndex);
                     if ((pAct[(iIndexToUse * 3)] != 0) ||
                         (pAct[(iIndexToUse * 3) + 1] != 0) ||
                         (pAct[(iIndexToUse * 3) + 2] != 0))
                     {
-                        rgfACTHasColorsForThisPalette[iPalette] = true;
+                        if (nColorsNeededForThisPalette <= (nACTColorCount - nOffsetThisPass))
+                        {
+                            // Only allow usage if we fully cover the secondary palette: ignore incomplete palette coverage
+                            rgfACTHasColorsForThisPalette[iPalette] = true;
+                        }
                         break;
                     }
                 }
 
-                nOffsetThisPass += MainPalGroup->GetPalDef(iPalette)->uPalSz;
+                nOffsetThisPass += nColorsNeededForThisPalette;
             }
         }
 
@@ -1026,6 +1031,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
                         }
                         else
                         {
+                            nTotalColorsUsed++;
                             break;
                         }
                     }
@@ -1081,6 +1087,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
                             }
                             else
                             {
+                                nTotalColorsUsed++;
                                 break;
                             }
                         }
@@ -1879,7 +1886,10 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp)
                 {
                     const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
 
-                    for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++)
+                    for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) &&
+                                                   (nActivePageIndex < nNextPageWorkingAmt) &&
+                                                   (nTotalColorsUsed < nWorkingAmt);
+                        nActivePageIndex++)
                     {
                         pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
                         pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
@@ -1907,7 +1917,10 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp)
                 {
                     const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
 
-                    for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++)
+                    for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) &&
+                                                   (nActivePageIndex < nNextPageWorkingAmt) &&
+                                                   (nTotalColorsUsed < nWorkingAmt);
+                        nActivePageIndex++)
                     {
                         pAct[(nWriteLocation - nTotalColorsUsed) * 3] = pPal[nTotalColorsUsed * 4];
                         pAct[(nWriteLocation - nTotalColorsUsed) * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];

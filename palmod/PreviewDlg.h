@@ -56,6 +56,7 @@ public:
     afx_msg void OnZoom8x() { UpdateZoomSetting(8.0); };
     afx_msg void OnSetBackgroundCol();
     afx_msg void OnSetBlinkCol();
+    afx_msg void OnSetBlinkInverts();
     afx_msg void OnSetBackgroundImage();
     afx_msg void OnDestroy();
     afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);

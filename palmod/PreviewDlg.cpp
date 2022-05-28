@@ -39,6 +39,7 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_ZOOM_6X, &CPreviewDlg::OnZoom6x)
     ON_COMMAND(ID_ZOOM_7X, &CPreviewDlg::OnZoom7x)
     ON_COMMAND(ID_ZOOM_8X, &CPreviewDlg::OnZoom8x)
+    ON_COMMAND(ID_SETTINGS_BLINKINVERTS, &CPreviewDlg::OnSetBlinkInverts)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR, &CPreviewDlg::OnSetBackgroundCol)
     ON_COMMAND(ID_SETTINGS_SETBLINKCOLOR, &CPreviewDlg::OnSetBlinkCol)
     ON_COMMAND(ID_SETTINGS_SETBACKGROUNDIMAGE, &CPreviewDlg::OnSetBackgroundImage)
@@ -163,6 +164,11 @@ void CPreviewDlg::OnSetBlinkCol()
     }
 }
 
+void CPreviewDlg::OnSetBlinkInverts()
+{
+    m_ImgDisp.SetBlinkInverts(!m_ImgDisp.GetBlinkInverts());
+}
+
 void CPreviewDlg::OnSetBackgroundImage()
 {
     CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, L"Standard graphics files|*.bmp; *.png; *.gif; *.jpg; *.jpeg||", this);
@@ -198,6 +204,7 @@ void CPreviewDlg::LoadSettings()
 
     m_ImgDisp.SetBGCol(LoadSett.prev_bgcol);
     m_ImgDisp.SetBlinkCol(LoadSett.prev_blinkcol);
+    m_ImgDisp.SetBlinkInverts(LoadSett.prev_blinkinverts);
     m_ImgDisp.SetBGTiled(LoadSett.fTileBG);
     m_ImgDisp.SetBGXOffs(LoadSett.nBGXOffs);
     m_ImgDisp.SetBGYOffs(LoadSett.nBGYOffs);
@@ -267,6 +274,7 @@ void CPreviewDlg::SaveSettings()
     wcscpy(SaveSett.szPrevBGLoc, szBGLoc.GetBuffer());
     SaveSett.prev_bgcol = m_ImgDisp.GetBGCol();
     SaveSett.prev_blinkcol = m_ImgDisp.GetBlinkCol();
+    SaveSett.prev_blinkinverts = m_ImgDisp.GetBlinkInverts();
     SaveSett.fTileBG = m_ImgDisp.IsBGTiled();
     SaveSett.nBGXOffs = m_ImgDisp.GetBGXOffs();
     SaveSett.nBGYOffs = m_ImgDisp.GetBGYOffs();
@@ -434,6 +442,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
 
     if (pSettMenu == pPopupMenu)
     {
+        pSettMenu->CheckMenuItem(ID_SETTINGS_BLINKINVERTS, m_ImgDisp.IsUsingBlinkInverts() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_TILEIMAGEBACKGROUND, m_ImgDisp.IsBGTiled() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_USEBGCOLOR, m_ImgDisp.IsUsingBGCol() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColorSetting() ? MF_CHECKED : MF_UNCHECKED);

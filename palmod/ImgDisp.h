@@ -71,6 +71,7 @@ private:
     BOOL m_fShouldUseBGCol = FALSE;
     BOOL m_fNeedFirstInit = TRUE;
     BOOL m_fClickToFindColor = TRUE;
+    BOOL m_fBlinkInverts = FALSE;
 
     COLORREF m_crBGCol = 0x00FF0000;
     COLORREF m_crBlinkCol = 0x00FFFFFF;
@@ -135,14 +136,17 @@ public:
     void Redraw();
     void SetBGCol(COLORREF crNewCol) { m_crBGCol = crNewCol; };
     void SetBlinkCol(COLORREF crNewCol) { m_crBlinkCol = crNewCol; };
+    void SetBlinkInverts(BOOL fBlinkInverts) { m_fBlinkInverts = fBlinkInverts; };
     COLORREF GetBGCol() { return m_crBGCol; };
     COLORREF GetBlinkCol() { return m_crBlinkCol; };
+    BOOL GetBlinkInverts() { return m_fBlinkInverts; };
     void CenterImg() { ModifySrcRect(); };
 
     void SetBlinkPalette(int nIndex, COLORREF* pBlinkPalette);
 
     BOOL IsBGTiled() { return m_fShouldTileBGBmp; };
     BOOL IsUsingBGCol() { return m_fShouldUseBGCol; };
+    BOOL IsUsingBlinkInverts() { return m_fBlinkInverts; };
     void SetBGXOffs(int nOffs) { m_nBGXOffs = nOffs; };
     void SetBGYOffs(int nOffs) { m_nBGYOffs = nOffs; };
     void SetBGTiled(BOOL fTiled) { m_fShouldTileBGBmp = fTiled; };

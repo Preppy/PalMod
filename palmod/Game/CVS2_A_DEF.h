@@ -4445,7 +4445,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x3fab860, 0x3fab880, indexCVS2Sprites_GodRugal },
     { L"Extra 1", 0x3fab880, 0x3fab8a0 },
-    { L"Extra 2: Green Stuff: Green Stuff", 0x3fab8a0, 0x3fab8c0, indexCVS2Sprites_Rugal, 0x08 },
+    { L"Extra 2: Green Stuff", 0x3fab8a0, 0x3fab8c0, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab8c0, 0x3fab8e0 },
     { L"Extra 4", 0x3fab8e0, 0x3fab900 },
     { L"Extra 5: Defeated Akuma", 0x3fab900, 0x3fab920, indexCVS2Sprites_Akuma, 0x00 },

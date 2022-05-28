@@ -788,7 +788,6 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
                         }
 
                         rgSrcImg[nImageIndex]->pImgData[nImgIndex] = nNewColor;
-
                     }
                 }
             }

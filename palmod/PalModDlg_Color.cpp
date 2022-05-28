@@ -1050,11 +1050,11 @@ void CPalModDlg::PerformBlink()
     //1 = off
     //0 = n/a
     BOOL fRedraw = FALSE;
-    BOOL fSetTimer = FALSE;
+    bool fSetTimer = false;
 
     UINT8* rgSel = CurrPalCtrl->GetSelIndex();
     int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-    BOOL fSelectAll = !CurrPalCtrl->GetSelAmt();
+    bool fSelectAll = (CurrPalCtrl->GetSelAmt() == 0);
     int nOffs = MainPalGroup->GetSep(
                                       MainPalGroup->GetRedir()[m_nCurrSelPal].nDefIndex,
                                       MainPalGroup->GetRedir()[m_nCurrSelPal].nSepIndex
@@ -1068,12 +1068,21 @@ void CPalModDlg::PerformBlink()
         {
             COLORREF* pPalette =
                 MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[m_nCurrSelPal].nDefIndex)->pPal;
+            const BOOL fIsUsingInvertingBlink = ImgDispCtrl->GetBlinkInverts();
 
             for (int iPaletteIndex = 0; iPaletteIndex < nWorkingAmt; iPaletteIndex++)
             {
                 if (rgSel[iPaletteIndex] || fSelectAll)
                 {
-                    m_pTempPalCopy[iPaletteIndex + nOffs] = m_crBlinkCol;
+                    if (fIsUsingInvertingBlink)
+                    {
+                        const COLORREF crBlinkColor = 0xFF000000 | (~pPalette[iPaletteIndex + nOffs]);
+                        m_pTempPalCopy[iPaletteIndex + nOffs] = crBlinkColor;
+                    }
+                    else
+                    {
+                        m_pTempPalCopy[iPaletteIndex + nOffs] = m_crBlinkCol;
+                    }
                 }
                 else
                 {
@@ -1081,7 +1090,7 @@ void CPalModDlg::PerformBlink()
                 }
             }
 
-            fSetTimer = TRUE;
+            fSetTimer = true;
             fRedraw = TRUE;
             m_nBlinkState = 1;
             break;
@@ -1109,8 +1118,10 @@ void CPalModDlg::PerformBlink()
 
         ImgDispCtrl->UpdateCtrl(fRedraw, (((m_nBlinkState == 1) ? (m_nPalImgIndex | 0xFF00) : FALSE)));
 
-
-        fSetTimer ? SetTimer(TIMER_BLINK, TIMER_BLINK_ELAPSE, NULL) : NULL;
+        if (fSetTimer)
+        {
+            SetTimer(TIMER_BLINK, TIMER_BLINK_ELAPSE, nullptr);
+        }
     }
     else
     {
