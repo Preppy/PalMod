@@ -441,7 +441,7 @@ void CRegProc::LoadReg(eRegistryStoreID src)
             if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, (BYTE*)&fClickToFind, &GetSz) != ERROR_SUCCESS)
                 fClickToFind = TRUE;
 
-            int nTranslation = 0;
+            int nTranslation = 1;
             if (RegQueryValueEx(hKey, L"PreviewZoom", 0, &RegType, (BYTE*)&nTranslation, &GetSz) == ERROR_SUCCESS)
             {
                 dPreviewZoom = (double)nTranslation;
@@ -566,8 +566,8 @@ void CRegProc::SaveReg(eRegistryStoreID src)
             RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, (BYTE*)&fTileBG, sizeof(BOOL));
             RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, (BYTE*)&nBGXOffs, sizeof(int));
             RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, (BYTE*)&nBGYOffs, sizeof(int));
-            RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, (BYTE*)&fUseBGCol, sizeof(int));
-            RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, (BYTE*)&fClickToFind, sizeof(int));
+            RegSetValueEx(hKey, L"UseBGCol", 0, REG_DWORD, (BYTE*)&fUseBGCol, sizeof(BOOL));
+            RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, (BYTE*)&fClickToFind, sizeof(BOOL));
 
             int nTranslation = (int)dPreviewZoom;
             RegSetValueEx(hKey, L"PreviewZoom", 0, REG_DWORD, (BYTE*)&nTranslation, sizeof(int));

@@ -277,6 +277,12 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                         if (NodeGet->uPalId < (nSrcStart + nNextChunk))
                         {
+                            // Make an allowance for the paired portraits that are using one shared asset
+                            if (nNextChunk != nSrcAmt)
+                            {
+                                nSrcAmt = 1;
+                                pButtonLabelSet = DEF_NOBUTTONS;
+                            }
                             break;
                         }
 

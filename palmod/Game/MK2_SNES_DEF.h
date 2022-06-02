@@ -176,7 +176,7 @@ const sGame_PaletteDataset MK2_SNES_SCORPION_P2_PALETTES[] =
 const sGame_PaletteDataset MK2_SNES_SCORPION_EFFECTS_PALETTES[] =
 {
     { L"Scorpion Spear", 0x2F90B3, 0x2F90D3 },
-    { L"Scorpion Skull", 0x2F9073, 0x2F9093 },
+    { L"Scorpion Skull", 0x2F9073, 0x2F9093, indexMK2Sprites_Scorpion, 0x01 },
 };
 
 const sGame_PaletteDataset MK2_SNES_RAIDEN_P1_PALETTES[] =
@@ -191,7 +191,7 @@ const sGame_PaletteDataset MK2_SNES_RAIDEN_P2_PALETTES[] =
 
 const sGame_PaletteDataset MK2_SNES_RAIDEN_EFFECT_PALETTES[] =
 {
-    { L"Raiden Lighting Bolt", 0x2F90F3, 0x2F9113 },
+    { L"Raiden Lighting Bolt", 0x2F90F3, 0x2F9113, indexMK2Sprites_Raiden, 0x01 },
     { L"Raiden Teleport", 0x2F9113, 0x2F9133 },
 };
 

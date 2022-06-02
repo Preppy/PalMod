@@ -1644,9 +1644,201 @@ const sGame_PaletteDataset KOF96_A_BONUS_EFFECTS_PALETTES[] =
     { L"Unknown Effect Palette", 0x117602, 0x117802 },
 };
 
+const sGame_PaletteDataset KOF96_A_BONUS_HUD_PALETTES[] =
+{
+    { L"Life Bar", 0x100082, 0x1000c2 },
+    { L"Power Bar", 0x1000c2, 0x100102 },
+    { L"Timer", 0x100102, 0x100142 },
+    { L"Insert Coin and In-Game Text", 0x100022, 0x100042 },
+    { L"Player 1 and 2 Text", 0x100042, 0x100082 },
+    { L"Text, Defeat Boxes and Black FX", 0x100002, 0x100022 },
+};
+
+const sGame_PaletteDataset KOF96_A_BONUS_INTRO_PALETTES[] =
+{
+    { L"Intro \"SNK Presents\"", 0x1150a2, 0x1150c2 },
+    { L"Intro \"96\" Glow", 0x114e82, 0x114fe2 },
+    { L"Intro \"96\"", 0x114c22, 0x114c42 },
+    { L"Intro Black Effects", 0x1150c2, 0x1150e2 },
+    { L"Intro Terry, Andy and Joe (1/4)", 0x114642, 0x1146c2 },
+    { L"Intro Terry, Andy and Joe (2/4)", 0x1149a2, 0x1149c2 },
+    { L"Intro Terry, Andy and Joe (3/4)", 0x114a02, 0x114a22 },
+    { L"Intro Terry, Andy and Joe (4/4)", 0x114b02, 0x114c02 },
+    { L"Intro Garou Team Background", 0x114c42, 0x114c62 },
+    { L"Intro Mr.Big", 0x1146c2, 0x1146e2 },
+    { L"Intro Krauser", 0x1146e2, 0x114722 },
+    { L"Intro Geese", 0x114722, 0x114782 },
+    { L"Intro Woman Team Background", 0x114c62, 0x114c82 },
+    { L"Intro Leona", 0x114782, 0x1147e2 },
+    { L"Intro Clark", 0x1147e2, 0x114882 },
+    { L"Intro Ralf", 0x114882, 0x114942 },
+    { L"Intro Ikari Team Background", 0x114c82, 0x114ca2 },
+    { L"Intro Kim Team Background", 0x114ca2, 0x114cc2 },
+    { L"Intro Iori Moon Background", 0x114cc2, 0x114ce2 },
+    { L"Intro Vice and Mature Background", 0x114ce2, 0x114d02 },
+    { L"Intro Iori 1", 0x114942, 0x1149a2 },
+    { L"Intro Psycho Soldier Team Background", 0x114d02, 0x114d22 },
+    { L"Intro Goro", 0x1149c2, 0x1149e2 },
+    { L"Intro Benimaru", 0x1149e2, 0x114a02 },
+    { L"Intro Kyo 1", 0x114a22, 0x114a82 },
+    { L"Intro Kyo 2", 0x114a82, 0x114ae2 },
+    { L"Intro Iori 2", 0x114ae2, 0x114b02 },
+    { L"Intro Kusanagi Sun Symbol", 0x114d22, 0x114d42 },
+    { L"Intro \"K O F\" and Moon Symbols", 0x114c02, 0x114c22 },
+    { L"Intro \"F\" Glow", 0x114d42, 0x114e42 },
+    { L"Intro Kyo and Iori", 0x114602, 0x114642 },
+    { L"Intro Kyo and Iori Fire", 0x114e42, 0x114e82 },
+    { L"Title \"The King of Fighters 96\"", 0x115062, 0x1150a2 },
+    { L"Title \"The King of Fighters 96\"", 0x1150e2, 0x115142 },
+    { L"Title Fire", 0x115042, 0x115062 },
+};
+
+const sGame_PaletteDataset KOF96_A_BONUS_BONUS_PALETTES[] =
+{
+    { L"Orange Text", 0x100142, 0x100162 },
+    { L"Member and Order Select Text", 0x1001a2, 0x1001c2 },
+    { L"Winner Dialog Box and Intro Tex", 0x1001e2, 0x100202 },
+    { L"Character Select P1 and P2 Card", 0x114542, 0x114582 },
+    { L"Character Select Cards (Back)", 0x1144e2, 0x114502 },
+    { L"Character Select Boxes ", 0x1145c2, 0x1145e2 },
+    { L"Character Select Boxes (Defeate", 0x1145a2, 0x1145c2 },
+    { L"Character Select Background", 0x1145e2, 0x114602 },
+    { L"Order Select \"KOF\"", 0x1144c2, 0x1144e2 },
+    { L"Order Select Background", 0x114582, 0x1145a2 },
+    { L"Order Select First and Second A", 0x114502, 0x114542 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_JAPAN[] =
+{
+    { L"Japan Team Stage (1/6)", 0x101202, 0x101402 },
+    { L"Japan Team Stage (2/6)", 0x101402, 0x101602 },
+    { L"Japan Team Stage (3/6)", 0x101602, 0x101802 },
+    { L"Japan Team Stage (4/6)", 0x101802, 0x101a02 },
+    { L"Japan Team Stage (5/6)", 0x101a02, 0x101c02 },
+    { L"Japan Team Stage (6/6)", 0x101c02, 0x101e02 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_FATALFURY[] =
+{
+    { L"Fatal Fury Team Stage (1/4)", 0x10ce02, 0x10d002 },
+    { L"Fatal Fury Team Stage (2/4)", 0x10d002, 0x10d202 },
+    { L"Fatal Fury Team Stage (3/4)", 0x10d202, 0x10d402 },
+    { L"Fatal Fury Team Stage (4/4)", 0x10d402, 0x10d602 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_AOF[] =
+{
+    { L"Art of Fighting Team Stage (1/4)", 0x10d602, 0x10d802 },
+    { L"Art of Fighting Team Stage (2/4)", 0x10d802, 0x10da02 },
+    { L"Art of Fighting Team Stage (3/4)", 0x10da02, 0x10dc02 },
+    { L"Art of Fighting Team Stage (4/4)", 0x10dc02, 0x10de02 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_IKARI[] =
+{
+    { L"New Ikari Team Stage (1/10)", 0x10de02, 0x10e002 },
+    { L"New Ikari Team Stage (2/10)", 0x10e002, 0x10e202 },
+    { L"New Ikari Team Stage (3/10)", 0x10e202, 0x10e402 },
+    { L"New Ikari Team Stage (4/10)", 0x10e402, 0x10e602 },
+    { L"New Ikari Team Stage (5/10)", 0x10e602, 0x10e802 },
+    { L"New Ikari Team Stage (6/10)", 0x10e802, 0x10ea02 },
+    { L"New Ikari Team Stage (7/10)", 0x10ea02, 0x10ec02 },
+    { L"New Ikari Team Stage (8/10)", 0x10ec02, 0x10ee02 },
+    { L"New Ikari Team Stage (9/10)", 0x10ee02, 0x10f002 },
+    { L"New Ikari Team Stage (10/10)", 0x10f002, 0x10f202 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_GOENITZ[] =
+{
+    { L"Goenitz? Stage (1/6)", 0x10f202, 0x10f402 },
+    { L"Goenitz? Stage (2/6)", 0x10f402, 0x10f602 },
+    { L"Goenitz? Stage (3/6)", 0x10f602, 0x10f802 },
+    { L"Goenitz? Stage (4/6)", 0x10f802, 0x10fa02 },
+    { L"Goenitz? Stage (5/6)", 0x10fa02, 0x10fc02 },
+    { L"Goenitz? Stage (6/6)", 0x10fc02, 0x10fe02 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_WOMEN[] =
+{
+    { L"Women Fighters Team Stage (1/6)", 0x10fe02, 0x110002 },
+    { L"Women Fighters Team Stage (2/6)", 0x110002, 0x110202 },
+    { L"Women Fighters Team Stage (3/6)", 0x110202, 0x110402 },
+    { L"Women Fighters Team Stage (4/6)", 0x110402, 0x110602 },
+    { L"Women Fighters Team Stage (5/6)", 0x110602, 0x110802 },
+    { L"Women Fighters Team Stage (6/6)", 0x110802, 0x110a02 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_KOREA[] =
+{
+    { L"Korea Justice Team Stage (1/6)", 0x110a02, 0x110c02 },
+    { L"Korea Justice Team Stage (2/6)", 0x110c02, 0x110e02 },
+    { L"Korea Justice Team Stage (3/6)", 0x110e02, 0x111002 },
+    { L"Korea Justice Team Stage (4/6)", 0x111002, 0x111202 },
+    { L"Korea Justice Team Stage (5/6)", 0x111202, 0x111402 },
+    { L"Korea Justice Team Stage (6/6)", 0x111402, 0x111602 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_YAGAMI[] =
+{
+    { L"Yagami Team Stage (1/5)", 0x111602, 0x111802 },
+    { L"Yagami Team Stage (2/5)", 0x111802, 0x111a02 },
+    { L"Yagami Team Stage (3/5)", 0x111a02, 0x111c02 },
+    { L"Yagami Team Stage (4/5)", 0x111c02, 0x111e02 },
+    { L"Yagami Team Stage (5/5)", 0x111e02, 0x112002 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_BOSS[] =
+{
+    { L"Boss Team Stage (1/7)", 0x112002, 0x112202 },
+    { L"Boss Team Stage (2/7)", 0x112202, 0x112402 },
+    { L"Boss Team Stage (3/7)", 0x112402, 0x112602 },
+    { L"Boss Team Stage (4/7)", 0x112602, 0x112802 },
+    { L"Boss Team Stage (5/7)", 0x112802, 0x112a02 },
+    { L"Boss Team Stage (6/7)", 0x112a02, 0x112c02 },
+    { L"Boss Team Stage (7/7)", 0x112c02, 0x112e02 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_CHIZURU[] =
+{
+    { L"Chizuru Stage (1/6)", 0x112e02, 0x113002 },
+    { L"Chizuru Stage (2/6)", 0x113002, 0x113202 },
+    { L"Chizuru Stage (3/6)", 0x113202, 0x113402 },
+    { L"Chizuru Stage (4/6)", 0x113402, 0x113602 },
+    { L"Chizuru Stage (5/6)", 0x113602, 0x113802 },
+    { L"Chizuru Stage (6/6)", 0x113802, 0x113a02 },
+};
+
+const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_PSYCHO[] =
+{
+    { L"Psycho Soldier Team (1/6)", 0x117a00, 0x117c00 },
+    { L"Psycho Soldier Team (2/6)", 0x117c00, 0x117e00 },
+    { L"Psycho Soldier Team (3/6)", 0x117e00, 0x118000 },
+    { L"Psycho Soldier Team (4/6)", 0x118000, 0x118200 },
+    { L"Psycho Soldier Team (5/6)", 0x118200, 0x118400 },
+    { L"Psycho Soldier Team (6/6)", 0x118400, 0x118600 },
+};
+
 const sDescTreeNode KOF96_A_BONUS_COLLECTION[] =
 {
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF96_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF96_A_BONUS_EFFECTS_PALETTES) },
+    { L"HUD", DESC_NODETYPE_TREE, (void*)KOF96_A_BONUS_HUD_PALETTES, ARRAYSIZE(KOF96_A_BONUS_HUD_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)KOF96_A_BONUS_INTRO_PALETTES, ARRAYSIZE(KOF96_A_BONUS_INTRO_PALETTES) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF96_A_BONUS_BONUS_PALETTES, ARRAYSIZE(KOF96_A_BONUS_BONUS_PALETTES) },
+};
+
+const sDescTreeNode KOF96_A_STAGE_COLLECTION[] =
+{
+    { L"Japan Team", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_JAPAN, ARRAYSIZE(KOF96_A_STAGE_PALETTES_JAPAN) },
+    { L"Fatal Fury Team", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_FATALFURY, ARRAYSIZE(KOF96_A_STAGE_PALETTES_FATALFURY) },
+    { L"Art of Fighting Team", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_AOF, ARRAYSIZE(KOF96_A_STAGE_PALETTES_AOF) },
+    { L"New Ikari Team", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_IKARI, ARRAYSIZE(KOF96_A_STAGE_PALETTES_IKARI) },
+    { L"Goenitz?", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_GOENITZ, ARRAYSIZE(KOF96_A_STAGE_PALETTES_GOENITZ) },
+    { L"Women Fighters Team", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_WOMEN, ARRAYSIZE(KOF96_A_STAGE_PALETTES_WOMEN) },
+    { L"Korea Justice Team", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_KOREA, ARRAYSIZE(KOF96_A_STAGE_PALETTES_KOREA) },
+    { L"Yagami Team", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_YAGAMI, ARRAYSIZE(KOF96_A_STAGE_PALETTES_YAGAMI) },
+    { L"Boss Team", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_BOSS, ARRAYSIZE(KOF96_A_STAGE_PALETTES_BOSS) },
+    { L"Chizuru Stage", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_CHIZURU, ARRAYSIZE(KOF96_A_STAGE_PALETTES_CHIZURU) },
+    { L"Psycho Soldier Team", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_PALETTES_PSYCHO, ARRAYSIZE(KOF96_A_STAGE_PALETTES_PSYCHO) },
 };
 
 const sDescTreeNode KOF96_A_UNITS[] =
@@ -1680,6 +1872,7 @@ const sDescTreeNode KOF96_A_UNITS[] =
     { L"Mr. Big", DESC_NODETYPE_TREE, (void*)KOF96_A_MRBIG_COLLECTION, ARRAYSIZE(KOF96_A_MRBIG_COLLECTION) },
     { L"Chizuru", DESC_NODETYPE_TREE, (void*)KOF96_A_CHIZURU_COLLECTION, ARRAYSIZE(KOF96_A_CHIZURU_COLLECTION) },
     { L"Goenitz", DESC_NODETYPE_TREE, (void*)KOF96_A_GOENITZ_COLLECTION, ARRAYSIZE(KOF96_A_GOENITZ_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_COLLECTION, ARRAYSIZE(KOF96_A_STAGE_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF96_A_BONUS_COLLECTION, ARRAYSIZE(KOF96_A_BONUS_COLLECTION) },
 };
 

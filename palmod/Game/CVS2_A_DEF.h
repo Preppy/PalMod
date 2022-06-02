@@ -326,8 +326,8 @@ const sDescTreeNode CVS2_A_KEN_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x166f140, 0x166f160, indexCVS2Sprites_ChunLi, 0x00, &pairNext },
-    { L"Extra 1", 0x166f160, 0x166f180, indexCVS2Sprites_ChunLi, 0x01 },
-    { L"Extra 2", 0x166f180, 0x166f1a0 },
+    { L"Extra 1: Cheek Blush", 0x166f160, 0x166f180, indexCVS2Sprites_ChunLi, 0x01 },
+    { L"Extra 2: Kikouken / Kikoushou", 0x166f180, 0x166f1a0, indexCVS2Sprites_ChunLi, 0x02 },
     { L"Extra 3: Hon Fu", 0x166f1a0, 0x166f1c0, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Extra 4", 0x166f1c0, 0x166f1e0 },
     { L"Extra 5", 0x166f1e0, 0x166f200 },
@@ -336,8 +336,8 @@ const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_LP[] =
 const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x166f200, 0x166f220, indexCVS2Sprites_ChunLi, 0x00, &pairNext },
-    { L"Extra 1", 0x166f220, 0x166f240, indexCVS2Sprites_ChunLi, 0x01 },
-    { L"Extra 2", 0x166f240, 0x166f260 },
+    { L"Extra 1: Cheek Blush", 0x166f220, 0x166f240, indexCVS2Sprites_ChunLi, 0x01 },
+    { L"Extra 2: Kikouken / Kikoushou", 0x166f240, 0x166f260, indexCVS2Sprites_ChunLi, 0x02 },
     { L"Extra 3: Hon Fu", 0x166f260, 0x166f280, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Extra 4", 0x166f280, 0x166f2a0 },
     { L"Extra 5", 0x166f2a0, 0x166f2c0 },
@@ -346,8 +346,8 @@ const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_MP[] =
 const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x166f2c0, 0x166f2e0, indexCVS2Sprites_ChunLi, 0x00, &pairNext },
-    { L"Extra 1", 0x166f2e0, 0x166f300, indexCVS2Sprites_ChunLi, 0x01 },
-    { L"Extra 2", 0x166f300, 0x166f320 },
+    { L"Extra 1: Cheek Blush", 0x166f2e0, 0x166f300, indexCVS2Sprites_ChunLi, 0x01 },
+    { L"Extra 2: Kikouken / Kikoushou", 0x166f300, 0x166f320, indexCVS2Sprites_ChunLi, 0x02 },
     { L"Extra 3: Hon Fu", 0x166f320, 0x166f340, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Extra 4", 0x166f340, 0x166f360 },
     { L"Extra 5", 0x166f360, 0x166f380 },
@@ -356,8 +356,8 @@ const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_HP[] =
 const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x166f380, 0x166f3a0, indexCVS2Sprites_ChunLi, 0x00, &pairNext },
-    { L"Extra 1", 0x166f3a0, 0x166f3c0, indexCVS2Sprites_ChunLi, 0x01 },
-    { L"Extra 2", 0x166f3c0, 0x166f3e0 },
+    { L"Extra 1: Cheek Blush", 0x166f3a0, 0x166f3c0, indexCVS2Sprites_ChunLi, 0x01 },
+    { L"Extra 2: Kikouken / Kikoushou", 0x166f3c0, 0x166f3e0, indexCVS2Sprites_ChunLi, 0x02 },
     { L"Extra 3: Hon Fu", 0x166f3e0, 0x166f400, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Extra 4", 0x166f400, 0x166f420 },
     { L"Extra 5", 0x166f420, 0x166f440 },
@@ -366,8 +366,8 @@ const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_LK[] =
 const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x166f440, 0x166f460, indexCVS2Sprites_ChunLi, 0x00, &pairNext },
-    { L"Extra 1", 0x166f460, 0x166f480, indexCVS2Sprites_ChunLi, 0x01 },
-    { L"Extra 2", 0x166f480, 0x166f4a0 },
+    { L"Extra 1: Cheek Blush", 0x166f460, 0x166f480, indexCVS2Sprites_ChunLi, 0x01 },
+    { L"Extra 2: Kikouken / Kikoushou", 0x166f480, 0x166f4a0, indexCVS2Sprites_ChunLi, 0x02 },
     { L"Extra 3: Hon Fu", 0x166f4a0, 0x166f4c0, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Extra 4", 0x166f4c0, 0x166f4e0 },
     { L"Extra 5", 0x166f4e0, 0x166f500 },
@@ -376,8 +376,8 @@ const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_MK[] =
 const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x166f500, 0x166f520, indexCVS2Sprites_ChunLi, 0x00, &pairNext },
-    { L"Extra 1", 0x166f520, 0x166f540, indexCVS2Sprites_ChunLi, 0x01 },
-    { L"Extra 2", 0x166f540, 0x166f560 },
+    { L"Extra 1: Cheek Blush", 0x166f520, 0x166f540, indexCVS2Sprites_ChunLi, 0x01 },
+    { L"Extra 2: Kikouken / Kikoushou", 0x166f540, 0x166f560, indexCVS2Sprites_ChunLi, 0x02 },
     { L"Extra 3: Hon Fu", 0x166f560, 0x166f580, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Extra 4", 0x166f580, 0x166f5a0 },
     { L"Extra 5", 0x166f5a0, 0x166f5c0 },
@@ -386,8 +386,8 @@ const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_HK[] =
 const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x166f5c0, 0x166f5e0, indexCVS2Sprites_ChunLi, 0x00, &pairNext },
-    { L"Extra 1", 0x166f5e0, 0x166f600, indexCVS2Sprites_ChunLi, 0x01 },
-    { L"Extra 2", 0x166f600, 0x166f620 },
+    { L"Extra 1: Cheek Blush", 0x166f5e0, 0x166f600, indexCVS2Sprites_ChunLi, 0x01 },
+    { L"Extra 2: Kikouken / Kikoushou", 0x166f600, 0x166f620, indexCVS2Sprites_ChunLi, 0x02 },
     { L"Extra 3: Hon Fu", 0x166f620, 0x166f640, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Extra 4", 0x166f640, 0x166f660 },
     { L"Extra 5", 0x166f660, 0x166f680 },
@@ -396,8 +396,8 @@ const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_3P[] =
 const sGame_PaletteDataset CVS2_A_CHUNLI_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x166f680, 0x166f6a0, indexCVS2Sprites_ChunLi, 0x00, &pairNext },
-    { L"Extra 1", 0x166f6a0, 0x166f6c0, indexCVS2Sprites_ChunLi, 0x01 },
-    { L"Extra 2", 0x166f6c0, 0x166f6e0 },
+    { L"Extra 1: Cheek Blush", 0x166f6a0, 0x166f6c0, indexCVS2Sprites_ChunLi, 0x01 },
+    { L"Extra 2: Kikouken / Kikoushou", 0x166f6c0, 0x166f6e0, indexCVS2Sprites_ChunLi, 0x02 },
     { L"Extra 3: Hon Fu", 0x166f6e0, 0x166f700, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Extra 4", 0x166f700, 0x166f720 },
     { L"Extra 5", 0x166f720, 0x166f740 },
@@ -1798,7 +1798,7 @@ const sDescTreeNode CVS2_A_IORI_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x257a360, 0x257a380, indexCVS2Sprites_Terry },
-    { L"Extra 1", 0x257a380, 0x257a3a0 },
+    { L"Extra 1: Buster Wolf", 0x257a380, 0x257a3a0, indexCVS2Sprites_Terry, 0x01 },
     { L"Extra 2: Crack Shoot", 0x257a3a0, 0x257a3c0, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3: Power Wave", 0x257a3c0, 0x257a3e0, indexCVS2Sprites_Terry, 0x03 },
     { L"Extra 4: Burning Knuckle", 0x257a3e0, 0x257a400, indexCVS2Sprites_Terry, 0x04 },
@@ -1808,7 +1808,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_LP[] =
 const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x257a420, 0x257a440, indexCVS2Sprites_Terry },
-    { L"Extra 1", 0x257a440, 0x257a460 },
+    { L"Extra 1: Buster Wolf", 0x257a440, 0x257a460, indexCVS2Sprites_Terry, 0x01 },
     { L"Extra 2: Crack Shoot", 0x257a460, 0x257a480, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3: Power Wave", 0x257a480, 0x257a4a0, indexCVS2Sprites_Terry, 0x03 },
     { L"Extra 4: Burning Knuckle", 0x257a4a0, 0x257a4c0, indexCVS2Sprites_Terry, 0x04 },
@@ -1818,7 +1818,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_MP[] =
 const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x257a4e0, 0x257a500, indexCVS2Sprites_Terry },
-    { L"Extra 1", 0x257a500, 0x257a520 },
+    { L"Extra 1: Buster Wolf", 0x257a500, 0x257a520, indexCVS2Sprites_Terry, 0x01 },
     { L"Extra 2: Crack Shoot", 0x257a520, 0x257a540, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3: Power Wave", 0x257a540, 0x257a560, indexCVS2Sprites_Terry, 0x03 },
     { L"Extra 4: Burning Knuckle", 0x257a560, 0x257a580, indexCVS2Sprites_Terry, 0x04 },
@@ -1828,7 +1828,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_HP[] =
 const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x257a5a0, 0x257a5c0, indexCVS2Sprites_Terry },
-    { L"Extra 1", 0x257a5c0, 0x257a5e0 },
+    { L"Extra 1: Buster Wolf", 0x257a5c0, 0x257a5e0, indexCVS2Sprites_Terry, 0x01 },
     { L"Extra 2: Crack Shoot", 0x257a5e0, 0x257a600, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3: Power Wave", 0x257a600, 0x257a620, indexCVS2Sprites_Terry, 0x03 },
     { L"Extra 4: Burning Knuckle", 0x257a620, 0x257a640, indexCVS2Sprites_Terry, 0x04 },
@@ -1838,7 +1838,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_LK[] =
 const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x257a660, 0x257a680, indexCVS2Sprites_Terry },
-    { L"Extra 1", 0x257a680, 0x257a6a0 },
+    { L"Extra 1: Buster Wolf", 0x257a680, 0x257a6a0, indexCVS2Sprites_Terry, 0x01 },
     { L"Extra 2: Crack Shoot", 0x257a6a0, 0x257a6c0, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3: Power Wave", 0x257a6c0, 0x257a6e0, indexCVS2Sprites_Terry, 0x03 },
     { L"Extra 4: Burning Knuckle", 0x257a6e0, 0x257a700, indexCVS2Sprites_Terry, 0x04 },
@@ -1848,7 +1848,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_MK[] =
 const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x257a720, 0x257a740, indexCVS2Sprites_Terry },
-    { L"Extra 1", 0x257a740, 0x257a760 },
+    { L"Extra 1: Buster Wolf", 0x257a740, 0x257a760, indexCVS2Sprites_Terry, 0x01 },
     { L"Extra 2: Crack Shoot", 0x257a760, 0x257a780, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3: Power Wave", 0x257a780, 0x257a7a0, indexCVS2Sprites_Terry, 0x03 },
     { L"Extra 4: Burning Knuckle", 0x257a7a0, 0x257a7c0, indexCVS2Sprites_Terry, 0x04 },
@@ -1858,7 +1858,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_HK[] =
 const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x257a7e0, 0x257a800, indexCVS2Sprites_Terry },
-    { L"Extra 1", 0x257a800, 0x257a820 },
+    { L"Extra 1: Buster Wolf", 0x257a800, 0x257a820, indexCVS2Sprites_Terry, 0x01 },
     { L"Extra 2: Crack Shoot", 0x257a820, 0x257a840, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3: Power Wave", 0x257a840, 0x257a860, indexCVS2Sprites_Terry, 0x03 },
     { L"Extra 4: Burning Knuckle", 0x257a860, 0x257a880, indexCVS2Sprites_Terry, 0x04 },
@@ -1868,7 +1868,7 @@ const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_3P[] =
 const sGame_PaletteDataset CVS2_A_TERRY_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x257a8a0, 0x257a8c0, indexCVS2Sprites_Terry },
-    { L"Extra 1", 0x257a8c0, 0x257a8e0 },
+    { L"Extra 1: Buster Wolf", 0x257a8c0, 0x257a8e0, indexCVS2Sprites_Terry, 0x01 },
     { L"Extra 2: Crack Shoot", 0x257a8e0, 0x257a900, indexCVS2Sprites_Terry, 0x02 },
     { L"Extra 3: Power Wave", 0x257a900, 0x257a920, indexCVS2Sprites_Terry, 0x03 },
     { L"Extra 4: Burning Knuckle", 0x257a920, 0x257a940, indexCVS2Sprites_Terry, 0x04 },
@@ -2442,7 +2442,7 @@ const sDescTreeNode CVS2_A_RAIDEN_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x2c28660, 0x2c28680, indexCVS2Sprites_Rugal },
-    { L"Extra 1", 0x2c28680, 0x2c286a0 },
+    { L"Extra 1: Kaiser Wave", 0x2c28680, 0x2c286a0, indexCVS2Sprites_Rugal, 0x01 },
     { L"Extra 2: Green Stuff", 0x2c286a0, 0x2c286c0, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3: Statue", 0x2c286c0, 0x2c286e0, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c286e0, 0x2c28700 },
@@ -2452,7 +2452,7 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_LP[] =
 const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x2c28720, 0x2c28740, indexCVS2Sprites_Rugal },
-    { L"Extra 1", 0x2c28740, 0x2c28760 },
+    { L"Extra 1: Kaiser Wave", 0x2c28740, 0x2c28760, indexCVS2Sprites_Rugal, 0x01 },
     { L"Extra 2: Green Stuff", 0x2c28760, 0x2c28780, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3: Statue", 0x2c28780, 0x2c287a0, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c287a0, 0x2c287c0 },
@@ -2462,7 +2462,7 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_MP[] =
 const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x2c287e0, 0x2c28800, indexCVS2Sprites_Rugal },
-    { L"Extra 1", 0x2c28800, 0x2c28820 },
+    { L"Extra 1: Kaiser Wave", 0x2c28800, 0x2c28820, indexCVS2Sprites_Rugal, 0x01 },
     { L"Extra 2: Green Stuff", 0x2c28820, 0x2c28840, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3: Statue", 0x2c28840, 0x2c28860, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c28860, 0x2c28880 },
@@ -2472,7 +2472,7 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_HP[] =
 const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x2c288a0, 0x2c288c0, indexCVS2Sprites_Rugal },
-    { L"Extra 1", 0x2c288c0, 0x2c288e0 },
+    { L"Extra 1: Kaiser Wave", 0x2c288c0, 0x2c288e0, indexCVS2Sprites_Rugal, 0x01 },
     { L"Extra 2: Green Stuff", 0x2c288e0, 0x2c28900, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3: Statue", 0x2c28900, 0x2c28920, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c28920, 0x2c28940 },
@@ -2482,7 +2482,7 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_LK[] =
 const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x2c28960, 0x2c28980, indexCVS2Sprites_Rugal },
-    { L"Extra 1", 0x2c28980, 0x2c289a0 },
+    { L"Extra 1: Kaiser Wave", 0x2c28980, 0x2c289a0, indexCVS2Sprites_Rugal, 0x01 },
     { L"Extra 2: Green Stuff", 0x2c289a0, 0x2c289c0, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3: Statue", 0x2c289c0, 0x2c289e0, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c289e0, 0x2c28a00 },
@@ -2492,7 +2492,7 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_MK[] =
 const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x2c28a20, 0x2c28a40, indexCVS2Sprites_Rugal },
-    { L"Extra 1", 0x2c28a40, 0x2c28a60 },
+    { L"Extra 1: Kaiser Wave", 0x2c28a40, 0x2c28a60, indexCVS2Sprites_Rugal, 0x01 },
     { L"Extra 2: Green Stuff", 0x2c28a60, 0x2c28a80, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3: Statue", 0x2c28a80, 0x2c28aa0, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c28aa0, 0x2c28ac0 },
@@ -2502,7 +2502,7 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_HK[] =
 const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x2c28ae0, 0x2c28b00, indexCVS2Sprites_Rugal },
-    { L"Extra 1", 0x2c28b00, 0x2c28b20 },
+    { L"Extra 1: Kaiser Wave", 0x2c28b00, 0x2c28b20, indexCVS2Sprites_Rugal, 0x01 },
     { L"Extra 2: Green Stuff", 0x2c28b20, 0x2c28b40, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3: Statue", 0x2c28b40, 0x2c28b60, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c28b60, 0x2c28b80 },
@@ -2512,7 +2512,7 @@ const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_3P[] =
 const sGame_PaletteDataset CVS2_A_RUGAL_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x2c28ba0, 0x2c28bc0, indexCVS2Sprites_Rugal },
-    { L"Extra 1", 0x2c28bc0, 0x2c28be0 },
+    { L"Extra 1: Kaiser Wave", 0x2c28bc0, 0x2c28be0, indexCVS2Sprites_Rugal, 0x01 },
     { L"Extra 2: Green Stuff", 0x2c28be0, 0x2c28c00, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3: Statue: Statue", 0x2c28c00, 0x2c28c20, indexCVS2Sprites_Rugal, 0x09 },
     { L"Extra 4", 0x2c28c20, 0x2c28c40 },
@@ -4374,7 +4374,7 @@ const sDescTreeNode CVS2_A_SHINAKUMA_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x3fab320, 0x3fab340, indexCVS2Sprites_GodRugal },
-    { L"Extra 1", 0x3fab340, 0x3fab360 },
+    { L"Extra 1: Kaiser Wave", 0x3fab340, 0x3fab360, indexCVS2Sprites_Rugal, 0x01 }, },
     { L"Extra 2: Green Stuff", 0x3fab360, 0x3fab380, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab380, 0x3fab3a0 },
     { L"Extra 4", 0x3fab3a0, 0x3fab3c0 },
@@ -4384,7 +4384,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_LP[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x3fab3e0, 0x3fab400, indexCVS2Sprites_GodRugal },
-    { L"Extra 1", 0x3fab400, 0x3fab420 },
+    { L"Extra 1: Kaiser Wave", 0x3fab400, 0x3fab420, indexCVS2Sprites_Rugal, 0x01 }, },
     { L"Extra 2: Green Stuff", 0x3fab420, 0x3fab440, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab440, 0x3fab460 },
     { L"Extra 4", 0x3fab460, 0x3fab480 },
@@ -4394,7 +4394,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_MP[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x3fab4a0, 0x3fab4c0, indexCVS2Sprites_GodRugal },
-    { L"Extra 1", 0x3fab4c0, 0x3fab4e0 },
+    { L"Extra 1: Kaiser Wave", 0x3fab4c0, 0x3fab4e0, indexCVS2Sprites_Rugal, 0x01 }, },
     { L"Extra 2: Green Stuff", 0x3fab4e0, 0x3fab500, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab500, 0x3fab520 },
     { L"Extra 4", 0x3fab520, 0x3fab540 },
@@ -4404,7 +4404,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_HP[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x3fab560, 0x3fab580, indexCVS2Sprites_GodRugal },
-    { L"Extra 1", 0x3fab580, 0x3fab5a0 },
+    { L"Extra 1: Kaiser Wave", 0x3fab580, 0x3fab5a0, indexCVS2Sprites_Rugal, 0x01 }, },
     { L"Extra 2: Green Stuff", 0x3fab5a0, 0x3fab5c0, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab5c0, 0x3fab5e0 },
     { L"Extra 4", 0x3fab5e0, 0x3fab600 },
@@ -4414,7 +4414,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_LK[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x3fab620, 0x3fab640, indexCVS2Sprites_GodRugal },
-    { L"Extra 1", 0x3fab640, 0x3fab660 },
+    { L"Extra 1: Kaiser Wave", 0x3fab640, 0x3fab660, indexCVS2Sprites_Rugal, 0x01 }, },
     { L"Extra 2: Green Stuff", 0x3fab660, 0x3fab680, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab680, 0x3fab6a0 },
     { L"Extra 4", 0x3fab6a0, 0x3fab6c0 },
@@ -4424,7 +4424,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_MK[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x3fab6e0, 0x3fab700, indexCVS2Sprites_GodRugal },
-    { L"Extra 1", 0x3fab700, 0x3fab720 },
+    { L"Extra 1: Kaiser Wave", 0x3fab700, 0x3fab720, indexCVS2Sprites_Rugal, 0x01 }, },
     { L"Extra 2: Green Stuff", 0x3fab720, 0x3fab740, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab740, 0x3fab760 },
     { L"Extra 4", 0x3fab760, 0x3fab780 },
@@ -4434,7 +4434,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_HK[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x3fab7a0, 0x3fab7c0, indexCVS2Sprites_GodRugal },
-    { L"Extra 1", 0x3fab7c0, 0x3fab7e0 },
+    { L"Extra 1: Kaiser Wave", 0x3fab7c0, 0x3fab7e0, indexCVS2Sprites_Rugal, 0x01 }, },
     { L"Extra 2: Green Stuff", 0x3fab7e0, 0x3fab800, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab800, 0x3fab820 },
     { L"Extra 4", 0x3fab820, 0x3fab840 },
@@ -4444,7 +4444,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_3P[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x3fab860, 0x3fab880, indexCVS2Sprites_GodRugal },
-    { L"Extra 1", 0x3fab880, 0x3fab8a0 },
+    { L"Extra 1: Kaiser Wave", 0x3fab880, 0x3fab8a0, indexCVS2Sprites_Rugal, 0x01 }, },
     { L"Extra 2: Green Stuff", 0x3fab8a0, 0x3fab8c0, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab8c0, 0x3fab8e0 },
     { L"Extra 4", 0x3fab8e0, 0x3fab900 },

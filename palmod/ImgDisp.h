@@ -11,9 +11,9 @@
 //#define SETIMGPOS
 constexpr auto SETIMGINDEX = 1;
 
-#define IMGDISP_CLASSNAME L"CImgDisp"
+constexpr auto IMGDISP_CLASSNAME = L"CImgDisp";
 
-#define DEF_ZOOM 1.0f
+constexpr auto DEF_ZOOM = 1.0f;
 
 struct sImgIndex
 {
