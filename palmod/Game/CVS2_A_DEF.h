@@ -4374,7 +4374,7 @@ const sDescTreeNode CVS2_A_SHINAKUMA_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_LP[] =
 {
     { L"Main Sprite", 0x3fab320, 0x3fab340, indexCVS2Sprites_GodRugal },
-    { L"Extra 1: Kaiser Wave", 0x3fab340, 0x3fab360, indexCVS2Sprites_Rugal, 0x01 }, },
+    { L"Extra 1: Kaiser Wave", 0x3fab340, 0x3fab360, indexCVS2Sprites_Rugal, 0x01 },
     { L"Extra 2: Green Stuff", 0x3fab360, 0x3fab380, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab380, 0x3fab3a0 },
     { L"Extra 4", 0x3fab3a0, 0x3fab3c0 },
@@ -4384,7 +4384,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_LP[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_MP[] =
 {
     { L"Main Sprite", 0x3fab3e0, 0x3fab400, indexCVS2Sprites_GodRugal },
-    { L"Extra 1: Kaiser Wave", 0x3fab400, 0x3fab420, indexCVS2Sprites_Rugal, 0x01 }, },
+    { L"Extra 1: Kaiser Wave", 0x3fab400, 0x3fab420, indexCVS2Sprites_Rugal, 0x01 },
     { L"Extra 2: Green Stuff", 0x3fab420, 0x3fab440, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab440, 0x3fab460 },
     { L"Extra 4", 0x3fab460, 0x3fab480 },
@@ -4394,7 +4394,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_MP[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_HP[] =
 {
     { L"Main Sprite", 0x3fab4a0, 0x3fab4c0, indexCVS2Sprites_GodRugal },
-    { L"Extra 1: Kaiser Wave", 0x3fab4c0, 0x3fab4e0, indexCVS2Sprites_Rugal, 0x01 }, },
+    { L"Extra 1: Kaiser Wave", 0x3fab4c0, 0x3fab4e0, indexCVS2Sprites_Rugal, 0x0 },
     { L"Extra 2: Green Stuff", 0x3fab4e0, 0x3fab500, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab500, 0x3fab520 },
     { L"Extra 4", 0x3fab520, 0x3fab540 },
@@ -4404,7 +4404,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_HP[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_LK[] =
 {
     { L"Main Sprite", 0x3fab560, 0x3fab580, indexCVS2Sprites_GodRugal },
-    { L"Extra 1: Kaiser Wave", 0x3fab580, 0x3fab5a0, indexCVS2Sprites_Rugal, 0x01 }, },
+    { L"Extra 1: Kaiser Wave", 0x3fab580, 0x3fab5a0, indexCVS2Sprites_Rugal, 0x0 },
     { L"Extra 2: Green Stuff", 0x3fab5a0, 0x3fab5c0, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab5c0, 0x3fab5e0 },
     { L"Extra 4", 0x3fab5e0, 0x3fab600 },
@@ -4414,7 +4414,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_LK[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_MK[] =
 {
     { L"Main Sprite", 0x3fab620, 0x3fab640, indexCVS2Sprites_GodRugal },
-    { L"Extra 1: Kaiser Wave", 0x3fab640, 0x3fab660, indexCVS2Sprites_Rugal, 0x01 }, },
+    { L"Extra 1: Kaiser Wave", 0x3fab640, 0x3fab660, indexCVS2Sprites_Rugal, 0x0 },
     { L"Extra 2: Green Stuff", 0x3fab660, 0x3fab680, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab680, 0x3fab6a0 },
     { L"Extra 4", 0x3fab6a0, 0x3fab6c0 },
@@ -4424,7 +4424,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_MK[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_HK[] =
 {
     { L"Main Sprite", 0x3fab6e0, 0x3fab700, indexCVS2Sprites_GodRugal },
-    { L"Extra 1: Kaiser Wave", 0x3fab700, 0x3fab720, indexCVS2Sprites_Rugal, 0x01 }, },
+    { L"Extra 1: Kaiser Wave", 0x3fab700, 0x3fab720, indexCVS2Sprites_Rugal, 0x0 },
     { L"Extra 2: Green Stuff", 0x3fab720, 0x3fab740, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab740, 0x3fab760 },
     { L"Extra 4", 0x3fab760, 0x3fab780 },
@@ -4434,7 +4434,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_HK[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_3P[] =
 {
     { L"Main Sprite", 0x3fab7a0, 0x3fab7c0, indexCVS2Sprites_GodRugal },
-    { L"Extra 1: Kaiser Wave", 0x3fab7c0, 0x3fab7e0, indexCVS2Sprites_Rugal, 0x01 }, },
+    { L"Extra 1: Kaiser Wave", 0x3fab7c0, 0x3fab7e0, indexCVS2Sprites_Rugal, 0x0 },
     { L"Extra 2: Green Stuff", 0x3fab7e0, 0x3fab800, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab800, 0x3fab820 },
     { L"Extra 4", 0x3fab820, 0x3fab840 },
@@ -4444,7 +4444,7 @@ const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_3P[] =
 const sGame_PaletteDataset CVS2_A_GODRUGAL_PALETTES_3K[] =
 {
     { L"Main Sprite", 0x3fab860, 0x3fab880, indexCVS2Sprites_GodRugal },
-    { L"Extra 1: Kaiser Wave", 0x3fab880, 0x3fab8a0, indexCVS2Sprites_Rugal, 0x01 }, },
+    { L"Extra 1: Kaiser Wave", 0x3fab880, 0x3fab8a0, indexCVS2Sprites_Rugal, 0x0 },
     { L"Extra 2: Green Stuff", 0x3fab8a0, 0x3fab8c0, indexCVS2Sprites_Rugal, 0x08 },
     { L"Extra 3", 0x3fab8c0, 0x3fab8e0 },
     { L"Extra 4", 0x3fab8e0, 0x3fab900 },
