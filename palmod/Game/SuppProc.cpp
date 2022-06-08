@@ -20,7 +20,7 @@ int AdjustNumberForPossibleNegation(int nPossiblyNegativeNumber)
 void CSecondaryPaletteProcessing::ProcessSecondaryCopyWithIndex(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)
 {
     CString strDebugInfo;
-    if ((src_index == 0) && (index_amt == 0x10))
+    if ((src_index == 0) && (index_amt == 0))
     {
         strDebugInfo.Format(L"\t\tProcessSecondaryCopyWithIndex being applied: full copy of source palette 0x%x to destination palette 0x%x\n",
             source_palette, destination_palette);
@@ -71,7 +71,6 @@ void CSecondaryPaletteProcessing::ProcessSecondaryWhite(uint32_t char_id, uint32
     {
         MessageBox(g_appHWnd, L"Warning: invalid secondary palette change requested.  This is a bug in PalMod: please report.", GetHost()->GetAppName(), MB_ICONERROR);
     }
-
 }
 
 void CSecondaryPaletteProcessing::ProcessSecondaryHSLEffects(uint32_t char_id, UINT16 mod_type, int mod_amt, uint32_t destination_palette, UINT8 index_start, UINT8 index_inc)
@@ -150,8 +149,6 @@ void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(uint32_t char_id, 
         {
             COLORREF input_col = pSourcePalette[offset + src_index];
 
-            pSourcePalette[offset + src_index] = input_col;
-
             AddColorStepsToColorValue(input_col, &pDestinationPalette[offset + dst_index],
                 tint_factor_r,
                 tint_factor_g,
@@ -170,17 +167,69 @@ void CSecondaryPaletteProcessing::ProcessSecondaryTintEffects(uint32_t char_id, 
     safe_delete(pDestinationPalette);
 }
 
+void CSecondaryPaletteProcessing::ProcessBlendEffects(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
+    UINT8 blending_r, UINT8 blending_g, UINT8 blending_b)
+{
+    COLORREF* pSourcePalette = CreatePal(char_id, source_palette);
+    COLORREF* pDestinationPalette = CreatePal(char_id, destination_palette);
+
+    if (pSourcePalette && pDestinationPalette)
+    {
+        CString strDebugInfo;
+        strDebugInfo.Format(L"\t\tProcessBlendEffects being applied : applying rgb(%i, %i, %i) from source palette 0x%x at 0x%x to palette 0x%x at 0x%x for 0x%x colors\n",
+            blending_r, blending_g, blending_b, source_palette, src_index, destination_palette, dst_index, index_amt);
+        OutputDebugString(strDebugInfo);
+
+        const double dlBlendPercent = 0.4;
+
+        for (UINT8 offset = 0; offset < index_amt; offset++)
+        {
+            COLORREF input_col = pSourcePalette[offset + src_index];
+
+            uint8_t alpha =  (pSourcePalette[offset + src_index] & 0xff000000) >> 24;
+            uint16_t blue =  (pSourcePalette[offset + src_index] & 0x00ff0000) >> 16;
+            uint16_t green = (pSourcePalette[offset + src_index] & 0x0000ff00) >> 8;
+            uint16_t red =   (pSourcePalette[offset + src_index] & 0x000000ff);
+
+            red =   static_cast<uint16_t>(ceil((static_cast<double>(red)   + (static_cast<double>(blending_r) * dlBlendPercent)) / 2.0));
+            green = static_cast<uint16_t>(ceil((static_cast<double>(green) + (static_cast<double>(blending_g) * dlBlendPercent)) / 2.0));
+            blue =  static_cast<uint16_t>(ceil((static_cast<double>(blue)  + (static_cast<double>(blending_b) * dlBlendPercent)) / 2.0));
+
+            if (red > 255) { red = 255; }
+            if (green > 255) { green = 255; }
+            if (blue > 255) { blue = 255; }
+
+            red =   GetNearestLegal8BitColorValue_RGB_impl(red);
+            green = GetNearestLegal8BitColorValue_RGB_impl(green);
+            blue = GetNearestLegal8BitColorValue_RGB_impl(blue);
+
+            COLORREF blended_col = RGB(red, green, blue) | (alpha << 24);
+
+            pDestinationPalette[offset + dst_index] = blended_col;
+        }
+
+        WritePal(char_id, destination_palette, pDestinationPalette, -1);
+    }
+    else
+    {
+        MessageBox(g_appHWnd, L"Warning: invalid secondary palette change requested.  This is a bug in PalMod: please report.", GetHost()->GetAppName(), MB_ICONERROR);
+    }
+
+    safe_delete(pSourcePalette);
+    safe_delete(pDestinationPalette);
+}
+
 void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const uint32_t nUnitId, const uint32_t nChangedPaletteNumber, const std::vector<std::vector<UINT16>> supplementalEffectsData)
 {
     CString strDebugInfo;
     strDebugInfo.Format(L"\tProcessAdditionalPaletteChangesRequired: Processing supplemental palettes for unit 0x%02x palette number 0x%x. %u effects to apply.\n", nUnitId, nChangedPaletteNumber,
-                                    supplementalEffectsData.size());
+        supplementalEffectsData.size());
     OutputDebugString(strDebugInfo);
 
-    //SUPP_NODE syntax:
-    //  SUPP_NODE, <Increment to palette to change>, <MVC2 only value, leave as 0>
+    uint32_t nLastDestinationPalette = 0;
+    uint16_t nCountPalettesModified = 0;
 
-    for (const std::vector<UINT16> currentEffectsData : supplementalEffectsData)
+    for (const std::vector<UINT16>& currentEffectsData : supplementalEffectsData)
     {
         UINT16 currentEffectsToken = currentEffectsData[0];
 
@@ -195,19 +244,29 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
 
             // Figure out what palettes we're going to be modifying
             uint32_t destination_palette = nChangedPaletteNumber + (in_start & 0x7FFF);
+
+            if (destination_palette != nLastDestinationPalette)
+            {
+                nCountPalettesModified++;
+            }
+
+            // Need to have information available to poststepal for the active palette, so make sure it's loaded
+            LoadSpecificPaletteData(nUnitId, destination_palette);
+
+            strDebugInfo.Format(L"\t\tPreparing to process from palette 0x%x to palette 0x%x (\"%s\")\n", nChangedPaletteNumber, destination_palette, GetCurrentPaletteName());
+            OutputDebugString(strDebugInfo);
+
             MarkPaletteDirty(nUnitId, destination_palette);
 
-            strDebugInfo.Format(L"\t\tPreparing to process from palette 0x%x to palette 0x%x\n", nChangedPaletteNumber, destination_palette);
-            OutputDebugString(strDebugInfo);
+            const UINT16 copy_amt_max = GetCurrentPaletteSizeInColors();
 
             // Unless we get told otherwise, we do a copy first and then worry about modifying values.
             if (currentEffectsToken != SUPP_NODE_NOCOPY)
             {
                 int copy_start = 0;
-                int copy_amt = GetCurrentPaletteSizeInColors();
                 int copy_dst = 0;
 
-                ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, copy_dst, copy_start, copy_amt);
+                ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, copy_dst, copy_start, static_cast<UINT8>(copy_amt_max));
             }
 
             //Set the counter past the indexes into the actual actions and reset the step counter
@@ -223,16 +282,31 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
                 UINT8 pi_start = (UINT8)currentEffectsData[indexCounterForEffects + 1];
                 UINT8 pi_amt = (UINT8)currentEffectsData[indexCounterForEffects + 2];
 
+                // While this would normally be error-checking, this also has the side effect of allowing us to 
+                // specify max palette size possible for variable length portrait/stage/csi palettes that we want to
+                // tint using generic logic
+                pi_amt = min(copy_amt_max - pi_start, pi_amt);
+
                 switch (currentEffectsToken)
                 {
                 case MOD_TINT:
                 {
-                    ProcessSecondaryTintEffects(nUnitId, nChangedPaletteNumber, destination_palette, (UINT8)currentEffectsData[indexCounterForEffects + 3], pi_start, pi_amt,
+                    ProcessSecondaryTintEffects(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<UINT8>(currentEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt,
                         currentEffectsData[indexCounterForEffects + 4], currentEffectsData[indexCounterForEffects + 5], currentEffectsData[indexCounterForEffects + 6]);
 
                     indexCounterForEffects += 7;
                     break;
                 }
+
+                case MOD_BLEND:
+                {
+                    ProcessBlendEffects(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<UINT8>(currentEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt,
+                        static_cast<UINT8>(currentEffectsData[indexCounterForEffects + 4]), static_cast<UINT8>(currentEffectsData[indexCounterForEffects + 5]), static_cast<UINT8>(currentEffectsData[indexCounterForEffects + 6]));
+
+                    indexCounterForEffects += 7;
+                    break;
+                }
+
                 case MOD_WHITE:
                 {
                     ProcessSecondaryWhite(nUnitId, destination_palette, pi_start, pi_amt);
@@ -243,7 +317,7 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
 
                 case MOD_COPY:
                 {
-                    ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, (UINT8)currentEffectsData[indexCounterForEffects + 3], pi_start, pi_amt);
+                    ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, static_cast<UINT8>(currentEffectsData[indexCounterForEffects + 3]), pi_start, pi_amt);
 
                     indexCounterForEffects += 4;
                     break;
@@ -266,9 +340,21 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
                     break;
                 }
             }
-
-            GetHost()->GetPalModDlg()->SetStatusText(L"Palette updated in memory.  Also updated secondary palettes.");
         }
+    }
+
+    if (nCountPalettesModified != 0)
+    {
+        CString strMessage;
+        if (nCountPalettesModified == 1)
+        {
+            strMessage.Format(L"Updated.  Also updated the \"%s\" palette.", GetCurrentPaletteName());
+        }
+        else
+        {
+            strMessage.Format(L"Updated.  Also updated \"%s\" and other palettes.", GetCurrentPaletteName());
+        }
+        GetHost()->GetPalModDlg()->SetStatusText(strMessage.GetString());
     }
 
     strDebugInfo.Format(L"ProcessAdditionalPaletteChangesRequired: Finished processing supplemental palettes for character 0x%02x, palette number 0x%x\n\n", nUnitId, nChangedPaletteNumber);

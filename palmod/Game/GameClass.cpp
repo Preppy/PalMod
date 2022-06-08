@@ -40,6 +40,11 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
     return ColorSystem::GetPlaneAmtForColor(CurrColMode, Flag);
 }
 
+int CGameClass::GetNearestLegal8BitColorValue_RGB_impl(int nCol)
+{
+    return GetNearestLegal8BitColorValue_RGB(nCol);
+}
+
 void CGameClass::AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA)
 {
     BasePalGroup.AddColorStepsToColorValue(crSrc, crTarget, uStepsR, uStepsG, uStepsB, uStepsA);
@@ -689,7 +694,10 @@ BOOL CGameClass::CreateHybridPal(uint32_t nIndexAmt, uint32_t nPalSz, UINT16* pD
 
 void CGameClass::UpdatePalData()
 {
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
+    const uint32_t nTotalPalettes = BasePalGroup.GetPalAmt();
+
+    // We walk the list backwards so that we know what the first palette's name is
+    for (int16_t nPalCtr = (nTotalPalettes - 1); nPalCtr >= 0; nPalCtr--)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 

@@ -1824,42 +1824,42 @@ const sDescTreeNode SFIII2_A_BONUS_COLLECTION[] =
 
 const sGame_PaletteDataset SFIII2_A_STAGES_ALEX_PALETTES[] =
 {
-    { L"Alex Stage (1/8)", 0x3b4f80 + (0 * 0x200), 0x3b4f80 + (1 * 0x200) },
-    { L"Alex Stage (2/8)", 0x3b4f80 + (1 * 0x200), 0x3b4f80 + (2 * 0x200) },
-    { L"Alex Stage (3/8)", 0x3b4f80 + (2 * 0x200), 0x3b4f80 + (3 * 0x200) },
-    { L"Alex Stage (4/8)", 0x3b4f80 + (3 * 0x200), 0x3b4f80 + (4 * 0x200) },
-    { L"Alex Stage (5/8)", 0x3b4f80 + (4 * 0x200), 0x3b4f80 + (5 * 0x200) },
-    { L"Alex Stage (6/8)", 0x3b4f80 + (5 * 0x200), 0x3b4f80 + (6 * 0x200) },
-    { L"Alex Stage (7/8)", 0x3b4f80 + (6 * 0x200), 0x3b4f80 + (7 * 0x200) },
-    { L"Alex Stage (8/8)", 0x3b4f80 + (7 * 0x200), 0x3b5f80 },
+    { L"Alex Stage (1/8)", 0x3b4f80 + (0 * 0x200), 0x3b4f80 + (1 * 0x200), indexSF2ISprites_Bonus, -1, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip7 },
+    { L"Alex Stage (2/8)", 0x3b4f80 + (1 * 0x200), 0x3b4f80 + (2 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip7 },
+    { L"Alex Stage (3/8)", 0x3b4f80 + (2 * 0x200), 0x3b4f80 + (3 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip7 },
+    { L"Alex Stage (4/8)", 0x3b4f80 + (3 * 0x200), 0x3b4f80 + (4 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip7 },
+    { L"Alex Stage (5/8)", 0x3b4f80 + (4 * 0x200), 0x3b4f80 + (5 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip7 },
+    { L"Alex Stage (6/8)", 0x3b4f80 + (5 * 0x200), 0x3b4f80 + (6 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip7 },
+    { L"Alex Stage (7/8)", 0x3b4f80 + (6 * 0x200), 0x3b4f80 + (7 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip7 },
+    { L"Alex Stage (8/8)", 0x3b4f80 + (7 * 0x200), 0x3b5f00, indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip7 },
 };
 
 const sGame_PaletteDataset SFIII2_A_STAGES_ALEX_FADED_PALETTES[] =
 {
-    { L"Alex Stage (Faded) (1/8)", 0x3b5f80 + (0 * 0x200), 0x3b5f80 + (1 * 0x200) },
-    { L"Alex Stage (Faded) (2/8)", 0x3b5f80 + (1 * 0x200), 0x3b5f80 + (2 * 0x200) },
-    { L"Alex Stage (Faded) (3/8)", 0x3b5f80 + (2 * 0x200), 0x3b5f80 + (3 * 0x200) },
-    { L"Alex Stage (Faded) (4/8)", 0x3b5f80 + (3 * 0x200), 0x3b5f80 + (4 * 0x200) },
-    { L"Alex Stage (Faded) (5/8)", 0x3b5f80 + (4 * 0x200), 0x3b5f80 + (5 * 0x200) },
-    { L"Alex Stage (Faded) (6/8)", 0x3b5f80 + (5 * 0x200), 0x3b5f80 + (6 * 0x200) },
-    { L"Alex Stage (Faded) (7/8)", 0x3b5f80 + (6 * 0x200), 0x3b5f80 + (7 * 0x200) },
-    { L"Alex Stage (Faded) (8/8)", 0x3b5f80 + (7 * 0x200), 0x3b6e80 },
+    { L"Alex Stage (Faded) (1/8)", 0x3b5f00 + (0 * 0x200), 0x3b5f00 + (1 * 0x200) },
+    { L"Alex Stage (Faded) (2/8)", 0x3b5f00 + (1 * 0x200), 0x3b5f00 + (2 * 0x200) },
+    { L"Alex Stage (Faded) (3/8)", 0x3b5f00 + (2 * 0x200), 0x3b5f00 + (3 * 0x200) },
+    { L"Alex Stage (Faded) (4/8)", 0x3b5f00 + (3 * 0x200), 0x3b5f00 + (4 * 0x200) },
+    { L"Alex Stage (Faded) (5/8)", 0x3b5f00 + (4 * 0x200), 0x3b5f00 + (5 * 0x200) },
+    { L"Alex Stage (Faded) (6/8)", 0x3b5f00 + (5 * 0x200), 0x3b5f00 + (6 * 0x200) },
+    { L"Alex Stage (Faded) (7/8)", 0x3b5f00 + (6 * 0x200), 0x3b5f00 + (7 * 0x200) },
+    { L"Alex Stage (Faded) (8/8)", 0x3b5f00 + (7 * 0x200), 0x3b6e80 },
 };
 
 const sGame_PaletteDataset SFIII2_A_STAGES_GILL_PALETTES[] =
 {
-    { L"Gill Stage (1/12)", 0x3b1d80 + (0 * 0x200), 0x3b1d80 + (1 * 0x200) },
-    { L"Gill Stage (2/12)", 0x3b1d80 + (1 * 0x200), 0x3b1d80 + (2 * 0x200) },
-    { L"Gill Stage (3/12)", 0x3b1d80 + (2 * 0x200), 0x3b1d80 + (3 * 0x200) },
-    { L"Gill Stage (4/12)", 0x3b1d80 + (3 * 0x200), 0x3b1d80 + (4 * 0x200) },
-    { L"Gill Stage (5/12)", 0x3b1d80 + (4 * 0x200), 0x3b1d80 + (5 * 0x200) },
-    { L"Gill Stage (6/12)", 0x3b1d80 + (5 * 0x200), 0x3b1d80 + (6 * 0x200) },
-    { L"Gill Stage (7/12)", 0x3b1d80 + (6 * 0x200), 0x3b1d80 + (7 * 0x200) },
-    { L"Gill Stage (8/12)", 0x3b1d80 + (7 * 0x200), 0x3b1d80 + (8 * 0x200) },
-    { L"Gill Stage (9/12)", 0x3b1d80 + (8 * 0x200), 0x3b1d80 + (9 * 0x200) },
-    { L"Gill Stage (10/12)", 0x3b1d80 + (9 * 0x200), 0x3b1d80 + (10 * 0x200) },
-    { L"Gill Stage (11/12)", 0x3b1d80 + (10 * 0x200), 0x3b1d80 + (11 * 0x200) },
-    { L"Gill Stage (12/12)", 0x3b1d80 + (11 * 0x200), 0x3b3580 },
+    { L"Gill Stage (1/12)", 0x3b1d80 + (0 * 0x200), 0x3b1d80 + (1 * 0x200), indexSF2ISprites_Bonus, -1, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (2/12)", 0x3b1d80 + (1 * 0x200), 0x3b1d80 + (2 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (3/12)", 0x3b1d80 + (2 * 0x200), 0x3b1d80 + (3 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (4/12)", 0x3b1d80 + (3 * 0x200), 0x3b1d80 + (4 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (5/12)", 0x3b1d80 + (4 * 0x200), 0x3b1d80 + (5 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (6/12)", 0x3b1d80 + (5 * 0x200), 0x3b1d80 + (6 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (7/12)", 0x3b1d80 + (6 * 0x200), 0x3b1d80 + (7 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (8/12)", 0x3b1d80 + (7 * 0x200), 0x3b1d80 + (8 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (9/12)", 0x3b1d80 + (8 * 0x200), 0x3b1d80 + (9 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (10/12)", 0x3b1d80 + (9 * 0x200), 0x3b1d80 + (10 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (11/12)", 0x3b1d80 + (10 * 0x200), 0x3b1d80 + (11 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
+    { L"Gill Stage (12/12)", 0x3b1d80 + (11 * 0x200), 0x3b3580, indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip11 },
 };
 
 const sGame_PaletteDataset SFIII2_A_STAGES_GILL_FADED_PALETTES[] =
@@ -1875,18 +1875,18 @@ const sGame_PaletteDataset SFIII2_A_STAGES_GILL_FADED_PALETTES[] =
     { L"Gill Stage (Faded) (9/12)", 0x3b3580 + (8 * 0x200), 0x3b3580 + (9 * 0x200) },
     { L"Gill Stage (Faded) (10/12)", 0x3b3580 + (9 * 0x200), 0x3b3580 + (10 * 0x200) },
     { L"Gill Stage (Faded) (11/12)", 0x3b3580 + (10 * 0x200), 0x3b3580 + (11 * 0x200) },
-    { L"Gill Stage (Faded) (12/12)", 0x3b3580 + (11 * 0x200), 0x3b4c80 },
+    { L"Gill Stage (Faded) (12/12)", 0x3b3580 + (11 * 0x200), 0x3b4d80 },
 };
 
 const sGame_PaletteDataset SFIII2_A_STAGES_RYU_PALETTES[] =
 {
-    { L"Ryu Stage (1/7)", 0x3b6e80 + (0 * 0x200), 0x3b6e80 + (1 * 0x200) },
-    { L"Ryu Stage (2/7)", 0x3b6e80 + (1 * 0x200), 0x3b6e80 + (2 * 0x200) },
-    { L"Ryu Stage (3/7)", 0x3b6e80 + (2 * 0x200), 0x3b6e80 + (3 * 0x200) },
-    { L"Ryu Stage (4/7)", 0x3b6e80 + (3 * 0x200), 0x3b6e80 + (4 * 0x200) },
-    { L"Ryu Stage (5/7)", 0x3b6e80 + (4 * 0x200), 0x3b6e80 + (5 * 0x200) },
-    { L"Ryu Stage (6/7)", 0x3b6e80 + (5 * 0x200), 0x3b6e80 + (6 * 0x200) },
-    { L"Ryu Stage (7/7)", 0x3b6e80 + (6 * 0x200), 0x3b7c00 },
+    { L"Ryu Stage (1/7)", 0x3b6e80 + (0 * 0x200), 0x3b6e80 + (1 * 0x200), indexSF2ISprites_Bonus, -1, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (2/7)", 0x3b6e80 + (1 * 0x200), 0x3b6e80 + (2 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (3/7)", 0x3b6e80 + (2 * 0x200), 0x3b6e80 + (3 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (4/7)", 0x3b6e80 + (3 * 0x200), 0x3b6e80 + (4 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (5/7)", 0x3b6e80 + (4 * 0x200), 0x3b6e80 + (5 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (6/7)", 0x3b6e80 + (5 * 0x200), 0x3b6e80 + (6 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
+    { L"Ryu Stage (7/7)", 0x3b6e80 + (6 * 0x200), 0x3b7c00, indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip6 },
 };
 
 const sGame_PaletteDataset SFIII2_A_STAGES_RYU_FADED_PALETTES[] =
@@ -1902,12 +1902,12 @@ const sGame_PaletteDataset SFIII2_A_STAGES_RYU_FADED_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_STAGES_YUN_PALETTES[] =
 {
-    { L"Yun Stage (1/6)", 0x3b8980 + (0 * 0x200), 0x3b8980 + (1 * 0x200) },
-    { L"Yun Stage (2/6)", 0x3b8980 + (1 * 0x200), 0x3b8980 + (2 * 0x200) },
-    { L"Yun Stage (3/6)", 0x3b8980 + (2 * 0x200), 0x3b8980 + (3 * 0x200) },
-    { L"Yun Stage (4/6)", 0x3b8980 + (3 * 0x200), 0x3b8980 + (4 * 0x200) },
-    { L"Yun Stage (5/6)", 0x3b8980 + (4 * 0x200), 0x3b8980 + (5 * 0x200) },
-    { L"Yun Stage (6/6)", 0x3b8980 + (5 * 0x200), 0x3b9400 },
+    { L"Yun Stage (1/6)", 0x3b8980 + (0 * 0x200), 0x3b8980 + (1 * 0x200), indexSF2ISprites_Bonus, -1, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip5 },
+    { L"Yun Stage (2/6)", 0x3b8980 + (1 * 0x200), 0x3b8980 + (2 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"Yun Stage (3/6)", 0x3b8980 + (2 * 0x200), 0x3b8980 + (3 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"Yun Stage (4/6)", 0x3b8980 + (3 * 0x200), 0x3b8980 + (4 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"Yun Stage (5/6)", 0x3b8980 + (4 * 0x200), 0x3b8980 + (5 * 0x200), indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"Yun Stage (6/6)", 0x3b8980 + (5 * 0x200), 0x3b9400, indexSF2ISprites_Bonus, -1, nullptr, &secondaryGreyTintEffects_Skip5 },
 };
 
 const sGame_PaletteDataset SFIII2_A_STAGES_YUN_FADED_PALETTES[] =
@@ -1917,7 +1917,7 @@ const sGame_PaletteDataset SFIII2_A_STAGES_YUN_FADED_PALETTES[] =
     { L"Yun Stage (Faded) (3/6)", 0x3b9400 + (2 * 0x200), 0x3b9400 + (3 * 0x200) },
     { L"Yun Stage (Faded) (4/6)", 0x3b9400 + (3 * 0x200), 0x3b9400 + (4 * 0x200) },
     { L"Yun Stage (Faded) (5/6)", 0x3b9400 + (4 * 0x200), 0x3b9400 + (5 * 0x200) },
-    { L"Yun Stage (Faded) (6/6)", 0x3b9400 + (5 * 0x200), 0x3b9f80 },
+    { L"Yun Stage (Faded) (6/6)", 0x3b9400 + (5 * 0x200), 0x3b9e80 },
 };
 
 const sDescTreeNode SFIII2_A_STAGES_COLLECTION[] =

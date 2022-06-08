@@ -156,6 +156,7 @@ public:
     inline BOOL GameIsUsing32BitColor() { return m_nSizeOfColorsInBytes == 4; };
 
     UINT16 GetCurrentPaletteSizeInColors() { return m_nCurrentPaletteSizeInColors; };
+    LPCWSTR GetCurrentPaletteName() { return m_pszCurrentPaletteName; };
 
     UINT16(*ConvCol16)(UINT32 inCol);
     UINT32(*ConvCol24)(UINT32 inCol);
@@ -170,7 +171,8 @@ public:
     int(*GetNearestLegal8BitColorValue_A)(int inCol);
     int(*GetNearestLegal8BitColorValue_RGB)(int inCol);
     int(*ValidateColorStep)(int nColorStep);
-    void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA);
+    int GetNearestLegal8BitColorValue_RGB_impl(int inCol) override;
+    void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA) override;
 
     LPCWSTR GetROMFileName();
     LPCWSTR GetLoadDir() { return m_pszLoadDir; };

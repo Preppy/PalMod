@@ -1193,3 +1193,21 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     return TRUE;
 }
+
+void CGame_SFIII3_A::PostSetPal(size_t nUnitId, size_t nPalId)
+{
+    CString strMessage;
+    strMessage.Format(L"CGame_SFIII3_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);
+    OutputDebugString(strMessage);
+
+    const sGame_PaletteDataset* pThisPalette = GetSpecificPalette(nUnitId, nPalId);
+    if (pThisPalette->pExtraProcessing && pThisPalette->pExtraProcessing->pProcessingSteps.size())
+    {
+        OutputDebugString(L"\tThis palette is linked to additional palettes: updating those as well now.\n");
+        ProcessAdditionalPaletteChangesRequired(nUnitId, nPalId, pThisPalette->pExtraProcessing->pProcessingSteps);
+    }
+    else
+    {
+        OutputDebugString(L"\tNo further processing needed.\n");
+    }
+}

@@ -191,7 +191,7 @@ enum SupportedGamesList
 const WCHAR g_GameFriendlyName[][64] =
 {
     L"MvC2 (Dreamcast)",
-    L"SFIII3 (CPS3 Arcade)",
+    L"SFIII:3S (CPS3 Arcade)",
     L"MVC2 (Playstation 2)",
     L"SSF2T (CPS2 Arcade)",
     L"SFA3 (CPS2 Arcade)",
@@ -519,3 +519,45 @@ constexpr auto MAXIMUM_PALETTE_PAIRS_ALLOWED = 12;
 
 // Vs Series
 const stPairedPaletteInfo pairMVCDevilotNormal =                    { 1 };       // Don't use pairNext here: we manually tweak z-order
+
+#pragma region SecondaryPaletteEffects
+
+// 3S uses a blend of rgb(124,124,124) to achieve the Faded effects: these let me apply that to palettes
+// everything over Skip2 is for stages
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_NextPalette =   { { SUPP_NODE, 0x01, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip1Palette =  { { SUPP_NODE, 0x02, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip2Palettes = { { SUPP_NODE, 0x03, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip3Palettes = { { SUPP_NODE, 0x04, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip4Palettes = { { SUPP_NODE, 0x05, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip5Palettes = { { SUPP_NODE, 0x06, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip6Palettes = { { SUPP_NODE, 0x07, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip7Palettes = { { SUPP_NODE, 0x08, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip8Palettes = { { SUPP_NODE, 0x09, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip9Palettes = { { SUPP_NODE, 0x0a, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip11Palettes = { { SUPP_NODE, 0x0c, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip12Palettes = { { SUPP_NODE, 0x0d, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip14Palettes = { { SUPP_NODE, 0x0f, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip15Palettes = { { SUPP_NODE, 0x10, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip16Palettes = { { SUPP_NODE, 0x11, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip18Palettes = { { SUPP_NODE, 0x13, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip31Palettes = { { SUPP_NODE, 0x20, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+
+const stPaletteProcessingInformation secondaryGreyTintEffects{ paletteBuddy_GreyTint_NextPalette };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip1{ paletteBuddy_GreyTint_Skip1Palette };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip2{ paletteBuddy_GreyTint_Skip2Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip3{ paletteBuddy_GreyTint_Skip3Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip4{ paletteBuddy_GreyTint_Skip4Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip5{ paletteBuddy_GreyTint_Skip5Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip6{ paletteBuddy_GreyTint_Skip6Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip7{ paletteBuddy_GreyTint_Skip7Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip8{ paletteBuddy_GreyTint_Skip8Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip9{ paletteBuddy_GreyTint_Skip9Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip11{ paletteBuddy_GreyTint_Skip11Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip12{ paletteBuddy_GreyTint_Skip12Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip14{ paletteBuddy_GreyTint_Skip14Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip15{ paletteBuddy_GreyTint_Skip15Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip16{ paletteBuddy_GreyTint_Skip16Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip18{ paletteBuddy_GreyTint_Skip18Palettes };
+const stPaletteProcessingInformation secondaryGreyTintEffects_Skip31{ paletteBuddy_GreyTint_Skip31Palettes };
+
+#pragma endregion

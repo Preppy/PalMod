@@ -9,7 +9,6 @@
 // * Chun-Li and Cyclops both use a specific secondary palette for HK effects that should match their primary palette
 // * Colossus, Juggernaut, and Megaman have cycling 'flash' palettes that should be modifications of their primary palette
 
-
 namespace MVC2_SupplementProcessing
 {
     UINT8** _mvc2_dreamcast_data = nullptr;

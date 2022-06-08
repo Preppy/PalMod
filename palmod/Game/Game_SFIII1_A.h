@@ -58,5 +58,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
+    void PostSetPal(size_t nUnitId, size_t nPalId) override;
+
     static stExtraDef* SFIII1_A_50_EXTRA_CUSTOM;
 };
