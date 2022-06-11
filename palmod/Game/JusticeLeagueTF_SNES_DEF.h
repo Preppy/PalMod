@@ -185,23 +185,23 @@ const sGame_PaletteDataset JusticeLeagueTF_SNES_BONUS_CS_PALETTES[] =
 
 const sGame_PaletteDataset JusticeLeagueTF_SNES_BONUS_SSI_PALETTES[] =
 {
-    { L"Aquaman Stage Icon", 0x1D389E, 0x1D38BE },
-    { L"Batman Stage Icon", 0x1D38C0, 0x1D38E0 },
-    { L"Flash Stage Icon", 0x1D38E2, 0x1D3902 },
-    { L"Superman Stage Icon", 0x1D3904, 0x1D3924 },
-    { L"Green Arrow Stage Icon", 0x1D3926, 0x1D3946 },
-    { L"Wonder Woman Stage Icon", 0x1D3948, 0x1D3968 },
-    { L"Cheetah Stage Icon", 0x1D396A, 0x1D398A },
-    { L"Despero Stage Icon", 0x1D398C, 0x1D39AC },
-    { L"Darkseid Stage Icon", 0x1D39AE, 0x1D39CE },
+    { L"Aquaman Stage Icon",        0x1D389E, 0x1D38BE, indexJLTFSprites_Stages, 0x00 },
+    { L"Batman Stage Icon",         0x1D38C0, 0x1D38E0, indexJLTFSprites_Stages, 0x01 },
+    { L"Flash Stage Icon",          0x1D38E2, 0x1D3902, indexJLTFSprites_Stages, 0x05 },
+    { L"Superman Stage Icon",       0x1D3904, 0x1D3924, indexJLTFSprites_Stages, 0x07 },
+    { L"Green Arrow Stage Icon",    0x1D3926, 0x1D3946, indexJLTFSprites_Stages, 0x06 },
+    { L"Wonder Woman Stage Icon",   0x1D3948, 0x1D3968, indexJLTFSprites_Stages, 0x08 },
+    { L"Cheetah Stage Icon",        0x1D396A, 0x1D398A, indexJLTFSprites_Stages, 0x02 },
+    { L"Despero Stage Icon",        0x1D398C, 0x1D39AC, indexJLTFSprites_Stages, 0x04 },
+    { L"Darkseid Stage Icon",       0x1D39AE, 0x1D39CE, indexJLTFSprites_Stages, 0x03 },
 };
 
 const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_AQUAMAN[] =
 {
-    { L"Aquaman Stage", 0x87AF6, 0x87BD6 },
-    { L"Aquaman Stage (Orange Fish extra)", 0x1BB186, 0x1BB1A6 },
-    { L"Aquaman Stage (Shark extra)", 0x1BB1A8, 0x1BB1C8 },
-    { L"Aquaman Stage (Manta extra)", 0x1BB1CA, 0x1BB1EA },
+    { L"Aquaman Stage", 0x87AF6, 0x87BD6, indexJLTFSprites_Stages, 0x0a , &pairFullyLinkedNode},
+    { L"Aquaman Stage (Orange Fish extra)", 0x1BB186, 0x1BB1A6, indexJLTFSprites_Stages, 0x09 },
+    { L"Aquaman Stage (Shark extra)", 0x1BB1A8, 0x1BB1C8, indexJLTFSprites_Stages, 0x0c },
+    { L"Aquaman Stage (Manta extra)", 0x1BB1CA, 0x1BB1EA, indexJLTFSprites_Stages, 0x0b },
 };
 
 const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_BATMAN[] =
@@ -255,9 +255,9 @@ const sGame_PaletteDataset JusticeLeagueTF_SNES_STAGE_PALETTES_DARKSEID[] =
 
 const sGame_PaletteDataset JusticeLeagueTF_SNES_BONUS_LOGO_PALETTES[] =
 {
-    { L"Acclaim Logo", 0x1A92A, 0x1A98A },
-    { L"Sunsoft logo", 0x1B260, 0x1B2A0 },
-    { L"Blizzard Ent. logo", 0x1C150, 0x1C190 },
+    { L"Acclaim Logo", 0x1A92A, 0x1A98A, indexJLTFSprites_Bonus, 0x00 },
+    { L"Sunsoft logo", 0x1B260, 0x1B2A0, indexJLTFSprites_Bonus, 0x02 },
+    { L"Blizzard Ent. logo", 0x1C150, 0x1C190, indexJLTFSprites_Bonus, 0x01 },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_SUPERMAN_COLLECTION[] =

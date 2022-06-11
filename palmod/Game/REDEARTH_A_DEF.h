@@ -226,7 +226,7 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
     { L"P1 Kenji Character Select Portrait Highlighted", 0x1E0F00, 0x1E0F80, indexRedEarthSprites_Kenji, 0x11 },
     { L"P2 Kenji Character Select Portrait Highlighted", 0x1E3100, 0x1E3180, indexRedEarthSprites_Kenji, 0x11 },
 
-    { L"Shogun Credits", 0x424880, 0x424900 },
+    { L"Shogun Credits", 0x424880, 0x424900, indexRedEarthSprites_Kenji, 0x22 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
@@ -391,7 +391,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
 
     { L"Mai-Ling Punch Fire", 0x411680, 0x411700, indexRedEarthSprites_MaiLing, 0x02 },
     { L"Mai-Ling Punch Fireball", 0x411780, 0x411800, indexRedEarthSprites_MaiLing, 0x01 },
-    { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x411880, 0x411900 },
+    { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x411880, 0x411900, indexRedEarthSprites_MaiLing, 0x03 },
 
     { L"Valerie, Dentry & Bellery", 0x412a00, 0x412b00, indexRedEarthSprites_Bonus, 0x1d },
 
@@ -423,7 +423,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
 
     { L"Mai-Ling Kick Fire", 0x41DE80, 0x41DF00, indexRedEarthSprites_MaiLing, 0x02 },
     { L"Mai-Ling Kick Fireball", 0x41DF80, 0x41E000, indexRedEarthSprites_MaiLing, 0x01 },
-    { L"Mai-Ling Kick HCB.1/2/3 Fireball", 0x41e080, 0x41E100 },
+    { L"Mai-Ling Kick HCB.1/2/3 Fireball", 0x41e080, 0x41E100, indexRedEarthSprites_MaiLing, 0x03 },
 
     { L"Valerie, Dentry & Bellery", 0x41f200, 0x41f300, indexRedEarthSprites_Bonus, 0x1d },
 
@@ -464,7 +464,6 @@ const sGame_PaletteDataset REDEARTH_A_BLADE_PALETTES[] =
     { L"Emerald FX/Intro 2", 0x433d00, 0x433d80, indexRedEarthSprites_Bonus, 0x0c },
     { L"Emerald FX/Intro 3", 0x433d80, 0x433e00, indexRedEarthSprites_Bonus, 0x0d },
     { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433e80, indexRedEarthSprites_Bonus, 0x10 },
-
 
     { L"Blade Burned 1", 0x436600, 0x436680 },
     { L"Blade Burned 2", 0x436680, 0x436700 },
@@ -855,6 +854,15 @@ const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
     { L"Victory Screen (4/6)", 0x1DE980, 0x1DEA00, indexRedEarthSprites_Bonus, 0x02 },
     { L"Victory Screen (5/6)", 0x1DEA00, 0x1DEA80, indexRedEarthSprites_Bonus, 0x02 },
     { L"Victory Screen (6/6)", 0x1DEA80, 0x1DEB00, indexRedEarthSprites_Bonus, 0x02 },
+
+    // Character Select
+    { L"Password 1", 0x1dfe00, 0x1dfe80, indexRedEarthSprites_Bonus, 0x3f },
+    { L"Password 2", 0x1dfe80, 0x1dff00, indexRedEarthSprites_Bonus, 0x40 },
+    { L"Password 3", 0x1dff00, 0x1dff80, indexRedEarthSprites_Bonus, 0x41 },
+    { L"Password 4", 0x1dff80, 0x1e0000, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Password 5", 0x1e0000, 0x1e0080, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Password 6", 0x1e0080, 0x1e0100, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Password 7", 0x1e0100, 0x1e0180, indexRedEarthSprites_Bonus, 0x42 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
@@ -1084,11 +1092,11 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 {
     //{ L"EXP / LVL Text", 0x406880, 0x406900 },
 
-    { L"Timer, Blade's Hud Name", 0x4064e0, 0x406500, indexRedEarthSprites_Bonus, 0x2f, &pairNext }, // pair next 
-    { L"Timer Overlay", 0x406620, 0x406640, indexRedEarthSprites_Bonus, 0x30, &pairPrevious }, // pair previous
+    { L"Timer, Blade's Hud Name", 0x4064e0, 0x406500, indexRedEarthSprites_Bonus, 0x43, &pairNext }, // pair next 
+    { L"Timer Overlay", 0x406620, 0x406640, indexRedEarthSprites_Bonus, 0x44, &pairPrevious }, // pair previous
 
-    { L"Timer (Running Out)", 0x4065a0, 0x4065c0, indexRedEarthSprites_Bonus, 0x2f, &pairNext }, // pair next
-    { L"Timer Overlay (Running Out)", 0x406720, 0x406740, indexRedEarthSprites_Bonus, 0x30, &pairPrevious }, // pair previous
+    { L"Timer (Running Out)", 0x4065a0, 0x4065c0, indexRedEarthSprites_Bonus, 0x43, &pairNext }, // pair next
+    { L"Timer Overlay (Running Out)", 0x406720, 0x406740, indexRedEarthSprites_Bonus, 0x44, &pairPrevious }, // pair previous
 
     { L"Boss Lifebar Frame, Fire/Red Bg", 0x4064a0, 0x4064c0, indexRedEarthSprites_Bonus, 0x1e, &pairNext }, // pair next
     { L"Lifebar", 0x406560, 0x406580, indexRedEarthSprites_Bonus, 0x21, &pairPrevious }, // pair previous
@@ -1107,6 +1115,7 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
     { L"Bonus Game Timer Milliseconds", 0x406dc0, 0x406de0 },
 
     { L"Game Over", 0x406fe0, 0x407000, indexRedEarthSprites_Bonus, 0x3a },
+    { L"\"Continue ?\" Backgrounds", 0x1dfb80, 0x1dfc00, indexRedEarthSprites_Bonus, 0x3c },
 
     { L"Text: Character Level Titles", 0x406500, 0x406520, indexRedEarthSprites_Bonus, 0x2c },
     { L"Text: Ingame Dialogue, Black Bg", 0x406520, 0x406540, indexRedEarthSprites_Bonus, 0x2d },
@@ -1127,6 +1136,36 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
     { L"RoundPoint: Others", 0x406780, 0x4067a0, indexRedEarthSprites_Bonus, 0x29, &pairNextAndNext }, // pair with next 2
     { L"RoundPoint: Timeout", 0x406760, 0x406780, indexRedEarthSprites_Bonus, 0x2a },
     { L"RoundPoint: Cherry Weak Attack", 0x406740, 0x406760, indexRedEarthSprites_Bonus, 0x28 },
+
+    { L"\"Winners Don't Use Drugs\"", 0x320000, 0x320080, indexRedEarthSprites_Bonus, 0x3d },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_BONUS_RANKING_PALETTES[] =
+{
+    { L"Ranking Background & Portrait 1", 0x1e7800, 0x1e7880, indexRedEarthSprites_Bonus, 0x3E },
+    { L"Ranking Background & Portrait 2", 0x1e8080, 0x1e8100, indexRedEarthSprites_Bonus, 0x3E },
+    { L"Ranking Background & Portrait 3", 0x1e8100, 0x1e8180, indexRedEarthSprites_Bonus, 0x3E },
+    { L"Ranking Background & Portrait 4", 0x1e8180, 0x1e8200, indexRedEarthSprites_Bonus, 0x3E },
+    { L"Ranking Background & Portrait 5", 0x1e8200, 0x1e8280, indexRedEarthSprites_Bonus, 0x3E },
+    { L"Ranking Background & Portrait 6", 0x1e8280, 0x1e8300, indexRedEarthSprites_Bonus, 0x3E },
+    { L"Ranking Background & Portrait 7", 0x1e8300, 0x1e8380, indexRedEarthSprites_Bonus, 0x3E },
+    { L"Ranking Background & Portrait 8", 0x1e8380, 0x1e8400, indexRedEarthSprites_Bonus, 0x3E },
+    { L"Ranking Title 1", 0x1e7900, 0x1e7980, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 2", 0x1e7980, 0x1e7a00, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 3", 0x1e7a00, 0x1e7a80, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 4", 0x1e7a80, 0x1e7b00, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 5", 0x1e7b00, 0x1e7b80, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 6", 0x1e7b80, 0x1e7c00, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 7", 0x1e7c00, 0x1e7c80, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 8", 0x1e7c80, 0x1e7d00, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 9", 0x1e7d00, 0x1e7d80, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 10", 0x1e7d80, 0x1e7e00, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 11", 0x1e7e00, 0x1e7e80, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 12", 0x1e7e80, 0x1e7f00, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 13", 0x1e7f00, 0x1e7f80, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 14", 0x1e7f80, 0x1e8000, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Ranking Title 15", 0x1e8000, 0x1e8080, indexRedEarthSprites_Bonus, 0x46 },
+    { L"Glitched Ranking Title Corners", 0x1e7880, 0x1e7900, indexRedEarthSprites_Bonus, 0x45 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
@@ -1258,7 +1297,8 @@ const sDescTreeNode REDEARTH_A_INTRO_COLLECTION[] =
 
 const sDescTreeNode REDEARTH_A_BONUS_31_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_PALETTES) },
+    { L"Ranking", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_BONUS_RANKING_PALETTES, ARRAYSIZE(REDEARTH_A_31_BONUS_RANKING_PALETTES) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_PALETTES) },
     { L"Unused Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_UNUSED_PALETTES) },
 };
 
@@ -1759,19 +1799,19 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_DERMINOR_PALETTES[] =
 {
-    { L"Sky & Moon", 0x73b780, 0x73b800 },
-    { L"Bottom Sky, Clouds & Flag", 0x73b900, 0x73b980 },
-    { L"Bridge", 0x73bb80, 0x73bc00 },
-    { L"Left Mini Bridge", 0x73b880, 0x73b900 },
-    { L"Castle's Top, Bird", 0x73bc80, 0x73be00 },
-    { L"Castle's Body", 0x73b800, 0x73b880 },
-    { L"Castle's Bottom", 0x73bc00, 0x73bc80 },
-    { L"Ground", 0x73bf00, 0x73bf80 },
-    { L"Tower, Ground Corners", 0x73ba00, 0x73ba80 },
-    { L"Tower's Center & Door", 0x73b980, 0x73ba00 },
-    { L"Tower Inside", 0x73ba80, 0x73bb00 },
-    { L"Tower's & Ground's Other Parts", 0x73bb00, 0x73bb80 },
-    { L"Unknown", 0x73be80, 0x73bf00 },
+    { L"Sky & Moon",                        0x73b780, 0x73b800, indexRedEarthSprites_Stages, 0x5b, &pairFullyLinkedNode },
+    { L"Bottom Sky, Clouds & Flag",         0x73b900, 0x73b980, indexRedEarthSprites_Stages, 0x5c },
+    { L"Castle's Body",                     0x73b800, 0x73b880, indexRedEarthSprites_Stages, 0x5d },
+    { L"Left Mini Bridge",                  0x73b880, 0x73b900, indexRedEarthSprites_Stages, 0x5e },
+    { L"Tower's Center & Door",             0x73b980, 0x73ba00, indexRedEarthSprites_Stages, 0x5f },
+    { L"Castle's Bottom",                   0x73bc00, 0x73bc80, indexRedEarthSprites_Stages, 0x60 },
+    { L"Tower, Ground Corners",             0x73ba00, 0x73ba80, indexRedEarthSprites_Stages, 0x61 },
+    { L"Tower Inside",                      0x73ba80, 0x73bb00, indexRedEarthSprites_Stages, 0x62 },
+    { L"Tower's & Ground's Other Parts",    0x73bb00, 0x73bb80, indexRedEarthSprites_Stages, 0x63 },
+    { L"Bridge",                            0x73bb80, 0x73bc00, indexRedEarthSprites_Stages, 0x64 },
+    { L"Castle's Top, Bird",                0x73bc80, 0x73be00, indexRedEarthSprites_Stages, 0x65 },
+    { L"Ground",                            0x73bf00, 0x73bf80, indexRedEarthSprites_Stages, 0x66 },
+    { L"Unknown",                           0x73be80, 0x73bf00 },
 };
 
 #ifdef help
@@ -2053,19 +2093,19 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_SLASH_PALETTES[]
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_DERMINOR_SLASH_PALETTES[] =
 {
-    { L"Sky & Moon", 0x73b780 + 0xb000, 0x73b800 + 0xb000 },
-    { L"Bottom Sky, Clouds & Flag", 0x73b900 + 0xb000, 0x73b980 + 0xb000 },
-    { L"Bridge", 0x73bb80 + 0xb000, 0x73bc00 + 0xb000 },
-    { L"Left Mini Bridge", 0x73b880 + 0xb000, 0x73b900 + 0xb000 },
-    { L"Castle's Top, Bird", 0x73bc80 + 0xb000, 0x73be00 + 0xb000 },
-    { L"Castle's Body", 0x73b800 + 0xb000, 0x73b880 + 0xb000 },
-    { L"Castle's Bottom", 0x73bc00 + 0xb000, 0x73bc80 + 0xb000 },
-    { L"Ground", 0x73bf00 + 0xb000, 0x73bf80 + 0xb000 },
-    { L"Tower, Ground Corners", 0x73ba00 + 0xb000, 0x73ba80 + 0xb000 },
-    { L"Tower's Center & Door", 0x73b980 + 0xb000, 0x73ba00 + 0xb000 },
-    { L"Tower Inside", 0x73ba80 + 0xb000, 0x73bb00 + 0xb000 },
-    { L"Tower's & Ground's Other Parts", 0x73bb00 + 0xb000, 0x73bb80 + 0xb000 },
-    { L"Unknown", 0x73be80 + 0xb000, 0x73bf00 + 0xb000 },
+    { L"Sky & Moon",                        0x73b780 + 0xb000, 0x73b800 + 0xb000, indexRedEarthSprites_Stages, 0x5b, &pairFullyLinkedNode },
+    { L"Bottom Sky, Clouds & Flag",         0x73b900 + 0xb000, 0x73b980 + 0xb000, indexRedEarthSprites_Stages, 0x5c },
+    { L"Castle's Body",                     0x73b800 + 0xb000, 0x73b880 + 0xb000, indexRedEarthSprites_Stages, 0x5d },
+    { L"Left Mini Bridge",                  0x73b880 + 0xb000, 0x73b900 + 0xb000, indexRedEarthSprites_Stages, 0x5e },
+    { L"Tower's Center & Door",             0x73b980 + 0xb000, 0x73ba00 + 0xb000, indexRedEarthSprites_Stages, 0x5f },
+    { L"Castle's Bottom",                   0x73bc00 + 0xb000, 0x73bc80 + 0xb000, indexRedEarthSprites_Stages, 0x60 },
+    { L"Tower, Ground Corners",             0x73ba00 + 0xb000, 0x73ba80 + 0xb000, indexRedEarthSprites_Stages, 0x61 },
+    { L"Tower Inside",                      0x73ba80 + 0xb000, 0x73bb00 + 0xb000, indexRedEarthSprites_Stages, 0x62 },
+    { L"Tower's & Ground's Other Parts",    0x73bb00 + 0xb000, 0x73bb80 + 0xb000, indexRedEarthSprites_Stages, 0x63 },
+    { L"Bridge",                            0x73bb80 + 0xb000, 0x73bc00 + 0xb000, indexRedEarthSprites_Stages, 0x64 },
+    { L"Castle's Top, Bird",                0x73bc80 + 0xb000, 0x73be00 + 0xb000, indexRedEarthSprites_Stages, 0x65 },
+    { L"Ground",                            0x73bf00 + 0xb000, 0x73bf80 + 0xb000, indexRedEarthSprites_Stages, 0x66 },
+    { L"Unknown",                           0x73be80 + 0xb000, 0x73bf00 + 0xb000 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SCION_SLASH_PALETTES[] =

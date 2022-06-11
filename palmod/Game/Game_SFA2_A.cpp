@@ -90,11 +90,11 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 {
     ClearDataBuffer();
 
-    const UINT32 nSafeCountFor07_Rev1 = 933;
-    const UINT32 nSafeCountFor07_Rev2 = 1055;
+    const UINT32 nSafeCountFor07_Rev1 = 935;
+    const UINT32 nSafeCountFor07_Rev2 = 1057;
     const UINT32 nSafeCountFor07_SFZ2A = 1342;
-    const UINT32 nSafeCountFor08_Rev1 = 258;
-    const UINT32 nSafeCountFor08_Rev2 = 302;
+    const UINT32 nSafeCountFor08_Rev1 = 271;
+    const UINT32 nSafeCountFor08_Rev2 = 315;
     const UINT32 nSafeCountFor08_SFZ2A = 345;
     const UINT32 nSafeCountFor09_Hack = 2400;
 
@@ -279,33 +279,33 @@ UINT32 CGame_SFA2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
         // Street Fighter Alpha 2 variants...
         // Since the character list changes between revisions, the offsets do as well. 
         // The offset logic is handled in LoadSpecificPaletteData
-        { L"SFA2 Rev 1 (CPS2)", L"sz2.07", 0x8e184246, 0 },
-        { L"SFA2 Rev 1 (CPS2)", L"sz2.08", 0x0fe8585d, 0 },
+        { L"SFA2 Rev 1 (CPS2 ROM07)", L"sz2.07", 0x8e184246, 0 },
+        { L"SFA2 Rev 1 (CPS2 ROM08)", L"sz2.08", 0x0fe8585d, 0 },
 
-        { L"SFA2 Rev 2 (CPS2 USA)", L"sz2u.07", 0x5de01cc5, 0 },
-        { L"SFA2 Rev 2 (CPS2 USA)", L"sz2u.08", 0xbea11d56, 0 },
+        { L"SFA2 Rev 2 (CPS2 USA ROM07)", L"sz2u.07", 0x5de01cc5, 0 },
+        { L"SFA2 Rev 2 (CPS2 USA ROM08)", L"sz2u.08", 0xbea11d56, 0 },
 
-        { L"SFA2 960227 (CPS2 Asia)", L"sz2a.07", 0x0aed2494, 0 },
-        { L"SFA2 960227 (CPS2 Asia)", L"sz2j.07a", 0xd910b2a2, 0 },
+        { L"SFA2 960227 (CPS2 Asia ROM07)", L"sz2a.07", 0x0aed2494, 0 },
+        { L"SFA2 960227 (CPS2 Asia ROM07a)", L"sz2j.07a", 0xd910b2a2, 0 },
 
-        { L"SFZ2A 960826 (CPS2 Asia)", L"szaa.07", 0x5de01cc5, 0 },
-        { L"SFZ2A 960826 (CPS2 Asia)", L"szaa.08", 0xbea11d56, 0 },
+        { L"SFZ2A 960826 (CPS2 Asia ROM07)", L"szaa.07", 0x5de01cc5, 0 },
+        { L"SFZ2A 960826 (CPS2 Asia ROM08)", L"szaa.08", 0xbea11d56, 0 },
 
-        { L"SFZA2 960813 (CPS2 B/H)", L"sza.07", 0xe9430762, 0 },
-        { L"SFZA2 960813 (CPS2 B/H)", L"sza.08", 0xb65711a9, 0 },
+        { L"SFZA2 960813 (CPS2 B/H ROM07)", L"sza.07", 0xe9430762, 0 },
+        { L"SFZA2 960813 (CPS2 B/H ROM08)", L"sza.08", 0xb65711a9, 0 },
 
-        { L"SFZA2 960805 (CPS2 Japan)", L"szaj.07a", 0x975dcb3e, 0 },
-        { L"SFZA2 960805 (CPS2 Japan)", L"szaj.08a", 0xdc73f2d7, 0 },
+        { L"SFZA2 960805 (CPS2 Japan ROM07a)", L"szaj.07a", 0x975dcb3e, 0 },
+        { L"SFZA2 960805 (CPS2 Japan ROM08a)", L"szaj.08a", 0xdc73f2d7, 0 },
 
-        { L"SFZ2 960304 (CPS2 Brazil)", L"sz2b.07", 0x947e8ac6, 0 },
-        { L"SFZ2 960531 (CPS2 Brazil)", L"sz2b.07a", 0x7d19d5ec, 0 },
-        { L"SFZ2 (CPS2 Brazil)", L"sz2b.08", 0x92b66e01, 0 },
+        { L"SFZ2 960304 (CPS2 Brazil ROM07)", L"sz2b.07", 0x947e8ac6, 0 },
+        { L"SFZ2 960531 (CPS2 Brazil ROM07a)", L"sz2b.07a", 0x7d19d5ec, 0 },
+        { L"SFZ2 (CPS2 Brazil ROM08)", L"sz2b.08", 0x92b66e01, 0 },
 
-        { L"SFZ2 960403 (CPS2 Hispanic)", L"sz2h.07", 0x947e8ac6, 0 },
-        { L"SFZ2 960403 (CPS2 Hispanic)", L"sz2h.08", 0x92b66e01, 0 },
+        { L"SFZ2 960403 (CPS2 Hispanic ROM07)", L"sz2h.07", 0x947e8ac6, 0 },
+        { L"SFZ2 960403 (CPS2 Hispanic ROM08)", L"sz2h.08", 0x92b66e01, 0 },
 
-        { L"SFZ2 960403 (CPS2 Japan)", L"sz2j.07b", 0x6352f038, 0 },
-        { L"SFZ2 960403 (CPS2 Japan)", L"sz2j.08b", 0x92b66e01, 0 },
+        { L"SFZ2 960403 (CPS2 Japan ROM07b)", L"sz2j.07b", 0x6352f038, 0 },
+        { L"SFZ2 960403 (CPS2 Japan ROM08b)", L"sz2j.08b", 0x92b66e01, 0 },
 
         { L"SFA2 Expansion Hack (CPS2)", L"sz2u.09", 0x35cce97b, 0 },
     };

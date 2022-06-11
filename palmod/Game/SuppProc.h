@@ -7,9 +7,9 @@ constexpr UINT16 SUPP_END   = 0xFFFF;
 // The "Palette increment" value is for MvC2 only.  It indicates the step between each iteration of that particular extra for that character.
 // So a palette increment value of 0x10 means that the LP extra is found at (initial + (0 * 0x10)), the LK extra is found at (initial + (1 * 0x10)),
 // and so forth.  Just set as 0 or for anything other than mvc2.
-// Note that SUPP_NODE does an implicit copy from source to destination: combine with SUPP_NODE_NOCOPY if you don't want that.
+// Note that SUPP_NODE does an implicit copy from source to destination: use SUPP_NODE_NOCOPY if you don't want that.
 constexpr UINT16 SUPP_NODE          = 0x4000;
-// All processing does a full copy of the palette first unless you include this flag.
+// All processing does a full copy of the palette first unless you use this flag.
 constexpr UINT16 SUPP_NODE_NOCOPY   = 0x4004;
 
 // MOD_COPY is form: source_start_pos, length_of_copy, dest_start_pos

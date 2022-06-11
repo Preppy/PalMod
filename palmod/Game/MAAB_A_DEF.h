@@ -117,7 +117,7 @@ MAABFileData MAAB_A_CharacterData[] =
     { L"act\\partner\\partner_0D_00.pal",   L"Support Knight",          L"Clone Merchant Arthur",       65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Support, 0x12 },
     { L"act\\partner\\partner_13_00.pal",   L"Support Knight",          L"Clone Pharsalia",             65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Support, 0x0a },
     { L"act\\partner\\partner_0F_00.pal",   L"Support Knight",          L"Clone Scathach",              65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Support, 0x0b },
-    { L"act\\partner\\partner_00_00.pal",   L"Support Knight",          L"Clone Techno-Smith Arthur",   65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Support, (UINT32)-1 }, // not available yet
+    { L"act\\partner\\partner_00_00.pal",   L"Support Knight",          L"Clone Techno-Smith Arthur",   65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Support, 0x1f },
     { L"act\\partner\\partner_10_00.pal",   L"Support Knight",          L"Clone Uathach",               65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Support, 0x0c },
     { L"act\\partner\\partner_1B_00.pal",   L"Support Knight",          L"Foible Elle",                 65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Support, 0x0e },
     { L"act\\partner\\partner_0A_00.pal",   L"Support Knight",          L"Monarch Constantine",         65552,    MAABPaletteNamesSupport,   0x10, indexArcanaSprites_Support, 0x0d },

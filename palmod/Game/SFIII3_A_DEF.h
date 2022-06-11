@@ -1665,6 +1665,7 @@ const sGame_PaletteDataset SFIII3_A_NECRO_PORTRAIT_PALETTES[] =
 {
     { L"Necro portrait (Normal)", 0x070D200, 0x070D380, index3SSprites_Necro, 0x20, nullptr, &secondaryGreyTintEffects },
     { L"Necro portrait (Faded)", 0x0712000, 0x0712180, index3SSprites_Necro, 0x20 },
+
     { L"Necro Character Select Icon", 0x070B980, 0x070BA00, index3SSprites_Necro, 0x22, nullptr, &secondaryGreyTintEffects },
     { L"Necro Character Select Icon (Faded)", 0x710780, 0x710800, index3SSprites_Necro, 0x22 },
 };
@@ -2151,19 +2152,22 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Round Markers",                     0x708c60, 0x708c80, index3SSprites_Bonus, 0x07 },
 
     { L"Final Results",                     0x70bf00, 0x70bf80, index3SSprites_Bonus, 0x01, nullptr, &secondaryGreyTintEffects },
-    { L"Final Results (Faded)",             0x710d00, 0x710d80, index3SSprites_Bonus, 0x01 },
+        { L"Final Results (Faded)",             0x710d00, 0x710d80, index3SSprites_Bonus, 0x01 },
     { L"Select Background",                 0x709D80, 0x709E00, index3SSprites_Bonus, 0x00, nullptr, &secondaryGreyTintEffects },
-    { L"Select Background (Faded)",         0x70EB80, 0x70EC00, index3SSprites_Bonus, 0x00 },
+        { L"Select Background (Faded)",         0x70EB80, 0x70EC00, index3SSprites_Bonus, 0x00 },
     { L"Select Screen - Blue Arrows",       0x709A80, 0x709B00, index3SSprites_Bonus, 0x14, nullptr, &secondaryGreyTintEffects },
-    { L"Select Screen - Blue Arrows (Faded)", 0x70e880, 0x70e900, index3SSprites_Bonus, 0x14 },
+        { L"Select Screen - Blue Arrows (Faded)", 0x70e880, 0x70e900, index3SSprites_Bonus, 0x14 },
     { L"Select Screen - Cursor Rings",      0x70A000, 0x70A080, index3SSprites_Bonus, 0x12 },
 
     { L"Win Screen BG", 0x70a400, 0x70a480, index3SSprites_Bonus, 0x23, nullptr, &secondaryGreyTintEffects },
-    { L"Win Screen BG (Faded)", 0x70f200, 0x70f280, index3SSprites_Bonus, 0x23 },
+        { L"Win Screen BG (Faded)", 0x70f200, 0x70f280, index3SSprites_Bonus, 0x23 },
     { L"Loss Screen BG", 0x70b680, 0x70b700, index3SSprites_Bonus, 0x24, nullptr, &secondaryGreyTintEffects },
-    { L"Loss Screen BG (Faded)", 0x710480, 0x710500, index3SSprites_Bonus, 0x24 },
+        { L"Loss Screen BG (Faded)", 0x710480, 0x710500, index3SSprites_Bonus, 0x24 },
     { L"Loss Screen BG 2", 0x70b580, 0x70b600, index3SSprites_Bonus, 0x25, nullptr, &secondaryGreyTintEffects },
-    { L"Loss Screen BG 2 (Faded)", 0x710380, 0x710400, index3SSprites_Bonus, 0x25 },
+        { L"Loss Screen BG 2 (Faded)", 0x710380, 0x710400, index3SSprites_Bonus, 0x25 },
+
+    { L"Necro Win/Loss Screen BG", 0x70B480, 0x70B500, index3SSprites_Bonus, 0x25, nullptr, &secondaryGreyTintEffects },
+        { L"Necro Win/Loss Screen BG (Faded)", 0x710280, 0x710300, index3SSprites_Bonus, 0x25 },
 
     { L"VS Text 1", 0x70c800, 0x70c880, index3SSprites_Bonus, 0x1e },
     { L"VS Text 2", 0x70c880, 0x70c900, index3SSprites_Bonus, 0x1e },
@@ -2176,28 +2180,46 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"VS Text Flash 1", 0x70c780, 0x70c800, index3SSprites_Bonus, 0x1e },
     { L"VS Text Flash 2", 0x70cc00, 0x70cc80, index3SSprites_Bonus, 0x1e },
 
-    { L"Opening ring animation + SA Text",  0x709D00, 0x709D80 },
+
+    { L"Opening ring animation + SA Text",  0x709D00, 0x709D80, index3SSprites_Bonus, -1, nullptr, &secondaryGreyTintEffects },
+        { L"Opening ring animation + SA Text (Faded)",  0x70eb00, 0x70eb80 },
+
     { L"SA Animation",                      0x77A280, 0x77A2A0, index3SSprites_Bonus, 0x1f },
     { L"P1 Impacts",                        0x76AC80, 0x76AD00, index3SSprites_Bonus, 0x1d },
     { L"P2 Impacts",                        0x76AC00, 0x76AC80, index3SSprites_Bonus, 0x1d },
-    { L"Numerals, Inputs, Buttons: Super Art Selector", 0x709E00, 0x709E80 },
-    { L"Super Art Panels",                  0x709B00, 0x709B80, index3SSprites_Bonus, 0x13 },
-    { L"SUV Portrait",                      0x70E600, 0x70E780, index3SSprites_Bonus, 0x30 },
-    { L"Basketball Sean Portrait",          0x70E780, 0x70E880, index3SSprites_Sean, 0x10, nullptr, &secondaryGreyTintEffects },
-    { L"Basketball Sean Portrait (Faded)",  0x713580, 0x713680, index3SSprites_Sean, 0x10 },
 
-    { L"Universal Zap Skeleton",            0x76ad00, 0x76ad80, index3SSprites_Bonus, 0x15 },
+    { L"Numerals, Inputs, Buttons: Super Art Selector", 0x709E00, 0x709E80, index3SSprites_Bonus, -1, nullptr, &secondaryGreyTintEffects },
+        { L"Numerals, Inputs, Buttons: Super Art Selector (Faded)", 0x70ec00, 0x70ec80 },
+    { L"Super Art Panels",                  0x709B00, 0x709B80, index3SSprites_Bonus, 0x13, nullptr, &secondaryGreyTintEffects },
+        { L"Super Art Panels (Faded)",          0x70e900, 0x70e980, index3SSprites_Bonus, 0x13 },
+    { L"SUV Portrait",                      0x70E600, 0x70E780, index3SSprites_Bonus, 0x30, nullptr, &secondaryGreyTintEffects },
+        { L"SUV portrait (Faded)",              0x713400, 0x713580, index3SSprites_Bonus, 0x30 },
+    { L"Basketball Sean Portrait",          0x70E780, 0x70E880, index3SSprites_Sean, 0x10, nullptr, &secondaryGreyTintEffects },
+        { L"Basketball Sean Portrait (Faded)",  0x713580, 0x713680, index3SSprites_Sean, 0x10 },
+
+    { L"Universal Zap Skeleton 1/2",        0x76ad00, 0x76ad80, index3SSprites_Bonus, 0x15 },
+    { L"Universal Zap Skeleton 2/2",        0x708a00, 0x708a80, index3SSprites_Bonus, 0x15 },
     { L"Dizzies",                           0x708980, 0x708a00, index3SSprites_Bonus, 0x1c },
 };
 
 const sGame_PaletteDataset SFIII3_A_BONUS_VSBG_PALETTES[] =
 {
-    { L"VS Screen (1/6)",                   0x70a680, 0x70a880, index3SSprites_Bonus, 0x16, &pairFullyLinkedNode },
-    { L"VS Screen (2/6)",                   0x70a880, 0x70aa80, index3SSprites_Bonus, 0x17 },
-    { L"VS Screen (3/6)",                   0x70aa80, 0x70ac80, index3SSprites_Bonus, 0x18 },
-    { L"VS Screen (4/6)",                   0x70ac80, 0x70ae80, index3SSprites_Bonus, 0x19 },
-    { L"VS Screen (5/6)",                   0x70ae80, 0x70b080, index3SSprites_Bonus, 0x1a },
-    { L"VS Screen (6/6)",                   0x70b080, 0x70b280, index3SSprites_Bonus, 0x1b },
+    { L"VS Screen (1/6)",                   0x70a680, 0x70a880, index3SSprites_Bonus, 0x16, &pairFullyLinkedNode, &secondaryGreyTintEffects_Skip5 },
+    { L"VS Screen (2/6)",                   0x70a880, 0x70aa80, index3SSprites_Bonus, 0x17, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"VS Screen (3/6)",                   0x70aa80, 0x70ac80, index3SSprites_Bonus, 0x18, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"VS Screen (4/6)",                   0x70ac80, 0x70ae80, index3SSprites_Bonus, 0x19, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"VS Screen (5/6)",                   0x70ae80, 0x70b080, index3SSprites_Bonus, 0x1a, nullptr, &secondaryGreyTintEffects_Skip5 },
+    { L"VS Screen (6/6)",                   0x70b080, 0x70b280, index3SSprites_Bonus, 0x1b, nullptr, &secondaryGreyTintEffects_Skip5 },
+};
+
+const sGame_PaletteDataset SFIII3_A_BONUS_VSBG_FADED_PALETTES[] =
+{
+    { L"VS Screen Faded (1/6)",             0x70f480, 0x70f680, index3SSprites_Bonus, 0x16, &pairFullyLinkedNode },
+    { L"VS Screen Faded (2/6)",             0x70f680, 0x70f880, index3SSprites_Bonus, 0x17 },
+    { L"VS Screen Faded (3/6)",             0x70f880, 0x70fa80, index3SSprites_Bonus, 0x18 },
+    { L"VS Screen Faded (4/6)",             0x70fa80, 0x70fc80, index3SSprites_Bonus, 0x19 },
+    { L"VS Screen Faded (5/6)",             0x70fc80, 0x70fe80, index3SSprites_Bonus, 0x1a },
+    { L"VS Screen Faded (6/6)",             0x70fe80, 0x710080, index3SSprites_Bonus, 0x1b },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUD_PALETTES[] =
@@ -2883,6 +2905,7 @@ const sDescTreeNode SFIII3_A_BONUS_COLLECTION[] =
     { L"Super Meter",           DESC_NODETYPE_TREE, (void*)SFIII3_A_SUPERMETER_PALETTES, ARRAYSIZE(SFIII3_A_SUPERMETER_PALETTES) },
     { L"Judgement Girls",       DESC_NODETYPE_TREE, (void*)SFIII3_A_JGIRLS_PALETTES, ARRAYSIZE(SFIII3_A_JGIRLS_PALETTES) },
     { L"Vs Screen BG",          DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_VSBG_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_VSBG_PALETTES) },
+    { L"Vs Screen BG (Faded)",  DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_VSBG_FADED_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_VSBG_FADED_PALETTES) },
     { L"Bonus",                 DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_PALETTES) },
 };
 
