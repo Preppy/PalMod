@@ -48,56 +48,103 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_Next12 =
     },
 };
 
+const std::vector<std::vector<UINT16>> paletteBuddy_3SAlex_HandlePortraits =
+{
+    {
+    // Judgement Portrait
+     SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+        // Slightly darker than the portrait
+        // Skin tone for four pixels
+          MOD_COPY, 4, 1, 1,
+          MOD_COPY, 6, 1, 2,
+          MOD_COPY, 8, 1, 3,
+          MOD_COPY, 11, 1, 4,
+        // Body paint? for one
+          MOD_COPY, 6, 1, 5,
+        // pupil for one
+          MOD_COPY, 33, 1, 6,
+        // eye shadow for one
+        // Bandana for three
+          MOD_COPY, 49, 2, 8,
+          MOD_COPY, 52, 1, 10,
+        // Hair for four
+          MOD_COPY, 53, 3, 11,
+          MOD_COPY, 57, 1, 14,
+        // Background, don't change
+
+    // HUD portrait
+    SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+        // Leave the border
+        // Leave the background
+        // Leave the black eyes
+        // Skin tone for five pixels
+          MOD_COPY, 1, 1, 4,
+          MOD_COPY, 4, 1, 5,
+          MOD_COPY, 7, 2, 6,
+          MOD_COPY, 10, 1, 8,
+        // Body paint for one
+          MOD_COPY, 60, 1, 9,
+        // Bandana for two
+          MOD_COPY, 49, 1, 10,
+          MOD_COPY, 51, 1, 11,
+        // Hair for three
+          MOD_COPY, 53, 2, 12,
+          MOD_COPY, 56, 1, 14,
+        // Unused
+    }
+};
+
 const stPaletteProcessingInformation secondary3SGillSwapEffects_Next{ paletteBuddy_3SGill_SwapSides_Next };
 const stPaletteProcessingInformation secondary3SGillSwapEffects_Next12{ paletteBuddy_3SGill_SwapSides_Next12 };
+const stPaletteProcessingInformation secondary3SAlexEffects_UpdatedPortraits{ paletteBuddy_3SAlex_HandlePortraits };
 
 #pragma endregion
 
 const sGame_PaletteDataset SFIII3_A_ALEX_LP_PALETTES[] =
 {
-    { L"LP Main", 0x700600, 0x700680, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"LP Main", 0x700600, 0x700680, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
     { L"LP Portrait", 0x763be0, 0x763c00, index3SSprites_Alex, 0x01 },
     { L"LP Judgement Portrait", 0x789920, 0x789940, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_MP_PALETTES[] =
 {
-    { L"MP Main", 0x700680, 0x700700, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"MP Main", 0x700680, 0x700700, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
     { L"MP Portrait", 0x763c00, 0x763c20, index3SSprites_Alex, 0x01 },
     { L"MP Judgement Portrait", 0x789c20, 0x789c40, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_HP_PALETTES[] =
 {
-    { L"HP Main", 0x700700, 0x700780, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"HP Main", 0x700700, 0x700780, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
     { L"HP Portrait", 0x763c20, 0x763c40, index3SSprites_Alex, 0x01 },
     { L"HP Judgement Portrait", 0x789f20, 0x789f40, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_LK_PALETTES[] =
 {
-    { L"LK Main", 0x700780, 0x700800, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"LK Main", 0x700780, 0x700800, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
     { L"LK Portrait", 0x763c40, 0x763c60, index3SSprites_Alex, 0x01 },
     { L"LK Judgement Portrait", 0x78a220, 0x78a240, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_MK_PALETTES[] =
 {
-    { L"MK Main", 0x700800, 0x700880, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"MK Main", 0x700800, 0x700880, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
     { L"MK Portrait", 0x763c60, 0x763c80, index3SSprites_Alex, 0x01 },
     { L"MK Judgement Portrait", 0x78a520, 0x78a540, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_HK_PALETTES[] =
 {
-    { L"HK Main", 0x700880, 0x700900, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"HK Main", 0x700880, 0x700900, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
     { L"HK Portrait", 0x763c80, 0x763ca0, index3SSprites_Alex, 0x01 },
     { L"HK Judgement Portrait", 0x78a820, 0x78a840, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_EX_PALETTES[] =
 {
-    { L"EX Main", 0x700900, 0x700980, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"EX Main", 0x700900, 0x700980, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
     { L"EX Portrait", 0x763ca0, 0x763cc0, index3SSprites_Alex, 0x01 },
     { L"EX Judgement Portrait", 0x78ab20, 0x78ab40, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };

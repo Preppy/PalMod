@@ -228,19 +228,20 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
 
     uint32_t nLastDestinationPalette = 0;
     uint16_t nCountPalettesModified = 0;
+    uint16_t indexCounterForEffects = 0;
 
-    for (const std::vector<UINT16>& currentEffectsData : supplementalEffectsData)
+    for (const std::vector<uint16_t>& currentEffectsData : supplementalEffectsData)
     {
-        UINT16 currentEffectsToken = currentEffectsData[0];
+        uint16_t currentEffectsToken = currentEffectsData[indexCounterForEffects++];
 
         // Some variant of SUPP_NODE or SUPP_NODE_* indicates the beginning of a new modifier array
             //Possible sources = SUPP_NODE, SUPP_NODE_EX, SUPP_NODE_ABSOL, SUPP_NODE_EX | SUPP_NODE_NOCOPY, SUPP_NODE_EX | SUPP_NODE_ABSOL
         // The _EX syntax is unique to MVC2 where MVC2 crosses nodes from core button colors to the shared extra nodes.
-        if ((currentEffectsToken & 0xF000) == SUPP_NODE)
+        while (currentEffectsToken & SUPP_NODE)
         {
             OutputDebugString(L"\tProcessAdditionalPaletteChangesRequired: New modification node encountered\n");
 
-            UINT16 in_start = currentEffectsData[1];
+            uint16_t in_start = currentEffectsData[indexCounterForEffects++];
 
             // Figure out what palettes we're going to be modifying
             uint32_t destination_palette = nChangedPaletteNumber + (in_start & 0x7FFF);
@@ -258,7 +259,7 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
 
             MarkPaletteDirty(nUnitId, destination_palette);
 
-            const UINT16 copy_amt_max = GetCurrentPaletteSizeInColors();
+            const uint16_t copy_amt_max = GetCurrentPaletteSizeInColors();
 
             // Unless we get told otherwise, we do a copy first and then worry about modifying values.
             if (currentEffectsToken != SUPP_NODE_NOCOPY)
@@ -269,23 +270,34 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
                 ProcessSecondaryCopyWithIndex(nUnitId, nChangedPaletteNumber, destination_palette, copy_dst, copy_start, static_cast<UINT8>(copy_amt_max));
             }
 
-            //Set the counter past the indexes into the actual actions and reset the step counter
-            UINT16 indexCounterForEffects = 3; // Minimum set of data for a SUPP_NODE entry: <node_type>, <palette distance>, <unused>
+            // Minimum set of data for a SUPP_NODE entry: <node_type>, <palette distance>, <unused>
+            indexCounterForEffects++; // walk past the token that's only used for mvc2
+            // We're now past the indexes into the actual actions
 
             while (indexCounterForEffects < currentEffectsData.size())
             {
                 currentEffectsToken = currentEffectsData[indexCounterForEffects];
 
+                if (currentEffectsToken & SUPP_NODE)
+                {
+                    OutputDebugString(L"\tEncountered new node...\n");
+                    indexCounterForEffects++;
+                    break;
+                }
+
                 OutputDebugString(L"\t\t\tProcessing FX for this node\n");
 
                 //pi = palette index - value should be from 0 to <palette length>, maxing at 255.
-                UINT8 pi_start = (UINT8)currentEffectsData[indexCounterForEffects + 1];
-                UINT8 pi_amt = (UINT8)currentEffectsData[indexCounterForEffects + 2];
+                uint8_t pi_start = static_cast<uint8_t>(currentEffectsData[indexCounterForEffects + 1]);
+                uint8_t pi_amt = static_cast<uint8_t>(currentEffectsData[indexCounterForEffects + 2]);
 
                 // While this would normally be error-checking, this also has the side effect of allowing us to 
                 // specify max palette size possible for variable length portrait/stage/csi palettes that we want to
                 // tint using generic logic
-                pi_amt = min(copy_amt_max - pi_start, pi_amt);
+                if (copy_amt_max > pi_start)
+                {
+                    pi_amt = min(copy_amt_max - pi_start, pi_amt);
+                }
 
                 switch (currentEffectsToken)
                 {
@@ -327,8 +339,8 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
                 case MOD_SAT:
                 {
                     // We have first done a full copy of the source palette to dest palette here, and now we apply desired LUM/SAT tweaks.
-                    UINT16 mod_type = currentEffectsData[indexCounterForEffects];
-                    UINT16 mod_amt = currentEffectsData[indexCounterForEffects + 3];
+                    uint16_t mod_type = currentEffectsData[indexCounterForEffects];
+                    uint16_t mod_amt = currentEffectsData[indexCounterForEffects + 3];
 
                     ProcessSecondaryHSLEffects(nUnitId, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
 
@@ -337,6 +349,7 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
                 }
                 default:
                     OutputDebugString(L"Error: bogus token in supp_proc commands.\n");
+                    indexCounterForEffects++;
                     break;
                 }
             }
