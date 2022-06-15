@@ -2125,7 +2125,15 @@ BOOL CGameClass::SaveFileForSIMMGame(CFile* SaveFile, uint32_t nSIMMNumber)
 bool CGameClass::FindROMVersionFromByteSniff(CFile* LoadedFile, std::vector<ROMRevisionLookupData> vKnownROMVersions, uint16_t& nSniffedVersion, uint32_t nOffsetForRead /* = 0 */)
 {
     std::vector<uint16_t> vnSniffedBytes;
-    vnSniffedBytes.resize(vKnownROMVersions.size());
+
+    size_t nMaxSize = 0;
+
+    for (ROMRevisionLookupData possibleVersion : vKnownROMVersions)
+    {
+        nMaxSize = max(nMaxSize, possibleVersion.nBytesToMatch.size());
+    }
+
+    vnSniffedBytes.resize(nMaxSize);
 
     LoadedFile->Seek(nOffsetForRead, CFile::begin);
     LoadedFile->Read(vnSniffedBytes.data(), vnSniffedBytes.size() * 2);
