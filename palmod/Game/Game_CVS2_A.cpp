@@ -199,6 +199,64 @@ void CGame_CVS2_A::DumpAllCharacters()
     }
 }
 
+void CGame_CVS2_A::WarnIfROMIsEncrypted(CFile* LoadedFile)
+{
+    enum class CVS2_KnownROMTypes
+    {
+        CVS2_GDL_Decrypted,
+        CVS2_GDL_Encrypted,
+        CVS2_Unsupported,
+    };
+
+    // Make sure we're looking at a decrypted version of the ROM: warn if not.
+    uint16_t detectedROMVersion = static_cast<uint16_t>(CVS2_KnownROMTypes::CVS2_Unsupported);
+
+    const std::vector<ROMRevisionLookupData> CVS2ROMs =
+    {
+        {
+            static_cast<uint16_t>(CVS2_KnownROMTypes::CVS2_GDL_Encrypted),
+            {   0x53e3, 0x5063, 0x9d03, 0x154b }
+        },
+        {
+            static_cast<uint16_t>(CVS2_KnownROMTypes::CVS2_GDL_Decrypted),
+            {   0x414e, 0x4d4f, 0x2049, 0x2020 }
+        },
+    };
+
+    if (FindROMVersionFromByteSniff(LoadedFile, CVS2ROMs, detectedROMVersion))
+    {
+        CVS2_KnownROMTypes currentCVS2ROMType = static_cast<CVS2_KnownROMTypes>(detectedROMVersion);
+
+        if (currentCVS2ROMType == CVS2_KnownROMTypes::CVS2_GDL_Encrypted)
+        {
+            CString strWarning;
+            if (strWarning.LoadString(IDS_ERROR_ENCRYPTED))
+            {
+                MessageBox(g_appHWnd, strWarning, GetHost()->GetAppName(), MB_ICONSTOP);
+            }
+        }
+    }
+    else
+    {
+        OutputDebugString(L"\tThis is an unknown CvS2 ROM.\n");
+
+        CString strMessage;
+        if (strMessage.LoadString(IDS_ERROR_UNKNOWNROM))
+        {
+            MessageBox(g_appHWnd, strMessage.GetString(), GetHost()->GetAppName(), MB_ICONWARNING);
+        }
+    }
+
+    return;
+}
+
+BOOL CGame_CVS2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
+{
+    WarnIfROMIsEncrypted(LoadedFile);
+
+    return CGameClass::LoadFile(LoadedFile, nUnitId);
+}
+
 sDescTreeNode* CGame_CVS2_A::InitDescTree()
 {
     //Load extra file if we're using it

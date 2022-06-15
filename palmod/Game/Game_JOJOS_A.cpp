@@ -68,7 +68,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     m_nTotalInternalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
-    const UINT32 nSafeCountFor50 = 478;
+    const UINT32 nSafeCountFor50 = 476;
     const UINT32 nSafeCountFor51 = 1823;
 
     m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
@@ -857,10 +857,9 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             fUseDefaultPaletteLoad = false;
                         }
                     }
-                    else if ((NodeGet->uUnitId == indexJojos51Kakyo) ||
-                             (NodeGet->uUnitId == indexJojos51NewKakyo))
+                    else if (NodeGet->uUnitId == indexJojos51NewKakyo)
                     {
-                        // Hieros
+                        // Hieros: show the glow/changing palette on top of a normal Kakyo
                         nPaletteOneDelta = 0;
                         nPaletteTwoDelta = -nSrcStart;
                         fUseDefaultPaletteLoad = false;
@@ -902,10 +901,10 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         UINT16 imageOne = paletteDataSetOne->indexOffsetToUse;
                         UINT16 imageTwo = paletteDataSetTwo->indexOffsetToUse;
 
-                        if (((NodeGet->uUnitId == indexJojos51Kakyo) || (NodeGet->uUnitId == indexJojos51NewKakyo)) &&
+                        if ((NodeGet->uUnitId == indexJojos51NewKakyo) &&
                             !((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)))
                         {
-                            // Kakyo/NewKakyo uses special logic as the paired palette actually is aligned to a "full" sprite.
+                            // NewKakyo uses special logic as the paired palette actually is aligned to a "full" sprite.
                             imageOne = 1;
                             imageTwo = 2;
                         }

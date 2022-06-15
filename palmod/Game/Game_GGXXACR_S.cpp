@@ -567,7 +567,7 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
             m_fIsFileSetEncrypted = true;
 
             CString strWarning;
-            if (strWarning.LoadString(IDS_GGXXACR_ENCRYPTED))
+            if (strWarning.LoadString(IDS_ERROR_ENCRYPTED))
             {
                 MessageBox(g_appHWnd, strWarning, GetHost()->GetAppName(), MB_ICONSTOP);
             }

@@ -237,7 +237,7 @@ SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::GetSFIII3ROMVersion(CFile* Loade
     {
         OutputDebugString(L"\tThis is an unknown SFIII3 ROM.\n");
         CString strMessage;
-        if (strMessage.LoadString(IDS_SF3_UNKNOWNROM))
+        if (strMessage.LoadString(IDS_ERROR_UNKNOWNROM))
         {
             MessageBox(g_appHWnd, strMessage.GetString(), GetHost()->GetAppName(), MB_ICONWARNING);
         }

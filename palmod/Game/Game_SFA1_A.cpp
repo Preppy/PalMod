@@ -41,7 +41,7 @@ CGame_SFA1_A::CGame_SFA1_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = SFA1_A_NUMUNIT;
     m_nExtraUnit = SFA1_A_EXTRALOC;
-    m_nSafeCountForThisRom = 234 + GetExtraCt(SFA1_A_EXTRALOC);
+    m_nSafeCountForThisRom = 245 + GetExtraCt(SFA1_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA1;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA1;
     m_nLowestKnownPaletteRomLocation = 0x6795e;

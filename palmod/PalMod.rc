@@ -822,15 +822,14 @@ BEGIN
     IDS_PNGLOAD_NOTABLE     "Cannot use this PNG: it does not contain a palette table."
     IDS_WELCOME_BACKUP      "Always keep a backup of files!"
     IDS_SETBACKGROUND_FULL  "Do you want to switch to only use this background color and not also use the image?"
-    IDS_SFA2_UNKNOWNROM     "This doesn't look like a supported SFA2 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
-    IDS_SF3_UNKNOWNROM      "This doesn't look like a supported SFIII3 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
+    IDS_ERROR_UNKNOWNROM     "This doesn't look like a supported ROM.  We'll try, but if it doesn't look right please don't use this ROM."
     IDS_EXTRAS_SIMMBOUNDARY "Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."
     IDS_COLOR_WRONGSIZE     "Error: this game is using the wrong color size.  This needs to be fixed for the game to work."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_GGXXACR_ENCRYPTED   "These files are encrypted and should not be used.  You will need to get the decrypted files and use those instead."
+    IDS_ERROR_ENCRYPTED     "These files are encrypted and should not be used.  You will need to get the decrypted files and use those instead."
 END
 
 #endif    // English (United States) resources

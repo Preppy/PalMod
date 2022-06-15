@@ -61,7 +61,7 @@ const std::vector<UINT16> DBFCI_A_IMGIDS_USED =
     indexFrenchBreadSprites_DBFCI_Touma,         // 0x30
     indexFrenchBreadSprites_DBFCI_Wilhelmina,    // 0x31
     indexFrenchBreadSprites_DBFCI_Zero,          // 0x32
-	indexFrenchBreadSprites_DBFCI_Bonus,          // 0x33
+    indexFrenchBreadSprites_DBFCI_Bonus,         // 0x33
 };
 
 struct DBFCINodeData
@@ -212,7 +212,8 @@ struct DBFCIFileData
     UINT32 nExpectedFileSize = 0;
     const std::vector<LPCWSTR> ppszPaletteList;
     UINT32 nInitialLocation = 0;
-    UINT32 nSpriteIndex = 0;
+    UINT32 nImageUnitIndex = 0;
+    UINT32 nImagePreviewIndex = 0;
 };
 
 const DBFCIFileData DBFCICharacterData[] =
@@ -239,31 +240,31 @@ const DBFCIFileData DBFCICharacterData[] =
     { L"data\\_csel\\Yuk.pal",    L"Yuuki",          65540,    DBFCIPaletteNamesNormal,    0x4,  indexFrenchBreadSprites_DBFCI_Yuuki },
     
     // Support characters
-    { L"data\\Acr_s_0\\Acr_s.pal",  L"Accelerator&Last Order", 65540, DBFCIPaletteNamesSupport,     0x4,  indexFrenchBreadSprites_DBFCI_AcceleratorLastOrder },
+    { L"data\\Acr_s_0\\Acr_s.pal",  L"Accelerator&Last Order", 65540, DBFCIPaletteNamesSupport,     0x4,  indexFrenchBreadSprites_DBFCI_Bonus, 0x00 },
     { L"data\\Alc_s_0\\Alc_s.pal",  L"Alicia",          65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Alicia },
     { L"data\\Har_s_0\\Har_s.pal",  L"Arita",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Arita },
     { L"data\\Bog_s_0\\Bog_s.pal",  L"Boogiepop",       65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Boogiepop },
     { L"data\\Crt_s_0\\Crt_s.pal",  L"Celty",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Celty },
     { L"data\\Dok_s_0\\Dok_s.pal",  L"Dokuro-Chan",     65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_DokuroChan },
-    { L"data\\Aen_s_0\\Aen_s.pal",  L"Enju",            65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Enju },
+    { L"data\\Aen_s_0\\Aen_s.pal",  L"Enju",            65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Bonus, 0x01 },
     { L"data\\Ero_s_0\\Ero_s.pal",  L"Erio",            65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Erio },
     { L"data\\Fro_s_0\\Fro_s.pal",  L"Frolaytia",       65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Frolaytia },
     { L"data\\Hol_s_0\\Hol_s.pal",  L"Holo",            65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Holo },
-    { L"data\\Ino_s_0\\Ino_s.pal",  L"Innocent Charm",  65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_InnocentCharm },
+    { L"data\\Ino_s_0\\Ino_s.pal",  L"Innocent Charm",  65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Bonus, 0x02 },
     { L"data\\Izy_s_0\\Izy_s.pal",  L"Izaya",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Izaya },
     { L"data\\Iry_s_0\\Iry_s.pal",  L"Kana",            65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Kana },
     { L"data\\Uih_s_0\\Uih_s.pal",  L"Kazari",          65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Kazari },
     { L"data\\Kin_s_0\\Kin_s.pal",  L"Kino",            65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Kino },
     { L"data\\Akj_s_0\\Akj_s.pal",  L"Kojou",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Kojou },
     { L"data\\Kgk_s_0\\Kgk_s.pal",  L"Kokou",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Kokou },
-    { L"data\\Kro_s_0\\Kro_s.pal",  L"Kuroneko",        65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Kuroneko },
-    { L"data\\Lea_s_0\\Lea_s.pal",  L"Leafa",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Leafa },
+    { L"data\\Kro_s_0\\Kro_s.pal",  L"Kuroneko",        65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Bonus, 0x03 },
+    { L"data\\Lea_s_0\\Lea_s.pal",  L"Leafa",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Bonus, 0x04 },
     { L"data\\Ren_s_0\\Ren_s.pal",  L"Llenn",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Llenn },
     { L"data\\Mas_s_0\\Mas_s.pal",  L"Mashiro",         65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Mashiro },
     { L"data\\Smy_s_0\\Smy_s.pal",  L"Miyuki Support",  66564,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_MiyukiAssist },
     { L"data\\Pai_s_0\\Pai_s.pal",  L"Pai",             65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_PaiChan },
     { L"data\\Rus_s_0\\Rus_s.pal",  L"Rusian",          65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Rusian },
-    { L"data\\Tks_s_0\\Tks_s.pal",  L"Ryuji",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Ryuji },
+    { L"data\\Tks_s_0\\Tks_s.pal",  L"Ryuji",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Bonus, 0x05 },
     { L"data\\Mou_s_0\\Mou_s.pal",  L"Sadao",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Sadao },
     { L"data\\Sbt_s_0\\Sbt_s.pal",  L"Tatsuya Support", 65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_TatsuyaAssist },
     { L"data\\Asm_s_0\\Asm_s.pal",  L"Tomo",            65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Tomo },
@@ -498,8 +499,8 @@ BOOL CGame_DBFCI_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     //Change the image id if we need to
-    int nTargetImgId = 0;
-    uint32_t nImgUnitId = DBFCICharacterData[NodeGet->uUnitId].nSpriteIndex;
+    uint32_t nImgUnitId = DBFCICharacterData[NodeGet->uUnitId].nImageUnitIndex;
+    uint32_t nTargetImgId = DBFCICharacterData[NodeGet->uUnitId].nImagePreviewIndex;
 
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists

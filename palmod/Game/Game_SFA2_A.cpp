@@ -1600,7 +1600,7 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
         OutputDebugString(L"\tThis is an unknown SFA2 ROM.\n");
 
         CString strMessage;
-        if (strMessage.LoadString(IDS_SFA2_UNKNOWNROM))
+        if (strMessage.LoadString(IDS_ERROR_UNKNOWNROM))
         {
             MessageBox(g_appHWnd, strMessage.GetString(), GetHost()->GetAppName(), MB_ICONWARNING);
         }

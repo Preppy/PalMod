@@ -917,6 +917,11 @@ const sGame_PaletteDataset COTA_A_BONUS_ENDING_PALETTES[] =
     { L"Police (Omega Red ending)", 0x2797c, 0x2799c, indexCPS2Sprites_COTAAssets, 0x0F },
 };
 
+const sGame_PaletteDataset COTA_A_BONUS_BONUS_PALETTES[] =
+{
+    { L"Title Screen Marvel Comics Logo", 0x2631c, 0x2633c },
+};
+
 const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_STATUS[] =
 {
     //Colossus
@@ -1065,15 +1070,15 @@ const sGame_PaletteDataset COTA_A_HUD_PALETTES[] =
     { L"Ready/Perfect/Sudden Death/Combo Counter/General Text", 0x29c9c, 0x29cbc },
     { L"Player 1 Healthbar", 0x29cbc, 0x29cdc },
     { L"Player 2 Healthbar", 0x29cdc, 0x29cfc },
-    { L"Meter Level 1 Cycle (2/5)", 0x2a09c, 0x2a0bc },
-    { L"Meter Level 1 Cycle (3/5)", 0x2a0bc, 0x2a0dc },
-    { L"Meter Level 1 Cycle (4/5)", 0x2a0dc, 0x2a0fc },
-    { L"Meter Level 1 Cycle (5/5)", 0x2a0fc, 0x2a11c },
-    { L"Meter Level 2 Cycle (1/5)", 0x2a1bc, 0x2a1dc },
-    { L"Meter Level 2 Cycle (2/5)", 0x2a1dc, 0x2a1fc },
-    { L"Meter Level 2 Cycle (3/5)", 0x2a1fc, 0x2a21c },
-    { L"Meter Level 2 Cycle (4/5)", 0x2a21c, 0x2a23c },
-    { L"Meter Level 2 Cycle (5/5)", 0x2a23c, 0x2a25c },
+    { L"Meter Level 1 Cycle (1/5)", 0x2a1bc, 0x2a1dc },
+    { L"Meter Level 1 Cycle (2/5)", 0x2a1dc, 0x2a1fc },
+    { L"Meter Level 1 Cycle (3/5)", 0x2a1fc, 0x2a21c },
+    { L"Meter Level 1 Cycle (4/5)", 0x2a21c, 0x2a23c },
+    { L"Meter Level 1 Cycle (5/5)", 0x2a23c, 0x2a25c },
+    { L"Meter Level 2 Cycle (2/5)", 0x2a09c, 0x2a0bc },
+    { L"Meter Level 2 Cycle (3/5)", 0x2a0bc, 0x2a0dc },
+    { L"Meter Level 2 Cycle (4/5)", 0x2a0dc, 0x2a0fc },
+    { L"Meter Level 2 Cycle (5/5)", 0x2a0fc, 0x2a11c },
     { L"Meter Level Max Cycle (1/40)", 0x2a25c, 0x2a27c },
     { L"Meter Level Max Cycle (2/40)", 0x2a27c, 0x2a29c },
     { L"Meter Level Max Cycle (3/40)", 0x2a29c, 0x2a2bc },
@@ -1225,6 +1230,7 @@ const sDescTreeNode COTA_A_BONUS_COLLECTION[] =
     { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)COTA_A_CSI_PALETTES,        ARRAYSIZE(COTA_A_CSI_PALETTES) },
     { L"Select Screen", DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_SELECT_PALETTES,        ARRAYSIZE(COTA_A_BONUS_SELECT_PALETTES) },
     { L"Ending Characters", DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_ENDING_PALETTES,    ARRAYSIZE(COTA_A_BONUS_ENDING_PALETTES) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_BONUS_PALETTES,    ARRAYSIZE(COTA_A_BONUS_BONUS_PALETTES) },
 };
 
 const sDescTreeNode COTA_A_UNITS[] =

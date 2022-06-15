@@ -145,7 +145,7 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
     { L"Chains, Kunai",                          0x40B380, 0x40B400, indexRedEarthSprites_Kenji, 0x01 },
     { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x40B400, 0x40B480, indexRedEarthSprites_Kenji, 0x05 },
     { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x40B480, 0x40B500, indexRedEarthSprites_Kenji, 0x06 },
-    { L"Hk Flash (3/3), DP.1/2/3, Teleport ",    0x40B500, 0x40B580, indexRedEarthSprites_Kenji, 0x07 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport",     0x40B500, 0x40B580, indexRedEarthSprites_Kenji, 0x07 },
     { L"DP.1/2/3 Spark",                         0x40B580, 0x40B600, indexRedEarthSprites_Kenji, 0x03 },
     { L"HCF.4/5/6 Slash",                        0x40B600, 0x40B680, indexRedEarthSprites_Kenji, 0x04 },
     { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x40B700, 0x40B780, indexRedEarthSprites_Kenji, 0x08 },
@@ -787,7 +787,7 @@ const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
     { L"Scion Teleport 2", 0x436f80, 0x437000, indexRedEarthSprites_Scion, 0x00 },
     { L"Scion Teleport 3", 0x437000, 0x437080, indexRedEarthSprites_Scion, 0x00 },
     { L"Scion Teleport 4", 0x437080, 0x437100, indexRedEarthSprites_Scion, 0x00 },
-    { L"Scion Teleport ?", 0x436e80, 0x436f00, indexRedEarthSprites_Scion, 0x00 },
+    { L"Scion Blockstun",  0x436e80, 0x436f00, indexRedEarthSprites_Scion, 0x00 },
 
     { L"Scion Burned 1", 0x439800, 0x439880, indexRedEarthSprites_Scion, 0x00 },
     { L"Scion Burned 2", 0x439880, 0x439900, indexRedEarthSprites_Scion, 0x00 },
@@ -808,7 +808,7 @@ const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
 };
 
 //Extra Stuff
-const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
+const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_CORE_PALETTES[] =
 {
     { L"1P and 2P", 0x1DED80, 0x1DEE00, indexRedEarthSprites_Bonus, 0x00 },
     { L"1P and 2P Flash", 0x1DEE00, 0x1DEE80, indexRedEarthSprites_Bonus, 0x00 },
@@ -844,10 +844,10 @@ const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
     { L"Character Select Transition Skyline (2/4)", 0x1DE680, 0x1DE700, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
     { L"Character Select Transition Skyline (3/4)", 0x1DE700, 0x1DE780, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
     { L"Character Select Transition Skyline (4/4)", 0x1DE780, 0x1DE800, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
-    { L"Vs Screen Transition - Leo (1/4)", 0x406000, 0x406100, indexRedEarthSprites_Bonus, 0x35 },
-    { L"Vs Screen Transition - Kenji (2/4)", 0x406100, 0x406200 },
-    { L"Vs Screen Transition - Tessa (3/4)", 0x406200, 0x406300 },
-    { L"Vs Screen Transition - Mai-Ling (4/4)", 0x406300, 0x406400 },
+    { L"Vs Screen Transition - Leo (1/4)",   0x406000, 0x406100, indexRedEarthSprites_Bonus, 0x35 },
+    { L"Vs Screen Transition - Kenji (2/4)", 0x406100, 0x406200, indexRedEarthSprites_Bonus, 0x35 },
+    { L"Vs Screen Transition - Tessa (3/4)", 0x406200, 0x406300, indexRedEarthSprites_Bonus, 0x35 },
+    { L"Vs Screen Transition - Mai-Ling (4/4)", 0x406300, 0x406400, indexRedEarthSprites_Bonus, 0x35 },
     { L"Victory Screen (1/6)", 0x1DE800, 0x1DE880, indexRedEarthSprites_Bonus, 0x02 },
     { L"Victory Screen (2/6)", 0x1DE880, 0x1DE900, indexRedEarthSprites_Bonus, 0x02 },
     { L"Victory Screen (3/6)", 0x1DE900, 0x1DE980, indexRedEarthSprites_Bonus, 0x02 },
@@ -863,6 +863,118 @@ const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
     { L"Password 5", 0x1e0000, 0x1e0080, indexRedEarthSprites_Bonus, 0x42 },
     { L"Password 6", 0x1e0080, 0x1e0100, indexRedEarthSprites_Bonus, 0x42 },
     { L"Password 7", 0x1e0100, 0x1e0180, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Unknown 1", 0x1df100, 0x1df180 },
+    { L"Unknown 2", 0x1e0180, 0x1e0200 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_P1_PALETTES[] =
+{
+    { L"1P and 2P", 0x1DED80 + 0x2200, 0x1DEE00 + 0x2200, indexRedEarthSprites_Bonus, 0x00 },
+    { L"1P and 2P Flash", 0x1DEE00 + 0x2200, 0x1DEE80 + 0x2200, indexRedEarthSprites_Bonus, 0x00 },
+    { L"Character Selector Ring", 0x1DEE80 + 0x2200, 0x1DEF00 + 0x2200, indexRedEarthSprites_Bonus, 0x01 },
+    { L"Ready Warrior (1/15)", 0x1DF400 + 0x2200, 0x1DF480 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (2/15)", 0x1DF480 + 0x2200, 0x1DF500 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (3/15)", 0x1DF500 + 0x2200, 0x1DF580 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (4/15)", 0x1DF580 + 0x2200, 0x1DF600 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (5/15)", 0x1DF600 + 0x2200, 0x1DF680 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (6/15)", 0x1DF680 + 0x2200, 0x1DF700 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (7/15)", 0x1DF700 + 0x2200, 0x1DF780 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (8/15)", 0x1DF780 + 0x2200, 0x1DF800 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (9/15)", 0x1DF800 + 0x2200, 0x1DF880 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (10/15)", 0x1DF880 + 0x2200, 0x1DF900 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (11/15)", 0x1DF900 + 0x2200, 0x1DF980 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (12/15)", 0x1DF980 + 0x2200, 0x1DFA00 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (13/15)", 0x1DFA00 + 0x2200, 0x1DFA80 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (14/15)", 0x1DFA80 + 0x2200, 0x1DFB00 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (15/15)", 0x1DFB00 + 0x2200, 0x1DFB80 + 0x2200, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Character Select Background Clouds (1/4)", 0x1DE000 + 0x2200, 0x1DE080 + 0x2200, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Clouds (2/4)", 0x1DE080 + 0x2200, 0x1DE100 + 0x2200, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Clouds (3/4)", 0x1DE100 + 0x2200, 0x1DE180 + 0x2200, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Clouds (4/4)", 0x1DE180 + 0x2200, 0x1DE200 + 0x2200, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Skyline (1/4)", 0x1DE200 + 0x2200, 0x1DE280 + 0x2200, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Background Skyline (2/4)", 0x1DE280 + 0x2200, 0x1DE300 + 0x2200, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Background Skyline (3/4)", 0x1DE300 + 0x2200, 0x1DE380 + 0x2200, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Background Skyline (4/4)", 0x1DE380 + 0x2200, 0x1DE400 + 0x2200, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Clouds (1/4)", 0x1DE400 + 0x2200, 0x1DE480 + 0x2200, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Clouds (2/4)", 0x1DE480 + 0x2200, 0x1DE500 + 0x2200, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Clouds (3/4)", 0x1DE500 + 0x2200, 0x1DE580 + 0x2200, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Clouds (4/4)", 0x1DE580 + 0x2200, 0x1DE600 + 0x2200, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Skyline (1/4)", 0x1DE600 + 0x2200, 0x1DE680 + 0x2200, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Skyline (2/4)", 0x1DE680 + 0x2200, 0x1DE700 + 0x2200, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Skyline (3/4)", 0x1DE700 + 0x2200, 0x1DE780 + 0x2200, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Skyline (4/4)", 0x1DE780 + 0x2200, 0x1DE800 + 0x2200, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Victory Screen (1/6)", 0x1DE800 + 0x2200, 0x1DE880 + 0x2200, indexRedEarthSprites_Bonus, 0x02 },
+    { L"Victory Screen (2/6)", 0x1DE880 + 0x2200, 0x1DE900 + 0x2200, indexRedEarthSprites_Bonus, 0x02 },
+    { L"Victory Screen (3/6)", 0x1DE900 + 0x2200, 0x1DE980 + 0x2200, indexRedEarthSprites_Bonus, 0x02 },
+    { L"Victory Screen (4/6)", 0x1DE980 + 0x2200, 0x1DEA00 + 0x2200, indexRedEarthSprites_Bonus, 0x02 },
+    { L"Victory Screen (5/6)", 0x1DEA00 + 0x2200, 0x1DEA80 + 0x2200, indexRedEarthSprites_Bonus, 0x02 },
+    { L"Victory Screen (6/6)", 0x1DEA80 + 0x2200, 0x1DEB00 + 0x2200, indexRedEarthSprites_Bonus, 0x02 },
+
+    // Character Select
+    { L"Password 1", 0x1dfe00 + 0x2200, 0x1dfe80 + 0x2200, indexRedEarthSprites_Bonus, 0x3f },
+    { L"Password 2", 0x1dfe80 + 0x2200, 0x1dff00 + 0x2200, indexRedEarthSprites_Bonus, 0x40 },
+    { L"Password 3", 0x1dff00 + 0x2200, 0x1dff80 + 0x2200, indexRedEarthSprites_Bonus, 0x41 },
+    { L"Password 4", 0x1dff80 + 0x2200, 0x1e0000 + 0x2200, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Password 5", 0x1e0000 + 0x2200, 0x1e0080 + 0x2200, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Password 6", 0x1e0080 + 0x2200, 0x1e0100 + 0x2200, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Password 7", 0x1e0100 + 0x2200, 0x1e0180 + 0x2200, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Unknown 1", 0x1df100 + 0x2200, 0x1df180 + 0x2200 },
+    { L"Unknown 2", 0x1e0180 + 0x2200, 0x1e0200 + 0x2200 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_P2_PALETTES[] =
+{
+    { L"1P and 2P", 0x1DED80 + 0x4400, 0x1DEE00 + 0x4400, indexRedEarthSprites_Bonus, 0x00 },
+    { L"1P and 2P Flash", 0x1DEE00 + 0x4400, 0x1DEE80 + 0x4400, indexRedEarthSprites_Bonus, 0x00 },
+    { L"Character Selector Ring", 0x1DEE80 + 0x4400, 0x1DEF00 + 0x4400, indexRedEarthSprites_Bonus, 0x01 },
+    { L"Ready Warrior (1/15)", 0x1DF400 + 0x4400, 0x1DF480 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (2/15)", 0x1DF480 + 0x4400, 0x1DF500 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (3/15)", 0x1DF500 + 0x4400, 0x1DF580 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (4/15)", 0x1DF580 + 0x4400, 0x1DF600 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (5/15)", 0x1DF600 + 0x4400, 0x1DF680 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (6/15)", 0x1DF680 + 0x4400, 0x1DF700 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (7/15)", 0x1DF700 + 0x4400, 0x1DF780 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (8/15)", 0x1DF780 + 0x4400, 0x1DF800 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (9/15)", 0x1DF800 + 0x4400, 0x1DF880 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (10/15)", 0x1DF880 + 0x4400, 0x1DF900 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (11/15)", 0x1DF900 + 0x4400, 0x1DF980 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (12/15)", 0x1DF980 + 0x4400, 0x1DFA00 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (13/15)", 0x1DFA00 + 0x4400, 0x1DFA80 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (14/15)", 0x1DFA80 + 0x4400, 0x1DFB00 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Ready Warrior (15/15)", 0x1DFB00 + 0x4400, 0x1DFB80 + 0x4400, indexRedEarthSprites_Bonus, 0x03 },
+    { L"Character Select Background Clouds (1/4)", 0x1DE000 + 0x4400, 0x1DE080 + 0x4400, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Clouds (2/4)", 0x1DE080 + 0x4400, 0x1DE100 + 0x4400, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Clouds (3/4)", 0x1DE100 + 0x4400, 0x1DE180 + 0x4400, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Clouds (4/4)", 0x1DE180 + 0x4400, 0x1DE200 + 0x4400, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Background Skyline (1/4)", 0x1DE200 + 0x4400, 0x1DE280 + 0x4400, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Background Skyline (2/4)", 0x1DE280 + 0x4400, 0x1DE300 + 0x4400, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Background Skyline (3/4)", 0x1DE300 + 0x4400, 0x1DE380 + 0x4400, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Background Skyline (4/4)", 0x1DE380 + 0x4400, 0x1DE400 + 0x4400, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Clouds (1/4)", 0x1DE400 + 0x4400, 0x1DE480 + 0x4400, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Clouds (2/4)", 0x1DE480 + 0x4400, 0x1DE500 + 0x4400, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Clouds (3/4)", 0x1DE500 + 0x4400, 0x1DE580 + 0x4400, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Clouds (4/4)", 0x1DE580 + 0x4400, 0x1DE600 + 0x4400, indexRedEarthSprites_Bonus, 0x0e, &pairNext4 },
+    { L"Character Select Transition Skyline (1/4)", 0x1DE600 + 0x4400, 0x1DE680 + 0x4400, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Skyline (2/4)", 0x1DE680 + 0x4400, 0x1DE700 + 0x4400, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Skyline (3/4)", 0x1DE700 + 0x4400, 0x1DE780 + 0x4400, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Character Select Transition Skyline (4/4)", 0x1DE780 + 0x4400, 0x1DE800 + 0x4400, indexRedEarthSprites_Bonus, 0x0f, &pairPrevious4 },
+    { L"Victory Screen (1/6)", 0x1DE800 + 0x4400, 0x1DE880 + 0x4400, indexRedEarthSprites_Bonus, 0x02 },
+    { L"Victory Screen (2/6)", 0x1DE880 + 0x4400, 0x1DE900 + 0x4400, indexRedEarthSprites_Bonus, 0x02 },
+    { L"Victory Screen (3/6)", 0x1DE900 + 0x4400, 0x1DE980 + 0x4400, indexRedEarthSprites_Bonus, 0x02 },
+    { L"Victory Screen (4/6)", 0x1DE980 + 0x4400, 0x1DEA00 + 0x4400, indexRedEarthSprites_Bonus, 0x02 },
+    { L"Victory Screen (5/6)", 0x1DEA00 + 0x4400, 0x1DEA80 + 0x4400, indexRedEarthSprites_Bonus, 0x02 },
+    { L"Victory Screen (6/6)", 0x1DEA80 + 0x4400, 0x1DEB00 + 0x4400, indexRedEarthSprites_Bonus, 0x02 },
+
+    // Character Select
+    { L"Password 1", 0x1dfe00 + 0x4400, 0x1dfe80 + 0x4400, indexRedEarthSprites_Bonus, 0x3f },
+    { L"Password 2", 0x1dfe80 + 0x4400, 0x1dff00 + 0x4400, indexRedEarthSprites_Bonus, 0x40 },
+    { L"Password 3", 0x1dff00 + 0x4400, 0x1dff80 + 0x4400, indexRedEarthSprites_Bonus, 0x41 },
+    { L"Password 4", 0x1dff80 + 0x4400, 0x1e0000 + 0x4400, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Password 5", 0x1e0000 + 0x4400, 0x1e0080 + 0x4400, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Password 6", 0x1e0080 + 0x4400, 0x1e0100 + 0x4400, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Password 7", 0x1e0100 + 0x4400, 0x1e0180 + 0x4400, indexRedEarthSprites_Bonus, 0x42 },
+    { L"Unknown 1", 0x1df100 + 0x4400, 0x1df180 + 0x4400 },
+    { L"Unknown 2", 0x1e0180 + 0x4400, 0x1e0200 + 0x4400 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
@@ -1287,7 +1399,9 @@ const sDescTreeNode REDEARTH_A_SCION_COLLECTION[] =
 //Extra Stuff
 const sDescTreeNode REDEARTH_A_CHARACTERSELECT_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_PALETTES, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_PALETTES) },
+    { L"Character Select Range", DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_CORE_PALETTES, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_CORE_PALETTES) },
+    { L"Character Select P1 Highlight Range", DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_P1_PALETTES, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_P1_PALETTES) },
+    { L"Character Select P2 Highlight Range", DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_P2_PALETTES, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_P2_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_INTRO_COLLECTION[] =

@@ -1037,14 +1037,14 @@ const sDescTreeNode DBZEB_DS_VEGETA_COLLECTION[] =
 
 const sGame_PaletteDataset DBZEB_DS_VEGETASS_P1[] =
 {
-    { L"Vegeta (Super Saiyan) P1",              0x32c2ac0, 0x32c2ec0, indexDBZEB_Vegeta, 0x00 },
-    { L"Vegeta (Super Saiyan) P1 (Unused?)",    0x32bf920, 0x32bfd20, indexDBZEB_Vegeta, 0x00 },
+    { L"Vegeta (Super Saiyan) P1",              0x32c2ac0, 0x32c2ec0, indexDBZEB_VegetaSSJ1, 0x00 },
+    { L"Vegeta (Super Saiyan) P1 (Unused?)",    0x32bf920, 0x32bfd20, indexDBZEB_VegetaSSJ1, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_VEGETASS_P2[] =
 {
-    { L"Vegeta (Super Saiyan) P2",              0x32c2ed0, 0x32c32d0, indexDBZEB_Vegeta, 0x00 },
-    { L"Vegeta (Super Saiyan) P2 (Unused?)",    0x32bfd30, 0x32c0130, indexDBZEB_Vegeta, 0x00 },
+    { L"Vegeta (Super Saiyan) P2",              0x32c2ed0, 0x32c32d0, indexDBZEB_VegetaSSJ1, 0x00 },
+    { L"Vegeta (Super Saiyan) P2 (Unused?)",    0x32bfd30, 0x32c0130, indexDBZEB_VegetaSSJ1, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_VEGETASS_EXTRAS[] =

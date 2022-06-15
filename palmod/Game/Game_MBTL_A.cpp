@@ -92,7 +92,8 @@ struct MBTLFileData
     UINT32 nExpectedFileSize = 0;
     std::vector <LPCWSTR> ppszPaletteList;
     UINT32 nInitialLocation = 0;
-    UINT32 nSpriteIndex = 0;
+    UINT32 nImageUnitIndex = 0;
+    UINT32 nImagePreviewIndex = 0;
 };
 
 std::vector <MBTLFileData> MBTLCharacterData =
@@ -117,11 +118,11 @@ std::vector <MBTLFileData> MBTLCharacterData =
     { L"data\\_csel\\Chr009.pal",       L"Vlov",                                   61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Vlov },
 
 
-    { L"data\\chr011\\Chr011_p1.pal",   L"Ciel (Arc Drive/Last Arc)",              61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_CielSupers },
-    { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Mask Shiki)",                     61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Shiki },
-    { L"data\\_csel\\Chr018.pal",       L"Mario (Main Sister)",                    61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_MarioNuns },
-    { L"data\\chr017\\Chr017_p1.pal",   L"Mario (Assist Sister)",                  61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_MarioNuns },
-    { L"data\\chr017\\Chr017_p2.pal",   L"Noel (Mario Arc Drive)",                 61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Noel },
+    { L"data\\chr011\\Chr011_p1.pal",   L"Ciel (Arc Drive/Last Arc)",              61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Ciel, 0x01 },
+    { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Mask Shiki)",                     61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Hisui, 0x01 },
+    { L"data\\_csel\\Chr018.pal",       L"Mario (Main Sister)",                    61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Mario, 0x03 },
+    { L"data\\chr017\\Chr017_p1.pal",   L"Mario (Assist Sister)",                  61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Mario, 0x02 },
+    { L"data\\chr017\\Chr017_p2.pal",   L"Noel (Mario Arc Drive)",                 61456,    MBTLPaletteNamesNormal,    0x10, indexFrenchBreadSprites_MBTL_Mario, 0x01 },
 
 };
 
@@ -341,8 +342,8 @@ BOOL CGame_MBTL_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     //Change the image id if we need to
-    int nTargetImgId = 0;
-    uint32_t nImgUnitId = MBTLCharacterData[NodeGet->uUnitId].nSpriteIndex;
+    uint32_t nImgUnitId = MBTLCharacterData[NodeGet->uUnitId].nImageUnitIndex;
+    uint32_t nTargetImgId = MBTLCharacterData[NodeGet->uUnitId].nImagePreviewIndex;
 
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists

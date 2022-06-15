@@ -22,6 +22,8 @@ private:
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
+    void WarnIfROMIsEncrypted(CFile* LoadedFile);
+
 public:
     CGame_CVS2_A(UINT32 nConfirmedROMSize);
     ~CGame_CVS2_A(void);
@@ -48,6 +50,7 @@ public:
 
     const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
 
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     static stExtraDef* CVS2_A_EXTRA_CUSTOM;

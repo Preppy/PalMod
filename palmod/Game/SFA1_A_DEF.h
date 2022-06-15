@@ -415,6 +415,21 @@ const sGame_PaletteDataset SFA1_A_DAN_KICK_PALETTES[] =
     { L"Burned Status",   0x6933e, 0x6935e, indexCPS2Sprites_Dan, 0x00 },
 };
 
+const sGame_PaletteDataset SFA1_A_BONUS_BONUS_PALETTES[] =
+{
+    { L"Level Bar", 0x7dd7e, 0x7df5e },
+    { L"Normal/Turbo Speed Select (1/8)", 0x7e71e, 0x7e73e },
+    { L"Normal/Turbo Speed Select (2/8)", 0x7e73e, 0x7e75e },
+    { L"Normal/Turbo Speed Select (3/8)", 0x7e75e, 0x7e77e },
+    { L"Normal/Turbo Speed Select (4/8)", 0x7e77e, 0x7e79e },
+    { L"Normal/Turbo Speed Select (5/8)", 0x7e79e, 0x7e7be },
+    { L"Normal/Turbo Speed Select (6/8)", 0x7e7be, 0x7e7de },
+    { L"Normal/Turbo Speed Select (7/8)", 0x7e7de, 0x7e7fe },
+    { L"Normal/Turbo Speed Select (8/8)", 0x7e7fe, 0x7e81e },
+    { L"Speed Select Arrows", 0x7e6be, 0x7e71e },
+    { L"Insert Coin and Free Play Text", 0x7e81e, 0x7e83e },
+};
+
 const sGame_PaletteDataset SFA1_A_DAN_PORTRAIT_PALETTES[] =
 {
     { L"Dan Punch Portrait", 0x7ec1e, 0x7ec3e, indexCPS2Sprites_SFA1_Portraits, indexCPS2Sprites_Dan },
@@ -512,6 +527,11 @@ const sDescTreeNode SFA1_A_DAN_COLLECTION[] =
     { L"Select Portraits", DESC_NODETYPE_TREE, (void*)SFA1_A_DAN_PORTRAIT_PALETTES, ARRAYSIZE(SFA1_A_DAN_PORTRAIT_PALETTES) },
 };
 
+const sDescTreeNode SFA1_A_BONUS_COLLECTION[] =
+{
+    { L"Bonus",  DESC_NODETYPE_TREE, (void*)SFA1_A_BONUS_BONUS_PALETTES,   ARRAYSIZE(SFA1_A_BONUS_BONUS_PALETTES) },
+};
+
 const sDescTreeNode SFA1_A_UNITS[] =
 {
     { L"Adon",            DESC_NODETYPE_TREE, (void*)SFA1_A_ADON_COLLECTION,          ARRAYSIZE(SFA1_A_ADON_COLLECTION) },
@@ -527,6 +547,7 @@ const sDescTreeNode SFA1_A_UNITS[] =
     { L"Ryu",             DESC_NODETYPE_TREE, (void*)SFA1_A_RYU_COLLECTION,           ARRAYSIZE(SFA1_A_RYU_COLLECTION) },
     { L"Sagat",           DESC_NODETYPE_TREE, (void*)SFA1_A_SAGAT_COLLECTION,         ARRAYSIZE(SFA1_A_SAGAT_COLLECTION) },
     { L"Sodom",           DESC_NODETYPE_TREE, (void*)SFA1_A_SODOM_COLLECTION,         ARRAYSIZE(SFA1_A_SODOM_COLLECTION) },
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFA1_A_BONUS_COLLECTION,         ARRAYSIZE(SFA1_A_BONUS_COLLECTION) },
 };
 
 constexpr auto SFA1_A_NUMUNIT = ARRAYSIZE(SFA1_A_UNITS);

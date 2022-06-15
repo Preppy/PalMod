@@ -151,8 +151,7 @@
 #define IDS_PNGLOAD_NOTABLE             2040
 #define IDS_WELCOME_BACKUP              2041
 #define IDS_SETBACKGROUND_FULL          2042
-#define IDS_SFA2_UNKNOWNROM             2043
-#define IDS_SF3_UNKNOWNROM              2044
+#define IDS_ERROR_UNKNOWNROM            2043
 #define IDS_EXTRAS_SIMMBOUNDARY         2045
 #define IDS_COLOR_WRONGSIZE             2046
 #define IDS_ERROR_COPYCOLOR             2048
@@ -300,7 +299,7 @@
 #define ID_LD_P4AU_NESICA               32905
 #define ID_EDIT_SNIFFCOPY               32906
 #define ID_EDIT_SNIFFPASTE              32907
-#define IDS_GGXXACR_ENCRYPTED           32908
+#define IDS_ERROR_ENCRYPTED             32908
 #define ID_LD_VENTURE50                 32909
 #define ID_LD_VENTURE31                 32910
 #define ID_LD_MBTL_A                    32911

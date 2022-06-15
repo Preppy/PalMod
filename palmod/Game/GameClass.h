@@ -115,7 +115,7 @@ protected:
     struct ROMRevisionLookupData
     {
         uint16_t nRevisionID;
-        std::array<uint16_t, 32> nBytesToMatch;
+        std::vector<uint16_t> nBytesToMatch;
     };
 
     // Given a file pointer and a list of known byte sequences, return the first match, if any.
