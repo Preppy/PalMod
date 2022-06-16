@@ -51,6 +51,26 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_Next12 =
 const std::vector<std::vector<UINT16>> paletteBuddy_3SAlex_HandlePortraits =
 {
     {
+    // HUD portrait
+    SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+        // Leave the border
+        // Leave the background
+        // Leave the black eyes
+        // Skin tone for five pixels
+          MOD_COPY, 1, 1, 4,
+          MOD_COPY, 4, 1, 5,
+          MOD_COPY, 7, 2, 6,
+          MOD_COPY, 10, 1, 8,
+        // Body paint for one
+          MOD_COPY, 60, 1, 9,
+        // Bandana for two
+          MOD_COPY, 49, 1, 10,
+          MOD_COPY, 51, 1, 11,
+        // Hair for three
+          MOD_COPY, 53, 2, 12,
+          MOD_COPY, 56, 1, 14,
+        // Unused
+
     // Judgement Portrait
      SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
         // Slightly darker than the portrait
@@ -71,80 +91,180 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SAlex_HandlePortraits =
           MOD_COPY, 53, 3, 11,
           MOD_COPY, 57, 1, 14,
         // Background, don't change
+    }
+};
 
+const std::vector<std::vector<UINT16>> paletteBuddy_3SChunLi_HandlePortraits =
+{
+    {
     // HUD portrait
     SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
         // Leave the border
         // Leave the background
         // Leave the black eyes
-        // Skin tone for five pixels
-          MOD_COPY, 1, 1, 4,
-          MOD_COPY, 4, 1, 5,
-          MOD_COPY, 7, 2, 6,
-          MOD_COPY, 10, 1, 8,
-        // Body paint for one
-          MOD_COPY, 60, 1, 9,
-        // Bandana for two
-          MOD_COPY, 49, 1, 10,
-          MOD_COPY, 51, 1, 11,
-        // Hair for three
-          MOD_COPY, 53, 2, 12,
-          MOD_COPY, 56, 1, 14,
-        // Unused
+        // 3    face by eyes            copy 42        1
+            MOD_COPY, 1, 6, 3,
+        // 4    face                    copy 16        2
+        // 5    face                    copy 17        3
+        // 6    face border and hair    copy 18        4
+        // 7    face border and hair    copy 21        5
+        // 8    face border and hair    copy 23        6
+        // 9    face border and hair    copy 28        8
+            MOD_COPY, 8, 1, 9,
+        // 10    hair pom poms        copy from 10
+            MOD_COPY, 10, 1, 10,
+        // 11    pom pom border        copy from 12
+            MOD_COPY, 12, 1, 11,
+        // 12    shirt light            copy from 36 ?
+            MOD_COPY, 36, 1, 12,
+        // 13    shirt dark            copy from 38 ? 37 also ok
+            MOD_COPY, 37, 1, 13,
+        // 14    outfit highlight     copy from 46
+            MOD_COPY, 46, 1, 14,
+        // 15    unused
+
+    // Judgement Portrait
+     SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+        // 1    bow            1
+          MOD_COPY, 1, 7, 1,
+        // 2    face        2
+        // 3    face        3
+        // 4    face        4
+        // 5    face        5
+        // 6    face        6
+        // 7    face        7
+        // 8    face        9
+          MOD_COPY, 9, 1, 8,
+        // 9    bow            12
+          MOD_COPY, 12, 1, 9,
+        // 10    bow            13
+          MOD_COPY, 13, 1, 10,
+        // 11    shirt        34
+          MOD_COPY, 34, 2, 11,
+        // 12    shirt        35
+        // 13    shirt        38
+          MOD_COPY, 38, 1, 13,
+        // 14    highlight    44
+          MOD_COPY, 44, 1, 14,
+        // Background, don't change
+    }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SDudley_HandlePortraits =
+{
+    {
+    // HUD portrait
+    SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+        // Leave the border
+        // Leave the background
+        // Leave the black eyes
+        // 3    skin        1 or 2
+            MOD_COPY, 1, 1, 3,
+        // 4    skin        3
+        // 5    skin        4
+        // 6    skin        5
+            MOD_COPY, 3, 3, 4,
+        // 7    skin        7
+            MOD_COPY, 7, 1, 7,
+        // 8    hair        9
+            MOD_COPY, 9, 1, 8,
+        // 9    shirt        32
+            MOD_COPY, 32, 1, 9,
+        // 10    shirt        33
+            MOD_COPY, 33, 1, 10,
+        // 11    suspenders    48 ?
+            MOD_COPY, 48, 1, 11,
+        // 12    suspenders / collar    39 ?
+            MOD_COPY, 39, 1, 12,
+        // 13    bow tie        21
+            MOD_COPY, 21, 1, 13,
+        // 14    bow tie        23
+            MOD_COPY, 23, 1, 14,
+        // 15    unused
+
+    // Judgement Portrait
+     SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+        // 1    face    2
+        // 2    face    3
+            MOD_COPY, 2, 2, 1,
+        // 3    face    5
+            MOD_COPY, 5, 1, 3,
+        // 4    face    7
+            MOD_COPY, 7, 1, 4,
+        // 5    hair    9
+            MOD_COPY, 9, 1, 5,
+        // 6    bowtie    17
+            MOD_COPY, 17, 1, 6,
+        // 7    gloves    21
+        // 8    gloves    22
+        // 9    gloves    23
+            MOD_COPY, 21, 3, 7,
+        // 10    shirt    32
+        // 11    shirt border    33
+            MOD_COPY, 32, 2, 10,
+        // 12    shirt border    35
+            MOD_COPY, 35, 1, 12,
+        // 13    shirt border    37
+            MOD_COPY, 37, 1, 13,
+        // 14    suspenders        48
+            MOD_COPY, 48, 1, 14,
+        // Background, don't change
     }
 };
 
 const stPaletteProcessingInformation secondary3SGillSwapEffects_Next{ paletteBuddy_3SGill_SwapSides_Next };
 const stPaletteProcessingInformation secondary3SGillSwapEffects_Next12{ paletteBuddy_3SGill_SwapSides_Next12 };
-const stPaletteProcessingInformation secondary3SAlexEffects_UpdatedPortraits{ paletteBuddy_3SAlex_HandlePortraits };
+const stPaletteProcessingInformation secondary3SAlexEffects_UpdatePortraits{ paletteBuddy_3SAlex_HandlePortraits };
+const stPaletteProcessingInformation secondary3SChunLiEffects_UpdatePortraits{ paletteBuddy_3SChunLi_HandlePortraits };
+const stPaletteProcessingInformation secondary3SDudleyEffects_UpdatePortraits{ paletteBuddy_3SDudley_HandlePortraits };
 
 #pragma endregion
 
 const sGame_PaletteDataset SFIII3_A_ALEX_LP_PALETTES[] =
 {
-    { L"LP Main", 0x700600, 0x700680, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
+    { L"LP Main", 0x700600, 0x700680, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatePortraits },
     { L"LP Portrait", 0x763be0, 0x763c00, index3SSprites_Alex, 0x01 },
     { L"LP Judgement Portrait", 0x789920, 0x789940, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_MP_PALETTES[] =
 {
-    { L"MP Main", 0x700680, 0x700700, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
+    { L"MP Main", 0x700680, 0x700700, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatePortraits },
     { L"MP Portrait", 0x763c00, 0x763c20, index3SSprites_Alex, 0x01 },
     { L"MP Judgement Portrait", 0x789c20, 0x789c40, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_HP_PALETTES[] =
 {
-    { L"HP Main", 0x700700, 0x700780, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
+    { L"HP Main", 0x700700, 0x700780, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatePortraits },
     { L"HP Portrait", 0x763c20, 0x763c40, index3SSprites_Alex, 0x01 },
     { L"HP Judgement Portrait", 0x789f20, 0x789f40, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_LK_PALETTES[] =
 {
-    { L"LK Main", 0x700780, 0x700800, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
+    { L"LK Main", 0x700780, 0x700800, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatePortraits },
     { L"LK Portrait", 0x763c40, 0x763c60, index3SSprites_Alex, 0x01 },
     { L"LK Judgement Portrait", 0x78a220, 0x78a240, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_MK_PALETTES[] =
 {
-    { L"MK Main", 0x700800, 0x700880, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
+    { L"MK Main", 0x700800, 0x700880, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatePortraits },
     { L"MK Portrait", 0x763c60, 0x763c80, index3SSprites_Alex, 0x01 },
     { L"MK Judgement Portrait", 0x78a520, 0x78a540, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_HK_PALETTES[] =
 {
-    { L"HK Main", 0x700880, 0x700900, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
+    { L"HK Main", 0x700880, 0x700900, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatePortraits },
     { L"HK Portrait", 0x763c80, 0x763ca0, index3SSprites_Alex, 0x01 },
     { L"HK Judgement Portrait", 0x78a820, 0x78a840, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_EX_PALETTES[] =
 {
-    { L"EX Main", 0x700900, 0x700980, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatedPortraits },
+    { L"EX Main", 0x700900, 0x700980, index3SSprites_Alex, 0x00, &pairHandledInCode, &secondary3SAlexEffects_UpdatePortraits },
     { L"EX Portrait", 0x763ca0, 0x763cc0, index3SSprites_Alex, 0x01 },
     { L"EX Judgement Portrait", 0x78ab20, 0x78ab40, index3SSprites_Alex, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -310,49 +430,49 @@ const sGame_PaletteDataset SFIII3_A_YUN_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_LP_PALETTES[] =
 {
-    { L"LP Main", 0x701080, 0x701100, index3SSprites_Dudley, 0x00 },
+    { L"LP Main", 0x701080, 0x701100, index3SSprites_Dudley, 0x00, nullptr, &secondary3SDudleyEffects_UpdatePortraits },
     { L"LP Portrait", 0x763e80, 0x763ea0, index3SSprites_Dudley, 0x01 },
     { L"LP Judgement Portrait", 0x789980, 0x7899a0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_MP_PALETTES[] =
 {
-    { L"MP Main", 0x701100, 0x701180, index3SSprites_Dudley, 0x00 },
+    { L"MP Main", 0x701100, 0x701180, index3SSprites_Dudley, 0x00, nullptr, &secondary3SDudleyEffects_UpdatePortraits },
     { L"MP Portrait", 0x763ea0, 0x763ec0, index3SSprites_Dudley, 0x01 },
     { L"MP Judgement Portrait", 0x789c80, 0x789ca0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_HP_PALETTES[] =
 {
-    { L"HP Main", 0x701180, 0x701200, index3SSprites_Dudley, 0x00 },
+    { L"HP Main", 0x701180, 0x701200, index3SSprites_Dudley, 0x00, nullptr, &secondary3SDudleyEffects_UpdatePortraits },
     { L"HP Portrait", 0x763ec0, 0x763ee0, index3SSprites_Dudley, 0x01 },
     { L"HP Judgement Portrait", 0x789f80, 0x789fa0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_LK_PALETTES[] =
 {
-    { L"LK Main", 0x701200, 0x701280, index3SSprites_Dudley, 0x00 },
+    { L"LK Main", 0x701200, 0x701280, index3SSprites_Dudley, 0x00, nullptr, &secondary3SDudleyEffects_UpdatePortraits },
     { L"LK Portrait", 0x763ee0, 0x763f00, index3SSprites_Dudley, 0x01 },
     { L"LK Judgement Portrait", 0x78a280, 0x78a2a0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_MK_PALETTES[] =
 {
-    { L"MK Main", 0x701280, 0x701300, index3SSprites_Dudley, 0x00 },
+    { L"MK Main", 0x701280, 0x701300, index3SSprites_Dudley, 0x00, nullptr, &secondary3SDudleyEffects_UpdatePortraits },
     { L"MK Portrait", 0x763f00, 0x763f20, index3SSprites_Dudley, 0x01 },
     { L"MK Judgement Portrait", 0x78a580, 0x78a5a0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_HK_PALETTES[] =
 {
-    { L"HK Main", 0x701300, 0x701380, index3SSprites_Dudley, 0x00 },
+    { L"HK Main", 0x701300, 0x701380, index3SSprites_Dudley, 0x00, nullptr, &secondary3SDudleyEffects_UpdatePortraits },
     { L"HK Portrait", 0x763f20, 0x763f40, index3SSprites_Dudley, 0x01 },
     { L"HK Judgement Portrait", 0x78a880, 0x78a8a0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_EX_PALETTES[] =
 {
-    { L"EX Main", 0x701380, 0x701400, index3SSprites_Dudley, 0x00 },
+    { L"EX Main", 0x701380, 0x701400, index3SSprites_Dudley, 0x00, nullptr, &secondary3SDudleyEffects_UpdatePortraits },
     { L"EX Portrait", 0x763f40, 0x763f60, index3SSprites_Dudley, 0x01 },
     { L"EX Judgement Portrait", 0x78ab80, 0x78aba0, index3SSprites_Dudley, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -1220,49 +1340,49 @@ const sGame_PaletteDataset SFIII3_A_USEAN_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_LP_PALETTES[] =
 {
-    { L"LP Main", 0x703800, 0x703880, index3SSprites_ChunLi, 0x00 },
+    { L"LP Main", 0x703800, 0x703880, index3SSprites_ChunLi, 0x00, nullptr, &secondary3SChunLiEffects_UpdatePortraits },
     { L"LP Portrait", 0x764900, 0x764920, index3SSprites_ChunLi, 0x01 },
     { L"LP Judgement Portrait", 0x789b00, 0x789b20, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_MP_PALETTES[] =
 {
-    { L"MP Main", 0x703880, 0x703900, index3SSprites_ChunLi, 0x00 },
+    { L"MP Main", 0x703880, 0x703900, index3SSprites_ChunLi, 0x00, nullptr, &secondary3SChunLiEffects_UpdatePortraits },
     { L"MP Portrait", 0x764920, 0x764940, index3SSprites_ChunLi, 0x01 },
     { L"MP Judgement Portrait", 0x789e00, 0x789e20, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_HP_PALETTES[] =
 {
-    { L"HP Main", 0x703900, 0x703980, index3SSprites_ChunLi, 0x00 },
+    { L"HP Main", 0x703900, 0x703980, index3SSprites_ChunLi, 0x00, nullptr, &secondary3SChunLiEffects_UpdatePortraits },
     { L"HP Portrait", 0x764940, 0x764960, index3SSprites_ChunLi, 0x01 },
     { L"HP Judgement Portrait", 0x78a100, 0x78a120, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_LK_PALETTES[] =
 {
-    { L"LK Main", 0x703980, 0x703a00, index3SSprites_ChunLi, 0x00 },
+    { L"LK Main", 0x703980, 0x703a00, index3SSprites_ChunLi, 0x00, nullptr, &secondary3SChunLiEffects_UpdatePortraits },
     { L"LK Portrait", 0x764960, 0x764980, index3SSprites_ChunLi, 0x01 },
     { L"LK Judgement Portrait", 0x78a400, 0x78a420, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_MK_PALETTES[] =
 {
-    { L"MK Main", 0x703a00, 0x703a80, index3SSprites_ChunLi, 0x00 },
+    { L"MK Main", 0x703a00, 0x703a80, index3SSprites_ChunLi, 0x00, nullptr, &secondary3SChunLiEffects_UpdatePortraits },
     { L"MK Portrait", 0x764980, 0x7649a0, index3SSprites_ChunLi, 0x01 },
     { L"MK Judgement Portrait", 0x78a700, 0x78a720, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_HK_PALETTES[] =
 {
-    { L"HK Main", 0x703a80, 0x703b00, index3SSprites_ChunLi, 0x00 },
+    { L"HK Main", 0x703a80, 0x703b00, index3SSprites_ChunLi, 0x00, nullptr, &secondary3SChunLiEffects_UpdatePortraits },
     { L"HK Portrait", 0x7649a0, 0x7649c0, index3SSprites_ChunLi, 0x01 },
     { L"HK Judgement Portrait", 0x78aa00, 0x78aa20, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_EX_PALETTES[] =
 {
-    { L"EX Main", 0x703b00, 0x703b80, index3SSprites_ChunLi, 0x00 },
+    { L"EX Main", 0x703b00, 0x703b80, index3SSprites_ChunLi, 0x00, nullptr, &secondary3SChunLiEffects_UpdatePortraits },
     { L"EX Portrait", 0x7649c0, 0x7649e0, index3SSprites_ChunLi, 0x01 },
     { L"EX Judgement Portrait", 0x78ad00, 0x78ad20, index3SSprites_ChunLi, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -4358,7 +4478,7 @@ const sGame_PaletteDataset SFIII3EX_A_IBUKI_EX_PALETTES[] =
     { L"EX Shocked",   0x0000E200, 0x0000E280, index3SSprites_Ibuki, 0x08 },
     { L"EX Frozen",    0x0000E280, 0x0000E300, index3SSprites_Ibuki, 0x00 },
     { L"EX Hitsparks / Kunai", 0x0000E300, 0x0000E380, index3SSprites_Ibuki, 0x09 },
-	// { L"EX SA Trail 0", 0x34400, 0x34480, index3SSprites_Ibuki, 0x00 },
+    // { L"EX SA Trail 0", 0x34400, 0x34480, index3SSprites_Ibuki, 0x00 },
     { L"EX SA Trail 1", 0x34480, 0x34500, index3SSprites_Ibuki, 0x00 },
     { L"EX SA Trail 2", 0x34500, 0x34580, index3SSprites_Ibuki, 0x00 },
     { L"EX SA Trail 3", 0x34580, 0x34600, index3SSprites_Ibuki, 0x00 },

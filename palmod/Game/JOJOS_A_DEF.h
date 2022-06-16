@@ -3551,12 +3551,12 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_ALOCKUP[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_HEALTH[] =
 {
-    { L"A Health Room TS (1/6)", 0x02d0e00, 0x02d1000 },
-    { L"A Health Room TS (2/6)", 0x02d1000, 0x02d1200 },
-    { L"A Health Room TS (3/6)", 0x02d1200,  0x02d1400 },
-    { L"A Health Room TS (4/6)", 0x02d1400, 0x02d1600 },
-    { L"A Health Room TS (5/6)", 0x02d1600, 0x02d1800 },
-    { L"A Health Room TS (6/6)", 0x02d1800, 0x02d1900 },
+    { L"A Health Room TS (1/6)", 0x02d0e00, 0x02d1000, indexJojos50Stages, 0x2e, &pairFullyLinkedNode },
+    { L"A Health Room TS (2/6)", 0x02d1000, 0x02d1200, indexJojos50Stages, 0x2f },
+    { L"A Health Room TS (3/6)", 0x02d1200, 0x02d1400, indexJojos50Stages, 0x30 },
+    { L"A Health Room TS (4/6)", 0x02d1400, 0x02d1600, indexJojos50Stages, 0x31 },
+    { L"A Health Room TS (5/6)", 0x02d1600, 0x02d1800, indexJojos50Stages, 0x32 },
+    { L"A Health Room TS (6/6)", 0x02d1800, 0x02d1900, indexJojos50Stages, 0x33 },
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_AIRPLANE[] =

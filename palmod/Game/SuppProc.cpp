@@ -227,8 +227,8 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
     OutputDebugString(strDebugInfo);
 
     uint32_t nLastDestinationPalette = 0;
-    uint16_t nCountPalettesModified = 0;
     uint16_t indexCounterForEffects = 0;
+    std::vector<LPCWSTR> vstrModifiedPaletteNames;
 
     for (const std::vector<uint16_t>& currentEffectsData : supplementalEffectsData)
     {
@@ -246,15 +246,15 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
             // Figure out what palettes we're going to be modifying
             uint32_t destination_palette = nChangedPaletteNumber + (in_start & 0x7FFF);
 
-            if (destination_palette != nLastDestinationPalette)
-            {
-                nCountPalettesModified++;
-            }
-
             // Need to have information available to poststepal for the active palette, so make sure it's loaded
             LoadSpecificPaletteData(nUnitId, destination_palette);
 
-            strDebugInfo.Format(L"\t\tPreparing to process from palette 0x%x to palette 0x%x (\"%s\")\n", nChangedPaletteNumber, destination_palette, GetCurrentPaletteName());
+            if (destination_palette != nLastDestinationPalette)
+            {
+                vstrModifiedPaletteNames.push_back(GetCurrentPaletteName());
+            }
+
+            strDebugInfo.Format(L"\t\tPreparing to process from palette 0x%x to palette 0x%x (\"%s\")\n", nChangedPaletteNumber, destination_palette, vstrModifiedPaletteNames.back());
             OutputDebugString(strDebugInfo);
 
             MarkPaletteDirty(nUnitId, destination_palette);
@@ -280,7 +280,7 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
 
                 if (currentEffectsToken & SUPP_NODE)
                 {
-                    OutputDebugString(L"\tEncountered new node...\n");
+                    // continue into next node
                     indexCounterForEffects++;
                     break;
                 }
@@ -356,16 +356,16 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
         }
     }
 
-    if (nCountPalettesModified != 0)
+    if (vstrModifiedPaletteNames.size())
     {
         CString strMessage;
-        if (nCountPalettesModified == 1)
+        if (vstrModifiedPaletteNames.size() == 1)
         {
-            strMessage.Format(L"Updated.  Also updated the \"%s\" palette.", GetCurrentPaletteName());
+            strMessage.Format(L"Updated.  Also updated the \"%s\" palette.", vstrModifiedPaletteNames.front());
         }
         else
         {
-            strMessage.Format(L"Updated.  Also updated \"%s\" and other palettes.", GetCurrentPaletteName());
+            strMessage.Format(L"Updated.  Also updated \"%s\" and other palettes.", vstrModifiedPaletteNames.front());
         }
         GetHost()->GetPalModDlg()->SetStatusText(strMessage.GetString());
     }
