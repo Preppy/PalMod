@@ -3519,7 +3519,7 @@ const sGame_PaletteDataset JOJOS_BONUS_51_STORYMODE_PALETTES[] =
     { L"Storymode Egypt Map (2/4)", 0x313b00, 0x313b80, indexJojos51Bonus, 0x4e },
     { L"Storymode Egypt Map (3/4)", 0x313b80, 0x313c00, indexJojos51Bonus, 0x4e },
     { L"Storymode Egypt Map (4/4)", 0x313c00, 0x313c80, indexJojos51Bonus, 0x4e },
-    { L"Storymode Japan Map (Unused)", 0x313a80, 0x313b00, indexJojos51Bonus, 0x4f },
+    { L"Storymode Japan Map", 0x313a80, 0x313b00, indexJojos51Bonus, 0x4f },
 };
 
 const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]

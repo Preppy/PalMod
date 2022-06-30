@@ -142,6 +142,7 @@ const sGame_PaletteDataset MK1_SNES_GORO_PALETTES[] =
 const sGame_PaletteDataset MK1_SNES_SHANGTSUNG_PALETTES[] =
 {
     { L"Shang Tsung", 0x1CFF86, 0x1CFFA6, indexMK1Sprites_ShangTsung, 0x00 },
+    { L"Shang Tsung's Projectile", 0x1CFFA6, 0x1CFFC6 },
 };
 
 const sGame_PaletteDataset MK1_SNES_BONUS_PALETTES_BONUS[] =
@@ -153,6 +154,12 @@ const sGame_PaletteDataset MK1_SNES_BONUS_PALETTES_BONUS[] =
     { L"HUD Name Font", 0x1CCCCB, 0x1CCCEB },
 
     { L"Acclaim Logo", 0xFFF4C, 0xFFFAC },
+
+    { L"HUD/Text", 0x1251FB, 0x12523B },
+    { L"VS Screen", 0x131E90, 0x131F50 },
+    { L"Common Font", 0x77F98, 0x77FF8 },
+    { L"Sculptured Software logo", 0x136C1C, 0x136D1C },
+    { L"Shang Tsung & Goro portraits", 0xFFE8C, 0xFFF0C },
 };
 
 const sGame_PaletteDataset MK1_SNES_BONUS_PALETTES_TESTYOURMIGHT[] =
@@ -164,6 +171,12 @@ const sGame_PaletteDataset MK1_SNES_BONUS_PALETTES_TESTYOURMIGHT[] =
     { L"Scorpion", 0x131D90, 0x131DD0 },
     { L"Sub-Zero", 0x131DD0, 0x131E10 },
     { L"Sonya", 0x131E10, 0x131E50 },
+
+    { L"Test your might BG", 0x13668E, 0x13670E },
+    { L"Diamond (Test your might)", 0x13670E, 0x13672E },
+    { L"Stone (Test your might)", 0x13672E, 0x13674E },
+    { L"Wood (Test your might)", 0x13674E, 0x13676E },
+    { L"Ruby (Test your might)", 0x13676E, 0x13678E },
 };
 
 const sGame_PaletteDataset MK1_SNES_STAGE_PALETTES_COURTYARD[] =

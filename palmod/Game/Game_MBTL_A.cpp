@@ -149,7 +149,7 @@ CGame_MBTL_A::CGame_MBTL_A(UINT32 nConfirmedROMSize /* = -1 */)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
-    pButtonLabelSet = DEF_BUTTONLABEL_2_LEFTRIGHT;
+    pButtonLabelSet = MBTLPaletteNamesNormal;
 
     //Create the redirect buffer
     rgUnitRedir = new uint32_t[nUnitAmt + 1];
@@ -347,9 +347,9 @@ BOOL CGame_MBTL_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists
-    uint32_t nSrcStart = (int)(NodeGet->uPalId % MBTLCharacterData[NodeGet->uUnitId].ppszPaletteList.size());
+    uint32_t nSrcStart = static_cast<uint32_t>(NodeGet->uPalId % pButtonLabelSet.size());
     uint32_t nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
-    uint32_t nNodeIncrement = static_cast<uint32_t>(MBTLCharacterData[NodeGet->uUnitId].ppszPaletteList.size());
+    uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();

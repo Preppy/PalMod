@@ -154,6 +154,9 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(L"24");
         m_CB_Amt.AddString(L"26");
         break;
+    case 30: // MBTL
+        m_CB_Amt.AddString(L"30");
+        break;
     case 32:
         m_CB_Amt.AddString(L"4");
         m_CB_Amt.AddString(L"8");

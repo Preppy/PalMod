@@ -2222,6 +2222,23 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_DERMINOR_SLASH_PALETTES[] =
     { L"Unknown",                           0x73be80 + 0xb000, 0x73bf00 + 0xb000 },
 };
 
+const sGame_PaletteDataset REDEARTH_A_STAGES_DERMINOR_BLADE_PALETTES[] =
+{
+    { L"Sky & Moon",                        0x73b780 + 0x16000, 0x73b800 + 0x16000, indexRedEarthSprites_Stages, 0x5b, &pairFullyLinkedNode },
+    { L"Bottom Sky, Clouds & Flag",         0x73b900 + 0x16000, 0x73b980 + 0x16000, indexRedEarthSprites_Stages, 0x5c },
+    { L"Castle's Body",                     0x73b800 + 0x16000, 0x73b880 + 0x16000, indexRedEarthSprites_Stages, 0x5d },
+    { L"Left Mini Bridge",                  0x73b880 + 0x16000, 0x73b900 + 0x16000, indexRedEarthSprites_Stages, 0x5e },
+    { L"Tower's Center & Door",             0x73b980 + 0x16000, 0x73ba00 + 0x16000, indexRedEarthSprites_Stages, 0x5f },
+    { L"Castle's Bottom",                   0x73bc00 + 0x16000, 0x73bc80 + 0x16000, indexRedEarthSprites_Stages, 0x60 },
+    { L"Tower, Ground Corners",             0x73ba00 + 0x16000, 0x73ba80 + 0x16000, indexRedEarthSprites_Stages, 0x61 },
+    { L"Tower Inside",                      0x73ba80 + 0x16000, 0x73bb00 + 0x16000, indexRedEarthSprites_Stages, 0x62 },
+    { L"Tower's & Ground's Other Parts",    0x73bb00 + 0x16000, 0x73bb80 + 0x16000, indexRedEarthSprites_Stages, 0x63 },
+    { L"Bridge",                            0x73bb80 + 0x16000, 0x73bc00 + 0x16000, indexRedEarthSprites_Stages, 0x64 },
+    { L"Castle's Top, Bird",                0x73bc80 + 0x16000, 0x73be00 + 0x16000, indexRedEarthSprites_Stages, 0x65 },
+    { L"Ground",                            0x73bf00 + 0x16000, 0x73bf80 + 0x16000, indexRedEarthSprites_Stages, 0x66 },
+    { L"Unknown",                           0x73be80 + 0x16000, 0x73bf00 + 0x16000 },
+};
+
 const sGame_PaletteDataset REDEARTH_A_STAGES_SCION_SLASH_PALETTES[] =
 {
     { L"Scion's Lair 1/8", 0x73cb80 + 0xb000, 0x73cc00 + 0xb000, indexRedEarthSprites_Stages, 0x0e, &pairFullyLinkedNode },
@@ -2378,6 +2395,11 @@ const sDescTreeNode REDEARTH_A_STAGES_DERMINOR_SLASH_COLLECTION[] =
     { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DERMINOR_SLASH_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_DERMINOR_SLASH_PALETTES) },
 };
 
+const sDescTreeNode REDEARTH_A_STAGES_DERMINOR_BLADE_COLLECTION[] =
+{
+    { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DERMINOR_BLADE_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_DERMINOR_BLADE_PALETTES) },
+};
+
 const sDescTreeNode REDEARTH_A_STAGES_SCION_SLASH_COLLECTION[] =
 {
     { L"Palettes",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SCION_SLASH_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SCION_SLASH_PALETTES) },
@@ -2411,6 +2433,8 @@ const sDescTreeNode REDEARTH_A_UNITS_30[] =
     { L"Derminor (Slash Transparency)",          DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DERMINOR_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_DERMINOR_SLASH_COLLECTION) },
     { L"Scion's Lair (Slash Transparency)",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SCION_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SCION_SLASH_COLLECTION) },
     { L"Crypt (Slash Transparency)",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_SLASH_COLLECTION) },
+
+    { L"Derminor (Blade's Sword Swing)",          DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DERMINOR_BLADE_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_DERMINOR_BLADE_COLLECTION) },
 
     { L"Hauzer's Fire Greedia Ruins",     DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_HAUZERS_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_HAUZERS_COLLECTION) },
     { L"Hydron's Poison Gas Icelarn",     DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_POISON_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_POISON_COLLECTION) },
