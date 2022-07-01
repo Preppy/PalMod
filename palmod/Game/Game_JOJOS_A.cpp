@@ -857,7 +857,8 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             fUseDefaultPaletteLoad = false;
                         }
                     }
-                    else if (NodeGet->uUnitId == indexJojos51NewKakyo)
+                    else if ((NodeGet->uUnitId == indexJojos51Kakyo) ||
+                             (NodeGet->uUnitId == indexJojos51NewKakyo))
                     {
                         // Hieros: show the glow/changing palette on top of a normal Kakyo
                         nPaletteOneDelta = 0;
@@ -901,32 +902,58 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         UINT16 imageOne = paletteDataSetOne->indexOffsetToUse;
                         UINT16 imageTwo = paletteDataSetTwo->indexOffsetToUse;
 
-                        if ((NodeGet->uUnitId == indexJojos51NewKakyo) &&
+                        if ((NodeGet->uUnitId == indexJojos51Kakyo) &&
                             !((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)))
                         {
-                            // NewKakyo uses special logic as the paired palette actually is aligned to a "full" sprite.
-                            imageOne = 1;
-                            imageTwo = 2;
+                            // old kak needs to flip preview layout!
+                            ClearSetImgTicket(
+                                CreateImgTicket(paletteDataSetTwo->indexImgToUse, imageTwo,
+                                    CreateImgTicket(paletteDataSetOne->indexImgToUse, imageOne, nullptr, nXOffs, nYOffs)
+                                )
+                            );
+
+                            //Set each palette
+                            std::vector<sDescNode*> JoinedNode = {
+                                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1),
+                                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteOneDelta, -1)
+                            };
+
+                            //Set each palette
+                            CreateDefPal(JoinedNode[0], 0);
+                            CreateDefPal(JoinedNode[1], 1);
+
+                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart + nPaletteTwoDelta, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPaletteOneDelta, nSrcAmt, nNodeIncrement);
                         }
-                        
-                        ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSetOne->indexImgToUse, imageOne,
-                                CreateImgTicket(paletteDataSetTwo->indexImgToUse, imageTwo, nullptr, nXOffs, nYOffs)
-                            )
-                        );
+                        else
+                        {
+                            if ((NodeGet->uUnitId == indexJojos51NewKakyo) &&
+                                !((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)))
+                            {
+                                // NewKakyo uses special logic as the paired palette actually is aligned to a different "full" sprite.
+                                imageOne = 1;
+                                imageTwo = 2;
+                            }
 
-                        //Set each palette
-                        std::vector<sDescNode*> JoinedNode = {
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteOneDelta, -1),
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1)
-                        };
+                            ClearSetImgTicket(
+                                CreateImgTicket(paletteDataSetOne->indexImgToUse, imageOne,
+                                    CreateImgTicket(paletteDataSetTwo->indexImgToUse, imageTwo, nullptr, nXOffs, nYOffs)
+                                )
+                            );
 
-                        //Set each palette
-                        CreateDefPal(JoinedNode[0], 0);
-                        CreateDefPal(JoinedNode[1], 1);
+                            //Set each palette
+                            std::vector<sDescNode*> JoinedNode = {
+                                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteOneDelta, -1),
+                                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1)
+                            };
 
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart + nPaletteOneDelta, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPaletteTwoDelta, nSrcAmt, nNodeIncrement);
+                            //Set each palette
+                            CreateDefPal(JoinedNode[0], 0);
+                            CreateDefPal(JoinedNode[1], 1);
+
+                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart + nPaletteOneDelta, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPaletteTwoDelta, nSrcAmt, nNodeIncrement);
+                        }
                     }
                 }
                 else // 50 ROM

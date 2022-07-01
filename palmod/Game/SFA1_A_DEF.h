@@ -417,17 +417,17 @@ const sGame_PaletteDataset SFA1_A_DAN_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_BONUS_BONUS_PALETTES[] =
 {
-    { L"Level Bar", 0x7dd7e, 0x7df5e },
-    { L"Normal/Turbo Speed Select (1/8)", 0x7e71e, 0x7e73e },
-    { L"Normal/Turbo Speed Select (2/8)", 0x7e73e, 0x7e75e },
-    { L"Normal/Turbo Speed Select (3/8)", 0x7e75e, 0x7e77e },
-    { L"Normal/Turbo Speed Select (4/8)", 0x7e77e, 0x7e79e },
-    { L"Normal/Turbo Speed Select (5/8)", 0x7e79e, 0x7e7be },
-    { L"Normal/Turbo Speed Select (6/8)", 0x7e7be, 0x7e7de },
-    { L"Normal/Turbo Speed Select (7/8)", 0x7e7de, 0x7e7fe },
-    { L"Normal/Turbo Speed Select (8/8)", 0x7e7fe, 0x7e81e },
-    { L"Speed Select Arrows", 0x7e6be, 0x7e71e },
-    { L"Insert Coin and Free Play Text", 0x7e81e, 0x7e83e },
+    { L"Level Bar", 0x7dd7e, 0x7df5e, indexCPS2Sprites_SFA1_Portraits, 0x03 },
+    { L"Normal/Turbo Speed Select (1/8)", 0x7e71e, 0x7e73e, indexCPS2Sprites_SFA1_Portraits, 0x01 },
+    { L"Normal/Turbo Speed Select (2/8)", 0x7e73e, 0x7e75e, indexCPS2Sprites_SFA1_Portraits, 0x01 },
+    { L"Normal/Turbo Speed Select (3/8)", 0x7e75e, 0x7e77e, indexCPS2Sprites_SFA1_Portraits, 0x01 },
+    { L"Normal/Turbo Speed Select (4/8)", 0x7e77e, 0x7e79e, indexCPS2Sprites_SFA1_Portraits, 0x01 },
+    { L"Normal/Turbo Speed Select (5/8)", 0x7e79e, 0x7e7be, indexCPS2Sprites_SFA1_Portraits, 0x01 },
+    { L"Normal/Turbo Speed Select (6/8)", 0x7e7be, 0x7e7de, indexCPS2Sprites_SFA1_Portraits, 0x01 },
+    { L"Normal/Turbo Speed Select (7/8)", 0x7e7de, 0x7e7fe, indexCPS2Sprites_SFA1_Portraits, 0x01 },
+    { L"Normal/Turbo Speed Select (8/8)", 0x7e7fe, 0x7e81e, indexCPS2Sprites_SFA1_Portraits, 0x01 },
+    { L"Speed Select Arrows", 0x7e6be, 0x7e71e, indexCPS2Sprites_SFA1_Portraits, 0x02 },
+    { L"Insert Coin and Free Play Text", 0x7e81e, 0x7e83e, indexCPS2Sprites_SFA1_Portraits, 0x04 },
 };
 
 const sGame_PaletteDataset SFA1_A_DAN_PORTRAIT_PALETTES[] =

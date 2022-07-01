@@ -732,10 +732,10 @@ const sGame_PaletteDataset REDEARTH_A_GIGI_PALETTES[] =
     { L"Gi Gi Blue Form", 0x431800, 0x431880, indexRedEarthSprites_GiGi, 0x08 },
     { L"Gi Gi Lifebar Portrait", 0x406b40, 0x406b60, indexRedEarthSprites_GiGi, 0x10 },
 
-    { L"Gi Gi Block 1", 0x430c00, 0x430c80 },
+    { L"Gi Gi Block 1", 0x430c00, 0x430c80, indexRedEarthSprites_GiGi, 0x01 },
     { L"Gi Gi Block & Golden Chair 2", 0x430c80, 0x430d00, indexRedEarthSprites_GiGi, 0x02 },
-    { L"Gi Gi Block 3", 0x430d00, 0x430d80 },
-    { L"Gi Gi Block 4", 0x430d80, 0x430e00 },
+    { L"Gi Gi Block 3", 0x430d00, 0x430d80, indexRedEarthSprites_GiGi, 0x03 },
+    { L"Gi Gi Block 4", 0x430d80, 0x430e00, indexRedEarthSprites_GiGi, 0x04 },
 
     { L"Gi Gi Columns & Rocks 1/2", 0x431180, 0x431200, indexRedEarthSprites_GiGi, 0x05 },
     { L"Gi Gi Columns & Rocks 2/2", 0x431600, 0x431680, indexRedEarthSprites_GiGi, 0x05 },
