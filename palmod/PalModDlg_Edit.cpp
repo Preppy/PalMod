@@ -72,6 +72,11 @@ void CPalModDlg::OnPasteColorAtPointer()
     OnEditPaste();
 }
 
+void CPalModDlg::OnFindColorAtPointer()
+{
+    SelectMatchingColorsInPalette(GetColorAtCurrentMouseCursorPosition(), GetHost()->GetImgDispCtrl()->GetBGCol());
+}
+
 DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, DWORD dwKeyState, CPoint point)
 {
     m_currentEffectState = DROPEFFECT_NONE;

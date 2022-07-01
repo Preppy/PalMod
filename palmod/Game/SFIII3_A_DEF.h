@@ -32,11 +32,64 @@ constexpr UINT16 INDEX_JUDGEMENT_PORTRAITS = 0x38;
 #pragma region SecondaryPaletteEffects
 
 // Gill just needs a flip of the first two palette lines
-const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_Next =
+const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_NextOnly =
 { 
-    { SUPP_NODE, 0x01, 0, 
-        MOD_COPY, 1, 15, 17,
-        MOD_COPY, 17, 15, 1
+    {
+        SUPP_NODE, 0x01, 0, 
+            MOD_COPY, 1, 15, 17,
+            MOD_COPY, 17, 15, 1,
+    },
+};
+
+// For this version, handle palettes too
+const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_Next_AndHandlePortraits =
+{ 
+    {
+        SUPP_NODE, 0x01, 0, 
+            MOD_COPY, 1, 15, 17,
+            MOD_COPY, 17, 15, 1,
+
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            // Leave the border
+            // Leave the background
+            // right skin for four colors
+            MOD_COPY, 3, 1, 3,
+            MOD_COPY, 4, 1, 4,
+            MOD_COPY, 6, 1, 5,
+            MOD_COPY, 10, 1, 6,
+            // left skin for four colors
+            MOD_COPY, 19, 1, 7,
+            MOD_COPY, 20, 1, 8,
+            MOD_COPY, 22, 1, 9,
+            MOD_COPY, 26, 1, 10,
+            // jewel/eyes
+            MOD_COPY, 16, 1, 11,
+                MOD_LUM, 11, 1, 5, // brighten slightly
+            // hair for three colors
+            MOD_COPY, 33, 1, 12,
+            MOD_COPY, 34, 1, 13,
+            MOD_COPY, 37, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x03, 0,
+            MOD_COPY, 3, 1, 1, // right skin
+            MOD_COPY, 5, 1, 2, // right skin
+            MOD_COPY, 7, 1, 3, // right skin
+            MOD_COPY, 10, 1, 4, // right skin
+            MOD_COPY, 16, 1, 5, // jewel/eyes
+                MOD_LUM, 5, 1, 5, // brighten slightly
+            MOD_COPY, 19, 1, 6, // left skin
+            MOD_COPY, 20, 1, 7, // left skin
+            MOD_COPY, 22, 1, 8, // left skin
+            MOD_COPY, 27, 1, 9, // left skin
+            MOD_COPY, 34, 1, 10, // hair
+            MOD_COPY, 36, 1, 11, // hair
+            MOD_COPY, 37, 1, 12, // hair
+            MOD_COPY, 39, 1, 13, // hair border
+            MOD_COPY, 32, 1, 14, // unused?
+            // Background, don't change
     },
 };
 
@@ -51,46 +104,46 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_Next12 =
 const std::vector<std::vector<UINT16>> paletteBuddy_3SAlex_HandlePortraits =
 {
     {
-    // HUD portrait
-    SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
-        // Leave the border
-        // Leave the background
-        // Leave the black eyes
-        // Skin tone for five pixels
-          MOD_COPY, 1, 1, 4,
-          MOD_COPY, 4, 1, 5,
-          MOD_COPY, 7, 2, 6,
-          MOD_COPY, 10, 1, 8,
-        // Body paint for one
-          MOD_COPY, 60, 1, 9,
-        // Bandana for two
-          MOD_COPY, 49, 1, 10,
-          MOD_COPY, 51, 1, 11,
-        // Hair for three
-          MOD_COPY, 53, 2, 12,
-          MOD_COPY, 56, 1, 14,
-        // Unused
+        // HUD portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // Leave the black eyes
+            // Skin tone for five pixels
+              MOD_COPY, 1, 1, 4,
+              MOD_COPY, 4, 1, 5,
+              MOD_COPY, 7, 2, 6,
+              MOD_COPY, 10, 1, 8,
+            // Body paint for one
+              MOD_COPY, 60, 1, 9,
+            // Bandana for two
+              MOD_COPY, 49, 1, 10,
+              MOD_COPY, 51, 1, 11,
+            // Hair for three
+              MOD_COPY, 53, 2, 12,
+              MOD_COPY, 56, 1, 14,
+            // Unused
 
-    // Judgement Portrait
-     SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
-        // Slightly darker than the portrait
-        // Skin tone for four pixels
-          MOD_COPY, 4, 1, 1,
-          MOD_COPY, 6, 1, 2,
-          MOD_COPY, 8, 1, 3,
-          MOD_COPY, 11, 1, 4,
-        // Body paint? for one
-          MOD_COPY, 6, 1, 5,
-        // pupil for one
-          MOD_COPY, 33, 1, 6,
-        // eye shadow for one
-        // Bandana for three
-          MOD_COPY, 49, 2, 8,
-          MOD_COPY, 52, 1, 10,
-        // Hair for four
-          MOD_COPY, 53, 3, 11,
-          MOD_COPY, 57, 1, 14,
-        // Background, don't change
+        // Judgement Portrait
+         SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            // Slightly darker than the portrait
+            // Skin tone for four pixels
+              MOD_COPY, 4, 1, 1,
+              MOD_COPY, 6, 1, 2,
+              MOD_COPY, 8, 1, 3,
+              MOD_COPY, 11, 1, 4,
+            // Body paint? for one
+              MOD_COPY, 6, 1, 5,
+            // pupil for one
+              MOD_COPY, 33, 1, 6,
+            // eye shadow for one
+            // Bandana for three
+              MOD_COPY, 49, 2, 8,
+              MOD_COPY, 52, 1, 10,
+            // Hair for four
+              MOD_COPY, 53, 3, 11,
+              MOD_COPY, 57, 1, 14,
+            // Background, don't change
     }
 };
 
@@ -212,11 +265,805 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SDudley_HandlePortraits =
     }
 };
 
-const stPaletteProcessingInformation secondary3SGillSwapEffects_Next{ paletteBuddy_3SGill_SwapSides_Next };
+const std::vector<std::vector<UINT16>> paletteBuddy_3SElena_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // Skin tone for three colors
+            MOD_COPY, 7, 1, 3,
+            MOD_COPY, 8, 1, 4,
+            MOD_COPY, 10, 1, 5,
+            // eyes
+            MOD_COPY, 14, 1, 6,
+            // pupils/teeth
+            MOD_COPY, 63, 1, 7,
+            // hair for four colors
+            MOD_COPY, 2, 1, 8,
+            MOD_COPY, 3, 1, 9,
+            MOD_COPY, 22, 1, 10,
+            MOD_COPY, 30, 1, 11,
+            // bangles
+            MOD_COPY, 56, 1, 12,
+            // tongue - increase the red
+            MOD_TINT, 16, 1, 13, 4, 0, 0,
+            // other bangle
+            MOD_COPY, 60, 1, 14,
+            // unused
+
+        // Judgement Portrait
+         SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 2, 1, 1, // hair
+            MOD_COPY, 3, 1, 2, // hair
+            MOD_COPY, 7, 1, 3, // skin
+            MOD_COPY, 9, 1, 4, // skin
+            MOD_COPY, 14, 1, 5, // skin border
+            MOD_COPY, 18, 1, 6, // hair
+            MOD_COPY, 19, 1, 7, // hair
+            MOD_COPY, 20, 1, 8, // hair
+            MOD_COPY, 41, 1, 9, // bangle
+            MOD_COPY, 44, 1, 10, // bangle
+            MOD_COPY, 47, 1, 11, // pupil
+            MOD_COPY, 56, 1, 12, // bangle
+            MOD_COPY, 61, 1, 13, // bangle
+            MOD_COPY, 63, 1, 14, // eye whites
+            // Background, don't change
+    }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SGouki_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for five colors
+            MOD_COPY, 34, 1, 3,
+            MOD_COPY, 36, 1, 4,
+            MOD_COPY, 37, 1, 5,
+            MOD_COPY, 38, 1, 6,
+            MOD_COPY, 39, 1, 7,
+              MOD_LUM, 3, 5, 5,
+            // skin border
+            MOD_COPY, 40, 1, 8,
+            // pupil
+            MOD_COPY, 61, 1, 9,
+            // background shadow
+            MOD_COPY, 9, 1, 10,
+            // hair for 4 colors
+            MOD_COPY, 48, 1, 11,
+            MOD_COPY, 49, 1, 12,
+            MOD_COPY, 50, 1, 13,
+            MOD_COPY, 51, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 1, 1, 1, // skin border
+            MOD_COPY, 2, 1, 2, // shirt
+            MOD_COPY, 4, 1, 3, // shirt
+            MOD_COPY, 6, 1, 4, // shirt
+            MOD_COPY, 8, 1, 5, // shirt
+            MOD_COPY, 34, 1, 6, // skin
+            MOD_COPY, 36, 1, 7, // skin
+            MOD_COPY, 38, 1, 8, // skin
+            MOD_COPY, 40, 1, 9, // skin
+            MOD_COPY, 48, 1, 10, // hair
+            MOD_COPY, 49, 1, 11, // hair
+            MOD_COPY, 50, 1, 12, // hair
+            MOD_COPY, 52, 1, 13, // hair border
+            MOD_COPY, 61, 1, 14, // pupil
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SHugo_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for seven colors
+            MOD_COPY, 1, 1, 3,
+            MOD_COPY, 2, 1, 4,
+            MOD_COPY, 3, 1, 5,
+            MOD_COPY, 4, 1, 6,
+            MOD_COPY, 6, 1, 7,
+            MOD_COPY, 7, 1, 8,
+            MOD_COPY, 9, 1, 9,
+            // eyes
+            MOD_COPY, 11, 1, 10,
+            // shirt
+            MOD_COPY, 18, 1, 11,
+            // hair for 3 colors
+            MOD_COPY, 36, 1, 12,
+            MOD_COPY, 37, 1, 13,
+            MOD_COPY, 38, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 1, 1, 1, // skin
+            MOD_COPY, 2, 1, 2, // skin
+            MOD_COPY, 4, 1, 3, // skin
+            MOD_COPY, 7, 1, 4, // skin
+            MOD_COPY, 8, 1, 5, // skin
+            MOD_COPY, 10, 1, 6, // skin
+            MOD_COPY, 11, 1, 7, // eyes
+            MOD_COPY, 14, 1, 8, // skin
+            MOD_COPY, 15, 1, 9, // skin
+            MOD_COPY, 16, 1, 10, // shirt
+            MOD_COPY, 18, 1, 11, // shirt
+            MOD_COPY, 36, 1, 12, // hair
+            MOD_COPY, 37, 1, 13, // hair
+            MOD_COPY, 38, 1, 14, // hair
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SIbuki_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for four colors
+            MOD_COPY, 11, 1, 3,
+            MOD_COPY, 13, 1, 4,
+            MOD_COPY, 14, 1, 5,
+            MOD_COPY, 15, 1, 6,
+            // hair, eyes
+            MOD_COPY, 1, 1, 7,
+            // hair
+            MOD_COPY, 6, 1, 8,
+            // clothes for four colors
+            MOD_COPY, 48, 1, 9,
+            MOD_COPY, 51, 1, 10,
+            MOD_COPY, 53, 1, 11,
+            MOD_COPY, 55, 1, 12,
+            // bow for two colors
+            MOD_COPY, 35, 1, 13,
+            MOD_COPY, 37, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 6, 1, 1, // hair
+            MOD_COPY, 11, 1, 2, // skin
+            MOD_COPY, 13, 1, 3, // skin
+            MOD_COPY, 14, 1, 4, // skin
+            MOD_COPY, 15, 1, 5, // skin
+            MOD_COPY, 18, 1, 6, // skin
+            MOD_COPY, 36, 1, 7, // bow
+            MOD_COPY, 38, 1, 8, // bow
+            MOD_COPY, 49, 1, 9, // shirt
+            MOD_COPY, 51, 1, 10, // shirt
+            MOD_COPY, 53, 1, 11, // shirt
+            MOD_COPY, 54, 1, 12, // shirt
+            MOD_COPY, 55, 1, 13, // shirt
+            MOD_COPY, 57, 1, 14, // sash
+            // Background, don't change
+    }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SKen_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for three colors
+            MOD_COPY, 35, 1, 3,
+            MOD_COPY, 36, 1, 4,
+            MOD_COPY, 37, 1, 5,
+            // skin border
+            MOD_COPY, 39, 1, 6,
+            // eyebrows
+            MOD_COPY, 60, 1, 7,
+            // eye whites, teeth
+                // don't touch
+            // shirts for two
+            MOD_COPY, 10, 1, 9,
+            MOD_COPY, 12, 1, 10,
+            // hair for four
+            MOD_COPY, 48, 1, 11, // hair
+            MOD_COPY, 49, 1, 12, // hair
+            MOD_COPY, 50, 1, 13, // hair
+            MOD_COPY, 51, 1, 14, // hair border
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 60, 1, 1, // eyebrow
+            MOD_COPY, 3, 1, 2, // shirt
+            MOD_COPY, 5, 1, 3, // shirt
+            MOD_COPY, 17, 1, 4, // pupil
+            MOD_COPY, 35, 1, 5, // skin
+            MOD_COPY, 36, 1, 6, // skin
+            MOD_COPY, 37, 1, 7, // skin
+            MOD_COPY, 38, 1, 8, // skin
+            MOD_COPY, 40, 1, 9, // skin border
+            MOD_COPY, 43, 1, 10, // ?
+            MOD_COPY, 44, 1, 11, // neck
+            MOD_COPY, 48, 1, 12, // hair
+            MOD_COPY, 49, 1, 13, // hair
+            MOD_COPY, 51, 1, 14, // hair border
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SMakoto_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for four colors
+            MOD_COPY, 1, 1, 3,
+            MOD_COPY, 2, 1, 4,
+            MOD_COPY, 3, 1, 5,
+            MOD_COPY, 6, 1, 6,
+            // eyes
+            MOD_COPY, 32, 1, 7,
+            // hair highlight
+            MOD_COPY, 12, 1, 8,
+            // hair for two
+            MOD_COPY, 14, 1, 9,
+            MOD_COPY, 15, 1, 10,
+            // sash for two
+            MOD_COPY, 33, 1, 11,
+            MOD_COPY, 35, 1, 12,
+            // outfit for two
+            MOD_COPY, 26, 1, 13,
+            MOD_COPY, 19, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 2, 1, 1, // skin
+            MOD_COPY, 3, 1, 2, // skin
+            MOD_COPY, 4, 1, 3, // skin
+            MOD_COPY, 6, 1, 4, // skin
+            MOD_COPY, 11, 1, 5, // skin border
+            MOD_COPY, 12, 1, 6, // hair highlight 1
+            MOD_COPY, 13, 1, 7, // hair
+            MOD_COPY, 15, 1, 8, // hair
+            MOD_COPY, 19, 1, 9, // shirt border
+            MOD_COPY, 22, 1, 10, // collar
+            MOD_COPY, 26, 1, 11, // shirt
+            MOD_COPY, 31, 1, 12, // hair highlight 2
+            MOD_COPY, 34, 1, 13, // sash
+            MOD_COPY, 35, 1, 14, // sash
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SNecro_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for three colors
+            MOD_COPY, 3, 1, 3,
+            MOD_COPY, 7, 1, 4,
+            MOD_COPY, 9, 1, 5,
+            // skin background
+            MOD_COPY, 11, 1, 6,
+            // shaded skin for three
+            MOD_COPY, 33, 1, 7,
+            MOD_COPY, 36, 1, 8,
+            MOD_COPY, 39, 1, 9,
+            // pupil
+            MOD_COPY, 12, 1, 10,
+            // body paint for two
+            MOD_COPY, 14, 1, 11,
+            MOD_COPY, 15, 1, 12,
+            // strap for two
+            MOD_COPY, 20, 1, 13,
+            MOD_COPY, 26, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 1, 1, 1, // skin
+            MOD_COPY, 3, 1, 2, // skin
+            MOD_COPY, 7, 1, 3, // skin
+            MOD_COPY, 8, 1, 4, // skin
+            MOD_COPY, 9, 1, 5, // skin
+            MOD_COPY, 11, 1, 6, // eye shadows
+            MOD_COPY, 13, 1, 7, // eyes
+            MOD_COPY, 15, 1, 8, // eyes
+            MOD_COPY, 18, 1, 9, // strap
+            MOD_COPY, 21, 1, 10, // strap
+            MOD_COPY, 26, 1, 11, // strap
+            MOD_COPY, 30, 1, 12, // ? eye stuff
+            MOD_COPY, 33, 1, 13, // ear
+            MOD_COPY, 45, 1, 14, // strap
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SOro_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for four colors
+            MOD_COPY, 16, 1, 3,
+            MOD_COPY, 17, 1, 4,
+            MOD_COPY, 18, 1, 5,
+            MOD_COPY, 21, 1, 6,
+            // light skin border
+            MOD_COPY, 23, 1, 7,
+            // dark skin for four
+            MOD_COPY, 26, 1, 8,
+            MOD_COPY, 27, 1, 9,
+            MOD_COPY, 28, 1, 10,
+            MOD_COPY, 29, 1, 11,
+            // dark skin border
+            MOD_COPY, 30, 1, 12,
+            // hair
+            MOD_COPY, 15, 1, 13,
+            // pupils
+            MOD_COPY, 42, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 15, 1, 1, // hair
+            MOD_COPY, 16, 1, 2, // skin
+            MOD_COPY, 17, 1, 3, // skin
+            MOD_COPY, 18, 1, 4, // skin
+            MOD_COPY, 19, 1, 5, // skin
+            MOD_COPY, 20, 1, 6, // skin
+            MOD_COPY, 21, 1, 7, // skin
+            MOD_COPY, 22, 1, 8, // skin
+            MOD_COPY, 23, 1, 9, // skin
+            MOD_COPY, 24, 1, 10, // skin border
+            MOD_COPY, 27, 1, 11, // dark skin
+            MOD_COPY, 29, 1, 12, // dark skin
+            MOD_COPY, 31, 1, 13, // dark skin border
+            MOD_COPY, 42, 1, 14, // pupil
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SQ_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // hat for three
+            MOD_COPY, 42, 1, 3,
+            MOD_COPY, 43, 1, 4,
+            MOD_COPY, 46, 1, 5,
+            // hat band
+            MOD_COPY, 29, 1, 6,
+            // skin for three
+            MOD_COPY, 20, 1, 7,
+            MOD_COPY, 22, 1, 8,
+            MOD_COPY, 24, 1, 9,
+            // eyes for two
+            MOD_COPY, 26, 1, 10,
+            MOD_COPY, 28, 1, 11,
+            // jacket for three
+            MOD_COPY, 1, 1, 12,
+            MOD_COPY, 3, 1, 13,
+            MOD_COPY, 5, 1, 14,            
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 1, 1, 1, // jacket
+            MOD_COPY, 5, 1, 2, // jacket border
+            MOD_COPY, 19, 1, 3, // skin
+            MOD_COPY, 20, 1, 4, // skin
+            MOD_COPY, 21, 1, 5, // skin
+            MOD_COPY, 22, 1, 6, // skin
+            MOD_COPY, 26, 1, 7, // eye
+            MOD_COPY, 27, 1, 8, // eye
+            MOD_COPY, 28, 1, 9, // neck
+            MOD_COPY, 30, 1, 10, // hatband
+            MOD_COPY, 35, 1, 11, // skin border
+            MOD_COPY, 42, 1, 12, // hat
+            MOD_COPY, 44, 1, 13, // hat
+            MOD_COPY, 45, 1, 14, // hat
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SRemy_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for five colors
+            MOD_COPY, 3, 1, 3,
+            MOD_COPY, 4, 1, 4,
+            MOD_COPY, 6, 1, 5,
+            MOD_COPY, 7, 1, 6,
+            MOD_COPY, 9, 1, 7,
+            // hair highlight
+            MOD_COPY, 10, 1, 8,
+            // hair for four
+            MOD_COPY, 12, 1, 9,
+            MOD_COPY, 13, 1, 10,
+            MOD_COPY, 14, 1, 11,
+            MOD_COPY, 15, 1, 12,
+            // shirt for two
+            MOD_COPY, 21, 1, 13,
+            MOD_COPY, 23, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 2, 1, 1, // skin
+            MOD_COPY, 3, 1, 2, // skin
+            MOD_COPY, 4, 1, 3, // skin
+            MOD_COPY, 6, 1, 4, // skin
+            MOD_COPY, 7, 1, 5, // skin
+            MOD_COPY, 11, 1, 6, // hair highlight
+            MOD_COPY, 12, 1, 7, // hair
+            MOD_COPY, 13, 1, 8, // hair
+            MOD_COPY, 14, 1, 9, // hair
+            MOD_COPY, 20, 1, 10, // shirt
+            MOD_COPY, 21, 1, 11, // shirt
+            MOD_COPY, 23, 1, 12, // dark shirt
+            MOD_COPY, 33, 1, 13, // pupil
+            MOD_COPY, 43, 1, 14, // button
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SRyu_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // hair
+            MOD_COPY, 1, 1, 3,
+            // skin for six
+            MOD_COPY, 34, 1, 4,
+            MOD_COPY, 35, 1, 5,
+            MOD_COPY, 36, 1, 6,
+            MOD_COPY, 37, 1, 7,
+            MOD_COPY, 39, 1, 8,
+            MOD_COPY, 40, 1, 9,
+            // shirt
+            MOD_COPY, 2, 1, 10,
+            // shirt border
+            MOD_COPY, 7, 1, 11,
+            // bandana
+            MOD_COPY, 61, 1, 12,
+            // hair for two
+            MOD_COPY, 49, 1, 13,
+            MOD_COPY, 51, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 1, 1, 1, // hair
+            MOD_COPY, 2, 1, 2, // shirt
+            MOD_COPY, 5, 1, 3, // shirt
+            MOD_COPY, 7, 1, 4, // shirt
+            MOD_COPY, 8, 1, 5, // shirt
+            MOD_COPY, 6, 1, 6, // shirt
+            MOD_COPY, 35, 1, 7, // skin
+            MOD_COPY, 37, 1, 8, // skin
+            MOD_COPY, 39, 1, 9, // skin
+            MOD_COPY, 40, 1, 10, // skin border
+            MOD_COPY, 49, 1, 11, // hair
+            MOD_COPY, 51, 1, 12, // hair
+            MOD_COPY, 60, 1, 13, // bandana
+            MOD_COPY, 61, 1, 14, // bandana
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SSean_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for three colors
+            MOD_COPY, 34, 1, 3,
+            MOD_COPY, 35, 1, 4,
+            MOD_COPY, 36, 1, 5,
+            // hair/skin for two colors
+            MOD_COPY, 37, 1, 6,
+            MOD_COPY, 39, 1, 7,
+            // pupils/hair
+            MOD_COPY, 1, 1, 8,
+            // shirt for four colors
+            MOD_COPY, 2, 1, 9,
+            MOD_COPY, 3, 1, 10,
+            MOD_COPY, 4, 1, 11,
+            MOD_COPY, 6, 1, 12,
+            // eyes/teeth/earring
+            MOD_COPY, 16, 1, 13,
+            MOD_COPY, 17, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 1, 1, 1, // skin border/hair
+            MOD_COPY, 2, 1, 2, // shirt
+            MOD_COPY, 4, 1, 3, // shirt
+            MOD_COPY, 5, 1, 4, // shirt
+            MOD_COPY, 6, 1, 5, // shirt
+            MOD_COPY, 17, 1, 6, // eye white/earring
+            MOD_COPY, 35, 1, 7, // skin
+            MOD_COPY, 36, 1, 8, // skin
+            MOD_COPY, 37, 1, 9, // skin
+            MOD_COPY, 38, 1, 10, // skin
+            MOD_COPY, 39, 1, 11, // hair/skin
+            MOD_COPY, 40, 1, 12, // hair/skin
+            MOD_COPY, 43, 1, 13, // neck
+            MOD_COPY, 44, 1, 14, // neck
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3STwelve_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for five colors
+            MOD_COPY, 2, 1, 3,
+            MOD_COPY, 3, 1, 4,
+            MOD_COPY, 4, 1, 5,
+            MOD_COPY, 5, 1, 6,
+            MOD_COPY, 9, 1, 7,
+            // shaded skin for six colors
+            MOD_COPY, 10, 1, 8,
+            MOD_COPY, 11, 1, 9,
+            MOD_COPY, 12, 1, 10,
+            MOD_COPY, 13, 1, 11,
+            MOD_COPY, 14, 1, 12,
+            MOD_COPY, 15, 1, 13,
+            // unused
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 1, 1, 1, // skin
+            MOD_COPY, 2, 1, 2, // skin
+            MOD_COPY, 3, 1, 3, // skin
+            MOD_COPY, 4, 1, 4, // skin
+            MOD_COPY, 5, 1, 5, // skin
+            MOD_COPY, 9, 1, 6, // skin
+            MOD_COPY, 10, 1, 7, // shaded skin
+            MOD_COPY, 11, 1, 8, // shaded skin
+            MOD_COPY, 12, 1, 9, // shaded skin
+            MOD_COPY, 13, 1, 10, // shaded skin
+            MOD_COPY, 14, 1, 11, // shaded skin
+            MOD_COPY, 15, 1, 12, // shaded skin
+            // unused
+            // unused
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SUrien_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for six colors
+            MOD_COPY, 3, 1, 3,
+            MOD_COPY, 4, 1, 4,
+            MOD_COPY, 5, 1, 5,
+            MOD_COPY, 6, 1, 6,
+            MOD_COPY, 7, 1, 7,
+            MOD_COPY, 8, 1, 8,
+            // teeth for two colors
+            MOD_COPY, 43, 1, 9,
+            MOD_COPY, 44, 1, 10,
+            // pupil
+            MOD_COPY, 16, 1, 11,
+            // hair for three colors
+            MOD_COPY, 33, 1, 12,
+            MOD_COPY, 35, 1, 13,
+            MOD_COPY, 37, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 2, 1, 1, // skin
+            MOD_COPY, 3, 1, 2, // skin
+            MOD_COPY, 4, 1, 3, // skin
+            MOD_COPY, 5, 1, 4, // skin
+            MOD_COPY, 6, 1, 5, // skin
+            MOD_COPY, 7, 1, 6, // skin
+            MOD_COPY, 8, 1, 7, // skin
+            MOD_COPY, 9, 1, 8, // skin
+            MOD_COPY, 11, 1, 9, // skin
+            MOD_COPY, 16, 1, 10, // pupil/jewel
+            MOD_COPY, 34, 1, 11, // hair
+            MOD_COPY, 35, 1, 12, // hair
+            MOD_COPY, 36, 1, 13, // hair
+            MOD_COPY, 38, 1, 14, // hair
+            // Background, don't change
+      }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SYang_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for four colors
+            MOD_COPY, 40, 1, 3,
+            MOD_COPY, 41, 1, 4,
+            MOD_COPY, 42, 1, 5,
+            MOD_COPY, 44, 1, 6,
+            // skin border
+            MOD_COPY, 45, 1, 7,
+            // eye whites
+            MOD_COPY, 48, 1, 8,
+            // hair for four colors
+            MOD_COPY, 17, 1, 9,
+            MOD_COPY, 18, 1, 10,
+            MOD_COPY, 19, 1, 11,
+            MOD_COPY, 1, 1, 12,
+            // gloves
+            MOD_COPY, 26, 1, 13,
+            // shirt
+            MOD_COPY, 20, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 1, 1, 1, // hair
+            MOD_COPY, 3, 1, 2, // shirt
+            MOD_COPY, 5, 1, 3, // shirt
+            MOD_COPY, 9, 1, 4, // hair
+            MOD_COPY, 11, 1, 5, // hair
+            MOD_COPY, 17, 1, 6, // hair
+            MOD_COPY, 18, 1, 7, // hair
+            MOD_COPY, 22, 1, 8, // shirt
+            MOD_COPY, 25, 1, 9, // shirt
+            MOD_COPY, 40, 1, 10, // skin
+            MOD_COPY, 42, 1, 11, // skin
+            MOD_COPY, 45, 1, 12, // skin
+            MOD_COPY, 47, 1, 13, // skin
+            MOD_COPY, 48, 1, 14, // eye whites
+            // Background, don't change
+    }
+};
+
+const std::vector<std::vector<UINT16>> paletteBuddy_3SYun_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for four colors
+            MOD_COPY, 40, 1, 3,
+                MOD_LUM, 3, 1, 5, // brighten for the spotlight
+            MOD_COPY, 41, 1, 4,
+            MOD_COPY, 42, 1, 5,
+            MOD_COPY, 44, 1, 6,
+            // skin border
+            MOD_COPY, 46, 1, 7,
+            // hair/pupils
+            MOD_COPY, 1, 1, 8,
+            // hat
+            MOD_COPY, 16, 1, 9,
+            // hat logo white
+            MOD_COPY, 2, 1, 10,
+            // hat logo
+            MOD_COPY, 32, 1, 11,
+            // hat bill top
+            MOD_COPY, 26, 1, 12,
+            // hat bill bottom
+            MOD_COPY, 28, 1, 13,
+            // shirt
+            MOD_COPY, 20, 1, 14,
+            // unused
+
+        // Judgement Portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            MOD_COPY, 1, 1, 1, // hair
+            MOD_COPY, 3, 1, 2, // shirt/hat logo white
+            MOD_COPY, 6, 1, 3, // shirt
+            MOD_COPY, 18, 1, 4, // hat
+            MOD_COPY, 19, 1, 5, // hat
+            MOD_COPY, 23, 1, 6, // shirt
+            MOD_COPY, 28, 1, 7, // hat bill
+            MOD_COPY, 29, 1, 8, // hat bill
+            MOD_COPY, 32, 1, 9, // shirt
+            MOD_COPY, 41, 1, 10, // skin
+            MOD_COPY, 43, 1, 11, // skin
+            MOD_COPY, 44, 1, 12, // skin
+            MOD_COPY, 46, 1, 13, // skin
+            MOD_COPY, 48, 1, 14, // eye whites
+            // Background, don't change
+    }
+};
+
+// ShinGouki only has a HUD portrait
+const std::vector<std::vector<UINT16>> paletteBuddy_3SShinGouki_HandlePortraits =
+{
+    {
+        // HUD portrait: slightly lighter than normal
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // skin for five colors
+            MOD_COPY, 34, 1, 3,
+            MOD_COPY, 36, 1, 4,
+            MOD_COPY, 37, 1, 5,
+            MOD_COPY, 38, 1, 6,
+            MOD_COPY, 39, 1, 7,
+              MOD_LUM, 3, 5, 5,
+            // skin border
+            MOD_COPY, 40, 1, 8,
+            // pupil: note that the stock HUD portrait uses the wrong pupil color
+            MOD_COPY, 61, 1, 9,
+            // background shadow
+            MOD_COPY, 9, 1, 10,
+            // hair for 4 colors: note that the stock HUD portrait doesn't match the normal hair color
+            MOD_COPY, 48, 1, 11,
+            MOD_COPY, 49, 1, 12,
+            MOD_COPY, 50, 1, 13,
+            MOD_COPY, 51, 1, 14,
+            // unused
+      }
+};
+
+const stPaletteProcessingInformation secondary3SGillSwapEffects_Next{ paletteBuddy_3SGill_SwapSides_NextOnly };
+const stPaletteProcessingInformation secondary3SGillSwapEffects_Next_AndHandlePortraits{ paletteBuddy_3SGill_SwapSides_Next_AndHandlePortraits };
 const stPaletteProcessingInformation secondary3SGillSwapEffects_Next12{ paletteBuddy_3SGill_SwapSides_Next12 };
+
 const stPaletteProcessingInformation secondary3SAlexEffects_UpdatePortraits{ paletteBuddy_3SAlex_HandlePortraits };
 const stPaletteProcessingInformation secondary3SChunLiEffects_UpdatePortraits{ paletteBuddy_3SChunLi_HandlePortraits };
 const stPaletteProcessingInformation secondary3SDudleyEffects_UpdatePortraits{ paletteBuddy_3SDudley_HandlePortraits };
+const stPaletteProcessingInformation secondary3SElenaEffects_UpdatePortraits{ paletteBuddy_3SElena_HandlePortraits };
+const stPaletteProcessingInformation secondary3SGoukiEffects_UpdatePortraits{ paletteBuddy_3SGouki_HandlePortraits };
+const stPaletteProcessingInformation secondary3SHugoEffects_UpdatePortraits{ paletteBuddy_3SHugo_HandlePortraits };
+const stPaletteProcessingInformation secondary3SIbukiEffects_UpdatePortraits{ paletteBuddy_3SIbuki_HandlePortraits };
+const stPaletteProcessingInformation secondary3SKenEffects_UpdatePortraits{ paletteBuddy_3SKen_HandlePortraits };
+const stPaletteProcessingInformation secondary3SMakotoEffects_UpdatePortraits{ paletteBuddy_3SMakoto_HandlePortraits };
+const stPaletteProcessingInformation secondary3SNecroEffects_UpdatePortraits{ paletteBuddy_3SNecro_HandlePortraits };
+const stPaletteProcessingInformation secondary3SOroEffects_UpdatePortraits{ paletteBuddy_3SOro_HandlePortraits };
+const stPaletteProcessingInformation secondary3SQEffects_UpdatePortraits{ paletteBuddy_3SQ_HandlePortraits };
+const stPaletteProcessingInformation secondary3SRemyEffects_UpdatePortraits{ paletteBuddy_3SRemy_HandlePortraits };
+const stPaletteProcessingInformation secondary3SRyuEffects_UpdatePortraits{ paletteBuddy_3SRyu_HandlePortraits };
+const stPaletteProcessingInformation secondary3SSeanEffects_UpdatePortraits{ paletteBuddy_3SSean_HandlePortraits };
+const stPaletteProcessingInformation secondary3STwelveEffects_UpdatePortraits{ paletteBuddy_3STwelve_HandlePortraits };
+const stPaletteProcessingInformation secondary3SUrienEffects_UpdatePortraits{ paletteBuddy_3SUrien_HandlePortraits };
+const stPaletteProcessingInformation secondary3SYangEffects_UpdatePortraits{ paletteBuddy_3SYang_HandlePortraits };
+const stPaletteProcessingInformation secondary3SYunEffects_UpdatePortraits{ paletteBuddy_3SYun_HandlePortraits };
+
+const stPaletteProcessingInformation secondary3SShinGoukiEffects_UpdatePortraits{ paletteBuddy_3SShinGouki_HandlePortraits };
 
 #pragma endregion
 
@@ -293,49 +1140,49 @@ const sGame_PaletteDataset SFIII3_A_ALEX_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_RYU_LP_PALETTES[] =
 {
-    { L"LP Main", 0x700980, 0x700a00, index3SSprites_Ryu, 0x00 },
+    { L"LP Main", 0x700980, 0x700a00, index3SSprites_Ryu, 0x00, nullptr, &secondary3SRyuEffects_UpdatePortraits },
     { L"LP Portrait", 0x763cc0, 0x763ce0, index3SSprites_Ryu, 0x01 },
     { L"LP Judgement Portrait", 0x789940, 0x789960, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_MP_PALETTES[] =
 {
-    { L"MP Main", 0x700a00, 0x700a80, index3SSprites_Ryu, 0x00 },
+    { L"MP Main", 0x700a00, 0x700a80, index3SSprites_Ryu, 0x00, nullptr, &secondary3SRyuEffects_UpdatePortraits },
     { L"MP Portrait", 0x763ce0, 0x763d00, index3SSprites_Ryu, 0x01 },
     { L"MP Judgement Portrait", 0x789c40, 0x789c60, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_HP_PALETTES[] =
 {
-    { L"HP Main", 0x700a80, 0x700b00, index3SSprites_Ryu, 0x00 },
+    { L"HP Main", 0x700a80, 0x700b00, index3SSprites_Ryu, 0x00, nullptr, &secondary3SRyuEffects_UpdatePortraits },
     { L"HP Portrait", 0x763d00, 0x763d20, index3SSprites_Ryu, 0x01 },
     { L"HP Judgement Portrait", 0x789f40, 0x789f60, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_LK_PALETTES[] =
 {
-    { L"LK Main", 0x700b00, 0x700b80, index3SSprites_Ryu, 0x00 },
+    { L"LK Main", 0x700b00, 0x700b80, index3SSprites_Ryu, 0x00, nullptr, &secondary3SRyuEffects_UpdatePortraits },
     { L"LK Portrait", 0x763d20, 0x763d40, index3SSprites_Ryu, 0x01 },
     { L"LK Judgement Portrait", 0x78a240, 0x78a260, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_MK_PALETTES[] =
 {
-    { L"MK Main", 0x700b80, 0x700c00, index3SSprites_Ryu, 0x00 },
+    { L"MK Main", 0x700b80, 0x700c00, index3SSprites_Ryu, 0x00, nullptr, &secondary3SRyuEffects_UpdatePortraits },
     { L"MK Portrait", 0x763d40, 0x763d60, index3SSprites_Ryu, 0x01 },
     { L"MK Judgement Portrait", 0x78a540, 0x78a560, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_HK_PALETTES[] =
 {
-    { L"HK Main", 0x700c00, 0x700c80, index3SSprites_Ryu, 0x00 },
+    { L"HK Main", 0x700c00, 0x700c80, index3SSprites_Ryu, 0x00, nullptr, &secondary3SRyuEffects_UpdatePortraits },
     { L"HK Portrait", 0x763d60, 0x763d80, index3SSprites_Ryu, 0x01 },
     { L"HK Judgement Portrait", 0x78a840, 0x78a860, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_EX_PALETTES[] =
 {
-    { L"EX Main", 0x700c80, 0x700d00, index3SSprites_Ryu, 0x00 },
+    { L"EX Main", 0x700c80, 0x700d00, index3SSprites_Ryu, 0x00, nullptr, &secondary3SRyuEffects_UpdatePortraits },
     { L"EX Portrait", 0x763d80, 0x763da0, index3SSprites_Ryu, 0x01 },
     { L"EX Judgement Portrait", 0x78ab40, 0x78ab60, index3SSprites_Ryu, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -365,49 +1212,49 @@ const sGame_PaletteDataset SFIII3_A_RYU_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_YUN_LP_PALETTES[] =
 {
-    { L"LP Main", 0x700d00, 0x700d80, index3SSprites_Yun, 0x00 },
+    { L"LP Main", 0x700d00, 0x700d80, index3SSprites_Yun, 0x00, nullptr, &secondary3SYunEffects_UpdatePortraits },
     { L"LP Portrait", 0x763da0, 0x763dc0, index3SSprites_Yun, 0x01 },
     { L"LP Judgement Portrait", 0x789960, 0x789980, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_MP_PALETTES[] =
 {
-    { L"MP Main", 0x700d80, 0x700e00, index3SSprites_Yun, 0x00 },
+    { L"MP Main", 0x700d80, 0x700e00, index3SSprites_Yun, 0x00, nullptr, &secondary3SYunEffects_UpdatePortraits },
     { L"MP Portrait", 0x763dc0, 0x763de0, index3SSprites_Yun, 0x01 },
     { L"MP Judgement Portrait", 0x789c60, 0x789c80, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_HP_PALETTES[] =
 {
-    { L"HP Main", 0x700e00, 0x700e80, index3SSprites_Yun, 0x00 },
+    { L"HP Main", 0x700e00, 0x700e80, index3SSprites_Yun, 0x00, nullptr, &secondary3SYunEffects_UpdatePortraits },
     { L"HP Portrait", 0x763de0, 0x763e00, index3SSprites_Yun, 0x01 },
     { L"HP Judgement Portrait", 0x789f60, 0x789f80, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_LK_PALETTES[] =
 {
-    { L"LK Main", 0x700e80, 0x700f00, index3SSprites_Yun, 0x00 },
+    { L"LK Main", 0x700e80, 0x700f00, index3SSprites_Yun, 0x00, nullptr, &secondary3SYunEffects_UpdatePortraits },
     { L"LK Portrait", 0x763e00, 0x763e20, index3SSprites_Yun, 0x01 },
     { L"LK Judgement Portrait", 0x78a260, 0x78a280, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_MK_PALETTES[] =
 {
-    { L"MK Main", 0x700f00, 0x700f80, index3SSprites_Yun, 0x00 },
+    { L"MK Main", 0x700f00, 0x700f80, index3SSprites_Yun, 0x00, nullptr, &secondary3SYunEffects_UpdatePortraits },
     { L"MK Portrait", 0x763e20, 0x763e40, index3SSprites_Yun, 0x01 },
     { L"MK Judgement Portrait", 0x78a560, 0x78a580, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_HK_PALETTES[] =
 {
-    { L"HK Main", 0x700f80, 0x701000, index3SSprites_Yun, 0x00 },
+    { L"HK Main", 0x700f80, 0x701000, index3SSprites_Yun, 0x00, nullptr, &secondary3SYunEffects_UpdatePortraits },
     { L"HK Portrait", 0x763e40, 0x763e60, index3SSprites_Yun, 0x01 },
     { L"HK Judgement Portrait", 0x78a860, 0x78a880, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_EX_PALETTES[] =
 {
-    { L"EX Main", 0x701000, 0x701080, index3SSprites_Yun, 0x00 },
+    { L"EX Main", 0x701000, 0x701080, index3SSprites_Yun, 0x00, nullptr, &secondary3SYunEffects_UpdatePortraits },
     { L"EX Portrait", 0x763e60, 0x763e80, index3SSprites_Yun, 0x01 },
     { L"EX Judgement Portrait", 0x78ab60, 0x78ab80, index3SSprites_Yun, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -502,49 +1349,49 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_NECRO_LP_PALETTES[] =
 {
-    { L"LP Main", 0x701400, 0x701480, index3SSprites_Necro, 0x00 },
+    { L"LP Main", 0x701400, 0x701480, index3SSprites_Necro, 0x00, nullptr, &secondary3SNecroEffects_UpdatePortraits },
     { L"LP Portrait", 0x763f60, 0x763f80, index3SSprites_Necro, 0x01 },
     { L"LP Judgement Portrait", 0x7899a0, 0x7899c0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_MP_PALETTES[] =
 {
-    { L"MP Main", 0x701480, 0x701500, index3SSprites_Necro, 0x00 },
+    { L"MP Main", 0x701480, 0x701500, index3SSprites_Necro, 0x00, nullptr, &secondary3SNecroEffects_UpdatePortraits },
     { L"MP Portrait", 0x763f80, 0x763fa0, index3SSprites_Necro, 0x01 },
     { L"MP Judgement Portrait", 0x789ca0, 0x789cc0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_HP_PALETTES[] =
 {
-    { L"HP Main", 0x701500, 0x701580, index3SSprites_Necro, 0x00 },
+    { L"HP Main", 0x701500, 0x701580, index3SSprites_Necro, 0x00, nullptr, &secondary3SNecroEffects_UpdatePortraits },
     { L"HP Portrait", 0x763fa0, 0x763fc0, index3SSprites_Necro, 0x01 },
     { L"HP Judgement Portrait", 0x789fa0, 0x789fc0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_LK_PALETTES[] =
 {
-    { L"LK Main", 0x701580, 0x701600, index3SSprites_Necro, 0x00 },
+    { L"LK Main", 0x701580, 0x701600, index3SSprites_Necro, 0x00, nullptr, &secondary3SNecroEffects_UpdatePortraits },
     { L"LK Portrait", 0x763fc0, 0x763fe0, index3SSprites_Necro, 0x01 },
     { L"LK Judgement Portrait", 0x78a2a0, 0x78a2c0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_MK_PALETTES[] =
 {
-    { L"MK Main", 0x701600, 0x701680, index3SSprites_Necro, 0x00 },
+    { L"MK Main", 0x701600, 0x701680, index3SSprites_Necro, 0x00, nullptr, &secondary3SNecroEffects_UpdatePortraits },
     { L"MK Portrait", 0x763fe0, 0x764000, index3SSprites_Necro, 0x01 },
     { L"MK Judgement Portrait", 0x78a5a0, 0x78a5c0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_HK_PALETTES[] =
 {
-    { L"HK Main", 0x701680, 0x701700, index3SSprites_Necro, 0x00 },
+    { L"HK Main", 0x701680, 0x701700, index3SSprites_Necro, 0x00, nullptr, &secondary3SNecroEffects_UpdatePortraits },
     { L"HK Portrait", 0x764000, 0x764020, index3SSprites_Necro, 0x01 },
     { L"HK Judgement Portrait", 0x78a8a0, 0x78a8c0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_EX_PALETTES[] =
 {
-    { L"EX Main", 0x701700, 0x701780, index3SSprites_Necro, 0x00 },
+    { L"EX Main", 0x701700, 0x701780, index3SSprites_Necro, 0x00, nullptr, &secondary3SNecroEffects_UpdatePortraits },
     { L"EX Portrait", 0x764020, 0x764040, index3SSprites_Necro, 0x01 },
     { L"EX Judgement Portrait", 0x78aba0, 0x78abc0, index3SSprites_Necro, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -592,49 +1439,49 @@ const sGame_PaletteDataset SFIII3_A_NECRO_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_HUGO_LP_PALETTES[] =
 {
-    { L"LP Main", 0x701780, 0x701800, index3SSprites_Hugo, 0x00 },
+    { L"LP Main", 0x701780, 0x701800, index3SSprites_Hugo, 0x00, nullptr, &secondary3SHugoEffects_UpdatePortraits },
     { L"LP Portrait", 0x764040, 0x764060, index3SSprites_Hugo, 0x01 },
     { L"LP Judgement Portrait", 0x7899c0, 0x7899e0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_MP_PALETTES[] =
 {
-    { L"MP Main", 0x701800, 0x701880, index3SSprites_Hugo, 0x00 },
+    { L"MP Main", 0x701800, 0x701880, index3SSprites_Hugo, 0x00, nullptr, &secondary3SHugoEffects_UpdatePortraits },
     { L"MP Portrait", 0x764060, 0x764080, index3SSprites_Hugo, 0x01 },
     { L"MP Judgement Portrait", 0x789cc0, 0x789ce0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_HP_PALETTES[] =
 {
-    { L"HP Main", 0x701880, 0x701900, index3SSprites_Hugo, 0x00 },
+    { L"HP Main", 0x701880, 0x701900, index3SSprites_Hugo, 0x00, nullptr, &secondary3SHugoEffects_UpdatePortraits },
     { L"HP Portrait", 0x764080, 0x7640a0, index3SSprites_Hugo, 0x01 },
     { L"HP Judgement Portrait", 0x789fc0, 0x789fe0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_LK_PALETTES[] =
 {
-    { L"LK Main", 0x701900, 0x701980, index3SSprites_Hugo, 0x00 },
+    { L"LK Main", 0x701900, 0x701980, index3SSprites_Hugo, 0x00, nullptr, &secondary3SHugoEffects_UpdatePortraits },
     { L"LK Portrait", 0x7640a0, 0x7640c0, index3SSprites_Hugo, 0x01 },
     { L"LK Judgement Portrait", 0x78a2c0, 0x78a2e0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_MK_PALETTES[] =
 {
-    { L"MK Main", 0x701980, 0x701a00, index3SSprites_Hugo, 0x00 },
+    { L"MK Main", 0x701980, 0x701a00, index3SSprites_Hugo, 0x00, nullptr, &secondary3SHugoEffects_UpdatePortraits },
     { L"MK Portrait", 0x7640c0, 0x7640e0, index3SSprites_Hugo, 0x01 },
     { L"MK Judgement Portrait", 0x78a5c0, 0x78a5e0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_HK_PALETTES[] =
 {
-    { L"HK Main", 0x701a00, 0x701a80, index3SSprites_Hugo, 0x00 },
+    { L"HK Main", 0x701a00, 0x701a80, index3SSprites_Hugo, 0x00, nullptr, &secondary3SHugoEffects_UpdatePortraits },
     { L"HK Portrait", 0x7640e0, 0x764100, index3SSprites_Hugo, 0x01 },
     { L"HK Judgement Portrait", 0x78a8c0, 0x78a8e0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_EX_PALETTES[] =
 {
-    { L"EX Main", 0x701a80, 0x701b00, index3SSprites_Hugo, 0x00 },
+    { L"EX Main", 0x701a80, 0x701b00, index3SSprites_Hugo, 0x00, nullptr, &secondary3SHugoEffects_UpdatePortraits },
     { L"EX Portrait", 0x764100, 0x764120, index3SSprites_Hugo, 0x01 },
     { L"EX Judgement Portrait", 0x78abc0, 0x78abe0, index3SSprites_Hugo, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -665,49 +1512,49 @@ const sGame_PaletteDataset SFIII3_A_HUGO_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_LP_PALETTES[] =
 {
-    { L"LP Main", 0x701b00, 0x701b80, index3SSprites_Ibuki, 0x00 },
+    { L"LP Main", 0x701b00, 0x701b80, index3SSprites_Ibuki, 0x00, nullptr, &secondary3SIbukiEffects_UpdatePortraits },
     { L"LP Portrait", 0x764120, 0x764140, index3SSprites_Ibuki, 0x01 },
     { L"LP Judgement Portrait", 0x7899e0, 0x789a00, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_MP_PALETTES[] =
 {
-    { L"MP Main", 0x701b80, 0x701c00, index3SSprites_Ibuki, 0x00 },
+    { L"MP Main", 0x701b80, 0x701c00, index3SSprites_Ibuki, 0x00, nullptr, &secondary3SIbukiEffects_UpdatePortraits },
     { L"MP Portrait", 0x764140, 0x764160, index3SSprites_Ibuki, 0x01 },
     { L"MP Judgement Portrait", 0x789ce0, 0x789d00, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_HP_PALETTES[] =
 {
-    { L"HP Main", 0x701c00, 0x701c80, index3SSprites_Ibuki, 0x00 },
+    { L"HP Main", 0x701c00, 0x701c80, index3SSprites_Ibuki, 0x00, nullptr, &secondary3SIbukiEffects_UpdatePortraits },
     { L"HP Portrait", 0x764160, 0x764180, index3SSprites_Ibuki, 0x01 },
     { L"HP Judgement Portrait", 0x789fe0, 0x78a000, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_LK_PALETTES[] =
 {
-    { L"LK Main", 0x701c80, 0x701d00, index3SSprites_Ibuki, 0x00 },
+    { L"LK Main", 0x701c80, 0x701d00, index3SSprites_Ibuki, 0x00, nullptr, &secondary3SIbukiEffects_UpdatePortraits },
     { L"LK Portrait", 0x764180, 0x7641a0, index3SSprites_Ibuki, 0x01 },
     { L"LK Judgement Portrait", 0x78a2e0, 0x78a300, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_MK_PALETTES[] =
 {
-    { L"MK Main", 0x701d00, 0x701d80, index3SSprites_Ibuki, 0x00 },
+    { L"MK Main", 0x701d00, 0x701d80, index3SSprites_Ibuki, 0x00, nullptr, &secondary3SIbukiEffects_UpdatePortraits },
     { L"MK Portrait", 0x7641a0, 0x7641c0, index3SSprites_Ibuki, 0x01 },
     { L"MK Judgement Portrait", 0x78a5e0, 0x78a600, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_HK_PALETTES[] =
 {
-    { L"HK Main", 0x701d80, 0x701e00, index3SSprites_Ibuki, 0x00 },
+    { L"HK Main", 0x701d80, 0x701e00, index3SSprites_Ibuki, 0x00, nullptr, &secondary3SIbukiEffects_UpdatePortraits },
     { L"HK Portrait", 0x7641c0, 0x7641e0, index3SSprites_Ibuki, 0x01 },
     { L"HK Judgement Portrait", 0x78a8e0, 0x78a900, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_EX_PALETTES[] =
 {
-    { L"EX Main", 0x701e00, 0x701e80, index3SSprites_Ibuki, 0x00 },
+    { L"EX Main", 0x701e00, 0x701e80, index3SSprites_Ibuki, 0x00, nullptr, &secondary3SIbukiEffects_UpdatePortraits },
     { L"EX Portrait", 0x7641e0, 0x764200, index3SSprites_Ibuki, 0x01 },
     { L"EX Judgement Portrait", 0x78abe0, 0x78ac00, index3SSprites_Ibuki, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -748,49 +1595,49 @@ const sGame_PaletteDataset SFIII3_A_IBUKI_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_ELENA_LP_PALETTES[] =
 {
-    { L"LP Main", 0x701e80, 0x701f00, index3SSprites_Elena, 0x00 },
+    { L"LP Main", 0x701e80, 0x701f00, index3SSprites_Elena, 0x00, nullptr, &secondary3SElenaEffects_UpdatePortraits },
     { L"LP Portrait", 0x764200, 0x764220, index3SSprites_Elena, 0x01 },
     { L"LP Judgement Portrait", 0x789a00, 0x789a20, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_MP_PALETTES[] =
 {
-    { L"MP Main", 0x701f00, 0x701f80, index3SSprites_Elena, 0x00 },
+    { L"MP Main", 0x701f00, 0x701f80, index3SSprites_Elena, 0x00, nullptr, &secondary3SElenaEffects_UpdatePortraits },
     { L"MP Portrait", 0x764220, 0x764240, index3SSprites_Elena, 0x01 },
     { L"MP Judgement Portrait", 0x789d00, 0x789d20, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_HP_PALETTES[] =
 {
-    { L"HP Main", 0x701f80, 0x702000, index3SSprites_Elena, 0x00 },
+    { L"HP Main", 0x701f80, 0x702000, index3SSprites_Elena, 0x00, nullptr, &secondary3SElenaEffects_UpdatePortraits },
     { L"HP Portrait", 0x764240, 0x764260, index3SSprites_Elena, 0x01 },
     { L"HP Judgement Portrait", 0x78a000, 0x78a020, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_LK_PALETTES[] =
 {
-    { L"LK Main", 0x702000, 0x702080, index3SSprites_Elena, 0x00 },
+    { L"LK Main", 0x702000, 0x702080, index3SSprites_Elena, 0x00, nullptr, &secondary3SElenaEffects_UpdatePortraits },
     { L"LK Portrait", 0x764260, 0x764280, index3SSprites_Elena, 0x01 },
     { L"LK Judgement Portrait", 0x78a300, 0x78a320, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_MK_PALETTES[] =
 {
-    { L"MK Main", 0x702080, 0x702100, index3SSprites_Elena, 0x00 },
+    { L"MK Main", 0x702080, 0x702100, index3SSprites_Elena, 0x00, nullptr, &secondary3SElenaEffects_UpdatePortraits },
     { L"MK Portrait", 0x764280, 0x7642a0, index3SSprites_Elena, 0x01 },
     { L"MK Judgement Portrait", 0x78a600, 0x78a620, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_HK_PALETTES[] =
 {
-    { L"HK Main", 0x702100, 0x702180, index3SSprites_Elena, 0x00 },
+    { L"HK Main", 0x702100, 0x702180, index3SSprites_Elena, 0x00, nullptr, &secondary3SElenaEffects_UpdatePortraits },
     { L"HK Portrait", 0x7642a0, 0x7642c0, index3SSprites_Elena, 0x01 },
     { L"HK Judgement Portrait", 0x78a900, 0x78a920, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_EX_PALETTES[] =
 {
-    { L"EX Main", 0x702180, 0x702200, index3SSprites_Elena, 0x00 },
+    { L"EX Main", 0x702180, 0x702200, index3SSprites_Elena, 0x00, nullptr, &secondary3SElenaEffects_UpdatePortraits },
     { L"EX Portrait", 0x7642c0, 0x7642e0, index3SSprites_Elena, 0x01 },
     { L"EX Judgement Portrait", 0x78ac00, 0x78ac20, index3SSprites_Elena, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -820,49 +1667,49 @@ const sGame_PaletteDataset SFIII3_A_ELENA_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_ORO_LP_PALETTES[] =
 {
-    { L"LP Main", 0x702200, 0x702280, index3SSprites_Oro, 0x00 },
+    { L"LP Main", 0x702200, 0x702280, index3SSprites_Oro, 0x00, nullptr, &secondary3SOroEffects_UpdatePortraits },
     { L"LP Portrait", 0x7642e0, 0x764300, index3SSprites_Oro, 0x01 },
     { L"LP Judgement Portrait", 0x789a20, 0x789a40, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_MP_PALETTES[] =
 {
-    { L"MP Main", 0x702280, 0x702300, index3SSprites_Oro, 0x00 },
+    { L"MP Main", 0x702280, 0x702300, index3SSprites_Oro, 0x00, nullptr, &secondary3SOroEffects_UpdatePortraits },
     { L"MP Portrait", 0x764300, 0x764320, index3SSprites_Oro, 0x01 },
     { L"MP Judgement Portrait", 0x789d20, 0x789d40, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_HP_PALETTES[] =
 {
-    { L"HP Main", 0x702300, 0x702380, index3SSprites_Oro, 0x00 },
+    { L"HP Main", 0x702300, 0x702380, index3SSprites_Oro, 0x00, nullptr, &secondary3SOroEffects_UpdatePortraits },
     { L"HP Portrait", 0x764320, 0x764340, index3SSprites_Oro, 0x01 },
     { L"HP Judgement Portrait", 0x78a020, 0x78a040, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_LK_PALETTES[] =
 {
-    { L"LK Main", 0x702380, 0x702400, index3SSprites_Oro, 0x00 },
+    { L"LK Main", 0x702380, 0x702400, index3SSprites_Oro, 0x00, nullptr, &secondary3SOroEffects_UpdatePortraits },
     { L"LK Portrait", 0x764340, 0x764360, index3SSprites_Oro, 0x01 },
     { L"LK Judgement Portrait", 0x78a320, 0x78a340, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_MK_PALETTES[] =
 {
-    { L"MK Main", 0x702400, 0x702480, index3SSprites_Oro, 0x00 },
+    { L"MK Main", 0x702400, 0x702480, index3SSprites_Oro, 0x00, nullptr, &secondary3SOroEffects_UpdatePortraits },
     { L"MK Portrait", 0x764360, 0x764380, index3SSprites_Oro, 0x01 },
     { L"MK Judgement Portrait", 0x78a620, 0x78a640, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_HK_PALETTES[] =
 {
-    { L"HK Main", 0x702480, 0x702500, index3SSprites_Oro, 0x00 },
+    { L"HK Main", 0x702480, 0x702500, index3SSprites_Oro, 0x00, nullptr, &secondary3SOroEffects_UpdatePortraits },
     { L"HK Portrait", 0x764380, 0x7643a0, index3SSprites_Oro, 0x01 },
     { L"HK Judgement Portrait", 0x78a920, 0x78a940, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_EX_PALETTES[] =
 {
-    { L"EX Main", 0x702500, 0x702580, index3SSprites_Oro, 0x00 },
+    { L"EX Main", 0x702500, 0x702580, index3SSprites_Oro, 0x00, nullptr, &secondary3SOroEffects_UpdatePortraits },
     { L"EX Portrait", 0x7643a0, 0x7643c0, index3SSprites_Oro, 0x01 },
     { L"EX Judgement Portrait", 0x78ac20, 0x78ac40, index3SSprites_Oro, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -893,49 +1740,49 @@ const sGame_PaletteDataset SFIII3_A_ORO_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_YANG_LP_PALETTES[] =
 {
-    { L"LP Main", 0x702580, 0x702600, index3SSprites_Yang, 0x00 },
+    { L"LP Main", 0x702580, 0x702600, index3SSprites_Yang, 0x00, nullptr, &secondary3SYangEffects_UpdatePortraits },
     { L"LP Portrait", 0x7643c0, 0x7643e0, index3SSprites_Yang, 0x01 },
     { L"LP Judgement Portrait", 0x789a40, 0x789a60, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_MP_PALETTES[] =
 {
-    { L"MP Main", 0x702600, 0x702680, index3SSprites_Yang, 0x00 },
+    { L"MP Main", 0x702600, 0x702680, index3SSprites_Yang, 0x00, nullptr, &secondary3SYangEffects_UpdatePortraits },
     { L"MP Portrait", 0x7643e0, 0x764400, index3SSprites_Yang, 0x01 },
     { L"MP Judgement Portrait", 0x789d40, 0x789d60, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_HP_PALETTES[] =
 {
-    { L"HP Main", 0x702680, 0x702700, index3SSprites_Yang, 0x00 },
+    { L"HP Main", 0x702680, 0x702700, index3SSprites_Yang, 0x00, nullptr, &secondary3SYangEffects_UpdatePortraits },
     { L"HP Portrait", 0x764400, 0x764420, index3SSprites_Yang, 0x01 },
     { L"HP Judgement Portrait", 0x78a040, 0x78a060, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_LK_PALETTES[] =
 {
-    { L"LK Main", 0x702700, 0x702780, index3SSprites_Yang, 0x00 },
+    { L"LK Main", 0x702700, 0x702780, index3SSprites_Yang, 0x00, nullptr, &secondary3SYangEffects_UpdatePortraits },
     { L"LK Portrait", 0x764420, 0x764440, index3SSprites_Yang, 0x01 },
     { L"LK Judgement Portrait", 0x78a340, 0x78a360, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_MK_PALETTES[] =
 {
-    { L"MK Main", 0x702780, 0x702800, index3SSprites_Yang, 0x00 },
+    { L"MK Main", 0x702780, 0x702800, index3SSprites_Yang, 0x00, nullptr, &secondary3SYangEffects_UpdatePortraits },
     { L"MK Portrait", 0x764440, 0x764460, index3SSprites_Yang, 0x01 },
     { L"MK Judgement Portrait", 0x78a640, 0x78a660, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_HK_PALETTES[] =
 {
-    { L"HK Main", 0x702800, 0x702880, index3SSprites_Yang, 0x00 },
+    { L"HK Main", 0x702800, 0x702880, index3SSprites_Yang, 0x00, nullptr, &secondary3SYangEffects_UpdatePortraits },
     { L"HK Portrait", 0x764460, 0x764480, index3SSprites_Yang, 0x01 },
     { L"HK Judgement Portrait", 0x78a940, 0x78a960, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_EX_PALETTES[] =
 {
-    { L"EX Main", 0x702880, 0x702900, index3SSprites_Yang, 0x00 },
+    { L"EX Main", 0x702880, 0x702900, index3SSprites_Yang, 0x00, nullptr, &secondary3SYangEffects_UpdatePortraits },
     { L"EX Portrait", 0x764480, 0x7644a0, index3SSprites_Yang, 0x01 },
     { L"EX Judgement Portrait", 0x78ac40, 0x78ac60, index3SSprites_Yang, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -958,49 +1805,49 @@ const sGame_PaletteDataset SFIII3_A_YANG_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_KEN_LP_PALETTES[] =
 {
-    { L"LP Main", 0x702900, 0x702980, index3SSprites_Ken, 0x00 },
+    { L"LP Main", 0x702900, 0x702980, index3SSprites_Ken, 0x00, nullptr, &secondary3SKenEffects_UpdatePortraits },
     { L"LP Portrait", 0x7644a0, 0x7644c0, index3SSprites_Ken, 0x01 },
     { L"LP Judgement Portrait", 0x789a60, 0x789a80, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_MP_PALETTES[] =
 {
-    { L"MP Main", 0x702980, 0x702a00, index3SSprites_Ken, 0x00 },
+    { L"MP Main", 0x702980, 0x702a00, index3SSprites_Ken, 0x00, nullptr, &secondary3SKenEffects_UpdatePortraits },
     { L"MP Portrait", 0x7644c0, 0x7644e0, index3SSprites_Ken, 0x01 },
     { L"MP Judgement Portrait", 0x789d60, 0x789d80, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_HP_PALETTES[] =
 {
-    { L"HP Main", 0x702a00, 0x702a80, index3SSprites_Ken, 0x00 },
+    { L"HP Main", 0x702a00, 0x702a80, index3SSprites_Ken, 0x00, nullptr, &secondary3SKenEffects_UpdatePortraits },
     { L"HP Portrait", 0x7644e0, 0x764500, index3SSprites_Ken, 0x01 },
     { L"HP Judgement Portrait", 0x78a060, 0x78a080, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_LK_PALETTES[] =
 {
-    { L"LK Main", 0x702a80, 0x702b00, index3SSprites_Ken, 0x00 },
+    { L"LK Main", 0x702a80, 0x702b00, index3SSprites_Ken, 0x00, nullptr, &secondary3SKenEffects_UpdatePortraits },
     { L"LK Portrait", 0x764500, 0x764520, index3SSprites_Ken, 0x01 },
     { L"LK Judgement Portrait", 0x78a360, 0x78a380, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_MK_PALETTES[] =
 {
-    { L"MK Main", 0x702b00, 0x702b80, index3SSprites_Ken, 0x00 },
+    { L"MK Main", 0x702b00, 0x702b80, index3SSprites_Ken, 0x00, nullptr, &secondary3SKenEffects_UpdatePortraits },
     { L"MK Portrait", 0x764520, 0x764540, index3SSprites_Ken, 0x01 },
     { L"MK Judgement Portrait", 0x78a660, 0x78a680, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_HK_PALETTES[] =
 {
-    { L"HK Main", 0x702b80, 0x702c00, index3SSprites_Ken, 0x00 },
+    { L"HK Main", 0x702b80, 0x702c00, index3SSprites_Ken, 0x00, nullptr, &secondary3SKenEffects_UpdatePortraits },
     { L"HK Portrait", 0x764540, 0x764560, index3SSprites_Ken, 0x01 },
     { L"HK Judgement Portrait", 0x78a960, 0x78a980, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_EX_PALETTES[] =
 {
-    { L"EX Main", 0x702c00, 0x702c80, index3SSprites_Ken, 0x00 },
+    { L"EX Main", 0x702c00, 0x702c80, index3SSprites_Ken, 0x00, nullptr, &secondary3SKenEffects_UpdatePortraits },
     { L"EX Portrait", 0x764560, 0x764580, index3SSprites_Ken, 0x01 },
     { L"EX Judgement Portrait", 0x78ac60, 0x78ac80, index3SSprites_Ken, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -1030,49 +1877,49 @@ const sGame_PaletteDataset SFIII3_A_KEN_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_SEAN_LP_PALETTES[] =
 {
-    { L"LP Main", 0x702c80, 0x702d00, index3SSprites_Sean, 0x00 },
+    { L"LP Main", 0x702c80, 0x702d00, index3SSprites_Sean, 0x00, nullptr, &secondary3SSeanEffects_UpdatePortraits },
     { L"LP Portrait", 0x764580, 0x7645a0, index3SSprites_Sean, 0x01 },
     { L"LP Judgement Portrait", 0x789a80, 0x789aa0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_MP_PALETTES[] =
 {
-    { L"MP Main", 0x702d00, 0x702d80, index3SSprites_Sean, 0x00 },
+    { L"MP Main", 0x702d00, 0x702d80, index3SSprites_Sean, 0x00, nullptr, &secondary3SSeanEffects_UpdatePortraits },
     { L"MP Portrait", 0x7645a0, 0x7645c0, index3SSprites_Sean, 0x01 },
     { L"MP Judgement Portrait", 0x789d80, 0x789da0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_HP_PALETTES[] =
 {
-    { L"HP Main", 0x702d80, 0x702e00, index3SSprites_Sean, 0x00 },
+    { L"HP Main", 0x702d80, 0x702e00, index3SSprites_Sean, 0x00, nullptr, &secondary3SSeanEffects_UpdatePortraits },
     { L"HP Portrait", 0x7645c0, 0x7645e0, index3SSprites_Sean, 0x01 },
     { L"HP Judgement Portrait", 0x78a080, 0x78a0a0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_LK_PALETTES[] =
 {
-    { L"LK Main", 0x702e00, 0x702e80, index3SSprites_Sean, 0x00 },
+    { L"LK Main", 0x702e00, 0x702e80, index3SSprites_Sean, 0x00, nullptr, &secondary3SSeanEffects_UpdatePortraits },
     { L"LK Portrait", 0x7645e0, 0x764600, index3SSprites_Sean, 0x01 },
     { L"LK Judgement Portrait", 0x78a380, 0x78a3a0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_MK_PALETTES[] =
 {
-    { L"MK Main", 0x702e80, 0x702f00, index3SSprites_Sean, 0x00 },
+    { L"MK Main", 0x702e80, 0x702f00, index3SSprites_Sean, 0x00, nullptr, &secondary3SSeanEffects_UpdatePortraits },
     { L"MK Portrait", 0x764600, 0x764620, index3SSprites_Sean, 0x01 },
     { L"MK Judgement Portrait", 0x78a680, 0x78a6a0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_HK_PALETTES[] =
 {
-    { L"HK Main", 0x702f00, 0x702f80, index3SSprites_Sean, 0x00 },
+    { L"HK Main", 0x702f00, 0x702f80, index3SSprites_Sean, 0x00, nullptr, &secondary3SSeanEffects_UpdatePortraits },
     { L"HK Portrait", 0x764620, 0x764640, index3SSprites_Sean, 0x01 },
     { L"HK Judgement Portrait", 0x78a980, 0x78a9a0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_EX_PALETTES[] =
 {
-    { L"EX Main", 0x702f80, 0x703000, index3SSprites_Sean, 0x00 },
+    { L"EX Main", 0x702f80, 0x703000, index3SSprites_Sean, 0x00, nullptr, &secondary3SSeanEffects_UpdatePortraits },
     { L"EX Portrait", 0x764640, 0x764660, index3SSprites_Sean, 0x01 },
     { L"EX Judgement Portrait", 0x78ac80, 0x78aca0, index3SSprites_Sean, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -1100,49 +1947,49 @@ const sGame_PaletteDataset SFIII3_A_SEAN_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_URIEN_LP_PALETTES[] =
 {
-    { L"LP Main", 0x703000, 0x703080, index3SSprites_Urien, 0x00 },
+    { L"LP Main", 0x703000, 0x703080, index3SSprites_Urien, 0x00, nullptr, &secondary3SUrienEffects_UpdatePortraits },
     { L"LP Portrait", 0x764660, 0x764680, index3SSprites_Urien, 0x01 },
     { L"LP Judgement Portrait", 0x789aa0, 0x789ac0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_MP_PALETTES[] =
 {
-    { L"MP Main", 0x703080, 0x703100, index3SSprites_Urien, 0x00 },
+    { L"MP Main", 0x703080, 0x703100, index3SSprites_Urien, 0x00, nullptr, &secondary3SUrienEffects_UpdatePortraits },
     { L"MP Portrait", 0x764680, 0x7646a0, index3SSprites_Urien, 0x01 },
     { L"MP Judgement Portrait", 0x789da0, 0x789dc0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_HP_PALETTES[] =
 {
-    { L"HP Main", 0x703100, 0x703180, index3SSprites_Urien, 0x00 },
+    { L"HP Main", 0x703100, 0x703180, index3SSprites_Urien, 0x00, nullptr, &secondary3SUrienEffects_UpdatePortraits },
     { L"HP Portrait", 0x7646a0, 0x7646c0, index3SSprites_Urien, 0x01 },
     { L"HP Judgement Portrait", 0x78a0a0, 0x78a0c0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_LK_PALETTES[] =
 {
-    { L"LK Main", 0x703180, 0x703200, index3SSprites_Urien, 0x00 },
+    { L"LK Main", 0x703180, 0x703200, index3SSprites_Urien, 0x00, nullptr, &secondary3SUrienEffects_UpdatePortraits },
     { L"LK Portrait", 0x7646c0, 0x7646e0, index3SSprites_Urien, 0x01 },
     { L"LK Judgement Portrait", 0x78a3a0, 0x78a3c0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_MK_PALETTES[] =
 {
-    { L"MK Main", 0x703200, 0x703280, index3SSprites_Urien, 0x00 },
+    { L"MK Main", 0x703200, 0x703280, index3SSprites_Urien, 0x00, nullptr, &secondary3SUrienEffects_UpdatePortraits },
     { L"MK Portrait", 0x7646e0, 0x764700, index3SSprites_Urien, 0x01 },
     { L"MK Judgement Portrait", 0x78a6a0, 0x78a6c0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_HK_PALETTES[] =
 {
-    { L"HK Main", 0x703280, 0x703300, index3SSprites_Urien, 0x00 },
+    { L"HK Main", 0x703280, 0x703300, index3SSprites_Urien, 0x00, nullptr, &secondary3SUrienEffects_UpdatePortraits },
     { L"HK Portrait", 0x764700, 0x764720, index3SSprites_Urien, 0x01 },
     { L"HK Judgement Portrait", 0x78a9a0, 0x78a9c0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_EX_PALETTES[] =
 {
-    { L"EX Main", 0x703300, 0x703380, index3SSprites_Urien, 0x00 },
+    { L"EX Main", 0x703300, 0x703380, index3SSprites_Urien, 0x00, nullptr, &secondary3SUrienEffects_UpdatePortraits },
     { L"EX Portrait", 0x764720, 0x764740, index3SSprites_Urien, 0x01 },
     { L"EX Judgement Portrait", 0x78aca0, 0x78acc0, index3SSprites_Urien, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -1179,49 +2026,49 @@ const sGame_PaletteDataset SFIII3_A_URIEN_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_LP_PALETTES[] =
 {
-    { L"LP Main", 0x703380, 0x703400, index3SSprites_Gouki, 0x00 },
+    { L"LP Main", 0x703380, 0x703400, index3SSprites_Gouki, 0x00, nullptr, &secondary3SGoukiEffects_UpdatePortraits },
     { L"LP Portrait", 0x764740, 0x764760, index3SSprites_Gouki, 0x01 },
     { L"LP Judgement Portrait", 0x789ac0, 0x789ae0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_MP_PALETTES[] =
 {
-    { L"MP Main", 0x703400, 0x703480, index3SSprites_Gouki, 0x00 },
+    { L"MP Main", 0x703400, 0x703480, index3SSprites_Gouki, 0x00, nullptr, &secondary3SGoukiEffects_UpdatePortraits },
     { L"MP Portrait", 0x764760, 0x764780, index3SSprites_Gouki, 0x01 },
     { L"MP Judgement Portrait", 0x789dc0, 0x789de0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_HP_PALETTES[] =
 {
-    { L"HP Main", 0x703480, 0x703500, index3SSprites_Gouki, 0x00 },
+    { L"HP Main", 0x703480, 0x703500, index3SSprites_Gouki, 0x00, nullptr, &secondary3SGoukiEffects_UpdatePortraits },
     { L"HP Portrait", 0x764780, 0x7647a0, index3SSprites_Gouki, 0x01 },
     { L"HP Judgement Portrait", 0x78a0c0, 0x78a0e0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_LK_PALETTES[] =
 {
-    { L"LK Main", 0x703500, 0x703580, index3SSprites_Gouki, 0x00 },
+    { L"LK Main", 0x703500, 0x703580, index3SSprites_Gouki, 0x00, nullptr, &secondary3SGoukiEffects_UpdatePortraits },
     { L"LK Portrait", 0x7647a0, 0x7647c0, index3SSprites_Gouki, 0x01 },
     { L"LK Judgement Portrait", 0x78a3c0, 0x78a3e0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_MK_PALETTES[] =
 {
-    { L"MK Main", 0x703580, 0x703600, index3SSprites_Gouki, 0x00 },
+    { L"MK Main", 0x703580, 0x703600, index3SSprites_Gouki, 0x00, nullptr, &secondary3SGoukiEffects_UpdatePortraits },
     { L"MK Portrait", 0x7647c0, 0x7647e0, index3SSprites_Gouki, 0x01 },
     { L"MK Judgement Portrait", 0x78a6c0, 0x78a6e0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_HK_PALETTES[] =
 {
-    { L"HK Main", 0x703600, 0x703680, index3SSprites_Gouki, 0x00 },
+    { L"HK Main", 0x703600, 0x703680, index3SSprites_Gouki, 0x00, nullptr, &secondary3SGoukiEffects_UpdatePortraits },
     { L"HK Portrait", 0x7647e0, 0x764800, index3SSprites_Gouki, 0x01 },
     { L"HK Judgement Portrait", 0x78a9c0, 0x78a9e0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_EX_PALETTES[] =
 {
-    { L"EX Main", 0x703680, 0x703700, index3SSprites_Gouki, 0x00 },
+    { L"EX Main", 0x703680, 0x703700, index3SSprites_Gouki, 0x00, nullptr, &secondary3SGoukiEffects_UpdatePortraits },
     { L"EX Portrait", 0x764800, 0x764820, index3SSprites_Gouki, 0x01 },
     { L"EX Judgement Portrait", 0x78acc0, 0x78ace0, index3SSprites_Gouki, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -1273,13 +2120,13 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_LP_PALETTES[] =
 {
-    { L"P1 Main", 0x703700, 0x703780, index3SSprites_Gouki, 0x00 },
+    { L"P1 Main", 0x703700, 0x703780, index3SSprites_Gouki, 0x00, nullptr, &secondary3SShinGoukiEffects_UpdatePortraits },
     { L"P1 Portrait", 0x764820, 0x764840, index3SSprites_Gouki, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_MP_PALETTES[] =
 {
-    { L"P2 Main", 0x703780, 0x703800, index3SSprites_Gouki, 0x00 },
+    { L"P2 Main", 0x703780, 0x703800, index3SSprites_Gouki, 0x00, nullptr, &secondary3SShinGoukiEffects_UpdatePortraits },
     { L"P2 Portrait", 0x764840, 0x764860, index3SSprites_Gouki, 0x01 },
 };
 
@@ -1410,49 +2257,49 @@ const sGame_PaletteDataset SFIII3_A_CHUNLI_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_LP_PALETTES[] =
 {
-    { L"LP Main", 0x703b80, 0x703c00, index3SSprites_Makoto, 0x00 },
+    { L"LP Main", 0x703b80, 0x703c00, index3SSprites_Makoto, 0x00, nullptr, &secondary3SMakotoEffects_UpdatePortraits },
     { L"LP Portrait", 0x7649e0, 0x764a00, index3SSprites_Makoto, 0x01 },
     { L"LP Judgement Portrait", 0x789b20, 0x789b40, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_MP_PALETTES[] =
 {
-    { L"MP Main", 0x703c00, 0x703c80, index3SSprites_Makoto, 0x00 },
+    { L"MP Main", 0x703c00, 0x703c80, index3SSprites_Makoto, 0x00, nullptr, &secondary3SMakotoEffects_UpdatePortraits },
     { L"MP Portrait", 0x764a00, 0x764a20, index3SSprites_Makoto, 0x01 },
     { L"MP Judgement Portrait", 0x789e20, 0x789e40, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_HP_PALETTES[] =
 {
-    { L"HP Main", 0x703c80, 0x703d00, index3SSprites_Makoto, 0x00 },
+    { L"HP Main", 0x703c80, 0x703d00, index3SSprites_Makoto, 0x00, nullptr, &secondary3SMakotoEffects_UpdatePortraits },
     { L"HP Portrait", 0x764a20, 0x764a40, index3SSprites_Makoto, 0x01 },
     { L"HP Judgement Portrait", 0x78a120, 0x78a140, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_LK_PALETTES[] =
 {
-    { L"LK Main", 0x703d00, 0x703d80, index3SSprites_Makoto, 0x00 },
+    { L"LK Main", 0x703d00, 0x703d80, index3SSprites_Makoto, 0x00, nullptr, &secondary3SMakotoEffects_UpdatePortraits },
     { L"LK Portrait", 0x764a40, 0x764a60, index3SSprites_Makoto, 0x01 },
     { L"LK Judgement Portrait", 0x78a420, 0x78a440, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_MK_PALETTES[] =
 {
-    { L"MK Main", 0x703d80, 0x703e00, index3SSprites_Makoto, 0x00 },
+    { L"MK Main", 0x703d80, 0x703e00, index3SSprites_Makoto, 0x00, nullptr, &secondary3SMakotoEffects_UpdatePortraits },
     { L"MK Portrait", 0x764a60, 0x764a80, index3SSprites_Makoto, 0x01 },
     { L"MK Judgement Portrait", 0x78a720, 0x78a740, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_HK_PALETTES[] =
 {
-    { L"HK Main", 0x703e00, 0x703e80, index3SSprites_Makoto, 0x00 },
+    { L"HK Main", 0x703e00, 0x703e80, index3SSprites_Makoto, 0x00, nullptr, &secondary3SMakotoEffects_UpdatePortraits },
     { L"HK Portrait", 0x764a80, 0x764aa0, index3SSprites_Makoto, 0x01 },
     { L"HK Judgement Portrait", 0x78aa20, 0x78aa40, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_EX_PALETTES[] =
 {
-    { L"EX Main", 0x703e80, 0x703f00, index3SSprites_Makoto, 0x00 },
+    { L"EX Main", 0x703e80, 0x703f00, index3SSprites_Makoto, 0x00, nullptr, &secondary3SMakotoEffects_UpdatePortraits },
     { L"EX Portrait", 0x764aa0, 0x764ac0, index3SSprites_Makoto, 0x01 },
     { L"EX Judgement Portrait", 0x78ad20, 0x78ad40, index3SSprites_Makoto, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -1475,49 +2322,49 @@ const sGame_PaletteDataset SFIII3_A_MAKOTO_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_Q_LP_PALETTES[] =
 {
-    { L"LP Main", 0x703f00, 0x703f80, index3SSprites_Q, 0x00 },
+    { L"LP Main", 0x703f00, 0x703f80, index3SSprites_Q, 0x00, nullptr, &secondary3SQEffects_UpdatePortraits },
     { L"LP Portrait", 0x764ac0, 0x764ae0, index3SSprites_Q, 0x01 },
     { L"LP Judgement Portrait", 0x789b40, 0x789b60, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_MP_PALETTES[] =
 {
-    { L"MP Main", 0x703f80, 0x704000, index3SSprites_Q, 0x00 },
+    { L"MP Main", 0x703f80, 0x704000, index3SSprites_Q, 0x00, nullptr, &secondary3SQEffects_UpdatePortraits },
     { L"MP Portrait", 0x764ae0, 0x764b00, index3SSprites_Q, 0x01 },
     { L"MP Judgement Portrait", 0x789e40, 0x789e60, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_HP_PALETTES[] =
 {
-    { L"HP Main", 0x704000, 0x704080, index3SSprites_Q, 0x00 },
+    { L"HP Main", 0x704000, 0x704080, index3SSprites_Q, 0x00, nullptr, &secondary3SQEffects_UpdatePortraits },
     { L"HP Portrait", 0x764b00, 0x764b20, index3SSprites_Q, 0x01 },
     { L"HP Judgement Portrait", 0x78a140, 0x78a160, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_LK_PALETTES[] =
 {
-    { L"LK Main", 0x704080, 0x704100, index3SSprites_Q, 0x00 },
+    { L"LK Main", 0x704080, 0x704100, index3SSprites_Q, 0x00, nullptr, &secondary3SQEffects_UpdatePortraits },
     { L"LK Portrait", 0x764b20, 0x764b40, index3SSprites_Q, 0x01 },
     { L"LK Judgement Portrait", 0x78a440, 0x78a460, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_MK_PALETTES[] =
 {
-    { L"MK Main", 0x704100, 0x704180, index3SSprites_Q, 0x00 },
+    { L"MK Main", 0x704100, 0x704180, index3SSprites_Q, 0x00, nullptr, &secondary3SQEffects_UpdatePortraits },
     { L"MK Portrait", 0x764b40, 0x764b60, index3SSprites_Q, 0x01 },
     { L"MK Judgement Portrait", 0x78a740, 0x78a760, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_HK_PALETTES[] =
 {
-    { L"HK Main", 0x704180, 0x704200, index3SSprites_Q, 0x00 },
+    { L"HK Main", 0x704180, 0x704200, index3SSprites_Q, 0x00, nullptr, &secondary3SQEffects_UpdatePortraits },
     { L"HK Portrait", 0x764b60, 0x764b80, index3SSprites_Q, 0x01 },
     { L"HK Judgement Portrait", 0x78aa40, 0x78aa60, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_EX_PALETTES[] =
 {
-    { L"EX Main", 0x704200, 0x704280, index3SSprites_Q, 0x00 },
+    { L"EX Main", 0x704200, 0x704280, index3SSprites_Q, 0x00, nullptr, &secondary3SQEffects_UpdatePortraits },
     { L"EX Portrait", 0x764b80, 0x764ba0, index3SSprites_Q, 0x01 },
     { L"EX Judgement Portrait", 0x78ad40, 0x78ad60, index3SSprites_Q, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -1554,49 +2401,49 @@ const sGame_PaletteDataset SFIII3_A_Q_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_LP_PALETTES[] =
 {
-    { L"LP Main", 0x704280, 0x704300, index3SSprites_Twelve, 0x00 },
+    { L"LP Main", 0x704280, 0x704300, index3SSprites_Twelve, 0x00, nullptr, &secondary3STwelveEffects_UpdatePortraits },
     { L"LP Portrait", 0x764ba0, 0x764bc0, index3SSprites_Twelve, 0x01 },
     { L"LP Judgement Portrait", 0x789b60, 0x789b80, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_MP_PALETTES[] =
 {
-    { L"MP Main", 0x704300, 0x704380, index3SSprites_Twelve, 0x00 },
+    { L"MP Main", 0x704300, 0x704380, index3SSprites_Twelve, 0x00, nullptr, &secondary3STwelveEffects_UpdatePortraits },
     { L"MP Portrait", 0x764bc0, 0x764be0, index3SSprites_Twelve, 0x01 },
     { L"MP Judgement Portrait", 0x789e60, 0x789e80, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_HP_PALETTES[] =
 {
-    { L"HP Main", 0x704380, 0x704400, index3SSprites_Twelve, 0x00 },
+    { L"HP Main", 0x704380, 0x704400, index3SSprites_Twelve, 0x00, nullptr, &secondary3STwelveEffects_UpdatePortraits },
     { L"HP Portrait", 0x764be0, 0x764c00, index3SSprites_Twelve, 0x01 },
     { L"HP Judgement Portrait", 0x78a160, 0x78a180, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_LK_PALETTES[] =
 {
-    { L"LK Main", 0x704400, 0x704480, index3SSprites_Twelve, 0x00 },
+    { L"LK Main", 0x704400, 0x704480, index3SSprites_Twelve, 0x00, nullptr, &secondary3STwelveEffects_UpdatePortraits },
     { L"LK Portrait", 0x764c00, 0x764c20, index3SSprites_Twelve, 0x01 },
     { L"LK Judgement Portrait", 0x78a460, 0x78a480, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_MK_PALETTES[] =
 {
-    { L"MK Main", 0x704480, 0x704500, index3SSprites_Twelve, 0x00 },
+    { L"MK Main", 0x704480, 0x704500, index3SSprites_Twelve, 0x00, nullptr, &secondary3STwelveEffects_UpdatePortraits },
     { L"MK Portrait", 0x764c20, 0x764c40, index3SSprites_Twelve, 0x01 },
     { L"MK Judgement Portrait", 0x78a760, 0x78a780, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_HK_PALETTES[] =
 {
-    { L"HK Main", 0x704500, 0x704580, index3SSprites_Twelve, 0x00 },
+    { L"HK Main", 0x704500, 0x704580, index3SSprites_Twelve, 0x00, nullptr, &secondary3STwelveEffects_UpdatePortraits },
     { L"HK Portrait", 0x764c40, 0x764c60, index3SSprites_Twelve, 0x01 },
     { L"HK Judgement Portrait", 0x78aa60, 0x78aa80, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_EX_PALETTES[] =
 {
-    { L"EX Main", 0x704580, 0x704600, index3SSprites_Twelve, 0x00 },
+    { L"EX Main", 0x704580, 0x704600, index3SSprites_Twelve, 0x00, nullptr, &secondary3STwelveEffects_UpdatePortraits },
     { L"EX Portrait", 0x764c60, 0x764c80, index3SSprites_Twelve, 0x01 },
     { L"EX Judgement Portrait", 0x78ad60, 0x78ad80, index3SSprites_Twelve, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -1619,49 +2466,49 @@ const sGame_PaletteDataset SFIII3_A_TWELVE_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_REMY_LP_PALETTES[] =
 {
-    { L"LP Main", 0x704600, 0x704680, index3SSprites_Remy, 0x00 },
+    { L"LP Main", 0x704600, 0x704680, index3SSprites_Remy, 0x00, nullptr, &secondary3SRemyEffects_UpdatePortraits },
     { L"LP Portrait", 0x764c80, 0x764ca0, index3SSprites_Remy, 0x01 },
     { L"LP Judgement Portrait", 0x789b80, 0x789ba0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_MP_PALETTES[] =
 {
-    { L"MP Main", 0x704680, 0x704700, index3SSprites_Remy, 0x00 },
+    { L"MP Main", 0x704680, 0x704700, index3SSprites_Remy, 0x00, nullptr, &secondary3SRemyEffects_UpdatePortraits },
     { L"MP Portrait", 0x764ca0, 0x764cc0, index3SSprites_Remy, 0x01 },
     { L"MP Judgement Portrait", 0x789e80, 0x789ea0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_HP_PALETTES[] =
 {
-    { L"HP Main", 0x704700, 0x704780, index3SSprites_Remy, 0x00 },
+    { L"HP Main", 0x704700, 0x704780, index3SSprites_Remy, 0x00, nullptr, &secondary3SRemyEffects_UpdatePortraits },
     { L"HP Portrait", 0x764cc0, 0x764ce0, index3SSprites_Remy, 0x01 },
     { L"HP Judgement Portrait", 0x78a180, 0x78a1a0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_LK_PALETTES[] =
 {
-    { L"LK Main", 0x704780, 0x704800, index3SSprites_Remy, 0x00 },
+    { L"LK Main", 0x704780, 0x704800, index3SSprites_Remy, 0x00, nullptr, &secondary3SRemyEffects_UpdatePortraits },
     { L"LK Portrait", 0x764ce0, 0x764d00, index3SSprites_Remy, 0x01 },
     { L"LK Judgement Portrait", 0x78a480, 0x78a4a0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_MK_PALETTES[] =
 {
-    { L"MK Main", 0x704800, 0x704880, index3SSprites_Remy, 0x00 },
+    { L"MK Main", 0x704800, 0x704880, index3SSprites_Remy, 0x00, nullptr, &secondary3SRemyEffects_UpdatePortraits },
     { L"MK Portrait", 0x764d00, 0x764d20, index3SSprites_Remy, 0x01 },
     { L"MK Judgement Portrait", 0x78a780, 0x78a7a0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_HK_PALETTES[] =
 {
-    { L"HK Main", 0x704880, 0x704900, index3SSprites_Remy, 0x00 },
+    { L"HK Main", 0x704880, 0x704900, index3SSprites_Remy, 0x00, nullptr, &secondary3SRemyEffects_UpdatePortraits },
     { L"HK Portrait", 0x764d20, 0x764d40, index3SSprites_Remy, 0x01 },
     { L"HK Judgement Portrait", 0x78aa80, 0x78aaa0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_EX_PALETTES[] =
 {
-    { L"EX Main", 0x704900, 0x704980, index3SSprites_Remy, 0x00 },
+    { L"EX Main", 0x704900, 0x704980, index3SSprites_Remy, 0x00, nullptr, &secondary3SRemyEffects_UpdatePortraits },
     { L"EX Portrait", 0x764d40, 0x764d60, index3SSprites_Remy, 0x01 },
     { L"EX Judgement Portrait", 0x78ad80, 0x78ada0, index3SSprites_Remy, INDEX_JUDGEMENT_PORTRAITS },
 };
@@ -1697,7 +2544,7 @@ const sGame_PaletteDataset SFIII3_A_HUGO_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_LP_PALETTES[] =
 {
-    { L"Intro Facing Left LP", 0x700000, 0x700080, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next },
+    { L"Intro Facing Left LP", 0x700000, 0x700080, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next_AndHandlePortraits },
     { L"Intro Facing Right LP", 0x700080, 0x700100, index3SSprites_Gill, 0x00 },
     { L"LP Portrait", 0x763b00, 0x763b20, index3SSprites_Gill, 0x0a },
     { L"LP Judgement Portrait", 0x789900, 0x789920, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
@@ -1705,7 +2552,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_LP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_MP_PALETTES[] =
 {
-    { L"Intro Facing Left MP", 0x700100, 0x700180, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next },
+    { L"Intro Facing Left MP", 0x700100, 0x700180, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next_AndHandlePortraits },
     { L"Intro Facing Right MP", 0x700180, 0x700200, index3SSprites_Gill, 0x00 },
     { L"MP Portrait", 0x763b20, 0x763b40, index3SSprites_Gill, 0x0a },
     { L"MP Judgement Portrait", 0x789c00, 0x789c20, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
@@ -1713,7 +2560,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_MP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_HP_PALETTES[] =
 {
-    { L"Intro Facing Left HP", 0x700200, 0x700280, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next },
+    { L"Intro Facing Left HP", 0x700200, 0x700280, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next_AndHandlePortraits },
     { L"Intro Facing Right HP", 0x700280, 0x700300, index3SSprites_Gill, 0x00 },
     { L"HP Portrait", 0x763b40, 0x763b60, index3SSprites_Gill, 0x0a },
     { L"HP Judgement Portrait", 0x789f00, 0x789f20, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
@@ -1721,7 +2568,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_HP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_LK_PALETTES[] =
 {
-    { L"Intro Facing Left LK", 0x700300, 0x700380, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next },
+    { L"Intro Facing Left LK", 0x700300, 0x700380, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next_AndHandlePortraits },
     { L"Intro Facing Right LK", 0x700380, 0x700400, index3SSprites_Gill, 0x00 },
     { L"LK Portrait", 0x763b60, 0x763b80, index3SSprites_Gill, 0x0a },
     { L"LK Judgement Portrait", 0x78a200, 0x78a220, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
@@ -1729,7 +2576,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_LK_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_MK_PALETTES[] =
 {
-    { L"Intro Facing Left MK", 0x700400, 0x700480, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next },
+    { L"Intro Facing Left MK", 0x700400, 0x700480, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next_AndHandlePortraits },
     { L"Intro Facing Right MK", 0x700480, 0x700500, index3SSprites_Gill, 0x00 },
     { L"MK Portrait", 0x763b80, 0x763ba0, index3SSprites_Gill, 0x0a },
     { L"MK Judgement Portrait", 0x78a500, 0x78a520, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },
@@ -1737,7 +2584,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_MK_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_HK_PALETTES[] =
 {
-    { L"Intro Facing Left HK", 0x700500, 0x700580, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next },
+    { L"Intro Facing Left HK", 0x700500, 0x700580, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next_AndHandlePortraits },
     { L"Intro Facing Right HK", 0x700580, 0x700600, index3SSprites_Gill, 0x00 },
     { L"HK Portrait", 0x763ba0, 0x763bc0, index3SSprites_Gill, 0x0a },
     { L"HK Judgement Portrait", 0x78a800, 0x78a820, index3SSprites_Gill, INDEX_JUDGEMENT_PORTRAITS },

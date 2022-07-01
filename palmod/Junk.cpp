@@ -81,11 +81,34 @@ bool CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgrou
 
         if (fShouldProcessColor)
         {
-            for (int iIndex = 0; iIndex < m_iWorkingAmt; iIndex++)
+            for (int iIndex = 1; iIndex < m_iWorkingAmt; iIndex++) // skip the transparent first color
             {
                 bool fIsSameColorAtIndex = ((m_BasePal[iIndex] & 0xFFFFFF) == dwordAsColor);
                 m_Selected[iIndex] = fIsSameColorAtIndex ? 1 : 0;
-                fFoundColor = fFoundColor || fIsSameColorAtIndex;
+
+                if (fIsSameColorAtIndex)
+                {
+                    CString strMessage;
+
+                    if (fFoundColor)
+                    {
+                        strMessage.Format(L"Color #%02x%02x%02x found in multiple locations.", GetRValue(dwordAsColor), GetGValue(dwordAsColor), GetBValue(dwordAsColor));
+                    }
+                    else
+                    {
+                        fFoundColor = true;
+                        strMessage.Format(L"Color #%02x%02x%02x found at position %u.", GetRValue(dwordAsColor), GetGValue(dwordAsColor), GetBValue(dwordAsColor), iIndex);
+                    }
+
+                    GetHost()->GetPalModDlg()->SetStatusText(strMessage.GetString());
+                }
+            }
+
+            if (!fFoundColor)
+            {
+                CString strMessage;
+                strMessage.Format(L"Color #%02x%02x%02x not present.", GetRValue(dwordAsColor), GetGValue(dwordAsColor), GetBValue(dwordAsColor));
+                GetHost()->GetPalModDlg()->SetStatusText(strMessage.GetString());
             }
         }
     }
