@@ -101,6 +101,765 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_Next12 =
     },
 };
 
+const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_All24Glows =
+{
+    {
+        SUPP_NODE, 0x01, 0, // Glow 2
+            // 1-11 "blue" right side unchanged
+            // 12-15 shin shade unchanged
+            // 17-27 "red" left side unchanged
+            // 28-31 other skin shade
+            MOD_LUM, 28, 1, 24,
+            MOD_LUM, 29, 1, 26,
+            MOD_LUM, 30, 2, 26,
+            // 33-39 magnificent hair unchanged
+            // 42-47 thong unchanged
+        SUPP_NODE, 0x02, 0, // Glow 3
+            // 1-11 "blue" right side
+            MOD_COPY, 2, 1, 1,
+            MOD_COPY, 1, 10, 2,
+            // 12-15 shin shade
+            MOD_LUM, 12, 4, NEG + 1,
+            // 17-27 "red" left side
+            MOD_COPY, 18, 1, 17,
+            MOD_COPY, 17, 10, 18,
+            // 28-31 other skin shade
+            MOD_LUM, 28, 1, 23,
+            MOD_LUM, 29, 1, 26,
+            MOD_LUM, 30, 2, 23,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 6,
+            MOD_LUM, 34, 1, 8,
+            MOD_LUM, 35, 1, 7,
+            MOD_LUM, 36, 1, 7,
+            MOD_LUM, 37, 1, 9,
+            MOD_LUM, 38, 1, 9,
+            MOD_LUM, 39, 1, 10,
+            // 42-47 thong unchanged
+        SUPP_NODE, 0x03, 0, // Glow 4
+            // 1-11 "blue" right side
+            MOD_COPY, 3, 1, 1,
+            MOD_COPY, 2, 1, 2,
+            MOD_COPY, 1, 9, 3,
+            // 12-15 shin shade
+            MOD_LUM, 12, 1, NEG + 3,
+            MOD_LUM, 13, 1, NEG + 1,
+            MOD_LUM, 14, 2, NEG + 1,
+            // 17-27 "red" left side
+            MOD_COPY, 19, 1, 17,
+            MOD_COPY, 18, 1, 18,
+            MOD_COPY, 17, 9, 19,
+            // 28-31 other skin shade
+            MOD_LUM, 28, 1, 23,
+            MOD_LUM, 29, 1, 23,
+            MOD_LUM, 30, 2, 21,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 15,
+            MOD_LUM, 34, 1, 18,
+            MOD_LUM, 35, 1, 16,
+            MOD_LUM, 36, 1, 21,
+            MOD_LUM, 37, 1, 22,
+            MOD_LUM, 38, 1, 30,
+            MOD_LUM, 39, 1, 37,
+            // 42-47 thong unchanged
+        SUPP_NODE, 0x04, 0, // Glow 5
+            // 1-11 "blue" right side
+            MOD_COPY, 3, 1, 1,
+            MOD_COPY, 2, 1, 2,
+            MOD_COPY, 1, 1, 3,
+            MOD_COPY, 1, 8, 4,
+            // 12-15 shin shade
+            MOD_LUM, 12, 1, NEG + 4,
+            MOD_LUM, 13, 1, NEG + 3,
+            MOD_LUM, 14, 2, NEG + 5,
+            // 17-27 "red" left side
+            MOD_COPY, 20, 1, 17,
+            MOD_COPY, 19, 1, 18,
+            MOD_COPY, 18, 1, 19,
+            MOD_COPY, 17, 8, 20,
+            // 28-31 other skin shade
+            MOD_LUM, 28, 1, 21,
+            MOD_LUM, 29, 1, 18,
+            MOD_LUM, 30, 2, 17,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 20,
+            MOD_LUM, 34, 1, 21,
+            MOD_LUM, 35, 1, 21,
+            MOD_LUM, 36, 1, 24,
+            MOD_LUM, 37, 1, 27,
+            MOD_LUM, 38, 1, 35,
+            MOD_LUM, 39, 1, 42,
+            // 42-47 thong unchanged
+        SUPP_NODE, 0x05, 0, // Glow 6
+            // 1-11 "blue" right side
+            MOD_COPY, 4, 1, 1,
+            MOD_COPY, 3, 1, 2,
+            MOD_COPY, 2, 1, 3,
+            MOD_COPY, 1, 1, 4,
+            MOD_COPY, 1, 7, 5,
+            // 12-15 shin shade
+            MOD_LUM, 12, 1, NEG + 6,
+            MOD_LUM, 13, 1, NEG + 5,
+            MOD_LUM, 14, 2, NEG + 9,
+            // 17-27 "red" left side
+            MOD_COPY, 21, 1, 17,
+            MOD_COPY, 20, 1, 18,
+            MOD_COPY, 19, 1, 19,
+            MOD_COPY, 18, 1, 20,
+            MOD_COPY, 17, 7, 21,
+            // 28-31 other skin shade
+            MOD_LUM, 28, 1, 18,
+            MOD_LUM, 29, 1, 16,
+            MOD_LUM, 30, 2, 15,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 49,
+            MOD_LUM, 34, 1, 43,
+            MOD_LUM, 35, 1, 37,
+            MOD_LUM, 36, 1, 37,
+            MOD_LUM, 37, 1, 40,
+            MOD_LUM, 38, 1, 50,
+            MOD_LUM, 39, 1, 54,
+            // 42-47 thong
+            MOD_COPY, 42, 1, 42,
+            MOD_COPY, 44, 1, 43,
+            MOD_COPY, 45, 1, 44,
+            MOD_COPY, 46, 1, 45,
+            MOD_COPY, 47, 1, 46,
+            MOD_TINT, 47, 1, 47, NEG + 1, NEG + 1, NEG + 1,
+        SUPP_NODE, 0x06, 0, // Glow 7
+            // 1-11 "blue" right side
+            MOD_COPY, 5, 1, 1,
+            MOD_COPY, 4, 1, 2,
+            MOD_COPY, 3, 1, 3,
+            MOD_COPY, 2, 1, 4,
+            MOD_COPY, 1, 1, 5,
+            MOD_COPY, 1, 6, 6,
+            // 12-15 shin shade
+            MOD_LUM, 12, 1, NEG + 6,
+            MOD_LUM, 13, 1, NEG + 8,
+            MOD_LUM, 14, 2, NEG + 13,
+            // 17-27 "red" left side
+            MOD_COPY, 22, 1, 17,
+            MOD_COPY, 21, 1, 18,
+            MOD_COPY, 20, 1, 19,
+            MOD_COPY, 19, 1, 20,
+            MOD_COPY, 18, 1, 21,
+            MOD_COPY, 17, 6, 22,
+            // 28-31 other skin shade
+            MOD_LUM, 28, 1, 15,
+            MOD_LUM, 29, 1, 14,
+            MOD_LUM, 30, 2, 12,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 50,
+            MOD_LUM, 34, 1, 47,
+            MOD_LUM, 35, 1, 42,
+            MOD_LUM, 36, 1, 37,
+            MOD_LUM, 37, 1, 40,
+            MOD_LUM, 38, 1, 50,
+            MOD_LUM, 39, 1, 54,
+	        // 42-47 thong
+	        MOD_COPY, 42, 1, 42,
+	        MOD_COPY, 44, 1, 43,
+	        MOD_COPY, 45, 1, 44,
+	        MOD_COPY, 46, 1, 45,
+	        MOD_COPY, 47, 1, 46,
+	        MOD_TINT, 47, 1, 47, NEG + 1, NEG + 1, NEG + 1,
+        SUPP_NODE, 0x07, 0, // Glow 8
+            // 1-11 "blue" right side
+            MOD_COPY, 7, 1, 1,
+            MOD_COPY, 6, 1, 2,
+            MOD_COPY, 5, 1, 3,
+            MOD_COPY, 4, 1, 4,
+            MOD_COPY, 3, 1, 5,
+            MOD_COPY, 2, 1, 6,
+            MOD_COPY, 1, 5, 7,
+            // 12-15 shin shade
+            MOD_LUM, 12, 1, NEG + 8,
+            MOD_LUM, 13, 1, NEG + 11,
+            MOD_LUM, 14, 2, NEG + 14,
+	        // 17-27 "red" left side
+	        MOD_COPY, 23, 1, 17,
+	        MOD_COPY, 22, 1, 18,
+	        MOD_COPY, 21, 1, 19,
+	        MOD_COPY, 20, 1, 20,
+	        MOD_COPY, 19, 1, 21,
+	        MOD_COPY, 18, 1, 22,
+	        MOD_COPY, 17, 5, 23,
+            // 28-31 other skin shade
+            MOD_LUM, 28, 1, 11,
+            MOD_LUM, 29, 1, 12,
+            MOD_LUM, 30, 2, 10,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 100,
+            MOD_LUM, 34, 1, 47,
+            MOD_LUM, 35, 1, 42,
+            MOD_LUM, 36, 1, 39,
+            MOD_LUM, 37, 1, 43,
+            MOD_LUM, 38, 1, 55,
+            MOD_LUM, 39, 1, 60,
+            // 42-47 thong unchanged
+        SUPP_NODE, 0x08, 0, // Glow 9
+            // 1-11 "blue" right side
+            MOD_COPY, 8, 1, 1,
+            MOD_COPY, 7, 1, 2,
+            MOD_COPY, 6, 1, 3,
+            MOD_COPY, 5, 1, 4,
+            MOD_COPY, 4, 1, 5,
+            MOD_COPY, 3, 1, 6,
+            MOD_COPY, 2, 1, 7,
+            MOD_COPY, 1, 4, 8,
+            // 12-15 shin shade
+            MOD_LUM, 12, 1, NEG + 13,
+            MOD_LUM, 13, 1, NEG + 14,
+            MOD_LUM, 14, 2, NEG + 19,
+	        // 17-27 "red" left side
+	        MOD_COPY, 24, 1, 17,
+	        MOD_COPY, 23, 1, 18,
+	        MOD_COPY, 22, 1, 19,
+	        MOD_COPY, 21, 1, 20,
+	        MOD_COPY, 20, 1, 21,
+	        MOD_COPY, 19, 1, 22,
+	        MOD_COPY, 18, 1, 23,
+	        MOD_COPY, 17, 4, 24,
+            // 28-31 other skin shade
+            MOD_LUM, 28, 1, 8,
+            MOD_LUM, 29, 1, 7,
+            MOD_LUM, 30, 2, 7,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 20,
+            MOD_LUM, 34, 1, 21,
+            MOD_LUM, 35, 1, 21,
+            MOD_LUM, 36, 1, 24,
+            MOD_LUM, 37, 1, 27,
+            MOD_LUM, 38, 1, 35,
+            MOD_LUM, 39, 1, 42,
+	        // 42-47 thong
+	        MOD_COPY, 43, 1, 42,
+	        MOD_COPY, 42, 1, 43,
+	        MOD_COPY, 43, 1, 44,
+	        MOD_COPY, 44, 1, 45,
+	        MOD_COPY, 45, 1, 46,
+	        MOD_COPY, 46, 1, 47,
+        SUPP_NODE, 0x09, 0, // Glow 10
+            // 1-11 "blue" right side
+            MOD_COPY, 9, 1, 1,
+            MOD_COPY, 8, 1, 2,
+            MOD_COPY, 7, 1, 3,
+            MOD_COPY, 6, 1, 4,
+            MOD_COPY, 5, 1, 5,
+            MOD_COPY, 4, 1, 6,
+            MOD_COPY, 3, 1, 7,
+            MOD_COPY, 2, 1, 8,
+            MOD_COPY, 1, 3, 9,
+            // 12-15 shin shade
+            MOD_LUM, 12, 1, NEG + 14,
+            MOD_LUM, 13, 1, NEG + 19,
+            MOD_LUM, 14, 2, NEG + 22,
+	        // 17-27 "red" left side
+	        MOD_COPY, 25, 1, 17,
+	        MOD_COPY, 24, 1, 18,
+	        MOD_COPY, 23, 1, 19,
+	        MOD_COPY, 22, 1, 20,
+	        MOD_COPY, 21, 1, 21,
+	        MOD_COPY, 20, 1, 22,
+	        MOD_COPY, 19, 1, 23,
+	        MOD_COPY, 18, 1, 24,
+	        MOD_COPY, 17, 3, 25,
+            // 28-31 other skin shade
+            MOD_LUM, 28, 1, 7,
+            MOD_LUM, 29, 1, 7,
+            MOD_LUM, 30, 2, 5,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 15,
+            MOD_LUM, 34, 1, 18,
+            MOD_LUM, 35, 1, 16,
+            MOD_LUM, 36, 1, 21,
+            MOD_LUM, 37, 1, 22,
+            MOD_LUM, 38, 1, 30,
+            MOD_LUM, 39, 1, 37,
+	        // 42-47 thong
+	        MOD_COPY, 42, 1, 42,
+	        MOD_COPY, 42, 1, 43,
+	        MOD_COPY, 42, 1, 44,
+	        MOD_COPY, 42, 1, 45,
+	        MOD_COPY, 44, 1, 46,
+	        MOD_COPY, 45, 1, 47,
+        SUPP_NODE, 0x0a, 0, // Glow 11
+            // 1-11 "blue" right side
+            MOD_COPY, 10, 1, 1,
+            MOD_COPY, 9, 1, 2,
+            MOD_COPY, 8, 1, 3,
+            MOD_COPY, 7, 1, 4,
+            MOD_COPY, 6, 1, 5,
+            MOD_COPY, 5, 1, 6,
+            MOD_COPY, 4, 1, 7,
+            MOD_COPY, 3, 1, 8,
+            MOD_COPY, 2, 1, 9,
+            MOD_COPY, 1, 2, 10,
+            // 12-15 shin shade
+            MOD_LUM, 12, 1, NEG + 21,
+            MOD_LUM, 13, 1, NEG + 22,
+            MOD_LUM, 14, 2, NEG + 26,
+	        // 17-27 "red" left side
+	        MOD_COPY, 26, 1, 17,
+	        MOD_COPY, 25, 1, 18,
+	        MOD_COPY, 24, 1, 19,
+	        MOD_COPY, 23, 1, 20,
+	        MOD_COPY, 22, 1, 21,
+	        MOD_COPY, 21, 1, 22,
+	        MOD_COPY, 20, 1, 23,
+	        MOD_COPY, 19, 1, 24,
+	        MOD_COPY, 18, 1, 25,
+	        MOD_COPY, 17, 2, 26,
+            // 28-31 other skin shade
+            MOD_LUM, 28, 1, 2,
+            MOD_LUM, 29, 1, 2,
+            MOD_LUM, 30, 2, 2,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 6,
+            MOD_LUM, 34, 1, 8,
+            MOD_LUM, 35, 1, 7,
+            MOD_LUM, 36, 1, 7,
+            MOD_LUM, 37, 1, 9,
+            MOD_LUM, 38, 1, 9,
+            MOD_LUM, 39, 1, 10,
+            // 42-47 thong
+            MOD_COPY, 43, 1, 42,
+            MOD_COPY, 42, 1, 43,
+            MOD_COPY, 42, 1, 44,
+            MOD_COPY, 43, 1, 45,
+            MOD_COPY, 44, 1, 46,
+            MOD_COPY, 45, 1, 47,
+        SUPP_NODE, 0x0b, 0, // Glow 12
+            // 1-11 "blue" right side
+            MOD_COPY, 11, 1, 1,
+            MOD_COPY, 10, 1, 2,
+            MOD_COPY, 9, 1, 3,
+            MOD_COPY, 8, 1, 4,
+            MOD_COPY, 7, 1, 5,
+            MOD_COPY, 6, 1, 6,
+            MOD_COPY, 5, 1, 7,
+            MOD_COPY, 4, 1, 8,
+            MOD_COPY, 3, 1, 9,
+            MOD_COPY, 2, 1, 10,
+            MOD_COPY, 1, 1, 11,
+            // 12-15 shin shade
+            MOD_LUM, 12, 1, NEG + 22,
+            MOD_LUM, 13, 1, NEG + 24,
+            MOD_LUM, 14, 2, NEG + 27,
+	        // 17-27 "red" left side
+	        MOD_COPY, 27, 1, 17,
+	        MOD_COPY, 26, 1, 18,
+	        MOD_COPY, 25, 1, 19,
+	        MOD_COPY, 24, 1, 20,
+	        MOD_COPY, 23, 1, 21,
+	        MOD_COPY, 22, 1, 22,
+	        MOD_COPY, 21, 1, 23,
+	        MOD_COPY, 20, 1, 24,
+	        MOD_COPY, 19, 1, 25,
+	        MOD_COPY, 18, 1, 26,
+	        MOD_COPY, 17, 1, 27,
+            // 33-39 magnificent hair unchanged
+            // 42-47 thong
+            MOD_COPY, 43, 1, 42,
+            MOD_COPY, 42, 1, 43,
+            MOD_COPY, 43, 1, 44,
+            MOD_COPY, 44, 1, 45,
+            MOD_COPY, 45, 1, 46,
+            MOD_COPY, 46, 1, 47,
+
+        // Now shift and repeat for the other side
+        SUPP_NODE, 0x0c, 0, // right glow 1: just swap left
+            MOD_COPY, 1, 11, 17,
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 17, 11, 1,
+            MOD_COPY, 28, 4, 12,
+        SUPP_NODE, 0x0d, 0, // right glow 2
+            MOD_COPY, 1, 11, 17,
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 17, 11, 1,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 12, 1, 24,
+            MOD_LUM, 13, 1, 26,
+            MOD_LUM, 14, 2, 26,
+            // 33-39 magnificent hair unchanged
+            // 42-47 thong unchanged
+        SUPP_NODE, 0x0e, 0, // right glow 3
+            // 1-11 "red" left side
+            MOD_COPY, 2, 1, 17,
+            MOD_COPY, 1, 10, 18,
+            // 12-15 shin shade
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 28, 4, NEG + 1,
+            // 17-27 "blue" right side
+            MOD_COPY, 18, 1, 1,
+            MOD_COPY, 17, 10, 2,
+            // 28-31 other skin shade
+            MOD_LUM, 12, 1, 23,
+            MOD_LUM, 13, 1, 26,
+            MOD_LUM, 14, 2, 23,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 6,
+            MOD_LUM, 34, 1, 8,
+            MOD_LUM, 35, 1, 7,
+            MOD_LUM, 36, 1, 7,
+            MOD_LUM, 37, 1, 9,
+            MOD_LUM, 38, 1, 9,
+            MOD_LUM, 39, 1, 10,
+            // 42-47 thong unchanged
+        SUPP_NODE, 0x0f, 0, // right glow 4
+            // 1-11 "red" left side
+            MOD_COPY, 3, 1, 17,
+            MOD_COPY, 2, 1, 18,
+            MOD_COPY, 1, 9, 19,
+            // 12-15 shin shade
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 28, 1, NEG + 3,
+            MOD_LUM, 29, 1, NEG + 1,
+            MOD_LUM, 30, 2, NEG + 1,
+            // 17-27 "blue" right side
+            MOD_COPY, 19, 1, 1,
+            MOD_COPY, 18, 1, 2,
+            MOD_COPY, 17, 9, 3,
+            // 28-31 other skin shade
+            MOD_LUM, 12, 1, 23,
+            MOD_LUM, 13, 1, 23,
+            MOD_LUM, 14, 2, 21,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 15,
+            MOD_LUM, 34, 1, 18,
+            MOD_LUM, 35, 1, 16,
+            MOD_LUM, 36, 1, 21,
+            MOD_LUM, 37, 1, 22,
+            MOD_LUM, 38, 1, 30,
+            MOD_LUM, 39, 1, 37,
+            // 42-47 thong unchanged
+        SUPP_NODE, 0x10, 0, // right glow 5
+            // 1-11 "red" left side
+            MOD_COPY, 3, 1, 17,
+            MOD_COPY, 2, 1, 18,
+            MOD_COPY, 1, 1, 19,
+            MOD_COPY, 1, 8, 20,
+            // 12-15 shin shade
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 28, 1, NEG + 4,
+            MOD_LUM, 29, 1, NEG + 3,
+            MOD_LUM, 30, 2, NEG + 5,
+            // 17-27 "blue" right side
+            MOD_COPY, 20, 1, 1,
+            MOD_COPY, 19, 1, 2,
+            MOD_COPY, 18, 1, 3,
+            MOD_COPY, 17, 8, 4,
+            // 28-31 other skin shade
+            MOD_LUM, 12, 1, 21,
+            MOD_LUM, 13, 1, 18,
+            MOD_LUM, 14, 2, 17,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 20,
+            MOD_LUM, 34, 1, 21,
+            MOD_LUM, 35, 1, 21,
+            MOD_LUM, 36, 1, 24,
+            MOD_LUM, 37, 1, 27,
+            MOD_LUM, 38, 1, 35,
+            MOD_LUM, 39, 1, 42,
+            // 42-47 thong unchanged
+        SUPP_NODE, 0x11, 0, // right glow 6
+            // 1-11 "red" left side
+            MOD_COPY, 4, 1, 17,
+            MOD_COPY, 3, 1, 18,
+            MOD_COPY, 2, 1, 19,
+            MOD_COPY, 1, 1, 20,
+            MOD_COPY, 1, 7, 21,
+            // 12-15 shin shade
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 28, 1, NEG + 6,
+            MOD_LUM, 29, 1, NEG + 5,
+            MOD_LUM, 30, 2, NEG + 9,
+            // 17-27 "blue" right side
+            MOD_COPY, 21, 1, 1,
+            MOD_COPY, 20, 1, 2,
+            MOD_COPY, 19, 1, 3,
+            MOD_COPY, 18, 1, 4,
+            MOD_COPY, 17, 7, 5,
+            // 28-31 other skin shade
+            MOD_LUM, 12, 1, 18,
+            MOD_LUM, 13, 1, 16,
+            MOD_LUM, 14, 2, 15,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 49,
+            MOD_LUM, 34, 1, 43,
+            MOD_LUM, 35, 1, 37,
+            MOD_LUM, 36, 1, 37,
+            MOD_LUM, 37, 1, 40,
+            MOD_LUM, 38, 1, 50,
+            MOD_LUM, 39, 1, 54,
+            // 42-47 thong
+            MOD_COPY, 42, 1, 42,
+            MOD_COPY, 44, 1, 43,
+            MOD_COPY, 45, 1, 44,
+            MOD_COPY, 46, 1, 45,
+            MOD_COPY, 47, 1, 46,
+            MOD_TINT, 47, 1, 47, NEG + 1, NEG + 1, NEG + 1,
+        SUPP_NODE, 0x12, 0, // right glow 7
+            // 1-11 "red" left side
+            MOD_COPY, 5, 1, 17,
+            MOD_COPY, 4, 1, 18,
+            MOD_COPY, 3, 1, 19,
+            MOD_COPY, 2, 1, 20,
+            MOD_COPY, 1, 1, 21,
+            MOD_COPY, 1, 6, 22,
+            // 12-15 shin shade
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 28, 1, NEG + 6,
+            MOD_LUM, 29, 1, NEG + 8,
+            MOD_LUM, 30, 2, NEG + 13,
+            // 17-27 "blue" right side
+            MOD_COPY, 22, 1, 1,
+            MOD_COPY, 21, 1, 2,
+            MOD_COPY, 20, 1, 3,
+            MOD_COPY, 19, 1, 4,
+            MOD_COPY, 18, 1, 5,
+            MOD_COPY, 17, 6, 6,
+            // 28-31 other skin shade
+            MOD_LUM, 12, 1, 15,
+            MOD_LUM, 13, 1, 14,
+            MOD_LUM, 14, 2, 12,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 50,
+            MOD_LUM, 34, 1, 47,
+            MOD_LUM, 35, 1, 42,
+            MOD_LUM, 36, 1, 37,
+            MOD_LUM, 37, 1, 40,
+            MOD_LUM, 38, 1, 50,
+            MOD_LUM, 39, 1, 54,
+            // 42-47 thong
+            MOD_COPY, 42, 1, 42,
+            MOD_COPY, 44, 1, 43,
+            MOD_COPY, 45, 1, 44,
+            MOD_COPY, 46, 1, 45,
+            MOD_COPY, 47, 1, 46,
+            MOD_TINT, 47, 1, 47, NEG + 1, NEG + 1, NEG + 1,
+        SUPP_NODE, 0x13, 0, // right glow 8
+            // 1-11 "red" left side
+            MOD_COPY, 7, 1, 17,
+            MOD_COPY, 6, 1, 18,
+            MOD_COPY, 5, 1, 19,
+            MOD_COPY, 4, 1, 20,
+            MOD_COPY, 3, 1, 21,
+            MOD_COPY, 2, 1, 22,
+            MOD_COPY, 1, 5, 23,
+            // 12-15 shin shade
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 28, 1, NEG + 8,
+            MOD_LUM, 29, 1, NEG + 11,
+            MOD_LUM, 30, 2, NEG + 14,
+            // 17-27 "blue" right side
+            MOD_COPY, 23, 1, 1,
+            MOD_COPY, 22, 1, 2,
+            MOD_COPY, 21, 1, 3,
+            MOD_COPY, 20, 1, 4,
+            MOD_COPY, 19, 1, 5,
+            MOD_COPY, 18, 1, 6,
+            MOD_COPY, 17, 5, 7,
+            // 28-31 other skin shade
+            MOD_LUM, 12, 1, 11,
+            MOD_LUM, 13, 1, 12,
+            MOD_LUM, 14, 2, 10,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 100,
+            MOD_LUM, 34, 1, 47,
+            MOD_LUM, 35, 1, 42,
+            MOD_LUM, 36, 1, 39,
+            MOD_LUM, 37, 1, 43,
+            MOD_LUM, 38, 1, 55,
+            MOD_LUM, 39, 1, 60,
+            // 42-47 thong unchanged
+        SUPP_NODE, 0x14, 0, // right glow 9
+            // 1-11 "red" left side
+            MOD_COPY, 8, 1, 17,
+            MOD_COPY, 7, 1, 18,
+            MOD_COPY, 6, 1, 19,
+            MOD_COPY, 5, 1, 20,
+            MOD_COPY, 4, 1, 21,
+            MOD_COPY, 3, 1, 22,
+            MOD_COPY, 2, 1, 23,
+            MOD_COPY, 1, 4, 24,
+            // 12-15 shin shade
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 28, 1, NEG + 13,
+            MOD_LUM, 29, 1, NEG + 14,
+            MOD_LUM, 30, 2, NEG + 19,
+            // 17-27 "blue" right side
+            MOD_COPY, 24, 1, 1,
+            MOD_COPY, 23, 1, 2,
+            MOD_COPY, 22, 1, 3,
+            MOD_COPY, 21, 1, 4,
+            MOD_COPY, 20, 1, 5,
+            MOD_COPY, 19, 1, 6,
+            MOD_COPY, 18, 1, 7,
+            MOD_COPY, 17, 4, 8,
+            // 28-31 other skin shade
+            MOD_LUM, 12, 1, 8,
+            MOD_LUM, 13, 1, 7,
+            MOD_LUM, 14, 2, 7,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 20,
+            MOD_LUM, 34, 1, 21,
+            MOD_LUM, 35, 1, 21,
+            MOD_LUM, 36, 1, 24,
+            MOD_LUM, 37, 1, 27,
+            MOD_LUM, 38, 1, 35,
+            MOD_LUM, 39, 1, 42,
+            // 42-47 thong
+            MOD_COPY, 43, 1, 42,
+            MOD_COPY, 42, 1, 43,
+            MOD_COPY, 43, 1, 44,
+            MOD_COPY, 44, 1, 45,
+            MOD_COPY, 45, 1, 46,
+            MOD_COPY, 46, 1, 47,
+        SUPP_NODE, 0x15, 0, // right glow 10
+            // 1-11 "red" left side
+            MOD_COPY, 9, 1, 17,
+            MOD_COPY, 8, 1, 18,
+            MOD_COPY, 7, 1, 19,
+            MOD_COPY, 6, 1, 20,
+            MOD_COPY, 5, 1, 21,
+            MOD_COPY, 4, 1, 22,
+            MOD_COPY, 3, 1, 23,
+            MOD_COPY, 2, 1, 24,
+            MOD_COPY, 1, 3, 25,
+            // 12-15 shin shade
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 28, 1, NEG + 14,
+            MOD_LUM, 29, 1, NEG + 19,
+            MOD_LUM, 30, 2, NEG + 22,
+            // 17-27 "blue" right side
+            MOD_COPY, 25, 1, 1,
+            MOD_COPY, 24, 1, 2,
+            MOD_COPY, 23, 1, 3,
+            MOD_COPY, 22, 1, 4,
+            MOD_COPY, 21, 1, 5,
+            MOD_COPY, 20, 1, 6,
+            MOD_COPY, 19, 1, 7,
+            MOD_COPY, 18, 1, 8,
+            MOD_COPY, 17, 3, 9,
+            // 28-31 other skin shade
+            MOD_LUM, 12, 1, 7,
+            MOD_LUM, 13, 1, 7,
+            MOD_LUM, 14, 2, 5,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 15,
+            MOD_LUM, 34, 1, 18,
+            MOD_LUM, 35, 1, 16,
+            MOD_LUM, 36, 1, 21,
+            MOD_LUM, 37, 1, 22,
+            MOD_LUM, 38, 1, 30,
+            MOD_LUM, 39, 1, 37,
+            // 42-47 thong
+            MOD_COPY, 42, 1, 42,
+            MOD_COPY, 42, 1, 43,
+            MOD_COPY, 42, 1, 44,
+            MOD_COPY, 42, 1, 45,
+            MOD_COPY, 44, 1, 46,
+            MOD_COPY, 45, 1, 47,
+        SUPP_NODE, 0x16, 0, // right glow 11
+            // 1-11 "red" left side
+            MOD_COPY, 10, 1, 17,
+            MOD_COPY, 9, 1, 18,
+            MOD_COPY, 8, 1, 19,
+            MOD_COPY, 7, 1, 20,
+            MOD_COPY, 6, 1, 21,
+            MOD_COPY, 5, 1, 22,
+            MOD_COPY, 4, 1, 23,
+            MOD_COPY, 3, 1, 24,
+            MOD_COPY, 2, 1, 25,
+            MOD_COPY, 1, 2, 26,
+            // 12-15 shin shade
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 28, 1, NEG + 21,
+            MOD_LUM, 29, 1, NEG + 22,
+            MOD_LUM, 30, 2, NEG + 26,
+            // 17-27 "blue" right side
+            MOD_COPY, 26, 1, 1,
+            MOD_COPY, 25, 1, 2,
+            MOD_COPY, 24, 1, 3,
+            MOD_COPY, 23, 1, 4,
+            MOD_COPY, 22, 1, 5,
+            MOD_COPY, 21, 1, 6,
+            MOD_COPY, 20, 1, 7,
+            MOD_COPY, 19, 1, 8,
+            MOD_COPY, 18, 1, 9,
+            MOD_COPY, 17, 2, 10,
+            // 28-31 other skin shade
+            MOD_LUM, 12, 1, 2,
+            MOD_LUM, 13, 1, 2,
+            MOD_LUM, 14, 2, 2,
+            // 33-39 magnificent hair
+            MOD_LUM, 33, 1, 6,
+            MOD_LUM, 34, 1, 8,
+            MOD_LUM, 35, 1, 7,
+            MOD_LUM, 36, 1, 7,
+            MOD_LUM, 37, 1, 9,
+            MOD_LUM, 38, 1, 9,
+            MOD_LUM, 39, 1, 10,
+            // 42-47 thong
+            MOD_COPY, 43, 1, 42,
+            MOD_COPY, 42, 1, 43,
+            MOD_COPY, 42, 1, 44,
+            MOD_COPY, 43, 1, 45,
+            MOD_COPY, 44, 1, 46,
+            MOD_COPY, 45, 1, 47,
+        SUPP_NODE, 0x17, 0, // right glow 12
+            // 1-11 "red" left side
+            MOD_COPY, 11, 1, 17,
+            MOD_COPY, 10, 1, 18,
+            MOD_COPY, 9, 1, 19,
+            MOD_COPY, 8, 1, 20,
+            MOD_COPY, 7, 1, 21,
+            MOD_COPY, 6, 1, 22,
+            MOD_COPY, 5, 1, 23,
+            MOD_COPY, 4, 1, 24,
+            MOD_COPY, 3, 1, 25,
+            MOD_COPY, 2, 1, 26,
+            MOD_COPY, 1, 1, 27,
+            // 12-15 shin shade
+            MOD_COPY, 12, 4, 28,
+            MOD_COPY, 28, 4, 12,
+            MOD_LUM, 28, 1, NEG + 22,
+            MOD_LUM, 29, 1, NEG + 24,
+            MOD_LUM, 30, 2, NEG + 27,
+            // 17-27 "blue" right side
+            MOD_COPY, 27, 1, 1,
+            MOD_COPY, 26, 1, 2,
+            MOD_COPY, 25, 1, 3,
+            MOD_COPY, 24, 1, 4,
+            MOD_COPY, 23, 1, 5,
+            MOD_COPY, 22, 1, 6,
+            MOD_COPY, 21, 1, 7,
+            MOD_COPY, 20, 1, 8,
+            MOD_COPY, 19, 1, 9,
+            MOD_COPY, 18, 1, 10,
+            MOD_COPY, 17, 1, 11,
+            // 33-39 magnificent hair unchanged
+            // 42-47 thong
+            MOD_COPY, 43, 1, 42,
+            MOD_COPY, 42, 1, 43,
+            MOD_COPY, 43, 1, 44,
+            MOD_COPY, 44, 1, 45,
+            MOD_COPY, 45, 1, 46,
+            MOD_COPY, 46, 1, 47,
+    },
+};
+
 const std::vector<std::vector<UINT16>> paletteBuddy_3SAlex_HandlePortraits =
 {
     {
@@ -206,62 +965,62 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SChunLi_HandlePortraits =
 const std::vector<std::vector<UINT16>> paletteBuddy_3SDudley_HandlePortraits =
 {
     {
-    // HUD portrait
-    SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
-        // Leave the border
-        // Leave the background
-        // Leave the black eyes
-        // 3    skin        1 or 2
-            MOD_COPY, 1, 1, 3,
-        // 4    skin        3
-        // 5    skin        4
-        // 6    skin        5
-            MOD_COPY, 3, 3, 4,
-        // 7    skin        7
-            MOD_COPY, 7, 1, 7,
-        // 8    hair        9
-            MOD_COPY, 9, 1, 8,
-        // 9    shirt        32
-            MOD_COPY, 32, 1, 9,
-        // 10    shirt        33
-            MOD_COPY, 33, 1, 10,
-        // 11    suspenders    48 ?
-            MOD_COPY, 48, 1, 11,
-        // 12    suspenders / collar    39 ?
-            MOD_COPY, 39, 1, 12,
-        // 13    bow tie        21
-            MOD_COPY, 21, 1, 13,
-        // 14    bow tie        23
-            MOD_COPY, 23, 1, 14,
-        // 15    unused
+        // HUD portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // Leave the black eyes
+            // 3    skin        1 or 2
+                MOD_COPY, 1, 1, 3,
+            // 4    skin        3
+            // 5    skin        4
+            // 6    skin        5
+                MOD_COPY, 3, 3, 4,
+            // 7    skin        7
+                MOD_COPY, 7, 1, 7,
+            // 8    hair        9
+                MOD_COPY, 9, 1, 8,
+            // 9    shirt        32
+                MOD_COPY, 32, 1, 9,
+            // 10    shirt        33
+                MOD_COPY, 33, 1, 10,
+            // 11    suspenders    48 ?
+                MOD_COPY, 48, 1, 11,
+            // 12    suspenders / collar    39 ?
+                MOD_COPY, 39, 1, 12,
+            // 13    bow tie        21
+                MOD_COPY, 21, 1, 13,
+            // 14    bow tie        23
+                MOD_COPY, 23, 1, 14,
+            // 15    unused
 
-    // Judgement Portrait
-     SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
-        // 1    face    2
-        // 2    face    3
-            MOD_COPY, 2, 2, 1,
-        // 3    face    5
-            MOD_COPY, 5, 1, 3,
-        // 4    face    7
-            MOD_COPY, 7, 1, 4,
-        // 5    hair    9
-            MOD_COPY, 9, 1, 5,
-        // 6    bowtie    17
-            MOD_COPY, 17, 1, 6,
-        // 7    gloves    21
-        // 8    gloves    22
-        // 9    gloves    23
-            MOD_COPY, 21, 3, 7,
-        // 10    shirt    32
-        // 11    shirt border    33
-            MOD_COPY, 32, 2, 10,
-        // 12    shirt border    35
-            MOD_COPY, 35, 1, 12,
-        // 13    shirt border    37
-            MOD_COPY, 37, 1, 13,
-        // 14    suspenders        48
-            MOD_COPY, 48, 1, 14,
-        // Background, don't change
+        // Judgement Portrait
+         SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            // 1    face    2
+            // 2    face    3
+                MOD_COPY, 2, 2, 1,
+            // 3    face    5
+                MOD_COPY, 5, 1, 3,
+            // 4    face    7
+                MOD_COPY, 7, 1, 4,
+            // 5    hair    9
+                MOD_COPY, 9, 1, 5,
+            // 6    bowtie    17
+                MOD_COPY, 17, 1, 6,
+            // 7    gloves    21
+            // 8    gloves    22
+            // 9    gloves    23
+                MOD_COPY, 21, 3, 7,
+            // 10    shirt    32
+            // 11    shirt border    33
+                MOD_COPY, 32, 2, 10,
+            // 12    shirt border    35
+                MOD_COPY, 35, 1, 12,
+            // 13    shirt border    37
+                MOD_COPY, 37, 1, 13,
+            // 14    suspenders        48
+                MOD_COPY, 48, 1, 14,
+            // Background, don't change
     }
 };
 
@@ -1042,6 +1801,8 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SShinGouki_HandlePortraits 
 const stPaletteProcessingInformation secondary3SGillSwapEffects_Next{ paletteBuddy_3SGill_SwapSides_NextOnly };
 const stPaletteProcessingInformation secondary3SGillSwapEffects_Next_AndHandlePortraits{ paletteBuddy_3SGill_SwapSides_Next_AndHandlePortraits };
 const stPaletteProcessingInformation secondary3SGillSwapEffects_Next12{ paletteBuddy_3SGill_SwapSides_Next12 };
+
+const stPaletteProcessingInformation secondary3SGill24Glows{ paletteBuddy_3SGill_All24Glows };
 
 const stPaletteProcessingInformation secondary3SAlexEffects_UpdatePortraits{ paletteBuddy_3SAlex_HandlePortraits };
 const stPaletteProcessingInformation secondary3SChunLiEffects_UpdatePortraits{ paletteBuddy_3SChunLi_HandlePortraits };
@@ -3994,25 +4755,25 @@ const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_LEFT[] =
 {
-    { L"Glow Facing Left 1", 0x1C86A8, 0x1C8728, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
-    { L"Glow Facing Left 2", 0x1C8728, 0x1C87a8, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
-    { L"Glow Facing Left 3", 0x1C87A8, 0x1C8828, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
-    { L"Glow Facing Left 4", 0x1C8828, 0x1C88a8, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
+    { L"Glow Facing Left 1", 0x1C86A8, 0x1C8728, index3SSprites_Gill, 0x01, nullptr, &secondary3SGill24Glows },
+    { L"Glow Facing Left 2", 0x1C8728, 0x1C87a8, index3SSprites_Gill, 0x01 },
+    { L"Glow Facing Left 3", 0x1C87A8, 0x1C8828, index3SSprites_Gill, 0x01 },
+    { L"Glow Facing Left 4", 0x1C8828, 0x1C88a8, index3SSprites_Gill, 0x01 },
 
-    { L"Glow Facing Left 5", 0x1C88a8, 0x1C8928, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
-    { L"Glow Facing Left 6", 0x1C8928, 0x1C89a8, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
-    { L"Glow Facing Left 7", 0x1C89a8, 0x1C8a28, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
-    { L"Glow Facing Left 8", 0x1C8a28, 0x1C8aa8, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
+    { L"Glow Facing Left 5", 0x1C88a8, 0x1C8928, index3SSprites_Gill, 0x01 },
+    { L"Glow Facing Left 6", 0x1C8928, 0x1C89a8, index3SSprites_Gill, 0x01 },
+    { L"Glow Facing Left 7", 0x1C89a8, 0x1C8a28, index3SSprites_Gill, 0x01 },
+    { L"Glow Facing Left 8", 0x1C8a28, 0x1C8aa8, index3SSprites_Gill, 0x01 },
 
-    { L"Glow Facing Left 9",  0x1C8aa8, 0x1C8b28, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
-    { L"Glow Facing Left 10", 0x1C8b28, 0x1C8ba8, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
-    { L"Glow Facing Left 11", 0x1C8ba8, 0x1C8c28, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
-    { L"Glow Facing Left 12", 0x1C8c28, 0x1C8ca8, index3SSprites_Gill, 0x01, nullptr, &secondary3SGillSwapEffects_Next12 },
+    { L"Glow Facing Left 9",  0x1C8aa8, 0x1C8b28, index3SSprites_Gill, 0x01 },
+    { L"Glow Facing Left 10", 0x1C8b28, 0x1C8ba8, index3SSprites_Gill, 0x01 },
+    { L"Glow Facing Left 11", 0x1C8ba8, 0x1C8c28, index3SSprites_Gill, 0x01 },
+    { L"Glow Facing Left 12", 0x1C8c28, 0x1C8ca8, index3SSprites_Gill, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_RIGHT[] =
 {
-    { L"Glow Facing Right 1", 0x1C8ca8, 0x1C8d28, index3SSprites_Gill },
+    { L"Glow Facing Right 1", 0x1C8ca8, 0x1C8d28, index3SSprites_Gill, 0x00 },
     { L"Glow Facing Right 2", 0x1C8d28, 0x1C8da8, index3SSprites_Gill },
     { L"Glow Facing Right 3", 0x1C8da8, 0x1C8e28, index3SSprites_Gill },
     { L"Glow Facing Right 4", 0x1C8e28, 0x1C8ea8, index3SSprites_Gill },

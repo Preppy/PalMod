@@ -2670,8 +2670,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_A[] =
     { L"Rubber Soul Select / Winning A", 0x0414900, 0x0414980, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
     { L"Rubber Soul Burning A (1/2)", 0x0349080, 0x0349100, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul Burning A (2/2)", 0x0349100, 0x0349180, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul Tech/Zap A (1/2)", 0x035d880, 0x035d900, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul Tech/Zap A (2/2)", 0x035d900, 0x035d980, indexJojos51RSoul, indexJojos51Character_BurnZap },
+    { L"Rubber Soul Tech/Zap A (1/2)", 0x349400, 0x349480, indexJojos51RSoul, indexJojos51Character_BurnZap },
+    { L"Rubber Soul Tech/Zap A (2/2)", 0x349380, 0x349400, indexJojos51RSoul, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_B[] =
@@ -2683,8 +2683,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_B[] =
     { L"Rubber Soul Select / Winning B", 0x0419700, 0x0419780, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
     { L"Rubber Soul Burning B (1/2)", 0x035d580, 0x035d600, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul Burning B (2/2)", 0x035d600, 0x035d680, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul Tech/Zap B (1/2)", 0x0371d80, 0x0371e00, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul Tech/Zap B (2/2)", 0x0371e00, 0x0371e80, indexJojos51RSoul, indexJojos51Character_BurnZap },
+    { L"Rubber Soul Tech/Zap B (1/2)", 0x349400 + (0x14500 * 1), 0x349480 + (0x14500 * 1), indexJojos51RSoul, indexJojos51Character_BurnZap},
+    { L"Rubber Soul Tech/Zap B (2/2)", 0x349380 + (0x14500 * 1), 0x349400 + (0x14500 * 1), indexJojos51RSoul, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
@@ -2696,8 +2696,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
     { L"Rubber Soul Select / Winning C", 0x041e500, 0x041e580, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
     { L"Rubber Soul Burning C (1/2)", 0x0371a80, 0x0371b00, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul Burning C (2/2)", 0x0371b00, 0x0371b80, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul Tech/Zap C (1/2)", 0x0386280, 0x0386300, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul Tech/Zap C (2/2)", 0x0386300, 0x0386380, indexJojos51RSoul, indexJojos51Character_BurnZap },
+    { L"Rubber Soul Tech/Zap C (1/2)", 0x349400 + (0x14500 * 2), 0x349480 + (0x14500 * 2), indexJojos51RSoul, indexJojos51Character_BurnZap },
+    { L"Rubber Soul Tech/Zap C (2/2)", 0x349380 + (0x14500 * 2), 0x349400 + (0x14500 * 2), indexJojos51RSoul, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_S[] =
@@ -2709,8 +2709,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_S[] =
     { L"Rubber Soul Select / Winning S", 0x0423300, 0x0423380, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
     { L"Rubber Soul Burning S (1/2)", 0x0385f80, 0x0386000, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul Burning S (2/2)", 0x0386000, 0x0386080, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul Tech/Zap S (1/2)", 0x039a780, 0x039a800, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul Tech/Zap S (2/2)", 0x039a800, 0x039a880, indexJojos51RSoul, indexJojos51Character_BurnZap },
+    { L"Rubber Soul Tech/Zap S (1/2)", 0x349400 + (0x14500 * 3), 0x349480 + (0x14500 * 3), indexJojos51RSoul, indexJojos51Character_BurnZap },
+    { L"Rubber Soul Tech/Zap S (2/2)", 0x349380 + (0x14500 * 3), 0x349400 + (0x14500 * 3), indexJojos51RSoul, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
@@ -2722,8 +2722,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
     { L"Rubber Soul Select / Winning Start", 0x0428100, 0x0428180, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
     { L"Rubber Soul Burning Start (1/2)", 0x039a480, 0x039a500, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { L"Rubber Soul Burning Start (2/2)", 0x039a500, 0x039a580, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul Tech/Zap Start (1/2)", 0x03aec80, 0x03aed00, indexJojos51RSoul, indexJojos51Character_BurnZap },
-    { L"Rubber Soul Tech/Zap Start (2/2)", 0x03aed00, 0x03aed80, indexJojos51RSoul, indexJojos51Character_BurnZap },
+    { L"Rubber Soul Tech/Zap Start (1/2)", 0x349400 + (0x14500 * 4), 0x349480 + (0x14500 * 4), indexJojos51RSoul, indexJojos51Character_BurnZap },
+    { L"Rubber Soul Tech/Zap Start (2/2)", 0x349380 + (0x14500 * 4), 0x349400 + (0x14500 * 4), indexJojos51RSoul, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_A[] =

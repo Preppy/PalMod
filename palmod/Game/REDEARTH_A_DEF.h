@@ -1220,11 +1220,11 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 
     { L"Some Elemental & Other Bg Flash", 0x406400, 0x406420, indexRedEarthSprites_Bonus, 0x2b },
 
-    { L"New Warrior! 1/2 Hud Lv, Exp", 0x406880, 0x4068a0 }, // pair next
-    { L"New Warrior! 2/2", 0x406bc0, 0x406be0 },
+    { L"New Warrior! 1/2 Hud Lv, Exp", 0x406880, 0x4068a0, indexRedEarthSprites_Bonus, 0x36 },
+    { L"New Warrior! 2/2", 0x406bc0, 0x406be0, indexRedEarthSprites_Bonus, 0x36 },
 
-    { L"Bonus Game Timer Seconds", 0x406d80, 0x406da0 },
-    { L"Bonus Game Timer Milliseconds", 0x406dc0, 0x406de0 },
+    { L"Bonus Game Timer Seconds", 0x406d80, 0x406da0, indexRedEarthSprites_Bonus, 0x38, &pairNext },
+    { L"Bonus Game Timer Milliseconds", 0x406dc0, 0x406de0, indexRedEarthSprites_Bonus, 0x37 },
 
     { L"Game Over", 0x406fe0, 0x407000, indexRedEarthSprites_Bonus, 0x3a },
     { L"\"Continue ?\" Backgrounds", 0x1dfb80, 0x1dfc00, indexRedEarthSprites_Bonus, 0x3c },
