@@ -459,10 +459,10 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_BLADE_PALETTES[] =
 {
     { L"Blade/Mirror Frame", 0x433c00, 0x433c80, indexRedEarthSprites_Blade, 0x00, &pairNext },
-    { L"Blade Lifebar Portrait", 0x406ac0, 0x406ae0, indexRedEarthSprites_Blade, 0x10 },
     { L"Emerald FX/Intro 1/Adrayer+attacking gauntlets", 0x433c80, 0x433d00, indexRedEarthSprites_Blade, 0x01 },
     { L"Emerald FX/Intro 2", 0x433d00, 0x433d80, indexRedEarthSprites_Bonus, 0x0c },
     { L"Emerald FX/Intro 3", 0x433d80, 0x433e00, indexRedEarthSprites_Bonus, 0x0d },
+    { L"Blade Lifebar Portrait", 0x406ac0, 0x406ae0, indexRedEarthSprites_Blade, 0x10 },
     { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433e80, indexRedEarthSprites_Bonus, 0x10 },
 
     { L"Blade Burned 1", 0x436600, 0x436680 },

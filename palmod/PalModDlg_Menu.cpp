@@ -16,7 +16,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             // No extra description: that's fine.
             break;
         case BlazBlueCF_S:
-            pszExtraInfo = L"Please select the \"data\" folder in the BlazBlue directory.";
+            pszExtraInfo = L"Please select the BlazBlue folder: we use the files under 'data' there.";
             break;
         case DANKUGA_A:
             pszExtraInfo = L"We need the dkg_mpr* files from dankuga.zip.";
@@ -25,7 +25,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"For DBFCI, please select the 'games' directory.";
             break;
         case GGXXACR_S:
-            pszExtraInfo = L"Guilty Gear (Steam): select the \"obj\" folder under \"Resource\\pr\\ver_100\" after decrypting your files.\n\"Resource\\obj\" will not work.";
+            pszExtraInfo = L"Guilty Gear (Steam): Select the 'Guilty Gear XX Accent Core Plus R' folder under your steam library.";
             break;
         case GGXXACR_P:
             break; 
