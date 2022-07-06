@@ -35,6 +35,7 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"We need the jojoba-simm5.x files from jojoba.zip.";
             break;
         case JOJOS_A_DIR_51:
+        case JOJOS_US_A_DIR_51:
             pszExtraInfo = L"We need the jojoba-simm5.x files from jojoba.zip.";
             break;
         case KOF02UM_S_DIR_8888:

@@ -35,8 +35,8 @@ void CGame_JOJOS_A::InitializeStatics()
     memset(rgExtraLoc_50, -1, sizeof(rgExtraLoc_50));
     memset(rgExtraLoc_51, -1, sizeof(rgExtraLoc_51));
 
-    MainDescTree_50.SetRootTree(CGame_JOJOS_A::InitDescTree(50));
-    MainDescTree_51.SetRootTree(CGame_JOJOS_A::InitDescTree(51));
+    MainDescTree_50.SetRootTree(CGame_JOJOS_A::InitDescTree(JOJOS_A_50_ROMKEY));
+    MainDescTree_51.SetRootTree(CGame_JOJOS_A::InitDescTree(JOJOS_US_A_51_ROMKEY));
 }
 
 CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
@@ -79,7 +79,15 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     InitDataBuffer();
 
     //Set game information
-    nGameFlag = JOJOS_A;
+    if (m_nJojosMode == JOJOS_US_A_51_ROMKEY)
+    {
+        nGameFlag = JOJOS_US_A;
+    }
+    else
+    {
+        nGameFlag = JOJOS_A;
+    }
+
     nImgGameFlag = IMGDAT_SECTION_JOJOS;
     m_prgGameImageSet = JOJOS_A_IMGIDS_USED;
 
@@ -127,6 +135,18 @@ uint32_t CGame_JOJOS_A::GetExtraLoc(uint32_t nUnitId)
     else
     {
         return _GetExtraLocation(rgExtraLoc_51, JOJOS_A_NUMUNIT_51, nUnitId, JOJOS_A_EXTRA_CUSTOM_51);
+    }
+}
+
+stExtraDef* CGame_JOJOS_A::GetCurrentExtraDef(int nDefCtr)
+{
+    if (UsePaletteSetFor50())
+    {
+        return (stExtraDef*)&JOJOS_A_EXTRA_CUSTOM_50[nDefCtr];
+    }
+    else
+    {
+        return (stExtraDef*)&JOJOS_A_EXTRA_CUSTOM_51[nDefCtr];
     }
 }
 
@@ -220,7 +240,7 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 #endif
 
     uint32_t nUnitCt = UsePaletteSetFor50() ? (JOJOS_A_NUMUNIT_50 + (GetExtraCt(JOJOS_A_EXTRALOC_50) ? 1 : 0)) :
-                                            (JOJOS_A_NUMUNIT_51 + (GetExtraCt(JOJOS_A_EXTRALOC_51) ? 1 : 0));
+                                              (JOJOS_A_NUMUNIT_51 + (GetExtraCt(JOJOS_A_EXTRALOC_51) ? 1 : 0));
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -364,13 +384,13 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetJojosExtraDef(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetJojosExtraDef(nExtraPos + nCurrExtra);
+                    pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
                 }
 
                 _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
@@ -722,6 +742,24 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
                 nOffset = paletteSetToUse[nDistanceFromZero].nPaletteOffset;
                 m_pszCurrentPaletteName = paletteSetToUse[nDistanceFromZero].szPaletteName;
                 cbPaletteSizeOnDisc = (int)max(0, (paletteSetToUse[nDistanceFromZero].nPaletteOffsetEnd - paletteSetToUse[nDistanceFromZero].nPaletteOffset));
+
+                if (UseRegulationOnLogic())
+                {
+                    if ((wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszTimeStopName) != 0) &&
+                        (wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszBonusPalettesName) != 0))
+                    {
+                        // General layout is:
+                        // Jotaro A (Regulations On)
+                        // 0x39bd00
+                        // 0x39bd80
+
+                        // Jotaro A(Regulations Off)
+                        // 0x336400
+                        // 0x336480
+
+                        nOffset += 0x65900;
+                    }
+                }
                 break;
             }
 
@@ -730,7 +768,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     }
     else //Extra Palettes
     {
-        stExtraDef* pCurrDef = GetJojosExtraDef(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
         nOffset = pCurrDef->uOffset;
         cbPaletteSizeOnDisc = pCurrDef->cbPaletteSize;

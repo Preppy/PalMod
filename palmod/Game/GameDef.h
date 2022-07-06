@@ -174,6 +174,8 @@ enum SupportedGamesList
     BlazBlueCF_S,
     HSF2_A,
     FatalFury2_A,
+    JOJOS_US_A,
+    JOJOS_US_A_DIR_51,
 
     NUM_GAMES // This needs to be last
 };
@@ -198,7 +200,7 @@ const WCHAR g_GameFriendlyName[][64] =
     L"XVSF (CPS2 Arcade)",
     L"MVC (CPS2 Arcade)",
     L"SFIII:3S (Dreamcast)",
-    L"Jojo's (Japan)",
+    L"Jojo's (CPS3, Japan, Regulation: Off)",
     L"MSH (CPS2 Arcade)",
     L"MSHVSF (CPS2 Arcade)",
     L"X-Men: COTA (CPS2 Arcade)",
@@ -212,8 +214,8 @@ const WCHAR g_GameFriendlyName[][64] =
     L"King of Fighters 2002 (Neo-Geo)",
     L"SFA2 (CPS2 Arcade)",
     L"SFIII:3S (CPS3 Arcade Rerip)",
-    L"Jojo's 50 (Japanese Arcade Rerip)",
-    L"Jojo's 51 (Japanese Arcade Rerip)",
+    L"Jojo's 50 (CPS3 Japanese Arcade Rerip)",
+    L"Jojo's 51 (CPS3 Japanese Arcade Rerip)",
     L"SVC Plus A",
     L"Samurai Shodown V Special (Neo-Geo)",
     L"MVC2 (NAOMI Arcade rerip)",
@@ -344,6 +346,8 @@ const WCHAR g_GameFriendlyName[][64] =
     L"BlazBlue: Central Fiction (Steam)",
     L"Hyper Street Fighter 2",
     L"Fatal Fury 2 (Neo-Geo)",
+    L"Jojo's (CPS3, USA, Regulation: On)",
+    L"Jojo's 51 (CPS3 US Arcade Rerip)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

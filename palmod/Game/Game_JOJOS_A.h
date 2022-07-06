@@ -9,11 +9,9 @@
 constexpr auto EXTRA_FILENAME_50 = L"jojos50e.txt";
 constexpr auto EXTRA_FILENAME_51 = L"jojos51e.txt";
 
-#ifdef JOJOS_A_USEEXTRAFILE
-#define GetJojosExtraDef(x) (UsePaletteSetFor50() ? ((stExtraDef *)&JOJOS_A_EXTRA_CUSTOM_50[x]) : ((stExtraDef *)&JOJOS_A_EXTRA_CUSTOM_51[x]))
-#else
-#define GetJojosExtraDef(x) (const_cast<stExtraDef *>(&JOJOS_A_EXTRA[x]))
-#endif
+constexpr auto JOJOS_A_50_ROMKEY = 50;
+constexpr auto JOJOS_A_51_ROMKEY = 51;
+constexpr auto JOJOS_US_A_51_ROMKEY = 5051;
 
 class CGame_JOJOS_A : public CGameWithExtrasFile
 {
@@ -41,10 +39,11 @@ public:
     static uint32_t rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1];
     static uint32_t rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1];
     
-    static bool UsePaletteSetFor50() { return (m_nJojosMode == 50); }
+    static bool UsePaletteSetFor50() { return (m_nJojosMode == JOJOS_A_50_ROMKEY); }
+    static bool UseRegulationOnLogic() { return (m_nJojosMode == JOJOS_US_A_51_ROMKEY); }
 
 public:
-    CGame_JOJOS_A(UINT32 nConfirmedROMSize = -1, int nJojosModeToLoad = 51);
+    CGame_JOJOS_A(UINT32 nConfirmedROMSize = -1, int nJojosModeToLoad = JOJOS_A_51_ROMKEY);
     ~CGame_JOJOS_A(void);
 
     //Static functions / variables
@@ -57,6 +56,7 @@ public:
     //Extra palette function
     static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
     static uint32_t GetExtraLoc(uint32_t nUnitId);
+    static stExtraDef* GetCurrentExtraDef(int nDefCtr);
 
     //Normal functions
     CDescTree* GetMainTree();

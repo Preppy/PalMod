@@ -401,8 +401,9 @@ BEGIN
             END
             POPUP "Jojo's"
             BEGIN
-                MENUITEM "HftF Characters (Japan Arcade)", ID_LD_JOJOS51
+                MENUITEM "HftF Characters (Normal: Japan Arcade, Regulation: Off)", ID_LD_JOJOS51
                 MENUITEM "HftF HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
+                MENUITEM "HftF Characters (US Arcade, Regulation: On)", ID_LD_JOJOS_US_51
                 MENUITEM "Venture Characters (Japan Arcade)", ID_LD_VENTURE50
                 MENUITEM "Venture HUD (Japan Arcade)",  ID_LD_VENTURE31
             END

@@ -11,7 +11,21 @@ CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR(UINT32 nConfirmedROMSize, int nJojosModeToL
         CGame_JOJOS_A(0x800000, nJojosModeToLoad)   // Let Jojos know that it's safe to load extras.
 {
     OutputDebugString(L"CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR: Loading from SIMM directory\n");
-    nGameFlag = (nJojosModeToLoad == 50) ? JOJOS_A_DIR_50 : JOJOS_A_DIR_51;
+    
+    switch (nJojosModeToLoad)
+    {
+    case JOJOS_A_50_ROMKEY:
+        nGameFlag = JOJOS_A_DIR_50;
+        break;
+    case JOJOS_A_51_ROMKEY:
+    default:
+        nGameFlag = JOJOS_A_DIR_51;
+        break;
+    case JOJOS_US_A_51_ROMKEY:
+        nGameFlag = JOJOS_US_A_DIR_51;
+        break;
+    }
+
     // We lie here because we want to look at all 8 SIMM banks
     nFileAmt = 8;
     m_fAllowIPSPatching = true;
@@ -84,7 +98,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         return TRUE;
     }
     else if (((nGameFlag == JOJOS_A_DIR_50) && (nSIMMNumber > 3)) ||
-             ((nGameFlag == JOJOS_A_DIR_51) && (nSIMMNumber < 4)))
+             (((nGameFlag == JOJOS_A_DIR_51) || (nGameFlag == JOJOS_US_A_DIR_51)) && (nSIMMNumber < 4)))
     {
         OutputDebugString(L"\tThis SIMM set is not used for the current Jojos mode\n");
         return TRUE;
@@ -176,7 +190,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     if (((nGameFlag == JOJOS_A_DIR_50) && (nSIMMNumber == 2)) ||
-        ((nGameFlag == JOJOS_A_DIR_51) && (nSIMMNumber == 6)))
+        (((nGameFlag == JOJOS_A_DIR_51) || (nGameFlag == JOJOS_A_DIR_51)) && (nSIMMNumber == 6)))
     {
         // Only run the dupe checker for the second SIMM pair
         CheckForErrorsInTables();

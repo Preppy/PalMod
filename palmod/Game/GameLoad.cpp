@@ -365,11 +365,13 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     case JOJOS_A:
+    case JOJOS_US_A:
     {
         GetRule = &CGame_JOJOS_A::GetRule;
         return TRUE;
     }
     case JOJOS_A_DIR_50:
+    case JOJOS_US_A_DIR_51:
     case JOJOS_A_DIR_51:
     {
         GetRuleCtr = &CGame_JOJOS_A_DIR::GetRuleCtr;
@@ -674,7 +676,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
-	case P4AU_STEAM:
+    case P4AU_STEAM:
     {
         GetRuleCtr = &CGame_P4AU_STEAM::GetRuleCtr;
         ResetRuleCtr = &CGame_P4AU_STEAM::ResetRuleCtr;
@@ -1173,16 +1175,22 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
         return new CGame_HSF2_A(nConfirmedROMSize, nExtraGameData);
     }
     case JOJOS_A:
+    case JOJOS_US_A:
+
     {
         return new CGame_JOJOS_A(nConfirmedROMSize, nExtraGameData);
     }
     case JOJOS_A_DIR_50:
     {
-        return new CGame_JOJOS_A_DIR(-1, 50);
+        return new CGame_JOJOS_A_DIR(-1, JOJOS_A_50_ROMKEY);
     }
     case JOJOS_A_DIR_51:
     {
-        return new CGame_JOJOS_A_DIR(-1, 51);
+        return new CGame_JOJOS_A_DIR(-1, JOJOS_A_51_ROMKEY);
+    }
+    case JOJOS_US_A_DIR_51:
+    {
+        return new CGame_JOJOS_A_DIR(-1, JOJOS_US_A_51_ROMKEY);
     }
     case JOJOSRPG_SNES:
     {
@@ -1381,7 +1389,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_P4AU_NESICA(nConfirmedROMSize);
     }
-	case P4AU_STEAM:
+    case P4AU_STEAM:
     {
         return new CGame_P4AU_STEAM(nConfirmedROMSize);
     }
@@ -1677,7 +1685,10 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
             break;
         }
         case JOJOS_A:
-            nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? 50 : 51);
+            nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? JOJOS_A_50_ROMKEY : JOJOS_A_51_ROMKEY);
+            break;
+        case JOJOS_US_A:
+            nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? JOJOS_A_50_ROMKEY : JOJOS_US_A_51_ROMKEY);
             break;
         case KOF97_A:
         case KOF97AE_A:

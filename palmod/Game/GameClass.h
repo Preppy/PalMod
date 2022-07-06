@@ -9,6 +9,8 @@
 #include "game\SuppProc.h"
 #include <vector>
 
+constexpr auto MAX_FILENAME_LENGTH = 64;
+
 //File rule definition
 struct sFileRule
 {
