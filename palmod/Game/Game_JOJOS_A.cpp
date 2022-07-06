@@ -227,7 +227,6 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     UINT32 nTotalPaletteCount = 0;
     m_nJojosMode = nPaletteSetToUse;
 
-#ifdef JOJOS_A_USEEXTRAFILE
     //Load extra file if we're using it
     if (UsePaletteSetFor50())
     {
@@ -237,7 +236,6 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     {
         LoadExtraFileForGame(EXTRA_FILENAME_51, &JOJOS_A_EXTRA_CUSTOM_51, JOJOS_A_EXTRALOC_51, m_nConfirmedROMSize);
     }
-#endif
 
     uint32_t nUnitCt = UsePaletteSetFor50() ? (JOJOS_A_NUMUNIT_50 + (GetExtraCt(JOJOS_A_EXTRALOC_50) ? 1 : 0)) :
                                               (JOJOS_A_NUMUNIT_51 + (GetExtraCt(JOJOS_A_EXTRALOC_51) ? 1 : 0));

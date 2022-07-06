@@ -1200,6 +1200,16 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_KICK_PALETTES[] =
     { L"Kick Evil Ninja Cape 4/4", 0x418400, 0x418480, indexRedEarthSprites_Kenji, 0x21, &pairPrevious4 },
 };
 
+const sGame_PaletteDataset REDEARTH_A_31_MAP_NORMAL_PALETTES[] =
+{
+    { L"Map Background Part 1", 0x222000, 0x222080, indexRedEarthSprites_Bonus, -1, &pairFullyLinkedNode },
+    { L"Map Background Part 2", 0x222080, 0x222100 },
+    { L"Map Background Part 3 & Clouds", 0x222100, 0x222180 },
+    { L"Beaten Continents", 0x222180, 0x222200 },
+    { L"Location Buildings, Orb", 0x222200, 0x222280 },
+    { L"Location Buildings, Orb Unused?", 0x222c00, 0x222c80 },
+};
+
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 {
     //{ L"EXP / LVL Text", 0x406880, 0x406900 },
@@ -1238,6 +1248,8 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
     { L"Text: LV Up Number, Move", 0x406800, 0x406820, indexRedEarthSprites_Bonus, 0x33 },
     { L"Text: Parental Advisory", 0x406480, 0x4064a0 },
 
+    { L"Boss's Eye Glow", 0x222b80, 0x222c00 },
+
     { L"Meteor Orb", 0x4065e0, 0x406600, indexRedEarthSprites_Bonus, 0x24, &pairNext5Palettes }, // pair the orb set
     { L"Poison Orb", 0x406600, 0x406620, indexRedEarthSprites_Bonus, 0x25 },
     { L"Fire Orb", 0x406420, 0x406440, indexRedEarthSprites_Bonus, 0x22 },
@@ -1250,6 +1262,30 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
     { L"RoundPoint: Cherry Weak Attack", 0x406740, 0x406760, indexRedEarthSprites_Bonus, 0x28 },
 
     { L"\"Winners Don't Use Drugs\"", 0x320000, 0x320080, indexRedEarthSprites_Bonus, 0x3d },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_BONUS_DERMINOR_PALETTES[] =
+{
+    { L"Derminor Appearing 1/13", 0x222300, 0x222380 },
+    { L"Derminor Appearing 2/13", 0x222380, 0x222400 },
+    { L"Derminor Appearing 3/13", 0x222400, 0x222480 },
+    { L"Derminor Appearing 4/13", 0x222480, 0x222500 },
+    { L"Derminor Appearing 5/13", 0x222500, 0x222580 },
+    { L"Derminor Appearing 6/13", 0x222580, 0x222600 },
+    { L"Derminor Appearing 7/13", 0x222600, 0x222680 },
+    { L"Derminor Appearing 8/13", 0x222680, 0x222700 },
+    { L"Derminor Appearing 9/13", 0x222700, 0x222780 },
+    { L"Derminor Appearing 10/13", 0x222780, 0x222800 },
+    { L"Derminor Appearing 11/13", 0x222800, 0x222880 },
+    { L"Derminor Appearing 12/13", 0x222880, 0x222900 },
+    { L"Derminor Appearing 13/13", 0x222900, 0x222980 },
+
+
+    { L"Derminor White to Normal 1", 0x222b00, 0x222b80 },
+    { L"Derminor White to Normal 2", 0x222a80, 0x222b00 },
+    { L"Derminor White to Normal 3", 0x222a00, 0x222a80 },
+    { L"Derminor White to Normal 4", 0x222980, 0x222a00 },
+    { L"Derminor White to Normal 5", 0x222280, 0x222300 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_31_BONUS_RANKING_PALETTES[] =
@@ -1409,8 +1445,14 @@ const sDescTreeNode REDEARTH_A_INTRO_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_PALETTES, ARRAYSIZE(REDEARTH_A_INTRO_PALETTES) },
 };
 
+const sDescTreeNode REDEARTH_A_31_MAP_COLLECTION[] =
+{
+    { L"Map", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_MAP_NORMAL_PALETTES, ARRAYSIZE(REDEARTH_A_31_MAP_NORMAL_PALETTES) },
+};
+
 const sDescTreeNode REDEARTH_A_BONUS_31_COLLECTION[] =
 {
+    { L"Derminor", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_BONUS_DERMINOR_PALETTES, ARRAYSIZE(REDEARTH_A_31_BONUS_DERMINOR_PALETTES) },
     { L"Ranking", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_BONUS_RANKING_PALETTES, ARRAYSIZE(REDEARTH_A_31_BONUS_RANKING_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_PALETTES) },
     { L"Unused Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_UNUSED_PALETTES) },
@@ -1436,6 +1478,7 @@ const sDescTreeNode REDEARTH_A_UNITS_31[] =
 
     //Extra Stuff
     { L"Character Select",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_COLLECTION, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_COLLECTION) },
+    { L"Map",               DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_MAP_COLLECTION, ARRAYSIZE(REDEARTH_A_31_MAP_COLLECTION) },
     { L"Intro Palettes",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_COLLECTION, ARRAYSIZE(REDEARTH_A_INTRO_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_COLLECTION, ARRAYSIZE(REDEARTH_A_BONUS_31_COLLECTION) },
 };

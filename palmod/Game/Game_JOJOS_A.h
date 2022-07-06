@@ -4,8 +4,6 @@
 #include "..\ExtraFile.h"
 #include "..\palmod.h"
 
-#define JOJOS_A_USEEXTRAFILE
-
 constexpr auto EXTRA_FILENAME_50 = L"jojos50e.txt";
 constexpr auto EXTRA_FILENAME_51 = L"jojos51e.txt";
 
