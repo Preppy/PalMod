@@ -1510,7 +1510,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_HP[] =
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_LK[] =
 {
-	{ L"LK Jedah", 0x1b91a, 0x1b93a, indexCPS2Sprites_Vamp_Jedah, 0x0, &pairNext2 },
+    { L"LK Jedah", 0x1b91a, 0x1b93a, indexCPS2Sprites_Vamp_Jedah, 0x0, &pairNext2 },
     { L"LK Prova di Servo", 0x1b93a, 0x1b95a, indexCPS2Sprites_Vamp_Jedah, 0x03 },
     { L"LK Blood", 0x1b95a, 0x1b97a, indexCPS2Sprites_Vamp_Jedah, 1 },
     { L"LK Intro", 0x1b97a, 0x1b99a, indexCPS2Sprites_Vamp_Jedah, 0x02 },

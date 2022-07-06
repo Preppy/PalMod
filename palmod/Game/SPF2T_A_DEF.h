@@ -678,7 +678,7 @@ const sDescTreeNode SPF2T_A_STAGE_COLLECTION[] =
 
 const sGame_PaletteDataset SPF2T_A_BONUS_INTRO_PALETTES[] =
 {
-	//Intro/Main Menu
+    //Intro/Main Menu
     { L"Recycle Screen", 0x286be, 0x286de, indexPuzzleFighter_Bonus, 0x0c },
     { L"QSound Screen", 0x24ebe, 0x24f3e, indexPuzzleFighter_Bonus, 0x0a },
     { L"Capcom Logo", 0x2219e, 0x221be, indexPuzzleFighter_Bonus, 0x02 },
@@ -691,7 +691,7 @@ const sGame_PaletteDataset SPF2T_A_BONUS_INTRO_PALETTES[] =
 
 const sGame_PaletteDataset SPF2T_A_BONUS_TUTORIAL_PALETTES[] =
 {
-	// Tutorial
+    // Tutorial
     { L"Tutorial Dan", 0x21c3e, 0x21c5e, indexPuzzleFighter_Dan, 0x00 },
     { L"Tutorial Dan: Tears", 0x21c5e, 0x21c7e, indexPuzzleFighter_Dan, 0x01 },
     { L"Tutorial Dan: Supertrail 1", 0x21c7e, 0x21c9e, indexPuzzleFighter_Dan, 0x00 },

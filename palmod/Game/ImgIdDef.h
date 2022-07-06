@@ -1029,7 +1029,7 @@ enum KOFSpriteList
     indexKOF96Sprites_Terry,        // 0x261
     indexKOF96Sprites_Vice,         // 0x262
     indexKOF96Sprites_Yuri,         // 0x263
-    indexKOF96Sprites_Bonus,        // 0x264	
+    indexKOF96Sprites_Bonus,        // 0x264    
 
     indexLastBladeSprites_Akari,    // 0x265
     indexLastBladeSprites_Amano,    // 0x266

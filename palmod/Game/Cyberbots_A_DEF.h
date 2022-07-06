@@ -857,11 +857,11 @@ const sGame_PaletteDataset Cyberbots_A_BONUS_INTRO_PALETTES[] =
 const sGame_PaletteDataset Cyberbots_A_BONUS_SELECTSCREEN_PALETTES[] =
 {
     { L"Select Background", 0x4db64, 0x4db84 },
-	{ L"Select Cursor", 0x41a7e, 0x41a9e },
-	{ L"Select Timer", 0x41abe, 0x41ade },
-	{ L"Select Text", 0x41ade, 0x41afe },
-	{ L"Select Pilot Names", 0x41afe, 0x41b1e },
-	{ L"Pilots Select Icons", 0x4187e, 0x4193e },
+    { L"Select Cursor", 0x41a7e, 0x41a9e },
+    { L"Select Timer", 0x41abe, 0x41ade },
+    { L"Select Text", 0x41ade, 0x41afe },
+    { L"Select Pilot Names", 0x41afe, 0x41b1e },
+    { L"Pilots Select Icons", 0x4187e, 0x4193e },
 };
 
 const sGame_PaletteDataset Cyberbots_A_BONUS_MACHINESELECT_PALETTES[] =
@@ -902,7 +902,7 @@ const sGame_PaletteDataset Cyberbots_A_BONUS_EFFECTS_PALETTES[] =
     { L"Shadow/Boost Effects 2", 0x519e6, 0x51a06 },
     { L"Shadow/Boost Effects 1 Underwater", 0x51a46, 0x51a66 },
     { L"Shadow/Boost Effects 2 Underwater", 0x51aa6, 0x51ac6 },
-};	
+};    
 
 const sDescTreeNode Cyberbots_A_BLODIA_COLLECTION[] =
 {

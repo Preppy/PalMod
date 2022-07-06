@@ -6,8 +6,8 @@
    Copyright (C) 1995-1998 Mark Adler
 */
 
-#define CRC32_INIT_VALUE	0xffffffffL
-#define CRC32_XOR_VALUE		0xffffffffL
+#define CRC32_INIT_VALUE    0xffffffffL
+#define CRC32_XOR_VALUE        0xffffffffL
 
 #ifdef CREATE_CRC_TABLE
 

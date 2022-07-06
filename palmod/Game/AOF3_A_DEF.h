@@ -120,7 +120,7 @@ const sGame_PaletteDataset AOF3_A_Kasumi_Shared_PALETTES[] =
     { L"Kasane Ate", 0x05fde0, 0x05fdf4, indexAoF3Sprites_Kasumi, 0x02 },
     { L"Kasane Ate Impact", 0x05fc40, 0x05fc60 },
 };
-	
+    
  //Rody Birts
 const sGame_PaletteDataset AOF3_A_Rody_A_PALETTES[] =
 {
@@ -182,7 +182,7 @@ const sGame_PaletteDataset AOF3_A_Lenny_SHARED_PALETTES[] =
 {
     { L"Flick Shot/Whipsparks", 0x05ff60, 0x05ff80, indexAoF3Sprites_Lenny, 0x03 },
 };
-	
+    
  //Wang Koh San
 const sGame_PaletteDataset AOF3_A_Wang_A_PALETTES[] =
 {
@@ -240,7 +240,7 @@ const sGame_PaletteDataset AOF3_A_Jin_SHARED_PALETTES[] =
     { L"Smoke", 0x05f820, 0x05f840, indexAoF3Sprites_Jin, 0x02 },
     { L"Tohshin Shoh", 0x05fec0, 0x05fee0 },
 };
-	
+    
  //Sinclair
 const sGame_PaletteDataset AOF3_A_Sinclair_A_PALETTES[] =
 {
@@ -272,7 +272,7 @@ const sGame_PaletteDataset AOF3_A_Sinclair_SHARED_PALETTES[] =
     { L"Sword Trail", 0x05fb80, 0x05fba0 },
     { L"Vision Cutter", 0x05fea0, 0x05fec0 },
 };
-	
+    
  //Wyler
 const sGame_PaletteDataset AOF3_A_Wyler_A_PALETTES[] =
 {

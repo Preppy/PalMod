@@ -252,8 +252,8 @@ const sGame_PaletteDataset DBZEB_DS_TRANSFORMATION_MAJINBUU[] =
     { L"Radtiz",                        0x2cd33c0, 0x2cd37c0 },
     { L"Goku (Super Saiyan Blue)",      0x2e6ed40, 0x2e6f140 },
     { L"Future Trunks",                 0x300ea50, 0x300ee50 },
-    { L"Vegeta",				        0x315c190, 0x315c590 },
-    { L"Vegeta (Super Saiyan)",	        0x32c4320, 0x32c4720 },
+    { L"Vegeta",                        0x315c190, 0x315c590 },
+    { L"Vegeta (Super Saiyan)",            0x32c4320, 0x32c4720 },
 };
 
 const sDescTreeNode DBZEB_DS_MAJINBUU_COLLECTION[] =
@@ -1304,8 +1304,8 @@ const sDescTreeNode DBZEB_DS_UNITS[] =
     { L"Goku (Super Saiyan Blue)",      DESC_NODETYPE_TREE, (void*)DBZEB_DS_GOKUSSB_COLLECTION,         ARRAYSIZE(DBZEB_DS_GOKUSSB_COLLECTION) },
     { L"Gotenks",                       DESC_NODETYPE_TREE, (void*)DBZEB_DS_GOTENKS_COLLECTION,         ARRAYSIZE(DBZEB_DS_GOTENKS_COLLECTION) },
     { L"Kid Buu",                       DESC_NODETYPE_TREE, (void*)DBZEB_DS_KIDBUU_COLLECTION,          ARRAYSIZE(DBZEB_DS_KIDBUU_COLLECTION) },
-    { L"Kid Gohan",                     DESC_NODETYPE_TREE, (void*)DBZEB_DS_KIDGOHAN_COLLECTION,		ARRAYSIZE(DBZEB_DS_KIDGOHAN_COLLECTION) },
-    { L"Kid Gohan (Super Saiyan 2)",    DESC_NODETYPE_TREE, (void*)DBZEB_DS_KIDGOHANSS2_COLLECTION,		ARRAYSIZE(DBZEB_DS_KIDGOHANSS2_COLLECTION) },
+    { L"Kid Gohan",                     DESC_NODETYPE_TREE, (void*)DBZEB_DS_KIDGOHAN_COLLECTION,        ARRAYSIZE(DBZEB_DS_KIDGOHAN_COLLECTION) },
+    { L"Kid Gohan (Super Saiyan 2)",    DESC_NODETYPE_TREE, (void*)DBZEB_DS_KIDGOHANSS2_COLLECTION,        ARRAYSIZE(DBZEB_DS_KIDGOHANSS2_COLLECTION) },
     { L"Krillin",                       DESC_NODETYPE_TREE, (void*)DBZEB_DS_KRILLIN_COLLECTION,         ARRAYSIZE(DBZEB_DS_KRILLIN_COLLECTION) },
     { L"Majin Buu",                     DESC_NODETYPE_TREE, (void*)DBZEB_DS_MAJINBUU_COLLECTION,        ARRAYSIZE(DBZEB_DS_MAJINBUU_COLLECTION) },
     { L"Nappa",                         DESC_NODETYPE_TREE, (void*)DBZEB_DS_NAPPA_COLLECTION,           ARRAYSIZE(DBZEB_DS_NAPPA_COLLECTION) },

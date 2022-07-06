@@ -271,7 +271,7 @@ const DBFCIFileData DBFCICharacterData[] =
     { L"data\\Tom_s_0\\Tom_s.pal",  L"Touma",           65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Touma },
     { L"data\\Wil_s_0\\Wil_s.pal",  L"Wilhelmina",      65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Wilhelmina },
     { L"data\\Zer_s_0\\Zer_s.pal",  L"Zero",            65540,    DBFCIPaletteNamesSupport,         0x4,  indexFrenchBreadSprites_DBFCI_Zero },
-	
+    
     // Extra/Trump Palettes
     { L"data\\Ako_0\\Ako_p1.pal",  L"Ako (Rusian)",  65540,    DBFCIPaletteNamesEx,             0x4,  indexFrenchBreadSprites_DBFCI_Rusian },
     { L"data\\Emi_0\\Emi_p1.pal",  L"Emi (Trump)",   65540,    DBFCIPaletteNamesEx,             0x4,  indexFrenchBreadSprites_DBFCI_Emi },

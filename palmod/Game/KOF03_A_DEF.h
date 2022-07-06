@@ -3187,7 +3187,7 @@ const sGame_PaletteDataset KOF03_A_SELECTSCREENICONS_PALETTES[] =
 // Edit
     { L"Iori Yagami", 0x24200, 0x24220 },
     { L"Kyo Kusanagi", 0x241E0, 0x24200 },
-	//{ L"random icon", 0x24220, 0x24240 },
+    //{ L"random icon", 0x24220, 0x24240 },
 };
 
 const sGame_PaletteDataset KOF03_A_SELECTTEAM_PALETTES[] =

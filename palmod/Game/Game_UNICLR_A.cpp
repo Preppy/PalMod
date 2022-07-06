@@ -10,7 +10,7 @@ CDescTree CGame_UNICLR_A::MainDescTree = nullptr;
 
 const std::vector<UINT16> UNICLR_A_IMGIDS_USED =
 {
-	indexFrenchBreadSprites_UNICLR_Akat,   // 0x34
+    indexFrenchBreadSprites_UNICLR_Akat,   // 0x34
     indexFrenchBreadSprites_UNICLR_Byak,   // 0x35
     indexFrenchBreadSprites_UNICLR_Carm,   // 0x36
     indexFrenchBreadSprites_UNICLR_Chao,   // 0x37
@@ -86,16 +86,16 @@ const std::vector<LPCWSTR> UNICLRPaletteNamesNormal =
 
     L"31",
     L"32",
-	L"33",
+    L"33",
     L"34",
     L"35",
 
     L"36",
     L"37",
     L"38",
-	L"39",
-	L"40",
-	
+    L"39",
+    L"40",
+    
     L"41",
     L"42",
 };

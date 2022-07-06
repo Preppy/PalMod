@@ -93,7 +93,7 @@ UINT32 CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32Va
     GAME(1994, vampj, dstlk, cps2, cps2_2p6b, cps2_state, init_cps2, ROT0, "Capcom", "Vampire: The Night Warriors (Japan 940705)", MACHINE_SUPPORTS_SAVE) // Partial update set? Only rom 04 is "B" revision
         ROM_LOAD16_WORD_SWAP("vamj.09a", 0x300000, 0x80000, CRC(fc0a4aac) SHA1(a2c79eb4dc838c238e182a4da3567ac8db3488d8))
     GAME(1994, vampja, dstlk, cps2, cps2_2p6b, cps2_state, init_cps2, ROT0, "Capcom", "Vampire: The Night Warriors (Japan 940705 alt)", MACHINE_SUPPORTS_SAVE)
-    	ROM_LOAD16_WORD_SWAP( "vamj.09a", 0x300000, 0x80000, CRC(fc0a4aac) SHA1(a2c79eb4dc838c238e182a4da3567ac8db3488d8) )
+        ROM_LOAD16_WORD_SWAP( "vamj.09a", 0x300000, 0x80000, CRC(fc0a4aac) SHA1(a2c79eb4dc838c238e182a4da3567ac8db3488d8) )
     GAME(1994, vampjr1, dstlk, cps2, cps2_2p6b, cps2_state, init_cps2, ROT0, "Capcom", "Vampire: The Night Warriors (Japan 940630)", MACHINE_SUPPORTS_SAVE)
         ROM_LOAD16_WORD_SWAP("vamj.09", 0x300000, 0x80000, CRC(c119a827) SHA1(422864dda2a12621175350b8a130f970ed690719))
 #endif

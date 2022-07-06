@@ -194,6 +194,6 @@ const std::vector<BlazBlueCFFileData> BlazBlueCF_S_CharacterData =
     { L"data\\char\\char_tm_pal.pac", L"Yuuki Terumi",            226336, BlazBlueCFCollection26,   BlazBlueCFPaletteListGeneric,  0x1A40, indexBBCFSprites_YuukiTerumi,          25 },
     //Unknown/Unused, figure out later
     //{ L"data\\char\\char_old_ny_pal.pac",   L"Old NY",      104480, 
-    //{ L"data\\char\\char_E0_pal.pac",	 	L"Unknown E0",  4384  , 
-    //{ L"data\\char\\char_ta_pal.pac",		L"Unknown TA",  17440 ,    
+    //{ L"data\\char\\char_E0_pal.pac",         L"Unknown E0",  4384  , 
+    //{ L"data\\char\\char_ta_pal.pac",        L"Unknown TA",  17440 ,    
 };

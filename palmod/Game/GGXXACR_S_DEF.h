@@ -1490,7 +1490,7 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_ZP_EXTRAS =
     { L"Potted plant (3/4)",         0x4b7660, 0x4b7a60 },
     { L"Potted plant (4/4)",         0x4b7f90, 0x4b8390 },
 
-    //Specials (Sword)	
+    //Specials (Sword)    
     { L"Please Fall (1/2)", 0x484120, 0x484160 },
     { L"Please Fall (2/2)", 0x48b4f0, 0x48b530 },
 
@@ -2086,7 +2086,7 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_MissionIcons =
     { L"Millia Icon", 0x51540, 0x51940, indexGGXXSprites_ACR_Millia, 0x46 },
     { L"Order-Sol Icon", 0x57ae0, 0x57EE0, indexGGXXSprites_ACR_Sol, 0x46 },
     { L"Potemkin Icon", 0x51fc0, 0x523C0, indexGGXXSprites_ACR_Potemkin, 0x46 },
-    { L"Robo-Ky	Icon", 0x56fd0, 0x573D0, indexGGXXSprites_ACR_RoboKy, 0x46 },
+    { L"Robo-Ky    Icon", 0x56fd0, 0x573D0, indexGGXXSprites_ACR_RoboKy, 0x46 },
     { L"Slayer Icon", 0x55a60, 0x55E60, indexGGXXSprites_ACR_Slayer, 0x46 },
     { L"Sol Icon", 0x50530, 0x50930, indexGGXXSprites_ACR_Sol, 0x46 },
     { L"Testament Icon", 0x53a50, 0x53E50, indexGGXXSprites_ACR_Testament, 0x46 },

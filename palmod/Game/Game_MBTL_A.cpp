@@ -59,7 +59,7 @@ const std::vector <LPCWSTR> MBTLPaletteNamesNormal =
     L"8",
     L"9",
     L"10",
-	
+    
     L"11",
     L"12",
     L"13",
@@ -71,7 +71,7 @@ const std::vector <LPCWSTR> MBTLPaletteNamesNormal =
     L"18",
     L"19",
     L"20",
-	
+    
     L"21",
     L"22",
     L"23",

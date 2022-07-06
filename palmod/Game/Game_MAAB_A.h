@@ -40,8 +40,8 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     LPCWSTR GetGameName() override { return L"Million Arthur Arcana Blood (Steam)"; };
-	
-	static bool ShouldUseBasePaletteSet(uint32_t nCharacterUnitId, uint32_t nCollectionId);
+    
+    static bool ShouldUseBasePaletteSet(uint32_t nCharacterUnitId, uint32_t nCollectionId);
 
     static bool PaletteIsInFileUnit(uint32_t nTargetFileUnitId, uint32_t nDisplayUnitId, uint32_t nDisplayPalId);
     static uint32_t GetUniqueUnitCount();

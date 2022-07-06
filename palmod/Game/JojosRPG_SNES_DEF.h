@@ -56,7 +56,7 @@ const sGame_PaletteDataset JOJOSRPG_SNES_ENEMY_PALETTES[] =
 const sGame_PaletteDataset JOJOSRPG_SNES_NPC_PALETTES[] =
 {
 //NPCs
-	{ L"Holly (Linked to NPCs)", 0x953a, 0x955a, indexJoJoRPGSprites_NPCs, 0x02 },
+    { L"Holly (Linked to NPCs)", 0x953a, 0x955a, indexJoJoRPGSprites_NPCs, 0x02 },
     { L"Sick Holly", 0x899a, 0x89da, indexJoJoRPGSprites_NPCs, 0x03 },
     { L"Various students", 0x909a, 0x90Ba, indexJoJoRPGSprites_NPCs, 0x01 },
     { L"Student", 0x90ba, 0x90da, indexJoJoRPGSprites_NPCs, 0x00 },
@@ -68,8 +68,8 @@ const sGame_PaletteDataset JOJOSRPG_SNES_NPC_PALETTES[] =
 const sGame_PaletteDataset JOJOSRPG_SNES_BONUS_PALETTES[] =
 {
 //Bonus
-	{ L"Titlescreen", 0x95ba, 0x95da, indexJoJoRPGSprites_Bonus, 0x00 },
-	{ L"Start area 1/2", 0x821a, 0x825a, indexJoJoRPGSprites_Bonus, 0x80, &pairNext },
+    { L"Titlescreen", 0x95ba, 0x95da, indexJoJoRPGSprites_Bonus, 0x00 },
+    { L"Start area 1/2", 0x821a, 0x825a, indexJoJoRPGSprites_Bonus, 0x80, &pairNext },
     { L"Start area 2/2", 0x82ba, 0x82da, indexJoJoRPGSprites_Bonus, 0x84 },
 };
 

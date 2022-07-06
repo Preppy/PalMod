@@ -1248,28 +1248,28 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_MALLMAYHEM_PALETTES[] =
 const sGame_PaletteDataset MSHVSF_A_STAGES_DEATHVALLEY_PALETTES[] =
 {
     { L"Death Valley 1 - Sky BG",                               0x573F2, 0x57412, indexCPS2Sprites_MSHVSFAssets, 0x0e, &pairFullyLinkedNode },
-	{ L"Death Valley 1 - Mountain MG",                          0x5F972, 0x5F992, indexCPS2Sprites_MSHVSFAssets, 0x0f },
-	{ L"Death Valley 1 - Floor/Cave FG",                        0x5A6F2, 0x5A712, indexCPS2Sprites_MSHVSFAssets, 0x10 },
-	{ L"Death Valley 1 - CenterPiece FG",                       0x5A752, 0x5A772, indexCPS2Sprites_MSHVSFAssets, 0x11 },
-	{ L"Death Valley 1 - Sprites [Beast, Blanka, Fire/Smoke]",  0x7854C, 0x785AC, indexCPS2Sprites_MSHVSFAssets, 0x12 },
+    { L"Death Valley 1 - Mountain MG",                          0x5F972, 0x5F992, indexCPS2Sprites_MSHVSFAssets, 0x0f },
+    { L"Death Valley 1 - Floor/Cave FG",                        0x5A6F2, 0x5A712, indexCPS2Sprites_MSHVSFAssets, 0x10 },
+    { L"Death Valley 1 - CenterPiece FG",                       0x5A752, 0x5A772, indexCPS2Sprites_MSHVSFAssets, 0x11 },
+    { L"Death Valley 1 - Sprites [Beast, Blanka, Fire/Smoke]",  0x7854C, 0x785AC, indexCPS2Sprites_MSHVSFAssets, 0x12 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_HILLTOP_PALETTES[] =
 {
-	{ L"On the Hilltop - SkyBG",        0x57AF2, 0x57B52 },
-	{ L"On the Hilltop - TreeTrunk",    0x5B2F2, 0x5B392 },
-	{ L"On the Hilltop - LeavesMG",     0x60612, 0x60672 },
-	{ L"On the Hilltop - Base Leaves",  0x787EC, 0x7880C },
-	{ L"On the Hilltop - Owls",         0x7882C, 0x7886C },
+    { L"On the Hilltop - SkyBG",        0x57AF2, 0x57B52 },
+    { L"On the Hilltop - TreeTrunk",    0x5B2F2, 0x5B392 },
+    { L"On the Hilltop - LeavesMG",     0x60612, 0x60672 },
+    { L"On the Hilltop - Base Leaves",  0x787EC, 0x7880C },
+    { L"On the Hilltop - Owls",         0x7882C, 0x7886C },
 //    { L"On the Hilltop PL#200.2 Unknown", 0x57E12, 0x57EB2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_STAGES_TEMPLE_PALETTES[] =
 {
-	{ L"Temple of Fists - Sky BG [PL#600.1]",           0x60152, 0x602B2, indexCPS2Sprites_MSHVSFAssets, 0x13, &pairFullyLinkedNode },
-	{ L"Temple of Fists - Floor Buildings [PL#400.1]",  0x5AEF2, 0x5B0F2, indexCPS2Sprites_MSHVSFAssets, 0x14 },
-	{ L"Temple of Fists - Big Statue [PL#400.2]",       0x5B0F2, 0x5B2B2, indexCPS2Sprites_MSHVSFAssets, 0x15 },
-	{ L"Temple of Fists - Sprites [PL#190]",            0x7870C, 0x787EC, indexCPS2Sprites_MSHVSFAssets, 0x16 },
+    { L"Temple of Fists - Sky BG [PL#600.1]",           0x60152, 0x602B2, indexCPS2Sprites_MSHVSFAssets, 0x13, &pairFullyLinkedNode },
+    { L"Temple of Fists - Floor Buildings [PL#400.1]",  0x5AEF2, 0x5B0F2, indexCPS2Sprites_MSHVSFAssets, 0x14 },
+    { L"Temple of Fists - Big Statue [PL#400.2]",       0x5B0F2, 0x5B2B2, indexCPS2Sprites_MSHVSFAssets, 0x15 },
+    { L"Temple of Fists - Sprites [PL#190]",            0x7870C, 0x787EC, indexCPS2Sprites_MSHVSFAssets, 0x16 },
 };
 
 // Extra - Not Needed v

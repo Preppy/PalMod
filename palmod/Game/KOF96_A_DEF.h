@@ -49,7 +49,7 @@ const std::vector<UINT16> KOF96_A_IMGIDS_USED =
     indexKOF96Sprites_Terry,        // 0x261
     indexKOF96Sprites_Vice,         // 0x262
     indexKOF96Sprites_Yuri,         // 0x263
-    indexKOF96Sprites_Bonus,        // 0x264	
+    indexKOF96Sprites_Bonus,        // 0x264    
 
     // Everything that follows is for portraits or extra previews
     indexKOF97Sprites_Andy,
