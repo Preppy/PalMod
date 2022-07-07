@@ -497,7 +497,7 @@ void CJunk::UpdateIndex(int index)
             m_rIndexRect.right = (BDR_SZ * ((index % m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index % m_iPalW) + 1));
             m_rIndexRect.bottom = (BDR_SZ * ((index / m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index / m_iPalW) + 1));
 
-            CustomFillRect(&m_rIndexRect, (UINT8*)&m_BasePal[index]);
+            CustomFillRect(&m_rIndexRect, (uint8_t*)&m_BasePal[index]);
         }
     }
 }
@@ -559,12 +559,12 @@ void CJunk::UpdateFace()
     }
 }
 
-void CJunk::CustomFillRect(RECT* lpRect, UINT8* crSrcCol)
+void CJunk::CustomFillRect(RECT* lpRect, uint8_t* crSrcCol)
 {
     int nSqW = lpRect->right - lpRect->left;
     int nSqH = lpRect->top - lpRect->bottom;
 
-    UINT8* pDstImgData = (UINT8*)m_pBmpData;
+    uint8_t* pDstImgData = (uint8_t*)m_pBmpData;
 
     double fpDstA2 = (1.0f - ((double)crSrcCol[3]) / 255.0f);
     double fpDstA1 = 1.0f - fpDstA2;
@@ -573,7 +573,7 @@ void CJunk::CustomFillRect(RECT* lpRect, UINT8* crSrcCol)
     {
         for (int x = lpRect->left * 4; x < lpRect->right * 4; x += 4)
         {
-            UINT8* crDstCol = const_cast<UINT8*>((UINT8*)&JUNK_BG[(y % JUNK_BG_H) * JUNK_BG_W + (x % JUNK_BG_W)]);
+            uint8_t* crDstCol = const_cast<uint8_t*>((uint8_t*)&JUNK_BG[(y % JUNK_BG_H) * JUNK_BG_W + (x % JUNK_BG_W)]);
 
             pDstImgData[(y * m_iBaseW) + x + 2] = aaadd((fpDstA1 * (double)crSrcCol[0]), (fpDstA2 * (double)crDstCol[0]));
             pDstImgData[(y * m_iBaseW) + x + 1] = aaadd((fpDstA1 * (double)crSrcCol[1]), (fpDstA2 * (double)crDstCol[1]));

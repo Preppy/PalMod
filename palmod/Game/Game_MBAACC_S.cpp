@@ -9,7 +9,7 @@ CDescTree CGame_MBAACC_S::MainDescTree = nullptr;
 
 #define MBAACC_S_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-CGame_MBAACC_S::CGame_MBAACC_S(UINT32 nConfirmedROMSize /* = -1 */)
+CGame_MBAACC_S::CGame_MBAACC_S(uint32_t nConfirmedROMSize /* = -1 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -262,7 +262,7 @@ BOOL CGame_MBAACC_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     LoadedFile->Seek(0, CFile::begin);
     LoadedFile->Read(&nPalettePointer, 0x02);
         
-    UINT32 nPaletteStart = 0;
+    uint32_t nPaletteStart = 0;
 
     LoadedFile->Seek(nPalettePointer + 0x0c, CFile::begin);
     LoadedFile->Read(&nPaletteStart, 0x04);
@@ -277,8 +277,8 @@ BOOL CGame_MBAACC_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
-        m_pppDataBuffer32[nUnitNumber] = new UINT32 * [nPalAmt];
-        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(UINT32*) * nPalAmt);
+        m_pppDataBuffer32[nUnitNumber] = new uint32_t * [nPalAmt];
+        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(uint32_t*) * nPalAmt);
     }
 
     // These are already sorted, no need to redirect
@@ -288,7 +288,7 @@ BOOL CGame_MBAACC_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
-        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
         LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -306,7 +306,7 @@ BOOL CGame_MBAACC_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
 BOOL CGame_MBAACC_S::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)

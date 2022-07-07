@@ -4,9 +4,9 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_MMX2_SNES::m_nExpectedGameROMSize = 0x180000;
+uint32_t CGame_MMX2_SNES::m_nExpectedGameROMSize = 0x180000;
 
-CGame_MMX2_SNES::CGame_MMX2_SNES(UINT32 nConfirmedROMSize)
+CGame_MMX2_SNES::CGame_MMX2_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_MMX2_SNES::CGame_MMX2_SNES: Loading ROM...\n");
 
@@ -64,8 +64,8 @@ stExtraDef* CGame_MMX2_SNES::MMX2_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_MMX2_SNES::MainDescTree = nullptr;
 uint32_t CGame_MMX2_SNES::rgExtraCountAll[MMX2_SNES_NUMUNIT + 1];
 uint32_t CGame_MMX2_SNES::rgExtraLoc[MMX2_SNES_NUMUNIT + 1];
-UINT32 CGame_MMX2_SNES::m_nTotalPaletteCountForMMX2 = 0;
-UINT32 CGame_MMX2_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_MMX2_SNES::m_nTotalPaletteCountForMMX2 = 0;
+uint32_t CGame_MMX2_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_MMX2_SNES::InitializeStatics()
 {
@@ -105,7 +105,7 @@ sDescTreeNode* CGame_MMX2_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_MMX2_SNES, &MMX2_SNES_EXTRA_CUSTOM, MMX2_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = MMX2_SNES_NUMUNIT + (GetExtraCt(MMX2_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = MMX2_SNES_NUMUNIT + (GetExtraCt(MMX2_SNES_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

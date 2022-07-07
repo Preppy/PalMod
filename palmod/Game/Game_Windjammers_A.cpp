@@ -10,9 +10,9 @@ CDescTree CGame_Windjammers_A::MainDescTree = nullptr;
 uint32_t CGame_Windjammers_A::rgExtraCountAll[Windjammers_A_NUMUNIT + 1];
 uint32_t CGame_Windjammers_A::rgExtraLoc[Windjammers_A_NUMUNIT + 1];
 
-UINT32 CGame_Windjammers_A::m_nTotalPaletteCountForWindjammers = 0;
-const UINT32 CGame_Windjammers_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
-UINT32 CGame_Windjammers_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_Windjammers_A::m_nTotalPaletteCountForWindjammers = 0;
+const uint32_t CGame_Windjammers_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
+uint32_t CGame_Windjammers_A::m_nConfirmedROMSize = -1;
 
 void CGame_Windjammers_A::InitializeStatics()
 {
@@ -24,7 +24,7 @@ void CGame_Windjammers_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_Windjammers_A::InitDescTree());
 }
 
-CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
+CGame_Windjammers_A::CGame_Windjammers_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_Windjammers_A::CGame_Windjammers_A: Loading ROM...\n");
 
@@ -96,12 +96,12 @@ uint32_t CGame_Windjammers_A::GetExtraLoc(uint32_t nUnitId)
 
 sDescTreeNode* CGame_Windjammers_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_Windjammers_A, &Windjammers_A_EXTRA_CUSTOM, Windjammers_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = Windjammers_A_NUMUNIT + (GetExtraCt(Windjammers_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = Windjammers_A_NUMUNIT + (GetExtraCt(Windjammers_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

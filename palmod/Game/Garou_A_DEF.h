@@ -7,7 +7,7 @@
 // * Update every array using Garou_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const std::vector<UINT16> GAROU_A_IMGIDS_USED =
+const std::vector<uint16_t> GAROU_A_IMGIDS_USED =
 {
     indexGarouARockHoward,  // 0x00
     indexGarouATerryBogard, // 0x01

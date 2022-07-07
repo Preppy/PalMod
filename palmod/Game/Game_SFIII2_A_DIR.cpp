@@ -10,7 +10,7 @@ constexpr auto SFIII2_Arcade_USA_SIMMFileBaseNumber = 0;
 constexpr auto SFIII2_Arcade_USA_ROMFilesNeeded = 4;
 constexpr auto SFIII2_Arcade_USA_SIMMLength = 0x200000;
 
-CGame_SFIII2_A_DIR::CGame_SFIII2_A_DIR(UINT32 nConfirmedROMSize /* = -1 */) :
+CGame_SFIII2_A_DIR::CGame_SFIII2_A_DIR(uint32_t nConfirmedROMSize /* = -1 */) :
     CGame_SFIII2_A(SFIII2_Arcade_USA_ROMFilesNeeded * SFIII2_Arcade_USA_SIMMLength) // Let the core game know it's safe to load Extras
 {
     nFileAmt = 4;
@@ -31,7 +31,7 @@ sFileRule CGame_SFIII2_A_DIR::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    const UINT16 nAdjustedSIMMFileNumber = SFIII2_Arcade_USA_SIMMFileBaseNumber + (nUnitId & RULE_COUNTER_DEMASK);
+    const uint16_t nAdjustedSIMMFileNumber = SFIII2_Arcade_USA_SIMMFileBaseNumber + (nUnitId & RULE_COUNTER_DEMASK);
     _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII2_Arcade_USA_ROM_Base, SFIII2_Arcade_USA_ROMSet, nAdjustedSIMMFileNumber);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = SFIII2_Arcade_USA_SIMMLength;

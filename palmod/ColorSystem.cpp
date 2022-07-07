@@ -4,7 +4,7 @@
 
 double LimitHLS(double a) { return ((a > 1.0) ? 1.0 : ((a < 0.0) ? 0.0 : a)); };
 double SubHLS(double a) { while (a >= 1.0) { a -= 1.0; } return a; };
-UINT8 LimitRGB(int Val) { return (UINT8)((Val < 0) ? 0 : ((Val > 255) ? 255 : Val)); };
+uint8_t LimitRGB(int Val) { return (uint8_t)((Val < 0) ? 0 : ((Val > 255) ? 255 : Val)); };
 
 namespace ColorSystem
 {
@@ -29,15 +29,15 @@ namespace ColorSystem
     const int k_nRGBPlaneAmtForHalfAlpha = 0x80;
     const int k_nRGBPlaneAmtForRGB888 = 255;
 
-    UINT16 SWAP_16(UINT16 palv)
+    uint16_t SWAP_16(uint16_t palv)
     {
-        UINT16 aux = 0;
+        uint16_t aux = 0;
         aux |= palv << 8;
         aux |= palv >> 8;
         return aux;
     }
 
-    UINT8 GetCbForColMode(ColMode colorMode)
+    uint8_t GetCbForColMode(ColMode colorMode)
     {
         switch (colorMode)
         {
@@ -173,16 +173,16 @@ namespace ColorSystem
         return nullptr;
     }
 
-    ColMode DecodeColorFlag(UINT8 uPossibleColorFlag)
+    ColMode DecodeColorFlag(uint8_t uPossibleColorFlag)
     {
         ColMode colorMode = ColMode::COLMODE_RGB444_BE;
 
         if ((uPossibleColorFlag >= k_nASCIICharacterOffset) &&
             (uPossibleColorFlag < k_nASCIIMaxValue)) // end of printable ascii table
         {
-            UINT8 nAdjustedValue = (uPossibleColorFlag - k_nASCIICharacterOffset);
+            uint8_t nAdjustedValue = (uPossibleColorFlag - k_nASCIICharacterOffset);
 
-            if (nAdjustedValue < (UINT8)ColMode::COLMODE_LAST)
+            if (nAdjustedValue < (uint8_t)ColMode::COLMODE_LAST)
             {
                 colorMode = (ColMode)nAdjustedValue;
             }
@@ -191,7 +191,7 @@ namespace ColorSystem
         return colorMode;
     }
 
-    UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag, UINT8 uPossibleColorFlag)
+    uint8_t GetCbForColorForGameFlag(uint8_t uGameFlag, uint8_t uPossibleColorFlag)
     {
         switch (uGameFlag)
         {
@@ -282,24 +282,24 @@ namespace ColorSystem
         }
     }
 
-    UINT32 CONV_BGR333_32(UINT16 inCol)
+    uint32_t CONV_BGR333_32(uint16_t inCol)
     {
         // xxxxRRRx GGGxBBBx, where x is 0
         // conversion code mostly by sega16
         // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
-        UINT8* palP = (UINT8*)&inCol;
-        UINT8 r = (*palP++ & 14) * 18;
-        UINT8 g = ((*palP & 240) >> 5) * 36;
-        UINT8 b = (*palP & 14) * 18;
+        uint8_t* palP = (uint8_t*)&inCol;
+        uint8_t r = (*palP++ & 14) * 18;
+        uint8_t g = ((*palP & 240) >> 5) * 36;
+        uint8_t b = (*palP & 14) * 18;
 
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
 
-    UINT16 CONV_32_BGR333(UINT32 inCol)
+    uint16_t CONV_32_BGR333(uint32_t inCol)
     {
-        UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
-        UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
-        UINT16 auxr = ((inCol & 0x000000FF));
+        uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
+        uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint16_t auxr = ((inCol & 0x000000FF));
 
         auxr = (auxr + 18) / 36;
         auxg = (auxg + 18) / 36;
@@ -308,24 +308,24 @@ namespace ColorSystem
         return (auxr << 1) | (auxb << 9) | (auxg << 13);
     }
 
-    UINT32 CONV_RBG333_32(UINT16 inCol)
+    uint32_t CONV_RBG333_32(uint16_t inCol)
     {
         // xxxxGGGx BBBxRRRx, where x is 0
         // conversion code mostly by sega16
         // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
-        UINT8* palP = (UINT8*)&inCol;
-        UINT8 g = (*palP++ & 14) * 18;
-        UINT8 b = ((*palP & 240) >> 5) * 36;
-        UINT8 r = (*palP & 14) * 18;
+        uint8_t* palP = (uint8_t*)&inCol;
+        uint8_t g = (*palP++ & 14) * 18;
+        uint8_t b = ((*palP & 240) >> 5) * 36;
+        uint8_t r = (*palP & 14) * 18;
 
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
 
-    UINT16 CONV_32_RBG333(UINT32 inCol)
+    uint16_t CONV_32_RBG333(uint32_t inCol)
     {
-        UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
-        UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
-        UINT16 auxr = ((inCol & 0x000000FF));
+        uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
+        uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint16_t auxr = ((inCol & 0x000000FF));
 
         auxr = (auxr + 18) / 36;
         auxg = (auxg + 18) / 36;
@@ -333,24 +333,24 @@ namespace ColorSystem
 
         return (auxg << 1) | (auxr << 9) | (auxb << 13);
     }
-    UINT32 CONV_RGB333_32(UINT16 inCol)
+    uint32_t CONV_RGB333_32(uint16_t inCol)
     {
         // xxxxBBBx GGGxRRRx, where x is 0
         // conversion code mostly by sega16
         // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
-        UINT8* palP = (UINT8*)&inCol;
-        UINT8 b = (*palP++ & 14) * 18;
-        UINT8 g = ((*palP & 240) >> 5) * 36;
-        UINT8 r = (*palP & 14) * 18;
+        uint8_t* palP = (uint8_t*)&inCol;
+        uint8_t b = (*palP++ & 14) * 18;
+        uint8_t g = ((*palP & 240) >> 5) * 36;
+        uint8_t r = (*palP & 14) * 18;
 
         return (0xFF << 24) | (b << 16) | (g << 8) | r;
     }
 
-    UINT16 CONV_32_RGB333(UINT32 inCol)
+    uint16_t CONV_32_RGB333(uint32_t inCol)
     {
-        UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
-        UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
-        UINT16 auxr = ((inCol & 0x000000FF));
+        uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
+        uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint16_t auxr = ((inCol & 0x000000FF));
 
         auxr = (auxr + 18) / 36;
         auxg = (auxg + 18) / 36;
@@ -360,12 +360,12 @@ namespace ColorSystem
         return (auxb << 1) | (auxr << 9) | (auxg << 13);
     }
 
-    UINT32 CONV_BGR555LE_32(UINT16 inCol)
+    uint32_t CONV_BGR555LE_32(uint16_t inCol)
     {
-        UINT32 red = (inCol & 31) << 3;
-        UINT32 green = ((inCol >> 5) & 31) << 3;
-        UINT32 blue = ((inCol >> 10) & 31) << 3;
-        UINT32 alpha = ((inCol >> 15) & 1) << 3;
+        uint32_t red = (inCol & 31) << 3;
+        uint32_t green = ((inCol >> 5) & 31) << 3;
+        uint32_t blue = ((inCol >> 10) & 31) << 3;
+        uint32_t alpha = ((inCol >> 15) & 1) << 3;
 
         // account for rounding
         red += red / 32;
@@ -380,12 +380,12 @@ namespace ColorSystem
         return ((alpha << 24) | (blue << 16) | (green << 8) | (red));
     }
 
-    UINT16 CONV_32_BGR555LE(UINT32 inCol)
+    uint16_t CONV_32_BGR555LE(uint32_t inCol)
     {
-        UINT16 auxa = ((inCol & 0xFF000000) >> 24);
-        UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
-        UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
-        UINT16 auxr = ((inCol & 0x000000FF));
+        uint16_t auxa = ((inCol & 0xFF000000) >> 24);
+        uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
+        uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint16_t auxr = ((inCol & 0x000000FF));
 
         if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
         {
@@ -400,24 +400,24 @@ namespace ColorSystem
     }
 
 
-    UINT32 CONV_BGR555BE_32(UINT16 inCol)
+    uint32_t CONV_BGR555BE_32(uint16_t inCol)
     {
-        UINT16 uSwappedCol = _byteswap_ushort(inCol);
+        uint16_t uSwappedCol = _byteswap_ushort(inCol);
 
         return CONV_BGR555LE_32(uSwappedCol);
     }
 
-    UINT16 CONV_32_BGR555BE(UINT32 inCol)
+    uint16_t CONV_32_BGR555BE(uint32_t inCol)
     {
         return _byteswap_ushort(CONV_32_BGR555LE(inCol));
     }
 
-    UINT32 CONV_BGR444_32(UINT16 inCol)
+    uint32_t CONV_BGR444_32(uint16_t inCol)
     {
-        UINT32 auxr = (inCol & 0xF);
-        UINT32 auxg = (inCol & 0xF0) >> 4;
-        UINT32 auxb = (inCol & 0xF00) >> 8;
-        UINT32 auxa = (inCol & 0xF000) >> 12;
+        uint32_t auxr = (inCol & 0xF);
+        uint32_t auxg = (inCol & 0xF0) >> 4;
+        uint32_t auxb = (inCol & 0xF00) >> 8;
+        uint32_t auxa = (inCol & 0xF000) >> 12;
 
         auxr *= 17;
         auxg *= 17;
@@ -437,16 +437,16 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT16 CONV_32_BGR444(UINT32 inCol)
+    uint16_t CONV_32_BGR444(uint32_t inCol)
     {
-        UINT16 auxa = ((inCol & 0xFF000000) >> 24);
-        UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
-        UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
-        UINT16 auxr = ((inCol & 0x000000FF));
+        uint16_t auxa = ((inCol & 0xFF000000) >> 24);
+        uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
+        uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint16_t auxr = ((inCol & 0x000000FF));
 
-        auxr = (UINT16)round(auxr / 17.0);
-        auxg = (UINT16)round(auxg / 17.0);
-        auxb = (UINT16)round(auxb / 17.0);
+        auxr = (uint16_t)round(auxr / 17.0);
+        auxg = (uint16_t)round(auxg / 17.0);
+        auxb = (uint16_t)round(auxb / 17.0);
 
         auxb = auxb << 8;
         auxg = auxg << 4;
@@ -458,19 +458,19 @@ namespace ColorSystem
         }
         else
         {
-            auxa = (UINT16)round(auxa / 17.0);
+            auxa = (uint16_t)round(auxa / 17.0);
             auxa = auxa << 12;
         }
 
         return auxb | auxg | auxr | auxa;
     }
 
-    UINT32 CONV_BRG444_32(UINT16 inCol)
+    uint32_t CONV_BRG444_32(uint16_t inCol)
     {
-        UINT32 auxg = (inCol & 0xF);
-        UINT32 auxr = (inCol & 0xF0) >> 4;
-        UINT32 auxb = (inCol & 0xF00) >> 8;
-        UINT32 auxa = (inCol & 0xF000) >> 12;
+        uint32_t auxg = (inCol & 0xF);
+        uint32_t auxr = (inCol & 0xF0) >> 4;
+        uint32_t auxb = (inCol & 0xF00) >> 8;
+        uint32_t auxa = (inCol & 0xF000) >> 12;
 
         auxr *= 17;
         auxg *= 17;
@@ -490,16 +490,16 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT16 CONV_32_BRG444(UINT32 inCol)
+    uint16_t CONV_32_BRG444(uint32_t inCol)
     {
-        UINT16 auxa = ((inCol & 0xFF000000) >> 24);
-        UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
-        UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
-        UINT16 auxr = ((inCol & 0x000000FF));
+        uint16_t auxa = ((inCol & 0xFF000000) >> 24);
+        uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
+        uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint16_t auxr = ((inCol & 0x000000FF));
 
-        auxr = (UINT16)round(auxr / 17.0);
-        auxg = (UINT16)round(auxg / 17.0);
-        auxb = (UINT16)round(auxb / 17.0);
+        auxr = (uint16_t)round(auxr / 17.0);
+        auxg = (uint16_t)round(auxg / 17.0);
+        auxb = (uint16_t)round(auxb / 17.0);
 
         //auxb = auxb;
         auxg = auxg << 8;
@@ -511,19 +511,19 @@ namespace ColorSystem
         }
         else
         {
-            auxa = (UINT16)round(auxa / 17.0);
+            auxa = (uint16_t)round(auxa / 17.0);
             auxa = auxa << 12;
         }
 
         return auxb | auxg | auxr | auxa;
     }
 
-    UINT32 CONV_RBG444_32(UINT16 inCol)
+    uint32_t CONV_RBG444_32(uint16_t inCol)
     {
-        UINT32 auxg = (inCol & 0xF);
-        UINT32 auxb = (inCol & 0xF0) >> 4;
-        UINT32 auxr = (inCol & 0xF00) >> 8;
-        UINT32 auxa = (inCol & 0xF000) >> 12;
+        uint32_t auxg = (inCol & 0xF);
+        uint32_t auxb = (inCol & 0xF0) >> 4;
+        uint32_t auxr = (inCol & 0xF00) >> 8;
+        uint32_t auxa = (inCol & 0xF000) >> 12;
 
         auxr *= 17;
         auxg *= 17;
@@ -543,16 +543,16 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT16 CONV_32_RBG444(UINT32 inCol)
+    uint16_t CONV_32_RBG444(uint32_t inCol)
     {
-        UINT16 auxa = ((inCol & 0xFF000000) >> 24);
-        UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
-        UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
-        UINT16 auxr = ((inCol & 0x000000FF));
+        uint16_t auxa = ((inCol & 0xFF000000) >> 24);
+        uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
+        uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint16_t auxr = ((inCol & 0x000000FF));
 
-        auxr = (UINT16)round(auxr / 17.0);
-        auxg = (UINT16)round(auxg / 17.0);
-        auxb = (UINT16)round(auxb / 17.0);
+        auxr = (uint16_t)round(auxr / 17.0);
+        auxg = (uint16_t)round(auxg / 17.0);
+        auxb = (uint16_t)round(auxb / 17.0);
 
         auxb = auxb << 4;
         //auxg = auxg;
@@ -564,19 +564,19 @@ namespace ColorSystem
         }
         else
         {
-            auxa = (UINT16)round(auxa / 17.0);
+            auxa = (uint16_t)round(auxa / 17.0);
             auxa = auxa << 12;
         }
 
         return auxb | auxg | auxr | auxa;
     }
 
-    UINT32 CONV_RGB444BE_32(UINT16 inCol)
+    uint32_t CONV_RGB444BE_32(uint16_t inCol)
     {
-        UINT32 auxb = (inCol & 0xF);
-        UINT32 auxg = (inCol & 0xF0) >> 4;
-        UINT32 auxr = (inCol & 0xF00) >> 8;
-        UINT32 auxa = (inCol & 0xF000) >> 12;
+        uint32_t auxb = (inCol & 0xF);
+        uint32_t auxg = (inCol & 0xF0) >> 4;
+        uint32_t auxr = (inCol & 0xF00) >> 8;
+        uint32_t auxa = (inCol & 0xF000) >> 12;
 
         auxr *= 17;
         auxg *= 17;
@@ -596,16 +596,16 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT16 CONV_32_RGB444BE(UINT32 inCol)
+    uint16_t CONV_32_RGB444BE(uint32_t inCol)
     {
-        UINT16 auxa = ((inCol & 0xFF000000) >> 24);
-        UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
-        UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
-        UINT16 auxr = ((inCol & 0x000000FF));
+        uint16_t auxa = ((inCol & 0xFF000000) >> 24);
+        uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
+        uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint16_t auxr = ((inCol & 0x000000FF));
 
-        auxr = (UINT16)round(auxr / 17.0);
-        auxg = (UINT16)round(auxg / 17.0);
-        auxb = (UINT16)round(auxb / 17.0);
+        auxr = (uint16_t)round(auxr / 17.0);
+        auxg = (uint16_t)round(auxg / 17.0);
+        auxb = (uint16_t)round(auxb / 17.0);
 
         //auxb = auxb;
         auxg = auxg << 4;
@@ -617,33 +617,33 @@ namespace ColorSystem
         }
         else
         {
-            auxa = (UINT16)round(auxa / 17.0);
+            auxa = (uint16_t)round(auxa / 17.0);
             auxa = auxa << 12;
         }
 
         return auxb | auxg | auxr | auxa;
     }
 
-    UINT32 CONV_RGB444LE_32(UINT16 inCol)
+    uint32_t CONV_RGB444LE_32(uint16_t inCol)
     {
-        UINT16 uSwappedCol = _byteswap_ushort(inCol);
+        uint16_t uSwappedCol = _byteswap_ushort(inCol);
 
         return CONV_RGB444BE_32(uSwappedCol);
     }
 
-    UINT16 CONV_32_RGB444LE(UINT32 inCol)
+    uint16_t CONV_32_RGB444LE(uint32_t inCol)
     {
         return _byteswap_ushort(CONV_32_RGB444BE(inCol));
     }
 
-    UINT32 CONV_RGB555LE_32(UINT16 inCol)
+    uint32_t CONV_RGB555LE_32(uint16_t inCol)
     {
-        UINT16 swapped = SWAP_16(inCol);
+        uint16_t swapped = SWAP_16(inCol);
 
-        UINT32 auxb = (swapped & 0x7C00) >> 10;
-        UINT32 auxg = (swapped & 0x3E0) >> 5;
-        UINT32 auxr = (swapped & 0x1F);
-        UINT32 auxa = 0x0;
+        uint32_t auxb = (swapped & 0x7C00) >> 10;
+        uint32_t auxg = (swapped & 0x3E0) >> 5;
+        uint32_t auxr = (swapped & 0x1F);
+        uint32_t auxa = 0x0;
 
         if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
         {
@@ -667,15 +667,15 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT16 CONV_32_RGB555LE(UINT32 inCol)
+    uint16_t CONV_32_RGB555LE(uint32_t inCol)
     {
-        UINT16 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT16 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT16 auxr = (inCol & 0x000000FF);
+        uint16_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint16_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint16_t auxr = (inCol & 0x000000FF);
 
-        auxb = (UINT16)round(auxb / 8);
-        auxg = (UINT16)round(auxg / 8);
-        auxr = (UINT16)round(auxr / 8);
+        auxb = (uint16_t)round(auxb / 8);
+        auxg = (uint16_t)round(auxg / 8);
+        auxr = (uint16_t)round(auxr / 8);
 
         //auxr = auxr; no-op
         auxg = auxg << 5;
@@ -684,14 +684,14 @@ namespace ColorSystem
         return SWAP_16(auxb | auxg | auxr);
     }
 
-    UINT32 CONV_GRB555LE_32(UINT16 inCol)
+    uint32_t CONV_GRB555LE_32(uint16_t inCol)
     {
-        UINT16 swapped = SWAP_16(inCol);
+        uint16_t swapped = SWAP_16(inCol);
 
-        UINT32 auxb = (swapped & 0x7C00) >> 10;
-        UINT32 auxr = (swapped & 0x3E0) >> 5;
-        UINT32 auxg = (swapped & 0x1F);
-        UINT32 auxa = 0x0;
+        uint32_t auxb = (swapped & 0x7C00) >> 10;
+        uint32_t auxr = (swapped & 0x3E0) >> 5;
+        uint32_t auxg = (swapped & 0x1F);
+        uint32_t auxa = 0x0;
 
         if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
         {
@@ -715,15 +715,15 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT16 CONV_32_GRB555LE(UINT32 inCol)
+    uint16_t CONV_32_GRB555LE(uint32_t inCol)
     {
-        UINT16 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT16 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT16 auxr = (inCol & 0x000000FF);
+        uint16_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint16_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint16_t auxr = (inCol & 0x000000FF);
 
-        auxb = (UINT16)round(auxb / 8);
-        auxg = (UINT16)round(auxg / 8);
-        auxr = (UINT16)round(auxr / 8);
+        auxb = (uint16_t)round(auxb / 8);
+        auxg = (uint16_t)round(auxg / 8);
+        auxr = (uint16_t)round(auxr / 8);
 
         auxr = auxr << 5;
         auxg = auxg; // no-op
@@ -732,12 +732,12 @@ namespace ColorSystem
         return SWAP_16(auxb | auxg | auxr);
     }
 
-    UINT32 CONV_RGB555BE_32(UINT16 inCol)
+    uint32_t CONV_RGB555BE_32(uint16_t inCol)
     {
-        UINT32 auxa = (inCol & 0x8000) >> 15;
-        UINT32 auxr = (inCol & 0x7C00) >> 10;
-        UINT32 auxg = (inCol & 0x3E0) >> 5;
-        UINT32 auxb = (inCol & 0x1F);
+        uint32_t auxa = (inCol & 0x8000) >> 15;
+        uint32_t auxr = (inCol & 0x7C00) >> 10;
+        uint32_t auxg = (inCol & 0x3E0) >> 5;
+        uint32_t auxb = (inCol & 0x1F);
 
         // alpha is 1bit encoded
         auxa = auxa ? 0xFF : 0;
@@ -764,16 +764,16 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT16 CONV_32_RGB555BE(UINT32 inCol)
+    uint16_t CONV_32_RGB555BE(uint32_t inCol)
     {
-        UINT16 auxa = (inCol & 0xFF000000) >> 24;
-        UINT16 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT16 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT16 auxr = (inCol & 0x000000FF);
+        uint16_t auxa = (inCol & 0xFF000000) >> 24;
+        uint16_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint16_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint16_t auxr = (inCol & 0x000000FF);
 
-        auxb = (UINT16)round(auxb / 8);
-        auxg = (UINT16)round(auxg / 8);
-        auxr = (UINT16)round(auxr / 8);
+        auxb = (uint16_t)round(auxb / 8);
+        auxg = (uint16_t)round(auxg / 8);
+        auxr = (uint16_t)round(auxr / 8);
 
         auxr = auxr << 10;
         auxg = auxg << 5;
@@ -792,7 +792,7 @@ namespace ColorSystem
         return auxb | auxg | auxr | auxa;
     }
 
-    UINT8 NGColorVals[] = {
+    uint8_t NGColorVals[] = {
         //--Dark,Bright
             0x00,0x00,    //--00
             0x08,0x08,    //--01
@@ -828,7 +828,7 @@ namespace ColorSystem
             0xfb,0xff     //--1f
     };
 
-    bool IsNEOGEOColorDark(UINT8 redIndex, UINT8 greenIndex, UINT8 blueIndex)
+    bool IsNEOGEOColorDark(uint8_t redIndex, uint8_t greenIndex, uint8_t blueIndex)
     {
         bool isRedEven = (redIndex / 2) == 0;
         bool isGreenEven = (greenIndex / 2) == 0;
@@ -845,9 +845,9 @@ namespace ColorSystem
         return isRedEven && isGreenEven && isBlueEven;
     }
 
-    UINT8 Convert32ToNEOGEO(UINT8 nColor)
+    uint8_t Convert32ToNEOGEO(uint8_t nColor)
     {
-        UINT8 nColorIndex = 0;
+        uint8_t nColorIndex = 0;
 
         for (; nColorIndex < ARRAYSIZE(NGColorVals); nColorIndex++)
         {
@@ -860,60 +860,60 @@ namespace ColorSystem
         return nColorIndex;
     }
 
-    UINT32 CONV_RGB666NeoGeo_32(UINT16 nColorData)
+    uint32_t CONV_RGB666NeoGeo_32(uint16_t nColorData)
     {
-        UINT8 darkbit = (nColorData >> 0xf) & 0x01;
-        UINT8 red1 = ((nColorData >> 0xe) & 0x01) * 2;
-        UINT8 redm = ((nColorData >> 0x8) & 0x0f) * 4;
-        UINT8 green1 = ((nColorData >> 0xd) & 0x01) * 2;
-        UINT8 greenm = ((nColorData >> 0x4) & 0x0f) * 4;
-        UINT8 blue1 = ((nColorData >> 0xc) & 0x01) * 2;
-        UINT8 bluem = ((nColorData >> 0x0) & 0x0f) * 4;
-        UINT32 auxa = 0xFF;
+        uint8_t darkbit = (nColorData >> 0xf) & 0x01;
+        uint8_t red1 = ((nColorData >> 0xe) & 0x01) * 2;
+        uint8_t redm = ((nColorData >> 0x8) & 0x0f) * 4;
+        uint8_t green1 = ((nColorData >> 0xd) & 0x01) * 2;
+        uint8_t greenm = ((nColorData >> 0x4) & 0x0f) * 4;
+        uint8_t blue1 = ((nColorData >> 0xc) & 0x01) * 2;
+        uint8_t bluem = ((nColorData >> 0x0) & 0x0f) * 4;
+        uint32_t auxa = 0xFF;
 
-        UINT8 blue = NGColorVals[((blue1 + bluem) - darkbit) + 1];
-        UINT8 green = NGColorVals[((green1 + greenm) - darkbit) + 1];
-        UINT8 red = NGColorVals[((red1 + redm) - darkbit) + 1];
+        uint8_t blue = NGColorVals[((blue1 + bluem) - darkbit) + 1];
+        uint8_t green = NGColorVals[((green1 + greenm) - darkbit) + 1];
+        uint8_t red = NGColorVals[((red1 + redm) - darkbit) + 1];
 
-        UINT32 color = (auxa << 24) | (blue << 16) | (green << 8) | (red);
+        uint32_t color = (auxa << 24) | (blue << 16) | (green << 8) | (red);
 
         return color;
     }
 
-    UINT16 CONV_32_RGB666NeoGeo(UINT32 inCol)
+    uint16_t CONV_32_RGB666NeoGeo(uint32_t inCol)
     {
-        UINT8 auxb = ((inCol & 0x00FF0000) >> 16);
-        UINT8 auxg = ((inCol & 0x0000FF00) >> 8);
-        UINT8 auxr = ((inCol & 0x000000FF));
+        uint8_t auxb = ((inCol & 0x00FF0000) >> 16);
+        uint8_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint8_t auxr = ((inCol & 0x000000FF));
 
-        UINT8 red = Convert32ToNEOGEO(auxr);
-        UINT8 green = Convert32ToNEOGEO(auxg);
-        UINT8 blue = Convert32ToNEOGEO(auxb);
+        uint8_t red = Convert32ToNEOGEO(auxr);
+        uint8_t green = Convert32ToNEOGEO(auxg);
+        uint8_t blue = Convert32ToNEOGEO(auxb);
 
-        UINT16 darkbit = (IsNEOGEOColorDark(red, green, blue) ? 0x1 : 0x0) << 0xf;
+        uint16_t darkbit = (IsNEOGEOColorDark(red, green, blue) ? 0x1 : 0x0) << 0xf;
 
-        UINT16 red1 = ((red / 2) & 0x1) << 0xe;
-        UINT16 redMain = ((red / 4) & 0xf) << 0x8;
-        UINT16 green1 = ((green / 2) & 0x1) << 0xd;
-        UINT16 greenMain = ((green / 4) & 0xf) << 0x4;
-        UINT16 blue1 = ((blue / 2) & 0x1) << 0xc;
-        UINT16 blueMain = ((blue / 4) & 0xf) << 0x0;
+        uint16_t red1 = ((red / 2) & 0x1) << 0xe;
+        uint16_t redMain = ((red / 4) & 0xf) << 0x8;
+        uint16_t green1 = ((green / 2) & 0x1) << 0xd;
+        uint16_t greenMain = ((green / 4) & 0xf) << 0x4;
+        uint16_t blue1 = ((blue / 2) & 0x1) << 0xc;
+        uint16_t blueMain = ((blue / 4) & 0xf) << 0x0;
 
-        UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
+        uint16_t outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
 
         return outColor;
     }
 
-    UINT8 SharpRGBColorVals[] = {
+    uint8_t SharpRGBColorVals[] = {
         0x00, 0x2e, 0x34, 0x3a, 0x40, 0x44, 0x48, 0x4e,
         0x54, 0x5a, 0x60, 0x66, 0x6c, 0x72, 0x78, 0x7e,
         0x84, 0x8a, 0x90, 0x98, 0xa0, 0xa8, 0xb0, 0xb8,
         0xc0, 0xca, 0xd4, 0xde, 0xe8, 0xf2, 0xfc, 0xff
     };
 
-    UINT8 Convert32ToSharpRGB(UINT8 nColor)
+    uint8_t Convert32ToSharpRGB(uint8_t nColor)
     {
-        UINT8 nColorIndex = 0;
+        uint8_t nColorIndex = 0;
 
         for (; nColorIndex < ARRAYSIZE(SharpRGBColorVals); nColorIndex++)
         {
@@ -926,7 +926,7 @@ namespace ColorSystem
         return nColorIndex;
     }
 
-    UINT32 CONV_RGB555Sharp_32(UINT16 nColorData)
+    uint32_t CONV_RGB555Sharp_32(uint16_t nColorData)
     {
         // raw view
         // RRRR GGGG BBBB RGB#
@@ -934,51 +934,51 @@ namespace ColorSystem
         // 0x0f04 is pure green
         // 0x00f2 pure blue
         // 0x000e <-> 2e2e2e
-        UINT8 bm = (nColorData >> 0xb) & 0x1e;
-        UINT8 b1 = (nColorData >> 0x3) & 0x01;
-        UINT8 bluf = SharpRGBColorVals[bm + b1];
+        uint8_t bm = (nColorData >> 0xb) & 0x1e;
+        uint8_t b1 = (nColorData >> 0x3) & 0x01;
+        uint8_t bluf = SharpRGBColorVals[bm + b1];
 
-        UINT8 gm = (nColorData >> 0x7) & 0x1e;
-        UINT8 g1 = (nColorData >> 0x2) & 0x01;
-        UINT8 grnf = SharpRGBColorVals[gm + g1];
+        uint8_t gm = (nColorData >> 0x7) & 0x1e;
+        uint8_t g1 = (nColorData >> 0x2) & 0x01;
+        uint8_t grnf = SharpRGBColorVals[gm + g1];
 
-        UINT8 rm = (nColorData >> 0x3) & 0x1e;
-        UINT8 r1 = (nColorData >> 0x1) & 0x01;
-        UINT8 redf = SharpRGBColorVals[rm + r1];
+        uint8_t rm = (nColorData >> 0x3) & 0x1e;
+        uint8_t r1 = (nColorData >> 0x1) & 0x01;
+        uint8_t redf = SharpRGBColorVals[rm + r1];
 
-        UINT32 color = (redf << 16) | (grnf << 8) | (bluf) | 0xff000000;
+        uint32_t color = (redf << 16) | (grnf << 8) | (bluf) | 0xff000000;
 
         return color;
     }
 
-    UINT16 CONV_32_RGB555Sharp(UINT32 inCol)
+    uint16_t CONV_32_RGB555Sharp(uint32_t inCol)
     {
-        UINT8 auxr = ((inCol & 0x00FF0000) >> 16);
-        UINT8 auxg = ((inCol & 0x0000FF00) >> 8);
-        UINT8 auxb = ((inCol & 0x000000FF));
+        uint8_t auxr = ((inCol & 0x00FF0000) >> 16);
+        uint8_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint8_t auxb = ((inCol & 0x000000FF));
 
-        UINT8 red = Convert32ToSharpRGB(auxr);
-        UINT8 green = Convert32ToSharpRGB(auxg);
-        UINT8 blue = Convert32ToSharpRGB(auxb);
+        uint8_t red = Convert32ToSharpRGB(auxr);
+        uint8_t green = Convert32ToSharpRGB(auxg);
+        uint8_t blue = Convert32ToSharpRGB(auxb);
 
-        UINT16 red1 = (red & 0x01) << 0x1;
-        UINT16 redMain = (red & 0x1e) << 0x3;
-        UINT16 green1 = (green & 0x01) << 0x2;
-        UINT16 greenMain = (green & 0x1e) << 0x7;
-        UINT16 blue1 = (blue & 0x01) << 0x3;
-        UINT16 blueMain = (blue & 0x1e) << 0xb;
+        uint16_t red1 = (red & 0x01) << 0x1;
+        uint16_t redMain = (red & 0x1e) << 0x3;
+        uint16_t green1 = (green & 0x01) << 0x2;
+        uint16_t greenMain = (green & 0x1e) << 0x7;
+        uint16_t blue1 = (blue & 0x01) << 0x3;
+        uint16_t blueMain = (blue & 0x1e) << 0xb;
 
-        UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
+        uint16_t outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
 
         return outColor;
     }
 
-    UINT32 CONV_BGR888_32(UINT32 inCol)
+    uint32_t CONV_BGR888_32(uint32_t inCol)
     {
-        UINT32 auxr = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxb = (inCol & 0x000000FF);
-        UINT32 auxa = 0xFF;
+        uint32_t auxr = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxb = (inCol & 0x000000FF);
+        uint32_t auxa = 0xFF;
 
         auxr = auxr;
         auxg = auxg << 8;
@@ -988,11 +988,11 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_32_BGR888(UINT32 inCol)
+    uint32_t CONV_32_BGR888(uint32_t inCol)
     {
-        UINT32 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxr = (inCol & 0x000000FF);
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxr = (inCol & 0x000000FF);
 
         auxr = auxr << 16;
         auxg = auxg << 8;
@@ -1001,11 +1001,11 @@ namespace ColorSystem
         return (auxr | auxg | auxb);
     }
 
-    UINT32 CONV_32_BRG888(UINT32 inCol)
+    uint32_t CONV_32_BRG888(uint32_t inCol)
     {
-        UINT32 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxr = (inCol & 0x000000FF);
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxr = (inCol & 0x000000FF);
 
         auxg = auxg << 16;
         auxr = auxr << 8;
@@ -1014,12 +1014,12 @@ namespace ColorSystem
         return (auxr | auxg | auxb);
     }
 
-    UINT32 CONV_BRG888_32(UINT32 inCol)
+    uint32_t CONV_BRG888_32(uint32_t inCol)
     {
-        UINT32 auxg = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxr = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxb = (inCol & 0x000000FF);
-        UINT32 auxa = 0xFF;
+        uint32_t auxg = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxr = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxb = (inCol & 0x000000FF);
+        uint32_t auxa = 0xFF;
 
         auxr = auxr;
         auxg = auxg << 8;
@@ -1029,12 +1029,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_GRB888_32(UINT32 inCol)
+    uint32_t CONV_GRB888_32(uint32_t inCol)
     {
-        UINT32 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxr = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxg = (inCol & 0x000000FF);
-        UINT32 auxa = 0xFF;
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxr = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxg = (inCol & 0x000000FF);
+        uint32_t auxa = 0xFF;
 
         auxr = auxr;
         auxg = auxg << 8;
@@ -1044,11 +1044,11 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_32_GRB888(UINT32 inCol)
+    uint32_t CONV_32_GRB888(uint32_t inCol)
     {
-        UINT32 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxr = (inCol & 0x000000FF);
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxr = (inCol & 0x000000FF);
 
         auxg = auxg;
         auxr = auxr << 8;
@@ -1057,12 +1057,12 @@ namespace ColorSystem
         return (auxr | auxg | auxb);
     }
 
-    UINT32 CONV_RGB888_32(UINT32 inCol)
+    uint32_t CONV_RGB888_32(uint32_t inCol)
     {
-        UINT32 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxr = (inCol & 0x000000FF);
-        UINT32 auxa = 0xFF;
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxr = (inCol & 0x000000FF);
+        uint32_t auxa = 0xFF;
 
         auxr = auxr;
         auxg = auxg << 8;
@@ -1072,12 +1072,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_32_RGB888(UINT32 inCol)
+    uint32_t CONV_32_RGB888(uint32_t inCol)
     {
-        UINT32 auxa = 0xFF;
-        UINT32 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxr = (inCol & 0x000000FF);
+        uint32_t auxa = 0xFF;
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxr = (inCol & 0x000000FF);
 
         auxr = auxr;
         auxg = auxg << 8;
@@ -1086,12 +1086,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr);
     }
 
-    UINT32 CONV_RGBA8881_32(UINT32 inCol)
+    uint32_t CONV_RGBA8881_32(uint32_t inCol)
     {
-        UINT32 auxb = GetBValue(inCol);
-        UINT32 auxg = GetGValue(inCol);
-        UINT32 auxr = GetRValue(inCol);
-        UINT32 auxa = GetAValue(inCol) * 0xFF;
+        uint32_t auxb = GetBValue(inCol);
+        uint32_t auxg = GetGValue(inCol);
+        uint32_t auxr = GetRValue(inCol);
+        uint32_t auxa = GetAValue(inCol) * 0xFF;
 
         if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
         {
@@ -1106,12 +1106,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_32_RGBA8881(UINT32 inCol)
+    uint32_t CONV_32_RGBA8881(uint32_t inCol)
     {
-        UINT32 auxa = (inCol & 0xFF000000) >> 24;
-        UINT32 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxr = (inCol & 0x000000FF);
+        uint32_t auxa = (inCol & 0xFF000000) >> 24;
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxr = (inCol & 0x000000FF);
 
         if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
         {
@@ -1130,12 +1130,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_RGBA8887_32(UINT32 inCol)
+    uint32_t CONV_RGBA8887_32(uint32_t inCol)
     {
-        UINT32 auxb = GetBValue(inCol);
-        UINT32 auxg = GetGValue(inCol);
-        UINT32 auxr = GetRValue(inCol);
-        UINT32 auxa = min(GetAValue(inCol) * 2, 0xFF);
+        uint32_t auxb = GetBValue(inCol);
+        uint32_t auxg = GetGValue(inCol);
+        uint32_t auxr = GetRValue(inCol);
+        uint32_t auxa = min(GetAValue(inCol) * 2, 0xFF);
 
         if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
         {
@@ -1150,12 +1150,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_32_RGBA8887(UINT32 inCol)
+    uint32_t CONV_32_RGBA8887(uint32_t inCol)
     {
-        UINT32 auxa = (inCol & 0xFF000000) >> 24;
-        UINT32 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxr = (inCol & 0x000000FF);
+        uint32_t auxa = (inCol & 0xFF000000) >> 24;
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxr = (inCol & 0x000000FF);
 
         if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
         {
@@ -1164,7 +1164,7 @@ namespace ColorSystem
         else
         {
             // We want half alpha
-            auxa = (UINT32)floor((auxa + 1) / 2);
+            auxa = (uint32_t)floor((auxa + 1) / 2);
         }
 
         //auxr = auxr;
@@ -1175,12 +1175,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_RGBA8888_32(UINT32 inCol)
+    uint32_t CONV_RGBA8888_32(uint32_t inCol)
     {
-        UINT32 auxb = GetBValue(inCol);
-        UINT32 auxg = GetGValue(inCol);
-        UINT32 auxr = GetRValue(inCol);
-        UINT32 auxa = GetAValue(inCol);
+        uint32_t auxb = GetBValue(inCol);
+        uint32_t auxg = GetGValue(inCol);
+        uint32_t auxr = GetRValue(inCol);
+        uint32_t auxa = GetAValue(inCol);
 
         if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
         {
@@ -1195,12 +1195,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_32_RGBA8888(UINT32 inCol)
+    uint32_t CONV_32_RGBA8888(uint32_t inCol)
     {
-        UINT32 auxa = (inCol & 0xFF000000) >> 24;
-        UINT32 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxr = (inCol & 0x000000FF);
+        uint32_t auxa = (inCol & 0xFF000000) >> 24;
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxr = (inCol & 0x000000FF);
 
         if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
         {
@@ -1215,13 +1215,13 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_BGRA8888_32(UINT32 inCol)
+    uint32_t CONV_BGRA8888_32(uint32_t inCol)
     {
         // B<->R
-        UINT32 auxb = GetRValue(inCol);
-        UINT32 auxg = GetGValue(inCol);
-        UINT32 auxr = GetBValue(inCol);
-        UINT32 auxa = GetAValue(inCol);
+        uint32_t auxb = GetRValue(inCol);
+        uint32_t auxg = GetGValue(inCol);
+        uint32_t auxr = GetBValue(inCol);
+        uint32_t auxa = GetAValue(inCol);
 
         if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
         {
@@ -1236,12 +1236,12 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    UINT32 CONV_32_BGRA8888(UINT32 inCol)
+    uint32_t CONV_32_BGRA8888(uint32_t inCol)
     {
-        UINT32 auxa = (inCol & 0xFF000000) >> 24;
-        UINT32 auxb = (inCol & 0x00FF0000) >> 16;
-        UINT32 auxg = (inCol & 0x0000FF00) >> 8;
-        UINT32 auxr = (inCol & 0x000000FF);
+        uint32_t auxa = (inCol & 0xFF000000) >> 24;
+        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint32_t auxr = (inCol & 0x000000FF);
 
         if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
         {
@@ -1377,7 +1377,7 @@ namespace ColorSystem
     int GetColorStepFor8BitValue_NeoGeoCLUT(int nColorValue)
     {
         bool fIsNegative = (nColorValue < 0);
-        UINT8 nColorIndex = 1;
+        uint8_t nColorIndex = 1;
 
         for (; nColorIndex < ARRAYSIZE(NGColorVals); nColorIndex += 2)
         {
@@ -1480,7 +1480,7 @@ namespace ColorSystem
     int GetNearestLegalColorValue_NeoGeoCLUT(int nColorValue)
     {
         bool fIsNegative = (nColorValue < 0);
-        UINT8 nColorIndex = 1;
+        uint8_t nColorIndex = 1;
 
         for (; nColorIndex < ARRAYSIZE(NGColorVals); nColorIndex += 2)
         {

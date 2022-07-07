@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const std::vector<UINT16> KI_SNES_IMGIDS_USED =
+const std::vector<uint16_t> KI_SNES_IMGIDS_USED =
 {
     indexKISprites_Cinder,              // 0x6E
     indexKISprites_Eyedol,              // 0x6F

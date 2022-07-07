@@ -11,7 +11,7 @@
 // Fernandeath (Fernandez in the US)
 // Bonus-Kun
 
-const std::vector<UINT16> WAKUWAKU7_A_IMGIDS_USED =
+const std::vector<uint16_t> WAKUWAKU7_A_IMGIDS_USED =
 {
     indexWakuWaku7Sprites_Arina,
     indexWakuWaku7Sprites_DandyJ,

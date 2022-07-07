@@ -1,5 +1,5 @@
 
-const std::vector<UINT16> MAAB_A_IMGIDS_USED =
+const std::vector<uint16_t> MAAB_A_IMGIDS_USED =
 {
     indexArcanaSprites_Bisclavret,      // 0x00
     indexArcanaSprites_BladeProtector,  // 0x01

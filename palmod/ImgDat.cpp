@@ -13,7 +13,7 @@ void OutputDebugString_ImgDat(LPCWSTR pszString)
 #endif
 }
 
-typedef std::map<UINT16, ImgInfoList*>::iterator imgMapIter;
+typedef std::map<uint16_t, ImgInfoList*>::iterator imgMapIter;
 
 CImgDat::CImgDat(void)
 {
@@ -59,7 +59,7 @@ bool CImgDat::FlushImageBuffer()
     return true;
 }
 
-bool CImgDat::PrepImageBuffer(std::vector<UINT16> prgGameImageSet, const UINT8 uGameFlag)
+bool CImgDat::PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, const uint8_t uGameFlag)
 {
     if (!imageBufferFlushed)
     {
@@ -77,12 +77,12 @@ bool CImgDat::PrepImageBuffer(std::vector<UINT16> prgGameImageSet, const UINT8 u
         return false;
     }
 
-    nImgMap = new std::map<UINT16, ImgInfoList*>;
+    nImgMap = new std::map<uint16_t, ImgInfoList*>;
 
     // We have an individual entry here for every game so we can optimize image loads
-    for (UINT16 nUnitCtr = 0; nUnitCtr < prgGameImageSet.size(); nUnitCtr++)
+    for (uint16_t nUnitCtr = 0; nUnitCtr < prgGameImageSet.size(); nUnitCtr++)
     {
-        UINT16 nImageUnitCounterToUse = prgGameImageSet.at(nUnitCtr);
+        uint16_t nImageUnitCounterToUse = prgGameImageSet.at(nUnitCtr);
 
 #if IMGDAT_DEBUG
         strDebugInfo.Format(L"\tCImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", nImageUnitCounterToUse);
@@ -99,7 +99,7 @@ bool CImgDat::PrepImageBuffer(std::vector<UINT16> prgGameImageSet, const UINT8 u
     return true;
 }
 
-sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, UINT16 uImgId)
+sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId)
 {
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -116,7 +116,7 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, UINT16 uImgId)
         OutputDebugString(strDebugInfo);
 #endif
 
-        imgMapIter it = nImgMap->find((UINT16)uUnitId);
+        imgMapIter it = nImgMap->find((uint16_t)uUnitId);
         if (it != nImgMap->cend())
         {
             // it->second->listAllImgIDs();
@@ -154,7 +154,7 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, UINT16 uImgId)
     return nullptr;
 }
 
-UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, UINT16 nCurrentUnitId, UINT8 nCurrentImgId)
+uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCurrentUnitId, uint8_t nCurrentImgId)
 {
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -173,7 +173,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, UINT16 nCurrentUn
 
     //Read the data
 
-    UINT8* pNewImgData = new UINT8[pCurrImg->uDataSize];
+    uint8_t* pNewImgData = new uint8_t[pCurrImg->uDataSize];
 
 #if IMGDAT_DEBUG
     strDebugInfo.Format(L"CImgDat::GetImgData : Making pNewImgData for unitID:0x%X, imgID:0x%X .\n", nCurrentUnitId, nCurrentImgId);
@@ -191,7 +191,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, UINT16 nCurrentUn
         break;
     case 1: // RLE
     {
-        UINT8* pTmpData = pNewImgData;
+        uint8_t* pTmpData = pNewImgData;
 
         pNewImgData = RLEDecodeImg(
             pTmpData,
@@ -205,7 +205,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, UINT16 nCurrentUn
     }
     case 2: // BitmaskRLE
     {
-        UINT8* pTmpData = pNewImgData;
+        uint8_t* pTmpData = pNewImgData;
 
         pNewImgData = BitMaskRLEDecodeImg(
             pTmpData,
@@ -282,12 +282,12 @@ void CImgDat::CloseImgFile()
     }
 }
 
-bool CImgDat::sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag)
+bool CImgDat::sameGameAlreadyLoaded(uint8_t uGameFlag, uint8_t uImgGameFlag)
 {
     return (uImgGameFlag == nCurImgGameFlag) && (uGameFlag == nCurGameFlag);
 }
 
-void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, UINT8 nNumGames)
+void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDatestamp, uint8_t nNumGames)
 {
     static bool s_havePerformedVersionCheck = false;
 
@@ -295,13 +295,13 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
     {
         // here we keep track of the imgdat version we expect.
         // not super critical for daily updates, but still useful
-        const UINT16 nExpectedYear = 2022;
-        const UINT8 nExpectedMonth = 7;
-        const UINT8 nExpectedDay = 1;
-        const UINT8 nExpectedRevision = 0;
+        const uint16_t nExpectedYear = 2022;
+        const uint8_t nExpectedMonth = 7;
+        const uint8_t nExpectedDay = 1;
+        const uint8_t nExpectedRevision = 0;
         const ULONGLONG nExpectedFileSize = 181892710;
 
-        const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
+        const uint32_t nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 
         CString strMsg;
 
@@ -313,7 +313,7 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
         }
         else if (nFileSize < nExpectedFileSize) // it's only a significant problem if the file is smaller, which should happen very rarely as a result of partial downloads
         {
-            strMsg.Format(L"Please note that PalMod's key image storage file, img2020.dat, is not the correct size and may be corrupt: we expect the file to be %u bytes, but the file is currently %u bytes.\n\nTo fix this, please exit PalMod and copy the new img2020.dat from the ZIP.  If this message persists, please download PalMod again.", (UINT32)nExpectedFileSize, (UINT32)nFileSize);
+            strMsg.Format(L"Please note that PalMod's key image storage file, img2020.dat, is not the correct size and may be corrupt: we expect the file to be %u bytes, but the file is currently %u bytes.\n\nTo fix this, please exit PalMod and copy the new img2020.dat from the ZIP.  If this message persists, please download PalMod again.", (uint32_t)nExpectedFileSize, (uint32_t)nFileSize);
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
         }
         else if (nExpectedDatestamp != nCurrentDatestamp)
@@ -325,16 +325,16 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
             }
             else
             {
-                strMsg.Format(L"WARNING: new imgdat is being used.  You may want to update the known date values in CImgDat::VersionCheckImgDat .  File size is %u bytes.\n", (UINT32)nFileSize);
+                strMsg.Format(L"WARNING: new imgdat is being used.  You may want to update the known date values in CImgDat::VersionCheckImgDat .  File size is %u bytes.\n", (uint32_t)nFileSize);
                 OutputDebugString(strMsg);
             }
         }
     }
 }
 
-BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, uint32_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL fLoadAll)
+BOOL CImgDat::LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t uImgGameFlag, uint32_t uGameUnitAmt, std::vector<uint16_t> prgGameImageSet, BOOL fLoadAll)
 {
-    UINT8 uNumGames = 0xFF;
+    uint8_t uNumGames = 0xFF;
 
     CString strDebugInfo;
     strDebugInfo.Format(L"CImgDat::LoadGameImages : Opening image file '%s'\n", lpszLoadFile);
@@ -371,8 +371,8 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
 
     m_fOnTheFly = !fLoadAll;
 
-    UINT16 nYear = 0;
-    UINT8 nMonth = 0, nDay = 0, nDailyRevision = 0;
+    uint16_t nYear = 0;
+    uint8_t nMonth = 0, nDay = 0, nDailyRevision = 0;
 
     ImgDatFile.Read(&nYear, 0x02);
     ImgDatFile.Read(&nMonth, 0x01);
@@ -381,7 +381,7 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
 
     ImgDatFile.Read(&uNumGames, 0x01);
 
-    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.  File size is %u bytes.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames, (UINT32)ImgDatFile.GetLength());
+    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.  File size is %u bytes.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames, (uint32_t)ImgDatFile.GetLength());
     OutputDebugString(strDebugInfo);
 
     if (uNumGames)
@@ -418,8 +418,8 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
                 while (uReadNextImgLoc != 0)
                 {
                     ImgDatFile.Seek(uReadNextImgLoc, CFile::begin);
-                    UINT16 uCurrUnitId;
-                    UINT8 uCurrImgId;
+                    uint16_t uCurrUnitId;
+                    uint8_t uCurrImgId;
                     ImgDatFile.Read(&uCurrUnitId, 0x02);
                     ImgDatFile.Read(&uCurrImgId, 0x01);
 #if IMGDAT_DEBUG
@@ -427,7 +427,7 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
                     OutputDebugString_ImgDat(strDebugInfo);
 #endif
 
-                    std::map<UINT16, ImgInfoList*>::iterator it = nImgMap->find(uCurrUnitId);
+                    std::map<uint16_t, ImgInfoList*>::iterator it = nImgMap->find(uCurrUnitId);
                     if (nImgMap->find(uCurrUnitId) != nImgMap->cend())
                     {
                         it->second->insertNode(uCurrImgId);
@@ -466,9 +466,9 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
                     }
                     else
                     {
-                        UINT8 tCompressed;
-                        UINT16 tImgWidth, tImgHeight;
-                        UINT32 tDataSize;
+                        uint8_t tCompressed;
+                        uint16_t tImgWidth, tImgHeight;
+                        uint32_t tDataSize;
 
                         ImgDatFile.Read(&tImgWidth, 0x02);
                         ImgDatFile.Read(&tImgHeight, 0x02);
@@ -502,14 +502,14 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
     }
 }
 
-UINT8* CImgDat::RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight)
+uint8_t* CImgDat::RLEDecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight)
 {
-    UINT8* output_data = new UINT8[uiImgWidth * uiImgHeight];
-    memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
+    uint8_t* output_data = new uint8_t[uiImgWidth * uiImgHeight];
+    memset(output_data, NULL, sizeof(uint8_t) * uiImgWidth * uiImgHeight);
 
-    UINT8 count = 0;
+    uint8_t count = 0;
     bool isDigit = true;
-    UINT32 byte_ctr = 0;
+    uint32_t byte_ctr = 0;
     int data_ctr = 0;
     while (byte_ctr < uiDataSz)
     {
@@ -524,7 +524,7 @@ UINT8* CImgDat::RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWi
         {
             // expand the next character by count times
             // the decoding
-            for (UINT16 i = 0; i < count; i++)
+            for (uint16_t i = 0; i < count; i++)
             {
                 output_data[data_ctr + i] = pSrcImgData[byte_ctr];
             }
@@ -537,15 +537,15 @@ UINT8* CImgDat::RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWi
     return output_data;
 }
 
-UINT8* CImgDat::BitMaskRLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight)
+uint8_t* CImgDat::BitMaskRLEDecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight)
 {
-    UINT8* output_data = new UINT8[uiImgWidth * uiImgHeight];
-    memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
+    uint8_t* output_data = new uint8_t[uiImgWidth * uiImgHeight];
+    memset(output_data, NULL, sizeof(uint8_t) * uiImgWidth * uiImgHeight);
 
-    UINT32 i_byteCtr = 0;
-    UINT32 o_dataCtr = 0;
-    UINT32 byteGroups = 0;
-    UINT8 extraChunks = 0;
+    uint32_t i_byteCtr = 0;
+    uint32_t o_dataCtr = 0;
+    uint32_t byteGroups = 0;
+    uint8_t extraChunks = 0;
 
     memcpy(&byteGroups, pSrcImgData, 4);
     i_byteCtr += 4;
@@ -553,7 +553,7 @@ UINT8* CImgDat::BitMaskRLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 
 
     // printf("byteGroups: 0x%08X\n  extraChunks: 0x%02X\n", byteGroups, extraChunks);
 
-    for (UINT32 group = 0; group < byteGroups; group++)
+    for (uint32_t group = 0; group < byteGroups; group++)
     {
         getBMRLEData(8, pSrcImgData, output_data, i_byteCtr, o_dataCtr);
     }
@@ -566,18 +566,18 @@ UINT8* CImgDat::BitMaskRLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 
     return output_data;
 }
 
-void CImgDat::getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data, UINT32& i_byteCtr, UINT32& o_dataCtr)
+void CImgDat::getBMRLEData(uint8_t chunkSize, uint8_t* inputData, uint8_t* output_data, uint32_t& i_byteCtr, uint32_t& o_dataCtr)
 {
-    UINT8 data = 0;
-    UINT8 bitMask = 0;
-    UINT32 count = 0;
-    UINT8 tempCount = 0;
-    UINT16 multiplier = 0;
+    uint8_t data = 0;
+    uint8_t bitMask = 0;
+    uint32_t count = 0;
+    uint8_t tempCount = 0;
+    uint16_t multiplier = 0;
 
     bitMask = *(inputData + i_byteCtr++);
     // printf("New Group - \n  BitMask: 0x%02X\n", bitMask);
 
-    for (UINT8 chunk = 0; chunk < chunkSize; chunk++)
+    for (uint8_t chunk = 0; chunk < chunkSize; chunk++)
     {
         count = 0;
         tempCount = 0;
@@ -604,7 +604,7 @@ void CImgDat::getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data
         // printf("    Payload - Count: 0x%08X, Data: 0x%02X\n", count, data);
         if (count != 0)
         {
-            for (UINT32 writing = 0; writing < (count - 1); writing++)
+            for (uint32_t writing = 0; writing < (count - 1); writing++)
             {
                 output_data[o_dataCtr++] = data;
             }
@@ -614,21 +614,21 @@ void CImgDat::getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data
     }
 }
 
-UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP)
+uint8_t* CImgDat::DecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight, uint8_t uiBPP)
 {
 
-    UINT8* output_data = new UINT8[uiImgWidth * uiImgHeight];
-    memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
+    uint8_t* output_data = new uint8_t[uiImgWidth * uiImgHeight];
+    memset(output_data, NULL, sizeof(uint8_t) * uiImgWidth * uiImgHeight);
 
-    UINT32 bit_ctr = 0;
+    uint32_t bit_ctr = 0;
     int data_ctr = 0;
     int k = 0;
 
-    UINT8 uZeroPos;
-    UINT8 uExtraAmt;
-    UINT8 uGetAmt;
-    UINT8 curr_data;
-    UINT16 zero_data;
+    uint8_t uZeroPos;
+    uint8_t uExtraAmt;
+    uint8_t uGetAmt;
+    uint8_t curr_data;
+    uint16_t zero_data;
     int get_from_extra;
     int zero_get_amt = 16 - uiBPP;
 
@@ -675,7 +675,7 @@ UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth
                     uGetAmt = zero_get_amt - uZeroPos;
                 }
 
-                zero_data |= (((UINT16)(pSrcImgData[bit_ctr / 8] >> uExtraAmt) & (0xFF >> (8 - uGetAmt))) << (uZeroPos));
+                zero_data |= (((uint16_t)(pSrcImgData[bit_ctr / 8] >> uExtraAmt) & (0xFF >> (8 - uGetAmt))) << (uZeroPos));
 
                 uZeroPos += uGetAmt;
                 bit_ctr += uGetAmt;

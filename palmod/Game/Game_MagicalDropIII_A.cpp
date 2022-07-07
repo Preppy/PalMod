@@ -11,9 +11,9 @@ CDescTree CGame_MAGICALDROPIII_A::MainDescTree = nullptr;
 uint32_t CGame_MAGICALDROPIII_A::rgExtraCountAll[MAGICALDROPIII_A_NUMUNIT + 1];
 uint32_t CGame_MAGICALDROPIII_A::rgExtraLoc[MAGICALDROPIII_A_NUMUNIT + 1];
 
-UINT32 CGame_MAGICALDROPIII_A::m_nTotalPaletteCountForMAGICALDROPIII = 0;
-UINT32 CGame_MAGICALDROPIII_A::m_nExpectedGameROMSize = 0x100000; // Update to the actual size of the ROM you expect
-UINT32 CGame_MAGICALDROPIII_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_MAGICALDROPIII_A::m_nTotalPaletteCountForMAGICALDROPIII = 0;
+uint32_t CGame_MAGICALDROPIII_A::m_nExpectedGameROMSize = 0x100000; // Update to the actual size of the ROM you expect
+uint32_t CGame_MAGICALDROPIII_A::m_nConfirmedROMSize = -1;
 
 void CGame_MAGICALDROPIII_A::InitializeStatics()
 {
@@ -25,13 +25,13 @@ void CGame_MAGICALDROPIII_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_MAGICALDROPIII_A::InitDescTree());
 }
 
-CGame_MAGICALDROPIII_A::CGame_MAGICALDROPIII_A(UINT32 nConfirmedROMSize)
+CGame_MAGICALDROPIII_A::CGame_MAGICALDROPIII_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_MAGICALDROPIII_A::CGame_MAGICALDROPIII_A: Loading ROM...\n");
 
     createPalOptions = {
                         NO_SPECIAL_OPTIONS, // Set to SKIP_FIRST_COLOR for most CPS2 games.  Use the nStartingPosition version of UpdatePalData as found in CPS2 game code.
-                        PALWriteOutputOptions::WRITE_16            // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
+                        PALWriteOutputOptions::WRITE_16            // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter uint16_t.
                                             // You can set this to PALWriteOutputOptions::WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
     };
 
@@ -111,7 +111,7 @@ sDescTreeNode* CGame_MAGICALDROPIII_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_MAGICALDROPIII_A, &MAGICALDROPIII_A_EXTRA_CUSTOM, MAGICALDROPIII_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = MAGICALDROPIII_A_NUMUNIT + (GetExtraCt(MAGICALDROPIII_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = MAGICALDROPIII_A_NUMUNIT + (GetExtraCt(MAGICALDROPIII_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -147,7 +147,7 @@ sFileRule CGame_MAGICALDROPIII_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_MAGICALDROPIII_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_MAGICALDROPIII_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

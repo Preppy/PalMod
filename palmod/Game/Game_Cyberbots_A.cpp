@@ -4,9 +4,9 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_Cyberbots_A::m_nExpectedGameROMSize = 0x80000;
+uint32_t CGame_Cyberbots_A::m_nExpectedGameROMSize = 0x80000;
 
-CGame_Cyberbots_A::CGame_Cyberbots_A(UINT32 nConfirmedROMSize)
+CGame_Cyberbots_A::CGame_Cyberbots_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_Cyberbots_A::CGame_Cyberbots_A: Loading ROM...\n");
 
@@ -53,7 +53,7 @@ CGame_Cyberbots_A::CGame_Cyberbots_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-UINT32 CGame_Cyberbots_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_Cyberbots_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -106,8 +106,8 @@ stExtraDef* CGame_Cyberbots_A::Cyberbots_A_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_Cyberbots_A::MainDescTree = nullptr;
 uint32_t CGame_Cyberbots_A::rgExtraCountAll[Cyberbots_A_NUMUNIT + 1];
 uint32_t CGame_Cyberbots_A::rgExtraLoc[Cyberbots_A_NUMUNIT + 1];
-UINT32 CGame_Cyberbots_A::m_nTotalPaletteCountForCyberbots = 0;
-UINT32 CGame_Cyberbots_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_Cyberbots_A::m_nTotalPaletteCountForCyberbots = 0;
+uint32_t CGame_Cyberbots_A::m_nConfirmedROMSize = -1;
 
 void CGame_Cyberbots_A::InitializeStatics()
 {
@@ -147,7 +147,7 @@ sDescTreeNode* CGame_Cyberbots_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_Cyberbots_A, &Cyberbots_A_EXTRA_CUSTOM, Cyberbots_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = Cyberbots_A_NUMUNIT + (GetExtraCt(Cyberbots_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = Cyberbots_A_NUMUNIT + (GetExtraCt(Cyberbots_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

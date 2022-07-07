@@ -11,9 +11,9 @@ CDescTree CGame_RBFF1_A::MainDescTree = nullptr;
 uint32_t CGame_RBFF1_A::rgExtraCountAll[RBFF1_A_NUMUNIT + 1];
 uint32_t CGame_RBFF1_A::rgExtraLoc[RBFF1_A_NUMUNIT + 1];
 
-UINT32 CGame_RBFF1_A::m_nTotalPaletteCountForRBFF1 = 0;
-UINT32 CGame_RBFF1_A::m_nExpectedGameROMSize = 0x100000;
-UINT32 CGame_RBFF1_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_RBFF1_A::m_nTotalPaletteCountForRBFF1 = 0;
+uint32_t CGame_RBFF1_A::m_nExpectedGameROMSize = 0x100000;
+uint32_t CGame_RBFF1_A::m_nConfirmedROMSize = -1;
 
 void CGame_RBFF1_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_RBFF1_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_RBFF1_A::InitDescTree());
 }
 
-CGame_RBFF1_A::CGame_RBFF1_A(UINT32 nConfirmedROMSize)
+CGame_RBFF1_A::CGame_RBFF1_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_RBFF1_A::CGame_RBFF1_A: Loading ROM...\n");
 
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_RBFF1_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_RBFF1_A, &RBFF1_A_EXTRA_CUSTOM, RBFF1_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = RBFF1_A_NUMUNIT + (GetExtraCt(RBFF1_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = RBFF1_A_NUMUNIT + (GetExtraCt(RBFF1_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -135,7 +135,7 @@ sFileRule CGame_RBFF1_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_RBFF1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_RBFF1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

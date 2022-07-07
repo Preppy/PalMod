@@ -8,12 +8,12 @@ stExtraDef* CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SFA3_A::MainDescTree = nullptr;
 
-UINT32 CGame_SFA3_A::m_nTotalPaletteCountForSFA3 = 0;
+uint32_t CGame_SFA3_A::m_nTotalPaletteCountForSFA3 = 0;
 
 uint32_t CGame_SFA3_A::rgExtraCountAll[SFA3_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_SFA3_A::rgExtraLoc[SFA3_A_NUMUNIT + 1] = { (uint32_t)-1 };
-UINT32 CGame_SFA3_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_SFA3_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SFA3_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_SFA3_A::m_nConfirmedROMSize = -1;
 
 void CGame_SFA3_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_SFA3_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SFA3_A::InitDescTree());
 }
 
-CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
+CGame_SFA3_A::CGame_SFA3_A(uint32_t nConfirmedROMSize)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -75,7 +75,7 @@ CGame_SFA3_A::~CGame_SFA3_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_SFA3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SFA3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static const sCRC32ValueSet knownROMs[] =
     {
@@ -167,7 +167,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
     LoadExtraFileForGame(EXTRA_FILENAME_SFA3, &SFA3_A_EXTRA_CUSTOM, SFA3_A_EXTRALOC, m_nConfirmedROMSize);
 
     bool fHaveExtras = (GetExtraCt(SFA3_A_EXTRALOC) > 0);
-    UINT16 nUnitCt = SFA3_A_NUMUNIT + (fHaveExtras ? 1 : 0);
+    uint16_t nUnitCt = SFA3_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -197,9 +197,9 @@ struct sSFA3_A_PortraitData
 {
     LPCWSTR pszCharacterName = nullptr;
     LPCWSTR pszCodeName = nullptr;
-    UINT32 nROMOffset = 0;
+    uint32_t nROMOffset = 0;
     LPCWSTR pszImageSet = L"indexCPS2Sprites_SFA3Assets"; // SFA3_Unique
-    UINT32 nImageSetIndex = 0;
+    uint32_t nImageSetIndex = 0;
 };
 
 sSFA3_A_PortraitData SFA3_A_PortraitDataArray[] =
@@ -235,14 +235,14 @@ void CGame_SFA3_A::DumpHeaderPalettes()
 {
     CString strOutput;
 
-    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFA3_A_PortraitDataArray); nIndex++)
+    for (uint16_t nIndex = 0; nIndex < ARRAYSIZE(SFA3_A_PortraitDataArray); nIndex++)
     {
-        const UINT16 nPortraitsPerCharacter = 6;
+        const uint16_t nPortraitsPerCharacter = 6;
         strOutput.Format(L"const sGame_PaletteDataset SFA3_A_%s_PORTRAIT_PALETTES[] = \r\n{\r\n", SFA3_A_PortraitDataArray[nIndex].pszCodeName);
         OutputDebugString(strOutput);
-        for (UINT16 nColorIndex = 0; nColorIndex < nPortraitsPerCharacter; nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < nPortraitsPerCharacter; nColorIndex++)
         {
-            constexpr UINT32 PORTRAIT_OFFSET = 0x80;
+            constexpr uint32_t PORTRAIT_OFFSET = 0x80;
             CString strColorName;
 
             switch (nColorIndex)
@@ -274,9 +274,9 @@ void CGame_SFA3_A::DumpHeaderPalettes()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFA3_A_PortraitDataArray); nIndex++)
+    for (uint16_t nIndex = 0; nIndex < ARRAYSIZE(SFA3_A_PortraitDataArray); nIndex++)
     {
-        const UINT16 nPortraitsPerCharacter = 6;
+        const uint16_t nPortraitsPerCharacter = 6;
         strOutput.Format(L"    { \"Select Portraits\", DESC_NODETYPE_TREE, (void*)SFA3_A_%s_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_%s_PORTRAIT_PALETTES) },\r\n", SFA3_A_PortraitDataArray[nIndex].pszCodeName, SFA3_A_PortraitDataArray[nIndex].pszCodeName);
         OutputDebugString(strOutput);
     }
@@ -509,7 +509,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     int8_t nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                     fShouldUseAlternateLoadLogic = true;
-                    UINT16 nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
+                    uint16_t nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
 
                     uint32_t nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
 

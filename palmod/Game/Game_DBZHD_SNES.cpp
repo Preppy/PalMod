@@ -4,9 +4,9 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_DBZHD_SNES::m_nExpectedGameROMSize = 0x300000;
+uint32_t CGame_DBZHD_SNES::m_nExpectedGameROMSize = 0x300000;
 
-CGame_DBZHD_SNES::CGame_DBZHD_SNES(UINT32 nConfirmedROMSize)
+CGame_DBZHD_SNES::CGame_DBZHD_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_DBZHD_SNES::CGame_DBZHD_SNES: Loading ROM...\n");
 
@@ -64,8 +64,8 @@ stExtraDef* CGame_DBZHD_SNES::DBZHD_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_DBZHD_SNES::MainDescTree = nullptr;
 uint32_t CGame_DBZHD_SNES::rgExtraCountAll[DBZHD_SNES_NUMUNIT + 1];
 uint32_t CGame_DBZHD_SNES::rgExtraLoc[DBZHD_SNES_NUMUNIT + 1];
-UINT32 CGame_DBZHD_SNES::m_nTotalPaletteCountForDBZHD = 0;
-UINT32 CGame_DBZHD_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_DBZHD_SNES::m_nTotalPaletteCountForDBZHD = 0;
+uint32_t CGame_DBZHD_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_DBZHD_SNES::InitializeStatics()
 {
@@ -105,7 +105,7 @@ sDescTreeNode* CGame_DBZHD_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_DBZHD_SNES, &DBZHD_SNES_EXTRA_CUSTOM, DBZHD_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = DBZHD_SNES_NUMUNIT + (GetExtraCt(DBZHD_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = DBZHD_SNES_NUMUNIT + (GetExtraCt(DBZHD_SNES_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

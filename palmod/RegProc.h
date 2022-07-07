@@ -49,9 +49,9 @@ public:
     static AlphaMode GetAlphaModeForUnknownGame();
     static ColMode GetColorModeForUnknownGame();
     static PALWriteOutputOptions GetMaxWriteForUnknownGame();
-    static UINT16 GetColorsPerLine();
-    static UINT16 GetMaxColorsPerPageOverride();
-    static UINT16 GetMaxPalettePageSize();
+    static uint16_t GetColorsPerLine();
+    static uint16_t GetMaxColorsPerPageOverride();
+    static uint16_t GetMaxPalettePageSize();
     static DWORD dwColorsPerLine;
     static bool ShouldForcePeerPreviewWindow();
 
@@ -87,7 +87,7 @@ public:
     COLORREF prev_blinkcol;
     BOOL prev_blinkinverts;
 
-    WCHAR szPrevBGLoc[MAX_PATH];
+    wchar_t szPrevBGLoc[MAX_PATH];
     int nBGXOffs;
     int nBGYOffs;
     BOOL fTileBG;

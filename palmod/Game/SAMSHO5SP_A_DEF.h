@@ -6,7 +6,7 @@
 // * Update every array using SAMSHO5SP_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const std::vector<UINT16> SAMSHO5SP_A_IMGIDS_USED =
+const std::vector<uint16_t> SAMSHO5SP_A_IMGIDS_USED =
 {
     indexSamSho5Sprites_Amakusa,
     indexSamSho5Sprites_Basara,

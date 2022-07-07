@@ -7,7 +7,7 @@
 // Sprite reference:
 // https://www.zytor.com/~johannax/jigsaw/sf/xvsf.html
 
-const std::vector<UINT16> XMVSF_A_IMGIDS_USED =
+const std::vector<uint16_t> XMVSF_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,          // 0x00
     indexCPS2Sprites_Zangief,      // 0x01
@@ -31,7 +31,7 @@ const std::vector<UINT16> XMVSF_A_IMGIDS_USED =
 
 #pragma region SecondaryPaletteEffects
 
-const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Cammy =
+const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Cammy =
 {
     // counter flash
     { SUPP_NODE, 0x03, 9,
@@ -53,7 +53,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Cammy =
         MOD_TINT, 1, 15, 1, NEG + 4, NEG + 4, 7 }, // dark blue + 7
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Cyclops =
+const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Cyclops =
 {
     // there are 8 intro frames
     { SUPP_NODE, 0x03, 8,
@@ -82,7 +82,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Cyclops =
         MOD_TINT, 1, 15, 1, 5, NEG + 1, NEG + 1 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Dhalsim =
+const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Dhalsim =
 {
     // 5 teleport frames
     { SUPP_NODE, 0x03, 5,
@@ -95,7 +95,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Dhalsim =
         MOD_LUM, 1, 15, 65 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Gambit =
+const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Gambit =
 {
     // 5 win pose frames
     { SUPP_NODE, 0x03, 5,
@@ -109,7 +109,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Gambit =
         MOD_LUM, 1, 15, 10 + NEG },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Juggernaut =
+const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Juggernaut =
 {
     // 8 Power-up frames
     { SUPP_NODE, 0x05, 10,
@@ -129,7 +129,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Juggernaut =
     { SUPP_NODE, 0x0c, 10 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Rogue =
+const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Rogue =
 {
     // Dash shadows
     { SUPP_NODE, 0x03, 8,
@@ -138,7 +138,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Rogue =
         MOD_LUM, 1, 15, NEG + 12 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Storm =
+const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Storm =
 {
     // two palettes of shine cycle
     { SUPP_NODE, 0x01, 28,
@@ -147,7 +147,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Storm =
         MOD_SAT, 1, 15, NEG + 60 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_XMVSF_Wolverine =
+const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Wolverine =
 {
     // his berserker barrage trails a bit of his costume.
     { SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,

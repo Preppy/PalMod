@@ -11,9 +11,9 @@ CDescTree CGame_NeoBomberman_A::MainDescTree = nullptr;
 uint32_t CGame_NeoBomberman_A::rgExtraCountAll[NeoBomberman_A_NUMUNIT + 1];
 uint32_t CGame_NeoBomberman_A::rgExtraLoc[NeoBomberman_A_NUMUNIT + 1];
 
-UINT32 CGame_NeoBomberman_A::m_nTotalPaletteCountForNeoBomberman = 0;
-UINT32 CGame_NeoBomberman_A::m_nExpectedGameROMSize = 0x100000;
-UINT32 CGame_NeoBomberman_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_NeoBomberman_A::m_nTotalPaletteCountForNeoBomberman = 0;
+uint32_t CGame_NeoBomberman_A::m_nExpectedGameROMSize = 0x100000;
+uint32_t CGame_NeoBomberman_A::m_nConfirmedROMSize = -1;
 
 void CGame_NeoBomberman_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_NeoBomberman_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_NeoBomberman_A::InitDescTree());
 }
 
-CGame_NeoBomberman_A::CGame_NeoBomberman_A(UINT32 nConfirmedROMSize)
+CGame_NeoBomberman_A::CGame_NeoBomberman_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_NeoBomberman_A::CGame_NeoBomberman_A: Loading ROM...\n");
 
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_NeoBomberman_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_NeoBomberman_A, &NeoBomberman_A_EXTRA_CUSTOM, NeoBomberman_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = NeoBomberman_A_NUMUNIT + (GetExtraCt(NeoBomberman_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = NeoBomberman_A_NUMUNIT + (GetExtraCt(NeoBomberman_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

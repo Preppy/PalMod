@@ -40,7 +40,7 @@ enum SupportedMVCPaletteListIndex
 constexpr auto MVC_A_NUMUNIT = indexMVCLast;
 constexpr auto MVC_A_EXTRALOC = MVC_A_NUMUNIT;
 
-const std::vector<UINT16> MVC_A_IMGIDS_USED =
+const std::vector<uint16_t> MVC_A_IMGIDS_USED =
 {
     // Main Roster
     indexCPS2Sprites_Ryu,          // 0x00
@@ -82,7 +82,7 @@ const std::vector<UINT16> MVC_A_IMGIDS_USED =
 
 #pragma region SecondaryPaletteEffects
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_CaptainCommando =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_CaptainCommando =
 {
     // the taunt shares most of his coloring
     { SUPP_NODE | SUPP_NODE_NOCOPY, 4, 8,
@@ -91,7 +91,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MVC_CaptainCommando =
     },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Gambit =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Gambit =
 {
     // 5 win pose frames
     { SUPP_NODE, 0x03, 5,
@@ -105,7 +105,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Gambit =
         MOD_LUM, 1, 15, 10 + NEG },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Jin =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Jin =
 {
     // these are for the 6 towel taunt palettes
     { SUPP_NODE, 0x9, 6,
@@ -139,7 +139,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Jin =
         MOD_LUM, 6, 10, 10 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Megaman =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Megaman =
 {
     // 9 frames intro animation
     { SUPP_NODE, 0x05, 0x57,
@@ -176,7 +176,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Megaman =
         MOD_LUM, 1, 15, 35 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Morrigan =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Morrigan =
 {
     // the morrigan intro and join poses should match her core morrigan palette
     { SUPP_NODE, 0x05, 9 },
@@ -194,7 +194,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Morrigan =
     { SUPP_NODE, 0x0d, 9 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_MorriganLilith =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_MorriganLilith =
 {
     // the lilith join poses should match her core morrigan palette
     { SUPP_NODE, 0x05, 9 },
@@ -202,7 +202,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MVC_MorriganLilith =
         MOD_WHITE, 1, 1 }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Roll =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Roll =
 {
     // 9 frames intro animation
     { SUPP_NODE, 0x05, 0x57,
@@ -222,14 +222,14 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Roll =
         MOD_LUM, 1, 15, 22 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_RyuKen =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_RyuKen =
 {
     // Ryu Ken and Ken background should share the same outfit
     { SUPP_NODE | SUPP_NODE_NOCOPY, 6, 8,
         MOD_COPY,  9, 5, 9 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_ShadowLady =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_ShadowLady =
 {
     // 8 frames glimmer
     { SUPP_NODE, 1, 8,
@@ -257,7 +257,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MVC_ShadowLady =
         MOD_LUM, 6, 9, 12 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Spidey =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Spidey =
 {
     // Taunt balloon: we don't touch
 
@@ -280,7 +280,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Spidey =
         MOD_LUM, 01, 10, NEG + 3 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MVC_Wolverine =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Wolverine =
 {
     // his berserker barrage trails a bit of his costume.
     { SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,
@@ -2282,7 +2282,7 @@ const sDescTreeNode MVC_A_BONUS_COLLECTION[] =
    { L"Zabel Stage",                   DESC_NODETYPE_TREE, (void*)MVC_A_ZABEL_STAGE_PALETTES,      ARRAYSIZE(MVC_A_ZABEL_STAGE_PALETTES) },
 };
 
-const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
+const uint8_t MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
 {
     indexMVCCaptainAmerica,
     indexMVCCapCom,

@@ -8,7 +8,7 @@ CDescTree CGame_DBFCI_A::MainDescTree = nullptr;
 
 #define DBFCI_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-const std::vector<UINT16> DBFCI_A_IMGIDS_USED =
+const std::vector<uint16_t> DBFCI_A_IMGIDS_USED =
 {
     indexFrenchBreadSprites_DBFCI_Akira,        // 0x00
     indexFrenchBreadSprites_DBFCI_Ako,          // 0x01
@@ -67,7 +67,7 @@ const std::vector<UINT16> DBFCI_A_IMGIDS_USED =
 struct DBFCINodeData
 {
     LPCWSTR pszNodeName = L"uninit";
-    UINT32 nAdjustmentFromBaseNode = 0;
+    uint32_t nAdjustmentFromBaseNode = 0;
 };
 
 const DBFCINodeData DBFCIPaletteNodes[] =
@@ -209,11 +209,11 @@ struct DBFCIFileData
 {
     LPCWSTR pszFileName = nullptr;
     LPCWSTR pszCharacter = nullptr;
-    UINT32 nExpectedFileSize = 0;
+    uint32_t nExpectedFileSize = 0;
     const std::vector<LPCWSTR> ppszPaletteList;
-    UINT32 nInitialLocation = 0;
-    UINT32 nImageUnitIndex = 0;
-    UINT32 nImagePreviewIndex = 0;
+    uint32_t nInitialLocation = 0;
+    uint32_t nImageUnitIndex = 0;
+    uint32_t nImagePreviewIndex = 0;
 };
 
 const DBFCIFileData DBFCICharacterData[] =
@@ -283,7 +283,7 @@ const DBFCIFileData DBFCICharacterData[] =
     { L"data\\Oni_0\\Oni_p1.pal",  L"Tatsuya (Miyuki)", 66564, DBFCIPaletteNamesEx,             0x4,  indexFrenchBreadSprites_DBFCI_MiyukiAssist },
 };
 
-CGame_DBFCI_A::CGame_DBFCI_A(UINT32 nConfirmedROMSize /* = -1 */)
+CGame_DBFCI_A::CGame_DBFCI_A(uint32_t nConfirmedROMSize /* = -1 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     m_fGameUsesAlphaValue = true;
@@ -356,7 +356,7 @@ sFileRule CGame_DBFCI_A::GetNextRule()
 
 sDescTreeNode* CGame_DBFCI_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
     uint32_t nUnitCt = ARRAYSIZE(DBFCICharacterData);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
@@ -542,8 +542,8 @@ BOOL CGame_DBFCI_A::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
-        m_pppDataBuffer32[nUnitNumber] = new UINT32 * [nPalAmt];
-        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(UINT32*) * nPalAmt);
+        m_pppDataBuffer32[nUnitNumber] = new uint32_t * [nPalAmt];
+        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(uint32_t*) * nPalAmt);
     }
 
     // These are already sorted, no need to redirect
@@ -553,7 +553,7 @@ BOOL CGame_DBFCI_A::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
-        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
         LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -571,7 +571,7 @@ BOOL CGame_DBFCI_A::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
 BOOL CGame_DBFCI_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -627,18 +627,18 @@ void CGame_DBFCI_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
     LoadSpecificPaletteData(nUnitId, nPalId);
     MarkPaletteDirty(nUnitId, nPartnerId);
 
-    for (UINT16 nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
+    for (uint16_t nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
     {
         m_pppDataBuffer32[nUnitId][nPartnerId][nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nArrayIndex];
     }
 
     if (wcscmp(DBFCICharacterData[nUnitId].pszCharacter, L"Rentaro") == 0)
     {
-        const UINT16 nEye1Position = 11;
-        const UINT16 nEye2Position = 27;
-        const UINT16 nEyeLength = 3;
+        const uint16_t nEye1Position = 11;
+        const uint16_t nEye2Position = 27;
+        const uint16_t nEyeLength = 3;
 
-        for (UINT16 nArrayIndex = 0; nArrayIndex < nEyeLength; nArrayIndex++)
+        for (uint16_t nArrayIndex = 0; nArrayIndex < nEyeLength; nArrayIndex++)
         {
             m_pppDataBuffer32[nUnitId][nPartnerId][nEye1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nEye2Position + nArrayIndex];
             m_pppDataBuffer32[nUnitId][nPartnerId][nEye2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nEye1Position + nArrayIndex];

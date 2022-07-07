@@ -11,9 +11,9 @@ CDescTree CGame_Gowcaizer_A::MainDescTree = nullptr;
 uint32_t CGame_Gowcaizer_A::rgExtraCountAll[Gowcaizer_A_NUMUNIT + 1];
 uint32_t CGame_Gowcaizer_A::rgExtraLoc[Gowcaizer_A_NUMUNIT + 1];
 
-UINT32 CGame_Gowcaizer_A::m_nTotalPaletteCountForGowcaizer = 0;
-UINT32 CGame_Gowcaizer_A::m_nExpectedGameROMSize = 0x200000;
-UINT32 CGame_Gowcaizer_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_Gowcaizer_A::m_nTotalPaletteCountForGowcaizer = 0;
+uint32_t CGame_Gowcaizer_A::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_Gowcaizer_A::m_nConfirmedROMSize = -1;
 
 void CGame_Gowcaizer_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_Gowcaizer_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_Gowcaizer_A::InitDescTree());
 }
 
-CGame_Gowcaizer_A::CGame_Gowcaizer_A(UINT32 nConfirmedROMSize)
+CGame_Gowcaizer_A::CGame_Gowcaizer_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_Gowcaizer_A::CGame_Gowcaizer_A: Loading ROM...\n");
 
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_Gowcaizer_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_Gowcaizer_A, &Gowcaizer_A_EXTRA_CUSTOM, Gowcaizer_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = Gowcaizer_A_NUMUNIT + (GetExtraCt(Gowcaizer_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = Gowcaizer_A_NUMUNIT + (GetExtraCt(Gowcaizer_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

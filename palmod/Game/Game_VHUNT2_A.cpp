@@ -11,9 +11,9 @@ uint32_t CGame_VHUNT2_A::rgExtraCountAll[VHUNT2_A_NUMUNIT + 1] = { (uint32_t)-1 
 uint32_t CGame_VHUNT2_A::rgExtraCountVisibleOnly[VHUNT2_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_VHUNT2_A::rgExtraLoc[VHUNT2_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
-UINT32 CGame_VHUNT2_A::m_nTotalPaletteCountForVHUNT2 = 0;
-UINT32 CGame_VHUNT2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_VHUNT2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_VHUNT2_A::m_nTotalPaletteCountForVHUNT2 = 0;
+uint32_t CGame_VHUNT2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_VHUNT2_A::m_nConfirmedROMSize = -1;
 
 void CGame_VHUNT2_A::InitializeStatics()
 {
@@ -26,7 +26,7 @@ void CGame_VHUNT2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_VHUNT2_A::InitDescTree());
 }
 
-CGame_VHUNT2_A::CGame_VHUNT2_A(UINT32 nConfirmedROMSize)
+CGame_VHUNT2_A::CGame_VHUNT2_A(uint32_t nConfirmedROMSize)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -78,7 +78,7 @@ CGame_VHUNT2_A::~CGame_VHUNT2_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_VHUNT2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_VHUNT2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -119,7 +119,7 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_VHUNT2, &VHUNT2_A_EXTRA_CUSTOM, VHUNT2_A_EXTRALOC, m_nConfirmedROMSize);
 
-    const UINT16 nUnitCt = VHUNT2_A_NUMUNIT + (GetExtraCt(VHUNT2_A_EXTRALOC) ? 1 : 0);
+    const uint16_t nUnitCt = VHUNT2_A_NUMUNIT + (GetExtraCt(VHUNT2_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

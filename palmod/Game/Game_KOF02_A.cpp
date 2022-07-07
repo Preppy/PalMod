@@ -11,9 +11,9 @@ CDescTree CGame_KOF02_A::MainDescTree = nullptr;
 uint32_t CGame_KOF02_A::rgExtraCountAll[KOF02_A_NUMUNIT + 1];
 uint32_t CGame_KOF02_A::rgExtraLoc[KOF02_A_NUMUNIT + 1];
 
-UINT32 CGame_KOF02_A::m_nTotalPaletteCountForKOF02 = 0;
-UINT32 CGame_KOF02_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
-UINT32 CGame_KOF02_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_KOF02_A::m_nTotalPaletteCountForKOF02 = 0;
+uint32_t CGame_KOF02_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
+uint32_t CGame_KOF02_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF02_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_KOF02_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KOF02_A::InitDescTree());
 }
 
-CGame_KOF02_A::CGame_KOF02_A(UINT32 nConfirmedROMSize)
+CGame_KOF02_A::CGame_KOF02_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOF02_A::CGame_KOF02_A: Loading ROM...\n");
 
@@ -97,16 +97,16 @@ uint32_t CGame_KOF02_A::GetExtraLoc(uint32_t nUnitId)
 void CGame_KOF02_A::DumpAllCharacters()
 {
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(KOF02_A_CharacterOffsetArray); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(KOF02_A_CharacterOffsetArray); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < 4; iButtonIndex++)
+        for (uint16_t iButtonIndex = 0; iButtonIndex < 4; iButtonIndex++)
         {
             nCurrentCharacterOffset = KOF02_A_CharacterOffsetArray[iUnitCtr].locationInROM + (0x200 * iButtonIndex);
 
@@ -140,10 +140,10 @@ void CGame_KOF02_A::DumpAllCharacters()
                 L"Hidden Super Desperation Move 3",
             };
 
-            for (UINT16 iCurrentExtra = 1; iCurrentExtra < 8; iCurrentExtra++)
+            for (uint16_t iCurrentExtra = 1; iCurrentExtra < 8; iCurrentExtra++)
             {
                 LPCWSTR pszCurrentMoveName = pszMoveNames[iCurrentExtra - 1];
-                UINT32 nCurrentImageToUse = 0;
+                uint32_t nCurrentImageToUse = 0;
 
                 switch (iCurrentExtra)
                 {
@@ -202,10 +202,10 @@ void CGame_KOF02_A::DumpAllCharacters()
     }
 
     // Now create the collections...
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(KOF02_A_CharacterOffsetArray); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(KOF02_A_CharacterOffsetArray); iUnitCtr++)
     {
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
@@ -231,12 +231,12 @@ void CGame_KOF02_A::DumpAllCharacters()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(KOF02_A_CharacterOffsetArray); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(KOF02_A_CharacterOffsetArray); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
@@ -250,7 +250,7 @@ sDescTreeNode* CGame_KOF02_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KOF02_A, &KOF02_A_EXTRA_CUSTOM, KOF02_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KOF02_A_NUMUNIT + (GetExtraCt(KOF02_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = KOF02_A_NUMUNIT + (GetExtraCt(KOF02_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -325,7 +325,7 @@ const sGame_PaletteDataset* CGame_KOF02_A::GetSpecificPalette(uint32_t nUnitId, 
     return _GetSpecificPalette(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, nPaletteId, KOF02_A_EXTRA_CUSTOM);
 }
 
-UINT32 CGame_KOF02_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_KOF02_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

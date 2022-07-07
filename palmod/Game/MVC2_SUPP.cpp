@@ -11,14 +11,14 @@
 
 namespace MVC2_SupplementProcessing
 {
-    UINT8** _mvc2_dreamcast_data = nullptr;
-    UINT16*** _mvc2_arcade_data = nullptr;
-    std::vector<std::vector<UINT16>> mvc2_supp_const;
+    uint8_t** _mvc2_dreamcast_data = nullptr;
+    uint16_t*** _mvc2_arcade_data = nullptr;
+    std::vector<std::vector<uint16_t>> mvc2_supp_const;
 
     CGame_MVC2_D* CurrMVC2 = nullptr;
     CGame_MVC2_A* CurrMVC2_Arcade = nullptr;
 
-    bool VerifyWriteIsSafe(uint32_t nCharId, UINT8 nCopyLength)
+    bool VerifyWriteIsSafe(uint32_t nCharId, uint8_t nCopyLength)
     {
         // We can copy all 16 colors if we start at 0, but if we're shifting colors we need to not stomp on the transparency color
         if (nCopyLength > 16)
@@ -48,7 +48,7 @@ namespace MVC2_SupplementProcessing
 
         if (forDreamcast)
         {
-            _mvc2_dreamcast_data = (UINT8**)(CurrMVC2->GetDataBuffer());
+            _mvc2_dreamcast_data = (uint8_t**)(CurrMVC2->GetDataBuffer());
             _mvc2_arcade_data = nullptr;
         }
         else
@@ -58,11 +58,11 @@ namespace MVC2_SupplementProcessing
         }
     }
 
-    UINT16* get_pal_16(uint32_t char_id, uint32_t pal_no)
+    uint16_t* get_pal_16(uint32_t char_id, uint32_t pal_no)
     {
         if (_mvc2_dreamcast_data)
         {
-            return (UINT16*)&_mvc2_dreamcast_data[char_id][pal_no * 32];
+            return (uint16_t*)&_mvc2_dreamcast_data[char_id][pal_no * 32];
         }
         else
         {
@@ -70,7 +70,7 @@ namespace MVC2_SupplementProcessing
         }
     }
 
-    int supp_copy_index(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)
+    int supp_copy_index(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint8_t index_amt)
     {
         CString strDebugInfo;
         if ((src_index == 0) && (index_amt == 0x10))
@@ -85,19 +85,19 @@ namespace MVC2_SupplementProcessing
         }
         OutputDebugString(strDebugInfo);
 
-        UINT16* src_16 = get_pal_16(char_id, source_palette);
-        UINT16* dst_16 = get_pal_16(char_id, destination_palette);
+        uint16_t* src_16 = get_pal_16(char_id, source_palette);
+        uint16_t* dst_16 = get_pal_16(char_id, destination_palette);
 
-        memcpy(&dst_16[dst_index], &src_16[src_index], index_amt * sizeof(UINT16));
+        memcpy(&dst_16[dst_index], &src_16[src_index], index_amt * sizeof(uint16_t));
 
         return 1;
     }
 
-    int supp_mod_white(uint32_t char_id, uint32_t destination_palette, UINT8 index_start, UINT8 index_inc)
+    int supp_mod_white(uint32_t char_id, uint32_t destination_palette, uint8_t index_start, uint8_t index_inc)
     {
         OutputDebugString(L"\t\t\tsupp_mod_white being applied\n");
 
-        UINT16* dst_16 = get_pal_16(char_id, destination_palette);
+        uint16_t* dst_16 = get_pal_16(char_id, destination_palette);
 
         for (int i = index_start; i < index_start + index_inc; i++)
         {
@@ -107,13 +107,13 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_mod_hsl(uint32_t char_id, UINT16 mod_type, int mod_amt, uint32_t destination_palette, UINT8 index_start, UINT8 index_inc)
+    int supp_mod_hsl(uint32_t char_id, uint16_t mod_type, int mod_amt, uint32_t destination_palette, uint8_t index_start, uint8_t index_inc)
     {
         COLORREF input_col;
 
         double src_h, src_s, src_l, /* add_h ,*/ add_s = 0.0, add_l = 0.0;
 
-        UINT16* dst_16 = get_pal_16(char_id, destination_palette);
+        uint16_t* dst_16 = get_pal_16(char_id, destination_palette);
 
         mod_amt = AdjustNumberForPossibleNegation(mod_amt);
 
@@ -156,11 +156,11 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_mod_tint(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
+    int supp_mod_tint(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t dst_index, uint8_t src_index, uint8_t index_amt,
         int tint_factor_r, int tint_factor_g, int tint_factor_b)
     {
-        UINT16* src_16 = get_pal_16(char_id, source_palette);
-        UINT16* dst_16 = get_pal_16(char_id, destination_palette);
+        uint16_t* src_16 = get_pal_16(char_id, source_palette);
+        uint16_t* dst_16 = get_pal_16(char_id, destination_palette);
 
         tint_factor_r = AdjustNumberForPossibleNegation(tint_factor_r);
         tint_factor_g = AdjustNumberForPossibleNegation(tint_factor_g);
@@ -171,7 +171,7 @@ namespace MVC2_SupplementProcessing
             tint_factor_r, tint_factor_g, tint_factor_b, source_palette, src_index, destination_palette, dst_index, index_amt);
         OutputDebugString(strDebugInfo);
 
-        for (UINT8 offset = 0; offset < index_amt; offset++)
+        for (uint8_t offset = 0; offset < index_amt; offset++)
         {
             COLORREF input_col = CurrMVC2->ConvPal16(src_16[offset + src_index]);
 
@@ -188,21 +188,21 @@ namespace MVC2_SupplementProcessing
         return 1;
     }
 
-    int supp_copy_crosscharacter(uint32_t source_id, uint32_t source_palette, uint32_t destination_id, uint32_t destination_palette, UINT8 source_index, UINT8 destination_index, UINT8 copy_amount)
+    int supp_copy_crosscharacter(uint32_t source_id, uint32_t source_palette, uint32_t destination_id, uint32_t destination_palette, uint8_t source_index, uint8_t destination_index, uint8_t copy_amount)
     {
         CString strDebugInfo;
         strDebugInfo.Format(L"\t\t\tsupp_copy_crosscharacter being applied: Copying source unit 0x%02x palette 0x%02x to destination unit 0x%02x palette 0x%02x\n", source_id, source_palette, destination_id, destination_palette);
         OutputDebugString(strDebugInfo);
 
-        UINT16* src_16 = get_pal_16(source_id, source_palette);
-        UINT16* dst_16 = get_pal_16(destination_id, destination_palette);
+        uint16_t* src_16 = get_pal_16(source_id, source_palette);
+        uint16_t* dst_16 = get_pal_16(destination_id, destination_palette);
 
-        memcpy(&dst_16[destination_index], &src_16[source_index], copy_amount * sizeof(UINT16));
+        memcpy(&dst_16[destination_index], &src_16[source_index], copy_amount * sizeof(uint16_t));
 
         return 1;
     }
 
-    int supp_copy_spiral(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 source_index /* = 0 */, UINT8 destination_index /* = 0 */, UINT8 copy_amount /* = 0x10 */)
+    int supp_copy_spiral(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t source_index /* = 0 */, uint8_t destination_index /* = 0 */, uint8_t copy_amount /* = 0x10 */)
     {
         return supp_copy_crosscharacter(char_id, source_palette, indexCPS2Sprites_Spiral /*0x31, spiral*/, destination_palette, source_index, destination_index, copy_amount);
     }
@@ -340,8 +340,8 @@ namespace MVC2_SupplementProcessing
         if (!mvc2_supp_const[char_no].empty())
         {
             // Load the supplemental data for this character
-            std::vector<UINT16> supplementalEffectsData = mvc2_supp_const[char_no];
-            UINT16 indexCounterForEffects = 1; // 1 to skip the character id
+            std::vector<uint16_t> supplementalEffectsData = mvc2_supp_const[char_no];
+            uint16_t indexCounterForEffects = 1; // 1 to skip the character id
 
             //SUPP_NODE
             // Node_start: offset within the palette set.
@@ -352,8 +352,8 @@ namespace MVC2_SupplementProcessing
 
             while (indexCounterForEffects < supplementalEffectsData.size())
             {
-                UINT16 node_start = 0, node_inc = 0, base_start = 0, base_inc = 1;
-                UINT16 effect_node_type = supplementalEffectsData[indexCounterForEffects];
+                uint16_t node_start = 0, node_inc = 0, base_start = 0, base_inc = 1;
+                uint16_t effect_node_type = supplementalEffectsData[indexCounterForEffects];
 
                 BOOL isCurrentPaletteABasicPalette = FALSE;
                 BOOL isCurrentPaletteAnExtraPalette = FALSE;
@@ -361,13 +361,13 @@ namespace MVC2_SupplementProcessing
                 // If the current position is SUPP_NODE or SUPP_NODE_*, that indicates the beginning of a new modifier array
                     //Possible sources = SUPP_NODE, SUPP_NODE_EX, SUPP_NODE_ABSOL, SUPP_NODE_EX | SUPP_NODE_NOCOPY, SUPP_NODE_EX | SUPP_NODE_ABSOL
 
-                UINT8 add = 3; // minimum count of data provided for a SUPP_NODE entry
+                uint8_t add = 3; // minimum count of data provided for a SUPP_NODE entry
 
                 if ((effect_node_type & SUPP_NODE) == SUPP_NODE) //&& indexCounterForEffects < index_sz)
                 {
                     OutputDebugString(L"\t\tproc_supp: New modification node encountered\n");
 
-                    UINT16 in_start = supplementalEffectsData[indexCounterForEffects + 1];
+                    uint16_t in_start = supplementalEffectsData[indexCounterForEffects + 1];
 
                     if (in_start & MOD_ABS)
                     {
@@ -435,12 +435,12 @@ namespace MVC2_SupplementProcessing
                         OutputDebugString(L"\t\tproc_supp: This node is being skipped for this palette type.\n");
                     }
 
-                    UINT8 pal_ctr;
+                    uint8_t pal_ctr;
                     uint32_t destination_palette;
 
                     if (!thisNodeForExtraPalettesOnly)
                     {
-                        pal_ctr = (UINT8)(pal_no / base_inc);
+                        pal_ctr = (uint8_t)(pal_no / base_inc);
                         destination_palette = node_start + (node_inc * pal_ctr);
 
                         if ((effect_node_type & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
@@ -456,7 +456,7 @@ namespace MVC2_SupplementProcessing
                         if ((pal_no >= base_start) && ((pal_no - base_start) % base_inc == 0))
                         {
                             // Character offset will be a value from 0-5
-                            pal_ctr = (UINT8)((pal_no - base_start) / base_inc);
+                            pal_ctr = (uint8_t)((pal_no - base_start) / base_inc);
                         }
                         else
                         {
@@ -480,7 +480,7 @@ namespace MVC2_SupplementProcessing
                         }
                     }
 
-                    UINT16 indexCounterForOptionalModifiers = indexCounterForEffects + add;
+                    uint16_t indexCounterForOptionalModifiers = indexCounterForEffects + add;
                     add = 0;
 
                     if ((effect_node_type & SUPP_NODE_EX) == SUPP_NODE_EX)
@@ -546,16 +546,16 @@ namespace MVC2_SupplementProcessing
                             }
 
                             //pi = palette index - value should be from 0-15.
-                            UINT8 pi_start = (UINT8)supplementalEffectsData[indexCounterForEffects + 1];
-                            UINT8 pi_amt = (UINT8)supplementalEffectsData[indexCounterForEffects + 2];
+                            uint8_t pi_start = (uint8_t)supplementalEffectsData[indexCounterForEffects + 1];
+                            uint8_t pi_amt = (uint8_t)supplementalEffectsData[indexCounterForEffects + 2];
 
                             switch (supplementalEffectsData[indexCounterForEffects])
                             {
                             case MOD_TINT:
                             {
-                                if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, (UINT8)supplementalEffectsData[indexCounterForEffects + 3] + pi_amt))
+                                if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, (uint8_t)supplementalEffectsData[indexCounterForEffects + 3] + pi_amt))
                                 {
-                                    nTotalLinkedPalettesUpdated += supp_mod_tint(char_no, pal_no, destination_palette, (UINT8)supplementalEffectsData[indexCounterForEffects + 3], pi_start, pi_amt,
+                                    nTotalLinkedPalettesUpdated += supp_mod_tint(char_no, pal_no, destination_palette, (uint8_t)supplementalEffectsData[indexCounterForEffects + 3], pi_start, pi_amt,
                                         supplementalEffectsData[indexCounterForEffects + 4], supplementalEffectsData[indexCounterForEffects + 5], supplementalEffectsData[indexCounterForEffects + 6]);
                                 }
 
@@ -577,7 +577,7 @@ namespace MVC2_SupplementProcessing
                             {
                                 if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, supplementalEffectsData[indexCounterForEffects + 3] + pi_amt))
                                 {
-                                    nTotalLinkedPalettesUpdated += supp_copy_index(char_no, pal_no, destination_palette, (UINT8)supplementalEffectsData[indexCounterForEffects + 3], pi_start, pi_amt);
+                                    nTotalLinkedPalettesUpdated += supp_copy_index(char_no, pal_no, destination_palette, (uint8_t)supplementalEffectsData[indexCounterForEffects + 3], pi_start, pi_amt);
                                 }
 
                                 indexCounterForEffects += 4;
@@ -589,8 +589,8 @@ namespace MVC2_SupplementProcessing
                             {
                                 if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, pi_start + pi_amt))
                                 {
-                                    UINT16 mod_type = supplementalEffectsData[indexCounterForEffects];
-                                    UINT16 mod_amt = supplementalEffectsData[indexCounterForEffects + 3];
+                                    uint16_t mod_type = supplementalEffectsData[indexCounterForEffects];
+                                    uint16_t mod_amt = supplementalEffectsData[indexCounterForEffects + 3];
 
                                     nTotalLinkedPalettesUpdated += supp_mod_hsl(char_no, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
                                 }

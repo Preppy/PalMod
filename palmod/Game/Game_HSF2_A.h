@@ -17,8 +17,8 @@ private:
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = HSF2_A_GAMEKEY_04;
     static uint32_t m_nHSF2SelectedRom;
-    static UINT32 m_nTotalPaletteCountForHSF2_03;
-    static UINT32 m_nTotalPaletteCountForHSF2_04;
+    static uint32_t m_nTotalPaletteCountForHSF2_03;
+    static uint32_t m_nTotalPaletteCountForHSF2_04;
     static bool UsePaletteSetForPortraits() { return (m_nHSF2SelectedRom == HSF2_A_GAMEKEY_03); }
     static bool UsePaletteSetForCharacters() { return (m_nHSF2SelectedRom == HSF2_A_GAMEKEY_04); }
 
@@ -31,8 +31,8 @@ private:
     void ClearDataBuffer() override;
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -42,7 +42,7 @@ private:
     const int m_uLowestKnownPaletteROMLocation_04 = 0x43f9e;
 
 public:
-    CGame_HSF2_A(UINT32 nConfirmedROMSize, int nHSF2RomToLoad);
+    CGame_HSF2_A(uint32_t nConfirmedROMSize, int nHSF2RomToLoad);
     ~CGame_HSF2_A(void);
 
     //Static functions / variables
@@ -70,7 +70,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* HSF2_A_EXTRA_CUSTOM_03;
     static stExtraDef* HSF2_A_EXTRA_CUSTOM_04;

@@ -5,11 +5,11 @@
 class CGame_GGXXACR_S : public CGameWithExtrasFile
 {
 public:
-    CGame_GGXXACR_S(UINT32 nConfirmedROMSize = -1);
+    CGame_GGXXACR_S(uint32_t nConfirmedROMSize = -1);
     ~CGame_GGXXACR_S();
 
     static void InitializeStatics();
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;

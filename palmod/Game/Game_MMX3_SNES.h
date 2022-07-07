@@ -6,14 +6,14 @@
 class CGame_MMX3_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForMMX3;
+    static uint32_t m_nTotalPaletteCountForMMX3;
 
     static uint32_t rgExtraCountAll[MMX3_SNES_NUMUNIT + 1];
     static uint32_t rgExtraLoc[MMX3_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -22,7 +22,7 @@ private:
     static constexpr auto MMX3_SNES_PRIMARY_ROMNAME = L"megaman x3 (usa).sfc";
 
 public:
-    CGame_MMX3_SNES(UINT32 nConfirmedROMSize);
+    CGame_MMX3_SNES(uint32_t nConfirmedROMSize);
     ~CGame_MMX3_SNES(void);
 
     //Static functions / variables

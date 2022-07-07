@@ -7,9 +7,9 @@
 // This decides whether or not you get extra debug output while running under the debugger
 #define XMMA_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-UINT32 CGame_XMMA_SNES::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_XMMA_SNES::m_nExpectedGameROMSize = 0x200000;
 
-CGame_XMMA_SNES::CGame_XMMA_SNES(UINT32 nConfirmedROMSize)
+CGame_XMMA_SNES::CGame_XMMA_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_XMMA_SNES::CGame_XMMA_SNES: Loading ROM...\n");
 
@@ -67,8 +67,8 @@ stExtraDef* CGame_XMMA_SNES::XMMA_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_XMMA_SNES::MainDescTree = nullptr;
 uint32_t CGame_XMMA_SNES::rgExtraCountAll[XMMA_SNES_NUMUNIT + 1];
 uint32_t CGame_XMMA_SNES::rgExtraLoc[XMMA_SNES_NUMUNIT + 1];
-UINT32 CGame_XMMA_SNES::m_nTotalPaletteCountForXMMA = 0;
-UINT32 CGame_XMMA_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_XMMA_SNES::m_nTotalPaletteCountForXMMA = 0;
+uint32_t CGame_XMMA_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_XMMA_SNES::InitializeStatics()
 {
@@ -108,7 +108,7 @@ sDescTreeNode* CGame_XMMA_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_XMMA_SNES, &XMMA_SNES_EXTRA_CUSTOM, XMMA_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = XMMA_SNES_NUMUNIT + (GetExtraCt(XMMA_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = XMMA_SNES_NUMUNIT + (GetExtraCt(XMMA_SNES_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

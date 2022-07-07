@@ -4,9 +4,9 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_SVG_SNES::m_nExpectedGameROMSize = 0x300000;
+uint32_t CGame_SVG_SNES::m_nExpectedGameROMSize = 0x300000;
 
-CGame_SVG_SNES::CGame_SVG_SNES(UINT32 nConfirmedROMSize)
+CGame_SVG_SNES::CGame_SVG_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_SVG_SNES::CGame_SVG_SNES: Loading ROM...\n");
 
@@ -64,8 +64,8 @@ stExtraDef* CGame_SVG_SNES::SVG_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_SVG_SNES::MainDescTree = nullptr;
 uint32_t CGame_SVG_SNES::rgExtraCountAll[SVG_SNES_NUMUNIT + 1];
 uint32_t CGame_SVG_SNES::rgExtraLoc[SVG_SNES_NUMUNIT + 1];
-UINT32 CGame_SVG_SNES::m_nTotalPaletteCountForSVG = 0;
-UINT32 CGame_SVG_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_SVG_SNES::m_nTotalPaletteCountForSVG = 0;
+uint32_t CGame_SVG_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_SVG_SNES::InitializeStatics()
 {
@@ -105,7 +105,7 @@ sDescTreeNode* CGame_SVG_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SVG_SNES, &SVG_SNES_EXTRA_CUSTOM, SVG_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = SVG_SNES_NUMUNIT + (GetExtraCt(SVG_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = SVG_SNES_NUMUNIT + (GetExtraCt(SVG_SNES_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

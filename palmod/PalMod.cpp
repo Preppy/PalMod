@@ -170,13 +170,13 @@ void CPalModApp::LaunchReadMe()
 
 void LaunchFileOrURL(LPCWSTR pszFileName, LPCWSTR pszBackupURL)
 {
-    WCHAR szReadMeFile[MAX_PATH] = {};
+    wchar_t szReadMeFile[MAX_PATH] = {};
     DWORD nFileAttrib = INVALID_FILE_ATTRIBUTES;
 
     if (pszFileName)
     {
         DWORD dwCharsUsed = GetModuleFileName(nullptr, szReadMeFile, (DWORD)ARRAYSIZE(szReadMeFile));
-        WCHAR* pszExeFileName = wcsrchr(szReadMeFile, L'\\') + 1;
+        wchar_t* pszExeFileName = wcsrchr(szReadMeFile, L'\\') + 1;
         wcsncpy(pszExeFileName, pszFileName, ARRAYSIZE(szReadMeFile) - dwCharsUsed);
 
         nFileAttrib = GetFileAttributes(szReadMeFile);

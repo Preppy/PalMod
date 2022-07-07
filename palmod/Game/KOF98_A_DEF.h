@@ -6,7 +6,7 @@
 // * Update every array using KOF98_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const std::vector<UINT16> KOF98_A_IMGIDS_USED =
+const std::vector<uint16_t> KOF98_A_IMGIDS_USED =
 {
     indexKOF98Sprites_Kyo,      // 0x00
     indexKOF98Sprites_Benimaru, // 0x01

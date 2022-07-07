@@ -4,32 +4,32 @@
 
 //SUPP_NODE_ABSOL, Dest Start, Dest Increment, Src Start, Src Increment
 // SUPP_NODE_ABSOL adds two values: the starting palette and the number of colors to include.
-constexpr UINT16 SUPP_NODE_ABSOL = 0x4002;
+constexpr uint16_t SUPP_NODE_ABSOL = 0x4002;
 
 // Normally we offset at ID_MOD unless MOD_ABS is specified.  If MOD_ABS is specified we use the 
 // raw palette ID.
-constexpr UINT16 MOD_ABS = 0x8000; // Start at absolute 0x0 within the unit for this palette
+constexpr uint16_t MOD_ABS = 0x8000; // Start at absolute 0x0 within the unit for this palette
 // ID_MOD is 47: (button_colors * palettes_per_button) - 1 (zero-based)
 
-extern UINT8 k_mvc2_character_coloroption_count;
+extern uint8_t k_mvc2_character_coloroption_count;
 
-extern UINT16 ID_MOD; // = ((6 * 8) - 1); // Index mod - this is also EXTRA_OMNI for MvC2 only
+extern uint16_t ID_MOD; // = ((6 * 8) - 1); // Index mod - this is also EXTRA_OMNI for MvC2 only
 
 // These are palettes wholly located within the Extra nodes.  
-constexpr UINT16 EXTRA_NODE_ONLY = 0x4008;
+constexpr uint16_t EXTRA_NODE_ONLY = 0x4008;
 
 //Syntax: SUPP_NODE_EX, Dest Palette, Dest Increment, Src Start Index, Number of Items to Copy, Dest Index
 // This indicates that the supplemental node to be changed is located within the EX/Extras section and is not one of the core palettes
-constexpr UINT16 SUPP_NODE_EX = 0x4001;
+constexpr uint16_t SUPP_NODE_EX = 0x4001;
 
 namespace MVC2_SupplementProcessing
 {
     extern CGame_MVC2_D* CurrMVC2;
     extern CGame_MVC2_A* CurrMVC2_Arcade;
 
-    UINT16* get_pal_16(uint32_t char_id, uint32_t pal_no);
+    uint16_t* get_pal_16(uint32_t char_id, uint32_t pal_no);
 
-    int supp_copy_spiral(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, UINT8 source_index = 0, UINT8 destination_index = 0, UINT8 copy_amount = 0x10);
+    int supp_copy_spiral(uint32_t char_id, uint32_t source_palette, uint32_t destination_palette, uint8_t source_index = 0, uint8_t destination_index = 0, uint8_t copy_amount = 0x10);
 
     void prep_supp(bool forDreamcast = true);
     void proc_supp(uint32_t char_no, uint32_t pal_no);
@@ -40,7 +40,7 @@ namespace MVC2_SupplementProcessing
     // The characters that require different handling are:
     // * Cyclops, Iceman, Jin, Morrigan, Rogue, Sakura, Sonson, and Zangief
 
-    const std::vector<UINT16> supp_data_zangief_6color =
+    const std::vector<uint16_t> supp_data_zangief_6color =
     {
         0x01 |  SUPP_START, //Zangief
 
@@ -68,7 +68,7 @@ namespace MVC2_SupplementProcessing
                 MOD_TINT, 1, 7, 1, 7, NEG + 6, NEG + 6, // ~75% tint
     };
 
-    const std::vector<UINT16> supp_data_morrigan_6color =
+    const std::vector<uint16_t> supp_data_morrigan_6color =
     {
         0x03 | SUPP_START, //Morrigan
             //SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
@@ -106,7 +106,7 @@ namespace MVC2_SupplementProcessing
             SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 12, 1, 14,
     };
 
-    const std::vector<UINT16> supp_data_cyclops_6color =
+    const std::vector<uint16_t> supp_data_cyclops_6color =
     {
         0x06 | SUPP_START, //Cyclops
             //SUPP_NODE_ABSOL | SUPP_NODE_EX, Dest Start, Dest Inc, Src Pal Start, Src Pal Inc, Src Index Start, Src Index Amt, Dst Index
@@ -151,7 +151,7 @@ namespace MVC2_SupplementProcessing
                 MOD_TINT, 1, 15, 1, 3, NEG + 1, NEG + 1,
     };
 
-    const std::vector<UINT16> supp_data_iceman_6color =
+    const std::vector<uint16_t> supp_data_iceman_6color =
     {
         0x09 | SUPP_START, //Iceman
             // Stance Frame
@@ -188,7 +188,7 @@ namespace MVC2_SupplementProcessing
                 MOD_COPY, 11, 1, 2,
     };
 
-    const std::vector<UINT16> supp_data_rogue_6color =
+    const std::vector<uint16_t> supp_data_rogue_6color =
     {
         0x0A | SUPP_START, //Rogue
             // Dash shadows
@@ -236,7 +236,7 @@ namespace MVC2_SupplementProcessing
             //    MOD_LUM, 15, 1, 6,
     };
 
-    const std::vector<UINT16> supp_data_sonson_6color =
+    const std::vector<uint16_t> supp_data_sonson_6color =
     {
         0x14 | SUPP_START, // SonSon
             //SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
@@ -265,7 +265,7 @@ namespace MVC2_SupplementProcessing
 
     };
 
-    const std::vector<UINT16> supp_data_sakura_6color =
+    const std::vector<uint16_t> supp_data_sakura_6color =
     {
         0x22 | SUPP_START, // Sakura - indexCPS2Sprites_Sakura 0x22
             //Kei should have the same outfit
@@ -276,7 +276,7 @@ namespace MVC2_SupplementProcessing
                 MOD_COPY, 10, 6, 10,
     };
 
-    const std::vector<UINT16> supp_data_jin_6color =
+    const std::vector<uint16_t> supp_data_jin_6color =
     {
         0x37 | SUPP_START, //Jin
             // power-up flash
@@ -309,7 +309,7 @@ namespace MVC2_SupplementProcessing
                 MOD_TINT, 2, 4, 2, 0, NEG + 6, NEG + 6,
     };
 
-    const std::vector<UINT16> supp_data_zangief_16color =
+    const std::vector<uint16_t> supp_data_zangief_16color =
     {
         0x01 | SUPP_START, //Zangief
 
@@ -337,7 +337,7 @@ namespace MVC2_SupplementProcessing
                 MOD_TINT, 1, 7, 1, 7, NEG + 6, NEG + 6, // ~75% tint
     };
 
-    const std::vector<UINT16> supp_data_morrigan_16color =
+    const std::vector<uint16_t> supp_data_morrigan_16color =
     {
         0x03 | SUPP_START, //Morrigan
             //SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
@@ -373,7 +373,7 @@ namespace MVC2_SupplementProcessing
             SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0xf9, 1, 12, 1, 14,
     };
 
-    const std::vector<UINT16> supp_data_anakaris =
+    const std::vector<uint16_t> supp_data_anakaris =
     {
         0x04 | SUPP_START, //Anakaris
             // Upward hands
@@ -383,7 +383,7 @@ namespace MVC2_SupplementProcessing
             SUPP_NODE, 0x04 | MOD_ABS, 8,
     };
 
-    const std::vector<UINT16> supp_data_cyclops_16color =
+    const std::vector<uint16_t> supp_data_cyclops_16color =
     {
         0x06 | SUPP_START, //Cyclops
             //SUPP_NODE_ABSOL | SUPP_NODE_EX, Dest Start, Dest Inc, Src Pal Start, Src Pal Inc, Src Index Start, Src Index Amt, Dst Index
@@ -428,7 +428,7 @@ namespace MVC2_SupplementProcessing
                 MOD_TINT, 1, 15, 1, 3, NEG + 1, NEG + 1,
     };
 
-    const std::vector<UINT16> supp_data_wolverine =
+    const std::vector<uint16_t> supp_data_wolverine =
     {
         0x07 | SUPP_START, // Wolverine (adm).  If you link palette 0 and 1 please update HandleSpiralCopies_ForSupplementedPalettes
             // his berserker barrage trails a bit of his costume.
@@ -439,7 +439,7 @@ namespace MVC2_SupplementProcessing
                 MOD_COPY,  9, 1, 15,
     };
 
-    const std::vector<UINT16> supp_data_iceman_16color =
+    const std::vector<uint16_t> supp_data_iceman_16color =
     {
         0x09 | SUPP_START, //Iceman
             // Stance Frame
@@ -478,7 +478,7 @@ namespace MVC2_SupplementProcessing
                 MOD_COPY, 11, 1, 2,
     };
 
-    const std::vector<UINT16> supp_data_rogue_16color =
+    const std::vector<uint16_t> supp_data_rogue_16color =
     {
         0x0A | SUPP_START, //Rogue
             // Dash shadows
@@ -526,7 +526,7 @@ namespace MVC2_SupplementProcessing
             //    MOD_LUM, 15, 1, 6,
     };
 
-    const std::vector<UINT16> supp_data_captainamerica =
+    const std::vector<uint16_t> supp_data_captainamerica =
     {
         /* Shield links are already handled since this palette is paired
         0x0B | SUPP_START, //Captain America
@@ -544,7 +544,7 @@ namespace MVC2_SupplementProcessing
         */
     };
 
-    const std::vector<UINT16> supp_data_spiderman =
+    const std::vector<uint16_t> supp_data_spiderman =
     {
         0x0C | SUPP_START, //Spider-Man
             // 01 ABS: Taunt balloon
@@ -573,7 +573,7 @@ namespace MVC2_SupplementProcessing
 
     };
 
-    const std::vector<UINT16> supp_data_doom =
+    const std::vector<uint16_t> supp_data_doom =
     {
         0x0F | SUPP_START, //Dr. Doom
             // If you link palette 0 and 1 please update HandleSpiralCopies_ForSupplementedPalettes
@@ -581,7 +581,7 @@ namespace MVC2_SupplementProcessing
             SUPP_NODE, 0x09, 28,
     };
 
-    const std::vector<UINT16> supp_data_sonson_16color =
+    const std::vector<uint16_t> supp_data_sonson_16color =
     {
         0x14 | SUPP_START, // SonSon
             // The 0x02 Monkeys palette should be handled by the user, since it's paired
@@ -608,14 +608,14 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 15, NEG + 12,
     };
 
-    const std::vector<UINT16> supp_data_amingo =
+    const std::vector<uint16_t> supp_data_amingo =
     {
         indexCPS2Sprites_Amingo | SUPP_START,
             SUPP_NODE | SUPP_NODE_NOCOPY, 4 | MOD_ABS, 8,
                 MOD_COPY, 6, 4, 7,
     };
 
-    const std::vector<UINT16> supp_data_chunli =
+    const std::vector<uint16_t> supp_data_chunli =
     {
             /* The kick links have to be done by the user since this palette is paired
         0x1B | SUPP_START, //Chun-Li
@@ -635,7 +635,7 @@ namespace MVC2_SupplementProcessing
             */
     };
 
-    const std::vector<UINT16> supp_data_megaman =
+    const std::vector<uint16_t> supp_data_megaman =
     {
         0x1C | SUPP_START, // Megaman
             // intro animation is 9 frames 0xb-0x13
@@ -681,7 +681,7 @@ namespace MVC2_SupplementProcessing
             // 0x56-5d: hyper megaman switching back
     };
 
-    const std::vector<UINT16> supp_data_roll =
+    const std::vector<uint16_t> supp_data_roll =
     {
         0x1D | SUPP_START, // Roll: Identical to Megaman, except the outline is 0x15 instead of 0x01
             // intro animation is frames 0xb-0x13
@@ -724,7 +724,7 @@ namespace MVC2_SupplementProcessing
             // 0x56-5d: hyper roll switching back
     };
 
-    const std::vector<UINT16> supp_data_sakura_16color =
+    const std::vector<uint16_t> supp_data_sakura_16color =
     {
         0x22 | SUPP_START, // Sakura - indexCPS2Sprites_Sakura 0x22
             //Kei should have the same outfit
@@ -735,7 +735,7 @@ namespace MVC2_SupplementProcessing
                 MOD_COPY, 9, 7, 9,
     };
 
-    const std::vector<UINT16> supp_data_cammy =
+    const std::vector<uint16_t> supp_data_cammy =
     {
         0x24 | SUPP_START, //Cammy
             // 0x9-0x11 are the counter flash
@@ -758,7 +758,7 @@ namespace MVC2_SupplementProcessing
                 MOD_TINT, 1, 15, 1, NEG + 4, NEG + 4, 7, // dark blue + 7
     };
 
-    const std::vector<UINT16> supp_data_dhalsim =
+    const std::vector<uint16_t> supp_data_dhalsim =
     {
         // 5 teleport frames
         0x25 | SUPP_START, //Dhalsim
@@ -772,7 +772,7 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 15, 65,
     };
 
-    const std::vector<UINT16> supp_data_gambit =
+    const std::vector<uint16_t> supp_data_gambit =
     {
         // 5 win pose frames
         0x28 | SUPP_START, //Gambit
@@ -787,7 +787,7 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 15, 10 + NEG,
     };
 
-    const std::vector<UINT16> supp_data_juggernaut =
+    const std::vector<uint16_t> supp_data_juggernaut =
     {
         0x29 | SUPP_START, //Juggernaut
             // 8 Power-up frames
@@ -808,7 +808,7 @@ namespace MVC2_SupplementProcessing
             SUPP_NODE, 0x12, 10,
     };
 
-    const std::vector<UINT16> supp_data_storm =
+    const std::vector<uint16_t> supp_data_storm =
     {
         0x2A | SUPP_START, //Storm
             // the 0x09-0x11 lightning super effect is SHARED for all 6 colors, so no you don't really want to touch it
@@ -822,7 +822,7 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 15, 17,
     };
 
-    const std::vector<UINT16> supp_data_shuma =
+    const std::vector<uint16_t> supp_data_shuma =
     {
         0x2D | SUPP_START, //Shuma Gorath
             // Dash/Guard: Extra 01
@@ -911,7 +911,7 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 15, NEG + 60,
     };
 
-    const std::vector<UINT16> supp_data_silversamurai =
+    const std::vector<uint16_t> supp_data_silversamurai =
     {
         0x2F | SUPP_START, //Silver Samurai
             // Shadow frame
@@ -932,7 +932,7 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 15, 5 + NEG,
     };
 
-    const std::vector<UINT16> supp_data_omegared =
+    const std::vector<uint16_t> supp_data_omegared =
     {
         0x30 | SUPP_START, //Omega Red: intro frames
             SUPP_NODE, 0x09, 4,
@@ -945,7 +945,7 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 15, 5 + NEG,
     };
 
-    const std::vector<UINT16> supp_data_spiral =
+    const std::vector<uint16_t> supp_data_spiral =
     {
         0x31 | SUPP_START, //Spiral
 
@@ -1044,7 +1044,7 @@ namespace MVC2_SupplementProcessing
             SUPP_NODE, 0x46, 28,
     };
 
-    const std::vector<UINT16> supp_data_colossus =
+    const std::vector<uint16_t> supp_data_colossus =
     {
         0x32 | SUPP_START, // Colossus
 
@@ -1152,7 +1152,7 @@ namespace MVC2_SupplementProcessing
             SUPP_NODE, 0x28, 32,
     };
 
-    const std::vector<UINT16> supp_data_sentinel =
+    const std::vector<uint16_t> supp_data_sentinel =
     {
         // This is normally paired, so the user needs to handle guts themselves there.
         // For team view, this is useful.
@@ -1161,7 +1161,7 @@ namespace MVC2_SupplementProcessing
                 MOD_COPY, 1, 7, 1,
     };
 
-    const std::vector<UINT16> supp_data_jin_16color =
+    const std::vector<uint16_t> supp_data_jin_16color =
     {
         0x37 | SUPP_START, //Jin
             // Special armor isn't linked to the main palette
@@ -1197,7 +1197,7 @@ namespace MVC2_SupplementProcessing
                 MOD_TINT, 2, 4, 2, 0, NEG + 6, NEG + 6,
     };
 
-    const std::vector<UINT16> supp_data_bonerine =
+    const std::vector<uint16_t> supp_data_bonerine =
     {
         0x39 | SUPP_START, // Bonerine
             // his berserker barrage trails a bit of his costume.
@@ -1208,7 +1208,7 @@ namespace MVC2_SupplementProcessing
                 MOD_COPY,  9, 1, 15,
     };
 
-    const std::vector<UINT16> supp_data_kobun =
+    const std::vector<uint16_t> supp_data_kobun =
     {
         0x3A | SUPP_START, //Kobun
             SUPP_NODE, 6 | MOD_ABS, 8, // Kobun Assist
@@ -1222,7 +1222,7 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 15, 40,
     };
 
-    const std::vector<std::vector<UINT16>> mvc2_6color_supp_const =
+    const std::vector<std::vector<uint16_t>> mvc2_6color_supp_const =
     {
         // indexCPS2Sprites_Ryu,          // 0x00
         {},
@@ -1344,7 +1344,7 @@ namespace MVC2_SupplementProcessing
         supp_data_kobun,
     };
 
-    const std::vector<std::vector<UINT16>> mvc2_16color_supp_const =
+    const std::vector<std::vector<uint16_t>> mvc2_16color_supp_const =
     {
         // indexCPS2Sprites_Ryu,          // 0x00
         {},

@@ -11,9 +11,9 @@ CDescTree CGame_NGBC_A::MainDescTree = nullptr;
 uint32_t CGame_NGBC_A::rgExtraCountAll[NGBC_A_NUMUNIT + 1];
 uint32_t CGame_NGBC_A::rgExtraLoc[NGBC_A_NUMUNIT + 1];
 
-UINT32 CGame_NGBC_A::m_nTotalPaletteCountForNGBC = 0;
-UINT32 CGame_NGBC_A::m_nExpectedGameROMSize = 0xf000000;
-UINT32 CGame_NGBC_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_NGBC_A::m_nTotalPaletteCountForNGBC = 0;
+uint32_t CGame_NGBC_A::m_nExpectedGameROMSize = 0xf000000;
+uint32_t CGame_NGBC_A::m_nConfirmedROMSize = -1;
 
 void CGame_NGBC_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_NGBC_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_NGBC_A::InitDescTree());
 }
 
-CGame_NGBC_A::CGame_NGBC_A(UINT32 nConfirmedROMSize)
+CGame_NGBC_A::CGame_NGBC_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_NGBC_A::CGame_NGBC_A: Loading ROM...\n");
 
@@ -98,7 +98,7 @@ uint32_t CGame_NGBC_A::GetExtraLoc(uint32_t nUnitId)
 struct sNGBC_CharacterDump
 {
     LPCWSTR pszCharacterName = nullptr;
-    UINT32 baseLocation = 0;
+    uint32_t baseLocation = 0;
     LPCWSTR pszImageRefName = nullptr;
 };
 
@@ -159,16 +159,16 @@ void CGame_NGBC_A::DumpAllCharacters()
     };
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(NGBCCharacterList); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(NGBCCharacterList); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_KOFXI.size(); iButtonIndex++)
+        for (uint16_t iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_KOFXI.size(); iButtonIndex++)
         {
             nCurrentCharacterOffset = NGBCCharacterList[iUnitCtr].baseLocation + (0x100 * iButtonIndex);
 
@@ -202,10 +202,10 @@ void CGame_NGBC_A::DumpAllCharacters()
                 L"Extra Move 6",
             };
 
-            for (UINT16 iCurrentExtra = 0; iCurrentExtra < ARRAYSIZE(pszMoveNames); iCurrentExtra++)
+            for (uint16_t iCurrentExtra = 0; iCurrentExtra < ARRAYSIZE(pszMoveNames); iCurrentExtra++)
             {
                 LPCWSTR pszCurrentMoveName = pszMoveNames[iCurrentExtra];
-                UINT32 nCurrentImageToUse = iCurrentExtra; // Starts at Super trail, which wants main sprite, then moves to Extras
+                uint32_t nCurrentImageToUse = iCurrentExtra; // Starts at Super trail, which wants main sprite, then moves to Extras
 
                 if (NGBCCharacterList[iUnitCtr].pszImageRefName)
                 {
@@ -229,17 +229,17 @@ void CGame_NGBC_A::DumpAllCharacters()
     }
 
     // Now create the collections...
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(NGBCCharacterList); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(NGBCCharacterList); iUnitCtr++)
     {
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode NGBC_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nButtonNameIndex = 0; nButtonNameIndex < DEF_BUTTONLABEL_KOFXI_FOR_UI.size(); nButtonNameIndex++)
+        for (uint16_t nButtonNameIndex = 0; nButtonNameIndex < DEF_BUTTONLABEL_KOFXI_FOR_UI.size(); nButtonNameIndex++)
         {
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)NGBC_A_%s_PALETTES_%s, ARRAYSIZE(NGBC_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL_KOFXI_FOR_UI[nButtonNameIndex], szCodeDesc, DEF_BUTTONLABEL_KOFXI_FOR_CODE[nButtonNameIndex],
                                                                                                                                             szCodeDesc, DEF_BUTTONLABEL_KOFXI_FOR_CODE[nButtonNameIndex] );
@@ -249,12 +249,12 @@ void CGame_NGBC_A::DumpAllCharacters()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(NGBCCharacterList); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(NGBCCharacterList); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
 
@@ -268,7 +268,7 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_NGBC_A, &NGBC_A_EXTRA_CUSTOM, NGBC_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = NGBC_A_NUMUNIT + (GetExtraCt(NGBC_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = NGBC_A_NUMUNIT + (GetExtraCt(NGBC_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

@@ -10,9 +10,9 @@ CDescTree CGame_VampireNightWarriors_A::MainDescTree = nullptr;
 uint32_t CGame_VampireNightWarriors_A::rgExtraCountAll[VampireNightWarriors_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_VampireNightWarriors_A::rgExtraLoc[VampireNightWarriors_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
-UINT32 CGame_VampireNightWarriors_A::m_nTotalPaletteCountForVampireNightWarriors = 0;
-UINT32 CGame_VampireNightWarriors_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_VampireNightWarriors_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_VampireNightWarriors_A::m_nTotalPaletteCountForVampireNightWarriors = 0;
+uint32_t CGame_VampireNightWarriors_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_VampireNightWarriors_A::m_nConfirmedROMSize = -1;
 
 void CGame_VampireNightWarriors_A::InitializeStatics()
 {
@@ -24,7 +24,7 @@ void CGame_VampireNightWarriors_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_VampireNightWarriors_A::InitDescTree());
 }
 
-CGame_VampireNightWarriors_A::CGame_VampireNightWarriors_A(UINT32 nConfirmedROMSize)
+CGame_VampireNightWarriors_A::CGame_VampireNightWarriors_A(uint32_t nConfirmedROMSize)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -76,7 +76,7 @@ CGame_VampireNightWarriors_A::~CGame_VampireNightWarriors_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
 #ifdef MAME_INFORMATION
     GAME(1994, dstlk, 0, cps2, cps2_2p6b, cps2_state, init_cps2, ROT0, "Capcom", "Darkstalkers: The Night Warriors (Euro 940705)", MACHINE_SUPPORTS_SAVE)
@@ -159,7 +159,7 @@ sDescTreeNode* CGame_VampireNightWarriors_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_VampireNightWarriors, &VampireNightWarriors_A_EXTRA_CUSTOM, VampireNightWarriors_A_EXTRALOC, m_nConfirmedROMSize);
 
-    const UINT16 nUnitCt = VampireNightWarriors_A_NUMUNIT + (GetExtraCt(VampireNightWarriors_A_EXTRALOC) ? 1 : 0);
+    const uint16_t nUnitCt = VampireNightWarriors_A_NUMUNIT + (GetExtraCt(VampireNightWarriors_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

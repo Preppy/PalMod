@@ -9,21 +9,21 @@ constexpr auto EXTRA_FILENAME_TOPF2005 = L"TOPF2005e.txt";
 class CGame_TOPF2005_SEGA : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForTOPF2005;
+    static uint32_t m_nTotalPaletteCountForTOPF2005;
 
     static uint32_t rgExtraCountAll[TOPF2005_SEGA_NUMUNIT + 1];
     static uint32_t rgExtraCountVisibleOnly[TOPF2005_SEGA_NUMUNIT + 1];
     static uint32_t rgExtraLoc[TOPF2005_SEGA_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_TOPF2005_SEGA(UINT32 nConfirmedROMSize);
+    CGame_TOPF2005_SEGA(uint32_t nConfirmedROMSize);
     ~CGame_TOPF2005_SEGA(void);
 
     //Static functions / variables
@@ -52,7 +52,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* TOPF2005_SEGA_EXTRA_CUSTOM;
 };

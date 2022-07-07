@@ -7,7 +7,7 @@
 
 BOOL CGameClass::m_ShouldUsePostSetPalProc = TRUE;
 BOOL CGameClass::m_fAllowTransparencyEdits = FALSE;
-UINT8 CGameClass::m_nSizeOfColorsInBytes = 2;
+uint8_t CGameClass::m_nSizeOfColorsInBytes = 2;
 
 #define GAMECLASS_DBG DEFAULT_GAME_DEBUG_STATE
 
@@ -436,7 +436,7 @@ BOOL CGameClass::SetLoadDir(LPCWSTR pszNewDir)
 {
     if (!m_pszLoadDir)
     {
-        m_pszLoadDir = new WCHAR[wcslen(pszNewDir) + 1];
+        m_pszLoadDir = new wchar_t[wcslen(pszNewDir) + 1];
         wcscpy(m_pszLoadDir, pszNewDir);
 
         return TRUE;
@@ -501,13 +501,13 @@ void CGameClass::RevertChanges(int nPalId)
     //MarkPaletteClean(CurrPalDef->uUnitId, CurrPalDef->uPalId);
 }
 
-void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, UINT16 nColorCount)
+void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, uint16_t nColorCount)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
-    for (UINT16 i = 0; i < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); i++)
+    for (uint16_t i = 0; i < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); i++)
     {
-        const UINT16 nCurrentPos = i + createPalOptions.nStartingPosition;
+        const uint16_t nCurrentPos = i + createPalOptions.nStartingPosition;
 
         if (i >= nColorCount)
         {
@@ -546,9 +546,9 @@ COLORREF* CGameClass::CreatePal(uint32_t nUnitId, uint32_t nPalId)
         NewPal[0] = 0x0;
     }
 
-    for (UINT16 i = 0; i < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); i++)
+    for (uint16_t i = 0; i < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); i++)
     {
-        const UINT16 nCurrentPos = i + createPalOptions.nStartingPosition;
+        const uint16_t nCurrentPos = i + createPalOptions.nStartingPosition;
 
         switch (GetGameColorByteLength())
         {
@@ -609,12 +609,12 @@ COLORREF*** CGameClass::CreateImgOutPal()
     }
 }
 
-BOOL CGameClass::CreateHybridPal(uint32_t nIndexAmt, uint32_t nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, uint32_t* nNewPalSz)
+BOOL CGameClass::CreateHybridPal(uint32_t nIndexAmt, uint32_t nPalSz, uint16_t* pData, int nExclusion, COLORREF** pNewPal, uint32_t* nNewPalSz)
 {
-    UINT32* pMulRg = new UINT32[nIndexAmt];
+    uint32_t* pMulRg = new uint32_t[nIndexAmt];
     uint32_t nNewPalSzCpy = 0;
 
-    memset(pMulRg, 0xFF, nIndexAmt * sizeof(UINT32));
+    memset(pMulRg, 0xFF, nIndexAmt * sizeof(uint32_t));
 
     for (uint32_t nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
     {
@@ -705,23 +705,23 @@ void CGameClass::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
             INT16 nTotalColorsRemaining = srcDef->uPalSz;
-            UINT16 nCurrentTotalWrites = 0;
+            uint16_t nCurrentTotalWrites = 0;
             // Every 16 colors there is another counter WORD (color length) to preserve.
-            const UINT16 nMaxSafeColorsToWrite = (UINT16)createPalOptions.eWriteOutputOptions;
-            const UINT16 iFixedCounterPosition = createPalOptions.nTransparencyColorPosition; // The lead 'color' in some games is a counter, in others it's the transparency color.  Don't touch.
+            const uint16_t nMaxSafeColorsToWrite = (uint16_t)createPalOptions.eWriteOutputOptions;
+            const uint16_t iFixedCounterPosition = createPalOptions.nTransparencyColorPosition; // The lead 'color' in some games is a counter, in others it's the transparency color.  Don't touch.
 
             while (nTotalColorsRemaining > 0)
             {
-                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
+                uint16_t nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
 
-                for (UINT16 nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
+                for (uint16_t nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
                 {
                     if (nPICtr == iFixedCounterPosition)
                     {
                         continue;
                     }
 
-                    const UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
+                    const uint16_t iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
 
                     if (iCurrentArrayOffset < createPalOptions.nStartingPosition)
                     {
@@ -774,11 +774,11 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
 {
     uint32_t nUnitId = srcNode->uUnitId;
     uint32_t nPalId = srcNode->uPalId;
-    static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
+    static uint16_t s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
     LoadSpecificPaletteData(nUnitId, nPalId);
 
-    const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSizeInColors / (double)s_nColorsPerPage);
+    const uint8_t nTotalPagesNeeded = (uint8_t)ceil((double)m_nCurrentPaletteSizeInColors / (double)s_nColorsPerPage);
     const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
 
     if (!fCanFitWithinCurrentPageLayout)
@@ -795,7 +795,7 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
         CString strPageDescription;
         INT16 nColorsRemaining = m_nCurrentPaletteSizeInColors;
 
-        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSizeInColors; nCurrentPage++)
+        for (uint16_t nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSizeInColors; nCurrentPage++)
         {
             strPageDescription.Format(L"%s (%u/%u)", srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
             BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
@@ -814,20 +814,20 @@ void CGameClass::InitDataBuffer()
     {
     case 2:
     {
-        m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-        memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
+        m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+        memset(m_pppDataBuffer, 0, sizeof(uint16_t**) * nUnitAmt);
         break;
     }
     case 3:
     {
-        m_pppDataBuffer24 = new UINT32 * *[nUnitAmt];
-        memset(m_pppDataBuffer24, 0, sizeof(UINT32**) * nUnitAmt);
+        m_pppDataBuffer24 = new uint32_t * *[nUnitAmt];
+        memset(m_pppDataBuffer24, 0, sizeof(uint32_t**) * nUnitAmt);
         break;
     }
     case 4:
     {
-        m_pppDataBuffer32 = new UINT32 * *[nUnitAmt];
-        memset(m_pppDataBuffer32, 0, sizeof(UINT32**) * nUnitAmt);
+        m_pppDataBuffer32 = new uint32_t * *[nUnitAmt];
+        memset(m_pppDataBuffer32, 0, sizeof(uint32_t**) * nUnitAmt);
         break;
     }
     }
@@ -1276,11 +1276,11 @@ void CGameClass::DumpTreeSorted()
     }
 }
 
-UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nTotalNormalUnitCount,
+uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nTotalNormalUnitCount,
                                  uint32_t* rgExtraCount, uint32_t* rgExtraLocations, stExtraDef* ppExtraDef)
 {
     CString strMsg;
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
 
     OutputDebugString(L"CGameClass::_InitDescTree: Building desc tree for game...\n");
 
@@ -1671,21 +1671,21 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
     return TRUE;
 }
 
-inline UINT8 CGameClass::GetSIMMSetForROMLocation(UINT32 nROMLocation)
+inline uint8_t CGameClass::GetSIMMSetForROMLocation(uint32_t nROMLocation)
 {
     return (nROMLocation > (m_nNumberOfSIMMsPerSet * m_nSIMMLength)) ? 1 : 0;
 }
 
-inline UINT32 CGameClass::GetSIMMLocationFromROMLocation(UINT32 nROMLocation)
+inline uint32_t CGameClass::GetSIMMLocationFromROMLocation(uint32_t nROMLocation)
 {
-    UINT32 nSIMMLocation = nROMLocation / m_nNumberOfSIMMsPerSet;
+    uint32_t nSIMMLocation = nROMLocation / m_nNumberOfSIMMsPerSet;
 
     return nSIMMLocation;
 }
 
-inline UINT32 CGameClass::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
+inline uint32_t CGameClass::GetLocationWithinSIMM(uint32_t nSIMMSetLocation)
 {
-    UINT32 nSIMMLocation = nSIMMSetLocation;
+    uint32_t nSIMMLocation = nSIMMSetLocation;
 
     while (nSIMMLocation > m_nSIMMLength)
     {
@@ -1703,7 +1703,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         {
             uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+            m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
             // Anything using the base implementation is presorted
             rgUnitRedir[nUnitCtr] = nUnitCtr;
@@ -1712,7 +1712,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
+                m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
 
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -1725,7 +1725,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         {
             uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            m_pppDataBuffer24[nUnitCtr] = new UINT32 * [nPalAmt];
+            m_pppDataBuffer24[nUnitCtr] = new uint32_t * [nPalAmt];
 
             // Anything using the base implementation is presorted
             rgUnitRedir[nUnitCtr] = nUnitCtr;
@@ -1733,7 +1733,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-                m_pppDataBuffer24[nUnitCtr][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+                m_pppDataBuffer24[nUnitCtr][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
@@ -1742,7 +1742,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                 {
                     //LoadedFile->Read(&m_pppDataBuffer24[nUnitCtr][nPalCtr][nArrayIndex], m_nSizeOfColorsInBytes);
                     BYTE bVal;
-                    UINT32 nCurrentColor = 0xff000000; // force alpha
+                    uint32_t nCurrentColor = 0xff000000; // force alpha
                     LoadedFile->Read(&bVal, 1);
                     nCurrentColor |= bVal << 16;
                     LoadedFile->Read(&bVal, 1);
@@ -1761,7 +1761,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         {
             uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            m_pppDataBuffer32[nUnitCtr] = new UINT32 * [nPalAmt];
+            m_pppDataBuffer32[nUnitCtr] = new uint32_t * [nPalAmt];
 
             // Anything using the base implementation is presorted
             rgUnitRedir[nUnitCtr] = nUnitCtr;
@@ -1770,7 +1770,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                m_pppDataBuffer32[nUnitCtr][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+                m_pppDataBuffer32[nUnitCtr][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 LoadedFile->Read(m_pppDataBuffer32[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -1796,7 +1796,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
 BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
 
     for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -1815,7 +1815,7 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
                     {
                         // Never write the transparency counter.
                         // It's kind of OK to do so since it should be a no-op, but TMNTF is evil and relies upon overlapping palettes.
-                        if ((((nArrayIndex + createPalOptions.nStartingPosition) % static_cast<UINT16>(createPalOptions.eWriteOutputOptions)) != 0) ||
+                        if ((((nArrayIndex + createPalOptions.nStartingPosition) % static_cast<uint16_t>(createPalOptions.eWriteOutputOptions)) != 0) ||
                             (nGameFlag == MSHVSF_A)) // We don't support skipping the transparency color for MSHvSF's special override
                         {
                             SaveFile->Write(&m_pppDataBuffer[nUnitCtr][nPalCtr][nArrayIndex], m_nSizeOfColorsInBytes);
@@ -1831,7 +1831,7 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
                     // This is special since we're padded.
                     for (int nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
                     {
-                        UINT32 nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nArrayIndex];
+                        uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nArrayIndex];
 
                         BYTE bVal = (nCurrentColor & 0xFF0000) >> 16;
                         SaveFile->Write(&bVal, 1);
@@ -1893,7 +1893,7 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber)
 
     if (fFileOpened)
     {
-        UINT32 nPaletteLoadCount = 0;
+        uint32_t nPaletteLoadCount = 0;
         bool fShownCrossSIMMErrorOnce = false;
 
         strInfo.Format(L"CGameClass::LoadFileForSIMMGame: Preparing to load data from SIMM number %u.%u with peer %s (range 0x%x to 0x%x)\n", m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber,
@@ -1906,8 +1906,8 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber)
 
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
-                m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-                memset(m_pppDataBuffer[nUnitCtr], 0, sizeof(UINT16*) * nPalAmt);
+                m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
+                memset(m_pppDataBuffer[nUnitCtr], 0, sizeof(uint16_t*) * nPalAmt);
             }
 
             // Layout is presorted
@@ -1919,7 +1919,7 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber)
 
                 if ((m_nCurrentPaletteROMLocation >= nBeginningRange) && (m_nCurrentPaletteROMLocation <= nEndingRange))
                 {
-                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
@@ -1936,21 +1936,21 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber)
                         fSuccess = FALSE;
                     }
 
-                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
-                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(UINT16) * m_nCurrentPaletteSizeInColors);
+                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
+                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(uint16_t) * m_nCurrentPaletteSizeInColors);
 
                     LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     nPaletteLoadCount++;
 
-                    for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
+                    for (uint16_t nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
                     {
                         BYTE high, low;
 
                         LoadedFile->Read(&low, 1);
                         FilePeer.Read(&high, 1);
 
-                        m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = (UINT16)((high << 8) | low);
+                        m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = (uint16_t)((high << 8) | low);
                     }
                 }
             }
@@ -2040,7 +2040,7 @@ BOOL CGameClass::SaveFileForSIMMGame(CFile* SaveFile, uint32_t nSIMMNumber)
     {
         strInfo.Format(L"CGameClass::SaveFileForSIMMGame: Preparing to save data starting with SIMM %u.%u\n", m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
         OutputDebugString(strInfo);
-        UINT32 nPaletteSaveCount = 0;
+        uint32_t nPaletteSaveCount = 0;
 
         for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
@@ -2052,9 +2052,9 @@ BOOL CGameClass::SaveFileForSIMMGame(CFile* SaveFile, uint32_t nSIMMNumber)
                 {
                     LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
 
-                    const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
+                    const uint8_t nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
 
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
@@ -2068,14 +2068,14 @@ BOOL CGameClass::SaveFileForSIMMGame(CFile* SaveFile, uint32_t nSIMMNumber)
 
                     // write length will be number of *bytes* in the sequence across 2 files
                     // We use a temp array to minimize the number of write calls we make
-                    UINT16 nCurrentWriteLength = (m_nCurrentPaletteSizeInColors / m_nSizeOfColorsInBytes) * 2;
+                    uint16_t nCurrentWriteLength = (m_nCurrentPaletteSizeInColors / m_nSizeOfColorsInBytes) * 2;
 
                     BYTE* pbWrite1 = new BYTE[nCurrentWriteLength];
                     BYTE* pbWrite2 = new BYTE[nCurrentWriteLength];
 
                     if (pbWrite1 && pbWrite2)
                     {
-                        for (UINT16 nWordsWritten = 0; nWordsWritten < nCurrentWriteLength; nWordsWritten++)
+                        for (uint16_t nWordsWritten = 0; nWordsWritten < nCurrentWriteLength; nWordsWritten++)
                         {
                             pbWrite1[nWordsWritten] = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
                             pbWrite2[nWordsWritten] = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;

@@ -4,7 +4,7 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-CGame_JusticeLeagueTF_SNES::CGame_JusticeLeagueTF_SNES(UINT32 nConfirmedROMSize)
+CGame_JusticeLeagueTF_SNES::CGame_JusticeLeagueTF_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_JusticeLeagueTF_SNES::CGame_JusticeLeagueTF_SNES: Loading ROM...\n");
 
@@ -22,8 +22,8 @@ CGame_JusticeLeagueTF_SNES::CGame_JusticeLeagueTF_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = JusticeLeagueTF_SNES_NUMUNIT;
     m_nExtraUnit = JusticeLeagueTF_SNES_EXTRALOC;
 
-    constexpr UINT32 nInternalPaletteCount = 77;
-    constexpr UINT32 nLowestInternalPaletteLocation = 0x1a92a;
+    constexpr uint32_t nInternalPaletteCount = 77;
+    constexpr uint32_t nLowestInternalPaletteLocation = 0x1a92a;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nInternalPaletteCount;
     m_pszExtraFilename = EXTRA_FILENAME_JusticeLeagueTF_SNES;
@@ -63,8 +63,8 @@ stExtraDef* CGame_JusticeLeagueTF_SNES::JusticeLeagueTF_SNES_EXTRA_CUSTOM = null
 CDescTree CGame_JusticeLeagueTF_SNES::MainDescTree = nullptr;
 uint32_t CGame_JusticeLeagueTF_SNES::rgExtraCountAll[JusticeLeagueTF_SNES_NUMUNIT + 1];
 uint32_t CGame_JusticeLeagueTF_SNES::rgExtraLoc[JusticeLeagueTF_SNES_NUMUNIT + 1];
-UINT32 CGame_JusticeLeagueTF_SNES::m_nTotalPaletteCountForJusticeLeagueTF = 0;
-UINT32 CGame_JusticeLeagueTF_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_JusticeLeagueTF_SNES::m_nTotalPaletteCountForJusticeLeagueTF = 0;
+uint32_t CGame_JusticeLeagueTF_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_JusticeLeagueTF_SNES::InitializeStatics()
 {
@@ -104,7 +104,7 @@ sDescTreeNode* CGame_JusticeLeagueTF_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_JusticeLeagueTF_SNES, &JusticeLeagueTF_SNES_EXTRA_CUSTOM, JusticeLeagueTF_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    const UINT16 nUnitCt = JusticeLeagueTF_SNES_NUMUNIT + (GetExtraCt(JusticeLeagueTF_SNES_EXTRALOC) ? 1 : 0);
+    const uint16_t nUnitCt = JusticeLeagueTF_SNES_NUMUNIT + (GetExtraCt(JusticeLeagueTF_SNES_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

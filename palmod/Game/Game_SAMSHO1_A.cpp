@@ -11,9 +11,9 @@ CDescTree CGame_SAMSHO1_A::MainDescTree = nullptr;
 uint32_t CGame_SAMSHO1_A::rgExtraCountAll[SAMSHO1_A_NUMUNIT + 1];
 uint32_t CGame_SAMSHO1_A::rgExtraLoc[SAMSHO1_A_NUMUNIT + 1];
 
-UINT32 CGame_SAMSHO1_A::m_nTotalPaletteCountForSAMSHO1 = 0;
-UINT32 CGame_SAMSHO1_A::m_nExpectedGameROMSize = 0x100000;  // 1,048,576 bytes
-UINT32 CGame_SAMSHO1_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SAMSHO1_A::m_nTotalPaletteCountForSAMSHO1 = 0;
+uint32_t CGame_SAMSHO1_A::m_nExpectedGameROMSize = 0x100000;  // 1,048,576 bytes
+uint32_t CGame_SAMSHO1_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO1_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_SAMSHO1_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SAMSHO1_A::InitDescTree());
 }
 
-CGame_SAMSHO1_A::CGame_SAMSHO1_A(UINT32 nConfirmedROMSize)
+CGame_SAMSHO1_A::CGame_SAMSHO1_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_SAMSHO1_A::CGame_SAMSHO1_A: Loading ROM...\n");
 
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_SAMSHO1_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO1_A, &SAMSHO1_A_EXTRA_CUSTOM, SAMSHO1_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = SAMSHO1_A_NUMUNIT + (GetExtraCt(SAMSHO1_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = SAMSHO1_A_NUMUNIT + (GetExtraCt(SAMSHO1_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -139,7 +139,7 @@ sFileRule CGame_SAMSHO1_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_SAMSHO1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SAMSHO1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

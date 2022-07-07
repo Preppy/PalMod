@@ -10,7 +10,7 @@ constexpr auto MVC2_Arcade_NumberOfSIMMs = 8;
 
 #define MVC2_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 
-CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(UINT32 nConfirmedROMSize) :
+CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(uint32_t nConfirmedROMSize) :
         CGame_MVC2_A(c_nMVC2SIMMLength)
 {
     OutputDebugString(L"CGame_MVC2_A_DIR::CGame_MVC2_A_DIR: Loading from SIMM directory\n");
@@ -57,9 +57,9 @@ sFileRule CGame_MVC2_A_DIR::GetNextRule()
     return NewFileRule;
 }
 
-inline UINT32 CGame_MVC2_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
+inline uint32_t CGame_MVC2_A_DIR::GetLocationWithinSIMM(uint32_t nSIMMSetLocation)
 {
-    UINT32 nSIMMLocation = nSIMMSetLocation;
+    uint32_t nSIMMLocation = nSIMMSetLocation;
 
     while (nSIMMLocation > c_nMVC2SIMMLength)
     {
@@ -94,7 +94,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
         if (m_pppDataBuffer[nUnitCtr] == nullptr)
         {
-            m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+            m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
         }
 
         // Use a sorted layout
@@ -114,7 +114,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
             if ((m_nCurrentPaletteROMLocation >= nBeginningRange) && (m_nCurrentPaletteROMLocation <= nEndingRange))
             {
-                UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                 m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
 #if MVC2_RERIP_DEBUG
@@ -134,7 +134,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     fSuccess = FALSE;
                 }
 
-                m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
+                m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
 
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
@@ -155,9 +155,9 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     return fSuccess;
 }
 
-inline UINT8 CGame_MVC2_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
+inline uint8_t CGame_MVC2_A_DIR::GetSIMMSetForROMLocation(uint32_t nROMLocation)
 {
-    return (UINT8)(floor((nROMLocation - MVC2_ROMReripOffsetDelta) / c_nMVC2SIMMLength));
+    return (uint8_t)(floor((nROMLocation - MVC2_ROMReripOffsetDelta) / c_nMVC2SIMMLength));
 }
 
 BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
@@ -180,7 +180,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
     BOOL fLoadedEverything = TRUE;
 
-    for (UINT16 nIndex = 0; nIndex < MVC2_Arcade_NumberOfSIMMs; nIndex++)
+    for (uint16_t nIndex = 0; nIndex < MVC2_Arcade_NumberOfSIMMs; nIndex++)
     {
         CString strSIMMNames;
         strSIMMNames.Format(L"%s\\%s%u.ic%u", GetLoadDir(), MVC2_Arcade_ROM_Base, nIndex + 51, nIndex + 20);
@@ -219,10 +219,10 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                 {
                     LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                    const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
+                    const uint8_t nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
 
-                    UINT32 nOriginalOffset = m_nCurrentPaletteROMLocation;
-                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    uint32_t nOriginalOffset = m_nCurrentPaletteROMLocation;
+                    uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
 #if MVC2_RERIP_DEBUG
@@ -241,7 +241,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
         }
     }
 
-    for (UINT16 nIndex = 0; nIndex < MVC2_Arcade_NumberOfSIMMs; nIndex++)
+    for (uint16_t nIndex = 0; nIndex < MVC2_Arcade_NumberOfSIMMs; nIndex++)
     {
         if (fileSIMMs[nIndex].m_hFile != CFile::hFileNull)
         {

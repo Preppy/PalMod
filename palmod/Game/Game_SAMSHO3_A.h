@@ -9,14 +9,14 @@ constexpr auto EXTRA_FILENAME_SAMSHO3_A = L"SAMSHO3E.txt";
 class CGame_SAMSHO3_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForSAMSHO3;
+    static uint32_t m_nTotalPaletteCountForSAMSHO3;
 
     static uint32_t rgExtraCountAll[SAMSHO3_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[SAMSHO3_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -24,7 +24,7 @@ private:
     static void DumpPaletteHeaders();
 
 public:
-    CGame_SAMSHO3_A(UINT32 nConfirmedROMSize);
+    CGame_SAMSHO3_A(uint32_t nConfirmedROMSize);
     ~CGame_SAMSHO3_A(void);
 
     //Static functions / variables

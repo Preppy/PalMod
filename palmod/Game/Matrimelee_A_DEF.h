@@ -26,7 +26,7 @@ enum SupportedMatriM_A_PaletteListIndex
     indexMatriMSprites_Stages,      // 0x15
 };
 
-const std::vector<UINT16> MATRIM_A_IMGIDS_USED =
+const std::vector<uint16_t> MATRIM_A_IMGIDS_USED =
 {
     indexMatriMSprites_Anny,
     indexMatriMSprites_Buntaro,

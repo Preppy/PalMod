@@ -8,7 +8,7 @@ CDescTree CGame_MBTL_A::MainDescTree = nullptr;
 
 #define MBTL_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-const std::vector<UINT16> MBTL_A_IMGIDS_USED =
+const std::vector<uint16_t> MBTL_A_IMGIDS_USED =
 {
     indexFrenchBreadSprites_MBTL_Akiha,             // 0x68
     indexFrenchBreadSprites_MBTL_Arcueid,           // 0x69
@@ -37,7 +37,7 @@ const std::vector<UINT16> MBTL_A_IMGIDS_USED =
 struct MBTLNodeData
 {
     LPCWSTR pszNodeName = L"uninit";
-    UINT32 nAdjustmentFromBaseNode = 0;
+    uint32_t nAdjustmentFromBaseNode = 0;
 };
 
 const MBTLNodeData MBTLPaletteNodes[] =
@@ -89,11 +89,11 @@ struct MBTLFileData
 {
     LPCWSTR pszFileName = nullptr;
     LPCWSTR pszCharacter = nullptr;
-    UINT32 nExpectedFileSize = 0;
+    uint32_t nExpectedFileSize = 0;
     std::vector <LPCWSTR> ppszPaletteList;
-    UINT32 nInitialLocation = 0;
-    UINT32 nImageUnitIndex = 0;
-    UINT32 nImagePreviewIndex = 0;
+    uint32_t nInitialLocation = 0;
+    uint32_t nImageUnitIndex = 0;
+    uint32_t nImagePreviewIndex = 0;
 };
 
 std::vector <MBTLFileData> MBTLCharacterData =
@@ -126,7 +126,7 @@ std::vector <MBTLFileData> MBTLCharacterData =
 
 };
 
-CGame_MBTL_A::CGame_MBTL_A(UINT32 nConfirmedROMSize /* = -1 */)
+CGame_MBTL_A::CGame_MBTL_A(uint32_t nConfirmedROMSize /* = -1 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -385,8 +385,8 @@ BOOL CGame_MBTL_A::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
-        m_pppDataBuffer32[nUnitNumber] = new UINT32 * [nPalAmt];
-        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(UINT32*) * nPalAmt);
+        m_pppDataBuffer32[nUnitNumber] = new uint32_t * [nPalAmt];
+        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(uint32_t*) * nPalAmt);
     }
 
     // These are already sorted, no need to redirect
@@ -396,7 +396,7 @@ BOOL CGame_MBTL_A::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
-        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
         LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -414,7 +414,7 @@ BOOL CGame_MBTL_A::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
 BOOL CGame_MBTL_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -470,7 +470,7 @@ void CGame_MBTL_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
     LoadSpecificPaletteData(nUnitId, nPalId);
     MarkPaletteDirty(nUnitId, nPartnerId);
 
-    for (UINT16 nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
+    for (uint16_t nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
     {
         m_pppDataBuffer32[nUnitId][nPartnerId][nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nArrayIndex];
     }
@@ -478,11 +478,11 @@ void CGame_MBTL_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
     // Red Arcueid uses flipped glove positioning: adjust for that here.
     if (wcscmp(MBTLCharacterData[nUnitId].pszCharacter, L"Red Arcueid") == 0)
     {
-        const UINT16 nGlove1Position = 96;
-        const UINT16 nGlove2Position = 103;
-        const UINT16 nGloveLength = 6;
+        const uint16_t nGlove1Position = 96;
+        const uint16_t nGlove2Position = 103;
+        const uint16_t nGloveLength = 6;
 
-        for (UINT16 nArrayIndex = 0; nArrayIndex < nGloveLength; nArrayIndex++)
+        for (uint16_t nArrayIndex = 0; nArrayIndex < nGloveLength; nArrayIndex++)
         {
             m_pppDataBuffer32[nUnitId][nPartnerId][nGlove1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nGlove2Position + nArrayIndex];
             m_pppDataBuffer32[nUnitId][nPartnerId][nGlove2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nGlove1Position + nArrayIndex];

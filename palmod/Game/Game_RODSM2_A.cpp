@@ -11,9 +11,9 @@ CDescTree CGame_RODSM2_A::MainDescTree = nullptr;
 uint32_t CGame_RODSM2_A::rgExtraCountAll[RODSM2_A_NUMUNITS + 1];
 uint32_t CGame_RODSM2_A::rgExtraLoc[RODSM2_A_NUMUNITS + 1];
 
-UINT32 CGame_RODSM2_A::m_nTotalPaletteCountForSM2 = 0;
-UINT32 CGame_RODSM2_A::m_nExpectedGameROMSize = 0x80000;
-UINT32 CGame_RODSM2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_RODSM2_A::m_nTotalPaletteCountForSM2 = 0;
+uint32_t CGame_RODSM2_A::m_nExpectedGameROMSize = 0x80000;
+uint32_t CGame_RODSM2_A::m_nConfirmedROMSize = -1;
 
 void CGame_RODSM2_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_RODSM2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_RODSM2_A::InitDescTree());
 }
 
-CGame_RODSM2_A::CGame_RODSM2_A(UINT32 nConfirmedROMSize)
+CGame_RODSM2_A::CGame_RODSM2_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_RODSM2_A::CGame_RODSM2_A: Loading ROM...\n");
 
@@ -79,7 +79,7 @@ CGame_RODSM2_A::~CGame_RODSM2_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_RODSM2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_RODSM2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -120,7 +120,7 @@ sDescTreeNode* CGame_RODSM2_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_RODSM2_A, &RODSM2_A_EXTRA_CUSTOM, RODSM2_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = RODSM2_A_NUMUNITS + (GetExtraCt(RODSM2_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = RODSM2_A_NUMUNITS + (GetExtraCt(RODSM2_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

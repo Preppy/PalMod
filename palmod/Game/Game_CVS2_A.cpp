@@ -11,9 +11,9 @@ CDescTree CGame_CVS2_A::MainDescTree = nullptr;
 uint32_t CGame_CVS2_A::rgExtraCountAll[CVS2_A_NUMUNIT + 1];
 uint32_t CGame_CVS2_A::rgExtraLoc[CVS2_A_NUMUNIT + 1];
 
-UINT32 CGame_CVS2_A::m_nTotalPaletteCountForCVS2 = 0;
-UINT32 CGame_CVS2_A::m_nExpectedGameROMSize = 0x9800000;  // 159,383,552 bytes
-UINT32 CGame_CVS2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_CVS2_A::m_nTotalPaletteCountForCVS2 = 0;
+uint32_t CGame_CVS2_A::m_nExpectedGameROMSize = 0x9800000;  // 159,383,552 bytes
+uint32_t CGame_CVS2_A::m_nConfirmedROMSize = -1;
 
 void CGame_CVS2_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_CVS2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_CVS2_A::InitDescTree());
 }
 
-CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
+CGame_CVS2_A::CGame_CVS2_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_CVS2_A::CGame_CVS2_A: Loading ROM...\n");
 
@@ -98,14 +98,14 @@ uint32_t CGame_CVS2_A::GetExtraLoc(uint32_t nUnitId)
 void CGame_CVS2_A::DumpAllCharacters()
 {
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
     {
         uint32_t nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint16_t nPaletteCount = 0;
         const uint32_t k_nCharacterColorCount = static_cast<uint32_t>(DEF_BUTTONLABEL_CVS2.size());
         CString strOutput;
 
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         for (uint32_t iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
@@ -123,7 +123,7 @@ void CGame_CVS2_A::DumpAllCharacters()
             nCurrentCharacterOffset += 0x20;
             nPaletteCount++;
 
-            for (UINT16 iCurrentExtra = 1; iCurrentExtra < 6; iCurrentExtra++)
+            for (uint16_t iCurrentExtra = 1; iCurrentExtra < 6; iCurrentExtra++)
             {
                 const sCVS2_ExtraPair* extraPairInfo = nullptr;
 
@@ -185,11 +185,11 @@ void CGame_CVS2_A::DumpAllCharacters()
 
     for (uint32_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
 
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
 
@@ -262,7 +262,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_CVS2_A, &CVS2_A_EXTRA_CUSTOM, CVS2_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = CVS2_A_NUMUNIT + (GetExtraCt(CVS2_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = CVS2_A_NUMUNIT + (GetExtraCt(CVS2_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

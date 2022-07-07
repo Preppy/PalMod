@@ -8,7 +8,7 @@ CDescTree CGame_UNICLR_A::MainDescTree = nullptr;
 
 #define UNICLR_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-const std::vector<UINT16> UNICLR_A_IMGIDS_USED =
+const std::vector<uint16_t> UNICLR_A_IMGIDS_USED =
 {
     indexFrenchBreadSprites_UNICLR_Akat,   // 0x34
     indexFrenchBreadSprites_UNICLR_Byak,   // 0x35
@@ -37,7 +37,7 @@ const std::vector<UINT16> UNICLR_A_IMGIDS_USED =
 struct UNICLRNodeData
 {
     LPCWSTR pszNodeName = L"uninit";
-    UINT32 nAdjustmentFromBaseNode = 0;
+    uint32_t nAdjustmentFromBaseNode = 0;
 };
 
 const UNICLRNodeData UNICLRPaletteNodes[] =
@@ -104,10 +104,10 @@ struct UNICLRFileData
 {
     LPCWSTR pszFileName = nullptr;
     LPCWSTR pszCharacter = nullptr;
-    UINT32 nExpectedFileSize = 0;
+    uint32_t nExpectedFileSize = 0;
     const std::vector <LPCWSTR> ppszPaletteList;
-    UINT32 nInitialLocation = 0;
-    UINT32 nSpriteIndex = 0;
+    uint32_t nInitialLocation = 0;
+    uint32_t nSpriteIndex = 0;
 };
 
 const std::vector<UNICLRFileData> UNICLRCharacterData =
@@ -135,7 +135,7 @@ const std::vector<UNICLRFileData> UNICLRCharacterData =
     { L"___English\\data\\_csel\\Yuz.pal",    L"Yuzuriha",          86032,    UNICLRPaletteNamesNormal,    0x10,  indexFrenchBreadSprites_UNICLR_Yuzu },
 };
 
-CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
+CGame_UNICLR_A::CGame_UNICLR_A(uint32_t nConfirmedROMSize /* = -1 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -208,7 +208,7 @@ sFileRule CGame_UNICLR_A::GetNextRule()
 
 sDescTreeNode* CGame_UNICLR_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
     uint32_t nUnitCt = static_cast<uint32_t>(UNICLRCharacterData.size());
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
@@ -394,8 +394,8 @@ BOOL CGame_UNICLR_A::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
-        m_pppDataBuffer32[nUnitNumber] = new UINT32 * [nPalAmt];
-        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(UINT32*) * nPalAmt);
+        m_pppDataBuffer32[nUnitNumber] = new uint32_t * [nPalAmt];
+        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(uint32_t*) * nPalAmt);
     }
 
     // These are already sorted, no need to redirect
@@ -405,7 +405,7 @@ BOOL CGame_UNICLR_A::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
-        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
         LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -423,7 +423,7 @@ BOOL CGame_UNICLR_A::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
 BOOL CGame_UNICLR_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -479,7 +479,7 @@ void CGame_UNICLR_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
     LoadSpecificPaletteData(nUnitId, nPalId);
     MarkPaletteDirty(nUnitId, nPartnerId);
 
-    for (UINT16 nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
+    for (uint16_t nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
     {
         m_pppDataBuffer32[nUnitId][nPartnerId][nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nArrayIndex];
     }
@@ -487,31 +487,31 @@ void CGame_UNICLR_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
     // Hilda uses flipped positioning: adjust for that here.
     if (wcscmp(UNICLRCharacterData[nUnitId].pszCharacter, L"Hilda") == 0)
     {
-        const UINT16 nEye1Position = 26;
-        const UINT16 nEye2Position = 42;
-        const UINT16 nEyeLength = 3;
+        const uint16_t nEye1Position = 26;
+        const uint16_t nEye2Position = 42;
+        const uint16_t nEyeLength = 3;
 
-        for (UINT16 nArrayIndex = 0; nArrayIndex < nEyeLength; nArrayIndex++)
+        for (uint16_t nArrayIndex = 0; nArrayIndex < nEyeLength; nArrayIndex++)
         {
             m_pppDataBuffer32[nUnitId][nPartnerId][nEye1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nEye2Position + nArrayIndex];
             m_pppDataBuffer32[nUnitId][nPartnerId][nEye2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nEye1Position + nArrayIndex];
         }
 
-        const UINT16 nDress1Position = 64;
-        const UINT16 nDress2Position = 70;
-        const UINT16 nDressLength = 5;
+        const uint16_t nDress1Position = 64;
+        const uint16_t nDress2Position = 70;
+        const uint16_t nDressLength = 5;
 
-        for (UINT16 nArrayIndex = 0; nArrayIndex < nDressLength; nArrayIndex++)
+        for (uint16_t nArrayIndex = 0; nArrayIndex < nDressLength; nArrayIndex++)
         {
             m_pppDataBuffer32[nUnitId][nPartnerId][nDress1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nDress2Position + nArrayIndex];
             m_pppDataBuffer32[nUnitId][nPartnerId][nDress2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nDress1Position + nArrayIndex];
         }
 
-        const UINT16 nBelt1Position = 80;
-        const UINT16 nBelt2Position = 85;
-        const UINT16 nBeltLength = 4;
+        const uint16_t nBelt1Position = 80;
+        const uint16_t nBelt2Position = 85;
+        const uint16_t nBeltLength = 4;
 
-        for (UINT16 nArrayIndex = 0; nArrayIndex < nBeltLength; nArrayIndex++)
+        for (uint16_t nArrayIndex = 0; nArrayIndex < nBeltLength; nArrayIndex++)
         {
             m_pppDataBuffer32[nUnitId][nPartnerId][nBelt1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nBelt2Position + nArrayIndex];
             m_pppDataBuffer32[nUnitId][nPartnerId][nBelt2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nBelt1Position + nArrayIndex];
@@ -522,21 +522,21 @@ void CGame_UNICLR_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
         // Seth uses flipped positioning: adjust for that here.
         if (wcscmp(UNICLRCharacterData[nUnitId].pszCharacter, L"Seth") == 0)
         {
-            const UINT16 nSetEye1Position = 11;
-            const UINT16 nSetEye2Position = 27;
-            const UINT16 nSetEyeLength = 3;
+            const uint16_t nSetEye1Position = 11;
+            const uint16_t nSetEye2Position = 27;
+            const uint16_t nSetEyeLength = 3;
 
-            for (UINT16 nArrayIndex = 0; nArrayIndex < nSetEyeLength; nArrayIndex++)
+            for (uint16_t nArrayIndex = 0; nArrayIndex < nSetEyeLength; nArrayIndex++)
             {
                 m_pppDataBuffer32[nUnitId][nPartnerId][nSetEye1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nSetEye2Position + nArrayIndex];
                 m_pppDataBuffer32[nUnitId][nPartnerId][nSetEye2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nSetEye1Position + nArrayIndex];
             }
 
-            const UINT16 nKnife1Position = 144;
-            const UINT16 nKnife2Position = 160;
-            const UINT16 nKnifeLength = 10;
+            const uint16_t nKnife1Position = 144;
+            const uint16_t nKnife2Position = 160;
+            const uint16_t nKnifeLength = 10;
 
-            for (UINT16 nArrayIndex = 0; nArrayIndex < nKnifeLength; nArrayIndex++)
+            for (uint16_t nArrayIndex = 0; nArrayIndex < nKnifeLength; nArrayIndex++)
             {
                 m_pppDataBuffer32[nUnitId][nPartnerId][nKnife1Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nKnife2Position + nArrayIndex];
                 m_pppDataBuffer32[nUnitId][nPartnerId][nKnife2Position + nArrayIndex] = m_pppDataBuffer32[nUnitId][nPalId][nKnife1Position + nArrayIndex];

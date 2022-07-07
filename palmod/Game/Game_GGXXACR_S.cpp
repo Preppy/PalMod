@@ -11,7 +11,7 @@ CDescTree CGame_GGXXACR_S::MainDescTree = nullptr;
 
 #define GGXXACR_S_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-CGame_GGXXACR_S::CGame_GGXXACR_S(UINT32 nConfirmedROMSize /* = -1 */)
+CGame_GGXXACR_S::CGame_GGXXACR_S(uint32_t nConfirmedROMSize /* = -1 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX, 0 };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
@@ -458,8 +458,8 @@ bool CGame_GGXXACR_S::IsGGXXACRFileEncrypted(CFile* LoadedFile)
 {
     bool fIsEncrypted = false;
     // check the first four bytes
-    const uint32_t nUINT16sToRead = 2;
-    std::array<uint16_t, nUINT16sToRead> prgFileStart = { 0, 0 };
+    const uint32_t nuint16_tsToRead = 2;
+    std::array<uint16_t, nuint16_tsToRead> prgFileStart = { 0, 0 };
     std::map<std::wstring, uint64_t> decryptedFileBytes =
     {
         { L"ab.bin", 0x20000000 },
@@ -514,11 +514,11 @@ bool CGame_GGXXACR_S::IsGGXXACRFileEncrypted(CFile* LoadedFile)
     };
 
     LoadedFile->Seek(0, CFile::begin);
-    LoadedFile->Read((void*)&prgFileStart[0], nUINT16sToRead * sizeof(uint16_t));
+    LoadedFile->Read((void*)&prgFileStart[0], nuint16_tsToRead * sizeof(uint16_t));
 
     CString strByteWatch;
     OutputDebugString(L"\tByte sniff for this file: ");
-    for (UINT16 nIndex = 0; nIndex < nUINT16sToRead; nIndex++)
+    for (uint16_t nIndex = 0; nIndex < nuint16_tsToRead; nIndex++)
     {
         strByteWatch.Format(L"0x%04x, ", prgFileStart[nIndex]);
         OutputDebugString(strByteWatch);
@@ -550,7 +550,7 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     LoadedFile->Seek(0, CFile::begin);
     LoadedFile->Read(&nPalettePointer, 0x02);
         
-    UINT32 nPaletteStart = 0;
+    uint32_t nPaletteStart = 0;
 
     LoadedFile->Seek(nPalettePointer + 0x0c, CFile::begin);
     LoadedFile->Read(&nPaletteStart, 0x04);
@@ -588,8 +588,8 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
         if (m_pppDataBuffer32[nUnitNumber] == nullptr)
         {
-            m_pppDataBuffer32[nUnitNumber] = new UINT32 * [nPalAmt];
-            memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(UINT32*) * nPalAmt);
+            m_pppDataBuffer32[nUnitNumber] = new uint32_t * [nPalAmt];
+            memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(uint32_t*) * nPalAmt);
         }
 
         // These are already sorted, no need to redirect
@@ -599,7 +599,7 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
         {
             LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
-            m_pppDataBuffer32[nUnitNumber][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+            m_pppDataBuffer32[nUnitNumber][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
             LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
             LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -618,7 +618,7 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
 BOOL CGame_GGXXACR_S::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)

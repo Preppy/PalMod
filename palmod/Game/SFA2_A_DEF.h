@@ -57,7 +57,7 @@ constexpr auto SFA2_A_NUM_IND_07_REV2 = index_SFA2_EvilRyu + 1 + 1 + 1; // rev 2
 constexpr auto SFZ2A_A_NUM_IND_07 = index_SFA2_Last; // rev 3
 #define SFZ2A_A_EXTRALOC_07 SFZ2A_A_NUM_IND_07
 
-const UINT8 SFA2_A_UNITSORT_07_REV1[SFA2_A_NUM_IND_07_REV1 + 1] = // Plus 1 for the extra palettes
+const uint8_t SFA2_A_UNITSORT_07_REV1[SFA2_A_NUM_IND_07_REV1 + 1] = // Plus 1 for the extra palettes
 {
     index_SFA2_Adon,
     index_SFA2_Akuma,
@@ -86,7 +86,7 @@ const UINT8 SFA2_A_UNITSORT_07_REV1[SFA2_A_NUM_IND_07_REV1 + 1] = // Plus 1 for 
     SFA2_A_EXTRALOC_07_REV1 // Extra palettes
 };
 
-const UINT8 SFA2_A_UNITSORT_07_0306[SFA2_A_NUM_IND_07_REV2 + 1] = // Plus 1 for the extra palettes
+const uint8_t SFA2_A_UNITSORT_07_0306[SFA2_A_NUM_IND_07_REV2 + 1] = // Plus 1 for the extra palettes
 {
     index_SFA2_Adon,
     index_SFA2_Akuma,
@@ -117,7 +117,7 @@ const UINT8 SFA2_A_UNITSORT_07_0306[SFA2_A_NUM_IND_07_REV2 + 1] = // Plus 1 for 
     SFA2_A_EXTRALOC_07_REV2 // Extra palettes
 };
 
-const UINT8 SFZ2A_A_UNITSORT_07_0826[SFZ2A_A_NUM_IND_07 + 1] = // Plus 1 for the extra palettes
+const uint8_t SFZ2A_A_UNITSORT_07_0826[SFZ2A_A_NUM_IND_07 + 1] = // Plus 1 for the extra palettes
 {
     index_SFA2_Adon,
     index_SFA2_Akuma,
@@ -154,7 +154,7 @@ const UINT8 SFZ2A_A_UNITSORT_07_0826[SFZ2A_A_NUM_IND_07 + 1] = // Plus 1 for the
     SFZ2A_A_EXTRALOC_07 // Extra palettes
 };
 
-const std::vector<UINT16> SFA2_A_IMGIDS_USED =
+const std::vector<uint16_t> SFA2_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,               // 0x00,
     indexCPS2Sprites_Zangief,           // 0x01,

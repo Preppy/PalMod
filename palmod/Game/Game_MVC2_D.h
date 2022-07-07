@@ -8,16 +8,16 @@ private:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
+    static uint32_t m_nExpectedGameROMSize;
 
-    UINT16** ppDataBuffer = nullptr;
+    uint16_t** ppDataBuffer = nullptr;
 
     void FindMultispriteExportValuesForExtrasPalette(sMoveDescription* pMoveDescription, uint32_t uUnitId, uint32_t uPalId, uint32_t& nStart, uint32_t& nColorOptions, uint32_t& nIncrementToNext);
 
     sMoveDescription* GetMoveDescriptionInfo(uint32_t nUnitId, uint32_t nPalId);
 
 public:
-    CGame_MVC2_D(UINT32 nConfirmedROMSize);
+    CGame_MVC2_D(uint32_t nConfirmedROMSize);
     ~CGame_MVC2_D();
 
     uint32_t nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
@@ -28,9 +28,9 @@ public:
 
     static std::vector<LPCWSTR> pCurrentButtonLabelSet;
     static std::vector<std::vector<sMoveDescription>> pCurrentMoveDescriptions;
-    static std::vector<UINT16> pCurrentExtrasLayout;
-    static UINT8 _nCurrentTotalColorOptions;
-    void SetNumberOfColorOptions(UINT8 nColorOptions);
+    static std::vector<uint16_t> pCurrentExtrasLayout;
+    static uint8_t _nCurrentTotalColorOptions;
+    void SetNumberOfColorOptions(uint8_t nColorOptions);
 
     static uint32_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
@@ -58,7 +58,7 @@ public:
 
     void UpdatePalData(); // This is old code and uses its own logic
 
-    UINT16** GetDataBuffer() { return ppDataBuffer; };
+    uint16_t** GetDataBuffer() { return ppDataBuffer; };
     void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
     void CreateDefPal(sDescNode* srcNode, uint32_t nSepId) override;
     void ResetChangeFlag(uint32_t nUnitId);

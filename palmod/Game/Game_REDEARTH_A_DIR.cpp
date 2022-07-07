@@ -15,7 +15,7 @@ constexpr auto RedEarth_Arcade_ROMFilesNeeded_3 = 4;
 constexpr auto RedEarth_Arcade_ROMFilesNeeded_5 = 2;
 constexpr auto RedEarth_Arcade_SIMMLength = 0x200000;
 
-CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR(UINT32 nConfirmedROMSize, int nRedEarthModeToLoad) :
+CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR(uint32_t nConfirmedROMSize, int nRedEarthModeToLoad) :
         CGame_REDEARTH_A(RedEarth_Arcade_SIMMLength * ((nRedEarthModeToLoad != 50) ? RedEarth_Arcade_ROMFilesNeeded_3 : RedEarth_Arcade_ROMFilesNeeded_5), nRedEarthModeToLoad)   // Let RedEarth know that it's safe to load extras.
 {
     m_nSIMMLength = c_nRedEarthSIMMLength;
@@ -53,7 +53,7 @@ sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(uint32_t nGameMode, uint32_t nUn
 {
     sFileRule NewFileRule;
     m_nSavedMode = nGameMode;
-    UINT16 nAdjustedSIMMFileNumber;
+    uint16_t nAdjustedSIMMFileNumber;
 
     switch (nGameMode)
     {
@@ -81,7 +81,7 @@ sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(uint32_t nGameMode, uint32_t nUn
 sFileRule CGame_RedEarth_A_DIR::GetNextRuleInternal(uint32_t nGameMode)
 {
     sFileRule NewFileRule = GetRuleInternal(nGameMode, uRuleCtr);
-    UINT16 nMaxRuleNumber;
+    uint16_t nMaxRuleNumber;
 
     uRuleCtr++;
 

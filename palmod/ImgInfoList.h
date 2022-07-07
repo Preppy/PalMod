@@ -6,18 +6,18 @@
 //#define IMGINFOLIST_H
 struct sImgDef
 {
-    UINT16 uImgWidth = 0;
-    UINT16 uImgHeight = 0;
+    uint16_t uImgWidth = 0;
+    uint16_t uImgHeight = 0;
 
-    UINT8 nCompressionType = 0;
-    UINT32 uDataSize = 0;
-    UINT32 uThisImgLoc = 0;
-    UINT8* pImgData = nullptr;
+    uint8_t nCompressionType = 0;
+    uint32_t uDataSize = 0;
+    uint32_t uThisImgLoc = 0;
+    uint8_t* pImgData = nullptr;
 };
 
 struct ImgInfoNode
 {
-    UINT16 imgID = 0xFFFF;
+    uint16_t imgID = 0xFFFF;
     sImgDef* imgInfo = nullptr;
     ImgInfoNode* nextNode = nullptr;
 };
@@ -26,19 +26,19 @@ class ImgInfoList
 {
 private:
     ImgInfoNode* headNode = nullptr;
-    UINT16 listCount = 0;
+    uint16_t listCount = 0;
     
-    ImgInfoNode* makeNode(UINT16 imgID);
-    ImgInfoNode* getToNode(UINT16 desiredImgID);
+    ImgInfoNode* makeNode(uint16_t imgID);
+    ImgInfoNode* getToNode(uint16_t desiredImgID);
 
 public:
     bool isEmpty();
     ImgInfoList();
     ~ImgInfoList();
     void listAllImgIDs();
-    sImgDef* getImgDef(UINT16 imgID) { return (getToNode(imgID)->imgInfo); };
-    bool valueExists(UINT16 desiredImgID);
-    bool insertNode(UINT16 imgID);
-    UINT16 size() { return listCount; };
+    sImgDef* getImgDef(uint16_t imgID) { return (getToNode(imgID)->imgInfo); };
+    bool valueExists(uint16_t desiredImgID);
+    bool insertNode(uint16_t imgID);
+    uint16_t size() { return listCount; };
 };
 //#endif

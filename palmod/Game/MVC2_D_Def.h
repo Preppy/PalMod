@@ -2,10 +2,10 @@
 #include "Default.h"
 
 // Number of colors per each palette
-constexpr UINT16 MVC2_D_PALSZ = 16;
+constexpr uint16_t MVC2_D_PALSZ = 16;
 
-constexpr UINT16 EXTRA_START = 0x0F00;
-constexpr UINT16 EXTRA_END = 0xFFFF;
+constexpr uint16_t EXTRA_START = 0x0F00;
+constexpr uint16_t EXTRA_END = 0xFFFF;
 
 // 59 characters, including the three Abyss forms
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -18,16 +18,16 @@ constexpr auto MVC2_D_TEAMVIEW_LOCATION = MVC2_D_NUMUNIT;
 
 struct sMoveDescription
 {
-    UINT16 nCharacterIndex = 0;
+    uint16_t nCharacterIndex = 0;
     LPCWSTR szMoveName = L"uninit";
-    UINT16 nImageIndex = 0xFF;
-    UINT16 nImageUnitOverride = 0xFF;
+    uint16_t nImageIndex = 0xFF;
+    uint16_t nImageUnitOverride = 0xFF;
     const stPairedPaletteInfo *pPairedPaletteInfo = nullptr;
 };
 
 // These are the filesizes for each normal MVC2 PAL file.
 // This is sorted by character ID: Ryu is 0x0
-const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_6COLORS = {
+const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_6COLORS = {
 
     557408, 
     926400, 
@@ -92,7 +92,7 @@ const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_6COLORS 
 };
 
 // These are the filesizes for the MVC2 PAL files created for the palette expansion
-const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_16COLORS =
+const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_16COLORS =
 {
     561792,
     934592,
@@ -156,7 +156,7 @@ const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_FILESIZES_16COLORS
     0
 };
 
-const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_PALDATASIZE_6COLORS =
+const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_PALDATASIZE_6COLORS =
 {
     0x00000720,
     0x00000D40,
@@ -220,7 +220,7 @@ const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_PALDATASIZE_6COLOR
     0x00000720
 };
 
-const std::array<UINT32, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_PALDATASIZE_16COLORS =
+const std::array<uint32_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_PALDATASIZE_16COLORS =
 {
     0x00001120,
     0x00002000,
@@ -348,7 +348,7 @@ const std::array<LPCWSTR, MVC2_D_NUMUNIT_WITH_TEAMVIEW> MVC2_D_UNITDESC =
     L"Team View"
 };
 
-const std::array<UINT8, MVC2_D_NUMUNIT_WITH_TEAMVIEW + 1> MVC2_D_UNITSORT = // plus one for terminal entry
+const std::array<uint8_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW + 1> MVC2_D_UNITSORT = // plus one for terminal entry
 {
     0x18,
     0x19,
@@ -420,7 +420,7 @@ const std::array<UINT8, MVC2_D_NUMUNIT_WITH_TEAMVIEW + 1> MVC2_D_UNITSORT = // p
 //      1, 0, 0, 0, 0, 0, 0, // One "extra" sprite exists, use it for the 0x1 (%button%) extras
 //      0x11, 0x11 // Add an Extra node: that will use 0x11 for that palette entry.  Each entry is START_POS and END_POS.
 //      An unpaired entry other than 0 is going to do very bad things, so be careful.
-const std::vector<UINT16> MVC2_D_6COLORS_EXTRADEF =
+const std::vector<uint16_t> MVC2_D_6COLORS_EXTRADEF =
 {
     0,
 
@@ -623,7 +623,7 @@ const std::vector<UINT16> MVC2_D_6COLORS_EXTRADEF =
 //      1, 0, 0, 0, 0, 0, 0, // One "extra" sprite exists, use it for the 0x1 (%button%) extras
 //      0x11, 0x11 // Add an Extra node: that will use 0x11 for that palette entry.  Each entry is START_POS and END_POS.
 //      An unpaired entry other than 0 is going to do very bad things, so be careful.
-const std::vector<UINT16> MVC2_D_16COLORS_EXTRADEF =
+const std::vector<uint16_t> MVC2_D_16COLORS_EXTRADEF =
 {
     0,
 

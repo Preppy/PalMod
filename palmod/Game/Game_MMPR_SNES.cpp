@@ -11,9 +11,9 @@ CDescTree CGame_MMPR_SNES::MainDescTree = nullptr;
 uint32_t CGame_MMPR_SNES::rgExtraCountAll[MMPR_SNES_NUMUNIT + 1];
 uint32_t CGame_MMPR_SNES::rgExtraLoc[MMPR_SNES_NUMUNIT + 1];
 
-UINT32 CGame_MMPR_SNES::m_nTotalPaletteCountForMMPR = 0;
-UINT32 CGame_MMPR_SNES::m_nExpectedGameROMSize = 0x180000;
-UINT32 CGame_MMPR_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_MMPR_SNES::m_nTotalPaletteCountForMMPR = 0;
+uint32_t CGame_MMPR_SNES::m_nExpectedGameROMSize = 0x180000;
+uint32_t CGame_MMPR_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_MMPR_SNES::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_MMPR_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_MMPR_SNES::InitDescTree());
 }
 
-CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
+CGame_MMPR_SNES::CGame_MMPR_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_MMPR_SNES::CGame_MMPR_SNES: Loading ROM...\n");
 
@@ -78,7 +78,7 @@ CGame_MMPR_SNES::~CGame_MMPR_SNES(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_MMPR_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_MMPR_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -119,7 +119,7 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_MMPR_SNES, &MMPR_SNES_EXTRA_CUSTOM, MMPR_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = MMPR_SNES_NUMUNIT + (GetExtraCt(MMPR_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = MMPR_SNES_NUMUNIT + (GetExtraCt(MMPR_SNES_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

@@ -6,14 +6,14 @@
 class CGame_MK1_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForMK1;
+    static uint32_t m_nTotalPaletteCountForMK1;
 
     static uint32_t rgExtraCountAll[MK1_SNES_NUMUNIT + 1];
     static uint32_t rgExtraLoc[MK1_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -22,7 +22,7 @@ private:
     static constexpr auto MK1_SNES_PRIMARY_ROMNAME = L"Mortal Kombat (USA).sfc";
 
 public:
-    CGame_MK1_SNES(UINT32 nConfirmedROMSize);
+    CGame_MK1_SNES(uint32_t nConfirmedROMSize);
     ~CGame_MK1_SNES(void);
 
     //Static functions / variables

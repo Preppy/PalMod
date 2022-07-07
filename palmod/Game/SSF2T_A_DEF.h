@@ -31,7 +31,7 @@ constexpr auto SSF2T_A_NUM_IND_4A = index_SSF2T_4A_Last;
 
 constexpr auto SSF2T_A_EXTRALOC_4A = SSF2T_A_NUM_IND_4A;
 
-const UINT8 SSF2T_A_UNITSORT_4A[SSF2T_A_NUM_IND_4A + 1] = // Plus 1 for the extra palettes
+const uint8_t SSF2T_A_UNITSORT_4A[SSF2T_A_NUM_IND_4A + 1] = // Plus 1 for the extra palettes
 {
     index_SSF2T_Balrog,
     index_SSF2T_Blanka,
@@ -57,7 +57,7 @@ const UINT8 SSF2T_A_UNITSORT_4A[SSF2T_A_NUM_IND_4A + 1] = // Plus 1 for the extr
     SSF2T_A_EXTRALOC_4A // Extra palettes
 };
 
-const std::vector<UINT16> SSF2T_A_IMGIDS_USED =
+const std::vector<uint16_t> SSF2T_A_IMGIDS_USED =
 {
     indexSF2Sprites_Ryu,
     indexSF2Sprites_EHonda,

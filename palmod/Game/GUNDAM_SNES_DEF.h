@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> GUNDAM_A_IMGIDS_USED =
+const std::vector<uint16_t> GUNDAM_A_IMGIDS_USED =
 {
     indexGundamSprites_DeathScythe,
     indexGundamSprites_Epyon,

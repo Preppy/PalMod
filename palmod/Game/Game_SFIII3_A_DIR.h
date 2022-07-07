@@ -26,14 +26,14 @@ private:
     bool m_fUseJPNFileNames = false;
 
 public:
-    CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize = -1, int nSF3ModeToLoad = 51);
+    CGame_SFIII3_A_DIR(uint32_t nConfirmedROMSize = -1, int nSF3ModeToLoad = 51);
     ~CGame_SFIII3_A_DIR(void);
 
-    const UINT32 c_nSFIII3SIMMLength = 0x200000;
+    const uint32_t c_nSFIII3SIMMLength = 0x200000;
 
-    inline UINT32 GetSIMMLocationFromROMLocation(UINT32 nROMLocation);
-    inline UINT32 GetLocationWithinSIMM(UINT32 nSIMMSetLocation);
-    inline UINT8 GetSIMMSetForROMLocation(UINT32 nROMLocation);
+    inline uint32_t GetSIMMLocationFromROMLocation(uint32_t nROMLocation);
+    inline uint32_t GetLocationWithinSIMM(uint32_t nSIMMSetLocation);
+    inline uint8_t GetSIMMSetForROMLocation(uint32_t nROMLocation);
 
     //Static functions
     static uint32_t uRuleCtr;
@@ -56,7 +56,7 @@ public:
     BOOL LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber) override;
     BOOL SaveFile(CFile* SaveFile, uint32_t nSIMMNumber) override;
 
-    UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) override;
+    uint32_t SaveMultiplePatchFiles(CString strTargetDirectory) override;
 
     LPCWSTR GetGameName() override;
 };

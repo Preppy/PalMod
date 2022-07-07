@@ -9,7 +9,7 @@ CDescTree CGame_MAAB_A::MainDescTree = nullptr;
 
 #define MAAB_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-CGame_MAAB_A::CGame_MAAB_A(UINT32 nConfirmedROMSize /* = -1 */)
+CGame_MAAB_A::CGame_MAAB_A(uint32_t nConfirmedROMSize /* = -1 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX, 0 };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -143,8 +143,8 @@ sDescTreeNode* CGame_MAAB_A::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-            UINT16 nHandledChildren = 0;
-            UINT16 nNodeIndexForCharacter = 0;
+            uint16_t nHandledChildren = 0;
+            uint16_t nNodeIndexForCharacter = 0;
             uint32_t nUnitCtrByCharacter = nUnitCtrByFile;
 
             for (uint32_t nNodeIndexForUnit = 0; nNodeIndexForUnit < nListedChildrenCount; nNodeIndexForUnit++)
@@ -331,7 +331,7 @@ LPCWSTR CGame_MAAB_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCo
         }
         else
         {
-            UINT16 nCurrentCollection = 0;
+            uint16_t nCurrentCollection = 0;
 
             for (uint32_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
             {
@@ -414,9 +414,9 @@ void CGame_MAAB_A::GetFileIndexFromCharacterCollection(uint32_t nCharacterUnitId
 
     if (MAAB_A_CharacterData[nCharacterUnitId].pszNodeName != nullptr)
     {
-        UINT16 nTotalMatches = 0;
+        uint16_t nTotalMatches = 0;
 
-        for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
+        for (uint16_t nIndex = 0; nIndex < ARRAYSIZE(MAAB_A_CharacterData); nIndex++)
         {
             if (MAAB_A_CharacterData[nIndex].pszNodeName && (_wcsicmp(MAAB_A_CharacterData[nIndex].pszCharacter, MAAB_A_CharacterData[nCharacterUnitId].pszCharacter) == 0))
             {
@@ -614,8 +614,8 @@ BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, uint32_t nFileUnitNumber)
 
     if (m_pppDataBuffer32[nCharacterUnitId] == nullptr)
     {
-        m_pppDataBuffer32[nCharacterUnitId] = new UINT32 * [nPalAmt];
-        memset(m_pppDataBuffer32[nCharacterUnitId], 0, sizeof(UINT32*) * nPalAmt);
+        m_pppDataBuffer32[nCharacterUnitId] = new uint32_t * [nPalAmt];
+        memset(m_pppDataBuffer32[nCharacterUnitId], 0, sizeof(uint32_t*) * nPalAmt);
     }
 
     // These are already sorted, no need to redirect
@@ -632,7 +632,7 @@ BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, uint32_t nFileUnitNumber)
         {
             LoadSpecificPaletteDataByFileUnit(nFileUnitId, nFilePalId);
 
-            m_pppDataBuffer32[nCharacterUnitId][nCharacterPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+            m_pppDataBuffer32[nCharacterUnitId][nCharacterPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
             LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
             LoadedFile->Read(m_pppDataBuffer32[nCharacterUnitId][nCharacterPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -652,7 +652,7 @@ BOOL CGame_MAAB_A::LoadFile(CFile* LoadedFile, uint32_t nFileUnitNumber)
 
 BOOL CGame_MAAB_A::SaveFile(CFile* SaveFile, uint32_t nFileUnitNumber)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
     uint32_t nPalAmt = GetPaletteCountForUnit(nFileUnitNumber);
 
     uint32_t nCharacterUnitId = 0;

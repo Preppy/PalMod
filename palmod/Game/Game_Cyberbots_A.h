@@ -6,14 +6,14 @@
 class CGame_Cyberbots_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForCyberbots;
+    static uint32_t m_nTotalPaletteCountForCyberbots;
 
     static uint32_t rgExtraCountAll[Cyberbots_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[Cyberbots_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -22,7 +22,7 @@ private:
     static constexpr auto Cyberbots_A_PRIMARY_ROMNAME = L"cybe.04";
 
 public:
-    CGame_Cyberbots_A(UINT32 nConfirmedROMSize);
+    CGame_Cyberbots_A(uint32_t nConfirmedROMSize);
     ~CGame_Cyberbots_A(void);
 
     //Static functions / variables
@@ -49,7 +49,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* Cyberbots_A_EXTRA_CUSTOM;
 };

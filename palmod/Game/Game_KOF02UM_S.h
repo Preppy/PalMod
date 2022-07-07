@@ -30,13 +30,13 @@ private:
     KOF02UMS_ROMOptions m_nBufferSelectedRom = KOF02UMS_ROMOptions::Main;
     static KOF02UMS_ROMOptions m_nSelectedRom;
 
-    static UINT32 m_nTotalPaletteCountForKOF02UM_Main;
-    static UINT32 m_nTotalPaletteCountForKOF02UM_Bar;
-    static UINT32 m_nTotalPaletteCountForKOF02UM_Clear;
-    static UINT32 m_nTotalPaletteCountForKOF02UM_MAX2;
-    static UINT32 m_nTotalPaletteCountForKOF02UM_PSel;
-    static UINT32 m_nTotalPaletteCountForKOF02UM_Rank;
-    static UINT32 m_nTotalPaletteCountForKOF02UM_Conte;
+    static uint32_t m_nTotalPaletteCountForKOF02UM_Main;
+    static uint32_t m_nTotalPaletteCountForKOF02UM_Bar;
+    static uint32_t m_nTotalPaletteCountForKOF02UM_Clear;
+    static uint32_t m_nTotalPaletteCountForKOF02UM_MAX2;
+    static uint32_t m_nTotalPaletteCountForKOF02UM_PSel;
+    static uint32_t m_nTotalPaletteCountForKOF02UM_Rank;
+    static uint32_t m_nTotalPaletteCountForKOF02UM_Conte;
 
     static uint32_t rgExtraCountAll_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
     static uint32_t rgExtraCountAll_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
@@ -55,8 +55,8 @@ private:
     static uint32_t rgExtraLoc_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
     static uint32_t GetCurrentExtraLoc();
@@ -66,7 +66,7 @@ private:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nKOF02UMROMToLoad);
+    CGame_KOF02UM_S(uint32_t nConfirmedROMSize, int nKOF02UMROMToLoad);
     ~CGame_KOF02UM_S(void);
 
     //Static functions / variables

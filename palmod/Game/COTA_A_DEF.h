@@ -6,7 +6,7 @@
 // * Update every array using COTA_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const std::vector<UINT16> COTA_A_IMGIDS_USED =
+const std::vector<uint16_t> COTA_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Colossus,     // 0x32
     indexCPS2Sprites_Cyclops,      // 0x06
@@ -27,7 +27,7 @@ const std::vector<UINT16> COTA_A_IMGIDS_USED =
 
 #pragma region SecondaryPaletteEffects
 
-const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Colossus =
+const std::vector<std::vector<uint16_t>> paletteBuddy_COTA_Colossus =
 {
     // Shoulder tackle shadows
     { SUPP_NODE, 0x03, 4,
@@ -131,7 +131,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Colossus =
     { SUPP_NODE, 0x23, 32 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Cyclops =
+const std::vector<std::vector<uint16_t>> paletteBuddy_COTA_Cyclops =
 {
     // Mega Optic Blast Stance
     // default color
@@ -159,7 +159,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Cyclops =
         MOD_LUM, 1, 15, NEG + 39 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Iceman =
+const std::vector<std::vector<uint16_t>> paletteBuddy_COTA_Iceman =
 {
     // Glimmer frame
 
@@ -198,7 +198,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Iceman =
         MOD_COPY, 11, 1, 2 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_COTA_OmegaRed =
+const std::vector<std::vector<uint16_t>> paletteBuddy_COTA_OmegaRed =
 {
     //Omega Red: intro frames
     { SUPP_NODE, 0x04, 4,
@@ -211,14 +211,14 @@ const std::vector<std::vector<UINT16>> paletteBuddy_COTA_OmegaRed =
             MOD_LUM, 1, 15, 5 + NEG },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Psylocke =
+const std::vector<std::vector<uint16_t>> paletteBuddy_COTA_Psylocke =
 {
     // Glimmer frame
     { SUPP_NODE, 0x02, 4,
             MOD_LUM, 1, 15, 15 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_COTA_SilverSamurai =
+const std::vector<std::vector<uint16_t>> paletteBuddy_COTA_SilverSamurai =
 {
     // Shadow frame
     { SUPP_NODE, 0x01, 8,
@@ -238,7 +238,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_COTA_SilverSamurai =
             MOD_LUM, 1, 15, 5 + NEG },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Spiral =
+const std::vector<std::vector<uint16_t>> paletteBuddy_COTA_Spiral =
 {
     { SUPP_NODE, 0x01, 4,
             MOD_LUM, 1, 15, 25 },
@@ -336,7 +336,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Spiral =
     { SUPP_NODE, 0x1b, 28 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Storm =
+const std::vector<std::vector<uint16_t>> paletteBuddy_COTA_Storm =
 {
         // Extra 3: darker
     { SUPP_NODE, 0x03, 28,
@@ -354,7 +354,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Storm =
     { SUPP_NODE, 0x09, 28 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Wolverine =
+const std::vector<std::vector<uint16_t>> paletteBuddy_COTA_Wolverine =
 {
     // his berserker barrage trails a bit of his costume.
     { SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,
@@ -364,7 +364,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Wolverine =
             MOD_COPY,  9, 1, 15 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_COTA_Akuma =
+const std::vector<std::vector<uint16_t>> paletteBuddy_COTA_Akuma =
 {
     // Dash, teleport
     { SUPP_NODE, 0x01, 4,

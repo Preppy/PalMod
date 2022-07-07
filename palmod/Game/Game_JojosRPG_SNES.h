@@ -6,14 +6,14 @@
 class CGame_JOJOSRPG_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForJOJOSRPG;
+    static uint32_t m_nTotalPaletteCountForJOJOSRPG;
 
     static uint32_t rgExtraCountAll[JOJOSRPG_SNES_NUMUNIT + 1];
     static uint32_t rgExtraLoc[JOJOSRPG_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -22,7 +22,7 @@ private:
     static constexpr auto JOJOSRPG_SNES_PRIMARY_ROMNAME = L"jojo no kimyou na bouken (japan).sfc";
 
 public:
-    CGame_JOJOSRPG_SNES(UINT32 nConfirmedROMSize);
+    CGame_JOJOSRPG_SNES(uint32_t nConfirmedROMSize);
     ~CGame_JOJOSRPG_SNES(void);
 
     //Static functions / variables

@@ -18,10 +18,10 @@ uint32_t CGame_KOF99AE_A::rgExtraLoc_P2[KOF99AE_A_P2_NUMUNIT + 1];
 uint32_t CGame_KOF99AE_A::rgExtraLoc_P3[KOF99AE_A_P3_NUMUNIT + 1];
 
 uint32_t CGame_KOF99AE_A::m_nSelectedRom = 22;
-UINT32 CGame_KOF99AE_A::m_nTotalPaletteCountForKOF99AE_P2 = 0;
-UINT32 CGame_KOF99AE_A::m_nTotalPaletteCountForKOF99AE_P3 = 0;
-UINT32 CGame_KOF99AE_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
-UINT32 CGame_KOF99AE_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_KOF99AE_A::m_nTotalPaletteCountForKOF99AE_P2 = 0;
+uint32_t CGame_KOF99AE_A::m_nTotalPaletteCountForKOF99AE_P3 = 0;
+uint32_t CGame_KOF99AE_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
+uint32_t CGame_KOF99AE_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF99AE_A::InitializeStatics()
 {
@@ -37,7 +37,7 @@ void CGame_KOF99AE_A::InitializeStatics()
     MainDescTree_P3.SetRootTree(CGame_KOF99AE_A::InitDescTree(3));
 }
 
-CGame_KOF99AE_A::CGame_KOF99AE_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 2*/)
+CGame_KOF99AE_A::CGame_KOF99AE_A(uint32_t nConfirmedROMSize, int nROMToLoad /*= 2*/)
 {
     OutputDebugString(L"CGame_KOF99AE_A::CGame_KOF99AE_A: Loading ROM...\n");
 
@@ -130,7 +130,7 @@ CDescTree* CGame_KOF99AE_A::GetMainTree()
     }
 }
 
-UINT32 CGame_KOF99AE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_KOF99AE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -194,11 +194,11 @@ uint32_t CGame_KOF99AE_A::GetExtraLoc(uint32_t nUnitId)
 
 sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
     m_nSelectedRom = nROMPaletteSetToUse;
 
     bool fHaveExtras;
-    UINT16 nUnitCt;
+    uint16_t nUnitCt;
     uint32_t nExtraUnitLocation;
 
     if (UsePaletteSetForP2())
@@ -230,7 +230,7 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
@@ -260,7 +260,7 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
             uint32_t nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
-            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+            for (uint16_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
@@ -282,7 +282,7 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
                 const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+                for (uint16_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -346,7 +346,7 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
             OutputDebugString(strMsg);
 #endif
 
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+            for (uint16_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
@@ -398,8 +398,8 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
 struct sKOF99AE_A_PaletteData
 {
     LPCWSTR pszCharacterName;
-    UINT32 nROMOffset = 0;
-    UINT32 nIgnored = 0; // I don't want to reparse the data I got, so just ignoring this
+    uint32_t nROMOffset = 0;
+    uint32_t nIgnored = 0; // I don't want to reparse the data I got, so just ignoring this
     LPCWSTR pszImageSet = nullptr;
     bool fIsMultipart = false;
     bool fUseUniqueExtraImages = false;
@@ -560,9 +560,9 @@ sKOF99AE_A_PaletteData KOF99AE_A_CharacterEffectPalettes[] =
 void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
 {
     CString strOutput;
-    UINT16 nColorOptionsPerCharacter = 2;
-    constexpr UINT32 KOF99AE_PALETTE_LENGTH = 0x20;
-    const UINT16 nCountStatusEffects = 16;
+    uint16_t nColorOptionsPerCharacter = 2;
+    constexpr uint32_t KOF99AE_PALETTE_LENGTH = 0x20;
+    const uint16_t nCountStatusEffects = 16;
     std::vector<LPCWSTR> ppszButtonLabels;
 
     if (nHeaderSetToDump == 2)
@@ -576,14 +576,14 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
         ppszButtonLabels = DEF_BUTTONLABEL_KOF99AE_P3;
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
-        for (UINT16 nCharColorIndex = 0; nCharColorIndex < nColorOptionsPerCharacter; nCharColorIndex++)
+        for (uint16_t nCharColorIndex = 0; nCharColorIndex < nColorOptionsPerCharacter; nCharColorIndex++)
         {
-            const UINT16 nPaletteIterationForColor = nCharColorIndex % 2;
+            const uint16_t nPaletteIterationForColor = nCharColorIndex % 2;
             int nShiftForP3FirstColorSet = 0;
             
             if ((nHeaderSetToDump == 3) && (nCharColorIndex < 2))
@@ -623,9 +623,9 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
                 { L"Character Portrait",    0x31, false },
             };
 
-            for (UINT16 nPaletteIndex = 0; nPaletteIndex < ARRAYSIZE(rgKOF99AEPaletteNames); nPaletteIndex++)
+            for (uint16_t nPaletteIndex = 0; nPaletteIndex < ARRAYSIZE(rgKOF99AEPaletteNames); nPaletteIndex++)
             {
-                UINT32 nCurrentOffset = KOF99AE_A_CharacterPalettes[nCharIndex].nROMOffset + (nPaletteIndex * KOF99AE_PALETTE_LENGTH) + (nPaletteIterationForColor * 0x200) + nShiftForP3FirstColorSet;
+                uint32_t nCurrentOffset = KOF99AE_A_CharacterPalettes[nCharIndex].nROMOffset + (nPaletteIndex * KOF99AE_PALETTE_LENGTH) + (nPaletteIterationForColor * 0x200) + nShiftForP3FirstColorSet;
 
                 strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x", rgKOF99AEPaletteNames[nPaletteIndex].pszMoveName, nCurrentOffset, nCurrentOffset + KOF99AE_PALETTE_LENGTH );
                 OutputDebugString(strOutput);
@@ -660,7 +660,7 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
                                                                                 KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet);
             OutputDebugString(strOutput);
 
-            const UINT32 KOF99AE_PORTRAIT_LENGTH = 0x180;
+            const uint32_t KOF99AE_PORTRAIT_LENGTH = 0x180;
             strOutput.Format(L"    { L\"Win Portrait\", 0x%x, 0x%x, %s, 0x30 },\r\n", KOF99AE_A_CharacterWinPortraits[nCharIndex].nROMOffset + (KOF99AE_PORTRAIT_LENGTH * nPaletteIterationForColor) + nShiftForP3FirstColorSet,
                                                                             KOF99AE_A_CharacterWinPortraits[nCharIndex].nROMOffset + KOF99AE_PORTRAIT_LENGTH + (KOF99AE_PORTRAIT_LENGTH * nPaletteIterationForColor) + nShiftForP3FirstColorSet,
                                                                             KOF99AE_A_CharacterPalettes[nCharIndex].pszImageSet);
@@ -675,9 +675,9 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
             strOutput.Format(L"const sGame_PaletteDataset KOF99AE_A_%s_EFFECT_PALETTES[] = \r\n{\r\n", szCodeDesc);
             OutputDebugString(strOutput);
 
-            for (UINT16 nPaletteIndex = 0; nPaletteIndex < 8; nPaletteIndex++)
+            for (uint16_t nPaletteIndex = 0; nPaletteIndex < 8; nPaletteIndex++)
             {
-                UINT32 nCurrentOffset = KOF99AE_A_CharacterEffectPalettes[nCharIndex].nROMOffset + (nPaletteIndex * KOF99AE_PALETTE_LENGTH);
+                uint32_t nCurrentOffset = KOF99AE_A_CharacterEffectPalettes[nCharIndex].nROMOffset + (nPaletteIndex * KOF99AE_PALETTE_LENGTH);
 
                 strOutput.Format(L"    { L\"Effect %u\", 0x%x, 0x%x },\r\n", nPaletteIndex, nCurrentOffset, nCurrentOffset + KOF99AE_PALETTE_LENGTH);
                 OutputDebugString(strOutput);
@@ -687,17 +687,17 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
         }
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOF99AE_A_P%u_%s_COLLECTION[] = \r\n{\r\n", nHeaderSetToDump, szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), ppszButtonLabels[nColorIndex]);
 
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF99AE_A_%s_%s_PALETTES, ARRAYSIZE(KOF99AE_A_%s_%s_PALETTES) },\r\n", ppszButtonLabels[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
@@ -721,9 +721,9 @@ void CGame_KOF99AE_A::DumpPaletteHeaders(int nHeaderSetToDump)
             strOutput.Format(L"const sDescTreeNode KOF99AE_A_P%u_UNITS[] = \r\n{\r\n", iPass);
             OutputDebugString(strOutput);
 
-            for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
+            for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF99AE_A_CharacterPalettes); nCharIndex++)
             {
-                WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+                wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
                 StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
                 strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF99AE_A_P%u_%s_COLLECTION, ARRAYSIZE(KOF99AE_A_P%u_%s_COLLECTION) },\r\n", KOF99AE_A_CharacterPalettes[nCharIndex].pszCharacterName, iPass, szCodeDesc, iPass, szCodeDesc);
@@ -901,8 +901,8 @@ const sGame_PaletteDataset* CGame_KOF99AE_A::GetSpecificPalette(uint32_t nUnitId
 void CGame_KOF99AE_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_KOF99AE_A::ClearDataBuffer()

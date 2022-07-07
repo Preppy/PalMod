@@ -10,7 +10,7 @@ constexpr auto DESC_NODETYPE_NODE = 1;
 
 struct sDescNode
 {
-    WCHAR szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
+    wchar_t szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
 
     uint32_t uUnitId = INVALID_UNIT_VALUE;
     uint32_t uPalId = 0;
@@ -18,9 +18,9 @@ struct sDescNode
 
 struct sDescTreeNode
 {
-    WCHAR szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
+    wchar_t szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
 
-    UINT8 uChildType = DESC_NODETYPE_TREE;
+    uint8_t uChildType = DESC_NODETYPE_TREE;
     void* ChildNodes = nullptr;
     uint32_t uChildAmt = 0;
 };

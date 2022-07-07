@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> SSF2T_GBA_IMGIDS_USED =
+const std::vector<uint16_t> SSF2T_GBA_IMGIDS_USED =
 {
     indexSF2GBASprites_Ryu,
     indexSF2GBASprites_EHonda,

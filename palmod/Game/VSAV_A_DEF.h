@@ -6,7 +6,7 @@
 // * Update every array using VSAV_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const std::vector<UINT16> VSAV_A_IMGIDS_USED =
+const std::vector<uint16_t> VSAV_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Anakaris,
     indexCPS2Sprites_BBHood,

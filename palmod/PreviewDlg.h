@@ -76,5 +76,5 @@ public:
     afx_msg void OnLoadCustomSpriteForZero() { OnLoadCustomSprite(0, SpriteImportDirection::TopDown); };
     afx_msg void OnLoadCustomSpriteForZeroFlipped() { OnLoadCustomSprite(0, SpriteImportDirection::UpsideDown); };
 
-    void LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszPath);
+    void LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath);
 };

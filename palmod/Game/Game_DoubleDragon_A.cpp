@@ -12,9 +12,9 @@ uint32_t CGame_DOUBLEDRAGON_A::rgExtraCountAll[DOUBLEDRAGON_A_NUMUNIT + 1];
 uint32_t CGame_DOUBLEDRAGON_A::rgExtraLoc[DOUBLEDRAGON_A_NUMUNIT + 1];
 
 uint32_t CGame_DOUBLEDRAGON_A::m_nSelectedRom = 1;
-UINT32 CGame_DOUBLEDRAGON_A::m_nTotalPaletteCountForDOUBLEDRAGON = 0;
-UINT32 CGame_DOUBLEDRAGON_A::m_nExpectedGameROMSize = 0x200000;
-UINT32 CGame_DOUBLEDRAGON_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_DOUBLEDRAGON_A::m_nTotalPaletteCountForDOUBLEDRAGON = 0;
+uint32_t CGame_DOUBLEDRAGON_A::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_DOUBLEDRAGON_A::m_nConfirmedROMSize = -1;
 
 void CGame_DOUBLEDRAGON_A::InitializeStatics()
 {
@@ -26,7 +26,7 @@ void CGame_DOUBLEDRAGON_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_DOUBLEDRAGON_A::InitDescTree());
 }
 
-CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
+CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A(uint32_t nConfirmedROMSize, int nROMToLoad /*= 1*/)
 {
     OutputDebugString(L"CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A: Loading ROM...\n");
 
@@ -117,7 +117,7 @@ sDescTreeNode* CGame_DOUBLEDRAGON_A::InitDescTree()
     uint32_t nExtraUnitLocation = DOUBLEDRAGON_A_EXTRALOC;
     LoadExtraFileForGame(EXTRA_FILENAME_DOUBLEDRAGON_A, &DOUBLEDRAGON_A_EXTRA_CUSTOM, DOUBLEDRAGON_A_EXTRALOC, m_nConfirmedROMSize);
     bool fHaveExtras = GetExtraCt(DOUBLEDRAGON_A_EXTRALOC);
-    UINT16 nUnitCt = DOUBLEDRAGON_A_NUMUNIT + (fHaveExtras ? 1 : 0);
+    uint16_t nUnitCt = DOUBLEDRAGON_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -153,7 +153,7 @@ sFileRule CGame_DOUBLEDRAGON_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_DOUBLEDRAGON_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_DOUBLEDRAGON_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -213,8 +213,8 @@ const sGame_PaletteDataset* CGame_DOUBLEDRAGON_A::GetSpecificPalette(uint32_t nU
 void CGame_DOUBLEDRAGON_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_DOUBLEDRAGON_A::ClearDataBuffer()

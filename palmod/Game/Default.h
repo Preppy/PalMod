@@ -15,7 +15,7 @@ constexpr auto MAX_PALETTE_PAGES = MAX_PALETTES_DISPLAYABLE;
 
 enum class PALWriteOutputOptions
 {
-    // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
+    // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter uint16_t.
     // You can set this to PALWriteOutputOptions::WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
     // You're only really going to be able to prove the game's maximum palette length with palettes longer than 16 colors.
     WRITE_16 = 16,

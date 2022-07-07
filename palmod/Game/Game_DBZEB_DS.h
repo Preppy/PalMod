@@ -6,14 +6,14 @@
 class CGame_DBZEB_DS : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForNEWGAME;
+    static uint32_t m_nTotalPaletteCountForNEWGAME;
 
     static uint32_t rgExtraCountAll[DBZEB_DS_NUMUNIT + 1];
     static uint32_t rgExtraLoc[DBZEB_DS_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -22,7 +22,7 @@ private:
     static constexpr auto DBZEB_DS_PRIMARY_ROMNAME = L"Dragon Ball Z - Extreme Butoden (USA) Decrypted.3ds"; // the file that your palettes are stored in
 
 public:
-    CGame_DBZEB_DS(UINT32 nConfirmedROMSize);
+    CGame_DBZEB_DS(uint32_t nConfirmedROMSize);
     ~CGame_DBZEB_DS(void);
 
     //Static functions / variables

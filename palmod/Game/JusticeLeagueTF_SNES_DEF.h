@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const std::vector<UINT16> JusticeLeagueTF_SNES_IMGIDS_USED =
+const std::vector<uint16_t> JusticeLeagueTF_SNES_IMGIDS_USED =
 {
     indexJLTFSprites_Aquaman,            // 0xE6
     indexJLTFSprites_Batman,             // 0xE7

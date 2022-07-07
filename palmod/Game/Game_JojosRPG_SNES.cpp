@@ -4,9 +4,9 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_JOJOSRPG_SNES::m_nExpectedGameROMSize = 0x100000;
+uint32_t CGame_JOJOSRPG_SNES::m_nExpectedGameROMSize = 0x100000;
 
-CGame_JOJOSRPG_SNES::CGame_JOJOSRPG_SNES(UINT32 nConfirmedROMSize)
+CGame_JOJOSRPG_SNES::CGame_JOJOSRPG_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_JOJOSRPG_SNES::CGame_JOJOSRPG_SNES: Loading ROM...\n");
 
@@ -64,8 +64,8 @@ stExtraDef* CGame_JOJOSRPG_SNES::JOJOSRPG_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_JOJOSRPG_SNES::MainDescTree = nullptr;
 uint32_t CGame_JOJOSRPG_SNES::rgExtraCountAll[JOJOSRPG_SNES_NUMUNIT + 1];
 uint32_t CGame_JOJOSRPG_SNES::rgExtraLoc[JOJOSRPG_SNES_NUMUNIT + 1];
-UINT32 CGame_JOJOSRPG_SNES::m_nTotalPaletteCountForJOJOSRPG = 0;
-UINT32 CGame_JOJOSRPG_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_JOJOSRPG_SNES::m_nTotalPaletteCountForJOJOSRPG = 0;
+uint32_t CGame_JOJOSRPG_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_JOJOSRPG_SNES::InitializeStatics()
 {
@@ -105,7 +105,7 @@ sDescTreeNode* CGame_JOJOSRPG_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_JOJOSRPG_SNES, &JOJOSRPG_SNES_EXTRA_CUSTOM, JOJOSRPG_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = JOJOSRPG_SNES_NUMUNIT + (GetExtraCt(JOJOSRPG_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = JOJOSRPG_SNES_NUMUNIT + (GetExtraCt(JOJOSRPG_SNES_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

@@ -11,8 +11,8 @@ class CGame_AOF3_A : public CGameWithExtrasFile
 private:
     int m_nBufferSelectedRom = 2;
     static uint32_t m_nSelectedRom;
-    static UINT32 m_nTotalPaletteCountForAOF3_P1;
-    static UINT32 m_nTotalPaletteCountForAOF3_P2;
+    static uint32_t m_nTotalPaletteCountForAOF3_P1;
+    static uint32_t m_nTotalPaletteCountForAOF3_P2;
     static bool UsePaletteSetForP1() { return (m_nSelectedRom == 1); }
 
     static uint32_t rgExtraCountAll_P1[AOF3_A_P1_NUMUNIT + 1];
@@ -21,9 +21,9 @@ private:
     static uint32_t rgExtraLoc_P2[AOF3_A_P2_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSizeP1;
-    static UINT32 m_nExpectedGameROMSizeP2;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSizeP1;
+    static uint32_t m_nExpectedGameROMSizeP2;
+    static uint32_t m_nConfirmedROMSize;
 
     // Needed for multiple ROM support
     void InitDataBuffer() override;
@@ -36,7 +36,7 @@ private:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_AOF3_A(UINT32 nConfirmedROMSize, int nROMToLoad = 1);
+    CGame_AOF3_A(uint32_t nConfirmedROMSize, int nROMToLoad = 1);
     ~CGame_AOF3_A(void);
 
     //Static functions / variables
@@ -64,7 +64,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* AOF3_A_P1_EXTRA_CUSTOM;
     static stExtraDef* AOF3_A_P2_EXTRA_CUSTOM;

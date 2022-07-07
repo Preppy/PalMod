@@ -11,10 +11,10 @@ CDescTree CGame_NEOGEO_A::MainDescTree = nullptr;
 uint32_t CGame_NEOGEO_A::rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
 uint32_t CGame_NEOGEO_A::rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
 
-UINT32 CGame_NEOGEO_A::m_nTotalPaletteCountForNEOGEO = 0;
-UINT32 CGame_NEOGEO_A::m_nExpectedGameROMSize = -1; // This is a stub: we can't care about size
-UINT32 CGame_NEOGEO_A::m_nConfirmedROMSize = -1;
-WCHAR CGame_NEOGEO_A::m_pszExtraNameOverride[MAX_PATH] = L"";
+uint32_t CGame_NEOGEO_A::m_nTotalPaletteCountForNEOGEO = 0;
+uint32_t CGame_NEOGEO_A::m_nExpectedGameROMSize = -1; // This is a stub: we can't care about size
+uint32_t CGame_NEOGEO_A::m_nConfirmedROMSize = -1;
+wchar_t CGame_NEOGEO_A::m_pszExtraNameOverride[MAX_PATH] = L"";
 
 void CGame_NEOGEO_A::InitializeStatics(LPCWSTR pszFileLoaded)
 {
@@ -26,7 +26,7 @@ void CGame_NEOGEO_A::InitializeStatics(LPCWSTR pszFileLoaded)
     MainDescTree.SetRootTree(InitDescTree(pszFileLoaded));
 }
 
-CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize, LPCWSTR pszFileLoaded)
+CGame_NEOGEO_A::CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded)
 {
     OutputDebugString(L"CGame_NEOGEO_A::CGame_NEOGEO_A: Loading ROM...\n");
 
@@ -56,7 +56,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize, LPCWSTR pszFileLoaded)
 
     m_pszExtraFilename = m_pszExtraNameOverride;
     m_nTotalInternalUnits = NEOGEO_A_NUMUNIT;
-    m_nExtraUnit = (UINT16)m_nTotalInternalUnits;
+    m_nExtraUnit = (uint16_t)m_nTotalInternalUnits;
 
     m_nSafeCountForThisRom = GetExtraCountForUnit(m_nExtraUnit) + 1;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNEOGEO;
@@ -135,8 +135,8 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     bool fShouldSetAlpha = CurrentAlphaSetting == AlphaMode::Unknown;
     AlphaMode suggestedAlphaSetting = CurrentAlphaSetting;
     
-    const UINT8 cbPreviousColorSize = m_nSizeOfColorsInBytes;
-    UINT8 cbRequiredColorSize = 0;
+    const uint8_t cbPreviousColorSize = m_nSizeOfColorsInBytes;
+    uint8_t cbRequiredColorSize = 0;
     bool fChangedColorSize = false;
 
     // This handles the color modes switches for:
@@ -293,13 +293,13 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree(LPCWSTR pszFileLoaded)
 
         if (nStrLen < (MAX_PATH - (wcslen(pszNewSuffix) + 1))) // room for extras suffix
         {
-            const WCHAR* pszSlash = wcsrchr(pszFileLoaded, L'\\');
+            const wchar_t* pszSlash = wcsrchr(pszFileLoaded, L'\\');
 
             if (pszSlash)
             {
                 wcsncpy_s(m_pszExtraNameOverride, pszSlash + 1, ARRAYSIZE(m_pszExtraNameOverride));
 
-                WCHAR* pszDot = wcsrchr(m_pszExtraNameOverride, L'.');
+                wchar_t* pszDot = wcsrchr(m_pszExtraNameOverride, L'.');
                 if (pszDot)
                 {
                     pszDot[0] = 0;
@@ -352,7 +352,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree(LPCWSTR pszFileLoaded)
         }
     }
 
-    UINT16 nUnitCt = NEOGEO_A_NUMUNIT + (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = NEOGEO_A_NUMUNIT + (GetExtraCountForUnit(NEOGEO_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

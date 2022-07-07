@@ -3,7 +3,7 @@
 // transparency color is the last color on cps2 graphics
 // the first 2 bytes of a palette on ST is how many palette lines it has
 
-const std::vector<UINT16> HSF2_A_IMGIDS_USED =
+const std::vector<uint16_t> HSF2_A_IMGIDS_USED =
 {
     indexSF2Sprites_Ryu,
     indexSF2Sprites_EHonda,

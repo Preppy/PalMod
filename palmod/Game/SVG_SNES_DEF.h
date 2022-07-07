@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const std::vector<UINT16> SVG_SNES_IMGIDS_USED =
+const std::vector<uint16_t> SVG_SNES_IMGIDS_USED =
 {
     indexSVGSprites_Ayako,              // 0x64
     indexSVGSprites_Chiho,              // 0x65

@@ -9,20 +9,20 @@ constexpr auto EXTRA_FILENAME_MSHWOTG_SNES = L"MSHWOTGE.txt";
 class CGame_MSHWOTG_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForMSHWOTG;
+    static uint32_t m_nTotalPaletteCountForMSHWOTG;
 
     static uint32_t rgExtraCountAll[MSHWOTG_SNES_NUMUNIT + 1];
     static uint32_t rgExtraLoc[MSHWOTG_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_MSHWOTG_SNES(UINT32 nConfirmedROMSize);
+    CGame_MSHWOTG_SNES(uint32_t nConfirmedROMSize);
     ~CGame_MSHWOTG_SNES(void);
 
     //Static functions / variables
@@ -49,7 +49,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* MSHWOTG_SNES_EXTRA_CUSTOM;
 };

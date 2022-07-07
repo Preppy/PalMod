@@ -10,7 +10,7 @@ class CGame_SFIII2_A : public CGameWithExtrasFile
 public:
     int m_nBufferSelectedRom = 50;
     static uint32_t m_nSelectedRom;
-    static UINT32 m_nTotalPaletteCountForSFIII2_50;
+    static uint32_t m_nTotalPaletteCountForSFIII2_50;
 
     static uint32_t rgExtraCountAll_50[SFIII2_A_50_NUMUNIT + 1];
     static uint32_t rgExtraLoc_50[SFIII2_A_50_NUMUNIT + 1];
@@ -18,8 +18,8 @@ public:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
     static uint32_t GetCurrentExtraLoc();
@@ -29,7 +29,7 @@ public:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_SFIII2_A(UINT32 nConfirmedROMSize = -1, int nSF3ROMToLoad = 50);
+    CGame_SFIII2_A(uint32_t nConfirmedROMSize = -1, int nSF3ROMToLoad = 50);
     ~CGame_SFIII2_A(void);
 
     //Static functions / variables

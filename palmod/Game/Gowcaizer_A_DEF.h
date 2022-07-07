@@ -6,7 +6,7 @@
 // * Run PalMod: the new headers will be printed to debug out
 // That should be it.  Good luck.
 
-const std::vector<UINT16> Gowcaizer_A_IMGIDS_USED =
+const std::vector<uint16_t> Gowcaizer_A_IMGIDS_USED =
 {
     indexNEOGEOSprites_VFG_Brider,          // 0x7B
     indexNEOGEOSprites_VFG_Captain,         // 0x7C

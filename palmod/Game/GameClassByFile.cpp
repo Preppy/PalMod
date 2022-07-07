@@ -138,7 +138,7 @@ void CGameClassByFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
         uint32_t cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-        m_nCurrentPaletteSizeInColors = (UINT16)cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+        m_nCurrentPaletteSizeInColors = (uint16_t)cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
     }
     else
@@ -469,15 +469,15 @@ BOOL CGameClassByFile::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         if (m_pppDataBuffer[nUnitNumber] == nullptr)
         {
-            m_pppDataBuffer[nUnitNumber] = new UINT16 * [nPalAmt];
-            memset(m_pppDataBuffer[nUnitNumber], 0, sizeof(UINT16*) * nPalAmt);
+            m_pppDataBuffer[nUnitNumber] = new uint16_t * [nPalAmt];
+            memset(m_pppDataBuffer[nUnitNumber], 0, sizeof(uint16_t*) * nPalAmt);
         }
 
         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
-            m_pppDataBuffer[nUnitNumber][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
+            m_pppDataBuffer[nUnitNumber][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
 
             LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
             LoadedFile->Read(m_pppDataBuffer[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -492,15 +492,15 @@ BOOL CGameClassByFile::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         if (m_pppDataBuffer32[nUnitNumber] == nullptr)
         {
-            m_pppDataBuffer32[nUnitNumber] = new UINT32 * [nPalAmt];
-            memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(UINT32*) * nPalAmt);
+            m_pppDataBuffer32[nUnitNumber] = new uint32_t * [nPalAmt];
+            memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(uint32_t*) * nPalAmt);
         }
 
         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
-            m_pppDataBuffer32[nUnitNumber][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+            m_pppDataBuffer32[nUnitNumber][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
             LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
             LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -525,7 +525,7 @@ BOOL CGameClassByFile::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
 BOOL CGameClassByFile::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)

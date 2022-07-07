@@ -9,20 +9,20 @@ constexpr auto EXTRA_FILENAME_Garou_A = L"GarouE.txt";
 class CGame_Garou_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForGarou;
+    static uint32_t m_nTotalPaletteCountForGarou;
 
     static uint32_t rgExtraCountAll[Garou_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[Garou_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_Garou_A(UINT32 nConfirmedROMSize);
+    CGame_Garou_A(uint32_t nConfirmedROMSize);
     ~CGame_Garou_A(void);
 
     //Static functions / variables

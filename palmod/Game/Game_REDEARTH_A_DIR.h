@@ -5,10 +5,10 @@ class CGame_RedEarth_A_DIR :
     public CGame_REDEARTH_A
 {
 public:
-    CGame_RedEarth_A_DIR(UINT32 nConfirmedROMSize, int nRedEarthModeToLoad = 31);
+    CGame_RedEarth_A_DIR(uint32_t nConfirmedROMSize, int nRedEarthModeToLoad = 31);
     ~CGame_RedEarth_A_DIR() { FlushChangeTrackingArray(); };
 
-    UINT32 c_nRedEarthSIMMLength = 0x200000;
+    uint32_t c_nRedEarthSIMMLength = 0x200000;
     static uint32_t m_nSavedMode;
 
     //Static functions

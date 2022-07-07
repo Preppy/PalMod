@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> FatalFury1_A_IMGIDS_USED =
+const std::vector<uint16_t> FatalFury1_A_IMGIDS_USED =
 {
     indexFF1Sprites_AndyBogard,     // 0x289
     indexFF1Sprites_BillyKane,      // 0x28a

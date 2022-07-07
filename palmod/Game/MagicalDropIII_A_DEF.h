@@ -26,7 +26,7 @@
 // 0x17 = Strength's Father
 // 0x18 = BONUS
 
-const std::vector<UINT16> MAGICALDROPIII_A_IMGIDS_USED =
+const std::vector<uint16_t> MAGICALDROPIII_A_IMGIDS_USED =
 {
     indexMagDrop3Sprites_BlkPierrot,    // 0x53
     indexMagDrop3Sprites_Chariot,       // 0x54

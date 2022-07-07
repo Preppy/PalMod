@@ -5,7 +5,7 @@
 class CGame_KOF02UM_S_DIR : public CGameClassByFile
 {
 public:
-    CGame_KOF02UM_S_DIR(UINT32 nConfirmedROMSize, SupportedGamesList nKOF02UMROMSetToLoad);
+    CGame_KOF02UM_S_DIR(uint32_t nConfirmedROMSize, SupportedGamesList nKOF02UMROMSetToLoad);
     ~CGame_KOF02UM_S_DIR();
 
     static sFileRule GetNextRule_8888();
@@ -16,7 +16,7 @@ public:
     static sFileRule GetRule_RGB555(uint32_t nRuleId);
 
     static void InitializeStatics();
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static CDescTree MainDescTree;
 

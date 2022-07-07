@@ -11,7 +11,7 @@ private:
     void GetPalOffsSz(uint32_t nUnitId, uint32_t nPalId);
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
+    static uint32_t m_nExpectedGameROMSize;
 
 public:
     CGame_SFIII3_D(void);

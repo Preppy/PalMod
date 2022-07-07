@@ -10,7 +10,7 @@ constexpr auto MSHVSF_A_NUM_IND_7B = index_MSHVSF_7B_Last;
 
 constexpr auto MSHVSF_A_EXTRALOC_7B = MSHVSF_A_NUM_IND_7B;
 
-const std::vector<UINT16> MSHVSF_A_IMGIDS_USED =
+const std::vector<uint16_t> MSHVSF_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,
     indexCPS2Sprites_Zangief,
@@ -38,7 +38,7 @@ const std::vector<UINT16> MSHVSF_A_IMGIDS_USED =
 
 #pragma region SecondaryPaletteEffects
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Cyclops =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSHVSF_Cyclops =
 {
     // there are 8 intro frames
     { SUPP_NODE, 0x04, 8,
@@ -67,7 +67,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Cyclops =
         MOD_TINT, 1, 15, 1, 5, NEG + 1, NEG + 1 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Dhalsim =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSHVSF_Dhalsim =
 {
     // 5 teleport frames
     { SUPP_NODE, 0x03, 5,
@@ -80,14 +80,14 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Dhalsim =
         MOD_LUM, 1, 15, 65 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Norimaro =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSHVSF_Norimaro =
 {
     // Throw rage
     { SUPP_NODE, 0x01, 2,
         MOD_TINT, 2, 5, 1, 3, NEG + 3, NEG + 3 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_OmegaRed =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSHVSF_OmegaRed =
 {
     //Omega Red: intro frames
     { SUPP_NODE, 0x01, 4,
@@ -100,14 +100,14 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_OmegaRed =
             MOD_LUM, 1, 15, 5 + NEG },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Sakura =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSHVSF_Sakura =
 {
     //Kei should have the same outfit
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 2,
         MOD_COPY, 9, 7, 9 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Shuma =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSHVSF_Shuma =
 {
     // We don't expose the unused blue palettes here, so this sort is different than MSH
     // 
@@ -235,7 +235,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Shuma =
         MOD_LUM, 1, 15, NEG + 20 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Spidey =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSHVSF_Spidey =
 {
     // Taunt balloon: we don't touch
 
@@ -258,7 +258,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Spidey =
         MOD_LUM, 01, 10, NEG + 3 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Wolverine =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSHVSF_Wolverine =
 {
     // his berserker barrage trails a bit of his costume.
     { SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,
@@ -268,7 +268,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Wolverine =
         MOD_COPY,  9, 1, 15 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSHVSF_Zangief =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSHVSF_Zangief =
 {
     // 3 FAB rage palettes
     { SUPP_NODE, 0x03, 3,

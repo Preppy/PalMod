@@ -6,7 +6,7 @@
 // * Run PalMod: the new headers will be printed to debug out
 // That should be it.  Good luck.
 
-const std::vector<UINT16> KOFXI_A_IMGIDS_USED =
+const std::vector<uint16_t> KOFXI_A_IMGIDS_USED =
 {
     // various of these sprites are unchanged from previous versions, so use those
     indexKOF96Sprites_Ryo,          // 0x260

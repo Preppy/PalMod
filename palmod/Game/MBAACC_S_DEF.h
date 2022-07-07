@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> MBAACC_S_IMGIDS_USED =
+const std::vector<uint16_t> MBAACC_S_IMGIDS_USED =
 {
     indexMBAACCSprites_AkihaTohno,          // 0x4A
     indexMBAACCSprites_AkihaTohnoSeifuku,   // 0x4B
@@ -107,10 +107,10 @@ struct MBAACCFileData
 {
     LPCWSTR pszFileName = nullptr;
     LPCWSTR pszCharacter = nullptr;
-    UINT32 nExpectedFileSize = 0;
+    uint32_t nExpectedFileSize = 0;
     std::vector <LPCWSTR> ppszPaletteList;
-    UINT32 nInitialLocation = 0;
-    UINT32 nSpriteIndex = -1;
+    uint32_t nInitialLocation = 0;
+    uint32_t nSpriteIndex = -1;
 };
 
 MBAACCFileData MBAACCCharacterData[] =

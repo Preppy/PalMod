@@ -11,9 +11,9 @@ CDescTree CGame_KOF98_A::MainDescTree = nullptr;
 uint32_t CGame_KOF98_A::rgExtraCountAll[KOF98_A_NUMUNIT + 1];
 uint32_t CGame_KOF98_A::rgExtraLoc[KOF98_A_NUMUNIT + 1];
 
-UINT32 CGame_KOF98_A::m_nTotalPaletteCountForKOF98 = 0;
-UINT32 CGame_KOF98_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
-UINT32 CGame_KOF98_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_KOF98_A::m_nTotalPaletteCountForKOF98 = 0;
+uint32_t CGame_KOF98_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
+uint32_t CGame_KOF98_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF98_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_KOF98_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KOF98_A::InitDescTree());
 }
 
-CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
+CGame_KOF98_A::CGame_KOF98_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOF98_A::CGame_KOF98_A: Loading ROM...\n");
 
@@ -84,7 +84,7 @@ CDescTree* CGame_KOF98_A::GetMainTree()
     return &CGame_KOF98_A::MainDescTree;
 }
 
-UINT32 CGame_KOF98_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_KOF98_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -151,7 +151,7 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KOF98_A, &KOF98_A_EXTRA_CUSTOM, KOF98_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KOF98_A_NUMUNIT + (GetExtraCt(KOF98_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = KOF98_A_NUMUNIT + (GetExtraCt(KOF98_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -180,7 +180,7 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
 struct sKOF98_A_PaletteData
 {
     LPCWSTR pszCharacterName;
-    UINT32 nROMOffset = 0;
+    uint32_t nROMOffset = 0;
     LPCWSTR pszImageSet = L"indexKOF98Sprites_Kyo";
     bool rgIsEffectUsed[11];
 };
@@ -235,22 +235,22 @@ sKOF98_A_PaletteData KOF98_A_CharacterEffectPalettes[] =
 void CGame_KOF98_A::DumpPaletteHeaders()
 {
     CString strOutput;
-    const UINT16 nColorOptionsPerCharacter = 4;
-    constexpr UINT32 KOF98_PALETTE_LENGTH = 0x20;
-    const UINT16 nCountStatusEffects = 16;
+    const uint16_t nColorOptionsPerCharacter = 4;
+    constexpr uint32_t KOF98_PALETTE_LENGTH = 0x20;
+    const uint16_t nCountStatusEffects = 16;
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF98_A_CharacterEffectPalettes); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF98_A_CharacterEffectPalettes); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF98_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sGame_PaletteDataset KOF98_A_%s_EFFECT_PALETTES[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
         // Status effects
-        for (UINT16 nStatusIndex = 0; nStatusIndex < nCountStatusEffects; nStatusIndex++)
+        for (uint16_t nStatusIndex = 0; nStatusIndex < nCountStatusEffects; nStatusIndex++)
         {
-            UINT32 nCurrentOffset = KOF98_A_CharacterEffectPalettes[nCharIndex].nROMOffset + (nStatusIndex * KOF98_PALETTE_LENGTH);
+            uint32_t nCurrentOffset = KOF98_A_CharacterEffectPalettes[nCharIndex].nROMOffset + (nStatusIndex * KOF98_PALETTE_LENGTH);
             switch (nStatusIndex)
             {
             default:
@@ -291,17 +291,17 @@ void CGame_KOF98_A::DumpPaletteHeaders()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF98_A_CharacterEffectPalettes); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF98_A_CharacterEffectPalettes); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF98_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOF98_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_NEOGEO[nColorIndex]);
 
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF98_A_%s_%s_PALETTES, ARRAYSIZE(KOF98_A_%s_%s_PALETTES) },\r\n", DEF_BUTTONLABEL_NEOGEO[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);

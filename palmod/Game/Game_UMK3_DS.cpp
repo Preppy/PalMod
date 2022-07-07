@@ -4,9 +4,9 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_UMK3_DS::m_nExpectedGameROMSize = 0x4000000;
+uint32_t CGame_UMK3_DS::m_nExpectedGameROMSize = 0x4000000;
 
-CGame_UMK3_DS::CGame_UMK3_DS(UINT32 nConfirmedROMSize)
+CGame_UMK3_DS::CGame_UMK3_DS(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_UMK3_DS::CGame_UMK3_DS: Loading ROM...\n");
 
@@ -64,8 +64,8 @@ stExtraDef* CGame_UMK3_DS::UMK3_DS_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_UMK3_DS::MainDescTree = nullptr;
 uint32_t CGame_UMK3_DS::rgExtraCountAll[UMK3_DS_NUMUNIT + 1];
 uint32_t CGame_UMK3_DS::rgExtraLoc[UMK3_DS_NUMUNIT + 1];
-UINT32 CGame_UMK3_DS::m_nTotalPaletteCountForUMK3 = 0;
-UINT32 CGame_UMK3_DS::m_nConfirmedROMSize = -1;
+uint32_t CGame_UMK3_DS::m_nTotalPaletteCountForUMK3 = 0;
+uint32_t CGame_UMK3_DS::m_nConfirmedROMSize = -1;
 
 void CGame_UMK3_DS::InitializeStatics()
 {
@@ -105,7 +105,7 @@ sDescTreeNode* CGame_UMK3_DS::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_UMK3_DS, &UMK3_DS_EXTRA_CUSTOM, UMK3_DS_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = UMK3_DS_NUMUNIT + (GetExtraCt(UMK3_DS_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = UMK3_DS_NUMUNIT + (GetExtraCt(UMK3_DS_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

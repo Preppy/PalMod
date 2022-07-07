@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-const std::vector<UINT16> AOF3_A_IMGIDS_USED =
+const std::vector<uint16_t> AOF3_A_IMGIDS_USED =
 {
     indexAoF3Sprites_Jin,           // 0x1A3
     indexAoF3Sprites_Karman,        // 0x1A4

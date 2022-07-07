@@ -4,9 +4,9 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_KI_SNES::m_nExpectedGameROMSize = 0x400000;
+uint32_t CGame_KI_SNES::m_nExpectedGameROMSize = 0x400000;
 
-CGame_KI_SNES::CGame_KI_SNES(UINT32 nConfirmedROMSize)
+CGame_KI_SNES::CGame_KI_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KI_SNES::CGame_KI_SNES: Loading ROM...\n");
 
@@ -64,8 +64,8 @@ stExtraDef* CGame_KI_SNES::KI_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_KI_SNES::MainDescTree = nullptr;
 uint32_t CGame_KI_SNES::rgExtraCountAll[KI_SNES_NUMUNIT + 1];
 uint32_t CGame_KI_SNES::rgExtraLoc[KI_SNES_NUMUNIT + 1];
-UINT32 CGame_KI_SNES::m_nTotalPaletteCountForKI = 0;
-UINT32 CGame_KI_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_KI_SNES::m_nTotalPaletteCountForKI = 0;
+uint32_t CGame_KI_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_KI_SNES::InitializeStatics()
 {
@@ -85,7 +85,7 @@ CGame_KI_SNES::~CGame_KI_SNES(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_KI_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_KI_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -130,7 +130,7 @@ sDescTreeNode* CGame_KI_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KI_SNES, &KI_SNES_EXTRA_CUSTOM, KI_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KI_SNES_NUMUNIT + (GetExtraCt(KI_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = KI_SNES_NUMUNIT + (GetExtraCt(KI_SNES_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

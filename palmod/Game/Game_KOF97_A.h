@@ -13,8 +13,8 @@ private:
     SupportedGamesList m_nBufferSelectedRom = KOF97_A;
     static SupportedGamesList m_nSelectedRom;
 
-    static UINT32 m_nTotalPaletteCountForKOF97;
-    static UINT32 m_nTotalPaletteCountForKOF97AE;
+    static uint32_t m_nTotalPaletteCountForKOF97;
+    static uint32_t m_nTotalPaletteCountForKOF97AE;
 
     static bool UsePaletteSetFor97() { return (m_nSelectedRom != KOF97AE_A); }
 
@@ -24,9 +24,9 @@ private:
     static uint32_t rgExtraLoc_97AE[KOF97AE_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize_KOF97;
-    static UINT32 m_nExpectedGameROMSize_KOF97GM;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize_KOF97;
+    static uint32_t m_nExpectedGameROMSize_KOF97GM;
+    static uint32_t m_nConfirmedROMSize;
 
     // Needed for multiple ROM support
     void InitDataBuffer() override;
@@ -39,7 +39,7 @@ private:
     static void DumpPaletteHeaders();
 
 public:
-    CGame_KOF97_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad = KOF97_A);
+    CGame_KOF97_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad = KOF97_A);
     ~CGame_KOF97_A(void);
 
     //Static functions / variables
@@ -67,7 +67,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* KOF97_A_EXTRA_CUSTOM;
     static stExtraDef* KOF97AE_A_EXTRA_CUSTOM;

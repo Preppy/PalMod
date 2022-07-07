@@ -11,9 +11,9 @@ CDescTree CGame_BLEACH_DS::MainDescTree = nullptr;
 uint32_t CGame_BLEACH_DS::rgExtraCountAll[BLEACH_DS_NUMUNIT + 1];
 uint32_t CGame_BLEACH_DS::rgExtraLoc[BLEACH_DS_NUMUNIT + 1];
 
-UINT32 CGame_BLEACH_DS::m_nTotalPaletteCountForBleach = 0;
-UINT32 CGame_BLEACH_DS::m_nExpectedGameROMSize = 0x08000000; // Update to the actual size of the ROM you expect
-UINT32 CGame_BLEACH_DS::m_nConfirmedROMSize = -1;
+uint32_t CGame_BLEACH_DS::m_nTotalPaletteCountForBleach = 0;
+uint32_t CGame_BLEACH_DS::m_nExpectedGameROMSize = 0x08000000; // Update to the actual size of the ROM you expect
+uint32_t CGame_BLEACH_DS::m_nConfirmedROMSize = -1;
 
 void CGame_BLEACH_DS::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_BLEACH_DS::InitializeStatics()
     MainDescTree.SetRootTree(CGame_BLEACH_DS::InitDescTree());
 }
 
-CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
+CGame_BLEACH_DS::CGame_BLEACH_DS(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_BLEACH_DS::CGame_BLEACH_DS: Loading ROM...\n");
 
@@ -79,7 +79,7 @@ CGame_BLEACH_DS::~CGame_BLEACH_DS(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_BLEACH_DS::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_BLEACH_DS::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -121,7 +121,7 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_BLEACH_DS, &BLEACH_DS_EXTRA_CUSTOM, BLEACH_DS_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = BLEACH_DS_NUMUNIT + (GetExtraCt(BLEACH_DS_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = BLEACH_DS_NUMUNIT + (GetExtraCt(BLEACH_DS_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

@@ -11,9 +11,9 @@ CDescTree CGame_SAMSHO2_A::MainDescTree = nullptr;
 uint32_t CGame_SAMSHO2_A::rgExtraCountAll[SAMSHO2_A_NUMUNIT + 1];
 uint32_t CGame_SAMSHO2_A::rgExtraLoc[SAMSHO2_A_NUMUNIT + 1];
 
-UINT32 CGame_SAMSHO2_A::m_nTotalPaletteCountForSAMSHO2 = 0;
-UINT32 CGame_SAMSHO2_A::m_nExpectedGameROMSize = 0x200000;
-UINT32 CGame_SAMSHO2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SAMSHO2_A::m_nTotalPaletteCountForSAMSHO2 = 0;
+uint32_t CGame_SAMSHO2_A::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_SAMSHO2_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO2_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_SAMSHO2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SAMSHO2_A::InitDescTree());
 }
 
-CGame_SAMSHO2_A::CGame_SAMSHO2_A(UINT32 nConfirmedROMSize)
+CGame_SAMSHO2_A::CGame_SAMSHO2_A(uint32_t nConfirmedROMSize)
 {
     CString strMessage;
     strMessage.Format(L"CGame_SAMSHO2_A::CGame_SAMSHO2_A: Loading ROM...\n");
@@ -101,7 +101,7 @@ sDescTreeNode* CGame_SAMSHO2_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO2_A, &SAMSHO2_A_EXTRA_CUSTOM, SAMSHO2_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = SAMSHO2_A_NUMUNIT + (GetExtraCt(SAMSHO2_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = SAMSHO2_A_NUMUNIT + (GetExtraCt(SAMSHO2_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -130,7 +130,7 @@ sDescTreeNode* CGame_SAMSHO2_A::InitDescTree()
 void CGame_SAMSHO2_A::DumpPaletteHeaders()
 {
     CString strOutput;
-    const UINT32 SAMSHO_PALETTE_LENGTH = 0x40;
+    const uint32_t SAMSHO_PALETTE_LENGTH = 0x40;
 
     LPCWSTR rgCharacters[] = {
                                 L"Haohmaru",
@@ -149,16 +149,16 @@ void CGame_SAMSHO2_A::DumpPaletteHeaders()
                                 L"Zankuro",
     };
 
-    const UINT32 k_nBasePalette = 0x01000;
-    UINT32 nCurrentPalettePosition = k_nBasePalette;
+    const uint32_t k_nBasePalette = 0x01000;
+    uint32_t nCurrentPalettePosition = k_nBasePalette;
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         // Status effects
-        for (UINT16 nStatusIndex = 0; nStatusIndex < 64; nStatusIndex++)
+        for (uint16_t nStatusIndex = 0; nStatusIndex < 64; nStatusIndex++)
         {
             CString strPaletteName;
 
@@ -183,7 +183,7 @@ void CGame_SAMSHO2_A::DumpPaletteHeaders()
                 OutputDebugString(strOutput);
             }
 
-            UINT32 nAdjustedIndex = nStatusIndex % 16;
+            uint32_t nAdjustedIndex = nStatusIndex % 16;
 
             bool fShouldShowMainSprite = true;
 
@@ -243,9 +243,9 @@ void CGame_SAMSHO2_A::DumpPaletteHeaders()
         }
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(L"const sDescTreeNode SAMSHO2_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
@@ -265,9 +265,9 @@ void CGame_SAMSHO2_A::DumpPaletteHeaders()
     strOutput.Format(L"const sDescTreeNode SAMSHO2_A_UNITS[] = \r\n{\r\n");
     OutputDebugString(strOutput);
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SAMSHO2_A_%s_COLLECTION, ARRAYSIZE(SAMSHO2_A_%s_COLLECTION) },\r\n", rgCharacters[nCharIndex], szCodeDesc, szCodeDesc);

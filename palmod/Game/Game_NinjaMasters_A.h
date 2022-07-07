@@ -8,14 +8,14 @@ constexpr auto EXTRA_FILENAME_NINJAMASTERS_A = L"NINJAMASTERSE.txt";
 class CGame_NINJAMASTERS_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForNINJAMASTERS;
+    static uint32_t m_nTotalPaletteCountForNINJAMASTERS;
 
     static uint32_t rgExtraCountAll[NINJAMASTERS_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[NINJAMASTERS_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
     static uint32_t GetCurrentExtraLoc();
@@ -25,7 +25,7 @@ private:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize);
+    CGame_NINJAMASTERS_A(uint32_t nConfirmedROMSize);
     ~CGame_NINJAMASTERS_A(void);
 
     //Static functions / variables
@@ -52,7 +52,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* NINJAMASTERS_A_EXTRA_CUSTOM;
 };

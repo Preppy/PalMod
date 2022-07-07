@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> RBFF1_A_IMGIDS_USED =
+const std::vector<uint16_t> RBFF1_A_IMGIDS_USED =
 {
     indexRBFF1Sprites_Andy,             // 0x2BC
     indexRBFF1Sprites_Billy,            // 0x2BD

@@ -10,9 +10,9 @@ CDescTree CGame_Matrimelee_A::MainDescTree = nullptr;
 uint32_t CGame_Matrimelee_A::rgExtraCountAll[Matrimelee_A_NUMUNIT + 1];
 uint32_t CGame_Matrimelee_A::rgExtraLoc[Matrimelee_A_NUMUNIT + 1];
 
-UINT32 CGame_Matrimelee_A::m_nTotalPaletteCountForMatrimelee = 0;
-const UINT32 CGame_Matrimelee_A::m_nExpectedGameROMSize = 0x400000;
-UINT32 CGame_Matrimelee_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_Matrimelee_A::m_nTotalPaletteCountForMatrimelee = 0;
+const uint32_t CGame_Matrimelee_A::m_nExpectedGameROMSize = 0x400000;
+uint32_t CGame_Matrimelee_A::m_nConfirmedROMSize = -1;
 
 void CGame_Matrimelee_A::InitializeStatics()
 {
@@ -24,7 +24,7 @@ void CGame_Matrimelee_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_Matrimelee_A::InitDescTree());
 }
 
-CGame_Matrimelee_A::CGame_Matrimelee_A(UINT32 nConfirmedROMSize)
+CGame_Matrimelee_A::CGame_Matrimelee_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_Matrimelee_A::CGame_Matrimelee_A: Loading ROM...\n");
 
@@ -98,7 +98,7 @@ sDescTreeNode* CGame_Matrimelee_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_Matrimelee_A, &Matrimelee_A_EXTRA_CUSTOM, Matrimelee_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = Matrimelee_A_NUMUNIT + (GetExtraCt(Matrimelee_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = Matrimelee_A_NUMUNIT + (GetExtraCt(Matrimelee_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

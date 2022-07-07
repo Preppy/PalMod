@@ -6,7 +6,7 @@
 
 double LimitHLS(double a);
 double SubHLS(double a);
-UINT8 LimitRGB(int Val);
+uint8_t LimitRGB(int Val);
 
 enum class AlphaMode
 {
@@ -60,66 +60,66 @@ enum class ColFlag
 
 namespace ColorSystem
 {
-    ColMode DecodeColorFlag(UINT8 uPossibleColorFlag);
-    UINT8 GetCbForColMode(ColMode colorMode);
-    UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag, UINT8 uPossibleColorFlag);
+    ColMode DecodeColorFlag(uint8_t uPossibleColorFlag);
+    uint8_t GetCbForColMode(ColMode colorMode);
+    uint8_t GetCbForColorForGameFlag(uint8_t uGameFlag, uint8_t uPossibleColorFlag);
     int GetPlaneAmtForColor(ColMode colorMode, ColFlag colorFlag);
 
     // 16-bit
-    UINT16 CONV_32_BGR333(UINT32 inCol);
-    UINT32 CONV_BGR333_32(UINT16 inCol);
-    UINT16 CONV_32_RBG333(UINT32 inCol);
-    UINT32 CONV_RBG333_32(UINT16 inCol);
-    UINT16 CONV_32_RGB333(UINT32 inCol);
-    UINT32 CONV_RGB333_32(UINT16 inCol);
+    uint16_t CONV_32_BGR333(uint32_t inCol);
+    uint32_t CONV_BGR333_32(uint16_t inCol);
+    uint16_t CONV_32_RBG333(uint32_t inCol);
+    uint32_t CONV_RBG333_32(uint16_t inCol);
+    uint16_t CONV_32_RGB333(uint32_t inCol);
+    uint32_t CONV_RGB333_32(uint16_t inCol);
 
-    UINT16 CONV_32_BGR444(UINT32 inCol);
-    UINT32 CONV_BGR444_32(UINT16 inCol);
-    UINT16 CONV_32_BRG444(UINT32 inCol);
-    UINT32 CONV_BRG444_32(UINT16 inCol);
-    UINT16 CONV_32_RBG444(UINT32 inCol);
-    UINT32 CONV_RBG444_32(UINT16 inCol);
-    UINT16 CONV_32_RGB444BE(UINT32 inCol);
-    UINT32 CONV_RGB444BE_32(UINT16 inCol);
-    UINT16 CONV_32_RGB444LE(UINT32 inCol);
-    UINT32 CONV_RGB444LE_32(UINT16 inCol);
+    uint16_t CONV_32_BGR444(uint32_t inCol);
+    uint32_t CONV_BGR444_32(uint16_t inCol);
+    uint16_t CONV_32_BRG444(uint32_t inCol);
+    uint32_t CONV_BRG444_32(uint16_t inCol);
+    uint16_t CONV_32_RBG444(uint32_t inCol);
+    uint32_t CONV_RBG444_32(uint16_t inCol);
+    uint16_t CONV_32_RGB444BE(uint32_t inCol);
+    uint32_t CONV_RGB444BE_32(uint16_t inCol);
+    uint16_t CONV_32_RGB444LE(uint32_t inCol);
+    uint32_t CONV_RGB444LE_32(uint16_t inCol);
 
-    UINT16 CONV_32_BGR555LE(UINT32 inCol);
-    UINT32 CONV_BGR555LE_32(UINT16 inCol);
-    UINT16 CONV_32_BGR555BE(UINT32 inCol);
-    UINT32 CONV_BGR555BE_32(UINT16 inCol);
-    UINT16 CONV_32_RGB555LE(UINT32 inCol);
-    UINT32 CONV_RGB555LE_32(UINT16 inCol);
-    UINT16 CONV_32_RGB555BE(UINT32 inCol);
-    UINT32 CONV_RGB555BE_32(UINT16 inCol);
-    UINT16 CONV_32_GRB555LE(UINT32 inCol);
-    UINT32 CONV_GRB555LE_32(UINT16 inCol);
+    uint16_t CONV_32_BGR555LE(uint32_t inCol);
+    uint32_t CONV_BGR555LE_32(uint16_t inCol);
+    uint16_t CONV_32_BGR555BE(uint32_t inCol);
+    uint32_t CONV_BGR555BE_32(uint16_t inCol);
+    uint16_t CONV_32_RGB555LE(uint32_t inCol);
+    uint32_t CONV_RGB555LE_32(uint16_t inCol);
+    uint16_t CONV_32_RGB555BE(uint32_t inCol);
+    uint32_t CONV_RGB555BE_32(uint16_t inCol);
+    uint16_t CONV_32_GRB555LE(uint32_t inCol);
+    uint32_t CONV_GRB555LE_32(uint16_t inCol);
 
     // Lookup tables
-    UINT16 CONV_32_RGB666NeoGeo(UINT32 inCol);
-    UINT32 CONV_RGB666NeoGeo_32(UINT16 inCol);
-    UINT16 CONV_32_RGB555Sharp(UINT32 inCol);
-    UINT32 CONV_RGB555Sharp_32(UINT16 inCol);
+    uint16_t CONV_32_RGB666NeoGeo(uint32_t inCol);
+    uint32_t CONV_RGB666NeoGeo_32(uint16_t inCol);
+    uint16_t CONV_32_RGB555Sharp(uint32_t inCol);
+    uint32_t CONV_RGB555Sharp_32(uint16_t inCol);
 
     // 24-bit
-    UINT32 CONV_32_BGR888(UINT32 inCol);
-    UINT32 CONV_BGR888_32(UINT32 inCol);
-    UINT32 CONV_32_BRG888(UINT32 inCol);
-    UINT32 CONV_BRG888_32(UINT32 inCol);
-    UINT32 CONV_32_GRB888(UINT32 inCol);
-    UINT32 CONV_GRB888_32(UINT32 inCol);
-    UINT32 CONV_32_RGB888(UINT32 inCol);
-    UINT32 CONV_RGB888_32(UINT32 inCol);
+    uint32_t CONV_32_BGR888(uint32_t inCol);
+    uint32_t CONV_BGR888_32(uint32_t inCol);
+    uint32_t CONV_32_BRG888(uint32_t inCol);
+    uint32_t CONV_BRG888_32(uint32_t inCol);
+    uint32_t CONV_32_GRB888(uint32_t inCol);
+    uint32_t CONV_GRB888_32(uint32_t inCol);
+    uint32_t CONV_32_RGB888(uint32_t inCol);
+    uint32_t CONV_RGB888_32(uint32_t inCol);
 
     // 32-bit
-    UINT32 CONV_32_RGBA8881(UINT32 inCol);
-    UINT32 CONV_RGBA8881_32(UINT32 inCol);
-    UINT32 CONV_32_RGBA8887(UINT32 inCol);
-    UINT32 CONV_RGBA8887_32(UINT32 inCol);
-    UINT32 CONV_32_RGBA8888(UINT32 inCol);
-    UINT32 CONV_RGBA8888_32(UINT32 inCol);
-    UINT32 CONV_32_BGRA8888(UINT32 inCol);
-    UINT32 CONV_BGRA8888_32(UINT32 inCol);
+    uint32_t CONV_32_RGBA8881(uint32_t inCol);
+    uint32_t CONV_RGBA8881_32(uint32_t inCol);
+    uint32_t CONV_32_RGBA8887(uint32_t inCol);
+    uint32_t CONV_RGBA8887_32(uint32_t inCol);
+    uint32_t CONV_32_RGBA8888(uint32_t inCol);
+    uint32_t CONV_RGBA8888_32(uint32_t inCol);
+    uint32_t CONV_32_BGRA8888(uint32_t inCol);
+    uint32_t CONV_BGRA8888_32(uint32_t inCol);
 
     int GetColorStepFor8BitValue_1Step(int nColorValue);
     int Get8BitValueForColorStep_1Step(int nColorStep);

@@ -6,7 +6,7 @@
 // * Run PalMod and copy the debug output into the header
 // That should be it.  Good luck.
 
-const std::vector<UINT16> KOF95_A_IMGIDS_USED =
+const std::vector<uint16_t> KOF95_A_IMGIDS_USED =
 {
     indexKOF94Sprites_Andy,         // 0x164
     indexKOF94Sprites_Brian,        // 0x167

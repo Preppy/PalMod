@@ -4,9 +4,9 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_MK2_SNES::m_nExpectedGameROMSize = 0x300000;
+uint32_t CGame_MK2_SNES::m_nExpectedGameROMSize = 0x300000;
 
-CGame_MK2_SNES::CGame_MK2_SNES(UINT32 nConfirmedROMSize)
+CGame_MK2_SNES::CGame_MK2_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_MK2_SNES::CGame_MK2_SNES: Loading ROM...\n");
 
@@ -64,8 +64,8 @@ stExtraDef* CGame_MK2_SNES::MK2_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_MK2_SNES::MainDescTree = nullptr;
 uint32_t CGame_MK2_SNES::rgExtraCountAll[MK2_SNES_NUMUNIT + 1];
 uint32_t CGame_MK2_SNES::rgExtraLoc[MK2_SNES_NUMUNIT + 1];
-UINT32 CGame_MK2_SNES::m_nTotalPaletteCountForMK2 = 0;
-UINT32 CGame_MK2_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_MK2_SNES::m_nTotalPaletteCountForMK2 = 0;
+uint32_t CGame_MK2_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_MK2_SNES::InitializeStatics()
 {
@@ -105,7 +105,7 @@ sDescTreeNode* CGame_MK2_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_MK2_SNES, &MK2_SNES_EXTRA_CUSTOM, MK2_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = MK2_SNES_NUMUNIT + (GetExtraCt(MK2_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = MK2_SNES_NUMUNIT + (GetExtraCt(MK2_SNES_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

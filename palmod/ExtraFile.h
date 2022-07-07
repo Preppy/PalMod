@@ -5,8 +5,8 @@
 class CGameWithExtrasFile : public CGameClass
 {
 protected:
-    static UINT32 m_nTotalPaletteCount;
-    UINT16 m_nExtraUnit = INVALID_UNIT_VALUE;
+    static uint32_t m_nTotalPaletteCount;
+    uint16_t m_nExtraUnit = INVALID_UNIT_VALUE;
     uint32_t m_nSafeCountForThisRom = 0;
     uint32_t m_nLowestRomLocationThisPass = k_nBogusHighValue;
     uint32_t m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
@@ -59,5 +59,5 @@ public:
     static ColMode GetExtrasOverrideForColorFormat() { return m_ColorModeOverride; };
     static LPCSTR GetExtrasOverrideForGameName() { return m_paszGameNameOverride; };
 
-    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
+    static void LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, uint32_t nGameROMSize, uint8_t cbColorSize = 2);
 };

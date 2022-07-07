@@ -11,9 +11,9 @@ CDescTree CGame_FatalFury2_A::MainDescTree = nullptr;
 uint32_t CGame_FatalFury2_A::rgExtraCountAll[FatalFury2_A_NUMUNIT + 1];
 uint32_t CGame_FatalFury2_A::rgExtraLoc[FatalFury2_A_NUMUNIT + 1];
 
-UINT32 CGame_FatalFury2_A::m_nTotalPaletteCountForFatalFury2 = 0;
-UINT32 CGame_FatalFury2_A::m_nExpectedGameROMSize = 0x80000;
-UINT32 CGame_FatalFury2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_FatalFury2_A::m_nTotalPaletteCountForFatalFury2 = 0;
+uint32_t CGame_FatalFury2_A::m_nExpectedGameROMSize = 0x80000;
+uint32_t CGame_FatalFury2_A::m_nConfirmedROMSize = -1;
 
 void CGame_FatalFury2_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_FatalFury2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_FatalFury2_A::InitDescTree());
 }
 
-CGame_FatalFury2_A::CGame_FatalFury2_A(UINT32 nConfirmedROMSize)
+CGame_FatalFury2_A::CGame_FatalFury2_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_FatalFury2_A::CGame_FatalFury2_A: Loading ROM...\n");
 
@@ -92,7 +92,7 @@ sFileRule CGame_FatalFury2_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_FatalFury2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_FatalFury2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -134,7 +134,7 @@ sDescTreeNode* CGame_FatalFury2_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_FatalFury2_A, &FatalFury2_A_EXTRA_CUSTOM, FatalFury2_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = FatalFury2_A_NUMUNIT + (GetExtraCt(FatalFury2_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = FatalFury2_A_NUMUNIT + (GetExtraCt(FatalFury2_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

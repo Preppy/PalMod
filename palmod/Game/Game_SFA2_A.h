@@ -29,13 +29,13 @@ private:
     int m_nBufferSelectedRom = SFA2_A_GAMEKEY_07;
     static uint32_t m_nSFA2SelectedRom;
     static SFA2_SupportedROMRevision m_currentSFA2ROMRevision;
-    static UINT32 m_nTotalPaletteCountForSFA2_07_Rev1;
-    static UINT32 m_nTotalPaletteCountForSFA2_07_Rev2;
-    static UINT32 m_nTotalPaletteCountForSFZ2A_07;
-    static UINT32 m_nTotalPaletteCountForSFA2_08_Rev1;
-    static UINT32 m_nTotalPaletteCountForSFA2_08_Rev2;
-    static UINT32 m_nTotalPaletteCountForSFZ2A_08;
-    static UINT32 m_nTotalPaletteCountForSFA2_Hack_09;
+    static uint32_t m_nTotalPaletteCountForSFA2_07_Rev1;
+    static uint32_t m_nTotalPaletteCountForSFA2_07_Rev2;
+    static uint32_t m_nTotalPaletteCountForSFZ2A_07;
+    static uint32_t m_nTotalPaletteCountForSFA2_08_Rev1;
+    static uint32_t m_nTotalPaletteCountForSFA2_08_Rev2;
+    static uint32_t m_nTotalPaletteCountForSFZ2A_08;
+    static uint32_t m_nTotalPaletteCountForSFA2_Hack_09;
     static bool UsePaletteSetForCharacters() { return ((m_nSFA2SelectedRom == SFA2_A_GAMEKEY_07) || (m_nSFA2SelectedRom == SFA2_HACK_GAMEKEY_09)); }
     static bool UsingExpandedVersion() { return (m_currentSFA2ROMRevision == SFA2_SupportedROMRevision::SFA2_Hack_220203); }
 
@@ -59,8 +59,8 @@ private:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
     static uint32_t GetCurrentExtraLoc();
@@ -75,7 +75,7 @@ private:
     static void DumpPaletteHeaders();
 
 public:
-    CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2ROMToLoad);
+    CGame_SFA2_A(uint32_t nConfirmedROMSize, int nSFA2ROMToLoad);
     ~CGame_SFA2_A(void);
 
     //Static functions / variables
@@ -110,7 +110,7 @@ public:
     BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* SFA2_A_EXTRA_CUSTOM_07_REV1;
     static stExtraDef* SFA2_A_EXTRA_CUSTOM_07_REV2;

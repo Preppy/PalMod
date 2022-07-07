@@ -473,7 +473,7 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.UpdateCtrl();
 }
 
-void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszPath)
+void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszPath)
 {
     if (m_ImgDisp.LoadExternalRAWSprite(nPositionToLoadTo, direction, pszPath))
     {

@@ -11,9 +11,9 @@ CDescTree CGame_Kizuna_A::MainDescTree = nullptr;
 uint32_t CGame_Kizuna_A::rgExtraCountAll[Kizuna_A_NUMUNIT + 1];
 uint32_t CGame_Kizuna_A::rgExtraLoc[Kizuna_A_NUMUNIT + 1];
 
-UINT32 CGame_Kizuna_A::m_nTotalPaletteCountForKizuna = 0;
-UINT32 CGame_Kizuna_A::m_nExpectedGameROMSize = 0x200000;
-UINT32 CGame_Kizuna_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_Kizuna_A::m_nTotalPaletteCountForKizuna = 0;
+uint32_t CGame_Kizuna_A::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_Kizuna_A::m_nConfirmedROMSize = -1;
 
 void CGame_Kizuna_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_Kizuna_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_Kizuna_A::InitDescTree());
 }
 
-CGame_Kizuna_A::CGame_Kizuna_A(UINT32 nConfirmedROMSize)
+CGame_Kizuna_A::CGame_Kizuna_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_Kizuna_A::CGame_Kizuna_A: Loading ROM...\n");
 
@@ -97,7 +97,7 @@ sFileRule CGame_Kizuna_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_Kizuna_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_Kizuna_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -134,7 +134,7 @@ sDescTreeNode* CGame_Kizuna_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_Kizuna_A, &Kizuna_A_EXTRA_CUSTOM, Kizuna_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = Kizuna_A_NUMUNIT + (GetExtraCt(Kizuna_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = Kizuna_A_NUMUNIT + (GetExtraCt(Kizuna_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

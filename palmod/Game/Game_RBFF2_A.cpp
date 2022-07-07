@@ -11,9 +11,9 @@ CDescTree CGame_RBFF2_A::MainDescTree = nullptr;
 uint32_t CGame_RBFF2_A::rgExtraCountAll[RBFF2_A_NUMUNIT + 1];
 uint32_t CGame_RBFF2_A::rgExtraLoc[RBFF2_A_NUMUNIT + 1];
 
-UINT32 CGame_RBFF2_A::m_nTotalPaletteCountForRBFF2 = 0;
-UINT32 CGame_RBFF2_A::m_nExpectedGameROMSize = 0x100000;
-UINT32 CGame_RBFF2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_RBFF2_A::m_nTotalPaletteCountForRBFF2 = 0;
+uint32_t CGame_RBFF2_A::m_nExpectedGameROMSize = 0x100000;
+uint32_t CGame_RBFF2_A::m_nConfirmedROMSize = -1;
 
 void CGame_RBFF2_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_RBFF2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_RBFF2_A::InitDescTree());
 }
 
-CGame_RBFF2_A::CGame_RBFF2_A(UINT32 nConfirmedROMSize)
+CGame_RBFF2_A::CGame_RBFF2_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_RBFF2_A::CGame_RBFF2_A: Loading ROM...\n");
 
@@ -84,7 +84,7 @@ CDescTree* CGame_RBFF2_A::GetMainTree()
     return &CGame_RBFF2_A::MainDescTree;
 }
 
-UINT32 CGame_RBFF2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_RBFF2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -134,7 +134,7 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_RBFF2_A, &RBFF2_A_EXTRA_CUSTOM, RBFF2_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = RBFF2_A_NUMUNIT + (GetExtraCt(RBFF2_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = RBFF2_A_NUMUNIT + (GetExtraCt(RBFF2_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -163,8 +163,8 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
 void CGame_RBFF2_A::DumpPaletteHeaders()
 {
     CString strOutput;
-    const UINT32 RBFF2_PALETTE_LENGTH = 0x20;
-    const UINT32 RBFF2_PALETTE_COUNT = 16;
+    const uint32_t RBFF2_PALETTE_LENGTH = 0x20;
+    const uint32_t RBFF2_PALETTE_COUNT = 16;
 
     struct rbff2CharacterData
     {
@@ -201,16 +201,16 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
         //                                               base   bg     2      3     4       5      6      7     8      9       10    11   burn   13    elec  15
     };
 
-    const UINT32 k_nBasePalette = 0xd0000;
-    UINT32 nCurrentPalettePosition = k_nBasePalette;
+    const uint32_t k_nBasePalette = 0xd0000;
+    uint32_t nCurrentPalettePosition = k_nBasePalette;
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
 
         // Status effects
-        for (UINT16 nStatusIndex = 0; nStatusIndex < 32; nStatusIndex++)
+        for (uint16_t nStatusIndex = 0; nStatusIndex < 32; nStatusIndex++)
         {
             CString strPaletteName;
 
@@ -220,7 +220,7 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
                 OutputDebugString(strOutput);
             }
 
-            UINT32 nAdjustedIndex = (nStatusIndex > (RBFF2_PALETTE_COUNT - 1)) ? (nStatusIndex - RBFF2_PALETTE_COUNT) : nStatusIndex;
+            uint32_t nAdjustedIndex = (nStatusIndex > (RBFF2_PALETTE_COUNT - 1)) ? (nStatusIndex - RBFF2_PALETTE_COUNT) : nStatusIndex;
 
             switch (nAdjustedIndex)
             {
@@ -267,9 +267,9 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
         }
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode RBFF2_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
@@ -291,9 +291,9 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
     strOutput.Format(L"const sDescTreeNode RBFF2_A_UNITS[] = \r\n{\r\n");
     OutputDebugString(strOutput);
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_COLLECTION, ARRAYSIZE(RBFF2_A_%s_COLLECTION) },\r\n", rgCharacterData[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);

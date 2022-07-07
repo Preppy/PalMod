@@ -11,10 +11,10 @@ CDescTree CGame_LASTBLADE_A::MainDescTree = nullptr;
 uint32_t CGame_LASTBLADE_A::rgExtraCountAll[LASTBLADE_A_NUMUNIT + 1];
 uint32_t CGame_LASTBLADE_A::rgExtraLoc[LASTBLADE_A_NUMUNIT + 1];
 
-UINT32 CGame_LASTBLADE_A::m_nTotalPaletteCountForLASTBLADE = 0;
-UINT32 CGame_LASTBLADE_A::m_nExpectedGameROMSize_A = 0x100000;
-UINT32 CGame_LASTBLADE_A::m_nExpectedGameROMSize_S = 0x500000;
-UINT32 CGame_LASTBLADE_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_LASTBLADE_A::m_nTotalPaletteCountForLASTBLADE = 0;
+uint32_t CGame_LASTBLADE_A::m_nExpectedGameROMSize_A = 0x100000;
+uint32_t CGame_LASTBLADE_A::m_nExpectedGameROMSize_S = 0x500000;
+uint32_t CGame_LASTBLADE_A::m_nConfirmedROMSize = -1;
 
 void CGame_LASTBLADE_A::InitializeStatics()
 {
@@ -26,13 +26,13 @@ void CGame_LASTBLADE_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_LASTBLADE_A::InitDescTree());
 }
 
-CGame_LASTBLADE_A::CGame_LASTBLADE_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad /*= LASTBLADE_A */)
+CGame_LASTBLADE_A::CGame_LASTBLADE_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad /*= LASTBLADE_A */)
 {
     OutputDebugString(L"CGame_LASTBLADE_A::CGame_LASTBLADE_A: Loading ROM...\n");
 
     createPalOptions = {
                         NO_SPECIAL_OPTIONS, // Set to SKIP_FIRST_COLOR for most CPS2 games.  Use the nStartingPosition version of UpdatePalData as found in CPS2 game code.
-                        PALWriteOutputOptions::WRITE_16            // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
+                        PALWriteOutputOptions::WRITE_16            // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter uint16_t.
                                             // You can set this to PALWriteOutputOptions::WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
     };
 
@@ -112,7 +112,7 @@ sDescTreeNode* CGame_LASTBLADE_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_LASTBLADE_A, &LASTBLADE_A_EXTRA_CUSTOM, LASTBLADE_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = LASTBLADE_A_NUMUNIT + (GetExtraCt(LASTBLADE_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = LASTBLADE_A_NUMUNIT + (GetExtraCt(LASTBLADE_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -143,7 +143,7 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
     struct sLASTBLADE_A_CharacterDump
     {
         LPCWSTR pszCharacterName = nullptr;
-        UINT32 locationInROM = 0;
+        uint32_t locationInROM = 0;
         LPCWSTR pszImageRefName = nullptr;
     };
 
@@ -174,18 +174,18 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
     };
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(LASTBLADE_A_CharacterOffsetArray); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(LASTBLADE_A_CharacterOffsetArray); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        UINT32 nWeaponOffset = 0x200;
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        uint32_t nWeaponOffset = 0x200;
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         // We don't currently know where the p2 palettes are so just show the p1 offsets
-        for (UINT16 iButtonIndex = 0; iButtonIndex < 1 /* DEF_BUTTONLABEL_2.size() */; iButtonIndex++)
+        for (uint16_t iButtonIndex = 0; iButtonIndex < 1 /* DEF_BUTTONLABEL_2.size() */; iButtonIndex++)
         {
             nCurrentCharacterOffset = LASTBLADE_A_CharacterOffsetArray[iUnitCtr].locationInROM + (0x200 * iButtonIndex);
 
@@ -214,7 +214,7 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
                 L"Deflect",
             };
 
-            for (UINT16 uCurrentMove = 0; uCurrentMove < ARRAYSIZE(pszEffectNames); uCurrentMove++)
+            for (uint16_t uCurrentMove = 0; uCurrentMove < ARRAYSIZE(pszEffectNames); uCurrentMove++)
             {
                 LPCWSTR pszCurrentMoveName = pszEffectNames[uCurrentMove];
 
@@ -230,9 +230,9 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
                 nPaletteCount++;
             }
 
-            const UINT32 nExtrasStartingOffset = nCurrentCharacterOffset;
+            const uint32_t nExtrasStartingOffset = nCurrentCharacterOffset;
 
-            for (UINT16 nExtraCount = 1; nExtraCount < 8; nExtraCount++)
+            for (uint16_t nExtraCount = 1; nExtraCount < 8; nExtraCount++)
             {
                 strOutput.Format(L"    { L\"Extra %u\", 0x%x, 0x%x },\r\n", nExtraCount, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
                 OutputDebugString(strOutput);
@@ -243,7 +243,7 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
 
             nCurrentCharacterOffset = nExtrasStartingOffset;
 
-            for (UINT16 nExtraCount = 1; nExtraCount < 8; nExtraCount++)
+            for (uint16_t nExtraCount = 1; nExtraCount < 8; nExtraCount++)
             {
                 strOutput.Format(L"    { L\"Weapon Extras %u\", 0x%x, 0x%x },\r\n", nExtraCount, nWeaponOffset + nCurrentCharacterOffset, nWeaponOffset + nCurrentCharacterOffset + 0x20);
                 OutputDebugString(strOutput);
@@ -257,10 +257,10 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
     }
 
     // Now create the collections...
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(LASTBLADE_A_CharacterOffsetArray); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(LASTBLADE_A_CharacterOffsetArray); iUnitCtr++)
     {
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
@@ -279,12 +279,12 @@ void CGame_LASTBLADE_A::DumpAllCharacters()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(LASTBLADE_A_CharacterOffsetArray); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(LASTBLADE_A_CharacterOffsetArray); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), LASTBLADE_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
@@ -306,7 +306,7 @@ sFileRule CGame_LASTBLADE_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_LASTBLADE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_LASTBLADE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

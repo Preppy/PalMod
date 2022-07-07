@@ -12,9 +12,9 @@ class CGame_SF2CE_A : public CGameWithExtrasFile
 public:
     int m_nBufferSelectedRom = 22;
     static uint32_t m_nSelectedRom;
-    static UINT32 m_nTotalPaletteCountForSF2CE_21;
-    static UINT32 m_nTotalPaletteCountForSF2CE_22;
-    static UINT32 m_nTotalPaletteCountForSF2CE_23;
+    static uint32_t m_nTotalPaletteCountForSF2CE_21;
+    static uint32_t m_nTotalPaletteCountForSF2CE_22;
+    static uint32_t m_nTotalPaletteCountForSF2CE_23;
 
     static uint32_t rgExtraCountAll_21[SF2CE_A_21_NUMUNIT + 1];
     static uint32_t rgExtraCountAll_22[SF2CE_A_22_NUMUNIT + 1];
@@ -29,8 +29,8 @@ public:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
     static uint32_t GetCurrentExtraLoc();
@@ -40,7 +40,7 @@ public:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_SF2CE_A(UINT32 nConfirmedROMSize = -1, int nSF2CEROMToLoad = 22);
+    CGame_SF2CE_A(uint32_t nConfirmedROMSize = -1, int nSF2CEROMToLoad = 22);
     ~CGame_SF2CE_A(void);
 
     //Static functions / variables
@@ -70,7 +70,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* SF2CE_A_21_EXTRA_CUSTOM;
     static stExtraDef* SF2CE_A_22_EXTRA_CUSTOM;

@@ -75,12 +75,12 @@ uint32_t CGameClass::SavePatchFile(CFile* PatchFile, uint32_t nUnitId)
     // Now generate DAT file...
     if (m_pCRC32SpecificData)
     {
-        WCHAR szDATFilename[MAX_PATH];
-        WCHAR szIPSFilename[MAX_PATH];
+        wchar_t szDATFilename[MAX_PATH];
+        wchar_t szIPSFilename[MAX_PATH];
 
         wcscpy(szDATFilename, PatchFile->GetFilePath().GetString());
 
-        WCHAR* pszDot = wcsrchr(szDATFilename, L'.');
+        wchar_t* pszDot = wcsrchr(szDATFilename, L'.');
 
         if (pszDot != nullptr)
         {
@@ -251,7 +251,7 @@ uint32_t CGameClass::SaveMultiplePatchFiles(CString strTargetDirectory)
 
                 if (pbWrite1 && pbWrite2)
                 {
-                    for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSizeInColors; nWordsWritten++)
+                    for (uint16_t nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSizeInColors; nWordsWritten++)
                     {
                         pbWrite1[nWordsWritten] = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
                         pbWrite2[nWordsWritten] = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;

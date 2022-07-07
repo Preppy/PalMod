@@ -3,7 +3,7 @@
 #include <iterator>
 #include <iostream>
 
-const std::vector<UINT16> P4AU_S_IMGIDS_USED =
+const std::vector<uint16_t> P4AU_S_IMGIDS_USED =
 {
     indexP4AUSprites_Aigis,         // 0x00
     indexP4AUSprites_Akihiko,       // 0x01

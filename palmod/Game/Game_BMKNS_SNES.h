@@ -6,14 +6,14 @@
 class CGame_BMKNS_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForBMKNS;
+    static uint32_t m_nTotalPaletteCountForBMKNS;
 
     static uint32_t rgExtraCountAll[BMKNS_SNES_NUMUNIT + 1];
     static uint32_t rgExtraLoc[BMKNS_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -22,7 +22,7 @@ private:
     static constexpr auto BMKNS_SNES_PRIMARY_ROMNAME = L"battle master - kyuukyoku no senshi-tachi (japan).sfc";
 
 public:
-    CGame_BMKNS_SNES(UINT32 nConfirmedROMSize);
+    CGame_BMKNS_SNES(uint32_t nConfirmedROMSize);
     ~CGame_BMKNS_SNES(void);
 
     //Static functions / variables

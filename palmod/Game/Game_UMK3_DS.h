@@ -6,14 +6,14 @@
 class CGame_UMK3_DS : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForUMK3;
+    static uint32_t m_nTotalPaletteCountForUMK3;
 
     static uint32_t rgExtraCountAll[UMK3_DS_NUMUNIT + 1];
     static uint32_t rgExtraLoc[UMK3_DS_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -22,7 +22,7 @@ private:
     static constexpr auto UMK3_DS_PRIMARY_ROMNAME = L"Ultimate Mortal Kombat (USA) (En,Fr,De,Es,It).nds";
 
 public:
-    CGame_UMK3_DS(UINT32 nConfirmedROMSize);
+    CGame_UMK3_DS(uint32_t nConfirmedROMSize);
     ~CGame_UMK3_DS(void);
 
     //Static functions / variables

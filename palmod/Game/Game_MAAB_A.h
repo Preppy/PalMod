@@ -5,11 +5,11 @@
 class CGame_MAAB_A : public CGameWithExtrasFile
 {
 public:
-    CGame_MAAB_A(UINT32 nConfirmedROMSize = -1);
+    CGame_MAAB_A(uint32_t nConfirmedROMSize = -1);
     ~CGame_MAAB_A();
 
     static void InitializeStatics();
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteDataByFileUnit(uint32_t nFileUnitId, uint32_t nFilePalId);
     void LoadSpecificPaletteData(uint32_t nDisplayUnitId, uint32_t nDisplayPalId);

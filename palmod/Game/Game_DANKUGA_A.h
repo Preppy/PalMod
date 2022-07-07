@@ -14,19 +14,19 @@ public:
     static uint32_t rgExtraLoc[DANKUGA_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize = -1);
+    CGame_DanKuGa_A_DIR(uint32_t nConfirmedROMSize = -1);
     ~CGame_DanKuGa_A_DIR(void);
 
-    UINT32 c_nRedEarthSIMMLength = 0x80000;
+    uint32_t c_nRedEarthSIMMLength = 0x80000;
 
-    inline UINT32 GetSIMMLocationFromROMLocation(UINT32 nROMLocation);
+    inline uint32_t GetSIMMLocationFromROMLocation(uint32_t nROMLocation);
 
     //Static functions
     static uint32_t uRuleCtr;

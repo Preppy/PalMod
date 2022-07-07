@@ -9,20 +9,20 @@ constexpr auto EXTRA_FILENAME_GUNDAM_SNES = L"GUNDAME.txt";
 class CGame_GUNDAM_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForGUNDAM;
+    static uint32_t m_nTotalPaletteCountForGUNDAM;
 
     static uint32_t rgExtraCountAll[GUNDAM_SNES_NUMUNIT + 1];
     static uint32_t rgExtraLoc[GUNDAM_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize);
+    CGame_GUNDAM_SNES(uint32_t nConfirmedROMSize);
     ~CGame_GUNDAM_SNES(void);
 
     //Static functions / variables
@@ -49,7 +49,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* GUNDAM_SNES_EXTRA_CUSTOM;
 };

@@ -13,8 +13,8 @@ uint32_t CGame_DanKuGa_A_DIR::rgExtraCountAll[DANKUGA_A_NUMUNIT + 1] = { (uint32
 uint32_t CGame_DanKuGa_A_DIR::rgExtraLoc[DANKUGA_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 CDescTree CGame_DanKuGa_A_DIR::MainDescTree = nullptr;
-UINT32 CGame_DanKuGa_A_DIR::m_nExpectedGameROMSize = 0x80000; // for each of the four files
-UINT32 CGame_DanKuGa_A_DIR::m_nConfirmedROMSize = -1;
+uint32_t CGame_DanKuGa_A_DIR::m_nExpectedGameROMSize = 0x80000; // for each of the four files
+uint32_t CGame_DanKuGa_A_DIR::m_nConfirmedROMSize = -1;
 
 const LPCWSTR c_ppszDanKuGa_Files[]
 {
@@ -34,7 +34,7 @@ void CGame_DanKuGa_A_DIR::InitializeStatics()
     MainDescTree.SetRootTree(CGame_DanKuGa_A_DIR::InitDescTree());
 }
 
-CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
+CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(uint32_t nConfirmedROMSize)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -111,7 +111,7 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
     LoadExtraFileForGame(EXTRA_FILENAME_DANKUGA, &DANKUGA_A_EXTRA_CUSTOM, DANKUGA_A_EXTRALOC, m_nConfirmedROMSize);
 
     bool fHaveExtras = (GetExtraCt(DANKUGA_A_EXTRALOC) > 0);
-    UINT16 nUnitCt = DANKUGA_A_NUMUNIT + (GetExtraCt(DANKUGA_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = DANKUGA_A_NUMUNIT + (GetExtraCt(DANKUGA_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -159,9 +159,9 @@ sFileRule CGame_DanKuGa_A_DIR::GetNextRule()
     return NewFileRule;
 }
 
-inline UINT32 CGame_DanKuGa_A_DIR::GetSIMMLocationFromROMLocation(UINT32 nROMLocation)
+inline uint32_t CGame_DanKuGa_A_DIR::GetSIMMLocationFromROMLocation(uint32_t nROMLocation)
 {
-    const UINT32 nSIMMLocation = nROMLocation / ARRAYSIZE(c_ppszDanKuGa_Files);
+    const uint32_t nSIMMLocation = nROMLocation / ARRAYSIZE(c_ppszDanKuGa_Files);
     return nSIMMLocation;
 }
 
@@ -271,8 +271,8 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
-                m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-                memset(m_pppDataBuffer[nUnitCtr], NULL, sizeof(UINT16*) * nPalAmt);
+                m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
+                memset(m_pppDataBuffer[nUnitCtr], NULL, sizeof(uint16_t*) * nPalAmt);
             }
 
             // These are already sorted, no need to redirect
@@ -282,18 +282,18 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                 m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
-                m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
-                memset(m_pppDataBuffer[nUnitCtr][nPalCtr], NULL, sizeof(UINT16) * m_nCurrentPaletteSizeInColors);
+                m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
+                memset(m_pppDataBuffer[nUnitCtr][nPalCtr], NULL, sizeof(uint16_t) * m_nCurrentPaletteSizeInColors);
 
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 fileSIMM2.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 fileSIMM3.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 fileSIMM4.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-                for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
+                for (uint16_t nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
                 {
                     BYTE high, low;
 
@@ -308,7 +308,7 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                         fileSIMM4.Read(&high, 1);
                     }
 
-                    UINT16 nColorValue = (UINT16)((high << 8) | low);
+                    uint16_t nColorValue = (uint16_t)((high << 8) | low);
 
                     // account for endianness
                     nColorValue = _byteswap_ushort(nColorValue);
@@ -379,7 +379,7 @@ BOOL CGame_DanKuGa_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                 {
                     LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
                     fileSIMM1.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -387,9 +387,9 @@ BOOL CGame_DanKuGa_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     fileSIMM3.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     fileSIMM4.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-                    for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSizeInColors; nWordsWritten++)
+                    for (uint16_t nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSizeInColors; nWordsWritten++)
                     {
-                        UINT16 nColorValue = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten];
+                        uint16_t nColorValue = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten];
 
                         nColorValue = _byteswap_ushort(nColorValue);
                         BYTE high = (nColorValue & 0xFF00) >> 8;

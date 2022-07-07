@@ -11,9 +11,9 @@ CDescTree CGame_NINJAMASTERS_A::MainDescTree = nullptr;
 uint32_t CGame_NINJAMASTERS_A::rgExtraCountAll[NINJAMASTERS_A_NUMUNIT + 1];
 uint32_t CGame_NINJAMASTERS_A::rgExtraLoc[NINJAMASTERS_A_NUMUNIT + 1];
 
-UINT32 CGame_NINJAMASTERS_A::m_nTotalPaletteCountForNINJAMASTERS = 0;
-UINT32 CGame_NINJAMASTERS_A::m_nExpectedGameROMSize = 0x200000;
-UINT32 CGame_NINJAMASTERS_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_NINJAMASTERS_A::m_nTotalPaletteCountForNINJAMASTERS = 0;
+uint32_t CGame_NINJAMASTERS_A::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_NINJAMASTERS_A::m_nConfirmedROMSize = -1;
 
 void CGame_NINJAMASTERS_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_NINJAMASTERS_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_NINJAMASTERS_A::InitDescTree());
 }
 
-CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize)
+CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A: Loading ROM...\n");
 
@@ -114,7 +114,7 @@ sDescTreeNode* CGame_NINJAMASTERS_A::InitDescTree()
     uint32_t nExtraUnitLocation = NINJAMASTERS_A_EXTRALOC;
     LoadExtraFileForGame(EXTRA_FILENAME_NINJAMASTERS_A, &NINJAMASTERS_A_EXTRA_CUSTOM, NINJAMASTERS_A_EXTRALOC, m_nConfirmedROMSize);
     bool fHaveExtras = GetExtraCt(NINJAMASTERS_A_EXTRALOC);
-    UINT16 nUnitCt = NINJAMASTERS_A_NUMUNIT + (fHaveExtras ? 1 : 0);
+    uint16_t nUnitCt = NINJAMASTERS_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -150,7 +150,7 @@ sFileRule CGame_NINJAMASTERS_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_NINJAMASTERS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_NINJAMASTERS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

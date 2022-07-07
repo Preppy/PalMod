@@ -10,9 +10,9 @@ CDescTree CGame_KarnovsR_A::MainDescTree = nullptr;
 uint32_t CGame_KarnovsR_A::rgExtraCountAll[KarnovsR_A_NUMUNIT + 1];
 uint32_t CGame_KarnovsR_A::rgExtraLoc[KarnovsR_A_NUMUNIT + 1];
 
-UINT32 CGame_KarnovsR_A::m_nTotalPaletteCountForKarnovsR = 0;
-const UINT32 CGame_KarnovsR_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
-UINT32 CGame_KarnovsR_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_KarnovsR_A::m_nTotalPaletteCountForKarnovsR = 0;
+const uint32_t CGame_KarnovsR_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
+uint32_t CGame_KarnovsR_A::m_nConfirmedROMSize = -1;
 
 void CGame_KarnovsR_A::InitializeStatics()
 {
@@ -24,7 +24,7 @@ void CGame_KarnovsR_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KarnovsR_A::InitDescTree());
 }
 
-CGame_KarnovsR_A::CGame_KarnovsR_A(UINT32 nConfirmedROMSize)
+CGame_KarnovsR_A::CGame_KarnovsR_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KarnovsR_A::CGame_KarnovsR_A: Loading ROM...\n");
 
@@ -98,7 +98,7 @@ sDescTreeNode* CGame_KarnovsR_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KarnovsR_A, &KarnovsR_A_EXTRA_CUSTOM, KarnovsR_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KarnovsR_A_NUMUNIT + (GetExtraCt(KarnovsR_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = KarnovsR_A_NUMUNIT + (GetExtraCt(KarnovsR_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

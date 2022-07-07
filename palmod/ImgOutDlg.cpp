@@ -338,7 +338,7 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 {
     UpdateData();
 
-    WCHAR szCount[32];
+    wchar_t szCount[32];
     if (m_CB_Amt.GetLBText(m_CB_Amt.GetCurSel(), szCount) != CB_ERR)
     {
         _stscanf_s(szCount, L"%u", &img_amt);
@@ -470,7 +470,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
     const int nImageCount = m_DumpBmp.m_pMainImgCtrl->GetImgAmt();
     sImgNode** rgSrcImg = m_DumpBmp.m_pMainImgCtrl->GetImgBuffer();
 
-    const UINT8 currentZoom = (UINT8)m_DumpBmp.m_flZoomLevel;
+    const uint8_t currentZoom = (uint8_t)m_DumpBmp.m_flZoomLevel;
 
     // We want to ensure filename syntax, so strip the extension in order to rebuild it below
     save_str.Replace(output_ext.GetString(), L"");
@@ -523,11 +523,11 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 
     if (fShouldExportAsIndexed)
     {
-        UINT16 nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+        uint16_t nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
 #ifdef ALLOW_MULTIPLE_TRANSPARENCY_COLORS
         // It's technically correct for our purposes to allow for this, but also problematic since Photoshop
         // only wants one transparency per indexed image.  So let's just turn this off for now.
-        UINT16 nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
+        uint16_t nMaxWritePerTransparency = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
 #endif
 
         // Indexed PNG: use the lodePNG encoder
@@ -584,7 +584,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 }
 
                 // Establish the PLTE header data.
-                UINT8* pCurrPal = (UINT8*)m_DumpBmp.m_pppPalettes[nImageIndex][nCurrentPalIndex];
+                uint8_t* pCurrPal = (uint8_t*)m_DumpBmp.m_pppPalettes[nImageIndex][nCurrentPalIndex];
                 CGameClass* CurrGame = GetHost()->GetCurrGame();
                 // the PNG PLTE section goes up to 256 colors, so use that as our initial cap
                 for (uint32_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
@@ -621,10 +621,10 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     else if (iCurrentColor < (uint32_t)m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz) // actual colors
                     {
                         uint32_t nCurrentPosition = iCurrentColor * 4;
-                        const UINT8 currAVal = pCurrPal[nCurrentPosition + 3];
-                        const UINT8 currBVal = pCurrPal[nCurrentPosition + 2];
-                        const UINT8 currGVal = pCurrPal[nCurrentPosition + 1];
-                        const UINT8 currRVal = pCurrPal[nCurrentPosition];
+                        const uint8_t currAVal = pCurrPal[nCurrentPosition + 3];
+                        const uint8_t currBVal = pCurrPal[nCurrentPosition + 2];
+                        const uint8_t currGVal = pCurrPal[nCurrentPosition + 1];
+                        const uint8_t currRVal = pCurrPal[nCurrentPosition];
                         lodepng_palette_add(&state.info_png.color, currRVal, currGVal, currBVal, currAVal);
                         lodepng_palette_add(&state.info_raw, currRVal, currGVal, currBVal, currAVal);
                     }
@@ -698,7 +698,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
         const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
         sImgNode** rgSrcImg = m_DumpBmp.m_pMainImgCtrl->GetImgBuffer();
 
-        const UINT8 currentZoom = (UINT8)m_DumpBmp.m_flZoomLevel;
+        const uint8_t currentZoom = (uint8_t)m_DumpBmp.m_flZoomLevel;
 
         // We want to ensure filename syntax, so strip the extension in order to rebuild it below
         save_str.Replace(output_ext.GetString(), L"");
@@ -817,7 +817,7 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
         const bool fUsingAlphaChannel = dwExportFlags == CImage::createAlphaChannel;
         if (fUsingAlphaChannel)
         {
-            m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
+            m_DumpBmp.UpdateCtrl(FALSE, (uint8_t*)out_img.GetBits());
         }
         else
         {

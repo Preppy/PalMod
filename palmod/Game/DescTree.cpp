@@ -40,7 +40,7 @@ void CDescTree::FlushTree(sDescTreeNode* CurrTree)
         {
         case DESC_NODETYPE_TREE:
         {
-            for (UINT16 nChildCtr = 0; nChildCtr < CurrTree->uChildAmt; nChildCtr++)
+            for (uint16_t nChildCtr = 0; nChildCtr < CurrTree->uChildAmt; nChildCtr++)
             {
                 FlushTree(&((sDescTreeNode*)CurrTree->ChildNodes)[nChildCtr]);
             }
@@ -73,7 +73,7 @@ void CDescTree::DumpTree(const sDescTreeNode* pTreeOfInterest)
             strOutput.Format(L"\tButton '%s'.  It has 0x%x children.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
             OutputDebugString(strOutput);
 
-            for (UINT16 iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
+            for (uint16_t iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
             {
                 sDescNode* pChildNode = &((sDescNode*)pTreeToEnumerate->ChildNodes)[iPlaceInNode];
 
@@ -88,7 +88,7 @@ void CDescTree::DumpTree(const sDescTreeNode* pTreeOfInterest)
             strOutput.Format(L"Entering unit '%s'. It has 0x%x child Buttons.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
             OutputDebugString(strOutput);
 
-            for (UINT16 iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
+            for (uint16_t iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
             {
                 sDescTreeNode* pChildTreeSet = &((sDescTreeNode*)pTreeToEnumerate->ChildNodes)[iPlaceInNode];
 

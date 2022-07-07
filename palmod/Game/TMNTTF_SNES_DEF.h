@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const std::vector<UINT16> TMNTTF_SNES_IMGIDS_USED =
+const std::vector<uint16_t> TMNTTF_SNES_IMGIDS_USED =
 {
     indexTMNTTFSprites_Armaggon,        // 0x39
     indexTMNTTFSprites_Aska,            // 0x3A

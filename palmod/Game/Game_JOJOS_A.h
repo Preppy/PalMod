@@ -21,16 +21,16 @@ public:
     // Jojos has two different ROMs of interest: handle here.
     int m_nBufferJojosMode = 50;
     static uint32_t m_nJojosMode;
-    static UINT32 m_nTotalPaletteCount50;
-    static UINT32 m_nTotalPaletteCount51;
+    static uint32_t m_nTotalPaletteCount50;
+    static uint32_t m_nTotalPaletteCount51;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
 
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static const UINT32 m_nExpectedGameROMSize = 0x800000;
-    static UINT32 m_nConfirmedROMSize;
+    static const uint32_t m_nExpectedGameROMSize = 0x800000;
+    static uint32_t m_nConfirmedROMSize;
 
     static uint32_t rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1];
     static uint32_t rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1];
@@ -41,7 +41,7 @@ public:
     static bool UseRegulationOnLogic() { return (m_nJojosMode == JOJOS_US_A_51_ROMKEY); }
 
 public:
-    CGame_JOJOS_A(UINT32 nConfirmedROMSize = -1, int nJojosModeToLoad = JOJOS_A_51_ROMKEY);
+    CGame_JOJOS_A(uint32_t nConfirmedROMSize = -1, int nJojosModeToLoad = JOJOS_A_51_ROMKEY);
     ~CGame_JOJOS_A(void);
 
     //Static functions / variables

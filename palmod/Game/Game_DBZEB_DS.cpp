@@ -4,9 +4,9 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_DBZEB_DS::m_nExpectedGameROMSize = 0x18F32000;
+uint32_t CGame_DBZEB_DS::m_nExpectedGameROMSize = 0x18F32000;
 
-CGame_DBZEB_DS::CGame_DBZEB_DS(UINT32 nConfirmedROMSize)
+CGame_DBZEB_DS::CGame_DBZEB_DS(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_DBZEB_DS::CGame_DBZEB_DS: Loading ROM...\n");
 
@@ -55,8 +55,8 @@ stExtraDef* CGame_DBZEB_DS::DBZEB_DS_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_DBZEB_DS::MainDescTree = nullptr;
 uint32_t CGame_DBZEB_DS::rgExtraCountAll[DBZEB_DS_NUMUNIT + 1];
 uint32_t CGame_DBZEB_DS::rgExtraLoc[DBZEB_DS_NUMUNIT + 1];
-UINT32 CGame_DBZEB_DS::m_nTotalPaletteCountForNEWGAME = 0;
-UINT32 CGame_DBZEB_DS::m_nConfirmedROMSize = -1;
+uint32_t CGame_DBZEB_DS::m_nTotalPaletteCountForNEWGAME = 0;
+uint32_t CGame_DBZEB_DS::m_nConfirmedROMSize = -1;
 
 void CGame_DBZEB_DS::InitializeStatics()
 {
@@ -96,7 +96,7 @@ sDescTreeNode* CGame_DBZEB_DS::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_DBZEB_DS, &DBZEB_DS_EXTRA_CUSTOM, DBZEB_DS_EXTRALOC, m_nConfirmedROMSize, ColorSystem::GetCbForColMode(ColMode::COLMODE_RGBA8888));
 
-    UINT16 nUnitCt = DBZEB_DS_NUMUNIT + (GetExtraCt(DBZEB_DS_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = DBZEB_DS_NUMUNIT + (GetExtraCt(DBZEB_DS_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

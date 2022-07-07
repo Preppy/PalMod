@@ -9,7 +9,7 @@ CDescTree CGame_GGXXACR_P::MainDescTree = nullptr;
 
 #define GGXXACR_P_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-CGame_GGXXACR_P::CGame_GGXXACR_P(UINT32 nConfirmedROMSize /* = -1 */)
+CGame_GGXXACR_P::CGame_GGXXACR_P(uint32_t nConfirmedROMSize /* = -1 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
@@ -84,8 +84,8 @@ sFileRule CGame_GGXXACR_P::GetNextRule()
 
 sDescTreeNode* CGame_GGXXACR_P::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
-    UINT16 nUnitCt = ARRAYSIZE(GGXXACR_P_CharacterData);
+    uint32_t nTotalPaletteCount = 0;
+    uint16_t nUnitCt = ARRAYSIZE(GGXXACR_P_CharacterData);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -101,7 +101,7 @@ sDescTreeNode* CGame_GGXXACR_P::InitDescTree()
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
@@ -127,7 +127,7 @@ sDescTreeNode* CGame_GGXXACR_P::InitDescTree()
         uint32_t nTotalPalettesUsedInUnit = 0;
 
         //Set data for each child group ("collection")
-        for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+        for (uint16_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
         {
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
@@ -144,7 +144,7 @@ sDescTreeNode* CGame_GGXXACR_P::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-            for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+            for (uint16_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -314,7 +314,7 @@ BOOL CGame_GGXXACR_P::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     LoadedFile->Seek(0, CFile::begin);
     LoadedFile->Read(&nPalettePointer, 0x02);
         
-    UINT32 nPaletteStart = 0;
+    uint32_t nPaletteStart = 0;
 
     LoadedFile->Seek(nPalettePointer + 0x0c, CFile::begin);
     LoadedFile->Read(&nPaletteStart, 0x04);
@@ -329,8 +329,8 @@ BOOL CGame_GGXXACR_P::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
-        m_pppDataBuffer32[nUnitNumber] = new UINT32 * [nPalAmt];
-        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(UINT32*) * nPalAmt);
+        m_pppDataBuffer32[nUnitNumber] = new uint32_t * [nPalAmt];
+        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(uint32_t*) * nPalAmt);
     }
 
     // These are already sorted, no need to redirect
@@ -340,7 +340,7 @@ BOOL CGame_GGXXACR_P::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
-        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
         LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -358,7 +358,7 @@ BOOL CGame_GGXXACR_P::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
 BOOL CGame_GGXXACR_P::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)

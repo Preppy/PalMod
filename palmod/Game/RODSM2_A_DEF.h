@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> RODSM2_A_IMGIDS_USED =
+const std::vector<uint16_t> RODSM2_A_IMGIDS_USED =
 {
     indexSM2Sprites_Biff,       // 0x82
     indexSM2Sprites_Grater,     // 0x83

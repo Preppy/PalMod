@@ -9,21 +9,21 @@ constexpr auto EXTRA_FILENAME_KOFXI_A = L"KOFXIe.txt";
 class CGame_KOFXI_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForKOFXI;
+    static uint32_t m_nTotalPaletteCountForKOFXI;
     static void DumpAllCharacters();
 
     static uint32_t rgExtraCountAll[KOFXI_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[KOFXI_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_KOFXI_A(UINT32 nConfirmedROMSize);
+    CGame_KOFXI_A(uint32_t nConfirmedROMSize);
     ~CGame_KOFXI_A(void);
 
     //Static functions / variables

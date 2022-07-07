@@ -36,7 +36,7 @@ ImgInfoList::~ImgInfoList()
     }
 }
 
-bool ImgInfoList::insertNode(UINT16 newImgID)
+bool ImgInfoList::insertNode(uint16_t newImgID)
 {
     CString strDebugInfo;
 
@@ -57,7 +57,7 @@ bool ImgInfoList::insertNode(UINT16 newImgID)
     return true;
 }
 
-ImgInfoNode* ImgInfoList::makeNode(UINT16 newImgID)
+ImgInfoNode* ImgInfoList::makeNode(uint16_t newImgID)
 {
     // New next node
     ImgInfoNode* infoNode = new ImgInfoNode;
@@ -104,7 +104,7 @@ void ImgInfoList::listAllImgIDs()
     }
 }
 
-ImgInfoNode* ImgInfoList::getToNode(UINT16 desiredImgID)
+ImgInfoNode* ImgInfoList::getToNode(uint16_t desiredImgID)
 {
     CString strDebugInfo;
     if (isEmpty())
@@ -141,7 +141,7 @@ ImgInfoNode* ImgInfoList::getToNode(UINT16 desiredImgID)
     return currentNode;
 }
 
-bool ImgInfoList::valueExists(UINT16 desiredImgID)
+bool ImgInfoList::valueExists(uint16_t desiredImgID)
 {
     bool found = false;
     CString strDebugInfo;

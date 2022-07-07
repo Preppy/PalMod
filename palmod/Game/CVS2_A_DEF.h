@@ -6,7 +6,7 @@
 // * Update every array using CVS2_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const std::vector<UINT16> CVS2_A_IMGIDS_USED =
+const std::vector<uint16_t> CVS2_A_IMGIDS_USED =
 {
     indexCVS2Sprites_Akuma,
     indexCVS2Sprites_Athena,
@@ -62,13 +62,13 @@ const std::vector<UINT16> CVS2_A_IMGIDS_USED =
 struct sCVS2_ExtraPair
 {
     LPCWSTR pszExtraName = nullptr;
-    UINT16 nImgIndex = 0;
+    uint16_t nImgIndex = 0;
 };
 
 struct sCVS2_CharacterDump
 {
     LPCWSTR pszCharacterName = nullptr;
-    UINT32 romOffset = 0;
+    uint32_t romOffset = 0;
     LPCWSTR pszImageRefName = nullptr;
 
     sCVS2_ExtraPair sExtra1;

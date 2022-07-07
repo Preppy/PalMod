@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const std::vector<UINT16> UMK3_DS_IMGIDS_USED =
+const std::vector<uint16_t> UMK3_DS_IMGIDS_USED =
 {
     indexUMK3Sprites_DS_Cyrax,              // 0x48
     indexUMK3Sprites_DS_Ermac,              // 0x49

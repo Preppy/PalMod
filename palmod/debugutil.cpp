@@ -84,7 +84,7 @@ bool CDebugHelper::HaveOutputFile()
 {
     if (!m_fDebugFileIsOpen)
     {
-        WCHAR szPath[MAX_PATH];
+        wchar_t szPath[MAX_PATH];
 
         if (GetCurrentDirectory(ARRAYSIZE(szPath), szPath))
         {

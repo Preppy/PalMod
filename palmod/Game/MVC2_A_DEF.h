@@ -75,7 +75,7 @@ constexpr auto MVC2_A_NUMUNIT = indexMVC2ALast;
 
 constexpr auto MVC2_A_EXTRALOC = MVC2_A_NUMUNIT;
 
-const std::vector<UINT16> MVC2_IMGIDS_USED =
+const std::vector<uint16_t> MVC2_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,          // 0x00
     indexCPS2Sprites_Zangief,      // 0x01
@@ -8939,9 +8939,9 @@ const sGame_PaletteDataset MVC2_A_GENERICSET_PALETTES[] =
 struct MVC2_TEAM_GROUPING
 {
     LPCWSTR pszTeamName = nullptr;
-    UINT16 nCharacterOne = indexMVC2ARyu;
-    UINT16 nCharacterTwo = indexMVC2ARyu;
-    UINT16 nCharacterThree = indexMVC2ARyu;
+    uint16_t nCharacterOne = indexMVC2ARyu;
+    uint16_t nCharacterTwo = indexMVC2ARyu;
+    uint16_t nCharacterThree = indexMVC2ARyu;
 };
 
 constexpr auto k_nSpecialTeamSpriteImageIndex = 0x80;
@@ -8985,7 +8985,7 @@ const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
     { L"Shoto", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
 };
 
-const UINT8 MVC2_A_UNITSORT[MVC2_A_NUMUNIT + 1] // Plus for extras
+const uint8_t MVC2_A_UNITSORT[MVC2_A_NUMUNIT + 1] // Plus for extras
 {
    indexMVC2AAkuma,
    indexMVC2AAmingo,

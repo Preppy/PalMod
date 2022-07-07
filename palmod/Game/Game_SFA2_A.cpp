@@ -40,16 +40,16 @@ uint32_t CGame_SFA2_A::rgExtraLoc_09_SFA2_Hack[SFA2_HACK_NUM_09 + 1] = { (uint32
 
 uint32_t CGame_SFA2_A::m_nSFA2SelectedRom = SFA2_A_GAMEKEY_07;
 SFA2_SupportedROMRevision CGame_SFA2_A::m_currentSFA2ROMRevision = SFA2_SupportedROMRevision::SFA2_960229;
-UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_Rev1 = 0;
-UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_Rev2 = 0;
-UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFZ2A_07 = 0;
-UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08_Rev1 = 0;
-UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08_Rev2 = 0;
-UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFZ2A_08 = 0;
-UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_Hack_09 = 0;
+uint32_t CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_Rev1 = 0;
+uint32_t CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_Rev2 = 0;
+uint32_t CGame_SFA2_A::m_nTotalPaletteCountForSFZ2A_07 = 0;
+uint32_t CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08_Rev1 = 0;
+uint32_t CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08_Rev2 = 0;
+uint32_t CGame_SFA2_A::m_nTotalPaletteCountForSFZ2A_08 = 0;
+uint32_t CGame_SFA2_A::m_nTotalPaletteCountForSFA2_Hack_09 = 0;
 
-UINT32 CGame_SFA2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_SFA2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SFA2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_SFA2_A::m_nConfirmedROMSize = -1;
 
 void CGame_SFA2_A::InitializeStatics()
 {
@@ -90,13 +90,13 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 {
     ClearDataBuffer();
 
-    const UINT32 nSafeCountFor07_Rev1 = 935;
-    const UINT32 nSafeCountFor07_Rev2 = 1057;
-    const UINT32 nSafeCountFor07_SFZ2A = 1342;
-    const UINT32 nSafeCountFor08_Rev1 = 271;
-    const UINT32 nSafeCountFor08_Rev2 = 315;
-    const UINT32 nSafeCountFor08_SFZ2A = 345;
-    const UINT32 nSafeCountFor09_Hack = 2400;
+    const uint32_t nSafeCountFor07_Rev1 = 935;
+    const uint32_t nSafeCountFor07_Rev2 = 1057;
+    const uint32_t nSafeCountFor07_SFZ2A = 1342;
+    const uint32_t nSafeCountFor08_Rev1 = 271;
+    const uint32_t nSafeCountFor08_Rev2 = 315;
+    const uint32_t nSafeCountFor08_SFZ2A = 345;
+    const uint32_t nSafeCountFor09_Hack = 2400;
 
     if (UsePaletteSetForCharacters())
     {
@@ -155,9 +155,9 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
         }
     }
 
-    const UINT32 nLowestPaletteIn07 = 0x2C000;
-    const UINT32 nLowestPaletteIn08 = 0x125e;
-    const UINT32 nLowestPaletteIn09 = 0x10e;
+    const uint32_t nLowestPaletteIn07 = 0x2C000;
+    const uint32_t nLowestPaletteIn08 = 0x125e;
+    const uint32_t nLowestPaletteIn09 = 0x10e;
 
     if (UsingExpandedVersion())
     {
@@ -179,7 +179,7 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     InitDataBuffer();
 }
 
-CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
+CGame_SFA2_A::CGame_SFA2_A(uint32_t nConfirmedROMSize, int nSFA2RomToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -272,7 +272,7 @@ CDescTree* CGame_SFA2_A::GetMainTree()
     }
 }
 
-UINT32 CGame_SFA2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SFA2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static const sCRC32ValueSet knownROMs[] =
     {
@@ -517,7 +517,7 @@ const sDescTreeNode* CGame_SFA2_A::GetCurrentUnitSet()
 
 uint32_t CGame_SFA2_A::GetCurrentExtraLoc()
 {
-    UINT16 nExtraLocation = 0;
+    uint16_t nExtraLocation = 0;
 
     if (UsePaletteSetForCharacters())
     {
@@ -592,12 +592,12 @@ stExtraDef* CGame_SFA2_A::GetCurrentExtraDef(int nDefCtr)
 
 sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_SupportedROMRevision nROMRevision)
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
     m_nSFA2SelectedRom = nROMPaletteSetToUse;
     m_currentSFA2ROMRevision = nROMRevision;
 
     bool fHaveExtras;
-    UINT16 nUnitCt;
+    uint16_t nUnitCt;
     uint32_t nExtraUnitLocation;
 
     //Load extra file if we're using it
@@ -672,7 +672,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
@@ -702,7 +702,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
             uint32_t nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
-            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+            for (uint16_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
@@ -724,7 +724,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
                 const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+                for (uint16_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -787,7 +787,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
             OutputDebugString(strMsg);
 #endif
 
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+            for (uint16_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
@@ -864,9 +864,9 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
 struct sSFA2_A_PaletteData
 {
     LPCWSTR pszCharacterName = nullptr;
-    UINT32 nROMOffset = 0;
+    uint32_t nROMOffset = 0;
     LPCWSTR pszImageSet = L"indexCPS2Sprites_SFA3Assets"; // SFA2_Unique
-    UINT32 nImageSetIndex = 0;
+    uint32_t nImageSetIndex = 0;
 };
 
 const sSFA2_A_PaletteData SFA2_A_CharacterPalettes[] =
@@ -902,10 +902,10 @@ struct sSFA2_A_EffectPaletteData
 {
     LPCWSTR pszCharacterName = nullptr;
     LPCWSTR pszEffectName = nullptr;
-    UINT32 nROMOffset = 0;
+    uint32_t nROMOffset = 0;
     LPCWSTR pszImageSet = L"indexCPS2Sprites_SFA3Assets"; // SFA2_Unique
-    UINT32 nImageSetIndex = 0;
-    UINT16 nEffectCount = 1;
+    uint32_t nImageSetIndex = 0;
+    uint16_t nEffectCount = 1;
 };
 
 const sSFA2_A_EffectPaletteData SFA2_EffectsPaletteSets[] =
@@ -976,35 +976,35 @@ const LPCWSTR SFA2_StatusEffectNames[] =
 void CGame_SFA2_A::DumpPaletteHeaders()
 {
     CString strOutput;
-    const UINT16 nColorOptionsPerCharacter = 6;
-    constexpr UINT32 SFA2_PALETTE_LENGTH = 0x20;
+    const uint16_t nColorOptionsPerCharacter = 6;
+    constexpr uint32_t SFA2_PALETTE_LENGTH = 0x20;
 
     bool fShouldDumpPalettesFor7 = true;
 
     if (fShouldDumpPalettesFor7)
     {
-        const UINT32 nStatusEffectBase = 0x72e60;
-        const UINT16 nCountStatusEffects = 16; // ... O_o
-        const UINT16 nPalettesPerColor = 5;
+        const uint32_t nStatusEffectBase = 0x72e60;
+        const uint16_t nCountStatusEffects = 16; // ... O_o
+        const uint16_t nPalettesPerColor = 5;
 
-        for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_CharacterPalettes); nCharIndex++)
+        for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_CharacterPalettes); nCharIndex++)
         {
-            WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
-            for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+            for (uint16_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
             {
-                WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+                wchar_t szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
                 StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
                 strOutput.Format(L"const sGame_PaletteDataset SFA2_A_%s_%s_PALETTES[] = \r\n{\r\n", szCodeDesc, szColorOptionCodeDesc);
                 OutputDebugString(strOutput);
 
-                UINT32 nCurrentOffset = SFA2_A_CharacterPalettes[nCharIndex].nROMOffset + (nColorIndex * (SFA2_PALETTE_LENGTH * nPalettesPerColor));
+                uint32_t nCurrentOffset = SFA2_A_CharacterPalettes[nCharIndex].nROMOffset + (nColorIndex * (SFA2_PALETTE_LENGTH * nPalettesPerColor));
                 strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, %s, 0x%02x },\r\n", SFA2_ColorOptionNames[nColorIndex], nCurrentOffset, nCurrentOffset + SFA2_PALETTE_LENGTH, SFA2_A_CharacterPalettes[nCharIndex].pszImageSet, SFA2_A_CharacterPalettes[nCharIndex].nImageSetIndex);
                 OutputDebugString(strOutput);
 
-                for (UINT16 nMoveIndex = 1; nMoveIndex < nPalettesPerColor; nMoveIndex++)
+                for (uint16_t nMoveIndex = 1; nMoveIndex < nPalettesPerColor; nMoveIndex++)
                 {
                     nCurrentOffset += SFA2_PALETTE_LENGTH;
                     strOutput.Format(L"    { L\"%s Extra %u\", 0x%x, 0x%x, %s, 0x%02x },\r\n", SFA2_ColorOptionNames[nColorIndex], nMoveIndex, nCurrentOffset, nCurrentOffset + SFA2_PALETTE_LENGTH, SFA2_A_CharacterPalettes[nCharIndex].pszImageSet, SFA2_A_CharacterPalettes[nCharIndex].nImageSetIndex);
@@ -1018,9 +1018,9 @@ void CGame_SFA2_A::DumpPaletteHeaders()
             OutputDebugString(strOutput);
 
             // Status effects
-            for (UINT16 nStatusIndex = 0; nStatusIndex < nCountStatusEffects; nStatusIndex++)
+            for (uint16_t nStatusIndex = 0; nStatusIndex < nCountStatusEffects; nStatusIndex++)
             {
-                UINT32 nCurrentOffset = 0x72e60 + (nStatusIndex * SFA2_PALETTE_LENGTH) + (nCharIndex * (nCountStatusEffects * SFA2_PALETTE_LENGTH));
+                uint32_t nCurrentOffset = 0x72e60 + (nStatusIndex * SFA2_PALETTE_LENGTH) + (nCharIndex * (nCountStatusEffects * SFA2_PALETTE_LENGTH));
                 strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, %s, 0x%02x },\r\n", SFA2_StatusEffectNames[nStatusIndex], nCurrentOffset, nCurrentOffset + SFA2_PALETTE_LENGTH, SFA2_A_CharacterPalettes[nCharIndex].pszImageSet, SFA2_A_CharacterPalettes[nCharIndex].nImageSetIndex);
                 OutputDebugString(strOutput);
             }
@@ -1028,17 +1028,17 @@ void CGame_SFA2_A::DumpPaletteHeaders()
             OutputDebugString(L"};\r\n\r\n");
         }
 
-        for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_CharacterPalettes); nCharIndex++)
+        for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_CharacterPalettes); nCharIndex++)
         {
-            WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
             strOutput.Format(L"const sDescTreeNode SFA2_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
             OutputDebugString(strOutput);
 
-            for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+            for (uint16_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
             {
-                WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+                wchar_t szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
                 StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
                 strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SFA2_A_%s_%s_PALETTES, ARRAYSIZE(SFA2_A_%s_%s_PALETTES) },\r\n", SFA2_ColorOptionNames[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
@@ -1054,22 +1054,22 @@ void CGame_SFA2_A::DumpPaletteHeaders()
     // ROM8 headers
     OutputDebugString(L"\n\nHeaders for ROM8 data...\n\n");
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_EffectsPaletteSets); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_EffectsPaletteSets); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_EffectsPaletteSets[nCharIndex].pszCharacterName);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            WCHAR szEffectCodeDescription[MAX_DESCRIPTION_LENGTH];
+            wchar_t szEffectCodeDescription[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szEffectCodeDescription, ARRAYSIZE(szEffectCodeDescription), SFA2_ColorOptionNames[nColorIndex]);
 
             strOutput.Format(L"const sGame_PaletteDataset SFA2_A_%s_%s_MOVE_PALETTES[] = \r\n{\r\n", szCodeDesc, szEffectCodeDescription);
             OutputDebugString(strOutput);
 
-            UINT32 nCurrentOffset = SFA2_EffectsPaletteSets[nCharIndex].nROMOffset + (nColorIndex * (SFA2_PALETTE_LENGTH * SFA2_EffectsPaletteSets[nCharIndex].nEffectCount));
+            uint32_t nCurrentOffset = SFA2_EffectsPaletteSets[nCharIndex].nROMOffset + (nColorIndex * (SFA2_PALETTE_LENGTH * SFA2_EffectsPaletteSets[nCharIndex].nEffectCount));
 
-            for (UINT16 nMoveIndex = 0; nMoveIndex < SFA2_EffectsPaletteSets[nCharIndex].nEffectCount; nMoveIndex++)
+            for (uint16_t nMoveIndex = 0; nMoveIndex < SFA2_EffectsPaletteSets[nCharIndex].nEffectCount; nMoveIndex++)
             {
                 strOutput.Format(L"    { L\"%s %u\", 0x%x, 0x%x, %s, 0x%02x },\r\n", SFA2_EffectsPaletteSets[nCharIndex].pszEffectName, nMoveIndex + 1, nCurrentOffset, nCurrentOffset + SFA2_PALETTE_LENGTH, SFA2_EffectsPaletteSets[nCharIndex].pszImageSet, SFA2_EffectsPaletteSets[nCharIndex].nImageSetIndex);
                 OutputDebugString(strOutput);
@@ -1082,9 +1082,9 @@ void CGame_SFA2_A::DumpPaletteHeaders()
         strOutput.Format(L"const sDescTreeNode SFA2_A_%s_MOVE_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SFA2_A_%s_%s_MOVE_PALETTES, ARRAYSIZE(SFA2_A_%s_%s_MOVE_PALETTES) },\r\n", SFA2_ColorOptionNames[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
@@ -1094,23 +1094,23 @@ void CGame_SFA2_A::DumpPaletteHeaders()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    const UINT32 SFA2_PORTRAIT_LENGTH = 0x60;
-    const UINT32 SFA2_PORTRAIT_SET_LENGTH = 0x720;
+    const uint32_t SFA2_PORTRAIT_LENGTH = 0x60;
+    const uint32_t SFA2_PORTRAIT_SET_LENGTH = 0x720;
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_PortraitPalettes); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_PortraitPalettes); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
             strOutput.Format(L"const sGame_PaletteDataset SFA2_A_%s_%s_PORTRAIT_PALETTES[] = \r\n{\r\n", szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);
 
-            UINT32 nCurrentOffset = SFA2_A_PortraitPalettes[nCharIndex].nROMOffset + (nColorIndex * SFA2_PORTRAIT_SET_LENGTH);
+            uint32_t nCurrentOffset = SFA2_A_PortraitPalettes[nCharIndex].nROMOffset + (nColorIndex * SFA2_PORTRAIT_SET_LENGTH);
 
             strOutput.Format(L"    { L\"%s Portrait\", 0x%x, 0x%x, %s, 0x%02x },\r\n", SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName, nCurrentOffset, nCurrentOffset + SFA2_PORTRAIT_LENGTH,
                                                                                              SFA2_A_PortraitPalettes[nCharIndex].pszImageSet, SFA2_A_PortraitPalettes[nCharIndex].nImageSetIndex);
@@ -1122,9 +1122,9 @@ void CGame_SFA2_A::DumpPaletteHeaders()
         strOutput.Format(L"const sDescTreeNode SFA2_A_%s_PORTRAIT_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SFA2_A_%s_%s_PORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_%s_%s_PORTRAIT_PALETTES) },\r\n", SFA2_ColorOptionNames[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
@@ -1134,9 +1134,9 @@ void CGame_SFA2_A::DumpPaletteHeaders()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_PortraitPalettes); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_PortraitPalettes); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SFA2_A_%s_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_%s_PORTRAIT_COLLECTION) },\r\n", SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);
@@ -1343,8 +1343,8 @@ const sDescTreeNode* CGame_SFA2_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32
 void CGame_SFA2_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSFA2SelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_SFA2_A::ClearDataBuffer()
@@ -1765,7 +1765,7 @@ void DumpSFA2_Hack_Headers(CFile* LoadedFile)
                         // start of a2 section
                         for (const LPCWSTR &pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
                         {
-                            WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                            wchar_t szSafeButtonName[MAX_DESCRIPTION_LENGTH];
                             StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
 
                             strout.Format("const sGame_PaletteDataset SFA2_HACK_%s_%S_PALETTES[] =\r\n{\r\n", thischaracter.pszTableName, szSafeButtonName);
@@ -1793,7 +1793,7 @@ void DumpSFA2_Hack_Headers(CFile* LoadedFile)
 
                         for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
                         {
-                            WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                            wchar_t szSafeButtonName[MAX_DESCRIPTION_LENGTH];
                             StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
                             strout.Format("    { L\"%S\", DESC_NODETYPE_TREE, (void*)SFA2_HACK_%s_%S_PALETTES, ARRAYSIZE(SFA2_HACK_%s_%S_PALETTES) },\r\n", pszSFA2HButtonName, thischaracter.pszTableName, szSafeButtonName, thischaracter.pszTableName, szSafeButtonName);
                             OutputDebugStringA(strout);
@@ -1838,7 +1838,7 @@ void DumpSFA2_Hack_Headers(CFile* LoadedFile)
                         {
                             for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
                             {
-                                WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                                wchar_t szSafeButtonName[MAX_DESCRIPTION_LENGTH];
                                 StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
 
                                 strout.Format("const sGame_PaletteDataset SFA2_HACK_%s_%S_PALETTES[] =\r\n{\r\n", thismove.pszTableName, szSafeButtonName);
@@ -1860,7 +1860,7 @@ void DumpSFA2_Hack_Headers(CFile* LoadedFile)
                         {
                             for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
                             {
-                                WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                                wchar_t szSafeButtonName[MAX_DESCRIPTION_LENGTH];
                                 StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
 
                                 strout.Format("const sGame_PaletteDataset SFA2_HACK_%s_%S_PALETTES[] =\r\n{\r\n", thismove.pszTableName, szSafeButtonName);
@@ -1891,7 +1891,7 @@ void DumpSFA2_Hack_Headers(CFile* LoadedFile)
                         {
                             for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
                             {
-                                WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                                wchar_t szSafeButtonName[MAX_DESCRIPTION_LENGTH];
                                 StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
 
                                 strout.Format("const sGame_PaletteDataset SFA2_HACK_%s_%S_PALETTES[] =\r\n{\r\n", thismove.pszTableName, szSafeButtonName);
@@ -1920,7 +1920,7 @@ void DumpSFA2_Hack_Headers(CFile* LoadedFile)
 
                             for (const LPCWSTR& pszSFA2HButtonName : DEF_BUTTONLABEL_SFA2_HACK)
                             {
-                                WCHAR szSafeButtonName[MAX_DESCRIPTION_LENGTH];
+                                wchar_t szSafeButtonName[MAX_DESCRIPTION_LENGTH];
                                 StruprRemoveNonASCII(szSafeButtonName, ARRAYSIZE(szSafeButtonName), pszSFA2HButtonName);
                                 strout.Format("    { L\"%S\", DESC_NODETYPE_TREE, (void*)SFA2_HACK_%s_%S_PALETTES, ARRAYSIZE(SFA2_HACK_%s_%S_PALETTES) },\r\n", pszSFA2HButtonName, thismove.pszTableName, szSafeButtonName, thismove.pszTableName, szSafeButtonName);
                                 OutputDebugStringA(strout);
@@ -1993,7 +1993,7 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+        m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
         // We're using a pre-sorted layout
         rgUnitRedir[nUnitCtr] = nUnitCtr;
@@ -2002,7 +2002,7 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
 
             LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
@@ -2144,7 +2144,7 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                     fShouldUseAlternateLoadLogic = true;
 
-                    UINT16 nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
+                    uint16_t nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
 
                     uint32_t nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
 

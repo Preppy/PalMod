@@ -6,17 +6,17 @@
 class CGame_NEOGEO_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForNEOGEO;
+    static uint32_t m_nTotalPaletteCountForNEOGEO;
 
     static uint32_t rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
-    const static UINT8 NEOGEO_A_EXTRALOC = NEOGEO_A_NUMUNIT;
+    const static uint8_t NEOGEO_A_EXTRALOC = NEOGEO_A_NUMUNIT;
 
     static void InitializeStatics(LPCWSTR pszFileLoaded);
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
     bool m_fHaveDoneInitialColorSet = false;
-    WCHAR m_pszGameNameOverride[MAX_PATH];
+    wchar_t m_pszGameNameOverride[MAX_PATH];
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -27,9 +27,9 @@ private:
 public:
     static constexpr auto EXTRA_FILENAME_NEO_GEO_A = L"NEOGEOE.txt";
     static constexpr auto EXTRA_FILENAME_UNKNOWN_A = L"UnknownE.txt";
-    static WCHAR m_pszExtraNameOverride[MAX_PATH];
+    static wchar_t m_pszExtraNameOverride[MAX_PATH];
 
-    CGame_NEOGEO_A(UINT32 nConfirmedROMSize, LPCWSTR pszFileLoaded);
+    CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded);
     ~CGame_NEOGEO_A(void);
 
     //Static functions / variables

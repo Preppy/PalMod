@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> SuperDodgeball_A_IMGIDS_USED =
+const std::vector<uint16_t> SuperDodgeball_A_IMGIDS_USED =
 {
     indexNEOGEOSprites_SDB_AthleticGirl,    // 0x6C
     indexNEOGEOSprites_SDB_DBMaou,          // 0x6D

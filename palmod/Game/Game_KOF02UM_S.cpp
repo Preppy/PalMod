@@ -39,16 +39,16 @@ uint32_t CGame_KOF02UM_S::rgExtraLoc_Rank[KOF02UM_S_NUMUNIT_RANK + 1];
 uint32_t CGame_KOF02UM_S::rgExtraLoc_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
 
 KOF02UMS_ROMOptions CGame_KOF02UM_S::m_nSelectedRom = KOF02UMS_ROMOptions::Main;
-UINT32 CGame_KOF02UM_S::m_nExpectedGameROMSize = 0x606E0;  // 394976 bytes for the main rom
+uint32_t CGame_KOF02UM_S::m_nExpectedGameROMSize = 0x606E0;  // 394976 bytes for the main rom
 
-UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Main = 0;
-UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Bar = 0;
-UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Clear = 0;
-UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_MAX2 = 0;
-UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_PSel = 0;
-UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Rank= 0;
-UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Conte = 0;
-UINT32 CGame_KOF02UM_S::m_nConfirmedROMSize = -1;
+uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Main = 0;
+uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Bar = 0;
+uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Clear = 0;
+uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_MAX2 = 0;
+uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_PSel = 0;
+uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Rank= 0;
+uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Conte = 0;
+uint32_t CGame_KOF02UM_S::m_nConfirmedROMSize = -1;
 
 void CGame_KOF02UM_S::InitializeStatics()
 {
@@ -85,7 +85,7 @@ void CGame_KOF02UM_S::InitializeStatics()
     MainDescTree_Conte.SetRootTree(CGame_KOF02UM_S::InitDescTree(6));
 }
 
-CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
+CGame_KOF02UM_S::CGame_KOF02UM_S(uint32_t nConfirmedROMSize, int nRomToLoad)
 {
     OutputDebugString(L"CGame_KOF02UM_S::CGame_KOF02UM_S: Loading ROM...\n");
 
@@ -390,10 +390,10 @@ stExtraDef* CGame_KOF02UM_S::GetCurrentExtraDef(uint32_t nDefCtr)
 
 sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
     m_nSelectedRom = (KOF02UMS_ROMOptions)nROMPaletteSetToUse;
 
-    UINT16 nUnitCt;
+    uint16_t nUnitCt;
     uint32_t nExtraUnitLocation;
 
     switch (m_nSelectedRom)
@@ -452,7 +452,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
@@ -572,7 +572,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
             OutputDebugString(strMsg);
 #endif
 
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+            for (uint16_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 

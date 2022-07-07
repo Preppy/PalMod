@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const std::vector<UINT16> SHAQFU_SNES_IMGIDS_USED =
+const std::vector<uint16_t> SHAQFU_SNES_IMGIDS_USED =
 {
     // Just stub this until we get sprites
     indexMK1Sprites_Goro,                // 0xAA

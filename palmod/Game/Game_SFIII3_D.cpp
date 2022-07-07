@@ -76,7 +76,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < SFIII3_D_NUMUNIT; iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < SFIII3_D_NUMUNIT; iUnitCtr++)
     {
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
@@ -89,9 +89,9 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
         UnitNode->uChildType = DESC_NODETYPE_TREE;
         UnitNode->uChildAmt = 1;
 
-        for (UINT16 iButtonCtr = 0; iButtonCtr < 1; iButtonCtr++)
+        for (uint16_t iButtonCtr = 0; iButtonCtr < 1; iButtonCtr++)
         {
-            UINT16 nCurrChildAmt = 32;
+            uint16_t nCurrChildAmt = 32;
 
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
@@ -104,9 +104,9 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
 
             ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[nCurrChildAmt];
 
-            for (UINT16 nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
+            for (uint16_t nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
             {
-                const UINT16 k_nNumberOfBonusColors = 6;
+                const uint16_t k_nNumberOfBonusColors = 6;
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr];
 
                 ChildNode->uUnitId = iUnitCtr;
@@ -137,7 +137,7 @@ sFileRule CGame_SFIII3_D::GetRule(uint32_t nUnitId)
     sFileRule NewFileRule;
 
     // We get extra data from GameClass that we don't want: clear the lead flag if present.
-    UINT16 nRuleId = (nUnitId & RULE_COUNTER_DEMASK);
+    uint16_t nRuleId = (nUnitId & RULE_COUNTER_DEMASK);
 
     if (nRuleId > 14)
     {
@@ -187,7 +187,7 @@ BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 {
     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
-    m_pppDataBuffer[nUnitId] = new UINT16 * [nPalAmt];
+    m_pppDataBuffer[nUnitId] = new uint16_t * [nPalAmt];
 
     rgUnitRedir[nUnitId] = nUnitId; // this is presorted
 
@@ -195,7 +195,7 @@ BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     {
         GetPalOffsSz(nUnitId, nPalCtr);
 
-        m_pppDataBuffer[nUnitId][nPalCtr] = new UINT16[nCurrPalSz];
+        m_pppDataBuffer[nUnitId][nPalCtr] = new uint16_t[nCurrPalSz];
 
         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
@@ -280,7 +280,7 @@ COLORREF* CGame_SFIII3_D::CreatePal(uint32_t nUnitId, uint32_t nPalId)
 
     COLORREF* NewPal = new COLORREF[nCurrPalSz];
 
-    for (UINT16 i = 0; i < nCurrPalSz; i++)
+    for (uint16_t i = 0; i < nCurrPalSz; i++)
     {
         NewPal[i] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][i]);
 

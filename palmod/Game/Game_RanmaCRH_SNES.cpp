@@ -4,9 +4,9 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_RANMACRH_SNES::m_nExpectedGameROMSize = 0x280000;
+uint32_t CGame_RANMACRH_SNES::m_nExpectedGameROMSize = 0x280000;
 
-CGame_RANMACRH_SNES::CGame_RANMACRH_SNES(UINT32 nConfirmedROMSize)
+CGame_RANMACRH_SNES::CGame_RANMACRH_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_RANMACRH_SNES::CGame_RANMACRH_SNES: Loading ROM...\n");
 
@@ -64,8 +64,8 @@ stExtraDef* CGame_RANMACRH_SNES::RANMACRH_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_RANMACRH_SNES::MainDescTree = nullptr;
 uint32_t CGame_RANMACRH_SNES::rgExtraCountAll[RANMACRH_SNES_NUMUNIT + 1];
 uint32_t CGame_RANMACRH_SNES::rgExtraLoc[RANMACRH_SNES_NUMUNIT + 1];
-UINT32 CGame_RANMACRH_SNES::m_nTotalPaletteCountForRANMACRH = 0;
-UINT32 CGame_RANMACRH_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_RANMACRH_SNES::m_nTotalPaletteCountForRANMACRH = 0;
+uint32_t CGame_RANMACRH_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_RANMACRH_SNES::InitializeStatics()
 {
@@ -105,7 +105,7 @@ sDescTreeNode* CGame_RANMACRH_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_RANMACRH_SNES, &RANMACRH_SNES_EXTRA_CUSTOM, RANMACRH_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = RANMACRH_SNES_NUMUNIT + (GetExtraCt(RANMACRH_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = RANMACRH_SNES_NUMUNIT + (GetExtraCt(RANMACRH_SNES_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

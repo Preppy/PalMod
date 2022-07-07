@@ -6,7 +6,7 @@
 constexpr auto EXTRA_FILENAME_SF3_10 = L"sfiii3-10e.txt";
 constexpr auto EXTRA_FILENAME_SF3_51 = L"sfiii3e.txt";
 
-UINT32 cps3_mask(UINT32 address, UINT32 key1, UINT32 key2);
+uint32_t cps3_mask(uint32_t address, uint32_t key1, uint32_t key2);
 
 enum SFIII3S_SupportedROMs
 {
@@ -22,11 +22,11 @@ class CGame_SFIII3_A : public CGameWithExtrasFile
 public:
     int m_nBufferSelectedRom = SF3ROM_51;
     static uint32_t m_nSelectedRom;
-    static UINT32 m_nTotalPaletteCountForSFIII3_10;
-    static UINT32 m_nTotalPaletteCountForSFIII3_14;
-    static UINT32 m_nTotalPaletteCountForSFIII3_4;
-    static UINT32 m_nTotalPaletteCountForSFIII3_51;
-    static UINT32 m_nTotalPaletteCountForSFIII3_70;
+    static uint32_t m_nTotalPaletteCountForSFIII3_10;
+    static uint32_t m_nTotalPaletteCountForSFIII3_14;
+    static uint32_t m_nTotalPaletteCountForSFIII3_4;
+    static uint32_t m_nTotalPaletteCountForSFIII3_51;
+    static uint32_t m_nTotalPaletteCountForSFIII3_70;
     static bool IsROMEncrypted() { return (m_nSelectedRom == SF3ROM_10) || (m_nSelectedRom == SF3ROM_10_4rd); };
     static bool UsePaletteSetFor10() { return (m_nSelectedRom == SF3ROM_10); }
     static bool UsePaletteSetFor10_4rd() { return (m_nSelectedRom == SF3ROM_10) || (m_nSelectedRom == SF3ROM_10_4rd); }
@@ -54,8 +54,8 @@ public:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
     static uint32_t GetCurrentExtraLoc();
@@ -65,7 +65,7 @@ public:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_SFIII3_A(UINT32 nConfirmedROMSize = -1, int nSF3ROMToLoad = 51);
+    CGame_SFIII3_A(uint32_t nConfirmedROMSize = -1, int nSF3ROMToLoad = 51);
     ~CGame_SFIII3_A(void);
 
     //Static functions / variables

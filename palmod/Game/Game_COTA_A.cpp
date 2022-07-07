@@ -9,9 +9,9 @@ CDescTree CGame_COTA_A::MainDescTree = nullptr;
 uint32_t CGame_COTA_A::rgExtraCountAll[COTA_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_COTA_A::rgExtraLoc[COTA_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
-UINT32 CGame_COTA_A::m_nTotalPaletteCountForCOTA = 0;
-UINT32 CGame_COTA_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_COTA_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_COTA_A::m_nTotalPaletteCountForCOTA = 0;
+uint32_t CGame_COTA_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_COTA_A::m_nConfirmedROMSize = -1;
 
 void CGame_COTA_A::InitializeStatics()
 {
@@ -23,7 +23,7 @@ void CGame_COTA_A::InitializeStatics()
     MainDescTree.SetRootTree(InitDescTree());
 }
 
-CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
+CGame_COTA_A::CGame_COTA_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_COTA_A::CGame_COTA_A: Loading ROM\n");
 
@@ -75,7 +75,7 @@ CGame_COTA_A::~CGame_COTA_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -158,7 +158,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_COTA, &COTA_A_EXTRA_CUSTOM, COTA_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = (COTA_A_NUMUNIT + (GetExtraCt(COTA_A_EXTRALOC) ? 1 : 0));
+    uint16_t nUnitCt = (COTA_A_NUMUNIT + (GetExtraCt(COTA_A_EXTRALOC) ? 1 : 0));
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

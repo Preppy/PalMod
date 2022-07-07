@@ -2,7 +2,7 @@
 
 // This is mostly auto-generated using DumpPaletteHeaders
 
-const std::vector<UINT16> KOF01_A_IMGIDS_USED =
+const std::vector<uint16_t> KOF01_A_IMGIDS_USED =
 {
     indexKOF96Sprites_Choi,         // 0x24D
     indexKOF96Sprites_Daimon,       // 0x24F

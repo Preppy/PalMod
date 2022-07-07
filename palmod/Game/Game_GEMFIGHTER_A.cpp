@@ -11,9 +11,9 @@ CDescTree CGame_GEMFIGHTER_A::MainDescTree = nullptr;
 uint32_t CGame_GEMFIGHTER_A::rgExtraCountAll[GEMFIGHTER_A_NUMUNITS + 1];
 uint32_t CGame_GEMFIGHTER_A::rgExtraLoc[GEMFIGHTER_A_NUMUNITS + 1];
 
-UINT32 CGame_GEMFIGHTER_A::m_nTotalPaletteCountForGemFighter = 0;
-UINT32 CGame_GEMFIGHTER_A::m_nExpectedGameROMSize = 0x80000;
-UINT32 CGame_GEMFIGHTER_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_GEMFIGHTER_A::m_nTotalPaletteCountForGemFighter = 0;
+uint32_t CGame_GEMFIGHTER_A::m_nExpectedGameROMSize = 0x80000;
+uint32_t CGame_GEMFIGHTER_A::m_nConfirmedROMSize = -1;
 
 void CGame_GEMFIGHTER_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_GEMFIGHTER_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_GEMFIGHTER_A::InitDescTree());
 }
 
-CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize)
+CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A: Loading ROM...\n");
 
@@ -79,7 +79,7 @@ CGame_GEMFIGHTER_A::~CGame_GEMFIGHTER_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_GEMFIGHTER_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_GEMFIGHTER_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -124,7 +124,7 @@ sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_GEMFIGHTER_A, &GEMFIGHTER_A_EXTRA_CUSTOM, GEMFIGHTER_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = GEMFIGHTER_A_NUMUNITS + (GetExtraCt(GEMFIGHTER_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = GEMFIGHTER_A_NUMUNITS + (GetExtraCt(GEMFIGHTER_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

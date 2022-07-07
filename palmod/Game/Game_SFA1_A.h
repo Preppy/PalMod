@@ -9,12 +9,12 @@ constexpr auto EXTRA_FILENAME_SFA1 = L"SFA1e.txt";
 class CGame_SFA1_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForSFA1;
+    static uint32_t m_nTotalPaletteCountForSFA1;
     static uint32_t rgExtraCountAll[SFA1_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[SFA1_A_NUMUNIT + 1];
 
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static void InitializeStatics();
 
@@ -25,7 +25,7 @@ private:
     static void DumpHeaderPalettes();
 
 public:
-    CGame_SFA1_A(UINT32 nConfirmedROMSize);
+    CGame_SFA1_A(uint32_t nConfirmedROMSize);
     ~CGame_SFA1_A(void);
 
     //Static functions / variables
@@ -53,7 +53,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* SFA1_A_EXTRA_CUSTOM;
 };

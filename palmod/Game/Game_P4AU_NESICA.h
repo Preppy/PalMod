@@ -5,11 +5,11 @@
 class CGame_P4AU_NESICA : public CGameWithExtrasFile
 {
 public:
-    CGame_P4AU_NESICA(UINT32 nConfirmedROMSize = -1);
+    CGame_P4AU_NESICA(uint32_t nConfirmedROMSize = -1);
     ~CGame_P4AU_NESICA();
 
     static void InitializeStatics();
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;

@@ -12,9 +12,9 @@ uint32_t CGame_AOF1_A::rgExtraCountAll[AOF1_A_NUMUNIT + 1];
 uint32_t CGame_AOF1_A::rgExtraLoc[AOF1_A_NUMUNIT + 1];
 
 uint32_t CGame_AOF1_A::m_nSelectedRom = 1;
-UINT32 CGame_AOF1_A::m_nTotalPaletteCountForAOF1 = 0;
-UINT32 CGame_AOF1_A::m_nExpectedGameROMSize = 0x80000;
-UINT32 CGame_AOF1_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_AOF1_A::m_nTotalPaletteCountForAOF1 = 0;
+uint32_t CGame_AOF1_A::m_nExpectedGameROMSize = 0x80000;
+uint32_t CGame_AOF1_A::m_nConfirmedROMSize = -1;
 
 void CGame_AOF1_A::InitializeStatics()
 {
@@ -26,7 +26,7 @@ void CGame_AOF1_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_AOF1_A::InitDescTree());
 }
 
-CGame_AOF1_A::CGame_AOF1_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
+CGame_AOF1_A::CGame_AOF1_A(uint32_t nConfirmedROMSize, int nROMToLoad /*= 1*/)
 {
     OutputDebugString(L"CGame_AOF1_A::CGame_AOF1_A: Loading ROM...\n");
 
@@ -117,7 +117,7 @@ sDescTreeNode* CGame_AOF1_A::InitDescTree()
     uint32_t nExtraUnitLocation = AOF1_A_EXTRALOC;
     LoadExtraFileForGame(EXTRA_FILENAME_AOF1_A, &AOF1_A_EXTRA_CUSTOM, AOF1_A_EXTRALOC, m_nConfirmedROMSize);
     bool fHaveExtras = GetExtraCt(AOF1_A_EXTRALOC);
-    UINT16 nUnitCt = AOF1_A_NUMUNIT + (fHaveExtras ? 1 : 0);
+    uint16_t nUnitCt = AOF1_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -153,7 +153,7 @@ sFileRule CGame_AOF1_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_AOF1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_AOF1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -213,8 +213,8 @@ const sGame_PaletteDataset* CGame_AOF1_A::GetSpecificPalette(uint32_t nUnitId, u
 void CGame_AOF1_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_AOF1_A::ClearDataBuffer()
@@ -445,8 +445,8 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             GetMainTree()->GetDescNode(Node01, Node02 + nNodeDistance, Node03 + nPeerNodeDistance, -1)
                         };
 
-                        const UINT8 nFirstPalette = paletteDataSet->pPalettePairingInfo->fPairingIsFlipped ? 1 : 0;
-                        const UINT8 nSecondPalette = paletteDataSet->pPalettePairingInfo->fPairingIsFlipped ? 0 : 1;
+                        const uint8_t nFirstPalette = paletteDataSet->pPalettePairingInfo->fPairingIsFlipped ? 1 : 0;
+                        const uint8_t nSecondPalette = paletteDataSet->pPalettePairingInfo->fPairingIsFlipped ? 0 : 1;
 
                         //Set each palette
                         CreateDefPal(JoinedNode[nFirstPalette], 0);

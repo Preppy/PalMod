@@ -10,7 +10,7 @@
 
 using namespace std;
 
-UINT32 CGameWithExtrasFile::m_nTotalPaletteCount = 0;
+uint32_t CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 char CGameWithExtrasFile::m_paszGameNameOverride[MAX_PATH] = "";
 AlphaMode CGameWithExtrasFile::m_AlphaModeOverride = AlphaMode::Unknown;
 ColMode CGameWithExtrasFile::m_ColorModeOverride = ColMode::COLMODE_LAST;
@@ -116,10 +116,10 @@ void CGameWithExtrasFile::SetColorFormatOverride(LPCSTR paszColorString)
     }
 }
 
-void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize /* = 2 */)
+void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, uint32_t nGameROMSize, uint8_t cbColorSize /* = 2 */)
 {
     ifstream extraFile;
-    WCHAR szTargetFile[MAX_PATH];
+    wchar_t szTargetFile[MAX_PATH];
     CString strOutputText;
     int nTotalExtensionExtraLinesHandled = 0;
     int nStockExtrasCount = 0;
@@ -152,7 +152,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
         {
             // Now we look for the Extra extension file.
             GetModuleFileName(nullptr, szTargetFile, (DWORD)MAX_PATH);
-            WCHAR* pszExeFileName = wcsrchr(szTargetFile, L'\\') + 1;
+            wchar_t* pszExeFileName = wcsrchr(szTargetFile, L'\\') + 1;
             pszExeFileName[0] = 0;
 
             wcscat(szTargetFile, pszExtraFileName);
@@ -325,7 +325,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
                                 }
 
-                                UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / cbColorSize; // usually 2 bytes per color.
+                                uint32_t nColorsUsed = (nCurrEnd - nCurrStart) / cbColorSize; // usually 2 bytes per color.
                                 const int nTotalPagesNeeded = (int)ceil((double)nColorsUsed / (double)k_colorsPerPage);
                                 int nCurrentPage = 1;
 
@@ -478,7 +478,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
 bool CGameWithExtrasFile::IsROMOffsetDuplicated(uint32_t nUnitId, uint32_t nPalId, uint32_t nStartingOffsetToCheck, uint32_t nEndOfRegionToCheck /* = 0 */)
 {
-    UINT32 nTotalDupesFound = 0;
+    uint32_t nTotalDupesFound = 0;
     CString strDupeText;
 
     // If we're in Extras territory, check it against itself.
@@ -549,8 +549,8 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(uint32_t nUnitId, uint32_t nPalI
 
 int CGameWithExtrasFile::GetDupeCountInDataset()
 {
-    UINT32 nTotalPalettesChecked = 0;
-    UINT32 nTotalDupesFound = 0;
+    uint32_t nTotalPalettesChecked = 0;
+    uint32_t nTotalDupesFound = 0;
 
     CString strDupeText;
     bool fCollisionFound = false;
@@ -558,7 +558,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
     bool fShownInternalErrorOnce = false;
     // TMNTTF palettes are odd lengths, so for some of them we need to step back one
     // color in order to assemble a working palette
-    const UINT32 k_nSpecialOverrideForTMNTTF = (nGameFlag == TMNTTF_SNES) ? 2 : 0;
+    const uint32_t k_nSpecialOverrideForTMNTTF = (nGameFlag == TMNTTF_SNES) ? 2 : 0;
 
     //Go through each character
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
@@ -619,8 +619,8 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
 int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 {
-    UINT32 nTotalPalettesChecked = 0;
-    UINT32 nTotalDupesFound = 0;
+    uint32_t nTotalPalettesChecked = 0;
+    uint32_t nTotalDupesFound = 0;
 
     CString strDupeText;
     bool fCollisionFound = false;
@@ -628,7 +628,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 
     //Go through the Extras
     uint32_t nPalCount = GetPaletteCountForUnit(m_nExtraUnit);
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+    for (uint16_t nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
     {
         LoadSpecificPaletteData(m_nExtraUnit, nPalCtr);
         nTotalPalettesChecked++;
@@ -662,7 +662,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 
 void CGameWithExtrasFile::CheckForErrorsInTables()
 {
-    const UINT32 nPaletteCountForRom = m_nTotalPaletteCount;
+    const uint32_t nPaletteCountForRom = m_nTotalPaletteCount;
     const uint32_t nExtraCount = GetPaletteCountForUnit(m_nExtraUnit);
     bool fShouldCheckExtras = (nExtraCount != 0);
     m_nLowestRomLocationThisPass = k_nBogusHighValue;
@@ -1036,7 +1036,7 @@ void CGameWithExtrasFile::OpenExtraFile()
 {
     if (m_pszExtraFilename)
     {
-        WCHAR szExtraFileWithPath[MAX_PATH];
+        wchar_t szExtraFileWithPath[MAX_PATH];
 
         LPCWSTR pszSlash = wcschr(m_pszExtraFilename, L'\\');
         if (pszSlash)
@@ -1048,7 +1048,7 @@ void CGameWithExtrasFile::OpenExtraFile()
         {
             // Create in the PalMod folder
             DWORD dwCharsUsed = GetModuleFileName(nullptr, szExtraFileWithPath, (DWORD)ARRAYSIZE(szExtraFileWithPath));
-            WCHAR* pszExeFileName = wcsrchr(szExtraFileWithPath, L'\\') + 1;
+            wchar_t* pszExeFileName = wcsrchr(szExtraFileWithPath, L'\\') + 1;
             wcsncpy(pszExeFileName, m_pszExtraFilename, ARRAYSIZE(szExtraFileWithPath) - dwCharsUsed);
         }
 

@@ -437,7 +437,7 @@ void CImgDumpBmp::ClearCtrlBG()
     }
 }
 
-void CImgDumpBmp::UpdateCtrl(BOOL fDraw, UINT8* pDstData)
+void CImgDumpBmp::UpdateCtrl(BOOL fDraw, uint8_t* pDstData)
 {
     if (m_fInitialized)
     {
@@ -449,12 +449,12 @@ void CImgDumpBmp::UpdateCtrl(BOOL fDraw, UINT8* pDstData)
         int nPal = 0;
         int nTargetX = 0, nTargetY = 0;
 
-        UINT8* pMainData = nullptr;
+        uint8_t* pMainData = nullptr;
 
         if (pDstData)
         {
-            pMainData = (UINT8*)m_pMainBmpData;
-            m_pMainBmpData = (UINT32*)pDstData;
+            pMainData = (uint8_t*)m_pMainBmpData;
+            m_pMainBmpData = (uint32_t*)pDstData;
         }
 
         const int nMaxImagesPerLine = GetMaxImagesPerLine();
@@ -501,7 +501,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL fDraw, UINT8* pDstData)
 
         if (pDstData)
         {
-            m_pMainBmpData = (UINT32*)pMainData;
+            m_pMainBmpData = (uint32_t*)pMainData;
         }
 
         if (fDraw)
@@ -515,7 +515,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL fDraw, UINT8* pDstData)
 
 BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, double fpZoom, BOOL fTransBG)
 {
-    UINT8* pDstBmpData = (UINT8*)m_pMainBmpData;
+    uint8_t* pDstBmpData = (uint8_t*)m_pMainBmpData;
 
     if (pDstBmpData)
     {
@@ -526,8 +526,8 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
         double fpXDiff = (double)nWidth / ((double)nWidth * fpZoom);
         double fpYDiff = (double)nHeight / ((double)nHeight * fpZoom);
 
-        UINT8* pImgData = (UINT8*)m_rgSrcImg[nSrcIndex]->pImgData;
-        UINT8* pCurrPal = (UINT8*)m_pppPalettes[nSrcIndex][nPalIndex];
+        uint8_t* pImgData = (uint8_t*)m_rgSrcImg[nSrcIndex]->pImgData;
+        uint8_t* pCurrPal = (uint8_t*)m_pppPalettes[nSrcIndex][nPalIndex];
 
         CRect rBltRct(nDstX, nDstY, nDstX + (int)(nWidth * fpZoom), nDstY + (int)(nHeight * fpZoom));
 
@@ -556,8 +556,8 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
         int nBltW = rBltRct.right - rBltRct.left;
         int nBltH = rBltRct.bottom - rBltRct.top;
 
-        UINT16 nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
-        UINT16 nMaxWritePerTransparency = static_cast<UINT16>(GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency());
+        uint16_t nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
+        uint16_t nMaxWritePerTransparency = static_cast<uint16_t>(GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency());
 
         if (fTransBG)
         {
@@ -572,7 +572,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
                 {
                     int nXCtr = (int)((double)xIndex * fpXDiff);
 
-                    UINT8 uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
+                    uint8_t uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
 
                     if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
                     {
@@ -585,9 +585,9 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
                         pDstBmpData[nDstPos + 3] += pCurrPal[(uIndex * 4) + 3];
 
-                        pDstBmpData[nDstPos + 2] = (UINT8)(pDstBmpData[nDstPos + 2] ? (pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd)) : (pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)]));
-                        pDstBmpData[nDstPos + 1] = (UINT8)(pDstBmpData[nDstPos + 1] ? (pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd)) : (pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1]));
-                        pDstBmpData[nDstPos] = (UINT8)(pDstBmpData[nDstPos] ? (pDstBmpData[nDstPos] + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd)) : (pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2]));
+                        pDstBmpData[nDstPos + 2] = (uint8_t)(pDstBmpData[nDstPos + 2] ? (pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd)) : (pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)]));
+                        pDstBmpData[nDstPos + 1] = (uint8_t)(pDstBmpData[nDstPos + 1] ? (pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd)) : (pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1]));
+                        pDstBmpData[nDstPos] = (uint8_t)(pDstBmpData[nDstPos] ? (pDstBmpData[nDstPos] + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd)) : (pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2]));
 #else
                         pDstBmpData[nDstPos + 3] = pCurrPal[(uIndex * 4) + 3];
                         pDstBmpData[nDstPos + 2] = pCurrPal[(uIndex * 4)];
@@ -611,7 +611,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
                 {
                     int nXCtr = (int)((double)xIndex * fpXDiff);
 
-                    UINT8 uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
+                    uint8_t uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
 
                     if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
                     {
@@ -620,13 +620,13 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
                         double fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
                         double fpDstA1 = 1.0 - fpDstA2;
 
-                        UINT8* uDstR = &pDstBmpData[nDstPos + 2];
-                        UINT8* uDstG = &pDstBmpData[nDstPos + 1];
-                        UINT8* uDstB = &pDstBmpData[nDstPos];
+                        uint8_t* uDstR = &pDstBmpData[nDstPos + 2];
+                        uint8_t* uDstG = &pDstBmpData[nDstPos + 1];
+                        uint8_t* uDstB = &pDstBmpData[nDstPos];
 
-                        *uDstR = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4)]), (fpDstA2 * (double)*uDstR));
-                        *uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 1]), (fpDstA2 * (double)*uDstG));
-                        *uDstB = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 2]), (fpDstA2 * (double)*uDstB));
+                        *uDstR = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4)]), (fpDstA2 * (double)*uDstR));
+                        *uDstG = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 1]), (fpDstA2 * (double)*uDstG));
+                        *uDstB = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 2]), (fpDstA2 * (double)*uDstB));
                     }
                 }
             }

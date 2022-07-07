@@ -34,15 +34,15 @@ CDescTree CGame_SFIII3_A::MainDescTree_14 = nullptr;
 CDescTree CGame_SFIII3_A::MainDescTree_4 = nullptr;
 CDescTree CGame_SFIII3_A::MainDescTree_51 = nullptr;
 CDescTree CGame_SFIII3_A::MainDescTree_70 = nullptr;
-UINT32 CGame_SFIII3_A::m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
-UINT32 CGame_SFIII3_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SFIII3_A::m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
+uint32_t CGame_SFIII3_A::m_nConfirmedROMSize = -1;
 
 uint32_t CGame_SFIII3_A::m_nSelectedRom = SF3ROM_51;
-UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_10 = 0;
-UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_14 = 0;
-UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_4 = 0;
-UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_51 = 0;
-UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_70 = 0;
+uint32_t CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_10 = 0;
+uint32_t CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_14 = 0;
+uint32_t CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_4 = 0;
+uint32_t CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_51 = 0;
+uint32_t CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_70 = 0;
 
 void CGame_SFIII3_A::InitializeStatics()
 {
@@ -75,7 +75,7 @@ void CGame_SFIII3_A::InitializeStatics()
     MainDescTree_70.SetRootTree(CGame_SFIII3_A::InitDescTree(70));
 }
 
-CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
+CGame_SFIII3_A::CGame_SFIII3_A(uint32_t nConfirmedROMSize, int nSF3ROMToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -308,10 +308,10 @@ stExtraDef* CGame_SFIII3_A::GetCurrentExtraDef(int nDefCtr)
 
 sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
     m_nSelectedRom = nROMPaletteSetToUse;
 
-    UINT16 nUnitCt;
+    uint16_t nUnitCt;
     uint32_t nExtraUnitLocation;
 
     switch (m_nSelectedRom)
@@ -366,7 +366,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
@@ -397,7 +397,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
             uint32_t nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
-            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+            for (uint16_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
@@ -419,7 +419,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
                 const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+                for (uint16_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -478,7 +478,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+            for (uint16_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
@@ -722,8 +722,8 @@ const sDescTreeNode* CGame_SFIII3_A::GetNodeFromPaletteId(uint32_t nUnitId, uint
 void CGame_SFIII3_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_SFIII3_A::ClearDataBuffer()
@@ -780,26 +780,26 @@ void CGame_SFIII3_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     }
 }
 
-UINT16 rotate_left(UINT16 value, int n)
+uint16_t rotate_left(uint16_t value, int n)
 {
     int aux = value >> (16 - n);
     return ((value << n) | aux) % 0x10000;
 }
 
-UINT16 rotxor(UINT16 val, UINT16 xorval)
+uint16_t rotxor(uint16_t val, uint16_t xorval)
 {
-    UINT16 res = val + rotate_left(val, 2);
+    uint16_t res = val + rotate_left(val, 2);
 
     res = rotate_left(res, 4) ^ (res & (val ^ xorval));
 
     return res;
 }
 
-UINT32 cps3_mask(UINT32 address, UINT32 key1, UINT32 key2)
+uint32_t cps3_mask(uint32_t address, uint32_t key1, uint32_t key2)
 {
     address ^= key1;
 
-    UINT16 val = (address & 0xffff) ^ 0xffff;
+    uint16_t val = (address & 0xffff) ^ 0xffff;
 
     val = rotxor(val, key2 & 0xffff);
 
@@ -818,7 +818,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     {
         uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+        m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
         // Layout is presorted
         rgUnitRedir[nUnitCtr] = nUnitCtr;
@@ -827,17 +827,17 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
 
             if (IsROMEncrypted())
             {
-                UINT32 fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
-                const UINT8 cbStride = 4;
+                uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
+                const uint8_t cbStride = 4;
 
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                UINT32 nNewData = 0;
+                uint32_t nNewData = 0;
 
-                for (UINT16 nBlockCount = 0; nBlockCount < fourByteBlocks; nBlockCount++)
+                for (uint16_t nBlockCount = 0; nBlockCount < fourByteBlocks; nBlockCount++)
                 {
                     // this rom is encrypted
                     LoadedFile->Read(&nNewData, cbStride);
@@ -872,7 +872,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
 BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
 
     for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -886,13 +886,13 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 
                 if (IsROMEncrypted())
                 {
-                    UINT32 fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
-                    const UINT8 cbStride = 4;
+                    uint32_t fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
+                    const uint8_t cbStride = 4;
 
                     SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    UINT32 nDataToWrite = 0;
+                    uint32_t nDataToWrite = 0;
 
-                    for (UINT16 nBlockCount = 0; nBlockCount < fourByteBlocks; nBlockCount++)
+                    for (uint16_t nBlockCount = 0; nBlockCount < fourByteBlocks; nBlockCount++)
                     {
                         nDataToWrite = *(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount));
                         nDataToWrite |= (*(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount) + 1) << 16);

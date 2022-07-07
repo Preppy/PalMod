@@ -9,14 +9,14 @@ constexpr auto EXTRA_FILENAME_SAMSHO2_A = L"SAMSHO2E.txt";
 class CGame_SAMSHO2_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForSAMSHO2;
+    static uint32_t m_nTotalPaletteCountForSAMSHO2;
 
     static uint32_t rgExtraCountAll[SAMSHO2_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[SAMSHO2_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -24,7 +24,7 @@ private:
     static void DumpPaletteHeaders();
 
 public:
-    CGame_SAMSHO2_A(UINT32 nConfirmedROMSize);
+    CGame_SAMSHO2_A(uint32_t nConfirmedROMSize);
     ~CGame_SAMSHO2_A(void);
 
     //Static functions / variables

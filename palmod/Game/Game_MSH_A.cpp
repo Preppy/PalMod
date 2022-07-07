@@ -18,10 +18,10 @@ uint32_t CGame_MSH_A::rgExtraLoc_05[MSH_A_NUMUNIT_05 + 1] = { (uint32_t)-1 };
 uint32_t CGame_MSH_A::rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1] = { (uint32_t)-1 };
 
 uint32_t CGame_MSH_A::m_nMSHSelectedRom = 5;
-UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_05 = 0;
-UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_06 = 0;
-UINT32 CGame_MSH_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_MSH_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_MSH_A::m_nTotalPaletteCountForMSH_05 = 0;
+uint32_t CGame_MSH_A::m_nTotalPaletteCountForMSH_06 = 0;
+uint32_t CGame_MSH_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_MSH_A::m_nConfirmedROMSize = -1;
 
 void CGame_MSH_A::InitializeStatics()
 {
@@ -37,7 +37,7 @@ void CGame_MSH_A::InitializeStatics()
     MainDescTree_06.SetRootTree(InitDescTree(6));
 }
 
-CGame_MSH_A::CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad)
+CGame_MSH_A::CGame_MSH_A(uint32_t nConfirmedROMSize, int nMSHRomToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -57,8 +57,8 @@ CGame_MSH_A::CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad)
     m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSH_A_NUMUNIT_05 : MSH_A_NUMUNIT_06;
     m_nExtraUnit = UsePaletteSetForCharacters() ? MSH_A_EXTRALOC_05 : MSH_A_EXTRALOC_06;
 
-    const UINT32 nSafeCountFor05 = 437;
-    const UINT32 nSafeCountFor06 = 72;
+    const uint32_t nSafeCountFor05 = 437;
+    const uint32_t nSafeCountFor06 = 72;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForCharacters() ? nSafeCountFor05 : nSafeCountFor06);
     m_pszExtraFilename = UsePaletteSetForCharacters() ? EXTRA_FILENAME_MSH_05 : EXTRA_FILENAME_MSH_06;
@@ -97,7 +97,7 @@ CGame_MSH_A::~CGame_MSH_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_MSH_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_MSH_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -192,8 +192,8 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(uint32_t nROMPaletteSetToUse)
 {
     m_nMSHSelectedRom = nROMPaletteSetToUse;
 
-    UINT16 nUnitCt;
-    UINT8 nExtraUnitLocation;
+    uint16_t nUnitCt;
+    uint8_t nExtraUnitLocation;
 
     //Load extra file if we're using it
     if (UsePaletteSetForCharacters())
@@ -466,8 +466,8 @@ const sGame_PaletteDataset* CGame_MSH_A::GetSpecificPalette(uint32_t nUnitId, ui
 void CGame_MSH_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nMSHSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_MSH_A::ClearDataBuffer()

@@ -10,18 +10,18 @@ class CGame_COTA_A : public CGameWithExtrasFile
 {
 private:
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
-    static UINT32 m_nTotalPaletteCountForCOTA;
+    static uint32_t m_nTotalPaletteCountForCOTA;
     static uint32_t rgExtraCountAll[COTA_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[COTA_A_NUMUNIT + 1];
 
 public:
-    CGame_COTA_A(UINT32 nConfirmedROMSize);
+    CGame_COTA_A(uint32_t nConfirmedROMSize);
     ~CGame_COTA_A(void);
 
     //Static functions / variables
@@ -50,7 +50,7 @@ public:
 
     void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* COTA_A_EXTRA_CUSTOM;
 };

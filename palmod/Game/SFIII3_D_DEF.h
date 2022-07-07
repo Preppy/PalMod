@@ -1,6 +1,6 @@
 #pragma once
 
-const WCHAR SFIII3_D_UNITDESC[][16] = 
+const wchar_t SFIII3_D_UNITDESC[][16] = 
 {
     L"Gill",          //0x00 on disc
     L"Alex",          //0x01
@@ -28,7 +28,7 @@ const WCHAR SFIII3_D_UNITDESC[][16] =
 constexpr auto SFIII3_D_NUMUNIT = ARRAYSIZE(SFIII3_D_UNITDESC);
 
 // We use this to align the sorted units to their associated imgids
-std::vector<UINT16> SFIII3_D_IMGID_SORTED_BY_UNIT =
+std::vector<uint16_t> SFIII3_D_IMGID_SORTED_BY_UNIT =
 {
     index3SSprites_Gill,      // 0x16
     index3SSprites_Alex,      // 0x00

@@ -10,14 +10,14 @@ class CGame_AOF1_A : public CGameWithExtrasFile
 private:
     int m_nBufferSelectedRom = 2;
     static uint32_t m_nSelectedRom;
-    static UINT32 m_nTotalPaletteCountForAOF1;
+    static uint32_t m_nTotalPaletteCountForAOF1;
 
     static uint32_t rgExtraCountAll[AOF1_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[AOF1_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     // Needed for multiple ROM support
     void InitDataBuffer() override;
@@ -30,7 +30,7 @@ private:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_AOF1_A(UINT32 nConfirmedROMSize, int nROMToLoad = 1);
+    CGame_AOF1_A(uint32_t nConfirmedROMSize, int nROMToLoad = 1);
     ~CGame_AOF1_A(void);
 
     //Static functions / variables
@@ -57,7 +57,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* AOF1_A_EXTRA_CUSTOM;
 };

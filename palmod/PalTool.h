@@ -43,7 +43,7 @@ private:
     int m_nPrevPalAmt = -1;
 
     int m_nPalViewH = 0;
-    UINT16 m_rgPalRedir[MAX_PALETTES_DISPLAYABLE + 1] = {};
+    uint16_t m_rgPalRedir[MAX_PALETTES_DISPLAYABLE + 1] = {};
 
     void Init();
 

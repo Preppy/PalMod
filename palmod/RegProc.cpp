@@ -125,7 +125,7 @@ void CRegProc::SetColorsPerLine(DWORD dwColors)
     }
 }
 
-UINT16 CRegProc::GetMaxColorsPerPageOverride()
+uint16_t CRegProc::GetMaxColorsPerPageOverride()
 {
     static DWORD s_dwMaxColorsPerPage = -1;
 
@@ -151,7 +151,7 @@ UINT16 CRegProc::GetMaxColorsPerPageOverride()
         }
     }
 
-    return (UINT16)s_dwMaxColorsPerPage;
+    return (uint16_t)s_dwMaxColorsPerPage;
 }
 
 bool CRegProc::ShouldForcePeerPreviewWindow()
@@ -249,7 +249,7 @@ PALWriteOutputOptions CRegProc::GetMaxWriteForUnknownGame()
     return (PALWriteOutputOptions)dwMaxWrite;
 }
 
-UINT16 CRegProc::GetColorsPerLine()
+uint16_t CRegProc::GetColorsPerLine()
 {
     // Since this affects UI we should only update it once per instance
     if (dwColorsPerLine == 0)
@@ -274,7 +274,7 @@ UINT16 CRegProc::GetColorsPerLine()
     return (dwColorsPerLine == PAL_MAXWIDTH_16COLORSPERLINE) ? PAL_MAXWIDTH_16COLORSPERLINE : PAL_MAXWIDTH_8COLORSPERLINE;
 }
 
-UINT16 CRegProc::GetMaxPalettePageSize()
+uint16_t CRegProc::GetMaxPalettePageSize()
 {
     return (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? PAL_MAXAMT_8COLORSPERLINE : PAL_MAXAMT_16COLORSPERLINE;
 }
@@ -549,7 +549,7 @@ void CRegProc::SaveReg(eRegistryStoreID src)
             CString strPosAndDpi;
             strPosAndDpi.Format(L"%s_%u", (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
 
-            RegSetValueEx(hKey, strPosAndDpi, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(WCHAR) * (conv_str.GetLength() + 1));
+            RegSetValueEx(hKey, strPosAndDpi, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(wchar_t) * (conv_str.GetLength() + 1));
         }
         break;
 
@@ -561,8 +561,8 @@ void CRegProc::SaveReg(eRegistryStoreID src)
 
             conv_str = RectToStr(prev_szpos);
 
-            RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(WCHAR) * (conv_str.GetLength() + 1));
-            RegSetValueEx(hKey, L"PreviewBGFile", 0, REG_SZ, (BYTE*)szPrevBGLoc, (DWORD)((wcslen(szPrevBGLoc) + 1) * sizeof(WCHAR)));
+            RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(wchar_t) * (conv_str.GetLength() + 1));
+            RegSetValueEx(hKey, L"PreviewBGFile", 0, REG_SZ, (BYTE*)szPrevBGLoc, (DWORD)((wcslen(szPrevBGLoc) + 1) * sizeof(wchar_t)));
             RegSetValueEx(hKey, L"PreviewTiledBG", 0, REG_DWORD, (BYTE*)&fTileBG, sizeof(BOOL));
             RegSetValueEx(hKey, L"PreviewBGXOffset", 0, REG_DWORD, (BYTE*)&nBGXOffs, sizeof(int));
             RegSetValueEx(hKey, L"PreviewBGYOffset", 0, REG_DWORD, (BYTE*)&nBGYOffs, sizeof(int));
@@ -583,7 +583,7 @@ void CRegProc::SaveReg(eRegistryStoreID src)
 
             conv_str = RectToStr(imgout_szpos);
 
-            RegSetValueEx(hKey, L"imgout_szpos", 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(WCHAR) * (conv_str.GetLength() + 1));
+            RegSetValueEx(hKey, L"imgout_szpos", 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(wchar_t) * (conv_str.GetLength() + 1));
         }
         break;
         }
@@ -605,7 +605,7 @@ RECT StrToRect(CString in_str)
 {
     RECT out_rect = {};
 
-    WCHAR* rect_val = in_str.GetBuffer();
+    wchar_t* rect_val = in_str.GetBuffer();
 
     out_rect.left = wcstol(rect_val, &rect_val, 10);
     out_rect.top = wcstol(rect_val, &rect_val, 10);

@@ -13,8 +13,8 @@ public:
     static uint32_t rgExtraLoc[SSF2T_GBA_NUMUNIT + 1];
     
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
     static uint32_t GetCurrentExtraLoc();
@@ -24,7 +24,7 @@ public:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_SSF2T_GBA(UINT32 nConfirmedROMSize = -1);
+    CGame_SSF2T_GBA(uint32_t nConfirmedROMSize = -1);
     ~CGame_SSF2T_GBA(void);
 
     //Static functions / variables
@@ -52,7 +52,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* SSF2T_GBA_EXTRA_CUSTOM;
 };

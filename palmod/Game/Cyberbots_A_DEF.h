@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const std::vector<UINT16> Cyberbots_A_IMGIDS_USED =
+const std::vector<uint16_t> Cyberbots_A_IMGIDS_USED =
 {
     indexCyberbots_Blodia,          // 0xA5
     indexCyberbots_Cyclone,         // 0xA6

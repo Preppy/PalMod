@@ -11,9 +11,9 @@ CDescTree CGame_SAMSHO5SP_A::MainDescTree = nullptr;
 uint32_t CGame_SAMSHO5SP_A::rgExtraCountAll[SAMSHO5SP_A_NUMUNIT + 1];
 uint32_t CGame_SAMSHO5SP_A::rgExtraLoc[SAMSHO5SP_A_NUMUNIT + 1];
 
-UINT32 CGame_SAMSHO5SP_A::m_nTotalPaletteCountForSAMSHO5SP = 0;
-UINT32 CGame_SAMSHO5SP_A::m_nExpectedGameROMSize = -1;  // Figure this out dynamically
-UINT32 CGame_SAMSHO5SP_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SAMSHO5SP_A::m_nTotalPaletteCountForSAMSHO5SP = 0;
+uint32_t CGame_SAMSHO5SP_A::m_nExpectedGameROMSize = -1;  // Figure this out dynamically
+uint32_t CGame_SAMSHO5SP_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO5SP_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_SAMSHO5SP_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SAMSHO5SP_A::InitDescTree());
 }
 
-CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad /*= SAMSHO5SP_A */)
+CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad /*= SAMSHO5SP_A */)
 {
     OutputDebugString(L"CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A: Loading ROM...\n");
 
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_SAMSHO5SP_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO5SP_A, &SAMSHO5SP_A_EXTRA_CUSTOM, SAMSHO5SP_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = SAMSHO5SP_A_NUMUNIT + (GetExtraCt(SAMSHO5SP_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = SAMSHO5SP_A_NUMUNIT + (GetExtraCt(SAMSHO5SP_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -122,7 +122,7 @@ sDescTreeNode* CGame_SAMSHO5SP_A::InitDescTree()
     return NewDescTree;
 }
 
-UINT32 CGame_SAMSHO5SP_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SAMSHO5SP_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

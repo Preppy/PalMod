@@ -8,12 +8,12 @@ stExtraDef* CGame_SFA1_A::SFA1_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SFA1_A::MainDescTree = nullptr;
 
-UINT32 CGame_SFA1_A::m_nTotalPaletteCountForSFA1 = 0;
+uint32_t CGame_SFA1_A::m_nTotalPaletteCountForSFA1 = 0;
 
 uint32_t CGame_SFA1_A::rgExtraCountAll[SFA1_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_SFA1_A::rgExtraLoc[SFA1_A_NUMUNIT + 1] = { (uint32_t)-1 };
-UINT32 CGame_SFA1_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_SFA1_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SFA1_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_SFA1_A::m_nConfirmedROMSize = -1;
 
 void CGame_SFA1_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_SFA1_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SFA1_A::InitDescTree());
 }
 
-CGame_SFA1_A::CGame_SFA1_A(UINT32 nConfirmedROMSize)
+CGame_SFA1_A::CGame_SFA1_A(uint32_t nConfirmedROMSize)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -96,7 +96,7 @@ sDescTreeNode* CGame_SFA1_A::InitDescTree()
     LoadExtraFileForGame(EXTRA_FILENAME_SFA1, &SFA1_A_EXTRA_CUSTOM, SFA1_A_EXTRALOC, m_nConfirmedROMSize);
 
     bool fHaveExtras = (GetExtraCt(SFA1_A_EXTRALOC) > 0);
-    UINT16 nUnitCt = SFA1_A_NUMUNIT + (fHaveExtras ? 1 : 0);
+    uint16_t nUnitCt = SFA1_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -126,9 +126,9 @@ struct sSFA1_A_PortraitData
 {
     LPCWSTR pszCharacterName = nullptr;
     LPCWSTR pszCodeName = nullptr;
-    UINT32 nROMOffset = 0;
+    uint32_t nROMOffset = 0;
     LPCWSTR pszImageSet = L"indexCPS2Sprites_SFA1Assets"; // SFA1_Unique
-    UINT32 nImageSetIndex = 0;
+    uint32_t nImageSetIndex = 0;
 };
 
 sSFA1_A_PortraitData SFA1_A_PortraitDataArray[] =
@@ -164,14 +164,14 @@ void CGame_SFA1_A::DumpHeaderPalettes()
 {
     CString strOutput;
 
-    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFA1_A_PortraitDataArray); nIndex++)
+    for (uint16_t nIndex = 0; nIndex < ARRAYSIZE(SFA1_A_PortraitDataArray); nIndex++)
     {
-        const UINT16 nPortraitsPerCharacter = 6;
+        const uint16_t nPortraitsPerCharacter = 6;
         strOutput.Format(L"const sGame_PaletteDataset SFA1_A_%s_PORTRAIT_PALETTES[] = \r\n{\r\n", SFA1_A_PortraitDataArray[nIndex].pszCodeName);
         OutputDebugString(strOutput);
-        for (UINT16 nColorIndex = 0; nColorIndex < nPortraitsPerCharacter; nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < nPortraitsPerCharacter; nColorIndex++)
         {
-            constexpr UINT32 PORTRAIT_OFFSET = 0x80;
+            constexpr uint32_t PORTRAIT_OFFSET = 0x80;
             CString strColorName;
 
             switch (nColorIndex)
@@ -203,9 +203,9 @@ void CGame_SFA1_A::DumpHeaderPalettes()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFA1_A_PortraitDataArray); nIndex++)
+    for (uint16_t nIndex = 0; nIndex < ARRAYSIZE(SFA1_A_PortraitDataArray); nIndex++)
     {
-        const UINT16 nPortraitsPerCharacter = 6;
+        const uint16_t nPortraitsPerCharacter = 6;
         strOutput.Format(L"    { \"Select Portraits\", DESC_NODETYPE_TREE, (void*)SFA1_A_%s_PORTRAIT_PALETTES, ARRAYSIZE(SFA1_A_%s_PORTRAIT_PALETTES) },\r\n", SFA1_A_PortraitDataArray[nIndex].pszCodeName, SFA1_A_PortraitDataArray[nIndex].pszCodeName);
         OutputDebugString(strOutput);
     }
@@ -458,7 +458,7 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 else
                 {
                     int8_t nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                    UINT16 nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
+                    uint16_t nPeerPaletteIdInNode = Node03 + nDeltaToSecondElement;
 
                     fShouldUseAlternateLoadLogic = true;
 
@@ -508,7 +508,7 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-UINT32 CGame_SFA1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SFA1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

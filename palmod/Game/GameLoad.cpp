@@ -138,7 +138,7 @@
 #include "..\resource.h"
 #include "..\palmod.h"
 
-void StrRemoveNonASCII(WCHAR* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
+void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
     uint32_t iStrOutputIndex = 0;
 
@@ -170,7 +170,7 @@ void StrRemoveNonASCII(WCHAR* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool
     pszOutput[iStrOutputIndex] = 0;
 }
 
-void StruprRemoveNonASCII(WCHAR* pszOutput, uint32_t ccSize, LPCWSTR pszInput)
+void StruprRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput)
 {
     StrRemoveNonASCII(pszOutput, ccSize, pszInput, true);
 }
@@ -1049,7 +1049,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     return FALSE;
 }
 
-CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData /* = 0 */, LPCWSTR pszFilePath /* = nullptr */)
+CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int nExtraGameData /* = 0 */, LPCWSTR pszFilePath /* = nullptr */)
 {
     switch (nGameFlag)
     {
@@ -1639,7 +1639,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
 }
 
-CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
+CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
 {
     CGameClass* OutGame = NULL;
 
@@ -1659,7 +1659,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
     int nGameRule = 0;
 
     // Handle games that support multiple ROMs here
-    WCHAR* pszFileNameLowercase = wcsrchr(pszLoadFile, L'\\');
+    wchar_t* pszFileNameLowercase = wcsrchr(pszLoadFile, L'\\');
 
     if (pszFileNameLowercase)
     {
@@ -1882,10 +1882,10 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
 
         if (isSafeToRunGame)
         {
-            OutGame = CreateGame(nGameFlag, (UINT32)nGameFileLength, nGameRule, pszLoadFile);
+            OutGame = CreateGame(nGameFlag, (uint32_t)nGameFileLength, nGameRule, pszLoadFile);
             OutGame->SetLoadDir(pszLoadFile);
 
-            UINT32 crcValue = 0;
+            uint32_t crcValue = 0;
             bool fNeedToValidateCRC = false;
 
             // CRC calculation is slow, so only calculate if we need it.
@@ -1944,7 +1944,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
     return OutGame;
 }
 
-CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
+CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
 {
     CGameClass* OutGame = NULL;
     sFileRule CurrRule;
@@ -2005,7 +2005,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
         {
             bool fActualFileSizeIsSafe = false;
             ULONGLONG nGameFileLength = CurrFile.GetLength();
-            UINT32 nConfirmedVerifyVar = CurrRule.uVerifyVar;
+            uint32_t nConfirmedVerifyVar = CurrRule.uVerifyVar;
             
             if (((short int)CurrRule.uVerifyVar == -1) ||
                 ((CurrRule.uVerifyVar == nGameFileLength)))
@@ -2127,13 +2127,13 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
 bool CGameLoad::IsLocationOnReadOnlyDrive(LPCWSTR pszLocation, LPWSTR pszDrivePath /*= nullptr*/, uint32_t ccPathSize /*= 0*/)
 {
     bool fIsMediaReadOnly = false;
-    WCHAR szPath[MAX_PATH];
+    wchar_t szPath[MAX_PATH];
 
     // strip the directory down to actual path since that's what GetVolumeInformation requires
     wcsncpy_s(szPath, pszLocation, ARRAYSIZE(szPath));
     szPath[ARRAYSIZE(szPath) - 1] = '\0';
 
-    WCHAR* pszSlash = wcsstr(szPath, L"\\");
+    wchar_t* pszSlash = wcsstr(szPath, L"\\");
 
     if (pszSlash != nullptr)
     {
@@ -2311,7 +2311,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
         }
         else
         {
-            WCHAR szPath[MAX_PATH];
+            wchar_t szPath[MAX_PATH];
             if (IsLocationOnReadOnlyDrive(pszLoadDir, szPath, ARRAYSIZE(szPath)))
             {
                 uErrorString = IDS_ERROR_NOTWRITABLE_CDI;
@@ -2476,7 +2476,7 @@ void CGameLoad::CrosscopyGame(CGameClass* CurrGame)
 void CGameLoad::SavePatchFile(CGameClass* CurrGame)
 {
     SetGame(CurrGame->GetGameFlag());
-    UINT32 nNumberOfChangesSaved = 0;
+    uint32_t nNumberOfChangesSaved = 0;
     
     if (!CurrGame->GetIsDir())
     {
@@ -2540,7 +2540,7 @@ void CGameLoad::SavePatchFile(CGameClass* CurrGame)
 void CGameLoad::SaveMultiplePatchFiles(CGameClass* CurrGame, CString strTargetDirectory)
 {
     SetGame(CurrGame->GetGameFlag());
-    UINT32 nNumberOfChangesSaved = 0;
+    uint32_t nNumberOfChangesSaved = 0;
     BOOL fGameWasChanged = CurrGame->WasGameFileChangedInSession();
 
     if (fGameWasChanged && CurrGame->GetIsDir())

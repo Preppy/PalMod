@@ -9,7 +9,7 @@ LPCWSTR CGame_VENTURE_A_DIR::VENTURE_Arcade_ROM_Base_50 = L"jojo-simm5.";
 
 #define VENTURE_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 
-CGame_VENTURE_A_DIR::CGame_VENTURE_A_DIR(UINT32 nConfirmedROMSize, int nVentureModeToLoad) :
+CGame_VENTURE_A_DIR::CGame_VENTURE_A_DIR(uint32_t nConfirmedROMSize, int nVentureModeToLoad) :
         CGame_VENTURE_A(-1, nVentureModeToLoad)   // Let Venture know that it's safe to load extras.
 {
     OutputDebugString(L"CGame_VENTURE_A_DIR::CGame_VENTURE_A_DIR: Loading from SIMM directory\n");
@@ -91,17 +91,17 @@ LPCWSTR CGame_VENTURE_A_DIR::GetGameName()
     }
 }
 
-inline UINT32 CGame_VENTURE_A_DIR::GetSIMMLocationFromROMLocation(UINT32 nROMLocation)
+inline uint32_t CGame_VENTURE_A_DIR::GetSIMMLocationFromROMLocation(uint32_t nROMLocation)
 {
-    UINT32 nSIMMLocation = 0;
+    uint32_t nSIMMLocation = 0;
 
     nSIMMLocation = nROMLocation / m_nSizeOfColorsInBytes;
     return nSIMMLocation;
 }
 
-inline UINT32 CGame_VENTURE_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
+inline uint32_t CGame_VENTURE_A_DIR::GetLocationWithinSIMM(uint32_t nSIMMSetLocation)
 {
-    UINT32 nSIMMLocation = nSIMMSetLocation;
+    uint32_t nSIMMLocation = nSIMMSetLocation;
 
     while (nSIMMLocation > c_nVentureSIMMLength)
     {
@@ -135,9 +135,9 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     // OK, so the 50 ROM in the SIMM redump is interleaved.name 
     // There is one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
     // So to read the SIMMs we need to perform shenanigans.
-    const UINT32 nSIMMSetAdjustment =  0;
-    const UINT32 nBeginningRange = 0 + (c_nVentureSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
-    const UINT32 nEndingRange = (c_nVentureSIMMLength * 2) + (c_nVentureSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
+    const uint32_t nSIMMSetAdjustment =  0;
+    const uint32_t nBeginningRange = 0 + (c_nVentureSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
+    const uint32_t nEndingRange = (c_nVentureSIMMLength * 2) + (c_nVentureSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
 
     strInfo.Format(L"\tThe SIMM %zu set begins at 0x%06x and ends at 0x%06x\n", nSIMMNumber, nBeginningRange, nEndingRange);
     OutputDebugString(strInfo);
@@ -158,8 +158,8 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
-                m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-                memset(m_pppDataBuffer[nUnitCtr], NULL, sizeof(UINT16*) * nPalAmt);
+                m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
+                memset(m_pppDataBuffer[nUnitCtr], NULL, sizeof(uint16_t*) * nPalAmt);
             }
 
             // These are already sorted, no need to redirect
@@ -171,7 +171,7 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
                 if ((m_nCurrentPaletteROMLocation >= nBeginningRange) && (m_nCurrentPaletteROMLocation <= nEndingRange))
                 {
-                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
@@ -192,20 +192,20 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                         fSuccess = FALSE;
                     }
 
-                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
-                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], NULL, sizeof(UINT16) * m_nCurrentPaletteSizeInColors);
+                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
+                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], NULL, sizeof(uint16_t) * m_nCurrentPaletteSizeInColors);
 
                     LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-                    for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
+                    for (uint16_t nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
                     {
                         BYTE high, low;
                         
                         LoadedFile->Read(&low, 1);
                         FilePeer.Read(&high, 1);
 
-                        m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = (UINT16)((high << 8) | low);
+                        m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = (uint16_t)((high << 8) | low);
                     }
                 }
             }
@@ -231,7 +231,7 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     return fSuccess;
 }
 
-inline UINT8 CGame_VENTURE_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
+inline uint8_t CGame_VENTURE_A_DIR::GetSIMMSetForROMLocation(uint32_t nROMLocation)
 {
     return (nROMLocation > (2 * c_nVentureSIMMLength)) ? 1 : 0;
 }
@@ -246,7 +246,7 @@ BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
     // There is one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
     // So to read the SIMMs we need to perform shenanigans.
 
-    const UINT32 nSIMMSetAdjustment = (m_nVentureMode == 50) ? 0 : 4;
+    const uint32_t nSIMMSetAdjustment = (m_nVentureMode == 50) ? 0 : 4;
 
     CFile fileSIMM1;
     CString strSIMMName1;
@@ -304,11 +304,11 @@ BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                 {
                     LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                    const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
+                    const uint8_t nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
 
 #if VENTURE_RERIP_DEBUG
-                    UINT32 nOriginalOffset = m_nCurrentPaletteROMLocation;
-                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    uint32_t nOriginalOffset = m_nCurrentPaletteROMLocation;
+                    uint32_t nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                     strInfo.Format(L"\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X (SIMM set %u)\n", nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation, nSIMMSetToUse);
                     OutputDebugString(strInfo);
 #endif
@@ -323,14 +323,14 @@ BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
                     // write length will be number of *bytes* in the sequence across 2 files
-                    UINT16 nCurrentWriteLength = (m_nCurrentPaletteSizeInColors / m_nSizeOfColorsInBytes) * 2;
+                    uint16_t nCurrentWriteLength = (m_nCurrentPaletteSizeInColors / m_nSizeOfColorsInBytes) * 2;
 
                     BYTE* pbWrite1 = new BYTE[nCurrentWriteLength];
                     BYTE* pbWrite2 = new BYTE[nCurrentWriteLength];
 
                     if (pbWrite1 && pbWrite2)
                     {
-                        for (UINT16 nWordsWritten = 0; nWordsWritten < nCurrentWriteLength; nWordsWritten++)
+                        for (uint16_t nWordsWritten = 0; nWordsWritten < nCurrentWriteLength; nWordsWritten++)
                         {
                             pbWrite1[nWordsWritten] = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
                             pbWrite2[nWordsWritten] = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;

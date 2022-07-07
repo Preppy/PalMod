@@ -18,11 +18,11 @@ uint32_t CGame_AOF3_A::rgExtraLoc_P1[AOF3_A_P1_NUMUNIT + 1];
 uint32_t CGame_AOF3_A::rgExtraLoc_P2[AOF3_A_P2_NUMUNIT + 1];
 
 uint32_t CGame_AOF3_A::m_nSelectedRom = 1;
-UINT32 CGame_AOF3_A::m_nTotalPaletteCountForAOF3_P1 = 0;
-UINT32 CGame_AOF3_A::m_nTotalPaletteCountForAOF3_P2 = 0;
-UINT32 CGame_AOF3_A::m_nExpectedGameROMSizeP1 = 0x100000;
-UINT32 CGame_AOF3_A::m_nExpectedGameROMSizeP2 = 0x200000;
-UINT32 CGame_AOF3_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_AOF3_A::m_nTotalPaletteCountForAOF3_P1 = 0;
+uint32_t CGame_AOF3_A::m_nTotalPaletteCountForAOF3_P2 = 0;
+uint32_t CGame_AOF3_A::m_nExpectedGameROMSizeP1 = 0x100000;
+uint32_t CGame_AOF3_A::m_nExpectedGameROMSizeP2 = 0x200000;
+uint32_t CGame_AOF3_A::m_nConfirmedROMSize = -1;
 
 void CGame_AOF3_A::InitializeStatics()
 {
@@ -38,7 +38,7 @@ void CGame_AOF3_A::InitializeStatics()
     MainDescTree_P2.SetRootTree(CGame_AOF3_A::InitDescTree(2));
 }
 
-CGame_AOF3_A::CGame_AOF3_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
+CGame_AOF3_A::CGame_AOF3_A(uint32_t nConfirmedROMSize, int nROMToLoad /*= 1*/)
 {
     CString strMessage;
     strMessage.Format(L"CGame_AOF3_A::CGame_AOF3_A: Loading ROM...\n");
@@ -171,7 +171,7 @@ uint32_t CGame_AOF3_A::GetExtraLoc(uint32_t nUnitId)
 
 sDescTreeNode* CGame_AOF3_A::InitDescTree(int nROMPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
     m_nSelectedRom = nROMPaletteSetToUse;
 
     bool fHaveExtras;
@@ -259,7 +259,7 @@ sDescTreeNode* CGame_AOF3_A::InitDescTree(int nROMPaletteSetToUse)
                 const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+                for (uint16_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -323,7 +323,7 @@ sDescTreeNode* CGame_AOF3_A::InitDescTree(int nROMPaletteSetToUse)
             OutputDebugString(strMsg);
 #endif
 
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+            for (uint16_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
@@ -389,7 +389,7 @@ sFileRule CGame_AOF3_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_AOF3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_AOF3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -567,8 +567,8 @@ const sGame_PaletteDataset* CGame_AOF3_A::GetSpecificPalette(uint32_t nUnitId, u
 void CGame_AOF3_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_AOF3_A::ClearDataBuffer()

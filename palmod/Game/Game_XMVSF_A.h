@@ -9,11 +9,11 @@ constexpr auto EXTRA_FILENAME_XMVSF = L"XMVSFe.txt";
 class CGame_XMVSF_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForXMVSF;
+    static uint32_t m_nTotalPaletteCountForXMVSF;
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static uint32_t rgExtraCountAll[XMVSF_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[XMVSF_A_NUMUNIT + 1];
@@ -22,7 +22,7 @@ private:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_XMVSF_A(UINT32 nConfirmedROMSize);
+    CGame_XMVSF_A(uint32_t nConfirmedROMSize);
     ~CGame_XMVSF_A(void);
 
     //Static functions / variables
@@ -48,7 +48,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 

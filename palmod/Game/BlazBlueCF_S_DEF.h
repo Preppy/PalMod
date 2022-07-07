@@ -2,16 +2,16 @@
 {
     LPCWSTR pszFileName = nullptr;
     LPCWSTR pszCharacter = nullptr;
-    UINT32 nExpectedFileSize = 0;
+    uint32_t nExpectedFileSize = 0;
     const std::vector<LPCWSTR> ppszCollectionList;
     const std::vector<LPCWSTR> ppszPaletteList;
-    UINT32 nInitialLocation = 0;
-    UINT32 nSpriteUnitIndex = (UINT32)-1;
-    UINT8 nBBCFIMId = 0;
+    uint32_t nInitialLocation = 0;
+    uint32_t nSpriteUnitIndex = (uint32_t)-1;
+    uint8_t nBBCFIMId = 0;
     const std::vector<sGame_PaletteDataset> prgExtraPalettes;
 };
 
-const std::vector<UINT16> BlazBlueCF_S_IMGIDS_USED =
+const std::vector<uint16_t> BlazBlueCF_S_IMGIDS_USED =
 {
     indexBBCFSprites_AmaneNishiki,          // 0x17
     indexBBCFSprites_Arakune,               // 0x18

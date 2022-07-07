@@ -9,10 +9,10 @@
 struct sKOF02_CharacterDump
 {
     LPCWSTR pszCharacterName = nullptr;
-    UINT32 locationA = 0;
-    UINT32 locationB = 0;
-    UINT32 locationC = 0;
-    UINT32 locationD = 0;
+    uint32_t locationA = 0;
+    uint32_t locationB = 0;
+    uint32_t locationC = 0;
+    uint32_t locationD = 0;
     LPCWSTR pszImageRefName = nullptr;
     LPCWSTR pszHSDM1NameOverride = nullptr;
     LPCWSTR pszDMSDMNameOverride = nullptr;
@@ -20,7 +20,7 @@ struct sKOF02_CharacterDump
     LPCWSTR pszHSDM3NameOverride = nullptr;
 };
 
-const std::vector<UINT16> KOF02UM_S_IMGIDS_USED =
+const std::vector<uint16_t> KOF02UM_S_IMGIDS_USED =
 {
     indexKOF96Sprites_Choi,         // 0x24D
     indexKOF96Sprites_Daimon,       // 0x24F

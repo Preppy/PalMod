@@ -6,23 +6,23 @@
 class CGame_JusticeLeagueTF_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForJusticeLeagueTF;
+    static uint32_t m_nTotalPaletteCountForJusticeLeagueTF;
 
     static uint32_t rgExtraCountAll[JusticeLeagueTF_SNES_NUMUNIT + 1];
     static uint32_t rgExtraLoc[JusticeLeagueTF_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     static constexpr auto EXTRA_FILENAME_JusticeLeagueTF_SNES = L"JusticeLeagueTFE.txt";
     static constexpr auto JusticeLeagueTF_SNES_PRIMARY_ROMNAME = L"justice league task force (usa).sfc";
-    static constexpr UINT32 m_nExpectedGameROMSize = 0x280000;
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x280000;
 
 public:
-    CGame_JusticeLeagueTF_SNES(UINT32 nConfirmedROMSize);
+    CGame_JusticeLeagueTF_SNES(uint32_t nConfirmedROMSize);
     ~CGame_JusticeLeagueTF_SNES(void);
 
     //Static functions / variables

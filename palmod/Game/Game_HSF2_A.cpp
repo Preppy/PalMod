@@ -12,16 +12,16 @@ CDescTree CGame_HSF2_A::MainDescTree_03 = nullptr;
 CDescTree CGame_HSF2_A::MainDescTree_04 = nullptr;
 
 uint32_t CGame_HSF2_A::m_nHSF2SelectedRom = 4;
-UINT32 CGame_HSF2_A::m_nTotalPaletteCountForHSF2_03 = 0;
-UINT32 CGame_HSF2_A::m_nTotalPaletteCountForHSF2_04 = 0;
+uint32_t CGame_HSF2_A::m_nTotalPaletteCountForHSF2_03 = 0;
+uint32_t CGame_HSF2_A::m_nTotalPaletteCountForHSF2_04 = 0;
 
 uint32_t CGame_HSF2_A::rgExtraLoc_03[HSF2_A_NUMUNIT_03 + 1] = { (uint32_t)-1 };
 uint32_t CGame_HSF2_A::rgExtraLoc_04[HSF2_A_NUMUNIT_04 + 1] = { (uint32_t)-1 };
 uint32_t CGame_HSF2_A::rgExtraCountAll_03[HSF2_A_NUMUNIT_03 + 1] = { (uint32_t)-1 };
 uint32_t CGame_HSF2_A::rgExtraCountAll_04[HSF2_A_NUMUNIT_04 + 1] = { (uint32_t)-1 };
 
-UINT32 CGame_HSF2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_HSF2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_HSF2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_HSF2_A::m_nConfirmedROMSize = -1;
 
 void CGame_HSF2_A::InitializeStatics()
 {
@@ -37,7 +37,7 @@ void CGame_HSF2_A::InitializeStatics()
     MainDescTree_04.SetRootTree(CGame_HSF2_A::InitDescTree(HSF2_A_GAMEKEY_04));
 }
 
-CGame_HSF2_A::CGame_HSF2_A(UINT32 nConfirmedROMSize, int nHSF2RomToLoad)
+CGame_HSF2_A::CGame_HSF2_A(uint32_t nConfirmedROMSize, int nHSF2RomToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -54,8 +54,8 @@ CGame_HSF2_A::CGame_HSF2_A(UINT32 nConfirmedROMSize, int nHSF2RomToLoad)
     strMessage.Format(L"CGame_HSF2_A::CGame_HSF2_A: Loading for the %u ROM\n", m_nHSF2SelectedRom);
     OutputDebugString(strMessage);
 
-    const UINT32 nSafeCountFor03 = 385;
-    const UINT32 nSafeCountFor04 = 654;
+    const uint32_t nSafeCountFor03 = 385;
+    const uint32_t nSafeCountFor04 = 654;
 
     switch (m_nHSF2SelectedRom)
     {
@@ -112,7 +112,7 @@ CGame_HSF2_A::~CGame_HSF2_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_HSF2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_HSF2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -173,8 +173,8 @@ CDescTree* CGame_HSF2_A::GetMainTree()
 sDescTreeNode* CGame_HSF2_A::InitDescTree(int nROMPaletteSetToUse)
 {
     m_nHSF2SelectedRom = nROMPaletteSetToUse;
-    UINT8 nCurrentExtraLocation;
-    UINT16 nUnitCt;
+    uint8_t nCurrentExtraLocation;
+    uint16_t nUnitCt;
 
     //Load extra file if we're using it
     if (UsePaletteSetForPortraits())
@@ -364,8 +364,8 @@ const sGame_PaletteDataset* CGame_HSF2_A::GetSpecificPalette(uint32_t nUnitId, u
 void CGame_HSF2_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nHSF2SelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_HSF2_A::ClearDataBuffer()

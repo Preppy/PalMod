@@ -13,9 +13,9 @@ private:
     // These handle per-ROM logic.
     uint32_t m_nBufferSelectedRom = 5;
     static uint32_t m_nMSHSelectedRom;
-    static UINT32 m_nTotalPaletteCountForMSH_05;
-    static UINT32 m_nTotalPaletteCountForMSH_06;
-    static UINT32 m_nTotalPaletteCountForMSH;
+    static uint32_t m_nTotalPaletteCountForMSH_05;
+    static uint32_t m_nTotalPaletteCountForMSH_06;
+    static uint32_t m_nTotalPaletteCountForMSH;
     static bool UsePaletteSetForCharacters() { return (m_nMSHSelectedRom == 5); }
 
     static uint32_t rgExtraCountAll_05[MSH_A_NUMUNIT_05 + 1];
@@ -26,8 +26,8 @@ private:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -37,7 +37,7 @@ private:
     const int m_uLowestKnownPaletteROMLocation_06 = 0xa78;
 
 public:
-    CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad);
+    CGame_MSH_A(uint32_t nConfirmedROMSize, int nMSHRomToLoad);
     ~CGame_MSH_A(void);
 
     //Static functions / variables
@@ -67,7 +67,7 @@ public:
 
     void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* MSH_A_EXTRA_CUSTOM_05;
     static stExtraDef* MSH_A_EXTRA_CUSTOM_06;

@@ -11,9 +11,9 @@ CDescTree CGame_SPF2T_A::MainDescTree = nullptr;
 uint32_t CGame_SPF2T_A::rgExtraCountAll[SPF2T_A_NUMUNITS + 1];
 uint32_t CGame_SPF2T_A::rgExtraLoc[SPF2T_A_NUMUNITS + 1];
 
-UINT32 CGame_SPF2T_A::m_nTotalPaletteCountForSPF2T = 0;
-UINT32 CGame_SPF2T_A::m_nExpectedGameROMSize = 0x80000;
-UINT32 CGame_SPF2T_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SPF2T_A::m_nTotalPaletteCountForSPF2T = 0;
+uint32_t CGame_SPF2T_A::m_nExpectedGameROMSize = 0x80000;
+uint32_t CGame_SPF2T_A::m_nConfirmedROMSize = -1;
 
 void CGame_SPF2T_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_SPF2T_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SPF2T_A::InitDescTree());
 }
 
-CGame_SPF2T_A::CGame_SPF2T_A(UINT32 nConfirmedROMSize)
+CGame_SPF2T_A::CGame_SPF2T_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_SPF2T_A::CGame_SPF2T_A: Loading ROM...\n");
 
@@ -79,7 +79,7 @@ CGame_SPF2T_A::~CGame_SPF2T_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_SPF2T_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SPF2T_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -134,7 +134,7 @@ sDescTreeNode* CGame_SPF2T_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SPF2T_A, &SPF2T_A_EXTRA_CUSTOM, SPF2T_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = SPF2T_A_NUMUNITS + (GetExtraCt(SPF2T_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = SPF2T_A_NUMUNITS + (GetExtraCt(SPF2T_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

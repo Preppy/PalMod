@@ -11,9 +11,9 @@ CDescTree CGame_SFZ3U_A::MainDescTree = nullptr;
 uint32_t CGame_SFZ3U_A::rgExtraCountAll[SFZ3U_A_NUMUNIT + 1];
 uint32_t CGame_SFZ3U_A::rgExtraLoc[SFZ3U_A_NUMUNIT + 1];
 
-UINT32 CGame_SFZ3U_A::m_nTotalPaletteCountForSFZ3U = 0;
-UINT32 CGame_SFZ3U_A::m_nExpectedGameROMSize = 0xac00000;
-UINT32 CGame_SFZ3U_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SFZ3U_A::m_nTotalPaletteCountForSFZ3U = 0;
+uint32_t CGame_SFZ3U_A::m_nExpectedGameROMSize = 0xac00000;
+uint32_t CGame_SFZ3U_A::m_nConfirmedROMSize = -1;
 
 void CGame_SFZ3U_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_SFZ3U_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SFZ3U_A::InitDescTree());
 }
 
-CGame_SFZ3U_A::CGame_SFZ3U_A(UINT32 nConfirmedROMSize)
+CGame_SFZ3U_A::CGame_SFZ3U_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_SFZ3U_A::CGame_SFZ3U_A: Loading ROM...\n");
 
@@ -99,9 +99,9 @@ struct sSFZ3U_A_CharacterData
 {
     LPCWSTR pszCharacterName = nullptr;
     LPCWSTR pszCharacterImageName = nullptr;
-    UINT32 nROMOffset = 0;
-    UINT32 nImagePortraitSetIndex = 0;
-    UINT32 nImageMainSpriteIndex = 0;
+    uint32_t nROMOffset = 0;
+    uint32_t nImagePortraitSetIndex = 0;
+    uint32_t nImageMainSpriteIndex = 0;
     bool fSpriteIsPaired = false;
 };
 
@@ -174,26 +174,26 @@ void CGame_SFZ3U_A::DumpAllCharacters()
 {
     CString strOutput;
 
-    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFZ3U_A_CharacterDataArray); nIndex++)
+    for (uint16_t nIndex = 0; nIndex < ARRAYSIZE(SFZ3U_A_CharacterDataArray); nIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFZ3U_A_CharacterDataArray[nIndex].pszCharacterName);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < ARRAYSIZE(SFZ3U_ColorOptionNames); nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < ARRAYSIZE(SFZ3U_ColorOptionNames); nColorIndex++)
         {
-            WCHAR szIsmDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szIsmDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szIsmDesc, ARRAYSIZE(szIsmDesc), SFZ3U_ColorOptionNames[nColorIndex]);
 
-            const UINT16 nPortraitsPerCharacter = 6;
+            const uint16_t nPortraitsPerCharacter = 6;
             strOutput.Format(L"const sGame_PaletteDataset SFZ3U_A_%s_PALETTES_%s[] = \r\n{\r\n", szCodeDesc, szIsmDesc);
             OutputDebugString(strOutput);
 
-            for (UINT16 nPaletteIndex = 0; nPaletteIndex < ARRAYSIZE(SFZ3U_CharacterPaletteNames); nPaletteIndex++)
+            for (uint16_t nPaletteIndex = 0; nPaletteIndex < ARRAYSIZE(SFZ3U_CharacterPaletteNames); nPaletteIndex++)
             {
-                const UINT32 PALETTE_LENGTH = 0x20;
+                const uint32_t PALETTE_LENGTH = 0x20;
                 CString strColorName;
                 strColorName.Format(L"%s%s", SFZ3U_ColorOptionNames[nColorIndex], SFZ3U_CharacterPaletteNames[nPaletteIndex]);
-                UINT16 nPaletteSpriteIndex;
+                uint16_t nPaletteSpriteIndex;
 
                 switch (nPaletteIndex)
                 {
@@ -218,17 +218,17 @@ void CGame_SFZ3U_A::DumpAllCharacters()
         }
     }
 
-    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFZ3U_A_CharacterDataArray); nIndex++)
+    for (uint16_t nIndex = 0; nIndex < ARRAYSIZE(SFZ3U_A_CharacterDataArray); nIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFZ3U_A_CharacterDataArray[nIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode SFZ3U_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < ARRAYSIZE(SFZ3U_ColorOptionNames); nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < ARRAYSIZE(SFZ3U_ColorOptionNames); nColorIndex++)
         {
-            WCHAR szIsmDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szIsmDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szIsmDesc, ARRAYSIZE(szIsmDesc), SFZ3U_ColorOptionNames[nColorIndex]);
 
             strOutput.Format(L"    {  L\"%s\", DESC_NODETYPE_TREE, (void*)SFZ3U_A_%s_PALETTES_%s, ARRAYSIZE(SFZ3U_A_%s_PALETTES_%s) },\r\n", SFZ3U_ColorOptionNames[nColorIndex], szCodeDesc, szIsmDesc, szCodeDesc, szIsmDesc);
@@ -240,9 +240,9 @@ void CGame_SFZ3U_A::DumpAllCharacters()
 
     OutputDebugString(L"const sDescTreeNode SFZ3U_A_UNITS[] =\r\n    {\r\n");
 
-    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFZ3U_A_CharacterDataArray); nIndex++)
+    for (uint16_t nIndex = 0; nIndex < ARRAYSIZE(SFZ3U_A_CharacterDataArray); nIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFZ3U_A_CharacterDataArray[nIndex].pszCharacterName);
 
         strOutput.Format(L"    {  L\"%s\", DESC_NODETYPE_TREE, (void*)SFZ3U_A_%s_COLLECTION, ARRAYSIZE(SFZ3U_A_%s_COLLECTION) },\r\n", SFZ3U_A_CharacterDataArray[nIndex].pszCharacterName, szCodeDesc, szCodeDesc);
@@ -257,7 +257,7 @@ sDescTreeNode* CGame_SFZ3U_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SFZ3U_A, &SFZ3U_A_EXTRA_CUSTOM, SFZ3U_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = SFZ3U_A_NUMUNIT + (GetExtraCt(SFZ3U_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = SFZ3U_A_NUMUNIT + (GetExtraCt(SFZ3U_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

@@ -160,7 +160,7 @@ void CRC32_UpdateChecksum(unsigned long& crcvalue, unsigned char* pInBuffer, int
     unsigned long crc;
 
     crc = crcvalue;
-    UINT32 nIndex = 0;
+    uint32_t nIndex = 0;
     while (length--)
     {
         unsigned char buf;

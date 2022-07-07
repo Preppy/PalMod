@@ -108,7 +108,7 @@ void CImgDisp::CreateImgBitmap(int nIndex, int nWidth, int nHeight)
     BITMAPINFO * currInfo = &pImgBuffer[nIndex]->Bmpi;
     HBITMAP * currBmp = &pImgBuffer[nIndex]->hBmp;
 
-    //pImgBuffer[nIndex]->pBmpData = new UINT32[nWidth * nHeight];
+    //pImgBuffer[nIndex]->pBmpData = new uint32_t[nWidth * nHeight];
 
     currInfo->bmiHeader.biWidth = nWidth;
     currInfo->bmiHeader.biHeight = nHeight;
@@ -123,7 +123,7 @@ void CImgDisp::CreateImgBitmap(int nIndex, int nWidth, int nHeight)
 
 void CImgDisp::ClearUsed()
 {
-    memset(m_bUsed, 0, sizeof(UINT8) * MAX_IMAGES_DISPLAYABLE);
+    memset(m_bUsed, 0, sizeof(uint8_t) * MAX_IMAGES_DISPLAYABLE);
     m_rImgRct.SetRectEmpty();
 
     m_nXOffsTop = 0;
@@ -175,7 +175,7 @@ void CImgDisp::FlushUnused()
     }
 }
 
-void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs)
+void CImgDisp::AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs)
 {
     sImgNode* pNewNode = new sImgNode;
 
@@ -510,7 +510,7 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
             m_ppSpriteOverrideTexture[nIndex]);
 }
 
-bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszTextureLocation)
+bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation)
 {
     CFile TextureFile;
 
@@ -521,9 +521,9 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
         // Filename of form: MvC2_D-offset-2230419-W-60-H-98
         _wcslwr(pszTextureLocation);
-        WCHAR* pszDataW = wcsstr(pszTextureLocation, L"-w-");
-        WCHAR* pszDataH = wcsstr(pszTextureLocation, L"-h-");
-        WCHAR* pszTermination = wcsstr(pszTextureLocation, L".data");
+        wchar_t* pszDataW = wcsstr(pszTextureLocation, L"-w-");
+        wchar_t* pszDataH = wcsstr(pszTextureLocation, L"-h-");
+        wchar_t* pszTermination = wcsstr(pszTextureLocation, L".data");
 
         if (pszTermination == nullptr)
         {
@@ -541,8 +541,8 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
 
             if (_stscanf_s(pszDataW, L"%u", &nScannedW) && _stscanf_s(pszDataH, L"%u", &nScannedH))
             {
-                m_nTextureOverrideW[nPositionToLoadTo] = static_cast<UINT16>(nScannedW);
-                m_nTextureOverrideH[nPositionToLoadTo] = static_cast<UINT16>(nScannedH);
+                m_nTextureOverrideW[nPositionToLoadTo] = static_cast<uint16_t>(nScannedW);
+                m_nTextureOverrideH[nPositionToLoadTo] = static_cast<uint16_t>(nScannedH);
 
                 if ((m_nTextureOverrideW[nPositionToLoadTo] > 0) && (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
                     (m_nTextureOverrideH[nPositionToLoadTo] > 0) && (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
@@ -565,7 +565,7 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                     }
 
                     safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
-                    m_ppSpriteOverrideTexture[nPositionToLoadTo] = new UINT8[nSizeToRead];
+                    m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nSizeToRead];
 
                     CString wcsstr;
                     wcsstr.Format(L"CImgDisp::LoadExternalSprite texture file is: %u x %u\n", m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
@@ -634,22 +634,22 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
     int nWidth = 0;
     int nHeight = 0;
     int nSrcX = 0, nSrcY = 0;
-    UINT8* pImgData = nullptr;
-    UINT8* pCurrPal = nullptr;
-    UINT8* pDstBmpData = (UINT8*)m_pBmpData;
+    uint8_t* pImgData = nullptr;
+    uint8_t* pCurrPal = nullptr;
+    uint8_t* pDstBmpData = (uint8_t*)m_pBmpData;
     int nPalSizeInUint8 = 0;
 
     if ((nSrcIndex != -1) && m_pImgBuffer[nSrcIndex])
     {
-        pImgData = (UINT8*)m_pImgBuffer[nSrcIndex]->pImgData;
-        pCurrPal = (UINT8*)(fUseBlinkPal ? m_pImgBuffer[nSrcIndex]->pBlinkPalette : m_pImgBuffer[nSrcIndex]->pPalette);
+        pImgData = (uint8_t*)m_pImgBuffer[nSrcIndex]->pImgData;
+        pCurrPal = (uint8_t*)(fUseBlinkPal ? m_pImgBuffer[nSrcIndex]->pBlinkPalette : m_pImgBuffer[nSrcIndex]->pPalette);
         nPalSizeInUint8 = m_pImgBuffer[nSrcIndex]->uPalSz * 4;
         nWidth = m_pImgBuffer[nSrcIndex]->uImgW;
         nHeight = m_pImgBuffer[nSrcIndex]->uImgH;
     }
     else if (m_pBackupPaletteDef != nullptr)
     {
-        pCurrPal = (UINT8*)(fUseBlinkPal ? m_pBackupBlinkPalette : m_pBackupPaletteDef->pPal);
+        pCurrPal = (uint8_t*)(fUseBlinkPal ? m_pBackupBlinkPalette : m_pBackupPaletteDef->pPal);
         nPalSizeInUint8 = m_pBackupPaletteDef->uPalSz * 4;
     }
     else
@@ -712,13 +712,13 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
 
     int nRightBlt = rBltRct.right * 4;
 
-    UINT16 nTransparencyPosition = 0;
-    UINT16 nMaxWritePerTransparency = 16;
+    uint16_t nTransparencyPosition = 0;
+    uint16_t nMaxWritePerTransparency = 16;
 
     if (GetHost()->GetCurrGame())
     {
         nTransparencyPosition = GetHost()->GetCurrGame()->GetTransparencyColorPosition();
-        nMaxWritePerTransparency = static_cast<UINT16>(GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency());
+        nMaxWritePerTransparency = static_cast<uint16_t>(GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency());
     }
 
     bool fShownErrorForThisImage = false;
@@ -730,12 +730,12 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
 
         for (int xIndex = 0; xIndex < nBltW * 4; xIndex += 4)
         {
-            UINT8 uIndex = pImgData[nSrcStartRow + (xIndex / 4)];
+            uint8_t uIndex = pImgData[nSrcStartRow + (xIndex / 4)];
 
             if ((uIndex % nMaxWritePerTransparency) != nTransparencyPosition)
             {
                 int nDstPos = nStartRow + xIndex;
-                const int nCurrentColorPosition = uIndex * 4; // we walk the UINT8 array at COLORREF size strides
+                const int nCurrentColorPosition = uIndex * 4; // we walk the uint8_t array at COLORREF size strides
 
                 if (!fShownErrorForThisImage && (nCurrentColorPosition > nPalSizeInUint8))
                 {
@@ -749,13 +749,13 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
                 double fpDstA2 = (1.0 - (pCurrPal[nCurrentColorPosition + 3]) / 255.0);
                 double fpDstA1 = 1.0 - fpDstA2;
 
-                UINT8* uDstR = &pDstBmpData[nDstPos + 2];
-                UINT8* uDstG = &pDstBmpData[nDstPos + 1];
-                UINT8* uDstB = &pDstBmpData[nDstPos];
+                uint8_t* uDstR = &pDstBmpData[nDstPos + 2];
+                uint8_t* uDstG = &pDstBmpData[nDstPos + 1];
+                uint8_t* uDstB = &pDstBmpData[nDstPos];
 
-                *uDstR = (UINT8)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition]), (fpDstA2 * (double)*uDstR));
-                *uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 1]), (fpDstA2 * (double)*uDstG));
-                *uDstB = (UINT8)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 2]), (fpDstA2 * (double)*uDstB));
+                *uDstR = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition]), (fpDstA2 * (double)*uDstR));
+                *uDstG = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 1]), (fpDstA2 * (double)*uDstG));
+                *uDstB = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 2]), (fpDstA2 * (double)*uDstB));
             }
         }
     }

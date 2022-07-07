@@ -12,9 +12,9 @@ class CGame_SF2HF_A : public CGameWithExtrasFile
 public:
     int m_nBufferSelectedRom = 22;
     static uint32_t m_nSelectedRom;
-    static UINT32 m_nTotalPaletteCountForSF2HF_21;
-    static UINT32 m_nTotalPaletteCountForSF2HF_22;
-    static UINT32 m_nTotalPaletteCountForSF2HF_23;
+    static uint32_t m_nTotalPaletteCountForSF2HF_21;
+    static uint32_t m_nTotalPaletteCountForSF2HF_22;
+    static uint32_t m_nTotalPaletteCountForSF2HF_23;
 
     static uint32_t rgExtraCountAll_21[SF2HF_A_21_NUMUNIT + 1];
     static uint32_t rgExtraCountAll_22[SF2HF_A_22_NUMUNIT + 1];
@@ -24,9 +24,9 @@ public:
     static uint32_t rgExtraLoc_23[SF2HF_A_23_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize_HF;
-    static UINT32 m_nExpectedGameROMSize_30th;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize_HF;
+    static uint32_t m_nExpectedGameROMSize_30th;
+    static uint32_t m_nConfirmedROMSize;
     
     bool IsSF30thBundleFile() { return m_nConfirmedROMSize == m_nExpectedGameROMSize_30th; };
 
@@ -41,7 +41,7 @@ public:
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_SF2HF_A(UINT32 nConfirmedROMSize = -1, int nSF2HFROMToLoad = 22);
+    CGame_SF2HF_A(uint32_t nConfirmedROMSize = -1, int nSF2HFROMToLoad = 22);
     ~CGame_SF2HF_A(void);
 
     //Static functions / variables
@@ -71,7 +71,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* SF2HF_A_21_EXTRA_CUSTOM;
     static stExtraDef* SF2HF_A_22_EXTRA_CUSTOM;

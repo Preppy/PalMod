@@ -4,7 +4,7 @@
 //I've included the collections under the palettes of the respective character for organization sake 
 // 
 
-const std::vector<UINT16> BLEACH_DS_IMGIDS_USED =
+const std::vector<uint16_t> BLEACH_DS_IMGIDS_USED =
 {
     indexBleachDSSprites_Bonnie,            // 0x00
     indexBleachDSSprites_ByakuyaKuchiki,    // 0x01

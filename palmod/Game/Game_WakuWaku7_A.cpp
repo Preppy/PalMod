@@ -10,9 +10,9 @@ CDescTree CGame_WakuWaku7_A::MainDescTree = nullptr;
 uint32_t CGame_WakuWaku7_A::rgExtraCountAll[WakuWaku7_A_NUMUNIT + 1];
 uint32_t CGame_WakuWaku7_A::rgExtraLoc[WakuWaku7_A_NUMUNIT + 1];
 
-UINT32 CGame_WakuWaku7_A::m_nTotalPaletteCountForWakuWaku7 = 0;
-const UINT32 CGame_WakuWaku7_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
-UINT32 CGame_WakuWaku7_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_WakuWaku7_A::m_nTotalPaletteCountForWakuWaku7 = 0;
+const uint32_t CGame_WakuWaku7_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
+uint32_t CGame_WakuWaku7_A::m_nConfirmedROMSize = -1;
 
 void CGame_WakuWaku7_A::InitializeStatics()
 {
@@ -24,7 +24,7 @@ void CGame_WakuWaku7_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_WakuWaku7_A::InitDescTree());
 }
 
-CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
+CGame_WakuWaku7_A::CGame_WakuWaku7_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_WakuWaku7_A::CGame_WakuWaku7_A: Loading ROM...\n");
 
@@ -95,12 +95,12 @@ uint32_t CGame_WakuWaku7_A::GetExtraLoc(uint32_t nUnitId)
 
 sDescTreeNode* CGame_WakuWaku7_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_WakuWaku7_A, &WakuWaku7_A_EXTRA_CUSTOM, WakuWaku7_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = WakuWaku7_A_NUMUNIT + (GetExtraCt(WakuWaku7_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = WakuWaku7_A_NUMUNIT + (GetExtraCt(WakuWaku7_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -136,7 +136,7 @@ sFileRule CGame_WakuWaku7_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_WakuWaku7_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_WakuWaku7_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static const sCRC32ValueSet knownROMs[] =
     {

@@ -74,14 +74,14 @@ CPalModDlg::CPalModDlg(CWnd* pParent /*=NULL*/)
     : CDialog(CPalModDlg::IDD, pParent)
 {
 #ifdef ENABLE_MUI_SUPPORT_TESTING
-    WCHAR szzPreferredLanguage[10] = L"en-gb";
+    wchar_t szzPreferredLanguage[10] = L"en-gb";
     DWORD langCount = 0;
 
     SetThreadPreferredUILanguages(MUI_LANGUAGE_NAME, szzPreferredLanguage, &langCount);
 #endif
 
 #ifdef ENABLE_MUI_SUPPORT
-    WCHAR szFileName[MAX_PATH];
+    wchar_t szFileName[MAX_PATH];
 
     if (GetModuleFileName(nullptr, szFileName, ARRAYSIZE(szFileName)))
     {
@@ -480,7 +480,7 @@ BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = n
     if (::SHGetMalloc(&pMalloc) == NOERROR)
     {
         BROWSEINFO      bi = {};
-        WCHAR           pszBuffer[MAX_PATH] = {};
+        wchar_t           pszBuffer[MAX_PATH] = {};
         LPITEMIDLIST    pidl;
 
         bi.hwndOwner = GetSafeHwnd();

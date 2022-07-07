@@ -9,20 +9,20 @@ constexpr auto EXTRA_FILENAME_VSAV = L"VSAVe.txt";
 class CGame_VSAV_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForVSAV;
+    static uint32_t m_nTotalPaletteCountForVSAV;
 
     static uint32_t rgExtraCountAll[VSAV_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[VSAV_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static const UINT32 m_nExpectedGameROMSize = 0x80000;// 524288 bytes
-    static UINT32 m_nConfirmedROMSize;
+    static const uint32_t m_nExpectedGameROMSize = 0x80000;// 524288 bytes
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_VSAV_A(UINT32 nConfirmedROMSize);
+    CGame_VSAV_A(uint32_t nConfirmedROMSize);
     ~CGame_VSAV_A(void);
 
     //Static functions / variables
@@ -50,7 +50,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* VSAV_A_EXTRA_CUSTOM;
 };

@@ -11,9 +11,9 @@ CDescTree CGame_BREAKERS_A::MainDescTree = nullptr;
 uint32_t CGame_BREAKERS_A::rgExtraCountAll[BREAKERS_A_NUMUNIT + 1];
 uint32_t CGame_BREAKERS_A::rgExtraLoc[BREAKERS_A_NUMUNIT + 1];
 
-UINT32 CGame_BREAKERS_A::m_nTotalPaletteCountForBreakers = 0;
-UINT32 CGame_BREAKERS_A::m_nExpectedGameROMSize = 0x200000;
-UINT32 CGame_BREAKERS_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_BREAKERS_A::m_nTotalPaletteCountForBreakers = 0;
+uint32_t CGame_BREAKERS_A::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_BREAKERS_A::m_nConfirmedROMSize = -1;
 
 void CGame_BREAKERS_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_BREAKERS_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_BREAKERS_A::InitDescTree());
 }
 
-CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
+CGame_BREAKERS_A::CGame_BREAKERS_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_BREAKERS_A::CGame_BREAKERS_A: Loading ROM...\n");
 
@@ -97,7 +97,7 @@ uint32_t CGame_BREAKERS_A::GetExtraLoc(uint32_t nUnitId)
 struct sBreakers_CharacterDump
 {
     LPCWSTR pszCharacterName = nullptr;
-    UINT32 baseLocation = 0;
+    uint32_t baseLocation = 0;
     LPCWSTR pszImageRefName = nullptr;
 };
 
@@ -148,16 +148,16 @@ sBreakers_CharacterDump breakersCharacterList[] =
 void CGame_BREAKERS_A::DumpAllCharacters()
 {
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_NEOGEO.size(); iButtonIndex++)
+        for (uint16_t iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_NEOGEO.size(); iButtonIndex++)
         {
             nCurrentCharacterOffset = breakersCharacterList[iUnitCtr].baseLocation + (0x200 * iButtonIndex);
 
@@ -201,10 +201,10 @@ void CGame_BREAKERS_A::DumpAllCharacters()
                 L"Poison 2", 
             };
 
-            for (UINT16 iCurrentExtra = 0; iCurrentExtra < ARRAYSIZE(pszMoveNames); iCurrentExtra++)
+            for (uint16_t iCurrentExtra = 0; iCurrentExtra < ARRAYSIZE(pszMoveNames); iCurrentExtra++)
             {
                 LPCWSTR pszCurrentMoveName = pszMoveNames[iCurrentExtra];
-                UINT32 nCurrentImageToUse = 0;
+                uint32_t nCurrentImageToUse = 0;
 
                 if (breakersCharacterList[iUnitCtr].pszImageRefName)
                 {
@@ -228,17 +228,17 @@ void CGame_BREAKERS_A::DumpAllCharacters()
     }
 
     // Now create the collections...
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
     {
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode BREAKERS_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nButtonNameIndex = 0; nButtonNameIndex < DEF_BUTTONLABEL_NEOGEO.size(); nButtonNameIndex++)
+        for (uint16_t nButtonNameIndex = 0; nButtonNameIndex < DEF_BUTTONLABEL_NEOGEO.size(); nButtonNameIndex++)
         {
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)BREAKERS_A_%s_PALETTES_%s, ARRAYSIZE(BREAKERS_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL_NEOGEO[nButtonNameIndex], szCodeDesc, DEF_BUTTONLABEL_NEOGEO[nButtonNameIndex],
                                                                                                                                             szCodeDesc, DEF_BUTTONLABEL_NEOGEO[nButtonNameIndex] );
@@ -248,12 +248,12 @@ void CGame_BREAKERS_A::DumpAllCharacters()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
@@ -267,7 +267,7 @@ sDescTreeNode* CGame_BREAKERS_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_BREAKERS_A, &BREAKERS_A_EXTRA_CUSTOM, BREAKERS_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = BREAKERS_A_NUMUNIT + (GetExtraCt(BREAKERS_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = BREAKERS_A_NUMUNIT + (GetExtraCt(BREAKERS_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

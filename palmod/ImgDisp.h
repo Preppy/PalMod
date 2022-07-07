@@ -17,7 +17,7 @@ constexpr auto DEF_ZOOM = 1.0f;
 
 struct sImgIndex
 {
-    UINT32* pIndexAmt = nullptr;
+    uint32_t* pIndexAmt = nullptr;
     POINT** ppIndexes = nullptr;
 };
 
@@ -58,7 +58,7 @@ private:
 
     RECT m_rBlt = {};
 
-    UINT32* m_pBmpData = nullptr;
+    uint32_t* m_pBmpData = nullptr;
 
     int m_nBGBmpW = 0;
     int m_nBGBmpH = 0;
@@ -106,7 +106,7 @@ private:
     int m_nImgRctW = 0;
     int m_nImgRctH = 0;
 
-    UINT8 m_bUsed[MAX_IMAGES_DISPLAYABLE] = {};
+    uint8_t m_bUsed[MAX_IMAGES_DISPLAYABLE] = {};
 
     POINT m_ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
     
@@ -118,7 +118,7 @@ private:
     int MAIN_W = 0, MAIN_H = 0;
 
     // This should be converted over to an sImageNode probably...
-    UINT8* m_ppSpriteOverrideTexture[MAX_IMAGES_DISPLAYABLE] = { nullptr };
+    uint8_t* m_ppSpriteOverrideTexture[MAX_IMAGES_DISPLAYABLE] = { nullptr };
     int m_nTextureOverrideW[MAX_IMAGES_DISPLAYABLE] = { 0 };
     int m_nTextureOverrideH[MAX_IMAGES_DISPLAYABLE] = { 0 };
 
@@ -129,7 +129,7 @@ public:
     CImgDisp();
     ~CImgDisp();
 
-    void AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs);
+    void AddImageNode(int nIndex, uint16_t uImgW, uint16_t uImgH, uint8_t* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs);
     void FlushImageNode(int nIndex);
     void ClearAllImages();
     void UpdateCtrl(BOOL fRedraw = TRUE, int nUseBlinkPal = 0);
@@ -165,7 +165,7 @@ public:
 
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
-    bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, WCHAR* pszTextureLocation);
+    bool LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirection direction, wchar_t* pszTextureLocation);
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
     

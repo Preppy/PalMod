@@ -11,9 +11,9 @@ CDescTree CGame_KOF00N_A::MainDescTree = nullptr;
 uint32_t CGame_KOF00N_A::rgExtraCountAll[KOF00N_A_NUMUNIT + 1];
 uint32_t CGame_KOF00N_A::rgExtraLoc[KOF00N_A_NUMUNIT + 1];
 
-UINT32 CGame_KOF00N_A::m_nTotalPaletteCountForKOF00N = 0;
-UINT32 CGame_KOF00N_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
-UINT32 CGame_KOF00N_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_KOF00N_A::m_nTotalPaletteCountForKOF00N = 0;
+uint32_t CGame_KOF00N_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
+uint32_t CGame_KOF00N_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF00N_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_KOF00N_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KOF00N_A::InitDescTree());
 }
 
-CGame_KOF00N_A::CGame_KOF00N_A(UINT32 nConfirmedROMSize)
+CGame_KOF00N_A::CGame_KOF00N_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOF00N_A::CGame_KOF00N_A: Loading ROM...\n");
 
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_KOF00N_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KOF00N_A, &KOF00N_A_EXTRA_CUSTOM, KOF00N_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KOF00N_A_NUMUNIT + (GetExtraCt(KOF00N_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = KOF00N_A_NUMUNIT + (GetExtraCt(KOF00N_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

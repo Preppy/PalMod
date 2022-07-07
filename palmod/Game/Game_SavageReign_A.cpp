@@ -11,9 +11,9 @@ CDescTree CGame_SAVAGEREIGN_A::MainDescTree = nullptr;
 uint32_t CGame_SAVAGEREIGN_A::rgExtraCountAll[SAVAGEREIGN_A_NUMUNIT + 1];
 uint32_t CGame_SAVAGEREIGN_A::rgExtraLoc[SAVAGEREIGN_A_NUMUNIT + 1];
 
-UINT32 CGame_SAVAGEREIGN_A::m_nTotalPaletteCountForSAVAGEREIGN = 0;
-UINT32 CGame_SAVAGEREIGN_A::m_nExpectedGameROMSize = 0x200000;
-UINT32 CGame_SAVAGEREIGN_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SAVAGEREIGN_A::m_nTotalPaletteCountForSAVAGEREIGN = 0;
+uint32_t CGame_SAVAGEREIGN_A::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_SAVAGEREIGN_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAVAGEREIGN_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_SAVAGEREIGN_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SAVAGEREIGN_A::InitDescTree());
 }
 
-CGame_SAVAGEREIGN_A::CGame_SAVAGEREIGN_A(UINT32 nConfirmedROMSize)
+CGame_SAVAGEREIGN_A::CGame_SAVAGEREIGN_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_SAVAGEREIGN_A::CGame_SAVAGEREIGN_A: Loading ROM...\n");
 
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_SAVAGEREIGN_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SAVAGEREIGN_A, &SAVAGEREIGN_A_EXTRA_CUSTOM, SAVAGEREIGN_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = SAVAGEREIGN_A_NUMUNIT + (GetExtraCt(SAVAGEREIGN_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = SAVAGEREIGN_A_NUMUNIT + (GetExtraCt(SAVAGEREIGN_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -135,7 +135,7 @@ sFileRule CGame_SAVAGEREIGN_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_SAVAGEREIGN_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SAVAGEREIGN_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

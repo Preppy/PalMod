@@ -11,17 +11,17 @@
 struct sKOF02PS2_A_CharacterDump
 {
     LPCWSTR pszCharacterName = nullptr;
-    UINT32 locationInROM = 0;
+    uint32_t locationInROM = 0;
     LPCWSTR pszImageRefName = nullptr;
     LPCWSTR pszPortraitImageRefName = nullptr;
     LPCWSTR pszHSDM1NameOverride = nullptr;
-    UINT32 nHSDMI1ImageIndex = 0;
+    uint32_t nHSDMI1ImageIndex = 0;
     LPCWSTR pszDMSDMNameOverride = nullptr;
-    UINT32 nDMSDMImageIndex = 0;
+    uint32_t nDMSDMImageIndex = 0;
     LPCWSTR pszHSDM2NameOverride = nullptr;
-    UINT32 nHSDMI2ImageIndex = 0;
+    uint32_t nHSDMI2ImageIndex = 0;
     LPCWSTR pszHSDM3NameOverride = nullptr;
-    UINT32 nHSDMI3ImageIndex = 0;
+    uint32_t nHSDMI3ImageIndex = 0;
 };
 
 // Sorted by ROM layout...
@@ -80,7 +80,7 @@ const sKOF02PS2_A_CharacterDump KOF02PS2_A_CharacterOffsetArray[] =
     { L"Goenitz",   0x3b7800,                 L"indexKOF02UMSprites_Goenitz",    L"indexKOF02Sprites_Goenitz",      },
 };
 
-const std::vector<UINT16> KOF02PS2_A_IMGIDS_USED =
+const std::vector<uint16_t> KOF02PS2_A_IMGIDS_USED =
 {
     indexKOF96Sprites_Choi,         // 0x24D
     indexKOF96Sprites_Daimon,       // 0x24F

@@ -12,9 +12,9 @@ uint32_t CGame_SDODGEBALL_A::rgExtraCountAll[SDODGEBALL_A_NUMUNIT + 1];
 uint32_t CGame_SDODGEBALL_A::rgExtraLoc[SDODGEBALL_A_NUMUNIT + 1];
 
 uint32_t CGame_SDODGEBALL_A::m_nSelectedRom = 1;
-UINT32 CGame_SDODGEBALL_A::m_nTotalPaletteCountForSDODGEBALL = 0;
-UINT32 CGame_SDODGEBALL_A::m_nExpectedGameROMSize = 0x200000;
-UINT32 CGame_SDODGEBALL_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SDODGEBALL_A::m_nTotalPaletteCountForSDODGEBALL = 0;
+uint32_t CGame_SDODGEBALL_A::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_SDODGEBALL_A::m_nConfirmedROMSize = -1;
 
 void CGame_SDODGEBALL_A::InitializeStatics()
 {
@@ -26,7 +26,7 @@ void CGame_SDODGEBALL_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SDODGEBALL_A::InitDescTree());
 }
 
-CGame_SDODGEBALL_A::CGame_SDODGEBALL_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
+CGame_SDODGEBALL_A::CGame_SDODGEBALL_A(uint32_t nConfirmedROMSize, int nROMToLoad /*= 1*/)
 {
     OutputDebugString(L"CGame_SDODGEBALL_A::CGame_SDODGEBALL_A: Loading ROM...\n");
 
@@ -153,7 +153,7 @@ sFileRule CGame_SDODGEBALL_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_SDODGEBALL_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SDODGEBALL_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -213,8 +213,8 @@ const sGame_PaletteDataset* CGame_SDODGEBALL_A::GetSpecificPalette(uint32_t nUni
 void CGame_SDODGEBALL_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_SDODGEBALL_A::ClearDataBuffer()

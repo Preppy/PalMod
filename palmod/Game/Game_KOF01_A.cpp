@@ -11,9 +11,9 @@ CDescTree CGame_KOF01_A::MainDescTree = nullptr;
 uint32_t CGame_KOF01_A::rgExtraCountAll[KOF01_A_NUMUNIT + 1];
 uint32_t CGame_KOF01_A::rgExtraLoc[KOF01_A_NUMUNIT + 1];
 
-UINT32 CGame_KOF01_A::m_nTotalPaletteCountForKOF01 = 0;
-UINT32 CGame_KOF01_A::m_nExpectedGameROMSize = 0x400000;
-UINT32 CGame_KOF01_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_KOF01_A::m_nTotalPaletteCountForKOF01 = 0;
+uint32_t CGame_KOF01_A::m_nExpectedGameROMSize = 0x400000;
+uint32_t CGame_KOF01_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF01_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_KOF01_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KOF01_A::InitDescTree());
 }
 
-CGame_KOF01_A::CGame_KOF01_A(UINT32 nConfirmedROMSize)
+CGame_KOF01_A::CGame_KOF01_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOF01_A::CGame_KOF01_A: Loading ROM...\n");
 
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_KOF01_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KOF01_A, &KOF01_A_EXTRA_CUSTOM, KOF01_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KOF01_A_NUMUNIT + (GetExtraCt(KOF01_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = KOF01_A_NUMUNIT + (GetExtraCt(KOF01_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -130,8 +130,8 @@ sDescTreeNode* CGame_KOF01_A::InitDescTree()
 struct sKOF01_A_PaletteData
 {
     LPCWSTR pszCharacterName;
-    UINT32 nROMOffset = 0;
-    UINT32 nTerminalROMOffset = 0;
+    uint32_t nROMOffset = 0;
+    uint32_t nTerminalROMOffset = 0;
     LPCWSTR pszImageSet = L"indexKOF02UMSprites_K";
     bool fHasEffects = true;
     bool fIsBoss = false; // bosses don't have some portraits
@@ -186,8 +186,8 @@ sKOF01_A_PaletteData KOF01_A_CharacterPalettes[] =
 struct sKOF01_A_EffectData
 {
     LPCWSTR pszCharacterName;
-    UINT32 nROMOffset = 0;
-    UINT32 nTerminalROMOffset = 0;
+    uint32_t nROMOffset = 0;
+    uint32_t nTerminalROMOffset = 0;
 };
 
 sKOF01_A_EffectData KOF01_A_EffectPalettes[] =
@@ -231,33 +231,33 @@ void CGame_KOF01_A::DumpPaletteHeaders()
 {
     CString strOutput;
     const uint32_t nColorOptionsPerCharacter = static_cast<uint32_t>(DEF_BUTTONLABEL_2_PK.size());
-    constexpr UINT32 KOF01_PALETTE_LENGTH = 0x20;
-    constexpr UINT32 KOF01_PALETTE_DOUBLE_LENGTH = 0x40;
-    constexpr UINT32 KOF01_CHARACTER_LENGTH = 0x200;
-    const UINT16 nCountStatusEffects = 8;
+    constexpr uint32_t KOF01_PALETTE_LENGTH = 0x20;
+    constexpr uint32_t KOF01_PALETTE_DOUBLE_LENGTH = 0x40;
+    constexpr uint32_t KOF01_CHARACTER_LENGTH = 0x200;
+    const uint16_t nCountStatusEffects = 8;
 
-    const UINT32 KOF01_STRIKER_START = 0x398322;
-    const UINT32 KOF01_ORDERSELECT_START = 0x399322;
-    const UINT32 KOF01_SELECTPORTRAIT_START = 0x399f22;
-    const UINT32 KOF01_WINPORTRAIT_START = 0x39d122;
-    const UINT32 KOF01_LIFEBARPORTRAIT_START = 0x3b8922;
-    const UINT32 KOF01_NEXTCHARACTERPORTRAIT_P_START = 0x3b7d22;
-    const UINT32 KOF01_NEXTCHARACTERPORTRAIT_K_START = 0x3b8222;
+    const uint32_t KOF01_STRIKER_START = 0x398322;
+    const uint32_t KOF01_ORDERSELECT_START = 0x399322;
+    const uint32_t KOF01_SELECTPORTRAIT_START = 0x399f22;
+    const uint32_t KOF01_WINPORTRAIT_START = 0x39d122;
+    const uint32_t KOF01_LIFEBARPORTRAIT_START = 0x3b8922;
+    const uint32_t KOF01_NEXTCHARACTERPORTRAIT_P_START = 0x3b7d22;
+    const uint32_t KOF01_NEXTCHARACTERPORTRAIT_K_START = 0x3b8222;
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF01_A_CharacterPalettes); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF01_A_CharacterPalettes); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF01_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_PK[nColorIndex]);
 
             strOutput.Format(L"const sGame_PaletteDataset KOF01_A_%s_%s_PALETTES[] = \r\n{\r\n", szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);
 
-            UINT32 nCurrentOffset = KOF01_A_CharacterPalettes[nCharIndex].nROMOffset + (nColorIndex * KOF01_CHARACTER_LENGTH);
+            uint32_t nCurrentOffset = KOF01_A_CharacterPalettes[nCharIndex].nROMOffset + (nColorIndex * KOF01_CHARACTER_LENGTH);
 
             strOutput.Format(L"    { L\"%s %s\", 0x%x, 0x%x, %s },\r\n", KOF01_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_2_PK[nColorIndex],
                  nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH, KOF01_A_CharacterPalettes[nCharIndex].pszImageSet);
@@ -273,7 +273,7 @@ void CGame_KOF01_A::DumpPaletteHeaders()
                 L"Super Trail",
             };
 
-            for (UINT16 nPaletteIndex = 0; nPaletteIndex < ARRAYSIZE(ppszPaletteLines); nPaletteIndex++)
+            for (uint16_t nPaletteIndex = 0; nPaletteIndex < ARRAYSIZE(ppszPaletteLines); nPaletteIndex++)
             {
                 nCurrentOffset = KOF01_A_CharacterPalettes[nCharIndex].nROMOffset + ((1 + nPaletteIndex) * KOF01_PALETTE_LENGTH) + (nColorIndex * KOF01_CHARACTER_LENGTH);
 
@@ -289,7 +289,7 @@ void CGame_KOF01_A::DumpPaletteHeaders()
                 OutputDebugString(strOutput);
             }
 
-            WCHAR szKOF01ImageSet[MAX_DESCRIPTION_LENGTH];
+            wchar_t szKOF01ImageSet[MAX_DESCRIPTION_LENGTH];
             StrRemoveNonASCII(szKOF01ImageSet, ARRAYSIZE(szKOF01ImageSet), KOF01_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
             nCurrentOffset = KOF01_ORDERSELECT_START + (static_cast<uint32_t>(DEF_BUTTONLABEL_2_PK.size()) * nCharIndex * KOF01_PALETTE_LENGTH) + (nColorIndex * KOF01_PALETTE_LENGTH);
@@ -331,18 +331,18 @@ void CGame_KOF01_A::DumpPaletteHeaders()
         }
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF01_A_CharacterPalettes); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF01_A_CharacterPalettes); nCharIndex++)
     {
         if (!KOF01_A_CharacterPalettes[nCharIndex].fIsBoss)
         {
-            WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF01_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
             strOutput.Format(L"const sGame_PaletteDataset KOF01_A_%s_WINPORTRAIT_PALETTES[] = \r\n{\r\n", szCodeDesc);
             OutputDebugString(strOutput);
 
             // this area is select portrait p, select portrait k, then the shared three win portrait assist
-            UINT32 nCurrentOffset = KOF01_SELECTPORTRAIT_START + (5 * nCharIndex * KOF01_PALETTE_DOUBLE_LENGTH) + (2 * KOF01_PALETTE_DOUBLE_LENGTH);
+            uint32_t nCurrentOffset = KOF01_SELECTPORTRAIT_START + (5 * nCharIndex * KOF01_PALETTE_DOUBLE_LENGTH) + (2 * KOF01_PALETTE_DOUBLE_LENGTH);
             strOutput.Format(L"    { L\"Win Portrait Assist 1\", 0x%x, 0x%x },\r\n", nCurrentOffset, nCurrentOffset + KOF01_PALETTE_DOUBLE_LENGTH);
             OutputDebugString(strOutput);
             nCurrentOffset = KOF01_SELECTPORTRAIT_START + (5 * nCharIndex * KOF01_PALETTE_DOUBLE_LENGTH) + (3 * KOF01_PALETTE_DOUBLE_LENGTH);
@@ -356,18 +356,18 @@ void CGame_KOF01_A::DumpPaletteHeaders()
         }
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF01_A_EffectPalettes); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF01_A_EffectPalettes); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF01_A_EffectPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sGame_PaletteDataset KOF01_A_%s_PALETTES[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
         // Status effects
-        for (UINT16 nStatusIndex = 0; nStatusIndex < nCountStatusEffects; nStatusIndex++)
+        for (uint16_t nStatusIndex = 0; nStatusIndex < nCountStatusEffects; nStatusIndex++)
         {
-            UINT32 nCurrentOffset = KOF01_A_EffectPalettes[nCharIndex].nROMOffset + (nStatusIndex * KOF01_PALETTE_LENGTH);
+            uint32_t nCurrentOffset = KOF01_A_EffectPalettes[nCharIndex].nROMOffset + (nStatusIndex * KOF01_PALETTE_LENGTH);
 
             strOutput.Format(L"    { L\"Effect %u\", 0x%x, 0x%x },\r\n", nStatusIndex, nCurrentOffset, nCurrentOffset + KOF01_PALETTE_LENGTH);
             OutputDebugString(strOutput);
@@ -376,17 +376,17 @@ void CGame_KOF01_A::DumpPaletteHeaders()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF01_A_CharacterPalettes); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF01_A_CharacterPalettes); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF01_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOF01_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+        for (uint16_t nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            wchar_t szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StruprRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_PK[nColorIndex]);
 
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF01_A_%s_%s_PALETTES, ARRAYSIZE(KOF01_A_%s_%s_PALETTES) },\r\n", DEF_BUTTONLABEL_2_PK[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
@@ -421,7 +421,7 @@ sFileRule CGame_KOF01_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_KOF01_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_KOF01_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

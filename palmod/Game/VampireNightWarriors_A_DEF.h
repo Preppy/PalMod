@@ -6,7 +6,7 @@
 // * Update every array using VampireNightWarriors_A_NUMUNIT below
 // That should be it.  Good luck.
 
-const std::vector<UINT16> VampireNightWarriors_A_IMGIDS_USED =
+const std::vector<uint16_t> VampireNightWarriors_A_IMGIDS_USED =
 {
     // These are the playable characters
     indexCPS2Sprites_Anakaris,

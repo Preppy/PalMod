@@ -11,9 +11,9 @@ CDescTree CGame_SAMSHO3_A::MainDescTree = nullptr;
 uint32_t CGame_SAMSHO3_A::rgExtraCountAll[SAMSHO3_A_NUMUNIT + 1];
 uint32_t CGame_SAMSHO3_A::rgExtraLoc[SAMSHO3_A_NUMUNIT + 1];
 
-UINT32 CGame_SAMSHO3_A::m_nTotalPaletteCountForSAMSHO3 = 0;
-UINT32 CGame_SAMSHO3_A::m_nExpectedGameROMSize = 0x100000;  // 1,048,576 bytes
-UINT32 CGame_SAMSHO3_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SAMSHO3_A::m_nTotalPaletteCountForSAMSHO3 = 0;
+uint32_t CGame_SAMSHO3_A::m_nExpectedGameROMSize = 0x100000;  // 1,048,576 bytes
+uint32_t CGame_SAMSHO3_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO3_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_SAMSHO3_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SAMSHO3_A::InitDescTree());
 }
 
-CGame_SAMSHO3_A::CGame_SAMSHO3_A(UINT32 nConfirmedROMSize)
+CGame_SAMSHO3_A::CGame_SAMSHO3_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_SAMSHO3_A::CGame_SAMSHO3_A: Loading ROM...\n");
 
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_SAMSHO3_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO3_A, &SAMSHO3_A_EXTRA_CUSTOM, SAMSHO3_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = SAMSHO3_A_NUMUNIT + (GetExtraCt(SAMSHO3_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = SAMSHO3_A_NUMUNIT + (GetExtraCt(SAMSHO3_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -128,7 +128,7 @@ sDescTreeNode* CGame_SAMSHO3_A::InitDescTree()
 void CGame_SAMSHO3_A::DumpPaletteHeaders()
 {
     CString strOutput;
-    const UINT32 SAMSHO_PALETTE_LENGTH = 0x40;
+    const uint32_t SAMSHO_PALETTE_LENGTH = 0x40;
 
     struct sSamSho3CharacterInfo
     {
@@ -157,16 +157,16 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
         { L"Zankuro",   L"indexSamSho5Sprites_Zankuro",     L"",            L"",        0 },
     };
 
-    const UINT32 k_nBasePalette = 0x01000;
-    UINT32 nCurrentPalettePosition = k_nBasePalette;
+    const uint32_t k_nBasePalette = 0x01000;
+    uint32_t nCurrentPalettePosition = k_nBasePalette;
 
-    for (UINT16 nCharIndex = 0; nCharIndex < rgCharacters.size(); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < rgCharacters.size(); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex].strCharacter.c_str());
 
         // Character effects
-        for (UINT16 nStatusIndex = 0; nStatusIndex < 64; nStatusIndex++)
+        for (uint16_t nStatusIndex = 0; nStatusIndex < 64; nStatusIndex++)
         {
             if (rgCharacters[nCharIndex].strCharacter.length())
             {
@@ -195,12 +195,12 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
                     OutputDebugString(strOutput);
                 }
 
-                UINT32 nAdjustedIndex = nStatusIndex % 16;
+                uint32_t nAdjustedIndex = nStatusIndex % 16;
 
                 strImageString.Format(L", %s", rgCharacters[nCharIndex].strImageId.c_str());
 
-                UINT32 nPaletteStart = nCurrentPalettePosition;
-                UINT32 nPaletteEnd = nCurrentPalettePosition + SAMSHO_PALETTE_LENGTH;
+                uint32_t nPaletteStart = nCurrentPalettePosition;
+                uint32_t nPaletteEnd = nCurrentPalettePosition + SAMSHO_PALETTE_LENGTH;
 
                 switch (nAdjustedIndex)
                 {
@@ -336,14 +336,14 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
         }
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < rgCharacters.size(); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < rgCharacters.size(); nCharIndex++)
     {
         if (!rgCharacters[nCharIndex].strCharacter.length())
         {
             continue;
         }
 
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex].strCharacter.c_str());
 
         strOutput.Format(L"const sDescTreeNode SAMSHO3_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
@@ -363,14 +363,14 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
     strOutput.Format(L"const sDescTreeNode SAMSHO3_A_UNITS[] = \r\n{\r\n");
     OutputDebugString(strOutput);
 
-    for (UINT16 nCharIndex = 0; nCharIndex < rgCharacters.size(); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < rgCharacters.size(); nCharIndex++)
     {
         if (!rgCharacters[nCharIndex].strCharacter.length())
         {
             continue;
         }
 
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex].strCharacter.c_str());
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)SAMSHO3_A_%s_COLLECTION, ARRAYSIZE(SAMSHO3_A_%s_COLLECTION) },\r\n", rgCharacters[nCharIndex].strCharacter.c_str(), szCodeDesc, szCodeDesc);

@@ -9,20 +9,20 @@ constexpr auto EXTRA_FILENAME_KOF98AE2016_A = L"KOF98AE2016E.txt";
 class CGame_KOF98AE2016_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForKOF98AE2016;
+    static uint32_t m_nTotalPaletteCountForKOF98AE2016;
 
     static uint32_t rgExtraCountAll[KOF98AE2016_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[KOF98AE2016_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_KOF98AE2016_A(UINT32 nConfirmedROMSize);
+    CGame_KOF98AE2016_A(uint32_t nConfirmedROMSize);
     ~CGame_KOF98AE2016_A(void);
 
     //Static functions / variables
@@ -49,7 +49,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* KOF98AE2016_A_EXTRA_CUSTOM;
 };

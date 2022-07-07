@@ -141,7 +141,7 @@ sSupportedGameList SupportedGameList[] =
 sSupportedGameList* pSupportedGameList = SupportedGameList;
 const int nNumberOfLoadROMOptions = ARRAYSIZE(SupportedGameList);
 
-void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, WCHAR* pszLoadDir)
+void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {
     ClearGameVar();
 
@@ -442,7 +442,7 @@ void CPalModDlg::UpdateColorFormatMenu()
                 CMenu* pColorFormatMenu = pSettMenu->GetSubMenu(nCurrentMenu); //3 = settings menu
 
                 const int nCFMenuOptions = pColorFormatMenu->GetMenuItemCount();
-                UINT8 cbColorSize = ColorSystem::GetCbForColMode(currColMode);
+                uint8_t cbColorSize = ColorSystem::GetCbForColMode(currColMode);
 
                 for (int nCFMItem = 0; nCFMItem < nCFMenuOptions; nCFMItem++)
                 {
@@ -535,7 +535,7 @@ void CPalModDlg::LoadLastDir()
 {
     SupportedGamesList nLastUsedGFlag = NUM_GAMES;
     BOOL fIsDir;
-    WCHAR szLastDir[MAX_PATH];
+    wchar_t szLastDir[MAX_PATH];
 
     if (GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &fIsDir))
     {
@@ -576,7 +576,7 @@ int CALLBACK CPalModDlg::OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPA
     {
     case BFFM_INITIALIZED:
     {
-        WCHAR szPath[MAX_PATH];
+        wchar_t szPath[MAX_PATH];
         BOOL fIsDir = FALSE;
         SupportedGamesList nDefaultGameFlag = (SupportedGamesList)lpData;
 
@@ -616,8 +616,8 @@ void CPalModDlg::SetLastUsedDirectory(LPCWSTR pszPath, SupportedGamesList nGameF
             CString strPerGameString;
 
             strPerGameString.Format(L"%s_%u", c_strLastUsedPath, nGameFlag);
-            RegSetValueEx(hKey, strPerGameString, 0, REG_SZ, (LPBYTE)pszPath, (DWORD)(wcslen(pszPath) + 1) * sizeof(WCHAR));
-            RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)pszPath, (DWORD)(wcslen(pszPath) + 1) * sizeof(WCHAR));
+            RegSetValueEx(hKey, strPerGameString, 0, REG_SZ, (LPBYTE)pszPath, (DWORD)(wcslen(pszPath) + 1) * sizeof(wchar_t));
+            RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)pszPath, (DWORD)(wcslen(pszPath) + 1) * sizeof(wchar_t));
             RegSetValueEx(hKey, c_strLastUsedGFlag, 0, REG_DWORD, (LPBYTE)&nGameFlag, (DWORD)sizeof(int));
 
             RegCloseKey(hKey);
@@ -635,7 +635,7 @@ BOOL CPalModDlg::GetLastUsedPath(LPWSTR pszPath, DWORD cbSize, SupportedGamesLis
     if (ERROR_SUCCESS == RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey))
     {
         DWORD dwRegType = REG_SZ;
-        WCHAR szPath[MAX_PATH] = {};
+        wchar_t szPath[MAX_PATH] = {};
         DWORD cbDataSize = sizeof(szPath);
 
         //Get the directory: tune to the last usage of the current game if desired and possible
@@ -735,7 +735,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     // The following logic ensures that their last used selection is the default filter view.
     SupportedGamesList nLastUsedGFlag = (SupportedGamesList)nDefaultGameFilter;
 
-    WCHAR szLastDir[MAX_PATH];
+    wchar_t szLastDir[MAX_PATH];
     BOOL fIsDir = FALSE;
     bool fHaveLastUsedPath = GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &fIsDir);
 
@@ -748,7 +748,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
             LPCWSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
             LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
 
-            WCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
+            wchar_t szGameFilter[MAX_DESCRIPTION_LENGTH];
             wcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
             szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
 
@@ -843,7 +843,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
                 // user nFilterIndex starts at 1
                 if ((currentGame.nListedGameIndex + 1) == ofn.nFilterIndex)
                 {
-                    LoadGameFile((SupportedGamesList)currentGame.nInternalGameIndex, (WCHAR*)ofn.lpstrFile);
+                    LoadGameFile((SupportedGamesList)currentGame.nInternalGameIndex, (wchar_t*)ofn.lpstrFile);
                     break;
                 }
             }
@@ -851,7 +851,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     }
 }
 
-void CPalModDlg::LoadGameFile(SupportedGamesList nGameFlag, WCHAR* pszFile)
+void CPalModDlg::LoadGameFile(SupportedGamesList nGameFlag, wchar_t* pszFile)
 {
     if (!VerifyMsg(eVerifyType::VM_FILECHANGE))
     {
@@ -922,14 +922,14 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
             nACTColorCount = 256;
         }
 
-        UINT8* pAct = new UINT8[nACTColorCount * 3];
+        uint8_t* pAct = new uint8_t[nACTColorCount * 3];
         memset(pAct, 0, nACTColorCount * 3);
 
         ActFile.Read(pAct, nACTColorCount * 3);
         ActFile.Close();
 
         // Now consume those colors...
-        const UINT8 nTotalPaletteCount = MainPalGroup->GetPalAmt();
+        const uint8_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
         int nTotalNumberOfCurrentColors = 0;
 
         for (int iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
@@ -937,14 +937,14 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
             nTotalNumberOfCurrentColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
         }
 
-        UINT16 iACTIndex = 0;
-        UINT16 nCurrentPalette = 0;
-        UINT16 nTotalColorsUsed = 0;
+        uint16_t iACTIndex = 0;
+        uint16_t nCurrentPalette = 0;
+        uint16_t nTotalColorsUsed = 0;
         bool fHaveLooped = false;
         int iCurrentIndexInPalette = 0;
-        UINT8* pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+        uint8_t* pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
 
-        UINT16 nBlackColorCount = 0;
+        uint16_t nBlackColorCount = 0;
 
         // This code exists because Fighter Factory writes upside-down color tables.
         for (iACTIndex = 0; iACTIndex < nACTColorCount; iACTIndex++)
@@ -973,7 +973,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
             int nOffsetThisPass = 0;
             for (int iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
             {
-                const UINT16 nColorsNeededForThisPalette = MainPalGroup->GetPalDef(iPalette)->uPalSz;
+                const uint16_t nColorsNeededForThisPalette = MainPalGroup->GetPalDef(iPalette)->uPalSz;
                 for (iACTIndex = nOffsetThisPass; (iACTIndex < nACTColorCount) && ((iACTIndex - nOffsetThisPass) < nColorsNeededForThisPalette); iACTIndex++)
                 {
                     int iIndexToUse= fShouldProcessTopdown ? iACTIndex : (nACTColorCount - iACTIndex);
@@ -1028,7 +1028,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
                         if (rgfACTHasColorsForThisPalette[nCurrentPalette])
                         {
                             iCurrentIndexInPalette = 0;
-                            pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                            pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
                         }
                         else
                         {
@@ -1047,7 +1047,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
             iCurrentIndexInPalette = 0;
             nCurrentPalette = 0;
             fHaveLooped = false;
-            pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+            pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
 
             OutputDebugString(L"This appears to be a bogus SFF ACT... flipping our ACT table logic...\n");
 
@@ -1084,7 +1084,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
                             if (rgfACTHasColorsForThisPalette[nCurrentPalette])
                             {
                                 iCurrentIndexInPalette = 0;
-                                pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
                             }
                             else
                             {
@@ -1175,28 +1175,28 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
 
                     if ((dwDataSize > 0))
                     {
-                        UINT8* pPALFileData = new UINT8[dwDataSize];
+                        uint8_t* pPALFileData = new uint8_t[dwDataSize];
                         if (mmioRead(hRIFFFile, (HPSTR)pPALFileData, dwDataSize) == dwDataSize)
                         {
                             // party.
                             ProcChange();
 
-                            const UINT8 nActivePaletteCount = MainPalGroup->GetPalAmt();
+                            const uint8_t nActivePaletteCount = MainPalGroup->GetPalAmt();
                             const int nPALColorCount = (dwDataSize / 4);
 
-                            UINT16 iPALDataIndex = 0;
-                            UINT16 nCurrentPalette = 0;
-                            UINT16 nTotalColorsUsed = 0;
+                            uint16_t iPALDataIndex = 0;
+                            uint16_t nCurrentPalette = 0;
+                            uint16_t nTotalColorsUsed = 0;
                             bool fHaveLooped = false;
                             int iCurrentIndexInPalette = 0;
                             int nTotalNumberOfCurrentPaletteColors = 0;
 
-                            for (UINT8 iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+                            for (uint8_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
                             {
                                 nTotalNumberOfCurrentPaletteColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
                             }
 
-                            UINT8* pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                            uint8_t* pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
 
                             for (int iAbsoluteColorIndex = 0; iAbsoluteColorIndex < nTotalNumberOfCurrentPaletteColors; iAbsoluteColorIndex++, nTotalColorsUsed++)
                             {
@@ -1226,7 +1226,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
                                         // advance to the next palette
                                         nCurrentPalette++;
                                         iCurrentIndexInPalette = 0;
-                                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                        pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
                                     }
                                 }
                             }
@@ -1306,7 +1306,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
             while (nFileSizeRemaining > 0)
             {
-                UINT32 chunkLength;
+                uint32_t chunkLength;
                 READFROMFILEANDDECREMENT(&chunkLength, sizeof(chunkLength));
                 chunkLength = _byteswap_ulong(chunkLength);
                 char chunkType[5];
@@ -1321,7 +1321,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                 if (strcmp(chunkType, "IHDR") == 0)
                 {
                     // 13 bytes for the header
-                    UINT32 imageWidth, imageHeight;
+                    uint32_t imageWidth, imageHeight;
                     READFROMFILEANDDECREMENT(&imageWidth, 4);
                     READFROMFILEANDDECREMENT(&imageHeight, 4);
 
@@ -1332,7 +1332,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                     READFROMFILEANDDECREMENT(IHDRBuffer, sizeof(IHDRBuffer));
                     READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
 
-                    UINT32 bitDepth = IHDRBuffer[0];
+                    uint32_t bitDepth = IHDRBuffer[0];
                     char colorType = IHDRBuffer[1];
 
                     if ((colorType == 0) || (colorType == 4)) // grayscale options
@@ -1353,33 +1353,33 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                 else if (strcmp(chunkType, "PLTE") == 0)
                 {
                     fFoundPaletteData = true;
-                    UINT8* paszPaletteData = new UINT8[chunkLength];
+                    uint8_t* paszPaletteData = new uint8_t[chunkLength];
 
                     READFROMFILEANDDECREMENT(paszPaletteData, chunkLength);
                     READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
 
                     OutputDebugString(L"pngreader: processing PLTE header...\n");
 
-                    const UINT8 nActivePaletteCount = MainPalGroup->GetPalAmt();
+                    const uint8_t nActivePaletteCount = MainPalGroup->GetPalAmt();
                     const int nPNGColorCount = (chunkLength / 3);
 
                     strInfo.Format(L"\tpngreader: processing %u colors...\n", nPNGColorCount);
                     OutputDebugString(strInfo);
 
-                    UINT32 nTotalNumberOfCurrentPaletteColors = 0;
+                    uint32_t nTotalNumberOfCurrentPaletteColors = 0;
 
-                    for (UINT16 iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+                    for (uint16_t iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
                     {
                         nTotalNumberOfCurrentPaletteColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
                     }
 
-                    UINT16 iPNGIndex = 0;
-                    UINT16 nCurrentPalette = 0;
-                    UINT16 nTotalColorsUsed = 0;
-                    UINT32 nBlackColorCount = 0;
+                    uint16_t iPNGIndex = 0;
+                    uint16_t nCurrentPalette = 0;
+                    uint16_t nTotalColorsUsed = 0;
+                    uint32_t nBlackColorCount = 0;
                     bool fHaveLooped = false;
                     int iCurrentIndexInPalette = 0;
-                    UINT8* pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                    uint8_t* pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
 
                     // This code exists because Fighter Factory writes upside-down color tables.
                     for (iPNGIndex = 0; iPNGIndex < nPNGColorCount; iPNGIndex++)
@@ -1427,7 +1427,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                     {
                         iPNGIndex = 0;
 
-                        for (UINT32 iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
+                        for (uint32_t iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                         {
                             pPal[(iCurrentIndexInPalette * 4)]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3)]);
                             pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3) + 1]);
@@ -1457,7 +1457,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                                     if (rgfPNGHasColorsForThisPalette[nCurrentPalette])
                                     {
                                         iCurrentIndexInPalette = 0;
-                                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                        pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
                                     }
                                     else
                                     {
@@ -1476,11 +1476,11 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                         iCurrentIndexInPalette = 0;
                         nCurrentPalette = 0;
                         fHaveLooped = false;
-                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                        pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
 
                         OutputDebugString(L"This appears to be a bogus SFF PNG... flipping our PNG table logic...\n");
 
-                        for (UINT32 iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
+                        for (uint32_t iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                         {
                             pPal[(iCurrentIndexInPalette * 4)] =     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3)]);
                             pPal[(iCurrentIndexInPalette * 4) + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(paszPaletteData[(iPNGIndex * 3) + 1]);
@@ -1513,7 +1513,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
                                         if (rgfPNGHasColorsForThisPalette[nCurrentPalette])
                                         {
                                             iCurrentIndexInPalette = 0;
-                                            pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                            pPal = (uint8_t*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
                                         }
                                         else
                                         {
@@ -1663,7 +1663,7 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
                             continue;
                         }
 
-                        const UINT32 nDLCColorCount = 64;
+                        const uint32_t nDLCColorCount = 64;
                         COLORREF* pDLCColors = new COLORREF[nDLCColorCount];
                         memset(pDLCColors, 0, nDLCColorCount * sizeof(COLORREF));
 
@@ -1672,17 +1672,17 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
                         CString strColorList = strCurrentColors.Mid(iKeyPosition + 1);
                         OutputDebugString(strCurrentColors.Left(iKeyPosition));
                         OutputDebugString(L"\n");
-                        for (UINT32 iPosition = 0; iPosition < nDLCColorCount; iPosition++)
+                        for (uint32_t iPosition = 0; iPosition < nDLCColorCount; iPosition++)
                         {
                             // The final pass won't have a trailing ',', so just use the raw string at that point
                             const int iEndPosition = strColorList.Find(',');
                             CString strThisColor = (iEndPosition != -1) ? strColorList.Left(iEndPosition) : strColorList;
 
-                            UINT32 nThisColor = _wtol(strThisColor);
-                            UINT8 alpha = (nThisColor & 0xFF000000) >> 24;
-                            UINT8 red = (nThisColor & 0xFF0000) >> 16;
-                            UINT8 green = (nThisColor & 0xFF00) >> 8;
-                            UINT8 blue = (nThisColor & 0xFF);
+                            uint32_t nThisColor = _wtol(strThisColor);
+                            uint8_t alpha = (nThisColor & 0xFF000000) >> 24;
+                            uint8_t red = (nThisColor & 0xFF0000) >> 16;
+                            uint8_t green = (nThisColor & 0xFF00) >> 8;
+                            uint8_t blue = (nThisColor & 0xFF);
 
                             pDLCColors[iPosition] = RGB(red, green, blue) | (alpha << 24);
 
@@ -1696,7 +1696,7 @@ bool CPalModDlg::LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName)
                         if (spdPalInfo->uPalId == (iPaletteId * nPaletteDistance))
                         {
                             // This is the active palette: use the palgroup logic so we get easy live updates
-                            UINT8* pVisiblePalette = (UINT8*)MainPalGroup->GetPalDef(0)->pPal;
+                            uint8_t* pVisiblePalette = (uint8_t*)MainPalGroup->GetPalDef(0)->pPal;
 
                             for (int iCurrentIndexInPalette = 0; iCurrentIndexInPalette < nDLCColorCount; iCurrentIndexInPalette++)
                             {
@@ -1807,7 +1807,7 @@ void CPalModDlg::OnImportPalette()
             CString strFileName = PaletteLoad.GetOFN().lpstrFile;
             bool fSuccess = false;
 
-            WCHAR szExtension[_MAX_EXT];
+            wchar_t szExtension[_MAX_EXT];
             _wsplitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
 
             if (_wcsicmp(szExtension, L".png") == 0)
@@ -1852,12 +1852,12 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp)
 
         const int k_nMaxColorsAllowed = 256;
         const int nActSz = k_nMaxColorsAllowed * 3;
-        UINT8* pAct = new UINT8[nActSz];
+        uint8_t* pAct = new uint8_t[nActSz];
         memset(pAct, 0, nActSz);
 
-        UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+        uint8_t* pPal = (uint8_t*)CurrPalCtrl->GetBasePal();
         int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-        UINT8 nPalettePageCount;
+        uint8_t nPalettePageCount;
 
         if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
         {
@@ -1879,7 +1879,7 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp)
                 pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
             }
 
-            for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+            for (uint8_t nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
             {
                 CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
 
@@ -1910,7 +1910,7 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp)
                 pAct[(nWriteLocation - nTotalColorsUsed) * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
             }
 
-            for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+            for (uint8_t nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
             {
                 CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
 
@@ -1978,9 +1978,9 @@ bool CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName)
         GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
 
         // Write out the colors...
-        UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+        uint8_t* pPal = (uint8_t*)CurrPalCtrl->GetBasePal();
         int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-        UINT8 nPalettePageCount;
+        uint8_t nPalettePageCount;
 
         if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
         {
@@ -1999,7 +1999,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName)
             GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
         }
 
-        for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+        for (uint8_t nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
         {
             CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
 
@@ -2044,7 +2044,7 @@ bool CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName)
             memset(&mmckInfoData, 0, sizeof(mmckInfoData));
 
             // Write out the current palette
-            UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+            uint8_t* pPal = (uint8_t*)CurrPalCtrl->GetBasePal();
             int nColorCount = CurrPalCtrl->GetWorkingAmt();
 
             mmckInfoData.ckid = mmioFOURCC('d', 'a', 't', 'a');
@@ -2107,7 +2107,7 @@ void CPalModDlg::OnExportPalette()
 
         CString szFile = ActSave.GetOFN().lpstrFile;
 
-        WCHAR szExtension[_MAX_EXT];
+        wchar_t szExtension[_MAX_EXT];
         _tsplitpath(szFile, nullptr, nullptr, nullptr, szExtension);
         bool fSuccess = false;
 

@@ -1,7 +1,7 @@
 #pragma once
 
 // These are hand-generated: don't remove these.
-const std::vector<UINT16> KOF99AE_A_IMGIDS_USED =
+const std::vector<uint16_t> KOF99AE_A_IMGIDS_USED =
 {
     indexKOF96Sprites_Chang,        // 0x24A
     indexKOF96Sprites_Choi,         // 0x24D

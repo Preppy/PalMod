@@ -9,23 +9,23 @@ constexpr auto EXTRA_FILENAME_SAMSHO5SP_A = L"SAMSHO5SPE.txt";
 class CGame_SAMSHO5SP_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForSAMSHO5SP;
+    static uint32_t m_nTotalPaletteCountForSAMSHO5SP;
 
     static uint32_t rgExtraCountAll[SAMSHO5SP_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[SAMSHO5SP_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
-    static const UINT32 m_nExpectedGameROMSizeArcade = 0x400000;  // 4194304 bytes
-    static const UINT32 m_nExpectedGameROMSizeSteam = 0x800000;  // 8388608 bytes
+    static const uint32_t m_nExpectedGameROMSizeArcade = 0x400000;  // 4194304 bytes
+    static const uint32_t m_nExpectedGameROMSizeSteam = 0x800000;  // 8388608 bytes
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_SAMSHO5SP_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad = SAMSHO5SP_A);
+    CGame_SAMSHO5SP_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad = SAMSHO5SP_A);
     ~CGame_SAMSHO5SP_A(void);
 
     //Static functions / variables
@@ -53,7 +53,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* SAMSHO5SP_A_EXTRA_CUSTOM;
 };

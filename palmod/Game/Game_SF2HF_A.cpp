@@ -19,15 +19,15 @@ uint32_t CGame_SF2HF_A::rgExtraLoc_23[SF2HF_A_23_NUMUNIT + 1] = { (uint32_t)-1 }
 CDescTree CGame_SF2HF_A::MainDescTree_21 = nullptr;
 CDescTree CGame_SF2HF_A::MainDescTree_22 = nullptr;
 CDescTree CGame_SF2HF_A::MainDescTree_23 = nullptr;
-UINT32 CGame_SF2HF_A::m_nExpectedGameROMSize_HF = 0x80000; // 524288 bytes
-UINT32 CGame_SF2HF_A::m_nExpectedGameROMSize_30th = 0x7d191f;
+uint32_t CGame_SF2HF_A::m_nExpectedGameROMSize_HF = 0x80000; // 524288 bytes
+uint32_t CGame_SF2HF_A::m_nExpectedGameROMSize_30th = 0x7d191f;
 
-UINT32 CGame_SF2HF_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SF2HF_A::m_nConfirmedROMSize = -1;
 
 uint32_t CGame_SF2HF_A::m_nSelectedRom = 22;
-UINT32 CGame_SF2HF_A::m_nTotalPaletteCountForSF2HF_21 = 0;
-UINT32 CGame_SF2HF_A::m_nTotalPaletteCountForSF2HF_22 = 0;
-UINT32 CGame_SF2HF_A::m_nTotalPaletteCountForSF2HF_23 = 0;
+uint32_t CGame_SF2HF_A::m_nTotalPaletteCountForSF2HF_21 = 0;
+uint32_t CGame_SF2HF_A::m_nTotalPaletteCountForSF2HF_22 = 0;
+uint32_t CGame_SF2HF_A::m_nTotalPaletteCountForSF2HF_23 = 0;
 
 void CGame_SF2HF_A::InitializeStatics()
 {
@@ -47,7 +47,7 @@ void CGame_SF2HF_A::InitializeStatics()
     MainDescTree_23.SetRootTree(CGame_SF2HF_A::InitDescTree(23));
 }
 
-CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
+CGame_SF2HF_A::CGame_SF2HF_A(uint32_t nConfirmedROMSize, int nSF2HFROMToLoad)
 {
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -134,7 +134,7 @@ CGame_SF2HF_A::~CGame_SF2HF_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_SF2HF_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SF2HF_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static const sCRC32ValueSet knownROMs[] =
     {
@@ -257,7 +257,7 @@ sDescTreeNode* CGame_SF2HF_A::InitDescTree(int nROMPaletteSetToUse)
     m_nSelectedRom = nROMPaletteSetToUse;
 
     bool fHaveExtras;
-    UINT16 nUnitCt;
+    uint16_t nUnitCt;
     uint32_t nExtraUnitLocation;
 
     switch (m_nSelectedRom)
@@ -468,8 +468,8 @@ const sDescTreeNode* CGame_SF2HF_A::GetNodeFromPaletteId(uint32_t nUnitId, uint3
 void CGame_SF2HF_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_SF2HF_A::ClearDataBuffer()

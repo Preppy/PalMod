@@ -11,9 +11,9 @@ CDescTree CGame_KOF02PS2_A::MainDescTree = nullptr;
 uint32_t CGame_KOF02PS2_A::rgExtraCountAll[KOF02PS2_A_NUMUNIT + 1];
 uint32_t CGame_KOF02PS2_A::rgExtraLoc[KOF02PS2_A_NUMUNIT + 1];
 
-UINT32 CGame_KOF02PS2_A::m_nTotalPaletteCountForKOF02PS2 = 0;
-UINT32 CGame_KOF02PS2_A::m_nExpectedGameROMSize = 0x500000;
-UINT32 CGame_KOF02PS2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_KOF02PS2_A::m_nTotalPaletteCountForKOF02PS2 = 0;
+uint32_t CGame_KOF02PS2_A::m_nExpectedGameROMSize = 0x500000;
+uint32_t CGame_KOF02PS2_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF02PS2_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_KOF02PS2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KOF02PS2_A::InitDescTree());
 }
 
-CGame_KOF02PS2_A::CGame_KOF02PS2_A(UINT32 nConfirmedROMSize)
+CGame_KOF02PS2_A::CGame_KOF02PS2_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOF02PS2_A::CGame_KOF02PS2_A: Loading ROM...\n");
 
@@ -100,20 +100,20 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
 
     // exclude the new five since they're not fully implemented...
     constexpr auto KOF02_OG_CHARACTERCOUNT = ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray) - 5;
-    for (UINT16 iCharacterIndex = 0; iCharacterIndex < KOF02_OG_CHARACTERCOUNT; iCharacterIndex++)
+    for (uint16_t iCharacterIndex = 0; iCharacterIndex < KOF02_OG_CHARACTERCOUNT; iCharacterIndex++)
     {
         constexpr auto WINPORTRAIT_BASE_OFFSET = 0x3bae00;
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszCharacterName);
 
         strOutput.Format(L"const sGame_PaletteDataset KOF02PS2_A_%s_PALETTES_PORTRAITS_WIN[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < 4; iButtonIndex++)
+        for (uint16_t iButtonIndex = 0; iButtonIndex < 4; iButtonIndex++)
         {
             nCurrentCharacterOffset = WINPORTRAIT_BASE_OFFSET + (0x100 * iCharacterIndex) + (0x40 * iButtonIndex);
 
@@ -127,20 +127,20 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
     }
 
     // lifebar portraits
-    for (UINT16 iCharacterIndex = 0; iCharacterIndex < ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray); iCharacterIndex++)
+    for (uint16_t iCharacterIndex = 0; iCharacterIndex < ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray); iCharacterIndex++)
     {
         constexpr auto LIFEBARPORTRAIT_BASE_OFFSET = 0x3b9560;
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszCharacterName);
 
         strOutput.Format(L"const sGame_PaletteDataset KOF02PS2_A_%s_PALETTES_PORTRAITS_LIFEBAR[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < 4; iButtonIndex++)
+        for (uint16_t iButtonIndex = 0; iButtonIndex < 4; iButtonIndex++)
         {
             nCurrentCharacterOffset = LIFEBARPORTRAIT_BASE_OFFSET + (0x20 * iCharacterIndex) + (0x20 * ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray) * iButtonIndex);
 
@@ -155,13 +155,13 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
 
 #ifdef DontAutoGenerateTheseTheImageOffsetsAreHandTweaked
     // select portraits: original characters only
-    for (UINT16 iCharacterIndex = 0; iCharacterIndex < KOF02_OG_CHARACTERCOUNT; iCharacterIndex++)
+    for (uint16_t iCharacterIndex = 0; iCharacterIndex < KOF02_OG_CHARACTERCOUNT; iCharacterIndex++)
     {
         constexpr auto SELECTPORTRAIT_BASE_OFFSET = 0x3b8300;
         constexpr auto SELECTPORTRAIT_LENGTH = 0x40;
-        UINT32 nCurrentCharacterOffset = 0;
+        uint32_t nCurrentCharacterOffset = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszCharacterName);
 
@@ -180,16 +180,16 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
 #endif
 
     //Go through each character: core palettes
-    for (UINT16 iCharacterIndex = 0; iCharacterIndex < ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray); iCharacterIndex++)
+    for (uint16_t iCharacterIndex = 0; iCharacterIndex < ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray); iCharacterIndex++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszCharacterName);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < 4; iButtonIndex++)
+        for (uint16_t iButtonIndex = 0; iButtonIndex < 4; iButtonIndex++)
         {
             nCurrentCharacterOffset = KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].locationInROM + (0x200 * iButtonIndex);
 
@@ -223,10 +223,10 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
                 L"Hidden Super Desperation Move 3",
             };
 
-            for (UINT16 iCurrentExtra = 1; iCurrentExtra < 8; iCurrentExtra++)
+            for (uint16_t iCurrentExtra = 1; iCurrentExtra < 8; iCurrentExtra++)
             {
                 LPCWSTR pszCurrentMoveName = pszMoveNames[iCurrentExtra - 1];
-                UINT32 nCurrentImageToUse = 0;
+                uint32_t nCurrentImageToUse = 0;
 
                 switch (iCurrentExtra)
                 {
@@ -285,10 +285,10 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
     }
 
     // Now create the collections...
-    for (UINT16 iCharacterIndex = 0; iCharacterIndex < ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray); iCharacterIndex++)
+    for (uint16_t iCharacterIndex = 0; iCharacterIndex < ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray); iCharacterIndex++)
     {
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszCharacterName);
 
@@ -316,12 +316,12 @@ void CGame_KOF02PS2_A::DumpAllCharacters()
 
     OutputDebugString(L"const sDescTreeNode KOF02PS2_A_UNITS[] =\r\n{\r\n");
 
-    for (UINT16 iCharacterIndex = 0; iCharacterIndex < ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray); iCharacterIndex++)
+    for (uint16_t iCharacterIndex = 0; iCharacterIndex < ARRAYSIZE(KOF02PS2_A_CharacterOffsetArray); iCharacterIndex++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02PS2_A_CharacterOffsetArray[iCharacterIndex].pszCharacterName);
 
@@ -337,7 +337,7 @@ sDescTreeNode* CGame_KOF02PS2_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KOF02PS2_A, &KOF02PS2_A_EXTRA_CUSTOM, KOF02PS2_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KOF02PS2_A_NUMUNIT + (GetExtraCt(KOF02PS2_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = KOF02PS2_A_NUMUNIT + (GetExtraCt(KOF02PS2_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

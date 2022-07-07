@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_MVC2_P.h"
 
-CGame_MVC2_P::CGame_MVC2_P(UINT32 nConfirmedROMSize) : CGame_MVC2_D(nConfirmedROMSize)
+CGame_MVC2_P::CGame_MVC2_P(uint32_t nConfirmedROMSize) : CGame_MVC2_D(nConfirmedROMSize)
 {
     nGameFlag = MVC2_P;
 }

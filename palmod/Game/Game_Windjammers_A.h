@@ -9,20 +9,20 @@ constexpr auto EXTRA_FILENAME_Windjammers_A = L"WindjammersE.txt";
 class CGame_Windjammers_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForWindjammers;
+    static uint32_t m_nTotalPaletteCountForWindjammers;
 
     static uint32_t rgExtraCountAll[Windjammers_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[Windjammers_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static const UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static const uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_Windjammers_A(UINT32 nConfirmedROMSize);
+    CGame_Windjammers_A(uint32_t nConfirmedROMSize);
     ~CGame_Windjammers_A(void);
 
     //Static functions / variables

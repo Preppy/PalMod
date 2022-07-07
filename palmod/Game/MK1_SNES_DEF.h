@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const std::vector<UINT16> MK1_SNES_IMGIDS_USED =
+const std::vector<uint16_t> MK1_SNES_IMGIDS_USED =
 {
     indexMK1Sprites_Goro,                // 0xAA
     indexMK1Sprites_JohnnyCage,          // 0xAB

@@ -11,7 +11,7 @@ private:
     void (*ResetRuleCtr)(void) = {};
     sFileRule(*GetNextRule)(void) = {};
     sFileRule(*GetRule)(uint32_t) = {};
-    CGameClass* CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData = 0, LPCWSTR pszFilePath = nullptr);
+    CGameClass* CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int nExtraGameData = 0, LPCWSTR pszFilePath = nullptr);
 
     bool IsLocationOnReadOnlyDrive(LPCWSTR pszLocation, LPWSTR pszDrivePath = nullptr, uint32_t ccPathSize = 0);
     bool VerifyLocationIsUsable(LPCWSTR pszLocation);
@@ -26,8 +26,8 @@ public:
     CGameLoad(void);
     ~CGameLoad(void);
 
-    CGameClass* LoadFile(int nGameFlag, WCHAR* pszLoadFile);
-    CGameClass* LoadDir(int nGameFlag, WCHAR* pszLoadDir);
+    CGameClass* LoadFile(int nGameFlag, wchar_t* pszLoadFile);
+    CGameClass* LoadDir(int nGameFlag, wchar_t* pszLoadDir);
     void SaveGame(CGameClass* CurrGame);
     void SavePatchFile(CGameClass* CurrGame);
     void SaveMultiplePatchFiles(CGameClass* CurrGame, CString strTargetDirectory);

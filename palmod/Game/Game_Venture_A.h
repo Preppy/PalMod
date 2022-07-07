@@ -14,18 +14,18 @@ public:
     // Venturehas two different ROMs of interest: handle here.
     int m_nBufferVentureMode = 50;
     static uint32_t m_nVentureMode;
-    static UINT32 m_nTotalPaletteCountFor31;
-    static UINT32 m_nTotalPaletteCountFor50;
+    static uint32_t m_nTotalPaletteCountFor31;
+    static uint32_t m_nTotalPaletteCountFor50;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
 
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static const UINT32 m_nExpectedGameROMSize_31 = 0x800000;
-    static const UINT32 m_nExpectedGameROMSize_50 = 0x400000;
+    static const uint32_t m_nExpectedGameROMSize_31 = 0x800000;
+    static const uint32_t m_nExpectedGameROMSize_50 = 0x400000;
 
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     static uint32_t rgExtraCountAll_31[VENTURE_A_NUMUNIT_31 + 1];
     static uint32_t rgExtraCountAll_50[VENTURE_A_NUMUNIT_50 + 1];
@@ -35,7 +35,7 @@ public:
     static bool UsePaletteSetFor50() { return (m_nVentureMode == 50); }
 
 public:
-    CGame_VENTURE_A(UINT32 nConfirmedROMSize = -1, int nVentureModeToLoad = 50);
+    CGame_VENTURE_A(uint32_t nConfirmedROMSize = -1, int nVentureModeToLoad = 50);
     ~CGame_VENTURE_A(void);
 
     //Static functions / variables

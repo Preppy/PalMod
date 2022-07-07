@@ -14,9 +14,9 @@ CDescTree CGame_SSF2T_A::MainDescTree_4A = nullptr;
 CDescTree CGame_SSF2T_A::MainDescTree_8 = nullptr;
 
 uint32_t CGame_SSF2T_A::m_nSSF2TSelectedRom = 4;
-UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_3C = 0;
-UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_4A = 0;
-UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_8 = 0;
+uint32_t CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_3C = 0;
+uint32_t CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_4A = 0;
+uint32_t CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_8 = 0;
 
 uint32_t CGame_SSF2T_A::rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1] = { (uint32_t)-1 };
 uint32_t CGame_SSF2T_A::rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1] = { (uint32_t)-1 };
@@ -25,8 +25,8 @@ uint32_t CGame_SSF2T_A::rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1] = { (uint32_t
 uint32_t CGame_SSF2T_A::rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1] = { (uint32_t)-1 };
 uint32_t CGame_SSF2T_A::rgExtraCountAll_8[SSF2T_A_NUM_IND_8 + 1] = { (uint32_t)-1 };
 
-UINT32 CGame_SSF2T_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_SSF2T_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SSF2T_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_SSF2T_A::m_nConfirmedROMSize = -1;
 
 void CGame_SSF2T_A::InitializeStatics()
 {
@@ -46,7 +46,7 @@ void CGame_SSF2T_A::InitializeStatics()
     MainDescTree_8.SetRootTree(CGame_SSF2T_A::InitDescTree(8));
 }
 
-CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
+CGame_SSF2T_A::CGame_SSF2T_A(uint32_t nConfirmedROMSize, int nSSF2TRomToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -63,9 +63,9 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     strMessage.Format(L"CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %u ROM\n", m_nSSF2TSelectedRom);
     OutputDebugString(strMessage);
 
-    const UINT32 nSafeCountFor3C = 323;
-    const UINT32 nSafeCountFor4A = 705;
-    const UINT32 nSafeCountFor8 = 72;
+    const uint32_t nSafeCountFor3C = 323;
+    const uint32_t nSafeCountFor4A = 705;
+    const uint32_t nSafeCountFor8 = 72;
 
     switch (m_nSSF2TSelectedRom)
     {
@@ -131,7 +131,7 @@ CGame_SSF2T_A::~CGame_SSF2T_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_SSF2T_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SSF2T_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -265,8 +265,8 @@ CDescTree* CGame_SSF2T_A::GetMainTree()
 sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
 {
     m_nSSF2TSelectedRom = nROMPaletteSetToUse;
-    UINT8 nCurrentExtraLocation;
-    UINT16 nUnitCt;
+    uint8_t nCurrentExtraLocation;
+    uint16_t nUnitCt;
 
     //Load extra file if we're using it
     if (UsePaletteSetForPortraits())
@@ -584,8 +584,8 @@ const sGame_PaletteDataset* CGame_SSF2T_A::GetSpecificPalette(uint32_t nUnitId, 
 void CGame_SSF2T_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSSF2TSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_SSF2T_A::ClearDataBuffer()

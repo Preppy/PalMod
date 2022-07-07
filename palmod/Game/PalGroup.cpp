@@ -95,7 +95,7 @@ BOOL CPalGroup::AddSep(uint32_t nIndex, LPCWSTR szDesc, uint32_t nStart, uint32_
     return TRUE;
 }
 
-BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, uint32_t uUnitId, uint32_t uPalId)
+BOOL CPalGroup::AddPal(COLORREF* pPal, uint16_t uPalSz, uint32_t uUnitId, uint32_t uPalId)
 {
     if ((m_nCurrPalAmt >= MAX_PALETTES_DISPLAYABLE) || !pPal || !uPalSz)
     {
@@ -124,7 +124,7 @@ BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, uint32_t uUnitId, uint32_t
     return TRUE;
 }
 
-void CPalGroup::SetRGBA(COLORREF* crTarget, UINT8 rVal, UINT8 gVal, UINT8 bVal, UINT8 aVal)
+void CPalGroup::SetRGBA(COLORREF* crTarget, uint8_t rVal, uint8_t gVal, uint8_t bVal, uint8_t aVal)
 {
     *crTarget = RGB(GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(rVal),
                     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(gVal),
@@ -132,13 +132,13 @@ void CPalGroup::SetRGBA(COLORREF* crTarget, UINT8 rVal, UINT8 gVal, UINT8 bVal, 
     *crTarget |= (COLORREF)aVal << 24;
 }
 
-void CPalGroup::SetHLSA(COLORREF* crTarget, double dH, double dL, double dS, UINT8 aVal)
+void CPalGroup::SetHLSA(COLORREF* crTarget, double dH, double dL, double dS, uint8_t aVal)
 {
     *crTarget = HLStoRGB(LimitHLS(dH), LimitHLS(dL), LimitHLS(dS));
     *crTarget = RGB(GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(*crTarget)),
                     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(*crTarget)),
                     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(*crTarget)));
-    *crTarget |= (UINT32)aVal << 24;
+    *crTarget |= (uint32_t)aVal << 24;
 }
 
 void CPalGroup::SetAddHLSA(COLORREF crSrc, COLORREF* crTarget, double fpAddH, double fpAddL, double fpAddS, int uAddA)
@@ -157,7 +157,7 @@ void CPalGroup::SetAddHLSA(COLORREF crSrc, COLORREF* crTarget, double fpAddH, do
                     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(*crTarget)),
                     GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(*crTarget)));
     
-    *crTarget |= (UINT32)GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(LimitRGB(GetAValue(crSrc) + uAddA)) << 24;
+    *crTarget |= (uint32_t)GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_A(LimitRGB(GetAValue(crSrc) + uAddA)) << 24;
 }
 
 void CPalGroup::AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA)

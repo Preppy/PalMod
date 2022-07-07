@@ -9,14 +9,14 @@ constexpr auto EXTRA_FILENAME_RBFFS_A = L"RBFFSE.txt";
 class CGame_RBFFS_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForRBFFS;
+    static uint32_t m_nTotalPaletteCountForRBFFS;
 
     static uint32_t rgExtraCountAll[RBFFS_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[RBFFS_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -25,7 +25,7 @@ private:
     static void DumpPaletteHeaders();
 
 public:
-    CGame_RBFFS_A(UINT32 nConfirmedROMSize);
+    CGame_RBFFS_A(uint32_t nConfirmedROMSize);
     ~CGame_RBFFS_A(void);
 
     //Static functions / variables
@@ -52,7 +52,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* RBFFS_A_EXTRA_CUSTOM;
 };

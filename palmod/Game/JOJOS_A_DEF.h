@@ -18,14 +18,14 @@
 // JoJo_Story - ScaredKakyoin || 0x1F - 0x02
 // JoJo_Story - ShadowDIOStanding || 0x1F - 0x03
 
-const WCHAR JOJOS_A_UNITDESC_50[][32] =
+const wchar_t JOJOS_A_UNITDESC_50[][32] =
 {
     L"HUD",           // JOJOS_A_50_HUD_COLLECTION
     L"HUD Portraits", // JOJOS_A_50_HUD_PORTRAIT_COLLECTION
     L"Stages",        // JOJOS_A_50_STAGE_COLLECTION
 };
 
-const WCHAR JOJOS_A_UNITDESC_51[][32] =
+const wchar_t JOJOS_A_UNITDESC_51[][32] =
 {
     L"Jotaro", // JOJOS_A_CHARACTER_COLLECTION_JOTARO
     L"Kakyoin", // JOJOS_A_CHARACTER_COLLECTION_HIEROPHANT
@@ -63,7 +63,7 @@ constexpr auto JOJOS_A_NUMUNIT_51 = ARRAYSIZE(JOJOS_A_UNITDESC_51);
 constexpr auto JOJOS_A_EXTRALOC_50 = JOJOS_A_NUMUNIT_50;
 constexpr auto JOJOS_A_EXTRALOC_51 = JOJOS_A_NUMUNIT_51;
 
-const std::vector<UINT16> JOJOS_A_IMGIDS_USED =
+const std::vector<uint16_t> JOJOS_A_IMGIDS_USED =
 {
     indexJojos51Jotaro,
     indexJojos51Kakyo,

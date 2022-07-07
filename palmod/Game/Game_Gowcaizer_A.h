@@ -9,20 +9,20 @@ constexpr auto EXTRA_FILENAME_Gowcaizer_A = L"GowcaizerE.txt";
 class CGame_Gowcaizer_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForGowcaizer;
+    static uint32_t m_nTotalPaletteCountForGowcaizer;
 
     static uint32_t rgExtraCountAll[Gowcaizer_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[Gowcaizer_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_Gowcaizer_A(UINT32 nConfirmedROMSize);
+    CGame_Gowcaizer_A(uint32_t nConfirmedROMSize);
     ~CGame_Gowcaizer_A(void);
 
     //Static functions / variables

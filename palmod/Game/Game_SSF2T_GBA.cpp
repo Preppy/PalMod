@@ -12,8 +12,8 @@ uint32_t CGame_SSF2T_GBA::rgExtraCountVisibleOnly[SSF2T_GBA_NUMUNIT + 1] = { (ui
 uint32_t CGame_SSF2T_GBA::rgExtraLoc[SSF2T_GBA_NUMUNIT + 1] = { (uint32_t)-1 };
 
 CDescTree CGame_SSF2T_GBA::MainDescTree = nullptr;
-UINT32 CGame_SSF2T_GBA::m_nExpectedGameROMSize = 0x800000;
-UINT32 CGame_SSF2T_GBA::m_nConfirmedROMSize = -1;
+uint32_t CGame_SSF2T_GBA::m_nExpectedGameROMSize = 0x800000;
+uint32_t CGame_SSF2T_GBA::m_nConfirmedROMSize = -1;
 
 void CGame_SSF2T_GBA::InitializeStatics()
 {
@@ -26,7 +26,7 @@ void CGame_SSF2T_GBA::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SSF2T_GBA::InitDescTree());
 }
 
-CGame_SSF2T_GBA::CGame_SSF2T_GBA(UINT32 nConfirmedROMSize)
+CGame_SSF2T_GBA::CGame_SSF2T_GBA(uint32_t nConfirmedROMSize)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     // GBA actually has alpha values on some colors, but not all of them.  Force it everywhere for sanity.
@@ -81,7 +81,7 @@ CGame_SSF2T_GBA::~CGame_SSF2T_GBA(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_SSF2T_GBA::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SSF2T_GBA::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     // If we need further differentiation, we can bytesniff at 0xa0
     static const sCRC32ValueSet knownROMs[] =
@@ -141,7 +141,7 @@ sDescTreeNode* CGame_SSF2T_GBA::InitDescTree()
     uint32_t nExtraUnitLocation = SSF2T_GBA_EXTRALOC;
     LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_GBA, &SSF2T_GBA_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
     bool fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-    UINT16 nUnitCt = SSF2T_GBA_NUMUNIT + (fHaveExtras ? 1 : 0);
+    uint16_t nUnitCt = SSF2T_GBA_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

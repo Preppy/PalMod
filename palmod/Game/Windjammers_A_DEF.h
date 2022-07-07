@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> WINDJAMMERS_A_IMGIDS_USED =
+const std::vector<uint16_t> WINDJAMMERS_A_IMGIDS_USED =
 {
     indexWindjammersSprites_Germany,
     indexWindjammersSprites_Italy,

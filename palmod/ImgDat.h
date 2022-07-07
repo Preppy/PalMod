@@ -9,24 +9,24 @@
 class CImgDat {
 private:
 
-    std::map<UINT16, ImgInfoList*>* nImgMap = nullptr;
+    std::map<uint16_t, ImgInfoList*>* nImgMap = nullptr;
 
-    UINT16 nCurGameImgAmt = 0x0000;
+    uint16_t nCurGameImgAmt = 0x0000;
 
-    UINT16 nCurGameFlag = 0xFFFF;
-    UINT16 nCurImgGameFlag = 0xFFFF;
+    uint16_t nCurGameFlag = 0xFFFF;
+    uint16_t nCurImgGameFlag = 0xFFFF;
 
-    UINT8 uReadGameFlag = 0x00;
-    UINT16 uReadNumImgs = 0x0000;
-    UINT32 uReadNextImgLoc = 0x00000000;
+    uint8_t uReadGameFlag = 0x00;
+    uint16_t uReadNumImgs = 0x0000;
+    uint32_t uReadNextImgLoc = 0x00000000;
 
     bool imageBufferFlushed = false;
     bool imageBufferPrepped = false;
-    bool PrepImageBuffer(std::vector<UINT16> prgGameImageSet, UINT8 uGameFlag);
-    bool sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag);
-    void getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data, UINT32& i_byteCtr, UINT32& o_dataCtr);
+    bool PrepImageBuffer(std::vector<uint16_t> prgGameImageSet, uint8_t uGameFlag);
+    bool sameGameAlreadyLoaded(uint8_t uGameFlag, uint8_t uImgGameFlag);
+    void getBMRLEData(uint8_t chunkSize, uint8_t* inputData, uint8_t* output_data, uint32_t& i_byteCtr, uint32_t& o_dataCtr);
 
-    void SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDaystamp, UINT8 nNumGames);
+    void SanityCheckImgDat(ULONGLONG nFileSize, uint32_t nCurrentDaystamp, uint8_t nNumGames);
 
     CFile ImgDatFile;
 
@@ -36,15 +36,15 @@ public:
     CImgDat(void);
     ~CImgDat(void);
 
-    BOOL LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, uint32_t uGameUnitAmt, std::vector<UINT16> prgGameImageSet, BOOL fLoadAll = TRUE);
-    sImgDef* GetImageDef(uint32_t uUnitId, UINT16 uImgId);
+    BOOL LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t uImgGameFlag, uint32_t uGameUnitAmt, std::vector<uint16_t> prgGameImageSet, BOOL fLoadAll = TRUE);
+    sImgDef* GetImageDef(uint32_t uUnitId, uint16_t uImgId);
     bool FlushImageBuffer();
-    UINT8* DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);
-    UINT8* RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight);
-    UINT8* BitMaskRLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight);
+    uint8_t* DecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight, uint8_t uiBPP);
+    uint8_t* RLEDecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight);
+    uint8_t* BitMaskRLEDecodeImg(uint8_t* pSrcImgData, uint32_t uiDataSz, uint16_t uiImgWidth, uint16_t uiImgHeight);
 
-    UINT16 GetCurrImgFlag() { return nCurImgGameFlag; };
-    UINT8* GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, UINT16 nCurrentUnitId, UINT8 nCurrentImgId);
+    uint16_t GetCurrImgFlag() { return nCurImgGameFlag; };
+    uint8_t* GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCurrentUnitId, uint8_t nCurrentImgId);
 
     void CloseImgFile();
 };

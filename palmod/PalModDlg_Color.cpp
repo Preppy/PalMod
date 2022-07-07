@@ -434,9 +434,9 @@ void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
                 }
                 else
                 {
-                    UINT8 red = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_RH);
-                    UINT8 green = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_GS);
-                    UINT8 blue = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_BL);
+                    uint8_t red = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_RH);
+                    uint8_t green = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_GS);
+                    uint8_t blue = GetHost()->GetCurrGame()->Get8BitValueForColorStep_RGB(m_Edit_BL);
 
                     crRGBVal = RGB(red, green, blue);
                 }
@@ -957,7 +957,7 @@ void CPalModDlg::OnBnNewCol()
         }
         else
         {
-            UINT8* rgSel = CurrPalCtrl->GetSelIndex();
+            uint8_t* rgSel = CurrPalCtrl->GetSelIndex();
             int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
             COLORREF* pPal = CurrPalCtrl->GetBasePal();
 
@@ -1052,7 +1052,7 @@ void CPalModDlg::PerformBlink()
     BOOL fRedraw = FALSE;
     bool fSetTimer = false;
 
-    UINT8* rgSel = CurrPalCtrl->GetSelIndex();
+    uint8_t* rgSel = CurrPalCtrl->GetSelIndex();
     int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
     bool fSelectAll = (CurrPalCtrl->GetSelAmt() == 0);
     int nOffs = MainPalGroup->GetSep(
@@ -1151,21 +1151,21 @@ void CPalModDlg::OnBnClickedReverse()
 {
     if (m_fEnabled)
     {
-        UINT16 nSelectionAmt = CurrPalCtrl->GetSelAmt();
+        uint16_t nSelectionAmt = CurrPalCtrl->GetSelAmt();
 
         if (nSelectionAmt != 1) // we can't flip just one color
         {
             ProcChange();
 
             BOOL fSelectAll = (nSelectionAmt == 0);
-            const UINT16 nWorkingAmount = CurrPalCtrl->GetWorkingAmt();
+            const uint16_t nWorkingAmount = CurrPalCtrl->GetWorkingAmt();
 
             // if they want to flip all, we ignore the first transparent color
             nSelectionAmt = fSelectAll ? (nWorkingAmount - 1) : nSelectionAmt;
 
-            UINT8* rgSel = (UINT8*)CurrPalCtrl->GetSelIndex();
-            UINT8* pCurrPal = (UINT8*)CurrPalCtrl->GetBasePal();
-            UINT8* pFlippedPal = new UINT8[nSelectionAmt * 4];
+            uint8_t* rgSel = (uint8_t*)CurrPalCtrl->GetSelIndex();
+            uint8_t* pCurrPal = (uint8_t*)CurrPalCtrl->GetBasePal();
+            uint8_t* pFlippedPal = new uint8_t[nSelectionAmt * 4];
 
             // walk backwards to get the flipped ordering
             int iFlippedPos = nSelectionAmt - 1;
@@ -1173,8 +1173,8 @@ void CPalModDlg::OnBnClickedReverse()
             {
                 if (rgSel[iCurPos] || fSelectAll)
                 {
-                    const UINT16 nPaletteIndex = iCurPos * 4;
-                    const UINT16 nFlippedIndex = iFlippedPos * 4;
+                    const uint16_t nPaletteIndex = iCurPos * 4;
+                    const uint16_t nFlippedIndex = iFlippedPos * 4;
 
                     pFlippedPal[nFlippedIndex]     = pCurrPal[nPaletteIndex];
                     pFlippedPal[nFlippedIndex + 1] = pCurrPal[nPaletteIndex + 1];
@@ -1197,8 +1197,8 @@ void CPalModDlg::OnBnClickedReverse()
             {
                 if (rgSel[iCurPos] || fSelectAll)
                 {
-                    const UINT16 nPaletteIndex = iCurPos * 4;
-                    const UINT16 nFlippedIndex = iFlippedPos * 4;
+                    const uint16_t nPaletteIndex = iCurPos * 4;
+                    const uint16_t nFlippedIndex = iFlippedPos * 4;
 
                     pCurrPal[nPaletteIndex]     = pFlippedPal[nFlippedIndex];
                     pCurrPal[nPaletteIndex + 1] = pFlippedPal[nFlippedIndex + 1];
@@ -1229,9 +1229,9 @@ void CPalModDlg::OnBnClickedBinvert()
     {
         ProcChange();
 
-        UINT8* rgSel = (UINT8*)CurrPalCtrl->GetSelIndex();
-        UINT8* pCurrPal = (UINT8*)CurrPalCtrl->GetBasePal();
-        UINT16 nPaletteIndex;
+        uint8_t* rgSel = (uint8_t*)CurrPalCtrl->GetSelIndex();
+        uint8_t* pCurrPal = (uint8_t*)CurrPalCtrl->GetBasePal();
+        uint16_t nPaletteIndex;
         BOOL fSelectAll = !CurrPalCtrl->GetSelAmt();
 
         for (int i = 0; i < CurrPalCtrl->GetWorkingAmt(); i++)
@@ -1240,9 +1240,9 @@ void CPalModDlg::OnBnClickedBinvert()
             {
                 nPaletteIndex = i * 4;
 
-                pCurrPal[nPaletteIndex]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB((UINT8)~pCurrPal[nPaletteIndex]);
-                pCurrPal[nPaletteIndex + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB((UINT8)~pCurrPal[nPaletteIndex + 1]);
-                pCurrPal[nPaletteIndex + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB((UINT8)~pCurrPal[nPaletteIndex + 2]);
+                pCurrPal[nPaletteIndex]     = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB((uint8_t)~pCurrPal[nPaletteIndex]);
+                pCurrPal[nPaletteIndex + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB((uint8_t)~pCurrPal[nPaletteIndex + 1]);
+                pCurrPal[nPaletteIndex + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB((uint8_t)~pCurrPal[nPaletteIndex + 2]);
 
                 CurrPalCtrl->UpdateIndex(i);
             }

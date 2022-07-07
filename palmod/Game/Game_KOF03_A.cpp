@@ -11,9 +11,9 @@ CDescTree CGame_KOF03_A::MainDescTree = nullptr;
 uint32_t CGame_KOF03_A::rgExtraCountAll[KOF03_A_NUMUNIT + 1];
 uint32_t CGame_KOF03_A::rgExtraLoc[KOF03_A_NUMUNIT + 1];
 
-UINT32 CGame_KOF03_A::m_nTotalPaletteCountForKOF03 = 0;
-UINT32 CGame_KOF03_A::m_nExpectedGameROMSize = 0x800000;
-UINT32 CGame_KOF03_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_KOF03_A::m_nTotalPaletteCountForKOF03 = 0;
+uint32_t CGame_KOF03_A::m_nExpectedGameROMSize = 0x800000;
+uint32_t CGame_KOF03_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF03_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_KOF03_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KOF03_A::InitDescTree());
 }
 
-CGame_KOF03_A::CGame_KOF03_A(UINT32 nConfirmedROMSize)
+CGame_KOF03_A::CGame_KOF03_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOF03_A::CGame_KOF03_A: Loading ROM...\n");
 
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_KOF03_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KOF03_A, &KOF03_A_EXTRA_CUSTOM, KOF03_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KOF03_A_NUMUNIT + (GetExtraCt(KOF03_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = KOF03_A_NUMUNIT + (GetExtraCt(KOF03_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -133,7 +133,7 @@ void CGame_KOF03_A::DumpGameHeaders()
     {
         LPCWSTR pszPaletteName = nullptr;
         int  nImageIndex = -1;
-        UINT32 nSpecificOffset = 0;
+        uint32_t nSpecificOffset = 0;
     };
 
     struct sKOF03CharData

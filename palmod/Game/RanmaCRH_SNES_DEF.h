@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const std::vector<UINT16> RANMACRH_SNES_IMGIDS_USED =
+const std::vector<uint16_t> RANMACRH_SNES_IMGIDS_USED =
 {
     indexRanmaCRHSprites_Akane,         // 0x7a
     indexRanmaCRHSprites_Genma,         // 0x7b

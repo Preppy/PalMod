@@ -11,9 +11,9 @@ CDescTree CGame_TOPF2005_SEGA::MainDescTree = nullptr;
 uint32_t CGame_TOPF2005_SEGA::rgExtraCountAll[TOPF2005_SEGA_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_TOPF2005_SEGA::rgExtraLoc[TOPF2005_SEGA_NUMUNIT + 1] = { (uint32_t)-1 };
 
-UINT32 CGame_TOPF2005_SEGA::m_nTotalPaletteCountForTOPF2005 = 0;
-UINT32 CGame_TOPF2005_SEGA::m_nExpectedGameROMSize = 0x200000;
-UINT32 CGame_TOPF2005_SEGA::m_nConfirmedROMSize = -1;
+uint32_t CGame_TOPF2005_SEGA::m_nTotalPaletteCountForTOPF2005 = 0;
+uint32_t CGame_TOPF2005_SEGA::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_TOPF2005_SEGA::m_nConfirmedROMSize = -1;
 
 void CGame_TOPF2005_SEGA::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_TOPF2005_SEGA::InitializeStatics()
     MainDescTree.SetRootTree(CGame_TOPF2005_SEGA::InitDescTree());
 }
 
-CGame_TOPF2005_SEGA::CGame_TOPF2005_SEGA(UINT32 nConfirmedROMSize)
+CGame_TOPF2005_SEGA::CGame_TOPF2005_SEGA(uint32_t nConfirmedROMSize)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -77,7 +77,7 @@ CGame_TOPF2005_SEGA::~CGame_TOPF2005_SEGA(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_TOPF2005_SEGA::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_TOPF2005_SEGA::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -115,7 +115,7 @@ sDescTreeNode* CGame_TOPF2005_SEGA::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_TOPF2005, &TOPF2005_SEGA_EXTRA_CUSTOM, TOPF2005_SEGA_EXTRALOC, m_nConfirmedROMSize);
 
-    const UINT16 nUnitCt = TOPF2005_SEGA_NUMUNIT + (GetExtraCt(TOPF2005_SEGA_EXTRALOC) ? 1 : 0);
+    const uint16_t nUnitCt = TOPF2005_SEGA_NUMUNIT + (GetExtraCt(TOPF2005_SEGA_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

@@ -6,7 +6,7 @@
 // * Run PalMod and copy the debug output into the header
 // That should be it.  Good luck.
 
-const std::vector<UINT16> KOF96_A_IMGIDS_USED =
+const std::vector<uint16_t> KOF96_A_IMGIDS_USED =
 {
     // We get the lifebar portrait from these preview sets
     indexKOF94Sprites_Kyo,

@@ -9,14 +9,14 @@ constexpr auto EXTRA_FILENAME_SVCPLUSA_A = L"SVCE.txt";
 class CGame_SVCPLUSA_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForSVCPLUSA;
+    static uint32_t m_nTotalPaletteCountForSVCPLUSA;
 
     static uint32_t rgExtraCountAll[SVCPLUSA_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[SVCPLUSA_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -48,7 +48,7 @@ private:
     void UpdateGameName(CFile* LoadedFile);
 
 public:
-    CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize);
+    CGame_SVCPLUSA_A(uint32_t nConfirmedROMSize);
     ~CGame_SVCPLUSA_A(void);
 
     //Static functions / variables

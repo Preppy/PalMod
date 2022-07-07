@@ -12,7 +12,7 @@ struct sPalRedir
 
 struct sPalSep
 {
-    WCHAR szDesc[MAX_DESCRIPTION_LENGTH];
+    wchar_t szDesc[MAX_DESCRIPTION_LENGTH];
     uint32_t nStart;
     uint32_t nAmt;
 };
@@ -64,11 +64,11 @@ public:
 
     uint32_t GetPalAmt() { return m_nCurrPalAmt; };
 
-    BOOL AddPal(COLORREF* pPal, UINT16 uPalSz, uint32_t uUnitId, uint32_t uPalId);
+    BOOL AddPal(COLORREF* pPal, uint16_t uPalSz, uint32_t uUnitId, uint32_t uPalId);
     BOOL AddSep(uint32_t nIndex, LPCWSTR szDesc, uint32_t nStart, uint32_t nAmt);
 
-    void SetRGBA(COLORREF* crTarget, UINT8 rVal, UINT8 gVal, UINT8 bVal, UINT8 aVal = 0);
-    void SetHLSA(COLORREF* crTarget, double dH, double dL, double dS, UINT8 aVal);
+    void SetRGBA(COLORREF* crTarget, uint8_t rVal, uint8_t gVal, uint8_t bVal, uint8_t aVal = 0);
+    void SetHLSA(COLORREF* crTarget, double dH, double dL, double dS, uint8_t aVal);
 
     void SetAddHLSA(COLORREF crSrc, COLORREF* crTarget, double fpAddH, double fpAddL, double fpAddS, int uAddA);
     void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA);

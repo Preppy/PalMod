@@ -7,7 +7,7 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
-const std::vector<UINT16> BMKNS_SNES_IMGIDS_USED =
+const std::vector<uint16_t> BMKNS_SNES_IMGIDS_USED =
 {
     indexBMKNST_Altia,                  // 0x87
     indexBMKNST_Body,                   // 0x88

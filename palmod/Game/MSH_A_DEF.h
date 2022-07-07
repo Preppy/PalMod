@@ -43,7 +43,7 @@ const sGame_PaletteDataset MSH_A_THANOS_PALETTES_P1[] =
 
 #pragma region SecondaryPaletteEffects
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Blackheart =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSH_Blackheart =
 {
     // 16 intro palettes starting at 4, last 3 minus about 4 LUM per step
     { SUPP_NODE, 4, 0 },
@@ -90,7 +90,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Blackheart =
         MOD_WHITE, 13, 1 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Shuma =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSH_Shuma =
 {
     // Dash/Guard: Extra 01
     { SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 8,
@@ -209,7 +209,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Shuma =
         MOD_LUM, 1, 15, NEG + 20 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Spidey =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSH_Spidey =
 {
     // Taunt balloon: we don't touch
 
@@ -232,7 +232,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Spidey =
         MOD_LUM, 01, 10, NEG + 3 },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_MSH_Wolverine =
+const std::vector<std::vector<uint16_t>> paletteBuddy_MSH_Wolverine =
 {
     // his berserker barrage trails a bit of his costume.
     { SUPP_NODE | SUPP_NODE_NOCOPY, 2, 8,
@@ -249,7 +249,7 @@ const stPaletteProcessingInformation secondaryMSHWolverineEffects{ paletteBuddy_
 
 #pragma endregion
 
-const std::vector<UINT16> MSH_A_IMGIDS_USED =
+const std::vector<uint16_t> MSH_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Wolverine,
     indexCPS2Sprites_Psylocke,

@@ -11,9 +11,9 @@ CDescTree CGame_KOF98AE2016_A::MainDescTree = nullptr;
 uint32_t CGame_KOF98AE2016_A::rgExtraCountAll[KOF98AE2016_A_NUMUNIT + 1];
 uint32_t CGame_KOF98AE2016_A::rgExtraLoc[KOF98AE2016_A_NUMUNIT + 1];
 
-UINT32 CGame_KOF98AE2016_A::m_nTotalPaletteCountForKOF98AE2016 = 1932;
-UINT32 CGame_KOF98AE2016_A::m_nExpectedGameROMSize = 0x600000;
-UINT32 CGame_KOF98AE2016_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_KOF98AE2016_A::m_nTotalPaletteCountForKOF98AE2016 = 1932;
+uint32_t CGame_KOF98AE2016_A::m_nExpectedGameROMSize = 0x600000;
+uint32_t CGame_KOF98AE2016_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF98AE2016_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_KOF98AE2016_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KOF98AE2016_A::InitDescTree());
 }
 
-CGame_KOF98AE2016_A::CGame_KOF98AE2016_A(UINT32 nConfirmedROMSize)
+CGame_KOF98AE2016_A::CGame_KOF98AE2016_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOF98AE2016_A::CGame_KOF98AE2016_A: Loading ROM...\n");
 
@@ -97,7 +97,7 @@ uint32_t CGame_KOF98AE2016_A::GetExtraLoc(uint32_t nUnitId)
 struct sKOF98AE2016_A_PaletteData
 {
     LPCWSTR pszCharacterName;
-    UINT32 nROMOffset = 0;
+    uint32_t nROMOffset = 0;
     LPCWSTR pszImageSet = L"indexKOF98Sprites_Kyo";
     bool rgIsEffectUsed[11];
 };
@@ -115,7 +115,7 @@ sFileRule CGame_KOF98AE2016_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_KOF98AE2016_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_KOF98AE2016_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -140,7 +140,7 @@ sDescTreeNode* CGame_KOF98AE2016_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KOF98AE2016_A, &KOF98AE2016_A_EXTRA_CUSTOM, KOF98AE2016_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KOF98AE2016_A_NUMUNIT + (GetExtraCt(KOF98AE2016_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = KOF98AE2016_A_NUMUNIT + (GetExtraCt(KOF98AE2016_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

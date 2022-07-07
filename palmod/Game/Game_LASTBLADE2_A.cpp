@@ -11,9 +11,9 @@ CDescTree CGame_LASTBLADE2_A::MainDescTree = nullptr;
 uint32_t CGame_LASTBLADE2_A::rgExtraCountAll[LASTBLADE2_A_NUMUNIT + 1];
 uint32_t CGame_LASTBLADE2_A::rgExtraLoc[LASTBLADE2_A_NUMUNIT + 1];
 
-UINT32 CGame_LASTBLADE2_A::m_nTotalPaletteCountForLASTBLADE2 = 0;
-UINT32 CGame_LASTBLADE2_A::m_nExpectedGameROMSize = -1; // The Neo-Geo and Steam ROMs are different sizes
-UINT32 CGame_LASTBLADE2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_LASTBLADE2_A::m_nTotalPaletteCountForLASTBLADE2 = 0;
+uint32_t CGame_LASTBLADE2_A::m_nExpectedGameROMSize = -1; // The Neo-Geo and Steam ROMs are different sizes
+uint32_t CGame_LASTBLADE2_A::m_nConfirmedROMSize = -1;
 
 void CGame_LASTBLADE2_A::InitializeStatics()
 {
@@ -25,13 +25,13 @@ void CGame_LASTBLADE2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_LASTBLADE2_A::InitDescTree());
 }
 
-CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad /*= LASTBLADE2_A */)
+CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad /*= LASTBLADE2_A */)
 {
     OutputDebugString(L"CGame_LASTBLADE2_A::CGame_LASTBLADE2_A: Loading ROM...\n");
 
     createPalOptions = {
                         NO_SPECIAL_OPTIONS, // Set to SKIP_FIRST_COLOR for most CPS2 games.  Use the nStartingPosition version of UpdatePalData as found in CPS2 game code.
-                        PALWriteOutputOptions::WRITE_16            // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
+                        PALWriteOutputOptions::WRITE_16            // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter uint16_t.
                                             // You can set this to PALWriteOutputOptions::WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
     };
 
@@ -111,7 +111,7 @@ sDescTreeNode* CGame_LASTBLADE2_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_LASTBLADE2_A, &LASTBLADE2_A_EXTRA_CUSTOM, LASTBLADE2_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = LASTBLADE2_A_NUMUNIT + (GetExtraCt(LASTBLADE2_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = LASTBLADE2_A_NUMUNIT + (GetExtraCt(LASTBLADE2_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -147,7 +147,7 @@ sFileRule CGame_LASTBLADE2_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_LASTBLADE2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_LASTBLADE2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

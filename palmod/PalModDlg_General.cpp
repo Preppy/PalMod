@@ -227,7 +227,7 @@ void CPalModDlg::PostPalSel()
                 // This is where we load our images from img.dat .
                 // nUnitId is the character/palette index.
                 // nImgId is the extra offset for that character.
-                int nImgKey = (static_cast<UINT16>(CurrTicket->nUnitId) << 16) | static_cast<UINT16>(CurrTicket->nImgId);
+                int nImgKey = (static_cast<uint16_t>(CurrTicket->nUnitId) << 16) | static_cast<uint16_t>(CurrTicket->nImgId);
                 static int s_nLastPalAmt = 1;
 
                 CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
@@ -349,7 +349,7 @@ void CPalModDlg::OnPalHLChange(void* pPalCtrl, UINT_PTR nCtrlId)
     }
     else if (nHLAmt == 1)
     {
-        WCHAR szIndex[32];
+        wchar_t szIndex[32];
         // this is the status bar area text
         _snwprintf_s(szIndex, ARRAYSIZE(szIndex), _TRUNCATE, L"(%d: %d)", (int)nCtrlId, pNotifyCtrl->GetHighlightIndex());
 

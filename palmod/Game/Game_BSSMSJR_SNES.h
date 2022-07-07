@@ -6,14 +6,14 @@
 class CGame_BSSMSJR_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForBMKNS;
+    static uint32_t m_nTotalPaletteCountForBMKNS;
 
     static uint32_t rgExtraCountAll[BSSMSJR_SNES_NUMUNIT + 1];
     static uint32_t rgExtraLoc[BSSMSJR_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -22,7 +22,7 @@ private:
     static constexpr auto BSSMSJR_SNES_PRIMARY_ROMNAME = L"Bishoujo Senshi Sailor Moon S - Jougai Rantou! Shuyaku Soudatsusen (Japan).sfc";
 
 public:
-    CGame_BSSMSJR_SNES(UINT32 nConfirmedROMSize);
+    CGame_BSSMSJR_SNES(uint32_t nConfirmedROMSize);
     ~CGame_BSSMSJR_SNES(void);
 
     //Static functions / variables

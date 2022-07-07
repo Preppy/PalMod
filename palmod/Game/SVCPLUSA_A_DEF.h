@@ -57,7 +57,7 @@ enum SupportedSVC_A_PaletteListIndex
 constexpr auto SVCPLUSA_A_NUMUNIT = indexSVC_A_Last;
 constexpr auto SVCPLUSA_A_EXTRALOC = SVCPLUSA_A_NUMUNIT;
 
-const std::vector<UINT16> SVCPLUSA_A_IMGIDS_USED =
+const std::vector<uint16_t> SVCPLUSA_A_IMGIDS_USED =
 {
     indexKOF97Sprites_Kyo,
     indexKOF96Sprites_Ryo,
@@ -2280,7 +2280,7 @@ const sDescTreeNode SVCPLUSA_A_BONUS_COLLECTION[] =
     { L"Select Screen", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_BONUS_SELECT_PALETTES, ARRAYSIZE(SVCPLUSA_A_BONUS_SELECT_PALETTES) },
 };
 
-const UINT8 SVCPLUSA_A_UNITSORT[SVCPLUSA_A_NUMUNIT + 1] // Plus 1 for extras
+const uint8_t SVCPLUSA_A_UNITSORT[SVCPLUSA_A_NUMUNIT + 1] // Plus 1 for extras
 {
     indexSVC_A_Kyo,
     indexSVC_A_Iori,

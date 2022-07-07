@@ -14,18 +14,18 @@ constexpr auto MAX_FILENAME_LENGTH = 64;
 //File rule definition
 struct sFileRule
 {
-    WCHAR szFileName[MAX_FILENAME_LENGTH] = L"uninit";
-    UINT32 uVerifyVar;
+    wchar_t szFileName[MAX_FILENAME_LENGTH] = L"uninit";
+    uint32_t uVerifyVar;
     uint32_t uUnitId = INVALID_UNIT_VALUE;
     bool fHasAltName = false;
-    WCHAR szAltFileName[MAX_FILENAME_LENGTH] = L"uninit";
-    UINT32 uAltVerifyVar = (UINT32)-1;
+    wchar_t szAltFileName[MAX_FILENAME_LENGTH] = L"uninit";
+    uint32_t uAltVerifyVar = (uint32_t)-1;
 };
 
-const UINT32 k_nBogusHighValue = 0xFEEDFED;
+const uint32_t k_nBogusHighValue = 0xFEEDFED;
 
-const UINT16 RULE_COUNTER_MASK = 0xF000;
-const UINT16 RULE_COUNTER_DEMASK = 0x0FFF;
+const uint16_t RULE_COUNTER_MASK = 0xF000;
+const uint16_t RULE_COUNTER_DEMASK = 0x0FFF;
 
 class CGameClass : public CSecondaryPaletteProcessing
 {
@@ -39,7 +39,7 @@ protected:
     uint32_t m_nTotalInternalUnits = INVALID_UNIT_VALUE;
     uint32_t m_nCurrentPaletteROMLocation = 0;
     uint32_t m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
-    UINT16 m_nCurrentPaletteSizeInColors = 0;
+    uint16_t m_nCurrentPaletteSizeInColors = 0;
     LPCWSTR m_pszCurrentPaletteName = nullptr;
     uint32_t m_nConfirmedCRCValue = 0;
 
@@ -49,7 +49,7 @@ protected:
     uint32_t nUnitAmt = 0;
     SupportedGamesList nGameFlag = NUM_GAMES;
     int nImgGameFlag = 0;
-    std::vector<UINT16> m_prgGameImageSet;
+    std::vector<uint16_t> m_prgGameImageSet;
 
     //Values used for image out
     uint32_t nSrcPalUnit[MAX_PALETTES_DISPLAYABLE] = { 0 };
@@ -83,9 +83,9 @@ protected:
     struct sCreatePalOptions
     {
         // Normally zero, but we can offset by one in some cases.
-        UINT8 nStartingPosition = NO_SPECIAL_OPTIONS;
+        uint8_t nStartingPosition = NO_SPECIAL_OPTIONS;
         PALWriteOutputOptions eWriteOutputOptions = PALWriteOutputOptions::WRITE_16;
-        UINT16 nTransparencyColorPosition = 0;
+        uint16_t nTransparencyColorPosition = 0;
     };
 
     sCreatePalOptions createPalOptions;
@@ -109,10 +109,10 @@ protected:
     void ClearDirtyPaletteTracker() { m_vDirtyPaletteList.clear(); };
     std::vector<sPaletteIdentifier> m_vDirtyPaletteList;
     
-    static UINT8 m_nSizeOfColorsInBytes;
-    UINT16*** m_pppDataBuffer = nullptr;
-    UINT32*** m_pppDataBuffer24 = nullptr;
-    UINT32*** m_pppDataBuffer32 = nullptr;
+    static uint8_t m_nSizeOfColorsInBytes;
+    uint16_t*** m_pppDataBuffer = nullptr;
+    uint32_t*** m_pppDataBuffer24 = nullptr;
+    uint32_t*** m_pppDataBuffer32 = nullptr;
 
     struct ROMRevisionLookupData
     {
@@ -147,25 +147,25 @@ public:
     uint32_t nRedirCtr = 0;
 
     // Currently only used by MVC2
-    UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
+    uint16_t*** GetDataBuffer() { return m_pppDataBuffer; };
     // This is called as part of Edit's debug information.  It wants the true ROM location, so correct for the nStartingPosition offset
     uint32_t GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (createPalOptions.nStartingPosition * GetGameColorByteLength()); };
     uint32_t GetLowestExpectedPaletteLocation();
 
-    inline UINT8 GetGameColorByteLength() { return m_nSizeOfColorsInBytes; };
+    inline uint8_t GetGameColorByteLength() { return m_nSizeOfColorsInBytes; };
     inline BOOL GameIsUsing16BitColor() { return m_nSizeOfColorsInBytes == 2; };
     inline BOOL GameIsUsing24BitColor() { return m_nSizeOfColorsInBytes == 3; };
     inline BOOL GameIsUsing32BitColor() { return m_nSizeOfColorsInBytes == 4; };
 
-    UINT16 GetCurrentPaletteSizeInColors() { return m_nCurrentPaletteSizeInColors; };
+    uint16_t GetCurrentPaletteSizeInColors() { return m_nCurrentPaletteSizeInColors; };
     LPCWSTR GetCurrentPaletteName() { return m_pszCurrentPaletteName; };
 
-    UINT16(*ConvCol16)(UINT32 inCol);
-    UINT32(*ConvCol24)(UINT32 inCol);
-    UINT32(*ConvCol32)(UINT32 inCol);
-    UINT32(*ConvPal16)(UINT16 inCol);
-    UINT32(*ConvPal24)(UINT32 inCol);
-    UINT32(*ConvPal32)(UINT32 inCol);
+    uint16_t(*ConvCol16)(uint32_t inCol);
+    uint32_t(*ConvCol24)(uint32_t inCol);
+    uint32_t(*ConvCol32)(uint32_t inCol);
+    uint32_t(*ConvPal16)(uint16_t inCol);
+    uint32_t(*ConvPal24)(uint32_t inCol);
+    uint32_t(*ConvPal32)(uint32_t inCol);
     int(*GetColorStepFor8BitValue_RGB)(int inCol);
     int(*Get8BitValueForColorStep_RGB)(int inCol);
     int(*GetColorStepFor8BitValue_A)(int inCol);
@@ -194,14 +194,14 @@ public:
 
     virtual void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { createPalOptions.eWriteOutputOptions = eUpdatedOption; };
     PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return createPalOptions.eWriteOutputOptions; };
-    UINT16 GetTransparencyColorPosition() { return createPalOptions.nTransparencyColorPosition; };
+    uint16_t GetTransparencyColorPosition() { return createPalOptions.nTransparencyColorPosition; };
 
     BOOL SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt = 1, int nMax = 6);
 
     SupportedGamesList GetGameFlag() { return nGameFlag; };
     int GetImgGameFlag() { return nImgGameFlag; };
     uint32_t GetUnitCt() { return nUnitAmt; };
-    std::vector<UINT16> GetImageSetForGame() { return m_prgGameImageSet; };
+    std::vector<uint16_t> GetImageSetForGame() { return m_prgGameImageSet; };
     sImgTicket* GetImgTicket() { return CurrImgTicket; };
 
     CPalGroup* GetPalGroup() { return &BasePalGroup; };
@@ -233,7 +233,7 @@ public:
 
     void RevertChanges(int nPalId);
 
-    BOOL CreateHybridPal(uint32_t nIndexAmt, uint32_t nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, uint32_t* nNewPalSz);
+    BOOL CreateHybridPal(uint32_t nIndexAmt, uint32_t nPalSz, uint16_t* pData, int nExclusion, COLORREF** pNewPal, uint32_t* nNewPalSz);
 
     static void AllowTransparencyEdits(BOOL fAllow) { m_fAllowTransparencyEdits = fAllow; };
     static BOOL AllowTransparencyEdits() { return m_fAllowTransparencyEdits; };
@@ -252,9 +252,9 @@ public:
     virtual uint32_t SaveMultiplePatchFiles(CString strTargetDirectory);
     bool UserWantsAllPalettesInPatch();
     void SetSpecificValuesForCRC(CFile* CurrFile, uint32_t nCRCForFile);
-    virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
+    virtual uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
 
-    void WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, UINT16 nColorCount);
+    void WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, uint16_t nColorCount);
 
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(uint32_t nUnitId, uint32_t nPalId);
@@ -287,7 +287,7 @@ public:
 
     void DumpTreeSorted();
 
-    static UINT32 _InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nTotalNormalUnitCount, uint32_t* rgExtraCount, uint32_t* rgExtraLocations, stExtraDef *ppExtraDef);
+    static uint32_t _InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nTotalNormalUnitCount, uint32_t* rgExtraCount, uint32_t* rgExtraLocations, stExtraDef *ppExtraDef);
 
     void MarkPaletteDirty(uint32_t nUnit, uint32_t nPaletteId);
     void MarkPaletteClean(uint32_t nUnit, uint32_t nPaletteId);
@@ -295,20 +295,20 @@ public:
 
     // This section covers SIMM-based games.
     // The length of one individual SIMM file
-    UINT32 m_nSIMMLength = 0;
+    uint32_t m_nSIMMLength = 0;
     // The number of SIMMs we need to load to build one file view
-    UINT16 m_nNumberOfSIMMsPerSet = 0;
+    uint16_t m_nNumberOfSIMMsPerSet = 0;
     // The base filename that we then append the file number data to
     LPCWSTR m_pszSIMMBaseFileName = nullptr;
     // This is the "5" in 5.0
-    UINT8 m_nSIMMSetBaseNumber = 0;
+    uint8_t m_nSIMMSetBaseNumber = 0;
     // This is the "0" in 5.0
-    UINT8 m_nSIMMSetStartingFileNumber = 0;
-    UINT8 m_nTotalNumberOfSIMMFilesNeeded = 0;
+    uint8_t m_nSIMMSetStartingFileNumber = 0;
+    uint8_t m_nTotalNumberOfSIMMFilesNeeded = 0;
 
-    inline UINT32 GetSIMMLocationFromROMLocation(UINT32 nROMLocation);
-    inline UINT32 GetLocationWithinSIMM(UINT32 nSIMMSetLocation);
-    inline UINT8 GetSIMMSetForROMLocation(UINT32 nROMLocation);
+    inline uint32_t GetSIMMLocationFromROMLocation(uint32_t nROMLocation);
+    inline uint32_t GetLocationWithinSIMM(uint32_t nSIMMSetLocation);
+    inline uint8_t GetSIMMSetForROMLocation(uint32_t nROMLocation);
     BOOL LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber);
     BOOL SaveFileForSIMMGame(CFile* SaveFile, uint32_t nSIMMNumber);
     // this is a little hacky...

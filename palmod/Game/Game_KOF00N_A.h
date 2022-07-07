@@ -9,20 +9,20 @@ constexpr auto EXTRA_FILENAME_KOF00N_A = L"KOF00nE.txt";
 class CGame_KOF00N_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForKOF00N;
+    static uint32_t m_nTotalPaletteCountForKOF00N;
 
     static uint32_t rgExtraCountAll[KOF00N_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[KOF00N_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_KOF00N_A(UINT32 nConfirmedROMSize);
+    CGame_KOF00N_A(uint32_t nConfirmedROMSize);
     ~CGame_KOF00N_A(void);
 
     //Static functions / variables

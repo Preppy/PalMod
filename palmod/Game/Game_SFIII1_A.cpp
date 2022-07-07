@@ -14,11 +14,11 @@ uint32_t CGame_SFIII1_A::rgExtraCountVisibleOnly_50[SFIII1_A_50_NUMUNIT + 1] = {
 uint32_t CGame_SFIII1_A::rgExtraLoc_50[SFIII1_A_50_NUMUNIT + 1] = { (uint32_t)-1 };
 
 CDescTree CGame_SFIII1_A::MainDescTree_50 = nullptr;
-UINT32 CGame_SFIII1_A::m_nExpectedGameROMSize = 0x400000; // 4,194,304 bytes
-UINT32 CGame_SFIII1_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SFIII1_A::m_nExpectedGameROMSize = 0x400000; // 4,194,304 bytes
+uint32_t CGame_SFIII1_A::m_nConfirmedROMSize = -1;
 
 uint32_t CGame_SFIII1_A::m_nSelectedRom = 50;
-UINT32 CGame_SFIII1_A::m_nTotalPaletteCountForSFIII1_50 = 0;
+uint32_t CGame_SFIII1_A::m_nTotalPaletteCountForSFIII1_50 = 0;
 
 void CGame_SFIII1_A::InitializeStatics()
 {
@@ -31,7 +31,7 @@ void CGame_SFIII1_A::InitializeStatics()
     MainDescTree_50.SetRootTree(CGame_SFIII1_A::InitDescTree(50));
 }
 
-CGame_SFIII1_A::CGame_SFIII1_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
+CGame_SFIII1_A::CGame_SFIII1_A(uint32_t nConfirmedROMSize, int nSF3ROMToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -127,7 +127,7 @@ sDescTreeNode* CGame_SFIII1_A::InitDescTree(int nROMPaletteSetToUse)
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SFIII1_50, &SFIII1_A_50_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
     bool fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-    UINT16 nUnitCt = SFIII1_A_50_NUMUNIT + (fHaveExtras ? 1 : 0);
+    uint16_t nUnitCt = SFIII1_A_50_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -337,8 +337,8 @@ const sDescTreeNode* CGame_SFIII1_A::GetNodeFromPaletteId(uint32_t nUnitId, uint
 void CGame_SFIII1_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_SFIII1_A::ClearDataBuffer()

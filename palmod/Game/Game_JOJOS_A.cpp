@@ -14,14 +14,14 @@ CDescTree CGame_JOJOS_A::MainDescTree_50 = nullptr;
 CDescTree CGame_JOJOS_A::MainDescTree_51 = nullptr;
 
 uint32_t CGame_JOJOS_A::m_nJojosMode = 50;
-UINT32 CGame_JOJOS_A::m_nTotalPaletteCount50 = 0;
-UINT32 CGame_JOJOS_A::m_nTotalPaletteCount51 = 0;
+uint32_t CGame_JOJOS_A::m_nTotalPaletteCount50 = 0;
+uint32_t CGame_JOJOS_A::m_nTotalPaletteCount51 = 0;
 
 uint32_t CGame_JOJOS_A::rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1] = { (uint32_t)-1 };
 uint32_t CGame_JOJOS_A::rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { (uint32_t)-1 };
 uint32_t CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { (uint32_t)-1 };
 uint32_t CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { (uint32_t)-1 };
-UINT32 CGame_JOJOS_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_JOJOS_A::m_nConfirmedROMSize = -1;
 
 void CGame_JOJOS_A::InitializeStatics()
 {
@@ -39,7 +39,7 @@ void CGame_JOJOS_A::InitializeStatics()
     MainDescTree_51.SetRootTree(CGame_JOJOS_A::InitDescTree(JOJOS_US_A_51_ROMKEY));
 }
 
-CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
+CGame_JOJOS_A::CGame_JOJOS_A(uint32_t nConfirmedROMSize, int nJojosModeToLoad)
 {
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
@@ -68,8 +68,8 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     m_nTotalInternalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
-    const UINT32 nSafeCountFor50 = 476;
-    const UINT32 nSafeCountFor51 = 1823;
+    const uint32_t nSafeCountFor50 = 476;
+    const uint32_t nSafeCountFor51 = 1823;
 
     m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
     m_pszExtraFilename = UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51;
@@ -224,7 +224,7 @@ void ExportTableToDebugger()
 
 sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
     m_nJojosMode = nPaletteSetToUse;
 
     //Load extra file if we're using it
@@ -658,8 +658,8 @@ const sGame_PaletteDataset* CGame_JOJOS_A::GetSpecificPalette(uint32_t nUnitId, 
 void CGame_JOJOS_A::InitDataBuffer()
 {
     m_nBufferJojosMode = m_nJojosMode;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, 0, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_JOJOS_A::ClearDataBuffer()
@@ -714,7 +714,7 @@ const sGame_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(uint32_t nUnitId, uint3
 void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    UINT32 nOffset = 0;
+    uint32_t nOffset = 0;
     int cbPaletteSizeOnDisc = 0;
     BOOL isPaletteFromExtensionsFile = FALSE;
 
@@ -726,7 +726,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 
     if (!isPaletteFromExtensionsFile)
     {
-        UINT32 nCurrentPaletteOffset = 0;
+        uint32_t nCurrentPaletteOffset = 0;
         uint32_t nDistanceFromZero = nPalId;
         const sGame_PaletteDataset* paletteSetToUse = nullptr;
 
@@ -935,8 +935,8 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         const sGame_PaletteDataset* paletteDataSetOne = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteOneDelta);
                         const sGame_PaletteDataset* paletteDataSetTwo = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteTwoDelta);
 
-                        UINT16 imageOne = paletteDataSetOne->indexOffsetToUse;
-                        UINT16 imageTwo = paletteDataSetTwo->indexOffsetToUse;
+                        uint16_t imageOne = paletteDataSetOne->indexOffsetToUse;
+                        uint16_t imageTwo = paletteDataSetTwo->indexOffsetToUse;
 
                         if ((NodeGet->uUnitId == indexJojos51Kakyo) &&
                             !((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)))
@@ -1009,11 +1009,11 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         const sGame_PaletteDataset* paletteDataSetFour = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteFourDelta);
                         const sGame_PaletteDataset* paletteDataSetFive = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteFiveDelta);
 
-                        UINT16 imageOne = paletteDataSetOne->indexOffsetToUse;
-                        UINT16 imageTwo = paletteDataSetTwo->indexOffsetToUse;
-                        UINT16 imageThree = paletteDataSetThree->indexOffsetToUse;
-                        UINT16 imageFour = paletteDataSetFour->indexOffsetToUse;
-                        UINT16 imageFive = paletteDataSetFive->indexOffsetToUse;
+                        uint16_t imageOne = paletteDataSetOne->indexOffsetToUse;
+                        uint16_t imageTwo = paletteDataSetTwo->indexOffsetToUse;
+                        uint16_t imageThree = paletteDataSetThree->indexOffsetToUse;
+                        uint16_t imageFour = paletteDataSetFour->indexOffsetToUse;
+                        uint16_t imageFive = paletteDataSetFive->indexOffsetToUse;
 
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSetOne->indexImgToUse, imageOne,

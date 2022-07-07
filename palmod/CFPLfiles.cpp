@@ -135,7 +135,7 @@ CCFPLFileExportDialog::~CCFPLFileExportDialog()
 
         if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_SET_VALUE, &hKey) == ERROR_SUCCESS)
         {
-            RegSetValueEx(hKey, m_strCreatorValueName.data(), 0, REG_SZ, (LPBYTE)m_strCreator.GetString(), (DWORD)(m_strCreator.GetLength() + 1) * sizeof(WCHAR));
+            RegSetValueEx(hKey, m_strCreatorValueName.data(), 0, REG_SZ, (LPBYTE)m_strCreator.GetString(), (DWORD)(m_strCreator.GetLength() + 1) * sizeof(wchar_t));
 
             RegCloseKey(hKey);
         }
@@ -153,7 +153,7 @@ BOOL CCFPLFileExportDialog::OnInitDialog()
     if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey) == ERROR_SUCCESS)
     {
         DWORD dwRegType = REG_SZ;
-        WCHAR szCreatorName[MAX_PATH] = {};
+        wchar_t szCreatorName[MAX_PATH] = {};
         DWORD cbDataSize = sizeof(szCreatorName);
 
         if ((RegQueryValueEx(hKey, m_strCreatorValueName.data(), 0, &dwRegType, (LPBYTE)szCreatorName, &cbDataSize) == ERROR_SUCCESS) &&

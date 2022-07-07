@@ -6,14 +6,14 @@
 class CGame_TMNTTF_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForTMNTTF;
+    static uint32_t m_nTotalPaletteCountForTMNTTF;
 
     static uint32_t rgExtraCountAll[TMNTTF_SNES_NUMUNIT + 1];
     static uint32_t rgExtraLoc[TMNTTF_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -22,7 +22,7 @@ private:
     static constexpr auto TMNTTF_SNES_PRIMARY_ROMNAME = L"sns-ky-0.u1";
 
 public:
-    CGame_TMNTTF_SNES(UINT32 nConfirmedROMSize);
+    CGame_TMNTTF_SNES(uint32_t nConfirmedROMSize);
     ~CGame_TMNTTF_SNES(void);
 
     //Static functions / variables

@@ -6,9 +6,9 @@
 
 // There are two different versions of game: one split, and one not.
 // So we just won't use sizing values here.
-UINT32 CGame_MMX_SNES::m_nExpectedGameROMSize = 0x100000;
+uint32_t CGame_MMX_SNES::m_nExpectedGameROMSize = 0x100000;
 
-CGame_MMX_SNES::CGame_MMX_SNES(UINT32 nConfirmedROMSize)
+CGame_MMX_SNES::CGame_MMX_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_MMX_SNES::CGame_MMX_SNES: Loading ROM...\n");
 
@@ -66,8 +66,8 @@ stExtraDef* CGame_MMX_SNES::MMX_SNES_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_MMX_SNES::MainDescTree = nullptr;
 uint32_t CGame_MMX_SNES::rgExtraCountAll[MMX_SNES_NUMUNIT + 1];
 uint32_t CGame_MMX_SNES::rgExtraLoc[MMX_SNES_NUMUNIT + 1];
-UINT32 CGame_MMX_SNES::m_nTotalPaletteCountForMMX = 0;
-UINT32 CGame_MMX_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_MMX_SNES::m_nTotalPaletteCountForMMX = 0;
+uint32_t CGame_MMX_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_MMX_SNES::InitializeStatics()
 {
@@ -107,7 +107,7 @@ sDescTreeNode* CGame_MMX_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_MMX_SNES, &MMX_SNES_EXTRA_CUSTOM, MMX_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = MMX_SNES_NUMUNIT + (GetExtraCt(MMX_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = MMX_SNES_NUMUNIT + (GetExtraCt(MMX_SNES_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

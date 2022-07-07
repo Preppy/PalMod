@@ -16,9 +16,9 @@ uint32_t CGame_VENTURE_A::rgExtraLoc_31[VENTURE_A_NUMUNIT_31 + 1];
 uint32_t CGame_VENTURE_A::rgExtraLoc_50[VENTURE_A_NUMUNIT_50 + 1];
 
 uint32_t CGame_VENTURE_A::m_nVentureMode = 50;
-UINT32 CGame_VENTURE_A::m_nTotalPaletteCountFor31 = 0;
-UINT32 CGame_VENTURE_A::m_nTotalPaletteCountFor50 = 0;
-UINT32 CGame_VENTURE_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_VENTURE_A::m_nTotalPaletteCountFor31 = 0;
+uint32_t CGame_VENTURE_A::m_nTotalPaletteCountFor50 = 0;
+uint32_t CGame_VENTURE_A::m_nConfirmedROMSize = -1;
 
 void CGame_VENTURE_A::InitializeStatics()
 {
@@ -34,7 +34,7 @@ void CGame_VENTURE_A::InitializeStatics()
     MainDescTree_50.SetRootTree(CGame_VENTURE_A::InitDescTree(50));
 }
 
-CGame_VENTURE_A::CGame_VENTURE_A(UINT32 nConfirmedROMSize /* = -1 */, int nVentureModeToLoad /* = 50 */)
+CGame_VENTURE_A::CGame_VENTURE_A(uint32_t nConfirmedROMSize /* = -1 */, int nVentureModeToLoad /* = 50 */)
 {
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
@@ -139,7 +139,7 @@ uint32_t CGame_VENTURE_A::GetExtraLoc(uint32_t nUnitId)
 
 sDescTreeNode* CGame_VENTURE_A::InitDescTree(int nPaletteSetToUse)
 {
-    UINT16 nUnitCt = 0;
+    uint16_t nUnitCt = 0;
     m_nVentureMode = nPaletteSetToUse;
 
     //Load extra file if we're using it
@@ -225,8 +225,8 @@ LPCWSTR CGame_VENTURE_A::GetGameName()
 void CGame_VENTURE_A::InitDataBuffer()
 {
     m_nBufferVentureMode = m_nVentureMode;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, 0, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_VENTURE_A::ClearDataBuffer()
@@ -245,7 +245,7 @@ void CGame_VENTURE_A::ClearDataBuffer()
             {
                 uint32_t nPaletteCount = GetPaletteCountForUnit(nUnitCtr);
 
-                for (UINT16 nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
+                for (uint16_t nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPaletteIndex]);
                 }

@@ -11,10 +11,10 @@ CDescTree CGame_SAMSHO5_A::MainDescTree = nullptr;
 uint32_t CGame_SAMSHO5_A::rgExtraCountAll[SAMSHO5_A_NUMUNIT + 1];
 uint32_t CGame_SAMSHO5_A::rgExtraLoc[SAMSHO5_A_NUMUNIT + 1];
 
-UINT32 CGame_SAMSHO5_A::m_nTotalPaletteCountForSAMSHO5 = 0;
-UINT32 CGame_SAMSHO5_A::m_nExpectedGameROMSize_5 = 0x400000;
-UINT32 CGame_SAMSHO5_A::m_nExpectedGameROMSize_5X = 0x800000;
-UINT32 CGame_SAMSHO5_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SAMSHO5_A::m_nTotalPaletteCountForSAMSHO5 = 0;
+uint32_t CGame_SAMSHO5_A::m_nExpectedGameROMSize_5 = 0x400000;
+uint32_t CGame_SAMSHO5_A::m_nExpectedGameROMSize_5X = 0x800000;
+uint32_t CGame_SAMSHO5_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO5_A::InitializeStatics()
 {
@@ -26,7 +26,7 @@ void CGame_SAMSHO5_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SAMSHO5_A::InitDescTree());
 }
 
-CGame_SAMSHO5_A::CGame_SAMSHO5_A(UINT32 nConfirmedROMSize, SupportedGamesList nROMToLoad /*= SAMSHO5_A*/)
+CGame_SAMSHO5_A::CGame_SAMSHO5_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad /*= SAMSHO5_A*/)
 {
     OutputDebugString(L"CGame_SAMSHO5_A::CGame_SAMSHO5_A: Loading ROM...\n");
 
@@ -100,7 +100,7 @@ sDescTreeNode* CGame_SAMSHO5_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO5_A, &SAMSHO5_A_EXTRA_CUSTOM, SAMSHO5_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = SAMSHO5_A_NUMUNIT + (GetExtraCt(SAMSHO5_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = SAMSHO5_A_NUMUNIT + (GetExtraCt(SAMSHO5_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -175,7 +175,7 @@ const sGame_PaletteDataset* CGame_SAMSHO5_A::GetSpecificPalette(uint32_t nUnitId
     return _GetSpecificPalette(SAMSHO5_A_UNITS, rgExtraCountAll, SAMSHO5_A_NUMUNIT, SAMSHO5_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO5_A_EXTRA_CUSTOM);
 }
 
-UINT32 CGame_SAMSHO5_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SAMSHO5_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

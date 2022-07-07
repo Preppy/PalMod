@@ -11,9 +11,9 @@ CDescTree CGame_KOFXI_A::MainDescTree = nullptr;
 uint32_t CGame_KOFXI_A::rgExtraCountAll[KOFXI_A_NUMUNIT + 1];
 uint32_t CGame_KOFXI_A::rgExtraLoc[KOFXI_A_NUMUNIT + 1];
 
-UINT32 CGame_KOFXI_A::m_nTotalPaletteCountForKOFXI = 0;
-UINT32 CGame_KOFXI_A::m_nExpectedGameROMSize = 0xf000000;
-UINT32 CGame_KOFXI_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_KOFXI_A::m_nTotalPaletteCountForKOFXI = 0;
+uint32_t CGame_KOFXI_A::m_nExpectedGameROMSize = 0xf000000;
+uint32_t CGame_KOFXI_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOFXI_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_KOFXI_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KOFXI_A::InitDescTree());
 }
 
-CGame_KOFXI_A::CGame_KOFXI_A(UINT32 nConfirmedROMSize)
+CGame_KOFXI_A::CGame_KOFXI_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KOFXI_A::CGame_KOFXI_A: Loading ROM...\n");
 
@@ -97,7 +97,7 @@ uint32_t CGame_KOFXI_A::GetExtraLoc(uint32_t nUnitId)
 struct sKOFXI_CharacterDump
 {
     LPCWSTR pszCharacterName = nullptr;
-    UINT32 baseLocation = 0;
+    uint32_t baseLocation = 0;
     LPCWSTR pszImageRefName = nullptr;
 };
 
@@ -158,16 +158,16 @@ void CGame_KOFXI_A::DumpAllCharacters()
     };
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(kofXICharacterList); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(kofXICharacterList); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_KOFXI.size(); iButtonIndex++)
+        for (uint16_t iButtonIndex = 0; iButtonIndex < DEF_BUTTONLABEL_KOFXI.size(); iButtonIndex++)
         {
             nCurrentCharacterOffset = kofXICharacterList[iUnitCtr].baseLocation + (0x200 * iButtonIndex);
 
@@ -193,7 +193,7 @@ void CGame_KOFXI_A::DumpAllCharacters()
             struct MoveWithImage
             {
                 LPCWSTR pszMoveName = L"";
-                UINT32 nCurrentImageToUse = 0x00;
+                uint32_t nCurrentImageToUse = 0x00;
             };
 
             const MoveWithImage rgMoveInfo[] =
@@ -215,10 +215,10 @@ void CGame_KOFXI_A::DumpAllCharacters()
                 { L"Extra Move 8", 0x17 },
             };
 
-            for (UINT16 iCurrentExtra = 0; iCurrentExtra < ARRAYSIZE(rgMoveInfo); iCurrentExtra++)
+            for (uint16_t iCurrentExtra = 0; iCurrentExtra < ARRAYSIZE(rgMoveInfo); iCurrentExtra++)
             {
                 LPCWSTR pszCurrentMoveName = rgMoveInfo[iCurrentExtra].pszMoveName;
-                UINT32 nCurrentImageToUse = rgMoveInfo[iCurrentExtra].nCurrentImageToUse;
+                uint32_t nCurrentImageToUse = rgMoveInfo[iCurrentExtra].nCurrentImageToUse;
 
                 if (kofXICharacterList[iUnitCtr].pszImageRefName)
                 {
@@ -242,17 +242,17 @@ void CGame_KOFXI_A::DumpAllCharacters()
     }
 
     // Now create the collections...
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(kofXICharacterList); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(kofXICharacterList); iUnitCtr++)
     {
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOFXI_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nButtonNameIndex = 0; nButtonNameIndex < DEF_BUTTONLABEL_KOFXI_FOR_UI.size(); nButtonNameIndex++)
+        for (uint16_t nButtonNameIndex = 0; nButtonNameIndex < DEF_BUTTONLABEL_KOFXI_FOR_UI.size(); nButtonNameIndex++)
         {
             strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOFXI_A_%s_PALETTES_%s, ARRAYSIZE(KOFXI_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL_KOFXI_FOR_UI[nButtonNameIndex], szCodeDesc, DEF_BUTTONLABEL_KOFXI_FOR_CODE[nButtonNameIndex],
                                                                                                                                             szCodeDesc, DEF_BUTTONLABEL_KOFXI_FOR_CODE[nButtonNameIndex] );
@@ -262,12 +262,12 @@ void CGame_KOFXI_A::DumpAllCharacters()
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(kofXICharacterList); iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(kofXICharacterList); iUnitCtr++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
+        uint32_t nCurrentCharacterOffset = 0;
+        uint16_t nPaletteCount = 0;
         CString strOutput;
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
 
@@ -281,7 +281,7 @@ sDescTreeNode* CGame_KOFXI_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_KOFXI_A, &KOFXI_A_EXTRA_CUSTOM, KOFXI_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KOFXI_A_NUMUNIT + (GetExtraCt(KOFXI_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = KOFXI_A_NUMUNIT + (GetExtraCt(KOFXI_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

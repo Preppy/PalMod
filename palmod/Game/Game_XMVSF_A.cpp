@@ -9,12 +9,12 @@ stExtraDef* CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_XMVSF_A::MainDescTree = nullptr;
 
-UINT32 CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
+uint32_t CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
 
 uint32_t CGame_XMVSF_A::rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_XMVSF_A::rgExtraLoc[XMVSF_A_NUMUNIT + 1] = { (uint32_t)-1 };
-UINT32 CGame_XMVSF_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_XMVSF_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_XMVSF_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_XMVSF_A::m_nConfirmedROMSize = -1;
 
 void CGame_XMVSF_A::InitializeStatics()
 {
@@ -26,7 +26,7 @@ void CGame_XMVSF_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_XMVSF_A::InitDescTree());
 }
 
-CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
+CGame_XMVSF_A::CGame_XMVSF_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_XMVSF_A::CGame_XMVSF_A: Loading ROM\n");
 
@@ -79,7 +79,7 @@ CGame_XMVSF_A::~CGame_XMVSF_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_XMVSF_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_XMVSF_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -165,13 +165,13 @@ CDescTree* CGame_XMVSF_A::GetMainTree()
 
 sDescTreeNode* CGame_XMVSF_A::InitDescTree()
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_XMVSF, &XMVSF_A_EXTRA_CUSTOM, XMVSF_A_EXTRALOC, m_nConfirmedROMSize);
 
     bool fHaveExtras = (GetExtraCt(XMVSF_A_EXTRALOC) > 0);
-    UINT16 nUnitCt = XMVSF_A_NUMUNIT + (fHaveExtras ? 1 : 0);
+    uint16_t nUnitCt = XMVSF_A_NUMUNIT + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

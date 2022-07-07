@@ -21,13 +21,13 @@ CDescTree CGame_REDEARTH_A::MainDescTree_31 = nullptr;
 CDescTree CGame_REDEARTH_A::MainDescTree_50 = nullptr;
 
 uint32_t CGame_REDEARTH_A::m_nRedEarthMode = 31;
-UINT32 CGame_REDEARTH_A::m_nTotalPaletteCount30 = 0;
-UINT32 CGame_REDEARTH_A::m_nTotalPaletteCount31 = 0;
-UINT32 CGame_REDEARTH_A::m_nTotalPaletteCount50 = 0;
+uint32_t CGame_REDEARTH_A::m_nTotalPaletteCount30 = 0;
+uint32_t CGame_REDEARTH_A::m_nTotalPaletteCount31 = 0;
+uint32_t CGame_REDEARTH_A::m_nTotalPaletteCount50 = 0;
 
-UINT32 CGame_REDEARTH_A::m_nExpectedGameROMSize_3 = 0x800000; // 8388608 bytes
-UINT32 CGame_REDEARTH_A::m_nExpectedGameROMSize_5 = 0x400000;
-UINT32 CGame_REDEARTH_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_REDEARTH_A::m_nExpectedGameROMSize_3 = 0x800000; // 8388608 bytes
+uint32_t CGame_REDEARTH_A::m_nExpectedGameROMSize_5 = 0x400000;
+uint32_t CGame_REDEARTH_A::m_nConfirmedROMSize = -1;
 
 void CGame_REDEARTH_A::InitializeStatics()
 {
@@ -47,7 +47,7 @@ void CGame_REDEARTH_A::InitializeStatics()
     MainDescTree_50.SetRootTree(CGame_REDEARTH_A::InitDescTree(50));
 }
 
-CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRedEarthModeToLoad /* = 31 */)
+CGame_REDEARTH_A::CGame_REDEARTH_A(uint32_t nConfirmedROMSize /* = -1 */, int nRedEarthModeToLoad /* = 31 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -61,9 +61,9 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRed
     //We need the proper unit amt before we init the main buffer
     m_nRedEarthMode = nRedEarthModeToLoad;
 
-    const UINT32 nSafeCountFor30 = 467;
-    const UINT32 nSafeCountFor31 = 1101;
-    const UINT32 nSafeCountFor50 = 4;
+    const uint32_t nSafeCountFor30 = 467;
+    const uint32_t nSafeCountFor31 = 1101;
+    const uint32_t nSafeCountFor50 = 4;
 
     switch (m_nRedEarthMode)
     {
@@ -176,8 +176,8 @@ CDescTree* CGame_REDEARTH_A::GetMainTree()
 void CGame_REDEARTH_A::InitDataBuffer()
 {
     m_nBufferRedEarthMode = m_nRedEarthMode;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, 0, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_REDEARTH_A::ClearDataBuffer()
@@ -196,7 +196,7 @@ void CGame_REDEARTH_A::ClearDataBuffer()
             {
                 uint32_t nPaletteCount = GetPaletteCountForUnit(nUnitCtr);
 
-                for (UINT16 nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
+                for (uint16_t nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
                 {
                     safe_delete_array(m_pppDataBuffer[nUnitCtr][nPaletteIndex]);
                 }
@@ -216,7 +216,7 @@ sDescTreeNode* CGame_REDEARTH_A::InitDescTree(int nPaletteSetToUse)
     m_nRedEarthMode = nPaletteSetToUse;
 
     bool fHaveExtras;
-    UINT16 nUnitCt;
+    uint16_t nUnitCt;
 
     switch (m_nRedEarthMode)
     {
@@ -311,7 +311,7 @@ sFileRule CGame_REDEARTH_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-UINT32 CGame_REDEARTH_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_REDEARTH_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {

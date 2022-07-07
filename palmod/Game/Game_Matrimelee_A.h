@@ -9,20 +9,20 @@ constexpr auto EXTRA_FILENAME_Matrimelee_A = L"MatrimeleeE.txt";
 class CGame_Matrimelee_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForMatrimelee;
+    static uint32_t m_nTotalPaletteCountForMatrimelee;
 
     static uint32_t rgExtraCountAll[Matrimelee_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[Matrimelee_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static const UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static const uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_Matrimelee_A(UINT32 nConfirmedROMSize);
+    CGame_Matrimelee_A(uint32_t nConfirmedROMSize);
     ~CGame_Matrimelee_A(void);
 
     //Static functions / variables

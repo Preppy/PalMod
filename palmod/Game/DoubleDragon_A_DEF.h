@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> DDRAGON_A_IMGIDS_USED =
+const std::vector<uint16_t> DDRAGON_A_IMGIDS_USED =
 {
     indexDDragonSprites_Abobo,              // 0x22,
     indexDDragonSprites_Amon,               // 0x23,

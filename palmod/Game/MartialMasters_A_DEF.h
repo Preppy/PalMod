@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> MartialMasters_A_IMGIDS_USED =
+const std::vector<uint16_t> MartialMasters_A_IMGIDS_USED =
 {
     indexMartialMastersSprites_Crane,           // 0x00
     indexMartialMastersSprites_DrunkMaster,     // 0x01

@@ -11,9 +11,9 @@ CDescTree CGame_GUNDAM_SNES::MainDescTree = nullptr;
 uint32_t CGame_GUNDAM_SNES::rgExtraCountAll[GUNDAM_SNES_NUMUNIT + 1];
 uint32_t CGame_GUNDAM_SNES::rgExtraLoc[GUNDAM_SNES_NUMUNIT + 1];
 
-UINT32 CGame_GUNDAM_SNES::m_nTotalPaletteCountForGUNDAM = 0;
-UINT32 CGame_GUNDAM_SNES::m_nExpectedGameROMSize = 0x200000;
-UINT32 CGame_GUNDAM_SNES::m_nConfirmedROMSize = -1;
+uint32_t CGame_GUNDAM_SNES::m_nTotalPaletteCountForGUNDAM = 0;
+uint32_t CGame_GUNDAM_SNES::m_nExpectedGameROMSize = 0x200000;
+uint32_t CGame_GUNDAM_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_GUNDAM_SNES::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_GUNDAM_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_GUNDAM_SNES::InitDescTree());
 }
 
-CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize)
+CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_GUNDAM_SNES::CGame_GUNDAM_SNES: Loading ROM...\n");
 
@@ -79,7 +79,7 @@ CGame_GUNDAM_SNES::~CGame_GUNDAM_SNES(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_GUNDAM_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_GUNDAM_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -120,7 +120,7 @@ sDescTreeNode* CGame_GUNDAM_SNES::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_GUNDAM_SNES, &GUNDAM_SNES_EXTRA_CUSTOM, GUNDAM_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = GUNDAM_SNES_NUMUNIT + (GetExtraCt(GUNDAM_SNES_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = GUNDAM_SNES_NUMUNIT + (GetExtraCt(GUNDAM_SNES_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

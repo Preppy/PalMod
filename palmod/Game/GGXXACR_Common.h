@@ -1,5 +1,5 @@
 
-const std::vector<UINT16> GGXX_ACR_IMGIDS_USED =
+const std::vector<uint16_t> GGXX_ACR_IMGIDS_USED =
 {
     indexGGXXSprites_ACR_ABA,   // 0x00
     indexGGXXSprites_ACR_Anji,  // 0x01
@@ -138,9 +138,9 @@ struct GGXXACRFileData
 {
     LPCWSTR pszFileName = nullptr;
     LPCWSTR pszCharacter = nullptr;
-    UINT32 nExpectedFileSize = 0;
+    uint32_t nExpectedFileSize = 0;
     const std::vector<LPCWSTR> ppszPaletteList;
-    UINT32 nInitialLocation = 0;
-    UINT32 nSpriteIndex = (UINT32)-1;
+    uint32_t nInitialLocation = 0;
+    uint32_t nSpriteIndex = (uint32_t)-1;
     const std::vector<sGame_PaletteDataset> prgExtraPalettes;
 };

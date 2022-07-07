@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> XMMA_SNES_IMGIDS_USED =
+const std::vector<uint16_t> XMMA_SNES_IMGIDS_USED =
 {
     indexXMMASprites_Apocalypse,        // 0x48
     indexXMMASprites_Beast,             // 0x49

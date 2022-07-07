@@ -5,13 +5,13 @@ class CGame_MVC2_A_DIR :
     public CGame_MVC2_A
 {  
 public:
-    CGame_MVC2_A_DIR(UINT32 nConfirmedROMSize);
+    CGame_MVC2_A_DIR(uint32_t nConfirmedROMSize);
     ~CGame_MVC2_A_DIR(void);
 
-    UINT32 c_nMVC2SIMMLength = 0x800000;
+    uint32_t c_nMVC2SIMMLength = 0x800000;
 
-    inline UINT32 GetLocationWithinSIMM(UINT32 nSIMMSetLocation);
-    inline UINT8 GetSIMMSetForROMLocation(UINT32 nROMLocation);
+    inline uint32_t GetLocationWithinSIMM(uint32_t nSIMMSetLocation);
+    inline uint8_t GetSIMMSetForROMLocation(uint32_t nROMLocation);
 
     //Static functions
     static uint32_t uRuleCtr;

@@ -4,7 +4,7 @@
 // marking the first set as (Unused?) until thats figured out, so the order of palettes will look backwards according to their location
 //decent amount of character extras are missing from the main extras tree, used in DBZEB_DS_TRANSFORMATION_MAJINBUU, DBZEB_DS_TRANSFORMATION_DABURA & DBZEB_DS_TRANSFORMATION_MAJUUB
 
-const std::vector<UINT16> DBZEB_3DS_IMGIDS_USED =
+const std::vector<uint16_t> DBZEB_3DS_IMGIDS_USED =
 {
     indexDBZEB_Android18,                   // 0x2D
     indexDBZEB_Bardock,                     // 0x2E

@@ -13,11 +13,11 @@ uint32_t CGame_SFIII2_A::rgExtraCountAll_50[SFIII2_A_50_NUMUNIT + 1] = { (uint32
 uint32_t CGame_SFIII2_A::rgExtraLoc_50[SFIII2_A_50_NUMUNIT + 1] = { (uint32_t)-1 };
 
 CDescTree CGame_SFIII2_A::MainDescTree_50 = nullptr;
-UINT32 CGame_SFIII2_A::m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
-UINT32 CGame_SFIII2_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SFIII2_A::m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
+uint32_t CGame_SFIII2_A::m_nConfirmedROMSize = -1;
 
 uint32_t CGame_SFIII2_A::m_nSelectedRom = 50;
-UINT32 CGame_SFIII2_A::m_nTotalPaletteCountForSFIII2_50 = 0;
+uint32_t CGame_SFIII2_A::m_nTotalPaletteCountForSFIII2_50 = 0;
 
 void CGame_SFIII2_A::InitializeStatics()
 {
@@ -29,7 +29,7 @@ void CGame_SFIII2_A::InitializeStatics()
     MainDescTree_50.SetRootTree(CGame_SFIII2_A::InitDescTree(50));
 }
 
-CGame_SFIII2_A::CGame_SFIII2_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
+CGame_SFIII2_A::CGame_SFIII2_A(uint32_t nConfirmedROMSize, int nSF3ROMToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -119,11 +119,11 @@ stExtraDef* CGame_SFIII2_A::GetCurrentExtraDef(int nDefCtr)
 
 sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
     m_nSelectedRom = nROMPaletteSetToUse;
 
     bool fHaveExtras;
-    UINT16 nUnitCt;
+    uint16_t nUnitCt;
     uint32_t nExtraUnitLocation;
 
     nExtraUnitLocation = SFIII2_A_50_EXTRALOC;
@@ -146,7 +146,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (uint16_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
@@ -177,7 +177,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
             uint32_t nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
-            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+            for (uint16_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
@@ -199,7 +199,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
                 const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
                 //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+                for (uint16_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
@@ -258,7 +258,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+            for (uint16_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
@@ -482,8 +482,8 @@ const sDescTreeNode* CGame_SFIII2_A::GetNodeFromPaletteId(uint32_t nUnitId, uint
 void CGame_SFIII2_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_SFIII2_A::ClearDataBuffer()

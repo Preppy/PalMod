@@ -6,11 +6,11 @@
 class CGame_Garou_S : public CGame_Garou_A
 {
 private:
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
 public:
-    CGame_Garou_S(UINT32 nConfirmedROMSize);
+    CGame_Garou_S(uint32_t nConfirmedROMSize);
     ~CGame_Garou_S(void);
 
     static sFileRule GetRule(uint32_t nUnitId);
@@ -19,11 +19,11 @@ public:
 class CGame_GarouP_A : public CGame_Garou_A
 {
 private:
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
 public:
-    CGame_GarouP_A(UINT32 nConfirmedROMSize);
+    CGame_GarouP_A(uint32_t nConfirmedROMSize);
     ~CGame_GarouP_A(void);
 
     static sFileRule GetRule(uint32_t nUnitId);

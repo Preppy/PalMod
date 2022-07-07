@@ -9,15 +9,15 @@ constexpr auto EXTRA_FILENAME_CVS2_A = L"CVS2E.txt";
 class CGame_CVS2_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForCVS2;
+    static uint32_t m_nTotalPaletteCountForCVS2;
     static void DumpAllCharacters();
 
     static uint32_t rgExtraCountAll[CVS2_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[CVS2_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -25,7 +25,7 @@ private:
     void WarnIfROMIsEncrypted(CFile* LoadedFile);
 
 public:
-    CGame_CVS2_A(UINT32 nConfirmedROMSize);
+    CGame_CVS2_A(uint32_t nConfirmedROMSize);
     ~CGame_CVS2_A(void);
 
     //Static functions / variables

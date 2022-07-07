@@ -9,8 +9,8 @@
 //SNES = ...
 
 // Needed for game tables
-void StrRemoveNonASCII(WCHAR* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase = false);
-void StruprRemoveNonASCII(WCHAR* pszOutput, uint32_t ccSize, LPCWSTR pszInput);
+void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase = false);
+void StruprRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput);
 
 #include "ButtonDef.h"
 #include "ImgIdDef.h"
@@ -190,7 +190,7 @@ enum SupportedGamesList
 // We want to keep these short for the titlebar: they're hard-limited by
 // MAX_DESCRIPTION_LENGTH (96), so 64 is probably the max we want.
 // Note that the games can override these values: these are just the defaults.
-const WCHAR g_GameFriendlyName[][64] =
+const wchar_t g_GameFriendlyName[][64] =
 {
     L"MvC2 (Dreamcast)",
     L"SFIII:3S (CPS3 Arcade)",
@@ -413,12 +413,12 @@ enum class eImageOutputSpriteDisplay
 struct stExtraDef
 {
     uint32_t uUnitN = INVALID_UNIT_VALUE;
-    WCHAR szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
-    UINT32 uOffset = 0;
-    UINT16 cbPaletteSize = 0;
+    wchar_t szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
+    uint32_t uOffset = 0;
+    uint16_t cbPaletteSize = 0;
     bool isInvisible = false;
-    UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
-    UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
+    uint16_t indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
+    uint16_t indexOffsetToUse = 0x0; // subsprites within that collection
 };
 
 struct stPairedPaletteInfo
@@ -436,17 +436,17 @@ struct stPairedPaletteInfo
 
 struct stPaletteProcessingInformation
 {
-    const std::vector<std::vector<UINT16>> pProcessingSteps;
+    const std::vector<std::vector<uint16_t>> pProcessingSteps;
     bool fIsTarget = false;
 };
 
 struct sGame_PaletteDataset
 {
     const LPCWSTR szPaletteName = L"uninit";
-    const UINT32 nPaletteOffset = 0;
-    const UINT32 nPaletteOffsetEnd = 0;
-    const UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
-    const UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
+    const uint32_t nPaletteOffset = 0;
+    const uint32_t nPaletteOffsetEnd = 0;
+    const uint16_t indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
+    const uint16_t indexOffsetToUse = 0x0; // subsprites within that collection
     const stPairedPaletteInfo* pPalettePairingInfo = nullptr;
     const stPaletteProcessingInformation* pExtraProcessing = nullptr;
 };
@@ -528,23 +528,23 @@ const stPairedPaletteInfo pairMVCDevilotNormal =                    { 1 };      
 
 // 3S uses a blend of rgb(124,124,124) to achieve the Faded effects: these let me apply that to palettes
 // everything over Skip2 is for stages
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_NextPalette =   { { SUPP_NODE, 0x01, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip1Palette =  { { SUPP_NODE, 0x02, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip2Palettes = { { SUPP_NODE, 0x03, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip3Palettes = { { SUPP_NODE, 0x04, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip4Palettes = { { SUPP_NODE, 0x05, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip5Palettes = { { SUPP_NODE, 0x06, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip6Palettes = { { SUPP_NODE, 0x07, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip7Palettes = { { SUPP_NODE, 0x08, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip8Palettes = { { SUPP_NODE, 0x09, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip9Palettes = { { SUPP_NODE, 0x0a, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip11Palettes = { { SUPP_NODE, 0x0c, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip12Palettes = { { SUPP_NODE, 0x0d, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip14Palettes = { { SUPP_NODE, 0x0f, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip15Palettes = { { SUPP_NODE, 0x10, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip16Palettes = { { SUPP_NODE, 0x11, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip18Palettes = { { SUPP_NODE, 0x13, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
-const std::vector<std::vector<UINT16>> paletteBuddy_GreyTint_Skip31Palettes = { { SUPP_NODE, 0x20, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_NextPalette =   { { SUPP_NODE, 0x01, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip1Palette =  { { SUPP_NODE, 0x02, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip2Palettes = { { SUPP_NODE, 0x03, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip3Palettes = { { SUPP_NODE, 0x04, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip4Palettes = { { SUPP_NODE, 0x05, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip5Palettes = { { SUPP_NODE, 0x06, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip6Palettes = { { SUPP_NODE, 0x07, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip7Palettes = { { SUPP_NODE, 0x08, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip8Palettes = { { SUPP_NODE, 0x09, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip9Palettes = { { SUPP_NODE, 0x0a, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip11Palettes = { { SUPP_NODE, 0x0c, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip12Palettes = { { SUPP_NODE, 0x0d, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip14Palettes = { { SUPP_NODE, 0x0f, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip15Palettes = { { SUPP_NODE, 0x10, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip16Palettes = { { SUPP_NODE, 0x11, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip18Palettes = { { SUPP_NODE, 0x13, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
+const std::vector<std::vector<uint16_t>> paletteBuddy_GreyTint_Skip31Palettes = { { SUPP_NODE, 0x20, 0, MOD_BLEND, 1, 0xFF, 1, 124, 124, 124 }, };
 
 const stPaletteProcessingInformation secondaryGreyTintEffects{ paletteBuddy_GreyTint_NextPalette };
 const stPaletteProcessingInformation secondaryGreyTintEffects_Skip1{ paletteBuddy_GreyTint_Skip1Palette };

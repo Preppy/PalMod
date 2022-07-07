@@ -9,20 +9,20 @@ constexpr auto EXTRA_FILENAME_MVC2_A = L"MVC2e.txt";
 class CGame_MVC2_A : public CGameWithExtrasFile
 {
 public:
-    static UINT32 m_nTotalPaletteCountForMVC2;
+    static uint32_t m_nTotalPaletteCountForMVC2;
 
     static uint32_t rgExtraCountAll[MVC2_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
 public:
-    CGame_MVC2_A(UINT32 nConfirmedROMSize);
+    CGame_MVC2_A(uint32_t nConfirmedROMSize);
     ~CGame_MVC2_A(void);
 
     //Static functions / variables

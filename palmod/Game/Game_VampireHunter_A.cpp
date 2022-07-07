@@ -10,9 +10,9 @@ CDescTree CGame_VampireHunter_A::MainDescTree = nullptr;
 uint32_t CGame_VampireHunter_A::rgExtraCountAll[VampireHunter_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_VampireHunter_A::rgExtraLoc[VampireHunter_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
-UINT32 CGame_VampireHunter_A::m_nTotalPaletteCountForVampireHunter = 0;
-UINT32 CGame_VampireHunter_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_VampireHunter_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_VampireHunter_A::m_nTotalPaletteCountForVampireHunter = 0;
+uint32_t CGame_VampireHunter_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_VampireHunter_A::m_nConfirmedROMSize = -1;
 
 void CGame_VampireHunter_A::InitializeStatics()
 {
@@ -24,7 +24,7 @@ void CGame_VampireHunter_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_VampireHunter_A::InitDescTree());
 }
 
-CGame_VampireHunter_A::CGame_VampireHunter_A(UINT32 nConfirmedROMSize)
+CGame_VampireHunter_A::CGame_VampireHunter_A(uint32_t nConfirmedROMSize)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -76,7 +76,7 @@ CGame_VampireHunter_A::~CGame_VampireHunter_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_VampireHunter_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_VampireHunter_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
 #ifdef MAME_NOTES
     GAME(1995, nwarr, 0, cps2, cps2_2p6b, cps2_state, init_cps2, ROT0, "Capcom", "Night Warriors: Darkstalkers' Revenge (Euro 950316)", MACHINE_SUPPORTS_SAVE)
@@ -156,7 +156,7 @@ sDescTreeNode* CGame_VampireHunter_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_VampireHunter, &VampireHunter_A_EXTRA_CUSTOM, VampireHunter_A_EXTRALOC, m_nConfirmedROMSize);
 
-    const UINT16 nUnitCt = VampireHunter_A_NUMUNIT + (GetExtraCt(VampireHunter_A_EXTRALOC) ? 1 : 0);
+    const uint16_t nUnitCt = VampireHunter_A_NUMUNIT + (GetExtraCt(VampireHunter_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 

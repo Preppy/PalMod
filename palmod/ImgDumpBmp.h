@@ -24,7 +24,7 @@ public:
 
     BITMAPINFO m_MainBmpi; 
     HBITMAP m_MainHBmp;
-    UINT32* m_pMainBmpData = nullptr;
+    uint32_t* m_pMainBmpData = nullptr;
 
     //Main preview image control
     CImgDisp* m_pMainImgCtrl = nullptr;
@@ -68,7 +68,7 @@ public:
 
     int m_cl_width = 0, m_cl_height = 0;
 
-    void UpdateCtrl(BOOL fDraw = TRUE, UINT8* pDstData = NULL);
+    void UpdateCtrl(BOOL fDraw = TRUE, uint8_t* pDstData = NULL);
     void UpdateClip();
 
     void ClearCtrlBG();

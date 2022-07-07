@@ -24,13 +24,13 @@ uint32_t CGame_SF2CE_A::rgExtraLoc_23[SF2CE_A_23_NUMUNIT + 1] = { (uint32_t)-1 }
 CDescTree CGame_SF2CE_A::MainDescTree_21 = nullptr;
 CDescTree CGame_SF2CE_A::MainDescTree_22 = nullptr;
 CDescTree CGame_SF2CE_A::MainDescTree_23 = nullptr;
-UINT32 CGame_SF2CE_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_SF2CE_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_SF2CE_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_SF2CE_A::m_nConfirmedROMSize = -1;
 
 uint32_t CGame_SF2CE_A::m_nSelectedRom = 22;
-UINT32 CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_21 = 0;
-UINT32 CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_22 = 0;
-UINT32 CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_23 = 0;
+uint32_t CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_21 = 0;
+uint32_t CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_22 = 0;
+uint32_t CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_23 = 0;
 
 constexpr auto k_SF2CE_JapanROMName_RevA = L"s92j_22a.7f";
 constexpr auto k_SF2CE_JapanROMName_RevB = L"s92j_22b.7f";
@@ -57,7 +57,7 @@ void CGame_SF2CE_A::InitializeStatics()
     MainDescTree_23.SetRootTree(CGame_SF2CE_A::InitDescTree(23));
 }
 
-CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
+CGame_SF2CE_A::CGame_SF2CE_A(uint32_t nConfirmedROMSize, int nSF2CEROMToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -146,7 +146,7 @@ CGame_SF2CE_A::~CGame_SF2CE_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_SF2CE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_SF2CE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static const sCRC32ValueSet knownROMs[] =
     {
@@ -346,12 +346,12 @@ stExtraDef* CGame_SF2CE_A::GetCurrentExtraDef(int nDefCtr)
 
 sDescTreeNode* CGame_SF2CE_A::InitDescTree(int nROMPaletteSetToUse)
 {
-    UINT32 nTotalPaletteCount = 0;
+    uint32_t nTotalPaletteCount = 0;
     m_nSelectedRom = nROMPaletteSetToUse;
 
     bool fHaveExtras;
-    UINT16 nUnitCt;
-    UINT8 nExtraUnitLocation;
+    uint16_t nUnitCt;
+    uint8_t nExtraUnitLocation;
 
     switch (m_nSelectedRom)
     {
@@ -522,7 +522,7 @@ const sGame_PaletteDataset* CGame_SF2CE_A::GetSpecificPalette(uint32_t nUnitId, 
     const sGame_PaletteDataset* paletteToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint16_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
         uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
@@ -547,7 +547,7 @@ uint32_t CGame_SF2CE_A::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPal
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint16_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
@@ -572,7 +572,7 @@ const sDescTreeNode* CGame_SF2CE_A::GetNodeFromPaletteId(uint32_t nUnitId, uint3
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
     uint32_t nDistanceFromZero = nPaletteId;
 
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (uint16_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         uint32_t nNodeCount;
@@ -618,8 +618,8 @@ const sDescTreeNode* CGame_SF2CE_A::GetNodeFromPaletteId(uint32_t nUnitId, uint3
 void CGame_SF2CE_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_SF2CE_A::ClearDataBuffer()

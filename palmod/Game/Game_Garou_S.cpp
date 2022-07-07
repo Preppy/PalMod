@@ -4,13 +4,13 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-UINT32 CGame_Garou_S::m_nExpectedGameROMSize = 0x900000; // 9,437,184 bytes
-UINT32 CGame_Garou_S::m_nConfirmedROMSize = -1;
+uint32_t CGame_Garou_S::m_nExpectedGameROMSize = 0x900000; // 9,437,184 bytes
+uint32_t CGame_Garou_S::m_nConfirmedROMSize = -1;
 
-UINT32 CGame_GarouP_A::m_nExpectedGameROMSize = 0x100000;
-UINT32 CGame_GarouP_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_GarouP_A::m_nExpectedGameROMSize = 0x100000;
+uint32_t CGame_GarouP_A::m_nConfirmedROMSize = -1;
 
-CGame_Garou_S::CGame_Garou_S(UINT32 nConfirmedROMSize) :
+CGame_Garou_S::CGame_Garou_S(uint32_t nConfirmedROMSize) :
     CGame_Garou_A(0x40000) // allow for loading extras
 {
     OutputDebugString(L"CGame_Garou_S::CGame_Garou_S: Loading ROM...\n");
@@ -45,7 +45,7 @@ sFileRule CGame_Garou_S::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-CGame_GarouP_A::CGame_GarouP_A(UINT32 nConfirmedROMSize) :
+CGame_GarouP_A::CGame_GarouP_A(uint32_t nConfirmedROMSize) :
     CGame_Garou_A(0x40000) // allow for loading extras
 {
     OutputDebugString(L"CGame_GarouP_A::CGame_GarouP_A: Loading ROM...\n");

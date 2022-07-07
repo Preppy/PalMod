@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> CFTE_SNES_IMGIDS_USED =
+const std::vector<uint16_t> CFTE_SNES_IMGIDS_USED =
 {
     indexCFTESprites_BadMrFrosty,   // 0x17
     indexCFTESprites_BlueSuedeGoo,  // 0x18

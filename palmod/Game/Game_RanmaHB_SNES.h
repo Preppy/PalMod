@@ -6,14 +6,14 @@
 class CGame_RANMAHB_SNES : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForRANMAHB;
+    static uint32_t m_nTotalPaletteCountForRANMAHB;
 
     static uint32_t rgExtraCountAll[RANMAHB_SNES_NUMUNIT + 1];
     static uint32_t rgExtraLoc[RANMAHB_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -22,7 +22,7 @@ private:
     static constexpr auto RANMAHB_SNES_PRIMARY_ROMNAME = L"ranma 1-2 - hard battle (usa).sfc";
 
 public:
-    CGame_RANMAHB_SNES(UINT32 nConfirmedROMSize);
+    CGame_RANMAHB_SNES(uint32_t nConfirmedROMSize);
     ~CGame_RANMAHB_SNES(void);
 
     //Static functions / variables

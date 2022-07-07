@@ -11,9 +11,9 @@ CDescTree CGame_RBFFS_A::MainDescTree = nullptr;
 uint32_t CGame_RBFFS_A::rgExtraCountAll[RBFFS_A_NUMUNIT + 1];
 uint32_t CGame_RBFFS_A::rgExtraLoc[RBFFS_A_NUMUNIT + 1];
 
-UINT32 CGame_RBFFS_A::m_nTotalPaletteCountForRBFFS = 0;
-UINT32 CGame_RBFFS_A::m_nExpectedGameROMSize = 0x100000;
-UINT32 CGame_RBFFS_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_RBFFS_A::m_nTotalPaletteCountForRBFFS = 0;
+uint32_t CGame_RBFFS_A::m_nExpectedGameROMSize = 0x100000;
+uint32_t CGame_RBFFS_A::m_nConfirmedROMSize = -1;
 
 void CGame_RBFFS_A::InitializeStatics()
 {
@@ -25,7 +25,7 @@ void CGame_RBFFS_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_RBFFS_A::InitDescTree());
 }
 
-CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
+CGame_RBFFS_A::CGame_RBFFS_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_RBFFS_A::CGame_RBFFS_A: Loading ROM...\n");
 
@@ -84,7 +84,7 @@ CDescTree* CGame_RBFFS_A::GetMainTree()
     return &CGame_RBFFS_A::MainDescTree;
 }
 
-UINT32 CGame_RBFFS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_RBFFS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -121,7 +121,7 @@ sDescTreeNode* CGame_RBFFS_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_RBFFS_A, &RBFFS_A_EXTRA_CUSTOM, RBFFS_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = RBFFS_A_NUMUNIT + (GetExtraCt(RBFFS_A_EXTRALOC) ? 1 : 0);
+    uint16_t nUnitCt = RBFFS_A_NUMUNIT + (GetExtraCt(RBFFS_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -150,7 +150,7 @@ sDescTreeNode* CGame_RBFFS_A::InitDescTree()
 void CGame_RBFFS_A::DumpPaletteHeaders()
 {
     CString strOutput;
-    const UINT32 RBFFS_PALETTE_LENGTH = 0x20;
+    const uint32_t RBFFS_PALETTE_LENGTH = 0x20;
 
     LPCWSTR rgCharacters[] = {
                                 L"Terry",
@@ -175,16 +175,16 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
                                 L"Krauser"
     };
 
-    const UINT32 k_nBasePalette = 0xd2000;
-    UINT32 nCurrentPalettePosition = k_nBasePalette;
+    const uint32_t k_nBasePalette = 0xd2000;
+    uint32_t nCurrentPalettePosition = k_nBasePalette;
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         // Status effects
-        for (UINT16 nStatusIndex = 0; nStatusIndex < 32; nStatusIndex++)
+        for (uint16_t nStatusIndex = 0; nStatusIndex < 32; nStatusIndex++)
         {
             CString strPaletteName;
 
@@ -194,7 +194,7 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
                 OutputDebugString(strOutput);
             }
 
-            UINT32 nAdjustedIndex = (nStatusIndex > 15) ? (nStatusIndex - 16) : nStatusIndex;
+            uint32_t nAdjustedIndex = (nStatusIndex > 15) ? (nStatusIndex - 16) : nStatusIndex;
 
             switch (nAdjustedIndex)
             {
@@ -230,9 +230,9 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
         }
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(L"const sDescTreeNode RBFFS_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
@@ -250,9 +250,9 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
     strOutput.Format(L"const sDescTreeNode RBFFS_A_UNITS[] = \r\n{\r\n");
     OutputDebugString(strOutput);
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (uint16_t nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        wchar_t szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StruprRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)RBFFS_A_%s_COLLECTION, ARRAYSIZE(RBFFS_A_%s_COLLECTION) },\r\n", rgCharacters[nCharIndex], szCodeDesc, szCodeDesc);

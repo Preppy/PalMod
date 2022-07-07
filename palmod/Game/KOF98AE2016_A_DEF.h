@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> KOF98ae_A_IMGIDS_USED =
+const std::vector<uint16_t> KOF98ae_A_IMGIDS_USED =
 {
     indexKOF96Sprites_Goenitz,      // 0x251
 

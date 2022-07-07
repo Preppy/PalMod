@@ -9,7 +9,7 @@ CDescTree CGame_P4AU_NESICA::MainDescTree = nullptr;
 
 #define P4AU_NESICA_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-CGame_P4AU_NESICA::CGame_P4AU_NESICA(UINT32 nConfirmedROMSize /* = -1 */)
+CGame_P4AU_NESICA::CGame_P4AU_NESICA(uint32_t nConfirmedROMSize /* = -1 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -21,7 +21,7 @@ CGame_P4AU_NESICA::CGame_P4AU_NESICA(UINT32 nConfirmedROMSize /* = -1 */)
     // Don't load extras
     m_pszExtraFilename = nullptr;
 
-    nFileAmt = nUnitAmt = m_nTotalInternalUnits = (UINT16)PersonaCharacterData_NESICA.size();
+    nFileAmt = nUnitAmt = m_nTotalInternalUnits = (uint16_t)PersonaCharacterData_NESICA.size();
 
     InitDataBuffer();
 
@@ -84,7 +84,7 @@ sFileRule CGame_P4AU_NESICA::GetNextRule()
 sDescTreeNode* CGame_P4AU_NESICA::InitDescTree()
 {
     uint32_t  nTotalPaletteCount = 0;
-    uint32_t  nUnitCt = (UINT16)PersonaCharacterData_NESICA.size();
+    uint32_t  nUnitCt = (uint16_t)PersonaCharacterData_NESICA.size();
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -195,8 +195,8 @@ void CGame_P4AU_NESICA::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalI
     // These palettes are all 0x400 long
     const int cbPaletteSizeOnDisc = 0x400;
 
-    uint32_t nAdjustedPalId = (UINT16)(nPalId % PersonaCharacterData_NESICA[nUnitId].paletteInfo->size());
-    uint32_t nPaletteSet = (UINT16)(nPalId / PersonaCharacterData_NESICA[nUnitId].paletteInfo->size());
+    uint32_t nAdjustedPalId = (uint16_t)(nPalId % PersonaCharacterData_NESICA[nUnitId].paletteInfo->size());
+    uint32_t nPaletteSet = (uint16_t)(nPalId / PersonaCharacterData_NESICA[nUnitId].paletteInfo->size());
 
     m_pszCurrentPaletteName = PersonaCharacterData_NESICA[nUnitId].paletteInfo->at(nAdjustedPalId).strName.c_str();
     m_nCurrentPaletteROMLocation = PersonaCharacterData_NESICA[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nAdjustedPalId) + (0x20 * nAdjustedPalId);
@@ -228,9 +228,9 @@ BOOL CGame_P4AU_NESICA::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
 
     // This logic presumes that we are only showing core character palettes.  If we decide to handle
     // anything else, we'd want to validate that the palette in question is in the core lists
-    int nSrcStart = (int)(UINT16)(NodeGet->uPalId % PersonaCharacterData_NESICA[NodeGet->uUnitId].paletteInfo->size());
+    int nSrcStart = (int)(uint16_t)(NodeGet->uPalId % PersonaCharacterData_NESICA[NodeGet->uUnitId].paletteInfo->size());
     uint32_t nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
-    UINT16 nNodeIncrement = (UINT16)PersonaCharacterData_NESICA[NodeGet->uUnitId].paletteInfo->size();
+    uint16_t nNodeIncrement = (uint16_t)PersonaCharacterData_NESICA[NodeGet->uUnitId].paletteInfo->size();
 
     //Change the image id if we need to, using the single image index list used for each color
     uint32_t nImgUnitId = PersonaCharacterData_NESICA[NodeGet->uUnitId].paletteInfo->at(nSrcStart).nImageSet;
@@ -270,8 +270,8 @@ BOOL CGame_P4AU_NESICA::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
-        m_pppDataBuffer32[nUnitNumber] = new UINT32 * [nPalAmt];
-        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(UINT32*) * nPalAmt);
+        m_pppDataBuffer32[nUnitNumber] = new uint32_t * [nPalAmt];
+        memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(uint32_t*) * nPalAmt);
     }
 
     // These are already sorted, no need to redirect
@@ -281,7 +281,7 @@ BOOL CGame_P4AU_NESICA::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         LoadSpecificPaletteData(nUnitNumber, nPalCtr);
 
-        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+        m_pppDataBuffer32[nUnitNumber][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
 
         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
         LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
@@ -299,7 +299,7 @@ BOOL CGame_P4AU_NESICA::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 
 BOOL CGame_P4AU_NESICA::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
-    UINT32 nTotalPalettesSaved = 0;
+    uint32_t nTotalPalettesSaved = 0;
     uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)

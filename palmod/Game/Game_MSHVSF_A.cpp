@@ -10,10 +10,10 @@ CDescTree CGame_MSHVSF_A::MainDescTree_6A = nullptr;
 CDescTree CGame_MSHVSF_A::MainDescTree_7B = nullptr;
 
 uint32_t CGame_MSHVSF_A::m_nMSHVSFSelectedRom = 6;
-UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_6A = 0;
-UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_7B = 0;
-UINT32 CGame_MSHVSF_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_MSHVSF_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_6A = 0;
+uint32_t CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_7B = 0;
+uint32_t CGame_MSHVSF_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+uint32_t CGame_MSHVSF_A::m_nConfirmedROMSize = -1;
 
 uint32_t CGame_MSHVSF_A::rgExtraLocation_6A[MSHVSF_A_NUM_IND_6A + 1] = { (uint32_t)-1 };
 uint32_t CGame_MSHVSF_A::rgExtraLocation_7B[MSHVSF_A_NUM_IND_7B + 1] = { (uint32_t)-1 };
@@ -34,7 +34,7 @@ void CGame_MSHVSF_A::InitializeStatics()
     MainDescTree_7B.SetRootTree(CGame_MSHVSF_A::InitDescTree(7));
 }
 
-CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
+CGame_MSHVSF_A::CGame_MSHVSF_A(uint32_t nConfirmedROMSize, int nMSHVSFRomToLoad)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -54,8 +54,8 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
     m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSHVSF_A_NUM_IND_6A : MSHVSF_A_NUM_IND_7B;
     m_nExtraUnit = UsePaletteSetForCharacters() ? MSHVSF_A_EXTRALOC_6A : MSHVSF_A_EXTRALOC_7B;
 
-    const UINT32 nSafeCountFor6A = 575;
-    const UINT32 nSafeCountFor7B = 24;
+    const uint32_t nSafeCountFor6A = 575;
+    const uint32_t nSafeCountFor7B = 24;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForCharacters() ? nSafeCountFor6A : nSafeCountFor7B);
     m_pszExtraFilename = UsePaletteSetForCharacters() ? EXTRA_FILENAME_MSHVSF_6A : EXTRA_FILENAME_MSHVSF_7B;
@@ -94,7 +94,7 @@ CGame_MSHVSF_A::~CGame_MSHVSF_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_MSHVSF_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+uint32_t CGame_MSHVSF_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -195,8 +195,8 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(uint32_t nROMPaletteSetToUse)
 {
     m_nMSHVSFSelectedRom = nROMPaletteSetToUse;
 
-    UINT16 nUnitCt;
-    UINT8 nExtraUnitLocation;
+    uint16_t nUnitCt;
+    uint8_t nExtraUnitLocation;
 
     //Load extra file if we're using it
     if (UsePaletteSetForCharacters())
@@ -372,8 +372,8 @@ const sGame_PaletteDataset* CGame_MSHVSF_A::GetSpecificPalette(uint32_t nUnitId,
 void CGame_MSHVSF_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nMSHVSFSelectedRom;
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
 }
 
 void CGame_MSHVSF_A::ClearDataBuffer()

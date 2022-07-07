@@ -1,6 +1,6 @@
 #pragma once
 
-const std::vector<UINT16> SFIII3_A_IMGIDS_USED =
+const std::vector<uint16_t> SFIII3_A_IMGIDS_USED =
 {
     index3SSprites_Alex,      // 0x00
     index3SSprites_Ryu,       // 0x01
@@ -27,12 +27,12 @@ const std::vector<UINT16> SFIII3_A_IMGIDS_USED =
     index3SSprites_Gill,      // 0x16
 };
 
-constexpr UINT16 INDEX_JUDGEMENT_PORTRAITS = 0x38;
+constexpr uint16_t INDEX_JUDGEMENT_PORTRAITS = 0x38;
 
 #pragma region SecondaryPaletteEffects
 
 // Gill just needs a flip of the first two palette lines
-const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_NextOnly =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SGill_SwapSides_NextOnly =
 { 
     {
         SUPP_NODE, 0x01, 0, 
@@ -42,7 +42,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_NextOnly =
 };
 
 // For this version, handle palettes too
-const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_Next_AndHandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SGill_SwapSides_Next_AndHandlePortraits =
 { 
     {
         SUPP_NODE, 0x01, 0, 
@@ -93,7 +93,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_Next_AndHan
     },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_Next12 =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SGill_SwapSides_Next12 =
 {
     { SUPP_NODE, 0x0c, 0,
         MOD_COPY, 1, 15, 17,
@@ -101,7 +101,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_SwapSides_Next12 =
     },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_All24Glows =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SGill_All24Glows =
 {
     {
         SUPP_NODE, 0x01, 0, // Glow 2
@@ -860,7 +860,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SGill_All24Glows =
     },
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SAlex_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SAlex_HandlePortraits =
 {
     {
         // HUD portrait
@@ -906,7 +906,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SAlex_HandlePortraits =
     }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SChunLi_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SChunLi_HandlePortraits =
 {
     {
     // HUD portrait
@@ -962,7 +962,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SChunLi_HandlePortraits =
     }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SDudley_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SDudley_HandlePortraits =
 {
     {
         // HUD portrait
@@ -1024,7 +1024,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SDudley_HandlePortraits =
     }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SElena_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SElena_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1072,7 +1072,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SElena_HandlePortraits =
     }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SGouki_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SGouki_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1119,7 +1119,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SGouki_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SHugo_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SHugo_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1164,7 +1164,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SHugo_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SIbuki_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SIbuki_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1210,7 +1210,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SIbuki_HandlePortraits =
     }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SKen_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SKen_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1257,7 +1257,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SKen_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SMakoto_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SMakoto_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1304,7 +1304,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SMakoto_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SNecro_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SNecro_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1351,7 +1351,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SNecro_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SOro_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SOro_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1398,7 +1398,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SOro_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SQ_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SQ_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1444,7 +1444,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SQ_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SRemy_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SRemy_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1489,7 +1489,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SRemy_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SRyu_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SRyu_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1536,7 +1536,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SRyu_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SSean_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SSean_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1582,7 +1582,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SSean_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3STwelve_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3STwelve_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1625,7 +1625,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3STwelve_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SUrien_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SUrien_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1670,7 +1670,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SUrien_HandlePortraits =
       }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SYang_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SYang_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1717,7 +1717,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SYang_HandlePortraits =
     }
 };
 
-const std::vector<std::vector<UINT16>> paletteBuddy_3SYun_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SYun_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal
@@ -1769,7 +1769,7 @@ const std::vector<std::vector<UINT16>> paletteBuddy_3SYun_HandlePortraits =
 };
 
 // ShinGouki only has a HUD portrait
-const std::vector<std::vector<UINT16>> paletteBuddy_3SShinGouki_HandlePortraits =
+const std::vector<std::vector<uint16_t>> paletteBuddy_3SShinGouki_HandlePortraits =
 {
     {
         // HUD portrait: slightly lighter than normal

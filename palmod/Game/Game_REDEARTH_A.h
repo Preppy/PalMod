@@ -22,16 +22,16 @@ public:
     // RedEarth has two different ROMs of interest: handle here.
     int m_nBufferRedEarthMode = 30;
     static uint32_t m_nRedEarthMode;
-    static UINT32 m_nTotalPaletteCount30;
-    static UINT32 m_nTotalPaletteCount31;
-    static UINT32 m_nTotalPaletteCount50;
+    static uint32_t m_nTotalPaletteCount30;
+    static uint32_t m_nTotalPaletteCount31;
+    static uint32_t m_nTotalPaletteCount50;
 
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize_3;
-    static UINT32 m_nExpectedGameROMSize_5;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize_3;
+    static uint32_t m_nExpectedGameROMSize_5;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -41,7 +41,7 @@ public:
     static stExtraDef* GetRedEarthExtraDef(int x);
 
 public:
-    CGame_REDEARTH_A(UINT32 nConfirmedROMSize = -1, int nRedEarthModeToLoad = 31);
+    CGame_REDEARTH_A(uint32_t nConfirmedROMSize = -1, int nRedEarthModeToLoad = 31);
     ~CGame_REDEARTH_A(void);
 
     //Static functions / variables
@@ -71,7 +71,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* REDEARTH_A_EXTRA_CUSTOM_30;
     static stExtraDef* REDEARTH_A_EXTRA_CUSTOM_31;

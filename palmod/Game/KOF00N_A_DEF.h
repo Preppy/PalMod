@@ -2,7 +2,7 @@
 
 // This file is hand-generated
 
-const std::vector<UINT16> KOF00N_A_IMGIDS_USED =
+const std::vector<uint16_t> KOF00N_A_IMGIDS_USED =
 {
     indexKOF01Sprites_Andy,         // 0x1af
     indexKOF01Sprites_Angel,        // 0x1b0

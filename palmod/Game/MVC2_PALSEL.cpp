@@ -219,7 +219,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 for (int nNodeIndex = ((int)pDescriptionForPalId->pPairedPaletteInfo->nPalettesToJoin) - 1; nNodeIndex >= 0; nNodeIndex--)
                 {
                     const uint32_t nUnitToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageUnitOverride : nImgUnitId;
-                    const UINT16 nImageToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex : vMoveDescriptionSetToJoin[nNodeIndex]->nCharacterIndex;
+                    const uint16_t nImageToUse = (vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex != 0xFF) ? vMoveDescriptionSetToJoin[nNodeIndex]->nImageIndex : vMoveDescriptionSetToJoin[nNodeIndex]->nCharacterIndex;
 
                     sImgTicket* pThisImage = CreateImgTicket(nUnitToUse, nImageToUse, pPreviousImage);
 
@@ -266,15 +266,15 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             fLoadDefPal = FALSE;
 
-            UINT16 nJoinedUnit1 = indexMVC2AMagneto;
-            UINT16 nJoinedUnit2 = indexMVC2AStorm;
-            UINT16 nJoinedUnit3 = indexMVC2APsylocke;
+            uint16_t nJoinedUnit1 = indexMVC2AMagneto;
+            uint16_t nJoinedUnit2 = indexMVC2AStorm;
+            uint16_t nJoinedUnit3 = indexMVC2APsylocke;
             bool fTeamFound = false;
 
-            UINT16 nTeamViewNode = (UINT16)floor(NodeGet->uPalId / (UINT16)pCurrentButtonLabelSet.size());
+            uint16_t nTeamViewNode = (uint16_t)floor(NodeGet->uPalId / (uint16_t)pCurrentButtonLabelSet.size());
             const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
 
-            for (UINT16 nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
+            for (uint16_t nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
             {
                 if (_wcsicmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
                 {

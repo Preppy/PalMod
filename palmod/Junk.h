@@ -4,7 +4,7 @@
 
 #define JUNK_CLASSNAME    L"CJunk"  // Window class name
 
-#define aaadd(x, y) ((UINT8)(((x) + (y) > 255) ? 255 : (x) + (y)))
+#define aaadd(x, y) ((uint8_t)(((x) + (y) > 255) ? 255 : (x) + (y)))
 
 constexpr auto CUSTOM_HLCHANGE        = WM_USER +1;
 constexpr auto CUSTOM_SELHLCHANGE     = WM_USER +2;
@@ -45,7 +45,7 @@ private:
 
     void SetIndexPen(int nIndex, int pFlag);
 
-    void CustomFillRect(RECT* lpRect, UINT8* crSrcCol);
+    void CustomFillRect(RECT* lpRect, uint8_t* crSrcCol);
     //Input management
 
     BOOL ProcessHovered(CPoint hPoint, CPoint& auxPos);
@@ -65,7 +65,7 @@ private:
 
     HBITMAP m_hBmp = nullptr;
     BITMAPINFO m_Bmpi;
-    UINT32* m_pBmpData = nullptr;
+    uint32_t* m_pBmpData = nullptr;
     CDC m_dcBaseDC;
 
     static BOOL m_bCreatedPens;

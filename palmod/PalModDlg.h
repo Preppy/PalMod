@@ -95,12 +95,12 @@ public:
 
     //Program functions
 
-    void LoadGameDir(SupportedGamesList nGameFlag, WCHAR* pszLoadDir);
+    void LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir);
     void OnLoadGameByDirectory(SupportedGamesList nGameFlag);
     BOOL SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
     void UpdateAppTitle();
 
-    void LoadGameFile(SupportedGamesList nGameFlag, WCHAR* pszFile);
+    void LoadGameFile(SupportedGamesList nGameFlag, wchar_t* pszFile);
 
     void LoadLastDir();
 

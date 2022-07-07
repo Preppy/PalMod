@@ -14,8 +14,8 @@ private:
     // These handle per-ROM logic.
     uint32_t m_nBufferSelectedRom = 6;
     static uint32_t m_nMSHVSFSelectedRom;
-    static UINT32 m_nTotalPaletteCountForMSHVSF_6A;
-    static UINT32 m_nTotalPaletteCountForMSHVSF_7B;
+    static uint32_t m_nTotalPaletteCountForMSHVSF_6A;
+    static uint32_t m_nTotalPaletteCountForMSHVSF_7B;
     static inline bool UsePaletteSetForCharacters() { return (m_nMSHVSFSelectedRom == 6); }
 
     static uint32_t rgExtraLocation_6A[MSHVSF_A_NUM_IND_6A + 1];
@@ -26,8 +26,8 @@ private:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static uint32_t m_nExpectedGameROMSize;
+    static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -37,7 +37,7 @@ private:
     const int m_uLowestKnownPaletteROMLocation_7B = 0; // This is an odd file, yes.
 
 public:
-    CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad);
+    CGame_MSHVSF_A(uint32_t nConfirmedROMSize, int nMSHVSFRomToLoad);
     ~CGame_MSHVSF_A(void);
 
     //Static functions / variables
@@ -66,7 +66,7 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 
