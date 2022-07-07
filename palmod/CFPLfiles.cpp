@@ -25,7 +25,7 @@ class CCFPLFileImportDialog : public CDialog
     DECLARE_DYNAMIC(CCFPLFileImportDialog)
 
 public:
-    CCFPLFileImportDialog(std::wstring strCurrentCharacter, const std::vector<LPCWSTR> vpszColorList, size_t nCurrentSelection, CWnd* pParent = NULL);   // standard constructor
+    CCFPLFileImportDialog(std::wstring strCurrentCharacter, const std::vector<LPCWSTR> vpszColorList, int nCurrentSelection, CWnd* pParent = NULL);   // standard constructor
     virtual ~CCFPLFileImportDialog() {};
 
     BOOL OnInitDialog();
@@ -44,12 +44,12 @@ protected:
     std::vector<LPCWSTR> m_vstrColorOptions;
 
 public:
-    size_t m_nCurrentSel = 0;
+    int m_nCurrentSel = 0;
 };
 
 IMPLEMENT_DYNAMIC(CCFPLFileImportDialog, CDialog)
 
-CCFPLFileImportDialog::CCFPLFileImportDialog(std::wstring strCurrentCharacter, const std::vector<LPCWSTR> vpszColorList, size_t nCurrentSelection, CWnd* pParent /*=NULL*/)
+CCFPLFileImportDialog::CCFPLFileImportDialog(std::wstring strCurrentCharacter, const std::vector<LPCWSTR> vpszColorList, int nCurrentSelection, CWnd* pParent /*=NULL*/)
     : CDialog(CCFPLFileImportDialog::IDD, pParent)
 {
     m_strCharacterName = strCurrentCharacter;
@@ -297,7 +297,7 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
             {
                 uint8_t rgConvertedPalette[k_nColorDataSize] = {};
 
-                CFPLFile.Read(&rgCFPL, rgCFPL.size());
+                CFPLFile.Read(&rgCFPL, static_cast<UINT>(rgCFPL.size()));
 
                 for (size_t nPaletteIndex = 0; nPaletteIndex < k_nColorsPerPalette; nPaletteIndex++)
                 {
@@ -414,7 +414,7 @@ bool CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName)
             const UINT k_nDescRequiredLength = 0x40;
             const std::array<BYTE, k_nDescRequiredLength> k_rgFillBytes = { };
 
-            CFPLFile.Write(&k_rgCFPLSignature, k_rgCFPLSignature.size());
+            CFPLFile.Write(&k_rgCFPLSignature, static_cast<UINT>(k_rgCFPLSignature.size()));
 
             CFPLFile.Write(&BlazBlueCF_S_CharacterData[m_nPrevUnitSel].nBBCFIMId, 1);
             CFPLFile.Write(&k_rgFillBytes, 3);

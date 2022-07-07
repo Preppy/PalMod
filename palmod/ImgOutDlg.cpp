@@ -667,8 +667,8 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             }
             else
             {
-            output_str.Format(L"%s%s%s", save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
-            lodepng::save_file(buffer, output_str.GetString());
+                output_str.Format(L"%s%s%s", save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
+                lodepng::save_file(buffer, output_str.GetString());
             }
         }
     }
@@ -746,9 +746,9 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
             if (fHasErrorAndShouldFix)
             {
                 // Default to the last color in the palette: we'll optimize to an actually unused color index if possible.
-                int nUnusedPaletteIndex = rgSrcImg[nImageIndex]->uPalSz - 1;
+                uint8_t nUnusedPaletteIndex = static_cast<uint8_t>(rgSrcImg[nImageIndex]->uPalSz - 1);
 
-                for (size_t nColorUsageIndex = 1; nColorUsageIndex < rgIsIndexUsed.size(); nColorUsageIndex++)
+                for (uint8_t nColorUsageIndex = 1; nColorUsageIndex < rgIsIndexUsed.size(); nColorUsageIndex++)
                 {
                     if (!rgIsIndexUsed.at(nColorUsageIndex))
                     {
@@ -759,18 +759,18 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
 
                 bool fShownError = false;
 
-                for (int nImgIndex = 0; nImgIndex < rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW; nImgIndex++)
+                for (size_t iImgIndex = 0; iImgIndex < static_cast<size_t>(rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW); iImgIndex++)
                 {
                     // Validate that all color references are within the bounds of the current palette
-                    if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] > rgSrcImg[nImageIndex]->uPalSz)
+                    if (rgSrcImg[nImageIndex]->pImgData[iImgIndex] > rgSrcImg[nImageIndex]->uPalSz)
                     {
-                        int nOldColor = rgSrcImg[nImageIndex]->pImgData[nImgIndex];
-                        int nNewColor;
+                        uint8_t nOldColor = rgSrcImg[nImageIndex]->pImgData[iImgIndex];
+                        uint8_t nNewColor;
 
                         // In some specific cases people were using out-of-bounds colors to color "shadow" / inferred sprites
                         // Adjust those to something *in* the palette.  This is still "wrong" but at least more 
                         // technically correct.
-                        if (rgSrcImg[nImageIndex]->pImgData[nImgIndex] == 0xfe)
+                        if (rgSrcImg[nImageIndex]->pImgData[iImgIndex] == 0xfe)
                         {
                             nNewColor = nUnusedPaletteIndex;
                         }
@@ -790,7 +790,7 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_ext, LPCWSTR pszSu
                             OutputDebugString(strError.GetString());
                         }
 
-                        rgSrcImg[nImageIndex]->pImgData[nImgIndex] = nNewColor;
+                        rgSrcImg[nImageIndex]->pImgData[iImgIndex] = nNewColor;
                     }
                 }
             }

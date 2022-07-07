@@ -68,14 +68,14 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
             std::array<uint8_t, k_nColorDataSize> rgHPAL = {};
 
             HPALFile.Seek(k_nHPALHeaderLength, CFile::begin);
-            HPALFile.Read(&rgHPAL, rgHPAL.size());
+            HPALFile.Read(&rgHPAL, static_cast<UINT>(rgHPAL.size()));
             HPALFile.Close();
 
             // Now consume those colors...
             const uint8_t nTotalPaletteCount = MainPalGroup->GetPalAmt();
-            size_t nTotalNumberOfCurrentColors = 0;
+            uint32_t nTotalNumberOfCurrentColors = 0;
 
-            for (size_t nPalette = 0; nPalette < nTotalPaletteCount; nPalette++)
+            for (uint32_t nPalette = 0; nPalette < nTotalPaletteCount; nPalette++)
             {
                 nTotalNumberOfCurrentColors += MainPalGroup->GetPalDef(nPalette)->uPalSz;
             }
@@ -193,7 +193,7 @@ bool CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName)
 
     if (HPALFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
     {
-        HPALFile.Write(&k_rgHPALHeader, k_rgHPALHeader.size());
+        HPALFile.Write(&k_rgHPALHeader, static_cast<UINT>(k_rgHPALHeader.size()));
 
         const uint16_t k_nColorsPerPalette = 256; // An HPAL has 256 colors.  Fill with black as needed.
         uint8_t* pPal = (uint8_t*)CurrPalCtrl->GetBasePal();

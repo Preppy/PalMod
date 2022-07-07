@@ -21,14 +21,14 @@ struct sPalDef
 {
     COLORREF* pPal = nullptr;
     COLORREF* pBasePal = nullptr;
-    UINT16 uPalSz = 0;
+    uint16_t uPalSz = 0;
 
     uint32_t uUnitId = 0;
     uint32_t uCollectionId = 0;
     uint32_t uPalId = 0;
 
     sPalSep* SepList[MAX_SEPARATORS] = {};
-    UINT16 uSepAmt = 0;
+    uint16_t uSepAmt = 0;
 
     bool fIsChanged = false;
     bool fPalAvailable = false;

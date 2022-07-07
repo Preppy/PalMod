@@ -1196,7 +1196,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     return TRUE;
 }
 
-void CGame_SFIII3_A::PostSetPal(size_t nUnitId, size_t nPalId)
+void CGame_SFIII3_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
     CString strMessage;
     strMessage.Format(L"CGame_SFIII3_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);

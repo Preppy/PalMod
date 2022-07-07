@@ -199,10 +199,10 @@ uint32_t CGame_BlazBlueCF_S::GetNodeCountForCollection(uint32_t nUnitId, uint32_
 
 uint32_t CGame_BlazBlueCF_S::GetPaletteCountForUnit(uint32_t nUnitId)
 {
-    uint32_t nTotalPaletteCount = GetBasicPaletteCountForUnit(nUnitId);
+    size_t nTotalPaletteCount = GetBasicPaletteCountForUnit(nUnitId);
     nTotalPaletteCount += BlazBlueCF_S_CharacterData[nUnitId].prgExtraPalettes.size();
 
-    return nTotalPaletteCount;
+    return static_cast<uint32_t>(nTotalPaletteCount);
 }
 
 LPCWSTR CGame_BlazBlueCF_S::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
@@ -238,7 +238,7 @@ void CGame_BlazBlueCF_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPal
     }
     else // effects palettes
     {
-        uint32_t nAdjustedPaletteId = nPalId - GetBasicPaletteCountForUnit(nUnitId);
+        size_t nAdjustedPaletteId = nPalId - GetBasicPaletteCountForUnit(nUnitId);
 
         const int cbPaletteSizeOnDisc = BlazBlueCF_S_CharacterData[nUnitId].prgExtraPalettes[nAdjustedPaletteId].nPaletteOffsetEnd - BlazBlueCF_S_CharacterData[nUnitId].prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
 
@@ -298,8 +298,8 @@ BOOL CGame_BlazBlueCF_S::UpdatePalImg(int Node01, int Node02, int Node03, int No
     {
         // core palettes
         nSrcStart = NodeGet->uPalId % BlazBlueCF_S_CharacterData[NodeGet->uUnitId].ppszPaletteList.size();
-        nSrcAmt = BlazBlueCF_S_CharacterData[NodeGet->uUnitId].ppszCollectionList.size();
-        nNodeIncrement = BlazBlueCF_S_CharacterData[NodeGet->uUnitId].ppszPaletteList.size();
+        nSrcAmt = static_cast<uint32_t>(BlazBlueCF_S_CharacterData[NodeGet->uUnitId].ppszCollectionList.size());
+        nNodeIncrement = static_cast<uint32_t>(BlazBlueCF_S_CharacterData[NodeGet->uUnitId].ppszPaletteList.size());
         pButtonLabelSet = BlazBlueCF_S_CharacterData[NodeGet->uUnitId].ppszCollectionList;
 
         nImgUnitId = BlazBlueCF_S_CharacterData[NodeGet->uUnitId].nSpriteUnitIndex;

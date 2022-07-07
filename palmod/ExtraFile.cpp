@@ -772,7 +772,7 @@ void CGameWithExtrasFile::_WriteToFileAsANSI(CFile& ExtraFile, CString strData)
     
     if (WideCharToMultiByte(CP_ACP, 0, strData.GetString(), -1, paszBuffer, dwSize, NULL, FALSE))
     {
-        ExtraFile.Write(paszBuffer, strlen(paszBuffer));
+        ExtraFile.Write(paszBuffer, static_cast<UINT>(strlen(paszBuffer)));
     }
 
     delete[] paszBuffer;

@@ -99,7 +99,7 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
     BOOL SaveFile(CFile* SaveFile, uint32_t nUnitId) override;
 
-    void PostSetPal(size_t nUnitId, size_t nPalId) override;
+    void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 
     static stExtraDef* SFIII3_A_10_EXTRA_CUSTOM;
     static stExtraDef* SFIII3_A_14_EXTRA_CUSTOM;

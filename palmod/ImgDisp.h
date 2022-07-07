@@ -23,15 +23,15 @@ struct sImgIndex
 
 struct sImgNode
 {
-    UINT16 uImgW = 0;
-    UINT16 uImgH = 0;
+    uint16_t uImgW = 0;
+    uint16_t uImgH = 0;
 
     int nXOffs = 0;
     int nYOffs = 0;
 
-    UINT8* pImgData = nullptr;
+    uint8_t* pImgData = nullptr;
 
-    int uPalSz = 0;
+    uint16_t uPalSz = 0;
     COLORREF* pPalette = nullptr;
     COLORREF* pBlinkPalette = nullptr;
 };

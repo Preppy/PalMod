@@ -2136,7 +2136,7 @@ bool CGameClass::FindROMVersionFromByteSniff(CFile* LoadedFile, std::vector<ROMR
     vnSniffedBytes.resize(nMaxSize);
 
     LoadedFile->Seek(nOffsetForRead, CFile::begin);
-    LoadedFile->Read(vnSniffedBytes.data(), vnSniffedBytes.size() * 2);
+    LoadedFile->Read(vnSniffedBytes.data(), static_cast<UINT>(vnSniffedBytes.size() * 2));
 
     bool fFoundMatch = false;
 
