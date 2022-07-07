@@ -323,7 +323,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                      (paletteDataSet->pPalettePairingInfo->nPalettesToJoin <= MAXIMUM_PALETTE_PAIRS_ALLOWED))
             {
                 std::vector<const sGame_PaletteDataset*> vsPaletteDataSetToJoin;
-                std::vector<INT8> vnPeerPaletteDistances;
+                std::vector<int8_t> vnPeerPaletteDistances;
                 bool fAllNodesFound = true;
 
                 for (uint32_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)

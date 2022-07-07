@@ -287,7 +287,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                         if (wcscmp(unitWeakpoint->szDesc, k_krNameKey_WeakpointUnit) == 0)
                         {
                             fShouldUseAlternateLoadLogic = true;
-                            const INT8 nPeerPaletteDistance = 1;
+                            const int8_t nPeerPaletteDistance = 1;
 
                             ClearSetImgTicket(
                                 CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
@@ -315,7 +315,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     }
                     else
                     {
-                        const INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                        const int8_t nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                         const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
 

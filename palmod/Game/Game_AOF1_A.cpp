@@ -356,7 +356,7 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                int8_t nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                 const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
 
@@ -370,9 +370,9 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     {
                         // King is a slightly ugly three-pair node, stepping back for the core sprite and then forward X to her bra
 
-                        INT8 nPeerNodeDistance = nPeerPaletteDistance;
-                        INT8 nPeerPaletteDistance2 = (nPeerPaletteDistance == -2) ? 1 : 2;
-                        INT8 nPeerNodeDistance2 = nPeerPaletteDistance2;
+                        int8_t nPeerNodeDistance = nPeerPaletteDistance;
+                        int8_t nPeerPaletteDistance2 = (nPeerPaletteDistance == -2) ? 1 : 2;
+                        int8_t nPeerNodeDistance2 = nPeerPaletteDistance2;
 
                         const sGame_PaletteDataset* paletteDataSetToJoin2 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance2);
 
@@ -419,8 +419,8 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             );
                         }
 
-                        INT8 nNodeDistance = 0;
-                        INT8 nPeerNodeDistance = nPeerPaletteDistance;
+                        int8_t nNodeDistance = 0;
+                        int8_t nPeerNodeDistance = nPeerPaletteDistance;
 
                         if (wcsstr(charUnit->szDesc, k_aof1NameKey_Jack))
                         {

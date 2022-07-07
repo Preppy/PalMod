@@ -280,7 +280,7 @@ BOOL CGame_TMNTTF_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                int8_t nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                 const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
 
@@ -295,8 +295,8 @@ BOOL CGame_TMNTTF_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
                     );
 
                     sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
-                    INT8 nNodeDistance = 0;
-                    INT8 nPeerNodeDistance = nPeerPaletteDistance;
+                    int8_t nNodeDistance = 0;
+                    int8_t nPeerNodeDistance = nPeerPaletteDistance;
 
                     if (wcsstr(charUnit->szDesc, L"Leo"))
                     {

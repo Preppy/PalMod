@@ -704,7 +704,7 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                int8_t nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
                 const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
 
@@ -745,8 +745,8 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         );
 
                         sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
-                        INT8 nNodeDistance = 0;
-                        INT8 nPeerNodeDistance = nPeerPaletteDistance;
+                        int8_t nNodeDistance = 0;
+                        int8_t nPeerNodeDistance = nPeerPaletteDistance;
 
                         if ((nPeerPaletteDistance > 2) && (wcsstr(charUnit->szDesc, L"Sinclair")))
                         {

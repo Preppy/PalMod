@@ -423,15 +423,15 @@ struct stExtraDef
 
 struct stPairedPaletteInfo
 {
-    INT8 nNodeIncrementToPartner = 1;
+    int8_t nNodeIncrementToPartner = 1;
     bool fPairingIsFlipped = false;
     uint32_t nPalettesToJoin = 2;
-    INT8 nOverallNodeIncrementTo2ndPartner = 2;
-    INT8 nOverallNodeIncrementTo3rdPartner = 3;
-    INT8 nOverallNodeIncrementTo4thPartner = 4;
-    INT8 nOverallNodeIncrementTo5thPartner = 5;
-    INT8 nOverallNodeIncrementTo6thPartner = 6;
-    INT8 nOverallNodeIncrementTo7thPartner = 7;
+    int8_t nOverallNodeIncrementTo2ndPartner = 2;
+    int8_t nOverallNodeIncrementTo3rdPartner = 3;
+    int8_t nOverallNodeIncrementTo4thPartner = 4;
+    int8_t nOverallNodeIncrementTo5thPartner = 5;
+    int8_t nOverallNodeIncrementTo6thPartner = 6;
+    int8_t nOverallNodeIncrementTo7thPartner = 7;
 };
 
 struct stPaletteProcessingInformation

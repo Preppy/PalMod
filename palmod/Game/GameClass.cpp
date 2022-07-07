@@ -704,7 +704,7 @@ void CGameClass::UpdatePalData()
         if (srcDef->fPalAvailable)
         {
             COLORREF* crSrc = srcDef->pPal;
-            INT16 nTotalColorsRemaining = srcDef->uPalSz;
+            int16_t nTotalColorsRemaining = srcDef->uPalSz;
             uint16_t nCurrentTotalWrites = 0;
             // Every 16 colors there is another counter WORD (color length) to preserve.
             const uint16_t nMaxSafeColorsToWrite = (uint16_t)createPalOptions.eWriteOutputOptions;
@@ -793,7 +793,7 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
     if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSizeInColors > s_nColorsPerPage))
     {
         CString strPageDescription;
-        INT16 nColorsRemaining = m_nCurrentPaletteSizeInColors;
+        int16_t nColorsRemaining = m_nCurrentPaletteSizeInColors;
 
         for (uint16_t nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSizeInColors; nCurrentPage++)
         {
