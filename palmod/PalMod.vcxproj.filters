@@ -981,6 +981,9 @@
     <ClCompile Include="CFPLfiles.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HTMLfiles.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">

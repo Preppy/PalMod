@@ -859,6 +859,7 @@ void CImgOutDlg::OnFileSave()
         L"BMP Image|*.bmp|"
         L"JPEG Image|*.jpg|"
         L"RAW texture|*.raw|"
+        L"HTML|*.html|"
         L"|"
     };
 
@@ -920,6 +921,12 @@ void CImgOutDlg::OnFileSave()
                 output_ext = L".raw";
                 break;
             }
+            case 7:
+            {
+                img_format = ImageFormatUndefined;
+                output_ext = L".html";
+                break;
+            }
         }
 
         OPENFILENAME sfd_ofn = sfd.GetOFN();
@@ -941,11 +948,15 @@ void CImgOutDlg::OnFileSave()
             output_str.Format(L"%s%s", sfd_ofn.lpstrFile, output_ext.GetString());
         }
 
-        if (img_format == ImageFormatUndefined) // this path is RAW and indexed PNG using custom encoders
+        if (img_format == ImageFormatUndefined) // this path is RAW, HTML, and indexed PNG using custom encoders
         {
             if (output_ext.CompareNoCase(L".png") == 0)
             {
                 ExportToIndexedPNG(save_str, output_str, output_ext);
+            }
+            else if (output_ext.CompareNoCase(L".html") == 0)
+            {
+                ExportToHTML(save_str, output_ext, sfd_ofn.lpstrFile);
             }
             else
             {
