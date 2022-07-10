@@ -176,6 +176,8 @@ enum SupportedGamesList
     FatalFury2_A,
     JOJOS_US_A,
     JOJOS_US_A_DIR_51,
+    FotNS_P,
+    BASARA_P,
 
     NUM_GAMES // This needs to be last
 };
@@ -348,6 +350,8 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Fatal Fury 2 (Neo-Geo)",
     L"Jojo's (CPS3, USA, Regulation: On)",
     L"Jojo's 51 (CPS3 US Arcade Rerip)",
+    L"Hokuto no Ken (PS2)",
+    L"Sengoku BASARA X (PS2)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -359,6 +363,7 @@ enum class GamePlatform
     NEOGEO,
     Nintendo,
     PGM,
+    PS2,
     SammyAtomiswave,
     SegaNAOMI,
     Sega,

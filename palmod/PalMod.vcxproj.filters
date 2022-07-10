@@ -469,6 +469,15 @@
     <Filter Include="Games\SNK Games\Fatal Fury 2">
       <UniqueIdentifier>{beb3d933-be7a-4973-b797-22d5962721ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\PS2">
+      <UniqueIdentifier>{3d005acd-6996-4044-9066-c10aeb79a7f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\PS2\Fist of the North Star">
+      <UniqueIdentifier>{92e91d1b-55d6-4ed5-bf35-830aba8d0c04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\PS2\Sengoku BASARA X">
+      <UniqueIdentifier>{c0db6b95-a63f-4c5f-8208-c7db2221f32e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -983,6 +992,12 @@
     </ClCompile>
     <ClCompile Include="HTMLfiles.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_FotNS_P.cpp">
+      <Filter>Games\PS2\Fist of the North Star</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_BASARA_P.cpp">
+      <Filter>Games\PS2\Sengoku BASARA X</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1855,6 +1870,18 @@
     </ClInclude>
     <ClInclude Include="Game\Game_FatalFury2_A.h">
       <Filter>Games\SNK Games\Fatal Fury 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FotNS_P_DEF.h">
+      <Filter>Games\PS2\Fist of the North Star</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FotNS_P.h">
+      <Filter>Games\PS2\Fist of the North Star</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BASARA_P_DEF.h">
+      <Filter>Games\PS2\Sengoku BASARA X</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_BASARA_P.h">
+      <Filter>Games\PS2\Sengoku BASARA X</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -22,23 +22,23 @@
 
 // That's it!  Good luck!  If you have any questions, feel free to ask.
 
-CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
+CGame_NEWGAME_A::CGame_NEWGAME_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_NEWGAME_A::CGame_NEWGAME_A: Loading ROM...\n");
 
     createPalOptions = {
                         NO_SPECIAL_OPTIONS, // Obsolete, don't change.
-                        PALWriteOutputOptions::WRITE_16  // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
+                        PALWriteOutputOptions::WRITE_16  // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter uint16_t.
                                                          // You can set this to PALWriteOutputOptions::WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
     };
 
     // ** Set alpha mode: this determines whether or not we set alpha values for the data we write back to the game ROM.
-    // For color mode 12A you usually want it not set, for NEOGEO you cannot use it (there's no bit(s) for it), and for 15/15ALT you probably want it on.
+    // For color mode COLMODE_RGB444_BE you usually want it not set, for NEOGEO you cannot use it (there's no bit(s) for it), and for 15/15ALT you probably want it on.
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    // ** Set color mode: see the definitions in GameClass.h
+    // ** Set color mode: see the definitions in ColorSystem.h
     // We need to set color mode before calling InitializeStatics as color mode affects color size (2 bytes vs 4 bytes)
     // which in turn affects all our calculations involving colors
-    SetColorMode(ColMode::COLMODE_12A);
+    SetColorMode(ColMode::COLMODE_RGB444_BE);
 
     // The value passed in to us was the confirmed ROM size we have.
     // We keep track of this before we initialize so that we can truncate bad Extras correctly on load.
@@ -49,15 +49,10 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = NEWGAME_A_NUMUNIT;
     m_nExtraUnit = NEWGAME_A_EXTRALOC;
 
-    // You will need to update this once you modify palettes, but PalMod will prompt you to do so.
-    // Exact count will be shown in debug output in the debugger
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 4;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + m_nPaletteCountInHeaders;
     m_pszExtraFilename = EXTRA_FILENAME_NEWGAME_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNEWGAME; // This value is calculated at runtime: don't change this.
-    // ** This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    // You will need to update this, but PalMod will prompt you to do so.  Exact location will be shown and also
-    // visible in debug output in the debugger.
-    m_nLowestKnownPaletteRomLocation = 0xbadf00d;
+    m_nLowestKnownPaletteRomLocation = m_nLowestROMLocationUsedInHeaders;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -82,8 +77,8 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     pButtonLabelSet = DEF_NOBUTTONS; // Check out the available options in buttondef.h
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -99,8 +94,8 @@ stExtraDef* CGame_NEWGAME_A::NEWGAME_A_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_NEWGAME_A::MainDescTree = nullptr;
 uint32_t CGame_NEWGAME_A::rgExtraCountAll[NEWGAME_A_NUMUNIT + 1];
 uint32_t CGame_NEWGAME_A::rgExtraLoc[NEWGAME_A_NUMUNIT + 1];
-UINT32 CGame_NEWGAME_A::m_nTotalPaletteCountForNEWGAME = 0;
-UINT32 CGame_NEWGAME_A::m_nConfirmedROMSize = -1;
+uint32_t CGame_NEWGAME_A::m_nTotalPaletteCountForNEWGAME = 0;
+uint32_t CGame_NEWGAME_A::m_nConfirmedROMSize = -1;
 
 void CGame_NEWGAME_A::InitializeStatics()
 {
@@ -138,7 +133,7 @@ uint32_t CGame_NEWGAME_A::GetExtraLoc(uint32_t nUnitId)
 sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_NEWGAME_A, nullptr, &NEWGAME_A_EXTRA_CUSTOM, NEWGAME_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_NEWGAME_A, &NEWGAME_A_EXTRA_CUSTOM, NEWGAME_A_EXTRALOC, m_nConfirmedROMSize);
 
     uint32_t nUnitCt = NEWGAME_A_NUMUNIT + (GetExtraCt(NEWGAME_A_EXTRALOC) ? 1 : 0);
     
@@ -163,7 +158,7 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_NEWGAME_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_NEWGAME_A::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -181,7 +176,7 @@ uint32_t CGame_NEWGAME_A::GetCollectionCountForUnit(uint32_t nUnitId)
     return _GetCollectionCountForUnit(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
-UINT16 CGame_NEWGAME_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
+uint32_t CGame_NEWGAME_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
     return _GetNodeCountForCollection(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, nCollectionId, NEWGAME_A_EXTRA_CUSTOM);
 }
@@ -191,7 +186,7 @@ LPCWSTR CGame_NEWGAME_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t 
     return _GetDescriptionForCollection(NEWGAME_A_UNITS, NEWGAME_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
-UINT16 CGame_NEWGAME_A::GetPaletteCountForUnit(uint32_t nUnitId)
+uint32_t CGame_NEWGAME_A::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     return _GetPaletteCountForUnit(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, NEWGAME_A_EXTRA_CUSTOM);
 }

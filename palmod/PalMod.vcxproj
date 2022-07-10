@@ -237,6 +237,7 @@
     <ClCompile Include="Game\GameLoad.cpp" />
     <ClCompile Include="Game\Game_AOF1_A.cpp" />
     <ClCompile Include="Game\Game_AOF3_A.cpp" />
+    <ClCompile Include="Game\Game_BASARA_P.cpp" />
     <ClCompile Include="Game\Game_BlazBlueCF_S.cpp" />
     <ClCompile Include="Game\GAME_Bleach_DS.cpp" />
     <ClCompile Include="Game\Game_BMKNS_SNES.cpp" />
@@ -255,6 +256,7 @@
     <ClCompile Include="Game\Game_FatalFury2_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
+    <ClCompile Include="Game\Game_FotNS_P.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
     <ClCompile Include="Game\Game_Garou_S.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_P.cpp" />
@@ -408,6 +410,7 @@
     <ClInclude Include="ExtraFile.h" />
     <ClInclude Include="Game\AOF1_A_DEF.h" />
     <ClInclude Include="Game\AOF3_A_DEF.h" />
+    <ClInclude Include="Game\BASARA_P_DEF.h" />
     <ClInclude Include="Game\BlazBlueCF_S_DEF.h" />
     <ClInclude Include="Game\Bleach_DS_DEF.h" />
     <ClInclude Include="Game\BMKNS_SNES_DEF.h" />
@@ -429,12 +432,14 @@
     <ClInclude Include="Game\FatalFury2_A_DEF.h" />
     <ClInclude Include="Game\FatalFuryS_A_DEF.h" />
     <ClInclude Include="Game\FatalFuryS_SNES_DEF.h" />
+    <ClInclude Include="Game\FotNS_P_DEF.h" />
     <ClInclude Include="Game\GameClass.h" />
     <ClInclude Include="Game\GameClassByFile.h" />
     <ClInclude Include="Game\GameDef.h" />
     <ClInclude Include="Game\GameLoad.h" />
     <ClInclude Include="Game\Game_AOF1_A.h" />
     <ClInclude Include="Game\Game_AOF3_A.h" />
+    <ClInclude Include="Game\Game_BASARA_P.h" />
     <ClInclude Include="Game\Game_BlazBlueCF_S.h" />
     <ClInclude Include="Game\GAME_Bleach_DS.h" />
     <ClInclude Include="Game\Game_BMKNS_SNES.h" />
@@ -453,6 +458,7 @@
     <ClInclude Include="Game\Game_FatalFury2_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
+    <ClInclude Include="Game\Game_FotNS_P.h" />
     <ClInclude Include="Game\Game_Garou_A.h" />
     <ClInclude Include="Game\Game_Garou_S.h" />
     <ClInclude Include="Game\Game_GGXXACR_P.h" />

@@ -201,3 +201,13 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_DANKUGA =
 {
     L"Punch", L"Kick", L"Start"
 };
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_FotNS =
+{
+    L"P", L"HP", L"K", L"HK", L"S"
+};
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_BASARA =
+{
+    L"A", L"B", L"C", L"E", L"ABC", L"Mirror"
+};

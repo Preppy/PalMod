@@ -1492,9 +1492,9 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_PALETTES[] =
     { L"BG Water waves", 0x737480, 0x737500, indexRedEarthSprites_Stages, 0x54 },
     { L"BG Small Water 1/3", 0x737980, 0x737a00, indexRedEarthSprites_Stages, 0x55 },
     { L"Tessa's House and Ground", 0x737080, 0x737100, indexRedEarthSprites_Stages, 0x57 },
+    { L"Boat", 0x737600, 0x737680, indexRedEarthSprites_Stages, 0x56 },
     { L"Ice mountain and Christmas tree 1", 0x737000, 0x737080, indexRedEarthSprites_Stages, 0x59 },
     { L"Wave splash", 0x737580, 0x737600, indexRedEarthSprites_Stages, 0x5a },
-    { L"Boat", 0x737600, 0x737680, indexRedEarthSprites_Stages, 0x56 },
     { L"Fish", 0x737680, 0x737700, indexRedEarthSprites_Stages, 0x58 },
 };
 
@@ -1523,9 +1523,9 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_POISON_PALETTES[] =
     { L"BG Water waves", 0x74d480, 0x74d500, indexRedEarthSprites_Stages, 0x54 },
     { L"BG Small Water 1/3", 0x74d980, 0x74da00, indexRedEarthSprites_Stages, 0x55 },
     { L"Tessa's House and Ground", 0x74d080, 0x74d100, indexRedEarthSprites_Stages, 0x57 },
+    { L"Boat", 0x74d600, 0x74d680, indexRedEarthSprites_Stages, 0x56 },
     { L"Ice mountain and Christmas tree 1", 0x74d000, 0x74d080, indexRedEarthSprites_Stages, 0x59 },
     { L"Wave splash", 0x74d580, 0x74d600, indexRedEarthSprites_Stages, 0x5a },
-    { L"Boat", 0x74d600, 0x74d680, indexRedEarthSprites_Stages, 0x56 },
     { L"Fish", 0x74d680, 0x74d700, indexRedEarthSprites_Stages, 0x58 },
 };
 
@@ -2005,9 +2005,9 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_SLASH_PALETTES[] =
     { L"BG Water waves", 0x737480 + 0xb000, 0x737500 + 0xb000, indexRedEarthSprites_Stages, 0x54 },
     { L"BG Small Water 1/3", 0x737980 + 0xb000, 0x737a00 + 0xb000, indexRedEarthSprites_Stages, 0x55 },
     { L"Tessa's House and Ground", 0x737080 + 0xb000, 0x737100 + 0xb000, indexRedEarthSprites_Stages, 0x57 },
+    { L"Boat", 0x737600 + 0xb000, 0x737680 + 0xb000, indexRedEarthSprites_Stages, 0x56 },
     { L"Ice mountain and Christmas tree 1", 0x737000 + 0xb000, 0x737080 + 0xb000, indexRedEarthSprites_Stages, 0x59 },
     { L"Wave splash", 0x737580 + 0xb000, 0x737600 + 0xb000, indexRedEarthSprites_Stages, 0x5a },
-    { L"Boat", 0x737600 + 0xb000, 0x737680 + 0xb000, indexRedEarthSprites_Stages, 0x56 },
     { L"Fish", 0x737680 + 0xb000, 0x737700 + 0xb000, indexRedEarthSprites_Stages, 0x58 },
 };
 

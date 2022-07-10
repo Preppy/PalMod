@@ -4,6 +4,7 @@
 
 #include "Game_AOF1_A.h"
 #include "Game_AOF3_A.h"
+#include "Game_BASARA_P.h"
 #include "Game_BlazBlueCF_S.h"
 #include "Game_Bleach_DS.h"
 #include "Game_BMKNS_SNES.h"
@@ -22,6 +23,7 @@
 #include "Game_FatalFury2_A.h"
 #include "Game_FatalFuryS_A.h"
 #include "Game_FatalFuryS_SNES.h"
+#include "Game_FotNS_P.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
 #include "Game_Gowcaizer_A.h"
@@ -198,6 +200,13 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_AOF3_A::GetRule;
         return TRUE;
     }
+
+    case BASARA_P:
+    {
+        GetRule = &CGame_BASARA_P::GetRule;
+        return TRUE;
+    }
+
     case BlazBlueCF_S:
     {
         GetRuleCtr = &CGame_BlazBlueCF_S::GetRuleCtr;
@@ -207,6 +216,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+    
     case BLEACH_DS:
     {
         GetRule = &CGame_BLEACH_DS::GetRule;
@@ -302,6 +312,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_FatalFuryS_SNES::GetRule;
         return TRUE;
     }
+    case FotNS_P:
+    {
+        GetRule = &CGame_FotNS_P::GetRule;
+        return TRUE;
+    }    
     case Garou_A:
     {
         GetRule = &CGame_Garou_A::GetRule;
@@ -1062,6 +1077,12 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     {
         return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
     }
+    
+    case BASARA_P:
+    {
+        return new CGame_BASARA_P(nConfirmedROMSize);
+    }
+
     case BlazBlueCF_S:
     {
         return new CGame_BlazBlueCF_S(nConfirmedROMSize);
@@ -1133,6 +1154,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case FatalFuryS_SNES:
     {
         return new CGame_FatalFuryS_SNES(nConfirmedROMSize);
+    }
+    case FotNS_P:
+    {
+        return new CGame_FotNS_P(nConfirmedROMSize);
     }
     case Garou_A:
     {

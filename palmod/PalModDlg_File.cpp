@@ -14,6 +14,7 @@ constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 // When you add or change the data here, please also update the Read Me with that data.
 sSupportedGameList SupportedGameList[] =
 {
+    // 1: Game ID,      2: Popup menu text,   3: Open File filter text,    4: Game Platform [,  5: Optional sub-category]
     { AOF1_A,           L"Art of Fighting 1", L"Art of Fighting 1|044-p1.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { BMKNS_SNES,       L"Battle Master: KnS (SNES)", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).s?c|", GamePlatform::Nintendo },
@@ -35,6 +36,7 @@ sSupportedGameList SupportedGameList[] =
     { GarouP_A,         L"Garou: MotW (Prototype)", L"Garou: MotW (Prototype)|proto_253-p1.p1;253-p1p.bin|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { Garou_S,          L"Garou: MotW", L"Garou: MotW for Steam 2|p1.bin|", GamePlatform::Steam },
     { GUNDAM_SNES,      L"Gundam Wing: Endless Duel (SNES)", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).s?c|", GamePlatform::Nintendo },
+    { FotNS_P,          L"Hokuto no Ken", L"Hokuto no Ken (PS2)|HK_B.bin|", GamePlatform::PS2 },
     { HSF2_A,           L"HSF2", L"HSF2: Portraits (*.03), Characters (*.04)|hs2u.03;hs2u.04|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { JOJOS_A,          L"Jojo's: HFTF (Normal, Regulation: Off)", L"Jojos HFTF: HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
     { JOJOS_US_A,       L"Jojo's: HFTF (Regulation: On)", L"Jojos HFTF: HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
@@ -103,6 +105,7 @@ sSupportedGameList SupportedGameList[] =
     { SAMSHO5SP_A,      L"Samurai Shodown V Special", L"Samurai Shodown V Special|272-p1*.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO5SP_S,      L"Samurai Shodown V Special", L"Samurai Shodown V Special|p1*h*.bin|", GamePlatform::Steam },
     { SAVAGEREIGN_A,    L"Savage Reign", L"Savage Reign|059-p1.*;savag_p1.rom|", GamePlatform::NEOGEO },
+    { BASARA_P,         L"Sengoku BASARA X", L"Sengoku BASARA X (PS2)|BSR.bin|", GamePlatform::PS2 },
     { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", GamePlatform::CapcomCPS12, GameSeries::SFA },
     { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12, GameSeries::SFA },
     { SFA2_Hack_A,      L"SFA2 Hack", L"SFA2 Hack (sz2u.09)|sz2u.09|", GamePlatform::CapcomCPS12, GameSeries::SFA },
