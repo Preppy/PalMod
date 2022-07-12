@@ -1,42 +1,6 @@
 #pragma once
 
-#include "P4AU_NESICA_DEF.h"
-
-const std::vector<LPCWSTR> PersonaPaletteNodes_Steam =
-{
-    L"Color 1",
-    L"Color 2",
-    L"Color 3",
-    L"Color 4",
-    L"Color 5",
-    L"Color 6",
-    L"Color 7",
-    L"Color 8",
-    L"Color 9",
-    L"Color 10",
-    L"Color 11",
-    L"Color 12",
-    L"Color 13",
-    L"Color 14",
-    L"Color 15",
-    L"Color 16",
-    L"Color 17",
-    L"Color 18",
-    L"Color 19",
-    L"Color 20",
-    L"Color 21",
-    L"Color 22",
-    L"Color 23",
-    L"Color 24",
-    L"Color 25",
-    L"Color 26",
-    L"Color 27",
-    L"Color 28",
-    L"Color 29 (Unused)",
-    L"Color 30",
-    L"Color 31",
-    L"Color 32 (Shadow NPC)",
-};
+#include "P4AU_Common.h"
 
 const std::vector<PersonaFileData> PersonaCharacterData_Steam =
 {

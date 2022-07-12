@@ -415,9 +415,6 @@
     <Filter Include="Games\Other Platforms\Guilty Gear\GGXX #Reload %28Steam/Community port%29">
       <UniqueIdentifier>{4e591552-6c79-4619-971f-25b5b69225db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\Other Platforms\Persona 4 Arena Ultimax 2.0 %28NESICA%29">
-      <UniqueIdentifier>{7fd4a326-69f3-49f7-884e-98b93bfc1d70}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Capcom Games\Jojos Venture">
       <UniqueIdentifier>{6ba05b08-6fdb-45a1-8d9d-99fc5143b026}</UniqueIdentifier>
     </Filter>
@@ -457,9 +454,6 @@
     <Filter Include="Games\Nintendo\Ultimate Mortal Kombat 3 %28DS%29">
       <UniqueIdentifier>{bf82d014-a0fe-4e32-9ec5-ad44a0a7419f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29">
-      <UniqueIdentifier>{79507b20-b975-408b-ac14-8c08279f9368}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Other Platforms\BlazBlu CF">
       <UniqueIdentifier>{78738e53-d714-499e-956f-451d4f6db1a2}</UniqueIdentifier>
     </Filter>
@@ -477,6 +471,15 @@
     </Filter>
     <Filter Include="Games\PS2\Sengoku BASARA X">
       <UniqueIdentifier>{c0db6b95-a63f-4c5f-8208-c7db2221f32e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Other Platforms\Persona 4 Arena">
+      <UniqueIdentifier>{4e88659a-4bad-47c6-a28a-427ba926dcc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax %28Steam%29">
+      <UniqueIdentifier>{79507b20-b975-408b-ac14-8c08279f9368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax 2.0 %28NESICA%29">
+      <UniqueIdentifier>{7fd4a326-69f3-49f7-884e-98b93bfc1d70}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -919,7 +922,7 @@
       <Filter>Games\Other Platforms\Guilty Gear\GGXX #Reload %28Steam/Community port%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_P4AU_NESICA.cpp">
-      <Filter>Games\Other Platforms\Persona 4 Arena Ultimax 2.0 %28NESICA%29</Filter>
+      <Filter>Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax 2.0 %28NESICA%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_Venture_A.cpp">
       <Filter>Games\Capcom Games\Jojos Venture</Filter>
@@ -970,7 +973,7 @@
       <Filter>Games\Nintendo\Ultimate Mortal Kombat 3 %28DS%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_P4AU_STEAM.cpp">
-      <Filter>Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29</Filter>
+      <Filter>Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax %28Steam%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Patching.cpp">
       <Filter>Games\Base</Filter>
@@ -1755,10 +1758,10 @@
       <Filter>Games\Other Platforms\Guilty Gear\GGXX #Reload %28Steam/Community port%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\P4AU_NESICA_DEF.h">
-      <Filter>Games\Other Platforms\Persona 4 Arena Ultimax 2.0 %28NESICA%29</Filter>
+      <Filter>Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax 2.0 %28NESICA%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_P4AU_NESICA.h">
-      <Filter>Games\Other Platforms\Persona 4 Arena Ultimax 2.0 %28NESICA%29</Filter>
+      <Filter>Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax 2.0 %28NESICA%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_Venture_A.h">
       <Filter>Games\Capcom Games\Jojos Venture</Filter>
@@ -1848,10 +1851,10 @@
       <Filter>Games\Capcom Games\SFA2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_P4AU_STEAM.h">
-      <Filter>Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29</Filter>
+      <Filter>Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax %28Steam%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\P4AU_STEAM_DEF.h">
-      <Filter>Games\Other Platforms\Persona 4 Arena Ultimax %28Steam%29</Filter>
+      <Filter>Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax %28Steam%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\BlazBlueCF_S_DEF.h">
       <Filter>Games\Other Platforms\BlazBlu CF</Filter>
@@ -1882,6 +1885,9 @@
     </ClInclude>
     <ClInclude Include="Game\Game_BASARA_P.h">
       <Filter>Games\PS2\Sengoku BASARA X</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\P4AU_Common.h">
+      <Filter>Games\Other Platforms\Persona 4 Arena</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
