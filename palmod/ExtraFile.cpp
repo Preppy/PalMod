@@ -4,6 +4,7 @@
 #include "RegProc.h"
 
 #include "ExtraFile.h"
+#include <unordered_map>
 
 // Uncomment this to have this file help convert an Extra file to our header style
 //#define DUMP_EXTRAS_ON_LOAD
@@ -203,8 +204,13 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 char* aszFinalLine = nullptr;
                 int nCurrStart = 0;
                 int nCurrEnd = 0;
-
                 DWORD k_colorsPerPage = CRegProc::GetMaxPalettePageSize();
+#ifdef DUMP_EXTRAS_ON_LOAD
+                std::unordered_map<wstring, size_t> vstrUnits;
+                std::vector<wstring> vstrUnitFriendlyNames;
+                std::vector<wstring> vstrNodes;
+                std::vector<wstring> vstrNodeFriendlyNames;
+#endif
 
                 if (CRegProc::GetMaxColorsPerPageOverride() != 0)
                 {
@@ -337,7 +343,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 
                                 if (!fPaletteUsesMultiplePages)
                                 {
-                                    strText.Format(L"    { L\"%S\", 0x%x, 0x%x }, \n", aszCurrDesc, nCurrStart, nCurrEnd);
+                                    strText.Format(L"    { L\"%S\", 0x%x, 0x%x },\r\n", aszCurrDesc, nCurrStart, nCurrEnd);
                                     OutputDebugString(strText);
                                 }
 #endif
@@ -394,7 +400,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 #ifdef DUMP_EXTRAS_ON_LOAD
                                         if (fPaletteUsesMultiplePages)
                                         {
-                                            strText.Format(L"    { L\"%s\", 0x%x, 0x%x }, \n", pDefToSplit->szDesc, pDefToSplit->uOffset, pDefToSplit->uOffset + pDefToSplit->cbPaletteSize);
+                                            strText.Format(L"    { L\"%s\", 0x%x, 0x%x },\r\n", pDefToSplit->szDesc, pDefToSplit->uOffset, pDefToSplit->uOffset + pDefToSplit->cbPaletteSize);
                                             OutputDebugString(strText);
                                         }
 #endif
@@ -433,8 +439,95 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                 }
                             }
                         }
+                        else
+                        {
+#ifdef DUMP_EXTRAS_ON_LOAD
+                            static CString strCurrentUnit = L"Unknown";
+                            if (strncmp(aszFinalLine, ";---", 4) == 0)
+                            {
+                                wchar_t szPrintable[MAX_PATH];
+                                strCurrentUnit.Format(L"%S", aszFinalLine + 4);
+                                vstrUnitFriendlyNames.push_back(strCurrentUnit.GetString());
+                                StrRemoveNonASCII(szPrintable, MAX_PATH, strCurrentUnit.GetString());
+                                strCurrentUnit = szPrintable;
+                                vstrUnits.emplace(strCurrentUnit.GetString(), 0);
+                            }
+                            else if (strncmp(aszFinalLine, ";--", 3) == 0)
+                            {
+                                CString strText, strFriendlyName;
+                                wchar_t szPrintableNodeName[MAX_PATH];
+
+                                strFriendlyName.Format(L"%S", aszFinalLine + 3);
+                                StrRemoveNonASCII(szPrintableNodeName, MAX_PATH, strFriendlyName.GetString());
+
+                                if (vstrNodes.size())
+                                {
+                                    OutputDebugString(L"};\r\n\r\n");
+                                }
+
+                                CString strNodeRef;
+                                strNodeRef.Format(L"GAMENAME_%s_%s", strCurrentUnit.GetString(), szPrintableNodeName);
+                                strText.Format(L"const sGame_PaletteDataset %s[] =\r\n{\r\n", strNodeRef.GetString());
+                                OutputDebugString(strText);
+                                
+                                std::unordered_map<wstring, size_t>::iterator it = vstrUnits.find(strCurrentUnit.GetString());
+
+                                if (it != vstrUnits.end())
+                                {
+                                    it->second++;
+                                    vstrNodes.push_back(strNodeRef.GetString());
+                                    vstrNodeFriendlyNames.push_back(strFriendlyName.GetString());
+                                }
+                            }
+                            else if (aszFinalLine[0] == ';')
+                            {
+                                CString strComment;
+                                strComment.Format(L"// %S\r\n", aszFinalLine + 1);
+                                OutputDebugString(strComment);
+                            }
+#endif
+                        }
                     }
                 }
+
+#ifdef DUMP_EXTRAS_ON_LOAD
+                if (vstrNodes.size())
+                {
+                    size_t nNodeIndex = 0;
+                    CString strText;
+                    std::unordered_map<wstring, size_t>::iterator it = vstrUnits.begin();
+
+                    // Close existing node
+                    OutputDebugString(L"};\r\n\r\n");
+
+                    for (; it != vstrUnits.end(); it++)
+                    {
+                        strText.Format(L"const sDescTreeNode GAMENAME_%s_COLLECTION[] =\r\n{\r\n", it->first.c_str());
+                        OutputDebugString(strText.GetString());
+
+                        for (size_t nCurrent = 0; nCurrent < it->second; nCurrent++)
+                        {
+                            strText.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)%s, ARRAYSIZE(%s) },\r\n", vstrNodeFriendlyNames.at(nNodeIndex).c_str(), vstrNodes.at(nNodeIndex).c_str(), vstrNodes.at(nNodeIndex).c_str());
+                            OutputDebugString(strText.GetString());
+                            nNodeIndex++;
+                        }
+
+                        OutputDebugString(L"};\r\n\r\n");
+                    }
+
+                    OutputDebugString(L"const sDescTreeNode GAMENAME_UNITS[] =\r\n{\r\n");
+
+                    size_t nUnitIndex = 0;
+
+                    for (it = vstrUnits.begin(); it != vstrUnits.end(); it++)
+                    {
+                        strText.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)GAMENAME_%s_COLLECTION, ARRAYSIZE(GAMENAME_%s_COLLECTION) },\r\n", vstrUnitFriendlyNames.at(nUnitIndex++).c_str(), it->first.c_str(), it->first.c_str());
+                        OutputDebugString(strText.GetString());
+                    }
+
+                    OutputDebugString(L"};\r\n\r\n");
+                }
+#endif
 
                 if (nArrayOffsetDesired >= nMaxExtraBufferSize)
                 {
