@@ -178,6 +178,7 @@ enum SupportedGamesList
     JOJOS_US_A_DIR_51,
     FotNS_P,
     BASARA_P,
+    GalaxyFight_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -352,6 +353,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Jojo's 51 (CPS3 US Arcade Rerip)",
     L"Hokuto no Ken (PS2)",
     L"Sengoku BASARA X (PS2)",
+    L"Galaxy Fight: Universal Warriors (Neo-Geo)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

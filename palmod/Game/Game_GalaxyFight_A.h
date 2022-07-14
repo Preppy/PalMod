@@ -1,32 +1,31 @@
 #pragma once
 #include "gameclass.h"
-#include "FotNS_P_DEF.h"
+#include "GalaxyFight_A_DEF.h"
 #include "..\extrafile.h"
 
-class CGame_FotNS_P : public CGameWithExtrasFile
+class CGame_GalaxyFight_A : public CGameWithExtrasFile
 {
 private:
-    static uint32_t m_nTotalPaletteCountForNEWGAME;
+    static uint32_t m_nTotalPaletteCountForGalaxyFight;
 
-    static uint32_t rgExtraCountAll[FotNS_P_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[FotNS_P_NUMUNIT + 1];
+    static uint32_t rgExtraCountAll[GalaxyFight_A_NUMUNIT + 1];
+    static uint32_t rgExtraLoc[GalaxyFight_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId);
+    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
-    static constexpr auto EXTRA_FILENAME_FotNS_P = L"HK_BE.txt";
-    static constexpr auto FotNS_P_PRIMARY_ROMNAME = L"HK_B.bin"; // the file that your palettes are stored in
-     // Update to the actual byte size in hex of the ROM file size you expect
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x24706800;
-    static constexpr uint32_t m_nPaletteCountInHeaders = 86;
-    static constexpr uint32_t m_nLowestROMLocationUsedInHeaders = 0x30;
+    static constexpr auto EXTRA_FILENAME_GalaxyFight_A = L"GalaxyFightE.txt";
+    static constexpr auto GalaxyFight_A_PRIMARY_ROMNAME = L"078-p1.p1";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x200000;
+    static constexpr uint32_t m_nPaletteCountInHeaders = 628;
+    static constexpr uint32_t m_nLowestROMLocationUsedInHeaders = 0x114a9e;
 
 public:
-    CGame_FotNS_P(uint32_t nConfirmedROMSize);
-    ~CGame_FotNS_P();
+    CGame_GalaxyFight_A(uint32_t nConfirmedROMSize);
+    ~CGame_GalaxyFight_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -35,7 +34,7 @@ public:
     static sFileRule GetRule(uint32_t nUnitId);
 
     //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
     static uint32_t GetExtraLoc(uint32_t nUnitId);
 
     //Normal functions
@@ -52,5 +51,5 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    static stExtraDef* FotNS_P_EXTRA_CUSTOM;
+    static stExtraDef* GalaxyFight_A_EXTRA_CUSTOM;
 };

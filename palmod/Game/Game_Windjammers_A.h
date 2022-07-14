@@ -3,9 +3,6 @@
 #include "Windjammers_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_Windjammers_A = L"WindjammersE.txt";
-#define GetExtraDefForWindjammers(x)((stExtraDef *)&Windjammers_A_EXTRA_CUSTOM[x])
-
 class CGame_Windjammers_A : public CGameWithExtrasFile
 {
 private:
@@ -15,15 +12,20 @@ private:
     static uint32_t rgExtraLoc[Windjammers_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static const uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
+    static constexpr auto EXTRA_FILENAME_Windjammers_A = L"WindjammersE.txt";
+    static constexpr auto WINDJAMMERS_A_PRIMARY_ROMNAME = L"066-p1.p1";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
+    static constexpr uint32_t m_nPaletteCountInHeaders = 35;
+    static constexpr uint32_t m_nLowestROMLocationUsedInHeaders = 0x30080;
+
 public:
     CGame_Windjammers_A(uint32_t nConfirmedROMSize);
-    ~CGame_Windjammers_A(void);
+    ~CGame_Windjammers_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

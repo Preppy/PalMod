@@ -4,14 +4,10 @@
 #include "..\RegProc.h"
 
 stExtraDef* CGame_Windjammers_A::Windjammers_A_EXTRA_CUSTOM = nullptr;
-
 CDescTree CGame_Windjammers_A::MainDescTree = nullptr;
-
 uint32_t CGame_Windjammers_A::rgExtraCountAll[Windjammers_A_NUMUNIT + 1];
 uint32_t CGame_Windjammers_A::rgExtraLoc[Windjammers_A_NUMUNIT + 1];
-
 uint32_t CGame_Windjammers_A::m_nTotalPaletteCountForWindjammers = 0;
-const uint32_t CGame_Windjammers_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
 uint32_t CGame_Windjammers_A::m_nConfirmedROMSize = -1;
 
 void CGame_Windjammers_A::InitializeStatics()
@@ -41,11 +37,11 @@ CGame_Windjammers_A::CGame_Windjammers_A(uint32_t nConfirmedROMSize)
     m_nTotalInternalUnits = Windjammers_A_NUMUNIT;
     m_nExtraUnit = Windjammers_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 35;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + m_nPaletteCountInHeaders;
     m_pszExtraFilename = EXTRA_FILENAME_Windjammers_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForWindjammers;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x30080;
+    m_nLowestKnownPaletteRomLocation = m_nLowestROMLocationUsedInHeaders;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -129,7 +125,7 @@ sFileRule CGame_Windjammers_A::GetRule(uint32_t nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"066-p1.p1");
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, WINDJAMMERS_A_PRIMARY_ROMNAME);
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -196,7 +192,7 @@ void CGame_Windjammers_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPa
     else // m_nExtraUnit
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForWindjammers(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &Windjammers_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

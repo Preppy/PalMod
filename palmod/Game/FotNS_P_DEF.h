@@ -166,26 +166,36 @@ const sGame_PaletteDataset FotNS_P_REI_PALETTES_S[] =
 const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_P[] =
 {
     { L"Juda P", 0x2233030, 0x2233070 },
+    { L"Komaku P", 0x2786830, 0x2786850 },
+    { L"Dagar P", 0x27b3030, 0x27b3050 },
 };
 
 const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_HP[] =
 {
     { L"Juda HP", 0x223307c, 0x22330bc },
+    { L"Komaku HP", 0x278685c, 0x278687c },
+    { L"Dagar HP", 0x27b305c, 0x27b307c },
 };
 
 const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_K[] =
 {
     { L"Juda K", 0x22330c8, 0x2233108 },
+    { L"Komaku K", 0x2786888, 0x27868a8 },
+    { L"Dagar K", 0x27b3088, 0x27b30a8 },
 };
 
 const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_HK[] =
 {
     { L"Juda HK", 0x2233114, 0x2233154 },
+    { L"Komaku HK", 0x27868b4, 0x27868d4 },
+    { L"Dagar HK", 0x27b30b4, 0x27b30d4 },
 };
 
 const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_S[] =
 {
     { L"Juda S", 0x2233160, 0x22331a0 },
+    { L"Komaku S", 0x27868e0, 0x2786900 },
+    { L"Dagar S", 0x27b30e0, 0x27b3100 },
 };
 
 const sGame_PaletteDataset FotNS_P_THOUTHER_PALETTES_P[] =
@@ -263,6 +273,70 @@ const sGame_PaletteDataset FotNS_P_MAMIYA_PALETTES_S[] =
     { L"Mamiya S", 0x337e160, 0x337e1a0 },
 };
 
+const sGame_PaletteDataset FotNS_P_KENSHIRO_PALETTES_EFFECTS[] =
+{
+    { L"Tenha no Kamae Flash", 0x39a850, 0x39a890 },
+    { L"Tenha no Kamae HUD Icon", 0x426820, 0x426840 },
+    { L"Win Stuff: Lynn", 0x45a820, 0x45a840 },
+    { L"Win Stuff: Bat", 0x463820, 0x463840 },
+};
+
+const sGame_PaletteDataset FotNS_P_RAOH_PALETTES_EFFECTS[] =
+{
+    { L"Musou Insatsu Flash", 0xa44050, 0xa44090 },
+    { L"Hokuto Donryuu Kohou Flash 1", 0xa4c050, 0xa4c090 },
+    { L"Hokuto Donryuu Kohou Flash 2", 0xa51050, 0xa51090 },
+    { L"Hokuto Mettenha Flash", 0xa9d850, 0xa9d890 },
+    { L"Hokuto Donryuu Kohou HUD Icon", 0xace020, 0xace040 },
+    { L"Win Extra", 0xb03820, 0xb03840 },
+};
+
+const sGame_PaletteDataset FotNS_P_TOKI_PALETTES_EFFECTS[] =
+{
+    { L"Counter Move Flash", 0x108b850, 0x108b890 },
+    { L"Hikou Sekkatsukou HID Icon", 0x10e3020, 0x10e3040 },
+};
+
+const sGame_PaletteDataset FotNS_P_JAGI_PALETTES_EFFECTS[] =
+{
+    { L"Fufu, Kono Toki wo Matteianoda!", 0x164f850, 0x164f870 },
+};
+
+const sGame_PaletteDataset FotNS_P_SHIN_PALETTES_EFFECTS[] =
+{
+    { L"Blood Effects", 0x1b27820, 0x1b27840 },
+    { L"Intro Women", 0x1c25020, 0x1c25040 },
+    { L"Shin Win Pose: Yuria", 0x1c32820, 0x1c32860 },
+};
+
+const sGame_PaletteDataset FotNS_P_REI_PALETTES_EFFECTS[] =
+{
+    { L"Nanto Kakuyokujinzan/Kubuenriza", 0x20b9820, 0x20b9840 },
+};
+
+const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_EFFECTS[] =
+{
+    { L"Kesshou Shi Effect", 0x25d8850, 0x25d8890 },
+};
+
+const sGame_PaletteDataset FotNS_P_THOUTHER_PALETTES_EFFECTS[] =
+{
+    { L"Houou Koutou Kaiten Meter", 0x2bb3020, 0x2bb3040 },
+    { L"Intro Stuff", 0x2beb820, 0x2beb860 },
+};
+
+const sGame_PaletteDataset FotNS_P_MRHEART_PALETTES_EFFECTS[] =
+{
+    { L"Club", 0x31c7820, 0x31c7840 },
+    { L"It Really Hurts!! Effect", 0x31e3820, 0x31e3860 },
+    { L"Activation! HUD", 0x3232020, 0x3232040 },
+};
+
+const sGame_PaletteDataset FotNS_P_MAMIYA_PALETTES_EFFECTS[] =
+{
+    { L"Spike and Bowgun HUD", 0x368f820, 0x368f840 },
+};
+
 const sDescTreeNode FotNS_P_KENSHIRO_COLLECTION[] =
 {
     { L"P", DESC_NODETYPE_TREE, (void*)FotNS_P_KENSHIRO_PALETTES_P, ARRAYSIZE(FotNS_P_KENSHIRO_PALETTES_P) },
@@ -270,6 +344,7 @@ const sDescTreeNode FotNS_P_KENSHIRO_COLLECTION[] =
     { L"K", DESC_NODETYPE_TREE, (void*)FotNS_P_KENSHIRO_PALETTES_K, ARRAYSIZE(FotNS_P_KENSHIRO_PALETTES_K) },
     { L"HK", DESC_NODETYPE_TREE, (void*)FotNS_P_KENSHIRO_PALETTES_HK, ARRAYSIZE(FotNS_P_KENSHIRO_PALETTES_HK) },
     { L"S", DESC_NODETYPE_TREE, (void*)FotNS_P_KENSHIRO_PALETTES_S, ARRAYSIZE(FotNS_P_KENSHIRO_PALETTES_S) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_KENSHIRO_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_KENSHIRO_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode FotNS_P_RAOH_COLLECTION[] =
@@ -279,6 +354,7 @@ const sDescTreeNode FotNS_P_RAOH_COLLECTION[] =
     { L"K", DESC_NODETYPE_TREE, (void*)FotNS_P_RAOH_PALETTES_K, ARRAYSIZE(FotNS_P_RAOH_PALETTES_K) },
     { L"HK", DESC_NODETYPE_TREE, (void*)FotNS_P_RAOH_PALETTES_HK, ARRAYSIZE(FotNS_P_RAOH_PALETTES_HK) },
     { L"S", DESC_NODETYPE_TREE, (void*)FotNS_P_RAOH_PALETTES_S, ARRAYSIZE(FotNS_P_RAOH_PALETTES_S) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_RAOH_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_RAOH_PALETTES_EFFECTS) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)FotNS_P_RAOH_PALETTES_EXTRAS, ARRAYSIZE(FotNS_P_RAOH_PALETTES_EXTRAS) },
 };
 
@@ -289,6 +365,7 @@ const sDescTreeNode FotNS_P_TOKI_COLLECTION[] =
     { L"K", DESC_NODETYPE_TREE, (void*)FotNS_P_TOKI_PALETTES_K, ARRAYSIZE(FotNS_P_TOKI_PALETTES_K) },
     { L"HK", DESC_NODETYPE_TREE, (void*)FotNS_P_TOKI_PALETTES_HK, ARRAYSIZE(FotNS_P_TOKI_PALETTES_HK) },
     { L"S", DESC_NODETYPE_TREE, (void*)FotNS_P_TOKI_PALETTES_S, ARRAYSIZE(FotNS_P_TOKI_PALETTES_S) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_TOKI_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_TOKI_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode FotNS_P_JAGI_COLLECTION[] =
@@ -298,6 +375,7 @@ const sDescTreeNode FotNS_P_JAGI_COLLECTION[] =
     { L"K", DESC_NODETYPE_TREE, (void*)FotNS_P_JAGI_PALETTES_K, ARRAYSIZE(FotNS_P_JAGI_PALETTES_K) },
     { L"HK", DESC_NODETYPE_TREE, (void*)FotNS_P_JAGI_PALETTES_HK, ARRAYSIZE(FotNS_P_JAGI_PALETTES_HK) },
     { L"S", DESC_NODETYPE_TREE, (void*)FotNS_P_JAGI_PALETTES_S, ARRAYSIZE(FotNS_P_JAGI_PALETTES_S) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_JAGI_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_JAGI_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode FotNS_P_SHIN_COLLECTION[] =
@@ -307,6 +385,7 @@ const sDescTreeNode FotNS_P_SHIN_COLLECTION[] =
     { L"K", DESC_NODETYPE_TREE, (void*)FotNS_P_SHIN_PALETTES_K, ARRAYSIZE(FotNS_P_SHIN_PALETTES_K) },
     { L"HK", DESC_NODETYPE_TREE, (void*)FotNS_P_SHIN_PALETTES_HK, ARRAYSIZE(FotNS_P_SHIN_PALETTES_HK) },
     { L"S", DESC_NODETYPE_TREE, (void*)FotNS_P_SHIN_PALETTES_S, ARRAYSIZE(FotNS_P_SHIN_PALETTES_S) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_SHIN_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_SHIN_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode FotNS_P_REI_COLLECTION[] =
@@ -316,6 +395,7 @@ const sDescTreeNode FotNS_P_REI_COLLECTION[] =
     { L"K", DESC_NODETYPE_TREE, (void*)FotNS_P_REI_PALETTES_K, ARRAYSIZE(FotNS_P_REI_PALETTES_K) },
     { L"HK", DESC_NODETYPE_TREE, (void*)FotNS_P_REI_PALETTES_HK, ARRAYSIZE(FotNS_P_REI_PALETTES_HK) },
     { L"S", DESC_NODETYPE_TREE, (void*)FotNS_P_REI_PALETTES_S, ARRAYSIZE(FotNS_P_REI_PALETTES_S) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_REI_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_REI_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode FotNS_P_JUDA_COLLECTION[] =
@@ -325,6 +405,7 @@ const sDescTreeNode FotNS_P_JUDA_COLLECTION[] =
     { L"K", DESC_NODETYPE_TREE, (void*)FotNS_P_JUDA_PALETTES_K, ARRAYSIZE(FotNS_P_JUDA_PALETTES_K) },
     { L"HK", DESC_NODETYPE_TREE, (void*)FotNS_P_JUDA_PALETTES_HK, ARRAYSIZE(FotNS_P_JUDA_PALETTES_HK) },
     { L"S", DESC_NODETYPE_TREE, (void*)FotNS_P_JUDA_PALETTES_S, ARRAYSIZE(FotNS_P_JUDA_PALETTES_S) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_JUDA_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_JUDA_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode FotNS_P_THOUTHER_COLLECTION[] =
@@ -334,6 +415,7 @@ const sDescTreeNode FotNS_P_THOUTHER_COLLECTION[] =
     { L"K", DESC_NODETYPE_TREE, (void*)FotNS_P_THOUTHER_PALETTES_K, ARRAYSIZE(FotNS_P_THOUTHER_PALETTES_K) },
     { L"HK", DESC_NODETYPE_TREE, (void*)FotNS_P_THOUTHER_PALETTES_HK, ARRAYSIZE(FotNS_P_THOUTHER_PALETTES_HK) },
     { L"S", DESC_NODETYPE_TREE, (void*)FotNS_P_THOUTHER_PALETTES_S, ARRAYSIZE(FotNS_P_THOUTHER_PALETTES_S) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_THOUTHER_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_THOUTHER_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode FotNS_P_MRHEART_COLLECTION[] =
@@ -343,6 +425,7 @@ const sDescTreeNode FotNS_P_MRHEART_COLLECTION[] =
     { L"K", DESC_NODETYPE_TREE, (void*)FotNS_P_MRHEART_PALETTES_K, ARRAYSIZE(FotNS_P_MRHEART_PALETTES_K) },
     { L"HK", DESC_NODETYPE_TREE, (void*)FotNS_P_MRHEART_PALETTES_HK, ARRAYSIZE(FotNS_P_MRHEART_PALETTES_HK) },
     { L"S", DESC_NODETYPE_TREE, (void*)FotNS_P_MRHEART_PALETTES_S, ARRAYSIZE(FotNS_P_MRHEART_PALETTES_S) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_MRHEART_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_MRHEART_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode FotNS_P_MAMIYA_COLLECTION[] =
@@ -352,6 +435,7 @@ const sDescTreeNode FotNS_P_MAMIYA_COLLECTION[] =
     { L"K", DESC_NODETYPE_TREE, (void*)FotNS_P_MAMIYA_PALETTES_K, ARRAYSIZE(FotNS_P_MAMIYA_PALETTES_K) },
     { L"HK", DESC_NODETYPE_TREE, (void*)FotNS_P_MAMIYA_PALETTES_HK, ARRAYSIZE(FotNS_P_MAMIYA_PALETTES_HK) },
     { L"S", DESC_NODETYPE_TREE, (void*)FotNS_P_MAMIYA_PALETTES_S, ARRAYSIZE(FotNS_P_MAMIYA_PALETTES_S) },
+    { L"Effects", DESC_NODETYPE_TREE, (void*)FotNS_P_MAMIYA_PALETTES_EFFECTS, ARRAYSIZE(FotNS_P_MAMIYA_PALETTES_EFFECTS) },
 };
 
 const sDescTreeNode FotNS_P_UNITS[] =

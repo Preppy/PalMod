@@ -257,6 +257,7 @@
     <ClCompile Include="Game\Game_FatalFuryS_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
     <ClCompile Include="Game\Game_FotNS_P.cpp" />
+    <ClCompile Include="Game\Game_GalaxyFight_A.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
     <ClCompile Include="Game\Game_Garou_S.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_P.cpp" />
@@ -433,6 +434,7 @@
     <ClInclude Include="Game\FatalFuryS_A_DEF.h" />
     <ClInclude Include="Game\FatalFuryS_SNES_DEF.h" />
     <ClInclude Include="Game\FotNS_P_DEF.h" />
+    <ClInclude Include="Game\GalaxyFight_A_DEF.h" />
     <ClInclude Include="Game\GameClass.h" />
     <ClInclude Include="Game\GameClassByFile.h" />
     <ClInclude Include="Game\GameDef.h" />
@@ -459,6 +461,7 @@
     <ClInclude Include="Game\Game_FatalFuryS_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
     <ClInclude Include="Game\Game_FotNS_P.h" />
+    <ClInclude Include="Game\Game_GalaxyFight_A.h" />
     <ClInclude Include="Game\Game_Garou_A.h" />
     <ClInclude Include="Game\Game_Garou_S.h" />
     <ClInclude Include="Game\Game_GGXXACR_P.h" />

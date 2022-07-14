@@ -19,7 +19,7 @@ sSupportedGameList SupportedGameList[] =
     { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { BMKNS_SNES,       L"Battle Master: KnS (SNES)", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).s?c|", GamePlatform::Nintendo },
     { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo }, // Sega
-    { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.p1|", GamePlatform::NEOGEO },
+    { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.*|", GamePlatform::NEOGEO },
     { BSSMSJR_SNES,     L"Bishojo Senshi Sailor Moon S - JR (SNES)", L"Bishojo Senshi Sailor Moon S - JR (SNES)|Bishoujo Senshi Sailor Moon S - Jougai Rantou! Shuyaku Soudatsusen (J*).s?c|", GamePlatform::Nintendo },
     { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).s?c|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
@@ -32,6 +32,7 @@ sSupportedGameList SupportedGameList[] =
     { FatalFury2_A,     L"Fatal Fury 2", L"Fatal Fury 2|047-p1.*|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { FatalFuryS_A,     L"Fatal Fury Special", L"Fatal Fury Special (Neo-Geo)|058-p1.*|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { FatalFuryS_SNES,  L"Fatal Fury Special (SNES)", L"Fatal Fury Special (SNES)|Fatal Fury Special (USA).s?c|", GamePlatform::Nintendo },
+    { GalaxyFight_A,    L"Galaxy Fight", L"Galaxy Fight|078-p1.*|", GamePlatform::NEOGEO },
     { Garou_A,          L"Garou: MotW", L"Garou: MotW|kf.neo-sma|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { GarouP_A,         L"Garou: MotW (Prototype)", L"Garou: MotW (Prototype)|proto_253-p1.p1;253-p1p.bin|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { Garou_S,          L"Garou: MotW", L"Garou: MotW for Steam 2|p1.bin|", GamePlatform::Steam },
@@ -43,7 +44,7 @@ sSupportedGameList SupportedGameList[] =
     { JOJOSRPG_SNES,    L"Jojo's: RPG (SNES)", L"Jojo's: RPG (SNES)|JoJo no Kimyou na Bouken (Japan).sfc;JoJo no Kimyou na Bouken (Japan) (Translated En).sfc|", GamePlatform::Nintendo },
     { JusticeLeagueTF_SNES, L"Justice League Task Force (SNES)", L"Justice League Task Force (SNES)|Justice League Task Force (USA).sfc|", GamePlatform::Nintendo },
     { VENTURE_A,        L"Jojo's Venture", L"Jojo's Venture: Characters (50), HUD (31)|31;50|", GamePlatform::CapcomCPS3 },
-    { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", GamePlatform::NEOGEO }, // DataEast
+    { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.*|", GamePlatform::NEOGEO }, // DataEast
     { KI_SNES,          L"Killer Instinct (SNES)", L"Killer Instinct (SNES)|Killer Instinct (USA)*.s?c;sns-akle-0.u1|", GamePlatform::Nintendo },
     { KOTM_A,           L"King of the Monsters", L"King of the Monsters (Neo-Geo)|016-p1.*;016-hp1.*|", GamePlatform::NEOGEO },
     { KIZUNA_A,         L"Kizuna Encounter", L"Kizuna Encounter|216-p1.*;ke_p1.rom|", GamePlatform::NEOGEO },
@@ -64,9 +65,9 @@ sSupportedGameList SupportedGameList[] =
     { KOF02UM_S,        L"KOF02UM", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin;clear.bin;psel.bin-n;rank.bin;conte.bin|", GamePlatform::Steam },
     { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", GamePlatform::NEOGEO, GameSeries::KOF },
     { KOFXI_A,          L"KOFXI", L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", GamePlatform::SammyAtomiswave },
-    { LASTBLADE_A,      L"Last Blade", L"Last Blade (Neo-Geo)|234-p1.p1|", GamePlatform::NEOGEO },
+    { LASTBLADE_A,      L"Last Blade", L"Last Blade (Neo-Geo)|234-p1.*|", GamePlatform::NEOGEO },
     { LASTBLADE_S,      L"Last Blade", L"Last Blade (Steam)|lastblad_game_m68k|", GamePlatform::Steam },
-    { LASTBLADE2_A,     L"Last Blade 2", L"Last Blade 2 (Neo-Geo)|243*.p1;LB2_P1.ROM|", GamePlatform::NEOGEO },
+    { LASTBLADE2_A,     L"Last Blade 2", L"Last Blade 2 (Neo-Geo)|243*.*;LB2_P1.ROM|", GamePlatform::NEOGEO },
     { LASTBLADE2_S,     L"Last Blade 2", L"Last Blade 2 (Steam)|p1.bin|", GamePlatform::Steam },
     { MAGICALDROPIII_A, L"Magical Drop III", L"Magical Drop III|233-p1.*|", GamePlatform::NEOGEO },
     { MartialMasters_A, L"Martial Masters", L"Martial Masters (PGM)|v104_32m.u9|", GamePlatform::PGM },
@@ -96,7 +97,7 @@ sSupportedGameList SupportedGameList[] =
     { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special|223*p1*|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { REDEARTH_A,       L"Red Earth", L"Red Earth (Stages: 30, Characters: 31, Next: 50)|30;31;50|", GamePlatform::CapcomCPS3 },
     { RODSM2_A,         L"Ring of Destruction: Slam Masters 2", L"Ring of Destruction: Slam Masters 2|smbe.05b|", GamePlatform::CapcomCPS12 },
-    { SAMSHO1_A,        L"Samurai Shodown", L"Samurai Shodown|045-p1.p1;045-p2.rom|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+    { SAMSHO1_A,        L"Samurai Shodown", L"Samurai Shodown|045-p1.*;045-p2.rom|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO2_A,        L"Samurai Shodown II", L"Samurai Shodown II|063-p1.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO3_A,        L"Samurai Shodown III", L"Samurai Shodown III|087-p5.p5|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.bin;222_p1.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
@@ -134,8 +135,8 @@ sSupportedGameList SupportedGameList[] =
     { VSAV_A,           L"Vampire Savior", L"Vampire Savior|vm3*.10b|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
     { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2|vs2j.10|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },
     { Gowcaizer_A,      L"Voltage Fighter Gowcaizer", L"Voltage Fighter Gowcaizer|094-p1.*|", GamePlatform::NEOGEO },
-    { WakuWaku7_A,      L"Waku Waku 7", L"Waku Waku 7|225-p1.p1;225-p1bh.p1|", GamePlatform::NEOGEO },
-    { WINDJAMMERS_A,    L"Windjammers", L"Windjammers|065-p1.p1|", GamePlatform::NEOGEO }, // Data East on NEOGEO
+    { WakuWaku7_A,      L"Waku Waku 7", L"Waku Waku 7|225-p1.*;225-p1bh.p1|", GamePlatform::NEOGEO },
+    { WINDJAMMERS_A,    L"Windjammers", L"Windjammers|065-p1.*|", GamePlatform::NEOGEO }, // Data East on NEOGEO
     { XMMA_SNES,        L"X-Men: Mutant Apocalypse (SNES)", L"X-Men: Mutant Apocalypse (SNES)|X-Men - Mutant Apocalypse (USA).s?c|", GamePlatform::Nintendo },
     { XMVSF_A,          L"XMVSF", L"XMVSF|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },

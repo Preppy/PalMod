@@ -481,6 +481,9 @@
     <Filter Include="Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax 2.0 %28NESICA%29">
       <UniqueIdentifier>{7fd4a326-69f3-49f7-884e-98b93bfc1d70}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Galaxy Fight: Universal Warriors">
+      <UniqueIdentifier>{6d425197-42ff-41a2-8fbc-6c72aaf63574}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1001,6 +1004,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_BASARA_P.cpp">
       <Filter>Games\PS2\Sengoku BASARA X</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GalaxyFight_A.cpp">
+      <Filter>Games\SNK Games\Galaxy Fight: Universal Warriors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1888,6 +1894,12 @@
     </ClInclude>
     <ClInclude Include="Game\P4AU_Common.h">
       <Filter>Games\Other Platforms\Persona 4 Arena</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GalaxyFight_A_DEF.h">
+      <Filter>Games\SNK Games\Galaxy Fight: Universal Warriors</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GalaxyFight_A.h">
+      <Filter>Games\SNK Games\Galaxy Fight: Universal Warriors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

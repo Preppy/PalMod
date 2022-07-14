@@ -24,6 +24,7 @@
 #include "Game_FatalFuryS_A.h"
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_FotNS_P.h"
+#include "Game_GalaxyFight_A.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
 #include "Game_Gowcaizer_A.h"
@@ -194,19 +195,16 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_AOF1_A::GetRule;
         return TRUE;
     }
-
     case AOF3_A:
     {
         GetRule = &CGame_AOF3_A::GetRule;
         return TRUE;
     }
-
     case BASARA_P:
     {
         GetRule = &CGame_BASARA_P::GetRule;
         return TRUE;
     }
-
     case BlazBlueCF_S:
     {
         GetRuleCtr = &CGame_BlazBlueCF_S::GetRuleCtr;
@@ -215,20 +213,17 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetNextRule = &CGame_BlazBlueCF_S::GetNextRule;
 
         return TRUE;
-    }
-    
+    }    
     case BLEACH_DS:
     {
         GetRule = &CGame_BLEACH_DS::GetRule;
         return TRUE;
     }
-
     case BMKNS_SNES:
     {
         GetRule = &CGame_BMKNS_SNES::GetRule;
         return TRUE;
     }
-
     case BREAKERS_A:
     {
         GetRule = &CGame_BREAKERS_A::GetRule;
@@ -317,6 +312,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_FotNS_P::GetRule;
         return TRUE;
     }    
+    case GalaxyFight_A:
+    {
+        GetRule = &CGame_GalaxyFight_A::GetRule;
+        return TRUE;
+    }
     case Garou_A:
     {
         GetRule = &CGame_Garou_A::GetRule;
@@ -1072,17 +1072,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     {
         return new CGame_AOF1_A(nConfirmedROMSize);
     }
-
     case AOF3_A:
     {
         return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
-    }
-    
+    }    
     case BASARA_P:
     {
         return new CGame_BASARA_P(nConfirmedROMSize);
     }
-
     case BlazBlueCF_S:
     {
         return new CGame_BlazBlueCF_S(nConfirmedROMSize);
@@ -1158,6 +1155,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case FotNS_P:
     {
         return new CGame_FotNS_P(nConfirmedROMSize);
+    }
+    case GalaxyFight_A:
+    {
+        return new CGame_GalaxyFight_A(nConfirmedROMSize);
     }
     case Garou_A:
     {
