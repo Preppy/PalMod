@@ -499,26 +499,24 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
     int nXSkew = abs(rectCompleteDimensions.left);
     int nYSkew = abs(rectCompleteDimensions.top);
 
-    bool fTooManyColorsForIndexedPNG = (nTotalPaletteSize > 256);
+    bool fTooManyColorsForSingleIndexedPNG = (nTotalPaletteSize > 256);
 
-    if (!fShowingSingleVersion || fTooManyColorsForIndexedPNG)
+    if (!fShowingSingleVersion || fTooManyColorsForSingleIndexedPNG)
     {
-        CString strWarning;
-        UINT mbFlags = MB_OKCANCEL | MB_ICONWARNING;
+        CString strWarning = L"This preview is not suited for indexed PNG.  This is because:\n";
 
-        if (fTooManyColorsForIndexedPNG)
+        if (fTooManyColorsForSingleIndexedPNG)
         {
-            strWarning = L"*This preview cannot be used with indexed PNG: indexed PNGs can only use up to 256 colors.  This won't work: please export as a different image format such as normal PNG.\n";
-            mbFlags = MB_OK | MB_ICONSTOP;
+            strWarning.Append(L"* Indexed PNGs can only use up to 256 colors.  PalMod will need to export each image to its own indexed PNG file.\n");
         }
         else
         {
-            strWarning = L"This preview is not suited for indexed PNG.  This is because:\n";
             strWarning.Append(L"* The preview is showing multiple versions of this sprite.  PalMod will need to export each of those versions to its own indexed PNG file.\n");
-            strWarning.Append(L"\nIf you wish to continue, click OK.  Otherwise, click Cancel and then export as normal PNG.");
         }
 
-        fShouldExportAsIndexed = (MessageBox(strWarning, GetHost()->GetAppName(), mbFlags) == IDOK) && !fTooManyColorsForIndexedPNG;
+        strWarning.Append(L"\nIf you wish to continue, click OK.  Otherwise, click Cancel and then export as normal PNG.");
+
+        fShouldExportAsIndexed = (MessageBox(strWarning, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING) == IDOK);
     }
 
     if (fShouldExportAsIndexed)
@@ -531,9 +529,26 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 #endif
 
         // Indexed PNG: use the lodePNG encoder
-        for (int nNodeIndex = 0; nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay; nNodeIndex++)
+        int nImageIndex = 0;
+
+        for (int nNodeIndex = 0; (nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay) ||
+                                 (fTooManyColorsForSingleIndexedPNG && (nImageIndex < nImageCount));
+             nNodeIndex++)
         {
-            LPCWSTR pszCurrentNodeName = fShowingSingleVersion ? L"" : pButtonLabelSet[nNodeIndex];
+            CString strCurrentNodeName = L"";
+            
+            if (fShowingSingleVersion)
+            {
+                if (fTooManyColorsForSingleIndexedPNG)
+                {
+                    strCurrentNodeName.Format(L"%02u", nImageIndex);
+                }
+            }
+            else
+            {
+                strCurrentNodeName = pButtonLabelSet[nNodeIndex];
+            }
+
             int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.m_nPalIndex : nNodeIndex;
 
             const unsigned destWidth = (maxSrcWidth * currentZoom) + (2 * m_DumpBmp.m_border_sz);
@@ -545,7 +560,15 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             unsigned nPaletteOffset = 0;
             bool fWrittenTheOneTransparencyColor = false;
 
-            for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
+            if (!fTooManyColorsForSingleIndexedPNG)
+            {
+                nImageIndex = 0;
+            }
+
+            // This section writes the image to rgSrcImg
+            // For single-png output, we glom together the palette tables and thus adjust the indexes of the 
+            // secondary images
+            for (; nImageIndex < nImageCount; nImageIndex++)
             {
                 const unsigned srcWidth = rgSrcImg[nImageIndex]->uImgW;
                 const unsigned srcHeight = rgSrcImg[nImageIndex]->uImgH;
@@ -634,7 +657,15 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                     }
                 }
 
-                nPaletteOffset += m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
+                if (fTooManyColorsForSingleIndexedPNG)
+                {
+                    // Only need one preview per file: break now and generate the PNG
+                    break;
+                }
+                else
+                {
+                    nPaletteOffset += m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
+                }
             }
 
 #ifdef DEBUG
@@ -652,7 +683,15 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             // lodepng options: going from RAW to indexed PNG
             state.info_png.color.colortype = state.info_raw.colortype = LCT_PALETTE;
             state.info_png.color.bitdepth = state.info_raw.bitdepth = 8;
-            state.info_png.color.palettesize = state.info_raw.palettesize = nTotalPaletteSize;
+            if (!fTooManyColorsForSingleIndexedPNG)
+            {
+                state.info_png.color.palettesize = state.info_raw.palettesize = nTotalPaletteSize;
+            }
+            else
+            {
+                state.info_png.color.palettesize = state.info_raw.palettesize = m_DumpBmp.m_rgSrcImg[nImageIndex]->uPalSz;
+            }
+
             state.encoder.auto_convert = 0;
 
             //encode and save
@@ -667,8 +706,13 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             }
             else
             {
-                output_str.Format(L"%s%s%s", save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
+                output_str.Format(L"%s%s%s", save_str.GetString(), strCurrentNodeName.GetString(), output_ext.GetString());
                 lodepng::save_file(buffer, output_str.GetString());
+            }
+
+            if (fTooManyColorsForSingleIndexedPNG)
+            {
+                nImageIndex++;
             }
         }
     }
