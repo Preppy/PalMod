@@ -28,6 +28,7 @@
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
 #include "Game_Gowcaizer_A.h"
+#include "Game_GGDS_NDS.h"
 #include "Game_GGXXACR_S.h"
 #include "Game_GGXXACR_P.h"
 #include "Game_GGXXR_S.h"
@@ -340,6 +341,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case Gowcaizer_A:
     {
         GetRule = &CGame_Gowcaizer_A::GetRule;
+        return TRUE;
+    }
+    case GGDS_NDS:
+    {
+        GetRule = &CGame_GGDS_NDS::GetRule;
         return TRUE;
     }
     case GGXXACR_S:
@@ -1179,7 +1185,11 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case Gowcaizer_A:
     {
         return new CGame_Gowcaizer_A(nConfirmedROMSize);
-    }    
+    }
+    case GGDS_NDS:
+    {
+        return new CGame_GGDS_NDS(nConfirmedROMSize);
+    }
     case GGXXACR_S:
     {
         return new CGame_GGXXACR_S(nConfirmedROMSize);
