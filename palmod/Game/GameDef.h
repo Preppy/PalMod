@@ -179,6 +179,7 @@ enum SupportedGamesList
     FotNS_P,
     BASARA_P,
     GalaxyFight_A,
+    GGDS_NDS,
 
     NUM_GAMES // This needs to be last
 };
@@ -354,6 +355,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Hokuto no Ken (PS2)",
     L"Sengoku BASARA X (PS2)",
     L"Galaxy Fight: Universal Warriors (Neo-Geo)",
+    L"Guilty Gear: Dust Strikers (Nintendo DS)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
