@@ -20,7 +20,7 @@ private:
     static constexpr auto EXTRA_FILENAME_BASARA_P = L"BSRE.txt";
     static constexpr auto BASARA_P_PRIMARY_ROMNAME = L"BSR.bin";
     static constexpr uint32_t m_nExpectedGameROMSize = 0x1b206800;
-    static constexpr uint32_t m_nPaletteCountInHeaders = 226;
+    static constexpr uint32_t m_nPaletteCountInHeaders = 176;
     static constexpr uint32_t m_nLowestROMLocationUsedInHeaders = 0x30;
 
 public:

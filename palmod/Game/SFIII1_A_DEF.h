@@ -20,37 +20,37 @@ const std::vector<uint16_t> SFIII1_A_IMGIDS_USED =
 
 const sGame_PaletteDataset SFIII1_A_ALEX_LP_PALETTES[] =
 {
-    { L"Alex LP", 0x3d0600, 0x3d0680, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex LP", 0x3d0600, 0x3d0680, index3SSprites_Alex, 0x00 },
     { L"Alex LP HUD", 0x3e50c0, 0x3e50e0 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ALEX_MP_PALETTES[] =
 {
-    { L"Alex MP", 0x3d0680, 0x3d0700, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex MP", 0x3d0680, 0x3d0700, index3SSprites_Alex, 0x00 },
     { L"Alex MP HUD", 0x3e50e0, 0x3e5100 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ALEX_HP_PALETTES[] =
 {
-    { L"Alex HP", 0x3d0700, 0x3d0780, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex HP", 0x3d0700, 0x3d0780, index3SSprites_Alex, 0x00 },
     { L"Alex HP HUD", 0x3e5100, 0x3e5120 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ALEX_LK_PALETTES[] =
 {
-    { L"Alex LK", 0x3d0780, 0x3d0800, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex LK", 0x3d0780, 0x3d0800, index3SSprites_Alex, 0x00 },
     { L"Alex LK HUD", 0x3e5120, 0x3e5140 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ALEX_MK_PALETTES[] =
 {
-    { L"Alex MK", 0x3d0800, 0x3d0880, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex MK", 0x3d0800, 0x3d0880, index3SSprites_Alex, 0x00 },
     { L"Alex MK HUD", 0x3e5140, 0x3e5160 },
 };
 
 const sGame_PaletteDataset SFIII1_A_ALEX_HK_PALETTES[] =
 {
-    { L"Alex HK", 0x3d0880, 0x3d0900, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex HK", 0x3d0880, 0x3d0900, index3SSprites_Alex, 0x00 },
     { L"Alex HK HUD", 0x3e5160, 0x3e5180 },
 };
 

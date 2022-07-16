@@ -24,43 +24,43 @@ const std::vector<uint16_t> SFIII2_A_IMGIDS_USED =
 
 const sGame_PaletteDataset SFIII2_A_ALEX_LP_PALETTES[] =
 {
-    { L"Alex LP", 0x398700, 0x398780, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex LP", 0x398700, 0x398780, index3SSprites_Alex, 0x00 },
     { L"Alex LP Hud", 0x3cfe60, 0x3cfe80, index3SSprites_Alex, 0x23 },
 };
 
 const sGame_PaletteDataset SFIII2_A_ALEX_MP_PALETTES[] =
 {
-    { L"Alex MP", 0x398780, 0x398800, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex MP", 0x398780, 0x398800, index3SSprites_Alex, 0x00 },
     { L"Alex MP Hud", 0x3cfe80, 0x3cfea0, index3SSprites_Alex, 0x23 },
 };
 
 const sGame_PaletteDataset SFIII2_A_ALEX_HP_PALETTES[] =
 {
-    { L"Alex HP", 0x398800, 0x398880, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex HP", 0x398800, 0x398880, index3SSprites_Alex, 0x00 },
     { L"Alex HP Hud", 0x3cfea0, 0x3cfec0, index3SSprites_Alex, 0x23 },
 };
 
 const sGame_PaletteDataset SFIII2_A_ALEX_LK_PALETTES[] =
 {
-    { L"Alex LK", 0x398880, 0x398900, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex LK", 0x398880, 0x398900, index3SSprites_Alex, 0x00 },
     { L"Alex LK Hud", 0x3cfec0, 0x3cfee0, index3SSprites_Alex, 0x23 },
 };
 
 const sGame_PaletteDataset SFIII2_A_ALEX_MK_PALETTES[] =
 {
-    { L"Alex MK", 0x398900, 0x398980, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex MK", 0x398900, 0x398980, index3SSprites_Alex, 0x00 },
     { L"Alex MK Hud", 0x3cfee0, 0x3cff00, index3SSprites_Alex, 0x23 },
 };
 
 const sGame_PaletteDataset SFIII2_A_ALEX_HK_PALETTES[] =
 {
-    { L"Alex HK ", 0X398980, 0x398a00, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex HK ", 0X398980, 0x398a00, index3SSprites_Alex, 0x00 },
     { L"Alex HK Hud", 0x3cff00, 0x3cff20, index3SSprites_Alex, 0x23 },
 };
 
 const sGame_PaletteDataset SFIII2_A_ALEX_EX_PALETTES[] =
 {
-    { L"Alex EX", 0x398a00, 0x398a80, index3SSprites_Alex, 0x00, &pairHandledInCode },
+    { L"Alex EX", 0x398a00, 0x398a80, index3SSprites_Alex, 0x00 },
     { L"Alex EX Hud", 0x3cff20, 0x3cff40, index3SSprites_Alex, 0x23 },
 };
 

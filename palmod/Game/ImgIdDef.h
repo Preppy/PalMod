@@ -1948,6 +1948,20 @@ enum SupportedNEOGEO_PaletteListIndex
     indexNEOGEOSprites_VFG_Stinger,         // 0x86
     indexNEOGEOSprites_VFG_Bonus,           // 0x87
     indexNEOGEOSprites_VFG_Stages,          // 0x88
+    indexGalaxyFightSprites_Alvan,          // 0x89
+    indexGalaxyFightSprites_BonusKun,       // 0x8a
+    indexGalaxyFightSprites_Felden,         // 0x8b
+    indexGalaxyFightSprites_GDone,          // 0x8c
+    indexGalaxyFightSprites_Gunter,         // 0x8d
+    indexGalaxyFightSprites_Juri,           // 0x8e
+    indexGalaxyFightSprites_Kazuma,         // 0x8f
+    indexGalaxyFightSprites_Musafar,        // 0x90
+    indexGalaxyFightSprites_Rolf,           // 0x91
+    indexGalaxyFightSprites_Roomi,          // 0x92
+    indexGalaxyFightSprites_Rouwe,          // 0x93
+    indexGalaxyFightSprites_Yacopu,         // 0x94
+    indexGalaxyFightSprites_Extra,          // 0x95
+    indexGalaxyFightSprites_Stages,         // 0x96
 };
 
 enum SupportedGGXX_PaletteListIndex
@@ -2335,4 +2349,32 @@ enum SupportedArcsys_SpriteListIndex
     indexBBCFSprites_ValkenhaynRHellsing,   // 0x39
     indexBBCFSprites_YuukiTerumi,           // 0x3A
     indexBBCFSprites_Bonus,                 // 0x3B
+
+    indexHnKSprites_Jagi,                   // 0x3C
+    indexHnKSprites_Juda,                   // 0x3D
+    indexHnKSprites_Kenshiro,               // 0x3E
+    indexHnKSprites_Mamiya,                 // 0x3F
+    indexHnKSprites_MrHeart,                // 0x40
+    indexHnKSprites_Raoh,                   // 0x41
+    indexHnKSprites_Rei,                    // 0x42
+    indexHnKSprites_Shin,                   // 0x43
+    indexHnKSprites_Thouther,               // 0x44
+    indexHnKSprites_Toki,                   // 0x45
+    indexHnKSprites_Bonus,                  // 0x46
+    indexHnKSprites_Stages,                 // 0x47
+
+    indexSBXSprites_ChosokabeMotochika,     // 0x48
+    indexSBXSprites_DateMasamune,           // 0x49
+    indexSBXSprites_HondaTadakatsu,         // 0x4a
+    indexSBXSprites_KatakuraKojuro,         // 0x4b
+    indexSBXSprites_KeijiMaeda,             // 0x4c
+    indexSBXSprites_MoriMotonari,           // 0x4d
+    indexSBXSprites_OdaNobunaga,            // 0x4e
+    indexSBXSprites_Oichi,                  // 0x4f
+    indexSBXSprites_SanadaYukimura,         // 0x50
+    indexSBXSprites_TakenakaHanbei,         // 0x51
+    indexSBXSprites_ToyotomiHideyoshi,      // 0x52
+    indexSBXSprites_UesugiKenshin,          // 0x53
+    indexSBXSprites_Bonus,                  // 0x54
+    indexSBXSprites_Stages,                 // 0x55
 };

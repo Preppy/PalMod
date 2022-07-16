@@ -1662,10 +1662,10 @@ const sGame_PaletteDataset KOF02PS2_A_ATHENA_PALETTES_A[] =
     { L"Athena A", 0x038d400, 0x038d420, indexKOF02Sprites_Athena, 0x00, &pairNextAndNext7 },
     { L"A - Athena Transformations", 0x038d420, 0x038d440, indexKOF02Sprites_Athena, 0x02 },
     { L"A - MAX Shining Crystal Bit", 0x038d440, 0x038d460 },
-    { L"A - Electric Shock Effect", 0x038d460, 0x038d480, indexKOF02UMSprites_Athena, 0x18 },
-    { L"A - MAX Flash", 0x038d480, 0x038d4a0, indexKOF02UMSprites_Athena, 0x08 },
+    { L"A - Electric Shock Effect", 0x038d460, 0x038d480, indexKOF02Sprites_Athena, 0x03 },
+    { L"A - MAX Flash", 0x038d480, 0x038d4a0, indexKOF02Sprites_Athena, 0x03 },
     { L"A - Portal Stuff", 0x038d4a0, 0x038d4c0, indexKOF02UMSprites_Athena, 0x02 },
-    { L"A - Soul Palette", 0x038d4c0, 0x038d4e0, indexKOF02UMSprites_Athena, 0x18 },
+    { L"A - Soul Palette", 0x038d4c0, 0x038d4e0, indexKOF02Sprites_Athena, 0x03 },
     { L"A - Intro Stuff and MAX2 Finisher", 0x038d4e0, 0x038d500, indexKOF02Sprites_Athena, 0x01 },
 };
 
@@ -1674,10 +1674,10 @@ const sGame_PaletteDataset KOF02PS2_A_ATHENA_PALETTES_B[] =
     { L"Athena B", 0x038d600, 0x038d620, indexKOF02Sprites_Athena, 0x00, &pairNextAndNext7 },
     { L"B - Athena Transformations", 0x038d620, 0x038d640, indexKOF02Sprites_Athena, 0x19 },
     { L"B - MAX Shining Crystal Bit", 0x038d640, 0x038d660 },
-    { L"B - Electric Shock Effect", 0x038d660, 0x038d680, indexKOF02UMSprites_Athena, 0x18 },
-    { L"B - MAX Flash", 0x038d680, 0x038d6a0, indexKOF02UMSprites_Athena, 0x08 },
+    { L"B - Electric Shock Effect", 0x038d660, 0x038d680, indexKOF02Sprites_Athena, 0x03 },
+    { L"B - MAX Flash", 0x038d680, 0x038d6a0, indexKOF02Sprites_Athena, 0x03 },
     { L"B - Portal Stuff", 0x038d6a0, 0x038d6c0, indexKOF02UMSprites_Athena, 0x02 },
-    { L"B - Soul Palette", 0x038d6c0, 0x038d6e0, indexKOF02UMSprites_Athena, 0x18 },
+    { L"B - Soul Palette", 0x038d6c0, 0x038d6e0, indexKOF02Sprites_Athena, 0x03 },
     { L"B - Intro Stuff and MAX2 Finisher", 0x038d6e0, 0x038d700, indexKOF02Sprites_Athena, 0x01 },
 };
 
@@ -1686,10 +1686,10 @@ const sGame_PaletteDataset KOF02PS2_A_ATHENA_PALETTES_C[] =
     { L"Athena C", 0x038d800, 0x038d820, indexKOF02Sprites_Athena, 0x00, &pairNextAndNext7 },
     { L"C - Athena Transformations", 0x038d820, 0x038d840, indexKOF02Sprites_Athena, 0x02 },
     { L"C - MAX Shining Crystal Bit", 0x038d840, 0x038d860 },
-    { L"C - Electric Shock Effect", 0x038d860, 0x038d880, indexKOF02UMSprites_Athena, 0x18 },
-    { L"C - MAX Flash", 0x038d880, 0x038d8a0, indexKOF02UMSprites_Athena, 0x08 },
+    { L"C - Electric Shock Effect", 0x038d860, 0x038d880, indexKOF02Sprites_Athena, 0x03 },
+    { L"C - MAX Flash", 0x038d880, 0x038d8a0, indexKOF02Sprites_Athena, 0x03 },
     { L"C - Portal Stuff", 0x038d8a0, 0x038d8c0, indexKOF02UMSprites_Athena, 0x02 },
-    { L"C - Soul Palette", 0x038d8c0, 0x038d8e0, indexKOF02UMSprites_Athena, 0x18 },
+    { L"C - Soul Palette", 0x038d8c0, 0x038d8e0, indexKOF02Sprites_Athena, 0x03 },
     { L"C - Intro Stuff and MAX2 Finisher", 0x038d8e0, 0x038d900, indexKOF02Sprites_Athena, 0x01 },
 };
 
@@ -1698,10 +1698,10 @@ const sGame_PaletteDataset KOF02PS2_A_ATHENA_PALETTES_D[] =
     { L"Athena D", 0x038da00, 0x038da20, indexKOF02Sprites_Athena, 0x00, &pairNextAndNext7 },
     { L"D - Athena Transformations", 0x038da20, 0x038da40, indexKOF02Sprites_Athena, 0x02 },
     { L"D - MAX Shining Crystal Bit", 0x038da40, 0x038da60 },
-    { L"D - Electric Shock Effect", 0x038da60, 0x038da80, indexKOF02UMSprites_Athena, 0x18 },
-    { L"D - MAX Flash", 0x038da80, 0x038daa0, indexKOF02UMSprites_Athena, 0x08 },
+    { L"D - Electric Shock Effect", 0x038da60, 0x038da80, indexKOF02Sprites_Athena, 0x03 },
+    { L"D - MAX Flash", 0x038da80, 0x038daa0, indexKOF02Sprites_Athena, 0x03 },
     { L"D - Portal Stuff", 0x038daa0, 0x038dac0, indexKOF02UMSprites_Athena, 0x02 },
-    { L"D - Soul Palette", 0x038dac0, 0x038dae0, indexKOF02UMSprites_Athena, 0x18 },
+    { L"D - Soul Palette", 0x038dac0, 0x038dae0, indexKOF02Sprites_Athena, 0x03 },
     { L"D - Intro Stuff and MAX2 Finisher", 0x038dae0, 0x038db00, indexKOF02Sprites_Athena, 0x01 },
 };
 

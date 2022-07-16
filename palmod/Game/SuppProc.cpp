@@ -227,11 +227,11 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
     OutputDebugString(strDebugInfo);
 
     uint32_t nLastDestinationPalette = 0;
-    uint16_t indexCounterForEffects = 0;
     std::vector<LPCWSTR> vstrModifiedPaletteNames;
 
     for (const std::vector<uint16_t>& currentEffectsData : supplementalEffectsData)
     {
+        uint16_t indexCounterForEffects = 0;
         uint16_t currentEffectsToken = currentEffectsData[indexCounterForEffects++];
 
         // Some variant of SUPP_NODE or SUPP_NODE_* indicates the beginning of a new modifier array

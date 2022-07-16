@@ -463,40 +463,7 @@ BOOL CGame_SFIII1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (NodeGet->uUnitId == index3SSprites_Alex)
-                {
-                    uint32_t nNodeCount = GetCollectionCountForUnit(NodeGet->uUnitId);
-                    uint32_t nNextToLastPalette = GetPaletteCountForUnit(NodeGet->uUnitId) - 1;
-
-                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nNextToLastPalette);
-
-                    if (paletteDataSetToJoin && (paletteDataSetToJoin->indexOffsetToUse == 0x02))
-                    {
-                        fShouldUseAlternateLoadLogic = true;
-                        nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
-
-                        ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
-                            )
-                        );
-
-                        //Set each palette
-                        std::vector<sDescNode*> JoinedNode = {
-                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                            GetMainTree()->GetDescNode(Node01, nNodeCount - 1, 0, -1)  // The cross-chop is palette 0 in the final node
-                        };
-
-                        //Set each palette
-                        CreateDefPal(JoinedNode[0], 0);
-                        CreateDefPal(JoinedNode[1], 1);
-
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        // This second join is of a shared palette, so our node increment is zero
-                        SetSourcePal(1, NodeGet->uUnitId, nNextToLastPalette, nSrcAmt, 0);
-                    }
-                }
-                else if ((paletteDataSet->pPalettePairingInfo->nPalettesToJoin > 1) &&
+                if ((paletteDataSet->pPalettePairingInfo->nPalettesToJoin > 1) &&
                     (paletteDataSet->pPalettePairingInfo->nPalettesToJoin <= MAXIMUM_PALETTE_PAIRS_ALLOWED))
                 {
                     std::vector<const sGame_PaletteDataset*> vsPaletteDataSetToJoin;

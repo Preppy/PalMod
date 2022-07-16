@@ -10,7 +10,7 @@ LPCWSTR CGame_VENTURE_A_DIR::VENTURE_Arcade_ROM_Base_50 = L"jojo-simm5.";
 #define VENTURE_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 
 CGame_VENTURE_A_DIR::CGame_VENTURE_A_DIR(uint32_t nConfirmedROMSize, int nVentureModeToLoad) :
-        CGame_VENTURE_A(-1, nVentureModeToLoad)   // Let Venture know that it's safe to load extras.
+        CGame_VENTURE_A((nVentureModeToLoad == 31) ? m_nExpectedGameROMSize_31 : m_nExpectedGameROMSize_50, nVentureModeToLoad)   // Let Venture know that it's safe to load extras.
 {
     OutputDebugString(L"CGame_VENTURE_A_DIR::CGame_VENTURE_A_DIR: Loading from SIMM directory\n");
 
@@ -216,8 +216,7 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
-    // bugbug
-    if ((nGameFlag == VENTURE_A_DIR_50) ||
+    if (((nGameFlag == VENTURE_A_DIR_50) && (nSIMMNumber == 0)) || // 50 just uses 5.0 and 5.1
         ((nGameFlag == VENTURE_A_DIR_31) && (nSIMMNumber == (c_nCountSIMMsUsed_31 / 2))))
     {
         // Only run the dupe checker for the second SIMM pair

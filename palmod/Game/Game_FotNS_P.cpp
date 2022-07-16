@@ -37,8 +37,8 @@ CGame_FotNS_P::CGame_FotNS_P(uint32_t nConfirmedROMSize)
 
     nGameFlag = FotNS_P;
 
-    nImgGameFlag = IMGDAT_SECTION_CPS2; // This value is used to determine which section of the image file is used
-    m_prgGameImageSet.clear();  // FotNS_P_IMG_UNITS -- this is the vector of images present in imgdat once that happens
+    nImgGameFlag = IMGDAT_SECTION_ARCSYS; // This value is used to determine which section of the image file is used
+    m_prgGameImageSet = FotNS_P_IMGIDS_USED;
 
     nFileAmt = 1; // Always 1 for monolithic rom games
 

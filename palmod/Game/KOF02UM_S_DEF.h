@@ -1853,7 +1853,7 @@ const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_A[] =
     { L"A - Athena Transformations", 0x0006820, 0x0006840, indexKOF02Sprites_Athena, 0x02 },
     { L"A - MAX Shining Crystal Bit", 0x0006840, 0x0006860 },
     { L"A - Electric Shock Effect", 0x0006860, 0x0006880, indexKOF02UMSprites_Athena, 0x18 },
-    { L"A - MAX Flash", 0x0006880, 0x00068a0, indexKOF02UMSprites_Athena, 0x08 },
+    { L"A - MAX Flash", 0x0006880, 0x00068a0, indexKOF02UMSprites_Athena, 0x18 },
     { L"A - Portal Stuff", 0x00068a0, 0x00068c0, indexKOF02UMSprites_Athena, 0x02 },
     { L"A - Soul Palette", 0x00068c0, 0x00068e0, indexKOF02UMSprites_Athena, 0x18 },
     { L"A - Intro Stuff and MAX2 Finisher", 0x00068e0, 0x0006900, indexKOF02Sprites_Athena, 0x01 },
@@ -1865,7 +1865,7 @@ const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_B[] =
     { L"B - Athena Transformations", 0x0006a20, 0x0006a40, indexKOF02Sprites_Athena, 0x02 },
     { L"B - MAX Shining Crystal Bit", 0x0006a40, 0x0006a60 },
     { L"B - Electric Shock Effect", 0x0006a60, 0x0006a80, indexKOF02UMSprites_Athena, 0x18 },
-    { L"B - MAX Flash", 0x0006a80, 0x0006aa0, indexKOF02UMSprites_Athena, 0x08 },
+    { L"B - MAX Flash", 0x0006a80, 0x0006aa0, indexKOF02UMSprites_Athena, 0x18 },
     { L"B - Portal Stuff", 0x0006aa0, 0x0006ac0, indexKOF02UMSprites_Athena, 0x02 },
     { L"B - Soul Palette", 0x0006ac0, 0x0006ae0, indexKOF02UMSprites_Athena, 0x18 },
     { L"B - Intro Stuff and MAX2 Finisher", 0x0006ae0, 0x0006b00, indexKOF02Sprites_Athena, 0x01 },
@@ -1877,7 +1877,7 @@ const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_C[] =
     { L"C - Athena Transformations", 0x0006c20, 0x0006c40, indexKOF02Sprites_Athena, 0x02 },
     { L"C - MAX Shining Crystal Bit", 0x0006c40, 0x0006c60 },
     { L"C - Electric Shock Effect", 0x0006c60, 0x0006c80, indexKOF02UMSprites_Athena, 0x18 },
-    { L"C - MAX Flash", 0x0006c80, 0x0006ca0, indexKOF02UMSprites_Athena, 0x08 },
+    { L"C - MAX Flash", 0x0006c80, 0x0006ca0, indexKOF02UMSprites_Athena, 0x18 },
     { L"C - Portal Stuff", 0x0006ca0, 0x0006cc0, indexKOF02UMSprites_Athena, 0x02 },
     { L"C - Soul Palette", 0x0006cc0, 0x0006ce0, indexKOF02UMSprites_Athena, 0x18 },
     { L"C - Intro Stuff and MAX2 Finisher", 0x0006ce0, 0x0006d00, indexKOF02Sprites_Athena, 0x01 },
@@ -1889,7 +1889,7 @@ const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_D[] =
     { L"D - Athena Transformations", 0x0006e20, 0x0006e40, indexKOF02Sprites_Athena, 0x02 },
     { L"D - MAX Shining Crystal Bit", 0x0006e40, 0x0006e60 },
     { L"D - Electric Shock Effect", 0x0006e60, 0x0006e80, indexKOF02UMSprites_Athena, 0x18 },
-    { L"D - MAX Flash", 0x0006e80, 0x0006ea0, indexKOF02UMSprites_Athena, 0x08 },
+    { L"D - MAX Flash", 0x0006e80, 0x0006ea0, indexKOF02UMSprites_Athena, 0x18 },
     { L"D - Portal Stuff", 0x0006ea0, 0x0006ec0, indexKOF02UMSprites_Athena, 0x02 },
     { L"D - Soul Palette", 0x0006ec0, 0x0006ee0, indexKOF02UMSprites_Athena, 0x18 },
     { L"D - Intro Stuff and MAX2 Finisher", 0x0006ee0, 0x0006f00, indexKOF02Sprites_Athena, 0x01 },
@@ -5261,6 +5261,11 @@ const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
     { L"MAX Mode and SDM Flash",    0x4c0, 0x4e0 },
     { L"MAX Flash",                 0xa80, 0xaa0 },
     { L"MAX2 Flash",                0xaa0, 0xac0 },
+
+    { L"Big Explosion Effect",      0x5e0, 0x600 },
+    { L"Dust and Fire Effects",     0x340, 0x360 },
+    { L"Dust and Orochi Fire Effects", 0x420, 0x440 },
+    { L"Explosion Effects",         0x5c0, 0x5e0 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_NEXTSTAGE_PALETTES[] =
