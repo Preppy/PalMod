@@ -484,6 +484,9 @@
     <Filter Include="Games\SNK Games\Galaxy Fight: Universal Warriors">
       <UniqueIdentifier>{6d425197-42ff-41a2-8fbc-6c72aaf63574}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29">
+      <UniqueIdentifier>{477db182-4f4b-4f1c-988a-5f43884236d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1007,6 +1010,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_GalaxyFight_A.cpp">
       <Filter>Games\SNK Games\Galaxy Fight: Universal Warriors</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GGDS_NDS.cpp">
+      <Filter>Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1900,6 +1906,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_GalaxyFight_A.h">
       <Filter>Games\SNK Games\Galaxy Fight: Universal Warriors</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GGDS_NDS.h">
+      <Filter>Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GGDS_NDS_DEF.h">
+      <Filter>Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
