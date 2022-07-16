@@ -5,13 +5,10 @@
 #include "..\RegProc.h"
 
 stExtraDef* CGame_KOF96_A::KOF96_A_EXTRA_CUSTOM = nullptr;
-
 CDescTree CGame_KOF96_A::MainDescTree = nullptr;
 uint32_t CGame_KOF96_A::rgExtraCountAll[KOF96_A_NUMUNIT + 1];
 uint32_t CGame_KOF96_A::rgExtraLoc[KOF96_A_NUMUNIT + 1];
-
 uint32_t CGame_KOF96_A::m_nTotalPaletteCountForKOF96 = 0;
-uint32_t CGame_KOF96_A::m_nExpectedGameROMSize = 0x200000;
 uint32_t CGame_KOF96_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF96_A::InitializeStatics()
@@ -40,11 +37,11 @@ CGame_KOF96_A::CGame_KOF96_A(uint32_t nConfirmedROMSize)
     m_nTotalInternalUnits = KOF96_A_NUMUNIT;
     m_nExtraUnit = KOF96_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 999;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + m_nPaletteCountInHeaders;
     m_pszExtraFilename = EXTRA_FILENAME_KOF96_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF96;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x100002;
+    m_nLowestKnownPaletteRomLocation = m_nLowestROMLocationUsedInHeaders;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -70,7 +67,7 @@ CGame_KOF96_A::CGame_KOF96_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_KOF96_A::~CGame_KOF96_A(void)
+CGame_KOF96_A::~CGame_KOF96_A()
 {
     safe_delete_array(CGame_KOF96_A::KOF96_A_EXTRA_CUSTOM);
     ClearDataBuffer();
@@ -88,15 +85,15 @@ sFileRule CGame_KOF96_A::GetRule(uint32_t nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"214-p2.sp2");
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, KOF96_A_PRIMARY_ROMNAME);
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     // There's a hack variant that matches hexes exactly but uses a different file size
     NewFileRule.fHasAltName = true;
-    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"214ae-p2.p2");
-    NewFileRule.uAltVerifyVar = 0x400000;
+    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, KOF96_A_ALT_ROMNAME);
+    NewFileRule.uAltVerifyVar = m_nAltGameROMSize;
 
     return NewFileRule;
 }
@@ -105,9 +102,9 @@ uint32_t CGame_KOF96_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"King of Fighters '96 (Neo-Geo)", L"214-p2.sp2", 0x002ccb73, 0 },
+        { L"King of Fighters '96 (Neo-Geo)", KOF96_A_PRIMARY_ROMNAME, 0x002ccb73, 0 },
         { L"King of Fighters '96 (Neo-Geo)", L"214-p2.bin", 0x002ccb73, 0 },
-        { L"King of Fighters '96 (The Anniversary Edition 2.0 Hack, Neo-Geo)", L"214ae-p2.p2", 0x2638be07, 0 },
+        { L"King of Fighters '96 (The Anniversary Edition 2.0 Hack, Neo-Geo)", KOF96_A_ALT_ROMNAME, 0x2638be07, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -495,7 +492,7 @@ void CGame_KOF96_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // KOF96_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForKOF96(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &KOF96_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
