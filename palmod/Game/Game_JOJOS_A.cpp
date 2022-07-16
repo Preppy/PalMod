@@ -744,7 +744,8 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
                 if (UseRegulationOnLogic())
                 {
                     if ((wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszTimeStopName) != 0) &&
-                        (wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszBonusPalettesName) != 0))
+                        (wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszBonusPalettesName) != 0) &&
+                        (nOffset < 0x41000)) // only shift the core character/effect palettes, not the portraits
                     {
                         // General layout is:
                         // Jotaro A (Regulations On)
