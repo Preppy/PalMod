@@ -92,12 +92,8 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(L"5");
         break;
     case 6: 
-        if (CurrGame->GetGameFlag() == GGDS_NDS) //Dust Striker's 5th and 6th palettes arent used, the option to not export them is nice
-        {
-            m_CB_Amt.AddString(L"4");
-        }
     case 7: // 3S
-        if (CurrGame->GetGameFlag() == SFA2_A) // SFA2's 5-6 colors are only with autoguard on
+        if (CurrGame->GetGameFlag() == SFA2_A || GGDS_NDS) // SFA2's 5-6 colors are only with autoguard on
         {
             m_CB_Amt.AddString(L"4");
         }
