@@ -1032,7 +1032,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Red Earth 1st Logo Cycle 17/17", 0x406ec0, 0x406ee0, indexRedEarthSprites_Bonus, 0x20 },
 
     { L"Intro - Leo closeup", 0x3226ae, 0x32272e },
-    { L"Intro - Emerald", 0x321320, 0x321380, indexRedEarthSprites_Bonus, 0x05 },
+    { L"Intro - Emerald", 0x321320, 0x3213a0, indexRedEarthSprites_Bonus, 0x05 },
     { L"Intro - Emerald BG0", 0x3212a0, 0x321320, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG1", 0x321720, 0x3217a0, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG2", 0x3217a0, 0x321820, indexRedEarthSprites_Bonus, 0x19 },
@@ -1075,7 +1075,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Mai-Ling background", 0x322a20, 0x322a60, indexRedEarthSprites_Bonus, 0x1b },
     { L"Intro - Mai-Ling ", 0x322aa0, 0x322b20, indexRedEarthSprites_Bonus, 0x1c },
     { L"Intro - Kenji background", 0x322a60, 0x322aa0, indexRedEarthSprites_Bonus, 0x1a },
-    { L"Intro - Kenji", 0x322b20, 0x322bc0 },
+    { L"Intro - Kenji", 0x322b20, 0x322ba0 },
     { L"Intro - Tessa 1", 0x323720, 0x3237a0, indexRedEarthSprites_Tessa, 0x23 },
     { L"Intro - Tessa 2", 0x3237a0, 0x323820, indexRedEarthSprites_Tessa, 0x23 },
     { L"Intro - Tessa 3", 0x323820, 0x3238a0, indexRedEarthSprites_Tessa, 0x23 },

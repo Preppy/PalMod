@@ -49,7 +49,7 @@ const std::vector<uint16_t> KOF96_A_IMGIDS_USED =
     indexKOF96Sprites_Terry,        // 0x261
     indexKOF96Sprites_Vice,         // 0x262
     indexKOF96Sprites_Yuri,         // 0x263
-    indexKOF96Sprites_Bonus,        // 0x264    
+    indexKOF96Sprites_Bonus,        // 0x264	
 
     // Everything that follows is for portraits or extra previews
     indexKOF97Sprites_Andy,
@@ -1460,6 +1460,14 @@ const sGame_PaletteDataset KOF96_A_BONUS_EFFECTS_PALETTES[] =
     { L"Main Fire Palette",     0x117202, 0x1173e2 },
     { L"Orochi Fire Palette",   0x117402, 0x1175e2 },
     { L"Mature Soul Effect Palette", 0x117602, 0x1177e2 },
+    { L"General Hitsparks", 0x100a22, 0x100a42 },
+    { L"Block Effects", 0x100a62, 0x100aa2 },
+    { L"Slash and Ground Hit Effects", 0x100aa2, 0x100ac2 },
+    { L"Command Grab Effect", 0x100d22, 0x100d42 },
+    { L"DM Flash and Eletric Effects", 0x100a42, 0x100a62 },
+    { L"Electric Effects 2", 0x100c42, 0x100c62 },
+    { L"Explosion Effects and Dust", 0x100ae2, 0x100b42 },
+    { L"Explosion Effects 2", 0x100c22, 0x100c42 },
 };
 
 const sGame_PaletteDataset KOF96_A_BONUS_HUD_PALETTES[] =
@@ -1474,6 +1482,7 @@ const sGame_PaletteDataset KOF96_A_BONUS_HUD_PALETTES[] =
     { L"Round Rings", 0x101142, 0x101162, indexKOF96Sprites_Bonus, 0x14 },
     { L"Round Text", 0x1011c2, 0x101202, indexKOF96Sprites_Bonus, 0x12 },
     { L"Ready Go!", 0x101122, 0x101142, indexKOF96Sprites_Bonus, 0x11 },
+    { L"Ready Go! Transition", 0x1010a2, 0x1010c2 },
     { L"K.O.", 0x100e02, 0x100e22, indexKOF96Sprites_Bonus, 0x0d },
     { L"K.O. and Game Over Transitions", 0x100b82, 0x100bc2, indexKOF96Sprites_Bonus, 0x18 },
     { L"Perfect", 0x1010c2, 0x1010e2, indexKOF96Sprites_Bonus, 0x0f },
@@ -1550,30 +1559,64 @@ const sGame_PaletteDataset KOF96_A_BONUS_BONUS_PALETTES[] =
     { L"New Challenger Background", 0x115382, 0x1153a2, indexKOF96Sprites_Bonus, 0x07 },
 };
 
-const sGame_PaletteDataset KOF96_A_BONUS_STORY_PALETTES[] =
+const sGame_PaletteDataset KOF96_A_STORY_CHARACTERS_PALETTES[] =
 {
-    { L"Chizuru A", 0x115a02, 0x115a22 },
-    { L"Chizuru D", 0x115a22, 0x115a42 },
-    { L"Goenitz A (1/2)", 0x115a42, 0x115a62 },
-    { L"Goenitz A (2/2)", 0x115a82, 0x115aa2 },
-    { L"Goenitz D (1/2)", 0x115a62, 0x115a82 },
-    { L"Goenitz D (2/2)", 0x115aa2, 0x115ac2 },
-    { L"Grayed Goenitz Hand", 0x116102, 0x116122 },
-    { L"Goenitz Eye Transformation", 0x115ce2, 0x115d02 },
-    { L"Grayed Rugal (1/2)", 0x115ac2, 0x115ae2 },
-    { L"Grayed Rugal (2/2)", 0x1160a2, 0x1160c2 },
     { L"Kyo A", 0x115da2, 0x115dc2 },
-    { L"Kyo D", 0x115de2, 0x115e02 },
-    { L"Grayed Kyo Ending", 0x115d82, 0x115da2 },
+    { L"Kyo D", 0x115dc2, 0x115de2 },
+    { L"Terry A", 0x115ca2, 0x115cc2 },
+    { L"Terry D", 0x115cc2, 0x115ce2 },
+    { L"Terry Cap A", 0x116062, 0x116082 },
+    { L"Terry Cap D", 0x116082, 0x1160a2 },
+    { L"Boss Ending Terry", 0x115b82, 0x115ba2},
+    { L"Andy, Mai and Child", 0x115c22, 0x115c62},
+    { L"Joe A", 0x115c62, 0x115c82 },
+    { L"Joe D", 0x115c82, 0x115ca2 },
+    { L"Leona A", 0x115d02, 0x115d22 },
+    { L"Leona D", 0x115d22, 0x115d42 },
+    { L"Ralf A", 0x115d42, 0x115d62 },
+    { L"Ralf D", 0x115d62, 0x115d82 },
     { L"Iori A", 0x115e02, 0x115e22 },
-    { L"Iori Eye Transformation A", 0x115ec2, 0x115ee2 },
+    { L"Iori Awakening A", 0x115ec2, 0x115ee2 },
     { L"Iori D", 0x115e22, 0x115e42 },
-    { L"Iori Eye Transformation D", 0x115ee2, 0x115f02 },
+    { L"Iori Awakening D", 0x115ee2, 0x115f02 },
     { L"Mature A", 0x115e42, 0x115e62 },
     { L"Mature D", 0x115e62, 0x115e82 },
     { L"Vice A", 0x115e82, 0x115ea2 },
     { L"Vice D", 0x115ea2, 0x115ec2 },
-    { L"Orochi Awakening Blood", 0x116122, 0x116142 },
+    { L"Geese A (1/2)", 0x115b02, 0x115b22, indexKOF96Sprites_Bonus, -1, &pairNext },
+    { L"Geese A (2/2)", 0x115ba2, 0x115bc2},
+    { L"Geese D (1/2)", 0x115b22, 0x115b42, indexKOF96Sprites_Bonus, -1, &pairNext },
+    { L"Geese D (2/2)", 0x115bc2, 0x115be2},
+    { L"Billy Kane", 0x115b42, 0x115b82},
+    { L"Krauser A", 0x116022, 0x116042},
+    { L"Krauser D", 0x116042, 0x116062},
+    { L"Chizuru A", 0x115a02, 0x115a22 },
+    { L"Chizuru D", 0x115a22, 0x115a42 },
+    { L"Goenitz A (1/2)", 0x115a42, 0x115a62, indexKOF96Sprites_Bonus, -1, &pairNext },
+    { L"Goenitz A (2/2)", 0x115a82, 0x115aa2 },
+    { L"Goenitz D (1/2)", 0x115a62, 0x115a82, indexKOF96Sprites_Bonus, -1, &pairNext },
+    { L"Goenitz D (2/2)", 0x115aa2, 0x115ac2 },
+    { L"Goenitz Awakening", 0x115ce2, 0x115d02 },
+};
+
+const sGame_PaletteDataset KOF96_A_STORY_BONUS_PALETTES[] =
+{
+    { L"Goenitz Wind and Chizuru FX", 0x115ae2, 0x115b02 },
+    { L"Story Endings Extras and FX", 0x115be2, 0x115c02 },
+    { L"Leaf and Bullet", 0x115c02, 0x115c22 },
+    { L"Hero Ending Background", 0x115fc2, 0x116002 },
+    { L"Fatal Fury Ending Background", 0x115f02, 0x115f42 },
+    { L"Woman Ending Background (1/2)", 0x115f42, 0x115f62, indexKOF96Sprites_Bonus, -1, &pairNext },
+    { L"Woman Ending Background (2/2)", 0x116002, 0x116022},
+    { L"Iori Awakening Blood", 0x116122, 0x116142 },
+    { L"Boss Team Ending Extras", 0x115f62, 0x115f82},
+    { L"Chizuru and Players Background", 0x115fa2, 0x115fc2},
+    { L"Ruined Stadium Background", 0x115f82, 0x115fa2},
+    { L"Grayed Kyo", 0x115d82, 0x115da2 },
+    { L"Grayed Rugal (1/2)", 0x115ac2, 0x115ae2, indexKOF96Sprites_Bonus, -1, &pairNext },
+    { L"Grayed Rugal (2/2)", 0x1160a2, 0x1160c2 },
+    { L"Grayed Chin", 0x1160e2, 0x116102},
+    { L"Grayed Goenitz Hand", 0x116102, 0x116122 },
 };
 
 const sGame_PaletteDataset KOF96_A_STAGE_PALETTES_JAPAN[] =
@@ -1692,7 +1735,12 @@ const sDescTreeNode KOF96_A_BONUS_COLLECTION[] =
     { L"HUD", DESC_NODETYPE_TREE, (void*)KOF96_A_BONUS_HUD_PALETTES, ARRAYSIZE(KOF96_A_BONUS_HUD_PALETTES) },
     { L"Intro Palettes", DESC_NODETYPE_TREE, (void*)KOF96_A_BONUS_INTRO_PALETTES, ARRAYSIZE(KOF96_A_BONUS_INTRO_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF96_A_BONUS_BONUS_PALETTES, ARRAYSIZE(KOF96_A_BONUS_BONUS_PALETTES) },
-    { L"Story Endings", DESC_NODETYPE_TREE, (void*)KOF96_A_BONUS_STORY_PALETTES, ARRAYSIZE(KOF96_A_BONUS_STORY_PALETTES) },
+};
+
+const sDescTreeNode KOF96_A_STORY_COLLECTION[] =
+{
+    { L"Characters", DESC_NODETYPE_TREE, (void*)KOF96_A_STORY_CHARACTERS_PALETTES, ARRAYSIZE(KOF96_A_STORY_CHARACTERS_PALETTES) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)KOF96_A_STORY_BONUS_PALETTES, ARRAYSIZE(KOF96_A_STORY_BONUS_PALETTES) },
 };
 
 const sDescTreeNode KOF96_A_STAGE_COLLECTION[] =
@@ -1743,6 +1791,7 @@ const sDescTreeNode KOF96_A_UNITS[] =
     { L"Goenitz", DESC_NODETYPE_TREE, (void*)KOF96_A_GOENITZ_COLLECTION, ARRAYSIZE(KOF96_A_GOENITZ_COLLECTION) },
     { L"Stages", DESC_NODETYPE_TREE, (void*)KOF96_A_STAGE_COLLECTION, ARRAYSIZE(KOF96_A_STAGE_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF96_A_BONUS_COLLECTION, ARRAYSIZE(KOF96_A_BONUS_COLLECTION) },
+    { L"Story Endings", DESC_NODETYPE_TREE, (void*)KOF96_A_STORY_COLLECTION, ARRAYSIZE(KOF96_A_STORY_COLLECTION) },
 };
 
 constexpr auto KOF96_A_NUMUNIT = ARRAYSIZE(KOF96_A_UNITS);

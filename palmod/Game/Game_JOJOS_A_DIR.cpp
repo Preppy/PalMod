@@ -190,7 +190,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     if (((nGameFlag == JOJOS_A_DIR_50) && (nSIMMNumber == 2)) ||
-        (((nGameFlag == JOJOS_A_DIR_51) || (nGameFlag == JOJOS_A_DIR_51)) && (nSIMMNumber == 6)))
+        (((nGameFlag == JOJOS_A_DIR_51) || (nGameFlag == JOJOS_US_A_DIR_51)) && (nSIMMNumber == 6)))
     {
         // Only run the dupe checker for the second SIMM pair
         CheckForErrorsInTables();
