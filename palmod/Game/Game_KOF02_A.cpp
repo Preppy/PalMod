@@ -12,7 +12,6 @@ uint32_t CGame_KOF02_A::rgExtraCountAll[KOF02_A_NUMUNIT + 1];
 uint32_t CGame_KOF02_A::rgExtraLoc[KOF02_A_NUMUNIT + 1];
 
 uint32_t CGame_KOF02_A::m_nTotalPaletteCountForKOF02 = 0;
-uint32_t CGame_KOF02_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
 uint32_t CGame_KOF02_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF02_A::InitializeStatics()
@@ -41,11 +40,11 @@ CGame_KOF02_A::CGame_KOF02_A(uint32_t nConfirmedROMSize)
     m_nTotalInternalUnits = KOF02_A_NUMUNIT;
     m_nExtraUnit = KOF02_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2023;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + m_nPaletteCountInHeaders;
     m_pszExtraFilename = EXTRA_FILENAME_KOF02_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x01b4e0;
+    m_nLowestKnownPaletteRomLocation = m_nLowestROMLocationUsedInHeaders;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -282,7 +281,7 @@ sFileRule CGame_KOF02_A::GetRule(uint32_t nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"265-p2.sp2");
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, KOF02_A_PRIMARY_ROMNAME);
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -377,7 +376,7 @@ void CGame_KOF02_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // KOF02_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForKOF02(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &KOF02_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

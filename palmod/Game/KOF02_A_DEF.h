@@ -4201,6 +4201,8 @@ const sGame_PaletteDataset KOF02_A_BONUS_SELECT_PALETTES[] =
 const sGame_PaletteDataset KOF02_A_BONUS_HUD_PALETTES[] =
 {
     { L"Super Meter", 0xb4602, 0xb46c2, indexKOF02Sprites_Bonus, 0x06 },
+    { L"Lifebars", 0x86c02, 0x86c42 },
+    { L"Timer", 0x86d02, 0x86d42 },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
@@ -4222,12 +4224,54 @@ const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
     { L"Frozen Palette", 0x88762, 0x88962 },
 };
 
+const sGame_PaletteDataset KOF02_A_BONUS_INTRO_PALETTES[] =
+{
+    { L"Chang Intro (1/?)", 0xbf142, 0xbf162 },
+    { L"Athena Background", 0xbf2a2, 0xbf2c2 },
+    { L"Ryo, Robert, Takuma Intro (1/?)", 0xbf182, 0xbf1e2 },
+    { L"Mature/Vice, Benimaru/Daimon Background", 0xbf302, 0xbf322 },
+    { L"K' Intro (1/2)", 0xbefc2, 0xbefe2 },
+    { L"K' Intro (2/2)", 0xbf3c2, 0xbf3e2 },
+    { L"Maxima Intro (1/2)", 0xbefe2, 0xbf002 },
+    { L"Maxima Intro (2/2)", 0xbf3e2, 0xbf402 },
+    { L"Whip Intro (1/2)", 0xbf002, 0xbf022 },
+    { L"Whip Intro (2/2)", 0xbf402, 0xbf422 },
+    { L"Yashiro Intro (1/2)", 0xbf022, 0xbf042 },
+    { L"Yashiro Intro (2/2)", 0xbf422, 0xbf442 },
+    { L"Shermie Intro (1/2)", 0xbf042, 0xbf062 },
+    { L"Shermie Intro (2/2)", 0xbf442, 0xbf462 },
+    { L"Chris Intro (1/2)", 0xbf062, 0xbf082 },
+    { L"Chris Intro (2/2)", 0xbf462, 0xbf482 },
+    { L"Yamazaki Intro (1/2)", 0xbf082, 0xbf0a2 },
+    { L"Yamazaki Intro (2/2)", 0xbf482, 0xbf4a2 },
+    { L"Mary Intro (1/2)", 0xbf0a2, 0xbf0c2 },
+    { L"Mary Intro (2/2)", 0xbf4a2, 0xbf4c2 },
+    { L"Billy Intro (1/2)", 0xbf0c2, 0xbf0e2 },
+    { L"Billy Intro (2/2)", 0xbf4c2, 0xbf4e2 },
+    { L"Kim Intro (1/2)", 0xbf0e2, 0xbf102 },
+    { L"Kim Intro (2/2)", 0xbf4e2, 0xbf502 },
+    { L"Choi Intro (1/2)", 0xbf102, 0xbf122 },
+    { L"Choi Intro (2/2)", 0xbf502, 0xbf522 },
+    { L"May Lee Intro (1/2)", 0xbf122, 0xbf142 },
+    { L"May Lee Intro (2/2)", 0xbf522, 0xbf542 },
+};
+
+const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
+{
+    { L"Timer Lights", 0xb4702, 0xb48a2 },
+    { L"Order Select (Single Play)", 0xb5f62, 0xb6002 },
+    { L"\"THE KING OF FIGHTERS\" Intro Text", 0xbf162, 0xbf182 },
+    { L"Playmore Logo", 0xbf282, 0xbf2a2 },
+};
+
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =
 {
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_EFFECTS_PALETTES) },
     { L"Ending", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_ENDING_PALETTES, ARRAYSIZE(KOF02_A_BONUS_ENDING_PALETTES) },
     { L"HUD", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_HUD_PALETTES, ARRAYSIZE(KOF02_A_BONUS_HUD_PALETTES) },
     { L"Character Select Stuff", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_SELECT_PALETTES, ARRAYSIZE(KOF02_A_BONUS_SELECT_PALETTES) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_INTRO_PALETTES, ARRAYSIZE(KOF02_A_BONUS_INTRO_PALETTES) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_BONUS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_BONUS_PALETTES) },
 };
 
 const sDescTreeNode KOF02_A_UNITS[] =
