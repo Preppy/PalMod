@@ -1241,6 +1241,9 @@ void CPalModDlg::DoUndoRedo(BOOL fUndo)
     // OnBnUpdate locks in changes at an unknown point on the undoredo stack, so just mark dirty
     m_fFileChanged = TRUE;  
     m_fPalChanged = TRUE;
+
+    // We've taken ownership of the now-orphaned node, so destroy it now
+    delete PopNode;
 }
 
 void CPalModDlg::UpdateSettingsMenuItems()
