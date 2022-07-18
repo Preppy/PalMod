@@ -211,3 +211,8 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_BASARA =
 {
     L"A", L"B", L"C", L"E", L"ABC", L"Mirror"
 };
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_GGDS =
+{
+    L"Special", L"Dust", L"Light", L"Heavy", L"Unused1", L"Unused2"
+};
