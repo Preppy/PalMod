@@ -93,7 +93,7 @@ BOOL CImgOutDlg::OnInitDialog()
         break;
     case 6: 
     case 7: // 3S
-        if (CurrGame->GetGameFlag() == SFA2_A || GGDS_NDS) // SFA2's 5-6 colors are only with autoguard on
+        if ((CurrGame->GetGameFlag() == SFA2_A) || (CurrGame->GetGameFlag() == GGDS_NDS)) // SFA2's 5-6 colors are only with autoguard on, and likewise GGDS has a natural 4/6 split
         {
             m_CB_Amt.AddString(L"4");
         }
