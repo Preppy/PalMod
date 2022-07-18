@@ -4200,7 +4200,7 @@ const sGame_PaletteDataset KOF02_A_BONUS_SELECT_PALETTES[] =
 
 const sGame_PaletteDataset KOF02_A_BONUS_HUD_PALETTES[] =
 {
-    { L"Super Meter", 0xb4602, 0xb46a2, indexKOF02Sprites_Bonus, 0x06 },
+    { L"Super Meter", 0xb4602, 0xb46c2, indexKOF02Sprites_Bonus, 0x06 },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =

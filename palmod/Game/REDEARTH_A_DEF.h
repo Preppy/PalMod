@@ -1209,27 +1209,155 @@ const sGame_PaletteDataset REDEARTH_A_31_MAP_NORMAL_PALETTES[] =
     { L"Location Buildings, Orb",           0x222200, 0x222280, indexRedEarthSprites_Bonus, 0x4b },
     { L"Location Buildings, Orb Unused?",   0x222c00, 0x222c80, indexRedEarthSprites_Bonus, 0x4b },
 
-    { L"Derminor Appearing 1/13", 0x222300, 0x222380, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 2/13", 0x222380, 0x222400, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 3/13", 0x222400, 0x222480, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 4/13", 0x222480, 0x222500, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 5/13", 0x222500, 0x222580, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 6/13", 0x222580, 0x222600, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 7/13", 0x222600, 0x222680, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 8/13", 0x222680, 0x222700, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 9/13", 0x222700, 0x222780, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 10/13", 0x222780, 0x222800, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 11/13", 0x222800, 0x222880, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 12/13", 0x222880, 0x222900, indexRedEarthSprites_Bonus, 0x49 },
-    { L"Derminor Appearing 13/13", 0x222900, 0x222980, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 1/13",           0x222300, 0x222380, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 2/13",           0x222380, 0x222400, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 3/13",           0x222400, 0x222480, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 4/13",           0x222480, 0x222500, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 5/13",           0x222500, 0x222580, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 6/13",           0x222580, 0x222600, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 7/13",           0x222600, 0x222680, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 8/13",           0x222680, 0x222700, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 9/13",           0x222700, 0x222780, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 10/13",          0x222780, 0x222800, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 11/13",          0x222800, 0x222880, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 12/13",          0x222880, 0x222900, indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 13/13",          0x222900, 0x222980, indexRedEarthSprites_Bonus, 0x49 },
 
-    { L"Derminor White to Normal 1", 0x222b00, 0x222b80, indexRedEarthSprites_Bonus, 0x4a },
-    { L"Derminor White to Normal 2", 0x222a80, 0x222b00, indexRedEarthSprites_Bonus, 0x4a },
-    { L"Derminor White to Normal 3", 0x222a00, 0x222a80, indexRedEarthSprites_Bonus, 0x4a },
-    { L"Derminor White to Normal 4", 0x222980, 0x222a00, indexRedEarthSprites_Bonus, 0x4a },
-    { L"Derminor White to Normal 5", 0x222280, 0x222300, indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 1",        0x222b00, 0x222b80, indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 2",        0x222a80, 0x222b00, indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 3",        0x222a00, 0x222a80, indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 4",        0x222980, 0x222a00, indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 5",        0x222280, 0x222300, indexRedEarthSprites_Bonus, 0x4a },
 
-    { L"Boss's Eye Glow", 0x222b80, 0x222c00, indexRedEarthSprites_Bonus, 0x48 },
+    { L"Boss's Eye Glow",                   0x222b80, 0x222c00, indexRedEarthSprites_Bonus, 0x48 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_MAP_BOSS_PALETTES[] =
+{
+    { L"Map Background Part 1",             0x222000 + (1 * 0xc80), 0x222080 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x4c, &pairNext4Palettes },
+    { L"Map Background Part 2",             0x222080 + (1 * 0xc80), 0x222100 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x4d },
+    { L"Map Background Part 3 & Clouds",    0x222100 + (1 * 0xc80), 0x222180 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x4e },
+    { L"Beaten Continents",                 0x222180 + (1 * 0xc80), 0x222200 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x47 },
+    { L"Location Buildings, Orb",           0x222200 + (1 * 0xc80), 0x222280 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x4b },
+    { L"Location Buildings, Orb Unused?",   0x222c00 + (1 * 0xc80), 0x222c80 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x4b },
+
+    { L"Derminor Appearing 1/13",           0x222300 + (1 * 0xc80), 0x222380 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 2/13",           0x222380 + (1 * 0xc80), 0x222400 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 3/13",           0x222400 + (1 * 0xc80), 0x222480 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 4/13",           0x222480 + (1 * 0xc80), 0x222500 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 5/13",           0x222500 + (1 * 0xc80), 0x222580 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 6/13",           0x222580 + (1 * 0xc80), 0x222600 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 7/13",           0x222600 + (1 * 0xc80), 0x222680 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 8/13",           0x222680 + (1 * 0xc80), 0x222700 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 9/13",           0x222700 + (1 * 0xc80), 0x222780 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 10/13",          0x222780 + (1 * 0xc80), 0x222800 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 11/13",          0x222800 + (1 * 0xc80), 0x222880 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 12/13",          0x222880 + (1 * 0xc80), 0x222900 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 13/13",          0x222900 + (1 * 0xc80), 0x222980 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+
+    { L"Derminor White to Normal 1",        0x222b00 + (1 * 0xc80), 0x222b80 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 2",        0x222a80 + (1 * 0xc80), 0x222b00 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 3",        0x222a00 + (1 * 0xc80), 0x222a80 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 4",        0x222980 + (1 * 0xc80), 0x222a00 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 5",        0x222280 + (1 * 0xc80), 0x222300 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+
+    { L"Boss's Eye Glow",                   0x222b80 + (1 * 0xc80), 0x222c00 + (1 * 0xc80), indexRedEarthSprites_Bonus, 0x48 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_MAP_TRANS1_PALETTES[] =
+{
+    { L"Map Background Part 1",             0x222000 + (2 * 0xc80), 0x222080 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x4c, &pairNext4Palettes },
+    { L"Map Background Part 2",             0x222080 + (2 * 0xc80), 0x222100 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x4d },
+    { L"Map Background Part 3 & Clouds",    0x222100 + (2 * 0xc80), 0x222180 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x4e },
+    { L"Beaten Continents",                 0x222180 + (2 * 0xc80), 0x222200 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x47 },
+    { L"Location Buildings, Orb",           0x222200 + (2 * 0xc80), 0x222280 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x4b },
+    { L"Location Buildings, Orb Unused?",   0x222c00 + (2 * 0xc80), 0x222c80 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x4b },
+
+    { L"Derminor Appearing 1/13",           0x222300 + (2 * 0xc80), 0x222380 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 2/13",           0x222380 + (2 * 0xc80), 0x222400 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 3/13",           0x222400 + (2 * 0xc80), 0x222480 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 4/13",           0x222480 + (2 * 0xc80), 0x222500 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 5/13",           0x222500 + (2 * 0xc80), 0x222580 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 6/13",           0x222580 + (2 * 0xc80), 0x222600 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 7/13",           0x222600 + (2 * 0xc80), 0x222680 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 8/13",           0x222680 + (2 * 0xc80), 0x222700 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 9/13",           0x222700 + (2 * 0xc80), 0x222780 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 10/13",          0x222780 + (2 * 0xc80), 0x222800 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 11/13",          0x222800 + (2 * 0xc80), 0x222880 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 12/13",          0x222880 + (2 * 0xc80), 0x222900 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 13/13",          0x222900 + (2 * 0xc80), 0x222980 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+
+    { L"Derminor White to Normal 1",        0x222b00 + (2 * 0xc80), 0x222b80 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 2",        0x222a80 + (2 * 0xc80), 0x222b00 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 3",        0x222a00 + (2 * 0xc80), 0x222a80 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 4",        0x222980 + (2 * 0xc80), 0x222a00 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 5",        0x222280 + (2 * 0xc80), 0x222300 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+
+    { L"Boss's Eye Glow",                   0x222b80 + (2 * 0xc80), 0x222c00 + (2 * 0xc80), indexRedEarthSprites_Bonus, 0x48 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_MAP_TRANS2_PALETTES[] =
+{
+    { L"Map Background Part 1",             0x222000 + (3 * 0xc80), 0x222080 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x4c, &pairNext4Palettes },
+    { L"Map Background Part 2",             0x222080 + (3 * 0xc80), 0x222100 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x4d },
+    { L"Map Background Part 3 & Clouds",    0x222100 + (3 * 0xc80), 0x222180 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x4e },
+    { L"Beaten Continents",                 0x222180 + (3 * 0xc80), 0x222200 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x47 },
+    { L"Location Buildings, Orb",           0x222200 + (3 * 0xc80), 0x222280 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x4b },
+    { L"Location Buildings, Orb Unused?",   0x222c00 + (3 * 0xc80), 0x222c80 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x4b },
+
+    { L"Derminor Appearing 1/13",           0x222300 + (3 * 0xc80), 0x222380 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 2/13",           0x222380 + (3 * 0xc80), 0x222400 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 3/13",           0x222400 + (3 * 0xc80), 0x222480 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 4/13",           0x222480 + (3 * 0xc80), 0x222500 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 5/13",           0x222500 + (3 * 0xc80), 0x222580 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 6/13",           0x222580 + (3 * 0xc80), 0x222600 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 7/13",           0x222600 + (3 * 0xc80), 0x222680 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 8/13",           0x222680 + (3 * 0xc80), 0x222700 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 9/13",           0x222700 + (3 * 0xc80), 0x222780 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 10/13",          0x222780 + (3 * 0xc80), 0x222800 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 11/13",          0x222800 + (3 * 0xc80), 0x222880 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 12/13",          0x222880 + (3 * 0xc80), 0x222900 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 13/13",          0x222900 + (3 * 0xc80), 0x222980 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+
+    { L"Derminor White to Normal 1",        0x222b00 + (3 * 0xc80), 0x222b80 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 2",        0x222a80 + (3 * 0xc80), 0x222b00 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 3",        0x222a00 + (3 * 0xc80), 0x222a80 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 4",        0x222980 + (3 * 0xc80), 0x222a00 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 5",        0x222280 + (3 * 0xc80), 0x222300 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+
+    { L"Boss's Eye Glow",                   0x222b80 + (3 * 0xc80), 0x222c00 + (3 * 0xc80), indexRedEarthSprites_Bonus, 0x48 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_MAP_TRANS3_PALETTES[] =
+{
+    { L"Map Background Part 1",             0x222000 + (4 * 0xc80), 0x222080 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x4c, &pairNext4Palettes },
+    { L"Map Background Part 2",             0x222080 + (4 * 0xc80), 0x222100 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x4d },
+    { L"Map Background Part 3 & Clouds",    0x222100 + (4 * 0xc80), 0x222180 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x4e },
+    { L"Beaten Continents",                 0x222180 + (4 * 0xc80), 0x222200 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x47 },
+    { L"Location Buildings, Orb",           0x222200 + (4 * 0xc80), 0x222280 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x4b },
+    { L"Location Buildings, Orb Unused?",   0x222c00 + (4 * 0xc80), 0x222c80 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x4b },
+
+    { L"Derminor Appearing 1/13",           0x222300 + (4 * 0xc80), 0x222380 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 2/13",           0x222380 + (4 * 0xc80), 0x222400 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 3/13",           0x222400 + (4 * 0xc80), 0x222480 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 4/13",           0x222480 + (4 * 0xc80), 0x222500 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 5/13",           0x222500 + (4 * 0xc80), 0x222580 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 6/13",           0x222580 + (4 * 0xc80), 0x222600 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 7/13",           0x222600 + (4 * 0xc80), 0x222680 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 8/13",           0x222680 + (4 * 0xc80), 0x222700 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 9/13",           0x222700 + (4 * 0xc80), 0x222780 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 10/13",          0x222780 + (4 * 0xc80), 0x222800 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 11/13",          0x222800 + (4 * 0xc80), 0x222880 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 12/13",          0x222880 + (4 * 0xc80), 0x222900 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+    { L"Derminor Appearing 13/13",          0x222900 + (4 * 0xc80), 0x222980 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x49 },
+
+    { L"Derminor White to Normal 1",        0x222b00 + (4 * 0xc80), 0x222b80 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 2",        0x222a80 + (4 * 0xc80), 0x222b00 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 3",        0x222a00 + (4 * 0xc80), 0x222a80 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 4",        0x222980 + (4 * 0xc80), 0x222a00 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+    { L"Derminor White to Normal 5",        0x222280 + (4 * 0xc80), 0x222300 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x4a },
+
+    { L"Boss's Eye Glow",                   0x222b80 + (4 * 0xc80), 0x222c00 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x48 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
@@ -1444,6 +1572,10 @@ const sDescTreeNode REDEARTH_A_INTRO_COLLECTION[] =
 const sDescTreeNode REDEARTH_A_31_MAP_COLLECTION[] =
 {
     { L"Map", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_MAP_NORMAL_PALETTES, ARRAYSIZE(REDEARTH_A_31_MAP_NORMAL_PALETTES) },
+    { L"Map - Boss Shadow", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_MAP_BOSS_PALETTES, ARRAYSIZE(REDEARTH_A_31_MAP_BOSS_PALETTES) },
+    { L"Map - Unknown Transparency 1", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_MAP_TRANS1_PALETTES, ARRAYSIZE(REDEARTH_A_31_MAP_TRANS1_PALETTES) },
+    { L"Map - Unknown Transparency 2", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_MAP_TRANS2_PALETTES, ARRAYSIZE(REDEARTH_A_31_MAP_TRANS2_PALETTES) },
+    { L"Map - Unknown Transparency 3", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_MAP_TRANS3_PALETTES, ARRAYSIZE(REDEARTH_A_31_MAP_TRANS3_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_BONUS_31_COLLECTION[] =

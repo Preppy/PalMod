@@ -29,7 +29,7 @@ const sKOF02PS2_A_CharacterDump KOF02PS2_A_CharacterOffsetArray[] =
 {
     { L"Kyo",        0x388c00 + (0x800 *  0), L"indexKOF02UMSprites_KyoKusa",   L"indexKOF02Sprites_Kyo",           L"MAX2 Fire Palette", 0x2, L"MAX Orochinagi Fire", 0x3, L"Shingo Intro Stuff", 0x19 },
     { L"Benimaru",   0x388c00 + (0x800 *  1), L"indexKOF02UMSprites_Benimaru",  L"indexKOF02Sprites_Benimaru",      L"Raijiken Flash", 0x4, L"Phantom Hurricane Effects", 0x10 },
-    { L"Daimon",     0x388c00 + (0x800 *  2), L"indexKOF02UMSprites_Daimon",     L"indexKOF02Sprites_Daimon",       },
+    { L"Daimon",     0x388c00 + (0x800 *  2), L"indexKOF02UMSprites_Daimon",    L"indexKOF02Sprites_Daimon",        },
     { L"Terry",      0x388c00 + (0x800 *  3), L"indexKOF02UMSprites_Terry",     L"indexKOF02Sprites_Terry",         L"Terry and Child Winpose", 0x19, L"MAX2 Trail", 0xa },
     { L"Andy",       0x388c00 + (0x800 *  4), L"indexKOF02UMSprites_Andy",      L"indexKOF02Sprites_Andy",          L"SDM Super Sonic Swirl and MAX2", 0x11, L"MAX Super Sonic Swirl", 0x11 },
     { L"Joe",        0x388c00 + (0x800 *  5), L"indexKOF02UMSprites_Joe",       L"indexKOF02Sprites_Joe",           },

@@ -909,56 +909,56 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_3SAlex_HandlePortraits =
 const std::vector<std::vector<uint16_t>> paletteBuddy_3SChunLi_HandlePortraits =
 {
     {
-    // HUD portrait
-    SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
-        // Leave the border
-        // Leave the background
-        // Leave the black eyes
-        // 3    face by eyes            copy 42        1
-            MOD_COPY, 1, 6, 3,
-        // 4    face                    copy 16        2
-        // 5    face                    copy 17        3
-        // 6    face border and hair    copy 18        4
-        // 7    face border and hair    copy 21        5
-        // 8    face border and hair    copy 23        6
-        // 9    face border and hair    copy 28        8
-            MOD_COPY, 8, 1, 9,
-        // 10    hair pom poms        copy from 10
-            MOD_COPY, 10, 1, 10,
-        // 11    pom pom border        copy from 12
-            MOD_COPY, 12, 1, 11,
-        // 12    shirt light            copy from 36 ?
-            MOD_COPY, 36, 1, 12,
-        // 13    shirt dark            copy from 38 ? 37 also ok
-            MOD_COPY, 37, 1, 13,
-        // 14    outfit highlight     copy from 46
-            MOD_COPY, 46, 1, 14,
-        // 15    unused
+        // HUD portrait
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
+            // Leave the border
+            // Leave the background
+            // Leave the black eyes
+            // 3    face by eyes            copy 42        1
+                MOD_COPY, 1, 6, 3,
+            // 4    face                    copy 16        2
+            // 5    face                    copy 17        3
+            // 6    face border and hair    copy 18        4
+            // 7    face border and hair    copy 21        5
+            // 8    face border and hair    copy 23        6
+            // 9    face border and hair    copy 28        8
+                MOD_COPY, 8, 1, 9,
+            // 10    hair pom poms        copy from 10
+                MOD_COPY, 10, 1, 10,
+            // 11    pom pom border        copy from 12
+                MOD_COPY, 12, 1, 11,
+            // 12    shirt light            copy from 35 or 36 ?
+                MOD_COPY, 35, 1, 12,
+            // 13    shirt dark            copy from 38 ? 37 also ok
+                MOD_COPY, 37, 1, 13,
+            // 14    outfit highlight     copy from 46
+                MOD_COPY, 46, 1, 14,
+            // 15    unused
 
-    // Judgement Portrait
-     SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
-        // 1    bow            1
-          MOD_COPY, 1, 7, 1,
-        // 2    face        2
-        // 3    face        3
-        // 4    face        4
-        // 5    face        5
-        // 6    face        6
-        // 7    face        7
-        // 8    face        9
-          MOD_COPY, 9, 1, 8,
-        // 9    bow            12
-          MOD_COPY, 12, 1, 9,
-        // 10    bow            13
-          MOD_COPY, 13, 1, 10,
-        // 11    shirt        34
-          MOD_COPY, 34, 2, 11,
-        // 12    shirt        35
-        // 13    shirt        38
-          MOD_COPY, 38, 1, 13,
-        // 14    highlight    44
-          MOD_COPY, 44, 1, 14,
-        // Background, don't change
+        // Judgement Portrait
+         SUPP_NODE | SUPP_NODE_NOCOPY, 0x02, 0,
+            // 1    bow            1
+              MOD_COPY, 1, 7, 1,
+            // 2    face        2
+            // 3    face        3
+            // 4    face        4
+            // 5    face        5
+            // 6    face        6
+            // 7    face        7
+            // 8    face        9
+              MOD_COPY, 9, 1, 8,
+            // 9    bow            12
+              MOD_COPY, 12, 1, 9,
+            // 10    bow            13
+              MOD_COPY, 13, 1, 10,
+            // 11    shirt        34
+              MOD_COPY, 34, 2, 11,
+            // 12    shirt        35
+            // 13    shirt        38
+              MOD_COPY, 38, 1, 13,
+            // 14    highlight    44
+              MOD_COPY, 44, 1, 14,
+            // Background, don't change
     }
 };
 
