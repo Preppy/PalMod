@@ -12,7 +12,6 @@ uint32_t CGame_CFTE_SNES::rgExtraCountAll[CFTE_SNES_NUMUNIT + 1];
 uint32_t CGame_CFTE_SNES::rgExtraLoc[CFTE_SNES_NUMUNIT + 1];
 
 uint32_t CGame_CFTE_SNES::m_nTotalPaletteCountForCFTE = 0;
-uint32_t CGame_CFTE_SNES::m_nExpectedGameROMSize = 0x300000;
 uint32_t CGame_CFTE_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_CFTE_SNES::InitializeStatics()
@@ -220,7 +219,7 @@ void CGame_CFTE_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // CFTE_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForCFTE(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &CFTE_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

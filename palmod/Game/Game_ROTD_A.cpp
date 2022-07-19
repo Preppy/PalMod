@@ -12,7 +12,6 @@ uint32_t CGame_ROTD_A::rgExtraCountAll[ROTD_A_NUMUNIT + 1];
 uint32_t CGame_ROTD_A::rgExtraLoc[ROTD_A_NUMUNIT + 1];
 
 uint32_t CGame_ROTD_A::m_nTotalPaletteCountForROTD = 0;
-uint32_t CGame_ROTD_A::m_nExpectedGameROMSize = 0x800000;
 uint32_t CGame_ROTD_A::m_nConfirmedROMSize = -1;
 
 void CGame_ROTD_A::InitializeStatics()
@@ -217,7 +216,7 @@ void CGame_ROTD_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // ROTD_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForROTD(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &ROTD_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

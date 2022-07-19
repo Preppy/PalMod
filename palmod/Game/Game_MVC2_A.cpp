@@ -15,7 +15,6 @@ uint32_t CGame_MVC2_A::rgExtraCountAll[MVC2_A_NUMUNIT + 1];
 uint32_t CGame_MVC2_A::rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
 uint32_t CGame_MVC2_A::m_nTotalPaletteCountForMVC2 = 0;
-uint32_t CGame_MVC2_A::m_nExpectedGameROMSize = 0x889B600; // 143,242,752 bytes
 uint32_t CGame_MVC2_A::m_nConfirmedROMSize = -1;
 
 void CGame_MVC2_A::InitializeStatics()
@@ -243,7 +242,7 @@ void CGame_MVC2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // MVC2_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForMVC2(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &MVC2_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

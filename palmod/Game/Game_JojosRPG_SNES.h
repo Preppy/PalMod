@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[JOJOSRPG_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_JOJOSRPG_SNES = L"JojosRPGE.txt";
     static constexpr auto JOJOSRPG_SNES_PRIMARY_ROMNAME = L"jojo no kimyou na bouken (japan).sfc";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x100000;
 
 public:
     CGame_JOJOSRPG_SNES(uint32_t nConfirmedROMSize);

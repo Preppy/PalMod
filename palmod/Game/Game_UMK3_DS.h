@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[UMK3_DS_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_UMK3_DS = L"UMK3_DS_E.txt";
     static constexpr auto UMK3_DS_PRIMARY_ROMNAME = L"Ultimate Mortal Kombat (USA) (En,Fr,De,Es,It).nds";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x4000000;
 
 public:
     CGame_UMK3_DS(uint32_t nConfirmedROMSize);

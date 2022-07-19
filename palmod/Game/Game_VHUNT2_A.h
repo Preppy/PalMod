@@ -3,24 +3,22 @@
 #include "VHUNT2_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_VHUNT2 = L"VHUNT2e.txt";
-#define GetExtraDefForVHUNT2(x)((stExtraDef *)&VHUNT2_A_EXTRA_CUSTOM[x])
-
 class CGame_VHUNT2_A : public CGameWithExtrasFile
 {
 private:
     static uint32_t m_nTotalPaletteCountForVHUNT2;
 
     static uint32_t rgExtraCountAll[VHUNT2_A_NUMUNIT + 1];
-    static uint32_t rgExtraCountVisibleOnly[VHUNT2_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[VHUNT2_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_VHUNT2 = L"VHUNT2e.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_VHUNT2_A(uint32_t nConfirmedROMSize);

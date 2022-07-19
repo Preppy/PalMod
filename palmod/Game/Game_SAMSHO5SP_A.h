@@ -3,9 +3,6 @@
 #include "SAMSHO5SP_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SAMSHO5SP_A = L"SAMSHO5SPE.txt";
-#define GetExtraDefForSAMSHO5SP(x)((stExtraDef *)&SAMSHO5SP_A_EXTRA_CUSTOM[x])
-
 class CGame_SAMSHO5SP_A : public CGameWithExtrasFile
 {
 private:
@@ -15,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[SAMSHO5SP_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     static const uint32_t m_nExpectedGameROMSizeArcade = 0x400000;  // 4194304 bytes
@@ -23,6 +19,8 @@ private:
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_SAMSHO5SP_A = L"SAMSHO5SPE.txt";
 
 public:
     CGame_SAMSHO5SP_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad = SAMSHO5SP_A);

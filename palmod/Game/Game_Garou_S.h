@@ -6,7 +6,7 @@
 class CGame_Garou_S : public CGame_Garou_A
 {
 private:
-    static uint32_t m_nExpectedGameROMSize;
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x900000; // 9,437,184 bytes
     static uint32_t m_nConfirmedROMSize;
 
 public:
@@ -19,7 +19,7 @@ public:
 class CGame_GarouP_A : public CGame_Garou_A
 {
 private:
-    static uint32_t m_nExpectedGameROMSize;
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x100000;
     static uint32_t m_nConfirmedROMSize;
 
 public:

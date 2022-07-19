@@ -3,10 +3,6 @@
 #include "SF2HF_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SF2HF_21 = L"SF2HF-21e.txt";
-constexpr auto EXTRA_FILENAME_SF2HF_22 = L"SF2HF-22e.txt";
-constexpr auto EXTRA_FILENAME_SF2HF_23 = L"SF2HF-23e.txt";
-
 class CGame_SF2HF_A : public CGameWithExtrasFile
 {
 public:
@@ -24,8 +20,6 @@ public:
     static uint32_t rgExtraLoc_23[SF2HF_A_23_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize_HF;
-    static uint32_t m_nExpectedGameROMSize_30th;
     static uint32_t m_nConfirmedROMSize;
     
     bool IsSF30thBundleFile() { return m_nConfirmedROMSize == m_nExpectedGameROMSize_30th; };
@@ -39,6 +33,12 @@ public:
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_SF2HF_21 = L"SF2HF-21e.txt";
+    static constexpr auto EXTRA_FILENAME_SF2HF_22 = L"SF2HF-22e.txt";
+    static constexpr auto EXTRA_FILENAME_SF2HF_23 = L"SF2HF-23e.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize_HF = 0x80000; // 524288 bytes
+    static constexpr uint32_t m_nExpectedGameROMSize_30th = 0x7d191f;
 
 public:
     CGame_SF2HF_A(uint32_t nConfirmedROMSize = -1, int nSF2HFROMToLoad = 22);

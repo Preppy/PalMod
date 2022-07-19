@@ -8,11 +8,9 @@
 stExtraDef* CGame_SSF2T_GBA::SSF2T_GBA_EXTRA_CUSTOM = NULL;
 
 uint32_t CGame_SSF2T_GBA::rgExtraCountAll[SSF2T_GBA_NUMUNIT + 1] = { (uint32_t)-1 };
-uint32_t CGame_SSF2T_GBA::rgExtraCountVisibleOnly[SSF2T_GBA_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_SSF2T_GBA::rgExtraLoc[SSF2T_GBA_NUMUNIT + 1] = { (uint32_t)-1 };
 
 CDescTree CGame_SSF2T_GBA::MainDescTree = nullptr;
-uint32_t CGame_SSF2T_GBA::m_nExpectedGameROMSize = 0x800000;
 uint32_t CGame_SSF2T_GBA::m_nConfirmedROMSize = -1;
 
 void CGame_SSF2T_GBA::InitializeStatics()
@@ -20,7 +18,6 @@ void CGame_SSF2T_GBA::InitializeStatics()
     safe_delete_array(CGame_SSF2T_GBA::SSF2T_GBA_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
     MainDescTree.SetRootTree(CGame_SSF2T_GBA::InitDescTree());

@@ -12,7 +12,6 @@ uint32_t CGame_NEOGEO_A::rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
 uint32_t CGame_NEOGEO_A::rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
 
 uint32_t CGame_NEOGEO_A::m_nTotalPaletteCountForNEOGEO = 0;
-uint32_t CGame_NEOGEO_A::m_nExpectedGameROMSize = -1; // This is a stub: we can't care about size
 uint32_t CGame_NEOGEO_A::m_nConfirmedROMSize = -1;
 wchar_t CGame_NEOGEO_A::m_pszExtraNameOverride[MAX_PATH] = L"";
 
@@ -447,7 +446,7 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // NEOGEO_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&NEOGEO_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &NEOGEO_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes;

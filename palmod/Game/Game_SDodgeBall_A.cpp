@@ -13,7 +13,6 @@ uint32_t CGame_SDODGEBALL_A::rgExtraLoc[SDODGEBALL_A_NUMUNIT + 1];
 
 uint32_t CGame_SDODGEBALL_A::m_nSelectedRom = 1;
 uint32_t CGame_SDODGEBALL_A::m_nTotalPaletteCountForSDODGEBALL = 0;
-uint32_t CGame_SDODGEBALL_A::m_nExpectedGameROMSize = 0x200000;
 uint32_t CGame_SDODGEBALL_A::m_nConfirmedROMSize = -1;
 
 void CGame_SDODGEBALL_A::InitializeStatics()

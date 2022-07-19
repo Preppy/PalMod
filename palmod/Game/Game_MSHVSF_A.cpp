@@ -12,7 +12,6 @@ CDescTree CGame_MSHVSF_A::MainDescTree_7B = nullptr;
 uint32_t CGame_MSHVSF_A::m_nMSHVSFSelectedRom = 6;
 uint32_t CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_6A = 0;
 uint32_t CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_7B = 0;
-uint32_t CGame_MSHVSF_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_MSHVSF_A::m_nConfirmedROMSize = -1;
 
 uint32_t CGame_MSHVSF_A::rgExtraLocation_6A[MSHVSF_A_NUM_IND_6A + 1] = { (uint32_t)-1 };
@@ -432,7 +431,7 @@ void CGame_MSHVSF_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // MSHVSF_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForMSHVSF(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = UsePaletteSetForCharacters() ? &MSHVSF_A_EXTRA_CUSTOM_6A[GetExtraLoc(nUnitId) + nPalId] : &MSHVSF_A_EXTRA_CUSTOM_7B[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

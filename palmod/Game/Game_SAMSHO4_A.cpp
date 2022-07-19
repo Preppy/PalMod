@@ -12,7 +12,6 @@ uint32_t CGame_SAMSHO4_A::rgExtraCountAll[SAMSHO4_A_NUMUNIT + 1];
 uint32_t CGame_SAMSHO4_A::rgExtraLoc[SAMSHO4_A_NUMUNIT + 1];
 
 uint32_t CGame_SAMSHO4_A::m_nTotalPaletteCountForSAMSHO4 = 0;
-uint32_t CGame_SAMSHO4_A::m_nExpectedGameROMSize = 0x100000;  // 1,048,576 bytes
 uint32_t CGame_SAMSHO4_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO4_A::InitializeStatics()
@@ -279,7 +278,7 @@ void CGame_SAMSHO4_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // SAMSHO4_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForSAMSHO4(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &SAMSHO4_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

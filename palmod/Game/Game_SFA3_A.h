@@ -3,9 +3,6 @@
 #include "SFA3_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SFA3 = L"SFA3e.txt";
-#define GetExtraDefForSFA3(x)((stExtraDef *)&SFA3_A_EXTRA_CUSTOM[x])
-
 class CGame_SFA3_A : public CGameWithExtrasFile
 {
 private:
@@ -13,7 +10,6 @@ private:
     static uint32_t rgExtraCountAll[SFA3_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[SFA3_A_NUMUNIT + 1];
 
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     static void InitializeStatics();
@@ -23,6 +19,9 @@ private:
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpHeaderPalettes();
+
+    static constexpr auto EXTRA_FILENAME_SFA3 = L"SFA3e.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_SFA3_A(uint32_t nConfirmedROMSize);

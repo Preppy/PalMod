@@ -3,9 +3,6 @@
 #include "FatalFuryS_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_FatalFuryS_A = L"FatalFurySAE.txt";
-#define GetExtraDefForFatalFuryS_A(x)((stExtraDef *)&FatalFuryS_A_EXTRA_CUSTOM[x])
-
 class CGame_FatalFuryS_A : public CGameWithExtrasFile
 {
 private:
@@ -15,11 +12,13 @@ private:
     static uint32_t rgExtraLoc[FatalFuryS_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_FatalFuryS_A = L"FatalFurySAE.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x100000;
 
 public:
     CGame_FatalFuryS_A(uint32_t nConfirmedROMSize);

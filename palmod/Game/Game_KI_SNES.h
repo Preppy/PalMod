@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[KI_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_KI_SNES = L"KIE.txt";
     static constexpr auto KI_SNES_PRIMARY_ROMNAME = L"Killer Instinct (USA) (Rev 1).sfc";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x400000;
 
 public:
     CGame_KI_SNES(uint32_t nConfirmedROMSize);

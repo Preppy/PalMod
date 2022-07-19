@@ -12,7 +12,6 @@ uint32_t CGame_MMPR_SNES::rgExtraCountAll[MMPR_SNES_NUMUNIT + 1];
 uint32_t CGame_MMPR_SNES::rgExtraLoc[MMPR_SNES_NUMUNIT + 1];
 
 uint32_t CGame_MMPR_SNES::m_nTotalPaletteCountForMMPR = 0;
-uint32_t CGame_MMPR_SNES::m_nExpectedGameROMSize = 0x180000;
 uint32_t CGame_MMPR_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_MMPR_SNES::InitializeStatics()
@@ -220,7 +219,7 @@ void CGame_MMPR_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // MMPR_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForMMPR(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &MMPR_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

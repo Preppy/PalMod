@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[RANMACRH_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_RANMACRH_SNES = L"RanmaCRHE.txt";
     static constexpr auto RANMACRH_SNES_PRIMARY_ROMNAME = L"Ranma Nibunnoichi - Chougi Ranbu Hen (J).sfc";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x280000;
 
 public:
     CGame_RANMACRH_SNES(uint32_t nConfirmedROMSize);

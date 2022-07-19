@@ -8,11 +8,9 @@ stExtraDef* CGame_VHUNT2_A::VHUNT2_A_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_VHUNT2_A::MainDescTree = nullptr;
 
 uint32_t CGame_VHUNT2_A::rgExtraCountAll[VHUNT2_A_NUMUNIT + 1] = { (uint32_t)-1 };
-uint32_t CGame_VHUNT2_A::rgExtraCountVisibleOnly[VHUNT2_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_VHUNT2_A::rgExtraLoc[VHUNT2_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 uint32_t CGame_VHUNT2_A::m_nTotalPaletteCountForVHUNT2 = 0;
-uint32_t CGame_VHUNT2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_VHUNT2_A::m_nConfirmedROMSize = -1;
 
 void CGame_VHUNT2_A::InitializeStatics()
@@ -21,7 +19,6 @@ void CGame_VHUNT2_A::InitializeStatics()
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
-    memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
 
     MainDescTree.SetRootTree(CGame_VHUNT2_A::InitDescTree());
 }
@@ -224,7 +221,7 @@ void CGame_VHUNT2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // VHUNT2_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForVHUNT2(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &VHUNT2_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

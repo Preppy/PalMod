@@ -3,9 +3,6 @@
 #include "KOTM_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOTM = L"KOTMe.txt";
-#define GetExtraDefForKOTM(x)((stExtraDef *)&KOTM_A_EXTRA_CUSTOM[x])
-
 class CGame_KOTM_A : public CGameWithExtrasFile
 {
 private:
@@ -16,11 +13,13 @@ private:
     static uint32_t rgExtraLoc[KOTM_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_KOTM = L"KOTMe.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_KOTM_A(uint32_t nConfirmedROMSize);

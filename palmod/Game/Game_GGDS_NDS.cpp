@@ -218,7 +218,7 @@ void CGame_GGDS_NDS::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // GGDS_NDS_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&GGDS_NDS_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &GGDS_NDS_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

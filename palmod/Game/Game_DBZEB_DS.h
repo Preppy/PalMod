@@ -12,14 +12,14 @@ private:
     static uint32_t rgExtraLoc[DBZEB_DS_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     static constexpr auto EXTRA_FILENAME_DBZEB_DS = L"dbzebE.txt";
-    static constexpr auto DBZEB_DS_PRIMARY_ROMNAME = L"Dragon Ball Z - Extreme Butoden (USA) Decrypted.3ds"; // the file that your palettes are stored in
+    static constexpr auto DBZEB_DS_PRIMARY_ROMNAME = L"Dragon Ball Z - Extreme Butoden (USA) Decrypted.3ds";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x18F32000;
 
 public:
     CGame_DBZEB_DS(uint32_t nConfirmedROMSize);

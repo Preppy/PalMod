@@ -3,14 +3,10 @@
 #include "COTA_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_COTA = L"CotAe.txt";
-#define GetExtraDefForCOTA(x) ((stExtraDef *)&COTA_A_EXTRA_CUSTOM[x])
-
 class CGame_COTA_A : public CGameWithExtrasFile
 {
 private:
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -19,6 +15,9 @@ private:
     static uint32_t m_nTotalPaletteCountForCOTA;
     static uint32_t rgExtraCountAll[COTA_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[COTA_A_NUMUNIT + 1];
+
+    static constexpr auto EXTRA_FILENAME_COTA = L"CotAe.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_COTA_A(uint32_t nConfirmedROMSize);

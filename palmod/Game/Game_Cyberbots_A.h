@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[Cyberbots_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_Cyberbots_A = L"CybotsE.txt";
     static constexpr auto Cyberbots_A_PRIMARY_ROMNAME = L"cybe.04";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000;
 
 public:
     CGame_Cyberbots_A(uint32_t nConfirmedROMSize);

@@ -3,16 +3,12 @@
 #include "XMVSF_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_XMVSF = L"XMVSFe.txt";
-#define GetExtraDefForXMVSF(x)((stExtraDef *)&XMVSF_A_EXTRA_CUSTOM[x])
-
 class CGame_XMVSF_A : public CGameWithExtrasFile
 {
 private:
     static uint32_t m_nTotalPaletteCountForXMVSF;
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     static uint32_t rgExtraCountAll[XMVSF_A_NUMUNIT + 1];
@@ -20,6 +16,9 @@ private:
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_XMVSF = L"XMVSFe.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_XMVSF_A(uint32_t nConfirmedROMSize);

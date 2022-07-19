@@ -3,9 +3,6 @@
 #include "WakuWaku7_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_WakuWaku7_A = L"WakuWaku7E.txt";
-#define GetExtraDefForWakuWaku7(x)((stExtraDef *)&WakuWaku7_A_EXTRA_CUSTOM[x])
-
 class CGame_WakuWaku7_A : public CGameWithExtrasFile
 {
 private:
@@ -15,11 +12,13 @@ private:
     static uint32_t rgExtraLoc[WakuWaku7_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static const uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_WakuWaku7_A = L"WakuWaku7E.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
 
 public:
     CGame_WakuWaku7_A(uint32_t nConfirmedROMSize);

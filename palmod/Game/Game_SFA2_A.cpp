@@ -48,7 +48,6 @@ uint32_t CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08_Rev2 = 0;
 uint32_t CGame_SFA2_A::m_nTotalPaletteCountForSFZ2A_08 = 0;
 uint32_t CGame_SFA2_A::m_nTotalPaletteCountForSFA2_Hack_09 = 0;
 
-uint32_t CGame_SFA2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_SFA2_A::m_nConfirmedROMSize = -1;
 
 void CGame_SFA2_A::InitializeStatics()

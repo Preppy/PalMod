@@ -12,7 +12,6 @@ uint32_t CGame_RBFF1_A::rgExtraCountAll[RBFF1_A_NUMUNIT + 1];
 uint32_t CGame_RBFF1_A::rgExtraLoc[RBFF1_A_NUMUNIT + 1];
 
 uint32_t CGame_RBFF1_A::m_nTotalPaletteCountForRBFF1 = 0;
-uint32_t CGame_RBFF1_A::m_nExpectedGameROMSize = 0x100000;
 uint32_t CGame_RBFF1_A::m_nConfirmedROMSize = -1;
 
 void CGame_RBFF1_A::InitializeStatics()
@@ -217,7 +216,7 @@ void CGame_RBFF1_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // RBFF1_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForRBFF1(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &RBFF1_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

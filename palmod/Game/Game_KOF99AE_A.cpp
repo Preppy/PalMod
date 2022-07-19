@@ -20,7 +20,6 @@ uint32_t CGame_KOF99AE_A::rgExtraLoc_P3[KOF99AE_A_P3_NUMUNIT + 1];
 uint32_t CGame_KOF99AE_A::m_nSelectedRom = 22;
 uint32_t CGame_KOF99AE_A::m_nTotalPaletteCountForKOF99AE_P2 = 0;
 uint32_t CGame_KOF99AE_A::m_nTotalPaletteCountForKOF99AE_P3 = 0;
-uint32_t CGame_KOF99AE_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
 uint32_t CGame_KOF99AE_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF99AE_A::InitializeStatics()

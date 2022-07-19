@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[MMX2_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_MMX2_SNES = L"MMX2E.txt";
     static constexpr auto MMX2_SNES_PRIMARY_ROMNAME = L"megaman x2 (usa).sfc";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x180000;
 
 public:
     CGame_MMX2_SNES(uint32_t nConfirmedROMSize);

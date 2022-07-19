@@ -55,6 +55,7 @@ private:
     static uint32_t rgExtraLoc_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
 
     static void InitializeStatics();
+    // This value is updated at runtime according to which rom they load
     static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 

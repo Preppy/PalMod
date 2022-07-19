@@ -12,8 +12,6 @@ uint32_t CGame_LASTBLADE_A::rgExtraCountAll[LASTBLADE_A_NUMUNIT + 1];
 uint32_t CGame_LASTBLADE_A::rgExtraLoc[LASTBLADE_A_NUMUNIT + 1];
 
 uint32_t CGame_LASTBLADE_A::m_nTotalPaletteCountForLASTBLADE = 0;
-uint32_t CGame_LASTBLADE_A::m_nExpectedGameROMSize_A = 0x100000;
-uint32_t CGame_LASTBLADE_A::m_nExpectedGameROMSize_S = 0x500000;
 uint32_t CGame_LASTBLADE_A::m_nConfirmedROMSize = -1;
 
 void CGame_LASTBLADE_A::InitializeStatics()
@@ -393,7 +391,7 @@ void CGame_LASTBLADE_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalI
     else // LASTBLADE_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForLASTBLADE(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &LASTBLADE_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

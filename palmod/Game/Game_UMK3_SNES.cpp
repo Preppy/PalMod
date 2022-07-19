@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-uint32_t CGame_UMK3_SNES::m_nExpectedGameROMSize = 0x400000;
-
 CGame_UMK3_SNES::CGame_UMK3_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_UMK3_SNES::CGame_UMK3_SNES: Loading ROM...\n");
@@ -200,7 +198,7 @@ void CGame_UMK3_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // UMK3_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&UMK3_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &UMK3_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-uint32_t CGame_SHAQFU_SNES::m_nExpectedGameROMSize = 0x200000;
-
 CGame_SHAQFU_SNES::CGame_SHAQFU_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_SHAQFU_SNES::CGame_SHAQFU_SNES: Loading ROM...\n");
@@ -200,7 +198,7 @@ void CGame_SHAQFU_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalI
     else // SHAQFU_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&SHAQFU_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &SHAQFU_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

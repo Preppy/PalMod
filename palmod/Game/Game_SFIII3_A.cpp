@@ -34,7 +34,6 @@ CDescTree CGame_SFIII3_A::MainDescTree_14 = nullptr;
 CDescTree CGame_SFIII3_A::MainDescTree_4 = nullptr;
 CDescTree CGame_SFIII3_A::MainDescTree_51 = nullptr;
 CDescTree CGame_SFIII3_A::MainDescTree_70 = nullptr;
-uint32_t CGame_SFIII3_A::m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
 uint32_t CGame_SFIII3_A::m_nConfirmedROMSize = -1;
 
 uint32_t CGame_SFIII3_A::m_nSelectedRom = SF3ROM_51;

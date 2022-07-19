@@ -4,9 +4,6 @@
 #include "..\ExtraFile.h"
 #include "..\palmod.h"
 
-constexpr auto EXTRA_FILENAME_50 = L"jojos50e.txt";
-constexpr auto EXTRA_FILENAME_51 = L"jojos51e.txt";
-
 constexpr auto JOJOS_A_50_ROMKEY = 50;
 constexpr auto JOJOS_A_51_ROMKEY = 51;
 constexpr auto JOJOS_US_A_51_ROMKEY = 5051;
@@ -39,6 +36,9 @@ public:
     
     static bool UsePaletteSetFor50() { return (m_nJojosMode == JOJOS_A_50_ROMKEY); }
     static bool UseRegulationOnLogic() { return (m_nJojosMode == JOJOS_US_A_51_ROMKEY); }
+
+    static constexpr auto EXTRA_FILENAME_50 = L"jojos50e.txt";
+    static constexpr auto EXTRA_FILENAME_51 = L"jojos51e.txt";
 
 public:
     CGame_JOJOS_A(uint32_t nConfirmedROMSize = -1, int nJojosModeToLoad = JOJOS_A_51_ROMKEY);

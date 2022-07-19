@@ -39,7 +39,7 @@ uint32_t CGame_KOF02UM_S::rgExtraLoc_Rank[KOF02UM_S_NUMUNIT_RANK + 1];
 uint32_t CGame_KOF02UM_S::rgExtraLoc_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
 
 KOF02UMS_ROMOptions CGame_KOF02UM_S::m_nSelectedRom = KOF02UMS_ROMOptions::Main;
-uint32_t CGame_KOF02UM_S::m_nExpectedGameROMSize = 0x606E0;  // 394976 bytes for the main rom
+uint32_t CGame_KOF02UM_S::m_nExpectedGameROMSize = 0x606E0;  // 394976 bytes for the main rom.  This value will be updated per rom loaded.
 
 uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Main = 0;
 uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Bar = 0;

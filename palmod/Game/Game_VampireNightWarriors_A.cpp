@@ -11,7 +11,6 @@ uint32_t CGame_VampireNightWarriors_A::rgExtraCountAll[VampireNightWarriors_A_NU
 uint32_t CGame_VampireNightWarriors_A::rgExtraLoc[VampireNightWarriors_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 uint32_t CGame_VampireNightWarriors_A::m_nTotalPaletteCountForVampireNightWarriors = 0;
-uint32_t CGame_VampireNightWarriors_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_VampireNightWarriors_A::m_nConfirmedROMSize = -1;
 
 void CGame_VampireNightWarriors_A::InitializeStatics()

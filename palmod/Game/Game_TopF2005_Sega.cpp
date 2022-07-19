@@ -12,7 +12,6 @@ uint32_t CGame_TOPF2005_SEGA::rgExtraCountAll[TOPF2005_SEGA_NUMUNIT + 1] = { (ui
 uint32_t CGame_TOPF2005_SEGA::rgExtraLoc[TOPF2005_SEGA_NUMUNIT + 1] = { (uint32_t)-1 };
 
 uint32_t CGame_TOPF2005_SEGA::m_nTotalPaletteCountForTOPF2005 = 0;
-uint32_t CGame_TOPF2005_SEGA::m_nExpectedGameROMSize = 0x200000;
 uint32_t CGame_TOPF2005_SEGA::m_nConfirmedROMSize = -1;
 
 void CGame_TOPF2005_SEGA::InitializeStatics()
@@ -162,7 +161,7 @@ void CGame_TOPF2005_SEGA::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPa
     else
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForTOPF2005(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &TOPF2005_SEGA_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

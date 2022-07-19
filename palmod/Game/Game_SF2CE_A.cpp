@@ -24,17 +24,12 @@ uint32_t CGame_SF2CE_A::rgExtraLoc_23[SF2CE_A_23_NUMUNIT + 1] = { (uint32_t)-1 }
 CDescTree CGame_SF2CE_A::MainDescTree_21 = nullptr;
 CDescTree CGame_SF2CE_A::MainDescTree_22 = nullptr;
 CDescTree CGame_SF2CE_A::MainDescTree_23 = nullptr;
-uint32_t CGame_SF2CE_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_SF2CE_A::m_nConfirmedROMSize = -1;
 
 uint32_t CGame_SF2CE_A::m_nSelectedRom = 22;
 uint32_t CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_21 = 0;
 uint32_t CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_22 = 0;
 uint32_t CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_23 = 0;
-
-constexpr auto k_SF2CE_JapanROMName_RevA = L"s92j_22a.7f";
-constexpr auto k_SF2CE_JapanROMName_RevB = L"s92j_22b.7f";
-constexpr auto k_SF2CE_JapanROMName_RevC = L"s92j_22c.7f";
 
 void CGame_SF2CE_A::InitializeStatics()
 {

@@ -7,8 +7,6 @@
 // This decides whether or not you get extra debug output while running under the debugger
 #define XMMA_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-uint32_t CGame_XMMA_SNES::m_nExpectedGameROMSize = 0x200000;
-
 CGame_XMMA_SNES::CGame_XMMA_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_XMMA_SNES::CGame_XMMA_SNES: Loading ROM...\n");
@@ -203,7 +201,7 @@ void CGame_XMMA_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // XMMA_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&XMMA_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &XMMA_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

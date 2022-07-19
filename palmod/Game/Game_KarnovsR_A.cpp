@@ -11,7 +11,6 @@ uint32_t CGame_KarnovsR_A::rgExtraCountAll[KarnovsR_A_NUMUNIT + 1];
 uint32_t CGame_KarnovsR_A::rgExtraLoc[KarnovsR_A_NUMUNIT + 1];
 
 uint32_t CGame_KarnovsR_A::m_nTotalPaletteCountForKarnovsR = 0;
-const uint32_t CGame_KarnovsR_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
 uint32_t CGame_KarnovsR_A::m_nConfirmedROMSize = -1;
 
 void CGame_KarnovsR_A::InitializeStatics()
@@ -193,7 +192,7 @@ void CGame_KarnovsR_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
     else // m_nExtraUnit
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForKarnovsR(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &KarnovsR_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

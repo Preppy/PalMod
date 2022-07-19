@@ -5,10 +5,6 @@
 
 #define REDEARTH_A_USEEXTRAFILE
 
-constexpr auto EXTRA_FILENAME_REDEARTH_30 = L"RedEarth30e.txt";
-constexpr auto EXTRA_FILENAME_REDEARTH_31 = L"RedEarthE.txt";
-constexpr auto EXTRA_FILENAME_REDEARTH_50 = L"RedEarth50e.txt";
-
 class CGame_REDEARTH_A : public CGameWithExtrasFile
 {
 public:
@@ -29,8 +25,6 @@ public:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize_3;
-    static uint32_t m_nExpectedGameROMSize_5;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -39,6 +33,13 @@ public:
     bool CanEnableMultispriteExport(uint32_t nUnitId, uint32_t nPalId);
 
     static stExtraDef* GetRedEarthExtraDef(int x);
+
+    static constexpr auto EXTRA_FILENAME_REDEARTH_30 = L"RedEarth30e.txt";
+    static constexpr auto EXTRA_FILENAME_REDEARTH_31 = L"RedEarthE.txt";
+    static constexpr auto EXTRA_FILENAME_REDEARTH_50 = L"RedEarth50e.txt";
+
+    static constexpr uint32_t m_nExpectedGameROMSize_3 = 0x800000; // 8388608 bytes
+    static constexpr uint32_t m_nExpectedGameROMSize_5 = 0x400000;
 
 public:
     CGame_REDEARTH_A(uint32_t nConfirmedROMSize = -1, int nRedEarthModeToLoad = 31);

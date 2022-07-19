@@ -3,9 +3,6 @@
 #include "SVCPLUSA_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SVCPLUSA_A = L"SVCE.txt";
-#define GetExtraDefForSVCPLUSA(x)((stExtraDef *)&SVCPLUSA_A_EXTRA_CUSTOM[x])
-
 class CGame_SVCPLUSA_A : public CGameWithExtrasFile
 {
 private:
@@ -14,9 +11,9 @@ private:
     static uint32_t rgExtraCountAll[SVCPLUSA_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[SVCPLUSA_A_NUMUNIT + 1];
 
-    static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
+
+    static void InitializeStatics();
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -46,6 +43,9 @@ private:
     uint8_t* decryptedROM = nullptr;
 
     void UpdateGameName(CFile* LoadedFile);
+
+    static constexpr auto EXTRA_FILENAME_SVCPLUSA_A = L"SVCE.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
 
 public:
     CGame_SVCPLUSA_A(uint32_t nConfirmedROMSize);

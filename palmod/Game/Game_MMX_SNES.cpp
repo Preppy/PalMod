@@ -4,10 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-// There are two different versions of game: one split, and one not.
-// So we just won't use sizing values here.
-uint32_t CGame_MMX_SNES::m_nExpectedGameROMSize = 0x100000;
-
 CGame_MMX_SNES::CGame_MMX_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_MMX_SNES::CGame_MMX_SNES: Loading ROM...\n");
@@ -202,7 +198,7 @@ void CGame_MMX_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // MMX_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&MMX_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &MMX_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

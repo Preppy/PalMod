@@ -12,7 +12,6 @@ uint32_t CGame_SFZ3U_A::rgExtraCountAll[SFZ3U_A_NUMUNIT + 1];
 uint32_t CGame_SFZ3U_A::rgExtraLoc[SFZ3U_A_NUMUNIT + 1];
 
 uint32_t CGame_SFZ3U_A::m_nTotalPaletteCountForSFZ3U = 0;
-uint32_t CGame_SFZ3U_A::m_nExpectedGameROMSize = 0xac00000;
 uint32_t CGame_SFZ3U_A::m_nConfirmedROMSize = -1;
 
 void CGame_SFZ3U_A::InitializeStatics()
@@ -355,7 +354,7 @@ void CGame_SFZ3U_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // SFZ3U_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForSFZ3U(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &SFZ3U_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

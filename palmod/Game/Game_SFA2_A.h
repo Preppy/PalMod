@@ -4,10 +4,6 @@
 #include "SFA2_Hack_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SFA2_07 = L"SFA2e.txt";
-constexpr auto EXTRA_FILENAME_SFA2_08 = L"SFA2-8e.txt";
-constexpr auto EXTRA_FILENAME_SFA2_09 = L"SFA2-9e.txt";
-
 enum class SFA2_SupportedROMRevision
 {
     SFA2_960229,
@@ -59,7 +55,6 @@ private:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
@@ -73,6 +68,11 @@ private:
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
+
+    static constexpr auto EXTRA_FILENAME_SFA2_07 = L"SFA2e.txt";
+    static constexpr auto EXTRA_FILENAME_SFA2_08 = L"SFA2-8e.txt";
+    static constexpr auto EXTRA_FILENAME_SFA2_09 = L"SFA2-9e.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_SFA2_A(uint32_t nConfirmedROMSize, int nSFA2ROMToLoad);

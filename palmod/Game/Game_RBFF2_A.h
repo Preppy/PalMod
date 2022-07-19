@@ -3,9 +3,6 @@
 #include "RBFF2_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_RBFF2_A = L"RBFF2E.txt";
-#define GetExtraDefForRBFF2(x)((stExtraDef *)&RBFF2_A_EXTRA_CUSTOM[x])
-
 class CGame_RBFF2_A : public CGameWithExtrasFile
 {
 private:
@@ -15,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[RBFF2_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -23,6 +19,9 @@ private:
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
+
+    static constexpr auto EXTRA_FILENAME_RBFF2_A = L"RBFF2E.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x100000;
 
 public:
     CGame_RBFF2_A(uint32_t nConfirmedROMSize);

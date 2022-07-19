@@ -11,7 +11,6 @@ uint32_t CGame_WakuWaku7_A::rgExtraCountAll[WakuWaku7_A_NUMUNIT + 1];
 uint32_t CGame_WakuWaku7_A::rgExtraLoc[WakuWaku7_A_NUMUNIT + 1];
 
 uint32_t CGame_WakuWaku7_A::m_nTotalPaletteCountForWakuWaku7 = 0;
-const uint32_t CGame_WakuWaku7_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
 uint32_t CGame_WakuWaku7_A::m_nConfirmedROMSize = -1;
 
 void CGame_WakuWaku7_A::InitializeStatics()
@@ -218,7 +217,7 @@ void CGame_WakuWaku7_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalI
     else // m_nExtraUnit
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForWakuWaku7(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &WakuWaku7_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

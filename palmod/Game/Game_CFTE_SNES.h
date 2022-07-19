@@ -3,9 +3,6 @@
 #include "CFTE_SNES_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_CFTE_SNES = L"cftee.txt";
-#define GetExtraDefForCFTE(x)((stExtraDef *)&CFTE_SNES_EXTRA_CUSTOM[x])
-
 class CGame_CFTE_SNES : public CGameWithExtrasFile
 {
 private:
@@ -15,11 +12,13 @@ private:
     static uint32_t rgExtraLoc[CFTE_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_CFTE_SNES = L"cftee.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x300000;
 
 public:
     CGame_CFTE_SNES(uint32_t nConfirmedROMSize);

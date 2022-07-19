@@ -3,9 +3,6 @@
 #include "SPF2T_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SPF2T_A = L"SPF2TE.txt";
-#define GetExtraDefForSPF2T(x)((stExtraDef *)&SPF2T_A_EXTRA_CUSTOM[x])
-
 class CGame_SPF2T_A : public CGameWithExtrasFile
 {
 private:
@@ -15,11 +12,13 @@ private:
     static uint32_t rgExtraLoc[SPF2T_A_NUMUNITS + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_SPF2T_A = L"SPF2TE.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000;
 
 public:
     CGame_SPF2T_A(uint32_t nConfirmedROMSize);

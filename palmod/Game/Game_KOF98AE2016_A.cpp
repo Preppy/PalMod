@@ -12,7 +12,6 @@ uint32_t CGame_KOF98AE2016_A::rgExtraCountAll[KOF98AE2016_A_NUMUNIT + 1];
 uint32_t CGame_KOF98AE2016_A::rgExtraLoc[KOF98AE2016_A_NUMUNIT + 1];
 
 uint32_t CGame_KOF98AE2016_A::m_nTotalPaletteCountForKOF98AE2016 = 1932;
-uint32_t CGame_KOF98AE2016_A::m_nExpectedGameROMSize = 0x600000;
 uint32_t CGame_KOF98AE2016_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF98AE2016_A::InitializeStatics()
@@ -222,7 +221,7 @@ void CGame_KOF98AE2016_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPa
     else // KOF98AE2016_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForKOF98AE2016(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &KOF98AE2016_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

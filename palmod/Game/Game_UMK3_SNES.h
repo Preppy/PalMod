@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[UMK3_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_UMK3_SNES = L"UMK3_SNES_E.txt";
     static constexpr auto UMK3_SNES_PRIMARY_ROMNAME = L"Ultimate Mortal Kombat 3 (USA).sfc";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x400000;
 
 public:
     CGame_UMK3_SNES(uint32_t nConfirmedROMSize);

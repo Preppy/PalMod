@@ -3,8 +3,6 @@
 #include "SFIII2_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SF3_50 = L"sfIII2e.txt";
-
 class CGame_SFIII2_A : public CGameWithExtrasFile
 {
 public:
@@ -18,7 +16,6 @@ public:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
@@ -27,6 +24,9 @@ public:
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_SF3_50 = L"sfIII2e.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
 
 public:
     CGame_SFIII2_A(uint32_t nConfirmedROMSize = -1, int nSF3ROMToLoad = 50);

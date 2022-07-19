@@ -13,7 +13,6 @@ uint32_t CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
 
 uint32_t CGame_XMVSF_A::rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_XMVSF_A::rgExtraLoc[XMVSF_A_NUMUNIT + 1] = { (uint32_t)-1 };
-uint32_t CGame_XMVSF_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_XMVSF_A::m_nConfirmedROMSize = -1;
 
 void CGame_XMVSF_A::InitializeStatics()
@@ -249,7 +248,7 @@ void CGame_XMVSF_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // XMVSF_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForXMVSF(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &XMVSF_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

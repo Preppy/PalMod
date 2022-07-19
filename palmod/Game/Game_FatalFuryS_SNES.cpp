@@ -12,7 +12,6 @@ uint32_t CGame_FatalFuryS_SNES::rgExtraCountAll[FatalFuryS_SNES_NUMUNIT + 1];
 uint32_t CGame_FatalFuryS_SNES::rgExtraLoc[FatalFuryS_SNES_NUMUNIT + 1];
 
 uint32_t CGame_FatalFuryS_SNES::m_nTotalPaletteCountForFatalFuryS = 0;
-uint32_t CGame_FatalFuryS_SNES::m_nExpectedGameROMSize = 0x400000;
 uint32_t CGame_FatalFuryS_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_FatalFuryS_SNES::InitializeStatics()
@@ -221,7 +220,7 @@ void CGame_FatalFuryS_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t n
     else // FatalFuryS_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForFatalFuryS(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &FatalFuryS_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

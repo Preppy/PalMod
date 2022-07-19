@@ -13,7 +13,6 @@ uint32_t CGame_DanKuGa_A_DIR::rgExtraCountAll[DANKUGA_A_NUMUNIT + 1] = { (uint32
 uint32_t CGame_DanKuGa_A_DIR::rgExtraLoc[DANKUGA_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 CDescTree CGame_DanKuGa_A_DIR::MainDescTree = nullptr;
-uint32_t CGame_DanKuGa_A_DIR::m_nExpectedGameROMSize = 0x80000; // for each of the four files
 uint32_t CGame_DanKuGa_A_DIR::m_nConfirmedROMSize = -1;
 
 const LPCWSTR c_ppszDanKuGa_Files[]
@@ -217,7 +216,7 @@ void CGame_DanKuGa_A_DIR::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPa
     else // DANKUGA_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetDANKUGAExtraDef(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &DANKUGA_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

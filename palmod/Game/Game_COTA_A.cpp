@@ -10,7 +10,6 @@ uint32_t CGame_COTA_A::rgExtraCountAll[COTA_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_COTA_A::rgExtraLoc[COTA_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 uint32_t CGame_COTA_A::m_nTotalPaletteCountForCOTA = 0;
-uint32_t CGame_COTA_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_COTA_A::m_nConfirmedROMSize = -1;
 
 void CGame_COTA_A::InitializeStatics()
@@ -250,7 +249,7 @@ void CGame_COTA_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // COTA_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForCOTA(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &COTA_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

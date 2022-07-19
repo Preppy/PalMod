@@ -12,7 +12,6 @@ uint32_t CGame_MartialMasters_A::rgExtraCountAll[MartialMasters_A_NUMUNIT + 1];
 uint32_t CGame_MartialMasters_A::rgExtraLoc[MartialMasters_A_NUMUNIT + 1];
 
 uint32_t CGame_MartialMasters_A::m_nTotalPaletteCountForMartialMasters = 0;
-uint32_t CGame_MartialMasters_A::m_nExpectedGameROMSize = 0x400000;
 uint32_t CGame_MartialMasters_A::m_nConfirmedROMSize = -1;
 
 void CGame_MartialMasters_A::InitializeStatics()
@@ -227,7 +226,7 @@ void CGame_MartialMasters_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t 
     else // MartialMasters_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForMartialMasters(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &MartialMasters_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

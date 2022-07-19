@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-uint32_t CGame_RANMACRH_SNES::m_nExpectedGameROMSize = 0x280000;
-
 CGame_RANMACRH_SNES::CGame_RANMACRH_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_RANMACRH_SNES::CGame_RANMACRH_SNES: Loading ROM...\n");
@@ -200,7 +198,7 @@ void CGame_RANMACRH_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPa
     else // RANMACRH_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&RANMACRH_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &RANMACRH_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

@@ -3,11 +3,6 @@
 #include "MSHVSF_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_MSHVSF_6A = L"mshvsf-6ae.txt";
-constexpr auto EXTRA_FILENAME_MSHVSF_7B = L"mshvsf-7be.txt";
-
-#define GetExtraDefForMSHVSF(x) (UsePaletteSetForCharacters() ? ((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM_6A[x]) : ((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM_7B[x]))
-
 class CGame_MSHVSF_A :public CGameWithExtrasFile
 {
 private:
@@ -26,7 +21,6 @@ private:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -35,6 +29,10 @@ private:
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     const int m_uLowestKnownPaletteROMLocation_6A = 0x56EF2;
     const int m_uLowestKnownPaletteROMLocation_7B = 0; // This is an odd file, yes.
+
+    static constexpr auto EXTRA_FILENAME_MSHVSF_6A = L"mshvsf-6ae.txt";
+    static constexpr auto EXTRA_FILENAME_MSHVSF_7B = L"mshvsf-7be.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_MSHVSF_A(uint32_t nConfirmedROMSize, int nMSHVSFRomToLoad);

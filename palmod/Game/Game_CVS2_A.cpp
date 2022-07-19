@@ -12,7 +12,6 @@ uint32_t CGame_CVS2_A::rgExtraCountAll[CVS2_A_NUMUNIT + 1];
 uint32_t CGame_CVS2_A::rgExtraLoc[CVS2_A_NUMUNIT + 1];
 
 uint32_t CGame_CVS2_A::m_nTotalPaletteCountForCVS2 = 0;
-uint32_t CGame_CVS2_A::m_nExpectedGameROMSize = 0x9800000;  // 159,383,552 bytes
 uint32_t CGame_CVS2_A::m_nConfirmedROMSize = -1;
 
 void CGame_CVS2_A::InitializeStatics()
@@ -360,7 +359,7 @@ void CGame_CVS2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // CVS2_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForCVS2(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &CVS2_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[MMX3_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_MMX3_SNES = L"MMX3E.txt";
     static constexpr auto MMX3_SNES_PRIMARY_ROMNAME = L"megaman x3 (usa).sfc";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x200000;
 
 public:
     CGame_MMX3_SNES(uint32_t nConfirmedROMSize);

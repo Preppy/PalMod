@@ -12,7 +12,6 @@ uint32_t CGame_MAGICALDROPIII_A::rgExtraCountAll[MAGICALDROPIII_A_NUMUNIT + 1];
 uint32_t CGame_MAGICALDROPIII_A::rgExtraLoc[MAGICALDROPIII_A_NUMUNIT + 1];
 
 uint32_t CGame_MAGICALDROPIII_A::m_nTotalPaletteCountForMAGICALDROPIII = 0;
-uint32_t CGame_MAGICALDROPIII_A::m_nExpectedGameROMSize = 0x100000; // Update to the actual size of the ROM you expect
 uint32_t CGame_MAGICALDROPIII_A::m_nConfirmedROMSize = -1;
 
 void CGame_MAGICALDROPIII_A::InitializeStatics()
@@ -227,7 +226,7 @@ void CGame_MAGICALDROPIII_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t 
     else // MAGICALDROPIII_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForMAGICALDROPIII(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &MAGICALDROPIII_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

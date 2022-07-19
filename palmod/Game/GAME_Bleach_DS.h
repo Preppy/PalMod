@@ -3,9 +3,6 @@
 #include "Bleach_DS_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_BLEACH_DS = L"BleachDSE.txt";
-#define GetExtraDefForBLEACHDS(x)((stExtraDef *)&BLEACH_DS_EXTRA_CUSTOM[x])
-
 class CGame_BLEACH_DS : public CGameWithExtrasFile
 {
 private:
@@ -15,11 +12,13 @@ private:
     static uint32_t rgExtraLoc[BLEACH_DS_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_BLEACH_DS = L"BleachDSE.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x8000000;
 
 public:
     CGame_BLEACH_DS(uint32_t nConfirmedROMSize);

@@ -3,9 +3,6 @@
 #include "SFIII3_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SF3_10 = L"sfiii3-10e.txt";
-constexpr auto EXTRA_FILENAME_SF3_51 = L"sfiii3e.txt";
-
 uint32_t cps3_mask(uint32_t address, uint32_t key1, uint32_t key2);
 
 enum SFIII3S_SupportedROMs
@@ -54,7 +51,6 @@ public:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
@@ -63,6 +59,10 @@ public:
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_SF3_10 = L"sfiii3-10e.txt";
+    static constexpr auto EXTRA_FILENAME_SF3_51 = L"sfiii3e.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
 
 public:
     CGame_SFIII3_A(uint32_t nConfirmedROMSize = -1, int nSF3ROMToLoad = 51);

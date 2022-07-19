@@ -13,7 +13,6 @@ uint32_t CGame_AOF1_A::rgExtraLoc[AOF1_A_NUMUNIT + 1];
 
 uint32_t CGame_AOF1_A::m_nSelectedRom = 1;
 uint32_t CGame_AOF1_A::m_nTotalPaletteCountForAOF1 = 0;
-uint32_t CGame_AOF1_A::m_nExpectedGameROMSize = 0x80000;
 uint32_t CGame_AOF1_A::m_nConfirmedROMSize = -1;
 
 void CGame_AOF1_A::InitializeStatics()

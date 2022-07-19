@@ -3,9 +3,6 @@
 #include "CVS2_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_CVS2_A = L"CVS2E.txt";
-#define GetExtraDefForCVS2(x)((stExtraDef *)&CVS2_A_EXTRA_CUSTOM[x])
-
 class CGame_CVS2_A : public CGameWithExtrasFile
 {
 private:
@@ -16,13 +13,15 @@ private:
     static uint32_t rgExtraLoc[CVS2_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     void WarnIfROMIsEncrypted(CFile* LoadedFile);
+
+    static constexpr auto EXTRA_FILENAME_CVS2_A = L"CVS2E.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x9800000;  // 159,383,552 bytes
 
 public:
     CGame_CVS2_A(uint32_t nConfirmedROMSize);

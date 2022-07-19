@@ -12,7 +12,6 @@ uint32_t CGame_SAMSHO5SP_A::rgExtraCountAll[SAMSHO5SP_A_NUMUNIT + 1];
 uint32_t CGame_SAMSHO5SP_A::rgExtraLoc[SAMSHO5SP_A_NUMUNIT + 1];
 
 uint32_t CGame_SAMSHO5SP_A::m_nTotalPaletteCountForSAMSHO5SP = 0;
-uint32_t CGame_SAMSHO5SP_A::m_nExpectedGameROMSize = -1;  // Figure this out dynamically
 uint32_t CGame_SAMSHO5SP_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO5SP_A::InitializeStatics()
@@ -229,7 +228,7 @@ void CGame_SAMSHO5SP_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalI
     else // SAMSHO5SP_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForSAMSHO5SP(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &SAMSHO5SP_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

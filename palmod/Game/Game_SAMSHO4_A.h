@@ -3,9 +3,6 @@
 #include "SAMSHO4_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SAMSHO4_A = L"SAMSHO4E.txt";
-#define GetExtraDefForSAMSHO4(x)((stExtraDef *)&SAMSHO4_A_EXTRA_CUSTOM[x])
-
 class CGame_SAMSHO4_A : public CGameWithExtrasFile
 {
 private:
@@ -15,11 +12,13 @@ private:
     static uint32_t rgExtraLoc[SAMSHO4_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_SAMSHO4_A = L"SAMSHO4E.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x100000;  // 1,048,576 bytes
 
 public:
     CGame_SAMSHO4_A(uint32_t nConfirmedROMSize);

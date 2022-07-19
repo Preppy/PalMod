@@ -12,7 +12,6 @@ uint32_t CGame_KOTM_A::rgExtraCountAll[KOTM_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_KOTM_A::rgExtraLoc[KOTM_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 uint32_t CGame_KOTM_A::m_nTotalPaletteCountForKOTM = 0;
-uint32_t CGame_KOTM_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_KOTM_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOTM_A::InitializeStatics()
@@ -163,7 +162,7 @@ void CGame_KOTM_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForKOTM(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &KOTM_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

@@ -3,10 +3,6 @@
 #include "SF2CE_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SF2CE_21 = L"SF2CE-21e.txt";
-constexpr auto EXTRA_FILENAME_SF2CE_22 = L"SF2CE-22e.txt";
-constexpr auto EXTRA_FILENAME_SF2CE_23 = L"SF2CE-23e.txt";
-
 class CGame_SF2CE_A : public CGameWithExtrasFile
 {
 public:
@@ -29,7 +25,6 @@ public:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
@@ -38,6 +33,16 @@ public:
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_SF2CE_21 = L"SF2CE-21e.txt";
+    static constexpr auto EXTRA_FILENAME_SF2CE_22 = L"SF2CE-22e.txt";
+    static constexpr auto EXTRA_FILENAME_SF2CE_23 = L"SF2CE-23e.txt";
+
+    static constexpr auto k_SF2CE_JapanROMName_RevA = L"s92j_22a.7f";
+    static constexpr auto k_SF2CE_JapanROMName_RevB = L"s92j_22b.7f";
+    static constexpr auto k_SF2CE_JapanROMName_RevC = L"s92j_22c.7f";
+
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_SF2CE_A(uint32_t nConfirmedROMSize = -1, int nSF2CEROMToLoad = 22);

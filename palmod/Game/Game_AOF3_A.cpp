@@ -20,8 +20,6 @@ uint32_t CGame_AOF3_A::rgExtraLoc_P2[AOF3_A_P2_NUMUNIT + 1];
 uint32_t CGame_AOF3_A::m_nSelectedRom = 1;
 uint32_t CGame_AOF3_A::m_nTotalPaletteCountForAOF3_P1 = 0;
 uint32_t CGame_AOF3_A::m_nTotalPaletteCountForAOF3_P2 = 0;
-uint32_t CGame_AOF3_A::m_nExpectedGameROMSizeP1 = 0x100000;
-uint32_t CGame_AOF3_A::m_nExpectedGameROMSizeP2 = 0x200000;
 uint32_t CGame_AOF3_A::m_nConfirmedROMSize = -1;
 
 void CGame_AOF3_A::InitializeStatics()

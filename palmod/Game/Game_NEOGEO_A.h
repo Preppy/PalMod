@@ -11,9 +11,9 @@ private:
     static uint32_t rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
     static uint32_t rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
     const static uint8_t NEOGEO_A_EXTRALOC = NEOGEO_A_NUMUNIT;
+    static wchar_t m_pszExtraNameOverride[MAX_PATH];
 
     static void InitializeStatics(LPCWSTR pszFileLoaded);
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
     bool m_fHaveDoneInitialColorSet = false;
     wchar_t m_pszGameNameOverride[MAX_PATH];
@@ -24,10 +24,10 @@ private:
     void SetAlphaModeInternal(AlphaMode NewMode);
     bool SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting);
 
-public:
     static constexpr auto EXTRA_FILENAME_NEO_GEO_A = L"NEOGEOE.txt";
     static constexpr auto EXTRA_FILENAME_UNKNOWN_A = L"UnknownE.txt";
-    static wchar_t m_pszExtraNameOverride[MAX_PATH];
+
+public:
 
     CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded);
     ~CGame_NEOGEO_A();

@@ -6,12 +6,11 @@ class CGame_SFIII3_D : public CGameClass
 private:
     //Used for GetPalOffset
     int m_nCurrentPaletteROMLocation = 0;
-    int nCurrPalSz = 0;
+    int m_nCurrPalSz = 0;
 
     void GetPalOffsSz(uint32_t nUnitId, uint32_t nPalId);
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
 
 public:
     CGame_SFIII3_D();
@@ -24,12 +23,12 @@ public:
     static sDescTreeNode* InitDescTree();
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
 
-    static uint32_t uRuleCtr;
+    static uint32_t m_uRuleCtr;
     static sFileRule GetNextRule();
     static sFileRule GetRule(uint32_t nUnitId);
 
-    static uint32_t GetRuleCtr() { return uRuleCtr; };
-    static void ResetRuleCtr() { uRuleCtr = 0; };
+    static uint32_t GetRuleCtr() { return m_uRuleCtr; };
+    static void ResetRuleCtr() { m_uRuleCtr = 0; };
 
     //Extra palette function
     static uint32_t GetBasicAmt(uint32_t nUnitId);

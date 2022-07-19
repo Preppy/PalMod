@@ -11,7 +11,6 @@ uint32_t CGame_Matrimelee_A::rgExtraCountAll[Matrimelee_A_NUMUNIT + 1];
 uint32_t CGame_Matrimelee_A::rgExtraLoc[Matrimelee_A_NUMUNIT + 1];
 
 uint32_t CGame_Matrimelee_A::m_nTotalPaletteCountForMatrimelee = 0;
-const uint32_t CGame_Matrimelee_A::m_nExpectedGameROMSize = 0x400000;
 uint32_t CGame_Matrimelee_A::m_nConfirmedROMSize = -1;
 
 void CGame_Matrimelee_A::InitializeStatics()
@@ -193,7 +192,7 @@ void CGame_Matrimelee_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPal
     else // m_nExtraUnit
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForMatrimelee(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &Matrimelee_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

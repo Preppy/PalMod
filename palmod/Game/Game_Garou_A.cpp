@@ -12,7 +12,6 @@ uint32_t CGame_Garou_A::rgExtraCountAll[Garou_A_NUMUNIT + 1];
 uint32_t CGame_Garou_A::rgExtraLoc[Garou_A_NUMUNIT + 1];
 
 uint32_t CGame_Garou_A::m_nTotalPaletteCountForGarou = 0;
-uint32_t CGame_Garou_A::m_nExpectedGameROMSize = 0x40000; // 262,144 bytes
 uint32_t CGame_Garou_A::m_nConfirmedROMSize = -1;
 
 void CGame_Garou_A::InitializeStatics()
@@ -206,7 +205,7 @@ void CGame_Garou_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // Garou_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForGarou_A(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &Garou_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

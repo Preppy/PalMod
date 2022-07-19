@@ -11,7 +11,6 @@ uint32_t CGame_VampireHunter_A::rgExtraCountAll[VampireHunter_A_NUMUNIT + 1] = {
 uint32_t CGame_VampireHunter_A::rgExtraLoc[VampireHunter_A_NUMUNIT + 1] = { (uint32_t)-1 };
 
 uint32_t CGame_VampireHunter_A::m_nTotalPaletteCountForVampireHunter = 0;
-uint32_t CGame_VampireHunter_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_VampireHunter_A::m_nConfirmedROMSize = -1;
 
 void CGame_VampireHunter_A::InitializeStatics()

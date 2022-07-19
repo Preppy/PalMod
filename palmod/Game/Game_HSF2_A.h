@@ -3,11 +3,6 @@
 #include "HSF2_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_HSF2_03 = L"HSF2-03e.txt";
-constexpr auto EXTRA_FILENAME_HSF2_04 = L"HSF2-04e.txt";
-
-#define GetExtraDefForHSF2(x) (UsePaletteSetForPortraits() ? ((stExtraDef *)&HSF2_A_EXTRA_CUSTOM_03[x]) : ((stExtraDef *)&HSF2_A_EXTRA_CUSTOM_04[x]))
-
 constexpr auto HSF2_A_GAMEKEY_03 = 3;
 constexpr auto HSF2_A_GAMEKEY_04 = 4;
 
@@ -31,7 +26,6 @@ private:
     void ClearDataBuffer() override;
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -40,6 +34,10 @@ private:
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     const int m_uLowestKnownPaletteROMLocation_03 = 0x2ce98;
     const int m_uLowestKnownPaletteROMLocation_04 = 0x43f9e;
+
+    static constexpr auto EXTRA_FILENAME_HSF2_03 = L"HSF2-03e.txt";
+    static constexpr auto EXTRA_FILENAME_HSF2_04 = L"HSF2-04e.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_HSF2_A(uint32_t nConfirmedROMSize, int nHSF2RomToLoad);

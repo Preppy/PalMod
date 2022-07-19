@@ -12,7 +12,6 @@ uint32_t CGame_LASTBLADE2_A::rgExtraCountAll[LASTBLADE2_A_NUMUNIT + 1];
 uint32_t CGame_LASTBLADE2_A::rgExtraLoc[LASTBLADE2_A_NUMUNIT + 1];
 
 uint32_t CGame_LASTBLADE2_A::m_nTotalPaletteCountForLASTBLADE2 = 0;
-uint32_t CGame_LASTBLADE2_A::m_nExpectedGameROMSize = -1; // The Neo-Geo and Steam ROMs are different sizes
 uint32_t CGame_LASTBLADE2_A::m_nConfirmedROMSize = -1;
 
 void CGame_LASTBLADE2_A::InitializeStatics()
@@ -228,7 +227,7 @@ void CGame_LASTBLADE2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPal
     else // LASTBLADE2_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForLASTBLADE2(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &LASTBLADE2_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

@@ -12,7 +12,6 @@ uint32_t CGame_NINJAMASTERS_A::rgExtraCountAll[NINJAMASTERS_A_NUMUNIT + 1];
 uint32_t CGame_NINJAMASTERS_A::rgExtraLoc[NINJAMASTERS_A_NUMUNIT + 1];
 
 uint32_t CGame_NINJAMASTERS_A::m_nTotalPaletteCountForNINJAMASTERS = 0;
-uint32_t CGame_NINJAMASTERS_A::m_nExpectedGameROMSize = 0x200000;
 uint32_t CGame_NINJAMASTERS_A::m_nConfirmedROMSize = -1;
 
 void CGame_NINJAMASTERS_A::InitializeStatics()

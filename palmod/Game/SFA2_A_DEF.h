@@ -49,13 +49,13 @@ enum Supported_SFA2_PaletteListIndex
 };
 
 constexpr auto SFA2_A_NUM_IND_07_REV1 = index_SFA2_ShinAkumaRev1 + 1 + 1 + 1; // rev 1: +1 for extras, 1 for stages, 1 for bonus
-#define SFA2_A_EXTRALOC_07_REV1 SFA2_A_NUM_IND_07_REV1
+constexpr auto SFA2_A_EXTRALOC_07_REV1 = SFA2_A_NUM_IND_07_REV1;
 
 constexpr auto SFA2_A_NUM_IND_07_REV2 = index_SFA2_EvilRyu + 1 + 1 + 1; // rev 2: +1 for extras, +1 for stages, +1 for bonus
-#define SFA2_A_EXTRALOC_07_REV2 SFA2_A_NUM_IND_07_REV2
+constexpr auto SFA2_A_EXTRALOC_07_REV2 = SFA2_A_NUM_IND_07_REV2;
 
 constexpr auto SFZ2A_A_NUM_IND_07 = index_SFA2_Last; // rev 3
-#define SFZ2A_A_EXTRALOC_07 SFZ2A_A_NUM_IND_07
+constexpr auto SFZ2A_A_EXTRALOC_07 = SFZ2A_A_NUM_IND_07;
 
 const uint8_t SFA2_A_UNITSORT_07_REV1[SFA2_A_NUM_IND_07_REV1 + 1] = // Plus 1 for the extra palettes
 {

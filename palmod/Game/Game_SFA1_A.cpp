@@ -12,7 +12,6 @@ uint32_t CGame_SFA1_A::m_nTotalPaletteCountForSFA1 = 0;
 
 uint32_t CGame_SFA1_A::rgExtraCountAll[SFA1_A_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_SFA1_A::rgExtraLoc[SFA1_A_NUMUNIT + 1] = { (uint32_t)-1 };
-uint32_t CGame_SFA1_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_SFA1_A::m_nConfirmedROMSize = -1;
 
 void CGame_SFA1_A::InitializeStatics()
@@ -345,7 +344,7 @@ void CGame_SFA1_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // SFA1_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForSFA1(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &SFA1_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

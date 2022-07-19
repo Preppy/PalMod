@@ -20,7 +20,6 @@ uint32_t CGame_HSF2_A::rgExtraLoc_04[HSF2_A_NUMUNIT_04 + 1] = { (uint32_t)-1 };
 uint32_t CGame_HSF2_A::rgExtraCountAll_03[HSF2_A_NUMUNIT_03 + 1] = { (uint32_t)-1 };
 uint32_t CGame_HSF2_A::rgExtraCountAll_04[HSF2_A_NUMUNIT_04 + 1] = { (uint32_t)-1 };
 
-uint32_t CGame_HSF2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 uint32_t CGame_HSF2_A::m_nConfirmedROMSize = -1;
 
 void CGame_HSF2_A::InitializeStatics()
@@ -414,7 +413,7 @@ void CGame_HSF2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // HSF2_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForHSF2(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = UsePaletteSetForPortraits() ? &HSF2_A_EXTRA_CUSTOM_03[GetExtraLoc(nUnitId) + nPalId] : &HSF2_A_EXTRA_CUSTOM_04[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

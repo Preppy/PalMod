@@ -5,7 +5,7 @@
 
 CDescTree CGame_SFIII3_D::MainDescTree = nullptr;
 
-uint32_t CGame_SFIII3_D::uRuleCtr = 0;
+uint32_t CGame_SFIII3_D::m_uRuleCtr = 0;
 
 void CGame_SFIII3_D::InitializeStatics()
 {
@@ -155,13 +155,13 @@ sFileRule CGame_SFIII3_D::GetRule(uint32_t nUnitId)
 
 sFileRule CGame_SFIII3_D::GetNextRule()
 {
-    sFileRule NewFileRule = GetRule(uRuleCtr);
+    sFileRule NewFileRule = GetRule(m_uRuleCtr);
 
-    uRuleCtr++;
+    m_uRuleCtr++;
 
-    if (uRuleCtr >= SFIII3_D_NUMUNIT)
+    if (m_uRuleCtr >= SFIII3_D_NUMUNIT)
     {
-        uRuleCtr = INVALID_UNIT_VALUE;
+        m_uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
@@ -180,7 +180,7 @@ uint32_t CGame_SFIII3_D::GetPaletteCountForUnit(uint32_t nUnitId)
 void CGame_SFIII3_D::GetPalOffsSz(uint32_t nUnitId, uint32_t nPalId)
 {
     m_nCurrentPaletteROMLocation = 0x80 * nPalId;
-    nCurrPalSz = 0x80 / 2;
+    m_nCurrPalSz = 0x80 / 2;
 }
 
 BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
@@ -195,11 +195,11 @@ BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     {
         GetPalOffsSz(nUnitId, nPalCtr);
 
-        m_pppDataBuffer[nUnitId][nPalCtr] = new uint16_t[nCurrPalSz];
+        m_pppDataBuffer[nUnitId][nPalCtr] = new uint16_t[m_nCurrPalSz];
 
         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-        LoadedFile->Read(m_pppDataBuffer[nUnitId][nPalCtr], nCurrPalSz * 2);
+        LoadedFile->Read(m_pppDataBuffer[nUnitId][nPalCtr], m_nCurrPalSz * 2);
     }
 
     return TRUE;
@@ -216,7 +216,7 @@ BOOL CGame_SFIII3_D::SaveFile(CFile* SaveFile, uint32_t nUnitId)
             GetPalOffsSz(nUnitId, nPalCtr);
 
             SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-            SaveFile->Write(m_pppDataBuffer[nUnitId][nPalCtr], nCurrPalSz * 2);
+            SaveFile->Write(m_pppDataBuffer[nUnitId][nPalCtr], m_nCurrPalSz * 2);
         }
     }
 
@@ -230,8 +230,8 @@ void CGame_SFIII3_D::CreateDefPal(sDescNode* srcNode, uint32_t nSepId)
 
     GetPalOffsSz(nUnitId, nPalId);
 
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
-    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
+    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrPalSz, nUnitId, nPalId);
+    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrPalSz);
 }
 
 BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
@@ -278,9 +278,9 @@ COLORREF* CGame_SFIII3_D::CreatePal(uint32_t nUnitId, uint32_t nPalId)
 {
     GetPalOffsSz(nUnitId, nPalId);
 
-    COLORREF* NewPal = new COLORREF[nCurrPalSz];
+    COLORREF* NewPal = new COLORREF[m_nCurrPalSz];
 
-    for (uint16_t i = 0; i < nCurrPalSz; i++)
+    for (uint16_t i = 0; i < m_nCurrPalSz; i++)
     {
         NewPal[i] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][i]);
 

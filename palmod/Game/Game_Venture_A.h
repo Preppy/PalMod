@@ -3,11 +3,6 @@
 #include "VENTURE_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_VENTURE_A_31 = L"Venture31.txt";
-constexpr auto EXTRA_FILENAME_VENTURE_A_50 = L"Venture50.txt";
-
-#define GetExtraDefForVENTURE(x) (UsePaletteSetFor50() ? ((stExtraDef *)&VENTURE_A_EXTRA_CUSTOM_50[x]) : ((stExtraDef *)&VENTURE_A_EXTRA_CUSTOM_31[x]))
-
 class CGame_VENTURE_A : public CGameWithExtrasFile
 {
 public:
@@ -33,6 +28,9 @@ public:
     static uint32_t rgExtraLoc_50[VENTURE_A_NUMUNIT_50 + 1];
 
     static bool UsePaletteSetFor50() { return (m_nVentureMode == 50); }
+
+    static constexpr auto EXTRA_FILENAME_VENTURE_A_31 = L"Venture31.txt";
+    static constexpr auto EXTRA_FILENAME_VENTURE_A_50 = L"Venture50.txt";
 
 public:
     CGame_VENTURE_A(uint32_t nConfirmedROMSize = -1, int nVentureModeToLoad = 50);

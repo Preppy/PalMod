@@ -3,9 +3,6 @@
 #include "AOF3_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_AOF3_A_P1 = L"AOF3P1E.txt";
-constexpr auto EXTRA_FILENAME_AOF3_A_P2 = L"AOF3P2E.txt";
-
 class CGame_AOF3_A : public CGameWithExtrasFile
 {
 private:
@@ -21,8 +18,6 @@ private:
     static uint32_t rgExtraLoc_P2[AOF3_A_P2_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSizeP1;
-    static uint32_t m_nExpectedGameROMSizeP2;
     static uint32_t m_nConfirmedROMSize;
 
     // Needed for multiple ROM support
@@ -34,6 +29,11 @@ private:
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_AOF3_A_P1 = L"AOF3P1E.txt";
+    static constexpr auto EXTRA_FILENAME_AOF3_A_P2 = L"AOF3P2E.txt";
+    static constexpr uint32_t m_nExpectedGameROMSizeP1 = 0x100000;
+    static constexpr uint32_t m_nExpectedGameROMSizeP2 = 0x200000;
 
 public:
     CGame_AOF3_A(uint32_t nConfirmedROMSize, int nROMToLoad = 1);

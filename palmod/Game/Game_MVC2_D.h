@@ -8,7 +8,6 @@ private:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
 
     uint16_t** ppDataBuffer = nullptr;
 

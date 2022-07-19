@@ -3,10 +3,6 @@
 #include "MSH_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_MSH_05 = L"MSHe.txt";
-constexpr auto EXTRA_FILENAME_MSH_06 = L"MSH06e.txt";
-#define GetExtraDefForMSH(x) (UsePaletteSetForCharacters() ? ((stExtraDef *)&MSH_A_EXTRA_CUSTOM_05[x]) : ((stExtraDef *)&MSH_A_EXTRA_CUSTOM_06[x]))
-
 class CGame_MSH_A : public CGameWithExtrasFile
 {
 private:
@@ -26,15 +22,18 @@ private:
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation_05 = 0x60f4c;
-    const int m_uLowestKnownPaletteROMLocation_06 = 0xa78;
+    const uint32_t m_uLowestKnownPaletteROMLocation_05 = 0x60f4c;
+    const uint32_t m_uLowestKnownPaletteROMLocation_06 = 0xa78;
+
+    static constexpr auto EXTRA_FILENAME_MSH_05 = L"MSHe.txt";
+    static constexpr auto EXTRA_FILENAME_MSH_06 = L"MSH06e.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_MSH_A(uint32_t nConfirmedROMSize, int nMSHRomToLoad);

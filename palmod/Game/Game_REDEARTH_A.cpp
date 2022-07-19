@@ -25,8 +25,6 @@ uint32_t CGame_REDEARTH_A::m_nTotalPaletteCount30 = 0;
 uint32_t CGame_REDEARTH_A::m_nTotalPaletteCount31 = 0;
 uint32_t CGame_REDEARTH_A::m_nTotalPaletteCount50 = 0;
 
-uint32_t CGame_REDEARTH_A::m_nExpectedGameROMSize_3 = 0x800000; // 8388608 bytes
-uint32_t CGame_REDEARTH_A::m_nExpectedGameROMSize_5 = 0x400000;
 uint32_t CGame_REDEARTH_A::m_nConfirmedROMSize = -1;
 
 void CGame_REDEARTH_A::InitializeStatics()

@@ -3,10 +3,6 @@
 #include "DANKUGA_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_DANKUGA = L"DANKUGAe.txt";
-
-#define GetDANKUGAExtraDef(x) ((stExtraDef *)&DANKUGA_A_EXTRA_CUSTOM[x])
-
 class CGame_DanKuGa_A_DIR : public CGameWithExtrasFile
 {
 public:
@@ -14,11 +10,13 @@ public:
     static uint32_t rgExtraLoc[DANKUGA_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_DANKUGA = L"DANKUGAe.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // for each of the four files
 
 public:
     CGame_DanKuGa_A_DIR(uint32_t nConfirmedROMSize = -1);

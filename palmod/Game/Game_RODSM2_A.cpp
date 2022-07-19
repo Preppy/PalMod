@@ -12,7 +12,6 @@ uint32_t CGame_RODSM2_A::rgExtraCountAll[RODSM2_A_NUMUNITS + 1];
 uint32_t CGame_RODSM2_A::rgExtraLoc[RODSM2_A_NUMUNITS + 1];
 
 uint32_t CGame_RODSM2_A::m_nTotalPaletteCountForSM2 = 0;
-uint32_t CGame_RODSM2_A::m_nExpectedGameROMSize = 0x80000;
 uint32_t CGame_RODSM2_A::m_nConfirmedROMSize = -1;
 
 void CGame_RODSM2_A::InitializeStatics()
@@ -215,7 +214,7 @@ void CGame_RODSM2_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // RODSM2_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForSM2(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &RODSM2_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

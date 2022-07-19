@@ -3,9 +3,6 @@
 #include "KOF01_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOF01_A = L"KOF01E.txt";
-#define GetExtraDefForKOF01(x)((stExtraDef *)&KOF01_A_EXTRA_CUSTOM[x])
-
 class CGame_KOF01_A : public CGameWithExtrasFile
 {
 private:
@@ -15,13 +12,15 @@ private:
     static uint32_t rgExtraLoc[KOF01_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     static void DumpPaletteHeaders();
+
+    static constexpr auto EXTRA_FILENAME_KOF01_A = L"KOF01E.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x400000;
 
 public:
     CGame_KOF01_A(uint32_t nConfirmedROMSize);

@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[SVG_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_SVG_SNES = L"SVGE.txt";
     static constexpr auto SVG_SNES_PRIMARY_ROMNAME = L"Super Variable Geo (J).sfc";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x300000;
 
 public:
     CGame_SVG_SNES(uint32_t nConfirmedROMSize);

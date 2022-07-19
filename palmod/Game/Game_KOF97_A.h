@@ -3,10 +3,6 @@
 #include "KOF97_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOF97_A = L"KOF97E.txt";
-constexpr auto EXTRA_FILENAME_KOF97AE_A = L"KOF97AEe.txt";
-#define GetExtraDefForKOF97(x)((UsePaletteSetFor97()) ? (stExtraDef *)&KOF97_A_EXTRA_CUSTOM[x] : (stExtraDef *)&KOF97AE_A_EXTRA_CUSTOM[x])
-
 class CGame_KOF97_A : public CGameWithExtrasFile
 {
 private:
@@ -24,8 +20,6 @@ private:
     static uint32_t rgExtraLoc_97AE[KOF97AE_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize_KOF97;
-    static uint32_t m_nExpectedGameROMSize_KOF97GM;
     static uint32_t m_nConfirmedROMSize;
 
     // Needed for multiple ROM support
@@ -37,6 +31,11 @@ private:
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
+
+    static constexpr auto EXTRA_FILENAME_KOF97_A = L"KOF97E.txt";
+    static constexpr auto EXTRA_FILENAME_KOF97AE_A = L"KOF97AEe.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize_KOF97 = 0x400000;  // 4194304 bytes
+    static constexpr uint32_t m_nExpectedGameROMSize_KOF97GM = 0x500000;
 
 public:
     CGame_KOF97_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad = KOF97_A);

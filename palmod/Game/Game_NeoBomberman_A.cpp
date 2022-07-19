@@ -12,7 +12,6 @@ uint32_t CGame_NeoBomberman_A::rgExtraCountAll[NeoBomberman_A_NUMUNIT + 1];
 uint32_t CGame_NeoBomberman_A::rgExtraLoc[NeoBomberman_A_NUMUNIT + 1];
 
 uint32_t CGame_NeoBomberman_A::m_nTotalPaletteCountForNeoBomberman = 0;
-uint32_t CGame_NeoBomberman_A::m_nExpectedGameROMSize = 0x100000;
 uint32_t CGame_NeoBomberman_A::m_nConfirmedROMSize = -1;
 
 void CGame_NeoBomberman_A::InitializeStatics()
@@ -194,7 +193,7 @@ void CGame_NeoBomberman_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nP
     else // NeoBomberman_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForNeoBomberman(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &NeoBomberman_A_EXTRA_CUSTOM[(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

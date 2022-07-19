@@ -3,9 +3,6 @@
 #include "LASTBLADE_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_LASTBLADE_A = L"LastBladeE.txt";
-#define GetExtraDefForLASTBLADE(x)((stExtraDef *)&LASTBLADE_A_EXTRA_CUSTOM[x])
-
 class CGame_LASTBLADE_A : public CGameWithExtrasFile
 {
 private:
@@ -16,12 +13,14 @@ private:
     static uint32_t rgExtraLoc[LASTBLADE_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize_A;
-    static uint32_t m_nExpectedGameROMSize_S;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_LASTBLADE_A = L"LastBladeE.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize_A = 0x100000;
+    static constexpr uint32_t m_nExpectedGameROMSize_S = 0x500000;
 
 public:
     CGame_LASTBLADE_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad = LASTBLADE_A);

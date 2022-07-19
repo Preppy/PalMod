@@ -219,7 +219,7 @@ void CGame_VSAV_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // VSAV_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForVSAV(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &VSAV_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

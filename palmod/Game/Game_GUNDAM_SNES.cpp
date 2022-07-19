@@ -12,7 +12,6 @@ uint32_t CGame_GUNDAM_SNES::rgExtraCountAll[GUNDAM_SNES_NUMUNIT + 1];
 uint32_t CGame_GUNDAM_SNES::rgExtraLoc[GUNDAM_SNES_NUMUNIT + 1];
 
 uint32_t CGame_GUNDAM_SNES::m_nTotalPaletteCountForGUNDAM = 0;
-uint32_t CGame_GUNDAM_SNES::m_nExpectedGameROMSize = 0x200000;
 uint32_t CGame_GUNDAM_SNES::m_nConfirmedROMSize = -1;
 
 void CGame_GUNDAM_SNES::InitializeStatics()
@@ -221,7 +220,7 @@ void CGame_GUNDAM_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalI
     else // GUNDAM_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForGUNDAM(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &GUNDAM_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

@@ -19,8 +19,6 @@ uint32_t CGame_KOF97_A::rgExtraLoc_97AE[KOF97AE_A_NUMUNIT + 1];
 
 uint32_t CGame_KOF97_A::m_nTotalPaletteCountForKOF97 = 0;
 uint32_t CGame_KOF97_A::m_nTotalPaletteCountForKOF97AE = 0;
-uint32_t CGame_KOF97_A::m_nExpectedGameROMSize_KOF97 = 0x400000;  // 4194304 bytes
-uint32_t CGame_KOF97_A::m_nExpectedGameROMSize_KOF97GM = 0x500000;
 uint32_t CGame_KOF97_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF97_A::InitializeStatics()
@@ -660,7 +658,7 @@ void CGame_KOF97_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // KOF97_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForKOF97(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = UsePaletteSetFor97() ? &KOF97_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId] : &KOF97AE_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-uint32_t CGame_KI_SNES::m_nExpectedGameROMSize = 0x400000;
-
 CGame_KI_SNES::CGame_KI_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_KI_SNES::CGame_KI_SNES: Loading ROM...\n");
@@ -231,7 +229,7 @@ void CGame_KI_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // KI_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&KI_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &KI_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

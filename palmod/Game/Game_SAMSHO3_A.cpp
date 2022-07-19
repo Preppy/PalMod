@@ -12,7 +12,6 @@ uint32_t CGame_SAMSHO3_A::rgExtraCountAll[SAMSHO3_A_NUMUNIT + 1];
 uint32_t CGame_SAMSHO3_A::rgExtraLoc[SAMSHO3_A_NUMUNIT + 1];
 
 uint32_t CGame_SAMSHO3_A::m_nTotalPaletteCountForSAMSHO3 = 0;
-uint32_t CGame_SAMSHO3_A::m_nExpectedGameROMSize = 0x100000;  // 1,048,576 bytes
 uint32_t CGame_SAMSHO3_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO3_A::InitializeStatics()
@@ -457,7 +456,7 @@ void CGame_SAMSHO3_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // SAMSHO3_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForSAMSHO3(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &SAMSHO3_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

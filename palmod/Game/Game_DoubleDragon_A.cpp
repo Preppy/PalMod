@@ -13,7 +13,6 @@ uint32_t CGame_DOUBLEDRAGON_A::rgExtraLoc[DOUBLEDRAGON_A_NUMUNIT + 1];
 
 uint32_t CGame_DOUBLEDRAGON_A::m_nSelectedRom = 1;
 uint32_t CGame_DOUBLEDRAGON_A::m_nTotalPaletteCountForDOUBLEDRAGON = 0;
-uint32_t CGame_DOUBLEDRAGON_A::m_nExpectedGameROMSize = 0x200000;
 uint32_t CGame_DOUBLEDRAGON_A::m_nConfirmedROMSize = -1;
 
 void CGame_DOUBLEDRAGON_A::InitializeStatics()

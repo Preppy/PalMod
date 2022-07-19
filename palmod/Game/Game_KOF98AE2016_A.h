@@ -3,9 +3,6 @@
 #include "KOF98AE2016_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOF98AE2016_A = L"KOF98AE2016E.txt";
-#define GetExtraDefForKOF98AE2016(x)((stExtraDef *)&KOF98AE2016_A_EXTRA_CUSTOM[x])
-
 class CGame_KOF98AE2016_A : public CGameWithExtrasFile
 {
 private:
@@ -15,11 +12,13 @@ private:
     static uint32_t rgExtraLoc[KOF98AE2016_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_KOF98AE2016_A = L"KOF98AE2016E.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x600000;
 
 public:
     CGame_KOF98AE2016_A(uint32_t nConfirmedROMSize);

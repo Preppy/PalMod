@@ -3,17 +3,13 @@
 #include "SSF2T_GBA_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SSF2T_GBA = L"SSF2T-GBAe.txt";
-
 class CGame_SSF2T_GBA : public CGameWithExtrasFile
 {
 public:
     static uint32_t rgExtraCountAll[SSF2T_GBA_NUMUNIT + 1];
-    static uint32_t rgExtraCountVisibleOnly[SSF2T_GBA_NUMUNIT + 1];
     static uint32_t rgExtraLoc[SSF2T_GBA_NUMUNIT + 1];
     
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
@@ -22,6 +18,9 @@ public:
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_SSF2T_GBA = L"SSF2T-GBAe.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x800000;
 
 public:
     CGame_SSF2T_GBA(uint32_t nConfirmedROMSize = -1);

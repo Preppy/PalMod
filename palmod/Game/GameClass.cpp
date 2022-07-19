@@ -1277,7 +1277,7 @@ void CGameClass::DumpTreeSorted()
 }
 
 uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNode* pGameUnits, uint32_t nExtraUnitLocation, uint32_t nTotalNormalUnitCount,
-                                 uint32_t* rgExtraCount, uint32_t* rgExtraLocations, stExtraDef* ppExtraDef)
+                                   uint32_t* rgExtraCount, uint32_t* rgExtraLocations, stExtraDef* ppExtraDef)
 {
     CString strMsg;
     uint32_t nTotalPaletteCount = 0;
@@ -1404,7 +1404,7 @@ uint32_t CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeN
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = (stExtraDef*)&ppExtraDef[nExtraPos + nCurrExtra];
+                stExtraDef* pCurrDef = &ppExtraDef[nExtraPos + nCurrExtra];
 
                 while (pCurrDef->isInvisible)
                 {

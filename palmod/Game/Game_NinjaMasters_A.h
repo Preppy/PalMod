@@ -3,8 +3,6 @@
 #include "NINJAMASTERS_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_NINJAMASTERS_A = L"NINJAMASTERSE.txt";
-
 class CGame_NINJAMASTERS_A : public CGameWithExtrasFile
 {
 private:
@@ -14,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[NINJAMASTERS_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
@@ -23,6 +20,9 @@ private:
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_NINJAMASTERS_A = L"NINJAMASTERSE.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x200000;
 
 public:
     CGame_NINJAMASTERS_A(uint32_t nConfirmedROMSize);

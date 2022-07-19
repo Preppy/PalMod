@@ -19,8 +19,6 @@ uint32_t CGame_SF2HF_A::rgExtraLoc_23[SF2HF_A_23_NUMUNIT + 1] = { (uint32_t)-1 }
 CDescTree CGame_SF2HF_A::MainDescTree_21 = nullptr;
 CDescTree CGame_SF2HF_A::MainDescTree_22 = nullptr;
 CDescTree CGame_SF2HF_A::MainDescTree_23 = nullptr;
-uint32_t CGame_SF2HF_A::m_nExpectedGameROMSize_HF = 0x80000; // 524288 bytes
-uint32_t CGame_SF2HF_A::m_nExpectedGameROMSize_30th = 0x7d191f;
 
 uint32_t CGame_SF2HF_A::m_nConfirmedROMSize = -1;
 

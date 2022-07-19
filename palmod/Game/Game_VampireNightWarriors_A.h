@@ -3,8 +3,6 @@
 #include "VampireNightWarriors_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_VampireNightWarriors = L"VampireNightWarriorsE.txt";
-
 class CGame_VampireNightWarriors_A : public CGameWithExtrasFile
 {
 private:
@@ -14,11 +12,13 @@ private:
     static uint32_t rgExtraLoc[VampireNightWarriors_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+
+    static constexpr auto EXTRA_FILENAME_VampireNightWarriors = L"VampireNightWarriorsE.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_VampireNightWarriors_A(uint32_t nConfirmedROMSize);

@@ -3,12 +3,6 @@
 #include "SSF2T_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SSF2T_3C = L"ssf2t-3ce.txt";
-constexpr auto EXTRA_FILENAME_SSF2T_4A = L"ssf2t-4ae.txt";
-constexpr auto EXTRA_FILENAME_SSF2T_8 = L"ssf2t-8e.txt";
-
-#define GetExtraDefForSSF2T(x) (UsePaletteSetForPortraits() ? ((stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_3C[x]) : (UsePaletteSetForCharacters() ? (stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_4A[x] : (stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_8[x]))
-
 class CGame_SSF2T_A : public CGameWithExtrasFile
 {
 private:
@@ -33,7 +27,6 @@ private:
     void ClearDataBuffer() override;
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -43,6 +36,11 @@ private:
     const int m_uLowestKnownPaletteROMLocation_3C = 0xf1da;
     const int m_uLowestKnownPaletteROMLocation_4A = 0x3FB00;
     const int m_uLowestKnownPaletteROMLocation_8 = 0x603be;
+
+    static constexpr auto EXTRA_FILENAME_SSF2T_3C = L"ssf2t-3ce.txt";
+    static constexpr auto EXTRA_FILENAME_SSF2T_4A = L"ssf2t-4ae.txt";
+    static constexpr auto EXTRA_FILENAME_SSF2T_8 = L"ssf2t-8e.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 
 public:
     CGame_SSF2T_A(uint32_t nConfirmedROMSize, int nSSF2TRomToLoad);

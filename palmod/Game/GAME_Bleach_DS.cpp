@@ -12,7 +12,6 @@ uint32_t CGame_BLEACH_DS::rgExtraCountAll[BLEACH_DS_NUMUNIT + 1];
 uint32_t CGame_BLEACH_DS::rgExtraLoc[BLEACH_DS_NUMUNIT + 1];
 
 uint32_t CGame_BLEACH_DS::m_nTotalPaletteCountForBleach = 0;
-uint32_t CGame_BLEACH_DS::m_nExpectedGameROMSize = 0x08000000; // Update to the actual size of the ROM you expect
 uint32_t CGame_BLEACH_DS::m_nConfirmedROMSize = -1;
 
 void CGame_BLEACH_DS::InitializeStatics()
@@ -222,7 +221,7 @@ void CGame_BLEACH_DS::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // BLEACH_DS_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForBLEACHDS(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = &BLEACH_DS_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

@@ -4,10 +4,8 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-uint32_t CGame_Garou_S::m_nExpectedGameROMSize = 0x900000; // 9,437,184 bytes
 uint32_t CGame_Garou_S::m_nConfirmedROMSize = -1;
 
-uint32_t CGame_GarouP_A::m_nExpectedGameROMSize = 0x100000;
 uint32_t CGame_GarouP_A::m_nConfirmedROMSize = -1;
 
 CGame_Garou_S::CGame_Garou_S(uint32_t nConfirmedROMSize) :

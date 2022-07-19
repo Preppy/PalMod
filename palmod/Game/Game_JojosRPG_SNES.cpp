@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-uint32_t CGame_JOJOSRPG_SNES::m_nExpectedGameROMSize = 0x100000;
-
 CGame_JOJOSRPG_SNES::CGame_JOJOSRPG_SNES(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_JOJOSRPG_SNES::CGame_JOJOSRPG_SNES: Loading ROM...\n");
@@ -200,7 +198,7 @@ void CGame_JOJOSRPG_SNES::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPa
     else // JOJOSRPG_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&JOJOSRPG_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &JOJOSRPG_SNES_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

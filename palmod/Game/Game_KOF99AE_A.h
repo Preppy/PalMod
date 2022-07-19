@@ -3,9 +3,6 @@
 #include "KOF99AE_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOF99AE_A_P2 = L"KOF99AEp2E.txt";
-constexpr auto EXTRA_FILENAME_KOF99AE_A_P3 = L"KOF99AEp3E.txt";
-
 class CGame_KOF99AE_A : public CGameWithExtrasFile
 {
 private:
@@ -21,7 +18,6 @@ private:
     static uint32_t rgExtraLoc_P3[KOF99AE_A_P3_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     // Needed for multiple ROM support
@@ -36,6 +32,10 @@ private:
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders(int nHeaderSetToDump);
+
+    static constexpr auto EXTRA_FILENAME_KOF99AE_A_P2 = L"KOF99AEp2E.txt";
+    static constexpr auto EXTRA_FILENAME_KOF99AE_A_P3 = L"KOF99AEp3E.txt";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
 
 public:
     CGame_KOF99AE_A(uint32_t nConfirmedROMSize, int nROMToLoad = 2);

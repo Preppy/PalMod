@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-uint32_t CGame_DBZEB_DS::m_nExpectedGameROMSize = 0x18F32000;
-
 CGame_DBZEB_DS::CGame_DBZEB_DS(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_DBZEB_DS::CGame_DBZEB_DS: Loading ROM...\n");
@@ -191,7 +189,7 @@ void CGame_DBZEB_DS::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // DBZEB_DS_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&DBZEB_DS_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &DBZEB_DS_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

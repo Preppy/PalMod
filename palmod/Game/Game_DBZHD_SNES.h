@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[DBZHD_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_DBZHD_SNES = L"DBZHDE.txt";
     static constexpr auto DBZHD_SNES_PRIMARY_ROMNAME = L"dragon ball z - hyper dimension (japan).sfc";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x300000;
 
 public:
     CGame_DBZHD_SNES(uint32_t nConfirmedROMSize);

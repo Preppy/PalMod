@@ -4,8 +4,6 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-uint32_t CGame_Cyberbots_A::m_nExpectedGameROMSize = 0x80000;
-
 CGame_Cyberbots_A::CGame_Cyberbots_A(uint32_t nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_Cyberbots_A::CGame_Cyberbots_A: Loading ROM...\n");
@@ -248,7 +246,7 @@ void CGame_Cyberbots_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalI
     else // Cyberbots_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = (stExtraDef*)&Cyberbots_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &Cyberbots_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

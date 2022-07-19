@@ -377,7 +377,7 @@ void CGame_VENTURE_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // VENTURE_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForVENTURE(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = UsePaletteSetFor50() ? &VENTURE_A_EXTRA_CUSTOM_50[GetExtraLoc(nUnitId) + nPalId] : &VENTURE_A_EXTRA_CUSTOM_31[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);

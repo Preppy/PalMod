@@ -12,7 +12,6 @@ private:
     static uint32_t rgExtraLoc[XMMA_SNES_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static uint32_t m_nExpectedGameROMSize;
     static uint32_t m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
@@ -20,6 +19,7 @@ private:
 
     static constexpr auto EXTRA_FILENAME_XMMA_SNES = L"XMMAE.txt";
     static constexpr auto XMMA_SNES_PRIMARY_ROMNAME = L"X-Men - Mutant Apocalypse (USA).sfc";
+    static constexpr uint32_t m_nExpectedGameROMSize = 0x200000;
 
 public:
     CGame_XMMA_SNES(uint32_t nConfirmedROMSize);
