@@ -69,7 +69,7 @@ CGame_KOTM_A::CGame_KOTM_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_KOTM_A::~CGame_KOTM_A(void)
+CGame_KOTM_A::~CGame_KOTM_A()
 {
     safe_delete_array(CGame_KOTM_A::KOTM_A_EXTRA_CUSTOM);
     ClearDataBuffer();

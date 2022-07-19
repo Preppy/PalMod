@@ -71,7 +71,7 @@ CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_GUNDAM_SNES::~CGame_GUNDAM_SNES(void)
+CGame_GUNDAM_SNES::~CGame_GUNDAM_SNES()
 {
     safe_delete_array(CGame_GUNDAM_SNES::GUNDAM_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

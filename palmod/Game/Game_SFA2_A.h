@@ -76,7 +76,7 @@ private:
 
 public:
     CGame_SFA2_A(uint32_t nConfirmedROMSize, int nSFA2ROMToLoad);
-    ~CGame_SFA2_A(void);
+    ~CGame_SFA2_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_07_Rev1;

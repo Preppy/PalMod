@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_KOF03_A(uint32_t nConfirmedROMSize);
-    ~CGame_KOF03_A(void);
+    ~CGame_KOF03_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

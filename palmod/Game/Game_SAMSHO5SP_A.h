@@ -26,7 +26,7 @@ private:
 
 public:
     CGame_SAMSHO5SP_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad = SAMSHO5SP_A);
-    ~CGame_SAMSHO5SP_A(void);
+    ~CGame_SAMSHO5SP_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

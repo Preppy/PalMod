@@ -38,7 +38,7 @@ private:
 
 public:
     CGame_MSHVSF_A(uint32_t nConfirmedROMSize, int nMSHVSFRomToLoad);
-    ~CGame_MSHVSF_A(void);
+    ~CGame_MSHVSF_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_6A;

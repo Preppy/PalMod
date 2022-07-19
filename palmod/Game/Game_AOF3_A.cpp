@@ -88,7 +88,7 @@ CGame_AOF3_A::CGame_AOF3_A(uint32_t nConfirmedROMSize, int nROMToLoad /*= 1*/)
     PrepChangeTrackingArray();
 }
 
-CGame_AOF3_A::~CGame_AOF3_A(void)
+CGame_AOF3_A::~CGame_AOF3_A()
 {
     safe_delete_array(CGame_AOF3_A::AOF3_A_P1_EXTRA_CUSTOM);
     safe_delete_array(CGame_AOF3_A::AOF3_A_P2_EXTRA_CUSTOM);

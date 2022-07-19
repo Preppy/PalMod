@@ -77,7 +77,7 @@ void CGame_MK2_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_MK2_SNES::InitDescTree());
 }
 
-CGame_MK2_SNES::~CGame_MK2_SNES(void)
+CGame_MK2_SNES::~CGame_MK2_SNES()
 {
     safe_delete_array(CGame_MK2_SNES::MK2_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

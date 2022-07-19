@@ -135,8 +135,8 @@ protected:
     const sCRC32ValueSet* m_pCRC32SpecificData = nullptr;
 
 public:
-    CGameClass(void);
-    virtual ~CGameClass(void);
+    CGameClass();
+    virtual ~CGameClass();
 
     virtual void InitDataBuffer();
     virtual void ClearDataBuffer();

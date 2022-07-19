@@ -67,7 +67,7 @@ CGame_GalaxyFight_A::CGame_GalaxyFight_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_GalaxyFight_A::~CGame_GalaxyFight_A(void)
+CGame_GalaxyFight_A::~CGame_GalaxyFight_A()
 {
     safe_delete_array(CGame_GalaxyFight_A::GalaxyFight_A_EXTRA_CUSTOM);
     ClearDataBuffer();

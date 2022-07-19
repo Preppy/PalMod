@@ -71,7 +71,7 @@ CGame_SAVAGEREIGN_A::CGame_SAVAGEREIGN_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_SAVAGEREIGN_A::~CGame_SAVAGEREIGN_A(void)
+CGame_SAVAGEREIGN_A::~CGame_SAVAGEREIGN_A()
 {
     safe_delete_array(CGame_SAVAGEREIGN_A::SAVAGEREIGN_A_EXTRA_CUSTOM);
     ClearDataBuffer();

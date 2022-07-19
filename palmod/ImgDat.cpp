@@ -15,11 +15,11 @@ void OutputDebugString_ImgDat(LPCWSTR pszString)
 
 typedef std::map<uint16_t, ImgInfoList*>::iterator imgMapIter;
 
-CImgDat::CImgDat(void)
+CImgDat::CImgDat()
 {
 }
 
-CImgDat::~CImgDat(void)
+CImgDat::~CImgDat()
 {
     if (!imageBufferFlushed)
     {

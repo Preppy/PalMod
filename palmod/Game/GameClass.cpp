@@ -11,7 +11,7 @@ uint8_t CGameClass::m_nSizeOfColorsInBytes = 2;
 
 #define GAMECLASS_DBG DEFAULT_GAME_DEBUG_STATE
 
-CGameClass::CGameClass(void)
+CGameClass::CGameClass()
     :
     ConvPal16(nullptr),
     ConvCol16(nullptr),
@@ -22,7 +22,7 @@ CGameClass::CGameClass(void)
 {
 }
 
-CGameClass::~CGameClass(void)
+CGameClass::~CGameClass()
 {
     ClearSetImgTicket(NULL);
 

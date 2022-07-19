@@ -76,7 +76,7 @@ void CGame_JusticeLeagueTF_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_JusticeLeagueTF_SNES::InitDescTree());
 }
 
-CGame_JusticeLeagueTF_SNES::~CGame_JusticeLeagueTF_SNES(void)
+CGame_JusticeLeagueTF_SNES::~CGame_JusticeLeagueTF_SNES()
 {
     safe_delete_array(CGame_JusticeLeagueTF_SNES::JusticeLeagueTF_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

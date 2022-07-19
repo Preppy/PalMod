@@ -7,9 +7,9 @@ class CGameLoad
 private:
     BOOL SetGame(int nGameFlag);
 
-    uint32_t(*GetRuleCtr)(void) = {};
-    void (*ResetRuleCtr)(void) = {};
-    sFileRule(*GetNextRule)(void) = {};
+    uint32_t(*GetRuleCtr)() = {};
+    void (*ResetRuleCtr)() = {};
+    sFileRule(*GetNextRule)() = {};
     sFileRule(*GetRule)(uint32_t) = {};
     CGameClass* CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int nExtraGameData = 0, LPCWSTR pszFilePath = nullptr);
 
@@ -23,8 +23,8 @@ private:
     int nSaveLoadErr = 0;
 
 public:
-    CGameLoad(void);
-    ~CGameLoad(void);
+    CGameLoad();
+    ~CGameLoad();
 
     CGameClass* LoadFile(int nGameFlag, wchar_t* pszLoadFile);
     CGameClass* LoadDir(int nGameFlag, wchar_t* pszLoadDir);

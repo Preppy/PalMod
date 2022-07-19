@@ -71,7 +71,7 @@ CGame_SPF2T_A::CGame_SPF2T_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_SPF2T_A::~CGame_SPF2T_A(void)
+CGame_SPF2T_A::~CGame_SPF2T_A()
 {
     safe_delete_array(CGame_SPF2T_A::SPF2T_A_EXTRA_CUSTOM);
     ClearDataBuffer();

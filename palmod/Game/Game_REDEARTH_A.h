@@ -42,7 +42,7 @@ public:
 
 public:
     CGame_REDEARTH_A(uint32_t nConfirmedROMSize = -1, int nRedEarthModeToLoad = 31);
-    ~CGame_REDEARTH_A(void);
+    ~CGame_REDEARTH_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_30;

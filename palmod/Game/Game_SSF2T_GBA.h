@@ -25,7 +25,7 @@ public:
 
 public:
     CGame_SSF2T_GBA(uint32_t nConfirmedROMSize = -1);
-    ~CGame_SSF2T_GBA(void);
+    ~CGame_SSF2T_GBA();
 
     //Static functions / variables
     static CDescTree MainDescTree;

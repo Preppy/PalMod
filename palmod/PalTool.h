@@ -56,8 +56,8 @@ private:
     void SetFontToBold(bool beBold);
 
 public:
-    CPalTool(void);
-    ~CPalTool(void);
+    CPalTool();
+    ~CPalTool();
 
     void CleanUp();
 

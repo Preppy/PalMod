@@ -70,7 +70,7 @@ void CGame_BASARA_P::InitializeStatics()
     MainDescTree.SetRootTree(CGame_BASARA_P::InitDescTree());
 }
 
-CGame_BASARA_P::~CGame_BASARA_P(void)
+CGame_BASARA_P::~CGame_BASARA_P()
 {
     safe_delete_array(CGame_BASARA_P::BASARA_P_EXTRA_CUSTOM);
     ClearDataBuffer();

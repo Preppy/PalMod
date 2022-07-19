@@ -71,7 +71,7 @@ CGame_RBFF2_A::CGame_RBFF2_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_RBFF2_A::~CGame_RBFF2_A(void)
+CGame_RBFF2_A::~CGame_RBFF2_A()
 {
     safe_delete_array(CGame_RBFF2_A::RBFF2_A_EXTRA_CUSTOM);
     ClearDataBuffer();

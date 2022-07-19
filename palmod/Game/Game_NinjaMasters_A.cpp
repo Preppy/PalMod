@@ -71,7 +71,7 @@ CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_NINJAMASTERS_A::~CGame_NINJAMASTERS_A(void)
+CGame_NINJAMASTERS_A::~CGame_NINJAMASTERS_A()
 {
     safe_delete_array(CGame_NINJAMASTERS_A::NINJAMASTERS_A_EXTRA_CUSTOM);
     ClearDataBuffer();

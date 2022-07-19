@@ -71,7 +71,7 @@ CGame_BREAKERS_A::CGame_BREAKERS_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_BREAKERS_A::~CGame_BREAKERS_A(void)
+CGame_BREAKERS_A::~CGame_BREAKERS_A()
 {
     safe_delete_array(CGame_BREAKERS_A::BREAKERS_A_EXTRA_CUSTOM);
     ClearDataBuffer();

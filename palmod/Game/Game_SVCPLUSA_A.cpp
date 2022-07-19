@@ -252,7 +252,7 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_SVCPLUSA_A::~CGame_SVCPLUSA_A(void)
+CGame_SVCPLUSA_A::~CGame_SVCPLUSA_A()
 {
     safe_delete_array(decryptedROM);
     safe_delete_array(CGame_SVCPLUSA_A::SVCPLUSA_A_EXTRA_CUSTOM);

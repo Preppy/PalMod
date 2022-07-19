@@ -71,7 +71,7 @@ CGame_FatalFuryS_SNES::CGame_FatalFuryS_SNES(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_FatalFuryS_SNES::~CGame_FatalFuryS_SNES(void)
+CGame_FatalFuryS_SNES::~CGame_FatalFuryS_SNES()
 {
     safe_delete_array(CGame_FatalFuryS_SNES::FatalFuryS_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

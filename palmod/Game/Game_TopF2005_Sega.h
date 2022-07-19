@@ -24,7 +24,7 @@ private:
 
 public:
     CGame_TOPF2005_SEGA(uint32_t nConfirmedROMSize);
-    ~CGame_TOPF2005_SEGA(void);
+    ~CGame_TOPF2005_SEGA();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -85,7 +85,7 @@ CGame_KOF99AE_A::CGame_KOF99AE_A(uint32_t nConfirmedROMSize, int nROMToLoad /*= 
     PrepChangeTrackingArray();
 }
 
-CGame_KOF99AE_A::~CGame_KOF99AE_A(void)
+CGame_KOF99AE_A::~CGame_KOF99AE_A()
 {
     safe_delete_array(CGame_KOF99AE_A::KOF99AE_A_P2_EXTRA_CUSTOM);
     safe_delete_array(CGame_KOF99AE_A::KOF99AE_A_P3_EXTRA_CUSTOM);

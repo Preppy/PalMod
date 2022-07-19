@@ -40,7 +40,7 @@ private:
 
 public:
     CGame_KOF97_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad = KOF97_A);
-    ~CGame_KOF97_A(void);
+    ~CGame_KOF97_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_97;

@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_GEMFIGHTER_A(uint32_t nConfirmedROMSize);
-    ~CGame_GEMFIGHTER_A(void);
+    ~CGame_GEMFIGHTER_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

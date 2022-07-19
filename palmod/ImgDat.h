@@ -33,8 +33,8 @@ private:
     BOOL m_fOnTheFly = FALSE;
 
 public:
-    CImgDat(void);
-    ~CImgDat(void);
+    CImgDat();
+    ~CImgDat();
 
     BOOL LoadGameImages(wchar_t* lpszLoadFile, uint8_t uGameFlag, uint8_t uImgGameFlag, uint32_t uGameUnitAmt, std::vector<uint16_t> prgGameImageSet, BOOL fLoadAll = TRUE);
     sImgDef* GetImageDef(uint32_t uUnitId, uint16_t uImgId);

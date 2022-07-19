@@ -117,7 +117,7 @@ CGame_MVC2_D::CGame_MVC2_D(uint32_t nConfirmedROMSize)
     memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
 }
 
-CGame_MVC2_D::~CGame_MVC2_D(void)
+CGame_MVC2_D::~CGame_MVC2_D()
 {
     FlushChangeTrackingArray();
     ClearDataBuffer();

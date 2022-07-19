@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_UMK3_DS(uint32_t nConfirmedROMSize);
-    ~CGame_UMK3_DS(void);
+    ~CGame_UMK3_DS();
 
     //Static functions / variables
     static CDescTree MainDescTree;

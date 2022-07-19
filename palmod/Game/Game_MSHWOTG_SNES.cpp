@@ -71,7 +71,7 @@ CGame_MSHWOTG_SNES::CGame_MSHWOTG_SNES(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_MSHWOTG_SNES::~CGame_MSHWOTG_SNES(void)
+CGame_MSHWOTG_SNES::~CGame_MSHWOTG_SNES()
 {
     safe_delete_array(CGame_MSHWOTG_SNES::MSHWOTG_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

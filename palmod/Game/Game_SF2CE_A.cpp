@@ -136,7 +136,7 @@ CGame_SF2CE_A::CGame_SF2CE_A(uint32_t nConfirmedROMSize, int nSF2CEROMToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_SF2CE_A::~CGame_SF2CE_A(void)
+CGame_SF2CE_A::~CGame_SF2CE_A()
 {
     safe_delete_array(CGame_SF2CE_A::SF2CE_A_21_EXTRA_CUSTOM);
     safe_delete_array(CGame_SF2CE_A::SF2CE_A_22_EXTRA_CUSTOM);

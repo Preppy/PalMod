@@ -54,7 +54,7 @@ CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(uint32_t nConfirmedROMSize /* = -1 */, in
     PrepChangeTrackingArray();
 }
 
-CGame_SFIII3_A_DIR::~CGame_SFIII3_A_DIR(void)
+CGame_SFIII3_A_DIR::~CGame_SFIII3_A_DIR()
 {
     FlushChangeTrackingArray();
 }

@@ -79,7 +79,7 @@ CGame_SFIII2_A::CGame_SFIII2_A(uint32_t nConfirmedROMSize, int nSF3ROMToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_SFIII2_A::~CGame_SFIII2_A(void)
+CGame_SFIII2_A::~CGame_SFIII2_A()
 {
     safe_delete_array(CGame_SFIII2_A::SFIII2_A_50_EXTRA_CUSTOM);
     //Get rid of the file changed flag

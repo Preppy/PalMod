@@ -22,7 +22,7 @@ private:
 
 public:
     CGame_VampireHunter_A(uint32_t nConfirmedROMSize);
-    ~CGame_VampireHunter_A(void);
+    ~CGame_VampireHunter_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -70,7 +70,7 @@ void CGame_FotNS_P::InitializeStatics()
     MainDescTree.SetRootTree(CGame_FotNS_P::InitDescTree());
 }
 
-CGame_FotNS_P::~CGame_FotNS_P(void)
+CGame_FotNS_P::~CGame_FotNS_P()
 {
     safe_delete_array(CGame_FotNS_P::FotNS_P_EXTRA_CUSTOM);
     ClearDataBuffer();

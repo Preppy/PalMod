@@ -103,7 +103,7 @@ CGame_HSF2_A::CGame_HSF2_A(uint32_t nConfirmedROMSize, int nHSF2RomToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_HSF2_A::~CGame_HSF2_A(void)
+CGame_HSF2_A::~CGame_HSF2_A()
 {
     safe_delete_array(CGame_HSF2_A::HSF2_A_EXTRA_CUSTOM_03);
     safe_delete_array(CGame_HSF2_A::HSF2_A_EXTRA_CUSTOM_04);

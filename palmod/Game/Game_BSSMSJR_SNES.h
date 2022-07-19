@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_BSSMSJR_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_BSSMSJR_SNES(void);
+    ~CGame_BSSMSJR_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -70,7 +70,7 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_WakuWaku7_A::~CGame_WakuWaku7_A(void)
+CGame_WakuWaku7_A::~CGame_WakuWaku7_A()
 {
     safe_delete_array(CGame_WakuWaku7_A::WakuWaku7_A_EXTRA_CUSTOM);
     ClearDataBuffer();

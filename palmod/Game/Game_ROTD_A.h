@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_ROTD_A(uint32_t nConfirmedROMSize);
-    ~CGame_ROTD_A(void);
+    ~CGame_ROTD_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -26,7 +26,7 @@ private:
 
 public:
     CGame_RBFF2_A(uint32_t nConfirmedROMSize);
-    ~CGame_RBFF2_A(void);
+    ~CGame_RBFF2_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

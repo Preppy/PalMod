@@ -26,7 +26,7 @@ CGame_Garou_S::CGame_Garou_S(uint32_t nConfirmedROMSize) :
     nGameFlag = Garou_S;
 }
 
-CGame_Garou_S::~CGame_Garou_S(void)
+CGame_Garou_S::~CGame_Garou_S()
 {
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
@@ -58,7 +58,7 @@ CGame_GarouP_A::CGame_GarouP_A(uint32_t nConfirmedROMSize) :
     nGameFlag = GarouP_A;
 }
 
-CGame_GarouP_A::~CGame_GarouP_A(void)
+CGame_GarouP_A::~CGame_GarouP_A()
 {
     //Get rid of the file changed flag
     FlushChangeTrackingArray();

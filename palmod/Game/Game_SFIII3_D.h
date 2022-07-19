@@ -14,8 +14,8 @@ private:
     static uint32_t m_nExpectedGameROMSize;
 
 public:
-    CGame_SFIII3_D(void);
-    ~CGame_SFIII3_D(void);
+    CGame_SFIII3_D();
+    ~CGame_SFIII3_D();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_SPF2T_A(uint32_t nConfirmedROMSize);
-    ~CGame_SPF2T_A(void);
+    ~CGame_SPF2T_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -83,7 +83,7 @@ CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(uint32_t nConfirmedROMSize, SupportedGame
     PrepChangeTrackingArray();
 }
 
-CGame_LASTBLADE2_A::~CGame_LASTBLADE2_A(void)
+CGame_LASTBLADE2_A::~CGame_LASTBLADE2_A()
 {
     safe_delete_array(CGame_LASTBLADE2_A::LASTBLADE2_A_EXTRA_CUSTOM);
     ClearDataBuffer();

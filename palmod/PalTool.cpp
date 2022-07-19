@@ -1,14 +1,14 @@
 #include "StdAfx.h"
 #include "PalTool.h"
 
-CPalTool::CPalTool(void)
+CPalTool::CPalTool()
 {
     Init();
 
     RegisterWindowClass();
 }
 
-CPalTool::~CPalTool(void)
+CPalTool::~CPalTool()
 {
     CleanUp();
 }

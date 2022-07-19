@@ -77,7 +77,7 @@ void CGame_JOJOSRPG_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_JOJOSRPG_SNES::InitDescTree());
 }
 
-CGame_JOJOSRPG_SNES::~CGame_JOJOSRPG_SNES(void)
+CGame_JOJOSRPG_SNES::~CGame_JOJOSRPG_SNES()
 {
     safe_delete_array(CGame_JOJOSRPG_SNES::JOJOSRPG_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

@@ -5,12 +5,12 @@
 #include "PalMod.h"
 #include "math.h"
 
-CPalGroup::CPalGroup(void)
+CPalGroup::CPalGroup()
 {
     InitPal();
 }
 
-CPalGroup::~CPalGroup(void)
+CPalGroup::~CPalGroup()
 {
     FlushPalAll();
 }

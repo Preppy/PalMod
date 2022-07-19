@@ -72,7 +72,7 @@ CGame_NGBC_A::CGame_NGBC_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_NGBC_A::~CGame_NGBC_A(void)
+CGame_NGBC_A::~CGame_NGBC_A()
 {
     safe_delete_array(CGame_NGBC_A::NGBC_A_EXTRA_CUSTOM);
     ClearDataBuffer();

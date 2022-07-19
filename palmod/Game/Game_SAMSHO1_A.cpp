@@ -71,7 +71,7 @@ CGame_SAMSHO1_A::CGame_SAMSHO1_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_SAMSHO1_A::~CGame_SAMSHO1_A(void)
+CGame_SAMSHO1_A::~CGame_SAMSHO1_A()
 {
     safe_delete_array(CGame_SAMSHO1_A::SAMSHO1_A_EXTRA_CUSTOM);
     ClearDataBuffer();

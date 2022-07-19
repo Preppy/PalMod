@@ -68,7 +68,7 @@ CGame_VampireHunter_A::CGame_VampireHunter_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_VampireHunter_A::~CGame_VampireHunter_A(void)
+CGame_VampireHunter_A::~CGame_VampireHunter_A()
 {
     safe_delete_array(CGame_VampireHunter_A::VampireHunter_A_EXTRA_CUSTOM);
     ClearDataBuffer();

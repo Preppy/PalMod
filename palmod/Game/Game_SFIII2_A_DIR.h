@@ -6,7 +6,7 @@ class CGame_SFIII2_A_DIR :
 {
 public:
     CGame_SFIII2_A_DIR(uint32_t nConfirmedROMSize = -1);
-    ~CGame_SFIII2_A_DIR(void) { FlushChangeTrackingArray(); };
+    ~CGame_SFIII2_A_DIR() { FlushChangeTrackingArray(); };
 
     //Static functions
     static uint32_t uRuleCtr;

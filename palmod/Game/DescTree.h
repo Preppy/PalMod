@@ -33,7 +33,7 @@ private:
 
 public:
     CDescTree(sDescTreeNode* InputTree = NULL);
-    ~CDescTree(void);
+    ~CDescTree();
 
     void SetRootTree(sDescTreeNode* NewTree);
     void DumpTree(const sDescTreeNode* pTreeOfInterest);

@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_Garou_A(uint32_t nConfirmedROMSize);
-    ~CGame_Garou_A(void);
+    ~CGame_Garou_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

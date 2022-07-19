@@ -77,7 +77,7 @@ void CGame_BSSMSJR_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_BSSMSJR_SNES::InitDescTree());
 }
 
-CGame_BSSMSJR_SNES::~CGame_BSSMSJR_SNES(void)
+CGame_BSSMSJR_SNES::~CGame_BSSMSJR_SNES()
 {
     safe_delete_array(CGame_BSSMSJR_SNES::BSSMSJR_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

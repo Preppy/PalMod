@@ -77,7 +77,7 @@ void CGame_MMX3_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_MMX3_SNES::InitDescTree());
 }
 
-CGame_MMX3_SNES::~CGame_MMX3_SNES(void)
+CGame_MMX3_SNES::~CGame_MMX3_SNES()
 {
     safe_delete_array(CGame_MMX3_SNES::MMX3_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

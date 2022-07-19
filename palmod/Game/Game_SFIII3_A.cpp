@@ -155,7 +155,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(uint32_t nConfirmedROMSize, int nSF3ROMToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_SFIII3_A::~CGame_SFIII3_A(void)
+CGame_SFIII3_A::~CGame_SFIII3_A()
 {
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_10_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_14_EXTRA_CUSTOM);

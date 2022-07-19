@@ -42,7 +42,7 @@ public:
 
 public:
     CGame_SF2HF_A(uint32_t nConfirmedROMSize = -1, int nSF2HFROMToLoad = 22);
-    ~CGame_SF2HF_A(void);
+    ~CGame_SF2HF_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_21;

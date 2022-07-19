@@ -71,7 +71,7 @@ CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A(uint32_t nConfirmedROMSize, SupportedGamesL
     PrepChangeTrackingArray();
 }
 
-CGame_SAMSHO5SP_A::~CGame_SAMSHO5SP_A(void)
+CGame_SAMSHO5SP_A::~CGame_SAMSHO5SP_A()
 {
     safe_delete_array(CGame_SAMSHO5SP_A::SAMSHO5SP_A_EXTRA_CUSTOM);
     ClearDataBuffer();

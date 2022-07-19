@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_Cyberbots_A(uint32_t nConfirmedROMSize);
-    ~CGame_Cyberbots_A(void);
+    ~CGame_Cyberbots_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -77,7 +77,7 @@ void CGame_TMNTTF_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_TMNTTF_SNES::InitDescTree());
 }
 
-CGame_TMNTTF_SNES::~CGame_TMNTTF_SNES(void)
+CGame_TMNTTF_SNES::~CGame_TMNTTF_SNES()
 {
     safe_delete_array(CGame_TMNTTF_SNES::TMNTTF_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

@@ -124,7 +124,7 @@ CGame_SF2HF_A::CGame_SF2HF_A(uint32_t nConfirmedROMSize, int nSF2HFROMToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_SF2HF_A::~CGame_SF2HF_A(void)
+CGame_SF2HF_A::~CGame_SF2HF_A()
 {
     safe_delete_array(CGame_SF2HF_A::SF2HF_A_21_EXTRA_CUSTOM);
     safe_delete_array(CGame_SF2HF_A::SF2HF_A_22_EXTRA_CUSTOM);

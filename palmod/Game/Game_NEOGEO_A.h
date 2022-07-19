@@ -30,7 +30,7 @@ public:
     static wchar_t m_pszExtraNameOverride[MAX_PATH];
 
     CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded);
-    ~CGame_NEOGEO_A(void);
+    ~CGame_NEOGEO_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

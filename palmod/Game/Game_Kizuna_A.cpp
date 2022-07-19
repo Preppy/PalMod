@@ -71,7 +71,7 @@ CGame_Kizuna_A::CGame_Kizuna_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_Kizuna_A::~CGame_Kizuna_A(void)
+CGame_Kizuna_A::~CGame_Kizuna_A()
 {
     safe_delete_array(CGame_Kizuna_A::Kizuna_A_EXTRA_CUSTOM);
     ClearDataBuffer();

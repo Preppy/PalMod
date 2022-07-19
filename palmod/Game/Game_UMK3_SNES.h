@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_UMK3_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_UMK3_SNES(void);
+    ~CGame_UMK3_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

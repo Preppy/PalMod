@@ -42,7 +42,7 @@ public:
 
 public:
     CGame_JOJOS_A(uint32_t nConfirmedROMSize = -1, int nJojosModeToLoad = JOJOS_A_51_ROMKEY);
-    ~CGame_JOJOS_A(void);
+    ~CGame_JOJOS_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_50;

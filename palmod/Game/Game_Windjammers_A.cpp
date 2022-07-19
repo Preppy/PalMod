@@ -67,7 +67,7 @@ CGame_Windjammers_A::CGame_Windjammers_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_Windjammers_A::~CGame_Windjammers_A(void)
+CGame_Windjammers_A::~CGame_Windjammers_A()
 {
     safe_delete_array(CGame_Windjammers_A::Windjammers_A_EXTRA_CUSTOM);
     ClearDataBuffer();

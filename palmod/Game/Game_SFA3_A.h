@@ -26,7 +26,7 @@ private:
 
 public:
     CGame_SFA3_A(uint32_t nConfirmedROMSize);
-    ~CGame_SFA3_A(void);
+    ~CGame_SFA3_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

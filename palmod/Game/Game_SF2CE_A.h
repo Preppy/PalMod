@@ -41,7 +41,7 @@ public:
 
 public:
     CGame_SF2CE_A(uint32_t nConfirmedROMSize = -1, int nSF2CEROMToLoad = 22);
-    ~CGame_SF2CE_A(void);
+    ~CGame_SF2CE_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_21;

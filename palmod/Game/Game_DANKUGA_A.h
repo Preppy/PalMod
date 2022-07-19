@@ -22,7 +22,7 @@ public:
 
 public:
     CGame_DanKuGa_A_DIR(uint32_t nConfirmedROMSize = -1);
-    ~CGame_DanKuGa_A_DIR(void);
+    ~CGame_DanKuGa_A_DIR();
 
     uint32_t c_nRedEarthSIMMLength = 0x80000;
 

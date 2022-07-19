@@ -143,7 +143,7 @@ CGame_MVC_A::CGame_MVC_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_MVC_A::~CGame_MVC_A(void)
+CGame_MVC_A::~CGame_MVC_A()
 {
     safe_delete_array(CGame_MVC_A::MVC_A_EXTRA_CUSTOM);
     ClearDataBuffer();

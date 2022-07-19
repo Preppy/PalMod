@@ -72,7 +72,7 @@ CGame_SFZ3U_A::CGame_SFZ3U_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_SFZ3U_A::~CGame_SFZ3U_A(void)
+CGame_SFZ3U_A::~CGame_SFZ3U_A()
 {
     safe_delete_array(CGame_SFZ3U_A::SFZ3U_A_EXTRA_CUSTOM);
     ClearDataBuffer();

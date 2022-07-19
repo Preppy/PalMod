@@ -22,7 +22,7 @@ private:
 
 public:
     CGame_VampireNightWarriors_A(uint32_t nConfirmedROMSize);
-    ~CGame_VampireNightWarriors_A(void);
+    ~CGame_VampireNightWarriors_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -77,7 +77,7 @@ void CGame_RANMAHB_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_RANMAHB_SNES::InitDescTree());
 }
 
-CGame_RANMAHB_SNES::~CGame_RANMAHB_SNES(void)
+CGame_RANMAHB_SNES::~CGame_RANMAHB_SNES()
 {
     safe_delete_array(CGame_RANMAHB_SNES::RANMAHB_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

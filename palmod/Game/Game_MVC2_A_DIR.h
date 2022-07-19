@@ -6,7 +6,7 @@ class CGame_MVC2_A_DIR :
 {  
 public:
     CGame_MVC2_A_DIR(uint32_t nConfirmedROMSize);
-    ~CGame_MVC2_A_DIR(void);
+    ~CGame_MVC2_A_DIR();
 
     uint32_t c_nMVC2SIMMLength = 0x800000;
 

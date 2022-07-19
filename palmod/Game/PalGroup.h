@@ -57,8 +57,8 @@ private:
     BOOL FlushPal(uint32_t nIndex);
 
 public:
-    CPalGroup(void);
-    ~CPalGroup(void);
+    CPalGroup();
+    ~CPalGroup();
 
     uint32_t GetAddIndex() { return m_nCurrPalAmt - 1; };
 

@@ -70,7 +70,7 @@ CGame_Matrimelee_A::CGame_Matrimelee_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_Matrimelee_A::~CGame_Matrimelee_A(void)
+CGame_Matrimelee_A::~CGame_Matrimelee_A()
 {
     safe_delete_array(CGame_Matrimelee_A::Matrimelee_A_EXTRA_CUSTOM);
     ClearDataBuffer();

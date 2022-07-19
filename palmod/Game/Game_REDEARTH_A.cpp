@@ -121,7 +121,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(uint32_t nConfirmedROMSize /* = -1 */, int nR
     PrepChangeTrackingArray();
 }
 
-CGame_REDEARTH_A::~CGame_REDEARTH_A(void)
+CGame_REDEARTH_A::~CGame_REDEARTH_A()
 {
     safe_delete_array(CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_30);
     safe_delete_array(CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_31);

@@ -107,7 +107,7 @@ void CGame_NEWGAME_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_NEWGAME_A::InitDescTree());
 }
 
-CGame_NEWGAME_A::~CGame_NEWGAME_A(void)
+CGame_NEWGAME_A::~CGame_NEWGAME_A()
 {
     safe_delete_array(CGame_NEWGAME_A::NEWGAME_A_EXTRA_CUSTOM);
     ClearDataBuffer();

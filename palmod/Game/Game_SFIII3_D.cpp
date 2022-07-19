@@ -12,7 +12,7 @@ void CGame_SFIII3_D::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SFIII3_D::InitDescTree());
 }
 
-CGame_SFIII3_D::CGame_SFIII3_D(void)
+CGame_SFIII3_D::CGame_SFIII3_D()
 {
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
@@ -47,7 +47,7 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     m_fGameUnitsMapToIndividualFiles = TRUE;
 }
 
-CGame_SFIII3_D::~CGame_SFIII3_D(void)
+CGame_SFIII3_D::~CGame_SFIII3_D()
 {
     ClearDataBuffer();
     //Get rid of the file changed flag

@@ -46,7 +46,7 @@ private:
 
 public:
     CGame_SSF2T_A(uint32_t nConfirmedROMSize, int nSSF2TRomToLoad);
-    ~CGame_SSF2T_A(void);
+    ~CGame_SSF2T_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_3C;

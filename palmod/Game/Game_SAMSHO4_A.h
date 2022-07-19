@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_SAMSHO4_A(uint32_t nConfirmedROMSize);
-    ~CGame_SAMSHO4_A(void);
+    ~CGame_SAMSHO4_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_FatalFury2_A(uint32_t nConfirmedROMSize);
-    ~CGame_FatalFury2_A(void);
+    ~CGame_FatalFury2_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

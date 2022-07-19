@@ -67,7 +67,7 @@ CGame_SFA1_A::CGame_SFA1_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_SFA1_A::~CGame_SFA1_A(void)
+CGame_SFA1_A::~CGame_SFA1_A()
 {
     safe_delete_array(CGame_SFA1_A::SFA1_A_EXTRA_CUSTOM);
     ClearDataBuffer();

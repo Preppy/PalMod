@@ -69,7 +69,7 @@ CGame_TOPF2005_SEGA::CGame_TOPF2005_SEGA(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_TOPF2005_SEGA::~CGame_TOPF2005_SEGA(void)
+CGame_TOPF2005_SEGA::~CGame_TOPF2005_SEGA()
 {
     safe_delete_array(CGame_TOPF2005_SEGA::TOPF2005_SEGA_EXTRA_CUSTOM);
     ClearDataBuffer();

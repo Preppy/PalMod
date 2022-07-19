@@ -49,7 +49,7 @@ private:
 
 public:
     CGame_SVCPLUSA_A(uint32_t nConfirmedROMSize);
-    ~CGame_SVCPLUSA_A(void);
+    ~CGame_SVCPLUSA_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

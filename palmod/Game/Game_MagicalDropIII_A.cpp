@@ -83,7 +83,7 @@ CGame_MAGICALDROPIII_A::CGame_MAGICALDROPIII_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_MAGICALDROPIII_A::~CGame_MAGICALDROPIII_A(void)
+CGame_MAGICALDROPIII_A::~CGame_MAGICALDROPIII_A()
 {
     safe_delete_array(CGame_MAGICALDROPIII_A::MAGICALDROPIII_A_EXTRA_CUSTOM);
     ClearDataBuffer();

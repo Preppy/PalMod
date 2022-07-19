@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_SAVAGEREIGN_A(uint32_t nConfirmedROMSize);
-    ~CGame_SAVAGEREIGN_A(void);
+    ~CGame_SAVAGEREIGN_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

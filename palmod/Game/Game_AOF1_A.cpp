@@ -74,7 +74,7 @@ CGame_AOF1_A::CGame_AOF1_A(uint32_t nConfirmedROMSize, int nROMToLoad /*= 1*/)
     PrepChangeTrackingArray();
 }
 
-CGame_AOF1_A::~CGame_AOF1_A(void)
+CGame_AOF1_A::~CGame_AOF1_A()
 {
     safe_delete_array(CGame_AOF1_A::AOF1_A_EXTRA_CUSTOM);
     ClearDataBuffer();

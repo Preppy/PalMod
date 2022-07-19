@@ -6,7 +6,7 @@ class CGame_VENTURE_A_DIR :
 {
 public:
     CGame_VENTURE_A_DIR(uint32_t nConfirmedROMSize, int nVentureModeToLoad);
-    ~CGame_VENTURE_A_DIR(void);
+    ~CGame_VENTURE_A_DIR();
 
     uint32_t c_nVentureSIMMLength = 0x200000;
     static const uint32_t c_nCountSIMMsUsed_31 = 4;

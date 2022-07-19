@@ -70,7 +70,7 @@ CGame_VHUNT2_A::CGame_VHUNT2_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_VHUNT2_A::~CGame_VHUNT2_A(void)
+CGame_VHUNT2_A::~CGame_VHUNT2_A()
 {
     safe_delete_array(CGame_VHUNT2_A::VHUNT2_A_EXTRA_CUSTOM);
     ClearDataBuffer();

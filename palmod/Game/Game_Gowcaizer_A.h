@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_Gowcaizer_A(uint32_t nConfirmedROMSize);
-    ~CGame_Gowcaizer_A(void);
+    ~CGame_Gowcaizer_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

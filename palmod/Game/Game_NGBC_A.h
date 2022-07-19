@@ -24,7 +24,7 @@ private:
 
 public:
     CGame_NGBC_A(uint32_t nConfirmedROMSize);
-    ~CGame_NGBC_A(void);
+    ~CGame_NGBC_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_BLEACH_DS(uint32_t nConfirmedROMSize);
-    ~CGame_BLEACH_DS(void);
+    ~CGame_BLEACH_DS();
 
     //Static functions / variables
     static CDescTree MainDescTree;

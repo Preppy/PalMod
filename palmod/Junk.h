@@ -126,7 +126,7 @@ private:
 
 public:
     CJunk();
-    ~CJunk(void);
+    ~CJunk();
 
     void Enable(BOOL fEnableFlag = TRUE) { m_bEnabled = fEnableFlag; UpdateCtrl(); }
 

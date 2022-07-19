@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_CFTE_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_CFTE_SNES(void);
+    ~CGame_CFTE_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

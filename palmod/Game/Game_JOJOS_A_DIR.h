@@ -7,7 +7,7 @@ class CGame_JOJOS_A_DIR :
   
 public:
     CGame_JOJOS_A_DIR(uint32_t nConfirmedROMSize, int nJojosModeToLoad);
-    ~CGame_JOJOS_A_DIR(void);
+    ~CGame_JOJOS_A_DIR();
 
     uint32_t c_nJOJOSSIMMLength = 0x200000;
 

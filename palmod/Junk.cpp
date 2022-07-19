@@ -331,7 +331,7 @@ CJunk::CJunk()
     RegisterWindowClass();
 }
 
-CJunk::~CJunk(void)
+CJunk::~CJunk()
 {
     //delete (dcPaintDC);
     CleanUp();

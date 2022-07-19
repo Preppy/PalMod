@@ -24,7 +24,7 @@ private:
 
 public:
     CGame_KOF02PS2_A(uint32_t nConfirmedROMSize);
-    ~CGame_KOF02PS2_A(void);
+    ~CGame_KOF02PS2_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

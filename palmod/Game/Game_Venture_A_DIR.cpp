@@ -24,7 +24,7 @@ CGame_VENTURE_A_DIR::CGame_VENTURE_A_DIR(uint32_t nConfirmedROMSize, int nVentur
     PrepChangeTrackingArray();
 }
 
-CGame_VENTURE_A_DIR::~CGame_VENTURE_A_DIR(void)
+CGame_VENTURE_A_DIR::~CGame_VENTURE_A_DIR()
 {
     FlushChangeTrackingArray();
 }

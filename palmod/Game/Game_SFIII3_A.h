@@ -66,7 +66,7 @@ public:
 
 public:
     CGame_SFIII3_A(uint32_t nConfirmedROMSize = -1, int nSF3ROMToLoad = 51);
-    ~CGame_SFIII3_A(void);
+    ~CGame_SFIII3_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_10;

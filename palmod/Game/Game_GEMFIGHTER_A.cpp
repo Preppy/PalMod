@@ -71,7 +71,7 @@ CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_GEMFIGHTER_A::~CGame_GEMFIGHTER_A(void)
+CGame_GEMFIGHTER_A::~CGame_GEMFIGHTER_A()
 {
     safe_delete_array(CGame_GEMFIGHTER_A::GEMFIGHTER_A_EXTRA_CUSTOM);
     ClearDataBuffer();

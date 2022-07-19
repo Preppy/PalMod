@@ -71,7 +71,7 @@ CGame_ROTD_A::CGame_ROTD_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_ROTD_A::~CGame_ROTD_A(void)
+CGame_ROTD_A::~CGame_ROTD_A()
 {
     safe_delete_array(CGame_ROTD_A::ROTD_A_EXTRA_CUSTOM);
     ClearDataBuffer();

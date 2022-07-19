@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_NeoBomberman_A(uint32_t nConfirmedROMSize);
-    ~CGame_NeoBomberman_A(void);
+    ~CGame_NeoBomberman_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

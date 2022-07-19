@@ -23,7 +23,7 @@ public:
 
 public:
     CGame_MVC2_A(uint32_t nConfirmedROMSize);
-    ~CGame_MVC2_A(void);
+    ~CGame_MVC2_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

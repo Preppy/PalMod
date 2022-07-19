@@ -92,7 +92,7 @@ CGame_VENTURE_A::CGame_VENTURE_A(uint32_t nConfirmedROMSize /* = -1 */, int nVen
     PrepChangeTrackingArray();
 }
 
-CGame_VENTURE_A::~CGame_VENTURE_A(void)
+CGame_VENTURE_A::~CGame_VENTURE_A()
 {
     safe_delete_array(CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_31);
     safe_delete_array(CGame_VENTURE_A::VENTURE_A_EXTRA_CUSTOM_50);

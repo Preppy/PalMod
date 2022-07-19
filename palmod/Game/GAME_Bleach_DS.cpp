@@ -71,7 +71,7 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_BLEACH_DS::~CGame_BLEACH_DS(void)
+CGame_BLEACH_DS::~CGame_BLEACH_DS()
 {
     safe_delete_array(CGame_BLEACH_DS::BLEACH_DS_EXTRA_CUSTOM);
     ClearDataBuffer();

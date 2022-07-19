@@ -31,7 +31,7 @@ private:
 
 public:
     CGame_DOUBLEDRAGON_A(uint32_t nConfirmedROMSize, int nROMToLoad = 1);
-    ~CGame_DOUBLEDRAGON_A(void);
+    ~CGame_DOUBLEDRAGON_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

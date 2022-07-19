@@ -31,7 +31,7 @@ private:
 
 public:
     CGame_SDODGEBALL_A(uint32_t nConfirmedROMSize, int nROMToLoad = 1);
-    ~CGame_SDODGEBALL_A(void);
+    ~CGame_SDODGEBALL_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

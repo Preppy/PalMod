@@ -26,7 +26,7 @@ private:
 
 public:
     CGame_NINJAMASTERS_A(uint32_t nConfirmedROMSize);
-    ~CGame_NINJAMASTERS_A(void);
+    ~CGame_NINJAMASTERS_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

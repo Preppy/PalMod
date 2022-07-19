@@ -74,7 +74,7 @@ CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A(uint32_t nConfirmedROMSize, int nROMT
     PrepChangeTrackingArray();
 }
 
-CGame_DOUBLEDRAGON_A::~CGame_DOUBLEDRAGON_A(void)
+CGame_DOUBLEDRAGON_A::~CGame_DOUBLEDRAGON_A()
 {
     safe_delete_array(CGame_DOUBLEDRAGON_A::DOUBLEDRAGON_A_EXTRA_CUSTOM);
     ClearDataBuffer();

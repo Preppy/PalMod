@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_Matrimelee_A(uint32_t nConfirmedROMSize);
-    ~CGame_Matrimelee_A(void);
+    ~CGame_Matrimelee_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

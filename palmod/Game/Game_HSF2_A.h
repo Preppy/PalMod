@@ -43,7 +43,7 @@ private:
 
 public:
     CGame_HSF2_A(uint32_t nConfirmedROMSize, int nHSF2RomToLoad);
-    ~CGame_HSF2_A(void);
+    ~CGame_HSF2_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_03;

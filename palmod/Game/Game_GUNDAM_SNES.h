@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_GUNDAM_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_GUNDAM_SNES(void);
+    ~CGame_GUNDAM_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -82,7 +82,7 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_DanKuGa_A_DIR::~CGame_DanKuGa_A_DIR(void)
+CGame_DanKuGa_A_DIR::~CGame_DanKuGa_A_DIR()
 {
     safe_delete_array(CGame_DanKuGa_A_DIR::DANKUGA_A_EXTRA_CUSTOM);
     //Get rid of the file changed flag

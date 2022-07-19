@@ -38,7 +38,7 @@ private:
 
 public:
     CGame_MSH_A(uint32_t nConfirmedROMSize, int nMSHRomToLoad);
-    ~CGame_MSH_A(void);
+    ~CGame_MSH_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_05;

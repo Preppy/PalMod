@@ -105,7 +105,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(uint32_t nConfirmedROMSize, int nJojosModeToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_JOJOS_A::~CGame_JOJOS_A(void)
+CGame_JOJOS_A::~CGame_JOJOS_A()
 {
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50);
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);

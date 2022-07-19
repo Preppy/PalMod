@@ -69,7 +69,7 @@ CGame_VSAV2_A::CGame_VSAV2_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_VSAV2_A::~CGame_VSAV2_A(void)
+CGame_VSAV2_A::~CGame_VSAV2_A()
 {
     safe_delete_array(CGame_VSAV2_A::VSAV2_A_EXTRA_CUSTOM);
     ClearDataBuffer();

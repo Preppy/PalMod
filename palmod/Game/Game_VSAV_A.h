@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_VSAV_A(uint32_t nConfirmedROMSize);
-    ~CGame_VSAV_A(void);
+    ~CGame_VSAV_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -68,7 +68,7 @@ void CGame_DBZEB_DS::InitializeStatics()
     MainDescTree.SetRootTree(CGame_DBZEB_DS::InitDescTree());
 }
 
-CGame_DBZEB_DS::~CGame_DBZEB_DS(void)
+CGame_DBZEB_DS::~CGame_DBZEB_DS()
 {
     safe_delete_array(CGame_DBZEB_DS::DBZEB_DS_EXTRA_CUSTOM);
     ClearDataBuffer();

@@ -77,7 +77,7 @@ void CGame_SVG_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SVG_SNES::InitDescTree());
 }
 
-CGame_SVG_SNES::~CGame_SVG_SNES(void)
+CGame_SVG_SNES::~CGame_SVG_SNES()
 {
     safe_delete_array(CGame_SVG_SNES::SVG_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

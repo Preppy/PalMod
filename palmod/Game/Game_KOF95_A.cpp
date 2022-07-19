@@ -70,7 +70,7 @@ CGame_KOF95_A::CGame_KOF95_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_KOF95_A::~CGame_KOF95_A(void)
+CGame_KOF95_A::~CGame_KOF95_A()
 {
     safe_delete_array(CGame_KOF95_A::KOF95_A_EXTRA_CUSTOM);
     ClearDataBuffer();

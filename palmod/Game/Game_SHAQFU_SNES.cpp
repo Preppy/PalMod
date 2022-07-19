@@ -77,7 +77,7 @@ void CGame_SHAQFU_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SHAQFU_SNES::InitDescTree());
 }
 
-CGame_SHAQFU_SNES::~CGame_SHAQFU_SNES(void)
+CGame_SHAQFU_SNES::~CGame_SHAQFU_SNES()
 {
     safe_delete_array(CGame_SHAQFU_SNES::SHAQFU_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

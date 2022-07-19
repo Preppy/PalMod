@@ -24,7 +24,7 @@ private:
 
 public:
     CGame_KOFXI_A(uint32_t nConfirmedROMSize);
-    ~CGame_KOFXI_A(void);
+    ~CGame_KOFXI_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

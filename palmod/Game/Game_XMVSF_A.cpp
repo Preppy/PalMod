@@ -71,7 +71,7 @@ CGame_XMVSF_A::CGame_XMVSF_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_XMVSF_A::~CGame_XMVSF_A(void)
+CGame_XMVSF_A::~CGame_XMVSF_A()
 {
     safe_delete_array(CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM);
     ClearDataBuffer();

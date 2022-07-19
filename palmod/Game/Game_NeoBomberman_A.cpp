@@ -71,7 +71,7 @@ CGame_NeoBomberman_A::CGame_NeoBomberman_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_NeoBomberman_A::~CGame_NeoBomberman_A(void)
+CGame_NeoBomberman_A::~CGame_NeoBomberman_A()
 {
     safe_delete_array(CGame_NeoBomberman_A::NeoBomberman_A_EXTRA_CUSTOM);
     ClearDataBuffer();

@@ -39,7 +39,7 @@ private:
 
 public:
     CGame_KOF99AE_A(uint32_t nConfirmedROMSize, int nROMToLoad = 2);
-    ~CGame_KOF99AE_A(void);
+    ~CGame_KOF99AE_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_P2;

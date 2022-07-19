@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_JusticeLeagueTF_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_JusticeLeagueTF_SNES(void);
+    ~CGame_JusticeLeagueTF_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

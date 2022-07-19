@@ -71,7 +71,7 @@ CGame_Gowcaizer_A::CGame_Gowcaizer_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_Gowcaizer_A::~CGame_Gowcaizer_A(void)
+CGame_Gowcaizer_A::~CGame_Gowcaizer_A()
 {
     safe_delete_array(CGame_Gowcaizer_A::Gowcaizer_A_EXTRA_CUSTOM);
     ClearDataBuffer();

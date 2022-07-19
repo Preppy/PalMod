@@ -71,7 +71,7 @@ CGame_KOFXI_A::CGame_KOFXI_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_KOFXI_A::~CGame_KOFXI_A(void)
+CGame_KOFXI_A::~CGame_KOFXI_A()
 {
     safe_delete_array(CGame_KOFXI_A::KOFXI_A_EXTRA_CUSTOM);
     ClearDataBuffer();

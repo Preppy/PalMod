@@ -82,7 +82,7 @@ CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_MVC2_A::~CGame_MVC2_A(void)
+CGame_MVC2_A::~CGame_MVC2_A()
 {
     safe_delete_array(CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM);
     ClearDataBuffer();

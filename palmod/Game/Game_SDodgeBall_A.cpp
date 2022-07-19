@@ -74,7 +74,7 @@ CGame_SDODGEBALL_A::CGame_SDODGEBALL_A(uint32_t nConfirmedROMSize, int nROMToLoa
     PrepChangeTrackingArray();
 }
 
-CGame_SDODGEBALL_A::~CGame_SDODGEBALL_A(void)
+CGame_SDODGEBALL_A::~CGame_SDODGEBALL_A()
 {
     safe_delete_array(CGame_SDODGEBALL_A::SDODGEBALL_A_EXTRA_CUSTOM);
     ClearDataBuffer();

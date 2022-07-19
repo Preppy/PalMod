@@ -226,7 +226,7 @@ CGame_SFA2_A::CGame_SFA2_A(uint32_t nConfirmedROMSize, int nSFA2RomToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_SFA2_A::~CGame_SFA2_A(void)
+CGame_SFA2_A::~CGame_SFA2_A()
 {
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_REV1);
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_REV2);

@@ -25,7 +25,7 @@ private:
 
 public:
     CGame_SAMSHO2_A(uint32_t nConfirmedROMSize);
-    ~CGame_SAMSHO2_A(void);
+    ~CGame_SAMSHO2_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

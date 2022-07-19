@@ -6,7 +6,7 @@ CDescTree::CDescTree(sDescTreeNode* InputTree)
     SetRootTree(InputTree);
 }
 
-CDescTree::~CDescTree(void)
+CDescTree::~CDescTree()
 {
     FlushRootTree();
 }

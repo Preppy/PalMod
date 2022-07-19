@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_SVG_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_SVG_SNES(void);
+    ~CGame_SVG_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

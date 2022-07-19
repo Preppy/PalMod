@@ -37,7 +37,7 @@ class CRegProc
 {
 public:
     CRegProc(eRegistryStoreID nSrcType = eRegistryStoreID::REG_UNKNOWN);
-    ~CRegProc(void);
+    ~CRegProc();
 
     void LoadReg(eRegistryStoreID src);
     void SaveReg(eRegistryStoreID src);

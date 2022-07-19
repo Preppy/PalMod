@@ -37,7 +37,7 @@ private:
 
 public:
     CGame_AOF3_A(uint32_t nConfirmedROMSize, int nROMToLoad = 1);
-    ~CGame_AOF3_A(void);
+    ~CGame_AOF3_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_P1;

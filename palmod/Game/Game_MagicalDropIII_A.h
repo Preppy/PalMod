@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_MAGICALDROPIII_A(uint32_t nConfirmedROMSize);
-    ~CGame_MAGICALDROPIII_A(void);
+    ~CGame_MAGICALDROPIII_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

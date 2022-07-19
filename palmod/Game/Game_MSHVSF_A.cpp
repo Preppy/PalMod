@@ -85,7 +85,7 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(uint32_t nConfirmedROMSize, int nMSHVSFRomToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_MSHVSF_A::~CGame_MSHVSF_A(void)
+CGame_MSHVSF_A::~CGame_MSHVSF_A()
 {
     safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A);
     safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B);

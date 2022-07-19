@@ -88,7 +88,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded
     PrepChangeTrackingArray();
 }
 
-CGame_NEOGEO_A::~CGame_NEOGEO_A(void)
+CGame_NEOGEO_A::~CGame_NEOGEO_A()
 {
     safe_delete_array(CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM);
     ClearDataBuffer();

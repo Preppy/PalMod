@@ -71,7 +71,7 @@ CGame_KOF02PS2_A::CGame_KOF02PS2_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_KOF02PS2_A::~CGame_KOF02PS2_A(void)
+CGame_KOF02PS2_A::~CGame_KOF02PS2_A()
 {
     safe_delete_array(CGame_KOF02PS2_A::KOF02PS2_A_EXTRA_CUSTOM);
     ClearDataBuffer();

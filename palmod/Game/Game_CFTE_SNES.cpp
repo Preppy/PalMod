@@ -70,7 +70,7 @@ CGame_CFTE_SNES::CGame_CFTE_SNES(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_CFTE_SNES::~CGame_CFTE_SNES(void)
+CGame_CFTE_SNES::~CGame_CFTE_SNES()
 {
     safe_delete_array(CGame_CFTE_SNES::CFTE_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

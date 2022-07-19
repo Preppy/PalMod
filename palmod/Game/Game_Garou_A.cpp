@@ -71,7 +71,7 @@ CGame_Garou_A::CGame_Garou_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_Garou_A::~CGame_Garou_A(void)
+CGame_Garou_A::~CGame_Garou_A()
 {
     safe_delete_array(CGame_Garou_A::Garou_A_EXTRA_CUSTOM);
     ClearDataBuffer();

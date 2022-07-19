@@ -73,7 +73,7 @@ CGame_SSF2T_GBA::CGame_SSF2T_GBA(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_SSF2T_GBA::~CGame_SSF2T_GBA(void)
+CGame_SSF2T_GBA::~CGame_SSF2T_GBA()
 {
     safe_delete_array(CGame_SSF2T_GBA::SSF2T_GBA_EXTRA_CUSTOM);
     //Get rid of the file changed flag

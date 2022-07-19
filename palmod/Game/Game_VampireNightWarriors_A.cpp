@@ -68,7 +68,7 @@ CGame_VampireNightWarriors_A::CGame_VampireNightWarriors_A(uint32_t nConfirmedRO
     PrepChangeTrackingArray();
 }
 
-CGame_VampireNightWarriors_A::~CGame_VampireNightWarriors_A(void)
+CGame_VampireNightWarriors_A::~CGame_VampireNightWarriors_A()
 {
     safe_delete_array(CGame_VampireNightWarriors_A::VampireNightWarriors_A_EXTRA_CUSTOM);
     ClearDataBuffer();

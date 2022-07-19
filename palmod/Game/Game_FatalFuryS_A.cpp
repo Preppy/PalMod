@@ -71,7 +71,7 @@ CGame_FatalFuryS_A::CGame_FatalFuryS_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_FatalFuryS_A::~CGame_FatalFuryS_A(void)
+CGame_FatalFuryS_A::~CGame_FatalFuryS_A()
 {
     safe_delete_array(CGame_FatalFuryS_A::FatalFuryS_A_EXTRA_CUSTOM);
     ClearDataBuffer();

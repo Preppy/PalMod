@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_XMVSF_A(uint32_t nConfirmedROMSize);
-    ~CGame_XMVSF_A(void);
+    ~CGame_XMVSF_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

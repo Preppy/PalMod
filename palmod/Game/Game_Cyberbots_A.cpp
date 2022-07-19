@@ -119,7 +119,7 @@ void CGame_Cyberbots_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_Cyberbots_A::InitDescTree());
 }
 
-CGame_Cyberbots_A::~CGame_Cyberbots_A(void)
+CGame_Cyberbots_A::~CGame_Cyberbots_A()
 {
     safe_delete_array(CGame_Cyberbots_A::Cyberbots_A_EXTRA_CUSTOM);
     ClearDataBuffer();

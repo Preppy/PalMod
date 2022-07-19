@@ -77,7 +77,7 @@ void CGame_UMK3_DS::InitializeStatics()
     MainDescTree.SetRootTree(CGame_UMK3_DS::InitDescTree());
 }
 
-CGame_UMK3_DS::~CGame_UMK3_DS(void)
+CGame_UMK3_DS::~CGame_UMK3_DS()
 {
     safe_delete_array(CGame_UMK3_DS::UMK3_DS_EXTRA_CUSTOM);
     ClearDataBuffer();

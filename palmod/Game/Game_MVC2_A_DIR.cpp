@@ -23,7 +23,7 @@ CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(uint32_t nConfirmedROMSize) :
     PrepChangeTrackingArray();
 }
 
-CGame_MVC2_A_DIR::~CGame_MVC2_A_DIR(void)
+CGame_MVC2_A_DIR::~CGame_MVC2_A_DIR()
 {
     FlushChangeTrackingArray();
 }

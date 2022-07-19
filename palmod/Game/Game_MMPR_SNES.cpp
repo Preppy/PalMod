@@ -70,7 +70,7 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_MMPR_SNES::~CGame_MMPR_SNES(void)
+CGame_MMPR_SNES::~CGame_MMPR_SNES()
 {
     safe_delete_array(CGame_MMPR_SNES::MMPR_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

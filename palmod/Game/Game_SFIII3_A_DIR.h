@@ -27,7 +27,7 @@ private:
 
 public:
     CGame_SFIII3_A_DIR(uint32_t nConfirmedROMSize = -1, int nSF3ModeToLoad = 51);
-    ~CGame_SFIII3_A_DIR(void);
+    ~CGame_SFIII3_A_DIR();
 
     const uint32_t c_nSFIII3SIMMLength = 0x200000;
 

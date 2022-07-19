@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_MK2_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_MK2_SNES(void);
+    ~CGame_MK2_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

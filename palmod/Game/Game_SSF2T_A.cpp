@@ -121,7 +121,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(uint32_t nConfirmedROMSize, int nSSF2TRomToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_SSF2T_A::~CGame_SSF2T_A(void)
+CGame_SSF2T_A::~CGame_SSF2T_A()
 {
     safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_3C);
     safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_4A);

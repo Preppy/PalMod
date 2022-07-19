@@ -24,7 +24,7 @@ private:
 
 public:
     CGame_SFZ3U_A(uint32_t nConfirmedROMSize);
-    ~CGame_SFZ3U_A(void);
+    ~CGame_SFZ3U_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

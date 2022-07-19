@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_KarnovsR_A(uint32_t nConfirmedROMSize);
-    ~CGame_KarnovsR_A(void);
+    ~CGame_KarnovsR_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

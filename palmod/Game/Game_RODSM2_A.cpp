@@ -71,7 +71,7 @@ CGame_RODSM2_A::CGame_RODSM2_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_RODSM2_A::~CGame_RODSM2_A(void)
+CGame_RODSM2_A::~CGame_RODSM2_A()
 {
     safe_delete_array(CGame_RODSM2_A::RODSM2_A_EXTRA_CUSTOM);
     ClearDataBuffer();

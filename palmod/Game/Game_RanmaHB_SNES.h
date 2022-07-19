@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_RANMAHB_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_RANMAHB_SNES(void);
+    ~CGame_RANMAHB_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -90,7 +90,7 @@ void CGame_GGDS_NDS::InitializeStatics()
     MainDescTree.SetRootTree(CGame_GGDS_NDS::InitDescTree());
 }
 
-CGame_GGDS_NDS::~CGame_GGDS_NDS(void)
+CGame_GGDS_NDS::~CGame_GGDS_NDS()
 {
     safe_delete_array(CGame_GGDS_NDS::GGDS_NDS_EXTRA_CUSTOM);
     ClearDataBuffer();

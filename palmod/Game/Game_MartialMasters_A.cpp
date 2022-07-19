@@ -83,7 +83,7 @@ CGame_MartialMasters_A::CGame_MartialMasters_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_MartialMasters_A::~CGame_MartialMasters_A(void)
+CGame_MartialMasters_A::~CGame_MartialMasters_A()
 {
     safe_delete_array(CGame_MartialMasters_A::MartialMasters_A_EXTRA_CUSTOM);
     ClearDataBuffer();

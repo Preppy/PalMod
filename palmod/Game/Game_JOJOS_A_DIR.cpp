@@ -34,7 +34,7 @@ CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR(uint32_t nConfirmedROMSize, int nJojosModeT
     PrepChangeTrackingArray();
 }
 
-CGame_JOJOS_A_DIR::~CGame_JOJOS_A_DIR(void)
+CGame_JOJOS_A_DIR::~CGame_JOJOS_A_DIR()
 {
     FlushChangeTrackingArray();
 }

@@ -83,7 +83,7 @@ CGame_KOF97_A::CGame_KOF97_A(uint32_t nConfirmedROMSize, SupportedGamesList nROM
     PrepChangeTrackingArray();
 }
 
-CGame_KOF97_A::~CGame_KOF97_A(void)
+CGame_KOF97_A::~CGame_KOF97_A()
 {
     safe_delete_array(CGame_KOF97_A::KOF97_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_KOF97_A::KOF97AE_A_EXTRA_CUSTOM);

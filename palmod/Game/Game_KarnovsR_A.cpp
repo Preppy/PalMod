@@ -70,7 +70,7 @@ CGame_KarnovsR_A::CGame_KarnovsR_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_KarnovsR_A::~CGame_KarnovsR_A(void)
+CGame_KarnovsR_A::~CGame_KarnovsR_A()
 {
     safe_delete_array(CGame_KarnovsR_A::KarnovsR_A_EXTRA_CUSTOM);
     ClearDataBuffer();

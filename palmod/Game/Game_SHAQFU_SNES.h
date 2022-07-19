@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_SHAQFU_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_SHAQFU_SNES(void);
+    ~CGame_SHAQFU_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

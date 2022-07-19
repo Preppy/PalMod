@@ -34,7 +34,7 @@ CRegProc::CRegProc(eRegistryStoreID nSrcType)
     }
 }
 
-CRegProc::~CRegProc(void)
+CRegProc::~CRegProc()
 {
 }
 

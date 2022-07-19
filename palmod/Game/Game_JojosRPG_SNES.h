@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_JOJOSRPG_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_JOJOSRPG_SNES(void);
+    ~CGame_JOJOSRPG_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_DBZEB_DS(uint32_t nConfirmedROMSize);
-    ~CGame_DBZEB_DS(void);
+    ~CGame_DBZEB_DS();
 
     //Static functions / variables
     static CDescTree MainDescTree;

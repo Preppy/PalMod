@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_LASTBLADE2_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad /*= LASTBLADE2_A */);
-    ~CGame_LASTBLADE2_A(void);
+    ~CGame_LASTBLADE2_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

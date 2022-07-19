@@ -36,7 +36,7 @@ public:
 
 public:
     CGame_VENTURE_A(uint32_t nConfirmedROMSize = -1, int nVentureModeToLoad = 50);
-    ~CGame_VENTURE_A(void);
+    ~CGame_VENTURE_A();
 
     //Static functions / variables
     static CDescTree MainDescTree_31;

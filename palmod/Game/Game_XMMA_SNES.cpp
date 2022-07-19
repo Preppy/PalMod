@@ -80,7 +80,7 @@ void CGame_XMMA_SNES::InitializeStatics()
     MainDescTree.SetRootTree(CGame_XMMA_SNES::InitDescTree());
 }
 
-CGame_XMMA_SNES::~CGame_XMMA_SNES(void)
+CGame_XMMA_SNES::~CGame_XMMA_SNES()
 {
     safe_delete_array(CGame_XMMA_SNES::XMMA_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();

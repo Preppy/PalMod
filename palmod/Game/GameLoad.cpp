@@ -179,11 +179,11 @@ void StruprRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput)
     StrRemoveNonASCII(pszOutput, ccSize, pszInput, true);
 }
 
-CGameLoad::CGameLoad(void)
+CGameLoad::CGameLoad()
 {
 }
 
-CGameLoad::~CGameLoad(void)
+CGameLoad::~CGameLoad()
 {
 }
 

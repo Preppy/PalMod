@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_MartialMasters_A(uint32_t nConfirmedROMSize);
-    ~CGame_MartialMasters_A(void);
+    ~CGame_MartialMasters_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

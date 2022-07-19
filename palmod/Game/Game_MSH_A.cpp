@@ -88,7 +88,7 @@ CGame_MSH_A::CGame_MSH_A(uint32_t nConfirmedROMSize, int nMSHRomToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_MSH_A::~CGame_MSH_A(void)
+CGame_MSH_A::~CGame_MSH_A()
 {
     safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM_05);
     safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM_06);

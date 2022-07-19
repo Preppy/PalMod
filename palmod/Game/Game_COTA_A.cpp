@@ -67,7 +67,7 @@ CGame_COTA_A::CGame_COTA_A(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_COTA_A::~CGame_COTA_A(void)
+CGame_COTA_A::~CGame_COTA_A()
 {
     safe_delete_array(CGame_COTA_A::COTA_A_EXTRA_CUSTOM);
     ClearDataBuffer();

@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_RODSM2_A(uint32_t nConfirmedROMSize);
-    ~CGame_RODSM2_A(void);
+    ~CGame_RODSM2_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

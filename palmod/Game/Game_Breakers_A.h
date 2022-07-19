@@ -24,7 +24,7 @@ private:
 
 public:
     CGame_BREAKERS_A(uint32_t nConfirmedROMSize);
-    ~CGame_BREAKERS_A(void);
+    ~CGame_BREAKERS_A();
 
     //Static functions / variables
     static CDescTree MainDescTree;

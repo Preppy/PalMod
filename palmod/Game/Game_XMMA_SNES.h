@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_XMMA_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_XMMA_SNES(void);
+    ~CGame_XMMA_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;

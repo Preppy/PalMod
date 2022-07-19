@@ -23,7 +23,7 @@ private:
 
 public:
     CGame_FatalFuryS_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_FatalFuryS_SNES(void);
+    ~CGame_FatalFuryS_SNES();
 
     //Static functions / variables
     static CDescTree MainDescTree;
