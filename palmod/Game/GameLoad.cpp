@@ -1072,6 +1072,9 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
 CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int nExtraGameData /* = 0 */, LPCWSTR pszFilePath /* = nullptr */)
 {
+    // IPS uses 24-bit values, so max patchable size is 16,777,215 bytes
+    CGameClass::GameSizeAllowsIPSPatching(nConfirmedROMSize < 0xffffff);
+
     switch (nGameFlag)
     {
     case AOF1_A:

@@ -7,8 +7,8 @@
 
 BOOL CGameClass::m_ShouldUsePostSetPalProc = TRUE;
 BOOL CGameClass::m_fAllowTransparencyEdits = FALSE;
+bool CGameClass::m_fGameSizeAllowsIPSPatching = true;
 uint8_t CGameClass::m_nSizeOfColorsInBytes = 2;
-
 #define GAMECLASS_DBG DEFAULT_GAME_DEBUG_STATE
 
 CGameClass::CGameClass()
@@ -912,6 +912,19 @@ BOOL CGameClass::WasGameFileChangedInSession()
     }
 
     return fSomethingChanged;
+}
+
+bool CGameClass::AllowIPSPatchGeneration()
+{
+    if ((!m_fIsDirectoryBasedGame || m_fAllowIPSPatching) &&
+        m_fGameSizeAllowsIPSPatching)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void CGameClass::PrepChangeTrackingArray()

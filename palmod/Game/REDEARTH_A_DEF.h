@@ -279,6 +279,7 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
     { L"Tessa Punch Ultimate Guard Wall and Lever", 0x40EB00, 0x40EB80, indexRedEarthSprites_Tessa, 0x1b },
     { L"Tessa Punch Ultimate Guard Batteries", 0x40EE00, 0x40EE80, indexRedEarthSprites_Tessa, 0x01a },
 
+    { L"Cursed Penguin Tessa", 0x40f280, 0x40f300 },
 
     { L"Tessa Punch Ultimate Guard Flash and Burn 1", 0x410E00, 0x410E80, indexRedEarthSprites_Tessa, 0 },
     { L"Tessa Punch Burn 2", 0x410E80, 0x410F00, indexRedEarthSprites_Tessa, 0 },
@@ -351,6 +352,8 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
     { L"Tessa Kick GC/Grab/Pursuit Lever", 0x40F100 + 0xc800, 0x40F180 + 0xc800, indexRedEarthSprites_Tessa, 0x09 },
     { L"Tessa Kick Ultimate Guard Wall and Lever", 0x40EB00 + 0xc800, 0x40EB80 + 0xc800, indexRedEarthSprites_Tessa, 0x1b },
     { L"Tessa Kick Ultimate Guard Batteries", 0x40EE00 + 0xc800, 0x40EE80 + 0xc800, indexRedEarthSprites_Tessa, 0x01a },
+
+    { L"Cursed Penguin Tessa", 0x41ba80, 0x41bb00 },
 
     { L"Tessa Kick Ultimate Guard Flash and Burn 1", 0x41D600, 0x41D680, indexRedEarthSprites_Tessa, 0 },
     { L"Tessa Kick Burn 2", 0x41D680, 0x41D700, indexRedEarthSprites_Tessa, 0 },
@@ -1076,6 +1079,8 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Mai-Ling ", 0x322aa0, 0x322b20, indexRedEarthSprites_Bonus, 0x1c },
     { L"Intro - Kenji background", 0x322a60, 0x322aa0, indexRedEarthSprites_Bonus, 0x1a },
     { L"Intro - Kenji", 0x322b20, 0x322ba0 },
+    { L"Intro - Mai-Ling Frame", 0x322ba0, 0x322c20 },
+    { L"Intro - Kenji Frame", 0x322c20, 0x322ca0 },
     { L"Intro - Tessa 1", 0x323720, 0x3237a0, indexRedEarthSprites_Tessa, 0x23 },
     { L"Intro - Tessa 2", 0x3237a0, 0x323820, indexRedEarthSprites_Tessa, 0x23 },
     { L"Intro - Tessa 3", 0x323820, 0x3238a0, indexRedEarthSprites_Tessa, 0x23 },
@@ -1478,6 +1483,8 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
 
     { L"Kenji Chains, Kunai?", 0x40fb00, 0x40fb80, indexRedEarthSprites_Kenji, 0x01 },
     { L"Kenji Chains, Kunai??", 0x41c300, 0x41c380, indexRedEarthSprites_Kenji, 0x01 },
+
+    { L"Gi Gi Unused Summon", 0x431680, 0x431700 },
 };
 
 //Playable Characters

@@ -2500,10 +2500,10 @@ const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_HAYATO =
     { 0x11, L"Not Used" },
     { 0x12, L"Not Used" },
     { 0x13, L"Not Used" },
-    { 0x14, L"Winpose - Saturn" },
+    { 0x14, L"Winpose - Elle" },
     { 0x15, L"Winpose - Jun" },
     { 0x16, L"Winpose - Jun' Ring" },
-    { 0x17, L"Winpose - Elle" },
+    { 0x17, L"Winpose - Saturn" },
 };
 
 const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_RUBYHEART =

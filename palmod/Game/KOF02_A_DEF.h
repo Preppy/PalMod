@@ -4228,7 +4228,12 @@ const sGame_PaletteDataset KOF02_A_BONUS_INTRO_PALETTES[] =
 {
     { L"Chang Intro (1/?)", 0xbf142, 0xbf162 },
     { L"Athena Background", 0xbf2a2, 0xbf2c2 },
-    { L"Ryo, Robert, Takuma Intro (1/?)", 0xbf182, 0xbf1e2 },
+    { L"Ryo Intro (1/2)", 0xbf182, 0xbf1a2 },
+    { L"Ryo Intro (2/2)", 0xbf582, 0xbf5a2 },
+    { L"Robert Intro (1/2)", 0xbf1a2, 0xbf1c2 },
+    { L"Robert Intro (2/2)", 0xbf5a2, 0xbf5c2 },
+    { L"Takuma Intro (1/2)", 0xbf1c2, 0xbf1e2 },
+    { L"Takuma Intro (2/2)", 0xbf5c2, 0xbf5e2 },
     { L"Mature/Vice, Benimaru/Daimon Background", 0xbf302, 0xbf322 },
     { L"K' Intro (1/2)", 0xbefc2, 0xbefe2 },
     { L"K' Intro (2/2)", 0xbf3c2, 0xbf3e2 },
@@ -4254,6 +4259,19 @@ const sGame_PaletteDataset KOF02_A_BONUS_INTRO_PALETTES[] =
     { L"Choi Intro (2/2)", 0xbf502, 0xbf522 },
     { L"May Lee Intro (1/2)", 0xbf122, 0xbf142 },
     { L"May Lee Intro (2/2)", 0xbf522, 0xbf542 },
+    { L"Athena Intro", 0xbed62, 0xbedc2 },
+    { L"K9999 Intro", 0xbedc2, 0xbee02 },
+    { L"Kula Intro", 0xbee02, 0xbee42 },
+    { L"Angel Intro", 0xbee42, 0xbee82 },
+    { L"Iori Intro (1/2)", 0xbee82, 0xbeec2 },
+    { L"Kyo Intro (1/2)", 0xbeec2, 0xbef02 },
+    { L"Iori Intro (2/2)", 0xbef02, 0xbef42 },
+    { L"Kyo Intro (2/2)", 0xbef42, 0xbef82 },
+    { L"Chang Intro (2/2)", 0xbf342, 0xbf362 },
+    { L"Intro Explosion", 0xbef82, 0xbefa2 },
+    { L"Intro Fire BG (1/2)", 0xbf202, 0xbf222 },
+    { L"Intro Glass Shatter", 0xbf222, 0xbf262 },
+    { L"Intro Fire BG (2/2)", 0xbf2c2, 0xbf2e2 },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
@@ -4262,6 +4280,8 @@ const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
     { L"Order Select (Single Play)", 0xb5f62, 0xb6002 },
     { L"\"THE KING OF FIGHTERS\" Intro Text", 0xbf162, 0xbf182 },
     { L"Playmore Logo", 0xbf282, 0xbf2a2 },
+    { L"Combo Meter", 0x86c82, 0x86ca2 },
+    { L"Credits Counter", 0x86b82, 0x86ba2 },
 };
 
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =

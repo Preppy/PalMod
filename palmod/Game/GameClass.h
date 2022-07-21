@@ -73,6 +73,7 @@ protected:
     int nHybridSz = 0;
 
     static BOOL m_fAllowTransparencyEdits;
+    static bool m_fGameSizeAllowsIPSPatching;
 
     enum PALOptionValues
     {
@@ -215,7 +216,7 @@ public:
     void SetIsDir(BOOL fNewIsDir = TRUE) { m_fIsDirectoryBasedGame = fNewIsDir; };
     BOOL GetIsDir() { return m_fIsDirectoryBasedGame; };
     BOOL GetGameMapsUnitsToFiles() { return m_fGameUnitsMapToIndividualFiles; };
-    bool AllowIPSPatchGeneration() { return !m_fIsDirectoryBasedGame || m_fAllowIPSPatching; };
+    bool AllowIPSPatchGeneration();
 
     int GetPlaneAmt(ColFlag Flag);
 
@@ -238,6 +239,7 @@ public:
     static void AllowTransparencyEdits(BOOL fAllow) { m_fAllowTransparencyEdits = fAllow; };
     static BOOL AllowTransparencyEdits() { return m_fAllowTransparencyEdits; };
     BOOL AllowTransparency() { return m_fAllowTransparencyEdits && m_fGameUsesAlphaValue; };
+    static void GameSizeAllowsIPSPatching(bool fAllow) { m_fGameSizeAllowsIPSPatching = fAllow; };
 
     //Public virtual
     virtual CDescTree* GetMainTree() = 0;

@@ -2631,10 +2631,10 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_EXTRAS[] =
     { L"11: Not Used", 0x36f0f40, 0x36f0f60 },
     { L"12: Not Used", 0x36f0f60, 0x36f0f80 },
     { L"13: Not Used", 0x36f0f80, 0x36f0fa0 },
-    { L"14: Winpose - Saturn", 0x36f0fa0, 0x36f0fc0 },
+    { L"14: Winpose - Elle", 0x36f0fa0, 0x36f0fc0 },
     { L"15: Winpose - Jun", 0x36f0fc0, 0x36f0fe0 },
     { L"16: Winpose - Jun' Ring", 0x36f0fe0, 0x36f1000 },
-    { L"17: Winpose - Elle", 0x36f1000, 0x36f1020 },
+    { L"17: Winpose - Saturn", 0x36f1000, 0x36f1020 },
 };
 
 const sDescTreeNode MVC2_A_HAYATO_COLLECTION[] =
