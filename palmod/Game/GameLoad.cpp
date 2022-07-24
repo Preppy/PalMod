@@ -1266,7 +1266,9 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case KOF97_A:
     case KOF97AE_A:
     case KOF97GM_S:
+    {
         return new CGame_KOF97_A(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
+    }
     case KOF98_A:
     {
         return new CGame_KOF98_A(nConfirmedROMSize);

@@ -691,7 +691,7 @@ const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
     { L"Lion attack 2", 0x42e880, 0x42e900, indexRedEarthSprites_Ravange },
     { L"Lion attack 3", 0x42e900, 0x42e980, indexRedEarthSprites_Ravange },
     { L"Lion attack 4", 0x42e980, 0x42ea00 },
-    { L"Clara Tantra", 0x42f2c0, 0x42f340, indexRedEarthSprites_Ravange, 0x0a },
+    { L"Clara Tantra",  0x42f300, 0x42f380, indexRedEarthSprites_Ravange, 0x0a },
     { L"Clara Flashing 1", 0x42f380, 0x42f400, indexRedEarthSprites_Ravange, 0x08 },
     { L"Clara Flashing 2", 0x42f400, 0x42f480, indexRedEarthSprites_Ravange, 0x08 },
     { L"Clara Flashing 3", 0x42f480, 0x42f500, indexRedEarthSprites_Ravange, 0x08 },

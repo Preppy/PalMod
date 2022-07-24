@@ -20,9 +20,9 @@ public:
     //Img Data
     CImgDumpBmp m_DumpBmp;
 
-    int img_amt = 0;
+    int m_iSelectedImageAmount = 0;
 
-    RECT rct_dummy = {};
+    RECT m_rcDummyRect = {};
 
 protected:
     HICON m_hIcon;
@@ -74,8 +74,6 @@ public:
     afx_msg void OnSettingsSetBackgroundColor();
     afx_msg void OnFileSave();
     afx_msg void OnClose();
-
-    int re5(int re_val) { return re_val % 5; };
 
     void LoadSettings();
     void SaveSettings();

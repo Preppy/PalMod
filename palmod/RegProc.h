@@ -64,6 +64,9 @@ public:
     static int GetUserSavePaletteToMemoryPreference();
     static void SetUserSavePaletteToMemoryPreference(int nPreference);
 
+    static int GetImageAmountForPalettePreview(int nMaxAmount);
+    static void SetImageAmountForPalettePreview(int nMaxAmount, int nPreferredAmount);
+
     static void SetExtraFileLoadingCanary(LPCWSTR pszExtraFileName, DWORD nExtraFileSize);
     static bool WasExtraFileCanaryKilledLastTime(LPCWSTR pszExtraFileName, DWORD nExtraFileSize);
     static void ClearExtraFileLoadingCanary(LPCWSTR pszExtraFileName);

@@ -21,6 +21,7 @@ constexpr auto c_prevClickToFind = L"PreviewClickToFind";
 constexpr auto c_exportOFNValueName = L"pref_FavoriteExportIndex";
 constexpr auto c_exportBBCFOFNValueName = L"pref_FavoriteExportIndexWithBBCF";
 constexpr auto c_exportImageOFNValueName = L"pref_FavoriteImageExportIndex";
+constexpr auto c_nPrefImageExportForNumber = L"imgout_PrefPrevCount_%u";
 
 extern int GetDpiForScreen();
 
@@ -75,6 +76,51 @@ int CRegProc::GetUserSavePaletteToMemoryPreference()
     }
 
     return nShouldAutoSavePalettesToMemory;
+}
+
+int CRegProc::GetImageAmountForPalettePreview(int nMaxAmount)
+{
+    HKEY hKey;
+    int nPreferredAmount = 0;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        DWORD dwValue = 0;
+        DWORD RegType = REG_DWORD;
+        DWORD GetSz = sizeof(DWORD);
+
+        CString strText;
+        strText.Format(c_nPrefImageExportForNumber, nMaxAmount);
+
+        if (RegQueryValueEx(hKey, strText.GetString(), 0, &RegType, (BYTE*)&dwValue, &GetSz) != ERROR_SUCCESS)
+        {
+            nPreferredAmount = 0;
+        }
+        else
+        {
+            nPreferredAmount = (int)dwValue;
+        }
+
+        RegCloseKey(hKey);
+    }
+
+    return nPreferredAmount;
+}
+
+void CRegProc::SetImageAmountForPalettePreview(int nMaxAmount, int nPreferredAmount)
+{
+    HKEY hKey;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        CString strText;
+        strText.Format(c_nPrefImageExportForNumber, nMaxAmount);
+
+        RegSetValueEx(hKey, strText.GetString(), 0, REG_DWORD, (BYTE*)&nPreferredAmount, sizeof(DWORD));
+        RegCloseKey(hKey);
+    }
 }
 
 void CRegProc::SetAlphaModeForUnknownGame(AlphaMode alphaMode)

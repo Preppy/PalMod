@@ -185,13 +185,13 @@ BOOL CImgOutDlg::OnInitDialog()
     }
 
     //Change this if we ever decide to load a default image amount
-    img_amt = 1;
+    m_iSelectedImageAmount = 1;
 
     m_BdrSpn.SetRange(0, 999);
     m_BdrSpn.SetBuddy(GetDlgItem(IDC_EDIT_BDRSZ));
 
     //Get the size of the dummy rect so that we offset the preview bitmap correctly
-    GetDlgItem(IDC_DUMMY)->GetClientRect(&rct_dummy);
+    GetDlgItem(IDC_DUMMY)->GetClientRect(&m_rcDummyRect);
 
     LoadSettings();
 
@@ -293,8 +293,13 @@ void CImgOutDlg::OnShowWindow(BOOL fShow, UINT nStatus)
 {
     CDialog::OnShowWindow(fShow, nStatus);
 
-    m_CB_Amt.SetCurSel(0);
+    CRegProc sett;
+
+    int nPreferredAmount = sett.GetImageAmountForPalettePreview(m_nPalAmt);
+    m_CB_Amt.SetCurSel(nPreferredAmount);
     m_CB_Pal.SetCurSel(0);
+
+    OnCbnSelchangeAmt();
 
     ResizeBmp();
 }
@@ -303,7 +308,7 @@ void CImgOutDlg::UpdImgVar(BOOL fResize)
 {
     UpdateData();
 
-    m_DumpBmp.m_nTotalImagesToDisplay = img_amt;
+    m_DumpBmp.m_nTotalImagesToDisplay = m_iSelectedImageAmount;
     m_DumpBmp.m_nPalIndex = m_pal;
 
     m_zoomSelIndex = min(m_zoomSelIndex, (int)CPalModZoom::GetZoomListSize());
@@ -341,9 +346,9 @@ void CImgOutDlg::OnCbnSelchangeAmt()
     wchar_t szCount[32];
     if (m_CB_Amt.GetLBText(m_CB_Amt.GetCurSel(), szCount) != CB_ERR)
     {
-        _stscanf_s(szCount, L"%u", &img_amt);
+        _stscanf_s(szCount, L"%u", &m_iSelectedImageAmount);
 
-        m_CB_Pal.EnableWindow(img_amt == 1);
+        m_CB_Pal.EnableWindow(m_iSelectedImageAmount == 1);
 
         //There's no member variable for the border size edit box
         //But now I decided to just use border size instead of outline
@@ -413,7 +418,7 @@ void CImgOutDlg::LoadSettings()
     m_DumpBmp.m_crBGCol = sett.imgout_bgcol;
 
     m_CB_Zoom.SetCurSel(sett.imgout_zoomindex);
-
+    
     UpdateData();
 
     m_fTransPNG = sett.fTransPNG;
@@ -446,6 +451,8 @@ void CImgOutDlg::SaveSettings()
     GetWindowRect(&window_rect);
     sett.imgout_szpos = window_rect;
 
+    sett.SetImageAmountForPalettePreview(m_nPalAmt, m_CB_Amt.GetCurSel());
+
     sett.SaveReg(eRegistryStoreID::REG_IMGOUT);
 }
 
@@ -456,7 +463,7 @@ void CImgOutDlg::ResizeBmp()
         RECT new_sz;
         GetClientRect(&new_sz);
 
-        new_sz.left += rct_dummy.right;
+        new_sz.left += m_rcDummyRect.right;
 
         GetDlgItem(IDC_IMGDBMP)->MoveWindow(&new_sz);
 
