@@ -237,7 +237,8 @@ void CSecondaryPaletteProcessing::ProcessAdditionalPaletteChangesRequired(const 
         // Some variant of SUPP_NODE or SUPP_NODE_* indicates the beginning of a new modifier array
             //Possible sources = SUPP_NODE, SUPP_NODE_EX, SUPP_NODE_ABSOL, SUPP_NODE_EX | SUPP_NODE_NOCOPY, SUPP_NODE_EX | SUPP_NODE_ABSOL
         // The _EX syntax is unique to MVC2 where MVC2 crosses nodes from core button colors to the shared extra nodes.
-        while (currentEffectsToken & SUPP_NODE)
+        while ((currentEffectsToken & SUPP_NODE) &&
+               (indexCounterForEffects < currentEffectsData.size())) // allow an otherwise empty SUPP: the first tokenized bit will simply copy the source palette to dest
         {
             OutputDebugString(L"\tProcessAdditionalPaletteChangesRequired: New modification node encountered\n");
 
