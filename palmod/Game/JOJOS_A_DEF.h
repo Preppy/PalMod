@@ -18,51 +18,6 @@
 // JoJo_Story - ScaredKakyoin || 0x1F - 0x02
 // JoJo_Story - ShadowDIOStanding || 0x1F - 0x3
 
-const wchar_t JOJOS_A_UNITDESC_50[][32] =
-{
-    L"HUD",           // JOJOS_A_50_HUD_COLLECTION
-    L"HUD Portraits", // JOJOS_A_50_HUD_PORTRAIT_COLLECTION
-    L"Stages",        // JOJOS_A_50_STAGE_COLLECTION
-};
-
-const wchar_t JOJOS_A_UNITDESC_51[][32] =
-{
-    L"Jotaro", // JOJOS_A_CHARACTER_COLLECTION_JOTARO
-    L"Kakyoin", // JOJOS_A_CHARACTER_COLLECTION_HIEROPHANT
-    L"Avdol", // JOJOS_A_CHARACTER_COLLECTION_AVDOL
-    L"Polnareff", // JOJOS_A_CHARACTER_COLLECTION_POL
-    L"Joseph", // JOJOS_A_CHARACTER_COLLECTION_JOSEPH
-    L"Iggy", // JOJOS_A_CHARACTER_COLLECTION_IGGY
-    L"Alessi", // JOJOS_A_CHARACTER_COLLECTION_ALESSI
-    L"Chaka", // JOJOS_A_CHARACTER_COLLECTION_CHAKA
-    L"Devo", // JOJOS_A_CHARACTER_COLLECTION_DEVOEBONY
-    L"Midler", // JOJOS_A_CHARACTER_COLLECTION_MIDLER
-    L"DIO", // JOJOS_A_CHARACTER_COLLECTION_DIO
-    L"Shadow Dio", // JOJOS_A_CHARACTER_COLLECTION_SDIO
-    L"Young Joseph", // JOJOS_A_CHARACTER_COLLECTION_YJOSEPH
-    L"Hol Horse", // JOJOS_A_CHARACTER_COLLECTION_HOL
-    L"Vanilla Ice", // JOJOS_A_CHARACTER_COLLECTION_VICE
-    L"New Kakyoin", // JOJOS_A_CHARACTER_COLLECTION_HIERO
-    L"Anubis Polnareff", // JOJOS_A_CHARACTER_COLLECTION_BPOL
-    L"Petshop", // JOJOS_A_CHARACTER_COLLECTION_SHOP
-    L"Mariah", // JOJOS_A_CHARACTER_COLLECTION_MARIAH
-    L"Hol Horse & Boingo", // JOJOS_A_CHARACTER_COLLECTION_HOLBOINGO
-    L"Rubber Soul", // JOJOS_A_CHARACTER_COLLECTION_RSOUL
-    L"Khan", // JOJOS_A_CHARACTER_COLLECTION_KHAN
-    L"N'Doul and Geb", // JOJOS_A_CHARACTER_COLLECTION_NDOUL
-    L"Boss Ice", // JOJOS_A_CHARACTER_COLLECTION_BICE
-    L"Death 13", // JOJOS_A_CHARACTER_COLLECTION_DEATH13
-    L"Unimplemented: Gray Fly", // JOJOS_A_CHARACTER_COLLECTION_GRAYFLY
-    L"Timestop", // JOJOS_TIMESTOP_COLLECTION
-    L"Bonus Palettes", // JOJOS_A_BONUS_COLLECTION
-};
-
-constexpr auto JOJOS_A_NUMUNIT_50 = ARRAYSIZE(JOJOS_A_UNITDESC_50);
-constexpr auto JOJOS_A_NUMUNIT_51 = ARRAYSIZE(JOJOS_A_UNITDESC_51);
-
-constexpr auto JOJOS_A_EXTRALOC_50 = JOJOS_A_NUMUNIT_50;
-constexpr auto JOJOS_A_EXTRALOC_51 = JOJOS_A_NUMUNIT_51;
-
 const std::vector<uint16_t> JOJOS_A_IMGIDS_USED =
 {
     indexJojos51Jotaro,
@@ -3920,17 +3875,151 @@ const sDescTreeNode JOJOS_TIMESTOP_COLLECTION[] =
 
 #pragma endregion Timestop
 
-const sDescTreeNode JOJOS_UNITS_50[ARRAYSIZE(JOJOS_A_UNITDESC_50)] =
+#pragma region StoryMode
+
+const sGame_PaletteDataset JOJOS_A_JOTARO_STORY_PALETTES[] =
+{
+    { L"Imprisoned Jotaro", 0x02e8400, 0x02e8500 },
+    { L"Lockdown Staredown", 0x2ec000, 0x2ec080 },
+    { L"Jotaro Staring at DIO (Unused)", 0x2fb580, 0x2fb600 }
+};
+
+const sGame_PaletteDataset JOJOS_A_KAKYOIN_STORY_PALETTES[] =
+{
+    { L"Scared Kakyoin", 0x02e9b00, 0x02e9b80 },
+    { L"Shadow Dio Smirk", 0x02e9b80, 0x02e9c00 },
+    { L"Fleshbud Scene", 0x02e9e00, 0x02ea000 },
+    { L"Fleshbud Scene (Background)", 0x02ea000, 0x2ea020 },
+    { L"Kakyoin 20M Emerald Splash", 0x2ea080, 0x2ea100 },
+};
+
+const sGame_PaletteDataset JOJOS_A_AVDOL_STORY_PALETTES[] =
+{
+    { L"Imprisoned Jotaro", 0x2ebf00, 0x2ec000 },
+    { L"Avdol Airport Cutscene Portrait", 0x2ec200, 0x2ec280 },
+    { L"Holly and Joseph Airport Cutscene", 0x2ec100, 0x2ec180 },
+    { L"Holly and Joseph Airport Cutscene BG", 0x2ec180, 0x2ec200 },
+};
+
+// nearly complete, still needs the bg location for Polnareff Joining DIO and DIO Stab (might have shared bg)
+const sGame_PaletteDataset JOJOS_A_POL_STORY_PALETTES[] =
+{
+    { L"Polnareff in Cairo", 0x2ecf00, 0x2ecf80 },
+    { L"Polnareff in Cairo BG", 0x2ed180, 0x2ed280 },
+    { L"DIO Alluring Polnareff", 0x2ed100, 0x2ed180 },
+    { L"Polnareff Joining DIO", 0x2ed280, 0x2ed300 },
+    { L"Polnareff Starting His Journey", 0x2ed380, 0x2ed400 },
+    // seperate and pair instead?
+    { L"Polnareff Stabbing DIO", 0x2ed300, 0x2ed380 },
+};
+
+// complete
+const sGame_PaletteDataset JOJOS_A_MIDLER_STORY_PALETTES[] =
+{
+    // pair these 2 when previews roll out
+    { L"Midler With Cup Face", 0x2f7f80, 0x2f8000 },
+    { L"Midler With Cup Body", 0x2e5680, 0x2e5780 },
+    { L"Midler With Cup High Priestess", 0x2f8080, 0x2f8100 },
+    { L"Midler Near DIO's Mansion", 0x2f7e00, 0x2f7e80 },
+    { L"DIO Point", 0x305a00, 0x305a80 },
+    { L"Midler Facing DIO ", 0x305a80, 0x305b00 },
+    { L"Midler Facing DIO BG", 0x305B62, 0x305B80 },
+    { L"Midler & DIO Ending Portrait", 0x2e6300, 0x2e6500 },
+};
+
+// needs bg for alessi running
+const sGame_PaletteDataset JOJOS_A_YOJO_STORY_PALETTES[] =
+{
+    { L"Young Joseph Chasing Alessi", 0x2fc480, 0x2fc500 },
+    { L"Alessi Being Chased By Joseph", 0x2fc380, 0x2fc400 },
+    { L"Young Joseph Chasing Alessi BG", 0x2fc300, 0x2fc380 },
+    { L"Alessi Running Away", 0x2fc400, 0x2fc480 },
+    { L"Joseph Reunited With The Crusaders 1/2", 0x2fc580, 0x2fc780 },
+    { L"Joseph Reunited With The Crusaders 2/2", 0x2fc780, 0x2fc800 },
+    { L"Joseph Reunited With The Crusaders BG", 0x2fc800, 0x2fc880 },
+};
+
+// complete
+const sGame_PaletteDataset JOJOS_A_HOL_STORY_PALETTES[] =
+{
+    { L"Hol Horse Intro Scene", 0x2fb900, 0x2fb980 },
+    { L"Hol Horse Intro Scene BG", 0x2fb880, 0x2fb900 },
+    { L"J. Geil (Intro Scene)", 0x2fbb00, 0x2fbb80 },
+    // ending scene
+    { L"Hol Horse Standing Over DIO", 0x2fb980, 0x2fba00 },
+    { L"Defeated Shadow DIO", 0x2fba00, 0x2fba80 },
+    { L"Defeated Shadow DIO BG", 0x2fba80, 0x2fbb00 },
+    { L"Hol Horse Ending Portrait", 0x2fbb80, 0x2fbc00 },
+};
+
+// complete
+const sGame_PaletteDataset JOJOS_A_VICE_STORY_PALETTES[] =
+{
+    { L"Decapitated Vanilla Ice", 0x2fbc80, 0x2fbd00 },
+    { L"Vanilla Ice Bowing to DIO", 0x2fbd00, 0x2fbd80 },
+    // Not sure how this'll be handled in paired code, maybe like sfiii alex flash chop?
+    { L"Decapitated/Bowing Vanilla Ice BG", 0x2fbd80, 0x2fbdc0 },
+    { L"Vanilla Ice Ending Portrait", 0x2fbe00, 0x2fbe80 },
+};
+
+// complete
+const sGame_PaletteDataset JOJOS_A_MARIAH_STORY_PALETTES[] =
+{
+    { L"Mariah Intro Scene Portrait", 0x2fc980, 0x2fca00 },
+    { L"Mariah Ending Scene Portrait", 0x2fc900, 0x2fc980 },
+};
+
+// complete
+const sGame_PaletteDataset JOJOS_A_KHAN_STORY_PALETTES[] =
+{
+    { L"Khan Intro Scene Portrait", 0x2fd480, 0x2fd500 },
+    { L"Khan Ending Scene Portrait", 0x2fd500, 0x2fd580 },
+};
+
+const sGame_PaletteDataset JOJOS_A_SHARED_STORY_PALETTES[] =
+{
+    { L"DIO's Curse (Crusaders)", 0x2ea400, 0x2ea480 },
+    { L"Crusaders Off to Egypt (Crusaders)", 0x2e7600, 0x2e7800 },
+    { L"DIO's Mansion 1/2", 0x2e5e80, 0x2e6080 },
+    { L"DIO's Mansion 2/2", 0x2e6080, 0x2e6180 },
+    { L"Crusaders Coffin Scene", 0x2eb680, 0x2eb880 },
+    { L"Nukesaku In The Coffin", 0x2eb580, 0x2eb600 },
+    { L"Nukesaku In The Coffin BG", 0x2eb600, 0x2eb680 },
+    { L"Cloaked DIO 1/2", 0x2eba00, 0x2ebc00 },
+    { L"Cloaked DIO 2/2", 0x2ebc00, 0x2ebd00 },
+};
+
+const sDescTreeNode JOJOS_A_STORYMODE_COLLECTION[] =
+{
+    { L"Jotaro", DESC_NODETYPE_TREE, (void*)JOJOS_A_JOTARO_STORY_PALETTES, ARRAYSIZE(JOJOS_A_JOTARO_STORY_PALETTES) },
+    { L"Kakyoin", DESC_NODETYPE_TREE, (void*)JOJOS_A_KAKYOIN_STORY_PALETTES, ARRAYSIZE(JOJOS_A_KAKYOIN_STORY_PALETTES) },
+    { L"Avdol", DESC_NODETYPE_TREE, (void*)JOJOS_A_AVDOL_STORY_PALETTES, ARRAYSIZE(JOJOS_A_AVDOL_STORY_PALETTES) },
+    { L"Polnareff", DESC_NODETYPE_TREE, (void*)JOJOS_A_POL_STORY_PALETTES, ARRAYSIZE(JOJOS_A_POL_STORY_PALETTES) },
+    { L"Midler", DESC_NODETYPE_TREE, (void*)JOJOS_A_MIDLER_STORY_PALETTES, ARRAYSIZE(JOJOS_A_MIDLER_STORY_PALETTES) },
+    { L"Young Joseph", DESC_NODETYPE_TREE, (void*)JOJOS_A_YOJO_STORY_PALETTES, ARRAYSIZE(JOJOS_A_YOJO_STORY_PALETTES) },
+    { L"Hol Horse", DESC_NODETYPE_TREE, (void*)JOJOS_A_HOL_STORY_PALETTES, ARRAYSIZE(JOJOS_A_HOL_STORY_PALETTES) },
+    { L"Vanilla Ice", DESC_NODETYPE_TREE, (void*)JOJOS_A_VICE_STORY_PALETTES, ARRAYSIZE(JOJOS_A_VICE_STORY_PALETTES) },
+    { L"Mariah", DESC_NODETYPE_TREE, (void*)JOJOS_A_MARIAH_STORY_PALETTES, ARRAYSIZE(JOJOS_A_MARIAH_STORY_PALETTES) },
+    { L"Khan", DESC_NODETYPE_TREE, (void*)JOJOS_A_KHAN_STORY_PALETTES, ARRAYSIZE(JOJOS_A_KHAN_STORY_PALETTES) },
+    { L"Shared Aspects", DESC_NODETYPE_TREE, (void*)JOJOS_A_SHARED_STORY_PALETTES, ARRAYSIZE(JOJOS_A_SHARED_STORY_PALETTES) },
+};
+
+#pragma endregion StoryMode
+
+const sDescTreeNode JOJOS_UNITS_50[] =
 {
     { L"HUD", DESC_NODETYPE_TREE,           (void*)JOJOS_A_50_HUD_COLLECTION, ARRAYSIZE(JOJOS_A_50_HUD_COLLECTION) },
     { L"HUD Portraits", DESC_NODETYPE_TREE, (void*)JOJOS_A_50_HUD_PORTRAIT_COLLECTION, ARRAYSIZE(JOJOS_A_50_HUD_PORTRAIT_COLLECTION) },
     { L"Stages", DESC_NODETYPE_TREE,        (void*)JOJOS_A_50_STAGE_COLLECTION, ARRAYSIZE(JOJOS_A_50_STAGE_COLLECTION) },
 };
 
+// We use keyword names for all palette units that do NOT have a regulation off/regulation on mirroring
+// See usage in the CPP file
 #define k_pszTimeStopName       L"Timestop Stages"
 #define k_pszBonusPalettesName  L"Bonus Palettes"
+#define k_pszStoryModeName      L"Story Mode"
 
-const sDescTreeNode JOJOS_UNITS_51[ARRAYSIZE(JOJOS_A_UNITDESC_51)] =
+const sDescTreeNode JOJOS_UNITS_51[] =
 {
     { L"Jotaro",                    DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_JOTARO, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_JOTARO) },
     { L"Kakyoin",                   DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_HIEROPHANT, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_HIEROPHANT) },
@@ -3960,4 +4049,11 @@ const sDescTreeNode JOJOS_UNITS_51[ARRAYSIZE(JOJOS_A_UNITDESC_51)] =
     { L"Unimplemented: Gray Fly",   DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_GRAYFLY, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_GRAYFLY) },
     { k_pszTimeStopName,            DESC_NODETYPE_TREE, (void*)JOJOS_TIMESTOP_COLLECTION, ARRAYSIZE(JOJOS_TIMESTOP_COLLECTION) },
     { k_pszBonusPalettesName,       DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_COLLECTION, ARRAYSIZE(JOJOS_A_BONUS_COLLECTION) },
+    { k_pszStoryModeName,           DESC_NODETYPE_TREE, (void*)JOJOS_A_STORYMODE_COLLECTION, ARRAYSIZE(JOJOS_A_STORYMODE_COLLECTION)},
 };
+
+constexpr auto JOJOS_A_NUMUNIT_50 = ARRAYSIZE(JOJOS_UNITS_50);
+constexpr auto JOJOS_A_NUMUNIT_51 = ARRAYSIZE(JOJOS_UNITS_51);
+
+constexpr auto JOJOS_A_EXTRALOC_50 = JOJOS_A_NUMUNIT_50;
+constexpr auto JOJOS_A_EXTRALOC_51 = JOJOS_A_NUMUNIT_51;

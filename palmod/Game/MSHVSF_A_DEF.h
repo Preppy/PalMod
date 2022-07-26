@@ -407,7 +407,7 @@ const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH[] =
     { L"P1 Optic Blast Super", 0x71FCc, 0x71FEc, indexCPS2Sprites_Cyclops, 2 },
     // ? don't know what this maps to
     // ? don't know what this maps to
-    { L"P1 Laser FX", 0x7204c, 0x7206c, indexCPS2Sprites_Cyclops, 3 },
+    { L"P1 Laser FX", 0x7208C, 0x720AC, indexCPS2Sprites_Cyclops, 3 },
     { L"P1 Intro 1", 0x7616c, 0x7618c, indexCPS2Sprites_Cyclops, 12 },
     { L"P1 Intro 2", 0x7618c, 0x761Ac, indexCPS2Sprites_Cyclops, 12 },
     { L"P1 Intro 3", 0x761Ac, 0x761Cc, indexCPS2Sprites_Cyclops, 12 },
@@ -795,6 +795,8 @@ const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =
     { L"P1 Intro 6", 0x7666c, 0x7668c, indexCPS2Sprites_Spidey, 0x0B },
     { L"P1 Intro 7", 0x7668c, 0x766Ac, indexCPS2Sprites_Spidey, 0x0B },
     { L"P1 Intro 8", 0x766Ac, 0x766Cc, indexCPS2Sprites_Spidey, 0x0B },
+    { L"P1 Spider symbol", 0x766cc, 0x766ec, indexCPS2Sprites_Spidey, 0x0c },
+    { L"P1 Spider symbol + taunt", 0x766ec, 0x7670c, indexCPS2Sprites_Spidey, 0x0d },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK[] =
@@ -810,11 +812,8 @@ const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK[] =
     { L"P2 Intro 6", 0x7686c, 0x7688c, indexCPS2Sprites_Spidey, 0x0B },
     { L"P2 Intro 7", 0x7688c, 0x768Ac, indexCPS2Sprites_Spidey, 0x0B },
     { L"P2 Intro 8", 0x768Ac, 0x768Cc, indexCPS2Sprites_Spidey, 0x0B },
-};
-
-const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_SHARED[] =
-{
-    { L"P1 Extras 2: Spotlight", 0x766Cc, 0x766Ec, indexCPS2Sprites_Spidey, 0x0C },
+    { L"P2 Spider symbol", 0x768cc, 0x768ec, indexCPS2Sprites_Spidey, 0x0c },
+    { L"P2 Spider symbol + taunt", 0x768ec, 0x7690c, indexCPS2Sprites_Spidey, 0x0d },
 };
 
 const sGame_PaletteDataset MSHVSF_A_USAGENT_PALETTES_P1COLOR_PUNCH[] =
@@ -875,19 +874,38 @@ const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK[] =
 { L"Shocked Dark",   0x73acc + (3 * 0x20), 0x73aec + (3 * 0x20), indexCPS2Sprites_Akuma },
 { L"Dark Burn Light",0x73acc + (4 * 0x20), 0x73aec + (4 * 0x20), indexCPS2Sprites_Akuma },
 { L"Dark Burn Dark", 0x73acc + (5 * 0x20), 0x73aec + (5 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Kinetic 1",      0x73acc + (6 * 0x20), 0x73aec + (6 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Kinetic 2",      0x73acc + (7 * 0x20), 0x73aec + (7 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Kinetic 3",      0x73acc + (8 * 0x20), 0x73aec + (8 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Kinetic 1 (Unused)",      0x73acc + (6 * 0x20), 0x73aec + (6 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Kinetic 2 (Unused)",      0x73acc + (7 * 0x20), 0x73aec + (7 * 0x20), indexCPS2Sprites_Akuma },
+{ L"Kinetic 3 (Unused)",      0x73acc + (8 * 0x20), 0x73aec + (8 * 0x20), indexCPS2Sprites_Akuma },
 #endif
 
 const sGame_PaletteDataset MSHVSF_A_DAN_STATUS[] =
 {
+    { L"Dan Burn Light", 0x74c0c, 0x74c2c, indexCPS2Sprites_Dan, 0x00 },
+    { L"Dan Burn Dark", 0x74c2c, 0x74c4c, indexCPS2Sprites_Dan, 0x00 },
+    { L"Dan Shocked Light", 0x74c4c, 0x74c6c, indexCPS2Sprites_Dan, 0x00 },
+    { L"Dan Shocked Dark", 0x74c6c, 0x74c8c, indexCPS2Sprites_Dan, 0x00 },
+    { L"Dan Dark Burn Light", 0x74c8c, 0x74cac, indexCPS2Sprites_Dan, 0x00 },
+    { L"Dan Dark Burn Dark", 0x74cac, 0x74ccc, indexCPS2Sprites_Dan, 0x00 },
     { L"Dan Light Super Trail", 0x739cc, 0x739ec, indexCPS2Sprites_Dan, 0x00 },
     { L"Dan Dark Super Trail", 0x739ec, 0x73a0c, indexCPS2Sprites_Dan, 0x00 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYBERAKUMA_STATUS[] =
 {
+    { L"Cyber Akuma - Burn Light", 0x74ccc, 0x74cec, indexCPS2Sprites_CyberAkuma, 0x00, &pairNext },
+    { L"Cyber Akuma Machinery - Burn Light", 0x74dec, 0x74e0c, indexCPS2Sprites_CyberAkuma, 0x01, &pairPrevious },
+    { L"Cyber Akuma - Burn Dark", 0x74cec, 0x74d0c, indexCPS2Sprites_CyberAkuma, 0x00, &pairNext },
+    { L"Cyber Akuma Machinery - Burn Dark", 0x74e0c, 0x74e2c, indexCPS2Sprites_CyberAkuma, 0x01, &pairPrevious },
+    { L"Cyber Akuma - Shocked Light", 0x74d0c, 0x74d2c, indexCPS2Sprites_CyberAkuma, 0x00, &pairNext },
+    { L"Cyber Akuma Machinery - Shocked Light", 0x74e2c, 0x74e4c, indexCPS2Sprites_CyberAkuma, 0x01, &pairPrevious },
+    { L"Cyber Akuma - Shocked Dark", 0x74d2c, 0x74d4c, indexCPS2Sprites_CyberAkuma, 0x00, &pairNext },
+    { L"Cyber Akuma Machinery - Shocked Dark", 0x74e4c, 0x74e6c, indexCPS2Sprites_CyberAkuma, 0x01, &pairPrevious },
+    { L"Cyber Akuma - Dark Burn Light", 0x74d4c, 0x74d6c, indexCPS2Sprites_CyberAkuma, 0x00, &pairNext },
+    { L"Cyber Akuma Machinery - Dark Burn Light", 0x74e6c, 0x74e8c, indexCPS2Sprites_CyberAkuma, 0x01, &pairPrevious },
+    { L"Cyber Akuma - Dark Burn Dark", 0x74d6c, 0x74d8c, indexCPS2Sprites_CyberAkuma, 0x00, &pairNext },
+    { L"Cyber Akuma Machinery - Dark Burn Dark", 0x74e8c, 0x74eac, indexCPS2Sprites_CyberAkuma, 0x01, &pairPrevious },
+
     { L"Cyber Akuma Light Super Trail", 0x73a0c, 0x73a2c, indexCPS2Sprites_CyberAkuma, 0x00, &pairNext },
     { L"Cyber Akuma Arm Light Super Trail", 0x73a4c, 0x73a6c, indexCPS2Sprites_CyberAkuma, 0x01, &pairPrevious },
     { L"Cyber Akuma Dark Super Trail", 0x73a2c, 0x73a4c, indexCPS2Sprites_CyberAkuma, 0x00, &pairNext },
@@ -914,9 +932,9 @@ const sGame_PaletteDataset MSHVSF_A_CYCLOPS_STATUS[] =
     { L"Shocked Dark",   0x73acc + (12 * 0x20), 0x73aec + (12 * 0x20), indexCPS2Sprites_Cyclops },
     { L"Dark Burn Light",0x73acc + (13 * 0x20), 0x73aec + (13 * 0x20), indexCPS2Sprites_Cyclops },
     { L"Dark Burn Dark", 0x73acc + (14 * 0x20), 0x73aec + (14 * 0x20), indexCPS2Sprites_Cyclops },
-    { L"Kinetic 1",      0x73acc + (15 * 0x20), 0x73aec + (15 * 0x20), indexCPS2Sprites_Cyclops },
-    { L"Kinetic 2",      0x73acc + (16 * 0x20), 0x73aec + (16 * 0x20), indexCPS2Sprites_Cyclops },
-    { L"Kinetic 3",      0x73acc + (17 * 0x20), 0x73aec + (17 * 0x20), indexCPS2Sprites_Cyclops },
+    { L"Kinetic 1 (Unused)",      0x73acc + (15 * 0x20), 0x73aec + (15 * 0x20), indexCPS2Sprites_Cyclops },
+    { L"Kinetic 2 (Unused)",      0x73acc + (16 * 0x20), 0x73aec + (16 * 0x20), indexCPS2Sprites_Cyclops },
+    { L"Kinetic 3 (Unused)",      0x73acc + (17 * 0x20), 0x73aec + (17 * 0x20), indexCPS2Sprites_Cyclops },
     { L"Cyclops Light Super Trail", 0x7350c, 0x7352c, indexCPS2Sprites_Cyclops, 0x00 },
     { L"Cyclops Dark Super Trail", 0x7352c, 0x7354c, indexCPS2Sprites_Cyclops, 0x00 },
 };
@@ -930,9 +948,9 @@ const sGame_PaletteDataset MSHVSF_A_CAPTAINAMERICA_STATUS[] =
     { L"Dark Burn Light",0x73acc + (22 * 0x20), 0x73aec + (22 * 0x20), indexCPS2Sprites_CapAm },
     { L"Dark Burn Dark", 0x73acc + (23 * 0x20), 0x73aec + (23 * 0x20), indexCPS2Sprites_CapAm },
     { L"Captain America/U.S. Agent Light Super Trail", 0x7354c, 0x7356c, indexCPS2Sprites_CapAm, 0x00, &pairNext },
-    { L"Captain America/U.S. Agent Shield Super Trail", 0x7358c, 0x735ac, indexCPS2Sprites_CapAm, 0x01, &pairPrevious },
+    { L"Captain America/U.S. Agent Shield Super Trail (Unused)", 0x7358c, 0x735ac, indexCPS2Sprites_CapAm, 0x01, &pairPrevious },
     { L"Captain America/U.S. Agent Dark Super Trail", 0x7356c, 0x7358c, indexCPS2Sprites_CapAm, 0x00, &pairNext },
-    { L"Captain America/U.S. Agent Shield Super Trail", 0x735ac, 0x735cc, indexCPS2Sprites_CapAm, 0x01, &pairPrevious },
+    { L"Captain America/U.S. Agent Shield Super Trail (Unused)", 0x735ac, 0x735cc, indexCPS2Sprites_CapAm, 0x01, &pairPrevious },
 };
 
 const sGame_PaletteDataset MSHVSF_A_HULK_STATUS[] =
@@ -956,9 +974,9 @@ const sGame_PaletteDataset MSHVSF_A_WOLVERINE_STATUS[] =
     { L"Dark Burn Light",0x73acc + (40 * 0x20), 0x73aec + (40 * 0x20), indexCPS2Sprites_Wolverine },
     { L"Dark Burn Dark", 0x73acc + (41 * 0x20), 0x73aec + (41 * 0x20), indexCPS2Sprites_Wolverine },
     { L"Wolverine Light Super Trail", 0x7360c, 0x7362c, indexCPS2Sprites_Wolverine, 0x00, &pairNext },
-    { L"Wolverine Claws Light Super Trail", 0x734cc, 0x734ec, indexCPS2Sprites_Wolverine, 0x01, &pairPrevious },
+    { L"Wolverine Claws Light Super Trail (Unused)", 0x734cc, 0x734ec, indexCPS2Sprites_Wolverine, 0x01, &pairPrevious },
     { L"Wolverine Dark Super Trail", 0x7362c, 0x7364c, indexCPS2Sprites_Wolverine, 0x00, &pairNext },
-    { L"Wolverine Claws Dark Super Trail", 0x734ec, 0x7350c, indexCPS2Sprites_Wolverine, 0x01, &pairPrevious },
+    { L"Wolverine Claws Dark Super Trail (Unused)", 0x734ec, 0x7350c, indexCPS2Sprites_Wolverine, 0x01, &pairPrevious },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SHUMA_STATUS[] =
@@ -1041,9 +1059,9 @@ const sGame_PaletteDataset MSHVSF_A_CHUNLI_STATUS[] =
     { L"Shocked Dark",   0x73acc + (81 * 0x20), 0x73aec + (81 * 0x20), indexCPS2Sprites_ChunLi },
     { L"Dark Burn Light",0x73acc + (82 * 0x20), 0x73aec + (82 * 0x20), indexCPS2Sprites_ChunLi },
     { L"Dark Burn Dark", 0x73acc + (83 * 0x20), 0x73aec + (83 * 0x20), indexCPS2Sprites_ChunLi },
-    { L"Kinetic 1",      0x73acc + (84 * 0x20), 0x73aec + (84 * 0x20), indexCPS2Sprites_ChunLi },
-    { L"Kinetic 2",      0x73acc + (85 * 0x20), 0x73aec + (85 * 0x20), indexCPS2Sprites_ChunLi },
-    { L"Kinetic 3",      0x73acc + (86 * 0x20), 0x73aec + (86 * 0x20), indexCPS2Sprites_ChunLi },
+    { L"Kinetic 1 (Unused)",      0x73acc + (84 * 0x20), 0x73aec + (84 * 0x20), indexCPS2Sprites_ChunLi },
+    { L"Kinetic 2 (Unused)",      0x73acc + (85 * 0x20), 0x73aec + (85 * 0x20), indexCPS2Sprites_ChunLi },
+    { L"Kinetic 3 (Unused)",      0x73acc + (86 * 0x20), 0x73aec + (86 * 0x20), indexCPS2Sprites_ChunLi },
     { L"Chun-Li Light Super Trail", 0x737cc, 0x737ec, indexCPS2Sprites_ChunLi, 0x00 },
     { L"Chun-Li Dark Super Trail", 0x737ec, 0x7380c, indexCPS2Sprites_ChunLi, 0x00 },
 };
@@ -1056,9 +1074,9 @@ const sGame_PaletteDataset MSHVSF_A_DHALSIM_STATUS[] =
     { L"Shocked Dark",   0x73acc + (90 * 0x20), 0x73aec + (90 * 0x20), indexCPS2Sprites_Dhalsim },
     { L"Dark Burn Light",0x73acc + (91 * 0x20), 0x73aec + (91 * 0x20), indexCPS2Sprites_Dhalsim },
     { L"Dark Burn Dark", 0x73acc + (92 * 0x20), 0x73aec + (92 * 0x20), indexCPS2Sprites_Dhalsim },
-    { L"Kinetic 1",      0x73acc + (93 * 0x20), 0x73aec + (93 * 0x20), indexCPS2Sprites_Dhalsim },
-    { L"Kinetic 2",      0x73acc + (94 * 0x20), 0x73aec + (94 * 0x20), indexCPS2Sprites_Dhalsim },
-    { L"Kinetic 3",      0x73acc + (95 * 0x20), 0x73aec + (95 * 0x20), indexCPS2Sprites_Dhalsim },
+    { L"Kinetic 1 (Unused)",      0x73acc + (93 * 0x20), 0x73aec + (93 * 0x20), indexCPS2Sprites_Dhalsim },
+    { L"Kinetic 2 (Unused)",      0x73acc + (94 * 0x20), 0x73aec + (94 * 0x20), indexCPS2Sprites_Dhalsim },
+    { L"Kinetic 3 (Unused)",      0x73acc + (95 * 0x20), 0x73aec + (95 * 0x20), indexCPS2Sprites_Dhalsim },
     { L"Dhalsim Light Super Trail", 0x7380c, 0x7382c, indexCPS2Sprites_Dhalsim, 0x00 },
     { L"Dhalsim Dark Super Trail", 0x7382c, 0x7384c, indexCPS2Sprites_Dhalsim, 0x00 },
 };
@@ -1071,9 +1089,9 @@ const sGame_PaletteDataset MSHVSF_A_ZANGIEF_STATUS[] =
     { L"Shocked Dark",   0x73acc + (99 * 0x20), 0x73aec + (99 * 0x20), indexCPS2Sprites_Zangief },
     { L"Dark Burn Light",0x73acc + (100 * 0x20), 0x73aec + (100 * 0x20), indexCPS2Sprites_Zangief },
     { L"Dark Burn Dark", 0x73acc + (101 * 0x20), 0x73aec + (101 * 0x20), indexCPS2Sprites_Zangief },
-    { L"Kinetic 1",      0x73acc + (102 * 0x20), 0x73aec + (102 * 0x20), indexCPS2Sprites_Zangief },
-    { L"Kinetic 2",      0x73acc + (103 * 0x20), 0x73aec + (103 * 0x20), indexCPS2Sprites_Zangief },
-    { L"Kinetic 3",      0x73acc + (104 * 0x20), 0x73aec + (104 * 0x20), indexCPS2Sprites_Zangief },
+    { L"Kinetic 1 (Unused)",      0x73acc + (102 * 0x20), 0x73aec + (102 * 0x20), indexCPS2Sprites_Zangief },
+    { L"Kinetic 2 (Unused)",      0x73acc + (103 * 0x20), 0x73aec + (103 * 0x20), indexCPS2Sprites_Zangief },
+    { L"Kinetic 3 (Unused)",      0x73acc + (104 * 0x20), 0x73aec + (104 * 0x20), indexCPS2Sprites_Zangief },
     { L"Zangief/Mech-Zangief Light Super Trail", 0x7384c, 0x7386c, indexCPS2Sprites_Zangief, 0x00 },
     { L"Zangief/Mech-Zangief Dark Super Trail", 0x7386c, 0x7388c, indexCPS2Sprites_Zangief, 0x00 },
 };
@@ -1086,9 +1104,9 @@ const sGame_PaletteDataset MSHVSF_A_BISON_STATUS[] =
     { L"Burning Light",  0x73acc + (108 * 0x20), 0x73aec + (108 * 0x20), indexCPS2Sprites_Bison },
     { L"Burning Dark",   0x73acc + (109 * 0x20), 0x73aec + (109 * 0x20), indexCPS2Sprites_Bison },
     { L"Dark Burn Dark", 0x73acc + (110 * 0x20), 0x73aec + (110 * 0x20), indexCPS2Sprites_Bison },
-    { L"Kinetic 1",      0x73acc + (111 * 0x20), 0x73aec + (111 * 0x20), indexCPS2Sprites_Bison },
-    { L"Kinetic 2",      0x73acc + (112 * 0x20), 0x73aec + (112 * 0x20), indexCPS2Sprites_Bison },
-    { L"Kinetic 3",      0x73acc + (113 * 0x20), 0x73aec + (113 * 0x20), indexCPS2Sprites_Bison },
+    { L"Kinetic 1 (Unused)",      0x73acc + (111 * 0x20), 0x73aec + (111 * 0x20), indexCPS2Sprites_Bison },
+    { L"Kinetic 2 (Unused)",      0x73acc + (112 * 0x20), 0x73aec + (112 * 0x20), indexCPS2Sprites_Bison },
+    { L"Kinetic 3 (Unused)",      0x73acc + (113 * 0x20), 0x73aec + (113 * 0x20), indexCPS2Sprites_Bison },
     { L"M. Bison Light Super Trail", 0x7388c, 0x738ac, indexCPS2Sprites_Bison, 0x00 },
     { L"M. Bison Dark Super Trail", 0x738ac, 0x738cc, indexCPS2Sprites_Bison, 0x00 },
 };
@@ -1101,9 +1119,9 @@ const sGame_PaletteDataset MSHVSF_A_AKUMA_STATUS[] =
     { L"Shocked Dark",   0x73acc + (117 * 0x20), 0x73aec + (117 * 0x20), indexCPS2Sprites_Akuma },
     { L"Dark Burn Light",0x73acc + (118 * 0x20), 0x73aec + (118 * 0x20), indexCPS2Sprites_Akuma },
     { L"Dark Burn Dark", 0x73acc + (119 * 0x20), 0x73aec + (119 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Kinetic 1",      0x73acc + (120 * 0x20), 0x73aec + (120 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Kinetic 2",      0x73acc + (121 * 0x20), 0x73aec + (121 * 0x20), indexCPS2Sprites_Akuma },
-    { L"Kinetic 3",      0x73acc + (122 * 0x20), 0x73aec + (122 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Kinetic 1 (Unused)",      0x73acc + (120 * 0x20), 0x73aec + (120 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Kinetic 2 (Unused)",      0x73acc + (121 * 0x20), 0x73aec + (121 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Kinetic 3 (Unused)",      0x73acc + (122 * 0x20), 0x73aec + (122 * 0x20), indexCPS2Sprites_Akuma },
     { L"Akuma Light Super Trail", 0x738cc, 0x738ec, indexCPS2Sprites_Akuma, 0x00 },
     { L"Akuma Dark Super Trail", 0x738ec, 0x7390c, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -1116,9 +1134,9 @@ const sGame_PaletteDataset MSHVSF_A_SAKURA_STATUS[] =
     { L"Shocked Dark",   0x73acc + (126 * 0x20), 0x73aec + (126 * 0x20), indexCPS2Sprites_Sakura },
     { L"Dark Burn Light",0x73acc + (127 * 0x20), 0x73aec + (127 * 0x20), indexCPS2Sprites_Sakura },
     { L"Dark Burn Dark", 0x73acc + (128 * 0x20), 0x73aec + (128 * 0x20), indexCPS2Sprites_Sakura },
-    { L"Kinetic 1",      0x73acc + (129 * 0x20), 0x73aec + (129 * 0x20), indexCPS2Sprites_Sakura },
-    { L"Kinetic 2",      0x73acc + (130 * 0x20), 0x73aec + (130 * 0x20), indexCPS2Sprites_Sakura },
-    { L"Kinetic 3",      0x73acc + (131 * 0x20), 0x73aec + (131 * 0x20), indexCPS2Sprites_Sakura },
+    { L"Kinetic 1 (Unused)",      0x73acc + (129 * 0x20), 0x73aec + (129 * 0x20), indexCPS2Sprites_Sakura },
+    { L"Kinetic 2 (Unused)",      0x73acc + (130 * 0x20), 0x73aec + (130 * 0x20), indexCPS2Sprites_Sakura },
+    { L"Kinetic 3 (Unused)",      0x73acc + (131 * 0x20), 0x73aec + (131 * 0x20), indexCPS2Sprites_Sakura },
     { L"Sakura Light Super Trail", 0x7390c, 0x7392c, indexCPS2Sprites_Sakura, 0x00 },
     { L"Sakura Dark Super Trail", 0x7392c, 0x7394c, indexCPS2Sprites_Sakura, 0x00 },
     { L"Dark Sakura Light Super Trail", 0x7394c, 0x7396c, indexCPS2Sprites_Sakura, 0x00 },
@@ -1157,6 +1175,33 @@ const sGame_PaletteDataset MSHVSF_A_CSI_PALETTES[] =
     { L"Blackheart CSI", 0x7986c, 0x7988c, indexCPS2Sprites_Blackheart, 0x30 },
     { L"Norimaro CSI", 0x7998c, 0x799Ac, indexCPS2Sprites_Norimaro, 0x30 },
     { L"Omega Red CSI", 0x7982c, 0x7984c, indexCPS2Sprites_OmegaRed, 0x30 },
+    { L"MSHvSF Logo", 0x7a2ec, 0x7a30c },
+};
+
+const sGame_PaletteDataset MSHVSF_A_CHARSELECT_PALETTES[] =
+{
+    { L"Mode Select 1", 0x799cc, 0x799ec },
+    { L"Mode Select 2", 0x7a00c, 0x7a02c },
+    { L"Mode Select 3", 0x7a02c, 0x7a04c },
+    { L"Mode Select 4", 0x7a04c, 0x7a06c },
+    { L"Mode Select 5", 0x7a06c, 0x7a08c },
+    { L"Mode Select 6", 0x7a08c, 0x7a0ac },
+    { L"Mode Select 7", 0x7a0ac, 0x7a0cc },
+    { L"P2 Select Ring 1", 0x79a0c, 0x79a2c },
+    { L"P2 Select Ring 2", 0x7a10c, 0x7a12c },
+    { L"P2 Select Ring 3", 0x7a12c, 0x7a14c },
+    { L"P2 Select Ring 4", 0x7a14c, 0x7a16c },
+    { L"P2 Select Ring 5", 0x7a16c, 0x7a18c },
+    { L"P2 Select Ring 6", 0x7a18c, 0x7a1ac },
+    { L"P2 Select Ring 1", 0x79a2c, 0x79a4c },
+    { L"P2 Select Ring 2", 0x7a1ac, 0x7a1cc },
+    { L"P2 Select Ring 3", 0x7a1cc, 0x7a1ec },
+    { L"P2 Select Ring 4", 0x7a1ec, 0x7a20c },
+    { L"P2 Select Ring 5", 0x7a20c, 0x7a22c },
+    { L"P2 Select Ring 6", 0x7a22c, 0x7a24c },
+    { L"Character Name 1", 0x79a4c, 0x79a6c },
+    { L"Character Name 2", 0x7a26c, 0x7a28c },
+    { L"Character Name 3", 0x7a28c, 0x7a2ac },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SSP_PALETTES[] =
@@ -1336,8 +1381,64 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_TEMPLE_PALETTES[] =
 
 const sGame_PaletteDataset MSHVSF_A_BONUS_BONUS_PALETTES[] =
 {
-    { L"Super Background", 0x6EFEa, 0x6F1Ea },
-    { L"Floor",            0x6EAAa, 0x6EC6a },
+    { L"Super Floor 1", 0x6eaaa, 0x6eaca, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 2", 0x6eaca, 0x6eaea, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 3", 0x6eaea, 0x6eb0a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 4", 0x6eb0a, 0x6eb2a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 5", 0x6eb2a, 0x6eb4a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 6", 0x6eb4a, 0x6eb6a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 7", 0x6eb6a, 0x6eb8a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 8", 0x6eb8a, 0x6ebaa, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 9", 0x6ebaa, 0x6ebca, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 10", 0x6ebca, 0x6ebea, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 11", 0x6ebea, 0x6ec0a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 12", 0x6ec0a, 0x6ec2a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 13", 0x6ec2a, 0x6ec4a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor 14", 0x6ec4a, 0x6ec6a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Background 1", 0x6f02a, 0x6f04a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 2", 0x6f04a, 0x6f06a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 3", 0x6f06a, 0x6f08a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 4", 0x6f08a, 0x6f0aa, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 5", 0x6f0aa, 0x6f0ca, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 6", 0x6f0ca, 0x6f0ea, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 7", 0x6f0ea, 0x6f10a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 8", 0x6f10a, 0x6f12a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 9", 0x6f12a, 0x6f14a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 10", 0x6f14a, 0x6f16a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 11", 0x6f16a, 0x6f18a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 12", 0x6f18a, 0x6f1aa, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 13", 0x6f1aa, 0x6f1ca, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 14", 0x6f1ca, 0x6f1ea, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background 15 (Unused)", 0x6efea, 0x6f00a },
+    { L"Super Floor Alt. 1", 0x6ecaa, 0x6ecca, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 2", 0x6ecca, 0x6ecea, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 3", 0x6ecea, 0x6ed0a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 4", 0x6ed0a, 0x6ed2a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 5", 0x6ed2a, 0x6ed4a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 6", 0x6ed4a, 0x6ed6a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 7", 0x6ed6a, 0x6ed8a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 8", 0x6ed8a, 0x6edaa, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 9", 0x6edaa, 0x6edca, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 10", 0x6edca, 0x6edea, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 11", 0x6edea, 0x6ee0a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 12", 0x6ee0a, 0x6ee2a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 13", 0x6ee2a, 0x6ee4a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Floor Alt. 14", 0x6ee4a, 0x6ee6a, indexCPS2Sprites_MSHVSFAssets, -1, &pairNext14 },
+    { L"Super Background Alt 1", 0x6f22a, 0x6f24a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 2", 0x6f24a, 0x6f26a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 3", 0x6f26a, 0x6f28a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 4", 0x6f28a, 0x6f2aa, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 5", 0x6f2aa, 0x6f2ca, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 6", 0x6f2ca, 0x6f2ea, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 7", 0x6f2ea, 0x6f30a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 8", 0x6f30a, 0x6f32a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 9", 0x6f32a, 0x6f34a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 10", 0x6f34a, 0x6f36a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 11", 0x6f36a, 0x6f38a, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 12", 0x6f38a, 0x6f3aa, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 13", 0x6f3aa, 0x6f3ca, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 14", 0x6f3ca, 0x6f3ea, indexCPS2Sprites_MSHVSFAssets, -1, &pairPrevious14 },
+    { L"Super Background Alt 15 (Unused)", 0x6f00a, 0x6f02a },
 };
 
 const sDescTreeNode MSHVSF_A_APOCALYPSE_COLLECTION[] =
@@ -1478,7 +1579,6 @@ const sDescTreeNode MSHVSF_A_SPIDERMAN_COLLECTION[] =
 {
     { L"P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH) },
     { L"P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK) },
-    { L"Extras",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDERMAN_PALETTES_SHARED,           ARRAYSIZE(MSHVSF_A_SPIDERMAN_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MSHVSF_A_USAGENT_COLLECTION[] =
@@ -1503,35 +1603,36 @@ const sDescTreeNode MSHVSF_A_ZANGIEF_COLLECTION[] =
 // palette swaps like USAgent share the status effects with the core palette
 const sDescTreeNode MSHVSF_A_STATUS_COLLECTION[] =
 {
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_AKUMA_STATUS,            ARRAYSIZE(MSHVSF_A_AKUMA_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_STATUS,       ARRAYSIZE(MSHVSF_A_BLACKHEART_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CAPTAINAMERICA_STATUS,   ARRAYSIZE(MSHVSF_A_CAPTAINAMERICA_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHUNLI_STATUS,           ARRAYSIZE(MSHVSF_A_CHUNLI_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_STATUS,          ARRAYSIZE(MSHVSF_A_CYCLOPS_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DHALSIM_STATUS,          ARRAYSIZE(MSHVSF_A_DHALSIM_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_STATUS,             ARRAYSIZE(MSHVSF_A_HULK_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_KEN_STATUS,              ARRAYSIZE(MSHVSF_A_KEN_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BISON_STATUS,            ARRAYSIZE(MSHVSF_A_BISON_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_STATUS,         ARRAYSIZE(MSHVSF_A_NORIMARO_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_STATUS,         ARRAYSIZE(MSHVSF_A_OMEGARED_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_RYU_STATUS,              ARRAYSIZE(MSHVSF_A_RYU_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_STATUS,           ARRAYSIZE(MSHVSF_A_SAKURA_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHADOW_STATUS,           ARRAYSIZE(MSHVSF_A_SHADOW_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMA_STATUS,            ARRAYSIZE(MSHVSF_A_SHUMA_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDEY_STATUS,           ARRAYSIZE(MSHVSF_A_SPIDEY_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_WOLVERINE_STATUS,        ARRAYSIZE(MSHVSF_A_WOLVERINE_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ZANGIEF_STATUS,          ARRAYSIZE(MSHVSF_A_ZANGIEF_STATUS) },
+    { L"Akuma",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_AKUMA_STATUS,            ARRAYSIZE(MSHVSF_A_AKUMA_STATUS) },
+    { L"Blackheart/Mephisto",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_STATUS,       ARRAYSIZE(MSHVSF_A_BLACKHEART_STATUS) },
+    { L"Captain America/US Agent",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CAPTAINAMERICA_STATUS,   ARRAYSIZE(MSHVSF_A_CAPTAINAMERICA_STATUS) },
+    { L"Chun-Li",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHUNLI_STATUS,           ARRAYSIZE(MSHVSF_A_CHUNLI_STATUS) },
+    { L"Cyclops",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_STATUS,          ARRAYSIZE(MSHVSF_A_CYCLOPS_STATUS) },
+    { L"Dhalsim",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DHALSIM_STATUS,          ARRAYSIZE(MSHVSF_A_DHALSIM_STATUS) },
+    { L"Hulk",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_STATUS,             ARRAYSIZE(MSHVSF_A_HULK_STATUS) },
+    { L"Ken",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_KEN_STATUS,              ARRAYSIZE(MSHVSF_A_KEN_STATUS) },
+    { L"M.Bison",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BISON_STATUS,            ARRAYSIZE(MSHVSF_A_BISON_STATUS) },
+    { L"Norimaro",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_STATUS,         ARRAYSIZE(MSHVSF_A_NORIMARO_STATUS) },
+    { L"Omega Red",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_STATUS,         ARRAYSIZE(MSHVSF_A_OMEGARED_STATUS) },
+    { L"RYu",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_RYU_STATUS,              ARRAYSIZE(MSHVSF_A_RYU_STATUS) },
+    { L"Sakura/Dark Sakura",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_STATUS,           ARRAYSIZE(MSHVSF_A_SAKURA_STATUS) },
+    { L"Shadow",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHADOW_STATUS,           ARRAYSIZE(MSHVSF_A_SHADOW_STATUS) },
+    { L"Shuma-Gorath",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMA_STATUS,            ARRAYSIZE(MSHVSF_A_SHUMA_STATUS) },
+    { L"Spider-Man/Armored Spider-Man",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDEY_STATUS,           ARRAYSIZE(MSHVSF_A_SPIDEY_STATUS) },
+    { L"Wolverine",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_WOLVERINE_STATUS,        ARRAYSIZE(MSHVSF_A_WOLVERINE_STATUS) },
+    { L"Zangief",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ZANGIEF_STATUS,          ARRAYSIZE(MSHVSF_A_ZANGIEF_STATUS) },
 
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DAN_STATUS,              ARRAYSIZE(MSHVSF_A_DAN_STATUS) },
-    { L"Status Effects",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYBERAKUMA_STATUS,       ARRAYSIZE(MSHVSF_A_CYBERAKUMA_STATUS) },
+    { L"Dan",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DAN_STATUS,              ARRAYSIZE(MSHVSF_A_DAN_STATUS) },
+    { L"Cyber Akuma",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYBERAKUMA_STATUS,       ARRAYSIZE(MSHVSF_A_CYBERAKUMA_STATUS) },
 };
 
 const sDescTreeNode MSHVSF_A_BONUS_COLLECTION[] =
 {
     { L"Character Select Icons",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CSI_PALETTES,    ARRAYSIZE(MSHVSF_A_CSI_PALETTES) },
+    { L"Character Select",          DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHARSELECT_PALETTES,  ARRAYSIZE(MSHVSF_A_CHARSELECT_PALETTES) },
     { L"Super Screen Portraits",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SSP_PALETTES,    ARRAYSIZE(MSHVSF_A_SSP_PALETTES) },
     { L"Victory Screen Portraits",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_VSP_PALETTES,    ARRAYSIZE(MSHVSF_A_VSP_PALETTES) },
-    { L"Bonus",                     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BONUS_BONUS_PALETTES, ARRAYSIZE(MSHVSF_A_BONUS_BONUS_PALETTES) },
+    { L"Bonus Palettes",            DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BONUS_BONUS_PALETTES, ARRAYSIZE(MSHVSF_A_BONUS_BONUS_PALETTES) },
 };
 
 const sDescTreeNode MSHVSF_A_BONUS_COLLECTION_7B[] =

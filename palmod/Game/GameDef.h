@@ -476,6 +476,7 @@ const stPairedPaletteInfo pairNext9 = { 9 };
 const stPairedPaletteInfo pairNext10 = { 10 };
 const stPairedPaletteInfo pairNext11 = { 11 };
 const stPairedPaletteInfo pairNext12 = { 12 };
+const stPairedPaletteInfo pairNext14 = { 14 };
 const stPairedPaletteInfo pairNext15 = { 15 };
 const stPairedPaletteInfo pairNext30 = { 30 };
 const stPairedPaletteInfo pairPrevious = { -1 };
@@ -484,6 +485,7 @@ const stPairedPaletteInfo pairPrevious3 = { -3 };
 const stPairedPaletteInfo pairPrevious4 = { -4 };
 const stPairedPaletteInfo pairPrevious5 = { -5 };
 const stPairedPaletteInfo pairPrevious9 = { -9 };
+const stPairedPaletteInfo pairPrevious14 = { -14 };
 
 // Same thing as Previous, except flip the order of the joins to avoid sprite occlusion 
 const stPairedPaletteInfo pairPreviousFlipped = { -1, true };

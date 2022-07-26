@@ -69,7 +69,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(uint32_t nConfirmedROMSize, int nJojosModeToLoad)
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
     const uint32_t nSafeCountFor50 = 476;
-    const uint32_t nSafeCountFor51 = 1938;
+    const uint32_t nSafeCountFor51 = 1995;
 
     m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
     m_pszExtraFilename = UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51;
@@ -745,6 +745,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
                 {
                     if ((wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszTimeStopName) != 0) &&
                         (wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszBonusPalettesName) != 0) &&
+                        (wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszStoryModeName) != 0) &&
                         (nOffset < 0x41000)) // only shift the core character/effect palettes, not the portraits
                     {
                         // General layout is:
