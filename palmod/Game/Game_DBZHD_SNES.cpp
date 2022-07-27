@@ -22,7 +22,7 @@ CGame_DBZHD_SNES::CGame_DBZHD_SNES(uint32_t nConfirmedROMSize)
     m_nTotalInternalUnits = DBZHD_SNES_NUMUNIT;
     m_nExtraUnit = DBZHD_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 60;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 185;
     m_pszExtraFilename = EXTRA_FILENAME_DBZHD_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForDBZHD;
 

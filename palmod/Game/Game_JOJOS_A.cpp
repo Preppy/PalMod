@@ -69,7 +69,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(uint32_t nConfirmedROMSize, int nJojosModeToLoad)
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
     const uint32_t nSafeCountFor50 = 476;
-    const uint32_t nSafeCountFor51 = 1995;
+    const uint32_t nSafeCountFor51 = 1997;
 
     m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
     m_pszExtraFilename = UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51;
@@ -165,65 +165,112 @@ CDescTree* CGame_JOJOS_A::GetMainTree()
 #if NEED_TO_UPDATE_JOJO_HEADERS
 void ExportTableToDebugger()
 {
-#ifndef USE_LARGE_PALETTES
-    OutputDebugString(L"FWIW: You want to define USE_LARGE_PALETTES so that you are working with the unsplit headers.\n");
-#endif
-
-    OutputDebugString(L"const sGame_PaletteDataset JOJOS_BONUS_NODE_INTRO_MANGA[] =\n{\n");
-    for (int iHeaderIndex = 0; iHeaderIndex < ARRAYSIZE(JOJOS_BONUS_NODE_INTRO_MANGA); iHeaderIndex++)
+    // Quick function/prototype that shows you the basic logic for exporting out a new palette for each character color
+    // Update as you need
+    struct sGame_PaletteExport
     {
-        CString strOutput;
+        const std::wstring wstrPaletteName = L"uninit";
+        const uint32_t nPaletteOffset = 0;
+        const uint32_t nPaletteOffsetEnd = 0;
+        const std::wstring wstrRest = L"uninit";
+        const uint32_t nSpecialOffset = 0;
+    };
 
-        const int knMaxPalettePageSizeOnDisc = 2 * m_knMaxPalettePageSize;
-        int nPaletteTotalSize = (JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffsetEnd - JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffset);
-        int nAdjust = 0;
+    const std::vector<sGame_PaletteExport> rgJojosBaseCharacterInformation =
+    {
+        { L"Jotaro & Star Platinum", 0x336400, 0x336480, L"indexJojos51Jotaro" },
+        { L"Kakyoin & Hierophant Green", 0x337080, 0x337100, L"indexJojos51Kakyo, 0x01"  },
 
-        if (nPaletteTotalSize % 2 == 1)
+        { L"Avdol & Magician's Red", 0x337d00, 0x337d80, L"indexJojos51Avdol" },
+
+        { L"Polnareff & Silver Chariot", 0x338980, 0x338a00, L"indexJojos51Pol" },
+        { L"Joseph & Hermit Purple", 0x339600, 0x339680, L"indexJojos51Joseph" },
+        { L"Iggy & The Fool", 0x33a280, 0x33a300, L"indexJojos51Iggy" },
+        { L"Alessi & Sethan", 0x33af00, 0x33af80, L"indexJojos51Alessi" },
+        { L"Chaka", 0x33bb80, 0x33bc00, L"indexJojos51Chaka" },
+        
+        // We already have these!
+        // { L"Devo & Ebony Devil", 0x33c800, 0x33c880, L"indexJojos51Devo" },
+        { L"Midler & High Priestess", 0x33e100, 0x33e180, L"indexJojos51Midler", 0x33e580 },
+        { L"DIO & The World", 0x33ed80, 0x33ee00, L"indexJojos51Dio", 0x33f200 },
+        { L"Shadow DIO", 0x341300, 0x341380, L"indexJojos51SDio", 0x341A00 },
+        { L"Young Joseph", 0x341f80, 0x342000, L"indexJojos51YSeph" },
+        // unusable
+        { L"Do Not Use: Hol Horse", 0x342c00, 0x342c80, L"indexJojos51Hol" },
+        { L"Vanilla Ice & Cream", 0x343880, 0x343900, L"indexJojos51VIce", 0x343d00 },
+        { L"New Kakyoin & Hierophant", 0x344500, 0x344580, L"indexJojos51NewKakyo" },
+        { L"Anubis Polnareff", 0x345180, 0x345200, L"indexJojos51Anubis", 0x345600 },
+        { L"Petshop", 0x345e00, 0x345e80, L"indexJojos51Petshop" },
+        { L"Mariah", 0x347700, 0x347780, L"indexJojos51Mariah" },
+        // unused?
+        { L"Unused?: Hol Horse & Boingo", 0x348380, 0x348400, L"indexJojos51HolBoingo" },
+        { L"Rubber Soul", 0x349000, 0x349080, L"indexJojos51RSoul", 0x349480 },
+        // garbage?        
+        { L"Do Not Use: Khan", 0x349c80, 0x349d00, L"indexJojos51Khan" },
+        // B is game data, not a palette
+        { L"N'Doul & Geb", 0x33d480, 0x33d500, L"indexJojos51NDoul" },
+        { L"Boss Ice", 0x33fa00, 0x33fa80, L"indexJojos51BIce" },
+        { L"Death 13", 0x340680, 0x340700, L"indexJojos51Death13" },
+    };
+
+    const std::vector<std::wstring> rgPossibleColors =
+    {
+        L"A",
+        L"B",
+        L"C",
+        L"S",
+        L"Start"
+    };
+
+    const size_t nOffsetForGCS = 0x700;
+    const size_t nOffsetDeltaBetweenColors = 0x14500;
+
+    for (size_t iCurrChar = 0; iCurrChar < rgJojosBaseCharacterInformation.size(); iCurrChar++)
+    {
+
+        for (size_t iCurrColor = 0; iCurrColor < rgPossibleColors.size(); iCurrColor++)
         {
-            // Looks like random errors crept into the Jojo files people were passing around: fix and move on.
-            nPaletteTotalSize -= 1;
-            nAdjust = 1;
-        }
+            CString strOutput;
+            CString strCurrName;
+            size_t nStartingPosition = 0;
+            size_t nEndingPosition = 0;
 
-        if (nPaletteTotalSize > (knMaxPalettePageSizeOnDisc + 1))
-        {
-            const int nTotalPagesNeeded = (int)ceil((double)nPaletteTotalSize / (double)knMaxPalettePageSizeOnDisc);
-            int nCurrentPaletteSectionLength = knMaxPalettePageSizeOnDisc;
-            int nTotalUnusedColors = nPaletteTotalSize;
-
-            OutputDebugString(L"#ifndef USE_LARGE_PALETTES\n");
-
-            for (int nCurrentPage = 0, nCurrentOffset = 0; nCurrentPage < nTotalPagesNeeded; nCurrentPage++)
+            if (rgJojosBaseCharacterInformation.at(iCurrChar).nSpecialOffset)
             {
-                strOutput.Format(L"    { \"%s (%u/%u)\", 0x%07x, 0x%07x }, \n", JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].szPaletteName, nCurrentPage + 1, nTotalPagesNeeded,
-                                                                            JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffset + nCurrentOffset, 
-                                                                            JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffset + nCurrentOffset + nCurrentPaletteSectionLength);
-
-                nCurrentOffset += knMaxPalettePageSizeOnDisc;
-                nTotalUnusedColors -= nCurrentPaletteSectionLength;
-                nCurrentPaletteSectionLength = min(nTotalUnusedColors, knMaxPalettePageSizeOnDisc);
-                OutputDebugString(strOutput);
+                const size_t nTotalDelta = iCurrColor * nOffsetDeltaBetweenColors;
+                nStartingPosition = rgJojosBaseCharacterInformation.at(iCurrChar).nSpecialOffset + nTotalDelta;
+                nEndingPosition = rgJojosBaseCharacterInformation.at(iCurrChar).nSpecialOffset + 0x80 + nTotalDelta;
             }
-            OutputDebugString(L"#else\n");
+            else
+            {
+                const size_t nTotalDelta = nOffsetForGCS + (iCurrColor * nOffsetDeltaBetweenColors);
+                nStartingPosition = rgJojosBaseCharacterInformation.at(iCurrChar).nPaletteOffset + nTotalDelta;
+                nEndingPosition = rgJojosBaseCharacterInformation.at(iCurrChar).nPaletteOffsetEnd + nTotalDelta;
+            }
+
+            strCurrName.Format(L"%s %s Guard Cancel Stance", rgJojosBaseCharacterInformation.at(iCurrChar).wstrPaletteName.c_str(), rgPossibleColors.at(iCurrColor).c_str());
+
+            strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, %s },\r\n", strCurrName.GetString(),
+                nStartingPosition,
+                nEndingPosition,
+                rgJojosBaseCharacterInformation.at(iCurrChar).wstrRest.c_str());
+            OutputDebugString(strOutput);
         }
 
-        strOutput.Format(L"    { \"%s\", 0x%07x, 0x%07x }, \n", JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].szPaletteName,
-                                                            JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffset,
-                                                            JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffsetEnd - nAdjust);
-        OutputDebugString(strOutput);
-
-        if (nPaletteTotalSize > (knMaxPalettePageSizeOnDisc + 1))
-        {
-            OutputDebugString(L"#endif\n");
-        }
+        OutputDebugString(L"\r\n");
     }
 
-    OutputDebugString(L"};\n");
-}
+    const LPCWSTR szPaletteName = L"uninit";
+    const uint32_t nPaletteOffset = 0;
+    const uint32_t nPaletteOffsetEnd = 0;
+    const LPCWSTR wstrRest = L"uninit";
+};
 #endif
 
 sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 {
+    //ExportTableToDebugger();
+
     uint32_t nTotalPaletteCount = 0;
     m_nJojosMode = nPaletteSetToUse;
 
@@ -864,60 +911,13 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else if (!UsePaletteSetFor50())
                 {
-                    // most of these can now be replaced with pairNext/pairPrevious when somebody has time
-                    if (((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)) &&
-                        ((NodeGet->uUnitId == indexJojos51Jotaro) ||
-                            (NodeGet->uUnitId == indexJojos51Avdol) ||
-                            (NodeGet->uUnitId == indexJojos51Joseph) ||
-                            (NodeGet->uUnitId == indexJojos51Alessi) ||
-                            (NodeGet->uUnitId == indexJojos51Dio) ||
-                            (NodeGet->uUnitId == indexJojos51Devo) ||
-                            (NodeGet->uUnitId == indexJojos51Kakyo) ||
-                            (NodeGet->uUnitId == indexJojos51NewKakyo) ||
-                            (NodeGet->uUnitId == indexJojos51VIce) ||
-                            (NodeGet->uUnitId == indexJojos51Anubis) ||
-                            (NodeGet->uUnitId == indexJojos51Petshop) ||
-                            (NodeGet->uUnitId == indexJojos51Midler) ||
-                            (NodeGet->uUnitId == indexJojos51HolBoingo) ||
-                            (NodeGet->uUnitId == indexJojos51Iggy)))
+                    if (((NodeGet->uUnitId == indexJojos51Kakyo) || (NodeGet->uUnitId == indexJojos51NewKakyo)) &&
+                         (paletteDataSet->pPalettePairingInfo == &pairHandledInCode))
                     {
-                        if (nTargetImgId == indexJojos51Character_SelectWin1) // winning 1
-                        {
-                            nPaletteOneDelta = 0;
-                            nPaletteTwoDelta = 1;
-                            fUseDefaultPaletteLoad = false;
-
-                        }
-                        else if (nTargetImgId == indexJojos51Character_SelectWin2) // winning 2
-                        {
-                            nPaletteOneDelta = 0;
-                            nPaletteTwoDelta = -1;
-                            fUseDefaultPaletteLoad = false;
-                        }
-                    }
-                    else if ((NodeGet->uUnitId == indexJojos51Kakyo) ||
-                             (NodeGet->uUnitId == indexJojos51NewKakyo))
-                    {
-                        // Hieros: show the glow/changing palette on top of a normal Kakyo
+                        // Hiero glow cycle: show the changing palette on top of a normal Kakyo
                         nPaletteOneDelta = 0;
                         nPaletteTwoDelta = -nSrcStart;
                         fUseDefaultPaletteLoad = false;
-                    }
-                    else if (NodeGet->uUnitId == indexJojos51Pol) // Pol : uses an older numbering system.
-                    {
-                        if (nTargetImgId == 4) // winning 1
-                        {
-                            nPaletteOneDelta = 0;
-                            nPaletteTwoDelta = 1;
-                            fUseDefaultPaletteLoad = false;
-
-                        }
-                        else if (nTargetImgId == 5) // winning 2
-                        {
-                            nPaletteOneDelta = 0;
-                            nPaletteTwoDelta = -1;
-                            fUseDefaultPaletteLoad = false;
-                        }
                     }
                     else if ((paletteDataSet->pPalettePairingInfo == &pairHandledInCode) ||
                              (paletteDataSet->pPalettePairingInfo == &pairUnhandled))
@@ -941,9 +941,9 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         uint16_t imageTwo = paletteDataSetTwo->indexOffsetToUse;
 
                         if ((NodeGet->uUnitId == indexJojos51Kakyo) &&
-                            !((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)))
+                            (paletteDataSet->pPalettePairingInfo == &pairHandledInCode))
                         {
-                            // old kak needs to flip preview layout!
+                            // old kak needs to flip preview layout for the hierophant glow
                             ClearSetImgTicket(
                                 CreateImgTicket(paletteDataSetTwo->indexImgToUse, imageTwo,
                                     CreateImgTicket(paletteDataSetOne->indexImgToUse, imageOne, nullptr, nXOffs, nYOffs)
@@ -965,14 +965,6 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         }
                         else
                         {
-                            if ((NodeGet->uUnitId == indexJojos51NewKakyo) &&
-                                !((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)))
-                            {
-                                // NewKakyo uses special logic as the paired palette actually is aligned to a different "full" sprite.
-                                imageOne = 1;
-                                imageTwo = 2;
-                            }
-
                             ClearSetImgTicket(
                                 CreateImgTicket(paletteDataSetOne->indexImgToUse, imageOne,
                                     CreateImgTicket(paletteDataSetTwo->indexImgToUse, imageTwo, nullptr, nXOffs, nYOffs)
@@ -997,7 +989,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 else // 50 ROM
                 {
                     nImgUnitId = paletteDataSet->indexImgToUse;
-                    if ((nImgUnitId == indexJojos51Bonus) && (nTargetImgId == 0x28))
+                    if ((nImgUnitId == indexJojos51Bonus) && (nTargetImgId == 0x28)) // this is the super old join style: consider updating to the generic any size template
                     {
                         fUseDefaultPaletteLoad = false;
                         nPaletteTwoDelta = 1;

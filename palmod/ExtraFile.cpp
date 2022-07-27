@@ -250,6 +250,11 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                             {
                             case 0:
                             {
+                                // We will clip in wide palette view at about base 40 characters
+                                // This includes space for " (x/y) n"
+                                // The combobox itself starts clipping at about 30 characters
+                                // The status bar fits about 128 characters
+                                constexpr auto nMaxDescLen = min(40, MAX_DESCRIPTION_LENGTH - 8 - 8 - 8 - 6);
                                 if (iswspace(aszFinalLine[0]) && (strlen(aszFinalLine) == 1))
                                 {
                                     strOutputText.Format(L"Warning: Bogus entry in extension file with text '%S'.  Skipping.\n", aszFinalLine);
@@ -257,8 +262,8 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     continue;
                                 }
 
-                                memcpy(aszCurrDesc, aszFinalLine, 31);
-                                aszCurrDesc[31] = '\0';
+                                memcpy(aszCurrDesc, aszFinalLine, nMaxDescLen);
+                                aszCurrDesc[nMaxDescLen] = '\0';
                                 break;
                             }
                             case 1:

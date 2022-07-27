@@ -352,15 +352,16 @@ enum JOJOS_51_CHARACTERS
     indexVentureSprites_YSeph,  // 0x22
 };
 
+// Used by both Jojos and Venture
 enum JOJOS_51_CHARACTER_PALETTES
 {
     indexJojos51Character_Main = 0,
     // 1 and 2 are reserved for character specific nonsense
     indexJojos51Character_VsSuper = 3,
     indexJojos51Character_Challenger, // 4
-    indexJojos51Character_SelectWin1,
-    indexJojos51Character_SelectWin2,
-    indexJojos51Character_BurnZap,
+    indexJojos51Character_SelectWin1, // 0x05
+    indexJojos51Character_SelectWin2, // 0x06
+    indexJojos51Character_BurnZap, // 0x07
 };
 
 enum SupportedGarou_A_PaletteListIndex
