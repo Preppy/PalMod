@@ -258,6 +258,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LD_JOJOS50, &CPalModDlg::OnLoadDir_Jojos50)
     ON_COMMAND(ID_LD_JOJOS51, &CPalModDlg::OnLoadDir_Jojos51)
     ON_COMMAND(ID_LD_JOJOS_US_51, &CPalModDlg::OnLoadDir_Jojos51_USA)
+    ON_COMMAND(ID_LD_MWARR, &CPalModDlg::OnLoadDir_MWarr)
     ON_COMMAND(ID_LD_VENTURE31, &CPalModDlg::OnLoadDir_Venture31)
     ON_COMMAND(ID_LD_VENTURE50, &CPalModDlg::OnLoadDir_Venture50)
 

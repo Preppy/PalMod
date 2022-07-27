@@ -62,6 +62,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case MVC2_P:
             pszExtraInfo = L"We need the PLxxPAK.bin files from the root of the game image.\nFor the PS3 version, select the folder \"gdrom\" under \"NPUB30068\\USRDIR\".";
             break;
+        case MWARR_A:
+            pszExtraInfo = L"We need the prg_ev and prg_od files from mwarr.zip.";
+            break;
         case P4AU_NESICA:
             pszExtraInfo = L"Select the \"data\" folder.";
             break;

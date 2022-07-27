@@ -487,6 +487,9 @@
     <Filter Include="Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29">
       <UniqueIdentifier>{477db182-4f4b-4f1c-988a-5f43884236d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Mighty Warriors">
+      <UniqueIdentifier>{7a52bc90-482d-4899-9a9d-2532a932caa4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1013,6 +1016,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_GGDS_NDS.cpp">
       <Filter>Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MWarr_A_DIR.cpp">
+      <Filter>Games\Other Platforms\Mighty Warriors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1912,6 +1918,12 @@
     </ClInclude>
     <ClInclude Include="Game\GGDS_NDS_DEF.h">
       <Filter>Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MWarr_A_DIR.h">
+      <Filter>Games\Other Platforms\Mighty Warriors</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MWARR_A_DIR_DEF.h">
+      <Filter>Games\Other Platforms\Mighty Warriors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

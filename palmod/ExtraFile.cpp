@@ -654,9 +654,15 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
     bool fCollisionFound = false;
     const DWORD k_maxColorsPerUnit = PAL_MAXAMT_16COLORSPERLINE;
     bool fShownInternalErrorOnce = false;
-    // TMNTTF palettes are odd lengths, so for some of them we need to step back one
+    // TMNTTF and MWarr palettes are odd lengths, so for some of them we need to step back one
     // color in order to assemble a working palette
-    const uint32_t k_nSpecialOverrideForTMNTTF = (nGameFlag == TMNTTF_SNES) ? 2 : 0;
+    uint32_t k_cbUseForcedOffsetForActuallyOverlappingPalettes = 0;
+
+    if ((nGameFlag == TMNTTF_SNES) ||
+        (nGameFlag == MWARR_A))
+    {
+        k_cbUseForcedOffsetForActuallyOverlappingPalettes = 2;
+    }
 
     //Go through each character
     for (uint32_t nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
@@ -696,7 +702,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
                 }
             }
 
-            if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset + k_nSpecialOverrideForTMNTTF))
+            if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset + k_cbUseForcedOffsetForActuallyOverlappingPalettes))
             {
                 fCollisionFound = true;
                 nTotalDupesFound++;

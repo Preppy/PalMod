@@ -79,6 +79,7 @@
 #include "Game_MVC2_A_DIR.h"
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
+#include "Game_MWarr_A_DIR.h"
 #include "Game_NeoBomberman_A.h"
 #include "Game_NEOGEO_A.h"
 #include "Game_NGBC_A.h"
@@ -665,6 +666,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         ResetRuleCtr = &CGame_MVC2_P::ResetRuleCtr;
         GetRule = &CGame_MVC2_P::GetRule;
         GetNextRule = &CGame_MVC2_P::GetNextRule;
+
+        return TRUE;
+    }
+    case MWARR_A:
+    {
+        GetRuleCtr = &CGame_MWarr_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_MWarr_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_MWarr_A_DIR::GetRule;
+        GetNextRule = &CGame_MWarr_A_DIR::GetNextRule;
 
         return TRUE;
     }
@@ -1409,6 +1419,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case MVC2_P:
     {
         return new CGame_MVC2_P(nConfirmedROMSize);
+    }
+    case MWARR_A:
+    {
+        return new CGame_MWarr_A_DIR(-1);
     }
     case NeoBomberman_A:
     {

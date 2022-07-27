@@ -361,6 +361,7 @@ public:
     afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };
     afx_msg void OnLoadDir_MVC2DCUSA()      { OnLoadGameByDirectory(MVC2_D); };
     afx_msg void OnLoadDir_MVC2PS2USA()     { OnLoadGameByDirectory(MVC2_P); };
+    afx_msg void OnLoadDir_MWarr()          { OnLoadGameByDirectory(MWARR_A); };
     afx_msg void OnLoadDir_P4AU_NESICA()    { OnLoadGameByDirectory(P4AU_NESICA); };
     afx_msg void OnLoadDir_P4AU_STEAM()     { OnLoadGameByDirectory(P4AU_STEAM); };
     afx_msg void OnLoadDir_RedEarth30()     { OnLoadGameByDirectory(REDEARTH_A_DIR_30); };

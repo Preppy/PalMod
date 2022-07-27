@@ -173,6 +173,7 @@
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
 #define ID_LD_MVC2DCUSA                 32773
+#define ID_LD_MWARR                     32774
 #define ID_FILE_EXPORTIMAGE             32775
 #define ID_FILE_EXIT                    32776
 #define ID_SETTINGS_SETBACKGROUNDCOLOR  32777

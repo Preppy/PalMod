@@ -312,6 +312,7 @@
     <ClCompile Include="Game\Game_MVC2_D.cpp" />
     <ClCompile Include="Game\Game_MVC2_P.cpp" />
     <ClCompile Include="Game\Game_MVC_A.cpp" />
+    <ClCompile Include="Game\Game_MWarr_A_DIR.cpp" />
     <ClCompile Include="Game\Game_NeoBomberman_A.cpp" />
     <ClCompile Include="Game\Game_NEOGEO_A.cpp" />
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
@@ -517,6 +518,7 @@
     <ClInclude Include="Game\Game_MVC2_D.h" />
     <ClInclude Include="Game\Game_MVC2_P.h" />
     <ClInclude Include="Game\Game_MVC_A.h" />
+    <ClInclude Include="Game\Game_MWarr_A_DIR.h" />
     <ClInclude Include="Game\Game_NeoBomberman_A.h" />
     <ClInclude Include="Game\Game_NEOGEO_A.h" />
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
@@ -632,6 +634,7 @@
     <ClInclude Include="Game\MVC2_D_Def.h" />
     <ClInclude Include="Game\mvc2_supp.h" />
     <ClInclude Include="Game\MVC_A_DEF.h" />
+    <ClInclude Include="Game\MWARR_A_DIR_DEF.h" />
     <ClInclude Include="Game\NeoBomberman_A_DEF.h" />
     <ClInclude Include="Game\NEOGEO_A_DEF.h" />
     <ClInclude Include="Game\NGBC_A_DEF.h" />
