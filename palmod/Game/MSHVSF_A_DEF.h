@@ -1377,7 +1377,14 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_TEMPLE_PALETTES[] =
 //    { L"Temple of Fists - Uknown [PL#600.2]", 0x60472, 0x60552 },
 
 
-
+const sGame_PaletteDataset MSHVSF_A_BONUS_HUD_PALETTES[] =
+{
+    { L"Main HUD", 0x71a4c, 0x71a8c },
+    { L"HUD Text / Meter Levek 0", 0x7198c, 0x719ac },
+    { L"Game Text / VS Screen Text / Win Quotes", 0x719ac, 0x719cc },
+    { L"Offscreen Icons", 0x719cc, 0x719ec },
+    { L"Assist Icons", 0x71c8c, 0x71cec },
+};
 
 const sGame_PaletteDataset MSHVSF_A_BONUS_BONUS_PALETTES[] =
 {
@@ -1603,37 +1610,39 @@ const sDescTreeNode MSHVSF_A_ZANGIEF_COLLECTION[] =
 // palette swaps like USAgent share the status effects with the core palette
 const sDescTreeNode MSHVSF_A_STATUS_COLLECTION[] =
 {
-    { L"Akuma",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_AKUMA_STATUS,            ARRAYSIZE(MSHVSF_A_AKUMA_STATUS) },
-    { L"Blackheart/Mephisto",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_STATUS,       ARRAYSIZE(MSHVSF_A_BLACKHEART_STATUS) },
-    { L"Captain America/US Agent",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CAPTAINAMERICA_STATUS,   ARRAYSIZE(MSHVSF_A_CAPTAINAMERICA_STATUS) },
-    { L"Chun-Li",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHUNLI_STATUS,           ARRAYSIZE(MSHVSF_A_CHUNLI_STATUS) },
-    { L"Cyclops",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_STATUS,          ARRAYSIZE(MSHVSF_A_CYCLOPS_STATUS) },
-    { L"Dhalsim",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DHALSIM_STATUS,          ARRAYSIZE(MSHVSF_A_DHALSIM_STATUS) },
-    { L"Hulk",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_STATUS,             ARRAYSIZE(MSHVSF_A_HULK_STATUS) },
-    { L"Ken",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_KEN_STATUS,              ARRAYSIZE(MSHVSF_A_KEN_STATUS) },
-    { L"M.Bison",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BISON_STATUS,            ARRAYSIZE(MSHVSF_A_BISON_STATUS) },
-    { L"Norimaro",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_STATUS,         ARRAYSIZE(MSHVSF_A_NORIMARO_STATUS) },
-    { L"Omega Red",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_STATUS,         ARRAYSIZE(MSHVSF_A_OMEGARED_STATUS) },
-    { L"RYu",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_RYU_STATUS,              ARRAYSIZE(MSHVSF_A_RYU_STATUS) },
+    { L"Akuma",             DESC_NODETYPE_TREE,    (void*)MSHVSF_A_AKUMA_STATUS,            ARRAYSIZE(MSHVSF_A_AKUMA_STATUS) },
+    { L"Blackheart/Mephisto",       DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_STATUS,       ARRAYSIZE(MSHVSF_A_BLACKHEART_STATUS) },
+    { L"Captain America/US Agent",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CAPTAINAMERICA_STATUS,   ARRAYSIZE(MSHVSF_A_CAPTAINAMERICA_STATUS) },
+    { L"Chun-Li",           DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHUNLI_STATUS,           ARRAYSIZE(MSHVSF_A_CHUNLI_STATUS) },
+    { L"Cyclops",           DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYCLOPS_STATUS,          ARRAYSIZE(MSHVSF_A_CYCLOPS_STATUS) },
+    { L"Dhalsim",           DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DHALSIM_STATUS,          ARRAYSIZE(MSHVSF_A_DHALSIM_STATUS) },
+    { L"Hulk",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_HULK_STATUS,             ARRAYSIZE(MSHVSF_A_HULK_STATUS) },
+    { L"Ken",               DESC_NODETYPE_TREE,    (void*)MSHVSF_A_KEN_STATUS,              ARRAYSIZE(MSHVSF_A_KEN_STATUS) },
+    { L"M.Bison",           DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BISON_STATUS,            ARRAYSIZE(MSHVSF_A_BISON_STATUS) },
+    { L"Norimaro",          DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_STATUS,         ARRAYSIZE(MSHVSF_A_NORIMARO_STATUS) },
+    { L"Omega Red",         DESC_NODETYPE_TREE,    (void*)MSHVSF_A_OMEGARED_STATUS,         ARRAYSIZE(MSHVSF_A_OMEGARED_STATUS) },
+    { L"RYu",               DESC_NODETYPE_TREE,    (void*)MSHVSF_A_RYU_STATUS,              ARRAYSIZE(MSHVSF_A_RYU_STATUS) },
     { L"Sakura/Dark Sakura",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SAKURA_STATUS,           ARRAYSIZE(MSHVSF_A_SAKURA_STATUS) },
-    { L"Shadow",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHADOW_STATUS,           ARRAYSIZE(MSHVSF_A_SHADOW_STATUS) },
-    { L"Shuma-Gorath",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMA_STATUS,            ARRAYSIZE(MSHVSF_A_SHUMA_STATUS) },
+    { L"Shadow",            DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHADOW_STATUS,           ARRAYSIZE(MSHVSF_A_SHADOW_STATUS) },
+    { L"Shuma-Gorath",      DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMA_STATUS,            ARRAYSIZE(MSHVSF_A_SHUMA_STATUS) },
     { L"Spider-Man/Armored Spider-Man",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SPIDEY_STATUS,           ARRAYSIZE(MSHVSF_A_SPIDEY_STATUS) },
-    { L"Wolverine",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_WOLVERINE_STATUS,        ARRAYSIZE(MSHVSF_A_WOLVERINE_STATUS) },
-    { L"Zangief",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ZANGIEF_STATUS,          ARRAYSIZE(MSHVSF_A_ZANGIEF_STATUS) },
+    { L"Wolverine",         DESC_NODETYPE_TREE,    (void*)MSHVSF_A_WOLVERINE_STATUS,        ARRAYSIZE(MSHVSF_A_WOLVERINE_STATUS) },
+    { L"Zangief",           DESC_NODETYPE_TREE,    (void*)MSHVSF_A_ZANGIEF_STATUS,          ARRAYSIZE(MSHVSF_A_ZANGIEF_STATUS) },
 
-    { L"Dan",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DAN_STATUS,              ARRAYSIZE(MSHVSF_A_DAN_STATUS) },
-    { L"Cyber Akuma",        DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYBERAKUMA_STATUS,       ARRAYSIZE(MSHVSF_A_CYBERAKUMA_STATUS) },
+    { L"Dan",               DESC_NODETYPE_TREE,    (void*)MSHVSF_A_DAN_STATUS,              ARRAYSIZE(MSHVSF_A_DAN_STATUS) },
+    { L"Cyber Akuma",       DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CYBERAKUMA_STATUS,       ARRAYSIZE(MSHVSF_A_CYBERAKUMA_STATUS) },
 };
 
 const sDescTreeNode MSHVSF_A_BONUS_COLLECTION[] =
 {
     { L"Character Select Icons",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CSI_PALETTES,    ARRAYSIZE(MSHVSF_A_CSI_PALETTES) },
-    { L"Character Select",          DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHARSELECT_PALETTES,  ARRAYSIZE(MSHVSF_A_CHARSELECT_PALETTES) },
+    { L"Character Select",          DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CHARSELECT_PALETTES, ARRAYSIZE(MSHVSF_A_CHARSELECT_PALETTES) },
+    { L"HUD",                       DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BONUS_HUD_PALETTES, ARRAYSIZE(MSHVSF_A_BONUS_HUD_PALETTES) },
     { L"Super Screen Portraits",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SSP_PALETTES,    ARRAYSIZE(MSHVSF_A_SSP_PALETTES) },
     { L"Victory Screen Portraits",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_VSP_PALETTES,    ARRAYSIZE(MSHVSF_A_VSP_PALETTES) },
     { L"Bonus Palettes",            DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BONUS_BONUS_PALETTES, ARRAYSIZE(MSHVSF_A_BONUS_BONUS_PALETTES) },
 };
+
 
 const sDescTreeNode MSHVSF_A_BONUS_COLLECTION_7B[] =
 {

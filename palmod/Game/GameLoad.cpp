@@ -12,6 +12,7 @@
 #include "Game_BSSMSJR_SNES.h"
 #include "Game_CFTE_SNES.h"
 #include "Game_COTA_A.h"
+#include "Game_CVS1_A.h"
 #include "Game_CVS2_A.h"
 #include "Game_Cyberbots_A.h"
 #include "Game_DanKuGa_A.h"
@@ -244,6 +245,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case COTA_A:
     {
         GetRule = &CGame_COTA_A::GetRule;
+        return TRUE;
+    }
+    case CVS1_A:
+    {
+        GetRule = &CGame_CVS1_A::GetRule;
         return TRUE;
     }
     case CVS2_A:
@@ -1126,6 +1132,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case COTA_A:
     {
         return new CGame_COTA_A(nConfirmedROMSize);
+    }
+    case CVS1_A:
+    {
+        return new CGame_CVS1_A(nConfirmedROMSize);
     }
     case CVS2_A:
     {
