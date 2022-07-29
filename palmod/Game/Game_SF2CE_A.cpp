@@ -89,7 +89,7 @@ CGame_SF2CE_A::CGame_SF2CE_A(uint32_t nConfirmedROMSize, int nSF2CEROMToLoad)
 
         nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 24;
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 35;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSF2CE_22;
         m_nLowestKnownPaletteRomLocation = 0x16834;
         break;
@@ -100,7 +100,7 @@ CGame_SF2CE_A::CGame_SF2CE_A(uint32_t nConfirmedROMSize, int nSF2CEROMToLoad)
 
         nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 16;
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 17;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSF2CE_23;
         m_nLowestKnownPaletteRomLocation = 0x01dff8;
         break;
@@ -330,12 +330,12 @@ stExtraDef* CGame_SF2CE_A::GetCurrentExtraDef(int nDefCtr)
     switch (m_nSelectedRom)
     {
     case 21:
-        return (stExtraDef*)&SF2CE_A_21_EXTRA_CUSTOM[nDefCtr];
+        return &SF2CE_A_21_EXTRA_CUSTOM[nDefCtr];
     case 22:
     default:
-        return (stExtraDef*)&SF2CE_A_22_EXTRA_CUSTOM[nDefCtr];
+        return &SF2CE_A_22_EXTRA_CUSTOM[nDefCtr];
     case 23:
-        return (stExtraDef*)&SF2CE_A_23_EXTRA_CUSTOM[nDefCtr];
+        return &SF2CE_A_23_EXTRA_CUSTOM[nDefCtr];
     };
 }
 
