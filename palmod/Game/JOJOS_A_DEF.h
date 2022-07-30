@@ -3346,7 +3346,7 @@ const sGame_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
     { L"Extra characters page arrows", 0x310500, 0x310580 },
     { L"Vs screen Background", 0x30d000, 0x30d080, indexJojos51Bonus, 0x49 },
     { L"Win screen Background", 0x310200, 0x310280, indexJojos51Bonus, 0x4a },
-    { L"Oldseph Challenge Mode Faces", 0x441000, 0x441200, indexJojos51Bonus, 0x51 },
+    { L"Oldseph Challenge Mode Faces", 0x441000, 0x441200, indexJojos51Bonus, 0x52 },
     { L"D'Arby", 0x311a00, 0x311a80, indexJojos51Bonus, 0x2C },
     { L"Darby Chips", 0x311d00, 0x311d80, indexJojos51Bonus, 0x2D },
     { L"Osiris Arms", 0x311b80, 0x311c00, indexJojos51Bonus, 0x2E },

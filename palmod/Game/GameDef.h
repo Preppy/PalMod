@@ -498,6 +498,7 @@ const stPairedPaletteInfo pairPreviousFlipped2 = { -2, true };
 const stPairedPaletteInfo pairNextAndNext =                         { 1, false, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNext2AndNext3 =                       { 2, false, 3, 3 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNextSkipped =                  { 1, false, 3, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext4 =                        { 1, false, 3, 4 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext6 =                        { 1, false, 3, 6 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext7 =                        { 1, false, 3, 7 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext9 =                        { 1, false, 3, 9 }; // triple display... requires special handling in code
@@ -509,9 +510,9 @@ const stPairedPaletteInfo pairNextAndNext54 =                       { 1, false, 
 const stPairedPaletteInfo pairNextSkippedAndNextSkipped =           { 2, false, 3, 4 }; // triple display... requires special handling in code
 const stPairedPaletteInfo pairNext4AndNext =                        { 4, false, 3, 3 }; // triple display... requires special handling in code
 
-const stPairedPaletteInfo pairNext2AndNext6 =                        { 2, false, 3, 6 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNext3AndNext7 =                        { 3, false, 3, 7 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNext3AndNext8 =                        { 3, false, 3, 8 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext2AndNext6 =                       { 2, false, 3, 6 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext3AndNext7 =                       { 3, false, 3, 7 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext3AndNext8 =                       { 3, false, 3, 8 }; // triple display... requires special handling in code
 
 const stPairedPaletteInfo pairNext3Palettes =                       { 1, false, 4 };          // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext32AndNextSkipped =         { 1, false, 4, 32, 34 };  // quad display... requires special handling in code

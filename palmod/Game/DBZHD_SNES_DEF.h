@@ -28,8 +28,6 @@ const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_P1[] =
     { L"Goku P1 (Sunset)", 0xb0040, 0xb0060, indexDBZHDSprites_Goku, 0x00, &pairNext7 },
     { L"Goku P1 (Night)", 0xb0080, 0xb00a0, indexDBZHDSprites_Goku, 0x00, &pairNext6 },
     { L"Goku P1 portrait", 0x18140, 0x18160, indexDBZHDSprites_Goku, 0x40 },
-
-
 };
 
 const sGame_PaletteDataset DBZHD_SNES_GOKU_PALETTES_P2[] =
@@ -105,9 +103,9 @@ const sGame_PaletteDataset DBZHD_SNES_GOHAN_PALETTES_P1[] =
     { L"Gohan P1 (Day)", 0xB0500, 0xB0520, indexDBZHDSprites_Gohan },
     { L"Gohan P1 (Sunset)", 0xb0540, 0xb0560, indexDBZHDSprites_Gohan },
     { L"Gohan P1 (Night)", 0xb0580, 0xb05a0, indexDBZHDSprites_Gohan },
-    { L"Gohan P1 Charge (Day)", 0xb0600, 0xb0620, indexDBZHDSprites_Gohan },
-    { L"Gohan P1 Charge (Sunset)", 0xb0640, 0xb0660, indexDBZHDSprites_Gohan },
-    { L"Gohan P1 Charge (Night)", 0xb0680, 0xb06a0, indexDBZHDSprites_Gohan },
+    { L"Gohan P1 Charge (Day)", 0xb0600, 0xb0620, indexDBZHDSprites_Gohan, 0x01 },
+    { L"Gohan P1 Charge (Sunset)", 0xb0640, 0xb0660, indexDBZHDSprites_Gohan, 0x01 },
+    { L"Gohan P1 Charge (Night)", 0xb0680, 0xb06a0, indexDBZHDSprites_Gohan, 0x01 },
     { L"Gohan P1 portrait", 0x181c0, 0x181e0, indexDBZHDSprites_Gohan, 0x40 },
 };
 
@@ -116,9 +114,9 @@ const sGame_PaletteDataset DBZHD_SNES_GOHAN_PALETTES_P2[] =
     { L"Gohan P2 (Day)", 0xB0520, 0xB0540, indexDBZHDSprites_Gohan },
     { L"Gohan P2 (Sunset)", 0xb0560, 0xb0580, indexDBZHDSprites_Gohan },
     { L"Gohan P2 (Night)", 0xb05a0, 0xb05c0, indexDBZHDSprites_Gohan },
-    { L"Gohan P2 Charge (Day)", 0xb0620, 0xb0640, indexDBZHDSprites_Gohan },
-    { L"Gohan P2 Charge (Sunset)", 0xb0660, 0xb0680, indexDBZHDSprites_Gohan },
-    { L"Gohan P2 Charge (Night)", 0xb06a0, 0xb06c0, indexDBZHDSprites_Gohan },
+    { L"Gohan P2 Charge (Day)", 0xb0620, 0xb0640, indexDBZHDSprites_Gohan, 0x01 },
+    { L"Gohan P2 Charge (Sunset)", 0xb0660, 0xb0680, indexDBZHDSprites_Gohan, 0x01 },
+    { L"Gohan P2 Charge (Night)", 0xb06a0, 0xb06c0, indexDBZHDSprites_Gohan, 0x01 },
     { L"Gohan P2 portrait", 0x181e0, 0x18200, indexDBZHDSprites_Gohan, 0x41 },
 };
 
@@ -260,12 +258,12 @@ const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset DBZHD_SNES_STAGE_PALETTES[] =
 {
-    { L"Tournament Day", 0x50C6E, 0x50D0E },
-    { L"Tournament Sunset", 0x50D0E, 0x50DAE },
-    { L"Tournament Night", 0x50DAE, 0x50E4E },
-    { L"Lookout Day", 0x536B7, 0x53757 },
-    { L"Lookout Sunset", 0x53757, 0x537F7 },
-    { L"Lookout Night", 0x537F7, 0x53897 },
+    { L"Tournament Day", 0x50C6E, 0x50D0E, indexDBZHDSprites_Bonus, 0x05 },
+    { L"Tournament Sunset", 0x50D0E, 0x50DAE, indexDBZHDSprites_Bonus, 0x05 },
+    { L"Tournament Night", 0x50DAE, 0x50E4E, indexDBZHDSprites_Bonus, 0x05 },
+    { L"Lookout Day", 0x536B7, 0x53757, indexDBZHDSprites_Bonus, 0x04 },
+    { L"Lookout Sunset", 0x53757, 0x537F7, indexDBZHDSprites_Bonus, 0x04 },
+    { L"Lookout Night", 0x537F7, 0x53897, indexDBZHDSprites_Bonus, 0x04 },
     { L"Goku Intro", 0x232F1, 0x23311 },
     { L"Sky (Sunset)", 0x52921, 0x529a1 },
     { L"Sky Lookout (Sunset)", 0x51a5a, 0x51afa },
@@ -309,8 +307,8 @@ const sGame_PaletteDataset DBZHD_SNES_STAGE_CLOUD_PALETTES[] =
 
 const sGame_PaletteDataset DBZHD_SNES_BONUS_PALETTES[] =
 {
-    { L"Character Select icons 1/2", 0x1B48A, 0x1b4aa },
-    { L"Character Select icons 2/2", 0x1B4aA, 0x1b4ca },
+    { L"Character Select icons 1/2", 0x1B48A, 0x1b4aa, indexDBZHDSprites_Bonus, 0x02, &pairNext },
+    { L"Character Select icons 2/2", 0x1B4aA, 0x1b4ca, indexDBZHDSprites_Bonus, 0x03, &pairPrevious },
     { L"Super Buu", 0x1b4ca, 0x1b51e, indexDBZHDSprites_Bonus, 0x00 },
     { L"Sand 1", 0x2e5a2, 0x2e7a2 },
     { L"Sand 2", 0x2e7a2, 0x2e942 },

@@ -2489,7 +2489,7 @@ const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_JILL =
 
 const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_HAYATO =
 { //12: Hayato" },
-    { 0x00, L"Main Color", 0x00, indexCPS2Sprites_Hayato, &pairNext },
+    { 0x00, L"Main Color", 0x00, indexCPS2Sprites_Hayato, &pairNextAndNext4 },
     { 0x01, L"(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword" },
     { 0x02, L"(03) ID: 01-08: Intro (Rising Flames)" },
     { 0x03, L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires" },
@@ -2500,10 +2500,10 @@ const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_HAYATO =
     { 0x11, L"Not Used" },
     { 0x12, L"Not Used" },
     { 0x13, L"Not Used" },
-    { 0x14, L"Winpose - Elle" },
-    { 0x15, L"Winpose - Jun" },
-    { 0x16, L"Winpose - Jun' Ring" },
-    { 0x17, L"Winpose - Saturn" },
+    { 0x14, L"Winpose - Elle", 0x0b, indexCPS2Sprites_Hayato, &pairNextAndNext },
+    { 0x15, L"Winpose - Jun", 0x09 },
+    { 0x16, L"Winpose - Jun' Ring", 0x0a },
+    { 0x17, L"Winpose - Saturn", 0x08 },
 };
 
 const std::vector<sMoveDescription> MVC2_MOVE_DESCRIPTIONS_RUBYHEART =

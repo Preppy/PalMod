@@ -4203,8 +4203,8 @@ const sGame_PaletteDataset KOF02_A_BONUS_HUD_PALETTES[] =
     { L"Super Meter", 0xb4602, 0xb46c2, indexKOF02Sprites_Bonus, 0x06 },
     { L"Lifebars", 0x86c02, 0x86c42 },
     { L"Timer", 0x86d02, 0x86d42 },
-    { L"Timer Lights", 0xb4702, 0xb48a2 },
-    { L"Combo Meter", 0x86c82, 0x86ca2 },
+    { L"Timer Lights", 0xb4702, 0xb48a2, indexKOF02Sprites_Bonus, 0x16 },
+    { L"Combo Meter", 0x86c82, 0x86ca2, indexKOF02Sprites_Bonus, 0x12 },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
@@ -4274,18 +4274,18 @@ const sGame_PaletteDataset KOF02_A_BONUS_INTRO_PALETTES[] =
     { L"Intro Fire BG (1/2)", 0xbf202, 0xbf222 },
     { L"Intro Glass Shatter", 0xbf222, 0xbf262 },
     { L"Intro Fire BG (2/2)", 0xbf2c2, 0xbf2e2 },
-    { L"Playmore Logo", 0xbf282, 0xbf2a2 },
+    { L"Playmore Logo", 0xbf282, 0xbf2a2, indexKOF02Sprites_Bonus, 0x11 },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
 {
-    { L"Order Select (Single Play) 1/5", 0xb5f62, 0xb5f82 },
-    { L"Order Select (Single Play) 2/5", 0xb5f82, 0xb5fa2 },
-    { L"Order Select (Single Play) 3/5", 0xb5fa2, 0xb5fc2 },
-    { L"Order Select (Single Play) 4/5", 0xb5fc2, 0xb5fe2 },
-    { L"Order Select (Single Play) 5/5", 0xb5fe2, 0xb6002 },
-    { L"\"THE KING OF FIGHTERS\" Intro Text", 0xbf162, 0xbf182 },
-    { L"Credits Counter", 0x86b82, 0x86ba2 },
+    { L"Order Select (Single Play) 1/5", 0xb5f62, 0xb5f82, indexKOF02Sprites_Bonus, 0x15 },
+    { L"Order Select (Single Play) 2/5", 0xb5f82, 0xb5fa2, indexKOF02Sprites_Bonus, 0x15 },
+    { L"Order Select (Single Play) 3/5", 0xb5fa2, 0xb5fc2, indexKOF02Sprites_Bonus, 0x15 },
+    { L"Order Select (Single Play) 4/5", 0xb5fc2, 0xb5fe2, indexKOF02Sprites_Bonus, 0x15 },
+    { L"Order Select (Single Play) 5/5", 0xb5fe2, 0xb6002, indexKOF02Sprites_Bonus, 0x15 },
+    { L"\"THE KING OF FIGHTERS\" Intro Text", 0xbf162, 0xbf182, indexKOF02Sprites_Bonus, 0x14 },
+    { L"Credits Counter", 0x86b82, 0x86ba2, indexKOF02Sprites_Bonus, 0x13 },
 };
 
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =

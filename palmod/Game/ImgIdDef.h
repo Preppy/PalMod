@@ -7,8 +7,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_ARCANA,  // Fuck Arcana Heart
     IMGDAT_SECTION_ARCSYS,  // Persona
     IMGDAT_SECTION_BREAKREV,
-    IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
-    IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
+    IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 and CVS* NAOMI games
     IMGDAT_SECTION_DS,      // Nintendo DS
     IMGDAT_SECTION_FRENCHBREAD, // Used for DBFCI, UNICLR, MBTL
     IMGDAT_SECTION_GAROU,
@@ -227,7 +226,59 @@ enum CHARACTERS_CPS2
     indexCyberbots_Unknown,         // 0xB3
     indexCyberbots_Vise,            // 0xB4
     indexCyberbots_Warlock,         // 0xB5
-    indexCyberbots_Bonus,           // 0xB6
+    indexCyberbots_Pilots,          // 0xB6
+    indexCyberbots_Stages,          // 0xB7
+    indexCyberbots_Bonus,           // 0xB8
+
+    indexCVS2Sprites_Akuma,
+    indexCVS2Sprites_Athena,
+    indexCVS2Sprites_Balrog,
+    indexCVS2Sprites_Benimaru,
+    indexCVS2Sprites_Blanka,
+    indexCVS2Sprites_Cammy,
+    indexCVS2Sprites_Chang,
+    indexCVS2Sprites_ChunLi,
+    indexCVS2Sprites_Dan,
+    indexCVS2Sprites_Dhalsim,
+    indexCVS2Sprites_EHonda,
+    indexCVS2Sprites_Eagle,
+    indexCVS2Sprites_EvilRyu,
+    indexCVS2Sprites_Geese,
+    indexCVS2Sprites_GodRugal,
+    indexCVS2Sprites_Guile,
+    indexCVS2Sprites_Haohmaru,
+    indexCVS2Sprites_Hibiki,
+    indexCVS2Sprites_Iori,
+    indexCVS2Sprites_Joe,
+    indexCVS2Sprites_Ken,
+    indexCVS2Sprites_Kim,
+    indexCVS2Sprites_King,
+    indexCVS2Sprites_Kyo,
+    indexCVS2Sprites_Kyosuke,
+    indexCVS2Sprites_MBison,
+    indexCVS2Sprites_Mai,
+    indexCVS2Sprites_Maki,
+    indexCVS2Sprites_Morrigan,
+    indexCVS2Sprites_Nakoruru,
+    indexCVS2Sprites_OrochiIori,
+    indexCVS2Sprites_Raiden,
+    indexCVS2Sprites_Rock,
+    indexCVS2Sprites_Rolento,
+    indexCVS2Sprites_Rugal,
+    indexCVS2Sprites_Ryo,
+    indexCVS2Sprites_Ryu,
+    indexCVS2Sprites_RyuhakuTodoh,
+    indexCVS2Sprites_RyujiYamazaki,
+    indexCVS2Sprites_Sagat,
+    indexCVS2Sprites_Sakura,
+    indexCVS2Sprites_ShinAkuma,
+    indexCVS2Sprites_Terry,
+    indexCVS2Sprites_Vega,
+    indexCVS2Sprites_Vice,
+    indexCVS2Sprites_Yun,
+    indexCVS2Sprites_Yuri,
+    indexCVS2Sprites_Zangief,
+    indexCVS2Sprites_Bonus,
 };
 
 enum CHARACTERS_3S_CPS3
@@ -1268,59 +1319,6 @@ enum SupportedBreakersSprites
     indexBreakersSprites_Tia,       // 0x09
     indexBreakersSprites_Bonus,     // 0x0A
 };
-
-enum CVS2SpriteList
-{
-    indexCVS2Sprites_Akuma = 0,
-    indexCVS2Sprites_Athena,
-    indexCVS2Sprites_Balrog,
-    indexCVS2Sprites_Benimaru,
-    indexCVS2Sprites_Blanka,
-    indexCVS2Sprites_Cammy,
-    indexCVS2Sprites_Chang,
-    indexCVS2Sprites_ChunLi,
-    indexCVS2Sprites_Dan,
-    indexCVS2Sprites_Dhalsim,
-    indexCVS2Sprites_EHonda,
-    indexCVS2Sprites_Eagle,
-    indexCVS2Sprites_EvilRyu,
-    indexCVS2Sprites_Geese,
-    indexCVS2Sprites_GodRugal,
-    indexCVS2Sprites_Guile,
-    indexCVS2Sprites_Haohmaru,
-    indexCVS2Sprites_Hibiki,
-    indexCVS2Sprites_Iori,
-    indexCVS2Sprites_Joe,
-    indexCVS2Sprites_Ken,
-    indexCVS2Sprites_Kim,
-    indexCVS2Sprites_King,
-    indexCVS2Sprites_Kyo,
-    indexCVS2Sprites_Kyosuke,
-    indexCVS2Sprites_MBison,
-    indexCVS2Sprites_Mai,
-    indexCVS2Sprites_Maki,
-    indexCVS2Sprites_Morrigan,
-    indexCVS2Sprites_Nakoruru,
-    indexCVS2Sprites_OrochiIori,
-    indexCVS2Sprites_Raiden,
-    indexCVS2Sprites_Rock,
-    indexCVS2Sprites_Rolento,
-    indexCVS2Sprites_Rugal,
-    indexCVS2Sprites_Ryo,
-    indexCVS2Sprites_Ryu,
-    indexCVS2Sprites_RyuhakuTodoh,
-    indexCVS2Sprites_RyujiYamazaki,
-    indexCVS2Sprites_Sagat,
-    indexCVS2Sprites_Sakura,
-    indexCVS2Sprites_ShinAkuma,
-    indexCVS2Sprites_Terry,
-    indexCVS2Sprites_Vega,
-    indexCVS2Sprites_Vice,
-    indexCVS2Sprites_Yun,
-    indexCVS2Sprites_Yuri,
-    indexCVS2Sprites_Zangief,
-    indexCVS2Sprites_Bonus,     // 0x30
-}; // max 47 characters
 
 enum SamuraiShodownSpriteList
 {

@@ -96,13 +96,13 @@ const sGame_PaletteDataset SF2CE_A_DICTATOR_P2_NODE[] =
 const sGame_PaletteDataset SF2CE_A_SAGAT_P1_NODE[] =
 {
     { L"Sagat", 0x16BF0 - 0x02, 0x16c10 - 0x02, indexSF2Sprites_Sagat },
-    { L"Tiger Shot", 0x16c2e, 0x16c4e },
+    { L"Tiger Shot", 0x16c2e, 0x16c4e, indexSF2Sprites_Sagat, 0x08 },
 };
 
 const sGame_PaletteDataset SF2CE_A_SAGAT_P2_NODE[] =
 {
     { L"Sagat", 0x16a46, 0x16a66, indexSF2Sprites_Sagat },
-    { L"Tiger Shot", 0x16a86, 0x16aa6 },
+    { L"Tiger Shot", 0x16a86, 0x16aa6, indexSF2Sprites_Sagat, 0x08 },
 };
 
 const sGame_PaletteDataset SF2CE_A_BOXER_P1_NODE[] =
@@ -127,19 +127,19 @@ const sGame_PaletteDataset SF2CE_A_CLAW_P2_NODE[] =
 
 const sGame_PaletteDataset SF2CE_A_IN_GAME_NODE[] =
 {
-    { L"Insert Coin Text", 0x24266, 0x24286 },
-    { L"HUD and Text", 0x243e6, 0x24426 },
-    { L"In-Game Black FX", 0x24386, 0x243a6 },
-    { L"Dust and Green Hitsparks", 0x243c6, 0x243e6 },
-    { L"Various In-Game FX", 0x24426, 0x24466 },
+    { L"Insert Coin Text", 0x24266, 0x24286, indexSF2Sprites_Bonus, 0x2e },
+    { L"HUD and Text", 0x243e6, 0x24426, indexSF2Sprites_Bonus, 0x2c },
+    { L"In-Game Black FX", 0x24386, 0x243a6, indexSF2Sprites_Bonus, 0x29, &pairNextAndNext },
+    { L"Dust and Green Hitsparks", 0x243c6, 0x243e6, indexSF2Sprites_Bonus, 0x28 },
+    { L"Various In-Game FX", 0x24426, 0x24466, indexSF2Sprites_Bonus, 0x2a },
 };
 
 const sGame_PaletteDataset SF2CE_A_BONUS_NODE[] =
 {
-    { L"Intro Characters", 0x264e6, 0x26626 },
-    { L"Game Title", 0x26646, 0x26666 },
-    { L"Character Select Extras", 0x26806, 0x26866 },
-    { L"World Map M.Bison", 0x26786, 0x267a6 },
+    { L"Intro Characters", 0x264e6, 0x26626, indexSF2Sprites_Bonus, 0x2d },
+    { L"Game Title", 0x26646, 0x26666, indexSF2Sprites_Bonus, 0x2b },
+    { L"Character Select Extras", 0x26806, 0x26866, indexSF2Sprites_Bonus, 0x24 },
+    { L"World Map M.Bison", 0x26786, 0x267a6, indexSF2Sprites_Bonus, 0x2f },
 };
 //FILE 22 PALETTES END
 
@@ -147,8 +147,8 @@ const sGame_PaletteDataset SF2CE_A_BONUS_NODE[] =
 const sGame_PaletteDataset SF2CE_A_RYU_PORTRAITS_NODE[] =
 {
     { L"Ryu P1", 0x9400 - 0x02, 0x9420 - 0x02, indexSF2Sprites_Bonus, 0x16 },
-    { L"Ryu P2 1/2", 0x9600 - 0x02, 0x9620 - 0x02, indexSF2Sprites_Bonus, 0x16, &pairNext },
-    { L"Ryu P2 2/2", 0x959e, 0x95be },
+    { L"Ryu P2 1/2", 0x9600 - 0x02, 0x9620 - 0x02, indexSF2Sprites_Ryu, 0x20, &pairNext },
+    { L"Ryu P2 2/2", 0x959e, 0x95be, indexSF2Sprites_Ryu, 0x21 },
 };
 
 const sGame_PaletteDataset SF2CE_A_EHONDA_PORTRAITS_NODE[] =
@@ -184,17 +184,17 @@ const sGame_PaletteDataset SF2CE_A_CHUNLI_PORTRAITS_NODE[] =
 const sGame_PaletteDataset SF2CE_A_ZANGIEF_PORTRAITS_NODE[] =
 {
     { L"Zangief P1", 0x94c0 - 0x02, 0x94e0 - 0x02, indexSF2Sprites_Bonus, 0x1a },
-    { L"Zangief P2 1/2", 0x96c0 - 0x02, 0x96e0 - 0x02, indexSF2Sprites_Bonus, 0x1a, &pairNext },
-    { L"Zangief P2 2/2", 0x95de , 0x95fe },
+    { L"Zangief P2 1/2", 0x96c0 - 0x02, 0x96e0 - 0x02, indexSF2Sprites_Zangief, 0x20, &pairNext },
+    { L"Zangief P2 2/2", 0x95de , 0x95fe, indexSF2Sprites_Zangief, 0x21 },
 };
 
 const sGame_PaletteDataset SF2CE_A_DHALSIM_PORTRAITS_NODE[] =
 {
     { L"Dhalsim P1 1/2", 0x94e0 - 0x02, 0x9500 - 0x02, indexSF2Sprites_Bonus, 0x0a, &pairNext },
     { L"Dhalsim P1 2/2", 0x9580 - 0x02, 0x95a0 - 0x02, indexSF2Sprites_Bonus, 0x0b },
-    { L"Dhalsim P2 1/3", 0x96e0 - 0x02, 0x9700 - 0x02, indexSF2Sprites_Bonus, 0x0a, &pairNextAndNext },
-    { L"Dhalsim P2 2/3", 0x9780 - 0x02, 0x97a0 - 0x02, indexSF2Sprites_Bonus, 0x0b },
-    { L"Dhalsim P2 3/3", 0x979e, 0x97be },
+    { L"Dhalsim P2 1/3", 0x96e0 - 0x02, 0x9700 - 0x02, indexSF2Sprites_Dhalsim, 0x20, &pairNextAndNext },
+    { L"Dhalsim P2 2/3", 0x9780 - 0x02, 0x97a0 - 0x02, indexSF2Sprites_Dhalsim, 0x21 },
+    { L"Dhalsim P2 3/3", 0x979e, 0x97be, indexSF2Sprites_Dhalsim, 0x22 },
 };
 
 const sGame_PaletteDataset SF2CE_A_DICTATOR_PORTRAITS_NODE[] =
@@ -225,11 +225,11 @@ const sGame_PaletteDataset SF2CE_A_CLAW_PORTRAITS_NODE[] =
 
 const sGame_PaletteDataset SF2CE_A_SELSCREEN_NODE[] =
 {
-    { L"Select Portaits (1/2)", 0xe41e, 0xe51e },
-    { L"Shadaloo Portaits (2/2)", 0xe71e, 0xe77e},
-    { L"Grayed Portaits (1/2)", 0xe61e, 0xe71e},
-    { L"Grayed Portaits (2/2)", 0xe77e, 0xe7de},
-    { L"World Map Background", 0xe51e, 0xe5de},
+    { L"Select Portraits (1/2)", 0xe41e, 0xe51e, indexSF2Sprites_Bonus, 0x26, &pairNext },
+    { L"Shadaloo Portraits (2/2)", 0xe71e, 0xe77e, indexSF2Sprites_Bonus, 0x27, &pairPrevious },
+    { L"Grayed Portraits (1/2)", 0xe61e, 0xe71e, indexSF2Sprites_Bonus, 0x26, &pairNext },
+    { L"Grayed Portraits (2/2)", 0xe77e, 0xe7de, indexSF2Sprites_Bonus, 0x27, &pairPrevious },
+    { L"World Map Background", 0xe51e, 0xe5de, indexSF2Sprites_Bonus, 0x25 },
 };
 //FILE 21 PALETTES END
 
@@ -244,7 +244,7 @@ const sGame_PaletteDataset SF2CE_A_EHONDA_23_PORTRAITS_NODE[] =
 {
     { L"E.Honda P1", 0x1e018, 0x1e038, indexSF2Sprites_Bonus, 0x10 },
     { L"E.Honda P2", 0x1e138, 0x1e158, indexSF2Sprites_Bonus, 0x10 },
-    { L"E.Honda Shared Extra", 0x1e0f8, 0x1e118 },
+    { L"E.Honda Shared Extra", 0x1e0f8, 0x1e118, indexSF2Sprites_Bonus, 0x30 },
 };
 
 const sGame_PaletteDataset SF2CE_A_BLANKA_23_PORTRAITS_NODE[] =
@@ -279,8 +279,8 @@ const sGame_PaletteDataset SF2CE_A_ZANGIEF_23_PORTRAITS_NODE[] =
 
 const sGame_PaletteDataset SF2CE_A_DHALSIM_23_PORTRAITS_NODE[] =
 {
-    { L"Dhalsim P1", 0x1e0d8, 0x1e0f8 },
-    { L"Dhalsim P2", 0x1e1f8, 0x1e218 },
+    { L"Dhalsim P1", 0x1e0d8, 0x1e0f8, indexSF2Sprites_Dhalsim, 0x23 },
+    { L"Dhalsim P2", 0x1e1f8, 0x1e218, indexSF2Sprites_Dhalsim, 0x23 },
 };
 //FILE 23 PALETTES END
 

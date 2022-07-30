@@ -56,7 +56,7 @@ const std::vector<uint16_t> CVS2_A_IMGIDS_USED =
     indexCVS2Sprites_Yun,
     indexCVS2Sprites_Yuri,
     indexCVS2Sprites_Zangief,
-    indexCVS2Sprites_Bonus,     // 0x30
+    indexCVS2Sprites_Bonus,
 };
 
 struct sCVS2_ExtraPair

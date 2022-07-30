@@ -2536,7 +2536,7 @@ const sDescTreeNode MVC2_A_JILL_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x36f0740, 0x36f0760, indexCPS2Sprites_Hayato, 0, &pairNext },
+    { L"Main Color LP", 0x36f0740, 0x36f0760, indexCPS2Sprites_Hayato, 0, &pairNextAndNext4 },
     { L"(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0760, 0x36f0780, indexCPS2Sprites_Hayato, 1 },
     { L"(03) ID: 01-08: Intro (Rising Flames)", 0x36f0780, 0x36f07a0, indexCPS2Sprites_Hayato, 2 },
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f07a0, 0x36f07c0, indexCPS2Sprites_Hayato, 3 },
@@ -2548,7 +2548,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x36f0840, 0x36f0860, indexCPS2Sprites_Hayato, 0, &pairNext },
+    { L"Main Color LK", 0x36f0840, 0x36f0860, indexCPS2Sprites_Hayato, 0, &pairNextAndNext4  },
     { L"(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0860, 0x36f0880, indexCPS2Sprites_Hayato, 1 },
     { L"(03) ID: 01-08: Intro (Rising Flames)", 0x36f0880, 0x36f08a0, indexCPS2Sprites_Hayato, 2 },
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f08a0, 0x36f08c0, indexCPS2Sprites_Hayato, 3 },
@@ -2560,7 +2560,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x36f0940, 0x36f0960, indexCPS2Sprites_Hayato, 0, &pairNext },
+    { L"Main Color HP", 0x36f0940, 0x36f0960, indexCPS2Sprites_Hayato, 0, &pairNextAndNext4  },
     { L"(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0960, 0x36f0980, indexCPS2Sprites_Hayato, 1 },
     { L"(03) ID: 01-08: Intro (Rising Flames)", 0x36f0980, 0x36f09a0, indexCPS2Sprites_Hayato, 2 },
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f09a0, 0x36f09c0, indexCPS2Sprites_Hayato, 3 },
@@ -2572,7 +2572,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x36f0a40, 0x36f0a60, indexCPS2Sprites_Hayato, 0, &pairNext },
+    { L"Main Color HK", 0x36f0a40, 0x36f0a60, indexCPS2Sprites_Hayato, 0, &pairNextAndNext4  },
     { L"(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0a60, 0x36f0a80, indexCPS2Sprites_Hayato, 1 },
     { L"(03) ID: 01-08: Intro (Rising Flames)", 0x36f0a80, 0x36f0aa0, indexCPS2Sprites_Hayato, 2 },
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f0aa0, 0x36f0ac0, indexCPS2Sprites_Hayato, 3 },
@@ -2584,7 +2584,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x36f0b40, 0x36f0b60, indexCPS2Sprites_Hayato, 0, &pairNext },
+    { L"Main Color A1", 0x36f0b40, 0x36f0b60, indexCPS2Sprites_Hayato, 0, &pairNextAndNext4  },
     { L"(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0b60, 0x36f0b80, indexCPS2Sprites_Hayato, 1 },
     { L"(03) ID: 01-08: Intro (Rising Flames)", 0x36f0b80, 0x36f0ba0, indexCPS2Sprites_Hayato, 2 },
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f0ba0, 0x36f0bc0, indexCPS2Sprites_Hayato, 3 },
@@ -2596,7 +2596,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x36f0c40, 0x36f0c60, indexCPS2Sprites_Hayato, 0, &pairNext },
+    { L"Main Color A2", 0x36f0c40, 0x36f0c60, indexCPS2Sprites_Hayato, 0, &pairNextAndNext4  },
     { L"(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0c60, 0x36f0c80, indexCPS2Sprites_Hayato, 1 },
     { L"(03) ID: 01-08: Intro (Rising Flames)", 0x36f0c80, 0x36f0ca0, indexCPS2Sprites_Hayato, 2 },
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f0ca0, 0x36f0cc0, indexCPS2Sprites_Hayato, 3 },
@@ -2631,10 +2631,10 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_EXTRAS[] =
     { L"11: Not Used", 0x36f0f40, 0x36f0f60 },
     { L"12: Not Used", 0x36f0f60, 0x36f0f80 },
     { L"13: Not Used", 0x36f0f80, 0x36f0fa0 },
-    { L"14: Winpose - Elle", 0x36f0fa0, 0x36f0fc0 },
-    { L"15: Winpose - Jun", 0x36f0fc0, 0x36f0fe0 },
-    { L"16: Winpose - Jun' Ring", 0x36f0fe0, 0x36f1000 },
-    { L"17: Winpose - Saturn", 0x36f1000, 0x36f1020 },
+    { L"14: Winpose - Elle", 0x36f0fa0, 0x36f0fc0, indexCPS2Sprites_Hayato, 0x0b, &pairNextAndNext },
+    { L"15: Winpose - Jun", 0x36f0fc0, 0x36f0fe0, indexCPS2Sprites_Hayato, 0x09 },
+    { L"16: Winpose - Jun' Ring", 0x36f0fe0, 0x36f1000, indexCPS2Sprites_Hayato, 0x0a },
+    { L"17: Winpose - Saturn", 0x36f1000, 0x36f1020, indexCPS2Sprites_Hayato, 0x08 },
 };
 
 const sDescTreeNode MVC2_A_HAYATO_COLLECTION[] =

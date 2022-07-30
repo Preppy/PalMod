@@ -205,8 +205,8 @@ const sGame_PaletteDataset CVS1_A_KEN_PALETTES_3K[] =
 
 const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_LP[] =
 {
-    { L"Chun-Li LP", 0x9f2820, 0x9f2840 },
-    { L"Chun-Li LP Extra 1", 0x9f2840, 0x9f2860 },
+    { L"Chun-Li LP", 0x9f2820, 0x9f2840, indexCVS2Sprites_ChunLi, 0x10, &pairNext },
+    { L"Chun-Li LP Extra 1", 0x9f2840, 0x9f2860, indexCVS2Sprites_ChunLi, 0x11 },
     { L"Chun-Li LP Extra 2", 0x9f2860, 0x9f2880 },
     { L"Chun-Li LP Extra 3", 0x9f2880, 0x9f28a0, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Chun-Li LP Extra 4", 0x9f28a0, 0x9f28c0 },
@@ -214,8 +214,8 @@ const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_LP[] =
 
 const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_MP[] =
 {
-    { L"Chun-Li MP", 0x9f28c0, 0x9f28e0 },
-    { L"Chun-Li MP Extra 1", 0x9f28e0, 0x9f2900 },
+    { L"Chun-Li MP", 0x9f28c0, 0x9f28e0, indexCVS2Sprites_ChunLi, 0x10, &pairNext },
+    { L"Chun-Li MP Extra 1", 0x9f28e0, 0x9f2900, indexCVS2Sprites_ChunLi, 0x11 },
     { L"Chun-Li MP Extra 2", 0x9f2900, 0x9f2920 },
     { L"Chun-Li MP Extra 3", 0x9f2920, 0x9f2940, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Chun-Li MP Extra 4", 0x9f2940, 0x9f2960 },
@@ -223,8 +223,8 @@ const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_MP[] =
 
 const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_HP[] =
 {
-    { L"Chun-Li HP", 0x9f2960, 0x9f2980 },
-    { L"Chun-Li HP Extra 1", 0x9f2980, 0x9f29a0 },
+    { L"Chun-Li HP", 0x9f2960, 0x9f2980, indexCVS2Sprites_ChunLi, 0x10, &pairNext },
+    { L"Chun-Li HP Extra 1", 0x9f2980, 0x9f29a0, indexCVS2Sprites_ChunLi, 0x11 },
     { L"Chun-Li HP Extra 2", 0x9f29a0, 0x9f29c0 },
     { L"Chun-Li HP Extra 3", 0x9f29c0, 0x9f29e0, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Chun-Li HP Extra 4", 0x9f29e0, 0x9f2a00 },
@@ -232,8 +232,8 @@ const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_HP[] =
 
 const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_LK[] =
 {
-    { L"Chun-Li LK", 0x9f2a00, 0x9f2a20 },
-    { L"Chun-Li LK Extra 1", 0x9f2a20, 0x9f2a40 },
+    { L"Chun-Li LK", 0x9f2a00, 0x9f2a20, indexCVS2Sprites_ChunLi, 0x10, &pairNext },
+    { L"Chun-Li LK Extra 1", 0x9f2a20, 0x9f2a40, indexCVS2Sprites_ChunLi, 0x11 },
     { L"Chun-Li LK Extra 2", 0x9f2a40, 0x9f2a60 },
     { L"Chun-Li LK Extra 3", 0x9f2a60, 0x9f2a80, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Chun-Li LK Extra 4", 0x9f2a80, 0x9f2aa0 },
@@ -241,8 +241,8 @@ const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_LK[] =
 
 const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_MK[] =
 {
-    { L"Chun-Li MK", 0x9f2aa0, 0x9f2ac0 },
-    { L"Chun-Li MK Extra 1", 0x9f2ac0, 0x9f2ae0 },
+    { L"Chun-Li MK", 0x9f2aa0, 0x9f2ac0, indexCVS2Sprites_ChunLi, 0x10, &pairNext },
+    { L"Chun-Li MK Extra 1", 0x9f2ac0, 0x9f2ae0, indexCVS2Sprites_ChunLi, 0x11 },
     { L"Chun-Li MK Extra 2", 0x9f2ae0, 0x9f2b00 },
     { L"Chun-Li MK Extra 3", 0x9f2b00, 0x9f2b20, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Chun-Li MK Extra 4", 0x9f2b20, 0x9f2b40 },
@@ -250,8 +250,8 @@ const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_MK[] =
 
 const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_HK[] =
 {
-    { L"Chun-Li HK", 0x9f2b40, 0x9f2b60 },
-    { L"Chun-Li HK Extra 1", 0x9f2b60, 0x9f2b80 },
+    { L"Chun-Li HK", 0x9f2b40, 0x9f2b60, indexCVS2Sprites_ChunLi, 0x10, &pairNext },
+    { L"Chun-Li HK Extra 1", 0x9f2b60, 0x9f2b80, indexCVS2Sprites_ChunLi, 0x11 },
     { L"Chun-Li HK Extra 2", 0x9f2b80, 0x9f2ba0 },
     { L"Chun-Li HK Extra 3", 0x9f2ba0, 0x9f2bc0, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Chun-Li HK Extra 4", 0x9f2bc0, 0x9f2be0 },
@@ -259,8 +259,8 @@ const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_HK[] =
 
 const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_3P[] =
 {
-    { L"Chun-Li 3P", 0x9f2be0, 0x9f2c00 },
-    { L"Chun-Li 3P Extra 1", 0x9f2c00, 0x9f2c20 },
+    { L"Chun-Li 3P", 0x9f2be0, 0x9f2c00, indexCVS2Sprites_ChunLi, 0x10, &pairNext },
+    { L"Chun-Li 3P Extra 1", 0x9f2c00, 0x9f2c20, indexCVS2Sprites_ChunLi, 0x11 },
     { L"Chun-Li 3P Extra 2", 0x9f2c20, 0x9f2c40 },
     { L"Chun-Li 3P Extra 3", 0x9f2c40, 0x9f2c60, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Chun-Li 3P Extra 4", 0x9f2c60, 0x9f2c80 },
@@ -268,8 +268,8 @@ const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_3P[] =
 
 const sGame_PaletteDataset CVS1_A_CHUNLI_PALETTES_3K[] =
 {
-    { L"Chun-Li 3K", 0x9f2c80, 0x9f2ca0 },
-    { L"Chun-Li 3K Extra 1", 0x9f2ca0, 0x9f2cc0 },
+    { L"Chun-Li 3K", 0x9f2c80, 0x9f2ca0, indexCVS2Sprites_ChunLi, 0x10, &pairNext },
+    { L"Chun-Li 3K Extra 1", 0x9f2ca0, 0x9f2cc0, indexCVS2Sprites_ChunLi, 0x11 },
     { L"Chun-Li 3K Extra 2", 0x9f2cc0, 0x9f2ce0 },
     { L"Chun-Li 3K Extra 3", 0x9f2ce0, 0x9f2d00, indexCVS2Sprites_ChunLi, 0x03 },
     { L"Chun-Li 3K Extra 4", 0x9f2d00, 0x9f2d20 },

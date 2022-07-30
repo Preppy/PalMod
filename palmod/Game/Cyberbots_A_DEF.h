@@ -26,7 +26,9 @@ const std::vector<uint16_t> Cyberbots_A_IMGIDS_USED =
     indexCyberbots_Unknown,         // 0xB3
     indexCyberbots_Vise,            // 0xB4
     indexCyberbots_Warlock,         // 0xB5
-    indexCyberbots_Bonus,           // 0xB6
+    indexCyberbots_Pilots,          // 0xB6
+    indexCyberbots_Stages,          // 0xB7
+    indexCyberbots_Bonus,           // 0xB8
 };
 
 //---MACHINES---
