@@ -693,13 +693,13 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 14, NEG + 5,
             SUPP_NODE, 0x0E, 0x57,
             SUPP_NODE, 0x0F, 0x57,
-                MOD_LUM, 1, 14, 5,
+                MOD_LUM, 1, 15, 5,
             SUPP_NODE, 0x10, 0x57,
-                MOD_LUM, 1, 14, 13,
+                MOD_LUM, 1, 15, 13,
             SUPP_NODE, 0x11, 0x57,
-                MOD_LUM, 1, 14, 21,
+                MOD_LUM, 1, 15, 21,
             SUPP_NODE, 0x12, 0x57,
-                MOD_LUM, 1, 14, 35,
+                MOD_LUM, 1, 15, 35,
             // 0x14-1c: rush
             // 0x1d-25: beat
             // 0x26-23: beat plane
@@ -714,13 +714,13 @@ namespace MVC2_SupplementProcessing
                 MOD_LUM, 1, 14, NEG + 5,
             SUPP_NODE, 0x4F, 0x57,
             SUPP_NODE, 0x50, 0x57,
-                MOD_LUM, 1, 14, 5,
+                MOD_LUM, 1, 15, 5,
             SUPP_NODE, 0x51, 0x57,
-                MOD_LUM, 1, 14, 10,
+                MOD_LUM, 1, 15, 10,
             SUPP_NODE, 0x52, 0x57,
-                MOD_LUM, 1, 14, 16,
+                MOD_LUM, 1, 15, 16,
             SUPP_NODE, 0x53, 0x57,
-                MOD_LUM, 1, 14, 22,
+                MOD_LUM, 1, 15, 22,
             // 0x56-5d: hyper roll switching back
     };
 

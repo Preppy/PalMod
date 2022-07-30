@@ -75,7 +75,7 @@ CGame_SF2CE_A::CGame_SF2CE_A(uint32_t nConfirmedROMSize, int nSF2CEROMToLoad)
 
         nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 39;
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 36;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSF2CE_21;
         m_nLowestKnownPaletteRomLocation = 0x93fe;
         break;

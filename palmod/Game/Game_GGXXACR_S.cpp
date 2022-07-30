@@ -197,14 +197,7 @@ uint32_t CGame_GGXXACR_S::GetCollectionCountForUnit(uint32_t nUnitId)
 
 bool CGame_GGXXACR_S::ShouldUseBasePaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    if ((nCollectionId == 0) && (!GGXXACR_S_CharacterData[nUnitId].ppszPaletteList.empty()))
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return ((nCollectionId == 0) && (!GGXXACR_S_CharacterData[nUnitId].ppszPaletteList.empty()));
 }
 
 uint32_t CGame_GGXXACR_S::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)

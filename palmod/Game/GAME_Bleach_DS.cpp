@@ -40,7 +40,7 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(uint32_t nConfirmedROMSize)
     m_nTotalInternalUnits = BLEACH_DS_NUMUNIT;
     m_nExtraUnit = BLEACH_DS_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 816; // You will need to update this, but PalMod will prompt you to do so
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 988; // You will need to update this, but PalMod will prompt you to do so
     m_pszExtraFilename = EXTRA_FILENAME_BLEACH_DS;
     m_nTotalPaletteCount = m_nTotalPaletteCountForBleach;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

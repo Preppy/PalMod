@@ -2248,6 +2248,8 @@ enum SupportedNintendoDS_PaletteListIndex
     indexUMK3Sprites_DS_SubZeroKuaiLiang,   // 0x61
     indexUMK3Sprites_DS_Stages,             // 0x62
     indexUMK3Sprites_DS_Bonus,              // 0x63
+
+    indexBleachDSSprites_Familiar,          // 0x64
 };
 
 enum SupportedPGM_SpriteListIndex

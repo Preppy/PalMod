@@ -1,15 +1,5 @@
 #pragma once
 
-enum Supported_MSHVSF_7B_PaletteListIndex
-{
-    index_MSHVSF_7B_Extras,
-    index_MSHVSF_7B_Last
-};
-
-constexpr auto MSHVSF_A_NUM_IND_7B = index_MSHVSF_7B_Last;
-
-constexpr auto MSHVSF_A_EXTRALOC_7B = MSHVSF_A_NUM_IND_7B;
-
 const std::vector<uint16_t> MSHVSF_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,
@@ -1376,7 +1366,6 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_TEMPLE_PALETTES[] =
 // Extra - Not Needed v
 //    { L"Temple of Fists - Uknown [PL#600.2]", 0x60472, 0x60552 },
 
-
 const sGame_PaletteDataset MSHVSF_A_BONUS_HUD_PALETTES[] =
 {
     { L"Main HUD", 0x71a4c, 0x71a8c },
@@ -1384,6 +1373,14 @@ const sGame_PaletteDataset MSHVSF_A_BONUS_HUD_PALETTES[] =
     { L"Game Text / VS Screen Text / Win Quotes", 0x719ac, 0x719cc },
     { L"Offscreen Icons", 0x719cc, 0x719ec },
     { L"Assist Icons", 0x71c8c, 0x71cec },
+};
+
+const sGame_PaletteDataset MSHVSF_A_BONUS_HITSPARK_PALETTES[] =
+{
+    { L"Hit Sparks 1", 0x200C, 0x201E },
+    { L"Hit Sparks 2", 0x202C, 0x203E },
+    { L"Wall Press/Ground Press", 0x204C, 0x205E },
+    { L"Dash Sparks", 0x2076, 0x2082 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_BONUS_BONUS_PALETTES[] =
@@ -1643,10 +1640,14 @@ const sDescTreeNode MSHVSF_A_BONUS_COLLECTION[] =
     { L"Bonus Palettes",            DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BONUS_BONUS_PALETTES, ARRAYSIZE(MSHVSF_A_BONUS_BONUS_PALETTES) },
 };
 
-
-const sDescTreeNode MSHVSF_A_BONUS_COLLECTION_7B[] =
+const sDescTreeNode MSHVSF_A_VSP_COLLECTION_7B[] =
 {
     { L"Palettes",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_VSP_PALETTES_7B,    ARRAYSIZE(MSHVSF_A_VSP_PALETTES_7B) },
+};
+
+const sDescTreeNode MSHVSF_A_7B_BONUS_COLLECTION[] =
+{
+    { L"Hit Sparks",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BONUS_HITSPARK_PALETTES,    ARRAYSIZE(MSHVSF_A_BONUS_HITSPARK_PALETTES) },
 };
 
 const sDescTreeNode MSHVSF_A_STAGE_COLLECTION[] =
@@ -1731,7 +1732,11 @@ enum Supported_MSHVSF_6A_PaletteListIndex
     index_MSHVSF_Stages,
 };
 
-const sDescTreeNode MSHVSF_A_UNITS_7B[MSHVSF_A_NUM_IND_7B] =
+const sDescTreeNode MSHVSF_A_UNITS_7B[] =
 {
-    { L"Victory Screen Portraits",  DESC_NODETYPE_TREE, (void*)MSHVSF_A_BONUS_COLLECTION_7B, ARRAYSIZE(MSHVSF_A_BONUS_COLLECTION_7B) },
+    { L"Victory Screen Portraits",  DESC_NODETYPE_TREE, (void*)MSHVSF_A_VSP_COLLECTION_7B, ARRAYSIZE(MSHVSF_A_VSP_COLLECTION_7B) },
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)MSHVSF_A_7B_BONUS_COLLECTION, ARRAYSIZE(MSHVSF_A_7B_BONUS_COLLECTION) },
 };
+
+constexpr auto MSHVSF_A_NUM_IND_7B = ARRAYSIZE(MSHVSF_A_UNITS_7B);
+constexpr auto MSHVSF_A_EXTRALOC_7B = MSHVSF_A_NUM_IND_7B;

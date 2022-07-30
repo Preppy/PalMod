@@ -17,22 +17,148 @@
 #ifdef useful_notes
 Distance is 0x14500 between character color A and character color B
 
-General character layout:
-    Burn 1                                          + 0x80
-    Burn 2                                          + 0x100
-    Stand Burn 1 (Unused ?)                         + 0x180
-    Stand Burn 2 (Unused ?)                         + 0x200
-    Unused Burn 1                                   + 0x280
-    Unused Burn 2                                   + 0x300
-    Electric 1 (aka Tech/Zap 1)                     + 0x380
-    Electric 2 (aka Tech/Zap 2)                     + 0x400
-    Guard Cancel Stand / Misc Stand actions         + 0x480
-    Stand Electric (Unused ?)                       + 0x500
-    Unused Electric 1                               + 0x580
-    Unused Electric 2                               + 0x600
-    Guard Cancel Character / Child Transformation   + 0x680
-    Guard Cancel Stand (Unused)                     + 0x700
-    Extras                                          + 0x780 and onward, increasing in increments of 0x80
+Here is how all the characters are layed out:
+"User" Refers to the top half of the palette, the main character 
+"Stand" Refers to the bottom half of the palette, the secondary character or weapon
+
+    Active Stand character layout:
+    Jotaro, Kakyoin, Avdol, Polnareff, Iggy, Midler, Vanilla Ice, New Kakyoin, DIO
+        Burn 1                                          + 0x80
+        Burn 2                                          + 0x100
+        (Unused) Stand Burn 1                           + 0x180
+        (Unused) Stand Burn 2                           + 0x200
+        (Unused) User Burn                              + 0x280
+        (Unused) User & Stand Burn                      + 0x300
+        Zap 1/Tech                                      + 0x380 //DIO: Zap 1/Tech/Teleport Afterimages
+        Zap 2                                           + 0x400
+        Stand Guard Cancel/[Misc Stand actions]         + 0x480 //Jotaro: Charged Attack Flash | Kakyoin, Avdol, Polnareff, New Kakyoin: Remote Activate Trail
+        (Unused) Stand Tech/Zap                         + 0x500
+        (Unused) Stand & User Tech/Zap 1                + 0x580
+        (Unused) Stand & User Tech/Zap 2                + 0x600
+        User Guard Cancel/Child Transformation          + 0x680
+        (Unused) Stand Guard Cancel                     + 0x700
+        Character specific extras                       + 0x780 and onward, increasing in increments of 0x80
+    
+    Devo
+        Burn 1                                          + 0x80
+        Burn 2                                          + 0x100
+        (Unused) Stand Burn 1                           + 0x180
+        (Unused) Stand Burn 2                           + 0x200
+        (Unused) User Burn                              + 0x280
+        (Unused) User & Stand Burn                      + 0x300
+        Zap 1/Tech                                      + 0x380
+        Zap 2                                           + 0x400
+        Stand Guard Cancel                              + 0x480
+        (Unused) Stand Tech/Zap                         + 0x500
+        (Unused) Stand & User Tech/Zap 1                + 0x580
+        Doll Activate                                   + 0x600
+        User Guard Cancel/Child Transformation          + 0x680
+        Sleeping Doll                                   + 0x700
+        Character specific extras                       + 0x780 and onward, increasing in increments of 0x80
+
+    Weapon Stand character layout:
+    Joseph
+        Burn 1                                          + 0x80
+        Burn 2                                          + 0x100
+        (Unused) Stand Burn 1                           + 0x180
+        (Unused) Stand Burn 2                           + 0x200
+        (Unused) User Burn                              + 0x280
+        (Unused) User & Stand Burn                      + 0x300
+        Zap 1/S.OFF Tech/S.ON GC/CC Trail               + 0x380
+        Zap 2                                           + 0x400
+        Stand ON Tech                                   + 0x480
+        (Unused) Stand Tech/Zap                         + 0x500
+        (Unused) Stand & User Tech/Zap 1                + 0x580
+        (Unused) Stand & User Tech/Zap 2                + 0x600
+        S.OFF GC/Child Transformation                   + 0x680
+        (Unused) Stand Guard Cancel                     + 0x700
+        Character specific extras                       + 0x780 and onward, increasing in increments of 0x80
+
+    Chaka
+        Burn 1                                          + 0x80
+        Burn 2                                          + 0x100
+        (Unused) Stand Burn 1                           + 0x180
+        (Unused) Stand Burn 2                           + 0x200
+        (Unused) User Burn                              + 0x280
+        (Unused) User & Stand Burn                      + 0x300
+        Zap 1/Stand OFF Tech/Counter/CC Trail           + 0x380
+        Zap 2                                           + 0x400
+        Intial Counter Flash                            + 0x480 
+        (Unused) Stand Tech/Zap                         + 0x500
+        (Unused) Stand & User Tech/Zap 1                + 0x580
+        (Unused) Stand & User Tech/Zap 2                + 0x600
+        Stand ON Tech/Child Transformation              + 0x680
+        (Unused) Stand Guard Cancel                     + 0x700
+        Character specific extras                       + 0x780 and onward, increasing in increments of 0x80
+
+    Alessi 
+        Burn 1                                          + 0x80
+        Burn 2                                          + 0x100
+        (Unused) Stand Burn 1                           + 0x180
+        (Unused) Stand Burn 2                           + 0x200
+        (Unused) User Burn                              + 0x280
+        (Unused) User & Stand Burn                      + 0x300
+        Zap 1/Stand OFF Tech/CC Trail                   + 0x380
+        Zap 2                                           + 0x400
+        Stand ON Tech/Guard Cancel                      + 0x480 
+        (Unused) Stand Tech/Zap                         + 0x500
+        (Unused) Stand & User Tech/Zap 1                + 0x580
+        (Unused) Stand & User Tech/Zap 2                + 0x600
+        S.OFF GC/Child Transformation                   + 0x680
+        (Unused) Stand Guard Cancel                     + 0x700
+        Character specific extras                       + 0x780 and onward, increasing in increments of 0x80
+
+    Passive Stand character layout:
+    Young Joseph, Hol Horse, Petshop, Mariah, Boingo, Rubber Soul, Khan
+        Burn 1                                          + 0x80
+        Burn 2                                          + 0x100
+        (Unused) Stand Burn 1                           + 0x180
+        (Unused) Stand Burn 2                           + 0x200
+        (Unused) User Burn                              + 0x280
+        (Unused) User & Stand Burn                      + 0x300
+        Zap 1/Tech                                      + 0x380
+        Zap 2                                           + 0x400
+        (Unused) Misc Stand Actions                     + 0x480
+        (Unused) Stand Tech/Zap                         + 0x500
+        (Unused) Stand & User Tech/Zap 1                + 0x580
+        (Unused) Stand & User Tech/Zap 2                + 0x600
+        Guard Cancel/Child Transformation               + 0x680
+        (Unused) Stand Guard Cancel                     + 0x700
+        Character specific extras                       + 0x780 and onward, increasing in increments of 0x80
+
+    Shadow Dio
+        Burn/63214x Charge 1                            + 0x80
+        Burn/63214x Charge 2 (Beam Only)                + 0x100
+        (Unused) Stand Burn 1                           + 0x180
+        (Unused) Stand Burn 2                           + 0x200
+        (Unused) User Burn                              + 0x280
+        (Unused) User & Stand Burn                      + 0x300
+        Zap 1/Tech                                      + 0x380
+        Zap 2                                           + 0x400
+        Stand Guard Cancel                              + 0x480
+        (Unused) Stand Tech/Zap                         + 0x500
+        (Unused) Stand & User Tech/Zap 1                + 0x580
+        (Unused) Stand & User Tech/Zap 2                + 0x600
+        User Guard Cancel/Child Transformation          + 0x680
+        (Unused) Stand Guard Cancel                     + 0x700
+        Character specific extras                       + 0x780 and onward, increasing in increments of 0x80
+
+    Anubis Polnareff
+        Burn 1                                          + 0x80
+        Burn 2                                          + 0x100
+        (Unused) Stand Burn 1                           + 0x180
+        (Unused) Stand Burn 2                           + 0x200
+        (Unused) User Burn                              + 0x280
+        (Unused) User & Stand Burn                      + 0x300
+        Zap 1/Tech/Counter                              + 0x380
+        Zap 2                                           + 0x400
+        Stand Guard Cancel                              + 0x480
+        (Unused) Stand Tech/Zap                         + 0x500
+        (Unused) Stand & User Tech/Zap 1                + 0x580
+        (Unused) Stand & User Tech/Zap 2                + 0x600
+        User Guard Cancel/Child Transformation          + 0x680
+        (Unused) Stand Guard Cancel                     + 0x700
+        Character specific extras                       + 0x780 and onward, increasing in increments of 0x80
 
 #endif
 
@@ -3494,6 +3620,36 @@ const sGame_PaletteDataset JOJOS_BONUS_51_STORYMODE_PALETTES[] =
 
 const sGame_PaletteDataset JOJOS_A_TEMP_GCS_PALETTES[] =
 {
+    { L"Jotaro & Star Platinum A Guard Cancel Stance", 0x336b00, 0x336b80, indexJojos51Jotaro },
+    { L"Jotaro & Star Platinum B Guard Cancel Stance", 0x34b000, 0x34b080, indexJojos51Jotaro },
+    { L"Jotaro & Star Platinum C Guard Cancel Stance", 0x35f500, 0x35f580, indexJojos51Jotaro },
+    { L"Jotaro & Star Platinum S Guard Cancel Stance", 0x373a00, 0x373a80, indexJojos51Jotaro },
+    { L"Jotaro & Star Platinum Start Guard Cancel Stance", 0x387f00, 0x387f80, indexJojos51Jotaro },
+
+    { L"Kakyoin & Hierophant Green A Guard Cancel Stance", 0x337780, 0x337800, indexJojos51Kakyo, 0x01 },
+    { L"Kakyoin & Hierophant Green B Guard Cancel Stance", 0x34bc80, 0x34bd00, indexJojos51Kakyo, 0x01 },
+    { L"Kakyoin & Hierophant Green C Guard Cancel Stance", 0x360180, 0x360200, indexJojos51Kakyo, 0x01 },
+    { L"Kakyoin & Hierophant Green S Guard Cancel Stance", 0x374680, 0x374700, indexJojos51Kakyo, 0x01 },
+    { L"Kakyoin & Hierophant Green Start Guard Cancel Stance", 0x388b80, 0x388c00, indexJojos51Kakyo, 0x01 },
+
+    { L"Avdol & Magician's Red A Guard Cancel Stance", 0x338400, 0x338480, indexJojos51Avdol },
+    { L"Avdol & Magician's Red B Guard Cancel Stance", 0x34c900, 0x34c980, indexJojos51Avdol },
+    { L"Avdol & Magician's Red C Guard Cancel Stance", 0x360e00, 0x360e80, indexJojos51Avdol },
+    { L"Avdol & Magician's Red S Guard Cancel Stance", 0x375300, 0x375380, indexJojos51Avdol },
+    { L"Avdol & Magician's Red Start Guard Cancel Stance", 0x389800, 0x389880, indexJojos51Avdol },
+
+    { L"Polnareff & Silver Chariot A Guard Cancel Stance", 0x339080, 0x339100, indexJojos51Pol },
+    { L"Polnareff & Silver Chariot B Guard Cancel Stance", 0x34d580, 0x34d600, indexJojos51Pol },
+    { L"Polnareff & Silver Chariot C Guard Cancel Stance", 0x361a80, 0x361b00, indexJojos51Pol },
+    { L"Polnareff & Silver Chariot S Guard Cancel Stance", 0x375f80, 0x376000, indexJojos51Pol },
+    { L"Polnareff & Silver Chariot Start Guard Cancel Stance", 0x38a480, 0x38a500, indexJojos51Pol },
+
+    { L"Joseph & Hermit Purple A Guard Cancel Stance", 0x339d00, 0x339d80, indexJojos51Joseph },
+    { L"Joseph & Hermit Purple B Guard Cancel Stance", 0x34e200, 0x34e280, indexJojos51Joseph },
+    { L"Joseph & Hermit Purple C Guard Cancel Stance", 0x362700, 0x362780, indexJojos51Joseph },
+    { L"Joseph & Hermit Purple S Guard Cancel Stance", 0x376c00, 0x376c80, indexJojos51Joseph },
+    { L"Joseph & Hermit Purple Start Guard Cancel Stance", 0x38b100, 0x38b180, indexJojos51Joseph },
+
     { L"Iggy & The Fool A Guard Cancel Stance", 0x33a980, 0x33aa00, indexJojos51Iggy },
     { L"Iggy & The Fool B Guard Cancel Stance", 0x34ee80, 0x34ef00, indexJojos51Iggy },
     { L"Iggy & The Fool C Guard Cancel Stance", 0x363380, 0x363400, indexJojos51Iggy },
@@ -3512,29 +3668,48 @@ const sGame_PaletteDataset JOJOS_A_TEMP_GCS_PALETTES[] =
     { L"Chaka S Guard Cancel Stance", 0x379180, 0x379200, indexJojos51Chaka },
     { L"Chaka Start Guard Cancel Stance", 0x38d680, 0x38d700, indexJojos51Chaka },
 
-    { L"Midler & High Priestess A Guard Cancel Stance", 0x33e580, 0x33e600, indexJojos51Midler },
-    { L"Midler & High Priestess B Guard Cancel Stance", 0x352a80, 0x352b00, indexJojos51Midler },
-    { L"Midler & High Priestess C Guard Cancel Stance", 0x366f80, 0x367000, indexJojos51Midler },
-    { L"Midler & High Priestess S Guard Cancel Stance", 0x37b480, 0x37b500, indexJojos51Midler },
-    { L"Midler & High Priestess Start Guard Cancel Stance", 0x38f980, 0x38fa00, indexJojos51Midler },
+    { L"Devo & Ebony Devil A Guard Cancel Stance", 0x33cc80, 0x33cd00, indexJojos51Devo },
+    { L"Devo & Ebony Devil B Guard Cancel Stance", 0x351180, 0x351200, indexJojos51Devo },
+    { L"Devo & Ebony Devil C Guard Cancel Stance", 0x365680, 0x365700, indexJojos51Devo },
+    { L"Devo & Ebony Devil S Guard Cancel Stance", 0x379b80, 0x379c00, indexJojos51Devo },
+    { L"Devo & Ebony Devil Start Guard Cancel Stance", 0x38e080, 0x38e100, indexJojos51Devo },
 
-    { L"DIO & The World A Guard Cancel Stance", 0x33f200, 0x33f280, indexJojos51Dio },
-    { L"DIO & The World B Guard Cancel Stance", 0x353700, 0x353780, indexJojos51Dio },
-    { L"DIO & The World C Guard Cancel Stance", 0x367c00, 0x367c80, indexJojos51Dio },
-    { L"DIO & The World S Guard Cancel Stance", 0x37c100, 0x37c180, indexJojos51Dio },
-    { L"DIO & The World Start Guard Cancel Stance", 0x390600, 0x390680, indexJojos51Dio },
+    { L"Midler & High Priestess A Guard Cancel Stance", 0x33e800, 0x33e880, indexJojos51Midler },
+    { L"Midler & High Priestess B Guard Cancel Stance", 0x352d00, 0x352d80, indexJojos51Midler },
+    { L"Midler & High Priestess C Guard Cancel Stance", 0x367200, 0x367280, indexJojos51Midler },
+    { L"Midler & High Priestess S Guard Cancel Stance", 0x37b700, 0x37b780, indexJojos51Midler },
+    { L"Midler & High Priestess Start Guard Cancel Stance", 0x38fc00, 0x38fc80, indexJojos51Midler },
 
-    { L"Shadow DIO A Guard Cancel Stance", 0x341a00, 0x341a80, indexJojos51SDio },
-    { L"Shadow DIO B Guard Cancel Stance", 0x355f00, 0x355f80, indexJojos51SDio },
-    { L"Shadow DIO C Guard Cancel Stance", 0x36a400, 0x36a480, indexJojos51SDio },
-    { L"Shadow DIO S Guard Cancel Stance", 0x37e900, 0x37e980, indexJojos51SDio },
-    { L"Shadow DIO Start Guard Cancel Stance", 0x392e00, 0x392e80, indexJojos51SDio },
+    { L"DIO & The World A Guard Cancel Stance", 0x33f480, 0x33f500, indexJojos51Dio },
+    { L"DIO & The World B Guard Cancel Stance", 0x353980, 0x353a00, indexJojos51Dio },
+    { L"DIO & The World C Guard Cancel Stance", 0x367e80, 0x367f00, indexJojos51Dio },
+    { L"DIO & The World S Guard Cancel Stance", 0x37c380, 0x37c400, indexJojos51Dio },
+    { L"DIO & The World Start Guard Cancel Stance", 0x390880, 0x390900, indexJojos51Dio },
 
-    { L"Vanilla Ice & Cream A Guard Cancel Stance", 0x343d00, 0x343d80, indexJojos51VIce },
-    { L"Vanilla Ice & Cream B Guard Cancel Stance", 0x358200, 0x358280, indexJojos51VIce },
-    { L"Vanilla Ice & Cream C Guard Cancel Stance", 0x36c700, 0x36c780, indexJojos51VIce },
-    { L"Vanilla Ice & Cream S Guard Cancel Stance", 0x380c00, 0x380c80, indexJojos51VIce },
-    { L"Vanilla Ice & Cream Start Guard Cancel Stance", 0x395100, 0x395180, indexJojos51VIce },
+    { L"Shadow DIO A Guard Cancel Stance", 0x341780, 0x341800, indexJojos51SDio },
+    { L"Shadow DIO B Guard Cancel Stance", 0x355c80, 0x355d00, indexJojos51SDio },
+    { L"Shadow DIO C Guard Cancel Stance", 0x36a180, 0x36a200, indexJojos51SDio },
+    { L"Shadow DIO S Guard Cancel Stance", 0x37e680, 0x37e700, indexJojos51SDio },
+    { L"Shadow DIO Start Guard Cancel Stance", 0x392b80, 0x392c00, indexJojos51SDio },
+
+    { L"Young Joseph A Guard Cancel Stance", 0x342680, 0x342700, indexJojos51YSeph },
+    { L"Young Joseph B Guard Cancel Stance", 0x356b80, 0x356c00, indexJojos51YSeph },
+    { L"Young Joseph C Guard Cancel Stance", 0x36b080, 0x36b100, indexJojos51YSeph },
+    { L"Young Joseph S Guard Cancel Stance", 0x37f580, 0x37f600, indexJojos51YSeph },
+    { L"Young Joseph Start Guard Cancel Stance", 0x393a80, 0x393b00, indexJojos51YSeph },
+
+
+    { L"Vanilla Ice & Cream A Guard Cancel Stance", 0x343f80, 0x344000, indexJojos51VIce },
+    { L"Vanilla Ice & Cream B Guard Cancel Stance", 0x358480, 0x358500, indexJojos51VIce },
+    { L"Vanilla Ice & Cream C Guard Cancel Stance", 0x36c980, 0x36ca00, indexJojos51VIce },
+    { L"Vanilla Ice & Cream S Guard Cancel Stance", 0x380e80, 0x380f00, indexJojos51VIce },
+    { L"Vanilla Ice & Cream Start Guard Cancel Stance", 0x395380, 0x395400, indexJojos51VIce },
+
+    { L"New Kakyoin & Hierophant A Guard Cancel Stance", 0x344c00, 0x344c80, indexJojos51NewKakyo },
+    { L"New Kakyoin & Hierophant B Guard Cancel Stance", 0x359100, 0x359180, indexJojos51NewKakyo },
+    { L"New Kakyoin & Hierophant C Guard Cancel Stance", 0x36d600, 0x36d680, indexJojos51NewKakyo },
+    { L"New Kakyoin & Hierophant S Guard Cancel Stance", 0x381b00, 0x381b80, indexJojos51NewKakyo },
+    { L"New Kakyoin & Hierophant Start Guard Cancel Stance", 0x396000, 0x396080, indexJojos51NewKakyo },
 
     { L"Anubis Polnareff A Guard Cancel Stance", 0x345600, 0x345680, indexJojos51Anubis },
     { L"Anubis Polnareff B Guard Cancel Stance", 0x359b00, 0x359b80, indexJojos51Anubis },
@@ -3542,11 +3717,36 @@ const sGame_PaletteDataset JOJOS_A_TEMP_GCS_PALETTES[] =
     { L"Anubis Polnareff S Guard Cancel Stance", 0x382500, 0x382580, indexJojos51Anubis },
     { L"Anubis Polnareff Start Guard Cancel Stance", 0x396a00, 0x396a80, indexJojos51Anubis },
 
-    { L"Rubber Soul A Guard Cancel Stance", 0x349480, 0x349500, indexJojos51RSoul },
-    { L"Rubber Soul B Guard Cancel Stance", 0x35d980, 0x35da00, indexJojos51RSoul },
-    { L"Rubber Soul C Guard Cancel Stance", 0x371e80, 0x371f00, indexJojos51RSoul },
-    { L"Rubber Soul S Guard Cancel Stance", 0x386380, 0x386400, indexJojos51RSoul },
-    { L"Rubber Soul Start Guard Cancel Stance", 0x39a880, 0x39a900, indexJojos51RSoul },
+    { L"Petshop A Guard Cancel Stance", 0x346500, 0x346580, indexJojos51Petshop },
+    { L"Petshop B Guard Cancel Stance", 0x35aa00, 0x35aa80, indexJojos51Petshop },
+    { L"Petshop C Guard Cancel Stance", 0x36ef00, 0x36ef80, indexJojos51Petshop },
+    { L"Petshop S Guard Cancel Stance", 0x383400, 0x383480, indexJojos51Petshop },
+    { L"Petshop Start Guard Cancel Stance", 0x397900, 0x397980, indexJojos51Petshop },
+
+    { L"Mariah A Guard Cancel Stance", 0x347e00, 0x347e80, indexJojos51Mariah },
+    { L"Mariah B Guard Cancel Stance", 0x35c300, 0x35c380, indexJojos51Mariah },
+    { L"Mariah C Guard Cancel Stance", 0x370800, 0x370880, indexJojos51Mariah },
+    { L"Mariah S Guard Cancel Stance", 0x384d00, 0x384d80, indexJojos51Mariah },
+    { L"Mariah Start Guard Cancel Stance", 0x399200, 0x399280, indexJojos51Mariah },
+
+    { L"Rubber Soul A Guard Cancel Stance", 0x349700, 0x349780, indexJojos51RSoul },
+    { L"Rubber Soul B Guard Cancel Stance", 0x35dc00, 0x35dc80, indexJojos51RSoul },
+    { L"Rubber Soul C Guard Cancel Stance", 0x372100, 0x372180, indexJojos51RSoul },
+    { L"Rubber Soul S Guard Cancel Stance", 0x386600, 0x386680, indexJojos51RSoul },
+    { L"Rubber Soul Start Guard Cancel Stance", 0x39ab00, 0x39ab80, indexJojos51RSoul },
+
+
+    { L"Boss Ice A Guard Cancel Stance", 0x340100, 0x340180, indexJojos51BIce },
+    { L"Boss Ice B Guard Cancel Stance", 0x354600, 0x354680, indexJojos51BIce },
+    { L"Boss Ice C Guard Cancel Stance", 0x368b00, 0x368b80, indexJojos51BIce },
+    { L"Boss Ice S Guard Cancel Stance", 0x37d000, 0x37d080, indexJojos51BIce },
+    { L"Boss Ice Start Guard Cancel Stance", 0x391500, 0x391580, indexJojos51BIce },
+
+    { L"Death 13 A Guard Cancel Stance", 0x340d80, 0x340e00, indexJojos51Death13 },
+    { L"Death 13 B Guard Cancel Stance", 0x355280, 0x355300, indexJojos51Death13 },
+    { L"Death 13 C Guard Cancel Stance", 0x369780, 0x369800, indexJojos51Death13 },
+    { L"Death 13 S Guard Cancel Stance", 0x37dc80, 0x37dd00, indexJojos51Death13 },
+    { L"Death 13 Start Guard Cancel Stance", 0x392180, 0x392200, indexJojos51Death13 },
 };
 
 const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]

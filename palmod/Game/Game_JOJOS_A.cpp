@@ -180,33 +180,30 @@ void ExportTableToDebugger()
     {
         { L"Jotaro & Star Platinum", 0x336400, 0x336480, L"indexJojos51Jotaro" },
         { L"Kakyoin & Hierophant Green", 0x337080, 0x337100, L"indexJojos51Kakyo, 0x01"  },
-
         { L"Avdol & Magician's Red", 0x337d00, 0x337d80, L"indexJojos51Avdol" },
-
         { L"Polnareff & Silver Chariot", 0x338980, 0x338a00, L"indexJojos51Pol" },
         { L"Joseph & Hermit Purple", 0x339600, 0x339680, L"indexJojos51Joseph" },
         { L"Iggy & The Fool", 0x33a280, 0x33a300, L"indexJojos51Iggy" },
         { L"Alessi & Sethan", 0x33af00, 0x33af80, L"indexJojos51Alessi" },
         { L"Chaka", 0x33bb80, 0x33bc00, L"indexJojos51Chaka" },
-        
         // We already have these!
-        // { L"Devo & Ebony Devil", 0x33c800, 0x33c880, L"indexJojos51Devo" },
-        { L"Midler & High Priestess", 0x33e100, 0x33e180, L"indexJojos51Midler", 0x33e580 },
-        { L"DIO & The World", 0x33ed80, 0x33ee00, L"indexJojos51Dio", 0x33f200 },
-        { L"Shadow DIO", 0x341300, 0x341380, L"indexJojos51SDio", 0x341A00 },
+        { L"Devo & Ebony Devil", 0x33c800, 0x33c880, L"indexJojos51Devo", 0x480 },
+        { L"Midler & High Priestess", 0x33e100, 0x33e180, L"indexJojos51Midler" },
+        { L"DIO & The World", 0x33ed80, 0x33ee00, L"indexJojos51Dio" },
+        { L"Shadow DIO", 0x341300, 0x341380, L"indexJojos51SDio", 0x480 },
         { L"Young Joseph", 0x341f80, 0x342000, L"indexJojos51YSeph" },
         // unusable
-        { L"Do Not Use: Hol Horse", 0x342c00, 0x342c80, L"indexJojos51Hol" },
-        { L"Vanilla Ice & Cream", 0x343880, 0x343900, L"indexJojos51VIce", 0x343d00 },
+        { L"Hol Horse", 0x342c00, 0x342c80, L"indexJojos51Hol" },
+        { L"Vanilla Ice & Cream", 0x343880, 0x343900, L"indexJojos51VIce" },
         { L"New Kakyoin & Hierophant", 0x344500, 0x344580, L"indexJojos51NewKakyo" },
-        { L"Anubis Polnareff", 0x345180, 0x345200, L"indexJojos51Anubis", 0x345600 },
+        { L"Anubis Polnareff", 0x345180, 0x345200, L"indexJojos51Anubis", 0x480 },
         { L"Petshop", 0x345e00, 0x345e80, L"indexJojos51Petshop" },
         { L"Mariah", 0x347700, 0x347780, L"indexJojos51Mariah" },
-        // unused?
-        { L"Unused?: Hol Horse & Boingo", 0x348380, 0x348400, L"indexJojos51HolBoingo" },
-        { L"Rubber Soul", 0x349000, 0x349080, L"indexJojos51RSoul", 0x349480 },
+        // unused
+        { L"Hol Horse & Boingo", 0x348380, 0x348400, L"indexJojos51HolBoingo" },
+        { L"Rubber Soul", 0x349000, 0x349080, L"indexJojos51RSoul" },
         // garbage?        
-        { L"Do Not Use: Khan", 0x349c80, 0x349d00, L"indexJojos51Khan" },
+        { L"Khan", 0x349c80, 0x349d00, L"indexJojos51Khan" },
         // B is game data, not a palette
         { L"N'Doul & Geb", 0x33d480, 0x33d500, L"indexJojos51NDoul" },
         { L"Boss Ice", 0x33fa00, 0x33fa80, L"indexJojos51BIce" },
@@ -227,7 +224,6 @@ void ExportTableToDebugger()
 
     for (size_t iCurrChar = 0; iCurrChar < rgJojosBaseCharacterInformation.size(); iCurrChar++)
     {
-
         for (size_t iCurrColor = 0; iCurrColor < rgPossibleColors.size(); iCurrColor++)
         {
             CString strOutput;
@@ -237,9 +233,9 @@ void ExportTableToDebugger()
 
             if (rgJojosBaseCharacterInformation.at(iCurrChar).nSpecialOffset)
             {
-                const size_t nTotalDelta = iCurrColor * nOffsetDeltaBetweenColors;
-                nStartingPosition = rgJojosBaseCharacterInformation.at(iCurrChar).nSpecialOffset + nTotalDelta;
-                nEndingPosition = rgJojosBaseCharacterInformation.at(iCurrChar).nSpecialOffset + 0x80 + nTotalDelta;
+                const size_t nTotalDelta = rgJojosBaseCharacterInformation.at(iCurrChar).nSpecialOffset + (iCurrColor * nOffsetDeltaBetweenColors);
+                nStartingPosition = rgJojosBaseCharacterInformation.at(iCurrChar).nPaletteOffset + nTotalDelta;
+                nEndingPosition = rgJojosBaseCharacterInformation.at(iCurrChar).nPaletteOffsetEnd + nTotalDelta;
             }
             else
             {
@@ -259,17 +255,14 @@ void ExportTableToDebugger()
 
         OutputDebugString(L"\r\n");
     }
-
-    const LPCWSTR szPaletteName = L"uninit";
-    const uint32_t nPaletteOffset = 0;
-    const uint32_t nPaletteOffsetEnd = 0;
-    const LPCWSTR wstrRest = L"uninit";
 };
 #endif
 
 sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 {
-    //ExportTableToDebugger();
+#if NEED_TO_UPDATE_JOJO_HEADERS
+    ExportTableToDebugger();
+#endif
 
     uint32_t nTotalPaletteCount = 0;
     m_nJojosMode = nPaletteSetToUse;
