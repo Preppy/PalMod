@@ -194,6 +194,7 @@ namespace MVC2_SupplementProcessing
             // Dash shadows
             SUPP_NODE, 0x04 | MOD_ABS, 8,
                 MOD_LUM, 1, 15, NEG + 8,
+            // "Unused" dash shadows
             SUPP_NODE, 0x05 | MOD_ABS, 8,
                 MOD_LUM, 1, 15, NEG + 12,
         
@@ -234,6 +235,22 @@ namespace MVC2_SupplementProcessing
             //    MOD_LUM, 14, 1, 12,
             // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 15,
             //    MOD_LUM, 15, 1, 6,
+    };
+
+    const std::vector<uint16_t> supp_data_ruby =
+    {
+        0x13 | SUPP_START, // Ruby Heart
+            SUPP_NODE | SUPP_NODE_NOCOPY, 0x07 | MOD_ABS, 8, // Swartzelle
+                MOD_COPY, 1, 5, 1, // skin
+                MOD_COPY, 6, 1, 6, // waist sash
+                //MOD_LUM, 6, 1, NEG + 5, // hair: light
+                MOD_COPY, 15, 1, 7, // hair
+                // 8: Unused?
+                // Remaining: clothes
+                MOD_COPY, 7, 2, 9, // hat shade
+                MOD_COPY, 8, 1, 11,
+                MOD_COPY, 11, 4, 12,
+                MOD_LUM, 10, 5, NEG + 5,
     };
 
     const std::vector<uint16_t> supp_data_sonson_6color =
@@ -1263,7 +1280,7 @@ namespace MVC2_SupplementProcessing
         // indexCPS2Sprites_Hayato,       // 0x12
         {},
         // indexCPS2Sprites_Ruby,         // 0x13
-        {},
+        supp_data_ruby,
         // indexCPS2Sprites_SonSon,       // 0x14
         supp_data_sonson_6color,
         // indexCPS2Sprites_Amingo,       // 0x15
@@ -1385,7 +1402,7 @@ namespace MVC2_SupplementProcessing
         // indexCPS2Sprites_Hayato,       // 0x12
         {},
         // indexCPS2Sprites_Ruby,         // 0x13
-        {},
+        supp_data_ruby,
         // indexCPS2Sprites_SonSon,       // 0x14
         supp_data_sonson_16color,
         // indexCPS2Sprites_Amingo,       // 0x15

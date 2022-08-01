@@ -1014,7 +1014,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Capcom Logo30", 0x320f00, 0x320f80, indexRedEarthSprites_Bonus, 0x04 },
     { L"Capcom Logo31", 0x320f80, 0x321000, indexRedEarthSprites_Bonus, 0x04 },
 
-    { L"Intro - Red Earth", 0x322ca0, 0x322d80, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth Planet & Particles", 0x322ca0, 0x322da0, indexRedEarthSprites_Bonus, 0x20 },
 
     { L"Red Earth 1st Logo Cycle 1/17", 0x406ee0, 0x406f00, indexRedEarthSprites_Bonus, 0x20 },
     { L"Red Earth 1st Logo Cycle 2/17", 0x406f00, 0x406f20, indexRedEarthSprites_Bonus, 0x20 },
@@ -1098,7 +1098,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Leo flash", 0x324620, 0x3246a0 },
     { L"Intro - Blade flash", 0x3246a0, 0x324720 },
     { L"Intro - Thunderflash", 0x324720, 0x3247a0 },
-    { L"Intro - Leo rise and slash", 0x322d90, 0x322e90 },
+    { L"Intro - Leo rise and slash", 0x322da0, 0x322ea0 },
     { L"Intro - RaS BG 1", 0x322ea0, 0x322f00 },
     { L"Intro-Leo.S.BG1", 0x322f20, 0x322f40 },
     { L"Intro-Leo.S.BG2", 0x322f40, 0x322f60 },
@@ -1365,10 +1365,8 @@ const sGame_PaletteDataset REDEARTH_A_31_MAP_TRANS3_PALETTES[] =
     { L"Boss's Eye Glow",                   0x222b80 + (4 * 0xc80), 0x222c00 + (4 * 0xc80), indexRedEarthSprites_Bonus, 0x48 },
 };
 
-const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
+const sGame_PaletteDataset REDEARTH_A_BONUS_31_HUD_PALETTES[] =
 {
-    //{ L"EXP / LVL Text", 0x406880, 0x406900 },
-
     { L"Timer, Blade's Hud Name", 0x4064e0, 0x406500, indexRedEarthSprites_Bonus, 0x43, &pairNext }, // pair next 
     { L"Timer Overlay", 0x406620, 0x406640, indexRedEarthSprites_Bonus, 0x44, &pairPrevious }, // pair previous
 
@@ -1383,25 +1381,14 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 
     { L"Hud Names", 0x406580, 0x4065a0, indexRedEarthSprites_Bonus, 0x1f },
 
-    { L"Some Elemental & Other Bg Flash", 0x406400, 0x406420, indexRedEarthSprites_Bonus, 0x2b },
-
     { L"New Warrior! 1/2 Hud Lv, Exp", 0x406880, 0x4068a0, indexRedEarthSprites_Bonus, 0x36 },
     { L"New Warrior! 2/2", 0x406bc0, 0x406be0, indexRedEarthSprites_Bonus, 0x36 },
 
     { L"Bonus Game Timer Seconds", 0x406d80, 0x406da0, indexRedEarthSprites_Bonus, 0x38, &pairNext },
     { L"Bonus Game Timer Milliseconds", 0x406dc0, 0x406de0, indexRedEarthSprites_Bonus, 0x37 },
 
-    { L"Game Over", 0x406fe0, 0x407000, indexRedEarthSprites_Bonus, 0x3a },
-    { L"\"Continue ?\" Backgrounds", 0x1dfb80, 0x1dfc00, indexRedEarthSprites_Bonus, 0x3c },
-
     { L"Text: Character Level Titles", 0x406500, 0x406520, indexRedEarthSprites_Bonus, 0x2c },
-    { L"Text: Ingame Dialogue, Black Bg", 0x406520, 0x406540, indexRedEarthSprites_Bonus, 0x2d },
     { L"Text: Insert Coin, Map Location", 0x4064c0, 0x4064e0, indexRedEarthSprites_Bonus, 0x2e },
-    { L"Text: LV Up Fire, AT Power", 0x406de0, 0x406e00, indexRedEarthSprites_Bonus, 0x32 },
-    { L"Text: LV Up Title, Ice, Wind", 0x406e00, 0x406e20, indexRedEarthSprites_Bonus, 0x34 },
-    { L"Text: LV Up Character, Lightning", 0x406e20, 0x406e40, indexRedEarthSprites_Bonus, 0x31 },
-    { L"Text: LV Up Number, Move", 0x406800, 0x406820, indexRedEarthSprites_Bonus, 0x33 },
-    { L"Text: Parental Advisory", 0x406480, 0x4064a0, indexRedEarthSprites_Bonus, 0x4f },
 
     { L"Meteor Orb", 0x4065e0, 0x406600, indexRedEarthSprites_Bonus, 0x24, &pairNext5Palettes }, // pair the orb set
     { L"Poison Orb", 0x406600, 0x406620, indexRedEarthSprites_Bonus, 0x25 },
@@ -1413,6 +1400,30 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
     { L"RoundPoint: Others", 0x406780, 0x4067a0, indexRedEarthSprites_Bonus, 0x29, &pairNextAndNext }, // pair with next 2
     { L"RoundPoint: Timeout", 0x406760, 0x406780, indexRedEarthSprites_Bonus, 0x2a },
     { L"RoundPoint: Cherry Weak Attack", 0x406740, 0x406760, indexRedEarthSprites_Bonus, 0x28 },
+
+    { L"Ingame LVL Up, Exp, Life up 1", 0x133880, 0x133900 },
+    { L"Ingame LVL UP, Exp, Life up 2", 0x133900, 0x133980 },
+    { L"Ingame LVL Up, Exp, Life up 3", 0x133980, 0x133a00 },
+    { L"Ingame LVL Up, Exp, Life up 4", 0x133a00, 0x133a80 },
+    { L"Ingame LVL Up, Exp, Life up 5", 0x133a80, 0x133b00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
+{
+    //{ L"EXP / LVL Text", 0x406880, 0x406900 },
+
+    { L"Some Elemental & Other Bg Flash", 0x406400, 0x406420, indexRedEarthSprites_Bonus, 0x2b },
+
+    { L"Game Over", 0x406fe0, 0x407000, indexRedEarthSprites_Bonus, 0x3a },
+    { L"\"Continue ?\" Backgrounds", 0x1dfb80, 0x1dfc00, indexRedEarthSprites_Bonus, 0x3c },
+
+    { L"Text: Ingame Dialogue, Black Bg", 0x406520, 0x406540, indexRedEarthSprites_Bonus, 0x2d },
+    { L"Text: LV Up Fire, AT Power", 0x406de0, 0x406e00, indexRedEarthSprites_Bonus, 0x32 },
+    { L"Text: LV Up Title, Ice, Wind", 0x406e00, 0x406e20, indexRedEarthSprites_Bonus, 0x34 },
+    { L"Text: LV Up Character, Lightning", 0x406e20, 0x406e40, indexRedEarthSprites_Bonus, 0x31 },
+    { L"Text: LV Up Number, Move", 0x406800, 0x406820, indexRedEarthSprites_Bonus, 0x33 },
+    { L"Text: Parental Advisory", 0x406480, 0x4064a0, indexRedEarthSprites_Bonus, 0x4f },
+
 
     { L"\"Winners Don't Use Drugs\"", 0x320000, 0x320080, indexRedEarthSprites_Bonus, 0x3d },
 };
@@ -1588,6 +1599,7 @@ const sDescTreeNode REDEARTH_A_31_MAP_COLLECTION[] =
 const sDescTreeNode REDEARTH_A_BONUS_31_COLLECTION[] =
 {
     { L"Ranking", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_BONUS_RANKING_PALETTES, ARRAYSIZE(REDEARTH_A_31_BONUS_RANKING_PALETTES) },
+    { L"HUD", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_HUD_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_HUD_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_PALETTES) },
     { L"Unused Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_31_UNUSED_PALETTES) },
 };
