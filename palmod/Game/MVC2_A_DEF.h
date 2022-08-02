@@ -2737,10 +2737,10 @@ const sGame_PaletteDataset MVC2_A_RUBY_PALETTES_EXTRAS[] =
 {
     { L"09: Not Used", 0x37fa3e0, 0x37fa400 },
     { L"0a: Not Used", 0x37fa400, 0x37fa420 },
-    { L"0b: Pirate (Medium)", 0x37fa420, 0x37fa440 },
-    { L"0c: Pirate (Big)", 0x37fa440, 0x37fa460 },
+    { L"0b: Pirate (Medium)", 0x37fa420, 0x37fa440, indexCPS2Sprites_Ruby, 0x0b },
+    { L"0c: Pirate (Big)", 0x37fa440, 0x37fa460, indexCPS2Sprites_Ruby, 0x0c },
     { L"0d: Pirate (Holds Barrel)", 0x37fa460, 0x37fa480, indexCPS2Sprites_Ruby, 0x0d },
-    { L"0e: Mystic Orb (Enhance Assist)", 0x37fa480, 0x37fa4a0 },
+    { L"0e: Mystic Orb (Enhance Assist)", 0x37fa480, 0x37fa4a0, indexCPS2Sprites_Ruby, 0x0e },
     { L"0f: Not Used", 0x37fa4a0, 0x37fa4c0 },
     { L"10: ID: 01-16: Swartzelle (Super) ID:09-15: Not Used", 0x37fa4c0, 0x37fa4e0, indexCPS2Sprites_Ruby, 15 },
 };

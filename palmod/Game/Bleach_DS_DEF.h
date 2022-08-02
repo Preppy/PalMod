@@ -52,6 +52,10 @@ const std::vector<uint16_t> BLEACH_DS_IMGIDS_USED =
     indexBleachDSSprites_YuichiShibata,     // 0x2B
     indexBleachDSSprites_Bonus,             // 0x2C
     indexBleachDSSprites_Familiar,          // 0x64
+    indexBleachDSSprites_Familiar,          // 0x64
+    indexBleachDSSprites_HollowIchigo,      // 0x65
+    indexBleachDSSprites_Nurse,             // 0x66
+    indexBleachDSSprites_SoulReaper,        // 0x67
 };
 
 //Yuichi Shibata Palettes
@@ -110,49 +114,49 @@ const sDescTreeNode BLEACH_DS_YUICHI_COLLECTION[] =
 //Soul Reaper Palettes
 const sGame_PaletteDataset BLEACH_DS_REAPER_PALETTES_P1[] =
 {
-    { L"Soul Reaper P1", 0x276c674, 0x276c694 },
+    { L"Soul Reaper P1", 0x276c674, 0x276c694, indexBleachDSSprites_SoulReaper, 0x00 },
     { L"Soul Reaper P1 - Slash Effects", 0x276c694, 0x276c6b4 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_REAPER_PALETTES_P2[] =
 {
-    { L"Soul Reaper P2", 0x276c6b4, 0x276c6d4 },
+    { L"Soul Reaper P2", 0x276c6b4, 0x276c6d4, indexBleachDSSprites_SoulReaper, 0x00 },
     { L"Soul Reaper P2 - Slash Effects", 0x276c6d4, 0x276c6f4 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_REAPER_PALETTES_P3[] =
 {
-    { L"Soul Reaper P3", 0x276c6f4, 0x276c714 },
+    { L"Soul Reaper P3", 0x276c6f4, 0x276c714, indexBleachDSSprites_SoulReaper, 0x00 },
     { L"Soul Reaper P3 - Slash Effects", 0x276c714, 0x276c734 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_REAPER_PALETTES_P4[] =
 {
-    { L"Soul Reaper P4", 0x276c734, 0x276c754 },
+    { L"Soul Reaper P4", 0x276c734, 0x276c754, indexBleachDSSprites_SoulReaper, 0x00 },
     { L"Soul Reaper P4 - Slash Effects", 0x276c754, 0x276c774 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_REAPER_PALETTES_P5[] =
 {
-    { L"Soul Reaper P5", 0x276c774, 0x276c794 },
+    { L"Soul Reaper P5", 0x276c774, 0x276c794, indexBleachDSSprites_SoulReaper, 0x00 },
     { L"Soul Reaper P5 - Slash Effects", 0x276c794, 0x276c7b4 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_REAPER_PALETTES_P6[] =
 {
-    { L"Soul Reaper P6", 0x276c7b4, 0x276c7d4 },
+    { L"Soul Reaper P6", 0x276c7b4, 0x276c7d4, indexBleachDSSprites_SoulReaper, 0x00 },
     { L"Soul Reaper P6 - Slash Effects", 0x276c7d4, 0x276c7f4 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_REAPER_PALETTES_P7[] =
 {
-    { L"Soul Reaper P7", 0x276c7f4, 0x276c814 },
+    { L"Soul Reaper P7", 0x276c7f4, 0x276c814, indexBleachDSSprites_SoulReaper, 0x00 },
     { L"Soul Reaper P7 - Slash Effects", 0x276c814, 0x276c834 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_REAPER_PALETTES_P8[] =
 {
-    { L"Soul Reaper P8", 0x276c834, 0x276c854 },
+    { L"Soul Reaper P8", 0x276c834, 0x276c854, indexBleachDSSprites_SoulReaper, 0x00 },
     { L"Soul Reaper P8 - Slash Effects", 0x276c854, 0x276c874 },
 };
 
@@ -383,7 +387,7 @@ const sGame_PaletteDataset BLEACH_DS_FAMILIAR_PALETTES_P8[] =
 
 const sGame_PaletteDataset BLEACH_DS_FAMILIAR_PALETTES_EXTRAS[] =
 {
-    { L"Familiar - Leech Bomb", 0x26a97b8, 0x26a97d8 },
+    { L"Familiar - Leech Bomb", 0x26a97b8, 0x26a97d8, indexBleachDSSprites_Familiar, 0x01 },
 };
 
 const sDescTreeNode BLEACH_DS_FAMILIAR_COLLECTION[] =
@@ -402,42 +406,42 @@ const sDescTreeNode BLEACH_DS_FAMILIAR_COLLECTION[] =
 //Nurse / Kyugohanin Palettes
 const sGame_PaletteDataset BLEACH_DS_NURSE_PALETTES_P1[] =
 {
-    { L"Nurse P1", 0x2729510, 0x2729530, indexBleachDSSprites_Kyugohanin },
+    { L"Nurse P1", 0x2729510, 0x2729530, indexBleachDSSprites_Nurse },
 };
 
 const sGame_PaletteDataset BLEACH_DS_NURSE_PALETTES_P2[] =
 {
-    { L"Nurse P2", 0x2729530, 0x2729550, indexBleachDSSprites_Kyugohanin },
+    { L"Nurse P2", 0x2729530, 0x2729550, indexBleachDSSprites_Nurse },
 };
 
 const sGame_PaletteDataset BLEACH_DS_NURSE_PALETTES_P3[] =
 {
-    { L"Nurse P3", 0x2729550, 0x2729570, indexBleachDSSprites_Kyugohanin },
+    { L"Nurse P3", 0x2729550, 0x2729570, indexBleachDSSprites_Nurse },
 };
 
 const sGame_PaletteDataset BLEACH_DS_NURSE_PALETTES_P4[] =
 {
-    { L"Nurse P4", 0x2729570, 0x2729590, indexBleachDSSprites_Kyugohanin },
+    { L"Nurse P4", 0x2729570, 0x2729590, indexBleachDSSprites_Nurse },
 };
 
 const sGame_PaletteDataset BLEACH_DS_NURSE_PALETTES_P5[] =
 {
-    { L"Nurse P5", 0x2729590, 0x27295b0, indexBleachDSSprites_Kyugohanin },
+    { L"Nurse P5", 0x2729590, 0x27295b0, indexBleachDSSprites_Nurse },
 };
 
 const sGame_PaletteDataset BLEACH_DS_NURSE_PALETTES_P6[] =
 {
-    { L"Nurse P6", 0x27295b0, 0x27295d0, indexBleachDSSprites_Kyugohanin },
+    { L"Nurse P6", 0x27295b0, 0x27295d0, indexBleachDSSprites_Nurse },
 };
 
 const sGame_PaletteDataset BLEACH_DS_NURSE_PALETTES_P7[] =
 {
-    { L"Nurse P7", 0x27295d0, 0x27295f0, indexBleachDSSprites_Kyugohanin },
+    { L"Nurse P7", 0x27295d0, 0x27295f0, indexBleachDSSprites_Nurse },
 };
 
 const sGame_PaletteDataset BLEACH_DS_NURSE_PALETTES_P8[] =
 {
-    { L"Nurse P8", 0x27295f0, 0x2729610, indexBleachDSSprites_Kyugohanin },
+    { L"Nurse P8", 0x27295f0, 0x2729610, indexBleachDSSprites_Nurse },
 };
 
 const sGame_PaletteDataset BLEACH_DS_NURSE_PALETTES_EXTRAS[] =
@@ -462,65 +466,65 @@ const sDescTreeNode BLEACH_DS_NURSE_COLLECTION[] =
 const sGame_PaletteDataset BLEACH_DS_BYAKUYA_PALETTES_P1[] =
 {
     { L"Byakuya P1", 0x201a440, 0x201a460, indexBleachDSSprites_ByakuyaKuchiki },
-    { L"Byakuya P1 - Slash Effects", 0x201a460, 0x201a480 },
-    { L"Byakuya P1 - Shukei Hakuteiken", 0x201a480, 0x201a4a0 },
+    { L"Byakuya P1 - Slash Effects", 0x201a460, 0x201a480, indexBleachDSSprites_ByakuyaKuchiki, 0x05 },
+    { L"Byakuya P1 - Shukei Hakuteiken", 0x201a480, 0x201a4a0, indexBleachDSSprites_ByakuyaKuchiki, 0x03 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_BYAKUYA_PALETTES_P2[] =
 {
     { L"Byakuya P2", 0x201a4a0, 0x201a4c0, indexBleachDSSprites_ByakuyaKuchiki },
-    { L"Byakuya P2 - Slash Effects", 0x201a4c0, 0x201a4e0 },
-    { L"Byakuya P2 - Shukei Hakuteiken", 0x201a4e0, 0x201a500 },
+    { L"Byakuya P2 - Slash Effects", 0x201a4c0, 0x201a4e0, indexBleachDSSprites_ByakuyaKuchiki, 0x05 },
+    { L"Byakuya P2 - Shukei Hakuteiken", 0x201a4e0, 0x201a500, indexBleachDSSprites_ByakuyaKuchiki, 0x03 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_BYAKUYA_PALETTES_P3[] =
 {
     { L"Byakuya P3", 0x201a500, 0x201a520, indexBleachDSSprites_ByakuyaKuchiki },
-    { L"Byakuya P3 - Slash Effects", 0x201a520, 0x201a540 },
-    { L"Byakuya P3 - Shukei Hakuteiken", 0x201a540, 0x201a560 },
+    { L"Byakuya P3 - Slash Effects", 0x201a520, 0x201a540, indexBleachDSSprites_ByakuyaKuchiki, 0x05 },
+    { L"Byakuya P3 - Shukei Hakuteiken", 0x201a540, 0x201a560, indexBleachDSSprites_ByakuyaKuchiki, 0x03 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_BYAKUYA_PALETTES_P4[] =
 {
     { L"Byakuya P4", 0x201a560, 0x201a580, indexBleachDSSprites_ByakuyaKuchiki },
-    { L"Byakuya P4 - Slash Effects", 0x201a580, 0x201a5a0 },
-    { L"Byakuya P4 - Shukei Hakuteiken", 0x201a5a0, 0x201a5c0 },
+    { L"Byakuya P4 - Slash Effects", 0x201a580, 0x201a5a0, indexBleachDSSprites_ByakuyaKuchiki, 0x05 },
+    { L"Byakuya P4 - Shukei Hakuteiken", 0x201a5a0, 0x201a5c0, indexBleachDSSprites_ByakuyaKuchiki, 0x03 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_BYAKUYA_PALETTES_P5[] =
 {
     { L"Byakuya P5", 0x201a5c0, 0x201a5e0, indexBleachDSSprites_ByakuyaKuchiki },
-    { L"Byakuya P5 - Slash Effects", 0x201a5e0, 0x201a600 },
-    { L"Byakuya P5 - Shukei Hakuteiken", 0x201a600, 0x201a620 },
+    { L"Byakuya P5 - Slash Effects", 0x201a5e0, 0x201a600, indexBleachDSSprites_ByakuyaKuchiki, 0x05 },
+    { L"Byakuya P5 - Shukei Hakuteiken", 0x201a600, 0x201a620, indexBleachDSSprites_ByakuyaKuchiki, 0x03 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_BYAKUYA_PALETTES_P6[] =
 {
     { L"Byakuya P6", 0x201a620, 0x201a640, indexBleachDSSprites_ByakuyaKuchiki },
-    { L"Byakuya P6 - Slash Effects", 0x201a640, 0x201a660 },
-    { L"Byakuya P6 - Shukei Hakuteiken", 0x201a660, 0x201a680 },
+    { L"Byakuya P6 - Slash Effects", 0x201a640, 0x201a660, indexBleachDSSprites_ByakuyaKuchiki, 0x05 },
+    { L"Byakuya P6 - Shukei Hakuteiken", 0x201a660, 0x201a680, indexBleachDSSprites_ByakuyaKuchiki, 0x03 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_BYAKUYA_PALETTES_P7[] =
 {
     { L"Byakuya P7", 0x201a680, 0x201a6a0, indexBleachDSSprites_ByakuyaKuchiki },
-    { L"Byakuya P7 - Slash Effects", 0x201a6a0, 0x201a6c0 },
-    { L"Byakuya P7 - Shukei Hakuteiken", 0x201a6c0, 0x201a6e0 },
+    { L"Byakuya P7 - Slash Effects", 0x201a6a0, 0x201a6c0, indexBleachDSSprites_ByakuyaKuchiki, 0x05 },
+    { L"Byakuya P7 - Shukei Hakuteiken", 0x201a6c0, 0x201a6e0, indexBleachDSSprites_ByakuyaKuchiki, 0x03 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_BYAKUYA_PALETTES_P8[] =
 {
     { L"Byakuya P8", 0x201a6e0, 0x201a700, indexBleachDSSprites_ByakuyaKuchiki },
-    { L"Byakuya P8 - Slash Effects", 0x201a700, 0x201a720 },
-    { L"Byakuya P8 - Shukei Hakuteiken", 0x201a720, 0x201a740 },
+    { L"Byakuya P8 - Slash Effects", 0x201a700, 0x201a720, indexBleachDSSprites_ByakuyaKuchiki, 0x05 },
+    { L"Byakuya P8 - Shukei Hakuteiken", 0x201a720, 0x201a740, indexBleachDSSprites_ByakuyaKuchiki, 0x03 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_BYAKUYA_PALETTES_EXTRAS[] =
 {
-    { L"Byakuya - Senkei Senbonzakura Kageyoshi", 0x201c768, 0x201c788 },
-    { L"Byakuya - Senbonzakura", 0x201c788, 0x201c7a8 },
-    { L"Byakuya - Six Bars of Light", 0x201c7a8, 0x201c7c8 },
-    { L"Byakuya - Shukei Hakuteiken 2", 0x201c7c8, 0x201c7e8 },
+    { L"Byakuya - Senkei Senbonzakura Kageyoshi", 0x201c768, 0x201c788, indexBleachDSSprites_ByakuyaKuchiki, 0x02 },
+    { L"Byakuya - Senbonzakura", 0x201c788, 0x201c7a8, indexBleachDSSprites_ByakuyaKuchiki, 0x01 },
+    { L"Byakuya - Six Bars of Light", 0x201c7a8, 0x201c7c8, indexBleachDSSprites_ByakuyaKuchiki, 0x04 },
+    { L"Byakuya - Shukei Hakuteiken 2", 0x201c7c8, 0x201c7e8, indexBleachDSSprites_ByakuyaKuchiki, 0x03 },
 };
 
 const sDescTreeNode BLEACH_DS_BYAKUYA_COLLECTION[] =
@@ -649,55 +653,55 @@ const sDescTreeNode BLEACH_DS_YAMAMOTO_COLLECTION[] =
 const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_P1[] =
 {
     { L"Komamura P1", 0x236783C, 0x236787C, indexBleachDSSprites_SajinKomamura },
-    { L"Komamura P1 - Slash Effects", 0x236787C, 0x236789C },
+    { L"Komamura P1 - Slash Effects", 0x236787C, 0x236789C, indexBleachDSSprites_SajinKomamura, 0x02 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_P2[] =
 {
     { L"Komamura P2", 0x236789C, 0x23678dC, indexBleachDSSprites_SajinKomamura },
-    { L"Komamura P2 - Slash Effects", 0x23678dC, 0x23678fC },
+    { L"Komamura P2 - Slash Effects", 0x23678dC, 0x23678fC, indexBleachDSSprites_SajinKomamura, 0x02 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_P3[] =
 {
     { L"Komamura P3", 0x23678fC, 0x236793C, indexBleachDSSprites_SajinKomamura },
-    { L"Komamura P3 - Slash Effects", 0x236793C, 0x236795C },
+    { L"Komamura P3 - Slash Effects", 0x236793C, 0x236795C, indexBleachDSSprites_SajinKomamura, 0x02 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_P4[] =
 {
     { L"Komamura P4", 0x236795C, 0x236799C, indexBleachDSSprites_SajinKomamura },
-    { L"Komamura P4 - Slash Effects", 0x236799C, 0x23679bC },
+    { L"Komamura P4 - Slash Effects", 0x236799C, 0x23679bC, indexBleachDSSprites_SajinKomamura, 0x02 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_P5[] =
 {
     { L"Komamura P5", 0x23679bC, 0x23679fC, indexBleachDSSprites_SajinKomamura },
-    { L"Komamura P5 - Slash Effects", 0x23679fC, 0x2367a1C },
+    { L"Komamura P5 - Slash Effects", 0x23679fC, 0x2367a1C, indexBleachDSSprites_SajinKomamura, 0x02 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_P6[] =
 {
     { L"Komamura P6", 0x2367a1C, 0x2367a5C, indexBleachDSSprites_SajinKomamura },
-    { L"Komamura P6 - Slash Effects", 0x2367a5C, 0x2367a7C },
+    { L"Komamura P6 - Slash Effects", 0x2367a5C, 0x2367a7C, indexBleachDSSprites_SajinKomamura, 0x02 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_P7[] =
 {
     { L"Komamura P7", 0x2367a7C, 0x2367abC, indexBleachDSSprites_SajinKomamura },
-    { L"Komamura P7 - Slash Effects", 0x2367abC, 0x2367adC },
+    { L"Komamura P7 - Slash Effects", 0x2367abC, 0x2367adC, indexBleachDSSprites_SajinKomamura, 0x02 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_P8[] =
 {
     { L"Komamura P8", 0x2367adC, 0x2367b1C, indexBleachDSSprites_SajinKomamura },
-    { L"Komamura P8 - Slash Effects", 0x2367b1C, 0x2367b3C },
+    { L"Komamura P8 - Slash Effects", 0x2367b1C, 0x2367b3C, indexBleachDSSprites_SajinKomamura, 0x02 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_EXTRAS[] =
 {
     { L"Komamura - Rocks", 0x2368f68, 0x2368f88 },
-    { L"Komamura - Tenken", 0x2368f88, 0x2368fa8 },
+    { L"Komamura - Tenken", 0x2368f88, 0x2368fa8, indexBleachDSSprites_SajinKomamura, 0x03 },
     { L"Komamura - Kokujo Tengen Myo-oh", 0x236a058, 0x236a078 },
 };
 
@@ -1759,74 +1763,74 @@ const sDescTreeNode BLEACH_DS_CHAD_COLLECTION[] =
 const sGame_PaletteDataset BLEACH_DS_ICHIGO_PALETTES_P1[] =
 {
     { L"Ichigo P1", 0x219e8cc, 0x219e8ec, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P1 - Slash Effects", 0x219e8ec, 0x219e90c },
-    { L"Ichigo P1 - Tensa Zangetsu", 0x219e90c, 0x219e92c, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P1 - Tensa Zangetsu Slash Effects", 0x219e92c, 0x219e94c },
+    { L"Ichigo P1 - Slash Effects", 0x219e8ec, 0x219e90c, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Ichigo P1 - Tensa Zangetsu", 0x219e90c, 0x219e92c, indexBleachDSSprites_IchigoKurosaki, 0x03 },
+    { L"Ichigo P1 - Tensa Zangetsu Slash Effects", 0x219e92c, 0x219e94c, indexBleachDSSprites_IchigoKurosaki, 0x04 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_ICHIGO_PALETTES_P2[] =
 {
     { L"Ichigo P2", 0x219e94c, 0x219e96c, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P2 - Slash Effects", 0x219e96c, 0x219e98c },
-    { L"Ichigo P2 - Tensa Zangetsu", 0x219e98c, 0x219e9ac, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P2 - Tensa Zangetsu Slash Effects", 0x219e9ac, 0x219e9cc },
+    { L"Ichigo P2 - Slash Effects", 0x219e96c, 0x219e98c, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Ichigo P2 - Tensa Zangetsu", 0x219e98c, 0x219e9ac, indexBleachDSSprites_IchigoKurosaki, 0x03 },
+    { L"Ichigo P2 - Tensa Zangetsu Slash Effects", 0x219e9ac, 0x219e9cc, indexBleachDSSprites_IchigoKurosaki, 0x04 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_ICHIGO_PALETTES_P3[] =
 {
     { L"Ichigo P3", 0x219e9cc, 0x219e9ec, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P3 - Slash Effects", 0x219e9ec, 0x219ea0c },
-    { L"Ichigo P3 - Tensa Zangetsu", 0x219ea0c, 0x219ea2c, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P3 - Tensa Zangetsu Slash Effects", 0x219ea2c, 0x219ea4c },
+    { L"Ichigo P3 - Slash Effects", 0x219e9ec, 0x219ea0c, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Ichigo P3 - Tensa Zangetsu", 0x219ea0c, 0x219ea2c, indexBleachDSSprites_IchigoKurosaki, 0x03 },
+    { L"Ichigo P3 - Tensa Zangetsu Slash Effects", 0x219ea2c, 0x219ea4c, indexBleachDSSprites_IchigoKurosaki, 0x04 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_ICHIGO_PALETTES_P4[] =
 {
     { L"Ichigo P4", 0x219ea4c, 0x219ea6c, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P4 - Slash Effects", 0x219ea6c, 0x219ea8c },
-    { L"Ichigo P4 - Tensa Zangetsu", 0x219ea8c, 0x219eaac, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P4 - Tensa Zangetsu Slash Effects", 0x219eaac, 0x219eacc },
+    { L"Ichigo P4 - Slash Effects", 0x219ea6c, 0x219ea8c, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Ichigo P4 - Tensa Zangetsu", 0x219ea8c, 0x219eaac, indexBleachDSSprites_IchigoKurosaki, 0x03 },
+    { L"Ichigo P4 - Tensa Zangetsu Slash Effects", 0x219eaac, 0x219eacc, indexBleachDSSprites_IchigoKurosaki, 0x04 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_ICHIGO_PALETTES_P5[] =
 {
     { L"Ichigo P5", 0x219eacc, 0x219eaec, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P5 - Slash Effects", 0x219eaec, 0x219eb0c },
-    { L"Ichigo P5 - Tensa Zangetsu", 0x219eb0c, 0x219eb2c, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P5 - Tensa Zangetsu Slash Effects", 0x219eb2c, 0x219eb4c },
+    { L"Ichigo P5 - Slash Effects", 0x219eaec, 0x219eb0c, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Ichigo P5 - Tensa Zangetsu", 0x219eb0c, 0x219eb2c, indexBleachDSSprites_IchigoKurosaki, 0x03 },
+    { L"Ichigo P5 - Tensa Zangetsu Slash Effects", 0x219eb2c, 0x219eb4c, indexBleachDSSprites_IchigoKurosaki, 0x04 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_ICHIGO_PALETTES_P6[] =
 {
     { L"Ichigo P6", 0x219eb4c, 0x219eb6c, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P6 - Slash Effects", 0x219eb6c, 0x219eb8c },
-    { L"Ichigo P6 - Tensa Zangetsu", 0x219eb8c, 0x219ebac, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P6 - Tensa Zangetsu Slash Effects", 0x219ebac, 0x219ebcc },
+    { L"Ichigo P6 - Slash Effects", 0x219eb6c, 0x219eb8c, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Ichigo P6 - Tensa Zangetsu", 0x219eb8c, 0x219ebac, indexBleachDSSprites_IchigoKurosaki, 0x03 },
+    { L"Ichigo P6 - Tensa Zangetsu Slash Effects", 0x219ebac, 0x219ebcc, indexBleachDSSprites_IchigoKurosaki, 0x04 },
 };
 
 
 const sGame_PaletteDataset BLEACH_DS_ICHIGO_PALETTES_P7[] =
 {
     { L"Ichigo P7", 0x219ebcc, 0x219ebec, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P7 - Slash Effects", 0x219ebec, 0x219ec0c },
-    { L"Ichigo P7 - Tensa Zangetsu", 0x219ec0c, 0x219ec2c, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P7 - Tensa Zangetsu Slash Effects", 0x219ec2c, 0x219ec4c },
+    { L"Ichigo P7 - Slash Effects", 0x219ebec, 0x219ec0c, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Ichigo P7 - Tensa Zangetsu", 0x219ec0c, 0x219ec2c, indexBleachDSSprites_IchigoKurosaki, 0x03 },
+    { L"Ichigo P7 - Tensa Zangetsu Slash Effects", 0x219ec2c, 0x219ec4c, indexBleachDSSprites_IchigoKurosaki, 0x04 },
 };
 
 
 const sGame_PaletteDataset BLEACH_DS_ICHIGO_PALETTES_P8[] =
 {
     { L"Ichigo P8", 0x219ec4c, 0x219ec6c, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P8 - Slash Effects", 0x219ec6c, 0x219ec8c },
-    { L"Ichigo P8 - Tensa Zangetsu", 0x219ec8c, 0x219ecac, indexBleachDSSprites_IchigoKurosaki },
-    { L"Ichigo P8 - Tensa Zangetsu Slash Effects", 0x219ecac, 0x219eccc },
+    { L"Ichigo P8 - Slash Effects", 0x219ec6c, 0x219ec8c, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Ichigo P8 - Tensa Zangetsu", 0x219ec8c, 0x219ecac, indexBleachDSSprites_IchigoKurosaki, 0x03 },
+    { L"Ichigo P8 - Tensa Zangetsu Slash Effects", 0x219ecac, 0x219eccc, indexBleachDSSprites_IchigoKurosaki, 0x04 },
 };
 
 
 const sGame_PaletteDataset BLEACH_DS_ICHIGO_PALETTES_EXTRAS[] =
 {
-    { L"Ichigo - Zangetsu", 0x21a04c4, 0x21a04e4 },
-    { L"Ichigo - Rocks", 0x21a0504, 0x21a0524 },
+    { L"Ichigo - Zangetsu", 0x21a04c4, 0x21a04e4, indexBleachDSSprites_IchigoKurosaki, 0x05 },
+    { L"Ichigo - Rocks", 0x21a0504, 0x21a0524, indexBleachDSSprites_IchigoKurosaki, 0x01 },
 };
 
 const sDescTreeNode BLEACH_DS_ICHIGO_COLLECTION[] =
@@ -3096,73 +3100,73 @@ const sDescTreeNode BLEACH_DS_URURU_COLLECTION[] =
 const sGame_PaletteDataset BLEACH_DS_HICHIGO_PALETTES_P1[] =
 {
     { L"Hollow Ichigo P1",  0x21e4a34, 0x21e4a54, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P1 - Slash Effects", 0x21e4a54, 0x21e4a74 },
-    { L"Hollow Ichigo P1 - Tensa Zangetsu", 0x21e4a74, 0x21e4a94, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P1 - Tensa Zangetsu Slash Effects", 0x21e4a94, 0x21e4ab4 },
-    { L"Hollow Ichigo P1 - Shall I slice you?", 0x21e4ab4, 0x21e4ad4 },
+    { L"Hollow Ichigo P1 - Slash Effects", 0x21e4a54, 0x21e4a74, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Hollow Ichigo P1 - Tensa Zangetsu", 0x21e4a74, 0x21e4a94, indexBleachDSSprites_HollowIchigo, 0x02 },
+    { L"Hollow Ichigo P1 - Tensa Zangetsu Slash Effects", 0x21e4a94, 0x21e4ab4, indexBleachDSSprites_IchigoKurosaki, 0x04 },
+    { L"Hollow Ichigo P1 - Shall I slice you?", 0x21e4ab4, 0x21e4ad4, indexBleachDSSprites_HollowIchigo, 0x01 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_HICHIGO_PALETTES_P2[] =
 {
     { L"Hollow Ichigo P2", 0x21e4ad4, 0x21e4af4, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P2 - Slash Effects", 0x21e4af4, 0x21e4b14 },
-    { L"Hollow Ichigo P2 - Tensa Zangetsu", 0x21e4b14, 0x21e4b34, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P2 - Tensa Zangetsu Slash Effects", 0x21e4b34, 0x21e4b54 },
-    { L"Hollow Ichigo P2 - Shall I slice you?", 0x21e4b54, 0x21e4b74 },
+    { L"Hollow Ichigo P2 - Slash Effects", 0x21e4af4, 0x21e4b14, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Hollow Ichigo P2 - Tensa Zangetsu", 0x21e4b14, 0x21e4b34, indexBleachDSSprites_HollowIchigo, 0x02 },
+    { L"Hollow Ichigo P2 - Tensa Zangetsu Slash Effects", 0x21e4b34, 0x21e4b54, indexBleachDSSprites_IchigoKurosaki, 0x04 },
+    { L"Hollow Ichigo P2 - Shall I slice you?", 0x21e4b54, 0x21e4b74, indexBleachDSSprites_HollowIchigo, 0x01 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_HICHIGO_PALETTES_P3[] =
 {
     { L"Hollow Ichigo P3", 0x21e4b74, 0x21e4b94, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P3 - Slash Effects", 0x21e4b94, 0x21e4bb4 },
-    { L"Hollow Ichigo P3 - Tensa Zangetsu", 0x21e4bb4, 0x21e4bd4, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P3 - Tensa Zangetsu Slash Effects", 0x21e4bd4, 0x21e4bf4 },
-    { L"Hollow Ichigo P3 - Shall I slice you?", 0x21e4bf4, 0x21e4c14 },
+    { L"Hollow Ichigo P3 - Slash Effects", 0x21e4b94, 0x21e4bb4, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Hollow Ichigo P3 - Tensa Zangetsu", 0x21e4bb4, 0x21e4bd4, indexBleachDSSprites_HollowIchigo, 0x02 },
+    { L"Hollow Ichigo P3 - Tensa Zangetsu Slash Effects", 0x21e4bd4, 0x21e4bf4, indexBleachDSSprites_IchigoKurosaki, 0x04 },
+    { L"Hollow Ichigo P3 - Shall I slice you?", 0x21e4bf4, 0x21e4c14, indexBleachDSSprites_HollowIchigo, 0x01 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_HICHIGO_PALETTES_P4[] =
 {
     { L"Hollow Ichigo P4", 0x21e4c14, 0x21e4c34, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P4 - Slash Effects", 0x21e4c34, 0x21e4c54 },
-    { L"Hollow Ichigo P4 - Tensa Zangetsu", 0x21e4c54, 0x21e4c74, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P4 - Tensa Zangetsu Slash Effects", 0x21e4c74, 0x21e4c94 },
-    { L"Hollow Ichigo P4 - Shall I slice you?", 0x21e4c94, 0x21e4cb4 },
+    { L"Hollow Ichigo P4 - Slash Effects", 0x21e4c34, 0x21e4c54, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Hollow Ichigo P4 - Tensa Zangetsu", 0x21e4c54, 0x21e4c74, indexBleachDSSprites_HollowIchigo, 0x02 },
+    { L"Hollow Ichigo P4 - Tensa Zangetsu Slash Effects", 0x21e4c74, 0x21e4c94, indexBleachDSSprites_IchigoKurosaki, 0x04 },
+    { L"Hollow Ichigo P4 - Shall I slice you?", 0x21e4c94, 0x21e4cb4, indexBleachDSSprites_HollowIchigo, 0x01 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_HICHIGO_PALETTES_P5[] =
 {
     { L"Hollow Ichigo P5", 0x21e4cb4, 0x21e4cd4, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P5 - Slash Effects", 0x21e4cd4, 0x21e4cf4 },
-    { L"Hollow Ichigo P5 - Tensa Zangetsu", 0x21e4cf4, 0x21e4d14, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P5 - Tensa Zangetsu Slash Effects", 0x21e4d14, 0x21e4d34 },
-    { L"Hollow Ichigo P5 - Shall I slice you?", 0x21e4d34, 0x21e4d54 },
+    { L"Hollow Ichigo P5 - Slash Effects", 0x21e4cd4, 0x21e4cf4, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Hollow Ichigo P5 - Tensa Zangetsu", 0x21e4cf4, 0x21e4d14, indexBleachDSSprites_HollowIchigo, 0x02 },
+    { L"Hollow Ichigo P5 - Tensa Zangetsu Slash Effects", 0x21e4d14, 0x21e4d34, indexBleachDSSprites_IchigoKurosaki, 0x04 },
+    { L"Hollow Ichigo P5 - Shall I slice you?", 0x21e4d34, 0x21e4d54, indexBleachDSSprites_HollowIchigo, 0x01 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_HICHIGO_PALETTES_P6[] =
 {
     { L"Hollow Ichigo P6", 0x21e4d54, 0x21e4d74, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P6 - Slash Effects", 0x21e4d74, 0x21e4d94 },
-    { L"Hollow Ichigo P6 - Tensa Zangetsu", 0x21e4d94, 0x21e4db4, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P6 - Tensa Zangetsu Slash Effects", 0x21e4db4, 0x21e4dd4 },
-    { L"Hollow Ichigo P6 - Shall I slice you?", 0x21e4dd4, 0x21e4df4 },
+    { L"Hollow Ichigo P6 - Slash Effects", 0x21e4d74, 0x21e4d94, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Hollow Ichigo P6 - Tensa Zangetsu", 0x21e4d94, 0x21e4db4, indexBleachDSSprites_HollowIchigo, 0x02 },
+    { L"Hollow Ichigo P6 - Tensa Zangetsu Slash Effects", 0x21e4db4, 0x21e4dd4, indexBleachDSSprites_IchigoKurosaki, 0x04 },
+    { L"Hollow Ichigo P6 - Shall I slice you?", 0x21e4dd4, 0x21e4df4, indexBleachDSSprites_HollowIchigo, 0x01 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_HICHIGO_PALETTES_P7[] =
 {
     { L"Hollow Ichigo P7", 0x21e4df4, 0x21e4e14, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P7 - Slash Effects", 0x21e4e14, 0x21e4e34 },
-    { L"Hollow Ichigo P7 - Tensa Zangetsu", 0x21e4e34, 0x21e4e54, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P7 - Tensa Zangetsu Slash Effects", 0x21e4e54, 0x21e4e74 },
-    { L"Hollow Ichigo P7 - Shall I slice you?", 0x21e4e74, 0x21e4e94 },
+    { L"Hollow Ichigo P7 - Slash Effects", 0x21e4e14, 0x21e4e34, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Hollow Ichigo P7 - Tensa Zangetsu", 0x21e4e34, 0x21e4e54, indexBleachDSSprites_HollowIchigo, 0x02 },
+    { L"Hollow Ichigo P7 - Tensa Zangetsu Slash Effects", 0x21e4e54, 0x21e4e74, indexBleachDSSprites_IchigoKurosaki, 0x04 },
+    { L"Hollow Ichigo P7 - Shall I slice you?", 0x21e4e74, 0x21e4e94, indexBleachDSSprites_HollowIchigo, 0x01 },
 };
 
 const sGame_PaletteDataset BLEACH_DS_HICHIGO_PALETTES_P8[] =
 {
     { L"Hollow Ichigo P8", 0x21e4e94, 0x21e4eb4, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P8 - Slash Effects", 0x21e4eb4, 0x21e4ed4 },
-    { L"Hollow Ichigo P8 - Tensa Zangetsu", 0x21e4ed4, 0x21e4ef4, indexBleachDSSprites_IchigoKurosaki },
-    { L"Hollow Ichigo P8 - Tensa Zangetsu Slash Effects", 0x21e4ef4, 0x21e4f14 },
-    { L"Hollow Ichigo P8 - Shall I slice you?", 0x21e4f14, 0x21e4f34 },
+    { L"Hollow Ichigo P8 - Slash Effects", 0x21e4eb4, 0x21e4ed4, indexBleachDSSprites_IchigoKurosaki, 0x02 },
+    { L"Hollow Ichigo P8 - Tensa Zangetsu", 0x21e4ed4, 0x21e4ef4, indexBleachDSSprites_HollowIchigo, 0x02 },
+    { L"Hollow Ichigo P8 - Tensa Zangetsu Slash Effects", 0x21e4ef4, 0x21e4f14, indexBleachDSSprites_IchigoKurosaki, 0x04 },
+    { L"Hollow Ichigo P8 - Shall I slice you?", 0x21e4f14, 0x21e4f34, indexBleachDSSprites_HollowIchigo, 0x01 },
 };
 
 const sDescTreeNode BLEACH_DS_HICHIGO_COLLECTION[] =

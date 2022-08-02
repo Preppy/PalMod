@@ -182,36 +182,36 @@ const sGame_PaletteDataset FotNS_P_REI_PALETTES_S[] =
 const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_P[] =
 {
     { L"Juda P", 0x2233030, 0x2233070, indexHnKSprites_Juda, 0x00 },
-    { L"Komaku P", 0x2786830, 0x2786850 },
-    { L"Dagar P", 0x27b3030, 0x27b3050 },
+    { L"Komaku P", 0x2786830, 0x2786850, indexHnKSprites_Juda, 0x02 },
+    { L"Dagar P", 0x27b3030, 0x27b3050, indexHnKSprites_Juda, 0x01 },
 };
 
 const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_HP[] =
 {
     { L"Juda HP", 0x223307c, 0x22330bc, indexHnKSprites_Juda, 0x00 },
-    { L"Komaku HP", 0x278685c, 0x278687c },
-    { L"Dagar HP", 0x27b305c, 0x27b307c },
+    { L"Komaku HP", 0x278685c, 0x278687c, indexHnKSprites_Juda, 0x02 },
+    { L"Dagar HP", 0x27b305c, 0x27b307c, indexHnKSprites_Juda, 0x01 },
 };
 
 const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_K[] =
 {
     { L"Juda K", 0x22330c8, 0x2233108, indexHnKSprites_Juda, 0x00 },
-    { L"Komaku K", 0x2786888, 0x27868a8 },
-    { L"Dagar K", 0x27b3088, 0x27b30a8 },
+    { L"Komaku K", 0x2786888, 0x27868a8, indexHnKSprites_Juda, 0x02 },
+    { L"Dagar K", 0x27b3088, 0x27b30a8, indexHnKSprites_Juda, 0x01 },
 };
 
 const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_HK[] =
 {
     { L"Juda HK", 0x2233114, 0x2233154, indexHnKSprites_Juda, 0x00 },
-    { L"Komaku HK", 0x27868b4, 0x27868d4 },
-    { L"Dagar HK", 0x27b30b4, 0x27b30d4 },
+    { L"Komaku HK", 0x27868b4, 0x27868d4, indexHnKSprites_Juda, 0x02 },
+    { L"Dagar HK", 0x27b30b4, 0x27b30d4, indexHnKSprites_Juda, 0x01 },
 };
 
 const sGame_PaletteDataset FotNS_P_JUDA_PALETTES_S[] =
 {
     { L"Juda S", 0x2233160, 0x22331a0, indexHnKSprites_Juda, 0x00 },
-    { L"Komaku S", 0x27868e0, 0x2786900 },
-    { L"Dagar S", 0x27b30e0, 0x27b3100 },
+    { L"Komaku S", 0x27868e0, 0x2786900, indexHnKSprites_Juda, 0x02 },
+    { L"Dagar S", 0x27b30e0, 0x27b3100, indexHnKSprites_Juda, 0x01 },
 };
 
 const sGame_PaletteDataset FotNS_P_THOUTHER_PALETTES_P[] =

@@ -17,6 +17,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_KOF,     // KOF games, Last Blade, etc
     IMGDAT_SECTION_MATRIM,  // Matrimelee
     IMGDAT_SECTION_NEOGEO,  // generic set for NeoGeo games
+    IMGDAT_SECTION_OTHER,   // one-off releases such as Migthy Warriors
     IMGDAT_SECTION_PGM,     // PolyGame Master
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
@@ -1427,7 +1428,7 @@ enum SamuraiShodownSpriteList
     indexSamSho1Sprites_Earthquake, // 0x62
     indexSamSho1Sprites_Galford,    // 0x63
     indexSamSho1Sprites_Genan,      // 0x64
-    indexSamSho1Sprites_Error,  
+    indexSamSho1Sprites_Error,      // 0x65
     indexSamSho1Sprites_Hanzo,      // 0x66
     indexSamSho1Sprites_Haohmaru,   // 0x67
     indexSamSho1Sprites_Jubei,      // 0x68
@@ -2248,6 +2249,9 @@ enum SupportedNintendoDS_PaletteListIndex
     indexUMK3Sprites_DS_Bonus,              // 0x63
 
     indexBleachDSSprites_Familiar,          // 0x64
+    indexBleachDSSprites_HollowIchigo,      // 0x65
+    indexBleachDSSprites_Nurse,             // 0x66
+    indexBleachDSSprites_SoulReaper,        // 0x67
 };
 
 enum SupportedPGM_SpriteListIndex

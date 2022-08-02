@@ -289,8 +289,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,77,0
- PRODUCTVERSION 1,0,77,0
+ FILEVERSION 1,0,78,0
+ PRODUCTVERSION 1,0,78,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -307,12 +307,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.77.0"
+            VALUE "FileVersion", "1.0.78.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.77.0"
+            VALUE "ProductVersion", "1.0.78.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -415,7 +415,7 @@ BEGIN
             END
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
             MENUITEM "Melty Blood: Type Lumina (Steam)", ID_LD_MBTL_A
-            MENUITEM "Mighty Warriors", ID_LD_MWARR
+            MENUITEM "Mighty Warriors",             ID_LD_MWARR
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
             POPUP "MvC2"
             BEGIN
@@ -706,7 +706,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.77"
+    IDS_CURRENTAPPNAME      "PalMod 1.78"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."
@@ -825,7 +825,7 @@ BEGIN
     IDS_PNGLOAD_NOTABLE     "Cannot use this PNG: it does not contain a palette table."
     IDS_WELCOME_BACKUP      "Always keep a backup of files!"
     IDS_SETBACKGROUND_FULL  "Do you want to switch to only use this background color and not also use the image?"
-    IDS_ERROR_UNKNOWNROM     "This doesn't look like a supported ROM.  We'll try, but if it doesn't look right please don't use this ROM."
+    IDS_ERROR_UNKNOWNROM    "This doesn't look like a supported ROM.  We'll try, but if it doesn't look right please don't use this ROM."
     IDS_EXTRAS_SIMMBOUNDARY "Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."
     IDS_COLOR_WRONGSIZE     "Error: this game is using the wrong color size.  This needs to be fixed for the game to work."
 END

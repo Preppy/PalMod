@@ -61,7 +61,7 @@ CGame_MWarr_A_DIR::CGame_MWarr_A_DIR(uint32_t nConfirmedROMSize)
 
     //Set game information
     nGameFlag = MWARR_A;
-    nImgGameFlag = IMGDAT_SECTION_TAITO;
+    nImgGameFlag = IMGDAT_SECTION_OTHER;
     m_prgGameImageSet = MWarr_A_IMGIDS_USED;
     
     nFileAmt = ARRAYSIZE(c_ppszMWarr_Files);

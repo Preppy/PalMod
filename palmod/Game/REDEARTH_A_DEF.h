@@ -1014,7 +1014,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Capcom Logo30", 0x320f00, 0x320f80, indexRedEarthSprites_Bonus, 0x04 },
     { L"Capcom Logo31", 0x320f80, 0x321000, indexRedEarthSprites_Bonus, 0x04 },
 
-    { L"Red Earth Planet & Particles", 0x322ca0, 0x322da0, indexRedEarthSprites_Bonus, 0x20 },
+    { L"Red Earth Planet & Particles", 0x322ca0, 0x322da0, indexRedEarthSprites_Bonus, 0x51 },
 
     { L"Red Earth 1st Logo Cycle 1/17", 0x406ee0, 0x406f00, indexRedEarthSprites_Bonus, 0x20 },
     { L"Red Earth 1st Logo Cycle 2/17", 0x406f00, 0x406f20, indexRedEarthSprites_Bonus, 0x20 },
@@ -1078,7 +1078,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Mai-Ling background", 0x322a20, 0x322a60, indexRedEarthSprites_Bonus, 0x1b },
     { L"Intro - Mai-Ling ", 0x322aa0, 0x322b20, indexRedEarthSprites_Bonus, 0x1c },
     { L"Intro - Kenji background", 0x322a60, 0x322aa0, indexRedEarthSprites_Bonus, 0x1a },
-    { L"Intro - Kenji", 0x322b20, 0x322ba0, indexRedEarthSprites_Bonus, 0x18 },
+    { L"Intro - Kenji", 0x322b20, 0x322ba0, indexRedEarthSprites_Kenji, 0x18 },
     { L"Intro - Mai-Ling Frame", 0x322ba0, 0x322c20, indexRedEarthSprites_Bonus, 0x50 },
     { L"Intro - Kenji Frame", 0x322c20, 0x322ca0, indexRedEarthSprites_Bonus, 0x50 },
     { L"Intro - Tessa 1", 0x323720, 0x3237a0, indexRedEarthSprites_Tessa, 0x23 },
@@ -1401,11 +1401,11 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_HUD_PALETTES[] =
     { L"RoundPoint: Timeout", 0x406760, 0x406780, indexRedEarthSprites_Bonus, 0x2a },
     { L"RoundPoint: Cherry Weak Attack", 0x406740, 0x406760, indexRedEarthSprites_Bonus, 0x28 },
 
-    { L"Ingame LVL Up, Exp, Life up 1", 0x133880, 0x133900 },
-    { L"Ingame LVL UP, Exp, Life up 2", 0x133900, 0x133980 },
-    { L"Ingame LVL Up, Exp, Life up 3", 0x133980, 0x133a00 },
-    { L"Ingame LVL Up, Exp, Life up 4", 0x133a00, 0x133a80 },
-    { L"Ingame LVL Up, Exp, Life up 5", 0x133a80, 0x133b00 },
+    { L"Ingame LVL Up, Exp, Life up 1", 0x133880, 0x133900, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL UP, Exp, Life up 2", 0x133900, 0x133980, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 3", 0x133980, 0x133a00, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 4", 0x133a00, 0x133a80, indexRedEarthSprites_Bonus, 0x52 },
+    { L"Ingame LVL Up, Exp, Life up 5", 0x133a80, 0x133b00, indexRedEarthSprites_Bonus, 0x52 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =

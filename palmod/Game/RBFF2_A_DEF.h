@@ -7,7 +7,6 @@
 const std::vector<uint16_t> RBFF2_A_IMGIDS_USED =
 {
     // This game uses various sprites from both the RBFF2 and RBFFS sets
-    indexRBFFSSprites_Billy,        // 0x134
     indexRBFFSSprites_BlueMary,     // 0x135
     indexRBFFSSprites_Bob,          // 0x136
     indexRBFFSSprites_Cheng,        // 0x137
@@ -17,7 +16,6 @@ const std::vector<uint16_t> RBFF2_A_IMGIDS_USED =
     indexRBFFSSprites_Geese,        // 0x13c
     indexRBFFSSprites_Hon,          // 0x13d
 
-    indexRBFFSSprites_Kim,          // 0x13f
     indexRBFFSSprites_Laurence,     // 0x141
     indexRBFFSSprites_Mai,          // 0x142
     indexRBFFSSprites_Sokaku,       // 0x143
@@ -1044,48 +1042,48 @@ const sGame_PaletteDataset RBFF2_A_DUCKKING_PALETTES_P2[] =
 
 const sGame_PaletteDataset RBFF2_A_KIM_PALETTES_P1[] =
 {
-    { L"Main Palette", 0xd3800, 0xd3820, indexRBFFSSprites_Kim },
-    { L"Background Palette", 0xd3820, 0xd3840, indexRBFFSSprites_Kim },
+    { L"Main Palette", 0xd3800, 0xd3820, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Background Palette", 0xd3820, 0xd3840, indexRBFF2Sprites_Kim, 0x00 },
     { L"Extra Palette 2", 0xd3840, 0xd3860 },
-    { L"Extra Palette 3", 0xd3860, 0xd3880, indexRBFFSSprites_Kim },
+    { L"Extra Palette 3", 0xd3860, 0xd3880, indexRBFF2Sprites_Kim, 0x00 },
     { L"Extra Palette 4", 0xd3880, 0xd38a0 },
-    { L"Extra Palette 5", 0xd38a0, 0xd38c0, indexRBFFSSprites_Kim },
-    { L"Extra Palette 6", 0xd38c0, 0xd38e0, indexRBFFSSprites_Kim },
+    { L"Extra Palette 5", 0xd38a0, 0xd38c0, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Extra Palette 6", 0xd38c0, 0xd38e0, indexRBFF2Sprites_Kim, 0x00 },
     { L"Extra Palette 7", 0xd38e0, 0xd3900 },
     { L"Extra Palette 8", 0xd3900, 0xd3920 },
     { L"Extra Palette 9", 0xd3920, 0xd3940 },
     { L"Extra Palette 10", 0xd3940, 0xd3960 },
-    { L"Extra Palette 11", 0xd3960, 0xd3980, indexRBFFSSprites_Kim },
-    { L"Burn Palette", 0xd3980, 0xd39a0, indexRBFFSSprites_Kim },
-    { L"Purple Burn Palette", 0xd39a0, 0xd39c0, indexRBFFSSprites_Kim },
-    { L"Electricity Palette", 0xd39c0, 0xd39e0, indexRBFFSSprites_Kim },
-    { L"Break Shot/Background Palette 2", 0xd39e0, 0xd3a00, indexRBFFSSprites_Kim },
+    { L"Extra Palette 11", 0xd3960, 0xd3980, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Burn Palette", 0xd3980, 0xd39a0, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Purple Burn Palette", 0xd39a0, 0xd39c0, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Electricity Palette", 0xd39c0, 0xd39e0, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Break Shot/Background Palette 2", 0xd39e0, 0xd3a00, indexRBFF2Sprites_Kim, 0x00 },
 };
 
 const sGame_PaletteDataset RBFF2_A_KIM_PALETTES_P2[] =
 {
-    { L"Main Palette", 0xd3a00, 0xd3a20, indexRBFFSSprites_Kim },
-    { L"Background Palette", 0xd3a20, 0xd3a40, indexRBFFSSprites_Kim },
+    { L"Main Palette", 0xd3a00, 0xd3a20, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Background Palette", 0xd3a20, 0xd3a40, indexRBFF2Sprites_Kim, 0x00 },
     { L"Extra Palette 2", 0xd3a40, 0xd3a60 },
-    { L"Extra Palette 3", 0xd3a60, 0xd3a80, indexRBFFSSprites_Kim },
+    { L"Extra Palette 3", 0xd3a60, 0xd3a80, indexRBFF2Sprites_Kim, 0x00 },
     { L"Extra Palette 4", 0xd3a80, 0xd3aa0 },
-    { L"Extra Palette 5", 0xd3aa0, 0xd3ac0, indexRBFFSSprites_Kim },
-    { L"Extra Palette 6", 0xd3ac0, 0xd3ae0, indexRBFFSSprites_Kim },
+    { L"Extra Palette 5", 0xd3aa0, 0xd3ac0, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Extra Palette 6", 0xd3ac0, 0xd3ae0, indexRBFF2Sprites_Kim, 0x00 },
     { L"Extra Palette 7", 0xd3ae0, 0xd3b00 },
     { L"Extra Palette 8", 0xd3b00, 0xd3b20 },
     { L"Extra Palette 9", 0xd3b20, 0xd3b40 },
     { L"Extra Palette 10", 0xd3b40, 0xd3b60 },
-    { L"Extra Palette 11", 0xd3b60, 0xd3b80, indexRBFFSSprites_Kim },
-    { L"Burn Palette", 0xd3b80, 0xd3ba0, indexRBFFSSprites_Kim },
-    { L"Purple Burn Palette", 0xd3ba0, 0xd3bc0, indexRBFFSSprites_Kim },
-    { L"Electricity Palette", 0xd3bc0, 0xd3be0, indexRBFFSSprites_Kim },
-    { L"Break Shot/Background Palette 2", 0xd3be0, 0xd3c00, indexRBFFSSprites_Kim },
+    { L"Extra Palette 11", 0xd3b60, 0xd3b80, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Burn Palette", 0xd3b80, 0xd3ba0, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Purple Burn Palette", 0xd3ba0, 0xd3bc0, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Electricity Palette", 0xd3bc0, 0xd3be0, indexRBFF2Sprites_Kim, 0x00 },
+    { L"Break Shot/Background Palette 2", 0xd3be0, 0xd3c00, indexRBFF2Sprites_Kim, 0x00 },
 };
 
 const sGame_PaletteDataset RBFF2_A_BILLY_PALETTES_P1[] =
 {
-    { L"Main Palette", 0xd3c00, 0xd3c20, indexRBFFSSprites_Billy },
-    { L"Background Palette", 0xd3c20, 0xd3c40, indexRBFFSSprites_Billy },
+    { L"Main Palette", 0xd3c00, 0xd3c20, indexRBFF2Sprites_Billy, 0x00 },
+    { L"Background Palette", 0xd3c20, 0xd3c40, indexRBFF2Sprites_Billy, 0x00 },
     { L"Extra Palette 2", 0xd3c40, 0xd3c60 },
     { L"Extra Palette 3", 0xd3c60, 0xd3c80 },
     { L"Extra Palette 4", 0xd3c80, 0xd3ca0 },
@@ -1095,17 +1093,17 @@ const sGame_PaletteDataset RBFF2_A_BILLY_PALETTES_P1[] =
     { L"Extra Palette 8", 0xd3d00, 0xd3d20 },
     { L"Extra Palette 9", 0xd3d20, 0xd3d40 },
     { L"Extra Palette 10", 0xd3d40, 0xd3d60 },
-    { L"Extra Palette 11", 0xd3d60, 0xd3d80, indexRBFFSSprites_Billy },
-    { L"Burn Palette", 0xd3d80, 0xd3da0, indexRBFFSSprites_Billy },
-    { L"Purple Burn Palette", 0xd3da0, 0xd3dc0, indexRBFFSSprites_Billy },
-    { L"Electricity Palette", 0xd3dc0, 0xd3de0, indexRBFFSSprites_Billy },
-    { L"Break Shot/Background Palette 2", 0xd3de0, 0xd3e00, indexRBFFSSprites_Billy },
+    { L"Extra Palette 11", 0xd3d60, 0xd3d80, indexRBFF2Sprites_Billy, 0x00 },
+    { L"Burn Palette", 0xd3d80, 0xd3da0, indexRBFF2Sprites_Billy, 0x00 },
+    { L"Purple Burn Palette", 0xd3da0, 0xd3dc0, indexRBFF2Sprites_Billy, 0x00 },
+    { L"Electricity Palette", 0xd3dc0, 0xd3de0, indexRBFF2Sprites_Billy, 0x00 },
+    { L"Break Shot/Background Palette 2", 0xd3de0, 0xd3e00, indexRBFF2Sprites_Billy, 0x00 },
 };
 
 const sGame_PaletteDataset RBFF2_A_BILLY_PALETTES_P2[] =
 {
-    { L"Main Palette", 0xd3e00, 0xd3e20, indexRBFFSSprites_Billy },
-    { L"Background Palette", 0xd3e20, 0xd3e40, indexRBFFSSprites_Billy },
+    { L"Main Palette", 0xd3e00, 0xd3e20, indexRBFF2Sprites_Billy, 0x00 },
+    { L"Background Palette", 0xd3e20, 0xd3e40, indexRBFF2Sprites_Billy, 0x00 },
     { L"Extra Palette 2", 0xd3e40, 0xd3e60 },
     { L"Extra Palette 3", 0xd3e60, 0xd3e80 },
     { L"Extra Palette 4", 0xd3e80, 0xd3ea0 },
@@ -1115,11 +1113,11 @@ const sGame_PaletteDataset RBFF2_A_BILLY_PALETTES_P2[] =
     { L"Extra Palette 8", 0xd3f00, 0xd3f20 },
     { L"Extra Palette 9", 0xd3f20, 0xd3f40 },
     { L"Extra Palette 10", 0xd3f40, 0xd3f60 },
-    { L"Extra Palette 11", 0xd3f60, 0xd3f80, indexRBFFSSprites_Billy },
-    { L"Burn Palette", 0xd3f80, 0xd3fa0, indexRBFFSSprites_Billy },
-    { L"Purple Burn Palette", 0xd3fa0, 0xd3fc0, indexRBFFSSprites_Billy },
-    { L"Electricity Palette", 0xd3fc0, 0xd3fe0, indexRBFFSSprites_Billy },
-    { L"Break Shot/Background Palette 2", 0xd3fe0, 0xd4000, indexRBFFSSprites_Billy },
+    { L"Extra Palette 11", 0xd3f60, 0xd3f80, indexRBFF2Sprites_Billy, 0x00 },
+    { L"Burn Palette", 0xd3f80, 0xd3fa0, indexRBFF2Sprites_Billy, 0x00 },
+    { L"Purple Burn Palette", 0xd3fa0, 0xd3fc0, indexRBFF2Sprites_Billy, 0x00 },
+    { L"Electricity Palette", 0xd3fc0, 0xd3fe0, indexRBFF2Sprites_Billy, 0x00 },
+    { L"Break Shot/Background Palette 2", 0xd3fe0, 0xd4000, indexRBFF2Sprites_Billy, 0x00 },
 };
 
 const sGame_PaletteDataset RBFF2_A_CHENG_PALETTES_P1[] =
