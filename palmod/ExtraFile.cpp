@@ -886,8 +886,8 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
 {
     if (GetIsDir())
     {
-        OutputDebugString(L"Sorted tree dump not supported for directory-based games as the locations will be identical between files.\r\n");
-        return;
+        OutputDebugString(L"Sorted tree dump not supported for directory-based games using parallel rom handling as the locations will be identical between files.\r\n");
+        OutputDebugString(L"If this doesn't work, please turn off extra files for this game.\r\n");
     }
 
     sDescTreeNode* pRootTree = GetMainTree()->GetDescTree(-1);
@@ -1156,10 +1156,18 @@ void CGameWithExtrasFile::OpenExtraFile()
             wcsncpy(pszExeFileName, m_pszExtraFilename, ARRAYSIZE(szExtraFileWithPath) - dwCharsUsed);
         }
 
-        DWORD nFileAttrib = GetFileAttributes(szExtraFileWithPath);
+        WIN32_FILE_ATTRIBUTE_DATA fad = {};
+        
+        bool fHaveUsefulFile = false;
 
-        if ((nFileAttrib != INVALID_FILE_ATTRIBUTES) ||
-            (_CreateNewExtrasFile(szExtraFileWithPath)))
+        if (GetFileAttributesEx(szExtraFileWithPath, GetFileExInfoStandard, &fad))
+        {
+            // Make sure it exists and is non-0
+            fHaveUsefulFile = (fad.dwFileAttributes != INVALID_FILE_ATTRIBUTES) && ((fad.nFileSizeHigh != 0) || (fad.nFileSizeLow != 0));
+        }
+
+        if (fHaveUsefulFile ||
+            _CreateNewExtrasFile(szExtraFileWithPath))
         {
             ShellExecute(
                 g_appHWnd,

@@ -15,12 +15,38 @@ BEGIN_MESSAGE_MAP(CPalModApp, CWinApp)
     ON_COMMAND(ID_HELP, LaunchReadMe)
 END_MESSAGE_MAP()
 
+void get_date_when_compiled(tm& buildDate)
+{
+    std::string datestr = __DATE__;
+
+    std::string strMonth;
+    strMonth.reserve(32);
+    int month = 1;
+    int day = 1;
+    int year = 1970;
+
+    (void)sscanf(datestr.c_str(), "%s %u %u", &strMonth[0], &buildDate.tm_mday, &year);
+
+    constexpr char month_names[] = "JanFebMarAprMayJunJulAugSepOctNovDec";
+
+    buildDate.tm_mon = (strstr(month_names, strMonth.c_str()) - month_names) / 3 + 1;
+    buildDate.tm_year = year - 1900;
+
+    return;
+}
+
 CString CPalModApp::GetAppName(bool fIncludeGameName /*= true*/)
 {
     CString strAppName;
-    (void)strAppName.LoadString(IDS_CURRENTAPPNAME);
-    strAppName += L" (" __DATE__ ")";
+    CString strPalModString;
 
+    (void)strPalModString.LoadString(IDS_CURRENTAPPNAME);
+    
+    tm buildDate = { 0 };
+    
+    get_date_when_compiled(buildDate);
+    (void)strAppName.Format(L"%s.%02u%02u", strPalModString.GetString(), buildDate.tm_mon, buildDate.tm_mday);
+ 
 #ifdef DEBUG
     strAppName += L" DEBUG";
 #endif

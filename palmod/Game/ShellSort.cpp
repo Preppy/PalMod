@@ -6,7 +6,7 @@
 */
 #include "stdafx.h"
 #include "ShellSort.h"
-#include "math.h"
+#include <math.h>
 
 void ShellSort(double* fpSrc, double* fpExtra1, double* fpExtra2, int* pPalette, UINT16* pTable, int max)
 {

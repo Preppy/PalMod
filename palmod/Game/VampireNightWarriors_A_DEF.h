@@ -239,6 +239,83 @@ const sGame_PaletteDataset VampireNightWarriors_A_PYRON_PALETTES_P2[] =
     { L"P2 Unknown Extra 4", 0x1270a, 0x1272a },
 };
 
+const sGame_PaletteDataset VampireNightWarriors_A_SPORT_PALETTES[] =
+{
+    { L"Demitri P1 Portraits", 0x47e2a, 0x47e4a },
+    { L"Jon P1 Portraits", 0x47e4a, 0x47e6a },
+    { L"Victor P1 Portraits", 0x47e6a, 0x47e8a },
+    { L"L.Raptor P1 Portraits", 0x47e8a, 0x47eaa },
+    { L"Morrigan P1 Portraits", 0x47eaa, 0x47eca },
+    { L"Anakaris P1 Portraits", 0x47eca, 0x47eea },
+    { L"Felicia P1 Portraits", 0x47eea, 0x47f0a },
+    { L"Bishamon P1 Portraits", 0x47f0a, 0x47f2a },
+    { L"Rikuo P1 Portraits", 0x47f2a, 0x47f4a },
+    { L"Sasquatch P1 Portraits", 0x47f4a, 0x47f6a },
+    { L"Huitzl P1 Portraits", 0x47f6a, 0x47f8a },
+    { L"Pyron P1 Portraits", 0x47f8a, 0x47faa },
+    { L"Demitri ??? Portraits", 0x47faa, 0x47fca },
+    { L"Jon ??? Portraits", 0x47fca, 0x47fea },
+    { L"Victor ??? Portraits", 0x47fea, 0x4800a },
+    { L"L.Raptor ??? Portraits", 0x4800a, 0x4802a },
+    { L"Morrigan ??? Portraits", 0x4802a, 0x4804a },
+    { L"Anakaris ??? Portraits", 0x4806a, 0x4808a },
+    { L"Felicia ??? Portraits", 0x4808a, 0x480aa },
+    { L"Bishamon ??? Portraits", 0x480aa, 0x480ca },
+    { L"Rikuo ??? Portraits", 0x480ca, 0x480ea },
+    { L"Sasquatch ??? Portraits", 0x480ea, 0x4810a },
+    { L"Huitzl ??? Portraits", 0x4810a, 0x4812a },
+    { L"Demitri P2 Portraits", 0x4812a, 0x4814a },
+    { L"Jon P2 Portraits", 0x4814a, 0x4816a },
+    { L"Victor P2 Portraits", 0x4816a, 0x4818a },
+    { L"L.Raptor P2 Portraits", 0x4818a, 0x481aa },
+    { L"Morrigan P2 Portraits", 0x481aa, 0x481ca },
+    { L"Anakaris P2 Portraits", 0x481ca, 0x481ea },
+    { L"Felicia P2 Portraits", 0x481ea, 0x4820a },
+    { L"Bishamon P2 Portraits", 0x4820a, 0x4822a },
+    { L"Rikuo P2 Portraits", 0x4822a, 0x4824a },
+    { L"Sasquatch P2 Portraits", 0x4824a, 0x4826a },
+    { L"Huitzl P2 Portraits", 0x4826a, 0x4828a },
+    { L"Pyron P2 Portraits", 0x4828a, 0x482aa },
+};
+
+const sGame_PaletteDataset VampireNightWarriors_A_BPORT_PALETTES[] =
+{
+    { L"Demitri P1 Big Portrait", 0x47ae8, 0x47b08 },
+    { L"Jon P1 Big Portrait", 0x47b08, 0x47b28 },
+    { L"Victor P1 Big Portrait", 0x47b28, 0x47b48 },
+    { L"L.Raptor P1 Big Portrait", 0x47b48, 0x47b68 },
+    { L"Morrigan P1 Big Portrait", 0x47b68, 0x47b88 },
+    { L"Anakaris P1 Big Portrait", 0x47b88, 0x47ba8 },
+    { L"Felicia P1 Big Portrait", 0x47ba8, 0x47bc8 },
+    { L"Bishamon P1 Big Portrait", 0x47bc8, 0x47be8 },
+    { L"Rikuo P1 Big Portrait", 0x47be8, 0x47c08 },
+    { L"Sasquatch P1 Big Portrait", 0x47c08, 0x47c28 },
+    { L"Huitzl P1 Big Portrait", 0x47c28, 0x47c48 },
+    { L"Pyron P1 Big Portrait", 0x47c48, 0x47c68 },
+    { L"Demitri P2 Big Portrait", 0x47c68, 0x47c88 },
+    { L"Jon P2 Big Portrait", 0x47c88, 0x47ca8 },
+    { L"Victor P2 Big Portrait", 0x47ca8, 0x47cc8 },
+    { L"L.Raptor P2 Big Portrait", 0x47cc8, 0x47ce8 },
+    { L"Morrigan P2 Big Portrait", 0x47ce8, 0x47d08 },
+    { L"Anakaris P2 Big Portrait", 0x47d08, 0x47d28 },
+    { L"Felicia P2 Big Portrait", 0x47d28, 0x47d48 },
+    { L"Bishamon P2 Big Portrait", 0x47d48, 0x47d68 },
+    { L"Rikuo P2 Big Portrait", 0x47d68, 0x47d88 },
+    { L"Sasquatch P2 Big Portrait", 0x47d88, 0x47da8 },
+    { L"Huitzl P2 Big Portrait", 0x47da8, 0x47dc8 },
+    { L"Pyron P2 Big Portrait", 0x47dc8, 0x47de8 },
+};
+
+const sDescTreeNode VampireNightWarriors_A_SPORT_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_SPORT_PALETTES,        ARRAYSIZE(VampireNightWarriors_A_SPORT_PALETTES) },
+};
+
+const sDescTreeNode VampireNightWarriors_A_BPORT_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_BPORT_PALETTES,        ARRAYSIZE(VampireNightWarriors_A_BPORT_PALETTES) },
+};
+
 const sDescTreeNode VampireNightWarriors_A_DEMITRI_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_DEMITRI_PALETTES_P1,         ARRAYSIZE(VampireNightWarriors_A_DEMITRI_PALETTES_P1) },
@@ -311,7 +388,13 @@ const sDescTreeNode VampireNightWarriors_A_PYRON_COLLECTION[] =
     { L"P2", DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_PYRON_PALETTES_P2,         ARRAYSIZE(VampireNightWarriors_A_PYRON_PALETTES_P2) },
 };
 
-const sDescTreeNode VampireNightWarriors_A_UNITS[] =
+const sDescTreeNode VampireNightWarriors_A_UNITS_04[] =
+{
+    { L"Character Select Small Portraits",   DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_SPORT_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_SPORT_COLLECTION) },
+    { L"Character Select Big Portraits",     DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_BPORT_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_BPORT_COLLECTION) }, // Jon Talbain
+};
+
+const sDescTreeNode VampireNightWarriors_A_UNITS_09[] =
 {
     { L"Demitri",            DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_DEMITRI_COLLECTION,       ARRAYSIZE(VampireNightWarriors_A_DEMITRI_COLLECTION) },
     { L"Gallon",             DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_GALLON_COLLECTION,        ARRAYSIZE(VampireNightWarriors_A_GALLON_COLLECTION) }, // Jon Talbain
@@ -328,6 +411,8 @@ const sDescTreeNode VampireNightWarriors_A_UNITS[] =
     { L"Pyron",              DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_PYRON_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_PYRON_COLLECTION) },
 };
 
-constexpr auto VampireNightWarriors_A_NUMUNIT = ARRAYSIZE(VampireNightWarriors_A_UNITS);
+constexpr auto VampireNightWarriors_A_NUMUNIT_04 = ARRAYSIZE(VampireNightWarriors_A_UNITS_04);
+constexpr auto VampireNightWarriors_A_EXTRALOC_04 = VampireNightWarriors_A_NUMUNIT_04;
 
-constexpr auto VampireNightWarriors_A_EXTRALOC = VampireNightWarriors_A_NUMUNIT;
+constexpr auto VampireNightWarriors_A_NUMUNIT_09 = ARRAYSIZE(VampireNightWarriors_A_UNITS_09);
+constexpr auto VampireNightWarriors_A_EXTRALOC_09 = VampireNightWarriors_A_NUMUNIT_09;

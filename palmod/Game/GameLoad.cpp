@@ -1655,7 +1655,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case VampireNightWarriors_A:
     {
-        return new CGame_VampireNightWarriors_A(nConfirmedROMSize);
+        return new CGame_VampireNightWarriors_A(nConfirmedROMSize, nExtraGameData);
     }
     case VENTURE_A:
     {
@@ -1882,6 +1882,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             }
             break;
         }
+        case VampireNightWarriors_A:
+            nGameRule = ((wcsstr(pszFileNameLowercase, L"04") != nullptr) ? VampireNightWarriors_A_04_ROMKEY : VampireNightWarriors_A_09_ROMKEY);
+            break;
         case VENTURE_A:
             nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? 50 : 31);
             break;

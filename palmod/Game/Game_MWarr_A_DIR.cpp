@@ -50,8 +50,8 @@ CGame_MWarr_A_DIR::CGame_MWarr_A_DIR(uint32_t nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 21;
-    m_nLowestKnownPaletteRomLocation = 0x92C24;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 22;
+    m_nLowestKnownPaletteRomLocation = 0x92BB6;
 
     CString strInfo;
     strInfo.Format(L"CGame_MWarr_A_DIR::CGame_MWarr_A_DIR: Loaded MWarr_A with %u Extras\n", GetExtraCt(m_nExtraUnit));

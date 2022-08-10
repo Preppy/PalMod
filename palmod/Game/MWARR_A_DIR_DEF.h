@@ -53,6 +53,7 @@ const sGame_PaletteDataset MWarr_A_ALL_PALETTES[] =
     { L"Eteocles - P1 Greece", 0x934b6, 0x9352d, indexMWarrSprites_Eteocles, 0x00 },
     { L"Arakis - P2 Greece", 0x9352c, 0x935a2 },
     { L"Cypher - Boss", 0x93a3a, 0x93aaa, indexMWarrSprites_Cypher, 0x00 },
+    { L"Projectiles & SFX", 0x92BB6, 0x92C24 },
 };
 
 const sDescTreeNode MWarr_A_FULL_COLLECTION[] =
