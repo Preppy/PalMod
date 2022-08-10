@@ -200,7 +200,12 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
             {
                 // This is raw file and deliberately char
                 char aszCurrLine[MAX_PATH]; // arbitrary line length: in practice it should be MAX_DESCRIPTION_LENGTH + 1
+#ifdef DUMP_EXTRAS_ON_LOAD
+                // This will clip in UI, so only use the larger form for debugging
+                char aszCurrDesc[MAX_PATH] = "";
+#else
                 char aszCurrDesc[MAX_DESCRIPTION_LENGTH] = "";
+#endif
                 char* aszFinalLine = nullptr;
                 int nCurrStart = 0;
                 int nCurrEnd = 0;
@@ -254,7 +259,12 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                 // This includes space for " (x/y) n"
                                 // The combobox itself starts clipping at about 30 characters
                                 // The status bar fits about 128 characters
+#ifdef DUMP_EXTRAS_ON_LOAD
+                                // allow UI clipping since this just for debugging
+                                constexpr auto nMaxDescLen = sizeof(aszCurrDesc) - 1;
+#else
                                 constexpr auto nMaxDescLen = min(40, MAX_DESCRIPTION_LENGTH - 8 - 8 - 8 - 6);
+#endif
                                 if (iswspace(aszFinalLine[0]) && (strlen(aszFinalLine) == 1))
                                 {
                                     strOutputText.Format(L"Warning: Bogus entry in extension file with text '%S'.  Skipping.\n", aszFinalLine);

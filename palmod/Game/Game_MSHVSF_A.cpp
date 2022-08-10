@@ -53,8 +53,8 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(uint32_t nConfirmedROMSize, int nMSHVSFRomToLoad)
     m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSHVSF_A_NUM_IND_6A : MSHVSF_A_NUM_IND_7B;
     m_nExtraUnit = UsePaletteSetForCharacters() ? MSHVSF_A_EXTRALOC_6A : MSHVSF_A_EXTRALOC_7B;
 
-    const uint32_t nSafeCountFor6A = 731;
-    const uint32_t nSafeCountFor7B = 139;
+    const uint32_t nSafeCountFor6A = 941;
+    const uint32_t nSafeCountFor7B = 169;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForCharacters() ? nSafeCountFor6A : nSafeCountFor7B);
     m_pszExtraFilename = UsePaletteSetForCharacters() ? EXTRA_FILENAME_MSHVSF_6A : EXTRA_FILENAME_MSHVSF_7B;
