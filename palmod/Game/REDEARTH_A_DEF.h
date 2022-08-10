@@ -808,6 +808,24 @@ const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
     { L"Scion Frozen 3", 0x439e80, 0x439f00, indexRedEarthSprites_Scion, 0x00 },
     { L"Scion Frozen 4", 0x439f00, 0x439f80, indexRedEarthSprites_Scion, 0x00 },
     { L"Scion Frozen 5", 0x439f80, 0x43a000, indexRedEarthSprites_Scion, 0x00 },
+
+    // Scion's Dragon Palettes
+    { L"Scion's Ice Dragon", 0x437180, 0x437200 },
+    { L"True Scion's Ice Dragon", 0x437100, 0x437180 },
+    { L"Ice Dragon Teleport 1", 0x437280, 0x437300 },
+    { L"Ice Dragon Teleport 2", 0x437200, 0x437280 },
+    { L"Scion's Poison Gas Dragon", 0x437380, 0x437400 },
+    { L"True Scion's Poison Gas Dragon", 0x437300, 0x437380 },
+    { L"Poison Gas Dragon Teleport 1", 0x437480, 0x437500 },
+    { L"Poison Gas Dragon Teleport 2", 0x437400, 0x437480 },
+    { L"Scion's Fire Dragon", 0x437580, 0x437600 },
+    { L"True Scion's Fire Dragon", 0x437500, 0x437580 },
+    { L"Fire Dragon Teleport 1", 0x437680, 0x437700 },
+    { L"Fire Dragon Teleport 2", 0x437600, 0x437680 },
+    { L"Scion's Thunder Dragon", 0x437780, 0x437800 },
+    { L"True Scion's Thunder Dragon", 0x437700, 0x437780 },
+    { L"Thunder Dragon Teleport 1", 0x437880, 0x437900 },
+    { L"Thunder Dragon Teleport 2", 0x437800, 0x437880 },
 };
 
 //Extra Stuff
@@ -1034,7 +1052,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Red Earth 1st Logo Cycle 16/17", 0x406ea0, 0x406ec0, indexRedEarthSprites_Bonus, 0x20 },
     { L"Red Earth 1st Logo Cycle 17/17", 0x406ec0, 0x406ee0, indexRedEarthSprites_Bonus, 0x20 },
 
-    { L"Intro - Leo closeup", 0x3226ae, 0x32272e },
+    { L"Intro - Leo closeup", 0x3226a0, 0x322720 },
     { L"Intro - Emerald", 0x321320, 0x3213a0, indexRedEarthSprites_Bonus, 0x05 },
     { L"Intro - Emerald BG0", 0x3212a0, 0x321320, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG1", 0x321720, 0x3217a0, indexRedEarthSprites_Bonus, 0x19 },
@@ -1067,7 +1085,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Emerald BG28", 0x3224a0, 0x322520, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG29", 0x322520, 0x3225a0, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG30", 0x3225a0, 0x322620, indexRedEarthSprites_Bonus, 0x19 },
-    { L"Intro - Emerald FX", 0x3216be, 0x32171e },
+    { L"Intro - Emerald FX", 0x3216a0, 0x321720 },
 
     { L"Intro - Hauzer", 0x3213a0, 0x321420, indexRedEarthSprites_Bonus, 0x07 },
     { L"Intro - Kongou", 0x321420, 0x3214a0, indexRedEarthSprites_Bonus, 0x09 },
@@ -1089,7 +1107,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Tessa 6", 0x3239a0, 0x323a20, indexRedEarthSprites_Tessa, 0x23 },
     { L"Intro - Tessa 7", 0x323a20, 0x323aa0, indexRedEarthSprites_Tessa, 0x23 },
     { L"Intro - Tessa 8", 0x323aa0, 0x323b20, indexRedEarthSprites_Tessa, 0x23 },
-    { L"Intro - VS Blade Sky", 0x321220, 0x321260 },
+    { L"Intro - VS Blade Sky", 0x321220, 0x3212a0 },
     { L"Intro - VS Blade Trees", 0x324120, 0x324160 },
     { L"Intro - Blade", 0x323f00, 0x323fa0 },
     { L"Intro - Leo Cliffside", 0x323fa0, 0x324020 },
@@ -1099,7 +1117,10 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Blade flash", 0x3246a0, 0x324720 },
     { L"Intro - Thunderflash", 0x324720, 0x3247a0 },
     { L"Intro - Leo rise and slash", 0x322da0, 0x322ea0 },
-    { L"Intro - RaS BG 1", 0x322ea0, 0x322f00 },
+    { L"Leo Cinematic 1 Rise and Slash BG", 0x322ea0, 0x322f20 },
+    { L"Leo Cinematic 2 Rise and Slash BG", 0x322620, 0x3226a0 },
+
+    // { L"Intro - RaS BG 1", 0x322ea0, 0x322f00 }, obsolete?
     { L"Intro-Leo.S.BG1", 0x322f20, 0x322f40 },
     { L"Intro-Leo.S.BG2", 0x322f40, 0x322f60 },
     { L"Intro-Leo.S.BG3", 0x322f60, 0x322f80 },
@@ -1496,6 +1517,54 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Kenji Chains, Kunai??", 0x41c300, 0x41c380, indexRedEarthSprites_Kenji, 0x01 },
 
     { L"Gi Gi Unused Summon", 0x431680, 0x431700 },
+
+    // All Miniportrait Transparency effects (Unused)(Character Select Portraits where you put your cursor on)
+    { L"Leo Character Select Portrait P1", 0x1e1100, 0x1e1180 },
+    { L"Tessa Character Select Portrait P1", 0x1e1180, 0x1e1200 },
+    { L"Kenji Character Select Portrait P1", 0x1e1200, 0x1e1280 },
+    { L"Mai-Ling Character Select Portrait P1", 0x1e1280, 0x1e1300 },
+    { L"Leo Character Select Portrait P2", 0x1e3300, 0x1e3380 },
+    { L"Tessa Character Select Portrait P2", 0x1e3380, 0x1e3400 },
+    { L"Kenji Character Select Portrait P2", 0x1e3400, 0x1e3480 },
+    { L"Mai-Ling Character Select Portrait P2", 0x1e3480, 0x1e3500 },
+
+    // Full Body Portraits Transparency (Unused)
+    { L"Tessa Character Not Selected P1", 0x1e1380, 0x1e1400 },
+    { L"Leo Character Not Selected P1", 0x1e1400, 0x1e1480 },
+    { L"Mai Character Not Selected P1", 0x1e1500, 0x1e1580 },
+    { L"Kenji Character Not Selected P1", 0x1e1580, 0x1e1600 },
+    { L"Tessa Character Not Selected P2", 0x1e3580, 0x1e3600 },
+    { L"Leo Character Not Selected P2", 0x1e3600, 0x1e3680 },
+    { L"Mai Character Not Selected P2", 0x1e3700, 0x1e3780 },
+    { L"Kenji Character Not Selected P2", 0x1e3780, 0x1e3800 },
+
+    // Unused(just why)
+    { L"\"Continue ?\" Backgrounds P1", 0x1e1d80, 0x1e1e00 },
+    { L"\"Continue ?\" Backgrounds P2", 0x1e3f80, 0x1e4000 },
+
+    // Scion dragon unused
+    { L"Dragon Burned 1", 0x438d00, 0x438d80 },
+    { L"Dragon Burned 2", 0x438d80, 0x438e00 },
+    { L"Dragon Shocked 1", 0x438e00, 0x438e80 },
+    { L"Dragon Shocked 2", 0x438e80, 0x438f00 },
+    { L"Dragon Poisoned 1", 0x438f00, 0x438f80 },
+    { L"Dragon Poisoned 2", 0x438f80, 0x439000 },
+    { L"Dragon Poisoned 3", 0x439000, 0x439080 },
+    { L"Dragon Poisoned 4", 0x439080, 0x439100 },
+    { L"Ice Dragon Petrified 1", 0x439200, 0x439280 },
+    { L"Ice Dragon Petrified 2", 0x439180, 0x439200 },
+    { L"Poison Gas Dragon Petrified 1", 0x439300, 0x439380 },
+    { L"Poison Gas Dragon Petrified 2", 0x439280, 0x439300 },
+    { L"Fire Dragon Petrified 1", 0x439400, 0x439480 },
+    { L"Fire Dragon Petrified 2", 0x439380, 0x439400 },
+    { L"Thunder Dragon Petrified 1", 0x439500, 0x439580 },
+    { L"Thunder Dragon Petrified 2", 0x439480, 0x439500 },
+    { L"Universal Dragon Petrified 3", 0x439100, 0x439180 },
+    { L"Dragon Frozen 1", 0x439580, 0x439600 },
+    { L"Dragon Frozen 2", 0x439600, 0x439680 },
+    { L"Dragon Frozen 3", 0x439680, 0x439700 },
+    { L"Dragon Frozen 4", 0x439700, 0x439780 },
+    { L"Dragon Frozen 5", 0x439780, 0x439800 },
 };
 
 //Playable Characters
