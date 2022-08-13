@@ -120,8 +120,8 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Jin =
         MOD_TINT, 2, 4, 2, 0, NEG + 5, NEG + 5 },
     { SUPP_NODE, 0xe, 6,
         MOD_TINT, 2, 4, 2, 0, NEG + 6, NEG + 6 },
-
-    // power-up flash: 6 frames
+        
+     // power-up flash: 6 frames
         // first palette is solid white, sixth is gold
     { SUPP_NODE, 0x10, 6,
         MOD_LUM, 1, 15, 32 },
@@ -176,6 +176,50 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Megaman =
         MOD_LUM, 1, 15, 35 },
 };
 
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Lilith =
+{
+    // the lilith join poses should match her core palette
+    { SUPP_NODE, 0x05, 9 },
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x06, 9,
+        MOD_COPY, 2, 1, 2,
+        MOD_COPY, 3, 1, 4,
+        MOD_COPY, 4, 1, 3,
+        MOD_COPY, 10, 1, 12,
+        MOD_COPY, 11, 1, 11,
+        MOD_COPY, 12, 1, 10,
+    },
+
+    // lilith phase-in intro: 4 frames
+    { SUPP_NODE, 0x07, 9,
+            MOD_LUM, 1, 15, 22 },
+    { SUPP_NODE, 0x08, 9,
+            MOD_LUM, 1, 15, 16 },
+    { SUPP_NODE, 0x09, 9,
+            MOD_LUM, 1, 15, 7 },
+    { SUPP_NODE, 0x0a, 9,
+            MOD_LUM, 1, 15, 3 },
+
+    // Taunt: uses slightly different shadings
+    { SUPP_NODE, 0x0b, 9,
+            MOD_COPY, 10, 1, 11,
+            MOD_COPY, 11, 1, 12,
+            MOD_COPY, 11, 1, 13,
+            MOD_COPY, 12, 1, 14,
+            MOD_LUM, 10, 1, NEG + 5,
+            MOD_LUM, 11, 1, 5,
+            MOD_LUM, 12, 1, NEG + 5,
+            MOD_LUM, 13, 1, 5,
+    },
+};
+
+const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_LilithMorrigan =
+{
+    // the morrigan join poses should match her core lilith palette
+    { SUPP_NODE, 0x02, 9 },
+    { SUPP_NODE, 0x03, 9,
+        MOD_WHITE, 1, 1 }
+};
+
 const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Morrigan =
 {
     // the morrigan intro and join poses should match her core morrigan palette
@@ -186,7 +230,7 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Morrigan =
 
     // Morrigan phase-in intro: 4 frames
     { SUPP_NODE, 0x0a, 9,
-            MOD_LUM, 1, 15, 20 },
+            MOD_LUM, 1, 15, 22 },
     { SUPP_NODE, 0x0b, 9,
             MOD_LUM, 1, 15, 13 },
     { SUPP_NODE, 0x0c, 9,
@@ -293,6 +337,8 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Wolverine =
 const stPaletteProcessingInformation secondaryMVCCaptainCommandoPalettes{ paletteBuddy_MVC_CaptainCommando };
 const stPaletteProcessingInformation secondaryMVCGambitEffects{ paletteBuddy_MVC_Gambit };
 const stPaletteProcessingInformation secondaryMVCJinPalettes{ paletteBuddy_MVC_Jin };
+const stPaletteProcessingInformation secondaryMVCLilithPalettes{ paletteBuddy_MVC_Lilith };
+const stPaletteProcessingInformation secondaryMVCLilithMorriganPalettes{ paletteBuddy_MVC_LilithMorrigan };
 const stPaletteProcessingInformation secondaryMVCMegamanPalettes{ paletteBuddy_MVC_Megaman };
 const stPaletteProcessingInformation secondaryMVCMorriganPalettes{ paletteBuddy_MVC_Morrigan };
 const stPaletteProcessingInformation secondaryMVCMorriganLilithPalettes{ paletteBuddy_MVC_MorriganLilith };
@@ -1213,8 +1259,8 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
 {
-    { L"P1 Color", 0x493a2, 0x493c2, indexCPS2Sprites_Morrigan },
-    { L"P1 Morrigan 1", 0x493c2, 0x493e2, indexCPS2Sprites_Morrigan, 1 },
+    { L"P1 Color", 0x493a2, 0x493c2, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCLilithPalettes },
+    { L"P1 Morrigan 1", 0x493c2, 0x493e2, indexCPS2Sprites_Morrigan, 1, nullptr, &secondaryMVCLilithMorriganPalettes },
     { L"P1 Extra 2", 0x493e2, 0x49402, indexCPS2Sprites_Morrigan, 2 },
     { L"Morrigan P1 Join Pose", 0x4FB62, 0x4FB82, indexCPS2Sprites_Morrigan, 12 },
     { L"Morrigan P1 Join Pose 2", 0x4FB82, 0x4FBa2, indexCPS2Sprites_Morrigan, 12 },
@@ -1229,8 +1275,8 @@ const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P2[] =
 {
-    { L"P2 Color", 0x49402, 0x49422, indexCPS2Sprites_Morrigan },
-    { L"P2 Morrigan 1", 0x49422, 0x49442, indexCPS2Sprites_Morrigan, 1 },
+    { L"P2 Color", 0x49402, 0x49422, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCLilithPalettes },
+    { L"P2 Morrigan 1", 0x49422, 0x49442, indexCPS2Sprites_Morrigan, 1, nullptr, &secondaryMVCLilithMorriganPalettes },
     { L"P2 Extra 2", 0x49442, 0x49462, indexCPS2Sprites_Morrigan, 2 },
     { L"Morrigan P2 Join Pose", 0x4fcc2, 0x4fce2, indexCPS2Sprites_Morrigan, 12 },
     { L"Morrigan P2 Join Pose 2", 0x4fce2, 0x4fd02, indexCPS2Sprites_Morrigan, 12 },

@@ -466,23 +466,23 @@ const sGame_PaletteDataset REDEARTH_A_BLADE_PALETTES[] =
     { L"Emerald FX/Intro 2", 0x433d00, 0x433d80, indexRedEarthSprites_Bonus, 0x0c },
     { L"Emerald FX/Intro 3", 0x433d80, 0x433e00, indexRedEarthSprites_Bonus, 0x0d },
     { L"Blade Lifebar Portrait", 0x406ac0, 0x406ae0, indexRedEarthSprites_Blade, 0x10 },
-    { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433f00, indexRedEarthSprites_Bonus, 0x10 },
-    { L"Blade Burned 1", 0x436600, 0x436680 },
-    { L"Blade Burned 2", 0x436680, 0x436700 },
-    { L"Blade Shocked 1", 0x436700, 0x436780 },
-    { L"Blade Shocked 2", 0x436780, 0x436800 },
-    { L"Blade Poisoned 1", 0x436800, 0x436880 },
-    { L"Blade Poisoned 2", 0x436880, 0x436900 },
-    { L"Blade Poisoned 3", 0x436900, 0x436980 },
-    { L"Blade Poisoned 4", 0x436980, 0x436a00 },
-    { L"Blade Petrified 1", 0x436a00, 0x436a80 },
-    { L"Blade Petrified 2", 0x436a80, 0x436b00 },
-    { L"Blade Petrified 3", 0x436b00, 0x436b80 },
-    { L"Blade Frozen 1", 0x436b80, 0x436c00 },
-    { L"Blade Frozen 2", 0x436c00, 0x436c80 },
-    { L"Blade Frozen 3", 0x436c80, 0x436d00 },
-    { L"Blade Frozen 4", 0x436d00, 0x436d80 },
-    { L"Blade Frozen 5", 0x436d80, 0x436e00 },
+    { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433f00, indexRedEarthSprites_Blade, 0x03 },
+    { L"Blade Burned 1", 0x436600, 0x436680, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Burned 2", 0x436680, 0x436700, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Shocked 1", 0x436700, 0x436780, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Shocked 2", 0x436780, 0x436800, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 1", 0x436800, 0x436880, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 2", 0x436880, 0x436900, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 3", 0x436900, 0x436980, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Poisoned 4", 0x436980, 0x436a00, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Petrified 1", 0x436a00, 0x436a80, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Petrified 2", 0x436a80, 0x436b00, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Petrified 3", 0x436b00, 0x436b80, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 1", 0x436b80, 0x436c00, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 2", 0x436c00, 0x436c80, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 3", 0x436c80, 0x436d00, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 4", 0x436d00, 0x436d80, indexRedEarthSprites_Blade, 0x01 },
+    { L"Blade Frozen 5", 0x436d80, 0x436e00, indexRedEarthSprites_Blade, 0x01 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_HAUZER_PALETTES[] =
@@ -748,36 +748,36 @@ const sGame_PaletteDataset REDEARTH_A_GIGI_PALETTES[] =
     { L"Gi Gi Ground Spears", 0x431200, 0x431280, indexRedEarthSprites_GiGi, 0x0a },
     { L"Gi Gi Super Fast Sword Slash", 0x431000, 0x431080, indexRedEarthSprites_GiGi, 0x0e },
     { L"Gi Gi Lighter Sword Slash", 0x431080, 0x431100, indexRedEarthSprites_GiGi, 0x0b },
-    { L"Gi Gi Stunned", 0x431100, 0x431180, indexRedEarthSprites_GiGi, 0x0d },
+    { L"Gi Gi Stunned", 0x431100, 0x431180, indexRedEarthSprites_GiGi, 0x20 },
 
     { L"Gi Gi Victory Column 1/4", 0x431400, 0x431480, indexRedEarthSprites_GiGi, 0x0f },
     { L"Gi Gi Victory Column 2/4", 0x431480, 0x431500, indexRedEarthSprites_GiGi, 0x0f },
     { L"Gi Gi Victory Column 3/4", 0x431500, 0x431580, indexRedEarthSprites_GiGi, 0x0f },
     { L"Gi Gi Victory Column 4/4", 0x431580, 0x431600, indexRedEarthSprites_GiGi, 0x0f },
 
-    { L"Red Form Burned 1", 0x433400, 0x433480, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Red Form Burned 2", 0x433480, 0x433500, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Red Form Shocked 1", 0x433500, 0x433580, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Red Form Shocked 2", 0x433580, 0x433600, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Red Form Petrified 1", 0x433800, 0x433880, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Red Form Petrified 2", 0x433880, 0x433900, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Red Form Petrified 3", 0x433900, 0x433980, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Blue Form Burned 1", 0x433080, 0x433100, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Blue Form Burned 2", 0x433100, 0x433180, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Blue Form Shocked 1", 0x433180, 0x433200, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Blue Form Shocked 2", 0x433200, 0x433280, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Blue Form Petrified 1", 0x433280, 0x433300, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Blue Form Petrified 2", 0x433300, 0x433380, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Blue Form Petrified 3", 0x433380, 0x433400, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Gi Gi Poisoned 1", 0x433600, 0x433680, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Gi Gi Poisoned 2", 0x433680, 0x433700, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Gi Gi Poisoned 3", 0x433700, 0x433780, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Gi Gi Poisoned 4", 0x433780, 0x433800, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Gi Gi Frozen 1", 0x433980, 0x433a00, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Gi Gi Frozen 2", 0x433a00, 0x433a80, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Gi Gi Frozen 3", 0x433a80, 0x433b00, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Gi Gi Frozen 4", 0x433b00, 0x433b80, indexRedEarthSprites_GiGi, 0x0d },
-    { L"Gi Gi Frozen 5", 0x433b80, 0x433c00, indexRedEarthSprites_GiGi, 0x0d },
+    { L"Red Form Burned 1", 0x433400, 0x433480, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Burned 2", 0x433480, 0x433500, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Shocked 1", 0x433500, 0x433580, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Shocked 2", 0x433580, 0x433600, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Petrified 1", 0x433800, 0x433880, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Petrified 2", 0x433880, 0x433900, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Red Form Petrified 3", 0x433900, 0x433980, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Burned 1", 0x433080, 0x433100, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Burned 2", 0x433100, 0x433180, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Shocked 1", 0x433180, 0x433200, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Shocked 2", 0x433200, 0x433280, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Petrified 1", 0x433280, 0x433300, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Petrified 2", 0x433300, 0x433380, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Blue Form Petrified 3", 0x433380, 0x433400, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Poisoned 1", 0x433600, 0x433680, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Poisoned 2", 0x433680, 0x433700, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Poisoned 3", 0x433700, 0x433780, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Poisoned 4", 0x433780, 0x433800, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Frozen 1", 0x433980, 0x433a00, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Frozen 2", 0x433a00, 0x433a80, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Frozen 3", 0x433a80, 0x433b00, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Frozen 4", 0x433b00, 0x433b80, indexRedEarthSprites_GiGi, 0x20 },
+    { L"Gi Gi Frozen 5", 0x433b80, 0x433c00, indexRedEarthSprites_GiGi, 0x20 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
@@ -809,22 +809,22 @@ const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
     { L"Scion Frozen 5", 0x439f80, 0x43a000, indexRedEarthSprites_Scion, 0x00 },
 
     // Scion's Dragon Palettes
-    { L"Scion's Ice Dragon", 0x437180, 0x437200 },
-    { L"True Scion's Ice Dragon", 0x437100, 0x437180 },
-    { L"Ice Dragon Teleport 1", 0x437280, 0x437300 },
-    { L"Ice Dragon Teleport 2", 0x437200, 0x437280 },
-    { L"Scion's Poison Gas Dragon", 0x437380, 0x437400 },
-    { L"True Scion's Poison Gas Dragon", 0x437300, 0x437380 },
-    { L"Poison Gas Dragon Teleport 1", 0x437480, 0x437500 },
-    { L"Poison Gas Dragon Teleport 2", 0x437400, 0x437480 },
-    { L"Scion's Fire Dragon", 0x437580, 0x437600 },
-    { L"True Scion's Fire Dragon", 0x437500, 0x437580 },
-    { L"Fire Dragon Teleport 1", 0x437680, 0x437700 },
-    { L"Fire Dragon Teleport 2", 0x437600, 0x437680 },
-    { L"Scion's Thunder Dragon", 0x437780, 0x437800 },
-    { L"True Scion's Thunder Dragon", 0x437700, 0x437780 },
-    { L"Thunder Dragon Teleport 1", 0x437880, 0x437900 },
-    { L"Thunder Dragon Teleport 2", 0x437800, 0x437880 },
+    { L"Scion's Ice Dragon", 0x437180, 0x437200, indexRedEarthSprites_Scion, 0x01 },
+    { L"True Scion's Ice Dragon", 0x437100, 0x437180, indexRedEarthSprites_Scion, 0x01 },
+    { L"Ice Dragon Teleport 1", 0x437280, 0x437300, indexRedEarthSprites_Scion, 0x01 },
+    { L"Ice Dragon Teleport 2", 0x437200, 0x437280, indexRedEarthSprites_Scion, 0x01 },
+    { L"Scion's Poison Gas Dragon", 0x437380, 0x437400, indexRedEarthSprites_Scion, 0x01 },
+    { L"True Scion's Poison Gas Dragon", 0x437300, 0x437380, indexRedEarthSprites_Scion, 0x01 },
+    { L"Poison Gas Dragon Teleport 1", 0x437480, 0x437500, indexRedEarthSprites_Scion, 0x01 },
+    { L"Poison Gas Dragon Teleport 2", 0x437400, 0x437480, indexRedEarthSprites_Scion, 0x01 },
+    { L"Scion's Fire Dragon", 0x437580, 0x437600, indexRedEarthSprites_Scion, 0x01 },
+    { L"True Scion's Fire Dragon", 0x437500, 0x437580, indexRedEarthSprites_Scion, 0x01 },
+    { L"Fire Dragon Teleport 1", 0x437680, 0x437700, indexRedEarthSprites_Scion, 0x01 },
+    { L"Fire Dragon Teleport 2", 0x437600, 0x437680, indexRedEarthSprites_Scion, 0x01 },
+    { L"Scion's Thunder Dragon", 0x437780, 0x437800, indexRedEarthSprites_Scion, 0x01 },
+    { L"True Scion's Thunder Dragon", 0x437700, 0x437780, indexRedEarthSprites_Scion, 0x01 },
+    { L"Thunder Dragon Teleport 1", 0x437880, 0x437900, indexRedEarthSprites_Scion, 0x01 },
+    { L"Thunder Dragon Teleport 2", 0x437800, 0x437880, indexRedEarthSprites_Scion, 0x01 },
 };
 
 //Extra Stuff
@@ -1116,8 +1116,8 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Blade flash", 0x3246a0, 0x324720 },
     { L"Intro - Thunderflash", 0x324720, 0x3247a0 },
     { L"Intro - Leo rise and slash", 0x322da0, 0x322ea0 },
-    { L"Leo Cinematic 1 Rise and Slash BG", 0x322ea0, 0x322f20 },
-    { L"Leo Cinematic 2 Rise and Slash BG", 0x322620, 0x3226a0 },
+    { L"Leo Cinematic 1 Rise and Slash BG", 0x322ea0, 0x322f20, indexRedEarthSprites_Bonus, 0x53 },
+    { L"Leo Cinematic 2 Rise and Slash BG", 0x322620, 0x3226a0, indexRedEarthSprites_Bonus, 0x54 },
 
     // { L"Intro - RaS BG 1", 0x322ea0, 0x322f00 }, obsolete?
     { L"Intro-Leo.S.BG1", 0x322f20, 0x322f40 },
@@ -1187,6 +1187,14 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
 
     { L"Mini Capcom Logo", 0x406be0, 0x406c00, indexRedEarthSprites_Bonus, 0x39 },
     { L"Mini Red Earth Logo", 0x406fa0, 0x406fc0, indexRedEarthSprites_Bonus, 0x3b },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_ENDING_PALETTES[] =
+{
+    { L"Generic Ending Leo", 0x3f5180, 0x3f5200 },
+    { L"Generic Ending Kenji", 0x3f5080, 0x3f5100 },
+    { L"Generic Ending Tessa", 0x3f5100, 0x3f5180 },
+    { L"Generic Ending Mai-Ling", 0x3f5000, 0x3f5080 }
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_PUNCH_PALETTES[] =
@@ -1431,6 +1439,7 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_HUD_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 {
     //{ L"EXP / LVL Text", 0x406880, 0x406900 },
+    { L"Shadows, Effects & Hit FX 1", 0x132600, 0x132800 },
 
     { L"Some Elemental & Other Bg Flash", 0x406400, 0x406420, indexRedEarthSprites_Bonus, 0x2b },
 
@@ -1542,28 +1551,28 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"\"Continue ?\" Backgrounds P2", 0x1e3f80, 0x1e4000 },
 
     // Scion dragon unused
-    { L"Dragon Burned 1", 0x438d00, 0x438d80 },
-    { L"Dragon Burned 2", 0x438d80, 0x438e00 },
-    { L"Dragon Shocked 1", 0x438e00, 0x438e80 },
-    { L"Dragon Shocked 2", 0x438e80, 0x438f00 },
-    { L"Dragon Poisoned 1", 0x438f00, 0x438f80 },
-    { L"Dragon Poisoned 2", 0x438f80, 0x439000 },
-    { L"Dragon Poisoned 3", 0x439000, 0x439080 },
-    { L"Dragon Poisoned 4", 0x439080, 0x439100 },
-    { L"Ice Dragon Petrified 1", 0x439200, 0x439280 },
-    { L"Ice Dragon Petrified 2", 0x439180, 0x439200 },
-    { L"Poison Gas Dragon Petrified 1", 0x439300, 0x439380 },
-    { L"Poison Gas Dragon Petrified 2", 0x439280, 0x439300 },
-    { L"Fire Dragon Petrified 1", 0x439400, 0x439480 },
-    { L"Fire Dragon Petrified 2", 0x439380, 0x439400 },
-    { L"Thunder Dragon Petrified 1", 0x439500, 0x439580 },
-    { L"Thunder Dragon Petrified 2", 0x439480, 0x439500 },
-    { L"Universal Dragon Petrified 3", 0x439100, 0x439180 },
-    { L"Dragon Frozen 1", 0x439580, 0x439600 },
-    { L"Dragon Frozen 2", 0x439600, 0x439680 },
-    { L"Dragon Frozen 3", 0x439680, 0x439700 },
-    { L"Dragon Frozen 4", 0x439700, 0x439780 },
-    { L"Dragon Frozen 5", 0x439780, 0x439800 },
+    { L"Dragon Burned 1", 0x438d00, 0x438d80, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Burned 2", 0x438d80, 0x438e00, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Shocked 1", 0x438e00, 0x438e80, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Shocked 2", 0x438e80, 0x438f00, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Poisoned 1", 0x438f00, 0x438f80, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Poisoned 2", 0x438f80, 0x439000, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Poisoned 3", 0x439000, 0x439080, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Poisoned 4", 0x439080, 0x439100, indexRedEarthSprites_Scion, 0x01 },
+    { L"Ice Dragon Petrified 1", 0x439200, 0x439280, indexRedEarthSprites_Scion, 0x01 },
+    { L"Ice Dragon Petrified 2", 0x439180, 0x439200, indexRedEarthSprites_Scion, 0x01 },
+    { L"Poison Gas Dragon Petrified 1", 0x439300, 0x439380, indexRedEarthSprites_Scion, 0x01 },
+    { L"Poison Gas Dragon Petrified 2", 0x439280, 0x439300, indexRedEarthSprites_Scion, 0x01 },
+    { L"Fire Dragon Petrified 1", 0x439400, 0x439480, indexRedEarthSprites_Scion, 0x01 },
+    { L"Fire Dragon Petrified 2", 0x439380, 0x439400, indexRedEarthSprites_Scion, 0x01 },
+    { L"Thunder Dragon Petrified 1", 0x439500, 0x439580, indexRedEarthSprites_Scion, 0x01 },
+    { L"Thunder Dragon Petrified 2", 0x439480, 0x439500, indexRedEarthSprites_Scion, 0x01 },
+    { L"Universal Dragon Petrified 3", 0x439100, 0x439180, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Frozen 1", 0x439580, 0x439600, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Frozen 2", 0x439600, 0x439680, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Frozen 3", 0x439680, 0x439700, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Frozen 4", 0x439700, 0x439780, indexRedEarthSprites_Scion, 0x01 },
+    { L"Dragon Frozen 5", 0x439780, 0x439800, indexRedEarthSprites_Scion, 0x01 },
 };
 
 //Playable Characters
@@ -1650,9 +1659,14 @@ const sDescTreeNode REDEARTH_A_CHARACTERSELECT_COLLECTION[] =
     { L"Character Select P2 Highlight Range", DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_P2_PALETTES, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_P2_PALETTES) },
 };
 
-const sDescTreeNode REDEARTH_A_INTRO_COLLECTION[] =
+const sDescTreeNode REDEARTH_A_31_INTRO_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_PALETTES, ARRAYSIZE(REDEARTH_A_INTRO_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_31_ENDINGS_COLLECTION[] =
+{
+    { L"Generic Endings", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_31_MAP_COLLECTION[] =
@@ -1693,7 +1707,8 @@ const sDescTreeNode REDEARTH_A_UNITS_31[] =
     //Extra Stuff
     { L"Character Select",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_COLLECTION, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_COLLECTION) },
     { L"Map",               DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_MAP_COLLECTION, ARRAYSIZE(REDEARTH_A_31_MAP_COLLECTION) },
-    { L"Intro Palettes",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_COLLECTION, ARRAYSIZE(REDEARTH_A_INTRO_COLLECTION) },
+    { L"Intro Palettes",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_INTRO_COLLECTION, ARRAYSIZE(REDEARTH_A_31_INTRO_COLLECTION) },
+    { L"Endings",           DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDINGS_COLLECTION, ARRAYSIZE(REDEARTH_A_31_ENDINGS_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_COLLECTION, ARRAYSIZE(REDEARTH_A_BONUS_31_COLLECTION) },
 };
 
@@ -2684,14 +2699,14 @@ const sDescTreeNode REDEARTH_A_UNITS_30[] =
     { L"Gora (Slash Transparency)",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GORA_SLASH_COLLECTION) },
     { L"Icelarn (Slash Transparency)",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_SLASH_COLLECTION) },
 
-    { L"Greedia Ruins (Slash Transparency)",     DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_SLASH_COLLECTION) },
-    { L"Zipang on Fire (Slash Transparency)",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_SLASH_COLLECTION) },
-    { L"Sangypt (Slash Transparency)",           DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_SLASH_COLLECTION) },
-    { L"Derminor (Slash Transparency)",          DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DERMINOR_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_DERMINOR_SLASH_COLLECTION) },
-    { L"Scion's Lair (Slash Transparency)",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SCION_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SCION_SLASH_COLLECTION) },
-    { L"Crypt (Slash Transparency)",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_SLASH_COLLECTION) },
+    { L"Greedia Ruins (Slash Transparency)",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_SLASH_COLLECTION) },
+    { L"Zipang on Fire (Slash Transparency)",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ZIPANG_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ZIPANG_SLASH_COLLECTION) },
+    { L"Sangypt (Slash Transparency)",          DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_SLASH_COLLECTION) },
+    { L"Derminor (Slash Transparency)",         DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DERMINOR_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_DERMINOR_SLASH_COLLECTION) },
+    { L"Scion's Lair (Slash Transparency)",     DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SCION_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_SCION_SLASH_COLLECTION) },
+    { L"Crypt (Slash Transparency)",            DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_CRYPT_SLASH_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_CRYPT_SLASH_COLLECTION) },
 
-    { L"Derminor (Blade's Sword Swing)",          DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DERMINOR_BLADE_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_DERMINOR_BLADE_COLLECTION) },
+    { L"Derminor (Blade's Sword Swing)",        DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_DERMINOR_BLADE_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_DERMINOR_BLADE_COLLECTION) },
 
     { L"Hauzer's Fire Greedia Ruins",     DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GREEDIA_HAUZERS_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GREEDIA_HAUZERS_COLLECTION) },
     { L"Hydron's Poison Gas Icelarn",     DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_POISON_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_POISON_COLLECTION) },

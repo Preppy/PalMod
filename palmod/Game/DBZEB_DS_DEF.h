@@ -92,7 +92,7 @@ const sGame_PaletteDataset DBZEB_DS_BEERUS_EXTRAS[] =
     { L"Extra 2",               0xe03380, 0xe03780 }, //Extra 2
     { L"Extra 3",               0xe03790, 0xe03b90 }, //Extra 3
     { L"Extra 4",               0xe03ba0, 0xe03fa0 }, //Extra 4
-    { L"Extra 5",               0xe03fb0, 0xe043b0 }, //Extra 5
+    { L"Extra 5",               0xe03fb0, 0xe043b0, indexDBZEB_Beerus, 0x05 }, //Extra 5
     { L"Extra 6",               0xe04be0, 0xe04fe0 }, //Extra 8
     { L"Extra 7",               0xe05400, 0xe05800 }, //Extra 10
     { L"Extra 8",               0xe05810, 0xe05c10 }, //Extra 11
@@ -101,7 +101,7 @@ const sGame_PaletteDataset DBZEB_DS_BEERUS_EXTRAS[] =
     { L"Extra 2 (Unused?)",     0xdffdc0, 0xe001c0 },
     { L"Extra 3 (Unused?)",     0xe001d0, 0xe005d0 },
     { L"Extra 4 (Unused?)",     0xe005e0, 0xe009e0 },
-    { L"Extra 5 (Unused?)",     0xe009f0, 0xE00DF0 },
+    { L"Extra 5 (Unused?)",     0xe009f0, 0xE00DF0, indexDBZEB_Beerus, 0x05 },
     { L"Extra 6 (Unused?)",     0xe00e00, 0xe01200 },
     { L"Extra 7 (Unused?)",     0xe01210, 0xe01610 },
     { L"Extra 8 (Unused?)",     0xe01620, 0xe01a20 },
@@ -139,7 +139,7 @@ const sGame_PaletteDataset DBZEB_DS_BROLY_EXTRAS[] =
     { L"Extra 6",               0x10e6960, 0x10e6d60 }, //Extra 9
 
     { L"Extra 1 (Unused?)",     0x10e1b60, 0x10e1f60 },
-    { L"Extra 2 (Unused?)",     0x10e1f70, 0x10e2370 },
+    { L"Extra 2 (Unused?)",     0x10e1f70, 0x10e2370, indexDBZEB_Broly, 0x02 },
     { L"Extra 3 (Unused?)",     0x10e2380, 0x10e2780 },
     { L"Extra 4 (Unused?)",     0x10e2790, 0x10e2b90 },
     { L"Extra 5 (Unused?)",     0x10e2ba0, 0x10e2fa0 },
@@ -606,7 +606,7 @@ const sGame_PaletteDataset DBZEB_DS_CAPGINYU_EXTRAS[] =
 {
     { L"Extra 1",               0x2269510, 0x2269910 }, //Extra 1
     { L"Extra 2",               0x2269920, 0x2269d20 }, //Extra 2
-    { L"Extra 3",               0x2269d30, 0x226a130 }, //Extra 3
+    { L"Extra 3",               0x2269d30, 0x226a130, indexDBZEB_CaptainGinyu, 0x03 }, //Extra 3
     { L"Extra 4",               0x226a140, 0x226a540 }, //Extra 4
     { L"Extra 5",               0x226a550, 0x226a950 }, //Extra 5
     { L"Extra 6",               0x226b180, 0x226b580 }, //Extra 8
@@ -615,7 +615,7 @@ const sGame_PaletteDataset DBZEB_DS_CAPGINYU_EXTRAS[] =
 
     { L"Extra 1 (Unused?)",     0x2265f50, 0x2266350 },
     { L"Extra 2 (Unused?)",     0x2266360, 0x2266760 },
-    { L"Extra 3 (Unused?)",     0x2266770, 0x2266b70 },
+    { L"Extra 3 (Unused?)",     0x2266770, 0x2266b70, indexDBZEB_CaptainGinyu, 0x03 },
     { L"Extra 4 (Unused?)",     0x2266b80, 0x2266f80 },
     { L"Extra 5 (Unused?)",     0x2266f90, 0x2267390 },
     { L"Extra 6 (Unused?)",     0x22673a0, 0x22677a0 },
@@ -689,7 +689,7 @@ const sGame_PaletteDataset DBZEB_DS_KIDGOHANSS2_EXTRAS[] =
     { L"Extra 1",               0x24c5540, 0x24c5940 }, //Extra 1
     { L"Extra 2",               0x24c5950, 0x24c5d50 }, //Extra 2
     { L"Extra 3",               0x24c5d60, 0x24c6160 }, //Extra 3
-    { L"Extra 4",               0x24c6170, 0x24c6570 }, //Extra 4
+    { L"Extra 4",               0x24c6170, 0x24c6570, indexDBZEB_KidGohan, 0x04 }, //Extra 4
     { L"Extra 5",               0x24c6580, 0x24c6980 }, //Extra 5
     { L"Extra 6",               0x24c71b0, 0x24c75b0 }, //Extra 8
     { L"Extra 7",               0x24c79d0, 0x24c7dd0 }, //Extra 10
@@ -698,7 +698,7 @@ const sGame_PaletteDataset DBZEB_DS_KIDGOHANSS2_EXTRAS[] =
     { L"Extra 1 (Unused?)",     0x24c1f80, 0x24c2380 },
     { L"Extra 2 (Unused?)",     0x24c2390, 0x24c2790 },
     { L"Extra 3 (Unused?)",     0x24c27a0, 0x24c2ba0 },
-    { L"Extra 4 (Unused?)",     0x24c2bb0, 0x24c2fb0 },
+    { L"Extra 4 (Unused?)",     0x24c2bb0, 0x24c2fb0, indexDBZEB_KidGohan, 0x04 },
     { L"Extra 5 (Unused?)",     0x24c2fc0, 0x24c33c0 },
     { L"Extra 6 (Unused?)",     0x24c33d0, 0x24c37d0 },
     { L"Extra 7 (Unused?)",     0x24c37e0, 0x24c3be0 },
@@ -732,8 +732,8 @@ const sGame_PaletteDataset DBZEB_DS_GOTENKS_EXTRAS[] =
     { L"Extra 1",               0x25f8fe0, 0x25f93e0 }, //Extra 1
     { L"Extra 2",               0x25f93f0, 0x25f97f0 }, //Extra 2
     { L"Extra 3",               0x25f9800, 0x25f9c00 }, //Extra 3
-    { L"Extra 4",               0x25f9c10, 0x25fa010 }, //Extra 4
-    { L"Extra 5",               0x25fa020, 0x25fa420 }, //Extra 5
+    { L"Extra 4",               0x25f9c10, 0x25fa010, indexDBZEB_Gotenks, 0x04 }, //Extra 4
+    { L"Extra 5",               0x25fa020, 0x25fa420, indexDBZEB_Gotenks, 0x05 }, //Extra 5
     { L"Extra 6",               0x25fac50, 0x25fb050 }, //Extra 8
     { L"Extra 7",               0x25fb470, 0x25fb870 }, //Extra 10
     { L"Extra 8",               0x25fb880, 0x25fbc80 }, //Extra 11
@@ -741,8 +741,8 @@ const sGame_PaletteDataset DBZEB_DS_GOTENKS_EXTRAS[] =
     { L"Extra 1 (Unused?)",     0x25f5a20, 0x25f5e20 },
     { L"Extra 2 (Unused?)",     0x25f5e30, 0x25f6230 },
     { L"Extra 3 (Unused?)",     0x25f6240, 0x25f6640 },
-    { L"Extra 4 (Unused?)",     0x25f6650, 0x25f6a50 },
-    { L"Extra 5 (Unused?)",     0x25f6a60, 0x25f6e60 },
+    { L"Extra 4 (Unused?)",     0x25f6650, 0x25f6a50, indexDBZEB_Gotenks, 0x04 },
+    { L"Extra 5 (Unused?)",     0x25f6a60, 0x25f6e60, indexDBZEB_Gotenks, 0x05 },
     { L"Extra 6 (Unused?)",     0x25f6e70, 0x25f7270 },
     { L"Extra 7 (Unused?)",     0x25f7280, 0x25f7680 },
     { L"Extra 8 (Unused?)",     0x25f7690, 0x25f7a90 },
@@ -1207,7 +1207,7 @@ const sGame_PaletteDataset DBZEB_DS_TRANSFORMATION_DABURA[] =
     { L"Goku (Super Saiyan)",           0x2045d10, 0x2046110, indexDBZEB_GokuSSJ1, 0x00 },
     { L"Captain Ginyu",                 0x226ad70, 0x226b170, indexDBZEB_CaptainGinyu, 0x00 },
     { L"Kid Gohan",                     0x237a870, 0x237ac70, indexDBZEB_KidGohan, 0x00 },
-    { L"Kid Gohan (Super Saiyan 2)",    0x24c6da0, 0x24c71a0, indexDBZEB_KidGohan, 0x00 },
+    { L"Kid Gohan (Super Saiyan 2)",    0x24c6da0, 0x24c71a0, indexDBZEB_KidGohanSSJ2, 0x00 },
     { L"Gotenks",                       0x25fa840, 0x25fac40, indexDBZEB_Gotenks, 0x00 },
     { L"Android 18",                    0x2717c60, 0x2718060, indexDBZEB_Android18, 0x00 },
     { L"Nappa",                         0x296bb40, 0x296bf40, indexDBZEB_Nappa, 0x00 },
@@ -1216,36 +1216,36 @@ const sGame_PaletteDataset DBZEB_DS_TRANSFORMATION_DABURA[] =
     { L"Goku (Super Saiyan Blue)",      0x2e6f150, 0x2e6f550, indexDBZEB_GokuSSJB, 0x00 },
     { L"Future Trunks",                 0x300ee60, 0x300f260, indexDBZEB_FutureTrunks, 0x00 },
     { L"Vegeta",                        0x315c5a0, 0x315c9a0, indexDBZEB_Vegeta, 0x00 },
-    { L"Vegeta (Super Saiyan)",         0x32c4730, 0x32c4b30, indexDBZEB_Vegeta, 0x00 },
+    { L"Vegeta (Super Saiyan)",         0x32c4730, 0x32c4b30, indexDBZEB_VegetaSSJ1, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_TRANSFORMATION_MAJUUB[] =
 {
-    { L"Bardock",                       0xc9cfa0, 0xc9d3a0 }, //taken from main extras, sorted here for easy of accesses 
-    { L"Beerus",                        0xe04ff0, 0xE053F0 },
-    { L"Broly",                         0x10e6140, 0x10e6540 },
-    { L"Kid Buu",                       0x11c75f0, 0x11C79F0 },
-    { L"Majin Buu",                     0x146bab0, 0x146beb0 },
-    { L"Cell",                          0x1689310, 0x1689710 },
-    { L"Krillin",                       0x1785aa0, 0x1785ea0 },
-    { L"Frieza",                        0x18c9780, 0x18c9b80 },
-    { L"Gohan",                         0x1a40d00, 0x1a41100 },
-    { L"Gohan (Super Saiyan)",          0x1bb99f0, 0x1bb9df0 },
-    { L"Goku (Super Saiyan God)",       0x1d2d620, 0x1d2da20 },
-    { L"Goku",                          0x1ea13e0, 0x1ea17e0 },
-    { L"Goku (Super Saiyan)",           0x2046530, 0x2046930 },
-    { L"Captain Ginyu",                 0x226b590, 0x226b990 },
-    { L"Kid Gohan",                     0x237b090, 0x237b490 },
-    { L"Kid Gohan (Super Saiyan 2)",    0x24c75c0, 0x24c79c0 },
-    { L"Gotenks",                       0x25fb060, 0x25fb460 },
-    { L"Android 18",                    0x2718480, 0x2718880 },
-    { L"Nappa",                         0x296c360, 0x296c760 },
-    { L"Piccolo",                       0x2b14ea0, 0x2b152a0 },
-    { L"Raditz",                        0x2cd3ff0, 0x2cd43f0 },
-    { L"Goku (Super Saiyan Blue)",      0x2e6f970, 0x2e6fd70 },
-    { L"Future Trunks ",                0x300f680, 0x300fa80 },
-    { L"Vegeta",                        0x315cdc0, 0x315d1c0 },
-    { L"Vegeta (Super Saiyan)",         0x32c4f50, 0x32c5350 },
+    { L"Bardock",                       0xc9cfa0, 0xc9d3a0, indexDBZEB_Bardock, 0x0f }, //taken from main extras, sorted here for easy of accesses 
+    { L"Beerus",                        0xe04ff0, 0xE053F0, indexDBZEB_Beerus, 0x0f },
+    { L"Broly",                         0x10e6140, 0x10e6540, indexDBZEB_Broly, 0x0f },
+    { L"Kid Buu",                       0x11c75f0, 0x11C79F0, indexDBZEB_KidBuu, 0x0f },
+    { L"Majin Buu",                     0x146bab0, 0x146beb0, indexDBZEB_MajinBuu, 0x0f },
+    { L"Cell",                          0x1689310, 0x1689710, indexDBZEB_Cell, 0x0f },
+    { L"Krillin",                       0x1785aa0, 0x1785ea0, indexDBZEB_Krillin, 0x0f },
+    { L"Frieza",                        0x18c9780, 0x18c9b80, indexDBZEB_Frieza, 0x0f },
+    { L"Gohan",                         0x1a40d00, 0x1a41100, indexDBZEB_Gohan, 0x0f },
+    { L"Gohan (Super Saiyan)",          0x1bb99f0, 0x1bb9df0, indexDBZEB_GohanSSJ1, 0x0f },
+    { L"Goku (Super Saiyan God)",       0x1d2d620, 0x1d2da20, indexDBZEB_GokuSSJG, 0x0f },
+    { L"Goku",                          0x1ea13e0, 0x1ea17e0, indexDBZEB_Goku, 0x0f },
+    { L"Goku (Super Saiyan)",           0x2046530, 0x2046930, indexDBZEB_GokuSSJ1, 0x0f },
+    { L"Captain Ginyu",                 0x226b590, 0x226b990, indexDBZEB_CaptainGinyu, 0x0f },
+    { L"Kid Gohan",                     0x237b090, 0x237b490, indexDBZEB_KidGohan, 0x0f },
+    { L"Kid Gohan (Super Saiyan 2)",    0x24c75c0, 0x24c79c0, indexDBZEB_KidGohanSSJ2, 0x0f },
+    { L"Gotenks",                       0x25fb060, 0x25fb460, indexDBZEB_Gotenks, 0x0f },
+    { L"Android 18",                    0x2718480, 0x2718880, indexDBZEB_Android18, 0x0f },
+    { L"Nappa",                         0x296c360, 0x296c760, indexDBZEB_Nappa, 0x0f },
+    { L"Piccolo",                       0x2b14ea0, 0x2b152a0, indexDBZEB_Piccolo, 0x0f },
+    { L"Raditz",                        0x2cd3ff0, 0x2cd43f0, indexDBZEB_Raditz, 0x0f },
+    { L"Goku (Super Saiyan Blue)",      0x2e6f970, 0x2e6fd70, indexDBZEB_GokuSSJB, 0x0f },
+    { L"Future Trunks",                 0x300f680, 0x300fa80, indexDBZEB_FutureTrunks, 0x0f },
+    { L"Vegeta",                        0x315cdc0, 0x315d1c0, indexDBZEB_Vegeta, 0x0f },
+    { L"Vegeta (Super Saiyan)",         0x32c4f50, 0x32c5350, indexDBZEB_VegetaSSJ1, 0x0f },
 };
 
 const sDescTreeNode DBZEB_DS_ZASSIST_COLLECTION[] =

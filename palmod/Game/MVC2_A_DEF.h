@@ -8211,8 +8211,8 @@ const sGame_PaletteDataset MVC2_A_BLACKHEART_PALETTES_EXTRAS[] =
     { L"17: Not Used", 0x5585cc0, 0x5585ce0 },
     { L"18: Not Used", 0x5585ce0, 0x5585d00 },
     { L"19: Demon Palettes for Lower Row Buttons (LK,HK,A2)", 0x5585d00, 0x5585d20, indexCPS2Sprites_Blackheart, 2 },
-    { L"1a: Winpose Skull - all buttons", 0x5585d20, 0x5585d40 },
-    { L"1b: j.MP (all buttons), s.mp (shine - all buttons)", 0x5585d40, 0x5585d60 },
+    { L"1a: Winpose Skull - all buttons", 0x5585d20, 0x5585d40, indexCPS2Sprites_Blackheart, 0x10 },
+    { L"1b: j.MP (all buttons), s.mp (shine - all buttons)", 0x5585d40, 0x5585d60, indexCPS2Sprites_Blackheart, 0x0f },
 };
 
 const sDescTreeNode MVC2_A_BLACKHEART_COLLECTION[] =

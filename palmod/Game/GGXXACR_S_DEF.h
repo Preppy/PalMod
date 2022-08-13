@@ -147,59 +147,59 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_BK_EXTRAS =
 const std::vector<sGame_PaletteDataset> GGXXACR_S_YY_EXTRAS =
 {
     // General
-    { L"Yo-Yo String", 0x35aa70, 0x35aab0 }, //Glowing string that connects Buri to her Yo-Yo
+    { L"Yo-Yo String", 0x35aa70, 0x35aab0, indexGGXXSprites_ACR_Bridget, 0x19 }, //Glowing string that connects Buri to her Yo-Yo
 
     //Specials
-    { L"Yo-Yo Recall (1/5)", 0x3abdc0, 0x3abe00 },
-    { L"Yo-Yo Recall (2/5)", 0x3ac160, 0x3ac1a0 },
-    { L"Yo-Yo Recall (3/5)", 0x3ac560, 0x3ac5a0 },
-    { L"Yo-Yo Recall (4/5)", 0x3ac980, 0x3ac9c0 },
-    { L"Yo-Yo Recall (5/5)", 0x3acdf0, 0x3ace30 },
-    { L"Yo-Yo Recall (Hold)", 0x3ad230, 0x3ad270 },
+    { L"Yo-Yo Recall (1/5)", 0x3abdc0, 0x3abe00, indexGGXXSprites_ACR_Bridget, 0x17 },
+    { L"Yo-Yo Recall (2/5)", 0x3ac160, 0x3ac1a0, indexGGXXSprites_ACR_Bridget, 0x17 },
+    { L"Yo-Yo Recall (3/5)", 0x3ac560, 0x3ac5a0, indexGGXXSprites_ACR_Bridget, 0x17 },
+    { L"Yo-Yo Recall (4/5)", 0x3ac980, 0x3ac9c0, indexGGXXSprites_ACR_Bridget, 0x17 },
+    { L"Yo-Yo Recall (5/5)", 0x3acdf0, 0x3ace30, indexGGXXSprites_ACR_Bridget, 0x17 },
+    { L"Yo-Yo Recall (Hold)", 0x3ad230, 0x3ad270, indexGGXXSprites_ACR_Bridget, 0x18 },
 
-    { L"Kick Start My Heart, Stop (1/5)", 0x35bbc0, 0x35bc00 },
-    { L"Stop (2/5)", 0x35d510, 0x35d550 },
-    { L"Stop (3/5)", 0x35e370, 0x35e3b0 },
-    { L"Stop (4/5)", 0x35f150, 0x35f190 },
-    { L"Stop (5/5)", 0x35fd40, 0x35fd80 },
+    { L"Kick Start My Heart, Stop (1/5)", 0x35bbc0, 0x35bc00, indexGGXXSprites_ACR_Bridget, 0x01 },
+    { L"Stop (2/5)", 0x35d510, 0x35d550, indexGGXXSprites_ACR_Bridget, 0x16 },
+    { L"Stop (3/5)", 0x35e370, 0x35e3b0, indexGGXXSprites_ACR_Bridget, 0x16 },
+    { L"Stop (4/5)", 0x35f150, 0x35f190, indexGGXXSprites_ACR_Bridget, 0x16 },
+    { L"Stop (5/5)", 0x35fd40, 0x35fd80, indexGGXXSprites_ACR_Bridget, 0x16 },
 
-    { L"Starship (1/5, Shell)"  , 0x352da0, 0x352de0 },    // &pairNext5 },  //palettes should be paired n to n when image support is added
-    { L"Starship (2/5, Shell)"  , 0x353af0, 0x353b30 },    // &pairNext5 },
-    { L"Starship (3/5, Shell)"  , 0x354740, 0x354780 },    // &pairNext5 },
-    { L"Starship (4/5, Shell)"  , 0x355230, 0x355270 },    // &pairNext5 },
-    { L"Starship (5/5, Shell)"  , 0x355bb0, 0x355bf0 },    // &pairNext5 },
-    { L"Starship (1/5, Bearing)", 0x356550, 0x356610 },    // &pairPrevious5 },
-    { L"Starship (2/5, Bearing)", 0x357360, 0x357420 },    // &pairPrevious5 },
-    { L"Starship (3/5, Bearing)", 0x3581c0, 0x358280 },    // &pairPrevious5 },
-    { L"Starship (4/5, Bearing)", 0x358fc0, 0x359080 },    // &pairPrevious5 },
-    { L"Starship (5/5, Bearing)", 0x359d10, 0x359dd0 },    // &pairPrevious5 },
+    { L"Starship (1/5, Shell)"  , 0x352da0, 0x352de0, indexGGXXSprites_ACR_Bridget, 0x11, &pairNext5 },  //palettes should be paired n to n when image support is added
+    { L"Starship (2/5, Shell)"  , 0x353af0, 0x353b30, indexGGXXSprites_ACR_Bridget, 0x12, &pairNext5 },
+    { L"Starship (3/5, Shell)"  , 0x354740, 0x354780, indexGGXXSprites_ACR_Bridget, 0x13, &pairNext5 },
+    { L"Starship (4/5, Shell)"  , 0x355230, 0x355270, indexGGXXSprites_ACR_Bridget, 0x14, &pairNext5 },
+    { L"Starship (5/5, Shell)"  , 0x355bb0, 0x355bf0, indexGGXXSprites_ACR_Bridget, 0x15, &pairNext5 },
+    { L"Starship (1/5, Bearing)", 0x356550, 0x356610, indexGGXXSprites_ACR_Bridget, 0x0c, &pairPrevious5 },
+    { L"Starship (2/5, Bearing)", 0x357360, 0x357420, indexGGXXSprites_ACR_Bridget, 0x0d, &pairPrevious5 },
+    { L"Starship (3/5, Bearing)", 0x3581c0, 0x358280, indexGGXXSprites_ACR_Bridget, 0x0e, &pairPrevious5 },
+    { L"Starship (4/5, Bearing)", 0x358fc0, 0x359080, indexGGXXSprites_ACR_Bridget, 0x0f, &pairPrevious5 },
+    { L"Starship (5/5, Bearing)", 0x359d10, 0x359dd0, indexGGXXSprites_ACR_Bridget, 0x10, &pairPrevious5 },
 
-    { L"Roger Hug Sigil", 0x360ae0, 0x360b20 },
+    { L"Roger Hug Sigil", 0x360ae0, 0x360b20, indexGGXXSprites_ACR_Bridget, 0x09 },
 
-    { L"Rolling Movement", 0x35ac90, 0x35acd0 },
+    { L"Rolling Movement", 0x35ac90, 0x35acd0, indexGGXXSprites_ACR_Bridget, 0x0a },
 
     //Overdrives
-    { L"Loop the Loop (1/3)", 0x36d430, 0x36d470 }, //&pairNext3, }, //palettes should all pair to Stars when image support is added
-    { L"Loop the Loop (2/3)", 0x36fb50, 0x36fb90 }, //&pairNext2, },
-    { L"Loop the Loop (3/3)", 0x372530, 0x372570 }, //&pairNext, },
-    { L"Loop the Loop (Stars)", 0x376760, 0x3767a0 },
+    { L"Loop the Loop (1/3)", 0x36d430, 0x36d470, indexGGXXSprites_ACR_Bridget, 0x03, &pairNext3 }, //palettes should all pair to Stars when image support is added
+    { L"Loop the Loop (2/3)", 0x36fb50, 0x36fb90, indexGGXXSprites_ACR_Bridget, 0x03, &pairNext2 },
+    { L"Loop the Loop (3/3)", 0x372530, 0x372570, indexGGXXSprites_ACR_Bridget, 0x03, &pairNext },
+    { L"Loop the Loop (Stars)", 0x376760, 0x3767a0, indexGGXXSprites_ACR_Bridget, 0x04 },
 
-    { L"Maintenance Disaster (1/4)", 0x36c6a0, 0x36C6e0 },
-    { L"Maintenance Disaster (2/4)", 0x361350, 0x361390 },
-    { L"Maintenance Disaster (3/4)", 0x3627d0, 0x362810 },
-    { L"Maintenance Disaster (4/4)", 0x366f90, 0x366Fd0 },
+    { L"Maintenance Disaster (1/4)", 0x36c6a0, 0x36C6e0, indexGGXXSprites_ACR_Bridget, 0x05 },
+    { L"Maintenance Disaster (2/4)", 0x361350, 0x361390, indexGGXXSprites_ACR_Bridget, 0x06 },
+    { L"Maintenance Disaster (3/4)", 0x3627d0, 0x362810, indexGGXXSprites_ACR_Bridget, 0x07 },
+    { L"Maintenance Disaster (4/4)", 0x366f90, 0x366Fd0, indexGGXXSprites_ACR_Bridget, 0x08 },
 
-    { L"Me and My Killing Machine (1/6)", 0x376e00, 0x376e40 },
-    { L"Me and My Killing Machine (2/6)", 0x378c20, 0x378c60 },
-    { L"Me and My Killing Machine (3/6)", 0x37ad40, 0x37ad80 },
-    { L"Me and My Killing Machine (4/6)", 0x37ce70, 0x37ceb0 },
-    { L"Me and My Killing Machine (5/6)", 0x37f240, 0x37f280 },
-    { L"Me and My Killing Machine (6/6)", 0x381800, 0x381840 },
+    { L"Me and My Killing Machine (1/6)", 0x376e00, 0x376e40, indexGGXXSprites_ACR_Bridget, 0x02 },
+    { L"Me and My Killing Machine (2/6)", 0x378c20, 0x378c60, indexGGXXSprites_ACR_Bridget, 0x02 },
+    { L"Me and My Killing Machine (3/6)", 0x37ad40, 0x37ad80, indexGGXXSprites_ACR_Bridget, 0x02 },
+    { L"Me and My Killing Machine (4/6)", 0x37ce70, 0x37ceb0, indexGGXXSprites_ACR_Bridget, 0x02 },
+    { L"Me and My Killing Machine (5/6)", 0x37f240, 0x37f280, indexGGXXSprites_ACR_Bridget, 0x02 },
+    { L"Me and My Killing Machine (6/6)", 0x381800, 0x381840, indexGGXXSprites_ACR_Bridget, 0x02 },
 
     //Instant Kill 
-    { L"Shoot the Moon (1/3)", 0x383d10, 0x383f30 },    //irregular palette sizes, but this is correct
-    { L"Shoot the Moon (2/3)", 0x39c8c0, 0x39cae0 },
-    { L"Shoot the Moon (3/3)", 0x3a4690, 0x3a48b0 },
+    { L"Shoot the Moon (1/3)", 0x383d10, 0x384110, indexGGXXSprites_ACR_Bridget, 0x0B },    //these palettes look weird, but are correct
+    { L"Shoot the Moon (2/3)", 0x39c8c0, 0x39ccc0, indexGGXXSprites_ACR_Bridget, 0x0B },
+    { L"Shoot the Moon (3/3)", 0x3a4690, 0x3a4a90, indexGGXXSprites_ACR_Bridget, 0x0B },
 
     //Unused?
     //{ L"Loop the Loop (Unused)", 0x376ac0, 0x376b00 },

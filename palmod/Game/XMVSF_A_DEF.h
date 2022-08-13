@@ -27,6 +27,7 @@ const std::vector<uint16_t> XMVSF_A_IMGIDS_USED =
     indexCPS2Sprites_Sabretooth,   // 0x2B
     indexCPS2Sprites_Magneto,      // 0x2C
     indexCPS2Sprites_Apocalypse,   // 0x4f
+    indexCPS2Sprites_XMVSFAssets,  // 0x50 - XMVSF HUD, stages
 };
 
 #pragma region SecondaryPaletteEffects
@@ -1003,14 +1004,13 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES[] =
     { L"Apocalypse (P2)",    0x1c2fa + 0xBE0, 0x1c39a + 0xBE0, indexCPS2Sprites_Apocalypse, 0x38 },
 };
 
-
 const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO[] =
 {
-    { L"Ken (Intro)", 0x20426, 0x20506 },
-    { L"Gambit (Intro)", 0x20506, 0x205C6 },
-    { L"Cammy (Intro)", 0x20746, 0x207C6 },
-    { L"Rogue (Intro)", 0x207C6, 0x20866 },
-    { L"Ryu & Cyclops (Intro)", 0x20946, 0x20AE6 },
+    { L"Ken (Intro)", 0x20426, 0x20506, indexCPS2Sprites_XMVSFAssets, 0x03 },
+    { L"Gambit (Intro)", 0x20506, 0x205C6, indexCPS2Sprites_XMVSFAssets, 0x02 },
+    { L"Cammy (Intro)", 0x20746, 0x207C6, indexCPS2Sprites_XMVSFAssets, 0x00 },
+    { L"Rogue (Intro)", 0x207C6, 0x20866, indexCPS2Sprites_XMVSFAssets, 0x04 },
+    { L"Ryu & Cyclops (Intro)", 0x20946, 0x20AE6, indexCPS2Sprites_XMVSFAssets, 0x01 },
 };
 
 const sDescTreeNode XMVSF_A_WOLVERINE_COLLECTION[] =

@@ -26,16 +26,16 @@ struct sKOF02_A_CharacterDump
 // Sorted by ROM layout...
 const sKOF02_A_CharacterDump KOF02_A_CharacterOffsetArray[] =
 {
-    { L"Kyo",        0x88b62 + (0x800 *  0), L"indexKOF02UMSprites_KyoKusa", L"MAX2 Fire Palette", 0x2, L"MAX Orochinagi Fire", 0x3 },
-    { L"Benimaru",   0x88b62 + (0x800 *  1), L"indexKOF02UMSprites_Benimaru", L"Raijiken Flash", 0x4, L"Phantom Hurricane Effects", 0x10 },
-    { L"Daimon",     0x88b62 + (0x800 *  2), L"indexKOF02UMSprites_Daimon"    },
-    { L"Terry",      0x88b62 + (0x800 *  3), L"indexKOF02UMSprites_Terry",    L"Terry and Child Winpose", 0x19, L"MAX2 Trail", 0xa },
-    { L"Andy",       0x88b62 + (0x800 *  4), L"indexKOF02UMSprites_Andy",     L"SDM Super Sonic Swirl and MAX2", 0x11, L"MAX Super Sonic Swirl", 0x11 },
-    { L"Joe",        0x88b62 + (0x800 *  5), L"indexKOF02UMSprites_Joe",      },
-    { L"Kim",        0x88b62 + (0x800 *  6), L"indexKOF02UMSprites_Kim",      },
-    { L"Chang",      0x88b62 + (0x800 *  7), L"indexKOF02UMSprites_Chang",    },
-    { L"Choi",       0x88b62 + (0x800 *  8), L"indexKOF02UMSprites_Choi",     L"Phoenix Flattener SDM Effects", 0x3 },
-    { L"Athena",     0x88b62 + (0x800 *  9), L"indexKOF02UMSprites_Athena",   L"Athena Transformations", 0x19, L"MAX Shining Crystal Bit", 0, L"Portal Stuff", 0x2, L"Intro Stuff and MAX2 Finisher", 0 },
+    { L"Kyo",        0x88b62 + (0x800 * 0), L"indexKOF02UMSprites_KyoKusa", L"MAX2 Fire Palette", 0x2, L"MAX Orochinagi Fire", 0x3 },
+    { L"Benimaru",   0x88b62 + (0x800 * 1), L"indexKOF02UMSprites_Benimaru", L"Raijiken Flash", 0x4, L"Phantom Hurricane Effects", 0x10 },
+    { L"Daimon",     0x88b62 + (0x800 * 2), L"indexKOF02UMSprites_Daimon"    },
+    { L"Terry",      0x88b62 + (0x800 * 3), L"indexKOF02UMSprites_Terry",    L"Terry and Child Winpose", 0x19, L"MAX2 Trail", 0xa },
+    { L"Andy",       0x88b62 + (0x800 * 4), L"indexKOF02UMSprites_Andy",     L"SDM Super Sonic Swirl and MAX2", 0x11, L"MAX Super Sonic Swirl", 0x11 },
+    { L"Joe",        0x88b62 + (0x800 * 5), L"indexKOF02UMSprites_Joe",      },
+    { L"Kim",        0x88b62 + (0x800 * 6), L"indexKOF02UMSprites_Kim",      },
+    { L"Chang",      0x88b62 + (0x800 * 7), L"indexKOF02UMSprites_Chang",    },
+    { L"Choi",       0x88b62 + (0x800 * 8), L"indexKOF02UMSprites_Choi",     L"Phoenix Flattener SDM Effects", 0x3 },
+    { L"Athena",     0x88b62 + (0x800 * 9), L"indexKOF02UMSprites_Athena",   L"Athena Transformations", 0x19, L"MAX Shining Crystal Bit", 0, L"Portal Stuff", 0x2, L"Intro Stuff and MAX2 Finisher", 0 },
     { L"Kensou",     0x88b62 + (0x800 * 10), L"indexKOF02UMSprites_Kensou",   L"MAX2 Power Up State", 0xa },
     { L"Chin",       0x88b62 + (0x800 * 11), L"indexKOF02UMSprites_Chin",     L"Fire Palette", 0x9 },
     { L"Leona",      0x88b62 + (0x800 * 12), L"indexKOF02UMSprites_Leona",    L"Jump Blowback Attack", 0x6, nullptr, 0, L"Orochi Leona", 0x1b, L"Intro Stuff", 0x19 },
@@ -1152,7 +1152,7 @@ const sGame_PaletteDataset KOF02_A_KUSANAGI_PALETTES_PORTRAITS_SELECT[] =
 
 const sGame_PaletteDataset KOF02_A_OYASHIRO_PALETTES_PORTRAITS_SELECT[] =
 {
-    { L"Orochi Yashiro Select Portrait", 0xb8da2, 0xb8de2, indexKOF02Sprites_Extras, 0x51 }, 
+    { L"Orochi Yashiro Select Portrait", 0xb8da2, 0xb8de2, indexKOF02Sprites_Extras, 0x51 },
 };
 
 const sGame_PaletteDataset KOF02_A_OSHERMIE_PALETTES_PORTRAITS_SELECT[] =
@@ -4187,10 +4187,6 @@ const sGame_PaletteDataset KOF02_A_BONUS_SELECT_PALETTES[] =
     { L"Character Select Background 2P", 0xb4d82, 0xb4da2, indexKOF02Sprites_Bonus, 0x09 },
     { L"Character Select Player Text", 0xb4da2, 0xb4ea2, indexKOF02Sprites_Bonus, 0x08 },
     //^ Each palette is 0x20 long, don't question SNK on that decision.
-
-    { L"Enemy Select Background ", 0xB48A2, 0xB4922 },
-    { L"Order Select Background", 0xB4942, 0xB49C2 },
-
     { L"Character Select Name", 0xb4ea2, 0xb4ec2, indexKOF02Sprites_Bonus, 0x07 },
     { L"Character Select Order Name", 0xb5062, 0xb5082, indexKOF02Sprites_Bonus, 0x0a },
     { L"Character Select Order Numbers", 0xb4ec2, 0xb4f02, indexKOF02Sprites_Bonus, 0x0b },
@@ -4200,9 +4196,9 @@ const sGame_PaletteDataset KOF02_A_BONUS_SELECT_PALETTES[] =
 
 const sGame_PaletteDataset KOF02_A_BONUS_HUD_PALETTES[] =
 {
-    { L"Super Meter", 0xb4602, 0xb46c2, indexKOF02Sprites_Bonus, 0x06 },
-    { L"Lifebars", 0x86c02, 0x86c42 },
-    { L"Timer", 0x86d02, 0x86d42 },
+    { L"Super Meter", 0xb4602, 0xb46c2, indexKOF02Sprites_Bonus, 0x1a },
+    { L"Lifebars", 0x86c02, 0x86c42, indexKOF02Sprites_Bonus, 0x19 },
+    { L"Timer", 0x86d02, 0x86d42, indexKOF02Sprites_Bonus, 0x1b },
     { L"Timer Lights", 0xb4702, 0xb48a2, indexKOF02Sprites_Bonus, 0x16 },
     { L"Combo Meter", 0x86c82, 0x86ca2, indexKOF02Sprites_Bonus, 0x12 },
 };
@@ -4228,73 +4224,66 @@ const sGame_PaletteDataset KOF02_A_BONUS_EFFECTS_PALETTES[] =
 
 const sGame_PaletteDataset KOF02_A_BONUS_INTRO_PALETTES[] =
 {
-    { L"Chang Intro (1/?)", 0xbf142, 0xbf162 },
-    { L"Athena Background", 0xbf2a2, 0xbf2c2 },
-    { L"Ryo Intro (1/2)", 0xbf182, 0xbf1a2 },
-    { L"Ryo Intro (2/2)", 0xbf582, 0xbf5a2 },
-    { L"Robert Intro (1/2)", 0xbf1a2, 0xbf1c2 },
-    { L"Robert Intro (2/2)", 0xbf5a2, 0xbf5c2 },
-    { L"Takuma Intro (1/2)", 0xbf1c2, 0xbf1e2 },
-    { L"Takuma Intro (2/2)", 0xbf5c2, 0xbf5e2 },
-    { L"Mature/Vice, Benimaru/Daimon Background", 0xbf302, 0xbf322 },
-    { L"K' Intro (1/2)", 0xbefc2, 0xbefe2 },
-    { L"K' Intro (2/2)", 0xbf3c2, 0xbf3e2 },
-    { L"Maxima Intro (1/2)", 0xbefe2, 0xbf002 },
-    { L"Maxima Intro (2/2)", 0xbf3e2, 0xbf402 },
-    { L"Whip Intro (1/2)", 0xbf002, 0xbf022 },
-    { L"Whip Intro (2/2)", 0xbf402, 0xbf422 },
-    { L"Yashiro Intro (1/2)", 0xbf022, 0xbf042 },
-    { L"Yashiro Intro (2/2)", 0xbf422, 0xbf442 },
-    { L"Shermie Intro (1/2)", 0xbf042, 0xbf062 },
-    { L"Shermie Intro (2/2)", 0xbf442, 0xbf462 },
-    { L"Chris Intro (1/2)", 0xbf062, 0xbf082 },
-    { L"Chris Intro (2/2)", 0xbf462, 0xbf482 },
-    { L"Yamazaki Intro (1/2)", 0xbf082, 0xbf0a2 },
-    { L"Yamazaki Intro (2/2)", 0xbf482, 0xbf4a2 },
-    { L"Mary Intro (1/2)", 0xbf0a2, 0xbf0c2 },
-    { L"Mary Intro (2/2)", 0xbf4a2, 0xbf4c2 },
-    { L"Billy Intro (1/2)", 0xbf0c2, 0xbf0e2 },
-    { L"Billy Intro (2/2)", 0xbf4c2, 0xbf4e2 },
-    { L"Kim Intro (1/2)", 0xbf0e2, 0xbf102 },
-    { L"Kim Intro (2/2)", 0xbf4e2, 0xbf502 },
-    { L"Choi Intro (1/2)", 0xbf102, 0xbf122 },
-    { L"Choi Intro (2/2)", 0xbf502, 0xbf522 },
-    { L"May Lee Intro (1/2)", 0xbf122, 0xbf142 },
-    { L"May Lee Intro (2/2)", 0xbf522, 0xbf542 },
-    { L"Athena Intro", 0xbed62, 0xbedc2 },
-    { L"K9999 Intro", 0xbedc2, 0xbee02 },
-    { L"Kula Intro", 0xbee02, 0xbee42 },
-    { L"Angel Intro", 0xbee42, 0xbee82 },
-    { L"Iori Intro (1/2)", 0xbee82, 0xbeec2 },
-    { L"Kyo Intro (1/2)", 0xbeec2, 0xbef02 },
-    { L"Iori Intro (2/2)", 0xbef02, 0xbef42 },
-    { L"Kyo Intro (2/2)", 0xbef42, 0xbef82 },
-    { L"Chang Intro (2/2)", 0xbf342, 0xbf362 },
-    { L"Intro Explosion", 0xbef82, 0xbefa2 },
-    { L"Intro Fire BG (1/2)", 0xbf202, 0xbf222 },
-    { L"Intro Glass Shatter", 0xbf222, 0xbf262 },
-    { L"Intro Fire BG (2/2)", 0xbf2c2, 0xbf2e2 },
     { L"Playmore Logo", 0xbf282, 0xbf2a2, indexKOF02Sprites_Bonus, 0x11 },
+    { L"\"THE KING OF FIGHTERS\" Intro Text", 0xbf162, 0xbf182, indexKOF02Sprites_Bonus, 0x14 },
+    { L"K', Maxima and Whip (1/2)", 0xbefc2, 0xbf022, indexKOF02Sprites_Bonus, 0x2a, &pairNext },
+    { L"K', Maxima and Whip (2/2)", 0xbf3c2, 0xbf422, indexKOF02Sprites_Bonus, 0x2b, &pairPrevious },
+    { L"Yashiro, Shermie and Chris (1/2)", 0xbf022, 0xbf082, indexKOF02Sprites_Bonus, 0x32, &pairNext },
+    { L"Yashiro, Shermie and Chris (2/2)", 0xbf422, 0xbf482, indexKOF02Sprites_Bonus, 0x33, &pairPrevious },
+    { L"Yamazaki, Mary and Billy (1/2)", 0xbf082, 0xbf0e2, indexKOF02Sprites_Bonus, 0x30, &pairNext },
+    { L"Yamazaki, Mary and Billy (2/2)", 0xbf482, 0xbf4e2, indexKOF02Sprites_Bonus, 0x31, &pairPrevious },
+    { L"Kim, Choi and May Lee (1/2)", 0xbf0e2, 0xbf142, indexKOF02Sprites_Bonus, 0x28, &pairNext },
+    { L"Kim, Choi and May Lee (2/2)", 0xbf4e2, 0xbf542, indexKOF02Sprites_Bonus, 0x29, &pairPrevious },
+    { L"Chang (1/2)", 0xbf142, 0xbf162, indexKOF02Sprites_Bonus, 0x1f, &pairNext },
+    { L"Chang (2/2)", 0xbf342, 0xbf362, indexKOF02Sprites_Bonus, 0x20, &pairPrevious },
+    { L"Ryo, Robert and Takuma (1/2)", 0xbf182, 0xbf1e2, indexKOF02Sprites_Bonus, 0x2e, &pairNext },
+    { L"Ryo, Robert and Takuma (2/2)", 0xbf582, 0xbf5e2, indexKOF02Sprites_Bonus, 0x2f, &pairPrevious },
+    { L"Athena", 0xbed62, 0xbedc2, indexKOF02Sprites_Bonus, 0x1c },
+    { L"Athena Background", 0xbf2a2, 0xbf2c2, indexKOF02Sprites_Bonus, 0x1d },
+    { L"Mature/Vice/Benimaru/Daimon Background", 0xbf302, 0xbf322, indexKOF02Sprites_Bonus, 0x1e },
+    { L"K9999, Kula and Angel", 0xbedc2, 0xbee82, indexKOF02Sprites_Bonus, 0x27 },
+    { L"Intro Glass Shatter", 0xbf222, 0xbf262, indexKOF02Sprites_Bonus, 0x24 },
+    { L"Kyo (1/2)", 0xbeec2, 0xbef02, indexKOF02Sprites_Bonus, 0x2c, &pairNext },
+    { L"Kyo (2/2)", 0xbef42, 0xbef82, indexKOF02Sprites_Bonus, 0x2d, &pairPrevious },
+    { L"Iori (1/2)", 0xbee82, 0xbeec2, indexKOF02Sprites_Bonus, 0x25, &pairNext },
+    { L"Iori (2/2)", 0xbef02, 0xbef42, indexKOF02Sprites_Bonus, 0x26, &pairPrevious },
+    { L"Fire Background (1/2)", 0xbf202, 0xbf222, indexKOF02Sprites_Bonus, 0x22, &pairNext },
+    { L"Fire Background (2/2)", 0xbf2c2, 0xbf2e2, indexKOF02Sprites_Bonus, 0x23, &pairPrevious },
+    { L"Intro Explosion", 0xbef82, 0xbefa2, indexKOF02Sprites_Bonus, 0x21 },
+};
+
+const sGame_PaletteDataset KOF02_A_BONUS_SELECT_BACKGROUNDS_PALETTES[] =
+{
+    { L"Order Select Background 1/5", 0xB4942, 0xB4962, indexKOF02Sprites_Bonus, 0x18 },
+    { L"Order Select Background 2/5", 0xB4962, 0xB4982, indexKOF02Sprites_Bonus, 0x18 },
+    { L"Order Select Background 3/5", 0xB4982, 0xB49A2, indexKOF02Sprites_Bonus, 0x18 },
+    { L"Order Select Background 4/5", 0xB49A2, 0xB49C2, indexKOF02Sprites_Bonus, 0x18 },
+    { L"Order Select Background 5/5", 0xB49C2, 0xB49E2, indexKOF02Sprites_Bonus, 0x18 },
+    { L"COM Team Select Background 1/5", 0xB48A2, 0xB48C2, indexKOF02Sprites_Bonus, 0x17 },
+    { L"COM Team Select Background 2/5", 0xB48C2, 0xB48e2, indexKOF02Sprites_Bonus, 0x17 },
+    { L"COM Team Select Background 3/5", 0xB48E2, 0xB4902, indexKOF02Sprites_Bonus, 0x17 },
+    { L"COM Team Select Background 4/5", 0xB4902, 0xB4922, indexKOF02Sprites_Bonus, 0x17 },
+    { L"COM Team Select Background 5/5", 0xB4922, 0xB4942, indexKOF02Sprites_Bonus, 0x17 },
+    { L"CPU Character Select 1/5", 0xb5f62, 0xb5f82, indexKOF02Sprites_Bonus, 0x15 },
+    { L"CPU Character Select 2/5", 0xb5f82, 0xb5fa2, indexKOF02Sprites_Bonus, 0x15 },
+    { L"CPU Character Select 3/5", 0xb5fa2, 0xb5fc2, indexKOF02Sprites_Bonus, 0x15 },
+    { L"CPU Character Select 4/5", 0xb5fc2, 0xb5fe2, indexKOF02Sprites_Bonus, 0x15 },
+    { L"CPU Character Select 5/5", 0xb5fe2, 0xb6002, indexKOF02Sprites_Bonus, 0x15 },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
 {
-    { L"Order Select (Single Play) 1/5", 0xb5f62, 0xb5f82, indexKOF02Sprites_Bonus, 0x15 },
-    { L"Order Select (Single Play) 2/5", 0xb5f82, 0xb5fa2, indexKOF02Sprites_Bonus, 0x15 },
-    { L"Order Select (Single Play) 3/5", 0xb5fa2, 0xb5fc2, indexKOF02Sprites_Bonus, 0x15 },
-    { L"Order Select (Single Play) 4/5", 0xb5fc2, 0xb5fe2, indexKOF02Sprites_Bonus, 0x15 },
-    { L"Order Select (Single Play) 5/5", 0xb5fe2, 0xb6002, indexKOF02Sprites_Bonus, 0x15 },
-    { L"\"THE KING OF FIGHTERS\" Intro Text", 0xbf162, 0xbf182, indexKOF02Sprites_Bonus, 0x14 },
     { L"Credits Counter", 0x86b82, 0x86ba2, indexKOF02Sprites_Bonus, 0x13 },
 };
 
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =
 {
     { L"Effects", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_EFFECTS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_EFFECTS_PALETTES) },
-    { L"Ending", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_ENDING_PALETTES, ARRAYSIZE(KOF02_A_BONUS_ENDING_PALETTES) },
     { L"HUD", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_HUD_PALETTES, ARRAYSIZE(KOF02_A_BONUS_HUD_PALETTES) },
     { L"Character Select Stuff", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_SELECT_PALETTES, ARRAYSIZE(KOF02_A_BONUS_SELECT_PALETTES) },
+    { L"Select Backgrounds", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_SELECT_BACKGROUNDS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_SELECT_BACKGROUNDS_PALETTES) },
     { L"Intro", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_INTRO_PALETTES, ARRAYSIZE(KOF02_A_BONUS_INTRO_PALETTES) },
+    { L"Ending", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_ENDING_PALETTES, ARRAYSIZE(KOF02_A_BONUS_ENDING_PALETTES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF02_A_BONUS_BONUS_PALETTES, ARRAYSIZE(KOF02_A_BONUS_BONUS_PALETTES) },
 };
 
