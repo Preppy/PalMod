@@ -120,8 +120,8 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Jin =
         MOD_TINT, 2, 4, 2, 0, NEG + 5, NEG + 5 },
     { SUPP_NODE, 0xe, 6,
         MOD_TINT, 2, 4, 2, 0, NEG + 6, NEG + 6 },
-        
-     // power-up flash: 6 frames
+
+    // power-up flash: 6 frames
         // first palette is solid white, sixth is gold
     { SUPP_NODE, 0x10, 6,
         MOD_LUM, 1, 15, 32 },
@@ -1170,6 +1170,7 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
     { L"Morrigan Intro Frame 2", 0x4ef62, 0x4eF82, indexCPS2Sprites_Morrigan, 13 },
     { L"Morrigan Intro Frame 3", 0x4ef82, 0x4eFA2, indexCPS2Sprites_Morrigan, 13 },
     { L"Morrigan Intro Frame 4", 0x4efA2, 0x4eFC2, indexCPS2Sprites_Morrigan, 13 },
+    { L"P1 Taunt", 0x4efC2, 0x4eFE2, indexCPS2Sprites_Morrigan, 14 },
 };
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
@@ -1181,7 +1182,6 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
     { L"P2 Soul Eraser 1", 0x4ee42, 0x4ee62, indexCPS2Sprites_Morrigan, 11 },
     { L"P2 Soul Eraser 2", 0x4ee62, 0x4ee82, indexCPS2Sprites_Morrigan, 11 },
 
-    { L"Morrigan P2 Intro Pose", 0x4eFE2, 0x4f002, indexCPS2Sprites_Morrigan, 13 },
     { L"Lilith P2 Join Pose", 0x4f002, 0x4f022, indexCPS2Sprites_Morrigan, 12 },
     { L"Lilith P2 Join Pose 2", 0x4f022, 0x4f042, indexCPS2Sprites_Morrigan, 12 },
     { L"Morrigan P2 Join Pose", 0x4f042, 0x4f062, indexCPS2Sprites_Morrigan, 13 },
@@ -1190,12 +1190,12 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
     { L"Morrigan Intro Frame 2", 0x4f0C2, 0x4f0E2, indexCPS2Sprites_Morrigan, 13 },
     { L"Morrigan Intro Frame 3", 0x4f0E2, 0x4f102, indexCPS2Sprites_Morrigan, 13 },
     { L"Morrigan Intro Frame 4", 0x4f102, 0x4f122, indexCPS2Sprites_Morrigan, 13 },
+    { L"P2 Taunt", 0x4EFE2, 0x4F002, indexCPS2Sprites_Morrigan, 14 },
 };
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
 {
     // There isn't a direct p2 pair for this: ... ?
-    { L"P1 Taunt", 0x4efC2, 0x4eFE2, indexCPS2Sprites_Morrigan, 14 }, // This is Range 7 Palette IE9 in their doc
     { L"Eternal Slumber Heart 1 (Shared)", 0x4f122, 0x4f142 },
     { L"Eternal Slumber Heart 2 (Shared)", 0x4f142, 0x4f162 },
 
@@ -1214,17 +1214,33 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
 {
     { L"P1 Color", 0x493a2, 0x493c2, indexCPS2Sprites_Morrigan },
-    { L"P1 Extra 1", 0x493c2, 0x493e2, indexCPS2Sprites_Morrigan, 1 },
+    { L"P1 Morrigan 1", 0x493c2, 0x493e2, indexCPS2Sprites_Morrigan, 1 },
     { L"P1 Extra 2", 0x493e2, 0x49402, indexCPS2Sprites_Morrigan, 2 },
-    { L"P1 Floating Taunt Morrigan?", 0x4fcc2, 0x4fce2 },
+    { L"Morrigan P1 Join Pose", 0x4FB62, 0x4FB82, indexCPS2Sprites_Morrigan, 12 },
+    { L"Morrigan P1 Join Pose 2", 0x4FB82, 0x4FBa2, indexCPS2Sprites_Morrigan, 12 },
+    { L"P1 Lilith Join Pose", 0x4FBA2, 0x4FBC2, indexCPS2Sprites_Morrigan, 13 },
+    { L"P1 Lilith Join Pose 2", 0x4FBC2, 0x4FBE2, indexCPS2Sprites_Morrigan, 13 },
+    { L"Lilith Intro Frame 1", 0x4fc02, 0x4fc22, indexCPS2Sprites_Morrigan, 13 },
+    { L"Lilith Intro Frame 2", 0x4fc22, 0x4fc42, indexCPS2Sprites_Morrigan, 13 },
+    { L"Lilith Intro Frame 3", 0x4fc42, 0x4fc62, indexCPS2Sprites_Morrigan, 13 },
+    { L"Lilith Intro Frame 4", 0x4fc62, 0x4fc82, indexCPS2Sprites_Morrigan, 13 },
+    { L"P1 Lilith Taunt", 0x4fc82, 0x4fca2, indexCPS2Sprites_Morrigan, 14 },
 };
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P2[] =
 {
     { L"P2 Color", 0x49402, 0x49422, indexCPS2Sprites_Morrigan },
-    { L"P2 Extra 1", 0x49422, 0x49442, indexCPS2Sprites_Morrigan, 1 },
+    { L"P2 Morrigan 1", 0x49422, 0x49442, indexCPS2Sprites_Morrigan, 1 },
     { L"P2 Extra 2", 0x49442, 0x49462, indexCPS2Sprites_Morrigan, 2 },
-    { L"P2 Floating Taunt Morrigan?", 0x4fce2, 0x4fd02 },
+    { L"Morrigan P2 Join Pose", 0x4fcc2, 0x4fce2, indexCPS2Sprites_Morrigan, 12 },
+    { L"Morrigan P2 Join Pose 2", 0x4fce2, 0x4fd02, indexCPS2Sprites_Morrigan, 12 },
+    { L"P2 Lilith Join Pose", 0x4fd02, 0x4fd22, indexCPS2Sprites_Morrigan, 13 },
+    { L"P2 Lilith Join Pose 2", 0x4fd22, 0x4fd42, indexCPS2Sprites_Morrigan, 13 },
+    { L"Lilith Intro Frame 1", 0x4fd62, 0x4fd82, indexCPS2Sprites_Morrigan, 13 },
+    { L"Lilith Intro Frame 2", 0x4fd82, 0x4fda2, indexCPS2Sprites_Morrigan, 13 },
+    { L"Lilith Intro Frame 3", 0x4fda2, 0x4fdc2, indexCPS2Sprites_Morrigan, 13 },
+    { L"Lilith Intro Frame 4", 0x4fdc2, 0x4fde2, indexCPS2Sprites_Morrigan, 13 },
+    { L"P2 Lilith Taunt", 0x4FCA2, 0x4FCc2, indexCPS2Sprites_Morrigan, 14 },
 };
 
 const sGame_PaletteDataset MVC_A_STRIDER_PALETTES_P1[] =

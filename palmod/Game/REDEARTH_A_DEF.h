@@ -466,8 +466,7 @@ const sGame_PaletteDataset REDEARTH_A_BLADE_PALETTES[] =
     { L"Emerald FX/Intro 2", 0x433d00, 0x433d80, indexRedEarthSprites_Bonus, 0x0c },
     { L"Emerald FX/Intro 3", 0x433d80, 0x433e00, indexRedEarthSprites_Bonus, 0x0d },
     { L"Blade Lifebar Portrait", 0x406ac0, 0x406ae0, indexRedEarthSprites_Blade, 0x10 },
-    { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433e80, indexRedEarthSprites_Bonus, 0x10 },
-
+    { L"Hit Ground after swing FX/Mirror Glass", 0x433e00, 0x433f00, indexRedEarthSprites_Bonus, 0x10 },
     { L"Blade Burned 1", 0x436600, 0x436680 },
     { L"Blade Burned 2", 0x436680, 0x436700 },
     { L"Blade Shocked 1", 0x436700, 0x436780 },
