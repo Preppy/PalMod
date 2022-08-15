@@ -22,8 +22,6 @@ public:
     CGame_MWarr_A_DIR(uint32_t nConfirmedROMSize = -1);
     ~CGame_MWarr_A_DIR();
 
-    uint32_t c_nRedEarthSIMMLength = 0x80000;
-
     inline uint32_t GetSIMMLocationFromROMLocation(uint32_t nROMLocation);
 
     //Static functions

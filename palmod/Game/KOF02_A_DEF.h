@@ -4197,8 +4197,8 @@ const sGame_PaletteDataset KOF02_A_BONUS_SELECT_PALETTES[] =
 const sGame_PaletteDataset KOF02_A_BONUS_HUD_PALETTES[] =
 {
     { L"Super Meter", 0xb4602, 0xb46c2, indexKOF02Sprites_Bonus, 0x1a },
-    { L"Lifebars", 0x86c02, 0x86c42, indexKOF02Sprites_Bonus, 0x19 },
-    { L"Timer", 0x86d02, 0x86d42, indexKOF02Sprites_Bonus, 0x1b },
+    { L"Lifebars", 0x86c02, 0x86c42, indexKOF02Sprites_Bonus, 0x19, &pairNext },
+    { L"Timer", 0x86d02, 0x86d42, indexKOF02Sprites_Bonus, 0x1b, &pairPrevious },
     { L"Timer Lights", 0xb4702, 0xb48a2, indexKOF02Sprites_Bonus, 0x16 },
     { L"Combo Meter", 0x86c82, 0x86ca2, indexKOF02Sprites_Bonus, 0x12 },
 };

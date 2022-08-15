@@ -41,7 +41,7 @@ CGame_FatalFury1_A::CGame_FatalFury1_A(uint32_t nConfirmedROMSize)
     m_nTotalInternalUnits = FatalFury1_A_NUMUNIT;
     m_nExtraUnit = FatalFury1_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 45;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 46;
     m_pszExtraFilename = EXTRA_FILENAME_FatalFury1_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForFatalFury1;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

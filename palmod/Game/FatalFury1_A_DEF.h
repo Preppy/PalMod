@@ -93,31 +93,37 @@ const sGame_PaletteDataset FatalFury1_A_BONUS_Cutscenes_PALETTES[] =
     { L"Geese VS Joe GameOver", 0x33b4c, 0x33b6c}
 };
 
+const sGame_PaletteDataset FatalFury1_A_BONUS_StagePaoPao_PALETTES[] =
+{
+    { L"Pao Pao Cafe", 0x337ec, 0x3396c },
+};
+
 const sDescTreeNode FatalFury1_A_CHARACTER_COLLECTION[] =
 {
-   { L"Palettes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_Character_PALETTES, ARRAYSIZE(FatalFury1_A_Character_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_Character_PALETTES, ARRAYSIZE(FatalFury1_A_Character_PALETTES) },
 };
 
 const sDescTreeNode FatalFury1_A_BOSSES_COLLECTION[] =
 {
-   { L"Palettes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_Bosses_PALETTES, ARRAYSIZE(FatalFury1_A_Bosses_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_Bosses_PALETTES, ARRAYSIZE(FatalFury1_A_Bosses_PALETTES) },
 };
 
 const sDescTreeNode FatalFury1_A_EFFECTS_COLLECTION[] =
 {
-   { L"Palettes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_Effects_PALETTES, ARRAYSIZE(FatalFury1_A_Effects_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_Effects_PALETTES, ARRAYSIZE(FatalFury1_A_Effects_PALETTES) },
 };
 
 const sDescTreeNode FatalFury1_A_PORTRAITS_COLLECTION[] =
 {
-   { L"Palettes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_Portraits_PALETTES, ARRAYSIZE(FatalFury1_A_Portraits_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_Portraits_PALETTES, ARRAYSIZE(FatalFury1_A_Portraits_PALETTES) },
 };
 
 const sDescTreeNode FatalFury1_A_BONUS_COLLECTION[] =
 {
-   { L"Stage Shadows", DESC_NODETYPE_TREE, (void*)FatalFury1_A_BONUS_StageShadows_PALETTES, ARRAYSIZE(FatalFury1_A_BONUS_StageShadows_PALETTES) },
-   { L"Bonus Games", DESC_NODETYPE_TREE, (void*)FatalFury1_A_BONUS_GAMES_PALETTES, ARRAYSIZE(FatalFury1_A_BONUS_GAMES_PALETTES) },
-   { L"Cutscenes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_BONUS_Cutscenes_PALETTES, ARRAYSIZE(FatalFury1_A_BONUS_Cutscenes_PALETTES) },
+    { L"Pao Pao Cafe Stage", DESC_NODETYPE_TREE, (void*)FatalFury1_A_BONUS_StagePaoPao_PALETTES, ARRAYSIZE(FatalFury1_A_BONUS_StagePaoPao_PALETTES) },
+    { L"Stage Shadows", DESC_NODETYPE_TREE, (void*)FatalFury1_A_BONUS_StageShadows_PALETTES, ARRAYSIZE(FatalFury1_A_BONUS_StageShadows_PALETTES) },
+    { L"Bonus Games", DESC_NODETYPE_TREE, (void*)FatalFury1_A_BONUS_GAMES_PALETTES, ARRAYSIZE(FatalFury1_A_BONUS_GAMES_PALETTES) },
+    { L"Cutscenes", DESC_NODETYPE_TREE, (void*)FatalFury1_A_BONUS_Cutscenes_PALETTES, ARRAYSIZE(FatalFury1_A_BONUS_Cutscenes_PALETTES) },
 };
 
 const sDescTreeNode FatalFury1_A_UNITS[] =

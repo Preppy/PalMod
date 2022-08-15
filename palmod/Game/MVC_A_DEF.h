@@ -223,26 +223,28 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_LilithMorrigan =
 const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_Morrigan =
 {
     // the morrigan intro and join poses should match her core morrigan palette
-    { SUPP_NODE, 0x05, 9 },
-    { SUPP_NODE, 0x08, 9 },
-    { SUPP_NODE, 0x09, 9,
+    { SUPP_NODE, 0x07, 9 }, // Morrigan Join Pose 1
+    { SUPP_NODE, 0x08, 9,   // Morrigan Join Pose 2
         MOD_WHITE, 1, 1 },
 
     // Morrigan phase-in intro: 4 frames
-    { SUPP_NODE, 0x0a, 9,
+    { SUPP_NODE, 0x09, 9,
             MOD_LUM, 1, 15, 22 },
-    { SUPP_NODE, 0x0b, 9,
+    { SUPP_NODE, 0x0a, 9,
             MOD_LUM, 1, 15, 13 },
-    { SUPP_NODE, 0x0c, 9,
+    { SUPP_NODE, 0x0b, 9,
             MOD_LUM, 1, 15, 7 },
-    { SUPP_NODE, 0x0d, 9 },
+    { SUPP_NODE, 0x0c, 9 },
+
+    { SUPP_NODE | SUPP_NODE_NOCOPY, 0x0d, 9,  // Taunt: share the body and hair, ignore the cloak
+            MOD_COPY, 1, 9, 1 },
 };
 
 const std::vector<std::vector<uint16_t>> paletteBuddy_MVC_MorriganLilith =
 {
     // the lilith join poses should match her core morrigan palette
-    { SUPP_NODE, 0x05, 9 },
-    { SUPP_NODE, 0x06, 9,
+    { SUPP_NODE, 0x04, 9 }, // Lilith Join Pose 1
+    { SUPP_NODE, 0x05, 9,   // Lilith Join Pose 2
         MOD_WHITE, 1, 1 }
 };
 
@@ -1207,10 +1209,9 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
     { L"P1 Soul Eraser 1", 0x4edE2, 0x4ee02, indexCPS2Sprites_Morrigan, 11 },
     { L"P1 Soul Eraser 2", 0x4ee02, 0x4ee22, indexCPS2Sprites_Morrigan, 11 },
 
-    { L"Morrigan Intro Pose", 0x4ee82, 0x4eeA2, indexCPS2Sprites_Morrigan, 13 },
-    { L"Lilith Join Pose", 0x4eeA2, 0x4eeC2, indexCPS2Sprites_Morrigan, 12 },
+    { L"Lilith Join Pose 1", 0x4eeA2, 0x4eeC2, indexCPS2Sprites_Morrigan, 12 },
     { L"Lilith Join Pose 2", 0x4eeC2, 0x4eEE2, indexCPS2Sprites_Morrigan, 12 },
-    { L"Morrigan Join Pose", 0x4eee2, 0x4ef02, indexCPS2Sprites_Morrigan, 13 },
+    { L"Morrigan Join Pose 1", 0x4eee2, 0x4ef02, indexCPS2Sprites_Morrigan, 13 },
     { L"Morrigan Join Pose 2", 0x4ef02, 0x4ef22, indexCPS2Sprites_Morrigan, 13 },
     { L"Morrigan Intro Frame 1", 0x4ef42, 0x4eF62, indexCPS2Sprites_Morrigan, 13 },
     { L"Morrigan Intro Frame 2", 0x4ef62, 0x4eF82, indexCPS2Sprites_Morrigan, 13 },
@@ -1228,10 +1229,10 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
     { L"P2 Soul Eraser 1", 0x4ee42, 0x4ee62, indexCPS2Sprites_Morrigan, 11 },
     { L"P2 Soul Eraser 2", 0x4ee62, 0x4ee82, indexCPS2Sprites_Morrigan, 11 },
 
-    { L"Lilith P2 Join Pose", 0x4f002, 0x4f022, indexCPS2Sprites_Morrigan, 12 },
+    { L"Lilith P2 Join Pose 1", 0x4f002, 0x4f022, indexCPS2Sprites_Morrigan, 12 },
     { L"Lilith P2 Join Pose 2", 0x4f022, 0x4f042, indexCPS2Sprites_Morrigan, 12 },
-    { L"Morrigan P2 Join Pose", 0x4f042, 0x4f062, indexCPS2Sprites_Morrigan, 13 },
-    { L"Morrigan P2 Join Pose", 0x4f062, 0x4f082, indexCPS2Sprites_Morrigan, 13 },
+    { L"Morrigan P2 Join Pose 1", 0x4f042, 0x4f062, indexCPS2Sprites_Morrigan, 13 },
+    { L"Morrigan P2 Join Pose 2", 0x4f062, 0x4f082, indexCPS2Sprites_Morrigan, 13 },
     { L"Morrigan Intro Frame 1", 0x4f0A2, 0x4f0C2, indexCPS2Sprites_Morrigan, 13 },
     { L"Morrigan Intro Frame 2", 0x4f0C2, 0x4f0E2, indexCPS2Sprites_Morrigan, 13 },
     { L"Morrigan Intro Frame 3", 0x4f0E2, 0x4f102, indexCPS2Sprites_Morrigan, 13 },
@@ -1241,7 +1242,6 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
 {
-    // There isn't a direct p2 pair for this: ... ?
     { L"Eternal Slumber Heart 1 (Shared)", 0x4f122, 0x4f142 },
     { L"Eternal Slumber Heart 2 (Shared)", 0x4f142, 0x4f162 },
 
@@ -1255,16 +1255,19 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
     { L"Eternal Slumber XXX 8 (Shared)", 0x4f242, 0x4f262 },
 
     { L"Eternal Slumber Background", 0x424A6, 0x424E6 },
+
+    // There isn't a direct p2 pair for this: ... ?
+    { L"Morrigan (Unused)", 0x4ee82, 0x4eeA2, indexCPS2Sprites_Morrigan, 13 },
 };
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
 {
-    { L"P1 Color", 0x493a2, 0x493c2, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCLilithPalettes },
-    { L"P1 Morrigan 1", 0x493c2, 0x493e2, indexCPS2Sprites_Morrigan, 1, nullptr, &secondaryMVCLilithMorriganPalettes },
+    { L"P1 Color", 0x493a2, 0x493c2, indexCPS2Sprites_Morrigan, 0x01, nullptr, &secondaryMVCLilithPalettes },
+    { L"P1 Morrigan 1", 0x493c2, 0x493e2, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCLilithMorriganPalettes },
     { L"P1 Extra 2", 0x493e2, 0x49402, indexCPS2Sprites_Morrigan, 2 },
-    { L"Morrigan P1 Join Pose", 0x4FB62, 0x4FB82, indexCPS2Sprites_Morrigan, 12 },
+    { L"Morrigan P1 Join Pose 1", 0x4FB62, 0x4FB82, indexCPS2Sprites_Morrigan, 12 },
     { L"Morrigan P1 Join Pose 2", 0x4FB82, 0x4FBa2, indexCPS2Sprites_Morrigan, 12 },
-    { L"P1 Lilith Join Pose", 0x4FBA2, 0x4FBC2, indexCPS2Sprites_Morrigan, 13 },
+    { L"P1 Lilith Join Pose 1", 0x4FBA2, 0x4FBC2, indexCPS2Sprites_Morrigan, 13 },
     { L"P1 Lilith Join Pose 2", 0x4FBC2, 0x4FBE2, indexCPS2Sprites_Morrigan, 13 },
     { L"Lilith Intro Frame 1", 0x4fc02, 0x4fc22, indexCPS2Sprites_Morrigan, 13 },
     { L"Lilith Intro Frame 2", 0x4fc22, 0x4fc42, indexCPS2Sprites_Morrigan, 13 },
@@ -1275,12 +1278,12 @@ const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P2[] =
 {
-    { L"P2 Color", 0x49402, 0x49422, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCLilithPalettes },
-    { L"P2 Morrigan 1", 0x49422, 0x49442, indexCPS2Sprites_Morrigan, 1, nullptr, &secondaryMVCLilithMorriganPalettes },
+    { L"P2 Color", 0x49402, 0x49422, indexCPS2Sprites_Morrigan, 0x01, nullptr, &secondaryMVCLilithPalettes },
+    { L"P2 Morrigan 1", 0x49422, 0x49442, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCLilithMorriganPalettes },
     { L"P2 Extra 2", 0x49442, 0x49462, indexCPS2Sprites_Morrigan, 2 },
-    { L"Morrigan P2 Join Pose", 0x4fcc2, 0x4fce2, indexCPS2Sprites_Morrigan, 12 },
+    { L"Morrigan P2 Join Pose 1", 0x4fcc2, 0x4fce2, indexCPS2Sprites_Morrigan, 12 },
     { L"Morrigan P2 Join Pose 2", 0x4fce2, 0x4fd02, indexCPS2Sprites_Morrigan, 12 },
-    { L"P2 Lilith Join Pose", 0x4fd02, 0x4fd22, indexCPS2Sprites_Morrigan, 13 },
+    { L"P2 Lilith Join Pose 1", 0x4fd02, 0x4fd22, indexCPS2Sprites_Morrigan, 13 },
     { L"P2 Lilith Join Pose 2", 0x4fd22, 0x4fd42, indexCPS2Sprites_Morrigan, 13 },
     { L"Lilith Intro Frame 1", 0x4fd62, 0x4fd82, indexCPS2Sprites_Morrigan, 13 },
     { L"Lilith Intro Frame 2", 0x4fd82, 0x4fda2, indexCPS2Sprites_Morrigan, 13 },
