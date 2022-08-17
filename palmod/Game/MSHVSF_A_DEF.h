@@ -1767,7 +1767,7 @@ const sGame_PaletteDataset MSHVSF_A_BONUS_7bBONUS_PALETTES[] =
     { L"Win Screen Border", 0x1fac, 0x1fec, indexCPS2Sprites_MSHVSFAssets, 0x42 },
     { L"Win Screen BG", 0xa0fc, 0xa13c, indexCPS2Sprites_MSHVSFAssets, 0x41 },
 
-    { L"VS Screen FB # 1", 0x75dc, 0x761c, indexCPS2Sprites_MSHVSFAssets, 0x25 },
+    { L"VS Screen FB # 1", 0x75fc, 0x761c, indexCPS2Sprites_MSHVSFAssets, 0x25 },
     { L"VS Screen VS Text 1", 0x7b7c, 0x7b9c, indexCPS2Sprites_MSHVSFAssets, 0x24 },
     { L"VS Screen VS Text 2", 0x7b9c, 0x7bbc, indexCPS2Sprites_MSHVSFAssets, 0x24 },
     { L"VS Screen VS Text 3", 0x7bbc, 0x7bdc, indexCPS2Sprites_MSHVSFAssets, 0x24 },

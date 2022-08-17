@@ -171,9 +171,12 @@ public:
     
     void SetZoom(double fpNewZoom)
     {
-        m_fpZoom = fpNewZoom;
-        ModifySrcRect();
-        Redraw();
+        if (fpNewZoom != 0)
+        {
+            m_fpZoom = fpNewZoom;
+            ModifySrcRect();
+            Redraw();
+        }
     };
 
     double GetZoom() { return m_fpZoom; };

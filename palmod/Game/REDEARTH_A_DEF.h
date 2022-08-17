@@ -1457,6 +1457,16 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
     { L"\"Winners Don't Use Drugs\"", 0x320000, 0x320080, indexRedEarthSprites_Bonus, 0x3d },
 };
 
+const sGame_PaletteDataset REDEARTH_A_31_ENDING_DERMINOR_PALETTES[] =
+{
+    { L"Generic Ending Derminor BG", 0x3f5480, 0x3f5500, indexRedEarthSprites_Bonus, -1, &pairFullyLinkedNode },
+    { L"Generic Ending Derminor 1", 0x3f5280, 0x3f5300, indexRedEarthSprites_Bonus, -1 },
+    { L"Generic Ending Derminor 2", 0x3f5300, 0x3f5380, indexRedEarthSprites_Bonus, -1 },
+    { L"Generic Ending Derminor 3", 0x3f5380, 0x3f5400, indexRedEarthSprites_Bonus, -1 },
+    { L"Generic Ending Derminor 4", 0x3f5400, 0x3f5480, indexRedEarthSprites_Bonus, -1 },
+    { L"Generic Ending Derminor Sunshine", 0x3f5200, 0x3f5280, indexRedEarthSprites_Bonus, -1 },
+};
+
 const sGame_PaletteDataset REDEARTH_A_31_BONUS_RANKING_PALETTES[] =
 {
     { L"Ranking Background & Portrait 1", 0x1e7800, 0x1e7880, indexRedEarthSprites_Bonus, 0x3E },
@@ -1667,6 +1677,7 @@ const sDescTreeNode REDEARTH_A_31_INTRO_COLLECTION[] =
 const sDescTreeNode REDEARTH_A_31_ENDINGS_COLLECTION[] =
 {
     { L"Generic Endings", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_PALETTES) },
+    { L"Generic Ending: Derminor", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_DERMINOR_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_DERMINOR_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_31_MAP_COLLECTION[] =

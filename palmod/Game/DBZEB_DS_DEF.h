@@ -674,14 +674,14 @@ const sDescTreeNode DBZEB_DS_KIDGOHAN_COLLECTION[] =
 
 const sGame_PaletteDataset DBZEB_DS_KIDGOHANSS2_P1[] =
 {
-    { L"Kid Gohan (Super Saiyan 2) P1",            0x24c4d20, 0x24c5120, indexDBZEB_KidGohan, 0x00 },
-    { L"Kid Gohan (Super Saiyan 2) P1 (Unused?)",  0x24c1760, 0x24c1b60, indexDBZEB_KidGohan, 0x00 },
+    { L"Kid Gohan (Super Saiyan 2) P1",            0x24c4d20, 0x24c5120, indexDBZEB_KidGohanSSJ2, 0x00 },
+    { L"Kid Gohan (Super Saiyan 2) P1 (Unused?)",  0x24c1760, 0x24c1b60, indexDBZEB_KidGohanSSJ2, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_KIDGOHANSS2_P2[] =
 {
-    { L"Kid Gohan (Super Saiyan 2) P2",            0x24c5130, 0x24c5530, indexDBZEB_KidGohan, 0x00 },
-    { L"Kid Gohan (Super Saiyan 2) P2 (Unused?)",  0x24c1b70, 0x24c1f70, indexDBZEB_KidGohan, 0x00 },
+    { L"Kid Gohan (Super Saiyan 2) P2",            0x24c5130, 0x24c5530, indexDBZEB_KidGohanSSJ2, 0x00 },
+    { L"Kid Gohan (Super Saiyan 2) P2 (Unused?)",  0x24c1b70, 0x24c1f70, indexDBZEB_KidGohanSSJ2, 0x00 },
 };
 
 const sGame_PaletteDataset DBZEB_DS_KIDGOHANSS2_EXTRAS[] =

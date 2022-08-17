@@ -65,7 +65,7 @@ CGame_VampireNightWarriors_A::CGame_VampireNightWarriors_A(uint32_t nConfirmedRO
         nUnitAmt = VampireNightWarriors_A_NUMUNIT_04 + (GetExtraCt(VampireNightWarriors_A_EXTRALOC_04) ? 1 : 0);
         m_nTotalInternalUnits = VampireNightWarriors_A_NUMUNIT_04;
         m_nExtraUnit = VampireNightWarriors_A_EXTRALOC_04;
-        m_nSafeCountForThisRom = 59 + GetExtraCt(VampireNightWarriors_A_EXTRALOC_04);
+        m_nSafeCountForThisRom = 61 + GetExtraCt(VampireNightWarriors_A_EXTRALOC_04);
         m_pszExtraFilename = EXTRA_FILENAME_VampireNightWarriors_04;
         m_nTotalPaletteCount = m_nTotalPaletteCountForVampireNightWarriors_04;
 
