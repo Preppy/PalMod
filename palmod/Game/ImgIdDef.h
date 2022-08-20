@@ -2124,6 +2124,8 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_MBTL_MarioNuns,         // 0x7b
 
     indexFrenchBreadSprites_MBTL_Bonus,             // 0x7c
+    indexFrenchBreadSprites_MBTL_Mash,              // 0x7d
+    indexFrenchBreadSprites_MBTL_Neco,              // 0x7e
 };
 
 enum SupportedTaito_PaletteListIndex

@@ -32,6 +32,9 @@ const std::vector<uint16_t> MBTL_A_IMGIDS_USED =
     indexFrenchBreadSprites_MBTL_MarioNuns,         // 0x7b
 
     indexFrenchBreadSprites_MBTL_Bonus,             // 0x7c
+
+    indexFrenchBreadSprites_MBTL_Mash,              // 0x7d
+    indexFrenchBreadSprites_MBTL_Neco,              // 0x7e
 };
 
 struct MBTLNodeData
@@ -163,11 +166,11 @@ std::vector <MBTLFileData> MBTLCharacterData =
     { L"data\\_csel\\Chr001.pal",       L"Hisui",                                  61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Hisui },
     { L"data\\_csel\\Chr004.pal",       L"Kohaku",                                 61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Kohaku },
     { L"data\\_csel\\Chr006.pal",       L"Kouma Kishima",                          61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Kouma },
-    //{ L"data\\_csel\\Chr020.pal",       L"Mash Kyrielight",                        61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario },
+    { L"data\\_csel\\Chr020.pal",       L"Mash Kyrielight",                        61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mash },
     { L"data\\_csel\\Chr017.pal",       L"Mario Gallo Bestino",                    61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario },
     { L"data\\_csel\\Chr013.pal",       L"Miyako Arima",                           61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Miyako },
     { L"data\\_csel\\Chr008.pal",       L"Noel",                                   61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Noel },
-    { L"data\\_csel\\Chr019.pal",       L"Neco-Arc",                               77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Noel },
+    { L"data\\_csel\\Chr019.pal",       L"Neco-Arc",                               77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco },
     { L"data\\_csel\\Chr016.pal",       L"Powered Ciel",                           61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_PoweredCiel },
     { L"data\\_csel\\Chr010.pal",       L"Red Arcueid",                            61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_RedArcueid },
     { L"data\\_csel\\Chr005.pal",       L"Roa",                                    61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Roa },
@@ -181,6 +184,9 @@ std::vector <MBTLFileData> MBTLCharacterData =
     { L"data\\_csel\\Chr018.pal",       L"Mario (Main Sister)",                    61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x03 },
     { L"data\\chr017\\Chr017_p1.pal",   L"Mario (Assist Sister)",                  61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x02 },
     { L"data\\chr017\\Chr017_p2.pal",   L"Noel (Mario Arc Drive)",                 61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x01 },
+    { L"data\\chr019\\Chr019_p1.pal",   L"Eco-Arc (Neco-Arc Summmon)",             77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x03 },
+    { L"data\\chr019\\Chr019_p2.pal",   L"Saber (Neco-Arc Summmon)",               77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x02 },
+    { L"data\\chr019\\Chr019_p3.pal",   L"Neco-Arc (Last Arc Rocket)",             77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x01 },
 };
 
 CGame_MBTL_A::CGame_MBTL_A(uint32_t nConfirmedROMSize /* = -1 */)
