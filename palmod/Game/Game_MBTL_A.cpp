@@ -184,8 +184,8 @@ std::vector <MBTLFileData> MBTLCharacterData =
     { L"data\\_csel\\Chr018.pal",       L"Mario (Main Sister)",                    61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x03 },
     { L"data\\chr017\\Chr017_p1.pal",   L"Mario (Assist Sister)",                  61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x02 },
     { L"data\\chr017\\Chr017_p2.pal",   L"Noel (Mario Arc Drive)",                 61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x01 },
-    { L"data\\chr019\\Chr019_p1.pal",   L"Eco-Arc (Neco-Arc Summmon)",             77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x03 },
-    { L"data\\chr019\\Chr019_p2.pal",   L"Saber (Neco-Arc Summmon)",               77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x02 },
+    { L"data\\chr019\\Chr019_p1.pal",   L"Eco-Arc (Neco-Arc Summon)",              77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x03 },
+    { L"data\\chr019\\Chr019_p2.pal",   L"Saber (Neco-Arc Summmon)",               77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Saber },
     { L"data\\chr019\\Chr019_p3.pal",   L"Neco-Arc (Last Arc Rocket)",             77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x01 },
 };
 

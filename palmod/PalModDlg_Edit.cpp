@@ -304,6 +304,7 @@ void CPalModDlg::OnEditCopy()
         case ColMode::COLMODE_RGBA8881_32STEPS:
         case ColMode::COLMODE_GRB555_LE:
         case ColMode::COLMODE_BGRA8888:
+        case ColMode::COLMODE_BGR555_BE:
         default:
             {
                 // OK, this overflows the 127 character ascii table we use.

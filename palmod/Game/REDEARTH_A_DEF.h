@@ -127,11 +127,13 @@ const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
 {
-    { L"Leo Character Select",               0x1DF200, 0x1DF280, indexRedEarthSprites_Leo, 0x11 },
+    { L"Leo Character Not Selected",         0x1DF200, 0x1DF280, indexRedEarthSprites_Leo, 0x11 },
     { L"Leo Character Selected",             0x1DEB80, 0x1DEC00, indexRedEarthSprites_Leo, 0x11 },
     { L"Leo Character Select Portrait",      0x1DEF00, 0x1DEF80, indexRedEarthSprites_Leo, 0x12 },
     { L"P1 Leo Character Select Portrait Highlighted", 0x1E0D80, 0x1E0E00, indexRedEarthSprites_Leo, 0x11 },
     { L"P2 Leo Character Select Portrait Highlighted", 0x1E2F80, 0x1E3000, indexRedEarthSprites_Leo, 0x11 },
+    { L"Leo Character Not Selected P1", 0x1e1400, 0x1e1480, indexRedEarthSprites_Leo, 0x11 },
+    { L"Leo Character Not Selected P2", 0x1e3600, 0x1e3680, indexRedEarthSprites_Leo, 0x11 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
@@ -220,11 +222,13 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
 {
-    { L"Kenji Character Select",                 0x1DF380, 0x1DF400, indexRedEarthSprites_Kenji, 0x11 },
+    { L"Kenji Character Not Selected",           0x1DF380, 0x1DF400, indexRedEarthSprites_Kenji, 0x11 },
     { L"Kenji Character Selected",               0x1DED00, 0x1DED80, indexRedEarthSprites_Kenji, 0x11 },
     { L"Kenji Character Select Portrait",        0x1DF000, 0x1DF080, indexRedEarthSprites_Kenji, 0x12 },
     { L"P1 Kenji Character Select Portrait Highlighted", 0x1E0F00, 0x1E0F80, indexRedEarthSprites_Kenji, 0x11 },
     { L"P2 Kenji Character Select Portrait Highlighted", 0x1E3100, 0x1E3180, indexRedEarthSprites_Kenji, 0x11 },
+    { L"Kenji Character Not Selected P1", 0x1e1580, 0x1e1600, indexRedEarthSprites_Kenji, 0x11 },
+    { L"Kenji Character Not Selected P2", 0x1e3780, 0x1e3800, indexRedEarthSprites_Kenji, 0x11 },
 
     { L"Shogun Credits", 0x424880, 0x424900, indexRedEarthSprites_Kenji, 0x22 },
 };
@@ -378,11 +382,13 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
 {
-    { L"Tessa Character Select",                 0x1DF180, 0x1DF200, indexRedEarthSprites_Tessa, 0x11 },
+    { L"Tessa Character Not Selected",           0x1DF180, 0x1DF200, indexRedEarthSprites_Tessa, 0x11 },
     { L"Tessa Character Selected",               0x1DEB00, 0x1DEB80, indexRedEarthSprites_Tessa, 0x11 },
     { L"Tessa Character Select Portrait ",       0x1DEF80, 0x1DF000, indexRedEarthSprites_Tessa, 0x12 },
     { L"P1 Tessa Character Select Portrait Highlighted", 0x1E0D00, 0x1E0D80, indexRedEarthSprites_Tessa, 0x11 },
     { L"P2 Tessa Character Select Portrait Highlighted", 0x1E2F00, 0x1E2F80, indexRedEarthSprites_Tessa, 0x11 },
+    { L"Tessa Character Not Selected P1", 0x1e1380, 0x1e1400, indexRedEarthSprites_Tessa, 0x11 },
+    { L"Tessa Character Not Selected P2", 0x1e3580, 0x1e3600, indexRedEarthSprites_Tessa, 0x11 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
@@ -451,11 +457,13 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
 {
-    { L"Mai-Ling Character Select",          0x1DF300, 0x1DF380, indexRedEarthSprites_MaiLing, 0x11 },
+    { L"Mai-Ling Character Not Selected",    0x1DF300, 0x1DF380, indexRedEarthSprites_MaiLing, 0x11 },
     { L"Mai-Ling Character Selected",        0x1DEC80, 0x1DED00, indexRedEarthSprites_MaiLing, 0x11 },
     { L"Mai-Ling Character Select Portrait", 0x1DF080, 0x1DF100, indexRedEarthSprites_MaiLing, 0x12 },
     { L"P1 Mai-Ling Character Select Portrait Highlighted", 0x1E0E80, 0x1E0F00, indexRedEarthSprites_MaiLing, 0x11 },
     { L"P2 Mai-Ling Character Select Portrait Highlighted", 0x1E3080, 0x1E3100, indexRedEarthSprites_MaiLing, 0x11 },
+    { L"Mai Character Not Selected P1", 0x1e1500, 0x1e1580, indexRedEarthSprites_MaiLing, 0x11 },
+    { L"Mai Character Not Selected P2", 0x1e3700, 0x1e3780, indexRedEarthSprites_MaiLing, 0x11 },
 };
 
 //Bosses
@@ -1051,6 +1059,8 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Red Earth 1st Logo Cycle 16/17", 0x406ea0, 0x406ec0, indexRedEarthSprites_Bonus, 0x20 },
     { L"Red Earth 1st Logo Cycle 17/17", 0x406ec0, 0x406ee0, indexRedEarthSprites_Bonus, 0x20 },
 
+    { L"Red Earth Made Out Of Fireworks", 0x323ca0, 0x323d20 },
+
     { L"Red Earth Logo Lion Thunderstrike", 0x323da0, 0x323e20 },
     { L"Red Earth Logo Text Thunderstrike", 0x323e20, 0x323ea0 },
 
@@ -1123,70 +1133,22 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Leo Cinematic 2 Rise and Slash BG", 0x322620, 0x3226a0, indexRedEarthSprites_Bonus, 0x54 },
 
     // { L"Intro - RaS BG 1", 0x322ea0, 0x322f00 }, obsolete?
-    { L"Intro-Leo.S.BG1", 0x322f20, 0x322f40 },
-    { L"Intro-Leo.S.BG2", 0x322f40, 0x322f60 },
-    { L"Intro-Leo.S.BG3", 0x322f60, 0x322f80 },
-    { L"Intro-Leo.S.BG4", 0x322f80, 0x322fa0 },
-    { L"Intro-Leo.S.BG5", 0x322fa0, 0x322fc0 },
-    { L"Intro-Leo.S.BG6", 0x322fc0, 0x322fe0 },
-    { L"Intro-Leo.S.BG7", 0x322fe0, 0x323000 },
-    { L"Intro-Leo.S.BG8", 0x323000, 0x323020 },
-    { L"Intro-Leo.S.BG9", 0x323020, 0x323040 },
-    { L"Intro-Leo.S.BG10", 0x323040, 0x323060 },
-    { L"Intro-Leo.S.BG11", 0x323060, 0x323080 },
-    { L"Intro-Leo.S.BG12", 0x323080, 0x3230a0 },
-    { L"Intro-Leo.S.BG13", 0x3230a0, 0x3230c0 },
-    { L"Intro-Leo.S.BG14", 0x3230c0, 0x3230e0 },
-    { L"Intro-Leo.S.BG14", 0x3230e0, 0x323100 },
-    { L"Intro-Leo.S.BG16", 0x323100, 0x323120 },
-    { L"Intro-Leo.S.BG17", 0x323120, 0x323140 },
-    { L"Intro-Leo.S.BG18", 0x323140, 0x323160 },
-    { L"Intro-Leo.S.BG19", 0x323160, 0x323180 },
-    { L"Intro-Leo.S.BG20", 0x323180, 0x3231a0 },
-    { L"Intro-Leo.S.BG21", 0x3231a0, 0x3231c0 },
-    { L"Intro-Leo.S.BG22", 0x3231c0, 0x3231e0 },
-    { L"Intro-Leo.S.BG23", 0x3231e0, 0x323200 },
-    { L"Intro-Leo.S.BG24", 0x323200, 0x323220 },
-    { L"Intro-Leo.S.BG25", 0x323220, 0x323240 },
-    { L"Intro-Leo.S.BG26", 0x323240, 0x323260 },
-    { L"Intro-Leo.S.BG27", 0x323260, 0x323280 },
-    { L"Intro-Leo.S.BG28", 0x323280, 0x3232a0 },
-    { L"Intro-Leo.S.BG29", 0x3232a0, 0x3232c0 },
-    { L"Intro-Leo.S.BG30", 0x3232c0, 0x3232e0 },
-    { L"Intro-Leo.S.BG31", 0x3232e0, 0x323300 },
-    { L"Intro-Leo.S.BG32", 0x323300, 0x323320 },
-    { L"Intro-Leo.S.BG33", 0x323320, 0x323340 },
-    { L"Intro-Leo.S.BG34", 0x323340, 0x323360 },
-    { L"Intro-Leo.S.BG35", 0x323360, 0x323380 },
-    { L"Intro-Leo.S.BG36", 0x323380, 0x3233a0 },
-    { L"Intro-Leo.S.BG37", 0x3233a0, 0x3233c0 },
-    { L"Intro-Leo.S.BG38", 0x3233c0, 0x3233e0 },
-    { L"Intro-Leo.S.BG39", 0x3233e0, 0x323400 },
-    { L"Intro-Leo.S.BG40", 0x323400, 0x323420 },
-    { L"Intro-Leo.S.BG41", 0x323420, 0x323440 },
-    { L"Intro-Leo.S.BG42", 0x323440, 0x323460 },
-    { L"Intro-Leo.S.BG43", 0x323460, 0x323480 },
-    { L"Intro-Leo.S.BG44", 0x323480, 0x3234a0 },
-    { L"Intro-Leo.S.BG45", 0x3234a0, 0x3234c0 },
-    { L"Intro-Leo.S.BG46", 0x3234c0, 0x3234e0 },
-    { L"Intro-Leo.S.BG47", 0x3234e0, 0x323500 },
-    { L"Intro-Leo.S.BG48", 0x323500, 0x323520 },
-    { L"Intro-Leo.S.BG49", 0x323520, 0x323540 },
-    { L"Intro-Leo.S.BG50", 0x323540, 0x323560 },
-    { L"Intro-Leo.S.BG51", 0x323560, 0x323580 },
-    { L"Intro-Leo.S.BG52", 0x323580, 0x3235a0 },
-    { L"Intro-Leo.S.BG53", 0x3235a0, 0x3235c0 },
-    { L"Intro-Leo.S.BG54", 0x3235c0, 0x3235e0 },
-    { L"Intro-Leo.S.BG55", 0x3235e0, 0x323600 },
-    { L"Intro-Leo.S.BG56", 0x323600, 0x323620 },
-    { L"Intro-Leo.S.BG57", 0x323620, 0x323640 },
-    { L"Intro-Leo.S.BG58", 0x323640, 0x323660 },
-    { L"Intro-Leo.S.BG59", 0x323660, 0x323680 },
-    { L"Intro-Leo.S.BG60", 0x323680, 0x3236a0 },
-    { L"Intro-Leo.S.BG61", 0x3236a0, 0x3236c0 },
-    { L"Intro-Leo.S.BG62", 0x3236c0, 0x3236e0 },
-    { L"Intro-Leo.S.BG63", 0x3236e0, 0x323700 },
-    { L"Intro-Leo.S.BG64", 0x323700, 0x323720 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 1", 0x322f20, 0x322fa0 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 2", 0x322fa0, 0x323020 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 3", 0x323020, 0x3230a0 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 4", 0x3230a0, 0x323120 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 5", 0x323120, 0x3231a0 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 6", 0x3231a0, 0x323220 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 7", 0x323220, 0x3232a0 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 8", 0x3232a0, 0x323320 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 9", 0x323320, 0x3233a0 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 10", 0x3233a0, 0x323420 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 11", 0x323420, 0x3234a0 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 12", 0x3234a0, 0x323520 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 13", 0x323520, 0x3235a0 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 14", 0x3235a0, 0x323620 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 15", 0x323620, 0x3236a0 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 16", 0x3236a0, 0x323720 },
 
     { L"Mini Capcom Logo", 0x406be0, 0x406c00, indexRedEarthSprites_Bonus, 0x39 },
     { L"Mini Red Earth Logo", 0x406fa0, 0x406fc0, indexRedEarthSprites_Bonus, 0x3b },
@@ -1530,7 +1492,7 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Tessa Kick Pixies", 0x41be80, 0x41bf00 },
     { L"Tessa Kick Pixies Changing Pal", 0x41bf00, 0x41bf80 },
 
-    { L"Unused Vigo, Valu, Vestu", 0x421f80, 0x422000 },
+    { L"Unused Vigo, Valo, Vestu", 0x421f80, 0x422000 },
     { L"Unused Vigo, Valo, Vestu Punch", 0x408900, 0x408980 },
     { L"Unused Vigo, Valo, Vestu Kick", 0x415100, 0x415180 },
     { L"Unused Wisemen Mist 1", 0x421100, 0x421180 },
@@ -1565,16 +1527,6 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Tessa Character Select Portrait P2", 0x1e3380, 0x1e3400 },
     { L"Kenji Character Select Portrait P2", 0x1e3400, 0x1e3480 },
     { L"Mai-Ling Character Select Portrait P2", 0x1e3480, 0x1e3500 },
-
-    // Full Body Portraits Transparency (Unused)
-    { L"Tessa Character Not Selected P1", 0x1e1380, 0x1e1400 },
-    { L"Leo Character Not Selected P1", 0x1e1400, 0x1e1480 },
-    { L"Mai Character Not Selected P1", 0x1e1500, 0x1e1580 },
-    { L"Kenji Character Not Selected P1", 0x1e1580, 0x1e1600 },
-    { L"Tessa Character Not Selected P2", 0x1e3580, 0x1e3600 },
-    { L"Leo Character Not Selected P2", 0x1e3600, 0x1e3680 },
-    { L"Mai Character Not Selected P2", 0x1e3700, 0x1e3780 },
-    { L"Kenji Character Not Selected P2", 0x1e3780, 0x1e3800 },
 
     // Unused(just why)
     { L"\"Continue ?\" Backgrounds P1", 0x1e1d80, 0x1e1e00 },

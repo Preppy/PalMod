@@ -103,7 +103,7 @@ BOOL CPalGroup::AddPal(COLORREF* pPal, uint16_t uPalSz, uint32_t uUnitId, uint32
         return FALSE;
     }
 
-     sPalDef* CurrPal = &rgPalettes[m_nCurrPalAmt];
+    sPalDef* CurrPal = &rgPalettes[m_nCurrPalAmt];
 
     //Init the basics of the palette
     CurrPal->pPal = pPal;

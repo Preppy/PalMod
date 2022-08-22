@@ -41,6 +41,9 @@ namespace ColorSystem
     {
         switch (colorMode)
         {
+        default:
+            OutputDebugString(L"ERROR: Unsupported color mode: this will not work correctly.\r\n");
+            __fallthrough;
         case ColMode::COLMODE_BGR333:
         case ColMode::COLMODE_RBG333:
         case ColMode::COLMODE_RGB333:
@@ -52,6 +55,7 @@ namespace ColorSystem
         case ColMode::COLMODE_RGB444_LE:
 
         case ColMode::COLMODE_BGR555_LE:
+        case ColMode::COLMODE_BGR555_BE:
         case ColMode::COLMODE_RGB555_LE:
         case ColMode::COLMODE_RGB555_BE:
         case ColMode::COLMODE_RGB555_SHARP:
@@ -233,6 +237,7 @@ namespace ColorSystem
             return k_nRGBPlaneAmtForRGB444;
 
         case ColMode::COLMODE_BGR555_LE:
+        case ColMode::COLMODE_BGR555_BE:
         case ColMode::COLMODE_RGB555_LE:
         case ColMode::COLMODE_RGB555_BE:
         case ColMode::COLMODE_GRB555_LE:
@@ -278,6 +283,7 @@ namespace ColorSystem
         case ColMode::COLMODE_RGB888:
             return k_nRGBPlaneAmtForRGB888;
         default:
+            OutputDebugString(L"ERROR: unsupported color mode in GetPlaneAmtForColor.\r\n");
             return 0;
         }
     }
