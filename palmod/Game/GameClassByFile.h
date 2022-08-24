@@ -1,6 +1,11 @@
 #include "gameclass.h"
 #include "..\extrafile.h"
 
+// This game class implementation is for usage with a game that has each palette unit associated with a specific file.
+// Consider the Dreamcast/PS2 versions of MvC2, where each character is its own PLxx.pl file.
+// Each unit is associated back to one file.  You can have multiple units sourcing back to the same file, but it is a unique
+// load and save each time.
+
 struct sGameUnitsByFile
 {
     std::wstring strFileName;

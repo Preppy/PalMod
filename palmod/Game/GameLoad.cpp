@@ -87,6 +87,7 @@
 #include "Game_NINJAMASTERS_A.h"
 #include "Game_P4AU_NESICA.h"
 #include "Game_P4AU_STEAM.h"
+#include "Game_PrimalRage_SNES.h"
 #include "Game_GEMFIGHTER_A.h"
 #include "Game_RanmaCRH_SNES.h"
 #include "Game_RanmaHB_SNES.h"
@@ -143,6 +144,9 @@
 
 #include "..\resource.h"
 #include "..\palmod.h"
+
+// Increment this after you add in the new header above and the relevent game loading functions below.
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 163);
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -720,6 +724,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_P4AU_STEAM::GetRule;
         GetNextRule = &CGame_P4AU_STEAM::GetNextRule;
 
+        return TRUE;
+    }
+    case PrimalRage_SNES:
+    {
+        GetRule = &CGame_PrimalRage_SNES::GetRule;
         return TRUE;
     }
     case RANMACRH_SNES:
@@ -1457,6 +1466,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case P4AU_STEAM:
     {
         return new CGame_P4AU_STEAM(nConfirmedROMSize);
+    }
+    case PrimalRage_SNES:
+    {
+        return new CGame_PrimalRage_SNES(nConfirmedROMSize);
     }
     case RANMACRH_SNES:
     {

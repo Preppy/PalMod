@@ -1,33 +1,32 @@
 #include "StdAfx.h"
-#include "Game_MWarr_A_DIR.h"
+#include "Game_PrimalRage_SNES.h"
 #include "GameDef.h"
 
-const sDirectoryLoadingData MWarrFileLoadingData =
+const sDirectoryLoadingData PrimalRageFileLoadingData =
 {
     {
-        L"prg_ev",
-        L"prg_od"
+        L"Primal Rage (USA).sfc"
     },
-    FileReadType::Interleaved,
-    0x80000
+    FileReadType::Sequential,
+    0x300000
 };
 
-sFileRule CGame_MWarr_A_DIR::GetRule(uint32_t nUnitId)
+sFileRule CGame_PrimalRage_SNES::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", MWarrFileLoadingData.rgstrFileList.at(nUnitId & 0xFF).c_str());
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", PrimalRageFileLoadingData.rgstrFileList.at(nUnitId & 0xFF).c_str());
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
     return NewFileRule;
 }
 
-sFileRule CGame_MWarr_A_DIR::GetNextRule()
+sFileRule CGame_PrimalRage_SNES::GetNextRule()
 {
     sFileRule NewFileRule = GetRule(uRuleCtr++);
 
-    if (uRuleCtr >= MWarrFileLoadingData.rgstrFileList.size())
+    if (uRuleCtr >= PrimalRageFileLoadingData.rgstrFileList.size())
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
@@ -35,21 +34,21 @@ sFileRule CGame_MWarr_A_DIR::GetNextRule()
     return NewFileRule;
 }
 
-CGame_MWarr_A_DIR::CGame_MWarr_A_DIR(uint32_t nConfirmedROMSize)
+CGame_PrimalRage_SNES::CGame_PrimalRage_SNES(uint32_t nConfirmedROMSize)
 {
     //Set game-game specific information before loading the game's known palette locations
-    m_snCurrentGameFlag = nGameFlag = MWARR_A;
-    nImgGameFlag = IMGDAT_SECTION_OTHER;
-    m_prgGameImageSet = MWarr_A_IMGIDS_USED;
+    m_snCurrentGameFlag = nGameFlag = PrimalRage_SNES;
+    nImgGameFlag = IMGDAT_SECTION_SNES;
+    m_prgGameImageSet = PrimalRage_SNES_IMGIDS_USED;
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabelSet = DEF_NOBUTTONS;
+    pButtonLabelSet = DEF_BUTTONLABEL_PRIMALRAGE;
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_BGR555_BE);
+    SetColorMode(ColMode::COLMODE_BGR555_LE);
 
     // Load the game's layout for palmod
-    InitializeStatics(MWarrFileLoadingData, MWarr_A_UNITS, ARRAYSIZE(MWarr_A_UNITS), m_strExtraFileName);
+    InitializeStatics(PrimalRageFileLoadingData, PrimalRage_SNES_UNITS, ARRAYSIZE(PrimalRage_SNES_UNITS), m_strExtraFileName);
 
     // xoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxoxxoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxox
     // Everything after this is boilerplate and doesn't need to be changed.
@@ -83,7 +82,7 @@ CGame_MWarr_A_DIR::CGame_MWarr_A_DIR(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_MWarr_A_DIR::~CGame_MWarr_A_DIR()
+CGame_PrimalRage_SNES::~CGame_PrimalRage_SNES()
 {
     //Get rid of the file changed flag
     ClearDataBuffer();

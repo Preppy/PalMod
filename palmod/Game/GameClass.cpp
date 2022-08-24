@@ -439,6 +439,16 @@ BOOL CGameClass::SetLoadDir(LPCWSTR pszNewDir)
         m_pszLoadDir = new wchar_t[wcslen(pszNewDir) + 1];
         wcscpy(m_pszLoadDir, pszNewDir);
 
+        if (!(GetFileAttributes(pszNewDir) & FILE_ATTRIBUTE_DIRECTORY))
+        {
+            // We probably have a file: try to convert to a folder
+            wchar_t* pszExeFileName = wcsrchr(m_pszLoadDir, L'\\');
+            if (pszExeFileName)
+            {
+                pszExeFileName[0] = 0;
+            }
+        }
+
         return TRUE;
     }
     else

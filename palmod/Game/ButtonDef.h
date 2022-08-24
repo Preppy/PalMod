@@ -216,3 +216,8 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_GGDS =
 {
     L"Special", L"Dust", L"Light", L"Heavy", L"Unused1", L"Unused2"
 };
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_PRIMALRAGE =
+{
+    L"A", L"X+A", L"B+A", L"Y+A"
+};

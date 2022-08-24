@@ -1487,6 +1487,8 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Punch Palette Leo Unused?", 0x414880, 0x414900, indexRedEarthSprites_Leo, 0x00 },
     { L"Kick Palette Leo Unused? ", 0x408080, 0x408100, indexRedEarthSprites_Leo, 0x00 },
 
+    { L"Unused Tessa Palette 1", 0x1e4a80, 0x1e4b00, indexRedEarthSprites_Tessa, 0x00 },
+    { L"Unused Tessa Palette 2", 0x1e4b00, 0x1e4b80, indexRedEarthSprites_Tessa, 0x00 },
     { L"Tessa Punch Pixies", 0x40f680, 0x40f700 },
     { L"Tessa Punch Pixies Changing Pal", 0x40f700, 0x40f780 },
     { L"Tessa Kick Pixies", 0x41be80, 0x41bf00 },
