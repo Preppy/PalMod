@@ -216,7 +216,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgstrFileList.size(); iCurrentFile++)
     {
         CString strNameWithPath;
-        strNameWithPath.Format(L"%s\\%s", GetLoadDir(), m_psCurrentFileLoadingData->rgstrFileList.at(iCurrentFile).c_str());
+        strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgstrFileList.at(iCurrentFile).c_str());
 
         rgFileHandles.at(iCurrentFile) = new CFile;
         
@@ -422,7 +422,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
     for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgstrFileList.size(); iCurrentFile++)
     {
         CString strNameWithPath;
-        strNameWithPath.Format(L"%s\\%s", GetLoadDir(), m_psCurrentFileLoadingData->rgstrFileList.at(iCurrentFile).c_str());
+        strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgstrFileList.at(iCurrentFile).c_str());
 
         rgFileHandles.at(iCurrentFile) = new CFile;
 

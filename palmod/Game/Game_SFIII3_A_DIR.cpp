@@ -326,7 +326,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     CFile FilePeer;
     sFileRule PeerRule = GetNextRuleInternal(m_nSelectedRom);
     CString strPeerFilename;
-    strPeerFilename.Format(L"%s\\%s", GetLoadDir(), PeerRule.szFileName);
+    strPeerFilename.Format(L"%s\\%s", GetLoadedDirPathOnly(), PeerRule.szFileName);
     m_fUseJPNFileNames = false;
 
     BOOL fFileOpened = FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary);
@@ -335,7 +335,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     {
         CString strAltFileName;
 
-        strAltFileName.Format(L"%s\\%s", GetLoadDir(), PeerRule.szAltFileName);
+        strAltFileName.Format(L"%s\\%s", GetLoadedDirPathOnly(), PeerRule.szAltFileName);
         fFileOpened = FilePeer.Open(strAltFileName, CFile::modeRead | CFile::typeBinary);
         m_fUseJPNFileNames = true;
     }
@@ -351,14 +351,14 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
         if (m_fUseJPNFileNames)
         {
-            str12FileName.Format(L"%s\\%s1.2", GetLoadDir(), SFIII_Arcade_JPN_ROM_Base);
+            str12FileName.Format(L"%s\\%s1.2", GetLoadedDirPathOnly(), SFIII_Arcade_JPN_ROM_Base);
             // 1.3 has a different filename for sfiii3n
-            str13FileName.Format(L"%s\\%s1.3a", GetLoadDir(), SFIII_Arcade_JPN_ROM_Base);
+            str13FileName.Format(L"%s\\%s1.3a", GetLoadedDirPathOnly(), SFIII_Arcade_JPN_ROM_Base);
         }
         else
         {
-            str12FileName.Format(L"%s\\%s1.2", GetLoadDir(), SFIII_Arcade_USA_ROM_Base);
-            str13FileName.Format(L"%s\\%s1.3", GetLoadDir(), SFIII_Arcade_USA_ROM_Base);
+            str12FileName.Format(L"%s\\%s1.2", GetLoadedDirPathOnly(), SFIII_Arcade_USA_ROM_Base);
+            str13FileName.Format(L"%s\\%s1.3", GetLoadedDirPathOnly(), SFIII_Arcade_USA_ROM_Base);
         }
 
         fFileOpened = fFileOpened && fileSIMM3.Open(str12FileName, CFile::modeRead | CFile::typeBinary);
@@ -369,9 +369,9 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         // We need all four files for Gill
         CString str10FileName;
 
-        str10FileName.Format(L"%s\\%s1.2", GetLoadDir(), SFIII_Arcade_4rd_ROM_Base);
+        str10FileName.Format(L"%s\\%s1.2", GetLoadedDirPathOnly(), SFIII_Arcade_4rd_ROM_Base);
         fFileOpened = fFileOpened && fileSIMM3.Open(str10FileName, CFile::modeRead | CFile::typeBinary);
-        str10FileName.Format(L"%s\\%s1.3", GetLoadDir(), SFIII_Arcade_4rd_ROM_Base);
+        str10FileName.Format(L"%s\\%s1.3", GetLoadedDirPathOnly(), SFIII_Arcade_4rd_ROM_Base);
         fFileOpened = fFileOpened && fileSIMM4.Open(str10FileName, CFile::modeRead | CFile::typeBinary);
     }
 
@@ -612,10 +612,10 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
         break;
     }
 
-    strSIMMName1.Format(L"%s\\%s%u.%u", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber);
-    strSIMMName2.Format(L"%s\\%s%u.%u", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 1);
-    strSIMMName3.Format(L"%s\\%s%u.%u", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 2);
-    strSIMMName4.Format(L"%s\\%s%u.%u%s", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 3, pszSpecial3rdExtension);
+    strSIMMName1.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber);
+    strSIMMName2.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 1);
+    strSIMMName3.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 2);
+    strSIMMName4.Format(L"%s\\%s%u.%u%s", GetLoadedDirPathOnly(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 3, pszSpecial3rdExtension);
 
     // We don't necessarily want the incoming file handle, so close it
     SaveFile->Abort();

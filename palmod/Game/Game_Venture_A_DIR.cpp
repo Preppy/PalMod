@@ -145,7 +145,7 @@ BOOL CGame_VENTURE_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     CFile FilePeer;
     sFileRule PeerRule = (nGameFlag == VENTURE_A_DIR_50) ? GetNextRule_50() : GetNextRule_31();
     CString strPeerFilename;
-    strPeerFilename.Format(L"%s\\%s", GetLoadDir(), PeerRule.szFileName);
+    strPeerFilename.Format(L"%s\\%s", GetLoadedDirPathOnly(), PeerRule.szFileName);
 
     if (FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary))
     {
@@ -263,8 +263,8 @@ BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
     if (UsePaletteSetFor50())
     {
-        strSIMMName1.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_50, nSIMMSetAdjustment + 0);
-        strSIMMName2.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_50, nSIMMSetAdjustment + 1);
+        strSIMMName1.Format(L"%s\\%s%u", GetLoadedDirPathOnly(), VENTURE_Arcade_ROM_Base_50, nSIMMSetAdjustment + 0);
+        strSIMMName2.Format(L"%s\\%s%u", GetLoadedDirPathOnly(), VENTURE_Arcade_ROM_Base_50, nSIMMSetAdjustment + 1);
 
         if ((fileSIMM1.Open(strSIMMName1, CFile::modeWrite | CFile::typeBinary)) &&
             (fileSIMM2.Open(strSIMMName2, CFile::modeWrite | CFile::typeBinary)))
@@ -274,10 +274,10 @@ BOOL CGame_VENTURE_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
     }
     else
     {
-        strSIMMName1.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 0);
-        strSIMMName2.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 1);
-        strSIMMName3.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 2);
-        strSIMMName4.Format(L"%s\\%s%u", GetLoadDir(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 3);
+        strSIMMName1.Format(L"%s\\%s%u", GetLoadedDirPathOnly(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 0);
+        strSIMMName2.Format(L"%s\\%s%u", GetLoadedDirPathOnly(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 1);
+        strSIMMName3.Format(L"%s\\%s%u", GetLoadedDirPathOnly(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 2);
+        strSIMMName4.Format(L"%s\\%s%u", GetLoadedDirPathOnly(), VENTURE_Arcade_ROM_Base_31, nSIMMSetAdjustment + 3);
 
         if ((fileSIMM1.Open(strSIMMName1, CFile::modeWrite | CFile::typeBinary)) &&
             (fileSIMM2.Open(strSIMMName2, CFile::modeWrite | CFile::typeBinary)) &&

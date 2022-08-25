@@ -183,12 +183,12 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
     for (uint16_t nIndex = 0; nIndex < MVC2_Arcade_NumberOfSIMMs; nIndex++)
     {
         CString strSIMMNames;
-        strSIMMNames.Format(L"%s\\%s%u.ic%u", GetLoadDir(), MVC2_Arcade_ROM_Base, nIndex + 51, nIndex + 20);
+        strSIMMNames.Format(L"%s\\%s%u.ic%u", GetLoadedDirPathOnly(), MVC2_Arcade_ROM_Base, nIndex + 51, nIndex + 20);
 
         if (!fileSIMMs[nIndex].Open(strSIMMNames, CFile::modeWrite | CFile::typeBinary))
         {
             // There's an updated ZIP using alt filenames for *some* of the files
-            strSIMMNames.Format(L"%s\\%s%u.ic%us", GetLoadDir(), MVC2_Arcade_ROM_Base, nIndex + 51, nIndex + 20);
+            strSIMMNames.Format(L"%s\\%s%u.ic%us", GetLoadedDirPathOnly(), MVC2_Arcade_ROM_Base, nIndex + 51, nIndex + 20);
 
             if (!fileSIMMs[nIndex].Open(strSIMMNames, CFile::modeWrite | CFile::typeBinary))
             {

@@ -26,7 +26,8 @@ CGameClass::~CGameClass()
 {
     ClearSetImgTicket(NULL);
 
-    safe_delete(m_pszLoadDir);
+    safe_delete(m_pszLoadedPathOrFile);
+    safe_delete(m_pszLoadedPathOnly);
 
     //Clear the redirect buffer
     safe_delete_array(rgUnitRedir);
@@ -419,9 +420,9 @@ LPCWSTR CGameClass::GetROMFileName()
     // for loaded directories
     LPCWSTR pszFileName = L"unknown";
 
-    if (m_pszLoadDir)
+    if (m_pszLoadedPathOrFile)
     {
-        LPCWSTR pszPtr = wcsrchr(m_pszLoadDir, L'\\');
+        LPCWSTR pszPtr = wcsrchr(m_pszLoadedPathOrFile, L'\\');
 
         if (pszPtr)
         {
@@ -432,17 +433,19 @@ LPCWSTR CGameClass::GetROMFileName()
     return pszFileName;
 }
 
-BOOL CGameClass::SetLoadDir(LPCWSTR pszNewDir)
+BOOL CGameClass::SetLoadedPathOrFile(LPCWSTR pszNewPathOrFile)
 {
-    if (!m_pszLoadDir)
+    if (!m_pszLoadedPathOrFile)
     {
-        m_pszLoadDir = new wchar_t[wcslen(pszNewDir) + 1];
-        wcscpy(m_pszLoadDir, pszNewDir);
+        m_pszLoadedPathOrFile = new wchar_t[wcslen(pszNewPathOrFile) + 1];
+        m_pszLoadedPathOnly = new wchar_t[wcslen(pszNewPathOrFile) + 1];
+        wcscpy(m_pszLoadedPathOrFile, pszNewPathOrFile);
+        wcscpy(m_pszLoadedPathOnly, pszNewPathOrFile);
 
-        if (!(GetFileAttributes(pszNewDir) & FILE_ATTRIBUTE_DIRECTORY))
+        if (!(GetFileAttributes(pszNewPathOrFile) & FILE_ATTRIBUTE_DIRECTORY))
         {
             // We probably have a file: try to convert to a folder
-            wchar_t* pszExeFileName = wcsrchr(m_pszLoadDir, L'\\');
+            wchar_t* pszExeFileName = wcsrchr(m_pszLoadedPathOnly, L'\\');
             if (pszExeFileName)
             {
                 pszExeFileName[0] = 0;
@@ -1910,7 +1913,7 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber)
     CFile FilePeer;
     sFileRule PeerRule = GetNextRuleForSIMMGame();
     CString strPeerFilename;
-    strPeerFilename.Format(L"%s\\%s", GetLoadDir(), PeerRule.szFileName);
+    strPeerFilename.Format(L"%s\\%s", GetLoadedDirPathOnly(), PeerRule.szFileName);
 
     BOOL fFileOpened = FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary);
 
@@ -2044,13 +2047,13 @@ BOOL CGameClass::SaveFileForSIMMGame(CFile* SaveFile, uint32_t nSIMMNumber)
     CFile fileSIMM4;
     CString strSIMMName4;
 
-    strSIMMName1.Format(L"%s\\%s%u.%u", GetLoadDir(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
-    strSIMMName2.Format(L"%s\\%s%u.%u", GetLoadDir(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber + 1);
+    strSIMMName1.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
+    strSIMMName2.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber + 1);
 
     if (m_nTotalNumberOfSIMMFilesNeeded == 4)
     {
-        strSIMMName3.Format(L"%s\\%s%u.%u", GetLoadDir(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber + 2);
-        strSIMMName4.Format(L"%s\\%s%u.%u", GetLoadDir(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber + 3);
+        strSIMMName3.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber + 2);
+        strSIMMName4.Format(L"%s\\%s%u.%u", GetLoadedDirPathOnly(), m_pszSIMMBaseFileName, m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber + 3);
     }
 
     // We don't necessarily want the incoming file handle, so close it

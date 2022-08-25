@@ -254,9 +254,9 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     CFile fileSIMM4;
     CString strSIMMName4;
 
-    strSIMMName2.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[1]);
-    strSIMMName3.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[2]);
-    strSIMMName4.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[3]);
+    strSIMMName2.Format(L"%s\\%s", GetLoadedDirPathOnly(), c_ppszDanKuGa_Files[1]);
+    strSIMMName3.Format(L"%s\\%s", GetLoadedDirPathOnly(), c_ppszDanKuGa_Files[2]);
+    strSIMMName4.Format(L"%s\\%s", GetLoadedDirPathOnly(), c_ppszDanKuGa_Files[3]);
 
     if ((fileSIMM2.Open(strSIMMName2, CFile::modeRead | CFile::typeBinary)) &&
         (fileSIMM3.Open(strSIMMName3, CFile::modeRead | CFile::typeBinary)) &&
@@ -355,10 +355,10 @@ BOOL CGame_DanKuGa_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
     CFile fileSIMM4;
     CString strSIMMName4;
 
-    strSIMMName1.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[0]);
-    strSIMMName2.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[1]);
-    strSIMMName3.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[2]);
-    strSIMMName4.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[3]);
+    strSIMMName1.Format(L"%s\\%s", GetLoadedDirPathOnly(), c_ppszDanKuGa_Files[0]);
+    strSIMMName2.Format(L"%s\\%s", GetLoadedDirPathOnly(), c_ppszDanKuGa_Files[1]);
+    strSIMMName3.Format(L"%s\\%s", GetLoadedDirPathOnly(), c_ppszDanKuGa_Files[2]);
+    strSIMMName4.Format(L"%s\\%s", GetLoadedDirPathOnly(), c_ppszDanKuGa_Files[3]);
 
     // We don't necessarily want the incoming file handle, so close it
     SaveFile->Abort();

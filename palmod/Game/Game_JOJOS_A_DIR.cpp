@@ -118,7 +118,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     CFile FilePeer;
     sFileRule PeerRule = GetNextRule();
     CString strPeerFilename;
-    strPeerFilename.Format(L"%s\\%s", GetLoadDir(), PeerRule.szFileName);
+    strPeerFilename.Format(L"%s\\%s", GetLoadedDirPathOnly(), PeerRule.szFileName);
 
     if (FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary))
     {
@@ -233,10 +233,10 @@ BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
     CFile fileSIMM4;
     CString strSIMMName4;
 
-    strSIMMName1.Format(L"%s\\%s%u", GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 0);
-    strSIMMName2.Format(L"%s\\%s%u", GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 1);
-    strSIMMName3.Format(L"%s\\%s%u", GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 2);
-    strSIMMName4.Format(L"%s\\%s%u", GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 3);
+    strSIMMName1.Format(L"%s\\%s%u", GetLoadedDirPathOnly(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 0);
+    strSIMMName2.Format(L"%s\\%s%u", GetLoadedDirPathOnly(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 1);
+    strSIMMName3.Format(L"%s\\%s%u", GetLoadedDirPathOnly(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 2);
+    strSIMMName4.Format(L"%s\\%s%u", GetLoadedDirPathOnly(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 3);
 
     // We don't necessarily want the incoming file handle, so close it
     SaveFile->Abort();

@@ -715,7 +715,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 #ifdef dump_decrypted_file
                     CFile pOutput;
                     CString strFN;
-                    strFN.Format(L"%s\\..\\%s", GetLoadDir(), L"SVCPlusA-decrypt.bin");
+                    strFN.Format(L"%s\\..\\%s", GetLoadedDirPathOnly(), L"SVCPlusA-decrypt.bin");
 
                     if (pOutput.Open(strFN, CFile::modeWrite | CFile::typeBinary | CFile::modeCreate))
                     {
@@ -767,7 +767,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                 {
                     CString strPeerFileName;
                     CFile pPeerFile;
-                    strPeerFileName.Format(L"%s\\..\\%s", GetLoadDir(), romName);
+                    strPeerFileName.Format(L"%s\\..\\%s", GetLoadedDirPathOnly(), romName);
                     if (pPeerFile.Open(strPeerFileName, CFile::modeRead | CFile::typeBinary))
                     {
                         pPeerFile.Read(&decryptedROM[nCurrentROMOffset], 0x200000);
@@ -786,7 +786,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 #ifdef save_decrypted_output
                 CFile pOutput;
                 CString strFN;
-                strFN.Format(L"%s\\..\\%s", GetLoadDir(), L"SVCPlus-decrypt.bin");
+                strFN.Format(L"%s\\..\\%s", GetLoadedDirPathOnly(), L"SVCPlus-decrypt.bin");
 
                 if (pOutput.Open(strFN, CFile::modeWrite | CFile::typeBinary | CFile::modeCreate))
                 {

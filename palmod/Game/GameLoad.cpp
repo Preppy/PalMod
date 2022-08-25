@@ -1964,7 +1964,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         if (isSafeToRunGame)
         {
             OutGame = CreateGame(nGameFlag, (uint32_t)nGameFileLength, nGameRule, pszLoadFile);
-            OutGame->SetLoadDir(pszLoadFile);
+            OutGame->SetLoadedPathOrFile(pszLoadFile);
 
             uint32_t crcValue = 0;
             bool fNeedToValidateCRC = false;
@@ -2117,7 +2117,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
                     if (OutGame)
                     {
                         OutGame->SetIsDir();
-                        OutGame->SetLoadDir(pszLoadDir);
+                        OutGame->SetLoadedPathOrFile(pszLoadDir);
                     }
                 }
 
@@ -2267,11 +2267,11 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     SetGame(CurrGame->GetGameFlag());
 
     uint32_t nFileAmt = CurrGame->GetFileAmt();
-    LPCWSTR pszLoadDir = CurrGame->GetLoadDir();
     CString strErrorFile;
 
     if (CurrGame->GetIsDir())
     {
+        LPCWSTR pszLoadDir = CurrGame->GetLoadedDirPathOnly();
         BOOL* rgFileIsChanged = CurrGame->GetFileChangeTrackingArray();
         BOOL fWasGameChangedInSession = CurrGame->WasGameFileChangedInSession();
         BOOL fGameMapsUnitsToFiles = CurrGame->GetGameMapsUnitsToFiles();
@@ -2354,13 +2354,15 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     }
     else
     {
+        LPCWSTR pszLoadFile = CurrGame->GetLoadedDirOrFile();
+
         if (CurrGame->WasGameFileChangedInSession())
         {
             CFileException pError;
 
             nSaveLoadCount = 1;
 
-            if (FileSave.Open(pszLoadDir, CFile::modeReadWrite | CFile::typeBinary, &pError))
+            if (FileSave.Open(pszLoadFile, CFile::modeReadWrite | CFile::typeBinary, &pError))
             {
                 if (CurrGame->SaveFile(&FileSave, 0))
                 {
@@ -2375,7 +2377,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                 pError.GetErrorMessage(szError, MAX_PATH);
                 MessageBox(g_appHWnd, szError, GetHost()->GetAppName(), MB_ICONERROR);
 
-                strErrorFile = pszLoadDir;
+                strErrorFile = pszLoadFile;
                 nSaveLoadErr = 1;
             }
         }
@@ -2392,6 +2394,8 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
         }
         else
         {
+            LPCWSTR pszLoadDir = CurrGame->GetLoadedDirOrFile();
+
             wchar_t szPath[MAX_PATH];
             if (IsLocationOnReadOnlyDrive(pszLoadDir, szPath, ARRAYSIZE(szPath)))
             {
@@ -2566,7 +2570,7 @@ void CGameLoad::SavePatchFile(CGameClass* CurrGame)
             static LPCWSTR szPatchFilter[] = { L"IPS Patch File|*.ips|"
                                                L"|" };
 
-            LPCWSTR pszLoadedFile = CurrGame->GetLoadDir();
+            LPCWSTR pszLoadedFile = CurrGame->GetLoadedDirOrFile();
             LPCWSTR pszFileName = wcsrchr(pszLoadedFile, L'\\');
             pszFileName = (pszFileName) ? (pszFileName + 1) : L"unknown";
             CString strSuggestedFileName = pszFileName;

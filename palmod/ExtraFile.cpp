@@ -1073,12 +1073,12 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
                 }
             }
-            else if (sCreationOptions.fShowUnknownRegions && sCreationOptions.fShowPostUnknown && m_pszLoadDir)
+            else if (sCreationOptions.fShowUnknownRegions && sCreationOptions.fShowPostUnknown && m_pszLoadedPathOrFile)
             {
                 // How do we want to handle trailing palettes?  We need the file size to do this correctly.
                 CFile GameROM;
 
-                if (GameROM.Open(m_pszLoadDir, CFile::modeRead | CFile::typeBinary))
+                if (GameROM.Open(m_pszLoadedPathOrFile, CFile::modeRead | CFile::typeBinary))
                 {
                     strExtraFileText.Format(L"After: %s, %s, %s\r\n", pCurrent->strUnitName.c_str(), pCurrent->strCollectionName.c_str(), pCurrent->strPaletteName.c_str());
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);

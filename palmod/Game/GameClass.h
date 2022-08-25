@@ -30,7 +30,8 @@ const uint16_t RULE_COUNTER_DEMASK = 0x0FFF;
 class CGameClass : public CSecondaryPaletteProcessing
 {
 protected:
-    LPTSTR m_pszLoadDir = nullptr;
+    LPWSTR m_pszLoadedPathOrFile = nullptr;
+    LPWSTR m_pszLoadedPathOnly = nullptr;
     // This is an old array used to determine if the character-file or the ROM has been updated
     // Don't use this for SIMM-based games: use IsPaletteDirty there instead
     BOOL* rgFileChanged = nullptr;
@@ -178,8 +179,9 @@ public:
     void AddColorStepsToColorValue(COLORREF crSrc, COLORREF* crTarget, int uStepsR, int uStepsG, int uStepsB, int uStepsA) override;
 
     LPCWSTR GetROMFileName();
-    LPCWSTR GetLoadDir() { return m_pszLoadDir; };
-    BOOL SetLoadDir(LPCWSTR pszNewDir);
+    LPCWSTR GetLoadedDirOrFile() { return m_pszLoadedPathOrFile; };
+    LPCWSTR GetLoadedDirPathOnly() { return m_pszLoadedPathOnly; };
+    BOOL SetLoadedPathOrFile(LPCWSTR pszNewPathOrFile);
 
     AlphaMode GetAlphaMode() { return ColorSystem::GetAlphaMode(); };
     virtual void SetAlphaMode(AlphaMode NewMode) { ColorSystem::SetAlphaMode(NewMode); };
