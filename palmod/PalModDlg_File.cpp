@@ -17,8 +17,9 @@ sSupportedGameList SupportedGameList[] =
     // 1: Game ID,      2: Popup menu text,   3: Open File filter text,    4: Game Platform [,  5: Optional sub-category]
     { AOF1_A,           L"Art of Fighting 1", L"Art of Fighting 1|044-p1.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
+    { AvgrsGS_SNES,     L"Avengers in Galactic Storm (SNES)", L"Avengers in Galactic Storm (SNES)|sf_00-0.7k|", GamePlatform::Nintendo },
     { BMKNS_SNES,       L"Battle Master: KnS (SNES)", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).s?c|", GamePlatform::Nintendo },
-    { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo }, // Sega
+    { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo },
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.*|", GamePlatform::NEOGEO },
     { BSSMSJR_SNES,     L"Bishojo Senshi Sailor Moon S - JR (SNES)", L"Bishojo Senshi Sailor Moon S - JR (SNES)|Bishoujo Senshi Sailor Moon S - Jougai Rantou! Shuyaku Soudatsusen (J*).s?c|", GamePlatform::Nintendo },
     { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).s?c|", GamePlatform::Nintendo },
@@ -145,8 +146,8 @@ sSupportedGameList SupportedGameList[] =
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };
 
-// Increment this once you've determined whether or not you want to add the new game into the above array.
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 163);
+// 
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 164, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 sSupportedGameList* pSupportedGameList = SupportedGameList;
 const int nNumberOfLoadROMOptions = ARRAYSIZE(SupportedGameList);

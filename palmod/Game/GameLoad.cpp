@@ -4,6 +4,7 @@
 
 #include "Game_AOF1_A.h"
 #include "Game_AOF3_A.h"
+#include "Game_AvgrsGS_SNES_DIR.h"
 #include "Game_BASARA_P.h"
 #include "Game_BlazBlueCF_S.h"
 #include "Game_Bleach_DS.h"
@@ -145,8 +146,8 @@
 #include "..\resource.h"
 #include "..\palmod.h"
 
-// Increment this after you add in the new header above and the relevent game loading functions below.
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 163);
+// 
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 164, "Increment this value check after you add in the new header aboveand the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -205,6 +206,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case AOF3_A:
     {
         GetRule = &CGame_AOF3_A::GetRule;
+        return TRUE;
+    }
+    case AvgrsGS_SNES:
+    {
+        GetRule = &CGame_AvgrsGS_SNES_DIR::GetRule;
         return TRUE;
     }
     case BASARA_P:
@@ -1109,7 +1115,11 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case AOF3_A:
     {
         return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
-    }    
+    }
+    case AvgrsGS_SNES:
+    {
+        return new CGame_AvgrsGS_SNES_DIR(nConfirmedROMSize);
+    }
     case BASARA_P:
     {
         return new CGame_BASARA_P(nConfirmedROMSize);

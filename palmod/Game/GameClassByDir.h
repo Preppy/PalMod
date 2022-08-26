@@ -7,8 +7,10 @@
 
 enum class FileReadType
 {
-    Interleaved,
     Sequential,
+    Interleaved,
+    Interleaved_Read2Bytes_LE,
+    Interleaved_Read2Bytes_BE,
 };
 
 struct sDirectoryLoadingData

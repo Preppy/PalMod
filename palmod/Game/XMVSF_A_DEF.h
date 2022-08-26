@@ -200,6 +200,9 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P1[] =
 
     { L"P1 Optic Blast 1", 0x1827a, 0x1829a, indexCPS2Sprites_Cyclops, 13 },
     { L"P1 Optic Blast 2", 0x1829a, 0x182Ba, indexCPS2Sprites_Cyclops, 13 },
+
+    { L"P1 Laser FX Unused?", 0x14f3a, 0x14f5a, indexCPS2Sprites_Cyclops, 0x02 },
+
 };
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P2[] =
@@ -219,16 +222,23 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P2[] =
 
     { L"P2 Optic Blast 1", 0x182ba, 0x182da, indexCPS2Sprites_Cyclops, 13 },
     { L"P2 Optic Blast 2", 0x182da, 0x182fa, indexCPS2Sprites_Cyclops, 13 },
+
+    { L"P2 Laser FX Unused?", 0x14f9a, 0x14fba, indexCPS2Sprites_Cyclops, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_Extras[] =
 {
     { L"Palette (06)", 0x14efa, 0x14f1a },
     { L"Palette (07)", 0x14f1a, 0x14f3a },
-    { L"? optic FX", 0x14f3a, 0x14f5a, indexCPS2Sprites_Cyclops, 0x02 },
     { L"Palette (09)", 0x14f5a, 0x14f7a },
     { L"Palette (0A)", 0x14f7a, 0x14f9a },
-    { L"? optic FX", 0x14f9a, 0x14fba, indexCPS2Sprites_Cyclops, 0x02 },
+
+    { L"Optic Blast / Optic Bullet (Shared) 1", 0x181da, 0x181fa, indexCPS2Sprites_Cyclops, 0x0b },
+    { L"Optic Blast / Optic Bullet (Shared) 2", 0x181fa, 0x1821a, indexCPS2Sprites_Cyclops, 0x0b },
+    { L"Optic Blast / Optic Bullet (Shared) 3 Unused?", 0x1821a, 0x1823a, indexCPS2Sprites_Cyclops, 0x0b },
+    { L"Optic Blast / Optic Bullet (Shared) 4", 0x1823a, 0x1825a, indexCPS2Sprites_Cyclops, 0x0b },
+    { L"Optic Blast / Optic Bullet (Shared) 5 Unused?", 0x1825a, 0x1827a, indexCPS2Sprites_Cyclops, 0x0b },
+    { L"Taunt", 0x182fa, 0x1831a },
 };
 
 const sGame_PaletteDataset XMVSF_A_Storm_PALETTES_P1[] =
@@ -359,15 +369,19 @@ const sGame_PaletteDataset XMVSF_A_Juggernaut_PALETTES_Extras[] =
 const sGame_PaletteDataset XMVSF_A_MBison_PALETTES_P1[] =
 {
     { L"P1 Punch Color", 0x15fda, 0x15ffa, indexCPS2Sprites_Bison, 0x00 },
-    { L"P1 psycho FX", 0x15ffa, 0x1601a, indexCPS2Sprites_Bison, 0x08 },
-    { L"Palette (02)", 0x1601a, 0x1603a, indexCPS2Sprites_Bison, 0x09 },
+    { L"P1 Psycho FX 1", 0x15ffa, 0x1601a, indexCPS2Sprites_Bison, 0x08 },
+    { L"P1 Psycho FX 2", 0x1601a, 0x1603a, indexCPS2Sprites_Bison, 0x09 },
+    { L"P1 Psycho FX 3", 0x18a9a, 0x18aba, indexCPS2Sprites_Bison, 0x08 },
+    { L"P1 Psycho FX 4", 0x18aba, 0x18ada, indexCPS2Sprites_Bison, 0x08 },
 };
 
 const sGame_PaletteDataset XMVSF_A_MBison_PALETTES_P2[] =
 {
     { L"P2 Kick Color", 0x1603a, 0x1605a, indexCPS2Sprites_Bison, 0x00 },
-    { L"P2 psycho FX", 0x1605a, 0x1607a, indexCPS2Sprites_Bison, 0x08 },
-    { L"Palette (05)", 0x1607a, 0x1609a, indexCPS2Sprites_Bison, 0x09 },
+    { L"P2 Psycho FX 1", 0x1605a, 0x1607a, indexCPS2Sprites_Bison, 0x08 },
+    { L"P2 Psycho FX 2", 0x1607a, 0x1609a, indexCPS2Sprites_Bison, 0x09 },
+    { L"P2 Psycho FX 3", 0x18ada, 0x18afa, indexCPS2Sprites_Bison, 0x08 },
+    { L"P2 Psycho FX 4", 0x18afa, 0x18b1a, indexCPS2Sprites_Bison, 0x09 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Magneto_PALETTES_P1[] =
@@ -1063,6 +1077,15 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_CONTINUE[] =
     { L"Chun-Li (SFA)", 0x1e0fa, 0x1e19a, indexCPS2Sprites_ChunLi, 0x39 },
 };
 
+const sGame_PaletteDataset XMVSF_A_BONUS_INTRO_PALETTES[] =
+{
+    { L"Q Sound Logo", 0x133a4, 0x13404 },
+    { L"Q Sound Text", 0x13424, 0x13444 },
+    { L"Intro Capcom Logo", 0x13484, 0x134a4 },
+    { L"Intro Ryu Logo", 0x13404, 0x13424 },
+    { L"Intro Ryu/Capcom BG", 0x139a4, 0x139e4 },
+};
+
 const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO[] =
 {
     { L"Ken (Intro)", 0x20426, 0x20506, indexCPS2Sprites_XMVSFAssets, 0x03 },
@@ -1070,6 +1093,9 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO[] =
     { L"Cammy (Intro)", 0x20746, 0x207C6, indexCPS2Sprites_XMVSFAssets, 0x00 },
     { L"Rogue (Intro)", 0x207C6, 0x20866, indexCPS2Sprites_XMVSFAssets, 0x04 },
     { L"Ryu & Cyclops (Intro)", 0x20946, 0x20AE6, indexCPS2Sprites_XMVSFAssets, 0x01 },
+
+    { L"Ken & Gambit BG Sprites", 0x205c6, 0x205e6 },
+    { L"Cammy & Rogue BG Sprites", 0x20866, 0x208a6 },
 
     { L"Ken & Gambit BG 1", 0x13d24, 0x13d44 },
     { L"Ken & Gambit BG 2", 0x13d44, 0x13d64 },
@@ -1189,6 +1215,111 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_HUD[] =
     { L"Health & Super Bar 23", 0x14a1a, 0x14a3a },
     { L"Health & Super Bar 24", 0x14a3a, 0x14a5a },
     { L"Health & Super Bar 25", 0x14a5a, 0x14a7a },
+};
+
+const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_MTEXT[] =
+{
+    { L"WIN", 0x211e6, 0x21206 },
+    { L"KO", 0x21206, 0x21226 },
+    { L"PERFECT 1", 0x21226, 0x21246 },
+    { L"PERFECT 2", 0x212c6, 0x212e6 },
+    { L"PERFECT 3", 0x212e6, 0x21306 },
+    { L"PERFECT 4", 0x21306, 0x21326 },
+    { L"PERFECT 5", 0x21326, 0x21346 },
+    { L"TIME OVER", 0x21286, 0x212a6 },
+    { L"DRAW GAME", 0x212a6, 0x212c6 },
+};
+
+const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_TITLE[] =
+{
+    { L"X-Men Logo", 0x1e77a, 0x1e79a },
+    { L"Street Fighter Logo", 0x1e7ba, 0x1e7da },
+    { L"Shadow", 0x1e79a, 0x1e7ba },
+    { L"Shadow Fades 1", 0x20fe6, 0x21006 },
+    { L"Shadow Fades 2", 0x21006, 0x21026 },
+    { L"Shadow Fades 3", 0x21026, 0x21046 },
+    { L"Shadow Fades 4", 0x21046, 0x21066 },
+    { L"Shadow Fades 5", 0x21066, 0x21086 },
+    { L"Shadow Fades 6", 0x21086, 0x210a6 },
+    { L"Shadow Fades 7", 0x210a6, 0x210c6 },
+    { L"Shadow Fades 8", 0x210c6, 0x210e6 },
+    { L"Shadow Fades 9", 0x210e6, 0x21106 },
+    { L"Shadow Fades 10", 0x21106, 0x21126 },
+    { L"Shadow Fades 11", 0x21126, 0x21146 },
+    { L"Shadow Fades 12", 0x21146, 0x21166 },
+    { L"Shadow Fades 13", 0x21166, 0x21186 },
+    { L"Shadow Fades 14", 0x21186, 0x211a6 },
+    { L"VS 1", 0x1e7fa, 0x1e81a },
+    { L"VS 2", 0x211a6, 0x211c6 },
+    { L"VS Fades 1", 0x20d06, 0x20d26 },
+    { L"VS Fades 2", 0x20d26, 0x20d46 },
+    { L"VS Fades 3", 0x20d46, 0x20d66 },
+    { L"VS Fades 4", 0x20d66, 0x20d86 },
+    { L"VS Fades 5", 0x20d86, 0x20da6 },
+    { L"VS Fades 6", 0x20da6, 0x20dc6 },
+    { L"VS Fades 7", 0x20dc6, 0x20de6 },
+    { L"VS Fades 8", 0x20de6, 0x20e06 },
+    { L"VS Fades 9", 0x20e06, 0x20e26 },
+    { L"VS Design 1", 0x1e81a, 0x1e83a },
+    { L"VS Design 2", 0x211c6, 0x211e6 },
+    { L"VS Design Fades 1", 0x20e26, 0x20e46 },
+    { L"VS Design Fades 2", 0x20e46, 0x20e66 },
+    { L"VS Design Fades 3", 0x20e66, 0x20e86 },
+    { L"VS Design Fades 4", 0x20e86, 0x20ea6 },
+    { L"VS Design Fades 5", 0x20ea6, 0x20ec6 },
+    { L"VS Design Fades 6", 0x20ec6, 0x20ee6 },
+    { L"VS Design Fades 7", 0x20ee6, 0x20f06 },
+    { L"VS Design Fades 8", 0x20f06, 0x20f26 },
+    { L"VS Design Fades 9", 0x20f26, 0x20f46 },
+    { L"VS Design Fades 10", 0x20f46, 0x20f66 },
+    { L"VS Design Fades 11", 0x20f66, 0x20f86 },
+    { L"VS Design Fades 12", 0x20f86, 0x20fa6 },
+    { L"VS Design Fades 13", 0x20fa6, 0x20fc6 },
+    { L"VS Design Fades 14", 0x20fc6, 0x20fe6 },
+    { L"Logo BG", 0x1e7da, 0x1e7fa },
+};
+
+const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_BONUS[] =
+{
+    { L"Super Portrait BG", 0x1ba9a, 0x1baba },
+    { L"X-Factor Finish 1", 0x1172c, 0x1174c },
+    { L"X-Factor Finish 2", 0x1174c, 0x1176c },
+    { L"X-Factor Finish 3", 0x1176c, 0x1178c },
+    { L"X-Factor Finish 4", 0x1178c, 0x117ac },
+    { L"X-Factor Finish 5", 0x117ac, 0x117cc },
+    { L"X-Factor Finish 6", 0x117cc, 0x117ec },
+    { L"X-Factor Finish 7", 0x117ec, 0x1180c },
+    { L"X-Factor Finish 8", 0x1180c, 0x1182c },
+    { L"X-Factor Finish 9", 0x1182c, 0x1184c },
+    { L"X-Factor Finish 10", 0x1184c, 0x1186c },
+    { L"X-Factor Finish 11", 0x1186c, 0x1188c },
+    { L"X-Factor Finish 12", 0x1188c, 0x118ac },
+    { L"X-Factor Finish 13", 0x118ac, 0x118cc },
+    { L"X-Factor Finish 14", 0x118cc, 0x118ec },
+    { L"X-Factor Finish 15", 0x118ec, 0x1190c },
+    { L"X-Factor Finish 16", 0x1190c, 0x1192c },
+    { L"X-Factor Finish 17", 0x1192c, 0x1194c },
+    { L"X-Factor Finish 18", 0x1194c, 0x1196c },
+    { L"X-Factor Finish 19", 0x1196c, 0x1198c },
+    { L"X-Factor Finish 20", 0x1198c, 0x119ac },
+    { L"X-Factor Finish 21", 0x119ac, 0x119cc },
+    { L"X-Factor Finish 22", 0x119cc, 0x119ec },
+    { L"Super Finish 1", 0x1132c, 0x1134c },
+    { L"Super Finish 2", 0x1134c, 0x1136c },
+    { L"Super Finish 3", 0x1136c, 0x1138c },
+    { L"Super Finish 4", 0x1138c, 0x113ac },
+    { L"Super Finish 5", 0x113ac, 0x113cc },
+    { L"Super Finish 6", 0x113cc, 0x113ec },
+    { L"Super Finish 7", 0x113ec, 0x1140c },
+    { L"Super Finish 8", 0x1140c, 0x1142c },
+    { L"Super Finish 9", 0x1142c, 0x1144c },
+    { L"Super Finish 10", 0x1144c, 0x1146c },
+    { L"Super Finish 11", 0x1146c, 0x1148c },
+    { L"Super Finish 12", 0x1148c, 0x114ac },
+    { L"Super Finish 13", 0x114ac, 0x114cc },
+    { L"Super Finish 14", 0x114cc, 0x114ec },
+    { L"Super Finish 15", 0x114ec, 0x1150c },
+    { L"Super Finish 16", 0x1150c, 0x1152c },
 };
 
 const sDescTreeNode XMVSF_A_WOLVERINE_COLLECTION[] =
@@ -1341,6 +1472,10 @@ const sDescTreeNode XMVSF_A_BONUS_COLLECTION[] =
     { L"Versus / Super Portraits", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_VSP, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_VSP) },
     { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO) },
     { L"HUD", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_HUD, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_HUD) },
+    { L"Match Text", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_MTEXT, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_MTEXT) },
+    { L"Intro", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_INTRO_PALETTES, ARRAYSIZE(XMVSF_A_BONUS_INTRO_PALETTES) },
+    { L"Title Screen", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_TITLE, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_TITLE) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_BONUS, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_BONUS) },
 };
 
 const sDescTreeNode XMVSF_A_UNITS[] =

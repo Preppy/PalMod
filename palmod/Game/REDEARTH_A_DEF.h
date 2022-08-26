@@ -833,6 +833,9 @@ const sGame_PaletteDataset REDEARTH_A_SCION_PALETTES[] =
     { L"True Scion's Thunder Dragon", 0x437700, 0x437780, indexRedEarthSprites_Scion, 0x01 },
     { L"Thunder Dragon Teleport 1", 0x437880, 0x437900, indexRedEarthSprites_Scion, 0x01 },
     { L"Thunder Dragon Teleport 2", 0x437800, 0x437880, indexRedEarthSprites_Scion, 0x01 },
+
+    { L"Dragon's Thunderbreath 1 & Icebreath", 0x437900, 0x437980 },
+    { L"Dragon's Thunderbreath 2", 0x437980, 0x437a00 },
 };
 
 //Extra Stuff
