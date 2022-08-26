@@ -4190,8 +4190,6 @@ const sGame_PaletteDataset KOF02_A_BONUS_SELECT_PALETTES[] =
     { L"Character Select Name", 0xb4ea2, 0xb4ec2, indexKOF02Sprites_Bonus, 0x07 },
     { L"Character Select Order Name", 0xb5062, 0xb5082, indexKOF02Sprites_Bonus, 0x0a },
     { L"Character Select Order Numbers", 0xb4ec2, 0xb4f02, indexKOF02Sprites_Bonus, 0x0b },
-    { L"How to Play Joystick", 0xb4c02, 0xb4c22, indexKOF02Sprites_Bonus, 0x0d },
-    { L"How to Play Buttons", 0xb4d02, 0xb4d42, indexKOF02Sprites_Bonus, 0x0c },
 };
 
 const sGame_PaletteDataset KOF02_A_BONUS_HUD_PALETTES[] =
@@ -4274,6 +4272,20 @@ const sGame_PaletteDataset KOF02_A_BONUS_SELECT_BACKGROUNDS_PALETTES[] =
 const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
 {
     { L"Credits Counter", 0x86b82, 0x86ba2, indexKOF02Sprites_Bonus, 0x13 },
+    { L"\"Select Player\" Text", 0xb5662, 0xb5682 },
+    { L"Order Select Lights", 0xb5682, 0xb56a2 },
+    { L"How To Play Background", 0xb4be2, 0xb4c22 },
+    { L"How to Play Buttons", 0xb4d02, 0xb4d42, indexKOF02Sprites_Bonus, 0x0c },
+    { L"How To Play Control Panel", 0xb4ce2, 0xb4d02 },
+    { L"General Text", 0x86ba2, 0x86bc2 },
+    { L"AES Mode Select Background)", 0xb5622, 0xb5642 },
+    { L"Leaderboard Display", 0xb5562, 0xb55a2 },
+    { L"Yellow \"DEMONSTRATION\" Text", 0xb5ae2, 0xb5b62 },
+    { L"Red \"DEMONSTRATION\" Text", 0xb5b62, 0xb5be2 },
+    { L"AES Mode Yellow Text", 0xb52e2, 0xb5302 },
+    { L"Player 1 Name, Score (Italy)", 0xb56c2, 0xb56e2 },
+    { L"Player 1 Name, Score (China)", 0xb56e2, 0xb5702 },
+    { L"Player 2 Names, Score", 0xb5802, 0xb58a2 },
 };
 
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =

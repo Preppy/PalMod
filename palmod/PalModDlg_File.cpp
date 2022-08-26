@@ -17,7 +17,7 @@ sSupportedGameList SupportedGameList[] =
     // 1: Game ID,      2: Popup menu text,   3: Open File filter text,    4: Game Platform [,  5: Optional sub-category]
     { AOF1_A,           L"Art of Fighting 1", L"Art of Fighting 1|044-p1.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
-    { AvgrsGS_SNES,     L"Avengers in Galactic Storm (SNES)", L"Avengers in Galactic Storm (SNES)|sf_00-0.7k|", GamePlatform::Nintendo },
+    { AvgrsGS_A,        L"Avengers in Galactic Storm", L"Avengers in Galactic Storm|sf_00-0.7k|", GamePlatform::OtherPlatform },
     { BMKNS_SNES,       L"Battle Master: KnS (SNES)", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).s?c|", GamePlatform::Nintendo },
     { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo },
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.*|", GamePlatform::NEOGEO },
@@ -130,7 +130,7 @@ sSupportedGameList SupportedGameList[] =
     { GEMFIGHTER_A,     L"Super Gem Fighter", L"Super Gem Fighter|pcf*.07|", GamePlatform::CapcomCPS12 },
     { SPF2T_A,          L"Super Puzzle Fighter II Turbo", L"Super Puzzle Fighter II Turbo|pzf.04*|", GamePlatform::CapcomCPS12 },
     { TMNTTF_SNES,      L"Teenage Mutant Ninja Turtles: TF (SNES)", L"Teenage Mutant Ninja Turtles: TF (SNES)|sns-ky-0.u1;teenage mutant ninja turtles - tournament fighters (U*.s*c|", GamePlatform::Nintendo },
-    { TOPF2005_SEGA,    L"Top Fighter 2005 (Mega Drive)", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::Sega },
+    { TOPF2005_SEGA,    L"Top Fighter 2005 (Mega Drive)", L"Top Fighter 2005|top fighter 2005 (unl).bin|", GamePlatform::OtherPlatform },
     { UMK3_DS,          L"Ultimate Mortal Kombat 3 (DS)", L"Ultimate Mortal Kombat 3 (DS)|Ultimate Mortal Kombat (USA) (En,Fr,De,Es,It).nds|", GamePlatform::Nintendo },
     { UMK3_SNES,        L"Ultimate Mortal Kombat 3 (SNES)", L"Ultimate Mortal Kombat 3 (SNES)|Ultimate Mortal Kombat 3 (USA).sfc;sns-a3ze.u1|", GamePlatform::Nintendo },
     { VampireNightWarriors_A,   L"Vampire: The Night Warriors", L"Vampire: The Night Warriors: Characters (rom 9), Portraits (rom 4)|vam*.09?; vam*.04?|", GamePlatform::CapcomCPS12, GameSeries::VampireSavior },

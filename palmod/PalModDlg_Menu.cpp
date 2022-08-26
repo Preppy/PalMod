@@ -285,8 +285,8 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             case GamePlatform::SammyAtomiswave:
                 pszPlatformName = L"Sammy Atomiswave";
                 break;
-            case GamePlatform::Sega:
-                pszPlatformName = L"Sega (Other)";
+            case GamePlatform::OtherPlatform:
+                pszPlatformName = L"Other";
                 break;
             case GamePlatform::SegaNAOMI:
                 pszPlatformName = L"Sega NAOMI";
@@ -306,7 +306,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             case GamePlatform::Steam:
                 pszPlatformName = L"Steam";
                 break;
-            case GamePlatform::Unknown:
+            case GamePlatform::DevMode:
                 pszPlatformName = L"Developer Mode";
                 break;
             default:

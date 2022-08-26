@@ -4,7 +4,7 @@
 
 #include "Game_AOF1_A.h"
 #include "Game_AOF3_A.h"
-#include "Game_AvgrsGS_SNES_DIR.h"
+#include "Game_AvgrsGS_A_DIR.h"
 #include "Game_BASARA_P.h"
 #include "Game_BlazBlueCF_S.h"
 #include "Game_Bleach_DS.h"
@@ -208,9 +208,9 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_AOF3_A::GetRule;
         return TRUE;
     }
-    case AvgrsGS_SNES:
+    case AvgrsGS_A:
     {
-        GetRule = &CGame_AvgrsGS_SNES_DIR::GetRule;
+        GetRule = &CGame_AvgrsGS_A_DIR::GetRule;
         return TRUE;
     }
     case BASARA_P:
@@ -1116,9 +1116,9 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     {
         return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
     }
-    case AvgrsGS_SNES:
+    case AvgrsGS_A:
     {
-        return new CGame_AvgrsGS_SNES_DIR(nConfirmedROMSize);
+        return new CGame_AvgrsGS_A_DIR(nConfirmedROMSize);
     }
     case BASARA_P:
     {

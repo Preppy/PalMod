@@ -183,7 +183,7 @@ enum SupportedGamesList
     MWARR_A,
     CVS1_A,
     PrimalRage_SNES,
-    AvgrsGS_SNES,
+    AvgrsGS_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -363,7 +363,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Mighty Warriors",
     L"Capcom vs SNK Millenium Fight (NAOMI)",
     L"Primal Rage (SNES)",
-    L"Avengers in Galactic Storm (SNES)",
+    L"Avengers in Galactic Storm (Data East)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -378,9 +378,9 @@ enum class GamePlatform
     PS2,
     SammyAtomiswave,
     SegaNAOMI,
-    Sega,
     Steam,
-    Unknown,
+    OtherPlatform,
+    DevMode,
     Last,
 };
 
@@ -410,7 +410,7 @@ struct sSupportedGameList
     int nInternalGameIndex = 0;
     LPCWSTR szGameFriendlyName = L"uninit";
     LPCWSTR szGameFilterString = L"uninit";
-    GamePlatform publisherKey = GamePlatform::Unknown;
+    GamePlatform publisherKey = GamePlatform::DevMode;
     GameSeries seriesKey = GameSeries::Unknown;
     int nListedGameIndex = INVALID_UNIT_VALUE;
 };

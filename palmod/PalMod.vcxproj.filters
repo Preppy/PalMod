@@ -496,7 +496,7 @@
     <Filter Include="Games\Nintendo\Primal Rage %28SNES%29">
       <UniqueIdentifier>{ad3d95c2-262b-499e-aa77-b020e70b2b76}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\Nintendo\Avengers Galactic Storm">
+    <Filter Include="Games\Other Platforms\Avengers in Galactic Storm">
       <UniqueIdentifier>{f2b326a1-4e20-4f99-a448-93d9bade97fe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -1038,8 +1038,8 @@
     <ClCompile Include="Game\Game_PrimalRage_SNES.cpp">
       <Filter>Games\Nintendo\Primal Rage %28SNES%29</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_AvgrsGS_SNES_DIR.cpp">
-      <Filter>Games\Nintendo\Avengers Galactic Storm</Filter>
+    <ClCompile Include="Game\Game_AvgrsGS_A_DIR.cpp">
+      <Filter>Games\Other Platforms\Avengers in Galactic Storm</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1961,11 +1961,11 @@
     <ClInclude Include="Game\PrimalRage_SNES_DEF.h">
       <Filter>Games\Nintendo\Primal Rage %28SNES%29</Filter>
     </ClInclude>
-    <ClInclude Include="Game\AvgrsGS_SNES_DIR_DEF.h">
-      <Filter>Games\Nintendo\Avengers Galactic Storm</Filter>
+    <ClInclude Include="Game\AvgrsGS_A_DIR_DEF.h">
+      <Filter>Games\Other Platforms\Avengers in Galactic Storm</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Game_AvgrsGS_SNES_DIR.h">
-      <Filter>Games\Nintendo\Avengers Galactic Storm</Filter>
+    <ClInclude Include="Game\Game_AvgrsGS_A_DIR.h">
+      <Filter>Games\Other Platforms\Avengers in Galactic Storm</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

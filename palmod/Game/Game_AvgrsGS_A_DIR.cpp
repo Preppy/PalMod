@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "Game_AvgrsGS_SNES_DIR.h"
+#include "Game_AvgrsGS_A_DIR.h"
 #include "GameDef.h"
 
 const sDirectoryLoadingData ThisGamesFileLoadingData =
@@ -12,12 +12,12 @@ const sDirectoryLoadingData ThisGamesFileLoadingData =
     0x80000
 };
 
-CGame_AvgrsGS_SNES_DIR::CGame_AvgrsGS_SNES_DIR(uint32_t nConfirmedROMSize)
+CGame_AvgrsGS_A_DIR::CGame_AvgrsGS_A_DIR(uint32_t nConfirmedROMSize)
 {
     //Set game-game specific information before loading the game's known palette locations
-    m_snCurrentGameFlag = nGameFlag = AvgrsGS_SNES;
+    m_snCurrentGameFlag = nGameFlag = AvgrsGS_A;
     nImgGameFlag = IMGDAT_SECTION_OTHER;
-    m_prgGameImageSet = AvgrsGS_SNES_IMGIDS_USED;
+    m_prgGameImageSet = AvgrsGS_A_IMGIDS_USED;
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
@@ -26,7 +26,7 @@ CGame_AvgrsGS_SNES_DIR::CGame_AvgrsGS_SNES_DIR(uint32_t nConfirmedROMSize)
     SetColorMode(ColMode::COLMODE_BGR555_LE);
 
     // Load the game's layout for palmod
-    InitializeStatics(ThisGamesFileLoadingData, AvgrsGS_SNES_UNITS, ARRAYSIZE(AvgrsGS_SNES_UNITS), m_strExtraFileName);
+    InitializeStatics(ThisGamesFileLoadingData, AvgrsGS_A_UNITS, ARRAYSIZE(AvgrsGS_A_UNITS), m_strExtraFileName);
 
     // xoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxoxxoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxox
     // Everything after this is boilerplate and doesn't need to be changed.
@@ -60,7 +60,7 @@ CGame_AvgrsGS_SNES_DIR::CGame_AvgrsGS_SNES_DIR(uint32_t nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_AvgrsGS_SNES_DIR::~CGame_AvgrsGS_SNES_DIR()
+CGame_AvgrsGS_A_DIR::~CGame_AvgrsGS_A_DIR()
 {
     ClearDataBuffer();
     FlushChangeTrackingArray();
@@ -68,7 +68,7 @@ CGame_AvgrsGS_SNES_DIR::~CGame_AvgrsGS_SNES_DIR()
     safe_delete_array(m_prgCurrentExtrasLoaded);
 }
 
-sFileRule CGame_AvgrsGS_SNES_DIR::GetRule(uint32_t nUnitId)
+sFileRule CGame_AvgrsGS_A_DIR::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -79,7 +79,7 @@ sFileRule CGame_AvgrsGS_SNES_DIR::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-sFileRule CGame_AvgrsGS_SNES_DIR::GetNextRule()
+sFileRule CGame_AvgrsGS_A_DIR::GetNextRule()
 {
     sFileRule NewFileRule = GetRule(uRuleCtr++);
 
