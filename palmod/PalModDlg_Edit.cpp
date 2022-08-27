@@ -862,7 +862,6 @@ void CPalModDlg::HandlePasteFromPalMod()
             case XMMA_SNES:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
-
                 eColModeForPastedColor = ColMode::COLMODE_BGR555_LE;
                 break;
             }

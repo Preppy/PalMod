@@ -238,6 +238,7 @@
     <ClCompile Include="Game\GameLoad.cpp" />
     <ClCompile Include="Game\Game_AOF1_A.cpp" />
     <ClCompile Include="Game\Game_AOF3_A.cpp" />
+    <ClCompile Include="Game\Game_AsuraBuster_A_DIR.cpp" />
     <ClCompile Include="Game\Game_AvgrsGS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_BASARA_P.cpp" />
     <ClCompile Include="Game\Game_BlazBlueCF_S.cpp" />
@@ -418,6 +419,7 @@
     <ClInclude Include="ExtraFile.h" />
     <ClInclude Include="Game\AOF1_A_DEF.h" />
     <ClInclude Include="Game\AOF3_A_DEF.h" />
+    <ClInclude Include="Game\AsuraBuster_A_DIR_DEF.h" />
     <ClInclude Include="Game\AvgrsGS_A_DIR_DEF.h" />
     <ClInclude Include="Game\BASARA_P_DEF.h" />
     <ClInclude Include="Game\BlazBlueCF_S_DEF.h" />
@@ -452,6 +454,7 @@
     <ClInclude Include="Game\GameLoad.h" />
     <ClInclude Include="Game\Game_AOF1_A.h" />
     <ClInclude Include="Game\Game_AOF3_A.h" />
+    <ClInclude Include="Game\Game_AsuraBuster_A_DIR.h" />
     <ClInclude Include="Game\Game_AvgrsGS_A_DIR.h" />
     <ClInclude Include="Game\Game_BASARA_P.h" />
     <ClInclude Include="Game\Game_BlazBlueCF_S.h" />

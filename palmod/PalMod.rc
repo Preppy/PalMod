@@ -507,13 +507,14 @@ BEGIN
                 MENUITEM "RGB444 (little endian for SF2/SFA 30th)", ID_COLORFORMAT_RGB444_LE
                 MENUITEM SEPARATOR
                 MENUITEM "BGR555 (little endian for GBA, most PSX, SNES)", ID_COLORFORMAT_BGR555_LE
+                MENUITEM "BGR555 (little endian for Fuuki)", ID_COLORFORMAT_xBGR555_LE
                 MENUITEM "BGR555 (big endian for Motorola 68000)", ID_COLORFORMAT_BGR555_BE
                 MENUITEM "GRB555 (little endian)",      ID_COLORFORMAT_GRB555_LE
                 MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555_LE
                 MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_BE
                 MENUITEM "RGB555 (Sharp X68000 color table)", ID_COLORFORMAT_SHARPRGB
                 MENUITEM "RGB666 (Neo-Geo color table)", ID_COLORFORMAT_RGB666
-            END
+                END
             POPUP "24-bit color"
             BEGIN
                 MENUITEM "BGR888",                      ID_COLORFORMAT_BGR888

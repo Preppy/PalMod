@@ -221,3 +221,8 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_PRIMALRAGE =
 {
     L"A", L"X+A", L"B+A", L"Y+A"
 };
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_ASURABUSTER =
+{
+    L"A", L"B", L"AB", L"C", L"AC", L"BC", L"ABC"
+};

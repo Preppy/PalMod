@@ -258,6 +258,7 @@
 #define ID_ACC_SNIFFCOLOR               32861
 #define ID_ACC_SNIFFPASTE               32862
 #define ID_SETTINGS_CLICKANDFIND        32863
+#define ID_COLORFORMAT_xBGR555_LE       32864
 #define ID_LD_SFIII3ARCADE4rd           32865
 #define ID_ALPHASETTING_FIXED           32866
 #define ID_ALPHASETTING_VARIABLE        32867

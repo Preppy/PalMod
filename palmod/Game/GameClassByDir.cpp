@@ -4,7 +4,6 @@
 #include "..\ExtraFile.h"
 #include "..\PalMod.h"
 #include "..\regproc.h"
-#include <assert.h>
 
 uint32_t CGameClassByDir::uRuleCtr = 0;
 CDescTree CGameClassByDir::MainDescTree = nullptr;
@@ -216,7 +215,6 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     // Reset: we reopen in bulk
     rgFileHandles.resize(m_psCurrentFileLoadingData->rgstrFileList.size());
 
-
     for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgstrFileList.size(); iCurrentFile++)
     {
         CString strNameWithPath;
@@ -266,52 +264,117 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                 {
                 case FileReadType::Interleaved: // 16bit color read
                     {
-                        // We only currently support interleaving of two files 
-                        assert(m_psCurrentFileLoadingData->rgstrFileList.size() == 2);
-
-                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        if (m_psCurrentFileLoadingData->rgstrFileList.size() == 2)
                         {
-                            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-                            m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
-
-                            m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
-                            memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(uint16_t) * m_nCurrentPaletteSizeInColors);
-
-                            rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                            rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
-                            for (uint16_t nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
+                            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                             {
-                                BYTE high, low;
+                                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                                rgFileHandles.at(0)->Read(&low, 1);
-                                rgFileHandles.at(1)->Read(&high, 1);
+                                m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
-                                uint16_t nColorValue = (uint16_t)((high << 8) | low);
+                                m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
+                                memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(uint16_t) * m_nCurrentPaletteSizeInColors);
 
-                                m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = nColorValue;
+                                rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+
+                                for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
+                                {
+                                    BYTE high, low;
+
+                                    rgFileHandles.at(0)->Read(&low, 1);
+                                    rgFileHandles.at(1)->Read(&high, 1);
+
+                                    uint16_t nColorValue = (uint16_t)((high << 8) | low);
+
+                                    m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsRead] = nColorValue;
+                                }
                             }
+                        }
+                        else if (m_psCurrentFileLoadingData->rgstrFileList.size() == 4)
+                        {
+                            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                            {
+                                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                                // This has to be checked against the unmodified location
+                                const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 4);
+
+                                m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+
+                                m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
+                                memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(uint16_t) * m_nCurrentPaletteSizeInColors);
+
+                                uint8_t iHandle1, iHandle2, iHandle3, iHandle4;
+
+                                if (nStartingHandle == 0)
+                                {
+                                    rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                    rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                    rgFileHandles.at(2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                    rgFileHandles.at(3)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                    iHandle1 = 0;
+                                    iHandle2 = 1;
+                                    iHandle3 = 2;
+                                    iHandle4 = 3;
+                                }
+                                else
+                                {
+                                    rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
+                                    rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
+                                    rgFileHandles.at(2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                    rgFileHandles.at(3)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                    iHandle1 = 2;
+                                    iHandle2 = 3;
+                                    iHandle3 = 0;
+                                    iHandle4 = 1;
+                                }
+
+                                for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead += 2)
+                                {
+                                    BYTE high1, low1, high2, low2;
+
+                                    rgFileHandles.at(iHandle1)->Read(&low1, 1);
+                                    rgFileHandles.at(iHandle2)->Read(&high1, 1);
+                                    rgFileHandles.at(iHandle3)->Read(&low2, 1);
+                                    rgFileHandles.at(iHandle4)->Read(&high2, 1);
+
+                                    uint16_t nColorValue1 = (uint16_t)((high1 << 8) | low1);
+                                    uint16_t nColorValue2 = (uint16_t)((high2 << 8) | low2);
+
+                                    m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsRead] = nColorValue1;
+                                    m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsRead + 1] = nColorValue2;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox(g_appHWnd, L"ERROR: PalMod does not support this interleaving at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         }
                     }
                     break;
                 case FileReadType::Interleaved_Read2Bytes_LE: // 16bit color read
                 case FileReadType::Interleaved_Read2Bytes_BE:
-                    {
+                {
                         // We only currently support interleaving of two files 
-                        assert(m_psCurrentFileLoadingData->rgstrFileList.size() == 2);
+                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 2)
+                        {
+                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
+
+                        }
                         const bool fIsLittleEndian = (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
+                            // This has to be checked against the unmodified location
+                            const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 2);
+
                             m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
                             m_pppDataBuffer[nUnitCtr][nPalCtr] = new uint16_t[m_nCurrentPaletteSizeInColors];
                             memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(uint16_t) * m_nCurrentPaletteSizeInColors);
-
-                            const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 2);
 
                             // Wiring through palettes on odd bytes is going to be tricky, so skipping that for now.
                             if ((m_nCurrentPaletteROMLocation % 2) != 0)
@@ -357,7 +420,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                         break;
                     }
                 default:
-                    assert(0); // Unsupported read type
+                    MessageBox(g_appHWnd, L"ERROR: Unsupported read type.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                     __fallthrough;
                 case FileReadType::Sequential: // 16bit color read
                 {
@@ -399,7 +462,10 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     case FileReadType::Interleaved: // 32bit color read
                     {
                         // We only currently support interleaving of four files 
-                        assert(m_psCurrentFileLoadingData->rgstrFileList.size() == 4);
+                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 4)
+                        {
+                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
+                        }
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
@@ -435,12 +501,18 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
                         // This is an untested good faith implementation in case we run into this load type
-                        assert(m_psCurrentFileLoadingData->rgstrFileList.size() == 4);
+                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 4)
+                        {
+                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
+                        }
                         const bool fIsLittleEndian = (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                            // This has to be checked against the unmodified location
+                            const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 4);
 
                             m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
@@ -453,7 +525,6 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 OutputDebugString(L"ERROR: we don't support starting on odd bytes.\r\n");
                             }
 
-                            const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 4);
                             uint8_t iHandle1, iHandle2, iHandle3, iHandle4;
 
                             if (nStartingHandle == 0)
@@ -469,8 +540,8 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             }
                             else
                             {
-                                rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation + 2, CFile::begin);
-                                rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation + 2, CFile::begin);
+                                rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
+                                rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
                                 rgFileHandles.at(2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                 rgFileHandles.at(3)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                 iHandle1 = 2;
@@ -507,7 +578,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                         break;
                     }
                     default:
-                        assert(0); // Unsupported read type
+                        MessageBox(g_appHWnd, L"ERROR: Unsupported read type.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         __fallthrough;
                     case FileReadType::Sequential: // 32bit color read
                     {
@@ -597,38 +668,103 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                 {
                     case FileReadType::Interleaved: // 16bit color write
                     {
-                        // We only currently support interleaving of two files 
-                        assert(m_psCurrentFileLoadingData->rgstrFileList.size() == 2);
-
-                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        if (m_psCurrentFileLoadingData->rgstrFileList.size() == 2)
                         {
-                            if (IsPaletteDirty(nUnitCtr, nPalCtr))
+                            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                             {
-                                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-                                m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
-
-                                rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                                rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
-                                for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
+                                if (IsPaletteDirty(nUnitCtr, nPalCtr))
                                 {
-                                    uint16_t nColorValue = m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsWritten];
+                                    LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                                    BYTE high = (nColorValue & 0xFF00) >> 8;
-                                    BYTE low = nColorValue & 0xFF;
+                                    m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
-                                    rgFileHandles.at(0)->Write(&low, 1);
-                                    rgFileHandles.at(1)->Write(&high, 1);
+                                    rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                    rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+
+                                    for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
+                                    {
+                                        uint16_t nColorValue = m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsWritten];
+
+                                        BYTE high = (nColorValue & 0xFF00) >> 8;
+                                        BYTE low = nColorValue & 0xFF;
+
+                                        rgFileHandles.at(0)->Write(&low, 1);
+                                        rgFileHandles.at(1)->Write(&high, 1);
+                                    }
                                 }
                             }
                         }
+                        else if (m_psCurrentFileLoadingData->rgstrFileList.size() == 4)
+                        {
+                            for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                            {
+                                if (IsPaletteDirty(nUnitCtr, nPalCtr))
+                                {
+                                    LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                                    // This has to be checked against the unmodified location
+                                    const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 4);
+
+                                    m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+
+                                    uint8_t iHandle1, iHandle2, iHandle3, iHandle4;
+
+                                    if (nStartingHandle == 0)
+                                    {
+                                        rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                        rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                        rgFileHandles.at(2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                        rgFileHandles.at(3)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                        iHandle1 = 0;
+                                        iHandle2 = 1;
+                                        iHandle3 = 2;
+                                        iHandle4 = 3;
+                                    }
+                                    else
+                                    {
+                                        rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
+                                        rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
+                                        rgFileHandles.at(2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                        rgFileHandles.at(3)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                        iHandle1 = 2;
+                                        iHandle2 = 3;
+                                        iHandle3 = 0;
+                                        iHandle4 = 1;
+                                    }
+
+                                    for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten += 2)
+                                    {
+                                        uint16_t nColorValue1 = m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsWritten];
+                                        uint16_t nColorValue2 = m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsWritten + 1];
+
+                                        BYTE high1 = (nColorValue1 & 0xFF00) >> 8;
+                                        BYTE low1 = nColorValue1 & 0xFF;
+                                        BYTE high2 = (nColorValue2 & 0xFF00) >> 8;
+                                        BYTE low2 = nColorValue2 & 0xFF;
+
+                                        rgFileHandles.at(iHandle1)->Write(&low1, 1);
+                                        rgFileHandles.at(iHandle2)->Write(&high1, 1);
+                                        rgFileHandles.at(iHandle3)->Write(&low2, 1);
+                                        rgFileHandles.at(iHandle4)->Write(&high2, 1);
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox(g_appHWnd, L"ERROR: PalMod does not support this interleaving at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
+                        }
+
                         break;
                     }
                     case FileReadType::Interleaved_Read2Bytes_LE: // 16bit color write
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
-                        assert(m_psCurrentFileLoadingData->rgstrFileList.size() == 2);
+                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 2)
+                        {
+                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
+
+                        }
                         const bool fIsLittleEndian = (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -682,7 +818,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                         break;
                     }
                     default:
-                        assert(0); // Unsupported write type
+                        MessageBox(g_appHWnd, L"ERROR: Unsupported write type.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         __fallthrough;
                     case FileReadType::Sequential: // 16bit color write
                     {
@@ -715,7 +851,10 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     case FileReadType::Interleaved: // 32bit color write
                     {
                         // We only currently support interleaving of four files 
-                        assert(m_psCurrentFileLoadingData->rgstrFileList.size() == 4);
+                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 4)
+                        {
+                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
+                        }
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
@@ -753,13 +892,19 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     {
                         // This is an untested good faith implementation in case we run into this load type
                         // We only currently support interleaving of four files 
-                        assert(m_psCurrentFileLoadingData->rgstrFileList.size() == 4);
+                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 4)
+                        {
+                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
+                        }
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             if (IsPaletteDirty(nUnitCtr, nPalCtr))
                             {
                                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                                // This has to be checked against the unmodified location
+                                const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 4);
 
                                 m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
@@ -769,7 +914,6 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                     OutputDebugString(L"ERROR: we don't support starting on odd bytes.\r\n");
                                 }
 
-                                const uint8_t nStartingHandle = (m_nCurrentPaletteROMLocation % 4);
                                 uint8_t iHandle1, iHandle2, iHandle3, iHandle4;
 
                                 if (nStartingHandle == 0)
@@ -819,7 +963,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                         break;
                     }
                     default:
-                        assert(0); // Unsupported read type
+                        MessageBox(g_appHWnd, L"ERROR: Unsupported write type.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         __fallthrough;
                     case FileReadType::Sequential:// 32bit color write
                     {

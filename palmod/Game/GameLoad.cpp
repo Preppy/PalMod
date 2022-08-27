@@ -4,6 +4,7 @@
 
 #include "Game_AOF1_A.h"
 #include "Game_AOF3_A.h"
+#include "Game_AsuraBuster_A_DIR.h"
 #include "Game_AvgrsGS_A_DIR.h"
 #include "Game_BASARA_P.h"
 #include "Game_BlazBlueCF_S.h"
@@ -148,7 +149,7 @@
 #include "..\palmod.h"
 
 // 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 165, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 166, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -207,6 +208,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case AOF3_A:
     {
         GetRule = &CGame_AOF3_A::GetRule;
+        return TRUE;
+    }
+    case AsuraBuster_A:
+    {
+        GetRule = &CGame_AsuraBuster_A_DIR::GetRule;
         return TRUE;
     }
     case AvgrsGS_A:
@@ -1121,6 +1127,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case AOF3_A:
     {
         return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case AsuraBuster_A:
+    {
+        return new CGame_AsuraBuster_A_DIR(nConfirmedROMSize);
     }
     case AvgrsGS_A:
     {

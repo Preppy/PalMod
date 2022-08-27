@@ -185,6 +185,7 @@ enum SupportedGamesList
     PrimalRage_SNES,
     AvgrsGS_A,
     BtlKRoad_A,
+    AsuraBuster_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -365,7 +366,8 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Capcom vs SNK Millenium Fight (NAOMI)",
     L"Primal Rage (SNES)",
     L"Avengers in Galactic Storm (Data East)",
-    L"Battle K-Road (Psikyo)"
+    L"Battle K-Road (Psikyo)",
+    L"Asura Buster - Eternal Warriors (Fuuki)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

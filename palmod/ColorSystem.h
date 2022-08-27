@@ -49,6 +49,8 @@ enum class ColMode
     COLMODE_RBG444,
     COLMODE_BRG888,
 
+    COLMODE_xBGR555_LE,     // Different packing used by Asura Buster / Fuuki
+
     COLMODE_LAST,
 };
 
@@ -88,6 +90,8 @@ namespace ColorSystem
     uint32_t CONV_BGR555LE_32(uint16_t inCol);
     uint16_t CONV_32_BGR555BE(uint32_t inCol);
     uint32_t CONV_BGR555BE_32(uint16_t inCol);
+    uint16_t CONV_32_xBGR555LE(uint32_t inCol);
+    uint32_t CONV_xBGR555LE_32(uint16_t inCol);
     uint16_t CONV_32_RGB555LE(uint32_t inCol);
     uint32_t CONV_RGB555LE_32(uint16_t inCol);
     uint16_t CONV_32_RGB555BE(uint32_t inCol);
