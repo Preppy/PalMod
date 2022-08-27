@@ -499,6 +499,9 @@
     <Filter Include="Games\Other Platforms\Avengers in Galactic Storm">
       <UniqueIdentifier>{f2b326a1-4e20-4f99-a448-93d9bade97fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Battle K-Road">
+      <UniqueIdentifier>{3389dcf1-be8b-487a-82f9-2fd444bf0c09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1040,6 +1043,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_AvgrsGS_A_DIR.cpp">
       <Filter>Games\Other Platforms\Avengers in Galactic Storm</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_BtlKRoad_A_DIR.cpp">
+      <Filter>Games\Other Platforms\Battle K-Road</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1966,6 +1972,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_AvgrsGS_A_DIR.h">
       <Filter>Games\Other Platforms\Avengers in Galactic Storm</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BtlKRoad_A_DIR_DEF.h">
+      <Filter>Games\Other Platforms\Battle K-Road</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_BtlKRoad_A_DIR.h">
+      <Filter>Games\Other Platforms\Battle K-Road</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

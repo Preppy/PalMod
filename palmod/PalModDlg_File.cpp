@@ -22,6 +22,7 @@ sSupportedGameList SupportedGameList[] =
     { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo },
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.*|", GamePlatform::NEOGEO },
     { BSSMSJR_SNES,     L"Bishojo Senshi Sailor Moon S - JR (SNES)", L"Bishojo Senshi Sailor Moon S - JR (SNES)|Bishoujo Senshi Sailor Moon S - Jougai Rantou! Shuyaku Soudatsusen (J*).s?c|", GamePlatform::Nintendo },
+    { BtlKRoad_A,       L"Battle K-Road", L"Battle K-Road|4-u46.bin|", GamePlatform::OtherPlatform },
     { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).s?c|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
     { CVS1_A,           L"CVS1", L"CVS1|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin|", GamePlatform::SegaNAOMI },
@@ -147,7 +148,7 @@ sSupportedGameList SupportedGameList[] =
 };
 
 // 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 164, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 165, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 sSupportedGameList* pSupportedGameList = SupportedGameList;
 const int nNumberOfLoadROMOptions = ARRAYSIZE(SupportedGameList);

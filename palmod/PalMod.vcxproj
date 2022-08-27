@@ -245,6 +245,7 @@
     <ClCompile Include="Game\Game_BMKNS_SNES.cpp" />
     <ClCompile Include="Game\Game_Breakers_A.cpp" />
     <ClCompile Include="Game\Game_BSSMSJR_SNES.cpp" />
+    <ClCompile Include="Game\Game_BtlKRoad_A_DIR.cpp" />
     <ClCompile Include="Game\Game_CFTE_SNES.cpp" />
     <ClCompile Include="Game\Game_COTA_A.cpp" />
     <ClCompile Include="Game\Game_CVS1_A.cpp" />
@@ -424,6 +425,7 @@
     <ClInclude Include="Game\BMKNS_SNES_DEF.h" />
     <ClInclude Include="Game\Breakers_A_DEF.h" />
     <ClInclude Include="Game\BSSMSJR_SNES_DEF.h" />
+    <ClInclude Include="Game\BtlKRoad_A_DIR_DEF.h" />
     <ClInclude Include="Game\ButtonDef.h" />
     <ClInclude Include="Game\CFTE_SNES_DEF.h" />
     <ClInclude Include="Game\ColorScale.h" />
@@ -457,6 +459,7 @@
     <ClInclude Include="Game\Game_BMKNS_SNES.h" />
     <ClInclude Include="Game\Game_Breakers_A.h" />
     <ClInclude Include="Game\Game_BSSMSJR_SNES.h" />
+    <ClInclude Include="Game\Game_BtlKRoad_A_DIR.h" />
     <ClInclude Include="Game\Game_CFTE_SNES.h" />
     <ClInclude Include="Game\Game_COTA_A.h" />
     <ClInclude Include="Game\Game_CVS1_A.h" />

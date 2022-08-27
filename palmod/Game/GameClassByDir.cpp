@@ -669,11 +669,6 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                             nColorValue2 = nOldVal;
                                         }
                                     }
-                                    else
-                                    {
-                                        nColorValue1 = _byteswap_ushort(nColorValue1);
-                                        nColorValue2 = _byteswap_ushort(nColorValue2);
-                                    }
 
                                     rgFileHandles.at(0)->Write(&nColorValue1, 2);
                                        
@@ -759,7 +754,6 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                         // This is an untested good faith implementation in case we run into this load type
                         // We only currently support interleaving of four files 
                         assert(m_psCurrentFileLoadingData->rgstrFileList.size() == 4);
-                        const bool fIsLittleEndian = (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
@@ -808,12 +802,6 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
                                     uint16_t high = (nColorValue & 0xFFFF0000) >> 16;
                                     uint16_t low =  (nColorValue & 0xFFFF);
-
-                                    if (!fIsLittleEndian)
-                                    {
-                                        high = _byteswap_ushort(high);
-                                        low = _byteswap_ushort(low);
-                                    }
 
                                     if ((nColorsWritten % 2) == 0)
                                     {

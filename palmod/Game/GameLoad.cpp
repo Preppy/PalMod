@@ -11,6 +11,7 @@
 #include "Game_BMKNS_SNES.h"
 #include "Game_Breakers_A.h"
 #include "Game_BSSMSJR_SNES.h"
+#include "Game_BtlKRoad_A_DIR.h"
 #include "Game_CFTE_SNES.h"
 #include "Game_COTA_A.h"
 #include "Game_CVS1_A.h"
@@ -147,7 +148,7 @@
 #include "..\palmod.h"
 
 // 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 164, "Increment this value check after you add in the new header aboveand the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 165, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -245,6 +246,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case BSSMSJR_SNES:
     {
         GetRule = &CGame_BSSMSJR_SNES::GetRule;
+        return TRUE;
+    }
+    case BtlKRoad_A:
+    {
+        GetRule = &CGame_BtlKRoad_A_DIR::GetRule;
         return TRUE;
     }
     case CFTE_SNES:
@@ -1143,6 +1149,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case BSSMSJR_SNES:
     {
         return new CGame_BSSMSJR_SNES(nConfirmedROMSize);
+    }
+    case BtlKRoad_A:
+    {
+        return new CGame_BtlKRoad_A_DIR(nConfirmedROMSize);
     }
     case CFTE_SNES:
     {
