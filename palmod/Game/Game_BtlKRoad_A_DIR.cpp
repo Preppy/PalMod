@@ -22,7 +22,7 @@ CGame_BtlKRoad_A_DIR::CGame_BtlKRoad_A_DIR(uint32_t nConfirmedROMSize)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_NOBUTTONS;
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(ColMode::COLMODE_RGB555_BE);
 
     // Load the game's layout for palmod

@@ -21,7 +21,7 @@ private:
     static constexpr auto EXTRA_FILENAME_KOF02_A = L"KOF02E.txt";
     static constexpr auto KOF02_A_PRIMARY_ROMNAME = L"265-p2.sp2";
     static constexpr uint32_t m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
-    static constexpr uint32_t m_nPaletteCountInHeaders = 2079;
+    static constexpr uint32_t m_nPaletteCountInHeaders = 2081;
     static constexpr uint32_t m_nLowestROMLocationUsedInHeaders = 0x1b4e0;
 
 public:

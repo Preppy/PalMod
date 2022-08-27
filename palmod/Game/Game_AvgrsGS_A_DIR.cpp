@@ -22,7 +22,7 @@ CGame_AvgrsGS_A_DIR::CGame_AvgrsGS_A_DIR(uint32_t nConfirmedROMSize)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_2;
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(ColMode::COLMODE_BGR555_LE);
 
     // Load the game's layout for palmod

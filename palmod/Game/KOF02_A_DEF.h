@@ -4286,6 +4286,8 @@ const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
     { L"Player 1 Name, Score (Italy)", 0xb56c2, 0xb56e2 },
     { L"Player 1 Name, Score (China)", 0xb56e2, 0xb5702 },
     { L"Player 2 Names, Score", 0xb5802, 0xb58a2 },
+    { L"Player 1 Name, Score (Mexico)", 0xb59e2, 0xb5a02 },
+    { L"Player 2 Name, Score (Mexico)", 0xb5a02, 0xb5a22 },
 };
 
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =
