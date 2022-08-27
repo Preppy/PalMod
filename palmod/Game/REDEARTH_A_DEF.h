@@ -32,6 +32,7 @@ const std::vector<uint16_t> REDEARTH_A_IMGIDS_USED =
     indexRedEarthSprites_Tessa,     // 0x0b
     indexRedEarthSprites_Bonus,     // 0x0c
     indexRedEarthSprites_Stages,    // 0x0d
+    indexRedEarthSprites_Endings,   // 0x0e
 };
 
 //Playable Characters
@@ -246,9 +247,9 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
     { L"Tessa Punch Mage Shield Preblock", 0x40EA80, 0x40EB00, indexRedEarthSprites_Tessa, 0x19 },
 
     { L"Tessa Punch Al (Aru) Cat", 0x40E780, 0x40E800, indexRedEarthSprites_Tessa, 0x22 },
-    { L"Tessa Punch Al (Aru) Cat Returning", 0x40E800, 0x40E880, indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Al (Aru) Cat Returning", 0x40E800, 0x40E880, indexRedEarthSprites_Tessa, 0x26 },
     { L"Tessa Punch Ivan (Ibun) Cat", 0x40E880, 0x40E900, indexRedEarthSprites_Tessa, 0x22 },
-    { L"Tessa Punch Ivan (Ibun) Cat Returning", 0x40E900, 0x40E980, indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Punch Ivan (Ibun) Cat Returning", 0x40E900, 0x40E980, indexRedEarthSprites_Tessa, 0x26 },
     { L"Tessa Punch Ice", 0x40E980, 0x40EA00, indexRedEarthSprites_Tessa, 0x0d },
     { L"Tessa Punch Reverie Sword", 0x40EB80, 0x40EC00, indexRedEarthSprites_Tessa, 0x1d },
     { L"Tessa Punch Staffs", 0x40EC00, 0x40EC80, indexRedEarthSprites_Tessa, 0x1e },
@@ -320,9 +321,9 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
     { L"Tessa Kick Mage Shield Preblock", 0x40EA80 + 0xc800, 0x40EB00 + 0xc800, indexRedEarthSprites_Tessa, 0x19 },
 
     { L"Tessa Kick Al (Aru) Cat", 0x40E780 + 0xc800, 0x40E800 + 0xc800, indexRedEarthSprites_Tessa, 0x22 },
-    { L"Tessa Kick Al (Aru) Cat Returning", 0x40E800 + 0xc800, 0x40E880 + 0xc800, indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Al (Aru) Cat Returning", 0x40E800 + 0xc800, 0x40E880 + 0xc800, indexRedEarthSprites_Tessa, 0x26 },
     { L"Tessa Kick Ivan (Ibun) Cat", 0x40E880 + 0xc800, 0x40E900 + 0xc800, indexRedEarthSprites_Tessa, 0x22 },
-    { L"Tessa Kick Ivan (Ibun) Cat Returning", 0x40E900 + 0xc800, 0x40E980 + 0xc800, indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Ivan (Ibun) Cat Returning", 0x40E900 + 0xc800, 0x40E980 + 0xc800, indexRedEarthSprites_Tessa, 0x26 },
     { L"Tessa Kick Ice", 0x40E980 + 0xc800, 0x40EA00 + 0xc800, indexRedEarthSprites_Tessa, 0x0d },
     { L"Tessa Kick Reverie Sword", 0x40EB80 + 0xc800, 0x40EC00 + 0xc800, indexRedEarthSprites_Tessa, 0x1d },
     { L"Tessa Kick Staffs", 0x40EC00 + 0xc800, 0x40EC80 + 0xc800, indexRedEarthSprites_Tessa, 0x1e },
@@ -1062,13 +1063,13 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Red Earth 1st Logo Cycle 16/17", 0x406ea0, 0x406ec0, indexRedEarthSprites_Bonus, 0x20 },
     { L"Red Earth 1st Logo Cycle 17/17", 0x406ec0, 0x406ee0, indexRedEarthSprites_Bonus, 0x20 },
 
-    { L"Red Earth Made Out Of Fireworks", 0x323ca0, 0x323d20 },
+    { L"Red Earth Made Out Of Fireworks", 0x323ca0, 0x323d20, indexRedEarthSprites_Bonus, 0x59 },
 
-    { L"Red Earth Logo Lion Thunderstrike", 0x323da0, 0x323e20 },
-    { L"Red Earth Logo Text Thunderstrike", 0x323e20, 0x323ea0 },
+    { L"Red Earth Logo Lion Thunderstrike", 0x323da0, 0x323e20, indexRedEarthSprites_Bonus, 0x5b, &pairNext },
+    { L"Red Earth Logo Text Thunderstrike", 0x323e20, 0x323ea0, indexRedEarthSprites_Bonus, 0x5e, &pairPrevious },
 
-    { L"Intro - Leo closeup", 0x3226a0, 0x322720 },
-    { L"Intro - Leo closeup Transition & Emerald FX", 0x3216a0, 0x321720 },
+    { L"Intro - Leo closeup", 0x3226a0, 0x322720, indexRedEarthSprites_Bonus, 0x56 },
+    { L"Intro - Leo closeup Transition & Emerald FX", 0x3216a0, 0x321720, indexRedEarthSprites_Bonus, 0x57 },
     { L"Intro - Emerald", 0x321320, 0x3213a0, indexRedEarthSprites_Bonus, 0x05 },
     { L"Intro - Emerald BG0", 0x3212a0, 0x321320, indexRedEarthSprites_Bonus, 0x19 },
     { L"Intro - Emerald BG1", 0x321720, 0x3217a0, indexRedEarthSprites_Bonus, 0x19 },
@@ -1122,7 +1123,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Tessa 6", 0x3239a0, 0x323a20, indexRedEarthSprites_Tessa, 0x23 },
     { L"Intro - Tessa 7", 0x323a20, 0x323aa0, indexRedEarthSprites_Tessa, 0x23 },
     { L"Intro - Tessa 8", 0x323aa0, 0x323b20, indexRedEarthSprites_Tessa, 0x23 },
-    { L"Intro - VS Blade Sky", 0x321220, 0x3212a0 },
+    { L"Intro - VS Blade Sky", 0x321220, 0x3212a0, indexRedEarthSprites_Bonus, 0x5f },
     { L"Intro - VS Blade Trees", 0x324120, 0x324160 },
     { L"Intro - Blade", 0x323f00, 0x323fa0 },
     { L"Intro - Leo Cliffside", 0x323fa0, 0x324020 },
@@ -1136,60 +1137,60 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Leo Cinematic 2 Rise and Slash BG", 0x322620, 0x3226a0, indexRedEarthSprites_Bonus, 0x54 },
 
     // { L"Intro - RaS BG 1", 0x322ea0, 0x322f00 }, obsolete?
-    { L"Leo Cinematic 3 Rise and Slashed BG 1", 0x322f20, 0x322fa0 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 2", 0x322fa0, 0x323020 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 3", 0x323020, 0x3230a0 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 4", 0x3230a0, 0x323120 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 5", 0x323120, 0x3231a0 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 6", 0x3231a0, 0x323220 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 7", 0x323220, 0x3232a0 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 8", 0x3232a0, 0x323320 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 9", 0x323320, 0x3233a0 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 10", 0x3233a0, 0x323420 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 11", 0x323420, 0x3234a0 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 12", 0x3234a0, 0x323520 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 13", 0x323520, 0x3235a0 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 14", 0x3235a0, 0x323620 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 15", 0x323620, 0x3236a0 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 16", 0x3236a0, 0x323720 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 1", 0x322f20, 0x322fa0, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 2", 0x322fa0, 0x323020, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 3", 0x323020, 0x3230a0, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 4", 0x3230a0, 0x323120, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 5", 0x323120, 0x3231a0, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 6", 0x3231a0, 0x323220, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 7", 0x323220, 0x3232a0, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 8", 0x3232a0, 0x323320, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 9", 0x323320, 0x3233a0, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 10", 0x3233a0, 0x323420, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 11", 0x323420, 0x3234a0, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 12", 0x3234a0, 0x323520, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 13", 0x323520, 0x3235a0, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 14", 0x3235a0, 0x323620, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 15", 0x323620, 0x3236a0, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 16", 0x3236a0, 0x323720, indexRedEarthSprites_Bonus, 0x58 },
 
     { L"Mini Capcom Logo", 0x406be0, 0x406c00, indexRedEarthSprites_Bonus, 0x39 },
     { L"Mini Red Earth Logo", 0x406fa0, 0x406fc0, indexRedEarthSprites_Bonus, 0x3b },
 
-    { L"Red Earth Logo Thunder BG", 0x323b20, 0x323ba0 },
-    { L"Red Earth Logo Lion 1", 0x323ba0, 0x323c20 },
-    { L"Red Earth Logo Lion 2", 0x324720, 0x3247a0 },
-    { L"Red Earth Logo Lion 3", 0x3247a0, 0x324820 },
-    { L"Red Earth Logo Lion 4", 0x324820, 0x3248a0 },
-    { L"Red Earth Logo Lion 5", 0x3248a0, 0x324920 },
-    { L"Red Earth Logo Lion 6", 0x324920, 0x3249a0 },
-    { L"Red Earth Logo Lion 7", 0x3249a0, 0x324a20 },
-    { L"Red Earth Logo Lion 8", 0x324a20, 0x324aa0 },
-    { L"Red Earth Logo Text 1", 0x323c20, 0x323ca0 },
-    { L"Red Earth Logo Text 2", 0x3241a0, 0x324220 },
-    { L"Red Earth Logo Text 3", 0x324220, 0x3242a0 },
-    { L"Red Earth Logo Text 4", 0x3242a0, 0x324320 },
-    { L"Red Earth Logo Text 5", 0x324320, 0x3243a0 },
-    { L"Red Earth Logo Text 6", 0x3243a0, 0x324420 },
-    { L"Red Earth Logo Text 7", 0x324420, 0x3244a0 },
-    { L"Red Earth Logo Text 8", 0x3244a0, 0x324520 },
+    { L"Red Earth Logo Thunder BG", 0x323b20, 0x323ba0, indexRedEarthSprites_Bonus, 0x5d },
+    { L"Red Earth Logo Lion 1", 0x323ba0, 0x323c20, indexRedEarthSprites_Bonus, 0x5a, &pairNext8 },
+    { L"Red Earth Logo Lion 2", 0x324720, 0x3247a0, indexRedEarthSprites_Bonus, 0x5a, &pairNext8 },
+    { L"Red Earth Logo Lion 3", 0x3247a0, 0x324820, indexRedEarthSprites_Bonus, 0x5a, &pairNext8 },
+    { L"Red Earth Logo Lion 4", 0x324820, 0x3248a0, indexRedEarthSprites_Bonus, 0x5a, &pairNext8 },
+    { L"Red Earth Logo Lion 5", 0x3248a0, 0x324920, indexRedEarthSprites_Bonus, 0x5a, &pairNext8 },
+    { L"Red Earth Logo Lion 6", 0x324920, 0x3249a0, indexRedEarthSprites_Bonus, 0x5a, &pairNext8 },
+    { L"Red Earth Logo Lion 7", 0x3249a0, 0x324a20, indexRedEarthSprites_Bonus, 0x5a, &pairNext8 },
+    { L"Red Earth Logo Lion 8", 0x324a20, 0x324aa0, indexRedEarthSprites_Bonus, 0x5a, &pairNext8 },
+    { L"Red Earth Logo Text 1", 0x323c20, 0x323ca0, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
+    { L"Red Earth Logo Text 2", 0x3241a0, 0x324220, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
+    { L"Red Earth Logo Text 3", 0x324220, 0x3242a0, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
+    { L"Red Earth Logo Text 4", 0x3242a0, 0x324320, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
+    { L"Red Earth Logo Text 5", 0x324320, 0x3243a0, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
+    { L"Red Earth Logo Text 6", 0x3243a0, 0x324420, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
+    { L"Red Earth Logo Text 7", 0x324420, 0x3244a0, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
+    { L"Red Earth Logo Text 8", 0x3244a0, 0x324520, indexRedEarthSprites_Bonus, 0x5c, &pairPrevious8 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_31_ENDING_PALETTES[] =
 {
-    { L"Generic Ending Leo", 0x3f5180, 0x3f5200 },
-    { L"Generic Ending Kenji", 0x3f5080, 0x3f5100 },
-    { L"Generic Ending Tessa", 0x3f5100, 0x3f5180 },
-    { L"Generic Ending Mai-Ling", 0x3f5000, 0x3f5080 }
+    { L"Generic Ending Leo", 0x3f5180, 0x3f5200, indexRedEarthSprites_Endings, 0x07 },
+    { L"Generic Ending Kenji", 0x3f5080, 0x3f5100, indexRedEarthSprites_Endings, 0x06 },
+    { L"Generic Ending Tessa", 0x3f5100, 0x3f5180, indexRedEarthSprites_Endings, 0x09 },
+    { L"Generic Ending Mai-Ling", 0x3f5000, 0x3f5080, indexRedEarthSprites_Endings, 0x08 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_PUNCH_PALETTES[] =
 {
     // Punch palette Kenji
-    { L"Good Subordinate Appears 1/4", 0x40bb80, 0x40bc00, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Good Subordinate Appears 2/4", 0x40bb00, 0x40bb80, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Good Subordinate Appears 3/4", 0x40ba80, 0x40bb00, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Good Subordinate Appears 4/4", 0x40ba00, 0x40ba80, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Good Subordinate Appears 1/4", 0x40bb80, 0x40bc00, indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4", 0x40bb00, 0x40bb80, indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4", 0x40ba80, 0x40bb00, indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4", 0x40ba00, 0x40ba80, indexRedEarthSprites_Kenji, 0x23 },
 
     { L"Punch Evil Ninja 1/4", 0x40b980, 0x40ba00, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
     { L"Punch Evil Ninja 2/4", 0x40b900, 0x40b980, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
@@ -1204,10 +1205,10 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_PUNCH_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_KENJI_NINJAS_KICK_PALETTES[] =
 {
     // Kick Palette Kenji Subordinates
-    { L"Good Subordinate Appears 1/4", 0x418380, 0x418400, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Good Subordinate Appears 2/4", 0x418300, 0x418380, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Good Subordinate Appears 3/4", 0x418280, 0x418300, indexRedEarthSprites_Kenji, 0x00 },
-    { L"Good Subordinate Appears 4/4", 0x418200, 0x418280, indexRedEarthSprites_Kenji, 0x00 },
+    { L"Good Subordinate Appears 1/4", 0x418380, 0x418400, indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 2/4", 0x418300, 0x418380, indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 3/4", 0x418280, 0x418300, indexRedEarthSprites_Kenji, 0x23 },
+    { L"Good Subordinate Appears 4/4", 0x418200, 0x418280, indexRedEarthSprites_Kenji, 0x23 },
 
     { L"Kick Evil Ninja 1/4", 0x418180, 0x418200, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
     { L"Kick Evil Ninja 2/4", 0x418100, 0x418180, indexRedEarthSprites_Kenji, 0x20, &pairNext4 },
@@ -1425,7 +1426,7 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_HUD_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 {
     //{ L"EXP / LVL Text", 0x406880, 0x406900 },
-    { L"Shadows, Effects & Hit FX 1", 0x132600, 0x132800 },
+    { L"Shadows, Effects & Hit FX 1", 0x132600, 0x132800, indexRedEarthSprites_Endings, 0x60 },
 
     { L"Some Elemental & Other Bg Flash", 0x406400, 0x406420, indexRedEarthSprites_Bonus, 0x2b },
 
@@ -1444,12 +1445,12 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_31_ENDING_DERMINOR_PALETTES[] =
 {
-    { L"Generic Ending Derminor BG", 0x3f5480, 0x3f5500, indexRedEarthSprites_Bonus, -1, &pairFullyLinkedNode },
-    { L"Generic Ending Derminor 1", 0x3f5280, 0x3f5300, indexRedEarthSprites_Bonus, -1 },
-    { L"Generic Ending Derminor 2", 0x3f5300, 0x3f5380, indexRedEarthSprites_Bonus, -1 },
-    { L"Generic Ending Derminor 3", 0x3f5380, 0x3f5400, indexRedEarthSprites_Bonus, -1 },
-    { L"Generic Ending Derminor 4", 0x3f5400, 0x3f5480, indexRedEarthSprites_Bonus, -1 },
-    { L"Generic Ending Derminor Sunshine", 0x3f5200, 0x3f5280, indexRedEarthSprites_Bonus, -1 },
+    { L"Generic Ending Derminor BG", 0x3f5480, 0x3f5500, indexRedEarthSprites_Endings, 0x00, &pairFullyLinkedNode },
+    { L"Generic Ending Derminor 1", 0x3f5280, 0x3f5300, indexRedEarthSprites_Endings, 0x01 },
+    { L"Generic Ending Derminor 2", 0x3f5300, 0x3f5380, indexRedEarthSprites_Endings, 0x02 },
+    { L"Generic Ending Derminor 3", 0x3f5380, 0x3f5400, indexRedEarthSprites_Endings, 0x03 },
+    { L"Generic Ending Derminor 4", 0x3f5400, 0x3f5480, indexRedEarthSprites_Endings, 0x04 },
+    { L"Generic Ending Derminor Sunshine", 0x3f5200, 0x3f5280, indexRedEarthSprites_Endings, 0x05 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_31_BONUS_RANKING_PALETTES[] =

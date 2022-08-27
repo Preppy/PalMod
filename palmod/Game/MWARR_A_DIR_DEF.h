@@ -54,8 +54,8 @@ const sGame_PaletteDataset MWarr_A_ALL_PALETTES[] =
     { L"Arakis - P2 Greece", 0x9352c, 0x935a2, indexMWarrSprites_Eteocles, 0x00 },
     { L"Cypher - Boss", 0x93a3a, 0x93aaa, indexMWarrSprites_Cypher, 0x00 },
     { L"Projectiles & SFX", 0x92BB6, 0x92C24, indexMWarrSprites_Bonus, 0x00 },
-    { L"Win & Lose Portraits 1", 0x93710, 0x93790 },
-    { L"Win & Lose Portraits 2", 0x936AC, 0x93710 },
+    { L"Win & Lose Portraits 1", 0x93710, 0x93790, indexMWarrSprites_Bonus, 0x01 },
+    { L"Win & Lose Portraits 2", 0x936AC, 0x93710, indexMWarrSprites_Bonus, 0x02 },
 };
 
 const sDescTreeNode MWarr_A_FULL_COLLECTION[] =

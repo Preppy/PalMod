@@ -95,7 +95,7 @@ const sGame_PaletteDataset FatalFury1_A_BONUS_Cutscenes_PALETTES[] =
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StagePaoPao_PALETTES[] =
 {
-    { L"Pao Pao Cafe", 0x337ec, 0x3396c },
+    { L"Pao Pao Cafe", 0x337ec, 0x3396c, indexFF1Sprites_Stages, 0x00 },
 };
 
 const sDescTreeNode FatalFury1_A_CHARACTER_COLLECTION[] =

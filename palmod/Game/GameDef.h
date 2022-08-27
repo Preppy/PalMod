@@ -496,6 +496,7 @@ const stPairedPaletteInfo pairPrevious2 = { -2 };
 const stPairedPaletteInfo pairPrevious3 = { -3 };
 const stPairedPaletteInfo pairPrevious4 = { -4 };
 const stPairedPaletteInfo pairPrevious5 = { -5 };
+const stPairedPaletteInfo pairPrevious8 = { -8 };
 const stPairedPaletteInfo pairPrevious9 = { -9 };
 const stPairedPaletteInfo pairPrevious10 = { -10 };
 const stPairedPaletteInfo pairPrevious14 = { -14 };
@@ -524,6 +525,7 @@ const stPairedPaletteInfo pairNext3AndNext7 =                       { 3, false, 
 const stPairedPaletteInfo pairNext3AndNext8 =                       { 3, false, 3, 8 }; // triple display... requires special handling in code
 
 const stPairedPaletteInfo pairNext3Palettes =                       { 1, false, 4 };          // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextSkippedPair =              { 1, false, 4, 3, 4 };    // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext32AndNextSkipped =         { 1, false, 4, 32, 34 };  // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextAndNext41AndNext =                { 1, false, 4, 41, 42 };  // quad display... requires special handling in code
 const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext =    { 2, false, 4, 4, 5 };    // quad display... requires special handling in code

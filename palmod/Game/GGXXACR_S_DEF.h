@@ -197,7 +197,7 @@ const std::vector<sGame_PaletteDataset> GGXXACR_S_YY_EXTRAS =
     { L"Me and My Killing Machine (6/6)", 0x381800, 0x381840, indexGGXXSprites_ACR_Bridget, 0x02 },
 
     //Instant Kill 
-    { L"Shoot the Moon (1/3)", 0x383d10, 0x384110, indexGGXXSprites_ACR_Bridget, 0x0B },    //these palettes look weird, but are correct
+    { L"Shoot the Moon (1/3)", 0x383d10, 0x384110, indexGGXXSprites_ACR_Bridget, 0x0B },
     { L"Shoot the Moon (2/3)", 0x39c8c0, 0x39ccc0, indexGGXXSprites_ACR_Bridget, 0x0B },
     { L"Shoot the Moon (3/3)", 0x3a4690, 0x3a4a90, indexGGXXSprites_ACR_Bridget, 0x0B },
 

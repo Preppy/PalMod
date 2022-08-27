@@ -2320,103 +2320,103 @@ const sDescTreeNode MVC2_A_DRDOOM_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x35175c0, 0x35175e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
+    { L"Main Color LP", 0x35175c0, 0x35175e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkippedPair },
     { L"(02) Tron Bonne (girl)", 0x35175e0, 0x3517600, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517600, 0x3517620, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517620, 0x3517640, indexCPS2Sprites_Tron, 3 },
     { L"(05) c.fp, Dash flame", 0x3517640, 0x3517660, indexCPS2Sprites_Tron, 4 },
-    { L"(06) Not Used", 0x3517660, 0x3517680, indexCPS2Sprites_Tron, 5 },
-    { L"(07) Not Used", 0x3517680, 0x35176a0, indexCPS2Sprites_Tron, 6 },
-    { L"(08) Not Used", 0x35176a0, 0x35176c0, indexCPS2Sprites_Tron, 7 },
+    { L"(06) Not Used", 0x3517660, 0x3517680, indexCPS2Sprites_Tron, 0x42 }, // deliberately setting this to a bogus id since the actual ids were used for extras
+    { L"(07) Not Used", 0x3517680, 0x35176a0, indexCPS2Sprites_Tron, 0x43 },
+    { L"(08) Not Used", 0x35176a0, 0x35176c0, indexCPS2Sprites_Tron, 0x44 },
 };
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x35176c0, 0x35176e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
+    { L"Main Color LK", 0x35176c0, 0x35176e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkippedPair },
     { L"(02) Tron Bonne (girl)", 0x35176e0, 0x3517700, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517700, 0x3517720, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517720, 0x3517740, indexCPS2Sprites_Tron, 3 },
     { L"(05) c.fp, Dash flame", 0x3517740, 0x3517760, indexCPS2Sprites_Tron, 4 },
-    { L"(06) Not Used", 0x3517760, 0x3517780, indexCPS2Sprites_Tron, 5 },
-    { L"(07) Not Used", 0x3517780, 0x35177a0, indexCPS2Sprites_Tron, 6 },
-    { L"(08) Not Used", 0x35177a0, 0x35177c0, indexCPS2Sprites_Tron, 7 },
+    { L"(06) Not Used", 0x3517760, 0x3517780, indexCPS2Sprites_Tron, 0x42 },
+    { L"(07) Not Used", 0x3517780, 0x35177a0, indexCPS2Sprites_Tron, 0x43 },
+    { L"(08) Not Used", 0x35177a0, 0x35177c0, indexCPS2Sprites_Tron, 0x44 },
 };
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x35177c0, 0x35177e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
+    { L"Main Color HP", 0x35177c0, 0x35177e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkippedPair },
     { L"(02) Tron Bonne (girl)", 0x35177e0, 0x3517800, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517800, 0x3517820, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517820, 0x3517840, indexCPS2Sprites_Tron, 3 },
     { L"(05) c.fp, Dash flame", 0x3517840, 0x3517860, indexCPS2Sprites_Tron, 4 },
-    { L"(06) Not Used", 0x3517860, 0x3517880, indexCPS2Sprites_Tron, 5 },
-    { L"(07) Not Used", 0x3517880, 0x35178a0, indexCPS2Sprites_Tron, 6 },
-    { L"(08) Not Used", 0x35178a0, 0x35178c0, indexCPS2Sprites_Tron, 7 },
+    { L"(06) Not Used", 0x3517860, 0x3517880, indexCPS2Sprites_Tron, 0x42 },
+    { L"(07) Not Used", 0x3517880, 0x35178a0, indexCPS2Sprites_Tron, 0x43 },
+    { L"(08) Not Used", 0x35178a0, 0x35178c0, indexCPS2Sprites_Tron, 0x44 },
 };
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x35178c0, 0x35178e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
+    { L"Main Color HK", 0x35178c0, 0x35178e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkippedPair },
     { L"(02) Tron Bonne (girl)", 0x35178e0, 0x3517900, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517900, 0x3517920, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517920, 0x3517940, indexCPS2Sprites_Tron, 3 },
     { L"(05) c.fp, Dash flame", 0x3517940, 0x3517960, indexCPS2Sprites_Tron, 4 },
-    { L"(06) Not Used", 0x3517960, 0x3517980, indexCPS2Sprites_Tron, 5 },
-    { L"(07) Not Used", 0x3517980, 0x35179a0, indexCPS2Sprites_Tron, 6 },
-    { L"(08) Not Used", 0x35179a0, 0x35179c0, indexCPS2Sprites_Tron, 7 },
+    { L"(06) Not Used", 0x3517960, 0x3517980, indexCPS2Sprites_Tron, 0x42 },
+    { L"(07) Not Used", 0x3517980, 0x35179a0, indexCPS2Sprites_Tron, 0x43 },
+    { L"(08) Not Used", 0x35179a0, 0x35179c0, indexCPS2Sprites_Tron, 0x44 },
 };
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x35179c0, 0x35179e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
+    { L"Main Color A1", 0x35179c0, 0x35179e0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkippedPair },
     { L"(02) Tron Bonne (girl)", 0x35179e0, 0x3517a00, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517a00, 0x3517a20, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517a20, 0x3517a40, indexCPS2Sprites_Tron, 3 },
     { L"(05) c.fp, Dash flame", 0x3517a40, 0x3517a60, indexCPS2Sprites_Tron, 4 },
-    { L"(06) Not Used", 0x3517a60, 0x3517a80, indexCPS2Sprites_Tron, 5 },
-    { L"(07) Not Used", 0x3517a80, 0x3517aa0, indexCPS2Sprites_Tron, 6 },
-    { L"(08) Not Used", 0x3517aa0, 0x3517ac0, indexCPS2Sprites_Tron, 7 },
+    { L"(06) Not Used", 0x3517a60, 0x3517a80, indexCPS2Sprites_Tron, 0x42 },
+    { L"(07) Not Used", 0x3517a80, 0x3517aa0, indexCPS2Sprites_Tron, 0x43 },
+    { L"(08) Not Used", 0x3517aa0, 0x3517ac0, indexCPS2Sprites_Tron, 0x44 },
 };
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x3517ac0, 0x3517ae0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkipped },
+    { L"Main Color A2", 0x3517ac0, 0x3517ae0, indexCPS2Sprites_Tron, 0, &pairNextAndNextSkippedPair },
     { L"(02) Tron Bonne (girl)", 0x3517ae0, 0x3517b00, indexCPS2Sprites_Tron, 1 },
     { L"(03) Kobun", 0x3517b00, 0x3517b20, indexCPS2Sprites_Tron, 2 },
     { L"(04) ID:01-08 - drill, lk, rock", 0x3517b20, 0x3517b40, indexCPS2Sprites_Tron, 3 },
     { L"(05) c.fp, Dash flame", 0x3517b40, 0x3517b60, indexCPS2Sprites_Tron, 4 },
-    { L"(06) Not Used", 0x3517b60, 0x3517b80, indexCPS2Sprites_Tron, 5 },
-    { L"(07) Not Used", 0x3517b80, 0x3517ba0, indexCPS2Sprites_Tron, 6 },
-    { L"(08) Not Used", 0x3517ba0, 0x3517bc0, indexCPS2Sprites_Tron, 7 },
+    { L"(06) Not Used", 0x3517b60, 0x3517b80, indexCPS2Sprites_Tron, 0x42 },
+    { L"(07) Not Used", 0x3517b80, 0x3517ba0, indexCPS2Sprites_Tron, 0x43 },
+    { L"(08) Not Used", 0x3517ba0, 0x3517bc0, indexCPS2Sprites_Tron, 0x44 },
 };
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x3517bc0, 0x3517be0, indexCPS2Sprites_Tron, 0, &pairNext },
-    { L"Burning Dark 2", 0x3517be0, 0x3517c00, indexCPS2Sprites_Tron, 1 },
-    { L"Burning Light", 0x3517c00, 0x3517c20, indexCPS2Sprites_Tron, 0, &pairNext },
-    { L"Burning Light 2", 0x3517c20, 0x3517c40, indexCPS2Sprites_Tron, 1 },
-    { L"Shocked Dark", 0x3517c40, 0x3517c60, indexCPS2Sprites_Tron, 0, &pairNext },
-    { L"Shocked Dark 2", 0x3517c60, 0x3517c80, indexCPS2Sprites_Tron, 1 },
-    { L"Shocked Light", 0x3517c80, 0x3517ca0, indexCPS2Sprites_Tron, 0, &pairNext },
-    { L"Shocked Light 2", 0x3517ca0, 0x3517cc0, indexCPS2Sprites_Tron, 1 },
-    { L"Dark Burning Dark", 0x3517cc0, 0x3517ce0, indexCPS2Sprites_Tron, 0, &pairNext },
-    { L"Dark Burning Dark 2", 0x3517ce0, 0x3517d00, indexCPS2Sprites_Tron, 1 },
-    { L"Dark Burning Light", 0x3517d00, 0x3517d20, indexCPS2Sprites_Tron, 0, &pairNext },
-    { L"Dark Burning Light 2", 0x3517d20, 0x3517d40, indexCPS2Sprites_Tron, 1 },
-    { L"Kinetic Charge Dark", 0x3517d40, 0x3517d60, indexCPS2Sprites_Tron, 0, &pairNext },
-    { L"Kinetic Charge Dark 2", 0x3517d60, 0x3517d80, indexCPS2Sprites_Tron, 1 },
-    { L"Kinetic Charge Light", 0x3517d80, 0x3517da0, indexCPS2Sprites_Tron, 0, &pairNext },
-    { L"Kinetic Charge Light 2", 0x3517da0, 0x3517dc0, indexCPS2Sprites_Tron, 1 },
+    { L"Burning Dark", 0x3517bc0, 0x3517be0, indexCPS2Sprites_Tron, 0x09, &pairNext },
+    { L"Burning Dark 2", 0x3517be0, 0x3517c00, indexCPS2Sprites_Tron, 0x0a },
+    { L"Burning Light", 0x3517c00, 0x3517c20, indexCPS2Sprites_Tron, 0x09, &pairNext },
+    { L"Burning Light 2", 0x3517c20, 0x3517c40, indexCPS2Sprites_Tron, 0x0a },
+    { L"Shocked Dark", 0x3517c40, 0x3517c60, indexCPS2Sprites_Tron, 0x09, &pairNext },
+    { L"Shocked Dark 2", 0x3517c60, 0x3517c80, indexCPS2Sprites_Tron, 0x0a },
+    { L"Shocked Light", 0x3517c80, 0x3517ca0, indexCPS2Sprites_Tron, 0x09, &pairNext },
+    { L"Shocked Light 2", 0x3517ca0, 0x3517cc0, indexCPS2Sprites_Tron, 0x0a },
+    { L"Dark Burning Dark", 0x3517cc0, 0x3517ce0, indexCPS2Sprites_Tron, 0x09, &pairNext },
+    { L"Dark Burning Dark 2", 0x3517ce0, 0x3517d00, indexCPS2Sprites_Tron, 0x0a },
+    { L"Dark Burning Light", 0x3517d00, 0x3517d20, indexCPS2Sprites_Tron, 0x09, &pairNext },
+    { L"Dark Burning Light 2", 0x3517d20, 0x3517d40, indexCPS2Sprites_Tron, 0x0a },
+    { L"Kinetic Charge Dark", 0x3517d40, 0x3517d60, indexCPS2Sprites_Tron, 0x09, &pairNext },
+    { L"Kinetic Charge Dark 2", 0x3517d60, 0x3517d80, indexCPS2Sprites_Tron, 0x0a },
+    { L"Kinetic Charge Light", 0x3517d80, 0x3517da0, indexCPS2Sprites_Tron, 0x09, &pairNext },
+    { L"Kinetic Charge Light 2", 0x3517da0, 0x3517dc0, indexCPS2Sprites_Tron, 0x0a },
 };
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_EXTRAS[] =
 {
-    { L"11: Kobun Winpose (Chef's Cart) (all buttons)", 0x3517dc0, 0x3517de0, indexCPS2Sprites_Tron, 11 },
+    { L"11: Kobun Winpose (Chef's Cart) (all buttons)", 0x3517dc0, 0x3517de0, indexCPS2Sprites_Tron, 0x05 },
     { L"12: Not Used", 0x3517de0, 0x3517e00 },
-    { L"13: Kobun's Lunch Tray (all buttons)", 0x3517e00, 0x3517e20, indexCPS2Sprites_Tron, 12 },
-    { L"14: c.MP (Reflect Frame on the gustaff) all buttons", 0x3517e20, 0x3517e40, indexCPS2Sprites_Tron, 13 },
-    { L"15: Drill Flame", 0x3517e40, 0x3517e60, indexCPS2Sprites_Tron, 14 },
+    { L"13: Kobun's Lunch Tray (all buttons)", 0x3517e00, 0x3517e20, indexCPS2Sprites_Tron, 0x06 },
+    { L"14: c.MP (Reflect Frame on the gustaff) all buttons", 0x3517e20, 0x3517e40, indexCPS2Sprites_Tron, 0x07 },
+    { L"15: Drill Flame", 0x3517e40, 0x3517e60, indexCPS2Sprites_Tron, 0x08 },
 };
 
 const sDescTreeNode MVC2_A_TRON_COLLECTION[] =
@@ -8798,120 +8798,120 @@ const sDescTreeNode MVC2_A_BONERINE_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_KOBUN_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x59acdc0, 0x59acde0, indexCPS2Sprites_Kobun, 0 },
-    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59acde0, 0x59ace00, indexCPS2Sprites_Tron, 1 },
-    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59ace00, 0x59ace20, indexCPS2Sprites_Tron, 12 },
+    { L"Main Color LP", 0x59acdc0, 0x59acde0, indexCPS2Sprites_Kobun, 0x00, &pairNext6Palettes },
+    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59acde0, 0x59ace00, indexCPS2Sprites_Kobun, 0x01 },
+    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59ace00, 0x59ace20, indexCPS2Sprites_Kobun, 0x02 },
     { L"(04) Kobun Fire (Flame)", 0x59ace20, 0x59ace40, indexCPS2Sprites_Kobun, 3 },
     { L"(05) Bull Mover", 0x59ace40, 0x59ace60, indexCPS2Sprites_Kobun, 4 },
     { L"(06) j.MP (food coming out of the pot) / j,LK", 0x59ace60, 0x59ace80, indexCPS2Sprites_Kobun, 5 },
-    { L"(07) Kobun Assist", 0x59ace80, 0x59acea0, indexCPS2Sprites_Kobun, 0 },
-    { L"(08) Not Used", 0x59acea0, 0x59acec0, indexCPS2Sprites_Kobun, 0 },
+    { L"(07) Kobun Assist", 0x59ace80, 0x59acea0, indexCPS2Sprites_Kobun, 0x06 },
+    { L"(08) Not Used", 0x59acea0, 0x59acec0, indexCPS2Sprites_Kobun, 0x08 },
 };
 
 const sGame_PaletteDataset MVC2_A_KOBUN_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x59acec0, 0x59acee0, indexCPS2Sprites_Kobun, 0 },
-    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59acee0, 0x59acf00, indexCPS2Sprites_Tron, 1 },
-    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59acf00, 0x59acf20, indexCPS2Sprites_Tron, 12 },
+    { L"Main Color LK", 0x59acec0, 0x59acee0, indexCPS2Sprites_Kobun, 0x00, &pairNext6Palettes },
+    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59acee0, 0x59acf00, indexCPS2Sprites_Kobun, 0x01 },
+    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59acf00, 0x59acf20, indexCPS2Sprites_Kobun, 0x02 },
     { L"(04) Kobun Fire (Flame)", 0x59acf20, 0x59acf40, indexCPS2Sprites_Kobun, 3 },
     { L"(05) Bull Mover", 0x59acf40, 0x59acf60, indexCPS2Sprites_Kobun, 4 },
     { L"(06) j.MP (food coming out of the pot) / j,LK", 0x59acf60, 0x59acf80, indexCPS2Sprites_Kobun, 5 },
-    { L"(07) Kobun Assist", 0x59acf80, 0x59acfa0, indexCPS2Sprites_Kobun, 0 },
-    { L"(08) Not Used", 0x59acfa0, 0x59acfc0, indexCPS2Sprites_Kobun, 0 },
+    { L"(07) Kobun Assist", 0x59acf80, 0x59acfa0, indexCPS2Sprites_Kobun, 0x06 },
+    { L"(08) Not Used", 0x59acfa0, 0x59acfc0, indexCPS2Sprites_Kobun, 0x08 },
 };
 
 const sGame_PaletteDataset MVC2_A_KOBUN_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x59acfc0, 0x59acfe0, indexCPS2Sprites_Kobun, 0 },
-    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59acfe0, 0x59ad000, indexCPS2Sprites_Tron, 1 },
-    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59ad000, 0x59ad020, indexCPS2Sprites_Tron, 12 },
+    { L"Main Color HP", 0x59acfc0, 0x59acfe0, indexCPS2Sprites_Kobun, 0x00, &pairNext6Palettes },
+    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59acfe0, 0x59ad000, indexCPS2Sprites_Kobun, 0x01 },
+    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59ad000, 0x59ad020, indexCPS2Sprites_Kobun, 0x02 },
     { L"(04) Kobun Fire (Flame)", 0x59ad020, 0x59ad040, indexCPS2Sprites_Kobun, 3 },
     { L"(05) Bull Mover", 0x59ad040, 0x59ad060, indexCPS2Sprites_Kobun, 4 },
     { L"(06) j.MP (food coming out of the pot) / j,LK", 0x59ad060, 0x59ad080, indexCPS2Sprites_Kobun, 5 },
-    { L"(07) Kobun Assist", 0x59ad080, 0x59ad0a0, indexCPS2Sprites_Kobun, 0 },
-    { L"(08) Not Used", 0x59ad0a0, 0x59ad0c0, indexCPS2Sprites_Kobun, 0 },
+    { L"(07) Kobun Assist", 0x59ad080, 0x59ad0a0, indexCPS2Sprites_Kobun, 0x06 },
+    { L"(08) Not Used", 0x59ad0a0, 0x59ad0c0, indexCPS2Sprites_Kobun, 0x08 },
 };
 
 const sGame_PaletteDataset MVC2_A_KOBUN_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x59ad0c0, 0x59ad0e0, indexCPS2Sprites_Kobun, 0 },
-    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59ad0e0, 0x59ad100, indexCPS2Sprites_Tron, 1 },
-    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59ad100, 0x59ad120, indexCPS2Sprites_Tron, 12 },
+    { L"Main Color HK", 0x59ad0c0, 0x59ad0e0, indexCPS2Sprites_Kobun, 0x00, &pairNext6Palettes },
+    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59ad0e0, 0x59ad100, indexCPS2Sprites_Kobun, 0x01 },
+    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59ad100, 0x59ad120, indexCPS2Sprites_Kobun, 0x02 },
     { L"(04) Kobun Fire (Flame)", 0x59ad120, 0x59ad140, indexCPS2Sprites_Kobun, 3 },
     { L"(05) Bull Mover", 0x59ad140, 0x59ad160, indexCPS2Sprites_Kobun, 4 },
     { L"(06) j.MP (food coming out of the pot) / j,LK", 0x59ad160, 0x59ad180, indexCPS2Sprites_Kobun, 5 },
-    { L"(07) Kobun Assist", 0x59ad180, 0x59ad1a0, indexCPS2Sprites_Kobun, 0 },
-    { L"(08) Not Used", 0x59ad1a0, 0x59ad1c0, indexCPS2Sprites_Kobun, 0 },
+    { L"(07) Kobun Assist", 0x59ad180, 0x59ad1a0, indexCPS2Sprites_Kobun, 0x06 },
+    { L"(08) Not Used", 0x59ad1a0, 0x59ad1c0, indexCPS2Sprites_Kobun, 0x08 },
 };
 
 const sGame_PaletteDataset MVC2_A_KOBUN_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x59ad1c0, 0x59ad1e0, indexCPS2Sprites_Kobun, 0 },
-    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59ad1e0, 0x59ad200, indexCPS2Sprites_Tron, 1 },
-    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59ad200, 0x59ad220, indexCPS2Sprites_Tron, 12 },
+    { L"Main Color A1", 0x59ad1c0, 0x59ad1e0, indexCPS2Sprites_Kobun, 0x00, &pairNext6Palettes },
+    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59ad1e0, 0x59ad200, indexCPS2Sprites_Kobun, 0x01 },
+    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59ad200, 0x59ad220, indexCPS2Sprites_Kobun, 0x02 },
     { L"(04) Kobun Fire (Flame)", 0x59ad220, 0x59ad240, indexCPS2Sprites_Kobun, 3 },
     { L"(05) Bull Mover", 0x59ad240, 0x59ad260, indexCPS2Sprites_Kobun, 4 },
     { L"(06) j.MP (food coming out of the pot) / j,LK", 0x59ad260, 0x59ad280, indexCPS2Sprites_Kobun, 5 },
-    { L"(07) Kobun Assist", 0x59ad280, 0x59ad2a0, indexCPS2Sprites_Kobun, 0 },
-    { L"(08) Not Used", 0x59ad2a0, 0x59ad2c0, indexCPS2Sprites_Kobun, 0 },
+    { L"(07) Kobun Assist", 0x59ad280, 0x59ad2a0, indexCPS2Sprites_Kobun, 0x06 },
+    { L"(08) Not Used", 0x59ad2a0, 0x59ad2c0, indexCPS2Sprites_Kobun, 0x08 },
 };
 
 const sGame_PaletteDataset MVC2_A_KOBUN_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x59ad2c0, 0x59ad2e0, indexCPS2Sprites_Kobun, 0 },
-    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59ad2e0, 0x59ad300, indexCPS2Sprites_Tron, 1 },
-    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59ad300, 0x59ad320, indexCPS2Sprites_Tron, 12 },
+    { L"Main Color A2", 0x59ad2c0, 0x59ad2e0, indexCPS2Sprites_Kobun, 0x00, &pairNext6Palettes },
+    { L"(02) ID:01-04 Zenny ID:05-08 Potato (LP) / Cart / Data ID: 09-15 Rat / Potato / Cart / Data", 0x59ad2e0, 0x59ad300, indexCPS2Sprites_Kobun, 0x01 },
+    { L"(03) ID:01-05 Food ID:06-08 Tray / Food ID:09-15 Food / Dishes / j.MK", 0x59ad300, 0x59ad320, indexCPS2Sprites_Kobun, 0x02 },
     { L"(04) Kobun Fire (Flame)", 0x59ad320, 0x59ad340, indexCPS2Sprites_Kobun, 3 },
     { L"(05) Bull Mover", 0x59ad340, 0x59ad360, indexCPS2Sprites_Kobun, 4 },
     { L"(06) j.MP (food coming out of the pot) / j,LK", 0x59ad360, 0x59ad380, indexCPS2Sprites_Kobun, 5 },
-    { L"(07) Kobun Assist", 0x59ad380, 0x59ad3a0, indexCPS2Sprites_Kobun, 0 },
-    { L"(08) Not Used", 0x59ad3a0, 0x59ad3c0, indexCPS2Sprites_Kobun, 0 },
+    { L"(07) Kobun Assist", 0x59ad380, 0x59ad3a0, indexCPS2Sprites_Kobun, 0x06 },
+    { L"(08) Not Used", 0x59ad3a0, 0x59ad3c0, indexCPS2Sprites_Kobun, 0x08 },
 };
 
 const sGame_PaletteDataset MVC2_A_KOBUN_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x59ad3c0, 0x59ad3e0, indexCPS2Sprites_Kobun, 0 },
-    { L"Burning Light", 0x59ad3e0, 0x59ad400, indexCPS2Sprites_Kobun, 0 },
-    { L"Shocked Dark", 0x59ad400, 0x59ad420, indexCPS2Sprites_Kobun, 0 },
-    { L"Shocked Light", 0x59ad420, 0x59ad440, indexCPS2Sprites_Kobun, 0 },
-    { L"Dark Burning Dark", 0x59ad440, 0x59ad460, indexCPS2Sprites_Kobun, 0 },
-    { L"Dark Burning Light", 0x59ad460, 0x59ad480, indexCPS2Sprites_Kobun, 0 },
-    { L"Kinetic Charge Dark", 0x59ad480, 0x59ad4a0, indexCPS2Sprites_Kobun, 0 },
-    { L"Kinetic Charge Light", 0x59ad4a0, 0x59ad4c0, indexCPS2Sprites_Kobun, 0 },
+    { L"Burning Dark", 0x59ad3c0, 0x59ad3e0, indexCPS2Sprites_Kobun, 0x08 },
+    { L"Burning Light", 0x59ad3e0, 0x59ad400, indexCPS2Sprites_Kobun, 0x08 },
+    { L"Shocked Dark", 0x59ad400, 0x59ad420, indexCPS2Sprites_Kobun, 0x08 },
+    { L"Shocked Light", 0x59ad420, 0x59ad440, indexCPS2Sprites_Kobun, 0x08 },
+    { L"Dark Burning Dark", 0x59ad440, 0x59ad460, indexCPS2Sprites_Kobun, 0x08 },
+    { L"Dark Burning Light", 0x59ad460, 0x59ad480, indexCPS2Sprites_Kobun, 0x08 },
+    { L"Kinetic Charge Dark", 0x59ad480, 0x59ad4a0, indexCPS2Sprites_Kobun, 0x08 },
+    { L"Kinetic Charge Light", 0x59ad4a0, 0x59ad4c0, indexCPS2Sprites_Kobun, 0x08 },
 };
 
 const sGame_PaletteDataset MVC2_A_KOBUN_PALETTES_EXTRAS[] =
 {
-    { L"09: LP - King Kobun Frame 1 LP Color", 0x59ad4c0, 0x59ad4e0 },
-    { L"0a: LP - King Kobun Frame 2 LP Color & then add Lumin+23", 0x59ad4e0, 0x59ad500 },
-    { L"0b: LP - King Kobun Frame 3 LP Color & then add Lumin+32", 0x59ad500, 0x59ad520 },
-    { L"0c: LP - King Kobun Frame 4 LP Color & then add Lumin+40", 0x59ad520, 0x59ad540 },
-    { L"0d: LP - King Kobun Frame 5 Full white", 0x59ad540, 0x59ad560 },
-    { L"0e: LK - King Kobun Frame 1 LK Color", 0x59ad560, 0x59ad580 },
-    { L"0f: LK - King Kobun Frame 2 LK Color & then add Lumin+23", 0x59ad580, 0x59ad5a0 },
-    { L"10: LK - King Kobun Frame 3 LK Color & then add Lumin+32", 0x59ad5a0, 0x59ad5c0 },
-    { L"11: LK - King Kobun Frame 4 LK Color & then add Lumin+40", 0x59ad5c0, 0x59ad5e0 },
-    { L"12: LK - King Kobun Frame 5 Full white", 0x59ad5e0, 0x59ad600 },
-    { L"13: HP - King Kobun Frame 1 HP Color", 0x59ad600, 0x59ad620 },
-    { L"14: HP - King Kobun Frame 2 HP Color & then add Lumin+23", 0x59ad620, 0x59ad640 },
-    { L"15: HP - King Kobun Frame 3 HP Color & then add Lumin+32", 0x59ad640, 0x59ad660 },
-    { L"16: HP - King Kobun Frame 4 HP Color & then add Lumin+40", 0x59ad660, 0x59ad680 },
-    { L"17: HP - King Kobun Frame 5 Full white", 0x59ad680, 0x59ad6a0 },
-    { L"18: HK - King Kobun Frame 1 HK Color", 0x59ad6a0, 0x59ad6c0 },
-    { L"19: HK - King Kobun Frame 2 HK Color & then add Lumin+23", 0x59ad6c0, 0x59ad6e0 },
-    { L"1a: HK - King Kobun Frame 3 HK Color & then add Lumin+32", 0x59ad6e0, 0x59ad700 },
-    { L"1b: HK - King Kobun Frame 4 HK Color & then add Lumin+40", 0x59ad700, 0x59ad720 },
-    { L"1c: HK - King Kobun Frame 5 Full white", 0x59ad720, 0x59ad740 },
-    { L"1d: A1 - King Kobun Frame 1 A1 Color", 0x59ad740, 0x59ad760 },
-    { L"1e: A1 - King Kobun Frame 2 A1 Color & then add Lumin+23", 0x59ad760, 0x59ad780 },
-    { L"1f: A1 - King Kobun Frame 3 A1 Color & then add Lumin+32", 0x59ad780, 0x59ad7a0 },
-    { L"20: A1 - King Kobun Frame 4 A1 Color & then add Lumin+40", 0x59ad7a0, 0x59ad7c0 },
-    { L"21: A1 - King Kobun Frame 5 Full white", 0x59ad7c0, 0x59ad7e0 },
-    { L"22: A2 - King Kobun Frame 1 A2 Color", 0x59ad7e0, 0x59ad800 },
-    { L"23: A2 - King Kobun Frame 2 A2 Color & then add Lumin+23", 0x59ad800, 0x59ad820 },
-    { L"24: A2 - King Kobun Frame 3 A2 Color & then add Lumin+32", 0x59ad820, 0x59ad840 },
-    { L"25: A2 - King Kobun Frame 4 A2 Color & then add Lumin+40", 0x59ad840, 0x59ad860 },
-    { L"26: A2 - King Kobun Frame 5 Full white", 0x59ad860, 0x59ad880 },
+    { L"09: LP - King Kobun Frame 1 LP Color", 0x59ad4c0, 0x59ad4e0, indexCPS2Sprites_Kobun, 0x07 },
+    { L"0a: LP - King Kobun Frame 2 LP Color & then add Lumin+23", 0x59ad4e0, 0x59ad500, indexCPS2Sprites_Kobun, 0x07 },
+    { L"0b: LP - King Kobun Frame 3 LP Color & then add Lumin+32", 0x59ad500, 0x59ad520, indexCPS2Sprites_Kobun, 0x07 },
+    { L"0c: LP - King Kobun Frame 4 LP Color & then add Lumin+40", 0x59ad520, 0x59ad540, indexCPS2Sprites_Kobun, 0x07 },
+    { L"0d: LP - King Kobun Frame 5 Full white", 0x59ad540, 0x59ad560, indexCPS2Sprites_Kobun, 0x07 },
+    { L"0e: LK - King Kobun Frame 1 LK Color", 0x59ad560, 0x59ad580, indexCPS2Sprites_Kobun, 0x07 },
+    { L"0f: LK - King Kobun Frame 2 LK Color & then add Lumin+23", 0x59ad580, 0x59ad5a0, indexCPS2Sprites_Kobun, 0x07 },
+    { L"10: LK - King Kobun Frame 3 LK Color & then add Lumin+32", 0x59ad5a0, 0x59ad5c0, indexCPS2Sprites_Kobun, 0x07 },
+    { L"11: LK - King Kobun Frame 4 LK Color & then add Lumin+40", 0x59ad5c0, 0x59ad5e0, indexCPS2Sprites_Kobun, 0x07 },
+    { L"12: LK - King Kobun Frame 5 Full white", 0x59ad5e0, 0x59ad600, indexCPS2Sprites_Kobun, 0x07 },
+    { L"13: HP - King Kobun Frame 1 HP Color", 0x59ad600, 0x59ad620, indexCPS2Sprites_Kobun, 0x07 },
+    { L"14: HP - King Kobun Frame 2 HP Color & then add Lumin+23", 0x59ad620, 0x59ad640, indexCPS2Sprites_Kobun, 0x07 },
+    { L"15: HP - King Kobun Frame 3 HP Color & then add Lumin+32", 0x59ad640, 0x59ad660, indexCPS2Sprites_Kobun, 0x07 },
+    { L"16: HP - King Kobun Frame 4 HP Color & then add Lumin+40", 0x59ad660, 0x59ad680, indexCPS2Sprites_Kobun, 0x07 },
+    { L"17: HP - King Kobun Frame 5 Full white", 0x59ad680, 0x59ad6a0, indexCPS2Sprites_Kobun, 0x07 },
+    { L"18: HK - King Kobun Frame 1 HK Color", 0x59ad6a0, 0x59ad6c0, indexCPS2Sprites_Kobun, 0x07 },
+    { L"19: HK - King Kobun Frame 2 HK Color & then add Lumin+23", 0x59ad6c0, 0x59ad6e0, indexCPS2Sprites_Kobun, 0x07 },
+    { L"1a: HK - King Kobun Frame 3 HK Color & then add Lumin+32", 0x59ad6e0, 0x59ad700, indexCPS2Sprites_Kobun, 0x07 },
+    { L"1b: HK - King Kobun Frame 4 HK Color & then add Lumin+40", 0x59ad700, 0x59ad720, indexCPS2Sprites_Kobun, 0x07 },
+    { L"1c: HK - King Kobun Frame 5 Full white", 0x59ad720, 0x59ad740, indexCPS2Sprites_Kobun, 0x07 },
+    { L"1d: A1 - King Kobun Frame 1 A1 Color", 0x59ad740, 0x59ad760, indexCPS2Sprites_Kobun, 0x07 },
+    { L"1e: A1 - King Kobun Frame 2 A1 Color & then add Lumin+23", 0x59ad760, 0x59ad780, indexCPS2Sprites_Kobun, 0x07 },
+    { L"1f: A1 - King Kobun Frame 3 A1 Color & then add Lumin+32", 0x59ad780, 0x59ad7a0, indexCPS2Sprites_Kobun, 0x07 },
+    { L"20: A1 - King Kobun Frame 4 A1 Color & then add Lumin+40", 0x59ad7a0, 0x59ad7c0, indexCPS2Sprites_Kobun, 0x07 },
+    { L"21: A1 - King Kobun Frame 5 Full white", 0x59ad7c0, 0x59ad7e0, indexCPS2Sprites_Kobun, 0x07 },
+    { L"22: A2 - King Kobun Frame 1 A2 Color", 0x59ad7e0, 0x59ad800, indexCPS2Sprites_Kobun, 0x07 },
+    { L"23: A2 - King Kobun Frame 2 A2 Color & then add Lumin+23", 0x59ad800, 0x59ad820, indexCPS2Sprites_Kobun, 0x07 },
+    { L"24: A2 - King Kobun Frame 3 A2 Color & then add Lumin+32", 0x59ad820, 0x59ad840, indexCPS2Sprites_Kobun, 0x07 },
+    { L"25: A2 - King Kobun Frame 4 A2 Color & then add Lumin+40", 0x59ad840, 0x59ad860, indexCPS2Sprites_Kobun, 0x07 },
+    { L"26: A2 - King Kobun Frame 5 Full white", 0x59ad860, 0x59ad880, indexCPS2Sprites_Kobun, 0x07 },
 };
 
 const sDescTreeNode MVC2_A_KOBUN_COLLECTION[] =

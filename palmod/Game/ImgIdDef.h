@@ -1497,6 +1497,7 @@ enum SupportedRedEarth_A_PaletteListIndex
     indexRedEarthSprites_Tessa,     // 0x0b
     indexRedEarthSprites_Bonus,     // 0x0c
     indexRedEarthSprites_Stages,    // 0x0d
+    indexRedEarthSprites_Endings,   // 0x0e
 };
 
 enum SupportedWakuWaku7_PaletteList
