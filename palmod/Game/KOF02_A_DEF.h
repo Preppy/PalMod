@@ -4288,6 +4288,10 @@ const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
     { L"Player 2 Names, Score", 0xb5802, 0xb58a2 },
     { L"Player 1 Name, Score (Mexico)", 0xb59e2, 0xb5a02 },
     { L"Player 2 Name, Score (Mexico)", 0xb5a02, 0xb5a22 },
+    { L"Player 1 Name, Score (Korea)", 0xb5a22, 0xb5a42 },
+    { L"Player 2 Name, Score (Korea)", 0xb5a42, 0xb5a62 },
+    { L"Player 1 Name, Score (NESTS)", 0xb5962, 0xb5982 },
+    { L"Player 2 Name, Score (NESTS)", 0xb5982, 0xb59a2 },
 };
 
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =

@@ -200,8 +200,8 @@ const sGame_PaletteDataset ROTD_A_ELIAS_A[] =
 {
     { L"Elias A", 0x08122c, 0x08124c, indexRotDSprites_Elias, 0x00 },
     { L"Holy Flare A", 0x08130c, 0x08132c },
-    { L"Magnus A", 0x08126c, 0x08128c },
-    { L"Unused Holy Flare A", 0x08128c, 0x0812ac },
+    { L"Unused Holy Flare A", 0x08126c, 0x08128c },
+    { L"Magnus A", 0x08128c, 0x0812ac },
     { L"Hell or Heaven A", 0x0812cc, 0x0812ec },
     { L"Maximum Delirium A", 0x0812ec, 0x08130c },
     { L"Rolling/Super Jump/Impact Combo Trail A", 0x08138c, 0x0813ac, indexRotDSprites_Elias, 0x00 },
@@ -215,8 +215,8 @@ const sGame_PaletteDataset ROTD_A_ELIAS_B[] =
 {
     { L"Elias B", 0x0813ec, 0x08140c, indexRotDSprites_Elias, 0x00 },
     { L"Holy Flare B", 0x0814cc, 0x0814ec },
-    { L"Magnus B", 0x08144c, 0x08146c },
-    { L"Unused Holy Flare B", 0x08146c, 0x08148c },
+    { L"Unused Holy Flare B", 0x08144c, 0x08146c },
+    { L"Magnus B", 0x08146c, 0x08148c },
     { L"Hell or Heaven B", 0x08148c, 0x0814ac },
     { L"Maximum Delirium B", 0x0814ac, 0x0814cc },
     { L"Rolling/Super Jump/Impact Combo Trail B", 0x08152c, 0x08154c, indexRotDSprites_Elias, 0x00 },
@@ -230,8 +230,8 @@ const sGame_PaletteDataset ROTD_A_ELIAS_C[] =
 {
     { L"Elias C", 0x08158c, 0x0815ac, indexRotDSprites_Elias, 0x00 },
     { L"Holy Flare C", 0x08166c, 0x08168c },
-    { L"Magnus C", 0x0815ec, 0x08160c },
-    { L"Unused Holy Flare C", 0x08160c, 0x08162c },
+    { L"Unused Holy Flare C", 0x0815ec, 0x08160c },
+    { L"Magnus C", 0x08160c, 0x08162c },
     { L"Hell or Heaven C", 0x08162c, 0x08164c },
     { L"Maximum Delirium C", 0x08164c, 0x08166c },
     { L"Rolling/Super Jump/Impact Combo Trail C", 0x0816cc, 0x0816ec, indexRotDSprites_Elias, 0x00 },
@@ -245,8 +245,8 @@ const sGame_PaletteDataset ROTD_A_ELIAS_D[] =
 {
     { L"Elias D", 0x08172c, 0x08174c, indexRotDSprites_Elias, 0x00 },
     { L"Holy Flare D", 0x08180c, 0x08182c },
-    { L"Magnus D", 0x08178c, 0x0817ac },
-    { L"Unused Holy Flare D", 0x0817ac, 0x0817cc },
+    { L"Unused Holy Flare D", 0x08178c, 0x0817ac },
+    { L"Magnus D", 0x0817ac, 0x0817cc },
     { L"Hell or Heaven D", 0x0817cc, 0x0817ec },
     { L"Maximum Delirium D", 0x0817ec, 0x08180c },
     { L"Rolling/Super Jump/Impact Combo Trail D", 0x08186c, 0x08188c, indexRotDSprites_Elias, 0x00 },

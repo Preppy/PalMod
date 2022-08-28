@@ -9,8 +9,6 @@
 // Uncomment this to have this file help convert an Extra file to our header style
 //#define DUMP_EXTRAS_ON_LOAD
 
-using namespace std;
-
 uint32_t CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 char CGameWithExtrasFile::m_paszGameNameOverride[MAX_PATH] = "";
 AlphaMode CGameWithExtrasFile::m_AlphaModeOverride = AlphaMode::Unknown;
@@ -119,7 +117,7 @@ void CGameWithExtrasFile::SetColorFormatOverride(LPCSTR paszColorString)
 
 void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtraDef** pCompleteExtraDefs, uint32_t nExtraUnitStart, uint32_t nGameROMSize, uint8_t cbColorSize /* = 2 */)
 {
-    ifstream extraFile;
+    std::ifstream extraFile;
     wchar_t szTargetFile[MAX_PATH];
     CString strOutputText;
     int nTotalExtensionExtraLinesHandled = 0;
@@ -223,7 +221,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                     k_colorsPerPage = CRegProc::GetMaxColorsPerPageOverride();
                 }
 
-                extraFile.open(szTargetFile, ios::in);
+                extraFile.open(szTargetFile, std::ios::in);
 
                 while (!extraFile.eof())
                 {

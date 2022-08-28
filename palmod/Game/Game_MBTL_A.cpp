@@ -33,8 +33,8 @@ const std::vector<uint16_t> MBTL_A_IMGIDS_USED =
 
     indexFrenchBreadSprites_MBTL_Bonus,             // 0x7c
 
-    indexFrenchBreadSprites_MBTL_Mash,              // 0x7d
-    indexFrenchBreadSprites_MBTL_Neco,              // 0x7e
+    indexFrenchBreadSprites_MBTL_Neco,              // 0x7d
+    indexFrenchBreadSprites_MBTL_Mash,              // 0x7e
 };
 
 struct MBTLNodeData

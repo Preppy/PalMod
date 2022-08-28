@@ -26,8 +26,8 @@ sSupportedGameList SupportedGameList[] =
     { BtlKRoad_A,       L"Battle K-Road", L"Battle K-Road|4-u46.bin|", GamePlatform::OtherPlatform },
     { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).s?c|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
-    { CVS1_A,           L"CVS1", L"CVS1|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin|", GamePlatform::SegaNAOMI },
-    { CVS2_A,           L"CVS2", L"CVS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
+    { CVS1_A,           L"CvS1", L"CvS1|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin|", GamePlatform::SegaNAOMI },
+    { CVS2_A,           L"CvS2", L"CvS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
     { CYBERBOTS_A,      L"Cyberbots", L"Cyberbots|cyb?.04|", GamePlatform::CapcomCPS12 },
     { DBZEB_DS,         L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)", L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)|3DS1366*(USA)-decrypted.3ds;Dragon*Butoden*USA*decrypted*.3ds|", GamePlatform::Nintendo },
     { DBZHD_SNES,       L"Dragon Ball Z: Hyper Dimension (SNES)", L"Dragon Ball Z: Hyper Dimension (SNES)|dragon ball z - hyper dimension (*).s?c|", GamePlatform::Nintendo },
@@ -78,18 +78,18 @@ sSupportedGameList SupportedGameList[] =
     { MartialMasters_A, L"Martial Masters", L"Martial Masters (PGM)|v104_32m.u9|", GamePlatform::PGM },
     { MATRIMELEE_A,     L"Matrimelee", L"Matrimelee|266-p2.*|", GamePlatform::NEOGEO },
     { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", GamePlatform::CapcomCPS12 },
-    { MVC_A,            L"Marvel vs Capcom", L"MVC Arcade|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+    { MVC_A,            L"Marvel vs Capcom", L"MvC Arcade|mvc*.06*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { MMX_SNES,         L"Mega Man X (SNES)", L"Mega Man X (SNES)|Mega*Man X (USA).s?c;sns-rx-0 p0.u1|", GamePlatform::Nintendo },
     { MMX2_SNES,        L"Mega Man X2 (SNES)", L"Mega Man X2 (SNES)|Mega*Man X2 (USA).s?c|", GamePlatform::Nintendo },
     { MMX3_SNES,        L"Mega Man X3 (SNES)", L"Mega Man X3 (SNES)|Mega*Man X3 (USA).s?c|", GamePlatform::Nintendo },
     { MMPR_SNES,        L"MMPR:TFE (SNES)", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).s?c|", GamePlatform::Nintendo },
     { MK1_SNES,         L"Mortal Kombat (SNES)", L"Mortal Kombat (SNES)|Mortal Kombat (USA).sfc|", GamePlatform::Nintendo },
     { MK2_SNES,         L"Mortal Kombat II (SNES)", L"Mortal Kombat 2 (SNES)|MK2 USA.sfc;Mortal Kombat II (USA).sfc|", GamePlatform::Nintendo },
-    { MSHVSF_A,         L"MSHVSF", L"MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+    { MSHVSF_A,         L"MSHvSF", L"MSHvSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { MSHWOTG_SNES,     L"MSH: War of the Gems (SNES)", L"MSH: War of the Gems (SNES)|Marvel Super Heroes in War of the Gems (USA).s?c|", GamePlatform::Nintendo },
     // MarvelVsCapcom2.bin
     // Unlocked\MarvelVsCapcom2_unlocked.bin
-    { MVC2_A,           L"MVC2", L"MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", GamePlatform::SegaNAOMI },
+    { MVC2_A,           L"MvC2", L"MvC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", GamePlatform::SegaNAOMI },
     { NeoBomberman_A,   L"Neo Bomberman", L"Neo Bomberman|093-p1.*|", GamePlatform::NEOGEO },
     { NGBC_A,           L"NGBC", L"NGBC|NeoGeoBattleColliseum.bin|", GamePlatform::SammyAtomiswave },
     { NINJAMASTERS_A,   L"Ninja Master's", L"Ninja Master's|217-p2.*;ninjm_p2.rom|", GamePlatform::NEOGEO },
@@ -144,7 +144,7 @@ sSupportedGameList SupportedGameList[] =
     { WakuWaku7_A,      L"Waku Waku 7", L"Waku Waku 7|225-p1.*;225-p1bh.p1|", GamePlatform::NEOGEO },
     { WINDJAMMERS_A,    L"Windjammers", L"Windjammers|065-p1.*|", GamePlatform::NEOGEO }, // Data East on NEOGEO
     { XMMA_SNES,        L"X-Men: Mutant Apocalypse (SNES)", L"X-Men: Mutant Apocalypse (SNES)|X-Men - Mutant Apocalypse (USA).s?c|", GamePlatform::Nintendo },
-    { XMVSF_A,          L"XMVSF", L"XMVSF|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
+    { XMVSF_A,          L"XMvSF", L"XMvSF|xvs*.05*|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };
 

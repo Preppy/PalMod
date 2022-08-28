@@ -700,7 +700,7 @@ const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_P8[] =
 
 const sGame_PaletteDataset BLEACH_DS_KOMAMURA_PALETTES_EXTRAS[] =
 {
-    { L"Komamura - Rocks", 0x2368f68, 0x2368f88 },
+    { L"Komamura - Rocks", 0x2368f68, 0x2368f884, indexBleachDSSprites_IchigoKurosaki, 0x01 },
     { L"Komamura - Tenken", 0x2368f88, 0x2368fa8, indexBleachDSSprites_SajinKomamura, 0x03 },
     { L"Komamura - Kokujo Tengen Myo-oh", 0x236a058, 0x236a078, indexBleachDSSprites_SajinKomamura, 0x01 },
 };

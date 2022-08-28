@@ -136,8 +136,8 @@ GAME(1997, mshvsfu1d,  mshvsf,   dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
     ROM_LOAD16_WORD_SWAP("mvs.06a",    0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
     ROM_LOAD16_WORD_SWAP("mvs.07b",    0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
 #endif
-        { L"MSHVSF (CPS2, Characters)", L"mvs.06a", 0x959f3030, 0 },
-        { L"MSHVSF (CPS2, Portraits)", L"mvs.07b", 0x7f915bdb, 0 },
+        { L"MSHvSF (CPS2, Characters)", L"mvs.06a", 0x959f3030, 0 },
+        { L"MSHvSF (CPS2, Portraits)", L"mvs.07b", 0x7f915bdb, 0 },
     };
 
     if (ppKnownROMSet)

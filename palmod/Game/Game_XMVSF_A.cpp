@@ -41,7 +41,7 @@ CGame_XMVSF_A::CGame_XMVSF_A(uint32_t nConfirmedROMSize)
     //We need the proper unit amt before we init the main buffer
     m_nTotalInternalUnits = XMVSF_A_NUMUNIT;
     m_nExtraUnit = XMVSF_A_EXTRALOC;
-    m_nSafeCountForThisRom = 823 + GetExtraCt(m_nExtraUnit);
+    m_nSafeCountForThisRom = 839 + GetExtraCt(m_nExtraUnit);
     m_pszExtraFilename = EXTRA_FILENAME_XMVSF;
     m_nTotalPaletteCount = m_nTotalPaletteCountForXMVSF;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -117,8 +117,8 @@ GAME(1996, xmvsfb,     xmvsf,    cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
 GAME(1996, xmvsfu1d,   xmvsf,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "bootleg", "X-Men Vs. Street Fighter (USA 961004 Phoenix Edition) (bootleg)", MACHINE_SUPPORTS_SAVE)
     ROM_LOAD16_WORD_SWAP("xvs.05a",   0x100000, 0x80000, CRC(7db6025d) SHA1(2d74f48f83f45359bfaca28ab686625766af12ee))
 #endif
-        { L"XVSF (CPS2)", L"xvs.05a", 0x7db6025d, 0 },
-        { L"XVSF (960909 Japan CPS2)", L"xvs.05", 0x030e0e1e, 0 },
+        { L"XMvSF (CPS2)", L"xvs.05a", 0x7db6025d, 0 },
+        { L"XMvSF (960909 Japan CPS2)", L"xvs.05", 0x030e0e1e, 0 },
     };
 
     if (ppKnownROMSet)

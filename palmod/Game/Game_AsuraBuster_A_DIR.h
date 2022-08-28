@@ -12,6 +12,6 @@ public:
     ~CGame_AsuraBuster_A_DIR();
 
     static constexpr auto m_strExtraFileName = L"AsuraBusterE.txt";
-    static constexpr uint32_t m_nPaletteCountInHeaders = 208;
-    static constexpr uint32_t m_nLowestROMLocationUsedInHeaders = 0x4d0f0;
+    static constexpr uint32_t m_nPaletteCountInHeaders = 412;
+    static constexpr uint32_t m_nLowestROMLocationUsedInHeaders = 0x4c350;
 };
