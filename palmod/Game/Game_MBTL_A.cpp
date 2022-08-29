@@ -10,31 +10,27 @@ CDescTree CGame_MBTL_A::MainDescTree = nullptr;
 
 const std::vector<uint16_t> MBTL_A_IMGIDS_USED =
 {
-    indexFrenchBreadSprites_MBTL_Akiha,             // 0x68
-    indexFrenchBreadSprites_MBTL_Arcueid,           // 0x69
-    indexFrenchBreadSprites_MBTL_Ciel,              // 0x6A
-    indexFrenchBreadSprites_MBTL_CielSupers,        // 0x6B
-    indexFrenchBreadSprites_MBTL_Hisui,             // 0x6C
-    indexFrenchBreadSprites_MBTL_HisuiMaskShiki,    // 0x6D
-    indexFrenchBreadSprites_MBTL_Kohaku,            // 0x6E
-    indexFrenchBreadSprites_MBTL_Kouma,             // 0x6F
-    indexFrenchBreadSprites_MBTL_Miyako,            // 0x70
-    indexFrenchBreadSprites_MBTL_Noel,              // 0x71
-    indexFrenchBreadSprites_MBTL_RedArcueid,        // 0x72
-    indexFrenchBreadSprites_MBTL_Roa,               // 0x73
-    indexFrenchBreadSprites_MBTL_Saber,             // 0x74
-    indexFrenchBreadSprites_MBTL_Shiki,             // 0x75
-    indexFrenchBreadSprites_MBTL_Vlov,              // 0x76
-    indexFrenchBreadSprites_MBTL_Aoko,              // 0x77
-    indexFrenchBreadSprites_MBTL_DANoel,            // 0x78
-    indexFrenchBreadSprites_MBTL_PoweredCiel,       // 0x79
-    indexFrenchBreadSprites_MBTL_Mario,             // 0x7a
-    indexFrenchBreadSprites_MBTL_MarioNuns,         // 0x7b
+        indexFrenchBreadSprites_MBTL_Akiha,             // 0x68
+        indexFrenchBreadSprites_MBTL_Arcueid,           // 0x69
+        indexFrenchBreadSprites_MBTL_Ciel,              // 0x6A
+        indexFrenchBreadSprites_MBTL_Hisui,             // 0x6B
+        indexFrenchBreadSprites_MBTL_Kohaku,            // 0x6C
+        indexFrenchBreadSprites_MBTL_Kouma,             // 0x6D
+        indexFrenchBreadSprites_MBTL_Miyako,            // 0x6E
+        indexFrenchBreadSprites_MBTL_Noel,              // 0x6F
+        indexFrenchBreadSprites_MBTL_RedArcueid,        // 0x70
+        indexFrenchBreadSprites_MBTL_Roa,               // 0x71
+        indexFrenchBreadSprites_MBTL_Saber,             // 0x72
+        indexFrenchBreadSprites_MBTL_Shiki,             // 0x73
+        indexFrenchBreadSprites_MBTL_Vlov,              // 0x74
+        indexFrenchBreadSprites_MBTL_Aoko,              // 0x75
+        indexFrenchBreadSprites_MBTL_DANoel,            // 0x76
+        indexFrenchBreadSprites_MBTL_PoweredCiel,       // 0x77
+        indexFrenchBreadSprites_MBTL_Mario,             // 0x78
 
-    indexFrenchBreadSprites_MBTL_Bonus,             // 0x7c
-
-    indexFrenchBreadSprites_MBTL_Neco,              // 0x7d
-    indexFrenchBreadSprites_MBTL_Mash,              // 0x7e
+        indexFrenchBreadSprites_MBTL_Bonus,             // 0x79
+        indexFrenchBreadSprites_MBTL_Neco,              // 0x7A
+        indexFrenchBreadSprites_MBTL_Mash,              // 0x7B
 };
 
 struct MBTLNodeData
@@ -180,13 +176,13 @@ std::vector <MBTLFileData> MBTLCharacterData =
 
 
     { L"data\\chr011\\Chr011_p1.pal",   L"Ciel (Arc Drive/Last Arc)",              61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Ciel, 0x01 },
-    { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Mask Shiki)",                     61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Hisui, 0x01 },
-    { L"data\\_csel\\Chr018.pal",       L"Mario (Main Sister)",                    61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x03 },
-    { L"data\\chr017\\Chr017_p1.pal",   L"Mario (Assist Sister)",                  61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x02 },
-    { L"data\\chr017\\Chr017_p2.pal",   L"Noel (Mario Arc Drive)",                 61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x01 },
-    { L"data\\chr019\\Chr019_p1.pal",   L"Eco-Arc (Neco-Arc Summon)",              77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x03 },
+    { L"data\\chr001\\Chr001_p1.pal",   L"Hisui (Mask Shiki)",                     61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Shiki },
+    { L"data\\_csel\\Chr018.pal",       L"Mario (Main Sister)",                    61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x01 },
+    { L"data\\chr017\\Chr017_p1.pal",   L"Mario (Assist Sister)",                  61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Mario, 0x01 },
+    { L"data\\chr017\\Chr017_p2.pal",   L"Noel (Mario Arc Drive)",                 61456,    MBTLPaletteNamesNormal,    MBTLPaletteNodes,       0x10, indexFrenchBreadSprites_MBTL_Noel },
+    { L"data\\chr019\\Chr019_p1.pal",   L"Eco-Arc (Neco-Arc Summon)",              77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x01 },
     { L"data\\chr019\\Chr019_p2.pal",   L"Saber (Neco-Arc Summmon)",               77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Saber },
-    { L"data\\chr019\\Chr019_p3.pal",   L"Neco-Arc (Last Arc Rocket)",             77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x01 },
+    { L"data\\chr019\\Chr019_p3.pal",   L"Neco-Arc (Last Arc Rocket)",             77840,    MBTLPaletteNamesNeco,      MBTLPaletteNodesNeco,   0x10, indexFrenchBreadSprites_MBTL_Neco, 0x02 },
 };
 
 CGame_MBTL_A::CGame_MBTL_A(uint32_t nConfirmedROMSize /* = -1 */)

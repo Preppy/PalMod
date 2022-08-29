@@ -90,4 +90,3 @@ sFileRule CGame_BtlKRoad_A_DIR::GetNextRule()
 
     return NewFileRule;
 }
-

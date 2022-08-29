@@ -626,7 +626,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
-    strInfo.Format(L"CGameClassByDir::SaveFile: Preparing to save data for MWarr ROM set\n");
+    strInfo.Format(L"CGameClassByDir::SaveFile: Preparing to save data for ROM set %u\n", nSaveUnit);
     OutputDebugString(strInfo);
 
     if (nSaveUnit != 0)
@@ -998,5 +998,6 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
         safe_delete(rgFileHandles.at(iCurrentFile));
     }
 
+    OutputDebugString(L"\tCGameClassByDir::SaveFile: Complete.\n");
     return TRUE;
 }

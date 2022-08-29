@@ -4292,6 +4292,17 @@ const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
     { L"Player 2 Name, Score (Korea)", 0xb5a42, 0xb5a62 },
     { L"Player 1 Name, Score (NESTS)", 0xb5962, 0xb5982 },
     { L"Player 2 Name, Score (NESTS)", 0xb5982, 0xb59a2 },
+
+    { L"Order Select VS (Single Play)", 0xb56a2, 0xb56c2 },
+    { L"MAX2 Background", 0xc1762, 0xc1942 },
+    { L"Title Screen Background", 0xb6362, 0xb6562 },
+    { L"Title Screen Logo", 0xb6562, 0xb65e2 },
+    { L"Win Screen Background", 0xb5462, 0xb5482 },
+    { L"Win Screen Text Box", 0xb54a2, 0xb54c2 },
+    { L"How To Play Text", 0xb5442, 0xb5462 },
+    { L"Single Play Win Counter", 0x86cc2, 0x86ce2 },
+    { L"Order Select \"CPU CHARACTER SELECT\" Text", 0x86d42, 0x86d62 },
+    { L"Credits Blue Text", 0x86be2, 0x86c02 },
 };
 
 const sDescTreeNode KOF02_A_BONUS_COLLECTION[] =

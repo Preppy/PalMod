@@ -2106,27 +2106,24 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_MBTL_Akiha,             // 0x68
     indexFrenchBreadSprites_MBTL_Arcueid,           // 0x69
     indexFrenchBreadSprites_MBTL_Ciel,              // 0x6A
-    indexFrenchBreadSprites_MBTL_CielSupers,        // 0x6B
-    indexFrenchBreadSprites_MBTL_Hisui,             // 0x6C
-    indexFrenchBreadSprites_MBTL_HisuiMaskShiki,    // 0x6D
-    indexFrenchBreadSprites_MBTL_Kohaku,            // 0x6E
-    indexFrenchBreadSprites_MBTL_Kouma,             // 0x6F
-    indexFrenchBreadSprites_MBTL_Miyako,            // 0x70
-    indexFrenchBreadSprites_MBTL_Noel,              // 0x71
-    indexFrenchBreadSprites_MBTL_RedArcueid,        // 0x72
-    indexFrenchBreadSprites_MBTL_Roa,               // 0x73
-    indexFrenchBreadSprites_MBTL_Saber,             // 0x74
-    indexFrenchBreadSprites_MBTL_Shiki,             // 0x75
-    indexFrenchBreadSprites_MBTL_Vlov,              // 0x76
-    indexFrenchBreadSprites_MBTL_Aoko,              // 0x77
-    indexFrenchBreadSprites_MBTL_DANoel,            // 0x78
-    indexFrenchBreadSprites_MBTL_PoweredCiel,       // 0x79
-    indexFrenchBreadSprites_MBTL_Mario,             // 0x7a
-    indexFrenchBreadSprites_MBTL_MarioNuns,         // 0x7b
+    indexFrenchBreadSprites_MBTL_Hisui,             // 0x6B
+    indexFrenchBreadSprites_MBTL_Kohaku,            // 0x6C
+    indexFrenchBreadSprites_MBTL_Kouma,             // 0x6D
+    indexFrenchBreadSprites_MBTL_Miyako,            // 0x6E
+    indexFrenchBreadSprites_MBTL_Noel,              // 0x6F
+    indexFrenchBreadSprites_MBTL_RedArcueid,        // 0x70
+    indexFrenchBreadSprites_MBTL_Roa,               // 0x71
+    indexFrenchBreadSprites_MBTL_Saber,             // 0x72
+    indexFrenchBreadSprites_MBTL_Shiki,             // 0x73
+    indexFrenchBreadSprites_MBTL_Vlov,              // 0x74
+    indexFrenchBreadSprites_MBTL_Aoko,              // 0x75
+    indexFrenchBreadSprites_MBTL_DANoel,            // 0x76
+    indexFrenchBreadSprites_MBTL_PoweredCiel,       // 0x77
+    indexFrenchBreadSprites_MBTL_Mario,             // 0x78
 
-    indexFrenchBreadSprites_MBTL_Bonus,             // 0x7c
-    indexFrenchBreadSprites_MBTL_Neco,              // 0x7d
-    indexFrenchBreadSprites_MBTL_Mash,              // 0x7e
+    indexFrenchBreadSprites_MBTL_Bonus,             // 0x79
+    indexFrenchBreadSprites_MBTL_Neco,              // 0x7A
+    indexFrenchBreadSprites_MBTL_Mash,              // 0x7B
 };
 
 enum SupportedTaito_PaletteListIndex

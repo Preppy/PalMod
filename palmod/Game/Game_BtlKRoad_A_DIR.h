@@ -5,8 +5,8 @@
 class CGame_BtlKRoad_A_DIR : public CGameClassByDir
 {
 public:
-    static sFileRule GetNextRule();
     static sFileRule GetRule(uint32_t nRuleId);
+    static sFileRule GetNextRule();
 
     CGame_BtlKRoad_A_DIR(uint32_t nConfirmedROMSize = -1);
     ~CGame_BtlKRoad_A_DIR();
