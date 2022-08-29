@@ -5,8 +5,8 @@
 const sDirectoryLoadingData BKRFileLoadingData =
 {
     {
-        L"4-u46.bin",
-        L"5-u39.bin",
+        { L"4-u46.bin", 0x40000 },
+        { L"5-u39.bin", 0x40000 },
     },
     FileReadType::Interleaved_Read2Bytes_BE,
     0x80000

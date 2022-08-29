@@ -5,7 +5,7 @@
 const sDirectoryLoadingData PrimarlRageFileLoadingData =
 {
     {
-        L"Primal Rage (USA).sfc"
+        { L"Primal Rage (USA).sfc", 0x300000 },
     },
     FileReadType::Sequential,
     0x300000

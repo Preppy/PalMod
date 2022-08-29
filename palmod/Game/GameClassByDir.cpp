@@ -71,23 +71,25 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
 
     m_psCurrentFileLoadingData = &gameLoadingData.sLoadingData;
 
-    // This is imperfect in that we're checking primary file only.
-    if ((nConfirmedROMSize * m_psCurrentFileLoadingData->rgstrFileList.size()) == m_psCurrentFileLoadingData->nROMSize)
+    // We only check primary ROM size because we outright fail the load if any subsequent ROMs not being the right size.
+    if (nConfirmedROMSize == m_psCurrentFileLoadingData->rgFileList.at(0).nFileSize)
     {
-        m_nConfirmedROMSize = m_psCurrentFileLoadingData->nROMSize;
+        m_nConfirmedROMSize = m_psCurrentFileLoadingData->nAggregateROMSizes;
+    }
+    else if (m_psCurrentFileLoadingData->rgFileList.size() == 1)
+    {
+        OutputDebugString(L"CGameClassByDir::InitializeGame:: Unexpected file size.  Narrowing extra load down to primary ROM.\r\n");
+        m_nConfirmedROMSize = nConfirmedROMSize;
     }
     else
     {
-        OutputDebugString(L"CGameClassByDir::InitializeGame:: Unexpected file size. Disallowing Extra file load.\r\n");
-        m_nConfirmedROMSize = -1; // Deny Extra file loads
-    }    
+        OutputDebugString(L"CGameClassByDir::InitializeGame:: Unexpected file size.  Can't load extras here.\r\n");
+        m_nConfirmedROMSize = -1;
+
+    }
 
     // Load the game's layout for palmod
     InitializeStatics(gameLoadingData.psUnitData, gameLoadingData.nUnitCount, gameLoadingData.strExtraName);
-
-    // xoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxoxxoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxox
-    // Everything after this is boilerplate and doesn't need to be changed.
-    // xoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxoxxoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxox
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -107,7 +109,7 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     InitDataBuffer();
 
     // This lets LoadGame and SaveGame know how many files it needs to interact with
-    nFileAmt = m_psCurrentFileLoadingData->rgstrFileList.size();
+    nFileAmt = m_psCurrentFileLoadingData->rgFileList.size();
 
     //Create the redirect buffer
     rgUnitRedir = new uint32_t[nUnitAmt + 1];
@@ -167,13 +169,13 @@ inline uint32_t CGameClassByDir::GetSIMMLocationFromROMLocation(uint32_t nROMLoc
         (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE) ||
         (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_BE))
     {
-        const uint32_t nSIMMLocation = nROMLocation / m_psCurrentFileLoadingData->rgstrFileList.size();
+        const uint32_t nSIMMLocation = nROMLocation / m_psCurrentFileLoadingData->rgFileList.size();
         return nSIMMLocation;
     }
     else // if (m_psCurrentFileLoadingData->eReadType == FileReadType::Sequential)
     {
-        // Invalid look-up
-        return 0;
+        // This is a pointless call since it's 1:1
+        return nROMLocation;
     }
 }
 
@@ -183,13 +185,27 @@ inline uint32_t CGameClassByDir::GetSIMMUnitFromROMLocation(uint32_t nROMLocatio
         (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE) ||
         (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_BE))
     {
-        // Invalid look-up
+        // This is a pointless call since it's functionally monolithic
         return 0;
     }
     else // if (m_psCurrentFileLoadingData->eReadType == FileReadType::Sequential)
     {
-        const uint32_t nSIMMUnit = static_cast<uint32_t>(floor(static_cast<double>(nROMLocation) / static_cast<double>(m_psCurrentFileLoadingData->nROMSize)));
-        return nSIMMUnit;
+        uint32_t nAdjustedLocation = nROMLocation;
+        for (uint32_t nSIMMUnit = 0; nSIMMUnit < m_psCurrentFileLoadingData->rgFileList.size(); nSIMMUnit++)
+        {
+            if (nAdjustedLocation < m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize)
+            {
+                return nSIMMUnit;
+            }
+
+            nAdjustedLocation -= m_psCurrentFileLoadingData->rgFileList.at(nSIMMUnit).nFileSize;
+        }
+
+        CString strInfo;
+        strInfo.Format(L"Error: location 0x%x is outside the range for this ROM.", nROMLocation);
+        MessageBox(g_appHWnd, strInfo.GetString(), GetHost()->GetAppName(), MB_ICONERROR);
+
+        return 0;
     }
 }
 
@@ -258,14 +274,13 @@ BOOL CGameClassByDir::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     return _UpdatePalImg(&m_rgCurrentGameUnits[0], &m_rgCurrentExtraCounts[0], m_rgCurrentGameUnits.size(), m_nCurrentExtraUnitId, m_prgCurrentExtrasLoaded, Node01, Node02, Node03, Node03);
 }
 
-
 sFileRule CGameClassByDir::GetRule(uint32_t nUnitId, const sDirectoryLoadingData& gameLoadingData)
 {
     sFileRule NewFileRule;
 
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", gameLoadingData.rgstrFileList.at(nUnitId & 0xFF).c_str());
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", gameLoadingData.rgFileList.at(nUnitId & 0xFF).strFileName.c_str());
     NewFileRule.uUnitId = nUnitId;
-    NewFileRule.uVerifyVar = gameLoadingData.nROMSize / gameLoadingData.rgstrFileList.size();
+    NewFileRule.uVerifyVar = gameLoadingData.rgFileList.at(nUnitId & 0xFF).nFileSize;
 
     return NewFileRule;
 }
@@ -274,7 +289,7 @@ sFileRule CGameClassByDir::GetNextRule(const sDirectoryLoadingData& gameLoadingD
 {
     sFileRule NewFileRule = GetRule(uRuleCtr++, gameLoadingData);
 
-    if (uRuleCtr >= gameLoadingData.rgstrFileList.size())
+    if (uRuleCtr >= gameLoadingData.rgFileList.size())
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
@@ -303,9 +318,9 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     std::vector<CFile *> rgFileHandles;
 
     // Reset: we reopen in bulk
-    rgFileHandles.resize(m_psCurrentFileLoadingData->rgstrFileList.size());
+    rgFileHandles.resize(m_psCurrentFileLoadingData->rgFileList.size());
 
-    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgstrFileList.size(); iCurrentFile++)
+    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgFileList.size(); iCurrentFile++)
     {
         CString strNameWithPath;
 
@@ -317,18 +332,35 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         }
         else
         {
-            strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgstrFileList.at(iCurrentFile).c_str());
+            strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgFileList.at(iCurrentFile).strFileName.c_str());
         }
 
         rgFileHandles.at(iCurrentFile) = new CFile;
         
-        if (!rgFileHandles.at(iCurrentFile)->Open(strNameWithPath.GetString(), CFile::modeRead | CFile::typeBinary))
+        if (rgFileHandles.at(iCurrentFile)->Open(strNameWithPath.GetString(), CFile::modeRead | CFile::typeBinary))
+        {
+            if (rgFileHandles.at(iCurrentFile)->GetLength() != m_psCurrentFileLoadingData->rgFileList.at(iCurrentFile).nFileSize)
+            {
+                if (m_psCurrentFileLoadingData->rgFileList.size() != 1) // for monolithic files we have a runtime check asking if they want to allow the load anyways
+                {
+                    if (fSuccess)
+                    {
+                        strInfo.Format(L"Error: file \"%s\" is not the expected size.  Since this file is part of a set, we require it to match a known file size.", strNameWithPath.GetString());
+                        MessageBox(g_appHWnd, strInfo.GetString(), GetHost()->GetAppName(), MB_ICONERROR);
+                    }
+
+                    fSuccess = FALSE;
+                }
+            }
+        }
+        else
         {
             if (fSuccess)
             {
                 strInfo.Format(L"Error: could not load file \"%s\".", strNameWithPath.GetString());
                 MessageBox(g_appHWnd, strInfo.GetString(), GetHost()->GetAppName(), MB_ICONERROR);
             }
+
             fSuccess = FALSE;
         }
     }
@@ -354,7 +386,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                 {
                 case FileReadType::Interleaved: // 16bit color read
                     {
-                        if (m_psCurrentFileLoadingData->rgstrFileList.size() == 2)
+                        if (m_psCurrentFileLoadingData->rgFileList.size() == 2)
                         {
                             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                             {
@@ -381,7 +413,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 }
                             }
                         }
-                        else if (m_psCurrentFileLoadingData->rgstrFileList.size() == 4)
+                        else if (m_psCurrentFileLoadingData->rgFileList.size() == 4)
                         {
                             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                             {
@@ -447,7 +479,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                 case FileReadType::Interleaved_Read2Bytes_BE:
                 {
                         // We only currently support interleaving of two files 
-                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 2)
+                        if (m_psCurrentFileLoadingData->rgFileList.size() != 2)
                         {
                             MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
 
@@ -552,7 +584,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     case FileReadType::Interleaved: // 32bit color read
                     {
                         // We only currently support interleaving of four files 
-                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 4)
+                        if (m_psCurrentFileLoadingData->rgFileList.size() != 4)
                         {
                             MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         }
@@ -591,7 +623,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
                         // This is an untested good faith implementation in case we run into this load type
-                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 4)
+                        if (m_psCurrentFileLoadingData->rgFileList.size() != 4)
                         {
                             MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         }
@@ -699,7 +731,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         }
     }
 
-    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgstrFileList.size(); iCurrentFile++)
+    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgFileList.size(); iCurrentFile++)
     {
         rgFileHandles.at(iCurrentFile)->Abort();
         delete rgFileHandles.at(iCurrentFile);
@@ -731,12 +763,12 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
     // Reset: we reopen in bulk
     SaveFile->Abort();
-    rgFileHandles.resize(m_psCurrentFileLoadingData->rgstrFileList.size());
+    rgFileHandles.resize(m_psCurrentFileLoadingData->rgFileList.size());
 
-    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgstrFileList.size(); iCurrentFile++)
+    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgFileList.size(); iCurrentFile++)
     {
         CString strNameWithPath;
-        strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgstrFileList.at(iCurrentFile).c_str());
+        strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgFileList.at(iCurrentFile).strFileName.c_str());
 
         rgFileHandles.at(iCurrentFile) = new CFile;
 
@@ -758,7 +790,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                 {
                     case FileReadType::Interleaved: // 16bit color write
                     {
-                        if (m_psCurrentFileLoadingData->rgstrFileList.size() == 2)
+                        if (m_psCurrentFileLoadingData->rgFileList.size() == 2)
                         {
                             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                             {
@@ -784,7 +816,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 }
                             }
                         }
-                        else if (m_psCurrentFileLoadingData->rgstrFileList.size() == 4)
+                        else if (m_psCurrentFileLoadingData->rgFileList.size() == 4)
                         {
                             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                             {
@@ -850,7 +882,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     case FileReadType::Interleaved_Read2Bytes_LE: // 16bit color write
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
-                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 2)
+                        if (m_psCurrentFileLoadingData->rgFileList.size() != 2)
                         {
                             MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
 
@@ -941,7 +973,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     case FileReadType::Interleaved: // 32bit color write
                     {
                         // We only currently support interleaving of four files 
-                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 4)
+                        if (m_psCurrentFileLoadingData->rgFileList.size() != 4)
                         {
                             MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         }
@@ -982,7 +1014,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     {
                         // This is an untested good faith implementation in case we run into this load type
                         // We only currently support interleaving of four files 
-                        if (m_psCurrentFileLoadingData->rgstrFileList.size() != 4)
+                        if (m_psCurrentFileLoadingData->rgFileList.size() != 4)
                         {
                             MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         }
@@ -1082,7 +1114,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
         }
     }
 
-    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgstrFileList.size(); iCurrentFile++)
+    for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgFileList.size(); iCurrentFile++)
     {
         rgFileHandles.at(iCurrentFile)->Abort();
         safe_delete(rgFileHandles.at(iCurrentFile));

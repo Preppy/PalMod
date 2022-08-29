@@ -13,11 +13,17 @@ enum class FileReadType
     Interleaved_Read2Bytes_BE,
 };
 
+struct sFileSpecificLoadData
+{
+    std::wstring strFileName;
+    size_t nFileSize; // This value must be identical for set for interleaved ROMs but can be different for sequential roms
+};
+
 struct sDirectoryLoadingData
 {
-    std::vector<std::wstring> rgstrFileList;
+    std::vector<sFileSpecificLoadData> rgFileList;
     FileReadType eReadType;
-    size_t nROMSize;
+    size_t nAggregateROMSizes;
 };
 
 class CGameClassByDir : public CGameWithExtrasFile

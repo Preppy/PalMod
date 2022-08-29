@@ -5,7 +5,7 @@
 const sDirectoryLoadingData MK2_SNES_FileLoadingData =
 {
     {
-        L"mortal kombat ii (usa).sfc",
+        { L"mortal kombat ii (usa).sfc", 0x300000 },
     },
     FileReadType::Sequential,
     0x300000

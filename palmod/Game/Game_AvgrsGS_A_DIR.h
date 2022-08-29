@@ -5,8 +5,8 @@
 const sDirectoryLoadingData AvgrsGSFileLoadingData =
 {
     {
-        L"sf_00-0.7k",
-        L"sf_01-0.7l",
+        { L"sf_00-0.7k", 0x80000 },
+        { L"sf_01-0.7l", 0x80000 },
     },
     FileReadType::Interleaved_Read2Bytes_LE,
     0x100000

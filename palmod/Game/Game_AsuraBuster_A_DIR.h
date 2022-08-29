@@ -5,10 +5,10 @@
 const sDirectoryLoadingData AsuraBusterFileLoadingData =
 {
     {
-        L"pgm3.u1",
-        L"pgm2.u2",
-        L"pgm1.u3",
-        L"pgm0.u4",
+        { L"pgm3.u1", 0x80000 },
+        { L"pgm2.u2", 0x80000 },
+        { L"pgm1.u3", 0x80000 },
+        { L"pgm0.u4", 0x80000 },
     },
     FileReadType::Interleaved,
     0x200000

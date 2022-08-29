@@ -1572,7 +1572,7 @@ const sGame_PaletteDataset MSHVSF_A_BONUS_HUD_PALETTES[] =
     { L"HUD Text / Meter Level 0", 0x7198c, 0x719ac, indexCPS2Sprites_MSHVSFAssets, 0x19 },
     { L"Game Text / VS Screen Text / Win Quotes", 0x719ac, 0x719cc, indexCPS2Sprites_MSHVSFAssets, 0x1d },
     { L"Offscreen Icons", 0x719cc, 0x719ec, indexCPS2Sprites_MSHVSFAssets, 0x1a },
-    { L"Assist Icons", 0x71c8c, 0x71cec },
+    { L"Assist Icons", 0x71c8c, 0x71cec, indexCPS2Sprites_MSHVSFAssets, 0x17 },
     { L"Super Bar/HUD BG Lvl 0-1", 0x71a8c, 0x71b0c, indexCPS2Sprites_MSHVSFAssets, 0x1e },
     { L"Super Bar/HUD BG Lvl 2", 0x71b0c, 0x71b8c, indexCPS2Sprites_MSHVSFAssets, 0x1e },
     { L"Super Bar/HUD BG Lvl 3", 0x71b8c, 0x71c0c, indexCPS2Sprites_MSHVSFAssets, 0x1e },

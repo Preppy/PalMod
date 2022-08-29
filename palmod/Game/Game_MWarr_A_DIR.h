@@ -5,8 +5,8 @@
 const sDirectoryLoadingData MWarrFileLoadingData =
 {
     {
-        L"prg_ev",
-        L"prg_od"
+        { L"prg_ev", 0x40000 },
+        { L"prg_od", 0x40000 },
     },
     FileReadType::Interleaved,
     0x80000

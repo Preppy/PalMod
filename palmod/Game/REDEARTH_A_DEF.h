@@ -1132,27 +1132,27 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Leo flash", 0x324620, 0x3246a0 },
     { L"Intro - Blade flash", 0x3246a0, 0x324720 },
     // Dupe of logo cycle { L"Intro - Thunderflash", 0x324720, 0x3247a0 },
-    { L"Intro - Leo rise and slash", 0x322da0, 0x322ea0 },
+    { L"Intro - Leo rise and slash", 0x322da0, 0x322ea0, indexRedEarthSprites_Bonus, 0x58 },
     { L"Leo Cinematic 1 Rise and Slash BG", 0x322ea0, 0x322f20, indexRedEarthSprites_Bonus, 0x53 },
     { L"Leo Cinematic 2 Rise and Slash BG", 0x322620, 0x3226a0, indexRedEarthSprites_Bonus, 0x54 },
 
     // { L"Intro - RaS BG 1", 0x322ea0, 0x322f00 }, obsolete?
-    { L"Leo Cinematic 3 Rise and Slashed BG 1", 0x322f20, 0x322fa0, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 2", 0x322fa0, 0x323020, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 1", 0x322f20, 0x322fa0, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 2", 0x322fa0, 0x323020, indexRedEarthSprites_Bonus, 0x55 },
     { L"Leo Cinematic 3 Rise and Slashed BG 3", 0x323020, 0x3230a0, indexRedEarthSprites_Bonus, 0x55 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 4", 0x3230a0, 0x323120, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 5", 0x323120, 0x3231a0, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 6", 0x3231a0, 0x323220, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 7", 0x323220, 0x3232a0, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 8", 0x3232a0, 0x323320, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 9", 0x323320, 0x3233a0, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 10", 0x3233a0, 0x323420, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 11", 0x323420, 0x3234a0, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 12", 0x3234a0, 0x323520, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 13", 0x323520, 0x3235a0, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 14", 0x3235a0, 0x323620, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 15", 0x323620, 0x3236a0, indexRedEarthSprites_Bonus, 0x58 },
-    { L"Leo Cinematic 3 Rise and Slashed BG 16", 0x3236a0, 0x323720, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 4", 0x3230a0, 0x323120, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 5", 0x323120, 0x3231a0, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 6", 0x3231a0, 0x323220, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 7", 0x323220, 0x3232a0, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 8", 0x3232a0, 0x323320, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 9", 0x323320, 0x3233a0, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 10", 0x3233a0, 0x323420, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 11", 0x323420, 0x3234a0, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 12", 0x3234a0, 0x323520, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 13", 0x323520, 0x3235a0, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 14", 0x3235a0, 0x323620, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 15", 0x323620, 0x3236a0, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Leo Cinematic 3 Rise and Slashed BG 16", 0x3236a0, 0x323720, indexRedEarthSprites_Bonus, 0x55 },
 
     { L"Mini Capcom Logo", 0x406be0, 0x406c00, indexRedEarthSprites_Bonus, 0x39 },
     { L"Mini Red Earth Logo", 0x406fa0, 0x406fc0, indexRedEarthSprites_Bonus, 0x3b },
@@ -1486,6 +1486,7 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Coming Next? Original (Unused)", 0x411980, 0x411a00, indexRedEarthSprites_MaiLing, 0x58 },
     { L"Coming Next? Original (Unused)???", 0x41e180, 0x41e200, indexRedEarthSprites_MaiLing, 0x58 },
 
+    { L"Tessa Jamming Ghost Punch Palette", 0x40f800, 0x40f880, indexRedEarthSprites_Tessa, 0x0e },
     { L"Tessa Jamming Ghost Kick Palette", 0x41c000, 0x41c080, indexRedEarthSprites_Tessa, 0x0e },
 
     { L"Punch Palette Leo Unused?", 0x414880, 0x414900, indexRedEarthSprites_Leo, 0x00 },
@@ -1535,8 +1536,8 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Mai-Ling Character Select Portrait P2", 0x1e3480, 0x1e3500 },
 
     // Unused(just why)
-    { L"\"Continue ?\" Backgrounds P1", 0x1e1d80, 0x1e1e00 },
-    { L"\"Continue ?\" Backgrounds P2", 0x1e3f80, 0x1e4000 },
+    { L"\"Continue ?\" Backgrounds P1", 0x1e1d80, 0x1e1e00, indexRedEarthSprites_Bonus, 0x3c },
+    { L"\"Continue ?\" Backgrounds P2", 0x1e3f80, 0x1e4000, indexRedEarthSprites_Bonus, 0x3c },
 
     // Scion dragon unused
     { L"Dragon Burned 1", 0x438d00, 0x438d80, indexRedEarthSprites_Scion, 0x01 },
