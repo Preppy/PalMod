@@ -1496,7 +1496,7 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_3SRyu_HandlePortraits =
         SUPP_NODE | SUPP_NODE_NOCOPY, 0x01, 0,
             // Leave the border
             // Leave the background
-            // hair
+            // hair / eye pupils
             MOD_COPY, 1, 1, 3,
             // skin for six
             MOD_COPY, 34, 1, 4,
@@ -1523,7 +1523,7 @@ const std::vector<std::vector<uint16_t>> paletteBuddy_3SRyu_HandlePortraits =
             MOD_COPY, 5, 1, 3, // shirt
             MOD_COPY, 7, 1, 4, // shirt
             MOD_COPY, 8, 1, 5, // shirt
-            MOD_COPY, 6, 1, 6, // shirt
+            MOD_COPY, 17, 1, 6, // eyes
             MOD_COPY, 35, 1, 7, // skin
             MOD_COPY, 37, 1, 8, // skin
             MOD_COPY, 39, 1, 9, // skin

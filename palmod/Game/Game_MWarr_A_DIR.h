@@ -2,16 +2,40 @@
 #include "GameClassByDir.h"
 #include "MWarr_A_DIR_DEF.h"
 
+const sDirectoryLoadingData MWarrFileLoadingData =
+{
+    {
+        L"prg_ev",
+        L"prg_od"
+    },
+    FileReadType::Interleaved,
+    0x80000
+};
+
 class CGame_MWarr_A_DIR : public CGameClassByDir
 {
+private:
+    const sCoreGameData m_sCoreGameData
+    {
+        MWARR_A,
+        IMGDAT_SECTION_OTHER,
+        MWarr_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_BGR555_BE,
+        MWarrFileLoadingData,
+        MWarr_A_UNITS,
+        ARRAYSIZE(MWarr_A_UNITS),
+        L"MWarrE.txt",                  // Extra filename
+        24,                             // Count of palettes listed in the header
+        0x92BB6,                        // Lowest known location used for palettes
+    };
+
 public:
-    static sFileRule GetNextRule();
-    static sFileRule GetRule(uint32_t nRuleId);
+    CGame_MWarr_A_DIR(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    CGame_MWarr_A_DIR(uint32_t nConfirmedROMSize = -1);
-    ~CGame_MWarr_A_DIR();
-
-    static constexpr auto m_strExtraFileName = L"MWarrE.txt";
-    static constexpr uint32_t m_nPaletteCountInHeaders = 24;
-    static constexpr uint32_t m_nLowestROMLocationUsedInHeaders = 0x92BB6;
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, MWarrFileLoadingData); };
+    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(MWarrFileLoadingData); };
 };

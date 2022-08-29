@@ -2,16 +2,40 @@
 #include "GameClassByDir.h"
 #include "AvgrsGS_A_DIR_DEF.h"
 
+const sDirectoryLoadingData AvgrsGSFileLoadingData =
+{
+    {
+        L"sf_00-0.7k",
+        L"sf_01-0.7l",
+    },
+    FileReadType::Interleaved_Read2Bytes_LE,
+    0x100000
+};
+
 class CGame_AvgrsGS_A_DIR : public CGameClassByDir
 {
+private:
+    const sCoreGameData m_sCoreGameData
+    {
+        AvgrsGS_A,
+        IMGDAT_SECTION_OTHER,
+        AvgrsGS_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_BGR555_LE,
+        AvgrsGSFileLoadingData,
+        AvgrsGS_A_UNITS,
+        ARRAYSIZE(AvgrsGS_A_UNITS),
+        L"AvgrsGSE.txt",                 // Extra filename
+        223,                             // Count of palettes listed in the header
+        0xf2000,                         // Lowest known location used for palettes
+    };
+
 public:
-    static sFileRule GetNextRule();
-    static sFileRule GetRule(uint32_t nRuleId);
+    CGame_AvgrsGS_A_DIR(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    CGame_AvgrsGS_A_DIR(uint32_t nConfirmedROMSize = -1);
-    ~CGame_AvgrsGS_A_DIR();
-
-    static constexpr auto m_strExtraFileName = L"AvgrsGSE.txt";
-    static constexpr uint32_t m_nPaletteCountInHeaders = 223;
-    static constexpr uint32_t m_nLowestROMLocationUsedInHeaders = 0xf2000;
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, AvgrsGSFileLoadingData); };
+    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(AvgrsGSFileLoadingData); };
 };

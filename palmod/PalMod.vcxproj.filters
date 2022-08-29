@@ -1032,26 +1032,11 @@
     <ClCompile Include="Game\Game_GGDS_NDS.cpp">
       <Filter>Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_MWarr_A_DIR.cpp">
-      <Filter>Games\Other Platforms\Mighty Warriors</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_CVS1_A.cpp">
       <Filter>Games\Capcom Games\Capcom vs SNK 1 %28Arcade%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\GameClassByDir.cpp">
       <Filter>Games\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_PrimalRage_SNES.cpp">
-      <Filter>Games\Nintendo\Primal Rage %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_AvgrsGS_A_DIR.cpp">
-      <Filter>Games\Other Platforms\Avengers in Galactic Storm</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_BtlKRoad_A_DIR.cpp">
-      <Filter>Games\Other Platforms\Battle K-Road</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_AsuraBuster_A_DIR.cpp">
-      <Filter>Games\Other Platforms\Asura Buster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

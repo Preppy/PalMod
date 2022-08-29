@@ -15,7 +15,7 @@ enum class FileReadType
 
 struct sDirectoryLoadingData
 {
-    const std::vector<std::wstring> rgstrFileList;
+    std::vector<std::wstring> rgstrFileList;
     FileReadType eReadType;
     size_t nROMSize;
 };
@@ -23,6 +23,24 @@ struct sDirectoryLoadingData
 class CGameClassByDir : public CGameWithExtrasFile
 {
 public:
+    struct sCoreGameData
+    {
+        SupportedGamesList nGameID;
+        eIMGDat_Sections eImgDatSectionID;
+        std::vector<uint16_t> rgGameImageSet;
+        sCreatePalOptions createPalOptions;
+        eImageOutputSpriteDisplay displayStyle;
+        std::vector<LPCWSTR> rgszButtonLabelSet;
+        AlphaMode eAlphaMode;
+        ColMode eColMode;
+        sDirectoryLoadingData sLoadingData;
+        const sDescTreeNode* psUnitData;
+        size_t nUnitCount;
+        std::wstring strExtraName;
+        uint32_t nKnownPaletteCount;
+        uint32_t nLowestKnownPaletteLocation;
+    };
+
     static std::vector<sDescTreeNode> m_rgCurrentGameUnits;
    
     static std::wstring m_strCurrentExtraFilename;
@@ -36,16 +54,18 @@ public:
 
     static uint32_t m_nConfirmedROMSize;
 
-    static void InitializeStatics(const sDirectoryLoadingData& sLoadingData,
-                                  const sDescTreeNode *psUnitData,
+    static void InitializeStatics(const sDescTreeNode *psUnitData,
                                   size_t nUnitCount,
                                   const std::wstring strExtraName);
+
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
 
     CGameClassByDir(uint32_t nConfirmedROMSize = -1) {};
-    ~CGameClassByDir() {};
+    ~CGameClassByDir();
+
+    void InitializeGame(uint32_t nConfirmedROMSize, const sCoreGameData& gameLoadingData);
 
     inline uint32_t GetSIMMLocationFromROMLocation(uint32_t nROMLocation);
     inline uint32_t GetSIMMUnitFromROMLocation(uint32_t nROMLocation);
@@ -58,6 +78,9 @@ public:
 
     BOOL LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber) override;
     BOOL SaveFile(CFile* SaveFile, uint32_t nSaveUnit) override;
+
+    static sFileRule GetRule(uint32_t nRuleId, const sDirectoryLoadingData& gameLoadingData);
+    static sFileRule GetNextRule(const sDirectoryLoadingData& gameLoadingData);
 
     //Static functions / variables
     static CDescTree MainDescTree;

@@ -20,14 +20,19 @@ SupportedGamesList CGameClassByDir::m_snCurrentGameFlag = SupportedGamesList::NU
 
 const sDirectoryLoadingData* CGameClassByDir::m_psCurrentFileLoadingData;
 
-void CGameClassByDir::InitializeStatics(const sDirectoryLoadingData& sLoadingData,
-                                        const sDescTreeNode *psUnitData,
+CGameClassByDir::~CGameClassByDir()
+{
+    ClearDataBuffer();
+    FlushChangeTrackingArray();
+
+    safe_delete_array(m_prgCurrentExtrasLoaded);
+}
+
+void CGameClassByDir::InitializeStatics(const sDescTreeNode *psUnitData,
                                         size_t nUnitCount,
                                         const std::wstring strExtraName)
 {
     safe_delete_array(m_prgCurrentExtrasLoaded);
-    m_psCurrentFileLoadingData = &sLoadingData;
-    m_nConfirmedROMSize = m_psCurrentFileLoadingData->nROMSize * m_psCurrentFileLoadingData->rgstrFileList.size();
 
     m_rgCurrentGameUnits.clear();
     for (size_t nCurUnit = 0; nCurUnit < nUnitCount; nCurUnit++)
@@ -49,6 +54,67 @@ void CGameClassByDir::InitializeStatics(const sDirectoryLoadingData& sLoadingDat
     m_nCurrentExtraUnitId = static_cast<uint16_t>(m_rgCurrentGameUnits.size());
 
     MainDescTree.SetRootTree(CGameClassByDir::InitDescTree());
+}
+
+void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGameData& gameLoadingData)
+{
+    //Set game-game specific information before loading the game's known palette locations
+    m_snCurrentGameFlag = nGameFlag = gameLoadingData.nGameID;
+    nImgGameFlag = gameLoadingData.eImgDatSectionID;
+    m_prgGameImageSet = gameLoadingData.rgGameImageSet;
+    createPalOptions = gameLoadingData.createPalOptions;
+    //Set the image out display type
+    DisplayType = gameLoadingData.displayStyle;
+    pButtonLabelSet = gameLoadingData.rgszButtonLabelSet;
+    SetAlphaMode(gameLoadingData.eAlphaMode);
+    SetColorMode(gameLoadingData.eColMode);
+
+    m_psCurrentFileLoadingData = &gameLoadingData.sLoadingData;
+
+    // This is imperfect in that we're checking primary file only.
+    if ((nConfirmedROMSize * m_psCurrentFileLoadingData->rgstrFileList.size()) == m_psCurrentFileLoadingData->nROMSize)
+    {
+        m_nConfirmedROMSize = m_psCurrentFileLoadingData->nROMSize;
+    }
+    else
+    {
+        OutputDebugString(L"CGameClassByDir::InitializeGame:: Unexpected file size. Disallowing Extra file load.\r\n");
+        m_nConfirmedROMSize = -1; // Deny Extra file loads
+    }    
+
+    // Load the game's layout for palmod
+    InitializeStatics(gameLoadingData.psUnitData, gameLoadingData.nUnitCount, gameLoadingData.strExtraName);
+
+    // xoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxoxxoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxox
+    // Everything after this is boilerplate and doesn't need to be changed.
+    // xoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxoxxoxoxoxxoxoxoxoxoxxoxoxoxoxoxoxox
+
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_pszExtraFilename = m_strCurrentExtraFilename.c_str();
+
+    //We need the proper unit amt before we init the main buffer
+    m_nTotalInternalUnits = m_rgCurrentGameUnits.size();
+    m_nExtraUnit = m_nCurrentExtraUnitId = static_cast<uint16_t>(m_rgCurrentGameUnits.size());
+    // Tack on an extra unit if we're loading extras
+    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+
+    // Game-specific safety checks: if these match what we find at runtime we skip our check for duplicated palettes
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + gameLoadingData.nKnownPaletteCount;
+    m_nLowestKnownPaletteRomLocation = gameLoadingData.nLowestKnownPaletteLocation;
+
+    // Stub in the palette buffer that we will LoadFile into
+    InitDataBuffer();
+
+    // This lets LoadGame and SaveGame know how many files it needs to interact with
+    nFileAmt = m_psCurrentFileLoadingData->rgstrFileList.size();
+
+    //Create the redirect buffer
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, 0, sizeof(uint32_t) * nUnitAmt);
+
+    //Create the file changed flag
+    PrepChangeTrackingArray();
 }
 
 uint32_t CGameClassByDir::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
@@ -190,6 +256,30 @@ void CGameClassByDir::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 BOOL CGameClassByDir::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     return _UpdatePalImg(&m_rgCurrentGameUnits[0], &m_rgCurrentExtraCounts[0], m_rgCurrentGameUnits.size(), m_nCurrentExtraUnitId, m_prgCurrentExtrasLoaded, Node01, Node02, Node03, Node03);
+}
+
+
+sFileRule CGameClassByDir::GetRule(uint32_t nUnitId, const sDirectoryLoadingData& gameLoadingData)
+{
+    sFileRule NewFileRule;
+
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", gameLoadingData.rgstrFileList.at(nUnitId & 0xFF).c_str());
+    NewFileRule.uUnitId = nUnitId;
+    NewFileRule.uVerifyVar = gameLoadingData.nROMSize / gameLoadingData.rgstrFileList.size();
+
+    return NewFileRule;
+}
+
+sFileRule CGameClassByDir::GetNextRule(const sDirectoryLoadingData& gameLoadingData)
+{
+    sFileRule NewFileRule = GetRule(uRuleCtr++, gameLoadingData);
+
+    if (uRuleCtr >= gameLoadingData.rgstrFileList.size())
+    {
+        uRuleCtr = INVALID_UNIT_VALUE;
+    }
+
+    return NewFileRule;
 }
 
 BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
