@@ -17,6 +17,7 @@ class CGame_AvgrsGS_A_DIR : public CGameClassByDir
 private:
     const sCoreGameData m_sCoreGameData
     {
+        L"Avengers in Galactic Storm (Data East)",
         AvgrsGS_A,
         IMGDAT_SECTION_OTHER,
         AvgrsGS_A_IMGIDS_USED,

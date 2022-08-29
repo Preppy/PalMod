@@ -17,6 +17,7 @@ class CGame_BtlKRoad_A_DIR : public CGameClassByDir
 private:
     const sCoreGameData m_sCoreGameData
     {
+        L"Battle K-Road (Psikyo)",
         BtlKRoad_A,
         IMGDAT_SECTION_OTHER,
         BtlKRoad_A_IMGIDS_USED,

@@ -31,6 +31,7 @@ class CGameClassByDir : public CGameWithExtrasFile
 public:
     struct sCoreGameData
     {
+        std::wstring strGameFriendlyName;
         SupportedGamesList nGameID;
         eIMGDat_Sections eImgDatSectionID;
         std::vector<uint16_t> rgGameImageSet;
@@ -49,6 +50,7 @@ public:
 
     static std::vector<sDescTreeNode> m_rgCurrentGameUnits;
    
+    static std::wstring m_strGameFriendlyName;
     static std::wstring m_strCurrentExtraFilename;
     static std::vector<uint32_t> m_rgCurrentExtraCounts;
     static std::vector<uint32_t> m_rgCurrentExtraLocations;
@@ -108,6 +110,8 @@ public:
     static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
 
     const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
+
+    LPCWSTR GetGameName() override { return m_strGameFriendlyName.c_str(); };
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 };

@@ -362,7 +362,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Sengoku BASARA X (PS2)",
     L"Galaxy Fight: Universal Warriors (Neo-Geo)",
     L"Guilty Gear: Dust Strikers (Nintendo DS)",
-    L"Mighty Warriors",
+    L"Mighty Warriors (Elettronica Video Games)",
     L"Capcom vs SNK Millenium Fight (NAOMI)",
     L"Primal Rage (SNES)",
     L"Avengers in Galactic Storm (Data East)",

@@ -225,7 +225,7 @@ uint32_t CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32
         // we find a matching header.
         { L"Vampire: The Night Warriors (Japan 940705 Boss Hack Portraits)", L"vamj.04", 0x4d9c43c4, 0x2522, VHHackROMHeader_04 },
         { L"Vampire: The Night Warriors (Japan 940705 Portraits)", L"vamj.04a", 0x4d9c43c4, 0x2522 },
-        // 	ROM_LOAD16_WORD_SWAP( "vamj.04b", 0x080000, 0x80000, CRC(4d9c43c4) SHA1(2087090306646fed959d503ee75e24996ad95b88) ) /* should be "B" revision too. Both this   */
+        //     ROM_LOAD16_WORD_SWAP( "vamj.04b", 0x080000, 0x80000, CRC(4d9c43c4) SHA1(2087090306646fed959d503ee75e24996ad95b88) ) /* should be "B" revision too. Both this   */
             // GAME( 1994, vampj,      dstlk,    cps2,     cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Vampire: The Night Warriors (Japan 940705)",                                    MACHINE_SUPPORTS_SAVE ) // Partial update set? Only rom 04 is "B" revision
         { L"Vampire: The Night Warriors (Japan 940705b Portraits)", L"vamj.04b", 0x4d9c43c4, 0x2522 },
     };

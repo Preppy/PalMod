@@ -17,6 +17,7 @@ class CGame_MWarr_A_DIR : public CGameClassByDir
 private:
     const sCoreGameData m_sCoreGameData
     {
+        L"Mighty Warriors (Elettronica Video Games)",
         MWARR_A,
         IMGDAT_SECTION_OTHER,
         MWarr_A_IMGIDS_USED,

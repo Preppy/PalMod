@@ -16,6 +16,7 @@ class CGame_PrimalRage_SNES : public CGameClassByDir
 private:
     const sCoreGameData m_sCoreGameData
     {
+        L"Primal Rage (SNES)",
         PrimalRage_SNES,
         IMGDAT_SECTION_SNES,
         PrimalRage_SNES_IMGIDS_USED,
@@ -33,9 +34,7 @@ private:
     }; 
 
 public:
-
     CGame_PrimalRage_SNES(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, PrimarlRageFileLoadingData); };
-    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(PrimarlRageFileLoadingData); };
 };

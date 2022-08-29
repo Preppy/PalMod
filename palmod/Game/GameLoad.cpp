@@ -1844,6 +1844,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
                 nGameRule = (int)KOF02UMS_ROMOptions::Main;
             }
             break;
+        case MK2_SNES:
+            CGame_MK2_SNES::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case MSHVSF_A:
         {
             nGameRule = ((wcsstr(pszFileNameLowercase, L".06a") != nullptr) ? 6 : 7);

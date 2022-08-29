@@ -19,6 +19,7 @@ class CGame_AsuraBuster_A_DIR : public CGameClassByDir
 private:
     const sCoreGameData m_sCoreGameData
     {
+        L"Asura Buster - Eternal Warriors (Fuuki)",
         AsuraBuster_A,
         IMGDAT_SECTION_OTHER,
         AsuraBuster_A_IMGIDS_USED,

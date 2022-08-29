@@ -11,6 +11,7 @@ uint32_t CGameClassByDir::m_nConfirmedROMSize = -1;
 
 std::vector<sDescTreeNode> CGameClassByDir::m_rgCurrentGameUnits;
 
+std::wstring CGameClassByDir::m_strGameFriendlyName;
 std::wstring CGameClassByDir::m_strCurrentExtraFilename;
 std::vector<uint32_t> CGameClassByDir::m_rgCurrentExtraCounts;
 std::vector<uint32_t> CGameClassByDir::m_rgCurrentExtraLocations;
@@ -59,6 +60,7 @@ void CGameClassByDir::InitializeStatics(const sDescTreeNode *psUnitData,
 void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGameData& gameLoadingData)
 {
     //Set game-game specific information before loading the game's known palette locations
+    m_strGameFriendlyName = gameLoadingData.strGameFriendlyName;
     m_snCurrentGameFlag = nGameFlag = gameLoadingData.nGameID;
     nImgGameFlag = gameLoadingData.eImgDatSectionID;
     m_prgGameImageSet = gameLoadingData.rgGameImageSet;
@@ -442,8 +444,8 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 }
                                 else
                                 {
-                                    rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
-                                    rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
+                                    rgFileHandles.at(0)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 1), CFile::begin);
+                                    rgFileHandles.at(1)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 1), CFile::begin);
                                     rgFileHandles.at(2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                     rgFileHandles.at(3)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                     iHandle1 = 2;
@@ -662,8 +664,8 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             }
                             else
                             {
-                                rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
-                                rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
+                                rgFileHandles.at(0)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 2), CFile::begin);
+                                rgFileHandles.at(1)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 2), CFile::begin);
                                 rgFileHandles.at(2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                 rgFileHandles.at(3)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                 iHandle1 = 2;
@@ -844,8 +846,8 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                     }
                                     else
                                     {
-                                        rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
-                                        rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation + 1, CFile::begin);
+                                        rgFileHandles.at(0)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 1), CFile::begin);
+                                        rgFileHandles.at(1)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 1), CFile::begin);
                                         rgFileHandles.at(2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                         rgFileHandles.at(3)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                         iHandle1 = 2;
@@ -1051,8 +1053,8 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 }
                                 else
                                 {
-                                    rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation + 2, CFile::begin);
-                                    rgFileHandles.at(1)->Seek(m_nCurrentPaletteROMLocation + 2, CFile::begin);
+                                    rgFileHandles.at(0)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 2), CFile::begin);
+                                    rgFileHandles.at(1)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 2), CFile::begin);
                                     rgFileHandles.at(2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                     rgFileHandles.at(3)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                     iHandle1 = 2;
