@@ -2,13 +2,26 @@
 #include "GameDef.h"
 #include "Game_MK2_SNES.h"
 
-CGame_MK2_SNES::MK2LoadingKey CGame_MK2_SNES::eVersionToLoad = MK2LoadingKey::Version1dot0;
+MK2LoadingKey CGame_MK2_SNES::eVersionToLoad = MK2LoadingKey::Version1dot0;
 
 void CGame_MK2_SNES::SetSpecialRuleForFileName(std::wstring strFileName)
 {
-    if (_wcsicmp(strFileName.c_str(), MK2_SNES_FileLoadingData_V1dot1.rgFileList.at(0).strFileName.c_str()) == 0)
+    const std::map<std::wstring, MK2LoadingKey> m_rgFileNameToVersion =
     {
-        eVersionToLoad = MK2LoadingKey::Version1dot1;
+        // these should be all lower case
+        { L"mortal kombat ii (usa).sfc", MK2LoadingKey::Version1dot0 },
+        { L"mortal_kombat_ii_usa.sfc", MK2LoadingKey::Version1dot1 },
+        { L"mortal kombat ii (usa) (rev 1).sfc", MK2LoadingKey::Version1dot1 },
+    };
+
+    CString strFileNameLowerCase = strFileName.c_str();
+    strFileNameLowerCase.MakeLower();
+
+    auto result = m_rgFileNameToVersion.find(strFileNameLowerCase.GetString());
+
+    if (result != m_rgFileNameToVersion.end())
+    {
+        eVersionToLoad = result->second;
     }
     else
     {

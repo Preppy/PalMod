@@ -20,15 +20,15 @@ const sDirectoryLoadingData MK2_SNES_FileLoadingData_V1dot1 =
     0x300000
 };
 
+enum class MK2LoadingKey
+{
+    Version1dot0,
+    Version1dot1,
+};
+
 class CGame_MK2_SNES : public CGameClassByDir
 {
 private:
-    enum class MK2LoadingKey
-    {
-        Version1dot0,
-        Version1dot1,
-    };
-
     static MK2LoadingKey eVersionToLoad;
 
     const sCoreGameData m_sCoreGameData_V1dot0

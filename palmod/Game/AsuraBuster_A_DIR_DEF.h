@@ -118,7 +118,7 @@ const sGame_PaletteDataset AsuraBuster_A_Goat_BC[] =
 
 const sGame_PaletteDataset AsuraBuster_A_Goat_ABC[] =
 {
-    { L"Goat ABC", 0x97212, 0x97292 },
+    { L"Goat ABC", 0x97212, 0x972d2 },
     { L"Goat ABC Portrait", 0x8a68c, 0x8a6ac },
     { L"Goat ABC Super Portrait", 0x7fdf0, 0x7fe10 },
     { L"Goat ABC Super Portrait Trail", 0x7fe10, 0x7fe30 },
@@ -376,15 +376,18 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_A[] =
 {
     //  Alice
     { L"Alice A", 0x93912, 0x939d2 },
+    { L"Alice Skeleton A", 0x93d92, 0x93db2 },
     { L"Alice A Portrait 1", 0x8abec, 0x8ac0c },
     { L"Alice A Portrait 2", 0x8acec, 0x8ad0c },
     { L"Alice A Super Portrait", 0x80610, 0x80630 },
     { L"Alice A Super Portrait Trail", 0x80630, 0x80650 },
+
 };
 
 const sGame_PaletteDataset AsuraBuster_A_Alice_B[] =
 {
     { L"Alice B", 0x94332, 0x943f2 },
+    { L"Alice Skeleton B", 0x947b2, 0x947d2 },
     { L"Alice B Portrait 1", 0x8ac0c, 0x8ac2c },
     { L"Alice B Portrait 2", 0x8ad0c, 0x8ad2c },
     { L"Alice B Super Portrait", 0x80650, 0x80670 },
@@ -394,6 +397,7 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_B[] =
 const sGame_PaletteDataset AsuraBuster_A_Alice_AB[] =
 {
     { L"Alice AB", 0x94d52, 0x94e12 },
+    { L"Alice Skeleton AB", 0x951d2, 0x951f2 },
     { L"Alice AB Portrait 1", 0x8ac2c, 0x8ac4c },
     { L"Alice AB Portrait 2", 0x8ad2c, 0x8ad4c },
     { L"Alice AB Super Portrait", 0x80690, 0x806b0 },
@@ -403,6 +407,7 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_AB[] =
 const sGame_PaletteDataset AsuraBuster_A_Alice_C[] =
 {
     { L"Alice C", 0x95772, 0x95832 },
+    { L"Alice Skeleton C", 0x95bf2, 0x95c12 },
     { L"Alice C Portrait 1", 0x8ac4c, 0x8ac6c },
     { L"Alice C Portrait 2", 0x8ad4c, 0x8ad6c },
     { L"Alice C Super Portrait", 0x806d0, 0x806f0 },
@@ -412,6 +417,7 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_C[] =
 const sGame_PaletteDataset AsuraBuster_A_Alice_AC[] =
 {
     { L"Alice AC", 0x96192, 0x96252 },
+    { L"Alice Skeleton AC", 0x96612, 0x96632 },
     { L"Alice AC Portrait 1", 0x8ac6c, 0x8ac8c },
     { L"Alice AC Portrait 2", 0x8ad6c, 0x8ad8c },
     { L"Alice AC Super Portrait", 0x80710, 0x80730 },
@@ -421,6 +427,7 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_AC[] =
 const sGame_PaletteDataset AsuraBuster_A_Alice_BC[] =
 {
     { L"Alice BC", 0x96bb2, 0x96c72 },
+    { L"Alice Skeleton BC", 0x97032, 0x97052 },
     { L"Alice BC Portrait 1", 0x8ac8c, 0x8acac },
     { L"Alice BC Portrait 2", 0x8ad8c, 0x8adac },
     { L"Alice BC Super Portrait", 0x80750, 0x80770 },
@@ -430,6 +437,7 @@ const sGame_PaletteDataset AsuraBuster_A_Alice_BC[] =
 const sGame_PaletteDataset AsuraBuster_A_Alice_ABC[] =
 {
     { L"Alice ABC", 0x975d2, 0x97692 },
+    { L"Alice Skeleton ABC", 0x97a52, 0x97a72 },
     { L"Alice ABC Portrait 1", 0x8acac, 0x8accc },
     { L"Alice ABC Portrait 2", 0x8adac, 0x8adcc },
     { L"Alice ABC Super Portrait", 0x80790, 0x807b0 },

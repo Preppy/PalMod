@@ -255,10 +255,6 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
     { L"Tessa Punch Staffs", 0x40EC00, 0x40EC80, indexRedEarthSprites_Tessa, 0x1e },
     { L"Tessa Punch Kaeru (Frog)", 0x40EE80, 0x40EF00, indexRedEarthSprites_Tessa, 0x0f },
     { L"Hato (Pigeon)", 0x40EF80, 0x40F000, indexRedEarthSprites_Tessa, 0x0b },
-    { L"Hato Lighter (Pigeon)", 0x40f000, 0x40f080, indexRedEarthSprites_Tessa, 0x0b },
-    { L"Staff Lighter 2", 0x40ec80, 0x40ed00, indexRedEarthSprites_Tessa, 0x1e },
-    { L"Staff Lighter 1", 0x40ed00, 0x40ed80, indexRedEarthSprites_Tessa, 0x1e },
-    { L"Staff Darker 1", 0x40ed80, 0x40ee00, indexRedEarthSprites_Tessa, 0x1e },
     { L"Tessa Punch Suitcat", 0x40FF00, 0x40FF80, indexRedEarthSprites_Tessa, 0x1f },
     { L"Tessa Punch Suitcat (Mustard)", 0x40FF80, 0x410000, indexRedEarthSprites_Tessa, 0x1f },
     { L"Tessa Punch Chakra Wave", 0x40EF00, 0x40EF80, indexRedEarthSprites_Tessa, 0x05 },
@@ -266,23 +262,24 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
     { L"Tessa Punch Cannon Transition", 0x40F880, 0x40F900, indexRedEarthSprites_Tessa, 0x03 },
     { L"Tessa Punch Hyper Cannon (Superball and Winscreen)", 0x40F900, 0x40F980, indexRedEarthSprites_Tessa, 0x0c },
     { L"Tessa Punch Glace Cannon", 0x40F980, 0x40FA00, indexRedEarthSprites_Tessa, 0x08 },
-    { L"Tessa Punch Glace Pixies", 0x40F600, 0x40F680 },
-    { L"Tessa Punch Glace Pixies Changing Pal", 0x40F580, 0x40F600 },
     { L"Tessa Punch Flamma Cannon", 0x40FA00, 0x40FA80, indexRedEarthSprites_Tessa, 0x08 },
-    { L"Tessa Punch Flamma Pixies", 0x40F500, 0x40F580 },
-    { L"Tessa Punch Flamma Pixies Changing Pal", 0x40F480, 0x40F500 },
     { L"Tessa Punch Electron Cannon", 0x40FA80, 0x40FB00, indexRedEarthSprites_Tessa, 0x08 },
-    { L"Tessa Punch Electron Pixies Changing Pal", 0x40F400, 0x40F480 },
     { L"Tessa Punch Death Phenomenon - On Hit", 0x40FD80, 0x40FE00, indexRedEarthSprites_Tessa, 0x06 },
     { L"Tessa Punch Death Phenomenon - On Whiff", 0x40FE00, 0x40FE80, indexRedEarthSprites_Tessa, 0x07 },
     { L"Jamming Ghost", 0x40F780, 0x40F800, indexRedEarthSprites_Tessa, 0x0e },
     { L"Tessa Punch Manot Arm", 0x40F200, 0x40F280, indexRedEarthSprites_Tessa, 0x1c },
     { L"Tessa Punch GC/Pursuit Wrecking Ball", 0x40F300, 0x40F380, indexRedEarthSprites_Tessa, 0x21 },
-    { L"Tessa Punch Wrecking Ball Angels and Electron Pixies", 0x40F380, 0x40F400, indexRedEarthSprites_Tessa, 0x20 },
     { L"Tessa Punch Grab Saw", 0x40F080, 0x40F100, indexRedEarthSprites_Tessa, 0x0a },
     { L"Tessa Punch GC/Grab/Pursuit Lever", 0x40F100, 0x40F180, indexRedEarthSprites_Tessa, 0x09 },
     { L"Tessa Punch Ultimate Guard Wall and Lever", 0x40EB00, 0x40EB80, indexRedEarthSprites_Tessa, 0x1b },
     { L"Tessa Punch Ultimate Guard Batteries", 0x40EE00, 0x40EE80, indexRedEarthSprites_Tessa, 0x01a },
+
+    { L"Electron Fairies 1 & UC Angels", 0x40f380, 0x40f400 },
+    { L"Electron Fairies 2", 0x40f400, 0x40f480 },
+    { L"Fiamma Fairies 1", 0x40f480, 0x40f500 },
+    { L"Fiamma Fairies 2", 0x40f500, 0x40f580 },
+    { L"Glace Fairies 1", 0x40f580, 0x40f600 },
+    { L"Glace Fairies 2", 0x40f600, 0x40f680 },
 
     { L"Cursed Penguin Tessa", 0x40f280, 0x40f300, indexRedEarthSprites_Tessa, 0x25 },
 
@@ -329,10 +326,6 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
     { L"Tessa Kick Staffs", 0x40EC00 + 0xc800, 0x40EC80 + 0xc800, indexRedEarthSprites_Tessa, 0x1e },
     { L"Tessa Kick Kaeru (Frog)", 0x40EE80 + 0xc800, 0x40EF00 + 0xc800, indexRedEarthSprites_Tessa, 0x0f },
     { L"Hato (Pigeon)", 0x40EF80 + 0xc800, 0x40F000 + 0xc800, indexRedEarthSprites_Tessa, 0x0b },
-    { L"Hato Lighter (Pigeon)", 0x41b800, 0x41b880, indexRedEarthSprites_Tessa, 0x0b },
-    { L"Staff Lighter 2", 0x41b480, 0x41b500, indexRedEarthSprites_Tessa, 0x1e },
-    { L"Staff Lighter 1", 0x41b500, 0x41b580, indexRedEarthSprites_Tessa, 0x1e },
-    { L"Staff Darker 1", 0x41b580, 0x41b600, indexRedEarthSprites_Tessa, 0x1e },
     { L"Tessa Kick Suitcat", 0x40FF00 + 0xc800, 0x40FF80 + 0xc800, indexRedEarthSprites_Tessa, 0x1f },
     { L"Tessa Kick Suitcat (Mustard)", 0x40FF80 + 0xc800, 0x410000 + 0xc800, indexRedEarthSprites_Tessa, 0x1f },
     { L"Tessa Kick Chakra Wave", 0x40EF00 + 0xc800, 0x40EF80 + 0xc800, indexRedEarthSprites_Tessa, 0x05 },
@@ -340,23 +333,24 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
     { L"Tessa Kick Cannon Transition", 0x40F880 + 0xc800, 0x40F900 + 0xc800, indexRedEarthSprites_Tessa, 0x03 },
     { L"Tessa Kick Hyper Cannon (Superball and Winscreen)", 0x40F900 + 0xc800, 0x40F980 + 0xc800, indexRedEarthSprites_Tessa, 0x0c },
     { L"Tessa Kick Glace Cannon", 0x40F980 + 0xc800, 0x40FA00 + 0xc800, indexRedEarthSprites_Tessa, 0x08 },
-    { L"Tessa Kick Glace Pixies", 0x40F600 + 0xc800, 0x40F680 + 0xc800 },
-    { L"Tessa Kick Glace Pixies Changing Pal", 0x40F580 + 0xc800, 0x40F600 + 0xc800 },
     { L"Tessa Kick Flamma Cannon", 0x40FA00 + 0xc800, 0x40FA80 + 0xc800, indexRedEarthSprites_Tessa, 0x08 },
-    { L"Tessa Kick Flamma Pixies", 0x40F500 + 0xc800, 0x40F580 + 0xc800 },
-    { L"Tessa Kick Flamma Pixies Changing Pal", 0x40F480 + 0xc800, 0x40F500 + 0xc800 },
     { L"Tessa Kick Electron Cannon", 0x40FA80 + 0xc800, 0x40FB00 + 0xc800, indexRedEarthSprites_Tessa, 0x08 },
-    { L"Tessa Kick Electron Pixies Changing Pal", 0x40F400 + 0xc800, 0x40F480 + 0xc800 },
     { L"Tessa Kick Death Phenomenon - On Hit", 0x40FD80 + 0xc800, 0x40FE00 + 0xc800, indexRedEarthSprites_Tessa, 0x06 },
     { L"Tessa Kick Death Phenomenon - On Whiff", 0x40FE00 + 0xc800, 0x40FE80 + 0xc800, indexRedEarthSprites_Tessa, 0x07 },
     { L"Jamming Ghost", 0x40F780 + 0xc800, 0x40F800 + 0xc800, indexRedEarthSprites_Tessa, 0x0e },
     { L"Tessa Kick Manot Arm", 0x40F200 + 0xc800, 0x40F280 + 0xc800, indexRedEarthSprites_Tessa, 0x1c },
     { L"Tessa Kick GC/Pursuit Wrecking Ball", 0x40F300 + 0xc800, 0x40F380 + 0xc800, indexRedEarthSprites_Tessa, 0x21 },
-    { L"Tessa Kick Wrecking Ball Angels and Electron Pixies", 0x40F380 + 0xc800, 0x40F400 + 0xc800, indexRedEarthSprites_Tessa, 0x20 },
     { L"Tessa Kick Grab Saw", 0x40F080 + 0xc800, 0x40F100 + 0xc800, indexRedEarthSprites_Tessa, 0x0a },
     { L"Tessa Kick GC/Grab/Pursuit Lever", 0x40F100 + 0xc800, 0x40F180 + 0xc800, indexRedEarthSprites_Tessa, 0x09 },
     { L"Tessa Kick Ultimate Guard Wall and Lever", 0x40EB00 + 0xc800, 0x40EB80 + 0xc800, indexRedEarthSprites_Tessa, 0x1b },
     { L"Tessa Kick Ultimate Guard Batteries", 0x40EE00 + 0xc800, 0x40EE80 + 0xc800, indexRedEarthSprites_Tessa, 0x01a },
+
+    { L"Electron Fairies 1 & UC Angels", 0x41bb80, 0x41bc00 },
+    { L"Electron Fairies 2", 0x41bc00, 0x41bc80 },
+    { L"Fiamma Fairies 1", 0x41bc80, 0x41bd00 },
+    { L"Fiamma Fairies 2", 0x41bd00, 0x41bd80 },
+    { L"Glace Fairies 1", 0x41bd80, 0x41be00 },
+    { L"Glace Fairies 2", 0x41be00, 0x41be80 },
 
     { L"Cursed Penguin Tessa", 0x41ba80, 0x41bb00, indexRedEarthSprites_Tessa, 0x25 },
 
@@ -403,6 +397,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
     { L"Mai-Ling Punch Fireball", 0x411780, 0x411800, indexRedEarthSprites_MaiLing, 0x01 },
     { L"Mai-Ling Punch HCB.1/2/3 Fireball", 0x411880, 0x411900, indexRedEarthSprites_MaiLing, 0x03 },
 
+    { L"Ultimate Guard's Parry Shield", 0x411900, 0x411980 },
     { L"Valerie, Dentry & Bellery", 0x412a00, 0x412b00, indexRedEarthSprites_Bonus, 0x1d },
 
     { L"Mai-Ling Punch Ultimate Guard Flash and Burn 1", 0x414000, 0x414080, indexRedEarthSprites_MaiLing, 0 },
@@ -435,6 +430,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
     { L"Mai-Ling Kick Fireball", 0x41DF80, 0x41E000, indexRedEarthSprites_MaiLing, 0x01 },
     { L"Mai-Ling Kick HCB.1/2/3 Fireball", 0x41e080, 0x41E100, indexRedEarthSprites_MaiLing, 0x03 },
 
+    { L"Ultimate Guard's Parry Shield", 0x41e100, 0x41e180 },
     { L"Valerie, Dentry & Bellery", 0x41f200, 0x41f300, indexRedEarthSprites_Bonus, 0x1d },
 
     { L"Mai-Ling Kick Ultimate Guard Flash and Burn 1", 0x420800, 0x420880, indexRedEarthSprites_MaiLing, 0 },
@@ -1125,7 +1121,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Tessa 8", 0x323aa0, 0x323b20, indexRedEarthSprites_Tessa, 0x23 },
     { L"Intro - VS Blade Sky", 0x321220, 0x3212a0, indexRedEarthSprites_Bonus, 0x5f },
     { L"Intro - VS Blade Trees", 0x324120, 0x324160 },
-    { L"Intro - Blade", 0x323f00, 0x323fa0 },
+    { L"Intro - Blade", 0x323f20, 0x323fa0 },
     { L"Intro - Leo Cliffside", 0x323fa0, 0x324020 },
     { L"Intro - Leo C.Thunder", 0x324020, 0x3240a0 },
     { L"Intro - Blade.Thunder", 0x3240a0, 0x324120 },
@@ -1133,6 +1129,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { L"Intro - Blade flash", 0x3246a0, 0x324720 },
     // Dupe of logo cycle { L"Intro - Thunderflash", 0x324720, 0x3247a0 },
     { L"Intro - Leo rise and slash", 0x322da0, 0x322ea0, indexRedEarthSprites_Bonus, 0x58 },
+    { L"Leo Rise And Slash Effect", 0x323ea0, 0x323f20 },
     { L"Leo Cinematic 1 Rise and Slash BG", 0x322ea0, 0x322f20, indexRedEarthSprites_Bonus, 0x53 },
     { L"Leo Cinematic 2 Rise and Slash BG", 0x322620, 0x3226a0, indexRedEarthSprites_Bonus, 0x54 },
 
@@ -1487,17 +1484,26 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Coming Next? Original (Unused)???", 0x41e180, 0x41e200, indexRedEarthSprites_MaiLing, 0x58 },
 
     { L"Tessa Jamming Ghost Punch Palette", 0x40f800, 0x40f880, indexRedEarthSprites_Tessa, 0x0e },
-    { L"Tessa Jamming Ghost Kick Palette", 0x41c000, 0x41c080, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Punch Hato Lighter (Pigeon)", 0x40f000, 0x40f080 },
+    { L"Tessa Punch Staff Darker", 0x40ed80, 0x40ee00 },
+    { L"Tessa Punch Staff Lighter 1", 0x40ed00, 0x40ed80 },
+    { L"Tessa Punch Staff Lighter 2", 0x40ec80, 0x40ed00 },
+    { L"Punch Tessa's Unused Fairies 1 (Poison?)", 0x40f680, 0x40f700 },
+    { L"Punch Tessa's Unused Fairies 2 (Poison?)", 0x40f700, 0x40f780 },
 
-    { L"Punch Palette Leo Unused?", 0x414880, 0x414900, indexRedEarthSprites_Leo, 0x00 },
-    { L"Kick Palette Leo Unused? ", 0x408080, 0x408100, indexRedEarthSprites_Leo, 0x00 },
+    { L"Tessa Jamming Ghost Kick Palette", 0x41c000, 0x41c080, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Kick Hato Lighter (Pigeon)", 0x41b800, 0x41b880 },
+    { L"Tessa Kick Staff Darker", 0x41b580, 0x41b600 },
+    { L"Tessa Kick Staff Lighter 1", 0x41b500, 0x41b580 },
+    { L"Tessa Kick Staff Lighter 2", 0x41b480, 0x41b500 },
+    { L"Kick Tessa's Unused Fairies 1 (Poison?)", 0x41be80, 0x41bf00 },
+    { L"Kick Tessa's Unused Fairies 2 (Poison?)", 0x41bf00, 0x41bf80 },
 
     { L"Unused Tessa Palette 1", 0x1e4a80, 0x1e4b00, indexRedEarthSprites_Tessa, 0x00 },
     { L"Unused Tessa Palette 2", 0x1e4b00, 0x1e4b80, indexRedEarthSprites_Tessa, 0x00 },
-    { L"Tessa Punch Pixies", 0x40f680, 0x40f700 },
-    { L"Tessa Punch Pixies Changing Pal", 0x40f700, 0x40f780 },
-    { L"Tessa Kick Pixies", 0x41be80, 0x41bf00 },
-    { L"Tessa Kick Pixies Changing Pal", 0x41bf00, 0x41bf80 },
+
+    { L"Punch Palette Leo Unused?", 0x414880, 0x414900, indexRedEarthSprites_Leo, 0x00 },
+    { L"Kick Palette Leo Unused? ", 0x408080, 0x408100, indexRedEarthSprites_Leo, 0x00 },
 
     { L"Unused Vigo, Valo, Vestu", 0x421f80, 0x422000 },
     { L"Unused Vigo, Valo, Vestu Punch", 0x408900, 0x408980 },
@@ -1852,7 +1858,7 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_GREEDIA_TRANSPARENCY_CYCLE_PALETTES
 const sGame_PaletteDataset REDEARTH_A_STAGES_ZIPANG_PALETTES[] =
 {
     { L"Zipang on Fire 17/18", 0x736d00, 0x736f00, indexRedEarthSprites_Stages, 0x26, &pairFullyLinkedNode },
-    { L"Zipang on Fire 18/18", 0x736f00, 0x737000, indexRedEarthSprites_Stages, 0x27 },
+    { L"Zipang on Fire 18/18", 0x736f00, 0x736f80, indexRedEarthSprites_Stages, 0x27 },
 
             { L"Zipang on Fire 4.2.4/18", 0x735480, 0x735500, indexRedEarthSprites_Stages, 0x28 },
 
@@ -1955,7 +1961,7 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_ZIPANG_SHADE3_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_STAGES_ZIPANG_FADED_PALETTES[] =
 {
         { L"Zipang on Fire 17/18", 0x74cd00, 0x74cf00, indexRedEarthSprites_Stages, 0x26, &pairFullyLinkedNode },
-        { L"Zipang on Fire 18/18", 0x74cf00, 0x74d000, indexRedEarthSprites_Stages, 0x27 },
+        { L"Zipang on Fire 18/18", 0x74cf00, 0x74cf80, indexRedEarthSprites_Stages, 0x27 },
 
                 { L"Zipang on Fire 4.2.4/18", 0x735480 + 0x16000, 0x735500 + 0x16000, indexRedEarthSprites_Stages, 0x28 },
 
@@ -2334,7 +2340,7 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_GREEDIA_TRANSPARENCY_CYCLE_SLASH_PA
 const sGame_PaletteDataset REDEARTH_A_STAGES_ZIPANG_SLASH_PALETTES[] =
 {
     { L"Zipang on Fire 17/18", 0x736d00 + 0xb000, 0x736f00 + 0xb000, indexRedEarthSprites_Stages, 0x26, &pairFullyLinkedNode },
-    { L"Zipang on Fire 18/18", 0x736f00 + 0xb000, 0x737000 + 0xb000, indexRedEarthSprites_Stages, 0x27 },
+    { L"Zipang on Fire 18/18", 0x736f00 + 0xb000, 0x736f80 + 0xb000, indexRedEarthSprites_Stages, 0x27 },
 
             { L"Zipang on Fire 4.2.4/18", 0x735480 + 0xb000, 0x735500 + 0xb000, indexRedEarthSprites_Stages, 0x28 },
 
@@ -2536,6 +2542,15 @@ const sGame_PaletteDataset REDEARTH_A_30_BONUS_UNUSED_PALETTES[] =
 {
     { L"Icelarn Unused 1", 0x737100, 0x737180 },
     { L"Icelarn Unused 2", 0x737700, 0x737780 },
+
+    { L"Greedia Unused Palette", 0x734000, 0x734080 },
+    { L"Icelarn Unused Palette", 0x736f80, 0x737000 },
+
+    { L"Greedia Unused Palette (Slash Transparency)", 0x73f000, 0x73f080 },
+    { L"Icelarn Unused Palette (Slash Transparency)", 0x741f80, 0x742000 },
+
+    { L"Greedia Unused Palette (Hauzer's Fire Transparency)", 0x74a000, 0x74a080 },
+    { L"Icelarn Unused Palette (Hydron's Poison Gas Transparency)", 0x73cf80, 0x73d000 },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =

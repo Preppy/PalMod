@@ -32,7 +32,7 @@ private:
         AsuraBuster_A_UNITS,
         ARRAYSIZE(AsuraBuster_A_UNITS),
         L"AsuraBusterE.txt",             // Extra filename
-        412,                             // Count of palettes listed in the header
+        419,                             // Count of palettes listed in the header
         0x4c350,                         // Lowest known location used for palettes
     };
 
