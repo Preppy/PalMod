@@ -455,7 +455,7 @@ void CPalModDlg::OnEditCopy()
             {
                 bool haveShownOneColor = false;
 
-                strUnicodeData.Append(L"\r\nThe French Bread RBG version of this data is:\r\n\trgb = [ ");
+                strUnicodeData.Append(L"\r\nThe French Bread RGB version of this data is:\r\n\trgb = [ ");
 
                 for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
                 {
@@ -476,9 +476,9 @@ void CPalModDlg::OnEditCopy()
                         case 4:
                         {
                             uint32_t uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[iPalIndex]);
-                            strFormatU.Format(L"[ %u, %u, %u ]", uCurrData & 0xFF,
-                                                                 (uCurrData & 0xFF00) >> 8,
-                                                                 (uCurrData & 0xFF0000) >> 16);
+                            strFormatU.Format(L"[ %u,%u,%u ]", uCurrData & 0xFF,
+                                                               (uCurrData & 0xFF00) >> 8,
+                                                               (uCurrData & 0xFF0000) >> 16);
                             break;
                         }
                         }
@@ -488,7 +488,7 @@ void CPalModDlg::OnEditCopy()
                     }
                 }
 
-                strUnicodeData.Append(L" ]\r\n");
+                strUnicodeData.Append(L" ],\r\n");
             }
 
             strUnicodeData.Append(L"\r\n\r\nYou can turn off this secret extended data by going to PalMod's Settings menu.\r\n");
