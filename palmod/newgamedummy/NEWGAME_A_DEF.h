@@ -7,6 +7,12 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
+const std::vector<uint16_t> NEWGAME_A_IMG_UNITS =
+{
+    // Ignore the internals of this array for now.
+    // This data gets filled in once you have images integrated into imgdat
+};
+
 const sGame_PaletteDataset NEWGAME_A_FAKE_PALETTES_P1[] =
 {
     { L"Fake P1",               0x00, 0x10 },
@@ -48,7 +54,3 @@ const sDescTreeNode NEWGAME_A_UNITS[] =
     { L"Fake", DESC_NODETYPE_TREE, (void*)NEWGAME_A_FAKE_COLLECTION, ARRAYSIZE(NEWGAME_A_FAKE_COLLECTION) },
     { L"Sample", DESC_NODETYPE_TREE, (void*)NEWGAME_A_SAMPLE_COLLECTION, ARRAYSIZE(NEWGAME_A_SAMPLE_COLLECTION) },
 };
-
-constexpr auto NEWGAME_A_NUMUNIT = ARRAYSIZE(NEWGAME_A_UNITS);
-
-constexpr auto NEWGAME_A_EXTRALOC = NEWGAME_A_NUMUNIT;
