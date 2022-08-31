@@ -4,97 +4,11 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-stExtraDef* CGame_KOF02_A::KOF02_A_EXTRA_CUSTOM = nullptr;
-
-CDescTree CGame_KOF02_A::MainDescTree = nullptr;
-
-uint32_t CGame_KOF02_A::rgExtraCountAll[KOF02_A_NUMUNIT + 1];
-uint32_t CGame_KOF02_A::rgExtraLoc[KOF02_A_NUMUNIT + 1];
-
-uint32_t CGame_KOF02_A::m_nTotalPaletteCountForKOF02 = 0;
-uint32_t CGame_KOF02_A::m_nConfirmedROMSize = -1;
-
-void CGame_KOF02_A::InitializeStatics()
-{
-    safe_delete_array(CGame_KOF02_A::KOF02_A_EXTRA_CUSTOM);
-
-    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
-
-    MainDescTree.SetRootTree(CGame_KOF02_A::InitDescTree());
-}
-
-CGame_KOF02_A::CGame_KOF02_A(uint32_t nConfirmedROMSize)
-{
-    OutputDebugString(L"CGame_KOF02_A::CGame_KOF02_A: Loading ROM...\n");
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
-
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
-    m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    m_nTotalInternalUnits = KOF02_A_NUMUNIT;
-    m_nExtraUnit = KOF02_A_EXTRALOC;
-
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + m_nPaletteCountInHeaders;
-    m_pszExtraFilename = EXTRA_FILENAME_KOF02_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02;
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = m_nLowestROMLocationUsedInHeaders;
-
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    InitDataBuffer();
-
-    //Set game information
-    nGameFlag = KOF02_A;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF02_A_IMGIDS_USED;
-
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
-
-    //Create the file changed flag
-    PrepChangeTrackingArray();
-}
-
-CGame_KOF02_A::~CGame_KOF02_A()
-{
-    safe_delete_array(CGame_KOF02_A::KOF02_A_EXTRA_CUSTOM);
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
-}
-
-CDescTree* CGame_KOF02_A::GetMainTree()
-{
-    return &CGame_KOF02_A::MainDescTree;
-}
-
-uint32_t CGame_KOF02_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
-{
-    return _GetExtraCount(rgExtraCountAll, KOF02_A_NUMUNIT, nUnitId, KOF02_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_KOF02_A::GetExtraLoc(uint32_t nUnitId)
-{
-    return _GetExtraLocation(rgExtraLoc, KOF02_A_NUMUNIT, nUnitId, KOF02_A_EXTRA_CUSTOM);
-}
-
 void CGame_KOF02_A::DumpAllCharacters()
 {
+    // For development purposes only...
+    // Note that Chin uses 0x9 and Kensou uses 0x0 for their MAX Flash palette: the autogenerator currently doesn't account for that
+
     //Go through each character
     for (uint16_t iUnitCtr = 0; iUnitCtr < ARRAYSIZE(KOF02_A_CharacterOffsetArray); iUnitCtr++)
     {
@@ -244,86 +158,6 @@ void CGame_KOF02_A::DumpAllCharacters()
     }
 }
 
-sDescTreeNode* CGame_KOF02_A::InitDescTree()
-{
-    //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOF02_A, &KOF02_A_EXTRA_CUSTOM, KOF02_A_EXTRALOC, m_nConfirmedROMSize);
-
-    uint16_t nUnitCt = KOF02_A_NUMUNIT + (GetExtraCt(KOF02_A_EXTRALOC) ? 1 : 0);
-    
-    sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[KOF02_A]);
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
-    //All units have tree children
-    NewDescTree->uChildType = DESC_NODETYPE_TREE;
-
-    m_nTotalPaletteCountForKOF02 = _InitDescTree(NewDescTree,
-        KOF02_A_UNITS,
-        KOF02_A_EXTRALOC,
-        KOF02_A_NUMUNIT,
-        rgExtraCountAll,
-        rgExtraLoc,
-        KOF02_A_EXTRA_CUSTOM
-    );
-
-    // For development purposes only...
-    // Note that Chin uses 0x9 and Kensou uses 0x0 for their MAX Flash palette: the autogenerator currently doesn't account for that
-    //DumpAllCharacters();
-
-    return NewDescTree;
-}
-
-sFileRule CGame_KOF02_A::GetRule(uint32_t nUnitId)
-{
-    sFileRule NewFileRule;
-
-    // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, KOF02_A_PRIMARY_ROMNAME);
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
-}
-
-uint32_t CGame_KOF02_A::GetCollectionCountForUnit(uint32_t nUnitId)
-{
-    return _GetCollectionCountForUnit(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, KOF02_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_KOF02_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetNodeCountForCollection(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, nCollectionId, KOF02_A_EXTRA_CUSTOM);
-}
-
-LPCWSTR CGame_KOF02_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetDescriptionForCollection(KOF02_A_UNITS, KOF02_A_EXTRALOC, nUnitId, nCollectionId);
-}
-
-uint32_t CGame_KOF02_A::GetPaletteCountForUnit(uint32_t nUnitId)
-{
-    return _GetPaletteCountForUnit(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, KOF02_A_EXTRA_CUSTOM);
-}
-
-const sGame_PaletteDataset* CGame_KOF02_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetPaletteSet(KOF02_A_UNITS, nUnitId, nCollectionId);
-}
-
-const sDescTreeNode* CGame_KOF02_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
-{
-    return _GetNodeFromPaletteId(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, nPaletteId, KOF02_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
-}
-
-const sGame_PaletteDataset* CGame_KOF02_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    return _GetSpecificPalette(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, nUnitId, nPaletteId, KOF02_A_EXTRA_CUSTOM);
-}
-
 uint32_t CGame_KOF02_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
@@ -344,47 +178,4 @@ uint32_t CGame_KOF02_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
     }
 
     return ARRAYSIZE(knownROMs);
-}
-
-void CGame_KOF02_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-     if (nUnitId != KOF02_A_EXTRALOC)
-    {
-        int cbPaletteSizeOnDisc = 0;
-        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
-        if (paletteData)
-        {
-            cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
-
-            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-            m_pszCurrentPaletteName = paletteData->szPaletteName;
-        }
-        else
-        {
-            // A bogus palette was requested: this is unrecoverable.
-            DebugBreak();
-        }
-
-        // Adjust for ROM-specific variant locations
-        if (m_pCRC32SpecificData)
-        {
-            m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
-        }
-    }
-    else // KOF02_A_EXTRALOC
-    {
-        // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &KOF02_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
-
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
-BOOL CGame_KOF02_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
-{
-    return _UpdatePalImg(KOF02_A_UNITS, rgExtraCountAll, KOF02_A_NUMUNIT, KOF02_A_EXTRALOC, KOF02_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }

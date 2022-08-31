@@ -258,12 +258,18 @@ void CGameClassByDir::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
 
-        cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
+        cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
         m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+        // Adjust for ROM-specific variant locations
+        if (m_pCRC32SpecificData)
+        {
+            m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
+        }
     }
     else // m_nCurrentExtraUnitId
     {
