@@ -8,7 +8,6 @@ const sDirectoryLoadingData MK2_SNES_FileLoadingData_V1dot0 =
         { L"mortal kombat ii (usa).sfc", 0x300000 },
     },
     FileReadType::Sequential,
-    0x300000
 };
 
 const sDirectoryLoadingData MK2_SNES_FileLoadingData_V1dot1 =
@@ -17,7 +16,6 @@ const sDirectoryLoadingData MK2_SNES_FileLoadingData_V1dot1 =
         { L"Mortal_Kombat_II_USA.sfc", 0x300000 },
     },
     FileReadType::Sequential,
-    0x300000
 };
 
 enum class MK2LoadingKey

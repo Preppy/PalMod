@@ -273,6 +273,7 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
     { L"Tessa Punch GC/Grab/Pursuit Lever", 0x40F100, 0x40F180, indexRedEarthSprites_Tessa, 0x09 },
     { L"Tessa Punch Ultimate Guard Wall and Lever", 0x40EB00, 0x40EB80, indexRedEarthSprites_Tessa, 0x1b },
     { L"Tessa Punch Ultimate Guard Batteries", 0x40EE00, 0x40EE80, indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Punch Ultimate Counter Chain", 0x40fb00, 0x40fb80 },
 
     { L"Electron Fairies 1 & UC Angels", 0x40f380, 0x40f400 },
     { L"Electron Fairies 2", 0x40f400, 0x40f480 },
@@ -344,6 +345,7 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
     { L"Tessa Kick GC/Grab/Pursuit Lever", 0x40F100 + 0xc800, 0x40F180 + 0xc800, indexRedEarthSprites_Tessa, 0x09 },
     { L"Tessa Kick Ultimate Guard Wall and Lever", 0x40EB00 + 0xc800, 0x40EB80 + 0xc800, indexRedEarthSprites_Tessa, 0x1b },
     { L"Tessa Kick Ultimate Guard Batteries", 0x40EE00 + 0xc800, 0x40EE80 + 0xc800, indexRedEarthSprites_Tessa, 0x01a },
+    { L"Tessa Kick Ultimate Counter Chain", 0x41c300, 0x41c380 },
 
     { L"Electron Fairies 1 & UC Angels", 0x41bb80, 0x41bc00 },
     { L"Electron Fairies 2", 0x41bc00, 0x41bc80 },
@@ -1525,9 +1527,6 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Hauzer Frozen 3??", 0x418c00, 0x418c80, indexRedEarthSprites_Hauzer, 0x00 },
     { L"Hauzer Frozen 4??", 0x418c80, 0x418d00, indexRedEarthSprites_Hauzer, 0x00 },
     { L"Hauzer Frozen 5??", 0x418d00, 0x418d80, indexRedEarthSprites_Hauzer, 0x00 },
-
-    { L"Kenji Chains, Kunai?", 0x40fb00, 0x40fb80, indexRedEarthSprites_Kenji, 0x01 },
-    { L"Kenji Chains, Kunai??", 0x41c300, 0x41c380, indexRedEarthSprites_Kenji, 0x01 },
 
     { L"Gi Gi Unused Summon", 0x431680, 0x431700 },
 

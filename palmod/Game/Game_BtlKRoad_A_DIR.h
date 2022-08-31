@@ -9,7 +9,6 @@ const sDirectoryLoadingData BKRFileLoadingData =
         { L"5-u39.bin", 0x40000 },
     },
     FileReadType::Interleaved_Read2Bytes_BE,
-    0x80000
 };
 
 class CGame_BtlKRoad_A_DIR : public CGameClassByDir

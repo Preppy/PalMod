@@ -4278,6 +4278,7 @@ const sGame_PaletteDataset KOF02_A_BONUS_BONUS_PALETTES[] =
     { L"How to Play Buttons", 0xb4d02, 0xb4d42, indexKOF02Sprites_Bonus, 0x0c },
     { L"How To Play Control Panel", 0xb4ce2, 0xb4d02 },
     { L"General Text", 0x86ba2, 0x86bc2 },
+    { L"Winner Text", 0xb4362, 0xb43a2 },
     { L"AES Mode Select Background)", 0xb5622, 0xb5642 },
     { L"Leaderboard Display", 0xb5562, 0xb55a2 },
     { L"Yellow \"DEMONSTRATION\" Text", 0xb5ae2, 0xb5b62 },

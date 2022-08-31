@@ -9,7 +9,6 @@ const sDirectoryLoadingData MWarrFileLoadingData =
         { L"prg_od", 0x40000 },
     },
     FileReadType::Interleaved,
-    0x80000
 };
 
 class CGame_MWarr_A_DIR : public CGameClassByDir

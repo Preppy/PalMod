@@ -9,7 +9,6 @@ const sDirectoryLoadingData AvgrsGSFileLoadingData =
         { L"sf_01-0.7l", 0x80000 },
     },
     FileReadType::Interleaved_Read2Bytes_LE,
-    0x100000
 };
 
 class CGame_AvgrsGS_A_DIR : public CGameClassByDir

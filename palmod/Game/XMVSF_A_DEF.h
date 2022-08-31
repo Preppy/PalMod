@@ -34,6 +34,10 @@ const std::vector<uint16_t> XMVSF_A_IMGIDS_USED =
 
 const std::vector<std::vector<uint16_t>> paletteBuddy_XMVSF_Cammy =
 {
+    // For the (03) / Extra 0x02 coat palette, CapCom only changes the main jacket color
+    // (colors 8-12) for different buttons, and they're not tied to the main palette.
+    // So we'll just leave this alone for now, although arguably at least updating her hair makes sense.
+
     // counter flash
     { SUPP_NODE, 0x03, 9,
         MOD_TINT, 1, 15, 1, 0, 8, 15 }, // blue + 15
@@ -1180,7 +1184,6 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO[] =
 
 const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_HUD[] =
 {
-    { L"Super Bar Level 0", 0x146fa, 0x1471a },
     { L"Timer Super Bar BG 1", 0x1473a, 0x1475a },
     { L"Timer Super Bar BG 2", 0x14b1a, 0x14b3a },
     { L"Timer Super Bar BG 3", 0x14b3a, 0x14b5a },
@@ -1228,6 +1231,23 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_MTEXT[] =
     { L"PERFECT 5", 0x21326, 0x21346, indexCPS2Sprites_XMVSFAssets, 0x19 },
     { L"TIME OVER", 0x21286, 0x212a6, indexCPS2Sprites_XMVSFAssets, 0x1a },
     { L"DRAW GAME", 0x212a6, 0x212c6, indexCPS2Sprites_XMVSFAssets, 0x17 },
+};
+
+const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_TEXT[] =
+{
+    { L"Intro Text", 0x14afa, 0x14b1a },
+    { L"Various Text", 0x146da, 0x146fa },
+    { L"Character Select, Screen Wipe, Fight", 0x19b5a, 0x19b7a },
+    { L"Character Select & VS Screen Names", 0x19b7a, 0x19b9a },
+    { L"HUD Text", 0x146fa, 0x1471a },
+    { L"Round Finish Score", 0x1e2fa, 0x1e31a },
+    // Uses 'CPS2 Test Menu Text' Preview
+        { L"Test Menu Text 1", 0xfccc, 0xfcec },
+    // Uses 'CPS2 Test Menu Text' Preview
+        { L"Test Menu Text 2", 0xfcec, 0xfd0c },
+    { L"Credit Roll Titles", 0x14d3a, 0x14d5a },
+    // Uses 'CPS2 Test Menu Text' Preview
+        { L"Credit Roll Thank You For Playing", 0xfd2c, 0xfd4c },
 };
 
 const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_TITLE[] =
@@ -1493,6 +1513,7 @@ const sDescTreeNode XMVSF_A_BONUS_COLLECTION[] =
     { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_INTRO) },
     { L"HUD", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_HUD, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_HUD) },
     { L"Match Text", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_MTEXT, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_MTEXT) },
+    { L"Text", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_TEXT, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_TEXT) },
     { L"Intro", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_INTRO_PALETTES, ARRAYSIZE(XMVSF_A_BONUS_INTRO_PALETTES) },
     { L"Title Screen", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_TITLE, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_TITLE) },
     { L"Character Select", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_PORTRAIT_PALETTES_CHARSELECT, ARRAYSIZE(XMVSF_A_BONUS_PORTRAIT_PALETTES_CHARSELECT) },
@@ -1522,10 +1543,6 @@ const sDescTreeNode XMVSF_A_UNITS[] =
    { L"Apocalypse", DESC_NODETYPE_TREE, (void*)XMVSF_A_APOCALYPSE_COLLECTION, ARRAYSIZE(XMVSF_A_APOCALYPSE_COLLECTION) },
    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)XMVSF_A_BONUS_COLLECTION, ARRAYSIZE(XMVSF_A_BONUS_COLLECTION) },
 };
-
-constexpr auto XMVSF_A_NUMUNIT = ARRAYSIZE(XMVSF_A_UNITS);
-
-constexpr auto XMVSF_A_EXTRALOC = XMVSF_A_NUMUNIT;
 
 // This is the alphabetically sorted list of ROM locations:
 /*

@@ -413,13 +413,38 @@ const std::array<uint8_t, MVC2_D_NUMUNIT_WITH_TEAMVIEW + 1> MVC2_D_UNITSORT = //
     0xFF
 };
 
-// For these entries we use the EXTRA_START offset.
-// For each palette entry item the BOOL value indicates whether or not to show a sprite.
-// the second line is unique Extras sprites from [location 1] to [location 2]
-//     <CHAR_OFFSET>,
-//      1, 0, 0, 0, 0, 0, 0, // One "extra" sprite exists, use it for the 0x1 (%button%) extras
-//      0x11, 0x11 // Add an Extra node: that will use 0x11 for that palette entry.  Each entry is START_POS and END_POS.
-//      An unpaired entry other than 0 is going to do very bad things, so be careful.
+// For these entries:
+//    First line: we use the EXTRA_START offset OR'd with the character ID (as found in ImgIdDef.h for CHARACTERS_CPS2)
+//    Second line: For each of the seven non-main palette entries: an integer BOOL value indicates whether or not to show a sprite.
+//    Third line: EITHER 0 OR a set of location pairs indicating that we should show unique Extras sprites from [location 1] to [location 2]
+// So let's consider an example:
+//     EXTRA_START | 0x03,
+//     1, 1, 1, 1, 0, 0, 0, // lilith, ???, fireball, super fireball
+//     0x3A, 0x3B, 0x3D, 0x3E, 0x40, 0x41, 0x43, 0x44, 0x46, 0x47, 0x49, 0x86,
+// So this data chunk is for "0x03".  Looking in ImgIdDef.h's definition of the CHARACTERS_CPS2 enum, we see that this chunk is for Morrigan.
+// The second line translates as:
+//     1, // Load a sprite from imgdat for the (01) palette for each button (LP, LK...)
+//     1, // Load a sprite from imgdat for the (02) palette for each button (LP, LK...)
+//     1, // Load a sprite from imgdat for the (03) palette for each button (LP, LK...)
+//     1, // Load a sprite from imgdat for the (04) palette for each button (LP, LK...)
+//     0, // Do not load a sprite from imgdat for the (05) palette for each button (LP, LK...)
+//     0, // Do not load a sprite from imgdat for the (06) palette for each button (LP, LK...)
+//     0, // Do not load a sprite from imgdat for the (07) palette for each button (LP, LK...)
+// If we load a sprite this way, we use the same Extra position ID as the sprite ID to load.
+// The third line translates as:
+//     0x3A-0x3B, // Show extras from 3a to 3b
+//     0x3D-0x3E, // Show extras from 3d to 3e
+//     0x40-0x41, // Show extras from 40 to 41
+//     0x43-0x44, // Show extras from 43 to 44
+//     0x46-0x47, // Show extras from 46 to 47
+//     0x49-0x86, // Show extras from 49 to 86
+// This third line can contain anywhere from zero entries, which is represented as an unpaired line such as:
+//     0,
+// , to however many palettes the file has.
+// If an extra palette is to be shown by itself, set the start and end of that pair to the same value, such as:
+//     0x11, 0x11 // Show the single sprite 0x11
+// The only non-paired value allowed on the third line is "0" by itself indicating no extras to show. 
+
 const std::vector<uint16_t> MVC2_D_6COLORS_EXTRADEF =
 {
     0,

@@ -76,7 +76,12 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     // We only check primary ROM size because we outright fail the load if any subsequent ROMs not being the right size.
     if (nConfirmedROMSize == m_psCurrentFileLoadingData->rgFileList.at(0).nFileSize)
     {
-        m_nConfirmedROMSize = m_psCurrentFileLoadingData->nAggregateROMSizes;
+        m_nConfirmedROMSize = 0;
+
+        for (const auto& fileData : m_psCurrentFileLoadingData->rgFileList)
+        {
+            m_nConfirmedROMSize += fileData.nFileSize;
+        }
     }
     else if (m_psCurrentFileLoadingData->rgFileList.size() == 1)
     {
@@ -297,6 +302,18 @@ sFileRule CGameClassByDir::GetNextRule(const sDirectoryLoadingData& gameLoadingD
     }
 
     return NewFileRule;
+}
+
+LPCWSTR CGameClassByDir::GetGameName()
+{
+    if (m_pCRC32SpecificData)
+    {
+        return m_pCRC32SpecificData->szFriendlyName;
+    }
+    else
+    {
+        return m_strGameFriendlyName.c_str();
+    }
 }
 
 BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)

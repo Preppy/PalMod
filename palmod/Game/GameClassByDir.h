@@ -23,7 +23,6 @@ struct sDirectoryLoadingData
 {
     std::vector<sFileSpecificLoadData> rgFileList;
     FileReadType eReadType;
-    size_t nAggregateROMSizes;
 };
 
 class CGameClassByDir : public CGameWithExtrasFile
@@ -111,7 +110,7 @@ public:
 
     const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
 
-    LPCWSTR GetGameName() override { return m_strGameFriendlyName.c_str(); };
+    LPCWSTR GetGameName() override;
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 };
