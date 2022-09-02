@@ -186,6 +186,7 @@ enum SupportedGamesList
     AvgrsGS_A,
     BtlKRoad_A,
     AsuraBuster_A,
+    NBHID_S,
 
     NUM_GAMES // This needs to be last
 };
@@ -368,6 +369,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Avengers in Galactic Storm (Data East)",
     L"Battle K-Road (Psikyo)",
     L"Asura Buster - Eternal Warriors (Fuuki)",
+    L"Nitroplus Blasterz: Heroines Infinite Duel (Steam)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

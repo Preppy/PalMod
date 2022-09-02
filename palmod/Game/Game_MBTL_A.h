@@ -1,43 +1,30 @@
-#include "gameclass.h"
-#include "..\extrafile.h"
+#pragma once
+#include "GameClassByUnitPerFile.h"
+#include "MBTL_S_DEF.h"
 
-class CGame_MBTL_A : public CGameWithExtrasFile
+class CGame_MBTL_A : public CGameClassPerUnitPerFile
 {
+private:
+    const sGCPUPF_CoreGameData m_sCoreGameData
+    {
+        L"Melty Blood: Type Lumina (Steam)",
+        MBTL_A,
+        IMGDAT_SECTION_FRENCHBREAD,
+        MBTL_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        MBTLPaletteNamesNormal,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8888,
+        MBTLCharacterData,
+    };
+
 public:
-    CGame_MBTL_A(uint32_t nConfirmedROMSize = -1);
-    ~CGame_MBTL_A();
-
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
-
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
-
-    //Static functions
-    static uint32_t uRuleCtr;
-
-    static uint32_t GetRuleCtr() { return uRuleCtr; };
-    static void ResetRuleCtr() { uRuleCtr = 0; };
-
-    static sFileRule GetNextRule();
-    static sFileRule GetRule(uint32_t nRuleId);
-
-    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitNumber) override;
-    BOOL SaveFile(CFile* SaveFile, uint32_t nUnitNumber) override;
-
-    //Static functions / variables
-    static CDescTree MainDescTree;
-
-    static sDescTreeNode* InitDescTree();
-
-    CDescTree* GetMainTree() { return &MainDescTree; };
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+    CGame_MBTL_A(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    ~CGame_MBTL_A() { ClearDataBuffer(); FlushChangeTrackingArray(); };
 
     void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;
 
-    LPCWSTR GetGameName() override { return L"Melty Blood: Type Lumina (Steam)"; };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassPerUnitPerFile::GetRule(nRuleId, MBTLCharacterData); };
+    static sFileRule GetNextRule() { return CGameClassPerUnitPerFile::GetNextRule(MBTLCharacterData); };
 };

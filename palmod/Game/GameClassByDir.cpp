@@ -136,11 +136,6 @@ uint32_t CGameClassByDir::GetExtraLoc(uint32_t nUnitId)
     return _GetExtraLocation(&m_rgCurrentExtraLocations[0], m_rgCurrentGameUnits.size(), nUnitId, m_prgCurrentExtrasLoaded);
 }
 
-CDescTree* CGameClassByDir::GetMainTree()
-{
-    return &CGameClassByDir::MainDescTree;
-}
-
 sDescTreeNode* CGameClassByDir::InitDescTree()
 {
     //Load extra file if we're using it

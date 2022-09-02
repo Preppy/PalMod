@@ -505,6 +505,12 @@
     <Filter Include="Games\Other Platforms\Asura Buster">
       <UniqueIdentifier>{fd629fac-ea3d-4ed6-b901-cec89fa3cb60}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Steam">
+      <UniqueIdentifier>{54ab2748-ef6e-4db9-b621-dc1bbbc4db3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Other Platforms\Steam\Nitroplus Blasterz">
+      <UniqueIdentifier>{6e19eced-02c3-4453-9c45-88228ad1240f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1036,6 +1042,9 @@
       <Filter>Games\Capcom Games\Capcom vs SNK 1 %28Arcade%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\GameClassByDir.cpp">
+      <Filter>Games\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameClassByUnitPerFile.cpp">
       <Filter>Games\Base</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1975,6 +1984,24 @@
     </ClInclude>
     <ClInclude Include="Game\Game_AsuraBuster_A_DIR.h">
       <Filter>Games\Other Platforms\Asura Buster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_NBHID_S.h">
+      <Filter>Games\Other Platforms\Steam\Nitroplus Blasterz</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NBHID_S_DEF.h">
+      <Filter>Games\Other Platforms\Steam\Nitroplus Blasterz</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MBTL_S_DEF.h">
+      <Filter>Games\Other Platforms\Melty Blood Type Lumina %28Steam%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UNICLR_S_DEF.h">
+      <Filter>Games\Other Platforms\UNICLR - Under Night In-Birth</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DBFCI_S_DEF.h">
+      <Filter>Games\Other Platforms\Dengeki Bunko FCI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClassByUnitPerFile.h">
+      <Filter>Games\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

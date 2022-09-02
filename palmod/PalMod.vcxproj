@@ -235,6 +235,7 @@
     <ClCompile Include="Game\GameClass.cpp" />
     <ClCompile Include="Game\GameClassByDir.cpp" />
     <ClCompile Include="Game\GameClassByFile.cpp" />
+    <ClCompile Include="Game\GameClassByUnitPerFile.cpp" />
     <ClCompile Include="Game\GameLoad.cpp" />
     <ClCompile Include="Game\Game_AOF1_A.cpp" />
     <ClCompile Include="Game\Game_AOF3_A.cpp" />
@@ -431,6 +432,7 @@
     <ClInclude Include="Game\CVS2_A_DEF.h" />
     <ClInclude Include="Game\Cyberbots_A_DEF.h" />
     <ClInclude Include="Game\DANKUGA_A_DEF.h" />
+    <ClInclude Include="Game\DBFCI_S_DEF.h" />
     <ClInclude Include="Game\DBZEB_DS_DEF.h" />
     <ClInclude Include="Game\DBZHD_SNES_DEF.h" />
     <ClInclude Include="Game\Default.h" />
@@ -445,6 +447,7 @@
     <ClInclude Include="Game\GameClass.h" />
     <ClInclude Include="Game\GameClassByDir.h" />
     <ClInclude Include="Game\GameClassByFile.h" />
+    <ClInclude Include="Game\GameClassByUnitPerFile.h" />
     <ClInclude Include="Game\GameDef.h" />
     <ClInclude Include="Game\GameLoad.h" />
     <ClInclude Include="Game\Game_AOF1_A.h" />
@@ -529,6 +532,7 @@
     <ClInclude Include="Game\Game_MVC2_P.h" />
     <ClInclude Include="Game\Game_MVC_A.h" />
     <ClInclude Include="Game\Game_MWarr_A_DIR.h" />
+    <ClInclude Include="Game\Game_NBHID_S.h" />
     <ClInclude Include="Game\Game_NeoBomberman_A.h" />
     <ClInclude Include="Game\Game_NEOGEO_A.h" />
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
@@ -631,6 +635,7 @@
     <ClInclude Include="Game\MartialMasters_A_DEF.h" />
     <ClInclude Include="Game\Matrimelee_A_DEF.h" />
     <ClInclude Include="Game\MBAACC_S_DEF.h" />
+    <ClInclude Include="Game\MBTL_S_DEF.h" />
     <ClInclude Include="Game\MK1_SNES_DEF.h" />
     <ClInclude Include="Game\MK2_SNES_DEF.h" />
     <ClInclude Include="Game\MMPR_SNES_DEF.h" />
@@ -646,6 +651,7 @@
     <ClInclude Include="Game\mvc2_supp.h" />
     <ClInclude Include="Game\MVC_A_DEF.h" />
     <ClInclude Include="Game\MWARR_A_DIR_DEF.h" />
+    <ClInclude Include="Game\NBHID_S_DEF.h" />
     <ClInclude Include="Game\NeoBomberman_A_DEF.h" />
     <ClInclude Include="Game\NEOGEO_A_DEF.h" />
     <ClInclude Include="Game\NGBC_A_DEF.h" />
@@ -694,6 +700,7 @@
     <ClInclude Include="Game\TopF2005_Sega_DEF.h" />
     <ClInclude Include="Game\UMK3_DS_DEF.h" />
     <ClInclude Include="Game\UMK3_SNES_DEF.h" />
+    <ClInclude Include="Game\UNICLR_S_DEF.h" />
     <ClInclude Include="Game\VampireHunter_A_DEF.h" />
     <ClInclude Include="Game\VampireNightWarriors_A_DEF.h" />
     <ClInclude Include="Game\Venture_A_DEF.h" />

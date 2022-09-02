@@ -204,6 +204,7 @@
 #define ID_ACC_PASTE                    32802
 #define ID_ACC_SELALL                   32803
 #define ID_ACC_SELNONE                  32804
+#define ID_LD_NBHID_S                   32805
 #define ID_SETTINGS                     32806
 #define ID_SETTINGS_SETTINGS            32807
 #define ID_FILE_CLOSEFILE               32808

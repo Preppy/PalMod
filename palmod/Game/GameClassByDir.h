@@ -30,21 +30,21 @@ class CGameClassByDir : public CGameWithExtrasFile
 public:
     struct sCoreGameData
     {
-        std::wstring strGameFriendlyName;
-        SupportedGamesList nGameID;
-        eIMGDat_Sections eImgDatSectionID;
-        std::vector<uint16_t> rgGameImageSet;
-        sCreatePalOptions createPalOptions;
-        eImageOutputSpriteDisplay displayStyle;
-        std::vector<LPCWSTR> rgszButtonLabelSet;
-        AlphaMode eAlphaMode;
-        ColMode eColMode;
-        sDirectoryLoadingData sLoadingData;
+        const std::wstring strGameFriendlyName;
+        const SupportedGamesList nGameID;
+        const eIMGDat_Sections eImgDatSectionID;
+        const std::vector<uint16_t> rgGameImageSet;
+        const sCreatePalOptions createPalOptions;
+        const eImageOutputSpriteDisplay displayStyle;
+        const std::vector<LPCWSTR> rgszButtonLabelSet;
+        const AlphaMode eAlphaMode;
+        const ColMode eColMode;
+        const sDirectoryLoadingData sLoadingData;
         const sDescTreeNode* psUnitData;
-        size_t nUnitCount;
-        std::wstring strExtraName;
-        uint32_t nKnownPaletteCount;
-        uint32_t nLowestKnownPaletteLocation;
+        const size_t nUnitCount;
+        const std::wstring strExtraName;
+        const uint32_t nKnownPaletteCount;
+        const uint32_t nLowestKnownPaletteLocation;
     };
 
     static std::vector<sDescTreeNode> m_rgCurrentGameUnits;
@@ -74,22 +74,22 @@ public:
 
     void InitializeGame(uint32_t nConfirmedROMSize, const sCoreGameData& gameLoadingData);
 
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber) override;
+    BOOL SaveFile(CFile* SaveFile, uint32_t nSaveUnit) override;
+
+    CDescTree* GetMainTree() { return &MainDescTree; };
+
     inline uint32_t GetSIMMLocationFromROMLocation(uint32_t nROMLocation);
     inline uint32_t GetSIMMUnitFromROMLocation(uint32_t nROMLocation);
 
-    //Static functions
     static uint32_t uRuleCtr;
 
     static uint32_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
-    BOOL LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber) override;
-    BOOL SaveFile(CFile* SaveFile, uint32_t nSaveUnit) override;
-
     static sFileRule GetRule(uint32_t nRuleId, const sDirectoryLoadingData& gameLoadingData);
     static sFileRule GetNextRule(const sDirectoryLoadingData& gameLoadingData);
 
-    //Static functions / variables
     static CDescTree MainDescTree;
 
     static sDescTreeNode* InitDescTree();
@@ -98,8 +98,6 @@ public:
     static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
     static uint32_t GetExtraLoc(uint32_t nUnitId);
 
-    //Normal functions
-    CDescTree* GetMainTree();
     static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.

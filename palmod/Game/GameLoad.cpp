@@ -84,6 +84,7 @@
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
 #include "Game_MWarr_A_DIR.h"
+#include "Game_NBHID_S.h"
 #include "Game_NeoBomberman_A.h"
 #include "Game_NEOGEO_A.h"
 #include "Game_NGBC_A.h"
@@ -149,7 +150,7 @@
 #include "..\palmod.h"
 
 // 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 166, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 167, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -703,6 +704,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         ResetRuleCtr = &CGame_MWarr_A_DIR::ResetRuleCtr;
         GetRule = &CGame_MWarr_A_DIR::GetRule;
         GetNextRule = &CGame_MWarr_A_DIR::GetNextRule;
+
+        return TRUE;
+    }
+    case NBHID_S:
+    {
+        GetRuleCtr = &CGame_NBHID_S::GetRuleCtr;
+        ResetRuleCtr = &CGame_NBHID_S::ResetRuleCtr;
+        GetRule = &CGame_NBHID_S::GetRule;
+        GetNextRule = &CGame_NBHID_S::GetNextRule;
 
         return TRUE;
     }
@@ -1472,6 +1482,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case MWARR_A:
     {
         return new CGame_MWarr_A_DIR(-1);
+    }
+    case NBHID_S:
+    {
+        return new CGame_NBHID_S(nConfirmedROMSize);
     }
     case NeoBomberman_A:
     {
