@@ -1,9 +1,5 @@
 #include "StdAfx.h"
-#include "GameDef.h"
 #include "Game_FatalFury2_A.h"
-#include "..\PalMod.h"
-#include "..\RegProc.h"
-
 
 uint32_t CGame_FatalFury2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {

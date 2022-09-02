@@ -442,7 +442,3 @@ const sDescTreeNode FatalFuryS_A_UNITS[] =
     { L"Ryo Sakazaki",      DESC_NODETYPE_TREE, (void*)FatalFuryS_A_Ryo_COLLECTION,   ARRAYSIZE(FatalFuryS_A_Ryo_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)FatalFuryS_A_BONUS_COLLECTION,       ARRAYSIZE(FatalFuryS_A_BONUS_COLLECTION) },
 };
-
-constexpr auto FatalFuryS_A_NUMUNIT = ARRAYSIZE(FatalFuryS_A_UNITS);
-
-constexpr auto FatalFuryS_A_EXTRALOC = FatalFuryS_A_NUMUNIT;

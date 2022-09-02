@@ -20,7 +20,6 @@ const std::vector<uint16_t> FFS_SNES_IMGIDS_USED =
     indexFFSSprites_Tung,               // 0x2dd
     indexFFSSprites_Bonus,              // 0x2de
     indexFFSSprites_Stages,             // 0x2df
-
 };
 
 const sGame_PaletteDataset FatalFuryS_Terry_PALETTES_A[] =
@@ -281,7 +280,3 @@ const sDescTreeNode FatalFuryS_SNES_UNITS[] =
     { L"Geese",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Geese_COLLECTION,   ARRAYSIZE(FatalFuryS_Geese_COLLECTION) },
     { L"Wolfgang Krauser",  DESC_NODETYPE_TREE, (void*)FatalFuryS_Wolfgang_COLLECTION,   ARRAYSIZE(FatalFuryS_Wolfgang_COLLECTION) },
 };
-
-constexpr auto FatalFuryS_SNES_NUMUNIT = ARRAYSIZE(FatalFuryS_SNES_UNITS);
-
-constexpr auto FatalFuryS_SNES_EXTRALOC = FatalFuryS_SNES_NUMUNIT;
