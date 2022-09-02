@@ -303,6 +303,37 @@ const sGame_PaletteDataset FatalFury2_A_BONUS_SELECTSCREEN_PALETTES[] =
     { L"Tutorial Buttons", 0x38d40, 0x38dc0 },
 };
 
+const sGame_PaletteDataset FatalFury2_A_STAGE_PALETTES[] =
+{
+    { L"Terry (1/3) 0x3c400", 0x3c400, 0x3c600 },
+    { L"Terry (2/3) 0x3c600", 0x3c600, 0x3c800 },
+    { L"Terry (3/3) 0x3c800", 0x3c800, 0x3c9e0 },
+    { L"Kim (1/2) 0x39c00", 0x39c00, 0x39e00 },
+    { L"Kim (2/2) 0x39e00", 0x39e00, 0x39fe0 },
+    { L"Mai (1/2) 0x3a600", 0x3a600, 0x3a800 },
+    { L"Mai (2/2) 0x3a800", 0x3a800, 0x3a940 },
+    { L"Joe (1/2) 0x3bc00", 0x3bc00, 0x3be00 },
+    { L"Joe (2/2) 0x3be00", 0x3be00, 0x3bfe0 },
+    { L"Andy (1/2) 0x3b200", 0x3b200, 0x3b400 },
+    { L"Andy (2/2) 0x3b400", 0x3b400, 0x3b5e0 },
+    { L"Cheng Sinzan (1/2) 0x3a200", 0x3a200, 0x3a400 },
+    { L"Cheng Sinzan (2/2) 0x3a400", 0x3a400, 0x3a5e0 },
+    { L"Jubei Yamada 0x3a000", 0x3a000, 0x3a200 },
+    { L"Bonus + Stage Bully (1/2) 0x3c000", 0x3c000, 0x3c200 },
+    { L"Bonus + Stage Bully (2/2) 0x3c200", 0x3c200, 0x3c3a0 },
+    { L"Axel Hawk (1/2) 0x3b600", 0x3b600, 0x3b800 },
+    { L"Axel Hawk (2/2) 0x3b800", 0x3b800, 0x3b9e0 },
+    { L"Laurence (1/2) 0x3ae00", 0x3ae00, 0x3b000 },
+    { L"Laurence (2/2) 0x3b000", 0x3b000, 0x3b1e0 },
+    { L"W.Krauser (1/2) 0x3aa00", 0x3aa00, 0x3ac00 },
+    { L"W.Krauser (2/2) 0x3ac00", 0x3ac00, 0x3ade0 }, 
+};
+
+const sDescTreeNode FatalFury2_A_STAGE_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)FatalFury2_A_STAGE_PALETTES, ARRAYSIZE(FatalFury2_A_STAGE_PALETTES) },
+};
+
 const sDescTreeNode FatalFury2_A_BONUS_COLLECTION[] =
 {
     { L"Intro", DESC_NODETYPE_TREE, (void*)FatalFury2_A_BONUS_INTRO_PALETTES, ARRAYSIZE(FatalFury2_A_BONUS_INTRO_PALETTES) },
@@ -333,9 +364,6 @@ const sDescTreeNode FatalFury2_A_UNITS[] =
     { L"Axel Hawk",         DESC_NODETYPE_TREE, (void*)FatalFury2_A_AxelHawk_COLLECTION,   ARRAYSIZE(FatalFury2_A_AxelHawk_COLLECTION) },
     { L"Laurence Blood",    DESC_NODETYPE_TREE, (void*)FatalFury2_A_Laurence_COLLECTION,   ARRAYSIZE(FatalFury2_A_Laurence_COLLECTION) },
     { L"Wolfgang Krauser",  DESC_NODETYPE_TREE, (void*)FatalFury2_A_Wolfgang_COLLECTION,   ARRAYSIZE(FatalFury2_A_Wolfgang_COLLECTION) },
+    { L"Stages",            DESC_NODETYPE_TREE, (void*)FatalFury2_A_STAGE_COLLECTION,       ARRAYSIZE(FatalFury2_A_STAGE_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)FatalFury2_A_BONUS_COLLECTION,       ARRAYSIZE(FatalFury2_A_BONUS_COLLECTION) },
 };
-
-constexpr auto FatalFury2_A_NUMUNIT = ARRAYSIZE(FatalFury2_A_UNITS);
-
-constexpr auto FatalFury2_A_EXTRALOC = FatalFury2_A_NUMUNIT;

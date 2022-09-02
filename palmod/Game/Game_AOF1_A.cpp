@@ -39,7 +39,7 @@ CGame_AOF1_A::CGame_AOF1_A(uint32_t nConfirmedROMSize, int nROMToLoad /*= 1*/)
     m_nTotalInternalUnits = AOF1_A_NUMUNIT;
     m_nExtraUnit = AOF1_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 83;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 106;
     m_pszExtraFilename = EXTRA_FILENAME_AOF1_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForAOF1;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

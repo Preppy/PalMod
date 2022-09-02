@@ -209,10 +209,10 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 int nCurrEnd = 0;
                 DWORD k_colorsPerPage = CRegProc::GetMaxPalettePageSize();
 #ifdef DUMP_EXTRAS_ON_LOAD
-                std::unordered_map<wstring, size_t> vstrUnits;
-                std::vector<wstring> vstrUnitFriendlyNames;
-                std::vector<wstring> vstrNodes;
-                std::vector<wstring> vstrNodeFriendlyNames;
+                std::unordered_map<std::wstring, size_t> vstrUnits;
+                std::vector<std::wstring> vstrUnitFriendlyNames;
+                std::vector<std::wstring> vstrNodes;
+                std::vector<std::wstring> vstrNodeFriendlyNames;
 #endif
 
                 if (CRegProc::GetMaxColorsPerPageOverride() != 0)
@@ -483,7 +483,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                 strText.Format(L"const sGame_PaletteDataset %s[] =\r\n{\r\n", strNodeRef.GetString());
                                 OutputDebugString(strText);
                                 
-                                std::unordered_map<wstring, size_t>::iterator it = vstrUnits.find(strCurrentUnit.GetString());
+                                std::unordered_map<std::wstring, size_t>::iterator it = vstrUnits.find(strCurrentUnit.GetString());
 
                                 if (it != vstrUnits.end())
                                 {
@@ -508,7 +508,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                 {
                     size_t nNodeIndex = 0;
                     CString strText;
-                    std::unordered_map<wstring, size_t>::iterator it = vstrUnits.begin();
+                    std::unordered_map<std::wstring, size_t>::iterator it = vstrUnits.begin();
 
                     // Close existing node
                     OutputDebugString(L"};\r\n\r\n");

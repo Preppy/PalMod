@@ -1360,6 +1360,35 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_BONUS[] =
     { L"Super Finish 14", 0x114cc, 0x114ec, indexCPS2Sprites_XMVSFAssets, 0x0b },
     { L"Super Finish 15", 0x114ec, 0x1150c, indexCPS2Sprites_XMVSFAssets, 0x0b },
     { L"Super Finish 16", 0x1150c, 0x1152c, indexCPS2Sprites_XMVSFAssets, 0x0b },
+
+    { L"VS Background 1", 0x10cec, 0x10d0c },
+    { L"VS Background 2", 0x10d0c, 0x10d2c },
+    { L"VS Background 3", 0x10d2c, 0x10d4c },
+    { L"VS Background 4", 0x10d4c, 0x10d6c },
+    { L"VS Background 5", 0x10d6c, 0x10d8c },
+    { L"VS Background 6", 0x10d8c, 0x10dac },
+    { L"VS Background 7", 0x10dac, 0x10dcc },
+    { L"VS Background 8", 0x10dcc, 0x10dec },
+    { L"VS Background 9", 0x10dec, 0x10e0c },
+    { L"VS Background 10", 0x10e0c, 0x10e2c },
+    { L"VS Background 11", 0x10e2c, 0x10e4c },
+    { L"VS Background 12", 0x10e4c, 0x10e6c },
+    { L"VS Background 13", 0x10e6c, 0x10e8c },
+    { L"VS Background 14", 0x10e8c, 0x10eac },
+    { L"Screen Transition 1", 0x10f2c, 0x10f4c },
+    { L"Screen Transition 2", 0x11a98, 0x11ab8 },
+    { L"Screen Transition 3", 0x1e1da, 0x1e1fa },
+    { L"Win Screen BG 1", 0x10eac, 0x10f2c },
+    { L"Win Screen BG 2", 0x10f8c, 0x10fac },
+    { L"Win Screen BG 3", 0x10fcc, 0x110ac },
+    { L"Win Screen BG 4.1", 0x1e23a, 0x1e25a },
+    { L"Win Screen BG 4.2", 0x1122c, 0x1124c },
+
+    // the 'continue screen' hexes use the 'win screen' previews
+    { L"Continue Screen BG 1", 0x110ac, 0x1112c },
+    { L"Continue Screen BG 2", 0x1118c, 0x111ac },
+    { L"Continue Screen BG 3", 0x1124c, 0x1132c },
+    { L"Continue Screen BG 4", 0x111cc, 0x111ec },
 };
 
 const sDescTreeNode XMVSF_A_WOLVERINE_COLLECTION[] =

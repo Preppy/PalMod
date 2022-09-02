@@ -1471,8 +1471,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_LP[] =
 {
     { L"LP Aulbath", 0x0eeaa, 0x0eeca, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"LP Water/s.MK/j.MP", 0x0eeca, 0x0eeea, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
-    { L"LP Poison Cloud/Lower Mach Crab", 0x0ef0a, 0x0ef2a, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
-    { L"LP Sonic Wave/Mach Crab", 0x0eeea, 0x0ef0a },
+    { L"LP Sonic Wave, Poison Cloud, Mach Crab", 0x0eeea, 0x0ef2a, indexCPS2Sprites_Vamp_Aulbath, 0xcc },
     { L"LP Sea Rage", 0x1b86a, 0x1b88a },
     { L"LP Gem's Anger", 0x01b6ea, 0x01b70a, indexCPS2Sprites_Vamp_Aulbath, 0x04 },
     { L"LP Select Portrait", 0x2C02a, 0x2C04a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
@@ -1488,8 +1487,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_MP[] =
 {
     { L"MP Aulbath", 0x0ef2a, 0x0ef4a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"MP Water/s.MK/j.MP", 0x0ef4a, 0x0ef6a, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
-    { L"MP Poison Cloud/Lower Mach Crab", 0x0ef8a, 0x0efaa, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
-    { L"MP Sonic Wave/Mach Crab", 0x0ef6a, 0x0ef8a },
+    { L"MP Sonic Wave, Poison Cloud, Mach Crab", 0x0ef6a, 0x0efaa, indexCPS2Sprites_Vamp_Aulbath, 0xcc },
     { L"MP Sea Rage", 0x1b8ca, 0x1b8ea },
     { L"MP Gem's Anger", 0x01b70a, 0x01b72a, indexCPS2Sprites_Vamp_Aulbath, 0x04 },
     { L"MP Select Portrait", 0x2C22a, 0x2C24a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
@@ -1505,8 +1503,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_HP[] =
 {
     { L"HP Aulbath", 0x0efaa, 0x0efca, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"HP Water/s.MK/j.MP", 0x0efca, 0x0efea, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
-    { L"HP Poison Cloud/Lower Mach Crab", 0x0f00a, 0x0f02a, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
-    { L"HP Sonic Wave/Mach Crab", 0x0efea, 0x0f00a },
+    { L"HP Sonic Wave, Poison Cloud, Mach Crab", 0x0efea, 0x0f02a, indexCPS2Sprites_Vamp_Aulbath, 0xcc },
     { L"HP Sea Rage", 0x1b92a, 0x1b94a },
     { L"HP Gem's Anger", 0x01b72a, 0x01b74a, indexCPS2Sprites_Vamp_Aulbath, 0x04 },
     { L"HP Select Portrait", 0x2C42a, 0x2C44a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
@@ -1522,8 +1519,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_LK[] =
 {
     { L"LK Aulbath", 0x0f02a, 0x0f04a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"LK Water/s.MK/j.MP", 0x0f04a, 0x0f06a, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
-    { L"LK Poison Cloud/Lower Mach Crab", 0x0f08a, 0x0f0aa, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
-    { L"LK Sonic Wave/Mach Crab", 0x0f06a, 0x0f08a },
+    { L"LK Sonic Wave, Poison Cloud, Mach Crab", 0x0f06a, 0x0f0aa, indexCPS2Sprites_Vamp_Aulbath, 0xcc },
     { L"LK Sea Rage", 0x1b98a, 0x1b9aa },
     { L"LK Gem's Anger", 0x01b74a, 0x01b76a, indexCPS2Sprites_Vamp_Aulbath, 0x04 },
     { L"LK Select Portrait", 0x2C62a, 0x2C64a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
@@ -1539,8 +1535,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_MK[] =
 {
     { L"MK Aulbath", 0x0f0aa, 0x0f0ca, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"MK Water/s.MK/j.MP", 0x0f0ca, 0x0f0ea, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
-    { L"MK Poison Cloud/Lower Mach Crab", 0x0f10a, 0x0f12a, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
-    { L"MK Sonic Wave/Mach Crab", 0x0f0ea, 0x0f10a },
+    { L"MK Sonic Wave, Poison Cloud, Mach Crab", 0x0f0ea, 0x0f12a, indexCPS2Sprites_Vamp_Aulbath, 0xcc },
     { L"MK Sea Rage", 0x1b9ea, 0x1ba0a },
     { L"MK Gem's Anger", 0x01b76a, 0x01b78a, indexCPS2Sprites_Vamp_Aulbath, 0x04 },
     { L"MK Select Portrait", 0x2C82a, 0x2C84a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
@@ -1556,8 +1551,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_HK[] =
 {
     { L"HK Aulbath", 0x0f12a, 0x0f14a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"HK Water/s.MK/j.MP", 0x0f14a, 0x0f16a, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
-    { L"HK Poison Cloud/Lower Mach Crab", 0x0f18a, 0x0f1aa, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
-    { L"HK Sonic Wave/Mach Crab", 0x0f16a, 0x0f18a },
+    { L"HK Sonic Wave, Poison Cloud, Mach Crab", 0x0f16a, 0x0f1aa, indexCPS2Sprites_Vamp_Aulbath, 0xcc },
     { L"HK Sea Rage", 0x1ba4a, 0x1ba6a },
     { L"HK Gem's Anger", 0x01b78a, 0x01b7aa, indexCPS2Sprites_Vamp_Aulbath, 0x04 },
     { L"HK Select Portrait", 0x2CA2a, 0x2CA4a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
@@ -1572,9 +1566,8 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_HK[] =
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_PP[] =
 {
     { L"PP Aulbath", 0x0f1aa, 0x0f1ca, indexCPS2Sprites_Vamp_Aulbath, 0 },
-    { L"PP Poison Cloud/Lower Mach Crab", 0x0f20a, 0x0f22a },
     { L"PP Water/s.MK/j.MP", 0x0f1ca, 0x0f1ea, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
-    { L"PP Sonic Wave/Mach Crab", 0x0f1ea, 0x0f20a, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
+    { L"PP Sonic Wave, Poison Cloud, Mach Crab", 0x0f1ea, 0x0f22a, indexCPS2Sprites_Vamp_Aulbath, 0xcc },
     { L"PP Sea Rage", 0x1baaa, 0x1baca },
     { L"PP Gem's Anger", 0x01b7aa, 0x01b7ca, indexCPS2Sprites_Vamp_Aulbath, 0x04 },
     { L"PP Select Portrait", 0x2CC2a, 0x2CC4a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
@@ -1590,8 +1583,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_KK[] =
 {
     { L"KK Aulbath", 0x0f22a, 0x0f24a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"KK Water/s.MK/j.MP", 0x0f24a, 0x0f26a, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
-    { L"KK Poison Cloud/Lower Mach Crab", 0x0f28a, 0x0f2aa, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
-    { L"KK Sonic Wave/Mach Crab", 0x0f26a, 0x0f28a },
+    { L"KK Sonic Wave, Poison Cloud, Mach Crab", 0x0f26a, 0x0f2aa, indexCPS2Sprites_Vamp_Aulbath, 0xcc },
     { L"KK Sea Rage", 0x1bb0a, 0x1bb2a },
     { L"KK Gem's Anger", 0x01b7ca, 0x01b7ea, indexCPS2Sprites_Vamp_Aulbath, 0x04 },
     { L"KK Select Portrait", 0x2CE2a, 0x2CE4a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
@@ -1607,8 +1599,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_AP[] =
 {
     { L"AP Aulbath", 0x0f2aa, 0x0f2ca, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"AP Water/s.MK/j.MP", 0x0f2ca, 0x0f2ea, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
-    { L"AP Poison Cloud/Lower Mach Crab", 0x0f30a, 0x0f32a, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
-    { L"AP Sonic Wave/Mach Crab", 0x0f2ea, 0x0f30a },
+    { L"AP Sonic Wave, Poison Cloud, Mach Crab", 0x0f2ea, 0x0f32a, indexCPS2Sprites_Vamp_Aulbath, 0xcc },
     { L"AP Sea Rage", 0x1bb6a, 0x1bb8a },
     { L"AP Gem's Anger", 0x01b7ea, 0x01b80a, indexCPS2Sprites_Vamp_Aulbath, 0x04 },
     { L"AP Select Portrait", 0x2D02a, 0x2D04a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
@@ -1624,8 +1615,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_AK[] =
 {
     { L"AK Aulbath", 0x0f32a, 0x0f34a, indexCPS2Sprites_Vamp_Aulbath, 0 },
     { L"AK Water/s.MK/j.MP", 0x0f34a, 0x0f36a, indexCPS2Sprites_Vamp_Aulbath, 0x02 },
-    { L"AK Poison Cloud/Lower Mach Crab", 0x0f38a, 0x0f3aa, indexCPS2Sprites_Vamp_Aulbath, 0x01 },
-    { L"AK Sonic Wave/Mach Crab", 0x0f36a, 0x0f38a },
+    { L"AK Sonic Wave, Poison Cloud, Mach Crab", 0x0f36a, 0x0f3aa, indexCPS2Sprites_Vamp_Aulbath, 0xcc },
     { L"AK Sea Rage", 0x1bbca, 0x1bbea },
     { L"AK Gem's Anger", 0x01b80a, 0x01b82a, indexCPS2Sprites_Vamp_Aulbath, 0x04 },
     { L"AK Select Portrait", 0x2D22a, 0x2D24a, indexCPS2Sprites_Vamp_Aulbath, 0x20 },
@@ -5752,7 +5742,3 @@ const sDescTreeNode VSAV_A_UNITS[] =
     { L"Stages",            DESC_NODETYPE_TREE, (void*)VSAV_A_STAGE_COLLECTION,         ARRAYSIZE(VSAV_A_STAGE_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_COLLECTION,         ARRAYSIZE(VSAV_A_BONUS_COLLECTION) },
 };
-
-constexpr auto VSAV_A_NUMUNIT = ARRAYSIZE(VSAV_A_UNITS);
-
-constexpr auto VSAV_A_EXTRALOC = VSAV_A_NUMUNIT; 

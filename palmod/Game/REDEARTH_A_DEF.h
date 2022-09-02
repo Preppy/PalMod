@@ -607,9 +607,7 @@ const sGame_PaletteDataset REDEARTH_A_KONGOU_PALETTES[] =
     { L"Demon Beserker 5", 0x424580, 0x424600, indexRedEarthSprites_Kongou, 0 },
     { L"Demon Beserker 6", 0x424600, 0x424680, indexRedEarthSprites_Kongou, 0 },
     { L"Demon Beserker 7", 0x424680, 0x424700, indexRedEarthSprites_Kongou, 0 },
-    { L"Tanuma, Ripped clothes", 0x424700, 0x424780 },
-    { L"???", 0x424780, 0x424800 },
-    { L"Tanuma transforming", 0x424800, 0x424880 },
+    { L"Tanuma", 0x424700, 0x424880 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_LAVIA_PALETTES[] =
@@ -1431,6 +1429,7 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 
     { L"Game Over", 0x406fe0, 0x407000, indexRedEarthSprites_Bonus, 0x3a },
     { L"\"Continue ?\" Backgrounds", 0x1dfb80, 0x1dfc00, indexRedEarthSprites_Bonus, 0x3c },
+    { L"\"Continue ?\" Portrait's Ground", 0x1e4980, 0x1e4a00 },
 
     { L"Text: Ingame Dialogue, Black Bg", 0x406520, 0x406540, indexRedEarthSprites_Bonus, 0x2d },
     { L"Text: LV Up Fire, AT Power", 0x406de0, 0x406e00, indexRedEarthSprites_Bonus, 0x32 },
@@ -1450,6 +1449,31 @@ const sGame_PaletteDataset REDEARTH_A_31_ENDING_DERMINOR_PALETTES[] =
     { L"Generic Ending Derminor 3", 0x3f5380, 0x3f5400, indexRedEarthSprites_Endings, 0x03 },
     { L"Generic Ending Derminor 4", 0x3f5400, 0x3f5480, indexRedEarthSprites_Endings, 0x04 },
     { L"Generic Ending Derminor Sunshine", 0x3f5200, 0x3f5280, indexRedEarthSprites_Endings, 0x05 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_ENDING_KENJI_PALETTES[] =
+{
+    { L"Kenji Opening Cinematic 1 - Ships and Sky 1", 0x325000, 0x325080 },
+    { L"Kenji Opening Cinematic 1 - Ships and Sky 2", 0x325080, 0x325100 },
+    { L"Kenji Opening Cinematic 1 - Ships and Sky 3", 0x325100, 0x325180 },
+    { L"Kenji Opening Cinematic 1 - Ships and Sky 4", 0x325180, 0x325200 },
+    { L"Kenji Opening Cinematic 1 - Ships and Sky 5", 0x325200, 0x325280 },
+    { L"Kenji Opening Cinematic 1 - Ships and Sky 6", 0x325280, 0x325300 },
+    { L"Kenji Opening Cinematic 1 - Ships and Sky 7", 0x325300, 0x325380 },
+    { L"Kenji Opening Cinematic 3 - Kenji", 0x325380, 0x325400 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_31_ENDING_TESSA_PALETTES[] =
+{
+    { L"Tessa Opening Cinematic 1 & 2 - Tessa", 0x325580, 0x325680 },
+    { L"Tessa Opening Cinematic 3 - Dark Energy Radar 1", 0x325680, 0x325700 },
+    { L"Tessa Opening Cinematic 3 - Dark Energy Radar 2", 0x325700, 0x325780 },
+    { L"Tessa Opening Cinematic 3 - Dark Energy Radar 3", 0x325780, 0x325800 },
+    { L"Tessa Opening Cinematic 3 - Dark Energy Radar 4", 0x325800, 0x325880 },
+    { L"Tessa Opening Cinematic 3 - Dark Energy Radar 5", 0x325880, 0x325900 },
+    { L"Tessa Opening Cinematic 3 - Dark Energy Radar 6", 0x325900, 0x325980 },
+    { L"Tessa Opening Cinematic 3 - Dark Energy Radar 7", 0x325980, 0x325a00 },
+    { L"Tessa Opening Cinematic 3 - Dark Energy Radar 8", 0x325a00, 0x325a80 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_31_BONUS_RANKING_PALETTES[] =
@@ -1540,7 +1564,7 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Kenji Character Select Portrait P2", 0x1e3400, 0x1e3480 },
     { L"Mai-Ling Character Select Portrait P2", 0x1e3480, 0x1e3500 },
 
-    // Unused(just why)
+    // Unused (just why)
     { L"\"Continue ?\" Backgrounds P1", 0x1e1d80, 0x1e1e00, indexRedEarthSprites_Bonus, 0x3c },
     { L"\"Continue ?\" Backgrounds P2", 0x1e3f80, 0x1e4000, indexRedEarthSprites_Bonus, 0x3c },
 
@@ -1662,6 +1686,8 @@ const sDescTreeNode REDEARTH_A_31_ENDINGS_COLLECTION[] =
 {
     { L"Generic Endings", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_PALETTES) },
     { L"Generic Ending: Derminor", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_DERMINOR_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_DERMINOR_PALETTES) },
+    { L"Kenji Opening", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_KENJI_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_KENJI_PALETTES) },
+    { L"Tessa Opening", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_TESSA_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_TESSA_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_31_MAP_COLLECTION[] =

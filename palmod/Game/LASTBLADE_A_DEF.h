@@ -1543,6 +1543,60 @@ const sGame_PaletteDataset LASTBLADE_A_ZANTETSU_PALETTES_EX[] =
     { L"Weapon Extras 7", 0xc0340 + 0xe00, 0xc0360 + 0xe00 },
 };
 
+const sGame_PaletteDataset LASTBLADE_A_BONUS_PALETTES_STAGES[] =
+{
+    { L"Kaede (1/3) 0xc5fc0", 0xc5fc0, 0xc61c0 },
+    { L"Kaede (2/3) 0xc61c0", 0xc61c0, 0xc63c0 },
+    { L"Kaede (3/3) 0xc63c0", 0xc63c0, 0xc6560 },
+    { L"Akari (1/5) 0xcba80", 0xcba80, 0xcbc80 },
+    { L"Akari (2/5) 0xcbc80", 0xcbc80, 0xcbe80 },
+    { L"Akari (3/5) 0xcbe80", 0xcbe80, 0xcc080 },
+    { L"Akari (4/5) 0xcc080", 0xcc080, 0xcc280 },
+    { L"Akari (5/5) 0xcc280", 0xcc280, 0xcc460 },
+    { L"Juzan (1/5) 0xcc8a0", 0xcc8a0, 0xccaa0 },
+    { L"Juzan (2/5) 0xccaa0", 0xccaa0, 0xccca0 },
+    { L"Juzan (3/5) 0xccca0", 0xccca0, 0xccea0 },
+    { L"Juzan (4/5) 0xccea0", 0xccea0, 0xcd0a0 },
+    { L"Juzan (5/5) 0xcd0a0", 0xcd0a0, 0xcd280 },
+    { L"Yuki (1/3) 0xc91c0", 0xc91c0, 0xc93c0 },
+    { L"Yuki (2/3) 0xc93c0", 0xc93c0, 0xc95c0 },
+    { L"Yuki (3/3) 0xc95c0", 0xc95c0, 0xc97a0 },
+    { L"Amano (1/5) 0xce1e0", 0xce1e0, 0xce3e0 },
+    { L"Amano (2/5) 0xce3e0", 0xce3e0, 0xce5e0 },
+    { L"Amano (3/5) 0xce5e0", 0xce5e0, 0xce7e0 },
+    { L"Amano (4/5) 0xce7e0", 0xce7e0, 0xce9e0 },
+    { L"Amano (5/5) 0xce9e0", 0xce9e0, 0xcebc0 },
+    { L"Moria (1/2) 0xc8140", 0xc8140, 0xc8340 },
+    { L"Moria (2/2) 0xc8340", 0xc8340, 0xc84a0 },
+    { L"Onika (1/4) 0xcb120", 0xcb120, 0xcb320 },
+    { L"Onika (2/4) 0xcb320", 0xcb320, 0xcb520 },
+    { L"Onika (3/4) 0xcb520", 0xcb520, 0xcb720 },
+    { L"Onika (4/4) 0xcb720", 0xcb720, 0xcb880 },
+    { L"Lee (1/4) 0xc5560", 0xc5560, 0xc5760 },
+    { L"Lee (2/4) 0xc5760", 0xc5760, 0xc5960 },
+    { L"Lee (3/4) 0xc5960", 0xc5960, 0xc5b60 },
+    { L"Lee (4/4) 0xc5b60", 0xc5b60, 0xc5d40 },
+    { L"Washizuka (1/3) 0xcd4a0", 0xcd4a0, 0xcd6a0 },
+    { L"Washizuka (2/3) 0xcd6a0", 0xcd6a0, 0xcd8a0 },
+    { L"Washizuka (3/3) 0xcd8a0", 0xcd8a0, 0xcda80 },
+    { L"Shikyoh (1/2) 0xcdbe0", 0xcdbe0, 0xcdde0 },
+    { L"Shikyoh (2/2) 0xcdde0", 0xcdde0, 0xcdec0 },
+    { L"Zantetsu (1/4) 0xced40", 0xced40, 0xcef40 },
+    { L"Zantetsu (2/4) 0xcef40", 0xcef40, 0xcf140 },
+    { L"Zantetsu (3/4) 0xcf140", 0xcf140, 0xcf340 },
+    { L"Zantetsu (4/4) 0xcf340", 0xcf340, 0xcf380 },
+    { L"Shigen (1/4) 0xcf4c0", 0xcf4c0, 0xcf6c0 },
+    { L"Shigen (2/4) 0xcf6c0", 0xcf6c0, 0xcf8c0 },
+    { L"Shigen (3/4) 0xcf8c0", 0xcf8c0, 0xcfac0 },
+    { L"Shigen (4/4) 0xcfac0", 0xcfac0, 0xcfca0 },
+    { L"Musashi (1/2) 0xcffa0", 0xcffa0, 0xd01a0 },
+    { L"Musashi (2/2) 0xd01a0", 0xd01a0, 0xd02a0 },
+    { L"Kagami (1/4) 0xd0300", 0xd0300, 0xd0500 },
+    { L"Kagami (2/4) 0xd0500", 0xd0500, 0xd0700 },
+    { L"Kagami (3/4) 0xd0700", 0xd0700, 0xd0900 },
+    { L"Kagami (4/4) 0xd0900", 0xd0900, 0xd0ae0 },
+};
+
 const sDescTreeNode LASTBLADE_A_AKARI_COLLECTION[] =
 {
     { L"Power A", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_AKARI_PALETTES_PA, ARRAYSIZE(LASTBLADE_A_AKARI_PALETTES_PA) },
@@ -1641,6 +1695,11 @@ const sDescTreeNode LASTBLADE_A_ZANTETSU_COLLECTION[] =
     { L"EX", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_ZANTETSU_PALETTES_EX, ARRAYSIZE(LASTBLADE_A_ZANTETSU_PALETTES_EX) },
 };
 
+const sDescTreeNode LASTBLADE_A_STAGE_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_BONUS_PALETTES_STAGES, ARRAYSIZE(LASTBLADE_A_BONUS_PALETTES_STAGES) },
+};
+
 const sDescTreeNode LASTBLADE_A_UNITS[] =
 {
     { L"Akari", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_AKARI_COLLECTION, ARRAYSIZE(LASTBLADE_A_AKARI_COLLECTION) },
@@ -1657,8 +1716,5 @@ const sDescTreeNode LASTBLADE_A_UNITS[] =
     { L"Washizuka", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_WASHIZUKA_COLLECTION, ARRAYSIZE(LASTBLADE_A_WASHIZUKA_COLLECTION) },
     { L"Yuki", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_YUKI_COLLECTION, ARRAYSIZE(LASTBLADE_A_YUKI_COLLECTION) },
     { L"Zantetsu", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_ZANTETSU_COLLECTION, ARRAYSIZE(LASTBLADE_A_ZANTETSU_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)LASTBLADE_A_STAGE_COLLECTION, ARRAYSIZE(LASTBLADE_A_STAGE_COLLECTION) },
 };
-
-constexpr auto LASTBLADE_A_NUMUNIT = ARRAYSIZE(LASTBLADE_A_UNITS);
-
-constexpr auto LASTBLADE_A_EXTRALOC = LASTBLADE_A_NUMUNIT;

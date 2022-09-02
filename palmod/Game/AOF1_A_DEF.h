@@ -192,6 +192,33 @@ const sGame_PaletteDataset AOF1_A_MRKARATE_P2[] =
     { L"Mr. Karate Portrait P2", 0x47be0, 0x47c00, indexAoF1Sprites_TakumaMrKarate, 0x80 },
 };
 
+const sGame_PaletteDataset AOF1_A_BONUS_PALETTES_STAGES[] =
+{
+    { L"Todo (1/2) 0x43400", 0x43400, 0x43600 },
+    { L"Todo (2/2) 0x43600", 0x43600, 0x437e0 },
+    { L"Jack (1/3) 0x43800", 0x43800, 0x43a00 },
+    { L"Jack (2/3) 0x43a00", 0x43a00, 0x43c00 },
+    { L"Jack (3/3) 0x43c00", 0x43c00, 0x43de0 },
+    { L"Lee (1/3) 0x43e00", 0x43e00, 0x44000 },
+    { L"Lee (2/3) 0x44000", 0x44000, 0x44200 },
+    { L"Lee (3/3) 0x44200", 0x44200, 0x443e0 },
+    { L"King (1/2) 0x44400", 0x44400, 0x44600 },
+    { L"King (2/2) 0x44600", 0x44600, 0x44680 },
+    { L"Mucky (1/4) 0x44a00", 0x44a00, 0x44c00 },
+    { L"Mucky (2/4) 0x44c00", 0x44c00, 0x44e00 },
+    { L"Mucky (3/4) 0x44e00", 0x44e00, 0x45000 },
+    { L"Mucky (4/4) 0x45000", 0x45000, 0x451a0 },
+    { L"John (1/2) 0x45200", 0x45200, 0x45400 },
+    { L"John (2/2) 0x45400", 0x45400, 0x454e0 },
+    { L"Mr. Big (1/3) 0x45800", 0x45800, 0x45a00 },
+    { L"Mr. Big (2/3) 0x45a00", 0x45a00, 0x45c00 },
+    { L"mr. Big (3/3) 0x45c00", 0x45c00, 0x45d00 },
+    { L"? (1/2) 0x45e00", 0x45e00, 0x46000 },
+    { L"? (2/2) 0x46000", 0x46000, 0x460a0 },
+    { L"Todo part 2", 0x49200, 0x493e0 },
+    { L"Lee part 2", 0x49400, 0x495e0 },
+};
+
 const sGame_PaletteDataset AOF1_A_BONUS_PALETTES[] =
 {
     { L"Shadow/Dust/Hitsparks", 0x47a00, 0x47a20 },
@@ -268,6 +295,7 @@ const sDescTreeNode AOF1_A_MRKARATE_COLLECTION[] =
 
 const sDescTreeNode AOF1_A_BONUS_COLLECTION[] =
 {
+    { L"Stages", DESC_NODETYPE_TREE, (void*)AOF1_A_BONUS_PALETTES_STAGES, ARRAYSIZE(AOF1_A_BONUS_PALETTES_STAGES) },
     { L"Bonus", DESC_NODETYPE_TREE, (void*)AOF1_A_BONUS_PALETTES, ARRAYSIZE(AOF1_A_BONUS_PALETTES) },
 };
 
