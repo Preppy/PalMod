@@ -1794,6 +1794,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         case AOF3_A:
             nGameRule = ((wcsstr(pszFileNameLowercase, L"p1") != nullptr) ? 1 : 2);
             break;
+        case FatalFury2_A:
+            CGame_FatalFury2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case HSF2_A:
         {
             if (wcsstr(pszFileNameLowercase, L".03") != nullptr)
@@ -1977,33 +1980,29 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         if (!isSafeToRunGame) // we could hook people trying to load Venture here... file size is 4194304
         {
             CString strQuestion;
-            UINT nStringID;
 
             strQuestion.Format(L"Internal warning: Game file size is 0x%x, but 0x%x is the expected size. You may just need to update the value of m_nExpectedGameROMSize for your game.\n", (int)nGameFileLength, CurrRule.uVerifyVar);
             OutputDebugString(strQuestion);
 
             if ((nGameFlag == JOJOS_A) && (nGameRule == 50) && (nGameFileLength == 4194304))
             {
-                nStringID = IDS_ROMISVENTURE;
+                strQuestion.LoadString(IDS_ROMISVENTURE);
             }
             else
             {
-                nStringID = IDS_ROMMISMATCH_CHECK;
+                strQuestion.Format(IDS_ROMMISMATCH_CHECK, CurrRule.uVerifyVar, nGameFileLength);
             }
 
-            if (strQuestion.LoadString(nStringID))
+            switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
             {
-                switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
+                case IDYES:
                 {
-                    case IDYES:
-                    {
-                        isSafeToRunGame = true;
-                        break;
-                    }
-                    default:
-                    {
-                        break;
-                    }
+                    isSafeToRunGame = true;
+                    break;
+                }
+                default:
+                {
+                    break;
                 }
             }
         }

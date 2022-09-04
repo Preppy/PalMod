@@ -26,10 +26,12 @@
 
 extern HWND g_appHWnd;
 
+const uint16_t MAXAMT_ColorsPerPaletteTable = 256;
+
 const uint16_t PAL_MAXWIDTH_8COLORSPERLINE = 8;
 const uint16_t PAL_MAXWIDTH_16COLORSPERLINE = 16;
 const uint16_t PAL_MAXAMT_8COLORSPERLINE = 128;
-const uint16_t PAL_MAXAMT_16COLORSPERLINE = 256;
+const uint16_t PAL_MAXAMT_16COLORSPERLINE = MAXAMT_ColorsPerPaletteTable;
 
 // arguably could be moved to a helper file
 void LaunchFileOrURL(LPCWSTR pszFileName, LPCWSTR pszBackupURL);

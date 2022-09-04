@@ -22,4 +22,3 @@ uint32_t CGame_FatalFury1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet**
 
     return ARRAYSIZE(knownROMs);
 }
-

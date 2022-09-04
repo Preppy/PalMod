@@ -479,7 +479,7 @@ BEGIN
         MENUITEM "&Invert",                     ID_TOOLS_INVERT
         MENUITEM "Re&verse",                    ID_TOOLS_REVERSE
         MENUITEM "&Revert",                     ID_TOOLS_REVERT
-        MENUITEM "&Blink",                      ID_TOOLS_BLINK
+        MENUITEM "&Blink\Ctrl+B",               ID_TOOLS_BLINK
         MENUITEM SEPARATOR
         MENUITEM "&Load Palette\tCtrl+L",       ID_TOOLS_LOADACTPALETTE
         MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEACTPALETTE
@@ -746,7 +746,7 @@ BEGIN
     IDS_ERROR_TEXTURE_NOGAME "A game must be loaded first."
     IDS_ERROR_FILENOTFOUND_FORMAT 
                             "Save failed: output file '%s' does not exist."
-    IDS_ROMMISMATCH_CHECK   "ERROR!  This ROM is not the expected size, which means PalMod writing to where it expects the ROM to be may corrupt it.  Are you sure you wish to continue? "
+    IDS_ROMMISMATCH_CHECK   "ERROR!  We expect the ROM size to be %u bytes, but this ROM is %u bytes.\n\nIf the palette data is not where PalMod expects it, PalMod patching the ROM may corrupt it.\n\nAre you sure you wish to continue?"
     IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM. You probably want to click NO now and then use PalMod's Venture support instead.\n\nAre you sure you wish to load this ROM as HFTF instead of Venture?"
 END
 

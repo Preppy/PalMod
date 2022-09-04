@@ -660,7 +660,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
     CString strDupeText;
     bool fCollisionFound = false;
-    const DWORD k_maxColorsPerUnit = PAL_MAXAMT_16COLORSPERLINE;
+    const DWORD k_maxColorsPerUnit = MAXAMT_ColorsPerPaletteTable;
     bool fShownInternalErrorOnce = false;
     // TMNTTF and MWarr palettes are odd lengths, so for some of them we need to step back one
     // color in order to assemble a working palette
@@ -699,7 +699,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
             if ((m_nCurrentPaletteSizeInColors > k_maxColorsPerUnit) || (m_nCurrentPaletteSizeInColors == 0))
             {
                 CString strText;
-                strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).\n\nThis needs to be fixed.\n", m_pszCurrentPaletteName, m_nCurrentPaletteSizeInColors, nUnitCtr, nPalCtr);
+                strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).  Game palette tables max out at 256 colors.\n\nThis needs to be fixed.\n", m_pszCurrentPaletteName, m_nCurrentPaletteSizeInColors, nUnitCtr, nPalCtr);
                 OutputDebugString(strText);
 
                 if (!fShownInternalErrorOnce)

@@ -58,7 +58,7 @@ void CGameClassPerUnitPerFile::InitializeGame(uint32_t nConfirmedROMSize, const 
     pButtonLabelSet = gameLoadingData.rgszButtonLabelSet;
     SetAlphaMode(gameLoadingData.eAlphaMode);
 
-    if (gameLoadingData.eAlphaMode == AlphaMode::GameUsesFixedAlpha)
+    if (gameLoadingData.eAlphaMode == AlphaMode::GameUsesVariableAlpha)
     {
         m_fGameUsesAlphaValue = true;
     }
@@ -208,6 +208,23 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_
     if (nPaletteSet)
     {
         m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).rgNodeData.at(nPaletteSet).nAdjustmentFromBaseNode;
+    }
+
+    if ((m_nCurrentPaletteSizeInColors > MAXAMT_ColorsPerPaletteTable) || (m_nCurrentPaletteSizeInColors == 0))
+    {
+        static int nLastPaletteWithThisError = 0;
+        const int nThisPaletteId = ((nUnitId & 0xFFFF) << 16) | (nPalId & 0xFFFF);
+
+        CString strText;
+        strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).  Game palette tables max out at 256 colors.\n\nThis needs to be fixed.\n", m_pszCurrentPaletteName, m_nCurrentPaletteSizeInColors, nUnitId, nPalId);
+        OutputDebugString(strText);
+
+        if (nLastPaletteWithThisError != nThisPaletteId)
+        {
+            MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
+
+            nLastPaletteWithThisError = nThisPaletteId;
+        }
     }
 }
 

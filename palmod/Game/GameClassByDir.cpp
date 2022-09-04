@@ -265,6 +265,22 @@ void CGameClassByDir::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
         {
             m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
         }
+
+        if ((m_nCurrentPaletteSizeInColors > MAXAMT_ColorsPerPaletteTable) || (m_nCurrentPaletteSizeInColors == 0))
+        {
+            static int nLastPaletteWithThisError = 0;
+            int nThisPaletteId = ((nUnitId & 0xFFFF) << 16) | (nPalId & 0xFFFF);
+            CString strText;
+            strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).  Game palette tables max out at 256 colors.\n\nThis needs to be fixed.\n", m_pszCurrentPaletteName, m_nCurrentPaletteSizeInColors, nUnitId, nPalId);
+            OutputDebugString(strText);
+
+            if (nLastPaletteWithThisError != nThisPaletteId)
+            {
+                MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
+
+                nLastPaletteWithThisError = nThisPaletteId;
+            }
+        }
     }
     else // m_nCurrentExtraUnitId
     {
