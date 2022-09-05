@@ -40,7 +40,7 @@ CGame_Garou_A::CGame_Garou_A(uint32_t nConfirmedROMSize)
     m_nTotalInternalUnits = Garou_A_NUMUNIT;
     m_nExtraUnit = Garou_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1489;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1631;
     m_pszExtraFilename = EXTRA_FILENAME_Garou_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForGarou;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

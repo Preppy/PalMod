@@ -974,12 +974,50 @@ void CGameClass::MarkPaletteClean(uint32_t nUnit, uint32_t nPaletteId)
     return;
 }
 
-bool CGameClass::IsPaletteDirty(uint32_t nUnit, uint32_t nPaletteId)
+bool CGameClass::IsPaletteDirty(uint32_t nUnit, uint32_t nPaletteId) const
 {
     sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteId };
     auto it = std::find_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest));
 
     return it != m_vDirtyPaletteList.end();
+}
+
+void CGameClass::WarnIfPaletteIsOversized(uint32_t nUnit, uint32_t nPaletteId, uint32_t nStartPosition, uint16_t nPaletteSizeInColors, LPCWSTR pszPaletteName) const
+{
+    if ((nPaletteSizeInColors > MAXAMT_ColorsPerPaletteTable) || (nPaletteSizeInColors == 0))
+    {
+        static int s_nLastPaletteWithThisError = 0;
+        int nThisPaletteId = ((nUnit & 0xFFFF) << 16) | (nPaletteId & 0xFFFF);
+        CString strText;
+        strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).  Game palette tables max out at 256 colors.\n\nThis needs to be fixed.\n", pszPaletteName, nPaletteSizeInColors, nUnit, nPaletteId);
+        OutputDebugString(strText);
+
+        if (s_nLastPaletteWithThisError != nThisPaletteId)
+        {
+            MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
+
+            s_nLastPaletteWithThisError = nThisPaletteId;
+
+#if DEBUG
+            const int16_t nPalettesNeeded = static_cast<int16_t>(ceil(static_cast<double>(nPaletteSizeInColors) / static_cast<double>(MAXAMT_ColorsPerPaletteTable)));
+            int32_t nRemainingSize = nPaletteSizeInColors;
+            const uint32_t nEndingPosition = nStartPosition + (nPaletteSizeInColors * m_nSizeOfColorsInBytes);
+            uint32_t nCurrentPosition = nStartPosition;
+
+            OutputDebugString(strText.GetString());
+
+            for (size_t iCurrentPalette = 1; nCurrentPosition < nEndingPosition; iCurrentPalette++)
+            {
+                int32_t nThisEndLocation = min(nCurrentPosition + (MAXAMT_ColorsPerPaletteTable * m_nSizeOfColorsInBytes), nEndingPosition);
+                strText.Format(L"    { L\"%s (%u/%u)\", 0x%x, 0x%x },\r\n", pszPaletteName, iCurrentPalette, nPalettesNeeded, nCurrentPosition, nThisEndLocation);
+                nCurrentPosition += MAXAMT_ColorsPerPaletteTable * m_nSizeOfColorsInBytes;
+                OutputDebugString(strText.GetString());
+            }
+
+            OutputDebugString(L"};\r\n\r\n");
+#endif
+        }
+    }
 }
 
 uint32_t CGameClass::_GetExtraCount(uint32_t* rgExtraCount, uint32_t nNormalUnitCount, uint32_t nUnitId, stExtraDef* ppExtraDef)

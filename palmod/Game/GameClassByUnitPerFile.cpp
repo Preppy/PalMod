@@ -210,22 +210,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_
         m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).rgNodeData.at(nPaletteSet).nAdjustmentFromBaseNode;
     }
 
-    if ((m_nCurrentPaletteSizeInColors > MAXAMT_ColorsPerPaletteTable) || (m_nCurrentPaletteSizeInColors == 0))
-    {
-        static int nLastPaletteWithThisError = 0;
-        const int nThisPaletteId = ((nUnitId & 0xFFFF) << 16) | (nPalId & 0xFFFF);
-
-        CString strText;
-        strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).  Game palette tables max out at 256 colors.\n\nThis needs to be fixed.\n", m_pszCurrentPaletteName, m_nCurrentPaletteSizeInColors, nUnitId, nPalId);
-        OutputDebugString(strText);
-
-        if (nLastPaletteWithThisError != nThisPaletteId)
-        {
-            MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
-
-            nLastPaletteWithThisError = nThisPaletteId;
-        }
-    }
+    WarnIfPaletteIsOversized(nUnitId, nPalId, m_nCurrentPaletteROMLocation, m_nCurrentPaletteSizeInColors, m_pszCurrentPaletteName);
 }
 
 BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)

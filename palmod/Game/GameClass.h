@@ -295,7 +295,8 @@ public:
 
     void MarkPaletteDirty(uint32_t nUnit, uint32_t nPaletteId);
     void MarkPaletteClean(uint32_t nUnit, uint32_t nPaletteId);
-    bool IsPaletteDirty(uint32_t nUnit, uint32_t nPaletteId);
+    bool IsPaletteDirty(uint32_t nUnit, uint32_t nPaletteId) const;
+    void WarnIfPaletteIsOversized(uint32_t nUnit, uint32_t nPaletteId, uint32_t nStartPosition, uint16_t nPaletteSizeInColors, LPCWSTR pszPaletteName) const;
 
     // This section covers SIMM-based games.
     // The length of one individual SIMM file

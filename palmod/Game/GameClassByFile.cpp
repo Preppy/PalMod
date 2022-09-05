@@ -140,6 +140,8 @@ void CGameClassByFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
         m_nCurrentPaletteSizeInColors = (uint16_t)cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+        WarnIfPaletteIsOversized(nUnitId, nPalId, m_nCurrentPaletteROMLocation, m_nCurrentPaletteSizeInColors, m_pszCurrentPaletteName);
     }
     else
     {

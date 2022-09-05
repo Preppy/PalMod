@@ -2212,6 +2212,228 @@ const sGame_PaletteDataset Garou_A_PALETTES_STORYMODE_SELECT[] =
     { L"VS Screen Names", 0x33e80, 0x33ea0 },
 };
 
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Terry1[] =
+{
+    { L"Terry Bogard Stage (1/8)", 0x18100, 0x18300 },
+    { L"Terry Bogard Stage (2/8)", 0x18300, 0x18500 },
+    { L"Terry Bogard Stage (3/8)", 0x18500, 0x18700 },
+    { L"Terry Bogard Stage (4/8)", 0x18700, 0x18900 },
+    { L"Terry Bogard Stage (5/8)", 0x18900, 0x18b00 },
+    { L"Terry Bogard Stage (6/8)", 0x18b00, 0x18d00 },
+    { L"Terry Bogard Stage (7/8)", 0x18d00, 0x18f00 },
+    { L"Terry Bogard Stage (8/8)", 0x18f00, 0x18fc0 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Rock[] =
+{
+    { L"Rock Howard Stage (1/8)", 0x19100, 0x19300 },
+    { L"Rock Howard Stage (2/8)", 0x19300, 0x19500 },
+    { L"Rock Howard Stage (3/8)", 0x19500, 0x19700 },
+    { L"Rock Howard Stage (4/8)", 0x19700, 0x19900 },
+    { L"Rock Howard Stage (5/8)", 0x19900, 0x19b00 },
+    { L"Rock Howard Stage (6/8)", 0x19b00, 0x19d00 },
+    { L"Rock Howard Stage (7/8)", 0x19d00, 0x19f00 },
+    { L"Rock Howard Stage (8/8)", 0x19f00, 0x1a080 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Dong[] =
+{
+    { L"Dong Hwan Stage (1/20)", 0x1a100, 0x1a300 },
+    { L"Dong Hwan Stage (2/20)", 0x1a300, 0x1a500 },
+    { L"Dong Hwan Stage (3/20)", 0x1a500, 0x1a700 },
+    { L"Dong Hwan Stage (4/20)", 0x1a700, 0x1a900 },
+    { L"Dong Hwan Stage (5/20)", 0x1a900, 0x1ab00 },
+    { L"Dong Hwan Stage (6/20)", 0x1ab00, 0x1ad00 },
+    { L"Dong Hwan Stage (7/20)", 0x1ad00, 0x1af00 },
+    { L"Dong Hwan Stage (8/20)", 0x1af00, 0x1b100 },
+    { L"Dong Hwan Stage (9/20)", 0x1b100, 0x1b300 },
+    { L"Dong Hwan Stage (10/20)", 0x1b300, 0x1b500 },
+    { L"Dong Hwan Stage (11/20)", 0x1b500, 0x1b700 },
+    { L"Dong Hwan Stage (12/20)", 0x1b700, 0x1b900 },
+    { L"Dong Hwan Stage (13/20)", 0x1b900, 0x1bb00 },
+    { L"Dong Hwan Stage (14/20)", 0x1bb00, 0x1bd00 },
+    { L"Dong Hwan Stage (15/20)", 0x1bd00, 0x1bf00 },
+    { L"Dong Hwan Stage (16/20)", 0x1bf00, 0x1c100 },
+    { L"Dong Hwan Stage (17/20)", 0x1c100, 0x1c300 },
+    { L"Dong Hwan Stage (18/20)", 0x1c300, 0x1c500 },
+    { L"Dong Hwan Stage (19/20)", 0x1c500, 0x1c700 },
+    { L"Dong Hwan Stage (20/20)", 0x1c700, 0x1c900 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Jae[] =
+{
+    { L"Jae Hoon Stage (1/8)", 0x1d100, 0x1d300 },
+    { L"Jae Hoon Stage (2/8)", 0x1d300, 0x1d500 },
+    { L"Jae Hoon Stage (3/8)", 0x1d500, 0x1d700 },
+    { L"Jae Hoon Stage (4/8)", 0x1d700, 0x1d900 },
+    { L"Jae Hoon Stage (5/8)", 0x1d900, 0x1db00 },
+    { L"Jae Hoon Stage (6/8)", 0x1db00, 0x1dd00 },
+    { L"Jae Hoon Stage (7/8)", 0x1dd00, 0x1df00 },
+    { L"Jae Hoon Stage (8/8)", 0x1df00, 0x1e0c0 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Hotaru[] =
+{
+    { L"Hotaru Stage (1/8)", 0x1e100, 0x1e300 },
+    { L"Hotaru Stage (2/8)", 0x1e300, 0x1e500 },
+    { L"Hotaru Stage (3/8)", 0x1e500, 0x1e700 },
+    { L"Hotaru Stage (4/8)", 0x1e700, 0x1e900 },
+    { L"Hotaru Stage (5/8)", 0x1e900, 0x1eb00 },
+    { L"Hotaru Stage (6/8)", 0x1eb00, 0x1ed00 },
+    { L"Hotaru Stage (7/8)", 0x1ed00, 0x1ef00 },
+    { L"Hotaru Stage (8/8)", 0x1ef00, 0x1f0e0 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Gato1[] =
+{
+    { L"Gato 1 Stage (1/2)", 0x1f100, 0x1f300 },
+    { L"Gato 1 Stage (2/2)", 0x1f300, 0x1f340 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Gato2[] =
+{
+    { L"Gato 2 Stage (1/8)", 0x1f440, 0x1f640 },
+    { L"Gato 2 Stage (2/8)", 0x1f640, 0x1f680 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Gato3[] =
+{
+    { L"Gato 3 Stage (1/2)", 0x1f700, 0x1f900 },
+    { L"Gato 3 Stage (2/2)", 0x1f900, 0x1f940 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_BJenet[] =
+{
+    { L"B. Jenet Stage (1/8)", 0x20100, 0x20300 },
+    { L"B. Jenet Stage (2/8)", 0x20300, 0x20500 },
+    { L"B. Jenet Stage (3/8)", 0x20500, 0x20700 },
+    { L"B. Jenet Stage (4/8)", 0x20700, 0x20900 },
+    { L"B. Jenet Stage (5/8)", 0x20900, 0x20b00 },
+    { L"B. Jenet Stage (6/8)", 0x20b00, 0x20d00 },
+    { L"B. Jenet Stage (7/8)", 0x20d00, 0x20f00 },
+    { L"B. Jenet Stage (8/8)", 0x20f00, 0x210c0 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Marco[] =
+{
+    { L"Marco Stage (1/8)", 0x21100, 0x21300 },
+    { L"Marco Stage (2/8)", 0x21300, 0x21500 },
+    { L"Marco Stage (3/8)", 0x21500, 0x21700 },
+    { L"Marco Stage (4/8)", 0x21700, 0x21900 },
+    { L"Marco Stage (5/8)", 0x21900, 0x21b00 },
+    { L"Marco Stage (6/8)", 0x21b00, 0x21d00 },
+    { L"Marco Stage (7/8)", 0x21d00, 0x21f00 },
+    { L"Marco Stage (8/8)", 0x21f00, 0x220c0 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Hokutomaru[] =
+{
+    { L"Hokutomaru Stage (1/8)", 0x22100, 0x22300 },
+    { L"Hokutomaru Stage (2/8)", 0x22300, 0x22500 },
+    { L"Hokutomaru Stage (3/8)", 0x22500, 0x22700 },
+    { L"Hokutomaru Stage (4/8)", 0x22700, 0x22900 },
+    { L"Hokutomaru Stage (5/8)", 0x22900, 0x22b00 },
+    { L"Hokutomaru Stage (6/8)", 0x22b00, 0x22d00 },
+    { L"Hokutomaru Stage (7/8)", 0x22d00, 0x22f00 },
+    { L"Hokutomaru Stage (8/8)", 0x22f00, 0x230c0 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Freeman[] =
+{
+    { L"Freeman Stage (1/8)", 0x23100, 0x23300 },
+    { L"Freeman Stage (2/8)", 0x23300, 0x23500 },
+    { L"Freeman Stage (3/8)", 0x23500, 0x23700 },
+    { L"Freeman Stage (4/8)", 0x23700, 0x23900 },
+    { L"Freeman Stage (5/8)", 0x23900, 0x23b00 },
+    { L"Freeman Stage (6/8)", 0x23b00, 0x23d00 },
+    { L"Freeman Stage (7/8)", 0x23d00, 0x23f00 },
+    { L"Freeman Stage (8/8)", 0x23f00, 0x23f40 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Tizoc[] =
+{
+    { L"Tizoc Stage (1/12)", 0x24100, 0x24300 },
+    { L"Tizoc Stage (2/12)", 0x24300, 0x24500 },
+    { L"Tizoc Stage (3/12)", 0x24500, 0x24700 },
+    { L"Tizoc Stage (4/12)", 0x24700, 0x24900 },
+    { L"Tizoc Stage (5/12)", 0x24900, 0x24b00 },
+    { L"Tizoc Stage (6/12)", 0x24b00, 0x24d00 },
+    { L"Tizoc Stage (7/12)", 0x24d00, 0x24f00 },
+    { L"Tizoc Stage (8/12)", 0x24f00, 0x25100 },
+    { L"Tizoc Stage (9/12)", 0x25100, 0x25300 },
+    { L"Tizoc Stage (10/12)", 0x25300, 0x25500 },
+    { L"Tizoc Stage (11/12)", 0x25500, 0x25700 },
+    { L"Tizoc Stage (12/12)", 0x25700, 0x25720 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kevin1[] =
+{
+    { L"Kevin 1 Stage (1/6)", 0x260e0, 0x262e0 },
+    { L"Kevin 1 Stage (2/6)", 0x262e0, 0x264e0 },
+    { L"Kevin 1 Stage (3/6)", 0x264e0, 0x266e0 },
+    { L"Kevin 1 Stage (4/6)", 0x266e0, 0x268e0 },
+    { L"Kevin 1 Stage (5/6)", 0x268e0, 0x26ae0 },
+    { L"Kevin 1 Stage (6/6)", 0x26ae0, 0x26b00 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Grant[] =
+{
+    { L"Grant Stage (1/3)", 0x27100, 0x27300 },
+    { L"Grant Stage (2/3)", 0x27300, 0x27500 },
+    { L"Grant Stage (3/3)", 0x27500, 0x27600 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kain[] =
+{
+    { L"Kain Stage (1/8)", 0x28100, 0x28300 },
+    { L"Kain Stage (2/8)", 0x28300, 0x28500 },
+    { L"Kain Stage (3/8)", 0x28500, 0x28700 },
+    { L"Kain Stage (4/8)", 0x28700, 0x28900 },
+    { L"Kain Stage (5/8)", 0x28900, 0x28b00 },
+    { L"Kain Stage (6/8)", 0x28b00, 0x28d00 },
+    { L"Kain Stage (7/8)", 0x28d00, 0x28f00 },
+    { L"Kain Stage (8/8)", 0x28f00, 0x28fa0 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Terry2[] =
+{
+    { L"Terry Bogard 2 Stage (1/6)", 0x2b900, 0x2bb00 },
+    { L"Terry Bogard 2 Stage (2/6)", 0x2bb00, 0x2bd00 },
+    { L"Terry Bogard 2 Stage (3/6)", 0x2bd00, 0x2bf00 },
+    { L"Terry Bogard 2 Stage (4/6)", 0x2bf00, 0x2c100 },
+    { L"Terry Bogard 2 Stage (5/6)", 0x2c100, 0x2c300 },
+    { L"Terry Bogard 2 Stage (6/6)", 0x2c300, 0x2c4c0 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kevin2[] =
+{
+    { L"Kevin 2 Stage (1/5)", 0x30000, 0x30200 },
+    { L"Kevin 2 Stage (2/5)", 0x30200, 0x30400 },
+    { L"Kevin 2 Stage (3/5)", 0x30400, 0x30600 },
+    { L"Kevin 2 Stage (4/5)", 0x30600, 0x30800 },
+    { L"Kevin 2 Stage (5/5)", 0x30800, 0x30940 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Hotaru2[] =
+{
+    { L"Hotaru 2 Stage (1/8)", 0x31000, 0x31200 },
+    { L"Hotaru 2 Stage (2/8)", 0x31200, 0x31400 },
+    { L"Hotaru 2 Stage (3/8)", 0x31400, 0x31600 },
+    { L"Hotaru 2 Stage (4/8)", 0x31600, 0x31800 },
+    { L"Hotaru 2 Stage (5/8)", 0x31800, 0x31a00 },
+    { L"Hotaru 2 Stage (6/8)", 0x31a00, 0x31c00 },
+    { L"Hotaru 2 Stage (7/8)", 0x31c00, 0x31e00 },
+    { L"Hotaru 2 Stage (8/8)", 0x31e00, 0x31fe0 },
+};
+
+const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Kevin3[] =
+{
+    { L"Kevin 3 Stage (1/4)", 0x32800, 0x32a00 },
+    { L"Kevin 3 Stage (2/4)", 0x32a00, 0x32c00 },
+    { L"Kevin 3 Stage (3/4)", 0x32c00, 0x32e00 },
+    { L"Kevin 3 Stage (4/4)", 0x32e00, 0x33000 },
+};
+
 const sDescTreeNode Garou_A_STORY_COLLECTION[] =
 {
     { L"Terry Bogard", DESC_NODETYPE_TREE, (void*)Garou_A_TERRY_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_TERRY_PALETTES_STORYMODE) },
@@ -2231,6 +2453,30 @@ const sDescTreeNode Garou_A_STORY_COLLECTION[] =
 
     { L"Cutscenes", DESC_NODETYPE_TREE, (void*)Garou_A_PALETTES_STORYMODE_CUTSCENES, ARRAYSIZE(Garou_A_PALETTES_STORYMODE_CUTSCENES) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)Garou_A_PALETTES_STORYMODE_BONUS, ARRAYSIZE(Garou_A_PALETTES_STORYMODE_BONUS) },
+};
+
+const sDescTreeNode Garou_A_STAGES_COLLECTION[] =
+{
+    { L"Terry Bogard Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Terry1, ARRAYSIZE(Garou_A_STAGE_PALETTES_Terry1) },
+    { L"Rock Howard Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Rock, ARRAYSIZE(Garou_A_STAGE_PALETTES_Rock) },
+    { L"Dong Hwan Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Dong, ARRAYSIZE(Garou_A_STAGE_PALETTES_Dong) },
+    { L"Jae Hoon Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Jae, ARRAYSIZE(Garou_A_STAGE_PALETTES_Jae) },
+    { L"Hotaru Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Hotaru, ARRAYSIZE(Garou_A_STAGE_PALETTES_Hotaru) },
+    { L"Gato 1 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Gato1, ARRAYSIZE(Garou_A_STAGE_PALETTES_Gato1) },
+    { L"Gato 2 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Gato2, ARRAYSIZE(Garou_A_STAGE_PALETTES_Gato2) },
+    { L"Gato 3 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Gato3, ARRAYSIZE(Garou_A_STAGE_PALETTES_Gato3) },
+    { L"B. Jenet Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_BJenet, ARRAYSIZE(Garou_A_STAGE_PALETTES_BJenet) },
+    { L"Marco Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Marco, ARRAYSIZE(Garou_A_STAGE_PALETTES_Marco) },
+    { L"Hokutomaru Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Hokutomaru, ARRAYSIZE(Garou_A_STAGE_PALETTES_Hokutomaru) },
+    { L"Freeman Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Freeman, ARRAYSIZE(Garou_A_STAGE_PALETTES_Freeman) },
+    { L"Tizoc Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Tizoc, ARRAYSIZE(Garou_A_STAGE_PALETTES_Tizoc) },
+    { L"Kevin 1 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Kevin1, ARRAYSIZE(Garou_A_STAGE_PALETTES_Kevin1) },
+    { L"Grant Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Grant, ARRAYSIZE(Garou_A_STAGE_PALETTES_Grant) },
+    { L"Kain Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Kain, ARRAYSIZE(Garou_A_STAGE_PALETTES_Kain) },
+    { L"Terry Bogard 2 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Terry2, ARRAYSIZE(Garou_A_STAGE_PALETTES_Terry2) },
+    { L"Kevin 2 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Kevin2, ARRAYSIZE(Garou_A_STAGE_PALETTES_Kevin2) },
+    { L"Hotaru 2 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Hotaru2, ARRAYSIZE(Garou_A_STAGE_PALETTES_Hotaru2) },
+    { L"Kevin 3 Stage", DESC_NODETYPE_TREE, (void*)Garou_A_STAGE_PALETTES_Kevin3, ARRAYSIZE(Garou_A_STAGE_PALETTES_Kevin3) },
 };
 
 const sDescTreeNode Garou_A_ENDINGS_COLLECTION[] =
@@ -2284,6 +2530,7 @@ const sDescTreeNode Garou_A_UNITS[] =
     { k_garouNameKey_Portraits, DESC_NODETYPE_TREE, (void*)Garou_A_PORTRAITS_COLLECTION, ARRAYSIZE(Garou_A_PORTRAITS_COLLECTION) },
     { L"Story Mode", DESC_NODETYPE_TREE, (void*)Garou_A_STORY_COLLECTION, ARRAYSIZE(Garou_A_STORY_COLLECTION) },
     { L"Endings", DESC_NODETYPE_TREE, (void*)Garou_A_ENDINGS_COLLECTION, ARRAYSIZE(Garou_A_ENDINGS_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)Garou_A_STAGES_COLLECTION, ARRAYSIZE(Garou_A_STAGES_COLLECTION) },
     { L"Bonus Stuff", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_COLLECTION, ARRAYSIZE(Garou_A_BONUS_COLLECTION) },
 };
 
