@@ -511,6 +511,9 @@
     <Filter Include="Games\Other Platforms\Steam\Nitroplus Blasterz">
       <UniqueIdentifier>{6e19eced-02c3-4453-9c45-88228ad1240f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Fatal Fury 3">
+      <UniqueIdentifier>{6d85e323-99fa-40a0-a56c-a731d68919ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2002,6 +2005,12 @@
     </ClInclude>
     <ClInclude Include="Game\GameClassByUnitPerFile.h">
       <Filter>Games\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FatalFury3_A_DEF.h">
+      <Filter>Games\SNK Games\Fatal Fury 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FatalFury3_A.h">
+      <Filter>Games\SNK Games\Fatal Fury 3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

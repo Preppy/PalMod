@@ -1616,7 +1616,3 @@ const sDescTreeNode RBFF2_A_UNITS[] =
 };
 
 #pragma endregion
-
-constexpr auto RBFF2_A_NUMUNIT = ARRAYSIZE(RBFF2_A_UNITS);
-
-constexpr auto RBFF2_A_EXTRALOC = RBFF2_A_NUMUNIT;

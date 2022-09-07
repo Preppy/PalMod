@@ -187,6 +187,7 @@ enum SupportedGamesList
     BtlKRoad_A,
     AsuraBuster_A,
     NBHID_S,
+    FatalFury3_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -370,6 +371,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Battle K-Road (Psikyo)",
     L"Asura Buster - Eternal Warriors (Fuuki)",
     L"Nitroplus Blasterz: Heroines Infinite Duel (Steam)",
+    L"Fatal Fury 3 (Neo-Geo)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

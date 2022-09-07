@@ -999,6 +999,7 @@ void CGameClass::WarnIfPaletteIsOversized(uint32_t nUnit, uint32_t nPaletteId, u
             s_nLastPaletteWithThisError = nThisPaletteId;
 
 #if DEBUG
+            // Some auto-slicing code in case I want that again at some point
             const int16_t nPalettesNeeded = static_cast<int16_t>(ceil(static_cast<double>(nPaletteSizeInColors) / static_cast<double>(MAXAMT_ColorsPerPaletteTable)));
             int32_t nRemainingSize = nPaletteSizeInColors;
             const uint32_t nEndingPosition = nStartPosition + (nPaletteSizeInColors * m_nSizeOfColorsInBytes);

@@ -2287,19 +2287,19 @@ const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Hotaru[] =
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Gato1[] =
 {
     { L"Gato 1 Stage (1/2)", 0x1f100, 0x1f300 },
-    { L"Gato 1 Stage (2/2)", 0x1f300, 0x1f340 },
+    { L"Gato 1 Stage (2/2)", 0x1f300, 0x1F3C0 },
 };
 
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Gato2[] =
 {
     { L"Gato 2 Stage (1/8)", 0x1f440, 0x1f640 },
-    { L"Gato 2 Stage (2/8)", 0x1f640, 0x1f680 },
+    { L"Gato 2 Stage (2/8)", 0x1f640, 0x1F700 },
 };
 
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_Gato3[] =
 {
     { L"Gato 3 Stage (1/2)", 0x1f700, 0x1f900 },
-    { L"Gato 3 Stage (2/2)", 0x1f900, 0x1f940 },
+    { L"Gato 3 Stage (2/2)", 0x1f900, 0x1F960 },
 };
 
 const sGame_PaletteDataset Garou_A_STAGE_PALETTES_BJenet[] =

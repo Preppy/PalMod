@@ -27,6 +27,7 @@
 #include "Game_FatalFury2_A.h"
 #include "Game_FatalFuryS_A.h"
 #include "Game_FatalFuryS_SNES.h"
+#include "Game_FatalFury3_A.h"
 #include "Game_FotNS_P.h"
 #include "Game_GalaxyFight_A.h"
 #include "Game_Garou_A.h"
@@ -149,8 +150,8 @@
 #include "..\resource.h"
 #include "..\palmod.h"
 
-// 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 167, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+// Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 168, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -336,6 +337,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case FatalFuryS_SNES:
     {
         GetRule = &CGame_FatalFuryS_SNES::GetRule;
+        return TRUE;
+    }
+    case FatalFury3_A:
+    {
+        GetRule = &CGame_FatalFury3_A::GetRule;
         return TRUE;
     }
     case FotNS_P:
@@ -1229,6 +1235,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case FatalFuryS_SNES:
     {
         return new CGame_FatalFuryS_SNES(nConfirmedROMSize);
+    }
+    case FatalFury3_A:
+    {
+        return new CGame_FatalFury3_A(nConfirmedROMSize);
     }
     case FotNS_P:
     {

@@ -60,7 +60,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(uint32_t nConfirmedROMSize /* = -1 */, int nR
     m_nRedEarthMode = nRedEarthModeToLoad;
 
     const uint32_t nSafeCountFor30 = 473;
-    const uint32_t nSafeCountFor31 = 1274;
+    const uint32_t nSafeCountFor31 = 1284;
     const uint32_t nSafeCountFor50 = 4;
 
     switch (m_nRedEarthMode)

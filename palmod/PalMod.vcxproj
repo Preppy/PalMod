@@ -440,6 +440,7 @@
     <ClInclude Include="Game\DoubleDragon_A_DEF.h" />
     <ClInclude Include="Game\FatalFury1_A_DEF.h" />
     <ClInclude Include="Game\FatalFury2_A_DEF.h" />
+    <ClInclude Include="Game\FatalFury3_A_DEF.h" />
     <ClInclude Include="Game\FatalFuryS_A_DEF.h" />
     <ClInclude Include="Game\FatalFuryS_SNES_DEF.h" />
     <ClInclude Include="Game\FotNS_P_DEF.h" />
@@ -473,6 +474,7 @@
     <ClInclude Include="Game\Game_DoubleDragon_A.h" />
     <ClInclude Include="Game\Game_FatalFury1_A.h" />
     <ClInclude Include="Game\Game_FatalFury2_A.h" />
+    <ClInclude Include="Game\Game_FatalFury3_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
     <ClInclude Include="Game\Game_FotNS_P.h" />

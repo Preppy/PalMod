@@ -7,7 +7,7 @@
 #include <unordered_map>
 
 // Uncomment this to have this file help convert an Extra file to our header style
-//#define DUMP_EXTRAS_ON_LOAD
+#define DUMP_EXTRAS_ON_LOAD
 
 uint32_t CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 char CGameWithExtrasFile::m_paszGameNameOverride[MAX_PATH] = "";
@@ -239,6 +239,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                     {
                         if (aszFinalLine[0] != ';')
                         {
+                            // This is a real uncommented line: do what we can with it
                             int nPrevAmt = 0;
 
                             if (nTotalExtensionExtraLinesHandled == 0)
@@ -246,6 +247,26 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                 if (m_ColorModeOverride != ColMode::COLMODE_LAST)
                                 {
                                     cbColorSize = ColorSystem::GetCbForColMode(m_ColorModeOverride);
+                                }
+                            }
+                            else
+                            {
+                                if ((nTotalExtensionExtraLinesHandled % 3) == 1)
+                                {
+                                    // We *should* be at an offset.  But sometimes put extra comments in, so let's work around that if we can.
+                                    if (!((aszFinalLine[0] >= 'a') && (aszFinalLine[0] <= 'f')) &&
+                                        !((aszFinalLine[0] >= 'A') && (aszFinalLine[0] <= 'F')) &&
+                                        !((aszFinalLine[0] >= '0') && (aszFinalLine[0] <= '9')))
+                                    {
+                                        // This is an errant line according to our rules...
+                                        CString strError;
+                                        strError.Format(L"In file \"%s\", Extra \"%S\" appears to be broken: it is trying to display from starting offset \"%S\".  If that's not a number, your Extras file isn't correct."
+                                                        L"\r\nIf you're trying to add comments, begin the line with '; '.\n", pszExtraFileName, aszCurrDesc, aszFinalLine);
+                                        MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
+
+                                        // Move back to handling this as a palette title.
+                                        nTotalExtensionExtraLinesHandled -= 1;
+                                    }
                                 }
                             }
 
@@ -277,17 +298,6 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                             case 1:
                             {
                                 nCurrStart = strtoul(aszFinalLine, nullptr, 16);
-
-                                if (nCurrStart == 0)
-                                {
-                                    if (((aszFinalLine[0] > 'F') && (aszFinalLine[0] < 'a')) ||
-                                        (aszFinalLine[0] > 'f'))
-                                    {
-                                        CString strError;
-                                        strError.Format(L"In file \"%s\", Extra \"%S\" appears to be broken: it is trying to display from starting offset \"%S\".  If that's not a number, your Extras file isn't correct.\n", pszExtraFileName, aszCurrDesc, aszFinalLine);
-                                        MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
-                                    }
-                                }
                                 break;
                             }
                             case 2:
