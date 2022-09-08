@@ -287,6 +287,26 @@ const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_ENEMY[] =
     { L"Background Map - 2 Next Stage", 0xD0E60, 0xD0E80 },
 };
 
+const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_ENEMYDIALOG[] =
+{
+    { L"Fatal Fury 3 Next Stage", 0xd1d00, 0xd1d20 },
+    { L"Jin Chonshu dialog", 0xe63c0, 0xe63e0 },
+    { L"Defeat Jin Chonshu", 0xe6440, 0xe6460 },
+    { L"Anger Jin Chonrei dialog", 0xe6460, 0xe6480 },
+    { L"Franco dialog", 0xe64c0, 0xe64e0 },
+    { L"Hon-Fu dialog", 0xe64e0, 0xe6500 },
+    { L"Bob dialog", 0xe6540, 0xe6560 },
+    { L"Blue Mary dialog", 0xe6560, 0xe6580 },
+    { L"Sokaku Mochizuki dialog", 0xe65c0, 0xe65e0 },
+    { L"Guess dialog", 0xe65e0, 0xe6600 },
+    { L"Ryuji Yamazaki dialog", 0xe6640, 0xe6660 },
+    { L"Terry dialog", 0xe6780, 0xe67a0 },
+    { L"Andy dialog", 0xe67a0, 0xe67c0 },
+    { L"Joe dialog", 0xe67c0, 0xe67e0 },
+    { L"Mai dialog", 0xe67e0, 0xe6800 },
+    { L"Next Stage dialog enemy", 0xe68a0, 0xe68c0 },
+};
+
 const sDescTreeNode FatalFury3_A_TERRY_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)FatalFury3_A_TERRY_PALETTES_A, ARRAYSIZE(FatalFury3_A_TERRY_PALETTES_A) },
@@ -376,6 +396,7 @@ const sDescTreeNode FatalFury3_A_PORTRAITS_COLLECTION[] =
 const sDescTreeNode FatalFury3_A_BONUS_COLLECTION[] =
 {
     { L"Enemy Select Story", DESC_NODETYPE_TREE, (void*)FatalFury3_A_BONUS_PALETTES_ENEMY, ARRAYSIZE(FatalFury3_A_BONUS_PALETTES_ENEMY) },
+    { L"Enemy Dialog", DESC_NODETYPE_TREE, (void*)FatalFury3_A_BONUS_PALETTES_ENEMYDIALOG, ARRAYSIZE(FatalFury3_A_BONUS_PALETTES_ENEMYDIALOG) },
 };
 
 const sDescTreeNode FatalFury3_A_UNITS[] =

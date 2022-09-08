@@ -7,7 +7,7 @@
 #include <unordered_map>
 
 // Uncomment this to have this file help convert an Extra file to our header style
-#define DUMP_EXTRAS_ON_LOAD
+//#define DUMP_EXTRAS_ON_LOAD
 
 uint32_t CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 char CGameWithExtrasFile::m_paszGameNameOverride[MAX_PATH] = "";
@@ -265,8 +265,15 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                             // This is an errant line according to our rules...
                                             CString strError;
                                             strError.Format(L"In file \"%s\", Extra \"%S\" appears to be broken: it is trying to display from starting offset \"%S\".  If that's not a number, your Extras file isn't correct."
-                                                            L"\r\nIf you're trying to add comments, begin the line with '; '.\n", pszExtraFileName, aszCurrDesc, aszFinalLine);
+                                                            L"\n\nIf you're trying to add comments, begin the line with '; '.\n", pszExtraFileName, aszCurrDesc, aszFinalLine);
                                             MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
+
+#ifdef DUMP_EXTRAS_ON_LOAD
+                                            // Show as comment in output just in case it's useful
+                                            OutputDebugString(L"//");
+                                            OutputDebugStringA(aszFinalLine);
+                                            OutputDebugString(L"\r\n");
+#endif
 
                                             // Move back to handling this as a palette title.
                                             nTotalExtensionExtraLinesHandled -= 1;

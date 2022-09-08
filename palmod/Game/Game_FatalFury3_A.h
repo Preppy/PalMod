@@ -28,7 +28,7 @@ private:
         FatalFury3_A_UNITS,
         ARRAYSIZE(FatalFury3_A_UNITS),
         L"FatalFury3E.txt",             // Extra filename
-        140,                            // Count of palettes listed in the header
+        156,                            // Count of palettes listed in the header
         0xd0200,                        // Lowest known location used for palettes
     };
 
