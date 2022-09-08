@@ -234,8 +234,9 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                     strncpy_s(aszCurrLine, strCurrLine.c_str(), ARRAYSIZE(aszCurrLine) - 1);
 
                     aszFinalLine = aszCurrLine;
+                    const size_t nCurStrLen = strlen(aszFinalLine);
 
-                    if (strlen(aszFinalLine))
+                    if (nCurStrLen)
                     {
                         if (aszFinalLine[0] != ';')
                         {
@@ -254,18 +255,23 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                 if ((nTotalExtensionExtraLinesHandled % 3) == 1)
                                 {
                                     // We *should* be at an offset.  But sometimes put extra comments in, so let's work around that if we can.
-                                    if (!((aszFinalLine[0] >= 'a') && (aszFinalLine[0] <= 'f')) &&
-                                        !((aszFinalLine[0] >= 'A') && (aszFinalLine[0] <= 'F')) &&
-                                        !((aszFinalLine[0] >= '0') && (aszFinalLine[0] <= '9')))
-                                    {
-                                        // This is an errant line according to our rules...
-                                        CString strError;
-                                        strError.Format(L"In file \"%s\", Extra \"%S\" appears to be broken: it is trying to display from starting offset \"%S\".  If that's not a number, your Extras file isn't correct."
-                                                        L"\r\nIf you're trying to add comments, begin the line with '; '.\n", pszExtraFileName, aszCurrDesc, aszFinalLine);
-                                        MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
+                                    size_t nGoodFaithCheckLength = min(nCurStrLen, 4);
 
-                                        // Move back to handling this as a palette title.
-                                        nTotalExtensionExtraLinesHandled -= 1;
+                                    for (size_t iCurrPos = 0; iCurrPos < nGoodFaithCheckLength; iCurrPos++)
+                                    {
+                                        if (!isxdigit(aszFinalLine[iCurrPos]) &&
+                                            !((iCurrPos == 1) && ((aszFinalLine[iCurrPos] == 'x') || (aszFinalLine[iCurrPos] == 'X'))))
+                                        {
+                                            // This is an errant line according to our rules...
+                                            CString strError;
+                                            strError.Format(L"In file \"%s\", Extra \"%S\" appears to be broken: it is trying to display from starting offset \"%S\".  If that's not a number, your Extras file isn't correct."
+                                                            L"\r\nIf you're trying to add comments, begin the line with '; '.\n", pszExtraFileName, aszCurrDesc, aszFinalLine);
+                                            MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
+
+                                            // Move back to handling this as a palette title.
+                                            nTotalExtensionExtraLinesHandled -= 1;
+                                            break;
+                                        }
                                     }
                                 }
                             }

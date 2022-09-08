@@ -1262,8 +1262,8 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
 {
-    { L"P1 Color", 0x493a2, 0x493c2, indexCPS2Sprites_Morrigan, 0x01, nullptr, &secondaryMVCLilithPalettes },
-    { L"P1 Morrigan 1", 0x493c2, 0x493e2, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCLilithMorriganPalettes },
+    { L"P1 Color", 0x493a2, 0x493c2, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCLilithPalettes },
+    { L"P1 Morrigan 1", 0x493c2, 0x493e2, indexCPS2Sprites_Morrigan, 0x01, nullptr, &secondaryMVCLilithMorriganPalettes },
     { L"P1 Extra 2", 0x493e2, 0x49402, indexCPS2Sprites_Morrigan, 2 },
     { L"Morrigan P1 Join Pose 1", 0x4FB62, 0x4FB82, indexCPS2Sprites_Morrigan, 12 },
     { L"Morrigan P1 Join Pose 2", 0x4FB82, 0x4FBa2, indexCPS2Sprites_Morrigan, 12 },
@@ -1278,8 +1278,8 @@ const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P2[] =
 {
-    { L"P2 Color", 0x49402, 0x49422, indexCPS2Sprites_Morrigan, 0x01, nullptr, &secondaryMVCLilithPalettes },
-    { L"P2 Morrigan 1", 0x49422, 0x49442, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCLilithMorriganPalettes },
+    { L"P2 Color", 0x49402, 0x49422, indexCPS2Sprites_Morrigan, 0x00, nullptr, &secondaryMVCLilithPalettes },
+    { L"P2 Morrigan 1", 0x49422, 0x49442, indexCPS2Sprites_Morrigan, 0x01, nullptr, &secondaryMVCLilithMorriganPalettes },
     { L"P2 Extra 2", 0x49442, 0x49462, indexCPS2Sprites_Morrigan, 2 },
     { L"Morrigan P2 Join Pose 1", 0x4fcc2, 0x4fce2, indexCPS2Sprites_Morrigan, 12 },
     { L"Morrigan P2 Join Pose 2", 0x4fce2, 0x4fd02, indexCPS2Sprites_Morrigan, 12 },

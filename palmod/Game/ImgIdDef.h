@@ -2383,3 +2383,23 @@ enum SupportedArcsys_SpriteListIndex
     indexSBXSprites_Bonus,                  // 0x54
     indexSBXSprites_Stages,                 // 0x55
 };
+
+enum SupportedOther_SpriteListIndex
+{
+    indexAsuraBuster_Alice,      // 0x00
+    indexAsuraBuster_AliceBang,  // 0x01
+    indexAsuraBuster_ChenMao,    // 0x02
+    indexAsuraBuster_Goat,       // 0x03
+    indexAsuraBuster_Leon,       // 0x04
+    indexAsuraBuster_Nanami,     // 0x05
+    indexAsuraBuster_Rokurouta,  // 0x06
+    indexAsuraBuster_RoseMary,   // 0x07
+    indexAsuraBuster_Sittara,    // 0x08
+    indexAsuraBuster_Taros,      // 0x09
+    indexAsuraBuster_Vebel,      // 0x0a
+    indexAsuraBuster_Yashaou,    // 0x0b
+    indexAsuraBuster_ZamB,       // 0x0c
+    indexAsuraBuster_Zinsuke,    // 0x0d
+    indexAsuraBuster_Stages,     // 0x0e
+    indexAsuraBuster_Bonus,      // 0x0f
+};

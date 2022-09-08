@@ -107,7 +107,7 @@ sSupportedGameList SupportedGameList[] =
     { SAMSHO1_A,        L"Samurai Shodown", L"Samurai Shodown|045-p1.*;045-p2.rom|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO2_A,        L"Samurai Shodown II", L"Samurai Shodown II|063-p1.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO3_A,        L"Samurai Shodown III", L"Samurai Shodown III|087-p5.p5|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
-    { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.bin;222_p1.p1|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
+    { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.*;222_p1.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO5_A,        L"Samurai Shodown V", L"Samurai Shodown V|270-p1.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO5X_A,       L"Samurai Shodown V (Xbox)", L"Samurai Shodown V (Xbox)|ssvx_p1.rom|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
     { SAMSHO5SP_A,      L"Samurai Shodown V Special", L"Samurai Shodown V Special|272-p1*.*|", GamePlatform::NEOGEO, GameSeries::SamuraiShodown },
