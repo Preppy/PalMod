@@ -225,7 +225,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
 
     sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
-    if (NodeGet == NULL)
+    if (!NodeGet)
     {
         return FALSE;
     }
@@ -234,29 +234,25 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
     uint32_t nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).nImageUnitIndex;
     uint32_t nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).nImagePreviewIndex;
 
+    // The following logic locks us in as having each node contain one full palette set.  Any additional nodes
+    // will also contain a full palette set.  If the palette set is instead spread one palette per node, this logic
+    // will need to be updated.
     pButtonLabelSet = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).rgpszPaletteList;
-
-    // This logic presumes that we are only showing core character palettes.  If we decide to handle
-    // anything else, we'd want to validate that the palette in question is in the core lists
-    int nSrcStart = (int)(NodeGet->uPalId % m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).rgpszPaletteList.size());
+    int nPaletteSetOfInterest = static_cast<int>(floor(static_cast<double>(NodeGet->uPalId) / static_cast<double>(m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).rgpszPaletteList.size())));
+    int nSrcStart = nPaletteSetOfInterest * m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).rgpszPaletteList.size();
     uint32_t nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
-    uint32_t nNodeIncrement = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).rgpszPaletteList.size());
+    uint32_t nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
-    bool fShouldUseAlternateLoadLogic = false;
+    //Create the default palette
+    CreateDefPal(NodeGet, 0);
 
-    if (!fShouldUseAlternateLoadLogic)
-    {
-        //Create the default palette
-        CreateDefPal(NodeGet, 0);
+    // Only internal units get sprites
+    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-        // Only internal units get sprites
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-    }
+    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
 
     return TRUE;
 }

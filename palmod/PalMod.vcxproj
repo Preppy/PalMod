@@ -299,7 +299,6 @@
     <ClCompile Include="Game\Game_MagicalDropIII_A.cpp" />
     <ClCompile Include="Game\Game_MartialMasters_A.cpp" />
     <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
-    <ClCompile Include="Game\Game_MBAACC_S.cpp" />
     <ClCompile Include="Game\Game_MBTL_A.cpp" />
     <ClCompile Include="Game\Game_MK1_SNES.cpp" />
     <ClCompile Include="Game\Game_MK2_SNES.cpp" />

@@ -870,9 +870,6 @@
     <ClCompile Include="Game\Game_GGXXACR_P.cpp">
       <Filter>Games\Other Platforms\Guilty Gear\GGXX ACR %28PlayStation 3%29</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_MBAACC_S.cpp">
-      <Filter>Games\Other Platforms\Melty Blood Actress Again Current Code %28Steam/Community Port%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_KOF98AE2016_A.cpp">
       <Filter>Games\SNK Games\KOF98AE2016</Filter>
     </ClCompile>

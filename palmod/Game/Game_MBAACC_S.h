@@ -1,42 +1,28 @@
 #pragma once
-#include "gameclass.h"
-#include "..\extrafile.h"
+#include "GameClassByUnitPerFile.h"
+#include "MBAACC_S_DEF.h"
 
-class CGame_MBAACC_S : public CGameWithExtrasFile
+class CGame_MBAACC_S : public CGameClassPerUnitPerFile
 {
+private:
+    const sGCPUPF_CoreGameData m_sCoreGameData
+    {
+        L"Melty Blood Actress Again Current Code (Steam)",
+        MBAACC_S,
+        IMGDAT_SECTION_FRENCHBREAD,
+        MBAACC_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        MBAACCNormalPalettes,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8881_32STEPS,
+        MBAACCCharacterData,
+    };
+
 public:
-    CGame_MBAACC_S(uint32_t nConfirmedROMSize = -1);
-    ~CGame_MBAACC_S();
+    CGame_MBAACC_S(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    ~CGame_MBAACC_S() { ClearDataBuffer(); FlushChangeTrackingArray(); };
 
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
-
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
-
-    //Static functions
-    static uint32_t uRuleCtr;
-
-    static uint32_t GetRuleCtr() { return uRuleCtr; };
-    static void ResetRuleCtr() { uRuleCtr = 0; };
-
-    static sFileRule GetNextRule();
-    static sFileRule GetRule(uint32_t nRuleId);
-
-    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitNumber) override;
-    BOOL SaveFile(CFile* SaveFile, uint32_t nUnitNumber) override;
-
-    //Static functions / variables
-    static CDescTree MainDescTree;
-
-    static sDescTreeNode* InitDescTree();
-
-    CDescTree* GetMainTree() { return &MainDescTree; };
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-
-    LPCWSTR GetGameName() override { return L"Melty Blood Actress Again Current Code"; };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassPerUnitPerFile::GetRule(nRuleId, MBAACCCharacterData); };
+    static sFileRule GetNextRule() { return CGameClassPerUnitPerFile::GetNextRule(MBAACCCharacterData); };
 };

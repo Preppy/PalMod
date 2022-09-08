@@ -712,6 +712,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     case 16: // MBAACC and MvC2's palette expansion
     case 32: // MBAACC
     case 36: // MBAACC
+    case 42: // UNICLR
     case 64: // MBAACC
         w_mul = 4;
         break;
