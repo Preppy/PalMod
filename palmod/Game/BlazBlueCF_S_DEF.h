@@ -1,16 +1,4 @@
-﻿struct BlazBlueCFFileData
-{
-    LPCWSTR pszFileName = nullptr;
-    LPCWSTR pszCharacter = nullptr;
-    uint32_t nExpectedFileSize = 0;
-    const std::vector<LPCWSTR> ppszCollectionList;
-    const std::vector<LPCWSTR> ppszPaletteList;
-    uint32_t nInitialLocation = 0;
-    uint32_t nSpriteUnitIndex = (uint32_t)-1;
-    uint8_t nBBCFIMId = 0;
-    const std::vector<sGame_PaletteDataset> prgExtraPalettes;
-};
-
+﻿
 const std::vector<uint16_t> BlazBlueCF_S_IMGIDS_USED =
 {
     indexBBCFSprites_AmaneNishiki,          // 0x17
@@ -151,6 +139,19 @@ const std::vector<LPCWSTR> BlazBlueCFPaletteListGeneric =
     L"Extra 5",
     L"Extra 6",
     L"Extra 7",
+};
+
+struct BlazBlueCFFileData
+{
+    LPCWSTR pszFileName = nullptr;
+    LPCWSTR pszCharacter = nullptr;
+    uint32_t nExpectedFileSize = 0;
+    const std::vector<LPCWSTR> ppszCollectionList;
+    const std::vector<LPCWSTR> ppszPaletteList;
+    uint32_t nInitialLocation = 0;
+    uint32_t nSpriteUnitIndex = (uint32_t)-1;
+    uint8_t nBBCFIMId = 0;
+    const std::vector<sGame_PaletteDataset> prgExtraPalettes;
 };
 
 const std::vector<BlazBlueCFFileData> BlazBlueCF_S_CharacterData =

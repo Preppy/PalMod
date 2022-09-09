@@ -464,8 +464,8 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 }
                                 else
                                 {
-                                    rgFileHandles.at(0)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 1), CFile::begin);
-                                    rgFileHandles.at(1)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation + 1), CFile::begin);
+                                    rgFileHandles.at(0)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation) + 1, CFile::begin);
+                                    rgFileHandles.at(1)->Seek(static_cast<ULONGLONG>(m_nCurrentPaletteROMLocation) + 1, CFile::begin);
                                     rgFileHandles.at(2)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                     rgFileHandles.at(3)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                                     iHandle1 = 2;
@@ -784,13 +784,22 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
     std::vector<CFile*> rgFileHandles;
 
     // Reset: we reopen in bulk
-    SaveFile->Abort();
     rgFileHandles.resize(m_psCurrentFileLoadingData->rgFileList.size());
 
     for (size_t iCurrentFile = 0; iCurrentFile < m_psCurrentFileLoadingData->rgFileList.size(); iCurrentFile++)
     {
         CString strNameWithPath;
-        strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgFileList.at(iCurrentFile).strFileName.c_str());
+
+        if (iCurrentFile == 0)
+        {
+            // This specifically lets us use a renamed file that they're might try to substitute
+            strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), SaveFile->GetFileName().GetString());
+            SaveFile->Abort();
+        }
+        else
+        {
+            strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), m_psCurrentFileLoadingData->rgFileList.at(iCurrentFile).strFileName.c_str());
+        }
 
         rgFileHandles.at(iCurrentFile) = new CFile;
 

@@ -10,11 +10,11 @@ struct sGCBUPF_BasicNodeData
 
 struct sGCBUPF_BasicFileData
 {
-    std::wstring strFileName;
-    std::wstring strCharacter;
-    uint32_t nExpectedFileSize = 0;
-    std::vector<LPCWSTR> rgpszPaletteList;
-    std::vector<sGCBUPF_BasicNodeData> rgNodeData;
+    const std::wstring strFileName;
+    const std::wstring strCharacter;
+    const uint32_t nExpectedFileSize;
+    const std::vector<sGCBUPF_BasicNodeData> rgNodeData;
+    const std::vector<LPCWSTR> rgpszPaletteList;
     uint32_t nInitialLocation = 0;
     uint32_t nImageUnitIndex = 0;
     uint32_t nImagePreviewIndex = 0;
