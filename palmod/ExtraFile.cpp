@@ -271,7 +271,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
 #ifdef DUMP_EXTRAS_ON_LOAD
                                             // Show as comment in output just in case it's useful
                                             OutputDebugString(L"//");
-                                            OutputDebugStringA(aszFinalLine);
+                                            OutputDebugStringA(aszCurrDesc);
                                             OutputDebugString(L"\r\n");
 #endif
 

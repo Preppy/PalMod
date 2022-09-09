@@ -270,7 +270,6 @@ const sGame_PaletteDataset FatalFury3_A_PORTRAITS_PALETTES_SMALL[] =
 const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_ENEMY[] =
 {
     { L"Blue Mary jacket 1", 0xd0f00, 0xd0f40 },
-    { L"Background brown", 0xd1ae0, 0xd1b00 },
     { L"Logo Neo-Geo + Fatal Fury 3 + location point", 0xd1dc0, 0xd1de0 },
     { L"Background map", 0xd1e20, 0xd1e40 },
     { L"Logo info enemy characters", 0xd1ee0, 0xd1f00 },
@@ -305,6 +304,30 @@ const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_ENEMYDIALOG[] =
     { L"Joe dialog", 0xe67c0, 0xe67e0 },
     { L"Mai dialog", 0xe67e0, 0xe6800 },
     { L"Next Stage dialog enemy", 0xe68a0, 0xe68c0 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_BONUS[] =
+{
+    { L"Lifebar", 0xd0060, 0xd00a0 },
+
+    { L"Logo Road to the Final Victory", 0xd17a0, 0xd17c0 },
+    { L"Logo Road to the Final Victory - ver Japan", 0xd17c0, 0xd17e0 },
+    { L"Logo background  ", 0xd17e0, 0xd1800 },
+    { L"Logo number big 3- ver Japan", 0xd1880, 0xd18c0 },
+    { L"Logo Fatal Fury", 0xd19a0, 0xd19c0 },
+    { L"Logo number big 3", 0xd19c0, 0xd19e0 },
+
+    { L"YOU LOST", 0xd1b00, 0xd1b20 },
+    { L"GO. Round 1+2+3. Hey Get With It", 0xd1e60, 0xd1e80 },
+    { L"Name Terry and Win Battle Player 1", 0xd1e80, 0xd1ea0 },
+    { L"Won", 0xd1ec0, 0xd1ee0 },
+    { L"FIGHTING LEVEL A B C D.  AA. AAA. S  and Win Player 2", 0xd1f20, 0xd1f40 },
+
+    { L"Generic Green Background", 0xd1ae0, 0xd1b00 },
+    { L"Hand stuck + Button A Button D", 0xd1d40, 0xd1d60 },
+    { L"Button B Button C", 0xd1d60, 0xd1d80 },
+    { L"Background", 0xd1da0, 0xd1dc0 },
+
 };
 
 const sDescTreeNode FatalFury3_A_TERRY_COLLECTION[] =
@@ -397,6 +420,7 @@ const sDescTreeNode FatalFury3_A_BONUS_COLLECTION[] =
 {
     { L"Enemy Select Story", DESC_NODETYPE_TREE, (void*)FatalFury3_A_BONUS_PALETTES_ENEMY, ARRAYSIZE(FatalFury3_A_BONUS_PALETTES_ENEMY) },
     { L"Enemy Dialog", DESC_NODETYPE_TREE, (void*)FatalFury3_A_BONUS_PALETTES_ENEMYDIALOG, ARRAYSIZE(FatalFury3_A_BONUS_PALETTES_ENEMYDIALOG) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)FatalFury3_A_BONUS_PALETTES_BONUS, ARRAYSIZE(FatalFury3_A_BONUS_PALETTES_BONUS) },
 };
 
 const sDescTreeNode FatalFury3_A_UNITS[] =

@@ -1460,6 +1460,9 @@ const sGame_PaletteDataset REDEARTH_A_31_ENDING_KENJI_PALETTES[] =
     { L"Kenji Opening Cinematic 1 - Ships and Sky 5", 0x325200, 0x325280 },
     { L"Kenji Opening Cinematic 1 - Ships and Sky 6", 0x325280, 0x325300 },
     { L"Kenji Opening Cinematic 1 - Ships and Sky 7", 0x325300, 0x325380 },
+    { L"Kenji Opening Cinematic 2 - Background", 0x325400, 0x325480, indexRedEarthSprites_Endings, -1, &pairNextAndNext },
+    { L"Kenji Opening Cinematic 2 - Ninjas & Shadows", 0x325480, 0x325500 },
+    { L"Kenji Opening Cinematic 2 - Shogun Naosuke, Daimyo & Kenji", 0x325500, 0x325580 },
     { L"Kenji Opening Cinematic 3 - Kenji", 0x325380, 0x325400 },
 };
 
