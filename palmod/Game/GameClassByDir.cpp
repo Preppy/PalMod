@@ -383,6 +383,9 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                 MessageBox(g_appHWnd, strInfo.GetString(), GetHost()->GetAppName(), MB_ICONERROR);
             }
 
+            strInfo.Format(L"CGameClassByDir::LoadFile: ERROR!  Cannot open '%s'\r\n", strNameWithPath.GetString());
+            OutputDebugString(strInfo.GetString());
+
             fSuccess = FALSE;
         }
     }
@@ -805,6 +808,8 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
         if (!rgFileHandles.at(iCurrentFile)->Open(strNameWithPath.GetString(), CFile::modeWrite | CFile::typeBinary))
         {
+            strInfo.Format(L"CGameClassByDir::SaveFile: ERROR!  Cannot open '%s'\r\n", strNameWithPath.GetString());
+            OutputDebugString(strInfo.GetString());
             fSuccess = FALSE;
         }
     }

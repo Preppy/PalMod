@@ -21,14 +21,14 @@ private:
         FatalFury3_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_2_AB,
+        DEF_BUTTONLABEL_2,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
         FatalFury3_A_FileLoadingData,
         FatalFury3_A_UNITS,
         ARRAYSIZE(FatalFury3_A_UNITS),
         L"FatalFury3E.txt",             // Extra filename
-        171,                            // Count of palettes listed in the header
+        208,                            // Count of palettes listed in the header
         0xd0060,                        // Lowest known location used for palettes
     };
 

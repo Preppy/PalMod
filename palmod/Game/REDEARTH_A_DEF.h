@@ -1468,6 +1468,7 @@ const sGame_PaletteDataset REDEARTH_A_31_ENDING_KENJI_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_31_ENDING_LEO_PALETTES[] =
 {
+    // When we get a preview, use that preview for "Unused Leo Palette" as well
     { L"Leo Opening Cinematic - Leo on a Cliff", 0x325b00, 0x325b80, indexRedEarthSprites_Endings, -1, &pairFullyLinkedNode },
     { L"Leo Opening Cinematic - Castle BG & Leo's Head 1", 0x325a80, 0x325b00 },
     { L"Leo Opening Cinematic - Leo's Head 2", 0x325d80, 0x325e00 },
@@ -1547,6 +1548,8 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
 
     { L"Punch Palette Leo Unused?", 0x414880, 0x414900, indexRedEarthSprites_Leo, 0x00 },
     { L"Kick Palette Leo Unused? ", 0x408080, 0x408100, indexRedEarthSprites_Leo, 0x00 },
+
+    { L"Unused Leo Palette", 0x1e4a00, 0x1e4a80 },
 
     { L"Unused Vigo, Valo, Vestu", 0x421f80, 0x422000 },
     { L"Unused Vigo, Valo, Vestu Punch", 0x408900, 0x408980 },
