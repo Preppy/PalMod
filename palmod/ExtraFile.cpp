@@ -256,29 +256,40 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                 {
                                     // We *should* be at an offset.  But sometimes put extra comments in, so let's work around that if we can.
                                     size_t nGoodFaithCheckLength = min(nCurStrLen, 4);
+                                    bool fFoundHexDigit = false;
+                                    bool fFoundInvalidEntry = false;
 
                                     for (size_t iCurrPos = 0; iCurrPos < nGoodFaithCheckLength; iCurrPos++)
                                     {
-                                        if (!isxdigit(aszFinalLine[iCurrPos]) &&
-                                            !((iCurrPos == 1) && ((aszFinalLine[iCurrPos] == 'x') || (aszFinalLine[iCurrPos] == 'X'))))
+                                        bool fIsHexDigit = isxdigit(aszFinalLine[iCurrPos]);
+
+                                        // Acceptable characters on this line would be hex, the "x" indicating hex, or whitespace
+                                        if (!fIsHexDigit &&
+                                            !isspace(aszFinalLine[iCurrPos]) &&
+                                            !((iCurrPos == 1) && ((aszFinalLine[iCurrPos] == 'x') || (aszFinalLine[iCurrPos] == 'X')))
+                                            )
                                         {
-                                            // This is an errant line according to our rules...
-                                            CString strError;
-                                            strError.Format(L"In file \"%s\", Extra \"%S\" appears to be broken: it is trying to display from starting offset \"%S\".  If that's not a number, your Extras file isn't correct."
-                                                            L"\n\nIf you're trying to add comments, begin the line with '; '.\n", pszExtraFileName, aszCurrDesc, aszFinalLine);
-                                            MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
+                                            fFoundInvalidEntry = true;
+                                        }
+                                    }
+
+                                    if (!fFoundHexDigit || fFoundInvalidEntry)
+                                    {
+                                        // This is an errant line according to our rules...
+                                        CString strError;
+                                        strError.Format(L"In file \"%s\", Extra \"%S\" appears to be broken: it is trying to display from starting offset \"%S\".  If that's not a number, your Extras file isn't correct."
+                                            L"\n\nIf you're trying to add comments, begin the line with '; '.\n", pszExtraFileName, aszCurrDesc, aszFinalLine);
+                                        MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
 
 #ifdef DUMP_EXTRAS_ON_LOAD
-                                            // Show as comment in output just in case it's useful
-                                            OutputDebugString(L"//");
-                                            OutputDebugStringA(aszCurrDesc);
-                                            OutputDebugString(L"\r\n");
+                                        // Show as comment in output just in case it's useful
+                                        OutputDebugString(L"//");
+                                        OutputDebugStringA(aszCurrDesc);
+                                        OutputDebugString(L"\r\n");
 #endif
 
-                                            // Move back to handling this as a palette title.
-                                            nTotalExtensionExtraLinesHandled -= 1;
-                                            break;
-                                        }
+                                        // Move back to handling this as a palette title.
+                                        nTotalExtensionExtraLinesHandled -= 1;
                                     }
                                 }
                             }

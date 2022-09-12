@@ -4,8 +4,6 @@
 constexpr auto DESC_NODETYPE_TREE = 0;
 constexpr auto DESC_NODETYPE_NODE = 1;
 
-#define DESC_ENDGET -1
-
 //Description tree definition
 
 struct sDescNode
