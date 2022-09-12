@@ -365,6 +365,9 @@ const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_BONUS[] =
     { L"Names Characters *challenge P1", 0xd1e00, 0xd1e20 },
     { L"Names Characters *challenge P2", 0xd1ea0, 0xd1ec0 },
     { L"Location point", 0xd1d80, 0xd1da0 },
+
+    { L"Logo VS. Logo Fatal Fury 3 *mod challenge*", 0xD1CE0, 0xD1D00 },
+    { L"Background mod challenge *p1 vs p2*", 0xD3BA0, 0xD3BC0 },
 };
 
 const sDescTreeNode FatalFury3_A_TERRY_COLLECTION[] =

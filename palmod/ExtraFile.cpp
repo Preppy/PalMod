@@ -7,7 +7,7 @@
 #include <unordered_map>
 
 // Uncomment this to have this file help convert an Extra file to our header style
-//#define DUMP_EXTRAS_ON_LOAD
+#define DUMP_EXTRAS_ON_LOAD
 
 uint32_t CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 char CGameWithExtrasFile::m_paszGameNameOverride[MAX_PATH] = "";
@@ -262,6 +262,8 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     for (size_t iCurrPos = 0; iCurrPos < nGoodFaithCheckLength; iCurrPos++)
                                     {
                                         bool fIsHexDigit = isxdigit(aszFinalLine[iCurrPos]);
+
+                                        fFoundHexDigit = fFoundHexDigit || fIsHexDigit;
 
                                         // Acceptable characters on this line would be hex, the "x" indicating hex, or whitespace
                                         if (!fIsHexDigit &&

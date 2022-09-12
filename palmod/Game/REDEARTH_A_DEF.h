@@ -1451,7 +1451,7 @@ const sGame_PaletteDataset REDEARTH_A_31_ENDING_DERMINOR_PALETTES[] =
     { L"Generic Ending Derminor Sunshine", 0x3f5200, 0x3f5280, indexRedEarthSprites_Endings, 0x05 },
 };
 
-const sGame_PaletteDataset REDEARTH_A_31_ENDING_KENJI_PALETTES[] =
+const sGame_PaletteDataset REDEARTH_A_31_OPENING_KENJI_PALETTES[] =
 {
     { L"Kenji Opening Cinematic 1 - Ships and Sky 1", 0x325000, 0x325080 },
     { L"Kenji Opening Cinematic 1 - Ships and Sky 2", 0x325080, 0x325100 },
@@ -1466,7 +1466,7 @@ const sGame_PaletteDataset REDEARTH_A_31_ENDING_KENJI_PALETTES[] =
     { L"Kenji Opening Cinematic 3 - Kenji", 0x325380, 0x325400 },
 };
 
-const sGame_PaletteDataset REDEARTH_A_31_ENDING_LEO_PALETTES[] =
+const sGame_PaletteDataset REDEARTH_A_31_OPENING_LEO_PALETTES[] =
 {
     // When we get a preview, use that preview for "Unused Leo Palette" as well
     { L"Leo Opening Cinematic - Leo on a Cliff", 0x325b00, 0x325b80, indexRedEarthSprites_Endings, -1, &pairFullyLinkedNode },
@@ -1481,7 +1481,7 @@ const sGame_PaletteDataset REDEARTH_A_31_ENDING_LEO_PALETTES[] =
     { L"Leo Opening Cinematic - Leo's Head 9", 0x325b80, 0x325c00 },
 };
 
-const sGame_PaletteDataset REDEARTH_A_31_ENDING_TESSA_PALETTES[] =
+const sGame_PaletteDataset REDEARTH_A_31_OPENING_TESSA_PALETTES[] =
 {
     { L"Tessa Opening Cinematic 1 & 2 - Tessa", 0x325580, 0x325680 },
     { L"Tessa Opening Cinematic 3 - Dark Energy Radar 1", 0x325680, 0x325700 },
@@ -1702,13 +1702,17 @@ const sDescTreeNode REDEARTH_A_31_INTRO_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_PALETTES, ARRAYSIZE(REDEARTH_A_INTRO_PALETTES) },
 };
 
+const sDescTreeNode REDEARTH_A_31_OPENINGS_COLLECTION[] =
+{
+    { L"Kenji Opening", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_OPENING_KENJI_PALETTES, ARRAYSIZE(REDEARTH_A_31_OPENING_KENJI_PALETTES) },
+    { L"Leo Opening", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_OPENING_LEO_PALETTES, ARRAYSIZE(REDEARTH_A_31_OPENING_LEO_PALETTES) },
+    { L"Tessa Opening", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_OPENING_TESSA_PALETTES, ARRAYSIZE(REDEARTH_A_31_OPENING_TESSA_PALETTES) },
+};
+
 const sDescTreeNode REDEARTH_A_31_ENDINGS_COLLECTION[] =
 {
     { L"Generic Endings", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_PALETTES) },
     { L"Generic Ending: Derminor", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_DERMINOR_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_DERMINOR_PALETTES) },
-    { L"Kenji Opening", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_KENJI_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_KENJI_PALETTES) },
-    { L"Leo Opening", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_LEO_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_LEO_PALETTES) },
-    { L"Tessa Opening", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDING_TESSA_PALETTES, ARRAYSIZE(REDEARTH_A_31_ENDING_TESSA_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_31_MAP_COLLECTION[] =
@@ -1751,6 +1755,7 @@ const sDescTreeNode REDEARTH_A_UNITS_31[] =
     { L"Map",               DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_MAP_COLLECTION, ARRAYSIZE(REDEARTH_A_31_MAP_COLLECTION) },
     { L"Intro Palettes",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_INTRO_COLLECTION, ARRAYSIZE(REDEARTH_A_31_INTRO_COLLECTION) },
     { L"Endings",           DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_ENDINGS_COLLECTION, ARRAYSIZE(REDEARTH_A_31_ENDINGS_COLLECTION) },
+    { L"Opening Cinematics", DESC_NODETYPE_TREE, (void*)REDEARTH_A_31_OPENINGS_COLLECTION, ARRAYSIZE(REDEARTH_A_31_OPENINGS_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_31_COLLECTION, ARRAYSIZE(REDEARTH_A_BONUS_31_COLLECTION) },
 };
 
