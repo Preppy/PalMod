@@ -4,20 +4,41 @@
 
 struct sGCBUPF_BasicNodeData
 {
-    std::wstring strNodeName;
-    uint32_t nAdjustmentFromBaseNode = 0;
+    std::vector<LPCWSTR> rgpszNodeNames;
+    uint32_t nAdjustmentFromBaseNode;
+    std::vector<LPCWSTR> rgpszButtonLabels;
 };
+
+struct sGCBUPF_RelativePaletteData
+{
+    const LPCWSTR pszPaletteName;
+    const uint32_t nPaletteShiftFromBase = 0;
+    const uint16_t indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
+    const uint16_t indexOffsetToUse = INVALID_UNIT_VALUE; // subsprites within that collection
+    const stPairedPaletteInfo* pPalettePairingInfo = nullptr;
+    const stPaletteProcessingInformation* pExtraProcessing = nullptr;
+};
+
+// This is used for layouts that are solely button-specific palettes
+const std::vector<sGCBUPF_RelativePaletteData> GCBUPF_UseButtonLabelsAsPaletteSet = {};
 
 struct sGCBUPF_BasicFileData
 {
     const std::wstring strFileName;
     const std::wstring strCharacter;
     const uint32_t nExpectedFileSize;
-    const std::vector<sGCBUPF_BasicNodeData> rgNodeData;
-    const std::vector<LPCWSTR> rgpszPaletteList;
+    const sGCBUPF_BasicNodeData sNodeData;
+    const std::vector<sGCBUPF_RelativePaletteData> prgBasicPalettes;
     uint32_t nInitialLocation = 0;
     uint32_t nImageUnitIndex = 0;
     uint32_t nImagePreviewIndex = 0;
+    const std::vector<sGame_PaletteDataset> prgExtraPalettes;
+};
+
+enum class PaletteArrangementStyle
+{
+    EachNodeContainsAPaletteSet,
+    OnePaletteSetEntryPerEachNode,
 };
 
 class CGameClassPerUnitPerFile : public CGameWithExtrasFile
@@ -31,10 +52,13 @@ public:
         const std::vector<uint16_t> rgGameImageSet;
         const sCreatePalOptions createPalOptions;
         const eImageOutputSpriteDisplay displayStyle;
-        const std::vector<LPCWSTR> rgszButtonLabelSet;
         const AlphaMode eAlphaMode;
         const ColMode eColMode;
         std::vector<sGCBUPF_BasicFileData> srgLoadingData;
+        // The two options are:
+            // each node contains a full set of per-color palettes
+            // all nodes together represent the set of palettes.  if there are effects, they go in each node
+        const PaletteArrangementStyle ePaletteLayout = PaletteArrangementStyle::EachNodeContainsAPaletteSet;
     };
 
     static std::wstring m_strGameFriendlyName;
@@ -50,8 +74,14 @@ public:
 
     static void InitializeStatics();
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+    static bool ShouldUseBasePaletteSet(uint32_t nUnitId, uint32_t nPaletteId);
+    static std::vector<LPCWSTR> GetBasicPaletteLabelsForUnit(uint32_t nUnitId);
+    static LPCWSTR GetBasicPaletteNameForPalette(uint32_t nUnitId, uint32_t nPaletteId);
+    static size_t GetBasicPaletteListSizeForUnit(uint32_t nUnitId);
+    static size_t GetBasicPaletteCountForUnit(uint32_t nUnitId);
+    // This version includes the count of optional Extra palettes
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
 
     CGameClassPerUnitPerFile(uint32_t nConfirmedROMSize = -1) {};
     ~CGameClassPerUnitPerFile() {};

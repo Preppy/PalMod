@@ -13,7 +13,6 @@ private:
         MBTL_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        MBTLPaletteNamesNormal,
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGBA8888,
         MBTLCharacterData,

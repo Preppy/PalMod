@@ -65,9 +65,9 @@ BOOL CCFPLFileImportDialog::OnInitDialog()
 
     GetDlgItem(IDC_CFPL_CHARACTERNAME)->SetWindowText(m_strCharacterName.data());
 
-    for (std::wstring strColorOption : m_vstrColorOptions)
+    for (const std::wstring& strColorOption : m_vstrColorOptions)
     {
-        m_CBColorPosition.AddString(strColorOption.data());
+        m_CBColorPosition.AddString(strColorOption.c_str());
     }
 
     m_CBColorPosition.SetCurSel(m_nCurrentSel);
@@ -241,9 +241,11 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
             uint8_t nCharacterToApplyTo = 0;
             CFPLFile.Read(&nCharacterToApplyTo, 1);
 
+            const uint32_t nSpriteId = TranslateBBCFGameIdToPalModSpriteId(nCharacterToApplyTo);
+
             for (; nCollectionIndex < BlazBlueCF_S_CharacterData.size(); nCollectionIndex++)
             {
-                if (BlazBlueCF_S_CharacterData[nCollectionIndex].nBBCFIMId == nCharacterToApplyTo)
+                if (BlazBlueCF_S_CharacterData[nCollectionIndex].nImageUnitIndex == nSpriteId)
                 {
                     fCanUseCharacterAssignment = true;
                     break;
@@ -264,11 +266,11 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
                 nColorPositionToWriteTo = 0;
             }
 
-            if (nColorPositionToWriteTo < BlazBlueCF_S_CharacterData[nCollectionIndex].ppszCollectionList.size())
+            if (nColorPositionToWriteTo < BlazBlueCF_S_CharacterData[nCollectionIndex].sNodeData.rgpszNodeNames.size())
             {
-                CCFPLFileImportDialog cfplFileDialog(BlazBlueCF_S_CharacterData[nCollectionIndex].pszCharacter,
-                    BlazBlueCF_S_CharacterData[nCollectionIndex].ppszCollectionList,
-                    nColorPositionToWriteTo);
+                CCFPLFileImportDialog cfplFileDialog(BlazBlueCF_S_CharacterData[nCollectionIndex].strCharacter,
+                                                     BlazBlueCF_S_CharacterData[nCollectionIndex].sNodeData.rgpszNodeNames,
+                                                     nColorPositionToWriteTo);
 
                 if (cfplFileDialog.DoModal() == IDOK)
                 {
@@ -326,7 +328,7 @@ bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
 
             fSuccess = true;
             CString strStatus;
-            strStatus.Format(IDS_CFPL_LOADED, BlazBlueCF_S_CharacterData[nCollectionIndex].pszCharacter, BlazBlueCF_S_CharacterData[nCollectionIndex].ppszCollectionList[nColorPositionToWriteTo]);
+            strStatus.Format(IDS_CFPL_LOADED, BlazBlueCF_S_CharacterData.at(nCollectionIndex).strCharacter.c_str(), BlazBlueCF_S_CharacterData[nCollectionIndex].sNodeData.rgpszNodeNames.at(nColorPositionToWriteTo));
             SetStatusText(strStatus);
         }
     }
@@ -381,7 +383,7 @@ bool CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName)
     CFile CFPLFile;
     bool fSuccess = false;
 
-    CCFPLFileExportDialog cfplFileDialog(BlazBlueCF_S_CharacterData[m_nPrevUnitSel].pszCharacter);
+    CCFPLFileExportDialog cfplFileDialog(BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).strCharacter.c_str());
 
     bool fShouldAllowExport = (cfplFileDialog.DoModal() == IDOK);
 
@@ -413,10 +415,11 @@ bool CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName)
             const UINT k_nRequiredLength = 0x20;
             const UINT k_nDescRequiredLength = 0x40;
             const std::array<BYTE, k_nDescRequiredLength> k_rgFillBytes = { };
+            const uint8_t nBBFCIMId = BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).nImageUnitIndex;
 
             CFPLFile.Write(&k_rgCFPLSignature, static_cast<UINT>(k_rgCFPLSignature.size()));
 
-            CFPLFile.Write(&BlazBlueCF_S_CharacterData[m_nPrevUnitSel].nBBCFIMId, 1);
+            CFPLFile.Write(&nBBFCIMId, 1);
             CFPLFile.Write(&k_rgFillBytes, 3);
 
             _WriteToFileAsANSIWithForcedLength(CFPLFile, cfplFileDialog.m_strPaletteName, k_nRequiredLength);

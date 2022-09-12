@@ -13,7 +13,6 @@ private:
         UNICLR_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        DEF_BUTTONLABEL_2_LEFTRIGHT,
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGBA8888,
         UNICLRCharacterData,

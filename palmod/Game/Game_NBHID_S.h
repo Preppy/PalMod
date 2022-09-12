@@ -13,7 +13,6 @@ private:
         NBHID_S_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        NBHIDPaletteNamesNormal,
         AlphaMode::GameUsesVariableAlpha,
         ColMode::COLMODE_BGRA8888,
         NBHIDCharacterData,

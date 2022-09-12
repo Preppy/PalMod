@@ -700,6 +700,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     case 2: // SVC
     case 4: // Garou
     case 30: // MBTL
+    case 38: // MBTL: Neco
         w_mul = 2;
         break;
     case 3: // DanKuGa

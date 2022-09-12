@@ -13,7 +13,6 @@ private:
         MBAACC_S_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        MBAACCNormalPalettes,
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGBA8881_32STEPS,
         MBAACCCharacterData,

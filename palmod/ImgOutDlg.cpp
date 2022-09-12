@@ -163,6 +163,10 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(L"16");
         m_CB_Amt.AddString(L"32");
         break;
+    case 38: // MBTL: Neco
+        m_CB_Amt.AddString(L"30");
+        m_CB_Amt.AddString(L"38");
+        break;
     case 42:
         m_CB_Amt.AddString(L"4");
         m_CB_Amt.AddString(L"8");
