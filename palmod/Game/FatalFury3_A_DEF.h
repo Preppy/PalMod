@@ -334,6 +334,263 @@ const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_ENEMYDIALOG[] =
     { L"Next Stage dialog enemy", 0xe68a0, 0xe68c0 },
 };
 
+const sGame_PaletteDataset FatalFury3_A_STAGES_TerryBogard_Palettes[] =
+{
+    { L"round-1 (1/4) 0xd2000", 0xd2000, 0xd2200 },
+    { L"round-1 (2/4) 0xd2200", 0xd2200, 0xd2400 },
+    { L"round-1 (3/4) 0xd2400", 0xd2400, 0xd2600 },
+    { L"round-1 (4/4) 0xd2600", 0xd2600, 0xd2800 },
+    { L"round-2 (1/4) 0xd2800", 0xd2800, 0xd2a00 },
+    { L"round-2 (2/4) 0xd2a00", 0xd2a00, 0xd2c00 },
+    { L"round-2 (3/4) 0xd2c00", 0xd2c00, 0xd2e00 },
+    { L"round-2 (4/4) 0xd2e00", 0xd2e00, 0xd3000 },
+    { L"round-3 (1/4) 0xd3000", 0xd3000, 0xd3200 },
+    { L"round-3 (2/4) 0xd3200", 0xd3200, 0xd3400 },
+    { L"round-3 (3/4) 0xd3400", 0xd3400, 0xd3600 },
+    { L"round-3 (4/4) 0xd3600", 0xd3600, 0xd3800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_MaiShiranui_Palettes[] =
+{
+    { L"round-1 (1/2) 0xd3800", 0xd3800, 0xd3a00 },
+    { L"round-1 (2/2) 0xd3a00", 0xd3a00, 0xd3b80 },
+    { L"round-1 complement part (1/3) 0xd3bc0", 0xd3bc0, 0xd3dc0 },
+    { L"round-1 complement part (2/3) 0xd3dc0", 0xd3dc0, 0xd3fc0 },
+    { L"round-1 complement part (3/3) 0xd3fc0", 0xd3fc0, 0xd4000 },
+    { L"round-2 (1/4) 0xd4000", 0xd4000, 0xd4200 },
+    { L"round-2 (2/4) 0xd4200", 0xd4200, 0xd4400 },
+    { L"round-2 (3/4) 0xd4400", 0xd4400, 0xd4600 },
+    { L"round-2 (4/4) 0xd4600", 0xd4600, 0xd4800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_RyujiYamazaki_accident_bonus_Palettes[] =
+{
+    { L"round-1 (1/4) 0xd4800", 0xd4800, 0xd4a00 },
+    { L"round-1 (2/4) 0xd4a00", 0xd4a00, 0xd4c00 },
+    { L"round-1 (3/4) 0xd4c00", 0xd4c00, 0xd4e00 },
+    { L"round-1 (4/4) 0xd4e00", 0xd4e00, 0xd5000 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_JoeHigashi_Palettes[] =
+{
+    { L"round-1 (1/4) 0xd5000", 0xd5000, 0xd5200 },
+    { L"round-1 (2/4) 0xd5200", 0xd5200, 0xd5400 },
+    { L"round-1 (3/4) 0xd5400", 0xd5400, 0xd5600 },
+    { L"round-1 (4/4) 0xd5600", 0xd5600, 0xd5800 },
+    { L"round-2 (1/4) 0xd5800", 0xd5800, 0xd5a00 },
+    { L"round-2 (2/4) 0xd5a00", 0xd5a00, 0xd5c00 },
+    { L"round-2 (3/4) 0xd5c00", 0xd5c00, 0xd5e00 },
+    { L"round-2 (4/4) 0xd5e00", 0xd5e00, 0xd6000 },
+    { L"round-3 (1/4) 0xd6000", 0xd6000, 0xd6200 },
+    { L"round-3 (2/4) 0xd6200", 0xd6200, 0xd6400 },
+    { L"round-3 (3/4) 0xd6400", 0xd6400, 0xd6600 },
+    { L"round-3 (4/4) 0xd6600", 0xd6600, 0xd6800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_BlueMary_Palettes[] =
+{
+    { L"round -1.2 (1/4) 0xd6800", 0xd6800, 0xd6a00 },
+    { L"round -1.2 (2/4) 0xd6a00", 0xd6a00, 0xd6c00 },
+    { L"round -1.2 (3/4) 0xd6c00", 0xd6c00, 0xd6e00 },
+    { L"round -1.2 (4/4) 0xd6e00", 0xd6e00, 0xd7000 },
+    { L"round-3 (1/4) 0xd7000", 0xd7000, 0xd7200 },
+    { L"round-3 (2/4) 0xd7200", 0xd7200, 0xd7400 },
+    { L"round-3 (3/4) 0xd7400", 0xd7400, 0xd7600 },
+    { L"round-3 (4/4) 0xd7600", 0xd7600, 0xd7800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_GeeseHoward_Palettes[] =
+{
+    { L"round-1 (1/4) 0xd7800", 0xd7800, 0xd7a00 },
+    { L"round-1 (2/4) 0xd7a00", 0xd7a00, 0xd7c00 },
+    { L"round-1 (3/4) 0xd7c00", 0xd7c00, 0xd7e00 },
+    { L"round-1 (4/4) 0xd7e00", 0xd7e00, 0xd8000 },
+    { L"round-2 (1/4) 0xd8000", 0xd8000, 0xd8200 },
+    { L"round-2 (2/4) 0xd8200", 0xd8200, 0xd8400 },
+    { L"round-2 (3/4) 0xd8400", 0xd8400, 0xd8600 },
+    { L"round-2 (4/4) 0xd8600", 0xd8600, 0xd8800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_RyujiYamazaki_Palettes[] =
+{
+    { L"round-1 (1/4) 0xd8800", 0xd8800, 0xd8a00 },
+    { L"round-1 (2/4) 0xd8a00", 0xd8a00, 0xd8c00 },
+    { L"round-1 (3/4) 0xd8c00", 0xd8c00, 0xd8e00 },
+    { L"round-1 (4/4) 0xd8e00", 0xd8e00, 0xd9000 },
+    { L"round-2 (1/4) 0xd9000", 0xd9000, 0xd9200 },
+    { L"round-2 (2/4) 0xd9200", 0xd9200, 0xd9400 },
+    { L"round-2 (3/4) 0xd9400", 0xd9400, 0xd9600 },
+    { L"round-2 (4/4) 0xd9600", 0xd9600, 0xd9800 },
+    { L"round-3 (1/4) 0xd9800", 0xd9800, 0xd9a00 },
+    { L"round-3 (2/4) 0xd9a00", 0xd9a00, 0xd9c00 },
+    { L"round-3 (3/4) 0xd9c00", 0xd9c00, 0xd9e00 },
+    { L"round-3 (4/4) 0xd9e00", 0xd9e00, 0xda000 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_FrancoBash_Palettes[] =
+{
+    { L"round-1 (1/4) 0xda000", 0xda000, 0xda200 },
+    { L"round-1 (2/4) 0xda200", 0xda200, 0xda400 },
+    { L"round-1 (3/4) 0xda400", 0xda400, 0xda600 },
+    { L"round-1 (4/4) 0xda600", 0xda600, 0xda800 },
+    { L"round-2 (1/4) 0xda800", 0xda800, 0xdaa00 },
+    { L"round-2 (2/4) 0xdaa00", 0xdaa00, 0xdac00 },
+    { L"round-2 (3/4) 0xdac00", 0xdac00, 0xdae00 },
+    { L"round-2 (4/4) 0xdae00", 0xdae00, 0xdb000 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_BobWilson_Palettes[] =
+{
+    { L"round-1 (1/4) 0xdb000", 0xdb000, 0xdb200 },
+    { L"round-1 (2/4) 0xdb200", 0xdb200, 0xdb400 },
+    { L"round-1 (3/4) 0xdb400", 0xdb400, 0xdb600 },
+    { L"round-1 (4/4) 0xdb600", 0xdb600, 0xdb800 },
+
+    { L"round-2 (1/4) 0xdb800", 0xdb800, 0xdba00 },
+    { L"round-2 (2/4) 0xdba00", 0xdba00, 0xdbc00 },
+    { L"round-2 (3/4) 0xdbc00", 0xdbc00, 0xdbe00 },
+    { L"round-2 (4/4) 0xdbe00", 0xdbe00, 0xdc000 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_SokakuMochizuki_Palettes[] =
+{
+    { L"round-1 (1/4) 0xdc000", 0xdc000, 0xdc200 },
+    { L"round-1 (2/4) 0xdc200", 0xdc200, 0xdc400 },
+    { L"round-1 (3/4) 0xdc400", 0xdc400, 0xdc600 },
+    { L"round-1 (4/4) 0xdc600", 0xdc600, 0xdc800 },
+    { L"round-2 (1/4) 0xdc800", 0xdc800, 0xdca00 },
+    { L"round-2 (2/4) 0xdca00", 0xdca00, 0xdcc00 },
+    { L"round-2 (3/4) 0xdcc00", 0xdcc00, 0xdce00 },
+    { L"round-2 (4/4) 0xdce00", 0xdce00, 0xdd000 },
+    { L"round-3 (1/4) 0xdd000", 0xdd000, 0xdd200 },
+    { L"round-3 (2/4) 0xdd200", 0xdd200, 0xdd400 },
+    { L"round-3 (3/4) 0xdd400", 0xdd400, 0xdd600 },
+    { L"round-3 (4/4) 0xdd600", 0xdd600, 0xdd800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_AndyBogard_Palettes[] =
+{
+    { L"round-1 (1/4) 0xdd800", 0xdd800, 0xdda00 },
+    { L"round-1 (2/4) 0xdda00", 0xdda00, 0xddc00 },
+    { L"round-1 (3/4) 0xddc00", 0xddc00, 0xdde00 },
+    { L"round-1 (4/4) 0xdde00", 0xdde00, 0xde000 },
+    { L"round-2 (1/4) 0xde000", 0xde000, 0xde200 },
+    { L"round-2 (2/4) 0xde200", 0xde200, 0xde400 },
+    { L"round-2 (3/4) 0xde400", 0xde400, 0xde600 },
+    { L"round-2 (4/4) 0xde600", 0xde600, 0xde800 },
+    { L"round-3 (1/4) 0xde800", 0xde800, 0xdea00 },
+    { L"round-3 (2/4) 0xdea00", 0xdea00, 0xdec00 },
+    { L"round-3 (3/4) 0xdec00", 0xdec00, 0xdee00 },
+    { L"round-3 (4/4) 0xdee00", 0xdee00, 0xdf000 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_HonFu_Palettes[] =
+{
+    { L"round-1 (1/7) 0xdf000", 0xdf000, 0xdf200 },
+    { L"round-1 (2/7) 0xdf200", 0xdf200, 0xdf400 },
+    { L"round-1 (3/7) 0xdf400", 0xdf400, 0xdf600 },
+    { L"round-1 (4/7) 0xdf600", 0xdf600, 0xdf800 },
+    { L"round-1 (5/7) 0xdf800", 0xdf800, 0xdfa00 },
+    { L"round-1 (6/7) 0xdfa00", 0xdfa00, 0xdfc00 },
+    { L"round-1 (7/7) 0xdfc00", 0xdfc00, 0xdfe00 },
+    { L"round-2 (1/5) 0xdfe00", 0xdfe00, 0xe0000 },
+    { L"round-2 (2/5) 0xe0000", 0xe0000, 0xe0200 },
+    { L"round-2 (3/5) 0xe0200", 0xe0200, 0xe0400 },
+    { L"round-2 (4/5) 0xe0400", 0xe0400, 0xe0600 },
+    { L"round-2 (5/5) 0xe0600", 0xe0600, 0xe0800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_JinChonshu_Palettes[] =
+{
+    { L"round-1 (1/4) 0xe0800", 0xe0800, 0xe0a00 },
+    { L"round-1 (2/4) 0xe0a00", 0xe0a00, 0xe0c00 },
+    { L"round-1 (3/4) 0xe0c00", 0xe0c00, 0xe0e00 },
+    { L"round-1 (4/4) 0xe0e00", 0xe0e00, 0xe1000 },
+    { L"round-2 (1/4) 0xe1000", 0xe1000, 0xe1200 },
+    { L"round-2 (2/4) 0xe1200", 0xe1200, 0xe1400 },
+    { L"round-2 (3/4) 0xe1400", 0xe1400, 0xe1600 },
+    { L"round-2 (4/4) 0xe1600", 0xe1600, 0xe1800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_JinChonrei_Palettes[] =
+{
+    { L"round-1 (1/4) 0xe1800", 0xe1800, 0xe1a00 },
+    { L"round-1 (2/4) 0xe1a00", 0xe1a00, 0xe1c00 },
+    { L"round-1 (3/4) 0xe1c00", 0xe1c00, 0xe1e00 },
+    { L"round-1 (4/4) 0xe1e00", 0xe1e00, 0xe2000 },
+    { L"round-2 (1/4) 0xe2000", 0xe2000, 0xe2200 },
+    { L"round-2 (2/4) 0xe2200", 0xe2200, 0xe2400 },
+    { L"round-2 (3/4) 0xe2400", 0xe2400, 0xe2600 },
+    { L"round-2 (4/4) 0xe2600", 0xe2600, 0xe2800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_JinChonrei_FinalStory_Palettes[] =
+{
+    { L"round-1 (1/4) 0xe2800", 0xe2800, 0xe2a00 },
+    { L"round-1 (2/4) 0xe2a00", 0xe2a00, 0xe2c00 },
+    { L"round-1 (3/4) 0xe2c00", 0xe2c00, 0xe2e00 },
+    { L"round-1 (4/4) 0xe2e00", 0xe2e00, 0xe3000 },
+    { L"round-2 (1/4) 0xe3000", 0xe3000, 0xe3200 },
+    { L"round-2 (2/4) 0xe3200", 0xe3200, 0xe3400 },
+    { L"round-2 (3/4) 0xe3400", 0xe3400, 0xe3600 },
+    { L"round-2 (4/4) 0xe3600", 0xe3600, 0xe3800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_BlueMary_Complement_Palettes[] =
+{
+    { L"round-1.2....... complement part", 0xe3800, 0xe3a00 },
+    { L"round-3 ........ complement part", 0xe3a00, 0xe3c00 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_HonFu_Complement_Palettes[] =
+{
+    { L"round-2........complement part (1/2) 0xe3c00", 0xe3c00, 0xe3e00 },
+    { L"round-2........complement part (2/2) 0xe3e00", 0xe3e00, 0xe4000 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_GeeseHoward_Story_Palettes[] =
+{
+    { L"round3 (1/4) 0xe4000", 0xe4000, 0xe4200 },
+    { L"round3 (2/4) 0xe4200", 0xe4200, 0xe4400 },
+    { L"round3 (3/4) 0xe4400", 0xe4400, 0xe4600 },
+    { L"round3 (4/4) 0xe4600", 0xe4600, 0xe4800 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_HonFu_R3_Palettes[] =
+{
+    { L"round-3 (1/4) 0xe5800", 0xe5800, 0xe5a00 },
+    { L"round-3 (2/4) 0xe5a00", 0xe5a00, 0xe5c00 },
+    { L"round-3 (3/4) 0xe5c00", 0xe5c00, 0xe5e00 },
+    { L"round-3 (4/4) 0xe5e00", 0xe5e00, 0xe6000 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_SokakuMochizuki_Complement_Palettes[] =
+{
+    { L"round-3.........complement part", 0xe8c00, 0xe8d20 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_AndyBogard_Complement_Palettes[] =
+{
+    { L"round-1.........complement part", 0xe7200, 0xe7400 },
+    { L"round-2.........complement part", 0xe7400, 0xe7600 },
+    { L"round-3......... complement part", 0xe7600, 0xe77c0 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_HonFu_R3_Complement_Palettes[] =
+{
+    { L"round-3 ...........complement part (1/3) 0xe8e00", 0xe8e00, 0xe9000 },
+    { L"round-3 ...........complement part (2/3) 0xe9000", 0xe9000, 0xe9200 },
+    { L"round-3 ...........complement part (3/3) 0xe9200", 0xe9200, 0xe9400 },
+};
+
+const sGame_PaletteDataset FatalFury3_A_STAGES_MaiShiranui_R3_Palettes[] =
+{
+    { L"round-3 (1/4) 0xe9800", 0xe9800, 0xe9a00 },
+    { L"round-3 (2/4) 0xe9a00", 0xe9a00, 0xe9c00 },
+    { L"round-3 (3/4) 0xe9c00", 0xe9c00, 0xe9e00 },
+    { L"round-3 (4/4) 0xe9e00", 0xe9e00, 0xea000 },
+};
+
 const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_BONUS[] =
 {
     { L"Lifebar", 0xd0060, 0xd00a0 },
@@ -367,7 +624,6 @@ const sGame_PaletteDataset FatalFury3_A_BONUS_PALETTES_BONUS[] =
     { L"Location point", 0xd1d80, 0xd1da0 },
 
     { L"Logo VS. Logo Fatal Fury 3 *mod challenge*", 0xD1CE0, 0xD1D00 },
-    { L"Background mod challenge *p1 vs p2*", 0xD3BA0, 0xD3BC0 },
 };
 
 const sDescTreeNode FatalFury3_A_TERRY_COLLECTION[] =
@@ -456,6 +712,34 @@ const sDescTreeNode FatalFury3_A_PORTRAITS_COLLECTION[] =
     { L"Portraits Small Characters", DESC_NODETYPE_TREE, (void*)FatalFury3_A_PORTRAITS_PALETTES_SMALL, ARRAYSIZE(FatalFury3_A_PORTRAITS_PALETTES_SMALL) },
 };
 
+const sDescTreeNode FatalFury3_A_STAGES_COLLECTION[] =
+{
+    { L"Terry Bogard", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_TerryBogard_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_TerryBogard_Palettes) },
+    { L"Mai Shiranui", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_MaiShiranui_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_MaiShiranui_Palettes) },
+    { L"Ryuji Yamazaki accident bonus", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_RyujiYamazaki_accident_bonus_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_RyujiYamazaki_accident_bonus_Palettes) },
+    { L"Joe Higashi", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_JoeHigashi_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_JoeHigashi_Palettes) },
+    { L"Blue Mary", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_BlueMary_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_BlueMary_Palettes) },
+    { L"Geese Howard", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_GeeseHoward_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_GeeseHoward_Palettes) },
+    { L"Ryuki Yamazaki", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_RyujiYamazaki_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_RyujiYamazaki_Palettes) },
+    { L"Franco Bash", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_FrancoBash_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_FrancoBash_Palettes) },
+    { L"Bob Wilson", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_BobWilson_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_BobWilson_Palettes) },
+    { L"Sokaku Mochizuki", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_SokakuMochizuki_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_SokakuMochizuki_Palettes) },
+    { L"Andy Bogard", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_AndyBogard_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_AndyBogard_Palettes) },
+    { L"Hon Fu", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_HonFu_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_HonFu_Palettes) },
+    { L"Jin Chonshu", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_JinChonshu_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_JinChonshu_Palettes) },
+    { L"Jin Chonrei", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_JinChonrei_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_JinChonrei_Palettes) },
+    { L"Jin Chonrei (Final Story)", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_JinChonrei_FinalStory_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_JinChonrei_FinalStory_Palettes) },
+
+    { L"Blue Mary complements", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_BlueMary_Complement_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_BlueMary_Complement_Palettes) },
+    { L"Hon Fu complements", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_HonFu_Complement_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_HonFu_Complement_Palettes) },
+    { L"Geese Howard (Story)", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_GeeseHoward_Story_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_GeeseHoward_Story_Palettes) },
+    { L"Hon Fu Round 3", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_HonFu_R3_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_HonFu_R3_Palettes) },
+    { L"Sokaku Mochizuki complement", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_SokakuMochizuki_Complement_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_SokakuMochizuki_Complement_Palettes) },
+    { L"Andy Bogard complement", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_AndyBogard_Complement_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_AndyBogard_Complement_Palettes) },
+    { L"Hon Fu Round 3 complement", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_HonFu_R3_Complement_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_HonFu_R3_Complement_Palettes) },
+    { L"Mai Shiranui Round 3", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_MaiShiranui_R3_Palettes, ARRAYSIZE(FatalFury3_A_STAGES_MaiShiranui_R3_Palettes) },
+};
+
 const sDescTreeNode FatalFury3_A_BONUS_COLLECTION[] =
 {
     { L"Enemy Select Story", DESC_NODETYPE_TREE, (void*)FatalFury3_A_BONUS_PALETTES_ENEMY, ARRAYSIZE(FatalFury3_A_BONUS_PALETTES_ENEMY) },
@@ -480,5 +764,6 @@ const sDescTreeNode FatalFury3_A_UNITS[] =
     { L"Jin Chonshu", DESC_NODETYPE_TREE, (void*)FatalFury3_A_CHONSHU_COLLECTION, ARRAYSIZE(FatalFury3_A_CHONSHU_COLLECTION) },
 
     { L"Portraits", DESC_NODETYPE_TREE, (void*)FatalFury3_A_PORTRAITS_COLLECTION, ARRAYSIZE(FatalFury3_A_PORTRAITS_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)FatalFury3_A_STAGES_COLLECTION, ARRAYSIZE(FatalFury3_A_STAGES_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)FatalFury3_A_BONUS_COLLECTION, ARRAYSIZE(FatalFury3_A_BONUS_COLLECTION) },
 };
