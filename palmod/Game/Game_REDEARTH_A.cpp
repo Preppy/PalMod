@@ -60,7 +60,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(uint32_t nConfirmedROMSize /* = -1 */, int nR
     m_nRedEarthMode = nRedEarthModeToLoad;
 
     const uint32_t nSafeCountFor30 = 473;
-    const uint32_t nSafeCountFor31 = 1288;
+    const uint32_t nSafeCountFor31 = 1297;
     const uint32_t nSafeCountFor50 = 4;
 
     switch (m_nRedEarthMode)
@@ -613,6 +613,10 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                         // The starting point is the absolute first palette for the sprite in question which is found in P1
                         nSrcStart -= nNodeIncrement;
                     }
+                }
+                else
+                {
+                    OutputDebugString(L"DANGER ZACH ROBINSON!\r\n");
                 }
             }
 

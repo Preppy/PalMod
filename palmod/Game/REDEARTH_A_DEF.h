@@ -75,6 +75,8 @@ const sGame_PaletteDataset REDEARTH_A_LEO_PUNCH_PALETTES[] =
     { L"Leo Punch Frozen 4", 0x40B100, 0x40B180, indexRedEarthSprites_Leo },
     { L"Leo Punch Frozen 5", 0x40B180, 0x40B200, indexRedEarthSprites_Leo },
     { L"Mirror Trapped - Leo Punch", 0x433f00, 0x433f80, indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Punch Trapped in Ravange's Sarcophagus", 0x42ef00, 0x42ef80 },
+
 
     { L"Vigo, Valo & Vestu", 0x408f80, 0x409000 },
     { L"Wisemen Mist 1", 0x409000, 0x409080 },
@@ -120,6 +122,7 @@ const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
     { L"Leo Kick Frozen 4", 0x417900, 0x417980, indexRedEarthSprites_Leo },
     { L"Leo Kick Frozen 5", 0x417980, 0x417A00, indexRedEarthSprites_Leo }, 
     { L"Mirror Trapped - Leo Kick",         0x434000, 0x434080, indexRedEarthSprites_Leo, 0x0 },
+    { L"Leo Kick Trapped in Ravange's Sarcophagus", 0x42fb80, 0x42fc00 },
 
     { L"Vigo, Valo & Vestu", 0x415780, 0x415800 },
     { L"Wisemen Mist 1", 0x415800, 0x415880 },
@@ -177,6 +180,7 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
     { L"Kenji Punch Frozen 4", 0x40E300, 0x40E380, indexRedEarthSprites_Kenji },
     { L"Kenji Punch Frozen 5", 0x40E380, 0x40E400, indexRedEarthSprites_Kenji },
     { L"Mirror Trapped - Kenji Punch",      0x434080, 0x434100, indexRedEarthSprites_Kenji, 0x0 },
+    { L"Kenji Punch Trapped in Ravange's Sarcophagus", 0x42ef80, 0x42f000 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
@@ -219,6 +223,7 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
     { L"Kenji Kick Frozen 4", 0x41AB00, 0x41AB80, indexRedEarthSprites_Kenji },
     { L"Kenji Kick Frozen 5", 0x41AB80, 0x41AC00, indexRedEarthSprites_Kenji },
     { L"Mirror Trapped - Kenji Kick",       0x434100, 0x434180, indexRedEarthSprites_Kenji, 0x0 },
+    { L"Kenji Kick Trapped in Ravange's Sarcophagus", 0x42fc00, 0x42fc80 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
@@ -301,6 +306,7 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
     { L"Tessa Punch Frozen 4", 0x411500, 0x411580, indexRedEarthSprites_Tessa, 0 },
     { L"Tessa Punch Frozen 5", 0x411580, 0x411600, indexRedEarthSprites_Tessa, 0 },
     { L"Mirror Trapped - Tessa Punch",      0x434180, 0x434200, indexRedEarthSprites_Tessa, 0x0 },
+    { L"Tessa Punch Trapped in Ravange's Sarcophagus", 0x42f000, 0x42f080 },
 
     // Cartur is a knight that tessa encounters during her story mode
     { L"Punch Palette Cartur", 0x40e580, 0x40e600, indexRedEarthSprites_Tessa, 0x24 },
@@ -373,6 +379,7 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
     { L"Tessa Kick Frozen 4", 0x41DD00, 0x41DD80, indexRedEarthSprites_Tessa, 0 },
     { L"Tessa Kick Frozen 5", 0x41DD80, 0x41DE00, indexRedEarthSprites_Tessa, 0 },
     { L"Mirror Trapped - Tessa Kick",       0x434200, 0x434280, indexRedEarthSprites_Tessa, 0x0 },
+    { L"Tessa Kick Trapped in Ravange's Sarcophagus", 0x42fc80, 0x42fd00 },
 
     { L"Kick Palette Cartur", 0x41ad80, 0x41ae00, indexRedEarthSprites_Tessa, 0x24 },
 };
@@ -419,6 +426,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
     { L"Mai-Ling Punch Frozen 4", 0x414700, 0x414780, indexRedEarthSprites_MaiLing, 0 },
     { L"Mai-Ling Punch Frozen 5", 0x414780, 0x414800, indexRedEarthSprites_MaiLing, 0 },
     { L"Mirror Trapped - Mai-Ling Punch",   0x434280, 0x434300, indexRedEarthSprites_MaiLing, 0x0 },
+    { L"Mai Punch Trapped in Ravange's Sarcophagus", 0x42f080, 0x42f100 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
@@ -452,6 +460,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
     { L"Mai-Ling Kick Frozen 4", 0x420F00, 0x420F80, indexRedEarthSprites_MaiLing, 0 },
     { L"Mai-Ling Kick Frozen 5", 0x420F80, 0x421000, indexRedEarthSprites_MaiLing, 0 },
     { L"Mirror Trapped - Mai-Ling Kick",    0x434300, 0x434380, indexRedEarthSprites_MaiLing, 0x0 },
+    { L"Mai Kick Trapped in Ravange's Sarcophagus", 0x42fd00, 0x42fd80 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
@@ -711,6 +720,7 @@ const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
     { L"Pyre", 0x42f980, 0x42fa00, indexRedEarthSprites_Ravange, 0x09 },
     { L"Clara ball FX", 0x42fb00, 0x42fb80 },
 
+    { L"Ravange's Sand Ladies", 0x42ee80, 0x42ef00 },
     { L"Kids", 0x42fa00, 0x42fb00, indexRedEarthSprites_Ravange, 0x01 },
 
     { L"Ravange Burned 1", 0x430200, 0x430280, indexRedEarthSprites_Ravange, 0x00 },
@@ -2601,7 +2611,7 @@ const sGame_PaletteDataset REDEARTH_A_30_BONUS_UNUSED_PALETTES[] =
     { L"Icelarn Unused Palette (Slash Transparency)", 0x741f80, 0x742000 },
 
     { L"Greedia Unused Palette (Hauzer's Fire Transparency)", 0x74a000, 0x74a080 },
-    { L"Icelarn Unused Palette (Hydron's Poison Gas Transparency)", 0x73cf80, 0x73d000 },
+    { L"Icelarn Unused Palette (Hydron's Poison Gas Transparency)", 0x74cf80, 0x74d000 },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =
