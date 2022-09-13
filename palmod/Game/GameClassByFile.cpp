@@ -9,21 +9,21 @@ SupportedGamesList CGameClassByFile::_sCurrentGameFlag = SupportedGamesList::NUM
 
 uint32_t CGameClassByFile::GetCollectionCountForUnit(uint32_t nUnitId)
 {
-    return _sCurrentGameUnits[nUnitId].nPaletteSetCount;
+    return _sCurrentGameUnits.at(nUnitId).nPaletteSetCount;
 }
 
 uint32_t CGameClassByFile::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    return _sCurrentGameUnits[nUnitId].prgPaletteSets[nCollectionId].uChildAmt;
+    return _sCurrentGameUnits.at(nUnitId).prgPaletteSets[nCollectionId].uChildAmt;
 }
 
 uint32_t CGameClassByFile::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     uint32_t nCollectionCount = 0;
 
-    for (uint32_t nNodeIndex = 0; nNodeIndex < _sCurrentGameUnits[nUnitId].nPaletteSetCount; nNodeIndex++)
+    for (uint32_t nNodeIndex = 0; nNodeIndex < _sCurrentGameUnits.at(nUnitId).nPaletteSetCount; nNodeIndex++)
     {
-        const sDescTreeNode* pThisNode = (const sDescTreeNode*)_sCurrentGameUnits[nUnitId].prgPaletteSets;
+        const sDescTreeNode* pThisNode = _sCurrentGameUnits.at(nUnitId).prgPaletteSets;
 
         nCollectionCount += pThisNode[nNodeIndex].uChildAmt;
     }
@@ -33,7 +33,7 @@ uint32_t CGameClassByFile::GetPaletteCountForUnit(uint32_t nUnitId)
 
 LPCWSTR CGameClassByFile::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    return _sCurrentGameUnits[nUnitId].prgPaletteSets[nCollectionId].szDesc;
+    return _sCurrentGameUnits.at(nUnitId).prgPaletteSets[nCollectionId].szDesc;
 }
 
 uint32_t CGameClassByFile::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
@@ -62,7 +62,7 @@ uint32_t CGameClassByFile::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t n
 
 const sGame_PaletteDataset* CGameClassByFile::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    return (const sGame_PaletteDataset*)_sCurrentGameUnits[nUnitId].prgPaletteSets[nCollectionId].ChildNodes;
+    return (const sGame_PaletteDataset*)_sCurrentGameUnits.at(nUnitId).prgPaletteSets[nCollectionId].ChildNodes;
 }
 
 const sDescTreeNode* CGameClassByFile::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
@@ -75,7 +75,7 @@ const sDescTreeNode* CGameClassByFile::GetNodeFromPaletteId(uint32_t nUnitId, ui
     for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(_sCurrentGameUnits[nUnitId].prgPaletteSets);
+        const sDescTreeNode* pCollectionNodeToCheck = _sCurrentGameUnits.at(nUnitId).prgPaletteSets;
 
         uint32_t nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -138,7 +138,7 @@ void CGameClassByFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
         uint32_t cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-        m_nCurrentPaletteSizeInColors = (uint16_t)cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+        m_nCurrentPaletteSizeInColors = static_cast<uint16_t>(cbPaletteSizeOnDisc) / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
 
         WarnIfPaletteIsOversized(nUnitId, nPalId, m_nCurrentPaletteROMLocation, m_nCurrentPaletteSizeInColors, m_pszCurrentPaletteName);
@@ -241,7 +241,7 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
     sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
-    if (NodeGet == nullptr)
+    if (!NodeGet)
     {
         return FALSE;
     }

@@ -1517,7 +1517,7 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
 
     sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
-    if (NodeGet == nullptr)
+    if (!NodeGet)
     {
         return FALSE;
     }
@@ -1571,10 +1571,30 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                     nSrcAmt = min(static_cast<uint32_t>(pButtonLabelSet.size()), nCollectionCount);
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
-                    while (nSrcStart >= nNodeIncrement)
+                    // OK, we have confirmed that the collection label matches a button label.
+                    // Now let's sanity check the node lengths
+                    for (uint32_t nOptionsToTest = 0; nOptionsToTest < nSrcAmt; nOptionsToTest++)
                     {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1
-                        nSrcStart -= nNodeIncrement;
+                        if (_GetNodeCountForCollection(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, nOptionsToTest, ppExtraDef) != nNodeIncrement)
+                        {
+                            OutputDebugString(L"CGameClass::_UpdatePalImg: WARNING: These palette nodes are not pairable.  Possibly you already know this, but maybe you want to doublecheck and see if you forget a palette in the set.\r\n");
+                            fIsCorePalette = false;
+                        }
+                    }
+
+                    if (fIsCorePalette)
+                    {
+                        while (nSrcStart >= nNodeIncrement)
+                        {
+                            // The starting point is the absolute first palette for the sprite in question which is found in P1
+                            nSrcStart -= nNodeIncrement;
+                        }
+                    }
+                    else
+                    {
+                        // This isn't pairable: treat as a solo palette.
+                        nSrcAmt = 1;
+                        nNodeIncrement = 1;
                     }
                 }
             }
