@@ -1,9 +1,5 @@
 #include "StdAfx.h"
 #include "Game_REDEARTH_A.h"
-#include "GameDef.h"
-#include "..\ExtraFile.h"
-#include "..\PalMod.h"
-#include "..\regproc.h"
 
 RedEarthLoadingKey CGame_REDEARTH_A::m_eROMToLoad = RedEarthLoadingKey::RedEarthROM31;
 

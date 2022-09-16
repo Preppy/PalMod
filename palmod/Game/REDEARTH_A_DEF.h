@@ -2155,7 +2155,7 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES[] =
     { L"Middle Ground Pillars & Ground Part", 0x738c80, 0x738d00 },
     { L"Background Pillars & Ground Part", 0x738d00, 0x738d80 },
     { L"Wall on the left & Ground Part", 0x738d80, 0x738e00 },
-    // Palm Tree on the Right Side is not in Faded 1
+    { L"Palm Tree on the Right Side", 0x73a200, 0x73a280 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES[] =
@@ -2173,46 +2173,42 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES[] =
     { L"Middle Ground Pillars & Ground Part", 0x739300, 0x739380 },
     { L"Background Pillars & Ground Part", 0x739380, 0x739400 },
     { L"Wall on the left & Ground Part", 0x739400, 0x739480 },
+    { L"Palm Tree on the Right Side", 0x73a180, 0x73a200 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES[] =
 {
-    // Intro Section Faded 3 & Statue Absorption Effects
     { L"Ground", 0x739480, 0x739500 },
     { L"Small Part of Left Pillars & Bricks", 0x739500, 0x739580 },
     { L"Palm Trees & Part of Ram Statue", 0x739580, 0x739600 },
     { L"Gigantic Rock on the right & Grass", 0x739600, 0x739680 },
     { L"Left Pillars & Ground Part", 0x739680, 0x739700 },
-
-    // Center Pillars & Eagle HAS ABSORPTION EFFECT
-    { L"Center Pillars & Eagle Statue O_O", 0x739700, 0x739780 },
-    { L"Center Pillars & Eagle Statue O_O", 0x739780, 0x739800 },
-    { L"Center Pillars & Eagle Statue O_O", 0x739800, 0x739880 },
-    { L"Center Pillars & Eagle Statue O_O", 0x739880, 0x739900 },
     { L"Center Pillars & Eagle Statue", 0x739900, 0x739980 },
-    // Tiger & Lizard Type Dragon Statues HAS ABSORPTION EFFECT
-    { L"Tiger & Lizard Type Dragon Statues O_O", 0x739980, 0x739a00 },
-    { L"Tiger & Lizard Type Dragon Statues O_O", 0x739a00, 0x739a80 },
-    { L"Tiger & Lizard Type Dragon Statues O_O", 0x739a80, 0x739b00 },
-    { L"Tiger & Lizard Type Dragon Statues O_O", 0x739b00, 0x739b80 },
     { L"Tiger & Lizard Type Dragon Statues", 0x739b80, 0x739c00 },
-    // ok for some reason they skipped skybackground address & background building address and went straight to Ram Statue addresses (has absorption effect)
-    { L"Ram Statue's Head & part of Palm Trees O_O", 0x739c00, 0x739c80 },
-    { L"Ram Statue's Head & part of Palm Trees O_O", 0x739c80, 0x739d00 },
-    { L"Ram Statue's Head & part of Palm Trees O_O", 0x739d00, 0x739d80 },
-    { L"Ram Statue's Head & part of Palm Trees O_O", 0x739d80, 0x739e00 },
     { L"Ram Statue's Head & part of Palm Trees", 0x739e00, 0x739e80 },
-    // Sky & Background/Background Building are here, but it's started with Middle Ground pillars for some reason
     { L"Middle Ground Pillars & Ground Part", 0x739e80, 0x739f00 },
     { L"Sky & Background", 0x739f00, 0x739f80 },
     { L"Background Building on the Right", 0x739f80, 0x73a000 },
     { L"Background Pillars & Ground Part", 0x73a000, 0x73a080 },
     { L"Wall on the left & Ground Part", 0x73a080, 0x73a100 },
-    // and palm tree on the right side with absorption effects. also there might be 4th absorption effect with no palm tree stuff?
     { L"Palm Tree on the Right Side", 0x73a100, 0x73a180 },
-    { L"Palm Tree on the Right Side", 0x73a180, 0x73a200 },
-    { L"Palm Tree on the Right Side", 0x73a200, 0x73a280 },
-    { L"Wtf?", 0x73a280, 0x73a300 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_ABSORP_PALETTES[] =
+{
+    { L"Absorption of Eagle's Statue 1", 0x739700, 0x739780 },
+    { L"Absorption of Eagle's Statue 2", 0x739780, 0x739800 },
+    { L"Absorption of Eagle's Statue 3", 0x739800, 0x739880 },
+    { L"Absorption of Eagle's Statue 4", 0x739880, 0x739900 },
+    { L"Absorption of Tiger & Lizard Dragon 1", 0x739980, 0x739a00 },
+    { L"Absorption of Tiger & Lizard Dragon 2", 0x739a00, 0x739a80 },
+    { L"Absorption of Tiger & Lizard Dragon 3", 0x739a80, 0x739b00 },
+    { L"Absorption of Tiger & Lizard Dragon 4", 0x739b00, 0x739b80 },
+    { L"Absorption of Ram Statue 1", 0x739c00, 0x739c80 },
+    { L"Absorption of Ram Statue 2", 0x739c80, 0x739d00 },
+    { L"Absorption of Ram Statue 3", 0x739d00, 0x739d80 },
+    { L"Absorption of Ram Statue 4", 0x739d80, 0x739e00 },
+    { L"unknown", 0x73a280, 0x73a300 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_PALETTES[] =
@@ -2254,16 +2250,20 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_OTHER_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_PALETTES[] =
 {
-    { L"1/6 sky background dark", 0x73ea20, 0x73eaa0, indexRedEarthSprites_Stages, 0x14, &pairFullyLinkedNode },
-    { L"1/6 sky background light", 0x73e9a0, 0x73ea20, indexRedEarthSprites_Stages, 0x14 },
-    { L"2/6 pillars and goat", 0x73eaa0, 0x73ec20, indexRedEarthSprites_Stages, 0x13 },
-    { L"4/6 left pillars", 0x73e820, 0x73e9a0, indexRedEarthSprites_Stages, 0x11 },
-    { L"5/6 background bottom right", 0x73e620, 0x73e820, indexRedEarthSprites_Stages, 0x10 },
-    { L"6/6 left wall/tree", 0x73ec20, 0x73ed20, indexRedEarthSprites_Stages, 0x0f },
-
-    { L"Unknown chunk 1", 0x73e580, 0x73e620 },
-    { L"Unknown chunk 2", 0x73ed20, 0x73ef20 },
-    { L"Unknown chunk 3", 0x73ef20, 0x73efa0 },
+    { L"Sky & Background Without Sphinx", 0x73e9a0, 0x73ea20, indexRedEarthSprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Background Building on the Right", 0x73ea20, 0x73eaa0 },
+    { L"Ground", 0x73e620, 0x73e6a0 },
+    { L"Palm Trees but Buggy", 0x73e720, 0x73e7a0 },
+    { L"Small Part of Palm Trees", 0x73eaa0, 0x73eb20 },
+    { L"Gigantic Rock on the right & Grass", 0x73e7a0, 0x73e820 },
+    { L"Left Pillars & Ground Part", 0x73e820, 0x73e8a0 },
+    { L"Small Part of Left Pillars & Bricks", 0x73e6a0, 0x73e720 },
+    { L"Smaller Parts of Left Pillars & Bricks", 0x73e920, 0x73e9a0 },
+    { L"Wall on the left & Ground Part", 0x73ec20, 0x73eca0 },
+    { L"Scion Statue", 0x73ee20, 0x73eea0 },
+    { L"Statue Stand", 0x73eea0, 0x73ef20 },
+    { L"Clara's Golden Statue", 0x73ef20, 0x73efa0 },
+    { L"Unknown Bonus Game 1 Palette", 0x73e8a0, 0x73e920 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_DERMINOR_PALETTES[] =
@@ -2548,16 +2548,20 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_CRYPT_OTHER_SLASH_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_SLASH_PALETTES[] =
 {
-    { L"1/6 sky background dark", 0x73ea20 + 0xb000, 0x73eaa0 + 0xb000, indexRedEarthSprites_Stages, 0x14, &pairFullyLinkedNode },
-    { L"1/6 sky background light", 0x73e9a0 + 0xb000, 0x73ea20 + 0xb000, indexRedEarthSprites_Stages, 0x14 },
-    { L"2/6 pillars and goat", 0x73eaa0 + 0xb000, 0x73ec20 + 0xb000, indexRedEarthSprites_Stages, 0x13 },
-    { L"4/6 left pillars", 0x73e820 + 0xb000, 0x73e9a0 + 0xb000, indexRedEarthSprites_Stages, 0x11 },
-    { L"5/6 background bottom right", 0x73e620 + 0xb000, 0x73e820 + 0xb000, indexRedEarthSprites_Stages, 0x10 },
-    { L"6/6 left wall/tree", 0x73ec20 + 0xb000, 0x73ed20 + 0xb000, indexRedEarthSprites_Stages, 0x0f },
-
-    { L"Unknown chunk 1", 0x73e580 + 0xb000, 0x73e620 + 0xb000 },
-    { L"Unknown chunk 2", 0x73ed20 + 0xb000, 0x73ef20 + 0xb000 },
-    { L"Unknown chunk 3", 0x73ef20 + 0xb000, 0x73efa0 + 0xb000 },
+    { L"Sky & Background Without Sphinx", 0x73e9a0 + 0xb000, 0x73ea20 + 0xb000, indexRedEarthSprites_Stages, -1, &pairFullyLinkedNode },
+    { L"Background Building on the Right", 0x73ea20 + 0xb000, 0x73eaa0 + 0xb000,  },
+    { L"Ground", 0x73e620 + 0xb000, 0x73e6a0 + 0xb000 },
+    { L"Palm Trees but Buggy", 0x73e720 + 0xb000, 0x73e7a0 + 0xb000 },
+    { L"Small Part of Palm Trees", 0x73eaa0 + 0xb000, 0x73eb20 + 0xb000 },
+    { L"Gigantic Rock on the right & Grass", 0x73e7a0 + 0xb000, 0x73e820 + 0xb000 },
+    { L"Left Pillars & Ground Part", 0x73e820 + 0xb000, 0x73e8a0 + 0xb000 },
+    { L"Small Part of Left Pillars & Bricks", 0x73e6a0 + 0xb000, 0x73e720 + 0xb000 },
+    { L"Smaller Parts of Left Pillars & Bricks", 0x73e920 + 0xb000, 0x73e9a0 + 0xb000 },
+    { L"Wall on the left & Ground Part", 0x73ec20 + 0xb000, 0x73eca0 + 0xb000 },
+    { L"Scion Statue", 0x73ee20 + 0xb000, 0x73eea0 + 0xb000 },
+    { L"Statue Stand", 0x73eea0 + 0xb000, 0x73ef20 + 0xb000 },
+    { L"Clara's Golden Statue", 0x73ef20 + 0xb000, 0x73efa0 + 0xb000 },
+    { L"Unknown Bonus Game 1 Palette", 0x73e8a0 + 0xb000, 0x73e920 + 0xb000 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_DERMINOR_SLASH_PALETTES[] =
@@ -2792,10 +2796,11 @@ const sDescTreeNode REDEARTH_A_STAGES_ZIPANG_FADED_COLLECTION[] =
 
 const sDescTreeNode REDEARTH_A_STAGES_SANGYPT_COLLECTION[] =
 {
-    { L"Stage",         DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_STAGE_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_STAGE_PALETTES) },
-    { L"Ravange Intro 1", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES) },
-    { L"Ravange Intro 2", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES) },
-    { L"Ravange Intro Other", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES) },
+    { L"Stage",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_STAGE_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_STAGE_PALETTES) },
+    { L"Faded 1", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO1_PALETTES) },
+    { L"Faded 2", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO2_PALETTES) },
+    { L"Faded 3", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_INTRO3_PALETTES) },
+    { L"Absorption Effects", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_ABSORP_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_ABSORP_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_CRYPT_COLLECTION[] =
@@ -2856,7 +2861,7 @@ const sDescTreeNode REDEARTH_A_STAGES_CRYPT_SLASH_COLLECTION[] =
 
 const sDescTreeNode REDEARTH_A_30_BONUSGAME_SLASH_COLLECTION[] =
 {
-    { L"Bonus Game 1 Stage", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_SLASH_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_SLASH_PALETTES) },
+    { L"Bonus Game 1 (Blue) Stage", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_SLASH_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_SANGYPT_BONUSSTAGE_SLASH_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_DERMINOR_SLASH_COLLECTION[] =

@@ -1,6 +1,5 @@
 #include "StdAfx.h"
 #include "Game_RedEarth_A_DIR.h"
-#include "..\palmod.h"
 
 RedEarthLoadingKey CGame_RedEarth_A_DIR::m_eROMToLoad = RedEarthLoadingKey::RedEarthROM31;
 
