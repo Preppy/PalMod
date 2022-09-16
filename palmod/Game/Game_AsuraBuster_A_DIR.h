@@ -10,7 +10,7 @@ const sDirectoryLoadingData AsuraBusterFileLoadingData =
         { L"pgm1.u3", 0x80000 },
         { L"pgm0.u4", 0x80000 },
     },
-    FileReadType::Interleaved,
+    FileReadType::Interleaved_4FileSets,
 };
 
 class CGame_AsuraBuster_A_DIR : public CGameClassByDir

@@ -8,7 +8,7 @@ const sDirectoryLoadingData MWarrFileLoadingData =
         { L"prg_ev", 0x80000 },
         { L"prg_od", 0x80000 },
     },
-    FileReadType::Interleaved,
+    FileReadType::Interleaved_2FileSets,
 };
 
 class CGame_MWarr_A_DIR : public CGameClassByDir

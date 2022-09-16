@@ -1,80 +1,110 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "REDEARTH_A_DEF.h"
-#include "..\ExtraFile.h"
 
-#define REDEARTH_A_USEEXTRAFILE
-
-class CGame_REDEARTH_A : public CGameWithExtrasFile
+const sDirectoryLoadingData RedEarth_A_FileLoadingData_30 =
 {
+    {
+        { L"30", 0x800000 },
+    },
+    FileReadType::Sequential,
+};
+
+const sDirectoryLoadingData RedEarth_A_FileLoadingData_31 =
+{
+    {
+        { L"31", 0x800000 },
+    },
+    FileReadType::Sequential,
+};
+
+const sDirectoryLoadingData RedEarth_A_FileLoadingData_50 =
+{
+    {
+        { L"50", 0x400000 },
+    },
+    FileReadType::Sequential,
+};
+
+enum class RedEarthLoadingKey
+{
+    RedEarthROM30,
+    RedEarthROM31,
+    RedEarthROM50,
+};
+
+// I'm using defines since these are used for both the mono and simm versions
+constexpr auto REDEARTH_30_PALETTE_COUNT = 615;
+constexpr auto REDEARTH_31_PALETTE_COUNT = 1297;
+constexpr auto REDEARTH_50_PALETTE_COUNT = 4;
+
+class CGame_REDEARTH_A : public CGameClassByDir
+{
+private:
+    static RedEarthLoadingKey m_eROMToLoad;
+
+    const sCoreGameData m_sCoreGameData_30
+    {
+        L"Red Earth: Stages (CPS3 ROM 30)",
+        REDEARTH_A,
+        IMGDAT_SECTION_REDEARTH,
+        REDEARTH_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_PK,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        RedEarth_A_FileLoadingData_30,
+        REDEARTH_A_UNITS_30,
+        ARRAYSIZE(REDEARTH_A_UNITS_30),
+        L"RedEarth30e.txt",             // Extra filename
+        REDEARTH_30_PALETTE_COUNT,      // Count of palettes listed in the header
+        0x734000,                       // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_31
+    {
+        L"Red Earth: Characters (CPS3 ROM 31)",
+        REDEARTH_A,
+        IMGDAT_SECTION_REDEARTH,
+        REDEARTH_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_PK,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        RedEarth_A_FileLoadingData_31,
+        REDEARTH_A_UNITS_31,
+        ARRAYSIZE(REDEARTH_A_UNITS_31),
+        L"RedEarthE.txt",               // Extra filename
+        REDEARTH_31_PALETTE_COUNT,      // Count of palettes listed in the header
+        0x132600,                       // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_50
+    {
+        L"Red Earth: Coming Next (CPS3 ROM 50)",
+        REDEARTH_A,
+        IMGDAT_SECTION_REDEARTH,
+        REDEARTH_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_PK,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        RedEarth_A_FileLoadingData_50,
+        REDEARTH_A_UNITS_50,
+        ARRAYSIZE(REDEARTH_A_UNITS_50),
+        L"RedEarth50e.txt",             // Extra filename
+        REDEARTH_50_PALETTE_COUNT,      // Count of palettes listed in the header
+        0x358000,                       // Lowest known location used for palettes
+    };
+
 public:
-    static uint32_t rgExtraCountAll_30[REDEARTH_A_NUMUNIT_30 + 1];
-    static uint32_t rgExtraCountAll_31[REDEARTH_A_NUMUNIT_31 + 1];
-    static uint32_t rgExtraCountAll_50[REDEARTH_A_NUMUNIT_50 + 1];
-    static uint32_t rgExtraLoc_30[REDEARTH_A_NUMUNIT_30 + 1];
-    static uint32_t rgExtraLoc_31[REDEARTH_A_NUMUNIT_31 + 1];
-    static uint32_t rgExtraLoc_50[REDEARTH_A_NUMUNIT_50 + 1];
-
-    // RedEarth has two different ROMs of interest: handle here.
-    int m_nBufferRedEarthMode = 30;
-    static uint32_t m_nRedEarthMode;
-    static uint32_t m_nTotalPaletteCount30;
-    static uint32_t m_nTotalPaletteCount31;
-    static uint32_t m_nTotalPaletteCount50;
-
-    void InitDataBuffer() override;
-    void ClearDataBuffer() override;
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
-
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
-
-    bool CanEnableMultispriteExport(uint32_t nUnitId, uint32_t nPalId);
-
-    static stExtraDef* GetRedEarthExtraDef(int x);
-
-    static constexpr auto EXTRA_FILENAME_REDEARTH_30 = L"RedEarth30e.txt";
-    static constexpr auto EXTRA_FILENAME_REDEARTH_31 = L"RedEarthE.txt";
-    static constexpr auto EXTRA_FILENAME_REDEARTH_50 = L"RedEarth50e.txt";
-
-    static constexpr uint32_t m_nExpectedGameROMSize_3 = 0x800000; // 8388608 bytes
-    static constexpr uint32_t m_nExpectedGameROMSize_5 = 0x400000;
-
-public:
-    CGame_REDEARTH_A(uint32_t nConfirmedROMSize = -1, int nRedEarthModeToLoad = 31);
-    ~CGame_REDEARTH_A();
-
-    //Static functions / variables
-    static CDescTree MainDescTree_30;
-    static CDescTree MainDescTree_31;
-    static CDescTree MainDescTree_50;
-
-    static sDescTreeNode* InitDescTree(int nPaletteSetToUse);
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    uint32_t GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId);
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+    CGame_REDEARTH_A(uint32_t nConfirmedROMSize);
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* REDEARTH_A_EXTRA_CUSTOM_30;
-    static stExtraDef* REDEARTH_A_EXTRA_CUSTOM_31;
-    static stExtraDef* REDEARTH_A_EXTRA_CUSTOM_50;
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
+    static sFileRule GetRule(uint32_t nRuleId);
 };

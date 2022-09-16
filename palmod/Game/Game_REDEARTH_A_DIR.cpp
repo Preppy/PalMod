@@ -2,83 +2,54 @@
 #include "Game_RedEarth_A_DIR.h"
 #include "..\palmod.h"
 
-uint32_t CGame_RedEarth_A_DIR::uRuleCtr = 0;
-uint32_t CGame_RedEarth_A_DIR::m_nSavedMode = 31;
+RedEarthLoadingKey CGame_RedEarth_A_DIR::m_eROMToLoad = RedEarthLoadingKey::RedEarthROM31;
 
-constexpr auto RedEarth_Arcade_ROM_Base = L"redearth-simm";
-constexpr auto RedEarth_Arcade_ROMSet_3 = 3;
-constexpr auto RedEarth_Arcade_ROMSet_5 = 5;
-constexpr auto RedEarth_Arcade_SIMMFileBaseNumber_30 = 0;
-constexpr auto RedEarth_Arcade_SIMMFileBaseNumber_31 = 4;
-constexpr auto RedEarth_Arcade_SIMMFileBaseNumber_50 = 0;
-constexpr auto RedEarth_Arcade_ROMFilesNeeded_3 = 4;
-constexpr auto RedEarth_Arcade_ROMFilesNeeded_5 = 2;
-constexpr auto RedEarth_Arcade_SIMMLength = 0x200000;
-
-CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR(uint32_t nConfirmedROMSize, int nRedEarthModeToLoad) :
-        CGame_REDEARTH_A(RedEarth_Arcade_SIMMLength * ((nRedEarthModeToLoad != 50) ? RedEarth_Arcade_ROMFilesNeeded_3 : RedEarth_Arcade_ROMFilesNeeded_5), nRedEarthModeToLoad)   // Let RedEarth know that it's safe to load extras.
+CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR(uint32_t nConfirmedROMSize, RedEarthLoadingKey nRedEarthModeToLoad)
 {
-    m_nSIMMLength = c_nRedEarthSIMMLength;
-    m_nNumberOfSIMMsPerSet = 2;
-    m_pszSIMMBaseFileName = RedEarth_Arcade_ROM_Base;
+    m_eROMToLoad = nRedEarthModeToLoad;
 
-    switch (m_nRedEarthMode)
+    switch (m_eROMToLoad)
     {
-    case 30:
-        m_nSIMMSetBaseNumber = RedEarth_Arcade_ROMSet_3;
-        nGameFlag = REDEARTH_A_DIR_30;
-        m_nSIMMSetStartingFileNumber = RedEarth_Arcade_SIMMFileBaseNumber_30;
-        nFileAmt = m_nTotalNumberOfSIMMFilesNeeded = RedEarth_Arcade_ROMFilesNeeded_3;
+    case RedEarthLoadingKey::RedEarthROM30:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_3dot0);
         break;
-    case 31:
-    default:
-        m_nSIMMSetBaseNumber = RedEarth_Arcade_ROMSet_3;
-        nGameFlag = REDEARTH_A_DIR_31;
-        m_nSIMMSetStartingFileNumber = RedEarth_Arcade_SIMMFileBaseNumber_31;
-        nFileAmt = m_nTotalNumberOfSIMMFilesNeeded = RedEarth_Arcade_ROMFilesNeeded_3;
+    case RedEarthLoadingKey::RedEarthROM31:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_3dot1);
         break;
-    case 50:
-        m_nSIMMSetBaseNumber = RedEarth_Arcade_ROMSet_5;
-        nGameFlag = REDEARTH_A_DIR_50;
-        m_nSIMMSetStartingFileNumber = RedEarth_Arcade_SIMMFileBaseNumber_50;
-        nFileAmt = m_nTotalNumberOfSIMMFilesNeeded = RedEarth_Arcade_ROMFilesNeeded_5;
+    case RedEarthLoadingKey::RedEarthROM50:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_5dot0);
         break;
     }
-
-    FlushChangeTrackingArray();
-    PrepChangeTrackingArray();
 }
 
-sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(uint32_t nGameMode, uint32_t nUnitId)
+sFileRule CGame_RedEarth_A_DIR::GetRuleInternal(RedEarthLoadingKey nGameMode, uint32_t nUnitId)
 {
     sFileRule NewFileRule;
-    m_nSavedMode = nGameMode;
-    uint16_t nAdjustedSIMMFileNumber;
+    uint16_t nAdjustedSIMMFileNumber = (nUnitId & RULE_COUNTER_DEMASK);
 
     switch (nGameMode)
     {
-    case 30:
-        nAdjustedSIMMFileNumber = (nUnitId & RULE_COUNTER_DEMASK) + RedEarth_Arcade_SIMMFileBaseNumber_30;
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", RedEarth_Arcade_ROM_Base, RedEarth_Arcade_ROMSet_3, nAdjustedSIMMFileNumber);
+    case RedEarthLoadingKey::RedEarthROM30:
+        wcsncpy(NewFileRule.szFileName, RedEarth_A_FileLoadingData_3dot0.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
+        NewFileRule.uVerifyVar = RedEarth_A_FileLoadingData_3dot0.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize;
         break;
-    case 31:
+    case RedEarthLoadingKey::RedEarthROM31:
     default:
-        nAdjustedSIMMFileNumber = (nUnitId & RULE_COUNTER_DEMASK) + RedEarth_Arcade_SIMMFileBaseNumber_31;
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", RedEarth_Arcade_ROM_Base, RedEarth_Arcade_ROMSet_3, nAdjustedSIMMFileNumber);
+        wcsncpy(NewFileRule.szFileName, RedEarth_A_FileLoadingData_3dot1.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
+        NewFileRule.uVerifyVar = RedEarth_A_FileLoadingData_3dot1.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize;
         break;
-    case 50:
-        nAdjustedSIMMFileNumber = (nUnitId & RULE_COUNTER_DEMASK) + RedEarth_Arcade_SIMMFileBaseNumber_50;
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", RedEarth_Arcade_ROM_Base, RedEarth_Arcade_ROMSet_5, nAdjustedSIMMFileNumber);
+    case RedEarthLoadingKey::RedEarthROM50:
+        wcsncpy(NewFileRule.szFileName, RedEarth_A_FileLoadingData_5dot0.rgFileList.at(nAdjustedSIMMFileNumber).strFileName.c_str(), ARRAYSIZE(NewFileRule.szFileName));
+        NewFileRule.uVerifyVar = RedEarth_A_FileLoadingData_5dot0.rgFileList.at(nAdjustedSIMMFileNumber).nFileSize;
         break;
     }
 
     NewFileRule.uUnitId = nUnitId;
-    NewFileRule.uVerifyVar = (short int)-1;
 
     return NewFileRule;
 }
 
-sFileRule CGame_RedEarth_A_DIR::GetNextRuleInternal(uint32_t nGameMode)
+sFileRule CGame_RedEarth_A_DIR::GetNextRuleInternal(RedEarthLoadingKey nGameMode)
 {
     sFileRule NewFileRule = GetRuleInternal(nGameMode, uRuleCtr);
     uint16_t nMaxRuleNumber;
@@ -87,15 +58,15 @@ sFileRule CGame_RedEarth_A_DIR::GetNextRuleInternal(uint32_t nGameMode)
 
     switch (nGameMode)
     {
-    case 30:
-        nMaxRuleNumber = RedEarth_Arcade_ROMFilesNeeded_3;
+    case RedEarthLoadingKey::RedEarthROM30:
+        nMaxRuleNumber = static_cast<uint16_t>(RedEarth_A_FileLoadingData_3dot0.rgFileList.size());
         break;
-    case 31:
+    case RedEarthLoadingKey::RedEarthROM31:
     default:
-        nMaxRuleNumber = RedEarth_Arcade_ROMFilesNeeded_3;
+        nMaxRuleNumber = static_cast<uint16_t>(RedEarth_A_FileLoadingData_3dot1.rgFileList.size());
         break;
-    case 50:
-        nMaxRuleNumber = RedEarth_Arcade_ROMFilesNeeded_5;
+    case RedEarthLoadingKey::RedEarthROM50:
+        nMaxRuleNumber = static_cast<uint16_t>(RedEarth_A_FileLoadingData_5dot0.rgFileList.size());
         break;
     }
 
@@ -105,18 +76,4 @@ sFileRule CGame_RedEarth_A_DIR::GetNextRuleInternal(uint32_t nGameMode)
     }
 
     return NewFileRule;
-}
-
-LPCWSTR CGame_RedEarth_A_DIR::GetGameName()
-{
-    switch (m_nRedEarthMode)
-    {
-    case 30:
-        return L"Red Earth: Stages (CPS3 3.x Rerip)";
-    case 31:
-    default:
-        return L"Red Earth: Characters (CPS3 3.x Rerip)";
-    case 50:
-        return L"Red Earth: Next (CPS3 5.x Rerip)";
-    }
 }

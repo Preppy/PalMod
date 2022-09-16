@@ -4,11 +4,14 @@
 
 // This game class implementation is for usage wherein the palette units are sourced to a collection of "N" files, which may or may
 // not be interleaved, that are read as a composite in order to read the palette data.
+// If you want multiple "0" locations for the Extras file, create a new sCoreGameData set that references that additional
+// palette information.
 
 enum class FileReadType
 {
     Sequential,
-    Interleaved,
+    Interleaved_2FileSets,
+    Interleaved_4FileSets,
     Interleaved_Read2Bytes_LE,
     Interleaved_Read2Bytes_BE,
 };

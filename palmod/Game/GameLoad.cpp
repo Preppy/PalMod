@@ -1547,19 +1547,19 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case REDEARTH_A:
     {
-        return new CGame_REDEARTH_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_REDEARTH_A(nConfirmedROMSize);
     }
     case REDEARTH_A_DIR_30:
     {
-        return new CGame_RedEarth_A_DIR(-1, 30);
+        return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM30);
     }
     case REDEARTH_A_DIR_31:
     {
-        return new CGame_RedEarth_A_DIR(-1, 31);
+        return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM31);
     }
     case REDEARTH_A_DIR_50:
     {
-        return new CGame_RedEarth_A_DIR(-1, 50);
+        return new CGame_RedEarth_A_DIR(nConfirmedROMSize, RedEarthLoadingKey::RedEarthROM50);
     }
     case RODSM2_A:
     {
@@ -1886,18 +1886,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         }
         case REDEARTH_A:
         {
-            if (wcscmp(pszFileNameLowercase, L"30") == 0)
-            {
-                nGameRule = 30;
-            }
-            else if (wcscmp(pszFileNameLowercase, L"50") == 0)
-            {
-                nGameRule = 50;
-            }
-            else
-            {
-                nGameRule = 31;
-            }
+            CGame_REDEARTH_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         }
         case SFA2_A:
@@ -1996,7 +1985,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
 
             if ((nGameFlag == JOJOS_A) && (nGameRule == 50) && (nGameFileLength == 4194304))
             {
-                strQuestion.LoadString(IDS_ROMISVENTURE);
+                (void)strQuestion.LoadString(IDS_ROMISVENTURE);
             }
             else
             {
@@ -2097,17 +2086,20 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
 
     if (!VerifyLocationIsUsable(pszLoadDir))
     {
+        OutputDebugString(L"CGameLoad::LoadDir: location isn't usable: failing load.\r\n");
         return nullptr;
     }
 
     if (!SetGame(nGameFlag))
     {
+        OutputDebugString(L"CGameLoad::LoadDir: game could not be loaded: failing load.\r\n");
         return nullptr;
     }
 
     if (ResetRuleCtr == nullptr)
     {
         // This isn't a directory-based game: something is wrong
+        OutputDebugString(L"CGameLoad::LoadDir: game load configuration error: failing load.\r\n");
         return nullptr;
     }
 
