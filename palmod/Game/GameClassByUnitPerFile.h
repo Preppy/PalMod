@@ -13,8 +13,8 @@ struct sGCBUPF_RelativePaletteData
 {
     const LPCWSTR pszPaletteName;
     const uint32_t nPaletteShiftFromBase = 0;
-    const uint16_t indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
-    const uint16_t indexOffsetToUse = INVALID_UNIT_VALUE; // subsprites within that collection
+    const uint16_t indexImageUnit = INVALID_UNIT_VALUE; // the major character/collection index
+    const uint16_t indexImageSprite = 0; // subsprites within that collection
     const stPairedPaletteInfo* pPalettePairingInfo = nullptr;
     const stPaletteProcessingInformation* pExtraProcessing = nullptr;
 };

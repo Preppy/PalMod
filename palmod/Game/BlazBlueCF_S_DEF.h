@@ -153,20 +153,6 @@ const std::vector<sGCBUPF_RelativePaletteData> BlazBlueCFPaletteListGeneric =
     { L"Extra 7", 0x1ce0 },
 };
 
-struct BlazBlueCFFileData
-{
-    LPCWSTR pszFileName = nullptr;
-    LPCWSTR pszCharacter = nullptr;
-    uint32_t nExpectedFileSize = 0;
-    const std::vector<LPCWSTR> ppszCollectionList;
-    const std::vector<LPCWSTR> ppszPaletteList;
-    uint32_t nInitialLocation = 0;
-    uint32_t nSpriteUnitIndex = (uint32_t)-1;
-    // This is a magic value unique to BBCF: it's the CFPL ID for that character
-    uint8_t nBBCFIMId = 0;
-    const std::vector<sGame_PaletteDataset> prgExtraPalettes;
-};
-
 uint8_t TranslatePalModSpriteIdToBBCFGameId(uint32_t nSpriteId);
 uint32_t TranslateBBCFGameIdToPalModSpriteId(uint8_t nGameId);
 

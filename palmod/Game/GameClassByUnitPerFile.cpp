@@ -349,7 +349,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
         // The following logic locks us in as having each node contain one full palette set.  Any additional nodes
         // will also contain a full palette set.  If the palette set is instead spread one palette per node, this logic
         // will need to be updated.
-        int nPaletteSetOfInterest = static_cast<int>(floor(static_cast<double>(NodeGet->uPalId) / static_cast<double>(GetBasicPaletteListSizeForUnit(NodeGet->uUnitId))));
+        const int nPaletteSetOfInterest = static_cast<int>(floor(static_cast<double>(NodeGet->uPalId) / static_cast<double>(GetBasicPaletteListSizeForUnit(NodeGet->uUnitId))));
         nSrcStart = nPaletteSetOfInterest * GetBasicPaletteListSizeForUnit(NodeGet->uUnitId);
         nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).nImageUnitIndex;
         nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).nImagePreviewIndex;
@@ -370,22 +370,17 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             nNodeIncrement = static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(NodeGet->uUnitId));
             pButtonLabelSet = GetBasicPaletteLabelsForUnit(NodeGet->uUnitId);
 
-            if (m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(NodeGet->uPalId).indexImgToUse != INVALID_UNIT_VALUE)
+            // Use the specific (relative) palette data's specification of the preview to use if provided, otherwise
+            // fall back to the basic palette info's specification
+            if (m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit != INVALID_UNIT_VALUE)
             {
-                nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(NodeGet->uPalId).indexImgToUse;
+                nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit;
+                nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(nSrcStart).indexImageSprite;
             }
             else
             {
-                nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).nImagePreviewIndex;
-            }
-
-            if (m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(NodeGet->uPalId).indexOffsetToUse != INVALID_UNIT_VALUE)
-            {
-                nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(NodeGet->uPalId).indexOffsetToUse;
-            }
-            else
-            {
-                nTargetImgId = 0;
+                nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).nImageUnitIndex;
+                nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).nImagePreviewIndex;
             }
         }
         else
