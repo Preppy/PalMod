@@ -43,6 +43,7 @@
 #include "Game_JOJOS_A_DIR.h"
 #include "Game_JOJOSRPG_SNES.h"
 #include "Game_JusticeLeagueTF_SNES.h"
+#include "Game_KabukiKlash_A.h"
 #include "Game_KarnovsR_A.h"
 #include "Game_KI_SNES.h"
 #include "Game_Kizuna_A.h"
@@ -151,7 +152,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 168, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 169, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -446,6 +447,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case JusticeLeagueTF_SNES:
     {
         GetRule = &CGame_JusticeLeagueTF_SNES::GetRule;
+        return TRUE;
+    }
+    case KabukiKlash_A:
+    {
+        GetRule = &CGame_KabukiKlash_A::GetRule;
         return TRUE;
     }
     case KarnovsR_A:
@@ -1317,6 +1323,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case JusticeLeagueTF_SNES:
     {
         return new CGame_JusticeLeagueTF_SNES(nConfirmedROMSize);
+    }
+    case KabukiKlash_A:
+    {
+        return new CGame_KabukiKlash_A(nConfirmedROMSize);
     }
     case KarnovsR_A:
     {

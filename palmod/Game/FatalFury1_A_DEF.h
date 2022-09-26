@@ -134,7 +134,3 @@ const sDescTreeNode FatalFury1_A_UNITS[] =
     { L"Portraits",         DESC_NODETYPE_TREE, (void*)FatalFury1_A_PORTRAITS_COLLECTION,   ARRAYSIZE(FatalFury1_A_PORTRAITS_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)FatalFury1_A_BONUS_COLLECTION,       ARRAYSIZE(FatalFury1_A_BONUS_COLLECTION) },
 };
-
-constexpr auto FatalFury1_A_NUMUNIT = ARRAYSIZE(FatalFury1_A_UNITS);
-
-constexpr auto FatalFury1_A_EXTRALOC = FatalFury1_A_NUMUNIT;

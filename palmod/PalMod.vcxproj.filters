@@ -514,6 +514,9 @@
     <Filter Include="Games\SNK Games\Fatal Fury 3">
       <UniqueIdentifier>{6d85e323-99fa-40a0-a56c-a731d68919ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Kabuki Klash">
+      <UniqueIdentifier>{a8a9bd8a-3435-4923-bfb8-fd590d305e4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2005,6 +2008,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_FatalFury3_A.h">
       <Filter>Games\SNK Games\Fatal Fury 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KabukiKlash_A.h">
+      <Filter>Games\SNK Games\Kabuki Klash</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KabukiKlash_A_DEF.h">
+      <Filter>Games\SNK Games\Kabuki Klash</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
