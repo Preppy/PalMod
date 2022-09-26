@@ -31,7 +31,7 @@ namespace lodepng {
 LodePNGInfo getPNGHeaderInfo(const std::vector<unsigned char>& png) {
   unsigned w, h;
   lodepng::State state;
-  lodepng_inspect(&w, &h, &state, &png[0], png.size());
+  lodepng_inspect(&w, &h, &state, png.empty() ? NULL : &png[0], png.size());
   return state.info_png;
 }
 
@@ -139,7 +139,7 @@ unsigned getFilterTypesInterlaced(std::vector<std::vector<unsigned char> >& filt
   lodepng::State state;
   unsigned w, h;
   unsigned error;
-  error = lodepng_inspect(&w, &h, &state, &png[0], png.size());
+  error = lodepng_inspect(&w, &h, &state, png.empty() ? NULL : &png[0], png.size());
 
   if(error) return 1;
 
@@ -173,7 +173,7 @@ unsigned getFilterTypesInterlaced(std::vector<std::vector<unsigned char> >& filt
 
   //Decompress all IDAT data (if the while loop ended early, this might fail)
   std::vector<unsigned char> data;
-  error = lodepng::decompress(data, &zdata[0], zdata.size());
+  error = lodepng::decompress(data, zdata.empty() ? NULL : &zdata[0], zdata.size());
 
   if(error) return 1;
 
@@ -230,7 +230,7 @@ unsigned getFilterTypes(std::vector<unsigned char>& filterTypes, const std::vect
     const unsigned shift1[8] = {1, 1, 1, 1, 1, 1, 1, 1};
     lodepng::State state;
     unsigned w, h;
-    lodepng_inspect(&w, &h, &state, &png[0], png.size());
+    lodepng_inspect(&w, &h, &state, png.empty() ? NULL : &png[0], png.size());
     const unsigned* column = w > 1 ? column1 : column0;
     const unsigned* shift = w > 1 ? shift1 : shift0;
     for(size_t i = 0; i < h; i++) {
@@ -722,7 +722,7 @@ static void mulMatrix(float* x2, float* y2, float* z2, const float* m, double x,
 
 static void mulMatrixMatrix(float* result, const float* a, const float* b) {
   int i;
-  float temp[9]; /* temp is to allow result and a or b to be the same */
+  float temp[9] = {}; /* temp is to allow result and a or b to be the same */
   mulMatrix(&temp[0], &temp[3], &temp[6], a, b[0], b[3], b[6]);
   mulMatrix(&temp[1], &temp[4], &temp[7], a, b[1], b[4], b[7]);
   mulMatrix(&temp[2], &temp[5], &temp[8], a, b[2], b[5], b[8]);
@@ -739,7 +739,7 @@ static unsigned invMatrix(float* m) {
   double e6 = (double)m[3] * m[7] - (double)m[4] * m[6];
   /* inverse determinant */
   double d = 1.0 / (m[0] * e0 + m[1] * e3 + m[2] * e6);
-  double result[9];
+  double result[9] = {};
   if((d > 0 ? d : -d) > 1e15) return 1; /* error, likely not invertible */
   result[0] = e0 * d;
   result[1] = ((double)m[2] * m[7] - (double)m[1] * m[8]) * d;
@@ -760,7 +760,7 @@ static unsigned getChrmMatrixXYZ(float* m,
                                  float rX, float rY, float rZ,
                                  float gX, float gY, float gZ,
                                  float bX, float bY, float bZ) {
-  float t[9];
+  float t[9] = {};
   float rs, gs, bs;
   t[0] = rX; t[1] = gX; t[2] = bX;
   t[3] = rY; t[4] = gY; t[5] = bY;
@@ -865,8 +865,8 @@ so in that case you could skip the transform. */
 static unsigned getICCChrm(float m[9], float whitepoint[3], const LodePNGICC* icc) {
   size_t i;
   if(icc->inputspace == 2) { /* RGB profile */
-    float red[3], green[3], blue[3];
-    float white[3]; /* the whitepoint of the RGB color space (absolute) */
+    float red[3] = {}, green[3] = {}, blue[3] = {};
+    float white[3] = {}; /* the whitepoint of the RGB color space (absolute) */
     /* Adaptation matrix a.
     This is an adaptation needed for ICC's file format (due to it using
     an internal global illuminant unrelated to the actual images) */
@@ -1404,8 +1404,8 @@ unsigned convertRGBModel(unsigned char* out, const unsigned char* in,
     unsigned error = 0;
     float* xyz = (float*)lodepng_malloc(w * h * 4 * sizeof(float));
     float whitepoint[3];
-    error = convertToXYZ(&xyz[0], whitepoint, in, w, h, state_in);
-    if (!error) error = convertFromXYZ(out, &xyz[0], w, h, state_out, whitepoint, rendering_intent);
+    error = convertToXYZ(xyz, whitepoint, in, w, h, state_in);
+    if (!error) error = convertFromXYZ(out, xyz, w, h, state_out, whitepoint, rendering_intent);
     lodepng_free(xyz);
     return error;
   }
@@ -1691,7 +1691,7 @@ struct ExtractPNG { //PNG decoding and information extraction
   void decode(const unsigned char* in, size_t size) {
     error = 0;
     if(size == 0 || in == 0) { error = 48; return; } //the given data is empty
-    readPngHeader(&in[0], size); if(error) return;
+    readPngHeader(in, size); if(error) return;
     size_t pos = 33; //first byte of the first chunk after the header
     std::vector<unsigned char> idat; //the data from idat chunks
     bool IEND = false;
@@ -1754,7 +1754,7 @@ struct ExtractPNG { //PNG decoding and information extraction
 
 unsigned extractZlibInfo(std::vector<ZlibBlockInfo>& zlibinfo, const std::vector<unsigned char>& in) {
   ExtractPNG decoder(&zlibinfo);
-  decoder.decode(&in[0], in.size());
+  decoder.decode(in.empty() ? NULL : &in[0], in.size());
 
   return decoder.error ? 1 : 0;
 }
