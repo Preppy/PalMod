@@ -2,17 +2,17 @@
 #include "GameClassByDir.h"
 #include "FatalFuryS_SNES_DEF.h"
 
-const sDirectoryLoadingData FatalFuryS_SNES_FileLoadingData =
-{
-    {
-        { L"Fatal Fury Special (USA).sfc", 0x400000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_FatalFuryS_SNES : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData FatalFuryS_SNES_FileLoadingData =
+    {
+        {
+            { L"Fatal Fury Special (USA).sfc", 0x400000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Fatal Fury Special(SNES)",

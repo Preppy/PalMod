@@ -2,22 +2,6 @@
 #include "GameClassByDir.h"
 #include "FatalFury2_A_DEF.h"
 
-const sDirectoryLoadingData FatalFury2_A_FileLoadingData_Normal =
-{
-    {
-        { L"047-p1.bin", 0x80000 },
-    },
-    FileReadType::Sequential,
-};
-
-const sDirectoryLoadingData FatalFury2_A_FileLoadingData_Alt =
-{
-    {
-        { L"047-p1.p1", 0x100000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_FatalFury2_A : public CGameClassByDir
 {
 private:
@@ -28,6 +12,22 @@ private:
     };
 
     static FF2LoadingKey eVersionToLoad;
+
+    static inline const sDirectoryLoadingData FatalFury2_A_FileLoadingData_Normal =
+    {
+        {
+            { L"047-p1.bin", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData FatalFury2_A_FileLoadingData_Alt =
+    {
+        {
+            { L"047-p1.p1", 0x100000 },
+        },
+        FileReadType::Sequential,
+    };
 
     const sCoreGameData m_sCoreGameData_Normal
     {

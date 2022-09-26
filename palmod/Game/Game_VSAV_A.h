@@ -2,17 +2,17 @@
 #include "GameClassByDir.h"
 #include "VSAV_A_DEF.h"
 
-const sDirectoryLoadingData VSAVFileLoadingData =
-{
-    {
-        { L"vm3.10b",  0x80000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_VSAV_A : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData VSAVFileLoadingData =
+    {
+        {
+            { L"vm3.10b",  0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Vampire Savior (CPS2)",

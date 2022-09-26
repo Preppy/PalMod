@@ -2,25 +2,25 @@
 #include "GameClassByDir.h"
 #include "LASTBLADE2_A_DEF.h"
 
-const sDirectoryLoadingData LASTBLADE2_A_FileLoadingData_NeoGeo =
-{
-    {
-        { L"LB2_P1.ROM", 0x100000 },
-    },
-    FileReadType::Sequential,
-};
-
-const sDirectoryLoadingData LASTBLADE2_A_FileLoadingData_Steam =
-{
-    {
-        { L"P1.bin", 0x500000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_LASTBLADE2_A : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData LASTBLADE2_A_FileLoadingData_NeoGeo =
+    {
+        {
+            { L"LB2_P1.ROM", 0x100000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData LASTBLADE2_A_FileLoadingData_Steam =
+    {
+        {
+            { L"P1.bin", 0x500000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData_NeoGeo
     {
         L"The Last Blade 2 (Neo-Geo)",

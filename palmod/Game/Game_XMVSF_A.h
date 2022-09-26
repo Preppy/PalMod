@@ -2,17 +2,17 @@
 #include "GameClassByDir.h"
 #include "XMVSF_A_DEF.h"
 
-const sDirectoryLoadingData XMvSFFileLoadingData =
-{
-    {
-        { L"xvs.05a", 0x80000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_XMVSF_A : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData XMvSFFileLoadingData =
+    {
+        {
+            { L"xvs.05a", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"XMvSF (CPS2)",

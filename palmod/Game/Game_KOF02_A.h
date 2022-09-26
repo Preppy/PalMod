@@ -2,18 +2,18 @@
 #include "GameClassByDir.h"
 #include "KOF02_A_DEF.h"
 
-const sDirectoryLoadingData KOF02FileLoadingData =
-{
-    {
-        { L"265-p2.sp2", 0x400000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_KOF02_A : public CGameClassByDir
 {
 private:
     static void DumpAllCharacters();
+
+    static inline const sDirectoryLoadingData KOF02FileLoadingData =
+    {
+        {
+            { L"265-p2.sp2", 0x400000 },
+        },
+        FileReadType::Sequential,
+    };
 
     const sCoreGameData m_sCoreGameData
     {

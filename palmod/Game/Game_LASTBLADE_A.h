@@ -2,25 +2,25 @@
 #include "GameClassByDir.h"
 #include "LASTBLADE_A_DEF.h"
 
-const sDirectoryLoadingData LASTBLADE_A_FileLoadingData_NeoGeo =
-{
-    {
-        { L"234-p1.p1", 0x100000 },
-    },
-    FileReadType::Sequential,
-};
-
-const sDirectoryLoadingData LASTBLADE_A_FileLoadingData_Steam =
-{
-    {
-        { L"lastblad_game_m68k", 0x500000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_LASTBLADE_A : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData LASTBLADE_A_FileLoadingData_NeoGeo =
+    {
+        {
+            { L"234-p1.p1", 0x100000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData LASTBLADE_A_FileLoadingData_Steam =
+    {
+        {
+            { L"lastblad_game_m68k", 0x500000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData_NeoGeo
     {
         L"The Last Blade (Neo-Geo)",

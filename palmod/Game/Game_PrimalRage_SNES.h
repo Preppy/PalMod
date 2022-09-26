@@ -2,17 +2,17 @@
 #include "GameClassByDir.h"
 #include "PrimalRage_SNES_DEF.h"
 
-const sDirectoryLoadingData PrimalRageFileLoadingData =
-{
-    {
-        { L"Primal Rage (USA).sfc", 0x300000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_PrimalRage_SNES : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData PrimalRageFileLoadingData =
+    {
+        {
+            { L"Primal Rage (USA).sfc", 0x300000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Primal Rage (SNES)",

@@ -2,20 +2,20 @@
 #include "GameClassByDir.h"
 #include "AsuraBuster_A_DIR_DEF.h"
 
-const sDirectoryLoadingData AsuraBusterFileLoadingData =
-{
-    {
-        { L"pgm3.u1", 0x80000 },
-        { L"pgm2.u2", 0x80000 },
-        { L"pgm1.u3", 0x80000 },
-        { L"pgm0.u4", 0x80000 },
-    },
-    FileReadType::Interleaved_4FileSets,
-};
-
 class CGame_AsuraBuster_A_DIR : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData AsuraBusterFileLoadingData =
+    {
+        {
+            { L"pgm3.u1", 0x80000 },
+            { L"pgm2.u2", 0x80000 },
+            { L"pgm1.u3", 0x80000 },
+            { L"pgm0.u4", 0x80000 },
+        },
+        FileReadType::Interleaved_4FileSets,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Asura Buster - Eternal Warriors (Fuuki)",

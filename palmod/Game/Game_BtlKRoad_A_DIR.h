@@ -2,18 +2,18 @@
 #include "GameClassByDir.h"
 #include "BtlKRoad_A_DIR_DEF.h"
 
-const sDirectoryLoadingData BKRFileLoadingData =
-{
-    {
-        { L"4-u46.bin", 0x40000 },
-        { L"5-u39.bin", 0x40000 },
-    },
-    FileReadType::Interleaved_Read2Bytes_BE,
-};
-
 class CGame_BtlKRoad_A_DIR : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData BKRFileLoadingData =
+    {
+        {
+            { L"4-u46.bin", 0x40000 },
+            { L"5-u39.bin", 0x40000 },
+        },
+        FileReadType::Interleaved_Read2Bytes_BE,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Battle K-Road (Psikyo)",

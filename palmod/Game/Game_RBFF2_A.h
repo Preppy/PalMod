@@ -2,17 +2,17 @@
 #include "GameClassByDir.h"
 #include "RBFF2_A_DEF.h"
 
-const sDirectoryLoadingData RBFF2_A_FileLoadingData =
-{
-    {
-        { L"240-p1.p1", 0x100000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_RBFF2_A : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData RBFF2_A_FileLoadingData =
+    {
+        {
+            { L"240-p1.p1", 0x100000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Real Bout Fatal Fury 2 (Neo-Geo)",

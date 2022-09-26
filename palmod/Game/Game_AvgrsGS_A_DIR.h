@@ -2,18 +2,18 @@
 #include "GameClassByDir.h"
 #include "AvgrsGS_A_DIR_DEF.h"
 
-const sDirectoryLoadingData AvgrsGSFileLoadingData =
-{
-    {
-        { L"sf_00-0.7k", 0x80000 },
-        { L"sf_01-0.7l", 0x80000 },
-    },
-    FileReadType::Interleaved_Read2Bytes_LE,
-};
-
 class CGame_AvgrsGS_A_DIR : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData AvgrsGSFileLoadingData =
+    {
+        {
+            { L"sf_00-0.7k", 0x80000 },
+            { L"sf_01-0.7l", 0x80000 },
+        },
+        FileReadType::Interleaved_Read2Bytes_LE,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Avengers in Galactic Storm (Data East)",

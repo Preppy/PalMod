@@ -2,17 +2,17 @@
 #include "GameClassByDir.h"
 #include "Bleach_DS_DEF.h"
 
-const sDirectoryLoadingData Bleach_DS_FileLoadingData =
-{
-    {
-        { L"047-p1.bin", 0x8000000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_BLEACH_DS : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData Bleach_DS_FileLoadingData =
+    {
+        {
+            { L"047-p1.bin", 0x8000000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Bleach DS (Europe - Nintendo DS)",

@@ -2,17 +2,17 @@
 #include "GameClassByDir.h"
 #include "FatalFury3_A_DEF.h"
 
-const sDirectoryLoadingData FatalFury3_A_FileLoadingData =
-{
-    {
-        { L"069-p1.bin", 0x100000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_FatalFury3_A : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData FatalFury3_A_FileLoadingData =
+    {
+        {
+            { L"069-p1.bin", 0x100000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Fatal Fury 3 (Neo-Geo)",

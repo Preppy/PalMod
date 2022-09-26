@@ -2,17 +2,17 @@
 #include "GameClassByDir.h"
 #include "FatalFuryS_A_DEF.h"
 
-const sDirectoryLoadingData FatalFuryS_A_FileLoadingData =
-{
-    {
-        { L"058-p1.p1", 0x100000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_FatalFuryS_A : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData FatalFuryS_A_FileLoadingData =
+    {
+        {
+            { L"058-p1.p1", 0x100000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         L"Fatal Fury S (Neo-Geo)",

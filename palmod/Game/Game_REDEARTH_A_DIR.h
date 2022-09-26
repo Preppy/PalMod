@@ -1,41 +1,41 @@
 #pragma once
 #include "Game_RedEarth_A.h"
 
-const sDirectoryLoadingData RedEarth_A_FileLoadingData_3dot0 =
-{
-    {
-        { L"redearth-simm3.0", 0x200000 },
-        { L"redearth-simm3.1", 0x200000 },
-        { L"redearth-simm3.2", 0x200000 },
-        { L"redearth-simm3.3", 0x200000 },
-    },
-    FileReadType::Interleaved_2FileSets,
-};
-
-const sDirectoryLoadingData RedEarth_A_FileLoadingData_3dot1 =
-{
-    {
-        { L"redearth-simm3.4", 0x200000 },
-        { L"redearth-simm3.5", 0x200000 },
-        { L"redearth-simm3.6", 0x200000 },
-        { L"redearth-simm3.7", 0x200000 },
-    },
-    FileReadType::Interleaved_2FileSets,
-};
-
-const sDirectoryLoadingData RedEarth_A_FileLoadingData_5dot0 =
-{
-    {
-        { L"redearth-simm5.0", 0x200000 },
-        { L"redearth-simm5.1", 0x200000 },
-    },
-    FileReadType::Interleaved_2FileSets,
-};
-
 class CGame_RedEarth_A_DIR : public CGameClassByDir
 {
 private:
     static RedEarthLoadingKey m_eROMToLoad;
+
+    static inline const sDirectoryLoadingData RedEarth_A_FileLoadingData_3dot0 =
+    {
+        {
+            { L"redearth-simm3.0", 0x200000 },
+            { L"redearth-simm3.1", 0x200000 },
+            { L"redearth-simm3.2", 0x200000 },
+            { L"redearth-simm3.3", 0x200000 },
+        },
+        FileReadType::Interleaved_2FileSets,
+    };
+
+    static inline const sDirectoryLoadingData RedEarth_A_FileLoadingData_3dot1 =
+    {
+        {
+            { L"redearth-simm3.4", 0x200000 },
+            { L"redearth-simm3.5", 0x200000 },
+            { L"redearth-simm3.6", 0x200000 },
+            { L"redearth-simm3.7", 0x200000 },
+        },
+        FileReadType::Interleaved_2FileSets,
+    };
+
+    static inline const sDirectoryLoadingData RedEarth_A_FileLoadingData_5dot0 =
+    {
+        {
+            { L"redearth-simm5.0", 0x200000 },
+            { L"redearth-simm5.1", 0x200000 },
+        },
+        FileReadType::Interleaved_2FileSets,
+    };
 
     const sCoreGameData m_sCoreGameData_3dot0
     {

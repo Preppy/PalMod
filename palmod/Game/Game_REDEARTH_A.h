@@ -2,30 +2,6 @@
 #include "GameClassByDir.h"
 #include "REDEARTH_A_DEF.h"
 
-const sDirectoryLoadingData RedEarth_A_FileLoadingData_30 =
-{
-    {
-        { L"30", 0x800000 },
-    },
-    FileReadType::Sequential,
-};
-
-const sDirectoryLoadingData RedEarth_A_FileLoadingData_31 =
-{
-    {
-        { L"31", 0x800000 },
-    },
-    FileReadType::Sequential,
-};
-
-const sDirectoryLoadingData RedEarth_A_FileLoadingData_50 =
-{
-    {
-        { L"50", 0x400000 },
-    },
-    FileReadType::Sequential,
-};
-
 enum class RedEarthLoadingKey
 {
     RedEarthROM30,
@@ -46,6 +22,30 @@ class CGame_REDEARTH_A : public CGameClassByDir
 {
 private:
     static RedEarthLoadingKey m_eROMToLoad;
+
+    static inline const sDirectoryLoadingData RedEarth_A_FileLoadingData_30 =
+    {
+        {
+            { L"30", 0x800000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData RedEarth_A_FileLoadingData_31 =
+    {
+        {
+            { L"31", 0x800000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData RedEarth_A_FileLoadingData_50 =
+    {
+        {
+            { L"50", 0x400000 },
+        },
+        FileReadType::Sequential,
+    };
 
     const sCoreGameData m_sCoreGameData_30
     {
