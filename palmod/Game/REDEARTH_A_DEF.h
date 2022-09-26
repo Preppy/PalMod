@@ -2717,21 +2717,16 @@ const sGame_PaletteDataset REDEARTH_A_30_BONUS_ELEBG_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_30_BONUS_TEXT_PALETTES[] =
 {
-    { L"Most Big text+Leo VS Text", 0X7eb000, 0X7eb020, indexRedEarthSprites_Bonus, 0x18 },
-    { L"Yashichi/Mobi-Chan", 0X7eb060, 0X7eb080, indexRedEarthSprites_Bonus, 0x17 },
-    //{ L"Kenji - VS Text", 0X7eb080, 0X7eb0A0 },
-    //{ L"Mai-Ling VS Text", 0X7eb100, 0X7eb120 },
-    //{ L"Tessa VS Text", 0X7eb180, 0X7eb1A0 },
-    { L"Perfect! Text", 0X7eb300, 0X7eb320, indexRedEarthSprites_Bonus, 0x15 },
-    { L"\"KO\" Text", 0X7eb380, 0X7eb3A0, indexRedEarthSprites_Bonus, 0x14 },
-    { L"\"is victorious\" Text", 0X7eb580, 0X7eb5A0, indexRedEarthSprites_Bonus, 0x16 },
-};
-
-const sGame_PaletteDataset REDEARTH_A_30_BONUS_CREDITS_PALETTES[] =
-{
-    { L"Credits - TITLES (e.g, Planner) + Kenji VS Text", 0X7eb080, 0X7eb100, indexRedEarthSprites_Bonus, 0x12 },
-    { L"Credits - \"Thank you for playing / Coming Next\" + Mai Ling VS Text", 0X7eb100, 0X7eb180, indexRedEarthSprites_Bonus, 0x13 },
-    { L"Credits - STAFF + Tessa VS Text", 0X7eb180, 0X7eb200, indexRedEarthSprites_Bonus, 0x11 },
+    { L"Leo VS Text, Yashichi, Mobichan", 0x7eb000, 0x7eb080, indexRedEarthSprites_Bonus, 0x18 },
+    { L"Kenji VS Text, Titles, Mobi Charged 1", 0x7eb080, 0x7eb100, indexRedEarthSprites_Bonus, 0x12 },
+    { L"Mai VS Text, Coming Next, Mobi Charged 2", 0x7eb100, 0x7eb180, indexRedEarthSprites_Bonus, 0x13 },
+    { L"Tessa VS Text, Staff, Mobi Charged 3", 0x7eb180, 0x7eb200, indexRedEarthSprites_Bonus, 0x11 },
+    { L"Thanks For Playing Shine, Mobi Charged 4", 0x7eb200, 0x7eb280 },
+    { L"Text: PERFECT", 0x7eb300, 0x7eb380, indexRedEarthSprites_Bonus, 0x15 },
+    { L"Text: KO", 0x7eb380, 0x7eb400, indexRedEarthSprites_Bonus, 0x14 },
+    { L"Text: TIME IS ENDED", 0x7eb480, 0x7eb500 },
+    { L"Text: DRAW", 0x7eb500, 0x7eb580 },
+    { L"Text: FIGHT, ATTACK, IS VICTORIOUS", 0x7eb580, 0x7eb600, indexRedEarthSprites_Bonus, 0x16 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_30_BONUS_UNUSED_PALETTES[] =
@@ -2747,6 +2742,26 @@ const sGame_PaletteDataset REDEARTH_A_30_BONUS_UNUSED_PALETTES[] =
 
     { L"Greedia Unused Palette (Hauzer's Fire Transparency)", 0x74a000, 0x74a080 },
     { L"Icelarn Unused Palette (Hydron's Poison Gas Transparency)", 0x74cf80, 0x74d000 },
+
+    { L"Unused Text 1? (Thanks for Playing?)", 0x7eb280, 0x7eb300 },
+    { L"Unused Text 2? (Time is Ended?)", 0x7eb400, 0x7eb480 },
+
+    { L"Unused Palettes in Lavia's Section (1/16)", 0x42b080, 0x42b280 },
+    { L"Unused Palettes in Lavia's Section (2/16)", 0x42b280, 0x42b480 },
+    { L"Unused Palettes in Lavia's Section (3/16)", 0x42b480, 0x42b680 },
+    { L"Unused Palettes in Lavia's Section (4/16)", 0x42b680, 0x42b880 },
+    { L"Unused Palettes in Lavia's Section (5/16)", 0x42b880, 0x42ba80 },
+    { L"Unused Palettes in Lavia's Section (6/16)", 0x42ba80, 0x42bc80 },
+    { L"Unused Palettes in Lavia's Section (7/16)", 0x42bc80, 0x42be80 },
+    { L"Unused Palettes in Lavia's Section (8/16)", 0x42be80, 0x42c080 },
+    { L"Unused Palettes in Lavia's Section (9/16)", 0x42c080, 0x42c280 },
+    { L"Unused Palettes in Lavia's Section (10/16)", 0x42c280, 0x42c480 },
+    { L"Unused Palettes in Lavia's Section (11/16)", 0x42c480, 0x42c680 },
+    { L"Unused Palettes in Lavia's Section (12/16) ", 0x42c680, 0x42c880 },
+    { L"Unused Palettes in Lavia's Section (13/16)", 0x42c880, 0x42ca80 },
+    { L"Unused Palettes in Lavia's Section (14/16)", 0x42ca80, 0x42cc80 },
+    { L"Unused Palettes in Lavia's Section (15/16)", 0x42cc80, 0x42ce80 },
+    { L"Unused Palettes in Lavia's Section (16/16)", 0x42ce80, 0x42d000 },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =
@@ -2882,7 +2897,6 @@ const sDescTreeNode REDEARTH_A_STAGES_SCION_SLASH_COLLECTION[] =
 const sDescTreeNode REDEARTH_A_30_BONUS_COLLECTION[] =
 {
     { L"Big Text",  DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_TEXT_PALETTES, ARRAYSIZE(REDEARTH_A_30_BONUS_TEXT_PALETTES) },
-    { L"Credits",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_CREDITS_PALETTES, ARRAYSIZE(REDEARTH_A_30_BONUS_CREDITS_PALETTES) },
     { L"Unused",    DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_UNUSED_PALETTES, ARRAYSIZE(REDEARTH_A_30_BONUS_UNUSED_PALETTES) },
     { L"Elemental Super Backgrounds", DESC_NODETYPE_TREE, (void*)REDEARTH_A_30_BONUS_ELEBG_PALETTES, ARRAYSIZE(REDEARTH_A_30_BONUS_ELEBG_PALETTES) },
 };

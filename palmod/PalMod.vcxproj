@@ -273,7 +273,6 @@
     <ClCompile Include="Game\Game_JojosRPG_SNES.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
-    <ClCompile Include="Game\Game_JusticeLeagueTF_SNES.cpp" />
     <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
     <ClCompile Include="Game\Game_Kizuna_A.cpp" />
     <ClCompile Include="Game\Game_KI_SNES.cpp" />

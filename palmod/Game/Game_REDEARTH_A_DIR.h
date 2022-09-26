@@ -53,7 +53,7 @@ private:
         ARRAYSIZE(REDEARTH_A_UNITS_30),
         L"RedEarth30e.txt",             // Extra filename
         REDEARTH_30_PALETTE_COUNT,      // Count of palettes listed in the header
-        0x734000,                       // Lowest known location used for palettes
+        REDEARTH_30_LOWEST_OFFSET,      // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_3dot1
@@ -72,7 +72,7 @@ private:
         ARRAYSIZE(REDEARTH_A_UNITS_31),
         L"RedEarthE.txt",               // Extra filename
         REDEARTH_31_PALETTE_COUNT,      // Count of palettes listed in the header
-        0x132600,                       // Lowest known location used for palettes
+        REDEARTH_31_LOWEST_OFFSET,      // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_5dot0
@@ -91,9 +91,8 @@ private:
         ARRAYSIZE(REDEARTH_A_UNITS_50),
         L"RedEarth50e.txt",             // Extra filename
         REDEARTH_50_PALETTE_COUNT,      // Count of palettes listed in the header
-        0x358000,                       // Lowest known location used for palettes
+        REDEARTH_50_LOWEST_OFFSET,      // Lowest known location used for palettes
     };
-
 
 public:
     CGame_RedEarth_A_DIR(uint32_t nConfirmedROMSize, RedEarthLoadingKey nRedEarthModeToLoad);

@@ -260,6 +260,15 @@ const sGame_PaletteDataset JusticeLeagueTF_SNES_BONUS_LOGO_PALETTES[] =
     { L"Blizzard Ent. logo", 0x1C150, 0x1C190, indexJLTFSprites_Bonus, 0x01 },
 };
 
+const sGame_PaletteDataset JusticeLeagueTF_SNES_BONUS_BONUS_PALETTES[] =
+{
+    { L"Title Screen", 0x1d9de, 0x1da1e },
+    { L"Title Screen \"Task\"", 0x1da20, 0x1da40 },
+    { L"Title Screen \"Force\"", 0x1da42, 0x1da62 },
+    { L"In-Game Notifications", 0x1d6232, 0x1d6252 },
+    { L"Miscellaneous text", 0x1d6274, 0x1d6294 },
+};
+
 const sDescTreeNode JusticeLeagueTF_SNES_SUPERMAN_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_SUPERMAN_PALETTES_P1, ARRAYSIZE(JusticeLeagueTF_SNES_SUPERMAN_PALETTES_P1) },
@@ -342,6 +351,7 @@ const sDescTreeNode JusticeLeagueTF_SNES_BONUS_COLLECTION[] =
     { L"Character Select", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_BONUS_CS_PALETTES, ARRAYSIZE(JusticeLeagueTF_SNES_BONUS_CS_PALETTES) },
     { L"Stage Select Icons", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_BONUS_SSI_PALETTES, ARRAYSIZE(JusticeLeagueTF_SNES_BONUS_SSI_PALETTES) },
     { L"Logos", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_BONUS_LOGO_PALETTES, ARRAYSIZE(JusticeLeagueTF_SNES_BONUS_LOGO_PALETTES) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_BONUS_BONUS_PALETTES, ARRAYSIZE(JusticeLeagueTF_SNES_BONUS_BONUS_PALETTES) },
 };
 
 const sDescTreeNode JusticeLeagueTF_SNES_UNITS[] =
@@ -359,7 +369,3 @@ const sDescTreeNode JusticeLeagueTF_SNES_UNITS[] =
     { L"Stages", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_STAGE_COLLECTION, ARRAYSIZE(JusticeLeagueTF_SNES_STAGE_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)JusticeLeagueTF_SNES_BONUS_COLLECTION, ARRAYSIZE(JusticeLeagueTF_SNES_BONUS_COLLECTION) },
 };
-
-constexpr auto JusticeLeagueTF_SNES_NUMUNIT = ARRAYSIZE(JusticeLeagueTF_SNES_UNITS);
-
-constexpr auto JusticeLeagueTF_SNES_EXTRALOC = JusticeLeagueTF_SNES_NUMUNIT;

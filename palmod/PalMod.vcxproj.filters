@@ -996,9 +996,6 @@
     <ClCompile Include="Game\Game_VampireNightWarriors_A.cpp">
       <Filter>Games\Capcom Games\Vampire Night Warriors_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_JusticeLeagueTF_SNES.cpp">
-      <Filter>Games\Nintendo\Justice League Task Force %28SNES%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_UMK3_DS.cpp">
       <Filter>Games\Nintendo\Ultimate Mortal Kombat 3 %28DS%29</Filter>
     </ClCompile>

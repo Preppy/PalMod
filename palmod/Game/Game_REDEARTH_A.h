@@ -34,9 +34,13 @@ enum class RedEarthLoadingKey
 };
 
 // I'm using defines since these are used for both the mono and simm versions
-constexpr auto REDEARTH_30_PALETTE_COUNT = 625;
+constexpr auto REDEARTH_30_PALETTE_COUNT = 645;
 constexpr auto REDEARTH_31_PALETTE_COUNT = 1297;
 constexpr auto REDEARTH_50_PALETTE_COUNT = 4;
+
+constexpr auto REDEARTH_30_LOWEST_OFFSET = 0x42b080;
+constexpr auto REDEARTH_31_LOWEST_OFFSET = 0x132600;
+constexpr auto REDEARTH_50_LOWEST_OFFSET = 0x358000;
 
 class CGame_REDEARTH_A : public CGameClassByDir
 {
@@ -59,7 +63,7 @@ private:
         ARRAYSIZE(REDEARTH_A_UNITS_30),
         L"RedEarth30e.txt",             // Extra filename
         REDEARTH_30_PALETTE_COUNT,      // Count of palettes listed in the header
-        0x734000,                       // Lowest known location used for palettes
+        REDEARTH_30_LOWEST_OFFSET,      // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_31
@@ -78,7 +82,7 @@ private:
         ARRAYSIZE(REDEARTH_A_UNITS_31),
         L"RedEarthE.txt",               // Extra filename
         REDEARTH_31_PALETTE_COUNT,      // Count of palettes listed in the header
-        0x132600,                       // Lowest known location used for palettes
+        REDEARTH_31_LOWEST_OFFSET,      // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_50
@@ -97,7 +101,7 @@ private:
         ARRAYSIZE(REDEARTH_A_UNITS_50),
         L"RedEarth50e.txt",             // Extra filename
         REDEARTH_50_PALETTE_COUNT,      // Count of palettes listed in the header
-        0x358000,                       // Lowest known location used for palettes
+        REDEARTH_50_LOWEST_OFFSET,      // Lowest known location used for palettes
     };
 
 public:
