@@ -40,7 +40,7 @@ CGame_SFA3_A::CGame_SFA3_A(uint32_t nConfirmedROMSize)
 
     m_nTotalInternalUnits = SFA3_A_NUMUNIT;
     m_nExtraUnit = SFA3_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1927 + GetExtraCt(SFA3_A_EXTRALOC);
+    m_nSafeCountForThisRom = 1970 + GetExtraCt(SFA3_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA3;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
     m_nLowestKnownPaletteRomLocation = 0x2C000;
@@ -85,7 +85,7 @@ uint32_t CGame_SFA3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKno
 
         // We are aligned to the character sprites here, but not the portraits/stages.
         // Accordingly, we don't actually expose this in the file picker UI.
-        { L"SFA3 980616 (Prototype)", L"sz3-usam_09.8d", 0x822fc451, 0x2ff9a },
+        { L"SFA3 980616 (Prototype: Stages and Portraits aren't supported)", L"sz3-usam_09.8d", 0x822fc451, 0x2ff9a },
     };
 
     if (ppKnownROMSet)
@@ -404,8 +404,8 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
-            if ((_wcsicmp(pCurrentNode->szDesc, L"Select Portraits") == 0) ||
-                (_wcsicmp(pCurrentNode->szDesc, L"Win Portraits") == 0))
+            if ((wcsstr(pCurrentNode->szDesc, L"Select Portraits") != nullptr) ||
+                (wcsstr(pCurrentNode->szDesc, L"Win Portraits") != nullptr))
             {
                 // Hm.  These start at an abstract position within the node.  Let's derive that.
                 int nProspectiveStart = NodeGet->uPalId;
@@ -430,8 +430,8 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
-                    if ((wcscmp(charUnit->szDesc, k_sfa3NameKey_ChunLi) == 0) ||  // different portraits for X vs non-X
-                        (wcscmp(charUnit->szDesc, k_sfa3NameKey_Sodom) == 0))     // different win portraits for X vs non-X
+                    if ((wcscmp(charUnit->szDesc, k_sfa3NameKey_ChunLi) != 0) &&  // different portraits for X vs non-X
+                        (wcscmp(charUnit->szDesc, k_sfa3NameKey_Sodom) != 0))     // different win portraits for X vs non-X
                     {
                         // OK, we've arrived where we expected to
                         nSrcAmt = 6;

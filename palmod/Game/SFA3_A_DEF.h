@@ -428,30 +428,38 @@ const sGame_PaletteDataset SFA3_A_CHUNLI_VISMK[] =
 
 const sGame_PaletteDataset SFA3_A_CHUNLI_STATUS[] =
 {
-    { L"Burned 1", 0x33612 + 0x00, 0x33612 + 0x20, indexCPS2Sprites_ChunLi },
-    { L"Burned 2", 0x33612 + 0x20, 0x33612 + 0x40, indexCPS2Sprites_ChunLi },
-    { L"Psycho Crusher Burned 1", 0x33612 + 0x40, 0x33612 + 0x60, indexCPS2Sprites_ChunLi },
-    { L"Psycho Crusher Burned 2", 0x33612 + 0x60, 0x33612 + 0x80, indexCPS2Sprites_ChunLi },
-    { L"V-Ism P1 After Effect 1", 0x33612 + 0x80, 0x33612 + 0xA0, indexCPS2Sprites_ChunLi },
-    { L"V-Ism P1 After Effect 2", 0x33612 + 0xA0, 0x33612 + 0xC0, indexCPS2Sprites_ChunLi },
-    { L"V-Ism P2 After Effect 1", 0x33612 + 0xC0, 0x33612 + 0xE0, indexCPS2Sprites_ChunLi },
-    { L"V-Ism P2 After Effect 2", 0x33612 + 0xe0, 0x33612 + 0x100, indexCPS2Sprites_ChunLi },
+    { L"A/V-Ism Burned 1", 0x33612 + 0x00, 0x33612 + 0x20, indexCPS2Sprites_ChunLi, 0x0C },
+    { L"A/V-Ism Burned 2", 0x33612 + 0x20, 0x33612 + 0x40, indexCPS2Sprites_ChunLi, 0x0C },
+    { L"X-Ism Burned 1", 0x33912, 0x33932, indexCPS2Sprites_ChunLi },
+    { L"X-Ism Burned 2", 0x33932, 0x33952, indexCPS2Sprites_ChunLi },
+    { L"A/V-Ism Psycho Crusher Burned 1", 0x33612 + 0x40, 0x33612 + 0x60, indexCPS2Sprites_ChunLi, 0x0C },
+    { L"A/V-Ism Psycho Crusher Burned 2", 0x33612 + 0x60, 0x33612 + 0x80, indexCPS2Sprites_ChunLi, 0x0C },
+    { L"X-Ism Psycho Crusher Burned 1", 0x33952, 0x33972, indexCPS2Sprites_ChunLi },
+    { L"X-Ism Psycho Crusher Burned 2", 0x33972, 0x33992, indexCPS2Sprites_ChunLi },
+
+    { L"V-Ism P1 After Effect 1", 0x33612 + 0x80, 0x33612 + 0xA0, indexCPS2Sprites_ChunLi, 0x0C },
+    { L"V-Ism P1 After Effect 2", 0x33612 + 0xA0, 0x33612 + 0xC0, indexCPS2Sprites_ChunLi, 0x0C },
+    { L"V-Ism P2 After Effect 1", 0x33612 + 0xC0, 0x33612 + 0xE0, indexCPS2Sprites_ChunLi, 0x0C },
+    { L"V-Ism P2 After Effect 2", 0x33612 + 0xe0, 0x33612 + 0x100, indexCPS2Sprites_ChunLi, 0x0C },
     { L"X-Ism Punch Zapped", 0x33612 + 0x100, 0x33612 + 0x120, indexCPS2Sprites_ChunLi },
     { L"X-Ism Kick Zapped", 0x33612 + 0x120, 0x33612 + 0x140, indexCPS2Sprites_ChunLi },
     { L"A-Ism Punch Zapped", 0x33612 + 0x140, 0x33612 + 0x160, indexCPS2Sprites_ChunLi, 0x0C },
     { L"A-Ism Kick Zapped", 0x33612 + 0x160, 0x33612 + 0x180, indexCPS2Sprites_ChunLi, 0x0C },
     { L"V-Ism Punch Zapped", 0x33612 + 0x180, 0x33612 + 0x1A0, indexCPS2Sprites_ChunLi, 0x0C },
     { L"V-Ism Kick Zapped", 0x33612 + 0x1A0, 0x33612 + 0x1C0, indexCPS2Sprites_ChunLi, 0x0C },
-    { L"Zapped Skeleton", 0x33612 + 0x1C0, 0x33612 + 0x1E0, indexCPS2Sprites_ChunLi },
+    { L"Zapped Skeleton", 0x33612 + 0x1C0, 0x33612 + 0x1E0 },
     { L"X-Ism Punch Mash", 0x33612 + 0x1e0, 0x33612 + 0x200, indexCPS2Sprites_ChunLi },
     { L"X-Ism Kick Mash", 0x33612 + 0x200, 0x33612 + 0x220, indexCPS2Sprites_ChunLi },
     { L"A-Ism Punch Mash", 0x33612 + 0x220, 0x33612 + 0x240, indexCPS2Sprites_ChunLi, 0x0C },
     { L"A-Ism Kick Mash", 0x33612 + 0x240, 0x33612 + 0x260, indexCPS2Sprites_ChunLi, 0x0C },
     { L"V-Ism Punch Mash", 0x33612 + 0x260, 0x33612 + 0x280, indexCPS2Sprites_ChunLi, 0x0C },
     { L"V-Ism Kick Mash", 0x33612 + 0x280, 0x33612 + 0x2A0, indexCPS2Sprites_ChunLi, 0x0C },
-    { L"Priority Win", 0x33612 + 0x2A0, 0x33612 + 0x2C0, indexCPS2Sprites_ChunLi },
-    { L"Damage Reduction", 0x33612 + 0x2C0, 0x33612 + 0x2E0, indexCPS2Sprites_ChunLi },
-    { L"Just Defend", 0x33612 + 0x2e0, 0x33612 + 0x300, indexCPS2Sprites_ChunLi },
+    { L"A/V-Ism Priority Win", 0x33612 + 0x2A0, 0x33612 + 0x2C0, indexCPS2Sprites_ChunLi, 0x0C },
+    { L"X-Ism Priority Win", 0x33992, 0x339b2, indexCPS2Sprites_ChunLi },
+    { L"A/V-Ism Damage Reduction", 0x33612 + 0x2C0, 0x33612 + 0x2E0, indexCPS2Sprites_ChunLi, 0x0C },
+    { L"X-Ism Damage Reduction", 0x339b2, 0x339d2, indexCPS2Sprites_ChunLi },
+    { L"A/V-Ism Just Defend", 0x33612 + 0x2e0, 0x33612 + 0x300, indexCPS2Sprites_ChunLi, 0x0C },
+    { L"X-Ism Just Defend", 0x339d2, 0x339f2, indexCPS2Sprites_ChunLi },
 };
 
 const sGame_PaletteDataset SFA3_A_ADON_XISMP[] =
@@ -712,8 +720,13 @@ const sGame_PaletteDataset SFA3_A_GUY_STATUS[] =
 const sGame_PaletteDataset SFA3_A_BIRDIE_XISMP[] =
 {
     { L"X-Ism Punch", 0x2ded2, 0x2def2, indexCPS2Sprites_Birdie, 0x00 },
-    { L"X-Ism Punch Extra 1", 0x2def2, 0x2df12 },
+    { L"X-Ism Punch Extra 1", 0x2def2, 0x2df12, indexCPS2Sprites_Birdie, 0x00 },
     { L"X-Ism Punch Extra 2", 0x2df12, 0x2df32 },
+
+    { L"X-Ism Punch Extra 3", 0x4abd2, 0x4abf2, indexCPS2Sprites_Birdie, 0x00 },
+    { L"X-Ism Punch Extra 4", 0x4abf2, 0x4ac12, indexCPS2Sprites_Birdie, 0x00 },
+    { L"X-Ism Punch Extra 5", 0x4ac12, 0x4ac32, indexCPS2Sprites_Birdie, 0x00 },
+
     { L"X-Ism Punch Super Trail Light", 0x2df32, 0x2df52, indexCPS2Sprites_Birdie, 0x00 },
     { L"X-Ism Punch Super Trail Dark", 0x2df52, 0x2df72, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -721,8 +734,13 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_XISMP[] =
 const sGame_PaletteDataset SFA3_A_BIRDIE_XISMK[] =
 {
     { L"X-Ism Kick", 0x2df72, 0x2df92, indexCPS2Sprites_Birdie, 0x00 },
-    { L"X-Ism Kick Extra 1", 0x2df92, 0x2dfb2 },
+    { L"X-Ism Kick Extra 1", 0x2df92, 0x2dfb2, indexCPS2Sprites_Birdie, 0x00 },
     { L"X-Ism Kick Extra 2", 0x2dfb2, 0x2dfd2 },
+
+    { L"X-Ism Kick Extra 3", 0x4ac32, 0x4ac52, indexCPS2Sprites_Birdie, 0x00 },
+    { L"X-Ism Kick Extra 4", 0x4ac52, 0x4ac72, indexCPS2Sprites_Birdie, 0x00 },
+    { L"X-Ism Kick Extra 5", 0x4ac72, 0x4ac92, indexCPS2Sprites_Birdie, 0x00 },
+
     { L"X-Ism Kick Super Trail Light", 0x2dfd2, 0x2dff2, indexCPS2Sprites_Birdie, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x2dff2, 0x2e012, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -730,8 +748,13 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_XISMK[] =
 const sGame_PaletteDataset SFA3_A_BIRDIE_AISMP[] =
 {
     { L"A-Ism Punch", 0x2e012, 0x2e032, indexCPS2Sprites_Birdie, 0x00 },
-    { L"A-Ism Punch Extra 1", 0x2e032, 0x2e052 },
+    { L"A-Ism Punch Extra 1", 0x2e032, 0x2e052, indexCPS2Sprites_Birdie, 0x00 },
     { L"A-Ism Punch Extra 2", 0x2e052, 0x2e072 },
+
+    { L"A-Ism Punch Extra 3", 0x4ac92, 0x4acb2, indexCPS2Sprites_Birdie, 0x00 },
+    { L"A-Ism Punch Extra 4", 0x4acb2, 0x4acd2, indexCPS2Sprites_Birdie, 0x00 },
+    { L"A-Ism Punch Extra 5", 0x4acd2, 0x4acf2, indexCPS2Sprites_Birdie, 0x00 },
+
     { L"A-Ism Punch Super Trail Light", 0x2e072, 0x2e092, indexCPS2Sprites_Birdie, 0x00 },
     { L"A-Ism Punch Super Trail Dark", 0x2e092, 0x2e0b2, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -739,8 +762,13 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_AISMP[] =
 const sGame_PaletteDataset SFA3_A_BIRDIE_AISMK[] =
 {
     { L"A-Ism Kick", 0x2e0b2, 0x2e0d2, indexCPS2Sprites_Birdie, 0x00 },
-    { L"A-Ism Kick Extra 1", 0x2e0d2, 0x2e0f2 },
+    { L"A-Ism Kick Extra 1", 0x2e0d2, 0x2e0f2, indexCPS2Sprites_Birdie, 0x00 },
     { L"A-Ism Kick Extra 2", 0x2e0f2, 0x2e112 },
+
+    { L"A-Ism Kick Extra 3", 0x4acf2, 0x4ad12, indexCPS2Sprites_Birdie, 0x00 },
+    { L"A-Ism Kick Extra 4", 0x4ad12, 0x4ad32, indexCPS2Sprites_Birdie, 0x00 },
+    { L"A-Ism Kick Extra 5", 0x4ad32, 0x4ad52, indexCPS2Sprites_Birdie, 0x00 },
+
     { L"A-Ism Kick Super Trail Light", 0x2e112, 0x2e132, indexCPS2Sprites_Birdie, 0x00 },
     { L"A-Ism Kick Super Trail Dark", 0x2e132, 0x2e152, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -748,8 +776,13 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_AISMK[] =
 const sGame_PaletteDataset SFA3_A_BIRDIE_VISMP[] =
 {
     { L"V-Ism Punch", 0x2e152, 0x2e172, indexCPS2Sprites_Birdie, 0x00 },
-    { L"V-Ism Punch Extra 1", 0x2e172, 0x2e192 },
+    { L"V-Ism Punch Extra 1", 0x2e172, 0x2e192, indexCPS2Sprites_Birdie, 0x00 },
     { L"V-Ism Punch Extra 2", 0x2e192, 0x2e1b2 },
+
+    { L"V-Ism Punch Extra 3", 0x4ad52, 0x4ad72, indexCPS2Sprites_Birdie, 0x00 },
+    { L"V-Ism Punch Extra 4", 0x4ad72, 0x4ad92, indexCPS2Sprites_Birdie, 0x00 },
+    { L"V-Ism Punch Extra 5", 0x4ad92, 0x4adb2, indexCPS2Sprites_Birdie, 0x00 },
+
     { L"V-Ism Punch Super Trail Light", 0x2e1b2, 0x2e1d2, indexCPS2Sprites_Birdie, 0x00 },
     { L"V-Ism Punch Super Trail Dark", 0x2e1d2, 0x2e1f2, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -757,8 +790,12 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_VISMP[] =
 const sGame_PaletteDataset SFA3_A_BIRDIE_VISMK[] =
 {
     { L"V-Ism Kick", 0x2e1f2, 0x2e212, indexCPS2Sprites_Birdie, 0x00 },
-    { L"V-Ism Kick Extra 1", 0x2e212, 0x2e232 },
+    { L"V-Ism Kick Extra 1", 0x2e212, 0x2e232, indexCPS2Sprites_Birdie, 0x00 },
     { L"V-Ism Kick Extra 2", 0x2e232, 0x2e252 },
+    { L"V-Ism Kick Extra 3", 0x4adb2, 0x4add2, indexCPS2Sprites_Birdie, 0x00 },
+    { L"V-Ism Kick Extra 4", 0x4add2, 0x4adf2, indexCPS2Sprites_Birdie, 0x00 },
+    { L"V-Ism Kick Extra 5", 0x4adf2, 0x4ae12, indexCPS2Sprites_Birdie, 0x00 },
+
     { L"V-Ism Kick Super Trail Light", 0x2e252, 0x2e272, indexCPS2Sprites_Birdie, 0x00 },
     { L"V-Ism Kick Super Trail Dark", 0x2e272, 0x2e292, indexCPS2Sprites_Birdie, 0x00 },
 };
@@ -2983,6 +3020,36 @@ const sGame_PaletteDataset SFA3_A_KARIN_PORTRAIT_WIN_PALETTES[] =
     { L"V-Ism Kick", 0x5ba92, 0x5bb92, indexCPS2Sprites_SFA3_Portraits, indexCPS2Sprites_Karin },
 };
 
+const sGame_PaletteDataset SFA3_A_CHUNLI_PORTRAIT_SELECT_PALETTES_UNUSED[] =
+{
+    { L"X-Ism Punch Alt", 0x50412, 0x50492, indexCPS2Sprites_SFA3Assets, 0xa6 },
+    { L"X-Ism Kick Alt", 0x50492, 0x50512, indexCPS2Sprites_SFA3Assets, 0xa6 },
+    { L"A-Ism Punch Alt", 0x50512, 0x50592, indexCPS2Sprites_SFA3Assets, 0xa6 },
+    { L"A-Ism Kick Alt", 0x50592, 0x50612, indexCPS2Sprites_SFA3Assets, 0xa6 },
+    { L"V-Ism Punch Alt", 0x50612, 0x50692, indexCPS2Sprites_SFA3Assets, 0xa6 },
+    { L"V-Ism Kick Alt", 0x50692, 0x50712, indexCPS2Sprites_SFA3Assets, 0xa6 },
+};
+
+const sGame_PaletteDataset SFA3_A_CHUNLI_PORTRAIT_WIN_PALETTES_UNUSED[] =
+{
+    { L"X-Ism Punch Alt", 0x58b92, 0x58bf2, indexCPS2Sprites_SFA3_Portraits, 0x1c },
+    { L"X-Ism Kick Alt", 0x58c92, 0x58cf2, indexCPS2Sprites_SFA3_Portraits, 0x1c },
+    { L"A-Ism Punch Alt", 0x58d92, 0x58df2, indexCPS2Sprites_SFA3_Portraits, 0x1c },
+    { L"A-Ism Kick Alt", 0x58e92, 0x58ef2, indexCPS2Sprites_SFA3_Portraits, 0x1c },
+    { L"V-Ism Punch Alt", 0x58f92, 0x58ff2, indexCPS2Sprites_SFA3_Portraits, 0x1c },
+    { L"V-Ism Kick Alt", 0x59092, 0x590f2, indexCPS2Sprites_SFA3_Portraits, 0x1c },
+};
+
+const sGame_PaletteDataset SFA3_A_SHINGOUKI_PORTRAIT_SELECT_PALETTES_UNUSED[] =
+{
+    { L"X-Ism Punch", 0x50712, 0x50792, indexCPS2Sprites_SFA3Assets, 0xa1 },
+    { L"X-Ism Kick", 0x50792, 0x50812, indexCPS2Sprites_SFA3Assets, 0xa1 },
+    { L"A-Ism Punch", 0x50812, 0x50892, indexCPS2Sprites_SFA3Assets, 0xa1 },
+    { L"A-Ism Kick", 0x50892, 0x50912, indexCPS2Sprites_SFA3Assets, 0xa1 },
+    { L"V-Ism Punch", 0x50912, 0x50992, indexCPS2Sprites_SFA3Assets, 0xa1 },
+    { L"V-Ism Kick", 0x50992, 0x50a12, indexCPS2Sprites_SFA3Assets, 0xa1 },
+};
+
 const sDescTreeNode SFA3_A_RYU_COLLECTION[] =
 {
     { L"X-Ism Punch",    DESC_NODETYPE_TREE, (void*)SFA3_A_RYU_XISMP,      ARRAYSIZE(SFA3_A_RYU_XISMP) },
@@ -3020,6 +3087,8 @@ const sDescTreeNode SFA3_A_GOUKI_COLLECTION[] =
     { L"Status Effects", DESC_NODETYPE_TREE, (void*)SFA3_A_GOUKI_STATUS,     ARRAYSIZE(SFA3_A_GOUKI_STATUS) },
     { L"Select Portraits", DESC_NODETYPE_TREE, (void*)SFA3_A_AKUMA_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_AKUMA_PORTRAIT_SELECT_PALETTES) },
     { L"Win Portraits",  DESC_NODETYPE_TREE, (void*)SFA3_A_AKUMA_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_AKUMA_PORTRAIT_WIN_PALETTES) },
+
+    { L"Shin Gouki Select Portraits (Unused)", DESC_NODETYPE_TREE, (void*)SFA3_A_SHINGOUKI_PORTRAIT_SELECT_PALETTES_UNUSED, ARRAYSIZE(SFA3_A_SHINGOUKI_PORTRAIT_SELECT_PALETTES_UNUSED) },
 };
 
 const sDescTreeNode SFA3_A_CHARLIE_COLLECTION[] =
@@ -3046,6 +3115,9 @@ const sDescTreeNode SFA3_A_CHUNLI_COLLECTION[] =
     { L"Status Effects", DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_STATUS,     ARRAYSIZE(SFA3_A_CHUNLI_STATUS) },
     { L"Select Portraits", DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_CHUNLI_PORTRAIT_SELECT_PALETTES) },
     { L"Win Portraits",  DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_CHUNLI_PORTRAIT_WIN_PALETTES) },
+
+    { L"Unused Select Portraits", DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_PORTRAIT_SELECT_PALETTES_UNUSED, ARRAYSIZE(SFA3_A_CHUNLI_PORTRAIT_SELECT_PALETTES_UNUSED) },
+    { L"Unused Win Portraits",  DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_PORTRAIT_WIN_PALETTES_UNUSED, ARRAYSIZE(SFA3_A_CHUNLI_PORTRAIT_WIN_PALETTES_UNUSED) },
 };
 
 const sDescTreeNode SFA3_A_ADON_COLLECTION[] =

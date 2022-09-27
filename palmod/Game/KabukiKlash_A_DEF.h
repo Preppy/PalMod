@@ -635,9 +635,9 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Lucifeller_P1[] =
     { L"Lucifeller P1 - Ice", 0x1f6ec0, 0x1f6ee0 },
     { L"Lucifeller P1 - Intro 1", 0x1f6ee0, 0x1f6f00 },
     { L"Lucifeller P1 - Intro 2", 0x1f6f00, 0x1f6f20 },
-    { L"Lucifeller P1 - Unknown 1", 0x1f6f20, 0x1f6f40 },
-    { L"Lucifeller P1 - Unknown 2", 0x1f6f40, 0x1f6f60 },
-    { L"Lucifeller P1 - Unknown 3", 0x1f6f60, 0x1f6f80 },
+    { L"Lucifeller P1 - Defeated 1", 0x1f6f20, 0x1f6f40 },
+    { L"Lucifeller P1 - Defeated 2", 0x1f6f40, 0x1f6f60 },
+    { L"Lucifeller P1 - Defeated 3", 0x1f6f60, 0x1f6f80 },
     { L"Lucifeller P1 - Zapped Effect", 0x1f6f80, 0x1f6fa0 },
 };
 
@@ -654,9 +654,9 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_Character_Lucifeller_P2[] =
     { L"Lucifeller P2 - Ice", 0x1f8240, 0x1f8260 },
     { L"Lucifeller P2 - Intro 1", 0x1f8260, 0x1f8280 },
     { L"Lucifeller P2 - Intro 2", 0x1f8280, 0x1f82a0 },
-    { L"Lucifeller P2 - Unknown 1", 0x1f82a0, 0x1f82c0 },
-    { L"Lucifeller P2 - Unknown 2", 0x1f82c0, 0x1f82e0 },
-    { L"Lucifeller P2 - Unknown 3", 0x1f82e0, 0x1f8300 },
+    { L"Lucifeller P2 - Defeated 1", 0x1f82a0, 0x1f82c0 },
+    { L"Lucifeller P2 - Defeated 2", 0x1f82c0, 0x1f82e0 },
+    { L"Lucifeller P2 - Defeated 3", 0x1f82e0, 0x1f8300 },
     { L"Lucifeller P2 - Zapped Effect", 0x1f8300, 0x1f8320 },
 };
 
