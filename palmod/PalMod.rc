@@ -426,6 +426,7 @@ BEGIN
             POPUP "Nitroplus Blasterz: Heroines Infinite Duel"
             BEGIN
                 MENUITEM "Nitroplus Blasterz: Heroines Infinite Duel (NESICAxLive)", ID_LD_NBHID_NL
+                MENUITEM "Nitroplus Blasterz: Heroines Infinite Duel (PS3)", ID_LD_NBHID_P
                 MENUITEM "Nitroplus Blasterz: Heroines Infinite Duel (Steam)", ID_LD_NBHID_S
             END
             POPUP "Persona 4 Arena"

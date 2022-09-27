@@ -152,7 +152,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 170, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 171, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -725,6 +725,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         ResetRuleCtr = &CGame_NBHID_NL::ResetRuleCtr;
         GetRule = &CGame_NBHID_NL::GetRule;
         GetNextRule = &CGame_NBHID_NL::GetNextRule;
+
+        return TRUE;
+    }
+    case NBHID_P:
+    {
+        GetRuleCtr = &CGame_NBHID_P::GetRuleCtr;
+        ResetRuleCtr = &CGame_NBHID_P::ResetRuleCtr;
+        GetRule = &CGame_NBHID_P::GetRule;
+        GetNextRule = &CGame_NBHID_P::GetNextRule;
 
         return TRUE;
     }
@@ -1515,6 +1524,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case NBHID_NL:
     {
         return new CGame_NBHID_NL(nConfirmedROMSize);
+    }
+    case NBHID_P:
+    {
+        return new CGame_NBHID_P(nConfirmedROMSize);
     }
     case NBHID_S:
     {

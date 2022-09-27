@@ -218,6 +218,7 @@
 #define ID_LD_NBHID_NL                  32816
 #define ID_LD_MVC2PS2USA                32817
 #define ID_ACC_BLINK                    32818
+#define ID_LD_NBHID_P                   32819
 #define ID_SETTINGS_TILEIMAGEBACKGROUND 32820
 #define ID_SETTINGS_RESETBACKGROUNDOFFSET 32821
 #define ID_FILE_LOADFILE                32822
