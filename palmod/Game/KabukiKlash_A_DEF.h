@@ -816,15 +816,15 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_STAGES_Ziria_Tsukuba[] =
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_STAGES_Kabuki_Kyou[] =
 {
     //--Kabuki's Stage--
-    { L"Kyou (1/2) 0x1f97e0", 0x1f97e0, 0x1f99e0 },
-    { L"Kyou (2/2) 0x1f99e0", 0x1f99e0, 0x1f9b40 },
+    { L"Kyou (1/2)", 0x1f97e0, 0x1f99e0 },
+    { L"Kyou (2/2)", 0x1f99e0, 0x1f9b40 },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_STAGES_Yagumo_Izumo[] =
 {
     //--Yagumo's Stage--
-    { L"Izumo (1/2) 0x1f93a0", 0x1f93a0, 0x1f95a0 },
-    { L"Izumo (2/2) 0x1f95a0", 0x1f95a0, 0x1f95c0 },
+    { L"Izumo (1/2)", 0x1f93a0, 0x1f95a0 },
+    { L"Izumo (2/2)", 0x1f95a0, 0x1f95c0 },
 };
 
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_STAGES_Kinu_Yama[] =
@@ -844,8 +844,8 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_STAGES_Tsunade_Togakushi[] =
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_STAGES_Gokuraku_Noto[] =
 {
     //--Gokuraku's Stage--
-    { L"Noto - Background (1/2) 0x1f8900", 0x1f8900, 0x1f8b00 },
-    { L"Noto - Background (2/2) 0x1f8b00", 0x1f8b00, 0x1f8b80 },
+    { L"Noto - Background (1/2)", 0x1f8900, 0x1f8b00 },
+    { L"Noto - Background (2/2)", 0x1f8b00, 0x1f8b80 },
     { L"Noto - Background Extras", 0x1f8b80, 0x1f8c20 },
 };
 
@@ -895,20 +895,20 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_STAGES_Jyashinsai_Kamakura[] =
 const sGame_PaletteDataset KabukiKlash_A_PALETTES_STAGES_Lucifeller_Kamakura[] =
 {
     //--Lucifeller's Stage--
-    { L"Kamakura Destroyed 1/5 (1/2) 0x1faea0", 0x1faea0, 0x1fb0a0 },
-    { L"Kamakura Destroyed 1/5 (2/2) 0x1fb0a0", 0x1fb0a0, 0x1fb120 },
+    { L"Kamakura Destroyed 1/5 (1/2)", 0x1faea0, 0x1fb0a0 },
+    { L"Kamakura Destroyed 1/5 (2/2)", 0x1fb0a0, 0x1fb120 },
     { L"Kamakura Destroyed - Background 1/5", 0x1fb120, 0x1fb160 },
-    { L"Kamakura Destroyed 2/5 (1/2) 0x1fb160", 0x1fb160, 0x1fb360 },
-    { L"Kamakura Destroyed 2/5 (2/2) 0x1fb360", 0x1fb360, 0x1fb3e0 },
+    { L"Kamakura Destroyed 2/5 (1/2)", 0x1fb160, 0x1fb360 },
+    { L"Kamakura Destroyed 2/5 (2/2)", 0x1fb360, 0x1fb3e0 },
     { L"Kamakura Destroyed - Background 2/5", 0x1fb3e0, 0x1fb420 },
-    { L"Kamakura Destroyed 3/5 (1/2) 0x1fb420", 0x1fb420, 0x1fb620 },
-    { L"Kamakura Destroyed 3/5 (2/2) 0x1fb620", 0x1fb620, 0x1fb6a0 },
+    { L"Kamakura Destroyed 3/5 (1/2)", 0x1fb420, 0x1fb620 },
+    { L"Kamakura Destroyed 3/5 (2/2)", 0x1fb620, 0x1fb6a0 },
     { L"Kamakura Destroyed - Background 3/5", 0x1fb6a0, 0x1fb6e0 },
-    { L"Kamakura Destroyed 4/5 (1/2) 0x1fb6e0", 0x1fb6e0, 0x1fb8e0 },
-    { L"Kamakura Destroyed 4/5 (2/2) 0x1fb8e0", 0x1fb8e0, 0x1fb960 },
+    { L"Kamakura Destroyed 4/5 (1/2)", 0x1fb6e0, 0x1fb8e0 },
+    { L"Kamakura Destroyed 4/5 (2/2)", 0x1fb8e0, 0x1fb960 },
     { L"Kamakura Destroyed - Background 4/5", 0x1fb960, 0x1fb9a0 },
-    { L"Kamakura Destroyed 5/5 (1/2) 0x1fb9a0", 0x1fb9a0, 0x1fbba0 },
-    { L"Kamakura Destroyed 5/5 (2/2) 0x1fbba0", 0x1fbba0, 0x1fbc20 },
+    { L"Kamakura Destroyed 5/5 (1/2)", 0x1fb9a0, 0x1fbba0 },
+    { L"Kamakura Destroyed 5/5 (2/2)", 0x1fbba0, 0x1fbc20 },
     { L"Kamakura Destroyed - Background 5/5", 0x1fbc20, 0x1fbc60 },
 };
 
@@ -934,8 +934,8 @@ const sGame_PaletteDataset KabukiKlash_A_PALETTES_BONUS_Intro[] =
     { L"Intro - Kabuki 1/4", 0x1fdd40, 0x1fde20 },
     { L"Intro - Kabuki 2/4", 0x1fde20, 0x1fdfc0 },
     { L"Intro - Kabuki 3/4", 0x1fdfe0, 0x1fe1a0 },
-    { L"Intro - Kabuki 4/4 (1/2) 0x1fe1c0", 0x1fe1c0, 0x1fe3c0 },
-    { L"Intro - Kabuki 4/4 (2/2) 0x1fe3c0", 0x1fe3c0, 0x1fe500 },
+    { L"Intro - Kabuki 4/4 (1/2)", 0x1fe1c0, 0x1fe3c0 },
+    { L"Intro - Kabuki 4/4 (2/2)", 0x1fe3c0, 0x1fe500 },
     { L"Intro - Blue Background", 0x1fe5c0, 0x1fe5e0 },
     { L"Intro - Blue Flames", 0x1f5cc0, 0x1f5ce0 },
     { L"Intro - Manjimaru", 0x1fe500, 0x1fe560 },
@@ -1096,13 +1096,13 @@ const sDescTreeNode KabukiKlash_A_CHARACTER_COLLECTION_Lucifeller[] =
 
 const sDescTreeNode KabukiKlash_A_ENDINGS_COLLECTION[] =
 {
-    { L"Manjimaru", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Manjimaru, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Manjimaru) },
+    { L"Manjimaru Sengoku", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Manjimaru, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Manjimaru) },
     { L"Ziria", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Ziria, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Ziria) },
-    { L"Kabuki", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Kabuki, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Kabuki) },
+    { L"Kabuki Danjuro", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Kabuki, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Kabuki) },
     { L"Yagumo", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Yagumo, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Yagumo) },
     { L"Kinu", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Kinu, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Kinu) },
     { L"Tsunade", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Tsunade, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Tsunade) },
-    { L"Gokuraku", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Gokuraku, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Gokuraku) },
+    { L"Gokuraku Taro", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Gokuraku, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Gokuraku) },
     { L"Orochimaru", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Orochimaru, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Orochimaru) },
     { L"Credits", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_PALETTES_ENDINGS_Credits, ARRAYSIZE(KabukiKlash_A_PALETTES_ENDINGS_Credits) },
 };
@@ -1135,13 +1135,13 @@ const sDescTreeNode KabukiKlash_A_BONUS_COLLECTION[] =
 
 const sDescTreeNode KabukiKlash_A_UNITS[] =
 {
-    { L"Manjimaru",         DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Manjimaru, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Manjimaru) },
+    { L"Manjimaru Sengoku", DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Manjimaru, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Manjimaru) },
     { L"Ziria",             DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Ziria, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Ziria) },
-    { L"Kabuki",            DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Kabuki, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Kabuki) },
+    { L"Kabuki Danjuro",    DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Kabuki, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Kabuki) },
     { L"Yagumo",            DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Yagumo, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Yagumo) },
     { L"Kinu",              DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Kinu, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Kinu) },
     { L"Tsunade",           DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Tsunade, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Tsunade) },
-    { L"Gokuraku",          DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Gokuraku, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Gokuraku) },
+    { L"Gokuraku Taro",     DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Gokuraku, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Gokuraku) },
     { L"Orochimaru",        DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Orochimaru, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Orochimaru) },
     { L"Manto Ace",         DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Manto, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Manto) },
     { L"Karakuri",          DESC_NODETYPE_TREE, (void*)KabukiKlash_A_CHARACTER_COLLECTION_Karakuri, ARRAYSIZE(KabukiKlash_A_CHARACTER_COLLECTION_Karakuri) },

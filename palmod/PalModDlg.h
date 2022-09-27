@@ -363,6 +363,7 @@ public:
     afx_msg void OnLoadDir_MVC2DCUSA()      { OnLoadGameByDirectory(MVC2_D); };
     afx_msg void OnLoadDir_MVC2PS2USA()     { OnLoadGameByDirectory(MVC2_P); };
     afx_msg void OnLoadDir_MWarr()          { OnLoadGameByDirectory(MWARR_A); };
+    afx_msg void OnLoadDir_NBHID_NL()       { OnLoadGameByDirectory(NBHID_NL); };
     afx_msg void OnLoadDir_NBHID_S()        { OnLoadGameByDirectory(NBHID_S); };
     
     afx_msg void OnLoadDir_P4AU_NESICA()    { OnLoadGameByDirectory(P4AU_NESICA); };

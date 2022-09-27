@@ -215,6 +215,7 @@
 #define ID_FILE_LOADLASTUSEDDIRECTORY   32813
 #define ID_FILE_LOADLASTUSEDDIR         32814
 #define ID_LOADDIRECTORY_MVC2           32815
+#define ID_LD_NBHID_NL                  32816
 #define ID_LD_MVC2PS2USA                32817
 #define ID_ACC_BLINK                    32818
 #define ID_SETTINGS_TILEIMAGEBACKGROUND 32820

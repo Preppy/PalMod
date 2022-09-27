@@ -52,6 +52,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case MBTL_A:
             pszExtraInfo = L"For MBTL, please select the \"MELTY BLOOD TYPE LUMINA\" folder.\nThe folder is usually in steamapps\\common. If you didn't come from the guide refer to the Read Me for more details.";
            break;
+        case NBHID_NL:
+            pszExtraInfo = L"Select the main \"Nitroplus Blasterz Heroines Infinite Duel\" folder.";
+            break;
         case NBHID_S:
             pszExtraInfo = L"Select the main \"Nitroplus Blasterz Heroines Infinite Duel\" folder in your steamapps\\common directory.";
             break;

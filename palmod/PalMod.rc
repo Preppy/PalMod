@@ -423,7 +423,11 @@ BEGIN
                 MENUITEM "DC",                          ID_LD_MVC2DCUSA
                 MENUITEM "PS2",                         ID_LD_MVC2PS2USA
             END
-            MENUITEM "Nitroplus Blasterz: Heroines Infinite Duel (Steam)", ID_LD_NBHID_S
+            POPUP "Nitroplus Blasterz: Heroines Infinite Duel"
+            BEGIN
+                MENUITEM "Nitroplus Blasterz: Heroines Infinite Duel (NESICAxLive)", ID_LD_NBHID_NL
+                MENUITEM "Nitroplus Blasterz: Heroines Infinite Duel (Steam)", ID_LD_NBHID_S
+            END
             POPUP "Persona 4 Arena"
             BEGIN
                 MENUITEM "Persona 4 Arena Ultimax (Steam)", ID_LD_P4AU_STEAM

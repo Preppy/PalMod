@@ -189,6 +189,7 @@ enum SupportedGamesList
     NBHID_S,
     FatalFury3_A,
     KabukiKlash_A,
+    NBHID_NL,
 
     NUM_GAMES // This needs to be last
 };
@@ -374,6 +375,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Nitroplus Blasterz: Heroines Infinite Duel (Steam)",
     L"Fatal Fury 3 (Neo-Geo)",
     L"Kabuki Klash: Far East of Eden (Neo-Geo)",
+    L"Nitroplus Blasterz: Heroines Infinite Duel (NESICAxLive)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
