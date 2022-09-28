@@ -390,6 +390,11 @@ BEGIN
         MENUITEM "Load ROM by game",            ID_FILE_OPEN_BY_GAME
         POPUP "&Load Directory"
         BEGIN
+            POPUP "Aquapazza: Aquaplus Dream Match"
+            BEGIN
+                MENUITEM "Aquapazza: Aquaplus Dream Match (NESICAxLive)", ID_LD_AQUAPLUS_NL
+                MENUITEM "Aquapazza: Aquaplus Dream Match (PS3)", ID_LD_AQUAPLUS_P
+            END
             MENUITEM "BlazBlue: Central Fiction (Steam)", ID_LD_BLAZBLUECF
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
@@ -413,8 +418,11 @@ BEGIN
                 MENUITEM "King of Fighters 02UM (Steam, BGR555 parts)", ID_LD_KOF02UM_S_BGR555
                 MENUITEM "King of Fighters 02UM (Steam, RGB555 parts, Characters)", ID_LD_KOF02UM_S_RGB555
             END
-            MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
-            MENUITEM "Melty Blood: Type Lumina (Steam)", ID_LD_MBTL_A
+            POPUP "Melty Blood"
+            BEGIN
+                MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
+                MENUITEM "Melty Blood: Type Lumina (Steam)", ID_LD_MBTL_A
+            END
             MENUITEM "Mighty Warriors",             ID_LD_MWARR
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB
             POPUP "MvC2"

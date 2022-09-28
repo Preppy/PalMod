@@ -15,6 +15,12 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         default:
             // No extra description: that's fine.
             break;
+        case AquaPlus_NL:
+            pszExtraInfo = L"Select the main \"Aquapazza: Aquaplus Dream Match\" folder containing the flashrom folder.";
+            break;
+        case AquaPlus_P:
+            pszExtraInfo = L"Select the main \"Aquapazza: Aquaplus Dream Match\" folder containing the USRDIR folder.";
+            break;
         case BlazBlueCF_S:
             pszExtraInfo = L"Please select the BlazBlue folder: we use the files under 'data' there.";
             break;

@@ -30,7 +30,7 @@ struct sGCBUPF_BasicFileData
     const sGCBUPF_BasicNodeData sNodeData;
     const std::vector<sGCBUPF_RelativePaletteData> prgBasicPalettes;
     uint32_t nInitialLocation = 0;
-    uint32_t nImageUnitIndex = 0;
+    uint32_t nImageUnitIndex = INVALID_UNIT_VALUE;
     uint32_t nImagePreviewIndex = 0;
     const std::vector<sGame_PaletteDataset> prgExtraPalettes;
 };

@@ -223,6 +223,8 @@
 #define ID_SETTINGS_RESETBACKGROUNDOFFSET 32821
 #define ID_FILE_LOADFILE                32822
 #define ID_ACC_ADDZOOM                  32823
+#define ID_LD_AQUAPLUS_NL               32824
+#define ID_LD_AQUAPLUS_P                32825
 #define ID_ACC_SUBZOOM                  32826
 #define ID_TOOLS_LOADACTPALETTE         32827
 #define ID_TOOLS_SAVEACTPALETTE         32828

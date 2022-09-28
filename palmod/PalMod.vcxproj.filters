@@ -517,6 +517,9 @@
     <Filter Include="Games\SNK Games\Kabuki Klash">
       <UniqueIdentifier>{a8a9bd8a-3435-4923-bfb8-fd590d305e4b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Aquapazza Aquaplus %28PS3%29">
+      <UniqueIdentifier>{fdaa89bd-da83-4493-9a9c-05b42caea4dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2014,6 +2017,12 @@
     </ClInclude>
     <ClInclude Include="Game\KabukiKlash_A_DEF.h">
       <Filter>Games\SNK Games\Kabuki Klash</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AquaPlus_P_DEF.h">
+      <Filter>Games\Other Platforms\Aquapazza Aquaplus %28PS3%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_AquaPlus_P.h">
+      <Filter>Games\Other Platforms\Aquapazza Aquaplus %28PS3%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

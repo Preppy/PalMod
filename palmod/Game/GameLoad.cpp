@@ -4,6 +4,7 @@
 
 #include "Game_AOF1_A.h"
 #include "Game_AOF3_A.h"
+#include "Game_AquaPlus_P.h"
 #include "Game_AsuraBuster_A_DIR.h"
 #include "Game_AvgrsGS_A_DIR.h"
 #include "Game_BASARA_P.h"
@@ -152,7 +153,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 171, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 173, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -211,6 +212,24 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case AOF3_A:
     {
         GetRule = &CGame_AOF3_A::GetRule;
+        return TRUE;
+    }
+    case AquaPlus_NL:
+    {
+        GetRuleCtr = &CGame_AquaPlus_NL::GetRuleCtr;
+        ResetRuleCtr = &CGame_AquaPlus_NL::ResetRuleCtr;
+        GetRule = &CGame_AquaPlus_NL::GetRule;
+        GetNextRule = &CGame_AquaPlus_NL::GetNextRule;
+
+        return TRUE;
+    }
+    case AquaPlus_P:
+    {
+        GetRuleCtr = &CGame_AquaPlus_P::GetRuleCtr;
+        ResetRuleCtr = &CGame_AquaPlus_P::ResetRuleCtr;
+        GetRule = &CGame_AquaPlus_P::GetRule;
+        GetNextRule = &CGame_AquaPlus_P::GetNextRule;
+
         return TRUE;
     }
     case AsuraBuster_A:
@@ -1167,6 +1186,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case AOF3_A:
     {
         return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case AquaPlus_NL:
+    {
+        return new CGame_AquaPlus_NL(nConfirmedROMSize);
+    }
+    case AquaPlus_P:
+    {
+        return new CGame_AquaPlus_P(nConfirmedROMSize);
     }
     case AsuraBuster_A:
     {

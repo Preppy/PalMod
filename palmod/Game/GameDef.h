@@ -191,6 +191,8 @@ enum SupportedGamesList
     KabukiKlash_A,
     NBHID_NL,
     NBHID_P,
+    AquaPlus_P,
+    AquaPlus_NL,
 
     NUM_GAMES // This needs to be last
 };
@@ -378,6 +380,8 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Kabuki Klash: Far East of Eden (Neo-Geo)",
     L"Nitroplus Blasterz: Heroines Infinite Duel (NESICAxLive)",
     L"Nitroplus Blasterz: Heroines Infinite Duel (PS3)",
+    L"Aquapazza: Aquaplus Dream Match (PS3)",
+    L"Aquapazza: Aquaplus Dream Match (NESICAxLive)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
