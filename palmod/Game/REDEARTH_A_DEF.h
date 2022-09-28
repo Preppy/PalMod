@@ -664,6 +664,23 @@ const sGame_PaletteDataset REDEARTH_A_LAVIA_PALETTES_UNUSED[] =
     { L"Lavia Frozen 3 Unused", 0x42af00, 0x42af80, indexRedEarthSprites_Lavia },
     { L"Lavia Frozen 4 Unused", 0x42af80, 0x42b000, indexRedEarthSprites_Lavia },
     { L"Lavia Frozen 5 Unused", 0x42b000, 0x42b080, indexRedEarthSprites_Lavia },
+
+    { L"Unused Palettes in Lavia's Section (1/16)", 0x42b080, 0x42b280 },
+    { L"Unused Palettes in Lavia's Section (2/16)", 0x42b280, 0x42b480 },
+    { L"Unused Palettes in Lavia's Section (3/16)", 0x42b480, 0x42b680 },
+    { L"Unused Palettes in Lavia's Section (4/16)", 0x42b680, 0x42b880 },
+    { L"Unused Palettes in Lavia's Section (5/16)", 0x42b880, 0x42ba80 },
+    { L"Unused Palettes in Lavia's Section (6/16)", 0x42ba80, 0x42bc80 },
+    { L"Unused Palettes in Lavia's Section (7/16)", 0x42bc80, 0x42be80 },
+    { L"Unused Palettes in Lavia's Section (8/16)", 0x42be80, 0x42c080 },
+    { L"Unused Palettes in Lavia's Section (9/16)", 0x42c080, 0x42c280 },
+    { L"Unused Palettes in Lavia's Section (10/16)", 0x42c280, 0x42c480 },
+    { L"Unused Palettes in Lavia's Section (11/16)", 0x42c480, 0x42c680 },
+    { L"Unused Palettes in Lavia's Section (12/16) ", 0x42c680, 0x42c880 },
+    { L"Unused Palettes in Lavia's Section (13/16)", 0x42c880, 0x42ca80 },
+    { L"Unused Palettes in Lavia's Section (14/16)", 0x42ca80, 0x42cc80 },
+    { L"Unused Palettes in Lavia's Section (15/16)", 0x42cc80, 0x42ce80 },
+    { L"Unused Palettes in Lavia's Section (16/16)", 0x42ce80, 0x42d000 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
@@ -2745,23 +2762,6 @@ const sGame_PaletteDataset REDEARTH_A_30_BONUS_UNUSED_PALETTES[] =
 
     { L"Unused Text 1? (Thanks for Playing?)", 0x7eb280, 0x7eb300 },
     { L"Unused Text 2? (Time is Ended?)", 0x7eb400, 0x7eb480 },
-
-    { L"Unused Palettes in Lavia's Section (1/16)", 0x42b080, 0x42b280 },
-    { L"Unused Palettes in Lavia's Section (2/16)", 0x42b280, 0x42b480 },
-    { L"Unused Palettes in Lavia's Section (3/16)", 0x42b480, 0x42b680 },
-    { L"Unused Palettes in Lavia's Section (4/16)", 0x42b680, 0x42b880 },
-    { L"Unused Palettes in Lavia's Section (5/16)", 0x42b880, 0x42ba80 },
-    { L"Unused Palettes in Lavia's Section (6/16)", 0x42ba80, 0x42bc80 },
-    { L"Unused Palettes in Lavia's Section (7/16)", 0x42bc80, 0x42be80 },
-    { L"Unused Palettes in Lavia's Section (8/16)", 0x42be80, 0x42c080 },
-    { L"Unused Palettes in Lavia's Section (9/16)", 0x42c080, 0x42c280 },
-    { L"Unused Palettes in Lavia's Section (10/16)", 0x42c280, 0x42c480 },
-    { L"Unused Palettes in Lavia's Section (11/16)", 0x42c480, 0x42c680 },
-    { L"Unused Palettes in Lavia's Section (12/16) ", 0x42c680, 0x42c880 },
-    { L"Unused Palettes in Lavia's Section (13/16)", 0x42c880, 0x42ca80 },
-    { L"Unused Palettes in Lavia's Section (14/16)", 0x42ca80, 0x42cc80 },
-    { L"Unused Palettes in Lavia's Section (15/16)", 0x42cc80, 0x42ce80 },
-    { L"Unused Palettes in Lavia's Section (16/16)", 0x42ce80, 0x42d000 },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =

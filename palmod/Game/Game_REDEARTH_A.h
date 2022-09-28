@@ -10,11 +10,11 @@ enum class RedEarthLoadingKey
 };
 
 // I'm using defines since these are used for both the mono and simm versions
-constexpr auto REDEARTH_30_PALETTE_COUNT = 645;
-constexpr auto REDEARTH_31_PALETTE_COUNT = 1297;
+constexpr auto REDEARTH_30_PALETTE_COUNT = 629;
+constexpr auto REDEARTH_31_PALETTE_COUNT = 1313;
 constexpr auto REDEARTH_50_PALETTE_COUNT = 4;
 
-constexpr auto REDEARTH_30_LOWEST_OFFSET = 0x42b080;
+constexpr auto REDEARTH_30_LOWEST_OFFSET = 0x734000;
 constexpr auto REDEARTH_31_LOWEST_OFFSET = 0x132600;
 constexpr auto REDEARTH_50_LOWEST_OFFSET = 0x358000;
 
