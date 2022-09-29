@@ -241,10 +241,10 @@ void CPalModDlg::OnEditCopy()
         bool fCopyAll = (CurrPal->GetSelAmt() == 0);
         bool fHitError = false;
 
-        // You want to update this table so that older or newer versions of PalMod know the bpp of the 
-        // copied colors.
+        // This table so that older or newer versions of PalMod know the bpp of the copied colors.
         // Here we map the color mode to the poster child game for historical color modes.  For all new
         // color modes we directly store the color mode in the 2nd byte to keep life simple
+        // All new color modes should be handled by the DEFAULT handler.  Don't add new handlers.
         uint8_t cbColor = 2;
 
         switch (CurrGame->GetColorMode())
@@ -288,7 +288,7 @@ void CPalModDlg::OnEditCopy()
             cbColor = 4;
             uCopyFlag1 = GGXXACR_S + k_nASCIICharacterOffset;
             break;
-        case ColMode::COLMODE_RGBA8888:
+        case ColMode::COLMODE_RGBA8888_LE:
             cbColor = 4;
             uCopyFlag1 = UNICLR_A + k_nASCIICharacterOffset;
             break;
@@ -302,8 +302,10 @@ void CPalModDlg::OnEditCopy()
         case ColMode::COLMODE_GRB888:
         case ColMode::COLMODE_RGB888:
         case ColMode::COLMODE_RGBA8881_32STEPS:
+        case ColMode::COLMODE_RGBA8888_BE:
         case ColMode::COLMODE_GRB555_LE:
-        case ColMode::COLMODE_BGRA8888:
+        case ColMode::COLMODE_BGRA8888_BE:
+        case ColMode::COLMODE_BGRA8888_LE:
         case ColMode::COLMODE_BGR555_BE:
         default:
             {
@@ -752,7 +754,7 @@ void CPalModDlg::HandlePasteFromPalMod()
             case UNICLR_A:
                 // Don't change this code.  It automatically handles new games and color modes.
             {
-                eColModeForPastedColor = ColMode::COLMODE_RGBA8888;
+                eColModeForPastedColor = ColMode::COLMODE_RGBA8888_LE;
                 break;
             }
             case COTA_A:

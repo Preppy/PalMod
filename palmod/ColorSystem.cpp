@@ -74,8 +74,10 @@ namespace ColorSystem
         case ColMode::COLMODE_RGBA8887:
         case ColMode::COLMODE_RGBA8881:
         case ColMode::COLMODE_RGBA8881_32STEPS:
-        case ColMode::COLMODE_RGBA8888:
-        case ColMode::COLMODE_BGRA8888:
+        case ColMode::COLMODE_RGBA8888_BE:
+        case ColMode::COLMODE_RGBA8888_LE:
+        case ColMode::COLMODE_BGRA8888_BE:
+        case ColMode::COLMODE_BGRA8888_LE:
             return 4;
         }
 
@@ -94,12 +96,14 @@ namespace ColorSystem
         { "RGBA8887", ColMode::COLMODE_RGBA8887 },              // 32bit color half alpha (guilty gear)
         { "RGB555Sharp", ColMode::COLMODE_RGB555_SHARP },       // RGB555 using the sharp x68000 color table
         { "RGBA8881", ColMode::COLMODE_RGBA8881 },              // 32bit color 1 bit alpha
-        { "RGBA8888", ColMode::COLMODE_RGBA8888 },              // 32bit color (uniclr. and modern computing)
+        { "RGBA8888", ColMode::COLMODE_RGBA8888_LE },           // 32bit color (uniclr. and modern computing)
+        { "RGBA8888_BE", ColMode::COLMODE_RGBA8888_BE },        // 32bit color (ps3)
         { "RGB888", ColMode::COLMODE_RGB888 },                  // 24bit
         { "BGR888", ColMode::COLMODE_BGR888 },                  // 24bit
         { "RGBA8881_32", ColMode::COLMODE_RGBA8881_32STEPS },   // MBAACC: 32 bit color, except only 32 steps
         { "GRB555LE", ColMode::COLMODE_GRB555_LE },             // GRB555 little endian
-        { "BGRA8888", ColMode::COLMODE_BGRA8888 },              // 32bit color (arcana blood)
+        { "BGRA8888BE", ColMode::COLMODE_BGRA8888_BE },         // 32bit color (ps3)
+        { "BGRA8888", ColMode::COLMODE_BGRA8888_LE },           // 32bit color (arcana blood)
         { "BGR555BE", ColMode::COLMODE_BGR555_BE },             // BGR555 big endian: Motorola 68000 games
         { "GRB888", ColMode::COLMODE_GRB888 },                  // 24bit
         // This section added to enable user exploration in dev mode: not needed directly for any games yet
@@ -278,8 +282,10 @@ namespace ColorSystem
                 return k_nRGBPlaneAmtForRGB888;
             }
 
-        case ColMode::COLMODE_RGBA8888:
-        case ColMode::COLMODE_BGRA8888:
+        case ColMode::COLMODE_RGBA8888_BE:
+        case ColMode::COLMODE_RGBA8888_LE:
+        case ColMode::COLMODE_BGRA8888_BE:
+        case ColMode::COLMODE_BGRA8888_LE:
         case ColMode::COLMODE_BGR888:
         case ColMode::COLMODE_BRG888:
         case ColMode::COLMODE_GRB888:
@@ -410,9 +416,7 @@ namespace ColorSystem
 
     uint32_t CONV_BGR555BE_32(uint16_t inCol)
     {
-        uint16_t uSwappedCol = _byteswap_ushort(inCol);
-
-        return CONV_BGR555LE_32(uSwappedCol);
+        return CONV_BGR555LE_32(_byteswap_ushort(inCol));
     }
 
     uint16_t CONV_32_BGR555BE(uint32_t inCol)
@@ -634,9 +638,7 @@ namespace ColorSystem
 
     uint32_t CONV_RGB444LE_32(uint16_t inCol)
     {
-        uint16_t uSwappedCol = _byteswap_ushort(inCol);
-
-        return CONV_RGB444BE_32(uSwappedCol);
+        return CONV_RGB444BE_32(_byteswap_ushort(inCol));
     }
 
     uint16_t CONV_32_RGB444LE(uint32_t inCol)
@@ -1231,7 +1233,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint32_t CONV_RGBA8888_32(uint32_t inCol)
+    uint32_t CONV_RGBA8888LE_32(uint32_t inCol)
     {
         uint32_t auxb = GetBValue(inCol);
         uint32_t auxg = GetGValue(inCol);
@@ -1251,7 +1253,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint32_t CONV_32_RGBA8888(uint32_t inCol)
+    uint32_t CONV_32_RGBA8888LE(uint32_t inCol)
     {
         uint32_t auxa = (inCol & 0xFF000000) >> 24;
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
@@ -1271,7 +1273,27 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint32_t CONV_BGRA8888_32(uint32_t inCol)
+    uint32_t CONV_RGBA8888BE_32(uint32_t inCol)
+    {
+        return CONV_RGBA8888LE_32(_byteswap_ulong(inCol));
+    }
+
+    uint32_t CONV_32_RGBA8888BE(uint32_t inCol)
+    {
+        return _byteswap_ulong(CONV_32_RGBA8888LE(inCol));
+    }
+
+    uint32_t CONV_BGRA8888BE_32(uint32_t inCol)
+    {
+        return CONV_BGRA8888LE_32(_byteswap_ulong(inCol));
+    }
+
+    uint32_t CONV_32_BGRA8888BE(uint32_t inCol)
+    {
+        return _byteswap_ulong(CONV_32_BGRA8888LE(inCol));
+    }
+
+    uint32_t CONV_BGRA8888LE_32(uint32_t inCol)
     {
         // B<->R
         uint32_t auxb = GetRValue(inCol);
@@ -1292,7 +1314,7 @@ namespace ColorSystem
         return (auxb | auxg | auxr | auxa);
     }
 
-    uint32_t CONV_32_BGRA8888(uint32_t inCol)
+    uint32_t CONV_32_BGRA8888LE(uint32_t inCol)
     {
         uint32_t auxa = (inCol & 0xFF000000) >> 24;
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;

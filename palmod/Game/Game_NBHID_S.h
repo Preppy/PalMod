@@ -14,7 +14,7 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesVariableAlpha,
-        ColMode::COLMODE_BGRA8888,
+        ColMode::COLMODE_BGRA8888_LE,
         NBHIDCharacterData_Steam,
     };
 
@@ -38,7 +38,7 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesVariableAlpha,
-        ColMode::COLMODE_BGRA8888,
+        ColMode::COLMODE_BGRA8888_LE,
         NBHIDCharacterData_NL,
     };
 
@@ -62,7 +62,7 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesVariableAlpha,
-        ColMode::COLMODE_RGBA8888,
+        ColMode::COLMODE_BGRA8888_BE,
         NBHIDCharacterData_P,
     };
 

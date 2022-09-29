@@ -14,7 +14,7 @@ CGame_MAAB_A::CGame_MAAB_A(uint32_t nConfirmedROMSize /* = -1 */)
     createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX, 0 };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     m_fGameUsesAlphaValue = true;
-    SetColorMode(ColMode::COLMODE_BGRA8888);
+    SetColorMode(ColMode::COLMODE_BGRA8888_LE);
 
     InitializeStatics();
 

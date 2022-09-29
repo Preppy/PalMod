@@ -14,7 +14,7 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesFixedAlpha,
-        ColMode::COLMODE_RGBA8888,
+        ColMode::COLMODE_RGBA8888_LE,
         MBTLCharacterData,
     };
 

@@ -538,10 +538,12 @@ BEGIN
             END
             POPUP "32-bit color"
             BEGIN
-                MENUITEM "BGRA8888",                    ID_COLORFORMAT_BGRA8888
+                MENUITEM "BGRA8888 (little endian)",    ID_COLORFORMAT_BGRA8888_LE
+                MENUITEM "BGRA8888 (big endian for PS3)", ID_COLORFORMAT_BGRA8888_BE
                 MENUITEM "RGBA8881 (DBFCI)",            ID_COLORFORMAT_RGBA8881
                 MENUITEM "RGBA8888 (Half alpha for Arcsys)", ID_COLORFORMAT_RGBA8887
-                MENUITEM "RGBA8888",                    ID_COLORFORMAT_RGBA8888
+                MENUITEM "RGBA8888 (little endian)",    ID_COLORFORMAT_RGBA8888_LE
+                MENUITEM "RGBA8888 (big endian)",       ID_COLORFORMAT_RGBA8888_BE
             END
             MENUITEM SEPARATOR
             POPUP "Alpha"

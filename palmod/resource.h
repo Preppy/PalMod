@@ -288,7 +288,7 @@
 #define ID_LD_DBFCI                     32886
 #define ID_LD_UNICLR                    32887
 #define ID_LOADDIRECTORY_REDEARTH_31    32888
-#define ID_COLORFORMAT_RGBA8888         32889
+#define ID_COLORFORMAT_RGBA8888_LE      32889
 #define ID_COLORFORMAT_RGBA8881         32890
 #define ID_TRANSPSETTING_16             32891
 #define ID_TRANSPSETTING_256            32892
@@ -300,7 +300,7 @@
 #define ID_LD_MBAACC_S                  32898
 #define ID_COLORFORMAT_GRB555_LE        32899
 #define ID_LOADDIRECTORY_REDEARTH_50    32900
-#define ID_COLORFORMAT_BGRA8888         32901
+#define ID_COLORFORMAT_BGRA8888_LE      32901
 #define ID_LD_MAAB                      32902
 #define ID_COLORFORMAT_BGR555_BE        32903
 #define ID_LD_GGXXR_S                   32904
@@ -326,13 +326,15 @@
 #define ID_LD_BLAZBLUECF                32924
 #define ID_SETTINGS_BLINKINVERTS        32925
 #define ID_LD_JOJOS_US_51               32926
+#define ID_COLORFORMAT_RGBA8888_BE      32927
+#define ID_COLORFORMAT_BGRA8888_BE      32928
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        145
-#define _APS_NEXT_COMMAND_VALUE         32927
+#define _APS_NEXT_COMMAND_VALUE         32929
 #define _APS_NEXT_CONTROL_VALUE         1079
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

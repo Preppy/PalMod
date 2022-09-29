@@ -108,6 +108,8 @@ public:
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
 
+    static_assert((ColMode)27 == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
+
     void SetColorFormatToBGR333() { SetColorFormatTo(ColMode::COLMODE_BGR333); };
     void SetColorFormatToRBG333() { SetColorFormatTo(ColMode::COLMODE_RBG333); };
     void SetColorFormatToRGB333() { SetColorFormatTo(ColMode::COLMODE_RGB333); };
@@ -137,8 +139,10 @@ public:
     // I'm deliberately not exposing ColMode::COLMODE_RGBA8881_32STEPS here at this point:
     // it's only currently used for MBAACC.
     void SetColorFormatToRGBA8887() { SetColorFormatTo(ColMode::COLMODE_RGBA8887); };
-    void SetColorFormatToRGBA8888() { SetColorFormatTo(ColMode::COLMODE_RGBA8888); };
-    void SetColorFormatToBGRA8888() { SetColorFormatTo(ColMode::COLMODE_BGRA8888); };
+    void SetColorFormatToRGBA8888_BE() { SetColorFormatTo(ColMode::COLMODE_RGBA8888_BE); };
+    void SetColorFormatToRGBA8888_LE() { SetColorFormatTo(ColMode::COLMODE_RGBA8888_LE); };
+    void SetColorFormatToBGRA8888_BE() { SetColorFormatTo(ColMode::COLMODE_BGRA8888_BE); };
+    void SetColorFormatToBGRA8888_LE() { SetColorFormatTo(ColMode::COLMODE_BGRA8888_LE); };
 
     void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption);
     void SetMaximumWriteTo16Colors() { SetMaximumWritePerEachTransparency(PALWriteOutputOptions::WRITE_16); };

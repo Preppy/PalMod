@@ -32,12 +32,12 @@ enum class ColMode
     COLMODE_RGBA8887,       // 32bit color half alpha (guilty gear)
     COLMODE_RGB555_SHARP,   // RGB555 using the sharp x68000 color table
     COLMODE_RGBA8881,       // 32bit color 1 bit alpha
-    COLMODE_RGBA8888,       // 32bit color (uniclr. and modern computing)
+    COLMODE_RGBA8888_LE,    // 32bit color (uniclr. and modern computing)
     COLMODE_RGB888,         // 24bit
     COLMODE_BGR888,         // 24bit
     COLMODE_RGBA8881_32STEPS, // MBAACC: 32 bit color, except only 32 steps
     COLMODE_GRB555_LE,      // GRB555 little endian
-    COLMODE_BGRA8888,       // 32bit color (arcana blood)
+    COLMODE_BGRA8888_LE,    // 32bit color (arcana blood)
     COLMODE_BGR555_BE,      // BGR555 big endian: Motorola 68000 games
     COLMODE_GRB888,         // 24bit
 
@@ -50,6 +50,9 @@ enum class ColMode
     COLMODE_BRG888,
 
     COLMODE_xBGR555_LE,     // Different packing used by Asura Buster / Fuuki
+
+    COLMODE_RGBA8888_BE,    // 32bit color
+    COLMODE_BGRA8888_BE,    // 32bit color (ps3)
 
     COLMODE_LAST,
 };
@@ -120,10 +123,14 @@ namespace ColorSystem
     uint32_t CONV_RGBA8881_32(uint32_t inCol);
     uint32_t CONV_32_RGBA8887(uint32_t inCol);
     uint32_t CONV_RGBA8887_32(uint32_t inCol);
-    uint32_t CONV_32_RGBA8888(uint32_t inCol);
-    uint32_t CONV_RGBA8888_32(uint32_t inCol);
-    uint32_t CONV_32_BGRA8888(uint32_t inCol);
-    uint32_t CONV_BGRA8888_32(uint32_t inCol);
+    uint32_t CONV_32_RGBA8888LE(uint32_t inCol);
+    uint32_t CONV_RGBA8888LE_32(uint32_t inCol);
+    uint32_t CONV_32_RGBA8888BE(uint32_t inCol);
+    uint32_t CONV_RGBA8888BE_32(uint32_t inCol);
+    uint32_t CONV_32_BGRA8888BE(uint32_t inCol);
+    uint32_t CONV_BGRA8888BE_32(uint32_t inCol);
+    uint32_t CONV_32_BGRA8888LE(uint32_t inCol);
+    uint32_t CONV_BGRA8888LE_32(uint32_t inCol);
 
     int GetColorStepFor8BitValue_1Step(int nColorValue);
     int Get8BitValueForColorStep_1Step(int nColorStep);

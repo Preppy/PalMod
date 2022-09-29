@@ -126,6 +126,8 @@ void CPalModDlg::DoDataExchange(CDataExchange* pDX)
 #pragma warning( push )
 #pragma warning( disable : 26454 ) // bug in Microsoft headers
 
+static_assert((ColMode)27 == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
+
 // CPalModDlg message handlers
 BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_WM_SYSCOMMAND()
@@ -207,8 +209,11 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
 
     ON_COMMAND(ID_COLORFORMAT_RGBA8881, &CPalModDlg::SetColorFormatToRGBA8881)
     ON_COMMAND(ID_COLORFORMAT_RGBA8887, &CPalModDlg::SetColorFormatToRGBA8887)
-    ON_COMMAND(ID_COLORFORMAT_RGBA8888, &CPalModDlg::SetColorFormatToRGBA8888)
-    ON_COMMAND(ID_COLORFORMAT_BGRA8888, &CPalModDlg::SetColorFormatToBGRA8888)
+    ON_COMMAND(ID_COLORFORMAT_RGBA8888_BE, &CPalModDlg::SetColorFormatToRGBA8888_BE)
+    ON_COMMAND(ID_COLORFORMAT_RGBA8888_LE, &CPalModDlg::SetColorFormatToRGBA8888_LE)
+    ON_COMMAND(ID_COLORFORMAT_BGRA8888_BE, &CPalModDlg::SetColorFormatToBGRA8888_BE)
+    ON_COMMAND(ID_COLORFORMAT_BGRA8888_LE, &CPalModDlg::SetColorFormatToBGRA8888_LE)
+
     ON_COMMAND(ID_TRANSPSETTING_16, &CPalModDlg::SetMaximumWriteTo16Colors)
     ON_COMMAND(ID_TRANSPSETTING_256, &CPalModDlg::SetMaximumWriteTo256Colors)
     

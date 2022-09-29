@@ -539,7 +539,7 @@ BOOL CGameClassPerUnitPerFile::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     strInfo.Format(L"\tCGameClassPerUnitPerFile_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", m_psCurrentGameLoadingData->srgLoadingData.at(nUnitNumber).nInitialLocation);
     OutputDebugString(strInfo);
 
-    uint32_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);
+    const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);
 
     if (m_pppDataBuffer32[nUnitNumber] == nullptr)
     {
@@ -573,7 +573,7 @@ BOOL CGameClassPerUnitPerFile::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 BOOL CGameClassPerUnitPerFile::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 {
     uint32_t nTotalPalettesSaved = 0;
-    uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
+    const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {

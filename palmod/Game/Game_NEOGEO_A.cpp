@@ -162,6 +162,9 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     // I am explicitly and needlessly listing out all of those string IDs because Visual Studio search sometimes misses the color modes below,
     // and we have to add explicit color handling here so that people can change to that color mode in Unknown Game mode
 
+    // Update this check once you've decided whether to expose the new color or not.
+    static_assert((ColMode)27 == ColMode::COLMODE_LAST, "New color formats usually mean updating color selectability in the Developer Mode support.");
+
     switch (NewMode)
     {
     case ColMode::COLMODE_BGR333:
@@ -204,8 +207,10 @@ bool CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     case ColMode::COLMODE_RGBA8881:
     case ColMode::COLMODE_RGBA8881_32STEPS:
     case ColMode::COLMODE_RGBA8887:
-    case ColMode::COLMODE_RGBA8888:
-    case ColMode::COLMODE_BGRA8888:
+    case ColMode::COLMODE_RGBA8888_BE:
+    case ColMode::COLMODE_RGBA8888_LE:
+    case ColMode::COLMODE_BGRA8888_BE:
+    case ColMode::COLMODE_BGRA8888_LE:
         cbRequiredColorSize = 4;
         suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
         m_fGameUsesAlphaValue = true;

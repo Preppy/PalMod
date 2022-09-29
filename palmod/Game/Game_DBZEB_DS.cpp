@@ -14,7 +14,7 @@ CGame_DBZEB_DS::CGame_DBZEB_DS(uint32_t nConfirmedROMSize)
     };
 
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
-    SetColorMode(ColMode::COLMODE_RGBA8888);
+    SetColorMode(ColMode::COLMODE_RGBA8888_LE);
 
     m_fGameUsesAlphaValue = true;
 
@@ -92,7 +92,7 @@ uint32_t CGame_DBZEB_DS::GetExtraLoc(uint32_t nUnitId)
 sDescTreeNode* CGame_DBZEB_DS::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_DBZEB_DS, &DBZEB_DS_EXTRA_CUSTOM, DBZEB_DS_EXTRALOC, m_nConfirmedROMSize, ColorSystem::GetCbForColMode(ColMode::COLMODE_RGBA8888));
+    LoadExtraFileForGame(EXTRA_FILENAME_DBZEB_DS, &DBZEB_DS_EXTRA_CUSTOM, DBZEB_DS_EXTRALOC, m_nConfirmedROMSize, ColorSystem::GetCbForColMode(ColMode::COLMODE_RGBA8888_LE));
 
     uint16_t nUnitCt = DBZEB_DS_NUMUNIT + (GetExtraCt(DBZEB_DS_EXTRALOC) ? 1 : 0);
     
