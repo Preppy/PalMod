@@ -502,12 +502,6 @@
     <Filter Include="Games\Other Platforms\Asura Buster">
       <UniqueIdentifier>{fd629fac-ea3d-4ed6-b901-cec89fa3cb60}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\Other Platforms\Steam">
-      <UniqueIdentifier>{54ab2748-ef6e-4db9-b621-dc1bbbc4db3c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Games\Other Platforms\Steam\Nitroplus Blasterz">
-      <UniqueIdentifier>{6e19eced-02c3-4453-9c45-88228ad1240f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\SNK Games\Fatal Fury 3">
       <UniqueIdentifier>{6d85e323-99fa-40a0-a56c-a731d68919ab}</UniqueIdentifier>
     </Filter>
@@ -519,6 +513,9 @@
     </Filter>
     <Filter Include="Games\Nintendo\Gundam Endless Duel %28SNES%29">
       <UniqueIdentifier>{e8835cfd-2974-45fb-8fdc-2a63b9b76d73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Other Platforms\Nitroplus Blasterz">
+      <UniqueIdentifier>{6e19eced-02c3-4453-9c45-88228ad1240f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1935,10 +1932,10 @@
       <Filter>Games\Other Platforms\Asura Buster</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_NBHID_S.h">
-      <Filter>Games\Other Platforms\Steam\Nitroplus Blasterz</Filter>
+      <Filter>Games\Other Platforms\Nitroplus Blasterz</Filter>
     </ClInclude>
     <ClInclude Include="Game\NBHID_S_DEF.h">
-      <Filter>Games\Other Platforms\Steam\Nitroplus Blasterz</Filter>
+      <Filter>Games\Other Platforms\Nitroplus Blasterz</Filter>
     </ClInclude>
     <ClInclude Include="Game\MBTL_S_DEF.h">
       <Filter>Games\Other Platforms\Melty Blood Type Lumina %28Steam%29</Filter>
