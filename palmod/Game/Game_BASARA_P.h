@@ -27,8 +27,8 @@ private:
         m_sFileLoadingData,
         BASARA_P_UNITS,
         ARRAYSIZE(BASARA_P_UNITS),
-        L"BSRE.txt",               // Extra filename
-        176,                      // Count of palettes listed in the header
+        L"BSRE.txt",            // Extra filename
+        176,                    // Count of palettes listed in the header
         0x30,                   // Lowest known location used for palettes
     };
 

@@ -732,7 +732,3 @@ const sDescTreeNode MartialMasters_A_UNITS[] =
     { L"Stages", DESC_NODETYPE_TREE, (void*)MartialMasters_A_STAGES_COLLECTION, ARRAYSIZE(MartialMasters_A_STAGES_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)MartialMasters_A_BONUS_COLLECTION, ARRAYSIZE(MartialMasters_A_BONUS_COLLECTION) },
 };
-
-constexpr auto MartialMasters_A_NUMUNIT = ARRAYSIZE(MartialMasters_A_UNITS);
-
-constexpr auto MartialMasters_A_EXTRALOC = MartialMasters_A_NUMUNIT;

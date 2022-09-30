@@ -247,7 +247,6 @@
     <ClCompile Include="Game\Game_CVS1_A.cpp" />
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
     <ClCompile Include="Game\Game_Cyberbots_A.cpp" />
-    <ClCompile Include="Game\Game_DANKUGA_A.cpp" />
     <ClCompile Include="Game\Game_DBFCI_A.cpp" />
     <ClCompile Include="Game\Game_DoubleDragon_A.cpp" />
     <ClCompile Include="Game\Game_FatalFury1_A.cpp" />
