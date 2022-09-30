@@ -1,53 +1,39 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "UMK3_DS_DEF.h"
-#include "..\extrafile.h"
 
-class CGame_UMK3_DS : public CGameWithExtrasFile
+class CGame_UMK3_DS : public CGameClassByDir
 {
 private:
-    static uint32_t m_nTotalPaletteCountForUMK3;
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"Ultimate Mortal Kombat (USA) (En,Fr,De,Es,It).nds", 0x4000000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    static uint32_t rgExtraCountAll[UMK3_DS_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[UMK3_DS_NUMUNIT + 1];
-
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
-
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
-
-    static constexpr auto EXTRA_FILENAME_UMK3_DS = L"UMK3_DS_E.txt";
-    static constexpr auto UMK3_DS_PRIMARY_ROMNAME = L"Ultimate Mortal Kombat (USA) (En,Fr,De,Es,It).nds";
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x4000000;
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Ultimate Mortal Kombat 3 (USA DS)",
+        UMK3_DS,
+        IMGDAT_SECTION_DS,
+        UMK3_DS_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB555_BE,
+        m_sFileLoadingData,
+        UMK3_DS_UNITS,
+        ARRAYSIZE(UMK3_DS_UNITS),
+        L"UMK3_DS_E.txt",              // Extra filename
+        45,                            // Count of palettes listed in the header
+        0x1b26a0,                      // Lowest known location used for palettes
+    };
 
 public:
-    CGame_UMK3_DS(uint32_t nConfirmedROMSize);
-    ~CGame_UMK3_DS();
+    CGame_UMK3_DS(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    //Static functions / variables
-    static CDescTree MainDescTree;
-
-    static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-
-    static stExtraDef* UMK3_DS_EXTRA_CUSTOM;
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

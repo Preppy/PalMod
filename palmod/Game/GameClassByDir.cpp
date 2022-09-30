@@ -72,6 +72,11 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     SetAlphaMode(gameLoadingData.eAlphaMode);
     SetColorMode(gameLoadingData.eColMode);
 
+    if (gameLoadingData.eAlphaMode == AlphaMode::GameUsesVariableAlpha)
+    {
+        m_fGameUsesAlphaValue = true;
+    }
+
     m_psCurrentFileLoadingData = &gameLoadingData.sLoadingData;
 
     // We only check primary ROM size because we outright fail the load if any subsequent ROMs not being the right size.

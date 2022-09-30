@@ -7,6 +7,10 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
+const std::vector<uint16_t> MMX2_SNES_IMGIDS_USED =
+{
+};
+
 const sGame_PaletteDataset MMX2_SNES_INTROBOSS_PALETTES[] =
 {
     { L"Intro Boss (Arms, legs, head)", 0x2B280, 0x2B300 },
@@ -164,7 +168,3 @@ const sDescTreeNode MMX2_SNES_UNITS[] =
     { L"Fake Zero", DESC_NODETYPE_TREE, (void*)MMX2_SNES_FZERO_COLLECTION, ARRAYSIZE(MMX2_SNES_FZERO_COLLECTION) },
     { L"Zero", DESC_NODETYPE_TREE, (void*)MMX2_SNES_ZERO_COLLECTION, ARRAYSIZE(MMX2_SNES_ZERO_COLLECTION) },
 };
-
-constexpr auto MMX2_SNES_NUMUNIT = ARRAYSIZE(MMX2_SNES_UNITS);
-
-constexpr auto MMX2_SNES_EXTRALOC = MMX2_SNES_NUMUNIT;

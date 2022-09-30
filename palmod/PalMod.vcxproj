@@ -242,9 +242,7 @@
     <ClCompile Include="Game\Game_BASARA_P.cpp" />
     <ClCompile Include="Game\Game_BlazBlueCF_S.cpp" />
     <ClCompile Include="Game\GAME_Bleach_DS.cpp" />
-    <ClCompile Include="Game\Game_BMKNS_SNES.cpp" />
     <ClCompile Include="Game\Game_Breakers_A.cpp" />
-    <ClCompile Include="Game\Game_BSSMSJR_SNES.cpp" />
     <ClCompile Include="Game\Game_CFTE_SNES.cpp" />
     <ClCompile Include="Game\Game_COTA_A.cpp" />
     <ClCompile Include="Game\Game_CVS1_A.cpp" />
@@ -252,8 +250,6 @@
     <ClCompile Include="Game\Game_Cyberbots_A.cpp" />
     <ClCompile Include="Game\Game_DANKUGA_A.cpp" />
     <ClCompile Include="Game\Game_DBFCI_A.cpp" />
-    <ClCompile Include="Game\Game_DBZEB_DS.cpp" />
-    <ClCompile Include="Game\Game_DBZHD_SNES.cpp" />
     <ClCompile Include="Game\Game_DoubleDragon_A.cpp" />
     <ClCompile Include="Game\Game_FatalFury1_A.cpp" />
     <ClCompile Include="Game\Game_FatalFury2_A.cpp" />
@@ -270,7 +266,6 @@
     <ClCompile Include="Game\Game_Gowcaizer_A.cpp" />
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
     <ClCompile Include="Game\Game_HSF2_A.cpp" />
-    <ClCompile Include="Game\Game_JojosRPG_SNES.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
@@ -299,12 +294,8 @@
     <ClCompile Include="Game\Game_MartialMasters_A.cpp" />
     <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
     <ClCompile Include="Game\Game_MBTL_A.cpp" />
-    <ClCompile Include="Game\Game_MK1_SNES.cpp" />
     <ClCompile Include="Game\Game_MK2_SNES.cpp" />
     <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
-    <ClCompile Include="Game\Game_MMX2_SNES.cpp" />
-    <ClCompile Include="Game\Game_MMX3_SNES.cpp" />
-    <ClCompile Include="Game\Game_MMX_SNES.cpp" />
     <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
     <ClCompile Include="Game\Game_MSHWOTG_SNES.cpp" />
     <ClCompile Include="Game\Game_MSH_A.cpp" />
@@ -320,8 +311,6 @@
     <ClCompile Include="Game\Game_NinjaMasters_A.cpp" />
     <ClCompile Include="Game\Game_P4AU_NESICA.cpp" />
     <ClCompile Include="Game\Game_P4AU_STEAM.cpp" />
-    <ClCompile Include="Game\Game_RanmaCRH_SNES.cpp" />
-    <ClCompile Include="Game\Game_RanmaHB_SNES.cpp" />
     <ClCompile Include="Game\Game_RBFF1_A.cpp" />
     <ClCompile Include="Game\Game_RBFF2_A.cpp" />
     <ClCompile Include="Game\Game_RBFFS_A.cpp" />
@@ -350,16 +339,12 @@
     <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp" />
     <ClCompile Include="Game\Game_SFIII3_D.cpp" />
     <ClCompile Include="Game\Game_SFZ3U_A.cpp" />
-    <ClCompile Include="Game\Game_SHAQFU_SNES.cpp" />
     <ClCompile Include="Game\Game_SPF2T_A.cpp" />
     <ClCompile Include="Game\Game_SSF2T_A.cpp" />
     <ClCompile Include="Game\Game_SSF2T_GBA.cpp" />
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
-    <ClCompile Include="Game\Game_SVG_SNES.cpp" />
     <ClCompile Include="Game\Game_TMNTTF_SNES.cpp" />
     <ClCompile Include="Game\Game_TopF2005_Sega.cpp" />
-    <ClCompile Include="Game\Game_UMK3_DS.cpp" />
-    <ClCompile Include="Game\Game_UMK3_SNES.cpp" />
     <ClCompile Include="Game\Game_UNICLR_A.cpp" />
     <ClCompile Include="Game\Game_VampireHunter_A.cpp" />
     <ClCompile Include="Game\Game_VampireNightWarriors_A.cpp" />
@@ -370,7 +355,6 @@
     <ClCompile Include="Game\Game_VSAV_A.cpp" />
     <ClCompile Include="Game\Game_WakuWaku7_A.cpp" />
     <ClCompile Include="Game\Game_Windjammers_A.cpp" />
-    <ClCompile Include="Game\Game_XMMA_SNES.cpp" />
     <ClCompile Include="Game\Game_XMVSF_A.cpp" />
     <ClCompile Include="Game\MVC2_PALSEL.cpp" />
     <ClCompile Include="Game\MVC2_SUPP.cpp" />

@@ -184,9 +184,6 @@
     <Filter Include="Games\Nintendo">
       <UniqueIdentifier>{b03bb639-d714-4d8f-b664-84b1bc5fc6d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\Nintendo\Gundam Endless Duel">
-      <UniqueIdentifier>{e8835cfd-2974-45fb-8fdc-2a63b9b76d73}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\Nintendo\Fatal Fury Special %28SNES%29">
       <UniqueIdentifier>{e923f483-9252-4955-9dd2-53b0b2448939}</UniqueIdentifier>
     </Filter>
@@ -520,6 +517,9 @@
     <Filter Include="Games\Other Platforms\Aquapazza Aquaplus %28PS3%29">
       <UniqueIdentifier>{fdaa89bd-da83-4493-9a9c-05b42caea4dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Nintendo\Gundam Endless Duel %28SNES%29">
+      <UniqueIdentifier>{e8835cfd-2974-45fb-8fdc-2a63b9b76d73}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -742,7 +742,7 @@
       <Filter>Games\SNK Games\NeoBomberman_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp">
-      <Filter>Games\Nintendo\Gundam Endless Duel</Filter>
+      <Filter>Games\Nintendo\Gundam Endless Duel %28SNES%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF94_A.cpp">
       <Filter>Games\SNK Games\KOF94_A</Filter>
@@ -834,17 +834,8 @@
     <ClCompile Include="Game\Game_TopF2005_Sega.cpp">
       <Filter>Games\Sega\Top Fighter 2005</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_DBZHD_SNES.cpp">
-      <Filter>Games\Nintendo\DBZ Hyper Dimension %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_XMMA_SNES.cpp">
-      <Filter>Games\Nintendo\X-Men Mutant Apocalypse %28SNES%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_TMNTTF_SNES.cpp">
       <Filter>Games\Nintendo\TMNT: Tournament Fighters %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_MMX2_SNES.cpp">
-      <Filter>Games\Nintendo\Mega Man X2 %28SNES%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp">
       <Filter>Games\SNK Games\Last Blade</Filter>
@@ -882,24 +873,6 @@
     <ClCompile Include="Game\Game_KI_SNES.cpp">
       <Filter>Games\Nintendo\Killer Instinct %28SNES%29</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_MMX_SNES.cpp">
-      <Filter>Games\Nintendo\Mega Man X %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_MMX3_SNES.cpp">
-      <Filter>Games\Nintendo\Mega Man X3 %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_RanmaHB_SNES.cpp">
-      <Filter>Games\Nintendo\Ranma 1/2: Hard Battle %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_RanmaCRH_SNES.cpp">
-      <Filter>Games\Nintendo\Ranma 1/2: Chougi Ranbu Hen %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_SVG_SNES.cpp">
-      <Filter>Games\Nintendo\Super Variable Geo %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_BMKNS_SNES.cpp">
-      <Filter>Games\Nintendo\Battle Master: Kyuukyoku no Senshitachi %28SNES%29</Filter>
-    </ClCompile>
     <ClCompile Include="ImgDumpBmp.cpp">
       <Filter>Images\Image Export</Filter>
     </ClCompile>
@@ -933,9 +906,6 @@
     <ClCompile Include="Game\PalGroup.cpp">
       <Filter>Palettes\Palette View</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_BSSMSJR_SNES.cpp">
-      <Filter>Games\Nintendo\Bishoujo Senshi Sailor Moon S: JR %28SNES%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_MagicalDropIII_A.cpp">
       <Filter>Games\SNK Games\Magical Drop III</Filter>
     </ClCompile>
@@ -950,9 +920,6 @@
     </ClCompile>
     <ClCompile Include="Game\Game_MAAB_A.cpp">
       <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_JojosRPG_SNES.cpp">
-      <Filter>Games\Nintendo\Jojo%27s RPG %28SNES%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_GGXXR_S.cpp">
       <Filter>Games\Other Platforms\Guilty Gear\GGXX #Reload %28Steam/Community port%29</Filter>
@@ -972,9 +939,6 @@
     <ClCompile Include="Game\SuppProc.cpp">
       <Filter>Games\Base</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_DBZEB_DS.cpp">
-      <Filter>Games\Nintendo\Dragon Ball Z: Extreme Butoden %283DS%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_MBTL_A.cpp">
       <Filter>Games\Other Platforms\Melty Blood Type Lumina %28Steam%29</Filter>
     </ClCompile>
@@ -987,23 +951,11 @@
     <ClCompile Include="Game\Game_MK2_SNES.cpp">
       <Filter>Games\Nintendo\Mortal Kombat 2 %28SNES%29</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_MK1_SNES.cpp">
-      <Filter>Games\Nintendo\Mortal Kombat 1 %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_SHAQFU_SNES.cpp">
-      <Filter>Games\Nintendo\Shaq Fu %28SNES%29</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_UMK3_SNES.cpp">
-      <Filter>Games\Nintendo\Ultimate Mortal Kombat 3 %28SNES%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_VampireHunter_A.cpp">
       <Filter>Games\Capcom Games\Vampire Hunter_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_VampireNightWarriors_A.cpp">
       <Filter>Games\Capcom Games\Vampire Night Warriors_A</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_UMK3_DS.cpp">
-      <Filter>Games\Nintendo\Ultimate Mortal Kombat 3 %28DS%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_P4AU_STEAM.cpp">
       <Filter>Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax %28Steam%29</Filter>
@@ -1404,10 +1356,10 @@
       <Filter>Games\SNK Games\NeoBomberman_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_GUNDAM_SNES.h">
-      <Filter>Games\Nintendo\Gundam Endless Duel</Filter>
+      <Filter>Games\Nintendo\Gundam Endless Duel %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\GUNDAM_SNES_DEF.h">
-      <Filter>Games\Nintendo\Gundam Endless Duel</Filter>
+      <Filter>Games\Nintendo\Gundam Endless Duel %28SNES%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF94_A.h">
       <Filter>Games\SNK Games\KOF94_A</Filter>

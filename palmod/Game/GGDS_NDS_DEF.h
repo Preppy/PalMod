@@ -1,5 +1,9 @@
 #pragma once
 
+const std::vector<uint16_t> GGDS_DS_IMGIDS_USED =
+{
+};
+
 const sGame_PaletteDataset GGDS_DS_ANJI_PALETTES[] =
 {
     { L"Special", 0x1175e28, 0x1175e48 },
@@ -548,9 +552,4 @@ const sDescTreeNode GGDS_NDS_UNITS[] =
 
     { L"Mini Game",         DESC_NODETYPE_TREE, (void*)GGDS_DS_MINIGAMES,   ARRAYSIZE(GGDS_DS_MINIGAMES) },
     //{ L"Bonus",             DESC_NODETYPE_TREE, (void*)GGDS_DS_BONUS,       ARRAYSIZE(GGDS_DS_BONUS) },
-
 };
-
-constexpr auto GGDS_NDS_NUMUNIT = ARRAYSIZE(GGDS_NDS_UNITS);
-
-constexpr auto GGDS_NDS_EXTRALOC = GGDS_NDS_NUMUNIT;

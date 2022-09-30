@@ -1,53 +1,39 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "JOJOSRPG_SNES_DEF.h"
-#include "..\extrafile.h"
 
-class CGame_JOJOSRPG_SNES : public CGameWithExtrasFile
+class CGame_JOJOSRPG_SNES : public CGameClassByDir
 {
 private:
-    static uint32_t m_nTotalPaletteCountForJOJOSRPG;
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"jojo no kimyou na bouken (japan).sfc", 0x100000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    static uint32_t rgExtraCountAll[JOJOSRPG_SNES_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[JOJOSRPG_SNES_NUMUNIT + 1];
-
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
-
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
-
-    static constexpr auto EXTRA_FILENAME_JOJOSRPG_SNES = L"JojosRPGE.txt";
-    static constexpr auto JOJOSRPG_SNES_PRIMARY_ROMNAME = L"jojo no kimyou na bouken (japan).sfc";
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x100000;
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Jojo's Bizarre Adventure (SNES)",
+        JOJOSRPG_SNES,
+        IMGDAT_SECTION_SNES,
+        JOJOSRPG_SNES_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_BGR555_LE,
+        m_sFileLoadingData,
+        JOJOSRPG_SNES_UNITS,
+        ARRAYSIZE(JOJOSRPG_SNES_UNITS),
+        L"JojosRPGE.txt",             // Extra filename
+        37,                           // Count of palettes listed in the header
+        0x817a,                       // Lowest known location used for palettes
+    };
 
 public:
-    CGame_JOJOSRPG_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_JOJOSRPG_SNES();
+    CGame_JOJOSRPG_SNES(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    //Static functions / variables
-    static CDescTree MainDescTree;
-
-    static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-
-    static stExtraDef* JOJOSRPG_SNES_EXTRA_CUSTOM;
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

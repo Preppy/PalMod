@@ -1,53 +1,39 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "RANMACRH_SNES_DEF.h"
-#include "..\extrafile.h"
 
-class CGame_RANMACRH_SNES : public CGameWithExtrasFile
+class CGame_RANMACRH_SNES : public CGameClassByDir
 {
 private:
-    static uint32_t m_nTotalPaletteCountForRANMACRH;
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"Ranma Nibunnoichi - Chougi Ranbu Hen (J).sfc", 0x280000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    static uint32_t rgExtraCountAll[RANMACRH_SNES_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[RANMACRH_SNES_NUMUNIT + 1];
-
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
-
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
-
-    static constexpr auto EXTRA_FILENAME_RANMACRH_SNES = L"RanmaCRHE.txt";
-    static constexpr auto RANMACRH_SNES_PRIMARY_ROMNAME = L"Ranma Nibunnoichi - Chougi Ranbu Hen (J).sfc";
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x280000;
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Ranma Nibunnoichi: Chougi Ranbu Hen (SNES)",
+        RANMACRH_SNES,
+        IMGDAT_SECTION_SNES,
+        RANMACRH_SNES_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_4P,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_BGR555_LE,
+        m_sFileLoadingData,
+        RANMACRH_SNES_UNITS,
+        ARRAYSIZE(RANMACRH_SNES_UNITS),
+        L"RanmaCRHE.txt",               // Extra filename
+        52,                             // Count of palettes listed in the header
+        0x62be2,                        // Lowest known location used for palettes
+    };
 
 public:
-    CGame_RANMACRH_SNES(uint32_t nConfirmedROMSize);
-    ~CGame_RANMACRH_SNES();
+    CGame_RANMACRH_SNES(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    //Static functions / variables
-    static CDescTree MainDescTree;
-
-    static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-
-    static stExtraDef* RANMACRH_SNES_EXTRA_CUSTOM;
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

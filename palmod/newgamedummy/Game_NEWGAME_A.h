@@ -20,22 +20,22 @@
 
 // That's it!  Good luck!  If you have any questions, feel free to ask.
 
-const sDirectoryLoadingData NEWGAMEFileLoadingData =
-{
-    {
-        // Game file name and file size.
-        { L"NEWGAME.ROM", 0x200000 },
-    },
-    FileReadType::Sequential,
-};
-
 class CGame_NEWGAME_A : public CGameClassByDir
 {
 private:
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            // Game file name and file size.
+            { L"NEWGAME.ROM", 0x200000 },
+        },
+        FileReadType::Sequential,
+    };
+
     const sCoreGameData m_sCoreGameData
     {
         // Name to display in the title bar in PalMod when this game is loaded.
-        L"My Exciting NEWAME",
+        L"My Exciting NEWGAME",
         // Game flag: you need to add a value for your game in gamedef.h and then use that value here.
         NEWGAME_A,
         // This value is used to determine which section of the image file is used.  Only relevant
@@ -62,7 +62,7 @@ private:
         // Set color mode: see the definitions in ColorSystem.h
         ColMode::COLMODE_RGB444_BE,
         // Don't change this: this is the struct above.
-        NEWGAMEFileLoadingData,
+        m_sFileLoadingData,
         // This is the array you defined in the DEF file.
         NEWGAME_A_UNITS,
         // ... and the sizeof that array
@@ -78,5 +78,5 @@ private:
 public:
     CGame_NEWGAME_A(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, NEWGAMEFileLoadingData); };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

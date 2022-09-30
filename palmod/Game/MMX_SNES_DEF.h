@@ -7,6 +7,10 @@
 // * Then create the set of palettes for that character
 // That should be it.  Good luck.
 
+const std::vector<uint16_t> MMX_SNES_IMGIDS_USED =
+{
+};
+
 const sGame_PaletteDataset MMX_SNES_MAIN_PALETTES[] =
 {
     { L"X ", 0x2B700, 0x2B720 },
@@ -50,7 +54,3 @@ const sDescTreeNode MMX_SNES_UNITS[] =
     { L"Main", DESC_NODETYPE_TREE, (void*)MMX_SNES_MAIN_COLLECTION, ARRAYSIZE(MMX_SNES_MAIN_COLLECTION) },
     { L"Bosses", DESC_NODETYPE_TREE, (void*)MMX_SNES_BOSSES_COLLECTION, ARRAYSIZE(MMX_SNES_BOSSES_COLLECTION) },
 };
-
-constexpr auto MMX_SNES_NUMUNIT = ARRAYSIZE(MMX_SNES_UNITS);
-
-constexpr auto MMX_SNES_EXTRALOC = MMX_SNES_NUMUNIT;

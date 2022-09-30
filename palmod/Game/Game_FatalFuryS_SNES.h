@@ -27,9 +27,9 @@ private:
         FatalFuryS_SNES_FileLoadingData,
         FatalFuryS_SNES_UNITS,
         ARRAYSIZE(FatalFuryS_SNES_UNITS),
-        L"FatalFurySE.txt",             // Extra filename
+        L"FatalFurySE.txt",            // Extra filename
         30,                            // Count of palettes listed in the header
-        0x13f1a0,                        // Lowest known location used for palettes
+        0x13f1a0,                      // Lowest known location used for palettes
     };
 
 public:
