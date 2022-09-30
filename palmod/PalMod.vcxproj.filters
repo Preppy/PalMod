@@ -981,12 +981,6 @@
     <ClCompile Include="HTMLfiles.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_FotNS_P.cpp">
-      <Filter>Games\PS2\Fist of the North Star</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_BASARA_P.cpp">
-      <Filter>Games\PS2\Sengoku BASARA X</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_GalaxyFight_A.cpp">
       <Filter>Games\SNK Games\Galaxy Fight: Universal Warriors</Filter>
     </ClCompile>
