@@ -5,7 +5,7 @@
 class CGame_RBFFS_A : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData RBFFS_A_FileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"223-p1.p1", 0x100000 },
@@ -24,7 +24,7 @@ private:
         DEF_BUTTONLABEL_2,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
-        RBFFS_A_FileLoadingData,
+        m_sFileLoadingData ,
         RBFFS_A_UNITS,
         ARRAYSIZE(RBFFS_A_UNITS),
         L"RBFFSE.txt",             // Extra filename
@@ -35,9 +35,9 @@ private:
     void DumpPaletteHeaders();
 
 public:
-    CGame_RBFFS_A(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_RBFFS_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, RBFFS_A_FileLoadingData); };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

@@ -7,7 +7,7 @@ class CGame_KOF02_A : public CGameClassByDir
 private:
     static void DumpAllCharacters();
 
-    static inline const sDirectoryLoadingData KOF02FileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"265-p2.sp2", 0x400000 },
@@ -26,7 +26,7 @@ private:
         DEF_BUTTONLABEL_NEOGEO,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
-        KOF02FileLoadingData,
+        m_sFileLoadingData ,
         KOF02_A_UNITS,
         ARRAYSIZE(KOF02_A_UNITS),
         L"KOF02E.txt",              // Extra filename
@@ -35,9 +35,9 @@ private:
     };
 
 public:
-    CGame_KOF02_A(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, KOF02FileLoadingData); };
+    CGame_KOF02_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

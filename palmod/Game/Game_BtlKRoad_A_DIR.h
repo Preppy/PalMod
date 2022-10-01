@@ -5,7 +5,7 @@
 class CGame_BtlKRoad_A_DIR : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData BKRFileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"4-u46.bin", 0x40000 },
@@ -25,7 +25,7 @@ private:
         DEF_NOBUTTONS,
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_RGB555_BE,
-        BKRFileLoadingData,
+        m_sFileLoadingData,
         BtlKRoad_A_UNITS,
         ARRAYSIZE(BtlKRoad_A_UNITS),
         L"BtlKRoadE.txt",               // Extra filename
@@ -34,8 +34,8 @@ private:
     };
 
 public:
-    CGame_BtlKRoad_A_DIR(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_BtlKRoad_A_DIR(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, BKRFileLoadingData); };
-    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(BKRFileLoadingData); };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(m_sFileLoadingData); };
 };

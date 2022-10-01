@@ -5,7 +5,7 @@
 class CGame_AsuraBuster_A_DIR : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData AsuraBusterFileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"pgm3.u1", 0x80000 },
@@ -27,7 +27,7 @@ private:
         DEF_BUTTONLABEL_ASURABUSTER,
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_xBGR555_LE,
-        AsuraBusterFileLoadingData,
+        m_sFileLoadingData,
         AsuraBuster_A_UNITS,
         ARRAYSIZE(AsuraBuster_A_UNITS),
         L"AsuraBusterE.txt",             // Extra filename
@@ -36,8 +36,8 @@ private:
     };
 
 public:
-    CGame_AsuraBuster_A_DIR(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_AsuraBuster_A_DIR(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, AsuraBusterFileLoadingData); };
-    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(AsuraBusterFileLoadingData); };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(m_sFileLoadingData); };
 };

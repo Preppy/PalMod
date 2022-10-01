@@ -5,7 +5,7 @@
 class CGame_FatalFuryS_A : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData FatalFuryS_A_FileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"058-p1.p1", 0x100000 },
@@ -24,7 +24,7 @@ private:
         DEF_BUTTONLABEL_2,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
-        FatalFuryS_A_FileLoadingData,
+        m_sFileLoadingData,
         FatalFuryS_A_UNITS,
         ARRAYSIZE(FatalFuryS_A_UNITS),
         L"FatalFurySAE.txt",             // Extra filename
@@ -33,9 +33,9 @@ private:
     };
 
 public:
-    CGame_FatalFuryS_A(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, FatalFuryS_A_FileLoadingData); };
+    CGame_FatalFuryS_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

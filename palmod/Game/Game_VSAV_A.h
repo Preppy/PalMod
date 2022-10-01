@@ -5,7 +5,7 @@
 class CGame_VSAV_A : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData VSAVFileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"vm3.10b",  0x80000 },
@@ -24,7 +24,7 @@ private:
         DEF_BUTTONLABEL_VSAV,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB444_BE,
-        VSAVFileLoadingData,
+        m_sFileLoadingData,
         VSAV_A_UNITS,
         ARRAYSIZE(VSAV_A_UNITS),
         L"VSAVE.txt",               // Extra filename
@@ -33,9 +33,9 @@ private:
     };
 
 public:
-    CGame_VSAV_A(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_VSAV_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, VSAVFileLoadingData); };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

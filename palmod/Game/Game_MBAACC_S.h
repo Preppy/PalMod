@@ -19,7 +19,7 @@ private:
     };
 
 public:
-    CGame_MBAACC_S(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_MBAACC_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
     ~CGame_MBAACC_S() { ClearDataBuffer(); FlushChangeTrackingArray(); };
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassPerUnitPerFile::GetRule(nRuleId, MBAACCCharacterData); };

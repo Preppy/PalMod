@@ -5,7 +5,7 @@
 class CGame_AvgrsGS_A_DIR : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData AvgrsGSFileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"sf_00-0.7k", 0x80000 },
@@ -25,7 +25,7 @@ private:
         DEF_BUTTONLABEL_2,
         AlphaMode::GameUsesFixedAlpha,
         ColMode::COLMODE_BGR555_LE,
-        AvgrsGSFileLoadingData,
+        m_sFileLoadingData,
         AvgrsGS_A_UNITS,
         ARRAYSIZE(AvgrsGS_A_UNITS),
         L"AvgrsGSE.txt",                 // Extra filename
@@ -34,8 +34,8 @@ private:
     };
 
 public:
-    CGame_AvgrsGS_A_DIR(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_AvgrsGS_A_DIR(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, AvgrsGSFileLoadingData); };
-    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(AvgrsGSFileLoadingData); };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(m_sFileLoadingData); };
 };

@@ -5,7 +5,7 @@
 class CGame_PrimalRage_SNES : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData PrimalRageFileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"Primal Rage (USA).sfc", 0x300000 },
@@ -24,7 +24,7 @@ private:
         DEF_BUTTONLABEL_PRIMALRAGE,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
-        PrimalRageFileLoadingData,
+        m_sFileLoadingData,
         PrimalRage_SNES_UNITS,
         ARRAYSIZE(PrimalRage_SNES_UNITS),
         L"PrimalRageE.txt",               // Extra filename
@@ -33,7 +33,7 @@ private:
     }; 
 
 public:
-    CGame_PrimalRage_SNES(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_PrimalRage_SNES(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, PrimalRageFileLoadingData); };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

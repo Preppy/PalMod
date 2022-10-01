@@ -5,7 +5,7 @@
 class CGame_FatalFuryS_SNES : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData FatalFuryS_SNES_FileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"Fatal Fury Special (USA).sfc", 0x400000 },
@@ -24,7 +24,7 @@ private:
         DEF_BUTTONLABEL_2_AB,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
-        FatalFuryS_SNES_FileLoadingData,
+        m_sFileLoadingData,
         FatalFuryS_SNES_UNITS,
         ARRAYSIZE(FatalFuryS_SNES_UNITS),
         L"FatalFurySE.txt",            // Extra filename
@@ -33,9 +33,9 @@ private:
     };
 
 public:
-    CGame_FatalFuryS_SNES(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, FatalFuryS_SNES_FileLoadingData); };
+    CGame_FatalFuryS_SNES(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

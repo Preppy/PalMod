@@ -19,7 +19,7 @@ private:
     };
 
 public:
-    CGame_MBTL_A(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_MBTL_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
     ~CGame_MBTL_A() { ClearDataBuffer(); FlushChangeTrackingArray(); };
 
     void PostSetPal(uint32_t nUnitId, uint32_t nPalId) override;

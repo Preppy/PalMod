@@ -5,7 +5,7 @@
 class CGame_MWarr_A_DIR : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData MWarrFileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"prg_ev", 0x80000 },
@@ -25,7 +25,7 @@ private:
         DEF_NOBUTTONS,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_BE,
-        MWarrFileLoadingData,
+        m_sFileLoadingData,
         MWarr_A_UNITS,
         ARRAYSIZE(MWarr_A_UNITS),
         L"MWarrE.txt",                  // Extra filename
@@ -34,8 +34,8 @@ private:
     };
 
 public:
-    CGame_MWarr_A_DIR(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_MWarr_A_DIR(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, MWarrFileLoadingData); };
-    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(MWarrFileLoadingData); };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
+    static sFileRule GetNextRule() { return CGameClassByDir::GetNextRule(m_sFileLoadingData); };
 };

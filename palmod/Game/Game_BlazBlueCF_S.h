@@ -20,7 +20,7 @@ private:
     };
 
 public:
-    CGame_BlazBlueCF_S(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_BlazBlueCF_S(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
     ~CGame_BlazBlueCF_S() { ClearDataBuffer(); FlushChangeTrackingArray(); };
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassPerUnitPerFile::GetRule(nRuleId, BlazBlueCF_S_CharacterData); };

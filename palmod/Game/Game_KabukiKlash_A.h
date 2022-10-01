@@ -5,7 +5,7 @@
 class CGame_KabukiKlash_A : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData KabukiKlash_A_FileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"092-p1.p1", 0x200000 },
@@ -24,7 +24,7 @@ private:
         DEF_BUTTONLABEL_2,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
-        KabukiKlash_A_FileLoadingData,
+        m_sFileLoadingData,
         KabukiKlash_A_UNITS,
         ARRAYSIZE(KabukiKlash_A_UNITS),
         L"KabukiKlashE.txt",             // Extra filename
@@ -33,7 +33,7 @@ private:
     };
 
 public:
-    CGame_KabukiKlash_A(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_KabukiKlash_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, KabukiKlash_A_FileLoadingData); };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

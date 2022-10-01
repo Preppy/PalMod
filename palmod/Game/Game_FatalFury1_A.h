@@ -5,7 +5,7 @@
 class CGame_FatalFury1_A : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData FatalFury1_A_FileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"033-p1.p1", 0x80000 },
@@ -24,7 +24,7 @@ private:
         DEF_NOBUTTONS,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_RGB666_NEOGEO,
-        FatalFury1_A_FileLoadingData,
+        m_sFileLoadingData,
         FatalFury1_A_UNITS,
         ARRAYSIZE(FatalFury1_A_UNITS),
         L"FatalFury1E.txt",             // Extra filename
@@ -33,9 +33,9 @@ private:
     };
 
 public:
-    CGame_FatalFury1_A(uint32_t nConfirmedROMSize = -1) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
-
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, FatalFury1_A_FileLoadingData); };
+    CGame_FatalFury1_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

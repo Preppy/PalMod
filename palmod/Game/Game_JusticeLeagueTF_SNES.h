@@ -5,7 +5,7 @@
 class CGame_JusticeLeagueTF_SNES : public CGameClassByDir
 {
 private:
-    static inline const sDirectoryLoadingData JusticeLeagueTF_SNES_FileLoadingData =
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
             { L"justice league task force (usa).sfc", 0x280000 },
@@ -24,7 +24,7 @@ private:
         DEF_BUTTONLABEL_2,
         AlphaMode::GameDoesNotUseAlpha,
         ColMode::COLMODE_BGR555_LE,
-        JusticeLeagueTF_SNES_FileLoadingData,
+        m_sFileLoadingData,
         JusticeLeagueTF_SNES_UNITS,
         ARRAYSIZE(JusticeLeagueTF_SNES_UNITS),
         L"JusticeLeagueTFE.txt",        // Extra filename
@@ -35,5 +35,5 @@ private:
 public:
     CGame_JusticeLeagueTF_SNES(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
-    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, JusticeLeagueTF_SNES_FileLoadingData); };
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };

@@ -68,7 +68,7 @@ private:
     };
 
 public:
-    CGame_FatalFury2_A(uint32_t nConfirmedROMSize = -1);
+    CGame_FatalFury2_A(uint32_t nConfirmedROMSize);
 
     static void SetSpecialRuleForFileName(std::wstring strFileName);
 
