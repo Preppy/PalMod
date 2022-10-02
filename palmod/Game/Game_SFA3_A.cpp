@@ -40,7 +40,7 @@ CGame_SFA3_A::CGame_SFA3_A(uint32_t nConfirmedROMSize)
 
     m_nTotalInternalUnits = SFA3_A_NUMUNIT;
     m_nExtraUnit = SFA3_A_EXTRALOC;
-    m_nSafeCountForThisRom = 2012 + GetExtraCt(SFA3_A_EXTRALOC);
+    m_nSafeCountForThisRom = 2401 + GetExtraCt(SFA3_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA3;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
     m_nLowestKnownPaletteRomLocation = 0x2C000;
