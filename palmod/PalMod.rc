@@ -396,6 +396,11 @@ BEGIN
                 MENUITEM "Aquapazza: Aquaplus Dream Match (PS3)", ID_LD_AQUAPLUS_P
             END
             MENUITEM "BlazBlue: Central Fiction (Steam)", ID_LD_BLAZBLUECF
+            POPUP "Daemon Bride"
+            BEGIN
+                MENUITEM "Daemon Bride (NESICAxLive)",                    ID_LD_DAEMONBRIDE_NL
+                MENUITEM "Daemon Bride: Additional Gain (NESICAxLive)",   ID_LD_DAEMONBRIDEAG_NL
+            END
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
             POPUP "Guilty Gear"

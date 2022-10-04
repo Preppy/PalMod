@@ -517,6 +517,9 @@
     <Filter Include="Games\Other Platforms\Nitroplus Blasterz">
       <UniqueIdentifier>{6e19eced-02c3-4453-9c45-88228ad1240f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Deamon Bride %28NESICAxLive%29">
+      <UniqueIdentifier>{750c03d5-522e-4096-b1b0-8a8bc2b7ee63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1963,6 +1966,18 @@
     </ClInclude>
     <ClInclude Include="Game\Game_AquaPlus_P.h">
       <Filter>Games\Other Platforms\Aquapazza Aquaplus %28PS3%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DaemonBride_NL_DEF.h">
+      <Filter>Games\Other Platforms\Deamon Bride %28NESICAxLive%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DaemonBrideAG_NL_DEF.h">
+      <Filter>Games\Other Platforms\Deamon Bride %28NESICAxLive%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DaemonBride_NL.h">
+      <Filter>Games\Other Platforms\Deamon Bride %28NESICAxLive%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DaemonBrideAG_NL.h">
+      <Filter>Games\Other Platforms\Deamon Bride %28NESICAxLive%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -19,6 +19,8 @@
 #include "Game_CVS1_A.h"
 #include "Game_CVS2_A.h"
 #include "Game_Cyberbots_A.h"
+#include "Game_DaemonBride_NL.h"
+#include "Game_DaemonBrideAG_NL.h"
 #include "Game_DanKuGa_A.h"
 #include "Game_DBFCI_A.h"
 #include "Game_DBZEB_DS.h"
@@ -153,7 +155,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 173, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 175, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -304,6 +306,24 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case CYBERBOTS_A:
     {
         GetRule = &CGame_Cyberbots_A::GetRule;
+        return TRUE;
+    }
+    case DaemonBride_NL:
+    {
+        GetRuleCtr = &CGame_DaemonBride_NL::GetRuleCtr;
+        ResetRuleCtr = &CGame_DaemonBride_NL::ResetRuleCtr;
+        GetRule = &CGame_DaemonBride_NL::GetRule;
+        GetNextRule = &CGame_DaemonBride_NL::GetNextRule;
+
+        return TRUE;
+    }
+    case DaemonBrideAG_NL:
+    {
+        GetRuleCtr = &CGame_DaemonBrideAG_NL::GetRuleCtr;
+        ResetRuleCtr = &CGame_DaemonBrideAG_NL::ResetRuleCtr;
+        GetRule = &CGame_DaemonBrideAG_NL::GetRule;
+        GetNextRule = &CGame_DaemonBrideAG_NL::GetNextRule;
+
         return TRUE;
     }
     case DANKUGA_A:
@@ -1250,6 +1270,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case CYBERBOTS_A:
     {
         return new CGame_Cyberbots_A(nConfirmedROMSize);
+    }
+    case DaemonBride_NL:
+    {
+        return new CGame_DaemonBride_NL(nConfirmedROMSize);
+    }
+    case DaemonBrideAG_NL:
+    {
+        return new CGame_DaemonBrideAG_NL(nConfirmedROMSize);
     }
     case DANKUGA_A:
     {

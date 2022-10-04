@@ -351,6 +351,9 @@ public:
     afx_msg void OnLoadDir_AquaPlus_P()     { OnLoadGameByDirectory(AquaPlus_P); };
     afx_msg void OnLoadDir_BlazBlueCF()     { OnLoadGameByDirectory(BlazBlueCF_S); };
     afx_msg void OnLoadDir_Dankuga()        { OnLoadGameByDirectory(DANKUGA_A); };
+    afx_msg void OnLoadDir_DaemonBride()    { OnLoadGameByDirectory(DaemonBride_NL); };
+    afx_msg void OnLoadDir_DaemonBrideAG()  { OnLoadGameByDirectory(DaemonBrideAG_NL); };
+
     afx_msg void OnLoadDir_DBFCI()          { OnLoadGameByDirectory(DBFCI_A); };
     afx_msg void OnLoadDir_GGXXR_S()        { OnLoadGameByDirectory(GGXXR_S); };
     afx_msg void OnLoadDir_GGXXACR_S()      { OnLoadGameByDirectory(GGXXACR_S); };

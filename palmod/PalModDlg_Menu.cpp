@@ -24,6 +24,10 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case BlazBlueCF_S:
             pszExtraInfo = L"Please select the BlazBlue folder: we use the files under 'data' there.";
             break;
+        case DaemonBride_NL:
+        case DaemonBrideAG_NL:
+            pszExtraInfo = L"Select the main game folder that contains the 'Flashrom' folder.";
+            break;
         case DANKUGA_A:
             pszExtraInfo = L"We need the dkg_mpr* files from dankuga.zip.";
             break;

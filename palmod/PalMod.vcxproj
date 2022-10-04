@@ -411,6 +411,8 @@
     <ClInclude Include="Game\CVS1_A_DEF.h" />
     <ClInclude Include="Game\CVS2_A_DEF.h" />
     <ClInclude Include="Game\Cyberbots_A_DEF.h" />
+    <ClInclude Include="Game\DaemonBrideAG_NL_DEF.h" />
+    <ClInclude Include="Game\DaemonBride_NL_DEF.h" />
     <ClInclude Include="Game\DANKUGA_A_DEF.h" />
     <ClInclude Include="Game\DBFCI_S_DEF.h" />
     <ClInclude Include="Game\DBZEB_DS_DEF.h" />
@@ -448,6 +450,8 @@
     <ClInclude Include="Game\Game_CVS1_A.h" />
     <ClInclude Include="Game\Game_CVS2_A.h" />
     <ClInclude Include="Game\Game_Cyberbots_A.h" />
+    <ClInclude Include="Game\Game_DaemonBrideAG_NL.h" />
+    <ClInclude Include="Game\Game_DaemonBride_NL.h" />
     <ClInclude Include="Game\Game_DANKUGA_A.h" />
     <ClInclude Include="Game\Game_DBFCI_A.h" />
     <ClInclude Include="Game\Game_DBZEB_DS.h" />

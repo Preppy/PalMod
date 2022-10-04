@@ -1,9 +1,11 @@
 #pragma once
 
+//Legend:
 //A = Arcade
 //X = XBox
 //D = Dreamcast
-//P = Playstation 2
+//NL = NESICAxLive
+//P = Playstation 2/Playstation 3
 //S = Steam
 //GBA = GameBoy
 //SNES = ...
@@ -193,6 +195,8 @@ enum SupportedGamesList
     NBHID_P,
     AquaPlus_P,
     AquaPlus_NL,
+    DaemonBride_NL,
+    DaemonBrideAG_NL,
 
     NUM_GAMES // This needs to be last
 };
@@ -382,6 +386,8 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Nitroplus Blasterz: Heroines Infinite Duel (PS3)",
     L"Aquapazza: Aquaplus Dream Match (PS3)",
     L"Aquapazza: Aquaplus Dream Match (NESICAxLive)",
+    L"Daemon Bride (NESICAxLive)",
+    L"Daemon Bride: Additional Gain (NESICAxLive)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
@@ -606,3 +612,4 @@ const stPaletteProcessingInformation secondaryGreyTintEffects_Skip18{ paletteBud
 const stPaletteProcessingInformation secondaryGreyTintEffects_Skip31{ paletteBuddy_GreyTint_Skip31Palettes };
 
 #pragma endregion
+
