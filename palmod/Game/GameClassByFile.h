@@ -1,3 +1,4 @@
+#pragma once
 #include "gameclass.h"
 #include "..\extrafile.h"
 
@@ -18,13 +19,37 @@ struct sGameUnitsByFile
 class CGameClassByFile : public CGameWithExtrasFile
 {
 public:
+    struct sGCBF_CoreGameData
+    {
+        const std::wstring strGameFriendlyName;
+        const SupportedGamesList nGameID;
+        const eIMGDat_Sections eImgDatSectionID;
+        const std::vector<uint16_t> rgGameImageSet;
+        const sCreatePalOptions createPalOptions;
+        const std::vector<LPCWSTR> rgszButtonlabels;
+        const eImageOutputSpriteDisplay displayStyle;
+        const AlphaMode eAlphaMode;
+        const ColMode eColMode;
+        std::vector<sGameUnitsByFile> srgLoadingData;
+    };
+
     static uint32_t uRuleCtr;
-    static std::vector<sGameUnitsByFile> _sCurrentGameUnits;
-    static SupportedGamesList _sCurrentGameFlag;
+    static CDescTree MainDescTree;
+    static uint32_t m_nConfirmedROMSize;
+    static SupportedGamesList m_nCurrentGameFlag;
+    static std::wstring m_strGameFriendlyName;
+    static const sGCBF_CoreGameData* m_psCurrentGameLoadingData;
 
     //Static functions
+    static sFileRule GetNextRule(const std::vector<sGameUnitsByFile>& gameLoadingData);
+    static sFileRule GetRule(uint32_t nRuleId, const std::vector<sGameUnitsByFile>& gameLoadingData);
+
     static uint32_t GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
+
+    CDescTree* GetMainTree() { return &MainDescTree; };
+
+    void InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_CoreGameData& gameLoadingData);
 
     BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitNumber) override;
     BOOL SaveFile(CFile* SaveFile, uint32_t nUnitNumber) override;
@@ -45,4 +70,6 @@ public:
     const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+
+    LPCWSTR GetGameName() override { return m_strGameFriendlyName.c_str(); };
 };

@@ -4,26 +4,54 @@
 #define CGAMECLASSBYFILE_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 uint32_t CGameClassByFile::uRuleCtr = 0;
-std::vector<sGameUnitsByFile> CGameClassByFile::_sCurrentGameUnits;
-SupportedGamesList CGameClassByFile::_sCurrentGameFlag = SupportedGamesList::NUM_GAMES;
+CDescTree CGameClassByFile::MainDescTree = nullptr;
+uint32_t CGameClassByFile::m_nConfirmedROMSize = -1;
+
+std::wstring CGameClassByFile::m_strGameFriendlyName;
+const CGameClassByFile::sGCBF_CoreGameData* CGameClassByFile::m_psCurrentGameLoadingData;
+SupportedGamesList CGameClassByFile::m_nCurrentGameFlag = SupportedGamesList::NUM_GAMES;
+
+sFileRule CGameClassByFile::GetRule(uint32_t nUnitId, const std::vector<sGameUnitsByFile>& gameLoadingData)
+{
+    sFileRule NewFileRule;
+
+    const uint32_t nAdjustedUnitId = (nUnitId & RULE_COUNTER_DEMASK);
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", gameLoadingData.at(nAdjustedUnitId).strFileName.c_str());
+    NewFileRule.uUnitId = nUnitId;
+    NewFileRule.uVerifyVar = gameLoadingData.at(nAdjustedUnitId).nExpectedFileSize;
+
+    return NewFileRule;
+}
+
+sFileRule CGameClassByFile::GetNextRule(const std::vector<sGameUnitsByFile>& gameLoadingData)
+{
+    sFileRule NewFileRule = GetRule(uRuleCtr, gameLoadingData);
+
+    if (++uRuleCtr >= gameLoadingData.size())
+    {
+        uRuleCtr = INVALID_UNIT_VALUE;
+    }
+
+    return NewFileRule;
+}
 
 uint32_t CGameClassByFile::GetCollectionCountForUnit(uint32_t nUnitId)
 {
-    return _sCurrentGameUnits.at(nUnitId).nPaletteSetCount;
+    return m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).nPaletteSetCount;
 }
 
 uint32_t CGameClassByFile::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    return _sCurrentGameUnits.at(nUnitId).prgPaletteSets[nCollectionId].uChildAmt;
+    return m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgPaletteSets[nCollectionId].uChildAmt;
 }
 
 uint32_t CGameClassByFile::GetPaletteCountForUnit(uint32_t nUnitId)
 {
     uint32_t nCollectionCount = 0;
 
-    for (uint32_t nNodeIndex = 0; nNodeIndex < _sCurrentGameUnits.at(nUnitId).nPaletteSetCount; nNodeIndex++)
+    for (uint32_t nNodeIndex = 0; nNodeIndex < m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).nPaletteSetCount; nNodeIndex++)
     {
-        const sDescTreeNode* pThisNode = _sCurrentGameUnits.at(nUnitId).prgPaletteSets;
+        const sDescTreeNode* pThisNode = m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgPaletteSets;
 
         nCollectionCount += pThisNode[nNodeIndex].uChildAmt;
     }
@@ -33,7 +61,7 @@ uint32_t CGameClassByFile::GetPaletteCountForUnit(uint32_t nUnitId)
 
 LPCWSTR CGameClassByFile::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    return _sCurrentGameUnits.at(nUnitId).prgPaletteSets[nCollectionId].szDesc;
+    return m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgPaletteSets[nCollectionId].szDesc;
 }
 
 uint32_t CGameClassByFile::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
@@ -62,7 +90,7 @@ uint32_t CGameClassByFile::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t n
 
 const sGame_PaletteDataset* CGameClassByFile::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    return (const sGame_PaletteDataset*)_sCurrentGameUnits.at(nUnitId).prgPaletteSets[nCollectionId].ChildNodes;
+    return (const sGame_PaletteDataset*)m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgPaletteSets[nCollectionId].ChildNodes;
 }
 
 const sDescTreeNode* CGameClassByFile::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
@@ -75,7 +103,7 @@ const sDescTreeNode* CGameClassByFile::GetNodeFromPaletteId(uint32_t nUnitId, ui
     for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        const sDescTreeNode* pCollectionNodeToCheck = _sCurrentGameUnits.at(nUnitId).prgPaletteSets;
+        const sDescTreeNode* pCollectionNodeToCheck = m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgPaletteSets;
 
         uint32_t nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -149,13 +177,58 @@ void CGameClassByFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
     }
 }
 
+void CGameClassByFile::InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_CoreGameData& gameLoadingData)
+{
+    //Set game-game specific information before loading the game's known palette locations
+    m_strGameFriendlyName = gameLoadingData.strGameFriendlyName;
+    m_nCurrentGameFlag = nGameFlag = gameLoadingData.nGameID;
+    nImgGameFlag = gameLoadingData.eImgDatSectionID;
+    m_prgGameImageSet = gameLoadingData.rgGameImageSet;
+    createPalOptions = gameLoadingData.createPalOptions;
+    //Set the image out display type
+    DisplayType = gameLoadingData.displayStyle;
+    SetAlphaMode(gameLoadingData.eAlphaMode);
+
+    if (gameLoadingData.eAlphaMode == AlphaMode::GameUsesVariableAlpha)
+    {
+        m_fGameUsesAlphaValue = true;
+    }
+
+    SetColorMode(gameLoadingData.eColMode);
+
+    m_psCurrentGameLoadingData = &gameLoadingData;
+
+    // Load the game's layout for palmod
+    sDescTreeNode* NewTree = new sDescTreeNode;
+
+    uint32_t nPaletteCount = InitDescTreeForFileSet(NewTree);
+
+    MainDescTree.SetRootTree(NewTree);
+
+    // Don't load extras
+    m_pszExtraFilename = nullptr;
+
+    //We need the proper unit amt before we init the main buffer
+    nUnitAmt = nFileAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.size());
+
+    // Stub in the palette buffer that we will LoadFile into
+    InitDataBuffer();
+
+    //Create the redirect buffer
+    rgUnitRedir = new uint32_t[nUnitAmt + 1];
+    memset(rgUnitRedir, 0, sizeof(uint32_t) * nUnitAmt);
+
+    //Create the file changed flag
+    PrepChangeTrackingArray();
+}
+
 uint32_t CGameClassByFile::InitDescTreeForFileSet(sDescTreeNode* pNewDescTree)
 {
     uint32_t nTotalPaletteCount = 0;
-    uint32_t nUnitCt = static_cast<uint32_t>(_sCurrentGameUnits.size());
+    uint32_t nUnitCt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.size());
 
     //Create the main character tree
-    _snwprintf_s(pNewDescTree->szDesc, ARRAYSIZE(pNewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[_sCurrentGameFlag]);
+    _snwprintf_s(pNewDescTree->szDesc, ARRAYSIZE(pNewDescTree->szDesc), _TRUNCATE, L"%s", m_psCurrentGameLoadingData->strGameFriendlyName.c_str());
     pNewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     pNewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -172,7 +245,7 @@ uint32_t CGameClassByFile::InitDescTreeForFileSet(sDescTreeNode* pNewDescTree)
         sDescTreeNode* UnitNode = &((sDescTreeNode*)pNewDescTree->ChildNodes)[iUnitCtr];
 
         //Set each description
-        _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", _sCurrentGameUnits[iUnitCtr].strUnitName.c_str());
+        _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", m_psCurrentGameLoadingData->srgLoadingData[iUnitCtr].strUnitName.c_str());
 
         UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
         //All children have collection trees

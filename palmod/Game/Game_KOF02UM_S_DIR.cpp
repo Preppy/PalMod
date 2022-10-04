@@ -1,65 +1,21 @@
 #include "StdAfx.h"
 #include "Game_KOF02UM_S_DIR.h"
-#include "KOF02UM_S_DIR_DEF.h"
-#include "..\PalMod.h"
-
-CDescTree CGame_KOF02UM_S_DIR::MainDescTree = nullptr;
 
 CGame_KOF02UM_S_DIR::CGame_KOF02UM_S_DIR(uint32_t nConfirmedROMSize, SupportedGamesList nKOF02UMROMSetToLoad)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX, 0 };
-    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-
-    _sCurrentGameFlag = nGameFlag = nKOF02UMROMSetToLoad;
-
     switch (nKOF02UMROMSetToLoad)
     {
     case KOF02UM_S_DIR_8888:
-        SetColorMode(ColMode::COLMODE_RGBA8887);
-        pButtonLabelSet = DEF_NOBUTTONS;
-        _sCurrentGameUnits = KOF02UM_S_DIR_8888_UNITS;
-        break;
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_888);
+        return;
     case KOF02UM_S_DIR_BGR555:
-        SetColorMode(ColMode::COLMODE_BGR555_LE);
-        pButtonLabelSet = DEF_NOBUTTONS;
-        _sCurrentGameUnits = KOF02UM_S_DIR_BGR555_UNITS;
-        break;
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_BGR555);
+        return;
     default:
     case KOF02UM_S_DIR_RGB555:
-        SetColorMode(ColMode::COLMODE_RGB555_BE);
-        pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-        _sCurrentGameUnits = KOF02UM_S_DIR_RGB555_UNITS;
-        break;
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_RGB555);
+        return;
     };
-
-    InitializeStatics();
-
-    // Don't load extras
-    m_pszExtraFilename = nullptr;
-
-    nFileAmt = nUnitAmt = m_nTotalInternalUnits = static_cast<uint32_t>(_sCurrentGameUnits.size());
-
-    InitDataBuffer();
-
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF02UM_S_IMGIDS_USED;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(uint32_t) * nUnitAmt);
-
-    FlushChangeTrackingArray();
-    PrepChangeTrackingArray();
-}
-
-CGame_KOF02UM_S_DIR::~CGame_KOF02UM_S_DIR()
-{
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
 }
 
 sFileRule CGame_KOF02UM_S_DIR::GetRule_8888(uint32_t nUnitId)
@@ -138,27 +94,4 @@ sFileRule CGame_KOF02UM_S_DIR::GetNextRule_RGB555()
     }
 
     return NewFileRule;
-}
-
-void CGame_KOF02UM_S_DIR::InitializeStatics()
-{
-    sDescTreeNode* NewTree = new sDescTreeNode;
-    
-    uint32_t nPaletteCount = InitDescTreeForFileSet(NewTree);
-
-    MainDescTree.SetRootTree(NewTree);
-}
-
-LPCWSTR CGame_KOF02UM_S_DIR::GetGameName()
-{
-    switch (_sCurrentGameFlag)
-    {
-    case KOF02UM_S_DIR_8888:
-        return L"King of Fighters 2002UM (Steam, RGBA8888 parts)";
-    case KOF02UM_S_DIR_BGR555:
-        return L"King of Fighters 2002UM (Steam, BGR555 parts)";
-    default:
-    case KOF02UM_S_DIR_RGB555:
-        return L"King of Fighters 2002UM (Steam, RGB555 parts)";
-    };
 }
