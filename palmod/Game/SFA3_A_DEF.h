@@ -921,6 +921,11 @@ const sGame_PaletteDataset SFA3_A_MBISON_XISMP[] =
     { L"X-Ism Punch", 0x2e652, 0x2e672, indexCPS2Sprites_Bison, 0x00 },
     { L"X-Ism Punch Extra 1", 0x2e672, 0x2e692, indexCPS2Sprites_Bison, 0x08 },
     { L"X-Ism Punch Extra 2", 0x2e692, 0x2e6b2, indexCPS2Sprites_Bison, 0x09 },
+    { L"X-Ism Punch Teleport", 0x4aed2, 0x4aef2 },
+    { L"X-Ism Punch Extra 3", 0x4aef2, 0x4af12 },
+    { L"X-Ism Punch Extra 4", 0x4af12, 0x4af32 },
+    { L"X-Ism Punch Extra 5", 0x4af32, 0x4af52 },
+
     { L"X-Ism Punch Super Trail Light", 0x2e6b2, 0x2e6d2, indexCPS2Sprites_Bison, 0x00 },
     { L"X-Ism Punch Super Trail Dark", 0x2e6d2, 0x2e6f2, indexCPS2Sprites_Bison, 0x00 },
 };
@@ -930,6 +935,11 @@ const sGame_PaletteDataset SFA3_A_MBISON_XISMK[] =
     { L"X-Ism Kick", 0x2e6f2, 0x2e712, indexCPS2Sprites_Bison, 0x00 },
     { L"X-Ism Kick Extra 1", 0x2e712, 0x2e732, indexCPS2Sprites_Bison, 0x08 },
     { L"X-Ism Kick Extra 2", 0x2e732, 0x2e752, indexCPS2Sprites_Bison, 0x09 },
+    { L"X-Ism Kick Teleport", 0x4af52, 0x4af72 },
+    { L"X-Ism Kick Extra 3", 0x4af72, 0x4af92 },
+    { L"X-Ism Kick Extra 4", 0x4af92, 0x4afb2 },
+    { L"X-Ism Kick Extra 5", 0x4afb2, 0x4afd2 },
+
     { L"X-Ism Kick Super Trail Light", 0x2e752, 0x2e772, indexCPS2Sprites_Bison, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x2e772, 0x2e792, indexCPS2Sprites_Bison, 0x00 },
 };
@@ -939,6 +949,11 @@ const sGame_PaletteDataset SFA3_A_MBISON_AISMP[] =
     { L"A-Ism Punch", 0x2e792, 0x2e7b2, indexCPS2Sprites_Bison, 0x00 },
     { L"A-Ism Punch Extra 1", 0x2e7b2, 0x2e7d2, indexCPS2Sprites_Bison, 0x08 },
     { L"A-Ism Punch Extra 2", 0x2e7d2, 0x2e7f2, indexCPS2Sprites_Bison, 0x09 },
+    { L"A-Ism Punch Teleport", 0x4afd2, 0x4aff2 },
+    { L"A-Ism Punch Extra 3", 0x4aff2, 0x4b012 },
+    { L"A-Ism Punch Extra 4", 0x4b012, 0x4b032 },
+    { L"A-Ism Punch Extra 5", 0x4b032, 0x4b052 },
+
     { L"A-Ism Punch Super Trail Light", 0x2e7f2, 0x2e812, indexCPS2Sprites_Bison, 0x00 },
     { L"A-Ism Punch Super Trail Dark", 0x2e812, 0x2e832, indexCPS2Sprites_Bison, 0x00 },
 };
@@ -948,6 +963,11 @@ const sGame_PaletteDataset SFA3_A_MBISON_AISMK[] =
     { L"A-Ism Kick", 0x2e832, 0x2e852, indexCPS2Sprites_Bison, 0x00 },
     { L"A-Ism Kick Extra 1", 0x2e852, 0x2e872, indexCPS2Sprites_Bison, 0x08 },
     { L"A-Ism Kick Extra 2", 0x2e872, 0x2e892, indexCPS2Sprites_Bison, 0x09 },
+    { L"A-Ism Kick Teleport", 0x4b052, 0x4b072 },
+    { L"A-Ism Kick Extra 3", 0x4b072, 0x4b092 },
+    { L"A-Ism Kick Extra 4", 0x4b092, 0x4b0b2 },
+    { L"A-Ism Kick Extra 5", 0x4b0b2, 0x4b0d2 },
+
     { L"A-Ism Kick Super Trail Light", 0x2e892, 0x2e8b2, indexCPS2Sprites_Bison, 0x00 },
     { L"A-Ism Kick Super Trail Dark", 0x2e8b2, 0x2e8d2, indexCPS2Sprites_Bison, 0x00 },
 };
@@ -957,6 +977,11 @@ const sGame_PaletteDataset SFA3_A_MBISON_VISMP[] =
     { L"V-Ism Punch", 0x2e8d2, 0x2e8f2, indexCPS2Sprites_Bison, 0x00 },
     { L"V-Ism Punch Extra 1", 0x2e8f2, 0x2e912, indexCPS2Sprites_Bison, 0x08 },
     { L"V-Ism Punch Extra 2", 0x2e912, 0x2e932, indexCPS2Sprites_Bison, 0x09 },
+    { L"V-Ism Punch Teleport", 0x4b0d2, 0x4b0f2 },
+    { L"V-Ism Punch Extra 3", 0x4b0f2, 0x4b112 },
+    { L"V-Ism Punch Extra 4", 0x4b112, 0x4b132 },
+    { L"V-Ism Punch Extra 5", 0x4b132, 0x4b152 },
+
     { L"V-Ism Punch Super Trail Light", 0x2e932, 0x2e952, indexCPS2Sprites_Bison, 0x00 },
     { L"V-Ism Punch Super Trail Dark", 0x2e952, 0x2e972, indexCPS2Sprites_Bison, 0x00 },
 };
@@ -966,6 +991,11 @@ const sGame_PaletteDataset SFA3_A_MBISON_VISMK[] =
     { L"V-Ism Kick", 0x2e972, 0x2e992, indexCPS2Sprites_Bison, 0x00 },
     { L"V-Ism Kick Extra 1", 0x2e992, 0x2e9b2, indexCPS2Sprites_Bison, 0x08 },
     { L"V-Ism Kick Extra 2", 0x2e9b2, 0x2e9d2, indexCPS2Sprites_Bison, 0x09 },
+    { L"V-Ism Kick Teleport", 0x4b152, 0x4b172 },
+    { L"V-Ism Kick Extra 3", 0x4b172, 0x4b192 },
+    { L"V-Ism Kick Extra 4", 0x4b192, 0x4b1b2 },
+    { L"V-Ism Kick Extra 5", 0x4b1b2, 0x4b1d2 },
+
     { L"V-Ism Kick Super Trail Light", 0x2e9d2, 0x2e9f2, indexCPS2Sprites_Bison, 0x00 },
     { L"V-Ism Kick Super Trail Dark", 0x2e9f2, 0x2ea12, indexCPS2Sprites_Bison, 0x00 },
 };
@@ -2303,6 +2333,11 @@ const sGame_PaletteDataset SFA3_A_JULI_XISMP[] =
     { L"X-Ism Punch", 0x32252, 0x32272, indexCPS2Sprites_Juli, 0x00, &pairNext },
     { L"X-Ism Punch Extra 1: Body", 0x32272, 0x32292, indexCPS2Sprites_Juli, 0x01, &pairPrevious },
     { L"X-Ism Punch Extra 2: Psycho Charge", 0x32292, 0x322b2, indexCPS2Sprites_Juli, 0x02 },
+    { L"X-Ism Punch : Psycho Charge Beta 1", 0x4b832, 0x4b872 },
+    { L"X-Ism Punch : Psycho Charge Beta 2", 0x4b872, 0x4b8b2 },
+    { L"X-Ism Punch : Psycho Charge Beta 3", 0x4b8b2, 0x4b8f2 },
+
+
     { L"X-Ism Punch Super Trail Light", 0x322b2, 0x322d2, indexCPS2Sprites_Juli, 0x00 },
     { L"X-Ism Punch Super Trail Dark", 0x322d2, 0x322f2, indexCPS2Sprites_Juli, 0x00 },
 };
@@ -2312,6 +2347,10 @@ const sGame_PaletteDataset SFA3_A_JULI_XISMK[] =
     { L"X-Ism Kick", 0x322f2, 0x32312, indexCPS2Sprites_Juli, 0x00, &pairNext },
     { L"X-Ism Kick Extra 1: Body", 0x32312, 0x32332, indexCPS2Sprites_Juli, 0x01, &pairPrevious },
     { L"X-Ism Kick Extra 2: Psycho Charge", 0x32332, 0x32352, indexCPS2Sprites_Juli, 0x02 },
+    { L"X-Ism Kick : Psycho Charge Beta 1", 0x4b8f2, 0x4b932 },
+    { L"X-Ism Kick : Psycho Charge Beta 2", 0x4b932, 0x4b972 },
+    { L"X-Ism Kick : Psycho Charge Beta 3", 0x4b972, 0x4b9b2 },
+        
     { L"X-Ism Kick Super Trail Light", 0x32352, 0x32372, indexCPS2Sprites_Juli, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x32372, 0x32392, indexCPS2Sprites_Juli, 0x00 },
 };
@@ -2321,6 +2360,10 @@ const sGame_PaletteDataset SFA3_A_JULI_AISMP[] =
     { L"A-Ism Punch", 0x32392, 0x323b2, indexCPS2Sprites_Juli, 0x00, &pairNext },
     { L"A-Ism Punch Extra 1: Body", 0x323b2, 0x323d2, indexCPS2Sprites_Juli, 0x01, &pairPrevious },
     { L"A-Ism Punch Extra 2: Psycho Charge", 0x323d2, 0x323f2, indexCPS2Sprites_Juli, 0x02 },
+    { L"A-Ism Punch : Psycho Charge Beta 1", 0x4b9b2, 0x4b9f2 },
+    { L"A-Ism Punch : Psycho Charge Beta 2", 0x4b9f2, 0x4ba32 },
+    { L"A-Ism Punch : Psycho Charge Beta 3", 0x4ba32, 0x4ba72 },
+
     { L"A-Ism Punch Super Trail Light", 0x323f2, 0x32412, indexCPS2Sprites_Juli, 0x00 },
     { L"A-Ism Punch Super Trail Dark", 0x32412, 0x32432, indexCPS2Sprites_Juli, 0x00 },
 };
@@ -2330,6 +2373,10 @@ const sGame_PaletteDataset SFA3_A_JULI_AISMK[] =
     { L"A-Ism Kick", 0x32432, 0x32452, indexCPS2Sprites_Juli, 0x00, &pairNext },
     { L"A-Ism Kick Extra 1: Body", 0x32452, 0x32472, indexCPS2Sprites_Juli, 0x01, &pairPrevious },
     { L"A-Ism Kick Extra 2: Psycho Charge", 0x32472, 0x32492, indexCPS2Sprites_Juli, 0x02 },
+    { L"A-Ism Kick : Psycho Charge Beta 1", 0x4ba72, 0x4bab2 },
+    { L"A-Ism Kick : Psycho Charge Beta 2", 0x4bab2, 0x4baf2 },
+    { L"A-Ism Kick : Psycho Charge Beta 3", 0x4baf2, 0x4bb32 },
+
     { L"A-Ism Kick Super Trail Light", 0x32492, 0x324b2, indexCPS2Sprites_Juli, 0x00 },
     { L"A-Ism Kick Super Trail Dark", 0x324b2, 0x324d2, indexCPS2Sprites_Juli, 0x00 },
 };
@@ -2339,6 +2386,10 @@ const sGame_PaletteDataset SFA3_A_JULI_VISMP[] =
     { L"V-Ism Punch", 0x324d2, 0x324f2, indexCPS2Sprites_Juli, 0x00, &pairNext },
     { L"V-Ism Punch Extra 1: Body", 0x324f2, 0x32512, indexCPS2Sprites_Juli, 0x01, &pairPrevious },
     { L"V-Ism Punch Extra 2: Psycho Charge", 0x32512, 0x32532, indexCPS2Sprites_Juli, 0x02 },
+    { L"V-Ism Punch : Psycho Charge Beta 1", 0x4bb32, 0x4bb72 },
+    { L"V-Ism Punch : Psycho Charge Beta 2", 0x4bb72, 0x4bbb2 },
+    { L"V-Ism Punch : Psycho Charge Beta 3", 0x4bbb2, 0x4bbf2 },
+
     { L"V-Ism Punch Super Trail Light", 0x32532, 0x32552, indexCPS2Sprites_Juli, 0x00 },
     { L"V-Ism Punch Super Trail Dark", 0x32552, 0x32572, indexCPS2Sprites_Juli, 0x00 },
 };
@@ -2348,6 +2399,10 @@ const sGame_PaletteDataset SFA3_A_JULI_VISMK[] =
     { L"V-Ism Kick", 0x32572, 0x32592, indexCPS2Sprites_Juli, 0x00, &pairNext },
     { L"V-Ism Kick Extra 1: Body", 0x32592, 0x325b2, indexCPS2Sprites_Juli, 0x01, &pairPrevious },
     { L"V-Ism Kick Extra 2: Psycho Charge", 0x325b2, 0x325d2, indexCPS2Sprites_Juli, 0x02 },
+    { L"V-Ism Kick : Psycho Charge Beta 1", 0x4bbf2, 0x4bc32 },
+    { L"V-Ism Kick : Psycho Charge Beta 2", 0x4bc32, 0x4bc72 },
+    { L"V-Ism Kick : Psycho Charge Beta 3", 0x4bc72, 0x4bcb2 },
+
     { L"V-Ism Kick Super Trail Light", 0x325d2, 0x325f2, indexCPS2Sprites_Juli, 0x00 },
     { L"V-Ism Kick Super Trail Dark", 0x325f2, 0x32612, indexCPS2Sprites_Juli, 0x00 },
 };
@@ -2393,6 +2448,10 @@ const sGame_PaletteDataset SFA3_A_JUNI_XISMP[] =
     { L"X-Ism Punch", 0x32612, 0x32632, indexCPS2Sprites_Juni, 0x00, &pairNext },
     { L"X-Ism Punch Extra 1: Body", 0x32632, 0x32652, indexCPS2Sprites_Juni, 0x01, &pairPrevious },
     { L"X-Ism Punch Extra 2: Psycho Charge", 0x32652, 0x32672, indexCPS2Sprites_Juni, 0x02 },
+    { L"X-Ism Punch : Psycho Charge Alpha 1", 0x4bd92, 0x4bdd2 },
+    { L"X-Ism Punch : Psycho Charge Alpha 2", 0x4bdd2, 0x4be12 },
+    { L"X-Ism Punch : Psycho Charge Alpha 3", 0x4be12, 0x4be52 },
+
     { L"X-Ism Punch Super Trail Light", 0x32672, 0x32692, indexCPS2Sprites_Juni, 0x00 },
     { L"X-Ism Punch Super Trail Dark", 0x32692, 0x326b2, indexCPS2Sprites_Juni, 0x00 },
 };
@@ -2402,6 +2461,10 @@ const sGame_PaletteDataset SFA3_A_JUNI_XISMK[] =
     { L"X-Ism Kick", 0x326b2, 0x326d2, indexCPS2Sprites_Juni, 0x00, &pairNext },
     { L"X-Ism Kick Extra 1: Body", 0x326d2, 0x326f2, indexCPS2Sprites_Juni, 0x01, &pairPrevious },
     { L"X-Ism Kick Extra 2: Psycho Charge", 0x326f2, 0x32712, indexCPS2Sprites_Juni, 0x02 },
+    { L"X-Ism Kick : Psycho Charge Alpha 1", 0x4be52, 0x4be92 },
+    { L"X-Ism Kick : Psycho Charge Alpha 2", 0x4be92, 0x4bed2 },
+    { L"X-Ism Kick : Psycho Charge Alpha 3", 0x4bed2, 0x4bf12 },
+
     { L"X-Ism Kick Super Trail Light", 0x32712, 0x32732, indexCPS2Sprites_Juni, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x32732, 0x32752, indexCPS2Sprites_Juni, 0x00 },
 };
@@ -2411,6 +2474,10 @@ const sGame_PaletteDataset SFA3_A_JUNI_AISMP[] =
     { L"A-Ism Punch", 0x32752, 0x32772, indexCPS2Sprites_Juni, 0x00, &pairNext },
     { L"A-Ism Punch Extra 1: Body", 0x32772, 0x32792, indexCPS2Sprites_Juni, 0x01, &pairPrevious },
     { L"A-Ism Punch Extra 2: Psycho Charge", 0x32792, 0x327b2, indexCPS2Sprites_Juni, 0x02 },
+    { L"A-Ism Punch : Psycho Charge Alpha 1", 0x4bf12, 0x4bf52 },
+    { L"A-Ism Punch : Psycho Charge Alpha 2", 0x4bf52, 0x4bf92 },
+    { L"A-Ism Punch : Psycho Charge Alpha 3", 0x4bf92, 0x4bfd2 },
+
     { L"A-Ism Punch Super Trail Light", 0x327b2, 0x327d2, indexCPS2Sprites_Juni, 0x00 },
     { L"A-Ism Punch Super Trail Dark", 0x327d2, 0x327f2, indexCPS2Sprites_Juni, 0x00 },
 };
@@ -2420,6 +2487,10 @@ const sGame_PaletteDataset SFA3_A_JUNI_AISMK[] =
     { L"A-Ism Kick", 0x327f2, 0x32812, indexCPS2Sprites_Juni, 0x00, &pairNext },
     { L"A-Ism Kick Extra 1: Body", 0x32812, 0x32832, indexCPS2Sprites_Juni, 0x01, &pairPrevious },
     { L"A-Ism Kick Extra 2: Psycho Charge", 0x32832, 0x32852, indexCPS2Sprites_Juni, 0x02 },
+    { L"A-Ism Kick : Psycho Charge Alpha 1", 0x4bfd2, 0x4c012 },
+    { L"A-Ism Kick : Psycho Charge Alpha 2", 0x4c012, 0x4c052 },
+    { L"A-Ism Kick : Psycho Charge Alpha 3", 0x4c052, 0x4c092 },
+
     { L"A-Ism Kick Super Trail Light", 0x32852, 0x32872, indexCPS2Sprites_Juni, 0x00 },
     { L"A-Ism Kick Super Trail Dark", 0x32872, 0x32892, indexCPS2Sprites_Juni, 0x00 },
 };
@@ -2429,6 +2500,10 @@ const sGame_PaletteDataset SFA3_A_JUNI_VISMP[] =
     { L"V-Ism Punch", 0x32892, 0x328b2, indexCPS2Sprites_Juni, 0x00, &pairNext },
     { L"V-Ism Punch Extra 1: Body", 0x328b2, 0x328d2, indexCPS2Sprites_Juni, 0x01, &pairPrevious },
     { L"V-Ism Punch Extra 2: Psycho Charge", 0x328d2, 0x328f2, indexCPS2Sprites_Juni, 0x02 },
+    { L"V-Ism Punch : Psycho Charge Alpha 1", 0x4c092, 0x4c0d2 },
+    { L"V-Ism Punch : Psycho Charge Alpha 2", 0x4c0d2, 0x4c112 },
+    { L"V-Ism Punch : Psycho Charge Alpha 3", 0x4c112, 0x4c152 },
+
     { L"V-Ism Punch Super Trail Light", 0x328f2, 0x32912, indexCPS2Sprites_Juni, 0x00 },
     { L"V-Ism Punch Super Trail Dark", 0x32912, 0x32932, indexCPS2Sprites_Juni, 0x00 },
 };
@@ -2438,6 +2513,10 @@ const sGame_PaletteDataset SFA3_A_JUNI_VISMK[] =
     { L"V-Ism Kick", 0x32932, 0x32952, indexCPS2Sprites_Juni, 0x00, &pairNext },
     { L"V-Ism Kick Extra 1: Body", 0x32952, 0x32972, indexCPS2Sprites_Juni, 0x01, &pairPrevious },
     { L"V-Ism Kick Extra 2: Psycho Charge", 0x32972, 0x32992, indexCPS2Sprites_Juni, 0x02 },
+    { L"V-Ism Kick : Psycho Charge Alpha 1", 0x4c152, 0x4c192 },
+    { L"V-Ism Kick : Psycho Charge Alpha 2", 0x4c192, 0x4c1d2 },
+    { L"V-Ism Kick : Psycho Charge Alpha 3", 0x4c1d2, 0x4c212 },
+
     { L"V-Ism Kick Super Trail Light", 0x32992, 0x329b2, indexCPS2Sprites_Juni, 0x00 },
     { L"V-Ism Kick Super Trail Dark", 0x329b2, 0x329d2, indexCPS2Sprites_Juni, 0x00 },
 };
