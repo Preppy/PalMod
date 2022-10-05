@@ -399,6 +399,8 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                     // Reset just in case
                     pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
+                    nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size()); // 6 button colors
+                    nNodeIncrement = 8; // 8 palettes per main character color set
 
                     uint16_t nNodeIndex = (NodeGet->uPalId % static_cast<uint16_t>(pButtonLabelSet.size()));
                     // there are 8 palettes per main character button/color section
@@ -442,8 +444,6 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     CreateDefPal(JoinedNode[1], 1);
                     CreateDefPal(JoinedNode[2], 2);
 
-                    nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size()); // 6 button colors
-                    nNodeIncrement = 8; // 8 palettes per main character color set
                     SetSourcePal(0, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
                     SetSourcePal(1, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
                     SetSourcePal(2, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);
@@ -452,11 +452,11 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                           (_wcsicmp(pCurrentNode->szDesc, L"HP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"HK") == 0) ||
                           (_wcsicmp(pCurrentNode->szDesc, L"A1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"A2") == 0))
                 {
-                    // We show 6 sprites (LP...A2) for export for all normal MVC2 sprites
-                    nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
                     nNodeIncrement = pCurrentNode->uChildAmt;
                     // Need to reset because we have a status effect label set as well.
                     pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
+                    // We show 6 sprites (LP...A2) for export for all normal MVC2 sprites
+                    nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
 
                     while (nSrcStart >= nNodeIncrement)
                     {
@@ -474,10 +474,10 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         nSrcStart += GetNodeCountForCollection(NodeGet->uUnitId, iCollectionIndex);
                     }
 
-                    // There are 8 status effects
-                    nSrcAmt = 8;
                     nNodeIncrement = paletteDataSet->pPalettePairingInfo ? 2 : 1;
+                    // There are 8 status effects
                     pButtonLabelSet = DEF_LABEL_STATUS_EFFECTS;
+                    nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
                 }
             }
 
@@ -631,7 +631,12 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             }
         }
     }
-    
+
+    CString strFFFF;
+
+    strFFFF.Format(L"DEBUG OUT: amt %u inc %u start %u\r\n", nSrcAmt, nNodeIncrement, nSrcStart);
+    OutputDebugString(strFFFF.GetString());
+
     if (!fShouldUseAlternateLoadLogic)
     {
         //Create the default palette
