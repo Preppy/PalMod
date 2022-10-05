@@ -632,11 +632,6 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
     }
 
-    CString strFFFF;
-
-    strFFFF.Format(L"DEBUG OUT: amt %u inc %u start %u\r\n", nSrcAmt, nNodeIncrement, nSrcStart);
-    OutputDebugString(strFFFF.GetString());
-
     if (!fShouldUseAlternateLoadLogic)
     {
         //Create the default palette
