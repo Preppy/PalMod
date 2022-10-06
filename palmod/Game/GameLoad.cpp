@@ -1205,7 +1205,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case AOF3_A:
     {
-        return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_AOF3_A(nConfirmedROMSize);
     }
     case AquaPlus_NL:
     {
@@ -1893,7 +1893,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         switch (nGameFlag)
         {
         case AOF3_A:
-            nGameRule = ((wcsstr(pszFileNameLowercase, L"p1") != nullptr) ? 1 : 2);
+            CGame_AOF3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case FatalFury2_A:
             CGame_FatalFury2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
