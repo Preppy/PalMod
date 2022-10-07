@@ -195,6 +195,3 @@ const sDescTreeNode Windjammers_A_UNITS[] =
     { L"Stages",    DESC_NODETYPE_TREE, (void*)Windjammers_A_STAGES_COLLECTION,     ARRAYSIZE(Windjammers_A_STAGES_COLLECTION) },
     { L"Bonus",     DESC_NODETYPE_TREE, (void*)Windjammers_A_BONUS_COLLECTION,      ARRAYSIZE(Windjammers_A_BONUS_COLLECTION) },
 };
-
-constexpr auto Windjammers_A_NUMUNIT = ARRAYSIZE(Windjammers_A_UNITS);
-constexpr auto Windjammers_A_EXTRALOC = Windjammers_A_NUMUNIT;

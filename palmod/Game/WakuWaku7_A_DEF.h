@@ -462,6 +462,3 @@ const sDescTreeNode WakuWaku7_A_UNITS[] =
     { L"Fernandeath",    DESC_NODETYPE_TREE, (void*)WakuWaku7_A_FERNANDEATH_COLLECTION, ARRAYSIZE(WakuWaku7_A_FERNANDEATH_COLLECTION) },
     { L"Bonus-Kun",      DESC_NODETYPE_TREE, (void*)WakuWaku7_A_BONUSKUN_COLLECTION,  ARRAYSIZE(WakuWaku7_A_BONUSKUN_COLLECTION) },
 };
-
-constexpr auto WakuWaku7_A_NUMUNIT = ARRAYSIZE(WakuWaku7_A_UNITS);
-constexpr auto WakuWaku7_A_EXTRALOC = WakuWaku7_A_NUMUNIT;

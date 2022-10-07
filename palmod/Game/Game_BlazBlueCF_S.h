@@ -1,5 +1,4 @@
 #pragma once
-#include "GameClassByUnitPerFile.h"
 #include "BlazBlueCF_S_DEF.h"
 
 class CGame_BlazBlueCF_S : public CGameClassPerUnitPerFile

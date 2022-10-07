@@ -711,9 +711,6 @@
     <ClCompile Include="Game\Game_SFIII1_A.cpp">
       <Filter>Games\Capcom Games\SFIII1_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_Windjammers_A.cpp">
-      <Filter>Games\SNK Games\Windjammers_A</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_Matrimelee_A.cpp">
       <Filter>Games\SNK Games\Matrimelee_A</Filter>
     </ClCompile>
