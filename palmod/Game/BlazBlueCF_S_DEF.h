@@ -1,7 +1,5 @@
 ﻿#pragma once
 
-#include "GameClassByUnitPerFile.h"
-
 const std::vector<uint16_t> BlazBlueCF_S_IMGIDS_USED =
 {
     indexBBCFSprites_AmaneNishiki,          // 0x17
