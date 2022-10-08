@@ -27,9 +27,9 @@ private:
         m_sFileLoadingData,
         TOPF2005_UNITS,
         ARRAYSIZE(TOPF2005_UNITS),
-        L"TOPF2005e.txt",               // Extra filename
+        L"TOPF2005e.txt",        // Extra filename
         32,                      // Count of palettes listed in the header
-        0x24798,                   // Lowest known location used for palettes
+        0x24798,                 // Lowest known location used for palettes
     };
 
 public:

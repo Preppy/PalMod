@@ -1895,6 +1895,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         case AOF3_A:
             CGame_AOF3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
+        case CVS1_A:
+            CGame_CVS1_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case FatalFury2_A:
             CGame_FatalFury2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;

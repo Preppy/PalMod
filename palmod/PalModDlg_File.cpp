@@ -26,7 +26,7 @@ sSupportedGameList SupportedGameList[] =
     { BtlKRoad_A,       L"Battle K-Road", L"Battle K-Road|4-u46.bin|", GamePlatform::OtherPlatform },
     { CFTE_SNES,        L"Clay Fighter:TE (SNES)", L"Clay Fighter:TE (SNES)|Clay Fighter - Tournament Edition (USA).s?c|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
-    { CVS1_A,           L"CvS1", L"CvS1|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin|", GamePlatform::SegaNAOMI },
+    { CVS1_A,           L"CvS1", L"CvS1|Capcom_vs_SNK_Millenium_Fight_2000.bin;Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin;mpr-23504.ic1|", GamePlatform::SegaNAOMI },
     { CVS2_A,           L"CvS2", L"CvS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
     { CYBERBOTS_A,      L"Cyberbots", L"Cyberbots|cyb?.04|", GamePlatform::CapcomCPS12 },
     { DBZEB_DS,         L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)", L"Dragon Ball Z: Extreme Butoden (Nintendo 3DS)|3DS1366*(USA)-decrypted.3ds;Dragon*Butoden*USA*decrypted*.3ds|", GamePlatform::Nintendo },

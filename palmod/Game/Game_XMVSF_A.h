@@ -28,8 +28,8 @@ private:
         XMVSF_A_UNITS,
         ARRAYSIZE(XMVSF_A_UNITS),
         L"XMVSFe.txt",               // Extra filename
-        874,                               // Count of palettes listed in the header
-        0x606c,                          // Lowest known location used for palettes
+        874,                         // Count of palettes listed in the header
+        0x606c,                      // Lowest known location used for palettes
     };
 
 public:

@@ -216,7 +216,17 @@ inline uint32_t CGameClassByDir::GetSIMMLocationFromROMLocation(uint32_t nROMLoc
         }
         default: // FileReadType::Sequential
         {
-            // This is a pointless call since it's 1:1
+            // Adjust read/write locations if they traverse ROM boundaries
+            for (uint32_t nFileUnit = 0; nFileUnit < m_psCurrentFileLoadingData->rgFileList.size(); nFileUnit++)
+            {
+                if (nROMLocation < m_psCurrentFileLoadingData->rgFileList.at(nFileUnit).nFileSize)
+                {
+                    break;
+                }
+
+                nROMLocation -= m_psCurrentFileLoadingData->rgFileList.at(nFileUnit).nFileSize;
+            }
+
             return nROMLocation;
         }
     }
@@ -652,8 +662,9 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(uint16_t) * m_nCurrentPaletteSizeInColors);
 
                             const uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                            const uint32_t nFileAdjustedLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
-                            rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                            rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(nFileAdjustedLocation, CFile::begin);
 
                             for (uint16_t nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
                             {
@@ -815,8 +826,9 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             memset(m_pppDataBuffer32[nUnitCtr][nPalCtr], 0, sizeof(uint32_t) * m_nCurrentPaletteSizeInColors);
 
                             const uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                            const uint32_t nFileAdjustedLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
-                            rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                            rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(nFileAdjustedLocation, CFile::begin);
 
                             for (uint16_t nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
                             {
@@ -1068,8 +1080,9 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
                                 const uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                                const uint32_t nFileAdjustedLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
-                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(nFileAdjustedLocation, CFile::begin);
 
                                 for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
                                 {
@@ -1213,8 +1226,9 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
                                 uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                                const uint32_t nFileAdjustedLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
-                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(nFileAdjustedLocation, CFile::begin);
 
                                 for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
                                 {

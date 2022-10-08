@@ -1,6 +1,67 @@
 #include "StdAfx.h"
 #include "Game_CVS1_A.h"
 
+CGame_CVS1_A::CvS1LoadingKey CGame_CVS1_A::eVersionToLoad = CvS1LoadingKey::ROM;
+
+void CGame_CVS1_A::SetSpecialRuleForFileName(std::wstring strFileName)
+{
+    const std::map<std::wstring, CvS1LoadingKey> m_rgFileNameToVersion =
+    {
+        // these should be all lower case
+        { L"capcom_vs_snk_millenium_fight_2000_unlocked.bin", CvS1LoadingKey::ROM },
+        { L"capcom_vs_snk_millenium_fight_2000.bin", CvS1LoadingKey::ROM },
+        { L"mpr-23504.ic1", CvS1LoadingKey::SIMM },
+    };
+
+    CString strFileNameLowerCase = strFileName.c_str();
+    strFileNameLowerCase.MakeLower();
+
+    auto result = m_rgFileNameToVersion.find(strFileNameLowerCase.GetString());
+
+    if (result != m_rgFileNameToVersion.end())
+    {
+        eVersionToLoad = result->second;
+    }
+    else
+    {
+        eVersionToLoad = CvS1LoadingKey::ROM;
+    }
+
+    return;
+}
+
+CGame_CVS1_A::CGame_CVS1_A(uint32_t nConfirmedROMSize)
+{
+    InitializeGame(nConfirmedROMSize, (eVersionToLoad == CvS1LoadingKey::ROM) ? m_sCoreGameData_ROM : m_sCoreGameData_SIMM);
+}
+
+sFileRule CGame_CVS1_A::GetRule(uint32_t nRuleId)
+{
+    return CGameClassByDir::GetRule(nRuleId, (eVersionToLoad == CvS1LoadingKey::ROM) ? m_sFileLoadingData_ROM : m_sFileLoadingData_SIMM);
+}
+
+uint32_t CGame_CVS1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Capcom vs SNK Millenium Fight (NAOMI)", L"Capcom_vs_SNK_Millenium_Fight_2000_Unlocked.bin", 0x20be359d, 0 },
+        { L"Capcom vs SNK Millenium Fight (NAOMI re-rip)", L"mpr-23504.ic1", 0xe01a31d2, -0x800000 },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
+
 void CGame_CVS1_A::DumpAllCharacters()
 {
     // Quick function/prototype that shows you the basic logic for exporting out a new palette for each character color
