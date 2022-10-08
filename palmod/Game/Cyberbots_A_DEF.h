@@ -1109,7 +1109,3 @@ const sDescTreeNode Cyberbots_A_UNITS[] =
 
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)Cyberbots_A_BONUS_COLLECTION, ARRAYSIZE(Cyberbots_A_BONUS_COLLECTION) },
 };
-
-constexpr auto Cyberbots_A_NUMUNIT = ARRAYSIZE(Cyberbots_A_UNITS);
-
-constexpr auto Cyberbots_A_EXTRALOC = Cyberbots_A_NUMUNIT;

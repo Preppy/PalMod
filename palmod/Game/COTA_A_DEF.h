@@ -1250,6 +1250,3 @@ const sDescTreeNode COTA_A_UNITS[] =
     { L"Akuma",                     DESC_NODETYPE_TREE, (void*)COTA_A_AKUMA_COLLECTION,         ARRAYSIZE(COTA_A_AKUMA_COLLECTION) },
     { L"Bonus Stuff",               DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_COLLECTION,         ARRAYSIZE(COTA_A_BONUS_COLLECTION) },
 };
-
-constexpr auto COTA_A_NUMUNIT = ARRAYSIZE(COTA_A_UNITS);
-constexpr auto COTA_A_EXTRALOC = COTA_A_NUMUNIT;

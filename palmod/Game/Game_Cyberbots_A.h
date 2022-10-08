@@ -1,55 +1,41 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "Cyberbots_A_DEF.h"
-#include "..\extrafile.h"
 
-class CGame_Cyberbots_A : public CGameWithExtrasFile
+class CGame_Cyberbots_A : public CGameClassByDir
 {
 private:
-    static uint32_t m_nTotalPaletteCountForCyberbots;
+    static inline const sDirectoryLoadingData m_sFileLoadingData =
+    {
+        {
+            { L"cybe.04", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    static uint32_t rgExtraCountAll[Cyberbots_A_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[Cyberbots_A_NUMUNIT + 1];
-
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
-
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
-
-    static constexpr auto EXTRA_FILENAME_Cyberbots_A = L"CybotsE.txt";
-    static constexpr auto Cyberbots_A_PRIMARY_ROMNAME = L"cybe.04";
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000;
+    const sCoreGameData m_sCoreGameData
+    {
+        L"Cyberbots: Fullmetal Madness (CPS2)",
+        CYBERBOTS_A,
+        IMGDAT_SECTION_CPS2,
+        Cyberbots_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData,
+        Cyberbots_A_UNITS,
+        ARRAYSIZE(Cyberbots_A_UNITS),
+        L"CybotsE.txt",           // Extra filename
+        425,                      // Count of palettes listed in the header
+        0x3fa3e,                  // Lowest known location used for palettes
+    };
 
 public:
-    CGame_Cyberbots_A(uint32_t nConfirmedROMSize);
-    ~CGame_Cyberbots_A();
-
-    //Static functions / variables
-    static CDescTree MainDescTree;
-
-    static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+    CGame_Cyberbots_A(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* Cyberbots_A_EXTRA_CUSTOM;
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
