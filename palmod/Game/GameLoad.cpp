@@ -1369,7 +1369,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case HSF2_A:
     {
-        return new CGame_HSF2_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_HSF2_A(nConfirmedROMSize);
     }
     case JOJOS_A:
     case JOJOS_US_A:
@@ -1903,14 +1903,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             break;
         case HSF2_A:
         {
-            if (wcsstr(pszFileNameLowercase, L".03") != nullptr)
-            {
-                nGameRule = HSF2_A_GAMEKEY_03;
-            }
-            else
-            {
-                nGameRule = HSF2_A_GAMEKEY_04;
-            }
+            CGame_HSF2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         }
         case JOJOS_A:
