@@ -1,144 +1,59 @@
 #include "StdAfx.h"
 #include "Game_VampireNightWarriors_A.h"
-#include "GameDef.h"
-#include "..\PalMod.h"
 
-stExtraDef* CGame_VampireNightWarriors_A::VampireNightWarriors_A_EXTRA_CUSTOM_04 = nullptr;
-stExtraDef* CGame_VampireNightWarriors_A::VampireNightWarriors_A_EXTRA_CUSTOM_09 = nullptr;
+CGame_VampireNightWarriors_A::VNWLoadingKey CGame_VampireNightWarriors_A::eVersionToLoad = VNWLoadingKey::ROM09;
 
-CDescTree CGame_VampireNightWarriors_A::MainDescTree_04 = nullptr;
-CDescTree CGame_VampireNightWarriors_A::MainDescTree_09 = nullptr;
-
-uint32_t CGame_VampireNightWarriors_A::rgExtraCountAll_04[VampireNightWarriors_A_NUMUNIT_04 + 1] = { (uint32_t)-1 };
-uint32_t CGame_VampireNightWarriors_A::rgExtraCountAll_09[VampireNightWarriors_A_NUMUNIT_09 + 1] = { (uint32_t)-1 };
-uint32_t CGame_VampireNightWarriors_A::rgExtraLoc_04[VampireNightWarriors_A_NUMUNIT_04 + 1] = { (uint32_t)-1 };
-uint32_t CGame_VampireNightWarriors_A::rgExtraLoc_09[VampireNightWarriors_A_NUMUNIT_09 + 1] = { (uint32_t)-1 };
-
-uint32_t CGame_VampireNightWarriors_A::m_nTotalPaletteCountForVampireNightWarriors_04 = 0;
-uint32_t CGame_VampireNightWarriors_A::m_nTotalPaletteCountForVampireNightWarriors_09 = 0;
-uint32_t CGame_VampireNightWarriors_A::m_nConfirmedROMSize = -1;
-
-uint32_t CGame_VampireNightWarriors_A::m_nVSROMMode = 50;
-
-void CGame_VampireNightWarriors_A::InitializeStatics()
+void CGame_VampireNightWarriors_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
-    safe_delete_array(CGame_VampireNightWarriors_A::VampireNightWarriors_A_EXTRA_CUSTOM_04);
-    safe_delete_array(CGame_VampireNightWarriors_A::VampireNightWarriors_A_EXTRA_CUSTOM_09);
-
-    memset(rgExtraCountAll_04, -1, sizeof(rgExtraCountAll_04));
-    memset(rgExtraCountAll_09, -1, sizeof(rgExtraCountAll_09));
-    memset(rgExtraLoc_04, -1, sizeof(rgExtraLoc_04));
-    memset(rgExtraLoc_09, -1, sizeof(rgExtraLoc_09));
-
-    MainDescTree_04.SetRootTree(CGame_VampireNightWarriors_A::InitDescTree(VampireNightWarriors_A_04_ROMKEY));
-    MainDescTree_09.SetRootTree(CGame_VampireNightWarriors_A::InitDescTree(VampireNightWarriors_A_09_ROMKEY));
-}
-
-CGame_VampireNightWarriors_A::CGame_VampireNightWarriors_A(uint32_t nConfirmedROMSize, int nVSROMModeToLoad)
-{
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_RGB444_BE);
-
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
-    m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    //We need the proper unit amt before we init the main buffer
-    m_nVSROMMode = nVSROMModeToLoad;
-
-    if (UseCharacterROM())
+    const std::map<std::wstring, VNWLoadingKey> m_rgFileNameToVersion =
     {
-        nUnitAmt = VampireNightWarriors_A_NUMUNIT_09 + (GetExtraCt(VampireNightWarriors_A_EXTRALOC_09) ? 1 : 0);
-        m_nTotalInternalUnits = VampireNightWarriors_A_NUMUNIT_09;
-        m_nExtraUnit = VampireNightWarriors_A_EXTRALOC_09;
-        m_nSafeCountForThisRom = 120 + GetExtraCt(VampireNightWarriors_A_EXTRALOC_09);
-        m_pszExtraFilename = EXTRA_FILENAME_VampireNightWarriors_09;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForVampireNightWarriors_09;
+        // these should be all lower case
+        { L"vame.09a", VNWLoadingKey::ROM09 },
+        { L"vamu.09a", VNWLoadingKey::ROM09 },
+        { L"vamu.09b", VNWLoadingKey::ROM09 },
+        { L"vama.09a", VNWLoadingKey::ROM09 },
+        { L"vamh.09c", VNWLoadingKey::ROM09 },
+        { L"vamud.09a", VNWLoadingKey::ROM09 },
+        { L"vamj.09", VNWLoadingKey::ROM09 },
+        { L"vamj.09a", VNWLoadingKey::ROM09 },
 
-        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-        m_nLowestKnownPaletteRomLocation = 0x1182a;
+        { L"vame.04a", VNWLoadingKey::ROM04 },
+        { L"vamu.04a", VNWLoadingKey::ROM04 },
+        { L"vamu.04b", VNWLoadingKey::ROM04 },
+        { L"vama.04a", VNWLoadingKey::ROM04 },
+        { L"vamh.04c", VNWLoadingKey::ROM04 },
+        { L"vamud.04a", VNWLoadingKey::ROM04 },
+
+        { L"vamj.04", VNWLoadingKey::ROM04 },
+        { L"vamj.04a", VNWLoadingKey::ROM04 },
+        { L"vamj.04b", VNWLoadingKey::ROM04 },
+    };
+
+    CString strFileNameLowerCase = strFileName.c_str();
+    strFileNameLowerCase.MakeLower();
+
+    auto result = m_rgFileNameToVersion.find(strFileNameLowerCase.GetString());
+
+    if (result != m_rgFileNameToVersion.end())
+    {
+        eVersionToLoad = result->second;
     }
     else
     {
-        nUnitAmt = VampireNightWarriors_A_NUMUNIT_04 + (GetExtraCt(VampireNightWarriors_A_EXTRALOC_04) ? 1 : 0);
-        m_nTotalInternalUnits = VampireNightWarriors_A_NUMUNIT_04;
-        m_nExtraUnit = VampireNightWarriors_A_EXTRALOC_04;
-        m_nSafeCountForThisRom = 61 + GetExtraCt(VampireNightWarriors_A_EXTRALOC_04);
-        m_pszExtraFilename = EXTRA_FILENAME_VampireNightWarriors_04;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForVampireNightWarriors_04;
-
-        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-        m_nLowestKnownPaletteRomLocation = 0x47ae8;
+        eVersionToLoad = VNWLoadingKey::ROM09;
     }
 
-    InitDataBuffer();
-
-    //Set game information
-    nGameFlag = VampireNightWarriors_A;
-    nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = VampireNightWarriors_A_IMGIDS_USED;
-
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabelSet = DEF_BUTTONLABEL_2;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
-
-    //Create the file changed flag
-    PrepChangeTrackingArray();
+    return;
 }
 
-CGame_VampireNightWarriors_A::~CGame_VampireNightWarriors_A()
+CGame_VampireNightWarriors_A::CGame_VampireNightWarriors_A(uint32_t nConfirmedROMSize)
 {
-    safe_delete_array(CGame_VampireNightWarriors_A::VampireNightWarriors_A_EXTRA_CUSTOM_04);
-    safe_delete_array(CGame_VampireNightWarriors_A::VampireNightWarriors_A_EXTRA_CUSTOM_09);
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
+    InitializeGame(nConfirmedROMSize, (eVersionToLoad == VNWLoadingKey::ROM04) ? m_sCoreGameData_4 : m_sCoreGameData_9);
 }
 
-void CGame_VampireNightWarriors_A::InitDataBuffer()
+sFileRule CGame_VampireNightWarriors_A::GetRule(uint32_t nRuleId)
 {
-    m_nBufferVSROMMode = m_nVSROMMode;
-    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
-    memset(m_pppDataBuffer, 0, sizeof(uint16_t**) * nUnitAmt);
-}
-
-void CGame_VampireNightWarriors_A::ClearDataBuffer()
-{
-    // We walk the tree to clear it according to Jojos mode, but if you live switch games
-    // we would use the new mode incorrectly as we clear the old buffer.
-    int nCurrentVSROMMode = m_nVSROMMode;
-
-    m_nVSROMMode = m_nBufferVSROMMode;
-
-    if (m_pppDataBuffer)
-    {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            if (m_pppDataBuffer[nUnitCtr])
-            {
-                uint32_t nPaletteCount = GetPaletteCountForUnit(nUnitCtr);
-
-                for (uint32_t nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
-                {
-                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPaletteIndex]);
-                }
-
-                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
-            }
-        }
-
-        safe_delete_array(m_pppDataBuffer);
-    }
-
-    m_nVSROMMode = nCurrentVSROMMode;
+    return CGameClassByDir::GetRule(nRuleId, (eVersionToLoad == VNWLoadingKey::ROM04) ? m_sFileLoadingData_4 : m_sFileLoadingData_9);
 }
 
 uint32_t CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
@@ -242,253 +157,4 @@ uint32_t CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32
     }
 
     return ARRAYSIZE(knownROMs);
-}
-
-uint32_t CGame_VampireNightWarriors_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
-{
-    if (UseCharacterROM())
-    {
-        return _GetExtraCount(rgExtraCountAll_09, VampireNightWarriors_A_NUMUNIT_09, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM_09);
-    }
-    else
-    {
-        return _GetExtraCount(rgExtraCountAll_04, VampireNightWarriors_A_NUMUNIT_04, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM_04);
-    }
-}
-
-uint32_t CGame_VampireNightWarriors_A::GetExtraLoc(uint32_t nUnitId)
-{
-    if (UseCharacterROM())
-    {
-        return _GetExtraLocation(rgExtraLoc_09, VampireNightWarriors_A_NUMUNIT_09, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM_09);
-    }
-    else
-    {
-        return _GetExtraLocation(rgExtraLoc_04, VampireNightWarriors_A_NUMUNIT_04, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM_04);
-    }
-}
-
-CDescTree* CGame_VampireNightWarriors_A::GetMainTree()
-{
-    if (UseCharacterROM())
-    {
-        return &CGame_VampireNightWarriors_A::MainDescTree_09;
-    }
-    else
-    {
-        return &CGame_VampireNightWarriors_A::MainDescTree_04;
-    }
-}
-
-sDescTreeNode* CGame_VampireNightWarriors_A::InitDescTree(int nVSROMSetToUse)
-{
-    //Load extra file if we're using it
-    m_nVSROMMode = nVSROMSetToUse;
-
-    if (UseCharacterROM())
-    {
-        LoadExtraFileForGame(EXTRA_FILENAME_VampireNightWarriors_09, &VampireNightWarriors_A_EXTRA_CUSTOM_09, VampireNightWarriors_A_EXTRALOC_09, m_nConfirmedROMSize);
-    }
-    else
-    {
-        LoadExtraFileForGame(EXTRA_FILENAME_VampireNightWarriors_04, &VampireNightWarriors_A_EXTRA_CUSTOM_04, VampireNightWarriors_A_EXTRALOC_04, m_nConfirmedROMSize);
-    }
-
-    const uint16_t nUnitCt = UseCharacterROM() ? (VampireNightWarriors_A_NUMUNIT_09 + (GetExtraCt(VampireNightWarriors_A_EXTRALOC_09) ? 1 : 0)) :
-                                                 (VampireNightWarriors_A_NUMUNIT_04 + (GetExtraCt(VampireNightWarriors_A_EXTRALOC_04) ? 1 : 0));
-
-    sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[VampireNightWarriors_A]);
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
-    //All units have tree children
-    NewDescTree->uChildType = DESC_NODETYPE_TREE;
-
-    if (UseCharacterROM())
-    {
-        m_nTotalPaletteCountForVampireNightWarriors_09 = _InitDescTree(NewDescTree,
-            VampireNightWarriors_A_UNITS_09,
-            VampireNightWarriors_A_EXTRALOC_09,
-            VampireNightWarriors_A_NUMUNIT_09,
-            rgExtraCountAll_09,
-            rgExtraLoc_09,
-            VampireNightWarriors_A_EXTRA_CUSTOM_09
-        );
-    }
-    else
-    {
-        m_nTotalPaletteCountForVampireNightWarriors_04 = _InitDescTree(NewDescTree,
-            VampireNightWarriors_A_UNITS_04,
-            VampireNightWarriors_A_EXTRALOC_04,
-            VampireNightWarriors_A_NUMUNIT_04,
-            rgExtraCountAll_04,
-            rgExtraLoc_04,
-            VampireNightWarriors_A_EXTRA_CUSTOM_04
-        );
-    }
-
-    return NewDescTree;
-}
-
-sFileRule CGame_VampireNightWarriors_A::GetRule(uint32_t nUnitId)
-{
-    sFileRule NewFileRule;
-
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"vamj.09");
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
-}
-
-uint32_t CGame_VampireNightWarriors_A::GetCollectionCountForUnit(uint32_t nUnitId)
-{
-    if (UseCharacterROM())
-    {
-        return _GetCollectionCountForUnit(VampireNightWarriors_A_UNITS_09, rgExtraCountAll_09, VampireNightWarriors_A_NUMUNIT_09, VampireNightWarriors_A_EXTRALOC_09, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM_09);
-    }
-    else
-    {
-        return _GetCollectionCountForUnit(VampireNightWarriors_A_UNITS_04, rgExtraCountAll_04, VampireNightWarriors_A_NUMUNIT_04, VampireNightWarriors_A_EXTRALOC_04, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM_04);
-    }
-}
-
-uint32_t CGame_VampireNightWarriors_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    if (UseCharacterROM())
-    {
-        return _GetNodeCountForCollection(VampireNightWarriors_A_UNITS_09, rgExtraCountAll_09, VampireNightWarriors_A_NUMUNIT_09, VampireNightWarriors_A_EXTRALOC_09, nUnitId, nCollectionId, VampireNightWarriors_A_EXTRA_CUSTOM_09);
-    }
-    else
-    {
-        return _GetNodeCountForCollection(VampireNightWarriors_A_UNITS_04, rgExtraCountAll_04, VampireNightWarriors_A_NUMUNIT_04, VampireNightWarriors_A_EXTRALOC_04, nUnitId, nCollectionId, VampireNightWarriors_A_EXTRA_CUSTOM_04);
-    }
-}
-
-LPCWSTR CGame_VampireNightWarriors_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    if (UseCharacterROM())
-    {
-        return _GetDescriptionForCollection(VampireNightWarriors_A_UNITS_09, VampireNightWarriors_A_EXTRALOC_09, nUnitId, nCollectionId);
-    }
-    else
-    {
-        return _GetDescriptionForCollection(VampireNightWarriors_A_UNITS_04, VampireNightWarriors_A_EXTRALOC_04, nUnitId, nCollectionId);
-    }
-}
-
-uint32_t CGame_VampireNightWarriors_A::GetPaletteCountForUnit(uint32_t nUnitId)
-{
-    if (UseCharacterROM())
-    {
-        return _GetPaletteCountForUnit(VampireNightWarriors_A_UNITS_09, rgExtraCountAll_09, VampireNightWarriors_A_NUMUNIT_09, VampireNightWarriors_A_EXTRALOC_09, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM_09);
-    }
-    else
-    {
-        return _GetPaletteCountForUnit(VampireNightWarriors_A_UNITS_04, rgExtraCountAll_04, VampireNightWarriors_A_NUMUNIT_04, VampireNightWarriors_A_EXTRALOC_04, nUnitId, VampireNightWarriors_A_EXTRA_CUSTOM_04);
-    }
-}
-
-const sGame_PaletteDataset* CGame_VampireNightWarriors_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    if (UseCharacterROM())
-    {
-        return _GetPaletteSet(VampireNightWarriors_A_UNITS_09, nUnitId, nCollectionId);
-    }
-    else
-    {
-        return _GetPaletteSet(VampireNightWarriors_A_UNITS_04, nUnitId, nCollectionId);
-    }
-}
-
-const sDescTreeNode* CGame_VampireNightWarriors_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
-{
-    if (UseCharacterROM())
-    {
-        return _GetNodeFromPaletteId(VampireNightWarriors_A_UNITS_09, rgExtraCountAll_09, VampireNightWarriors_A_NUMUNIT_09, VampireNightWarriors_A_EXTRALOC_09, nUnitId, nPaletteId, VampireNightWarriors_A_EXTRA_CUSTOM_09, fReturnBasicNodesOnly);
-    }
-    else
-    {
-        return _GetNodeFromPaletteId(VampireNightWarriors_A_UNITS_04, rgExtraCountAll_04, VampireNightWarriors_A_NUMUNIT_04, VampireNightWarriors_A_EXTRALOC_04, nUnitId, nPaletteId, VampireNightWarriors_A_EXTRA_CUSTOM_04, fReturnBasicNodesOnly);
-    }
-}
-
-const sGame_PaletteDataset* CGame_VampireNightWarriors_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    if (UseCharacterROM())
-    {
-        return _GetSpecificPalette(VampireNightWarriors_A_UNITS_09, rgExtraCountAll_09, VampireNightWarriors_A_NUMUNIT_09, VampireNightWarriors_A_EXTRALOC_09, nUnitId, nPaletteId, VampireNightWarriors_A_EXTRA_CUSTOM_09);
-    }
-    else
-    {
-        return _GetSpecificPalette(VampireNightWarriors_A_UNITS_04, rgExtraCountAll_04, VampireNightWarriors_A_NUMUNIT_04, VampireNightWarriors_A_EXTRALOC_04, nUnitId, nPaletteId, VampireNightWarriors_A_EXTRA_CUSTOM_04);
-    }
-}
-
-void CGame_VampireNightWarriors_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-    if ( (UseCharacterROM() && (nUnitId != VampireNightWarriors_A_EXTRALOC_09)) ||
-        (!UseCharacterROM() && (nUnitId != VampireNightWarriors_A_EXTRALOC_04)))
-    {
-        int cbPaletteSizeOnDisc = 0;
-        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
-        if (paletteData)
-        {
-            cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
-
-            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-            m_pszCurrentPaletteName = paletteData->szPaletteName;
-        }
-        else
-        {
-            // A bogus palette was requested: this is unrecoverable.
-            DebugBreak();
-        }
-
-        // Adjust for ROM-specific variant locations
-        if (m_pCRC32SpecificData)
-        {
-            m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
-
-            if ((m_nCurrentPaletteROMLocation + cbPaletteSizeOnDisc ) > m_nExpectedGameROMSize)
-            {
-                OutputDebugString(L"Warning: invalid location referenced.  This is probably in the wrong ROM.\n");
-            }
-        }
-    }
-    else // VampireNightWarriors_A_EXTRALOC
-    {
-        // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef;
-
-        if (UseCharacterROM())
-        {
-            pCurrDef = &VampireNightWarriors_A_EXTRA_CUSTOM_09[GetExtraLoc(nUnitId) + nPalId];
-        }
-        else
-        {
-            pCurrDef = &VampireNightWarriors_A_EXTRA_CUSTOM_04[GetExtraLoc(nUnitId) + nPalId];
-        }
-
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
-BOOL CGame_VampireNightWarriors_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
-{
-    if (UseCharacterROM())
-    {
-        return _UpdatePalImg(VampireNightWarriors_A_UNITS_09, rgExtraCountAll_09, VampireNightWarriors_A_NUMUNIT_09, VampireNightWarriors_A_EXTRALOC_09, VampireNightWarriors_A_EXTRA_CUSTOM_09, Node01, Node02, Node03, Node03);
-    }
-    else
-    {
-        return _UpdatePalImg(VampireNightWarriors_A_UNITS_04, rgExtraCountAll_04, VampireNightWarriors_A_NUMUNIT_04, VampireNightWarriors_A_EXTRALOC_04, VampireNightWarriors_A_EXTRA_CUSTOM_04, Node01, Node02, Node03, Node03);
-    }
 }

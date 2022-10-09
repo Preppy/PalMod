@@ -1222,7 +1222,3 @@ const sDescTreeNode VampireHunter_A_UNITS[] =
     { L"Phobos",             DESC_NODETYPE_TREE, (void*)VampireHunter_A_PHOBOS_COLLECTION,        ARRAYSIZE(VampireHunter_A_PHOBOS_COLLECTION) },
     { L"Pyron",              DESC_NODETYPE_TREE, (void*)VampireHunter_A_PYRON_COLLECTION,         ARRAYSIZE(VampireHunter_A_PYRON_COLLECTION) },
 };
-
-constexpr auto VampireHunter_A_NUMUNIT = ARRAYSIZE(VampireHunter_A_UNITS);
-
-constexpr auto VampireHunter_A_EXTRALOC = VampireHunter_A_NUMUNIT;

@@ -32,7 +32,7 @@ void CGame_AOF3_A::SetSpecialRuleForFileName(std::wstring strFileName)
     return;
 }
 
-CGame_AOF3_A::CGame_AOF3_A(uint32_t nConfirmedROMSize /*= -1*/)
+CGame_AOF3_A::CGame_AOF3_A(uint32_t nConfirmedROMSize)
 {
     InitializeGame(nConfirmedROMSize, (eVersionToLoad == AOF3LoadingKey::P1) ? m_sCoreGameData_P1 : m_sCoreGameData_P2);
 }

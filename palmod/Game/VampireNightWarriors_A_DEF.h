@@ -412,9 +412,3 @@ const sDescTreeNode VampireNightWarriors_A_UNITS_09[] =
     { L"Phobos",             DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_PHOBOS_COLLECTION,        ARRAYSIZE(VampireNightWarriors_A_PHOBOS_COLLECTION) },
     { L"Pyron",              DESC_NODETYPE_TREE, (void*)VampireNightWarriors_A_PYRON_COLLECTION,         ARRAYSIZE(VampireNightWarriors_A_PYRON_COLLECTION) },
 };
-
-constexpr auto VampireNightWarriors_A_NUMUNIT_04 = ARRAYSIZE(VampireNightWarriors_A_UNITS_04);
-constexpr auto VampireNightWarriors_A_EXTRALOC_04 = VampireNightWarriors_A_NUMUNIT_04;
-
-constexpr auto VampireNightWarriors_A_NUMUNIT_09 = ARRAYSIZE(VampireNightWarriors_A_UNITS_09);
-constexpr auto VampireNightWarriors_A_EXTRALOC_09 = VampireNightWarriors_A_NUMUNIT_09;

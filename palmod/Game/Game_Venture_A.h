@@ -1,69 +1,76 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "VENTURE_A_DEF.h"
-#include "..\extrafile.h"
 
-class CGame_VENTURE_A : public CGameWithExtrasFile
+class CGame_VENTURE_A : public CGameClassByDir
 {
+private:
+    enum class VentureLoadingKey
+    {
+        ROM31,
+        ROM50,
+    };
+
+    static VentureLoadingKey eVersionToLoad;
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_31 =
+    {
+        {
+            { L"31", 0x800000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_50 =
+    {
+        {
+            { L"50", 0x400000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const sCoreGameData m_sCoreGameData_31
+    {
+        L"Jojo's Venture (Japan, 31: HUD Portraits)",
+        VENTURE_A,
+        IMGDAT_SECTION_JOJOS,
+        VENTURE_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData_31,
+        VENTURE_A_UNITS_31,
+        ARRAYSIZE(VENTURE_A_UNITS_31),
+        L"Venture31.txt",     // Extra filename
+        46,                   // Count of palettes listed in the header
+        0x640400,             // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_50
+    {
+        L"Jojo's Venture (Japan, 50: Characters)",
+        VENTURE_A,
+        IMGDAT_SECTION_JOJOS,
+        VENTURE_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData_50,
+        VENTURE_A_UNITS_50,
+        ARRAYSIZE(VENTURE_A_UNITS_50),
+        L"Venture50.txt",   // Extra filename
+        193,                // Count of palettes listed in the header
+        0x3b0000,           // Lowest known location used for palettes
+    };
+
 public:
-    // Venturehas two different ROMs of interest: handle here.
-    int m_nBufferVentureMode = 50;
-    static uint32_t m_nVentureMode;
-    static uint32_t m_nTotalPaletteCountFor31;
-    static uint32_t m_nTotalPaletteCountFor50;
+    CGame_VENTURE_A(uint32_t nConfirmedROMSize);
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
 
-    void InitDataBuffer() override;
-    void ClearDataBuffer() override;
-    static void InitializeStatics();
-    static const uint32_t m_nExpectedGameROMSize_31 = 0x800000;
-    static const uint32_t m_nExpectedGameROMSize_50 = 0x400000;
-
-    static uint32_t m_nConfirmedROMSize;
-
-    static uint32_t rgExtraCountAll_31[VENTURE_A_NUMUNIT_31 + 1];
-    static uint32_t rgExtraCountAll_50[VENTURE_A_NUMUNIT_50 + 1];
-    static uint32_t rgExtraLoc_31[VENTURE_A_NUMUNIT_31 + 1];
-    static uint32_t rgExtraLoc_50[VENTURE_A_NUMUNIT_50 + 1];
-
-    static bool UsePaletteSetFor50() { return (m_nVentureMode == 50); }
-
-    static constexpr auto EXTRA_FILENAME_VENTURE_A_31 = L"Venture31.txt";
-    static constexpr auto EXTRA_FILENAME_VENTURE_A_50 = L"Venture50.txt";
-
-public:
-    CGame_VENTURE_A(uint32_t nConfirmedROMSize = -1, int nVentureModeToLoad = 50);
-    ~CGame_VENTURE_A();
-
-    //Static functions / variables
-    static CDescTree MainDescTree_31;
-    static CDescTree MainDescTree_50;
-
-    static sDescTreeNode* InitDescTree(int nPaletteSetToUse);
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-
-    static stExtraDef* VENTURE_A_EXTRA_CUSTOM_31;
-    static stExtraDef* VENTURE_A_EXTRA_CUSTOM_50;
-
-    LPCWSTR GetGameName() override;
+    static sFileRule GetRule(uint32_t nRuleId);
 };

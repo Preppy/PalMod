@@ -1813,19 +1813,19 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case VampireNightWarriors_A:
     {
-        return new CGame_VampireNightWarriors_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_VampireNightWarriors_A(nConfirmedROMSize);
     }
     case VENTURE_A:
     {
-        return new CGame_VENTURE_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_VENTURE_A(nConfirmedROMSize);
     }
     case VENTURE_A_DIR_31:
     {
-        return new CGame_VENTURE_A_DIR(-1, 31);
+        return new CGame_VENTURE_A_DIR(-1, VentureDirLoadingKey::ROM31);
     }
     case VENTURE_A_DIR_50:
     {
-        return new CGame_VENTURE_A_DIR(-1, 50);
+        return new CGame_VENTURE_A_DIR(-1, VentureDirLoadingKey::ROM50);
     }
     case VHUNT2_A:
     {
@@ -2039,10 +2039,10 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             break;
         }
         case VampireNightWarriors_A:
-            nGameRule = ((wcsstr(pszFileNameLowercase, L"04") != nullptr) ? VampireNightWarriors_A_04_ROMKEY : VampireNightWarriors_A_09_ROMKEY);
+            CGame_VampireNightWarriors_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case VENTURE_A:
-            nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? 50 : 31);
+            CGame_VENTURE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         default:
             break;

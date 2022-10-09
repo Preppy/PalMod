@@ -8,7 +8,7 @@ private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
-            { L"vm3.10b",  0x80000 },
+            { L"vm3.10b", 0x80000 },
         },
         FileReadType::Sequential,
     };

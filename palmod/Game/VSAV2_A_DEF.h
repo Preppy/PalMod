@@ -4792,7 +4792,3 @@ const sDescTreeNode VSAV2_A_UNITS[] =
 
     { L"Bonus Palettes",     DESC_NODETYPE_TREE, (void*)VSAV2_A_BONUS_COLLECTION,         ARRAYSIZE(VSAV2_A_BONUS_COLLECTION) },
 };
-
-constexpr auto VSAV2_A_NUMUNIT = ARRAYSIZE(VSAV2_A_UNITS);
-
-constexpr auto VSAV2_A_EXTRALOC = VSAV2_A_NUMUNIT;
