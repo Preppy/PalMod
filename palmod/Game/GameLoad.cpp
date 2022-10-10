@@ -468,13 +468,29 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     case JOJOS_A_DIR_50:
-    case JOJOS_US_A_DIR_51:
+    {
+        GetRuleCtr = &CGame_JOJOS_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_JOJOS_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_JOJOS_A_DIR::GetRule50;
+        GetNextRule = &CGame_JOJOS_A_DIR::GetNextRule50;
+
+        return TRUE;
+    }
     case JOJOS_A_DIR_51:
     {
         GetRuleCtr = &CGame_JOJOS_A_DIR::GetRuleCtr;
         ResetRuleCtr = &CGame_JOJOS_A_DIR::ResetRuleCtr;
-        GetRule = &CGame_JOJOS_A_DIR::GetRule;
-        GetNextRule = &CGame_JOJOS_A_DIR::GetNextRule;
+        GetRule = &CGame_JOJOS_A_DIR::GetRule51;
+        GetNextRule = &CGame_JOJOS_A_DIR::GetNextRule51;
+
+        return TRUE;
+    }
+    case JOJOS_US_A_DIR_51:
+    {
+        GetRuleCtr = &CGame_JOJOS_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_JOJOS_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_JOJOS_A_DIR::GetRule51RegOn;
+        GetNextRule = &CGame_JOJOS_A_DIR::GetNextRule51RegOn;
 
         return TRUE;
     }
@@ -1373,21 +1389,20 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case JOJOS_A:
     case JOJOS_US_A:
-
     {
-        return new CGame_JOJOS_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_JOJOS_A(nConfirmedROMSize, static_cast<JojosLoadingKey>(nExtraGameData));
     }
     case JOJOS_A_DIR_50:
     {
-        return new CGame_JOJOS_A_DIR(-1, JOJOS_A_50_ROMKEY);
+        return new CGame_JOJOS_A_DIR(nConfirmedROMSize, JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP);
     }
     case JOJOS_A_DIR_51:
     {
-        return new CGame_JOJOS_A_DIR(-1, JOJOS_A_51_ROMKEY);
+        return new CGame_JOJOS_A_DIR(nConfirmedROMSize, JojosLoadingKey::JOJOS_A_51_ROMKEY_RERIP);
     }
     case JOJOS_US_A_DIR_51:
     {
-        return new CGame_JOJOS_A_DIR(-1, JOJOS_US_A_51_ROMKEY);
+        return new CGame_JOJOS_A_DIR(nConfirmedROMSize, JojosLoadingKey::JOJOS_US_A_51_ROMKEY_RERIP);
     }
     case JOJOSRPG_SNES:
     {
@@ -1907,10 +1922,10 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             break;
         }
         case JOJOS_A:
-            nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? JOJOS_A_50_ROMKEY : JOJOS_A_51_ROMKEY);
+            nGameRule = static_cast<int>((wcscmp(pszFileNameLowercase, L"50") == 0) ? JojosLoadingKey::JOJOS_A_50_ROMKEY : JojosLoadingKey::JOJOS_A_51_ROMKEY);
             break;
         case JOJOS_US_A:
-            nGameRule = ((wcscmp(pszFileNameLowercase, L"50") == 0) ? JOJOS_A_50_ROMKEY : JOJOS_US_A_51_ROMKEY);
+            nGameRule = static_cast<int>((wcscmp(pszFileNameLowercase, L"50") == 0) ? JojosLoadingKey::JOJOS_A_50_ROMKEY : JojosLoadingKey::JOJOS_US_A_51_ROMKEY);
             break;
         case KOF97_A:
         case KOF97AE_A:

@@ -1,77 +1,183 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "JOJOS_A_DEF.h"
-#include "..\ExtraFile.h"
-#include "..\palmod.h"
 
-constexpr auto JOJOS_A_50_ROMKEY = 50;
-constexpr auto JOJOS_A_51_ROMKEY = 51;
-constexpr auto JOJOS_US_A_51_ROMKEY = 5051;
+enum class JojosLoadingKey
+{
+    JOJOS_A_50_ROMKEY,
+    JOJOS_A_51_ROMKEY,
+    JOJOS_US_A_51_ROMKEY,
+    JOJOS_A_50_ROMKEY_RERIP,
+    JOJOS_A_51_ROMKEY_RERIP,
+    JOJOS_US_A_51_ROMKEY_RERIP,
+};
 
-class CGame_JOJOS_A : public CGameWithExtrasFile
+class CGame_JOJOS_A : public CGameClassByDir
 {
 public:
-    // Do we want to autoslice at 128 or 256 colors...?  Probably 128, so let's use that here.
-    // This is currently only used when we export out resliced tables: there's no normal usage.
-    const int m_knMaxPalettePageSize = PAL_MAXAMT_8COLORSPERLINE;
+    static JojosLoadingKey m_eVersionToLoad;
 
-    // Jojos has two different ROMs of interest: handle here.
-    int m_nBufferJojosMode = 50;
-    static uint32_t m_nJojosMode;
-    static uint32_t m_nTotalPaletteCount50;
-    static uint32_t m_nTotalPaletteCount51;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_50 =
+    {
+        {
+            { L"50", 0x800000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+    static inline const sDirectoryLoadingData m_sFileLoadingData_51 =
+    {
+        {
+            { L"51", 0x800000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    void InitDataBuffer() override;
-    void ClearDataBuffer() override;
-    static void InitializeStatics();
-    static const uint32_t m_nExpectedGameROMSize = 0x800000;
-    static uint32_t m_nConfirmedROMSize;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_50Rerip =
+    {
+        {
+            { L"jojoba-simm5.0", 0x200000 },
+            { L"jojoba-simm5.1", 0x200000 },
+            { L"jojoba-simm5.2", 0x200000 },
+            { L"jojoba-simm5.3", 0x200000 },
+        },
+        FileReadType::Interleaved_2FileSets,
+    };
 
-    static uint32_t rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1];
-    static uint32_t rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1];
-    static uint32_t rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1];
-    static uint32_t rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1];
-    
-    static bool UsePaletteSetFor50() { return (m_nJojosMode == JOJOS_A_50_ROMKEY); }
-    static bool UseRegulationOnLogic() { return (m_nJojosMode == JOJOS_US_A_51_ROMKEY); }
+    static inline const sDirectoryLoadingData m_sFileLoadingData_51Rerip =
+    {
+        {
+            { L"jojoba-simm5.4", 0x200000 },
+            { L"jojoba-simm5.5", 0x200000 },
+            { L"jojoba-simm5.6", 0x200000 },
+            { L"jojoba-simm5.7", 0x200000 },
+        },
+        FileReadType::Interleaved_2FileSets,
+    };
 
-    static constexpr auto EXTRA_FILENAME_50 = L"jojos50e.txt";
-    static constexpr auto EXTRA_FILENAME_51 = L"jojos51e.txt";
+    const sCoreGameData m_sCoreGameData_50
+    {
+        L"Jojo's 50 (CPS3, Japan)",
+        JOJOS_A,
+        IMGDAT_SECTION_JOJOS,
+        JOJOS_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData_50,
+        JOJOS_UNITS_50,
+        ARRAYSIZE(JOJOS_UNITS_50),
+        L"jojos50e.txt",     // Extra filename
+        476,                 // Count of palettes listed in the header
+        0x7c0000,            // Lowest known location used for palettes
+    };
 
-public:
-    CGame_JOJOS_A(uint32_t nConfirmedROMSize = -1, int nJojosModeToLoad = JOJOS_A_51_ROMKEY);
-    ~CGame_JOJOS_A();
+    const sCoreGameData m_sCoreGameData_51
+    {
+        L"Jojo's 51 (CPS3, Japan, Regulation: Off)",
+        JOJOS_A,
+        IMGDAT_SECTION_JOJOS,
+        JOJOS_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_JOJOS_5,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData_51,
+        JOJOS_UNITS_51,
+        ARRAYSIZE(JOJOS_UNITS_51),
+        L"jojos51e.txt",    // Extra filename
+        1997,               // Count of palettes listed in the header
+        0x2d0000,           // Lowest known location used for palettes
+    };
 
-    //Static functions / variables
-    static CDescTree MainDescTree_50;
-    static CDescTree MainDescTree_51;
+    const sCoreGameData m_sCoreGameData_51RegOn
+    {
+        L"Jojo's 51 (CPS3, USA, Regulation: On)",
+        JOJOS_US_A,
+        IMGDAT_SECTION_JOJOS,
+        JOJOS_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_JOJOS_5,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData_51,
+        JOJOS_UNITS_51,
+        ARRAYSIZE(JOJOS_UNITS_51),
+        L"jojos51e.txt",    // Extra filename
+        1997,               // Count of palettes listed in the header
+        0x2d0000,           // Lowest known location used for palettes
+    };
 
-    static sDescTreeNode* InitDescTree(int nPaletteSetToUse);
-    static sFileRule GetRule(uint32_t nUnitId);
+    const sCoreGameData m_sCoreGameData_50Rerip
+    {
+        L"Jojo's 50 (CPS3 Japanese Arcade Rerip)",
+        JOJOS_A_DIR_50,
+        IMGDAT_SECTION_JOJOS,
+        JOJOS_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData_50Rerip,
+        JOJOS_UNITS_50,
+        ARRAYSIZE(JOJOS_UNITS_50),
+        L"jojos50e.txt",     // Extra filename
+        476,                 // Count of palettes listed in the header
+        0x7c0000,            // Lowest known location used for palettes
+    };
 
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-    static stExtraDef* GetCurrentExtraDef(int nDefCtr);
+    const sCoreGameData m_sCoreGameData_51Rerip
+    {
+        L"Jojo's 51 (CPS3 Japanese Arcade Rerip)",
+        JOJOS_A_DIR_51,
+        IMGDAT_SECTION_JOJOS,
+        JOJOS_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_JOJOS_5,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData_51Rerip,
+        JOJOS_UNITS_51,
+        ARRAYSIZE(JOJOS_UNITS_51),
+        L"jojos51e.txt",    // Extra filename
+        1997,               // Count of palettes listed in the header
+        0x2d0000,           // Lowest known location used for palettes
+    };
 
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
+    const sCoreGameData m_sCoreGameData_51RegOnRerip
+    {
+        L"Jojo's 51 (CPS3 US Arcade Rerip)",
+        JOJOS_US_A_DIR_51,
+        IMGDAT_SECTION_JOJOS,
+        JOJOS_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_JOJOS_5,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_LE,
+        m_sFileLoadingData_51Rerip,
+        JOJOS_UNITS_51,
+        ARRAYSIZE(JOJOS_UNITS_51),
+        L"jojos51e.txt",    // Extra filename
+        1997,               // Count of palettes listed in the header
+        0x2d0000,           // Lowest known location used for palettes
+    };
 
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId);
+    CGame_JOJOS_A(uint32_t nConfirmedROMSize, JojosLoadingKey nJojosModeToLoad = JojosLoadingKey::JOJOS_A_51_ROMKEY);
 
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
     bool CanEnableMultispriteExport(uint32_t nUnitId, uint32_t nPalId);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    static stExtraDef* JOJOS_A_EXTRA_CUSTOM_50;
-    static stExtraDef* JOJOS_A_EXTRA_CUSTOM_51;
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) override;
+
+    static bool UseDataFor50() { return (m_eVersionToLoad == JojosLoadingKey::JOJOS_A_50_ROMKEY) || (m_eVersionToLoad == JojosLoadingKey::JOJOS_A_50_ROMKEY_RERIP); };
+
+    static sFileRule GetRule(uint32_t nRuleId);
 };
