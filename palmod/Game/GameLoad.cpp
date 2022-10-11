@@ -1694,12 +1694,12 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case SAMSHO5_A:
     case SAMSHO5X_A:
     {
-        return new CGame_SAMSHO5_A(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
+        return new CGame_SAMSHO5_A(nConfirmedROMSize);
     }
     case SAMSHO5SP_A:
     case SAMSHO5SP_S:
     {
-        return new CGame_SAMSHO5SP_A(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
+        return new CGame_SAMSHO5SP_A(nConfirmedROMSize);
     }
     case SAVAGEREIGN_A:
     {
@@ -1934,10 +1934,6 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         case LASTBLADE_S:
         case LASTBLADE2_A:
         case LASTBLADE2_S:
-        case SAMSHO5_A:
-        case SAMSHO5X_A:
-        case SAMSHO5SP_A:
-        case SAMSHO5SP_S:
             nGameRule = nGameFlag;
             break;
         case KOF99AE_A:
@@ -1991,6 +1987,19 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             CGame_REDEARTH_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         }
+        case SAMSHO1_A:
+        {
+            CGame_SAMSHO1_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        }
+        case SAMSHO5_A:
+        case SAMSHO5X_A:
+            CGame_SAMSHO5_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        case SAMSHO5SP_A:
+        case SAMSHO5SP_S:
+            CGame_SAMSHO5SP_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case SFA2_A:
         {
             if (wcsstr(pszFileNameLowercase, L".08") != nullptr)

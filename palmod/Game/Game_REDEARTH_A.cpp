@@ -44,7 +44,7 @@ sFileRule CGame_REDEARTH_A::GetRule(uint32_t nRuleId)
     }
 }
 
-CGame_REDEARTH_A::CGame_REDEARTH_A(uint32_t nConfirmedROMSize /* = -1 */)
+CGame_REDEARTH_A::CGame_REDEARTH_A(uint32_t nConfirmedROMSize)
 {
     switch (m_eROMToLoad)
     {

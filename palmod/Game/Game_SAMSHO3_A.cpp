@@ -1,128 +1,5 @@
 #include "StdAfx.h"
-#include "GameDef.h"
 #include "Game_SAMSHO3_A.h"
-#include "..\PalMod.h"
-#include "..\RegProc.h"
-
-stExtraDef* CGame_SAMSHO3_A::SAMSHO3_A_EXTRA_CUSTOM = nullptr;
-
-CDescTree CGame_SAMSHO3_A::MainDescTree = nullptr;
-
-uint32_t CGame_SAMSHO3_A::rgExtraCountAll[SAMSHO3_A_NUMUNIT + 1];
-uint32_t CGame_SAMSHO3_A::rgExtraLoc[SAMSHO3_A_NUMUNIT + 1];
-
-uint32_t CGame_SAMSHO3_A::m_nTotalPaletteCountForSAMSHO3 = 0;
-uint32_t CGame_SAMSHO3_A::m_nConfirmedROMSize = -1;
-
-void CGame_SAMSHO3_A::InitializeStatics()
-{
-    safe_delete_array(CGame_SAMSHO3_A::SAMSHO3_A_EXTRA_CUSTOM);
-
-    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
-
-    MainDescTree.SetRootTree(CGame_SAMSHO3_A::InitDescTree());
-}
-
-CGame_SAMSHO3_A::CGame_SAMSHO3_A(uint32_t nConfirmedROMSize)
-{
-    OutputDebugString(L"CGame_SAMSHO3_A::CGame_SAMSHO3_A: Loading ROM...\n");
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
-
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
-    m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    m_nTotalInternalUnits = SAMSHO3_A_NUMUNIT;
-    m_nExtraUnit = SAMSHO3_A_EXTRALOC;
-
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 898;
-    m_pszExtraFilename = EXTRA_FILENAME_SAMSHO3_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForSAMSHO3;
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x360;
-
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    InitDataBuffer();
-
-    //Set game information
-    nGameFlag = SAMSHO3_A;
-    nImgGameFlag = IMGDAT_SECTION_SAMSHO;
-    m_prgGameImageSet = SAMSHO3_A_IMGIDS_USED;
-
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_SAMSHO3;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
-
-    //Create the file changed flag
-    PrepChangeTrackingArray();
-}
-
-CGame_SAMSHO3_A::~CGame_SAMSHO3_A()
-{
-    safe_delete_array(CGame_SAMSHO3_A::SAMSHO3_A_EXTRA_CUSTOM);
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
-}
-
-CDescTree* CGame_SAMSHO3_A::GetMainTree()
-{
-    return &CGame_SAMSHO3_A::MainDescTree;
-}
-
-uint32_t CGame_SAMSHO3_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
-{
-    return _GetExtraCount(rgExtraCountAll, SAMSHO3_A_NUMUNIT, nUnitId, SAMSHO3_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_SAMSHO3_A::GetExtraLoc(uint32_t nUnitId)
-{
-    return _GetExtraLocation(rgExtraLoc, SAMSHO3_A_NUMUNIT, nUnitId, SAMSHO3_A_EXTRA_CUSTOM);
-}
-
-sDescTreeNode* CGame_SAMSHO3_A::InitDescTree()
-{
-    //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO3_A, &SAMSHO3_A_EXTRA_CUSTOM, SAMSHO3_A_EXTRALOC, m_nConfirmedROMSize);
-
-    uint16_t nUnitCt = SAMSHO3_A_NUMUNIT + (GetExtraCt(SAMSHO3_A_EXTRALOC) ? 1 : 0);
-    
-    sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[SAMSHO3_A]);
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
-    //All units have tree children
-    NewDescTree->uChildType = DESC_NODETYPE_TREE;
-
-    m_nTotalPaletteCountForSAMSHO3 = _InitDescTree(NewDescTree,
-        SAMSHO3_A_UNITS,
-        SAMSHO3_A_EXTRALOC,
-        SAMSHO3_A_NUMUNIT,
-        rgExtraCountAll,
-        rgExtraLoc,
-        SAMSHO3_A_EXTRA_CUSTOM
-    );
-
-    // For development use to speed things up
-    //DumpPaletteHeaders();
-
-    return NewDescTree;
-}
 
 void CGame_SAMSHO3_A::DumpPaletteHeaders()
 {
@@ -380,90 +257,6 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
     OutputDebugString(strOutput);
 }
 
-sFileRule CGame_SAMSHO3_A::GetRule(uint32_t nUnitId)
-{
-    sFileRule NewFileRule;
-
-    // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"087-p5.p5");
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
-}
-
-uint32_t CGame_SAMSHO3_A::GetCollectionCountForUnit(uint32_t nUnitId)
-{
-    return _GetCollectionCountForUnit(SAMSHO3_A_UNITS, rgExtraCountAll, SAMSHO3_A_NUMUNIT, SAMSHO3_A_EXTRALOC, nUnitId, SAMSHO3_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_SAMSHO3_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetNodeCountForCollection(SAMSHO3_A_UNITS, rgExtraCountAll, SAMSHO3_A_NUMUNIT, SAMSHO3_A_EXTRALOC, nUnitId, nCollectionId, SAMSHO3_A_EXTRA_CUSTOM);
-}
-
-LPCWSTR CGame_SAMSHO3_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetDescriptionForCollection(SAMSHO3_A_UNITS, SAMSHO3_A_EXTRALOC, nUnitId, nCollectionId);
-}
-
-uint32_t CGame_SAMSHO3_A::GetPaletteCountForUnit(uint32_t nUnitId)
-{
-    return _GetPaletteCountForUnit(SAMSHO3_A_UNITS, rgExtraCountAll, SAMSHO3_A_NUMUNIT, SAMSHO3_A_EXTRALOC, nUnitId, SAMSHO3_A_EXTRA_CUSTOM);
-}
-
-const sGame_PaletteDataset* CGame_SAMSHO3_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetPaletteSet(SAMSHO3_A_UNITS, nUnitId, nCollectionId);
-}
-
-uint32_t CGame_SAMSHO3_A::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    return _GetNodeSizeFromPaletteId(SAMSHO3_A_UNITS, rgExtraCountAll, SAMSHO3_A_NUMUNIT, SAMSHO3_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO3_A_EXTRA_CUSTOM);
-}
-
-const sDescTreeNode* CGame_SAMSHO3_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
-{
-    return _GetNodeFromPaletteId(SAMSHO3_A_UNITS, rgExtraCountAll, SAMSHO3_A_NUMUNIT, SAMSHO3_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO3_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
-}
-
-const sGame_PaletteDataset* CGame_SAMSHO3_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    return _GetSpecificPalette(SAMSHO3_A_UNITS, rgExtraCountAll, SAMSHO3_A_NUMUNIT, SAMSHO3_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO3_A_EXTRA_CUSTOM);
-}
-
-void CGame_SAMSHO3_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-    if (nUnitId != SAMSHO3_A_EXTRALOC)
-    {
-        int cbPaletteSizeOnDisc = 0;
-        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
-        if (paletteData)
-        {
-            cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
-
-            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-            m_pszCurrentPaletteName = paletteData->szPaletteName;
-        }
-        else
-        {
-            // A bogus palette was requested: this is unrecoverable.
-            DebugBreak();
-        }
-    }
-    else // SAMSHO3_A_EXTRALOC
-    {
-        // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &SAMSHO3_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
-
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
 BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
@@ -497,7 +290,7 @@ BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != SAMSHO3_A_EXTRALOC)
+    if (NodeGet->uUnitId != m_nCurrentExtraUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -510,6 +303,7 @@ BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
             if (pCurrentNode)
             {
+                // This code handles the fact that we use variable length pairing depending upon what we're dealing with
                 if ( (paletteDataSet->indexImgToUse == indexSamSho5Sprites_Nakoruru) &&
                     ((_wcsicmp(paletteDataSet->szPaletteName, L"Main") == 0) ||
                      (_wcsicmp(paletteDataSet->szPaletteName, L"Rage Flash") == 0)))
@@ -545,7 +339,7 @@ BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
             {
                 if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
-                    const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                    const uint32_t nStageCount = _GetNodeSizeFromPaletteId(&m_rgCurrentGameUnits[0], &m_rgCurrentExtraCounts[0], m_rgCurrentGameUnits.size(), m_nCurrentExtraUnitId, NodeGet->uUnitId, NodeGet->uPalId, m_prgCurrentExtrasLoaded);
 
                     fShouldUseAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;

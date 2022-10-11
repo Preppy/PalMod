@@ -40,7 +40,7 @@ public:
 
 class CGame_GarouP_A : public CGame_Garou_A
 {
-public:
+private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {

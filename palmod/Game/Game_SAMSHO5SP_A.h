@@ -1,57 +1,77 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "SAMSHO5SP_A_DEF.h"
-#include "..\extrafile.h"
 
-class CGame_SAMSHO5SP_A : public CGameWithExtrasFile
+class CGame_SAMSHO5SP_A : public CGameClassByDir
 {
 private:
-    static uint32_t m_nTotalPaletteCountForSAMSHO5SP;
+    enum class SamSho5SpLoadingKey
+    {
+        NeoGeo,
+        Steam,
+    };
 
-    static uint32_t rgExtraCountAll[SAMSHO5SP_A_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[SAMSHO5SP_A_NUMUNIT + 1];
+    static SamSho5SpLoadingKey m_eROMToLoad;
 
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_NeoGeo =
+    {
+        {
+            { L"272-p1.p1", 0x400000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    static const uint32_t m_nExpectedGameROMSizeArcade = 0x400000;  // 4194304 bytes
-    static const uint32_t m_nExpectedGameROMSizeSteam = 0x800000;  // 8388608 bytes
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Steam =
+    {
+        {
+            { L"p1h.bin", 0x800000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+    const sCoreGameData m_sCoreGameData_NeoGeo
+    {
+        L"Samurai Shodown V Special (Neo-Geo)",
+        SAMSHO5SP_A,
+        IMGDAT_SECTION_SAMSHO,
+        SAMSHO5SP_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_NEOGEO,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData_NeoGeo,
+        SAMSHO5SP_A_UNITS,
+        ARRAYSIZE(SAMSHO5SP_A_UNITS),
+        L"SAMSHO5SPE.txt",        // Extra filename
+        1664,                     // Count of palettes listed in the header
+        0xd4000,                  // Lowest known location used for palettes
+    };
 
-    static constexpr auto EXTRA_FILENAME_SAMSHO5SP_A = L"SAMSHO5SPE.txt";
+    const sCoreGameData m_sCoreGameData_Steam
+    {
+        L"Samurai Shodown V Special (Steam)",
+        SAMSHO5SP_S,
+        IMGDAT_SECTION_SAMSHO,
+        SAMSHO5SP_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_NEOGEO,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData_Steam,
+        SAMSHO5SP_A_UNITS,
+        ARRAYSIZE(SAMSHO5SP_A_UNITS),
+        L"SAMSHO5SPE.txt",        // Extra filename
+        1664,                     // Count of palettes listed in the header
+        0xd4000,                  // Lowest known location used for palettes
+    };
 
 public:
-    CGame_SAMSHO5SP_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad = SAMSHO5SP_A);
-    ~CGame_SAMSHO5SP_A();
+    CGame_SAMSHO5SP_A(uint32_t nConfirmedROMSize);
 
-    //Static functions / variables
-    static CDescTree MainDescTree;
+    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
-    static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    uint32_t GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId);
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-
-    uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
-
-    static stExtraDef* SAMSHO5SP_A_EXTRA_CUSTOM;
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
+    static sFileRule GetRule(uint32_t nRuleId);
 };

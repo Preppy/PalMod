@@ -1,97 +1,5 @@
 #include "StdAfx.h"
-#include "GameDef.h"
 #include "Game_SAMSHO4_A.h"
-#include "..\PalMod.h"
-#include "..\RegProc.h"
-
-stExtraDef* CGame_SAMSHO4_A::SAMSHO4_A_EXTRA_CUSTOM = nullptr;
-
-CDescTree CGame_SAMSHO4_A::MainDescTree = nullptr;
-
-uint32_t CGame_SAMSHO4_A::rgExtraCountAll[SAMSHO4_A_NUMUNIT + 1];
-uint32_t CGame_SAMSHO4_A::rgExtraLoc[SAMSHO4_A_NUMUNIT + 1];
-
-uint32_t CGame_SAMSHO4_A::m_nTotalPaletteCountForSAMSHO4 = 0;
-uint32_t CGame_SAMSHO4_A::m_nConfirmedROMSize = -1;
-
-void CGame_SAMSHO4_A::InitializeStatics()
-{
-    safe_delete_array(CGame_SAMSHO4_A::SAMSHO4_A_EXTRA_CUSTOM);
-
-    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
-
-    MainDescTree.SetRootTree(CGame_SAMSHO4_A::InitDescTree());
-}
-
-CGame_SAMSHO4_A::CGame_SAMSHO4_A(uint32_t nConfirmedROMSize)
-{
-    OutputDebugString(L"CGame_SAMSHO4_A::CGame_SAMSHO4_A: Loading ROM...\n");
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
-
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
-    m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    m_nTotalInternalUnits = SAMSHO4_A_NUMUNIT;
-    m_nExtraUnit = SAMSHO4_A_EXTRALOC;
-
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 596;
-    m_pszExtraFilename = EXTRA_FILENAME_SAMSHO4_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForSAMSHO4;
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0xc09e0;
-
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    InitDataBuffer();
-
-    //Set game information
-    nGameFlag = SAMSHO4_A;
-    nImgGameFlag = IMGDAT_SECTION_SAMSHO;
-    m_prgGameImageSet = SAMSHO4_A_IMGIDS_USED;
-
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_SAMSHO3;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
-
-    //Create the file changed flag
-    PrepChangeTrackingArray();
-}
-
-CGame_SAMSHO4_A::~CGame_SAMSHO4_A()
-{
-    safe_delete_array(CGame_SAMSHO4_A::SAMSHO4_A_EXTRA_CUSTOM);
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
-}
-
-CDescTree* CGame_SAMSHO4_A::GetMainTree()
-{
-    return &CGame_SAMSHO4_A::MainDescTree;
-}
-
-uint32_t CGame_SAMSHO4_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
-{
-    return _GetExtraCount(rgExtraCountAll, SAMSHO4_A_NUMUNIT, nUnitId, SAMSHO4_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_SAMSHO4_A::GetExtraLoc(uint32_t nUnitId)
-{
-    return _GetExtraLocation(rgExtraLoc, SAMSHO4_A_NUMUNIT, nUnitId, SAMSHO4_A_EXTRA_CUSTOM);
-}
 
 void CGame_SAMSHO4_A::DumpAllPalettes()
 {
@@ -169,123 +77,6 @@ void CGame_SAMSHO4_A::DumpAllPalettes()
     }
 }
 
-sDescTreeNode* CGame_SAMSHO4_A::InitDescTree()
-{
-    //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SAMSHO4_A, &SAMSHO4_A_EXTRA_CUSTOM, SAMSHO4_A_EXTRALOC, m_nConfirmedROMSize);
-
-    uint16_t nUnitCt = SAMSHO4_A_NUMUNIT + (GetExtraCt(SAMSHO4_A_EXTRALOC) ? 1 : 0);
-    
-    sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[SAMSHO4_A]);
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
-    //All units have tree children
-    NewDescTree->uChildType = DESC_NODETYPE_TREE;
-
-    m_nTotalPaletteCountForSAMSHO4 = _InitDescTree(NewDescTree,
-        SAMSHO4_A_UNITS,
-        SAMSHO4_A_EXTRALOC,
-        SAMSHO4_A_NUMUNIT,
-        rgExtraCountAll,
-        rgExtraLoc,
-        SAMSHO4_A_EXTRA_CUSTOM
-    );
-
-    // For development purposes
-    // The initial work here was just for adding in the special palettes.
-    // We can't currently regenerate the header set, but it's usually not necessary.
-    //DumpAllPalettes();
-
-    return NewDescTree;
-}
-
-sFileRule CGame_SAMSHO4_A::GetRule(uint32_t nUnitId)
-{
-    sFileRule NewFileRule;
-
-    // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"sams4_p1.rom");
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
-}
-
-uint32_t CGame_SAMSHO4_A::GetCollectionCountForUnit(uint32_t nUnitId)
-{
-    return _GetCollectionCountForUnit(SAMSHO4_A_UNITS, rgExtraCountAll, SAMSHO4_A_NUMUNIT, SAMSHO4_A_EXTRALOC, nUnitId, SAMSHO4_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_SAMSHO4_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetNodeCountForCollection(SAMSHO4_A_UNITS, rgExtraCountAll, SAMSHO4_A_NUMUNIT, SAMSHO4_A_EXTRALOC, nUnitId, nCollectionId, SAMSHO4_A_EXTRA_CUSTOM);
-}
-
-LPCWSTR CGame_SAMSHO4_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetDescriptionForCollection(SAMSHO4_A_UNITS, SAMSHO4_A_EXTRALOC, nUnitId, nCollectionId);
-}
-
-uint32_t CGame_SAMSHO4_A::GetPaletteCountForUnit(uint32_t nUnitId)
-{
-    return _GetPaletteCountForUnit(SAMSHO4_A_UNITS, rgExtraCountAll, SAMSHO4_A_NUMUNIT, SAMSHO4_A_EXTRALOC, nUnitId, SAMSHO4_A_EXTRA_CUSTOM);
-}
-
-const sGame_PaletteDataset* CGame_SAMSHO4_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetPaletteSet(SAMSHO4_A_UNITS, nUnitId, nCollectionId);
-}
-
-uint32_t CGame_SAMSHO4_A::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    return _GetNodeSizeFromPaletteId(SAMSHO4_A_UNITS, rgExtraCountAll, SAMSHO4_A_NUMUNIT, SAMSHO4_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO4_A_EXTRA_CUSTOM);
-}
-
-const sDescTreeNode* CGame_SAMSHO4_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
-{
-    return _GetNodeFromPaletteId(SAMSHO4_A_UNITS, rgExtraCountAll, SAMSHO4_A_NUMUNIT, SAMSHO4_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO4_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
-}
-
-const sGame_PaletteDataset* CGame_SAMSHO4_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    return _GetSpecificPalette(SAMSHO4_A_UNITS, rgExtraCountAll, SAMSHO4_A_NUMUNIT, SAMSHO4_A_EXTRALOC, nUnitId, nPaletteId, SAMSHO4_A_EXTRA_CUSTOM);
-}
-
-void CGame_SAMSHO4_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-     if (nUnitId != SAMSHO4_A_EXTRALOC)
-    {
-        int cbPaletteSizeOnDisc = 0;
-        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
-        if (paletteData)
-        {
-            cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
-
-            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-            m_pszCurrentPaletteName = paletteData->szPaletteName;
-        }
-        else
-        {
-            // A bogus palette was requested: this is unrecoverable.
-            DebugBreak();
-        }
-    }
-    else // SAMSHO4_A_EXTRALOC
-    {
-        // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &SAMSHO4_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
-
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
 BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
@@ -319,7 +110,7 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != SAMSHO4_A_EXTRALOC)
+    if (NodeGet->uUnitId != m_nCurrentExtraUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -332,6 +123,7 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
             if (pCurrentNode)
             {
+                // This code handles the fact that we use variable length pairing depending upon what we're dealing with
                 if ((_wcsicmp(pCurrentNode->szDesc, L"Slash 1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"Slash 2") == 0) ||
                     (_wcsicmp(pCurrentNode->szDesc, L"Bust 1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"Bust 2") == 0))
                 {
@@ -368,7 +160,7 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
             {
                 if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
-                    const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                    const uint32_t nStageCount = _GetNodeSizeFromPaletteId(&m_rgCurrentGameUnits[0], &m_rgCurrentExtraCounts[0], m_rgCurrentGameUnits.size(), m_nCurrentExtraUnitId, NodeGet->uUnitId, NodeGet->uPalId, m_prgCurrentExtrasLoaded);
 
                     fShouldUseAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;
