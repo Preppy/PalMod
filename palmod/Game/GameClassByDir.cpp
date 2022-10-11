@@ -98,7 +98,6 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     {
         OutputDebugString(L"CGameClassByDir::InitializeGame:: Unexpected file size.  Can't load extras here.\r\n");
         m_nConfirmedROMSize = -1;
-
     }
 
     // Load the game's layout for palmod

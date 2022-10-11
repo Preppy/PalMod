@@ -2533,7 +2533,3 @@ const sDescTreeNode Garou_A_UNITS[] =
     { L"Stages", DESC_NODETYPE_TREE, (void*)Garou_A_STAGES_COLLECTION, ARRAYSIZE(Garou_A_STAGES_COLLECTION) },
     { L"Bonus Stuff", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_COLLECTION, ARRAYSIZE(Garou_A_BONUS_COLLECTION) },
 };
-
-constexpr auto Garou_A_NUMUNIT = ARRAYSIZE(Garou_A_UNITS);
-
-constexpr auto Garou_A_EXTRALOC = Garou_A_NUMUNIT;

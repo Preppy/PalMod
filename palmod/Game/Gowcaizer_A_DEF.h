@@ -633,7 +633,3 @@ const sDescTreeNode Gowcaizer_A_UNITS[] =
     { L"Stages", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_STAGES_COLLECTION, ARRAYSIZE(Gowcaizer_A_STAGES_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)Gowcaizer_A_BONUS_COLLECTION, ARRAYSIZE(Gowcaizer_A_BONUS_COLLECTION) },
 };
-
-constexpr auto Gowcaizer_A_NUMUNIT = ARRAYSIZE(Gowcaizer_A_UNITS);
-
-constexpr auto Gowcaizer_A_EXTRALOC = Gowcaizer_A_NUMUNIT;

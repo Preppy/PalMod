@@ -633,9 +633,6 @@
     <ClCompile Include="Game\Game_CVS2_A.cpp">
       <Filter>Games\Capcom Games\CVS2_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_Garou_S.cpp">
-      <Filter>Games\SNK Games\Garou_S</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_KOF02_A.cpp">
       <Filter>Games\SNK Games\KOF02_A</Filter>
     </ClCompile>
@@ -909,9 +906,6 @@
     <ClCompile Include="Game\Game_MartialMasters_A.cpp">
       <Filter>Games\Other Platforms\Martial Masters %28PGM%29</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_Gowcaizer_A.cpp">
-      <Filter>Games\SNK Games\Gowcaizer</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_MAAB_A.cpp">
       <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
     </ClCompile>
@@ -974,9 +968,6 @@
     </ClCompile>
     <ClCompile Include="HTMLfiles.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_GalaxyFight_A.cpp">
-      <Filter>Games\SNK Games\Galaxy Fight: Universal Warriors</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_GGDS_NDS.cpp">
       <Filter>Games\Nintendo\Guilty Gear Dust Strikers %28NDS%29</Filter>

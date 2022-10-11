@@ -253,14 +253,11 @@
     <ClCompile Include="Game\Game_FatalFury2_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
-    <ClCompile Include="Game\Game_GalaxyFight_A.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
-    <ClCompile Include="Game\Game_Garou_S.cpp" />
     <ClCompile Include="Game\Game_GGDS_NDS.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_P.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_S.cpp" />
     <ClCompile Include="Game\Game_GGXXR_S.cpp" />
-    <ClCompile Include="Game\Game_Gowcaizer_A.cpp" />
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
     <ClCompile Include="Game\Game_HSF2_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />

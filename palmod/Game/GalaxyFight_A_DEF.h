@@ -1399,6 +1399,3 @@ const sDescTreeNode GalaxyFight_A_UNITS[] =
     { L"Felden",    DESC_NODETYPE_TREE, (void*)GalaxyFight_A_Felden_COLLECTION,     ARRAYSIZE(GalaxyFight_A_Felden_COLLECTION) },
     { L"Rouwe",     DESC_NODETYPE_TREE, (void*)GalaxyFight_A_Rouwe_COLLECTION,      ARRAYSIZE(GalaxyFight_A_Rouwe_COLLECTION) },
 };
-
-constexpr auto GalaxyFight_A_NUMUNIT = ARRAYSIZE(GalaxyFight_A_UNITS);
-constexpr auto GalaxyFight_A_EXTRALOC = GalaxyFight_A_NUMUNIT;
