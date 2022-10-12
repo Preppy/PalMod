@@ -381,6 +381,3 @@ const sDescTreeNode KarnovsR_A_UNITS[] =
     { k_krNameKey_Karnov,  DESC_NODETYPE_TREE, (void*)KarnovsR_A_KARNOV_COLLECTION, ARRAYSIZE(KarnovsR_A_KARNOV_COLLECTION) },
     { k_krNameKey_WeakpointUnit, DESC_NODETYPE_TREE, (void*)KarnovsR_A_WEAKPOINT_COLLECTION, ARRAYSIZE(KarnovsR_A_WEAKPOINT_COLLECTION) },
 };
-
-constexpr auto KarnovsR_A_NUMUNIT = ARRAYSIZE(KarnovsR_A_UNITS);
-constexpr auto KarnovsR_A_EXTRALOC = KarnovsR_A_NUMUNIT;

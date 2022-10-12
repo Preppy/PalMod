@@ -322,8 +322,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         nPaletteTwoDelta = -nSrcStart;
                         fUseDefaultPaletteLoad = false;
                     }
-                    else if ((paletteDataSet->pPalettePairingInfo == &pairHandledInCode) ||
-                             (paletteDataSet->pPalettePairingInfo == &pairUnhandled))
+                    else if (paletteDataSet->pPalettePairingInfo == &pairHandledInCode)
                     {
                         OutputDebugString(L"Error: unhandled palette join!\n");
                     }
@@ -392,7 +391,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 else // 50 ROM
                 {
                     nImgUnitId = paletteDataSet->indexImgToUse;
-                    if ((nImgUnitId == indexJojos51Bonus) && (nTargetImgId == 0x28)) // this is the super old join style: consider updating to the generic any size template
+                    if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == 5)
                     {
                         fUseDefaultPaletteLoad = false;
                         nPaletteTwoDelta = 1;

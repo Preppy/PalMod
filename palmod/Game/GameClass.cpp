@@ -11,6 +11,19 @@ bool CGameClass::m_fGameSizeAllowsIPSPatching = true;
 uint8_t CGameClass::m_nSizeOfColorsInBytes = 2;
 #define GAMECLASS_DBG DEFAULT_GAME_DEBUG_STATE
 
+bool ArePalettePairsEqual(const stPairedPaletteInfo* plhs, const stPairedPaletteInfo* prhs)
+{
+    return ((plhs->nNodeIncrementToPartner == prhs->nNodeIncrementToPartner) &&
+            (plhs->fPairingIsFlipped == prhs->fPairingIsFlipped) &&
+            (plhs->nPalettesToJoin == prhs->nPalettesToJoin) &&
+            (plhs->nOverallNodeIncrementTo2ndPartner == prhs->nOverallNodeIncrementTo2ndPartner) &&
+            (plhs->nOverallNodeIncrementTo3rdPartner == prhs->nOverallNodeIncrementTo3rdPartner) &&
+            (plhs->nOverallNodeIncrementTo4thPartner == prhs->nOverallNodeIncrementTo4thPartner) &&
+            (plhs->nOverallNodeIncrementTo5thPartner == prhs->nOverallNodeIncrementTo5thPartner) &&
+            (plhs->nOverallNodeIncrementTo6thPartner == prhs->nOverallNodeIncrementTo6thPartner) &&
+            (plhs->nOverallNodeIncrementTo7thPartner == prhs->nOverallNodeIncrementTo7thPartner));
+}
+
 CGameClass::CGameClass()
     :
     ConvPal16(nullptr),

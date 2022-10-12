@@ -190,6 +190,3 @@ const sDescTreeNode NeoBomberman_A_UNITS[] =
     { L"Effects", DESC_NODETYPE_TREE, (void*)NeoBomberman_A_Effects_COLLECTION, ARRAYSIZE(NeoBomberman_A_Effects_COLLECTION) },
     { L"Bonus", DESC_NODETYPE_TREE, (void*)NeoBomberman_A_BONUS_COLLECTION, ARRAYSIZE(NeoBomberman_A_BONUS_COLLECTION) },
 };
-
-constexpr auto NeoBomberman_A_NUMUNIT = ARRAYSIZE(NeoBomberman_A_UNITS);
-constexpr auto NeoBomberman_A_EXTRALOC = NeoBomberman_A_NUMUNIT;

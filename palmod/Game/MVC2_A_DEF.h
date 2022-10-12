@@ -6548,7 +6548,7 @@ const sDescTreeNode MVC2_A_MAGNETO_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_LP[] =
 {
-    { L"Main Color / Mystic Stare LP", 0x4cda620, 0x4cda640, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Main Color / Mystic Stare LP", 0x4cda620, 0x4cda640, indexCPS2Sprites_Shuma, 0 },
     { L"(02) Dash Frame / Guard Frame", 0x4cda640, 0x4cda660, indexCPS2Sprites_Shuma, 1 },
     { L"(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cda660, 0x4cda680, indexCPS2Sprites_Shuma, 2 },
     { L"(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cda680, 0x4cda6a0, indexCPS2Sprites_Shuma, 3 },
@@ -6560,7 +6560,7 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_LK[] =
 {
-    { L"Main Color / Mystic Stare LK", 0x4cda720, 0x4cda740, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Main Color / Mystic Stare LK", 0x4cda720, 0x4cda740, indexCPS2Sprites_Shuma, 0 },
     { L"(02) Dash Frame / Guard Frame", 0x4cda740, 0x4cda760, indexCPS2Sprites_Shuma, 1 },
     { L"(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cda760, 0x4cda780, indexCPS2Sprites_Shuma, 2 },
     { L"(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cda780, 0x4cda7a0, indexCPS2Sprites_Shuma, 3 },
@@ -6572,7 +6572,7 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_HP[] =
 {
-    { L"Main Color / Mystic Stare HP", 0x4cda820, 0x4cda840, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Main Color / Mystic Stare HP", 0x4cda820, 0x4cda840, indexCPS2Sprites_Shuma, 0 },
     { L"(02) Dash Frame / Guard Frame", 0x4cda840, 0x4cda860, indexCPS2Sprites_Shuma, 1 },
     { L"(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cda860, 0x4cda880, indexCPS2Sprites_Shuma, 2 },
     { L"(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cda880, 0x4cda8a0, indexCPS2Sprites_Shuma, 3 },
@@ -6584,7 +6584,7 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_HK[] =
 {
-    { L"Main Color / Mystic Stare HK", 0x4cda920, 0x4cda940, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Main Color / Mystic Stare HK", 0x4cda920, 0x4cda940, indexCPS2Sprites_Shuma, 0 },
     { L"(02) Dash Frame / Guard Frame", 0x4cda940, 0x4cda960, indexCPS2Sprites_Shuma, 1 },
     { L"(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cda960, 0x4cda980, indexCPS2Sprites_Shuma, 2 },
     { L"(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cda980, 0x4cda9a0, indexCPS2Sprites_Shuma, 3 },
@@ -6596,7 +6596,7 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_A1[] =
 {
-    { L"Main Color / Mystic Stare A1", 0x4cdaa20, 0x4cdaa40, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Main Color / Mystic Stare A1", 0x4cdaa20, 0x4cdaa40, indexCPS2Sprites_Shuma, 0 },
     { L"(02) Dash Frame / Guard Frame", 0x4cdaa40, 0x4cdaa60, indexCPS2Sprites_Shuma, 1 },
     { L"(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cdaa60, 0x4cdaa80, indexCPS2Sprites_Shuma, 2 },
     { L"(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cdaa80, 0x4cdaaa0, indexCPS2Sprites_Shuma, 3 },
@@ -6608,7 +6608,7 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_A2[] =
 {
-    { L"Main Color / Mystic Stare A2", 0x4cdab20, 0x4cdab40, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Main Color / Mystic Stare A2", 0x4cdab20, 0x4cdab40, indexCPS2Sprites_Shuma, 0 },
     { L"(02) Dash Frame / Guard Frame", 0x4cdab40, 0x4cdab60, indexCPS2Sprites_Shuma, 1 },
     { L"(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cdab60, 0x4cdab80, indexCPS2Sprites_Shuma, 2 },
     { L"(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cdab80, 0x4cdaba0, indexCPS2Sprites_Shuma, 3 },
@@ -6620,21 +6620,21 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x4cdac20, 0x4cdac40, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Burning Dark", 0x4cdac20, 0x4cdac40, indexCPS2Sprites_Shuma, 0 },
     { L"Burning Dark 2", 0x4cdac40, 0x4cdac60, indexCPS2Sprites_Shuma, 1 },
-    { L"Burning Light", 0x4cdac60, 0x4cdac80, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Burning Light", 0x4cdac60, 0x4cdac80, indexCPS2Sprites_Shuma, 0 },
     { L"Burning Light 2", 0x4cdac80, 0x4cdaca0, indexCPS2Sprites_Shuma, 1 },
-    { L"Shocked Dark", 0x4cdaca0, 0x4cdacc0, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Shocked Dark", 0x4cdaca0, 0x4cdacc0, indexCPS2Sprites_Shuma, 0 },
     { L"Shocked Dark 2", 0x4cdacc0, 0x4cdace0, indexCPS2Sprites_Shuma, 1 },
-    { L"Shocked Light", 0x4cdace0, 0x4cdad00, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Shocked Light", 0x4cdace0, 0x4cdad00, indexCPS2Sprites_Shuma, 0 },
     { L"Shocked Light 2", 0x4cdad00, 0x4cdad20, indexCPS2Sprites_Shuma, 1 },
-    { L"Dark Burning Dark", 0x4cdad20, 0x4cdad40, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Dark Burning Dark", 0x4cdad20, 0x4cdad40, indexCPS2Sprites_Shuma, 0 },
     { L"Dark Burning Dark 2", 0x4cdad40, 0x4cdad60, indexCPS2Sprites_Shuma, 1 },
-    { L"Dark Burning Light", 0x4cdad60, 0x4cdad80, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Dark Burning Light", 0x4cdad60, 0x4cdad80, indexCPS2Sprites_Shuma, 0 },
     { L"Dark Burning Light 2", 0x4cdad80, 0x4cdada0, indexCPS2Sprites_Shuma, 1 },
-    { L"Kinetic Charge Dark", 0x4cdada0, 0x4cdadc0, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Kinetic Charge Dark", 0x4cdada0, 0x4cdadc0, indexCPS2Sprites_Shuma, 0 },
     { L"Kinetic Charge Dark 2", 0x4cdadc0, 0x4cdade0, indexCPS2Sprites_Shuma, 1 },
-    { L"Kinetic Charge Light", 0x4cdade0, 0x4cdae00, indexCPS2Sprites_Shuma, 0, &pairUnhandled },
+    { L"Kinetic Charge Light", 0x4cdade0, 0x4cdae00, indexCPS2Sprites_Shuma, 0 },
     { L"Kinetic Charge Light 2", 0x4cdae00, 0x4cdae20, indexCPS2Sprites_Shuma, 1 },
 };
 

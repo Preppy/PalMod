@@ -27,8 +27,8 @@ private:
         m_sFileLoadingData,
         SDODGEBALL_A_UNITS,
         ARRAYSIZE(SDODGEBALL_A_UNITS),
-        L"SDODGEBALLE.txt",        // Extra filename
-        299,                        // Count of palettes listed in the header
+        L"SDodgeBallE.txt",        // Extra filename
+        299,                       // Count of palettes listed in the header
         0xe04c,                    // Lowest known location used for palettes
     };
 

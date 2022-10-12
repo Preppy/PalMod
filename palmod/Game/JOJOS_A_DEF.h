@@ -448,7 +448,7 @@ const sDescTreeNode JOJOS_A_50_HUD_PORTRAIT_COLLECTION[]
 #pragma region HUD
 const sGame_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
 {
-    { L"Round Markers", 0x7C0160, 0x7C0180, indexJojos51Bonus, 0x28, &pairHandledInCode }, // use explicit runtime handling since jojos uses a quirked updatepalimg
+    { L"Round Markers", 0x7C0160, 0x7C0180, indexJojos51Bonus, 0x28, &pairNext4Palettes },
     { L"Timer", 0x7C00C0, 0x7C00E0, indexJojos51Bonus, 0x2b },
     { L"Lifebar", 0x7C01E0, 0x7C0200, indexJojos51Bonus, 0x27 },
     { L"Stand Meter", 0x7C0200, 0x7C0220, indexJojos51Bonus, 0x29 },

@@ -1541,6 +1541,3 @@ const sDescTreeNode Matrimelee_A_UNITS[] =
     { L"Select Screen",     DESC_NODETYPE_TREE, (void*)Matrimelee_A_SELECT_COLLECTION,          ARRAYSIZE(Matrimelee_A_SELECT_COLLECTION) },
     { L"Bonus Palettes",    DESC_NODETYPE_TREE, (void*)Matrimelee_A_BONUS_COLLECTION,           ARRAYSIZE(Matrimelee_A_BONUS_COLLECTION) },
 };
-
-constexpr auto Matrimelee_A_NUMUNIT = ARRAYSIZE(Matrimelee_A_UNITS);
-constexpr auto Matrimelee_A_EXTRALOC = Matrimelee_A_NUMUNIT;

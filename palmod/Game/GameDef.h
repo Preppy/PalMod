@@ -475,6 +475,8 @@ struct stPairedPaletteInfo
     int8_t nOverallNodeIncrementTo7thPartner = 7;
 };
 
+bool ArePalettePairsEqual(const stPairedPaletteInfo* plhs, const stPairedPaletteInfo* prhs);
+
 struct stPaletteProcessingInformation
 {
     const std::vector<std::vector<uint16_t>> pProcessingSteps;
@@ -492,7 +494,6 @@ struct sGame_PaletteDataset
     const stPaletteProcessingInformation* pExtraProcessing = nullptr;
 };
 
-const stPairedPaletteInfo pairUnhandled =     { 0 };
 const stPairedPaletteInfo pairHandledInCode = { 0 };
 const stPairedPaletteInfo pairFullyLinkedNode = { 0, false, -1 };
 

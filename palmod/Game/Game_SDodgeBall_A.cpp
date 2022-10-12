@@ -7,6 +7,7 @@ uint32_t CGame_SDODGEBALL_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet**
     {
         { L"Super Dodge Ball (Neo-Geo)", L"208-p1.p1", 0x127f3d32, 0 },
         { L"Super Dodge Ball (Neo-Geo)", L"208-p1.bin", 0x127f3d32, 0 },
+        { L"Super Dodge Ball (Neo-Geo)", L"SDB_P1.ROM", 0x127f3d32, 0 },
     };
 
     if (ppKnownROMSet != nullptr)

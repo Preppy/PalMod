@@ -286,7 +286,6 @@
     <ClCompile Include="Game\Game_MAAB_A.cpp" />
     <ClCompile Include="Game\Game_MagicalDropIII_A.cpp" />
     <ClCompile Include="Game\Game_MartialMasters_A.cpp" />
-    <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
     <ClCompile Include="Game\Game_MBTL_A.cpp" />
     <ClCompile Include="Game\Game_MK2_SNES.cpp" />
     <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
@@ -298,7 +297,6 @@
     <ClCompile Include="Game\Game_MVC2_D.cpp" />
     <ClCompile Include="Game\Game_MVC2_P.cpp" />
     <ClCompile Include="Game\Game_MVC_A.cpp" />
-    <ClCompile Include="Game\Game_NeoBomberman_A.cpp" />
     <ClCompile Include="Game\Game_NEOGEO_A.cpp" />
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
     <ClCompile Include="Game\Game_NGBC_A.cpp" />

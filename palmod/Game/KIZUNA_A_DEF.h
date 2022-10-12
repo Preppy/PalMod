@@ -1,5 +1,9 @@
 #pragma once
 
+const std::vector<uint16_t> Kizuna_A_IMGIDS_USED =
+{
+};
+
 const sGame_PaletteDataset Kizuna_A_HAYATE_PALETTES_A[] =
 {
     { L"Hayate A", 0x170200, 0x170240 },
@@ -229,7 +233,3 @@ const sDescTreeNode Kizuna_A_UNITS[] =
     { L"Jazu", DESC_NODETYPE_TREE, (void*)Kizuna_A_JAZU_COLLECTION, ARRAYSIZE(Kizuna_A_JAZU_COLLECTION) },
     { L"Portraits", DESC_NODETYPE_TREE, (void*)Kizuna_A_PORTRAITS_COLLECTION, ARRAYSIZE(Kizuna_A_PORTRAITS_COLLECTION) },
 };
-
-constexpr auto Kizuna_A_NUMUNIT = ARRAYSIZE(Kizuna_A_UNITS);
-
-constexpr auto Kizuna_A_EXTRALOC = Kizuna_A_NUMUNIT;

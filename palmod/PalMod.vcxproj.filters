@@ -708,9 +708,6 @@
     <ClCompile Include="Game\Game_SFIII1_A.cpp">
       <Filter>Games\Capcom Games\SFIII1_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_Matrimelee_A.cpp">
-      <Filter>Games\SNK Games\Matrimelee_A</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_KOFXI_A.cpp">
       <Filter>Games\SNK Games\KOFXI_A</Filter>
     </ClCompile>
@@ -731,9 +728,6 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KOF01_A.cpp">
       <Filter>Games\SNK Games\KOF01_A</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_NeoBomberman_A.cpp">
-      <Filter>Games\SNK Games\NeoBomberman_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp">
       <Filter>Games\Nintendo\Gundam Endless Duel %28SNES%29</Filter>
