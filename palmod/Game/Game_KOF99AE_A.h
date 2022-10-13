@@ -1,73 +1,81 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "KOF99AE_A_DEF.h"
-#include "..\extrafile.h"
 
-class CGame_KOF99AE_A : public CGameWithExtrasFile
+class CGame_KOF99AE_A : public CGameClassByDir
 {
 private:
-    int m_nBufferSelectedRom = 2;
-    static uint32_t m_nSelectedRom;
-    static uint32_t m_nTotalPaletteCountForKOF99AE_P2;
-    static uint32_t m_nTotalPaletteCountForKOF99AE_P3;
-    static bool UsePaletteSetForP2() { return (m_nSelectedRom == 2); }
+    enum class KOF99AELoadingKey
+    {
+        ROM02,
+        ROM03,
+    };
 
-    static uint32_t rgExtraCountAll_P2[KOF99AE_A_P2_NUMUNIT + 1];
-    static uint32_t rgExtraCountAll_P3[KOF99AE_A_P3_NUMUNIT + 1];
-    static uint32_t rgExtraLoc_P2[KOF99AE_A_P2_NUMUNIT + 1];
-    static uint32_t rgExtraLoc_P3[KOF99AE_A_P3_NUMUNIT + 1];
+    static KOF99AELoadingKey m_eVersionToLoad;
 
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM02 =
+    {
+        {
+            { L"kof99ae_p2.bin", 0x400000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    // Needed for multiple ROM support
-    void InitDataBuffer() override;
-    void ClearDataBuffer() override;
-    static const sDescTreeNode* GetCurrentUnitSet();
-    static uint32_t GetCurrentExtraLoc();
-    static stExtraDef* GetCurrentExtraDef(int nDefCtr);
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM03 =
+    {
+        {
+            { L"kof99ae_p3.bin", 0x400000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+    const sCoreGameData m_sCoreGameData_ROM02
+    {
+        L"KOF '99AE ROM P2 (Neo-Geo)",
+        KOF99AE_A,
+        IMGDAT_SECTION_KOF,
+        KOF99AE_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_AB,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData_ROM02,
+        KOF99AE_A_P2_UNITS,
+        ARRAYSIZE(KOF99AE_A_P2_UNITS),
+        L"KOF99AEp2E.txt",         // Extra filename
+        1468,                   // Count of palettes listed in the header
+        0x2d97f0,               // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM03
+    {
+        L"KOF '99AE ROM P3 (Neo-Geo)",
+        KOF99AE_A,
+        IMGDAT_SECTION_KOF,
+        KOF99AE_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_KOF99AE_P3,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData_ROM03,
+        KOF99AE_A_P3_UNITS,
+        ARRAYSIZE(KOF99AE_A_P3_UNITS),
+        L"KOF99AEp3E.txt",         // Extra filename
+        2448,                   // Count of palettes listed in the header
+        0x1d97f0,               // Lowest known location used for palettes
+    };
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders(int nHeaderSetToDump);
 
-    static constexpr auto EXTRA_FILENAME_KOF99AE_A_P2 = L"KOF99AEp2E.txt";
-    static constexpr auto EXTRA_FILENAME_KOF99AE_A_P3 = L"KOF99AEp3E.txt";
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
-
 public:
-    CGame_KOF99AE_A(uint32_t nConfirmedROMSize, int nROMToLoad = 2);
-    ~CGame_KOF99AE_A();
+    CGame_KOF99AE_A(uint32_t nConfirmedROMSize);
 
-    //Static functions / variables
-    static CDescTree MainDescTree_P2;
-    static CDescTree MainDescTree_P3;
-
-    static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* KOF99AE_A_P2_EXTRA_CUSTOM;
-    static stExtraDef* KOF99AE_A_P3_EXTRA_CUSTOM;
+    static sFileRule GetRule(uint32_t nRuleId);
 };

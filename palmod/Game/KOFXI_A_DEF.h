@@ -1194,7 +1194,7 @@ const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_EC[] =
 const sGame_PaletteDataset KOFXI_A_DUOLON_PALETTES_ED[] =
 {
     { L"Duo Lon ED", 0x16bfe00, 0x16bfe20, indexKOF03Sprites_Duo, 0x00 },
-    { L"E+D - Super Stuff 1", 0x16bfe20, indexKOF03Sprites_Duo, 0x00 },
+    { L"E+D - Super Stuff 1", 0x16bfe20, 0x16bfe40, indexKOF03Sprites_Duo, 0x00 },
     { L"E+D - Electric Palette", 0x16bfe40, 0x16bfe60, indexKOF03Sprites_Duo, 0x00 },
     { L"E+D - Darker Palette", 0x16bfe60, 0x16bfe80, indexKOF03Sprites_Duo, 0x00 },
     { L"E+D - Super Stuff 2", 0x16bfe80, 0x16bfea0, indexKOF03Sprites_Duo, 0x00 },
@@ -10374,7 +10374,3 @@ const sDescTreeNode KOFXI_A_UNITS[] =
     { L"Shion", DESC_NODETYPE_TREE, (void*)KOFXI_A_SHION_COLLECTION, ARRAYSIZE(KOFXI_A_SHION_COLLECTION) },
     { L"Magaki", DESC_NODETYPE_TREE, (void*)KOFXI_A_MAGAKI_COLLECTION, ARRAYSIZE(KOFXI_A_MAGAKI_COLLECTION) },
 };
-
-constexpr auto KOFXI_A_NUMUNIT = ARRAYSIZE(KOFXI_A_UNITS);
-
-constexpr auto KOFXI_A_EXTRALOC = KOFXI_A_NUMUNIT;

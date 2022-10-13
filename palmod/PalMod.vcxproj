@@ -265,7 +265,6 @@
     <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
     <ClCompile Include="Game\Game_Kizuna_A.cpp" />
     <ClCompile Include="Game\Game_KI_SNES.cpp" />
-    <ClCompile Include="Game\Game_KOF00N_A.cpp" />
     <ClCompile Include="Game\Game_KOF01_A.cpp" />
     <ClCompile Include="Game\Game_KOF02PS2_A.cpp" />
     <ClCompile Include="Game\Game_KOF02UM_S.cpp" />

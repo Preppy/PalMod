@@ -1,57 +1,81 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "KOF95_A_DEF.h"
-#include "..\extrafile.h"
 
-class CGame_KOF95_A : public CGameWithExtrasFile
+class CGame_KOF95_A : public CGameClassByDir
 {
 private:
-    static uint32_t m_nTotalPaletteCountForKOF95;
+    enum class KOF95LoadingKey
+    {
+        Normal,
+        Hack,
+    };
 
-    static uint32_t rgExtraCountAll[KOF95_A_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[KOF95_A_NUMUNIT + 1];
+    static KOF95LoadingKey m_eVersionToLoad;
 
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Normal =
+    {
+        {
+            { L"084-p1.p1", 0x200000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Hack =
+    {
+        {
+            { L"084-p2sp.p2", 0x100000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const sCoreGameData m_sCoreGameData_Normal
+    {
+        L"King of Fighters '95 (Neo-Geo)",
+        KOF95_A,
+        IMGDAT_SECTION_KOF,
+        KOF95_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_NEOGEO,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData_Normal,
+        KOF95_A_UNITS,
+        ARRAYSIZE(KOF95_A_UNITS),
+        L"KOF95E.txt",      // Extra filename
+        510,                // Count of palettes listed in the header
+        0xd8600,            // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Hack
+    {
+        L"King of Fighters '95 (Special 2017 Hack, Neo-Geo)",
+        KOF95_A,
+        IMGDAT_SECTION_KOF,
+        KOF95_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_NEOGEO,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData_Normal,
+        KOF95_A_UNITS,
+        ARRAYSIZE(KOF95_A_UNITS),
+        L"KOF95E.txt",      // Extra filename
+        510,                // Count of palettes listed in the header
+        0xd8600,            // Lowest known location used for palettes
+    };
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
 
-    static constexpr auto EXTRA_FILENAME_KOF95_A = L"KOF95E.txt";
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x200000;
-
 public:
     CGame_KOF95_A(uint32_t nConfirmedROMSize);
-    ~CGame_KOF95_A();
 
-    //Static functions / variables
-    static CDescTree MainDescTree;
-
-    static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* KOF95_A_EXTRA_CUSTOM;
+    static sFileRule GetRule(uint32_t nRuleId);
 };

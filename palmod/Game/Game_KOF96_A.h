@@ -1,62 +1,81 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "KOF96_A_DEF.h"
-#include "..\extrafile.h"
 
-class CGame_KOF96_A : public CGameWithExtrasFile
+class CGame_KOF96_A : public CGameClassByDir
 {
 private:
-    static uint32_t m_nTotalPaletteCountForKOF96;
+    enum class KOF96LoadingKey
+    {
+        Normal,
+        Hack,
+    };
 
-    static uint32_t rgExtraCountAll[KOF96_A_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[KOF96_A_NUMUNIT + 1];
+    static KOF96LoadingKey m_eVersionToLoad;
 
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Normal =
+    {
+        {
+            { L"214-p2.sp2", 0x200000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Hack =
+    {
+        {
+            { L"214ae-p2.p2", 0x400000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    static constexpr auto EXTRA_FILENAME_KOF96_A = L"KOF96E.txt";
-    static constexpr auto KOF96_A_PRIMARY_ROMNAME = L"214-p2.sp2";
-    static constexpr auto KOF96_A_ALT_ROMNAME = L"214ae-p2.p2";
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x200000;
-    static constexpr uint32_t m_nAltGameROMSize = 0x400000;
-    static constexpr uint32_t m_nPaletteCountInHeaders = 1038;
-    static constexpr uint32_t m_nLowestROMLocationUsedInHeaders = 0x100002;
+    const sCoreGameData m_sCoreGameData_Normal
+    {
+        L"King of Fighters '96 (Neo-Geo)",
+        KOF96_A,
+        IMGDAT_SECTION_KOF,
+        KOF96_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_AOF3,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData_Normal,
+        KOF96_A_UNITS,
+        ARRAYSIZE(KOF96_A_UNITS),
+        L"KOF96E.txt",      // Extra filename
+        1038,               // Count of palettes listed in the header
+        0x100002,           // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Hack
+    {
+        L"King of Fighters '96 (The Anniversary Edition 2.0 Hack, Neo-Geo)",
+        KOF96_A,
+        IMGDAT_SECTION_KOF,
+        KOF96_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2_AOF3,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB666_NEOGEO,
+        m_sFileLoadingData_Normal,
+        KOF96_A_UNITS,
+        ARRAYSIZE(KOF96_A_UNITS),
+        L"KOF96E.txt",      // Extra filename
+        1038,               // Count of palettes listed in the header
+        0x100002,           // Lowest known location used for palettes
+    };
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
 
 public:
     CGame_KOF96_A(uint32_t nConfirmedROMSize);
-    ~CGame_KOF96_A();
 
-    //Static functions / variables
-    static CDescTree MainDescTree;
-
-    static sDescTreeNode* InitDescTree();
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* KOF96_A_EXTRA_CUSTOM;
+    static sFileRule GetRule(uint32_t nRuleId);
 };

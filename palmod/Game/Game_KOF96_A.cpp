@@ -1,110 +1,53 @@
 #include "StdAfx.h"
-#include "GameDef.h"
 #include "Game_KOF96_A.h"
-#include "..\PalMod.h"
-#include "..\RegProc.h"
 
-stExtraDef* CGame_KOF96_A::KOF96_A_EXTRA_CUSTOM = nullptr;
-CDescTree CGame_KOF96_A::MainDescTree = nullptr;
-uint32_t CGame_KOF96_A::rgExtraCountAll[KOF96_A_NUMUNIT + 1];
-uint32_t CGame_KOF96_A::rgExtraLoc[KOF96_A_NUMUNIT + 1];
-uint32_t CGame_KOF96_A::m_nTotalPaletteCountForKOF96 = 0;
-uint32_t CGame_KOF96_A::m_nConfirmedROMSize = -1;
+CGame_KOF96_A::KOF96LoadingKey CGame_KOF96_A::m_eVersionToLoad = KOF96LoadingKey::Normal;
 
-void CGame_KOF96_A::InitializeStatics()
+void CGame_KOF96_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
-    safe_delete_array(CGame_KOF96_A::KOF96_A_EXTRA_CUSTOM);
+    const std::map<std::wstring, KOF96LoadingKey> m_rgFileNameToVersion =
+    {
+        // these should be all lower case
+        { L"214-p2.sp2", KOF96LoadingKey::Normal },
+        { L"214-p2.bin", KOF96LoadingKey::Normal },
+        { L"214ae-p2.p2", KOF96LoadingKey::Hack },
+    };
 
-    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+    CString strFileNameLowerCase = strFileName.c_str();
+    strFileNameLowerCase.MakeLower();
 
-    MainDescTree.SetRootTree(CGame_KOF96_A::InitDescTree());
+    auto result = m_rgFileNameToVersion.find(strFileNameLowerCase.GetString());
+
+    if (result != m_rgFileNameToVersion.end())
+    {
+        m_eVersionToLoad = result->second;
+    }
+    else
+    {
+        m_eVersionToLoad = KOF96LoadingKey::Normal;
+    }
+
+    return;
 }
 
 CGame_KOF96_A::CGame_KOF96_A(uint32_t nConfirmedROMSize)
 {
-    OutputDebugString(L"CGame_KOF96_A::CGame_KOF96_A: Loading ROM...\n");
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
-
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
-    m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    m_nTotalInternalUnits = KOF96_A_NUMUNIT;
-    m_nExtraUnit = KOF96_A_EXTRALOC;
-
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + m_nPaletteCountInHeaders;
-    m_pszExtraFilename = EXTRA_FILENAME_KOF96_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForKOF96;
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = m_nLowestROMLocationUsedInHeaders;
-
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    InitDataBuffer();
-
-    //Set game information
-    nGameFlag = KOF96_A;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF96_A_IMGIDS_USED;
-
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_2_AOF3;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
-
-    //Create the file changed flag
-    PrepChangeTrackingArray();
+    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == KOF96LoadingKey::Normal) ? m_sCoreGameData_Normal : m_sCoreGameData_Hack);
 }
 
-CGame_KOF96_A::~CGame_KOF96_A()
+sFileRule CGame_KOF96_A::GetRule(uint32_t nRuleId)
 {
-    safe_delete_array(CGame_KOF96_A::KOF96_A_EXTRA_CUSTOM);
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
+    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == KOF96LoadingKey::Normal) ? m_sFileLoadingData_Normal : m_sFileLoadingData_Hack);
 }
 
-CDescTree* CGame_KOF96_A::GetMainTree()
-{
-    return &CGame_KOF96_A::MainDescTree;
-}
-
-sFileRule CGame_KOF96_A::GetRule(uint32_t nUnitId)
-{
-    sFileRule NewFileRule;
-
-    // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, KOF96_A_PRIMARY_ROMNAME);
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    // There's a hack variant that matches hexes exactly but uses a different file size
-    NewFileRule.fHasAltName = true;
-    _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, KOF96_A_ALT_ROMNAME);
-    NewFileRule.uAltVerifyVar = m_nAltGameROMSize;
-
-    return NewFileRule;
-}
 
 uint32_t CGame_KOF96_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"King of Fighters '96 (Neo-Geo)", KOF96_A_PRIMARY_ROMNAME, 0x002ccb73, 0 },
+        { L"King of Fighters '96 (Neo-Geo)", L"214-p2.sp2", 0x002ccb73, 0},
         { L"King of Fighters '96 (Neo-Geo)", L"214-p2.bin", 0x002ccb73, 0 },
-        { L"King of Fighters '96 (The Anniversary Edition 2.0 Hack, Neo-Geo)", KOF96_A_ALT_ROMNAME, 0x2638be07, 0 },
+        { L"King of Fighters '96 (The Anniversary Edition 2.0 Hack, Neo-Geo)", L"214ae-p2.p2", 0x2638be07, 0},
     };
 
     if (ppKnownROMSet != nullptr)
@@ -119,48 +62,6 @@ uint32_t CGame_KOF96_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
     }
 
     return ARRAYSIZE(knownROMs);
-}
-
-uint32_t CGame_KOF96_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
-{
-    return _GetExtraCount(rgExtraCountAll, KOF96_A_NUMUNIT, nUnitId, KOF96_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_KOF96_A::GetExtraLoc(uint32_t nUnitId)
-{
-    return _GetExtraLocation(rgExtraLoc, KOF96_A_NUMUNIT, nUnitId, KOF96_A_EXTRA_CUSTOM);
-}
-
-sDescTreeNode* CGame_KOF96_A::InitDescTree()
-{
-    //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOF96_A, &KOF96_A_EXTRA_CUSTOM, KOF96_A_EXTRALOC, m_nConfirmedROMSize);
-
-    uint16_t nUnitCt = KOF96_A_NUMUNIT + (GetExtraCt(KOF96_A_EXTRALOC) ? 1 : 0);
-    
-    sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[KOF96_A]);
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
-    //All units have tree children
-    NewDescTree->uChildType = DESC_NODETYPE_TREE;
-
-    m_nTotalPaletteCountForKOF96 = _InitDescTree(NewDescTree,
-        KOF96_A_UNITS,
-        KOF96_A_EXTRALOC,
-        KOF96_A_NUMUNIT,
-        rgExtraCountAll,
-        rgExtraLoc,
-        KOF96_A_EXTRA_CUSTOM
-    );
-
-    // For development use to speed things up
-    // NOTE: Output is skewed due to new palettes.  pszImageSet is now just used for the lifebar portrait.  everything else comes from the portraitimageset now
-    //DumpPaletteHeaders();
-
-    return NewDescTree;
 }
 
 struct sKOF96_A_PaletteData
@@ -431,76 +332,4 @@ void CGame_KOF96_A::DumpPaletteHeaders()
 
         OutputDebugString(L"};\r\n\r\n");
     }
-}
-
-uint32_t CGame_KOF96_A::GetCollectionCountForUnit(uint32_t nUnitId)
-{
-    return _GetCollectionCountForUnit(KOF96_A_UNITS, rgExtraCountAll, KOF96_A_NUMUNIT, KOF96_A_EXTRALOC, nUnitId, KOF96_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_KOF96_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetNodeCountForCollection(KOF96_A_UNITS, rgExtraCountAll, KOF96_A_NUMUNIT, KOF96_A_EXTRALOC, nUnitId, nCollectionId, KOF96_A_EXTRA_CUSTOM);
-}
-
-LPCWSTR CGame_KOF96_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetDescriptionForCollection(KOF96_A_UNITS, KOF96_A_EXTRALOC, nUnitId, nCollectionId);
-}
-
-uint32_t CGame_KOF96_A::GetPaletteCountForUnit(uint32_t nUnitId)
-{
-    return _GetPaletteCountForUnit(KOF96_A_UNITS, rgExtraCountAll, KOF96_A_NUMUNIT, KOF96_A_EXTRALOC, nUnitId, KOF96_A_EXTRA_CUSTOM);
-}
-
-const sGame_PaletteDataset* CGame_KOF96_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetPaletteSet(KOF96_A_UNITS, nUnitId, nCollectionId);
-}
-
-const sDescTreeNode* CGame_KOF96_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
-{
-    return _GetNodeFromPaletteId(KOF96_A_UNITS, rgExtraCountAll, KOF96_A_NUMUNIT, KOF96_A_EXTRALOC, nUnitId, nPaletteId, KOF96_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
-}
-
-const sGame_PaletteDataset* CGame_KOF96_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    return _GetSpecificPalette(KOF96_A_UNITS, rgExtraCountAll, KOF96_A_NUMUNIT, KOF96_A_EXTRALOC, nUnitId, nPaletteId, KOF96_A_EXTRA_CUSTOM);
-}
-
-void CGame_KOF96_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-     if (nUnitId != KOF96_A_EXTRALOC)
-    {
-        int cbPaletteSizeOnDisc = 0;
-        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
-        if (paletteData)
-        {
-            cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
-
-            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-            m_pszCurrentPaletteName = paletteData->szPaletteName;
-        }
-        else
-        {
-            // A bogus palette was requested: this is unrecoverable.
-            DebugBreak();
-        }
-    }
-    else // KOF96_A_EXTRALOC
-    {
-        // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &KOF96_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
-
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
-BOOL CGame_KOF96_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
-{
-    return _UpdatePalImg(KOF96_A_UNITS, rgExtraCountAll, KOF96_A_NUMUNIT, KOF96_A_EXTRALOC, KOF96_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }

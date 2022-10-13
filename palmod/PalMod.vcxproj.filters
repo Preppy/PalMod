@@ -825,9 +825,6 @@
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp">
       <Filter>Games\SNK Games\Last Blade</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_KOF00N_A.cpp">
-      <Filter>Games\SNK Games\KOF02N_A</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_KOF95_A.cpp">
       <Filter>Games\SNK Games\KOF95_A</Filter>
     </ClCompile>

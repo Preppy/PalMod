@@ -540,10 +540,18 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     case KOF97_A:
-    case KOF97AE_A:
-    case KOF97GM_S:
     {
         GetRule = &CGame_KOF97_A::GetRule;
+        return TRUE;
+    }
+    case KOF97AE_A:
+    {
+        GetRule = &CGame_KOF97AE_A::GetRule;
+        return TRUE;
+    }
+    case KOF97GM_S:
+    {
+        GetRule = &CGame_KOF97GM_S::GetRule;
         return TRUE;
     }
     case KOF98_A:
@@ -1441,10 +1449,16 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
         return new CGame_KOF96_A(nConfirmedROMSize);
     }
     case KOF97_A:
+    {
+        return new CGame_KOF97_A(nConfirmedROMSize);
+    }
     case KOF97AE_A:
+    {
+        return new CGame_KOF97AE_A(nConfirmedROMSize);
+    }
     case KOF97GM_S:
     {
-        return new CGame_KOF97_A(nConfirmedROMSize, (SupportedGamesList)nGameFlag);
+        return new CGame_KOF97GM_S(nConfirmedROMSize);
     }
     case KOF98_A:
     {
@@ -1456,7 +1470,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case KOF99AE_A:
     {
-        return new CGame_KOF99AE_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_KOF99AE_A(nConfirmedROMSize);
     }
     case KOF00N_A:
     {
@@ -1927,17 +1941,20 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         case JOJOS_US_A:
             nGameRule = static_cast<int>((wcscmp(pszFileNameLowercase, L"50") == 0) ? JojosLoadingKey::JOJOS_A_50_ROMKEY : JojosLoadingKey::JOJOS_US_A_51_ROMKEY);
             break;
-        case KOF97_A:
-        case KOF97AE_A:
-        case KOF97GM_S:
+        case KOF95_A:
+            CGame_KOF95_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        case KOF96_A:
+            CGame_KOF96_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        case KOF99AE_A:
+            CGame_KOF99AE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case LASTBLADE_A:
         case LASTBLADE_S:
         case LASTBLADE2_A:
         case LASTBLADE2_S:
             nGameRule = nGameFlag;
-            break;
-        case KOF99AE_A:
-            nGameRule = ((wcsstr(pszFileNameLowercase, L"p2") != nullptr) ? 2 : 3);
             break;
         case KOF02UM_S:
             if (wcscmp(pszFileNameLowercase, L"bar.bin") == 0)

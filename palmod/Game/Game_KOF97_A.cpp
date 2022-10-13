@@ -1,186 +1,5 @@
 #include "StdAfx.h"
-#include "GameDef.h"
 #include "Game_KOF97_A.h"
-#include "..\PalMod.h"
-#include "..\RegProc.h"
-
-SupportedGamesList CGame_KOF97_A::m_nSelectedRom = KOF97_A;
-
-stExtraDef* CGame_KOF97_A::KOF97_A_EXTRA_CUSTOM = nullptr;
-stExtraDef* CGame_KOF97_A::KOF97AE_A_EXTRA_CUSTOM = nullptr;
-
-CDescTree CGame_KOF97_A::MainDescTree_97 = nullptr;
-CDescTree CGame_KOF97_A::MainDescTree_97AE = nullptr;
-
-uint32_t CGame_KOF97_A::rgExtraCountAll_97[KOF97_A_NUMUNIT + 1];
-uint32_t CGame_KOF97_A::rgExtraCountAll_97AE[KOF97AE_A_NUMUNIT + 1];
-uint32_t CGame_KOF97_A::rgExtraLoc_97[KOF97_A_NUMUNIT + 1];
-uint32_t CGame_KOF97_A::rgExtraLoc_97AE[KOF97AE_A_NUMUNIT + 1];
-
-uint32_t CGame_KOF97_A::m_nTotalPaletteCountForKOF97 = 0;
-uint32_t CGame_KOF97_A::m_nTotalPaletteCountForKOF97AE = 0;
-uint32_t CGame_KOF97_A::m_nConfirmedROMSize = -1;
-
-void CGame_KOF97_A::InitializeStatics()
-{
-    safe_delete_array(CGame_KOF97_A::KOF97_A_EXTRA_CUSTOM);
-    safe_delete_array(CGame_KOF97_A::KOF97AE_A_EXTRA_CUSTOM);
-
-    memset(rgExtraCountAll_97, -1, sizeof(rgExtraCountAll_97));
-    memset(rgExtraCountAll_97AE, -1, sizeof(rgExtraCountAll_97AE));
-    memset(rgExtraLoc_97, -1, sizeof(rgExtraLoc_97));
-    memset(rgExtraLoc_97AE, -1, sizeof(rgExtraLoc_97AE));
-
-    MainDescTree_97.SetRootTree(CGame_KOF97_A::InitDescTree(KOF97_A));
-    MainDescTree_97AE.SetRootTree(CGame_KOF97_A::InitDescTree(KOF97AE_A));
-}
-
-CGame_KOF97_A::CGame_KOF97_A(uint32_t nConfirmedROMSize, SupportedGamesList nROMToLoad /* = KOF97_A */)
-{
-    OutputDebugString(L"CGame_KOF97_A::CGame_KOF97_A: Loading ROM...\n");
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
-
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
-    m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    nGameFlag = m_nSelectedRom = nROMToLoad;
-
-    m_nTotalInternalUnits = UsePaletteSetFor97() ? KOF97_A_NUMUNIT : KOF97AE_A_NUMUNIT;
-    m_nExtraUnit = UsePaletteSetFor97() ? KOF97_A_EXTRALOC : KOF97AE_A_EXTRALOC;
-
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetFor97() ? 2568 : 2568);
-    m_pszExtraFilename = UsePaletteSetFor97() ? EXTRA_FILENAME_KOF97_A : EXTRA_FILENAME_KOF97AE_A;
-    m_nTotalPaletteCount = UsePaletteSetFor97() ? m_nTotalPaletteCountForKOF97 : m_nTotalPaletteCountForKOF97AE;
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x2d1ff0;
-
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    InitDataBuffer();
-
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF97_A_IMGIDS_USED;
-
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_4_KOF97;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
-
-    //Create the file changed flag
-    PrepChangeTrackingArray();
-}
-
-CGame_KOF97_A::~CGame_KOF97_A()
-{
-    safe_delete_array(CGame_KOF97_A::KOF97_A_EXTRA_CUSTOM);
-    safe_delete_array(CGame_KOF97_A::KOF97AE_A_EXTRA_CUSTOM);
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
-}
-
-CDescTree* CGame_KOF97_A::GetMainTree()
-{
-    if (UsePaletteSetFor97())
-    {
-        return &CGame_KOF97_A::MainDescTree_97;
-    }
-    else
-    {
-        return &CGame_KOF97_A::MainDescTree_97AE;
-    }
-}
-
-uint32_t CGame_KOF97_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
-{
-    if (UsePaletteSetFor97())
-    {
-        return _GetExtraCount(rgExtraCountAll_97, KOF97_A_NUMUNIT, nUnitId, KOF97_A_EXTRA_CUSTOM);
-    }
-    else
-    {
-        return _GetExtraCount(rgExtraCountAll_97AE, KOF97AE_A_NUMUNIT, nUnitId, KOF97AE_A_EXTRA_CUSTOM);
-    }
-}
-
-uint32_t CGame_KOF97_A::GetExtraLoc(uint32_t nUnitId)
-{
-    if (UsePaletteSetFor97())
-    {
-        return _GetExtraLocation(rgExtraLoc_97, KOF97_A_NUMUNIT, nUnitId, KOF97_A_EXTRA_CUSTOM);
-    }
-    else
-    {
-        return _GetExtraLocation(rgExtraLoc_97AE, KOF97AE_A_NUMUNIT, nUnitId, KOF97AE_A_EXTRA_CUSTOM);
-    }
-}
-
-sDescTreeNode* CGame_KOF97_A::InitDescTree(SupportedGamesList nROMPaletteSetToUse)
-{
-    m_nSelectedRom = nROMPaletteSetToUse;
-
-    uint16_t nUnitCt;
-
-    if (UsePaletteSetFor97())
-    {
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF97_A, &KOF97_A_EXTRA_CUSTOM, KOF97_A_EXTRALOC, m_nConfirmedROMSize);
-        nUnitCt = KOF97_A_NUMUNIT + (GetExtraCt(KOF97_A_EXTRALOC) ? 1 : 0);
-    }
-    else
-    {
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF97AE_A, &KOF97AE_A_EXTRA_CUSTOM, KOF97AE_A_EXTRALOC, m_nConfirmedROMSize);
-        nUnitCt = KOF97AE_A_NUMUNIT + (GetExtraCt(KOF97AE_A_EXTRALOC) ? 1 : 0);
-    }
-    
-    sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[KOF97_A]);
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
-    //All units have tree children
-    NewDescTree->uChildType = DESC_NODETYPE_TREE;
-
-    if (UsePaletteSetFor97())
-    {
-        m_nTotalPaletteCountForKOF97 = _InitDescTree(NewDescTree,
-            KOF97_A_UNITS,
-            KOF97_A_EXTRALOC,
-            KOF97_A_NUMUNIT,
-            rgExtraCountAll_97,
-            rgExtraLoc_97,
-            KOF97_A_EXTRA_CUSTOM
-        );
-    }
-    else
-    {
-        m_nTotalPaletteCountForKOF97AE = _InitDescTree(NewDescTree,
-            KOF97AE_A_UNITS,
-            KOF97AE_A_EXTRALOC,
-            KOF97AE_A_NUMUNIT,
-            rgExtraCountAll_97AE,
-            rgExtraLoc_97AE,
-            KOF97AE_A_EXTRA_CUSTOM
-        );
-
-    }
-
-    // For development use to speed things up
-    //DumpPaletteHeaders();
-
-    return NewDescTree;
-}
 
 struct sKOF97_A_PaletteData
 {
@@ -460,27 +279,6 @@ void CGame_KOF97_A::DumpPaletteHeaders()
     OutputDebugString(L"};\r\n\r\n");
 }
 
-sFileRule CGame_KOF97_A::GetRule(uint32_t nUnitId)
-{
-    sFileRule NewFileRule;
-
-    // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"232-p2.sp2");
-
-    NewFileRule.uUnitId = 0;
-
-    if (nUnitId != KOF97GM_S)
-    {
-        NewFileRule.uVerifyVar = m_nExpectedGameROMSize_KOF97;
-    }
-    else
-    {
-        NewFileRule.uVerifyVar = m_nExpectedGameROMSize_KOF97GM;
-    }
-
-    return NewFileRule;
-}
-
 uint32_t CGame_KOF97_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
@@ -489,9 +287,6 @@ uint32_t CGame_KOF97_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
         { L"King of Fighters '97 (Neo-Geo)", L"KOF97_p2.rom", 0x158b23f6, 0 },
         { L"King of Fighters '97AE (Neo-Geo)", L"232ae.p2", 0x8cffe3f3, 0 },
         { L"King of Fighters '97 Plus (Neo-Geo bootleg)", L"kf97-p2p.bin", 0x5502b020, 0 },
-        { L"King of Fighters '97 Anniversary Edition (Neo-Geo)", L"232ae-p2.sp2", 0x228aa8d1, 0 },
-
-        { L"King of Fighters '97 Global Match (Steam)", L"p1.bin", 0x228aa8d1, 0x100000 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -508,172 +303,44 @@ uint32_t CGame_KOF97_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_KOF97_A::GetCollectionCountForUnit(uint32_t nUnitId)
+uint32_t CGame_KOF97AE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
-    if (UsePaletteSetFor97())
+    static sCRC32ValueSet knownROMs[] =
     {
-        return _GetCollectionCountForUnit(KOF97_A_UNITS, rgExtraCountAll_97, KOF97_A_NUMUNIT, KOF97_A_EXTRALOC, nUnitId, KOF97_A_EXTRA_CUSTOM);
-    }
-    else
+        { L"King of Fighters '97 Anniversary Edition (Neo-Geo)", L"232ae-p2.sp2", 0x228aa8d1, 0 },
+    };
+
+    if (ppKnownROMSet != nullptr)
     {
-        return _GetCollectionCountForUnit(KOF97AE_A_UNITS, rgExtraCountAll_97AE, KOF97AE_A_NUMUNIT, KOF97AE_A_EXTRALOC, nUnitId, KOF97AE_A_EXTRA_CUSTOM);
+        *ppKnownROMSet = knownROMs;
     }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_KOF97_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
+uint32_t CGame_KOF97GM_S::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
-    if (UsePaletteSetFor97())
+    static sCRC32ValueSet knownROMs[] =
     {
-        return _GetNodeCountForCollection(KOF97_A_UNITS, rgExtraCountAll_97, KOF97_A_NUMUNIT, KOF97_A_EXTRALOC, nUnitId, nCollectionId, KOF97_A_EXTRA_CUSTOM);
-    }
-    else
-    {
-        return _GetNodeCountForCollection(KOF97AE_A_UNITS, rgExtraCountAll_97AE, KOF97AE_A_NUMUNIT, KOF97AE_A_EXTRALOC, nUnitId, nCollectionId, KOF97AE_A_EXTRA_CUSTOM);
-    }
-}
+        { L"King of Fighters '97 Global Match (Steam)", L"p1.bin", 0x228aa8d1, 0x100000 },
+    };
 
-LPCWSTR CGame_KOF97_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    if (UsePaletteSetFor97())
+    if (ppKnownROMSet != nullptr)
     {
-        return _GetDescriptionForCollection(KOF97_A_UNITS, KOF97_A_EXTRALOC, nUnitId, nCollectionId);
-    }
-    else
-    {
-        return _GetDescriptionForCollection(KOF97AE_A_UNITS, KOF97AE_A_EXTRALOC, nUnitId, nCollectionId);
-    }
-}
-
-uint32_t CGame_KOF97_A::GetPaletteCountForUnit(uint32_t nUnitId)
-{
-    if (UsePaletteSetFor97())
-    {
-        return _GetPaletteCountForUnit(KOF97_A_UNITS, rgExtraCountAll_97, KOF97_A_NUMUNIT, KOF97_A_EXTRALOC, nUnitId, KOF97_A_EXTRA_CUSTOM);
-    }
-    else
-    {
-        return _GetPaletteCountForUnit(KOF97AE_A_UNITS, rgExtraCountAll_97AE, KOF97AE_A_NUMUNIT, KOF97AE_A_EXTRALOC, nUnitId, KOF97AE_A_EXTRA_CUSTOM);
-    }
-}
-
-const sGame_PaletteDataset* CGame_KOF97_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    if (UsePaletteSetFor97())
-    {
-        return _GetPaletteSet(KOF97_A_UNITS, nUnitId, nCollectionId);
-    }
-    else
-    {
-        return _GetPaletteSet(KOF97AE_A_UNITS, nUnitId, nCollectionId);
-    }
-}
-
-const sDescTreeNode* CGame_KOF97_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
-{
-    if (UsePaletteSetFor97())
-    {
-        return _GetNodeFromPaletteId(KOF97_A_UNITS, rgExtraCountAll_97, KOF97_A_NUMUNIT, KOF97_A_EXTRALOC, nUnitId, nPaletteId, KOF97_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
-    }
-    else
-    {
-        return _GetNodeFromPaletteId(KOF97AE_A_UNITS, rgExtraCountAll_97AE, KOF97AE_A_NUMUNIT, KOF97AE_A_EXTRALOC, nUnitId, nPaletteId, KOF97AE_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
-    }
-}
-
-const sGame_PaletteDataset* CGame_KOF97_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    if (UsePaletteSetFor97())
-    {
-        return _GetSpecificPalette(KOF97_A_UNITS, rgExtraCountAll_97, KOF97_A_NUMUNIT, KOF97_A_EXTRALOC, nUnitId, nPaletteId, KOF97_A_EXTRA_CUSTOM);
-    }
-    else
-    {
-        return _GetSpecificPalette(KOF97AE_A_UNITS, rgExtraCountAll_97AE, KOF97_A_NUMUNIT, KOF97AE_A_EXTRALOC, nUnitId, nPaletteId, KOF97AE_A_EXTRA_CUSTOM);
-    }
-}
-
-void CGame_KOF97_A::InitDataBuffer()
-{
-    m_nBufferSelectedRom = m_nSelectedRom;
-    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
-}
-
-void CGame_KOF97_A::ClearDataBuffer()
-{
-    SupportedGamesList nCurrentROMMode = m_nSelectedRom;
-
-    m_nSelectedRom = m_nBufferSelectedRom;
-
-    if (m_pppDataBuffer)
-    {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            if (m_pppDataBuffer[nUnitCtr])
-            {
-                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-                {
-                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
-                }
-
-                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
-            }
-        }
-
-        safe_delete_array(m_pppDataBuffer);
+        *ppKnownROMSet = knownROMs;
     }
 
-    m_nSelectedRom = nCurrentROMMode;
-}
-
-void CGame_KOF97_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-     if (UsePaletteSetFor97() ? (nUnitId != KOF97_A_EXTRALOC) : (nUnitId != KOF97AE_A_EXTRALOC))
+    if (pfNeedToValidateCRCs)
     {
-        int cbPaletteSizeOnDisc = 0;
-        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
-        if (paletteData)
-        {
-            cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
-
-            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-            m_pszCurrentPaletteName = paletteData->szPaletteName;
-
-            // Adjust for ROM-specific variant locations
-            if (m_pCRC32SpecificData)
-            {
-                m_nCurrentPaletteROMLocation = max(0, m_nCurrentPaletteROMLocation + m_pCRC32SpecificData->nROMSpecificOffset);
-            }
-        }
-        else
-        {
-            // A bogus palette was requested: this is unrecoverable.
-            DebugBreak();
-        }
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
     }
-    else // KOF97_A_EXTRALOC
-    {
-        // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = UsePaletteSetFor97() ? &KOF97_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId] : &KOF97AE_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
 
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
-BOOL CGame_KOF97_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
-{
-    if (UsePaletteSetFor97())
-    {
-        return _UpdatePalImg(KOF97_A_UNITS, rgExtraCountAll_97, KOF97_A_NUMUNIT, KOF97_A_EXTRALOC, KOF97_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
-    }
-    else
-    {
-        return _UpdatePalImg(KOF97AE_A_UNITS, rgExtraCountAll_97AE, KOF97AE_A_NUMUNIT, KOF97AE_A_EXTRALOC, KOF97AE_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
-    }
+    return ARRAYSIZE(knownROMs);
 }
