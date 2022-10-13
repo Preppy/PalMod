@@ -1555,18 +1555,18 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Coming Next? Original (Unused)???", 0x41e180, 0x41e200, indexRedEarthSprites_MaiLing, 0x58 },
 
     { L"Tessa Jamming Ghost Punch Palette", 0x40f800, 0x40f880, indexRedEarthSprites_Tessa, 0x0e },
-    { L"Tessa Punch Hato Lighter (Pigeon)", 0x40f000, 0x40f080 },
-    { L"Tessa Punch Staff Darker", 0x40ed80, 0x40ee00 },
-    { L"Tessa Punch Staff Lighter 1", 0x40ed00, 0x40ed80 },
-    { L"Tessa Punch Staff Lighter 2", 0x40ec80, 0x40ed00 },
+    { L"Tessa Punch Hato Lighter (Pigeon)", 0x40f000, 0x40f080, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Punch Staff Darker", 0x40ed80, 0x40ee00, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Punch Staff Lighter 1", 0x40ed00, 0x40ed80, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Punch Staff Lighter 2", 0x40ec80, 0x40ed00, indexRedEarthSprites_Tessa, 0x1e },
     { L"Punch Tessa's Unused Fairies 1 (Poison?)", 0x40f680, 0x40f700 },
     { L"Punch Tessa's Unused Fairies 2 (Poison?)", 0x40f700, 0x40f780 },
 
     { L"Tessa Jamming Ghost Kick Palette", 0x41c000, 0x41c080, indexRedEarthSprites_Tessa, 0x0e },
-    { L"Tessa Kick Hato Lighter (Pigeon)", 0x41b800, 0x41b880 },
-    { L"Tessa Kick Staff Darker", 0x41b580, 0x41b600 },
-    { L"Tessa Kick Staff Lighter 1", 0x41b500, 0x41b580 },
-    { L"Tessa Kick Staff Lighter 2", 0x41b480, 0x41b500 },
+    { L"Tessa Kick Hato Lighter (Pigeon)", 0x41b800, 0x41b880, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Kick Staff Darker", 0x41b580, 0x41b600, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Kick Staff Lighter 1", 0x41b500, 0x41b580, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Kick Staff Lighter 2", 0x41b480, 0x41b500, indexRedEarthSprites_Tessa, 0x1e },
     { L"Kick Tessa's Unused Fairies 1 (Poison?)", 0x41be80, 0x41bf00 },
     { L"Kick Tessa's Unused Fairies 2 (Poison?)", 0x41bf00, 0x41bf80 },
 
@@ -1599,7 +1599,7 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Hauzer Frozen 4??", 0x418c80, 0x418d00, indexRedEarthSprites_Hauzer, 0x00 },
     { L"Hauzer Frozen 5??", 0x418d00, 0x418d80, indexRedEarthSprites_Hauzer, 0x00 },
 
-    { L"Gi Gi Unused Summon", 0x431680, 0x431700 },
+    { L"Gi Gi Unused Summon", 0x431680, 0x431700, indexRedEarthSprites_GiGi, 0x0c },
 
     // All Miniportrait Transparency effects (Unused)(Character Select Portraits where you put your cursor on)
     { L"Leo Character Select Portrait P1", 0x1e1100, 0x1e1180 },
