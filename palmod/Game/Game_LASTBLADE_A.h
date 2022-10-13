@@ -43,7 +43,7 @@ private:
     const sCoreGameData m_sCoreGameData_Steam
     {
         L"The Last Blade (Steam)",
-        LASTBLADE2_S,
+        LASTBLADE_S,
         IMGDAT_SECTION_KOF,
         LASTBLADE_A_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },

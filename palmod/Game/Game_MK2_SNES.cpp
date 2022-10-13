@@ -2,7 +2,7 @@
 #include "GameDef.h"
 #include "Game_MK2_SNES.h"
 
-MK2LoadingKey CGame_MK2_SNES::eVersionToLoad = MK2LoadingKey::Version1dot0;
+MK2LoadingKey CGame_MK2_SNES::m_eVersionToLoad = MK2LoadingKey::Version1dot0;
 
 void CGame_MK2_SNES::SetSpecialRuleForFileName(std::wstring strFileName)
 {
@@ -21,11 +21,11 @@ void CGame_MK2_SNES::SetSpecialRuleForFileName(std::wstring strFileName)
 
     if (result != m_rgFileNameToVersion.end())
     {
-        eVersionToLoad = result->second;
+        m_eVersionToLoad = result->second;
     }
     else
     {
-        eVersionToLoad = MK2LoadingKey::Version1dot0;
+        m_eVersionToLoad = MK2LoadingKey::Version1dot0;
     }
 
     return;
@@ -33,10 +33,10 @@ void CGame_MK2_SNES::SetSpecialRuleForFileName(std::wstring strFileName)
 
 sFileRule CGame_MK2_SNES::GetRule(uint32_t nRuleId)
 {
-    return CGameClassByDir::GetRule(nRuleId, (eVersionToLoad == MK2LoadingKey::Version1dot0) ? MK2_SNES_FileLoadingData_V1dot0 : MK2_SNES_FileLoadingData_V1dot1);
+    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == MK2LoadingKey::Version1dot0) ? MK2_SNES_FileLoadingData_V1dot0 : MK2_SNES_FileLoadingData_V1dot1);
 }
 
 CGame_MK2_SNES::CGame_MK2_SNES(uint32_t nConfirmedROMSize)
 {
-    InitializeGame(nConfirmedROMSize, (eVersionToLoad == MK2LoadingKey::Version1dot0) ? m_sCoreGameData_V1dot0 : m_sCoreGameData_V1dot1);
+    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == MK2LoadingKey::Version1dot0) ? m_sCoreGameData_V1dot0 : m_sCoreGameData_V1dot1);
 }

@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_AOF3_A.h"
 
-CGame_AOF3_A::AOF3LoadingKey CGame_AOF3_A::eVersionToLoad = AOF3LoadingKey::P1;
+CGame_AOF3_A::AOF3LoadingKey CGame_AOF3_A::m_eVersionToLoad = AOF3LoadingKey::P1;
 
 void CGame_AOF3_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
@@ -22,11 +22,11 @@ void CGame_AOF3_A::SetSpecialRuleForFileName(std::wstring strFileName)
 
     if (result != m_rgFileNameToVersion.end())
     {
-        eVersionToLoad = result->second;
+        m_eVersionToLoad = result->second;
     }
     else
     {
-        eVersionToLoad = AOF3LoadingKey::P1;
+        m_eVersionToLoad = AOF3LoadingKey::P1;
     }
 
     return;
@@ -34,12 +34,12 @@ void CGame_AOF3_A::SetSpecialRuleForFileName(std::wstring strFileName)
 
 CGame_AOF3_A::CGame_AOF3_A(uint32_t nConfirmedROMSize)
 {
-    InitializeGame(nConfirmedROMSize, (eVersionToLoad == AOF3LoadingKey::P1) ? m_sCoreGameData_P1 : m_sCoreGameData_P2);
+    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == AOF3LoadingKey::P1) ? m_sCoreGameData_P1 : m_sCoreGameData_P2);
 }
 
 sFileRule CGame_AOF3_A::GetRule(uint32_t nRuleId)
 {
-    return CGameClassByDir::GetRule(nRuleId, (eVersionToLoad == AOF3LoadingKey::P1) ? m_sFileLoadingData_P1 : m_sFileLoadingData_P2);
+    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == AOF3LoadingKey::P1) ? m_sFileLoadingData_P1 : m_sFileLoadingData_P2);
 }
 
 uint32_t CGame_AOF3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)

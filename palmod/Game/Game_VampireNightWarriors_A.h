@@ -11,7 +11,7 @@ private:
         ROM09,
     };
 
-    static VNWLoadingKey eVersionToLoad;
+    static VNWLoadingKey m_eVersionToLoad;
 
     static inline const sDirectoryLoadingData m_sFileLoadingData_4 =
     {

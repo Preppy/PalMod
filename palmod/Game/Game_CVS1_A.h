@@ -11,7 +11,7 @@ private:
         SIMM,
     };
 
-    static CvS1LoadingKey eVersionToLoad;
+    static CvS1LoadingKey m_eVersionToLoad;
 
     static inline const sDirectoryLoadingData m_sFileLoadingData_ROM =
     {

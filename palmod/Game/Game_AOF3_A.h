@@ -11,7 +11,7 @@ private:
         P2,
     };
 
-    static AOF3LoadingKey eVersionToLoad;
+    static AOF3LoadingKey m_eVersionToLoad;
 
     static inline const sDirectoryLoadingData m_sFileLoadingData_P1 =
     {

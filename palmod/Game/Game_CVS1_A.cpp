@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_CVS1_A.h"
 
-CGame_CVS1_A::CvS1LoadingKey CGame_CVS1_A::eVersionToLoad = CvS1LoadingKey::ROM;
+CGame_CVS1_A::CvS1LoadingKey CGame_CVS1_A::m_eVersionToLoad = CvS1LoadingKey::ROM;
 
 void CGame_CVS1_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
@@ -20,11 +20,11 @@ void CGame_CVS1_A::SetSpecialRuleForFileName(std::wstring strFileName)
 
     if (result != m_rgFileNameToVersion.end())
     {
-        eVersionToLoad = result->second;
+        m_eVersionToLoad = result->second;
     }
     else
     {
-        eVersionToLoad = CvS1LoadingKey::ROM;
+        m_eVersionToLoad = CvS1LoadingKey::ROM;
     }
 
     return;
@@ -32,12 +32,12 @@ void CGame_CVS1_A::SetSpecialRuleForFileName(std::wstring strFileName)
 
 CGame_CVS1_A::CGame_CVS1_A(uint32_t nConfirmedROMSize)
 {
-    InitializeGame(nConfirmedROMSize, (eVersionToLoad == CvS1LoadingKey::ROM) ? m_sCoreGameData_ROM : m_sCoreGameData_SIMM);
+    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == CvS1LoadingKey::ROM) ? m_sCoreGameData_ROM : m_sCoreGameData_SIMM);
 }
 
 sFileRule CGame_CVS1_A::GetRule(uint32_t nRuleId)
 {
-    return CGameClassByDir::GetRule(nRuleId, (eVersionToLoad == CvS1LoadingKey::ROM) ? m_sFileLoadingData_ROM : m_sFileLoadingData_SIMM);
+    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == CvS1LoadingKey::ROM) ? m_sFileLoadingData_ROM : m_sFileLoadingData_SIMM);
 }
 
 uint32_t CGame_CVS1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)

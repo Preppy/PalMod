@@ -1,112 +1,219 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "KOF02UM_S_DEF.h"
-#include "..\extrafile.h"
 
-enum class KOF02UMS_ROMOptions
-{
-    Main,       // 0
-    Bar,        // 1
-    Max2BG,     // 2
-    Clear,      // 3
-    PSel,       // 4 psel.bin-n
-    Rank,       // 5
-    Conte,      // 6
-
-    EndValue
-};
-
-constexpr LPCWSTR EXTRA_FILENAME_KOF02UM_S_MAIN = L"KOF02UME.txt";
-constexpr LPCWSTR EXTRA_FILENAME_KOF02UM_S_BAR = L"KOF02UMBarE.txt";
-constexpr LPCWSTR EXTRA_FILENAME_KOF02UM_S_CLEAR = L"KOF02UMClearE.txt";
-constexpr LPCWSTR EXTRA_FILENAME_KOF02UM_S_MAX2 = L"KOF02UMMAX2E.txt";
-constexpr LPCWSTR EXTRA_FILENAME_KOF02UM_S_PSEL = L"KOF02UMPSelE.txt";
-constexpr LPCWSTR EXTRA_FILENAME_KOF02UM_S_RANK = L"KOF02UMPRankE.txt";
-constexpr LPCWSTR EXTRA_FILENAME_KOF02UM_S_CONTE = L"KOF02UMPContE.txt";
-
-class CGame_KOF02UM_S : public CGameWithExtrasFile
+class CGame_KOF02UM_S : public CGameClassByDir
 {
 private:
-    KOF02UMS_ROMOptions m_nBufferSelectedRom = KOF02UMS_ROMOptions::Main;
-    static KOF02UMS_ROMOptions m_nSelectedRom;
+    enum class KOF02UMLoadingKey
+    {
+        Main,
+        Bar,
+        Clear,
+        Max2,
+        PSel,
+        Rank,
+        Conte,
+    };
 
-    static uint32_t m_nTotalPaletteCountForKOF02UM_Main;
-    static uint32_t m_nTotalPaletteCountForKOF02UM_Bar;
-    static uint32_t m_nTotalPaletteCountForKOF02UM_Clear;
-    static uint32_t m_nTotalPaletteCountForKOF02UM_MAX2;
-    static uint32_t m_nTotalPaletteCountForKOF02UM_PSel;
-    static uint32_t m_nTotalPaletteCountForKOF02UM_Rank;
-    static uint32_t m_nTotalPaletteCountForKOF02UM_Conte;
+    static KOF02UMLoadingKey m_eVersionToLoad;
 
-    static uint32_t rgExtraCountAll_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
-    static uint32_t rgExtraCountAll_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
-    static uint32_t rgExtraCountAll_Clear[KOF02UM_S_NUMUNIT_CLEAR + 1];
-    static uint32_t rgExtraCountAll_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
-    static uint32_t rgExtraCountAll_PSel[KOF02UM_S_NUMUNIT_PSEL + 1];
-    static uint32_t rgExtraCountAll_Rank[KOF02UM_S_NUMUNIT_RANK + 1];
-    static uint32_t rgExtraCountAll_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Main =
+    {
+        {
+            { L"pal_a.bin", 0x606e0 },
+        },
+        FileReadType::Sequential,
+    };
 
-    static uint32_t rgExtraLoc_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
-    static uint32_t rgExtraLoc_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
-    static uint32_t rgExtraLoc_Clear[KOF02UM_S_NUMUNIT_CLEAR + 1];
-    static uint32_t rgExtraLoc_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
-    static uint32_t rgExtraLoc_PSel[KOF02UM_S_NUMUNIT_PSEL + 1];
-    static uint32_t rgExtraLoc_Rank[KOF02UM_S_NUMUNIT_RANK + 1];
-    static uint32_t rgExtraLoc_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Bar =
+    {
+        {
+            { L"bar.bin", 0x2200 },
+        },
+        FileReadType::Sequential,
+    };
 
-    static void InitializeStatics();
-    // This value is updated at runtime according to which rom they load
-    static uint32_t m_nExpectedGameROMSize;
-    static uint32_t m_nConfirmedROMSize;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Clear =
+    {
+        {
+            { L"clear.bin", 0x218ce },
+        },
+        FileReadType::Sequential,
+    };
 
-    static const sDescTreeNode* GetCurrentUnitSet();
-    static uint32_t GetCurrentExtraLoc();
-    static stExtraDef* GetCurrentExtraDef(uint32_t nDefCtr);
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Max2BG =
+    {
+        {
+            { L"MAX2BG.bin", 0x9800 },
+        },
+        FileReadType::Sequential,
+    };
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_PSel =
+    {
+        {
+            { L"psel.bin-n", 0x56f024 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Rank =
+    {
+        {
+            // This is the demo version, vs the 0x15bb6a Menu version
+            { L"rank.bin", 0xbbd26 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_Conte =
+    {
+        {
+            { L"conte.bin", 0x131244 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const sCoreGameData m_sCoreGameData_Main
+    {
+        L"King of Fighters 2002UM (Steam)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_NEOGEO,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGB555_BE,
+        m_sFileLoadingData_Main,
+        KOF02UM_S_UNITS_MAIN,
+        ARRAYSIZE(KOF02UM_S_UNITS_MAIN),
+        L"KOF02UME.txt",        // Extra filename
+        2749,                   // Count of palettes listed in the header
+        0x2a0,                  // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Bar
+    {
+        L"King of Fighters 2002UM (Steam, Bar)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_BGR555_LE,
+        m_sFileLoadingData_Bar,
+        KOF02UM_S_UNITS_BAR,
+        ARRAYSIZE(KOF02UM_S_UNITS_BAR),
+        L"KOF02UMBarE.txt",         // Extra filename
+        10,                         // Count of palettes listed in the header
+        0,                          // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Max2BG
+    {
+        L"King of Fighters 2002UM (Steam, MAX2 Backgrounds)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_BGR555_LE,
+        m_sFileLoadingData_Max2BG,
+        KOF02UM_S_UNITS_MAX2,
+        ARRAYSIZE(KOF02UM_S_UNITS_MAX2),
+        L"KOF02UMMax2E.txt",        // Extra filename
+        2,                          // Count of palettes listed in the header
+        0,                          // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Clear
+    {
+        L"King of Fighters 2002UM (Steam, Clear)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_Clear,
+        KOF02UM_S_UNITS_CLEAR,
+        ARRAYSIZE(KOF02UM_S_UNITS_CLEAR),
+        L"KOF02UMClearE.txt",       // Extra filename
+        3,                          // Count of palettes listed in the header
+        0x80,                       // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_PSel
+    {
+        L"King of Fighters 2002UM (Steam, Select)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_PSel,
+        KOF02UM_S_UNITS_PSEL,
+        ARRAYSIZE(KOF02UM_S_UNITS_PSEL),
+        L"KOF02UMPSelE.txt",       // Extra filename
+        10,                        // Count of palettes listed in the header
+        0x1c0,                     // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Rank
+    {
+        L"King of Fighters 2002UM (Steam, Rank)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_Rank,
+        KOF02UM_S_UNITS_RANK,
+        ARRAYSIZE(KOF02UM_S_UNITS_RANK),
+        L"KOF02UMRankE.txt",      // Extra filename
+        9,                        // Count of palettes listed in the header
+        0x80,                     // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_Conte
+    {
+        L"King of Fighters 2002UM (Steam, Continue)",
+        KOF02UM_S,
+        IMGDAT_SECTION_KOF,
+        KOF02UM_S_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_NOBUTTONS,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_RGBA8887,
+        m_sFileLoadingData_Conte,
+        KOF02UM_S_UNITS_CONTE,
+        ARRAYSIZE(KOF02UM_S_UNITS_CONTE),
+        L"KOF02UMContE.txt",    // Extra filename
+        6,                      // Count of palettes listed in the header
+        0xc0,                   // Lowest known location used for palettes
+    };
 
 public:
-    CGame_KOF02UM_S(uint32_t nConfirmedROMSize, int nKOF02UMROMToLoad);
-    ~CGame_KOF02UM_S();
+    CGame_KOF02UM_S(uint32_t nConfirmedROMSize);
 
-    //Static functions / variables
-    static CDescTree MainDescTree_Main;
-    static CDescTree MainDescTree_Bar;
-    static CDescTree MainDescTree_Clear;
-    static CDescTree MainDescTree_MAX2;
-    static CDescTree MainDescTree_PSel;
-    static CDescTree MainDescTree_Rank;
-    static CDescTree MainDescTree_Conte;
-
-    static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    LPCWSTR GetGameName() override;
-
-    static stExtraDef* KOF02UM_S_EXTRA_CUSTOM_MAIN;
-    static stExtraDef* KOF02UM_S_EXTRA_CUSTOM_BAR;
-    static stExtraDef* KOF02UM_S_EXTRA_CUSTOM_CLEAR;
-    static stExtraDef* KOF02UM_S_EXTRA_CUSTOM_MAX2;
-    static stExtraDef* KOF02UM_S_EXTRA_CUSTOM_PSEL;
-    static stExtraDef* KOF02UM_S_EXTRA_CUSTOM_RANK;
-    static stExtraDef* KOF02UM_S_EXTRA_CUSTOM_CONTE;
+    static sFileRule GetRule(uint32_t nRuleId);
 };

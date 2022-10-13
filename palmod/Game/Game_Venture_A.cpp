@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_VENTURE_A.h"
 
-CGame_VENTURE_A::VentureLoadingKey CGame_VENTURE_A::eVersionToLoad = VentureLoadingKey::ROM50;
+CGame_VENTURE_A::VentureLoadingKey CGame_VENTURE_A::m_eVersionToLoad = VentureLoadingKey::ROM50;
 
 void CGame_VENTURE_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
@@ -19,11 +19,11 @@ void CGame_VENTURE_A::SetSpecialRuleForFileName(std::wstring strFileName)
 
     if (result != m_rgFileNameToVersion.end())
     {
-        eVersionToLoad = result->second;
+        m_eVersionToLoad = result->second;
     }
     else
     {
-        eVersionToLoad = VentureLoadingKey::ROM50;
+        m_eVersionToLoad = VentureLoadingKey::ROM50;
     }
 
     return;
@@ -31,10 +31,10 @@ void CGame_VENTURE_A::SetSpecialRuleForFileName(std::wstring strFileName)
 
 CGame_VENTURE_A::CGame_VENTURE_A(uint32_t nConfirmedROMSize)
 {
-    InitializeGame(nConfirmedROMSize, (eVersionToLoad == VentureLoadingKey::ROM31) ? m_sCoreGameData_31 : m_sCoreGameData_50);
+    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == VentureLoadingKey::ROM31) ? m_sCoreGameData_31 : m_sCoreGameData_50);
 }
 
 sFileRule CGame_VENTURE_A::GetRule(uint32_t nRuleId)
 {
-    return CGameClassByDir::GetRule(nRuleId, (eVersionToLoad == VentureLoadingKey::ROM31) ? m_sFileLoadingData_31 : m_sFileLoadingData_50);
+    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == VentureLoadingKey::ROM31) ? m_sFileLoadingData_31 : m_sFileLoadingData_50);
 }

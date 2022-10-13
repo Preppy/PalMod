@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_FatalFury2_A.h"
 
-CGame_FatalFury2_A::FF2LoadingKey CGame_FatalFury2_A::eVersionToLoad = FF2LoadingKey::Normal;
+CGame_FatalFury2_A::FF2LoadingKey CGame_FatalFury2_A::m_eVersionToLoad = FF2LoadingKey::Normal;
 
 void CGame_FatalFury2_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
@@ -19,11 +19,11 @@ void CGame_FatalFury2_A::SetSpecialRuleForFileName(std::wstring strFileName)
 
     if (result != m_rgFileNameToVersion.end())
     {
-        eVersionToLoad = result->second;
+        m_eVersionToLoad = result->second;
     }
     else
     {
-        eVersionToLoad = FF2LoadingKey::Normal;
+        m_eVersionToLoad = FF2LoadingKey::Normal;
     }
 
     return;
@@ -31,12 +31,12 @@ void CGame_FatalFury2_A::SetSpecialRuleForFileName(std::wstring strFileName)
 
 CGame_FatalFury2_A::CGame_FatalFury2_A(uint32_t nConfirmedROMSize /*= -1*/)
 {
-    InitializeGame(nConfirmedROMSize, (eVersionToLoad == FF2LoadingKey::Normal) ? m_sCoreGameData_Normal : m_sCoreGameData_Alt);
+    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == FF2LoadingKey::Normal) ? m_sCoreGameData_Normal : m_sCoreGameData_Alt);
 }
 
 sFileRule CGame_FatalFury2_A::GetRule(uint32_t nRuleId)
 {
-    return CGameClassByDir::GetRule(nRuleId, (eVersionToLoad == FF2LoadingKey::Normal) ? FatalFury2_A_FileLoadingData_Normal : FatalFury2_A_FileLoadingData_Alt);
+    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == FF2LoadingKey::Normal) ? FatalFury2_A_FileLoadingData_Normal : FatalFury2_A_FileLoadingData_Alt);
 }
 
 uint32_t CGame_FatalFury2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)

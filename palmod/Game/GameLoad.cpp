@@ -1490,7 +1490,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }    
     case KOF02UM_S:
     {
-        return new CGame_KOF02UM_S(nConfirmedROMSize, nExtraGameData);
+        return new CGame_KOF02UM_S(nConfirmedROMSize);
     }
     case KOF02UM_S_DIR_8888:
     case KOF02UM_S_DIR_BGR555:
@@ -1957,34 +1957,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             nGameRule = nGameFlag;
             break;
         case KOF02UM_S:
-            if (wcscmp(pszFileNameLowercase, L"bar.bin") == 0)
-            {
-                nGameRule = (int)KOF02UMS_ROMOptions::Bar;
-            }
-            else if (wcscmp(pszFileNameLowercase, L"max2bg.bin") == 0)
-            {
-                nGameRule = (int)KOF02UMS_ROMOptions::Max2BG;
-            }
-            else if (wcscmp(pszFileNameLowercase, L"clear.bin") == 0)
-            {
-                nGameRule = (int)KOF02UMS_ROMOptions::Clear;
-            }
-            else if (wcscmp(pszFileNameLowercase, L"psel.bin-n") == 0)
-            {
-                nGameRule = (int)KOF02UMS_ROMOptions::PSel;
-            }
-            else if (wcscmp(pszFileNameLowercase, L"rank.bin") == 0)
-            {
-                nGameRule = (int)KOF02UMS_ROMOptions::Rank;
-            }
-            else if (wcscmp(pszFileNameLowercase, L"conte.bin") == 0)
-            {
-                nGameRule = (int)KOF02UMS_ROMOptions::Conte;
-            }
-            else
-            {
-                nGameRule = (int)KOF02UMS_ROMOptions::Main;
-            }
+            CGame_KOF02UM_S::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case MK2_SNES:
             CGame_MK2_SNES::SetSpecialRuleForFileName(pszFileNameLowercase);

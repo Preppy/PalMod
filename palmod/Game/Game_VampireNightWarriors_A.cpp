@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_VampireNightWarriors_A.h"
 
-CGame_VampireNightWarriors_A::VNWLoadingKey CGame_VampireNightWarriors_A::eVersionToLoad = VNWLoadingKey::ROM09;
+CGame_VampireNightWarriors_A::VNWLoadingKey CGame_VampireNightWarriors_A::m_eVersionToLoad = VNWLoadingKey::ROM09;
 
 void CGame_VampireNightWarriors_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
@@ -36,11 +36,11 @@ void CGame_VampireNightWarriors_A::SetSpecialRuleForFileName(std::wstring strFil
 
     if (result != m_rgFileNameToVersion.end())
     {
-        eVersionToLoad = result->second;
+        m_eVersionToLoad = result->second;
     }
     else
     {
-        eVersionToLoad = VNWLoadingKey::ROM09;
+        m_eVersionToLoad = VNWLoadingKey::ROM09;
     }
 
     return;
@@ -48,12 +48,12 @@ void CGame_VampireNightWarriors_A::SetSpecialRuleForFileName(std::wstring strFil
 
 CGame_VampireNightWarriors_A::CGame_VampireNightWarriors_A(uint32_t nConfirmedROMSize)
 {
-    InitializeGame(nConfirmedROMSize, (eVersionToLoad == VNWLoadingKey::ROM04) ? m_sCoreGameData_4 : m_sCoreGameData_9);
+    InitializeGame(nConfirmedROMSize, (m_eVersionToLoad == VNWLoadingKey::ROM04) ? m_sCoreGameData_4 : m_sCoreGameData_9);
 }
 
 sFileRule CGame_VampireNightWarriors_A::GetRule(uint32_t nRuleId)
 {
-    return CGameClassByDir::GetRule(nRuleId, (eVersionToLoad == VNWLoadingKey::ROM04) ? m_sFileLoadingData_4 : m_sFileLoadingData_9);
+    return CGameClassByDir::GetRule(nRuleId, (m_eVersionToLoad == VNWLoadingKey::ROM04) ? m_sFileLoadingData_4 : m_sFileLoadingData_9);
 }
 
 uint32_t CGame_VampireNightWarriors_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)

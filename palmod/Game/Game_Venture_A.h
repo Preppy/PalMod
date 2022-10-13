@@ -11,7 +11,7 @@ private:
         ROM50,
     };
 
-    static VentureLoadingKey eVersionToLoad;
+    static VentureLoadingKey m_eVersionToLoad;
 
     static inline const sDirectoryLoadingData m_sFileLoadingData_31 =
     {

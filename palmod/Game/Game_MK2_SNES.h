@@ -11,7 +11,7 @@ enum class MK2LoadingKey
 class CGame_MK2_SNES : public CGameClassByDir
 {
 private:
-    static MK2LoadingKey eVersionToLoad;
+    static MK2LoadingKey m_eVersionToLoad;
 
     static inline const sDirectoryLoadingData MK2_SNES_FileLoadingData_V1dot0 =
     {

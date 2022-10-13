@@ -4,890 +4,87 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define KOF02UM_S_DEBUG DEFAULT_GAME_DEBUG_STATE
+CGame_KOF02UM_S::KOF02UMLoadingKey CGame_KOF02UM_S::m_eVersionToLoad = KOF02UMLoadingKey::Main;
 
-stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN = nullptr;
-stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR = nullptr;
-stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_CLEAR = nullptr;
-stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAX2 = nullptr;
-stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_PSEL = nullptr;
-stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_RANK = nullptr;
-stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_CONTE = nullptr;
-
-CDescTree CGame_KOF02UM_S::MainDescTree_Main = nullptr;
-CDescTree CGame_KOF02UM_S::MainDescTree_Bar = nullptr;
-CDescTree CGame_KOF02UM_S::MainDescTree_Clear = nullptr;
-CDescTree CGame_KOF02UM_S::MainDescTree_MAX2 = nullptr;
-CDescTree CGame_KOF02UM_S::MainDescTree_PSel = nullptr;
-CDescTree CGame_KOF02UM_S::MainDescTree_Rank = nullptr;
-CDescTree CGame_KOF02UM_S::MainDescTree_Conte = nullptr;
-
-uint32_t CGame_KOF02UM_S::rgExtraCountAll_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
-uint32_t CGame_KOF02UM_S::rgExtraCountAll_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
-uint32_t CGame_KOF02UM_S::rgExtraCountAll_Clear[KOF02UM_S_NUMUNIT_CLEAR + 1];
-uint32_t CGame_KOF02UM_S::rgExtraCountAll_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
-uint32_t CGame_KOF02UM_S::rgExtraCountAll_PSel[KOF02UM_S_NUMUNIT_PSEL + 1];
-uint32_t CGame_KOF02UM_S::rgExtraCountAll_Rank[KOF02UM_S_NUMUNIT_RANK + 1];
-uint32_t CGame_KOF02UM_S::rgExtraCountAll_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
-
-uint32_t CGame_KOF02UM_S::rgExtraLoc_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
-uint32_t CGame_KOF02UM_S::rgExtraLoc_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
-uint32_t CGame_KOF02UM_S::rgExtraLoc_Clear[KOF02UM_S_NUMUNIT_CLEAR + 1];
-uint32_t CGame_KOF02UM_S::rgExtraLoc_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
-uint32_t CGame_KOF02UM_S::rgExtraLoc_PSel[KOF02UM_S_NUMUNIT_PSEL + 1];
-uint32_t CGame_KOF02UM_S::rgExtraLoc_Rank[KOF02UM_S_NUMUNIT_RANK + 1];
-uint32_t CGame_KOF02UM_S::rgExtraLoc_Conte[KOF02UM_S_NUMUNIT_CONTE + 1];
-
-KOF02UMS_ROMOptions CGame_KOF02UM_S::m_nSelectedRom = KOF02UMS_ROMOptions::Main;
-uint32_t CGame_KOF02UM_S::m_nExpectedGameROMSize = 0x606E0;  // 394976 bytes for the main rom.  This value will be updated per rom loaded.
-
-uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Main = 0;
-uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Bar = 0;
-uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Clear = 0;
-uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_MAX2 = 0;
-uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_PSel = 0;
-uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Rank= 0;
-uint32_t CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Conte = 0;
-uint32_t CGame_KOF02UM_S::m_nConfirmedROMSize = -1;
-
-void CGame_KOF02UM_S::InitializeStatics()
+void CGame_KOF02UM_S::SetSpecialRuleForFileName(std::wstring strFileName)
 {
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_CLEAR);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAX2);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_PSEL);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_RANK);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_CONTE);
-
-    memset(rgExtraCountAll_Main, -1, sizeof(rgExtraCountAll_Main));
-    memset(rgExtraCountAll_Bar, -1, sizeof(rgExtraCountAll_Bar));
-    memset(rgExtraCountAll_Clear, -1, sizeof(rgExtraCountAll_Clear));
-    memset(rgExtraCountAll_MAX2, -1, sizeof(rgExtraCountAll_MAX2));
-    memset(rgExtraCountAll_PSel, -1, sizeof(rgExtraCountAll_PSel));
-    memset(rgExtraCountAll_Rank, -1, sizeof(rgExtraCountAll_Rank));
-    memset(rgExtraCountAll_PSel, -1, sizeof(rgExtraCountAll_Conte));
-
-    memset(rgExtraLoc_Main, -1, sizeof(rgExtraLoc_Main));
-    memset(rgExtraLoc_Bar, -1, sizeof(rgExtraLoc_Bar));
-    memset(rgExtraLoc_Clear, -1, sizeof(rgExtraLoc_Clear));
-    memset(rgExtraLoc_MAX2, -1, sizeof(rgExtraLoc_MAX2));
-    memset(rgExtraLoc_PSel, -1, sizeof(rgExtraLoc_PSel));
-    memset(rgExtraLoc_Rank, -1, sizeof(rgExtraLoc_Rank));
-    memset(rgExtraLoc_Conte, -1, sizeof(rgExtraLoc_Conte));
-
-    MainDescTree_Main.SetRootTree(CGame_KOF02UM_S::InitDescTree(0));
-    MainDescTree_Bar.SetRootTree(CGame_KOF02UM_S::InitDescTree(1));
-    MainDescTree_MAX2.SetRootTree(CGame_KOF02UM_S::InitDescTree(2));
-    MainDescTree_Clear.SetRootTree(CGame_KOF02UM_S::InitDescTree(3));
-    MainDescTree_PSel.SetRootTree(CGame_KOF02UM_S::InitDescTree(4));
-    MainDescTree_Rank.SetRootTree(CGame_KOF02UM_S::InitDescTree(5));
-    MainDescTree_Conte.SetRootTree(CGame_KOF02UM_S::InitDescTree(6));
-}
-
-CGame_KOF02UM_S::CGame_KOF02UM_S(uint32_t nConfirmedROMSize, int nRomToLoad)
-{
-    OutputDebugString(L"CGame_KOF02UM_S::CGame_KOF02UM_S: Loading ROM...\n");
-
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
-    m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    m_nSelectedRom = (KOF02UMS_ROMOptions)nRomToLoad;
-
-    switch (m_nSelectedRom)
+    const std::map<std::wstring, KOF02UMLoadingKey> m_rgFileNameToVersion =
     {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        m_nSelectedRom = KOF02UMS_ROMOptions::Main;
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_MAIN;
-        m_nExtraUnit = KOF02UM_S_EXTRALOC_MAIN;
+        // these should be all lower case
+        { L"pal_a.bin", KOF02UMLoadingKey::Main },
+        { L"bar.bin", KOF02UMLoadingKey::Bar },
+        { L"clear.bin", KOF02UMLoadingKey::Clear },
+        { L"max2bg.bin", KOF02UMLoadingKey::Max2 },
+        { L"psel.bin-n", KOF02UMLoadingKey::PSel },
+        { L"rank.bin", KOF02UMLoadingKey::Rank },
+        { L"conte.bin", KOF02UMLoadingKey::Conte },
+    };
 
-        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2749;
-        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_MAIN;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_Main;
-        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-        m_nLowestKnownPaletteRomLocation = 0x2a0;
-        break;
-    case KOF02UMS_ROMOptions::Bar:
-        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_BAR;
-        m_nExtraUnit = KOF02UM_S_EXTRALOC_BAR;
+    CString strFileNameLowerCase = strFileName.c_str();
+    strFileNameLowerCase.MakeLower();
 
-        m_nSafeCountForThisRom = 10;
-        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_BAR;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_Bar;
-        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-        m_nLowestKnownPaletteRomLocation = 0;
-        break;
-    case KOF02UMS_ROMOptions::Max2BG:
-        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_MAX2;
-        m_nExtraUnit = KOF02UM_S_EXTRALOC_MAX2;
+    auto result = m_rgFileNameToVersion.find(strFileNameLowerCase.GetString());
 
-        m_nSafeCountForThisRom = 2;
-        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_MAX2;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_MAX2;
-        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-        m_nLowestKnownPaletteRomLocation = 0;
-        break;
-    case KOF02UMS_ROMOptions::Clear:
-        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_CLEAR;
-        m_nExtraUnit = KOF02UM_S_EXTRALOC_CLEAR;
-
-        m_nSafeCountForThisRom = 3;
-        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_CLEAR;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_Clear;
-        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-        m_nLowestKnownPaletteRomLocation = 0x80;
-        break;
-    case KOF02UMS_ROMOptions::PSel:
-        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_PSEL;
-        m_nExtraUnit = KOF02UM_S_EXTRALOC_PSEL;
-
-        m_nSafeCountForThisRom = 10;
-        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_PSEL;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_PSel;
-        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-        m_nLowestKnownPaletteRomLocation = 0x1c0;
-        break;
-    case KOF02UMS_ROMOptions::Rank:
-        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_RANK;
-        m_nExtraUnit = KOF02UM_S_EXTRALOC_RANK;
-
-        m_nSafeCountForThisRom = 9;
-        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_RANK;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_Rank;
-        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-        m_nLowestKnownPaletteRomLocation = 0x80;
-        break;
-    case KOF02UMS_ROMOptions::Conte:
-        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_CONTE;
-        m_nExtraUnit = KOF02UM_S_EXTRALOC_CONTE;
-
-        m_nSafeCountForThisRom = 6;
-        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_CONTE;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_Conte;
-        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-        m_nLowestKnownPaletteRomLocation = 0xc0;
-        break;
-    }
-
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
-    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-
-    switch (m_nSelectedRom)
+    if (result != m_rgFileNameToVersion.end())
     {
-    case KOF02UMS_ROMOptions::EndValue:
-        m_nSelectedRom = KOF02UMS_ROMOptions::Main;
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        SetColorMode(ColMode::COLMODE_RGB555_BE);
-        break;
-    case KOF02UMS_ROMOptions::Bar:
-    case KOF02UMS_ROMOptions::Max2BG:
-        SetColorMode(ColMode::COLMODE_BGR555_LE);
-        break;
-    case KOF02UMS_ROMOptions::Clear:
-    case KOF02UMS_ROMOptions::PSel:
-    case KOF02UMS_ROMOptions::Rank:
-    case KOF02UMS_ROMOptions::Conte:
-        SetColorMode(ColMode::COLMODE_RGBA8887);
-        break;
-    }
-
-    InitDataBuffer();
-
-    //Set game information
-    nGameFlag = KOF02UM_S;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = KOF02UM_S_IMGIDS_USED;
-
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
-
-    //Create the file changed flag
-    PrepChangeTrackingArray();
-}
-
-CGame_KOF02UM_S::~CGame_KOF02UM_S()
-{
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_CLEAR);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAX2);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_PSEL);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_RANK);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_CONTE);
-
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
-}
-
-CDescTree* CGame_KOF02UM_S::GetMainTree()
-{
-    switch (m_nSelectedRom)
-    {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        return &CGame_KOF02UM_S::MainDescTree_Main;
-    case KOF02UMS_ROMOptions::Bar:
-        return &CGame_KOF02UM_S::MainDescTree_Bar;
-    case KOF02UMS_ROMOptions::Max2BG:
-        return &CGame_KOF02UM_S::MainDescTree_MAX2;
-    case KOF02UMS_ROMOptions::Clear:
-        return &CGame_KOF02UM_S::MainDescTree_Clear;
-    case KOF02UMS_ROMOptions::PSel:
-        return &CGame_KOF02UM_S::MainDescTree_PSel;
-    case KOF02UMS_ROMOptions::Rank:
-        return &CGame_KOF02UM_S::MainDescTree_Rank;
-    case KOF02UMS_ROMOptions::Conte:
-        return &CGame_KOF02UM_S::MainDescTree_Conte;
-    }
-}
-
-uint32_t CGame_KOF02UM_S::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
-{
-    switch (m_nSelectedRom)
-    {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        return _GetExtraCount(rgExtraCountAll_Main, KOF02UM_S_NUMUNIT_MAIN, nUnitId, KOF02UM_S_EXTRA_CUSTOM_MAIN);
-    case KOF02UMS_ROMOptions::Bar:
-        return _GetExtraCount(rgExtraCountAll_Bar, KOF02UM_S_NUMUNIT_BAR, nUnitId, KOF02UM_S_EXTRA_CUSTOM_BAR);
-    case KOF02UMS_ROMOptions::Max2BG:
-        return _GetExtraCount(rgExtraCountAll_MAX2, KOF02UM_S_NUMUNIT_MAX2, nUnitId, KOF02UM_S_EXTRA_CUSTOM_MAX2);
-    case KOF02UMS_ROMOptions::Clear:
-        return _GetExtraCount(rgExtraCountAll_Clear, KOF02UM_S_NUMUNIT_CLEAR, nUnitId, KOF02UM_S_EXTRA_CUSTOM_CLEAR);
-    case KOF02UMS_ROMOptions::PSel:
-        return _GetExtraCount(rgExtraCountAll_PSel, KOF02UM_S_NUMUNIT_PSEL, nUnitId, KOF02UM_S_EXTRA_CUSTOM_PSEL);
-    case KOF02UMS_ROMOptions::Rank:
-        return _GetExtraCount(rgExtraCountAll_Rank, KOF02UM_S_NUMUNIT_RANK, nUnitId, KOF02UM_S_EXTRA_CUSTOM_RANK);
-    case KOF02UMS_ROMOptions::Conte:
-        return _GetExtraCount(rgExtraCountAll_Conte, KOF02UM_S_NUMUNIT_CONTE, nUnitId, KOF02UM_S_EXTRA_CUSTOM_CONTE);
-    }
-}
-
-uint32_t CGame_KOF02UM_S::GetExtraLoc(uint32_t nUnitId)
-{
-    switch (m_nSelectedRom)
-    {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        return _GetExtraLocation(rgExtraLoc_Main, KOF02UM_S_NUMUNIT_MAIN, nUnitId, KOF02UM_S_EXTRA_CUSTOM_MAIN);
-    case KOF02UMS_ROMOptions::Bar:
-        return _GetExtraLocation(rgExtraLoc_Bar, KOF02UM_S_NUMUNIT_BAR, nUnitId, KOF02UM_S_EXTRA_CUSTOM_BAR);
-    case KOF02UMS_ROMOptions::Max2BG:
-        return _GetExtraLocation(rgExtraLoc_MAX2, KOF02UM_S_NUMUNIT_MAX2, nUnitId, KOF02UM_S_EXTRA_CUSTOM_MAX2);
-    case KOF02UMS_ROMOptions::Clear:
-        return _GetExtraLocation(rgExtraLoc_Clear, KOF02UM_S_NUMUNIT_CLEAR, nUnitId, KOF02UM_S_EXTRA_CUSTOM_CLEAR);
-    case KOF02UMS_ROMOptions::PSel:
-        return _GetExtraLocation(rgExtraLoc_PSel, KOF02UM_S_NUMUNIT_PSEL, nUnitId, KOF02UM_S_EXTRA_CUSTOM_PSEL);
-    case KOF02UMS_ROMOptions::Rank:
-        return _GetExtraLocation(rgExtraLoc_Rank, KOF02UM_S_NUMUNIT_RANK, nUnitId, KOF02UM_S_EXTRA_CUSTOM_RANK);
-    case KOF02UMS_ROMOptions::Conte:
-        return _GetExtraLocation(rgExtraLoc_Conte, KOF02UM_S_NUMUNIT_CONTE, nUnitId, KOF02UM_S_EXTRA_CUSTOM_CONTE);
-    }
-}
-
-const sDescTreeNode* CGame_KOF02UM_S::GetCurrentUnitSet()
-{
-    switch (m_nSelectedRom)
-    {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        return KOF02UM_S_UNITS_MAIN;
-    case KOF02UMS_ROMOptions::Bar:
-        return KOF02UM_S_UNITS_BAR;
-    case KOF02UMS_ROMOptions::Max2BG:
-        return KOF02UM_S_UNITS_MAX2;
-    case KOF02UMS_ROMOptions::Clear:
-        return KOF02UM_S_UNITS_CLEAR;
-    case KOF02UMS_ROMOptions::PSel:
-        return KOF02UM_S_UNITS_PSEL;
-    case KOF02UMS_ROMOptions::Rank:
-        return KOF02UM_S_UNITS_RANK;
-    case KOF02UMS_ROMOptions::Conte:
-        return KOF02UM_S_UNITS_CONTE;
-    }
-}
-
-uint32_t CGame_KOF02UM_S::GetCurrentExtraLoc()
-{
-    switch (m_nSelectedRom)
-    {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        return KOF02UM_S_EXTRALOC_MAIN;
-    case KOF02UMS_ROMOptions::Bar:
-        return KOF02UM_S_EXTRALOC_BAR;
-    case KOF02UMS_ROMOptions::Max2BG:
-        return KOF02UM_S_EXTRALOC_MAX2;
-    case KOF02UMS_ROMOptions::Clear:
-        return KOF02UM_S_EXTRALOC_CLEAR;
-    case KOF02UMS_ROMOptions::PSel:
-        return KOF02UM_S_EXTRALOC_PSEL;
-    case KOF02UMS_ROMOptions::Rank:
-        return KOF02UM_S_EXTRALOC_RANK;
-    case KOF02UMS_ROMOptions::Conte:
-        return KOF02UM_S_EXTRALOC_CONTE;
-    }
-}
-
-stExtraDef* CGame_KOF02UM_S::GetCurrentExtraDef(uint32_t nDefCtr)
-{
-    switch (m_nSelectedRom)
-    {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_MAIN[nDefCtr];
-    case KOF02UMS_ROMOptions::Bar:
-        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_BAR[nDefCtr];
-    case KOF02UMS_ROMOptions::Max2BG:
-        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_MAX2[nDefCtr];
-    case KOF02UMS_ROMOptions::Clear:
-        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_CLEAR[nDefCtr];
-    case KOF02UMS_ROMOptions::PSel:
-        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_PSEL[nDefCtr];
-    case KOF02UMS_ROMOptions::Rank:
-        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_RANK[nDefCtr];
-    case KOF02UMS_ROMOptions::Conte:
-        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_CONTE[nDefCtr];
-    }
-}
-
-sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
-{
-    uint32_t nTotalPaletteCount = 0;
-    m_nSelectedRom = (KOF02UMS_ROMOptions)nROMPaletteSetToUse;
-
-    uint16_t nUnitCt;
-    uint32_t nExtraUnitLocation;
-
-    switch (m_nSelectedRom)
-    {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        nExtraUnitLocation = KOF02UM_S_EXTRALOC_MAIN;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_MAIN, &KOF02UM_S_EXTRA_CUSTOM_MAIN, nExtraUnitLocation, m_nConfirmedROMSize);
-        nUnitCt = KOF02UM_S_NUMUNIT_MAIN + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
-        break;
-    case KOF02UMS_ROMOptions::Bar:
-        nExtraUnitLocation = KOF02UM_S_EXTRALOC_BAR;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_BAR, &KOF02UM_S_EXTRA_CUSTOM_BAR, nExtraUnitLocation, m_nConfirmedROMSize);
-        nUnitCt = KOF02UM_S_NUMUNIT_BAR + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
-        break;
-    case KOF02UMS_ROMOptions::Max2BG:
-        nExtraUnitLocation = KOF02UM_S_EXTRALOC_MAX2;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_MAX2, &KOF02UM_S_EXTRA_CUSTOM_MAX2, nExtraUnitLocation, m_nConfirmedROMSize);
-        nUnitCt = KOF02UM_S_NUMUNIT_MAX2 + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
-        break;
-    case KOF02UMS_ROMOptions::Clear:
-        nExtraUnitLocation = KOF02UM_S_EXTRALOC_CLEAR;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_CLEAR, &KOF02UM_S_EXTRA_CUSTOM_CLEAR, nExtraUnitLocation, m_nConfirmedROMSize);
-        nUnitCt = KOF02UM_S_NUMUNIT_CLEAR + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
-        break;
-    case KOF02UMS_ROMOptions::PSel:
-        nExtraUnitLocation = KOF02UM_S_EXTRALOC_PSEL;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_PSEL, &KOF02UM_S_EXTRA_CUSTOM_PSEL, nExtraUnitLocation, m_nConfirmedROMSize);
-        nUnitCt = KOF02UM_S_NUMUNIT_PSEL + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
-        break;
-    case KOF02UMS_ROMOptions::Rank:
-        nExtraUnitLocation = KOF02UM_S_EXTRALOC_RANK;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_RANK, &KOF02UM_S_EXTRA_CUSTOM_RANK, nExtraUnitLocation, m_nConfirmedROMSize);
-        nUnitCt = KOF02UM_S_NUMUNIT_RANK + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
-        break;
-    case KOF02UMS_ROMOptions::Conte:
-        nExtraUnitLocation = KOF02UM_S_EXTRALOC_CONTE;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_CONTE, &KOF02UM_S_EXTRA_CUSTOM_CONTE, nExtraUnitLocation, m_nConfirmedROMSize);
-        nUnitCt = KOF02UM_S_NUMUNIT_CONTE + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
-        break;
-    }
-
-    sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[KOF02UM_S]);
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
-    //All units have tree children
-    NewDescTree->uChildType = DESC_NODETYPE_TREE;
-
-    CString strMsg = L"CGame_KOF02UM_S::InitDescTree: Building desc tree for KOF02UM_S ...\n";
-    OutputDebugString(strMsg);
-
-    //Go through each character
-    for (uint16_t iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
-    {
-        sDescTreeNode* UnitNode = nullptr;
-        sDescTreeNode* CollectionNode = nullptr;
-        sDescNode* ChildNode = nullptr;
-
-        uint32_t nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL fUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
-
-        uint32_t nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
-
-        UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
-
-        if (iUnitCtr != nExtraUnitLocation)
-        {
-            //Set each description
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", GetCurrentUnitSet()[iUnitCtr].szDesc);
-            UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
-            //All children have collection trees
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = nUnitChildCount;
-
-#if KOF02UM_S_DEBUG
-            strMsg.Format(L";Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, fUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
-            OutputDebugString(strMsg);
-#endif
-            
-            uint32_t nTotalPalettesUsedInUnit = 0;
-
-            //Set data for each child group ("collection")
-            for (uint32_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
-            {
-                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
-
-                //Set each collection data
-
-                // Default label, since these aren't associated to collections
-                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
-                //Collection children have nodes
-                uint32_t nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
-                CollectionNode->uChildType = DESC_NODETYPE_NODE;
-                CollectionNode->uChildAmt = nListedChildrenCount;
-                CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
-
-#if KOF02UM_S_DEBUG
-                strMsg.Format(L";\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
-                OutputDebugString(strMsg);
-#endif
-
-                const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
-
-                //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (uint32_t nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
-                {
-                    ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
-
-                    _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
-
-                    ChildNode->uUnitId = iUnitCtr;
-                    ChildNode->uPalId = nTotalPalettesUsedInUnit++;
-                    nTotalPaletteCount++;
-
-#if KOF02UM_S_DEBUG
-                    strMsg.Format(L";\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
-                    OutputDebugString(strMsg);
-                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
-                    OutputDebugString(strMsg);
-
-                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
-                    {
-                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
-                    }
-                    else
-                    {
-                        strMsg.Format(L" no image available.\n");
-                    }
-                    OutputDebugString(strMsg);
-
-                    strMsg.Format(L"%s :: %s :: %s\n0x%X\n0x%X\n\n", UnitNode->szDesc, CollectionNode->szDesc, ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
-                    OutputDebugString(strMsg);
-
-#endif
-                }
-            }
-        }
-        else
-        {
-            // This handles data loaded from the Extra extension file, which are treated
-            // each as their own separate node with one collection with everything under that.
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
-            UnitNode->ChildNodes = new sDescTreeNode[1];
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = 1;
-
-#if KOF02UM_S_DEBUG
-            strMsg.Format(L";Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
-            OutputDebugString(strMsg);
-#endif
-        }
-
-        //Set up extra nodes
-        if (fUseExtra)
-        {
-            uint32_t nExtraPos = GetExtraLoc(iUnitCtr);
-            int nCurrExtra = 0;
-
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(GetCurrentExtraLoc() > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-
-            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
-
-            CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
-
-            CollectionNode->uChildType = DESC_NODETYPE_NODE;
-            CollectionNode->uChildAmt = nExtraCt; //EX + Extra
-
-#if KOF02UM_S_DEBUG
-            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
-            OutputDebugString(strMsg);
-#endif
-
-            for (uint16_t nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
-            {
-                ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
-
-                stExtraDef* pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
-
-                while (pCurrDef->isInvisible)
-                {
-                    nCurrExtra++;
-
-                    pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
-                }
-
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
-
-                ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((GetCurrentExtraLoc() > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
-
-#if KOF02UM_S_DEBUG
-                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
-                OutputDebugString(strMsg);
-#endif
-
-                nCurrExtra++;
-                nTotalPaletteCount++;
-            }
-        }
-    }
-
-    strMsg.Format(L"CGame_KOF02UM_S::InitDescTree: Loaded %u palettes for KOF02UM\n", nTotalPaletteCount);
-    OutputDebugString(strMsg);
-
-    switch (m_nSelectedRom)
-    {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        m_nTotalPaletteCountForKOF02UM_Main = nTotalPaletteCount;
-        break;
-    case KOF02UMS_ROMOptions::Bar:
-        m_nTotalPaletteCountForKOF02UM_Bar = nTotalPaletteCount;
-        break;
-    case KOF02UMS_ROMOptions::Max2BG:
-        m_nTotalPaletteCountForKOF02UM_MAX2 = nTotalPaletteCount;
-        break;
-    case KOF02UMS_ROMOptions::Clear:
-        m_nTotalPaletteCountForKOF02UM_Clear = nTotalPaletteCount;
-        break;
-    case KOF02UMS_ROMOptions::PSel:
-        m_nTotalPaletteCountForKOF02UM_PSel = nTotalPaletteCount;
-        break;
-    case KOF02UMS_ROMOptions::Rank:
-        m_nTotalPaletteCountForKOF02UM_Rank = nTotalPaletteCount;
-        break;
-    case KOF02UMS_ROMOptions::Conte:
-        m_nTotalPaletteCountForKOF02UM_Conte = nTotalPaletteCount;
-        break;
-    }
-
-    return NewDescTree;
-}
-
-sFileRule CGame_KOF02UM_S::GetRule(uint32_t nUnitId)
-{
-    sFileRule NewFileRule;
-
-    KOF02UMS_ROMOptions eCurrentRom = (KOF02UMS_ROMOptions)nUnitId;
-
-    switch (eCurrentRom)
-    {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        m_nExpectedGameROMSize = 0x606e0;
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"pal_a.bin");
-        break;
-    case KOF02UMS_ROMOptions::Bar:
-        m_nExpectedGameROMSize = 0x2200;
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"bar.bin");
-        break;
-    case KOF02UMS_ROMOptions::Max2BG:
-        m_nExpectedGameROMSize = 0x9800;
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"MAX2BG.bin");
-        break;
-    case KOF02UMS_ROMOptions::Clear:
-        m_nExpectedGameROMSize = 0x218ce;
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"clear.bin");
-        break;
-    case KOF02UMS_ROMOptions::PSel:
-        m_nExpectedGameROMSize = 0x56f024;
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"psel.bin-n");
-        break;
-    case KOF02UMS_ROMOptions::Rank:
-        m_nExpectedGameROMSize = 0xbbd26;
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"rank.bin");
-        break;
-    case KOF02UMS_ROMOptions::Conte:
-        m_nExpectedGameROMSize = 0x131244;
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"conte.bin");
-        break;
-    }
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
-}
-
-uint32_t CGame_KOF02UM_S::GetCollectionCountForUnit(uint32_t nUnitId)
-{
-    if (nUnitId == GetCurrentExtraLoc())
-    {
-        return GetExtraCt(nUnitId);
+        m_eVersionToLoad = result->second;
     }
     else
     {
-        return GetCurrentUnitSet()[nUnitId].uChildAmt;
+        m_eVersionToLoad = KOF02UMLoadingKey::Main;
     }
+
+    return;
 }
 
-uint32_t CGame_KOF02UM_S::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
+CGame_KOF02UM_S::CGame_KOF02UM_S(uint32_t nConfirmedROMSize)
 {
-    if (nUnitId == GetCurrentExtraLoc())
+    switch (m_eVersionToLoad)
     {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
-
-        return pCollectionNode[nCollectionId].uChildAmt;
-    }
-}
-
-LPCWSTR CGame_KOF02UM_S::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    if (nUnitId == GetCurrentExtraLoc())
-    {
-        return L"Extra Palettes";
-    }
-    else
-    {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
-        return pCollection[nCollectionId].szDesc;
-    }
-}
-
-uint32_t CGame_KOF02UM_S::GetPaletteCountForUnit(uint32_t nUnitId)
-{
-    if (nUnitId == GetCurrentExtraLoc())
-    {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        uint32_t nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = GetCurrentUnitSet();
-        uint32_t nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
-
-        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
-
-        for (uint32_t nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
-        {
-            nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
-        }
-
-#if KOF02UM_S_DEBUG
-        CString strMsg;
-        strMsg.Format(L"CGame_KOF02UM_S::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
-        OutputDebugString(strMsg);
-#endif
-
-        return nCompleteCount;
-    }
-}
-
-const sGame_PaletteDataset* CGame_KOF02UM_S::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
-    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
-}
-
-const sDescTreeNode* CGame_KOF02UM_S::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
-{
-    // Don't use this for Extra palettes.
-    const sDescTreeNode* pCollectionNode = nullptr;
-    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    uint32_t nDistanceFromZero = nPaletteId;
-
-    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        uint32_t nNodeCount;
-
-        if (nUnitId == GetCurrentExtraLoc())
-        {
-            nNodeCount = GetExtraCt(nUnitId);
-
-            if (nDistanceFromZero < nNodeCount)
-            {
-                pCollectionNode = nullptr;
-                break;
-            }
-        }
-        else
-        {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
-            
-            nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
-
-            if (nDistanceFromZero < nNodeCount)
-            {
-                // We know it's within this group.  Now: is it basic?
-                if (!fReturnBasicNodesOnly || (nCollectionIndex < pButtonLabelSet.size()))
-                {
-                    pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
-                }
-                else
-                {
-                    pCollectionNode = nullptr;
-                }
-
-                break;
-            }
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return pCollectionNode;
-}
-
-const sGame_PaletteDataset* CGame_KOF02UM_S::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    // Don't use this for Extra palettes.
-    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteToUse = nullptr;
-    uint32_t nDistanceFromZero = nPaletteId;
-
-    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
-        uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
-
-        if (nDistanceFromZero < nNodeCount)
-        {
-            paletteToUse = &paletteSetToUse[nDistanceFromZero];
+        case KOF02UMLoadingKey::Main:
+        default:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Main);
             break;
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return paletteToUse;
-}
-
-void CGame_KOF02UM_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-     if (nUnitId != GetCurrentExtraLoc())
-    {
-        int cbPaletteSizeOnDisc = 0;
-        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
-        if (paletteData)
-        {
-            cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
-
-            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-            m_pszCurrentPaletteName = paletteData->szPaletteName;
-        }
-        else
-        {
-            // A bogus palette was requested: this is unrecoverable.
-            DebugBreak();
-        }
-    }
-    else // KOF02UM_S_EXTRALOC
-    {
-        // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(nUnitId) + nPalId);
-
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
+        case KOF02UMLoadingKey::Bar:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Bar);
+            break;
+        case KOF02UMLoadingKey::Clear:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Clear);
+            break;
+        case KOF02UMLoadingKey::Max2:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Max2BG);
+            break;
+        case KOF02UMLoadingKey::PSel:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_PSel);
+            break;
+        case KOF02UMLoadingKey::Rank:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Rank);
+            break;
+        case KOF02UMLoadingKey::Conte:
+            InitializeGame(nConfirmedROMSize, m_sCoreGameData_Conte);
+            break;
     }
 }
 
-LPCWSTR CGame_KOF02UM_S::GetGameName()
+sFileRule CGame_KOF02UM_S::GetRule(uint32_t nRuleId)
 {
-    switch (m_nSelectedRom)
+    switch (m_eVersionToLoad)
     {
-    default:
-    case KOF02UMS_ROMOptions::EndValue:
-        OutputDebugString(L"warning: invalid KOF02UM option selected.\n");
-        __fallthrough;
-    case KOF02UMS_ROMOptions::Main:
-        return L"King of Fighters 2002UM (Steam)";
-    case KOF02UMS_ROMOptions::Bar:
-        return L"King of Fighters 2002UM (Steam, Bar)";
-    case KOF02UMS_ROMOptions::Max2BG:
-        return L"King of Fighters 2002UM (Steam, MAX2 Backgrounds)";
-    case KOF02UMS_ROMOptions::Clear:
-        return L"King of Fighters 2002UM (Steam, Clear)";
-    case KOF02UMS_ROMOptions::PSel:
-        return L"King of Fighters 2002UM (Steam, Select)";
-    case KOF02UMS_ROMOptions::Rank:
-        return L"King of Fighters 2002UM (Steam, Rank)";
-    case KOF02UMS_ROMOptions::Conte:
-        return L"King of Fighters 2002UM (Steam, Continue)";
+        case KOF02UMLoadingKey::Main:
+        default:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Main);
+        case KOF02UMLoadingKey::Bar:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Bar);
+        case KOF02UMLoadingKey::Clear:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Clear);
+        case KOF02UMLoadingKey::Max2:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Max2BG);
+        case KOF02UMLoadingKey::PSel:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_PSel);
+        case KOF02UMLoadingKey::Rank:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Rank);
+        case KOF02UMLoadingKey::Conte:
+            return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_Conte);
     }
 }
 
@@ -924,7 +121,7 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != GetCurrentExtraLoc())
+    if (NodeGet->uUnitId != m_nCurrentExtraUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 

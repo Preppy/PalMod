@@ -11,7 +11,7 @@ private:
         Jumbo,
     };
 
-    static FF2LoadingKey eVersionToLoad;
+    static FF2LoadingKey m_eVersionToLoad;
 
     static inline const sDirectoryLoadingData FatalFury2_A_FileLoadingData_Normal =
     {
