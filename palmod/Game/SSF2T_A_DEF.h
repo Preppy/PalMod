@@ -3126,9 +3126,6 @@ const sDescTreeNode SSF2T_A_UNITS_3C[] =
     { k_stNameKey_Bonus,    DESC_NODETYPE_TREE, (void*)SSF2T_A_03_BONUS_COLLECTION,         ARRAYSIZE(SSF2T_A_03_BONUS_COLLECTION) },
 };
 
-constexpr auto SSF2T_A_NUM_IND_3C = ARRAYSIZE(SSF2T_A_UNITS_3C);
-constexpr auto SSF2T_A_EXTRALOC_3C = SSF2T_A_NUM_IND_3C;
-
 const sDescTreeNode SSF2T_A_UNITS_4A[SSF2T_A_NUM_IND_4A] =
 {
     { L"Balrog",      DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_COLLECTION,     ARRAYSIZE(SSF2T_A_BALROG_COLLECTION) },
@@ -3159,6 +3156,3 @@ const sDescTreeNode SSF2T_A_UNITS_8[] =
     // We special-case handling this, so use a namekey
     { k_stNameKey_Bonus,    DESC_NODETYPE_TREE, (void*)SSF2T_A_08_BONUS_COLLECTION,     ARRAYSIZE(SSF2T_A_08_BONUS_COLLECTION) },
 };
-
-constexpr auto SSF2T_A_NUM_IND_8 = ARRAYSIZE(SSF2T_A_UNITS_8);
-constexpr auto SSF2T_A_EXTRALOC_8 = SSF2T_A_NUM_IND_8;

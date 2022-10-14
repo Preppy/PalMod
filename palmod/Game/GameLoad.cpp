@@ -1802,7 +1802,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case SSF2T_A:
     {
-        return new CGame_SSF2T_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_SSF2T_A(nConfirmedROMSize);
     }
     case SSF2T_GBA:
     {
@@ -2009,21 +2009,8 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             CGame_SF2CE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case SSF2T_A:
-        {
-            if (wcsstr(pszFileNameLowercase, L".03") != nullptr)
-            {
-                nGameRule = 3;
-            }
-            else if (wcsstr(pszFileNameLowercase, L".08") != nullptr)
-            {
-                nGameRule = 8;
-            }
-            else
-            {
-                nGameRule = 4;
-            }
+            CGame_SSF2T_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
-        }
         case VampireNightWarriors_A:
             CGame_VampireNightWarriors_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
