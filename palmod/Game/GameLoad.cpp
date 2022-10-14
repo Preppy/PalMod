@@ -1786,7 +1786,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case SF2CE_A:
     {
-        return new CGame_SF2CE_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_SF2CE_A(nConfirmedROMSize);
     }
     case SF2HF_A:
     {
@@ -2013,7 +2013,6 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             break;
         }
         case SF2HF_A:
-        case SF2CE_A: // these two share the same general logic
         {
             if (wcsstr(pszFileNameLowercase, L"21") != nullptr)
             {
@@ -2029,6 +2028,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             }
             break;
         }
+        case SF2CE_A:
+            CGame_SF2CE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case SSF2T_A:
         {
             if (wcsstr(pszFileNameLowercase, L".03") != nullptr)

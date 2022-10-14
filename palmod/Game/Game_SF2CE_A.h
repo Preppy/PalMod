@@ -1,83 +1,112 @@
 #pragma once
-#include "gameclass.h"
+#include "GameClassByDir.h"
 #include "SF2CE_A_DEF.h"
-#include "..\ExtraFile.h"
 
-class CGame_SF2CE_A : public CGameWithExtrasFile
+class CGame_SF2CE_A : public CGameClassByDir
 {
-public:
-    int m_nBufferSelectedRom = 22;
-    static uint32_t m_nSelectedRom;
-    static uint32_t m_nTotalPaletteCountForSF2CE_21;
-    static uint32_t m_nTotalPaletteCountForSF2CE_22;
-    static uint32_t m_nTotalPaletteCountForSF2CE_23;
+private:
+    enum class SF2CELoadingKey
+    {
+        ROM21,
+        ROM22,
+        ROM23,
+    };
 
-    static uint32_t rgExtraCountAll_21[SF2CE_A_21_NUMUNIT + 1];
-    static uint32_t rgExtraCountAll_22[SF2CE_A_22_NUMUNIT + 1];
-    static uint32_t rgExtraCountAll_23[SF2CE_A_23_NUMUNIT + 1];
-    static uint32_t rgExtraCountVisibleOnly_21[SF2CE_A_21_NUMUNIT + 1];
-    static uint32_t rgExtraCountVisibleOnly_22[SF2CE_A_22_NUMUNIT + 1];
-    static uint32_t rgExtraCountVisibleOnly_23[SF2CE_A_23_NUMUNIT + 1];
-    static uint32_t rgExtraLoc_21[SF2CE_A_21_NUMUNIT + 1];
-    static uint32_t rgExtraLoc_22[SF2CE_A_22_NUMUNIT + 1];
-    static uint32_t rgExtraLoc_23[SF2CE_A_23_NUMUNIT + 1];
+    static SF2CELoadingKey m_eVersionToLoad;
 
-    void InitDataBuffer() override;
-    void ClearDataBuffer() override;
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM21 =
+    {
+        {
+            { L"s92_21a.6f", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    static const sDescTreeNode* GetCurrentUnitSet();
-    static uint32_t GetCurrentExtraLoc();
-    static stExtraDef* GetCurrentExtraDef(int nDefCtr);
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM22 =
+    {
+        {
+            { L"s92_22a.7f", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM23 =
+    {
+        {
+            { L"s92e_23b.8f", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
 
-    static constexpr auto EXTRA_FILENAME_SF2CE_21 = L"SF2CE-21e.txt";
-    static constexpr auto EXTRA_FILENAME_SF2CE_22 = L"SF2CE-22e.txt";
-    static constexpr auto EXTRA_FILENAME_SF2CE_23 = L"SF2CE-23e.txt";
+    const sCoreGameData m_sCoreGameData_ROM21
+    {
+        L"Street Fighter II' - Champion Edition (ROM 21 - Portraits)",
+        SF2CE_A,
+        IMGDAT_SECTION_SF2,
+        SF2HF_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM21,
+        SF2CE_A_21_UNITS,
+        ARRAYSIZE(SF2CE_A_21_UNITS),
+        L"SF2CE-21e.txt",        // Extra filename
+        36,                   // Count of palettes listed in the header
+        0x93fe,                  // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM22
+    {
+        L"Street Fighter II' - Champion Edition (ROM 22 - Characters)",
+        SF2CE_A,
+        IMGDAT_SECTION_SF2,
+        SF2HF_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM22,
+        SF2CE_A_22_UNITS,
+        ARRAYSIZE(SF2CE_A_22_UNITS),
+        L"SF2CE-22e.txt",         // Extra filename
+        35,                         // Count of palettes listed in the header
+        0x16834,                          // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM23
+    {
+        L"Street Fighter II' - Champion Edition (ROM 23 - Continue Portraits)",
+        SF2CE_A,
+        IMGDAT_SECTION_SF2,
+        SF2HF_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM23,
+        SF2CE_A_23_UNITS,
+        ARRAYSIZE(SF2CE_A_23_UNITS),
+        L"SF2CE-23e.txt",        // Extra filename
+        17,                          // Count of palettes listed in the header
+        0x01dff8,                          // Lowest known location used for palettes
+    };
 
     static constexpr auto k_SF2CE_JapanROMName_RevA = L"s92j_22a.7f";
     static constexpr auto k_SF2CE_JapanROMName_RevB = L"s92j_22b.7f";
     static constexpr auto k_SF2CE_JapanROMName_RevC = L"s92j_22c.7f";
 
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-
 public:
-    CGame_SF2CE_A(uint32_t nConfirmedROMSize = -1, int nSF2CEROMToLoad = 22);
-    ~CGame_SF2CE_A();
+    CGame_SF2CE_A(uint32_t nConfirmedROMSize);
 
-    //Static functions / variables
-    static CDescTree MainDescTree_21;
-    static CDescTree MainDescTree_22;
-    static CDescTree MainDescTree_23;
-
-    static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    uint32_t GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId);
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* SF2CE_A_21_EXTRA_CUSTOM;
-    static stExtraDef* SF2CE_A_22_EXTRA_CUSTOM;
-    static stExtraDef* SF2CE_A_23_EXTRA_CUSTOM;
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+
+    static sFileRule GetRule(uint32_t nRuleId);
 };

@@ -1,8 +1,5 @@
 #include "StdAfx.h"
-#include "GameDef.h"
 #include "Game_KOF02UM_S.h"
-#include "..\PalMod.h"
-#include "..\RegProc.h"
 
 CGame_KOF02UM_S::KOF02UMLoadingKey CGame_KOF02UM_S::m_eVersionToLoad = KOF02UMLoadingKey::Main;
 
