@@ -8,10 +8,6 @@ void CGame_SF2CE_A::SetSpecialRuleForFileName(std::wstring strFileName)
     const std::map<std::wstring, SF2CELoadingKey> m_rgFileNameToVersion =
     {
         // these should be all lower case
-        { L"pal_a.bin", SF2CELoadingKey::ROM21 },
-        { L"bar.bin", SF2CELoadingKey::ROM22 },
-        { L"clear.bin", SF2CELoadingKey::ROM23 },
-
         { L"s92_21a.6f", SF2CELoadingKey::ROM21 },
         { L"s92j_21a.6f", SF2CELoadingKey::ROM21 },
 

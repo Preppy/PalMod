@@ -52,9 +52,9 @@ private:
         m_sFileLoadingData_ROM21,
         SF2CE_A_21_UNITS,
         ARRAYSIZE(SF2CE_A_21_UNITS),
-        L"SF2CE-21e.txt",        // Extra filename
+        L"SF2CE-21e.txt",     // Extra filename
         36,                   // Count of palettes listed in the header
-        0x93fe,                  // Lowest known location used for palettes
+        0x93fe,               // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM22
@@ -72,8 +72,8 @@ private:
         SF2CE_A_22_UNITS,
         ARRAYSIZE(SF2CE_A_22_UNITS),
         L"SF2CE-22e.txt",         // Extra filename
-        35,                         // Count of palettes listed in the header
-        0x16834,                          // Lowest known location used for palettes
+        35,                       // Count of palettes listed in the header
+        0x16834,                  // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM23
@@ -91,8 +91,8 @@ private:
         SF2CE_A_23_UNITS,
         ARRAYSIZE(SF2CE_A_23_UNITS),
         L"SF2CE-23e.txt",        // Extra filename
-        17,                          // Count of palettes listed in the header
-        0x01dff8,                          // Lowest known location used for palettes
+        17,                      // Count of palettes listed in the header
+        0x01dff8,                // Lowest known location used for palettes
     };
 
     static constexpr auto k_SF2CE_JapanROMName_RevA = L"s92j_22a.7f";

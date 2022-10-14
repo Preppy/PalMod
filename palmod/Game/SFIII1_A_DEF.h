@@ -1030,7 +1030,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_ALEX_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_ALEX_FADED_PALETTES[] =
 {
-    { L"Alex Stage (Faded) 1/7", 0x3b4600, 0x3b4800 },
+    { L"Alex Stage (Faded) 1/7", 0x3b4600, 0x3b4800, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Alex Stage (Faded) 2/7", 0x3b4800, 0x3b4a00 },
     { L"Alex Stage (Faded) 3/7", 0x3b4a00, 0x3b4c00 },
     { L"Alex Stage (Faded) 4/7", 0x3b4c00, 0x3b4e00 },
@@ -1051,7 +1051,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_SEAN_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_SEAN_FADED_PALETTES[] =
 {
-    { L"Sean Stage (Faded) 1/6", 0x3b6000, 0x3b6200 },
+    { L"Sean Stage (Faded) 1/6", 0x3b6000, 0x3b6200, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Sean Stage (Faded) 2/6", 0x3b6200, 0x3b6400 },
     { L"Sean Stage (Faded) 3/6", 0x3b6400, 0x3b6600 },
     { L"Sean Stage (Faded) 4/6", 0x3b6600, 0x3b6800 },
@@ -1074,7 +1074,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_RYU_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_RYU_FADED_PALETTES[] =
 {
-    { L"Ryu Stage (Faded) 1/9", 0x3b7d80, 0x3b7f80 },
+    { L"Ryu Stage (Faded) 1/9", 0x3b7d80, 0x3b7f80, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Ryu Stage (Faded) 2/9", 0x3b7f80, 0x3b8180 },
     { L"Ryu Stage (Faded) 3/9", 0x3b8180, 0x3b8380 },
     { L"Ryu Stage (Faded) 4/9", 0x3b8380, 0x3b8580 },
@@ -1098,7 +1098,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_KEN_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_KEN_FADED_PALETTES[] =
 {
-    { L"Ken Stage (Faded) 1/7", 0x3b9c00, 0x3b9e00 },
+    { L"Ken Stage (Faded) 1/7", 0x3b9c00, 0x3b9e00, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Ken Stage (Faded) 2/7", 0x3b9e00, 0x3ba000 },
     { L"Ken Stage (Faded) 3/7", 0x3ba000, 0x3ba200 },
     { L"Ken Stage (Faded) 4/7", 0x3ba200, 0x3ba400 },
@@ -1119,7 +1119,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_YUN_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_YUN_FADED_PALETTES[] =
 {
-    { L"Yun Stage (Faded) 1/6", 0x3bb380, 0x3bb580 },
+    { L"Yun Stage (Faded) 1/6", 0x3bb380, 0x3bb580, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Yun Stage (Faded) 2/6", 0x3bb580, 0x3bb780 },
     { L"Yun Stage (Faded) 3/6", 0x3bb780, 0x3bb980 },
     { L"Yun Stage (Faded) 4/6", 0x3bb980, 0x3bbb80 },
@@ -1137,7 +1137,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_YANG_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_YANG_FADED_PALETTES[] =
 {
-    { L"Yang Stage (Faded) 1/4", 0x3bc600, 0x3bc800 },
+    { L"Yang Stage (Faded) 1/4", 0x3bc600, 0x3bc800, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Yang Stage (Faded) 2/4", 0x3bc800, 0x3bca00 },
     { L"Yang Stage (Faded) 3/4", 0x3bca00, 0x3bcc00 },
     { L"Yang Stage (Faded) 4/4", 0x3bcc00, 0x3bce00 },
@@ -1156,7 +1156,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_DUDLEY_NIGHT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_DUDLEY_NIGHT_FADED_PALETTES[] =
 {
-    { L"Dudley Stage Night (Faded) 1/7", 0x3bda80, 0x3bdc80 },
+    { L"Dudley Stage Night (Faded) 1/7", 0x3bda80, 0x3bdc80, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Dudley Stage Night (Faded) 2/7", 0x3bdc80, 0x3bde80 },
     { L"Dudley Stage Night (Faded) 3/7", 0x3bde80, 0x3be080 },
     { L"Dudley Stage Night (Faded) 4/7", 0x3be080, 0x3be280 },
@@ -1177,7 +1177,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_DUDLEY_DAY_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_DUDLEY_DAY_FADED_PALETTES[] =
 {
-    { L"Dudley Stage Day (Faded) 1/6", 0x3bf300, 0x3bf500 },
+    { L"Dudley Stage Day (Faded) 1/6", 0x3bf300, 0x3bf500, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Dudley Stage Day (Faded) 2/6", 0x3bf500, 0x3bf700 },
     { L"Dudley Stage Day (Faded) 3/6", 0x3bf700, 0x3bf900 },
     { L"Dudley Stage Day (Faded) 4/6", 0x3bf900, 0x3bfb00 },
@@ -1198,7 +1198,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_NECRO_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_NECRO_FADED_PALETTES[] =
 {
-    { L"Necro Stage (Faded) 1/7", 0x3c0b80, 0x3c0d80 },
+    { L"Necro Stage (Faded) 1/7", 0x3c0b80, 0x3c0d80, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Necro Stage (Faded) 2/7", 0x3c0d80, 0x3c0f80 },
     { L"Necro Stage (Faded) 3/7", 0x3c0f80, 0x3c1180 },
     { L"Necro Stage (Faded) 4/7", 0x3c1180, 0x3c1380 },
@@ -1222,7 +1222,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_HUGO_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_HUGO_FADED_PALETTES[] =
 {
-    { L"Hugo Stage (Faded) 1/9", 0x3c3000, 0x3c3200 },
+    { L"Hugo Stage (Faded) 1/9", 0x3c3000, 0x3c3200, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Hugo Stage (Faded) 2/9", 0x3c3200, 0x3c3400 },
     { L"Hugo Stage (Faded) 3/9", 0x3c3400, 0x3c3600 },
     { L"Hugo Stage (Faded) 4/9", 0x3c3600, 0x3c3800 },
@@ -1245,7 +1245,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_ELENA_ROUND1_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_ELENA_ROUND1_FADED_PALETTES[] =
 {
-    { L"Elena Stage (Faded) 1/6", 0x3c8080, 0x3c8280 },
+    { L"Elena Stage (Faded) 1/6", 0x3c8080, 0x3c8280, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Elena Stage (Faded) 2/6", 0x3c8280, 0x3c8480 },
     { L"Elena Stage (Faded) 3/6", 0x3c8480, 0x3c8680 },
     { L"Elena Stage (Faded) 4/6", 0x3c8680, 0x3c8880 },
@@ -1267,7 +1267,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_ELENA_ROUND2_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_ELENA_ROUND2_FADED_PALETTES[] =
 {
-    { L"Elena Stage Round 2 (Faded) 1/8", 0x3c9c00, 0x3c9e00 },
+    { L"Elena Stage Round 2 (Faded) 1/8", 0x3c9c00, 0x3c9e00, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Elena Stage Round 2 (Faded) 2/8", 0x3c9e00, 0x3ca000 },
     { L"Elena Stage Round 2 (Faded) 3/8", 0x3ca000, 0x3ca200 },
     { L"Elena Stage Round 2 (Faded) 4/8", 0x3ca200, 0x3ca400 },
@@ -1289,7 +1289,7 @@ const sGame_PaletteDataset SFIII1_A_STAGE_ORO_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_STAGE_ORO_FADED_PALETTES[] =
 {
-    { L"Oro Stage (Faded) 1/6", 0x3cb800, 0x3cba00 },
+    { L"Oro Stage (Faded) 1/6", 0x3cb800, 0x3cba00, indexSF3NGSprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Oro Stage (Faded) 2/6", 0x3cba00, 0x3cbc00 },
     { L"Oro Stage (Faded) 3/6", 0x3cbc00, 0x3cbe00 },
     { L"Oro Stage (Faded) 4/6", 0x3cbe00, 0x3cc000 },

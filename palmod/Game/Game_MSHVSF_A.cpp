@@ -522,7 +522,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                 if (paletteDataSet->pPalettePairingInfo)
                 {
-                    if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                    if (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairFullyLinkedNode))
                     {
                         const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 

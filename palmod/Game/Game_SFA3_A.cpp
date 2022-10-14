@@ -1,78 +1,5 @@
 #include "StdAfx.h"
 #include "Game_SFA3_A.h"
-#include "GameDef.h"
-#include "..\PalMod.h"
-#include "..\RegProc.h"
-
-stExtraDef* CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM = nullptr;
-
-CDescTree CGame_SFA3_A::MainDescTree = nullptr;
-
-uint32_t CGame_SFA3_A::m_nTotalPaletteCountForSFA3 = 0;
-
-uint32_t CGame_SFA3_A::rgExtraCountAll[SFA3_A_NUMUNIT + 1] = { (uint32_t)-1 };
-uint32_t CGame_SFA3_A::rgExtraLoc[SFA3_A_NUMUNIT + 1] = { (uint32_t)-1 };
-uint32_t CGame_SFA3_A::m_nConfirmedROMSize = -1;
-
-void CGame_SFA3_A::InitializeStatics()
-{
-    safe_delete_array(CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM);
-
-    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
-
-    MainDescTree.SetRootTree(CGame_SFA3_A::InitDescTree());
-}
-
-CGame_SFA3_A::CGame_SFA3_A(uint32_t nConfirmedROMSize)
-{
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_RGB444_BE);
-
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
-    m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    //We need the proper unit amt before we init the main buffer
-    nUnitAmt = SFA3_A_NUMUNIT + (GetExtraCt(SFA3_A_EXTRALOC) ? 1 : 0);
-
-    m_nTotalInternalUnits = SFA3_A_NUMUNIT;
-    m_nExtraUnit = SFA3_A_EXTRALOC;
-    m_nSafeCountForThisRom = 2554 + GetExtraCt(SFA3_A_EXTRALOC);
-    m_pszExtraFilename = EXTRA_FILENAME_SFA3;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
-    m_nLowestKnownPaletteRomLocation = 0x2C000;
-
-    InitDataBuffer();
-
-    //Set game information
-    nGameFlag = SFA3_A;
-    nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = SFA3_A_IMGIDS_USED;
-
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabelSet = DEF_BUTTONLABEL_ISMS;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
-
-    //Create the file changed flag
-    PrepChangeTrackingArray();
-}
-
-CGame_SFA3_A::~CGame_SFA3_A()
-{
-    safe_delete_array(CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM);
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
-}
 
 uint32_t CGame_SFA3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
@@ -143,53 +70,6 @@ uint32_t CGame_SFA3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKno
         ROM_LOAD16_WORD_SWAP("sz3.09a", 0x300000, 0x80000, CRC(2180892c) SHA1(65a44c612b1c6dd527b306c262caa5040897ce7b))
 
 #endif
-}
-
-uint32_t CGame_SFA3_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
-{
-    return _GetExtraCount(rgExtraCountAll, SFA3_A_NUMUNIT, nUnitId, SFA3_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_SFA3_A::GetExtraLoc(uint32_t nUnitId)
-{
-    return _GetExtraLocation(rgExtraLoc, SFA3_A_NUMUNIT, nUnitId, SFA3_A_EXTRA_CUSTOM);
-}
-
-CDescTree* CGame_SFA3_A::GetMainTree()
-{
-    return &CGame_SFA3_A::MainDescTree;
-}
-
-sDescTreeNode* CGame_SFA3_A::InitDescTree()
-{
-    //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SFA3, &SFA3_A_EXTRA_CUSTOM, SFA3_A_EXTRALOC, m_nConfirmedROMSize);
-
-    bool fHaveExtras = (GetExtraCt(SFA3_A_EXTRALOC) > 0);
-    uint16_t nUnitCt = SFA3_A_NUMUNIT + (fHaveExtras ? 1 : 0);
-
-    sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[SFA3_A]);
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
-    //All units have tree children
-    NewDescTree->uChildType = DESC_NODETYPE_TREE;
-
-    m_nTotalPaletteCountForSFA3 = _InitDescTree(NewDescTree,
-        SFA3_A_UNITS,
-        SFA3_A_EXTRALOC,
-        SFA3_A_NUMUNIT,
-        rgExtraCountAll,
-        rgExtraLoc,
-        SFA3_A_EXTRA_CUSTOM
-    );
-
-    // For development use to speed things up
-    //DumpHeaderPalettes();
-
-    return NewDescTree;
 }
 
 struct sSFA3_A_PortraitData
@@ -281,89 +161,6 @@ void CGame_SFA3_A::DumpHeaderPalettes()
     }
 }
 
-sFileRule CGame_SFA3_A::GetRule(uint32_t nUnitId)
-{
-    sFileRule NewFileRule;
-
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"sz3.09c");
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
-}
-
-uint32_t CGame_SFA3_A::GetCollectionCountForUnit(uint32_t nUnitId)
-{
-    return _GetCollectionCountForUnit(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, SFA3_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_SFA3_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetNodeCountForCollection(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, nCollectionId, SFA3_A_EXTRA_CUSTOM);
-}
-
-LPCWSTR CGame_SFA3_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetDescriptionForCollection(SFA3_A_UNITS, SFA3_A_EXTRALOC, nUnitId, nCollectionId);
-}
-
-uint32_t CGame_SFA3_A::GetPaletteCountForUnit(uint32_t nUnitId)
-{
-    return _GetPaletteCountForUnit(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, SFA3_A_EXTRA_CUSTOM);
-}
-
-const sGame_PaletteDataset* CGame_SFA3_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetPaletteSet(SFA3_A_UNITS, nUnitId, nCollectionId);
-}
-
-const sGame_PaletteDataset* CGame_SFA3_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    return _GetSpecificPalette(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, nPaletteId, SFA3_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_SFA3_A::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    return _GetNodeSizeFromPaletteId(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, nPaletteId, SFA3_A_EXTRA_CUSTOM);
-}
-
-const sDescTreeNode* CGame_SFA3_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
-{
-    return _GetNodeFromPaletteId(SFA3_A_UNITS, rgExtraCountAll, SFA3_A_NUMUNIT, SFA3_A_EXTRALOC, nUnitId, nPaletteId, SFA3_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
-}
-
-void CGame_SFA3_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
-{
-    if (nUnitId != SFA3_A_EXTRALOC)
-    {
-        int cbPaletteSizeOnDisc = 0;
-        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
-        cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
-
-        m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-        m_pszCurrentPaletteName = paletteData->szPaletteName;
-
-        // Adjust for ROM-specific variant locations
-        if (m_pCRC32SpecificData)
-        {
-            m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
-        }
-
-    }
-    else // SFA3_A_EXTRALOC
-    {
-        // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &SFA3_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
-
-        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
-        m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
 BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
@@ -397,7 +194,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (SFA3_A_EXTRALOC != NodeGet->uUnitId)
+    if (m_nExtraUnit != NodeGet->uUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
         const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
@@ -479,7 +276,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                if (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairFullyLinkedNode))
                 {
                     const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 

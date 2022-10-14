@@ -70,22 +70,22 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_4_BMKNS =
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_NEOGEO_FIVE =
 {
-   L"A", L"B", L"C", L"D", L"Boss"
+    L"A", L"B", L"C", L"D", L"Boss"
 };
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_WAKUWAKU7_FIVE =
 {
-   L"A", L"B", L"C", L"D", L"Dark"
+    L"A", L"B", L"C", L"D", L"Dark"
 };
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_JOJOS_5 =
 {
-   L"A", L"B", L"C", L"S", L"Start"
+    L"A", L"B", L"C", L"S", L"Start"
 };
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL6 =
 {
-   L"LP", L"MP", L"HP", L"LK", L"MK", L"HK"
+    L"LP", L"MP", L"HP", L"LK", L"MK", L"HK"
 };
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_GBA =
@@ -95,12 +95,12 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_GBA =
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_ISMS =
 {
-   L"X-Ism P", L"X-Ism K", L"A-Ism P", L"A-Ism K", L"V-Ism P", L"V-Ism K"
+    L"X-Ism Punch", L"X-Ism Kick", L"A-Ism Punch", L"A-Ism Kick", L"V-Ism Punch", L"V-Ism Kick"
 };
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_SFA2 =
 {
-   L"P", L"K", L"PP", L"KK", L"Auto P", L"Auto K"
+    L"P", L"K", L"PP", L"KK", L"Auto P", L"Auto K"
 };
 
 const std::vector<LPCWSTR> DEF_BUTTONLABEL_SFA2_HACK =

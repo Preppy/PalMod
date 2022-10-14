@@ -1836,7 +1836,7 @@ const sGame_PaletteDataset SFIII2_A_STAGES_ALEX_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_STAGES_ALEX_FADED_PALETTES[] =
 {
-    { L"Alex Stage (Faded) (1/8)", 0x3b5f00 + (0 * 0x200), 0x3b5f00 + (1 * 0x200) },
+    { L"Alex Stage (Faded) (1/8)", 0x3b5f00 + (0 * 0x200), 0x3b5f00 + (1 * 0x200), indexSF2ISprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Alex Stage (Faded) (2/8)", 0x3b5f00 + (1 * 0x200), 0x3b5f00 + (2 * 0x200) },
     { L"Alex Stage (Faded) (3/8)", 0x3b5f00 + (2 * 0x200), 0x3b5f00 + (3 * 0x200) },
     { L"Alex Stage (Faded) (4/8)", 0x3b5f00 + (3 * 0x200), 0x3b5f00 + (4 * 0x200) },
@@ -1864,7 +1864,7 @@ const sGame_PaletteDataset SFIII2_A_STAGES_GILL_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_STAGES_GILL_FADED_PALETTES[] =
 {
-    { L"Gill Stage (Faded) (1/12)", 0x3b3580 + (0 * 0x200), 0x3b3580 + (1 * 0x200) },
+    { L"Gill Stage (Faded) (1/12)", 0x3b3580 + (0 * 0x200), 0x3b3580 + (1 * 0x200), indexSF2ISprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Gill Stage (Faded) (2/12)", 0x3b3580 + (1 * 0x200), 0x3b3580 + (2 * 0x200) },
     { L"Gill Stage (Faded) (3/12)", 0x3b3580 + (2 * 0x200), 0x3b3580 + (3 * 0x200) },
     { L"Gill Stage (Faded) (4/12)", 0x3b3580 + (3 * 0x200), 0x3b3580 + (4 * 0x200) },
@@ -1891,7 +1891,7 @@ const sGame_PaletteDataset SFIII2_A_STAGES_RYU_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_STAGES_RYU_FADED_PALETTES[] =
 {
-    { L"Ryu Stage (Faded) (1/7)", 0x3b7c00 + (0 * 0x200), 0x3b7c00 + (1 * 0x200) },
+    { L"Ryu Stage (Faded) (1/7)", 0x3b7c00 + (0 * 0x200), 0x3b7c00 + (1 * 0x200), indexSF2ISprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Ryu Stage (Faded) (2/7)", 0x3b7c00 + (1 * 0x200), 0x3b7c00 + (2 * 0x200) },
     { L"Ryu Stage (Faded) (3/7)", 0x3b7c00 + (2 * 0x200), 0x3b7c00 + (3 * 0x200) },
     { L"Ryu Stage (Faded) (4/7)", 0x3b7c00 + (3 * 0x200), 0x3b7c00 + (4 * 0x200) },
@@ -1912,7 +1912,7 @@ const sGame_PaletteDataset SFIII2_A_STAGES_YUN_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_STAGES_YUN_FADED_PALETTES[] =
 {
-    { L"Yun Stage (Faded) (1/6)", 0x3b9400 + (0 * 0x200), 0x3b9400 + (1 * 0x200) },
+    { L"Yun Stage (Faded) (1/6)", 0x3b9400 + (0 * 0x200), 0x3b9400 + (1 * 0x200), indexSF2ISprites_Bonus, -1, &pairFullyLinkedNode },
     { L"Yun Stage (Faded) (2/6)", 0x3b9400 + (1 * 0x200), 0x3b9400 + (2 * 0x200) },
     { L"Yun Stage (Faded) (3/6)", 0x3b9400 + (2 * 0x200), 0x3b9400 + (3 * 0x200) },
     { L"Yun Stage (Faded) (4/6)", 0x3b9400 + (3 * 0x200), 0x3b9400 + (4 * 0x200) },

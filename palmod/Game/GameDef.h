@@ -570,7 +570,7 @@ const stPairedPaletteInfo pairNext11Palettes =                      { 1, false, 
 constexpr auto MAXIMUM_PALETTE_PAIRS_ALLOWED = 12;
 
 // Vs Series
-const stPairedPaletteInfo pairMVCDevilotNormal =                    { 1 };       // Don't use pairNext here: we manually tweak z-order
+const stPairedPaletteInfo pairMVCDevilotNormal =                    { 1, false, 4 }; // Don't use pairNext here: we manually tweak z-order
 
 #pragma region SecondaryPaletteEffects
 

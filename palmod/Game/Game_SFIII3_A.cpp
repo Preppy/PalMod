@@ -1038,7 +1038,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
                 }
-                else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                else if (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairFullyLinkedNode))
                 {
                     const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 

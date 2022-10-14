@@ -287,7 +287,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 int nPaletteOneDelta = 0;
                 int nPaletteTwoDelta = 0;
 
-                if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                if (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairFullyLinkedNode))
                 {
                     const sDescTreeNode* pThisNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
                     const uint32_t nStageCount = pThisNode->uChildAmt;
@@ -315,14 +315,14 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 else if (!UseDataFor50())
                 {
                     if (((NodeGet->uUnitId == indexJojos51Kakyo) || (NodeGet->uUnitId == indexJojos51NewKakyo)) &&
-                         (paletteDataSet->pPalettePairingInfo == &pairHandledInCode))
+                         (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairHandledInCode)))
                     {
                         // Hiero glow cycle: show the changing palette on top of a normal Kakyo
                         nPaletteOneDelta = 0;
                         nPaletteTwoDelta = -nSrcStart;
                         fUseDefaultPaletteLoad = false;
                     }
-                    else if (paletteDataSet->pPalettePairingInfo == &pairHandledInCode)
+                    else if (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairHandledInCode))
                     {
                         OutputDebugString(L"Error: unhandled palette join!\n");
                     }
@@ -343,7 +343,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         uint16_t imageTwo = paletteDataSetTwo->indexOffsetToUse;
 
                         if ((NodeGet->uUnitId == indexJojos51Kakyo) &&
-                            (paletteDataSet->pPalettePairingInfo == &pairHandledInCode))
+                            (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairHandledInCode)))
                         {
                             // old kak needs to flip preview layout for the hierophant glow
                             ClearSetImgTicket(

@@ -447,7 +447,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if ((NodeGet->uUnitId == indexMVCAssists) && (paletteDataSet->pPalettePairingInfo == &pairMVCDevilotNormal))
+                if ((NodeGet->uUnitId == indexMVCAssists) && (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairMVCDevilotNormal)))
                 {
                     int8_t nPeerPaletteDistance1 = 1;
                     int8_t nPeerPaletteDistance2 = 2;
@@ -522,7 +522,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
                     SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
                 }
-                else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                else if (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairFullyLinkedNode))
                 {
                     const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 

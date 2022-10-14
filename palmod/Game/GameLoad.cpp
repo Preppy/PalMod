@@ -1790,7 +1790,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case SF2HF_A:
     {
-        return new CGame_SF2HF_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_SF2HF_A(nConfirmedROMSize);
     }
     case SHAQFU_SNES:
     {
@@ -1931,10 +1931,8 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             CGame_FatalFury2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case HSF2_A:
-        {
             CGame_HSF2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
-        }
         case JOJOS_A:
             nGameRule = static_cast<int>((wcscmp(pszFileNameLowercase, L"50") == 0) ? JojosLoadingKey::JOJOS_A_50_ROMKEY : JojosLoadingKey::JOJOS_A_51_ROMKEY);
             break;
@@ -1973,15 +1971,11 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             break;
         }
         case REDEARTH_A:
-        {
             CGame_REDEARTH_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
-        }
         case SAMSHO1_A:
-        {
             CGame_SAMSHO1_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
-        }
         case SAMSHO5_A:
         case SAMSHO5X_A:
             CGame_SAMSHO5_A::SetSpecialRuleForFileName(pszFileNameLowercase);
@@ -2013,21 +2007,8 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             break;
         }
         case SF2HF_A:
-        {
-            if (wcsstr(pszFileNameLowercase, L"21") != nullptr)
-            {
-                nGameRule = 21;
-            }
-            else if (wcsstr(pszFileNameLowercase, L"23") != nullptr)
-            {
-                nGameRule = 23;
-            }
-            else
-            {
-                nGameRule = 22;
-            }
+            CGame_SF2HF_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
-        }
         case SF2CE_A:
             CGame_SF2CE_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
