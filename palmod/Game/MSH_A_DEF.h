@@ -1171,15 +1171,9 @@ const sDescTreeNode MSH_UNITS_05[] =
     { L"Bonus Palettes",                DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_05_COLLECTION,         ARRAYSIZE(MSH_A_BONUS_05_COLLECTION) },
 };
 
-constexpr auto MSH_A_NUMUNIT_05 = ARRAYSIZE(MSH_UNITS_05);
-constexpr auto MSH_A_EXTRALOC_05 = MSH_A_NUMUNIT_05;
-
 const sDescTreeNode MSH_UNITS_06[] =
 {
     { L"Character Select Portraits",    DESC_NODETYPE_TREE, (void*)MSH_A_CSP_COLLECTION,              ARRAYSIZE(MSH_A_CSP_COLLECTION) },
     { L"Victory Screen Portraits",      DESC_NODETYPE_TREE, (void*)MSH_A_VSP_COLLECTION,              ARRAYSIZE(MSH_A_VSP_COLLECTION) },
     { L"Bonus Palettes",                DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_06_COLLECTION,         ARRAYSIZE(MSH_A_BONUS_06_COLLECTION) },
 };
-
-constexpr auto MSH_A_NUMUNIT_06 = ARRAYSIZE(MSH_UNITS_06);
-constexpr auto MSH_A_EXTRALOC_06 = MSH_A_NUMUNIT_06;

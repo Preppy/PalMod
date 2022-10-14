@@ -1,96 +1,58 @@
 #include "StdAfx.h"
 #include "Game_MSHVSF_A.h"
-#include "GameDef.h"
-#include "..\PalMod.h"
 
-stExtraDef* CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A = nullptr;
-stExtraDef* CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B = nullptr;
+CGame_MSHVSF_A::MSHVSFLoadingKey CGame_MSHVSF_A::m_eVersionToLoad = MSHVSFLoadingKey::ROM06;
 
-CDescTree CGame_MSHVSF_A::MainDescTree_6A = nullptr;
-CDescTree CGame_MSHVSF_A::MainDescTree_7B = nullptr;
-
-uint32_t CGame_MSHVSF_A::m_nMSHVSFSelectedRom = 6;
-uint32_t CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_6A = 0;
-uint32_t CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_7B = 0;
-uint32_t CGame_MSHVSF_A::m_nConfirmedROMSize = -1;
-
-uint32_t CGame_MSHVSF_A::rgExtraLocation_6A[MSHVSF_A_NUM_IND_6A + 1] = { (uint32_t)-1 };
-uint32_t CGame_MSHVSF_A::rgExtraLocation_7B[MSHVSF_A_NUM_IND_7B + 1] = { (uint32_t)-1 };
-uint32_t CGame_MSHVSF_A::rgExtraCount_6A[MSHVSF_A_NUM_IND_6A + 1] = { (uint32_t)-1 };
-uint32_t CGame_MSHVSF_A::rgExtraCount_7B[MSHVSF_A_NUM_IND_7B + 1] = { (uint32_t)-1 };
-
-void CGame_MSHVSF_A::InitializeStatics()
+void CGame_MSHVSF_A::SetSpecialRuleForFileName(std::wstring strFileName)
 {
-    safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A);
-    safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B);
+    const std::map<std::wstring, MSHVSFLoadingKey> m_rgFileNameToVersion =
+    {
+        // these must be all lower case
+        { L"mvs.06a", MSHVSFLoadingKey::ROM06 },
+        { L"mvs.07b", MSHVSFLoadingKey::ROM07 },
+    };
 
-    memset(rgExtraLocation_6A, -1, sizeof(rgExtraLocation_6A));
-    memset(rgExtraLocation_7B, -1, sizeof(rgExtraLocation_7B));
-    memset(rgExtraCount_6A, -1, sizeof(rgExtraCount_6A));
-    memset(rgExtraCount_7B, -1, sizeof(rgExtraCount_7B));
+    CString strFileNameLowerCase = strFileName.c_str();
+    strFileNameLowerCase.MakeLower();
 
-    MainDescTree_6A.SetRootTree(CGame_MSHVSF_A::InitDescTree(6));
-    MainDescTree_7B.SetRootTree(CGame_MSHVSF_A::InitDescTree(7));
+    auto result = m_rgFileNameToVersion.find(strFileNameLowerCase.GetString());
+
+    if (result != m_rgFileNameToVersion.end())
+    {
+        m_eVersionToLoad = result->second;
+    }
+    else
+    {
+        m_eVersionToLoad = MSHVSFLoadingKey::ROM06;
+    }
+
+    return;
 }
 
-CGame_MSHVSF_A::CGame_MSHVSF_A(uint32_t nConfirmedROMSize, int nMSHVSFRomToLoad)
+CGame_MSHVSF_A::CGame_MSHVSF_A(uint32_t nConfirmedROMSize)
 {
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_RGB444_BE);
-
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
-    m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    m_nMSHVSFSelectedRom = (nMSHVSFRomToLoad == 6) ? 6 : 7;
-
-    CString strMessage;
-    strMessage.Format(L"CGame_MSHVSF_A::CGame_MSHVSF_A: Loading for the %s ROM\n", (m_nMSHVSFSelectedRom == 6) ? L"6A" : L"7B");
-    OutputDebugString(strMessage);
-
-    m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSHVSF_A_NUM_IND_6A : MSHVSF_A_NUM_IND_7B;
-    m_nExtraUnit = UsePaletteSetForCharacters() ? MSHVSF_A_EXTRALOC_6A : MSHVSF_A_EXTRALOC_7B;
-
-    const uint32_t nSafeCountFor6A = 1099;
-    const uint32_t nSafeCountFor7B = 228;
-
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForCharacters() ? nSafeCountFor6A : nSafeCountFor7B);
-    m_pszExtraFilename = UsePaletteSetForCharacters() ? EXTRA_FILENAME_MSHVSF_6A : EXTRA_FILENAME_MSHVSF_7B;
-    m_nTotalPaletteCount = UsePaletteSetForCharacters() ? m_nTotalPaletteCountForMSHVSF_6A : m_nTotalPaletteCountForMSHVSF_7B;
-    m_nLowestKnownPaletteRomLocation = UsePaletteSetForCharacters() ? m_uLowestKnownPaletteROMLocation_6A : m_uLowestKnownPaletteROMLocation_7B;
-
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    InitDataBuffer();
-
-    //Set game information
-    nGameFlag = MSHVSF_A;
-    nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = MSHVSF_A_IMGIDS_USED;
-
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabelSet = DEF_BUTTONLABEL_2;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
-
-    //Create the file changed flag
-    PrepChangeTrackingArray();
+    switch (m_eVersionToLoad)
+    {
+    case MSHVSFLoadingKey::ROM06:
+    default:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM06);
+        break;
+    case MSHVSFLoadingKey::ROM07:
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM07);
+        break;
+    }
 }
 
-CGame_MSHVSF_A::~CGame_MSHVSF_A()
+sFileRule CGame_MSHVSF_A::GetRule(uint32_t nRuleId)
 {
-    safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A);
-    safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B);
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
+    switch (m_eVersionToLoad)
+    {
+    case MSHVSFLoadingKey::ROM06:
+    default:
+        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM07);
+    case MSHVSFLoadingKey::ROM07:
+        return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData_ROM07);
+    }
 }
 
 uint32_t CGame_MSHVSF_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
@@ -154,271 +116,21 @@ GAME(1997, mshvsfu1d,  mshvsf,   dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
     return ARRAYSIZE(knownROMs);
 }
 
-uint32_t CGame_MSHVSF_A::GetExtraLoc(uint32_t nUnitId)
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return _GetExtraLocation(rgExtraLocation_6A, MSHVSF_A_NUM_IND_6A, nUnitId, MSHVSF_A_EXTRA_CUSTOM_6A);
-    }
-    else
-    {
-        return _GetExtraLocation(rgExtraLocation_7B, MSHVSF_A_NUM_IND_7B, nUnitId, MSHVSF_A_EXTRA_CUSTOM_7B);
-    }
-}
-
-uint32_t CGame_MSHVSF_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return _GetExtraCount(rgExtraCount_6A, MSHVSF_A_NUM_IND_6A, nUnitId, MSHVSF_A_EXTRA_CUSTOM_6A);
-    }
-    else
-    {
-        return _GetExtraCount(rgExtraCount_7B, MSHVSF_A_NUM_IND_7B, nUnitId, MSHVSF_A_EXTRA_CUSTOM_7B);
-    }
-}
-
-CDescTree* CGame_MSHVSF_A::GetMainTree()
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return &CGame_MSHVSF_A::MainDescTree_6A;
-    }
-    else
-    {
-        return &CGame_MSHVSF_A::MainDescTree_7B;
-    }
-}
-
-sDescTreeNode* CGame_MSHVSF_A::InitDescTree(uint32_t nROMPaletteSetToUse)
-{
-    m_nMSHVSFSelectedRom = nROMPaletteSetToUse;
-
-    uint16_t nUnitCt;
-    uint8_t nExtraUnitLocation;
-
-    //Load extra file if we're using it
-    if (UsePaletteSetForCharacters())
-    {
-        nExtraUnitLocation = MSHVSF_A_EXTRALOC_6A;
-        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_6A, &MSHVSF_A_EXTRA_CUSTOM_6A, MSHVSF_A_EXTRALOC_6A, m_nConfirmedROMSize);
-        nUnitCt = (MSHVSF_A_NUM_IND_6A + (GetExtraCt(nExtraUnitLocation) ? 1 : 0));
-
-    }
-    else
-    {
-        nExtraUnitLocation = MSHVSF_A_EXTRALOC_7B;
-        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_7B, &MSHVSF_A_EXTRA_CUSTOM_7B, MSHVSF_A_EXTRALOC_7B, m_nConfirmedROMSize);
-        nUnitCt = (MSHVSF_A_NUM_IND_7B + (GetExtraCt(nExtraUnitLocation) ? 1 : 0));
-    }
-
-    sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[MSHVSF_A]);
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
-    //All units have tree children
-    NewDescTree->uChildType = DESC_NODETYPE_TREE;
-
-    if (UsePaletteSetForCharacters())
-    {
-        m_nTotalPaletteCountForMSHVSF_6A = _InitDescTree(NewDescTree,
-            MSHVSF_A_UNITS_6A,
-            nExtraUnitLocation,
-            MSHVSF_A_NUM_IND_6A,
-            rgExtraCount_6A,
-            rgExtraLocation_6A,
-            MSHVSF_A_EXTRA_CUSTOM_6A
-        );
-    }
-    else
-    {
-        m_nTotalPaletteCountForMSHVSF_7B = _InitDescTree(NewDescTree,
-            MSHVSF_A_UNITS_7B,
-            nExtraUnitLocation,
-            MSHVSF_A_NUM_IND_7B,
-            rgExtraCount_7B,
-            rgExtraLocation_7B,
-            MSHVSF_A_EXTRA_CUSTOM_7B
-        );
-    }
-
-    return NewDescTree;
-}
-
-sFileRule CGame_MSHVSF_A::GetRule(uint32_t nUnitId)
-{
-    sFileRule NewFileRule;
-
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, (nUnitId == 6) ? L"mvs.06a" : L"mvs.07b");
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
-}
-
-uint32_t CGame_MSHVSF_A::GetCollectionCountForUnit(uint32_t nUnitId)
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return _GetCollectionCountForUnit(MSHVSF_A_UNITS_6A, rgExtraCount_6A, MSHVSF_A_NUM_IND_6A, MSHVSF_A_EXTRALOC_6A, nUnitId, MSHVSF_A_EXTRA_CUSTOM_6A);
-    }
-    else
-    {
-        return _GetCollectionCountForUnit(MSHVSF_A_UNITS_7B, rgExtraCount_7B, MSHVSF_A_NUM_IND_7B, MSHVSF_A_EXTRALOC_7B, nUnitId, MSHVSF_A_EXTRA_CUSTOM_7B);
-    }
-}
-
-uint32_t CGame_MSHVSF_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return _GetNodeCountForCollection(MSHVSF_A_UNITS_6A, rgExtraCount_6A, MSHVSF_A_NUM_IND_6A, MSHVSF_A_EXTRALOC_6A, nUnitId, nCollectionId, MSHVSF_A_EXTRA_CUSTOM_6A);
-    }
-    else
-    {
-        return _GetNodeCountForCollection(MSHVSF_A_UNITS_7B, rgExtraCount_7B, MSHVSF_A_NUM_IND_7B, MSHVSF_A_EXTRALOC_7B, nUnitId, nCollectionId, MSHVSF_A_EXTRA_CUSTOM_7B);
-    }
-}
-
-LPCWSTR CGame_MSHVSF_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return _GetDescriptionForCollection(MSHVSF_A_UNITS_6A, MSHVSF_A_EXTRALOC_6A, nUnitId, nCollectionId);
-    }
-    else
-    {
-        return _GetDescriptionForCollection(MSHVSF_A_UNITS_7B, MSHVSF_A_EXTRALOC_7B, nUnitId, nCollectionId);
-    }
-}
-
-uint32_t CGame_MSHVSF_A::GetPaletteCountForUnit(uint32_t nUnitId)
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return _GetPaletteCountForUnit(MSHVSF_A_UNITS_6A, rgExtraCount_6A, MSHVSF_A_NUM_IND_6A, MSHVSF_A_EXTRALOC_6A, nUnitId, MSHVSF_A_EXTRA_CUSTOM_6A);
-    }
-    else
-    {
-        return _GetPaletteCountForUnit(MSHVSF_A_UNITS_7B, rgExtraCount_7B, MSHVSF_A_NUM_IND_7B, MSHVSF_A_EXTRALOC_7B, nUnitId, MSHVSF_A_EXTRA_CUSTOM_7B);
-    }
-}
-
-const sGame_PaletteDataset* CGame_MSHVSF_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return _GetPaletteSet(MSHVSF_A_UNITS_6A, nUnitId, nCollectionId);
-    }
-    else
-    {
-        return _GetPaletteSet(MSHVSF_A_UNITS_7B, nUnitId, nCollectionId);
-    }
-}
-
-uint32_t CGame_MSHVSF_A::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    // Don't use this for Extra palettes.
-    uint32_t nNodeSize = 0;
-    uint32_t nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    uint32_t nDistanceFromZero = nPaletteId;
-
-    for (uint32_t nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        uint32_t nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
-
-        if (nDistanceFromZero < nNodeCount)
-        {
-            nNodeSize = nNodeCount;
-            break;
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return nNodeSize;
-}
-
-const sDescTreeNode* CGame_MSHVSF_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return _GetNodeFromPaletteId(MSHVSF_A_UNITS_6A, rgExtraCount_6A, MSHVSF_A_NUM_IND_6A, MSHVSF_A_EXTRALOC_6A, nUnitId, nPaletteId, MSHVSF_A_EXTRA_CUSTOM_6A, fReturnBasicNodesOnly);
-    }
-    else
-    {
-        return _GetNodeFromPaletteId(MSHVSF_A_UNITS_7B, rgExtraCount_7B, MSHVSF_A_NUM_IND_7B, MSHVSF_A_EXTRALOC_7B, nUnitId, nPaletteId, MSHVSF_A_EXTRA_CUSTOM_7B, fReturnBasicNodesOnly);
-    }
-}
-
-const sGame_PaletteDataset* CGame_MSHVSF_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return _GetSpecificPalette(MSHVSF_A_UNITS_6A, rgExtraCount_6A, MSHVSF_A_NUM_IND_6A, MSHVSF_A_EXTRALOC_6A, nUnitId, nPaletteId, MSHVSF_A_EXTRA_CUSTOM_6A);
-    }
-    else
-    {
-        return _GetSpecificPalette(MSHVSF_A_UNITS_7B, rgExtraCount_7B, MSHVSF_A_NUM_IND_7B, MSHVSF_A_EXTRALOC_7B, nUnitId, nPaletteId, MSHVSF_A_EXTRA_CUSTOM_7B);
-    }
-}
-
-void CGame_MSHVSF_A::InitDataBuffer()
-{
-    m_nBufferSelectedRom = m_nMSHVSFSelectedRom;
-    m_pppDataBuffer = new uint16_t * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(uint16_t**) * nUnitAmt);
-}
-
-void CGame_MSHVSF_A::ClearDataBuffer()
-{
-    uint32_t nCurrentROMMode = m_nMSHVSFSelectedRom;
-
-    m_nMSHVSFSelectedRom = m_nBufferSelectedRom;
-
-    if (m_pppDataBuffer)
-    {
-        for (uint32_t nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            if (m_pppDataBuffer[nUnitCtr])
-            {
-                uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-                for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-                {
-                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
-                }
-
-                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
-            }
-        }
-
-        safe_delete_array(m_pppDataBuffer);
-    }
-
-    m_nMSHVSFSelectedRom = nCurrentROMMode;
-}
-
+// We use special handling for the Captain America part 2 palette
 void CGame_MSHVSF_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
-    if (UsePaletteSetForCharacters() ? (nUnitId != MSHVSF_A_EXTRALOC_6A) :
-                                       (nUnitId != MSHVSF_A_EXTRALOC_7B))
+    if (nUnitId != m_nCurrentExtraUnitId)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
 
-        cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
+        cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
         m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
 
-        if ((m_nCurrentPaletteROMLocation == 0) && !UsePaletteSetForCharacters())
+        if ((m_nCurrentPaletteROMLocation == 0) && (m_eVersionToLoad == MSHVSFLoadingKey::ROM07))
         {
             // This is a very particular override for the split-rom Captain America Part 2 sprite
             createPalOptions.nTransparencyColorPosition = 6;
@@ -431,7 +143,7 @@ void CGame_MSHVSF_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     else // MSHVSF_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = UsePaletteSetForCharacters() ? &MSHVSF_A_EXTRA_CUSTOM_6A[GetExtraLoc(nUnitId) + nPalId] : &MSHVSF_A_EXTRA_CUSTOM_7B[GetExtraLoc(nUnitId) + nPalId];
+        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
@@ -439,6 +151,7 @@ void CGame_MSHVSF_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
     }
 }
 
+// We use special handling here for Blackheart and Mephisto
 BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
@@ -472,8 +185,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (UsePaletteSetForCharacters() ? (NodeGet->uUnitId != MSHVSF_A_EXTRALOC_6A) :
-                                       (NodeGet->uUnitId != MSHVSF_A_EXTRALOC_7B))
+    if (NodeGet->uUnitId != m_nCurrentExtraUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -492,19 +204,19 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
-                    if (NodeGet->uUnitId == index_MSHVSF_Blackheart_Mephisto)
+                    if (wcscmp(m_rgCurrentGameUnits.at(NodeGet->uUnitId).szDesc, k_pszBlackheartUnit) == 0)
                     {
                         constexpr int32_t nBlackheartNodeSize = ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH);
                         constexpr int32_t nMephistoNodeSize = ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH);
                         // Blackheart and Mephisto displays
-                        if ((nSrcStart >= nNodeIncrement) && (nSrcStart <= (nNodeIncrement * nBlackheartNodeSize)))
+                        if ((nSrcStart >= nNodeIncrement) && (nSrcStart < (nNodeIncrement * nBlackheartNodeSize)))
                         {
                             // Blackheart
                             nSrcStart -= nNodeIncrement;
                         }
                         else // Mephisto
                         {
-                            if ((uint32_t)nSrcStart > (nSrcAmt * nBlackheartNodeSize))
+                            if (static_cast<uint32_t>(nSrcStart) > (nSrcAmt * nBlackheartNodeSize))
                             {
                                 nSrcStart -= nMephistoNodeSize;
                             }
@@ -596,8 +308,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
 void CGame_MSHVSF_A::PostSetPal(uint32_t nUnitId, uint32_t nPalId)
 {
-    if (UsePaletteSetForCharacters() ? (nUnitId != MSHVSF_A_EXTRALOC_6A) :
-                                       (nUnitId != MSHVSF_A_EXTRALOC_7B))
+    if (nUnitId != m_nCurrentExtraUnitId)
     {
         CString strMessage;
         strMessage.Format(L"CGame_MSHVSF_A::PostSetPal : Checking additional change requirements for unit %u palette %u.\n", nUnitId, nPalId);

@@ -885,16 +885,16 @@ const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK[] =
 };
 
 #ifdef UNKNOWN_STATUS_PALETES
-// maybe cyber akuma? unclear
-{ L"Burning Light", 0x73acc + (0 * 0x20), 0x73aec + (0 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Burning Dark",   0x73acc + (1 * 0x20), 0x73aec + (1 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Shocked Light",  0x73acc + (2 * 0x20), 0x73aec + (2 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Shocked Dark",   0x73acc + (3 * 0x20), 0x73aec + (3 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Dark Burn Light",0x73acc + (4 * 0x20), 0x73aec + (4 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Dark Burn Dark", 0x73acc + (5 * 0x20), 0x73aec + (5 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Kinetic 1 (Unused)",      0x73acc + (6 * 0x20), 0x73aec + (6 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Kinetic 2 (Unused)",      0x73acc + (7 * 0x20), 0x73aec + (7 * 0x20), indexCPS2Sprites_Akuma },
-{ L"Kinetic 3 (Unused)",      0x73acc + (8 * 0x20), 0x73aec + (8 * 0x20), indexCPS2Sprites_Akuma },
+    // maybe cyber akuma? unclear
+    { L"Burning Light", 0x73acc + (0 * 0x20), 0x73aec + (0 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Burning Dark",   0x73acc + (1 * 0x20), 0x73aec + (1 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Shocked Light",  0x73acc + (2 * 0x20), 0x73aec + (2 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Shocked Dark",   0x73acc + (3 * 0x20), 0x73aec + (3 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Dark Burn Light",0x73acc + (4 * 0x20), 0x73aec + (4 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Dark Burn Dark", 0x73acc + (5 * 0x20), 0x73aec + (5 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Kinetic 1 (Unused)",      0x73acc + (6 * 0x20), 0x73aec + (6 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Kinetic 2 (Unused)",      0x73acc + (7 * 0x20), 0x73aec + (7 * 0x20), indexCPS2Sprites_Akuma },
+    { L"Kinetic 3 (Unused)",      0x73acc + (8 * 0x20), 0x73aec + (8 * 0x20), indexCPS2Sprites_Akuma },
 #endif
 
 const sGame_PaletteDataset MSHVSF_A_DAN_STATUS[] =
@@ -2285,11 +2285,13 @@ const sDescTreeNode MSHVSF_A_STAGE_COLLECTION[] =
     { L"Temple of Fists",               DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_TEMPLE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_TEMPLE_PALETTES) },
 };
 
+#define k_pszBlackheartUnit L"Blackheart/Mephisto"
+
 const sDescTreeNode MSHVSF_A_UNITS_6A[] =
 {
     { L"Akuma",                 DESC_NODETYPE_TREE, (void*)MSHVSF_A_AKUMA_COLLECTION,               ARRAYSIZE(MSHVSF_A_AKUMA_COLLECTION) },
     { L"Armored Spider-Man",    DESC_NODETYPE_TREE, (void*)MSHVSF_A_ARMORED_SPIDERMAN_COLLECTION,   ARRAYSIZE(MSHVSF_A_ARMORED_SPIDERMAN_COLLECTION) },
-    { L"Blackheart/Mephisto",   DESC_NODETYPE_TREE, (void*)MSHVSF_A_BLACKHEART_MEPHISTO_COLLECTION, ARRAYSIZE(MSHVSF_A_BLACKHEART_MEPHISTO_COLLECTION) },
+    { k_pszBlackheartUnit,      DESC_NODETYPE_TREE, (void*)MSHVSF_A_BLACKHEART_MEPHISTO_COLLECTION, ARRAYSIZE(MSHVSF_A_BLACKHEART_MEPHISTO_COLLECTION) },
     { L"Captain America",       DESC_NODETYPE_TREE, (void*)MSHVSF_A_CAPTAIN_AMERICA_COLLECTION,     ARRAYSIZE(MSHVSF_A_CAPTAIN_AMERICA_COLLECTION) },
     { L"Chun-Li",               DESC_NODETYPE_TREE, (void*)MSHVSF_A_CHUNLI_COLLECTION,              ARRAYSIZE(MSHVSF_A_CHUNLI_COLLECTION) },
     { L"Cyber Akuma",           DESC_NODETYPE_TREE, (void*)MSHVSF_A_CYBER_AKUMA_COLLECTION,         ARRAYSIZE(MSHVSF_A_CYBER_AKUMA_COLLECTION) },
@@ -2317,47 +2319,9 @@ const sDescTreeNode MSHVSF_A_UNITS_6A[] =
     { L"Stages",                DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGE_COLLECTION,               ARRAYSIZE(MSHVSF_A_STAGE_COLLECTION) },
 };
 
-constexpr auto MSHVSF_A_NUM_IND_6A = ARRAYSIZE(MSHVSF_A_UNITS_6A);
-constexpr auto MSHVSF_A_EXTRALOC_6A = MSHVSF_A_NUM_IND_6A;
-
-enum Supported_MSHVSF_6A_PaletteListIndex
-{
-    index_MSHVSF_Gouki,
-    index_MSHVSF_ArmoredSpiderMan,
-    index_MSHVSF_Blackheart_Mephisto,
-    index_MSHVSF_CaptainAmerica,
-    index_MSHVSF_ChunLi,
-    index_MSHVSF_CyberGouki,
-    index_MSHVSF_Cyclops,
-    index_MSHVSF_Dan,
-    index_MSHVSF_DarkSakura,
-    index_MSHVSF_Dhalsim,
-    index_MSHVSF_Hulk,
-    index_MSHVSF_Ken,
-    index_MSHVSF_MBison,
-    index_MSHVSF_MechZangief,
-    index_MSHVSF_Norimaro,
-    index_MSHVSF_OmegaRed,
-    index_MSHVSF_Ryu,
-    index_MSHVSF_Sakura,
-    index_MSHVSF_Shadow,
-    index_MSHVSF_ShumaGorath,
-    index_MSHVSF_SpiderMan,
-    index_MSHVSF_USAgent,
-    index_MSHVSF_Wolverine,
-    index_MSHVSF_Zangief,
-    index_MSHVSF_Apocalypse,
-    index_MSHVSF_StatusEffects,
-    index_MSHVSF_IconsAndPortraits,
-    index_MSHVSF_Stages,
-};
-
 const sDescTreeNode MSHVSF_A_UNITS_7B[] =
 {
     { L"Victory Screen Portraits",  DESC_NODETYPE_TREE, (void*)MSHVSF_A_VSP_COLLECTION_7B, ARRAYSIZE(MSHVSF_A_VSP_COLLECTION_7B) },
     { L"Continue Screen Portraits",  DESC_NODETYPE_TREE, (void*)MSHVSF_A_CSP_COLLECTION_7B, ARRAYSIZE(MSHVSF_A_CSP_COLLECTION_7B) },
     { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)MSHVSF_A_7B_BONUS_COLLECTION, ARRAYSIZE(MSHVSF_A_7B_BONUS_COLLECTION) },
 };
-
-constexpr auto MSHVSF_A_NUM_IND_7B = ARRAYSIZE(MSHVSF_A_UNITS_7B);
-constexpr auto MSHVSF_A_EXTRALOC_7B = MSHVSF_A_NUM_IND_7B;

@@ -1570,11 +1570,11 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case MSH_A:
     {
-        return new CGame_MSH_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_MSH_A(nConfirmedROMSize);
     }
     case MSHVSF_A:
     {
-        return new CGame_MSHVSF_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_MSHVSF_A(nConfirmedROMSize);
     }
     case MSHWOTG_SNES:
     {
@@ -1960,16 +1960,12 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         case MK2_SNES:
             CGame_MK2_SNES::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
-        case MSHVSF_A:
-        {
-            nGameRule = ((wcsstr(pszFileNameLowercase, L".06a") != nullptr) ? 6 : 7);
-            break;
-        }
         case MSH_A:
-        {
-            nGameRule = ((wcsstr(pszFileNameLowercase, L".05") != nullptr) ? 5 : 6);
+            CGame_MSH_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
-        }
+        case MSHVSF_A:
+            CGame_MSHVSF_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case REDEARTH_A:
             CGame_REDEARTH_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;

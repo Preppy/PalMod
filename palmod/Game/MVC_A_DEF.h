@@ -6,40 +6,6 @@
 // * Update every array using MVC_A_NUMUNIT below
 // That should be it.  Good luck.
 
-enum SupportedMVCPaletteListIndex
-{
-    indexMVCWarMachine = 0,
-    indexMVCCaptainAmerica,
-    indexMVCHulk,
-    indexMVCWolverine,
-    indexMVCVenom,
-    indexMVCSpiderman,
-    indexMVCRoll,
-    indexMVCRyu,
-    indexMVCCapCom,
-    indexMVCChun,
-    indexMVCJin,
-    indexMVCGief,
-    indexMVCStrider,
-    indexMVCMegaman,
-    indexMVCMorrigan,
-    indexMVCOnslaught,
-    indexMVCHyperVenom,
-    indexMVCOrangeHulk,
-    indexMVCGWM,
-    indexMVCShadowLady,
-    indexMVCLilith,
-    indexMVCGambit,
-    indexMVCAssists,
-    indexMVCPortraits,
-    indexMVCCSIs,
-    indexMVCBonus,
-    indexMVCLast
-};
-
-constexpr auto MVC_A_NUMUNIT = indexMVCLast;
-constexpr auto MVC_A_EXTRALOC = MVC_A_NUMUNIT;
-
 const std::vector<uint16_t> MVC_A_IMGIDS_USED =
 {
     // Main Roster
@@ -79,6 +45,82 @@ const std::vector<uint16_t> MVC_A_IMGIDS_USED =
     indexCPS2Sprites_Sentinel,     //
     indexCPS2Sprites_Anita,        // 0x51
 };
+
+// ROM layout information:
+
+// 0x38xxx large body Onslaught sprites
+// 0x39xxx+ unknown
+// 0x47xxx assist icons
+// 0x48xxx characters
+// 0x49xxx end of MM 2 and onslaught, then hidden characters
+// 0x4Axxx unknown
+// 0x4Bxxx onslaught
+// 0x4Cxxx megaman extras
+// 0x4Dxxx megaman + roll extras
+// 0x4Exxx roll extras
+// 0x4Fxxx shadow lady glimmer, most unknown
+// 0x50xxx end of SL glimmer, assists
+// 0x51xxx assists (Anita P2+)
+// 0x52xxx Duo/CSPs
+// 0x53xxx super portraits
+// 0x54xxx super portraits cont
+// 0x55xxx super portraits then VSPs
+// 0x56xxx VSPs
+// 0x57xxx VSPs
+// 0x58xxx VSPs
+// 0x59xxx unknown
+
+#if dontcompilethis
+
+    Educated guess at sort order based upon VSPs.Agrees with CSIs.
+    War Machine
+    Captain America
+    Hulk
+    Wolverine
+    Gambit
+    Venom
+    Spider - Man
+    Roll
+    Ryu
+    Captain Commando
+    Chun - Li
+    Jin
+    Zangief
+    Strider Hiryu
+    Morrigan
+    Megaman
+    Onslaught
+    Red Venom
+    Orange Hulk
+    Gold War Machine
+    Shadow Lady
+    Lilith
+    Ken
+    Gouki
+    Mech - Zangief
+
+    Assist CSI layout.Differs from character sprite palette layout.
+    0x047d84 Juggernaut
+    0x047da4 Magneto
+    0x047dc4 Psylocke
+    0x047de4 Cyclops
+    0x047e04 Colossus
+    0x047e24 Thor
+    0x047e44 U.S.Agent
+    0x047e64 Iceman
+    0x047e84 Rogue
+    0x047ea4 Jubilee
+    0x047ec4 Storm
+    0x047f04 Arthur
+    0x047f24 Michelle Heart
+    0x047f44 Ton - Pooh
+    0x047f64 Saki
+    0x047f84 Unknown Soldier
+    0x047fa4 Lou
+    0x047fc4 Anita
+    0x047fe4 Pure and Fur
+    0x048004 Devilot
+#endif
 
 #pragma region SecondaryPaletteEffects
 
@@ -1360,15 +1402,14 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { L"Cyclops Optic Blast 4", 0x50922, 0x50942, indexCPS2Sprites_Cyclops, 0x0E },
     { L"Cyclops Optic Blast 5", 0x50942, 0x50962, indexCPS2Sprites_Cyclops, 0x0E },
 
-    // Warning: these are joined using code in UpdatePalImg.  If you renumber these, you'll want to doublecheck display.
-    { L"Devilot P1", 0x510c2, 0x510e2, indexCPS2Sprites_MVCAssets, 3, &pairMVCDevilotNormal },
+    { L"Devilot P1: Platform", 0x51102, 0x51122, indexCPS2Sprites_MVCAssets, 2, &pairNext4Palettes },
+    { L"Devilot P1", 0x510c2, 0x510e2, indexCPS2Sprites_MVCAssets, 3, &pairNext3Palettes },
     { L"Devilot P1: Dave and Xavier", 0x510e2, 0x51102, indexCPS2Sprites_MVCAssets, 4 },
-    { L"Devilot P1: Platform", 0x51102, 0x51122, indexCPS2Sprites_MVCAssets, 2 },
     { L"Devilot P1: Burnt", 0x51182, 0x511a2, indexCPS2Sprites_MVCAssets, 5, &pairNext },
     { L"Devilot P1: Burnt Dave and Xavier", 0x511a2, 0x511c2, indexCPS2Sprites_MVCAssets, 6 },
-    { L"Devilot P2", 0x51122, 0x51142, indexCPS2Sprites_MVCAssets, 3, &pairMVCDevilotNormal },
+    { L"Devilot P2: Platform", 0x51162, 0x51182, indexCPS2Sprites_MVCAssets, 2, &pairNext4Palettes },
+    { L"Devilot P2", 0x51122, 0x51142, indexCPS2Sprites_MVCAssets, 3, &pairNext3Palettes },
     { L"Devilot P2: Dave and Xavier", 0x51142, 0x51162, indexCPS2Sprites_MVCAssets, 4 },
-    { L"Devilot P2: Platform", 0x51162, 0x51182, indexCPS2Sprites_MVCAssets, 2 },
     { L"Devilot P2: Burnt", 0x511c2, 0x511e2, indexCPS2Sprites_MVCAssets, 5, &pairNext },
     { L"Devilot P2: Burnt Dave and Xavier", 0x511e2, 0x51202, indexCPS2Sprites_MVCAssets, 6 },
 
@@ -2347,62 +2388,30 @@ const sDescTreeNode MVC_A_BONUS_COLLECTION[] =
    { L"Zabel Stage",                   DESC_NODETYPE_TREE, (void*)MVC_A_ZABEL_STAGE_PALETTES,      ARRAYSIZE(MVC_A_ZABEL_STAGE_PALETTES) },
 };
 
-const uint8_t MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
+const sDescTreeNode MVC_A_UNITS[] =
 {
-    indexMVCCaptainAmerica,
-    indexMVCCapCom,
-    indexMVCChun,
-    indexMVCGambit,
-    indexMVCHulk,
-    indexMVCJin,
-    indexMVCLilith,
-    indexMVCMegaman,
-    indexMVCMorrigan,
-    indexMVCOnslaught,
-    indexMVCOrangeHulk,
-    indexMVCRoll,
-    indexMVCRyu,
-    indexMVCShadowLady,
-    indexMVCSpiderman,
-    indexMVCStrider,
-    indexMVCVenom,
-    indexMVCHyperVenom,
-    indexMVCWarMachine,
-    indexMVCGWM,
-    indexMVCWolverine,
-    indexMVCGief,
-    indexMVCAssists,
-    indexMVCPortraits,
-    indexMVCCSIs,
-    indexMVCBonus,
-
-    MVC_A_EXTRALOC //Extra palettes
-};
-
-const sDescTreeNode MVC_A_UNITS[MVC_A_NUMUNIT] =
-{
-    { L"War Machine",                  DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_COLLECTION,       ARRAYSIZE(MVC_A_WARMACHINE_COLLECTION) },
     { L"Captain America",              DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_COLLECTION,            ARRAYSIZE(MVC_A_CAPAM_COLLECTION) },
-    { L"Hulk",                         DESC_NODETYPE_TREE, (void*)MVC_A_HULK_COLLECTION,             ARRAYSIZE(MVC_A_HULK_COLLECTION) },
-    { L"Wolverine",                    DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_COLLECTION,        ARRAYSIZE(MVC_A_WOLVERINE_COLLECTION) },
-    { L"Venom",                        DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_COLLECTION,            ARRAYSIZE(MVC_A_VENOM_COLLECTION) },
-    { L"Spider-Man",                   DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_COLLECTION,           ARRAYSIZE(MVC_A_SPIDEY_COLLECTION) },
-    { L"Roll",                         DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_COLLECTION,             ARRAYSIZE(MVC_A_ROLL_COLLECTION) },
-    { L"Ryu",                          DESC_NODETYPE_TREE, (void*)MVC_A_RYU_COLLECTION,              ARRAYSIZE(MVC_A_RYU_COLLECTION) },
     { L"Captain Commando",             DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_COLLECTION,           ARRAYSIZE(MVC_A_CAPCOM_COLLECTION) },
     { L"Chun-Li",                      DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_COLLECTION,           ARRAYSIZE(MVC_A_CHUNLI_COLLECTION) },
+    { L"Gambit",                       DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_COLLECTION,           ARRAYSIZE(MVC_A_GAMBIT_COLLECTION) },
+    { L"Hulk",                         DESC_NODETYPE_TREE, (void*)MVC_A_HULK_COLLECTION,             ARRAYSIZE(MVC_A_HULK_COLLECTION) },
     { L"Jin",                          DESC_NODETYPE_TREE, (void*)MVC_A_JIN_COLLECTION,              ARRAYSIZE(MVC_A_JIN_COLLECTION) },
-    { L"Zangief",                      DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_COLLECTION,             ARRAYSIZE(MVC_A_GIEF_COLLECTION) },
-    { L"Strider",                      DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_COLLECTION,          ARRAYSIZE(MVC_A_STRIDER_COLLECTION) },
+    { L"Lilith",                       DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_COLLECTION,           ARRAYSIZE(MVC_A_LILITH_COLLECTION) },
     { L"Megaman",                      DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_COLLECTION,          ARRAYSIZE(MVC_A_MEGAMAN_COLLECTION) },
     { L"Morrigan",                     DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_COLLECTION,         ARRAYSIZE(MVC_A_MORRIGAN_COLLECTION) },
     { L"Onslaught",                    DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_COLLECTION,        ARRAYSIZE(MVC_A_ONSLAUGHT_COLLECTION) },
-    { L"Red Venom",                    DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_COLLECTION,       ARRAYSIZE(MVC_A_HYPERVENOM_COLLECTION) },
     { L"Orange Hulk",                  DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_COLLECTION,       ARRAYSIZE(MVC_A_ORANGEHULK_COLLECTION) },
-    { L"Gold War Machine",             DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_COLLECTION,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_COLLECTION) },
+    { L"Roll",                         DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_COLLECTION,             ARRAYSIZE(MVC_A_ROLL_COLLECTION) },
+    { L"Ryu",                          DESC_NODETYPE_TREE, (void*)MVC_A_RYU_COLLECTION,              ARRAYSIZE(MVC_A_RYU_COLLECTION) },
     { L"Shadow Lady",                  DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_COLLECTION,       ARRAYSIZE(MVC_A_SHADOWLADY_COLLECTION) },
-    { L"Lilith",                       DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_COLLECTION,           ARRAYSIZE(MVC_A_LILITH_COLLECTION) },
-    { L"Gambit",                       DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_COLLECTION,           ARRAYSIZE(MVC_A_GAMBIT_COLLECTION) },
+    { L"Spider-Man",                   DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_COLLECTION,           ARRAYSIZE(MVC_A_SPIDEY_COLLECTION) },
+    { L"Strider",                      DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_COLLECTION,          ARRAYSIZE(MVC_A_STRIDER_COLLECTION) },
+    { L"Venom",                        DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_COLLECTION,            ARRAYSIZE(MVC_A_VENOM_COLLECTION) },
+    { L"Red Venom",                    DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_COLLECTION,       ARRAYSIZE(MVC_A_HYPERVENOM_COLLECTION) },
+    { L"War Machine",                  DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_COLLECTION,       ARRAYSIZE(MVC_A_WARMACHINE_COLLECTION) },
+    { L"Gold War Machine",             DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_COLLECTION,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_COLLECTION) },
+    { L"Wolverine",                    DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_COLLECTION,        ARRAYSIZE(MVC_A_WOLVERINE_COLLECTION) },
+    { L"Zangief",                      DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_COLLECTION,             ARRAYSIZE(MVC_A_GIEF_COLLECTION) },
     { L"Assists",                      DESC_NODETYPE_TREE, (void*)MVC_A_ASSIST_COLLECTION,           ARRAYSIZE(MVC_A_ASSIST_COLLECTION) },
     { L"Portraits",                    DESC_NODETYPE_TREE, (void*)MVC_A_PORTRAITS_COLLECTION,        ARRAYSIZE(MVC_A_PORTRAITS_COLLECTION) },
     { L"Character Icons",              DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_COLLECTION,             ARRAYSIZE(MVC_A_CSIS_COLLECTION) },
