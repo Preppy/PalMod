@@ -789,12 +789,6 @@
     <ClCompile Include="Game\Game_KOF97_A.cpp">
       <Filter>Games\SNK Games\KOF97_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_SFIII1_A_DIR.cpp">
-      <Filter>Games\Capcom Games\SFIII1_A_DIR</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_SFIII2_A_DIR.cpp">
-      <Filter>Games\Capcom Games\SFIII2_A_DIR</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_SavageReign_A.cpp">
       <Filter>Games\SNK Games\Savage Reign</Filter>
     </ClCompile>

@@ -105,6 +105,7 @@ public:
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
+    static uint32_t GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId);
     static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
     static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);

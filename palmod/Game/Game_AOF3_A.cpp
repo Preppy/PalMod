@@ -147,12 +147,7 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
                     {
-                        const uint32_t nStageCount = _GetNodeSizeFromPaletteId(AOF3_A_P1_UNITS,
-                            &m_rgCurrentExtraCounts[0],
-                            m_rgCurrentGameUnits.size(),
-                            m_nCurrentExtraUnitId,
-                            NodeGet->uUnitId, NodeGet->uPalId,
-                            m_prgCurrentExtrasLoaded);
+                        const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                         fShouldUseAlternateLoadLogic = true;
                         sImgTicket* pImgArray = nullptr;

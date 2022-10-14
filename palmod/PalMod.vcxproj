@@ -323,9 +323,7 @@
     <ClCompile Include="Game\Game_SFA2_A.cpp" />
     <ClCompile Include="Game\Game_SFA3_A.cpp" />
     <ClCompile Include="Game\Game_SFIII1_A.cpp" />
-    <ClCompile Include="Game\Game_SFIII1_A_DIR.cpp" />
     <ClCompile Include="Game\Game_SFIII2_A.cpp" />
-    <ClCompile Include="Game\Game_SFIII2_A_DIR.cpp" />
     <ClCompile Include="Game\Game_SFIII3_A.cpp" />
     <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp" />
     <ClCompile Include="Game\Game_SFIII3_D.cpp" />
