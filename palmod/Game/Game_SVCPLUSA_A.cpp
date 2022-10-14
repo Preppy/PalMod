@@ -1,18 +1,14 @@
 #include "StdAfx.h"
-#include "GameDef.h"
 #include "Game_SVCPLUSA_A.h"
 #include "PalMod.h"
-#include "RegProc.h"
 
-stExtraDef* CGame_SVCPLUSA_A::SVCPLUSA_A_EXTRA_CUSTOM = nullptr;
-
-CDescTree CGame_SVCPLUSA_A::MainDescTree = nullptr;
-
-uint32_t CGame_SVCPLUSA_A::rgExtraCountAll[SVCPLUSA_A_NUMUNIT + 1];
-uint32_t CGame_SVCPLUSA_A::rgExtraLoc[SVCPLUSA_A_NUMUNIT + 1];
-
-uint32_t CGame_SVCPLUSA_A::m_nTotalPaletteCountForSVCPLUSA = 0;
-uint32_t CGame_SVCPLUSA_A::m_nConfirmedROMSize = -1;
+CGame_SVCPLUSA_A::~CGame_SVCPLUSA_A()
+{
+    safe_delete_array(decryptedROM);
+    ClearDataBuffer();
+    //Get rid of the file changed flag
+    FlushChangeTrackingArray();
+}
 
 #pragma region MAME_svc_decryption
 
@@ -192,119 +188,6 @@ void svcsplus_px_crypto(uint8_t* cpurom, uint32_t cpurom_size, SVCCryptionChoice
 }
 
 #pragma endregion MAME_svc_decryption
-
-void CGame_SVCPLUSA_A::InitializeStatics()
-{
-    safe_delete_array(CGame_SVCPLUSA_A::SVCPLUSA_A_EXTRA_CUSTOM);
-
-    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
-
-    MainDescTree.SetRootTree(CGame_SVCPLUSA_A::InitDescTree());
-}
-
-CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(uint32_t nConfirmedROMSize)
-{
-    CString strMessage;
-    strMessage.Format(L"CGame_SVCPLUSA_A::CGame_SVCPLUSA_A: Loading ROM...\n");
-    OutputDebugString(strMessage);
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_RGB666_NEOGEO);
-
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
-    m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    m_nTotalInternalUnits = SVCPLUSA_A_NUMUNIT;
-    m_nExtraUnit = SVCPLUSA_A_EXTRALOC;
-
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1048;
-    m_pszExtraFilename = EXTRA_FILENAME_SVCPLUSA_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForSVCPLUSA;
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x2d97f0;
-
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    InitDataBuffer();
-
-    //Set game information
-    nGameFlag = SVCPLUSA_A;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = SVCPLUSA_A_IMGIDS_USED;
-
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_2_PK;
-
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
-
-    //Create the file changed flag
-    PrepChangeTrackingArray();
-}
-
-CGame_SVCPLUSA_A::~CGame_SVCPLUSA_A()
-{
-    safe_delete_array(decryptedROM);
-    safe_delete_array(CGame_SVCPLUSA_A::SVCPLUSA_A_EXTRA_CUSTOM);
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    FlushChangeTrackingArray();
-}
-
-CDescTree* CGame_SVCPLUSA_A::GetMainTree()
-{
-    return &CGame_SVCPLUSA_A::MainDescTree;
-}
-
-uint32_t CGame_SVCPLUSA_A::GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly)
-{
-    return _GetExtraCount(rgExtraCountAll, SVCPLUSA_A_NUMUNIT, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_SVCPLUSA_A::GetExtraLoc(uint32_t nUnitId)
-{
-    return _GetExtraLocation(rgExtraLoc, SVCPLUSA_A_NUMUNIT, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
-}
-
-sDescTreeNode* CGame_SVCPLUSA_A::InitDescTree()
-{
-    //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SVCPLUSA_A, &SVCPLUSA_A_EXTRA_CUSTOM, SVCPLUSA_A_EXTRALOC, m_nConfirmedROMSize);
-
-    uint16_t nUnitCt = SVCPLUSA_A_NUMUNIT + (GetExtraCt(SVCPLUSA_A_EXTRALOC) ? 1 : 0);
-    
-    sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[SVCPLUSA_A]);
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
-    //All units have tree children
-    NewDescTree->uChildType = DESC_NODETYPE_TREE;
-
-    m_nTotalPaletteCountForSVCPLUSA = _InitDescTree(NewDescTree,
-        SVCPLUSA_A_UNITS,
-        SVCPLUSA_A_EXTRALOC,
-        SVCPLUSA_A_NUMUNIT,
-        rgExtraCountAll,
-        rgExtraLoc,
-        SVCPLUSA_A_EXTRA_CUSTOM
-    );
-
-    // For development use to speed things up
-    //DumpPaletteHeaders();
-
-    return NewDescTree;
-}
 
 struct sSVCPLUSA_A_PaletteData
 {
@@ -552,10 +435,9 @@ sFileRule CGame_SVCPLUSA_A::GetRule(uint32_t nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"svc-p2pl.bin");
-
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, m_sFileLoadingData.rgFileList.at(0).strFileName.c_str());
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+    NewFileRule.uVerifyVar = m_sFileLoadingData.rgFileList.at(0).nFileSize;
 
     // SVC has a second differently sized ROM variant, but the area of interest matches
     NewFileRule.fHasAltName = true;
@@ -565,56 +447,18 @@ sFileRule CGame_SVCPLUSA_A::GetRule(uint32_t nUnitId)
     return NewFileRule;
 }
 
-uint32_t CGame_SVCPLUSA_A::GetCollectionCountForUnit(uint32_t nUnitId)
-{
-    return _GetCollectionCountForUnit(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
-}
-
-uint32_t CGame_SVCPLUSA_A::GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetNodeCountForCollection(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, nCollectionId, SVCPLUSA_A_EXTRA_CUSTOM);
-}
-
-LPCWSTR CGame_SVCPLUSA_A::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetDescriptionForCollection(SVCPLUSA_A_UNITS, SVCPLUSA_A_EXTRALOC, nUnitId, nCollectionId);
-}
-
-uint32_t CGame_SVCPLUSA_A::GetPaletteCountForUnit(uint32_t nUnitId)
-{
-    return _GetPaletteCountForUnit(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, SVCPLUSA_A_EXTRA_CUSTOM);
-}
-
-const sGame_PaletteDataset* CGame_SVCPLUSA_A::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
-{
-    return _GetPaletteSet(SVCPLUSA_A_UNITS, nUnitId, nCollectionId);
-}
-
-const sDescTreeNode* CGame_SVCPLUSA_A::GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly)
-{
-    return _GetNodeFromPaletteId(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, nPaletteId, SVCPLUSA_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
-}
-
-const sGame_PaletteDataset* CGame_SVCPLUSA_A::GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId)
-{
-    return _GetSpecificPalette(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, nUnitId, nPaletteId, SVCPLUSA_A_EXTRA_CUSTOM);
-}
-
 void CGame_SVCPLUSA_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
-     if (nUnitId != m_nExtraUnit)
+    if (nUnitId != m_nExtraUnit)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
-
         if (paletteData)
         {
-            cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
-
+            cbPaletteSizeOnDisc = static_cast<int>(max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset)));
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
-
             // shift for different roms as needed
             m_nCurrentPaletteROMLocation += m_loadedROMRevision.nOffsetForReads;
         }
@@ -627,8 +471,7 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId
     else // m_nExtraUnit
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = &SVCPLUSA_A_EXTRA_CUSTOM[GetExtraLoc(nUnitId) + nPalId];
-
+        stExtraDef* pCurrDef = &m_prgCurrentExtrasLoaded[GetExtraLoc(nUnitId) + nPalId];
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
@@ -730,8 +573,8 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
                         m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
-                        // Use a sorted layout
-                        rgUnitRedir[nUnitCtr] = SVCPLUSA_A_UNITSORT[nUnitCtr];
+                        // These are already sorted, no need to redirect
+                        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
@@ -801,8 +644,8 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
                     m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
-                    // Use a sorted layout
-                    rgUnitRedir[nUnitCtr] = SVCPLUSA_A_UNITSORT[nUnitCtr];
+                    // These are already sorted, no need to redirect
+                    rgUnitRedir[nUnitCtr] = nUnitCtr;
 
                     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                     {
@@ -839,8 +682,8 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
                 m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
-                // Use a sorted layout
-                rgUnitRedir[nUnitCtr] = SVCPLUSA_A_UNITSORT[nUnitCtr];
+                // These are already sorted, no need to redirect
+                rgUnitRedir[nUnitCtr] = nUnitCtr;
 
                 for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
@@ -866,6 +709,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
     return fSuccess;
 }
 
+// We use special handling for Athena and Zero
 BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
@@ -899,7 +743,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != SVCPLUSA_A_EXTRALOC)
+    if (NodeGet->uUnitId != m_nExtraUnit)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -929,7 +773,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
             {
                 if (ArePalettePairsEqual(paletteDataSet->pPalettePairingInfo, &pairFullyLinkedNode))
                 {
-                    const uint32_t nStageCount = _GetNodeSizeFromPaletteId(SVCPLUSA_A_UNITS, rgExtraCountAll, SVCPLUSA_A_NUMUNIT, SVCPLUSA_A_EXTRALOC, NodeGet->uUnitId, NodeGet->uPalId, SVCPLUSA_A_EXTRA_CUSTOM);
+                    const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                     fShouldUseAlternateLoadLogic = true;
                     sImgTicket* pImgArray = nullptr;
@@ -951,7 +795,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                     ClearSetImgTicket(pImgArray);
                 }
-                else if (NodeGet->uUnitId == indexSVC_A_GoddessAthena)
+                else if (wcscmp(m_rgCurrentGameUnits.at(NodeGet->uUnitId).szDesc, k_pszUnitNameAthena) == 0)
                 {
                     fShouldUseAlternateLoadLogic = true;
 
@@ -991,7 +835,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPaletteThreeDelta, nSrcAmt, nNodeIncrement);
                     SetSourcePal(3, NodeGet->uUnitId, nSrcStart + nPaletteFourDelta, nSrcAmt, nNodeIncrement);
                 }
-                else if (NodeGet->uUnitId == indexSVC_A_Zero)
+                else if (wcscmp(m_rgCurrentGameUnits.at(NodeGet->uUnitId).szDesc, k_pszUnitNameZero) == 0)
                 {
                     uint16_t nLocationOfSecondPalette = 1;
                     uint16_t nSecondPaletteWithinNode = 0;

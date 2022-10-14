@@ -6,57 +6,6 @@
 // * Update every array using SVCPLUSA_A_NUMUNIT below
 // That should be it.  Good luck.
 
-enum SupportedSVC_A_PaletteListIndex
-{
-    indexSVC_A_Kyo,
-    indexSVC_A_Iori,
-    indexSVC_A_Ryo,
-    indexSVC_A_Terry,
-    indexSVC_A_Mai,
-    indexSVC_A_Kasumi,
-    indexSVC_A_Kim,
-    indexSVC_A_MrKarate,
-    indexSVC_A_Choi,
-    indexSVC_A_Earthquake,
-    indexSVC_A_Genjuro,
-    indexSVC_A_Shiki,
-    indexSVC_A_GeeseHoward,
-    indexSVC_A_MarsPeople,
-    indexSVC_A_Goenitz,
-
-    indexSVC_A_OrochiIori,
-    indexSVC_A_SeriousMrKarate,
-    indexSVC_A_GoddessAthena,
-
-    indexSVC_A_Ryu,
-    indexSVC_A_Ken,
-    indexSVC_A_ChunLi,
-    indexSVC_A_Guile,
-    indexSVC_A_Dhalsim,
-    indexSVC_A_Boxer,
-    indexSVC_A_Claw,
-    indexSVC_A_Sagat,
-    indexSVC_A_Dictator,
-    indexSVC_A_Akuma,
-    indexSVC_A_Hugo,
-    indexSVC_A_Tessa,
-    indexSVC_A_Zero,
-    indexSVC_A_Demitri,
-    indexSVC_A_Dan,
-
-    indexSVC_A_ViolentKen,
-    indexSVC_A_ShinAkuma,
-    indexSVC_A_RedArremer,
-
-    indexSVC_A_Stages,
-    indexSVC_A_Bonus,
-
-    indexSVC_A_Last,
-};
-
-constexpr auto SVCPLUSA_A_NUMUNIT = indexSVC_A_Last;
-constexpr auto SVCPLUSA_A_EXTRALOC = SVCPLUSA_A_NUMUNIT;
-
 const std::vector<uint16_t> SVCPLUSA_A_IMGIDS_USED =
 {
     indexKOF97Sprites_Kyo,
@@ -2280,55 +2229,10 @@ const sDescTreeNode SVCPLUSA_A_BONUS_COLLECTION[] =
     { L"Select Screen", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_BONUS_SELECT_PALETTES, ARRAYSIZE(SVCPLUSA_A_BONUS_SELECT_PALETTES) },
 };
 
-const uint8_t SVCPLUSA_A_UNITSORT[SVCPLUSA_A_NUMUNIT + 1] // Plus 1 for extras
-{
-    indexSVC_A_Kyo,
-    indexSVC_A_Iori,
-    indexSVC_A_Ryo,
-    indexSVC_A_Terry,
-    indexSVC_A_Mai,
-    indexSVC_A_Kasumi,
-    indexSVC_A_Kim,
-    indexSVC_A_MrKarate,
-    indexSVC_A_Choi,
-    indexSVC_A_Earthquake,
-    indexSVC_A_Genjuro,
-    indexSVC_A_Shiki,
-    indexSVC_A_GeeseHoward,
-    indexSVC_A_MarsPeople,
-    indexSVC_A_Goenitz,
+#define k_pszUnitNameAthena     L"Goddess Athena"
+#define k_pszUnitNameZero       L"Zero"
 
-    indexSVC_A_OrochiIori,
-    indexSVC_A_SeriousMrKarate,
-    indexSVC_A_GoddessAthena,
-
-    indexSVC_A_Ryu,
-    indexSVC_A_Ken,
-    indexSVC_A_ChunLi,
-    indexSVC_A_Guile,
-    indexSVC_A_Dhalsim,
-    indexSVC_A_Boxer,
-    indexSVC_A_Claw,
-    indexSVC_A_Sagat,
-    indexSVC_A_Dictator,
-    indexSVC_A_Akuma,
-    indexSVC_A_Hugo,
-    indexSVC_A_Tessa,
-    indexSVC_A_Zero,
-    indexSVC_A_Demitri,
-    indexSVC_A_Dan,
-
-    indexSVC_A_ViolentKen,
-    indexSVC_A_ShinAkuma,
-    indexSVC_A_RedArremer,
-
-    indexSVC_A_Stages,
-    indexSVC_A_Bonus,
-
-    SVCPLUSA_A_EXTRALOC
-};
-
-const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =
+const sDescTreeNode SVCPLUSA_A_UNITS[] =
 {
     { L"Kyo", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_KYO_COLLECTION, ARRAYSIZE(SVCPLUSA_A_KYO_COLLECTION) },
     { L"Iori", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_IORI_COLLECTION, ARRAYSIZE(SVCPLUSA_A_IORI_COLLECTION) },
@@ -2348,7 +2252,7 @@ const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =
 
     { L"Orochi Iori", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_OROCHIIORI_COLLECTION, ARRAYSIZE(SVCPLUSA_A_OROCHIIORI_COLLECTION) },
     { L"Serious Mr. Karate", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_SERIOUSMRKARATE_COLLECTION, ARRAYSIZE(SVCPLUSA_A_SERIOUSMRKARATE_COLLECTION) },
-    { L"Goddess Athena", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_GODDESSATHENA_COLLECTION, ARRAYSIZE(SVCPLUSA_A_GODDESSATHENA_COLLECTION) },
+    { k_pszUnitNameAthena, DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_GODDESSATHENA_COLLECTION, ARRAYSIZE(SVCPLUSA_A_GODDESSATHENA_COLLECTION) },
 
     { L"Ryu", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_RYU_COLLECTION, ARRAYSIZE(SVCPLUSA_A_RYU_COLLECTION) },
     { L"Ken", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_KEN_COLLECTION, ARRAYSIZE(SVCPLUSA_A_KEN_COLLECTION) },
@@ -2362,7 +2266,7 @@ const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =
     { L"Akuma", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_AKUMA_COLLECTION, ARRAYSIZE(SVCPLUSA_A_AKUMA_COLLECTION) },
     { L"Hugo", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_HUGO_COLLECTION, ARRAYSIZE(SVCPLUSA_A_HUGO_COLLECTION) },
     { L"Tessa", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_TESSA_COLLECTION, ARRAYSIZE(SVCPLUSA_A_TESSA_COLLECTION) },
-    { L"Zero", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_ZERO_COLLECTION, ARRAYSIZE(SVCPLUSA_A_ZERO_COLLECTION) },
+    { k_pszUnitNameZero, DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_ZERO_COLLECTION, ARRAYSIZE(SVCPLUSA_A_ZERO_COLLECTION) },
     { L"Demitri", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_DEMITRI_COLLECTION, ARRAYSIZE(SVCPLUSA_A_DEMITRI_COLLECTION) },
     { L"Dan", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_DAN_COLLECTION, ARRAYSIZE(SVCPLUSA_A_DAN_COLLECTION) },
 
