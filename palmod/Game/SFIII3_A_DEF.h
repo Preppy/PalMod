@@ -5051,8 +5051,8 @@ const sDescTreeNode SFIII3_A_14_UNITS[] =
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_LP_PALETTES[] =
 {
-    { L"LP Main",       0x00000000, 0x00000080, index3SSprites_Alex, 0x00, &pairNext},
-    { L"LP Flash Chop", 0x00000080, 0x00000100, index3SSprites_Alex, 0x02, &pairPrevious},
+    { L"LP Main",       0x00000000, 0x00000080, index3SSprites_Alex, 0x00 },
+    { L"LP Flash Chop", 0x00000080, 0x00000100, index3SSprites_Alex, 0x02 },
     { L"LP EX Trail",   0x00000100, 0x00000180, index3SSprites_Alex, 0x00 },
     { L"LP EX Flash",   0x00000180, 0x00000200, index3SSprites_Alex, 0x00 },
     { L"LP Burned",     0x00000200, 0x00000280, index3SSprites_Alex, 0x00 },
@@ -5071,8 +5071,8 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_LP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_MP_PALETTES[] =
 {
-    { L"MP Main",       0x00000400, 0x00000480, index3SSprites_Alex, 0x00, &pairNext},
-    { L"MP Flash Chop", 0x00000480, 0x00000500, index3SSprites_Alex, 0x02, &pairPrevious},
+    { L"MP Main",       0x00000400, 0x00000480, index3SSprites_Alex, 0x00 },
+    { L"MP Flash Chop", 0x00000480, 0x00000500, index3SSprites_Alex, 0x02 },
     { L"MP EX Trail",   0x00000500, 0x00000580, index3SSprites_Alex, 0x00 },
     { L"MP EX Flash",   0x00000580, 0x00000600, index3SSprites_Alex, 0x00 },
     { L"MP Burned",     0x00000600, 0x00000680, index3SSprites_Alex, 0x00 },
@@ -5091,8 +5091,8 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_MP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_HP_PALETTES[] =
 {
-    { L"HP Main",       0x00000800, 0x00000880, index3SSprites_Alex, 0x00, &pairNext},
-    { L"HP Flash Chop", 0x00000880, 0x00000900, index3SSprites_Alex, 0x02, &pairPrevious},
+    { L"HP Main",       0x00000800, 0x00000880, index3SSprites_Alex, 0x00 },
+    { L"HP Flash Chop", 0x00000880, 0x00000900, index3SSprites_Alex, 0x02 },
     { L"HP EX Trail",   0x00000900, 0x00000980, index3SSprites_Alex, 0x00 },
     { L"HP EX Flash",   0x00000980, 0x00000A00, index3SSprites_Alex, 0x00 },
     { L"HP Burned",     0x00000A00, 0x00000A80, index3SSprites_Alex, 0x00 },
@@ -5111,8 +5111,8 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_HP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_LK_PALETTES[] =
 {
-    { L"LK Main",       0x00000C00, 0x00000C80, index3SSprites_Alex, 0x00, &pairNext},
-    { L"LK Flash Chop", 0x00000C80, 0x00000D00, index3SSprites_Alex, 0x02, &pairPrevious},
+    { L"LK Main",       0x00000C00, 0x00000C80, index3SSprites_Alex, 0x00 },
+    { L"LK Flash Chop", 0x00000C80, 0x00000D00, index3SSprites_Alex, 0x02 },
     { L"LK EX Trail",   0x00000D00, 0x00000D80, index3SSprites_Alex, 0x00 },
     { L"LK EX Flash",   0x00000D80, 0x00000E00, index3SSprites_Alex, 0x00 },
     { L"LK Burned",     0x00000E00, 0x00000E80, index3SSprites_Alex, 0x00 },
@@ -5131,8 +5131,8 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_LK_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_MK_PALETTES[] =
 {
-    { L"MK Main",       0x00001000, 0x00001080, index3SSprites_Alex, 0x00, &pairNext},
-    { L"MK Flash Chop", 0x00001080, 0x00001100, index3SSprites_Alex, 0x02, &pairPrevious},
+    { L"MK Main",       0x00001000, 0x00001080, index3SSprites_Alex, 0x00 },
+    { L"MK Flash Chop", 0x00001080, 0x00001100, index3SSprites_Alex, 0x02 },
     { L"MK EX Trail",   0x00001100, 0x00001180, index3SSprites_Alex, 0x00 },
     { L"MK EX Flash",   0x00001180, 0x00001200, index3SSprites_Alex, 0x00 },
     { L"MK Burned",     0x00001200, 0x00001280, index3SSprites_Alex, 0x00 },
@@ -5151,8 +5151,8 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_MK_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_HK_PALETTES[] =
 {
-    { L"HK Main",       0x00001400, 0x00001480, index3SSprites_Alex, 0x00, &pairNext},
-    { L"HK Flash Chop", 0x00001480, 0x00001500, index3SSprites_Alex, 0x02, &pairPrevious},
+    { L"HK Main",       0x00001400, 0x00001480, index3SSprites_Alex, 0x00 },
+    { L"HK Flash Chop", 0x00001480, 0x00001500, index3SSprites_Alex, 0x02 },
     { L"HK EX Trail",   0x00001500, 0x00001580, index3SSprites_Alex, 0x00 },
     { L"HK EX Flash",   0x00001580, 0x00001600, index3SSprites_Alex, 0x00 },
     { L"HK Burned",     0x00001600, 0x00001680, index3SSprites_Alex, 0x00 },
@@ -5171,8 +5171,8 @@ const sGame_PaletteDataset SFIII3EX_A_ALEX_HK_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3EX_A_ALEX_EX_PALETTES[] =
 {
-    { L"EX Main",       0x00001800, 0x00001880, index3SSprites_Alex, 0x00, &pairNext},
-    { L"EX Flash Chop", 0x00001880, 0x00001900, index3SSprites_Alex, 0x02, &pairPrevious},
+    { L"EX Main",       0x00001800, 0x00001880, index3SSprites_Alex, 0x00 },
+    { L"EX Flash Chop", 0x00001880, 0x00001900, index3SSprites_Alex, 0x02 },
     { L"EX EX Trail",   0x00001900, 0x00001980, index3SSprites_Alex, 0x00 },
     { L"EX EX Flash",   0x00001980, 0x00001A00, index3SSprites_Alex, 0x00 },
     { L"EX Burned",     0x00001A00, 0x00001A80, index3SSprites_Alex, 0x00 },

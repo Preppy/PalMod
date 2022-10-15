@@ -1741,27 +1741,27 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case SFIII3_A:
     {
-        return new CGame_SFIII3_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_SFIII3_A(nConfirmedROMSize);
     }
     case SFIII3_A_DIR_10:
     {
-        return new CGame_SFIII3_A_DIR(-1, 10);
+        return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10);
     }
     case SFIII3_A_DIR_4rd:
     {
-        return new CGame_SFIII3_A_DIR(-1, 4);
+        return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM51_4rd);
     }
     case SFIII3_A_DIR_4rd_10:
     {
-        return new CGame_SFIII3_A_DIR(-1, 14);
+        return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM10_4rd);
     }
     case SFIII3_A_DIR_51:
     {
-        return new CGame_SFIII3_A_DIR(-1, 51);
+        return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM51);
     }
     case SFIII3_A_DIR_EX:
     {
-        return new CGame_SFIII3_A_DIR(-1, 70);
+        return new CGame_SFIII3_A_DIR(nConfirmedROMSize, SFIII3LoadingKey::ROM70_EX);
     }
     case SFIII3_D:
     {
@@ -1985,10 +1985,8 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             CGame_SFA2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case SFIII3_A:
-        {
-            nGameRule = ((wcsstr(pszFileNameLowercase, L"10") != nullptr) ? 10 : 51);
+            CGame_SFIII3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
-        }
         case SF2HF_A:
             CGame_SF2HF_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;

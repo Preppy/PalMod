@@ -16,37 +16,34 @@ constexpr auto SFIII_Arcade_JPN_ROM_Base = L"sfiii3n-simm";
 constexpr auto SFIII_Arcade_4rd_ROM_Base = L"4rd-simm";
 constexpr auto SFIII_Arcade_3Ex_ROM_Base = L"sfiii3ex-simm";
 
-CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(uint32_t nConfirmedROMSize /* = -1 */, int nSF3ModeToLoad /* = 51 */) :
-    CGame_SFIII3_A(0x800000, nSF3ModeToLoad) // Let the core game know it's safe to load Extras
+CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(uint32_t nConfirmedROMSize, SFIII3LoadingKey nSF3ModeToLoad /* = SFIII3LoadingKey::ROM51 */) :
+    CGame_SFIII3_A(nConfirmedROMSize, false)
 {
-    m_nSelectedRom = nSF3ModeToLoad;
+    m_eVersionToLoad = nSF3ModeToLoad;
 
     switch (nSF3ModeToLoad)
     {
-    case SF3ROM_10:
-        nGameFlag = SFIII3_A_DIR_10;
+    case SFIII3LoadingKey::ROM10:
         nFileAmt = 4;
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM10_DIR);
         break;
-    case SF3ROM_10_4rd:
-        nGameFlag = SFIII3_A_DIR_4rd_10;
+    case SFIII3LoadingKey::ROM10_4rd:
         nFileAmt = 4;
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM10_4rd_DIR);
         break;
+    case SFIII3LoadingKey::ROM51:
     default:
-        OutputDebugString(L"Warning: unrecognized ROM.\n");
-        m_nSelectedRom = 51;
-        __fallthrough;
-    case SF3ROM_51:
         m_fAllowIPSPatching = true;
-        nGameFlag = SFIII3_A_DIR_51;
         nFileAmt = 8;
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51_DIR);
         break;
-    case SF3ROM_51_4rd:
-        nGameFlag = SFIII3_A_DIR_4rd;
+    case SFIII3LoadingKey::ROM51_4rd:
         nFileAmt = 2;
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM51_4rd_DIR);
         break;
-    case SF3ROM_70_EX:
-        nGameFlag = SFIII3_A_DIR_EX;
+    case SFIII3LoadingKey::ROM70_EX:
         nFileAmt = 4;
+        InitializeGame(nConfirmedROMSize, m_sCoreGameData_ROM70_DIR);
         break;
     }
 
@@ -59,28 +56,28 @@ CGame_SFIII3_A_DIR::~CGame_SFIII3_A_DIR()
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(uint32_t nUnitId, int nSF3ModeToLoad)
+sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(uint32_t nUnitId, SFIII3LoadingKey nSF3ModeToLoad)
 {
     sFileRule NewFileRule;
 
-    m_nSelectedRom = nSF3ModeToLoad;
+    m_eVersionToLoad = nSF3ModeToLoad;
 
-    switch (m_nSelectedRom)
+    switch (m_eVersionToLoad)
     {
-        case SF3ROM_51_4rd:
+        case SFIII3LoadingKey::ROM51_4rd:
             _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_4rd_ROM_Base, 5, ((nUnitId & RULE_COUNTER_DEMASK) + 6));
             break;
-        case SF3ROM_70_EX:
+        case SFIII3LoadingKey::ROM70_EX:
             _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_3Ex_ROM_Base, 7, (nUnitId & RULE_COUNTER_DEMASK));
             break;
         default:
             OutputDebugString(L"Warning: unrecognized ROM.\n");
             __fallthrough;
-        case SF3ROM_10_4rd:
+        case SFIII3LoadingKey::ROM10_4rd:
             _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_4rd_ROM_Base, 1, (nUnitId & RULE_COUNTER_DEMASK));
             break;
-        case SF3ROM_10:
-        case SF3ROM_51:
+        case SFIII3LoadingKey::ROM10:
+        case SFIII3LoadingKey::ROM51:
         {
             _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_USA_ROM_Base, UsingROMForGill() ? 1 : 5, (nUnitId & RULE_COUNTER_DEMASK));
 
@@ -105,12 +102,12 @@ sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(uint32_t nUnitId, int nSF3ModeToLo
     return NewFileRule;
 }
 
-sFileRule CGame_SFIII3_A_DIR::GetNextRuleInternal(int nSF3ModeToLoad)
+sFileRule CGame_SFIII3_A_DIR::GetNextRuleInternal(SFIII3LoadingKey nSF3ModeToLoad)
 {
-    m_nSelectedRom = nSF3ModeToLoad;
+    m_eVersionToLoad = nSF3ModeToLoad;
 
     const uint16_t nFilesNeeded = !UsePaletteSetFor51() ? 2 : 8;
-    sFileRule NewFileRule = GetRuleInternal(uRuleCtr, m_nSelectedRom);
+    sFileRule NewFileRule = GetRuleInternal(uRuleCtr, m_eVersionToLoad);
 
     uRuleCtr++;
 
@@ -155,18 +152,18 @@ SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::GetSFIII3ROMVersion(CFile* Loade
 {
     if (!UsePaletteSetFor10())
     {
-        switch (m_nSelectedRom)
+        switch (m_eVersionToLoad)
         {
         default:
             OutputDebugString(L"Warning: unrecognized ROM.\n");
             __fallthrough;
-        case SF3ROM_51:
+        case SFIII3LoadingKey::ROM51:
             return SFIII3_SupportedROMRevision::SFIII3_51;
-        case SF3ROM_51_4rd:
+        case SFIII3LoadingKey::ROM51_4rd:
             return SFIII3_SupportedROMRevision::SFIII3_4rd;
-        case SF3ROM_70_EX:
+        case SFIII3LoadingKey::ROM70_EX:
             return SFIII3_SupportedROMRevision::SFIII3_3Ex;
-        case SF3ROM_10_4rd:
+        case SFIII3LoadingKey::ROM10_4rd:
             return SFIII3_SupportedROMRevision::SFIII3_10_4rd;
         }
     }
@@ -282,24 +279,25 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         return TRUE;
     }
 
-    switch (m_nSelectedRom)
+    switch (m_eVersionToLoad)
     {
-    case SF3ROM_10:
+    case SFIII3LoadingKey::ROM10:
+        // we need to make sure which subversion we're loading
         m_currentSFIII3ROMRevision = GetSFIII3ROMVersion(LoadedFile);
         break;
-    case SF3ROM_10_4rd:
+    case SFIII3LoadingKey::ROM10_4rd:
         m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_10_4rd;
         break;
     default:
         OutputDebugString(L"Warning: unrecognized ROM.\n");
         __fallthrough;
-    case SF3ROM_51:
+    case SFIII3LoadingKey::ROM51:
         m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_51;
         break;
-    case SF3ROM_51_4rd:
+    case SFIII3LoadingKey::ROM51_4rd:
         m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_4rd;
         break;
-    case SF3ROM_70_EX:
+    case SFIII3LoadingKey::ROM70_EX:
         m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_3Ex;
         break;
     }
@@ -324,7 +322,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     }
 
     CFile FilePeer;
-    sFileRule PeerRule = GetNextRuleInternal(m_nSelectedRom);
+    sFileRule PeerRule = GetNextRuleInternal(m_eVersionToLoad);
     CString strPeerFilename;
     strPeerFilename.Format(L"%s\\%s", GetLoadedDirPathOnly(), PeerRule.szFileName);
     m_fUseJPNFileNames = false;
@@ -531,18 +529,18 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
 
     uint32_t nSIMMSetAdjustment = 0;
 
-    switch (m_nSelectedRom)
+    switch (m_eVersionToLoad)
     {
-    case SF3ROM_10:
-    case SF3ROM_10_4rd:
-    case SF3ROM_70_EX:
+    case SFIII3LoadingKey::ROM10:
+    case SFIII3LoadingKey::ROM10_4rd:
+    case SFIII3LoadingKey::ROM70_EX:
         // We want the first four files
         break;
     default:
         OutputDebugString(L"Warning: unrecognized ROM.\n");
         __fallthrough;
-    case SF3ROM_51:
-    case SF3ROM_51_4rd:        // We want the last four files
+    case SFIII3LoadingKey::ROM51:
+    case SFIII3LoadingKey::ROM51_4rd:        // We want the last four files
         nSIMMSetAdjustment += 4;
         break;
     }
@@ -804,11 +802,11 @@ uint32_t CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     // 50 maps to 5.0-5.3
     // 51 maps to 5.4-5.7
     // Adjust up to the 5.4 set for 3S/4rd Strike
-    switch (m_nSelectedRom)
+    switch (m_eVersionToLoad)
     {
-    case SF3ROM_10:
-    case SF3ROM_10_4rd:
-    case SF3ROM_70_EX:
+    case SFIII3LoadingKey::ROM10:
+    case SFIII3LoadingKey::ROM10_4rd:
+    case SFIII3LoadingKey::ROM70_EX:
         // We want the first four files
         break;
     default:
