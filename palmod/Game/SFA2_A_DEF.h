@@ -8,152 +8,6 @@
 //       - look for usage of index_SFA2_Ryu to find them
 // That should be it.  Good luck.
 
-// This list is sorted by ROM layout order
-enum Supported_SFA2_PaletteListIndex
-{
-    index_SFA2_Ryu = 0,
-    index_SFA2_Ken = 1,
-    index_SFA2_Akuma = 2,
-    index_SFA2_Charlie = 3,
-    index_SFA2_ChunLi = 4,
-    index_SFA2_Adon = 5,
-    index_SFA2_Sodom = 6,
-    index_SFA2_Guy = 7,
-    index_SFA2_Birdie = 8,
-    index_SFA2_Rose = 9,
-    index_SFA2_MBison = 10,
-    index_SFA2_Sagat = 11,
-    index_SFA2_Dan = 12,
-    index_SFA2_Sakura = 13,
-    index_SFA2_Rolento = 14,
-    index_SFA2_Dhalsim = 15,
-    index_SFA2_Zangief = 16,
-    index_SFA2_Gen = 17,
-    index_SFA2_ChunLiAlt = 18,
-    index_SFA2_GenCraneStance = 19,
-    // revision 1 has a one color long Shin Akuma section here. he moves to ROM 08 next revision
-    index_SFA2_ShinAkumaRev1 = 20,
-    // Following are revision 2 only
-    index_SFA2_WWZangief = 20,
-    index_SFA2_WWDhalsim,
-    index_SFA2_EvilRyu,
-    // Following are SFZ2A only
-    index_SFA2_WWMBison,
-    index_SFA2_WWSagat,
-    index_SFA2_WWKen,
-    index_SFA2_WWRyu,
-    index_SFA2_WWChunLi,
-    index_SFA2_AltSakura,
-    index_SFA2_Bonus07,
-    index_SFA2_Last
-};
-
-constexpr auto SFA2_A_NUM_IND_07_REV1 = index_SFA2_ShinAkumaRev1 + 1 + 1 + 1; // rev 1: +1 for extras, 1 for stages, 1 for bonus
-constexpr auto SFA2_A_EXTRALOC_07_REV1 = SFA2_A_NUM_IND_07_REV1;
-
-constexpr auto SFA2_A_NUM_IND_07_REV2 = index_SFA2_EvilRyu + 1 + 1 + 1; // rev 2: +1 for extras, +1 for stages, +1 for bonus
-constexpr auto SFA2_A_EXTRALOC_07_REV2 = SFA2_A_NUM_IND_07_REV2;
-
-constexpr auto SFZ2A_A_NUM_IND_07 = index_SFA2_Last; // rev 3
-constexpr auto SFZ2A_A_EXTRALOC_07 = SFZ2A_A_NUM_IND_07;
-
-const uint8_t SFA2_A_UNITSORT_07_REV1[SFA2_A_NUM_IND_07_REV1 + 1] = // Plus 1 for the extra palettes
-{
-    index_SFA2_Adon,
-    index_SFA2_Akuma,
-    index_SFA2_Birdie,
-    index_SFA2_Charlie,
-    index_SFA2_ChunLi,
-    index_SFA2_ChunLiAlt,
-    index_SFA2_Dan,
-    index_SFA2_Dhalsim,
-    index_SFA2_Gen,
-    index_SFA2_GenCraneStance,
-    index_SFA2_Guy,
-    index_SFA2_Ken,
-    index_SFA2_MBison,
-    index_SFA2_Rolento,
-    index_SFA2_Rose,
-    index_SFA2_Ryu,
-    index_SFA2_Sagat,
-    index_SFA2_Sakura,
-    index_SFA2_Sodom,
-    index_SFA2_Zangief,
-    index_SFA2_ShinAkumaRev1,
-
-    index_SFA2_Bonus07,
-   
-    SFA2_A_EXTRALOC_07_REV1 // Extra palettes
-};
-
-const uint8_t SFA2_A_UNITSORT_07_0306[SFA2_A_NUM_IND_07_REV2 + 1] = // Plus 1 for the extra palettes
-{
-    index_SFA2_Adon,
-    index_SFA2_Akuma,
-    index_SFA2_Birdie,
-    index_SFA2_Charlie,
-    index_SFA2_ChunLi,
-    index_SFA2_ChunLiAlt,
-    index_SFA2_Dan,
-    index_SFA2_Dhalsim,
-    index_SFA2_WWDhalsim,
-    index_SFA2_Gen,
-    index_SFA2_GenCraneStance,
-    index_SFA2_Guy,
-    index_SFA2_Ken,
-    index_SFA2_MBison,
-    index_SFA2_Rolento,
-    index_SFA2_Rose,
-    index_SFA2_Ryu,
-    index_SFA2_EvilRyu,
-    index_SFA2_Sagat,
-    index_SFA2_Sakura,
-    index_SFA2_Sodom,
-    index_SFA2_Zangief,
-    index_SFA2_WWZangief,
-
-    index_SFA2_Bonus07,
-
-    SFA2_A_EXTRALOC_07_REV2 // Extra palettes
-};
-
-const uint8_t SFZ2A_A_UNITSORT_07_0826[SFZ2A_A_NUM_IND_07 + 1] = // Plus 1 for the extra palettes
-{
-    index_SFA2_Adon,
-    index_SFA2_Akuma,
-    index_SFA2_Birdie,
-    index_SFA2_Charlie,
-    index_SFA2_ChunLi,
-    index_SFA2_ChunLiAlt,
-    index_SFA2_WWChunLi,
-    index_SFA2_Dan,
-    index_SFA2_Dhalsim,
-    index_SFA2_WWDhalsim,
-    index_SFA2_Gen,
-    index_SFA2_GenCraneStance,
-    index_SFA2_Guy,
-    index_SFA2_Ken,
-    index_SFA2_WWKen,
-    index_SFA2_MBison,
-    index_SFA2_WWMBison,
-    index_SFA2_Rolento,
-    index_SFA2_Rose,
-    index_SFA2_Ryu,
-    index_SFA2_WWRyu,
-    index_SFA2_EvilRyu,
-    index_SFA2_Sagat,
-    index_SFA2_WWSagat,
-    index_SFA2_Sakura,
-    index_SFA2_AltSakura,
-    index_SFA2_Sodom,
-    index_SFA2_Zangief,
-    index_SFA2_WWZangief,
-
-    index_SFA2_Bonus07,
-
-    SFZ2A_A_EXTRALOC_07 // Extra palettes
-};
-
 const std::vector<uint16_t> SFA2_A_IMGIDS_USED =
 {
     indexCPS2Sprites_Ryu,               // 0x00,
@@ -4594,7 +4448,19 @@ const sDescTreeNode SFZ2A_A_ALTSAKURA_PORTRAIT_COLLECTION[] =
 
 #pragma endregion
 
-const sDescTreeNode SFA2_A_UNITS_07_REV1[SFA2_A_NUM_IND_07_REV1] =
+#define k_pszUnitName_AltSakura         L"Sakura (Alt)"
+#define k_pszUnitName_Stages07          L"Stages (07)"
+#define k_pszUnitName_EvilRyu_Rev2      L"Evil Ryu (US Only)"
+#define k_pszUnitName_EvilRyu_SFZ2A     L"Evil Ryu"
+#define k_pszUnitName_WWMBison          L"M. Bison (WW)"
+#define k_pszUnitName_WWChunLi          L"Chun-Li (WW)"
+#define k_pszUnitName_WWDhalsim         L"Dhalsim (WW)"
+#define k_pszUnitName_WWKen             L"Ken (WW)"
+#define k_pszUnitName_WWRyu             L"Ryu (WW)"
+#define k_pszUnitName_WWSagat           L"Sagat (WW)"
+#define k_pszUnitName_WWZangief         L"Zangief (WW)"
+
+const sDescTreeNode SFA2_A_UNITS_07_REV1[] =
 {
     { L"Adon",            DESC_NODETYPE_TREE, (void*)SFA2_A_ADON_COLLECTION,          ARRAYSIZE(SFA2_A_ADON_COLLECTION) },
     { L"Akuma",           DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_COLLECTION,         ARRAYSIZE(SFA2_A_AKUMA_COLLECTION) },
@@ -4618,11 +4484,11 @@ const sDescTreeNode SFA2_A_UNITS_07_REV1[SFA2_A_NUM_IND_07_REV1] =
     { L"Sodom",           DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_COLLECTION,         ARRAYSIZE(SFA2_A_SODOM_COLLECTION) },
     { L"Zangief",         DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA2_A_ZANGIEF_COLLECTION) },
     { L"Shin Akuma",      DESC_NODETYPE_TREE, (void*)SFA2_A_SHINAKUMAREV1_COLLECTION, ARRAYSIZE(SFA2_A_SHINAKUMAREV1_COLLECTION) },
-    { L"Stages",          DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_COLLECTION, ARRAYSIZE(SFA2_A_STAGES07_REV1_COLLECTION) },
-    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS07REV1_COLLECTION,   ARRAYSIZE(SFA2_A_BONUS07REV1_COLLECTION) },
+    { k_pszUnitName_Stages07, DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_COLLECTION, ARRAYSIZE(SFA2_A_STAGES07_REV1_COLLECTION) },
+    { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS07REV1_COLLECTION,   ARRAYSIZE(SFA2_A_BONUS07REV1_COLLECTION)},
 };
 
-const sDescTreeNode SFA2_A_UNITS_07_REV2[SFA2_A_NUM_IND_07_REV2] =
+const sDescTreeNode SFA2_A_UNITS_07_REV2[] =
 {
     { L"Adon",            DESC_NODETYPE_TREE, (void*)SFA2_A_ADON_COLLECTION,          ARRAYSIZE(SFA2_A_ADON_COLLECTION) },
     { L"Akuma",           DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_COLLECTION,         ARRAYSIZE(SFA2_A_AKUMA_COLLECTION) },
@@ -4632,7 +4498,7 @@ const sDescTreeNode SFA2_A_UNITS_07_REV2[SFA2_A_NUM_IND_07_REV2] =
     { L"Chun-Li (Original)", DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLIORIGINAL_COLLECTION, ARRAYSIZE(SFA2_A_CHUNLIORIGINAL_COLLECTION) },
     { L"Dan",             DESC_NODETYPE_TREE, (void*)SFA2_A_DAN_COLLECTION,           ARRAYSIZE(SFA2_A_DAN_COLLECTION) },
     { L"Dhalsim",         DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIM_COLLECTION,       ARRAYSIZE(SFA2_A_DHALSIM_COLLECTION) },
-    { L"Dhalsim (WW)",    DESC_NODETYPE_TREE, (void*)SFA2_A_WWDHALSIM_COLLECTION,     ARRAYSIZE(SFA2_A_WWDHALSIM_COLLECTION) },
+    { k_pszUnitName_WWDhalsim,    DESC_NODETYPE_TREE, (void*)SFA2_A_WWDHALSIM_COLLECTION,     ARRAYSIZE(SFA2_A_WWDHALSIM_COLLECTION) },
     { L"Gen",             DESC_NODETYPE_TREE, (void*)SFA2_A_GEN_COLLECTION,           ARRAYSIZE(SFA2_A_GEN_COLLECTION) },
     // Crane Stance Gen isn't really loadable, per Jed
     { L"Gen (Crane Stance)", DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_COLLECTION, ARRAYSIZE(SFA2_A_GENCRANESTANCE_COLLECTION) },
@@ -4642,17 +4508,17 @@ const sDescTreeNode SFA2_A_UNITS_07_REV2[SFA2_A_NUM_IND_07_REV2] =
     { L"Rolento",         DESC_NODETYPE_TREE, (void*)SFA2_A_ROLENTO_COLLECTION,       ARRAYSIZE(SFA2_A_ROLENTO_COLLECTION) },
     { L"Rose",            DESC_NODETYPE_TREE, (void*)SFA2_A_ROSE_COLLECTION,          ARRAYSIZE(SFA2_A_ROSE_COLLECTION) },
     { L"Ryu",             DESC_NODETYPE_TREE, (void*)SFA2_A_RYU_COLLECTION,           ARRAYSIZE(SFA2_A_RYU_COLLECTION) },
-    { L"Evil Ryu (US Only)", DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_COLLECTION, ARRAYSIZE(SFA2_A_EVILRYU_REV2_COLLECTION) },
+    { k_pszUnitName_EvilRyu_Rev2, DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_COLLECTION, ARRAYSIZE(SFA2_A_EVILRYU_REV2_COLLECTION) },
     { L"Sagat",           DESC_NODETYPE_TREE, (void*)SFA2_A_SAGAT_COLLECTION,         ARRAYSIZE(SFA2_A_SAGAT_COLLECTION) },
     { L"Sakura",          DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_COLLECTION,        ARRAYSIZE(SFA2_A_SAKURA_COLLECTION) },
     { L"Sodom",           DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_COLLECTION,         ARRAYSIZE(SFA2_A_SODOM_COLLECTION) },
     { L"Zangief",         DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA2_A_ZANGIEF_COLLECTION) },
-    { L"Zangief (WW)",    DESC_NODETYPE_TREE, (void*)SFA2_A_WWZANGIEF_COLLECTION,     ARRAYSIZE(SFA2_A_WWZANGIEF_COLLECTION) },
-    { L"Stages",          DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV2_COLLECTION, ARRAYSIZE(SFA2_A_STAGES07_REV2_COLLECTION) },
+    { k_pszUnitName_WWZangief,    DESC_NODETYPE_TREE, (void*)SFA2_A_WWZANGIEF_COLLECTION,     ARRAYSIZE(SFA2_A_WWZANGIEF_COLLECTION) },
+    { k_pszUnitName_Stages07,     DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV2_COLLECTION, ARRAYSIZE(SFA2_A_STAGES07_REV2_COLLECTION) },
     { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS07REV2_COLLECTION,   ARRAYSIZE(SFA2_A_BONUS07REV2_COLLECTION) },
 };
 
-const sDescTreeNode SFZ2A_A_UNITS_07[SFZ2A_A_NUM_IND_07] =
+const sDescTreeNode SFZ2A_A_UNITS_07[] =
 {
     { L"Adon",            DESC_NODETYPE_TREE, (void*)SFA2_A_ADON_COLLECTION,          ARRAYSIZE(SFA2_A_ADON_COLLECTION) },
     { L"Akuma",           DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_COLLECTION,         ARRAYSIZE(SFA2_A_AKUMA_COLLECTION) },
@@ -4660,30 +4526,30 @@ const sDescTreeNode SFZ2A_A_UNITS_07[SFZ2A_A_NUM_IND_07] =
     { L"Charlie",         DESC_NODETYPE_TREE, (void*)SFA2_A_CHARLIE_COLLECTION,       ARRAYSIZE(SFA2_A_CHARLIE_COLLECTION) },
     { L"Chun-Li",         DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLI_COLLECTION,        ARRAYSIZE(SFA2_A_CHUNLI_COLLECTION) },
     { L"Chun-Li (Original)", DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLIORIGINAL_COLLECTION, ARRAYSIZE(SFA2_A_CHUNLIORIGINAL_COLLECTION) },
-    { L"Chun-Li (WW)",    DESC_NODETYPE_TREE, (void*)SFA2_A_WWCHUNLI_COLLECTION,      ARRAYSIZE(SFA2_A_WWCHUNLI_COLLECTION) },
+    { k_pszUnitName_WWChunLi,    DESC_NODETYPE_TREE, (void*)SFA2_A_WWCHUNLI_COLLECTION,      ARRAYSIZE(SFA2_A_WWCHUNLI_COLLECTION) },
     { L"Dan",             DESC_NODETYPE_TREE, (void*)SFA2_A_DAN_COLLECTION,           ARRAYSIZE(SFA2_A_DAN_COLLECTION) },
     { L"Dhalsim",         DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIM_COLLECTION,       ARRAYSIZE(SFA2_A_DHALSIM_COLLECTION) },
-    { L"Dhalsim (WW)",    DESC_NODETYPE_TREE, (void*)SFA2_A_WWDHALSIM_COLLECTION,     ARRAYSIZE(SFA2_A_WWDHALSIM_COLLECTION) },
+    { k_pszUnitName_WWDhalsim,    DESC_NODETYPE_TREE, (void*)SFA2_A_WWDHALSIM_COLLECTION,     ARRAYSIZE(SFA2_A_WWDHALSIM_COLLECTION) },
     { L"Gen",             DESC_NODETYPE_TREE, (void*)SFA2_A_GEN_COLLECTION,           ARRAYSIZE(SFA2_A_GEN_COLLECTION) },
     // Crane Stance Gen isn't really loadable, per Jed
     { L"Gen (Crane Stance)", DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_COLLECTION, ARRAYSIZE(SFA2_A_GENCRANESTANCE_COLLECTION) },
     { L"Guy",             DESC_NODETYPE_TREE, (void*)SFA2_A_GUY_COLLECTION,           ARRAYSIZE(SFA2_A_GUY_COLLECTION) },
     { L"Ken",             DESC_NODETYPE_TREE, (void*)SFA2_A_KEN_COLLECTION,           ARRAYSIZE(SFA2_A_KEN_COLLECTION) },
-    { L"Ken (WW)",        DESC_NODETYPE_TREE, (void*)SFA2_A_WWKEN_COLLECTION,         ARRAYSIZE(SFA2_A_WWKEN_COLLECTION) },
+    { k_pszUnitName_WWKen,        DESC_NODETYPE_TREE, (void*)SFA2_A_WWKEN_COLLECTION,         ARRAYSIZE(SFA2_A_WWKEN_COLLECTION) },
     { L"M. Bison",        DESC_NODETYPE_TREE, (void*)SFA2_A_MBISON_COLLECTION,        ARRAYSIZE(SFA2_A_MBISON_COLLECTION) },
-    { L"M. Bison (WW)",   DESC_NODETYPE_TREE, (void*)SFA2_A_WWMBISON_COLLECTION,      ARRAYSIZE(SFA2_A_WWMBISON_COLLECTION) },
+    { k_pszUnitName_WWMBison,   DESC_NODETYPE_TREE, (void*)SFA2_A_WWMBISON_COLLECTION,      ARRAYSIZE(SFA2_A_WWMBISON_COLLECTION) },
     { L"Rolento",         DESC_NODETYPE_TREE, (void*)SFA2_A_ROLENTO_COLLECTION,       ARRAYSIZE(SFA2_A_ROLENTO_COLLECTION) },
     { L"Rose",            DESC_NODETYPE_TREE, (void*)SFA2_A_ROSE_COLLECTION,          ARRAYSIZE(SFA2_A_ROSE_COLLECTION) },
     { L"Ryu",             DESC_NODETYPE_TREE, (void*)SFA2_A_RYU_COLLECTION,           ARRAYSIZE(SFA2_A_RYU_COLLECTION) },
-    { L"Ryu (WW)",        DESC_NODETYPE_TREE, (void*)SFA2_A_WWRYU_COLLECTION,         ARRAYSIZE(SFA2_A_WWRYU_COLLECTION) },
-    { L"Evil Ryu",        DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_COLLECTION,       ARRAYSIZE(SFA2_A_EVILRYU_COLLECTION) },
+    { k_pszUnitName_WWRyu,        DESC_NODETYPE_TREE, (void*)SFA2_A_WWRYU_COLLECTION,         ARRAYSIZE(SFA2_A_WWRYU_COLLECTION) },
+    { k_pszUnitName_EvilRyu_SFZ2A,        DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_COLLECTION,       ARRAYSIZE(SFA2_A_EVILRYU_COLLECTION) },
     { L"Sagat",           DESC_NODETYPE_TREE, (void*)SFA2_A_SAGAT_COLLECTION,         ARRAYSIZE(SFA2_A_SAGAT_COLLECTION) },
-    { L"Sagat (WW)",      DESC_NODETYPE_TREE, (void*)SFA2_A_WWSAGAT_COLLECTION,       ARRAYSIZE(SFA2_A_WWSAGAT_COLLECTION) },
+    { k_pszUnitName_WWSagat,      DESC_NODETYPE_TREE, (void*)SFA2_A_WWSAGAT_COLLECTION,       ARRAYSIZE(SFA2_A_WWSAGAT_COLLECTION) },
     { L"Sakura",          DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_COLLECTION,        ARRAYSIZE(SFA2_A_SAKURA_COLLECTION) },
-    { L"Sakura (Alt)",    DESC_NODETYPE_TREE, (void*)SFA2_A_ALTSAKURA_COLLECTION,     ARRAYSIZE(SFA2_A_ALTSAKURA_COLLECTION) },
+    { k_pszUnitName_AltSakura, DESC_NODETYPE_TREE, (void*)SFA2_A_ALTSAKURA_COLLECTION,     ARRAYSIZE(SFA2_A_ALTSAKURA_COLLECTION) },
     { L"Sodom",           DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_COLLECTION,         ARRAYSIZE(SFA2_A_SODOM_COLLECTION) },
     { L"Zangief",         DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA2_A_ZANGIEF_COLLECTION) },
-    { L"Zangief (WW)",    DESC_NODETYPE_TREE, (void*)SFA2_A_WWZANGIEF_COLLECTION,     ARRAYSIZE(SFA2_A_WWZANGIEF_COLLECTION) },
+    { k_pszUnitName_WWZangief,    DESC_NODETYPE_TREE, (void*)SFA2_A_WWZANGIEF_COLLECTION,     ARRAYSIZE(SFA2_A_WWZANGIEF_COLLECTION) },
     // EX/WW versions of Ryu, Ken, Chun-Li, Sagat, M.Bison at this point for SFZ2A
     { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS07REV3_COLLECTION,   ARRAYSIZE(SFA2_A_BONUS07REV3_COLLECTION) },
 };
@@ -4721,9 +4587,6 @@ const sDescTreeNode SFA2_A_UNITS_08_REV1[] =
     { L"Stages",    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_COLLECTION, ARRAYSIZE(SFA2_A_STAGES08_REV1_COLLECTION) },
     { L"Bonus Palettes",  DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08REV1_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08REV1_COLLECTION) },
 };
-
-constexpr auto SFA2_A_NUM_IND_08_REV1 = ARRAYSIZE(SFA2_A_UNITS_08_REV1);
-constexpr auto SFA2_A_EXTRALOC_08_REV1 = SFA2_A_NUM_IND_08_REV1;
 
 const sDescTreeNode SFA2_A_UNITS_08_REV2[] =
 {
@@ -4764,9 +4627,6 @@ const sDescTreeNode SFA2_A_UNITS_08_REV2[] =
     { L"Stages",                DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_COLLECTION, ARRAYSIZE(SFA2_A_STAGES08_REV2_COLLECTION) },
     { L"Bonus Palettes",        DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08REV2_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08REV2_COLLECTION) },
 };
-
-constexpr auto SFA2_A_NUM_IND_08_REV2 = ARRAYSIZE(SFA2_A_UNITS_08_REV2);
-constexpr auto SFA2_A_EXTRALOC_08_REV2 = SFA2_A_NUM_IND_08_REV2;
 
 const sDescTreeNode SFZ2A_A_UNITS_08[] =
 {
@@ -4813,6 +4673,3 @@ const sDescTreeNode SFZ2A_A_UNITS_08[] =
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08REV3_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08REV3_COLLECTION) },
     //{ L"Stages",                DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_COLLECTION, ARRAYSIZE(SFA2_A_STAGES08_REV1_COLLECTION) },
 };
-
-constexpr auto SFZ2A_A_NUM_IND_08 = ARRAYSIZE(SFZ2A_A_UNITS_08);
-constexpr auto SFZ2A_A_EXTRALOC_08 = SFZ2A_A_NUM_IND_08;

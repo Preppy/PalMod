@@ -1774,7 +1774,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case SFA2_A:
     case SFA2_Hack_A:
     {
-        return new CGame_SFA2_A(nConfirmedROMSize, nExtraGameData);
+        return new CGame_SFA2_A(nConfirmedROMSize);
     }
     case SFA3_A:
     {
@@ -1981,22 +1981,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             CGame_SAMSHO5SP_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case SFA2_A:
-        {
-            if (wcsstr(pszFileNameLowercase, L".08") != nullptr)
-            {
-                nGameRule = SFA2_A_GAMEKEY_08;
-            }
-            else
-            {
-                nGameRule = SFA2_A_GAMEKEY_07;
-            }
-            break;
-        }
         case SFA2_Hack_A:
-        {
-            nGameRule = SFA2_HACK_GAMEKEY_09;
+            CGame_SFA2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
-        }
         case SFIII3_A:
         {
             nGameRule = ((wcsstr(pszFileNameLowercase, L"10") != nullptr) ? 10 : 51);

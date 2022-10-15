@@ -1,122 +1,243 @@
 #pragma once
-#include "GameClass.h"
+#include "GameClassByDir.h"
 #include "SFA2_A_DEF.h"
 #include "SFA2_Hack_DEF.h"
-#include "..\ExtraFile.h"
 
-enum class SFA2_SupportedROMRevision
-{
-    SFA2_960229,
-    SFA2_960306_or_960430, // 960306 and 960430 are identical for both 07 and 08
-    SFZ2A_960805,
-    SFZ2A_960826,
-    SFA2_Hack_220203,
-    SFA2_Unsupported,
-};
-
-constexpr auto SFA2_A_GAMEKEY_07 = 7;
-constexpr auto SFA2_A_GAMEKEY_08 = 8;
-constexpr auto SFA2_HACK_GAMEKEY_09 = 9;
-
-class CGame_SFA2_A : public CGameWithExtrasFile
+class CGame_SFA2_A : public CGameClassByDir
 {
 private:
-    // These handle per-ROM logic.
-    int m_nBufferSelectedRom = SFA2_A_GAMEKEY_07;
-    static uint32_t m_nSFA2SelectedRom;
+    enum class SFA2_SupportedROMRevision
+    {
+        SFA2_960229,
+        SFA2_960306_or_960430, // 960306 and 960430 are identical for both 07 and 08
+        SFZ2A_960805,
+        SFZ2A_960826,
+        SFA2_Hack_220203,
+        SFA2_Unsupported,
+    };
+
+    enum class SFA2LoadingKey
+    {
+        ROM07_Rev1,
+        ROM07_Rev2,
+        ROM07_SFZ2A,
+        ROM08_Rev1,
+        ROM08_Rev2,
+        ROM08_SFZ2A,
+        ROM09_Hack,
+    };
+
+    static SFA2LoadingKey m_eVersionToLoad;
+    // SFA2 gets a littly funky, so we do a little additional tracking with this
     static SFA2_SupportedROMRevision m_currentSFA2ROMRevision;
-    static uint32_t m_nTotalPaletteCountForSFA2_07_Rev1;
-    static uint32_t m_nTotalPaletteCountForSFA2_07_Rev2;
-    static uint32_t m_nTotalPaletteCountForSFZ2A_07;
-    static uint32_t m_nTotalPaletteCountForSFA2_08_Rev1;
-    static uint32_t m_nTotalPaletteCountForSFA2_08_Rev2;
-    static uint32_t m_nTotalPaletteCountForSFZ2A_08;
-    static uint32_t m_nTotalPaletteCountForSFA2_Hack_09;
-    static bool UsePaletteSetForCharacters() { return ((m_nSFA2SelectedRom == SFA2_A_GAMEKEY_07) || (m_nSFA2SelectedRom == SFA2_HACK_GAMEKEY_09)); }
-    static bool UsingExpandedVersion() { return (m_currentSFA2ROMRevision == SFA2_SupportedROMRevision::SFA2_Hack_220203); }
-
-    static uint32_t rgExtraCountAll_07_Rev1[SFA2_A_NUM_IND_07_REV1 + 1];
-    static uint32_t rgExtraCountAll_07_Rev2[SFA2_A_NUM_IND_07_REV2 + 1];
-    static uint32_t rgExtraCountAll_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1];
-    static uint32_t rgExtraCountAll_08_Rev1[SFA2_A_NUM_IND_08_REV1 + 1];
-    static uint32_t rgExtraCountAll_08_Rev2[SFA2_A_NUM_IND_08_REV2 + 1];
-    static uint32_t rgExtraCountAll_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1];
-    static uint32_t rgExtraCountAll_09_SFA2_Hack[SFA2_HACK_NUM_09 + 1];
-    static uint32_t rgExtraLoc_07_Rev1[SFA2_A_NUM_IND_07_REV1 + 1];
-    static uint32_t rgExtraLoc_07_Rev2[SFA2_A_NUM_IND_07_REV2 + 1];
-    static uint32_t rgExtraLoc_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1];
-    static uint32_t rgExtraLoc_08_Rev1[SFA2_A_NUM_IND_08_REV1 + 1];
-    static uint32_t rgExtraLoc_08_Rev2[SFA2_A_NUM_IND_08_REV2 + 1];
-    static uint32_t rgExtraLoc_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1];
-    static uint32_t rgExtraLoc_09_SFA2_Hack[SFA2_HACK_NUM_09 + 1];
-
-    void ResetActiveSFA2Revision();
-
-    void InitDataBuffer() override;
-    void ClearDataBuffer() override;
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
-
-    static const sDescTreeNode* GetCurrentUnitSet();
-    static uint32_t GetCurrentExtraLoc();
-    static stExtraDef* GetCurrentExtraDef(int nDefCtr);
+    static bool UsePaletteSetForCharacters();
 
     SFA2_SupportedROMRevision GetSFA2ROMVersion(CFile* LoadedFile);
 
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM07_Rev1 =
+    {
+        {
+            { L"sz2.07", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM07_Rev2 =
+    {
+        {
+            { L"sz2u.07", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM07_SFZ2A =
+    {
+        {
+            { L"szaa.07", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM08_Rev1 =
+    {
+        {
+            { L"sz2.08", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM08_Rev2 =
+    {
+        {
+            { L"sz2u.08", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM08_SFZ2A =
+    {
+        {
+            { L"szaa.08", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    static inline const sDirectoryLoadingData m_sFileLoadingData_ROM09_Hack =
+    {
+        {
+            { L"sz2u.09", 0x80000 },
+        },
+        FileReadType::Sequential,
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM07_Rev1
+    {
+        L"SFA2 (CPS2 ROM07)",
+        SFA2_A,
+        IMGDAT_SECTION_CPS2,
+        SFA2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_SFA2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM07_Rev1,
+        SFA2_A_UNITS_07_REV1,
+        ARRAYSIZE(SFA2_A_UNITS_07_REV1),
+        L"SFA2e.txt",           // Extra filename
+        935,                    // Count of palettes listed in the header
+        0x2C000,                // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM07_Rev2
+    {
+        L"SFA2 (CPS2 ROM07)",
+        SFA2_A,
+        IMGDAT_SECTION_CPS2,
+        SFA2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_SFA2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM07_Rev2,
+        SFA2_A_UNITS_07_REV2,
+        ARRAYSIZE(SFA2_A_UNITS_07_REV2),
+        L"SFA2e.txt",           // Extra filename
+        1057,                   // Count of palettes listed in the header
+        0x2C000,                // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM07_SFZ2A
+    {
+        L"SFA2 (CPS2 ROM07)",
+        SFA2_A,
+        IMGDAT_SECTION_CPS2,
+        SFA2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_SFA2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM07_SFZ2A,
+        SFZ2A_A_UNITS_07,
+        ARRAYSIZE(SFZ2A_A_UNITS_07),
+        L"SFA2e.txt",           // Extra filename
+        1342,                   // Count of palettes listed in the header
+        0x2C000,                // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM08_Rev1
+    {
+        L"SFA2 (CPS2 ROM08)",
+        SFA2_A,
+        IMGDAT_SECTION_CPS2,
+        SFA2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_SFA2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM08_Rev1,
+        SFA2_A_UNITS_08_REV1,
+        ARRAYSIZE(SFA2_A_UNITS_08_REV1),
+        L"SFA2-8e.txt",         // Extra filename
+        271,                    // Count of palettes listed in the header
+        0x125e,                 // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM08_Rev2
+    {
+        L"SFA2 (CPS2 ROM08)",
+        SFA2_A,
+        IMGDAT_SECTION_CPS2,
+        SFA2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_SFA2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM08_Rev2,
+        SFA2_A_UNITS_08_REV2,
+        ARRAYSIZE(SFA2_A_UNITS_08_REV2),
+        L"SFA2-8e.txt",         // Extra filename
+        315,                    // Count of palettes listed in the header
+        0x125e,                 // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM08_SFZ2A
+    {
+        L"SFA2 (CPS2 ROM08)",
+        SFA2_A,
+        IMGDAT_SECTION_CPS2,
+        SFA2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_SFA2,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM08_SFZ2A,
+        SFZ2A_A_UNITS_08,
+        ARRAYSIZE(SFZ2A_A_UNITS_08),
+        L"SFA2-8e.txt",         // Extra filename
+        345,                    // Count of palettes listed in the header
+        0x125e,                 // Lowest known location used for palettes
+    };
+
+    const sCoreGameData m_sCoreGameData_ROM09_Hack
+    {
+        L"SFA2 Expansion Hack (CPS2)",
+        SFA2_A,
+        IMGDAT_SECTION_CPS2,
+        SFA2_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        DEF_BUTTONLABEL_SFA2_HACK,
+        AlphaMode::GameDoesNotUseAlpha,
+        ColMode::COLMODE_RGB444_BE,
+        m_sFileLoadingData_ROM09_Hack,
+        SFA2_HACK_UNITS_09,
+        ARRAYSIZE(SFA2_HACK_UNITS_09),
+        L"SFA2-9e.txt",         // Extra filename
+        2400,                   // Count of palettes listed in the header
+        0x10e,                  // Lowest known location used for palettes
+    };
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
 
-    static constexpr auto EXTRA_FILENAME_SFA2_07 = L"SFA2e.txt";
-    static constexpr auto EXTRA_FILENAME_SFA2_08 = L"SFA2-8e.txt";
-    static constexpr auto EXTRA_FILENAME_SFA2_09 = L"SFA2-9e.txt";
-    static constexpr uint32_t m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-
 public:
-    CGame_SFA2_A(uint32_t nConfirmedROMSize, int nSFA2ROMToLoad);
-    ~CGame_SFA2_A();
+    CGame_SFA2_A(uint32_t nConfirmedROMSize);
 
-    //Static functions / variables
-    static CDescTree MainDescTree_07_Rev1;
-    static CDescTree MainDescTree_07_Rev2;
-    static CDescTree MainDescTree_07_SFZ2A;
-    static CDescTree MainDescTree_08_Rev1;
-    static CDescTree MainDescTree_08_Rev2;
-    static CDescTree MainDescTree_08_SFZ2A;
-    static CDescTree MainDescTree_09_Hack;
-
-    static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse, SFA2_SupportedROMRevision nROMRevision);
-    static sFileRule GetRule(uint32_t nUnitId);
-
-    //Extra palette function
-    static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);
-    static uint32_t GetExtraLoc(uint32_t nUnitId);
-
-    //Normal functions
-    CDescTree* GetMainTree();
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-
-    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
-
-    uint32_t GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId);
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
-
-    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId = 0) override;
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+    static void SetSpecialRuleForFileName(std::wstring strFileName);
 
     uint32_t GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* SFA2_A_EXTRA_CUSTOM_07_REV1;
-    static stExtraDef* SFA2_A_EXTRA_CUSTOM_07_REV2;
-    static stExtraDef* SFZ2A_A_EXTRA_CUSTOM_07;
-    static stExtraDef* SFA2_A_EXTRA_CUSTOM_08_REV1;
-    static stExtraDef* SFA2_A_EXTRA_CUSTOM_08_REV2;
-    static stExtraDef* SFZ2A_A_EXTRA_CUSTOM_08;
-    static stExtraDef* SFA2_HACK_EXTRA_CUSTOM_09;
+    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId);
+
+    BOOL UpdatePalImg(int Node01, int Node02, int Node03, int Node04);
+
+    static sFileRule GetRule(uint32_t nRuleId);
 };
