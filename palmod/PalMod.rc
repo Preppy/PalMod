@@ -480,6 +480,7 @@ BEGIN
                 MENUITEM "King of Fighters 02UM (Steam, BGR555 parts)", ID_LD_KOF02UM_S_BGR555
                 MENUITEM "King of Fighters 02UM (Steam, RGB555 parts, Characters)", ID_LD_KOF02UM_S_RGB555
             END
+            MENUITEM "Land Maker",                      ID_LD_LANDMAKER
             POPUP "Melty Blood"
             BEGIN
                 MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
