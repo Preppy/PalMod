@@ -330,13 +330,14 @@
 #define ID_COLORFORMAT_BGRA8888_BE      32928
 #define ID_LD_DAEMONBRIDE_NL            32929
 #define ID_LD_DAEMONBRIDEAG_NL          32930
+#define ID_LD_LANDMAKER                 32931
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        145
-#define _APS_NEXT_COMMAND_VALUE         32931
+#define _APS_NEXT_COMMAND_VALUE         32932
 #define _APS_NEXT_CONTROL_VALUE         1079
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

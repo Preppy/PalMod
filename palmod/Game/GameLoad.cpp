@@ -66,6 +66,7 @@
 #include "Game_KOF99AE_A.h"
 #include "Game_KOFXI_A.h"
 #include "Game_KOTM_A.h"
+#include "Game_LandMaker_A_DIR.h"
 #include "Game_LASTBLADE_A.h"
 #include "Game_LASTBLADE2_A.h"
 #include "Game_MAGICALDROPIII_A.h"
@@ -155,7 +156,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 175, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 176, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -634,6 +635,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case KOTM_A:
     {
         GetRule = &CGame_KOTM_A::GetRule;
+        return TRUE;
+    }
+    case LandMaker_A:
+    {
+        GetRuleCtr = &CGame_LandMaker_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_LandMaker_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_LandMaker_A_DIR::GetRule;
+        GetNextRule = &CGame_LandMaker_A_DIR::GetNextRule;
+
         return TRUE;
     }
     case LASTBLADE_A:
@@ -1510,6 +1520,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     {
         return new CGame_KOTM_A(nConfirmedROMSize);
     }
+    case LandMaker_A:
+    {
+        return new CGame_LandMaker_A_DIR(nConfirmedROMSize);
+    }
     case LASTBLADE_A:
     case LASTBLADE_S:
     {
@@ -2146,6 +2160,15 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
     {
         OutputDebugString(L"CGameLoad::LoadDir: game could not be loaded: failing load.\r\n");
         return nullptr;
+    }
+
+    switch (nGameFlag)
+    {
+    case LandMaker_A:
+        CGame_LandMaker_A_DIR::SetSpecialRuleForFileName(pszLoadDir);
+        break;
+    default:
+        break;
     }
 
     if (ResetRuleCtr == nullptr)
