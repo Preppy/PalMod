@@ -257,7 +257,6 @@
     <ClCompile Include="Game\Game_GGDS_NDS.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_P.cpp" />
     <ClCompile Include="Game\Game_GGXXACR_S.cpp" />
-    <ClCompile Include="Game\Game_GGXXR_S.cpp" />
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
     <ClCompile Include="Game\Game_HSF2_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />

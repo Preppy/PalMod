@@ -5,7 +5,7 @@
 const std::vector<PersonaFileData> PersonaCharacterData_NESICA =
 {
     //Alphabetical
-   { L"char\\char_ag_pal.pac",     L"Aigis",                          278560,    &Persona4PalettesAigis,      0x2040,      0x2100 },
+    { L"char\\char_ag_pal.pac",    L"Aigis",                          278560,    &Persona4PalettesAigis,      0x2040,      0x2100 },
     { L"ETC\\CHSLDotV.pac",        L"Aigis (CharaSelect)",            19154912,  &Persona4PalettesAigisCSEL,  0x191a90,    0x840 },
     { L"char\\char_ak_pal.pac",    L"Akihiko Sanada",                 278560,    &Persona4PalettesAkihiko,    0x2040,      0x2100 },
     { L"ETC\\CHSLDotV.pac",        L"Akihiko Sanada (CharaSelect)",   19154912,  &Persona4PalettesAkihikoCSEL,0x24BE20,    0x840 },

@@ -117,23 +117,6 @@ const std::vector<LPCWSTR> GGXXACRPaletteNamesEx =
     L"Shadow",
 };
 
-const std::vector<LPCWSTR> GGXXRPaletteNamesNormal =
-{
-    L"Punch",
-    L"Kick",
-    L"Slash",
-    L"Heavy Slash",
-    L"Start",
-    L"Dust",
-
-    L"SP Punch",
-    L"SP Kick",
-    L"SP Slash",
-    L"SP Heavy Slash",
-    L"SP Start",
-    L"SP Dust",
-};
-
 struct GGXXACRFileData
 {
     LPCWSTR pszFileName = nullptr;

@@ -5,7 +5,7 @@
 struct sGCBUPF_BasicNodeData
 {
     std::vector<LPCWSTR> rgpszNodeNames;
-    uint32_t nAdjustmentFromBaseNode;
+    uint32_t nAdditionalBufferBetweenEachNode;
     std::vector<LPCWSTR> rgpszButtonLabels;
 };
 

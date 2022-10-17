@@ -282,8 +282,14 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_
 
         if (nPaletteSet)
         {
-            // Walk forward one palette offset per set
-            m_nCurrentPaletteROMLocation += (nPaletteSet * m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).sNodeData.nAdjustmentFromBaseNode);
+            // Walk forward one palette offset per set/node
+            m_nCurrentPaletteROMLocation += (nPaletteSet * m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).sNodeData.nAdditionalBufferBetweenEachNode);
+        }
+
+        if (m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).sNodeData.rgpszButtonLabels.size() == 0)
+        {
+            // Use the optional per-palette increment reflecting a buffer between palettes
+            m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.at(nAdjustedPalId).nPaletteShiftFromBase;
         }
     }
     else
@@ -296,7 +302,8 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_
             m_pszCurrentPaletteName = GetBasicPaletteNameForPalette(nUnitId, nPalIdInPaletteList);
 
             m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).nInitialLocation;
-            m_nCurrentPaletteROMLocation += nCollectionId * m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).sNodeData.nAdjustmentFromBaseNode;
+            m_nCurrentPaletteROMLocation += nCollectionId * m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).sNodeData.nAdditionalBufferBetweenEachNode;
+            // Use the optional per-palette increment reflecting a buffer between palettes
             m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.at(nPalIdInPaletteList).nPaletteShiftFromBase;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         }
