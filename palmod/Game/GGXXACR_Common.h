@@ -1,3 +1,6 @@
+#pragma once
+
+#include "GameClassByUnitPerFile.h"
 
 const std::vector<uint16_t> GGXX_ACR_IMGIDS_USED =
 {
@@ -115,6 +118,73 @@ const std::vector<LPCWSTR> GGXXACRPaletteNamesEx =
     L"Reload Slash",
     L"Reload Heavy Slash",
     L"Shadow",
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> GGXXACRPaletteNamesNormal2 =
+{
+    { L"Punch" },
+    { L"Kick", 0x20 },
+    { L"Slash", 0x40 },
+    { L"Heavy Slash", 0x60 },
+    { L"Dust", 0x80 },
+
+    { L"EX Punch", 0xa0 },
+    { L"EX Kick", 0xc0 },
+    { L"EX Slash", 0xe0 },
+    { L"EX Heavy Slash", 0x100 },
+    { L"EX Dust", 0x120 },
+
+    { L"Slash Punch", 0x140 },
+    { L"Slash Kick", 0x160 },
+    { L"Slash Slash", 0x180 },
+    { L"Slash Heavy Slash", 0x1a0 },
+    { L"Gold", 0x1c0 },
+
+    { L"Reload Punch", 0x1e0 },
+    { L"Reload Kick", 0x200 },
+    { L"Reload Slash", 0x220 },
+    { L"Reload Heavy Slash", 0x240 },
+    { L"Shadow", 0x260 },
+
+    { L"Vs Slash Dust", 0x280 },
+    { L"Vs Reload Dust", 0x2a0 },
+};
+
+const std::vector<sGCBUPF_RelativePaletteData> GGXXACRPaletteNamesEx2 =
+{
+    { L"Punch" },
+    { L"Kick", 0x20 },
+    { L"Slash", 0x40 },
+    { L"Heavy Slash", 0x60 },
+    { L"Dust", 0x80 },
+
+    { L"EX Punch", 0xa0 },
+    { L"EX Kick", 0xc0 },
+    { L"EX Slash", 0xe0 },
+    { L"EX Heavy Slash", 0x100 },
+    { L"EX Dust", 0x120 },
+
+    { L"Slash Punch", 0x140 },
+    { L"Slash Kick", 0x160 },
+    { L"Slash Slash", 0x180 },
+    { L"Slash Heavy Slash", 0x1a0 },
+    { L"Gold", 0x1c0 },
+
+    { L"Reload Punch", 0x1e0 },
+    { L"Reload Kick", 0x200 },
+    { L"Reload Slash", 0x220 },
+    { L"Reload Heavy Slash", 0x240 },
+    { L"Shadow", 0x260 },
+};
+
+const sGCBUPF_BasicNodeData GGXXACR_NormalNode =
+{
+    { L"Core Palettes" }, 0x0, GGXXACRPaletteNamesShort
+};
+
+const sGCBUPF_BasicNodeData GGXXACR_EXNode =
+{
+    { L"Core Palettes" }, 0x0, GGXXACRPaletteNamesEx
 };
 
 struct GGXXACRFileData

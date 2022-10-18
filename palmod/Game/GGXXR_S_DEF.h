@@ -2,6 +2,23 @@
 
 #include "GGXXACR_Common.h"
 
+const std::vector<LPCWSTR> GGXXRPaletteNames_Text =
+{
+    { L"Punch" },
+    { L"Kick", },
+    { L"Slash" },
+    { L"Heavy Slash" },
+    { L"Start" },
+    { L"Dust" },
+
+    { L"SP Punch" },
+    { L"SP Kick" },
+    { L"SP Slash"},
+    { L"SP Heavy Slash" },
+    { L"SP Start" },
+    { L"SP Dust" },
+};
+
 const std::vector<sGCBUPF_RelativePaletteData> GGXXRPaletteNamesNormal =
 {
     { L"Punch" },
@@ -21,7 +38,7 @@ const std::vector<sGCBUPF_RelativePaletteData> GGXXRPaletteNamesNormal =
 
 const sGCBUPF_BasicNodeData GGXXR_S_NormalNode =
 {
-    { L"Core Palettes" }
+    { L"Core Palettes" }, 0x0, GGXXRPaletteNames_Text
 };
 
 const std::vector<sGCBUPF_BasicFileData> GGXXR_S_CharacterData =

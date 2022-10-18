@@ -180,7 +180,7 @@ sDescTreeNode* CGameClassPerUnitPerFile::InitDescTree()
 
 std::vector<LPCWSTR> CGameClassPerUnitPerFile::GetBasicPaletteLabelsForUnit(uint32_t nUnitId)
 {
-    if (m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.size())
+    if (m_psCurrentGameLoadingData->ePaletteLayout != PaletteArrangementStyle::EachNodeContainsAPaletteSet)
     {
         return m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).sNodeData.rgpszNodeNames;
     }
@@ -286,11 +286,8 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_
             m_nCurrentPaletteROMLocation += (nPaletteSet * m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).sNodeData.nAdditionalBufferBetweenEachNode);
         }
 
-        if (m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).sNodeData.rgpszButtonLabels.size() == 0)
-        {
-            // Use the optional per-palette increment reflecting a buffer between palettes
-            m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.at(nAdjustedPalId).nPaletteShiftFromBase;
-        }
+        // Use the optional per-palette increment reflecting a buffer between palettes
+        m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.at(nAdjustedPalId).nPaletteShiftFromBase;
     }
     else
     {
@@ -365,7 +362,6 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
         nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
 
         nNodeIncrement = 1;
-
     }
     else
     {
