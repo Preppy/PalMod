@@ -38,7 +38,7 @@ struct sGCBUPF_BasicFileData
 
 enum class PaletteArrangementStyle
 {
-    EachNodeContainsAPaletteSet,
+    EachBasicNodeContainsAPaletteSet,
     OnePaletteSetEntryPerEachNode,
 };
 
@@ -59,7 +59,7 @@ public:
         // The two options are:
             // each node contains a full set of per-color palettes
             // all nodes together represent the set of palettes.  if there are effects, they go in each node
-        const PaletteArrangementStyle ePaletteLayout = PaletteArrangementStyle::EachNodeContainsAPaletteSet;
+        const PaletteArrangementStyle ePaletteLayout = PaletteArrangementStyle::EachBasicNodeContainsAPaletteSet;
     };
 
     static std::wstring m_strGameFriendlyName;

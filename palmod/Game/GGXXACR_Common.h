@@ -32,36 +32,6 @@ const std::vector<uint16_t> GGXX_ACR_IMGIDS_USED =
     indexGGXXSprites_ACR_Bonus, // 0x19
 };
 
-const std::vector<LPCWSTR> GGXXACRPaletteNamesNormal =
-{
-    L"Punch",
-    L"Kick",
-    L"Slash",
-    L"Heavy Slash",
-    L"Dust",
-
-    L"EX Punch",
-    L"EX Kick",
-    L"EX Slash",
-    L"EX Heavy Slash",
-    L"EX Dust",
-
-    L"Slash Punch",
-    L"Slash Kick",
-    L"Slash Slash",
-    L"Slash Heavy Slash",
-    L"Gold",
-
-    L"Reload Punch",
-    L"Reload Kick",
-    L"Reload Slash",
-    L"Reload Heavy Slash",
-    L"Shadow",
-
-    L"Vs Slash Dust",
-    L"Vs Reload Dust",
-};
-
 // For the smaller Export listbox
 const std::vector<LPCWSTR> GGXXACRPaletteNamesShort =
 {
@@ -93,88 +63,31 @@ const std::vector<LPCWSTR> GGXXACRPaletteNamesShort =
     L"VsR. Dust",
 };
 
-const std::vector<LPCWSTR> GGXXACRPaletteNamesEx =
+const std::vector<LPCWSTR> GGXXACRExPaletteNamesShort =
 {
     L"Punch",
     L"Kick",
     L"Slash",
-    L"Heavy Slash",
+    L"Heavy",
     L"Dust",
 
-    L"EX Punch",
-    L"EX Kick",
-    L"EX Slash",
-    L"EX Heavy Slash",
-    L"EX Dust",
+    L"E. Punch",
+    L"E. Kick",
+    L"E. Slash",
+    L"E. Heavy",
+    L"E. Dust",
 
-    L"Slash Punch",
-    L"Slash Kick",
-    L"Slash Slash",
-    L"Slash Heavy Slash",
+    L"S. Punch",
+    L"S. Kick",
+    L"S. Slash",
+    L"S. Heavy",
     L"Gold",
 
-    L"Reload Punch",
-    L"Reload Kick",
-    L"Reload Slash",
-    L"Reload Heavy Slash",
+    L"R. Punch",
+    L"R. Kick",
+    L"R. Slash",
+    L"R. Heavy",
     L"Shadow",
-};
-
-const std::vector<sGCBUPF_RelativePaletteData> GGXXACRPaletteNamesNormal2 =
-{
-    { L"Punch" },
-    { L"Kick", 0x20 },
-    { L"Slash", 0x40 },
-    { L"Heavy Slash", 0x60 },
-    { L"Dust", 0x80 },
-
-    { L"EX Punch", 0xa0 },
-    { L"EX Kick", 0xc0 },
-    { L"EX Slash", 0xe0 },
-    { L"EX Heavy Slash", 0x100 },
-    { L"EX Dust", 0x120 },
-
-    { L"Slash Punch", 0x140 },
-    { L"Slash Kick", 0x160 },
-    { L"Slash Slash", 0x180 },
-    { L"Slash Heavy Slash", 0x1a0 },
-    { L"Gold", 0x1c0 },
-
-    { L"Reload Punch", 0x1e0 },
-    { L"Reload Kick", 0x200 },
-    { L"Reload Slash", 0x220 },
-    { L"Reload Heavy Slash", 0x240 },
-    { L"Shadow", 0x260 },
-
-    { L"Vs Slash Dust", 0x280 },
-    { L"Vs Reload Dust", 0x2a0 },
-};
-
-const std::vector<sGCBUPF_RelativePaletteData> GGXXACRPaletteNamesEx2 =
-{
-    { L"Punch" },
-    { L"Kick", 0x20 },
-    { L"Slash", 0x40 },
-    { L"Heavy Slash", 0x60 },
-    { L"Dust", 0x80 },
-
-    { L"EX Punch", 0xa0 },
-    { L"EX Kick", 0xc0 },
-    { L"EX Slash", 0xe0 },
-    { L"EX Heavy Slash", 0x100 },
-    { L"EX Dust", 0x120 },
-
-    { L"Slash Punch", 0x140 },
-    { L"Slash Kick", 0x160 },
-    { L"Slash Slash", 0x180 },
-    { L"Slash Heavy Slash", 0x1a0 },
-    { L"Gold", 0x1c0 },
-
-    { L"Reload Punch", 0x1e0 },
-    { L"Reload Kick", 0x200 },
-    { L"Reload Slash", 0x220 },
-    { L"Reload Heavy Slash", 0x240 },
-    { L"Shadow", 0x260 },
 };
 
 const sGCBUPF_BasicNodeData GGXXACR_NormalNode =
@@ -184,16 +97,5 @@ const sGCBUPF_BasicNodeData GGXXACR_NormalNode =
 
 const sGCBUPF_BasicNodeData GGXXACR_EXNode =
 {
-    { L"Core Palettes" }, 0x0, GGXXACRPaletteNamesEx
-};
-
-struct GGXXACRFileData
-{
-    LPCWSTR pszFileName = nullptr;
-    LPCWSTR pszCharacter = nullptr;
-    uint32_t nExpectedFileSize = 0;
-    const std::vector<LPCWSTR> ppszPaletteList;
-    uint32_t nInitialLocation = 0;
-    uint32_t nSpriteIndex = (uint32_t)-1;
-    const std::vector<sGame_PaletteDataset> prgExtraPalettes;
+    { L"Core Palettes" }, 0x0, GGXXACRExPaletteNamesShort
 };
