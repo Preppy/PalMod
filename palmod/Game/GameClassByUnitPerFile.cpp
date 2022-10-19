@@ -180,7 +180,7 @@ sDescTreeNode* CGameClassPerUnitPerFile::InitDescTree()
 
 std::vector<LPCWSTR> CGameClassPerUnitPerFile::GetBasicPaletteLabelsForUnit(uint32_t nUnitId)
 {
-    if (m_psCurrentGameLoadingData->ePaletteLayout != PaletteArrangementStyle::EachBasicNodeContainsAPaletteSet)
+    if (m_psCurrentGameLoadingData->ePaletteLayout != PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet)
     {
         return m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).sNodeData.rgpszNodeNames;
     }
@@ -294,7 +294,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_
     //  Pal1, Pal2, Pal3, Pal4, Pal5
     //     Main, ex1, ex2, ex3
 
-    if (m_psCurrentGameLoadingData->ePaletteLayout == PaletteArrangementStyle::EachBasicNodeContainsAPaletteSet)
+    if (m_psCurrentGameLoadingData->ePaletteLayout == PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet)
     {
         const uint32_t nAdjustedPalId = nPalId % static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(nUnitId));
         const uint32_t nPaletteSet = nPalId / static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(nUnitId));
@@ -312,7 +312,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_
         // Use the optional per-palette increment reflecting a buffer between palettes
         m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.at(nAdjustedPalId).nPaletteShiftFromBase;
     }
-    else
+    else // PaletteArrangementStyle::OneButtonLabelEntryPerEachNode
     {
         if (ShouldUseBasePaletteSet(nUnitId, nPalId))
         {
@@ -373,7 +373,9 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
 
     if (ShouldUseBasePaletteSet(NodeGet->uUnitId, NodeGet->uPalId))
     {
-        if (m_psCurrentGameLoadingData->ePaletteLayout == PaletteArrangementStyle::EachBasicNodeContainsAPaletteSet)
+        pButtonLabelSet = GetBasicPaletteLabelsForUnit(NodeGet->uUnitId);
+
+        if (m_psCurrentGameLoadingData->ePaletteLayout == PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet)
         {
             // The following logic locks us in as having each node contain one full palette set.  Any additional nodes
             // will also contain a full palette set.  If the palette set is instead spread one palette per node, this logic
@@ -383,7 +385,6 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).nImageUnitIndex;
             nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).nImagePreviewIndex;
 
-            pButtonLabelSet = GetBasicPaletteLabelsForUnit(NodeGet->uUnitId);
             nSrcAmt = static_cast<uint32_t>(pButtonLabelSet.size());
 
             nNodeIncrement = 1;
@@ -394,7 +395,6 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             nSrcStart = NodeGet->uPalId % GetBasicPaletteListSizeForUnit(NodeGet->uUnitId);
             nSrcAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).sNodeData.rgpszNodeNames.size());
             nNodeIncrement = static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(NodeGet->uUnitId));
-            pButtonLabelSet = GetBasicPaletteLabelsForUnit(NodeGet->uUnitId);
 
             // Use the specific (relative) palette data's specification of the preview to use if provided, otherwise
             // fall back to the basic palette info's specification

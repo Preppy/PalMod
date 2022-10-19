@@ -36,10 +36,19 @@ struct sGCBUPF_BasicFileData
     const std::vector<sGame_PaletteDataset> prgExtraPalettes;
 };
 
+// This enum defines how we present the assembled data to the user.  While PalMod internally Unit::Collection::Node,
+// the game's view of those palettes to the user is constructed around button labels, such as P1/P2/P3, etc.
+// This enum lets you align our Collection::Node layouts to those button labels.
 enum class PaletteArrangementStyle
 {
-    EachBasicNodeContainsAPaletteSet,
-    OnePaletteSetEntryPerEachNode,
+    // With this style, each basic node contains a simple list comprised solely of one item per button label.
+    // The nodes themselves might be "Palettes" or { "Core Palettes", "EX Palettes" }
+    EachBasicNodeContainsAFullButtonLabelSet,
+    // With this style, the collections match the button labels.  The nodes themselves contain the core 
+    // palettes and presumably some additional move or Extras palettes, such as
+    //        { "Core Palette", "Fireball", "Kick Move" }
+    // and so forth.
+    OneButtonLabelEntryPerEachNode,
 };
 
 class CGameClassPerUnitPerFile : public CGameWithExtrasFile
@@ -59,7 +68,7 @@ public:
         // The two options are:
             // each node contains a full set of per-color palettes
             // all nodes together represent the set of palettes.  if there are effects, they go in each node
-        const PaletteArrangementStyle ePaletteLayout = PaletteArrangementStyle::EachBasicNodeContainsAPaletteSet;
+        const PaletteArrangementStyle ePaletteLayout = PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet;
     };
 
     static std::wstring m_strGameFriendlyName;

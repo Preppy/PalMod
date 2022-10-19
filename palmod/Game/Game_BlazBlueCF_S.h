@@ -15,7 +15,7 @@ private:
         AlphaMode::GameUsesVariableAlpha,
         ColMode::COLMODE_BGRA8888_LE,
         BlazBlueCF_S_CharacterData,
-        PaletteArrangementStyle::OnePaletteSetEntryPerEachNode,
+        PaletteArrangementStyle::OneButtonLabelEntryPerEachNode,
     };
 
 public:

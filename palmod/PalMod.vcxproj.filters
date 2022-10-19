@@ -891,9 +891,6 @@
     <ClCompile Include="Game\Game_MAAB_A.cpp">
       <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_P4AU_NESICA.cpp">
-      <Filter>Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax 2.0 %28NESICA%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_Venture_A.cpp">
       <Filter>Games\Capcom Games\Jojos Venture</Filter>
     </ClCompile>
@@ -923,9 +920,6 @@
     </ClCompile>
     <ClCompile Include="Game\Game_VampireNightWarriors_A.cpp">
       <Filter>Games\Capcom Games\Vampire Night Warriors_A</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_P4AU_STEAM.cpp">
-      <Filter>Games\Other Platforms\Persona 4 Arena\Persona 4 Arena Ultimax %28Steam%29</Filter>
     </ClCompile>
     <ClCompile Include="Game\Patching.cpp">
       <Filter>Games\Base</Filter>

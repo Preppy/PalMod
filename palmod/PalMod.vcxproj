@@ -298,8 +298,6 @@
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
     <ClCompile Include="Game\Game_NGBC_A.cpp" />
     <ClCompile Include="Game\Game_NinjaMasters_A.cpp" />
-    <ClCompile Include="Game\Game_P4AU_NESICA.cpp" />
-    <ClCompile Include="Game\Game_P4AU_STEAM.cpp" />
     <ClCompile Include="Game\Game_RBFF1_A.cpp" />
     <ClCompile Include="Game\Game_RBFF2_A.cpp" />
     <ClCompile Include="Game\Game_RBFFS_A.cpp" />
