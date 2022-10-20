@@ -15,7 +15,7 @@ private:
 
     const sCoreGameData m_sCoreGameData
     {
-        L"Karnov's Revenge / Fighter's History Dynamite",
+        L"Karnov's Revenge / Fighter's History Dynamite (Neo-Geo)",
         KarnovsR_A,
         IMGDAT_SECTION_KARNOVSR,
         KARNOVSR_A_IMGIDS_USED,
@@ -28,7 +28,7 @@ private:
         KarnovsR_A_UNITS,
         ARRAYSIZE(KarnovsR_A_UNITS),
         L"KarnovsE.txt",        // Extra filename
-        71,                     // Count of palettes listed in the header
+        72,                     // Count of palettes listed in the header
         0x65420,                // Lowest known location used for palettes
     };
 

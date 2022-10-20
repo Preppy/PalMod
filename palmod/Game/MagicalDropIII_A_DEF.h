@@ -192,13 +192,13 @@ const sGame_PaletteDataset MAGICALDROPIII_A_CHARIOT_PALETTES_B[] =
 //Strength
 const sGame_PaletteDataset MAGICALDROPIII_A_STRENGTH_PALETTES_A[] =
 {
-    { L"Strength A", 0x69980, 0x699e0 },
+    { L"Strenght A", 0x69c40, 0x69c60 },
     { L"Strength A Map", 0x6a8c0, 0x6a8e0 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_STRENGTH_PALETTES_B[] =
 {
-    { L"Strength B", 0x699e0, 0x69a40 },
+    { L"Strenght B", 0x69c60, 0x69c80 },
     { L"Strength B Map", 0x6a8e0, 0x6a900 },
 };
 
@@ -326,6 +326,7 @@ const sGame_PaletteDataset MAGICALDROPIII_A_TOWER_PALETTES_A[] =
 const sGame_PaletteDataset MAGICALDROPIII_A_TOWER_PALETTES_B[] =
 {
     { L"Tower B", 0x69620, 0x696c0 },
+    { L"Tower B Portrait", 0x6cf00, 0x6cf20 },
     { L"Tower B Map", 0x6aae0, 0x6ab00 },
 };
 
@@ -416,13 +417,13 @@ const sGame_PaletteDataset MAGICALDROPIII_A_BLACKPIERROT_PALETTES_B[] =
 //Strength's Father
 const sGame_PaletteDataset MAGICALDROPIII_A_STRENGTHSFATHER_PALETTES_A[] =
 {
-    { L"Strenght's Father A", 0x69c40, 0x69c60 },
+    { L"Strength's Father A", 0x69980, 0x699e0 },
     { L"Strenght's Father A Map", 0x6ac80, 0x6aca0 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_STRENGTHSFATHER_PALETTES_B[] =
 {
-    { L"Strenght's Father B", 0x69c60, 0x69c80 },
+    { L"Strength's Father B", 0x699e0, 0x69a40 },
     { L"Strenght's Father B Map", 0x6aca0, 0x6acc0 },
 };
 

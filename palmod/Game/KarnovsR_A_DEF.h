@@ -267,6 +267,11 @@ const sGame_PaletteDataset KarnovsR_A_KARNOV_SELECTICON_PALETTES[] =
     { L"Karnov", 0x655A0, 0x655C0, indexKarnovsRSprites_Karnov, 2 },
 };
 
+const sGame_PaletteDataset KarnovsR_A_OX_PALETTES[] =
+{
+    { L"Ox", 0x66BC0, 0x66Be0 },
+};
+
 const sDescTreeNode KarnovsR_A_KARNOV_COLLECTION[] =
 {
     { L"Punch", DESC_NODETYPE_TREE, (void*)KarnovsR_A_KARNOV_PUNCH_PALETTES, ARRAYSIZE(KarnovsR_A_KARNOV_PUNCH_PALETTES) },
@@ -358,6 +363,11 @@ const sDescTreeNode KarnovsR_A_RAY_COLLECTION[] =
     { L"Select Icons", DESC_NODETYPE_TREE, (void*)KarnovsR_A_RAY_SELECTICON_PALETTES, ARRAYSIZE(KarnovsR_A_RAY_SELECTICON_PALETTES) },
 };
 
+const sDescTreeNode KarnovsR_A_OX_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)KarnovsR_A_OX_PALETTES, ARRAYSIZE(KarnovsR_A_OX_PALETTES) },
+};
+
 const sDescTreeNode KarnovsR_A_WEAKPOINT_COLLECTION[] =
 {
     { k_krNameKey_Punch, DESC_NODETYPE_TREE, (void*)KarnovsR_A_KARNOV_WEAKPOINT_PALETTES_P, ARRAYSIZE(KarnovsR_A_KARNOV_WEAKPOINT_PALETTES_P) },
@@ -379,5 +389,6 @@ const sDescTreeNode KarnovsR_A_UNITS[] =
     { k_krNameKey_Zazie,   DESC_NODETYPE_TREE, (void*)KarnovsR_A_ZAZIE_COLLECTION, ARRAYSIZE(KarnovsR_A_ZAZIE_COLLECTION) },
     { L"Clown",       DESC_NODETYPE_TREE, (void*)KarnovsR_A_CLOWN_COLLECTION, ARRAYSIZE(KarnovsR_A_CLOWN_COLLECTION) },
     { k_krNameKey_Karnov,  DESC_NODETYPE_TREE, (void*)KarnovsR_A_KARNOV_COLLECTION, ARRAYSIZE(KarnovsR_A_KARNOV_COLLECTION) },
+    { L"Ox",          DESC_NODETYPE_TREE, (void*)KarnovsR_A_OX_COLLECTION, ARRAYSIZE(KarnovsR_A_OX_COLLECTION) },
     { k_krNameKey_WeakpointUnit, DESC_NODETYPE_TREE, (void*)KarnovsR_A_WEAKPOINT_COLLECTION, ARRAYSIZE(KarnovsR_A_WEAKPOINT_COLLECTION) },
 };

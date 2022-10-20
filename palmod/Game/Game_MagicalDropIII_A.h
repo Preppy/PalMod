@@ -28,7 +28,7 @@ private:
         MAGICALDROPIII_A_UNITS,
         ARRAYSIZE(MAGICALDROPIII_A_UNITS),
         L"MagicalDropIIIE.txt",         // Extra filename
-        185,                            // Count of palettes listed in the header
+        186,                            // Count of palettes listed in the header
         0x680c0,                        // Lowest known location used for palettes
     };
 
