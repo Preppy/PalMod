@@ -31,7 +31,7 @@ int GetDpiForScreen()
 
 int CJunk::GetPaletteSquareSize()
 {
-    return (int)ceil((BASE_PALETTE_SQUARE_SIZE * GetDpiForScreen()) / 96);
+    return static_cast<int>(ceil((BASE_PALETTE_SQUARE_SIZE * GetDpiForScreen()) / 96.0));
 }
 
 UCHAR CJunk::Toggle(UCHAR& tVar)
@@ -930,6 +930,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
 
         GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_RGB, L"RGB");
         GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_HSL, L"HSL");
+        GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_HSV, L"HSV");
 
         PopupMenu.AppendMenu(MF_POPUP | ((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED), (UINT_PTR)GradientMenu.m_hMenu, L"Gradient");
 
@@ -950,6 +951,9 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
             break;
         case CUSTOM_GRADIENT_HSL:
             GetHost()->GetPalModDlg()->OnBnClickedGradient_HSL();
+            break;
+        case CUSTOM_GRADIENT_HSV:
+            GetHost()->GetPalModDlg()->OnBnClickedGradient_HSV();
             break;
         case CUSTOM_GRADIENT_RGB:
             GetHost()->GetPalModDlg()->OnBnClickedGradient_RGB();

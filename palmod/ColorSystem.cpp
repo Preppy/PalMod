@@ -1630,8 +1630,113 @@ namespace ColorSystem
         CurrAlphaMode = NewMode;
     };
 
+    void RGBtoHSV(const COLORREF rgb, double& h, double& s, double& v)
+    {
+        double r = GetRValue(rgb) / 255.0;
+        double g = GetGValue(rgb) / 255.0;
+        double b = GetBValue(rgb) / 255.0;
+
+        double colorMin = min(r, min(g, b));
+        double colorMax = max(r, max(g, b));
+
+        double delta = colorMax - colorMin;
+        v = colorMax;
+
+        if (delta == 0)
+        {
+            h = 0;
+            s = 0;
+        }
+        else
+        {
+            s = delta / colorMax;
+
+            if (r == colorMax)
+            {
+                h = fmod(((g - b) / delta), 6);
+            }
+            else if (g == colorMax)
+            {
+                h = ((b - r) / delta) + 2;
+            }
+            else //if (b == colorMax)
+            {
+                h = ((r - g) / delta) + 4;
+            }
+
+            h *= 60;
+
+            if (h < 0)
+            {
+                h += 360;
+            }
+        }
+
+        return;
+    }
+
+    COLORREF HSVtoRGB(double H, double S, double V)
+    {
+        uint8_t r = 0, g = 0, b = 0;
+
+        V *= 255;
+
+        if (S == 0)
+        {
+            r = g = b = static_cast<uint8_t>(V);
+        }
+        else
+        {
+            if (H == 360) { H = 0; }
+            if (H > 360) { H -= 360; }
+            if (H < 0) { H += 360; }
+            H /= 60;
+
+            uint8_t i = static_cast<uint8_t>(floor(H));
+            double f = (H - i);
+            uint8_t p = static_cast<uint8_t>(V * (1 - S));
+            uint8_t q = static_cast<uint8_t>(V * (1 - S * f));
+            uint8_t t = static_cast<uint8_t>(V * (1 - S * (1 - f)));
+
+            uint8_t Vint = static_cast<uint8_t>(V);
+
+            switch (i) {
+            case 0:
+                r = Vint; g = t; b = p;
+                break;
+            case 1:
+                r = q; g = Vint; b = p;
+                break;
+            case 2:
+                r = p; g = Vint; b = t;
+                break;
+            case 3:
+                r = p; g = q; b = Vint;
+                break;
+            case 4:
+                r = t; g = p; b = Vint;
+                break;
+            case 5:
+                r = Vint; g = p; b = q;
+                break;
+            }
+        }
+
+        return RGB(r, g, b);
+    }
+
     COLORREF GetGradient_RGB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps)
     {
+        // avoid shifting due to rounding/translation
+        if (nCurrentStep == 0)
+        {
+            return colorStart;
+        }
+        else if (nCurrentStep == nTotalSteps)
+        {
+            return colorFinish;
+        }
+
         const double nCurrentPercent = static_cast<double>(nCurrentStep) / static_cast<double>(nTotalSteps);
 
         const uint8_t red = static_cast<uint8_t>(round(GetRValue(colorStart) + (nCurrentPercent * (GetRValue(colorFinish) - GetRValue(colorStart)))));
@@ -1643,6 +1748,16 @@ namespace ColorSystem
 
     COLORREF GetGradient_HSL(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps)
     {
+        // avoid shifting due to rounding/translation
+        if (nCurrentStep == 0)
+        {
+            return colorStart;
+        }
+        else if (nCurrentStep == nTotalSteps)
+        {
+            return colorFinish;
+        }
+
         const double nCurrentPercent = static_cast<double>(nCurrentStep) / static_cast<double>(nTotalSteps);
 
         double hueStart, luminanceStart, saturationStart;
@@ -1656,6 +1771,35 @@ namespace ColorSystem
         const double saturationStep = saturationStart + (nCurrentPercent * (saturationFinish - saturationStart));
 
         const COLORREF colorStep = HLStoRGB(hueStep, luminanceStep, saturationStep);
+
+        return colorStep;
+    }
+
+    COLORREF GetGradient_HSV(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps)
+    {
+        // avoid shifting due to rounding/translation
+        if (nCurrentStep == 0)
+        {
+            return colorStart;
+        }
+        else if (nCurrentStep == nTotalSteps)
+        {
+            return colorFinish;
+        }
+
+        const double nCurrentPercent = static_cast<double>(nCurrentStep) / static_cast<double>(nTotalSteps);
+
+        double hueStart, saturationStart, valueStart;
+        double hueFinish, saturationFinish, valueFinish;
+
+        RGBtoHSV(colorStart, hueStart, saturationStart, valueStart);
+        RGBtoHSV(colorFinish, hueFinish, saturationFinish, valueFinish);
+
+        const double hueStep = hueStart + (nCurrentPercent * (hueFinish - hueStart));
+        const double saturationStep = saturationStart + (nCurrentPercent * (saturationFinish - saturationStart));
+        const double valueStep = valueStart + (nCurrentPercent * (valueFinish - valueStart));
+
+        const COLORREF colorStep = HSVtoRGB(hueStep, saturationStep, valueStep);
 
         return colorStep;
     }

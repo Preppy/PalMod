@@ -174,6 +174,10 @@ namespace ColorSystem
 
     using ColorStepFunction = COLORREF(*)(COLORREF, COLORREF, uint16_t, uint16_t);
 
+    void     RGBtoHSV(const COLORREF rgb, double& h, double& s, double& v);
+    COLORREF HSVtoRGB(const double H, const double S, const double V);
+
     COLORREF GetGradient_RGB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
     COLORREF GetGradient_HSL(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
+    COLORREF GetGradient_HSV(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
 };

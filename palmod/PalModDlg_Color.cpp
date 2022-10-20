@@ -1223,6 +1223,11 @@ void CPalModDlg::OnBnClickedGradient_HSL()
     GenerateGradientForSelectedColors(&ColorSystem::GetGradient_HSL);
 }
 
+void CPalModDlg::OnBnClickedGradient_HSV()
+{
+    GenerateGradientForSelectedColors(&ColorSystem::GetGradient_HSV);
+}
+
 void CPalModDlg::OnBnClickedGradient_RGB()
 {
     GenerateGradientForSelectedColors(&ColorSystem::GetGradient_RGB);
