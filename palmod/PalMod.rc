@@ -494,10 +494,15 @@ BEGIN
     END
     POPUP "&Tools"
     BEGIN
+        POPUP "Generate Gradient"
+        BEGIN
+            MENUITEM "HSL",                     ID_TOOLS_GRADIENT_HSL
+            MENUITEM "RGB",                     ID_TOOLS_GRADIENT_RGB
+        END
         MENUITEM "&Invert",                     ID_TOOLS_INVERT
         MENUITEM "Re&verse",                    ID_TOOLS_REVERSE
         MENUITEM "&Revert",                     ID_TOOLS_REVERT
-        MENUITEM "&Blink\tCtrl+B",               ID_TOOLS_BLINK
+        MENUITEM "&Blink\tCtrl+B",              ID_TOOLS_BLINK
         MENUITEM SEPARATOR
         MENUITEM "&Load Palette\tCtrl+L",       ID_TOOLS_LOADACTPALETTE
         MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEACTPALETTE

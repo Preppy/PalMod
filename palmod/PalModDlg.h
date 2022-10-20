@@ -314,6 +314,8 @@ public:
     static BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
     static int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData);
 
+    void GenerateGradientForSelectedColors(ColorSystem::ColorStepFunction pGradientFunctionToUse);
+
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu);
     afx_msg void OnSettingsSettings();
     afx_msg void OnEditUndo();
@@ -335,6 +337,8 @@ public:
     afx_msg void OnFileOpen() { OnFileOpenInternal(); };
     afx_msg void OnButtonClickCheckEdits();
     afx_msg void OnBnRevert();
+    afx_msg void OnBnClickedGradient_RGB();
+    afx_msg void OnBnClickedGradient_HSL();
     afx_msg void OnBnClickedReverse();
     afx_msg void OnBnBlink();
     afx_msg void OnAboutAboutPalMod();

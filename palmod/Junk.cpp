@@ -909,32 +909,30 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         point.x += rWnd.left;
         point.y += rWnd.top;
 
-        bool canCopyOrPaste = false;
-        bool canReverse = false;
+        int nCountColorSelected = 0;
 
         for (int i = 0; i < m_iWorkingAmt; i++)
         {
-            if (!canCopyOrPaste)
+            if (m_Selected[i])
             {
-                if (m_Selected[i])
-                {
-                    canCopyOrPaste = true;
-                }
-            }
-            else
-            {
-                if (m_Selected[i])
-                {
-                    canReverse = true;
-                    break;
-                }
+                nCountColorSelected++;
             }
         }
 
-        PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_COPY, L"&Copy");
-        PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTE, L"&Paste");
+        PopupMenu.AppendMenu(nCountColorSelected ? MF_ENABLED : MF_DISABLED, CUSTOM_COPY, L"&Copy");
+        PopupMenu.AppendMenu(nCountColorSelected ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTE, L"&Paste");
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
-        PopupMenu.AppendMenu(canReverse ? MF_ENABLED : MF_DISABLED, CUSTOM_REVERSE, L"&Reverse");
+        PopupMenu.AppendMenu((nCountColorSelected > 1) ? MF_ENABLED : MF_DISABLED, CUSTOM_REVERSE, L"&Reverse");
+
+        CMenu GradientMenu;
+        
+        GradientMenu.CreatePopupMenu();
+
+        GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_RGB, L"RGB");
+        GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_HSL, L"HSL");
+
+        PopupMenu.AppendMenu(MF_POPUP | ((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED), (UINT_PTR)GradientMenu.m_hMenu, L"Gradient");
+
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, L"Select &All");
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, L"Select &None");
@@ -949,6 +947,12 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         case CUSTOM_PASTE:
         case CUSTOM_COPYOFFSET:
             NotifyParent(result);
+            break;
+        case CUSTOM_GRADIENT_HSL:
+            GetHost()->GetPalModDlg()->OnBnClickedGradient_HSL();
+            break;
+        case CUSTOM_GRADIENT_RGB:
+            GetHost()->GetPalModDlg()->OnBnClickedGradient_RGB();
             break;
         case CUSTOM_SALL:
             SelectAll();

@@ -1147,6 +1147,87 @@ void CPalModDlg::OnBnRevert()
     }
 }
 
+void CPalModDlg::GenerateGradientForSelectedColors(ColorSystem::ColorStepFunction pGradientFunctionToUse)
+{
+    if (m_fEnabled)
+    {
+        uint16_t nSelectionAmt = CurrPalCtrl->GetSelAmt();
+
+        if ((nSelectionAmt == 0) || (nSelectionAmt > 2)) // we need steps between the two colors
+        {
+            ProcChange();
+
+            BOOL fSelectAll = (nSelectionAmt == 0);
+            const uint16_t nWorkingAmount = CurrPalCtrl->GetWorkingAmt();
+
+            // if they want to update all, we ignore the first transparent color
+            nSelectionAmt = fSelectAll ? (nWorkingAmount - 1) : nSelectionAmt;
+
+            uint8_t* rgSel = static_cast<uint8_t*>(CurrPalCtrl->GetSelIndex());
+            uint8_t* pBasePal = reinterpret_cast<uint8_t*>(CurrPalCtrl->GetBasePal());
+
+            int iInitialPos = 1;
+
+            for (; iInitialPos < nWorkingAmount; iInitialPos++)
+            {
+                if (rgSel[iInitialPos] || fSelectAll)
+                {
+                    break;
+                }
+            }
+
+            int iTerminalPos = nWorkingAmount - 1;
+
+            for (; iTerminalPos > iInitialPos; iTerminalPos--)
+            {
+                if (rgSel[iTerminalPos] || fSelectAll)
+                {
+                    break;
+                }
+            }
+
+            const COLORREF colorStart = CurrPalCtrl->GetBasePal()[iInitialPos];
+            const COLORREF colorFinish = CurrPalCtrl->GetBasePal()[iTerminalPos];
+
+            for (uint16_t iPos = 1, nCurrentStep = 0; iPos < CurrPalCtrl->GetWorkingAmt(); iPos++)
+            {
+                if (rgSel[iPos] || fSelectAll)
+                {
+                    const int nPaletteIndex = iPos * 4;
+
+                    const COLORREF colorStep = pGradientFunctionToUse(colorStart, colorFinish, nCurrentStep, nSelectionAmt - 1);
+                    const double nCurrentPercent = static_cast<double>(nCurrentStep) / static_cast<double>(nSelectionAmt - 1);
+                    nCurrentStep++;
+
+                    pBasePal[nPaletteIndex] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetRValue(colorStep));
+                    pBasePal[nPaletteIndex + 1] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetGValue(colorStep));
+                    pBasePal[nPaletteIndex + 2] = GetHost()->GetCurrGame()->GetNearestLegal8BitColorValue_RGB(GetBValue(colorStep));
+                    pBasePal[nPaletteIndex + 3] = static_cast<uint8_t>(round(GetAValue(colorStart) + (nCurrentPercent * (GetAValue(colorFinish) - GetAValue(colorStart)))));
+
+                    CurrPalCtrl->UpdateIndex(iPos);
+                }
+            }
+
+            ImgDispCtrl->UpdateCtrl();
+
+            CurrPalCtrl->UpdateCtrl();
+
+            UpdateMultiEdit(TRUE);
+            UpdateSliderSel();
+        }
+    }
+}
+
+void CPalModDlg::OnBnClickedGradient_HSL()
+{
+    GenerateGradientForSelectedColors(&ColorSystem::GetGradient_HSL);
+}
+
+void CPalModDlg::OnBnClickedGradient_RGB()
+{
+    GenerateGradientForSelectedColors(&ColorSystem::GetGradient_RGB);
+}
+
 void CPalModDlg::OnBnClickedReverse()
 {
     if (m_fEnabled)

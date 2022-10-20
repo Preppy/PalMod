@@ -17,6 +17,8 @@ constexpr auto CUSTOM_SALL            = WM_USER + 13;
 constexpr auto CUSTOM_SNONE           = WM_USER + 14;
 constexpr auto CUSTOM_REVERSE         = WM_USER + 15;
 constexpr auto CUSTOM_COPYOFFSET      = WM_USER + 16;
+constexpr auto CUSTOM_GRADIENT_RGB    = WM_USER + 17;
+constexpr auto CUSTOM_GRADIENT_HSL    = WM_USER + 18;
 
 #define BASE_PALETTE_SQUARE_SIZE 15
 #define BDR_SZ 1

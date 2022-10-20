@@ -171,4 +171,9 @@ namespace ColorSystem
     bool GetAlphaModeForAlphaModeString(LPCSTR paszColorString, AlphaMode& amAlphaMode);
     LPCSTR GetColorFormatStringForColorFormat(ColMode cmColorMode);
     LPCSTR GetAlphaModeStringForAlphaMode(AlphaMode amAlphaMode);
+
+    using ColorStepFunction = COLORREF(*)(COLORREF, COLORREF, uint16_t, uint16_t);
+
+    COLORREF GetGradient_RGB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
+    COLORREF GetGradient_HSL(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
 };

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "game\GameDef.h"
 #include "ColorSystem.h"
+#include "Game\ColorScale.h"
 
 double LimitHLS(double a) { return ((a > 1.0) ? 1.0 : ((a < 0.0) ? 0.0 : a)); };
 double SubHLS(double a) { while (a >= 1.0) { a -= 1.0; } return a; };
@@ -1628,4 +1629,34 @@ namespace ColorSystem
     {
         CurrAlphaMode = NewMode;
     };
+
+    COLORREF GetGradient_RGB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps)
+    {
+        const double nCurrentPercent = static_cast<double>(nCurrentStep) / static_cast<double>(nTotalSteps);
+
+        const uint8_t red = static_cast<uint8_t>(round(GetRValue(colorStart) + (nCurrentPercent * (GetRValue(colorFinish) - GetRValue(colorStart)))));
+        const uint8_t green = static_cast<uint8_t>(round(GetGValue(colorStart) + (nCurrentPercent * (GetGValue(colorFinish) - GetGValue(colorStart)))));
+        const uint8_t blue = static_cast<uint8_t>(round(GetBValue(colorStart) + (nCurrentPercent * (GetBValue(colorFinish) - GetBValue(colorStart)))));
+
+        return RGB(red, green, blue);
+    }
+
+    COLORREF GetGradient_HSL(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps)
+    {
+        const double nCurrentPercent = static_cast<double>(nCurrentStep) / static_cast<double>(nTotalSteps);
+
+        double hueStart, luminanceStart, saturationStart;
+        double hueFinish, luminanceFinish, saturationFinish;
+
+        RGBtoHLS(colorStart, &hueStart, &luminanceStart, &saturationStart);
+        RGBtoHLS(colorFinish, &hueFinish, &luminanceFinish, &saturationFinish);
+
+        const double hueStep = hueStart + (nCurrentPercent * (hueFinish - hueStart));
+        const double luminanceStep = luminanceStart + (nCurrentPercent * (luminanceFinish - luminanceStart));
+        const double saturationStep = saturationStart + (nCurrentPercent * (saturationFinish - saturationStart));
+
+        const COLORREF colorStep = HLStoRGB(hueStep, luminanceStep, saturationStep);
+
+        return colorStep;
+    }
 }
