@@ -1799,6 +1799,8 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_PALETTES[] =
     { L"Ice mountain and Christmas tree 1", 0x737000, 0x737080, indexRedEarthSprites_Stages, 0x59 },
     { L"Wave splash", 0x737580, 0x737600, indexRedEarthSprites_Stages, 0x5a },
     { L"Fish", 0x737680, 0x737700, indexRedEarthSprites_Stages, 0x58 },
+
+    { L"Smoke from Chimney", 0x736f80, 0x737000 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_CYCLE_PALETTES[] =
@@ -1830,6 +1832,8 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_POISON_PALETTES[] =
     { L"Ice mountain and Christmas tree 1", 0x74d000, 0x74d080, indexRedEarthSprites_Stages, 0x59 },
     { L"Wave splash", 0x74d580, 0x74d600, indexRedEarthSprites_Stages, 0x5a },
     { L"Fish", 0x74d680, 0x74d700, indexRedEarthSprites_Stages, 0x58 },
+
+    { L"Smoke from Chimney", 0x74cf80, 0x74d000 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_POISON_CYCLE_PALETTES[] =
@@ -2338,6 +2342,8 @@ const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_SLASH_PALETTES[] =
     { L"Ice mountain and Christmas tree 1", 0x737000 + 0xb000, 0x737080 + 0xb000, indexRedEarthSprites_Stages, 0x59 },
     { L"Wave splash", 0x737580 + 0xb000, 0x737600 + 0xb000, indexRedEarthSprites_Stages, 0x5a },
     { L"Fish", 0x737680 + 0xb000, 0x737700 + 0xb000, indexRedEarthSprites_Stages, 0x58 },
+
+    { L"Smoke from Chimney", 0x741f80, 0x742000 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_CYCLE_SLASH_PALETTES[] =
@@ -2752,49 +2758,46 @@ const sGame_PaletteDataset REDEARTH_A_30_BONUS_UNUSED_PALETTES[] =
     { L"Icelarn Unused 2", 0x737700, 0x737780 },
 
     { L"Greedia Unused Palette", 0x734000, 0x734080 },
-    { L"Icelarn Unused Palette", 0x736f80, 0x737000 },
 
     { L"Greedia Unused Palette (Slash Transparency)", 0x73f000, 0x73f080 },
-    { L"Icelarn Unused Palette (Slash Transparency)", 0x741f80, 0x742000 },
 
     { L"Greedia Unused Palette (Hauzer's Fire Transparency)", 0x74a000, 0x74a080 },
-    { L"Icelarn Unused Palette (Hydron's Poison Gas Transparency)", 0x74cf80, 0x74d000 },
 
     { L"Unused Text 1? (Thanks for Playing?)", 0x7eb280, 0x7eb300 },
     { L"Unused Text 2? (Time is Ended?)", 0x7eb400, 0x7eb480 },
 
-    { L"Mystic Combo I Super BG 1?", 0x79f000, 0x79f080 },
-    { L"Mystic Combo I Super BG 2?", 0x79f080, 0x79f100 },
-    { L"Mystic Combo I Super BG 3?", 0x79f100, 0x79f180 },
-    { L"Mystic Combo I Super BG 4?", 0x79f180, 0x79f200 },
-    { L"Mystic Combo I Super BG 5?", 0x79f200, 0x79f280 },
-    { L"Mystic Combo I Super BG 6?", 0x79f280, 0x79f300 },
-    { L"Mystic Combo I Super BG 7?", 0x79f300, 0x79f380 },
-    { L"Mystic Combo I Super BG 8?", 0x79f380, 0x79f400 },
-    { L"Mystic Combo I Super BG 9?", 0x79f400, 0x79f480 },
-    { L"Mystic Combo I Super BG 10?", 0x79f480, 0x79f500 },
-    { L"Mystic Combo I Super BG 11?", 0x79f500, 0x79f580 },
-    { L"Mystic Combo I Super BG 12?", 0x79f580, 0x79f600 },
-    { L"Mystic Combo I Super BG 13?", 0x79f600, 0x79f680 },
-    { L"Mystic Combo I Super BG 14?", 0x79f680, 0x79f700 },
-    { L"Mystic Combo I Super BG 15?", 0x79f700, 0x79f780 },
-    { L"Mystic Combo I Super BG 16?", 0x79f780, 0x79f800 },
-    { L"Mystic Combo II Super BG 1?", 0x79f800, 0x79f880 },
-    { L"Mystic Combo II Super BG 2?", 0x79f880, 0x79f900 },
-    { L"Mystic Combo II Super BG 3?", 0x79f900, 0x79f980 },
-    { L"Mystic Combo II Super BG 4?", 0x79f980, 0x79fa00 },
-    { L"Mystic Combo II Super BG 5?", 0x79fa00, 0x79fa80 },
-    { L"Mystic Combo II Super BG 6?", 0x79fa80, 0x79fb00 },
-    { L"Mystic Combo II Super BG 7?", 0x79fb00, 0x79fb80 },
-    { L"Mystic Combo II Super BG 8?", 0x79fb80, 0x79fc00 },
-    { L"Mystic Combo II Super BG 9?", 0x79fc00, 0x79fc80 },
-    { L"Mystic Combo II Super BG 10?", 0x79fc80, 0x79fd00 },
-    { L"Mystic Combo II Super BG 11?", 0x79fd00, 0x79fd80 },
-    { L"Mystic Combo II Super BG 12?", 0x79fd80, 0x79fe00 },
-    { L"Mystic Combo II Super BG 13?", 0x79fe00, 0x79fe80 },
-    { L"Mystic Combo II Super BG 14?", 0x79fe80, 0x79ff00 },
-    { L"Mystic Combo II Super BG 15?", 0x79ff00, 0x79ff80 },
-    { L"Mystic Combo II Super BG 16?", 0x79ff80, 0x7a0000 },
+    { L"Mystic Combo I Super BG 1?", 0x79f000, 0x79f080, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 2?", 0x79f080, 0x79f100, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 3?", 0x79f100, 0x79f180, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 4?", 0x79f180, 0x79f200, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 5?", 0x79f200, 0x79f280, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 6?", 0x79f280, 0x79f300, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 7?", 0x79f300, 0x79f380, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 8?", 0x79f380, 0x79f400, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 9?", 0x79f400, 0x79f480, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 10?", 0x79f480, 0x79f500, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 11?", 0x79f500, 0x79f580, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 12?", 0x79f580, 0x79f600, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 13?", 0x79f600, 0x79f680, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 14?", 0x79f680, 0x79f700, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 15?", 0x79f700, 0x79f780, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo I Super BG 16?", 0x79f780, 0x79f800, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 1?", 0x79f800, 0x79f880, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 2?", 0x79f880, 0x79f900, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 3?", 0x79f900, 0x79f980, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 4?", 0x79f980, 0x79fa00, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 5?", 0x79fa00, 0x79fa80, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 6?", 0x79fa80, 0x79fb00, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 7?", 0x79fb00, 0x79fb80, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 8?", 0x79fb80, 0x79fc00, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 9?", 0x79fc00, 0x79fc80, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 10?", 0x79fc80, 0x79fd00, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 11?", 0x79fd00, 0x79fd80, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 12?", 0x79fd80, 0x79fe00, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 13?", 0x79fe00, 0x79fe80, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 14?", 0x79fe80, 0x79ff00, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 15?", 0x79ff00, 0x79ff80, indexRedEarthSprites_Bonus, 0x55 },
+    { L"Mystic Combo II Super BG 16?", 0x79ff80, 0x7a0000, indexRedEarthSprites_Bonus, 0x55 },
 };
 
 const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =
