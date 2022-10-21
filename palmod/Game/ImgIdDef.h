@@ -17,7 +17,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_KOF,     // KOF games, Last Blade, etc
     IMGDAT_SECTION_MATRIM,  // Matrimelee
     IMGDAT_SECTION_NEOGEO,  // generic set for NeoGeo games
-    IMGDAT_SECTION_OTHER,   // one-off releases such as Migthy Warriors
+    IMGDAT_SECTION_OTHER,   // one-off releases such as Mighty Warriors
     IMGDAT_SECTION_PGM,     // PolyGame Master
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
@@ -2386,20 +2386,53 @@ enum SupportedArcsys_SpriteListIndex
 
 enum SupportedOther_SpriteListIndex
 {
-    indexAsuraBuster_Alice,      // 0x00
-    indexAsuraBuster_AliceBang,  // 0x01
-    indexAsuraBuster_ChenMao,    // 0x02
-    indexAsuraBuster_Goat,       // 0x03
-    indexAsuraBuster_Leon,       // 0x04
-    indexAsuraBuster_Nanami,     // 0x05
-    indexAsuraBuster_Rokurouta,  // 0x06
-    indexAsuraBuster_RoseMary,   // 0x07
-    indexAsuraBuster_Sittara,    // 0x08
-    indexAsuraBuster_Taros,      // 0x09
-    indexAsuraBuster_Vebel,      // 0x0a
-    indexAsuraBuster_Yashaou,    // 0x0b
-    indexAsuraBuster_ZamB,       // 0x0c
-    indexAsuraBuster_Zinsuke,    // 0x0d
-    indexAsuraBuster_Stages,     // 0x0e
-    indexAsuraBuster_Bonus,      // 0x0f
+    indexMWarrSprites_Cypher,       // 0x00
+    indexMWarrSprites_Eknaton,      // 0x01
+    indexMWarrSprites_Eteocles,     // 0x02
+    indexMWarrSprites_Gurdaf,       // 0x03
+    indexMWarrSprites_HanSing,      // 0x04
+    indexMWarrSprites_Marcus,       // 0x05
+    indexMWarrSprites_McDatho,      // 0x06
+    indexMWarrSprites_Nabonedo,     // 0x07
+    indexMWarrSprites_Selim,        // 0x08
+    indexMWarrSprites_Bonus,        // 0x09
+    indexMWarrSprites_Stages,       // 0x0A
+
+    indexAiGSSprites_BlackKnight,       // 0x0b
+    indexAiGSSprites_CaptainAmerica,    // 0x0c
+    indexAiGSSprites_CaptainAtlas,      // 0x0d
+    indexAiGSSprites_Crystal,           // 0x0e
+    indexAiGSSprites_DrMinerva,         // 0x0f
+    indexAiGSSprites_GalenKor,          // 0x10
+    indexAiGSSprites_GiantMan,          // 0x11
+    indexAiGSSprites_IronMan,           // 0x12
+    indexAiGSSprites_Korath,            // 0x13
+    indexAiGSSprites_MightyThor,        // 0x14
+    indexAiGSSprites_Ronan,             // 0x15
+    indexAiGSSprites_Sentry,            // 0x16
+    indexAiGSSprites_Shatterax,         // 0x17
+    indexAiGSSprites_Supremor,          // 0x18
+    indexAiGSSprites_Thunderstrike,     // 0x19
+    indexAiGSSprites_Ultimus,           // 0x1a
+    indexAiGSSprites_Vision,            // 0x1b
+    indexAiGSSprites_Stages,            // 0x1c
+    indexAiGSSprites_Endings,           // 0x1d
+    indexAiGSSprites_Bonus,             // 0x1e
+
+    indexAsuraBuster_Alice,      // 0x1f
+    indexAsuraBuster_AliceBang,  // 0x20
+    indexAsuraBuster_ChenMao,    // 0x21
+    indexAsuraBuster_Goat,       // 0x22
+    indexAsuraBuster_Leon,       // 0x23
+    indexAsuraBuster_Nanami,     // 0x24
+    indexAsuraBuster_Rokurouta,  // 0x25
+    indexAsuraBuster_RoseMary,   // 0x26
+    indexAsuraBuster_Sittara,    // 0x27
+    indexAsuraBuster_Taros,      // 0x28
+    indexAsuraBuster_Vebel,      // 0x29
+    indexAsuraBuster_Yashaou,    // 0x2a
+    indexAsuraBuster_ZamB,       // 0x2b
+    indexAsuraBuster_Zinsuke,    // 0x2c
+    indexAsuraBuster_Stages,     // 0x2d
+    indexAsuraBuster_Bonus,      // 0x2e
 };

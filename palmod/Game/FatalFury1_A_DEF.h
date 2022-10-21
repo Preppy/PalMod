@@ -127,107 +127,107 @@ const sGame_PaletteDataset FatalFury1_A_BONUS_PALETTES[] =
     { L"South Town Map", 0x32a6c, 0x32acc },
     { L"Area Select Enemy", 0x328cc, 0x3294c, indexFF1Sprites_Bonus, -1, &pairNext }, // pair with the next palette (Area Select Stages) because the preview is joined
     { L"Area Select Stages", 0x32b0c, 0x32b8c },
-    { L"Area Select Stages Glow 1", 0x37b6c, 0x37cec },
-    { L"Area Select Stages Glow 2", 0x37e0c, 0x37e8c },
+    { L"Area Select Stages Glow 1", 0x37b6c, 0x37cec, indexFF1Sprites_Stages, 0x01 },
+    { L"Area Select Stages Glow 2", 0x37e0c, 0x37e8c, indexFF1Sprites_Stages, 0x01 },
     { L"Area Select Enemy Glow", 0x37eac, 0x380ac },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StagePaoPao_PALETTES[] =
 {
     { L"Pao Pao Cafe", 0x337ec, 0x3396c, indexFF1Sprites_Stages, 0x00 },
-    { L"Pao Pao Cafe Stage Shadow", 0x34b6c, 0x34b8c },
+    { L"Pao Pao Cafe Stage Shadow", 0x34b6c, 0x34b8c, indexFF1Sprites_Stages, 0x11 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StageWestSub_PALETTES[] =
 {
-    { L"The West Subway People", 0x330ac, 0x3312c },
-    { L"The West Subway Round 1(1/2)", 0x3316c, 0x3336c },
-    { L"The West Subway Round 1(2/2)", 0x3336c, 0x3346c },
-    { L"The West Subway Round 2(1/2)", 0x3536c, 0x3556c },
-    { L"The West Subway Round 2(2/2)", 0x3556c, 0x3566c },
-    { L"The West Subway Round 3(1/2)", 0x3656c, 0x3676c },
-    { L"The West Subway Round 3(2/2)", 0x3676c, 0x3686c },
-    { L"The West Subway Stage Shadow", 0x32fcc, 0x32fec },
+    { L"The West Subway People", 0x330ac, 0x3312c, indexFF1Sprites_Stages, 0x19 },
+    { L"The West Subway Round 1(1/2)", 0x3316c, 0x3336c, indexFF1Sprites_Stages, 0x17, &pairNext },
+    { L"The West Subway Round 1(2/2)", 0x3336c, 0x3346c, indexFF1Sprites_Stages, 0x18 },
+    { L"The West Subway Round 2(1/2)", 0x3536c, 0x3556c, indexFF1Sprites_Stages, 0x17, &pairNext },
+    { L"The West Subway Round 2(2/2)", 0x3556c, 0x3566c, indexFF1Sprites_Stages, 0x18 },
+    { L"The West Subway Round 3(1/2)", 0x3656c, 0x3676c, indexFF1Sprites_Stages, 0x17, &pairNext },
+    { L"The West Subway Round 3(2/2)", 0x3676c, 0x3686c, indexFF1Sprites_Stages, 0x18 },
+    { L"The West Subway Stage Shadow", 0x32fcc, 0x32fec, indexFF1Sprites_Stages, 0x11 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StageSoundBeach_PALETTES[] =
 {
-    { L"Sound Beach Round 1(1/3)", 0x33b6c, 0x33d6c },
-    { L"Sound Beach Round 1(2/3)", 0x341ac, 0x3420c },
-    { L"Sound Beach Round 1(3/3)", 0x3428c, 0x3434c },
-    { L"Sound Beach Round 2(1/3)", 0x3576c, 0x3596c },
-    { L"Sound Beach Round 2(2/3)", 0x359ac, 0x35a0c },
-    { L"Sound Beach Round 2(3/3)", 0x35a8c, 0x35b4c },
-    { L"Sound Beach Round 3(1/3)", 0x3696c, 0x36b6c },
-    { L"Sound Beach Round 3(2/3)", 0x36bac, 0x36c0c },
-    { L"Sound Beach Round 3(3/3)", 0x36c8c, 0x36d4c },
-    { L"Sound Beach Stage Shadow", 0x34b8c, 0x34bac },
+    { L"Sound Beach Round 1(1/3)", 0x33b6c, 0x33d6c, indexFF1Sprites_Stages, 0x0c, &pairNextAndNext },
+    { L"Sound Beach Round 1(2/3)", 0x341ac, 0x3420c, indexFF1Sprites_Stages, 0x0d },
+    { L"Sound Beach Round 1(3/3)", 0x3428c, 0x3434c, indexFF1Sprites_Stages, 0x0e },
+    { L"Sound Beach Round 2(1/3)", 0x3576c, 0x3596c, indexFF1Sprites_Stages, 0x0c, &pairNextAndNext },
+    { L"Sound Beach Round 2(2/3)", 0x359ac, 0x35a0c, indexFF1Sprites_Stages, 0x0d },
+    { L"Sound Beach Round 2(3/3)", 0x35a8c, 0x35b4c, indexFF1Sprites_Stages, 0x0e },
+    { L"Sound Beach Round 3(1/3)", 0x3696c, 0x36b6c, indexFF1Sprites_Stages, 0x0c, &pairNextAndNext },
+    { L"Sound Beach Round 3(2/3)", 0x36bac, 0x36c0c, indexFF1Sprites_Stages, 0x0d },
+    { L"Sound Beach Round 3(3/3)", 0x36c8c, 0x36d4c, indexFF1Sprites_Stages, 0x0e },
+    { L"Sound Beach Stage Shadow", 0x34b8c, 0x34bac, indexFF1Sprites_Stages, 0x11 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StageHowardArena_PALETTES[] =
 {
-    { L"Howard Arena Round 1", 0x33d8c, 0x33f2c },
-    { L"Howard Arena Round 1 Extra 1", 0x34d6c, 0x34e0c },
-    { L"Howard Arena Round 1 Extra 2", 0x34e0c, 0x34eac },
-    { L"Howard Arena Round 2", 0x35b8c, 0x35d2c },
-    { L"Howard Arena Round 2 Extra", 0x34eac, 0x34f4c },
-    { L"Howard Arena Round 3", 0x36d8c, 0x36f2c },
-    { L"Howard Arena Round 3 Extra", 0x34f4c, 0x3508c },
-    { L"Howard Arena Stage Shadow", 0x34bac, 0x34bcc },
+    { L"Howard Arena Round 1", 0x33d8c, 0x33f2c, indexFF1Sprites_Stages, 0x09 },
+    { L"Howard Arena Round 1 Extra 1", 0x34d6c, 0x34e0c, indexFF1Sprites_Stages, 0x0a },
+    { L"Howard Arena Round 1 Extra 2", 0x34e0c, 0x34eac, indexFF1Sprites_Stages, 0x0a },
+    { L"Howard Arena Round 2", 0x35b8c, 0x35d2c, indexFF1Sprites_Stages, 0x09 },
+    { L"Howard Arena Round 2 Extra", 0x34eac, 0x34f4c, indexFF1Sprites_Stages, 0x0a },
+    { L"Howard Arena Round 3", 0x36d8c, 0x36f2c, indexFF1Sprites_Stages, 0x09 },
+    { L"Howard Arena Round 3 Extra", 0x34f4c, 0x3508c, indexFF1Sprites_Stages, 0x0b },
+    { L"Howard Arena Stage Shadow", 0x34bac, 0x34bcc, indexFF1Sprites_Stages, 0x11 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StageHappyPark_PALETTES[] =
 {
-    { L"The Happy Park Round 1(1/4)", 0x33f6c, 0x3416c },
-    { L"The Happy Park Round 1(2/4)", 0x3416c, 0x341ac },
-    { L"The Happy Park Round 1(3/4)", 0x3420c, 0x3428c },
-    { L"The Happy Park Round 1(4/4)", 0x3434c, 0x3436c },
-    { L"The Happy Park Round 1 Extra", 0x3526c, 0x352cc },
-    { L"The Happy Park Round 2(1/4)", 0x35d6c, 0x35f6c },
-    { L"The Happy Park Round 2(2/4)", 0x3596c, 0x359ac },
-    { L"The Happy Park Round 2(3/4)", 0x35a0c, 0x35a8c },
-    { L"The Happy Park Round 2(4/4)", 0x35b4c, 0x35b6c },
-    { L"The Happy Park Round 2 Extra", 0x352cc, 0x3532c },
-    { L"The Happy Park Round 3(1/4)", 0x36f6c, 0x3716c },
-    { L"The Happy Park Round 3(2/4)", 0x36b6c, 0x36bac },
-    { L"The Happy Park Round 3(3/4)", 0x36c0c, 0x36c8c },
-    { L"The Happy Park Round 3(4/4)", 0x36d4c, 0x36d6c },
-    { L"The Happy Park Round 3 Extra ", 0x3348c, 0x334ec },
-    { L"The Happy Park Stage Shadow", 0x34bcc, 0x34bec },
+    { L"The Happy Park Round 1(1/4)", 0x33f6c, 0x3416c, indexFF1Sprites_Stages, 0x13, &pairNext3Palettes },
+    { L"The Happy Park Round 1(2/4)", 0x3416c, 0x341ac, indexFF1Sprites_Stages, 0x14 },
+    { L"The Happy Park Round 1(3/4)", 0x3420c, 0x3428c, indexFF1Sprites_Stages, 0x15 },
+    { L"The Happy Park Round 1(4/4)", 0x3434c, 0x3436c, indexFF1Sprites_Stages, 0x16 },
+    { L"The Happy Park Round 1 Extra", 0x3526c, 0x352cc, indexFF1Sprites_Stages, 0x12 },
+    { L"The Happy Park Round 2(1/4)", 0x35d6c, 0x35f6c, indexFF1Sprites_Stages, 0x13, &pairNext3Palettes },
+    { L"The Happy Park Round 2(2/4)", 0x3596c, 0x359ac, indexFF1Sprites_Stages, 0x14 },
+    { L"The Happy Park Round 2(3/4)", 0x35a0c, 0x35a8c, indexFF1Sprites_Stages, 0x15 },
+    { L"The Happy Park Round 2(4/4)", 0x35b4c, 0x35b6c , indexFF1Sprites_Stages, 0x16},
+    { L"The Happy Park Round 2 Extra", 0x352cc, 0x3532c, indexFF1Sprites_Stages, 0x12 },
+    { L"The Happy Park Round 3(1/4)", 0x36f6c, 0x3716c, indexFF1Sprites_Stages, 0x13, &pairNext3Palettes },
+    { L"The Happy Park Round 3(2/4)", 0x36b6c, 0x36bac, indexFF1Sprites_Stages, 0x14 },
+    { L"The Happy Park Round 3(3/4)", 0x36c0c, 0x36c8c, indexFF1Sprites_Stages, 0x15 },
+    { L"The Happy Park Round 3(4/4)", 0x36d4c, 0x36d6c, indexFF1Sprites_Stages, 0x16 },
+    { L"The Happy Park Round 3 Extra ", 0x3348c, 0x334ec, indexFF1Sprites_Stages, 0x12 },
+    { L"The Happy Park Stage Shadow", 0x34bcc, 0x34bec, indexFF1Sprites_Stages, 0x11 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StageDreamPark_PALETTES[] =
 {
-    { L"Dream Amusement Park Round 1 & 2(1/2)", 0x3436c, 0x3456c },
-    { L"Dream Amusement Park Round 1 & 2(2/2)", 0x3456c, 0x345ac },
-    { L"Dream Amusement Park Round 1 & 2 Extra", 0x3508c, 0x3522c },
-    { L"Dream Amusement Park Round 3(1/2)", 0x3716c, 0x3736c },
-    { L"Dream Amusement Park Round 3(2/2)", 0x3736c, 0x373ac },
-    { L"Dream Amusement Park Round 3 Extra(1/2)", 0x3566c, 0x3576c },
-    { L"Dream Amusement Park Round 3 Extra(2/2)", 0x3686c, 0x3690c },
-    { L"Dream Amusement Park Stage Shadow", 0x34bec, 0x34c0c },
+    { L"Dream Amusement Park Round 1 & 2(1/2)", 0x3436c, 0x3456c, indexFF1Sprites_Stages, 0x02, &pairNext },
+    { L"Dream Amusement Park Round 1 & 2(2/2)", 0x3456c, 0x345ac, indexFF1Sprites_Stages, 0x03 },
+    { L"Dream Amusement Park Round 1 & 2 Extra", 0x3508c, 0x3522c, indexFF1Sprites_Stages, 0x04 },
+    { L"Dream Amusement Park Round 3(1/2)", 0x3716c, 0x3736c, indexFF1Sprites_Stages, 0x02, &pairNext },
+    { L"Dream Amusement Park Round 3(2/2)", 0x3736c, 0x373ac, indexFF1Sprites_Stages, 0x03 },
+    { L"Dream Amusement Park Round 3 Extra(1/2)", 0x3566c, 0x3576c, indexFF1Sprites_Stages, 0x05 },
+    { L"Dream Amusement Park Round 3 Extra(2/2)", 0x3686c, 0x3690c, indexFF1Sprites_Stages, 0x06 },
+    { L"Dream Amusement Park Stage Shadow", 0x34bec, 0x34c0c, indexFF1Sprites_Stages, 0x11 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StageSouthVillage_PALETTES[] =
 {
-    { L"South Town Village Round 1(1/2)", 0x345ac, 0x3476c },
-    { L"South Town Village Round 1(2/2)", 0x348ec, 0x3496c },
-    { L"South Town Village Round 2(1/2)", 0x361ac, 0x3636c },
-    { L"South Town Village Round 2(2/2)", 0x360ec, 0x3616c },
-    { L"South Town Village Round 3(1/2)", 0x373ac, 0x3756c },
-    { L"South Town Village Round 3(2/2)", 0x376ec, 0x3776c },
-    { L"South Town Village Stage Shadow", 0x34c0c, 0x34c2c },
+    { L"South Town Village Round 1(1/2)", 0x345ac, 0x3476c, indexFF1Sprites_Stages, 0x0f, &pairNext },
+    { L"South Town Village Round 1(2/2)", 0x348ec, 0x3496c, indexFF1Sprites_Stages, 0x10 },
+    { L"South Town Village Round 2(1/2)", 0x361ac, 0x3636c, indexFF1Sprites_Stages, 0x0f, &pairNext },
+    { L"South Town Village Round 2(2/2)", 0x360ec, 0x3616c, indexFF1Sprites_Stages, 0x10 },
+    { L"South Town Village Round 3(1/2)", 0x373ac, 0x3756c, indexFF1Sprites_Stages, 0x0f, &pairNext },
+    { L"South Town Village Round 3(2/2)", 0x376ec, 0x3776c, indexFF1Sprites_Stages, 0x10 },
+    { L"South Town Village Stage Shadow", 0x34c0c, 0x34c2c, indexFF1Sprites_Stages, 0x11 },
 };
 
 const sGame_PaletteDataset FatalFury1_A_BONUS_StageGeese_PALETTES[] =
 {
-    { L"Geese Stage Round 1(1/2)", 0x3476c, 0x348ec },
-    { L"Geese Stage Round 1(2/2)", 0x3496c, 0x34a2c },
-    { L"Geese Stage Round 2(1/2)", 0x35f6c, 0x360ec },
-    { L"Geese Stage Round 2(2/2)", 0x3636c, 0x3642c },
-    { L"Geese Stage Round 3(1/2)", 0x3756c, 0x376ec },
-    { L"Geese Stage Round 3(2/2)", 0x3776c, 0x3782c },
-    { L"Geese Stage Shadow", 0x34c2c, 0x34c4c },
+    { L"Geese Stage Round 1(1/2)", 0x3476c, 0x348ec, indexFF1Sprites_Stages, 0x07, &pairNext },
+    { L"Geese Stage Round 1(2/2)", 0x3496c, 0x34a2c, indexFF1Sprites_Stages, 0x08 },
+    { L"Geese Stage Round 2(1/2)", 0x35f6c, 0x360ec, indexFF1Sprites_Stages, 0x07, &pairNext },
+    { L"Geese Stage Round 2(2/2)", 0x3636c, 0x3642c, indexFF1Sprites_Stages, 0x08 },
+    { L"Geese Stage Round 3(1/2)", 0x3756c, 0x376ec, indexFF1Sprites_Stages, 0x07, &pairNext },
+    { L"Geese Stage Round 3(2/2)", 0x3776c, 0x3782c, indexFF1Sprites_Stages, 0x08 },
+    { L"Geese Stage Shadow", 0x34c2c, 0x34c4c, indexFF1Sprites_Stages, 0x11 },
 };
 
 //JUST A HELPFUL DIVISION, IGNORE THIS

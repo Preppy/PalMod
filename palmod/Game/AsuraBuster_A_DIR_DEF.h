@@ -2,22 +2,22 @@
 
 const std::vector<uint16_t> AsuraBuster_A_IMGIDS_USED =
 {
-    indexAsuraBuster_Alice,      // 0x00
-    indexAsuraBuster_AliceBang,  // 0x01
-    indexAsuraBuster_ChenMao,    // 0x02
-    indexAsuraBuster_Goat,       // 0x03
-    indexAsuraBuster_Leon,       // 0x04
-    indexAsuraBuster_Nanami,     // 0x05
-    indexAsuraBuster_Rokurouta,  // 0x06
-    indexAsuraBuster_RoseMary,   // 0x07
-    indexAsuraBuster_Sittara,    // 0x08
-    indexAsuraBuster_Taros,      // 0x09
-    indexAsuraBuster_Vebel,      // 0x0a
-    indexAsuraBuster_Yashaou,    // 0x0b
-    indexAsuraBuster_ZamB,       // 0x0c
-    indexAsuraBuster_Zinsuke,    // 0x0d
-    indexAsuraBuster_Stages,     // 0x0e
-    indexAsuraBuster_Bonus,      // 0x0f
+    indexAsuraBuster_Alice,      // 0x1f
+    indexAsuraBuster_AliceBang,  // 0x20
+    indexAsuraBuster_ChenMao,    // 0x21
+    indexAsuraBuster_Goat,       // 0x22
+    indexAsuraBuster_Leon,       // 0x23
+    indexAsuraBuster_Nanami,     // 0x24
+    indexAsuraBuster_Rokurouta,  // 0x25
+    indexAsuraBuster_RoseMary,   // 0x26
+    indexAsuraBuster_Sittara,    // 0x27
+    indexAsuraBuster_Taros,      // 0x28
+    indexAsuraBuster_Vebel,      // 0x29
+    indexAsuraBuster_Yashaou,    // 0x2a
+    indexAsuraBuster_ZamB,       // 0x2b
+    indexAsuraBuster_Zinsuke,    // 0x2c
+    indexAsuraBuster_Stages,     // 0x2d
+    indexAsuraBuster_Bonus,      // 0x2e
 };
 
 //  Yashaou

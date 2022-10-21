@@ -1,20 +1,5 @@
 #pragma once
 
-enum CHARACTERS_MIGHTY_WARRIORS
-{
-    indexMWarrSprites_Cypher,       // 0x00
-    indexMWarrSprites_Eknaton,      // 0x01
-    indexMWarrSprites_Eteocles,     // 0x02
-    indexMWarrSprites_Gurdaf,       // 0x03
-    indexMWarrSprites_HanSing,      // 0x04
-    indexMWarrSprites_Marcus,       // 0x05
-    indexMWarrSprites_McDatho,      // 0x06
-    indexMWarrSprites_Nabonedo,     // 0x07
-    indexMWarrSprites_Selim,        // 0x08
-    indexMWarrSprites_Bonus,        // 0x09
-    indexMWarrSprites_Stages,       // 0x0A
-};
-
 const std::vector<uint16_t> MWarr_A_IMGIDS_USED =
 {
     indexMWarrSprites_Cypher,       // 0x00

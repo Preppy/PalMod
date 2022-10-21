@@ -2,22 +2,42 @@
 
 const std::vector<uint16_t> AvgrsGS_A_IMGIDS_USED =
 {
+    indexAiGSSprites_BlackKnight,       // 0x0b
+    indexAiGSSprites_CaptainAmerica,    // 0x0c
+    indexAiGSSprites_CaptainAtlas,      // 0x0d
+    indexAiGSSprites_Crystal,           // 0x0e
+    indexAiGSSprites_DrMinerva,         // 0x0f
+    indexAiGSSprites_GalenKor,          // 0x10
+    indexAiGSSprites_GiantMan,          // 0x11
+    indexAiGSSprites_IronMan,           // 0x12
+    indexAiGSSprites_Korath,            // 0x13
+    indexAiGSSprites_MightyThor,        // 0x14
+    indexAiGSSprites_Ronan,             // 0x15
+    indexAiGSSprites_Sentry,            // 0x16
+    indexAiGSSprites_Shatterax,         // 0x17
+    indexAiGSSprites_Supremor,          // 0x18
+    indexAiGSSprites_Thunderstrike,     // 0x19
+    indexAiGSSprites_Ultimus,           // 0x1a
+    indexAiGSSprites_Vision,            // 0x1b
+    indexAiGSSprites_Stages,            // 0x1c
+    indexAiGSSprites_Endings,           // 0x1d
+    indexAiGSSprites_Bonus,             // 0x1e
 };
 
 const sGame_PaletteDataset AvgrsGS_A_CaptainAmerica_P1[] =
 {
-    { L"Captain America P1", 0xf23c0, 0xf23e0 },
+    { L"Captain America P1", 0xf23c0, 0xf23e0, indexAiGSSprites_CaptainAmerica, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_CaptainAmerica_P2[] =
 {
-    { L"Captain America P2", 0xf24a0, 0xf24c0 },
+    { L"Captain America P2", 0xf24a0, 0xf24c0, indexAiGSSprites_CaptainAmerica, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_CaptainAmerica_Effects[] =
 {
-    { L"Captain America Burned", 0xf23e0, 0xf2400 },
-    { L"Captain America Zapped", 0xf2400, 0xf2420 },
+    { L"Captain America Burned", 0xf23e0, 0xf2400, indexAiGSSprites_CaptainAmerica, 0x00 },
+    { L"Captain America Zapped", 0xf2400, 0xf2420, indexAiGSSprites_CaptainAmerica, 0x00 },
     { L"Captain America Effect 1", 0xf2420, 0xf2440 },
     { L"Captain America Effect 2", 0xf2440, 0xf2460 },
     { L"Captain America Effect 3", 0xf2460, 0xf2480 },
@@ -26,18 +46,18 @@ const sGame_PaletteDataset AvgrsGS_A_CaptainAmerica_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Thunderstrike_P1[] =
 {
-    { L"Thunderstrike P1", 0xf24c0, 0xf24e0 },
+    { L"Thunderstrike P1", 0xf24c0, 0xf24e0, indexAiGSSprites_Thunderstrike, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Thunderstrike_P2[] =
 {
-    { L"Thunderstrike P2", 0xf25a0, 0xf25c0 },
+    { L"Thunderstrike P2", 0xf25a0, 0xf25c0, indexAiGSSprites_Thunderstrike, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Thunderstrike_Effects[] =
 {
-    { L"Thunderstrike Burned", 0xf24e0, 0xf2500 },
-    { L"Thunderstrike Zapped", 0xf2500, 0xf2520 },
+    { L"Thunderstrike Burned", 0xf24e0, 0xf2500, indexAiGSSprites_Thunderstrike, 0x00 },
+    { L"Thunderstrike Zapped", 0xf2500, 0xf2520, indexAiGSSprites_Thunderstrike, 0x00 },
     { L"Thunderstrike Effect 1", 0xf2520, 0xf2540 },
     { L"Thunderstrike Effect 2", 0xf2540, 0xf2560 },
     { L"Thunderstrike Effect 3", 0xf2560, 0xf2580 },
@@ -46,18 +66,18 @@ const sGame_PaletteDataset AvgrsGS_A_Thunderstrike_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Crystal_P1[] =
 {
-    { L"Crystal P1", 0xf25c0, 0xf25e0 },
+    { L"Crystal P1", 0xf25c0, 0xf25e0, indexAiGSSprites_Crystal, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Crystal_P2[] =
 {
-    { L"Crystal P2", 0xf26a0, 0xf26c0 },
+    { L"Crystal P2", 0xf26a0, 0xf26c0, indexAiGSSprites_Crystal, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Crystal_Effects[] =
 {
-    { L"Crystal Burned", 0xf25e0, 0xf2600 },
-    { L"Crystal Zapped", 0xf2600, 0xf2620 },
+    { L"Crystal Burned", 0xf25e0, 0xf2600, indexAiGSSprites_Crystal, 0x00 },
+    { L"Crystal Zapped", 0xf2600, 0xf2620, indexAiGSSprites_Crystal, 0x00 },
     { L"Crystal Effect 1", 0xf2620, 0xf2640 },
     { L"Crystal Effect 2", 0xf2640, 0xf2660 },
     { L"Crystal Effect 3", 0xf2660, 0xf2680 },
@@ -66,19 +86,19 @@ const sGame_PaletteDataset AvgrsGS_A_Crystal_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_BlackKnight_P1[] =
 {
-    { L"Black Knight P1", 0xf26c0, 0xf26e0 },
+    { L"Black Knight P1", 0xf26c0, 0xf26e0, indexAiGSSprites_BlackKnight, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_BlackKnight_P2[] =
 {
-    { L"Black Knight P2", 0xf27a0, 0xf27c0 },
+    { L"Black Knight P2", 0xf27a0, 0xf27c0, indexAiGSSprites_BlackKnight, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_BlackKnight_Effects[] =
 {
-    { L"Black Knight Burned", 0xf26e0, 0xf2700 },
-    { L"Black Knight Zapped", 0xf2700, 0xf2720 },
-    { L"Black Knight Effect 1", 0xf2720, 0xf2740 },
+    { L"Black Knight Burned", 0xf26e0, 0xf2700, indexAiGSSprites_BlackKnight, 0x00 },
+    { L"Black Knight Zapped", 0xf2700, 0xf2720, indexAiGSSprites_BlackKnight, 0x00 },
+    { L"Black Knight Effect 1", 0xf2720, 0xf2740, indexAiGSSprites_BlackKnight, 0x01 },
     { L"Black Knight Effect 2", 0xf2740, 0xf2760 },
     { L"Black Knight Effect 3", 0xf2760, 0xf2780 },
     { L"Black Knight Effect 4", 0xf2780, 0xf27a0 },
@@ -86,18 +106,18 @@ const sGame_PaletteDataset AvgrsGS_A_BlackKnight_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Shatterax_P1[] =
 {
-    { L"Shatterax P1", 0xf27c0, 0xf27e0 },
+    { L"Shatterax P1", 0xf27c0, 0xf27e0, indexAiGSSprites_Shatterax, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Shatterax_P2[] =
 {
-    { L"Shatterax P2", 0xf28a0, 0xf28c0 },
+    { L"Shatterax P2", 0xf28a0, 0xf28c0, indexAiGSSprites_Shatterax, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Shatterax_Effects[] =
 {
-    { L"Shatterax Burned", 0xf27e0, 0xf2800 },
-    { L"Shatterax Zapped", 0xf2800, 0xf2820 },
+    { L"Shatterax Burned", 0xf27e0, 0xf2800, indexAiGSSprites_Shatterax, 0x00 },
+    { L"Shatterax Zapped", 0xf2800, 0xf2820, indexAiGSSprites_Shatterax, 0x00 },
     { L"Shatterax Effect 1", 0xf2820, 0xf2840 },
     { L"Shatterax Effect 2", 0xf2840, 0xf2860 },
     { L"Shatterax Effect 3", 0xf2860, 0xf2880 },
@@ -106,19 +126,19 @@ const sGame_PaletteDataset AvgrsGS_A_Shatterax_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Korath_P1[] =
 {
-    { L"Korath P1", 0xf28c0, 0xf28e0 },
+    { L"Korath P1", 0xf28c0, 0xf28e0, indexAiGSSprites_Korath, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Korath_P2[] =
 {
-    { L"Korath P2", 0xf29a0, 0xf29c0 },
+    { L"Korath P2", 0xf29a0, 0xf29c0, indexAiGSSprites_Korath, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Korath_Effects[] =
 {
-    { L"Korath Burned", 0xf28e0, 0xf2900 },
-    { L"Korath Zapped", 0xf2900, 0xf2920 },
-    { L"Korath Effect 1", 0xf2920, 0xf2940 },
+    { L"Korath Burned", 0xf28e0, 0xf2900, indexAiGSSprites_Korath, 0x00 },
+    { L"Korath Zapped", 0xf2900, 0xf2920, indexAiGSSprites_Korath, 0x00 },
+    { L"Korath Effect 1", 0xf2920, 0xf2940, indexAiGSSprites_Korath, 0x01 },
     { L"Korath Effect 2", 0xf2940, 0xf2960 },
     { L"Korath Effect 3", 0xf2960, 0xf2980 },
     { L"Korath Effect 4", 0xf2980, 0xf29a0 },
@@ -126,18 +146,18 @@ const sGame_PaletteDataset AvgrsGS_A_Korath_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_DrMinerva_P1[] =
 {
-    { L"Dr.Minerva P1", 0xf29c0, 0xf29e0 },
+    { L"Dr.Minerva P1", 0xf29c0, 0xf29e0, indexAiGSSprites_DrMinerva, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_DrMinerva_P2[] =
 {
-    { L"Dr.Minerva P2", 0xf2aa0, 0xf2ac0 },
+    { L"Dr.Minerva P2", 0xf2aa0, 0xf2ac0, indexAiGSSprites_DrMinerva, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_DrMinerva_Effects[] =
 {
-    { L"Dr.Minerva Burned", 0xf29e0, 0xf2a00 },
-    { L"Dr.Minerva Zapped", 0xf2a00, 0xf2a20 },
+    { L"Dr.Minerva Burned", 0xf29e0, 0xf2a00, indexAiGSSprites_DrMinerva, 0x00 },
+    { L"Dr.Minerva Zapped", 0xf2a00, 0xf2a20, indexAiGSSprites_DrMinerva, 0x00 },
     { L"Dr.Minerva Effect 1", 0xf2a20, 0xf2a40 },
     { L"Dr.Minerva Effect 2", 0xf2a40, 0xf2a60 },
     { L"Dr.Minerva Effect 3", 0xf2a60, 0xf2a80 },
@@ -146,18 +166,18 @@ const sGame_PaletteDataset AvgrsGS_A_DrMinerva_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Supremor_P1[] =
 {
-    { L"Supremor P1", 0xf2ac0, 0xf2ae0 },
+    { L"Supremor P1", 0xf2ac0, 0xf2ae0, indexAiGSSprites_Supremor, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Supremor_P2[] =
 {
-    { L"Supremor P2", 0xf2ba0, 0xf2bc0 },
+    { L"Supremor P2", 0xf2ba0, 0xf2bc0, indexAiGSSprites_Supremor, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Supremor_Effects[] =
 {
-    { L"Supremor Burned", 0xf2ae0, 0xf2b00 },
-    { L"Supremor Zapped", 0xf2b00, 0xf2b20 },
+    { L"Supremor Burned", 0xf2ae0, 0xf2b00, indexAiGSSprites_Supremor, 0x00 },
+    { L"Supremor Zapped", 0xf2b00, 0xf2b20, indexAiGSSprites_Supremor, 0x00 },
     { L"Supremor Effect 1", 0xf2b20, 0xf2b40 },
     { L"Supremor Effect 2", 0xf2b40, 0xf2b60 },
     { L"Supremor Effect 3", 0xf2b60, 0xf2b80 },
@@ -166,18 +186,18 @@ const sGame_PaletteDataset AvgrsGS_A_Supremor_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_GalenKor_P1[] =
 {
-    { L"Galen-Kor P1", 0xf2bc0, 0xf2be0 },
+    { L"Galen-Kor P1", 0xf2bc0, 0xf2be0, indexAiGSSprites_GalenKor, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_GalenKor_P2[] =
 {
-    { L"Galen-Kor P2", 0xf2ca0, 0xf2cc0 },
+    { L"Galen-Kor P2", 0xf2ca0, 0xf2cc0, indexAiGSSprites_GalenKor, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_GalenKor_Effects[] =
 {
-    { L"Galen-Kor Burned", 0xf2be0, 0xf2c00 },
-    { L"Galen-Kor Zapped", 0xf2c00, 0xf2c20 },
+    { L"Galen-Kor Burned", 0xf2be0, 0xf2c00, indexAiGSSprites_GalenKor, 0x00 },
+    { L"Galen-Kor Zapped", 0xf2c00, 0xf2c20, indexAiGSSprites_GalenKor, 0x00 },
     { L"Galen-Kor Effect 1", 0xf2c20, 0xf2c40 },
     { L"Galen-Kor Effect 2", 0xf2c40, 0xf2c60 },
     { L"Galen-Kor Effect 3", 0xf2c60, 0xf2c80 },
@@ -186,12 +206,12 @@ const sGame_PaletteDataset AvgrsGS_A_GalenKor_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_IronMan_P1[] =
 {
-    { L"Iron Man P1", 0xf2cc0, 0xf2ce0 },
+    { L"Iron Man P1", 0xf2cc0, 0xf2ce0, indexAiGSSprites_IronMan, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_IronMan_P2[] =
 {
-    { L"Iron Man P2", 0xf2d00, 0xf2d20 },
+    { L"Iron Man P2", 0xf2d00, 0xf2d20, indexAiGSSprites_IronMan, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_IronMan_Effects[] =
@@ -201,57 +221,57 @@ const sGame_PaletteDataset AvgrsGS_A_Assists_IronMan_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_MightyThor_P1[] =
 {
-    { L"Mighty Thor P1", 0xf2d20, 0xf2d40 },
+    { L"Mighty Thor P1", 0xf2d20, 0xf2d40, indexAiGSSprites_MightyThor, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_MightyThor_P2[] =
 {
-    { L"Mighty Thor P2", 0xf2d60, 0xf2d80 },
+    { L"Mighty Thor P2", 0xf2d60, 0xf2d80, indexAiGSSprites_MightyThor, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_MightyThor_Effects[] =
 {
-    { L"Mighty Thor Effect", 0xf2d40, 0xf2d60 },
+    { L"Mighty Thor Effect", 0xf2d40, 0xf2d60, indexAiGSSprites_MightyThor, 0x01 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Vision_P1[] =
 {
-    { L"Vision P1", 0xf2d80, 0xf2da0 },
+    { L"Vision P1", 0xf2d80, 0xf2da0, indexAiGSSprites_Vision, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Vision_P2[] =
 {
-    { L"Vision P2", 0xf2dc0, 0xf2de0 },
+    { L"Vision P2", 0xf2dc0, 0xf2de0, indexAiGSSprites_Vision, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Vision_Effects[] =
 {
-    { L"Vision Effect", 0xf2da0, 0xf2dc0 },
+    { L"Vision Effect", 0xf2da0, 0xf2dc0, indexAiGSSprites_Vision, 0x01 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_GiantMan_P1[] =
 {
-    { L"Giant Man P1", 0xf2de0, 0xf2e00 },
+    { L"Giant Man P1", 0xf2de0, 0xf2e00, indexAiGSSprites_GiantMan, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_GiantMan_P2[] =
 {
-    { L"Giant Man P2", 0xf2e20, 0xf2e40 },
+    { L"Giant Man P2", 0xf2e20, 0xf2e40, indexAiGSSprites_GiantMan, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_GiantMan_Effects[] =
 {
-    { L"Giant Man Effect", 0xf2e00, 0xf2e20 },
+    { L"Giant Man Effect", 0xf2e00, 0xf2e20, indexAiGSSprites_GiantMan, 0x01 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Ultimus_P1[] =
 {
-    { L"Ultimus P1", 0xf2e40, 0xf2e60 },
+    { L"Ultimus P1", 0xf2e40, 0xf2e60, indexAiGSSprites_Ultimus, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Ultimus_P2[] =
 {
-    { L"Ultimus P2", 0xf2e80, 0xf2ea0 },
+    { L"Ultimus P2", 0xf2e80, 0xf2ea0, indexAiGSSprites_Ultimus, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Ultimus_Effects[] =
@@ -261,12 +281,12 @@ const sGame_PaletteDataset AvgrsGS_A_Assists_Ultimus_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Ronan_P1[] =
 {
-    { L"Ronan P1", 0xf2ea0, 0xf2ec0 },
+    { L"Ronan P1", 0xf2ea0, 0xf2ec0, indexAiGSSprites_Ronan, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Ronan_P2[] =
 {
-    { L"Ronan P2", 0xf2ee0, 0xf2f00 },
+    { L"Ronan P2", 0xf2ee0, 0xf2f00, indexAiGSSprites_Ronan, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Ronan_Effects[] =
@@ -276,12 +296,12 @@ const sGame_PaletteDataset AvgrsGS_A_Assists_Ronan_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Sentry_P1[] =
 {
-    { L"Sentry P1", 0xf2f00, 0xf2f20 },
+    { L"Sentry P1", 0xf2f00, 0xf2f20, indexAiGSSprites_Sentry, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Sentry_P2[] =
 {
-    { L"Sentry P2", 0xf2f40, 0xf2f60 },
+    { L"Sentry P2", 0xf2f40, 0xf2f60, indexAiGSSprites_Sentry, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Sentry_Effects[] =
@@ -291,12 +311,12 @@ const sGame_PaletteDataset AvgrsGS_A_Assists_Sentry_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_CaptainAtlas_P1[] =
 {
-    { L"Captain Atlas P1", 0xf2f60, 0xf2f80 },
+    { L"Captain Atlas P1", 0xf2f60, 0xf2f80, indexAiGSSprites_CaptainAtlas, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_CaptainAtlas_P2[] =
 {
-    { L"Captain Atlas P2", 0xf2fa0, 0xf2fc0 },
+    { L"Captain Atlas P2", 0xf2fa0, 0xf2fc0, indexAiGSSprites_CaptainAtlas, 0x00 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_CaptainAtlas_Effects[] =
@@ -567,34 +587,34 @@ const sGame_PaletteDataset AvgrsGS_A_STAGES_ENDINGS_GalenKor[] =
 
 const sGame_PaletteDataset AvgrsGS_A_BONUS_Intro[] =
 {
-    { L"Data East Logo", 0xf5ea0, 0xf60a0 },
-    { L"Intro Scenes 1", 0xf68a0, 0xf6aa0 },
-    { L"Intro Scenes 2", 0xf6aa0, 0xf6ca0 },
-    { L"Intro Scenes 3", 0xf6ca0, 0xf6ea0 },
-    { L"Intro Scenes 4", 0xf6ea0, 0xf70a0 },
-    { L"Captain America Poster 1/2", 0xf70a0, 0xf72a0 },
-    { L"Captain America Poster 2/2", 0xf72a0, 0xf74a0 },
-    { L"Captain America Poster Faded", 0xf74a0, 0xf76a0 },
-    { L"Thunderstrike Poster 1/2", 0xf76a0, 0xf78a0 },
-    { L"Thunderstrike Poster 2/2", 0xf78a0, 0xf7aa0 },
-    { L"Thunderstrike Poster Faded", 0xf7aa0, 0xf7ca0 },
-    { L"Crystal Poster 1/2", 0xf7ca0, 0xf7ea0 },
-    { L"Crystal Poster 2/2", 0xf7ea0, 0xf80a0 },
-    { L"Crystal Poster Faded", 0xf80a0, 0xf82a0 },
-    { L"Black Knight Poster 1/2", 0xf82a0, 0xf84a0 },
-    { L"Black Knight Poster 2/2", 0xf84a0, 0xf86a0 },
-    { L"Black Knight Poster Faded", 0xf86a0, 0xf88a0 },
-    { L"Assist Heroes Poster", 0xfe0a0, 0xfe2a0 },
-    { L"Assist Villains Poster", 0xfe2a0, 0xfe4a0 },
+    { L"Data East Logo", 0xf5ea0, 0xf60a0, indexAiGSSprites_Bonus, 0x16 },
+    { L"Intro Scenes 1", 0xf68a0, 0xf6aa0, indexAiGSSprites_Bonus, 0x17 },
+    { L"Intro Scenes 2", 0xf6aa0, 0xf6ca0, indexAiGSSprites_Bonus, 0x18 },
+    { L"Intro Scenes 3", 0xf6ca0, 0xf6ea0, indexAiGSSprites_Bonus, 0x19 },
+    { L"Intro Scenes 4", 0xf6ea0, 0xf70a0, indexAiGSSprites_Bonus, 0x1a },
+    { L"Captain America Poster 1/2", 0xf70a0, 0xf72a0, indexAiGSSprites_Bonus, 0x10, &pairNext },
+    { L"Captain America Poster 2/2", 0xf72a0, 0xf74a0, indexAiGSSprites_Bonus, 0x11 },
+    { L"Captain America Poster Faded", 0xf74a0, 0xf76a0, indexAiGSSprites_Bonus, 0x12 },
+    { L"Thunderstrike Poster 1/2", 0xf76a0, 0xf78a0, indexAiGSSprites_Bonus, 0x1b, &pairNext },
+    { L"Thunderstrike Poster 2/2", 0xf78a0, 0xf7aa0, indexAiGSSprites_Bonus, 0x1c },
+    { L"Thunderstrike Poster Faded", 0xf7aa0, 0xf7ca0, indexAiGSSprites_Bonus, 0x1d },
+    { L"Crystal Poster 1/2", 0xf7ca0, 0xf7ea0, indexAiGSSprites_Bonus, 0x13, &pairNext },
+    { L"Crystal Poster 2/2", 0xf7ea0, 0xf80a0, indexAiGSSprites_Bonus, 0x14 },
+    { L"Crystal Poster Faded", 0xf80a0, 0xf82a0, indexAiGSSprites_Bonus, 0x15 },
+    { L"Black Knight Poster 1/2", 0xf82a0, 0xf84a0, indexAiGSSprites_Bonus, 0x0d, &pairNext },
+    { L"Black Knight Poster 2/2", 0xf84a0, 0xf86a0, indexAiGSSprites_Bonus, 0x0e },
+    { L"Black Knight Poster Faded", 0xf86a0, 0xf88a0, indexAiGSSprites_Bonus, 0x0f },
+    { L"Assist Heroes Poster", 0xfe0a0, 0xfe2a0, indexAiGSSprites_Bonus, 0x0b },
+    { L"Assist Villains Poster", 0xfe2a0, 0xfe4a0, indexAiGSSprites_Bonus, 0x0c },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_BONUS_TitleScreen[] =
 {
     { L"Title Screen Spaceship", 0xf62a0, 0xf64a0 },
-    { L"Title Screen Logo", 0xf64a0, 0xf66a0 },
-    { L"Title Screen Background", 0xf66a0, 0xf68a0 },
-    { L"Story Mode Icon", 0xf88a0, 0xf8aa0 },
-    { L"Versus Mode Icon", 0xf8aa0, 0xf8ca0 },
+    { L"Title Screen Logo", 0xf64a0, 0xf66a0, indexAiGSSprites_Bonus, 0x23 },
+    { L"Title Screen Background", 0xf66a0, 0xf68a0, indexAiGSSprites_Bonus, 0x22 },
+    { L"Story Mode Icon", 0xf88a0, 0xf8aa0, indexAiGSSprites_Bonus, 0x24 },
+    { L"Versus Mode Icon", 0xf8aa0, 0xf8ca0, indexAiGSSprites_Bonus, 0x25 },
     { L"Mode Select Background", 0xf8ca0, 0xf8ea0 },
 };
 
@@ -618,10 +638,10 @@ const sGame_PaletteDataset AvgrsGS_A_BONUS_StoryMode[] =
 
 const sGame_PaletteDataset AvgrsGS_A_BONUS_SelectScreen[] =
 {
-    { L"Select Icons", 0xf8ea0, 0xf90a0 },
-    { L"Select Assist Icons", 0xf3aa0, 0xf3ba0 },
-    { L"Select Rotating Characters", 0xf3880, 0xf3980 },
-    { L"VS Screen", 0xf21e0, 0xf2200 },
+    { L"Select Icons", 0xf8ea0, 0xf90a0, indexAiGSSprites_Bonus, 0x1f },
+    { L"Select Assist Icons", 0xf3aa0, 0xf3ba0, indexAiGSSprites_Bonus, 0x1e },
+    { L"Select Rotating Characters", 0xf3880, 0xf3980, indexAiGSSprites_Bonus, 0x20 },
+    { L"VS Screen", 0xf21e0, 0xf2200, indexAiGSSprites_Bonus, 0x21 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_BONUS_KreeSoldier[] =
@@ -634,7 +654,7 @@ const sGame_PaletteDataset AvgrsGS_A_BONUS_KreeSoldier[] =
 const sGame_PaletteDataset AvgrsGS_A_BONUS_HUD[] =
 {
     { L"HUD", 0xf2060, 0xf20a0 },
-    { L"HUD Names", 0xf2220, 0xf2240 },
+    { L"HUD Names", 0xf2220, 0xf2240, indexAiGSSprites_Bonus, 0x07 },
     { L"HUD OK/MAX", 0xf2120, 0xf2140 },
     { L"HUD Win Icon", 0xf21c0, 0xf21e0 },
     { L"HUD Black Tile ", 0xf2200, 0xf2220 },
@@ -646,15 +666,15 @@ const sGame_PaletteDataset AvgrsGS_A_BONUS_HUD[] =
     { L"FIGHT/PERFECT Text", 0xf22a0, 0xf22c0 },
     { L"Winner Text", 0xf2360, 0xf2380 },
     { L"Loser Text", 0xf22c0, 0xf22e0 },
-    { L"Captain America HUD", 0xf3980, 0xf39a0 },
-    { L"Thunderstrike HUD", 0xf39a0, 0xf39c0 },
-    { L"Crystal HUD", 0xf39c0, 0xf39e0 },
-    { L"Black Knight HUD", 0xf39e0, 0xf3a00 },
-    { L"Shatterax HUD", 0xf3a00, 0xf3a20 },
-    { L"Korath HUD", 0xf3a20, 0xf3a40 },
-    { L"Dr.Minerva HUD", 0xf3a40, 0xf3a60 },
-    { L"Supremor HUD", 0xf3a60, 0xf3a80 },
-    { L"Galen-Kor HUD", 0xf3a80, 0xf3aa0 },
+    { L"Captain America HUD", 0xf3980, 0xf39a0, indexAiGSSprites_Bonus, 0x02 },
+    { L"Thunderstrike HUD", 0xf39a0, 0xf39c0, indexAiGSSprites_Bonus, 0x0a },
+    { L"Crystal HUD", 0xf39c0, 0xf39e0, indexAiGSSprites_Bonus, 0x03 },
+    { L"Black Knight HUD", 0xf39e0, 0xf3a00, indexAiGSSprites_Bonus, 0x01 },
+    { L"Shatterax HUD", 0xf3a00, 0xf3a20, indexAiGSSprites_Bonus, 0x08 },
+    { L"Korath HUD", 0xf3a20, 0xf3a40, indexAiGSSprites_Bonus, 0x06 },
+    { L"Dr.Minerva HUD", 0xf3a40, 0xf3a60, indexAiGSSprites_Bonus, 0x04 },
+    { L"Supremor HUD", 0xf3a60, 0xf3a80, indexAiGSSprites_Bonus, 0x09 },
+    { L"Galen-Kor HUD", 0xf3a80, 0xf3aa0, indexAiGSSprites_Bonus, 0x05 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_BONUS_Effects[] =
@@ -664,7 +684,7 @@ const sGame_PaletteDataset AvgrsGS_A_BONUS_Effects[] =
     { L"Hitsparks", 0xf20e0, 0xf2100 },
     { L"Shield", 0xf2140, 0xf2160 },
     { L"Burned Effects", 0xf2160, 0xf2180 },
-    { L"Zapped Effects", 0xf2180, 0xf21a0 },
+    { L"Zapped Effects", 0xf2180, 0xf21a0, indexAiGSSprites_Bonus, 0x00 },
     { L"Dust Effects", 0xf21a0, 0xf21c0 },
     { L"Dust Sparks", 0xf2300, 0xf2320 },
 };
@@ -714,9 +734,9 @@ const sDescTreeNode AvgrsGS_A_UNITS[] =
     { L"Vision", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_Vision_COLLECTION, ARRAYSIZE(AvgrsGS_A_Vision_COLLECTION) },
     { L"Dr.Minerva", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_DrMinerva_COLLECTION, ARRAYSIZE(AvgrsGS_A_DrMinerva_COLLECTION) },
     { L"Shatterax", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_Shatterax_COLLECTION, ARRAYSIZE(AvgrsGS_A_Shatterax_COLLECTION) },
-    { L"Korat", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_Korath_COLLECTION, ARRAYSIZE(AvgrsGS_A_Korath_COLLECTION) },
+    { L"Korath", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_Korath_COLLECTION, ARRAYSIZE(AvgrsGS_A_Korath_COLLECTION) },
     { L"Supremor", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_Supremor_COLLECTION, ARRAYSIZE(AvgrsGS_A_Supremor_COLLECTION) },
-    { L"Galen Kor", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_GalenKor_COLLECTION, ARRAYSIZE(AvgrsGS_A_GalenKor_COLLECTION) },
+    { L"Galen-Kor", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_GalenKor_COLLECTION, ARRAYSIZE(AvgrsGS_A_GalenKor_COLLECTION) },
     { L"Iron Man", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_IronMan_COLLECTION, ARRAYSIZE(AvgrsGS_A_IronMan_COLLECTION) },
     { L"Mighty Thor", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_MightyThor_COLLECTION, ARRAYSIZE(AvgrsGS_A_MightyThor_COLLECTION) },
     { L"Giant Man", DESC_NODETYPE_TREE, (void*)AvgrsGS_A_GiantMan_COLLECTION, ARRAYSIZE(AvgrsGS_A_GiantMan_COLLECTION) },
