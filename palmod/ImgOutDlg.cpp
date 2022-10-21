@@ -130,6 +130,13 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(L"15");
         m_CB_Amt.AddString(L"20");
         break;
+    case 21: // MAAB
+        m_CB_Amt.AddString(L"5");
+        m_CB_Amt.AddString(L"10");
+        m_CB_Amt.AddString(L"15");
+        m_CB_Amt.AddString(L"19");
+        m_CB_Amt.AddString(L"21"); // Last two are unused typically
+        break;
     case 22:
         m_CB_Amt.AddString(L"5");
         m_CB_Amt.AddString(L"10");

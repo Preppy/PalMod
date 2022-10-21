@@ -724,6 +724,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     case 12:
         w_mul = 6;
         break;
+    case 21: // MAAB
     case 24: // BlazBlueCF
     case 25: // BlazBlueCF
     case 26: // BlazBlueCF
