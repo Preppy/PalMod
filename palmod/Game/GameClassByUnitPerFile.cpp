@@ -310,7 +310,10 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_
         }
 
         // Use the optional per-palette increment reflecting a buffer between palettes
-        m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.at(nAdjustedPalId).nPaletteShiftFromBase;
+        if (m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.size())
+        {
+            m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.at(nAdjustedPalId).nPaletteShiftFromBase;
+        }
     }
     else // PaletteArrangementStyle::OneButtonLabelEntryPerEachNode
     {
@@ -324,7 +327,10 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteData(uint32_t nUnitId, uint32_
             m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).nInitialLocation;
             m_nCurrentPaletteROMLocation += nCollectionId * m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).sNodeData.nAdditionalBufferBetweenEachNode;
             // Use the optional per-palette increment reflecting a buffer between palettes
-            m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.at(nPalIdInPaletteList).nPaletteShiftFromBase;
+            if (m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.size())
+            {
+                m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nUnitId).prgBasicPalettes.at(nPalIdInPaletteList).nPaletteShiftFromBase;
+            }
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         }
         else // effects palettes
@@ -398,7 +404,8 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
 
             // Use the specific (relative) palette data's specification of the preview to use if provided, otherwise
             // fall back to the basic palette info's specification
-            if (m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit != INVALID_UNIT_VALUE)
+            if (m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.size() &&
+                (m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit != INVALID_UNIT_VALUE))
             {
                 nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit;
                 nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(NodeGet->uUnitId).prgBasicPalettes.at(nSrcStart).indexImageSprite;
