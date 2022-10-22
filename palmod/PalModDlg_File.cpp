@@ -100,7 +100,7 @@ sSupportedGameList SupportedGameList[] =
     { RANMAHB_SNES,     L"Ranma Nibunnoichi: HB (SNES)", L"Ranma Nibunnoichi: HB (SNES)|ranma 1-2 - hard battle (usa).s?c|", GamePlatform::Nintendo },
     { ROTD_A,           L"Rage of the Dragons", L"Rage of the Dragons|264-p1.*|", GamePlatform::NEOGEO },
     { RBFF1_A,          L"Real Bout Fatal Fury", L"Real Bout Fatal Fury|095-p1.*;rbff1_p1.rom|", GamePlatform::NEOGEO, GameSeries::FatalFury },
-    { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2|240-p1.*;rb2_p1.rom|", GamePlatform::NEOGEO, GameSeries::FatalFury },
+    { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2|240-p1.*;240-pg1.*;rb2_p1.rom;140-p1k.*|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
     { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special|223*p1*|", GamePlatform::NEOGEO, GameSeries::FatalFury },
     { REDEARTH_A,       L"Red Earth", L"Red Earth (Stages: 30, Characters: 31, Next: 50)|30;31;50|", GamePlatform::CapcomCPS3 },
