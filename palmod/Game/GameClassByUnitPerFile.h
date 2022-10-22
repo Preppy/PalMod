@@ -84,14 +84,18 @@ public:
 
     static void InitializeStatics();
 
-    static bool ShouldUseBasePaletteSet(uint32_t nUnitId, uint32_t nPaletteId);
-    static std::vector<LPCWSTR> GetBasicPaletteLabelsForUnit(uint32_t nUnitId);
-    static LPCWSTR GetBasicPaletteNameForPalette(uint32_t nUnitId, uint32_t nPaletteId);
-    static size_t GetBasicPaletteListSizeForUnit(uint32_t nUnitId);
-    static size_t GetBasicPaletteCountForUnit(uint32_t nUnitId);
+    static bool ShouldUseBasePaletteSetForFileUnit(uint32_t nFileUnitId, uint32_t nPaletteId);
+    static bool ShouldUseBasePaletteSet(uint32_t nCharacterUnitId, uint32_t nPaletteId);
+    static std::vector<LPCWSTR> GetBasicPaletteLabelsForUnit(uint32_t nCharacterUnitId);
+    static LPCWSTR GetBasicPaletteNameForPalette(uint32_t nCharacterUnitId, uint32_t nPaletteId);
+    static size_t GetBasicPaletteListSizeForUnit(uint32_t nCharacterUnitId);
+    static size_t GetBasicPaletteCountForUnit(uint32_t nCharacterUnitId);
     // This version includes the count of optional Extra palettes
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
-    void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
+    uint32_t GetPaletteCountForUnit(uint32_t nCharacterUnitId) override;
+    static uint32_t GetPaletteCountForFileUnit(uint32_t nFileUnitId);
+    
+    void LoadSpecificPaletteDataByFileUnit(uint32_t nFileUnitId, uint32_t nFilePalId);
+    void LoadSpecificPaletteData(uint32_t nCharacterUnitId, uint32_t nDisplayPalId);
 
     CGameClassPerUnitPerFile(uint32_t nConfirmedROMSize = -1) {};
     ~CGameClassPerUnitPerFile() {};
@@ -100,10 +104,10 @@ public:
 
     void InitializeGame(uint32_t nConfirmedROMSize, const sGCPUPF_CoreGameData& gameLoadingData);
 
-    BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitNumber) override;
-    BOOL SaveFile(CFile* SaveFile, uint32_t nUnitNumber) override;
+    BOOL LoadFile(CFile* LoadedFile, uint32_t nFileUnitNumber) override;
+    BOOL SaveFile(CFile* SaveFile, uint32_t nFileUnitNumber) override;
 
-    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
+    const sDescTreeNode* GetNodeFromPaletteId(uint32_t nCharacterUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
 
     LPCWSTR GetGameName() override;
 
@@ -120,8 +124,18 @@ public:
     static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
-    static uint32_t GetNodeCountForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
-    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
+    static uint32_t GetNodeCountForCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(uint32_t nCharacterUnitId, uint32_t nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nCharacterUnitId, uint32_t nPaletteId);
+
+    // These enable joining units across files by having them share unit names.
+    static bool PaletteIsInFileUnit(uint32_t nTargetFileUnitId, uint32_t nDisplayUnitId, uint32_t nDisplayPalId);
+    static uint32_t GetUniqueUnitCount();
+    static bool IsFileUnitForUniqueCharacter(uint32_t nFileUnitId);
+    static bool IsFileUnitFirstCharacterUnit(uint32_t nFileUnitId);
+
+    static uint32_t GetCharacterIndexFromFileIndex(uint32_t nFileUnitId);
+    static void GetFileIndexFromCharacterIndex(uint32_t nCharacterUnitId, uint32_t nCharacterPalId, uint32_t& nFileUnitId, uint32_t& nFilePalId);
+    static uint32_t GetFileIndexFromCharacterCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId);
 };

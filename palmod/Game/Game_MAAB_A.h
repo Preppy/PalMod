@@ -1,53 +1,27 @@
 #pragma once
-#include "gameclass.h"
-#include "..\extrafile.h"
+#include "GameClassByUnitPerFile.h"
+#include "MAAB_A_DEF.h"
 
-class CGame_MAAB_A : public CGameWithExtrasFile
+class CGame_MAAB_A : public CGameClassPerUnitPerFile
 {
+private:
+    const sGCPUPF_CoreGameData m_sCoreGameData
+    {
+        L"Million Arthur Arcana Blood (Steam)",
+        MAAB_A,
+        IMGDAT_SECTION_ARCANA,
+        MAAB_A_IMGIDS_USED,
+        { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
+        eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
+        AlphaMode::GameUsesFixedAlpha,
+        ColMode::COLMODE_BGRA8888_LE,
+        MAAB_A_CharacterData,
+    };
+
 public:
-    CGame_MAAB_A(uint32_t nConfirmedROMSize = -1);
-    ~CGame_MAAB_A();
+    CGame_MAAB_A(uint32_t nConfirmedROMSize) { m_fGameUsesAlphaValue = true; InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    ~CGame_MAAB_A() { ClearDataBuffer(); FlushChangeTrackingArray(); };
 
-    static void InitializeStatics();
-    static uint32_t m_nConfirmedROMSize;
-
-    void LoadSpecificPaletteDataByFileUnit(uint32_t nFileUnitId, uint32_t nFilePalId);
-    void LoadSpecificPaletteData(uint32_t nDisplayUnitId, uint32_t nDisplayPalId);
-    uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
-
-    //Static functions
-    static uint32_t uRuleCtr;
-
-    static uint32_t GetRuleCtr() { return uRuleCtr; };
-    static void ResetRuleCtr() { uRuleCtr = 0; };
-
-    static sFileRule GetNextRule();
-    static sFileRule GetRule(uint32_t nRuleId);
-
-    BOOL LoadFile(CFile* LoadedFile, uint32_t nFileUnitNumber) override;
-    BOOL SaveFile(CFile* SaveFile, uint32_t nFileUnitNumber) override;
-
-    //Static functions / variables
-    static CDescTree MainDescTree;
-
-    static sDescTreeNode* InitDescTree();
-
-    CDescTree* GetMainTree() { return &MainDescTree; };
-    static uint32_t GetCollectionCountForUnit(uint32_t nUnitId);
-    static uint32_t GetNodeCountForCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId);
-    static LPCWSTR GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId);
-
-    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-
-    LPCWSTR GetGameName() override { return L"Million Arthur Arcana Blood (Steam)"; };
-    
-    static bool ShouldUseBasePaletteSet(uint32_t nCharacterUnitId, uint32_t nCollectionId);
-
-    static bool PaletteIsInFileUnit(uint32_t nTargetFileUnitId, uint32_t nDisplayUnitId, uint32_t nDisplayPalId);
-    static uint32_t GetUniqueUnitCount();
-    static uint32_t GetFileCount();
-
-    static void GetCharacterIndexFromFileIndex(uint32_t nFileUnitId, uint32_t nFilePalId, uint32_t* pnCharacterUnitId, uint32_t* pnCharacterPalId);
-    static void GetFileIndexFromCharacterIndex(uint32_t nCharacterUnitId, uint32_t nCharacterPalId, uint32_t* nFileUnitId, uint32_t* nFilePalId);
-    static void GetFileIndexFromCharacterCollection(uint32_t nCharacterUnitId, uint32_t nCollectionId, uint32_t* nFileUnitId, uint32_t* nFileCollectionId);
+    static sFileRule GetRule(uint32_t nRuleId) { return CGameClassPerUnitPerFile::GetRule(nRuleId, MAAB_A_CharacterData); };
+    static sFileRule GetNextRule() { return CGameClassPerUnitPerFile::GetNextRule(MAAB_A_CharacterData); };
 };

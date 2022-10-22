@@ -888,9 +888,6 @@
     <ClCompile Include="Game\Game_MartialMasters_A.cpp">
       <Filter>Games\Other Platforms\Martial Masters %28PGM%29</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_MAAB_A.cpp">
-      <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_Venture_A.cpp">
       <Filter>Games\Capcom Games\Jojos Venture</Filter>
     </ClCompile>
@@ -1692,9 +1689,6 @@
       <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\MAAB_A_DEF.h">
-      <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\MAAB_Common.h">
       <Filter>Games\Other Platforms\Million Arthur Arcana Blood %28Steam%29</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_JojosRPG_SNES.h">

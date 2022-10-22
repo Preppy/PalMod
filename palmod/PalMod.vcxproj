@@ -280,7 +280,6 @@
     <ClCompile Include="Game\Game_KOTM_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp" />
-    <ClCompile Include="Game\Game_MAAB_A.cpp" />
     <ClCompile Include="Game\Game_MagicalDropIII_A.cpp" />
     <ClCompile Include="Game\Game_MartialMasters_A.cpp" />
     <ClCompile Include="Game\Game_MBTL_A.cpp" />
@@ -606,7 +605,6 @@
     <ClInclude Include="Game\LASTBLADE2_A_DEF.h" />
     <ClInclude Include="Game\LASTBLADE_A_DEF.h" />
     <ClInclude Include="Game\MAAB_A_DEF.h" />
-    <ClInclude Include="Game\MAAB_Common.h" />
     <ClInclude Include="Game\MagicalDropIII_A_DEF.h" />
     <ClInclude Include="Game\MartialMasters_A_DEF.h" />
     <ClInclude Include="Game\Matrimelee_A_DEF.h" />

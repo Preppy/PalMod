@@ -724,6 +724,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     case 12:
         w_mul = 6;
         break;
+    case 19: // MAAB
     case 21: // MAAB
     case 24: // BlazBlueCF
     case 25: // BlazBlueCF
@@ -733,7 +734,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     default:
         OutputDebugString(L"CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option.\n");
         __fallthrough;
-    case 15:
+    case 15: // MAAB
     case 20: // GGXXACR ex color sets
     case 22: // GGXXACR core color sets
         w_mul = 5;
