@@ -380,7 +380,14 @@ LPCWSTR CGameClassPerUnitPerFile::GetDescriptionForCollection(uint32_t nCharacte
             {
                 if (nRelativeNodeId == 0)
                 {
-                    return L"Extras";
+                    if (nNodeId == 0)
+                    {
+                        return L"Palettes";
+                    }
+                    else
+                    {
+                        return L"Extras";
+                    }
                 }
                 else
                 {
@@ -575,34 +582,48 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
     //     Main, ex1, ex2, ex3
 
     const uint32_t nCharacterId = GetCharacterIndexFromFileIndex(nFileUnitId);
+    const uint32_t nBasicPaletteSizeForUnit = GetBasicPaletteListSizeForUnit(nCharacterId);
 
     if (m_psCurrentGameLoadingData->ePaletteLayout == PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet)
     {
-        const uint32_t nRelativePalId = nFilePalId % static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(nCharacterId));
-        const uint32_t nPaletteSet = nFilePalId / static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(nCharacterId));
-
-        m_pszCurrentPaletteName = GetBasicPaletteNameForPalette(nCharacterId, nRelativePalId);
-        m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nInitialLocation + (cbPaletteSizeOnDisc * nRelativePalId);
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-
-        if (nPaletteSet)
+        if (ShouldUseBasePaletteSetForFileUnit(nFileUnitId, nFilePalId))
         {
-            // Walk forward one palette offset per set/node
-            m_nCurrentPaletteROMLocation += (nPaletteSet * m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sNodeData.nAdditionalBufferBetweenEachNode);
+            const uint32_t nRelativePalId = nFilePalId % nBasicPaletteSizeForUnit;
+            const uint32_t nPaletteSet =    nFilePalId / nBasicPaletteSizeForUnit;
+
+            m_pszCurrentPaletteName = GetBasicPaletteNameForPalette(nCharacterId, nRelativePalId);
+            m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nInitialLocation + (cbPaletteSizeOnDisc * nRelativePalId);
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+
+            if (nPaletteSet)
+            {
+                // Walk forward one palette offset per set/node
+                m_nCurrentPaletteROMLocation += (nPaletteSet * m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sNodeData.nAdditionalBufferBetweenEachNode);
+            }
+
+            // Use the optional per-palette increment reflecting a buffer between palettes
+            if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.size())
+            {
+                m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nRelativePalId).nPaletteShiftFromBase;
+            }
         }
-
-        // Use the optional per-palette increment reflecting a buffer between palettes
-        if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.size())
+        else // extra palettes
         {
-            m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nRelativePalId).nPaletteShiftFromBase;
+            const size_t nAdjustedPaletteId = nFilePalId - GetBasicPaletteCountForUnit(nCharacterId);
+
+            const int cbPaletteSizeOnDisc = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffsetEnd - m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
+
+            m_pszCurrentPaletteName = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nAdjustedPaletteId).szPaletteName;
+            m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffset;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         }
     }
     else // PaletteArrangementStyle::OneButtonLabelEntryPerEachNode
     {
         if (ShouldUseBasePaletteSetForFileUnit(nFileUnitId, nFilePalId))
         {
-            const uint32_t nRelativePalId = nFilePalId % GetBasicPaletteListSizeForUnit(nCharacterId);
-            const uint32_t nCollectionId = static_cast<uint32_t>(floor(static_cast<double>(nFilePalId) / static_cast<double>(GetBasicPaletteListSizeForUnit(nCharacterId))));
+            const uint32_t nRelativePalId = nFilePalId % nBasicPaletteSizeForUnit;
+            const uint32_t nCollectionId = static_cast<uint32_t>(floor(static_cast<double>(nFilePalId) / static_cast<double>(nBasicPaletteSizeForUnit)));
 
             m_pszCurrentPaletteName = GetBasicPaletteNameForPalette(nCharacterId, nRelativePalId);
 
@@ -917,7 +938,7 @@ BOOL CGameClassPerUnitPerFile::LoadFile(CFile* LoadedFile, uint32_t nFileUnitId)
 
 #if GCPUPF_A_DEBUG
             strInfo.Format(L"\tCGameClassPerUnitPerFile::LoadFile:: Loaded palette '%s' for file unit 0x%x palette 0x%x from location 0x%x to display unit 0x%x display palette 0x%x\n",
-                m_pszCurrentPaletteName, nFileUnitId, nFilePalId, m_nCurrentPaletteROMLocation, nCharacterUnitId, nCharacterPalCtr);
+                m_pszCurrentPaletteName, nFileUnitId, nCurrentFilePalId, m_nCurrentPaletteROMLocation, nCharacterUnitId, nCharacterPalCtr);
             OutputDebugString(strInfo);
 #endif
         }

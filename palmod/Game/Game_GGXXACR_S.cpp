@@ -4,25 +4,7 @@
 
 void CGame_GGXXACR_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
-    if (nPalId < GGXXACR_S_CharacterData[nUnitId].prgBasicPalettes.size())
-    {
-        // GGXXACR palettes are all 0x100 long
-        const int cbPaletteSizeOnDisc = 0x400;
-
-        m_pszCurrentPaletteName = GGXXACR_S_CharacterData[nUnitId].prgBasicPalettes[nPalId].pszPaletteName;
-        m_nCurrentPaletteROMLocation = GGXXACR_S_CharacterData[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nPalId) + (0x10 * nPalId);
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-    }
-    else // effects palettes
-    {
-        uint32_t nAdjustedPaletteId = nPalId - static_cast<uint32_t>(GGXXACR_S_CharacterData[nUnitId].prgBasicPalettes.size());
-
-        int cbPaletteSizeOnDisc = GGXXACR_S_CharacterData[nUnitId].prgExtraPalettes[nAdjustedPaletteId].nPaletteOffsetEnd - GGXXACR_S_CharacterData[nUnitId].prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
-
-        m_pszCurrentPaletteName = GGXXACR_S_CharacterData[nUnitId].prgExtraPalettes[nAdjustedPaletteId].szPaletteName;
-        m_nCurrentPaletteROMLocation = GGXXACR_S_CharacterData[nUnitId].prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
-    }
+    CGameClassPerUnitPerFile::LoadSpecificPaletteData(nUnitId, nPalId);
 
     // The portrait palettes don't actually use a transparency color: we'll use this check to handle this for now.
     if (GGXXACR_S_CharacterData[nUnitId].prgBasicPalettes.empty())
@@ -123,22 +105,8 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     BOOL fSuccess = TRUE;
     CString strInfo;
 
-    strInfo.Format(L"CGame_GGXXACR_S_DIR::LoadFile: Preparing to load data for unit number %u (character %s)\n", nUnitNumber, GGXXACR_S_CharacterData[nUnitNumber].strCharacter.c_str());
+    strInfo.Format(L"CGame_GGXXACR_S::LoadFile: Preload for file unit number %u (character %s): checking encryption state\n", nUnitNumber, GGXXACR_S_CharacterData[nUnitNumber].strCharacter.c_str());
     OutputDebugString(strInfo);
-
-#ifdef USE_DYNAMIC_LOCATION_LOOKUP
-    LONGLONG nPalettePointer = 0;
-
-    LoadedFile->Seek(0, CFile::begin);
-    LoadedFile->Read(&nPalettePointer, 0x02);
-        
-    uint32_t nPaletteStart = 0;
-
-    LoadedFile->Seek(nPalettePointer + 0x0c, CFile::begin);
-    LoadedFile->Read(&nPaletteStart, 0x04);
-
-    GGXXACR_S_CharacterData[nUnitNumber].nInitialLocation = nPaletteStart + 0x90;
-#endif
 
     if (!m_fIsFileSetEncrypted)
     {
@@ -160,40 +128,12 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         fSuccess = FALSE;
         OutputDebugString(L"\tThis fileset is encrypted: skipping.\r\n");
+        rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
     }
     else
     {
-        strInfo.Format(L"\tCGame_GGXXACR_S_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", GGXXACR_S_CharacterData[nUnitNumber].nInitialLocation);
-        OutputDebugString(strInfo);
-
-        uint32_t nPalAmt = GetPaletteCountForUnit(nUnitNumber);
-
-        if (m_pppDataBuffer32[nUnitNumber] == nullptr)
-        {
-            m_pppDataBuffer32[nUnitNumber] = new uint32_t * [nPalAmt];
-            memset(m_pppDataBuffer32[nUnitNumber], 0, sizeof(uint32_t*) * nPalAmt);
-        }
-
-        // These are already sorted, no need to redirect
-        rgUnitRedir[nUnitNumber] = nUnitNumber;
-
-        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitNumber, nPalCtr);
-
-            m_pppDataBuffer32[nUnitNumber][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
-
-            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-            LoadedFile->Read(m_pppDataBuffer32[nUnitNumber][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
-
-#if GGXXACR_S_DEBUG
-            strInfo.Format(L"\tCGame_GGXXACR_S_DIR::LoadFile: Loaded palette '%s' from location 0x%x\n", m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation);
-            OutputDebugString(strInfo);
-#endif
-        }
+        CGameClassPerUnitPerFile::LoadFile(LoadedFile, nUnitNumber);
     }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     return fSuccess;
 }
