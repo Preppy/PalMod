@@ -515,8 +515,8 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             {
                                 BYTE high, low;
 
-                                rgFileHandles.at(nFirstHandle)->Read(&low, 1);
-                                rgFileHandles.at(nSecondHandle)->Read(&high, 1);
+                                rgFileHandles.at(nFirstHandle)->Read(&low, sizeof(low));
+                                rgFileHandles.at(nSecondHandle)->Read(&high, sizeof(high));
 
                                 const uint16_t nColorValue = static_cast<uint16_t>((high << 8) | low);
 
@@ -572,10 +572,10 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             {
                                 BYTE high1, low1, high2, low2;
 
-                                rgFileHandles.at(iHandle1)->Read(&low1, 1);
-                                rgFileHandles.at(iHandle2)->Read(&high1, 1);
-                                rgFileHandles.at(iHandle3)->Read(&low2, 1);
-                                rgFileHandles.at(iHandle4)->Read(&high2, 1);
+                                rgFileHandles.at(iHandle1)->Read(&low1, sizeof(low1));
+                                rgFileHandles.at(iHandle2)->Read(&high1, sizeof(high1));
+                                rgFileHandles.at(iHandle3)->Read(&low2, sizeof(low2));
+                                rgFileHandles.at(iHandle4)->Read(&high2, sizeof(high2));
 
                                 const uint16_t nColorValue1 = static_cast<uint16_t>((high1 << 8) | low1);
                                 const uint16_t nColorValue2 = static_cast<uint16_t>((high2 << 8) | low2);
@@ -624,11 +624,11 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 uint16_t nColorValue1, nColorValue2;
                                 const bool fColorPairRemaining = (m_nCurrentPaletteSizeInColors - nColorsRead) > 1;
 
-                                rgFileHandles.at(0)->Read(&nColorValue1, 2);
+                                rgFileHandles.at(0)->Read(&nColorValue1, sizeof(nColorValue1));
 
                                 if (fColorPairRemaining)
                                 {
-                                    rgFileHandles.at(1)->Read(&nColorValue2, 2);
+                                    rgFileHandles.at(1)->Read(&nColorValue2, sizeof(nColorValue2));
                                 }
 
                                 if (fIsLittleEndian)
@@ -674,7 +674,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             {
                                 uint16_t nColorValue;
 
-                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Read(&nColorValue, 2);
+                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Read(&nColorValue, sizeof(nColorValue));
 
                                 m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = nColorValue;
                             }
@@ -725,10 +725,10 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             {
                                 BYTE high, low, high2, low2;
 
-                                rgFileHandles.at(nFirstHandle)->Read(&low, 1);
-                                rgFileHandles.at(nSecondHandle)->Read(&high, 1);
-                                rgFileHandles.at(nThirdHandle)->Read(&low2, 1);
-                                rgFileHandles.at(nFourthHandle)->Read(&high2, 1);
+                                rgFileHandles.at(nFirstHandle)->Read(&low, sizeof(low));
+                                rgFileHandles.at(nSecondHandle)->Read(&high, sizeof(high));
+                                rgFileHandles.at(nThirdHandle)->Read(&low2, sizeof(low2));
+                                rgFileHandles.at(nFourthHandle)->Read(&high2, sizeof(high2));
 
                                 const uint32_t nColorValue = (high2 << 24) | (low2 << 16) |(high << 8) | low;
 
@@ -796,13 +796,13 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
                                 if ((nColorsRead % 2) == 0)
                                 {
-                                    rgFileHandles.at(iHandle1)->Read(&low, 2);
-                                    rgFileHandles.at(iHandle2)->Read(&high, 2);
+                                    rgFileHandles.at(iHandle1)->Read(&low, sizeof(low));
+                                    rgFileHandles.at(iHandle2)->Read(&high, sizeof(high));
                                 }
                                 else
                                 {
-                                    rgFileHandles.at(iHandle3)->Read(&low, 2);
-                                    rgFileHandles.at(iHandle4)->Read(&high, 2);
+                                    rgFileHandles.at(iHandle3)->Read(&low, sizeof(low));
+                                    rgFileHandles.at(iHandle4)->Read(&high, sizeof(high));
                                 }
 
                                 uint32_t nColorValue = (high << 16) | low;
@@ -838,7 +838,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             {
                                 uint32_t nColorValue;
 
-                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Read(&nColorValue, 4);
+                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Read(&nColorValue, sizeof(nColorValue));
 
                                 m_pppDataBuffer32[nUnitCtr][nPalCtr][nWordsRead] = nColorValue;
                             }
@@ -889,7 +889,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
         if (iCurrentFile == 0)
         {
-            // This specifically lets us use a renamed file that they're might try to substitute
+            // This specifically lets us use a renamed file that they might try to substitute
             strNameWithPath.Format(L"%s\\%s", GetLoadedDirPathOnly(), SaveFile->GetFileName().GetString());
             SaveFile->Abort();
         }
@@ -942,8 +942,8 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                     const BYTE high = (nColorValue & 0xFF00) >> 8;
                                     const BYTE low = nColorValue & 0xFF;
 
-                                    rgFileHandles.at(nFirstHandle)->Write(&low, 1);
-                                    rgFileHandles.at(nSecondHandle)->Write(&high, 1);
+                                    rgFileHandles.at(nFirstHandle)->Write(&low, sizeof(low));
+                                    rgFileHandles.at(nSecondHandle)->Write(&high, sizeof(high));
                                 }
                             }
                         }
@@ -1002,10 +1002,10 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                     const BYTE high2 = (nColorValue2 & 0xFF00) >> 8;
                                     const BYTE low2 = nColorValue2 & 0xFF;
 
-                                    rgFileHandles.at(iHandle1)->Write(&low1, 1);
-                                    rgFileHandles.at(iHandle2)->Write(&high1, 1);
-                                    rgFileHandles.at(iHandle3)->Write(&low2, 1);
-                                    rgFileHandles.at(iHandle4)->Write(&high2, 1);
+                                    rgFileHandles.at(iHandle1)->Write(&low1, sizeof(low1));
+                                    rgFileHandles.at(iHandle2)->Write(&high1, sizeof(high1));
+                                    rgFileHandles.at(iHandle3)->Write(&low2, sizeof(low2));
+                                    rgFileHandles.at(iHandle4)->Write(&high2, sizeof(high2));
                                 }
                             }
                         }
@@ -1092,7 +1092,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 {
                                     const uint16_t nColorValue = m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsWritten];
 
-                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&nColorValue, 2);
+                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&nColorValue, sizeof(nColorValue));
                                 }
                             }
                         }
@@ -1134,10 +1134,10 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                     BYTE high =  (nColorValue & 0xFF00) >> 8;
                                     BYTE low =   (nColorValue & 0xFF);
 
-                                    rgFileHandles.at(0)->Write(&low, 1);
-                                    rgFileHandles.at(1)->Write(&high, 1);
-                                    rgFileHandles.at(2)->Write(&low2, 1);
-                                    rgFileHandles.at(3)->Write(&high2, 1);
+                                    rgFileHandles.at(0)->Write(&low, sizeof(low));
+                                    rgFileHandles.at(1)->Write(&high, sizeof(high));
+                                    rgFileHandles.at(2)->Write(&low2, sizeof(low2));
+                                    rgFileHandles.at(3)->Write(&high2, sizeof(high2));
                                 }
                             }
                         }
@@ -1205,13 +1205,13 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
 
                                     if ((nColorsWritten % 2) == 0)
                                     {
-                                        rgFileHandles.at(iHandle1)->Write(&low, 2);
-                                        rgFileHandles.at(iHandle2)->Write(&high, 2);
+                                        rgFileHandles.at(iHandle1)->Write(&low, sizeof(low));
+                                        rgFileHandles.at(iHandle2)->Write(&high, sizeof(high));
                                     }
                                     else
                                     {
-                                        rgFileHandles.at(iHandle3)->Write(&low, 2);
-                                        rgFileHandles.at(iHandle4)->Write(&high, 2);
+                                        rgFileHandles.at(iHandle3)->Write(&low, sizeof(low));
+                                        rgFileHandles.at(iHandle4)->Write(&high, sizeof(high));
                                     }
                                 }
                             }
@@ -1229,7 +1229,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                             {
                                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                                uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                                const uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
                                 const uint32_t nFileAdjustedLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
 
                                 rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(nFileAdjustedLocation, CFile::begin);
@@ -1238,7 +1238,7 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 {
                                     uint32_t nColorValue = m_pppDataBuffer32[nUnitCtr][nPalCtr][nColorsWritten];
 
-                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&nColorValue, 2);
+                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&nColorValue, sizeof(nColorValue));
                                 }
                             }
                         }

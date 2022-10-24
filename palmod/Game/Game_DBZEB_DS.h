@@ -33,7 +33,7 @@ private:
     };
 
 public:
-    CGame_DBZEB_DS(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_DBZEB_DS(uint32_t nConfirmedROMSize) { m_fGameUsesAlphaValue = true; InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassByDir::GetRule(nRuleId, m_sFileLoadingData); };
 };
