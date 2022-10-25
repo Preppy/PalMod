@@ -49,7 +49,7 @@ public:
     BOOL LoadFile(CFile* LoadedFile, uint32_t nUnitId) override;
     BOOL SaveFile(CFile* SaveFile, uint32_t nUnitId) override;
 
-    void ValidateMixExtraColors(BOOL* pfChangesWereMade);
+    void ValidateMixExtraColors(BOOL& fChangesWereMade);
 
     COLORREF* CreatePal(uint32_t nUnitId, uint32_t nPalId) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);

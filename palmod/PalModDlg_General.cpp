@@ -21,7 +21,6 @@ void CPalModDlg::OnCBUnitChildChange()
 void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
 {
     CGameClass* CurrGame = GetHost()->GetCurrGame();
-    uint32_t* rgRedir = CurrGame->rgUnitRedir;
 
     if (m_fLoadUnit)
     {
@@ -46,12 +45,10 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
         //Clear the unit list
         while (m_CBUnitSel.DeleteString(0) >= 0) NULL;
 
-        //Add each unit
-        int nDescCtr = 0;
-        while (rgRedir[nDescCtr] != INVALID_UNIT_VALUE)
+        //Add each unit in the sorted fashion indicated by rgUnitRedir
+        for (const uint32_t& nRedirIndex : CurrGame->m_rgUnitRedir)
         {
-            m_CBUnitSel.AddString(((sDescTreeNode*)UnitTree->ChildNodes)[rgRedir[nDescCtr]].szDesc);
-            nDescCtr++;
+            m_CBUnitSel.AddString(((sDescTreeNode*)UnitTree->ChildNodes)[nRedirIndex].szDesc);
         }
 
         //Since we just updated, set to 0
@@ -69,7 +66,7 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
 
     if (nCurrUnitSel != m_nPrevUnitSel)
     {
-        sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], -1);
+        sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), -1);
 
         //Clear the 1st child list
         while (m_CBChildSel1.DeleteString(0) >= 0) NULL;
@@ -96,7 +93,7 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
 
     if (nCurrChildSel1 != m_nPrevChildSel1)
     {
-        sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], nCurrChildSel1, -1);
+        sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
 
         //Clear the 1st child list
         while (m_CBChildSel2.DeleteString(0) >= 0) { NULL; }
@@ -128,7 +125,7 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
 
         //Get the selected palette
         GetHost()->GetCurrGame()->UpdatePalImg(
-            rgRedir[nCurrUnitSel], nCurrChildSel1, nCurrChildSel2);
+            CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, nCurrChildSel2);
 
         PostPalSel();
 
@@ -151,8 +148,8 @@ void CPalModDlg::UpdateCombo(bool fForceUpdate /*= false */)
         }
     }
 
-    sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], -1);
-    sDescTreeNode* ButtonTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], nCurrChildSel1, -1);
+    sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), -1);
+    sDescTreeNode* ButtonTree = CurrGame->GetMainTree()->GetDescTree(CurrGame->m_rgUnitRedir.at(nCurrUnitSel), nCurrChildSel1, -1);
     sDescNode PaletteNode = ((sDescNode *)(ButtonTree->ChildNodes))[nCurrChildSel2];
 
     m_ToolTip.AddTool(GetDlgItem(IDC_CHARCOMBO), UnitTree->szDesc);

@@ -34,7 +34,7 @@ protected:
     LPWSTR m_pszLoadedPathOnly = nullptr;
     // This is an old array used to determine if the character-file or the ROM has been updated
     // Don't use this for SIMM-based games: use IsPaletteDirty there instead
-    BOOL* rgFileChanged = nullptr;
+    std::vector<bool> m_rgFileChanged;
     uint32_t nFileAmt = 0;
 
     uint32_t m_nTotalInternalUnits = INVALID_UNIT_VALUE;
@@ -68,10 +68,6 @@ protected:
 
     bool m_fGameUsesAlphaValue = false;
     bool m_fAllowIPSPatching = false;
-
-    BOOL fUsesHybrid = FALSE;
-    uint32_t* pIndexRedir = nullptr;
-    int nHybridSz = 0;
 
     static BOOL m_fAllowTransparencyEdits;
     static bool m_fGameSizeAllowsIPSPatching;
@@ -145,8 +141,7 @@ public:
 
     static BOOL m_ShouldUsePostSetPalProc;
 
-    uint32_t* rgUnitRedir = nullptr;
-    uint32_t nRedirCtr = 0;
+    std::vector<uint32_t> m_rgUnitRedir;
 
     // Currently only used by MVC2
     uint16_t*** GetDataBuffer() { return m_pppDataBuffer; };
@@ -212,7 +207,7 @@ public:
     uint32_t GetFileAmt() { return nFileAmt; };
 
     void ResetFileChangeTrackingArray();
-    BOOL* GetFileChangeTrackingArray() { return rgFileChanged; };
+    std::vector<bool>& GetFileChangeTrackingArray() { return m_rgFileChanged; };
     BOOL WasGameFileChangedInSession();
 
     void SetIsDir(BOOL fNewIsDir = TRUE) { m_fIsDirectoryBasedGame = fNewIsDir; };
@@ -235,8 +230,6 @@ public:
     const std::vector<LPCWSTR> GetButtonDescSet() { return pButtonLabelSet; };
 
     void RevertChanges(int nPalId);
-
-    BOOL CreateHybridPal(uint32_t nIndexAmt, uint32_t nPalSz, uint16_t* pData, int nExclusion, COLORREF** pNewPal, uint32_t* nNewPalSz);
 
     static void AllowTransparencyEdits(BOOL fAllow) { m_fAllowTransparencyEdits = fAllow; };
     static BOOL AllowTransparencyEdits() { return m_fAllowTransparencyEdits; };
@@ -263,9 +256,9 @@ public:
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(uint32_t nUnitId, uint32_t nPalId);
     virtual void UpdatePalData();
-    void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); ClearDirtyPaletteTracker(); };
+    void FlushChangeTrackingArray() { m_rgFileChanged.clear(); ClearDirtyPaletteTracker(); };
     virtual void PrepChangeTrackingArray();
-    virtual void ValidateMixExtraColors(BOOL* pfChangesWereMade) {};
+    virtual void ValidateMixExtraColors(BOOL& fChangesWereMade) {};
     virtual void PostSetPal(uint32_t nUnitId, uint32_t nPalId) {};
     virtual void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId) {};
     virtual uint32_t GetPaletteCountForUnit(uint32_t nUnitId) { return INVALID_UNIT_VALUE; };

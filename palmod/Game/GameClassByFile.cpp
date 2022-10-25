@@ -215,8 +215,7 @@ void CGameClassByFile::InitializeGame(uint32_t nConfirmedROMSize, const sGCBF_Co
     InitDataBuffer();
 
     //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(uint32_t) * nUnitAmt);
+    m_rgUnitRedir.resize(nUnitAmt, 0);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -538,7 +537,7 @@ BOOL CGameClassByFile::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     OutputDebugString(strInfo);
 
     // These are already sorted, no need to redirect
-    rgUnitRedir[nUnitNumber] = nUnitNumber;
+    m_rgUnitRedir.at(nUnitNumber) = nUnitNumber;
 
     if (GameIsUsing16BitColor())
     {
@@ -590,8 +589,6 @@ BOOL CGameClassByFile::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         DebugBreak(); // E_NOTIMPL
     }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     OutputDebugString(L"\tComplete!\n");
 

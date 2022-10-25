@@ -135,7 +135,6 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
     {
         fSuccess = FALSE;
         OutputDebugString(L"\tThis fileset is encrypted: skipping.\r\n");
-        rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
     }
     else
     {

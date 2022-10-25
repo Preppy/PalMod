@@ -574,7 +574,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                         m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
                         // These are already sorted, no need to redirect
-                        rgUnitRedir[nUnitCtr] = nUnitCtr;
+                        m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
@@ -645,7 +645,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                     m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
                     // These are already sorted, no need to redirect
-                    rgUnitRedir[nUnitCtr] = nUnitCtr;
+                    m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
                     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                     {
@@ -683,7 +683,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                 m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
                 // These are already sorted, no need to redirect
-                rgUnitRedir[nUnitCtr] = nUnitCtr;
+                m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
                 for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
@@ -698,8 +698,6 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         }
         break;
     };
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     if (fSuccess)
     {

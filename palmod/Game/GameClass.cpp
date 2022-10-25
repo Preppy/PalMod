@@ -41,12 +41,6 @@ CGameClass::~CGameClass()
 
     safe_delete(m_pszLoadedPathOrFile);
     safe_delete(m_pszLoadedPathOnly);
-
-    //Clear the redirect buffer
-    safe_delete_array(rgUnitRedir);
-
-    //Get rid of the redir index
-    safe_delete_array(pIndexRedir);
 }
 
 int CGameClass::GetPlaneAmt(ColFlag Flag)
@@ -650,89 +644,6 @@ COLORREF*** CGameClass::CreateImgOutPal()
     }
 }
 
-BOOL CGameClass::CreateHybridPal(uint32_t nIndexAmt, uint32_t nPalSz, uint16_t* pData, int nExclusion, COLORREF** pNewPal, uint32_t* nNewPalSz)
-{
-    uint32_t* pMulRg = new uint32_t[nIndexAmt];
-    uint32_t nNewPalSzCpy = 0;
-
-    memset(pMulRg, 0xFF, nIndexAmt * sizeof(uint32_t));
-
-    for (uint32_t nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
-    {
-        if ((nPalSz - (nPICtr / nPalSz) * nPalSz) == nExclusion)
-        {
-            nPICtr++;
-        }
-
-        if (nPICtr < nIndexAmt)
-        {
-            uint32_t nMulCtr = 0;
-
-            while (pMulRg[nMulCtr] != 0xFFFFFFFF)
-            {
-                if (pMulRg[nMulCtr] == pData[nPICtr])
-                {
-                    break;
-                }
-
-                nMulCtr++;
-            }
-
-            if (nMulCtr == nNewPalSzCpy)
-            {
-                pMulRg[nNewPalSzCpy] = pData[nPICtr];
-                nNewPalSzCpy++;
-            }
-        }
-    }
-
-    if (nNewPalSzCpy)
-    {
-        //Delete the previous data
-        safe_delete_array(pIndexRedir);
-
-        //Create the redirect
-        pIndexRedir = new uint32_t[nIndexAmt];
-
-        for (uint32_t nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
-        {
-            if ((nPalSz - (nPICtr / nPalSz) * nPalSz) == nExclusion)
-            {
-                pIndexRedir[nPICtr] = 0;
-            }
-            else
-            {
-                for (uint32_t nMulCtr = 0; nMulCtr < nNewPalSzCpy; nMulCtr++)
-                {
-                    if (pMulRg[nMulCtr] == pData[nPICtr])
-                    {
-                        pIndexRedir[nPICtr] = nMulCtr;
-                        break;
-                    }
-                }
-            }
-        }
-
-        //Create the palette
-        *pNewPal = new COLORREF[nNewPalSzCpy];
-
-        for (uint32_t nPICtr = 0; nPICtr < nNewPalSzCpy; nPICtr++)
-        {
-            (*pNewPal)[nPICtr] = ConvPal16(pMulRg[nPICtr]);
-        }
-
-        *nNewPalSz = nNewPalSzCpy;
-
-        return TRUE;
-    }
-    else
-    {
-        safe_delete_array(pMulRg);
-
-        return FALSE;
-    }
-}
-
 void CGameClass::UpdatePalData()
 {
     const uint32_t nTotalPalettes = BasePalGroup.GetPalAmt();
@@ -796,7 +707,7 @@ void CGameClass::UpdatePalData()
 
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->fIsChanged = false;
-            rgFileChanged[srcDef->uUnitId] = TRUE;
+            m_rgFileChanged.at(srcDef->uUnitId) = true;
 
             if (nPalCtr == 0)
             {
@@ -939,20 +850,21 @@ void CGameClass::ClearDataBuffer()
 
 void CGameClass::ResetFileChangeTrackingArray()
 {
-    safe_delete_array(rgFileChanged);
+    m_rgFileChanged.clear();
     PrepChangeTrackingArray();
 }
 
 BOOL CGameClass::WasGameFileChangedInSession()
 {
-    BOOL fSomethingChanged = FALSE;
-
-    for (uint32_t nPos = 0; rgUnitRedir[nPos] != INVALID_UNIT_VALUE; nPos++)
+    for (const bool fWasChanged: m_rgFileChanged)
     {
-        fSomethingChanged = fSomethingChanged || rgFileChanged[rgUnitRedir[nPos]];
+        if (fWasChanged)
+        {
+            return TRUE;
+        }
     }
 
-    return fSomethingChanged;
+    return FALSE;
 }
 
 bool CGameClass::AllowIPSPatchGeneration()
@@ -970,12 +882,7 @@ bool CGameClass::AllowIPSPatchGeneration()
 
 void CGameClass::PrepChangeTrackingArray()
 {
-    if (!rgFileChanged)
-    {
-        const uint32_t rgCountChangableUnits = max(nUnitAmt, nFileAmt) + 1;
-        rgFileChanged = new BOOL[rgCountChangableUnits];
-        memset(rgFileChanged, FALSE, sizeof(BOOL) * rgCountChangableUnits);
-    }
+    m_rgFileChanged.resize(max(nUnitAmt, nFileAmt) + 1, false);
 }
 
 void CGameClass::MarkPaletteDirty(uint32_t nUnit, uint32_t nPaletteId)
@@ -1819,7 +1726,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
             // Anything using the base implementation is presorted
-            rgUnitRedir[nUnitCtr] = nUnitCtr;
+            m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
@@ -1841,7 +1748,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             m_pppDataBuffer24[nUnitCtr] = new uint32_t * [nPalAmt];
 
             // Anything using the base implementation is presorted
-            rgUnitRedir[nUnitCtr] = nUnitCtr;
+            m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
@@ -1877,7 +1784,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             m_pppDataBuffer32[nUnitCtr] = new uint32_t * [nPalAmt];
 
             // Anything using the base implementation is presorted
-            rgUnitRedir[nUnitCtr] = nUnitCtr;
+            m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
@@ -1899,8 +1806,6 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         }
         return FALSE;
     }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     CheckForErrorsInTables();
 
@@ -2024,7 +1929,7 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber)
             }
 
             // Layout is presorted
-            rgUnitRedir[nUnitCtr] = nUnitCtr;
+            m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
@@ -2081,16 +1986,10 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, uint32_t nSIMMNumber)
         fSuccess = FALSE;
     }
 
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-    
     // We can do our cleanup checks when finished, which is at either file 0, 2, 4, etc
     if (nAdjustedSIMMFileNumber == (m_nSIMMSetStartingFileNumber + (m_nTotalNumberOfSIMMFilesNeeded - m_nNumberOfSIMMsPerSet)))
     {
         CheckForErrorsInTables();
-
-        // We're done with our "files" but gameload has a loose mapping between files and unit count.  
-        // We can handle that mapping by simply setting the "file" count to the unit count.
-        nRedirCtr = nUnitAmt - 1;
 
         OutputDebugString(L"CGameClass::LoadFileForSIMMGame: Loading the SIMM set is complete.\n");
     }

@@ -124,8 +124,7 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     nFileAmt = m_psCurrentFileLoadingData->rgFileList.size();
 
     //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(uint32_t) * nUnitAmt);
+    m_rgUnitRedir.resize(nUnitAmt, 0);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -413,10 +412,6 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
 
     if (nSIMMNumber != 0)
     {
-        // We're done with our "files" but gameload has a loose mapping between files and unit count.  
-        // We can handle that mapping by simply setting the "file" count to the unit count.
-        nRedirCtr = nUnitAmt - 1;
-
         OutputDebugString(L"\tAlready handled.\n");
         return TRUE;
     }
@@ -481,7 +476,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
             const uint32_t nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             // These are already sorted, no need to redirect
-            rgUnitRedir[nUnitCtr] = nUnitCtr;
+            m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
             if (GameIsUsing16BitColor())
             {
@@ -855,8 +850,6 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         rgFileHandles.at(iCurrentFile)->Abort();
         delete rgFileHandles.at(iCurrentFile);
     }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     CheckForErrorsInTables();
 

@@ -2085,9 +2085,6 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             {
                 OutGame->SetIsDir(FALSE);
                 //nSaveLoadSucc++;
-
-                //Increase the sort counter
-                //OutGame->nRedirCtr++;
             }
             else
             {
@@ -2109,12 +2106,6 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             strError.Format(L"The file \"%s\" can not be opened.  Another application is probably using it.", pszFileNameLowercase);
             MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONSTOP);
         }
-    }
-
-    if (OutGame)
-    {
-        //Set it to the end of the redirect list
-        //OutGame->rgUnitRedir[OutGame->nRedirCtr] = INVALID_UNIT_VALUE;
     }
 
     strLoadSaveStr.Format(OutGame ? IDS_LOADSAVE_SUCCESS : IDS_LOADSAVE_FAILURE);
@@ -2224,9 +2215,6 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
                 if (OutGame && OutGame->LoadFile(&CurrFile, CurrRule.uUnitId))
                 {
                     nSaveLoadSucc++;
-
-                    //Increase the sort counter
-                    OutGame->nRedirCtr++;
                 }
                 else
                 {
@@ -2256,9 +2244,6 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
                 if (OutGame->LoadFile(nullptr, CurrRule.uUnitId))
                 {
                     nSaveLoadSucc++;
-
-                    //Increase the sort counter
-                    OutGame->nRedirCtr++;
                 }
             }
             else
@@ -2285,12 +2270,6 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
         }
 
         nCurrRuleCtr = GetRuleCtr();
-    }
-
-    if (OutGame)
-    {
-        //Set it to the end of the redirect list
-        OutGame->rgUnitRedir[OutGame->nRedirCtr] = INVALID_UNIT_VALUE;
     }
 
     CString strErrorText = L"";
@@ -2372,13 +2351,13 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     if (CurrGame->GetIsDir())
     {
         LPCWSTR pszLoadDir = CurrGame->GetLoadedDirPathOnly();
-        BOOL* rgFileIsChanged = CurrGame->GetFileChangeTrackingArray();
+        std::vector<bool> rgFileIsChanged = CurrGame->GetFileChangeTrackingArray();
         BOOL fWasGameChangedInSession = CurrGame->WasGameFileChangedInSession();
         BOOL fGameMapsUnitsToFiles = CurrGame->GetGameMapsUnitsToFiles();
 
         for (uint32_t nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
         {
-            if (fGameMapsUnitsToFiles ? rgFileIsChanged[nFileCtr] : fWasGameChangedInSession)
+            if (fGameMapsUnitsToFiles ? rgFileIsChanged.at(nFileCtr) : fWasGameChangedInSession)
             {
                 nSaveLoadCount++;
 
@@ -2417,7 +2396,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                             if (fGameMapsUnitsToFiles)
                             {
                                 // Mark as clean so we don't save it out until it gets dirtied again.
-                                rgFileIsChanged[nFileCtr] = FALSE;
+                                rgFileIsChanged.at(nFileCtr) = false;
                             }
 
                         }
@@ -2446,7 +2425,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                 {
                     // Ignore the virtual team view
                     // Mark as clean so we don't save it out until it gets dirtied again.
-                    rgFileIsChanged[nFileCtr] = FALSE;
+                    rgFileIsChanged.at(nFileCtr) = false;
                     nSaveLoadSucc++;
                 }
             }

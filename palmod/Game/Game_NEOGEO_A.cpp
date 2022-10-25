@@ -80,8 +80,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(uint32_t nConfirmedROMSize, LPCWSTR pszFileLoaded
     pButtonLabelSet = DEF_NOBUTTONS;
 
     //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
+    m_rgUnitRedir.resize(nUnitAmt, 0);
 
     //Create the file changed flag
     PrepChangeTrackingArray();

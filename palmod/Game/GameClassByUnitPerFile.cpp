@@ -80,8 +80,7 @@ void CGameClassPerUnitPerFile::InitializeGame(uint32_t nConfirmedROMSize, const 
     InitDataBuffer();
 
     //Create the redirect buffer: must be for the larger file-based size as CGameLoad::LoadDir needs that size
-    rgUnitRedir = new uint32_t[nFileAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(uint32_t) * nFileAmt);
+    m_rgUnitRedir.resize(nUnitAmt, 0);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -937,7 +936,7 @@ BOOL CGameClassPerUnitPerFile::LoadFile(CFile* LoadedFile, uint32_t nFileUnitId)
     }
 
     // These are already sorted, no need to redirect
-    rgUnitRedir[nCharacterUnitId] = nCharacterUnitId;
+    m_rgUnitRedir.at(nCharacterUnitId) = nCharacterUnitId;
 
     for (uint32_t nCharacterPalCtr = 0; nCharacterPalCtr < nPalAmt; nCharacterPalCtr++)
     {
@@ -969,8 +968,6 @@ BOOL CGameClassPerUnitPerFile::LoadFile(CFile* LoadedFile, uint32_t nFileUnitId)
 #endif
         }
     }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     return fSuccess;
 }

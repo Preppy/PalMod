@@ -2804,7 +2804,7 @@ bool AreEditsOutOfSync()
     return editsAreOutofSync;
 }
 
-void ValidateAllPalettes(BOOL *pfChangesWereMade, BOOL* rgPaletteChangeArray)
+void ValidateAllPalettes(BOOL& fChangesWereMade, std::vector<bool>& rgPaletteChangeArray)
 {
     // Reset the validation...
     for (const palette_validation& paletteToCheck : char_val_array)
@@ -2851,7 +2851,7 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, BOOL* rgPaletteChangeArray)
             case IDYES:
             {
                 FixAllProblemPalettes(rgPaletteChangeArray);
-                *pfChangesWereMade = true;
+                fChangesWereMade = TRUE;
                 
                 if (AreEditsOutOfSync())
                 {
@@ -2876,7 +2876,7 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, BOOL* rgPaletteChangeArray)
     }
 }
 
-void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
+void FixAllProblemPalettes(std::vector<bool>& rgPaletteChangeArray)
 {
     uint16_t lastFixedCharacter = 0xFFFF;
     uint16_t lastFixedPalette = 0xFFFF;
@@ -2884,7 +2884,7 @@ void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
     if (!g_haveValidationData)
     {
         BOOL fChangesWereMade = FALSE;
-        ValidateAllPalettes(&fChangesWereMade, rgPaletteChangeArray);
+        ValidateAllPalettes(fChangesWereMade, rgPaletteChangeArray);
     }
 
     for (const palette_validation& paletteToCheck : char_val_array)
@@ -2923,7 +2923,7 @@ void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
                 OutputDebugString(L"\tThis is unmodified: no changes have been made.\n");
             }
 
-            rgPaletteChangeArray[paletteToCheck.character_number] = TRUE;
+            rgPaletteChangeArray.at(paletteToCheck.character_number) = true;
         }
     }
 
@@ -2935,7 +2935,7 @@ void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
             MVC2_SupplementProcessing::supp_copy_spiral(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.destination_palette);
         }
 
-        rgPaletteChangeArray[indexCPS2Sprites_Spiral] = TRUE;
+        rgPaletteChangeArray.at(indexCPS2Sprites_Spiral) = true;
     }
 
     for (const palette_validation& paletteToCheck : char_val_array)

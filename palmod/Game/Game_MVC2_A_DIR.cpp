@@ -98,7 +98,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         }
 
         // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = MVC2_A_UNITSORT[nUnitCtr];
+        m_rgUnitRedir.at(nUnitCtr) = MVC2_A_UNITSORT[nUnitCtr];
 
         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -142,14 +142,9 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         }
     }
 
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-
-    // We're done with our "files" but gameload has a loose mapping between files and unit count.  
-    // We can handle that mapping by simply setting the "file" count to the unit count.
     if (nSIMMNumber == (MVC2_Arcade_NumberOfSIMMs - 1))
     {
         CheckForErrorsInTables();
-        nRedirCtr = nUnitAmt - 1;
     }
 
     return fSuccess;

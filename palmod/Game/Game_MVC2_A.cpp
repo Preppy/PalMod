@@ -74,8 +74,7 @@ CGame_MVC2_A::CGame_MVC2_A(uint32_t nConfirmedROMSize)
     MVC2_SupplementProcessing::prep_supp(false);
 
     //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
+    m_rgUnitRedir.resize(nUnitAmt, 0);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -259,7 +258,7 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
         // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = MVC2_A_UNITSORT[nUnitCtr];
+        m_rgUnitRedir.at(nUnitCtr) = MVC2_A_UNITSORT[nUnitCtr];
 
         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -283,8 +282,6 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         }
     }
 
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-    
     CheckForErrorsInTables();
 
     return TRUE;

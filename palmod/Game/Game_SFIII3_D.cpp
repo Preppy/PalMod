@@ -38,8 +38,7 @@ CGame_SFIII3_D::CGame_SFIII3_D()
     pButtonLabelSet = DEF_BUTTONLABEL7_SF3;
 
     //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
+    m_rgUnitRedir.resize(nUnitAmt, 0);
 
     //Create the file changed flag array
     PrepChangeTrackingArray();
@@ -189,7 +188,7 @@ BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
 
     m_pppDataBuffer[nUnitId] = new uint16_t * [nPalAmt];
 
-    rgUnitRedir[nUnitId] = nUnitId; // this is presorted
+    m_rgUnitRedir.at(nUnitId) = nUnitId; // this is presorted
 
     for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {

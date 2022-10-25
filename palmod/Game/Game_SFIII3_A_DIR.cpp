@@ -392,7 +392,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
             }
 
             // Layout is presorted
-            rgUnitRedir[nUnitCtr] = nUnitCtr;
+            m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
             for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
@@ -493,8 +493,6 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
         fSuccess = FALSE;
     }
 
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-
     if (((nGameFlag == SFIII3_A_DIR_10) && (nSIMMNumber == 0)) ||
         ((nGameFlag == SFIII3_A_DIR_4rd_10) && (nSIMMNumber == 0)) ||
         ((nGameFlag == SFIII3_A_DIR_4rd) && (nSIMMNumber == 6)) ||
@@ -503,10 +501,6 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
     {
         // Only run the dupe checker for the second SIMM pair
         CheckForErrorsInTables();
-
-        // We're done with our "files" but gameload has a loose mapping between files and unit count.  
-        // We can handle that mapping by simply setting the "file" count to the unit count.
-        nRedirCtr = nUnitAmt - 1;
     }
 
     return fSuccess;

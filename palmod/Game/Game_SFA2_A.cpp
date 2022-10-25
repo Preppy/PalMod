@@ -1146,7 +1146,7 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
         // We're using a pre-sorted layout
-        rgUnitRedir[nUnitCtr] = nUnitCtr;
+        m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -1159,8 +1159,6 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
         }
     }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     CheckForErrorsInTables();
 

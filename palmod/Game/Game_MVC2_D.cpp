@@ -113,8 +113,7 @@ CGame_MVC2_D::CGame_MVC2_D(uint32_t nConfirmedROMSize)
     MVC2_SupplementProcessing::prep_supp();
 
     //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(uint32_t) * nUnitAmt);
+    m_rgUnitRedir.resize(nUnitAmt, 0);
 }
 
 CGame_MVC2_D::~CGame_MVC2_D()
@@ -641,8 +640,8 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             LoadedFile->Read(ppDataBuffer[nUnitId], nDataSz);
         }
 
-        //Set the redirect
-        rgUnitRedir[nRedirCtr] = nUnitId;
+        //Set the redirect: this is presorted
+        m_rgUnitRedir.at(nUnitId) = nUnitId;
 
         return TRUE;
     }
@@ -740,7 +739,7 @@ void CGame_MVC2_D::UpdatePalData()
             GetHost()->GetPalModDlg()->SetStatusText(L"Updated.");
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->fIsChanged = false;
-            rgFileChanged[srcDef->uUnitId] = TRUE;
+            m_rgFileChanged.at(srcDef->uUnitId) = true;
 
             //Process supplement palettes
             if (m_ShouldUsePostSetPalProc)
@@ -751,14 +750,14 @@ void CGame_MVC2_D::UpdatePalData()
     }
 }
 
-void CGame_MVC2_D::ValidateMixExtraColors(BOOL* pfChangesWereMade)
+void CGame_MVC2_D::ValidateMixExtraColors(BOOL& fChangesWereMade)
 {
-    ValidateAllPalettes(pfChangesWereMade, rgFileChanged);
+    ValidateAllPalettes(fChangesWereMade, m_rgFileChanged);
 }
 
 void CGame_MVC2_D::ResetChangeFlag(uint32_t nUnitId)
 {
-    rgFileChanged[nUnitId] = FALSE;
+    m_rgFileChanged.at(nUnitId) = false;
 }
 
 void CGame_MVC2_D::PostSetPal(uint32_t nUnitId, uint32_t nPalId)

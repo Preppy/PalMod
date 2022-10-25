@@ -99,7 +99,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
         m_pppDataBuffer[nUnitCtr] = new uint16_t * [nPalAmt];
 
         // Layout is presorted
-        rgUnitRedir[nUnitCtr] = nUnitCtr;
+        m_rgUnitRedir.at(nUnitCtr) = nUnitCtr;
 
         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -140,8 +140,6 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             }
         }
     }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     CheckForErrorsInTables();
 

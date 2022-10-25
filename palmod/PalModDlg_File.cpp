@@ -248,7 +248,7 @@ void CPalModDlg::OnButtonClickCheckEdits()
         OnBnUpdate();
     }
 
-    GetHost()->GetCurrGame()->ValidateMixExtraColors(&m_fFileChanged);
+    GetHost()->GetCurrGame()->ValidateMixExtraColors(m_fFileChanged);
 }
 
 void CPalModDlg::OnFilePatch()
