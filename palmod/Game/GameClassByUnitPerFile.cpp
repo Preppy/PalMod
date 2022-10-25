@@ -79,9 +79,9 @@ void CGameClassPerUnitPerFile::InitializeGame(uint32_t nConfirmedROMSize, const 
     // Stub in the palette buffer that we will LoadFile into
     InitDataBuffer();
 
-    //Create the redirect buffer
-    rgUnitRedir = new uint32_t[nUnitAmt + 1];
-    memset(rgUnitRedir, 0, sizeof(uint32_t) * nUnitAmt);
+    //Create the redirect buffer: must be for the larger file-based size as CGameLoad::LoadDir needs that size
+    rgUnitRedir = new uint32_t[nFileAmt + 1];
+    memset(rgUnitRedir, 0, sizeof(uint32_t) * nFileAmt);
 
     //Create the file changed flag
     PrepChangeTrackingArray();
@@ -89,121 +89,153 @@ void CGameClassPerUnitPerFile::InitializeGame(uint32_t nConfirmedROMSize, const 
 
 sDescTreeNode* CGameClassPerUnitPerFile::InitDescTree()
 {
-    uint32_t nTotalPaletteCount = 0;
-    const uint32_t nUnitCt = GetUniqueUnitCount();
+    // Generating the tree for this type of game requires a little finessing.  Specifically, a character unit is allowed to be
+    // comprised of multiple file units.  We build the tree by walking through characters.  When we find a character unit composed
+    // of multiple file units, we process all of those during the same character pass.
+
+    uint32_t nTotalPaletteCountForGame = 0;
+    const uint32_t nTotalCharacters = GetUniqueUnitCount();
+    const uint32_t nTotalFiles = m_psCurrentGameLoadingData->srgLoadingData.size();
+    uint32_t nCurrentCharacterIndex = 0;
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
     _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", m_strGameFriendlyName.c_str());
-    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
-    NewDescTree->uChildAmt = nUnitCt;
+    NewDescTree->ChildNodes = new sDescTreeNode[nTotalCharacters];
+    NewDescTree->uChildAmt = nTotalCharacters;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    OutputDebugString(L"CGameClassPerUnitPerFile::InitDescTree: Building desc tree...\n");
+    strMsg.Format(L"CGameClassPerUnitPerFile::InitDescTree: Building desc tree for '%s'...\n", m_strGameFriendlyName.c_str());
+    OutputDebugString(strMsg.GetString());
 
-    //Go through each character
-    for (uint32_t nUnitCtrByFile = 0; nUnitCtrByFile < nUnitCt; nUnitCtrByFile++)
+    //Go through each the list of files to build up the character units
+    for (uint32_t nUnitCtrByFile = 0; nUnitCtrByFile < nTotalFiles; nUnitCtrByFile++)
     {
+        if (!IsFileUnitFirstCharacterUnit(nUnitCtrByFile))
+        {
+            continue;
+        }
+
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        uint32_t nUnitChildCount = GetCollectionCountForUnit(nUnitCtrByFile);
+        uint32_t nTotalCollectionsForCharacterUnit = GetCollectionCountForUnit(nCurrentCharacterIndex);
+        uint32_t nTotalPalettesUsedInCharacterUnit = 0;
 
-        UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[nUnitCtrByFile];
+        UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[nCurrentCharacterIndex];
 
         //Set each description
         _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", m_psCurrentGameLoadingData->srgLoadingData.at(nUnitCtrByFile).strCharacter.c_str());
 
-        UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
+        UnitNode->ChildNodes = new sDescTreeNode[nTotalCollectionsForCharacterUnit];
         //All children have collection trees
         UnitNode->uChildType = DESC_NODETYPE_TREE;
-        UnitNode->uChildAmt = nUnitChildCount;
+        UnitNode->uChildAmt = nTotalCollectionsForCharacterUnit;
 
 #if GCPUPF_A_DEBUG
-        strMsg.Format(L"Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, nUnitCtrByFile + 1, nUnitCt, UnitNode->uChildAmt);
+        strMsg.Format(L"Unit: \"%s\", %u of %u character units, %u total child collections\n", UnitNode->szDesc, nCurrentCharacterIndex + 1, nTotalCharacters, UnitNode->uChildAmt);
         OutputDebugString(strMsg);
 #endif
 
-        uint32_t nTotalPalettesUsedInUnit = 0;
+        uint16_t nPalettesAddedToCollection = 0;
+        uint32_t nCurrentFileUnitForCollection = nUnitCtrByFile;
 
         //Set data for each child group ("collection")
-        for (uint32_t iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
+        for (uint32_t iCollectionCtr = 0; iCollectionCtr < nTotalCollectionsForCharacterUnit; iCollectionCtr++)
         {
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
             //Set each collection data
-            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(nUnitCtrByFile, iCollectionCtr));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(nCurrentCharacterIndex, iCollectionCtr));
             //Collection children have nodes
-            uint32_t nListedChildrenCount = GetNodeCountForCollection(nUnitCtrByFile, iCollectionCtr);
+            const uint32_t nTotalPalettesForCollection = GetNodeCountForCollection(nCurrentCharacterIndex, iCollectionCtr);
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
-            CollectionNode->uChildAmt = nListedChildrenCount;
-            CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
+            CollectionNode->uChildAmt = nTotalPalettesForCollection;
+            CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nTotalPalettesForCollection];
+
+            uint32_t nTotalPalettesThisFile = GetBasicPaletteCountForUnit(nCurrentCharacterIndex);
+            nTotalPalettesThisFile += static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nCurrentFileUnitForCollection).sExtrasNodeData.prgExtraPalettes.size());
 
 #if GCPUPF_A_DEBUG
-            strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+            strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u palettes in this collection\n", CollectionNode->szDesc, iCollectionCtr + 1, nTotalCollectionsForCharacterUnit, nTotalPalettesForCollection);
             OutputDebugString(strMsg);
 #endif
 
-            uint16_t nHandledChildren = 0;
-            uint16_t nNodeIndexForCharacter = 0;
-            uint32_t nUnitCtrByCharacter = nUnitCtrByFile;
-
-            for (uint32_t nNodeIndexForUnit = 0; nNodeIndexForUnit < nListedChildrenCount; nNodeIndexForUnit++)
+            for (uint32_t nPaletteIndexForCollection = 0; nPaletteIndexForCollection < nTotalPalettesForCollection; nPaletteIndexForCollection++)
             {
-                bool fShouldUseBasicPalettes = ShouldUseBasePaletteSetForFileUnit(nUnitCtrByFile, nHandledChildren);
-                ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndexForUnit];
+                const bool fShouldUseBasicPalettes = ShouldUseBasePaletteSetForFileUnit(nCurrentFileUnitForCollection, nPalettesAddedToCollection);
+                ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nPaletteIndexForCollection];
 
-                uint32_t nFileUnitId = 0;
-                uint32_t nFilePalId = 0;
-
-                GetFileIndexFromCharacterIndex(nUnitCtrByCharacter, nNodeIndexForUnit, nFileUnitId, nFilePalId);
+#if GCPUPF_A_DEBUG
+                strMsg.Format(L"\t\tCreating entry for %u of %u palettes. CharacterUnit %u Collection %u PaletteIndexForCollection %u , FileUnit %u PalettesAddedToCollection %u \n", nPaletteIndexForCollection + 1, nTotalPalettesForCollection, nCurrentCharacterIndex, iCollectionCtr, nPaletteIndexForCollection, nUnitCtrByFile, nPalettesAddedToCollection);
+                OutputDebugString(strMsg);
+#endif
 
                 if (fShouldUseBasicPalettes)
                 {
-                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", GetBasicPaletteNameForPalette(nUnitCtrByFile, nNodeIndexForUnit));
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", GetBasicPaletteNameForPalette(nCurrentCharacterIndex, nPaletteIndexForCollection));
                 }
                 else
                 {
-                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nFilePalId).szPaletteName);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", m_psCurrentGameLoadingData->srgLoadingData.at(nCurrentFileUnitForCollection).sExtrasNodeData.prgExtraPalettes.at(nPaletteIndexForCollection).szPaletteName);
                 }
 
-                ChildNode->uUnitId = nUnitCtrByFile;
-                ChildNode->uPalId = nTotalPalettesUsedInUnit++;
-                nTotalPaletteCount++;
+                ChildNode->uUnitId = nCurrentCharacterIndex;
+                ChildNode->uPalId = nTotalPalettesUsedInCharacterUnit++;
+                nTotalPaletteCountForGame++;
 
-                nHandledChildren++;
-
-                const uint32_t nTotalPalettesThisCharacter = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nUnitCtrByCharacter).sNodeData.rgpszButtonLabels.size() + m_psCurrentGameLoadingData->srgLoadingData.at(nUnitCtrByCharacter).prgExtraPalettes.size());
-
-                if ((nHandledChildren == nTotalPalettesThisCharacter) && !IsFileUnitForUniqueCharacter(nUnitCtrByCharacter))
-                {
-                    // Step forward to the next part of this collection
-                    for (uint32_t nNextIndex = nUnitCtrByCharacter + 1; nNextIndex < m_psCurrentGameLoadingData->srgLoadingData.size(); nNextIndex++)
-                    {
-                        if (m_psCurrentGameLoadingData->srgLoadingData.at(nNextIndex).strCharacter == m_psCurrentGameLoadingData->srgLoadingData.at(nUnitCtrByCharacter).strCharacter)
-                        {
-                            nUnitCtrByCharacter = nNextIndex;
-                            nHandledChildren = 0;
-                            break;
-                        }
-                    }
-                }
+                nPalettesAddedToCollection++;
 
 #if GCPUPF_A_DEBUG
-                strMsg.Format(L"\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nNodeIndexForUnit + 1, nListedChildrenCount);
+                strMsg.Format(L"\t\t\tPalette: '%s', %u of %u palettes for collection, %u of a total %u palettes for character.\n", ChildNode->szDesc, nPaletteIndexForCollection + 1, nTotalPalettesForCollection, nPalettesAddedToCollection, nTotalPalettesThisFile);
                 OutputDebugString(strMsg);
 #endif
+
+                if (nPalettesAddedToCollection == nTotalPalettesThisFile)
+                {
+                    if (!IsFileUnitForUniqueCharacter(nCurrentFileUnitForCollection))
+                    {
+                        bool fIsLastCollectionForUnit = true;
+
+                        // Step forward to the next part of this collection
+                        for (uint32_t nNextIndex = nCurrentFileUnitForCollection + 1; nNextIndex < m_psCurrentGameLoadingData->srgLoadingData.size(); nNextIndex++)
+                        {
+                            if (m_psCurrentGameLoadingData->srgLoadingData.at(nNextIndex).strCharacter == m_psCurrentGameLoadingData->srgLoadingData.at(nUnitCtrByFile).strCharacter)
+                            {
+#if GCPUPF_A_DEBUG
+                                strMsg.Format(L"\tNext section of this character is at file unit %u : leaving file unit %u.\n", nNextIndex + 1, nCurrentFileUnitForCollection + 1);
+                                OutputDebugString(strMsg);
+#endif
+
+                                nCurrentFileUnitForCollection = nNextIndex;
+                                nPalettesAddedToCollection = 0;
+                                fIsLastCollectionForUnit = false;
+                                break;
+                            }
+                        }
+
+                        if (fIsLastCollectionForUnit)
+                        {
+                            // No further matches: move to next character unit
+                            nCurrentCharacterIndex++;
+                        }
+                    }
+                    else
+                    {
+                        nCurrentCharacterIndex++;
+                    }
+                }
             }
         }
     }
 
-    m_nTotalPaletteCount = nTotalPaletteCount;
+    m_nTotalPaletteCount = nTotalPaletteCountForGame;
 
-    strMsg.Format(L"CGameClassPerUnitPerFile::InitDescTree: Loaded %u palettes.\r\n", nTotalPaletteCount);
+    strMsg.Format(L"CGameClassPerUnitPerFile::InitDescTree: Loaded %u palettes for %u characters in %u files.\r\n", nTotalPaletteCountForGame, nTotalCharacters, nTotalFiles);
     OutputDebugString(strMsg);
 
     return NewDescTree;
@@ -212,6 +244,7 @@ sDescTreeNode* CGameClassPerUnitPerFile::InitDescTree()
 std::vector<LPCWSTR> CGameClassPerUnitPerFile::GetBasicPaletteLabelsForUnit(uint32_t nCharacterUnitId)
 {
     const uint32_t nFileId = GetFileIndexFromCharacterCollection(nCharacterUnitId, 0);
+
     if (m_psCurrentGameLoadingData->ePaletteLayout != PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet)
     {
         return m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).sNodeData.rgpszNodeNames;
@@ -225,6 +258,7 @@ std::vector<LPCWSTR> CGameClassPerUnitPerFile::GetBasicPaletteLabelsForUnit(uint
 LPCWSTR CGameClassPerUnitPerFile::GetBasicPaletteNameForPalette(uint32_t nCharacterUnitId, uint32_t nPaletteId)
 {
     const uint32_t nFileId = GetFileIndexFromCharacterCollection(nCharacterUnitId, 0);
+
     if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).prgBasicPalettes.size())
     {
         return m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).prgBasicPalettes.at(nPaletteId).pszPaletteName;
@@ -238,6 +272,7 @@ LPCWSTR CGameClassPerUnitPerFile::GetBasicPaletteNameForPalette(uint32_t nCharac
 size_t CGameClassPerUnitPerFile::GetBasicPaletteListSizeForUnit(uint32_t nCharacterUnitId)
 {
     const uint32_t nFileId = GetFileIndexFromCharacterCollection(nCharacterUnitId, 0);
+
     if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).prgBasicPalettes.size())
     {
         return m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).prgBasicPalettes.size();
@@ -257,8 +292,7 @@ size_t CGameClassPerUnitPerFile::GetBasicPaletteCountForUnit(uint32_t nCharacter
 bool CGameClassPerUnitPerFile::ShouldUseBasePaletteSetForFileUnit(uint32_t nFileUnitId, uint32_t nPaletteId)
 {
     const uint32_t nCharacterId = GetCharacterIndexFromFileIndex(nFileUnitId);
-
-    return (nPaletteId < GetBasicPaletteCountForUnit(nCharacterId));
+    return nPaletteId < (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sNodeData.rgpszNodeNames.size() * GetBasicPaletteListSizeForUnit(nCharacterId));
 }
 
 bool CGameClassPerUnitPerFile::ShouldUseBasePaletteSet(uint32_t nCharacterUnitId, uint32_t nPaletteId)
@@ -285,11 +319,11 @@ uint32_t CGameClassPerUnitPerFile::GetNodeCountForCollection(uint32_t nCharacter
                 nRelativeNodeId -= m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sNodeData.rgpszNodeNames.size();
             }
 
-            if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).prgExtraPalettes.size())
+            if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sExtrasNodeData.prgExtraPalettes.size())
             {
                 if (nRelativeNodeId == 0)
                 {
-                    return static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).prgExtraPalettes.size());
+                    return static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sExtrasNodeData.prgExtraPalettes.size());
                 }
                 else
                 {
@@ -304,27 +338,26 @@ uint32_t CGameClassPerUnitPerFile::GetNodeCountForCollection(uint32_t nCharacter
 
 uint32_t CGameClassPerUnitPerFile::GetPaletteCountForFileUnit(uint32_t nFileUnitId)
 {
-    size_t nTotalPaletteCount = 0;
     const uint32_t nCharacterId = GetCharacterIndexFromFileIndex(nFileUnitId);
+    size_t nTotalPaletteCount = 0;
 
     nTotalPaletteCount += m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sNodeData.rgpszNodeNames.size() * GetBasicPaletteListSizeForUnit(nCharacterId);
-    nTotalPaletteCount += m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.size();
+    nTotalPaletteCount += m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.size();
 
     return static_cast<uint32_t>(nTotalPaletteCount);
 }
 
 uint32_t CGameClassPerUnitPerFile::GetPaletteCountForUnit(uint32_t nCharacterUnitId)
 {
-    size_t nTotalPaletteCount = 0;
-
     const uint32_t nFileUnitId = GetFileIndexFromCharacterCollection(nCharacterUnitId, 0);
+    size_t nTotalPaletteCount = 0;
 
     for (uint32_t nFileIndex = 0; nFileIndex < m_psCurrentGameLoadingData->srgLoadingData.size(); nFileIndex++)
     {
         if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).strCharacter == m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).strCharacter)
         {
             nTotalPaletteCount += m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sNodeData.rgpszNodeNames.size() * GetBasicPaletteListSizeForUnit(nCharacterUnitId);
-            nTotalPaletteCount += m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).prgExtraPalettes.size();
+            nTotalPaletteCount += m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sExtrasNodeData.prgExtraPalettes.size();
         }
     }
 
@@ -333,9 +366,8 @@ uint32_t CGameClassPerUnitPerFile::GetPaletteCountForUnit(uint32_t nCharacterUni
 
 uint32_t CGameClassPerUnitPerFile::GetCollectionCountForUnit(uint32_t nCharacterUnitId)
 {
-    uint32_t nCollectionCount = 0;
-
     const uint32_t nFileUnitId = GetFileIndexFromCharacterCollection(nCharacterUnitId, 0);
+    uint32_t nCollectionCount = 0;
 
     for (uint32_t iUnitIndex = 0; iUnitIndex < m_psCurrentGameLoadingData->srgLoadingData.size(); iUnitIndex++)
     {
@@ -347,7 +379,7 @@ uint32_t CGameClassPerUnitPerFile::GetCollectionCountForUnit(uint32_t nCharacter
                 nCollectionCount += m_psCurrentGameLoadingData->srgLoadingData.at(iUnitIndex).sNodeData.rgpszNodeNames.size();
             }
 
-            if (m_psCurrentGameLoadingData->srgLoadingData.at(iUnitIndex).prgExtraPalettes.size())
+            if (m_psCurrentGameLoadingData->srgLoadingData.at(iUnitIndex).sExtrasNodeData.prgExtraPalettes.size())
             {
                 nCollectionCount++;
             }
@@ -359,9 +391,8 @@ uint32_t CGameClassPerUnitPerFile::GetCollectionCountForUnit(uint32_t nCharacter
 
 LPCWSTR CGameClassPerUnitPerFile::GetDescriptionForCollection(uint32_t nCharacterUnitId, uint32_t nNodeId)
 {
-    uint32_t nRelativeNodeId = nNodeId;
-
     const uint32_t nFileUnitId = GetFileIndexFromCharacterCollection(nCharacterUnitId, nNodeId);
+    uint32_t nRelativeNodeId = nNodeId;
 
     for (uint32_t nIndex = 0; nIndex < m_psCurrentGameLoadingData->srgLoadingData.size(); nIndex++)
     {
@@ -376,18 +407,11 @@ LPCWSTR CGameClassPerUnitPerFile::GetDescriptionForCollection(uint32_t nCharacte
                 nRelativeNodeId -= m_psCurrentGameLoadingData->srgLoadingData.at(nIndex).sNodeData.rgpszNodeNames.size();
             }
 
-            if (m_psCurrentGameLoadingData->srgLoadingData.at(nIndex).prgExtraPalettes.size())
+            if (m_psCurrentGameLoadingData->srgLoadingData.at(nIndex).sExtrasNodeData.prgExtraPalettes.size())
             {
                 if (nRelativeNodeId == 0)
                 {
-                    if (nNodeId == 0)
-                    {
-                        return L"Palettes";
-                    }
-                    else
-                    {
-                        return L"Extras";
-                    }
+                    return m_psCurrentGameLoadingData->srgLoadingData.at(nIndex).sExtrasNodeData.strExtraCollectionName.c_str();
                 }
                 else
                 {
@@ -495,7 +519,8 @@ void CGameClassPerUnitPerFile::GetFileIndexFromCharacterIndex(uint32_t nCharacte
     for (; nFileUnitId < m_psCurrentGameLoadingData->srgLoadingData.size(); nFileUnitId++)
     {
         // The easiest way to decipher this is just to build up the file list to the character list, and simply stop along the way
-        if (nCurrentCharacterUnit == nCharacterUnitId)
+        const bool fIsFirstInstanceOfCharacter = IsFileUnitFirstCharacterUnit(nFileUnitId);
+        if (fIsFirstInstanceOfCharacter && (nCurrentCharacterUnit == nCharacterUnitId))
         {
             strCharacterName = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).strCharacter;
         }
@@ -514,7 +539,7 @@ void CGameClassPerUnitPerFile::GetFileIndexFromCharacterIndex(uint32_t nCharacte
             }
         }
 
-        if (IsFileUnitFirstCharacterUnit(nFileUnitId))
+        if (fIsFirstInstanceOfCharacter)
         {
             nCurrentCharacterUnit++;
         }
@@ -533,7 +558,8 @@ uint32_t CGameClassPerUnitPerFile::GetFileIndexFromCharacterCollection(uint32_t 
     for (; nFileIndex < m_psCurrentGameLoadingData->srgLoadingData.size(); nFileIndex++)
     {
         // The easiest way to decipher this is just to build up the file list to the character list, and simply stop along the way
-        if (nCurrentCharacterUnit == nCharacterUnitId)
+        const bool fIsFirstInstanceOfCharacter = IsFileUnitFirstCharacterUnit(nFileIndex);
+        if (fIsFirstInstanceOfCharacter && (nCurrentCharacterUnit == nCharacterUnitId))
         {
             strCharacterName = m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).strCharacter;
         }
@@ -549,7 +575,7 @@ uint32_t CGameClassPerUnitPerFile::GetFileIndexFromCharacterCollection(uint32_t 
                 nRelativeCollectionId -= m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sNodeData.rgpszNodeNames.size();
             }
 
-            if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).prgExtraPalettes.size())
+            if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileIndex).sExtrasNodeData.prgExtraPalettes.size())
             {
                 if (nRelativeCollectionId == 0)
                 {
@@ -562,7 +588,7 @@ uint32_t CGameClassPerUnitPerFile::GetFileIndexFromCharacterCollection(uint32_t 
             }
         }
 
-        if (IsFileUnitFirstCharacterUnit(nFileIndex))
+        if (fIsFirstInstanceOfCharacter)
         {
             nCurrentCharacterUnit++;
         }
@@ -573,8 +599,9 @@ uint32_t CGameClassPerUnitPerFile::GetFileIndexFromCharacterCollection(uint32_t 
 
 void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileUnitId, uint32_t nFilePalId)
 {
-    // NOTE: we presume all palettes are 0x400 long for now
-    const int cbPaletteSizeOnDisc = 0x400;
+    // NOTE: we presume all default palettes are 0x400 long for now.  That presumption needs to change if we support 16bit or 24bit games.
+    const int cbDefaultPaletteSize = 0x400;
+
     // Sort option styles:
     //  Left, Right
     //     1, 2, 3, 4, 5, 6, 7, 8, 9
@@ -582,18 +609,18 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
     //     Main, ex1, ex2, ex3
 
     const uint32_t nCharacterId = GetCharacterIndexFromFileIndex(nFileUnitId);
-    const uint32_t nBasicPaletteSizeForUnit = GetBasicPaletteListSizeForUnit(nCharacterId);
 
     if (m_psCurrentGameLoadingData->ePaletteLayout == PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet)
     {
         if (ShouldUseBasePaletteSetForFileUnit(nFileUnitId, nFilePalId))
         {
+            const uint32_t nBasicPaletteSizeForUnit = GetBasicPaletteListSizeForUnit(nCharacterId);
             const uint32_t nRelativePalId = nFilePalId % nBasicPaletteSizeForUnit;
             const uint32_t nPaletteSet =    nFilePalId / nBasicPaletteSizeForUnit;
 
             m_pszCurrentPaletteName = GetBasicPaletteNameForPalette(nCharacterId, nRelativePalId);
-            m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nInitialLocation + (cbPaletteSizeOnDisc * nRelativePalId);
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+            m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nInitialLocation + (cbDefaultPaletteSize * nRelativePalId);
+            m_nCurrentPaletteSizeInColors = cbDefaultPaletteSize / m_nSizeOfColorsInBytes;
 
             if (nPaletteSet)
             {
@@ -610,11 +637,10 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
         else // extra palettes
         {
             const size_t nAdjustedPaletteId = nFilePalId - GetBasicPaletteCountForUnit(nCharacterId);
+            const int cbPaletteSizeOnDisc = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffsetEnd - m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
 
-            const int cbPaletteSizeOnDisc = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffsetEnd - m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
-
-            m_pszCurrentPaletteName = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nAdjustedPaletteId).szPaletteName;
-            m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffset;
+            m_pszCurrentPaletteName = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nAdjustedPaletteId).szPaletteName;
+            m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         }
     }
@@ -622,6 +648,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
     {
         if (ShouldUseBasePaletteSetForFileUnit(nFileUnitId, nFilePalId))
         {
+            const uint32_t nBasicPaletteSizeForUnit = GetBasicPaletteListSizeForUnit(nCharacterId);
             const uint32_t nRelativePalId = nFilePalId % nBasicPaletteSizeForUnit;
             const uint32_t nCollectionId = static_cast<uint32_t>(floor(static_cast<double>(nFilePalId) / static_cast<double>(nBasicPaletteSizeForUnit)));
 
@@ -634,16 +661,15 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
             {
                 m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nRelativePalId).nPaletteShiftFromBase;
             }
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
+            m_nCurrentPaletteSizeInColors = cbDefaultPaletteSize / m_nSizeOfColorsInBytes;
         }
         else // effects palettes
         {
             const size_t nAdjustedPaletteId = nFilePalId - GetBasicPaletteCountForUnit(nCharacterId);
+            const int cbPaletteSizeOnDisc = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffsetEnd - m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
 
-            const int cbPaletteSizeOnDisc = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffsetEnd - m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes[nAdjustedPaletteId].nPaletteOffset;
-
-            m_pszCurrentPaletteName = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nAdjustedPaletteId).szPaletteName;
-            m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffset;
+            m_pszCurrentPaletteName = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nAdjustedPaletteId).szPaletteName;
+            m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nAdjustedPaletteId).nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         }
     }
@@ -743,7 +769,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
         nSrcStart = CharacterNode->uPalId;
         nSrcAmt = 1;
         pButtonLabelSet = DEF_NOBUTTONS;
-        const sGame_PaletteDataset* paletteDataSet = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nPalIdInFileNode);
+        const sGame_PaletteDataset* paletteDataSet = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInFileNode);
         nImgUnitId = paletteDataSet->indexImgToUse;
         nTargetImgId = paletteDataSet->indexOffsetToUse;
 
@@ -790,7 +816,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
                         break;
                     }
 
-                    const sGame_PaletteDataset* paletteDataSetToJoin = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgExtraPalettes.at(nPalIdInFileNode + vnPeerPaletteDistances.at(nPairIndex));
+                    const sGame_PaletteDataset* paletteDataSetToJoin = &m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sExtrasNodeData.prgExtraPalettes.at(nPalIdInFileNode + vnPeerPaletteDistances.at(nPairIndex));
 
                     if (paletteDataSetToJoin)
                     {
@@ -842,7 +868,7 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
                         //Set each palette
                         CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
 
-                        SetSourcePal(nPairIndex, nFileUnitId, nSrcStart + vnPeerPaletteDistances.at(nPairIndex), nSrcAmt, nNodeIncrement);
+                        SetSourcePal(nPairIndex, CharacterNode->uUnitId, nSrcStart + vnPeerPaletteDistances.at(nPairIndex), nSrcAmt, nNodeIncrement);
                     }
                 }
                 else

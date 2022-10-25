@@ -20,6 +20,12 @@ struct sGCBUPF_RelativePaletteData
     const stPaletteProcessingInformation* pExtraProcessing = nullptr;
 };
 
+struct sGCBUPF_ExtrasCollection
+{
+    const std::wstring strExtraCollectionName; 
+    const std::vector<sGame_PaletteDataset> prgExtraPalettes;
+};
+
 // This is used for layouts that are solely button-specific palettes
 const std::vector<sGCBUPF_RelativePaletteData> GCBUPF_UseButtonLabelsAsPaletteSet = {};
 
@@ -33,7 +39,7 @@ struct sGCBUPF_BasicFileData
     uint32_t nInitialLocation = 0;
     uint32_t nImageUnitIndex = INVALID_UNIT_VALUE;
     uint32_t nImagePreviewIndex = 0;
-    const std::vector<sGame_PaletteDataset> prgExtraPalettes;
+    sGCBUPF_ExtrasCollection sExtrasNodeData;
 };
 
 // This enum defines how we present the assembled data to the user.  While PalMod internally Unit::Collection::Node,

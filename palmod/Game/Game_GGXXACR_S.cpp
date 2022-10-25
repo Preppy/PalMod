@@ -2,6 +2,8 @@
 #include "Game_GGXXACR_S.h"
 #include "..\PalMod.h"
 
+#define GGXXACR_S_DEBUG DEFAULT_GAME_DEBUG_STATE
+
 void CGame_GGXXACR_S::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
 {
     CGameClassPerUnitPerFile::LoadSpecificPaletteData(nUnitId, nPalId);
@@ -80,6 +82,7 @@ bool CGame_GGXXACR_S::IsGGXXACRFileEncrypted(CFile* LoadedFile)
     LoadedFile->Seek(0, CFile::begin);
     LoadedFile->Read((void*)&prgFileStart[0], nuint16_tsToRead * sizeof(uint16_t));
 
+#if GGXXACR_S_DEBUG
     CString strByteWatch;
     OutputDebugString(L"\tByte sniff for this file: ");
     for (uint16_t nIndex = 0; nIndex < nuint16_tsToRead; nIndex++)
@@ -87,6 +90,7 @@ bool CGame_GGXXACR_S::IsGGXXACRFileEncrypted(CFile* LoadedFile)
         strByteWatch.Format(L"0x%04x, ", prgFileStart[nIndex]);
         OutputDebugString(strByteWatch);
     }
+#endif
 
     auto thisFile = decryptedFileBytes.find(LoadedFile->GetFileName().GetString());
 
@@ -96,7 +100,9 @@ bool CGame_GGXXACR_S::IsGGXXACRFileEncrypted(CFile* LoadedFile)
                           (((thisFile->second & 0xFF0000) >> 16) != prgFileStart[1]));
     }
 
+#if GGXXACR_S_DEBUG
     OutputDebugString(fIsEncrypted ? L": confirmed ENCRYPTED\n" : L": confirmed decrypted\n");
+#endif
     return fIsEncrypted;
 }
 
@@ -104,10 +110,11 @@ BOOL CGame_GGXXACR_S::LoadFile(CFile* LoadedFile, uint32_t nUnitNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
-
+    
+#if GGXXACR_S_DEBUG
     strInfo.Format(L"CGame_GGXXACR_S::LoadFile: Preload for file unit number %u (character %s): checking encryption state\n", nUnitNumber, GGXXACR_S_CharacterData[nUnitNumber].strCharacter.c_str());
     OutputDebugString(strInfo);
-
+#endif
     if (!m_fIsFileSetEncrypted)
     {
         if (IsGGXXACRFileEncrypted(LoadedFile))
