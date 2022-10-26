@@ -213,6 +213,9 @@ const sGame_PaletteDataset SFA3_A_GOUKI_XISMP[] =
     { L"X-Ism Punch", 0x2c852, 0x2c872, indexCPS2Sprites_Akuma, 0x00 },
     { L"X-Ism Punch Extra 1", 0x2c872, 0x2c892, indexCPS2Sprites_Akuma, 0x0c },
     { L"X-Ism Punch Extra 2", 0x2c892, 0x2c8b2 },
+    { L"X-Ism Punch Teleport 1", 0x4A852, 0x4A872, indexCPS2Sprites_Akuma, 0x00 },
+    { L"X-Ism Punch Teleport 2", 0x4A872, 0x4A892, indexCPS2Sprites_Akuma, 0x00 },
+
     { L"X-Ism Punch Super Trail Light", 0x2c8b2, 0x2c8d2, indexCPS2Sprites_Akuma, 0x00 },
     { L"X-Ism Punch Super Trail Dark", 0x2c8d2, 0x2c8f2, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -222,6 +225,9 @@ const sGame_PaletteDataset SFA3_A_GOUKI_XISMK[] =
     { L"X-Ism Kick", 0x2c8f2, 0x2c912, indexCPS2Sprites_Akuma, 0x00 },
     { L"X-Ism Kick Extra 1", 0x2c912, 0x2c932, indexCPS2Sprites_Akuma, 0x0c },
     { L"X-Ism Kick Extra 2", 0x2c932, 0x2c952 },
+    { L"X-Ism Kick Teleport 1", 0x4A8F2, 0x4A912, indexCPS2Sprites_Akuma, 0x00 },
+    { L"X-Ism Kick Teleport 2", 0x4A912, 0x4A932, indexCPS2Sprites_Akuma, 0x00 },
+
     { L"X-Ism Kick Super Trail Light", 0x2c952, 0x2c972, indexCPS2Sprites_Akuma, 0x00 },
     { L"X-Ism Kick Super Trail Dark", 0x2c972, 0x2c992, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -231,6 +237,9 @@ const sGame_PaletteDataset SFA3_A_GOUKI_AISMP[] =
     { L"A-Ism Punch", 0x2c992, 0x2c9b2, indexCPS2Sprites_Akuma, 0x00 },
     { L"A-Ism Punch Extra 1", 0x2c9b2, 0x2c9d2, indexCPS2Sprites_Akuma, 0x0c },
     { L"A-Ism Punch Extra 2", 0x2c9d2, 0x2c9f2 },
+    { L"A-Ism Punch Teleport 1", 0x4A992, 0x4A9B2, indexCPS2Sprites_Akuma, 0x00 },
+    { L"A-Ism Punch Teleport 2", 0x4A9B2, 0x4A9D2, indexCPS2Sprites_Akuma, 0x00 },
+
     { L"A-Ism Punch Super Trail Light", 0x2c9f2, 0x2ca12, indexCPS2Sprites_Akuma, 0x00 },
     { L"A-Ism Punch Super Trail Dark", 0x2ca12, 0x2ca32, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -240,6 +249,9 @@ const sGame_PaletteDataset SFA3_A_GOUKI_AISMK[] =
     { L"A-Ism Kick", 0x2ca32, 0x2ca52, indexCPS2Sprites_Akuma, 0x00 },
     { L"A-Ism Kick Extra 1", 0x2ca52, 0x2ca72, indexCPS2Sprites_Akuma, 0x0c },
     { L"A-Ism Kick Extra 2", 0x2ca72, 0x2ca92 },
+    { L"A-Ism Kick Teleport 1", 0x4AA32, 0x4AA52, indexCPS2Sprites_Akuma, 0x00 },
+    { L"A-Ism Kick Teleport 2", 0x4AA52, 0x4AA72, indexCPS2Sprites_Akuma, 0x00 },
+
     { L"A-Ism Kick Super Trail Light", 0x2ca92, 0x2cab2, indexCPS2Sprites_Akuma, 0x00 },
     { L"A-Ism Kick Super Trail Dark", 0x2cab2, 0x2cad2, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -249,6 +261,9 @@ const sGame_PaletteDataset SFA3_A_GOUKI_VISMP[] =
     { L"V-Ism Punch", 0x2cad2, 0x2caf2, indexCPS2Sprites_Akuma, 0x00 },
     { L"V-Ism Punch Extra 1", 0x2caf2, 0x2cb12, indexCPS2Sprites_Akuma, 0x0c },
     { L"V-Ism Punch Extra 2", 0x2cb12, 0x2cb32 },
+    { L"V-Ism Punch Teleport 1", 0x4AAD2, 0x4AAF2, indexCPS2Sprites_Akuma, 0x00 },
+    { L"V-Ism Punch Teleport 2", 0x4AAF2, 0x4AB12, indexCPS2Sprites_Akuma, 0x00 },
+
     { L"V-Ism Punch Super Trail Light", 0x2cb32, 0x2cb52, indexCPS2Sprites_Akuma, 0x00 },
     { L"V-Ism Punch Super Trail Dark", 0x2cb52, 0x2cb72, indexCPS2Sprites_Akuma, 0x00 },
 };
@@ -258,6 +273,9 @@ const sGame_PaletteDataset SFA3_A_GOUKI_VISMK[] =
     { L"V-Ism Kick", 0x2cb72, 0x2cb92, indexCPS2Sprites_Akuma, 0x00 },
     { L"V-Ism Kick Extra 1", 0x2cb92, 0x2cbb2, indexCPS2Sprites_Akuma, 0x0c },
     { L"V-Ism Kick Extra 2", 0x2cbb2, 0x2cbd2 },
+    { L"V-Ism Kick Teleport 1", 0x4AB72, 0x4AB92, indexCPS2Sprites_Akuma, 0x00 },
+    { L"V-Ism Kick Teleport 2", 0x4AB92, 0x4ABB2, indexCPS2Sprites_Akuma, 0x00 },
+
     { L"V-Ism Kick Super Trail Light", 0x2cbd2, 0x2cbf2, indexCPS2Sprites_Akuma, 0x00 },
     { L"V-Ism Kick Super Trail Dark", 0x2cbf2, 0x2cc12, indexCPS2Sprites_Akuma, 0x00 },
 };

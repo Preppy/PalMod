@@ -27,8 +27,8 @@ private:
         m_sFileLoadingData,
         SFA3_A_UNITS,
         ARRAYSIZE(SFA3_A_UNITS),
-        L"SFA3e.txt",             // Extra filename
-        2554,                        // Count of palettes listed in the header
+        L"SFA3e.txt",              // Extra filename
+        2566,                      // Count of palettes listed in the header
         0x2C000,                   // Lowest known location used for palettes
     };
 
