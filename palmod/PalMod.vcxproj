@@ -691,7 +691,6 @@
     <ClInclude Include="ImgInfoList.h" />
     <ClInclude Include="ImgOutDlg.h" />
     <ClInclude Include="Junk.h" />
-    <ClInclude Include="JunkC.h" />
     <ClInclude Include="PalMod.h" />
     <ClInclude Include="PalModDlg.h" />
     <ClInclude Include="PalTool.h" />

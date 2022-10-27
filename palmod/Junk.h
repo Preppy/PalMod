@@ -1,10 +1,5 @@
 #pragma once
 #include "afxwin.h"
-#include "JunkC.h"
-
-#define JUNK_CLASSNAME    L"CJunk"  // Window class name
-
-#define aaadd(x, y) ((uint8_t)(((x) + (y) > 255) ? 255 : (x) + (y)))
 
 constexpr auto CUSTOM_HLCHANGE        = WM_USER +1;
 constexpr auto CUSTOM_SELHLCHANGE     = WM_USER +2;
@@ -20,14 +15,6 @@ constexpr auto CUSTOM_COPYOFFSET      = WM_USER + 16;
 constexpr auto CUSTOM_GRADIENT_RGB    = WM_USER + 17;
 constexpr auto CUSTOM_GRADIENT_HSL    = WM_USER + 18;
 constexpr auto CUSTOM_GRADIENT_HSV    = WM_USER + 19;
-
-#define BASE_PALETTE_SQUARE_SIZE 15
-#define BDR_SZ 1
-
-#define FLAG_HIGHLIGHT 0
-#define FLAG_SELECTED 1
-#define FLAG_MULTIHIGHLIGHT 2
-#define FLAG_DEFAULT 3
 
 class CJunk :
     public CWnd
@@ -46,13 +33,75 @@ private:
 
     int GetPaletteSquareSize();
 
-    void SetIndexPen(int nIndex, int pFlag);
-
     void CustomFillRect(RECT* lpRect, uint8_t* crSrcCol);
     //Input management
 
     BOOL ProcessHovered(CPoint hPoint, CPoint& auxPos);
     void LoadDefaultPal();
+
+    // Constants
+
+    //Default Index color
+    static constexpr uint8_t F_R = 48;
+    static constexpr uint8_t F_G = 48;
+    static constexpr uint8_t F_B = 48;
+    
+    //Background Color
+    static constexpr uint8_t BG_R = 0;
+    static constexpr uint8_t BG_G = 0;
+    static constexpr uint8_t BG_B = 0;
+
+    //Highlighted
+    static constexpr uint8_t HL_R = 0;
+    static constexpr uint8_t HL_G = 255;
+    static constexpr uint8_t HL_B = 0;
+
+    //Multiple Highlight
+    static constexpr uint8_t MH_R = 255;
+    static constexpr uint8_t MH_G = 255;
+    static constexpr uint8_t MH_B = 255;
+
+    //Selected
+    static constexpr uint8_t SL_R = 255;
+    static constexpr uint8_t SL_G = 0;
+    static constexpr uint8_t SL_B = 0;
+
+    //Background
+    static constexpr uint8_t JUNK_BG_W = 16;
+    static constexpr uint8_t JUNK_BG_H = 16;
+
+    const COLORREF JUNK_BG[JUNK_BG_W * JUNK_BG_H] =
+    {
+        0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,
+        0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,
+        0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,
+        0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,
+        0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,
+        0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,
+        0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,
+        0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,
+        0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,
+        0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,
+        0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,
+        0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,
+        0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,
+        0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,
+        0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,
+        0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF,  0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00FFFFFF, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC,  0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC, 0x00CCCCCC
+    };
+
+    static constexpr int BASE_PALETTE_SQUARE_SIZE = 15;
+    static constexpr int BDR_SZ = 1;
+
+    enum class PenOptions
+    {
+        FLAG_HIGHLIGHT,
+        FLAG_SELECTED,
+        FLAG_MULTIHIGHLIGHT,
+        FLAG_DEFAULT,
+    };
+
+    static constexpr LPCWSTR JUNK_CLASSNAME = L"CJunk";  // Window class name
 
     //Default variables
     BOOL m_LButtonDown = FALSE;
@@ -102,6 +151,8 @@ private:
     inline void SetHighlighted(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
     inline void SetSelected(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
     inline void SetSelViewItem(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
+
+    void SetIndexPen(int nIndex, PenOptions pFlag);
 
     int m_iHLAmt = 0;
     int m_iWorkingAmt = 0;

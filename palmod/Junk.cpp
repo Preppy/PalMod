@@ -29,6 +29,22 @@ int GetDpiForScreen()
     return dpiX;
 }
 
+BEGIN_MESSAGE_MAP(CJunk, CWnd)
+    ON_WM_PAINT()
+    ON_WM_ERASEBKGND()
+    ON_WM_MOUSEMOVE()
+    ON_WM_LBUTTONDOWN()
+    ON_WM_LBUTTONUP()
+    ON_WM_TIMER()
+    ON_WM_KEYDOWN()
+    ON_WM_KEYUP()
+    ON_WM_COPYDATA()
+    ON_WM_CREATE()
+    ON_WM_RBUTTONDOWN()
+    ON_WM_INITMENUPOPUP()
+    ON_WM_MENUSELECT()
+END_MESSAGE_MAP()
+
 int CJunk::GetPaletteSquareSize()
 {
     return static_cast<int>(ceil((BASE_PALETTE_SQUARE_SIZE * GetDpiForScreen()) / 96.0));
@@ -294,20 +310,20 @@ void CJunk::NotifyParent(int iCustomMessage)
     GetParent()->PostMessage(WM_NOTIFY, 0, (LPARAM)&myhdr);
 }
 
-void CJunk::SetIndexPen(int nIndex, int pFlag)
+void CJunk::SetIndexPen(int nIndex, PenOptions pFlag)
 {
     switch (pFlag)
     {
-    case FLAG_HIGHLIGHT:
+    case PenOptions::FLAG_HIGHLIGHT:
         m_dcBaseDC.SelectObject(&m_PIndexHL);
         break;
-    case FLAG_SELECTED:
+    case PenOptions::FLAG_SELECTED:
         m_dcBaseDC.SelectObject(&m_PIndexSL);
         break;
-    case FLAG_MULTIHIGHLIGHT:
+    case PenOptions::FLAG_MULTIHIGHLIGHT:
         m_dcBaseDC.SelectObject(&m_PIndexMHL);
         break;
-    case FLAG_DEFAULT:
+    case PenOptions::FLAG_DEFAULT:
         m_dcBaseDC.SelectObject(&m_PIndexBG);
         break;
     }
@@ -345,22 +361,6 @@ CJunk::~CJunk()
         DeleteObject(m_PIndexBG);
     }
 }
-
-BEGIN_MESSAGE_MAP(CJunk, CWnd)
-    ON_WM_PAINT()
-    ON_WM_ERASEBKGND()
-    ON_WM_MOUSEMOVE()
-    ON_WM_LBUTTONDOWN()
-    ON_WM_LBUTTONUP()
-    ON_WM_TIMER()
-    ON_WM_KEYDOWN()
-    ON_WM_KEYUP()
-    ON_WM_COPYDATA()
-    ON_WM_CREATE()
-    ON_WM_RBUTTONDOWN()
-    ON_WM_INITMENUPOPUP()
-    ON_WM_MENUSELECT()
-END_MESSAGE_MAP()
 
 BOOL CJunk::RegisterWindowClass()
 {
@@ -477,9 +477,9 @@ void CJunk::SelectAll()
 {
     if (m_Selected)
     {
-        for (int i = 0; i < m_iWorkingAmt; i++)
+        for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
         {
-            m_Selected[i] = TRUE;
+            m_Selected[iPos] = TRUE;
         }
     }
 
@@ -515,7 +515,7 @@ void CJunk::UpdateFace()
 
         for (int index = 0; index < m_iWorkingAmt; index++)
         {
-            SetIndexPen(index, FLAG_DEFAULT);
+            SetIndexPen(index, PenOptions::FLAG_DEFAULT);
 
             rSqRct[index].top = (BDR_SZ * ((index / m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (index / m_iPalW));
             rSqRct[index].left = (BDR_SZ * ((index % m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (index % m_iPalW));
@@ -531,7 +531,7 @@ void CJunk::UpdateFace()
         {
             if (m_Selected[index])
             {
-                SetIndexPen(index, FLAG_SELECTED);
+                SetIndexPen(index, PenOptions::FLAG_SELECTED);
                 m_dcBaseDC.Rectangle(&rSqRct[index]);
             }
         }
@@ -540,7 +540,7 @@ void CJunk::UpdateFace()
         {
             if (m_SelView && m_SelView[index])
             {
-                SetIndexPen(index, FLAG_MULTIHIGHLIGHT);
+                SetIndexPen(index, PenOptions::FLAG_MULTIHIGHLIGHT);
                 m_dcBaseDC.Rectangle(&rSqRct[index]);
             }
         }
@@ -549,7 +549,7 @@ void CJunk::UpdateFace()
         {
             if (m_Highlighted[index])
             {
-                SetIndexPen(index, FLAG_HIGHLIGHT);
+                SetIndexPen(index, PenOptions::FLAG_HIGHLIGHT);
                 m_dcBaseDC.Rectangle(&rSqRct[index]);
             }
         }
@@ -575,9 +575,9 @@ void CJunk::CustomFillRect(RECT* lpRect, uint8_t* crSrcCol)
         {
             uint8_t* crDstCol = const_cast<uint8_t*>((uint8_t*)&JUNK_BG[(y % JUNK_BG_H) * JUNK_BG_W + (x % JUNK_BG_W)]);
 
-            pDstImgData[(y * m_iBaseW) + x + 2] = aaadd((fpDstA1 * (double)crSrcCol[0]), (fpDstA2 * (double)crDstCol[0]));
-            pDstImgData[(y * m_iBaseW) + x + 1] = aaadd((fpDstA1 * (double)crSrcCol[1]), (fpDstA2 * (double)crDstCol[1]));
-            pDstImgData[(y * m_iBaseW) + x] =     aaadd((fpDstA1 * (double)crSrcCol[2]), (fpDstA2 * (double)crDstCol[2]));
+            pDstImgData[(y * m_iBaseW) + x + 2] = static_cast<uint8_t>(min(255.0, (fpDstA1 * static_cast<double>(crSrcCol[0])) + (fpDstA2 * static_cast<double>(crDstCol[0]))));
+            pDstImgData[(y * m_iBaseW) + x + 1] = static_cast<uint8_t>(min(255.0, (fpDstA1 * static_cast<double>(crSrcCol[1])) + (fpDstA2 * static_cast<double>(crDstCol[1]))));
+            pDstImgData[(y * m_iBaseW) + x]     = static_cast<uint8_t>(min(255.0, (fpDstA1 * static_cast<double>(crSrcCol[2])) + (fpDstA2 * static_cast<double>(crDstCol[2]))));
         }
     }
 }

@@ -1628,9 +1628,6 @@
     <ClInclude Include="ImgDisp.h">
       <Filter>Images\Image Display</Filter>
     </ClInclude>
-    <ClInclude Include="JunkC.h">
-      <Filter>Palettes\Palette View\Palette Display</Filter>
-    </ClInclude>
     <ClInclude Include="Junk.h">
       <Filter>Palettes\Palette View\Palette Display</Filter>
     </ClInclude>
