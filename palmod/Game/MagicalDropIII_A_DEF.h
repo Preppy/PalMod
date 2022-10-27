@@ -348,12 +348,14 @@ const sGame_PaletteDataset MAGICALDROPIII_A_MOON_PALETTES_A[] =
 {
     { L"Moon A", 0x6d020, 0x6d0a0 },
     { L"Moon A Map", 0x6ab60, 0x6ab80 },
+    { L"Moon A Pre-Fight Icon", 0x6b160, 0x6b180 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_MOON_PALETTES_B[] =
 {
     { L"Moon B", 0x6cfa0, 0x6d020 },
     { L"Moon B Map", 0x6ab40, 0x6ab60 },
+    { L"Moon B Pre-Fight Icon", 0x6b140, 0x6b160 },
 };
 
 //Sun
