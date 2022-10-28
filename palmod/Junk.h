@@ -214,6 +214,18 @@ public:
     void UpdateIndex(int nIndex);
     void UpdateIndexAll();
 
+    enum class SelectionMovement
+    {
+        Left,
+        Right,
+        Up,
+        Down,
+        Plus,
+        Minus
+    };
+
+    void MovePaletteSelection(SelectionMovement nOption);
+
     BOOL RegisterWindowClass();
 
     DECLARE_MESSAGE_MAP()

@@ -308,6 +308,13 @@ public:
     afx_msg void OnEditCopyOffset();
     afx_msg void OnFindColorAtPointer();
 
+    afx_msg void OnPalSelShiftLeft();
+    afx_msg void OnPalSelShiftRight();
+    afx_msg void OnPalSelShiftUp();
+    afx_msg void OnPalSelShiftDown();
+    afx_msg void OnPalSelPlus();
+    afx_msg void OnPalSelMinus();
+
     DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
     bool SelectMatchingColorsInPalette(DWORD dwColorToMatch, DWORD dwBackgroundColor);
 

@@ -486,15 +486,169 @@ void CJunk::SelectAll()
     UpdateSelAmt();
 }
 
+void CJunk::MovePaletteSelection(SelectionMovement nOption)
+{
+    if (m_bEnabled)
+    {
+        switch (nOption)
+        {
+            case SelectionMovement::Left:
+            {
+                if (m_Selected && m_iWorkingAmt)
+                {
+                    BOOL fPreviousState;
+                    BOOL fNextState = m_Selected[0];
+
+                    for (int iPos = m_iWorkingAmt - 1; iPos > 0 ; iPos--)
+                    {
+                        fPreviousState = m_Selected[iPos];
+                        m_Selected[iPos] = fNextState;
+                        fNextState = fPreviousState;
+                    }
+
+                    m_Selected[0] = fNextState;
+                }
+                break;
+            }
+            case SelectionMovement::Up:
+            {
+                // We want multiple full rows.  SKip partially rowed palettes
+                if (m_Selected && m_iWorkingAmt && (m_iPalH > 1) && (m_iWorkingAmt % m_iPalW == 0))
+                {
+                    std::vector<BOOL> rgfShiftedLayout;
+                    rgfShiftedLayout.resize(m_iPalW);
+
+                    for (int iPos = 0; iPos < m_iPalW; iPos++)
+                    {
+                        rgfShiftedLayout.at(iPos) = m_Selected[iPos];
+                    }
+
+                    for (int iPos = 0; iPos < (m_iWorkingAmt - m_iPalW); iPos++)
+                    {
+                        m_Selected[iPos] = m_Selected[iPos + m_iPalW];
+                    }
+
+                    for (int iPos = 0; iPos < m_iPalW; iPos++)
+                    {
+                        m_Selected[iPos + (m_iWorkingAmt - m_iPalW)] = rgfShiftedLayout.at(iPos);
+                    }
+                }
+                break;
+            }
+            case SelectionMovement::Down:
+            {
+                // We want multiple full rows.  SKip partially rowed palettes
+                if (m_Selected && m_iWorkingAmt && (m_iPalH > 1) && (m_iWorkingAmt % m_iPalW == 0))
+                {
+                    std::vector<BOOL> rgfShiftedLayout;
+                    rgfShiftedLayout.resize(m_iWorkingAmt);
+
+                    for (int iPos = 0; iPos < m_iPalW; iPos++)
+                    {
+                        rgfShiftedLayout.at(iPos) = m_Selected[(m_iWorkingAmt - m_iPalW) + iPos];
+                    }
+
+                    for (int iPos = m_iPalW; iPos < m_iWorkingAmt; iPos++)
+                    {
+                        rgfShiftedLayout.at(iPos) = m_Selected[iPos - m_iPalW];
+                    }
+
+                    for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
+                    {
+                        m_Selected[iPos] = rgfShiftedLayout.at(iPos);
+                    }
+                }
+                break;
+            }
+            case SelectionMovement::Right:
+            {
+                if (m_Selected && m_iWorkingAmt)
+                {
+                    BOOL fPreviousState;
+                    BOOL fNextState = m_Selected[m_iWorkingAmt - 1];
+
+                    for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
+                    {
+                        fPreviousState = m_Selected[iPos];
+                        m_Selected[iPos] = fNextState;
+                        fNextState = fPreviousState;
+                    }
+                }
+                break;
+            }
+            case SelectionMovement::Plus:
+            {
+                if (m_Selected && m_iWorkingAmt)
+                {
+                    BOOL fFoundAPositive = m_Selected[m_iWorkingAmt - 1];
+
+                    // find the first FALSE entry and flip that
+                    for (int iPos = 0; iPos < m_iWorkingAmt; iPos++)
+                    {
+                        if (!m_Selected[iPos] && fFoundAPositive)
+                        {
+                            m_Selected[iPos] = TRUE;
+                            break;
+                        }
+
+                        if (m_Selected[iPos])
+                        {
+                            fFoundAPositive = TRUE;
+                        }
+                    }
+
+                    if (!fFoundAPositive)
+                    {
+                        m_Selected[0] = TRUE;
+                    }
+                }
+                break;
+            }
+            case SelectionMovement::Minus:
+            {
+                if (m_Selected && m_iWorkingAmt)
+                {
+                    BOOL fFoundAPositive = m_Selected[0];
+
+                    // find the last FALSE entry and flip that
+                    for (int iPos = m_iWorkingAmt - 1; iPos >= 0; iPos--)
+                    {
+                        if (!m_Selected[iPos] && fFoundAPositive)
+                        {
+                            m_Selected[iPos] = TRUE;
+                            break;
+                        }
+
+                        if (m_Selected[iPos])
+                        {
+                            fFoundAPositive = TRUE;
+                        }
+                    }
+
+                    if (!fFoundAPositive)
+                    {
+                        m_Selected[m_iWorkingAmt - 1] = TRUE;
+                    }
+                }
+                break;
+            }
+            default:
+                break;
+        }
+
+        UpdateCtrl();
+    }
+}
+
 void CJunk::UpdateIndex(int index)
 {
     if (m_bEnabled && !m_bFirstDCInit)
     {
         if (index < m_iWorkingAmt)
         {
-            m_rIndexRect.top = (BDR_SZ * ((index / m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (index / m_iPalW));
-            m_rIndexRect.left = (BDR_SZ * ((index % m_iPalW) + 1)) + ((GetPaletteSquareSize()) * (index % m_iPalW));
-            m_rIndexRect.right = (BDR_SZ * ((index % m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index % m_iPalW) + 1));
+            m_rIndexRect.top =    (BDR_SZ * ((index / m_iPalW) + 1)) + (GetPaletteSquareSize() * (index / m_iPalW));
+            m_rIndexRect.left =   (BDR_SZ * ((index % m_iPalW) + 1)) + (GetPaletteSquareSize() * (index % m_iPalW));
+            m_rIndexRect.right =  (BDR_SZ * ((index % m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index % m_iPalW) + 1));
             m_rIndexRect.bottom = (BDR_SZ * ((index / m_iPalW) + 1)) + (GetPaletteSquareSize() * ((index / m_iPalW) + 1));
 
             CustomFillRect(&m_rIndexRect, (uint8_t*)&m_BasePal[index]);

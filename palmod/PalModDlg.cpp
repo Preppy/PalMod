@@ -153,7 +153,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_TOOLS_GENERATEPATCHFILE, &CPalModDlg::OnSavePatchFile)
     ON_WM_INITMENUPOPUP()
     ON_COMMAND(ID_SETTINGS_SETTINGS, &CPalModDlg::OnSettingsSettings)
-    ON_COMMAND(ID_SETTINGS_EXTCOPYDATA, &CPalModDlg::OnChangeExtendedCopyData)    
+    ON_COMMAND(ID_SETTINGS_EXTCOPYDATA, &CPalModDlg::OnChangeExtendedCopyData)
     ON_COMMAND(ID_ACC_UNDO, &CPalModDlg::OnEditUndo)
     ON_COMMAND(ID_ACC_REDO, &CPalModDlg::OnEditRedo)
     ON_COMMAND(ID_ACC_COPY, &CPalModDlg::OnEditCopy)
@@ -168,7 +168,14 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_ACC_SAVEPALETTE, &CPalModDlg::OnExportPalette)
     ON_COMMAND(ID_ACC_SNIFFCOLOR, &CPalModDlg::OnCopyColorAtPointer)
     ON_COMMAND(ID_ACC_SNIFFPASTE, &CPalModDlg::OnPasteColorAtPointer)
-    ON_COMMAND(ID_ACC_FINDCOLOR, &CPalModDlg::OnFindColorAtPointer)    
+    ON_COMMAND(ID_ACC_FINDCOLOR, &CPalModDlg::OnFindColorAtPointer)
+
+    ON_COMMAND(ID_ACC_PALSELLEFT, &CPalModDlg::OnPalSelShiftLeft)
+    ON_COMMAND(ID_ACC_PALSELRIGHT, &CPalModDlg::OnPalSelShiftRight)
+    ON_COMMAND(ID_ACC_PALSELUP, &CPalModDlg::OnPalSelShiftUp)
+    ON_COMMAND(ID_ACC_PALSELDOWN, &CPalModDlg::OnPalSelShiftDown)
+    ON_COMMAND(ID_ACC_PALSELPLUS, &CPalModDlg::OnPalSelPlus)
+    ON_COMMAND(ID_ACC_PALSELMINUS, &CPalModDlg::OnPalSelMinus)
 
     ON_COMMAND(ID_EDIT_UNDO, &CPalModDlg::OnEditUndo)
     ON_COMMAND(ID_EDIT_REDO, &CPalModDlg::OnEditRedo)
@@ -528,6 +535,54 @@ BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = n
     return fSuccess;
 }
 
+void CPalModDlg::OnPalSelShiftLeft()
+{
+    if (CurrPalCtrl)
+    {
+        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Left);
+    }
+}
+
+void CPalModDlg::OnPalSelShiftRight()
+{
+    if (CurrPalCtrl)
+    {
+        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Right);
+    }
+}
+
+void CPalModDlg::OnPalSelShiftUp()
+{
+    if (CurrPalCtrl)
+    {
+        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Up);
+    }
+}
+
+void CPalModDlg::OnPalSelShiftDown()
+{
+    if (CurrPalCtrl)
+    {
+        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Down);
+    }
+}
+
+void CPalModDlg::OnPalSelPlus()
+{
+    if (CurrPalCtrl)
+    {
+        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Plus);
+    }
+}
+
+void CPalModDlg::OnPalSelMinus()
+{
+    if (CurrPalCtrl)
+    {
+        CurrPalCtrl->MovePaletteSelection(CJunk::SelectionMovement::Minus);
+    }
+}
+
 BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
 {
     m_ToolTip.RelayEvent(pMsg);
@@ -542,49 +597,58 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
 
     switch (pMsg->message)
     {
-    case WM_KEYDOWN:
-    {
-        if (pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
+        case WM_KEYDOWN:
         {
-            pMsg->wParam = NULL;
-        }
-        break;
-    }
+            switch (pMsg->wParam)
+            {
+                case VK_RETURN:
+                case VK_ESCAPE:
+                {
+                    pMsg->wParam = NULL;
+                    break;
+                }
+                default:
+                    break;
+            }
 
-    case WM_NOTIFY:
-    {
-        CJunk* pCtrl = (CJunk*)CWnd::FromHandle(((LPNMHDR)pMsg->lParam)->hwndFrom);
+            break;
+        }
 
-        switch (((LPNMHDR)pMsg->lParam)->code)
+        case WM_NOTIFY:
         {
-        case CUSTOM_SS:
-        case CUSTOM_MS:
-        {
-            OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
-        }
-        break;
-        case CUSTOM_HLCHANGE:
-        {
-            OnPalHLChange(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom);
-        }
-        break;
-        case CUSTOM_SELHLCHANGE:
-        {
-            //OnPalMHL(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom);
-        }
-        break;
+            CJunk* pCtrl = (CJunk*)CWnd::FromHandle(((LPNMHDR)pMsg->lParam)->hwndFrom);
 
-        case CUSTOM_COPY:
-        case CUSTOM_PASTE:
-        case CUSTOM_SALL:
-        case CUSTOM_SNONE:
-        case CUSTOM_COPYOFFSET:
-        {
-            CustomEditProc(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
+            switch (((LPNMHDR)pMsg->lParam)->code)
+            {
+                case CUSTOM_SS:
+                case CUSTOM_MS:
+                {
+                    OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
+                    break;
+                }
+                case CUSTOM_HLCHANGE:
+                {
+                    OnPalHLChange(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom);
+                    break;
+                }
+                case CUSTOM_SELHLCHANGE:
+                {
+                    //OnPalMHL(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom);
+                    break;
+                }
+                case CUSTOM_COPY:
+                case CUSTOM_PASTE:
+                case CUSTOM_SALL:
+                case CUSTOM_SNONE:
+                case CUSTOM_COPYOFFSET:
+                {
+                    CustomEditProc(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
+                    break;
+                }
+            }
+
+            break;
         }
-        break;
-        }
-    }
     }
 
     return CDialog::PreTranslateMessage(pMsg);

@@ -333,13 +333,19 @@
 #define ID_TOOLS_GRADIENT_HSL           32931
 #define ID_TOOLS_GRADIENT_HSV           32932
 #define ID_TOOLS_GRADIENT_RGB           32933
+#define ID_ACC_PALSELLEFT               32934
+#define ID_ACC_PALSELRIGHT              32935
+#define ID_ACC_PALSELUP                 32936
+#define ID_ACC_PALSELDOWN               32937
+#define ID_ACC_PALSELPLUS               32938
+#define ID_ACC_PALSELMINUS              32939
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        145
-#define _APS_NEXT_COMMAND_VALUE         32934
+#define _APS_NEXT_COMMAND_VALUE         32940
 #define _APS_NEXT_CONTROL_VALUE         1079
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
