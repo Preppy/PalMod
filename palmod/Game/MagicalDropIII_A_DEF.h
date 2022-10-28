@@ -209,6 +209,7 @@ const sGame_PaletteDataset MAGICALDROPIII_A_HERMIT_PALETTES_A[] =
     { L"Hermit A Portrait", 0x6b4c0, 0x6b520 },
     { L"Hermit A Map", 0x6a900, 0x6a920 },
     { L"Hermit A Pre-Fight Icon", 0x6af00, 0x6af20 },
+    { L"Hermit A Losing Flash 2", 0x6c9e0, 0x6ca00 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_HERMIT_PALETTES_B[] =
@@ -217,6 +218,12 @@ const sGame_PaletteDataset MAGICALDROPIII_A_HERMIT_PALETTES_B[] =
     { L"Hermit B Portrait", 0x6b520, 0x6b580 },
     { L"Hermit B Map", 0x6a920, 0x6a940 },
     { L"Hermit B Pre-Fight Icon", 0x6af20, 0x6af40 },
+    { L"Hermit B Losing Flash 2", 0x6ca00, 0x6ca20 },
+};
+
+const sGame_PaletteDataset MAGICALDROPIII_A_HERMIT_PALETTES_SHARED[] =
+{
+    { L"Hermit Shared Losing Flash 1", 0x6a6a0, 0x6a6c0 },
 };
 
 //Fortune
@@ -393,7 +400,6 @@ const sGame_PaletteDataset MAGICALDROPIII_A_JUDGEMENT_PALETTES_B[] =
 const sGame_PaletteDataset MAGICALDROPIII_A_WORLD_PALETTES_A[] =
 {
     { L"World A", 0x69ec0, 0x69f00 },
-    { L"World A Portrait", 0x6a000, 0x6a020 },
     { L"World A Map", 0x6ac00, 0x6ac20 },
 };
 
@@ -401,6 +407,11 @@ const sGame_PaletteDataset MAGICALDROPIII_A_WORLD_PALETTES_B[] =
 {
     { L"World B", 0x69f00, 0x69f40 },
     { L"World B Map", 0x6ac20, 0x6ac40 },
+};
+
+const sGame_PaletteDataset MAGICALDROPIII_A_WORLD_PALETTES_SHARED[] =
+{
+    { L"World A Portrait", 0x6a000, 0x6a020 }, // there is not a pair at 0x6a020 nor in that small chunk there
 };
 
 //Black Pierrot
@@ -535,6 +546,7 @@ const sDescTreeNode MAGICALDROPIII_A_HERMIT_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)MAGICALDROPIII_A_HERMIT_PALETTES_A, ARRAYSIZE(MAGICALDROPIII_A_HERMIT_PALETTES_A) },
     { L"B", DESC_NODETYPE_TREE, (void*)MAGICALDROPIII_A_HERMIT_PALETTES_B, ARRAYSIZE(MAGICALDROPIII_A_HERMIT_PALETTES_B) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)MAGICALDROPIII_A_HERMIT_PALETTES_SHARED, ARRAYSIZE(MAGICALDROPIII_A_HERMIT_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MAGICALDROPIII_A_FORTUNE_COLLECTION[] =
@@ -607,6 +619,7 @@ const sDescTreeNode MAGICALDROPIII_A_WORLD_COLLECTION[] =
 {
     { L"A", DESC_NODETYPE_TREE, (void*)MAGICALDROPIII_A_WORLD_PALETTES_A, ARRAYSIZE(MAGICALDROPIII_A_WORLD_PALETTES_A) },
     { L"B", DESC_NODETYPE_TREE, (void*)MAGICALDROPIII_A_WORLD_PALETTES_B, ARRAYSIZE(MAGICALDROPIII_A_WORLD_PALETTES_B) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)MAGICALDROPIII_A_WORLD_PALETTES_SHARED, ARRAYSIZE(MAGICALDROPIII_A_WORLD_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MAGICALDROPIII_A_BLACKPIERROT_COLLECTION[] =

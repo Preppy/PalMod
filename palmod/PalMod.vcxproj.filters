@@ -951,6 +951,9 @@
     <ClCompile Include="Game\GameClassByUnitPerFile.cpp">
       <Filter>Games\Base</Filter>
     </ClCompile>
+    <ClCompile Include="game\Game_AvgrsGS_A_DIR.cpp">
+      <Filter>Games\Other Platforms\Avengers in Galactic Storm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
