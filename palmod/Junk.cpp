@@ -1085,6 +1085,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_RGB, L"RGB");
         GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_HSL, L"HSL");
         GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_HSV, L"HSV");
+        GradientMenu.AppendMenu((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED, CUSTOM_GRADIENT_XYZ, L"XYZ");
 
         PopupMenu.AppendMenu(MF_POPUP | ((nCountColorSelected > 2) ? MF_ENABLED : MF_DISABLED), (UINT_PTR)GradientMenu.m_hMenu, L"Gradient");
 
@@ -1111,6 +1112,9 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
             break;
         case CUSTOM_GRADIENT_RGB:
             GetHost()->GetPalModDlg()->OnBnClickedGradient_RGB();
+            break;
+        case CUSTOM_GRADIENT_XYZ:
+            GetHost()->GetPalModDlg()->OnBnClickedGradient_XYZ();
             break;
         case CUSTOM_SALL:
             SelectAll();

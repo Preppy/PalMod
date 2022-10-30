@@ -177,7 +177,11 @@ namespace ColorSystem
     void     RGBtoHSV(const COLORREF rgb, double& h, double& s, double& v);
     COLORREF HSVtoRGB(const double H, const double S, const double V);
 
+    void     RGBtoXYZ(const COLORREF rgb, double& x, double& y, double& z);
+    COLORREF XYZtoRGB(const double x, const double y, const double z);
+
     COLORREF GetGradient_RGB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
     COLORREF GetGradient_HSL(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
     COLORREF GetGradient_HSV(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
+    COLORREF GetGradient_XYZ(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
 };

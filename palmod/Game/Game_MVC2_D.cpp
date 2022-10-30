@@ -640,8 +640,8 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
             LoadedFile->Read(ppDataBuffer[nUnitId], nDataSz);
         }
 
-        //Set the redirect: this is presorted
-        m_rgUnitRedir.at(nUnitId) = nUnitId;
+        //Set the redirect: this is sorted at runtime
+        m_rgUnitRedir.at(nUnitId) = MVC2_D_UNITSORT[nUnitId];
 
         return TRUE;
     }

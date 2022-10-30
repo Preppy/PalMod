@@ -499,6 +499,7 @@ BEGIN
             MENUITEM "HSL",                     ID_TOOLS_GRADIENT_HSL
             MENUITEM "HSV",                     ID_TOOLS_GRADIENT_HSV
             MENUITEM "RGB",                     ID_TOOLS_GRADIENT_RGB
+            MENUITEM "XYZ",                     ID_TOOLS_GRADIENT_XYZ
         END
         MENUITEM "&Invert",                     ID_TOOLS_INVERT
         MENUITEM "Re&verse",                    ID_TOOLS_REVERSE

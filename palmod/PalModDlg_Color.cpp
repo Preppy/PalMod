@@ -1233,6 +1233,11 @@ void CPalModDlg::OnBnClickedGradient_RGB()
     GenerateGradientForSelectedColors(&ColorSystem::GetGradient_RGB);
 }
 
+void CPalModDlg::OnBnClickedGradient_XYZ()
+{
+    GenerateGradientForSelectedColors(&ColorSystem::GetGradient_XYZ);
+}
+
 void CPalModDlg::OnBnClickedReverse()
 {
     if (m_fEnabled)

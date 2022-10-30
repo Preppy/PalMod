@@ -347,6 +347,7 @@ public:
     afx_msg void OnBnClickedGradient_RGB();
     afx_msg void OnBnClickedGradient_HSL();
     afx_msg void OnBnClickedGradient_HSV();
+    afx_msg void OnBnClickedGradient_XYZ();
     afx_msg void OnBnClickedReverse();
     afx_msg void OnBnBlink();
     afx_msg void OnAboutAboutPalMod();

@@ -1725,6 +1725,61 @@ namespace ColorSystem
         return RGB(r, g, b);
     }
 
+    double mapRGBColorValueToXYZPoint(uint8_t rgbColorValue)
+    {
+        double mappedColor = (rgbColorValue / 255.0);
+
+        // use .0031308 for non-gamma corrected values
+        if (mappedColor > 0.0031308)
+        {
+            mappedColor = pow(((mappedColor + 0.055) / 1.055), 2.4);
+        }
+        else
+        {
+            mappedColor /= 12.92;
+        }
+
+        return mappedColor;
+    }
+
+    void RGBtoXYZ(const COLORREF rgb, double& x, double& y, double& z)
+    {
+        double mappedR = mapRGBColorValueToXYZPoint(GetRValue(rgb));
+        double mappedG = mapRGBColorValueToXYZPoint(GetGValue(rgb));
+        double mappedB = mapRGBColorValueToXYZPoint(GetBValue(rgb));
+
+        // Use D65 whitepoint
+        x = (mappedR * 0.4124) + (mappedG * 0.3576) + (mappedB * 0.1805);
+        y = (mappedR * 0.2126) + (mappedG * 0.7152) + (mappedB * 0.0722);
+        z = (mappedR * 0.0193) + (mappedG * 0.1192) + (mappedB * 0.9505);
+    }
+
+    double mapXYZPointToRGBColorValue(double xyzPoint)
+    {
+        // use .0031308 for non-gamma corrected values
+        if (abs(xyzPoint) < 0.0031308)
+        {
+            return 12.92 * xyzPoint;
+        }
+        else
+        {
+            return 1.055 * pow(xyzPoint, 0.41666) - 0.055;
+        }
+    }
+
+    COLORREF XYZtoRGB(double x, double y, double z)
+    {
+        double R = 3.2404542 * x - 1.5371385 * y - 0.4985314 * z;
+        double G = -0.9692660 * x + 1.8760108 * y + 0.0415560 * z;
+        double B = 0.0556434 * x - 0.2040259 * y + 1.0572252 * z;
+
+        double adjR = mapXYZPointToRGBColorValue(R) * 255.0;
+        double adjG = mapXYZPointToRGBColorValue(G) * 255.0;
+        double adjB = mapXYZPointToRGBColorValue(B) * 255.0;
+
+        return RGB(adjR, adjG, adjB);
+    }
+
     COLORREF GetGradient_RGB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps)
     {
         // avoid shifting due to rounding/translation
@@ -1739,9 +1794,9 @@ namespace ColorSystem
 
         const double nCurrentPercent = static_cast<double>(nCurrentStep) / static_cast<double>(nTotalSteps);
 
-        const uint8_t red = static_cast<uint8_t>(round(GetRValue(colorStart) + (nCurrentPercent * (GetRValue(colorFinish) - GetRValue(colorStart)))));
+        const uint8_t red =   static_cast<uint8_t>(round(GetRValue(colorStart) + (nCurrentPercent * (GetRValue(colorFinish) - GetRValue(colorStart)))));
         const uint8_t green = static_cast<uint8_t>(round(GetGValue(colorStart) + (nCurrentPercent * (GetGValue(colorFinish) - GetGValue(colorStart)))));
-        const uint8_t blue = static_cast<uint8_t>(round(GetBValue(colorStart) + (nCurrentPercent * (GetBValue(colorFinish) - GetBValue(colorStart)))));
+        const uint8_t blue =  static_cast<uint8_t>(round(GetBValue(colorStart) + (nCurrentPercent * (GetBValue(colorFinish) - GetBValue(colorStart)))));
 
         return RGB(red, green, blue);
     }
@@ -1800,6 +1855,35 @@ namespace ColorSystem
         const double valueStep = valueStart + (nCurrentPercent * (valueFinish - valueStart));
 
         const COLORREF colorStep = HSVtoRGB(hueStep, saturationStep, valueStep);
+
+        return colorStep;
+    }
+
+    COLORREF GetGradient_XYZ(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps)
+    {
+        // avoid shifting due to rounding/translation
+        if (nCurrentStep == 0)
+        {
+            return colorStart;
+        }
+        else if (nCurrentStep == nTotalSteps)
+        {
+            return colorFinish;
+        }
+
+        const double nCurrentPercent = static_cast<double>(nCurrentStep) / static_cast<double>(nTotalSteps);
+
+        double xStart, yStart, zStart;
+        double xFinish, yFinish, zFinish;
+
+        RGBtoXYZ(colorStart, xStart, yStart, zStart);
+        RGBtoXYZ(colorFinish, xFinish, yFinish, zFinish);
+
+        const double xStep = xStart + (nCurrentPercent * (xFinish - xStart));
+        const double yStep = yStart + (nCurrentPercent * (yFinish - yStart));
+        const double zStep = zStart + (nCurrentPercent * (zFinish - zStart));
+
+        const COLORREF colorStep = XYZtoRGB(xStep, yStep, zStep);
 
         return colorStep;
     }
