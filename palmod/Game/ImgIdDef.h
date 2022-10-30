@@ -2419,20 +2419,41 @@ enum SupportedOther_SpriteListIndex
     indexAiGSSprites_Endings,           // 0x1d
     indexAiGSSprites_Bonus,             // 0x1e
 
-    indexAsuraBuster_Alice,      // 0x1f
-    indexAsuraBuster_AliceBang,  // 0x20
-    indexAsuraBuster_ChenMao,    // 0x21
-    indexAsuraBuster_Goat,       // 0x22
-    indexAsuraBuster_Leon,       // 0x23
-    indexAsuraBuster_Nanami,     // 0x24
-    indexAsuraBuster_Rokurouta,  // 0x25
-    indexAsuraBuster_RoseMary,   // 0x26
-    indexAsuraBuster_Sittara,    // 0x27
-    indexAsuraBuster_Taros,      // 0x28
-    indexAsuraBuster_Vebel,      // 0x29
-    indexAsuraBuster_Yashaou,    // 0x2a
-    indexAsuraBuster_ZamB,       // 0x2b
-    indexAsuraBuster_Zinsuke,    // 0x2c
-    indexAsuraBuster_Stages,     // 0x2d
-    indexAsuraBuster_Bonus,      // 0x2e
+    indexDaemonBrideSprites_Asuma,              // 0x1f
+    indexDaemonBrideSprites_Dawn,               // 0x20
+    indexDaemonBrideSprites_Dies,               // 0x21
+    indexDaemonBrideSprites_Dusk,               // 0x22
+    indexDaemonBrideSprites_Eve,                // 0x23
+    indexDaemonBrideSprites_JudgementDay,       // 0x24
+    indexDaemonBrideSprites_Kuon,               // 0x25
+    indexDaemonBrideSprites_Kureha,             // 0x26
+    indexDaemonBrideSprites_Licht,              // 0x27
+    indexDaemonBrideSprites_Nina,               // 0x28
+    indexDaemonBrideSprites_Noah,               // 0x29
+    indexDaemonBrideSprites_Pekomaru,           // 0x2a
+    indexDaemonBrideSprites_Pure,               // 0x2b
+    indexDaemonBrideSprites_Reizei,             // 0x2c
+    indexDaemonBrideSprites_Shiffon,            // 0x2d
+    indexDaemonBrideSprites_ShiningRebellion,   // 0x2e
+    indexDaemonBrideSprites_Souya,              // 0x2f
+    indexDaemonBrideSprites_Yui,                // 0x30
+    indexDaemonBrideSprites_Stages,             // 0x31
+    indexDaemonBrideSprites_Bonus,              // 0x32
+
+    indexAsuraBuster_Alice,      // 0x33
+    indexAsuraBuster_AliceBang,  // 0x34
+    indexAsuraBuster_ChenMao,    // 0x35
+    indexAsuraBuster_Goat,       // 0x36
+    indexAsuraBuster_Leon,       // 0x37
+    indexAsuraBuster_Nanami,     // 0x38
+    indexAsuraBuster_Rokurouta,  // 0x39
+    indexAsuraBuster_RoseMary,   // 0x3a
+    indexAsuraBuster_Sittara,    // 0x3b
+    indexAsuraBuster_Taros,      // 0x3c
+    indexAsuraBuster_Vebel,      // 0x3d
+    indexAsuraBuster_Yashaou,    // 0x3e
+    indexAsuraBuster_ZamB,       // 0x3f
+    indexAsuraBuster_Zinsuke,    // 0x40
+    indexAsuraBuster_Stages,     // 0x41
+    indexAsuraBuster_Bonus,      // 0x42
 };

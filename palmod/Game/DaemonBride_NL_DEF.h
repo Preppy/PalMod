@@ -2,23 +2,43 @@
 
 const std::vector<uint16_t> DaemonBride_NL_IMGIDS_USED =
 {
+    indexDaemonBrideSprites_Asuma,              // 0x1f
+    indexDaemonBrideSprites_Dawn,               // 0x20
+    indexDaemonBrideSprites_Dies,               // 0x21
+    indexDaemonBrideSprites_Dusk,               // 0x22
+    indexDaemonBrideSprites_Eve,                // 0x23
+    indexDaemonBrideSprites_JudgementDay,       // 0x24
+    indexDaemonBrideSprites_Kuon,               // 0x25
+    indexDaemonBrideSprites_Kureha,             // 0x26
+    indexDaemonBrideSprites_Licht,              // 0x27
+    indexDaemonBrideSprites_Nina,               // 0x28
+    indexDaemonBrideSprites_Noah,               // 0x29
+    indexDaemonBrideSprites_Pekomaru,           // 0x2a
+    indexDaemonBrideSprites_Pure,               // 0x2b
+    indexDaemonBrideSprites_Reizei,             // 0x2c
+    indexDaemonBrideSprites_Shiffon,            // 0x2d
+    indexDaemonBrideSprites_ShiningRebellion,   // 0x2e
+    indexDaemonBrideSprites_Souya,              // 0x2f
+    indexDaemonBrideSprites_Yui,                // 0x30
+    indexDaemonBrideSprites_Stages,             // 0x31
+    indexDaemonBrideSprites_Bonus,              // 0x32
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_KuonSumeragi_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Kuon, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Kuon, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Kuon, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Kuon, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Kuon, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_KuonSumeragiMichael_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Kuon, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Kuon, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Kuon, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Kuon, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_KuonSumeragiEffects_PALETTES[] =
@@ -29,19 +49,19 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_KuonSumeragiEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_AsumaShidou_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Asuma, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Asuma, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Asuma, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Asuma, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_AsumaShidouUriel_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Asuma, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Asuma, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Asuma, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Asuma, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Asuma, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_AsumaShidouEffects_PALETTES[] =
@@ -51,20 +71,20 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_AsumaShidouEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_SouyaTachibana_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Souya, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Souya, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Souya, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Souya, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Souya, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_SouyaTachibanaRaphael_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Souya, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Souya, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Souya, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Souya, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Souya, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_SouyaTachibanaEffects_PALETTES[] =
@@ -76,20 +96,20 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_SouyaTachibanaEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_NoahTobari_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Noah, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Noah, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Noah, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Noah, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Noah, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_NoahTobariGabriel_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Noah, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Noah, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Noah, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Noah, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Noah, 0x001},
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_NoahTobariEffects_PALETTES[] =
@@ -107,19 +127,19 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_NoahTobariExtra_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_NinaSumeragi_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Nina, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Nina, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Nina, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Nina, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_NinaSumeragiZadkiel_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Nina, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Nina, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Nina, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Nina, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Nina, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_NinaSumeragiEffects_PALETTES[] =
@@ -129,20 +149,20 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_NinaSumeragiEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_YuiEmeliaMitsukihara_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Yui, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Yui, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Yui, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Yui, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Yui, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_YuiEmeliaMitsukiharaMetatron_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Yui, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Yui, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Yui, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Yui, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Yui, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_YuiEmeliaMitsukiharaEffects_PALETTES[] =
@@ -152,20 +172,20 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_YuiEmeliaMitsukiharaEffects_PALETTES[
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_LichtWulfstanSchwarz_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Licht, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Licht, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Licht, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Licht, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Licht, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_LichtWulfstanSchwarzHaniel_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Licht, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Licht, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Licht, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Licht, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Licht, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_LichtWulfstanSchwarzEffects_PALETTES[] =
@@ -178,20 +198,20 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_LichtWulfstanSchwarzEffects_PALETTES[
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_ReizeiAbane_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Reizei, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Reizei, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Reizei, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Reizei, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Reizei, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_ReizeiAbaneLucifer_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Reizei, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Reizei, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Reizei, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Reizei, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Reizei, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_ReizeiAbaneEffects_PALETTES[] =
@@ -201,21 +221,21 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_ReizeiAbaneEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_Dusk_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused 1", 0x800, 0xa00 },
-    { L"Unused 2", 0xa00, 0xc00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Dusk, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Dusk, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Dusk, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Dusk, 0x00 },
+    { L"Unused 1", 0x800, 0xa00, indexDaemonBrideSprites_Dusk, 0x00 },
+    { L"Unused 2", 0xa00, 0xc00, indexDaemonBrideSprites_Dusk, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_DuskAstaroth_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Dusk, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Dusk, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Dusk, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Dusk, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Dusk, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_DuskEffects_PALETTES[] =
@@ -233,20 +253,20 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_DuskExtras_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_Pekomaru_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Pekomaru, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Pekomaru, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Pekomaru, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Pekomaru, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Pekomaru, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_PekomaruSatan_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Pekomaru, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Pekomaru, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Pekomaru, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Pekomaru, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Pekomaru, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_PekomaruEffects_PALETTES[] =
@@ -265,20 +285,20 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_PekomaruExtras_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_Dawn_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Dawn, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Dawn, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Dawn, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Dawn, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Dawn, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_DawnMammon_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Dawn, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Dawn, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Dawn, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Dawn, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Dawn, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_DawnEffects_PALETTES[] =
@@ -289,19 +309,19 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_DawnEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_Shiffon_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Shiffon, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Shiffon, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Shiffon, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Shiffon, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Shiffon, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_ShiffonLeviathan_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Shiffon, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Shiffon, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Shiffon, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Shiffon, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_ShiffonEffects_PALETTES[] =
@@ -331,19 +351,19 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_ShiffonEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_KurehaYamisaka_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Kureha, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Kureha, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Kureha, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Kureha, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Kureha, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_KurehaYamisakaAsmodeus_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Kureha, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Kureha, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Kureha, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Kureha, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_KurehaYamisakaEffects_PALETTES[] =
@@ -361,20 +381,20 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_KurehaYamisakaEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_Eve_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Eve, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Eve, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Eve, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Eve, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Eve, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_EveBeelzebub_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Eve, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Eve, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Eve, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Eve, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Eve, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_EveEffects_PALETTES[] =
@@ -384,37 +404,37 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_EveEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_JudgementDay_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_JudgementDay, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_JudgementDay, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_JudgementDay, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_JudgementDay, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_JudgementDay, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_JudgementDayMichael_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_JudgementDay, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_JudgementDay, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_JudgementDay, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_JudgementDay, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_JudgementDay, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_Pure_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Pure, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Pure, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Pure, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Pure, 0x00 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_Pure, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_PureZadkiel_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_Pure, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_Pure, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_Pure, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_Pure, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_PureEffects_PALETTES[] =
@@ -424,19 +444,19 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_PureEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_ShiningRebellion_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_ShiningRebellion, 0x00 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_ShiningRebellion, 0x00 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_ShiningRebellion, 0x00 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_ShiningRebellion, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_ShiningRebellionLucifer_PALETTES[] =
 {
-    { L"A", 0x0, 0x200 },
-    { L"B", 0x200, 0x400 },
-    { L"C", 0x400, 0x600 },
-    { L"D", 0x600, 0x800 },
-    { L"Unused", 0x800, 0xa00 },
+    { L"A", 0x0, 0x200, indexDaemonBrideSprites_ShiningRebellion, 0x01 },
+    { L"B", 0x200, 0x400, indexDaemonBrideSprites_ShiningRebellion, 0x01 },
+    { L"C", 0x400, 0x600, indexDaemonBrideSprites_ShiningRebellion, 0x01 },
+    { L"D", 0x600, 0x800, indexDaemonBrideSprites_ShiningRebellion, 0x01 },
+    { L"Unused", 0x800, 0xa00, indexDaemonBrideSprites_ShiningRebellion, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_ShiningRebellionEffects_PALETTES[] =
@@ -454,16 +474,16 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_ShiningRebellionExtras_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_DiesIraeDeusDemiurge_PALETTES[] =
 {
-    { L"Palette 1", 0x0, 0x200 },
-    { L"Palette 2", 0x200, 0x400 },
+    { L"Palette 1", 0x0, 0x200, indexDaemonBrideSprites_Dies, 0x00 },
+    { L"Palette 2", 0x200, 0x400, indexDaemonBrideSprites_Dies, 0x00 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_DiesIraeDeusMichael_PALETTES[] =
 {
-    { L"Palette 1", 0x0, 0x200 },
-    { L"Palette 2", 0x200, 0x400 },
-    { L"Palette 3", 0x400, 0x600 },
-    { L"Palette 4", 0x600, 0x800 },
+    { L"Palette 1", 0x0, 0x200, indexDaemonBrideSprites_Dies, 0x01 },
+    { L"Palette 2", 0x200, 0x400, indexDaemonBrideSprites_Dies, 0x01 },
+    { L"Palette 3", 0x400, 0x600, indexDaemonBrideSprites_Dies, 0x01 },
+    { L"Palette 4", 0x600, 0x800, indexDaemonBrideSprites_Dies, 0x01 },
 };
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_DiesIraeDeusEffects_PALETTES[] =
@@ -480,28 +500,28 @@ const sGame_PaletteDataset DAEMONBRIDGE_NL_DiesIraeDeusEffects_PALETTES[] =
 
 const sGame_PaletteDataset DAEMONBRIDGE_NL_SELECTSCREEN_PALETTES[] =
 {
-    { L"Kuon Sumeragi", 0x2a00, 0x2c00 },
-    { L"Kuon Sumeragi - Michael", 0xe00, 0x1000 },
-    { L"Asuma Shidou", 0x2800, 0x2a00 },
-    { L"Asuma Shidou - Uriel", 0xc00, 0xe00 },
-    { L"Souya Tachibana", 0x2600, 0x2800 },
-    { L"Noah Tobari", 0x2400, 0x2600 },
-    { L"Noah Tobari - Gabriel", 0xa00, 0xc00 },
-    { L"Nina Sumeragi", 0x2200, 0x2400 },
-    { L"Nina Sumeragi - Zadkiel", 0x800, 0xa00 },
-    { L"Yui Emelia Mitsukihara", 0x2000, 0x2200 },
-    { L"Licht Wulfstan Schwarz", 0x1e00, 0x2000 },
-    { L"Licht Wulfstan Schawrz - Haniel", 0x600, 0x800 },
-    { L"Reizei Abane", 0x1c00, 0x1e00 },
-    { L"Reizei Abane - Lucifer", 0x400, 0x600 },
-    { L"Dusk", 0x1a00, 0x1c00 },
-    { L"Pekomaru", 0x1800, 0x1a00 },
-    { L"Dawn", 0x1600, 0x1800 },
-    { L"Shiffon", 0x200, 0x400 },
-    { L"Kureha Yamisaka", 0x1400, 0x1600 },
-    { L"Eve & Beelzebub", 0x0, 0x200 },
-    { L"Judgement Day", 0x1200, 0x1400 },
-    { L"Shining Rebellion", 0x1000, 0x1200 },
+    { L"Kuon Sumeragi", 0x2a00, 0x2c00, indexDaemonBrideSprites_Kuon, 0x00 },
+    { L"Kuon Sumeragi - Michael", 0xe00, 0x1000, indexDaemonBrideSprites_Kuon, 0x01 },
+    { L"Asuma Shidou", 0x2800, 0x2a00, indexDaemonBrideSprites_Asuma, 0x00 },
+    { L"Asuma Shidou - Uriel", 0xc00, 0xe00, indexDaemonBrideSprites_Asuma, 0x01 },
+    { L"Souya Tachibana", 0x2600, 0x2800, indexDaemonBrideSprites_Souya, 0x00 },
+    { L"Noah Tobari", 0x2400, 0x2600, indexDaemonBrideSprites_Noah, 0x00 },
+    { L"Noah Tobari - Gabriel", 0xa00, 0xc00, indexDaemonBrideSprites_Noah, 0x01 },
+    { L"Nina Sumeragi", 0x2200, 0x2400, indexDaemonBrideSprites_Nina, 0x00 },
+    { L"Nina Sumeragi - Zadkiel", 0x800, 0xa00, indexDaemonBrideSprites_Nina, 0x01 },
+    { L"Yui Emelia Mitsukihara", 0x2000, 0x2200, indexDaemonBrideSprites_Yui, 0x00 },
+    { L"Licht Wulfstan Schwarz", 0x1e00, 0x2000, indexDaemonBrideSprites_Licht, 0x00 },
+    { L"Licht Wulfstan Schawrz - Haniel", 0x600, 0x800, indexDaemonBrideSprites_Licht, 0x01 },
+    { L"Reizei Abane", 0x1c00, 0x1e00, indexDaemonBrideSprites_Reizei, 0x00 },
+    { L"Reizei Abane - Lucifer", 0x400, 0x600, indexDaemonBrideSprites_Reizei, 0x01 },
+    { L"Dusk", 0x1a00, 0x1c00, indexDaemonBrideSprites_Dusk, 0x00 },
+    { L"Pekomaru", 0x1800, 0x1a00, indexDaemonBrideSprites_Pekomaru, 0x00 },
+    { L"Dawn", 0x1600, 0x1800, indexDaemonBrideSprites_Dawn, 0x00 },
+    { L"Shiffon", 0x200, 0x400, indexDaemonBrideSprites_Shiffon, 0x00 },
+    { L"Kureha Yamisaka", 0x1400, 0x1600, indexDaemonBrideSprites_Kureha, 0x00 },
+    { L"Eve & Beelzebub", 0x0, 0x200, indexDaemonBrideSprites_Eve, 0x00 },
+    { L"Judgement Day", 0x1200, 0x1400, indexDaemonBrideSprites_JudgementDay, 0x00 },
+    { L"Shining Rebellion", 0x1000, 0x1200, indexDaemonBrideSprites_ShiningRebellion, 0x00 },
 };
 
 const sDescTreeNode DAEMONBRIDGE_NL_KuonSumeragi_COLLECTION[] =
