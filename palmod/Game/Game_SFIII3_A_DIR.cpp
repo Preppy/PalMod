@@ -515,9 +515,10 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSIMMNumber)
 {
     CString strInfo;
 
-    if (UsePaletteSetFor51_4rd())
+    if (UsePaletteSetFor51() || UsePaletteSetFor51_4rd())
     {
-        // 4rd Strike is just 5.6 and 5.7, so skip to the second half
+        // 3rd Strike 51 starts at 5.4, so jump there
+        // 4rd Strike is just 5.6 and 5.7, so skip to the second half too
         nSIMMNumber += 4;
     }
 
