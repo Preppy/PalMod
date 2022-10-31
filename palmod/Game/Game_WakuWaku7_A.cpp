@@ -25,6 +25,8 @@ uint32_t CGame_WakuWaku7_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** 
 
 BOOL CGame_WakuWaku7_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
+    // Waku uses a custom UpdatePalImg because the paired palette count varies between 4 and 5
+
     //Reset palette sources
     ClearSrcPal();
 

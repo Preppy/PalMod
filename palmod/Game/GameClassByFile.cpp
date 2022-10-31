@@ -369,6 +369,11 @@ BOOL CGameClassByFile::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
         if (paletteDataSet->pPalettePairingInfo)
         {
+            if (DisableMultiSpriteExport(paletteDataSet->pPalettePairingInfo))
+            {
+                nSrcAmt = 1;
+            }
+
             if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
             {
                 const uint32_t nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);

@@ -147,19 +147,19 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
                     else
                     {
-                        if (!paletteDataSet->pPalettePairingInfo->fPairingIsFlipped)
+                        if (InvertPairingDisplay(paletteDataSet->pPalettePairingInfo))
                         {
                             ClearSetImgTicket(
-                                CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse,
+                                    CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse)
                                 )
                             );
                         }
                         else
                         {
                             ClearSetImgTicket(
-                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse)
+                                CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
                                 )
                             );
                         }
@@ -190,8 +190,8 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             GetMainTree()->GetDescNode(Node01, Node02 + nNodeDistance, Node03 + nPeerNodeDistance, -1)
                         };
 
-                        const uint8_t nFirstPalette = paletteDataSet->pPalettePairingInfo->fPairingIsFlipped ? 1 : 0;
-                        const uint8_t nSecondPalette = paletteDataSet->pPalettePairingInfo->fPairingIsFlipped ? 0 : 1;
+                        const uint8_t nFirstPalette = (InvertPairingDisplay(paletteDataSet->pPalettePairingInfo)) ? 1 : 0;
+                        const uint8_t nSecondPalette = (InvertPairingDisplay(paletteDataSet->pPalettePairingInfo)) ? 0 : 1;
 
                         //Set each palette
                         CreateDefPal(JoinedNode[nFirstPalette], 0);

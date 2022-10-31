@@ -163,6 +163,8 @@ void CGame_SFA3_A::DumpHeaderPalettes()
 
 BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
+    // We use custom logic here for some runtime pairing
+
     //Reset palette sources
     ClearSrcPal();
 

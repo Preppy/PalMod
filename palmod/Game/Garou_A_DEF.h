@@ -1430,10 +1430,10 @@ const sGame_PaletteDataset Garou_A_KAIN_PALETTES_BOSS[] =
 
 const sGame_PaletteDataset Garou_A_ROCKHOWARD_PALETTES_PORTRAITS[] =
 {
-    { L"Rock Portrait Palette - A", 0x2a900, 0x2a940, indexGarouARockHoward, 0x40, &pairNext4 },
-    { L"Rock Portrait Palette - B", 0x2a940, 0x2a980, indexGarouARockHoward, 0x40, &pairNext3 },
-    { L"Rock Portrait Palette - C", 0x2a980, 0x2a9c0, indexGarouARockHoward, 0x40, &pairNext2 },
-    { L"Rock Portrait Palette - D", 0x2a9c0, 0x2aa00, indexGarouARockHoward, 0x40, &pairNext },
+    { L"Rock Portrait Palette - A", 0x2a900, 0x2a940, indexGarouARockHoward, 0x40, &pairNext4Unsafe },
+    { L"Rock Portrait Palette - B", 0x2a940, 0x2a980, indexGarouARockHoward, 0x40, &pairNext3Unsafe },
+    { L"Rock Portrait Palette - C", 0x2a980, 0x2a9c0, indexGarouARockHoward, 0x40, &pairNext2Unsafe },
+    { L"Rock Portrait Palette - D", 0x2a9c0, 0x2aa00, indexGarouARockHoward, 0x40, &pairNextUnsafe },
     { L"Rock Portrait - Shared Extra", 0x0177c0, 0x0177e0, indexGarouARockHoward, 0x3F },
 };
 
@@ -1535,10 +1535,10 @@ const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset Garou_A_KAIN_PALETTES_PORTRAITS[] =
 {
-    { L"Kain Portrait Palette - A", 0x2b600, 0x2b640, indexGarouAKain, 0x40, &pairNext4 },
-    { L"Kain Portrait Palette - B", 0x2b640, 0x2b680, indexGarouAKain, 0x40, &pairNext3 },
-    { L"Kain Portrait Palette - C", 0x2b680, 0x2b6c0, indexGarouAKain, 0x40, &pairNext2 },
-    { L"Kain Portrait Palette - D", 0x2b6c0, 0x2b700, indexGarouAKain, 0x40, &pairNext },
+    { L"Kain Portrait Palette - A", 0x2b600, 0x2b640, indexGarouAKain, 0x40, &pairNext4Unsafe },
+    { L"Kain Portrait Palette - B", 0x2b640, 0x2b680, indexGarouAKain, 0x40, &pairNext3Unsafe },
+    { L"Kain Portrait Palette - C", 0x2b680, 0x2b6c0, indexGarouAKain, 0x40, &pairNext2Unsafe },
+    { L"Kain Portrait Palette - D", 0x2b6c0, 0x2b700, indexGarouAKain, 0x40, &pairNextUnsafe },
     { L"Kain Portrait - Shared Extra", 0x177e0, 0x17800, indexGarouAKain, 0x3f }
 };
 

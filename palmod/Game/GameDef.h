@@ -462,10 +462,18 @@ struct stExtraDef
     uint16_t indexOffsetToUse = 0x0; // subsprites within that collection
 };
 
+enum class PalettePairOptions
+{
+    None = 0,
+    FlipDisplay         = 1 << 0,
+    DisableMultiExport  = 1 << 1,
+};
+
+
 struct stPairedPaletteInfo
 {
     int8_t nNodeIncrementToPartner = 1;
-    bool fPairingIsFlipped = false;
+    PalettePairOptions options = PalettePairOptions::None;
     uint32_t nPalettesToJoin = 2;
     int8_t nOverallNodeIncrementTo2ndPartner = 2;
     int8_t nOverallNodeIncrementTo3rdPartner = 3;
@@ -474,6 +482,13 @@ struct stPairedPaletteInfo
     int8_t nOverallNodeIncrementTo6thPartner = 6;
     int8_t nOverallNodeIncrementTo7thPartner = 7;
 };
+
+constexpr bool operator&(PalettePairOptions left, PalettePairOptions right) {
+    return (static_cast<uint8_t>(left) & static_cast<uint8_t>(right));
+}
+
+inline constexpr bool InvertPairingDisplay(const stPairedPaletteInfo *psPalInfo) { return psPalInfo->options & PalettePairOptions::FlipDisplay; };
+inline constexpr bool DisableMultiSpriteExport(const stPairedPaletteInfo *psPalInfo) { return psPalInfo->options & PalettePairOptions::DisableMultiExport; };
 
 bool ArePalettePairsEqual(const stPairedPaletteInfo* plhs, const stPairedPaletteInfo* prhs);
 
@@ -495,7 +510,7 @@ struct sGame_PaletteDataset
 };
 
 const stPairedPaletteInfo pairHandledInCode = { 0 };
-const stPairedPaletteInfo pairFullyLinkedNode = { 0, false, -1 };
+const stPairedPaletteInfo pairFullyLinkedNode = { 0, {}, -1 };
 
 const stPairedPaletteInfo pairNext = { 1 };
 const stPairedPaletteInfo pairNext2 = { 2 };
@@ -523,54 +538,71 @@ const stPairedPaletteInfo pairPrevious10 = { -10 };
 const stPairedPaletteInfo pairPrevious14 = { -14 };
 
 // Same thing as Previous, except flip the order of the joins to avoid sprite occlusion 
-const stPairedPaletteInfo pairPreviousFlipped = { -1, true };
-const stPairedPaletteInfo pairPreviousFlipped2 = { -2, true };
+const stPairedPaletteInfo pairPreviousFlipped = { -1, PalettePairOptions::FlipDisplay };
+const stPairedPaletteInfo pairPreviousFlipped2 = { -2, PalettePairOptions::FlipDisplay };
+const stPairedPaletteInfo pairPreviousFlipped3 = { -3, PalettePairOptions::FlipDisplay };
+const stPairedPaletteInfo pairPreviousFlipped4 = { -4, PalettePairOptions::FlipDisplay };
+const stPairedPaletteInfo pairPreviousFlipped5 = { -5, PalettePairOptions::FlipDisplay };
+const stPairedPaletteInfo pairPreviousFlipped6 = { -6, PalettePairOptions::FlipDisplay };
+const stPairedPaletteInfo pairPreviousFlipped7 = { -7, PalettePairOptions::FlipDisplay };
 
-const stPairedPaletteInfo pairNextAndNext =                         { 1, false, 3 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNext2AndNext3 =                       { 2, false, 3, 3 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNextSkipped =                  { 1, false, 3, 3 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNext4 =                        { 1, false, 3, 4 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNext6 =                        { 1, false, 3, 6 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNext7 =                        { 1, false, 3, 7 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNext9 =                        { 1, false, 3, 9 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNext12 =                       { 1, false, 3, 12 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext =                         { 1, {}, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext2AndNext3 =                       { 2, {}, 3, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextSkipped =                  { 1, {}, 3, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext4 =                        { 1, {}, 3, 4 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext6 =                        { 1, {}, 3, 6 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext7 =                        { 1, {}, 3, 7 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext9 =                        { 1, {}, 3, 9 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext12 =                       { 1, {}, 3, 12 }; // triple display... requires special handling in code
 
-const stPairedPaletteInfo pairNextAndNext39 =                       { 1, false, 3, 39 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNext41 =                       { 1, false, 3, 41 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNext54 =                       { 1, false, 3, 54 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNextSkippedAndNextSkipped =           { 2, false, 3, 4 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNext4AndNext =                        { 4, false, 3, 3 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext39 =                       { 1, {}, 3, 39 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext41 =                       { 1, {}, 3, 41 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext54 =                       { 1, {}, 3, 54 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNextSkippedAndNextSkipped =           { 2, {}, 3, 4 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext4AndNext =                        { 4, {}, 3, 3 }; // triple display... requires special handling in code
 
-const stPairedPaletteInfo pairNext2AndNext6 =                       { 2, false, 3, 6 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNext3AndNext7 =                       { 3, false, 3, 7 }; // triple display... requires special handling in code
-const stPairedPaletteInfo pairNext3AndNext8 =                       { 3, false, 3, 8 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext2AndNext6 =                       { 2, {}, 3, 6 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext3AndNext7 =                       { 3, {}, 3, 7 }; // triple display... requires special handling in code
+const stPairedPaletteInfo pairNext3AndNext8 =                       { 3, {}, 3, 8 }; // triple display... requires special handling in code
 
-const stPairedPaletteInfo pairNext3Palettes =                       { 1, false, 4 };          // quad display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNextSkippedPair =              { 1, false, 4, 3, 4 };    // quad display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNext32AndNextSkipped =         { 1, false, 4, 32, 34 };  // quad display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNext41AndNext =                { 1, false, 4, 41, 42 };  // quad display... requires special handling in code
-const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext =    { 2, false, 4, 4, 5 };    // quad display... requires special handling in code
-const stPairedPaletteInfo pairNext4AndNextAndNext =                 { 4, false, 4, 5, 6 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext3Palettes =                       { 1, {}, 4 };          // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextSkippedPair =              { 1, {}, 4, 3, 4 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext32AndNextSkipped =         { 1, {}, 4, 32, 34 };  // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNext41AndNext =                { 1, {}, 4, 41, 42 };  // quad display... requires special handling in code
+const stPairedPaletteInfo pairNextSkippedAndNextSkippedAndNext =    { 2, {}, 4, 4, 5 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext4AndNextAndNext =                 { 4, {}, 4, 5, 6 };    // quad display... requires special handling in code
 
-const stPairedPaletteInfo pairNext4AndNext8AndNext9 =               { 4, false, 4, 8, 9 };    // quad display... requires special handling in code
-const stPairedPaletteInfo pairNext4AndNext7AndNext8 =               { 4, false, 4, 7, 8 };    // quad display... requires special handling in code
-const stPairedPaletteInfo pairNext4AndNext6AndNext7 =               { 4, false, 4, 6, 7 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext4AndNext8AndNext9 =               { 4, {}, 4, 8, 9 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext4AndNext7AndNext8 =               { 4, {}, 4, 7, 8 };    // quad display... requires special handling in code
+const stPairedPaletteInfo pairNext4AndNext6AndNext7 =               { 4, {}, 4, 6, 7 };    // quad display... requires special handling in code
 
-const stPairedPaletteInfo pairNext4Palettes =                       { 1, false, 5 }; // quint-display -- specially handled
-const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, false, 5, 2, 3, 8 };     // quint display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNextAndNextAndNext9 =          { 1, false, 5, 2, 3, 12 };    // quint display... requires special handling in code
-const stPairedPaletteInfo pairNextAndNextAndNextAndNext13 =         { 1, false, 5, 2, 3, 16 };    // quint display... requires special handling in code
+const stPairedPaletteInfo pairNext4Palettes =                       { 1, {}, 5 }; // quint-display -- specially handled
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext5 =          { 1, {}, 5, 2, 3, 8 };     // quint display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext9 =          { 1, {}, 5, 2, 3, 12 };    // quint display... requires special handling in code
+const stPairedPaletteInfo pairNextAndNextAndNextAndNext13 =         { 1, {}, 5, 2, 3, 16 };    // quint display... requires special handling in code
 
-const stPairedPaletteInfo pairNext5Palettes =                       { 1, false, 6 }; // six-display -- specially handled
+const stPairedPaletteInfo pairNext5Palettes =                       { 1, {}, 6 }; // six-display -- specially handled
 
-const stPairedPaletteInfo pairNext6Palettes =                       { 1, false, 7 }; // Seven-display -- specially handled
-const stPairedPaletteInfo pairNext7Palettes =                       { 1, false, 8 }; // eight-display -- specially handled
-const stPairedPaletteInfo pairNext11Palettes =                      { 1, false, 12 };
+const stPairedPaletteInfo pairNext6Palettes =                       { 1, {}, 7 }; // Seven-display -- specially handled
+const stPairedPaletteInfo pairNext7Palettes =                       { 1, {}, 8 }; // eight-display -- specially handled
+const stPairedPaletteInfo pairNext11Palettes =                      { 1, {}, 12 };
+
+// These must be used when you are doing the extremely fragile act of pairing cross-node.  For that type of pairing we need
+// to disable multisprite export.
+const stPairedPaletteInfo pairNextUnsafe = { 1, PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairNext2Unsafe = { 2, PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairNext3Unsafe = { 3, PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairNext4Unsafe = { 4, PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairNext5Unsafe = { 5, PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairNext6Unsafe = { 6, PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairNext7Unsafe = { 7, PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairNext8Unsafe = { 8, PalettePairOptions::DisableMultiExport };
+const stPairedPaletteInfo pairNext9Unsafe = { 9, PalettePairOptions::DisableMultiExport };
 
 constexpr auto MAXIMUM_PALETTE_PAIRS_ALLOWED = 12;
 
 // Vs Series
-const stPairedPaletteInfo pairMVCDevilotNormal =                    { 1, false, 4 }; // Don't use pairNext here: we manually tweak z-order
+const stPairedPaletteInfo pairMVCDevilotNormal = { 1, {}, 4 }; // Don't use pairNext here: we manually tweak z-order
 
 #pragma region SecondaryPaletteEffects
 

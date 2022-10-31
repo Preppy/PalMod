@@ -3,6 +3,8 @@
 
 BOOL CGame_GGDS_NDS::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
+    // We use custom handling here because the related palettes use varying names per character
+
     //Reset palette sources
     ClearSrcPal();
 
@@ -37,7 +39,7 @@ BOOL CGame_GGDS_NDS::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
         const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
 
-        if (pCurrentNode) // All current nodes are one block of color options
+        if (pCurrentNode) // All current nodes are one block of color options, but with different names
         {
             if (_wcsicmp(pCurrentNode->szDesc, L"Palettes") == 0)
             {

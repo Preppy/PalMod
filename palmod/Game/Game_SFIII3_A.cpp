@@ -198,6 +198,8 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, uint32_t nUnitId)
 
 BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
+    // SF3_A uses custom code here to handle Gill, Shin Gouki, and Ultra Sean
+
     //Reset palette sources
     ClearSrcPal();
 

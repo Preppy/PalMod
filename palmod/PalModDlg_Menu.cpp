@@ -104,10 +104,10 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"We need the sfiii2-simm5.x files from sfiii2.zip (US) or sfiii2n.zip (JPN).";
             break;
         case SFIII3_A_DIR_10:
-            pszExtraInfo = L"The US version uses the sfiii3-simm1.x files from sfiii3nr1.zip.\nThe JPN version uses the sfiii3n-simm1.x files from sfiii3n.zip.\nIf you don't have sfiii3nr1.zip, the files will be in sfiii3.zip.";
+            pszExtraInfo = L"US version uses sfiii3-simm1.x files from sfiii3nr1.zip.\nJPN version uses sfiii3n-simm1.x files from sfiii3n.zip.\nIf you don't have sfiii3nr1.zip, the files will be in sfiii3.zip.";
             break;
         case SFIII3_A_DIR_51:
-            pszExtraInfo = L"For the US version we need the sfiii3-simm5.x files from sfiii3.zip.\nFor the JPN version we need the sfiii3n-simm5.x files from sfiii3n.zip.";
+            pszExtraInfo = L"US version uses sfiii3-simm5.x files from sfiii3.zip.\nJPN version uses sfiii3n-simm5.x files from sfiii3n.zip.";
             break;
         case SFIII3_A_DIR_4rd:
             pszExtraInfo = L"We need the 4rd-simm5.x files from sfiii4n.zip.";

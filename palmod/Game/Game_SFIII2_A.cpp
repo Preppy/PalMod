@@ -4,6 +4,8 @@
 // We use custom handling to pair Shin Gouki and special-case Urien
 BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
+    // We use custom logic for Urien and Shin Gouki
+
     //Reset palette sources
     ClearSrcPal();
 

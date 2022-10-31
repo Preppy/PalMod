@@ -3,6 +3,9 @@
 
 BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
+    // We use custom handling here for the cross-collection weakpoints
+
+
     //Reset palette sources
     ClearSrcPal();
 

@@ -40,7 +40,7 @@ const sGame_PaletteDataset AvgrsGS_A_CaptainAmerica_Effects[] =
     { L"Captain America Zapped", 0xf2400, 0xf2420, indexAiGSSprites_CaptainAmerica, 0x00 },
     { L"Captain America Effect 1", 0xf2420, 0xf2440 },
     { L"Captain America Effect 2", 0xf2440, 0xf2460 },
-    { L"Captain America Effect 3", 0xf2460, 0xf2480 },
+    { L"Captain America Effect 3", 0xf2460, 0xf2480, indexAiGSSprites_CaptainAmerica, 0x00 },
     { L"Captain America Effect 4", 0xf2480, 0xf24a0 },
 };
 
@@ -86,12 +86,12 @@ const sGame_PaletteDataset AvgrsGS_A_Crystal_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_BlackKnight_P1[] =
 {
-    { L"Black Knight P1", 0xf26c0, 0xf26e0, indexAiGSSprites_BlackKnight, 0x00 },
+    { L"Black Knight P1", 0xf26c0, 0xf26e0, indexAiGSSprites_BlackKnight, 0x00, &pairNext4Unsafe },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_BlackKnight_P2[] =
 {
-    { L"Black Knight P2", 0xf27a0, 0xf27c0, indexAiGSSprites_BlackKnight, 0x00 },
+    { L"Black Knight P2", 0xf27a0, 0xf27c0, indexAiGSSprites_BlackKnight, 0x00, &pairNext3Unsafe },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_BlackKnight_Effects[] =
@@ -101,7 +101,7 @@ const sGame_PaletteDataset AvgrsGS_A_BlackKnight_Effects[] =
     { L"Black Knight Effect 1", 0xf2720, 0xf2740, indexAiGSSprites_BlackKnight, 0x01 },
     { L"Black Knight Effect 2", 0xf2740, 0xf2760 },
     { L"Black Knight Effect 3", 0xf2760, 0xf2780 },
-    { L"Black Knight Effect 4", 0xf2780, 0xf27a0 },
+    { L"Black Knight Effect 4", 0xf2780, 0xf27a0, indexAiGSSprites_BlackKnight, 0x01 },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Shatterax_P1[] =
@@ -126,12 +126,12 @@ const sGame_PaletteDataset AvgrsGS_A_Shatterax_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Korath_P1[] =
 {
-    { L"Korath P1", 0xf28c0, 0xf28e0, indexAiGSSprites_Korath, 0x00 },
+    { L"Korath P1", 0xf28c0, 0xf28e0, indexAiGSSprites_Korath, 0x00, &pairNext4Unsafe },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Korath_P2[] =
 {
-    { L"Korath P2", 0xf29a0, 0xf29c0, indexAiGSSprites_Korath, 0x00 },
+    { L"Korath P2", 0xf29a0, 0xf29c0, indexAiGSSprites_Korath, 0x00, &pairNext3Unsafe },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Korath_Effects[] =
@@ -221,12 +221,12 @@ const sGame_PaletteDataset AvgrsGS_A_Assists_IronMan_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_MightyThor_P1[] =
 {
-    { L"Mighty Thor P1", 0xf2d20, 0xf2d40, indexAiGSSprites_MightyThor, 0x00 },
+    { L"Mighty Thor P1", 0xf2d20, 0xf2d40, indexAiGSSprites_MightyThor, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_MightyThor_P2[] =
 {
-    { L"Mighty Thor P2", 0xf2d60, 0xf2d80, indexAiGSSprites_MightyThor, 0x00 },
+    { L"Mighty Thor P2", 0xf2d60, 0xf2d80, indexAiGSSprites_MightyThor, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_MightyThor_Effects[] =
@@ -236,12 +236,12 @@ const sGame_PaletteDataset AvgrsGS_A_Assists_MightyThor_Effects[] =
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Vision_P1[] =
 {
-    { L"Vision P1", 0xf2d80, 0xf2da0, indexAiGSSprites_Vision, 0x00 },
+    { L"Vision P1", 0xf2d80, 0xf2da0, indexAiGSSprites_Vision, 0x00, &pairNext2Unsafe },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Vision_P2[] =
 {
-    { L"Vision P2", 0xf2dc0, 0xf2de0, indexAiGSSprites_Vision, 0x00 },
+    { L"Vision P2", 0xf2dc0, 0xf2de0, indexAiGSSprites_Vision, 0x00, &pairNextUnsafe },
 };
 
 const sGame_PaletteDataset AvgrsGS_A_Assists_Vision_Effects[] =

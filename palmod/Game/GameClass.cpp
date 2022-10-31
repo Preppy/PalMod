@@ -14,7 +14,7 @@ uint8_t CGameClass::m_nSizeOfColorsInBytes = 2;
 bool ArePalettePairsEqual(const stPairedPaletteInfo* plhs, const stPairedPaletteInfo* prhs)
 {
     return ((plhs->nNodeIncrementToPartner == prhs->nNodeIncrementToPartner) &&
-            (plhs->fPairingIsFlipped == prhs->fPairingIsFlipped) &&
+            (plhs->options == prhs->options) &&
             (plhs->nPalettesToJoin == prhs->nPalettesToJoin) &&
             (plhs->nOverallNodeIncrementTo2ndPartner == prhs->nOverallNodeIncrementTo2ndPartner) &&
             (plhs->nOverallNodeIncrementTo3rdPartner == prhs->nOverallNodeIncrementTo3rdPartner) &&
@@ -1531,6 +1531,11 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
 
             if (paletteDataSet->pPalettePairingInfo)
             {
+                if (DisableMultiSpriteExport(paletteDataSet->pPalettePairingInfo))
+                {
+                    nSrcAmt = 1;
+                }
+
                 if (paletteDataSet->pPalettePairingInfo->nPalettesToJoin == -1)
                 {
                     const uint32_t nStageCount = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
@@ -1650,23 +1655,47 @@ BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, uint32_t* rgExtr
                         std::vector<sImgTicket*> vsImagePairs;
                         sImgTicket* pPreviousImage = nullptr;
 
-                        for (int32_t nNodeIndex = (paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1); nNodeIndex >= 0; nNodeIndex--)
+                        if (InvertPairingDisplay(paletteDataSet->pPalettePairingInfo))
                         {
-                            sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage);
+                            for (int32_t nNodeIndex = 0; nNodeIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nNodeIndex++)
+                            {
+                                sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage);
 
-                            vsImagePairs.push_back(pThisImage);
-                            
-                            pPreviousImage = pThisImage;
+                                vsImagePairs.push_back(pThisImage);
+
+                                pPreviousImage = pThisImage;
+                            }
+
+                            ClearSetImgTicket(vsImagePairs[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1)]);
+
+                            for (uint32_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
+                            {
+                                //Set each palette: these were joined forward, so reverse them now
+                                CreateDefPal(vsJoinedNodes[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nPairIndex);
+
+                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1) - nPairIndex], nSrcAmt, nNodeIncrement);
+                            }
                         }
-
-                        ClearSetImgTicket(vsImagePairs[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1)]);
-
-                        for (uint32_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
+                        else
                         {
-                            //Set each palette
-                            CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
+                            for (int32_t nNodeIndex = (paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1); nNodeIndex >= 0; nNodeIndex--)
+                            {
+                                sImgTicket* pThisImage = CreateImgTicket(vsPaletteDataSetToJoin[nNodeIndex]->indexImgToUse, vsPaletteDataSetToJoin[nNodeIndex]->indexOffsetToUse, pPreviousImage);
 
-                            SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement);
+                                vsImagePairs.push_back(pThisImage);
+
+                                pPreviousImage = pThisImage;
+                            }
+
+                            ClearSetImgTicket(vsImagePairs[(paletteDataSet->pPalettePairingInfo->nPalettesToJoin - 1)]);
+
+                            for (uint32_t nPairIndex = 0; nPairIndex < paletteDataSet->pPalettePairingInfo->nPalettesToJoin; nPairIndex++)
+                            {
+                                //Set each palette
+                                CreateDefPal(vsJoinedNodes[nPairIndex], nPairIndex);
+
+                                SetSourcePal(nPairIndex, NodeGet->uUnitId, nSrcStart + vnPeerPaletteDistances[nPairIndex], nSrcAmt, nNodeIncrement);
+                            }
                         }
                     }
                     else

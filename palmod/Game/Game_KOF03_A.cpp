@@ -442,6 +442,8 @@ void CGame_KOF03_A::DumpGameHeaders()
 
 BOOL CGame_KOF03_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
+    // We use custom code here to handle crosscollection multisprite export of core palettes and intracollection export of portraits
+
     //Reset palette sources
     ClearSrcPal();
 

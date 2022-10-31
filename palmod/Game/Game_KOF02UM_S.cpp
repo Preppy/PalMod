@@ -87,6 +87,8 @@ sFileRule CGame_KOF02UM_S::GetRule(uint32_t nRuleId)
 
 BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
+    // We use custom code here to handle crosscollection multisprite export of core palettes and intracollection export of portraits
+
     //Reset palette sources
     ClearSrcPal();
 
