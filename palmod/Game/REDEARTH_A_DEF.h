@@ -1450,7 +1450,7 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_HUD_PALETTES[] =
 const sGame_PaletteDataset REDEARTH_A_BONUS_31_PALETTES[] =
 {
     //{ L"EXP / LVL Text", 0x406880, 0x406900 },
-    { L"Shadows, Effects & Hit FX 1", 0x132600, 0x132800, indexRedEarthSprites_Endings, 0x60 },
+    { L"Shadows, Effects & Hit FX 1", 0x132600, 0x132800, indexRedEarthSprites_Bonus, 0x60 },
 
     { L"Some Elemental & Other Bg Flash", 0x406400, 0x406420, indexRedEarthSprites_Bonus, 0x2b },
 

@@ -633,9 +633,9 @@ const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P2[] =
 
 const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_Extras[] =
 {
-    { L"Palette (06)", 0x1645a, 0x1647a },
-    { L"Palette (07)", 0x1647a, 0x1649a },
-    { L"Palette (08)", 0x1649a, 0x164ba },
+    { L"Palette (06)", 0x1645a, 0x1647a, indexCPS2Sprites_Cammy, 0x00 },
+    { L"Palette (07)", 0x1647a, 0x1649a, indexCPS2Sprites_Cammy, 0x00 },
+    { L"Palette (08)", 0x1649a, 0x164ba, indexCPS2Sprites_Cammy, 0x00 },
 };
 
 const sGame_PaletteDataset XMVSF_A_ChunLi_PALETTES_P1[] =
@@ -1385,10 +1385,10 @@ const sGame_PaletteDataset XMVSF_A_BONUS_PORTRAIT_PALETTES_BONUS[] =
     { L"Win Screen BG 4.2", 0x1122c, 0x1124c, indexCPS2Sprites_XMVSFAssets, 0x34 },
 
     // the 'continue screen' hexes use the 'win screen' previews
-    { L"Continue Screen BG 1", 0x110ac, 0x1112c },
-    { L"Continue Screen BG 2", 0x1118c, 0x111ac },
-    { L"Continue Screen BG 3", 0x1124c, 0x1132c },
-    { L"Continue Screen BG 4", 0x111cc, 0x111ec },
+    { L"Continue Screen BG 1", 0x110ac, 0x1112c, indexCPS2Sprites_XMVSFAssets, 0x31 },
+    { L"Continue Screen BG 2", 0x1118c, 0x111ac, indexCPS2Sprites_XMVSFAssets, 0x32 },
+    { L"Continue Screen BG 3", 0x1124c, 0x1132c, indexCPS2Sprites_XMVSFAssets, 0x33 },
+    { L"Continue Screen BG 4", 0x111cc, 0x111ec, indexCPS2Sprites_XMVSFAssets, 0x34 },
 };
 
 const sDescTreeNode XMVSF_A_WOLVERINE_COLLECTION[] =
