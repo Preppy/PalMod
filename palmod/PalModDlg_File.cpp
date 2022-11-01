@@ -15,6 +15,7 @@ constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 sSupportedGameList SupportedGameList[] =
 {
     // 1: Game ID,      2: Popup menu text,   3: Open File filter text,    4: Game Platform [,  5: Optional sub-category]
+    { AODK_A,           L"Aggressors of Dark Kombat", L"Aggressors of Dark Kombat|074-p1.*|", GamePlatform::NEOGEO },
     { AOF1_A,           L"Art of Fighting 1", L"Art of Fighting 1|044-p1.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { AsuraBuster_A,    L"Asura Buster", L"Asura Buster|pgm3.u1|", GamePlatform::OtherPlatform },
@@ -150,7 +151,7 @@ sSupportedGameList SupportedGameList[] =
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 175, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 176, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 sSupportedGameList* pSupportedGameList = SupportedGameList;
 const int nNumberOfLoadROMOptions = ARRAYSIZE(SupportedGameList);

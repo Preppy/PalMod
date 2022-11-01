@@ -282,9 +282,16 @@ inline uint32_t CGameClassByDir::GetSIMMUnitFromROMLocation(uint32_t nROMLocatio
         return 0;
     }
 
-    CString strInfo;
-    strInfo.Format(L"Error: location 0x%x is outside the range for this ROM.", nROMLocation);
-    MessageBox(g_appHWnd, strInfo.GetString(), GetHost()->GetAppName(), MB_ICONERROR);
+    static bool s_fHaveShownWarning = false;
+
+    if (!s_fHaveShownWarning)
+    {
+        s_fHaveShownWarning = true;
+
+        CString strInfo;
+        strInfo.Format(L"Error: location 0x%x is outside the expected range for this ROM.  This can cause problems, so be careful.", nROMLocation);
+        MessageBox(g_appHWnd, strInfo.GetString(), GetHost()->GetAppName(), MB_ICONERROR);
+    }
 
     return 0;
 }

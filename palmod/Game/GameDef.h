@@ -197,6 +197,7 @@ enum SupportedGamesList
     AquaPlus_NL,
     DaemonBride_NL,
     DaemonBrideAG_NL,
+    AODK_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -388,6 +389,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Aquapazza: Aquaplus Dream Match (NESICAxLive)",
     L"Daemon Bride (NESICAxLive)",
     L"Daemon Bride: Additional Gain (NESICAxLive)",
+    L"Aggressors of Dark Kombat (Neo-Geo)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

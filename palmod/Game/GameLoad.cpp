@@ -2,6 +2,7 @@
 #include "GameLoad.h"
 #include "..\CRC32.h"
 
+#include "Game_AODK_A.h"
 #include "Game_AOF1_A.h"
 #include "Game_AOF3_A.h"
 #include "Game_AquaPlus_P.h"
@@ -155,7 +156,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 175, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 176, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -206,6 +207,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 {
     switch (nGameFlag)
     {
+    case AODK_A:
+    {
+        GetRule = &CGame_AODK_A::GetRule;
+        return TRUE;
+    }
     case AOF1_A:
     {
         GetRule = &CGame_AOF1_A::GetRule;
@@ -1223,6 +1229,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
 
     switch (nGameFlag)
     {
+    case AODK_A:
+    {
+        return new CGame_AODK_A(nConfirmedROMSize);
+    }
     case AOF1_A:
     {
         return new CGame_AOF1_A(nConfirmedROMSize);
