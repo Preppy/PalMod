@@ -698,7 +698,7 @@ void CPalModDlg::UpdatePalSel(BOOL fSetSingleCol)
         case 1:
         {
             // Single-select
-            int nSingleSel = CurrPalCtrl->GetSS();
+            int nSingleSel = CurrPalCtrl->GetSingleSelectIndex();
             COLORREF* crTarget = &CurrPalCtrl->GetBasePal()[nSingleSel];
 
             if (m_fShowAsRGBNotHSL)
@@ -848,7 +848,7 @@ void CPalModDlg::GetSetSingleCol()
 {
     if (CurrPalCtrl)
     {
-        COLORREF crSrc = CurrPalCtrl->GetBasePal()[CurrPalCtrl->GetSS()];
+        COLORREF crSrc = CurrPalCtrl->GetBasePal()[CurrPalCtrl->GetSingleSelectIndex()];
 
         SetSliderCol(GetRValue(crSrc), GetGValue(crSrc), GetBValue(crSrc), GetAValue(crSrc));
         ResetSlider(FALSE);
@@ -945,7 +945,7 @@ void CPalModDlg::OnBnNewCol()
 
             ResetSlider(FALSE);
 
-            int nSelIndex = CurrPalCtrl->GetSS();
+            int nSelIndex = CurrPalCtrl->GetSingleSelectIndex();
             CurrPalCtrl->GetBasePal()[nSelIndex] = (crNewCol | ((COLORREF)nAVal << 24));
 
             CurrPalCtrl->UpdateIndex(nSelIndex);

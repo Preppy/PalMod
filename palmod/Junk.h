@@ -1,9 +1,9 @@
 #pragma once
 #include "afxwin.h"
 
-constexpr auto CUSTOM_HLCHANGE        = WM_USER +1;
-constexpr auto CUSTOM_SELHLCHANGE     = WM_USER +2;
-constexpr auto CUSTOM_SS              = WM_USER +3; // single select
+constexpr auto CUSTOM_HLCHANGE        = WM_USER + 1;
+constexpr auto CUSTOM_SELHLCHANGE     = WM_USER + 2;
+constexpr auto CUSTOM_SS              = WM_USER + 3; // single select
 constexpr auto CUSTOM_MS              = WM_USER + 4; // multi select
 
 constexpr auto CUSTOM_COPY            = WM_USER + 11;
@@ -162,7 +162,7 @@ private:
     int m_iHighlightx = 0;
     int m_iHighlighty = 0;
 
-    int m_SingleSelect = 0;
+    int m_iCurrentIndexIfSingleSelection = 0;
     int m_iSelAmt = 0;
 
     int m_xHLOld = 0;
@@ -202,7 +202,7 @@ public:
     int GetWorkingAmt() { return m_iWorkingAmt; };
     UCHAR* GetSelIndex() { return m_Selected; };
 
-    int GetSS() { return m_SingleSelect; };
+    int GetSingleSelectIndex() { return m_iCurrentIndexIfSingleSelection; };
     COLORREF* GetBasePal() { return m_BasePal; };
 
     int GetHighlightIndex() { return m_iHighlightIndex; };

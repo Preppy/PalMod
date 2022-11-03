@@ -47,7 +47,6 @@ private:
     void _WriteToFileAsANSIWithForcedLength(CFile& OutFile, CString strData, UINT nForcedLength);
 
 public:
-    
     //Program variables
     CPalGroup* MainPalGroup = nullptr;
     CImgDisp* ImgDispCtrl = nullptr;

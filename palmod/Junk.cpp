@@ -144,7 +144,7 @@ void CJunk::ClearSelected()
         }
     }
 
-    m_SingleSelect = -1;
+    m_iCurrentIndexIfSingleSelection = -1;
 
     m_iSelAmt = 0;
 }
@@ -636,7 +636,20 @@ void CJunk::MovePaletteSelection(SelectionMovement nOption)
                 break;
         }
 
+        // Figure out what our single/multi select index is
+        UpdateSelAmt();
+
+        // Redraw highlights
         UpdateCtrl();
+        
+        if (m_iSelAmt == 1)
+        {
+            NotifyParent(CUSTOM_SS);
+        }
+        else
+        {
+            NotifyParent(CUSTOM_MS);
+        }
     }
 }
 
@@ -893,7 +906,7 @@ void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
 
         if (!(nFlags & MK_CONTROL))
         {
-            if (nNewSingleSel != m_SingleSelect)
+            if (nNewSingleSel != m_iCurrentIndexIfSingleSelection)
             {
                 ClearSelected();
             }
@@ -906,7 +919,7 @@ void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
             }
         }
 
-        m_SingleSelect = nNewSingleSel;
+        m_iCurrentIndexIfSingleSelection = nNewSingleSel;
 
         UpdateCtrl();
 
@@ -933,8 +946,14 @@ void CJunk::UpdateSelAmt()
             if ((iSelIndex < m_iWorkingAmt) && m_Selected[iSelIndex])
             {
                 m_iSelAmt++;
+                m_iCurrentIndexIfSingleSelection = iSelIndex;
             }
         }
+    }
+
+    if (m_iSelAmt != 1)
+    {
+        m_iCurrentIndexIfSingleSelection = -1;
     }
 }
 
