@@ -1769,13 +1769,13 @@ namespace ColorSystem
 
     COLORREF XYZtoRGB(double x, double y, double z)
     {
-        double R = 3.2404542 * x - 1.5371385 * y - 0.4985314 * z;
-        double G = -0.9692660 * x + 1.8760108 * y + 0.0415560 * z;
-        double B = 0.0556434 * x - 0.2040259 * y + 1.0572252 * z;
+        double R = max(0.0, 3.2404542 * x - 1.5371385 * y - 0.4985314 * z);
+        double G = max(0.0, -0.9692660 * x + 1.8760108 * y + 0.0415560 * z);
+        double B = max(0.0, 0.0556434 * x - 0.2040259 * y + 1.0572252 * z);
 
-        double adjR = mapXYZPointToRGBColorValue(R) * 255.0;
-        double adjG = mapXYZPointToRGBColorValue(G) * 255.0;
-        double adjB = mapXYZPointToRGBColorValue(B) * 255.0;
+        double adjR = min(mapXYZPointToRGBColorValue(R) * 255.0, 255.0);
+        double adjG = min(mapXYZPointToRGBColorValue(G) * 255.0, 255.0);
+        double adjB = min(mapXYZPointToRGBColorValue(B) * 255.0, 255.0);
 
         return RGB(adjR, adjG, adjB);
     }
