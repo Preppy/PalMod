@@ -498,6 +498,7 @@ BEGIN
         BEGIN
             MENUITEM "HSL",                     ID_TOOLS_GRADIENT_HSL
             MENUITEM "HSV",                     ID_TOOLS_GRADIENT_HSV
+            MENUITEM "LAB",                     ID_TOOLS_GRADIENT_LAB
             MENUITEM "RGB",                     ID_TOOLS_GRADIENT_RGB
             MENUITEM "XYZ",                     ID_TOOLS_GRADIENT_XYZ
         END

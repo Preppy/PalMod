@@ -340,13 +340,14 @@
 #define ID_ACC_PALSELPLUS               32938
 #define ID_ACC_PALSELMINUS              32939
 #define ID_TOOLS_GRADIENT_XYZ           32940
+#define ID_TOOLS_GRADIENT_LAB           32941
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        145
-#define _APS_NEXT_COMMAND_VALUE         32941
+#define _APS_NEXT_COMMAND_VALUE         32942
 #define _APS_NEXT_CONTROL_VALUE         1079
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

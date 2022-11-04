@@ -314,6 +314,7 @@ void CPalModDlg::OnNMReleasedCaptureAll(NMHDR* pNMHDR, LRESULT* pResult)
     *pResult = 0;
 }
 
+// Adds to Undo/Redo list, marks palette and file as dirty
 void CPalModDlg::ProcChange(BOOL fReset /* = FALSE */)
 {
     if (fReset)

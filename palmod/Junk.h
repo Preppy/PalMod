@@ -15,7 +15,8 @@ constexpr auto CUSTOM_COPYOFFSET      = WM_USER + 16;
 constexpr auto CUSTOM_GRADIENT_RGB    = WM_USER + 17;
 constexpr auto CUSTOM_GRADIENT_HSL    = WM_USER + 18;
 constexpr auto CUSTOM_GRADIENT_HSV    = WM_USER + 19;
-constexpr auto CUSTOM_GRADIENT_XYZ    = WM_USER + 20;
+constexpr auto CUSTOM_GRADIENT_LAB    = WM_USER + 20;
+constexpr auto CUSTOM_GRADIENT_XYZ    = WM_USER + 21;
 
 class CJunk :
     public CWnd

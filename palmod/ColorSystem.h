@@ -180,8 +180,12 @@ namespace ColorSystem
     void     RGBtoXYZ(const COLORREF rgb, double& x, double& y, double& z);
     COLORREF XYZtoRGB(const double x, const double y, const double z);
 
+    void     RGBtoLAB(const COLORREF rgb, double& l, double& a, double& b);
+    COLORREF LABtoRGB(const double l, const double a, const double b);
+
     COLORREF GetGradient_RGB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
     COLORREF GetGradient_HSL(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
     COLORREF GetGradient_HSV(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
+    COLORREF GetGradient_LAB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
     COLORREF GetGradient_XYZ(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps);
 };

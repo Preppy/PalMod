@@ -1759,7 +1759,7 @@ namespace ColorSystem
         // use .0031308 for non-gamma corrected values
         if (abs(xyzPoint) < 0.0031308)
         {
-            return 12.92 * xyzPoint;
+            return max(0, 12.92 * xyzPoint);
         }
         else
         {
@@ -1778,6 +1778,62 @@ namespace ColorSystem
         double adjB = mapXYZPointToRGBColorValue(B) * 255.0;
 
         return RGB(adjR, adjG, adjB);
+    }
+
+    const double LABEpsilon = 0.008856;
+    const double LABKappa = 7.787;
+
+    const double LABNormalizationX = 95.047;
+    const double LABNormalizationY = 100.000;
+    const double LABNormalizationZ = 108.883;
+
+    double PivotFromXYZToLab(double point)
+    {
+        return (point > LABEpsilon) ? pow(point, 1.0 / 3.0) : (LABKappa * point) + (16.0 / 116.0);
+    }
+
+    double PivotFromLabtoXYZ(double point)
+    {
+        return (point > LABEpsilon) ? pow(point, 3.0) : (point - (16.0 - 116.0)) / LABKappa;
+    }
+    
+    void RGBtoLAB(const COLORREF rgb, double& l, double& a, double& b)
+    {
+        double x, y, z;
+
+        RGBtoXYZ(rgb, x, y, z);
+
+        x *= 100.0;
+        y *= 100.0;
+        z *= 100.0;
+
+        x = PivotFromXYZToLab(x / LABNormalizationX);
+        y = PivotFromXYZToLab(y / LABNormalizationY);
+        z = PivotFromXYZToLab(z / LABNormalizationZ);
+
+        l = max(0, (116.0 * y) - 16);
+        a = 500.0 * (x - y);
+        b = 200.0 * (y - z);
+    }
+
+    COLORREF LABtoRGB(double l, double a, double b)
+    {
+        double x, y, z;
+
+        y = (l + 16.0) / 116.0;
+        x = y + (a / 500.0);
+        z = y - (b / 200.0);
+
+        // unpivot
+        x = PivotFromLabtoXYZ(x) * LABNormalizationX;
+        y = PivotFromLabtoXYZ(y) * LABNormalizationY;
+        z = PivotFromLabtoXYZ(z) * LABNormalizationZ;
+
+        x /= 100.0;
+        y /= 100.0;
+        z /= 100.0;
+
+        return XYZtoRGB(x, y, z);
     }
 
     COLORREF GetGradient_RGB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps)
@@ -1855,6 +1911,35 @@ namespace ColorSystem
         const double valueStep = valueStart + (nCurrentPercent * (valueFinish - valueStart));
 
         const COLORREF colorStep = HSVtoRGB(hueStep, saturationStep, valueStep);
+
+        return colorStep;
+    }
+
+    COLORREF GetGradient_LAB(COLORREF colorStart, COLORREF colorFinish, uint16_t nCurrentStep, uint16_t nTotalSteps)
+    {
+        // avoid shifting due to rounding/translation
+        if (nCurrentStep == 0)
+        {
+            return colorStart;
+        }
+        else if (nCurrentStep == nTotalSteps)
+        {
+            return colorFinish;
+        }
+
+        const double nCurrentPercent = static_cast<double>(nCurrentStep) / static_cast<double>(nTotalSteps);
+
+        double lStart, aStart, bStart;
+        double lFinish, aFinish, bFinish;
+
+        RGBtoLAB(colorStart, lStart, aStart, bStart);
+        RGBtoLAB(colorFinish, lFinish, aFinish, bFinish);
+
+        const double lStep = lStart + (nCurrentPercent * (lFinish - lStart));
+        const double aStep = aStart + (nCurrentPercent * (aFinish - aStart));
+        const double bStep = bStart + (nCurrentPercent * (bFinish - bStart));
+
+        const COLORREF colorStep = LABtoRGB(lStep, aStep, bStep);
 
         return colorStep;
     }
