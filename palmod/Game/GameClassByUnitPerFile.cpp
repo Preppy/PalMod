@@ -745,12 +745,22 @@ BOOL CGameClassPerUnitPerFile::UpdatePalImg(int Node01, int Node02, int Node03, 
             nSrcAmt = static_cast<uint32_t>(m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).sNodeData.rgpszNodeNames.size());
             nNodeIncrement = static_cast<uint32_t>(GetBasicPaletteListSizeForUnit(CharacterNode->uUnitId));
 
-            // Use the specific (relative) palette data's specification of the preview to use if provided, otherwise
+            // Use the specific (relative) palette data's specification of the preview unit to use if provided, otherwise
             // fall back to the basic palette info's specification
-            if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.size() &&
-                (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit != INVALID_UNIT_VALUE))
+            if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.size())
             {
-                nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit;
+                // For image unit ID, use the basic palette specified value if present, otherwise use the general value for file
+                // If the client wants us to ignore the local value, they should specify INVALID_UNIT_VALUE for image unit ID.
+                if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit != INVALID_UNIT_VALUE)
+                {
+                    nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).indexImageUnit;
+                }
+                else
+                {
+                    nImgUnitId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nImageUnitIndex;
+                }
+
+                // For preview ID, use the vlaue from the basic palette data.  At worst case it'll default to 0.
                 nTargetImgId = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nSrcStart).indexImageSprite;
             }
             else
