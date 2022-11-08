@@ -28,7 +28,7 @@ public:
 
     CGameClass* LoadFile(int nGameFlag, wchar_t* pszLoadFile);
     CGameClass* LoadDir(int nGameFlag, wchar_t* pszLoadDir);
-    void SaveGame(CGameClass* CurrGame);
+    bool SaveGame(CGameClass* CurrGame);
     void SavePatchFile(CGameClass* CurrGame);
     void SaveMultiplePatchFiles(CGameClass* CurrGame, CString strTargetDirectory);
     void CrosscopyGame(CGameClass* CurrGame);

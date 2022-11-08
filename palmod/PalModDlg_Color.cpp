@@ -468,6 +468,8 @@ void CPalModDlg::SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB)
         UpdateSliderSel(TRUE);
 
         SetSliderDescEdit();
+
+        SetStatusText(L"Note: conversion between RGB and HSL requires rounding!");
     }
 }
 

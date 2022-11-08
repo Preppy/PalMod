@@ -342,6 +342,7 @@ const sGame_PaletteDataset MAGICALDROPIII_A_STAR_PALETTES_A[] =
 {
     { L"Star A", 0x69d80, 0x69e20 },
     { L"Star A Map", 0x6ab00, 0x6ab20 },
+    { L"Star A Pre-Fight Icon", 0x6b100, 0x6b120 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_STAR_PALETTES_B[] =
@@ -431,13 +432,13 @@ const sGame_PaletteDataset MAGICALDROPIII_A_BLACKPIERROT_PALETTES_B[] =
 const sGame_PaletteDataset MAGICALDROPIII_A_STRENGTHSFATHER_PALETTES_A[] =
 {
     { L"Strength's Father A", 0x69980, 0x699e0 },
-    { L"Strenght's Father A Map", 0x6ac80, 0x6aca0 },
+    { L"Strength's Father A Map", 0x6ac80, 0x6aca0 },
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_STRENGTHSFATHER_PALETTES_B[] =
 {
     { L"Strength's Father B", 0x699e0, 0x69a40 },
-    { L"Strenght's Father B Map", 0x6aca0, 0x6acc0 },
+    { L"Strength's Father B Map", 0x6aca0, 0x6acc0 },
 };
 
 //-BONUS-

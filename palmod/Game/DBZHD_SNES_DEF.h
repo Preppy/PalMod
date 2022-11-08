@@ -264,7 +264,6 @@ const sGame_PaletteDataset DBZHD_SNES_STAGE_PALETTES[] =
     { L"Lookout Day", 0x536B7, 0x53757, indexDBZHDSprites_Bonus, 0x04 },
     { L"Lookout Sunset", 0x53757, 0x537F7, indexDBZHDSprites_Bonus, 0x04 },
     { L"Lookout Night", 0x537F7, 0x53897, indexDBZHDSprites_Bonus, 0x04 },
-    { L"Goku Intro", 0x232F1, 0x23311 },
     { L"Sky (Sunset)", 0x52921, 0x529a1 },
     { L"Sky Lookout (Sunset)", 0x51a5a, 0x51afa },
     { L"WasteLand (Night)", 0x2e8900, 0x2e8980 },
@@ -313,11 +312,13 @@ const sGame_PaletteDataset DBZHD_SNES_BONUS_PALETTES[] =
     { L"Sand 1", 0x2e5a2, 0x2e7a2 },
     { L"Sand 2", 0x2e7a2, 0x2e942 },
 
-    { L"Kamehamaha 1/5", 0x2ade1c, 0x2ade3c },
-    { L"Kamehamaha 2/5", 0x2ade3c, 0x2ade5c },
-    { L"Kamehamaha 3/5", 0x2ade5c, 0x2ade7c },
-    { L"Kamehamaha 4/5", 0x2ade7c, 0x2ade9c },
-    { L"Kamehamaha 5/5", 0x2ade9c, 0x2adebc },
+    { L"Goku Intro", 0x232F1, 0x23311 },
+
+    { L"Kamehameha 1/5", 0x2ade1c, 0x2ade3c },
+    { L"Kamehameha 2/5", 0x2ade3c, 0x2ade5c },
+    { L"Kamehameha 3/5", 0x2ade5c, 0x2ade7c },
+    { L"Kamehameha 4/5", 0x2ade7c, 0x2ade9c },
+    { L"Kamehameha 5/5", 0x2ade9c, 0x2adebc },
 };
 
 const sDescTreeNode DBZHD_SNES_GOKU_COLLECTION[] =

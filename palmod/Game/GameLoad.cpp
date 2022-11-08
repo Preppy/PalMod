@@ -2348,9 +2348,10 @@ bool CGameLoad::VerifyLocationIsUsable(LPCWSTR pszLocation)
     return fLocationIsOKToUse;
 }
 
-void CGameLoad::SaveGame(CGameClass* CurrGame)
+bool CGameLoad::SaveGame(CGameClass* CurrGame)
 {
     CFile FileSave;
+    bool fSuccess = true;
 
     nSaveLoadCount = 0;
     nSaveLoadSucc = 0;
@@ -2479,6 +2480,9 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     {
         CString strError;
         UINT uErrorString;
+
+        fSuccess = false;
+
         if ((GetFileAttributes(strErrorFile)) == INVALID_FILE_ATTRIBUTES)
         {
             uErrorString = IDS_ERROR_FILENOTFOUND_FORMAT;
@@ -2511,6 +2515,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             if (nSaveLoadErr)
             {
                 strLoadSaveStr = L"Game patching failed.";
+                fSuccess = false;
             }
             else
             {
@@ -2523,6 +2528,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             if (nSaveLoadErr)
             {
                 strErrorText.Format((nSaveLoadErr == 1) ? IDS_LOADERROR_SINGLE : IDS_LOADERROR_MULTI, nSaveLoadErr);
+                fSuccess = false;
             }
 
             strLoadSaveStr.Format((nSaveLoadCount == 1) ? IDS_PATCHGAME_SINGLE : IDS_PATCHGAME_MULTI, nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
@@ -2540,6 +2546,8 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             strLoadSaveStr = L"error loading string";
         }
     }
+
+    return fSuccess;
 }
 
 void CGameLoad::CrosscopyGame(CGameClass* CurrGame)

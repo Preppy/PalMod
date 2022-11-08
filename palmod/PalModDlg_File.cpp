@@ -260,13 +260,22 @@ void CPalModDlg::OnFilePatch()
         OnBnUpdate();
     }
 
-    GetHost()->GetLoader()->SaveGame(GetHost()->GetCurrGame());
+    bool fSuccess = GetHost()->GetLoader()->SaveGame(GetHost()->GetCurrGame());
 
     SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 
     if (!GetHost()->GetLoader()->GetErrCt())
     {
         m_fFileChanged = FALSE;
+    }
+
+    if (fSuccess)
+    {
+        // Make sure they understand the basics of what just happened
+        CString strInfo;
+        strInfo = L"Updated. Useful notes:\n\n\t* Updated files will have updated CRCs: this is expected and required.\n\t* If your game has multiple ZIPs, your changes won't show up until you update the right ZIP.";
+
+        SHMessageBoxCheck(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_OK | MB_ICONINFORMATION, IDOK, L"{752A4A5C-4AEF-411c-9238-3AB5B55D5877}");
     }
 }
 
