@@ -1223,21 +1223,21 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_PO_EXTRAS =
     L"Extras",
     {
         //Specials
-        { L"Slide Head/Whiffed HK (1/2)", 0x49e4b0, 0x49e4f0 },
-        { L"Slide Head/Whiffed HK (2/2)", 0x4a0210, 0x4a0250 },
+        { L"Whiffed HK/Ground Impacts (1/2)", 0x49e4b0, 0x49e4f0 }, //Paired with Pot Buster 1
+        { L"Whiffed HK/Ground Impacts (2/2)", 0x4a0210, 0x4a0250 }, //Paired with Pot Buster 2
 
-        { L"F.D.B. Projectile (1/3)", 0x4b69a0, 0x4b69e0 },
-        { L"F.D.B. Projectile (2/3)", 0x4be9d0, 0x4bea10 },
-        { L"F.D.B. Projectile (3/3)", 0x4c05a0, 0x4c05e0 },
+        { L"Potemkin Buster (1/2)", 0x4996e0, 0x499720 }, // Paired with Whiff/Impacts 1
+        { L"Potemkin Buster (2/2)", 0x49bf90, 0x49bfd0 }, // Paired with Whiff/Impacts 2
 
-        { L"Potemkin Buster (1/2)", 0x4996e0, 0x499720 },
-        { L"Potemkin Buster (2/2)", 0x49bf90, 0x49bfd0 },
+        { L"F.D.B./Giganter Projectile (1/3)", 0x4b69a0, 0x4b69e0 },
+        { L"F.D.B./Giganter Projectile (2/3)", 0x4be9d0, 0x4bea10 },
+        { L"F.D.B./Giganter Projectile (3/3)", 0x4c05a0, 0x4c05e0 },
 
-        { L"Heat Knuckle (1/5)", 0x4d23c0, 0x4d2400 },
-        { L"Heat Knuckle (2/5)", 0x4dba50, 0x4dba90 },
-        { L"Heat Knuckle (3/5)", 0x4dc490, 0x4dc4d0 },
-        { L"Heat Knuckle (4/5)", 0x4d9ac0, 0x4d9b00 },
-        { L"Heat Knuckle (5/5)", 0x4de390, 0x4de3d0 },
+        { L"Heat Knuckle (1/4)", 0x4dba50, 0x4dba90 }, //Paired with Final Explosion
+        { L"Heat Knuckle (2/4)", 0x4dc490, 0x4dc4d0 }, //Paired with Final Explosion
+        { L"Heat Knuckle (3/4)", 0x4d9ac0, 0x4d9b00 }, //Paired with Final Explosion
+        { L"Heat Knuckle (4/4)", 0x4de390, 0x4de3d0 }, //Paired with Final Explosion
+        { L"Heat Knuckle - Final Explosion", 0x4d23c0, 0x4d2400 }, //Paired with Heat Knuckle 1
         { L"Heat Extend - Bullets", 0x4d22f0, 0x4d2330 },
         { L"Heat Extend - Hearts (1/2)", 0x4a0500, 0x4a0540 },
         { L"Heat Extend - Hearts (2/2)", 0x4a10c0, 0x4a1100 },
@@ -1245,10 +1245,10 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_PO_EXTRAS =
         //Overdrives
         { L"Giganter (1/2)", 0x4a2700, 0x4a2740 },
         { L"Giganter (2/2)", 0x4a66b0, 0x4a66f0 },
-        { L"Gigantic Bullet Close Fist (1/2)", 0x4ace00, 0x4ace40 },
-        { L"Gigantic Bullet Close Fist (2/2)", 0x4af6b0, 0x4af6f0 },
-        { L"Gigantic Bullet Far Fist (1/2)", 0x4b1bd0, 0x4b1c10 },
-        { L"Gigantic Bullet Far Fist (2/2)", 0x4b4480, 0x4b44c0 },
+        { L"Gigantic Bullet Close Fist (1/2)", 0x4ace00, 0x4ace40 }, //Paired with Far Fist 1
+        { L"Gigantic Bullet Close Fist (2/2)", 0x4af6b0, 0x4af6f0 }, //Paired with Far Fist 2
+        { L"Gigantic Bullet Far Fist (1/2)", 0x4b1bd0, 0x4b1c10 }, //Paired with Close Fist 1
+        { L"Gigantic Bullet Far Fist (2/2)", 0x4b4480, 0x4b44c0 }, //Paired with Close Fist 2
 
         //Instant Kill
         { L"Magnum Opera (1/2)", 0x4c23e0, 0x4c2420 },

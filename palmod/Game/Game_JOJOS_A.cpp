@@ -197,7 +197,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
                     if ((wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszTimeStopName) != 0) &&
                         (wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszBonusPalettesName) != 0) &&
                         (wcscmp(JOJOS_UNITS_51[nUnitId].szDesc, k_pszStoryModeName) != 0) &&
-                        (nOffset < 0x41000)) // only shift the core character/effect palettes, not the portraits
+                        (nOffset < 0x3AC380)) // only shift the core character/effect palettes, not the portraits
                     {
                         // General layout is:
                         // Jotaro A (Regulations On)
@@ -208,6 +208,9 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId)
                         // 0x336400
                         // 0x336480
 
+                        // Shift everything before Gray Fly 6.
+                        // The maximum confirmed shift is for Khan's Counter Anubis Start at 0x39bba0
+                        // The minimum confirmed *non*-shift is for Gray Fly 6 at 0x3AC380
                         nOffset += 0x65900;
                     }
                 }
