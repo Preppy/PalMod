@@ -523,6 +523,9 @@
     <Filter Include="Games\SNK Games\Aggressors of Dark Kombat">
       <UniqueIdentifier>{c52f4862-5a4d-405b-9649-13dc49e95a38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Magical Drop II">
+      <UniqueIdentifier>{27e41e42-9e38-45cf-ba30-ad79cb22aa0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -959,6 +962,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_AoDK_A.cpp">
       <Filter>Games\SNK Games\Aggressors of Dark Kombat</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MagicalDropII_A.cpp">
+      <Filter>Games\SNK Games\Magical Drop II</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1945,6 +1951,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_AoDK_A.h">
       <Filter>Games\SNK Games\Aggressors of Dark Kombat</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MagicalDropII_A_DEF.h">
+      <Filter>Games\SNK Games\Magical Drop II</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MagicalDropII_A.h">
+      <Filter>Games\SNK Games\Magical Drop II</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

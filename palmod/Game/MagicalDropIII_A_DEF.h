@@ -62,7 +62,6 @@ const sGame_PaletteDataset MAGICALDROPIII_A_FOOL_PALETTES_A[] =
     { L"Fool A Portrait", 0x6a200, 0x6a260, indexMagDrop3Sprites_Fool, 0x40 },
     { L"Fool A Map", 0x6a6c0, 0x6a6e0, indexMagDrop3Sprites_Fool, 0x38 },
     { L"Fool A Pre-Fight Icon", 0x6acc0, 0x6ace0, indexMagDrop3Sprites_Fool, 0x41 },
-
 };
 
 const sGame_PaletteDataset MAGICALDROPIII_A_FOOL_PALETTES_B[] =

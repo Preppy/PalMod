@@ -283,6 +283,7 @@
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE_A.cpp" />
     <ClCompile Include="Game\Game_MagicalDropIII_A.cpp" />
+    <ClCompile Include="Game\Game_MagicalDropII_A.cpp" />
     <ClCompile Include="Game\Game_MartialMasters_A.cpp" />
     <ClCompile Include="Game\Game_MBTL_A.cpp" />
     <ClCompile Include="Game\Game_MK2_SNES.cpp" />
@@ -491,6 +492,7 @@
     <ClInclude Include="Game\Game_LASTBLADE_A.h" />
     <ClInclude Include="Game\Game_MAAB_A.h" />
     <ClInclude Include="Game\Game_MagicalDropIII_A.h" />
+    <ClInclude Include="Game\Game_MagicalDropII_A.h" />
     <ClInclude Include="Game\Game_MartialMasters_A.h" />
     <ClInclude Include="Game\Game_Matrimelee_A.h" />
     <ClInclude Include="Game\Game_MBAACC_S.h" />
@@ -610,6 +612,7 @@
     <ClInclude Include="Game\LASTBLADE_A_DEF.h" />
     <ClInclude Include="Game\MAAB_A_DEF.h" />
     <ClInclude Include="Game\MagicalDropIII_A_DEF.h" />
+    <ClInclude Include="Game\MagicalDropII_A_DEF.h" />
     <ClInclude Include="Game\MartialMasters_A_DEF.h" />
     <ClInclude Include="Game\Matrimelee_A_DEF.h" />
     <ClInclude Include="Game\MBAACC_S_DEF.h" />

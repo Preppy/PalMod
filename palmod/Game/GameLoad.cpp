@@ -69,6 +69,7 @@
 #include "Game_KOTM_A.h"
 #include "Game_LASTBLADE_A.h"
 #include "Game_LASTBLADE2_A.h"
+#include "Game_MAGICALDROPII_A.h"
 #include "Game_MAGICALDROPIII_A.h"
 #include "Game_MartialMasters_A.h"
 #include "Game_Matrimelee_A.h"
@@ -156,7 +157,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 176, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 177, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -652,6 +653,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case LASTBLADE2_S:
     {
         GetRule = &CGame_LASTBLADE2_A::GetRule;
+        return TRUE;
+    }
+    case MAGICALDROPII_A:
+    {
+        GetRule = &CGame_MAGICALDROPII_A::GetRule;
         return TRUE;
     }
     case MAGICALDROPIII_A:
@@ -1533,6 +1539,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case MAAB_A:
     {
         return new CGame_MAAB_A(nConfirmedROMSize);
+    }
+    case MAGICALDROPII_A:
+    {
+        return new CGame_MAGICALDROPII_A(nConfirmedROMSize);
     }
     case MAGICALDROPIII_A:
     {
