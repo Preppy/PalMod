@@ -258,15 +258,25 @@ const sGame_PaletteDataset DBZHD_SNES_CELL_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset DBZHD_SNES_STAGE_PALETTES[] =
 {
+    { L"Stage icons", 0x1b56a, 0x1b5aa },
+    { L"Stage icons faded", 0x1b5aa, 0x1b5ea },
+
     { L"Tournament Day", 0x50C6E, 0x50D0E, indexDBZHDSprites_Bonus, 0x05 },
     { L"Tournament Sunset", 0x50D0E, 0x50DAE, indexDBZHDSprites_Bonus, 0x05 },
     { L"Tournament Night", 0x50DAE, 0x50E4E, indexDBZHDSprites_Bonus, 0x05 },
     { L"Lookout Day", 0x536B7, 0x53757, indexDBZHDSprites_Bonus, 0x04 },
     { L"Lookout Sunset", 0x53757, 0x537F7, indexDBZHDSprites_Bonus, 0x04 },
     { L"Lookout Night", 0x537F7, 0x53897, indexDBZHDSprites_Bonus, 0x04 },
+    { L"Sky (Day)", 0x528a1, 0x52921 },
     { L"Sky (Sunset)", 0x52921, 0x529a1 },
+    { L"Sky Lookout (Day)", 0x519ba, 0x51a5a },
+    { L"Sky Lookout (Night)", 0x51afa, 0x51b9a },
     { L"Sky Lookout (Sunset)", 0x51a5a, 0x51afa },
+    { L"WasteLand (Day)", 0x2e8000, 0x2e8080 },
     { L"WasteLand (Night)", 0x2e8900, 0x2e8980 },
+
+    { L"Namek section 1", 0x2e9300, 0x2e93c0 },
+    { L"Namek section 2", 0x2e8d80, 0x2e8e40 },
 };
 
 const sGame_PaletteDataset DBZHD_SNES_STAGE_CLOUD_PALETTES[] =
@@ -304,6 +314,42 @@ const sGame_PaletteDataset DBZHD_SNES_STAGE_CLOUD_PALETTES[] =
     { L"WasteLand Clouds Night 31/31", 0x2e8d60, 0x2e8d80 },
 };
 
+const sGame_PaletteDataset DBZHD_SNES_STAGE_CLOUD_DAY_PALETTES[] =
+{
+    { L"WasteLand Clouds Day 1/32", 0x2e8080, 0x2e80a0 },
+    { L"WasteLand Clouds Day 2/32", 0x2e80a0, 0x2e80c0 },
+    { L"WasteLand Clouds Day 3/32", 0x2e80c0, 0x2e80e0 },
+    { L"WasteLand Clouds Day 4/32", 0x2e80e0, 0x2e8100 },
+    { L"WasteLand Clouds Day 5/32", 0x2e8100, 0x2e8120 },
+    { L"WasteLand Clouds Day 6/32", 0x2e8120, 0x2e8140 },
+    { L"WasteLand Clouds Day 7/32", 0x2e8140, 0x2e8160 },
+    { L"WasteLand Clouds Day 8/32", 0x2e8160, 0x2e8180 },
+    { L"WasteLand Clouds Day 9/32", 0x2e8180, 0x2e81a0 },
+    { L"WasteLand Clouds Day 10/32", 0x2e81a0, 0x2e81c0 },
+    { L"WasteLand Clouds Day 11/32", 0x2e81c0, 0x2e81e0 },
+    { L"WasteLand Clouds Day 12/32", 0x2e81e0, 0x2e8200 },
+    { L"WasteLand Clouds Day 13/32", 0x2e8200, 0x2e8220 },
+    { L"WasteLand Clouds Day 14/32", 0x2e8220, 0x2e8240 },
+    { L"WasteLand Clouds Day 15/32", 0x2e8240, 0x2e8260 },
+    { L"WasteLand Clouds Day 16/32", 0x2e8260, 0x2e8280 },
+    { L"WasteLand Clouds Day 17/32", 0x2e8280, 0x2e82a0 },
+    { L"WasteLand Clouds Day 18/32", 0x2e82a0, 0x2e82c0 },
+    { L"WasteLand Clouds Day 19/32", 0x2e82c0, 0x2e82e0 },
+    { L"WasteLand Clouds Day 20/32", 0x2e82e0, 0x2e8300 },
+    { L"WasteLand Clouds Day 21/32", 0x2e8300, 0x2e8320 },
+    { L"WasteLand Clouds Day 22/32", 0x2e8320, 0x2e8340 },
+    { L"WasteLand Clouds Day 23/32", 0x2e8340, 0x2e8360 },
+    { L"WasteLand Clouds Day 24/32", 0x2e8360, 0x2e8380 },
+    { L"WasteLand Clouds Day 25/32", 0x2e8380, 0x2e83a0 },
+    { L"WasteLand Clouds Day 26/32", 0x2e83a0, 0x2e83c0 },
+    { L"WasteLand Clouds Day 27/32", 0x2e83c0, 0x2e83e0 },
+    { L"WasteLand Clouds Day 28/32", 0x2e83e0, 0x2e8400 },
+    { L"WasteLand Clouds Day 29/32", 0x2e8400, 0x2e8420 },
+    { L"WasteLand Clouds Day 30/32", 0x2e8420, 0x2e8440 },
+    { L"WasteLand Clouds Day 31/32", 0x2e8440, 0x2e8460 },
+    { L"WasteLand Clouds Day 32/32", 0x2e8460, 0x2e8480 },
+};
+
 const sGame_PaletteDataset DBZHD_SNES_BONUS_PALETTES[] =
 {
     { L"Character Select icons 1/2", 0x1B48A, 0x1b4aa, indexDBZHDSprites_Bonus, 0x02, &pairNext },
@@ -313,6 +359,12 @@ const sGame_PaletteDataset DBZHD_SNES_BONUS_PALETTES[] =
     { L"Sand 2", 0x2e7a2, 0x2e942 },
 
     { L"Goku Intro", 0x232F1, 0x23311 },
+
+    { L"HUD", 0x47917, 0x47937 },
+    { L"Title Screen", 0x1ef9a, 0x1efda },
+    { L"Hyper Dimension title", 0x27f5d, 0x27f7d },
+    { L"7 Dragon Balls intro", 0x18000, 0x18020 },
+    { L"Story", 0x259e2, 0x25a02 },
 
     { L"Kamehameha 1/5", 0x2ade1c, 0x2ade3c },
     { L"Kamehameha 2/5", 0x2ade3c, 0x2ade5c },
@@ -334,7 +386,6 @@ const sDescTreeNode DBZHD_SNES_VEGETA_COLLECTION[] =
     { L"P1", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_VEGETA_PALETTES_P1, ARRAYSIZE(DBZHD_SNES_VEGETA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_VEGETA_PALETTES_P2, ARRAYSIZE(DBZHD_SNES_VEGETA_PALETTES_P2) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_VEGETA_PALETTES_SHARED, ARRAYSIZE(DBZHD_SNES_VEGETA_PALETTES_SHARED) },
-    
 };
 
 const sDescTreeNode DBZHD_SNES_GOTENKS_COLLECTION[] =
@@ -392,7 +443,6 @@ const sDescTreeNode DBZHD_SNES_STAGE_COLLECTION[] =
 {
     { L"Stages", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_STAGE_PALETTES, ARRAYSIZE(DBZHD_SNES_STAGE_PALETTES) },
     { L"Cloud Cycle", DESC_NODETYPE_TREE, (void*)DBZHD_SNES_STAGE_CLOUD_PALETTES, ARRAYSIZE(DBZHD_SNES_STAGE_CLOUD_PALETTES) },
-    
 };
 
 const sDescTreeNode DBZHD_SNES_BONUS_COLLECTION[] =

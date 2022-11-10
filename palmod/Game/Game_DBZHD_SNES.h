@@ -28,8 +28,8 @@ private:
         DBZHD_SNES_UNITS,
         ARRAYSIZE(DBZHD_SNES_UNITS),
         L"DBZHDE.txt",               // Extra filename
-        185,                         // Count of palettes listed in the header
-        0x18140,                     // Lowest known location used for palettes
+        198,                         // Count of palettes listed in the header
+        0x18000,                     // Lowest known location used for palettes
     };
 
 public:
