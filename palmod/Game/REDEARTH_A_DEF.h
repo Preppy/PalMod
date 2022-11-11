@@ -646,26 +646,6 @@ const sGame_PaletteDataset REDEARTH_A_LAVIA_PALETTES[] =
     { L"Lavia Frozen 5", 0x42d780, 0x42d800, indexRedEarthSprites_Lavia },
 };
 
-const sGame_PaletteDataset REDEARTH_A_LAVIA_PALETTES_UNUSED[] =
-{
-    { L"Lavia Burned 1 Unused", 0x42a880, 0x42a900, indexRedEarthSprites_Lavia },
-    { L"Lavia Burned 2 Unused", 0x42a900, 0x42a980, indexRedEarthSprites_Lavia },
-    { L"Lavia Shocked 1 Unused", 0x42a980, 0x42aa00, indexRedEarthSprites_Lavia },
-    { L"Lavia Shocked 2 Unused", 0x42aa00, 0x42aa80, indexRedEarthSprites_Lavia },
-    { L"Lavia Poisoned 1 Unused", 0x42aa80, 0x42ab00, indexRedEarthSprites_Lavia },
-    { L"Lavia Poisoned 2 Unused", 0x42ab00, 0x42ab80, indexRedEarthSprites_Lavia },
-    { L"Lavia Poisoned 3 Unused", 0x42ab80, 0x42ac00, indexRedEarthSprites_Lavia },
-    { L"Lavia Poisoned 4 Unused", 0x42ac00, 0x42ac80, indexRedEarthSprites_Lavia },
-    { L"Lavia Petrified 1 Unused", 0x42ac80, 0x42ad00, indexRedEarthSprites_Lavia },
-    { L"Lavia Petrified 2 Unused", 0x42ad00, 0x42ad80, indexRedEarthSprites_Lavia },
-    { L"Lavia Petrified 3 Unused", 0x42ad80, 0x42ae00, indexRedEarthSprites_Lavia },
-    { L"Lavia Frozen 1 Unused", 0x42ae00, 0x42ae80, indexRedEarthSprites_Lavia },
-    { L"Lavia Frozen 2 Unused", 0x42ae80, 0x42af00, indexRedEarthSprites_Lavia },
-    { L"Lavia Frozen 3 Unused", 0x42af00, 0x42af80, indexRedEarthSprites_Lavia },
-    { L"Lavia Frozen 4 Unused", 0x42af80, 0x42b000, indexRedEarthSprites_Lavia },
-    { L"Lavia Frozen 5 Unused", 0x42b000, 0x42b080, indexRedEarthSprites_Lavia },
-};
-
 const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
 {
     { L"Ravange", 0x42d800, 0x42d880, indexRedEarthSprites_Ravange, 0x00 },
@@ -1564,6 +1544,23 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
 
     { L"Unused Leo Palette", 0x1e4a00, 0x1e4a80 },
 
+    { L"Lavia Burned 1 Unused", 0x42a880, 0x42a900, indexRedEarthSprites_Lavia },
+    { L"Lavia Burned 2 Unused", 0x42a900, 0x42a980, indexRedEarthSprites_Lavia },
+    { L"Lavia Shocked 1 Unused", 0x42a980, 0x42aa00, indexRedEarthSprites_Lavia },
+    { L"Lavia Shocked 2 Unused", 0x42aa00, 0x42aa80, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 1 Unused", 0x42aa80, 0x42ab00, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 2 Unused", 0x42ab00, 0x42ab80, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 3 Unused", 0x42ab80, 0x42ac00, indexRedEarthSprites_Lavia },
+    { L"Lavia Poisoned 4 Unused", 0x42ac00, 0x42ac80, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 1 Unused", 0x42ac80, 0x42ad00, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 2 Unused", 0x42ad00, 0x42ad80, indexRedEarthSprites_Lavia },
+    { L"Lavia Petrified 3 Unused", 0x42ad80, 0x42ae00, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 1 Unused", 0x42ae00, 0x42ae80, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 2 Unused", 0x42ae80, 0x42af00, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 3 Unused", 0x42af00, 0x42af80, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 4 Unused", 0x42af80, 0x42b000, indexRedEarthSprites_Lavia },
+    { L"Lavia Frozen 5 Unused", 0x42b000, 0x42b080, indexRedEarthSprites_Lavia },
+
     { L"Unused Palettes in Lavia's Section (1/16)", 0x42b080, 0x42b280 },
     { L"Unused Palettes in Lavia's Section (2/16)", 0x42b280, 0x42b480 },
     { L"Unused Palettes in Lavia's Section (3/16)", 0x42b480, 0x42b680 },
@@ -1701,7 +1698,6 @@ const sDescTreeNode REDEARTH_A_KONGOU_COLLECTION[] =
 const sDescTreeNode REDEARTH_A_LAVIA_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_LAVIA_PALETTES, ARRAYSIZE(REDEARTH_A_LAVIA_PALETTES) },
-    { L"Unused", DESC_NODETYPE_TREE, (void*)REDEARTH_A_LAVIA_PALETTES_UNUSED, ARRAYSIZE(REDEARTH_A_LAVIA_PALETTES_UNUSED) },
 };
 
 const sDescTreeNode REDEARTH_A_RAVANGE_COLLECTION[] =
