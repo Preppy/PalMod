@@ -264,12 +264,12 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,107,92,43,14
 END
 
-IDD_CFPL_EXPORT DIALOGEX 0, 0, 223, 170
+IDD_CFPL_EXPORT DIALOGEX 0, 0, 225, 178
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Export CFPL File"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    GROUPBOX        "Export options",IDC_STATIC,10,7,205,155
+    GROUPBOX        "Export options",IDC_STATIC,10,7,203,164
     LTEXT           "Applies to character:",IDC_STATIC,15,22,185,11
     LTEXT           "TBD",IDC_CFPL_CHARACTERNAME,49,35,147,11
     LTEXT           "Palette name (required):",IDC_STATIC,15,48,175,11
@@ -278,8 +278,9 @@ BEGIN
     EDITTEXT        IDC_CFPL_CREATOR,45,90,135,12
     LTEXT           "Description (optional):",IDC_STATIC,15,106,175,11
     EDITTEXT        IDC_CFPL_DESCRIPTION,45,119,135,13
-    PUSHBUTTON      "OK",IDOK,65,139,43,14
-    PUSHBUTTON      "Cancel",IDCANCEL,109,139,43,14
+    CONTROL         "Enable Bloom",IDC_CFPL_ENABLEBLOOM,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,15,132,175,20
+    PUSHBUTTON      "OK",IDOK,65,155,43,14
+    PUSHBUTTON      "Cancel",IDCANCEL,109,155,43,14
 END
 
 
@@ -372,6 +373,7 @@ BEGIN
 
     IDD_CFPL_EXPORT, DIALOG
     BEGIN
+        BOTTOMMARGIN, 170
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -398,8 +400,8 @@ BEGIN
             MENUITEM "BlazBlue: Central Fiction (Steam)", ID_LD_BLAZBLUECF
             POPUP "Daemon Bride"
             BEGIN
-                MENUITEM "Daemon Bride (NESICAxLive)",                    ID_LD_DAEMONBRIDE_NL
-                MENUITEM "Daemon Bride: Additional Gain (NESICAxLive)",   ID_LD_DAEMONBRIDEAG_NL
+                MENUITEM "Daemon Bride (NESICAxLive)",  ID_LD_DAEMONBRIDE_NL
+                MENUITEM "Daemon Bride: Additional Gain (NESICAxLive)", ID_LD_DAEMONBRIDEAG_NL
             END
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
@@ -496,11 +498,11 @@ BEGIN
     BEGIN
         POPUP "Generate Gradient"
         BEGIN
-            MENUITEM "HSL",                     ID_TOOLS_GRADIENT_HSL
-            MENUITEM "HSV",                     ID_TOOLS_GRADIENT_HSV
-            MENUITEM "LAB",                     ID_TOOLS_GRADIENT_LAB
-            MENUITEM "RGB",                     ID_TOOLS_GRADIENT_RGB
-            MENUITEM "XYZ",                     ID_TOOLS_GRADIENT_XYZ
+            MENUITEM "HSL",                         ID_TOOLS_GRADIENT_HSL
+            MENUITEM "HSV",                         ID_TOOLS_GRADIENT_HSV
+            MENUITEM "LAB",                         ID_TOOLS_GRADIENT_LAB
+            MENUITEM "RGB",                         ID_TOOLS_GRADIENT_RGB
+            MENUITEM "XYZ",                         ID_TOOLS_GRADIENT_XYZ
         END
         MENUITEM "&Invert",                     ID_TOOLS_INVERT
         MENUITEM "Re&verse",                    ID_TOOLS_REVERSE
@@ -541,7 +543,7 @@ BEGIN
                 MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_BE
                 MENUITEM "RGB555 (Sharp X68000 color table)", ID_COLORFORMAT_SHARPRGB
                 MENUITEM "RGB666 (Neo-Geo color table)", ID_COLORFORMAT_RGB666
-                END
+            END
             POPUP "24-bit color"
             BEGIN
                 MENUITEM "BGR888",                      ID_COLORFORMAT_BGR888
@@ -660,13 +662,13 @@ BEGIN
     "Z",            ID_ACC_UNDO,            VIRTKEY, CONTROL, NOINVERT
     "L",            ID_ACC_LOADPALETTE,     VIRTKEY, CONTROL, NOINVERT
     "P",            ID_ACC_SAVEPALETTE,     VIRTKEY, CONTROL, NOINVERT
-    VK_ESCAPE,      ID_ACC_ESCAPE,          VIRTKEY
+    VK_ESCAPE,      ID_ACC_ESCAPE,          VIRTKEY 
     VK_LEFT,        ID_ACC_PALSELLEFT,      VIRTKEY, SHIFT, CONTROL
     VK_RIGHT,       ID_ACC_PALSELRIGHT,     VIRTKEY, SHIFT, CONTROL
     VK_UP,          ID_ACC_PALSELUP,        VIRTKEY, SHIFT, CONTROL
     VK_DOWN,        ID_ACC_PALSELDOWN,      VIRTKEY, SHIFT, CONTROL
-    VK_RIGHT,       ID_ACC_PALSELPLUS,      VIRTKEY, ALT, SHIFT, CONTROL
-    VK_LEFT,        ID_ACC_PALSELMINUS,     VIRTKEY, ALT, SHIFT, CONTROL
+    VK_RIGHT,       ID_ACC_PALSELPLUS,      VIRTKEY, SHIFT, CONTROL, ALT
+    VK_LEFT,        ID_ACC_PALSELMINUS,     VIRTKEY, SHIFT, CONTROL, ALT
 END
 
 

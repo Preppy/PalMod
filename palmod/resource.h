@@ -108,6 +108,7 @@
 #define IDC_CFPL_PALNAME                1079
 #define IDC_CFPL_CREATOR                1080
 #define IDC_CFPL_DESCRIPTION            1081
+#define IDC_CFPL_ENABLEBLOOM            1082
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -348,7 +349,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        145
 #define _APS_NEXT_COMMAND_VALUE         32942
-#define _APS_NEXT_CONTROL_VALUE         1079
+#define _APS_NEXT_CONTROL_VALUE         1083
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif

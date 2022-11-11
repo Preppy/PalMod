@@ -116,6 +116,7 @@ public:
     CString m_strPaletteName;
     CString m_strCreator;
     CString m_strDescription;
+    BOOL m_fEnableBloom = FALSE;
 };
 
 IMPLEMENT_DYNAMIC(CCFPLFileExportDialog, CDialog)
@@ -179,6 +180,7 @@ void CCFPLFileExportDialog::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_CFPL_PALNAME, m_strPaletteName);
     DDX_Text(pDX, IDC_CFPL_CREATOR, m_strCreator);
     DDX_Text(pDX, IDC_CFPL_DESCRIPTION, m_strDescription);
+    DDX_Check(pDX, IDC_CFPL_ENABLEBLOOM, m_fEnableBloom);
 }
 
 bool CPalModDlg::LoadPaletteFromCFPL(LPCWSTR pszFileName)
@@ -427,8 +429,7 @@ bool CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName)
             _WriteToFileAsANSIWithForcedLength(CFPLFile, cfplFileDialog.m_strDescription, k_nDescRequiredLength);
 
             // "is bloom" : gives the in-game character display a shine.
-            // we don't interact with that, so force off for now.
-            CFPLFile.Write(&k_rgFillBytes, 1);
+            CFPLFile.Write(&cfplFileDialog.m_fEnableBloom, 1);
 
             const uint16_t k_nStartingPaletteAdjustment = k_nPalettesPerFile * m_nPrevChildSel1;
 

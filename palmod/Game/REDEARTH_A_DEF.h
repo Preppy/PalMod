@@ -664,23 +664,6 @@ const sGame_PaletteDataset REDEARTH_A_LAVIA_PALETTES_UNUSED[] =
     { L"Lavia Frozen 3 Unused", 0x42af00, 0x42af80, indexRedEarthSprites_Lavia },
     { L"Lavia Frozen 4 Unused", 0x42af80, 0x42b000, indexRedEarthSprites_Lavia },
     { L"Lavia Frozen 5 Unused", 0x42b000, 0x42b080, indexRedEarthSprites_Lavia },
-
-    { L"Unused Palettes in Lavia's Section (1/16)", 0x42b080, 0x42b280 },
-    { L"Unused Palettes in Lavia's Section (2/16)", 0x42b280, 0x42b480 },
-    { L"Unused Palettes in Lavia's Section (3/16)", 0x42b480, 0x42b680 },
-    { L"Unused Palettes in Lavia's Section (4/16)", 0x42b680, 0x42b880 },
-    { L"Unused Palettes in Lavia's Section (5/16)", 0x42b880, 0x42ba80 },
-    { L"Unused Palettes in Lavia's Section (6/16)", 0x42ba80, 0x42bc80 },
-    { L"Unused Palettes in Lavia's Section (7/16)", 0x42bc80, 0x42be80 },
-    { L"Unused Palettes in Lavia's Section (8/16)", 0x42be80, 0x42c080 },
-    { L"Unused Palettes in Lavia's Section (9/16)", 0x42c080, 0x42c280 },
-    { L"Unused Palettes in Lavia's Section (10/16)", 0x42c280, 0x42c480 },
-    { L"Unused Palettes in Lavia's Section (11/16)", 0x42c480, 0x42c680 },
-    { L"Unused Palettes in Lavia's Section (12/16) ", 0x42c680, 0x42c880 },
-    { L"Unused Palettes in Lavia's Section (13/16)", 0x42c880, 0x42ca80 },
-    { L"Unused Palettes in Lavia's Section (14/16)", 0x42ca80, 0x42cc80 },
-    { L"Unused Palettes in Lavia's Section (15/16)", 0x42cc80, 0x42ce80 },
-    { L"Unused Palettes in Lavia's Section (16/16)", 0x42ce80, 0x42d000 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
@@ -1580,6 +1563,23 @@ const sGame_PaletteDataset REDEARTH_A_BONUS_31_UNUSED_PALETTES[] =
     { L"Kick Palette Leo Unused? ", 0x408080, 0x408100, indexRedEarthSprites_Leo, 0x00 },
 
     { L"Unused Leo Palette", 0x1e4a00, 0x1e4a80 },
+
+    { L"Unused Palettes in Lavia's Section (1/16)", 0x42b080, 0x42b280 },
+    { L"Unused Palettes in Lavia's Section (2/16)", 0x42b280, 0x42b480 },
+    { L"Unused Palettes in Lavia's Section (3/16)", 0x42b480, 0x42b680 },
+    { L"Unused Palettes in Lavia's Section (4/16)", 0x42b680, 0x42b880 },
+    { L"Unused Palettes in Lavia's Section (5/16)", 0x42b880, 0x42ba80 },
+    { L"Unused Palettes in Lavia's Section (6/16)", 0x42ba80, 0x42bc80 },
+    { L"Unused Palettes in Lavia's Section (7/16)", 0x42bc80, 0x42be80 },
+    { L"Unused Palettes in Lavia's Section (8/16)", 0x42be80, 0x42c080 },
+    { L"Unused Palettes in Lavia's Section (9/16)", 0x42c080, 0x42c280 },
+    { L"Unused Palettes in Lavia's Section (10/16)", 0x42c280, 0x42c480 },
+    { L"Unused Palettes in Lavia's Section (11/16)", 0x42c480, 0x42c680 },
+    { L"Unused Palettes in Lavia's Section (12/16) ", 0x42c680, 0x42c880 },
+    { L"Unused Palettes in Lavia's Section (13/16)", 0x42c880, 0x42ca80 },
+    { L"Unused Palettes in Lavia's Section (14/16)", 0x42ca80, 0x42cc80 },
+    { L"Unused Palettes in Lavia's Section (15/16)", 0x42cc80, 0x42ce80 },
+    { L"Unused Palettes in Lavia's Section (16/16)", 0x42ce80, 0x42d000 },
 
     { L"Unused Vigo, Valo, Vestu", 0x421f80, 0x422000 },
     { L"Unused Vigo, Valo, Vestu Punch", 0x408900, 0x408980 },

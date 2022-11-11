@@ -121,9 +121,9 @@ private:
         m_sFileLoadingData_ROM51_DIR,
         SFIII3_A_51_UNITS,
         ARRAYSIZE(SFIII3_A_51_UNITS),
-        L"sfiii3e.txt",         // Extra filename
-        1430,                   // Count of palettes listed in the header
-        0x700000,               // Lowest known location used for palettes
+        L"sfiii3e.txt",             // Extra filename
+        SFIII_ROM50_PALETTECOUNT,   // Count of palettes listed in the header
+        0x700000,                   // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM51_4rd_DIR
@@ -141,9 +141,9 @@ private:
         m_sFileLoadingData_ROM51_4rd_DIR,
         SFIII3_A_4_UNITS,
         ARRAYSIZE(SFIII3_A_4_UNITS),
-        L"sfiii3e.txt",         // Extra filename
-        1427,                   // Count of palettes listed in the header
-        0x700000,               // Lowest known location used for palettes
+        L"sfiii3e.txt",                 // Extra filename
+        SFIII_ROM50_PALETTECOUNT - 3,   // Count of palettes listed in the header: 3 less than 50 due to the Shin Gouki-->Ultra Sean change
+        0x700000,                       // Lowest known location used for palettes
     };
 
     const sCoreGameData m_sCoreGameData_ROM70_DIR

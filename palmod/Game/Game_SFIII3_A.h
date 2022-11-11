@@ -65,12 +65,14 @@ private:
         m_sFileLoadingData_ROM51,
         SFIII3_A_51_UNITS,
         ARRAYSIZE(SFIII3_A_51_UNITS),
-        L"sfiii3e.txt",         // Extra filename
-        1430,                   // Count of palettes listed in the header
-        0x700000,               // Lowest known location used for palettes
+        L"sfiii3e.txt",             // Extra filename
+        SFIII_ROM50_PALETTECOUNT,   // Count of palettes listed in the header
+        0x700000,                   // Lowest known location used for palettes
     };
 
 public:
+    const uint32_t SFIII_ROM50_PALETTECOUNT = 1438;
+
     static SFIII3LoadingKey m_eVersionToLoad;
 
     static bool IsROMEncrypted() { return (m_eVersionToLoad == SFIII3LoadingKey::ROM10) || (m_eVersionToLoad == SFIII3LoadingKey::ROM10_4rd); };
