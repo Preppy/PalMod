@@ -2020,6 +2020,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         case SFIII3_A:
             CGame_SFIII3_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
+        case SF1_A:
+            CGame_StreetFighter_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case SF2HF_A:
             CGame_SF2HF_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;

@@ -969,6 +969,9 @@
     <ClCompile Include="Game\Game_MagicalDropII_A.cpp">
       <Filter>Games\SNK Games\Magical Drop II</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game_StreetFighter_A.cpp">
+      <Filter>Games\Capcom Games\Street Fighter I</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
