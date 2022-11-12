@@ -1128,7 +1128,7 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_FR_EXTRAS =
     L"Extras",
     {
         //General
-        { L"General Sparks", 0x4d6030, 0x4d6070 },	//Paired with next palette
+        { L"General Sparks", 0x4d6030, 0x4d6070 },    //Paired with next palette
         { L"Charge/Storm Viper Fire (1/7)", 0x494030, 0x494070, },
         { L"Charge/Storm Viper Fire (2/7)", 0x494960, 0x4949a0, },
         { L"Charge/Storm Viper Fire (3/7)", 0x494f00, 0x494f40, },
@@ -1142,7 +1142,7 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_FR_EXTRAS =
         { L"Blockhead Buster (2/3)", 0x54b7a0, 0x54b7e0 },
         { L"Blockhead Buster (3/3)", 0x555a20, 0x555a60 },
 
-        { L"Gun Blaze", 0x47d0e0, 0x47d120 },	//Paired with next palette
+        { L"Gun Blaze", 0x47d0e0, 0x47d120 },    //Paired with next palette
         { L"Gun Blaze Trails", 0x485680, 0x4856c0 },
 
         { L"Storm Viper (1/2)", 0x472740, 0x472780 },
@@ -1176,8 +1176,8 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_FR_EXTRAS =
         { L"Tyrant Rave ver. Omega (3/4)", 0x460ec0, 0x460f00 },
         { L"Tyrant Rave ver. Omega (4/4)", 0x46d660, 0x46d6a0 },
 
-        { L"Savage Fang Level (Lvl 1/2) (1/4)", 0x4f1560, 0x4f15a0 },	//Paired with Lvl 2 Trail
-        { L"Savage Fang Level (Lvl 1/2) (2/4)", 0x4f8c00, 0x4f8c40 },	//^ for the rest
+        { L"Savage Fang Level (Lvl 1/2) (1/4)", 0x4f1560, 0x4f15a0 },    //Paired with Lvl 2 Trail
+        { L"Savage Fang Level (Lvl 1/2) (2/4)", 0x4f8c00, 0x4f8c40 },    //^ for the rest
         { L"Savage Fang Level (Lvl 1/2) (3/4)", 0x4fc5b0, 0x4fc5f0 },
         { L"Savage Fang Level (Lvl 1/2) (4/4)", 0x4ffd50, 0x4ffd90 },
         { L"Savage Fang Level (Lvl 2) Trail", 0x4428d0, 0x442910 },
@@ -1189,15 +1189,15 @@ const sGCBUPF_ExtrasCollection GGXXACR_S_FR_EXTRAS =
         { L"Rock It (Lvl 1) (2/2)", 0x49f990, 0x49f9d0 },
         { L"Rock It (Lvl 3)", 0x4d6ce0, 0x4d6d20 },
 
-        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (1/2)", 0x4c8f40, 0x4c8f80 },	//Paired with Pillars 1/2
-        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (2/2)", 0x4cb670, 0x4cb6b0 },	//Paired with Pillars 2/2
+        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (1/2)", 0x4c8f40, 0x4c8f80 },    //Paired with Pillars 1/2
+        { L"Rock It (Lvl 3)/Savage Fang (Lvl 3) (2/2)", 0x4cb670, 0x4cb6b0 },    //Paired with Pillars 2/2
         { L"Rock It (Lvl 3)/Savage Fang Pillars (1/2)", 0x4cd5c0, 0x4cd600 },
         { L"Rock It (Lvl 3)/Savage Fang Pillars (2/2)", 0x4cf960, 0x4cf9a0 },
 
         //Instant Kill
         { L"Dragon Install: Sakkai Entry", 0x4d1590, 0x4d15d0 },
 
-        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (1/5)", 0x4a17f0, 0x4a1830 },	//Paired with SF and SF Pillars 
+        { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (1/5)", 0x4a17f0, 0x4a1830 },    //Paired with SF and SF Pillars 
         { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (2/5)", 0x4acd00, 0x4acd40 },
         { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (3/5)", 0x4b5ef0, 0x4b5f30 },
         { L"DI: Sakkai Fire/Savage Fang (Lvl 3) (4/5)", 0x4bf750, 0x4bf790 },
