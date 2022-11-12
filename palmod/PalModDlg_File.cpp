@@ -125,6 +125,7 @@ sSupportedGameList SupportedGameList[] =
     { SFIII1_A,         L"SFIII:NG", L"SFIII:NG Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
     { SFIII2_A,         L"SFIII:2I", L"SFIII:2I Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
     { SFIII3_A,         L"SFIII:3S", L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", GamePlatform::CapcomCPS3 },
+    { SF1_A,            L"Street Fighter", L"Street Fighter|sfd-19.2a|", GamePlatform::CapcomCPS12 },
     { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23)|s2t*21.6f;s2t*22.7f;s2t*_23.8f;bundleStreetFighterII_HF.mbundle|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SHAQFU_SNES,      L"Shaq Fu (SNES)", L"Shaq Fu (SNES)|Shaq Fu (USA).sfc;sns-aqfe-0.u1|", GamePlatform::Nintendo },
@@ -152,7 +153,7 @@ sSupportedGameList SupportedGameList[] =
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 177, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 178, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 sSupportedGameList* pSupportedGameList = SupportedGameList;
 const int nNumberOfLoadROMOptions = ARRAYSIZE(SupportedGameList);

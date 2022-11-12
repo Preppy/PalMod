@@ -526,6 +526,9 @@
     <Filter Include="Games\SNK Games\Magical Drop II">
       <UniqueIdentifier>{27e41e42-9e38-45cf-ba30-ad79cb22aa0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Capcom Games\Street Fighter I">
+      <UniqueIdentifier>{233ff76e-15e1-42c0-878e-469f4f9d7807}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1957,6 +1960,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_MagicalDropII_A.h">
       <Filter>Games\SNK Games\Magical Drop II</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_StreetFighter_A.h">
+      <Filter>Games\Capcom Games\Street Fighter I</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\StreetFighter_A_DEF.h">
+      <Filter>Games\Capcom Games\Street Fighter I</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

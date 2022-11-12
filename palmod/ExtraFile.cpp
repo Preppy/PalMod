@@ -10,6 +10,7 @@
 //#define DUMP_EXTRAS_ON_LOAD
 
 uint32_t CGameWithExtrasFile::m_nTotalPaletteCount = 0;
+uint32_t CGameWithExtrasFile::m_nLoadedFileViewSize = 0;
 char CGameWithExtrasFile::m_paszGameNameOverride[MAX_PATH] = "";
 AlphaMode CGameWithExtrasFile::m_AlphaModeOverride = AlphaMode::Unknown;
 ColMode CGameWithExtrasFile::m_ColorModeOverride = ColMode::COLMODE_LAST;
@@ -128,6 +129,8 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
     const int nMaxExtraBufferSize = 10000;
     stExtraDef* prgTempExtraBuffer = new stExtraDef[nMaxExtraBufferSize];
 
+    m_nLoadedFileViewSize = nGameROMSize;
+
     // Reset for a new extras file load.
     ResetStaticOverrideVariables();
 
@@ -147,7 +150,7 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
             memcpy(prgTempExtraBuffer, STOCKEXTRALIST_EXTRA, ARRAYSIZE(STOCKEXTRALIST_EXTRA) * sizeof(stExtraDef));
         }
 
-        if ((nGameROMSize != -1) && pszExtraFileName) // If we don't know the ROM size we don't know how to sanely bounds-check our file access, so can't trust our handling of Extra files.
+        if ((m_nLoadedFileViewSize != -1) && pszExtraFileName) // If we don't know the ROM size we don't know how to sanely bounds-check our file access, so can't trust our handling of Extra files.
         {
             // Now we look for the Extra extension file.
             GetModuleFileName(nullptr, szTargetFile, (DWORD)MAX_PATH);
@@ -360,14 +363,14 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                 }
 
                                 // Validate that they're not trying to read off the end of the ROM...
-                                if ((nCurrEnd > (int)nGameROMSize) || (nCurrStart >= (int)nGameROMSize))
+                                if ((nCurrEnd > static_cast<int>(m_nLoadedFileViewSize)) || (nCurrStart >= static_cast<int>(m_nLoadedFileViewSize)))
                                 {
                                     if (!fAlertedToTruncation)
                                     {
                                         CString strQuestion;
                                         strQuestion.Format(L"In file \"%s\", Extra \"%S\" is broken.\n\nThis game ROM size is 0x%x bytes. This Extra starts at offset 0x%x and ends at offset 0x%x."
                                             L"That won't work: the maximum ending offset possible is 0x%x.\n\n"
-                                            L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nGameROMSize, nCurrStart, nCurrEnd, nGameROMSize);
+                                            L"Please fix this. PalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, m_nLoadedFileViewSize, nCurrStart, nCurrEnd, nGameROMSize);
 
                                         MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
                                         fAlertedToTruncation = true;
@@ -376,8 +379,8 @@ void CGameWithExtrasFile::LoadExtraFileForGame(LPCWSTR pszExtraFileName, stExtra
                                     CStringA strFormat;
                                     strFormat.Format("Broken: Truncated: %s", aszCurrDesc);
                                     _snprintf_s(aszCurrDesc, MAX_DESCRIPTION_LENGTH, _TRUNCATE, strFormat.GetString());
-                                    nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * cbColorSize)));
-                                    nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
+                                    nCurrStart = min(nCurrStart, static_cast<int>(m_nLoadedFileViewSize) - (16 * cbColorSize));
+                                    nCurrEnd = min(nCurrEnd, static_cast<int>(m_nLoadedFileViewSize));
                                 }
 
                                 uint32_t nColorsUsed = (nCurrEnd - nCurrStart) / cbColorSize; // usually 2 bytes per color.
@@ -1107,7 +1110,18 @@ void CGameWithExtrasFile::_CreateExtrasFileWithOptions(CFile& ExtraFile, sExtras
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
                     strExtraFileText = L";To: end of ROM\r\n";
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
-                    strExtraFileText.Format(L"0x%x\r\n\r\n", (int)GameROM.GetLength());
+
+                    // If we have a view of files, the extra file can be used across them: double-check that by checking confirmed size vs (single) file size
+                    int nFileViewSize = static_cast<int>(GameROM.GetLength());
+
+                    if ((m_nLoadedFileViewSize != -1) &&
+                        (m_nLoadedFileViewSize > static_cast<uint32_t>(nFileViewSize)))
+                    {
+                        nFileViewSize = static_cast<int>(m_nLoadedFileViewSize);
+                    }
+
+                    m_nLoadedFileViewSize;
+                    strExtraFileText.Format(L"0x%x\r\n\r\n", nFileViewSize);
                     _WriteToFileAsANSI(ExtraFile, strExtraFileText);
 
                     GameROM.Abort();

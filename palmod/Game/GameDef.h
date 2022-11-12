@@ -199,6 +199,7 @@ enum SupportedGamesList
     DaemonBrideAG_NL,
     AODK_A,
     MAGICALDROPII_A,
+    SF1_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -392,6 +393,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Daemon Bride: Additional Gain (NESICAxLive)",
     L"Aggressors of Dark Kombat (Neo-Geo)",
     L"Magical Drop II (Neo-Geo)",
+    L"Street Fighter (US, Set 1)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

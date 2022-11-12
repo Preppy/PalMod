@@ -23,6 +23,9 @@ protected:
     static AlphaMode m_AlphaModeOverride;
     static ColMode m_ColorModeOverride;
 
+    // We may be navigating over a set of files, so track that total size if we get it
+    static uint32_t m_nLoadedFileViewSize;
+
     static void ResetStaticOverrideVariables();
     static void SetGameNameOverride(LPCSTR paszGameNameString);
     static void SetAlphaOverride(LPCSTR paszAlphaString);

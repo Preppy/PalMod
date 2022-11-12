@@ -134,6 +134,7 @@
 #include "Game_SPF2T_A.h"
 #include "Game_SSF2T_A.h"
 #include "Game_SSF2T_GBA.h"
+#include "Game_StreetFighter_A.h"
 #include "Game_SVG_SNES.h"
 #include "Game_SVCPLUSA_A.h"
 #include "Game_TMNTTF_SNES.h"
@@ -157,7 +158,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 177, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 178, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -1060,6 +1061,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+    case SF1_A:
+    {
+        GetRule = &CGame_StreetFighter_A::GetRule;
+        return TRUE;
+    }
     case SF2CE_A:
     {
         GetRule = &CGame_SF2CE_A::GetRule;
@@ -1803,6 +1809,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case SFZ3U_A:
     {
         return new CGame_SFZ3U_A(nConfirmedROMSize);
+    }
+    case SF1_A:
+    {
+        return new CGame_StreetFighter_A(nConfirmedROMSize);
     }
     case SF2CE_A:
     {
