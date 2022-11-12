@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "Game_WakuWaku7_A.h"
+
 uint32_t CGame_WakuWaku7_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static const sCRC32ValueSet knownROMs[] =
