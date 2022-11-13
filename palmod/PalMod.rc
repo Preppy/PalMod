@@ -283,6 +283,17 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,109,155,43,14
 END
 
+IDD_RAWFIXUP_DIALOG DIALOGEX 0, 0, 197, 175
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "RAW Fixup Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,42,151,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,98,151,50,14
+    LTEXT           "The supplied height and width values for this RAW file are not accurate and can not be used.  Please select which possible height and width you want to use.",IDC_STATIC,7,7,183,41
+    LISTBOX         IDC_RAWFIXUP_HWOPTIONS,44,49,102,91,LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -373,7 +384,14 @@ BEGIN
 
     IDD_CFPL_EXPORT, DIALOG
     BEGIN
-        BOTTOMMARGIN, 170
+    END
+
+    IDD_RAWFIXUP_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 190
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 168
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -708,6 +726,11 @@ BEGIN
 END
 
 IDD_CFPL_EXPORT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_RAWFIXUP_DIALOG AFX_DIALOG_LAYOUT
 BEGIN
     0
 END

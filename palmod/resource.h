@@ -41,6 +41,7 @@
 #define IDD_PALMOD_DIALOG_FAT           142
 #define IDD_CFPL_IMPORT                 143
 #define IDD_CFPL_EXPORT                 144
+#define IDD_RAWFIXUP_DIALOG             145
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT_RH                     1001
 #define IDC_EDIT_BL                     1002
@@ -109,6 +110,8 @@
 #define IDC_CFPL_CREATOR                1080
 #define IDC_CFPL_DESCRIPTION            1081
 #define IDC_CFPL_ENABLEBLOOM            1082
+#define IDC_RAWFIXUP_OPTIONSLIST        1083
+#define IDC_RAWFIXUP_HWOPTIONS          1083
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -347,9 +350,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        145
+#define _APS_NEXT_RESOURCE_VALUE        147
 #define _APS_NEXT_COMMAND_VALUE         32942
-#define _APS_NEXT_CONTROL_VALUE         1083
+#define _APS_NEXT_CONTROL_VALUE         1084
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif

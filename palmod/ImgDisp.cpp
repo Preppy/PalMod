@@ -8,6 +8,73 @@
 #include "atlimage.h"
 #include "PalMod.h"
 
+class CRAWHeightWidthAdjustmentDialog : public CDialog
+{
+    DECLARE_DYNAMIC(CRAWHeightWidthAdjustmentDialog)
+
+public:
+    CRAWHeightWidthAdjustmentDialog(std::vector<CString> rgstrHWOptionsList, int nSuggestedIndex, CWnd* pParent = NULL);
+    virtual ~CRAWHeightWidthAdjustmentDialog() {};
+
+    BOOL OnInitDialog();
+    afx_msg void OnUpdateCombobox();
+
+    enum { IDD = IDD_RAWFIXUP_DIALOG };
+
+protected:
+    virtual void DoDataExchange(CDataExchange* pDX);
+
+    DECLARE_MESSAGE_MAP()
+
+    CListBox m_lbHWOptions;
+    std::vector<CString> m_rgstrHWOptionsList;
+
+public:
+    int m_nCurrentSel = 0;
+};
+
+IMPLEMENT_DYNAMIC(CRAWHeightWidthAdjustmentDialog, CDialog)
+
+CRAWHeightWidthAdjustmentDialog::CRAWHeightWidthAdjustmentDialog(std::vector<CString> rgstrHWOptionsList, int nSuggestedIndex, CWnd* pParent /*=NULL*/)
+    : CDialog(CRAWHeightWidthAdjustmentDialog::IDD, pParent)
+{
+    m_rgstrHWOptionsList = rgstrHWOptionsList;
+
+    m_nCurrentSel = nSuggestedIndex;
+}
+
+BOOL CRAWHeightWidthAdjustmentDialog::OnInitDialog()
+{
+    CDialog::OnInitDialog();
+
+    for (const CString& strColorOption : m_rgstrHWOptionsList)
+    {
+        m_lbHWOptions.AddString(strColorOption);
+    }
+
+    m_lbHWOptions.SetCurSel(m_nCurrentSel);
+
+    UpdateData();
+
+    return TRUE;
+}
+
+void CRAWHeightWidthAdjustmentDialog::OnUpdateCombobox()
+{
+    m_nCurrentSel = m_lbHWOptions.GetCurSel();
+}
+
+void CRAWHeightWidthAdjustmentDialog::DoDataExchange(CDataExchange* pDX)
+{
+    CDialog::DoDataExchange(pDX);
+
+    DDX_Control(pDX, IDC_RAWFIXUP_HWOPTIONS, m_lbHWOptions);
+}
+
+BEGIN_MESSAGE_MAP(CRAWHeightWidthAdjustmentDialog, CDialog)
+    ON_LBN_SELCHANGE(IDC_RAWFIXUP_HWOPTIONS, &OnUpdateCombobox)
+END_MESSAGE_MAP()
+
 // CImgDisp
 
 CImgDisp::CImgDisp()
@@ -548,74 +615,119 @@ bool CImgDisp::LoadExternalRAWSprite(UINT nPositionToLoadTo, SpriteImportDirecti
                     (m_nTextureOverrideH[nPositionToLoadTo] > 0) && (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
                 {
                     bool fIsDoubleSizeGIMPRAW = false;
-                    if (((3 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
+                    bool fHaveReasonableData = true;
+                    const int nSizeIfThisIsRAW = m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo];
+
+                    if ((3 * nSizeIfThisIsRAW) == nSizeToRead)
                     {
                         // This is an RGB RAW...
                         MessageBox(L"This RAW is not using indexed color.  Please recreate it using indexed colors.  This will not look right.", GetHost()->GetAppName(), MB_ICONERROR);
                     }
-                    else if (((2 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
+                    else if ((2 * nSizeIfThisIsRAW) == nSizeToRead)
                     {
                         // I think it's GIMP that doubles the RAW for no apparent reason
                         fIsDoubleSizeGIMPRAW = true;
                         GetHost()->GetPalModDlg()->SetStatusText(IDS_RAW_EXTRADATA);
                     }
-                    else if ((m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo]) != nSizeToRead)
+                    else if (nSizeIfThisIsRAW != nSizeToRead)
                     {
-                        MessageBox(L"The W and H values specified in the RAW filename are wrong.  This will not look right.", GetHost()->GetAppName(), MB_ICONERROR);
-                    }
+                        fHaveReasonableData = false;
 
-                    safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
-                    m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nSizeToRead];
-
-                    CString wcsstr;
-                    wcsstr.Format(L"CImgDisp::LoadExternalSprite texture file is: %u x %u\n", m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
-                    OutputDebugString(wcsstr);
-
-                    TextureFile.SeekToBegin();
-
-                    if (direction == SpriteImportDirection::TopDown)
-                    {
-                        TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
-                    }
-                    else
-                    {
-                        int nCurrentFilePosition = nSizeToRead;
-
-                        if (fIsDoubleSizeGIMPRAW)
+                        if (nSizeToRead > 250)
                         {
-                            nCurrentFilePosition /= 2;
+                            CString strOutput;
+                            std::vector<int> rgWidthOptions;
+                            std::vector<CString> rgstrHWOptions;
+                            std::pair<int, int> indexSuggestion = { 0, m_nTextureOverrideW[nPositionToLoadTo] };
+                            const int nSizeToCheck = static_cast<int>(ceil(nSizeToRead / 50.0));
+                            const int nMinimumAcceptableWidth = 50;
+
+                            for (int nPossibleWidth = nMinimumAcceptableWidth, nFoundMatches = 0; nPossibleWidth < nSizeToCheck; nPossibleWidth++)
+                            {
+                                if (nSizeToRead % nPossibleWidth == 0)
+                                {
+                                    strOutput.Format(L"%u x %u", nPossibleWidth, nSizeToRead / nPossibleWidth);
+
+                                    rgWidthOptions.push_back(nPossibleWidth);
+                                    rgstrHWOptions.push_back(strOutput);
+
+                                    if (abs(m_nTextureOverrideW[nPositionToLoadTo] - nPossibleWidth) < indexSuggestion.second)
+                                    {
+                                        indexSuggestion.first = nFoundMatches;
+                                        indexSuggestion.second = abs(m_nTextureOverrideW[nPositionToLoadTo] - nPossibleWidth);
+                                    }
+
+                                    nFoundMatches++;
+                                }
+                            }
+
+                            CRAWHeightWidthAdjustmentDialog AdjustmentDialog(rgstrHWOptions, indexSuggestion.first);
+
+                            if (AdjustmentDialog.DoModal() == IDOK)
+                            {
+                                m_nTextureOverrideW[nPositionToLoadTo] = rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
+                                m_nTextureOverrideH[nPositionToLoadTo] = nSizeToRead / rgWidthOptions.at(AdjustmentDialog.m_nCurrentSel);
+                                fHaveReasonableData = true;
+                            }
+
+                        }
+                    }
+
+                    if (fHaveReasonableData)
+                    {
+                        safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
+                        m_ppSpriteOverrideTexture[nPositionToLoadTo] = new uint8_t[nSizeToRead];
+
+                        CString strInfo;
+                        strInfo.Format(L"CImgDisp::LoadExternalSprite texture file is: %u x %u\n", m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
+                        OutputDebugString(strInfo);
+
+                        TextureFile.SeekToBegin();
+
+                        if (direction == SpriteImportDirection::TopDown)
+                        {
+                            TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
+                        }
+                        else
+                        {
+                            int nCurrentFilePosition = nSizeToRead;
+
+                            if (fIsDoubleSizeGIMPRAW)
+                            {
+                                nCurrentFilePosition /= 2;
+                            }
+
+                            // Skip one line back
+                            nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
+
+                            // We need to flip this line by line
+                            for (int nLinePosition = 0; nLinePosition < m_nTextureOverrideH[nPositionToLoadTo]; nLinePosition++)
+                            {
+                                //TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
+                                TextureFile.Read(&m_ppSpriteOverrideTexture[nPositionToLoadTo][nCurrentFilePosition], m_nTextureOverrideW[nPositionToLoadTo]);
+                                nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
+                            }                        
                         }
 
-                        // Skip one line back
-                        nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
+                        TextureFile.Close();
 
-                        // We need to flip this line by line
-                        for (int nLinePosition = 0; nLinePosition < m_nTextureOverrideH[nPositionToLoadTo]; nLinePosition++)
+                        if (m_pImgBuffer[nPositionToLoadTo])
                         {
-                            //TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
-                            TextureFile.Read(&m_ppSpriteOverrideTexture[nPositionToLoadTo][nCurrentFilePosition], m_nTextureOverrideW[nPositionToLoadTo]);
-                            nCurrentFilePosition -= m_nTextureOverrideW[nPositionToLoadTo];
-                        }                        
+                            // Override but use the stock palette
+                            AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+                                                            m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
+                        }
+                        else
+                        {
+                            // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
+                            AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
+                                                            m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
+                        }
+
+                        ResetForNewImage();
+
+                        return true;
                     }
-
-                    TextureFile.Close();
-
-                    if (m_pImgBuffer[nPositionToLoadTo])
-                    {
-                        // Override but use the stock palette
-                        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
-                                                        m_pImgBuffer[nPositionToLoadTo]->pPalette, m_pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
-                    }
-                    else
-                    {
-                        // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
-                        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo],
-                                                        m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
-                    }
-
-                    ResetForNewImage();
-
-                    return true;
                 }
             }
         }
