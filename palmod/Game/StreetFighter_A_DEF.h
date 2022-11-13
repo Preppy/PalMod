@@ -12,7 +12,7 @@ const std::vector<uint16_t> StreetFighter_A_IMGIDS_USED =
 
 const sGame_PaletteDataset StreetFighter_A_RYU_PALETTES[] =
 {
-    { L"Ryu", 0x1BA68, 0x1BA88 },
+    { L"Ryu", 0x1BA66, 0x1BA86 },
 };
 
 const sDescTreeNode StreetFighter_A_Ryu_COLLECTION[] =
@@ -22,7 +22,7 @@ const sDescTreeNode StreetFighter_A_Ryu_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Ken_PALETTES[] =
 {
-    { L"Ken", 0x1BA88, 0x1BAa8 },
+    { L"Ken", 0x1BA86, 0x1BAa6 },
 };
 
 const sDescTreeNode StreetFighter_A_Ken_COLLECTION[] =
@@ -32,7 +32,7 @@ const sDescTreeNode StreetFighter_A_Ken_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Geki_PALETTES[] =
 {
-    { L"Geki", 0x1BAa8, 0x1BAc8 },
+    { L"Geki", 0x1BAa6, 0x1BAc6 },
 };
 
 const sDescTreeNode StreetFighter_A_Geki_COLLECTION[] =
@@ -42,7 +42,7 @@ const sDescTreeNode StreetFighter_A_Geki_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Retsu_PALETTES[] =
 {
-    { L"Retsu", 0x1BAc8, 0x1BAe8 },
+    { L"Retsu", 0x1BAc6, 0x1BAe6 },
 };
 
 const sDescTreeNode StreetFighter_A_Retsu_COLLECTION[] =
@@ -52,7 +52,7 @@ const sDescTreeNode StreetFighter_A_Retsu_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_BoardBreakers_PALETTES[] =
 {
-    { L"Helpers", 0x1BAe8, 0x1Bb08 },
+    { L"Helpers", 0x1BAe6, 0x1Bb06 },
 };
 
 const sDescTreeNode StreetFighter_A_BoardBreaking_COLLECTION[] =
@@ -62,7 +62,7 @@ const sDescTreeNode StreetFighter_A_BoardBreaking_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Joe_PALETTES[] =
 {
-    { L"Joe", 0x1Bb08, 0x1Bb28 },
+    { L"Joe", 0x1Bb06, 0x1Bb26 },
 };
 
 const sDescTreeNode StreetFighter_A_Joe_COLLECTION[] =
@@ -72,7 +72,7 @@ const sDescTreeNode StreetFighter_A_Joe_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Lee_PALETTES[] =
 {
-    { L"Lee", 0x1Bb28, 0x1Bb48 },
+    { L"Lee", 0x1Bb26, 0x1Bb46 },
 };
 
 const sDescTreeNode StreetFighter_A_Lee_COLLECTION[] =
@@ -82,7 +82,7 @@ const sDescTreeNode StreetFighter_A_Lee_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Mike_PALETTES[] =
 {
-    { L"Mike", 0x1Bb48, 0x1Bb68 },
+    { L"Mike", 0x1Bb46, 0x1Bb66 },
 };
 
 const sDescTreeNode StreetFighter_A_Mike_COLLECTION[] =
@@ -92,7 +92,7 @@ const sDescTreeNode StreetFighter_A_Mike_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Gen_PALETTES[] =
 {
-    { L"Gen", 0x1Bb68, 0x1Bb88 },
+    { L"Gen", 0x1Bb66, 0x1Bb86 },
 };
 
 const sDescTreeNode StreetFighter_A_Gen_COLLECTION[] =
@@ -102,7 +102,7 @@ const sDescTreeNode StreetFighter_A_Gen_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Birdie_PALETTES[] =
 {
-    { L"Birdie", 0x1Bb88, 0x1Bba8 },
+    { L"Birdie", 0x1Bb86, 0x1Bba6 },
 };
 
 const sDescTreeNode StreetFighter_A_Birdie_COLLECTION[] =
@@ -112,7 +112,7 @@ const sDescTreeNode StreetFighter_A_Birdie_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Eagle_PALETTES[] =
 {
-    { L"Eagle", 0x1Bba8, 0x1Bbc8 },
+    { L"Eagle", 0x1Bba6, 0x1Bbc6 },
 };
 
 const sDescTreeNode StreetFighter_A_Eagle_COLLECTION[] =
@@ -122,7 +122,7 @@ const sDescTreeNode StreetFighter_A_Eagle_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Adon_PALETTES[] =
 {
-    { L"Adon", 0x1Bbc8, 0x1Bbe8 },
+    { L"Adon", 0x1Bbc6, 0x1Bbe6 },
 };
 
 const sDescTreeNode StreetFighter_A_Adon_COLLECTION[] =
@@ -132,7 +132,7 @@ const sDescTreeNode StreetFighter_A_Adon_COLLECTION[] =
 
 const sGame_PaletteDataset StreetFighter_A_Sagat_PALETTES[] =
 {
-    { L"Sagat", 0x1Bbe8, 0x1Bc08 },
+    { L"Sagat", 0x1Bbe6, 0x1Bc06 },
 };
 
 const sDescTreeNode StreetFighter_A_Sagat_COLLECTION[] =
