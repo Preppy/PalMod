@@ -479,14 +479,6 @@ void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, SpriteImportD
     {
         m_ImgDisp.UpdateCtrl();
     }
-    else
-    {
-        CString strError;
-        if (strError.LoadString(IDS_ERROR_TEXTURE_LOAD))
-        {
-            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-        }
-    }
 }
 
 void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/, SpriteImportDirection direction /* = SpriteImportDirection::TopDown */)
