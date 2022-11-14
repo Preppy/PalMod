@@ -380,10 +380,11 @@ void CPalModDlg::_WriteToFileAsANSIWithForcedLength(CFile& OutFile, CString strD
     }
 }
 
-bool CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName)
+void CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGenericError)
 {
     CFile CFPLFile;
     bool fSuccess = false;
+    fShouldShowGenericError = false;
 
     CCFPLFileExportDialog cfplFileDialog(BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).strCharacter.c_str());
 
@@ -464,8 +465,11 @@ bool CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName)
 
             fSuccess = true;
         }
+        else
+        {
+            fShouldShowGenericError = true;
+        }
     }
 
     SetStatusText(fSuccess ? IDS_CFPLSAVE_SUCCESS : IDS_CFPLSAVE_FAILURE);
-    return fSuccess;
 }

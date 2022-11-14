@@ -186,7 +186,7 @@ bool CPalModDlg::LoadPaletteFromHPAL(LPCWSTR pszFileName)
     return fSuccess;
 }
 
-bool CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName)
+void CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError)
 {
     CFile HPALFile;
     bool fSuccess = false;
@@ -257,5 +257,6 @@ bool CPalModDlg::SavePaletteToHPAL(LPCWSTR pszFileName)
     }
 
     SetStatusText(fSuccess ? IDS_HPALSAVE_SUCCESS : IDS_HPALSAVE_FAILURE);
-    return fSuccess;
+
+    fShouldShowGenericError = !fSuccess;
 }

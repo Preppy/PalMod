@@ -171,11 +171,11 @@ public:
     bool LoadPaletteFromPS3SF3OETXT(LPCWSTR pszFileName);
     // if you add a new palette type here, please update the CPalDropTarget support
 
-    bool SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp);
-    bool SavePaletteToCFPL(LPCWSTR pszFileName);
-    bool SavePaletteToGPL(LPCWSTR pszFileName);
-    bool SavePaletteToHPAL(LPCWSTR pszFileName);
-    bool SavePaletteToPAL(LPCWSTR pszFileName);
+    void SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& fShouldShowGenericError);
+    void SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
+    void SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
+    void SavePaletteToHPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
+    void SavePaletteToPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError);
 
     void UpdateSliderSel(BOOL fModeChange = FALSE, BOOL fResetRF = FALSE);
     void SetShowColorsAsRGBOrHSL(BOOL fShowAsRGB);

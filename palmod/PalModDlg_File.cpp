@@ -1873,7 +1873,7 @@ void CPalModDlg::OnImportPalette()
     }
 }
 
-bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp)
+void CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp, bool& fShouldShowGenericError)
 {
     CFile ActFile;
     bool fSuccess = false;
@@ -1989,13 +1989,14 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName, bool fRightsideUp)
     }
 
     SetStatusText(fSuccess ? IDS_ACTSAVE_SUCCESS : IDS_ACTSAVE_FAILURE);
-    return fSuccess;
+
+    fShouldShowGenericError = !fSuccess;
 }
 
-bool CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName)
+void CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName, bool& fShouldShowGenericError)
 {
-    bool fSuccess = false;
     CFile GPLFile;
+    bool fSuccess = false;
 
     // Save to GPL file.
     if (GPLFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite))
@@ -2056,10 +2057,11 @@ bool CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName)
     }
 
     SetStatusText(fSuccess ? IDS_GPLSAVE_SUCCESS : IDS_GPLSAVE_FAILURE);
-    return fSuccess;
+
+    fShouldShowGenericError = !fSuccess;
 }
 
-bool CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName)
+void CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName, bool& fShouldShowGenericError)
 {
     bool fSuccess = false;
 
@@ -2100,7 +2102,8 @@ bool CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName)
     }
 
     SetStatusText(fSuccess ? IDS_PALSAVE_SUCCESS : IDS_PALSAVE_FAILURE);
-    return fSuccess;
+    
+    fShouldShowGenericError = !fSuccess;
 }
 
 void CPalModDlg::OnExportPalette()
@@ -2144,37 +2147,37 @@ void CPalModDlg::OnExportPalette()
 
         wchar_t szExtension[_MAX_EXT];
         _tsplitpath(szFile, nullptr, nullptr, nullptr, szExtension);
-        bool fSuccess = false;
+        bool fShouldShowGenericError = false;
 
         if (_wcsicmp(szExtension, L".gpl") == 0)
         {
-            fSuccess = SavePaletteToGPL(ActSave.GetOFN().lpstrFile);
+            SavePaletteToGPL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
         else if (fUseBBCFLogic && (_wcsicmp(szExtension, L".cfpl") == 0)) // only allow cfpl for BBCF
         {
-            fSuccess = SavePaletteToCFPL(ActSave.GetOFN().lpstrFile);
+            SavePaletteToCFPL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
         else if (_wcsicmp(szExtension, L".hpl") == 0)
         {
-            fSuccess = SavePaletteToHPAL(ActSave.GetOFN().lpstrFile);
+            SavePaletteToHPAL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
         else if (_wcsicmp(szExtension, L".pal") == 0)
         {
-            fSuccess = SavePaletteToPAL(ActSave.GetOFN().lpstrFile);
+            SavePaletteToPAL(ActSave.GetOFN().lpstrFile, fShouldShowGenericError);
         }
         else
         {
             if (ActSave.GetOFN().nFilterIndex == 4) // This is in reference to our array's sort order above
             {
-                fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile, false);
+                SavePaletteToACT(ActSave.GetOFN().lpstrFile, false, fShouldShowGenericError);
             }
             else
             {
-                fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile, true);
+                SavePaletteToACT(ActSave.GetOFN().lpstrFile, true, fShouldShowGenericError);
             }
         }
 
-        if (!fSuccess)
+        if (fShouldShowGenericError)
         {
             CString strError;
             if (strError.LoadString(IDS_ERROR_SAVING_PALETTE_FILE))
