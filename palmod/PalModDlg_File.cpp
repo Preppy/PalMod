@@ -12,7 +12,7 @@ constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 // NOTE: If you add a multiple-ROM option below, you will also need to update
 // CGameLoad::LoadFile to pass the appropriate gameflag to that game.
 // When you add or change the data here, please also update the Read Me with that data.
-sSupportedGameList SupportedGameList[] =
+std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
 {
     // 1: Game ID,      2: Popup menu text,   3: Open File filter text,    4: Game Platform [,  5: Optional sub-category]
     { AODK_A,           L"Aggressors of Dark Kombat", L"Aggressors of Dark Kombat|074-p1.*|", GamePlatform::NEOGEO },
@@ -125,7 +125,7 @@ sSupportedGameList SupportedGameList[] =
     { SFIII1_A,         L"SFIII:NG", L"SFIII:NG Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
     { SFIII2_A,         L"SFIII:2I", L"SFIII:2I Arcade|50|", GamePlatform::CapcomCPS3, GameSeries::SF3 },
     { SFIII3_A,         L"SFIII:3S", L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", GamePlatform::CapcomCPS3 },
-    { SF1_A,            L"Street Fighter", L"Street Fighter|sf*19*.*;sfd-19;sfe-19|", GamePlatform::CapcomCPS12 },
+    { SF1_A,            L"Street Fighter", L"Street Fighter|sf*19*.*;sfd-19;sfe-19|", GamePlatform::OtherPlatform },
     { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22), Continue (23)|s2t*21.6f;s2t*22.7f;s2t*_23.8f;bundleStreetFighterII_HF.mbundle|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
     { SHAQFU_SNES,      L"Shaq Fu (SNES)", L"Shaq Fu (SNES)|Shaq Fu (USA).sfc;sns-aqfe-0.u1|", GamePlatform::Nintendo },
@@ -154,9 +154,6 @@ sSupportedGameList SupportedGameList[] =
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == 178, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
-
-sSupportedGameList* pSupportedGameList = SupportedGameList;
-const int nNumberOfLoadROMOptions = ARRAYSIZE(SupportedGameList);
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {
@@ -784,7 +781,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
             LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
 
             wchar_t szGameFilter[MAX_DESCRIPTION_LENGTH];
-            wcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
+            wcsncpy(szGameFilter, g_rgGameToFileMap[0].szGameFilterString, ARRAYSIZE(szGameFilter));
             szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
 
             LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
@@ -795,7 +792,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
                 pszPipe[0] = 0;
             }
 
-            strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
+            strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[g_rgGameToFileMap[0].nInternalGameIndex]);
             MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
         }
     }
@@ -811,15 +808,15 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     DWORD dwLastUsedGameIndex = 0;
 
     // Add all the games, and make sure we know how to map index to game code
-    for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
+    for (int nArrayPosition = 0; nArrayPosition < g_rgGameToFileMap.size(); nArrayPosition++)
     {
-        szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
-        SupportedGameList[nArrayPosition].nListedGameIndex = nArrayPosition;
+        szGameFileDef.Append(g_rgGameToFileMap[nArrayPosition].szGameFilterString);
+        g_rgGameToFileMap[nArrayPosition].nListedGameIndex = nArrayPosition;
 
-        if (SupportedGameList[nArrayPosition].nInternalGameIndex == nDefaultGameFilter)
+        if (g_rgGameToFileMap[nArrayPosition].nInternalGameIndex == nDefaultGameFilter)
         {
             // user nFilterIndex starts at 1
-            dwLastUsedGameIndex = SupportedGameList[nArrayPosition].nListedGameIndex + 1;
+            dwLastUsedGameIndex = g_rgGameToFileMap[nArrayPosition].nListedGameIndex + 1;
         }
     }
 
@@ -873,7 +870,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 
         if (fSafeToContinue)
         {
-            for (const sSupportedGameList &currentGame : SupportedGameList)
+            for (const sSupportedGameToFileMap& currentGame : g_rgGameToFileMap)
             {
                 // user nFilterIndex starts at 1
                 if ((currentGame.nListedGameIndex + 1) == ofn.nFilterIndex)

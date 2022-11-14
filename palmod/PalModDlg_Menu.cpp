@@ -211,18 +211,18 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             if (((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) || ((GamePlatform)nPlatform == GamePlatform::NEOGEO))
             {
                 // first pass is just the submenus
-                for (int nGamePos = 0; nGamePos < nNumberOfLoadROMOptions; nGamePos++)
+                for (const auto& sGametoFileData : g_rgGameToFileMap)
                 {
-                    if (pSupportedGameList[nGamePos].publisherKey == (GamePlatform)nPlatform)
+                    if (sGametoFileData.publisherKey == (GamePlatform)nPlatform)
                     {
                         mii.cbSize = sizeof(MENUITEMINFO);
                         mii.fMask = MIIM_ID | MIIM_STRING;
-                        mii.wID = pSupportedGameList[nGamePos].nInternalGameIndex | k_nGameLoadROMListMask;
-                        mii.dwTypeData = (LPWSTR)pSupportedGameList[nGamePos].szGameFriendlyName;
+                        mii.wID = sGametoFileData.nInternalGameIndex | k_nGameLoadROMListMask;
+                        mii.dwTypeData = (LPWSTR)sGametoFileData.szGameFriendlyName;
 
-                        if (pSupportedGameList[nGamePos].seriesKey != (GameSeries)GameSeries::Unknown)
+                        if (sGametoFileData.seriesKey != (GameSeries)GameSeries::Unknown)
                         {
-                            switch (pSupportedGameList[nGamePos].seriesKey)
+                            switch (sGametoFileData.seriesKey)
                             {
                             case GameSeries::MvC:
                             case GameSeries::ArtOfFighting:
@@ -250,19 +250,19 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             LPCWSTR ppszCapcomSubMenu[] = { L"Marvel vs Capcom", L"Street Fighter Alpha", L"Street Fighter 2", L"Vampire Savior" };
             LPCWSTR ppszSNKSubMenu[] = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Samurai Shodown" };
 
-            for (int nGamePos = 0; nGamePos < nNumberOfLoadROMOptions; nGamePos++)
+            for (const auto& sGametoFileData : g_rgGameToFileMap)
             {
-                if (pSupportedGameList[nGamePos].publisherKey == (GamePlatform)nPlatform)
+                if (sGametoFileData.publisherKey == (GamePlatform)nPlatform)
                 {
                     mii.cbSize = sizeof(MENUITEMINFO);
                     mii.fMask = MIIM_ID | MIIM_STRING;
-                    mii.wID = pSupportedGameList[nGamePos].nInternalGameIndex | k_nGameLoadROMListMask;
-                    mii.dwTypeData = (LPWSTR)pSupportedGameList[nGamePos].szGameFriendlyName;
+                    mii.wID = sGametoFileData.nInternalGameIndex | k_nGameLoadROMListMask;
+                    mii.dwTypeData = (LPWSTR)sGametoFileData.szGameFriendlyName;
 
                     if (((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) && (nMenuIndex < ARRAYSIZE(seriesMenu)))
                     {
-                        if ((ppszCapcomSubMenu[nMenuIndex][0] <= pSupportedGameList[nGamePos].szGameFriendlyName[0]) &&
-                            (ppszCapcomSubMenu[nMenuIndex][1] <= pSupportedGameList[nGamePos].szGameFriendlyName[1]))
+                        if ((ppszCapcomSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
+                            (ppszCapcomSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
                         {
                             platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszCapcomSubMenu[nMenuIndex]);
                             nMenuIndex++;
@@ -271,8 +271,8 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     }
                     else if (((GamePlatform)nPlatform == GamePlatform::NEOGEO) && (nMenuIndex < ARRAYSIZE(seriesMenu)))
                     {
-                        if ((ppszSNKSubMenu[nMenuIndex][0] <= pSupportedGameList[nGamePos].szGameFriendlyName[0]) &&
-                            (ppszSNKSubMenu[nMenuIndex][1] <= pSupportedGameList[nGamePos].szGameFriendlyName[1]))
+                        if ((ppszSNKSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
+                            (ppszSNKSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
                         {
                             platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszSNKSubMenu[nMenuIndex]);
                             nMenuIndex++;
@@ -280,8 +280,8 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                         }
                     }
 
-                    if ((((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) && (pSupportedGameList[nGamePos].seriesKey == (GameSeries)GameSeries::Unknown)) ||
-                        (((GamePlatform)nPlatform == GamePlatform::NEOGEO) && (pSupportedGameList[nGamePos].seriesKey == (GameSeries)GameSeries::Unknown)) ||
+                    if ((((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) && (sGametoFileData.seriesKey == (GameSeries)GameSeries::Unknown)) ||
+                        (((GamePlatform)nPlatform == GamePlatform::NEOGEO) && (sGametoFileData.seriesKey == (GameSeries)GameSeries::Unknown)) ||
                         (((GamePlatform)nPlatform != GamePlatform::CapcomCPS12) && ((GamePlatform)nPlatform != GamePlatform::NEOGEO)))
                     {
                         platformMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);

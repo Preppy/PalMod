@@ -435,7 +435,7 @@ constexpr auto k_nASCIIMaxValue = 127;
 constexpr auto k_nRawColorStringOverflowIndicator = '~' - k_nASCIICharacterOffset;
 constexpr auto k_nEncodedColorStringOverflowIndicator = '~';
 
-struct sSupportedGameList
+struct sSupportedGameToFileMap
 {
     int nInternalGameIndex = 0;
     LPCWSTR szGameFriendlyName = L"uninit";
@@ -447,8 +447,7 @@ struct sSupportedGameList
 
 const int k_nTextureLoadCommandMask = 0xff00;
 const int k_nGameLoadROMListMask = 0xf0000;
-extern sSupportedGameList* pSupportedGameList;
-extern const int nNumberOfLoadROMOptions;
+extern std::vector<sSupportedGameToFileMap> g_rgGameToFileMap;
 
 //Image output display options
 enum class eImageOutputSpriteDisplay
