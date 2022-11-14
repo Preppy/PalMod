@@ -250,6 +250,7 @@
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
     <ClCompile Include="Game\Game_Cyberbots_A.cpp" />
     <ClCompile Include="Game\Game_DBFCI_A.cpp" />
+    <ClCompile Include="Game\Game_DevMode_DIR.cpp" />
     <ClCompile Include="Game\Game_DoubleDragon_A.cpp" />
     <ClCompile Include="Game\Game_FatalFury1_A.cpp" />
     <ClCompile Include="Game\Game_FatalFury2_A.cpp" />
@@ -286,6 +287,7 @@
     <ClCompile Include="Game\Game_MagicalDropII_A.cpp" />
     <ClCompile Include="Game\Game_MartialMasters_A.cpp" />
     <ClCompile Include="Game\Game_MBTL_A.cpp" />
+    <ClCompile Include="Game\Game_MK2_A.cpp" />
     <ClCompile Include="Game\Game_MK2_SNES.cpp" />
     <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
     <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
@@ -410,6 +412,7 @@
     <ClInclude Include="Game\DBZHD_SNES_DEF.h" />
     <ClInclude Include="Game\Default.h" />
     <ClInclude Include="Game\DescTree.h" />
+    <ClInclude Include="Game\DevMode_DIR_DEF.h" />
     <ClInclude Include="Game\DoubleDragon_A_DEF.h" />
     <ClInclude Include="Game\FatalFury1_A_DEF.h" />
     <ClInclude Include="Game\FatalFury2_A_DEF.h" />
@@ -448,6 +451,7 @@
     <ClInclude Include="Game\Game_DBFCI_A.h" />
     <ClInclude Include="Game\Game_DBZEB_DS.h" />
     <ClInclude Include="Game\Game_DBZHD_SNES.h" />
+    <ClInclude Include="Game\Game_DevMode_DIR.h" />
     <ClInclude Include="Game\Game_DoubleDragon_A.h" />
     <ClInclude Include="Game\Game_FatalFury1_A.h" />
     <ClInclude Include="Game\Game_FatalFury2_A.h" />
@@ -499,6 +503,7 @@
     <ClInclude Include="Game\Game_MBAACC_S.h" />
     <ClInclude Include="Game\Game_MBTL_A.h" />
     <ClInclude Include="Game\Game_MK1_SNES.h" />
+    <ClInclude Include="Game\Game_MK2_A.h" />
     <ClInclude Include="Game\Game_MK2_SNES.h" />
     <ClInclude Include="Game\Game_MMPR_SNES.h" />
     <ClInclude Include="Game\Game_MMX2_SNES.h" />
@@ -620,6 +625,7 @@
     <ClInclude Include="Game\MBAACC_S_DEF.h" />
     <ClInclude Include="Game\MBTL_S_DEF.h" />
     <ClInclude Include="Game\MK1_SNES_DEF.h" />
+    <ClInclude Include="Game\MK2_A_DEF.h" />
     <ClInclude Include="Game\MK2_SNES_DEF.h" />
     <ClInclude Include="Game\MMPR_SNES_DEF.h" />
     <ClInclude Include="Game\MMX2_SNES_DEF.h" />

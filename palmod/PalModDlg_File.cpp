@@ -88,6 +88,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { MMX3_SNES,        L"Mega Man X3 (SNES)", L"Mega Man X3 (SNES)|Mega*Man X3 (USA).s?c|", GamePlatform::Nintendo },
     { MMPR_SNES,        L"MMPR:TFE (SNES)", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).s?c|", GamePlatform::Nintendo },
     { MK1_SNES,         L"Mortal Kombat (SNES)", L"Mortal Kombat (SNES)|Mortal Kombat (USA).sfc|", GamePlatform::Nintendo },
+    { MK2_A,            L"Mortal Kombat II (Arcade)", L"Mortal Kombat 2 (Arcade)|l3.1_mortal_kombat_ii_game_rom_uj12.uj12;uj12.l31|", GamePlatform::OtherPlatform },
     { MK2_SNES,         L"Mortal Kombat II (SNES)", L"Mortal Kombat 2 (SNES)|MK2 USA.sfc;Mortal Kombat II (USA)*.sfc;Mortal_Kombat_II_USA.sfc|", GamePlatform::Nintendo },
     { MSHVSF_A,         L"MSHvSF", L"MSHvSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", GamePlatform::CapcomCPS12, GameSeries::MvC },
     { MSHWOTG_SNES,     L"MSH: War of the Gems (SNES)", L"MSH: War of the Gems (SNES)|Marvel Super Heroes in War of the Gems (USA).s?c|", GamePlatform::Nintendo },
@@ -153,7 +154,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 178, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 180, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {
@@ -808,7 +809,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     DWORD dwLastUsedGameIndex = 0;
 
     // Add all the games, and make sure we know how to map index to game code
-    for (int nArrayPosition = 0; nArrayPosition < g_rgGameToFileMap.size(); nArrayPosition++)
+    for (int nArrayPosition = 0; nArrayPosition < static_cast<int>(g_rgGameToFileMap.size()); nArrayPosition++)
     {
         szGameFileDef.Append(g_rgGameToFileMap[nArrayPosition].szGameFilterString);
         g_rgGameToFileMap[nArrayPosition].nListedGameIndex = nArrayPosition;

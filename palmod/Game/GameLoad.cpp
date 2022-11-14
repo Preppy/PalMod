@@ -77,6 +77,7 @@
 #include "Game_MBAACC_S.h"
 #include "Game_MBTL_A.h"
 #include "Game_MK1_SNES.h"
+#include "Game_MK2_A.h"
 #include "Game_MK2_SNES.h"
 #include "Game_MMPR_SNES.h"
 #include "Game_MMX_SNES.h"
@@ -158,7 +159,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 178, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 180, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -706,6 +707,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case MK1_SNES:
     {
         GetRule = &CGame_MK1_SNES::GetRule;
+        return TRUE;
+    }
+    case MK2_A:
+    {
+        GetRule = &CGame_MK2_A::GetRule;
         return TRUE;
     }
     case MK2_SNES:
@@ -1574,6 +1580,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     {
         return new CGame_MK1_SNES(nConfirmedROMSize);
     }
+    case MK2_A:
+    {
+        return new CGame_MK2_A(nConfirmedROMSize);
+    }
     case MK2_SNES:
     {
         return new CGame_MK2_SNES(nConfirmedROMSize);
@@ -1989,6 +1999,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
             break;
         case KOF02UM_S:
             CGame_KOF02UM_S::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
+        case MK2_A:
+            CGame_MK2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
         case MK2_SNES:
             CGame_MK2_SNES::SetSpecialRuleForFileName(pszFileNameLowercase);

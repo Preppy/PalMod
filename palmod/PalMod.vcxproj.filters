@@ -79,9 +79,6 @@
     <Filter Include="Games\SNK Games\NeoGeo Battle Colliseum">
       <UniqueIdentifier>{194b886e-8492-41d0-a398-00cbb161e244}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\SNK Games\Unknown Game">
-      <UniqueIdentifier>{acaea0b1-3907-4bbd-a2f0-32edc189a18a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\SNK Games\Breakers Revenge">
       <UniqueIdentifier>{5145a37d-8a16-4461-834b-518532cc6a53}</UniqueIdentifier>
     </Filter>
@@ -529,6 +526,18 @@
     <Filter Include="Games\Capcom Games\Street Fighter I">
       <UniqueIdentifier>{233ff76e-15e1-42c0-878e-469f4f9d7807}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Dev / Exploration Mode">
+      <UniqueIdentifier>{a7cdde73-936e-4a81-80ef-1dec5fe1785b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Dev / Exploration Mode\Unknown Game">
+      <UniqueIdentifier>{acaea0b1-3907-4bbd-a2f0-32edc189a18a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Dev / Exploration Mode\Unknown Game %28File Set%29">
+      <UniqueIdentifier>{4cc0f697-e1f0-465d-b32b-8bb868c299bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Other Platforms\Mortal Kombat 2 %28Arcade%29">
+      <UniqueIdentifier>{b35b90a6-c699-4dad-80c8-ed30681397f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -634,7 +643,7 @@
       <Filter>Games\SNK Games\Garou_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_NEOGEO_A.cpp">
-      <Filter>Games\SNK Games\Unknown Game</Filter>
+      <Filter>Games\Dev / Exploration Mode\Unknown Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF98_A.cpp">
       <Filter>Games\SNK Games\KOF98_A</Filter>
@@ -972,6 +981,12 @@
     <ClCompile Include="Game\Game_StreetFighter_A.cpp">
       <Filter>Games\Capcom Games\Street Fighter I</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Game_DevMode_DIR.cpp">
+      <Filter>Games\Dev / Exploration Mode\Unknown Game %28File Set%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MK2_A.cpp">
+      <Filter>Games\Other Platforms\Mortal Kombat 2 %28Arcade%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game_MVC2_D.h">
@@ -1107,10 +1122,10 @@
       <Filter>Games\SNK Games\Garou_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_NEOGEO_A.h">
-      <Filter>Games\SNK Games\Unknown Game</Filter>
+      <Filter>Games\Dev / Exploration Mode\Unknown Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\NEOGEO_A_DEF.h">
-      <Filter>Games\SNK Games\Unknown Game</Filter>
+      <Filter>Games\Dev / Exploration Mode\Unknown Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF98_A.h">
       <Filter>Games\SNK Games\KOF98_A</Filter>
@@ -1969,6 +1984,18 @@
     </ClInclude>
     <ClInclude Include="Game\StreetFighter_A_DEF.h">
       <Filter>Games\Capcom Games\Street Fighter I</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DevMode_DIR.h">
+      <Filter>Games\Dev / Exploration Mode\Unknown Game %28File Set%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DevMode_DIR_DEF.h">
+      <Filter>Games\Dev / Exploration Mode\Unknown Game %28File Set%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MK2_A.h">
+      <Filter>Games\Other Platforms\Mortal Kombat 2 %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MK2_A_DEF.h">
+      <Filter>Games\Other Platforms\Mortal Kombat 2 %28Arcade%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

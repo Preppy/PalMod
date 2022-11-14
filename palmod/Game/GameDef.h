@@ -200,6 +200,8 @@ enum SupportedGamesList
     AODK_A,
     MAGICALDROPII_A,
     SF1_A,
+    DEVMODE_DIR,
+    MK2_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -394,6 +396,8 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Aggressors of Dark Kombat (Neo-Geo)",
     L"Magical Drop II (Neo-Geo)",
     L"Street Fighter (US, Set 1)",
+    L"Unknown Game (Set of files)",
+    L"Mortal Kombat II (Arcade)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
