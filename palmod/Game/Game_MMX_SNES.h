@@ -29,7 +29,7 @@ private:
         MMX_SNES_UNITS,
         ARRAYSIZE(MMX_SNES_UNITS),
         L"MMXE.txt",               // Extra filename
-        20,                        // Count of palettes listed in the header
+        89,                        // Count of palettes listed in the header
         0x2b700,                   // Lowest known location used for palettes
     };
 
