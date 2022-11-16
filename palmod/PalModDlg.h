@@ -96,6 +96,8 @@ public:
 
     void LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir);
     void OnLoadGameByDirectory(SupportedGamesList nGameFlag);
+    void OnLoadGameByUnknownFileSet();
+
     BOOL SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString = nullptr, SupportedGamesList nDefaultGameFlag = NUM_GAMES);
     void UpdateAppTitle();
 
@@ -107,7 +109,7 @@ public:
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
 
-    static_assert((ColMode)27 == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
+    static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
 
     void SetColorFormatToBGR333() { SetColorFormatTo(ColMode::COLMODE_BGR333); };
     void SetColorFormatToRBG333() { SetColorFormatTo(ColMode::COLMODE_RBG333); };
@@ -121,6 +123,7 @@ public:
 
     void SetColorFormatToBGR555_BE() { SetColorFormatTo(ColMode::COLMODE_BGR555_BE); };
     void SetColorFormatToBGR555_LE() { SetColorFormatTo(ColMode::COLMODE_BGR555_LE); };
+    void SetColorFormatToBRG555_LE() { SetColorFormatTo(ColMode::COLMODE_BRG555_LE); };
     void SetColorFormatToGRB555_LE() { SetColorFormatTo(ColMode::COLMODE_GRB555_LE); };
     void SetColorFormatToRGB555_BE() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
     void SetColorFormatToRGB555_LE() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE); };
@@ -406,4 +409,5 @@ public:
     afx_msg void OnLoadDir_UNICLR()         { OnLoadGameByDirectory(UNICLR_A); };
     afx_msg void OnLoadDir_Venture31()      { OnLoadGameByDirectory(VENTURE_A_DIR_31); };
     afx_msg void OnLoadDir_Venture50()      { OnLoadGameByDirectory(VENTURE_A_DIR_50); };
+    afx_msg void OnLoadDir_DevMode()        { OnLoadGameByUnknownFileSet(); };
 };

@@ -127,7 +127,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert((ColMode)27 == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
+    static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats require updating the color steps code.");
 
     switch (NewMode)
     {
@@ -169,6 +169,7 @@ bool CGameClass::_UpdateColorSteps(ColMode NewMode)
     case ColMode::COLMODE_xBGR555_LE:
     case ColMode::COLMODE_RGB555_LE:
     case ColMode::COLMODE_RGB555_BE:
+    case ColMode::COLMODE_BRG555_LE:
     case ColMode::COLMODE_GRB555_LE:
         m_nSizeOfColorsInBytes = 2;
         GetColorStepFor8BitValue_RGB = &ColorSystem::GetColorStepFor8BitValue_32Steps;
@@ -271,7 +272,7 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
 {
     bool fSuccess = true;
 
-    static_assert((ColMode)27 == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
+    static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats require updating the color converter code.");
 
     switch (NewMode)
     {
@@ -328,6 +329,10 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
     case ColMode::COLMODE_RGB555_BE:
         ConvPal16 = &ColorSystem::CONV_RGB555BE_32;
         ConvCol16 = &ColorSystem::CONV_32_RGB555BE;
+        break;
+    case ColMode::COLMODE_BRG555_LE:
+        ConvPal16 = &ColorSystem::CONV_BRG555LE_32;
+        ConvCol16 = &ColorSystem::CONV_32_BRG555LE;
         break;
     case ColMode::COLMODE_GRB555_LE:
         ConvPal16 = &ColorSystem::CONV_GRB555LE_32;
@@ -517,23 +522,26 @@ void CGameClass::RevertChanges(int nPalId)
     sPalDef* CurrPalDef = BasePalGroup.GetPalDef(RedirIndex->nDefIndex);
     sPalSep* CurrPalSep = CurrPalDef->SepList[RedirIndex->nSepIndex];
 
-    COLORREF* pTempPal = CreatePal(CurrPalDef->uUnitId, CurrPalDef->uPalId);
-
-    uint32_t nStart = CurrPalSep->nStart;
-    uint32_t nAmt = CurrPalSep->nAmt;
-
-    for (uint32_t i = nStart; i < nStart + nAmt; i++)
+    if (CurrPalSep)
     {
-        CurrPalDef->pPal[i] = pTempPal[i];
-        //CurrPalDef->pBasePal[i] = pTempPal[i];
+        COLORREF* pTempPal = CreatePal(CurrPalDef->uUnitId, CurrPalDef->uPalId);
+
+        uint32_t nStart = CurrPalSep->nStart;
+        uint32_t nAmt = CurrPalSep->nAmt;
+
+        for (uint32_t i = nStart; i < nStart + nAmt; i++)
+        {
+            CurrPalDef->pPal[i] = pTempPal[i];
+            //CurrPalDef->pBasePal[i] = pTempPal[i];
+        }
+
+        delete[] pTempPal;
+
+        // Concern: you can make a change, Update to save that, make another change, then Revert.
+        // Revert will revert back to the stored changed, not the base palette.  So we don't want to
+        // lose the dirty bit here.
+        //MarkPaletteClean(CurrPalDef->uUnitId, CurrPalDef->uPalId);
     }
-
-    delete[] pTempPal;
-
-    // Concern: you can make a change, Update to save that, make another change, then Revert.
-    // Revert will revert back to the stored changed, not the base palette.  So we don't want to
-    // lose the dirty bit here.
-    //MarkPaletteClean(CurrPalDef->uUnitId, CurrPalDef->uPalId);
 }
 
 void CGameClass::WritePal(uint32_t nUnitId, uint32_t nPalId, COLORREF* rgColors, uint16_t nColorCount)
@@ -919,7 +927,7 @@ void CGameClass::WarnIfPaletteIsOversized(uint32_t nUnit, uint32_t nPaletteId, u
         static int s_nLastPaletteWithThisError = 0;
         int nThisPaletteId = ((nUnit & 0xFFFF) << 16) | (nPaletteId & 0xFFFF);
         CString strText;
-        strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).  Game palette tables max out at 256 colors.\n\nThis needs to be fixed.\n", pszPaletteName, nPaletteSizeInColors, nUnit, nPaletteId);
+        strText.Format(L"WARNING: palette '%s' is %u colors long (unit 0x%02x id 0x%02x).  Game palette tables max out at 256 colors.\n\nThis must be fixed.\n", pszPaletteName, nPaletteSizeInColors, nUnit, nPaletteId);
         OutputDebugString(strText);
 
         if (s_nLastPaletteWithThisError != nThisPaletteId)

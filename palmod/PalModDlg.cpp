@@ -126,7 +126,7 @@ void CPalModDlg::DoDataExchange(CDataExchange* pDX)
 #pragma warning( push )
 #pragma warning( disable : 26454 ) // bug in Microsoft headers
 
-static_assert((ColMode)27 == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
+static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
 
 // CPalModDlg message handlers
 BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
@@ -202,9 +202,12 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
 
     ON_COMMAND(ID_COLORFORMAT_BGR555_LE, &CPalModDlg::SetColorFormatToBGR555_LE)
     ON_COMMAND(ID_COLORFORMAT_BGR555_BE, &CPalModDlg::SetColorFormatToBGR555_BE)
+    ON_COMMAND(ID_COLORFORMAT_BRG555_LE, &CPalModDlg::SetColorFormatToBRG555_LE)
     ON_COMMAND(ID_COLORFORMAT_GRB555_LE, &CPalModDlg::SetColorFormatToGRB555_LE)
     ON_COMMAND(ID_COLORFORMAT_RGB555_LE, &CPalModDlg::SetColorFormatToRGB555_LE)
     ON_COMMAND(ID_COLORFORMAT_RGB555_BE, &CPalModDlg::SetColorFormatToRGB555_BE)
+    ON_COMMAND(ID_COLORFORMAT_xBGR555_LE, &CPalModDlg::SetColorFormatToxBGR555_LE)
+    
 
     ON_COMMAND(ID_COLORFORMAT_RGB666, &CPalModDlg::SetColorFormatToNEOGEO)
     ON_COMMAND(ID_COLORFORMAT_SHARPRGB, &CPalModDlg::SetColorFormatToSharpRGB)
@@ -313,6 +316,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LD_NBHID_NL, &CPalModDlg::OnLoadDir_NBHID_NL)
     ON_COMMAND(ID_LD_NBHID_P, &CPalModDlg::OnLoadDir_NBHID_P)
     ON_COMMAND(ID_LD_NBHID_S, &CPalModDlg::OnLoadDir_NBHID_S)
+    ON_COMMAND(ID_LD_DEVMODE, &CPalModDlg::OnLoadDir_DevMode)
 
     ON_COMMAND_RANGE(k_nGameLoadROMListMask, k_nGameLoadROMListMask + NUM_GAMES, &CPalModDlg::OnFileOpenInternal)
 END_MESSAGE_MAP()
@@ -508,7 +512,7 @@ BOOL CPalModDlg::SetLoadDir(CString* strOut, LPCWSTR pszDescriptionString /* = n
     if (::SHGetMalloc(&pMalloc) == NOERROR)
     {
         BROWSEINFO      bi = {};
-        wchar_t           pszBuffer[MAX_PATH] = {};
+        wchar_t         pszBuffer[MAX_PATH] = {};
         LPITEMIDLIST    pidl;
 
         bi.hwndOwner = GetSafeHwnd();

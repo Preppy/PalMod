@@ -26,6 +26,7 @@
 #include "Game_DBFCI_A.h"
 #include "Game_DBZEB_DS.h"
 #include "Game_DBZHD_SNES.h"
+#include "Game_DevMode_DIR.h"
 #include "Game_DoubleDragon_A.h"
 #include "Game_FatalFury1_A.h"
 #include "Game_FatalFury2_A.h"
@@ -44,6 +45,7 @@
 #include "Game_GGXXR_S.h"
 #include "Game_GUNDAM_SNES.h"
 #include "Game_HSF2_A.h"
+#include "Game_JChan_A.h"
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
 #include "Game_JOJOSRPG_SNES.h"
@@ -364,6 +366,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_DBZHD_SNES::GetRule;
         return TRUE;
     }
+    case DEVMODE_DIR:
+    {
+        GetRule = &CGame_DevMode_DIR::GetRule;
+        return TRUE;
+    }
     case DOUBLEDRAGON_A:
     {
         GetRule = &CGame_DOUBLEDRAGON_A::GetRule;
@@ -478,6 +485,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case HSF2_A:
     {
         GetRule = &CGame_HSF2_A::GetRule;
+        return TRUE;
+    }
+    case JCHAN_A:
+    {
+        GetRule = &CGame_JCHAN_A::GetRule;
         return TRUE;
     }
     case JOJOS_A:
@@ -1357,6 +1369,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     {
         return new CGame_DBZHD_SNES(nConfirmedROMSize);
     }
+    case DEVMODE_DIR:
+    {
+        return new CGame_DevMode_DIR(nConfirmedROMSize);
+    }
     case DOUBLEDRAGON_A:
     {
         return new CGame_DOUBLEDRAGON_A(nConfirmedROMSize);
@@ -1436,6 +1452,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case HSF2_A:
     {
         return new CGame_HSF2_A(nConfirmedROMSize);
+    }
+    case JCHAN_A:
+    {
+        return new CGame_JCHAN_A(nConfirmedROMSize);
     }
     case JOJOS_A:
     case JOJOS_US_A:
@@ -1947,7 +1967,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
 
 CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
 {
-    CGameClass* OutGame = NULL;
+    CGameClass* OutGame = nullptr;
 
     CFile CurrFile;
     sFileRule CurrRule;
@@ -1959,7 +1979,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
 
     if (!SetGame(nGameFlag))
     {
-        return NULL;
+        return nullptr;
     }
 
     int nGameRule = 0;
@@ -2124,34 +2144,38 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         if (isSafeToRunGame)
         {
             OutGame = CreateGame(nGameFlag, (uint32_t)nGameFileLength, nGameRule, pszLoadFile);
-            OutGame->SetLoadedPathOrFile(pszLoadFile);
 
-            uint32_t crcValue = 0;
-            bool fNeedToValidateCRC = false;
-
-            // CRC calculation is slow, so only calculate if we need it.
-            if ((OutGame->GetKnownCRC32DatasetsForGame(nullptr, &fNeedToValidateCRC) > 1) &&
-                fNeedToValidateCRC)
+            if (OutGame)
             {
-                // Only calculate this if desired since it's time-expensive
-                OutputDebugString(L"Calculating crc...\n");
-                crcValue = CRC32_BlockChecksum(&CurrFile, (int)nGameFileLength);
+                OutGame->SetLoadedPathOrFile(pszLoadFile);
 
-                CString strMsg;
-                strMsg.Format(L"\tCRC32 for %s is 0x%x\n", pszLoadFile, crcValue);
-                OutputDebugString(strMsg);
-            }
+                uint32_t crcValue = 0;
+                bool fNeedToValidateCRC = false;
 
-            OutGame->SetSpecificValuesForCRC(&CurrFile, crcValue);
+                // CRC calculation is slow, so only calculate if we need it.
+                if ((OutGame->GetKnownCRC32DatasetsForGame(nullptr, &fNeedToValidateCRC) > 1) &&
+                    fNeedToValidateCRC)
+                {
+                    // Only calculate this if desired since it's time-expensive
+                    OutputDebugString(L"Calculating crc...\n");
+                    crcValue = CRC32_BlockChecksum(&CurrFile, (int)nGameFileLength);
 
-            if (OutGame->LoadFile(&CurrFile, 0))
-            {
-                OutGame->SetIsDir(FALSE);
-                //nSaveLoadSucc++;
-            }
-            else
-            {
-                safe_delete(OutGame);
+                    CString strMsg;
+                    strMsg.Format(L"\tCRC32 for %s is 0x%x\n", pszLoadFile, crcValue);
+                    OutputDebugString(strMsg);
+                }
+
+                OutGame->SetSpecificValuesForCRC(&CurrFile, crcValue);
+
+                if (OutGame->LoadFile(&CurrFile, 0))
+                {
+                    OutGame->SetIsDir(FALSE);
+                    //nSaveLoadSucc++;
+                }
+                else
+                {
+                    safe_delete(OutGame);
+                }
             }
         }
         else

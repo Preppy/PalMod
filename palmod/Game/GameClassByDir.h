@@ -37,11 +37,11 @@ public:
         const SupportedGamesList nGameID;
         const eIMGDat_Sections eImgDatSectionID;
         const std::vector<uint16_t> rgGameImageSet;
-        const sCreatePalOptions createPalOptions;
+        sCreatePalOptions createPalOptions;
         const eImageOutputSpriteDisplay displayStyle;
         const std::vector<LPCWSTR> rgszButtonLabelSet;
-        const AlphaMode eAlphaMode;
-        const ColMode eColMode;
+        AlphaMode eAlphaMode;
+        ColMode eColMode;
         const sDirectoryLoadingData sLoadingData;
         const sDescTreeNode* psUnitData;
         const size_t nUnitCount;
