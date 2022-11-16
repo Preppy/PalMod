@@ -5,7 +5,7 @@ const std::vector<sGCBUPF_RelativePaletteData> GGMLCorePalettes =
 {
     { L"Default" },
     { L"Cross" },
-    { L"Sqaure" },
+    { L"Square" },
     { L"Triangle" },
     { L"Mirror Match" },
 };
@@ -14,7 +14,7 @@ const std::vector<LPCWSTR> GGMLPaletteNames =
 {
     { L"Default" },
     { L"Cross" },
-    { L"Sqaure" },
+    { L"Square" },
     { L"Triangle" },
     { L"Mirror Match" },
 };
