@@ -89,6 +89,10 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(L"4");
         break;
     case 5: // Jojos & Garou
+        if ((CurrGame->GetGameFlag() == GGML_P)) //Give the option to hide the Mirror palette
+        {
+            m_CB_Amt.AddString(L"4");
+        }
         m_CB_Amt.AddString(L"5");
         break;
     case 6: 

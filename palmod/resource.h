@@ -345,6 +345,7 @@
 #define ID_ACC_PALSELMINUS              32939
 #define ID_TOOLS_GRADIENT_XYZ           32940
 #define ID_TOOLS_GRADIENT_LAB           32941
+#define ID_LD_GGML_P					32942
 
 // Next default values for new objects
 // 
