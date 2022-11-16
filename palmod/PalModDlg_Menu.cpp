@@ -48,6 +48,8 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case DBFCI_A:
             pszExtraInfo = L"For DBFCI, please select the 'games' directory.";
             break;
+        case GGML_P:
+            break;
         case GGXXACR_S:
             pszExtraInfo = L"Guilty Gear (Steam): Select the 'Guilty Gear XX Accent Core Plus R' folder under your steam library.";
             break;
