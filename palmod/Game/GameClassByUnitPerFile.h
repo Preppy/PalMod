@@ -75,6 +75,7 @@ public:
             // each node contains a full set of per-color palettes
             // all nodes together represent the set of palettes.  if there are effects, they go in each node
         const PaletteArrangementStyle ePaletteLayout = PaletteArrangementStyle::EachBasicNodeContainsAFullButtonLabelSet;
+        const int cbDefaultPaletteSize = 0x400;
     };
 
     static std::wstring m_strGameFriendlyName;

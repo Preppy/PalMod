@@ -38,6 +38,7 @@
 #include "Game_Garou_S.h"
 #include "Game_Gowcaizer_A.h"
 #include "Game_GGDS_NDS.h"
+#include "Game_GGML_P.h"
 #include "Game_GGXXACR_S.h"
 #include "Game_GGXXACR_P.h"
 #include "Game_GGXXR_S.h"
@@ -159,7 +160,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 180, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 181, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -431,6 +432,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case GGDS_NDS:
     {
         GetRule = &CGame_GGDS_NDS::GetRule;
+        return TRUE;
+    }
+    case GGML_P:
+    {
+        GetRuleCtr = &CGame_GGML_P::GetRuleCtr;
+        ResetRuleCtr = &CGame_GGML_P::ResetRuleCtr;
+        GetRule = &CGame_GGML_P::GetRule;
+        GetNextRule = &CGame_GGML_P::GetNextRule;
+
         return TRUE;
     }
     case GGXXACR_S:
@@ -1402,6 +1412,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case GGDS_NDS:
     {
         return new CGame_GGDS_NDS(nConfirmedROMSize);
+    }
+    case GGML_P:
+    {
+        return new CGame_GGML_P(nConfirmedROMSize);
     }
     case GGXXACR_S:
     {

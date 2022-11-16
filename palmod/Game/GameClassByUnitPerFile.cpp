@@ -598,9 +598,6 @@ uint32_t CGameClassPerUnitPerFile::GetFileIndexFromCharacterCollection(uint32_t 
 
 void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileUnitId, uint32_t nFilePalId)
 {
-    // NOTE: we presume all default palettes are 0x400 long for now.  That presumption needs to change if we support 16bit or 24bit games.
-    const int cbDefaultPaletteSize = 0x400;
-
     // Sort option styles:
     //  Left, Right
     //     1, 2, 3, 4, 5, 6, 7, 8, 9
@@ -618,8 +615,8 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
             const uint32_t nPaletteSet =    nFilePalId / nBasicPaletteSizeForUnit;
 
             m_pszCurrentPaletteName = GetBasicPaletteNameForPalette(nCharacterId, nRelativePalId);
-            m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nInitialLocation + (cbDefaultPaletteSize * nRelativePalId);
-            m_nCurrentPaletteSizeInColors = cbDefaultPaletteSize / m_nSizeOfColorsInBytes;
+            m_nCurrentPaletteROMLocation = m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).nInitialLocation + (m_psCurrentGameLoadingData->cbDefaultPaletteSize * nRelativePalId);
+            m_nCurrentPaletteSizeInColors = m_psCurrentGameLoadingData->cbDefaultPaletteSize / m_nSizeOfColorsInBytes;
 
             if (nPaletteSet)
             {
@@ -660,7 +657,7 @@ void CGameClassPerUnitPerFile::LoadSpecificPaletteDataByFileUnit(uint32_t nFileU
             {
                 m_nCurrentPaletteROMLocation += m_psCurrentGameLoadingData->srgLoadingData.at(nFileUnitId).prgBasicPalettes.at(nRelativePalId).nPaletteShiftFromBase;
             }
-            m_nCurrentPaletteSizeInColors = cbDefaultPaletteSize / m_nSizeOfColorsInBytes;
+            m_nCurrentPaletteSizeInColors = m_psCurrentGameLoadingData->cbDefaultPaletteSize / m_nSizeOfColorsInBytes;
         }
         else // effects palettes
         {
