@@ -882,25 +882,36 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseBlinkP
                 int nDstPos = nStartRow + xIndex;
                 const int nCurrentColorPosition = uIndex * 4; // we walk the uint8_t array at COLORREF size strides
 
-                if (!fShownErrorForThisImage && (nCurrentColorPosition > nPalSizeInUint8))
+                if (nCurrentColorPosition > nPalSizeInUint8)
                 {
-                    CString strError;
-                    strError.Format(L"ERROR: This %u by %u image has out-of-bound color references and should be fixed.  Requested 0x%x but palette maxes at 0x%x.\r\n", 
+                    // this is a badly crafted image for this palette.  
+                    if (!fShownErrorForThisImage)
+                    {
+                        CString strError;
+                        strError.Format(L"ERROR: This %u by %u image has out-of-bound color references and should be fixed.  Requested 0x%x but palette maxes at 0x%x.\r\n",
                                             nWidth, nHeight, nCurrentColorPosition, nPalSizeInUint8);
-                    OutputDebugString(strError.GetString());
-                    fShownErrorForThisImage = true;
+                        OutputDebugString(strError.GetString());
+                        fShownErrorForThisImage = true;
+                    }
+
+                    // Make anything incorrect pink so it's (possibly) obvious there's an error.
+                    pDstBmpData[nDstPos + 2] = 0xFF;
+                    pDstBmpData[nDstPos + 1] = 0xC0;
+                    pDstBmpData[nDstPos]     = 0xCB;
                 }
+                else
+                {
+                    double fpDstA2 = (1.0 - (pCurrPal[nCurrentColorPosition + 3]) / 255.0);
+                    double fpDstA1 = 1.0 - fpDstA2;
 
-                double fpDstA2 = (1.0 - (pCurrPal[nCurrentColorPosition + 3]) / 255.0);
-                double fpDstA1 = 1.0 - fpDstA2;
+                    uint8_t* uDstR = &pDstBmpData[nDstPos + 2];
+                    uint8_t* uDstG = &pDstBmpData[nDstPos + 1];
+                    uint8_t* uDstB = &pDstBmpData[nDstPos];
 
-                uint8_t* uDstR = &pDstBmpData[nDstPos + 2];
-                uint8_t* uDstG = &pDstBmpData[nDstPos + 1];
-                uint8_t* uDstB = &pDstBmpData[nDstPos];
-
-                *uDstR = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition]), (fpDstA2 * (double)*uDstR));
-                *uDstG = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 1]), (fpDstA2 * (double)*uDstG));
-                *uDstB = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 2]), (fpDstA2 * (double)*uDstB));
+                    *uDstR = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition]), (fpDstA2 * (double)*uDstR));
+                    *uDstG = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 1]), (fpDstA2 * (double)*uDstG));
+                    *uDstB = (uint8_t)aadd((fpDstA1 * (double)pCurrPal[nCurrentColorPosition + 2]), (fpDstA2 * (double)*uDstB));
+                }
             }
         }
     }
