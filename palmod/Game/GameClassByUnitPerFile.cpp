@@ -248,9 +248,13 @@ std::vector<LPCWSTR> CGameClassPerUnitPerFile::GetBasicPaletteLabelsForUnit(uint
     {
         return m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).sNodeData.rgpszNodeNames;
     }
-    else
+    else if (m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).sNodeData.rgpszButtonLabels.size())
     {
         return m_psCurrentGameLoadingData->srgLoadingData.at(nFileId).sNodeData.rgpszButtonLabels;
+    }
+    else
+    {
+        return DEF_NOBUTTONS;
     }
 }
 
