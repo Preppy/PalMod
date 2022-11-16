@@ -2,6 +2,20 @@
 #include "game\gamedef.h"
 #include "PalModDlg.h"
 #include "PalMod.h"
+#include "game\game_devmode_dir.h"
+
+void CPalModDlg::OnLoadGameByUnknownFileSet()
+{
+    if (VerifyMsg(eVerifyType::VM_FILECHANGE))
+    {
+        wchar_t szFirstFile[MAX_PATH];
+
+        if (CGame_DevMode_DIR::UserCreatesRules(szFirstFile))
+        {
+            LoadGameFile(DEVMODE_DIR, szFirstFile);
+        }
+    }
+}
 
 void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
 {

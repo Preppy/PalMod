@@ -202,6 +202,7 @@ enum SupportedGamesList
     SF1_A,
     DEVMODE_DIR,
     MK2_A,
+    JCHAN_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -398,6 +399,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Street Fighter (US, Set 1)",
     L"Unknown Game (Set of files)",
     L"Mortal Kombat II (Arcade)",
+    L"Jackie Chan in Fists of Fury (Arcade)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

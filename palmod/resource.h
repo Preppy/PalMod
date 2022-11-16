@@ -345,13 +345,15 @@
 #define ID_ACC_PALSELMINUS              32939
 #define ID_TOOLS_GRADIENT_XYZ           32940
 #define ID_TOOLS_GRADIENT_LAB           32941
+#define ID_LD_DEVMODE                   32942
+#define ID_COLORFORMAT_BRG555_LE        32943
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        147
-#define _APS_NEXT_COMMAND_VALUE         32942
+#define _APS_NEXT_COMMAND_VALUE         32944
 #define _APS_NEXT_CONTROL_VALUE         1084
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

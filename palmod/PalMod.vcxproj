@@ -469,6 +469,7 @@
     <ClInclude Include="Game\Game_Gowcaizer_A.h" />
     <ClInclude Include="Game\Game_GUNDAM_SNES.h" />
     <ClInclude Include="Game\Game_HSF2_A.h" />
+    <ClInclude Include="Game\Game_JChan_A.h" />
     <ClInclude Include="Game\Game_JojosRPG_SNES.h" />
     <ClInclude Include="Game\Game_JOJOS_A.h" />
     <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />
@@ -592,6 +593,7 @@
     <ClInclude Include="Game\HSF2_A_DEF.h" />
     <ClInclude Include="Game\ImgIdDef.h" />
     <ClInclude Include="Game\ImgTicket.h" />
+    <ClInclude Include="Game\JChan_A_DEF.h" />
     <ClInclude Include="Game\JojosRPG_SNES_DEF.h" />
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
     <ClInclude Include="Game\JusticeLeagueTF_SNES_DEF.h" />

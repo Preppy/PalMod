@@ -538,6 +538,9 @@
     <Filter Include="Games\Other Platforms\Mortal Kombat 2 %28Arcade%29">
       <UniqueIdentifier>{b35b90a6-c699-4dad-80c8-ed30681397f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Other Platforms\Jackie Chan in Fists of Fury">
+      <UniqueIdentifier>{f7568ecb-d057-4878-bba8-ec3fa40830b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -1996,6 +1999,12 @@
     </ClInclude>
     <ClInclude Include="Game\MK2_A_DEF.h">
       <Filter>Games\Other Platforms\Mortal Kombat 2 %28Arcade%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_JChan_A.h">
+      <Filter>Games\Other Platforms\Jackie Chan in Fists of Fury</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\JChan_A_DEF.h">
+      <Filter>Games\Other Platforms\Jackie Chan in Fists of Fury</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

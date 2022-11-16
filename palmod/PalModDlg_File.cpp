@@ -46,6 +46,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { GUNDAM_SNES,      L"Gundam Wing: Endless Duel (SNES)", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).s?c|", GamePlatform::Nintendo },
     { FotNS_P,          L"Hokuto no Ken", L"Hokuto no Ken (PS2)|HK_B.bin|", GamePlatform::PS2 },
     { HSF2_A,           L"HSF2", L"HSF2: Portraits (*.03), Characters (*.04)|hs2u.03;hs2u.04|", GamePlatform::CapcomCPS12, GameSeries::SF2 },
+    { JCHAN_A,          L"Jackie Chan in Fists of Fire (Kaneko)", L"Jackie Chan in Fists of Fire (Kaneko)|j2p1x4.u70|", GamePlatform::OtherPlatform },
     { JOJOS_A,          L"Jojo's: HFTF (Normal, Regulation: Off)", L"Jojos HFTF: HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
     { JOJOS_US_A,       L"Jojo's: HFTF (Regulation: On)", L"Jojos HFTF: HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
     { JOJOSRPG_SNES,    L"Jojo's: RPG (SNES)", L"Jojo's: RPG (SNES)|JoJo no Kimyou na Bouken (Japan).sfc;JoJo no Kimyou na Bouken (Japan) (Translated En).sfc|", GamePlatform::Nintendo },
@@ -154,7 +155,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 180, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 181, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {
@@ -271,11 +272,22 @@ void CPalModDlg::OnFilePatch()
 
     if (fSuccess)
     {
-        // Make sure they understand the basics of what just happened
-        CString strInfo;
-        strInfo = L"Updated. Useful notes:\n\n\t* Updated files will have updated CRCs: this is expected and required.\n\t* If your game has multiple ZIPs, your changes won't show up until you update the right ZIP.";
+        static bool s_fHaveShownOnceThisSession = false;
 
-        SHMessageBoxCheck(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_OK | MB_ICONINFORMATION, IDOK, L"{752A4A5C-4AEF-411c-9238-3AB5B55D5877}");
+        if (!s_fHaveShownOnceThisSession)
+        {
+            s_fHaveShownOnceThisSession = true;
+
+            // Make sure they understand the basics of what just happened
+            CString strInfo;
+            strInfo = L"Updated. Useful notes:\n\n"
+                      L"\t * Updated files will have updated CRCs : this is expected and required.\n"
+                      L"\t * If your game has multiple ZIPs, your changes won't show up until you update the right ZIP.\n"
+                      L"\t * Sometimes emulators screw up and desync.  If you're playing versus somebody it can help to be on the same exact edit.  This is an emulator problem.\n"
+                      ;
+
+            SHMessageBoxCheck(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_OK | MB_ICONINFORMATION, IDOK, L"{752A4A5C-4AEF-411c-9238-3AB5B55D5877}");
+        }
     }
 }
 
@@ -411,7 +423,7 @@ void CPalModDlg::UpdateColorFormatMenu()
         PALWriteOutputOptions currWriteMode = GetHost()->GetCurrGame()->GetMaximumWritePerEachTransparency();
         canChangeAlpha = canChangeFormat = GetHost()->GetCurrGame()->AllowUpdatingColorFormatForGame();
 
-        static_assert((ColMode)27 == ColMode::COLMODE_LAST, "New color formats need checking/unchecking in the menus here.");
+        static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats need checking/unchecking in the menus here.");
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR333) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RBG333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RBG333) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB333_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB333) ? MF_CHECKED : MF_UNCHECKED));
@@ -428,6 +440,7 @@ void CPalModDlg::UpdateColorFormatMenu()
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR555_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR555_LE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_BGR555_BE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BGR555_BE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_SHARPRGB, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB555_SHARP) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_BRG555_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_BRG555_LE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_GRB555_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_GRB555_LE) ? MF_CHECKED : MF_UNCHECKED));
 
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_RGB666_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
@@ -494,7 +507,7 @@ void CPalModDlg::UpdateColorFormatMenu()
         }
     }
 
-    static_assert((ColMode)27 == ColMode::COLMODE_LAST, "New color formats need enabling/disabling in the menus here.");
+    static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats need enabling/disabling in the menus here.");
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGR333, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RBG333, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB333_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
@@ -507,6 +520,7 @@ void CPalModDlg::UpdateColorFormatMenu()
 
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGR555_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_BGR555_BE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_BRG555_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_GRB555_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_xBGR555_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);

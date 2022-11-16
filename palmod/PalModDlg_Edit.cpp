@@ -1193,59 +1193,66 @@ void CPalModDlg::OnEditPaste()
 
 void CPalModDlg::NewUndoData(BOOL fUndo)
 {
-    CUndoNode* NewNode = fUndo ? UndoProc.NewUndo() : UndoProc.NewRedo();
-
     sPalRedir* rgRedir = MainPalGroup->GetRedir();
-    sPalDef* srcDef = MainPalGroup->GetPalDef(rgRedir[m_nCurrSelPal].nDefIndex);
     sPalSep* srcSep = MainPalGroup->GetSep(rgRedir[m_nCurrSelPal].nDefIndex, rgRedir[m_nCurrSelPal].nSepIndex);
 
-    int nPalSz = srcSep->nAmt;
+    if (srcSep)
+    {
+        sPalDef* srcDef = MainPalGroup->GetPalDef(rgRedir[m_nCurrSelPal].nDefIndex);
 
-    NewNode->nPalIndex = (int)m_nCurrSelPal;
-    NewNode->nPalSz = nPalSz;
+        CUndoNode* NewNode = fUndo ? UndoProc.NewUndo() : UndoProc.NewRedo();
 
-    NewNode->rgPalData = new COLORREF[nPalSz];
-    NewNode->rgBasePalData = new COLORREF[nPalSz];
+        int nPalSz = srcSep->nAmt;
 
-    memcpy(NewNode->rgPalData, &srcDef->pPal[srcSep->nStart], nPalSz * sizeof(COLORREF));
-    memcpy(NewNode->rgBasePalData, &srcDef->pBasePal[srcSep->nStart], nPalSz * sizeof(COLORREF));
+        NewNode->nPalIndex = (int)m_nCurrSelPal;
+        NewNode->nPalSz = nPalSz;
 
-    //Clear Redo data on undo
-    //UndoProc.DeleteRedoList();
+        NewNode->rgPalData = new COLORREF[nPalSz];
+        NewNode->rgBasePalData = new COLORREF[nPalSz];
+
+        memcpy(NewNode->rgPalData, &srcDef->pPal[srcSep->nStart], nPalSz * sizeof(COLORREF));
+        memcpy(NewNode->rgBasePalData, &srcDef->pBasePal[srcSep->nStart], nPalSz * sizeof(COLORREF));
+
+        //Clear Redo data on undo
+        //UndoProc.DeleteRedoList();
+    }
 }
 
 void CPalModDlg::DoUndoRedo(BOOL fUndo)
 {
+    //Copy data to the program
     CUndoNode* PopNode = fUndo ? UndoProc.PopUndo() : UndoProc.PopRedo();
 
-    NewUndoData(!fUndo);
-
-    //Copy data to the program
     sPalRedir* rgRedir = MainPalGroup->GetRedir();
-    sPalDef* srcDef = MainPalGroup->GetPalDef(rgRedir[PopNode->nPalIndex].nDefIndex);
     sPalSep* srcSep = MainPalGroup->GetSep(rgRedir[PopNode->nPalIndex].nDefIndex, rgRedir[PopNode->nPalIndex].nSepIndex);
 
-    memcpy(&srcDef->pPal[srcSep->nStart], PopNode->rgPalData, srcSep->nAmt * sizeof(COLORREF));
-    memcpy(&srcDef->pBasePal[srcSep->nStart], PopNode->rgBasePalData, srcSep->nAmt * sizeof(COLORREF));
-
-    //Refresh slider selection
-    if (PopNode->nPalIndex == m_nCurrSelPal)
+    if (srcSep)
     {
-        UpdateSliderSel();
+        NewUndoData(!fUndo);
+
+        sPalDef* srcDef = MainPalGroup->GetPalDef(rgRedir[PopNode->nPalIndex].nDefIndex);
+        memcpy(&srcDef->pPal[srcSep->nStart], PopNode->rgPalData, srcSep->nAmt * sizeof(COLORREF));
+        memcpy(&srcDef->pBasePal[srcSep->nStart], PopNode->rgBasePalData, srcSep->nAmt * sizeof(COLORREF));
+
+        //Refresh slider selection
+        if (PopNode->nPalIndex == m_nCurrSelPal)
+        {
+            UpdateSliderSel();
+        }
+
+        //Update the img/pal ctrls
+        m_PalHost.GetPalCtrl(PopNode->nPalIndex)->UpdateIndexAll();
+
+        m_PalHost.GetPalCtrl(PopNode->nPalIndex)->UpdateCtrl();
+        ImgDispCtrl->UpdateCtrl();
+
+        // OnBnUpdate locks in changes at an unknown point on the undoredo stack, so just mark dirty
+        m_fFileChanged = TRUE;
+        m_fPalChanged = TRUE;
+
+        // We've taken ownership of the now-orphaned node, so destroy it now
+        delete PopNode;
     }
-
-    //Update the img/pal ctrls
-    m_PalHost.GetPalCtrl(PopNode->nPalIndex)->UpdateIndexAll();
-
-    m_PalHost.GetPalCtrl(PopNode->nPalIndex)->UpdateCtrl();
-    ImgDispCtrl->UpdateCtrl();
-
-    // OnBnUpdate locks in changes at an unknown point on the undoredo stack, so just mark dirty
-    m_fFileChanged = TRUE;  
-    m_fPalChanged = TRUE;
-
-    // We've taken ownership of the now-orphaned node, so destroy it now
-    delete PopNode;
 }
 
 void CPalModDlg::UpdateSettingsMenuItems()

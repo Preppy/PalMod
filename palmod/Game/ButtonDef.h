@@ -226,3 +226,8 @@ const std::vector<LPCWSTR> DEF_BUTTONLABEL_ASURABUSTER =
 {
     L"A", L"B", L"AB", L"C", L"AC", L"BC", L"ABC"
 };
+
+const std::vector<LPCWSTR> DEF_BUTTONLABEL_JCHAN =
+{
+    L"LP/HP", L"LK/HK", L"P1 (Boss)", L"P2 (Boss)"
+};

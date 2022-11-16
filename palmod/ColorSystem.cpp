@@ -63,6 +63,7 @@ namespace ColorSystem
         case ColMode::COLMODE_RGB555_SHARP:
 
         case ColMode::COLMODE_GRB555_LE:
+        case ColMode::COLMODE_BRG555_LE:
         case ColMode::COLMODE_RGB666_NEOGEO:
             return 2;
 
@@ -115,6 +116,7 @@ namespace ColorSystem
         { "RGB444", ColMode::COLMODE_RBG444 },
         { "BRG888", ColMode::COLMODE_BRG888 },
         { "xBGR555LE", ColMode::COLMODE_xBGR555_LE },            // Different packing used by Asura Buster / Fuuki
+        { "BRG555LE", ColMode::COLMODE_BRG555_LE },              // BRG555 little endian, used by Fists of Fury
     };
 
     bool GetColorFormatForColorFormatString(LPCSTR paszColorString, ColMode& cmColorMode)
@@ -249,6 +251,7 @@ namespace ColorSystem
         case ColMode::COLMODE_RGB555_LE:
         case ColMode::COLMODE_RGB555_BE:
         case ColMode::COLMODE_GRB555_LE:
+        case ColMode::COLMODE_BRG555_LE:
         case ColMode::COLMODE_RGB555_SHARP:
             return k_nRGBPlaneAmtForRGB555;
 
@@ -787,6 +790,54 @@ namespace ColorSystem
         auxr = auxr << 5;
         auxg = auxg; // no-op
         auxb = auxb << 10;
+
+        return SWAP_16(auxb | auxg | auxr);
+    }
+
+    uint32_t CONV_BRG555LE_32(uint16_t inCol)
+    {
+        uint16_t swapped = SWAP_16(inCol);
+
+        uint32_t auxg = (swapped & 0x7C00) >> 10;
+        uint32_t auxr = (swapped & 0x3E0) >> 5;
+        uint32_t auxb = (swapped & 0x1F);
+        uint32_t auxa = 0x0;
+
+        if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+        {
+            auxa = 0xFF;
+        }
+
+        auxr = auxr << 3;
+        auxg = auxg << 3;
+        auxb = auxb << 3;
+
+        // account for rounding
+        auxr += auxr / 32;
+        auxg += auxg / 32;
+        auxb += auxb / 32;
+
+        //auxr = auxr;
+        auxg = auxg << 8;
+        auxb = auxb << 16;
+        auxa = auxa << 24;
+
+        return (auxb | auxg | auxr | auxa);
+    }
+
+    uint16_t CONV_32_BRG555LE(uint32_t inCol)
+    {
+        uint16_t auxb = (inCol & 0x00FF0000) >> 16;
+        uint16_t auxg = (inCol & 0x0000FF00) >> 8;
+        uint16_t auxr = (inCol & 0x000000FF);
+
+        auxb = (uint16_t)round(auxb / 8);
+        auxg = (uint16_t)round(auxg / 8);
+        auxr = (uint16_t)round(auxr / 8);
+
+        auxr = auxr << 5;
+        auxg = auxg << 10;
+        auxb = auxb; // no-op
 
         return SWAP_16(auxb | auxg | auxr);
     }
