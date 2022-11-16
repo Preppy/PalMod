@@ -345,7 +345,7 @@
 #define ID_ACC_PALSELMINUS              32939
 #define ID_TOOLS_GRADIENT_XYZ           32940
 #define ID_TOOLS_GRADIENT_LAB           32941
-#define ID_LD_GGML_P					          32942
+#define ID_LD_GGML_P                    32942
 #define ID_LD_DEVMODE                   32943
 #define ID_COLORFORMAT_BRG555_LE        32944
 

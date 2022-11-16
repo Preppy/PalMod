@@ -162,7 +162,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 181, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 182, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
