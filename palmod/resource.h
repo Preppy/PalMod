@@ -42,6 +42,7 @@
 #define IDD_CFPL_IMPORT                 143
 #define IDD_CFPL_EXPORT                 144
 #define IDD_RAWFIXUP_DIALOG             145
+#define IDD_DEVMODE_SELECTFILES         147
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT_RH                     1001
 #define IDC_EDIT_BL                     1002
@@ -112,6 +113,19 @@
 #define IDC_CFPL_ENABLEBLOOM            1082
 #define IDC_RAWFIXUP_OPTIONSLIST        1083
 #define IDC_RAWFIXUP_HWOPTIONS          1083
+#define IDC_DEVMODE_READTYPE_SEQ        1084
+#define IDC_DEVMODE_READTYPE_INT2       1085
+#define IDC_DEVMODE_READTYPE_INT4       1086
+#define IDC_DEVMODE_READTYPE_INT2_R2_LE 1087
+#define IDC_DEVMODE_READTYPE_INT2_R2_BE 1088
+#define IDC_DEVMODE_FILE1               1089
+#define IDC_DEVMODE_FILE1_SELECT        1090
+#define IDC_DEVMODE_FILE2               1091
+#define IDC_DEVMODE_FILE2_SELECT        1092
+#define IDC_DEVMODE_FILE3               1093
+#define IDC_DEVMODE_FILE3_SELECT        1094
+#define IDC_DEVMODE_FILE4               1095
+#define IDC_DEVMODE_FILE4_SELECT        1096
 #define IDS_DECRYPTING_START            2000
 #define IDS_DECRYPTING_DONE             2001
 #define IDS_ACT_LOADFAILURE             2002
@@ -353,9 +367,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        147
+#define _APS_NEXT_RESOURCE_VALUE        149
 #define _APS_NEXT_COMMAND_VALUE         32945
-#define _APS_NEXT_CONTROL_VALUE         1084
+#define _APS_NEXT_CONTROL_VALUE         1091
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif

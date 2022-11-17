@@ -6,6 +6,256 @@
 sDirectoryLoadingData CGame_DevMode_DIR::m_sFileLoadingData;
 bool CGame_DevMode_DIR::m_fHaveReadOverrideFromFile = false;
 
+class CDevModeFilePickerDialog : public CDialog
+{
+    DECLARE_DYNAMIC(CDevModeFilePickerDialog)
+
+public:
+    CDevModeFilePickerDialog(sDirectoryLoadingData *psFileLoadingData, CWnd* pParent = nullptr);
+    ~CDevModeFilePickerDialog() {};
+
+    BOOL OnInitDialog();
+
+    afx_msg void OnOK();
+
+    afx_msg void OnKillFocusFile1() {};
+    afx_msg void OnKillFocusFile2() {};
+    afx_msg void OnKillFocusFile3() {};
+    afx_msg void OnKillFocusFile4() {};
+
+    afx_msg void OnSelectFile1() { SelectFileForControl(IDC_DEVMODE_FILE1); };
+    afx_msg void OnSelectFile2() { SelectFileForControl(IDC_DEVMODE_FILE2); };
+    afx_msg void OnSelectFile3() { SelectFileForControl(IDC_DEVMODE_FILE3); };
+    afx_msg void OnSelectFile4() { SelectFileForControl(IDC_DEVMODE_FILE4); };
+
+    afx_msg void OnFileReadSeq() { m_eReadType = static_cast<int>(FileReadType::Sequential); };
+    afx_msg void OnFileReadInt2() { m_eReadType = static_cast<int>(FileReadType::Interleaved_2FileSets); };
+    afx_msg void OnFileReadInt4() { m_eReadType = static_cast<int>(FileReadType::Interleaved_4FileSets); };
+    afx_msg void OnFileReadInt2_R2_LE() { m_eReadType = static_cast<int>(FileReadType::Interleaved_Read2Bytes_LE); };
+    afx_msg void OnFileReadInt2_R2_BE() { m_eReadType = static_cast<int>(FileReadType::Interleaved_Read2Bytes_BE); };
+
+    enum { IDD = IDD_DEVMODE_SELECTFILES };
+
+protected:
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+
+    void SelectFileForControl(int nCtrlId);
+
+    sDirectoryLoadingData* m_psFileLoadingData;
+
+    wchar_t m_szPrimaryPath[MAX_PATH] = {};
+
+    DECLARE_MESSAGE_MAP()
+
+public:
+    int m_eReadType = static_cast<int>(FileReadType::Sequential);
+    CString m_strFirstFile;
+    CString m_strFile1, m_strFile2, m_strFile3, m_strFile4;
+};
+
+IMPLEMENT_DYNAMIC(CDevModeFilePickerDialog, CDialog)
+
+CDevModeFilePickerDialog::CDevModeFilePickerDialog(sDirectoryLoadingData *psFileLoadingData, CWnd* pParent /*= nullptr*/)
+    : CDialog(CDevModeFilePickerDialog::IDD, pParent),
+       m_psFileLoadingData(psFileLoadingData)
+{    
+}
+
+void CDevModeFilePickerDialog::SelectFileForControl(int nCtrlId)
+{
+    UpdateData();
+
+    CFileDialog OpenDialog(
+        TRUE,
+        NULL,
+        NULL,
+        OFN_FILEMUSTEXIST | OFN_HIDEREADONLY
+    );
+
+    if (OpenDialog.DoModal() == IDOK)
+    {
+        OPENFILENAME& pOFN = OpenDialog.GetOFN();
+
+        LPCWSTR pszFileName = wcsrchr(pOFN.lpstrFile, L'\\');
+        pszFileName = pszFileName ? (pszFileName + 1) : pOFN.lpstrFile;
+
+        wcsncpy(m_szPrimaryPath, pOFN.lpstrFile, MAX_PATH);
+        wchar_t* pszPathSplit = wcsrchr(m_szPrimaryPath, L'\\');
+
+        if (pszPathSplit)
+        {
+            *pszPathSplit = 0;
+        }
+
+        switch (nCtrlId)
+        {
+            case IDC_DEVMODE_FILE1:
+            default:
+                m_strFile1 = pszFileName;
+                m_strFirstFile = pOFN.lpstrFile;
+                break;
+            case IDC_DEVMODE_FILE2:
+                m_strFile2 = pszFileName;
+                break;
+            case IDC_DEVMODE_FILE3:
+                m_strFile3 = pszFileName;
+                break;
+            case IDC_DEVMODE_FILE4:
+                m_strFile4 = pszFileName;
+                break;
+        }
+    }
+
+    UpdateData(FALSE);
+}
+
+BOOL CDevModeFilePickerDialog::OnInitDialog()
+{
+    CDialog::OnInitDialog();
+
+    if (m_psFileLoadingData->rgFileList.size())
+    {
+        m_strFile1 = m_psFileLoadingData->rgFileList.at(0).strFileName.data();
+    }
+
+    if (m_psFileLoadingData->rgFileList.size() > 1)
+    {
+        m_strFile2 = m_psFileLoadingData->rgFileList.at(1).strFileName.data();
+    }
+
+    if (m_psFileLoadingData->rgFileList.size() > 2)
+    {
+        m_strFile3 = m_psFileLoadingData->rgFileList.at(2).strFileName.data();
+    }
+
+    if (m_psFileLoadingData->rgFileList.size() > 3)
+    {
+        m_strFile4 = m_psFileLoadingData->rgFileList.at(3).strFileName.data();
+    }
+
+    if (m_strFile1.GetLength() == 0)
+    {
+        m_strFile1 = L"Select a file";
+    }
+
+    m_eReadType = static_cast<int>(m_psFileLoadingData->eReadType);
+
+    GetDlgItem(IDC_DEVMODE_FILE1)->SetWindowText(m_strFile1);
+    GetDlgItem(IDC_DEVMODE_FILE2)->SetWindowText(m_strFile2);
+    GetDlgItem(IDC_DEVMODE_FILE3)->SetWindowText(m_strFile3);
+    GetDlgItem(IDC_DEVMODE_FILE4)->SetWindowText(m_strFile4);
+
+    UpdateData(FALSE);
+
+    return TRUE;
+}
+
+void CDevModeFilePickerDialog::OnOK()
+{
+    for (size_t nCurrentFilePos = 0; nCurrentFilePos < 4; nCurrentFilePos++)
+    {
+        CString* pstrCurrent;
+
+        switch (nCurrentFilePos)
+        {
+        case 0:
+        default:
+            pstrCurrent = &m_strFile1;
+            break;
+        case 1:
+            pstrCurrent = &m_strFile2;
+            break;
+        case 2:
+            pstrCurrent = &m_strFile3;
+            break;
+        case 3:
+            pstrCurrent = &m_strFile4;
+            break;
+        }
+
+        bool fFoundFileData = false;
+
+        if (pstrCurrent->GetLength())
+        {
+            WIN32_FILE_ATTRIBUTE_DATA wfad = {};
+
+            LPCWSTR pszFileName = nullptr;
+
+            fFoundFileData = GetFileAttributesEx(pstrCurrent->GetString(), GetFileExInfoStandard, &wfad);
+
+            if (!fFoundFileData)
+            {
+                // Try with explicit path
+                wchar_t szFileWithPath[MAX_PATH];
+                _snwprintf_s(szFileWithPath, ARRAYSIZE(szFileWithPath), L"%s\\%s", m_szPrimaryPath, pstrCurrent->GetString());
+
+                fFoundFileData = GetFileAttributesEx(szFileWithPath, GetFileExInfoStandard, &wfad);
+            }
+
+            if (fFoundFileData)
+            {
+                pszFileName = wcsrchr(pstrCurrent->GetString(), L'\\');
+                pszFileName = pszFileName ? (pszFileName + 1) : pstrCurrent->GetString();
+
+                m_psFileLoadingData->rgFileList.resize(nCurrentFilePos + 1);
+                m_psFileLoadingData->rgFileList.at(nCurrentFilePos).nFileSize = wfad.nFileSizeLow;
+                m_psFileLoadingData->rgFileList.at(nCurrentFilePos).strFileName = pszFileName;
+            }
+        }
+        
+        if (!fFoundFileData)
+        {
+            break;
+        }
+    }
+
+    FileReadType proposedFileType = static_cast<FileReadType>(m_eReadType);
+
+    // Validate that they have selected a valid pairing style
+    if (((m_psFileLoadingData->rgFileList.size() % 2) != 0) ||
+        ((proposedFileType == FileReadType::Interleaved_4FileSets) && (m_psFileLoadingData->rgFileList.size() != 4)))
+    {
+        m_psFileLoadingData->eReadType = FileReadType::Sequential;
+    }
+    else
+    {
+        m_psFileLoadingData->eReadType = proposedFileType;
+    }
+
+    CDialog::OnOK();
+}
+
+void CDevModeFilePickerDialog::DoDataExchange(CDataExchange* pDX)
+{
+    CDialog::DoDataExchange(pDX);
+
+    DDX_Radio(pDX, IDC_DEVMODE_READTYPE_SEQ, m_eReadType);
+
+    DDX_Text(pDX, IDC_DEVMODE_FILE1, m_strFile1);
+    DDX_Text(pDX, IDC_DEVMODE_FILE2, m_strFile2);
+    DDX_Text(pDX, IDC_DEVMODE_FILE3, m_strFile3);
+    DDX_Text(pDX, IDC_DEVMODE_FILE4, m_strFile4);
+}
+
+// CDevModeFilePickerDialog message handlers
+BEGIN_MESSAGE_MAP(CDevModeFilePickerDialog, CDialog)
+    ON_BN_CLICKED(IDC_DEVMODE_FILE1_SELECT, &CDevModeFilePickerDialog::OnSelectFile1)
+    ON_BN_CLICKED(IDC_DEVMODE_FILE2_SELECT, &CDevModeFilePickerDialog::OnSelectFile2)
+    ON_BN_CLICKED(IDC_DEVMODE_FILE3_SELECT, &CDevModeFilePickerDialog::OnSelectFile3)
+    ON_BN_CLICKED(IDC_DEVMODE_FILE4_SELECT, &CDevModeFilePickerDialog::OnSelectFile4)
+
+    ON_EN_KILLFOCUS(IDC_DEVMODE_FILE1, &CDevModeFilePickerDialog::OnKillFocusFile1)
+    ON_EN_KILLFOCUS(IDC_DEVMODE_FILE2, &CDevModeFilePickerDialog::OnKillFocusFile2)
+    ON_EN_KILLFOCUS(IDC_DEVMODE_FILE3, &CDevModeFilePickerDialog::OnKillFocusFile3)
+    ON_EN_KILLFOCUS(IDC_DEVMODE_FILE4, &CDevModeFilePickerDialog::OnKillFocusFile4)
+
+    ON_BN_CLICKED(IDC_DEVMODE_READTYPE_SEQ, &CDevModeFilePickerDialog::OnFileReadSeq)
+    ON_BN_CLICKED(IDC_DEVMODE_READTYPE_INT2, &CDevModeFilePickerDialog::OnFileReadInt2)
+    ON_BN_CLICKED(IDC_DEVMODE_READTYPE_INT4, &CDevModeFilePickerDialog::OnFileReadInt4)
+    ON_BN_CLICKED(IDC_DEVMODE_READTYPE_INT2_R2_LE, &CDevModeFilePickerDialog::OnFileReadInt2_R2_LE)
+    ON_BN_CLICKED(IDC_DEVMODE_READTYPE_INT2_R2_BE, &CDevModeFilePickerDialog::OnFileReadInt2_R2_BE)
+END_MESSAGE_MAP()
+
 CGame_DevMode_DIR::CGame_DevMode_DIR(uint32_t nConfirmedROMSize)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, CRegProc::GetMaxWriteForUnknownGame() };
@@ -71,69 +321,27 @@ sFileRule CGame_DevMode_DIR::GetRule(uint32_t nRuleId)
 
 bool CGame_DevMode_DIR::UserCreatesRules(LPWSTR pszPrimaryFilePath /* = nullptr */)
 {
-    bool fSuccess = true;
+    ReloadLoadingChoices();
 
-    // TODO: We want to allow them to pick 1 to 4 files and choose linkage type.
+    CDevModeFilePickerDialog selectDialog(&m_sFileLoadingData);
 
-    static bool s_fHaveShownCaution = false;
+    SupportedGamesList nLastUsedGFlag = DEVMODE_DIR;
+    wchar_t szLastDir[MAX_PATH];
 
-    if (!s_fHaveShownCaution)
+    if (GetHost()->GetPalModDlg()->GetLastUsedPath(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE))
     {
-        s_fHaveShownCaution = true;
-
-        CString strMsg = L"I'm still prototyping this, but it mostly works.  Select one file (press Cancel on second dialog) for normal Unknown Game mode.  "
-                         L"Select two files for interleaved two file Unknown Game Mode.";
-        MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
+        selectDialog.m_strFirstFile = szLastDir;
     }
 
-    CFileDialog OpenDialog(
-        TRUE,
-        NULL,
-        NULL,
-        OFN_FILEMUSTEXIST | OFN_HIDEREADONLY
-    );
-
-    if (OpenDialog.DoModal() == IDOK)
-    {
-        OPENFILENAME& pOFN = OpenDialog.GetOFN();
-
-        if (pszPrimaryFilePath)
-        {
-            wcsncpy(pszPrimaryFilePath, pOFN.lpstrFile, MAX_PATH);
-        }
-
-        WIN32_FILE_ATTRIBUTE_DATA wfad = {};
-
-        if (GetFileAttributesEx(pOFN.lpstrFile, GetFileExInfoStandard, &wfad))
-        {
-            LPCWSTR pszFileName = wcsrchr(pOFN.lpstrFile, L'\\');
-            pszFileName = pszFileName ? (pszFileName + 1) : L"unknown";
-
-            m_sFileLoadingData.rgFileList.resize(1);
-            m_sFileLoadingData.rgFileList.at(0).nFileSize = wfad.nFileSizeLow;
-            m_sFileLoadingData.rgFileList.at(0).strFileName = pszFileName;
-            m_sFileLoadingData.eReadType = FileReadType::Sequential;
-
-            if (OpenDialog.DoModal() == IDOK)
-            {
-                OPENFILENAME& pOFN = OpenDialog.GetOFN();
-
-                if (GetFileAttributesEx(pOFN.lpstrFile, GetFileExInfoStandard, &wfad))
-                {
-                    pszFileName = wcsrchr(pOFN.lpstrFile, L'\\');
-                    pszFileName = pszFileName ? (pszFileName + 1) : L"unknown";
-
-                    m_sFileLoadingData.rgFileList.resize(2);
-                    m_sFileLoadingData.rgFileList.at(1).nFileSize = wfad.nFileSizeLow;
-                    m_sFileLoadingData.rgFileList.at(1).strFileName = pszFileName;
-                    m_sFileLoadingData.eReadType = FileReadType::Interleaved_2FileSets;
-                }
-            }
-        }
-    }
-
+    bool fSuccess = (selectDialog.DoModal() == IDOK);
+    
     if (fSuccess)
     {
+        if (pszPrimaryFilePath)
+        {
+            wcsncpy(pszPrimaryFilePath, selectDialog.m_strFirstFile, MAX_PATH);
+        }
+
         SaveLoadingChoices();
     }
 
@@ -433,4 +641,3 @@ LPCWSTR CGame_DevMode_DIR::GetGameName()
         return CGameClassByDir::GetGameName();
     }
 }
-
