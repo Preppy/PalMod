@@ -44,6 +44,7 @@ protected:
     sDirectoryLoadingData* m_psFileLoadingData;
 
     wchar_t m_szPrimaryPath[MAX_PATH] = {};
+    void EnsurePrimaryPath();
 
     DECLARE_MESSAGE_MAP()
 
@@ -59,6 +60,27 @@ CDevModeFilePickerDialog::CDevModeFilePickerDialog(sDirectoryLoadingData *psFile
     : CDialog(CDevModeFilePickerDialog::IDD, pParent),
        m_psFileLoadingData(psFileLoadingData)
 {    
+}
+
+void CDevModeFilePickerDialog::EnsurePrimaryPath()
+{
+    if (wcslen(m_szPrimaryPath) == 0)
+    {
+        if (m_strFirstFile.GetLength())
+        {
+            wcsncpy(m_szPrimaryPath, m_strFirstFile.GetString(), ARRAYSIZE(m_szPrimaryPath));
+
+            if (!(GetFileAttributes(m_szPrimaryPath) & FILE_ATTRIBUTE_DIRECTORY))
+            {
+                wchar_t* pszPathSplit = wcsrchr(m_szPrimaryPath, L'\\');
+
+                if (pszPathSplit)
+                {
+                    *pszPathSplit = 0;
+                }
+            }
+        }
+    }
 }
 
 void CDevModeFilePickerDialog::SelectFileForControl(int nCtrlId)
@@ -152,6 +174,10 @@ BOOL CDevModeFilePickerDialog::OnInitDialog()
 
 void CDevModeFilePickerDialog::OnOK()
 {
+    UpdateData();
+
+    EnsurePrimaryPath();
+
     for (size_t nCurrentFilePos = 0; nCurrentFilePos < 4; nCurrentFilePos++)
     {
         CString* pstrCurrent;
@@ -212,15 +238,29 @@ void CDevModeFilePickerDialog::OnOK()
     FileReadType proposedFileType = static_cast<FileReadType>(m_eReadType);
 
     // Validate that they have selected a valid pairing style
-    if (((m_psFileLoadingData->rgFileList.size() % 2) != 0) ||
+    if ((((proposedFileType != FileReadType::Sequential) && (m_psFileLoadingData->rgFileList.size() % 2) != 0)) ||
         ((proposedFileType == FileReadType::Interleaved_4FileSets) && (m_psFileLoadingData->rgFileList.size() != 4)))
     {
+        CString strMsg = L"You have selected an unsupported interleaving configuration for this number of files: defaulting back to Sequential.";
+        MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+
         m_psFileLoadingData->eReadType = FileReadType::Sequential;
     }
     else
     {
         m_psFileLoadingData->eReadType = proposedFileType;
     }
+
+    CString strDebugInfo;
+
+    OutputDebugString(L"Configuration complete.  Files loaded will be:\r\n");
+    for (size_t iFile = 0; iFile < m_psFileLoadingData->rgFileList.size(); iFile++)
+    {
+        strDebugInfo.Format(L"\t%u: '%s'\r\n", iFile, m_psFileLoadingData->rgFileList.at(iFile).strFileName.c_str());
+        OutputDebugString(strDebugInfo.GetString());
+    }
+    strDebugInfo.Format(L"\tFile read join type is enum value '%u' for path '%s'\r\n", m_psFileLoadingData->eReadType, m_strFirstFile.GetString());
+    OutputDebugString(strDebugInfo.GetString());
 
     CDialog::OnOK();
 }
@@ -458,12 +498,6 @@ bool CGame_DevMode_DIR::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode 
     if (ColorSystem::GetCbForColMode(NewMode) == 3)
     {
         CString strMsg = L"We don't support 24bit color in this mode yet, sorry.";
-        MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-        return false;
-    }
-    else if (ColorSystem::GetCbForColMode(NewMode) == 4)
-    {
-        CString strMsg = L"We don't support 32bit color in this mode yet, sorry.";
         MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
         return false;
     }

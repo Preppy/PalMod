@@ -64,10 +64,7 @@ public:
 
     static uint32_t m_nConfirmedROMSize;
 
-    static void InitializeStatics(const sDescTreeNode *psUnitData,
-                                  size_t nUnitCount,
-                                  const std::wstring strExtraName);
-
+    static void InitializeStatics(const sCoreGameData& gameLoadingData);
 
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId) override;
@@ -95,7 +92,7 @@ public:
 
     static CDescTree MainDescTree;
 
-    static sDescTreeNode* InitDescTree();
+    static sDescTreeNode* InitDescTree(ColMode eColMode);
 
     //Extra palette function
     static uint32_t GetExtraCt(uint32_t nUnitId, BOOL fCountVisibleOnly = FALSE);

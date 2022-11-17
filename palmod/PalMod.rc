@@ -302,6 +302,14 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,151,138,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,243,138,50,14
     LTEXT           "Please select one to four files you wish to open with PalMod.  If you select two or four files you can choose to have PalMod interleave the files in the fashion you specify.  This code is still new so please let me know if there are areas that need work.",IDC_STATIC,7,7,435,43
+    EDITTEXT        IDC_DEVMODE_FILE1,21,47,101,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Choose...",IDC_DEVMODE_FILE1_SELECT,134,47,50,14
+    EDITTEXT        IDC_DEVMODE_FILE2,21,67,101,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Choose...",IDC_DEVMODE_FILE2_SELECT,134,67,50,14
+    EDITTEXT        IDC_DEVMODE_FILE3,21,87,101,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Choose...",IDC_DEVMODE_FILE3_SELECT,134,87,50,14
+    EDITTEXT        IDC_DEVMODE_FILE4,21,107,101,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Choose...",IDC_DEVMODE_FILE4_SELECT,134,107,50,14
     CONTROL         "Sequential",IDC_DEVMODE_READTYPE_SEQ,"Button",BS_AUTORADIOBUTTON | WS_GROUP,207,51,234,10
     CONTROL         "Interleaved set of two files",IDC_DEVMODE_READTYPE_INT2,
                     "Button",BS_AUTORADIOBUTTON,207,65,234,10
@@ -311,14 +319,6 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,207,91,235,10
     CONTROL         "Interleaved set of two files, read 2 bytes from each file, big endian",IDC_DEVMODE_READTYPE_INT2_R2_BE,
                     "Button",BS_AUTORADIOBUTTON,207,105,235,10
-    EDITTEXT        IDC_DEVMODE_FILE1,21,47,101,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Choose...",IDC_DEVMODE_FILE1_SELECT,134,47,50,14
-    EDITTEXT        IDC_DEVMODE_FILE2,21,67,101,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Choose...",IDC_DEVMODE_FILE2_SELECT,134,67,50,14
-    EDITTEXT        IDC_DEVMODE_FILE3,21,87,101,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Choose...",IDC_DEVMODE_FILE3_SELECT,134,87,50,14
-    EDITTEXT        IDC_DEVMODE_FILE4,21,107,101,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Choose...",IDC_DEVMODE_FILE4_SELECT,134,107,50,14
 END
 
 

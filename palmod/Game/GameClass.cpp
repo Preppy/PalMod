@@ -401,7 +401,6 @@ bool CGameClass::_UpdateColorConverters(ColMode NewMode)
     return fSuccess;
 }
 
-
 bool CGameClass::_SetColorMode(ColMode NewMode)
 {
     if (CurrColMode != NewMode)

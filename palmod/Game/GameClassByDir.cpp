@@ -29,19 +29,17 @@ CGameClassByDir::~CGameClassByDir()
     safe_delete_array(m_prgCurrentExtrasLoaded);
 }
 
-void CGameClassByDir::InitializeStatics(const sDescTreeNode *psUnitData,
-                                        size_t nUnitCount,
-                                        const std::wstring strExtraName)
+void CGameClassByDir::InitializeStatics(const sCoreGameData& gameLoadingData)
 {
     safe_delete_array(m_prgCurrentExtrasLoaded);
 
     m_rgCurrentGameUnits.clear();
-    for (size_t nCurUnit = 0; nCurUnit < nUnitCount; nCurUnit++)
+    for (size_t nCurUnit = 0; nCurUnit < gameLoadingData.nUnitCount; nCurUnit++)
     {
-        m_rgCurrentGameUnits.emplace_back(psUnitData[nCurUnit]);
+        m_rgCurrentGameUnits.emplace_back(gameLoadingData.psUnitData[nCurUnit]);
     }
 
-    m_strCurrentExtraFilename = strExtraName;
+    m_strCurrentExtraFilename = gameLoadingData.strExtraName;
     m_rgCurrentExtraCounts.resize(m_rgCurrentGameUnits.size() + 1);
     for (auto& pCount : m_rgCurrentExtraCounts)
     {
@@ -55,7 +53,7 @@ void CGameClassByDir::InitializeStatics(const sDescTreeNode *psUnitData,
     }
     m_nCurrentExtraUnitId = static_cast<uint16_t>(m_rgCurrentGameUnits.size());
 
-    MainDescTree.SetRootTree(CGameClassByDir::InitDescTree());
+    MainDescTree.SetRootTree(CGameClassByDir::InitDescTree(gameLoadingData.eColMode));
 }
 
 void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGameData& gameLoadingData)
@@ -101,7 +99,7 @@ void CGameClassByDir::InitializeGame(uint32_t nConfirmedROMSize, const sCoreGame
     }
 
     // Load the game's layout for palmod
-    InitializeStatics(gameLoadingData.psUnitData, gameLoadingData.nUnitCount, gameLoadingData.strExtraName);
+    InitializeStatics(gameLoadingData);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -140,10 +138,10 @@ uint32_t CGameClassByDir::GetExtraLoc(uint32_t nUnitId)
     return _GetExtraLocation(&m_rgCurrentExtraLocations[0], m_rgCurrentGameUnits.size(), nUnitId, m_prgCurrentExtrasLoaded);
 }
 
-sDescTreeNode* CGameClassByDir::InitDescTree()
+sDescTreeNode* CGameClassByDir::InitDescTree(ColMode eColMode)
 {
     //Load extra file if we're using it
-    LoadExtraFileForGame(m_strCurrentExtraFilename.c_str(), &m_prgCurrentExtrasLoaded, m_nCurrentExtraUnitId, m_nConfirmedROMSize);
+    LoadExtraFileForGame(m_strCurrentExtraFilename.c_str(), &m_prgCurrentExtrasLoaded, m_nCurrentExtraUnitId, m_nConfirmedROMSize, ColorSystem::GetCbForColMode(eColMode));
 
     const bool fHaveExtras = (GetExtraCt(m_nCurrentExtraUnitId) > 0);
     const size_t nUnitCt = m_rgCurrentGameUnits.size() + (fHaveExtras ? 1 : 0);
