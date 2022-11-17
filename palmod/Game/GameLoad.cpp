@@ -73,7 +73,7 @@
 #include "Game_KOF99AE_A.h"
 #include "Game_KOFXI_A.h"
 #include "Game_KOTM_A.h"
-#include "Game_LandMaker_A_DIR.h"
+#include "Game_LandMaker_A.h"
 #include "Game_LASTBLADE_A.h"
 #include "Game_LASTBLADE2_A.h"
 #include "Game_MAGICALDROPII_A.h"
@@ -694,10 +694,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     }
     case LandMaker_A:
     {
-        GetRuleCtr = &CGame_LandMaker_A_DIR::GetRuleCtr;
-        ResetRuleCtr = &CGame_LandMaker_A_DIR::ResetRuleCtr;
-        GetRule = &CGame_LandMaker_A_DIR::GetRule;
-        GetNextRule = &CGame_LandMaker_A_DIR::GetNextRule;
+        GetRule = &CGame_LandMaker_A::GetRule;
 
         return TRUE;
     }
@@ -1635,7 +1632,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     }
     case LandMaker_A:
     {
-        return new CGame_LandMaker_A_DIR(nConfirmedROMSize);
+        return new CGame_LandMaker_A(nConfirmedROMSize);
     }
     case LASTBLADE_A:
     case LASTBLADE_S:
@@ -2111,6 +2108,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, wchar_t* pszLoadFile)
         case KOF02UM_S:
             CGame_KOF02UM_S::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
+        case LandMaker_A:
+            CGame_LandMaker_A::SetSpecialRuleForFileName(pszFileNameLowercase);
+            break;
         case MK2_A:
             CGame_MK2_A::SetSpecialRuleForFileName(pszFileNameLowercase);
             break;
@@ -2310,15 +2310,6 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, wchar_t* pszLoadDir)
     {
         OutputDebugString(L"CGameLoad::LoadDir: game could not be loaded: failing load.\r\n");
         return nullptr;
-    }
-
-    switch (nGameFlag)
-    {
-    case LandMaker_A:
-        CGame_LandMaker_A_DIR::SetSpecialRuleForFileName(pszLoadDir);
-        break;
-    default:
-        break;
     }
 
     if (ResetRuleCtr == nullptr)
