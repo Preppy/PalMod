@@ -692,16 +692,20 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     memset(m_pppDataBuffer32[nUnitCtr], 0, sizeof(uint32_t*) * nPalAmt);
                 }
 
-                switch (m_psCurrentFileLoadingData->eReadType)
+                FileReadType eProposedReadType = m_psCurrentFileLoadingData->eReadType;
+
+                if ((eProposedReadType != FileReadType::Sequential) &&
+                    (m_psCurrentFileLoadingData->rgFileList.size() != 4))
+                {
+                    // We only currently support interleaving of four files for 32bit
+                    MessageBox(g_appHWnd, L"ERROR: Unsupported read type.  We currently require four files for 32bit interleaving.  This won't work right so we will use Sequential loading for now.", GetHost()->GetAppName(), MB_ICONERROR);
+                    eProposedReadType = FileReadType::Sequential;
+                }
+
+                switch (eProposedReadType)
                 {
                     case FileReadType::Interleaved_4FileSets: // 32bit color read
                     {
-                        // We only currently support interleaving of four files 
-                        if (m_psCurrentFileLoadingData->rgFileList.size() != 4)
-                        {
-                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
-                        }
-
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
@@ -741,11 +745,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
                         // This is an untested good faith implementation in case we run into this load type
-                        if (m_psCurrentFileLoadingData->rgFileList.size() != 4)
-                        {
-                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
-                        }
-                        const bool fIsLittleEndian = (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE);
+                         const bool fIsLittleEndian = (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
@@ -818,7 +818,6 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                         break;
                     }
                     default:
-                        MessageBox(g_appHWnd, L"ERROR: Unsupported read type.  We currently require four files for 32bit interleaving.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         __fallthrough;
                     case FileReadType::Sequential: // 32bit color read
                     {
@@ -1101,16 +1100,20 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
             }
             else if (GameIsUsing32BitColor())
             {
-                switch (m_psCurrentFileLoadingData->eReadType)
+                FileReadType eProposedWriteType = m_psCurrentFileLoadingData->eReadType;
+
+                if ((eProposedWriteType != FileReadType::Sequential) &&
+                    (m_psCurrentFileLoadingData->rgFileList.size() != 4))
+                {
+                    // We only currently support interleaving of four files for 32bit
+                    MessageBox(g_appHWnd, L"ERROR: Unsupported write type.  We currently require four files for 32bit interleaving.  This won't work right so we will use Sequential loading for now.", GetHost()->GetAppName(), MB_ICONERROR);
+                    eProposedWriteType = FileReadType::Sequential;
+                }
+
+                switch (eProposedWriteType)
                 {
                     case FileReadType::Interleaved_4FileSets: // 32bit color write
                     {
-                        // We only currently support interleaving of four files 
-                        if (m_psCurrentFileLoadingData->rgFileList.size() != 4)
-                        {
-                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
-                        }
-
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             if (IsPaletteDirty(nUnitCtr, nPalCtr))
@@ -1146,12 +1149,6 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                     case FileReadType::Interleaved_Read2Bytes_BE:
                     {
                         // This is an untested good faith implementation in case we run into this load type
-                        // We only currently support interleaving of four files 
-                        if (m_psCurrentFileLoadingData->rgFileList.size() != 4)
-                        {
-                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 4 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
-                        }
-
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                         {
                             if (IsPaletteDirty(nUnitCtr, nPalCtr))
@@ -1218,7 +1215,6 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                         break;
                     }
                     default:
-                        MessageBox(g_appHWnd, L"ERROR: Unsupported write type.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
                         __fallthrough;
                     case FileReadType::Sequential:// 32bit color write
                     {
