@@ -613,7 +613,7 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                             // Wiring through palettes on odd bytes is going to be tricky, so skipping that for now.
                             if ((m_nCurrentPaletteROMLocation % 2) != 0)
                             {
-                                OutputDebugString(L"ERROR: we don't support starting on odd bytes.\r\n");
+                                OutputDebugString(L"ERROR: we don't support starting on odd bytes as that would cross file boundaries mid-read.\r\n");
                             }
 
                             rgFileHandles.at(0)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -682,7 +682,105 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                         break;
                     }
                 };
+            }
+            else if (GameIsUsing24BitColor())
+            {
+                if (m_pppDataBuffer24[nUnitCtr] == nullptr)
+                {
+                    m_pppDataBuffer24[nUnitCtr] = new uint32_t * [nPalAmt];
+                    memset(m_pppDataBuffer24[nUnitCtr], 0, sizeof(uint32_t*) * nPalAmt);
+                }
 
+                switch (m_psCurrentFileLoadingData->eReadType)
+                {
+                    case FileReadType::Interleaved_2FileSets: // 24bit color read
+                    {
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                            // These have to be checked against the unmodified location
+                            uint32_t nFirstHandle = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                            uint32_t nSecondHandle = nFirstHandle + 1;
+                            const uint32_t nRemainder = (m_nCurrentPaletteROMLocation % 2);
+
+                            if (nRemainder == 1)
+                            {
+                                // odd alignment
+                                uint32_t nTemp = nFirstHandle;
+                                nFirstHandle = nSecondHandle;
+                                nSecondHandle = nTemp;
+                            }
+
+                            m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+
+                            m_pppDataBuffer24[nUnitCtr][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
+                            memset(m_pppDataBuffer24[nUnitCtr][nPalCtr], 0, sizeof(uint32_t) * m_nCurrentPaletteSizeInColors);
+
+                            rgFileHandles.at(nFirstHandle)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                            rgFileHandles.at(nSecondHandle)->Seek(m_nCurrentPaletteROMLocation + nRemainder, CFile::begin);
+
+                            for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
+                            {
+                                BYTE bVal1, bVal2, bVal3;
+
+                                if ((nColorsRead % 2) == 0)
+                                {
+                                    rgFileHandles.at(nFirstHandle)->Read(&bVal1, sizeof(bVal1));
+                                    rgFileHandles.at(nSecondHandle)->Read(&bVal2, sizeof(bVal2));
+                                    rgFileHandles.at(nFirstHandle)->Read(&bVal3, sizeof(bVal3));
+                                }
+                                else
+                                {
+                                    rgFileHandles.at(nSecondHandle)->Read(&bVal1, sizeof(bVal1));
+                                    rgFileHandles.at(nFirstHandle)->Read(&bVal2, sizeof(bVal2));
+                                    rgFileHandles.at(nSecondHandle)->Read(&bVal3, sizeof(bVal3));
+                                }
+
+                                uint32_t nCurrentColor = 0xff000000; // force alpha
+                                nCurrentColor |= bVal1 << 16;
+                                nCurrentColor |= bVal2 << 8;
+                                nCurrentColor |= bVal3;
+
+                                m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsRead] = nCurrentColor;
+                            }
+                        }
+                        break;
+                    }
+                    default:
+                        MessageBox(g_appHWnd, L"ERROR: Unsupported read type.  This won't work right.  Defaulting to Sequential.", GetHost()->GetAppName(), MB_ICONERROR);
+                        __fallthrough;
+                    case FileReadType::Sequential: // 24bit color read
+                    {
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                            m_pppDataBuffer24[nUnitCtr][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
+                            memset(m_pppDataBuffer24[nUnitCtr][nPalCtr], 0, sizeof(uint32_t) * m_nCurrentPaletteSizeInColors);
+
+                            const uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                            const uint32_t nFileAdjustedLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+
+                            rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(nFileAdjustedLocation, CFile::begin);
+
+                            for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
+                            {
+                                BYTE bVal;
+                                uint32_t nCurrentColor = 0xff000000; // force alpha
+                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Read(&bVal, 1);
+                                nCurrentColor |= bVal << 16;
+                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Read(&bVal, 1);
+                                nCurrentColor |= bVal << 8;
+                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Read(&bVal, 1);
+                                nCurrentColor |= bVal;
+
+                                m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsRead] = nCurrentColor;
+                            }
+                        }
+                        break;
+                    }
+                }
             }
             else if (GameIsUsing32BitColor())
             {
@@ -1097,6 +1195,93 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                         break;
                     }
                 };
+            }
+            else if (GameIsUsing24BitColor())
+            {
+                switch (m_psCurrentFileLoadingData->eReadType)
+                {
+                    case FileReadType::Interleaved_2FileSets: // 24bit color write
+                    {
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            if (IsPaletteDirty(nUnitCtr, nPalCtr))
+                            {
+                                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                                uint32_t nFirstSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                                uint32_t nSecondSIMMUnitHoldingPalette = nFirstSIMMUnitHoldingPalette + 1;
+                                const uint32_t nRemainder = (m_nCurrentPaletteROMLocation % 2);
+
+                                if (nRemainder == 1)
+                                {
+                                    // odd alignment
+                                    uint32_t nTemp = nFirstSIMMUnitHoldingPalette;
+                                    nFirstSIMMUnitHoldingPalette = nSecondSIMMUnitHoldingPalette;
+                                    nSecondSIMMUnitHoldingPalette = nTemp;
+                                }
+                                
+                                m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+
+                                rgFileHandles.at(nFirstSIMMUnitHoldingPalette)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                rgFileHandles.at(nSecondSIMMUnitHoldingPalette)->Seek(m_nCurrentPaletteROMLocation + nRemainder, CFile::begin);
+
+                                for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
+                                {
+                                    const uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsWritten];
+
+                                    BYTE rVal = (nCurrentColor & 0xFF0000) >> 16;
+                                    BYTE gVal = (nCurrentColor & 0xFF00) >> 8;
+                                    BYTE bVal = (nCurrentColor & 0xFF);
+
+                                    if ((nColorsWritten % 2) == 0)
+                                    {
+                                        rgFileHandles.at(nFirstSIMMUnitHoldingPalette)->Write(&rVal, sizeof(rVal));
+                                        rgFileHandles.at(nSecondSIMMUnitHoldingPalette)->Write(&gVal, sizeof(gVal));
+                                        rgFileHandles.at(nFirstSIMMUnitHoldingPalette)->Write(&bVal, sizeof(bVal));
+                                    }
+                                    else
+                                    {
+                                        rgFileHandles.at(nSecondSIMMUnitHoldingPalette)->Write(&rVal, sizeof(rVal));
+                                        rgFileHandles.at(nFirstSIMMUnitHoldingPalette)->Write(&gVal, sizeof(gVal));
+                                        rgFileHandles.at(nSecondSIMMUnitHoldingPalette)->Write(&bVal, sizeof(bVal));
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    default:
+                        MessageBox(g_appHWnd, L"ERROR: Unsupported write type.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
+                        __fallthrough;
+                    case FileReadType::Sequential: // 24bit color write
+                    {
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            if (IsPaletteDirty(nUnitCtr, nPalCtr))
+                            {
+                                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                                const uint32_t nSIMMUnitHoldingPalette = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                                const uint32_t nFileAdjustedLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+
+                                rgFileHandles.at(nSIMMUnitHoldingPalette)->Seek(nFileAdjustedLocation, CFile::begin);
+
+                                for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
+                                {
+                                    const uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsWritten];
+
+                                    BYTE bVal = (nCurrentColor & 0xFF0000) >> 16;
+                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal, 1);
+                                    bVal = (nCurrentColor & 0xFF00) >> 8;
+                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal, 1);
+                                    bVal = (nCurrentColor & 0xFF);
+                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal, 1);
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
             }
             else if (GameIsUsing32BitColor())
             {

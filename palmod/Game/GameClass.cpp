@@ -1796,7 +1796,6 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                 // This is special since we're padded.
                 for (int nArrayIndex = 0; nArrayIndex < m_nCurrentPaletteSizeInColors; nArrayIndex++)
                 {
-                    //LoadedFile->Read(&m_pppDataBuffer24[nUnitCtr][nPalCtr][nArrayIndex], m_nSizeOfColorsInBytes);
                     BYTE bVal;
                     uint32_t nCurrentColor = 0xff000000; // force alpha
                     LoadedFile->Read(&bVal, 1);

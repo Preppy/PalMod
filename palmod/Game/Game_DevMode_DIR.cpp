@@ -495,13 +495,6 @@ bool CGame_DevMode_DIR::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode 
     // ColorMode and AlphaMode need to be loosely tied together.  However, we do want to allow
     // people to override alpha mode for a given color mode.  The logic here allows for this.
 
-    if (ColorSystem::GetCbForColMode(NewMode) == 3)
-    {
-        CString strMsg = L"We don't support 24bit color in this mode yet, sorry.";
-        MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-        return false;
-    }
-
     // stomp the setting for posterity
     CRegProc::SetColorModeForUnknownGame(NewMode);
 
