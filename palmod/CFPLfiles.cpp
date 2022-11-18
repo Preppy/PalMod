@@ -418,7 +418,7 @@ void CPalModDlg::SavePaletteToCFPL(LPCWSTR pszFileName, bool& fShouldShowGeneric
             const UINT k_nRequiredLength = 0x20;
             const UINT k_nDescRequiredLength = 0x40;
             const std::array<BYTE, k_nDescRequiredLength> k_rgFillBytes = { };
-            const uint8_t nBBFCIMId = BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).nImageUnitIndex;
+            const uint8_t nBBFCIMId = TranslatePalModSpriteIdToBBCFGameId(BlazBlueCF_S_CharacterData.at(m_nPrevUnitSel).nImageUnitIndex);
 
             CFPLFile.Write(&k_rgCFPLSignature, static_cast<UINT>(k_rgCFPLSignature.size()));
 
