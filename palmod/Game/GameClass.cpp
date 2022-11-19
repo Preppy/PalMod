@@ -1799,11 +1799,11 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, uint32_t nUnitId)
                     BYTE bVal;
                     uint32_t nCurrentColor = 0xff000000; // force alpha
                     LoadedFile->Read(&bVal, 1);
-                    nCurrentColor |= bVal << 16;
+                    nCurrentColor |= bVal;
                     LoadedFile->Read(&bVal, 1);
                     nCurrentColor |= bVal << 8;
                     LoadedFile->Read(&bVal, 1);
-                    nCurrentColor |= bVal;
+                    nCurrentColor |= bVal << 16;
 
                     m_pppDataBuffer24[nUnitCtr][nPalCtr][nArrayIndex] = nCurrentColor;
                 }
@@ -1886,11 +1886,11 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, uint32_t nUnitId)
                     {
                         uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nArrayIndex];
 
-                        BYTE bVal = (nCurrentColor & 0xFF0000) >> 16;
+                        BYTE bVal = (nCurrentColor & 0xFF);
                         SaveFile->Write(&bVal, 1);
                         bVal = (nCurrentColor & 0xFF00) >> 8;
                         SaveFile->Write(&bVal, 1);
-                        bVal = (nCurrentColor & 0xFF);
+                        bVal = (nCurrentColor & 0xFF0000) >> 16;
                         SaveFile->Write(&bVal, 1);
                     }
                 }

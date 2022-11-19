@@ -1083,43 +1083,39 @@ namespace ColorSystem
         return outColor;
     }
 
+    // 24bit color conversions
+
     uint32_t CONV_BGR888_32(uint32_t inCol)
     {
         uint32_t auxr = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxb = (inCol & 0x000000FF);
-        uint32_t auxa = 0xFF;
 
-        auxr = auxr;
-        auxg = auxg << 8;
-        auxb = auxb << 16;
-        auxa = auxa << 24;
-
-        return (auxb | auxg | auxr | auxa);
+        return ((0xFF << 24) | RGB(auxr, auxg, auxb));
     }
 
     uint32_t CONV_32_BGR888(uint32_t inCol)
     {
-        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
-        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
-        uint32_t auxr = (inCol & 0x000000FF);
+        uint32_t auxr = GetRValue(inCol);
+        uint32_t auxg = GetGValue(inCol);
+        uint32_t auxb = GetBValue(inCol);
 
-        auxr = auxr << 16;
-        auxg = auxg << 8;
         auxb = auxb;
+        auxg = auxg << 8;
+        auxr = auxr << 16;
 
         return (auxr | auxg | auxb);
     }
 
     uint32_t CONV_32_BRG888(uint32_t inCol)
     {
-        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
-        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
-        uint32_t auxr = (inCol & 0x000000FF);
+        uint32_t auxr = GetRValue(inCol);
+        uint32_t auxg = GetGValue(inCol);
+        uint32_t auxb = GetBValue(inCol);
 
-        auxg = auxg << 16;
-        auxr = auxr << 8;
         auxb = auxb;
+        auxr = auxr << 8;
+        auxg = auxg << 16;
 
         return (auxr | auxg | auxb);
     }
@@ -1129,14 +1125,8 @@ namespace ColorSystem
         uint32_t auxg = (inCol & 0x00FF0000) >> 16;
         uint32_t auxr = (inCol & 0x0000FF00) >> 8;
         uint32_t auxb = (inCol & 0x000000FF);
-        uint32_t auxa = 0xFF;
 
-        auxr = auxr;
-        auxg = auxg << 8;
-        auxb = auxb << 16;
-        auxa = auxa << 24;
-
-        return (auxb | auxg | auxr | auxa);
+        return ((0xFF << 24) | RGB(auxr, auxg, auxb));
     }
 
     uint32_t CONV_GRB888_32(uint32_t inCol)
@@ -1144,21 +1134,15 @@ namespace ColorSystem
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxr = (inCol & 0x0000FF00) >> 8;
         uint32_t auxg = (inCol & 0x000000FF);
-        uint32_t auxa = 0xFF;
 
-        auxr = auxr;
-        auxg = auxg << 8;
-        auxb = auxb << 16;
-        auxa = auxa << 24;
-
-        return (auxb | auxg | auxr | auxa);
+        return ((0xFF << 24) | RGB(auxr, auxg, auxb));
     }
 
     uint32_t CONV_32_GRB888(uint32_t inCol)
     {
-        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
-        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
-        uint32_t auxr = (inCol & 0x000000FF);
+        uint32_t auxr = GetRValue(inCol);
+        uint32_t auxg = GetGValue(inCol);
+        uint32_t auxb = GetBValue(inCol);
 
         auxg = auxg;
         auxr = auxr << 8;
@@ -1172,22 +1156,15 @@ namespace ColorSystem
         uint32_t auxb = (inCol & 0x00FF0000) >> 16;
         uint32_t auxg = (inCol & 0x0000FF00) >> 8;
         uint32_t auxr = (inCol & 0x000000FF);
-        uint32_t auxa = 0xFF;
 
-        auxr = auxr;
-        auxg = auxg << 8;
-        auxb = auxb << 16;
-        auxa = auxa << 24;
-
-        return (auxb | auxg | auxr | auxa);
+        return ((0xFF << 24) | RGB(auxr, auxg, auxb));
     }
 
     uint32_t CONV_32_RGB888(uint32_t inCol)
     {
-        uint32_t auxa = 0xFF;
-        uint32_t auxb = (inCol & 0x00FF0000) >> 16;
-        uint32_t auxg = (inCol & 0x0000FF00) >> 8;
-        uint32_t auxr = (inCol & 0x000000FF);
+        uint32_t auxr = GetRValue(inCol);
+        uint32_t auxg = GetGValue(inCol);
+        uint32_t auxb = GetBValue(inCol);
 
         auxr = auxr;
         auxg = auxg << 8;

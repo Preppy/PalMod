@@ -594,8 +594,8 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                         if (m_psCurrentFileLoadingData->rgFileList.size() != 2)
                         {
                             MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
-
                         }
+
                         const bool fIsLittleEndian = (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -738,15 +738,112 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 }
 
                                 uint32_t nCurrentColor = 0xff000000; // force alpha
-                                nCurrentColor |= bVal1 << 16;
+                                nCurrentColor |= bVal1;
                                 nCurrentColor |= bVal2 << 8;
-                                nCurrentColor |= bVal3;
+                                nCurrentColor |= bVal3 << 16;
 
                                 m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsRead] = nCurrentColor;
                             }
                         }
                         break;
                     }
+                    case FileReadType::Interleaved_Read2Bytes_LE: // 24bit color read
+                    case FileReadType::Interleaved_Read2Bytes_BE:
+                    {
+                        // We only currently support interleaving of two files 
+                        if (m_psCurrentFileLoadingData->rgFileList.size() != 2)
+                        {
+                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
+                        }
+
+                        const bool fIsLittleEndian = (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE);
+
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                            // These have to be checked against the unmodified location
+                            uint32_t nFirstHandle = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                            uint32_t nSecondHandle = nFirstHandle + 1;
+                            const uint32_t nRemainder = (m_nCurrentPaletteROMLocation % 4);
+
+                            if ((m_nCurrentPaletteROMLocation % 2) != 0)
+                            {
+                                OutputDebugString(L"ERROR: we don't support starting on odd bytes as that would cross file boundaries mid-read.\r\n");
+                            }
+
+                            if (nRemainder == 2)
+                            {
+                                // odd alignment
+                                uint32_t nTemp = nFirstHandle;
+                                nFirstHandle = nSecondHandle;
+                                nSecondHandle = nTemp;
+                            }
+
+                            m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+
+                            m_pppDataBuffer24[nUnitCtr][nPalCtr] = new uint32_t[m_nCurrentPaletteSizeInColors];
+                            memset(m_pppDataBuffer24[nUnitCtr][nPalCtr], 0, sizeof(uint32_t) * m_nCurrentPaletteSizeInColors);
+
+                            // Wiring through palettes on odd bytes is going to be tricky, so skipping that for now.
+
+                            rgFileHandles.at(nFirstHandle)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                            rgFileHandles.at(nSecondHandle)->Seek(m_nCurrentPaletteROMLocation + nRemainder, CFile::begin);
+
+                            for (uint16_t nColorsRead = 0; nColorsRead < m_nCurrentPaletteSizeInColors; nColorsRead++)
+                            {
+                                BYTE bVal1, bVal2, bVal3;
+
+                                switch (nColorsRead % 4)
+                                {
+                                    case 0:
+                                    {
+                                        rgFileHandles.at(nFirstHandle)->Read(&bVal1, sizeof(bVal1));
+                                        rgFileHandles.at(nFirstHandle)->Read(&bVal2, sizeof(bVal2));
+                                        rgFileHandles.at(nSecondHandle)->Read(&bVal3, sizeof(bVal3));
+                                        break;
+                                    }
+                                    case 1:
+                                    {
+                                        rgFileHandles.at(nSecondHandle)->Read(&bVal1, sizeof(bVal1));
+                                        rgFileHandles.at(nFirstHandle)->Read(&bVal2, sizeof(bVal2));
+                                        rgFileHandles.at(nFirstHandle)->Read(&bVal3, sizeof(bVal3));
+                                        break;
+                                    }
+                                    case 2:
+                                    {
+                                        rgFileHandles.at(nSecondHandle)->Read(&bVal1, sizeof(bVal1));
+                                        rgFileHandles.at(nSecondHandle)->Read(&bVal2, sizeof(bVal2));
+                                        rgFileHandles.at(nFirstHandle)->Read(&bVal3, sizeof(bVal3));
+                                        break;
+                                    }
+                                    case 3:
+                                    {
+                                        rgFileHandles.at(nFirstHandle)->Read(&bVal1, sizeof(bVal1));
+                                        rgFileHandles.at(nSecondHandle)->Read(&bVal2, sizeof(bVal2));
+                                        rgFileHandles.at(nSecondHandle)->Read(&bVal3, sizeof(bVal3));
+                                        break;
+                                    }
+                                }
+
+                                uint32_t nCurrentColor = 0xff000000; // force alpha
+                                nCurrentColor |= bVal1;
+                                nCurrentColor |= bVal2 << 8;
+                                nCurrentColor |= bVal3 << 16;
+
+                                if (fIsLittleEndian)
+                                {
+                                    m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsRead] = nCurrentColor;
+                                }
+                                else // big endian
+                                {
+                                    m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsRead] = _byteswap_ulong(nCurrentColor);
+                                }
+                            }
+                        }
+                        break;
+                    }
+
                     default:
                         MessageBox(g_appHWnd, L"ERROR: Unsupported read type.  This won't work right.  Defaulting to Sequential.", GetHost()->GetAppName(), MB_ICONERROR);
                         __fallthrough;
@@ -769,11 +866,11 @@ BOOL CGameClassByDir::LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber)
                                 BYTE bVal;
                                 uint32_t nCurrentColor = 0xff000000; // force alpha
                                 rgFileHandles.at(nSIMMUnitHoldingPalette)->Read(&bVal, 1);
-                                nCurrentColor |= bVal << 16;
+                                nCurrentColor |= bVal;
                                 rgFileHandles.at(nSIMMUnitHoldingPalette)->Read(&bVal, 1);
                                 nCurrentColor |= bVal << 8;
                                 rgFileHandles.at(nSIMMUnitHoldingPalette)->Read(&bVal, 1);
-                                nCurrentColor |= bVal;
+                                nCurrentColor |= bVal << 16;
 
                                 m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsRead] = nCurrentColor;
                             }
@@ -1035,8 +1132,8 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 {
                                     const uint16_t nColorValue = m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsWritten];
 
-                                    const BYTE high = (nColorValue & 0xFF00) >> 8;
                                     const BYTE low = nColorValue & 0xFF;
+                                    const BYTE high = (nColorValue & 0xFF00) >> 8;
 
                                     rgFileHandles.at(nFirstHandle)->Write(&low, sizeof(low));
                                     rgFileHandles.at(nSecondHandle)->Write(&high, sizeof(high));
@@ -1093,10 +1190,10 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                     const uint16_t nColorValue1 = m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsWritten];
                                     const uint16_t nColorValue2 = m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsWritten + 1];
 
-                                    const BYTE high1 = (nColorValue1 & 0xFF00) >> 8;
                                     const BYTE low1 = nColorValue1 & 0xFF;
-                                    const BYTE high2 = (nColorValue2 & 0xFF00) >> 8;
+                                    const BYTE high1 = (nColorValue1 & 0xFF00) >> 8;
                                     const BYTE low2 = nColorValue2 & 0xFF;
+                                    const BYTE high2 = (nColorValue2 & 0xFF00) >> 8;
 
                                     rgFileHandles.at(iHandle1)->Write(&low1, sizeof(low1));
                                     rgFileHandles.at(iHandle2)->Write(&high1, sizeof(high1));
@@ -1114,8 +1211,8 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                         if (m_psCurrentFileLoadingData->rgFileList.size() != 2)
                         {
                             MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
-
                         }
+
                         const bool fIsLittleEndian = (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE);
 
                         for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -1229,21 +1326,108 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 {
                                     const uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsWritten];
 
-                                    BYTE rVal = (nCurrentColor & 0xFF0000) >> 16;
-                                    BYTE gVal = (nCurrentColor & 0xFF00) >> 8;
-                                    BYTE bVal = (nCurrentColor & 0xFF);
+                                    BYTE bVal1 = (nCurrentColor & 0xFF);
+                                    BYTE bVal2 = (nCurrentColor & 0xFF00) >> 8;
+                                    BYTE bVal3 = (nCurrentColor & 0xFF0000) >> 16;
 
                                     if ((nColorsWritten % 2) == 0)
                                     {
-                                        rgFileHandles.at(nFirstSIMMUnitHoldingPalette)->Write(&rVal, sizeof(rVal));
-                                        rgFileHandles.at(nSecondSIMMUnitHoldingPalette)->Write(&gVal, sizeof(gVal));
-                                        rgFileHandles.at(nFirstSIMMUnitHoldingPalette)->Write(&bVal, sizeof(bVal));
+                                        rgFileHandles.at(nFirstSIMMUnitHoldingPalette)->Write(&bVal1, sizeof(bVal1));
+                                        rgFileHandles.at(nSecondSIMMUnitHoldingPalette)->Write(&bVal2, sizeof(bVal2));
+                                        rgFileHandles.at(nFirstSIMMUnitHoldingPalette)->Write(&bVal3, sizeof(bVal3));
                                     }
                                     else
                                     {
-                                        rgFileHandles.at(nSecondSIMMUnitHoldingPalette)->Write(&rVal, sizeof(rVal));
-                                        rgFileHandles.at(nFirstSIMMUnitHoldingPalette)->Write(&gVal, sizeof(gVal));
-                                        rgFileHandles.at(nSecondSIMMUnitHoldingPalette)->Write(&bVal, sizeof(bVal));
+                                        rgFileHandles.at(nSecondSIMMUnitHoldingPalette)->Write(&bVal1, sizeof(bVal1));
+                                        rgFileHandles.at(nFirstSIMMUnitHoldingPalette)->Write(&bVal2, sizeof(bVal2));
+                                        rgFileHandles.at(nSecondSIMMUnitHoldingPalette)->Write(&bVal3, sizeof(bVal3));
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case FileReadType::Interleaved_Read2Bytes_LE: // 24bit color write
+                    case FileReadType::Interleaved_Read2Bytes_BE:
+                    {
+                        // We only currently support interleaving of two files 
+                        if (m_psCurrentFileLoadingData->rgFileList.size() != 2)
+                        {
+                            MessageBox(g_appHWnd, L"ERROR: PalMod only supports interleaving 2 files this way at this time.  This won't work right.", GetHost()->GetAppName(), MB_ICONERROR);
+                        }
+
+                        const bool fIsLittleEndian = (m_psCurrentFileLoadingData->eReadType == FileReadType::Interleaved_Read2Bytes_LE);
+
+                        for (uint32_t nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            if (IsPaletteDirty(nUnitCtr, nPalCtr))
+                            {
+                                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                                uint32_t nFirstHandle = GetSIMMUnitFromROMLocation(m_nCurrentPaletteROMLocation);
+                                uint32_t nSecondHandle = nFirstHandle + 1;
+                                const uint32_t nRemainder = (m_nCurrentPaletteROMLocation % 4);
+
+                                if (nRemainder == 2)
+                                {
+                                    // odd alignment
+                                    uint32_t nTemp = nFirstHandle;
+                                    nFirstHandle = nSecondHandle;
+                                    nSecondHandle = nTemp;
+                                }
+
+                                m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+
+                                rgFileHandles.at(nFirstHandle)->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                                rgFileHandles.at(nSecondHandle)->Seek(m_nCurrentPaletteROMLocation + nRemainder, CFile::begin);
+
+                                for (uint16_t nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++)
+                                {
+                                    uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsWritten];
+
+                                    if (fIsLittleEndian)
+                                    {
+                                        nCurrentColor = nCurrentColor;
+                                    }
+                                    else // big endian
+                                    {
+                                        nCurrentColor = _byteswap_ulong(nCurrentColor);
+                                    }
+
+                                    BYTE bVal1 = (nCurrentColor & 0xFF);
+                                    BYTE bVal2 = (nCurrentColor & 0xFF00) >> 8;
+                                    BYTE bVal3 = (nCurrentColor & 0xFF0000) >> 16; 
+
+                                    switch (nColorsWritten % 4)
+                                    {
+                                        case 0:
+                                        {
+                                            rgFileHandles.at(nFirstHandle)->Write(&bVal1, sizeof(bVal1));
+                                            rgFileHandles.at(nFirstHandle)->Write(&bVal2, sizeof(bVal2));
+                                            rgFileHandles.at(nSecondHandle)->Write(&bVal3, sizeof(bVal3));
+                                            break;
+                                        }
+                                        case 1:
+                                        {
+                                            rgFileHandles.at(nSecondHandle)->Write(&bVal1, sizeof(bVal1));
+                                            rgFileHandles.at(nFirstHandle)->Write(&bVal2, sizeof(bVal2));
+                                            rgFileHandles.at(nFirstHandle)->Write(&bVal3, sizeof(bVal3));
+                                            break;
+                                        }
+                                        case 2:
+                                        {
+                                            rgFileHandles.at(nSecondHandle)->Write(&bVal1, sizeof(bVal1));
+                                            rgFileHandles.at(nSecondHandle)->Write(&bVal2, sizeof(bVal2));
+                                            rgFileHandles.at(nFirstHandle)->Write(&bVal3, sizeof(bVal3));
+                                            break;
+                                        }
+                                        case 3:
+                                        {
+                                            rgFileHandles.at(nFirstHandle)->Write(&bVal1, sizeof(bVal1));
+                                            rgFileHandles.at(nSecondHandle)->Write(&bVal2, sizeof(bVal2));
+                                            rgFileHandles.at(nSecondHandle)->Write(&bVal3, sizeof(bVal3));
+                                            break;
+                                        }
                                     }
                                 }
                             }
@@ -1270,12 +1454,13 @@ BOOL CGameClassByDir::SaveFile(CFile* SaveFile, uint32_t nSaveUnit)
                                 {
                                     const uint32_t nCurrentColor = m_pppDataBuffer24[nUnitCtr][nPalCtr][nColorsWritten];
 
-                                    BYTE bVal = (nCurrentColor & 0xFF0000) >> 16;
-                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal, 1);
-                                    bVal = (nCurrentColor & 0xFF00) >> 8;
-                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal, 1);
-                                    bVal = (nCurrentColor & 0xFF);
-                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal, 1);
+                                    BYTE bVal1 = (nCurrentColor & 0xFF);
+                                    BYTE bVal2 = (nCurrentColor & 0xFF00) >> 8;
+                                    BYTE bVal3 = (nCurrentColor & 0xFF0000) >> 16;
+
+                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal1, 1);
+                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal2, 1);
+                                    rgFileHandles.at(nSIMMUnitHoldingPalette)->Write(&bVal3, 1);
                                 }
                             }
                         }
