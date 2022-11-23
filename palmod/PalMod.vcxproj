@@ -391,6 +391,7 @@
     <ClInclude Include="Game\AsuraBuster_A_DIR_DEF.h" />
     <ClInclude Include="Game\AvgrsGS_A_DIR_DEF.h" />
     <ClInclude Include="Game\BASARA_P_DEF.h" />
+    <ClInclude Include="Game\BattleFlipshot_A_DEF.h" />
     <ClInclude Include="Game\BlazBlueCF_S_DEF.h" />
     <ClInclude Include="Game\Bleach_DS_DEF.h" />
     <ClInclude Include="Game\BMKNS_SNES_DEF.h" />
@@ -434,6 +435,7 @@
     <ClInclude Include="Game\Game_AsuraBuster_A_DIR.h" />
     <ClInclude Include="Game\Game_AvgrsGS_A_DIR.h" />
     <ClInclude Include="Game\Game_BASARA_P.h" />
+    <ClInclude Include="Game\Game_BattleFlipshot_A.h" />
     <ClInclude Include="Game\Game_BlazBlueCF_S.h" />
     <ClInclude Include="Game\GAME_Bleach_DS.h" />
     <ClInclude Include="Game\Game_BMKNS_SNES.h" />

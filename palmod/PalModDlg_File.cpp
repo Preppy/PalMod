@@ -20,6 +20,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO, GameSeries::ArtOfFighting },
     { AsuraBuster_A,    L"Asura Buster", L"Asura Buster|pgm3.u1|", GamePlatform::OtherPlatform },
     { AvgrsGS_A,        L"Avengers in Galactic Storm", L"Avengers in Galactic Storm|sf_00-0.7k;agsbh_00-0.7k|", GamePlatform::OtherPlatform },
+    { BattleFlipShot_A, L"Battle Flip Shot (Neo-Geo)", L"Battle Flip Shot (Neo-Geo)|247-p1.*|", GamePlatform::NEOGEO },
     { BMKNS_SNES,       L"Battle Master: KnS (SNES)", L"Battle Master: KnS (SNES)|battle master - kyuukyoku no senshi-tachi (japan).s?c|", GamePlatform::Nintendo },
     { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls (DS)|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo },
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.*|", GamePlatform::NEOGEO },
@@ -155,7 +156,7 @@ std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
     { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|" },
 };
 
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 182, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 183, "Increment the value check here once you've determined whether or not you want to add the new game into the above array.");
 
 void CPalModDlg::LoadGameDir(SupportedGamesList nGameFlag, wchar_t* pszLoadDir)
 {

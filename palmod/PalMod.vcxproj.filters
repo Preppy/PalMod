@@ -544,6 +544,9 @@
     <Filter Include="Games\Other Platforms\Jackie Chan in Fists of Fury">
       <UniqueIdentifier>{f7568ecb-d057-4878-bba8-ec3fa40830b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\SNK Games\Battle Flip Shot">
+      <UniqueIdentifier>{d3df860a-d3c7-4ca6-a743-33436f57a085}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
@@ -2014,6 +2017,12 @@
     </ClInclude>
     <ClInclude Include="Game\JChan_A_DEF.h">
       <Filter>Games\Other Platforms\Jackie Chan in Fists of Fury</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleFlipshot_A_DEF.h">
+      <Filter>Games\SNK Games\Battle Flip Shot</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_BattleFlipshot_A.h">
+      <Filter>Games\SNK Games\Battle Flip Shot</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

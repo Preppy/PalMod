@@ -204,6 +204,7 @@ enum SupportedGamesList
     MK2_A,
     GGML_P,
     JCHAN_A,
+    BattleFlipShot_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -402,6 +403,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"Mortal Kombat II (Arcade)",
     L"Guilty Gear: The Missing Link (PlayStation)",
     L"Jackie Chan in Fists of Fury (Arcade)",
+    L"Battle Flip Shot (Neo-Geo)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

@@ -9,6 +9,7 @@
 #include "Game_AsuraBuster_A_DIR.h"
 #include "Game_AvgrsGS_A_DIR.h"
 #include "Game_BASARA_P.h"
+#include "Game_BattleFlipShot_A.h"
 #include "Game_BlazBlueCF_S.h"
 #include "Game_Bleach_DS.h"
 #include "Game_BMKNS_SNES.h"
@@ -162,7 +163,7 @@
 #include "..\palmod.h"
 
 // Once gamedef.h is updated, you need to update this and in palmoddlg_file.cpp
-static_assert(ARRAYSIZE(g_GameFriendlyName) == 182, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
+static_assert(ARRAYSIZE(g_GameFriendlyName) == 183, "Increment this value check after you add in the new header above and the relevent game loading functions below.");
 
 void StrRemoveNonASCII(wchar_t* pszOutput, uint32_t ccSize, LPCWSTR pszInput, bool fForceUpperCase /* = false*/)
 {
@@ -259,6 +260,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case BASARA_P:
     {
         GetRule = &CGame_BASARA_P::GetRule;
+        return TRUE;
+    }
+    case BattleFlipShot_A:
+    {
+        GetRule = &CGame_BattleFlipShot_A::GetRule;
         return TRUE;
     }
     case BlazBlueCF_S:
@@ -1300,6 +1306,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, uint32_t nConfirmedROMSize, int
     case BASARA_P:
     {
         return new CGame_BASARA_P(nConfirmedROMSize);
+    }
+    case BattleFlipShot_A:
+    {
+        return new CGame_BattleFlipShot_A(nConfirmedROMSize);
     }
     case BlazBlueCF_S:
     {
