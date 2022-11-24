@@ -43,8 +43,8 @@ private:
         m_sFileLoadingData_NeoGeo,
         SAMSHO1_A_UNITS,
         ARRAYSIZE(SAMSHO1_A_UNITS),
-        L"SAMSHO1E.txt",          // Extra filename
-        260,                      // Count of palettes listed in the header
+        L"SamSho1E.txt",          // Extra filename
+        290,                      // Count of palettes listed in the header
         0xe4a8a,                  // Lowest known location used for palettes
     };
 
@@ -62,8 +62,8 @@ private:
         m_sFileLoadingData_NeoStation,
         SAMSHO1_A_UNITS,
         ARRAYSIZE(SAMSHO1_A_UNITS),
-        L"SAMSHO1E.txt",          // Extra filename
-        260,                      // Count of palettes listed in the header
+        L"SamSho1E.txt",          // Extra filename
+        290,                      // Count of palettes listed in the header
         0xe4a8a,                  // Lowest known location used for palettes
     };
 

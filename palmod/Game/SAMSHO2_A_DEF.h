@@ -509,6 +509,59 @@ const sGame_PaletteDataset SAMSHO2_A_KUROKO[] =
     { L"Kuroko Portrait/Doll", 0x17500, 0x17520 },
 };
 
+const sGame_PaletteDataset SAMSHO2_A_STAGE_PALETTES[] =
+{
+    { L"Haohmaru Stage (1/3) 0x17a00", 0x17a00, 0x17c00 },
+    { L"Haohmaru Stage (2/3) 0x17c00", 0x17c00, 0x17e00 },
+    { L"Haohmaru Stage (3/3) 0x17e00", 0x17e00, 0x17fe0 },
+    { L"Genan Shiranui Stage (1/3) 0x18000", 0x18000, 0x18200 },
+    { L"Genan Shiranui Stage (2/3) 0x18200", 0x18200, 0x18400 },
+    { L"Genan Shiranui Stage (3/3) 0x18400", 0x18400, 0x185e0 },
+    { L"Genjuro (1/2) 0x18600", 0x18600, 0x18800 },
+    { L"Genjuro (2/2) 0x18800", 0x18800, 0x18a00 },
+    { L"Ukyo Tachibana Stage (1/3) 0x19200", 0x19200, 0x19400 },
+    { L"Ukyo Tachibana Stage (2/3) 0x19400", 0x19400, 0x19600 },
+    { L"Ukyo Tachibana Stage (3/3) 0x19600", 0x19600, 0x197e0 },
+    { L"Charlotte Christine de Colde Stage (1/3) 0x19800", 0x19800, 0x19a00 },
+    { L"Charlotte Christine de Colde Stage (2/3) 0x19a00", 0x19a00, 0x19c00 },
+    { L"Charlotte Christine de Colde Stage (3/3) 0x19c00", 0x19c00, 0x19d00 },
+    { L"Cham Cham Stage (1/3) 0x19e00", 0x19e00, 0x1a000 },
+    { L"Cham Cham Stage (2/3) 0x1a000", 0x1a000, 0x1a200 },
+    { L"Cham Cham Stage (3/3) 0x1a200", 0x1a200, 0x1a3e0 },
+    { L"Earthquake Stage (1/3) 0x1a400", 0x1a400, 0x1a600 },
+    { L"Earthquake Stage (2/3) 0x1a600", 0x1a600, 0x1a800 },
+    { L"Earthquake Stage (3/3) 0x1a800", 0x1a800, 0x1a9e0 },
+    { L"Sieger Stage (1/3) 0x1aa00", 0x1aa00, 0x1ac00 },
+    { L"Sieger Stage (2/3) 0x1ac00", 0x1ac00, 0x1ae00 },
+    { L"Sieger Stage (3/3) 0x1ae00", 0x1ae00, 0x1afe0 },
+    { L"Nicotine (1/2) 0x1b000", 0x1b000, 0x1b200 },
+    { L"Nicotine (2/2) 0x1b200", 0x1b200, 0x1b400 },
+    { L"Galford D. Weller Stage (1/3) 0x1b600", 0x1b600, 0x1b800 },
+    { L"Galford D. Weller Stage (2/3) 0x1b800", 0x1b800, 0x1ba00 },
+    { L"Galford D. Weller Stage (3/3) 0x1ba00", 0x1ba00, 0x1bbe0 },
+    { L"Kuroko Stage (1/3) 0x1bc00", 0x1bc00, 0x1be00 },
+    { L"Kuroko Stage (2/3) 0x1be00", 0x1be00, 0x1c000 },
+    { L"Kkuroko Stage (3/3) 0x1c000", 0x1c000, 0x1c1e0 },
+    { L"Kyoshiro Senryo Stage (1/3) 0x1c200", 0x1c200, 0x1c400 },
+    { L"Kyoshiro Senryo Stage (2/3) 0x1c400", 0x1c400, 0x1c600 },
+    { L"Kyoshiro Senryo Stage (3/3) 0x1c600", 0x1c600, 0x1c7e0 },
+    { L"Jubei Yagyu Stage (1/3) 0x1c800", 0x1c800, 0x1ca00 },
+    { L"Jubei Yagyu Stage (2/3) 0x1ca00", 0x1ca00, 0x1cc00 },
+    { L"Jubei Yagyu Stage (3/3) 0x1cc00", 0x1cc00, 0x1cde0 },
+    { L"Hanzo Hattori Stage (1/3) 0x1ce00", 0x1ce00, 0x1d000 },
+    { L"Hanzo Hattori Stage (2/3) 0x1d000", 0x1d000, 0x1d200 },
+    { L"Hanzo Hattori Stage (3/3) 0x1d200", 0x1d200, 0x1d3e0 },
+    { L"Wan-Fu Stage (1/3) 0x1d400", 0x1d400, 0x1d600 },
+    { L"Wan-Fu Stage (2/3) 0x1d600", 0x1d600, 0x1d800 },
+    { L"Wan-Fu Stage (3/3) 0x1d800", 0x1d800, 0x1d9e0 },
+    { L"Nakoruru Stage (1/3) 0x1da00", 0x1da00, 0x1dc00 },
+    { L"Nakoruru Stage (2/3) 0x1dc00", 0x1dc00, 0x1de00 },
+    { L"Nakoruru Stage (3/3) 0x1de00", 0x1de00, 0x1df60 },
+    { L"Mizuki Stage (1/3) 0x1e000", 0x1e000, 0x1e200 },
+    { L"Mizuki Stage (2/3) 0x1e200", 0x1e200, 0x1e400 },
+    { L"Mizuki Stage (3/3) 0x1e400", 0x1e400, 0x1e5e0 },
+};
+
 const sGame_PaletteDataset SAMSHO2_A_BONUS_SharedEffects[] =
 {
     { L"Cham Cham/Charlotte Effects", 0x16680, 0x166a0 },
@@ -653,6 +706,11 @@ const sDescTreeNode SAMSHO2_A_KUROKO_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)SAMSHO2_A_KUROKO, ARRAYSIZE(SAMSHO2_A_KUROKO) },
 };
 
+const sDescTreeNode SAMSHO2_A_STAGE_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)SAMSHO2_A_STAGE_PALETTES, ARRAYSIZE(SAMSHO2_A_STAGE_PALETTES) },
+};
+
 const sDescTreeNode SAMSHO2_A_BONUS_COLLECTION[] =
 {
     { L"Shared Effects", DESC_NODETYPE_TREE, (void*)SAMSHO2_A_BONUS_SharedEffects, ARRAYSIZE(SAMSHO2_A_BONUS_SharedEffects) },
@@ -679,5 +737,6 @@ const sDescTreeNode SAMSHO2_A_UNITS[] =
     { L"Nicotine", DESC_NODETYPE_TREE, (void*)SAMSHO2_A_NICOTINE_COLLECTION, ARRAYSIZE(SAMSHO2_A_NICOTINE_COLLECTION) },
     { L"Kuroko", DESC_NODETYPE_TREE, (void*)SAMSHO2_A_KUROKO_COLLECTION, ARRAYSIZE(SAMSHO2_A_KUROKO_COLLECTION) },
     { L"Mizuki", DESC_NODETYPE_TREE, (void*)SAMSHO2_A_MIZUKI_COLLECTION, ARRAYSIZE(SAMSHO2_A_MIZUKI_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)SAMSHO2_A_STAGE_COLLECTION, ARRAYSIZE(SAMSHO2_A_STAGE_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SAMSHO2_A_BONUS_COLLECTION, ARRAYSIZE(SAMSHO2_A_BONUS_COLLECTION) },
 };

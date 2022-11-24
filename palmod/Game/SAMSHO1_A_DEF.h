@@ -346,7 +346,46 @@ const sGame_PaletteDataset SAMSHO1_A_AMAKUSA[] =
 const sGame_PaletteDataset SAMSHO1_A_Amakusa_Effects[] =
 {
     { L"Amakusa Fireball", 0x0e688a, 0x0e68aa },
-    { L"Amakusa Smoke/Super Fireball", 0x0e694a, 0x0e696a },
+    // duped into the stage { L"Amakusa Smoke/Super Fireball", 0x0e694a, 0x0e696a },
+};
+
+const sGame_PaletteDataset SAMSHO1_A_STAGES_PALETTES[] =
+{
+    { L"USA Spanish Texas Earthquake Stage", 0xe6bea, 0xe6c0a },
+    { L"Shiro Tokisada Amakusa Stage ", 0xe68ca, 0xe696a },
+    { L"Japan Jokamachi Haohmaru Stage", 0xe6c8a, 0xe6e8a },
+    { L"China Seian Wan-Fu Stage (1/2) 0xe6e8a", 0xe6e8a, 0xe708a },
+    { L"China Seian Wan-Fu Stage (2/2) 0xe708a", 0xe708a, 0xe720a },
+    { L"Japan Bamboo Forest  Jubei Yagyu Stage", 0xe722a, 0xe724a },
+    { L"Japan Mountains of Deva Hanzo Hattori Stage (1/2) 0xe768a", 0xe768a, 0xe788a },
+    { L"Japan Mountains of Deva Hanzo Hattori Stage (2/2) 0xe788a", 0xe788a, 0xe7a6a },
+    { L"Japan Bamboo Forest  Jubei Yagyu Stage", 0xe7b8a, 0xe7d8a },
+    { L"Japan Jokamachi Haohmaru Stage", 0xe7eaa, 0xe7f2a },
+    { L"Japan Koka Ukyo Tachibana Stage", 0xe808a, 0xe828a },
+    { L"Japan Edo Kyoshiro Senryo Stage", 0xe828a, 0xe82aa },
+    { L"Japan Onigami Isle Genan Shiranui Stage", 0xe82ca, 0xe848a },
+    { L"Japan Edo Kyoshiro Senryo Stage", 0xe848a, 0xe868a },
+    { L"USA San Francisco Galford D. Weller Stage ", 0xe868a, 0xe888a },
+    { L"USA Spanish Texas Earthquake Stage (1/2) 0xe888a", 0xe888a, 0xe8a8a },
+    { L"USA Spanish Texas Earthquake Stage (2/2) 0xe8a8a", 0xe8a8a, 0xe8b0a },
+    { L"USA San Francisco Galford D. Weller Stage", 0xe8b0a, 0xe8bca },
+    { L"France Paris Charlotte Christine de Colde Stage", 0xe8bca, 0xe8d0a },
+    { L"France Paris Charlotte Christine de Colde Stage (1/2) 0xe8e8a", 0xe8e8a, 0xe908a },
+    { L"France Paris Charlotte Christine de Colde Stage (2/2) 0xe908a", 0xe908a, 0xe912a },
+    { L"Japan Kōka Ukyo Tachibana Stage", 0xe912a, 0xe91ca },
+    { L"France Paris Charlotte Christine de Colde Stage", 0xe91ca, 0xe924a },
+    { L"USA San Francisco Galford D. Weller Stage", 0xe924a, 0xe926a },
+    { L"Japan Koka Ukyo Tachibana Stage", 0xe92aa, 0xe932a },
+    { L"Japan Hokkaido Nakoruru Stage (1/3) 0xe948a", 0xe948a, 0xe968a },
+    { L"Japan Hokkaido Nakoruru Stage (2/3) 0xe968a", 0xe968a, 0xe988a },
+    { L"Japan Hokkaido Nakoruru Stage (3/3) 0xe988a", 0xe988a, 0xe998a },
+    { L"Japan Hokkaido Nakoruru Stage", 0xe9caa, 0xe9cca },
+    { L"Shiro Tokisada Amakusa Stage (1/4) 0xe9cca", 0xe9cca, 0xe9eca },
+    { L"Shiro Tokisada Amakusa Stage (2/4) 0xe9eca", 0xe9eca, 0xea0ca },
+    { L"Shiro Tokisada Amakusa Stage (3/4) 0xea0ca", 0xea0ca, 0xea2ca },
+    { L"Shiro Tokisada Amakusa Stage (4/4) 0xea2ca", 0xea2ca, 0xea30a },
+    { L"South America Green Hell Tam Tam Stage (1/2) 0xea30a", 0xea30a, 0xea50a },
+    { L"South America Green Hell Tam Tam Stage (2/2) 0xea50a", 0xea50a, 0xea64a },
 };
 
 const sGame_PaletteDataset SAMSHO1_A_BONUS_INGAME[] =
@@ -387,10 +426,10 @@ const sGame_PaletteDataset SAMSHO1_A_BONUS_SharedEffects[] =
     { L"Hitsparks/Dust/Blood 1", 0x0e64aa, 0x0e64ca },
     { L"Weaponsparks/N-J Effects", 0x0e64ca, 0x0e64ea },
     { L"Imitate Replica", 0x0e652a, 0x0e654a },
-    { L"Tam Tam/Amakusa Effects 1", 0x0e68ca, 0x0e68ea },
-    { L"Tam Tam/Amakusa Effects 2", 0x0e68ea, 0x0e690a },
-    { L"Tam Tam/Amakusa Effects 3", 0x0e690a, 0x0e692a },
-    { L"Tam Tam/Amakusa Effects 4", 0x0e692a, 0x0e694a },
+    //{ L"Tam Tam/Amakusa Effects 1", 0x0e68ca, 0x0e68ea },
+    //{ L"Tam Tam/Amakusa Effects 2", 0x0e68ea, 0x0e690a },
+    //{ L"Tam Tam/Amakusa Effects 3", 0x0e690a, 0x0e692a },
+    //{ L"Tam Tam/Amakusa Effects 4", 0x0e692a, 0x0e694a },
     { L"Apple/Fire Effects 1", 0x0e66ca, 0x0e66ea },
     { L"Fire Effects 2", 0x0e67ca, 0x0e67ea },
     { L"Fire Effects 3", 0x0e684a, 0x0e686a },
@@ -500,6 +539,11 @@ const sDescTreeNode SAMSHO1_A_AMAKUSA_COLLECTION[] =
     { L"Effects", DESC_NODETYPE_TREE, (void*)SAMSHO1_A_Amakusa_Effects, ARRAYSIZE(SAMSHO1_A_Amakusa_Effects) },
 };
 
+const sDescTreeNode SAMSHO1_A_STAGES_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)SAMSHO1_A_STAGES_PALETTES, ARRAYSIZE(SAMSHO1_A_STAGES_PALETTES) },
+};
+
 const sDescTreeNode SAMSHO1_A_BONUS_COLLECTION[] =
 {
     { L"In-Game", DESC_NODETYPE_TREE, (void*)SAMSHO1_A_BONUS_INGAME, ARRAYSIZE(SAMSHO1_A_BONUS_INGAME) },
@@ -525,4 +569,5 @@ const sDescTreeNode SAMSHO1_A_UNITS[] =
     { L"Charlotte", DESC_NODETYPE_TREE, (void*)SAMSHO1_A_CHARLOTTE_COLLECTION, ARRAYSIZE(SAMSHO1_A_CHARLOTTE_COLLECTION) },
     { L"Amakusa", DESC_NODETYPE_TREE, (void*)SAMSHO1_A_AMAKUSA_COLLECTION, ARRAYSIZE(SAMSHO1_A_AMAKUSA_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SAMSHO1_A_BONUS_COLLECTION, ARRAYSIZE(SAMSHO1_A_BONUS_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)SAMSHO1_A_STAGES_COLLECTION, ARRAYSIZE(SAMSHO1_A_STAGES_COLLECTION) },
 };

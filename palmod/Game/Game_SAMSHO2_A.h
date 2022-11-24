@@ -8,7 +8,7 @@ private:
     static inline const sDirectoryLoadingData m_sFileLoadingData =
     {
         {
-            { L"087-p5.p5", 0x200000 },
+            { L"063-p1.p1", 0x200000 },
         },
         FileReadType::Sequential,
     };
@@ -27,8 +27,8 @@ private:
         m_sFileLoadingData,
         SAMSHO2_A_UNITS,
         ARRAYSIZE(SAMSHO2_A_UNITS),
-        L"SAMSHO2E.txt",          // Extra filename
-        341,                      // Count of palettes listed in the header
+        L"SamSho2E.txt",          // Extra filename
+        390,                      // Count of palettes listed in the header
         0x14400,                  // Lowest known location used for palettes
     };
 
